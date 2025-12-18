@@ -254,7 +254,7 @@ define zeroext i1 @pxr_nc_1_0_ColorSpaceEqual(ptr noundef readonly captures(addr
   br label %.loopexit
 
 .loopexit:                                        ; preds = %14, %30, %22, %5, %8, %2
-  %.017 = phi i1 [ false, %2 ], [ false, %22 ], [ false, %5 ], [ %37, %30 ], [ false, %8 ], [ false, %14 ]
+  %.017 = phi i1 [ false, %2 ], [ false, %22 ], [ false, %5 ], [ false, %8 ], [ %37, %30 ], [ false, %14 ]
   ret i1 %.017
 }
 

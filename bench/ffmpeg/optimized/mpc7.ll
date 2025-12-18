@@ -1023,7 +1023,7 @@ get_vlc2.exit.i:                                  ; preds = %531, %514
   br i1 %exitcond.not.i, label %idx_to_quant.exit, label %559, !llvm.loop !70
 
 idx_to_quant.exit:                                ; preds = %559, %get_vlc2.exit.i, %get_vlc2.exit46.i, %get_vlc2.exit50.i, %.preheader.i, %340
-  %.sroa.17.23 = phi i32 [ %.sroa.17.13314, %340 ], [ %552, %get_vlc2.exit.i ], [ %.sroa.17.13314, %.preheader.i ], [ %417, %get_vlc2.exit50.i ], [ %485, %get_vlc2.exit46.i ], [ %569, %559 ]
+  %.sroa.17.23 = phi i32 [ %.sroa.17.13314, %340 ], [ %485, %get_vlc2.exit46.i ], [ %552, %get_vlc2.exit.i ], [ %.sroa.17.13314, %.preheader.i ], [ %417, %get_vlc2.exit50.i ], [ %569, %559 ]
   br i1 %341, label %340, label %573, !llvm.loop !71
 
 573:                                              ; preds = %idx_to_quant.exit

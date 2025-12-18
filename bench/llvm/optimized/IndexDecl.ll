@@ -3164,7 +3164,7 @@ _ZNK5clang4Decl21getLexicalDeclContextEv.exit36:  ; preds = %_ZNK5clang4Decl7get
   tail call void @_ZN5clang5index15IndexingContext19indexTypeSourceInfoEPNS_14TypeSourceInfoEPKNS_9NamedDeclEPKNS_11DeclContextEbb(ptr noundef nonnull align 8 dereferenceable(64) %81, ptr noundef %83, ptr noundef nonnull %1, ptr noundef %.0.i.i35, i1 noundef zeroext false, i1 noundef zeroext true) #10
   br label %_ZNK5clang4Decl7getAttrINS_22IBOutletCollectionAttrEEEPT_v.exit.thread
 
-_ZNK5clang4Decl7getAttrINS_22IBOutletCollectionAttrEEEPT_v.exit.thread: ; preds = %67, %56, %_ZN5clangneENS_22specific_attr_iteratorINS_22IBOutletCollectionAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, %52, %_ZNK5clang4Decl21getLexicalDeclContextEv.exit36
+_ZNK5clang4Decl7getAttrINS_22IBOutletCollectionAttrEEEPT_v.exit.thread: ; preds = %67, %_ZN5clangneENS_22specific_attr_iteratorINS_22IBOutletCollectionAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, %56, %52, %_ZNK5clang4Decl21getLexicalDeclContextEv.exit36
   %92 = load ptr, ptr %0, align 8, !tbaa !13
   %93 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %94 = load ptr, ptr %93, align 8, !tbaa !203
@@ -3726,7 +3726,7 @@ _ZNK5clang4Decl14getDeclContextEv.exit59:         ; preds = %_ZNK5clang4Decl14ge
   br i1 %.not.i.i.i.i.i, label %_ZN5clangneENS_22specific_attr_iteratorINS_12IBActionAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !222
 
 _ZN5clangneENS_22specific_attr_iteratorINS_12IBActionAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i: ; preds = %128, %.lr.ph.i.i.i.i.i
-  %.sroa.07.0.i.i.ph.i.i = phi ptr [ %123, %128 ], [ %.sroa.07.1.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+  %.sroa.07.0.i.i.ph.i.i = phi ptr [ %.sroa.07.1.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %123, %128 ]
   %130 = icmp ne ptr %.sroa.07.0.i.i.ph.i.i, %123
   br label %_ZNK5clang4Decl7hasAttrINS_12IBActionAttrEEEbv.exit
 

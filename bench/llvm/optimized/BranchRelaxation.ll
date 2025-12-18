@@ -690,7 +690,7 @@ _ZNK12_GLOBAL__N_116BranchRelaxation16computeBlockSizeERKN4llvm17MachineBasicBlo
 
 _ZN12_GLOBAL__N_116BranchRelaxation12scanFunctionEv.exit: ; preds = %_ZSt4nextIN4llvm14ilist_iteratorINS0_12ilist_detail12node_optionsINS0_17MachineBasicBlockELb0ELb0EvLb0EvEELb0ELb0EEEET_S7_NSt15iterator_traitsIS7_E15difference_typeE.exit.i.i.i, %._crit_edge.i
   %.not175209.i109 = icmp eq ptr %.sroa.0172.0208.i108, %126
-  br i1 %.not175209.i109, label %._crit_edge.i6._crit_edge, label %.lr.ph.i5.lr.ph
+  br i1 %.not175209.i109, label %._crit_edge, label %.lr.ph.i5.lr.ph
 
 .lr.ph.i5.lr.ph:                                  ; preds = %_ZN12_GLOBAL__N_116BranchRelaxation12scanFunctionEv.exit
   %182 = getelementptr inbounds nuw i8, ptr %0, i64 216
@@ -716,7 +716,7 @@ _ZN12_GLOBAL__N_116BranchRelaxation12scanFunctionEv.exit: ; preds = %_ZSt4nextIN
   br label %197
 
 ._crit_edge.i6:                                   ; preds = %.loopexit.i
-  br i1 %.1.i, label %1474, label %._crit_edge.i6._crit_edge
+  br i1 %.1.i, label %1474, label %._crit_edge
 
 197:                                              ; preds = %.loopexit.i, %.lr.ph.i5
   %.sroa.0172.0211.i = phi ptr [ %.sroa.0172.0208.i111, %.lr.ph.i5 ], [ %.sroa.0172.0.i, %.loopexit.i ]
@@ -3411,10 +3411,10 @@ _ZSt4nextIN4llvm14ilist_iteratorINS0_12ilist_detail12node_optionsINS0_17MachineB
 
 _ZN12_GLOBAL__N_116BranchRelaxation23relaxBranchInstructionsEv.exit: ; preds = %_ZSt4nextIN4llvm14ilist_iteratorINS0_12ilist_detail12node_optionsINS0_17MachineBasicBlockELb0ELb0EvLb0EvEELb0ELb0EEEET_S7_NSt15iterator_traitsIS7_E15difference_typeE.exit.i.i141.i, %1474
   %.not175209.i = icmp eq ptr %1477, %1479
-  br i1 %.not175209.i, label %._crit_edge.i6._crit_edge, label %.lr.ph.i5, !llvm.loop !313
+  br i1 %.not175209.i, label %._crit_edge, label %.lr.ph.i5, !llvm.loop !313
 
-._crit_edge.i6._crit_edge:                        ; preds = %_ZN12_GLOBAL__N_116BranchRelaxation23relaxBranchInstructionsEv.exit, %._crit_edge.i6, %_ZN12_GLOBAL__N_116BranchRelaxation12scanFunctionEv.exit
-  %.0.lcssa = phi i1 [ false, %_ZN12_GLOBAL__N_116BranchRelaxation12scanFunctionEv.exit ], [ %.0110, %._crit_edge.i6 ], [ true, %_ZN12_GLOBAL__N_116BranchRelaxation23relaxBranchInstructionsEv.exit ]
+._crit_edge:                                      ; preds = %._crit_edge.i6, %_ZN12_GLOBAL__N_116BranchRelaxation23relaxBranchInstructionsEv.exit, %_ZN12_GLOBAL__N_116BranchRelaxation12scanFunctionEv.exit
+  %.0.lcssa = phi i1 [ false, %_ZN12_GLOBAL__N_116BranchRelaxation12scanFunctionEv.exit ], [ true, %_ZN12_GLOBAL__N_116BranchRelaxation23relaxBranchInstructionsEv.exit ], [ %.0110, %._crit_edge.i6 ]
   store i32 0, ptr %74, align 8, !tbaa !31
   %1504 = load i32, ptr %97, align 8
   %1505 = lshr i32 %1504, 1
@@ -3424,7 +3424,7 @@ _ZN12_GLOBAL__N_116BranchRelaxation23relaxBranchInstructionsEv.exit: ; preds = %
   %or.cond.i32 = select i1 %1506, i1 %1508, i1 false
   br i1 %or.cond.i32, label %_ZN4llvm6detail12DenseSetImplISt4pairIPNS_17MachineBasicBlockES4_ENS_13SmallDenseMapIS5_NS0_13DenseSetEmptyELj4ENS_12DenseMapInfoIS5_vEENS0_12DenseSetPairIS5_EEEES9_E5clearEv.exit, label %1509
 
-1509:                                             ; preds = %._crit_edge.i6._crit_edge
+1509:                                             ; preds = %._crit_edge
   %1510 = shl i32 %1505, 2
   %1511 = and i32 %1504, 1
   %.not.i.i.i.i33 = icmp eq i32 %1511, 0
@@ -3470,7 +3470,7 @@ _ZN12_GLOBAL__N_116BranchRelaxation23relaxBranchInstructionsEv.exit: ; preds = %
   %.not.i.i37 = icmp eq ptr %1525, %1523
   br i1 %.not.i.i37, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i36, !llvm.loop !210
 
-_ZN4llvm6detail12DenseSetImplISt4pairIPNS_17MachineBasicBlockES4_ENS_13SmallDenseMapIS5_NS0_13DenseSetEmptyELj4ENS_12DenseMapInfoIS5_vEENS0_12DenseSetPairIS5_EEEES9_E5clearEv.exit: ; preds = %._crit_edge.i6._crit_edge, %1517, %._crit_edge.i.i39
+_ZN4llvm6detail12DenseSetImplISt4pairIPNS_17MachineBasicBlockES4_ENS_13SmallDenseMapIS5_NS0_13DenseSetEmptyELj4ENS_12DenseMapInfoIS5_vEENS0_12DenseSetPairIS5_EEEES9_E5clearEv.exit: ; preds = %._crit_edge, %1517, %._crit_edge.i.i39
   ret i1 %.0.lcssa
 }
 

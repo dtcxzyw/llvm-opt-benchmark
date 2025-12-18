@@ -3229,9 +3229,9 @@ _ZNSt6vectorISt4pairIiiESaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vectorIS
   br i1 %157, label %113, label %.preheader86, !llvm.loop !17
 
 .preheader:                                       ; preds = %168, %7, %.preheader87, %.preheader86
-  %.sroa.19.1.lcssa138143 = phi ptr [ %.sroa.19.3, %.preheader86 ], [ %.sroa.19.3, %.preheader87 ], [ null, %7 ], [ %.sroa.19.3, %168 ]
-  %.sroa.061.1.lcssa139142 = phi ptr [ %.sroa.061.3, %.preheader86 ], [ %.sroa.061.3, %.preheader87 ], [ null, %7 ], [ %.sroa.061.3, %168 ]
-  %.035.lcssa = phi i32 [ 0, %.preheader86 ], [ 0, %.preheader87 ], [ 0, %7 ], [ %.1, %168 ]
+  %.sroa.19.1.lcssa138143 = phi ptr [ %.sroa.19.3, %.preheader86 ], [ null, %7 ], [ %.sroa.19.3, %.preheader87 ], [ %.sroa.19.3, %168 ]
+  %.sroa.061.1.lcssa139142 = phi ptr [ %.sroa.061.3, %.preheader86 ], [ null, %7 ], [ %.sroa.061.3, %.preheader87 ], [ %.sroa.061.3, %168 ]
+  %.035.lcssa = phi i32 [ 0, %.preheader86 ], [ 0, %7 ], [ 0, %.preheader87 ], [ %.1, %168 ]
   br label %172
 
 158:                                              ; preds = %.lr.ph104, %168
@@ -3811,8 +3811,8 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit39
 
 .loopexit.split-lp:                               ; preds = %85, %38, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i, %56
-  %.sroa.16.0.ph = phi ptr [ null, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i ], [ %.sroa.16.1.lcssa, %85 ], [ %.sroa.9.071, %56 ], [ null, %38 ]
-  %.sroa.049.0.ph = phi ptr [ null, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i ], [ %.sroa.049.1.lcssa, %85 ], [ %.sroa.049.172, %56 ], [ null, %38 ]
+  %.sroa.16.0.ph = phi ptr [ %.sroa.16.1.lcssa, %85 ], [ null, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i ], [ %.sroa.9.071, %56 ], [ null, %38 ]
+  %.sroa.049.0.ph = phi ptr [ %.sroa.049.1.lcssa, %85 ], [ null, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i ], [ %.sroa.049.172, %56 ], [ null, %38 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit39

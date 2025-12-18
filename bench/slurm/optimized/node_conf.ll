@@ -225,7 +225,7 @@ define dso_local i32 @build_all_nodeline_info(i1 noundef zeroext %0, i32 noundef
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %._crit_edge, %._crit_edge24
-  %.2 = phi i32 [ 0, %._crit_edge24 ], [ 0, %._crit_edge ], [ %11, %.lr.ph ]
+  %.2 = phi i32 [ 0, %._crit_edge ], [ 0, %._crit_edge24 ], [ %11, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.2
 }

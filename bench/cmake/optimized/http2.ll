@@ -2745,7 +2745,7 @@ define dso_local noundef zeroext i1 @Curl_http2_may_switch(ptr noundef %0, ptr n
   br label %Curl_conn_is_http2.exit
 
 Curl_conn_is_http2.exit:                          ; preds = %.lr.ph.i.i, %.loopexit, %21, %36, %32, %25
-  %.0 = phi i1 [ true, %21 ], [ false, %36 ], [ false, %25 ], [ false, %32 ], [ false, %.loopexit ], [ false, %.lr.ph.i.i ]
+  %.0 = phi i1 [ true, %21 ], [ false, %36 ], [ false, %.loopexit ], [ false, %25 ], [ false, %32 ], [ false, %.lr.ph.i.i ]
   ret i1 %.0
 }
 

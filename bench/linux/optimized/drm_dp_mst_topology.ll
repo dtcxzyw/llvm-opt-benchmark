@@ -2794,7 +2794,7 @@ define dso_local range(i32 -2147483648, 1) i32 @drm_dp_mst_topology_mgr_set_mst(
   tail call void @mutex_unlock(ptr noundef nonnull %5) #21
   br label %90
 
-.thread11:                                        ; preds = %67, %74
+.thread11:                                        ; preds = %74, %67
   %.ph10 = phi i32 [ %72, %67 ], [ 0, %74 ]
   call void @mutex_unlock(ptr noundef nonnull %5) #21
   br label %87
@@ -11002,7 +11002,7 @@ define internal fastcc range(i32 17, 16) i32 @drm_dp_send_link_address(ptr nound
   br label %.loopexit59
 
 .loopexit59:                                      ; preds = %445, %447, %398
-  %449 = phi i32 [ %389, %447 ], [ %389, %398 ], [ %443, %445 ]
+  %449 = phi i32 [ %389, %398 ], [ %389, %447 ], [ %443, %445 ]
   call fastcc void @drm_dp_mst_topology_put_port(ptr noundef nonnull %321)
   br label %.thread54
 

@@ -2597,8 +2597,8 @@ define dso_local i32 @ext4_inlinedir_to_tree(ptr noundef %0, ptr noundef %1, i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %168, %160, %155, %113, %.critedge, %33, %25
-  %171 = phi i32 [ -12, %33 ], [ 0, %25 ], [ 0, %.critedge ], [ %84, %155 ], [ %84, %113 ], [ %166, %160 ], [ %169, %168 ]
-  %172 = phi ptr [ null, %33 ], [ null, %25 ], [ %31, %.critedge ], [ %31, %155 ], [ %31, %113 ], [ %31, %160 ], [ %31, %168 ]
+  %171 = phi i32 [ %84, %155 ], [ -12, %33 ], [ 0, %25 ], [ 0, %.critedge ], [ %84, %113 ], [ %166, %160 ], [ %169, %168 ]
+  %172 = phi ptr [ %31, %155 ], [ null, %33 ], [ null, %25 ], [ %31, %.critedge ], [ %31, %113 ], [ %31, %160 ], [ %31, %168 ]
   call void @kfree(ptr noundef %172) #9
   %173 = load ptr, ptr %8, align 8
   %174 = icmp eq ptr %173, null
@@ -2878,8 +2878,8 @@ define dso_local i32 @ext4_read_inline_dir(ptr noundef %0, ptr noundef %1, ptr n
   br label %116
 
 .loopexit:                                        ; preds = %154, %122, %119, %116, %112, %102, %27, %19
-  %165 = phi i32 [ -12, %27 ], [ 0, %19 ], [ 0, %102 ], [ 0, %112 ], [ 0, %116 ], [ 0, %119 ], [ 0, %122 ], [ 0, %154 ]
-  %166 = phi ptr [ null, %27 ], [ null, %19 ], [ %25, %102 ], [ %25, %112 ], [ %25, %116 ], [ %25, %119 ], [ %25, %122 ], [ %25, %154 ]
+  %165 = phi i32 [ 0, %102 ], [ -12, %27 ], [ 0, %19 ], [ 0, %112 ], [ 0, %116 ], [ 0, %119 ], [ 0, %122 ], [ 0, %154 ]
+  %166 = phi ptr [ %25, %102 ], [ null, %27 ], [ null, %19 ], [ %25, %112 ], [ %25, %116 ], [ %25, %119 ], [ %25, %122 ], [ %25, %154 ]
   call void @kfree(ptr noundef %166) #9
   %167 = load ptr, ptr %4, align 8
   %168 = icmp eq ptr %167, null

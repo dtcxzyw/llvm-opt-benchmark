@@ -1483,7 +1483,7 @@ define internal fastcc void @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_115GaussianPyra
   br i1 %39, label %.loopexit, label %36
 
 .loopexit:                                        ; preds = %.preheader16, %36, %20
-  %.pn.pn = phi { ptr, i32 } [ %21, %20 ], [ %.pn, %36 ], [ %21, %.preheader16 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %36 ], [ %21, %20 ], [ %21, %.preheader16 ]
   resume { ptr, i32 } %.pn.pn
 }
 

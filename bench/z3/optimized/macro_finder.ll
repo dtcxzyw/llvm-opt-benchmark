@@ -4883,7 +4883,7 @@ _ZN14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE
   br i1 %.not27.old.i.i.i.i, label %_ZNK13macro_manager20get_macro_quantifierEP9func_decl.exit.thread, label %.lr.ph38.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.backedge:                        ; preds = %85, %82
-  %.137.i.i.i.i.be = phi ptr [ %.old.i.i.i.i, %85 ], [ %84, %82 ]
+  %.137.i.i.i.i.be = phi ptr [ %84, %82 ], [ %.old.i.i.i.i, %85 ]
   br label %.lr.ph38.i.i.i.i, !llvm.loop !199
 
 _ZNK13macro_manager20get_macro_quantifierEP9func_decl.exit.thread: ; preds = %71, %82, %85, %.preheader.i.i.i.i

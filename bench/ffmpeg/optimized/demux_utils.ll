@@ -409,8 +409,8 @@ define range(i32 -2147483648, 1) i32 @ff_generate_avci_extradata(ptr noundef rea
   br label %15
 
 15:                                               ; preds = %14, %6, %10, %1
-  %.014 = phi ptr [ %ff_generate_avci_extradata.avci100_1080p_extradata.ff_generate_avci_extradata.avci100_1080i_extradata, %6 ], [ %ff_generate_avci_extradata.avci50_1080p_extradata.ff_generate_avci_extradata.avci50_1080i_extradata, %10 ], [ @ff_generate_avci_extradata.avci50_720p_extradata, %14 ], [ @ff_generate_avci_extradata.avci100_720p_extradata, %1 ]
-  %.0 = phi i32 [ %., %6 ], [ %.17, %10 ], [ 81, %14 ], [ 89, %1 ]
+  %.014 = phi ptr [ %ff_generate_avci_extradata.avci100_1080p_extradata.ff_generate_avci_extradata.avci100_1080i_extradata, %6 ], [ @ff_generate_avci_extradata.avci100_720p_extradata, %1 ], [ %ff_generate_avci_extradata.avci50_1080p_extradata.ff_generate_avci_extradata.avci50_1080i_extradata, %10 ], [ @ff_generate_avci_extradata.avci50_720p_extradata, %14 ]
+  %.0 = phi i32 [ %., %6 ], [ 89, %1 ], [ %.17, %10 ], [ 81, %14 ]
   %16 = tail call i32 @ff_alloc_extradata(ptr noundef nonnull %3, i32 noundef %.0) #6
   %17 = icmp slt i32 %16, 0
   br i1 %17, label %.fold.split, label %18

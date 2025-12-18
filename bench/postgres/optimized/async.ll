@@ -1341,8 +1341,8 @@ asyncQueueFillWarning.exit:                       ; preds = %116, %asyncQueueUsa
   br label %asyncQueueAddEntries.exit
 
 asyncQueueAddEntries.exit:                        ; preds = %201, %258, %262
-  %.125.i = phi ptr [ %.226.i, %258 ], [ %.226.i, %262 ], [ %187, %201 ]
-  %.1.i28 = phi ptr [ %.2.i, %258 ], [ %.2.i, %262 ], [ null, %201 ]
+  %.125.i = phi ptr [ %.226.i, %262 ], [ %.226.i, %258 ], [ %187, %201 ]
+  %.1.i28 = phi ptr [ %.2.i, %262 ], [ %.2.i, %258 ], [ null, %201 ]
   %263 = load ptr, ptr @asyncQueueControl, align 8
   store i64 %spec.select.i.i, ptr %263, align 8
   %.sroa.11.0..sroa_idx39.i = getelementptr inbounds nuw i8, ptr %263, i64 8

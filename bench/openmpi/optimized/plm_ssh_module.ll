@@ -2730,9 +2730,9 @@ find_shell.exit61.thread77.i:                     ; preds = %find_shell.exit61.t
   br i1 %.not56.i.i, label %.loopexit60.i.i, label %.preheader.i.i, !llvm.loop !139
 
 .loopexit60.i.i:                                  ; preds = %205, %196, %190, %188
-  %.not52.i = phi i1 [ false, %196 ], [ false, %190 ], [ false, %188 ], [ true, %205 ]
-  %.043.i.i = phi i32 [ -11, %196 ], [ -11, %190 ], [ -11, %188 ], [ 0, %205 ]
-  %.2.i.i = phi ptr [ %.039.i.i, %196 ], [ %.039.i.i, %190 ], [ %.039.i.i, %188 ], [ %.140.i.i, %205 ]
+  %.not52.i = phi i1 [ false, %188 ], [ false, %196 ], [ false, %190 ], [ true, %205 ]
+  %.043.i.i = phi i32 [ -11, %188 ], [ -11, %196 ], [ -11, %190 ], [ 0, %205 ]
+  %.2.i.i = phi ptr [ %.039.i.i, %188 ], [ %.039.i.i, %196 ], [ %.039.i.i, %190 ], [ %.140.i.i, %205 ]
   store i8 0, ptr %.2.i.i, align 1, !tbaa !140
   %206 = load i32, ptr %9, align 4, !tbaa !34
   %207 = call i32 @close(i32 noundef %206) #19

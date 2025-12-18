@@ -3441,7 +3441,7 @@ define internal i32 @dissect_diameter_common(ptr noundef %0, ptr noundef %1, ptr
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %188, ptr noundef nonnull align 8 dereferenceable(16) %189, i64 16, i1 false)
   br label %.thread164
 
-.thread164:                                       ; preds = %159, %147, %152, %.thread160, %163
+.thread164:                                       ; preds = %159, %152, %147, %.thread160, %163
   %.1 = phi ptr [ %165, %163 ], [ %180, %.thread160 ], [ %146, %152 ], [ %146, %147 ], [ %158, %159 ]
   %190 = load i64, ptr %6, align 8
   %191 = and i64 %190, 128

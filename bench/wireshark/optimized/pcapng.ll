@@ -655,7 +655,7 @@ default.unreachable:                              ; preds = %59
 thread-pre-split.i:                               ; preds = %66, %64, %61, %59
   %68 = phi i32 [ %67, %66 ], [ %65, %64 ], [ %60, %59 ], [ %60, %61 ]
   %cond.i = icmp eq i32 %68, 10949
-  br i1 %cond.i, label %69, label %126
+  br i1 %cond.i, label %69, label %pcapng_process_custom_option.exit
 
 69:                                               ; preds = %thread-pre-split.i
   %70 = icmp ult i16 %.075, 8
@@ -666,7 +666,7 @@ thread-pre-split.i:                               ; preds = %66, %64, %61, %59
   %73 = load i32, ptr %72, align 1
   %74 = getelementptr i8, ptr %.07893, i64 12
   %75 = add i16 %.075, -8
-  switch i32 %73, label %pcapng_process_custom_option.exit [
+  switch i32 %73, label %126 [
     i32 1, label %76
     i32 2, label %80
     i32 4, label %123
@@ -674,17 +674,17 @@ thread-pre-split.i:                               ; preds = %66, %64, %61, %59
 
 76:                                               ; preds = %71
   %77 = icmp eq i16 %75, 4
-  br i1 %77, label %78, label %pcapng_process_custom_option.exit
+  br i1 %77, label %78, label %126
 
 78:                                               ; preds = %76
   %79 = load i32, ptr %74, align 1
   store i32 %79, ptr %22, align 8
-  br label %pcapng_process_custom_option.exit
+  br label %126
 
 80:                                               ; preds = %71
   %81 = load i32, ptr %1, align 8
   %82 = icmp eq i32 %81, 2989
-  br i1 %82, label %83, label %pcapng_process_custom_option.exit
+  br i1 %82, label %83, label %126
 
 83:                                               ; preds = %80
   %84 = load ptr, ptr %20, align 8
@@ -742,11 +742,11 @@ thread-pre-split.i:                               ; preds = %66, %64, %61, %59
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 4
   store i32 1, ptr %122, align 4
   store i8 0, ptr %21, align 4
-  br label %pcapng_process_custom_option.exit
+  br label %126
 
 123:                                              ; preds = %71
   %124 = icmp eq i16 %75, 208
-  br i1 %124, label %125, label %pcapng_process_custom_option.exit
+  br i1 %124, label %125, label %126
 
 125:                                              ; preds = %123
   %.sroa.3.0..sroa_idx.i.i = getelementptr i8, ptr %.07893, i64 68
@@ -755,22 +755,22 @@ thread-pre-split.i:                               ; preds = %66, %64, %61, %59
   %.sroa.4.0.copyload.i.i = load i64, ptr %.sroa.4.0..sroa_idx.i.i, align 1
   store i64 %.sroa.3.0.copyload.i.i, ptr %18, align 8
   store i64 %.sroa.4.0.copyload.i.i, ptr %19, align 8
-  br label %pcapng_process_custom_option.exit
+  br label %126
 
-126:                                              ; preds = %thread-pre-split.i
+126:                                              ; preds = %125, %123, %120, %80, %78, %76, %71
   %127 = load ptr, ptr %17, align 8
-  %128 = zext nneg i16 %.076 to i32
-  %129 = getelementptr i8, ptr %.07893, i64 8
-  %130 = add nsw i32 %43, -4
-  %131 = zext nneg i32 %130 to i64
-  %132 = tail call i32 @wtap_block_add_custom_option(ptr noundef %127, i32 noundef %128, i32 noundef %68, ptr noundef %129, i64 noundef %131)
-  %133 = icmp eq i32 %132, 0
-  br i1 %133, label %142, label %pcapng_process_custom_option.exit.thread
+  %128 = zext i16 %75 to i64
+  %129 = tail call i32 @wtap_block_add_nflx_custom_option(ptr noundef %127, i32 noundef %73, ptr noundef %74, i64 noundef %128)
+  %130 = icmp eq i32 %129, 0
+  br i1 %130, label %142, label %pcapng_process_custom_option.exit.thread
 
-pcapng_process_custom_option.exit:                ; preds = %71, %76, %78, %80, %120, %123, %125
-  %134 = load ptr, ptr %17, align 8
-  %135 = zext i16 %75 to i64
-  %136 = tail call i32 @wtap_block_add_nflx_custom_option(ptr noundef %134, i32 noundef %73, ptr noundef %74, i64 noundef %135)
+pcapng_process_custom_option.exit:                ; preds = %thread-pre-split.i
+  %131 = load ptr, ptr %17, align 8
+  %132 = zext nneg i16 %.076 to i32
+  %133 = getelementptr i8, ptr %.07893, i64 8
+  %134 = add nsw i32 %43, -4
+  %135 = zext nneg i32 %134 to i64
+  %136 = tail call i32 @wtap_block_add_custom_option(ptr noundef %131, i32 noundef %132, i32 noundef %68, ptr noundef %133, i64 noundef %135)
   %137 = icmp eq i32 %136, 0
   br i1 %137, label %142, label %pcapng_process_custom_option.exit.thread
 
@@ -4820,7 +4820,7 @@ pcapng_write_section_header_block.exit:           ; preds = %41, %write_options.
   br i1 %78, label %68, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph34, %68, %.preheader, %pcapng_write_section_header_block.exit.thread, %._crit_edge, %pcapng_write_section_header_block.exit
-  %.0 = phi i1 [ true, %._crit_edge ], [ false, %pcapng_write_section_header_block.exit ], [ false, %pcapng_write_section_header_block.exit.thread ], [ true, %.preheader ], [ %78, %.lr.ph34 ], [ %78, %68 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ true, %.preheader ], [ true, %._crit_edge ], [ false, %pcapng_write_section_header_block.exit ], [ false, %pcapng_write_section_header_block.exit.thread ], [ %78, %.lr.ph34 ], [ %78, %68 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -5723,7 +5723,7 @@ pcapng_write_interface_statistics_block.exit:     ; preds = %51, %write_options.
   br i1 %60, label %21, label %.loopexit, !llvm.loop !64
 
 .loopexit:                                        ; preds = %.critedge, %pcapng_write_interface_statistics_block.exit, %.preheader, %pcapng_write_interface_statistics_block.exit.thread, %3
-  %.0 = phi i1 [ false, %3 ], [ false, %pcapng_write_interface_statistics_block.exit.thread ], [ true, %.preheader ], [ false, %pcapng_write_interface_statistics_block.exit ], [ true, %.critedge ]
+  %.0 = phi i1 [ true, %.preheader ], [ false, %3 ], [ false, %pcapng_write_interface_statistics_block.exit.thread ], [ false, %pcapng_write_interface_statistics_block.exit ], [ true, %.critedge ]
   ret i1 %.0
 }
 
@@ -6102,7 +6102,7 @@ pcapng_write_meta_event_block.exit:               ; preds = %57, %58
   br i1 %124, label %.lr.ph93, label %.critedge, !llvm.loop !67
 
 .critedge:                                        ; preds = %.lr.ph, %pcapng_write_meta_event_block.exit, %.lr.ph93, %117, %105, %85, %pcapng_write_meta_event_block.exit.thread, %102
-  %.4 = phi i1 [ false, %85 ], [ true, %102 ], [ false, %pcapng_write_meta_event_block.exit.thread ], [ true, %105 ], [ false, %pcapng_write_meta_event_block.exit ], [ %116, %.lr.ph93 ], [ %116, %117 ], [ false, %.lr.ph ]
+  %.4 = phi i1 [ false, %pcapng_write_meta_event_block.exit ], [ true, %105 ], [ false, %85 ], [ true, %102 ], [ false, %pcapng_write_meta_event_block.exit.thread ], [ %116, %.lr.ph93 ], [ %116, %117 ], [ false, %.lr.ph ]
   ret i1 %.4
 }
 
@@ -6441,8 +6441,8 @@ define internal fastcc zeroext i1 @pcapng_write_name_resolution_block(ptr nounde
   br i1 %.not144161, label %.loopexit147, label %.lr.ph, !llvm.loop !68
 
 .loopexit147:                                     ; preds = %76, %31, %23, %18
-  %115 = phi i32 [ 12, %18 ], [ 12, %23 ], [ %.ph149168, %31 ], [ %78, %76 ]
-  %.0135 = phi i32 [ 8, %18 ], [ 8, %23 ], [ %.1136.ph169.fr, %31 ], [ %111, %76 ]
+  %115 = phi i32 [ 12, %18 ], [ %.ph149168, %31 ], [ 12, %23 ], [ %78, %76 ]
+  %.0135 = phi i32 [ 8, %18 ], [ %.1136.ph169.fr, %31 ], [ 8, %23 ], [ %111, %76 ]
   %116 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %117 = load ptr, ptr %116, align 8
   %.not145 = icmp eq ptr %117, null
@@ -6596,8 +6596,8 @@ define internal fastcc zeroext i1 @pcapng_write_name_resolution_block(ptr nounde
   br i1 %.not146174, label %.loopexit, label %.lr.ph177, !llvm.loop !85
 
 .loopexit:                                        ; preds = %171, %126, %118, %.loopexit147
-  %210 = phi i32 [ %115, %.loopexit147 ], [ %115, %118 ], [ %.ph183, %126 ], [ %173, %171 ]
-  %.3 = phi i32 [ %.0135, %.loopexit147 ], [ %.0135, %118 ], [ %.4.ph184.fr, %126 ], [ %206, %171 ]
+  %210 = phi i32 [ %115, %.loopexit147 ], [ %.ph183, %126 ], [ %115, %118 ], [ %173, %171 ]
+  %.3 = phi i32 [ %.0135, %.loopexit147 ], [ %.4.ph184.fr, %126 ], [ %.0135, %118 ], [ %206, %171 ]
   %211 = zext i32 %.3 to i64
   %212 = getelementptr i8, ptr %19, i64 %211
   %213 = sub nsw i64 1048576, %211

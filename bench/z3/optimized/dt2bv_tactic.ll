@@ -2641,7 +2641,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN12dt2bv_tactic9sort_predclEP4s
   br i1 %.not27.old.i.i, label %_ZNK14core_hashtableI14obj_hash_entryI4sortE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit, label %.lr.ph38.i.i.backedge
 
 .lr.ph38.i.i.backedge:                            ; preds = %37, %34
-  %.137.i.i.be = phi ptr [ %.old.i.i, %37 ], [ %36, %34 ]
+  %.137.i.i.be = phi ptr [ %36, %34 ], [ %.old.i.i, %37 ]
   br label %.lr.ph38.i.i, !llvm.loop !154
 
 _ZNK14core_hashtableI14obj_hash_entryI4sortE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit: ; preds = %18, %23, %29, %34, %37, %.preheader.i.i
@@ -2736,7 +2736,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableI14obj_hash_entryI4sortE12ob
   br i1 %.not32.old, label %.loopexit, label %.lr.ph48.backedge
 
 .lr.ph48.backedge:                                ; preds = %36, %33
-  %.247.be = phi ptr [ %.old, %36 ], [ %35, %33 ]
+  %.247.be = phi ptr [ %35, %33 ], [ %.old, %36 ]
   br label %.lr.ph48, !llvm.loop !156
 
 .loopexit38:                                      ; preds = %17, %28

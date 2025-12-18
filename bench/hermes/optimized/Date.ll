@@ -1813,8 +1813,8 @@ return.sink.split:                                ; preds = %if.end15, %if.end32
   br label %return
 
 return:                                           ; preds = %return.sink.split, %entry, %if.end26, %if.then5
-  %retval.sroa.0.0 = phi i32 [ 1, %entry ], [ 0, %if.then5 ], [ 0, %if.end26 ], [ 1, %return.sink.split ]
-  %retval.sroa.6.0 = phi i64 [ 9221120237041090560, %entry ], [ undef, %if.then5 ], [ undef, %if.end26 ], [ %retval.sroa.0.0.i11, %return.sink.split ]
+  %retval.sroa.0.0 = phi i32 [ 0, %if.end26 ], [ 1, %entry ], [ 0, %if.then5 ], [ 1, %return.sink.split ]
+  %retval.sroa.6.0 = phi i64 [ undef, %if.end26 ], [ 9221120237041090560, %entry ], [ undef, %if.then5 ], [ %retval.sroa.0.0.i11, %return.sink.split ]
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.6.0, 1
   ret { i32, i64 } %.fca.1.insert

@@ -117,7 +117,7 @@ define hidden range(i32 0, 3) i32 @fileset_filename_match_pattern(ptr noundef %0
   br i1 %.not61, label %.loopexit, label %.lr.ph, !llvm.loop !6
 
 .loopexit:                                        ; preds = %40, %30, %37, %39
-  %.043 = phi ptr [ %38, %39 ], [ null, %37 ], [ %29, %30 ], [ %29, %40 ]
+  %.043 = phi ptr [ null, %37 ], [ %38, %39 ], [ %29, %30 ], [ %29, %40 ]
   call void @g_free(ptr noundef %33)
   call void @g_slist_free(ptr noundef %31)
   br label %46

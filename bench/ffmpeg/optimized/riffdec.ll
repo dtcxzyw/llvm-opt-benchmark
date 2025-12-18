@@ -508,8 +508,8 @@ parse_waveformatex.exit:                          ; preds = %ff_wav_codec_get_id
   br i1 %exitcond.not, label %.thread152, label %.lr.ph, !llvm.loop !26
 
 .thread152:                                       ; preds = %.lr.ph, %.preheader, %183, %185, %188
-  %.1117 = phi i32 [ %.0116139, %188 ], [ %.0116139, %185 ], [ %.0116139, %183 ], [ 0, %.preheader ], [ %212, %.lr.ph ]
-  %.1114 = phi i64 [ %.0113142, %188 ], [ %.0113142, %185 ], [ %.0113142, %183 ], [ 0, %.preheader ], [ 0, %.lr.ph ]
+  %.1117 = phi i32 [ %.0116139, %183 ], [ %.0116139, %188 ], [ %.0116139, %185 ], [ 0, %.preheader ], [ %212, %.lr.ph ]
+  %.1114 = phi i64 [ %.0113142, %183 ], [ %.0113142, %188 ], [ %.0113142, %185 ], [ 0, %.preheader ], [ 0, %.lr.ph ]
   %213 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store i64 %.1114, ptr %213, align 8, !tbaa !27
   %214 = getelementptr inbounds nuw i8, ptr %2, i64 152

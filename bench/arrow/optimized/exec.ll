@@ -7600,7 +7600,7 @@ _ZN5arrow8internal24may_have_validity_bitmapENS_4Type4typeE.exit.fold.split: ; p
   br label %_ZN5arrow8internal24may_have_validity_bitmapENS_4Type4typeE.exit
 
 _ZN5arrow8internal24may_have_validity_bitmapENS_4Type4typeE.exit: ; preds = %21, %1, %_ZN5arrow8internal24may_have_validity_bitmapENS_4Type4typeE.exit.fold.split, %14, %9
-  %.0 = phi i32 [ 2, %1 ], [ %13, %9 ], [ 1, %14 ], [ 1, %_ZN5arrow8internal24may_have_validity_bitmapENS_4Type4typeE.exit.fold.split ], [ %spec.select, %21 ]
+  %.0 = phi i32 [ 2, %1 ], [ %13, %9 ], [ 1, %14 ], [ %spec.select, %21 ], [ 1, %_ZN5arrow8internal24may_have_validity_bitmapENS_4Type4typeE.exit.fold.split ]
   ret i32 %.0
 }
 

@@ -854,7 +854,7 @@ return.sink.split:                                ; preds = %land.lhs.true, %lan
   br label %return
 
 return:                                           ; preds = %for.inc26, %for.inc48, %return.sink.split, %for.cond12.preheader, %for.cond34.preheader, %if.else
-  %retval.0 = phi i32 [ 0, %for.cond12.preheader ], [ 0, %if.else ], [ 0, %for.cond34.preheader ], [ %or.i63, %return.sink.split ], [ 0, %for.inc48 ], [ 0, %for.inc26 ]
+  %retval.0 = phi i32 [ 0, %for.cond12.preheader ], [ %or.i63, %return.sink.split ], [ 0, %for.inc48 ], [ 0, %if.else ], [ 0, %for.cond34.preheader ], [ 0, %for.inc26 ]
   ret i32 %retval.0
 }
 

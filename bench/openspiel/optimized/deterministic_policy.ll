@@ -1553,7 +1553,7 @@ _ZN10open_spiel10algorithms15LegalsWithIndex11TryIncIndexEv.exit: ; preds = %.lr
   br i1 %.not19, label %.loopexit, label %.lr.ph, !llvm.loop !20
 
 .loopexit:                                        ; preds = %_ZN10open_spiel10algorithms15LegalsWithIndex11TryIncIndexEv.exit, %.lr.ph17, %1, %18
-  %24 = phi i1 [ true, %18 ], [ false, %1 ], [ true, %.lr.ph17 ], [ false, %_ZN10open_spiel10algorithms15LegalsWithIndex11TryIncIndexEv.exit ]
+  %24 = phi i1 [ true, %18 ], [ true, %.lr.ph17 ], [ false, %1 ], [ false, %_ZN10open_spiel10algorithms15LegalsWithIndex11TryIncIndexEv.exit ]
   ret i1 %24
 }
 
@@ -2443,7 +2443,7 @@ _ZNSt10_HashtableIlSt4pairIKldESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4
   br label %.body
 
 .loopexit:                                        ; preds = %39, %.noexc, %34
-  %.0.i.pn.i.i = phi ptr [ %35, %34 ], [ %49, %.noexc ], [ %41, %39 ]
+  %.0.i.pn.i.i = phi ptr [ %49, %.noexc ], [ %35, %34 ], [ %41, %39 ]
   %.0.i.i = getelementptr inbounds nuw i8, ptr %.0.i.pn.i.i, i64 16
   store double %27, ptr %.0.i.i, align 8
   %51 = getelementptr inbounds nuw i8, ptr %.sroa.012.018, i64 16
@@ -2588,7 +2588,7 @@ _ZNSt10_HashtableIlSt4pairIKldESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4
   br label %.body
 
 .loopexit:                                        ; preds = %39, %.noexc, %34
-  %.0.i.pn.i.i = phi ptr [ %35, %34 ], [ %49, %.noexc ], [ %41, %39 ]
+  %.0.i.pn.i.i = phi ptr [ %49, %.noexc ], [ %35, %34 ], [ %41, %39 ]
   %.0.i.i = getelementptr inbounds nuw i8, ptr %.0.i.pn.i.i, i64 16
   store double %27, ptr %.0.i.i, align 8
   %51 = getelementptr inbounds nuw i8, ptr %.sroa.012.018, i64 16

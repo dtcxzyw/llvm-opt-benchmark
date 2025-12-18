@@ -18801,8 +18801,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit21:               ; preds = %40, %38, %_ZN4llvm1
   br label %46
 
 46:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit21, %.fold.split, %45
-  %.015 = phi i32 [ 2, %45 ], [ 1, %_ZN4llvm11raw_ostreamlsEPKc.exit21 ], [ %44, %.fold.split ]
-  %.0.not = phi i1 [ false, %45 ], [ false, %_ZN4llvm11raw_ostreamlsEPKc.exit21 ], [ true, %.fold.split ]
+  %.015 = phi i32 [ 1, %_ZN4llvm11raw_ostreamlsEPKc.exit21 ], [ 2, %45 ], [ %44, %.fold.split ]
+  %.0.not = phi i1 [ false, %_ZN4llvm11raw_ostreamlsEPKc.exit21 ], [ false, %45 ], [ true, %.fold.split ]
   %47 = load ptr, ptr %0, align 8, !tbaa !470
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %49 = load i32, ptr %48, align 4, !tbaa !3

@@ -2534,7 +2534,7 @@ define hidden noundef zeroext i1 @"_ZN3std11collections4hash3set20HashSet$LT$T$C
   br i1 %.not.not.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hbaae959aaff36d66E.exit, label %.lr.ph.split.i
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17hbaae959aaff36d66E.exit: ; preds = %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h5ecc83475c8e9bcdE.exit.loopexit.i", %.lr.ph.i.i.i.i.i, %9
-  %43 = phi i1 [ true, %9 ], [ false, %.lr.ph.i.i.i.i.i ], [ true, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h5ecc83475c8e9bcdE.exit.loopexit.i" ]
+  %43 = phi i1 [ false, %.lr.ph.i.i.i.i.i ], [ true, %9 ], [ true, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h5ecc83475c8e9bcdE.exit.loopexit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %82
 
@@ -2617,7 +2617,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hbaae959aaff36d66E.exit: ; pred
   br i1 %.not.not.i16, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h6d6d50c0b1ac3d8eE.exit, label %.lr.ph.split.i4
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h6d6d50c0b1ac3d8eE.exit: ; preds = %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h1afcd3e29525fae2E.exit.loopexit.i", %.lr.ph.i.i.i.i.i12, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h1afcd3e29525fae2E.exit.us.i", %44
-  %81 = phi i1 [ true, %44 ], [ false, %.lr.ph.i.i.i.i.i12 ], [ true, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h1afcd3e29525fae2E.exit.us.i" ], [ true, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h1afcd3e29525fae2E.exit.loopexit.i" ]
+  %81 = phi i1 [ false, %.lr.ph.i.i.i.i.i12 ], [ true, %44 ], [ true, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h1afcd3e29525fae2E.exit.us.i" ], [ true, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h1afcd3e29525fae2E.exit.loopexit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %82
 

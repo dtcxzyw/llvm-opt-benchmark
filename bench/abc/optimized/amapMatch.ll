@@ -242,7 +242,7 @@ define float @Amap_ManComputeMapping_rec(ptr noundef readonly captures(none) %0,
   br i1 %60, label %36, label %.loopexit, !llvm.loop !48
 
 .loopexit:                                        ; preds = %36, %17, %15, %3
-  %.027 = phi float [ 0.000000e+00, %3 ], [ 0.000000e+00, %15 ], [ %32, %17 ], [ %56, %36 ]
+  %.027 = phi float [ 0.000000e+00, %15 ], [ 0.000000e+00, %3 ], [ %32, %17 ], [ %56, %36 ]
   ret float %.027
 }
 

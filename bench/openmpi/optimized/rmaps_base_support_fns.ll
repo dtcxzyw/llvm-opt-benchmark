@@ -1813,7 +1813,7 @@ pmix_obj_run_destructors.exit461:                 ; preds = %.lr.ph.i458, %834
   br i1 %.not367, label %.loopexit, label %558, !llvm.loop !89
 
 .loopexit:                                        ; preds = %553, %848, %470, %554
-  %.0314 = phi i32 [ 0, %554 ], [ 2147483647, %470 ], [ %.2316, %848 ], [ 2147483647, %553 ]
+  %.0314 = phi i32 [ 2147483647, %470 ], [ 0, %554 ], [ %.2316, %848 ], [ 2147483647, %553 ]
   %849 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %850 = load volatile i64, ptr %849, align 8, !tbaa !8
   %851 = icmp eq i64 %850, 0
@@ -1944,7 +1944,7 @@ prte_rmaps_base_get_starting_point.exit:          ; preds = %.lr.ph516, %.lr.ph.
   br i1 %.not380, label %pmix_obj_run_destructors.exit, label %.lr.ph524, !llvm.loop !92
 
 pmix_obj_run_destructors.exit:                    ; preds = %910, %.lr.ph.i403, %65, %898, %87, %prte_rmaps_base_get_starting_point.exit, %852, %450, %448, %435, %436, %69, %853, %48
-  %.0 = phi i32 [ %45, %48 ], [ 0, %prte_rmaps_base_get_starting_point.exit ], [ %449, %450 ], [ -43, %853 ], [ -4, %852 ], [ -43, %435 ], [ %67, %65 ], [ %67, %69 ], [ -43, %436 ], [ %449, %448 ], [ -43, %87 ], [ 0, %898 ], [ -43, %.lr.ph.i403 ], [ 0, %910 ]
+  %.0 = phi i32 [ %45, %48 ], [ 0, %prte_rmaps_base_get_starting_point.exit ], [ %449, %450 ], [ -43, %853 ], [ -4, %852 ], [ -43, %435 ], [ %67, %65 ], [ %67, %69 ], [ -43, %436 ], [ %449, %448 ], [ 0, %898 ], [ -43, %87 ], [ -43, %.lr.ph.i403 ], [ 0, %910 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
@@ -2981,7 +2981,7 @@ define range(i32 -46, 1) i32 @prte_rmaps_base_check_oversubscribed(ptr noundef c
   br label %58
 
 58:                                               ; preds = %.sink.split, %8, %._crit_edge, %47, %36, %14, %4
-  %.0 = phi i32 [ 0, %4 ], [ -46, %8 ], [ 0, %14 ], [ -43, %36 ], [ -43, %47 ], [ 0, %._crit_edge ], [ -43, %.sink.split ]
+  %.0 = phi i32 [ 0, %4 ], [ -46, %8 ], [ 0, %._crit_edge ], [ -43, %47 ], [ 0, %14 ], [ -43, %36 ], [ -43, %.sink.split ]
   ret i32 %.0
 }
 

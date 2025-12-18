@@ -12986,7 +12986,7 @@ define hidden noundef zeroext i1 @"_ZN83_$LT$just..recipe..Recipe$LT$D$GT$$u20$a
   br label %62
 
 .loopexit:                                        ; preds = %183, %181, %168, %218, %_ZN4just5token5Token6lexeme17he5b315321a8bd9e1E.exit, %185, %87, %80, %38, %._crit_edge165, %._crit_edge160, %234, %231, %.loopexit149
-  %.0 = phi i1 [ true, %._crit_edge160 ], [ true, %.loopexit149 ], [ true, %231 ], [ true, %80 ], [ true, %234 ], [ true, %87 ], [ false, %._crit_edge165 ], [ true, %38 ], [ true, %218 ], [ true, %185 ], [ true, %_ZN4just5token5Token6lexeme17he5b315321a8bd9e1E.exit ], [ true, %168 ], [ true, %181 ], [ false, %183 ]
+  %.0 = phi i1 [ true, %._crit_edge160 ], [ true, %87 ], [ true, %.loopexit149 ], [ true, %38 ], [ true, %231 ], [ true, %80 ], [ false, %._crit_edge165 ], [ true, %234 ], [ true, %218 ], [ true, %185 ], [ true, %_ZN4just5token5Token6lexeme17he5b315321a8bd9e1E.exit ], [ true, %181 ], [ true, %168 ], [ false, %183 ]
   ret i1 %.0
 
 62:                                               ; preds = %.lr.ph, %232
@@ -13554,7 +13554,7 @@ define hidden noundef zeroext i1 @"_ZN83_$LT$just..recipe..Recipe$LT$D$GT$$u20$a
   br label %62
 
 .loopexit:                                        ; preds = %183, %181, %168, %218, %_ZN4just5token5Token6lexeme17he5b315321a8bd9e1E.exit, %185, %87, %80, %38, %._crit_edge165, %._crit_edge160, %234, %231, %.loopexit149
-  %.0 = phi i1 [ true, %._crit_edge160 ], [ true, %.loopexit149 ], [ true, %231 ], [ true, %80 ], [ true, %234 ], [ true, %87 ], [ false, %._crit_edge165 ], [ true, %38 ], [ true, %218 ], [ true, %185 ], [ true, %_ZN4just5token5Token6lexeme17he5b315321a8bd9e1E.exit ], [ true, %168 ], [ true, %181 ], [ false, %183 ]
+  %.0 = phi i1 [ true, %._crit_edge160 ], [ true, %87 ], [ true, %.loopexit149 ], [ true, %38 ], [ true, %231 ], [ true, %80 ], [ false, %._crit_edge165 ], [ true, %234 ], [ true, %218 ], [ true, %185 ], [ true, %_ZN4just5token5Token6lexeme17he5b315321a8bd9e1E.exit ], [ true, %181 ], [ true, %168 ], [ false, %183 ]
   ret i1 %.0
 
 62:                                               ; preds = %.lr.ph, %232

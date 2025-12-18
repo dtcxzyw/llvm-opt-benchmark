@@ -30588,7 +30588,7 @@ _ZNSt6vectorImSaImEE6resizeEmRKm.exit:            ; preds = %4
   br i1 %.not.i.i148, label %_ZN3vcg3tri15UpdateSelectionINS0_2io11ImporterDAEI6CMeshOE11ColladaMeshEE11VertexCountERKS6_.exit, label %.lr.ph.i.i, !llvm.loop !285
 
 _ZN3vcg3tri15UpdateSelectionINS0_2io11ImporterDAEI6CMeshOE11ColladaMeshEE11VertexCountERKS6_.exit: ; preds = %.lr.ph.i.i, %.lr.ph25.i.i, %.preheader.i.i, %.preheader19.i.i
-  %.4.i = phi i64 [ 0, %.preheader.i.i ], [ 0, %.preheader19.i.i ], [ %spec.select.i, %.lr.ph25.i.i ], [ %spec.select4.i, %.lr.ph.i.i ]
+  %.4.i = phi i64 [ 0, %.preheader.i.i ], [ %spec.select.i, %.lr.ph25.i.i ], [ 0, %.preheader19.i.i ], [ %spec.select4.i, %.lr.ph.i.i ]
   %sext = shl i64 %.4.i, 32
   %58 = ashr exact i64 %sext, 32
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -31031,7 +31031,7 @@ _ZNSt6vectorImSaImEE6resizeEmRKm.exit178:         ; preds = %253, %251, %249, %2
   br i1 %.not.i.i187, label %_ZN3vcg3tri15UpdateSelectionINS0_2io11ImporterDAEI6CMeshOE11ColladaMeshEE9FaceCountERKS6_.exit, label %.lr.ph.i.i181, !llvm.loop !292
 
 _ZN3vcg3tri15UpdateSelectionINS0_2io11ImporterDAEI6CMeshOE11ColladaMeshEE9FaceCountERKS6_.exit: ; preds = %.lr.ph.i.i181, %.lr.ph25.i.i190, %.preheader.i.i189, %.preheader19.i.i180
-  %.4.i188 = phi i64 [ 0, %.preheader.i.i189 ], [ 0, %.preheader19.i.i180 ], [ %spec.select.i195, %.lr.ph25.i.i190 ], [ %spec.select4.i185, %.lr.ph.i.i181 ]
+  %.4.i188 = phi i64 [ 0, %.preheader.i.i189 ], [ %spec.select.i195, %.lr.ph25.i.i190 ], [ 0, %.preheader19.i.i180 ], [ %spec.select4.i185, %.lr.ph.i.i181 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(57) %7, i8 0, i64 57, i1 false)
   %279 = invoke ptr @_ZN3vcg3tri9AllocatorINS0_2io11ImporterDAEI6CMeshOE11ColladaMeshEE8AddFacesERS6_mRNS7_14PointerUpdaterIPNS5_11ColladaFaceEEE(ptr noundef nonnull align 8 dereferenceable(628) %0, i64 noundef %.4.i188, ptr noundef nonnull align 8 dereferenceable(57) %7)
@@ -34150,7 +34150,7 @@ _ZNSt6vectorImSaImEE6resizeEmRKm.exit:            ; preds = %4
   br i1 %.not.i.i148, label %_ZN3vcg3tri15UpdateSelectionINS0_2io11ImporterDAEI6CMeshOE11ColladaMeshEE11VertexCountERKS6_.exit, label %.lr.ph.i.i, !llvm.loop !285
 
 _ZN3vcg3tri15UpdateSelectionINS0_2io11ImporterDAEI6CMeshOE11ColladaMeshEE11VertexCountERKS6_.exit: ; preds = %.lr.ph.i.i, %.lr.ph25.i.i, %.preheader.i.i, %.preheader19.i.i
-  %.4.i = phi i64 [ 0, %.preheader.i.i ], [ 0, %.preheader19.i.i ], [ %spec.select.i, %.lr.ph25.i.i ], [ %spec.select4.i, %.lr.ph.i.i ]
+  %.4.i = phi i64 [ 0, %.preheader.i.i ], [ %spec.select.i, %.lr.ph25.i.i ], [ 0, %.preheader19.i.i ], [ %spec.select4.i, %.lr.ph.i.i ]
   %sext = shl i64 %.4.i, 32
   %60 = ashr exact i64 %sext, 32
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -34597,7 +34597,7 @@ _ZNSt6vectorImSaImEE6resizeEmRKm.exit178:         ; preds = %259, %257, %255, %2
   br i1 %.not.i.i187, label %_ZN3vcg3tri15UpdateSelectionINS0_2io11ImporterDAEI6CMeshOE11ColladaMeshEE9FaceCountERKS6_.exit, label %.lr.ph.i.i181, !llvm.loop !292
 
 _ZN3vcg3tri15UpdateSelectionINS0_2io11ImporterDAEI6CMeshOE11ColladaMeshEE9FaceCountERKS6_.exit: ; preds = %.lr.ph.i.i181, %.lr.ph25.i.i190, %.preheader.i.i189, %.preheader19.i.i180
-  %.4.i188 = phi i64 [ 0, %.preheader.i.i189 ], [ 0, %.preheader19.i.i180 ], [ %spec.select.i195, %.lr.ph25.i.i190 ], [ %spec.select4.i185, %.lr.ph.i.i181 ]
+  %.4.i188 = phi i64 [ 0, %.preheader.i.i189 ], [ %spec.select.i195, %.lr.ph25.i.i190 ], [ 0, %.preheader19.i.i180 ], [ %spec.select4.i185, %.lr.ph.i.i181 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(57) %8, i8 0, i64 57, i1 false)
   %285 = invoke ptr @_ZN3vcg3tri9AllocatorI6CMeshOE8AddFacesERS2_mRNS3_14PointerUpdaterIP6CFaceOEE(ptr noundef nonnull align 8 dereferenceable(1196) %0, i64 noundef %.4.i188, ptr noundef nonnull align 8 dereferenceable(57) %8)
@@ -38655,7 +38655,7 @@ _ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE6UpdateERS6_.exit66: ; p
   br i1 %.not123, label %.loopexit, label %188, !llvm.loop !403
 
 .loopexit:                                        ; preds = %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE6UpdateERS6_.exit66, %._crit_edge145, %.loopexit130, %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE10NeedUpdateEv.exit, %11
-  %.sroa.0106.0 = phi ptr [ %13, %11 ], [ %42, %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE10NeedUpdateEv.exit ], [ %42, %.loopexit130 ], [ %42, %._crit_edge145 ], [ %42, %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE6UpdateERS6_.exit66 ]
+  %.sroa.0106.0 = phi ptr [ %13, %11 ], [ %42, %.loopexit130 ], [ %42, %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE10NeedUpdateEv.exit ], [ %42, %._crit_edge145 ], [ %42, %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE6UpdateERS6_.exit66 ]
   ret ptr %.sroa.0106.0
 }
 

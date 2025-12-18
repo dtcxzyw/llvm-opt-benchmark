@@ -3013,7 +3013,7 @@ _ZN4rand3rng3Rng9gen_range17h802626c5ec6b2768E.exit.i: ; preds = %.lr.ph.i
   br i1 %exitcond539.not, label %242, label %243
 
 .invoke:                                          ; preds = %231, %.noexc264, %243
-  %252 = phi i64 [ %245, %243 ], [ %223, %.noexc264 ], [ %.0.i, %231 ]
+  %252 = phi i64 [ %245, %243 ], [ %.0.i, %231 ], [ %223, %.noexc264 ]
   %253 = phi i64 [ %246, %243 ], [ %221, %.noexc264 ], [ %221, %231 ]
   %254 = phi ptr [ @anon.f2bcb44791aae7f90fa73c9f520a41d7.73, %243 ], [ @anon.57b0b96a329d2c09eb085e031d13bc66.5.llvm.15424224493582452841, %.noexc264 ], [ @anon.57b0b96a329d2c09eb085e031d13bc66.5.llvm.15424224493582452841, %231 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %252, i64 noundef %253, ptr noalias noundef readonly align 8 dereferenceable(24) %254) #16
@@ -4559,7 +4559,7 @@ _ZN8uu_shred11BytesWriter14bytes_for_pass17h322a3d0f013a4507E.exit46.i: ; preds 
   br i1 %745, label %728, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %.noexc319, %728, %.noexc324
-  %.0.ph.i = phi ptr [ %744, %.noexc324 ], [ %729, %728 ], [ %726, %.noexc319 ]
+  %.0.ph.i = phi ptr [ %729, %728 ], [ %744, %.noexc324 ], [ %726, %.noexc319 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %25), !noalias !1143
   br label %_ZN8uu_shred7do_pass17h3b310560c8eccd08E.exit
 

@@ -1679,7 +1679,7 @@ define internal fastcc i64 @do_msgrcv(i32 noundef %0, ptr noundef %1, i64 nounde
   br i1 %208, label %75, label %.critedge.thread27
 
 .loopexit:                                        ; preds = %193, %75, %.thread, %203, %196, %184, %.preheader, %121, %151
-  %.ph24 = phi ptr [ %119, %151 ], [ inttoptr (i64 -7 to ptr), %121 ], [ %119, %184 ], [ %119, %.preheader ], [ %194, %193 ], [ inttoptr (i64 -43 to ptr), %75 ], [ inttoptr (i64 -42 to ptr), %.thread ], [ inttoptr (i64 -514 to ptr), %203 ], [ inttoptr (i64 -514 to ptr), %196 ]
+  %.ph24 = phi ptr [ %119, %184 ], [ %119, %151 ], [ inttoptr (i64 -7 to ptr), %121 ], [ %119, %.preheader ], [ inttoptr (i64 -43 to ptr), %75 ], [ inttoptr (i64 -42 to ptr), %.thread ], [ inttoptr (i64 -514 to ptr), %203 ], [ %194, %193 ], [ inttoptr (i64 -514 to ptr), %196 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @_raw_spin_unlock(ptr noundef %42) #11
   call void @wake_up_q(ptr noundef nonnull %7) #11

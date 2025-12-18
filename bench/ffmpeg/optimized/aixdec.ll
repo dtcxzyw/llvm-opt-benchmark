@@ -244,7 +244,7 @@ define internal i32 @aix_read_packet(ptr noundef readonly captures(none) %0, ptr
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %41, %39, %2, %59, %56
-  %.040 = phi i32 [ %60, %59 ], [ -541478725, %2 ], [ -1094995529, %39 ], [ -1094995529, %41 ], [ 0, %56 ], [ -541478725, %.lr.ph ]
+  %.040 = phi i32 [ %60, %59 ], [ -541478725, %2 ], [ 0, %56 ], [ -1094995529, %39 ], [ -1094995529, %41 ], [ -541478725, %.lr.ph ]
   ret i32 %.040
 }
 

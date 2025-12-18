@@ -726,9 +726,9 @@ define dso_local i32 @tcf_generic_walker(ptr noundef readonly captures(none) %0,
   br i1 %222, label %.split34.us, label %233
 
 .split34.us:                                      ; preds = %220, %176, %137
-  %.us-phi35 = phi i32 [ %158, %176 ], [ %113, %137 ], [ %197, %220 ]
-  %.us-phi36 = phi i32 [ %157, %176 ], [ %112, %137 ], [ %196, %220 ]
-  %.us-phi37 = phi ptr [ %171, %176 ], [ %132, %137 ], [ %215, %220 ]
+  %.us-phi35 = phi i32 [ %113, %137 ], [ %158, %176 ], [ %197, %220 ]
+  %.us-phi36 = phi i32 [ %112, %137 ], [ %157, %176 ], [ %196, %220 ]
+  %.us-phi37 = phi ptr [ %132, %137 ], [ %171, %176 ], [ %215, %220 ]
   %223 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %224 = load ptr, ptr %223, align 8
   %225 = icmp ugt ptr %224, %.us-phi37
@@ -1414,7 +1414,7 @@ define dso_local i32 @tcf_register_action(ptr noundef %0, ptr noundef %1) #0 ali
   br label %.sink.split
 
 .sink.split:                                      ; preds = %27, %63, %71, %31
-  %.ph16 = phi i32 [ -12, %31 ], [ -17, %71 ], [ -17, %63 ], [ -17, %27 ]
+  %.ph16 = phi i32 [ -17, %63 ], [ -12, %31 ], [ -17, %71 ], [ -17, %27 ]
   tail call void @mutex_unlock(ptr noundef nonnull @act_id_mutex) #14
   br label %76
 
@@ -2702,7 +2702,7 @@ define dso_local i32 @tcf_action_init(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %137
 
 .thread20:                                        ; preds = %97, %95, %96, %55
-  %135 = phi i32 [ %57, %55 ], [ -22, %96 ], [ -22, %95 ], [ %98, %97 ]
+  %135 = phi i32 [ %57, %55 ], [ -22, %95 ], [ -22, %96 ], [ %98, %97 ]
   %136 = call i32 @tcf_action_destroy(ptr noundef %4, i32 noundef %35)
   br label %137
 

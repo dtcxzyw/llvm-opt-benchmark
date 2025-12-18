@@ -1619,7 +1619,7 @@ _ZL11EmitCopyLenmPKhPKtPjPmPh.exit:               ; preds = %747, %769, %809, %8
   br i1 %936, label %_ZL7IsMatchPKhS0_.exit6, label %.thread74.backedge
 
 .thread101:                                       ; preds = %_ZL23EmitCopyLenLastDistancemPKhPKtPjPmPh.exit, %.split, %.split.us, %_ZL11EmitCopyLenmPKhPKtPjPmPh.exit, %.critedge.backedge.us, %.critedge.backedge.us211, %_ZL10UpdateBitsmjmPh.exit
-  %.7.i = phi ptr [ %.0324.i, %_ZL10UpdateBitsmjmPh.exit ], [ %.1325.i, %.split ], [ %.1325.i, %.critedge.backedge.us211 ], [ %.1325.i, %.critedge.backedge.us ], [ %744, %_ZL11EmitCopyLenmPKhPKtPjPmPh.exit ], [ %.1325.i, %.split.us ], [ %218, %_ZL23EmitCopyLenLastDistancemPKhPKtPjPmPh.exit ]
+  %.7.i = phi ptr [ %.1325.i, %.split ], [ %.0324.i, %_ZL10UpdateBitsmjmPh.exit ], [ %.1325.i, %.split.us ], [ %.1325.i, %.critedge.backedge.us ], [ %.1325.i, %.critedge.backedge.us211 ], [ %744, %_ZL11EmitCopyLenmPKhPKtPjPmPh.exit ], [ %218, %_ZL23EmitCopyLenLastDistancemPKhPKtPjPmPh.exit ]
   %937 = sub i64 %.0318.i, %.0331.i
   %938 = tail call noundef i64 @llvm.umin.i64(i64 %937, i64 65536)
   %.not393.i = icmp eq i64 %937, 0
@@ -2081,8 +2081,8 @@ _ZL17EmitLongInsertLenmPKhPKtPjPmPh.exit30:       ; preds = %1165, %1190
   br i1 %exitcond356.not, label %_ZL12EmitLiteralsPKhmS0_PKtPmPh.exit33, label %1215, !llvm.loop !146
 
 _ZL12EmitLiteralsPKhmS0_PKtPmPh.exit33:           ; preds = %1215, %1137, %_ZL13EmitInsertLenmPKhPKtPjPmPh.exit27, %.thread74.thread118, %1161, %1006
-  %.8.i = phi ptr [ %.us-phi220, %.thread74.thread118 ], [ %106, %1006 ], [ %106, %1161 ], [ %106, %_ZL13EmitInsertLenmPKhPKtPjPmPh.exit27 ], [ %106, %1137 ], [ %106, %1215 ]
-  %.5323.i = phi i64 [ %350, %.thread74.thread118 ], [ %937, %1006 ], [ %937, %1161 ], [ %937, %_ZL13EmitInsertLenmPKhPKtPjPmPh.exit27 ], [ %937, %1137 ], [ %937, %1215 ]
+  %.8.i = phi ptr [ %.us-phi220, %.thread74.thread118 ], [ %106, %1006 ], [ %106, %_ZL13EmitInsertLenmPKhPKtPjPmPh.exit27 ], [ %106, %1161 ], [ %106, %1137 ], [ %106, %1215 ]
+  %.5323.i = phi i64 [ %350, %.thread74.thread118 ], [ %937, %1006 ], [ %937, %_ZL13EmitInsertLenmPKhPKtPjPmPh.exit27 ], [ %937, %1161 ], [ %937, %1137 ], [ %937, %1215 ]
   %.not396.i = icmp eq i64 %.5323.i, 0
   br i1 %.not396.i, label %1274, label %1235
 
@@ -3627,7 +3627,7 @@ _ZL11EmitCopyLenmPKhPKtPjPmPh.exit:               ; preds = %747, %769, %809, %8
   br i1 %936, label %_ZL7IsMatchPKhS0_.exit6, label %.thread74.backedge
 
 .thread101:                                       ; preds = %_ZL23EmitCopyLenLastDistancemPKhPKtPjPmPh.exit, %.split, %.split.us, %_ZL11EmitCopyLenmPKhPKtPjPmPh.exit, %.critedge.backedge.us, %.critedge.backedge.us211, %_ZL10UpdateBitsmjmPh.exit
-  %.7.i = phi ptr [ %.0324.i, %_ZL10UpdateBitsmjmPh.exit ], [ %.1325.i, %.split ], [ %.1325.i, %.critedge.backedge.us211 ], [ %.1325.i, %.critedge.backedge.us ], [ %744, %_ZL11EmitCopyLenmPKhPKtPjPmPh.exit ], [ %.1325.i, %.split.us ], [ %218, %_ZL23EmitCopyLenLastDistancemPKhPKtPjPmPh.exit ]
+  %.7.i = phi ptr [ %.1325.i, %.split ], [ %.0324.i, %_ZL10UpdateBitsmjmPh.exit ], [ %.1325.i, %.split.us ], [ %.1325.i, %.critedge.backedge.us ], [ %.1325.i, %.critedge.backedge.us211 ], [ %744, %_ZL11EmitCopyLenmPKhPKtPjPmPh.exit ], [ %218, %_ZL23EmitCopyLenLastDistancemPKhPKtPjPmPh.exit ]
   %937 = sub i64 %.0318.i, %.0331.i
   %938 = tail call noundef i64 @llvm.umin.i64(i64 %937, i64 65536)
   %.not393.i = icmp eq i64 %937, 0
@@ -4089,8 +4089,8 @@ _ZL17EmitLongInsertLenmPKhPKtPjPmPh.exit30:       ; preds = %1165, %1190
   br i1 %exitcond356.not, label %_ZL12EmitLiteralsPKhmS0_PKtPmPh.exit33, label %1215, !llvm.loop !146
 
 _ZL12EmitLiteralsPKhmS0_PKtPmPh.exit33:           ; preds = %1215, %1137, %_ZL13EmitInsertLenmPKhPKtPjPmPh.exit27, %.thread74.thread118, %1161, %1006
-  %.8.i = phi ptr [ %.us-phi220, %.thread74.thread118 ], [ %106, %1006 ], [ %106, %1161 ], [ %106, %_ZL13EmitInsertLenmPKhPKtPjPmPh.exit27 ], [ %106, %1137 ], [ %106, %1215 ]
-  %.5323.i = phi i64 [ %350, %.thread74.thread118 ], [ %937, %1006 ], [ %937, %1161 ], [ %937, %_ZL13EmitInsertLenmPKhPKtPjPmPh.exit27 ], [ %937, %1137 ], [ %937, %1215 ]
+  %.8.i = phi ptr [ %.us-phi220, %.thread74.thread118 ], [ %106, %1006 ], [ %106, %_ZL13EmitInsertLenmPKhPKtPjPmPh.exit27 ], [ %106, %1161 ], [ %106, %1137 ], [ %106, %1215 ]
+  %.5323.i = phi i64 [ %350, %.thread74.thread118 ], [ %937, %1006 ], [ %937, %_ZL13EmitInsertLenmPKhPKtPjPmPh.exit27 ], [ %937, %1161 ], [ %937, %1137 ], [ %937, %1215 ]
   %.not396.i = icmp eq i64 %.5323.i, 0
   br i1 %.not396.i, label %1274, label %1235
 
@@ -5635,7 +5635,7 @@ _ZL11EmitCopyLenmPKhPKtPjPmPh.exit:               ; preds = %747, %769, %809, %8
   br i1 %936, label %_ZL7IsMatchPKhS0_.exit6, label %.thread74.backedge
 
 .thread101:                                       ; preds = %_ZL23EmitCopyLenLastDistancemPKhPKtPjPmPh.exit, %.split, %.split.us, %_ZL11EmitCopyLenmPKhPKtPjPmPh.exit, %.critedge.backedge.us, %.critedge.backedge.us211, %_ZL10UpdateBitsmjmPh.exit
-  %.7.i = phi ptr [ %.0324.i, %_ZL10UpdateBitsmjmPh.exit ], [ %.1325.i, %.split ], [ %.1325.i, %.critedge.backedge.us211 ], [ %.1325.i, %.critedge.backedge.us ], [ %744, %_ZL11EmitCopyLenmPKhPKtPjPmPh.exit ], [ %.1325.i, %.split.us ], [ %218, %_ZL23EmitCopyLenLastDistancemPKhPKtPjPmPh.exit ]
+  %.7.i = phi ptr [ %.1325.i, %.split ], [ %.0324.i, %_ZL10UpdateBitsmjmPh.exit ], [ %.1325.i, %.split.us ], [ %.1325.i, %.critedge.backedge.us ], [ %.1325.i, %.critedge.backedge.us211 ], [ %744, %_ZL11EmitCopyLenmPKhPKtPjPmPh.exit ], [ %218, %_ZL23EmitCopyLenLastDistancemPKhPKtPjPmPh.exit ]
   %937 = sub i64 %.0318.i, %.0331.i
   %938 = tail call noundef i64 @llvm.umin.i64(i64 %937, i64 65536)
   %.not393.i = icmp eq i64 %937, 0
@@ -6097,8 +6097,8 @@ _ZL17EmitLongInsertLenmPKhPKtPjPmPh.exit30:       ; preds = %1165, %1190
   br i1 %exitcond356.not, label %_ZL12EmitLiteralsPKhmS0_PKtPmPh.exit33, label %1215, !llvm.loop !146
 
 _ZL12EmitLiteralsPKhmS0_PKtPmPh.exit33:           ; preds = %1215, %1137, %_ZL13EmitInsertLenmPKhPKtPjPmPh.exit27, %.thread74.thread118, %1161, %1006
-  %.8.i = phi ptr [ %.us-phi220, %.thread74.thread118 ], [ %106, %1006 ], [ %106, %1161 ], [ %106, %_ZL13EmitInsertLenmPKhPKtPjPmPh.exit27 ], [ %106, %1137 ], [ %106, %1215 ]
-  %.5323.i = phi i64 [ %350, %.thread74.thread118 ], [ %937, %1006 ], [ %937, %1161 ], [ %937, %_ZL13EmitInsertLenmPKhPKtPjPmPh.exit27 ], [ %937, %1137 ], [ %937, %1215 ]
+  %.8.i = phi ptr [ %.us-phi220, %.thread74.thread118 ], [ %106, %1006 ], [ %106, %_ZL13EmitInsertLenmPKhPKtPjPmPh.exit27 ], [ %106, %1161 ], [ %106, %1137 ], [ %106, %1215 ]
+  %.5323.i = phi i64 [ %350, %.thread74.thread118 ], [ %937, %1006 ], [ %937, %_ZL13EmitInsertLenmPKhPKtPjPmPh.exit27 ], [ %937, %1161 ], [ %937, %1137 ], [ %937, %1215 ]
   %.not396.i = icmp eq i64 %.5323.i, 0
   br i1 %.not396.i, label %1274, label %1235
 
@@ -7643,7 +7643,7 @@ _ZL11EmitCopyLenmPKhPKtPjPmPh.exit:               ; preds = %747, %769, %809, %8
   br i1 %936, label %_ZL7IsMatchPKhS0_.exit6, label %.thread74.backedge
 
 .thread101:                                       ; preds = %_ZL23EmitCopyLenLastDistancemPKhPKtPjPmPh.exit, %.split, %.split.us, %_ZL11EmitCopyLenmPKhPKtPjPmPh.exit, %.critedge.backedge.us, %.critedge.backedge.us211, %_ZL10UpdateBitsmjmPh.exit
-  %.7.i = phi ptr [ %.0324.i, %_ZL10UpdateBitsmjmPh.exit ], [ %.1325.i, %.split ], [ %.1325.i, %.critedge.backedge.us211 ], [ %.1325.i, %.critedge.backedge.us ], [ %744, %_ZL11EmitCopyLenmPKhPKtPjPmPh.exit ], [ %.1325.i, %.split.us ], [ %218, %_ZL23EmitCopyLenLastDistancemPKhPKtPjPmPh.exit ]
+  %.7.i = phi ptr [ %.1325.i, %.split ], [ %.0324.i, %_ZL10UpdateBitsmjmPh.exit ], [ %.1325.i, %.split.us ], [ %.1325.i, %.critedge.backedge.us ], [ %.1325.i, %.critedge.backedge.us211 ], [ %744, %_ZL11EmitCopyLenmPKhPKtPjPmPh.exit ], [ %218, %_ZL23EmitCopyLenLastDistancemPKhPKtPjPmPh.exit ]
   %937 = sub i64 %.0318.i, %.0331.i
   %938 = tail call noundef i64 @llvm.umin.i64(i64 %937, i64 65536)
   %.not393.i = icmp eq i64 %937, 0
@@ -8105,8 +8105,8 @@ _ZL17EmitLongInsertLenmPKhPKtPjPmPh.exit30:       ; preds = %1165, %1190
   br i1 %exitcond356.not, label %_ZL12EmitLiteralsPKhmS0_PKtPmPh.exit33, label %1215, !llvm.loop !146
 
 _ZL12EmitLiteralsPKhmS0_PKtPmPh.exit33:           ; preds = %1215, %1137, %_ZL13EmitInsertLenmPKhPKtPjPmPh.exit27, %.thread74.thread118, %1161, %1006
-  %.8.i = phi ptr [ %.us-phi220, %.thread74.thread118 ], [ %106, %1006 ], [ %106, %1161 ], [ %106, %_ZL13EmitInsertLenmPKhPKtPjPmPh.exit27 ], [ %106, %1137 ], [ %106, %1215 ]
-  %.5323.i = phi i64 [ %350, %.thread74.thread118 ], [ %937, %1006 ], [ %937, %1161 ], [ %937, %_ZL13EmitInsertLenmPKhPKtPjPmPh.exit27 ], [ %937, %1137 ], [ %937, %1215 ]
+  %.8.i = phi ptr [ %.us-phi220, %.thread74.thread118 ], [ %106, %1006 ], [ %106, %_ZL13EmitInsertLenmPKhPKtPjPmPh.exit27 ], [ %106, %1161 ], [ %106, %1137 ], [ %106, %1215 ]
+  %.5323.i = phi i64 [ %350, %.thread74.thread118 ], [ %937, %1006 ], [ %937, %_ZL13EmitInsertLenmPKhPKtPjPmPh.exit27 ], [ %937, %1161 ], [ %937, %1137 ], [ %937, %1215 ]
   %.not396.i = icmp eq i64 %.5323.i, 0
   br i1 %.not396.i, label %1274, label %1235
 

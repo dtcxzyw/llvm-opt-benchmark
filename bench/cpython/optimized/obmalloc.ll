@@ -1464,7 +1464,7 @@ mi_page_usable_block_size.exit:                   ; preds = %61, %_mi_segment_pa
   br label %_mi_page_malloc.exit35
 
 _mi_page_malloc.exit35:                           ; preds = %5, %81, %80, %70, %45, %mi_page_usable_block_size.exit
-  %.0 = phi ptr [ null, %45 ], [ %.0.i3162, %mi_page_usable_block_size.exit ], [ %68, %70 ], [ %68, %80 ], [ %68, %81 ], [ null, %5 ]
+  %.0 = phi ptr [ %68, %81 ], [ null, %45 ], [ %.0.i3162, %mi_page_usable_block_size.exit ], [ %68, %70 ], [ %68, %80 ], [ null, %5 ]
   ret ptr %.0
 }
 
@@ -3862,7 +3862,7 @@ mi_heap_malloc.exit:                              ; preds = %.split, %24
   br i1 %29, label %24, label %.critedge, !llvm.loop !74
 
 .critedge:                                        ; preds = %mi_heap_malloc.exit, %mi_heap_malloc.exit.us, %mi_heap_malloc.exit.us.thread, %.split8.us
-  %.05 = phi ptr [ null, %.split8.us ], [ %15, %mi_heap_malloc.exit.us.thread ], [ %22, %mi_heap_malloc.exit.us ], [ %28, %mi_heap_malloc.exit ]
+  %.05 = phi ptr [ null, %.split8.us ], [ %22, %mi_heap_malloc.exit.us ], [ %15, %mi_heap_malloc.exit.us.thread ], [ %28, %mi_heap_malloc.exit ]
   ret ptr %.05
 }
 
@@ -4278,8 +4278,8 @@ mi_try_new_handler.exit:                          ; preds = %.split, %mi_try_new
   br i1 %.not, label %.split27.us, label %mi_try_new_handler.exit, !llvm.loop !80
 
 .critedge.sink.split:                             ; preds = %mi_try_new_handler.exit.us.us38, %mi_try_new_handler.exit.us.us, %.split.us.split.split.split.us, %.split.us.split.us
-  %.lcssa14.us.us.sink100 = phi ptr [ %16, %.split.us.split.us ], [ %37, %.split.us.split.split.split.us ], [ %27, %mi_try_new_handler.exit.us.us ], [ %51, %mi_try_new_handler.exit.us.us38 ]
-  %.lcssa.us.us.sink = phi ptr [ %18, %.split.us.split.us ], [ %39, %.split.us.split.split.split.us ], [ %29, %mi_try_new_handler.exit.us.us ], [ %53, %mi_try_new_handler.exit.us.us38 ]
+  %.lcssa14.us.us.sink100 = phi ptr [ %27, %mi_try_new_handler.exit.us.us ], [ %16, %.split.us.split.us ], [ %37, %.split.us.split.split.split.us ], [ %51, %mi_try_new_handler.exit.us.us38 ]
+  %.lcssa.us.us.sink = phi ptr [ %29, %mi_try_new_handler.exit.us.us ], [ %18, %.split.us.split.us ], [ %39, %.split.us.split.split.split.us ], [ %53, %mi_try_new_handler.exit.us.us38 ]
   %67 = getelementptr inbounds nuw i8, ptr %.lcssa14.us.us.sink100, i64 16
   %68 = getelementptr inbounds nuw i8, ptr %.lcssa14.us.us.sink100, i64 24
   %69 = load i32, ptr %68, align 8, !tbaa !14
@@ -4291,7 +4291,7 @@ mi_try_new_handler.exit:                          ; preds = %.split, %mi_try_new
   br label %.critedge
 
 .critedge:                                        ; preds = %mi_try_new_handler.exit.us, %_mi_page_malloc.exit.i.i.us.us, %mi_malloc_aligned.exit.us.us, %.critedge.sink.split, %.split.us.split.split.split
-  %.0.i.i4 = phi ptr [ %58, %.split.us.split.split.split ], [ %.lcssa.us.us.sink, %.critedge.sink.split ], [ %45, %_mi_page_malloc.exit.i.i.us.us ], [ %21, %mi_malloc_aligned.exit.us.us ], [ %62, %mi_try_new_handler.exit.us ]
+  %.0.i.i4 = phi ptr [ %58, %.split.us.split.split.split ], [ %21, %mi_malloc_aligned.exit.us.us ], [ %.lcssa.us.us.sink, %.critedge.sink.split ], [ %45, %_mi_page_malloc.exit.i.i.us.us ], [ %62, %mi_try_new_handler.exit.us ]
   ret ptr %.0.i.i4
 }
 
@@ -4517,7 +4517,7 @@ mi_try_new_handler.exit:                          ; preds = %.split, %mi_try_new
   br i1 %.not, label %mi_try_new_handler.exit.thread, label %mi_try_new_handler.exit, !llvm.loop !82
 
 .critedge:                                        ; preds = %mi_try_new_handler.exit.us, %_mi_page_malloc.exit.i.i.us.us, %mi_malloc_aligned.exit.us.us, %.split.us.split.split.split, %.split17.us, %.split21.us, %mi_try_new_handler.exit.thread
-  %.0.i.i4 = phi ptr [ null, %mi_try_new_handler.exit.thread ], [ %.lcssa.us.us, %.split17.us ], [ %.lcssa11.us.us, %.split21.us ], [ %58, %.split.us.split.split.split ], [ %45, %_mi_page_malloc.exit.i.i.us.us ], [ %21, %mi_malloc_aligned.exit.us.us ], [ %62, %mi_try_new_handler.exit.us ]
+  %.0.i.i4 = phi ptr [ %.lcssa11.us.us, %.split21.us ], [ null, %mi_try_new_handler.exit.thread ], [ %.lcssa.us.us, %.split17.us ], [ %21, %mi_malloc_aligned.exit.us.us ], [ %45, %_mi_page_malloc.exit.i.i.us.us ], [ %58, %.split.us.split.split.split ], [ %62, %mi_try_new_handler.exit.us ]
   ret ptr %.0.i.i4
 }
 
@@ -10646,8 +10646,8 @@ mi_bitmap_mask_.exit.i:                           ; preds = %.lr.ph.split.split.
   br label %_mi_bitmap_try_find_claim_field.exit, !llvm.loop !162
 
 _mi_bitmap_try_find_claim_field.exit:             ; preds = %75, %44, %21, %.lr.ph.split.i.us59.preheader, %._mi_bitmap_try_find_claim_field.exit.loopexit128_crit_edge
-  %spec.store.select28 = phi i64 [ %spec.store.select.us54, %.lr.ph.split.i.us59.preheader ], [ %spec.store.select.us54, %._mi_bitmap_try_find_claim_field.exit.loopexit128_crit_edge ], [ %spec.store.select.us40, %44 ], [ %spec.store.select.us, %21 ], [ %spec.store.select, %75 ]
-  %.us-phi.i = phi i64 [ %56, %.lr.ph.split.i.us59.preheader ], [ %56, %._mi_bitmap_try_find_claim_field.exit.loopexit128_crit_edge ], [ %.03852.i.us, %44 ], [ %.03852.us.i.us, %21 ], [ %.03852.i, %75 ]
+  %spec.store.select28 = phi i64 [ %spec.store.select.us, %21 ], [ %spec.store.select.us40, %44 ], [ %spec.store.select.us54, %.lr.ph.split.i.us59.preheader ], [ %spec.store.select.us54, %._mi_bitmap_try_find_claim_field.exit.loopexit128_crit_edge ], [ %spec.store.select, %75 ]
+  %.us-phi.i = phi i64 [ %.03852.us.i.us, %21 ], [ %.03852.i.us, %44 ], [ %56, %.lr.ph.split.i.us59.preheader ], [ %56, %._mi_bitmap_try_find_claim_field.exit.loopexit128_crit_edge ], [ %.03852.i, %75 ]
   %87 = shl i64 %spec.store.select28, 6
   %88 = add i64 %.us-phi.i, %87
   store i64 %88, ptr %4, align 8, !tbaa !99
@@ -10660,7 +10660,7 @@ _mi_bitmap_try_find_claim_field.exit:             ; preds = %75, %44, %21, %.lr.
   br i1 %exitcond.not, label %.critedge, label %.lr.ph.split.split.split, !llvm.loop !163
 
 .critedge:                                        ; preds = %.loopexit20, %.loopexit20.us71, %.loopexit20.us, %.loopexit.us, %5, %_mi_bitmap_try_find_claim_field.exit
-  %.not1625 = phi i1 [ true, %_mi_bitmap_try_find_claim_field.exit ], [ false, %5 ], [ false, %.loopexit20.us71 ], [ false, %.loopexit.us ], [ false, %.loopexit20.us ], [ false, %.loopexit20 ]
+  %.not1625 = phi i1 [ true, %_mi_bitmap_try_find_claim_field.exit ], [ false, %5 ], [ false, %.loopexit20.us ], [ false, %.loopexit20.us71 ], [ false, %.loopexit.us ], [ false, %.loopexit20 ]
   ret i1 %.not1625
 }
 
@@ -10960,7 +10960,7 @@ _mi_bitmap_try_find_claim_field.exit.thread:      ; preds = %110, %mi_bitmap_mas
   br i1 %exitcond.not, label %.critedge, label %.lr.ph.split.split, !llvm.loop !164
 
 .critedge:                                        ; preds = %.loopexit31, %_mi_bitmap_try_find_claim_field.exit.thread, %_mi_bitmap_try_find_claim_field.exit.thread.us54, %_mi_bitmap_try_find_claim_field.exit.thread.us54.us, %.loopexit.us, %31, %_mi_bitmap_try_find_claim_field.exit.thread.us, %.loopexit31.us, %7
-  %.not25.lcssa = phi i1 [ false, %7 ], [ false, %_mi_bitmap_try_find_claim_field.exit.thread.us ], [ true, %.loopexit31.us ], [ false, %_mi_bitmap_try_find_claim_field.exit.thread.us54.us ], [ false, %_mi_bitmap_try_find_claim_field.exit.thread.us54 ], [ true, %31 ], [ true, %.loopexit.us ], [ true, %.loopexit31 ], [ false, %_mi_bitmap_try_find_claim_field.exit.thread ]
+  %.not25.lcssa = phi i1 [ false, %7 ], [ false, %_mi_bitmap_try_find_claim_field.exit.thread.us54 ], [ false, %_mi_bitmap_try_find_claim_field.exit.thread.us54.us ], [ true, %.loopexit31.us ], [ false, %_mi_bitmap_try_find_claim_field.exit.thread.us ], [ true, %31 ], [ true, %.loopexit.us ], [ true, %.loopexit31 ], [ false, %_mi_bitmap_try_find_claim_field.exit.thread ]
   ret i1 %.not25.lcssa
 }
 
@@ -11364,7 +11364,7 @@ mi_bitmap_mask_.exit128.i:                        ; preds = %75
   br i1 %113, label %mi_bitmap_try_find_claim_field_across.exit, label %108, !llvm.loop !168
 
 .loopexit135.i:                                   ; preds = %94, %103, %108
-  %.196.i = phi ptr [ %101, %103 ], [ %101, %108 ], [ %39, %94 ]
+  %.196.i = phi ptr [ %101, %108 ], [ %101, %103 ], [ %39, %94 ]
   %115 = getelementptr i8, ptr %.196.i, i64 -8
   %116 = icmp ugt ptr %115, %39
   br i1 %116, label %.lr.ph154.i, label %._crit_edge.i
@@ -11405,7 +11405,7 @@ mi_bitmap_try_find_claim_field_across.exit:       ; preds = %59, %110
   store i64 %130, ptr %4, align 8, !tbaa !99
   br label %.critedge
 
-.loopexit:                                        ; preds = %.loopexit.i, %71, %tailrecurse.i, %70, %mi_bitmap_mask_.exit.i33, %51, %mi_bitmap_mask_.exit.i.i, %_mi_bitmap_try_find_claim_field.exit.thread
+.loopexit:                                        ; preds = %tailrecurse.i, %71, %.loopexit.i, %70, %mi_bitmap_mask_.exit.i33, %_mi_bitmap_try_find_claim_field.exit.thread, %51, %mi_bitmap_mask_.exit.i.i
   %131 = add nuw i64 %.02456, 1
   %132 = add i64 %spec.store.select, 1
   %exitcond.not = icmp eq i64 %131, %1
@@ -11833,9 +11833,9 @@ mi_heap_page_never_delayed_free.exit:             ; preds = %.critedge.i.i.i, %6
   br i1 %exitcond.i, label %.critedge.thread, label %52, !llvm.loop !181
 
 .critedge.thread:                                 ; preds = %.critedge.i, %38, %42, %34, %.critedge, %47
-  %69 = phi i1 [ false, %.critedge ], [ true, %47 ], [ false, %34 ], [ false, %42 ], [ false, %38 ], [ true, %.critedge.i ]
-  %70 = phi i1 [ %45, %.critedge ], [ %45, %47 ], [ true, %34 ], [ true, %42 ], [ true, %38 ], [ %45, %.critedge.i ]
-  %71 = phi i1 [ %44, %.critedge ], [ %44, %47 ], [ true, %34 ], [ true, %42 ], [ true, %38 ], [ %44, %.critedge.i ]
+  %69 = phi i1 [ false, %38 ], [ false, %.critedge ], [ true, %47 ], [ false, %34 ], [ false, %42 ], [ true, %.critedge.i ]
+  %70 = phi i1 [ true, %38 ], [ %45, %.critedge ], [ %45, %47 ], [ true, %34 ], [ true, %42 ], [ %45, %.critedge.i ]
+  %71 = phi i1 [ true, %38 ], [ %44, %.critedge ], [ %44, %47 ], [ true, %34 ], [ true, %42 ], [ %44, %.critedge.i ]
   tail call void @_mi_heap_delayed_free_all(ptr noundef nonnull %0)
   tail call void @_mi_heap_collect_retired(ptr noundef nonnull %0, i1 noundef zeroext %6)
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 3024
@@ -13328,7 +13328,7 @@ mi_heap_page_check_owned.exit:                    ; preds = %_mi_page_start.exit
   br i1 %exitcond.i, label %mi_heap_visit_pages.exit, label %13, !llvm.loop !181
 
 mi_heap_visit_pages.exit:                         ; preds = %.critedge.i, %mi_heap_page_check_owned.exit, %8, %2, %4
-  %.0 = phi i1 [ false, %4 ], [ false, %2 ], [ false, %8 ], [ true, %mi_heap_page_check_owned.exit ], [ false, %.critedge.i ]
+  %.0 = phi i1 [ false, %4 ], [ false, %2 ], [ true, %mi_heap_page_check_owned.exit ], [ false, %8 ], [ false, %.critedge.i ]
   ret i1 %.0
 }
 
@@ -13442,7 +13442,7 @@ mi_heap_page_check_owned.exit.i:                  ; preds = %_mi_segment_page_st
   br i1 %exitcond.i.i, label %mi_heap_check_owned.exit, label %14, !llvm.loop !181
 
 mi_heap_check_owned.exit:                         ; preds = %.critedge.i.i, %mi_heap_page_check_owned.exit.i, %1, %5, %9
-  %.0.i = phi i1 [ false, %5 ], [ false, %1 ], [ false, %9 ], [ true, %mi_heap_page_check_owned.exit.i ], [ false, %.critedge.i.i ]
+  %.0.i = phi i1 [ false, %5 ], [ false, %1 ], [ true, %mi_heap_page_check_owned.exit.i ], [ false, %9 ], [ false, %.critedge.i.i ]
   ret i1 %.0.i
 }
 
@@ -13664,7 +13664,7 @@ _mi_page_start.exit:                              ; preds = %mi_page_usable_bloc
   br i1 %exitcond160.not, label %.critedge116, label %103, !llvm.loop !196
 
 .critedge116:                                     ; preds = %.critedge114, %114, %.preheader134, %.preheader136
-  %.not111141 = phi i1 [ true, %.preheader136 ], [ false, %114 ], [ false, %.preheader134 ], [ true, %.critedge114 ]
+  %.not111141 = phi i1 [ false, %114 ], [ false, %.preheader134 ], [ true, %.preheader136 ], [ true, %.critedge114 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge
 
@@ -26417,7 +26417,7 @@ has_own_state.exit.thread:                        ; preds = %95, %97, %has_own_s
   br i1 %exitcond.not, label %get_mimalloc_allocated_blocks.exit, label %115, !llvm.loop !519
 
 get_mimalloc_allocated_blocks.exit:               ; preds = %.loopexit, %.critedge.i.i.i.i, %108, %_mi_heap_delayed_free_partial.exit.thread.i.i, %_mi_heap_delayed_free_partial.exit.i.i, %has_own_state.exit.thread
-  %.0 = phi i64 [ 0, %has_own_state.exit.thread ], [ 0, %_mi_heap_delayed_free_partial.exit.thread.i.i ], [ 0, %_mi_heap_delayed_free_partial.exit.i.i ], [ %110, %108 ], [ %.2.i, %.critedge.i.i.i.i ], [ %.123, %.loopexit ]
+  %.0 = phi i64 [ %.2.i, %.critedge.i.i.i.i ], [ 0, %has_own_state.exit.thread ], [ 0, %_mi_heap_delayed_free_partial.exit.thread.i.i ], [ 0, %_mi_heap_delayed_free_partial.exit.i.i ], [ %110, %108 ], [ %.123, %.loopexit ]
   ret i64 %.0
 }
 

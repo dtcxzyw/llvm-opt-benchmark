@@ -1244,9 +1244,9 @@ _ZN11ast_manager7inc_refEP3ast.exit.i155:         ; preds = %315, %.thread
   br label %.critedge4
 
 .critedge4:                                       ; preds = %_ZNK6vectorIP4exprLb0EjE8containsERKS1_.exit151, %_ZNK6vectorIP4exprLb0EjE8containsERKS1_.exit, %.critedge6.loopexit, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit144.lr.ph, %283, %_ZNK6vectorIP4exprLb0EjE3endEv.exit.i145.lr.ph, %.critedge4.loopexit, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit116.lr.ph, %.preheader, %_ZNK6vectorIP4exprLb0EjE3endEv.exit.i.lr.ph, %336, %137
-  %.184 = phi i1 [ %.083289, %137 ], [ %.083289, %336 ], [ true, %.critedge4.loopexit ], [ true, %_ZNK6vectorIP4exprLb0EjE3endEv.exit.i.lr.ph ], [ true, %.preheader ], [ true, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit116.lr.ph ], [ true, %_ZNK6vectorIP4exprLb0EjE3endEv.exit.i145.lr.ph ], [ true, %283 ], [ true, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit144.lr.ph ], [ true, %.critedge6.loopexit ], [ true, %_ZNK6vectorIP4exprLb0EjE8containsERKS1_.exit ], [ true, %_ZNK6vectorIP4exprLb0EjE8containsERKS1_.exit151 ]
-  %.165 = phi i32 [ %144, %137 ], [ %346, %336 ], [ %351, %.critedge4.loopexit ], [ 0, %_ZNK6vectorIP4exprLb0EjE3endEv.exit.i.lr.ph ], [ 0, %.preheader ], [ 0, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit116.lr.ph ], [ 0, %_ZNK6vectorIP4exprLb0EjE3endEv.exit.i145.lr.ph ], [ 0, %283 ], [ 0, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit144.lr.ph ], [ %311, %.critedge6.loopexit ], [ %180, %_ZNK6vectorIP4exprLb0EjE8containsERKS1_.exit ], [ %293, %_ZNK6vectorIP4exprLb0EjE8containsERKS1_.exit151 ]
-  %.158 = phi i32 [ %.057291, %137 ], [ %343, %336 ], [ 0, %.critedge4.loopexit ], [ 0, %_ZNK6vectorIP4exprLb0EjE3endEv.exit.i.lr.ph ], [ 0, %.preheader ], [ 0, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit116.lr.ph ], [ 0, %_ZNK6vectorIP4exprLb0EjE3endEv.exit.i145.lr.ph ], [ 0, %283 ], [ 0, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit144.lr.ph ], [ 0, %.critedge6.loopexit ], [ 0, %_ZNK6vectorIP4exprLb0EjE8containsERKS1_.exit ], [ 0, %_ZNK6vectorIP4exprLb0EjE8containsERKS1_.exit151 ]
+  %.184 = phi i1 [ %.083289, %137 ], [ true, %.critedge4.loopexit ], [ true, %_ZNK6vectorIP4exprLb0EjE8containsERKS1_.exit ], [ %.083289, %336 ], [ true, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit116.lr.ph ], [ true, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit144.lr.ph ], [ true, %_ZNK6vectorIP4exprLb0EjE3endEv.exit.i.lr.ph ], [ true, %.preheader ], [ true, %_ZNK6vectorIP4exprLb0EjE3endEv.exit.i145.lr.ph ], [ true, %283 ], [ true, %.critedge6.loopexit ], [ true, %_ZNK6vectorIP4exprLb0EjE8containsERKS1_.exit151 ]
+  %.165 = phi i32 [ %144, %137 ], [ %351, %.critedge4.loopexit ], [ %180, %_ZNK6vectorIP4exprLb0EjE8containsERKS1_.exit ], [ %346, %336 ], [ 0, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit116.lr.ph ], [ 0, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit144.lr.ph ], [ 0, %_ZNK6vectorIP4exprLb0EjE3endEv.exit.i.lr.ph ], [ 0, %.preheader ], [ 0, %_ZNK6vectorIP4exprLb0EjE3endEv.exit.i145.lr.ph ], [ 0, %283 ], [ %311, %.critedge6.loopexit ], [ %293, %_ZNK6vectorIP4exprLb0EjE8containsERKS1_.exit151 ]
+  %.158 = phi i32 [ %.057291, %137 ], [ 0, %.critedge4.loopexit ], [ 0, %_ZNK6vectorIP4exprLb0EjE8containsERKS1_.exit ], [ %343, %336 ], [ 0, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit116.lr.ph ], [ 0, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit144.lr.ph ], [ 0, %_ZNK6vectorIP4exprLb0EjE3endEv.exit.i.lr.ph ], [ 0, %.preheader ], [ 0, %_ZNK6vectorIP4exprLb0EjE3endEv.exit.i145.lr.ph ], [ 0, %283 ], [ 0, %.critedge6.loopexit ], [ 0, %_ZNK6vectorIP4exprLb0EjE8containsERKS1_.exit151 ]
   %352 = load ptr, ptr %11, align 8, !tbaa !196
   %.not.i.i165 = icmp eq ptr %352, null
   br i1 %.not.i.i165, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit, label %353
@@ -1283,7 +1283,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %.critedge4, %353, %
   br label %445
 
 .critedge:                                        ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit, %111, %_ZN7obj_refI4expr11ast_managerED2Ev.exit
-  %.083.lcssa = phi i1 [ %.184, %_ZN7obj_refI4expr11ast_managerED2Ev.exit ], [ %.083289, %111 ], [ %.083289, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit ]
+  %.083.lcssa = phi i1 [ %.083289, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit ], [ %.184, %_ZN7obj_refI4expr11ast_managerED2Ev.exit ], [ %.083289, %111 ]
   br i1 %.083.lcssa, label %365, label %.critedge296
 
 365:                                              ; preds = %.critedge
@@ -3162,7 +3162,7 @@ _ZNK6vectorIP9func_declLb0EjE4sizeEv.exit:        ; preds = %._crit_edge
   br i1 %exitcond339.not, label %._crit_edge274, label %.lr.ph273, !llvm.loop !263
 
 ._crit_edge274:                                   ; preds = %.loopexit, %._crit_edge.thread, %._crit_edge, %_ZNK6vectorIP9func_declLb0EjE4sizeEv.exit
-  %382 = phi ptr [ %376, %_ZNK6vectorIP9func_declLb0EjE4sizeEv.exit ], [ %351, %._crit_edge.thread ], [ %376, %._crit_edge ], [ %376, %.loopexit ]
+  %382 = phi ptr [ %376, %._crit_edge ], [ %376, %_ZNK6vectorIP9func_declLb0EjE4sizeEv.exit ], [ %351, %._crit_edge.thread ], [ %376, %.loopexit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %383 = invoke noundef ptr @_Z13mk_smt_solverR11ast_managerRK10params_refRK6symbol(ptr noundef nonnull align 8 dereferenceable(976) %20, ptr noundef nonnull align 8 dereferenceable(8) @_ZN10params_ref18g_empty_params_refE, ptr noundef nonnull align 8 dereferenceable(8) @_ZN6symbol4nullE)
           to label %459 unwind label %500

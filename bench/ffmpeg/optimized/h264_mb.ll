@@ -10214,8 +10214,8 @@ get_lowest_part_y.exit195.sink.split:             ; preds = %524, %677, %866
   br label %get_lowest_part_y.exit195
 
 get_lowest_part_y.exit195:                        ; preds = %get_lowest_part_y.exit240, %get_lowest_part_y.exit240.us, %get_lowest_part_y.exit195.sink.split, %.preheader241.split.us, %861, %847, %672, %658, %519, %505
-  %957 = phi i32 [ %453, %505 ], [ %453, %.preheader241.split.us ], [ %809, %861 ], [ %809, %847 ], [ %618, %672 ], [ %618, %658 ], [ %453, %519 ], [ %spec.select280, %get_lowest_part_y.exit195.sink.split ], [ %733, %get_lowest_part_y.exit240.us ], [ %949, %get_lowest_part_y.exit240 ]
-  %.us-phi246253 = phi i32 [ %.us-phi246254, %505 ], [ %.us-phi246263264, %.preheader241.split.us ], [ %.us-phi246261, %861 ], [ %.us-phi246261, %847 ], [ %.us-phi246257, %672 ], [ %.us-phi246257, %658 ], [ %.us-phi246254, %519 ], [ %.us-phi246253.ph, %get_lowest_part_y.exit195.sink.split ], [ %.us-phi246263264, %get_lowest_part_y.exit240.us ], [ %916, %get_lowest_part_y.exit240 ]
+  %957 = phi i32 [ %453, %505 ], [ %spec.select280, %get_lowest_part_y.exit195.sink.split ], [ %809, %861 ], [ %809, %847 ], [ %453, %.preheader241.split.us ], [ %618, %672 ], [ %618, %658 ], [ %733, %get_lowest_part_y.exit240.us ], [ %453, %519 ], [ %949, %get_lowest_part_y.exit240 ]
+  %.us-phi246253 = phi i32 [ %.us-phi246254, %505 ], [ %.us-phi246253.ph, %get_lowest_part_y.exit195.sink.split ], [ %.us-phi246261, %861 ], [ %.us-phi246261, %847 ], [ %.us-phi246263264, %.preheader241.split.us ], [ %.us-phi246257, %672 ], [ %.us-phi246257, %658 ], [ %.us-phi246263264, %get_lowest_part_y.exit240.us ], [ %.us-phi246254, %519 ], [ %916, %get_lowest_part_y.exit240 ]
   %indvars.iv.next306 = add nuw nsw i64 %indvars.iv305, 1
   %exitcond308.not = icmp eq i64 %indvars.iv.next306, 4
   br i1 %exitcond308.not, label %get_lowest_part_y.exit.loopexit, label %452, !llvm.loop !200

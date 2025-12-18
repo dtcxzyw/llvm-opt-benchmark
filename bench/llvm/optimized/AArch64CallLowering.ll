@@ -1412,7 +1412,7 @@ _ZNK4llvm8Function4argsEv.exit:                   ; preds = %_ZNK4llvm8Function9
   br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_8ArgumentEEEZNKS_19AArch64CallLowering17fallBackToDAGISelERKNS_15MachineFunctionEE3$_0EEbOT_T0_.exit"
 
 "_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_8ArgumentEEEZNKS_19AArch64CallLowering17fallBackToDAGISelERKNS_15MachineFunctionEE3$_0EEbOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i.i, %52, %57, %62, %.loopexit.split.loop.exit34.i.i.i.i.i.i, %.loopexit.split.loop.exit36.i.i.i.i.i.i, %.loopexit.split.loop.exit38.i.i.i.i.i.i
-  %.028.i.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i.i, %57 ], [ %.2.i.i.i.i.i.i, %62 ], [ %.029.lcssa.i.i.i.i.i.i, %52 ], [ %66, %.loopexit.split.loop.exit36.i.i.i.i.i.i ], [ %65, %.loopexit.split.loop.exit34.i.i.i.i.i.i ], [ %67, %.loopexit.split.loop.exit38.i.i.i.i.i.i ], [ %.02943.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
+  %.028.i.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i.i, %57 ], [ %67, %.loopexit.split.loop.exit38.i.i.i.i.i.i ], [ %.2.i.i.i.i.i.i, %62 ], [ %.029.lcssa.i.i.i.i.i.i, %52 ], [ %66, %.loopexit.split.loop.exit36.i.i.i.i.i.i ], [ %65, %.loopexit.split.loop.exit34.i.i.i.i.i.i ], [ %.02943.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
   %.not = icmp eq ptr %29, %.028.i.i.i.i.i.i
   br i1 %.not, label %.critedge, label %.critedge2
 
@@ -2011,30 +2011,30 @@ define dso_local noundef zeroext i1 @_ZNK4llvm19AArch64CallLowering20lowerFormal
   switch i16 %52, label %_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit.thread [
     i16 109, label %561
     i16 108, label %561
-    i16 0, label %53
-    i16 8, label %53
-    i16 16, label %53
-    i16 20, label %53
-    i16 21, label %57
+    i16 0, label %_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit
+    i16 8, label %_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit
+    i16 16, label %_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit
+    i16 20, label %_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit
+    i16 21, label %53
     i16 79, label %_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit.thread147
   ]
 
-53:                                               ; preds = %48, %48, %48, %48
-  %54 = getelementptr inbounds nuw i8, ptr %34, i64 860
-  %55 = load i32, ptr %54, align 4, !tbaa !501
-  %56 = icmp eq i32 %55, 14
-  br i1 %56, label %_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit.thread147, label %_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit.thread
+53:                                               ; preds = %48
+  br i1 %39, label %54, label %_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit.thread
 
-57:                                               ; preds = %48
-  br i1 %39, label %_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit, label %_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit.thread
+54:                                               ; preds = %53
+  %55 = getelementptr inbounds nuw i8, ptr %34, i64 860
+  %56 = load i32, ptr %55, align 4, !tbaa !501
+  %57 = icmp eq i32 %56, 14
+  br i1 %57, label %_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit.thread147, label %_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit.thread
 
-_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit: ; preds = %57
+_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit: ; preds = %48, %48, %48, %48
   %58 = getelementptr inbounds nuw i8, ptr %34, i64 860
   %59 = load i32, ptr %58, align 4, !tbaa !501
   %60 = icmp eq i32 %59, 14
   br i1 %60, label %_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit.thread147, label %_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit.thread
 
-_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit.thread147: ; preds = %48, %53, %_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit
+_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit.thread147: ; preds = %48, %54, %_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit
   %61 = getelementptr inbounds nuw i8, ptr %34, i64 848
   %62 = load i32, ptr %61, align 8, !tbaa !562
   %63 = icmp eq i32 %62, 3
@@ -2044,8 +2044,8 @@ _ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit.thread147: ; preds = %48
   %67 = select i1 %63, i1 %66, i1 false
   br label %_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit.thread
 
-_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit.thread: ; preds = %48, %57, %53, %_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit.thread147, %_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit
-  %.not118 = phi i1 [ true, %_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit ], [ %67, %_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit.thread147 ], [ true, %53 ], [ true, %57 ], [ true, %48 ]
+_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit.thread: ; preds = %48, %53, %54, %_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit.thread147, %_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit
+  %.not118 = phi i1 [ true, %_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit ], [ %67, %_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit.thread147 ], [ true, %54 ], [ true, %53 ], [ true, %48 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %68 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %68, ptr %14, align 8, !tbaa !230
@@ -4714,7 +4714,7 @@ _ZL14getMaskForArgsRN4llvm15SmallVectorImplINS_12CallLowering7ArgInfoEEERNS1_16C
   br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNKS_19AArch64CallLowering13lowerTailCallERNS_16MachineIRBuilderERNS_12CallLowering16CallLoweringInfoERNS_15SmallVectorImplINS8_7ArgInfoEEEE3$_0EEbOT_T0_.exit"
 
 "_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNKS_19AArch64CallLowering13lowerTailCallERNS_16MachineIRBuilderERNS_12CallLowering16CallLoweringInfoERNS_15SmallVectorImplINS8_7ArgInfoEEEE3$_0EEbOT_T0_.exit": ; preds = %308, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm19AArch64CallLowering13lowerTailCallERNS2_16MachineIRBuilderERNS2_12CallLowering16CallLoweringInfoERNS2_15SmallVectorImplINS6_7ArgInfoEEEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit.i.i.i.i.i.i", %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNKS_19AArch64CallLowering13lowerTailCallERNS_16MachineIRBuilderERNS_12CallLowering16CallLoweringInfoERNS_15SmallVectorImplINS8_7ArgInfoEEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNKS_19AArch64CallLowering13lowerTailCallERNS_16MachineIRBuilderERNS_12CallLowering16CallLoweringInfoERNS_15SmallVectorImplINS8_7ArgInfoEEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit259", %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNKS_19AArch64CallLowering13lowerTailCallERNS_16MachineIRBuilderERNS_12CallLowering16CallLoweringInfoERNS_15SmallVectorImplINS8_7ArgInfoEEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit261", %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNKS_19AArch64CallLowering13lowerTailCallERNS_16MachineIRBuilderERNS_12CallLowering16CallLoweringInfoERNS_15SmallVectorImplINS8_7ArgInfoEEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit263", %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNKS_19AArch64CallLowering13lowerTailCallERNS_16MachineIRBuilderERNS_12CallLowering16CallLoweringInfoERNS_15SmallVectorImplINS8_7ArgInfoEEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit265", %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNKS_19AArch64CallLowering13lowerTailCallERNS_16MachineIRBuilderERNS_12CallLowering16CallLoweringInfoERNS_15SmallVectorImplINS8_7ArgInfoEEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit267", %352, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm19AArch64CallLowering13lowerTailCallERNS2_16MachineIRBuilderERNS2_12CallLowering16CallLoweringInfoERNS2_15SmallVectorImplINS6_7ArgInfoEEEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit69.i.i.i.i.i.i", %364, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm19AArch64CallLowering13lowerTailCallERNS2_16MachineIRBuilderERNS2_12CallLowering16CallLoweringInfoERNS2_15SmallVectorImplINS6_7ArgInfoEEEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit73.i.i.i.i.i.i", %376, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm19AArch64CallLowering13lowerTailCallERNS2_16MachineIRBuilderERNS2_12CallLowering16CallLoweringInfoERNS2_15SmallVectorImplINS6_7ArgInfoEEEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit77.i.i.i.i.i.i"
-  %.028.i.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm19AArch64CallLowering13lowerTailCallERNS2_16MachineIRBuilderERNS2_12CallLowering16CallLoweringInfoERNS2_15SmallVectorImplINS6_7ArgInfoEEEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit73.i.i.i.i.i.i" ], [ %.2.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm19AArch64CallLowering13lowerTailCallERNS2_16MachineIRBuilderERNS2_12CallLowering16CallLoweringInfoERNS2_15SmallVectorImplINS6_7ArgInfoEEEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit77.i.i.i.i.i.i" ], [ %.1.i.i.i.i.i.i, %364 ], [ %.029.lcssa.i.i.i.i.i.i, %352 ], [ %.029.lcssa.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm19AArch64CallLowering13lowerTailCallERNS2_16MachineIRBuilderERNS2_12CallLowering16CallLoweringInfoERNS2_15SmallVectorImplINS6_7ArgInfoEEEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit69.i.i.i.i.i.i" ], [ %.2.i.i.i.i.i.i, %376 ], [ %388, %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNKS_19AArch64CallLowering13lowerTailCallERNS_16MachineIRBuilderERNS_12CallLowering16CallLoweringInfoERNS_15SmallVectorImplINS8_7ArgInfoEEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit267" ], [ %386, %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNKS_19AArch64CallLowering13lowerTailCallERNS_16MachineIRBuilderERNS_12CallLowering16CallLoweringInfoERNS_15SmallVectorImplINS8_7ArgInfoEEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit263" ], [ %384, %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNKS_19AArch64CallLowering13lowerTailCallERNS_16MachineIRBuilderERNS_12CallLowering16CallLoweringInfoERNS_15SmallVectorImplINS8_7ArgInfoEEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit259" ], [ %387, %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNKS_19AArch64CallLowering13lowerTailCallERNS_16MachineIRBuilderERNS_12CallLowering16CallLoweringInfoERNS_15SmallVectorImplINS8_7ArgInfoEEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit265" ], [ %385, %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNKS_19AArch64CallLowering13lowerTailCallERNS_16MachineIRBuilderERNS_12CallLowering16CallLoweringInfoERNS_15SmallVectorImplINS8_7ArgInfoEEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit261" ], [ %383, %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNKS_19AArch64CallLowering13lowerTailCallERNS_16MachineIRBuilderERNS_12CallLowering16CallLoweringInfoERNS_15SmallVectorImplINS8_7ArgInfoEEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit" ], [ %.029120.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm19AArch64CallLowering13lowerTailCallERNS2_16MachineIRBuilderERNS2_12CallLowering16CallLoweringInfoERNS2_15SmallVectorImplINS6_7ArgInfoEEEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit.i.i.i.i.i.i" ], [ %.029120.i.i.i.i.i.i, %308 ]
+  %.028.i.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm19AArch64CallLowering13lowerTailCallERNS2_16MachineIRBuilderERNS2_12CallLowering16CallLoweringInfoERNS2_15SmallVectorImplINS6_7ArgInfoEEEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit73.i.i.i.i.i.i" ], [ %.2.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm19AArch64CallLowering13lowerTailCallERNS2_16MachineIRBuilderERNS2_12CallLowering16CallLoweringInfoERNS2_15SmallVectorImplINS6_7ArgInfoEEEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit77.i.i.i.i.i.i" ], [ %.1.i.i.i.i.i.i, %364 ], [ %.029.lcssa.i.i.i.i.i.i, %352 ], [ %.029.lcssa.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm19AArch64CallLowering13lowerTailCallERNS2_16MachineIRBuilderERNS2_12CallLowering16CallLoweringInfoERNS2_15SmallVectorImplINS6_7ArgInfoEEEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit69.i.i.i.i.i.i" ], [ %.2.i.i.i.i.i.i, %376 ], [ %387, %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNKS_19AArch64CallLowering13lowerTailCallERNS_16MachineIRBuilderERNS_12CallLowering16CallLoweringInfoERNS_15SmallVectorImplINS8_7ArgInfoEEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit265" ], [ %388, %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNKS_19AArch64CallLowering13lowerTailCallERNS_16MachineIRBuilderERNS_12CallLowering16CallLoweringInfoERNS_15SmallVectorImplINS8_7ArgInfoEEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit267" ], [ %384, %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNKS_19AArch64CallLowering13lowerTailCallERNS_16MachineIRBuilderERNS_12CallLowering16CallLoweringInfoERNS_15SmallVectorImplINS8_7ArgInfoEEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit259" ], [ %385, %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNKS_19AArch64CallLowering13lowerTailCallERNS_16MachineIRBuilderERNS_12CallLowering16CallLoweringInfoERNS_15SmallVectorImplINS8_7ArgInfoEEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit261" ], [ %383, %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNKS_19AArch64CallLowering13lowerTailCallERNS_16MachineIRBuilderERNS_12CallLowering16CallLoweringInfoERNS_15SmallVectorImplINS8_7ArgInfoEEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit" ], [ %386, %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNKS_19AArch64CallLowering13lowerTailCallERNS_16MachineIRBuilderERNS_12CallLowering16CallLoweringInfoERNS_15SmallVectorImplINS8_7ArgInfoEEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit263" ], [ %.029120.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm19AArch64CallLowering13lowerTailCallERNS2_16MachineIRBuilderERNS2_12CallLowering16CallLoweringInfoERNS2_15SmallVectorImplINS6_7ArgInfoEEEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit.i.i.i.i.i.i" ], [ %.029120.i.i.i.i.i.i, %308 ]
   %.not191 = icmp eq ptr %298, %.028.i.i.i.i.i.i
   br i1 %.not191, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNKS_19AArch64CallLowering13lowerTailCallERNS_16MachineIRBuilderERNS_12CallLowering16CallLoweringInfoERNS_15SmallVectorImplINS8_7ArgInfoEEEE3$_0EEbOT_T0_.exit.thread", label %390
 
@@ -6280,45 +6280,45 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_128AArch64OutgoingValueAssig
   %12 = load ptr, ptr %11, align 8, !tbaa !779
   %13 = load i32, ptr %9, align 8, !tbaa !485
   switch i32 %13, label %_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit.thread [
-    i32 0, label %14
-    i32 8, label %14
-    i32 16, label %14
-    i32 20, label %14
-    i32 21, label %18
+    i32 0, label %_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit
+    i32 8, label %_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit
+    i32 16, label %_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit
+    i32 20, label %_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit
+    i32 21, label %14
     i32 79, label %_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit.thread31
   ]
 
-14:                                               ; preds = %10, %10, %10, %10
-  %15 = getelementptr inbounds nuw i8, ptr %12, i64 860
-  %16 = load i32, ptr %15, align 4, !tbaa !501
-  %17 = icmp eq i32 %16, 14
-  br i1 %17, label %_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit.thread31, label %_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit.thread
+14:                                               ; preds = %10
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %16 = load ptr, ptr %15, align 8, !tbaa !780
+  %17 = load ptr, ptr %16, align 8, !tbaa !110
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  %19 = load ptr, ptr %18, align 8, !tbaa !295
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %21 = load i32, ptr %20, align 8
+  %22 = icmp ugt i32 %21, 255
+  br i1 %22, label %23, label %_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit.thread
 
-18:                                               ; preds = %10
-  %19 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %20 = load ptr, ptr %19, align 8, !tbaa !780
-  %21 = load ptr, ptr %20, align 8, !tbaa !110
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  %23 = load ptr, ptr %22, align 8, !tbaa !295
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %25 = load i32, ptr %24, align 8
-  %26 = icmp ugt i32 %25, 255
-  br i1 %26, label %_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit, label %_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit.thread
+23:                                               ; preds = %14
+  %24 = getelementptr inbounds nuw i8, ptr %12, i64 860
+  %25 = load i32, ptr %24, align 4, !tbaa !501
+  %26 = icmp eq i32 %25, 14
+  br i1 %26, label %_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit.thread31, label %_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit.thread
 
-_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit: ; preds = %18
+_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit: ; preds = %10, %10, %10, %10
   %27 = getelementptr inbounds nuw i8, ptr %12, i64 860
   %28 = load i32, ptr %27, align 4, !tbaa !501
   %29 = icmp eq i32 %28, 14
   br i1 %29, label %_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit.thread31, label %_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit.thread
 
-_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit.thread31: ; preds = %10, %14, %_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit
+_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit.thread31: ; preds = %10, %23, %_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit
   %30 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %31 = load i8, ptr %30, align 4, !tbaa !781, !range !91, !noundef !92
   %32 = trunc nuw i8 %31 to i1
   br label %_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit.thread
 
-_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit.thread: ; preds = %10, %18, %14, %_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit.thread31, %_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit
-  %33 = phi i1 [ false, %_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit ], [ %32, %_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit.thread31 ], [ false, %14 ], [ false, %18 ], [ false, %10 ]
+_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit.thread: ; preds = %10, %14, %23, %_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit.thread31, %_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit
+  %33 = phi i1 [ false, %_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit ], [ %32, %_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit.thread31 ], [ false, %23 ], [ false, %14 ], [ false, %10 ]
   %34 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %35 = load i8, ptr %34, align 8, !tbaa !309, !range !91, !noundef !92
   %36 = trunc nuw i8 %35 to i1
@@ -7620,7 +7620,7 @@ _ZSt10_ConstructIN4llvm12CallLowering7ArgInfoEJS2_EEvPT_DpOT0_.exit.i.i.i.i.i: ;
   br i1 %.not44, label %._crit_edge, label %.lr.ph, !llvm.loop !818
 
 _ZSt4copyIPN4llvm12CallLowering7ArgInfoES3_ET0_T_S5_S4_.exit: ; preds = %.lr.ph.i.i.i.i.i47, %.lr.ph.i.i.i.i, %._crit_edge, %_ZSt13move_backwardIPN4llvm12CallLowering7ArgInfoES3_ET0_T_S5_S4_.exit, %_ZN4llvm15SmallVectorImplINS_12CallLowering7ArgInfoEE6appendIPS2_vEEvT_S6_.exit
-  %.041 = phi ptr [ %43, %_ZN4llvm15SmallVectorImplINS_12CallLowering7ArgInfoEE6appendIPS2_vEEvT_S6_.exit ], [ %61, %_ZSt13move_backwardIPN4llvm12CallLowering7ArgInfoES3_ET0_T_S5_S4_.exit ], [ %61, %._crit_edge ], [ %61, %.lr.ph.i.i.i.i ], [ %61, %.lr.ph.i.i.i.i.i47 ]
+  %.041 = phi ptr [ %43, %_ZN4llvm15SmallVectorImplINS_12CallLowering7ArgInfoEE6appendIPS2_vEEvT_S6_.exit ], [ %61, %.lr.ph.i.i.i.i ], [ %61, %_ZSt13move_backwardIPN4llvm12CallLowering7ArgInfoES3_ET0_T_S5_S4_.exit ], [ %61, %._crit_edge ], [ %61, %.lr.ph.i.i.i.i.i47 ]
   ret ptr %.041
 }
 

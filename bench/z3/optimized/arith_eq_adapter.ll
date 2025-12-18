@@ -394,7 +394,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %55, %56, %63
   br i1 %.not27.old.i.i.i, label %.loopexit, label %.lr.ph37.i.i.i.backedge
 
 .lr.ph37.i.i.i.backedge:                          ; preds = %135, %132
-  %.136.i.i.i.be = phi ptr [ %.old.i.i.i, %135 ], [ %134, %132 ]
+  %.136.i.i.i.be = phi ptr [ %134, %132 ], [ %.old.i.i.i, %135 ]
   br label %.lr.ph37.i.i.i, !llvm.loop !69
 
 .loopexit:                                        ; preds = %116, %132, %135, %.preheader.i.i.i

@@ -680,7 +680,7 @@ Saig_TsiStateHash.exit:                           ; preds = %.lr.ph.i, %3
   br label %.critedge
 
 .critedge:                                        ; preds = %32, %31, %.critedge.loopexit.split.loop.exit37, %Saig_TsiStateHash.exit, %.preheader
-  %.019 = phi i32 [ -1, %.preheader ], [ -1, %Saig_TsiStateHash.exit ], [ %34, %.critedge.loopexit.split.loop.exit37 ], [ -1, %31 ], [ -1, %32 ]
+  %.019 = phi i32 [ -1, %31 ], [ -1, %.preheader ], [ -1, %Saig_TsiStateHash.exit ], [ %34, %.critedge.loopexit.split.loop.exit37 ], [ -1, %32 ]
   ret i32 %.019
 }
 
@@ -2526,7 +2526,7 @@ Saig_TsiStateHash.exit.i:                         ; preds = %.lr.ph.i.i, %5
   br label %Saig_TsiComputePrefix.exit
 
 Saig_TsiComputePrefix.exit:                       ; preds = %40, %39, %Saig_TsiStateHash.exit.i, %.preheader.i, %.critedge.loopexit.split.loop.exit37.i
-  %.019.i = phi i32 [ 0, %.preheader.i ], [ 0, %Saig_TsiStateHash.exit.i ], [ %43, %.critedge.loopexit.split.loop.exit37.i ], [ 0, %39 ], [ 0, %40 ]
+  %.019.i = phi i32 [ 0, %39 ], [ 0, %.preheader.i ], [ 0, %Saig_TsiStateHash.exit.i ], [ %43, %.critedge.loopexit.split.loop.exit37.i ], [ 0, %40 ]
   %44 = add i32 %.019.i, %.val11
   tail call void @Saig_TsiStop(ptr noundef nonnull %3)
   br label %45
@@ -2631,7 +2631,7 @@ Saig_TsiStateHash.exit.i:                         ; preds = %.lr.ph.i.i, %7
   br label %Saig_TsiComputePrefix.exit
 
 Saig_TsiComputePrefix.exit:                       ; preds = %42, %41, %Saig_TsiStateHash.exit.i, %.preheader.i, %.critedge.loopexit.split.loop.exit37.i
-  %.019.i = phi i32 [ -1, %.preheader.i ], [ -1, %Saig_TsiStateHash.exit.i ], [ %44, %.critedge.loopexit.split.loop.exit37.i ], [ -1, %41 ], [ -1, %42 ]
+  %.019.i = phi i32 [ -1, %41 ], [ -1, %.preheader.i ], [ -1, %Saig_TsiStateHash.exit.i ], [ %44, %.critedge.loopexit.split.loop.exit37.i ], [ -1, %42 ]
   %45 = xor i32 %.019.i, -1
   %46 = add i32 %.val29, %45
   %47 = tail call i32 @Saig_TsiCountNonXValuedRegisters(ptr noundef nonnull %5, i32 noundef %.019.i)
@@ -2765,7 +2765,7 @@ Saig_TsiStateHash.exit.i:                         ; preds = %.lr.ph.i.i, %10
   br label %Saig_TsiComputePrefix.exit
 
 Saig_TsiComputePrefix.exit:                       ; preds = %45, %44, %Saig_TsiStateHash.exit.i, %.preheader.i, %.critedge.loopexit.split.loop.exit37.i
-  %.019.i = phi i32 [ -1, %.preheader.i ], [ -1, %Saig_TsiStateHash.exit.i ], [ %47, %.critedge.loopexit.split.loop.exit37.i ], [ -1, %44 ], [ -1, %45 ]
+  %.019.i = phi i32 [ -1, %44 ], [ -1, %.preheader.i ], [ -1, %Saig_TsiStateHash.exit.i ], [ %47, %.critedge.loopexit.split.loop.exit37.i ], [ -1, %45 ]
   %48 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i32 %.019.i, ptr %48, align 8, !tbaa !79
   %49 = xor i32 %.019.i, -1
@@ -2967,7 +2967,7 @@ Saig_TsiStateHash.exit.i:                         ; preds = %.lr.ph.i.i, %5
   br label %Saig_TsiComputePrefix.exit
 
 Saig_TsiComputePrefix.exit:                       ; preds = %40, %39, %Saig_TsiStateHash.exit.i, %.preheader.i, %.critedge.loopexit.split.loop.exit37.i
-  %.019.i = phi i32 [ -1, %.preheader.i ], [ -1, %Saig_TsiStateHash.exit.i ], [ %42, %.critedge.loopexit.split.loop.exit37.i ], [ -1, %39 ], [ -1, %40 ]
+  %.019.i = phi i32 [ -1, %39 ], [ -1, %.preheader.i ], [ -1, %Saig_TsiStateHash.exit.i ], [ %42, %.critedge.loopexit.split.loop.exit37.i ], [ -1, %40 ]
   %43 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 %.019.i, ptr %43, align 8, !tbaa !79
   %44 = xor i32 %.019.i, -1

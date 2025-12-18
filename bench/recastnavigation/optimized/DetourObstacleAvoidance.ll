@@ -1215,7 +1215,7 @@ _ZL11isectRaySegPKfS0_S0_S0_Rf.exit.thread:       ; preds = %159, %168, %183, %1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %134, %186, %._crit_edge, %202, %9
-  %.0 = phi float [ %7, %9 ], [ %201, %202 ], [ %201, %._crit_edge ], [ %7, %186 ], [ %7, %134 ]
+  %.0 = phi float [ %201, %._crit_edge ], [ %7, %9 ], [ %7, %186 ], [ %201, %202 ], [ %7, %134 ]
   ret float %.0
 }
 
@@ -1590,7 +1590,7 @@ _Z13dtNormalize2DPf.exit:                         ; preds = %24, %50
   br label %._crit_edge127
 
 ._crit_edge127:                                   ; preds = %94, %._crit_edge127.loopexit160, %._crit_edge127.loopexit159, %_Z13dtNormalize2DPf.exit
-  %.0.lcssa = phi i32 [ 1, %_Z13dtNormalize2DPf.exit ], [ %150, %._crit_edge127.loopexit160 ], [ %149, %._crit_edge127.loopexit159 ], [ %.2.us, %94 ]
+  %.0.lcssa = phi i32 [ 1, %_Z13dtNormalize2DPf.exit ], [ %149, %._crit_edge127.loopexit159 ], [ %150, %._crit_edge127.loopexit160 ], [ %.2.us, %94 ]
   %151 = load float, ptr %0, align 8
   %152 = load float, ptr %5, align 4
   %153 = fmul float %151, %152

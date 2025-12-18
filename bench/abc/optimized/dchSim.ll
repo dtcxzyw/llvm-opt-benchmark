@@ -102,7 +102,7 @@ define i32 @Dch_NodeHash(ptr noundef readonly captures(none) %0, ptr noundef rea
   br i1 %exitcond40.not, label %.loopexit, label %.lr.ph31, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph31, %.preheader25, %.preheader
-  %.1 = phi i32 [ 0, %.preheader ], [ 0, %.preheader25 ], [ %34, %.lr.ph31 ], [ %27, %.lr.ph ]
+  %.1 = phi i32 [ %34, %.lr.ph31 ], [ 0, %.preheader ], [ 0, %.preheader25 ], [ %27, %.lr.ph ]
   ret i32 %.1
 }
 

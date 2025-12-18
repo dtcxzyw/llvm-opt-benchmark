@@ -2858,7 +2858,7 @@ define void @Dar2_LibEvalAssignNums(ptr noundef %0, i32 noundef %1) local_unname
   br label %96
 
 94:                                               ; preds = %75, %73, %70
-  %.0 = phi i32 [ %92, %75 ], [ %65, %70 ], [ %61, %73 ]
+  %.0 = phi i32 [ %92, %75 ], [ %61, %73 ], [ %65, %70 ]
   store i32 %.0, ptr %28, align 8, !tbaa !35
   %95 = icmp sgt i32 %.0, -1
   br i1 %95, label %96, label %149

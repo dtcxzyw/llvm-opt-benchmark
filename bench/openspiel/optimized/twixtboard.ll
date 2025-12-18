@@ -984,7 +984,7 @@ _ZNKSt4lessI4LinkEclERKS0_S3_.exit.thread.i.i88.us: ; preds = %_ZNKSt4lessI4Link
   br i1 %.not.i.i90.us, label %._crit_edge.thread.i.i91.us, label %.lr.ph.i.i64.us.backedge
 
 .lr.ph.i.i64.us.backedge:                         ; preds = %_ZNKSt4lessI4LinkEclERKS0_S3_.exit.thread.i.i88.us, %_ZNKSt4lessI4LinkEclERKS0_S3_.exit.thread.i.thread.i66.us
-  %.02330.i.i65.us.be = phi ptr [ %.023.i.i89.us, %_ZNKSt4lessI4LinkEclERKS0_S3_.exit.thread.i.i88.us ], [ %.023.i14.i67.us, %_ZNKSt4lessI4LinkEclERKS0_S3_.exit.thread.i.thread.i66.us ]
+  %.02330.i.i65.us.be = phi ptr [ %.023.i14.i67.us, %_ZNKSt4lessI4LinkEclERKS0_S3_.exit.thread.i.thread.i66.us ], [ %.023.i.i89.us, %_ZNKSt4lessI4LinkEclERKS0_S3_.exit.thread.i.i88.us ]
   br label %.lr.ph.i.i64.us, !llvm.loop !10
 
 ._crit_edge.thread.i.i91.us:                      ; preds = %_ZNKSt4lessI4LinkEclERKS0_S3_.exit.thread.i.i88.us, %_ZNSt8__detail9_Map_baseI4LinkSt4pairIKS1_St3setIS1_St4lessIS1_ESaIS1_EEESaIS9_ENS_10_Select1stESt8equal_toIS1_EN10open_spiel5twixt16LinkHashFunctionENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS3_.exit107.us
@@ -1338,7 +1338,7 @@ _ZNKSt4lessI4LinkEclERKS0_S3_.exit.thread.i.i.us: ; preds = %_ZNKSt4lessI4LinkEc
   br i1 %.not.i.i60.us, label %._crit_edge.thread.i.i.us, label %.lr.ph.i.i.us.backedge
 
 .lr.ph.i.i.us.backedge:                           ; preds = %_ZNKSt4lessI4LinkEclERKS0_S3_.exit.thread.i.i.us, %_ZNKSt4lessI4LinkEclERKS0_S3_.exit.thread.i.thread.i.us
-  %.02330.i.i.us.be = phi ptr [ %.023.i.i.us, %_ZNKSt4lessI4LinkEclERKS0_S3_.exit.thread.i.i.us ], [ %.023.i14.i.us, %_ZNKSt4lessI4LinkEclERKS0_S3_.exit.thread.i.thread.i.us ]
+  %.02330.i.i.us.be = phi ptr [ %.023.i14.i.us, %_ZNKSt4lessI4LinkEclERKS0_S3_.exit.thread.i.thread.i.us ], [ %.023.i.i.us, %_ZNKSt4lessI4LinkEclERKS0_S3_.exit.thread.i.i.us ]
   br label %.lr.ph.i.i.us, !llvm.loop !10
 
 ._crit_edge.thread.i.i.us:                        ; preds = %_ZNKSt4lessI4LinkEclERKS0_S3_.exit.thread.i.i.us, %_ZNSt8__detail9_Map_baseI4LinkSt4pairIKS1_St3setIS1_St4lessIS1_ESaIS1_EEESaIS9_ENS_10_Select1stESt8equal_toIS1_EN10open_spiel5twixt16LinkHashFunctionENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS3_.exit.us
@@ -7359,8 +7359,8 @@ _ZNKSt4lessI4LinkEclERKS0_S3_.exit.thread.i:      ; preds = %_ZNKSt4lessI4LinkEc
   br label %_ZNKSt4lessI4LinkEclERKS0_S3_.exit.thread11.i
 
 _ZNKSt4lessI4LinkEclERKS0_S3_.exit.thread11.i:    ; preds = %_ZNKSt4lessI4LinkEclERKS0_S3_.exit.thread.i, %_ZNKSt4lessI4LinkEclERKS0_S3_.exit.i, %_ZNK8PositionltERKS_.exit.thread4.i.i.i, %39
-  %.sink.i = phi i64 [ 24, %_ZNKSt4lessI4LinkEclERKS0_S3_.exit.thread.i ], [ 16, %39 ], [ 16, %_ZNK8PositionltERKS_.exit.thread4.i.i.i ], [ 16, %_ZNKSt4lessI4LinkEclERKS0_S3_.exit.i ]
-  %.19.i = phi ptr [ %.0813.i, %_ZNKSt4lessI4LinkEclERKS0_S3_.exit.thread.i ], [ %.014.i, %39 ], [ %.014.i, %_ZNK8PositionltERKS_.exit.thread4.i.i.i ], [ %.014.i, %_ZNKSt4lessI4LinkEclERKS0_S3_.exit.i ]
+  %.sink.i = phi i64 [ 24, %_ZNKSt4lessI4LinkEclERKS0_S3_.exit.thread.i ], [ 16, %_ZNK8PositionltERKS_.exit.thread4.i.i.i ], [ 16, %39 ], [ 16, %_ZNKSt4lessI4LinkEclERKS0_S3_.exit.i ]
+  %.19.i = phi ptr [ %.0813.i, %_ZNKSt4lessI4LinkEclERKS0_S3_.exit.thread.i ], [ %.014.i, %_ZNK8PositionltERKS_.exit.thread4.i.i.i ], [ %.014.i, %39 ], [ %.014.i, %_ZNKSt4lessI4LinkEclERKS0_S3_.exit.i ]
   %48 = getelementptr inbounds nuw i8, ptr %.014.i, i64 %.sink.i
   %.1.i = load ptr, ptr %48, align 8
   %.not.i = icmp eq ptr %.1.i, null
@@ -7419,8 +7419,8 @@ _ZNKSt4lessI4LinkEclERKS0_S3_.exit.thread:        ; preds = %_ZNKSt4lessI4LinkEc
   br i1 %.not, label %_ZNSt8_Rb_treeI4LinkS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE14_M_upper_boundEPSt13_Rb_tree_nodeIS0_EPSt18_Rb_tree_node_baseRKS0_.exit, label %10, !llvm.loop !39
 
 _ZNSt8_Rb_treeI4LinkS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE14_M_upper_boundEPSt13_Rb_tree_nodeIS0_EPSt18_Rb_tree_node_baseRKS0_.exit: ; preds = %_ZNKSt4lessI4LinkEclERKS0_S3_.exit.thread, %_ZNKSt4lessI4LinkEclERKS0_S3_.exit.thread.i32, %2, %_ZNSt8_Rb_treeI4LinkS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS0_EPSt18_Rb_tree_node_baseRKS0_.exit
-  %.sroa.044.0 = phi ptr [ %.08.lcssa.i, %_ZNSt8_Rb_treeI4LinkS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS0_EPSt18_Rb_tree_node_baseRKS0_.exit ], [ %4, %2 ], [ %.08.lcssa.i, %_ZNKSt4lessI4LinkEclERKS0_S3_.exit.thread.i32 ], [ %.123, %_ZNKSt4lessI4LinkEclERKS0_S3_.exit.thread ]
-  %.sroa.3.0 = phi ptr [ %.02254, %_ZNSt8_Rb_treeI4LinkS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS0_EPSt18_Rb_tree_node_baseRKS0_.exit ], [ %4, %2 ], [ %.19.i34, %_ZNKSt4lessI4LinkEclERKS0_S3_.exit.thread.i32 ], [ %.123, %_ZNKSt4lessI4LinkEclERKS0_S3_.exit.thread ]
+  %.sroa.044.0 = phi ptr [ %.08.lcssa.i, %_ZNKSt4lessI4LinkEclERKS0_S3_.exit.thread.i32 ], [ %.08.lcssa.i, %_ZNSt8_Rb_treeI4LinkS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS0_EPSt18_Rb_tree_node_baseRKS0_.exit ], [ %4, %2 ], [ %.123, %_ZNKSt4lessI4LinkEclERKS0_S3_.exit.thread ]
+  %.sroa.3.0 = phi ptr [ %.19.i34, %_ZNKSt4lessI4LinkEclERKS0_S3_.exit.thread.i32 ], [ %.02254, %_ZNSt8_Rb_treeI4LinkS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS0_EPSt18_Rb_tree_node_baseRKS0_.exit ], [ %4, %2 ], [ %.123, %_ZNKSt4lessI4LinkEclERKS0_S3_.exit.thread ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.044.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.3.0, 1
   ret { ptr, ptr } %.fca.1.insert

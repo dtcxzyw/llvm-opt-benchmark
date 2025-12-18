@@ -257,7 +257,7 @@ do_colorkey_pixel.exit.us:                        ; preds = %.lr.ph, %do_colorke
   br i1 %101, label %do_colorkey_pixel.exit.us, label %._crit_edge, !llvm.loop !61
 
 ._crit_edge:                                      ; preds = %do_colorkey_pixel.exit, %do_colorkey_pixel.exit.us, %.lr.ph45.split
-  %102 = phi i32 [ %40, %.lr.ph45.split ], [ %100, %do_colorkey_pixel.exit.us ], [ %151, %do_colorkey_pixel.exit ]
+  %102 = phi i32 [ %100, %do_colorkey_pixel.exit.us ], [ %40, %.lr.ph45.split ], [ %151, %do_colorkey_pixel.exit ]
   %103 = add nsw i32 %.043, 1
   %exitcond.not = icmp eq i32 %103, %11
   br i1 %exitcond.not, label %._crit_edge46, label %.lr.ph45.split, !llvm.loop !63

@@ -1595,7 +1595,7 @@ if.then26.i.i.i.i:                                ; preds = %for.end.i.i.i.i
   br label %land.end.i.i
 
 land.end.i.i:                                     ; preds = %for.body.i.i.i.i, %if.then26.i.i.i.i, %for.end.i.i.i.i, %if.end.i.i
-  %frombool.i.i = phi i16 [ 256, %if.end.i.i ], [ %13, %if.then26.i.i.i.i ], [ 257, %for.end.i.i.i.i ], [ 256, %for.body.i.i.i.i ]
+  %frombool.i.i = phi i16 [ %13, %if.then26.i.i.i.i ], [ 256, %if.end.i.i ], [ 257, %for.end.i.i.i.i ], [ 256, %for.body.i.i.i.i ]
   store i16 %frombool.i.i, ptr %allSelected_.i.i, align 4
   %14 = trunc i16 %frombool.i.i to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i
@@ -1993,7 +1993,7 @@ if.then26.i.i.i.i230:                             ; preds = %for.end.i.i.i.i228
   br label %land.end.i.i22
 
 land.end.i.i22:                                   ; preds = %for.body.i.i.i.i239, %if.then26.i.i.i.i230, %for.end.i.i.i.i228, %if.end.i.i19
-  %frombool.i.i23 = phi i16 [ 256, %if.end.i.i19 ], [ %71, %if.then26.i.i.i.i230 ], [ 257, %for.end.i.i.i.i228 ], [ 256, %for.body.i.i.i.i239 ]
+  %frombool.i.i23 = phi i16 [ %71, %if.then26.i.i.i.i230 ], [ 256, %if.end.i.i19 ], [ 257, %for.end.i.i.i.i228 ], [ 256, %for.body.i.i.i.i239 ]
   store i16 %frombool.i.i23, ptr %allSelected_.i.i, align 4
   %72 = trunc i16 %frombool.i.i23 to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i24
@@ -4674,7 +4674,7 @@ return.sink.split:                                ; preds = %if.then.i, %_ZZN8fa
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.then27, %if.then3, %for.end, %entry
-  %retval.0 = phi i1 [ true, %entry ], [ true, %for.end ], [ true, %if.then3 ], [ true, %if.then27 ], [ false, %return.sink.split ]
+  %retval.0 = phi i1 [ true, %entry ], [ true, %for.end ], [ true, %if.then27 ], [ true, %if.then3 ], [ false, %return.sink.split ]
   ret i1 %retval.0
 }
 
@@ -11995,7 +11995,7 @@ if.end7.i119:                                     ; preds = %while.body.i106
   br i1 %tobool5.not.i122, label %return, label %while.body.i106, !llvm.loop !198
 
 return:                                           ; preds = %while.body.i45, %while.body.i74, %if.end7.i119, %while.body.i106, %if.end7.i, %while.body.i, %if.then26, %if.then3, %for.end, %entry
-  %retval.0 = phi i1 [ true, %entry ], [ true, %for.end ], [ true, %if.then26 ], [ true, %if.then3 ], [ false, %while.body.i74 ], [ %tobool.i.i.i.not.not.i.not.not, %if.end7.i ], [ %tobool.i.i.i.not.not.i118.not.not, %if.end7.i119 ], [ %tobool.i.i.i.not.not.i.not.not, %while.body.i ], [ %tobool.i.i.i.not.not.i118.not.not, %while.body.i106 ], [ false, %while.body.i45 ]
+  %retval.0 = phi i1 [ true, %entry ], [ true, %for.end ], [ true, %if.then26 ], [ %tobool.i.i.i.not.not.i118.not.not, %if.end7.i119 ], [ false, %while.body.i74 ], [ true, %if.then3 ], [ %tobool.i.i.i.not.not.i.not.not, %if.end7.i ], [ %tobool.i.i.i.not.not.i.not.not, %while.body.i ], [ %tobool.i.i.i.not.not.i118.not.not, %while.body.i106 ], [ false, %while.body.i45 ]
   ret i1 %retval.0
 }
 

@@ -6822,10 +6822,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %59, %
   br i1 %exitcond913.not, label %.loopexit765, label %.lr.ph812, !llvm.loop !174
 
 .loopexit765:                                     ; preds = %.lr.ph, %.lr.ph787, %.lr.ph792, %.lr.ph797, %482, %.loopexit, %757, %.critedge, %.preheader778, %.preheader776, %.preheader774, %.preheader772, %.preheader770, %.preheader768, %.preheader766, %.preheader764, %.thread, %96
-  %.1593 = phi i32 [ %.0592835, %96 ], [ %.0592835, %.thread ], [ %.0584837, %.preheader764 ], [ %.0584837, %.preheader766 ], [ %.0584837, %.preheader768 ], [ %.0584837, %.preheader770 ], [ %.0584837, %.preheader772 ], [ %.0584837, %.preheader774 ], [ %.0584837, %.preheader776 ], [ %.0584837, %.preheader778 ], [ %.0592835, %.lr.ph787 ], [ %.0592835, %.critedge ], [ %.0592835, %757 ], [ %.0592835, %.loopexit ], [ %.0592835, %482 ], [ %.0592835, %.lr.ph797 ], [ %.0592835, %.lr.ph792 ], [ %.0592835, %.lr.ph ]
-  %.1587 = phi i8 [ %.0586836, %96 ], [ 0, %.thread ], [ 1, %.preheader764 ], [ 1, %.preheader766 ], [ 1, %.preheader768 ], [ 0, %.preheader770 ], [ 0, %.preheader772 ], [ 0, %.preheader774 ], [ 0, %.preheader776 ], [ 0, %.preheader778 ], [ 0, %.lr.ph787 ], [ %98, %.critedge ], [ %98, %757 ], [ %98, %.loopexit ], [ 0, %482 ], [ 0, %.lr.ph797 ], [ 0, %.lr.ph792 ], [ 0, %.lr.ph ]
-  %.1585 = phi i32 [ %.0584837, %96 ], [ %.0584837, %.thread ], [ %.0592835, %.preheader764 ], [ %.0592835, %.preheader766 ], [ %.0592835, %.preheader768 ], [ %.0592835, %.preheader770 ], [ %.0592835, %.preheader772 ], [ %.0592835, %.preheader774 ], [ %.0592835, %.preheader776 ], [ %.0592835, %.preheader778 ], [ %.0592835, %.lr.ph787 ], [ %.0592835, %.critedge ], [ %.0592835, %757 ], [ %.0592835, %.loopexit ], [ %.0592835, %482 ], [ %.0592835, %.lr.ph797 ], [ %.0592835, %.lr.ph792 ], [ %.0592835, %.lr.ph ]
-  %.1 = phi ptr [ %.0578838, %96 ], [ %.0578838, %.thread ], [ %.0578838, %.preheader764 ], [ %.0578838, %.preheader766 ], [ %.0578838, %.preheader768 ], [ %.0578838, %.preheader770 ], [ %.0578838, %.preheader772 ], [ %.0578838, %.preheader774 ], [ %.0578838, %.preheader776 ], [ %.0578838, %.preheader778 ], [ %329, %.lr.ph787 ], [ %656, %.critedge ], [ %758, %757 ], [ %875, %.loopexit ], [ %483, %482 ], [ %155, %.lr.ph797 ], [ %230, %.lr.ph792 ], [ %462, %.lr.ph ]
+  %.1593 = phi i32 [ %.0592835, %96 ], [ %.0592835, %.critedge ], [ %.0592835, %.lr.ph792 ], [ %.0592835, %.lr.ph787 ], [ %.0592835, %.thread ], [ %.0592835, %757 ], [ %.0592835, %.loopexit ], [ %.0592835, %482 ], [ %.0592835, %.lr.ph797 ], [ %.0584837, %.preheader764 ], [ %.0584837, %.preheader766 ], [ %.0584837, %.preheader768 ], [ %.0584837, %.preheader770 ], [ %.0584837, %.preheader772 ], [ %.0584837, %.preheader774 ], [ %.0584837, %.preheader776 ], [ %.0584837, %.preheader778 ], [ %.0592835, %.lr.ph ]
+  %.1587 = phi i8 [ %.0586836, %96 ], [ %98, %.critedge ], [ 0, %.lr.ph792 ], [ 0, %.lr.ph787 ], [ 0, %.thread ], [ %98, %757 ], [ %98, %.loopexit ], [ 0, %482 ], [ 0, %.lr.ph797 ], [ 1, %.preheader764 ], [ 1, %.preheader766 ], [ 1, %.preheader768 ], [ 0, %.preheader770 ], [ 0, %.preheader772 ], [ 0, %.preheader774 ], [ 0, %.preheader776 ], [ 0, %.preheader778 ], [ 0, %.lr.ph ]
+  %.1585 = phi i32 [ %.0584837, %96 ], [ %.0592835, %.critedge ], [ %.0592835, %.lr.ph792 ], [ %.0592835, %.lr.ph787 ], [ %.0584837, %.thread ], [ %.0592835, %757 ], [ %.0592835, %.loopexit ], [ %.0592835, %482 ], [ %.0592835, %.lr.ph797 ], [ %.0592835, %.preheader764 ], [ %.0592835, %.preheader766 ], [ %.0592835, %.preheader768 ], [ %.0592835, %.preheader770 ], [ %.0592835, %.preheader772 ], [ %.0592835, %.preheader774 ], [ %.0592835, %.preheader776 ], [ %.0592835, %.preheader778 ], [ %.0592835, %.lr.ph ]
+  %.1 = phi ptr [ %.0578838, %96 ], [ %656, %.critedge ], [ %230, %.lr.ph792 ], [ %329, %.lr.ph787 ], [ %.0578838, %.thread ], [ %758, %757 ], [ %875, %.loopexit ], [ %483, %482 ], [ %155, %.lr.ph797 ], [ %.0578838, %.preheader764 ], [ %.0578838, %.preheader766 ], [ %.0578838, %.preheader768 ], [ %.0578838, %.preheader770 ], [ %.0578838, %.preheader772 ], [ %.0578838, %.preheader774 ], [ %.0578838, %.preheader776 ], [ %.0578838, %.preheader778 ], [ %462, %.lr.ph ]
   %876 = add nsw i32 %.1593, 1
   %.not.not = icmp slt i32 %.1593, %20
   br i1 %.not.not, label %79, label %._crit_edge, !llvm.loop !175
@@ -7537,8 +7537,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %60, %
   br label %.thread714
 
 .thread714:                                       ; preds = %.thread714.sink.split, %477, %.thread725
-  %490 = phi i1 [ false, %.thread725 ], [ false, %477 ], [ true, %.thread714.sink.split ]
-  %.3591 = phi float [ %475, %.thread725 ], [ %480, %477 ], [ %489, %.thread714.sink.split ]
+  %490 = phi i1 [ false, %477 ], [ false, %.thread725 ], [ true, %.thread714.sink.split ]
+  %.3591 = phi float [ %480, %477 ], [ %475, %.thread725 ], [ %489, %.thread714.sink.split ]
   %491 = fcmp une float %.3591, 0.000000e+00
   br i1 %491, label %492, label %.critedge
 
@@ -7985,10 +7985,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %60, %
   br i1 %exitcond912.not, label %.loopexit764, label %.lr.ph811, !llvm.loop !189
 
 .loopexit764:                                     ; preds = %.lr.ph, %.lr.ph786, %.lr.ph791, %.lr.ph796, %432, %.loopexit, %654, %.critedge, %.preheader777, %.preheader775, %.preheader773, %.preheader771, %.preheader769, %.preheader767, %.preheader765, %.preheader763, %.thread, %97
-  %.1593 = phi i32 [ %.0592834, %97 ], [ %.0592834, %.thread ], [ %.0584836, %.preheader763 ], [ %.0584836, %.preheader765 ], [ %.0584836, %.preheader767 ], [ %.0584836, %.preheader769 ], [ %.0584836, %.preheader771 ], [ %.0584836, %.preheader773 ], [ %.0584836, %.preheader775 ], [ %.0584836, %.preheader777 ], [ %.0592834, %.lr.ph786 ], [ %.0592834, %.critedge ], [ %.0592834, %654 ], [ %.0592834, %.loopexit ], [ %.0592834, %432 ], [ %.0592834, %.lr.ph796 ], [ %.0592834, %.lr.ph791 ], [ %.0592834, %.lr.ph ]
-  %.1587 = phi i8 [ %.0586835, %97 ], [ 0, %.thread ], [ 1, %.preheader763 ], [ 1, %.preheader765 ], [ 1, %.preheader767 ], [ 0, %.preheader769 ], [ 0, %.preheader771 ], [ 0, %.preheader773 ], [ 0, %.preheader775 ], [ 0, %.preheader777 ], [ 0, %.lr.ph786 ], [ %99, %.critedge ], [ %99, %654 ], [ %99, %.loopexit ], [ 0, %432 ], [ 0, %.lr.ph796 ], [ 0, %.lr.ph791 ], [ 0, %.lr.ph ]
-  %.1585 = phi i32 [ %.0584836, %97 ], [ %.0584836, %.thread ], [ %.0592834, %.preheader763 ], [ %.0592834, %.preheader765 ], [ %.0592834, %.preheader767 ], [ %.0592834, %.preheader769 ], [ %.0592834, %.preheader771 ], [ %.0592834, %.preheader773 ], [ %.0592834, %.preheader775 ], [ %.0592834, %.preheader777 ], [ %.0592834, %.lr.ph786 ], [ %.0592834, %.critedge ], [ %.0592834, %654 ], [ %.0592834, %.loopexit ], [ %.0592834, %432 ], [ %.0592834, %.lr.ph796 ], [ %.0592834, %.lr.ph791 ], [ %.0592834, %.lr.ph ]
-  %.1 = phi ptr [ %.0578837, %97 ], [ %.0578837, %.thread ], [ %.0578837, %.preheader763 ], [ %.0578837, %.preheader765 ], [ %.0578837, %.preheader767 ], [ %.0578837, %.preheader769 ], [ %.0578837, %.preheader771 ], [ %.0578837, %.preheader773 ], [ %.0578837, %.preheader775 ], [ %.0578837, %.preheader777 ], [ %299, %.lr.ph786 ], [ %560, %.critedge ], [ %655, %654 ], [ %765, %.loopexit ], [ %433, %432 ], [ %149, %.lr.ph796 ], [ %214, %.lr.ph791 ], [ %408, %.lr.ph ]
+  %.1593 = phi i32 [ %.0592834, %97 ], [ %.0592834, %.critedge ], [ %.0592834, %.lr.ph791 ], [ %.0592834, %.lr.ph786 ], [ %.0592834, %.thread ], [ %.0592834, %654 ], [ %.0592834, %.loopexit ], [ %.0592834, %432 ], [ %.0592834, %.lr.ph796 ], [ %.0584836, %.preheader763 ], [ %.0584836, %.preheader765 ], [ %.0584836, %.preheader767 ], [ %.0584836, %.preheader769 ], [ %.0584836, %.preheader771 ], [ %.0584836, %.preheader773 ], [ %.0584836, %.preheader775 ], [ %.0584836, %.preheader777 ], [ %.0592834, %.lr.ph ]
+  %.1587 = phi i8 [ %.0586835, %97 ], [ %99, %.critedge ], [ 0, %.lr.ph791 ], [ 0, %.lr.ph786 ], [ 0, %.thread ], [ %99, %654 ], [ %99, %.loopexit ], [ 0, %432 ], [ 0, %.lr.ph796 ], [ 1, %.preheader763 ], [ 1, %.preheader765 ], [ 1, %.preheader767 ], [ 0, %.preheader769 ], [ 0, %.preheader771 ], [ 0, %.preheader773 ], [ 0, %.preheader775 ], [ 0, %.preheader777 ], [ 0, %.lr.ph ]
+  %.1585 = phi i32 [ %.0584836, %97 ], [ %.0592834, %.critedge ], [ %.0592834, %.lr.ph791 ], [ %.0592834, %.lr.ph786 ], [ %.0584836, %.thread ], [ %.0592834, %654 ], [ %.0592834, %.loopexit ], [ %.0592834, %432 ], [ %.0592834, %.lr.ph796 ], [ %.0592834, %.preheader763 ], [ %.0592834, %.preheader765 ], [ %.0592834, %.preheader767 ], [ %.0592834, %.preheader769 ], [ %.0592834, %.preheader771 ], [ %.0592834, %.preheader773 ], [ %.0592834, %.preheader775 ], [ %.0592834, %.preheader777 ], [ %.0592834, %.lr.ph ]
+  %.1 = phi ptr [ %.0578837, %97 ], [ %560, %.critedge ], [ %214, %.lr.ph791 ], [ %299, %.lr.ph786 ], [ %.0578837, %.thread ], [ %655, %654 ], [ %765, %.loopexit ], [ %433, %432 ], [ %149, %.lr.ph796 ], [ %.0578837, %.preheader763 ], [ %.0578837, %.preheader765 ], [ %.0578837, %.preheader767 ], [ %.0578837, %.preheader769 ], [ %.0578837, %.preheader771 ], [ %.0578837, %.preheader773 ], [ %.0578837, %.preheader775 ], [ %.0578837, %.preheader777 ], [ %408, %.lr.ph ]
   %766 = add nsw i32 %.1593, 1
   %.not.not = icmp slt i32 %.1593, %20
   br i1 %.not.not, label %80, label %._crit_edge, !llvm.loop !190
@@ -8700,8 +8700,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %60, %
   br label %.thread714
 
 .thread714:                                       ; preds = %.thread714.sink.split, %477, %.thread725
-  %490 = phi i1 [ false, %.thread725 ], [ false, %477 ], [ true, %.thread714.sink.split ]
-  %.3591 = phi float [ %475, %.thread725 ], [ %480, %477 ], [ %489, %.thread714.sink.split ]
+  %490 = phi i1 [ false, %477 ], [ false, %.thread725 ], [ true, %.thread714.sink.split ]
+  %.3591 = phi float [ %480, %477 ], [ %475, %.thread725 ], [ %489, %.thread714.sink.split ]
   %491 = fcmp une float %.3591, 0.000000e+00
   br i1 %491, label %492, label %.critedge
 
@@ -9148,10 +9148,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %60, %
   br i1 %exitcond912.not, label %.loopexit764, label %.lr.ph811, !llvm.loop !204
 
 .loopexit764:                                     ; preds = %.lr.ph, %.lr.ph786, %.lr.ph791, %.lr.ph796, %432, %.loopexit, %654, %.critedge, %.preheader777, %.preheader775, %.preheader773, %.preheader771, %.preheader769, %.preheader767, %.preheader765, %.preheader763, %.thread, %97
-  %.1593 = phi i32 [ %.0592834, %97 ], [ %.0592834, %.thread ], [ %.0584836, %.preheader763 ], [ %.0584836, %.preheader765 ], [ %.0584836, %.preheader767 ], [ %.0584836, %.preheader769 ], [ %.0584836, %.preheader771 ], [ %.0584836, %.preheader773 ], [ %.0584836, %.preheader775 ], [ %.0584836, %.preheader777 ], [ %.0592834, %.lr.ph786 ], [ %.0592834, %.critedge ], [ %.0592834, %654 ], [ %.0592834, %.loopexit ], [ %.0592834, %432 ], [ %.0592834, %.lr.ph796 ], [ %.0592834, %.lr.ph791 ], [ %.0592834, %.lr.ph ]
-  %.1587 = phi i8 [ %.0586835, %97 ], [ 0, %.thread ], [ 1, %.preheader763 ], [ 1, %.preheader765 ], [ 1, %.preheader767 ], [ 0, %.preheader769 ], [ 0, %.preheader771 ], [ 0, %.preheader773 ], [ 0, %.preheader775 ], [ 0, %.preheader777 ], [ 0, %.lr.ph786 ], [ %99, %.critedge ], [ %99, %654 ], [ %99, %.loopexit ], [ 0, %432 ], [ 0, %.lr.ph796 ], [ 0, %.lr.ph791 ], [ 0, %.lr.ph ]
-  %.1585 = phi i32 [ %.0584836, %97 ], [ %.0584836, %.thread ], [ %.0592834, %.preheader763 ], [ %.0592834, %.preheader765 ], [ %.0592834, %.preheader767 ], [ %.0592834, %.preheader769 ], [ %.0592834, %.preheader771 ], [ %.0592834, %.preheader773 ], [ %.0592834, %.preheader775 ], [ %.0592834, %.preheader777 ], [ %.0592834, %.lr.ph786 ], [ %.0592834, %.critedge ], [ %.0592834, %654 ], [ %.0592834, %.loopexit ], [ %.0592834, %432 ], [ %.0592834, %.lr.ph796 ], [ %.0592834, %.lr.ph791 ], [ %.0592834, %.lr.ph ]
-  %.1 = phi ptr [ %.0578837, %97 ], [ %.0578837, %.thread ], [ %.0578837, %.preheader763 ], [ %.0578837, %.preheader765 ], [ %.0578837, %.preheader767 ], [ %.0578837, %.preheader769 ], [ %.0578837, %.preheader771 ], [ %.0578837, %.preheader773 ], [ %.0578837, %.preheader775 ], [ %.0578837, %.preheader777 ], [ %299, %.lr.ph786 ], [ %560, %.critedge ], [ %655, %654 ], [ %765, %.loopexit ], [ %433, %432 ], [ %149, %.lr.ph796 ], [ %214, %.lr.ph791 ], [ %408, %.lr.ph ]
+  %.1593 = phi i32 [ %.0592834, %97 ], [ %.0592834, %.critedge ], [ %.0592834, %.lr.ph791 ], [ %.0592834, %.lr.ph786 ], [ %.0592834, %.thread ], [ %.0592834, %654 ], [ %.0592834, %.loopexit ], [ %.0592834, %432 ], [ %.0592834, %.lr.ph796 ], [ %.0584836, %.preheader763 ], [ %.0584836, %.preheader765 ], [ %.0584836, %.preheader767 ], [ %.0584836, %.preheader769 ], [ %.0584836, %.preheader771 ], [ %.0584836, %.preheader773 ], [ %.0584836, %.preheader775 ], [ %.0584836, %.preheader777 ], [ %.0592834, %.lr.ph ]
+  %.1587 = phi i8 [ %.0586835, %97 ], [ %99, %.critedge ], [ 0, %.lr.ph791 ], [ 0, %.lr.ph786 ], [ 0, %.thread ], [ %99, %654 ], [ %99, %.loopexit ], [ 0, %432 ], [ 0, %.lr.ph796 ], [ 1, %.preheader763 ], [ 1, %.preheader765 ], [ 1, %.preheader767 ], [ 0, %.preheader769 ], [ 0, %.preheader771 ], [ 0, %.preheader773 ], [ 0, %.preheader775 ], [ 0, %.preheader777 ], [ 0, %.lr.ph ]
+  %.1585 = phi i32 [ %.0584836, %97 ], [ %.0592834, %.critedge ], [ %.0592834, %.lr.ph791 ], [ %.0592834, %.lr.ph786 ], [ %.0584836, %.thread ], [ %.0592834, %654 ], [ %.0592834, %.loopexit ], [ %.0592834, %432 ], [ %.0592834, %.lr.ph796 ], [ %.0592834, %.preheader763 ], [ %.0592834, %.preheader765 ], [ %.0592834, %.preheader767 ], [ %.0592834, %.preheader769 ], [ %.0592834, %.preheader771 ], [ %.0592834, %.preheader773 ], [ %.0592834, %.preheader775 ], [ %.0592834, %.preheader777 ], [ %.0592834, %.lr.ph ]
+  %.1 = phi ptr [ %.0578837, %97 ], [ %560, %.critedge ], [ %214, %.lr.ph791 ], [ %299, %.lr.ph786 ], [ %.0578837, %.thread ], [ %655, %654 ], [ %765, %.loopexit ], [ %433, %432 ], [ %149, %.lr.ph796 ], [ %.0578837, %.preheader763 ], [ %.0578837, %.preheader765 ], [ %.0578837, %.preheader767 ], [ %.0578837, %.preheader769 ], [ %.0578837, %.preheader771 ], [ %.0578837, %.preheader773 ], [ %.0578837, %.preheader775 ], [ %.0578837, %.preheader777 ], [ %408, %.lr.ph ]
   %766 = add nsw i32 %.1593, 1
   %.not.not = icmp slt i32 %.1593, %20
   br i1 %.not.not, label %80, label %._crit_edge, !llvm.loop !205
@@ -9764,8 +9764,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %56, %
   br label %.thread714
 
 .thread714:                                       ; preds = %.thread714.sink.split, %378, %.thread725
-  %391 = phi i1 [ false, %.thread725 ], [ false, %378 ], [ true, %.thread714.sink.split ]
-  %.3591 = phi float [ %376, %.thread725 ], [ %381, %378 ], [ %390, %.thread714.sink.split ]
+  %391 = phi i1 [ false, %378 ], [ false, %.thread725 ], [ true, %.thread714.sink.split ]
+  %.3591 = phi float [ %381, %378 ], [ %376, %.thread725 ], [ %390, %.thread714.sink.split ]
   %392 = fcmp une float %.3591, 0.000000e+00
   br i1 %392, label %393, label %.critedge
 
@@ -10179,10 +10179,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %56, %
   br i1 %exitcond912.not, label %.loopexit764, label %.lr.ph811, !llvm.loop !219
 
 .loopexit764:                                     ; preds = %.lr.ph, %.lr.ph786, %.lr.ph791, %.lr.ph796, %338, %.loopexit, %531, %.critedge, %.preheader777, %.preheader775, %.preheader773, %.preheader771, %.preheader769, %.preheader767, %.preheader765, %.preheader763, %.thread, %93
-  %.1593 = phi i32 [ %.0592834, %93 ], [ %.0592834, %.thread ], [ %.0584836, %.preheader763 ], [ %.0584836, %.preheader765 ], [ %.0584836, %.preheader767 ], [ %.0584836, %.preheader769 ], [ %.0584836, %.preheader771 ], [ %.0584836, %.preheader773 ], [ %.0584836, %.preheader775 ], [ %.0584836, %.preheader777 ], [ %.0592834, %.lr.ph786 ], [ %.0592834, %.critedge ], [ %.0592834, %531 ], [ %.0592834, %.loopexit ], [ %.0592834, %338 ], [ %.0592834, %.lr.ph796 ], [ %.0592834, %.lr.ph791 ], [ %.0592834, %.lr.ph ]
-  %.1587 = phi i8 [ %.0586835, %93 ], [ 0, %.thread ], [ 1, %.preheader763 ], [ 1, %.preheader765 ], [ 1, %.preheader767 ], [ 0, %.preheader769 ], [ 0, %.preheader771 ], [ 0, %.preheader773 ], [ 0, %.preheader775 ], [ 0, %.preheader777 ], [ 0, %.lr.ph786 ], [ %95, %.critedge ], [ %95, %531 ], [ %95, %.loopexit ], [ 0, %338 ], [ 0, %.lr.ph796 ], [ 0, %.lr.ph791 ], [ 0, %.lr.ph ]
-  %.1585 = phi i32 [ %.0584836, %93 ], [ %.0584836, %.thread ], [ %.0592834, %.preheader763 ], [ %.0592834, %.preheader765 ], [ %.0592834, %.preheader767 ], [ %.0592834, %.preheader769 ], [ %.0592834, %.preheader771 ], [ %.0592834, %.preheader773 ], [ %.0592834, %.preheader775 ], [ %.0592834, %.preheader777 ], [ %.0592834, %.lr.ph786 ], [ %.0592834, %.critedge ], [ %.0592834, %531 ], [ %.0592834, %.loopexit ], [ %.0592834, %338 ], [ %.0592834, %.lr.ph796 ], [ %.0592834, %.lr.ph791 ], [ %.0592834, %.lr.ph ]
-  %.1 = phi ptr [ %.0578837, %93 ], [ %.0578837, %.thread ], [ %.0578837, %.preheader763 ], [ %.0578837, %.preheader765 ], [ %.0578837, %.preheader767 ], [ %.0578837, %.preheader769 ], [ %.0578837, %.preheader771 ], [ %.0578837, %.preheader773 ], [ %.0578837, %.preheader775 ], [ %.0578837, %.preheader777 ], [ %241, %.lr.ph786 ], [ %446, %.critedge ], [ %532, %531 ], [ %633, %.loopexit ], [ %339, %338 ], [ %136, %.lr.ph796 ], [ %183, %.lr.ph791 ], [ %318, %.lr.ph ]
+  %.1593 = phi i32 [ %.0592834, %93 ], [ %.0592834, %.critedge ], [ %.0592834, %.lr.ph791 ], [ %.0592834, %.lr.ph786 ], [ %.0592834, %.thread ], [ %.0592834, %531 ], [ %.0592834, %.loopexit ], [ %.0592834, %338 ], [ %.0592834, %.lr.ph796 ], [ %.0584836, %.preheader763 ], [ %.0584836, %.preheader765 ], [ %.0584836, %.preheader767 ], [ %.0584836, %.preheader769 ], [ %.0584836, %.preheader771 ], [ %.0584836, %.preheader773 ], [ %.0584836, %.preheader775 ], [ %.0584836, %.preheader777 ], [ %.0592834, %.lr.ph ]
+  %.1587 = phi i8 [ %.0586835, %93 ], [ %95, %.critedge ], [ 0, %.lr.ph791 ], [ 0, %.lr.ph786 ], [ 0, %.thread ], [ %95, %531 ], [ %95, %.loopexit ], [ 0, %338 ], [ 0, %.lr.ph796 ], [ 1, %.preheader763 ], [ 1, %.preheader765 ], [ 1, %.preheader767 ], [ 0, %.preheader769 ], [ 0, %.preheader771 ], [ 0, %.preheader773 ], [ 0, %.preheader775 ], [ 0, %.preheader777 ], [ 0, %.lr.ph ]
+  %.1585 = phi i32 [ %.0584836, %93 ], [ %.0592834, %.critedge ], [ %.0592834, %.lr.ph791 ], [ %.0592834, %.lr.ph786 ], [ %.0584836, %.thread ], [ %.0592834, %531 ], [ %.0592834, %.loopexit ], [ %.0592834, %338 ], [ %.0592834, %.lr.ph796 ], [ %.0592834, %.preheader763 ], [ %.0592834, %.preheader765 ], [ %.0592834, %.preheader767 ], [ %.0592834, %.preheader769 ], [ %.0592834, %.preheader771 ], [ %.0592834, %.preheader773 ], [ %.0592834, %.preheader775 ], [ %.0592834, %.preheader777 ], [ %.0592834, %.lr.ph ]
+  %.1 = phi ptr [ %.0578837, %93 ], [ %446, %.critedge ], [ %183, %.lr.ph791 ], [ %241, %.lr.ph786 ], [ %.0578837, %.thread ], [ %532, %531 ], [ %633, %.loopexit ], [ %339, %338 ], [ %136, %.lr.ph796 ], [ %.0578837, %.preheader763 ], [ %.0578837, %.preheader765 ], [ %.0578837, %.preheader767 ], [ %.0578837, %.preheader769 ], [ %.0578837, %.preheader771 ], [ %.0578837, %.preheader773 ], [ %.0578837, %.preheader775 ], [ %.0578837, %.preheader777 ], [ %318, %.lr.ph ]
   %634 = add nsw i32 %.1593, 1
   %.not.not = icmp slt i32 %.1593, %20
   br i1 %.not.not, label %76, label %._crit_edge, !llvm.loop !220
@@ -10814,8 +10814,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %55, %
   br label %.thread714
 
 .thread714:                                       ; preds = %.thread714.sink.split, %394, %.thread725
-  %410 = phi i1 [ false, %.thread725 ], [ false, %394 ], [ true, %.thread714.sink.split ]
-  %.3591 = phi double [ %392, %.thread725 ], [ %398, %394 ], [ %409, %.thread714.sink.split ]
+  %410 = phi i1 [ false, %394 ], [ false, %.thread725 ], [ true, %.thread714.sink.split ]
+  %.3591 = phi double [ %398, %394 ], [ %392, %.thread725 ], [ %409, %.thread714.sink.split ]
   %411 = fcmp une double %.3591, 0.000000e+00
   br i1 %411, label %412, label %.critedge
 
@@ -11244,10 +11244,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %55, %
   br i1 %exitcond913.not, label %.loopexit764, label %.lr.ph811, !llvm.loop !234
 
 .loopexit764:                                     ; preds = %.lr.ph, %.lr.ph786, %.lr.ph791, %.lr.ph796, %357, %.loopexit, %559, %.critedge, %.preheader777, %.preheader775, %.preheader773, %.preheader771, %.preheader769, %.preheader767, %.preheader765, %.preheader763, %.thread, %92
-  %.1593 = phi i32 [ %.0592834, %92 ], [ %.0592834, %.thread ], [ %.0584836, %.preheader763 ], [ %.0584836, %.preheader765 ], [ %.0584836, %.preheader767 ], [ %.0584836, %.preheader769 ], [ %.0584836, %.preheader771 ], [ %.0584836, %.preheader773 ], [ %.0584836, %.preheader775 ], [ %.0584836, %.preheader777 ], [ %.0592834, %.lr.ph786 ], [ %.0592834, %.critedge ], [ %.0592834, %559 ], [ %.0592834, %.loopexit ], [ %.0592834, %357 ], [ %.0592834, %.lr.ph796 ], [ %.0592834, %.lr.ph791 ], [ %.0592834, %.lr.ph ]
-  %.1587 = phi i8 [ %.0586835, %92 ], [ 0, %.thread ], [ 1, %.preheader763 ], [ 1, %.preheader765 ], [ 1, %.preheader767 ], [ 0, %.preheader769 ], [ 0, %.preheader771 ], [ 0, %.preheader773 ], [ 0, %.preheader775 ], [ 0, %.preheader777 ], [ 0, %.lr.ph786 ], [ %94, %.critedge ], [ %94, %559 ], [ %94, %.loopexit ], [ 0, %357 ], [ 0, %.lr.ph796 ], [ 0, %.lr.ph791 ], [ 0, %.lr.ph ]
-  %.1585 = phi i32 [ %.0584836, %92 ], [ %.0584836, %.thread ], [ %.0592834, %.preheader763 ], [ %.0592834, %.preheader765 ], [ %.0592834, %.preheader767 ], [ %.0592834, %.preheader769 ], [ %.0592834, %.preheader771 ], [ %.0592834, %.preheader773 ], [ %.0592834, %.preheader775 ], [ %.0592834, %.preheader777 ], [ %.0592834, %.lr.ph786 ], [ %.0592834, %.critedge ], [ %.0592834, %559 ], [ %.0592834, %.loopexit ], [ %.0592834, %357 ], [ %.0592834, %.lr.ph796 ], [ %.0592834, %.lr.ph791 ], [ %.0592834, %.lr.ph ]
-  %.1 = phi ptr [ %.0578837, %92 ], [ %.0578837, %.thread ], [ %.0578837, %.preheader763 ], [ %.0578837, %.preheader765 ], [ %.0578837, %.preheader767 ], [ %.0578837, %.preheader769 ], [ %.0578837, %.preheader771 ], [ %.0578837, %.preheader773 ], [ %.0578837, %.preheader775 ], [ %.0578837, %.preheader777 ], [ %252, %.lr.ph786 ], [ %470, %.critedge ], [ %560, %559 ], [ %665, %.loopexit ], [ %358, %357 ], [ %139, %.lr.ph796 ], [ %190, %.lr.ph791 ], [ %329, %.lr.ph ]
+  %.1593 = phi i32 [ %.0592834, %92 ], [ %.0592834, %.critedge ], [ %.0592834, %.lr.ph791 ], [ %.0592834, %.lr.ph786 ], [ %.0592834, %.thread ], [ %.0592834, %559 ], [ %.0592834, %.loopexit ], [ %.0592834, %357 ], [ %.0592834, %.lr.ph796 ], [ %.0584836, %.preheader763 ], [ %.0584836, %.preheader765 ], [ %.0584836, %.preheader767 ], [ %.0584836, %.preheader769 ], [ %.0584836, %.preheader771 ], [ %.0584836, %.preheader773 ], [ %.0584836, %.preheader775 ], [ %.0584836, %.preheader777 ], [ %.0592834, %.lr.ph ]
+  %.1587 = phi i8 [ %.0586835, %92 ], [ %94, %.critedge ], [ 0, %.lr.ph791 ], [ 0, %.lr.ph786 ], [ 0, %.thread ], [ %94, %559 ], [ %94, %.loopexit ], [ 0, %357 ], [ 0, %.lr.ph796 ], [ 1, %.preheader763 ], [ 1, %.preheader765 ], [ 1, %.preheader767 ], [ 0, %.preheader769 ], [ 0, %.preheader771 ], [ 0, %.preheader773 ], [ 0, %.preheader775 ], [ 0, %.preheader777 ], [ 0, %.lr.ph ]
+  %.1585 = phi i32 [ %.0584836, %92 ], [ %.0592834, %.critedge ], [ %.0592834, %.lr.ph791 ], [ %.0592834, %.lr.ph786 ], [ %.0584836, %.thread ], [ %.0592834, %559 ], [ %.0592834, %.loopexit ], [ %.0592834, %357 ], [ %.0592834, %.lr.ph796 ], [ %.0592834, %.preheader763 ], [ %.0592834, %.preheader765 ], [ %.0592834, %.preheader767 ], [ %.0592834, %.preheader769 ], [ %.0592834, %.preheader771 ], [ %.0592834, %.preheader773 ], [ %.0592834, %.preheader775 ], [ %.0592834, %.preheader777 ], [ %.0592834, %.lr.ph ]
+  %.1 = phi ptr [ %.0578837, %92 ], [ %470, %.critedge ], [ %190, %.lr.ph791 ], [ %252, %.lr.ph786 ], [ %.0578837, %.thread ], [ %560, %559 ], [ %665, %.loopexit ], [ %358, %357 ], [ %139, %.lr.ph796 ], [ %.0578837, %.preheader763 ], [ %.0578837, %.preheader765 ], [ %.0578837, %.preheader767 ], [ %.0578837, %.preheader769 ], [ %.0578837, %.preheader771 ], [ %.0578837, %.preheader773 ], [ %.0578837, %.preheader775 ], [ %.0578837, %.preheader777 ], [ %329, %.lr.ph ]
   %666 = add nsw i32 %.1593, 1
   %.not.not = icmp slt i32 %.1593, %20
   br i1 %.not.not, label %75, label %._crit_edge, !llvm.loop !235
@@ -12570,10 +12570,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %60, %
   br i1 %exitcond942.not, label %.loopexit794, label %.lr.ph841, !llvm.loop !249
 
 .loopexit794:                                     ; preds = %.lr.ph, %.lr.ph816, %.lr.ph821, %.lr.ph826, %522, %.loopexit, %807, %.critedge, %.preheader807, %.preheader805, %.preheader803, %.preheader801, %.preheader799, %.preheader797, %.preheader795, %.preheader793, %.thread, %104
-  %.1622 = phi i32 [ %.0621864, %104 ], [ %.0621864, %.thread ], [ %.0613866, %.preheader793 ], [ %.0613866, %.preheader795 ], [ %.0613866, %.preheader797 ], [ %.0613866, %.preheader799 ], [ %.0613866, %.preheader801 ], [ %.0613866, %.preheader803 ], [ %.0613866, %.preheader805 ], [ %.0613866, %.preheader807 ], [ %.0621864, %.lr.ph816 ], [ %.0621864, %.critedge ], [ %.0621864, %807 ], [ %.0621864, %.loopexit ], [ %.0621864, %522 ], [ %.0621864, %.lr.ph826 ], [ %.0621864, %.lr.ph821 ], [ %.0621864, %.lr.ph ]
-  %.1616 = phi i8 [ %.0615865, %104 ], [ 0, %.thread ], [ 1, %.preheader793 ], [ 1, %.preheader795 ], [ 1, %.preheader797 ], [ 0, %.preheader799 ], [ 0, %.preheader801 ], [ 0, %.preheader803 ], [ 0, %.preheader805 ], [ 0, %.preheader807 ], [ 0, %.lr.ph816 ], [ %106, %.critedge ], [ %106, %807 ], [ %106, %.loopexit ], [ 0, %522 ], [ 0, %.lr.ph826 ], [ 0, %.lr.ph821 ], [ 0, %.lr.ph ]
-  %.1614 = phi i32 [ %.0613866, %104 ], [ %.0613866, %.thread ], [ %.0621864, %.preheader793 ], [ %.0621864, %.preheader795 ], [ %.0621864, %.preheader797 ], [ %.0621864, %.preheader799 ], [ %.0621864, %.preheader801 ], [ %.0621864, %.preheader803 ], [ %.0621864, %.preheader805 ], [ %.0621864, %.preheader807 ], [ %.0621864, %.lr.ph816 ], [ %.0621864, %.critedge ], [ %.0621864, %807 ], [ %.0621864, %.loopexit ], [ %.0621864, %522 ], [ %.0621864, %.lr.ph826 ], [ %.0621864, %.lr.ph821 ], [ %.0621864, %.lr.ph ]
-  %.1 = phi ptr [ %.0607867, %104 ], [ %.0607867, %.thread ], [ %.0607867, %.preheader793 ], [ %.0607867, %.preheader795 ], [ %.0607867, %.preheader797 ], [ %.0607867, %.preheader799 ], [ %.0607867, %.preheader801 ], [ %.0607867, %.preheader803 ], [ %.0607867, %.preheader805 ], [ %.0607867, %.preheader807 ], [ %357, %.lr.ph816 ], [ %701, %.critedge ], [ %808, %807 ], [ %930, %.loopexit ], [ %523, %522 ], [ %170, %.lr.ph826 ], [ %251, %.lr.ph821 ], [ %496, %.lr.ph ]
+  %.1622 = phi i32 [ %.0621864, %104 ], [ %.0621864, %.critedge ], [ %.0621864, %.lr.ph821 ], [ %.0621864, %.lr.ph816 ], [ %.0621864, %.thread ], [ %.0621864, %807 ], [ %.0621864, %.loopexit ], [ %.0621864, %522 ], [ %.0621864, %.lr.ph826 ], [ %.0613866, %.preheader793 ], [ %.0613866, %.preheader795 ], [ %.0613866, %.preheader797 ], [ %.0613866, %.preheader799 ], [ %.0613866, %.preheader801 ], [ %.0613866, %.preheader803 ], [ %.0613866, %.preheader805 ], [ %.0613866, %.preheader807 ], [ %.0621864, %.lr.ph ]
+  %.1616 = phi i8 [ %.0615865, %104 ], [ %106, %.critedge ], [ 0, %.lr.ph821 ], [ 0, %.lr.ph816 ], [ 0, %.thread ], [ %106, %807 ], [ %106, %.loopexit ], [ 0, %522 ], [ 0, %.lr.ph826 ], [ 1, %.preheader793 ], [ 1, %.preheader795 ], [ 1, %.preheader797 ], [ 0, %.preheader799 ], [ 0, %.preheader801 ], [ 0, %.preheader803 ], [ 0, %.preheader805 ], [ 0, %.preheader807 ], [ 0, %.lr.ph ]
+  %.1614 = phi i32 [ %.0613866, %104 ], [ %.0621864, %.critedge ], [ %.0621864, %.lr.ph821 ], [ %.0621864, %.lr.ph816 ], [ %.0613866, %.thread ], [ %.0621864, %807 ], [ %.0621864, %.loopexit ], [ %.0621864, %522 ], [ %.0621864, %.lr.ph826 ], [ %.0621864, %.preheader793 ], [ %.0621864, %.preheader795 ], [ %.0621864, %.preheader797 ], [ %.0621864, %.preheader799 ], [ %.0621864, %.preheader801 ], [ %.0621864, %.preheader803 ], [ %.0621864, %.preheader805 ], [ %.0621864, %.preheader807 ], [ %.0621864, %.lr.ph ]
+  %.1 = phi ptr [ %.0607867, %104 ], [ %701, %.critedge ], [ %251, %.lr.ph821 ], [ %357, %.lr.ph816 ], [ %.0607867, %.thread ], [ %808, %807 ], [ %930, %.loopexit ], [ %523, %522 ], [ %170, %.lr.ph826 ], [ %.0607867, %.preheader793 ], [ %.0607867, %.preheader795 ], [ %.0607867, %.preheader797 ], [ %.0607867, %.preheader799 ], [ %.0607867, %.preheader801 ], [ %.0607867, %.preheader803 ], [ %.0607867, %.preheader805 ], [ %.0607867, %.preheader807 ], [ %496, %.lr.ph ]
   %931 = add nsw i32 %.1622, 1
   %.not.not = icmp slt i32 %.1622, %20
   br i1 %.not.not, label %83, label %._crit_edge, !llvm.loop !250
@@ -13329,8 +13329,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %61, %
   br label %.thread742
 
 .thread742:                                       ; preds = %.thread742.sink.split, %519, %.thread753
-  %532 = phi i1 [ false, %.thread753 ], [ false, %519 ], [ true, %.thread742.sink.split ]
-  %.3620 = phi float [ %517, %.thread753 ], [ %522, %519 ], [ %531, %.thread742.sink.split ]
+  %532 = phi i1 [ false, %519 ], [ false, %.thread753 ], [ true, %.thread742.sink.split ]
+  %.3620 = phi float [ %522, %519 ], [ %517, %.thread753 ], [ %531, %.thread742.sink.split ]
   %533 = fcmp une float %.3620, 0.000000e+00
   br i1 %533, label %534, label %.critedge
 
@@ -13787,10 +13787,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %61, %
   br i1 %exitcond940.not, label %.loopexit792, label %.lr.ph839, !llvm.loop !264
 
 .loopexit792:                                     ; preds = %.lr.ph, %.lr.ph814, %.lr.ph819, %.lr.ph824, %468, %.loopexit, %701, %.critedge, %.preheader805, %.preheader803, %.preheader801, %.preheader799, %.preheader797, %.preheader795, %.preheader793, %.preheader791, %.thread, %105
-  %.1622 = phi i32 [ %.0621862, %105 ], [ %.0621862, %.thread ], [ %.0613864, %.preheader791 ], [ %.0613864, %.preheader793 ], [ %.0613864, %.preheader795 ], [ %.0613864, %.preheader797 ], [ %.0613864, %.preheader799 ], [ %.0613864, %.preheader801 ], [ %.0613864, %.preheader803 ], [ %.0613864, %.preheader805 ], [ %.0621862, %.lr.ph814 ], [ %.0621862, %.critedge ], [ %.0621862, %701 ], [ %.0621862, %.loopexit ], [ %.0621862, %468 ], [ %.0621862, %.lr.ph824 ], [ %.0621862, %.lr.ph819 ], [ %.0621862, %.lr.ph ]
-  %.1616 = phi i8 [ %.0615863, %105 ], [ 0, %.thread ], [ 1, %.preheader791 ], [ 1, %.preheader793 ], [ 1, %.preheader795 ], [ 0, %.preheader797 ], [ 0, %.preheader799 ], [ 0, %.preheader801 ], [ 0, %.preheader803 ], [ 0, %.preheader805 ], [ 0, %.lr.ph814 ], [ %107, %.critedge ], [ %107, %701 ], [ %107, %.loopexit ], [ 0, %468 ], [ 0, %.lr.ph824 ], [ 0, %.lr.ph819 ], [ 0, %.lr.ph ]
-  %.1614 = phi i32 [ %.0613864, %105 ], [ %.0613864, %.thread ], [ %.0621862, %.preheader791 ], [ %.0621862, %.preheader793 ], [ %.0621862, %.preheader795 ], [ %.0621862, %.preheader797 ], [ %.0621862, %.preheader799 ], [ %.0621862, %.preheader801 ], [ %.0621862, %.preheader803 ], [ %.0621862, %.preheader805 ], [ %.0621862, %.lr.ph814 ], [ %.0621862, %.critedge ], [ %.0621862, %701 ], [ %.0621862, %.loopexit ], [ %.0621862, %468 ], [ %.0621862, %.lr.ph824 ], [ %.0621862, %.lr.ph819 ], [ %.0621862, %.lr.ph ]
-  %.1 = phi ptr [ %.0607865, %105 ], [ %.0607865, %.thread ], [ %.0607865, %.preheader791 ], [ %.0607865, %.preheader793 ], [ %.0607865, %.preheader795 ], [ %.0607865, %.preheader797 ], [ %.0607865, %.preheader799 ], [ %.0607865, %.preheader801 ], [ %.0607865, %.preheader803 ], [ %.0607865, %.preheader805 ], [ %325, %.lr.ph814 ], [ %602, %.critedge ], [ %702, %701 ], [ %817, %.loopexit ], [ %469, %468 ], [ %163, %.lr.ph824 ], [ %233, %.lr.ph819 ], [ %439, %.lr.ph ]
+  %.1622 = phi i32 [ %.0621862, %105 ], [ %.0621862, %.critedge ], [ %.0621862, %.lr.ph819 ], [ %.0621862, %.lr.ph814 ], [ %.0621862, %.thread ], [ %.0621862, %701 ], [ %.0621862, %.loopexit ], [ %.0621862, %468 ], [ %.0621862, %.lr.ph824 ], [ %.0613864, %.preheader791 ], [ %.0613864, %.preheader793 ], [ %.0613864, %.preheader795 ], [ %.0613864, %.preheader797 ], [ %.0613864, %.preheader799 ], [ %.0613864, %.preheader801 ], [ %.0613864, %.preheader803 ], [ %.0613864, %.preheader805 ], [ %.0621862, %.lr.ph ]
+  %.1616 = phi i8 [ %.0615863, %105 ], [ %107, %.critedge ], [ 0, %.lr.ph819 ], [ 0, %.lr.ph814 ], [ 0, %.thread ], [ %107, %701 ], [ %107, %.loopexit ], [ 0, %468 ], [ 0, %.lr.ph824 ], [ 1, %.preheader791 ], [ 1, %.preheader793 ], [ 1, %.preheader795 ], [ 0, %.preheader797 ], [ 0, %.preheader799 ], [ 0, %.preheader801 ], [ 0, %.preheader803 ], [ 0, %.preheader805 ], [ 0, %.lr.ph ]
+  %.1614 = phi i32 [ %.0613864, %105 ], [ %.0621862, %.critedge ], [ %.0621862, %.lr.ph819 ], [ %.0621862, %.lr.ph814 ], [ %.0613864, %.thread ], [ %.0621862, %701 ], [ %.0621862, %.loopexit ], [ %.0621862, %468 ], [ %.0621862, %.lr.ph824 ], [ %.0621862, %.preheader791 ], [ %.0621862, %.preheader793 ], [ %.0621862, %.preheader795 ], [ %.0621862, %.preheader797 ], [ %.0621862, %.preheader799 ], [ %.0621862, %.preheader801 ], [ %.0621862, %.preheader803 ], [ %.0621862, %.preheader805 ], [ %.0621862, %.lr.ph ]
+  %.1 = phi ptr [ %.0607865, %105 ], [ %602, %.critedge ], [ %233, %.lr.ph819 ], [ %325, %.lr.ph814 ], [ %.0607865, %.thread ], [ %702, %701 ], [ %817, %.loopexit ], [ %469, %468 ], [ %163, %.lr.ph824 ], [ %.0607865, %.preheader791 ], [ %.0607865, %.preheader793 ], [ %.0607865, %.preheader795 ], [ %.0607865, %.preheader797 ], [ %.0607865, %.preheader799 ], [ %.0607865, %.preheader801 ], [ %.0607865, %.preheader803 ], [ %.0607865, %.preheader805 ], [ %439, %.lr.ph ]
   %818 = add nsw i32 %.1622, 1
   %.not.not = icmp slt i32 %.1622, %20
   br i1 %.not.not, label %84, label %._crit_edge, !llvm.loop !265
@@ -14546,8 +14546,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %61, %
   br label %.thread742
 
 .thread742:                                       ; preds = %.thread742.sink.split, %519, %.thread753
-  %532 = phi i1 [ false, %.thread753 ], [ false, %519 ], [ true, %.thread742.sink.split ]
-  %.3620 = phi float [ %517, %.thread753 ], [ %522, %519 ], [ %531, %.thread742.sink.split ]
+  %532 = phi i1 [ false, %519 ], [ false, %.thread753 ], [ true, %.thread742.sink.split ]
+  %.3620 = phi float [ %522, %519 ], [ %517, %.thread753 ], [ %531, %.thread742.sink.split ]
   %533 = fcmp une float %.3620, 0.000000e+00
   br i1 %533, label %534, label %.critedge
 
@@ -15004,10 +15004,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %61, %
   br i1 %exitcond940.not, label %.loopexit792, label %.lr.ph839, !llvm.loop !279
 
 .loopexit792:                                     ; preds = %.lr.ph, %.lr.ph814, %.lr.ph819, %.lr.ph824, %468, %.loopexit, %701, %.critedge, %.preheader805, %.preheader803, %.preheader801, %.preheader799, %.preheader797, %.preheader795, %.preheader793, %.preheader791, %.thread, %105
-  %.1622 = phi i32 [ %.0621862, %105 ], [ %.0621862, %.thread ], [ %.0613864, %.preheader791 ], [ %.0613864, %.preheader793 ], [ %.0613864, %.preheader795 ], [ %.0613864, %.preheader797 ], [ %.0613864, %.preheader799 ], [ %.0613864, %.preheader801 ], [ %.0613864, %.preheader803 ], [ %.0613864, %.preheader805 ], [ %.0621862, %.lr.ph814 ], [ %.0621862, %.critedge ], [ %.0621862, %701 ], [ %.0621862, %.loopexit ], [ %.0621862, %468 ], [ %.0621862, %.lr.ph824 ], [ %.0621862, %.lr.ph819 ], [ %.0621862, %.lr.ph ]
-  %.1616 = phi i8 [ %.0615863, %105 ], [ 0, %.thread ], [ 1, %.preheader791 ], [ 1, %.preheader793 ], [ 1, %.preheader795 ], [ 0, %.preheader797 ], [ 0, %.preheader799 ], [ 0, %.preheader801 ], [ 0, %.preheader803 ], [ 0, %.preheader805 ], [ 0, %.lr.ph814 ], [ %107, %.critedge ], [ %107, %701 ], [ %107, %.loopexit ], [ 0, %468 ], [ 0, %.lr.ph824 ], [ 0, %.lr.ph819 ], [ 0, %.lr.ph ]
-  %.1614 = phi i32 [ %.0613864, %105 ], [ %.0613864, %.thread ], [ %.0621862, %.preheader791 ], [ %.0621862, %.preheader793 ], [ %.0621862, %.preheader795 ], [ %.0621862, %.preheader797 ], [ %.0621862, %.preheader799 ], [ %.0621862, %.preheader801 ], [ %.0621862, %.preheader803 ], [ %.0621862, %.preheader805 ], [ %.0621862, %.lr.ph814 ], [ %.0621862, %.critedge ], [ %.0621862, %701 ], [ %.0621862, %.loopexit ], [ %.0621862, %468 ], [ %.0621862, %.lr.ph824 ], [ %.0621862, %.lr.ph819 ], [ %.0621862, %.lr.ph ]
-  %.1 = phi ptr [ %.0607865, %105 ], [ %.0607865, %.thread ], [ %.0607865, %.preheader791 ], [ %.0607865, %.preheader793 ], [ %.0607865, %.preheader795 ], [ %.0607865, %.preheader797 ], [ %.0607865, %.preheader799 ], [ %.0607865, %.preheader801 ], [ %.0607865, %.preheader803 ], [ %.0607865, %.preheader805 ], [ %325, %.lr.ph814 ], [ %602, %.critedge ], [ %702, %701 ], [ %817, %.loopexit ], [ %469, %468 ], [ %163, %.lr.ph824 ], [ %233, %.lr.ph819 ], [ %439, %.lr.ph ]
+  %.1622 = phi i32 [ %.0621862, %105 ], [ %.0621862, %.critedge ], [ %.0621862, %.lr.ph819 ], [ %.0621862, %.lr.ph814 ], [ %.0621862, %.thread ], [ %.0621862, %701 ], [ %.0621862, %.loopexit ], [ %.0621862, %468 ], [ %.0621862, %.lr.ph824 ], [ %.0613864, %.preheader791 ], [ %.0613864, %.preheader793 ], [ %.0613864, %.preheader795 ], [ %.0613864, %.preheader797 ], [ %.0613864, %.preheader799 ], [ %.0613864, %.preheader801 ], [ %.0613864, %.preheader803 ], [ %.0613864, %.preheader805 ], [ %.0621862, %.lr.ph ]
+  %.1616 = phi i8 [ %.0615863, %105 ], [ %107, %.critedge ], [ 0, %.lr.ph819 ], [ 0, %.lr.ph814 ], [ 0, %.thread ], [ %107, %701 ], [ %107, %.loopexit ], [ 0, %468 ], [ 0, %.lr.ph824 ], [ 1, %.preheader791 ], [ 1, %.preheader793 ], [ 1, %.preheader795 ], [ 0, %.preheader797 ], [ 0, %.preheader799 ], [ 0, %.preheader801 ], [ 0, %.preheader803 ], [ 0, %.preheader805 ], [ 0, %.lr.ph ]
+  %.1614 = phi i32 [ %.0613864, %105 ], [ %.0621862, %.critedge ], [ %.0621862, %.lr.ph819 ], [ %.0621862, %.lr.ph814 ], [ %.0613864, %.thread ], [ %.0621862, %701 ], [ %.0621862, %.loopexit ], [ %.0621862, %468 ], [ %.0621862, %.lr.ph824 ], [ %.0621862, %.preheader791 ], [ %.0621862, %.preheader793 ], [ %.0621862, %.preheader795 ], [ %.0621862, %.preheader797 ], [ %.0621862, %.preheader799 ], [ %.0621862, %.preheader801 ], [ %.0621862, %.preheader803 ], [ %.0621862, %.preheader805 ], [ %.0621862, %.lr.ph ]
+  %.1 = phi ptr [ %.0607865, %105 ], [ %602, %.critedge ], [ %233, %.lr.ph819 ], [ %325, %.lr.ph814 ], [ %.0607865, %.thread ], [ %702, %701 ], [ %817, %.loopexit ], [ %469, %468 ], [ %163, %.lr.ph824 ], [ %.0607865, %.preheader791 ], [ %.0607865, %.preheader793 ], [ %.0607865, %.preheader795 ], [ %.0607865, %.preheader797 ], [ %.0607865, %.preheader799 ], [ %.0607865, %.preheader801 ], [ %.0607865, %.preheader803 ], [ %.0607865, %.preheader805 ], [ %439, %.lr.ph ]
   %818 = add nsw i32 %.1622, 1
   %.not.not = icmp slt i32 %.1622, %20
   br i1 %.not.not, label %84, label %._crit_edge, !llvm.loop !280
@@ -15664,8 +15664,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %57, %
   br label %.thread742
 
 .thread742:                                       ; preds = %.thread742.sink.split, %420, %.thread753
-  %433 = phi i1 [ false, %.thread753 ], [ false, %420 ], [ true, %.thread742.sink.split ]
-  %.3620 = phi float [ %418, %.thread753 ], [ %423, %420 ], [ %432, %.thread742.sink.split ]
+  %433 = phi i1 [ false, %420 ], [ false, %.thread753 ], [ true, %.thread742.sink.split ]
+  %.3620 = phi float [ %423, %420 ], [ %418, %.thread753 ], [ %432, %.thread742.sink.split ]
   %434 = fcmp une float %.3620, 0.000000e+00
   br i1 %434, label %435, label %.critedge
 
@@ -16089,10 +16089,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %57, %
   br i1 %exitcond940.not, label %.loopexit792, label %.lr.ph839, !llvm.loop !294
 
 .loopexit792:                                     ; preds = %.lr.ph, %.lr.ph814, %.lr.ph819, %.lr.ph824, %374, %.loopexit, %578, %.critedge, %.preheader805, %.preheader803, %.preheader801, %.preheader799, %.preheader797, %.preheader795, %.preheader793, %.preheader791, %.thread, %101
-  %.1622 = phi i32 [ %.0621862, %101 ], [ %.0621862, %.thread ], [ %.0613864, %.preheader791 ], [ %.0613864, %.preheader793 ], [ %.0613864, %.preheader795 ], [ %.0613864, %.preheader797 ], [ %.0613864, %.preheader799 ], [ %.0613864, %.preheader801 ], [ %.0613864, %.preheader803 ], [ %.0613864, %.preheader805 ], [ %.0621862, %.lr.ph814 ], [ %.0621862, %.critedge ], [ %.0621862, %578 ], [ %.0621862, %.loopexit ], [ %.0621862, %374 ], [ %.0621862, %.lr.ph824 ], [ %.0621862, %.lr.ph819 ], [ %.0621862, %.lr.ph ]
-  %.1616 = phi i8 [ %.0615863, %101 ], [ 0, %.thread ], [ 1, %.preheader791 ], [ 1, %.preheader793 ], [ 1, %.preheader795 ], [ 0, %.preheader797 ], [ 0, %.preheader799 ], [ 0, %.preheader801 ], [ 0, %.preheader803 ], [ 0, %.preheader805 ], [ 0, %.lr.ph814 ], [ %103, %.critedge ], [ %103, %578 ], [ %103, %.loopexit ], [ 0, %374 ], [ 0, %.lr.ph824 ], [ 0, %.lr.ph819 ], [ 0, %.lr.ph ]
-  %.1614 = phi i32 [ %.0613864, %101 ], [ %.0613864, %.thread ], [ %.0621862, %.preheader791 ], [ %.0621862, %.preheader793 ], [ %.0621862, %.preheader795 ], [ %.0621862, %.preheader797 ], [ %.0621862, %.preheader799 ], [ %.0621862, %.preheader801 ], [ %.0621862, %.preheader803 ], [ %.0621862, %.preheader805 ], [ %.0621862, %.lr.ph814 ], [ %.0621862, %.critedge ], [ %.0621862, %578 ], [ %.0621862, %.loopexit ], [ %.0621862, %374 ], [ %.0621862, %.lr.ph824 ], [ %.0621862, %.lr.ph819 ], [ %.0621862, %.lr.ph ]
-  %.1 = phi ptr [ %.0607865, %101 ], [ %.0607865, %.thread ], [ %.0607865, %.preheader791 ], [ %.0607865, %.preheader793 ], [ %.0607865, %.preheader795 ], [ %.0607865, %.preheader797 ], [ %.0607865, %.preheader799 ], [ %.0607865, %.preheader801 ], [ %.0607865, %.preheader803 ], [ %.0607865, %.preheader805 ], [ %267, %.lr.ph814 ], [ %488, %.critedge ], [ %579, %578 ], [ %685, %.loopexit ], [ %375, %374 ], [ %150, %.lr.ph824 ], [ %202, %.lr.ph819 ], [ %349, %.lr.ph ]
+  %.1622 = phi i32 [ %.0621862, %101 ], [ %.0621862, %.critedge ], [ %.0621862, %.lr.ph819 ], [ %.0621862, %.lr.ph814 ], [ %.0621862, %.thread ], [ %.0621862, %578 ], [ %.0621862, %.loopexit ], [ %.0621862, %374 ], [ %.0621862, %.lr.ph824 ], [ %.0613864, %.preheader791 ], [ %.0613864, %.preheader793 ], [ %.0613864, %.preheader795 ], [ %.0613864, %.preheader797 ], [ %.0613864, %.preheader799 ], [ %.0613864, %.preheader801 ], [ %.0613864, %.preheader803 ], [ %.0613864, %.preheader805 ], [ %.0621862, %.lr.ph ]
+  %.1616 = phi i8 [ %.0615863, %101 ], [ %103, %.critedge ], [ 0, %.lr.ph819 ], [ 0, %.lr.ph814 ], [ 0, %.thread ], [ %103, %578 ], [ %103, %.loopexit ], [ 0, %374 ], [ 0, %.lr.ph824 ], [ 1, %.preheader791 ], [ 1, %.preheader793 ], [ 1, %.preheader795 ], [ 0, %.preheader797 ], [ 0, %.preheader799 ], [ 0, %.preheader801 ], [ 0, %.preheader803 ], [ 0, %.preheader805 ], [ 0, %.lr.ph ]
+  %.1614 = phi i32 [ %.0613864, %101 ], [ %.0621862, %.critedge ], [ %.0621862, %.lr.ph819 ], [ %.0621862, %.lr.ph814 ], [ %.0613864, %.thread ], [ %.0621862, %578 ], [ %.0621862, %.loopexit ], [ %.0621862, %374 ], [ %.0621862, %.lr.ph824 ], [ %.0621862, %.preheader791 ], [ %.0621862, %.preheader793 ], [ %.0621862, %.preheader795 ], [ %.0621862, %.preheader797 ], [ %.0621862, %.preheader799 ], [ %.0621862, %.preheader801 ], [ %.0621862, %.preheader803 ], [ %.0621862, %.preheader805 ], [ %.0621862, %.lr.ph ]
+  %.1 = phi ptr [ %.0607865, %101 ], [ %488, %.critedge ], [ %202, %.lr.ph819 ], [ %267, %.lr.ph814 ], [ %.0607865, %.thread ], [ %579, %578 ], [ %685, %.loopexit ], [ %375, %374 ], [ %150, %.lr.ph824 ], [ %.0607865, %.preheader791 ], [ %.0607865, %.preheader793 ], [ %.0607865, %.preheader795 ], [ %.0607865, %.preheader797 ], [ %.0607865, %.preheader799 ], [ %.0607865, %.preheader801 ], [ %.0607865, %.preheader803 ], [ %.0607865, %.preheader805 ], [ %349, %.lr.ph ]
   %686 = add nsw i32 %.1622, 1
   %.not.not = icmp slt i32 %.1622, %20
   br i1 %.not.not, label %80, label %._crit_edge, !llvm.loop !295
@@ -16768,8 +16768,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %56, %
   br label %.thread742
 
 .thread742:                                       ; preds = %.thread742.sink.split, %436, %.thread753
-  %452 = phi i1 [ false, %.thread753 ], [ false, %436 ], [ true, %.thread742.sink.split ]
-  %.3620 = phi double [ %434, %.thread753 ], [ %440, %436 ], [ %451, %.thread742.sink.split ]
+  %452 = phi i1 [ false, %436 ], [ false, %.thread753 ], [ true, %.thread742.sink.split ]
+  %.3620 = phi double [ %440, %436 ], [ %434, %.thread753 ], [ %451, %.thread742.sink.split ]
   %453 = fcmp une double %.3620, 0.000000e+00
   br i1 %453, label %454, label %.critedge
 
@@ -17208,10 +17208,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %56, %
   br i1 %exitcond941.not, label %.loopexit792, label %.lr.ph839, !llvm.loop !309
 
 .loopexit792:                                     ; preds = %.lr.ph, %.lr.ph814, %.lr.ph819, %.lr.ph824, %393, %.loopexit, %606, %.critedge, %.preheader805, %.preheader803, %.preheader801, %.preheader799, %.preheader797, %.preheader795, %.preheader793, %.preheader791, %.thread, %100
-  %.1622 = phi i32 [ %.0621862, %100 ], [ %.0621862, %.thread ], [ %.0613864, %.preheader791 ], [ %.0613864, %.preheader793 ], [ %.0613864, %.preheader795 ], [ %.0613864, %.preheader797 ], [ %.0613864, %.preheader799 ], [ %.0613864, %.preheader801 ], [ %.0613864, %.preheader803 ], [ %.0613864, %.preheader805 ], [ %.0621862, %.lr.ph814 ], [ %.0621862, %.critedge ], [ %.0621862, %606 ], [ %.0621862, %.loopexit ], [ %.0621862, %393 ], [ %.0621862, %.lr.ph824 ], [ %.0621862, %.lr.ph819 ], [ %.0621862, %.lr.ph ]
-  %.1616 = phi i8 [ %.0615863, %100 ], [ 0, %.thread ], [ 1, %.preheader791 ], [ 1, %.preheader793 ], [ 1, %.preheader795 ], [ 0, %.preheader797 ], [ 0, %.preheader799 ], [ 0, %.preheader801 ], [ 0, %.preheader803 ], [ 0, %.preheader805 ], [ 0, %.lr.ph814 ], [ %102, %.critedge ], [ %102, %606 ], [ %102, %.loopexit ], [ 0, %393 ], [ 0, %.lr.ph824 ], [ 0, %.lr.ph819 ], [ 0, %.lr.ph ]
-  %.1614 = phi i32 [ %.0613864, %100 ], [ %.0613864, %.thread ], [ %.0621862, %.preheader791 ], [ %.0621862, %.preheader793 ], [ %.0621862, %.preheader795 ], [ %.0621862, %.preheader797 ], [ %.0621862, %.preheader799 ], [ %.0621862, %.preheader801 ], [ %.0621862, %.preheader803 ], [ %.0621862, %.preheader805 ], [ %.0621862, %.lr.ph814 ], [ %.0621862, %.critedge ], [ %.0621862, %606 ], [ %.0621862, %.loopexit ], [ %.0621862, %393 ], [ %.0621862, %.lr.ph824 ], [ %.0621862, %.lr.ph819 ], [ %.0621862, %.lr.ph ]
-  %.1 = phi ptr [ %.0607865, %100 ], [ %.0607865, %.thread ], [ %.0607865, %.preheader791 ], [ %.0607865, %.preheader793 ], [ %.0607865, %.preheader795 ], [ %.0607865, %.preheader797 ], [ %.0607865, %.preheader799 ], [ %.0607865, %.preheader801 ], [ %.0607865, %.preheader803 ], [ %.0607865, %.preheader805 ], [ %278, %.lr.ph814 ], [ %512, %.critedge ], [ %607, %606 ], [ %717, %.loopexit ], [ %394, %393 ], [ %153, %.lr.ph824 ], [ %209, %.lr.ph819 ], [ %360, %.lr.ph ]
+  %.1622 = phi i32 [ %.0621862, %100 ], [ %.0621862, %.critedge ], [ %.0621862, %.lr.ph819 ], [ %.0621862, %.lr.ph814 ], [ %.0621862, %.thread ], [ %.0621862, %606 ], [ %.0621862, %.loopexit ], [ %.0621862, %393 ], [ %.0621862, %.lr.ph824 ], [ %.0613864, %.preheader791 ], [ %.0613864, %.preheader793 ], [ %.0613864, %.preheader795 ], [ %.0613864, %.preheader797 ], [ %.0613864, %.preheader799 ], [ %.0613864, %.preheader801 ], [ %.0613864, %.preheader803 ], [ %.0613864, %.preheader805 ], [ %.0621862, %.lr.ph ]
+  %.1616 = phi i8 [ %.0615863, %100 ], [ %102, %.critedge ], [ 0, %.lr.ph819 ], [ 0, %.lr.ph814 ], [ 0, %.thread ], [ %102, %606 ], [ %102, %.loopexit ], [ 0, %393 ], [ 0, %.lr.ph824 ], [ 1, %.preheader791 ], [ 1, %.preheader793 ], [ 1, %.preheader795 ], [ 0, %.preheader797 ], [ 0, %.preheader799 ], [ 0, %.preheader801 ], [ 0, %.preheader803 ], [ 0, %.preheader805 ], [ 0, %.lr.ph ]
+  %.1614 = phi i32 [ %.0613864, %100 ], [ %.0621862, %.critedge ], [ %.0621862, %.lr.ph819 ], [ %.0621862, %.lr.ph814 ], [ %.0613864, %.thread ], [ %.0621862, %606 ], [ %.0621862, %.loopexit ], [ %.0621862, %393 ], [ %.0621862, %.lr.ph824 ], [ %.0621862, %.preheader791 ], [ %.0621862, %.preheader793 ], [ %.0621862, %.preheader795 ], [ %.0621862, %.preheader797 ], [ %.0621862, %.preheader799 ], [ %.0621862, %.preheader801 ], [ %.0621862, %.preheader803 ], [ %.0621862, %.preheader805 ], [ %.0621862, %.lr.ph ]
+  %.1 = phi ptr [ %.0607865, %100 ], [ %512, %.critedge ], [ %209, %.lr.ph819 ], [ %278, %.lr.ph814 ], [ %.0607865, %.thread ], [ %607, %606 ], [ %717, %.loopexit ], [ %394, %393 ], [ %153, %.lr.ph824 ], [ %.0607865, %.preheader791 ], [ %.0607865, %.preheader793 ], [ %.0607865, %.preheader795 ], [ %.0607865, %.preheader797 ], [ %.0607865, %.preheader799 ], [ %.0607865, %.preheader801 ], [ %.0607865, %.preheader803 ], [ %.0607865, %.preheader805 ], [ %360, %.lr.ph ]
   %718 = add nsw i32 %.1622, 1
   %.not.not = icmp slt i32 %.1622, %20
   br i1 %.not.not, label %79, label %._crit_edge, !llvm.loop !310
@@ -17608,7 +17608,7 @@ select.unfold:                                    ; preds = %49, %46, %30
   br i1 %270, label %.split.split.us.us, label %.split.split.us296
 
 .split242.us.us:                                  ; preds = %415, %399, %371, %332, %.split.split.split.us298
-  %.us-phi243.us = phi i32 [ %111, %.split.split.split.us298 ], [ %.1.us259.us, %399 ], [ %.1.us.us, %332 ], [ %.1.us249.us, %371 ], [ %.1.us268.us, %415 ]
+  %.us-phi243.us = phi i32 [ %.1.us249.us, %371 ], [ %.1.us.us, %332 ], [ %111, %.split.split.split.us298 ], [ %.1.us259.us, %399 ], [ %.1.us268.us, %415 ]
   %278 = add nsw i32 %.us-phi243.us, 16384
   %279 = ashr i32 %278, 15
   %280 = tail call i32 @llvm.smax.i32(i32 %279, i32 0)
@@ -19197,7 +19197,7 @@ select.unfold:                                    ; preds = %46, %43, %30
   br i1 %216, label %.split.us.us376, label %.preheader236.split.split.us374
 
 .split281.us.us:                                  ; preds = %.split243.split.split.split.us.us.us, %.split243.split.split.us.us.us, %.split243.split.us.us.us, %.split243.us.us.us, %.split.us359.preheader
-  %.us-phi282.us = phi ptr [ %scevgep437, %.split.us359.preheader ], [ %291, %.split243.split.split.us.us.us ], [ %365, %.split243.us.us.us ], [ %314, %.split243.split.us.us.us ], [ %289, %.split243.split.split.split.us.us.us ]
+  %.us-phi282.us = phi ptr [ %314, %.split243.split.us.us.us ], [ %scevgep437, %.split.us359.preheader ], [ %365, %.split243.us.us.us ], [ %291, %.split243.split.split.us.us.us ], [ %289, %.split243.split.split.split.us.us.us ]
   %224 = getelementptr inbounds float, ptr %.us-phi282.us, i64 %62
   br label %.loopexit235.us
 
@@ -19500,7 +19500,7 @@ select.unfold:                                    ; preds = %46, %43, %30
   br i1 %219, label %.split.us.us.split.split.us.us, label %.split.us.us.split.split.us401
 
 .split243.us.us.us:                               ; preds = %238, %446, %426, %399
-  %.us-phi320.us = phi float [ %.1.us.us.us335.us, %446 ], [ %.1.us.us.us.us, %399 ], [ %.1.us.us.us326.us, %426 ], [ %.1.us.us.us370, %238 ]
+  %.us-phi320.us = phi float [ %.1.us.us.us.us, %399 ], [ %.1.us.us.us335.us, %446 ], [ %.1.us.us.us326.us, %426 ], [ %.1.us.us.us370, %238 ]
   %364 = getelementptr inbounds nuw float, ptr %.0193347.us, i64 %indvars.iv503
   store float %.us-phi320.us, ptr %364, align 4, !tbaa !102
   %indvars.iv.next504 = add nuw nsw i64 %indvars.iv503, 1
@@ -19964,7 +19964,7 @@ select.unfold:                                    ; preds = %45, %42, %30
   br i1 %exitcond409.not, label %.split243.us, label %.split.us.split.split.split.us, !llvm.loop !340
 
 .split243.us:                                     ; preds = %176, %162, %138, %.split.us.split.split
-  %.us-phi354 = phi double [ %106, %.split.us.split.split ], [ %.1.us.us359, %162 ], [ %.1.us.us, %138 ], [ %.1.us.us369, %176 ]
+  %.us-phi354 = phi double [ %.1.us.us359, %162 ], [ %106, %.split.us.split.split ], [ %.1.us.us, %138 ], [ %.1.us.us369, %176 ]
   %178 = getelementptr inbounds nuw double, ptr %.0193305.us, i64 %indvars.iv420
   store double %.us-phi354, ptr %178, align 8, !tbaa !53
   %indvars.iv.next421 = add nuw nsw i64 %indvars.iv420, 1
@@ -20139,7 +20139,7 @@ select.unfold:                                    ; preds = %45, %42, %30
   br i1 %300, label %.preheader236.split.us.us, label %.split.us
 
 .split249.us321:                                  ; preds = %.split243.us, %.split243.us.us.split.split.split.us, %.split243.us.us.split.split.split.us.us.us, %.split243.us.us.split.split.us.us.us, %.split243.us.us.split.us.us.us
-  %.us-phi250.us = phi ptr [ %329, %.split243.us.us.split.split.split.us ], [ %437, %.split243.us.us.split.us.us.us ], [ %406, %.split243.us.us.split.split.us.us.us ], [ %404, %.split243.us.us.split.split.split.us.us.us ], [ %179, %.split243.us ]
+  %.us-phi250.us = phi ptr [ %437, %.split243.us.us.split.us.us.us ], [ %404, %.split243.us.us.split.split.split.us.us.us ], [ %406, %.split243.us.us.split.split.us.us.us ], [ %329, %.split243.us.us.split.split.split.us ], [ %179, %.split243.us ]
   %311 = getelementptr inbounds double, ptr %.us-phi250.us, i64 %61
   br label %.loopexit235.us
 
@@ -20858,7 +20858,7 @@ define internal void @_ZN2cvL12remapBicubicINS_11FixedPtCastIihLi15EEEsLi32768EL
   br i1 %261, label %.split.split.us.us, label %.split.split.us303
 
 .split249.us.us:                                  ; preds = %406, %390, %362, %323, %.split.split.split.us305
-  %.us-phi250.us = phi i32 [ %102, %.split.split.split.us305 ], [ %.1183.us266.us, %390 ], [ %.1183.us.us, %323 ], [ %.1183.us256.us, %362 ], [ %.1183.us275.us, %406 ]
+  %.us-phi250.us = phi i32 [ %.1183.us256.us, %362 ], [ %.1183.us.us, %323 ], [ %102, %.split.split.split.us305 ], [ %.1183.us266.us, %390 ], [ %.1183.us275.us, %406 ]
   %269 = add nsw i32 %.us-phi250.us, 16384
   %270 = ashr i32 %269, 15
   %271 = tail call i32 @llvm.smax.i32(i32 %270, i32 0)
@@ -22412,7 +22412,7 @@ define internal void @_ZN2cvL12remapBicubicINS_4CastIffEEfLi1ELb1EEEvRKNS_3MatER
   br i1 %211, label %.split.us.us383, label %.preheader243.split.split.us381
 
 .split288.us.us:                                  ; preds = %.split250.split.split.split.us.us.us, %.split250.split.split.us.us.us, %.split250.split.us.us.us, %.split250.us.us.us, %.split.us366.preheader
-  %.us-phi289.us = phi ptr [ %scevgep444, %.split.us366.preheader ], [ %286, %.split250.split.split.us.us.us ], [ %360, %.split250.us.us.us ], [ %309, %.split250.split.us.us.us ], [ %284, %.split250.split.split.split.us.us.us ]
+  %.us-phi289.us = phi ptr [ %309, %.split250.split.us.us.us ], [ %scevgep444, %.split.us366.preheader ], [ %360, %.split250.us.us.us ], [ %286, %.split250.split.split.us.us.us ], [ %284, %.split250.split.split.split.us.us.us ]
   %219 = getelementptr inbounds float, ptr %.us-phi289.us, i64 %48
   br label %.loopexit242.us
 
@@ -22715,7 +22715,7 @@ define internal void @_ZN2cvL12remapBicubicINS_4CastIffEEfLi1ELb1EEEvRKNS_3MatER
   br i1 %214, label %.split.us.us.split.split.us.us, label %.split.us.us.split.split.us408
 
 .split250.us.us.us:                               ; preds = %233, %441, %421, %394
-  %.us-phi327.us = phi float [ %.1183.us.us.us342.us, %441 ], [ %.1183.us.us.us.us, %394 ], [ %.1183.us.us.us333.us, %421 ], [ %.1183.us.us.us377, %233 ]
+  %.us-phi327.us = phi float [ %.1183.us.us.us.us, %394 ], [ %.1183.us.us.us342.us, %441 ], [ %.1183.us.us.us333.us, %421 ], [ %.1183.us.us.us377, %233 ]
   %359 = getelementptr inbounds nuw float, ptr %.0197354.us, i64 %indvars.iv510
   store float %.us-phi327.us, ptr %359, align 4, !tbaa !102
   %indvars.iv.next511 = add nuw nsw i64 %indvars.iv510, 1
@@ -23167,7 +23167,7 @@ define internal void @_ZN2cvL12remapBicubicINS_4CastIddEEfLi1ELb1EEEvRKNS_3MatER
   br i1 %exitcond416.not, label %.split250.us, label %.split.us.split.split.split.us, !llvm.loop !374
 
 .split250.us:                                     ; preds = %172, %158, %134, %.split.us.split.split
-  %.us-phi361 = phi double [ %102, %.split.us.split.split ], [ %.1183.us.us366, %158 ], [ %.1183.us.us, %134 ], [ %.1183.us.us376, %172 ]
+  %.us-phi361 = phi double [ %.1183.us.us366, %158 ], [ %102, %.split.us.split.split ], [ %.1183.us.us, %134 ], [ %.1183.us.us376, %172 ]
   %174 = getelementptr inbounds nuw double, ptr %.0197312.us, i64 %indvars.iv427
   store double %.us-phi361, ptr %174, align 8, !tbaa !53
   %indvars.iv.next428 = add nuw nsw i64 %indvars.iv427, 1
@@ -23342,7 +23342,7 @@ define internal void @_ZN2cvL12remapBicubicINS_4CastIddEEfLi1ELb1EEEvRKNS_3MatER
   br i1 %296, label %.preheader243.split.us.us, label %.split.us
 
 .split256.us328:                                  ; preds = %.split250.us, %.split250.us.us.split.split.split.us, %.split250.us.us.split.split.split.us.us.us, %.split250.us.us.split.split.us.us.us, %.split250.us.us.split.us.us.us
-  %.us-phi257.us = phi ptr [ %325, %.split250.us.us.split.split.split.us ], [ %433, %.split250.us.us.split.us.us.us ], [ %402, %.split250.us.us.split.split.us.us.us ], [ %400, %.split250.us.us.split.split.split.us.us.us ], [ %175, %.split250.us ]
+  %.us-phi257.us = phi ptr [ %433, %.split250.us.us.split.us.us.us ], [ %400, %.split250.us.us.split.split.split.us.us.us ], [ %402, %.split250.us.us.split.split.us.us.us ], [ %325, %.split250.us.us.split.split.split.us ], [ %175, %.split250.us ]
   %307 = getelementptr inbounds double, ptr %.us-phi257.us, i64 %48
   br label %.loopexit242.us
 
@@ -29547,7 +29547,7 @@ _ZNK2cv11_InputArray6getMatEi.exit235:            ; preds = %112, %115
   br i1 %179, label %.loopexit, label %176
 
 .loopexit:                                        ; preds = %176, %.loopexit.loopexit310, %.thread278
-  %.pn208.pn = phi { ptr, i32 } [ %159, %.thread278 ], [ %167, %.loopexit.loopexit310 ], [ %169, %176 ]
+  %.pn208.pn = phi { ptr, i32 } [ %167, %.loopexit.loopexit310 ], [ %159, %.thread278 ], [ %169, %176 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %383
 
@@ -29610,7 +29610,7 @@ _ZNK2cv11_InputArray6getMatEi.exit235:            ; preds = %112, %115
   br i1 %201, label %.loopexit287, label %198
 
 .loopexit287:                                     ; preds = %198, %.loopexit287.loopexit311, %.thread280
-  %.pn206 = phi { ptr, i32 } [ %183, %.thread280 ], [ %189, %.loopexit287.loopexit311 ], [ %191, %198 ]
+  %.pn206 = phi { ptr, i32 } [ %189, %.loopexit287.loopexit311 ], [ %183, %.thread280 ], [ %191, %198 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %383
 

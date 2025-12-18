@@ -861,7 +861,7 @@ define dso_local noundef range(i32 -19, 1) i32 @trace_event_raw_init(ptr noundef
   br label %.loopexit25
 
 .loopexit25:                                      ; preds = %130, %76, %49, %38, %26, %.thread18, %.thread17, %271, %247, %5, %1
-  %275 = phi i32 [ -19, %1 ], [ 0, %5 ], [ 0, %247 ], [ 0, %271 ], [ 0, %.thread17 ], [ 0, %.thread18 ], [ 0, %26 ], [ 0, %38 ], [ 0, %49 ], [ 0, %76 ], [ 0, %130 ]
+  %275 = phi i32 [ -19, %1 ], [ 0, %5 ], [ 0, %247 ], [ 0, %271 ], [ 0, %.thread18 ], [ 0, %.thread17 ], [ 0, %26 ], [ 0, %38 ], [ 0, %49 ], [ 0, %76 ], [ 0, %130 ]
   ret i32 %275
 }
 
@@ -1872,7 +1872,7 @@ define dso_local void @trace_event_eval_update(ptr noundef readonly captures(non
   br i1 %139, label %.loopexit19, label %.backedge
 
 .backedge:                                        ; preds = %134, %118
-  %.be = phi ptr [ %120, %118 ], [ %137, %134 ]
+  %.be = phi ptr [ %137, %134 ], [ %120, %118 ]
   br label %118, !llvm.loop !64
 
 .loopexit:                                        ; preds = %130, %129, %103, %77, %75, %62, %60, %56
@@ -2234,7 +2234,7 @@ __register_event.exit:                            ; preds = %42, %43
   br i1 %61, label %__register_event.exit.thread, label %.preheader, !llvm.loop !87
 
 __register_event.exit.thread:                     ; preds = %59, %.thread.i, %32, %34, %__register_event.exit
-  %62 = phi i32 [ 0, %__register_event.exit ], [ -22, %.thread.i ], [ %28, %32 ], [ %28, %34 ], [ 0, %59 ]
+  %62 = phi i32 [ 0, %__register_event.exit ], [ %28, %34 ], [ -22, %.thread.i ], [ %28, %32 ], [ 0, %59 ]
   tail call void @mutex_unlock(ptr noundef nonnull @trace_types_lock) #20
   ret i32 %62
 }

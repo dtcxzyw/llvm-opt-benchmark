@@ -1291,7 +1291,7 @@ xor_freekey.exit.sink.split:                      ; preds = %10, %34
   br label %xor_freekey.exit
 
 xor_freekey.exit:                                 ; preds = %xor_freekey.exit.sink.split, %3, %CRYPTO_DOWN_REF.exit.i, %xor_gen.exit
-  %.0 = phi ptr [ %4, %xor_gen.exit ], [ null, %CRYPTO_DOWN_REF.exit.i ], [ null, %3 ], [ null, %xor_freekey.exit.sink.split ]
+  %.0 = phi ptr [ null, %3 ], [ %4, %xor_gen.exit ], [ null, %CRYPTO_DOWN_REF.exit.i ], [ null, %xor_freekey.exit.sink.split ]
   ret ptr %.0
 }
 
@@ -1569,7 +1569,7 @@ xor_freekey.exit.sink.split:                      ; preds = %10, %34
   br label %xor_freekey.exit
 
 xor_freekey.exit:                                 ; preds = %xor_freekey.exit.sink.split, %3, %CRYPTO_DOWN_REF.exit.i, %xor_gen.exit
-  %.0 = phi ptr [ %4, %xor_gen.exit ], [ null, %CRYPTO_DOWN_REF.exit.i ], [ null, %3 ], [ null, %xor_freekey.exit.sink.split ]
+  %.0 = phi ptr [ null, %3 ], [ %4, %xor_gen.exit ], [ null, %CRYPTO_DOWN_REF.exit.i ], [ null, %xor_freekey.exit.sink.split ]
   ret ptr %.0
 }
 
@@ -1807,7 +1807,7 @@ xor_derive.exit:                                  ; preds = %20, %33, %15
   br label %xor_freekey.exit
 
 xor_newkemkexctx.exit.thread:                     ; preds = %.preheader.i49, %49, %xor_gen.exit
-  %.034.ph = phi i32 [ 0, %49 ], [ 0, %xor_gen.exit ], [ 1, %.preheader.i49 ]
+  %.034.ph = phi i32 [ 0, %xor_gen.exit ], [ 0, %49 ], [ 1, %.preheader.i49 ]
   tail call void @CRYPTO_free(ptr noundef nonnull %18, ptr noundef nonnull @.str.2, i32 noundef 1091) #16
   %62 = atomicrmw sub ptr %24, i32 1 release, align 4
   %63 = icmp eq i32 %62, 1

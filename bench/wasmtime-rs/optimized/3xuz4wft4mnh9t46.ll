@@ -7804,7 +7804,7 @@ _ZN5serde2de7Visitor10visit_bool17h89389ae71265a222E.exit.i: ; preds = %"_ZN9tom
   ret void
 
 421:                                              ; preds = %417, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h47a8381156db429cE.exit"
-  %.2 = phi i1 [ false, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h47a8381156db429cE.exit" ], [ true, %417 ]
+  %.2 = phi i1 [ true, %417 ], [ false, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h47a8381156db429cE.exit" ]
   %422 = load i64, ptr %1, align 8, !range !12, !noundef !13
   %423 = add nsw i64 %422, -8
   %424 = icmp ugt i64 %423, 3
@@ -7891,7 +7891,7 @@ common.resume:                                    ; preds = %457, %460, %461, %4
           cleanup
   br label %.body.thread83
 
-.body.thread83:                                   ; preds = %408, %172, %186, %178, %.body.thread90
+.body.thread83:                                   ; preds = %186, %178, %172, %408, %.body.thread90
   %.pn88 = phi { ptr, i32 } [ %lpad.thr_comm, %.body.thread90 ], [ %187, %186 ], [ %173, %172 ], [ %179, %178 ], [ %409, %408 ]
   %.187 = phi i1 [ true, %.body.thread90 ], [ false, %186 ], [ false, %172 ], [ false, %178 ], [ true, %408 ]
   %452 = load i64, ptr %1, align 8, !range !12, !noundef !13
@@ -10093,7 +10093,7 @@ _ZN5serde2de7Visitor10visit_bool17hdf8692f9c482f9f9E.exit.i: ; preds = %"_ZN9tom
   ret void
 
 658:                                              ; preds = %654, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h104c434339fa2a29E.exit"
-  %.2 = phi i1 [ false, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h104c434339fa2a29E.exit" ], [ true, %654 ]
+  %.2 = phi i1 [ true, %654 ], [ false, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h104c434339fa2a29E.exit" ]
   %659 = load i64, ptr %1, align 8, !range !12, !noundef !13
   %660 = add nsw i64 %659, -8
   %661 = icmp ugt i64 %660, 3
@@ -10180,7 +10180,7 @@ common.resume:                                    ; preds = %694, %697, %698, %6
           cleanup
   br label %.body.thread88
 
-.body.thread88:                                   ; preds = %645, %409, %423, %415, %.body.thread95
+.body.thread88:                                   ; preds = %423, %415, %409, %645, %.body.thread95
   %.pn93 = phi { ptr, i32 } [ %lpad.thr_comm, %.body.thread95 ], [ %424, %423 ], [ %410, %409 ], [ %416, %415 ], [ %646, %645 ]
   %.192 = phi i1 [ true, %.body.thread95 ], [ false, %423 ], [ false, %409 ], [ false, %415 ], [ true, %645 ]
   %689 = load i64, ptr %1, align 8, !range !12, !noundef !13
@@ -11682,7 +11682,7 @@ _ZN5serde2de7Visitor10visit_bool17h6f564f1bfb5ef3a7E.exit.i: ; preds = %"_ZN9tom
   ret void
 
 443:                                              ; preds = %440, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h8385930fa0db837cE.exit"
-  %.2 = phi i1 [ false, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h8385930fa0db837cE.exit" ], [ true, %440 ]
+  %.2 = phi i1 [ true, %440 ], [ false, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h8385930fa0db837cE.exit" ]
   %444 = load i64, ptr %1, align 8, !range !12, !noundef !13
   %445 = add nsw i64 %444, -8
   %446 = icmp ugt i64 %445, 3
@@ -11769,7 +11769,7 @@ common.resume:                                    ; preds = %479, %482, %483, %4
           cleanup
   br label %.body.thread84
 
-.body.thread84:                                   ; preds = %431, %191, %210, %197, %.body.thread91
+.body.thread84:                                   ; preds = %210, %197, %191, %431, %.body.thread91
   %.pn89 = phi { ptr, i32 } [ %lpad.thr_comm, %.body.thread91 ], [ %211, %210 ], [ %192, %191 ], [ %198, %197 ], [ %432, %431 ]
   %.188 = phi i1 [ true, %.body.thread91 ], [ false, %210 ], [ false, %191 ], [ false, %197 ], [ true, %431 ]
   %474 = load i64, ptr %1, align 8, !range !12, !noundef !13

@@ -1027,7 +1027,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang16TargetClonesAttr15getMangledIndexEjEU
   br i1 %.not.i.i11, label %_ZSt8count_ifIPN4llvm9StringRefEZNK5clang16TargetClonesAttr15getMangledIndexEjEUlS1_E_ENSt15iterator_traitsIT_E15difference_typeES7_S7_T0_.exit, label %.lr.ph.i.i4, !llvm.loop !590
 
 _ZSt8count_ifIPN4llvm9StringRefEZNK5clang16TargetClonesAttr15getMangledIndexEjEUlS1_E_ENSt15iterator_traitsIT_E15difference_typeES7_S7_T0_.exit: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang16TargetClonesAttr15getMangledIndexEjEUlN4llvm9StringRefEE0_EclIPS5_EEbT_.exit.thread.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang16TargetClonesAttr15getMangledIndexEjEUlN4llvm9StringRefEE_EclIPS5_EEbT_.exit.thread.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18, %_ZN4llvmeqENS_9StringRefES0_.exit.thread
-  %.0.in = phi i32 [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18 ], [ %13, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang16TargetClonesAttr15getMangledIndexEjEUlN4llvm9StringRefEE_EclIPS5_EEbT_.exit.thread.i.i ], [ %16, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang16TargetClonesAttr15getMangledIndexEjEUlN4llvm9StringRefEE0_EclIPS5_EEbT_.exit.thread.i.i ]
+  %.0.in = phi i32 [ %13, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang16TargetClonesAttr15getMangledIndexEjEUlN4llvm9StringRefEE_EclIPS5_EEbT_.exit.thread.i.i ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18 ], [ %16, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang16TargetClonesAttr15getMangledIndexEjEUlN4llvm9StringRefEE0_EclIPS5_EEbT_.exit.thread.i.i ]
   ret i32 %.0.in
 }
 

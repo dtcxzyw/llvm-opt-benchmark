@@ -13438,7 +13438,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler8i32_load17hd522cff0fdf3771fE.exi
   br i1 %209, label %.loopexit.i.i.i.invoke, label %.lr.ph.i.i.i.i
 
 .loopexit.i.i.i.invoke:                           ; preds = %195, %242, %239, %236, %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17he9c729bace8a46ffE.exit.i.i.i.i"
-  %210 = phi ptr [ @anon.9b245dddcf682bd7d7bb6af6fb912ebe.74, %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17he9c729bace8a46ffE.exit.i.i.i.i" ], [ @anon.38476532626945bb04fe24ad10240d6e.273.llvm.725258463910346102, %242 ], [ @anon.38476532626945bb04fe24ad10240d6e.273.llvm.725258463910346102, %239 ], [ @anon.38476532626945bb04fe24ad10240d6e.273.llvm.725258463910346102, %236 ], [ @anon.9b245dddcf682bd7d7bb6af6fb912ebe.74, %195 ]
+  %210 = phi ptr [ @anon.9b245dddcf682bd7d7bb6af6fb912ebe.74, %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17he9c729bace8a46ffE.exit.i.i.i.i" ], [ @anon.38476532626945bb04fe24ad10240d6e.273.llvm.725258463910346102, %239 ], [ @anon.38476532626945bb04fe24ad10240d6e.273.llvm.725258463910346102, %236 ], [ @anon.9b245dddcf682bd7d7bb6af6fb912ebe.74, %195 ], [ @anon.38476532626945bb04fe24ad10240d6e.273.llvm.725258463910346102, %242 ]
   invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) %210) #44
           to label %.loopexit.i.i.i.cont unwind label %.loopexit.split-lp150
 
@@ -15239,7 +15239,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler8i32_load17hd522cff0fdf3771fE.exi
   br i1 %211, label %.loopexit.i.i.i.invoke, label %203
 
 .loopexit.i.i.i.invoke:                           ; preds = %195, %254, %251, %248, %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17h3ea77717b5b8e960E.exit.i.i.i.i"
-  %212 = phi ptr [ @anon.9b245dddcf682bd7d7bb6af6fb912ebe.69, %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17h3ea77717b5b8e960E.exit.i.i.i.i" ], [ @anon.38476532626945bb04fe24ad10240d6e.273.llvm.725258463910346102, %254 ], [ @anon.38476532626945bb04fe24ad10240d6e.273.llvm.725258463910346102, %251 ], [ @anon.38476532626945bb04fe24ad10240d6e.273.llvm.725258463910346102, %248 ], [ @anon.9b245dddcf682bd7d7bb6af6fb912ebe.69, %195 ]
+  %212 = phi ptr [ @anon.9b245dddcf682bd7d7bb6af6fb912ebe.69, %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17h3ea77717b5b8e960E.exit.i.i.i.i" ], [ @anon.38476532626945bb04fe24ad10240d6e.273.llvm.725258463910346102, %251 ], [ @anon.38476532626945bb04fe24ad10240d6e.273.llvm.725258463910346102, %248 ], [ @anon.9b245dddcf682bd7d7bb6af6fb912ebe.69, %195 ], [ @anon.38476532626945bb04fe24ad10240d6e.273.llvm.725258463910346102, %254 ]
   invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) %212) #44
           to label %.loopexit.i.i.i.cont unwind label %.loopexit.split-lp152
 

@@ -747,12 +747,12 @@ _push_stack.exit499.i.us:                         ; preds = %208, %207, %205, %2
   br i1 %exitcond.not, label %.critedge.thread.i.us, label %156
 
 .critedge.thread.i.us:                            ; preds = %_push_stack.exit499.i.us, %167, %161, %.critedge.i.us
-  %.sroa.0.7.us = phi i32 [ %.sroa.0.6.us, %167 ], [ %.sroa.0.6.us, %161 ], [ %.sroa.0.6.us, %.critedge.i.us ], [ %.sroa.0.14.us, %_push_stack.exit499.i.us ]
-  %.2450.lcssa614.i.us = phi i32 [ %.2450.lcssa.i.us, %167 ], [ %.2450.lcssa.i.us, %161 ], [ %.2450.lcssa.i.us, %.critedge.i.us ], [ %.2450.i.us, %_push_stack.exit499.i.us ]
-  %.9461.i.us = phi i32 [ %171, %167 ], [ %.4456.lcssa.i.us, %161 ], [ %.4456.lcssa.i.us, %.critedge.i.us ], [ %.7459.i.us, %_push_stack.exit499.i.us ]
-  %.9441.i.us = phi i32 [ %170, %167 ], [ %.4436.lcssa.i.us, %161 ], [ %.4436.lcssa.i.us, %.critedge.i.us ], [ %.7439.i.us, %_push_stack.exit499.i.us ]
-  %.9425.i.us = phi i32 [ %169, %167 ], [ %.4420.lcssa.i.us, %161 ], [ %.4420.lcssa.i.us, %.critedge.i.us ], [ %.7423.i.us, %_push_stack.exit499.i.us ]
-  %.9.i.us = phi i32 [ %168, %167 ], [ %.4415.lcssa.i.us, %161 ], [ %.4415.lcssa.i.us, %.critedge.i.us ], [ %.7.i.us, %_push_stack.exit499.i.us ]
+  %.sroa.0.7.us = phi i32 [ %.sroa.0.6.us, %.critedge.i.us ], [ %.sroa.0.6.us, %167 ], [ %.sroa.0.6.us, %161 ], [ %.sroa.0.14.us, %_push_stack.exit499.i.us ]
+  %.2450.lcssa614.i.us = phi i32 [ %.2450.lcssa.i.us, %.critedge.i.us ], [ %.2450.lcssa.i.us, %167 ], [ %.2450.lcssa.i.us, %161 ], [ %.2450.i.us, %_push_stack.exit499.i.us ]
+  %.9461.i.us = phi i32 [ %.4456.lcssa.i.us, %.critedge.i.us ], [ %171, %167 ], [ %.4456.lcssa.i.us, %161 ], [ %.7459.i.us, %_push_stack.exit499.i.us ]
+  %.9441.i.us = phi i32 [ %.4436.lcssa.i.us, %.critedge.i.us ], [ %170, %167 ], [ %.4436.lcssa.i.us, %161 ], [ %.7439.i.us, %_push_stack.exit499.i.us ]
+  %.9425.i.us = phi i32 [ %.4420.lcssa.i.us, %.critedge.i.us ], [ %169, %167 ], [ %.4420.lcssa.i.us, %161 ], [ %.7423.i.us, %_push_stack.exit499.i.us ]
+  %.9.i.us = phi i32 [ %.4415.lcssa.i.us, %.critedge.i.us ], [ %168, %167 ], [ %.4415.lcssa.i.us, %161 ], [ %.7.i.us, %_push_stack.exit499.i.us ]
   %.0401530.i.us = add nsw i32 %81, -1
   %.not487.not531.i.us = icmp sgt i32 %81, %44
   br i1 %.not487.not531.i.us, label %.lr.ph540.i.us, label %.critedge2.i.us
@@ -1055,7 +1055,7 @@ _push_stack.exit503.i.us:                         ; preds = %264, %263, %261, %2
   br i1 %exitcond100.not, label %.loopexit66, label %.preheader.us
 
 .loopexit66:                                      ; preds = %..critedge_crit_edge.us, %34, %.preheader.lr.ph, %14
-  %.1 = phi i32 [ 2, %14 ], [ 2, %.preheader.lr.ph ], [ %.278.us, %34 ], [ %.3.us, %..critedge_crit_edge.us ]
+  %.1 = phi i32 [ %.278.us, %34 ], [ 2, %14 ], [ 2, %.preheader.lr.ph ], [ %.3.us, %..critedge_crit_edge.us ]
   %325 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %326 = load i32, ptr %325, align 8, !tbaa !29
   %327 = add nsw i32 %326, -2
@@ -6843,7 +6843,7 @@ _calc_distance_ring.exit.i.i:                     ; preds = %.lr.ph.i550.i, %_ca
   br i1 %2180, label %_calc_distance_ring.exit.i.i, label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %_calc_distance_ring.exit.i.i, %.preheader58.lr.ph.i.us.i.i, %_calc_distance_ring.exit.loopexit.us.us.i.i
-  %.0.lcssa.i551.i = phi float [ %2177, %.preheader58.lr.ph.i.us.i.i ], [ %2135, %_calc_distance_ring.exit.loopexit.us.us.i.i ], [ %2179, %_calc_distance_ring.exit.i.i ]
+  %.0.lcssa.i551.i = phi float [ %2135, %_calc_distance_ring.exit.loopexit.us.us.i.i ], [ %2177, %.preheader58.lr.ph.i.us.i.i ], [ %2179, %_calc_distance_ring.exit.i.i ]
   %2181 = fcmp reassoc nsz arcp contract afn ogt float %.0.lcssa.i551.i, 4.000000e+00
   br i1 %2181, label %2182, label %.loopexit.i.i
 
@@ -10109,8 +10109,8 @@ FCxtrans.exit348.us.us:                           ; preds = %493, %.lr.ph.split.
   br i1 %exitcond549.not, label %._crit_edge.us455, label %FCxtrans.exit348.us.us
 
 .thread362:                                       ; preds = %._crit_edge.us455, %.preheader365.lr.ph, %.preheader366, %423, %424
-  %.not334364 = phi i1 [ true, %424 ], [ true, %423 ], [ false, %.preheader366 ], [ false, %.preheader365.lr.ph ], [ false, %._crit_edge.us455 ]
-  %496 = phi ptr [ null, %424 ], [ null, %423 ], [ %430, %.preheader366 ], [ %430, %.preheader365.lr.ph ], [ %430, %._crit_edge.us455 ]
+  %.not334364 = phi i1 [ true, %424 ], [ true, %423 ], [ false, %.preheader365.lr.ph ], [ false, %.preheader366 ], [ false, %._crit_edge.us455 ]
+  %496 = phi ptr [ null, %424 ], [ null, %423 ], [ %430, %.preheader365.lr.ph ], [ %430, %.preheader366 ], [ %430, %._crit_edge.us455 ]
   %497 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %498 = load i32, ptr %497, align 4, !tbaa !83
   %499 = sext i32 %498 to i64
@@ -10261,7 +10261,7 @@ FCxtrans.exit353.us.us:                           ; preds = %538
   br i1 %exitcond552.not, label %._crit_edge.us467, label %.lr.ph.split.split.us.us
 
 .loopexit:                                        ; preds = %._crit_edge.us467, %.preheader.lr.ph, %.thread362, %132
-  %.0 = phi ptr [ null, %132 ], [ %496, %.thread362 ], [ %496, %.preheader.lr.ph ], [ %496, %._crit_edge.us467 ]
+  %.0 = phi ptr [ null, %132 ], [ %496, %.preheader.lr.ph ], [ %496, %.thread362 ], [ %496, %._crit_edge.us467 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

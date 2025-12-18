@@ -3153,7 +3153,7 @@ define internal fastcc noundef zeroext i1 @gen8_ggtt_bind_ptes(ptr noundef reado
   br label %gen8_ggtt_bind_put_ce.exit
 
 gen8_ggtt_bind_put_ce.exit:                       ; preds = %32, %.lr.ph8.i, %18, %12, %._crit_edge9.i, %.loopexit54, %5
-  %292 = phi i1 [ true, %5 ], [ false, %.loopexit54 ], [ %261, %._crit_edge9.i ], [ false, %12 ], [ false, %18 ], [ %261, %.lr.ph8.i ], [ false, %32 ]
+  %292 = phi i1 [ true, %5 ], [ false, %.loopexit54 ], [ %261, %._crit_edge9.i ], [ false, %18 ], [ false, %12 ], [ %261, %.lr.ph8.i ], [ false, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %292
 }

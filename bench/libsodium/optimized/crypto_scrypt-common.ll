@@ -232,7 +232,7 @@ encode64_uint32.exit.i:                           ; preds = %55
   br i1 %.not.not.i, label %encode64.exit, label %42, !llvm.loop !9
 
 encode64.exit:                                    ; preds = %42, %encode64_uint32.exit.i, %.lr.ph.i.i
-  %.2.i = phi ptr [ null, %.lr.ph.i.i ], [ null, %encode64_uint32.exit.i ], [ %.026.i, %42 ]
+  %.2.i = phi ptr [ null, %.lr.ph.i.i ], [ %.026.i, %42 ], [ null, %encode64_uint32.exit.i ]
   call void @sodium_memzero(ptr noundef nonnull %7, i64 noundef 32) #8
   %.not56 = icmp ne ptr %.2.i, null
   %68 = getelementptr i8, ptr %4, i64 %5
@@ -428,7 +428,7 @@ encode64.exit:                                    ; preds = %58
   br label %encode64_uint32.exit.thread
 
 encode64_uint32.exit.thread:                      ; preds = %.lr.ph.i, %.lr.ph.i59, %encode64_uint32.exit.i, %.lr.ph.i.i, %encode64.exit, %encode64_uint32.exit65, %encode64_uint32.exit, %14, %7, %85
-  %.0 = phi ptr [ null, %14 ], [ null, %7 ], [ null, %encode64_uint32.exit65 ], [ %5, %85 ], [ null, %encode64_uint32.exit ], [ null, %encode64.exit ], [ null, %.lr.ph.i59 ], [ null, %.lr.ph.i.i ], [ null, %encode64_uint32.exit.i ], [ null, %.lr.ph.i ]
+  %.0 = phi ptr [ null, %14 ], [ null, %7 ], [ null, %encode64_uint32.exit65 ], [ %5, %85 ], [ null, %encode64_uint32.exit ], [ null, %encode64.exit ], [ null, %encode64_uint32.exit.i ], [ null, %.lr.ph.i59 ], [ null, %.lr.ph.i.i ], [ null, %.lr.ph.i ]
   ret ptr %.0
 }
 

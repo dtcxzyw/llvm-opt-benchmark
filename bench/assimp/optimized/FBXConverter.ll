@@ -6726,7 +6726,7 @@ _ZNSt6vectorIN6Assimp3FBX12FBXConverter13PotentialNodeESaIS3_EE5clearEv.exit123.
   br label %_ZNSt6vectorIN6Assimp3FBX12FBXConverter13PotentialNodeESaIS3_EE5clearEv.exit123
 
 _ZNSt6vectorIN6Assimp3FBX12FBXConverter13PotentialNodeESaIS3_EE5clearEv.exit123: ; preds = %_ZNSt6vectorIN6Assimp3FBX12FBXConverter13PotentialNodeESaIS3_EE5clearEv.exit123.loopexit, %255, %_ZSt8_DestroyIPN6Assimp3FBX12FBXConverter13PotentialNodeES3_EvT_S5_RSaIT0_E.exit.i.i122, %387
-  %.274 = phi ptr [ %.072.lcssa, %387 ], [ %.072.lcssa, %_ZSt8_DestroyIPN6Assimp3FBX12FBXConverter13PotentialNodeES3_EvT_S5_RSaIT0_E.exit.i.i122 ], [ %.072.lcssa, %255 ], [ %289, %_ZNSt6vectorIN6Assimp3FBX12FBXConverter13PotentialNodeESaIS3_EE5clearEv.exit123.loopexit ]
+  %.274 = phi ptr [ %.072.lcssa, %_ZSt8_DestroyIPN6Assimp3FBX12FBXConverter13PotentialNodeES3_EvT_S5_RSaIT0_E.exit.i.i122 ], [ %.072.lcssa, %387 ], [ %.072.lcssa, %255 ], [ %289, %_ZNSt6vectorIN6Assimp3FBX12FBXConverter13PotentialNodeESaIS3_EE5clearEv.exit123.loopexit ]
   %390 = load i64, ptr %248, align 8
   invoke void @_ZN6Assimp3FBX12FBXConverter12ConvertNodesEmP6aiNodeS3_RK12aiMatrix4x4tIfE(ptr noundef nonnull align 8 dereferenceable(489) %0, i64 noundef %390, ptr noundef %.274, ptr noundef %3, ptr noundef nonnull align 4 dereferenceable(64) %12)
           to label %391 unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -14742,8 +14742,8 @@ _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %148, %150
-  %152 = phi ptr [ %107, %150 ], [ %.pr.pre, %148 ]
-  %.pn68.pn = phi { ptr, i32 } [ %151, %150 ], [ %149, %148 ]
+  %152 = phi ptr [ %.pr.pre, %148 ], [ %107, %150 ]
+  %.pn68.pn = phi { ptr, i32 } [ %149, %148 ], [ %151, %150 ]
   %.not.i.i.i = icmp eq ptr %152, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIjSaIjEED2Ev.exit, label %153
 
@@ -34126,8 +34126,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit246: ; preds = %_Z
   br label %_ZNSt6vectorIP10aiNodeAnimSaIS1_EED2Ev.exit248
 
 741:                                              ; preds = %._crit_edge416, %555, %629, %596, %513, %485, %500
-  %742 = phi ptr [ %501, %500 ], [ %.pre417, %._crit_edge416 ], [ %481, %485 ], [ %504, %513 ], [ %504, %555 ], [ %504, %629 ], [ %504, %596 ]
-  %.merged160 = phi { ptr, i32 } [ %502, %500 ], [ %474, %._crit_edge416 ], [ %486, %485 ], [ %514, %513 ], [ %556, %555 ], [ %630, %629 ], [ %597, %596 ]
+  %742 = phi ptr [ %504, %596 ], [ %504, %629 ], [ %501, %500 ], [ %.pre417, %._crit_edge416 ], [ %481, %485 ], [ %504, %513 ], [ %504, %555 ]
+  %.merged160 = phi { ptr, i32 } [ %597, %596 ], [ %630, %629 ], [ %502, %500 ], [ %474, %._crit_edge416 ], [ %486, %485 ], [ %514, %513 ], [ %556, %555 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   %.not.i.i.i247 = icmp eq ptr %742, null
@@ -37651,7 +37651,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit90
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit90: ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i75, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PKN6Assimp3FBX14AnimationCurveEESt10_Select1stISD_ESt4lessIS5_ESaISD_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISD_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i71
-  %.sroa.0.0.i.i78 = phi ptr [ %25, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PKN6Assimp3FBX14AnimationCurveEESt10_Select1stISD_ESt4lessIS5_ESaISD_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISD_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i71 ], [ %spec.select.i.i77, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i75 ]
+  %.sroa.0.0.i.i78 = phi ptr [ %spec.select.i.i77, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i75 ], [ %25, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PKN6Assimp3FBX14AnimationCurveEESt10_Select1stISD_ESt4lessIS5_ESaISD_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISD_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i71 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %65 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -46109,8 +46109,8 @@ _ZNSt10_HashtableIPK6aiBoneS2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4h
   resume { ptr, i32 } %47
 
 _ZNKSt10_HashtableIPK6aiBoneS2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE15_M_find_node_trIS2_EEPNS4_10_Hash_nodeIS2_Lb0EEEmRKT_m.exit: ; preds = %33, %19, %.critedge, %28
-  %.sroa.031.1 = phi ptr [ %29, %28 ], [ %46, %.critedge ], [ %.sroa.028.0, %19 ], [ %35, %33 ]
-  %.sroa.432.1 = phi i8 [ 0, %28 ], [ 1, %.critedge ], [ 0, %19 ], [ 0, %33 ]
+  %.sroa.031.1 = phi ptr [ %.sroa.028.0, %19 ], [ %46, %.critedge ], [ %29, %28 ], [ %35, %33 ]
+  %.sroa.432.1 = phi i8 [ 0, %19 ], [ 1, %.critedge ], [ 0, %28 ], [ 0, %33 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.031.1, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.432.1, 1
   ret { ptr, i8 } %.fca.1.insert

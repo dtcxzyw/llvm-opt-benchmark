@@ -477,8 +477,8 @@ skip.exit17.i.i:                                  ; preds = %73
   br label %.outer.i.i.backedge
 
 .outer.i.i.backedge:                              ; preds = %skip.exit17.i.i, %skip.exit.i.i
-  %.be = phi ptr [ %74, %skip.exit17.i.i ], [ %59, %skip.exit.i.i ]
-  %.0.ph.i.i.be = phi i32 [ %75, %skip.exit17.i.i ], [ %60, %skip.exit.i.i ]
+  %.be = phi ptr [ %59, %skip.exit.i.i ], [ %74, %skip.exit17.i.i ]
+  %.0.ph.i.i.be = phi i32 [ %60, %skip.exit.i.i ], [ %75, %skip.exit17.i.i ]
   br label %.outer.i.i
 
 76:                                               ; preds = %44
@@ -2323,8 +2323,8 @@ scan_hex_literal.exit113.thread:                  ; preds = %scan_hex_literal.ex
   ]
 
 match.exit.backedge.backedge:                     ; preds = %38, %164, %scan_utf8.exit.thread120
-  %.be = phi ptr [ %47, %scan_utf8.exit.thread120 ], [ %146, %164 ], [ %39, %38 ]
-  %.be759 = phi i8 [ %.pre, %scan_utf8.exit.thread120 ], [ %165, %164 ], [ %41, %38 ]
+  %.be = phi ptr [ %146, %164 ], [ %47, %scan_utf8.exit.thread120 ], [ %39, %38 ]
+  %.be759 = phi i8 [ %165, %164 ], [ %.pre, %scan_utf8.exit.thread120 ], [ %41, %38 ]
   br label %match.exit.backedge
 
 match.exit115.thread:                             ; preds = %164
@@ -2341,8 +2341,8 @@ match.exit115.thread:                             ; preds = %164
   br label %.thread124
 
 .thread124:                                       ; preds = %65, %93, %.thread124.loopexit, %.thread117, %121
-  %.091311713 = phi i32 [ %.091311755, %121 ], [ %.091.ph325, %.thread117 ], [ %.091311755, %93 ], [ %.091311755, %65 ], [ %.091311755, %.thread124.loopexit ]
-  %.193 = phi i8 [ %122, %121 ], [ 10, %.thread117 ], [ %69, %93 ], [ %11, %65 ], [ %68, %.thread124.loopexit ]
+  %.091311713 = phi i32 [ %.091311755, %93 ], [ %.091311755, %121 ], [ %.091.ph325, %.thread117 ], [ %.091311755, %65 ], [ %.091311755, %.thread124.loopexit ]
+  %.193 = phi i8 [ %69, %93 ], [ %122, %121 ], [ 10, %.thread117 ], [ %11, %65 ], [ %68, %.thread124.loopexit ]
   %169 = add nsw i32 %.091311713, 1
   %170 = tail call { i64, i64 } @i128_shl64(i64 %.sroa.023.0.ph323, i64 %.sroa.6.0.ph321, i64 noundef 8) #11
   %171 = extractvalue { i64, i64 } %170, 0
@@ -3065,8 +3065,8 @@ backtrack.exit68:                                 ; preds = %.loopexit, %47
   br label %273, !llvm.loop !22
 
 append_esc_string_token.exit:                     ; preds = %255, %243, %228, %222, %217
-  %.1 = phi i64 [ %218, %217 ], [ %224, %222 ], [ %236, %228 ], [ %254, %243 ], [ %270, %255 ]
-  %.0.i = phi i32 [ 1, %217 ], [ %.082.i, %222 ], [ %.082.i, %228 ], [ %.082.i, %243 ], [ %.082.i, %255 ]
+  %.1 = phi i64 [ %270, %255 ], [ %218, %217 ], [ %254, %243 ], [ %236, %228 ], [ %224, %222 ]
+  %.0.i = phi i32 [ %.082.i, %255 ], [ 1, %217 ], [ %.082.i, %243 ], [ %.082.i, %228 ], [ %.082.i, %222 ]
   %.promoted.i73 = load ptr, ptr %2, align 8
   br label %282
 
@@ -3187,7 +3187,7 @@ return_token.exit:                                ; preds = %321, %332
   br label %consume_to_end_quote.exit
 
 consume_to_end_quote.exit:                        ; preds = %273, %273, %33, %33, %50, %50, %return_token.exit
-  %345 = phi i1 [ true, %return_token.exit ], [ false, %33 ], [ false, %50 ], [ false, %50 ], [ false, %33 ], [ false, %273 ], [ false, %273 ]
+  %345 = phi i1 [ false, %33 ], [ false, %50 ], [ true, %return_token.exit ], [ false, %50 ], [ false, %33 ], [ false, %273 ], [ false, %273 ]
   ret i1 %345
 }
 
@@ -5021,7 +5021,7 @@ backtrack.exit:                                   ; preds = %41, %45
   br i1 %58, label %.lr.ph, label %.loopexit, !llvm.loop !36
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %53, %49, %backtrack.exit
-  %59 = phi i1 [ false, %53 ], [ false, %49 ], [ false, %backtrack.exit ], [ true, %.preheader ], [ true, %.lr.ph ]
+  %59 = phi i1 [ false, %backtrack.exit ], [ false, %53 ], [ false, %49 ], [ true, %.preheader ], [ true, %.lr.ph ]
   ret i1 %59
 }
 
@@ -5190,8 +5190,8 @@ define internal fastcc noundef zeroext i1 @scan_number_suffix(ptr noundef captur
   br i1 %85, label %.lr.ph, label %.loopexit, !llvm.loop !39
 
 .loopexit:                                        ; preds = %.lr.ph, %64, %.lr.ph81, %76, %.preheader, %7, %18, %44
-  %86 = phi ptr [ %4, %7 ], [ %19, %18 ], [ %45, %44 ], [ %38, %.preheader ], [ %.promoted, %76 ], [ %storemerge, %64 ], [ %48, %.lr.ph81 ], [ %82, %.lr.ph ]
-  %87 = phi i8 [ %5, %7 ], [ %20, %18 ], [ %46, %44 ], [ %39, %.preheader ], [ %78, %76 ], [ %65, %64 ], [ %49, %.lr.ph81 ], [ %83, %.lr.ph ]
+  %86 = phi ptr [ %4, %7 ], [ %19, %18 ], [ %45, %44 ], [ %48, %.lr.ph81 ], [ %storemerge, %64 ], [ %38, %.preheader ], [ %.promoted, %76 ], [ %82, %.lr.ph ]
+  %87 = phi i8 [ %5, %7 ], [ %20, %18 ], [ %46, %44 ], [ %49, %.lr.ph81 ], [ %65, %64 ], [ %39, %.preheader ], [ %78, %76 ], [ %83, %.lr.ph ]
   %88 = tail call fastcc zeroext i1 @char_is_alphanum_(i8 noundef signext %87)
   br i1 %88, label %89, label %99
 

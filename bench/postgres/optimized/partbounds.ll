@@ -1025,10 +1025,10 @@ get_range_key_properties.exit:                    ; preds = %271, %275
   br label %for_both_cell_setup.exit.split, !llvm.loop !14
 
 .thread277:                                       ; preds = %204, %199, %331, %328
-  %.2208 = phi i8 [ 0, %331 ], [ %.0206, %328 ], [ %.0206, %199 ], [ %.0206, %204 ]
-  %.2203 = phi i8 [ %.3204, %331 ], [ %.3204, %328 ], [ %.0201, %199 ], [ %.0201, %204 ]
-  %.1179 = phi ptr [ %.2180, %331 ], [ %.2180, %328 ], [ %.0178, %199 ], [ %.0178, %204 ]
-  %.1 = phi ptr [ %.2, %331 ], [ %.2, %328 ], [ %.0177, %199 ], [ %.0177, %204 ]
+  %.2208 = phi i8 [ %.0206, %328 ], [ 0, %331 ], [ %.0206, %199 ], [ %.0206, %204 ]
+  %.2203 = phi i8 [ %.3204, %328 ], [ %.3204, %331 ], [ %.0201, %199 ], [ %.0201, %204 ]
+  %.1179 = phi ptr [ %.2180, %328 ], [ %.2180, %331 ], [ %.0178, %199 ], [ %.0178, %204 ]
+  %.1 = phi ptr [ %.2, %328 ], [ %.2, %331 ], [ %.0177, %199 ], [ %.0177, %204 ]
   %.not237 = icmp eq ptr %.1179, null
   br i1 %.not237, label %345, label %list_length.exit261
 
@@ -3975,7 +3975,7 @@ get_range_partition.exit150.i:                    ; preds = %get_range_partition
   br label %.loopexit54.i.i.thread.i
 
 .loopexit54.i.i.thread.i:                         ; preds = %649, %._crit_edge.loopexit.split.loop.exit.i.i.i, %648
-  %.151.i.i.ph.i = phi i32 [ %indvars.le.i.i.i, %._crit_edge.loopexit.split.loop.exit.i.i.i ], [ 0, %648 ], [ %0, %649 ]
+  %.151.i.i.ph.i = phi i32 [ 0, %648 ], [ %indvars.le.i.i.i, %._crit_edge.loopexit.split.loop.exit.i.i.i ], [ %0, %649 ]
   %670 = sub i32 0, %.151.i.i.ph.i
   br label %partition_rbound_cmp.exit.i.i
 
@@ -4055,7 +4055,7 @@ partition_rbound_cmp.exit.thread.i.i:             ; preds = %partition_rbound_cm
   br label %partition_rbound_cmp.exit56.i.i
 
 partition_rbound_cmp.exit56.i.i:                  ; preds = %674, %.loopexit.loopexit.i53.i.i, %.loopexit54.i38.i.i, %._crit_edge.loopexit.split.loop.exit.i47.i.i, %680
-  %.0.i40.i.i = phi i32 [ %681, %680 ], [ %indvars.le89.i54.i.i, %.loopexit.loopexit.i53.i.i ], [ %spec.select1121.i, %.loopexit54.i38.i.i ], [ %indvars.le.i48.i.i, %._crit_edge.loopexit.split.loop.exit.i47.i.i ], [ %0, %674 ]
+  %.0.i40.i.i = phi i32 [ %681, %680 ], [ %indvars.le89.i54.i.i, %.loopexit.loopexit.i53.i.i ], [ %indvars.le.i48.i.i, %._crit_edge.loopexit.split.loop.exit.i47.i.i ], [ %spec.select1121.i, %.loopexit54.i38.i.i ], [ %0, %674 ]
   %697 = icmp sgt i32 %.0.i40.i.i, 0
   br i1 %697, label %.critedge.i45, label %.lr.ph.i66.i.i
 
@@ -4509,7 +4509,7 @@ get_range_partition.exit179.i:                    ; preds = %851
   br label %.loopexit54.i.thread.i
 
 .loopexit54.i.thread.i:                           ; preds = %858, %._crit_edge.loopexit.split.loop.exit.i.i, %857
-  %.151.i.ph.i = phi i32 [ %indvars.le.i.i, %._crit_edge.loopexit.split.loop.exit.i.i ], [ 0, %857 ], [ %0, %858 ]
+  %.151.i.ph.i = phi i32 [ 0, %857 ], [ %indvars.le.i.i, %._crit_edge.loopexit.split.loop.exit.i.i ], [ %0, %858 ]
   %879 = sub i32 0, %.151.i.ph.i
   br label %partition_rbound_cmp.exit.i
 
@@ -4603,7 +4603,7 @@ partition_rbound_cmp.exit.thread.i:               ; preds = %partition_rbound_cm
   br label %partition_rbound_cmp.exit210.i
 
 partition_rbound_cmp.exit210.i:                   ; preds = %886, %.loopexit.loopexit.i207.i, %.loopexit54.i192.i, %._crit_edge.loopexit.split.loop.exit.i201.i, %892
-  %.0.i194.i = phi i32 [ %893, %892 ], [ %indvars.le89.i208.i, %.loopexit.loopexit.i207.i ], [ %spec.select1127.i, %.loopexit54.i192.i ], [ %indvars.le.i202.i, %._crit_edge.loopexit.split.loop.exit.i201.i ], [ %0, %886 ]
+  %.0.i194.i = phi i32 [ %893, %892 ], [ %indvars.le89.i208.i, %.loopexit.loopexit.i207.i ], [ %indvars.le.i202.i, %._crit_edge.loopexit.split.loop.exit.i201.i ], [ %spec.select1127.i, %.loopexit54.i192.i ], [ %0, %886 ]
   %909 = icmp slt i32 %.0.i194.i, 0
   br i1 %909, label %merge_range_bounds.exit, label %partition_rbound_cmp.exit210.thread.i
 
@@ -5136,9 +5136,9 @@ add_merged_range_bounds.exit.i:                   ; preds = %1094, %1084, %.crit
   br label %1114
 
 1114:                                             ; preds = %add_merged_range_bounds.exit.i, %get_range_partition.exit223.i
-  %.1477.i = phi ptr [ %.0476745.i, %get_range_partition.exit223.i ], [ %1111, %add_merged_range_bounds.exit.i ]
-  %.1473.i = phi ptr [ %.0472752.i, %get_range_partition.exit223.i ], [ %1112, %add_merged_range_bounds.exit.i ]
-  %.1469.i = phi ptr [ %.0468758.i, %get_range_partition.exit223.i ], [ %1113, %add_merged_range_bounds.exit.i ]
+  %.1477.i = phi ptr [ %1111, %add_merged_range_bounds.exit.i ], [ %.0476745.i, %get_range_partition.exit223.i ]
+  %.1473.i = phi ptr [ %1112, %add_merged_range_bounds.exit.i ], [ %.0472752.i, %get_range_partition.exit223.i ]
+  %.1469.i = phi ptr [ %1113, %add_merged_range_bounds.exit.i ], [ %.0468758.i, %get_range_partition.exit223.i ]
   %1115 = icmp sgt i32 %.2110.i, -1
   %1116 = icmp sgt i32 %.2107.i, -1
   %1117 = select i1 %1115, i1 true, i1 %1116
@@ -5497,7 +5497,7 @@ partition_hbound_cmp.exit.thread.i:               ; preds = %56
   br i1 %74, label %.outer.i.backedge, label %56
 
 partition_hash_bsearch.exit:                      ; preds = %.thread.i, %.outer.i.backedge, %63, %.backedge.i
-  %.1.i = phi i32 [ %.018.ph.i274, %63 ], [ %.018.ph.i274, %.backedge.i ], [ %58, %.thread.i ], [ %64, %.outer.i.backedge ]
+  %.1.i = phi i32 [ %.018.ph.i274, %63 ], [ %.018.ph.i274, %.backedge.i ], [ %64, %.outer.i.backedge ], [ %58, %.thread.i ]
   %75 = icmp slt i32 %.1.i, 0
   br i1 %75, label %partition_hash_bsearch.exit.thread, label %91
 
@@ -6059,9 +6059,9 @@ partition_range_bsearch.exit:                     ; preds = %._crit_edge.i.us.i,
   %398 = load i32, ptr %397, align 8
   br label %.critedge.thread217
 
-.critedge.thread217:                              ; preds = %205, %370, %395, %.split.us, %143
-  %.0222 = phi i32 [ %383, %370 ], [ %349, %395 ], [ %204, %.split.us ], [ %142, %143 ], [ %206, %205 ]
-  %.0141221 = phi i32 [ %378, %370 ], [ %398, %395 ], [ %169, %.split.us ], [ %145, %143 ], [ %169, %205 ]
+.critedge.thread217:                              ; preds = %205, %143, %.split.us, %395, %370
+  %.0222 = phi i32 [ %383, %370 ], [ %142, %143 ], [ %204, %.split.us ], [ %349, %395 ], [ %206, %205 ]
+  %.0141221 = phi i32 [ %378, %370 ], [ %145, %143 ], [ %169, %.split.us ], [ %398, %395 ], [ %169, %205 ]
   %399 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   %400 = tail call i32 @errcode(i32 noundef 117833860) #12
   %401 = getelementptr inbounds nuw i8, ptr %6, i64 8

@@ -263,7 +263,7 @@ define internal zeroext i1 @policy_mt(ptr noundef readonly captures(none) %0, pt
   br label %129
 
 .loopexit9:                                       ; preds = %61, %.split, %.split.us.split, %108, %104, %93, %91, %.split.us, %.loopexit12, %31, %117, %.loopexit
-  %.ph = phi i32 [ %71, %.loopexit12 ], [ 0, %.loopexit ], [ %122, %117 ], [ 0, %31 ], [ 0, %.split.us ], [ 1, %.split.us.split ], [ 1, %93 ], [ 0, %108 ], [ 0, %91 ], [ 0, %104 ], [ 0, %.split ], [ 0, %61 ]
+  %.ph = phi i32 [ %71, %.loopexit12 ], [ 0, %.loopexit ], [ 1, %.split.us.split ], [ %122, %117 ], [ 0, %31 ], [ 0, %108 ], [ 1, %93 ], [ 0, %.split.us ], [ 0, %91 ], [ 0, %104 ], [ 0, %.split ], [ 0, %61 ]
   %126 = and i16 %.fr16, 4
   %127 = icmp eq i16 %126, 0
   %128 = select i1 %127, i32 %.ph, i32 0

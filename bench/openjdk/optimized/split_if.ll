@@ -4775,7 +4775,7 @@ _ZNK14PhaseIdealLoop4idomEP4Node.exit72:          ; preds = %_ZNK10Node_ArrayixE
   br i1 %.not63, label %.loopexit, label %134, !llvm.loop !31
 
 .loopexit:                                        ; preds = %_ZNK14PhaseIdealLoop4idomEP4Node.exit, %_ZNK14PhaseIdealLoop4idomEP4Node.exit72, %130, %7
-  %.0 = phi ptr [ %4, %7 ], [ %.054, %130 ], [ %.054, %_ZNK14PhaseIdealLoop4idomEP4Node.exit72 ], [ %41, %_ZNK14PhaseIdealLoop4idomEP4Node.exit ]
+  %.0 = phi ptr [ %.054, %130 ], [ %4, %7 ], [ %.054, %_ZNK14PhaseIdealLoop4idomEP4Node.exit72 ], [ %41, %_ZNK14PhaseIdealLoop4idomEP4Node.exit ]
   ret ptr %.0
 }
 

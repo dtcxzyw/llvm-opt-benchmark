@@ -793,7 +793,7 @@ _ZN5ZXing5AztecL32CheckSymmetricAztecCenterPatternERNS_15BitMatrixCursorINS_6Poi
   br label %_ZN5ZXing11PatternView8skipPairEv.exit.i
 
 _ZN5ZXing5AztecL32CheckSymmetricAztecCenterPatternERNS_15BitMatrixCursorINS_6PointTIiEEEEib.exit.i.i: ; preds = %287, %.thread.i.i.i
-  %.sroa.434.2.i.i = phi i64 [ %.sroa.434.12.insert.insert.i.i, %287 ], [ %.sroa.434.070.i.i, %.thread.i.i.i ]
+  %.sroa.434.2.i.i = phi i64 [ %.sroa.434.070.i.i, %.thread.i.i.i ], [ %.sroa.434.12.insert.insert.i.i, %287 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !66
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !66
   %.not20.not.i.i = icmp eq i32 %285, 0
@@ -899,10 +899,10 @@ _ZNSt6vectorIN5ZXing17ConcentricPatternESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9
   br label %332
 
 _ZN5ZXing11PatternView8skipPairEv.exit.i:         ; preds = %159, %_ZN5ZXing5AztecL32CheckSymmetricAztecCenterPatternERNS_15BitMatrixCursorINS_6PointTIiEEEEib.exit.i.i, %_ZNSt6vectorIN5ZXing17ConcentricPatternESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, %299, %_ZN5ZXing5AztecL32CheckSymmetricAztecCenterPatternERNS_15BitMatrixCursorINS_6PointTIiEEEEib.exit.thread.i.i
-  %.sroa.18122.7 = phi ptr [ %.sroa.18122.6, %_ZN5ZXing5AztecL32CheckSymmetricAztecCenterPatternERNS_15BitMatrixCursorINS_6PointTIiEEEEib.exit.thread.i.i ], [ %319, %_ZNSt6vectorIN5ZXing17ConcentricPatternESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %.sroa.18122.6, %299 ], [ %.sroa.18122.6, %_ZN5ZXing5AztecL32CheckSymmetricAztecCenterPatternERNS_15BitMatrixCursorINS_6PointTIiEEEEib.exit.i.i ], [ %.sroa.18122.6, %159 ]
-  %.sroa.14.6 = phi ptr [ %.sroa.14.5, %_ZN5ZXing5AztecL32CheckSymmetricAztecCenterPatternERNS_15BitMatrixCursorINS_6PointTIiEEEEib.exit.thread.i.i ], [ %317, %_ZNSt6vectorIN5ZXing17ConcentricPatternESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %300, %299 ], [ %.sroa.14.5, %_ZN5ZXing5AztecL32CheckSymmetricAztecCenterPatternERNS_15BitMatrixCursorINS_6PointTIiEEEEib.exit.i.i ], [ %.sroa.14.5, %159 ]
-  %.sroa.0117.7 = phi ptr [ %.sroa.0117.6, %_ZN5ZXing5AztecL32CheckSymmetricAztecCenterPatternERNS_15BitMatrixCursorINS_6PointTIiEEEEib.exit.thread.i.i ], [ %313, %_ZNSt6vectorIN5ZXing17ConcentricPatternESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %.sroa.0117.6, %299 ], [ %.sroa.0117.6, %_ZN5ZXing5AztecL32CheckSymmetricAztecCenterPatternERNS_15BitMatrixCursorINS_6PointTIiEEEEib.exit.i.i ], [ %.sroa.0117.6, %159 ]
-  %320 = phi ptr [ %101, %_ZN5ZXing5AztecL32CheckSymmetricAztecCenterPatternERNS_15BitMatrixCursorINS_6PointTIiEEEEib.exit.thread.i.i ], [ %317, %_ZNSt6vectorIN5ZXing17ConcentricPatternESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %300, %299 ], [ %101, %_ZN5ZXing5AztecL32CheckSymmetricAztecCenterPatternERNS_15BitMatrixCursorINS_6PointTIiEEEEib.exit.i.i ], [ %101, %159 ]
+  %.sroa.18122.7 = phi ptr [ %.sroa.18122.6, %_ZN5ZXing5AztecL32CheckSymmetricAztecCenterPatternERNS_15BitMatrixCursorINS_6PointTIiEEEEib.exit.thread.i.i ], [ %.sroa.18122.6, %_ZN5ZXing5AztecL32CheckSymmetricAztecCenterPatternERNS_15BitMatrixCursorINS_6PointTIiEEEEib.exit.i.i ], [ %319, %_ZNSt6vectorIN5ZXing17ConcentricPatternESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %.sroa.18122.6, %299 ], [ %.sroa.18122.6, %159 ]
+  %.sroa.14.6 = phi ptr [ %.sroa.14.5, %_ZN5ZXing5AztecL32CheckSymmetricAztecCenterPatternERNS_15BitMatrixCursorINS_6PointTIiEEEEib.exit.thread.i.i ], [ %.sroa.14.5, %_ZN5ZXing5AztecL32CheckSymmetricAztecCenterPatternERNS_15BitMatrixCursorINS_6PointTIiEEEEib.exit.i.i ], [ %317, %_ZNSt6vectorIN5ZXing17ConcentricPatternESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %300, %299 ], [ %.sroa.14.5, %159 ]
+  %.sroa.0117.7 = phi ptr [ %.sroa.0117.6, %_ZN5ZXing5AztecL32CheckSymmetricAztecCenterPatternERNS_15BitMatrixCursorINS_6PointTIiEEEEib.exit.thread.i.i ], [ %.sroa.0117.6, %_ZN5ZXing5AztecL32CheckSymmetricAztecCenterPatternERNS_15BitMatrixCursorINS_6PointTIiEEEEib.exit.i.i ], [ %313, %_ZNSt6vectorIN5ZXing17ConcentricPatternESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %.sroa.0117.6, %299 ], [ %.sroa.0117.6, %159 ]
+  %320 = phi ptr [ %101, %_ZN5ZXing5AztecL32CheckSymmetricAztecCenterPatternERNS_15BitMatrixCursorINS_6PointTIiEEEEib.exit.thread.i.i ], [ %101, %_ZN5ZXing5AztecL32CheckSymmetricAztecCenterPatternERNS_15BitMatrixCursorINS_6PointTIiEEEEib.exit.i.i ], [ %317, %_ZNSt6vectorIN5ZXing17ConcentricPatternESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %300, %299 ], [ %101, %159 ]
   %321 = ptrtoint ptr %137 to i64
   %322 = sub i64 %89, %321
   %323 = lshr exact i64 %322, 1
@@ -1422,8 +1422,8 @@ _ZNK5ZXing9BitMatrix3getENS_6PointTIdEE.exit.i.i: ; preds = %486
   br label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %.thread.i.i.loopexit, %542, %541
-  %.5 = phi i1 [ false, %542 ], [ false, %541 ], [ %.6, %.thread.i.i.loopexit ]
-  %.7.i.i = phi i32 [ -1, %542 ], [ -1, %541 ], [ %548, %.thread.i.i.loopexit ]
+  %.5 = phi i1 [ false, %541 ], [ false, %542 ], [ %.6, %.thread.i.i.loopexit ]
+  %.7.i.i = phi i32 [ -1, %541 ], [ -1, %542 ], [ %548, %.thread.i.i.loopexit ]
   %549 = load ptr, ptr %7, align 8, !tbaa !100
   %.not.i.i.i92.i.i = icmp eq ptr %549, null
   br i1 %.not.i.i.i92.i.i, label %_ZN5ZXing5AztecL11ModeMessageERKNS_9BitMatrixERKNS_20PerspectiveTransformEiRb.exit.i, label %550

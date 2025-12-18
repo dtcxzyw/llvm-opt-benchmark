@@ -2305,7 +2305,7 @@ _ZNSt4pairIbN4cvc58internal12NodeTemplateILb1EEEED2Ev.exit: ; preds = %_ZN4cvc58
   br label %.body294
 
 .loopexit:                                        ; preds = %753, %641, %_ZNSt4pairIbN4cvc58internal12NodeTemplateILb1EEEED2Ev.exit, %.thread543, %640
-  %.5542 = phi i1 [ %7, %_ZNSt4pairIbN4cvc58internal12NodeTemplateILb1EEEED2Ev.exit ], [ %7, %640 ], [ %7, %641 ], [ false, %.thread543 ], [ %7, %753 ]
+  %.5542 = phi i1 [ %7, %_ZNSt4pairIbN4cvc58internal12NodeTemplateILb1EEEED2Ev.exit ], [ false, %.thread543 ], [ %7, %640 ], [ %7, %641 ], [ %7, %753 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %.thread535
 
@@ -4292,7 +4292,7 @@ _ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit: ; preds = %352, %355
   br label %370
 
 .thread210:                                       ; preds = %.lr.ph.split.split, %.lr.ph.split.us, %285, %._crit_edge.thread, %302, %322, %223, %321, %282, %.thread202, %220, %.thread213, %367, %.thread205
-  %.3 = phi i1 [ %328, %322 ], [ %.1.ph, %.thread205 ], [ %369, %367 ], [ %231, %223 ], [ %320, %302 ], [ false, %.thread213 ], [ false, %321 ], [ false, %220 ], [ false, %.thread202 ], [ false, %282 ], [ %281, %._crit_edge.thread ], [ true, %.lr.ph.split.us ], [ false, %285 ], [ %279, %.lr.ph.split.split ]
+  %.3 = phi i1 [ %328, %322 ], [ %.1.ph, %.thread205 ], [ %369, %367 ], [ false, %285 ], [ %231, %223 ], [ %320, %302 ], [ false, %.thread213 ], [ false, %321 ], [ false, %220 ], [ false, %.thread202 ], [ false, %282 ], [ %281, %._crit_edge.thread ], [ true, %.lr.ph.split.us ], [ %279, %.lr.ph.split.split ]
   ret i1 %.3
 
 370:                                              ; preds = %197, %.body175, %.body

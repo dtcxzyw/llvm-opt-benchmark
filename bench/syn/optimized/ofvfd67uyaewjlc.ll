@@ -4678,7 +4678,7 @@ default.unreachable29:                            ; preds = %.backedge
   br label %.outer.backedge
 
 .outer.backedge:                                  ; preds = %43, %40
-  %.016.ph.be = phi i32 [ %41, %40 ], [ %44, %43 ]
+  %.016.ph.be = phi i32 [ %44, %43 ], [ %41, %40 ]
   br label %.outer
 
 45:                                               ; preds = %40
@@ -5310,7 +5310,7 @@ common.resume.i:                                  ; preds = %61, %44
   br label %75
 
 _ZN3syn4path4Path9get_ident17h14267b324b677e87E.exit: ; preds = %"_ZN97_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h540dc7338958914bE.exit.thread.i", %"_ZN97_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h540dc7338958914bE.exit.i", %"_ZN97_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h540dc7338958914bE.exit.thread13.i"
-  %.0.i = phi ptr [ %14, %"_ZN97_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h540dc7338958914bE.exit.thread13.i" ], [ %27, %"_ZN97_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h540dc7338958914bE.exit.i" ], [ %35, %"_ZN97_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h540dc7338958914bE.exit.thread.i" ]
+  %.0.i = phi ptr [ %27, %"_ZN97_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h540dc7338958914bE.exit.i" ], [ %14, %"_ZN97_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h540dc7338958914bE.exit.thread13.i" ], [ %35, %"_ZN97_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h540dc7338958914bE.exit.thread.i" ]
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.0.i, ptr %74, align 8
   store i64 -9223372036854775808, ptr %0, align 8

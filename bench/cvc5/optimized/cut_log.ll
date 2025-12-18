@@ -2466,8 +2466,8 @@ _ZNSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   br label %.body269
 
 .loopexit:                                        ; preds = %217, %.noexc268..loopexit_crit_edge, %212
-  %230 = phi i32 [ %205, %212 ], [ %.pre, %.noexc268..loopexit_crit_edge ], [ %205, %217 ]
-  %.pn.i.i = phi ptr [ %213, %212 ], [ %228, %.noexc268..loopexit_crit_edge ], [ %219, %217 ]
+  %230 = phi i32 [ %.pre, %.noexc268..loopexit_crit_edge ], [ %205, %212 ], [ %205, %217 ]
+  %.pn.i.i = phi ptr [ %228, %.noexc268..loopexit_crit_edge ], [ %213, %212 ], [ %219, %217 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 12
   %231 = load i32, ptr %.1.i.i, align 4, !tbaa !13
   %sext = shl i64 %.0921210, 32
@@ -2583,7 +2583,7 @@ _ZNSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   br label %.body269
 
 _ZN4cvc58internal6theory5arith6linear7NodeLog8mapRowIdEij.exit: ; preds = %264, %259, %.noexc578
-  %.pn.i.i.i = phi ptr [ %260, %259 ], [ %275, %.noexc578 ], [ %266, %264 ]
+  %.pn.i.i.i = phi ptr [ %275, %.noexc578 ], [ %260, %259 ], [ %266, %264 ]
   %.1.i.i.i577 = getelementptr inbounds nuw i8, ptr %.pn.i.i.i, i64 12
   store i32 %231, ptr %.1.i.i.i577, align 4, !tbaa !13
   br label %_ZNSt13unordered_mapIijSt4hashIiESt8equal_toIiESaISt4pairIKijEEE5eraseERS5_.exit
@@ -2657,7 +2657,7 @@ _ZNSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   br label %.body269
 
 _ZN4cvc58internal6theory5arith6linear7NodeLog8mapRowIdEij.exit748: ; preds = %292, %287, %.noexc745
-  %.pn.i.i.i743 = phi ptr [ %288, %287 ], [ %303, %.noexc745 ], [ %294, %292 ]
+  %.pn.i.i.i743 = phi ptr [ %303, %.noexc745 ], [ %288, %287 ], [ %294, %292 ]
   %.1.i.i.i744 = getelementptr inbounds nuw i8, ptr %.pn.i.i.i743, i64 12
   store i32 %231, ptr %.1.i.i.i744, align 4, !tbaa !13
   br label %_ZNSt13unordered_mapIijSt4hashIiESt8equal_toIiESaISt4pairIKijEEE5eraseERS5_.exit
@@ -2771,7 +2771,7 @@ _ZNSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   resume { ptr, i32 } %29
 
 _ZNSt13unordered_mapIijSt4hashIiESt8equal_toIiESaISt4pairIKijEEEixERS5_.exit: ; preds = %17, %12, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %13, %12 ], [ %28, %.loopexit.i.i ], [ %19, %17 ]
+  %.pn.i.i = phi ptr [ %28, %.loopexit.i.i ], [ %13, %12 ], [ %19, %17 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 12
   store i32 %2, ptr %.1.i.i, align 4, !tbaa !13
   ret void
@@ -2859,12 +2859,12 @@ define hidden noundef i32 @_ZNK4cvc58internal6theory5arith6linear7NodeLog11looku
   br label %_ZNKSt13unordered_mapIijSt4hashIiESt8equal_toIiESaISt4pairIKijEEE4findERS5_.exit.thread, !llvm.loop !158
 
 _ZNKSt13unordered_mapIijSt4hashIiESt8equal_toIiESaISt4pairIKijEEE4findERS5_.exit: ; preds = %26, %8, %21
-  %.sroa.06.1.i.i = phi ptr [ %22, %21 ], [ %.sroa.06.0.i.i, %8 ], [ %28, %26 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %8 ], [ %22, %21 ], [ %28, %26 ]
   %34 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 12
   br label %_ZNKSt13unordered_mapIijSt4hashIiESt8equal_toIiESaISt4pairIKijEEE4findERS5_.exit.thread
 
 _ZNKSt13unordered_mapIijSt4hashIiESt8equal_toIiESaISt4pairIKijEEE4findERS5_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %7, %12, %..loopexit_crit_edge21.i.i.i.i, %_ZNKSt13unordered_mapIijSt4hashIiESt8equal_toIiESaISt4pairIKijEEE4findERS5_.exit
-  %.0.in = phi ptr [ %34, %_ZNKSt13unordered_mapIijSt4hashIiESt8equal_toIiESaISt4pairIKijEEE4findERS5_.exit ], [ @_ZN4cvc58internal6theory5arith6linear17ARITHVAR_SENTINELE, %..loopexit_crit_edge21.i.i.i.i ], [ @_ZN4cvc58internal6theory5arith6linear17ARITHVAR_SENTINELE, %12 ], [ @_ZN4cvc58internal6theory5arith6linear17ARITHVAR_SENTINELE, %7 ], [ @_ZN4cvc58internal6theory5arith6linear17ARITHVAR_SENTINELE, %.lr.ph.i.i.i.i ]
+  %.0.in = phi ptr [ %34, %_ZNKSt13unordered_mapIijSt4hashIiESt8equal_toIiESaISt4pairIKijEEE4findERS5_.exit ], [ @_ZN4cvc58internal6theory5arith6linear17ARITHVAR_SENTINELE, %..loopexit_crit_edge21.i.i.i.i ], [ @_ZN4cvc58internal6theory5arith6linear17ARITHVAR_SENTINELE, %7 ], [ @_ZN4cvc58internal6theory5arith6linear17ARITHVAR_SENTINELE, %12 ], [ @_ZN4cvc58internal6theory5arith6linear17ARITHVAR_SENTINELE, %.lr.ph.i.i.i.i ]
   %.0 = load i32, ptr %.0.in, align 4, !tbaa !13
   ret i32 %.0
 }
@@ -4013,7 +4013,7 @@ _ZNSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   resume { ptr, i32 } %41
 
 _ZN4cvc58internal6theory5arith6linear7NodeLog8mapRowIdEij.exit: ; preds = %29, %24, %.loopexit.i.i.i
-  %.pn.i.i.i = phi ptr [ %25, %24 ], [ %40, %.loopexit.i.i.i ], [ %31, %29 ]
+  %.pn.i.i.i = phi ptr [ %40, %.loopexit.i.i.i ], [ %25, %24 ], [ %31, %29 ]
   %.1.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i, i64 12
   store i32 %3, ptr %.1.i.i.i, align 4, !tbaa !13
   ret void
@@ -8075,7 +8075,7 @@ _ZNSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph.i, %.lr.ph, %..loopexit_crit_edge21.i, %22, %5, %_ZNSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNS4_15_Hash_node_baseEPNS4_10_Hash_nodeIS2_Lb0EEE.exit
-  %.0 = phi i64 [ 1, %_ZNSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNS4_15_Hash_node_baseEPNS4_10_Hash_nodeIS2_Lb0EEE.exit ], [ 0, %5 ], [ 0, %22 ], [ 0, %..loopexit_crit_edge21.i ], [ 0, %.lr.ph ], [ 0, %.lr.ph.i ]
+  %.0 = phi i64 [ 1, %_ZNSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNS4_15_Hash_node_baseEPNS4_10_Hash_nodeIS2_Lb0EEE.exit ], [ 0, %.lr.ph ], [ 0, %5 ], [ 0, %22 ], [ 0, %..loopexit_crit_edge21.i ], [ 0, %.lr.ph.i ]
   ret i64 %.0
 }
 

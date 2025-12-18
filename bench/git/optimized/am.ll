@@ -5606,7 +5606,7 @@ _.exit36:                                         ; preds = %_.exit, %17
   br label %.fold.split
 
 .fold.split:                                      ; preds = %23, %.fold.split.loopexit41, %26
-  %.1.ph = phi i32 [ 0, %26 ], [ 0, %.fold.split.loopexit41 ], [ 1, %23 ]
+  %.1.ph = phi i32 [ 0, %.fold.split.loopexit41 ], [ 0, %26 ], [ 1, %23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.1.ph
 }

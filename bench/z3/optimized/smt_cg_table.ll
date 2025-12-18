@@ -1065,7 +1065,7 @@ define hidden noundef i32 @_ZN3smt8cg_table16set_func_decl_idEPNS_5enodeE(ptr no
   br i1 %.not27.old.i.i.i, label %.loopexit, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %40, %37
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %40 ], [ %39, %37 ]
+  %.137.i.i.i.be = phi ptr [ %39, %37 ], [ %.old.i.i.i, %40 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !129
 
 _ZNK7obj_mapI9func_decljE4findEPS0_Rj.exit:       ; preds = %21, %32
@@ -4541,7 +4541,7 @@ define linkonce_odr hidden noundef ptr @_ZN10chashtableIPN3smt5enodeENS0_8cg_tab
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !200
 
 .critedge:                                        ; preds = %.loopexit, %68, %8
-  %spec.select = phi ptr [ %13, %8 ], [ null, %68 ], [ %.547, %.loopexit ]
+  %spec.select = phi ptr [ null, %68 ], [ %13, %8 ], [ %.547, %.loopexit ]
   ret ptr %spec.select
 }
 

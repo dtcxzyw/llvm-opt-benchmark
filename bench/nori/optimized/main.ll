@@ -1129,7 +1129,7 @@ _ZNSt10unique_ptrIN4nori10NoriObjectESt14default_deleteIS1_EED2Ev.exit93: ; pred
           to label %329 unwind label %333
 
 .loopexit116:                                     ; preds = %_ZN10filesystem4pathD2Ev.exit85, %.invoke141, %.invoke140, %_ZN10filesystem4pathD2Ev.exit85.thread, %184, %_ZNSt10unique_ptrIN4nori10NoriObjectESt14default_deleteIS1_EED2Ev.exit93
-  %.4 = phi i32 [ -1, %.invoke140 ], [ 0, %184 ], [ -1, %.invoke141 ], [ 0, %_ZNSt10unique_ptrIN4nori10NoriObjectESt14default_deleteIS1_EED2Ev.exit93 ], [ -1, %_ZN10filesystem4pathD2Ev.exit85.thread ], [ %.3, %_ZN10filesystem4pathD2Ev.exit85 ]
+  %.4 = phi i32 [ -1, %_ZN10filesystem4pathD2Ev.exit85.thread ], [ -1, %.invoke140 ], [ 0, %_ZNSt10unique_ptrIN4nori10NoriObjectESt14default_deleteIS1_EED2Ev.exit93 ], [ -1, %.invoke141 ], [ 0, %184 ], [ %.3, %_ZN10filesystem4pathD2Ev.exit85 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #24
   br label %331
@@ -1936,7 +1936,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %129, %162, %.body, %45, %43
-  %.pn25 = phi { ptr, i32 } [ %163, %162 ], [ %.pn23, %.body ], [ %46, %45 ], [ %130, %129 ], [ %44, %43 ], [ %131, %.loopexit.loopexit ]
+  %.pn25 = phi { ptr, i32 } [ %163, %162 ], [ %.pn23, %.body ], [ %46, %45 ], [ %44, %43 ], [ %130, %129 ], [ %131, %.loopexit.loopexit ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #24
   br label %200
 

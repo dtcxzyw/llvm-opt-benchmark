@@ -10484,8 +10484,8 @@ define dso_local noundef zeroext i1 @_ZN7testing8internal15UnitTestOptions13Matc
   br label %.outer.backedge.i.us
 
 .loopexit1.i.us:                                  ; preds = %16, %.lr.ph.split.i.us, %25, %.split.us.i.us, %.split41.us.i.us, %.lr.ph.split.us.i.us
-  %.03320.i.us = phi ptr [ %.us-phi43.i.us, %.split41.us.i.us ], [ %.us-phi36.i.us, %25 ], [ %.us-phi36.i.us, %.split.us.i.us ], [ %.033.ph58.i.us, %.lr.ph.split.us.i.us ], [ %.03328.i.us, %.lr.ph.split.i.us ], [ %.03527.us50.i.us, %16 ]
-  %.015.i.us = phi ptr [ %.us-phi44.i.us, %.split41.us.i.us ], [ %.us-phi37.i.us, %25 ], [ %.us-phi37.i.us, %.split.us.i.us ], [ %.0.ph59.i.us, %.lr.ph.split.us.i.us ], [ %.029.i.us, %.lr.ph.split.i.us ], [ %14, %16 ]
+  %.03320.i.us = phi ptr [ %.us-phi43.i.us, %.split41.us.i.us ], [ %.us-phi36.i.us, %25 ], [ %.us-phi36.i.us, %.split.us.i.us ], [ %.03328.i.us, %.lr.ph.split.i.us ], [ %.033.ph58.i.us, %.lr.ph.split.us.i.us ], [ %.03527.us50.i.us, %16 ]
+  %.015.i.us = phi ptr [ %.us-phi44.i.us, %.split41.us.i.us ], [ %.us-phi37.i.us, %25 ], [ %.us-phi37.i.us, %.split.us.i.us ], [ %.029.i.us, %.lr.ph.split.i.us ], [ %.0.ph59.i.us, %.lr.ph.split.us.i.us ], [ %14, %16 ]
   %30 = icmp uge ptr %.val, %.015.i.us
   %.not.i.us = icmp ugt ptr %.015.i.us, %4
   %or.cond.i.us = select i1 %30, i1 true, i1 %.not.i.us
@@ -10606,8 +10606,8 @@ define dso_local noundef zeroext i1 @_ZN7testing8internal15UnitTestOptions13Matc
   br i1 %.not63.i, label %.lr.ph.split.i, label %.thread29, !llvm.loop !243
 
 .loopexit1.i:                                     ; preds = %45, %.lr.ph.split.i, %.split41.us.i, %50, %.split.us.i, %.lr.ph.split.us.i
-  %.03320.i = phi ptr [ %.us-phi43.i, %.split41.us.i ], [ %.us-phi36.i, %50 ], [ %.us-phi36.i, %.split.us.i ], [ %.033.ph58.i, %.lr.ph.split.us.i ], [ %.03328.i, %.lr.ph.split.i ], [ %.03527.us50.i, %45 ]
-  %.015.i = phi ptr [ %.us-phi44.i, %.split41.us.i ], [ %.us-phi37.i, %50 ], [ %.us-phi37.i, %.split.us.i ], [ %.0.ph59.i, %.lr.ph.split.us.i ], [ %.029.i, %.lr.ph.split.i ], [ %43, %45 ]
+  %.03320.i = phi ptr [ %.us-phi43.i, %.split41.us.i ], [ %.us-phi36.i, %50 ], [ %.us-phi36.i, %.split.us.i ], [ %.03328.i, %.lr.ph.split.i ], [ %.033.ph58.i, %.lr.ph.split.us.i ], [ %.03527.us50.i, %45 ]
+  %.015.i = phi ptr [ %.us-phi44.i, %.split41.us.i ], [ %.us-phi37.i, %50 ], [ %.us-phi37.i, %.split.us.i ], [ %.029.i, %.lr.ph.split.i ], [ %.0.ph59.i, %.lr.ph.split.us.i ], [ %43, %45 ]
   %61 = icmp uge ptr %.val, %.015.i
   %.not.i = icmp ugt ptr %.015.i, %4
   %or.cond.i = select i1 %61, i1 true, i1 %.not.i
@@ -10618,7 +10618,7 @@ define dso_local noundef zeroext i1 @_ZN7testing8internal15UnitTestOptions13Matc
   br i1 %.not, label %.thread29, label %.split
 
 .thread29:                                        ; preds = %33, %.outer.backedge.i.us, %21, %39, %62, %.outer.backedge.i, %59
-  %.2 = phi i1 [ true, %.outer.backedge.i.us ], [ true, %59 ], [ true, %.outer.backedge.i ], [ %.not55.not.not, %39 ], [ true, %21 ], [ %.not55.not.not, %62 ], [ false, %33 ]
+  %.2 = phi i1 [ true, %59 ], [ true, %.outer.backedge.i ], [ true, %.outer.backedge.i.us ], [ true, %21 ], [ %.not55.not.not, %39 ], [ %.not55.not.not, %62 ], [ false, %33 ]
   ret i1 %.2
 }
 
@@ -44206,7 +44206,7 @@ _ZNK7testing10TestResult7SkippedEv.exit:          ; preds = %.lr.ph.i1.i
   br label %_ZNK7testing10TestResult7SkippedEv.exit.thread
 
 _ZNK7testing10TestResult7SkippedEv.exit.thread:   ; preds = %_ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i, %_ZNK7testing10TestResult7SkippedEv.exit, %.loopexit.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit209
-  %310 = phi ptr [ @.str.223, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit209 ], [ %spec.select, %_ZNK7testing10TestResult7SkippedEv.exit ], [ @.str.214, %.loopexit.i ], [ @.str.214, %_ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i ]
+  %310 = phi ptr [ @.str.223, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit209 ], [ @.str.214, %.loopexit.i ], [ %spec.select, %_ZNK7testing10TestResult7SkippedEv.exit ], [ @.str.214, %_ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i ]
   %311 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store ptr %311, ptr %23, align 8, !tbaa !13
   %312 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %310) #61
@@ -54665,7 +54665,7 @@ _ZNK7testing10TestResult7SkippedEv.exit:          ; preds = %.lr.ph.i1.i
   br label %_ZNK7testing10TestResult7SkippedEv.exit.thread
 
 _ZNK7testing10TestResult7SkippedEv.exit.thread:   ; preds = %_ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i, %_ZNK7testing10TestResult7SkippedEv.exit, %.loopexit.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit233
-  %317 = phi ptr [ @.str.265, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit233 ], [ %spec.select, %_ZNK7testing10TestResult7SkippedEv.exit ], [ @.str.260, %.loopexit.i ], [ @.str.260, %_ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i ]
+  %317 = phi ptr [ @.str.265, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit233 ], [ @.str.260, %.loopexit.i ], [ %spec.select, %_ZNK7testing10TestResult7SkippedEv.exit ], [ @.str.260, %_ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i ]
   %318 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store ptr %318, ptr %25, align 8, !tbaa !13
   %319 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %317) #61
@@ -62507,8 +62507,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %._cri
   br label %.outer.backedge.i.us.i
 
 .loopexit1.i.us.i:                                ; preds = %82, %.lr.ph.split.i.us.i, %91, %.split.us.i.us.i, %.split41.us.i.us.i, %.lr.ph.split.us.i.us.i
-  %.03320.i.us.i = phi ptr [ %.us-phi43.i.us.i, %.split41.us.i.us.i ], [ %.us-phi36.i.us.i, %91 ], [ %.us-phi36.i.us.i, %.split.us.i.us.i ], [ %.033.ph58.i.us.i, %.lr.ph.split.us.i.us.i ], [ %.03328.i.us.i, %.lr.ph.split.i.us.i ], [ %.03527.us50.i.us.i, %82 ]
-  %.015.i.us.i = phi ptr [ %.us-phi44.i.us.i, %.split41.us.i.us.i ], [ %.us-phi37.i.us.i, %91 ], [ %.us-phi37.i.us.i, %.split.us.i.us.i ], [ %.0.ph59.i.us.i, %.lr.ph.split.us.i.us.i ], [ %.029.i.us.i, %.lr.ph.split.i.us.i ], [ %80, %82 ]
+  %.03320.i.us.i = phi ptr [ %.us-phi43.i.us.i, %.split41.us.i.us.i ], [ %.us-phi36.i.us.i, %91 ], [ %.us-phi36.i.us.i, %.split.us.i.us.i ], [ %.03328.i.us.i, %.lr.ph.split.i.us.i ], [ %.033.ph58.i.us.i, %.lr.ph.split.us.i.us.i ], [ %.03527.us50.i.us.i, %82 ]
+  %.015.i.us.i = phi ptr [ %.us-phi44.i.us.i, %.split41.us.i.us.i ], [ %.us-phi37.i.us.i, %91 ], [ %.us-phi37.i.us.i, %.split.us.i.us.i ], [ %.029.i.us.i, %.lr.ph.split.i.us.i ], [ %.0.ph59.i.us.i, %.lr.ph.split.us.i.us.i ], [ %80, %82 ]
   %96 = icmp uge ptr %.val.i, %.015.i.us.i
   %.not.i.us.i = icmp ugt ptr %.015.i.us.i, %70
   %or.cond.i.us.i = select i1 %96, i1 true, i1 %.not.i.us.i
@@ -62658,8 +62658,8 @@ _ZN7testing8internal15UnitTestOptions13MatchesFilterERKNSt7__cxx1112basic_string
   br label %.outer.backedge.i.us.i83
 
 .loopexit1.i.us.i78:                              ; preds = %123, %.lr.ph.split.i.us.i99, %132, %.split.us.i.us.i94, %.split41.us.i.us.i90, %.lr.ph.split.us.i.us.i72
-  %.03320.i.us.i79 = phi ptr [ %.us-phi43.i.us.i92, %.split41.us.i.us.i90 ], [ %.us-phi36.i.us.i97, %132 ], [ %.us-phi36.i.us.i97, %.split.us.i.us.i94 ], [ %.033.ph58.i.us.i68, %.lr.ph.split.us.i.us.i72 ], [ %.03328.i.us.i101, %.lr.ph.split.i.us.i99 ], [ %.03527.us50.i.us.i74, %123 ]
-  %.015.i.us.i80 = phi ptr [ %.us-phi44.i.us.i93, %.split41.us.i.us.i90 ], [ %.us-phi37.i.us.i98, %132 ], [ %.us-phi37.i.us.i98, %.split.us.i.us.i94 ], [ %.0.ph59.i.us.i67, %.lr.ph.split.us.i.us.i72 ], [ %.029.i.us.i100, %.lr.ph.split.i.us.i99 ], [ %121, %123 ]
+  %.03320.i.us.i79 = phi ptr [ %.us-phi43.i.us.i92, %.split41.us.i.us.i90 ], [ %.us-phi36.i.us.i97, %132 ], [ %.us-phi36.i.us.i97, %.split.us.i.us.i94 ], [ %.03328.i.us.i101, %.lr.ph.split.i.us.i99 ], [ %.033.ph58.i.us.i68, %.lr.ph.split.us.i.us.i72 ], [ %.03527.us50.i.us.i74, %123 ]
+  %.015.i.us.i80 = phi ptr [ %.us-phi44.i.us.i93, %.split41.us.i.us.i90 ], [ %.us-phi37.i.us.i98, %132 ], [ %.us-phi37.i.us.i98, %.split.us.i.us.i94 ], [ %.029.i.us.i100, %.lr.ph.split.i.us.i99 ], [ %.0.ph59.i.us.i67, %.lr.ph.split.us.i.us.i72 ], [ %121, %123 ]
   %137 = icmp uge ptr %.val.i59, %.015.i.us.i80
   %.not.i.us.i81 = icmp ugt ptr %.015.i.us.i80, %111
   %or.cond.i.us.i82 = select i1 %137, i1 true, i1 %.not.i.us.i81
@@ -62711,7 +62711,7 @@ _ZN7testing8internal15UnitTestOptions13MatchesFilterERKNSt7__cxx1112basic_string
   br i1 %.not.i106, label %_ZN7testing8internal15UnitTestOptions13MatchesFilterERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.exit145, label %.split.i104
 
 _ZN7testing8internal15UnitTestOptions13MatchesFilterERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.exit145: ; preds = %105, %140, %.loopexit1.i.i120, %146, %.outer.backedge.i.us.i, %108, %.outer.backedge.i.us.i83, %149, %87, %128
-  %152 = phi i1 [ true, %.outer.backedge.i.us.i83 ], [ true, %108 ], [ false, %140 ], [ true, %128 ], [ true, %87 ], [ true, %149 ], [ true, %.outer.backedge.i.us.i ], [ %.not55.not.i107.not.not, %.loopexit1.i.i120 ], [ %.not55.not.i107.not.not, %146 ], [ true, %105 ]
+  %152 = phi i1 [ true, %128 ], [ true, %149 ], [ %.not55.not.i107.not.not, %.loopexit1.i.i120 ], [ false, %140 ], [ true, %.outer.backedge.i.us.i ], [ true, %108 ], [ true, %.outer.backedge.i.us.i83 ], [ true, %87 ], [ %.not55.not.i107.not.not, %146 ], [ true, %105 ]
   %153 = zext i1 %152 to i8
   %154 = getelementptr inbounds nuw i8, ptr %52, i64 129
   store i8 %153, ptr %154, align 1, !tbaa !321
@@ -75472,10 +75472,10 @@ _ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !210
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i, %_ZN7testing8internal13ExecDeathTest32GetArgvsForDeathTestChildProcessB5cxx11Ev.exit, %_ZN7testing8internal9Arguments12AddArgumentsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKSt6vectorIT_SaISA_EE.exit
-  %.pr.i1304 = phi ptr [ %.pre796, %_ZN7testing8internal9Arguments12AddArgumentsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKSt6vectorIT_SaISA_EE.exit ], [ %1079, %_ZN7testing8internal13ExecDeathTest32GetArgvsForDeathTestChildProcessB5cxx11Ev.exit ], [ %.pre796, %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i ]
-  %1125 = phi ptr [ %1117, %_ZN7testing8internal9Arguments12AddArgumentsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKSt6vectorIT_SaISA_EE.exit ], [ %1077, %_ZN7testing8internal13ExecDeathTest32GetArgvsForDeathTestChildProcessB5cxx11Ev.exit ], [ %1117, %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i ]
-  %1126 = phi ptr [ %1116, %_ZN7testing8internal9Arguments12AddArgumentsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKSt6vectorIT_SaISA_EE.exit ], [ %1074, %_ZN7testing8internal13ExecDeathTest32GetArgvsForDeathTestChildProcessB5cxx11Ev.exit ], [ %1116, %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i ]
-  %1127 = phi ptr [ %1115, %_ZN7testing8internal9Arguments12AddArgumentsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKSt6vectorIT_SaISA_EE.exit ], [ %1077, %_ZN7testing8internal13ExecDeathTest32GetArgvsForDeathTestChildProcessB5cxx11Ev.exit ], [ %1115, %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i ]
+  %.pr.i1304 = phi ptr [ %1079, %_ZN7testing8internal13ExecDeathTest32GetArgvsForDeathTestChildProcessB5cxx11Ev.exit ], [ %.pre796, %_ZN7testing8internal9Arguments12AddArgumentsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKSt6vectorIT_SaISA_EE.exit ], [ %.pre796, %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i ]
+  %1125 = phi ptr [ %1077, %_ZN7testing8internal13ExecDeathTest32GetArgvsForDeathTestChildProcessB5cxx11Ev.exit ], [ %1117, %_ZN7testing8internal9Arguments12AddArgumentsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKSt6vectorIT_SaISA_EE.exit ], [ %1117, %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i ]
+  %1126 = phi ptr [ %1074, %_ZN7testing8internal13ExecDeathTest32GetArgvsForDeathTestChildProcessB5cxx11Ev.exit ], [ %1116, %_ZN7testing8internal9Arguments12AddArgumentsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKSt6vectorIT_SaISA_EE.exit ], [ %1116, %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i ]
+  %1127 = phi ptr [ %1077, %_ZN7testing8internal13ExecDeathTest32GetArgvsForDeathTestChildProcessB5cxx11Ev.exit ], [ %1115, %_ZN7testing8internal9Arguments12AddArgumentsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKSt6vectorIT_SaISA_EE.exit ], [ %1115, %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i ]
   %.not.i.i.i = icmp eq ptr %.pr.i1304, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %1128
 
@@ -91904,7 +91904,7 @@ define dso_local noundef zeroext i1 @_ZN7testing8internal11MatchMatrix9NextGraph
   br i1 %20, label %.preheader, label %.loopexit, !llvm.loop !1819
 
 .loopexit:                                        ; preds = %._crit_edge, %.lr.ph, %.preheader.lr.ph, %1
-  %21 = phi i1 [ false, %1 ], [ false, %.preheader.lr.ph ], [ true, %.lr.ph ], [ false, %._crit_edge ]
+  %21 = phi i1 [ true, %.lr.ph ], [ false, %1 ], [ false, %.preheader.lr.ph ], [ false, %._crit_edge ]
   ret i1 %21
 }
 
@@ -97917,7 +97917,7 @@ _ZNSt10_HashtableImSt4pairIKmN7testing8internal12CallReactionEESaIS5_ENSt8__deta
   br label %.body
 
 .loopexit:                                        ; preds = %75, %.noexc, %70
-  %.pn.i.i = phi ptr [ %71, %70 ], [ %85, %.noexc ], [ %77, %75 ]
+  %.pn.i.i = phi ptr [ %85, %.noexc ], [ %71, %70 ], [ %77, %75 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   %87 = load i32, ptr %.1.i.i, align 4, !tbaa !2001
   br label %88
@@ -99595,7 +99595,7 @@ _ZNSt10_HashtableImSt4pairIKmN7testing8internal12CallReactionEESaIS5_ENSt8__deta
   br label %.body
 
 .loopexit:                                        ; preds = %30, %.noexc, %25
-  %.pn.i.i = phi ptr [ %26, %25 ], [ %40, %.noexc ], [ %32, %30 ]
+  %.pn.i.i = phi ptr [ %40, %.noexc ], [ %26, %25 ], [ %32, %30 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   store i32 %1, ptr %.1.i.i, align 4, !tbaa !2001
   invoke void @_ZN7testing8internal9MutexBase6UnlockEv(ptr noundef nonnull align 8 dereferenceable(56) @_ZN7testing8internal13g_gmock_mutexE)
@@ -115181,7 +115181,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIN7testing8internal15TestSuiteNameIsEEclISt16reve
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIN7testing8internal15TestSuiteNameIsEEclISt16reverse_iteratorINS_17__normal_iteratorIPPNS2_9TestSuiteESt6vectorISA_SaISA_EEEEEEEbT_.exit, %._crit_edge, %_ZN9__gnu_cxx5__ops10_Iter_predIN7testing8internal15TestSuiteNameIsEEclISt16reverse_iteratorINS_17__normal_iteratorIPPNS2_9TestSuiteESt6vectorISA_SaISA_EEEEEEEbT_.exit15.thread, %_ZN9__gnu_cxx5__ops10_Iter_predIN7testing8internal15TestSuiteNameIsEEclISt16reverse_iteratorINS_17__normal_iteratorIPPNS2_9TestSuiteESt6vectorISA_SaISA_EEEEEEEbT_.exit15, %_ZN9__gnu_cxx5__ops10_Iter_predIN7testing8internal15TestSuiteNameIsEEclISt16reverse_iteratorINS_17__normal_iteratorIPPNS2_9TestSuiteESt6vectorISA_SaISA_EEEEEEEbT_.exit13, %_ZN9__gnu_cxx5__ops10_Iter_predIN7testing8internal15TestSuiteNameIsEEclISt16reverse_iteratorINS_17__normal_iteratorIPPNS2_9TestSuiteESt6vectorISA_SaISA_EEEEEEEbT_.exit11, %48, %38, %28
-  %.sink = phi i64 [ %85, %_ZN9__gnu_cxx5__ops10_Iter_predIN7testing8internal15TestSuiteNameIsEEclISt16reverse_iteratorINS_17__normal_iteratorIPPNS2_9TestSuiteESt6vectorISA_SaISA_EEEEEEEbT_.exit15 ], [ %72, %_ZN9__gnu_cxx5__ops10_Iter_predIN7testing8internal15TestSuiteNameIsEEclISt16reverse_iteratorINS_17__normal_iteratorIPPNS2_9TestSuiteESt6vectorISA_SaISA_EEEEEEEbT_.exit13 ], [ %56, %_ZN9__gnu_cxx5__ops10_Iter_predIN7testing8internal15TestSuiteNameIsEEclISt16reverse_iteratorINS_17__normal_iteratorIPPNS2_9TestSuiteESt6vectorISA_SaISA_EEEEEEEbT_.exit11 ], [ %.cast23.le, %48 ], [ %.cast22.le, %38 ], [ %.cast.le, %28 ], [ %.pre, %_ZN9__gnu_cxx5__ops10_Iter_predIN7testing8internal15TestSuiteNameIsEEclISt16reverse_iteratorINS_17__normal_iteratorIPPNS2_9TestSuiteESt6vectorISA_SaISA_EEEEEEEbT_.exit15.thread ], [ %55, %._crit_edge ], [ %11, %_ZN9__gnu_cxx5__ops10_Iter_predIN7testing8internal15TestSuiteNameIsEEclISt16reverse_iteratorINS_17__normal_iteratorIPPNS2_9TestSuiteESt6vectorISA_SaISA_EEEEEEEbT_.exit ]
+  %.sink = phi i64 [ %85, %_ZN9__gnu_cxx5__ops10_Iter_predIN7testing8internal15TestSuiteNameIsEEclISt16reverse_iteratorINS_17__normal_iteratorIPPNS2_9TestSuiteESt6vectorISA_SaISA_EEEEEEEbT_.exit15 ], [ %72, %_ZN9__gnu_cxx5__ops10_Iter_predIN7testing8internal15TestSuiteNameIsEEclISt16reverse_iteratorINS_17__normal_iteratorIPPNS2_9TestSuiteESt6vectorISA_SaISA_EEEEEEEbT_.exit13 ], [ %56, %_ZN9__gnu_cxx5__ops10_Iter_predIN7testing8internal15TestSuiteNameIsEEclISt16reverse_iteratorINS_17__normal_iteratorIPPNS2_9TestSuiteESt6vectorISA_SaISA_EEEEEEEbT_.exit11 ], [ %55, %._crit_edge ], [ %.cast23.le, %48 ], [ %.cast22.le, %38 ], [ %.cast.le, %28 ], [ %.pre, %_ZN9__gnu_cxx5__ops10_Iter_predIN7testing8internal15TestSuiteNameIsEEclISt16reverse_iteratorINS_17__normal_iteratorIPPNS2_9TestSuiteESt6vectorISA_SaISA_EEEEEEEbT_.exit15.thread ], [ %11, %_ZN9__gnu_cxx5__ops10_Iter_predIN7testing8internal15TestSuiteNameIsEEclISt16reverse_iteratorINS_17__normal_iteratorIPPNS2_9TestSuiteESt6vectorISA_SaISA_EEEEEEEbT_.exit ]
   store i64 %.sink, ptr %0, align 8, !tbaa !293
   ret void
 }
@@ -116639,7 +116639,7 @@ _ZNSt10_HashtableImSt4pairIKmN7testing8internal12CallReactionEESaIS5_ENSt8__deta
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph.i, %.lr.ph, %..loopexit_crit_edge21.i, %21, %5, %_ZNSt10_HashtableImSt4pairIKmN7testing8internal12CallReactionEESaIS5_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNS7_15_Hash_node_baseEPNS7_10_Hash_nodeIS5_Lb0EEE.exit
-  %.0 = phi i64 [ 1, %_ZNSt10_HashtableImSt4pairIKmN7testing8internal12CallReactionEESaIS5_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNS7_15_Hash_node_baseEPNS7_10_Hash_nodeIS5_Lb0EEE.exit ], [ 0, %5 ], [ 0, %21 ], [ 0, %..loopexit_crit_edge21.i ], [ 0, %.lr.ph ], [ 0, %.lr.ph.i ]
+  %.0 = phi i64 [ 1, %_ZNSt10_HashtableImSt4pairIKmN7testing8internal12CallReactionEESaIS5_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNS7_15_Hash_node_baseEPNS7_10_Hash_nodeIS5_Lb0EEE.exit ], [ 0, %.lr.ph ], [ 0, %5 ], [ 0, %21 ], [ 0, %..loopexit_crit_edge21.i ], [ 0, %.lr.ph.i ]
   ret i64 %.0
 }
 
@@ -116715,8 +116715,8 @@ _ZNSt8_Rb_treeIPN7testing8internal25UntypedFunctionMockerBaseES3_St9_IdentityIS3
   br i1 %.not.i, label %_ZNSt8_Rb_treeIPN7testing8internal25UntypedFunctionMockerBaseES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE11equal_rangeERKS3_.exit, label %6, !llvm.loop !2378
 
 _ZNSt8_Rb_treeIPN7testing8internal25UntypedFunctionMockerBaseES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE11equal_rangeERKS3_.exit: ; preds = %23, %.lr.ph.i25.i, %2, %_ZNSt8_Rb_treeIPN7testing8internal25UntypedFunctionMockerBaseES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i
-  %.sroa.037.0.i = phi ptr [ %.08.lcssa.i.i, %_ZNSt8_Rb_treeIPN7testing8internal25UntypedFunctionMockerBaseES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i ], [ %4, %2 ], [ %.08.lcssa.i.i, %.lr.ph.i25.i ], [ %.123.i, %23 ]
-  %.sroa.3.0.i = phi ptr [ %.02243.i, %_ZNSt8_Rb_treeIPN7testing8internal25UntypedFunctionMockerBaseES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i ], [ %4, %2 ], [ %.19.i28.i, %.lr.ph.i25.i ], [ %.123.i, %23 ]
+  %.sroa.037.0.i = phi ptr [ %.08.lcssa.i.i, %.lr.ph.i25.i ], [ %.08.lcssa.i.i, %_ZNSt8_Rb_treeIPN7testing8internal25UntypedFunctionMockerBaseES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i ], [ %4, %2 ], [ %.123.i, %23 ]
+  %.sroa.3.0.i = phi ptr [ %.19.i28.i, %.lr.ph.i25.i ], [ %.02243.i, %_ZNSt8_Rb_treeIPN7testing8internal25UntypedFunctionMockerBaseES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i ], [ %4, %2 ], [ %.123.i, %23 ]
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %26 = load i64, ptr %25, align 8, !tbaa !166
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 24

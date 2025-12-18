@@ -3389,7 +3389,7 @@ define linkonce_odr void @_ZN4toku3omtIPNS_12lock_requestES2_Lb0EE15insert_inter
   br label %21
 
 tailrecurse.outer._crit_edge:                     ; preds = %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit39, %tailrecurse, %5
-  %.tr40.lcssa = phi ptr [ %1, %5 ], [ %29, %tailrecurse ], [ %111, %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit39 ]
+  %.tr40.lcssa = phi ptr [ %29, %tailrecurse ], [ %1, %5 ], [ %111, %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit39 ]
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %11 = load i32, ptr %10, align 4, !tbaa !30
   %12 = add i32 %11, 1

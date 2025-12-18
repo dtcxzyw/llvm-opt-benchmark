@@ -14523,7 +14523,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit92:        ; preds = %95
           to label %147 unwind label %152
 
 147:                                              ; preds = %145, %135, %125
-  %.053 = phi i1 [ %.255, %135 ], [ %.356, %125 ], [ %.154, %145 ]
+  %.053 = phi i1 [ %.154, %145 ], [ %.255, %135 ], [ %.356, %125 ]
   br i1 %.053, label %.preheader, label %.critedge
 
 .preheader:                                       ; preds = %147

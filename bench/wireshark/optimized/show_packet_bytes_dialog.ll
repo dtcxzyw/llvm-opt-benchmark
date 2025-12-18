@@ -4721,7 +4721,7 @@ _ZN10QByteArrayD2Ev.exit79:                       ; preds = %130, %_ZN17QArrayDa
   br i1 %183, label %.loopexit, label %180
 
 .loopexit:                                        ; preds = %173, %180, %.thread
-  %.pn = phi { ptr, i32 } [ %141, %.thread ], [ %178, %180 ], [ %172, %173 ]
+  %.pn = phi { ptr, i32 } [ %178, %180 ], [ %141, %.thread ], [ %172, %173 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN21ShowPacketBytesDialog16updateFieldBytesEbE19tvb_uncompress_list) #28
   br label %366
@@ -4864,7 +4864,7 @@ _ZN7QStringD2Ev.exit93:                           ; preds = %226, %_ZN17QArrayDa
   br i1 %.not129, label %._crit_edge, label %.lr.ph.backedge
 
 .lr.ph.backedge:                                  ; preds = %232, %.thread160
-  %.sroa.0120.0136.be = phi ptr [ %233, %232 ], [ %234, %.thread160 ]
+  %.sroa.0120.0136.be = phi ptr [ %234, %.thread160 ], [ %233, %232 ]
   br label %.lr.ph
 
 .thread160:                                       ; preds = %.lr.ph

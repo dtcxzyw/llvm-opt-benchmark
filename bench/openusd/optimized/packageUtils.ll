@@ -281,7 +281,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__25ArJoinPackageRelativePathERK
   br label %.loopexit28.i
 
 .loopexit28.i:                                    ; preds = %.lr.ph.i.i.i.i, %72, %63, %56, %._crit_edge.i.i.i.i, %47, %42, %37
-  %.sink.i.i.i.i = phi i64 [ %spec.select.i.i.i, %72 ], [ %65, %63 ], [ %53, %56 ], [ %.cast22.i.i.i.i, %47 ], [ %.cast20.i.i.i.i, %42 ], [ %.cast.i.i.i.i, %37 ], [ %.val17.i, %._crit_edge.i.i.i.i ], [ %30, %.lr.ph.i.i.i.i ]
+  %.sink.i.i.i.i = phi i64 [ %spec.select.i.i.i, %72 ], [ %65, %63 ], [ %53, %56 ], [ %.val17.i, %._crit_edge.i.i.i.i ], [ %.cast22.i.i.i.i, %47 ], [ %.cast20.i.i.i.i, %42 ], [ %.cast.i.i.i.i, %37 ], [ %30, %.lr.ph.i.i.i.i ]
   %77 = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #7
   %78 = ptrtoint ptr %77 to i64
   %79 = sub i64 %.sink.i.i.i.i, %78
@@ -532,7 +532,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
   br label %.loopexit32
 
 .loopexit32:                                      ; preds = %.lr.ph.i.i.i, %68, %59, %52, %._crit_edge.i.i.i, %43, %38, %33
-  %.sink.i.i.i = phi i64 [ %spec.select.i.i, %68 ], [ %61, %59 ], [ %49, %52 ], [ %.cast22.i.i.i, %43 ], [ %.cast20.i.i.i, %38 ], [ %.cast.i.i.i, %33 ], [ %.val31, %._crit_edge.i.i.i ], [ %26, %.lr.ph.i.i.i ]
+  %.sink.i.i.i = phi i64 [ %spec.select.i.i, %68 ], [ %61, %59 ], [ %49, %52 ], [ %.val31, %._crit_edge.i.i.i ], [ %.cast22.i.i.i, %43 ], [ %.cast20.i.i.i, %38 ], [ %.cast.i.i.i, %33 ], [ %26, %.lr.ph.i.i.i ]
   %73 = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #7
   %74 = ptrtoint ptr %73 to i64
   %75 = sub i64 %.sink.i.i.i, %74

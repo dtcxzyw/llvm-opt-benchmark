@@ -876,7 +876,7 @@ rb_ec_ractor_hooks.exit:                          ; preds = %3, %4
   br i1 %.not, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !67
 
 ._crit_edge:                                      ; preds = %97, %80, %67, %54, %45, %32, %23, %._crit_edge.split.us.split.us.split.us, %rb_ec_ractor_hooks.exit
-  %.018.lcssa = phi i32 [ 0, %rb_ec_ractor_hooks.exit ], [ %14, %._crit_edge.split.us.split.us.split.us ], [ %.1.us16, %80 ], [ %.1.us.us, %23 ], [ %.1.us.us26, %32 ], [ %.1.us, %45 ], [ %.1.us8.us, %54 ], [ %.1.us8, %67 ], [ %.1, %97 ]
+  %.018.lcssa = phi i32 [ 0, %rb_ec_ractor_hooks.exit ], [ %.1.us.us, %23 ], [ %.1.us8, %67 ], [ %14, %._crit_edge.split.us.split.us.split.us ], [ %.1.us16, %80 ], [ %.1.us, %45 ], [ %.1.us.us26, %32 ], [ %.1.us8.us, %54 ], [ %.1, %97 ]
   %99 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 32
   %100 = load i8, ptr %99, align 8, !tbaa !21, !range !31, !noundef !32
   %101 = trunc nuw i8 %100 to i1
@@ -1884,7 +1884,7 @@ define dso_local i64 @rb_tracearg_event(ptr noundef nonnull readonly captures(no
   br i1 %.not.i99.i, label %.lr.ph.i98.i, label %get_event_id.exit, !llvm.loop !112
 
 get_event_id.exit:                                ; preds = %.lr.ph.i98.i, %.lr.ph.i92.i, %.lr.ph.i86.i, %.lr.ph.i80.i, %.lr.ph.i74.i, %.lr.ph.i68.i, %.lr.ph.i62.i, %.lr.ph.i56.i, %.lr.ph.i50.i, %.lr.ph.i44.i, %.lr.ph.i38.i, %.lr.ph.i32.i, %.lr.ph.i26.i, %.lr.ph.i20.i, %.lr.ph.i.i, %1, %.split.i, %6, %8, %10, %12, %14, %16, %18, %20, %22, %24, %26, %28, %30, %32, %34
-  %.0.i = phi i64 [ 0, %.split.i ], [ 0, %1 ], [ %.pr.i.i, %6 ], [ %.pr.i17.i, %8 ], [ %.pr.i23.i, %10 ], [ %.pr.i29.i, %12 ], [ %.pr.i35.i, %14 ], [ %.pr.i41.i, %16 ], [ %.pr.i47.i, %18 ], [ %.pr.i53.i, %20 ], [ %.pr.i59.i, %22 ], [ %.pr.i65.i, %24 ], [ %.pr.i71.i, %26 ], [ %.pr.i77.i, %28 ], [ %.pr.i83.i, %30 ], [ %.pr.i89.i, %32 ], [ %.pr.i95.i, %34 ], [ %33, %.lr.ph.i92.i ], [ %7, %.lr.ph.i.i ], [ %9, %.lr.ph.i20.i ], [ %11, %.lr.ph.i26.i ], [ %13, %.lr.ph.i32.i ], [ %15, %.lr.ph.i38.i ], [ %17, %.lr.ph.i44.i ], [ %19, %.lr.ph.i50.i ], [ %21, %.lr.ph.i56.i ], [ %23, %.lr.ph.i62.i ], [ %25, %.lr.ph.i68.i ], [ %27, %.lr.ph.i74.i ], [ %29, %.lr.ph.i80.i ], [ %31, %.lr.ph.i86.i ], [ %35, %.lr.ph.i98.i ]
+  %.0.i = phi i64 [ %29, %.lr.ph.i80.i ], [ 0, %.split.i ], [ %31, %.lr.ph.i86.i ], [ %33, %.lr.ph.i92.i ], [ %7, %.lr.ph.i.i ], [ %9, %.lr.ph.i20.i ], [ %11, %.lr.ph.i26.i ], [ %13, %.lr.ph.i32.i ], [ %15, %.lr.ph.i38.i ], [ %17, %.lr.ph.i44.i ], [ %19, %.lr.ph.i50.i ], [ %21, %.lr.ph.i56.i ], [ %23, %.lr.ph.i62.i ], [ %25, %.lr.ph.i68.i ], [ %27, %.lr.ph.i74.i ], [ 0, %1 ], [ %.pr.i.i, %6 ], [ %.pr.i17.i, %8 ], [ %.pr.i23.i, %10 ], [ %.pr.i29.i, %12 ], [ %.pr.i35.i, %14 ], [ %.pr.i41.i, %16 ], [ %.pr.i47.i, %18 ], [ %.pr.i53.i, %20 ], [ %.pr.i59.i, %22 ], [ %.pr.i65.i, %24 ], [ %.pr.i71.i, %26 ], [ %.pr.i77.i, %28 ], [ %.pr.i83.i, %30 ], [ %.pr.i89.i, %32 ], [ %.pr.i95.i, %34 ], [ %35, %.lr.ph.i98.i ]
   %36 = tail call i64 @rb_id2sym(i64 noundef %.0.i) #4
   ret i64 %36
 }

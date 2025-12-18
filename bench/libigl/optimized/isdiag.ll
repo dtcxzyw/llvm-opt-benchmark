@@ -101,7 +101,7 @@ _ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE13InnerIteratorC2ERKS
   br i1 %exitcond.not, label %.thread, label %_ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE13InnerIteratorC2ERKS3_l.exit, !llvm.loop !22
 
 .thread:                                          ; preds = %._crit_edge, %41, %._crit_edge.us, %24, %1
-  %48 = phi i1 [ true, %1 ], [ false, %41 ], [ false, %24 ], [ true, %._crit_edge.us ], [ true, %._crit_edge ]
+  %48 = phi i1 [ false, %24 ], [ true, %._crit_edge.us ], [ true, %1 ], [ false, %41 ], [ true, %._crit_edge ]
   ret i1 %48
 }
 

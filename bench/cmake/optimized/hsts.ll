@@ -285,7 +285,7 @@ define dso_local range(i32 0, 44) i32 @Curl_hsts_parse(ptr noundef %0, ptr nound
   br label %.loopexit
 
 .loopexit:                                        ; preds = %33, %48, %50, %44, %.critedge110, %3, %57, %61
-  %.0 = phi i32 [ 0, %3 ], [ 0, %57 ], [ %64, %61 ], [ 43, %44 ], [ 43, %.critedge110 ], [ 0, %50 ], [ 0, %48 ], [ 43, %33 ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %57 ], [ %64, %61 ], [ 43, %44 ], [ 0, %48 ], [ 43, %.critedge110 ], [ 0, %50 ], [ 43, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }

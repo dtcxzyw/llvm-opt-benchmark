@@ -515,7 +515,7 @@ aux_copy_obj.exit:                                ; preds = %226, %248, %.lr.ph5
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread274
 
-253:                                              ; preds = %173, %198, %218, %177, %202, %222, %244, %240
+253:                                              ; preds = %173, %198, %218, %240, %177, %202, %222, %244
   %.pr = load i32, ptr @enable_error_stack, align 4, !tbaa !4
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -630,7 +630,7 @@ aux_copy_obj.exit:                                ; preds = %226, %248, %.lr.ph5
   br label %.loopexit287
 
 .loopexit287:                                     ; preds = %.lr.ph.preheader, %312, %291, %268
-  %.0147 = phi i32 [ %1, %291 ], [ %1, %268 ], [ 0, %312 ], [ %294, %.lr.ph.preheader ]
+  %.0147 = phi i32 [ %1, %268 ], [ %1, %291 ], [ 0, %312 ], [ %294, %.lr.ph.preheader ]
   %317 = load i32, ptr %138, align 8, !tbaa !31
   %.not = icmp eq i32 %317, 0
   br i1 %.not, label %.loopexit285, label %318

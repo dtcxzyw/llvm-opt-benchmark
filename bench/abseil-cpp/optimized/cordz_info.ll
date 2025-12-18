@@ -1086,8 +1086,8 @@ _ZNK4absl13cord_internal12_GLOBAL__N_115CordRepAnalyzer6RepRef3tagEv.exit15.thre
   br label %_ZNK4absl13cord_internal12_GLOBAL__N_115CordRepAnalyzer6RepRef3tagEv.exit15.thread
 
 _ZNK4absl13cord_internal12_GLOBAL__N_115CordRepAnalyzer6RepRef3tagEv.exit15.thread: ; preds = %.lr.ph, %_ZNK4absl13cord_internal12_GLOBAL__N_115CordRepAnalyzer6RepRef3tagEv.exit15.thread.sink.split, %4, %_ZNK4absl13cord_internal12_GLOBAL__N_115CordRepAnalyzer6RepRef3tagEv.exit15
-  %.sroa.06.0 = phi ptr [ %.sroa.0.026.lcssa, %_ZNK4absl13cord_internal12_GLOBAL__N_115CordRepAnalyzer6RepRef3tagEv.exit15 ], [ null, %4 ], [ null, %_ZNK4absl13cord_internal12_GLOBAL__N_115CordRepAnalyzer6RepRef3tagEv.exit15.thread.sink.split ], [ null, %.lr.ph ]
-  %.sroa.47.0 = phi i64 [ %storemerge27.lcssa, %_ZNK4absl13cord_internal12_GLOBAL__N_115CordRepAnalyzer6RepRef3tagEv.exit15 ], [ %2, %4 ], [ 0, %_ZNK4absl13cord_internal12_GLOBAL__N_115CordRepAnalyzer6RepRef3tagEv.exit15.thread.sink.split ], [ 0, %.lr.ph ]
+  %.sroa.06.0 = phi ptr [ null, %_ZNK4absl13cord_internal12_GLOBAL__N_115CordRepAnalyzer6RepRef3tagEv.exit15.thread.sink.split ], [ null, %4 ], [ %.sroa.0.026.lcssa, %_ZNK4absl13cord_internal12_GLOBAL__N_115CordRepAnalyzer6RepRef3tagEv.exit15 ], [ null, %.lr.ph ]
+  %.sroa.47.0 = phi i64 [ 0, %_ZNK4absl13cord_internal12_GLOBAL__N_115CordRepAnalyzer6RepRef3tagEv.exit15.thread.sink.split ], [ %2, %4 ], [ %storemerge27.lcssa, %_ZNK4absl13cord_internal12_GLOBAL__N_115CordRepAnalyzer6RepRef3tagEv.exit15 ], [ 0, %.lr.ph ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.06.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.47.0, 1
   ret { ptr, i64 } %.fca.1.insert

@@ -148,7 +148,7 @@ _ZL11getluaprotoP8CallInfo.exit.thread.sink.split: ; preds = %65, %43
   br label %_ZL11getluaprotoP8CallInfo.exit.thread
 
 _ZL11getluaprotoP8CallInfo.exit.thread:           ; preds = %_ZL11getluaprotoP8CallInfo.exit.thread.sink.split, %20, %25, %13, %51, %48, %_ZL11getluaprotoP8CallInfo.exit, %3
-  %.031 = phi i32 [ 0, %3 ], [ 0, %13 ], [ 0, %51 ], [ 0, %48 ], [ 0, %_ZL11getluaprotoP8CallInfo.exit ], [ 0, %25 ], [ 0, %20 ], [ 1, %_ZL11getluaprotoP8CallInfo.exit.thread.sink.split ]
+  %.031 = phi i32 [ 0, %3 ], [ 0, %13 ], [ 0, %20 ], [ 0, %25 ], [ 0, %51 ], [ 0, %48 ], [ 0, %_ZL11getluaprotoP8CallInfo.exit ], [ 1, %_ZL11getluaprotoP8CallInfo.exit.thread.sink.split ]
   ret i32 %.031
 }
 

@@ -682,7 +682,7 @@ pdf_decrypt_string.exit:                          ; preds = %128, %129
   br label %.critedge
 
 .critedge:                                        ; preds = %136, %135, %pdf_decrypt_string.exit.thread, %pdf_decrypt_string.exit, %133, %140, %8, %4, %91, %16
-  %.0 = phi ptr [ null, %8 ], [ null, %91 ], [ null, %16 ], [ null, %4 ], [ %141, %140 ], [ null, %133 ], [ null, %pdf_decrypt_string.exit ], [ null, %pdf_decrypt_string.exit.thread ], [ %.1104, %135 ], [ %.1104, %136 ]
+  %.0 = phi ptr [ null, %8 ], [ null, %pdf_decrypt_string.exit.thread ], [ null, %91 ], [ null, %16 ], [ null, %4 ], [ %141, %140 ], [ null, %133 ], [ null, %pdf_decrypt_string.exit ], [ %.1104, %135 ], [ %.1104, %136 ]
   ret ptr %.0
 }
 
@@ -1279,7 +1279,7 @@ define ptr @pdf_parse_string(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.lr.ph451, %.lr.ph455, %.preheader318, %260, %261, %249, %.loopexit, %203, %230, %231, %215, %.critedge4, %.critedge, %._crit_edge, %38, %202, %36, %27, %14
-  %.0229 = phi ptr [ null, %14 ], [ null, %27 ], [ null, %36 ], [ null, %38 ], [ null, %._crit_edge ], [ %.1, %202 ], [ null, %.critedge ], [ null, %215 ], [ null, %.critedge4 ], [ %.2235, %230 ], [ null, %203 ], [ null, %249 ], [ null, %.loopexit ], [ %.2235, %231 ], [ %.3, %261 ], [ %.3, %260 ], [ null, %.preheader318 ], [ null, %.lr.ph455 ], [ null, %.lr.ph451 ]
+  %.0229 = phi ptr [ null, %14 ], [ null, %27 ], [ null, %36 ], [ null, %38 ], [ null, %._crit_edge ], [ %.1, %202 ], [ null, %.critedge ], [ null, %215 ], [ null, %.critedge4 ], [ %.2235, %230 ], [ null, %203 ], [ null, %249 ], [ null, %.loopexit ], [ %.2235, %231 ], [ %.3, %261 ], [ %.3, %260 ], [ null, %.lr.ph455 ], [ null, %.preheader318 ], [ null, %.lr.ph451 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret ptr %.0229
@@ -2326,7 +2326,7 @@ define noalias noundef ptr @pdf_parse_array(ptr noundef %0, ptr noundef %1, i64 
   br label %.loopexit182
 
 .loopexit182:                                     ; preds = %.thread, %.backedge, %.loopexit, %155, %49, %29, %16, %25, %5, %15
-  %.0123 = phi ptr [ null, %15 ], [ null, %5 ], [ null, %16 ], [ null, %29 ], [ %50, %.loopexit ], [ null, %49 ], [ null, %25 ], [ %50, %155 ], [ null, %.backedge ], [ null, %.thread ]
+  %.0123 = phi ptr [ null, %15 ], [ null, %5 ], [ null, %16 ], [ null, %29 ], [ %50, %.loopexit ], [ null, %49 ], [ null, %.backedge ], [ null, %25 ], [ %50, %155 ], [ null, %.thread ]
   ret ptr %.0123
 }
 

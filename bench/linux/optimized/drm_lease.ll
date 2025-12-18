@@ -747,7 +747,7 @@ define dso_local i32 @drm_mode_create_lease_ioctl(ptr noundef %0, ptr noundef ca
   br i1 %175, label %.loopexit39, label %123, !llvm.loop !25
 
 .loopexit39:                                      ; preds = %.preheader40, %173, %138, %156, %171, %121, %82
-  %176 = phi i32 [ -22, %82 ], [ -22, %121 ], [ %133, %138 ], [ %166, %171 ], [ %151, %156 ], [ 0, %173 ], [ -2, %.preheader40 ]
+  %176 = phi i32 [ -22, %82 ], [ -22, %121 ], [ %151, %156 ], [ 0, %173 ], [ %133, %138 ], [ %166, %171 ], [ -2, %.preheader40 ]
   br label %177
 
 177:                                              ; preds = %183, %.loopexit39

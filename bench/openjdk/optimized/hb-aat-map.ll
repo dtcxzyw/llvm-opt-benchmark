@@ -1955,7 +1955,7 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %2, %16
 22:                                               ; preds = %_ZN21hb_sanitize_context_t16start_processingEv.exit
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %.not.i = icmp ult i32 %10, 12
-  br i1 %.not.i, label %_ZNK3AAT4feat8sanitizeEP21hb_sanitize_context_t.exit, label %24
+  br i1 %.not.i, label %.critedge, label %24
 
 24:                                               ; preds = %22
   %25 = load i8, ptr %8, align 1
@@ -1966,7 +1966,7 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %2, %16
   %30 = zext i8 %29 to i32
   %31 = or disjoint i32 %27, %30
   %32 = icmp eq i32 %31, 1
-  br i1 %32, label %33, label %_ZNK3AAT4feat8sanitizeEP21hb_sanitize_context_t.exit
+  br i1 %32, label %33, label %.critedge
 
 33:                                               ; preds = %24
   %34 = getelementptr inbounds nuw i8, ptr %8, i64 4
@@ -1980,17 +1980,17 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %2, %16
   %42 = mul nuw nsw i32 %41, 12
   %gepdiff = add i32 %10, -12
   %.not16.i.i.i.i = icmp ugt i32 %42, %gepdiff
-  br i1 %.not16.i.i.i.i, label %_ZNK3AAT4feat8sanitizeEP21hb_sanitize_context_t.exit, label %_ZNK2OT14UnsizedArrayOfIN3AAT11FeatureNameEE16sanitize_shallowEP21hb_sanitize_context_tj.exit.i
+  br i1 %.not16.i.i.i.i, label %.critedge, label %_ZNK2OT14UnsizedArrayOfIN3AAT11FeatureNameEE16sanitize_shallowEP21hb_sanitize_context_tj.exit.i
 
 _ZNK2OT14UnsizedArrayOfIN3AAT11FeatureNameEE16sanitize_shallowEP21hb_sanitize_context_tj.exit.i: ; preds = %33
   %43 = sub nsw i32 %.sroa.speculated.sink.i, %42
   store i32 %43, ptr %18, align 4
   %44 = icmp sgt i32 %43, 0
-  br i1 %44, label %.preheader.i, label %_ZNK3AAT4feat8sanitizeEP21hb_sanitize_context_t.exit
+  br i1 %44, label %.preheader.i, label %.critedge
 
 .preheader.i:                                     ; preds = %_ZNK2OT14UnsizedArrayOfIN3AAT11FeatureNameEE16sanitize_shallowEP21hb_sanitize_context_tj.exit.i
   %.not34.i = icmp eq i32 %41, 0
-  br i1 %.not34.i, label %.critedge, label %.lr.ph.preheader.i
+  br i1 %.not34.i, label %_ZNK3AAT4feat8sanitizeEP21hb_sanitize_context_t.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
   %wide.trip.count.i = zext nneg i32 %41 to i64
@@ -2002,13 +2002,13 @@ _ZNK2OT14UnsizedArrayOfIN3AAT11FeatureNameEE16sanitize_shallowEP21hb_sanitize_co
 46:                                               ; preds = %_ZN21hb_sanitize_context_t8dispatchIN3AAT11FeatureNameEJPKNS1_4featEEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS8_.exit.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.critedge, label %.lr.ph.i, !llvm.loop !17
+  br i1 %exitcond.not.i, label %_ZNK3AAT4feat8sanitizeEP21hb_sanitize_context_t.exit, label %.lr.ph.i, !llvm.loop !17
 
 .lr.ph.i:                                         ; preds = %46, %.lr.ph.preheader.i
   %47 = phi i32 [ %43, %.lr.ph.preheader.i ], [ %79, %46 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %46 ]
   %exitcond = icmp eq i64 %indvars.iv.i, %.zext
-  br i1 %exitcond, label %_ZNK3AAT4feat8sanitizeEP21hb_sanitize_context_t.exit, label %48
+  br i1 %exitcond, label %.critedge, label %48
 
 48:                                               ; preds = %.lr.ph.i
   %49 = getelementptr inbounds nuw %"struct.AAT::FeatureName", ptr %23, i64 %indvars.iv.i
@@ -2044,15 +2044,22 @@ _ZNK2OT14UnsizedArrayOfIN3AAT11FeatureNameEE16sanitize_shallowEP21hb_sanitize_co
   %78 = sub i32 %10, %77
   %.not16.i.i.i.i.i.i.i = icmp ugt i32 %76, %78
   %or.cond.i = select i1 %.not.i.i.i.i.i.i.i, i1 true, i1 %.not16.i.i.i.i.i.i.i
-  br i1 %or.cond.i, label %_ZNK3AAT4feat8sanitizeEP21hb_sanitize_context_t.exit, label %_ZN21hb_sanitize_context_t8dispatchIN3AAT11FeatureNameEJPKNS1_4featEEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS8_.exit.i
+  br i1 %or.cond.i, label %.critedge, label %_ZN21hb_sanitize_context_t8dispatchIN3AAT11FeatureNameEJPKNS1_4featEEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS8_.exit.i
 
 _ZN21hb_sanitize_context_t8dispatchIN3AAT11FeatureNameEJPKNS1_4featEEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS8_.exit.i: ; preds = %48
   %79 = sub nsw i32 %47, %76
   store i32 %79, ptr %18, align 4
   %80 = icmp sgt i32 %79, 0
-  br i1 %80, label %46, label %_ZNK3AAT4feat8sanitizeEP21hb_sanitize_context_t.exit
+  br i1 %80, label %46, label %.critedge
 
-_ZNK3AAT4feat8sanitizeEP21hb_sanitize_context_t.exit: ; preds = %.lr.ph.i, %_ZN21hb_sanitize_context_t8dispatchIN3AAT11FeatureNameEJPKNS1_4featEEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS8_.exit.i, %48, %33, %_ZNK2OT14UnsizedArrayOfIN3AAT11FeatureNameEE16sanitize_shallowEP21hb_sanitize_context_tj.exit.i, %22, %24
+_ZNK3AAT4feat8sanitizeEP21hb_sanitize_context_t.exit: ; preds = %46, %.preheader.i
+  tail call void @hb_blob_destroy(ptr noundef %3)
+  store ptr null, ptr %4, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6, i8 0, i64 20, i1 false)
+  tail call void @hb_blob_make_immutable(ptr noundef %1)
+  br label %82
+
+.critedge:                                        ; preds = %48, %.lr.ph.i, %_ZN21hb_sanitize_context_t8dispatchIN3AAT11FeatureNameEJPKNS1_4featEEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS8_.exit.i, %24, %_ZNK2OT14UnsizedArrayOfIN3AAT11FeatureNameEE16sanitize_shallowEP21hb_sanitize_context_tj.exit.i, %33, %22
   tail call void @hb_blob_destroy(ptr noundef %3)
   store ptr null, ptr %4, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6, i8 0, i64 20, i1 false)
@@ -2060,15 +2067,8 @@ _ZNK3AAT4feat8sanitizeEP21hb_sanitize_context_t.exit: ; preds = %.lr.ph.i, %_ZN2
   %81 = tail call ptr @hb_blob_get_empty()
   br label %82
 
-.critedge:                                        ; preds = %46, %.preheader.i
-  tail call void @hb_blob_destroy(ptr noundef %3)
-  store ptr null, ptr %4, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6, i8 0, i64 20, i1 false)
-  tail call void @hb_blob_make_immutable(ptr noundef %1)
-  br label %82
-
-82:                                               ; preds = %_ZNK3AAT4feat8sanitizeEP21hb_sanitize_context_t.exit, %.critedge, %21
-  %.0 = phi ptr [ %1, %.critedge ], [ %81, %_ZNK3AAT4feat8sanitizeEP21hb_sanitize_context_t.exit ], [ %1, %21 ]
+82:                                               ; preds = %.critedge, %_ZNK3AAT4feat8sanitizeEP21hb_sanitize_context_t.exit, %21
+  %.0 = phi ptr [ %1, %_ZNK3AAT4feat8sanitizeEP21hb_sanitize_context_t.exit ], [ %81, %.critedge ], [ %1, %21 ]
   ret ptr %.0
 }
 
@@ -2392,9 +2392,9 @@ _ZL11sort_r_swapPcS_m.exit151:                    ; preds = %.lr.ph.i148, %93, %
   br i1 %105, label %.preheader180, label %.thread, !llvm.loop !55
 
 .thread:                                          ; preds = %.loopexit, %79, %_ZL11sort_r_swapPcS_m.exit147.us
-  %.0123192 = phi ptr [ %.0123211, %79 ], [ %.0123211, %_ZL11sort_r_swapPcS_m.exit147.us ], [ %.2125, %.loopexit ]
-  %.0122190 = phi ptr [ %.0122212, %79 ], [ %.0122212, %_ZL11sort_r_swapPcS_m.exit147.us ], [ %.1187, %.loopexit ]
-  %.1127 = phi ptr [ %.3, %79 ], [ %.0126210, %_ZL11sort_r_swapPcS_m.exit147.us ], [ %.us-phi198, %.loopexit ]
+  %.0123192 = phi ptr [ %.0123211, %_ZL11sort_r_swapPcS_m.exit147.us ], [ %.0123211, %79 ], [ %.2125, %.loopexit ]
+  %.0122190 = phi ptr [ %.0122212, %_ZL11sort_r_swapPcS_m.exit147.us ], [ %.0122212, %79 ], [ %.1187, %.loopexit ]
+  %.1127 = phi ptr [ %.0126210, %_ZL11sort_r_swapPcS_m.exit147.us ], [ %.3, %79 ], [ %.us-phi198, %.loopexit ]
   %106 = ptrtoint ptr %.1127 to i64
   %107 = ptrtoint ptr %.tr216 to i64
   %108 = sub i64 %106, %107
@@ -2514,8 +2514,8 @@ _ZL18sort_r_swap_blocksPcmm.exit:                 ; preds = %.lr.ph.i13.i, %.lr.
   br i1 %156, label %.lr.ph.i13.i161, label %_ZL18sort_r_swap_blocksPcmm.exit168, !llvm.loop !30
 
 _ZL18sort_r_swap_blocksPcmm.exit168:              ; preds = %.lr.ph.i13.i161, %.lr.ph.i.i165, %_ZL11sort_r_swapPcS_m.exit, %40, %_ZL18sort_r_swap_blocksPcmm.exit, %140, %149
-  %157 = phi i64 [ %133, %149 ], [ %133, %_ZL18sort_r_swap_blocksPcmm.exit ], [ %133, %140 ], [ 0, %_ZL11sort_r_swapPcS_m.exit ], [ 0, %40 ], [ %133, %.lr.ph.i.i165 ], [ %133, %.lr.ph.i13.i161 ]
-  %158 = phi i64 [ %110, %149 ], [ %110, %_ZL18sort_r_swap_blocksPcmm.exit ], [ %110, %140 ], [ %25, %_ZL11sort_r_swapPcS_m.exit ], [ %25, %40 ], [ %110, %.lr.ph.i.i165 ], [ %110, %.lr.ph.i13.i161 ]
+  %157 = phi i64 [ %133, %.lr.ph.i.i165 ], [ 0, %_ZL11sort_r_swapPcS_m.exit ], [ %133, %149 ], [ %133, %_ZL18sort_r_swap_blocksPcmm.exit ], [ %133, %140 ], [ 0, %40 ], [ %133, %.lr.ph.i13.i161 ]
+  %158 = phi i64 [ %110, %.lr.ph.i.i165 ], [ %25, %_ZL11sort_r_swapPcS_m.exit ], [ %110, %149 ], [ %110, %_ZL18sort_r_swap_blocksPcmm.exit ], [ %110, %140 ], [ %25, %40 ], [ %110, %.lr.ph.i13.i161 ]
   %159 = udiv i64 %158, %2
   tail call fastcc void @_ZL13sort_r_simpleIJEEvPvmmPFiPKvS2_DpT_ES4_(ptr noundef %.tr216, i64 noundef %159, i64 noundef %2, ptr noundef %3)
   %160 = sub i64 0, %157

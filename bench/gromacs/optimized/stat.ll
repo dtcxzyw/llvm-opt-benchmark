@@ -215,7 +215,7 @@ define void @_Z11global_statRK15gmx_global_statPK9t_commrecP14gmx_enerdata_tPA3_
   br i1 %exitcond76.not.i, label %_ZL16filter_enerdtermPKfbPfbbb.exit, label %.split.split.split.us.split.us.i, !llvm.loop !109
 
 _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %42, %65, %49, %57, %.split.split.i
-  %.us-phi.i = phi i32 [ 0, %.split.split.i ], [ %.223.us44.us.i, %65 ], [ %.223.us35.us59.i, %57 ], [ %.223.us35.us.i, %49 ], [ %.223.us.i, %42 ]
+  %.us-phi.i = phi i32 [ %.223.us35.us.i, %49 ], [ %.223.us44.us.i, %65 ], [ %.223.us35.us59.i, %57 ], [ 0, %.split.split.i ], [ %.223.us.i, %42 ]
   br i1 %.not275, label %68, label %66
 
 66:                                               ; preds = %_ZL16filter_enerdtermPKfbPfbbb.exit

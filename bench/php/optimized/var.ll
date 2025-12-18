@@ -4104,7 +4104,7 @@ php_add_var_hash.exit.thread.preheader:           ; preds = %87, %46, %35, %63, 
   br label %php_add_var_hash.exit.thread.preheader
 
 php_add_var_hash.exit:                            ; preds = %58, %60
-  %.0.i461 = phi i64 [ %.pre.i, %60 ], [ %.pre33.i, %58 ]
+  %.0.i461 = phi i64 [ %.pre33.i, %58 ], [ %.pre.i, %60 ]
   switch i64 %.0.i461, label %87 [
     i64 0, label %php_add_var_hash.exit.thread.preheader
     i64 -1, label %php_add_var_hash.exit.thread513
@@ -6774,7 +6774,7 @@ zend_string_release_ex.exit128:                   ; preds = %55, %zend_string_re
   br i1 %.not113, label %.critedge.thread, label %55
 
 .critedge.thread:                                 ; preds = %zend_string_release_ex.exit128, %43, %16, %29, %40, %.critedge
-  %.2144 = phi ptr [ null, %.critedge ], [ %32, %40 ], [ null, %29 ], [ null, %16 ], [ %32, %43 ], [ %32, %zend_string_release_ex.exit128 ]
+  %.2144 = phi ptr [ null, %16 ], [ null, %.critedge ], [ %32, %40 ], [ null, %29 ], [ %32, %43 ], [ %32, %zend_string_release_ex.exit128 ]
   tail call void @php_var_unserialize_set_allowed_classes(ptr noundef %12, ptr noundef %.2144) #14
   %110 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %3, ptr noundef nonnull @.str.50, i64 noundef 9) #14
   %.not.i130 = icmp eq ptr %110, null
@@ -8174,7 +8174,7 @@ zend_tmp_string_release.exit.sink.split.i:        ; preds = %184, %129, %68
   br label %zend_tmp_string_release.exit.i
 
 zend_tmp_string_release.exit.i:                   ; preds = %.thread127.i, %.thread130.i, %zend_tmp_string_release.exit.sink.split.i, %184, %180, %179, %129, %125, %124, %68, %64, %63, %4
-  %201 = phi i1 [ false, %184 ], [ false, %179 ], [ false, %63 ], [ false, %124 ], [ false, %64 ], [ false, %68 ], [ false, %125 ], [ false, %129 ], [ false, %180 ], [ true, %4 ], [ false, %zend_tmp_string_release.exit.sink.split.i ], [ false, %.thread130.i ], [ true, %.thread127.i ]
+  %201 = phi i1 [ false, %64 ], [ true, %4 ], [ false, %179 ], [ false, %184 ], [ false, %63 ], [ false, %180 ], [ false, %124 ], [ false, %zend_tmp_string_release.exit.sink.split.i ], [ false, %129 ], [ false, %125 ], [ false, %68 ], [ true, %.thread127.i ], [ false, %.thread130.i ]
   %.not79.i = icmp eq ptr %9, null
   br i1 %.not79.i, label %php_var_serialize_get_sleep_props.exit, label %202
 

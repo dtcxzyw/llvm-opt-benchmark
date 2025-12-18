@@ -11113,7 +11113,7 @@ define hidden void @_ZN12tab_switcher19TabSwitcherDelegate14update_matches17hc6e
           to label %.body.i unwind label %46
 
 common.resume:                                    ; preds = %.body.i, %.body20, %199, %204, %208
-  %common.resume.op = phi { ptr, i32 } [ %200, %199 ], [ %200, %208 ], [ %200, %204 ], [ %.pn.pn, %.body20 ], [ %34, %.body.i ]
+  %common.resume.op = phi { ptr, i32 } [ %200, %199 ], [ %.pn.pn, %.body20 ], [ %200, %208 ], [ %200, %204 ], [ %34, %.body.i ]
   resume { ptr, i32 } %common.resume.op
 
 46:                                               ; preds = %43

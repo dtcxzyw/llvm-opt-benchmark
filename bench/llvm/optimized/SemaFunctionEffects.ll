@@ -314,7 +314,7 @@ _ZNK5clang22FunctionEffectIteratorINS_18FunctionEffectsRefEEdeEv.exit.thread.us5
   br label %.critedge
 
 .critedge:                                        ; preds = %44, %58, %30, %10, %.split.us
-  %60 = phi i1 [ true, %.split.us ], [ false, %10 ], [ false, %58 ], [ false, %30 ], [ false, %44 ]
+  %60 = phi i1 [ true, %.split.us ], [ false, %10 ], [ false, %30 ], [ false, %58 ], [ false, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %61
 
@@ -1935,7 +1935,7 @@ _ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.fold.split.i.i.i: ; preds = %32
   br label %_ZN12_GLOBAL__N_18Analyzer19GetCallableDeclKindEPKN5clang4DeclEPKNS_9ViolationE.exit.i.i
 
 _ZN12_GLOBAL__N_18Analyzer19GetCallableDeclKindEPKN5clang4DeclEPKNS_9ViolationE.exit.i.i: ; preds = %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.fold.split.i.i.i, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i.i, %_ZNK5clang13CXXMethodDecl9getParentEv.exit.i.i.i, %322, %319, %.critedge.i.i
-  %.0.i50.i.i = phi i64 [ 4, %.critedge.i.i ], [ 2, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.fold.split.i.i.i ], [ 0, %_ZNK5clang13CXXMethodDecl9getParentEv.exit.i.i.i ], [ 0, %319 ], [ %spec.select.i.i.i, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i.i ], [ 1, %322 ]
+  %.0.i50.i.i = phi i64 [ 4, %.critedge.i.i ], [ 1, %322 ], [ 0, %_ZNK5clang13CXXMethodDecl9getParentEv.exit.i.i.i ], [ 0, %319 ], [ %spec.select.i.i.i, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i.i ], [ 2, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.fold.split.i.i.i ]
   %338 = load i8, ptr %59, align 8, !tbaa !47, !range !50, !noundef !51
   %339 = trunc nuw i8 %338 to i1
   br i1 %339, label %340, label %392
@@ -2164,7 +2164,7 @@ _ZN5clang21FunctionEffectKindSet8iteratorppEv.exit.i.i: ; preds = %_ZNKSt6bitset
   br i1 %.not.i52.i, label %.loopexit.i.i, label %.lr.ph.i51.i
 
 .loopexit.i.i:                                    ; preds = %238, %_ZN5clang21FunctionEffectKindSet8iteratorppEv.exit.i.i, %439, %.critedge40.i.i, %_ZNK5clang21FunctionEffectKindSet5beginEv.exit.i.i, %229
-  %441 = phi i64 [ %.pre69.i, %229 ], [ %.pre.i, %.critedge40.i.i ], [ %.pre69.i, %_ZNK5clang21FunctionEffectKindSet5beginEv.exit.i.i ], [ %.pre69.i, %_ZN5clang21FunctionEffectKindSet8iteratorppEv.exit.i.i ], [ %.pre69.i, %439 ], [ %.pre69.i, %238 ]
+  %441 = phi i64 [ %.pre69.i, %_ZN5clang21FunctionEffectKindSet8iteratorppEv.exit.i.i ], [ %.pre69.i, %439 ], [ %.pre69.i, %229 ], [ %.pre.i, %.critedge40.i.i ], [ %.pre69.i, %_ZNK5clang21FunctionEffectKindSet5beginEv.exit.i.i ], [ %.pre69.i, %238 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %.sroa.0.0.copyload.i53.i = load i64, ptr %33, align 8
   store i64 %441, ptr %16, align 8
@@ -4838,7 +4838,7 @@ _ZN12_GLOBAL__N_123PendingFunctionAnalysis28violationForInferrableEffectEN5clang
   br i1 %137, label %.split.us.i, label %_ZN5clang21FunctionEffectKindSet6insertENS_14FunctionEffectE.exit.i
 
 .split.us.i:                                      ; preds = %_ZN12_GLOBAL__N_123PendingFunctionAnalysis28violationForInferrableEffectEN5clang14FunctionEffectE.exit.thread.i, %_ZN12_GLOBAL__N_123PendingFunctionAnalysis28violationForInferrableEffectEN5clang14FunctionEffectE.exit.thread.us16.i, %_ZN12_GLOBAL__N_123PendingFunctionAnalysis28violationForInferrableEffectEN5clang14FunctionEffectE.exit.thread.us.i
-  %.us-phi.i = phi i64 [ %95, %_ZN12_GLOBAL__N_123PendingFunctionAnalysis28violationForInferrableEffectEN5clang14FunctionEffectE.exit.thread.us16.i ], [ %67, %_ZN12_GLOBAL__N_123PendingFunctionAnalysis28violationForInferrableEffectEN5clang14FunctionEffectE.exit.thread.us.i ], [ %136, %_ZN12_GLOBAL__N_123PendingFunctionAnalysis28violationForInferrableEffectEN5clang14FunctionEffectE.exit.thread.i ]
+  %.us-phi.i = phi i64 [ %67, %_ZN12_GLOBAL__N_123PendingFunctionAnalysis28violationForInferrableEffectEN5clang14FunctionEffectE.exit.thread.us.i ], [ %95, %_ZN12_GLOBAL__N_123PendingFunctionAnalysis28violationForInferrableEffectEN5clang14FunctionEffectE.exit.thread.us16.i ], [ %136, %_ZN12_GLOBAL__N_123PendingFunctionAnalysis28violationForInferrableEffectEN5clang14FunctionEffectE.exit.thread.i ]
   tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.4, i64 noundef %.us-phi.i, i64 noundef 4) #22
   unreachable
 
@@ -4872,7 +4872,7 @@ _ZN5clang21FunctionEffectKindSet8iteratorppEv.exit.i: ; preds = %_ZNKSt6bitsetIL
   br i1 %.not.i, label %_ZN12_GLOBAL__N_124CompleteFunctionAnalysisC2ERN5clang10ASTContextEONS_23PendingFunctionAnalysisENS1_21FunctionEffectKindSetES6_.exit, label %.lr.ph.i.i.i.i.i.i.i10
 
 _ZN12_GLOBAL__N_124CompleteFunctionAnalysisC2ERN5clang10ASTContextEONS_23PendingFunctionAnalysisENS1_21FunctionEffectKindSetES6_.exit: ; preds = %_ZN5clang21FunctionEffectKindSet8iteratorppEv.exit.i, %146, %_ZN5clang21FunctionEffectKindSet8iteratorppEv.exit.us22.i, %105, %_ZN5clang21FunctionEffectKindSet8iteratorppEv.exit.us.i, %75, %_ZNK5clang21FunctionEffectKindSet5beginEv.exit.._crit_edge_crit_edge.i
-  %148 = phi ptr [ %.pre.i, %_ZNK5clang21FunctionEffectKindSet5beginEv.exit.._crit_edge_crit_edge.i ], [ %.val.i9, %146 ], [ null, %75 ], [ null, %_ZN5clang21FunctionEffectKindSet8iteratorppEv.exit.us.i ], [ %.val.i9, %105 ], [ %.val.i9, %_ZN5clang21FunctionEffectKindSet8iteratorppEv.exit.us22.i ], [ %.val.i9, %_ZN5clang21FunctionEffectKindSet8iteratorppEv.exit.i ]
+  %148 = phi ptr [ %.pre.i, %_ZNK5clang21FunctionEffectKindSet5beginEv.exit.._crit_edge_crit_edge.i ], [ null, %_ZN5clang21FunctionEffectKindSet8iteratorppEv.exit.us.i ], [ %.val.i9, %146 ], [ null, %75 ], [ %.val.i9, %105 ], [ %.val.i9, %_ZN5clang21FunctionEffectKindSet8iteratorppEv.exit.us22.i ], [ %.val.i9, %_ZN5clang21FunctionEffectKindSet8iteratorppEv.exit.i ]
   %149 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %150 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr null, ptr %150, align 8, !tbaa !791
@@ -6257,7 +6257,7 @@ _ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.fold.split.i: ; preds = %155
   br label %_ZN12_GLOBAL__N_18Analyzer19GetCallableDeclKindEPKN5clang4DeclEPKNS_9ViolationE.exit
 
 _ZN12_GLOBAL__N_18Analyzer19GetCallableDeclKindEPKN5clang4DeclEPKNS_9ViolationE.exit: ; preds = %139, %147, %152, %155, %_ZNK5clang13CXXMethodDecl9getParentEv.exit.i, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.fold.split.i
-  %.0.i = phi i64 [ 4, %147 ], [ 5, %139 ], [ 0, %_ZNK5clang13CXXMethodDecl9getParentEv.exit.i ], [ 0, %152 ], [ %spec.select.i, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i ], [ 1, %155 ], [ 2, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.fold.split.i ]
+  %.0.i = phi i64 [ 4, %147 ], [ 5, %139 ], [ 0, %_ZNK5clang13CXXMethodDecl9getParentEv.exit.i ], [ 0, %152 ], [ %spec.select.i, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i ], [ 2, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.fold.split.i ], [ 1, %155 ]
   %171 = load i8, ptr %57, align 8, !tbaa !47, !range !50, !noundef !51
   %172 = trunc nuw i8 %171 to i1
   br i1 %172, label %173, label %225
@@ -6712,7 +6712,7 @@ _ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.fold.split.i120: ; preds = %371
   br label %_ZN12_GLOBAL__N_18Analyzer19GetCallableDeclKindEPKN5clang4DeclEPKNS_9ViolationE.exit129
 
 _ZN12_GLOBAL__N_18Analyzer19GetCallableDeclKindEPKN5clang4DeclEPKNS_9ViolationE.exit129: ; preds = %355, %363, %368, %371, %_ZNK5clang13CXXMethodDecl9getParentEv.exit.i123, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i126, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.fold.split.i120
-  %.0.i121 = phi i64 [ 4, %363 ], [ 5, %355 ], [ 0, %_ZNK5clang13CXXMethodDecl9getParentEv.exit.i123 ], [ 0, %368 ], [ %spec.select.i128, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i126 ], [ 1, %371 ], [ 2, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.fold.split.i120 ]
+  %.0.i121 = phi i64 [ 4, %363 ], [ 5, %355 ], [ 0, %_ZNK5clang13CXXMethodDecl9getParentEv.exit.i123 ], [ 0, %368 ], [ %spec.select.i128, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i126 ], [ 2, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.fold.split.i120 ], [ 1, %371 ]
   %387 = load i8, ptr %63, align 8, !tbaa !47, !range !50, !noundef !51
   %388 = trunc nuw i8 %387 to i1
   br i1 %388, label %389, label %441
@@ -7018,7 +7018,7 @@ _ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.fold.split.i151: ; preds = %514
   br label %_ZN12_GLOBAL__N_18Analyzer19GetCallableDeclKindEPKN5clang4DeclEPKNS_9ViolationE.exit160
 
 _ZN12_GLOBAL__N_18Analyzer19GetCallableDeclKindEPKN5clang4DeclEPKNS_9ViolationE.exit160: ; preds = %495, %506, %511, %514, %_ZNK5clang13CXXMethodDecl9getParentEv.exit.i154, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i157, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.fold.split.i151
-  %.0.i152 = phi i64 [ 4, %506 ], [ 5, %495 ], [ 0, %_ZNK5clang13CXXMethodDecl9getParentEv.exit.i154 ], [ 0, %511 ], [ %spec.select.i159, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i157 ], [ 1, %514 ], [ 2, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.fold.split.i151 ]
+  %.0.i152 = phi i64 [ 4, %506 ], [ 5, %495 ], [ 0, %_ZNK5clang13CXXMethodDecl9getParentEv.exit.i154 ], [ 0, %511 ], [ %spec.select.i159, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i157 ], [ 2, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.fold.split.i151 ], [ 1, %514 ]
   %530 = load i8, ptr %69, align 8, !tbaa !47, !range !50, !noundef !51
   %531 = trunc nuw i8 %530 to i1
   br i1 %531, label %532, label %584
@@ -7263,7 +7263,7 @@ _ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.fold.split.i173: ; preds = %631
   br label %_ZN12_GLOBAL__N_18Analyzer19GetCallableDeclKindEPKN5clang4DeclEPKNS_9ViolationE.exit182
 
 _ZN12_GLOBAL__N_18Analyzer19GetCallableDeclKindEPKN5clang4DeclEPKNS_9ViolationE.exit182: ; preds = %_ZN5clanglsIN4llvm9StringRefEEERKNS_8SemaBase21SemaDiagnosticBuilderES6_RKT_.exit172, %628, %631, %_ZNK5clang13CXXMethodDecl9getParentEv.exit.i176, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i179, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.fold.split.i173
-  %.0.i174 = phi i64 [ 4, %_ZN5clanglsIN4llvm9StringRefEEERKNS_8SemaBase21SemaDiagnosticBuilderES6_RKT_.exit172 ], [ 2, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.fold.split.i173 ], [ 0, %_ZNK5clang13CXXMethodDecl9getParentEv.exit.i176 ], [ 0, %628 ], [ %spec.select.i181, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i179 ], [ 1, %631 ]
+  %.0.i174 = phi i64 [ 4, %_ZN5clanglsIN4llvm9StringRefEEERKNS_8SemaBase21SemaDiagnosticBuilderES6_RKT_.exit172 ], [ 1, %631 ], [ 0, %_ZNK5clang13CXXMethodDecl9getParentEv.exit.i176 ], [ 0, %628 ], [ %spec.select.i181, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i179 ], [ 2, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.fold.split.i173 ]
   %647 = load i8, ptr %69, align 8, !tbaa !47, !range !50, !noundef !51
   %648 = trunc nuw i8 %647 to i1
   br i1 %648, label %649, label %701
@@ -8050,7 +8050,7 @@ _ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.fold.split.i221: ; preds = %100
   br label %_ZN12_GLOBAL__N_18Analyzer19GetCallableDeclKindEPKN5clang4DeclEPKNS_9ViolationE.exit230
 
 _ZN12_GLOBAL__N_18Analyzer19GetCallableDeclKindEPKN5clang4DeclEPKNS_9ViolationE.exit230: ; preds = %995, %1004, %1007, %_ZNK5clang13CXXMethodDecl9getParentEv.exit.i224, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i227, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.fold.split.i221
-  %.0.i222 = phi i64 [ 4, %995 ], [ 2, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.fold.split.i221 ], [ 0, %_ZNK5clang13CXXMethodDecl9getParentEv.exit.i224 ], [ 0, %1004 ], [ %spec.select.i229, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i227 ], [ 1, %1007 ]
+  %.0.i222 = phi i64 [ 4, %995 ], [ 1, %1007 ], [ 0, %_ZNK5clang13CXXMethodDecl9getParentEv.exit.i224 ], [ 0, %1004 ], [ %spec.select.i229, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i227 ], [ 2, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.fold.split.i221 ]
   %1023 = load i8, ptr %122, align 8, !tbaa !47, !range !50, !noundef !51
   %1024 = trunc nuw i8 %1023 to i1
   br i1 %1024, label %1025, label %1077
@@ -8548,7 +8548,7 @@ _ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.fold.split.i262: ; preds = %122
   br label %_ZN12_GLOBAL__N_18Analyzer19GetCallableDeclKindEPKN5clang4DeclEPKNS_9ViolationE.exit271
 
 _ZN12_GLOBAL__N_18Analyzer19GetCallableDeclKindEPKN5clang4DeclEPKNS_9ViolationE.exit271: ; preds = %1217, %1225, %1228, %_ZNK5clang13CXXMethodDecl9getParentEv.exit.i265, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i268, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.fold.split.i262
-  %.0.i263 = phi i64 [ 4, %1217 ], [ 2, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.fold.split.i262 ], [ 0, %_ZNK5clang13CXXMethodDecl9getParentEv.exit.i265 ], [ 0, %1225 ], [ %spec.select.i270, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i268 ], [ 1, %1228 ]
+  %.0.i263 = phi i64 [ 4, %1217 ], [ 1, %1228 ], [ 0, %_ZNK5clang13CXXMethodDecl9getParentEv.exit.i265 ], [ 0, %1225 ], [ %spec.select.i270, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i268 ], [ 2, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.fold.split.i262 ]
   %1244 = load i8, ptr %91, align 8, !tbaa !47, !range !50, !noundef !51
   %1245 = trunc nuw i8 %1244 to i1
   br i1 %1245, label %1246, label %1298
@@ -9058,7 +9058,7 @@ _ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.fold.split.i307: ; preds = %147
   br label %_ZN12_GLOBAL__N_18Analyzer19GetCallableDeclKindEPKN5clang4DeclEPKNS_9ViolationE.exit316
 
 _ZN12_GLOBAL__N_18Analyzer19GetCallableDeclKindEPKN5clang4DeclEPKNS_9ViolationE.exit316: ; preds = %1459, %1466, %1471, %1474, %_ZNK5clang13CXXMethodDecl9getParentEv.exit.i310, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i313, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.fold.split.i307
-  %.0.i308 = phi i64 [ 4, %1466 ], [ 5, %1459 ], [ 0, %_ZNK5clang13CXXMethodDecl9getParentEv.exit.i310 ], [ 0, %1471 ], [ %spec.select.i315, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i313 ], [ 1, %1474 ], [ 2, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.fold.split.i307 ]
+  %.0.i308 = phi i64 [ 4, %1466 ], [ 5, %1459 ], [ 0, %_ZNK5clang13CXXMethodDecl9getParentEv.exit.i310 ], [ 0, %1471 ], [ %spec.select.i315, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i313 ], [ 2, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.fold.split.i307 ], [ 1, %1474 ]
   %1490 = load i8, ptr %79, align 8, !tbaa !47, !range !50, !noundef !51
   %1491 = trunc nuw i8 %1490 to i1
   br i1 %1491, label %1492, label %1544
@@ -9483,7 +9483,7 @@ _ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.fold.split.i334: ; preds = %167
   br label %_ZN12_GLOBAL__N_18Analyzer19GetCallableDeclKindEPKN5clang4DeclEPKNS_9ViolationE.exit343
 
 _ZN12_GLOBAL__N_18Analyzer19GetCallableDeclKindEPKN5clang4DeclEPKNS_9ViolationE.exit343: ; preds = %1660, %1669, %1674, %1677, %_ZNK5clang13CXXMethodDecl9getParentEv.exit.i337, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i340, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.fold.split.i334
-  %.0.i335 = phi i64 [ 4, %1669 ], [ 5, %1660 ], [ 0, %_ZNK5clang13CXXMethodDecl9getParentEv.exit.i337 ], [ 0, %1674 ], [ %spec.select.i342, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i340 ], [ 1, %1677 ], [ 2, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.fold.split.i334 ]
+  %.0.i335 = phi i64 [ 4, %1669 ], [ 5, %1660 ], [ 0, %_ZNK5clang13CXXMethodDecl9getParentEv.exit.i337 ], [ 0, %1674 ], [ %spec.select.i342, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i340 ], [ 2, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.fold.split.i334 ], [ 1, %1677 ]
   %1693 = load i8, ptr %97, align 8, !tbaa !47, !range !50, !noundef !51
   %1694 = trunc nuw i8 %1693 to i1
   br i1 %1694, label %1695, label %1747
@@ -9728,7 +9728,7 @@ _ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.fold.split.i356: ; preds = %179
   br label %_ZN12_GLOBAL__N_18Analyzer19GetCallableDeclKindEPKN5clang4DeclEPKNS_9ViolationE.exit365
 
 _ZN12_GLOBAL__N_18Analyzer19GetCallableDeclKindEPKN5clang4DeclEPKNS_9ViolationE.exit365: ; preds = %_ZN5clanglsIN4llvm9StringRefEEERKNS_8SemaBase21SemaDiagnosticBuilderES6_RKT_.exit355, %1791, %1794, %_ZNK5clang13CXXMethodDecl9getParentEv.exit.i359, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i362, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.fold.split.i356
-  %.0.i357 = phi i64 [ 4, %_ZN5clanglsIN4llvm9StringRefEEERKNS_8SemaBase21SemaDiagnosticBuilderES6_RKT_.exit355 ], [ 2, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.fold.split.i356 ], [ 0, %_ZNK5clang13CXXMethodDecl9getParentEv.exit.i359 ], [ 0, %1791 ], [ %spec.select.i364, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i362 ], [ 1, %1794 ]
+  %.0.i357 = phi i64 [ 4, %_ZN5clanglsIN4llvm9StringRefEEERKNS_8SemaBase21SemaDiagnosticBuilderES6_RKT_.exit355 ], [ 1, %1794 ], [ 0, %_ZNK5clang13CXXMethodDecl9getParentEv.exit.i359 ], [ 0, %1791 ], [ %spec.select.i364, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i362 ], [ 2, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.fold.split.i356 ]
   %1810 = load i8, ptr %97, align 8, !tbaa !47, !range !50, !noundef !51
   %1811 = trunc nuw i8 %1810 to i1
   br i1 %1811, label %1812, label %1864
@@ -11908,7 +11908,7 @@ _ZNK5clang7VarDecl13isStaticLocalEv.exit:         ; preds = %29, %34
   %spec.select.i.i.i.i.not = icmp eq i16 %38, 56
   br i1 %spec.select.i.i.i.i.not, label %_ZNK5clang7VarDecl13isStaticLocalEv.exit.thread, label %_ZNK5clang7VarDecl13isStaticLocalEv.exit.thread11
 
-_ZNK5clang7VarDecl13isStaticLocalEv.exit.thread11: ; preds = %26, %9, %_ZNK5clang7VarDecl13isStaticLocalEv.exit
+_ZNK5clang7VarDecl13isStaticLocalEv.exit.thread11: ; preds = %9, %26, %_ZNK5clang7VarDecl13isStaticLocalEv.exit
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.0.0.copyload.i = load i32, ptr %39, align 8, !tbaa !31
   tail call fastcc void @_ZN12_GLOBAL__N_18Analyzer22FunctionBodyASTVisitor25diagnoseLanguageConstructEN5clang14FunctionEffect7FlagBitENS_11ViolationIDENS2_14SourceLocationEPKNS2_4DeclE(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef 16, i8 noundef zeroext 3, i32 %.sroa.0.0.copyload.i)
@@ -14661,7 +14661,7 @@ _ZN5clang21FunctionEffectKindSet8iteratorppEv.exit: ; preds = %_ZNKSt6bitsetILm4
   br i1 %.not14, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %12, %_ZN5clang21FunctionEffectKindSet8iteratorppEv.exit, %50, %_ZNK5clang21FunctionEffectKindSet5beginEv.exit, %_ZN12_GLOBAL__N_18Analyzer22FunctionBodyASTVisitor12addViolationEbN5clang14FunctionEffectENS_11ViolationIDENS2_14SourceLocationEPKNS2_4DeclE.exit
-  %52 = phi ptr [ %8, %_ZNK5clang21FunctionEffectKindSet5beginEv.exit ], [ %.pre, %_ZN12_GLOBAL__N_18Analyzer22FunctionBodyASTVisitor12addViolationEbN5clang14FunctionEffectENS_11ViolationIDENS2_14SourceLocationEPKNS2_4DeclE.exit ], [ %8, %_ZN5clang21FunctionEffectKindSet8iteratorppEv.exit ], [ %8, %50 ], [ %8, %12 ]
+  %52 = phi ptr [ %8, %_ZN5clang21FunctionEffectKindSet8iteratorppEv.exit ], [ %8, %_ZNK5clang21FunctionEffectKindSet5beginEv.exit ], [ %.pre, %_ZN12_GLOBAL__N_18Analyzer22FunctionBodyASTVisitor12addViolationEbN5clang14FunctionEffectENS_11ViolationIDENS2_14SourceLocationEPKNS2_4DeclE.exit ], [ %8, %50 ], [ %8, %12 ]
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = load i64, ptr %53, align 8, !tbaa !780
   br label %_ZNKSt6bitsetILm4EE4testEm.exit.i.i.i27

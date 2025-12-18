@@ -983,9 +983,9 @@ define internal fastcc range(i32 -1, 1) i32 @checkout_file(ptr noundef %0, ptr n
   br label %51
 
 51:                                               ; preds = %43, %44
-  %52 = phi ptr [ %.pre109, %44 ], [ %29, %43 ]
-  %.235 = phi i32 [ 1, %44 ], [ %.03379132, %43 ]
-  %.2 = phi i32 [ %spec.select68, %44 ], [ %.03280131, %43 ]
+  %52 = phi ptr [ %29, %43 ], [ %.pre109, %44 ]
+  %.235 = phi i32 [ %.03379132, %43 ], [ 1, %44 ]
+  %.2 = phi i32 [ %.03280131, %43 ], [ %spec.select68, %44 ]
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 384
   %54 = load ptr, ptr %53, align 8, !tbaa !41
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 12

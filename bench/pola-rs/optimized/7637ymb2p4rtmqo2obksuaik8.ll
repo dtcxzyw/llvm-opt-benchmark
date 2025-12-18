@@ -47586,8 +47586,8 @@ _ZN12polars_arrow2io3ipc4read6common21find_first_dict_field17h01818d2cd9933769E.
   br i1 %.not11, label %45, label %62
 
 "_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17ha6c60c2236f679dbE.exit.thread": ; preds = %82, %45, %3, %97, %_ZN12polars_arrow2io3ipc4read6common21find_first_dict_field17h01818d2cd9933769E.exit15, %62, %21
-  %.sroa.10.0 = phi ptr [ %80, %_ZN12polars_arrow2io3ipc4read6common21find_first_dict_field17h01818d2cd9933769E.exit15 ], [ %63, %62 ], [ undef, %3 ], [ %26, %21 ], [ %98, %97 ], [ undef, %45 ], [ undef, %82 ]
-  %.sroa.0.0 = phi ptr [ %79, %_ZN12polars_arrow2io3ipc4read6common21find_first_dict_field17h01818d2cd9933769E.exit15 ], [ %59, %62 ], [ null, %3 ], [ %25, %21 ], [ %96, %97 ], [ null, %45 ], [ null, %82 ]
+  %.sroa.10.0 = phi ptr [ undef, %45 ], [ %80, %_ZN12polars_arrow2io3ipc4read6common21find_first_dict_field17h01818d2cd9933769E.exit15 ], [ %63, %62 ], [ undef, %3 ], [ %26, %21 ], [ %98, %97 ], [ undef, %82 ]
+  %.sroa.0.0 = phi ptr [ null, %45 ], [ %79, %_ZN12polars_arrow2io3ipc4read6common21find_first_dict_field17h01818d2cd9933769E.exit15 ], [ %59, %62 ], [ null, %3 ], [ %25, %21 ], [ %96, %97 ], [ null, %82 ]
   %60 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %61 = insertvalue { ptr, ptr } %60, ptr %.sroa.10.0, 1
   ret { ptr, ptr } %61
@@ -48015,8 +48015,8 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h8b99433d2906c8e5E.exit: ; preds
   br label %111
 
 111:                                              ; preds = %104, %100
-  %112 = phi i8 [ %102, %100 ], [ %.pre.i.i.i.i.i, %104 ]
-  %.sroa.3.0.i.i.ph.i.i.i.i.i = phi i64 [ %.sroa.4.113.i.i.i.i.i.i.i, %100 ], [ %110, %104 ]
+  %112 = phi i8 [ %.pre.i.i.i.i.i, %104 ], [ %102, %100 ]
+  %.sroa.3.0.i.i.ph.i.i.i.i.i = phi i64 [ %110, %104 ], [ %.sroa.4.113.i.i.i.i.i.i.i, %100 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !6747)
   %113 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i.i.i, i64 %.sroa.3.0.i.i.ph.i.i.i.i.i
   %114 = and i8 %112, 1

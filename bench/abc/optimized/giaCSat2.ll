@@ -1067,7 +1067,7 @@ Cbs2_ManPropagateTwo.exit.thread..critedge2.loopexit_crit_edge: ; preds = %Cbs2_
   br label %14
 
 .thread:                                          ; preds = %.critedge2, %.lr.ph121, %Cbs2_ManPropagateTwo.exit
-  %.2 = phi i32 [ %31, %.lr.ph121 ], [ %188, %Cbs2_ManPropagateTwo.exit ], [ 0, %.critedge2 ]
+  %.2 = phi i32 [ %188, %Cbs2_ManPropagateTwo.exit ], [ %31, %.lr.ph121 ], [ 0, %.critedge2 ]
   ret i32 %.2
 }
 

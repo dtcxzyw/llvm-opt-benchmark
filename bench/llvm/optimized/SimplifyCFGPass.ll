@@ -4005,7 +4005,7 @@ _ZNK4llvm21GenericDomTreeUpdaterINS_14DomTreeUpdaterENS_13DominatorTreeENS_17Pos
   br i1 %.not42, label %.critedge, label %.lr.ph51, !llvm.loop !279
 
 .critedge:                                        ; preds = %_ZNK4llvm21GenericDomTreeUpdaterINS_14DomTreeUpdaterENS_13DominatorTreeENS_17PostDominatorTreeEE19isBBPendingDeletionEPNS_10BasicBlockE.exit, %_ZNK4llvm21GenericDomTreeUpdaterINS_14DomTreeUpdaterENS_13DominatorTreeENS_17PostDominatorTreeEE19isBBPendingDeletionEPNS_10BasicBlockE.exit.thread39, %.lr.ph51, %101, %108, %112, %.preheader
-  %.sroa.033.1 = phi ptr [ %96, %.preheader ], [ %.sroa.033.250, %112 ], [ %.sroa.033.250, %_ZNK4llvm21GenericDomTreeUpdaterINS_14DomTreeUpdaterENS_13DominatorTreeENS_17PostDominatorTreeEE19isBBPendingDeletionEPNS_10BasicBlockE.exit ], [ %118, %_ZNK4llvm21GenericDomTreeUpdaterINS_14DomTreeUpdaterENS_13DominatorTreeENS_17PostDominatorTreeEE19isBBPendingDeletionEPNS_10BasicBlockE.exit.thread39 ], [ %.sroa.033.250, %.lr.ph51 ], [ %.sroa.033.250, %101 ], [ %.sroa.033.250, %108 ]
+  %.sroa.033.1 = phi ptr [ %.sroa.033.250, %112 ], [ %96, %.preheader ], [ %.sroa.033.250, %_ZNK4llvm21GenericDomTreeUpdaterINS_14DomTreeUpdaterENS_13DominatorTreeENS_17PostDominatorTreeEE19isBBPendingDeletionEPNS_10BasicBlockE.exit ], [ %118, %_ZNK4llvm21GenericDomTreeUpdaterINS_14DomTreeUpdaterENS_13DominatorTreeENS_17PostDominatorTreeEE19isBBPendingDeletionEPNS_10BasicBlockE.exit.thread39 ], [ %.sroa.033.250, %.lr.ph51 ], [ %.sroa.033.250, %101 ], [ %.sroa.033.250, %108 ]
   %119 = load ptr, ptr %7, align 8, !tbaa !25
   %120 = load i32, ptr %29, align 8, !tbaa !26
   %121 = zext i32 %120 to i64

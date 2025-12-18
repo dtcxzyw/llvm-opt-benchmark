@@ -1325,7 +1325,7 @@ define dso_local i32 @get_device_system_crosststamp(ptr noundef readonly capture
   br label %.thread11
 
 .thread11:                                        ; preds = %19, %.loopexit, %170, %103, %87, %95, %99, %151, %142, %127, %111, %57
-  %172 = phi i32 [ -75, %127 ], [ -75, %151 ], [ 0, %103 ], [ 0, %170 ], [ 0, %57 ], [ -22, %87 ], [ -75, %111 ], [ -75, %142 ], [ -22, %99 ], [ -22, %95 ], [ -19, %19 ], [ %17, %.loopexit ]
+  %172 = phi i32 [ 0, %57 ], [ -75, %151 ], [ 0, %103 ], [ 0, %170 ], [ -75, %127 ], [ -22, %87 ], [ -75, %111 ], [ -75, %142 ], [ -22, %99 ], [ -22, %95 ], [ -19, %19 ], [ %17, %.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %172
 }

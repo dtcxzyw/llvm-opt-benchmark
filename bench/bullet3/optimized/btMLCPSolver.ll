@@ -2576,7 +2576,7 @@ _ZN9btVectorXIfE7setZeroEv.exit409:               ; preds = %_ZN9btVectorXIfE7se
   br label %178
 
 ._crit_edge:                                      ; preds = %194, %_ZN9btVectorXIfE7setZeroEv.exit, %_ZN9btVectorXIfE7setZeroEv.exit409
-  %109 = phi i1 [ false, %_ZN9btVectorXIfE7setZeroEv.exit409 ], [ false, %_ZN9btVectorXIfE7setZeroEv.exit ], [ true, %194 ]
+  %109 = phi i1 [ false, %_ZN9btVectorXIfE7setZeroEv.exit ], [ false, %_ZN9btVectorXIfE7setZeroEv.exit409 ], [ true, %194 ]
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 564

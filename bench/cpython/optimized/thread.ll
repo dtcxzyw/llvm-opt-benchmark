@@ -1491,12 +1491,12 @@ fix_status.exit:                                  ; preds = %33, %.split.split.s
   br label %.split40.us
 
 .split40.us:                                      ; preds = %.split40.us.sink.split, %.split.split.us.split.us, %.split.split.split.us, %.split.us.split.us
-  %.us-phi = phi i32 [ %14, %.split.us.split.us ], [ %22, %.split.split.us.split.us ], [ %29, %.split.split.split.us ], [ %37, %.split40.us.sink.split ]
+  %.us-phi = phi i32 [ %29, %.split.split.split.us ], [ %14, %.split.us.split.us ], [ %22, %.split.split.us.split.us ], [ %37, %.split40.us.sink.split ]
   %38 = icmp eq i32 %.us-phi, 4
   br i1 %38, label %.thread, label %.split40.us.thread
 
 .split40.us.thread:                               ; preds = %fix_status.exit, %fix_status.exit.us43, %fix_status.exit.us, %.split40.us
-  %.us-phi82 = phi i32 [ %.us-phi, %.split40.us ], [ %.034.us44, %fix_status.exit.us43 ], [ %.034.us, %fix_status.exit.us ], [ %.034, %fix_status.exit ]
+  %.us-phi82 = phi i32 [ %.us-phi, %.split40.us ], [ %.034.us, %fix_status.exit.us ], [ %.034.us44, %fix_status.exit.us43 ], [ %.034, %fix_status.exit ]
   br i1 %13, label %39, label %40
 
 39:                                               ; preds = %.split40.us.thread
@@ -1774,7 +1774,7 @@ define dso_local range(i32 -1, 1) i32 @PyThread_set_stacksize(i64 noundef %0) lo
   br label %_pythread_pthread_set_stacksize.exit
 
 _pythread_pthread_set_stacksize.exit:             ; preds = %11, %13, %16, %.sink.split.i
-  %.0.i = phi i32 [ -1, %13 ], [ -1, %16 ], [ -1, %11 ], [ 0, %.sink.split.i ]
+  %.0.i = phi i32 [ -1, %11 ], [ -1, %16 ], [ -1, %13 ], [ 0, %.sink.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0.i
 }

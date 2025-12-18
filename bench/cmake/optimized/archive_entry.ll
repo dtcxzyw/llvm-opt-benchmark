@@ -1770,9 +1770,9 @@ define dso_local ptr @archive_entry_copy_fflags_text_len(ptr noundef %0, ptr nou
   br i1 %.not95.i, label %.loopexit.i, label %17, !llvm.loop !81
 
 .loopexit.i:                                      ; preds = %43, %36, %23
-  %.not95105.i = phi i1 [ false, %23 ], [ false, %36 ], [ true, %43 ]
-  %.276.i = phi i64 [ %29, %23 ], [ %39, %36 ], [ %.074129.i, %43 ]
-  %.272.i = phi i64 [ %26, %23 ], [ %42, %36 ], [ %.070130.i, %43 ]
+  %.not95105.i = phi i1 [ false, %36 ], [ false, %23 ], [ true, %43 ]
+  %.276.i = phi i64 [ %39, %36 ], [ %29, %23 ], [ %.074129.i, %43 ]
+  %.272.i = phi i64 [ %42, %36 ], [ %26, %23 ], [ %.070130.i, %43 ]
   %46 = icmp eq ptr %.068131.i, null
   %or.cond.i = select i1 %.not95105.i, i1 %46, i1 false
   %spec.select.i = select i1 %or.cond.i, ptr %.166132.i, ptr %.068131.i
@@ -1796,9 +1796,9 @@ define dso_local ptr @archive_entry_copy_fflags_text_len(ptr noundef %0, ptr nou
   br i1 %.not97.i, label %ae_strtofflags.exit, label %.lr.ph122.i, !llvm.loop !83
 
 ae_strtofflags.exit:                              ; preds = %.critedge2.i, %.loopexit.i, %.critedge9.i, %3
-  %.074.lcssa.i = phi i64 [ 0, %3 ], [ %.276.i, %.loopexit.i ], [ %.276.i, %.critedge9.i ], [ 0, %.critedge2.i ]
-  %.070.lcssa.i = phi i64 [ 0, %3 ], [ %.272.i, %.loopexit.i ], [ %.272.i, %.critedge9.i ], [ 0, %.critedge2.i ]
-  %.068.lcssa.i = phi ptr [ null, %3 ], [ %spec.select.i, %.loopexit.i ], [ %spec.select.i, %.critedge9.i ], [ null, %.critedge2.i ]
+  %.074.lcssa.i = phi i64 [ %.276.i, %.critedge9.i ], [ %.276.i, %.loopexit.i ], [ 0, %3 ], [ 0, %.critedge2.i ]
+  %.070.lcssa.i = phi i64 [ %.272.i, %.critedge9.i ], [ %.272.i, %.loopexit.i ], [ 0, %3 ], [ 0, %.critedge2.i ]
+  %.068.lcssa.i = phi ptr [ %spec.select.i, %.critedge9.i ], [ %spec.select.i, %.loopexit.i ], [ null, %3 ], [ null, %.critedge2.i ]
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store i64 %.074.lcssa.i, ptr %51, align 8, !tbaa !27
@@ -1917,9 +1917,9 @@ define dso_local ptr @archive_entry_copy_fflags_text_w(ptr noundef %0, ptr nound
   br i1 %.not81.i, label %.loopexit87.i, label %18, !llvm.loop !88
 
 .loopexit87.i:                                    ; preds = %46, %39, %25
-  %.not8191.i = phi i1 [ false, %25 ], [ false, %39 ], [ true, %46 ]
-  %.264.i = phi i64 [ %31, %25 ], [ %42, %39 ], [ %.06298.i, %46 ]
-  %.261.i = phi i64 [ %28, %25 ], [ %45, %39 ], [ %.05999.i, %46 ]
+  %.not8191.i = phi i1 [ false, %39 ], [ false, %25 ], [ true, %46 ]
+  %.264.i = phi i64 [ %42, %39 ], [ %31, %25 ], [ %.06298.i, %46 ]
+  %.261.i = phi i64 [ %45, %39 ], [ %28, %25 ], [ %.05999.i, %46 ]
   br label %50
 
 50:                                               ; preds = %.critedge5.i, %.loopexit87.i

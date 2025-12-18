@@ -183,7 +183,7 @@ define hidden i32 @mbedtls_rsa_deduce_primes(ptr noundef %0, ptr noundef %1, ptr
   br i1 %.not58, label %54, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %82, %._crit_edge, %56, %.split.backedge, %78, %76, %74, %64, %62, %.split.preheader, %35, %72, %39, %33, %31
-  %.037 = phi i32 [ %32, %31 ], [ %34, %33 ], [ %73, %72 ], [ %41, %39 ], [ -4, %35 ], [ %79, %78 ], [ %53, %.split.preheader ], [ %77, %76 ], [ %75, %74 ], [ %65, %64 ], [ %63, %62 ], [ %88, %.split.backedge ], [ -4, %82 ], [ -4, %._crit_edge ], [ %57, %56 ]
+  %.037 = phi i32 [ %32, %31 ], [ %34, %33 ], [ %73, %72 ], [ %41, %39 ], [ -4, %35 ], [ %53, %.split.preheader ], [ %79, %78 ], [ %77, %76 ], [ %75, %74 ], [ %65, %64 ], [ %63, %62 ], [ %88, %.split.backedge ], [ %57, %56 ], [ -4, %._crit_edge ], [ -4, %82 ]
   call void @mbedtls_mpi_free(ptr noundef nonnull %7)
   call void @mbedtls_mpi_free(ptr noundef nonnull %6)
   br label %89

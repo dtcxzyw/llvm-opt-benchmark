@@ -780,7 +780,7 @@ define internal fastcc noundef i32 @opj_sparse_array_int32_read_or_write(ptr nou
   br i1 %288, label %.split.us, label %.critedge, !llvm.loop !44
 
 .critedge:                                        ; preds = %..critedge412_crit_edge.us, %172, %10, %15
-  %.0375 = phi i32 [ %8, %10 ], [ %8, %15 ], [ 0, %172 ], [ 1, %..critedge412_crit_edge.us ]
+  %.0375 = phi i32 [ %8, %15 ], [ %8, %10 ], [ 0, %172 ], [ 1, %..critedge412_crit_edge.us ]
   ret i32 %.0375
 }
 

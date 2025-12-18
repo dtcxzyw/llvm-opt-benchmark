@@ -122,7 +122,7 @@ define internal range(i32 0, 2) i32 @test_poly1305(i32 noundef %0) #0 {
   br i1 %38, label %.lr.ph, label %.critedge, !llvm.loop !14
 
 .critedge:                                        ; preds = %36, %17, %35, %31, %24, %1, %23, %16
-  %.050 = phi i32 [ 0, %1 ], [ 1, %24 ], [ 0, %23 ], [ 0, %16 ], [ 0, %31 ], [ 0, %35 ], [ 1, %17 ], [ 1, %36 ]
+  %.050 = phi i32 [ 0, %1 ], [ 1, %24 ], [ 0, %23 ], [ 0, %16 ], [ 1, %17 ], [ 0, %31 ], [ 0, %35 ], [ 1, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)

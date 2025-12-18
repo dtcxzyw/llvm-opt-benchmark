@@ -2359,7 +2359,7 @@ _ZNK6vectorIN3sat7literalELb0EjE3endEv.exit:      ; preds = %19
   br i1 %.not3450, label %.loopexit, label %.lr.ph58, !llvm.loop !214
 
 .loopexit:                                        ; preds = %.critedge38, %.lr.ph53, %37, %2, %_ZNK6vectorIN3sat15model_converter5entryELb1EjE3endEv.exit
-  %.not46 = phi i1 [ true, %_ZNK6vectorIN3sat15model_converter5entryELb1EjE3endEv.exit ], [ true, %2 ], [ false, %.lr.ph53 ], [ false, %37 ], [ true, %.critedge38 ]
+  %.not46 = phi i1 [ false, %37 ], [ true, %2 ], [ true, %_ZNK6vectorIN3sat15model_converter5entryELb1EjE3endEv.exit ], [ false, %.lr.ph53 ], [ true, %.critedge38 ]
   ret i1 %.not46
 }
 

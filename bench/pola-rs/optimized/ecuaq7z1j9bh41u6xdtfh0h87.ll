@@ -37207,8 +37207,8 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
   %26 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h97d4d51fe22ff546E"(ptr noalias noundef nonnull readonly align 1 %spec.select.i.i, i64 noundef %.sroa.01.0.i.i, ptr noalias noundef nonnull readonly align 1 %spec.select.i3.i, i64 noundef %.sroa.01.0.i5.i)
   br i1 %26, label %27, label %"_ZN78_$LT$polars_arrow..datatypes..field..Field$u20$as$u20$core..cmp..PartialEq$GT$2eq17h74cb20d61d771490E.exit.thread"
 
-"_ZN78_$LT$polars_arrow..datatypes..field..Field$u20$as$u20$core..cmp..PartialEq$GT$2eq17h74cb20d61d771490E.exit.thread": ; preds = %44, %.critedge.backedge, %"_ZN78_$LT$polars_arrow..datatypes..field..Field$u20$as$u20$core..cmp..PartialEq$GT$2eq17h74cb20d61d771490E.exit", %41, %.lr.ph, %29, %27, %.critedge.preheader.split, %4
-  %.sroa.0.0 = phi i1 [ false, %4 ], [ true, %.critedge.preheader.split ], [ false, %44 ], [ false, %29 ], [ false, %.lr.ph ], [ false, %41 ], [ false, %"_ZN78_$LT$polars_arrow..datatypes..field..Field$u20$as$u20$core..cmp..PartialEq$GT$2eq17h74cb20d61d771490E.exit" ], [ true, %.critedge.backedge ], [ false, %27 ]
+"_ZN78_$LT$polars_arrow..datatypes..field..Field$u20$as$u20$core..cmp..PartialEq$GT$2eq17h74cb20d61d771490E.exit.thread": ; preds = %42, %.critedge.backedge, %"_ZN78_$LT$polars_arrow..datatypes..field..Field$u20$as$u20$core..cmp..PartialEq$GT$2eq17h74cb20d61d771490E.exit", %41, %.lr.ph, %29, %27, %.critedge.preheader.split, %4
+  %.sroa.0.0 = phi i1 [ false, %4 ], [ true, %.critedge.preheader.split ], [ false, %42 ], [ false, %29 ], [ false, %.lr.ph ], [ false, %41 ], [ false, %"_ZN78_$LT$polars_arrow..datatypes..field..Field$u20$as$u20$core..cmp..PartialEq$GT$2eq17h74cb20d61d771490E.exit" ], [ true, %.critedge.backedge ], [ false, %27 ]
   ret i1 %.sroa.0.0
 
 27:                                               ; preds = %.lr.ph
@@ -37230,25 +37230,25 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
   %38 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %39 = load ptr, ptr %38, align 8, !alias.scope !3057, !noalias !3054, !noundef !4
   %40 = icmp eq ptr %39, null
-  br i1 %.not.i, label %"_ZN78_$LT$polars_arrow..datatypes..field..Field$u20$as$u20$core..cmp..PartialEq$GT$2eq17h74cb20d61d771490E.exit", label %41
+  br i1 %.not.i, label %42, label %41
 
 41:                                               ; preds = %35
-  br i1 %40, label %"_ZN78_$LT$polars_arrow..datatypes..field..Field$u20$as$u20$core..cmp..PartialEq$GT$2eq17h74cb20d61d771490E.exit.thread", label %42
+  br i1 %40, label %"_ZN78_$LT$polars_arrow..datatypes..field..Field$u20$as$u20$core..cmp..PartialEq$GT$2eq17h74cb20d61d771490E.exit.thread", label %43
 
-42:                                               ; preds = %41
-  %43 = icmp eq ptr %37, %39
-  br i1 %43, label %.critedge.backedge, label %44
+42:                                               ; preds = %35
+  br i1 %40, label %.critedge.backedge, label %"_ZN78_$LT$polars_arrow..datatypes..field..Field$u20$as$u20$core..cmp..PartialEq$GT$2eq17h74cb20d61d771490E.exit.thread"
 
-44:                                               ; preds = %42
+43:                                               ; preds = %41
+  %44 = icmp eq ptr %37, %39
+  br i1 %44, label %.critedge.backedge, label %"_ZN78_$LT$polars_arrow..datatypes..field..Field$u20$as$u20$core..cmp..PartialEq$GT$2eq17h74cb20d61d771490E.exit"
+
+"_ZN78_$LT$polars_arrow..datatypes..field..Field$u20$as$u20$core..cmp..PartialEq$GT$2eq17h74cb20d61d771490E.exit": ; preds = %43
   %45 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %46 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %47 = tail call noundef zeroext i1 @"_ZN98_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1dcc68f91937c423E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %45, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %46)
   br i1 %47, label %.critedge.backedge, label %"_ZN78_$LT$polars_arrow..datatypes..field..Field$u20$as$u20$core..cmp..PartialEq$GT$2eq17h74cb20d61d771490E.exit.thread"
 
-"_ZN78_$LT$polars_arrow..datatypes..field..Field$u20$as$u20$core..cmp..PartialEq$GT$2eq17h74cb20d61d771490E.exit": ; preds = %35
-  br i1 %40, label %.critedge.backedge, label %"_ZN78_$LT$polars_arrow..datatypes..field..Field$u20$as$u20$core..cmp..PartialEq$GT$2eq17h74cb20d61d771490E.exit.thread"
-
-.critedge.backedge:                               ; preds = %44, %"_ZN78_$LT$polars_arrow..datatypes..field..Field$u20$as$u20$core..cmp..PartialEq$GT$2eq17h74cb20d61d771490E.exit", %42
+.critedge.backedge:                               ; preds = %42, %"_ZN78_$LT$polars_arrow..datatypes..field..Field$u20$as$u20$core..cmp..PartialEq$GT$2eq17h74cb20d61d771490E.exit", %43
   %exitcond.not = icmp eq i64 %5, %1
   br i1 %exitcond.not, label %"_ZN78_$LT$polars_arrow..datatypes..field..Field$u20$as$u20$core..cmp..PartialEq$GT$2eq17h74cb20d61d771490E.exit.thread", label %.lr.ph
 }
@@ -38422,7 +38422,7 @@ define internal fastcc noundef zeroext i1 @"_ZN79_$LT$polars_arrow..datatypes..A
   ]
 
 "_ZN78_$LT$polars_arrow..datatypes..field..Field$u20$as$u20$core..cmp..PartialEq$GT$2eq17h74cb20d61d771490E.exit": ; preds = %386, %388, %.lr.ph, %"_ZN78_$LT$polars_arrow..datatypes..field..Field$u20$as$u20$core..cmp..PartialEq$GT$2eq17h74cb20d61d771490E.exit60", %402, %236, %238, %212, %133, %135, %109, %419, %413, %412, %411, %351, %335, %329, %327, %303, %252, %198, %196, %190, %184, %182, %158, %149, %105, %103, %97, %91, %89, %65, %13, %291, %279, %261, %267, %"_ZN78_$LT$polars_arrow..datatypes..field..Field$u20$as$u20$core..cmp..PartialEq$GT$2eq17h74cb20d61d771490E.exit40", %"_ZN78_$LT$polars_arrow..datatypes..field..Field$u20$as$u20$core..cmp..PartialEq$GT$2eq17h74cb20d61d771490E.exit18", %7, %6, %2, %297, %285, %273, %"_ZN78_$LT$polars_arrow..datatypes..field..Field$u20$as$u20$core..cmp..PartialEq$GT$2eq17h74cb20d61d771490E.exit40.thread65", %"_ZN78_$LT$polars_arrow..datatypes..field..Field$u20$as$u20$core..cmp..PartialEq$GT$2eq17h74cb20d61d771490E.exit18.thread62", %19, %202, %59, %53, %47, %41, %35
-  %.sroa.0.0.shrunk = phi i1 [ false, %2 ], [ %34, %19 ], [ false, %7 ], [ false, %267 ], [ true, %6 ], [ %40, %35 ], [ %46, %41 ], [ %52, %47 ], [ %58, %53 ], [ %64, %59 ], [ false, %291 ], [ %157, %"_ZN78_$LT$polars_arrow..datatypes..field..Field$u20$as$u20$core..cmp..PartialEq$GT$2eq17h74cb20d61d771490E.exit18.thread62" ], [ %.mux, %13 ], [ false, %149 ], [ %211, %202 ], [ %260, %"_ZN78_$LT$polars_arrow..datatypes..field..Field$u20$as$u20$core..cmp..PartialEq$GT$2eq17h74cb20d61d771490E.exit40.thread65" ], [ false, %"_ZN78_$LT$polars_arrow..datatypes..field..Field$u20$as$u20$core..cmp..PartialEq$GT$2eq17h74cb20d61d771490E.exit18" ], [ %278, %273 ], [ false, %"_ZN78_$LT$polars_arrow..datatypes..field..Field$u20$as$u20$core..cmp..PartialEq$GT$2eq17h74cb20d61d771490E.exit40" ], [ %290, %285 ], [ false, %261 ], [ %302, %297 ], [ false, %279 ], [ false, %252 ], [ false, %327 ], [ %.mux.i, %97 ], [ %108, %105 ], [ false, %65 ], [ true, %103 ], [ false, %91 ], [ false, %89 ], [ %.mux.i28, %190 ], [ %201, %198 ], [ false, %158 ], [ true, %196 ], [ false, %184 ], [ false, %182 ], [ false, %133 ], [ %350, %335 ], [ false, %303 ], [ %.mux.i47, %329 ], [ %424, %419 ], [ false, %411 ], [ false, %413 ], [ false, %412 ], [ false, %351 ], [ false, %236 ], [ false, %109 ], [ false, %135 ], [ false, %212 ], [ false, %238 ], [ false, %402 ], [ false, %"_ZN78_$LT$polars_arrow..datatypes..field..Field$u20$as$u20$core..cmp..PartialEq$GT$2eq17h74cb20d61d771490E.exit60" ], [ false, %.lr.ph ], [ false, %388 ], [ false, %386 ]
+  %.sroa.0.0.shrunk = phi i1 [ false, %2 ], [ %34, %19 ], [ false, %7 ], [ false, %267 ], [ true, %6 ], [ %40, %35 ], [ %46, %41 ], [ %52, %47 ], [ %58, %53 ], [ %64, %59 ], [ false, %291 ], [ %157, %"_ZN78_$LT$polars_arrow..datatypes..field..Field$u20$as$u20$core..cmp..PartialEq$GT$2eq17h74cb20d61d771490E.exit18.thread62" ], [ %.mux, %13 ], [ false, %149 ], [ %211, %202 ], [ %260, %"_ZN78_$LT$polars_arrow..datatypes..field..Field$u20$as$u20$core..cmp..PartialEq$GT$2eq17h74cb20d61d771490E.exit40.thread65" ], [ false, %"_ZN78_$LT$polars_arrow..datatypes..field..Field$u20$as$u20$core..cmp..PartialEq$GT$2eq17h74cb20d61d771490E.exit18" ], [ %278, %273 ], [ false, %"_ZN78_$LT$polars_arrow..datatypes..field..Field$u20$as$u20$core..cmp..PartialEq$GT$2eq17h74cb20d61d771490E.exit40" ], [ %290, %285 ], [ false, %261 ], [ %302, %297 ], [ false, %279 ], [ false, %252 ], [ false, %327 ], [ %.mux.i, %97 ], [ %108, %105 ], [ false, %65 ], [ true, %103 ], [ false, %91 ], [ false, %89 ], [ false, %238 ], [ %.mux.i28, %190 ], [ %201, %198 ], [ false, %158 ], [ true, %196 ], [ false, %184 ], [ false, %182 ], [ false, %133 ], [ %350, %335 ], [ false, %303 ], [ %.mux.i47, %329 ], [ %424, %419 ], [ false, %411 ], [ false, %413 ], [ false, %412 ], [ false, %351 ], [ false, %212 ], [ false, %236 ], [ false, %109 ], [ false, %135 ], [ false, %402 ], [ false, %"_ZN78_$LT$polars_arrow..datatypes..field..Field$u20$as$u20$core..cmp..PartialEq$GT$2eq17h74cb20d61d771490E.exit60" ], [ false, %.lr.ph ], [ false, %388 ], [ false, %386 ]
   ret i1 %.sroa.0.0.shrunk
 
 7:                                                ; preds = %6

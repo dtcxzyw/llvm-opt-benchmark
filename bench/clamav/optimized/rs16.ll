@@ -407,7 +407,7 @@ _ZN9RSCoder165gfInvEj.exit.i37:                   ; preds = %111, %.lr.ph.i36
   br i1 %exitcond56.not, label %._crit_edge.i38, label %.lr.ph.i36, !llvm.loop !34
 
 _ZN9RSCoder1617MakeEncoderMatrixEv.exit:          ; preds = %._crit_edge.i38, %.preheader, %._crit_edge, %96, %_ZN9RSCoder1617MakeDecoderMatrixEv.exit, %._crit_edge60
-  %.125 = phi i1 [ false, %._crit_edge ], [ false, %._crit_edge60 ], [ true, %_ZN9RSCoder1617MakeDecoderMatrixEv.exit ], [ true, %96 ], [ false, %.preheader ], [ true, %._crit_edge.i38 ]
+  %.125 = phi i1 [ false, %.preheader ], [ false, %._crit_edge60 ], [ false, %._crit_edge ], [ true, %_ZN9RSCoder1617MakeDecoderMatrixEv.exit ], [ true, %96 ], [ true, %._crit_edge.i38 ]
   ret i1 %.125
 }
 

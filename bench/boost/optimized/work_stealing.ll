@@ -1196,7 +1196,7 @@ _ZNSt24uniform_int_distributionIjEclISt26linear_congruential_engineImLm48271ELm0
   br i1 %131, label %.lr.ph.i38, label %.sink.split, !llvm.loop !112
 
 .sink.split:                                      ; preds = %.lr.ph.i34, %.lr.ph.i38, %125, %90
-  %.sink83 = phi ptr [ %85, %90 ], [ %120, %125 ], [ %120, %.lr.ph.i38 ], [ %85, %.lr.ph.i34 ]
+  %.sink83 = phi ptr [ %85, %90 ], [ %120, %.lr.ph.i38 ], [ %120, %125 ], [ %85, %.lr.ph.i34 ]
   %132 = call noundef ptr @_ZN5boost6fibers7context6activeEv() #21
   call void @_ZN5boost6fibers7context6attachEPS1_(ptr noundef nonnull align 8 dereferenceable(232) %132, ptr noundef nonnull %.sink83) #21
   br label %133
@@ -1965,7 +1965,7 @@ _ZSt22__uninitialized_move_aIPjS0_SaIjEET0_T_S3_S2_RT1_.exit: ; preds = %15
   br i1 %.not.i.i53, label %_ZSt7advanceISt23_Rb_tree_const_iteratorIjEmEvRT_T0_.exit, label %.lr.ph.i.i52, !llvm.loop !144
 
 _ZSt7advanceISt23_Rb_tree_const_iteratorIjEmEvRT_T0_.exit: ; preds = %.lr.ph.i.i52, %.preheader.i.i, %.preheader7.i.i
-  %.sroa.0.0 = phi ptr [ %2, %.preheader7.i.i ], [ %38, %.preheader.i.i ], [ %41, %.lr.ph.i.i52 ]
+  %.sroa.0.0 = phi ptr [ %38, %.preheader.i.i ], [ %2, %.preheader7.i.i ], [ %41, %.lr.ph.i.i52 ]
   %.not6.i.i.i.i.i.i.i.i = icmp eq ptr %.sroa.0.0, %3
   br i1 %.not6.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aISt23_Rb_tree_const_iteratorIjEPjjET0_T_S4_S3_RSaIT1_E.exit, label %.lr.ph.i.i.i.i.i.i.i.i
 

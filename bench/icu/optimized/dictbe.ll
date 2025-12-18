@@ -6088,7 +6088,7 @@ _ZNK6icu_779UVector3210elementAtiEi.exit529:      ; preds = %_ZN6icu_779UVector3
   br label %854
 
 _ZN6icu_779UVector3210addElementEiR10UErrorCode.exit489: ; preds = %701, %_ZNK6icu_779UVector3210elementAtiEi.exit518, %_ZN6icu_779UVector3210addElementEiR10UErrorCode.exit527, %_ZNK6icu_779UVector3210elementAtiEi.exit529, %644, %_ZNK6icu_779UVector3210elementAtiEi.exit500, %.preheader, %_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread.i483, %.noexc488, %_ZN6icu_779UVector3210addElementEiR10UErrorCode.exit498
-  %.0279 = phi i32 [ 0, %_ZN6icu_779UVector3210addElementEiR10UErrorCode.exit498 ], [ 1, %.noexc488 ], [ 1, %_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread.i483 ], [ 0, %.preheader ], [ 1, %_ZNK6icu_779UVector3210elementAtiEi.exit500 ], [ 1, %644 ], [ %721, %_ZN6icu_779UVector3210addElementEiR10UErrorCode.exit527 ], [ %721, %_ZNK6icu_779UVector3210elementAtiEi.exit529 ], [ %.2281, %_ZNK6icu_779UVector3210elementAtiEi.exit518 ], [ %.2281, %701 ]
+  %.0279 = phi i32 [ %721, %_ZN6icu_779UVector3210addElementEiR10UErrorCode.exit527 ], [ 1, %_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread.i483 ], [ 0, %_ZN6icu_779UVector3210addElementEiR10UErrorCode.exit498 ], [ 1, %.noexc488 ], [ 0, %.preheader ], [ 1, %_ZNK6icu_779UVector3210elementAtiEi.exit500 ], [ 1, %644 ], [ %721, %_ZNK6icu_779UVector3210elementAtiEi.exit529 ], [ %.2281, %_ZNK6icu_779UVector3210elementAtiEi.exit518 ], [ %.2281, %701 ]
   %731 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %732 = load i32, ptr %731, align 8, !tbaa !39
   %733 = icmp eq i32 %732, 0

@@ -1354,7 +1354,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit153: ; preds = %26
   br i1 %.not173, label %.loopexit, label %89
 
 .loopexit:                                        ; preds = %275, %65, %.critedge79.thread, %155, %265, %62
-  %.043 = phi ptr [ %64, %62 ], [ %156, %155 ], [ %266, %265 ], [ %222, %.critedge79.thread ], [ null, %65 ], [ null, %275 ]
+  %.043 = phi ptr [ %64, %62 ], [ %266, %265 ], [ %156, %155 ], [ %222, %.critedge79.thread ], [ null, %65 ], [ null, %275 ]
   ret ptr %.043
 
 277:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit108, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit153, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit142, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139

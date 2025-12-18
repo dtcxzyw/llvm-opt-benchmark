@@ -795,20 +795,20 @@ _ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit.i: ; preds = %42
   %67 = and i32 %64, 4
   %68 = icmp ne i32 %67, 0
   %or.cond.i.i3.i = or i1 %66, %68
-  br i1 %or.cond.i.i3.i, label %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit, label %69
+  br i1 %or.cond.i.i3.i, label %69, label %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit
 
 69:                                               ; preds = %63
-  %70 = call noundef zeroext i1 @_ZNK4llvm12MachineInstr19hasPropertyInBundleEmNS0_9QueryTypeE(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.055.087, i64 noundef 1048576, i32 noundef 1) #16
-  br i1 %70, label %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit.thread, label %101
+  %70 = getelementptr inbounds nuw i8, ptr %.sroa.055.087, i64 16
+  %71 = load ptr, ptr %70, align 8, !tbaa !429
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 16
+  %73 = load i64, ptr %72, align 8, !tbaa !430
+  %74 = and i64 %73, 1048576
+  %.not70 = icmp eq i64 %74, 0
+  br i1 %.not70, label %101, label %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit.thread
 
 _ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit: ; preds = %63
-  %71 = getelementptr inbounds nuw i8, ptr %.sroa.055.087, i64 16
-  %72 = load ptr, ptr %71, align 8, !tbaa !429
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 16
-  %74 = load i64, ptr %73, align 8, !tbaa !430
-  %75 = and i64 %74, 1048576
-  %.not70 = icmp eq i64 %75, 0
-  br i1 %.not70, label %101, label %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit.thread
+  %75 = call noundef zeroext i1 @_ZNK4llvm12MachineInstr19hasPropertyInBundleEmNS0_9QueryTypeE(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.055.087, i64 noundef 1048576, i32 noundef 1) #16
+  br i1 %75, label %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit.thread, label %101
 
 _ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit.thread: ; preds = %36, %57, %49, %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit.i, %69, %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit
   %76 = getelementptr inbounds nuw i8, ptr %.sroa.055.087, i64 44

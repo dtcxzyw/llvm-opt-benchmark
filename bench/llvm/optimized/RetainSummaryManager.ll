@@ -3463,7 +3463,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang4Decl7hasAttrINS_21CFAu
   br i1 %.not.i.i.i.i, label %_ZN5clangneENS_22specific_attr_iteratorINS_21CFAuditedTransferAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i, label %.lr.ph.i.i.i.i, !llvm.loop !131
 
 _ZN5clangneENS_22specific_attr_iteratorINS_21CFAuditedTransferAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i: ; preds = %16, %.lr.ph.i.i.i.i
-  %.sroa.07.0.i.i.ph.i = phi ptr [ %11, %16 ], [ %.sroa.07.1.i.i.i, %.lr.ph.i.i.i.i ]
+  %.sroa.07.0.i.i.ph.i = phi ptr [ %.sroa.07.1.i.i.i, %.lr.ph.i.i.i.i ], [ %11, %16 ]
   %18 = icmp ne ptr %.sroa.07.0.i.i.ph.i, %11
   br label %_ZN5clang15hasSpecificAttrINS_21CFAuditedTransferAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEEbRKT0_.exit
 
@@ -5604,7 +5604,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread21.i:     ; preds = %_ZN4llvmeqENS_9Stri
   br label %18
 
 _ZL15hasRCAnnotationPKN5clang4DeclEN4llvm9StringRefE.exit: ; preds = %26, %_ZN5clangneENS_22specific_attr_iteratorINS_12AnnotateAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i, %31, %24
-  %51 = phi i1 [ false, %24 ], [ false, %31 ], [ false, %_ZN5clangneENS_22specific_attr_iteratorINS_12AnnotateAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i ], [ false, %26 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit.i ]
+  %51 = phi i1 [ false, %24 ], [ false, %31 ], [ false, %26 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit.i ], [ false, %_ZN5clangneENS_22specific_attr_iteratorINS_12AnnotateAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i ]
   ret i1 %51
 }
 
@@ -6775,7 +6775,7 @@ _ZL21getCallableReturnTypePKN5clang9NamedDeclE.exit: ; preds = %_ZNK5clang12Func
   br i1 %.not.i.i.i.i.i100, label %_ZN5clangneENS_22specific_attr_iteratorINS_27OSReturnsRetainedOnZeroAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !276
 
 _ZN5clangneENS_22specific_attr_iteratorINS_27OSReturnsRetainedOnZeroAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i: ; preds = %205, %.lr.ph.i.i.i.i.i
-  %.sroa.07.0.i.i.ph.i.i = phi ptr [ %200, %205 ], [ %.sroa.07.1.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+  %.sroa.07.0.i.i.ph.i.i = phi ptr [ %.sroa.07.1.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %200, %205 ]
   %207 = icmp ne ptr %.sroa.07.0.i.i.ph.i.i, %200
   br label %_ZNK5clang4Decl7hasAttrINS_27OSReturnsRetainedOnZeroAttrEEEbv.exit
 
@@ -6811,7 +6811,7 @@ _ZNK5clang4Decl7hasAttrINS_27OSReturnsRetainedOnZeroAttrEEEbv.exit: ; preds = %_
   br i1 %.not.i.i.i.i.i106, label %_ZN5clangneENS_22specific_attr_iteratorINS_30OSReturnsRetainedOnNonZeroAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i, label %.lr.ph.i.i.i.i.i104, !llvm.loop !275
 
 _ZN5clangneENS_22specific_attr_iteratorINS_30OSReturnsRetainedOnNonZeroAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i: ; preds = %222, %.lr.ph.i.i.i.i.i104
-  %.sroa.07.0.i.i.ph.i.i107 = phi ptr [ %217, %222 ], [ %.sroa.07.1.i.i.i.i105, %.lr.ph.i.i.i.i.i104 ]
+  %.sroa.07.0.i.i.ph.i.i107 = phi ptr [ %.sroa.07.1.i.i.i.i105, %.lr.ph.i.i.i.i.i104 ], [ %217, %222 ]
   %224 = icmp ne ptr %.sroa.07.0.i.i.ph.i.i107, %217
   br label %_ZNK5clang4Decl7hasAttrINS_30OSReturnsRetainedOnNonZeroAttrEEEbv.exit
 

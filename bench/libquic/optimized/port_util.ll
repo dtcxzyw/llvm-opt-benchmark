@@ -177,7 +177,7 @@ _ZNKSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE11equal_rangeERKi.exit.i.i: ; p
   br i1 %or.cond.not, label %.thread, label %_ZNKSt8multisetIiSt4lessIiESaIiEE5countERKi.exit
 
 _ZNKSt8multisetIiSt4lessIiESaIiEE5countERKi.exit: ; preds = %.preheader, %.thread, %_ZNKSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE11equal_rangeERKi.exit.i.i, %2
-  %.0 = phi i1 [ false, %2 ], [ true, %_ZNKSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE11equal_rangeERKi.exit.i.i ], [ %.not25.not, %.thread ], [ true, %.preheader ]
+  %.0 = phi i1 [ false, %2 ], [ %.not25.not, %.thread ], [ true, %_ZNKSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE11equal_rangeERKi.exit.i.i ], [ true, %.preheader ]
   ret i1 %.0
 }
 

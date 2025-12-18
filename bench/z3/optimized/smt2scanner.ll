@@ -1010,7 +1010,7 @@ _ZN6vectorIcLb0EjE9push_backEOc.exit20:           ; preds = %58, %62
   br label %_ZNK6vectorIcLb0EjE5emptyEv.exit.thread
 
 _ZNK6vectorIcLb0EjE5emptyEv.exit.thread:          ; preds = %49, %._crit_edge, %_ZNK6vectorIcLb0EjE5emptyEv.exit, %_ZN6vectorIcLb0EjE9push_backEOc.exit20
-  %.2 = phi i32 [ 4, %_ZN6vectorIcLb0EjE9push_backEOc.exit20 ], [ 9, %_ZNK6vectorIcLb0EjE5emptyEv.exit ], [ 9, %._crit_edge ], [ 4, %49 ]
+  %.2 = phi i32 [ 9, %._crit_edge ], [ 4, %_ZN6vectorIcLb0EjE9push_backEOc.exit20 ], [ 9, %_ZNK6vectorIcLb0EjE5emptyEv.exit ], [ 4, %49 ]
   ret i32 %.2
 }
 

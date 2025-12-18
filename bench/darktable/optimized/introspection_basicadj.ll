@@ -2105,8 +2105,8 @@ _get_sum_and_average.exit.i.i:                    ; preds = %.lr.ph.i.i.i
   br label %.critedge5.i.i
 
 .critedge5.i.i:                                   ; preds = %404, %411, %.critedge5.loopexit.split.loop.exit441.i.i
-  %.0235.lcssa.i25.i = phi i32 [ %406, %.critedge5.loopexit.split.loop.exit441.i.i ], [ %406, %411 ], [ 1, %404 ]
-  %.0234.lcssa.i.i = phi i32 [ %412, %.critedge5.loopexit.split.loop.exit441.i.i ], [ %407, %411 ], [ 0, %404 ]
+  %.0235.lcssa.i25.i = phi i32 [ %406, %411 ], [ %406, %.critedge5.loopexit.split.loop.exit441.i.i ], [ 1, %404 ]
+  %.0234.lcssa.i.i = phi i32 [ %407, %411 ], [ %412, %.critedge5.loopexit.split.loop.exit441.i.i ], [ 0, %404 ]
   %413 = shl i32 %398, 3
   %414 = shl i32 %.0235.lcssa.i25.i, 3
   %415 = fmul reassoc nsz arcp contract afn float %190, 8.000000e+00

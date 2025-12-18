@@ -872,7 +872,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit74: ; preds = %_ZN
   br i1 %exitcond.not, label %.thread81, label %.lr.ph, !llvm.loop !112
 
 .thread81:                                        ; preds = %.critedge, %.preheader, %46, %49, %78, %75, %84, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68, %52, %61, %27, %30
-  %.054 = phi i1 [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68 ], [ false, %27 ], [ false, %52 ], [ false, %30 ], [ false, %61 ], [ false, %75 ], [ false, %78 ], [ false, %84 ], [ false, %49 ], [ false, %46 ], [ true, %.preheader ], [ true, %.critedge ]
+  %.054 = phi i1 [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68 ], [ false, %27 ], [ false, %52 ], [ false, %30 ], [ false, %61 ], [ false, %75 ], [ false, %78 ], [ false, %46 ], [ false, %84 ], [ false, %49 ], [ true, %.preheader ], [ true, %.critedge ]
   ret i1 %.054
 }
 
@@ -2020,8 +2020,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit256:                 ; preds = %476, %473, %471
   br label %481
 
 .critedge182:                                     ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit, %98, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit254, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit240, %426, %.preheader291
-  %storemerge371 = phi ptr [ %.promoted343, %.preheader291 ], [ %416, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit254 ], [ %416, %426 ], [ %416, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit240 ], [ %136, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ], [ %101, %98 ]
-  %storemerge = phi ptr [ %.promoted353, %.preheader291 ], [ %415, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit254 ], [ %415, %426 ], [ %415, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit240 ], [ %135, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ], [ %100, %98 ]
+  %storemerge371 = phi ptr [ %416, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit254 ], [ %.promoted343, %.preheader291 ], [ %416, %426 ], [ %416, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit240 ], [ %101, %98 ], [ %136, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
+  %storemerge = phi ptr [ %415, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit254 ], [ %.promoted353, %.preheader291 ], [ %415, %426 ], [ %415, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit240 ], [ %100, %98 ], [ %135, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
   store ptr %storemerge371, ptr %67, align 8
   store ptr %storemerge, ptr %0, align 8
   ret void

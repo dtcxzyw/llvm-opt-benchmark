@@ -3627,8 +3627,8 @@ _ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit.us289: ; preds = %.
   br i1 %238, label %.lr.ph.i196, label %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit203, !llvm.loop !120
 
 _ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit203: ; preds = %.lr.ph.i196, %.split285.us.thread, %.preheader.i193
-  %.us-phi415 = phi i32 [ %.us-phi, %.preheader.i193 ], [ %213, %.split285.us.thread ], [ %.us-phi, %.lr.ph.i196 ]
-  %.024.i194 = phi i32 [ 1, %.preheader.i193 ], [ 0, %.split285.us.thread ], [ %236, %.lr.ph.i196 ]
+  %.us-phi415 = phi i32 [ %213, %.split285.us.thread ], [ %.us-phi, %.preheader.i193 ], [ %.us-phi, %.lr.ph.i196 ]
+  %.024.i194 = phi i32 [ 0, %.split285.us.thread ], [ 1, %.preheader.i193 ], [ %236, %.lr.ph.i196 ]
   %239 = icmp eq i32 %.024.i194, %139
   br i1 %239, label %250, label %240
 
@@ -4825,7 +4825,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv3dnn14ScaleLayerImpl14suppo
   br label %12
 
 12:                                               ; preds = %8, %.fold.split, %7, %7, %7, %5
-  %.0 = phi i1 [ %6, %5 ], [ true, %7 ], [ %11, %8 ], [ true, %7 ], [ true, %7 ], [ false, %.fold.split ]
+  %.0 = phi i1 [ %6, %5 ], [ true, %7 ], [ true, %7 ], [ %11, %8 ], [ true, %7 ], [ false, %.fold.split ]
   ret i1 %.0
 }
 

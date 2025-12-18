@@ -1137,7 +1137,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$6shrink17h094
   br label %18
 
 18:                                               ; preds = %.sink.split, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$6shrink17he786ab5534c190c8E.exit", %11
-  %.sroa.0.0 = phi i64 [ -9223372036854775807, %11 ], [ %17, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$6shrink17he786ab5534c190c8E.exit" ], [ -9223372036854775807, %.sink.split ]
+  %.sroa.0.0 = phi i64 [ %17, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$6shrink17he786ab5534c190c8E.exit" ], [ -9223372036854775807, %11 ], [ -9223372036854775807, %.sink.split ]
   %19 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %20 = insertvalue { i64, i64 } %19, i64 %1, 1
   ret { i64, i64 } %20

@@ -220,7 +220,7 @@ define internal fastcc void @"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$
   br label %.loopexit
 
 .loopexit:                                        ; preds = %43, %32, %2, %.split.us, %51
-  %storemerge = phi i64 [ 1, %51 ], [ %.us-phi, %.split.us ], [ 0, %2 ], [ 0, %32 ], [ 0, %43 ]
+  %storemerge = phi i64 [ %.us-phi, %.split.us ], [ 1, %51 ], [ 0, %2 ], [ 0, %32 ], [ 0, %43 ]
   store i64 %storemerge, ptr %0, align 8
   ret void
 }

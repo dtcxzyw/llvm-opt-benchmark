@@ -2435,9 +2435,9 @@ _ZN15RegMaskIteratorC2ERK7RegMask.exit:           ; preds = %474
   br label %_ZN15RegMaskIterator4nextEv.exit
 
 _ZN15RegMaskIterator4nextEv.exit:                 ; preds = %.preheader.i, %496, %507
-  %.sroa.0119.4 = phi i64 [ %511, %507 ], [ %500, %496 ], [ 0, %.preheader.i ]
-  %.sroa.7.4 = phi i32 [ %503, %507 ], [ %.sroa.7.0143, %496 ], [ %.sroa.7.3, %.preheader.i ]
-  %.sink.i = phi i32 [ %514, %507 ], [ %501, %496 ], [ -1, %.preheader.i ]
+  %.sroa.0119.4 = phi i64 [ %500, %496 ], [ %511, %507 ], [ 0, %.preheader.i ]
+  %.sroa.7.4 = phi i32 [ %.sroa.7.0143, %496 ], [ %503, %507 ], [ %.sroa.7.3, %.preheader.i ]
+  %.sink.i = phi i32 [ %501, %496 ], [ %514, %507 ], [ -1, %.preheader.i ]
   %515 = icmp slt i32 %.sroa.11.0144, 616
   br i1 %515, label %516, label %_ZN7OptoReg8as_VMRegEi.exit
 

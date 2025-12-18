@@ -282,7 +282,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread18:       ; preds = %_ZNK5clang22specifi
   br label %17
 
 _ZN5clangneENS_22specific_attr_iteratorINS_12AnnotateAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.thread: ; preds = %25, %_ZN5clangneENS_22specific_attr_iteratorINS_12AnnotateAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit, %_ZN4llvmeqENS_9StringRefES0_.exit, %30, %23
-  %50 = phi i1 [ true, %23 ], [ true, %30 ], [ true, %25 ], [ true, %_ZN5clangneENS_22specific_attr_iteratorINS_12AnnotateAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit ]
+  %50 = phi i1 [ true, %30 ], [ true, %23 ], [ true, %25 ], [ true, %_ZN5clangneENS_22specific_attr_iteratorINS_12AnnotateAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit ]
   ret i1 %50
 }
 

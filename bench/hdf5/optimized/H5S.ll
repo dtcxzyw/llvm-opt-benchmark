@@ -1615,7 +1615,7 @@ define i64 @H5S_get_npoints_max(ptr noundef readonly captures(none) %0) local_un
   br label %.loopexit
 
 .loopexit:                                        ; preds = %31, %.lr.ph, %33, %.preheader21, %.preheader, %17, %10, %37, %20, %14
-  %.0 = phi i64 [ 0, %10 ], [ 0, %37 ], [ 0, %14 ], [ 1, %20 ], [ 0, %17 ], [ 1, %.preheader ], [ 1, %.preheader21 ], [ %36, %33 ], [ %32, %31 ], [ -1, %.lr.ph ]
+  %.0 = phi i64 [ 0, %10 ], [ 0, %37 ], [ 0, %14 ], [ 1, %20 ], [ 0, %17 ], [ 1, %.preheader21 ], [ 1, %.preheader ], [ %36, %33 ], [ %32, %31 ], [ -1, %.lr.ph ]
   ret i64 %.0
 }
 
@@ -2101,7 +2101,7 @@ define i32 @H5S_extent_get_dims(ptr noundef readonly captures(none) %0, ptr noun
   br label %.loopexit
 
 .loopexit:                                        ; preds = %46, %.lr.ph.split.split.split.us, %.lr.ph.split.split.us.split, %.lr.ph.split.split.us.split.us, %28, %.lr.ph.split.us, %22, %19, %19, %12, %53, %16
-  %.0 = phi i32 [ -1, %12 ], [ -1, %53 ], [ -1, %16 ], [ 0, %19 ], [ 0, %19 ], [ %24, %22 ], [ %24, %.lr.ph.split.us ], [ %24, %.lr.ph.split.split.split.us ], [ %24, %28 ], [ %24, %.lr.ph.split.split.us.split.us ], [ %24, %.lr.ph.split.split.us.split ], [ %24, %46 ]
+  %.0 = phi i32 [ -1, %12 ], [ -1, %53 ], [ -1, %16 ], [ 0, %19 ], [ 0, %19 ], [ %24, %.lr.ph.split.split.us.split.us ], [ %24, %22 ], [ %24, %.lr.ph.split.split.split.us ], [ %24, %28 ], [ %24, %.lr.ph.split.us ], [ %24, %.lr.ph.split.split.us.split ], [ %24, %46 ]
   ret i32 %.0
 }
 
@@ -3794,7 +3794,7 @@ define range(i32 -1, 1) i32 @H5Sset_extent_none(i64 noundef %0) local_unnamed_ad
   %36 = call i32 @H5E_clear_stack() #10
   %37 = call ptr @H5I_object_verify(i64 noundef %0, i32 noundef 4) #10
   %38 = icmp eq ptr %37, null
-  br i1 %38, label %.thread23, label %43, !prof !33
+  br i1 %38, label %.thread23, label %43
 
 .thread23:                                        ; preds = %35
   %39 = load i64, ptr @H5E_ID_g, align 8, !tbaa !10
@@ -4252,7 +4252,7 @@ define range(i32 -1, 2) i32 @H5Sextent_equal(i64 noundef %0, i64 noundef %1) loc
   br label %H5S_extent_equal.exit.thread30
 
 H5S_extent_equal.exit.thread30:                   ; preds = %66, %.preheader.i, %77, %83, %82, %60, %55, %50, %43
-  %.012.ph.ph = phi i32 [ 1, %43 ], [ 0, %50 ], [ 0, %55 ], [ 1, %82 ], [ 0, %83 ], [ 1, %60 ], [ 1, %77 ], [ 0, %.preheader.i ], [ 0, %66 ]
+  %.012.ph.ph = phi i32 [ 1, %43 ], [ 0, %50 ], [ 0, %55 ], [ 1, %60 ], [ 1, %82 ], [ 0, %83 ], [ 1, %77 ], [ 0, %.preheader.i ], [ 0, %66 ]
   %84 = call i32 @H5CX_pop(i1 noundef zeroext true) #10
   br label %90
 
@@ -4358,7 +4358,7 @@ define range(i32 0, 2) i32 @H5S_extent_equal(ptr noundef readonly captures(none)
   br label %.thread
 
 .thread:                                          ; preds = %25, %.preheader, %36, %41, %19, %14, %9, %42, %2
-  %.0 = phi i32 [ 1, %2 ], [ 0, %9 ], [ 0, %14 ], [ 1, %41 ], [ 0, %42 ], [ 1, %19 ], [ 1, %36 ], [ 0, %.preheader ], [ 0, %25 ]
+  %.0 = phi i32 [ 1, %2 ], [ 0, %9 ], [ 0, %14 ], [ 1, %19 ], [ 1, %41 ], [ 0, %42 ], [ 1, %36 ], [ 0, %.preheader ], [ 0, %25 ]
   ret i32 %.0
 }
 

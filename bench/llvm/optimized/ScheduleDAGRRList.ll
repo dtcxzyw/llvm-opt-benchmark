@@ -6244,7 +6244,7 @@ _ZNK4llvm3EVTeqES0_.exit:                         ; preds = %47, %54
   br i1 %66, label %.thread, label %9, !llvm.loop !456
 
 .thread:                                          ; preds = %63, %43, %47, %54, %._crit_edge
-  %.0 = phi ptr [ %.039.lcssa, %._crit_edge ], [ null, %54 ], [ null, %47 ], [ null, %63 ], [ %.037, %43 ]
+  %.0 = phi ptr [ %.039.lcssa, %._crit_edge ], [ null, %54 ], [ %.037, %43 ], [ null, %63 ], [ null, %47 ]
   ret ptr %.0
 }
 
@@ -8029,7 +8029,7 @@ _ZNK4llvm3EVTeqES0_.exit:                         ; preds = %38, %45
   br i1 %57, label %.loopexit, label %7, !llvm.loop !490
 
 .loopexit:                                        ; preds = %54, %34, %7, %38, %45, %.lr.ph, %13
-  %.0 = phi i1 [ false, %13 ], [ false, %45 ], [ %21, %.lr.ph ], [ %8, %38 ], [ %8, %7 ], [ %8, %34 ], [ %8, %54 ]
+  %.0 = phi i1 [ %21, %.lr.ph ], [ false, %45 ], [ false, %13 ], [ %8, %38 ], [ %8, %7 ], [ %8, %34 ], [ %8, %54 ]
   ret i1 %.0
 }
 
@@ -11791,7 +11791,7 @@ define internal void @_ZN12_GLOBAL__N_118RegReductionPQBase13scheduledNodeEPN4ll
   br label %107
 
 107:                                              ; preds = %94, %78
-  %.pn.in.i = phi ptr [ %106, %94 ], [ %93, %78 ]
+  %.pn.in.i = phi ptr [ %93, %78 ], [ %106, %94 ]
   %.pn.i = load ptr, ptr %.pn.in.i, align 8, !tbaa !521
   %storemerge36.in.in.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 24
   %storemerge36.in.i = load i16, ptr %storemerge36.in.in.i, align 8, !tbaa !523
@@ -11924,7 +11924,7 @@ _ZL13GetCostForDefRKN4llvm18ScheduleDAGSDNodes10RegDefIterEPKNS_14TargetLowering
   br label %188
 
 188:                                              ; preds = %175, %159
-  %.pn.in.i31 = phi ptr [ %187, %175 ], [ %174, %159 ]
+  %.pn.in.i31 = phi ptr [ %174, %159 ], [ %187, %175 ]
   %.pn.i32 = load ptr, ptr %.pn.in.i31, align 8, !tbaa !521
   %storemerge36.in.in.i33 = getelementptr inbounds nuw i8, ptr %.pn.i32, i64 24
   %storemerge36.in.i34 = load i16, ptr %storemerge36.in.in.i33, align 8, !tbaa !523
@@ -12675,7 +12675,7 @@ _ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread14: ; pre
   br i1 %.not.i.i.i, label %_ZNK4llvm6SDNode12getGluedNodeEv.exit, label %.critedge, !llvm.loop !548
 
 .critedge:                                        ; preds = %127, %.critedge.thread22, %107, %83, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit, %.lr.ph.split, %.lr.ph.split.us, %2
-  %.not5829 = phi i1 [ false, %2 ], [ true, %107 ], [ true, %.lr.ph.split.us ], [ true, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit ], [ true, %83 ], [ true, %.lr.ph.split ], [ false, %.critedge.thread22 ], [ false, %127 ]
+  %.not5829 = phi i1 [ true, %107 ], [ true, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit ], [ true, %.lr.ph.split.us ], [ false, %2 ], [ true, %83 ], [ true, %.lr.ph.split ], [ false, %.critedge.thread22 ], [ false, %127 ]
   ret i1 %.not5829
 }
 
@@ -14486,7 +14486,7 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_118RegReductionPQBas
   br label %87
 
 87:                                               ; preds = %74, %58
-  %.pn.in.i = phi ptr [ %86, %74 ], [ %73, %58 ]
+  %.pn.in.i = phi ptr [ %73, %58 ], [ %86, %74 ]
   %.pn.i = load ptr, ptr %.pn.in.i, align 8, !tbaa !521
   %storemerge36.in.in.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 24
   %storemerge36.in.i = load i16, ptr %storemerge36.in.in.i, align 8, !tbaa !523

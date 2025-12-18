@@ -708,7 +708,7 @@ addroot.exit129.i.i.i:                            ; preds = %307
   br i1 %exitcond.not.i.i.i, label %splineintersectsline.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !36
 
 splineintersectsline.exit.i.i:                    ; preds = %318, %281, %addroot.exit123.i.i.i, %._crit_edge.us.i.i.i, %addroot.exit.i.i.i
-  %.0111.i.i.i = phi i32 [ %.7.i.i.i, %281 ], [ %.10.i.i.i, %addroot.exit.i.i.i ], [ %.us-phi.us.i.i.i, %._crit_edge.us.i.i.i ], [ %.11.i.i.i, %addroot.exit123.i.i.i ], [ %.9.i.i.i, %318 ]
+  %.0111.i.i.i = phi i32 [ %.11.i.i.i, %addroot.exit123.i.i.i ], [ %.10.i.i.i, %addroot.exit.i.i.i ], [ %.us-phi.us.i.i.i, %._crit_edge.us.i.i.i ], [ %.7.i.i.i, %281 ], [ %.9.i.i.i, %318 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

@@ -1612,7 +1612,7 @@ _ZN4llvm4User8operandsEv.exit278:                 ; preds = %272, %275
   br i1 %.not395, label %_ZSt5equalIPPN4llvm5ValueEPNS0_3UseEEbT_S6_T0_.exit, label %336
 
 _ZSt5equalIPPN4llvm5ValueEPNS0_3UseEEbT_S6_T0_.exit: ; preds = %.lr.ph434, %366, %.loopexit, %377, %_ZN4llvm4User8operandsEv.exit278, %331, %._crit_edge440, %._crit_edge
-  %.13 = phi ptr [ %330, %._crit_edge440 ], [ %1, %._crit_edge ], [ %1, %_ZN4llvm4User8operandsEv.exit278 ], [ null, %331 ], [ null, %.loopexit ], [ %338, %377 ], [ %338, %366 ], [ null, %.lr.ph434 ]
+  %.13 = phi ptr [ %1, %_ZN4llvm4User8operandsEv.exit278 ], [ %330, %._crit_edge440 ], [ %1, %._crit_edge ], [ %338, %377 ], [ null, %.loopexit ], [ null, %331 ], [ %338, %366 ], [ null, %.lr.ph434 ]
   %381 = load ptr, ptr %7, align 8, !tbaa !25
   %382 = icmp eq ptr %381, %266
   br i1 %382, label %384, label %383

@@ -3973,7 +3973,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i
 
 .loopexit267:                                     ; preds = %512, %529, %528, %520, %518, %328
-  %.merged79.i = phi { ptr, i32 } [ %519, %518 ], [ %329, %328 ], [ %521, %520 ], [ %.pn76.i, %528 ], [ %530, %529 ], [ %.pn67.pn.pn.pn.pn.pn.i, %512 ]
+  %.merged79.i = phi { ptr, i32 } [ %519, %518 ], [ %329, %328 ], [ %530, %529 ], [ %521, %520 ], [ %.pn76.i, %528 ], [ %.pn67.pn.pn.pn.pn.pn.i, %512 ]
   %540 = load i8, ptr %244, align 8, !tbaa !100, !range !86, !noundef !87
   %541 = trunc nuw i8 %540 to i1
   br i1 %541, label %542, label %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit112.i

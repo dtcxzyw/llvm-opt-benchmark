@@ -830,7 +830,7 @@ define internal range(i32 0, 2) i32 @getsum8(ptr noundef readonly captures(none)
   br i1 %exitcond65.not, label %.loopexit44, label %14, !llvm.loop !79
 
 .loopexit44:                                      ; preds = %.loopexit, %.preheader.lr.ph.split, %._crit_edge.us, %2
-  %.3 = phi i32 [ 0, %2 ], [ 1, %._crit_edge.us ], [ 1, %.preheader.lr.ph.split ], [ 0, %.loopexit ]
+  %.3 = phi i32 [ 0, %2 ], [ 1, %._crit_edge.us ], [ 0, %.loopexit ], [ 1, %.preheader.lr.ph.split ]
   ret i32 %.3
 }
 
@@ -1042,7 +1042,7 @@ define internal range(i32 0, 2) i32 @getsum16(ptr noundef readonly captures(none
   br i1 %exitcond65.not, label %.loopexit44, label %14, !llvm.loop !85
 
 .loopexit44:                                      ; preds = %.loopexit, %.preheader.lr.ph.split, %._crit_edge.us, %2
-  %.3 = phi i32 [ 0, %2 ], [ 1, %._crit_edge.us ], [ 1, %.preheader.lr.ph.split ], [ 0, %.loopexit ]
+  %.3 = phi i32 [ 0, %2 ], [ 1, %._crit_edge.us ], [ 0, %.loopexit ], [ 1, %.preheader.lr.ph.split ]
   ret i32 %.3
 }
 

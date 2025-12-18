@@ -3409,9 +3409,9 @@ define noalias noundef ptr @Cudd_bddPickArbitraryMinterms(ptr noundef %0, ptr no
   br label %.loopexit356
 
 .loopexit356:                                     ; preds = %.preheader357, %.preheader355, %.loopexit356.sink.split, %83
-  %.1279 = phi i32 [ 1, %83 ], [ 1, %.loopexit356.sink.split ], [ 0, %.preheader355 ], [ 0, %.preheader357 ]
-  %.1277 = phi i32 [ %.0276409, %83 ], [ %75, %.loopexit356.sink.split ], [ %.0276409, %.preheader355 ], [ %.0276409, %.preheader357 ]
-  %.not313398 = phi i1 [ false, %83 ], [ true, %.loopexit356.sink.split ], [ true, %.preheader355 ], [ true, %.preheader357 ]
+  %.1279 = phi i32 [ 1, %83 ], [ 0, %.preheader355 ], [ 1, %.loopexit356.sink.split ], [ 0, %.preheader357 ]
+  %.1277 = phi i32 [ %.0276409, %83 ], [ %.0276409, %.preheader355 ], [ %75, %.loopexit356.sink.split ], [ %.0276409, %.preheader357 ]
+  %.not313398 = phi i1 [ false, %83 ], [ true, %.preheader355 ], [ true, %.loopexit356.sink.split ], [ true, %.preheader357 ]
   %cuddRand.promoted386.pre = load i64, ptr @cuddRand, align 8
   %cuddRand2.promoted392.pre = load i64, ptr @cuddRand2, align 8
   br i1 %36, label %.lr.ph377, label %.preheader354
@@ -5316,8 +5316,8 @@ define ptr @Cudd_bddComputeCube(ptr noundef %0, ptr noundef readonly captures(no
   br i1 %44, label %.lr.ph.split, label %._crit_edge, !llvm.loop !122
 
 ._crit_edge:                                      ; preds = %37, %20, %4
-  %.pre-phi45 = phi ptr [ %9, %4 ], [ %23, %20 ], [ %40, %37 ]
-  %.026.lcssa = phi ptr [ %6, %4 ], [ %18, %20 ], [ %35, %37 ]
+  %.pre-phi45 = phi ptr [ %23, %20 ], [ %9, %4 ], [ %40, %37 ]
+  %.026.lcssa = phi ptr [ %18, %20 ], [ %6, %4 ], [ %35, %37 ]
   %45 = getelementptr inbounds nuw i8, ptr %.pre-phi45, i64 4
   %46 = load i32, ptr %45, align 4, !tbaa !35
   %47 = add i32 %46, -1
@@ -5415,8 +5415,8 @@ define ptr @Cudd_addComputeCube(ptr noundef %0, ptr noundef readonly captures(no
   br i1 %47, label %.lr.ph.split, label %._crit_edge, !llvm.loop !123
 
 ._crit_edge:                                      ; preds = %40, %22, %4
-  %.pre-phi48 = phi ptr [ %9, %4 ], [ %25, %22 ], [ %43, %40 ]
-  %.030.lcssa = phi ptr [ %6, %4 ], [ %20, %22 ], [ %.028, %40 ]
+  %.pre-phi48 = phi ptr [ %25, %22 ], [ %9, %4 ], [ %43, %40 ]
+  %.030.lcssa = phi ptr [ %20, %22 ], [ %6, %4 ], [ %.028, %40 ]
   %48 = getelementptr inbounds nuw i8, ptr %.pre-phi48, i64 4
   %49 = load i32, ptr %48, align 4, !tbaa !35
   %50 = add i32 %49, -1

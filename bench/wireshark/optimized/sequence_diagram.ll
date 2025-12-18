@@ -1355,7 +1355,7 @@ _ZNK9QMultiMapId11WSCPSeqDataE10constBeginEv.exit25: ; preds = %48, %.split
   br label %_ZNK9QMultiMapId11WSCPSeqDataE4sizeEv.exit.thread
 
 _ZNK9QMultiMapId11WSCPSeqDataE4sizeEv.exit.thread: ; preds = %_ZNK9QMultiMapId11WSCPSeqDataE10constBeginEv.exit25, %43, %_ZNK9QMultiMapId11WSCPSeqDataE10constBeginEv.exit16, %2, %.thread, %35, %36, %_ZNK9QMultiMapId11WSCPSeqDataE4sizeEv.exit, %19
-  %.0 = phi i32 [ -1, %_ZNK9QMultiMapId11WSCPSeqDataE4sizeEv.exit ], [ %25, %19 ], [ %40, %36 ], [ -1, %35 ], [ %57, %.thread ], [ -1, %2 ], [ -1, %_ZNK9QMultiMapId11WSCPSeqDataE10constBeginEv.exit16 ], [ -1, %43 ], [ -1, %_ZNK9QMultiMapId11WSCPSeqDataE10constBeginEv.exit25 ]
+  %.0 = phi i32 [ -1, %_ZNK9QMultiMapId11WSCPSeqDataE4sizeEv.exit ], [ %25, %19 ], [ %40, %36 ], [ -1, %35 ], [ -1, %2 ], [ %57, %.thread ], [ -1, %_ZNK9QMultiMapId11WSCPSeqDataE10constBeginEv.exit16 ], [ -1, %43 ], [ -1, %_ZNK9QMultiMapId11WSCPSeqDataE10constBeginEv.exit25 ]
   ret i32 %.0
 }
 
@@ -6022,8 +6022,8 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIdSt4pairIKd11WSCPSeqDataESt10_S
   br label %_ZNSt8_Rb_treeIdSt4pairIKd11WSCPSeqDataESt10_Select1stIS3_ESt4lessIdESaIS3_EE23_M_get_insert_equal_posERS1_.exit
 
 _ZNSt8_Rb_treeIdSt4pairIKd11WSCPSeqDataESt10_Select1stIS3_ESt4lessIdESaIS3_EE23_M_get_insert_equal_posERS1_.exit: ; preds = %.lr.ph.i10, %19, %41, %16, %55, %37, %46, %50, %28, %9
-  %.sroa.038.0 = phi ptr [ %spec.select40, %55 ], [ null, %9 ], [ null, %46 ], [ null, %50 ], [ %30, %28 ], [ %spec.select, %37 ], [ null, %16 ], [ null, %41 ], [ null, %19 ], [ null, %.lr.ph.i10 ]
-  %.sroa.11.0 = phi ptr [ %spec.select41, %55 ], [ %11, %9 ], [ %48, %46 ], [ null, %50 ], [ %30, %28 ], [ %spec.select39, %37 ], [ %4, %16 ], [ %4, %41 ], [ %.0710.i, %19 ], [ %.0710.i11, %.lr.ph.i10 ]
+  %.sroa.038.0 = phi ptr [ %spec.select40, %55 ], [ null, %9 ], [ null, %46 ], [ null, %50 ], [ null, %19 ], [ %30, %28 ], [ %spec.select, %37 ], [ null, %16 ], [ null, %41 ], [ null, %.lr.ph.i10 ]
+  %.sroa.11.0 = phi ptr [ %spec.select41, %55 ], [ %11, %9 ], [ %48, %46 ], [ null, %50 ], [ %.0710.i, %19 ], [ %30, %28 ], [ %spec.select39, %37 ], [ %4, %16 ], [ %4, %41 ], [ %.0710.i11, %.lr.ph.i10 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.038.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.11.0, 1
   ret { ptr, ptr } %.fca.1.insert

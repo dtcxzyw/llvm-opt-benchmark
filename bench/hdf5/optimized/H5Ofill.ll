@@ -300,7 +300,7 @@ define internal ptr @H5O__fill_shared_decode(ptr noundef %0, ptr noundef %1, i32
   br label %H5O__fill_old_decode.exit
 
 H5O__fill_old_decode.exit:                        ; preds = %.thread.i, %95, %18, %104, %22, %6
-  %.0 = phi ptr [ null, %18 ], [ %16, %22 ], [ null, %104 ], [ null, %6 ], [ %.14.i, %.thread.i ], [ %28, %95 ]
+  %.0 = phi ptr [ null, %18 ], [ %16, %22 ], [ null, %104 ], [ null, %6 ], [ %28, %95 ], [ %.14.i, %.thread.i ]
   ret ptr %.0
 }
 

@@ -2173,7 +2173,7 @@ define internal fastcc noundef ptr @_ZL25SymbolizeStackConsumptionPvPi(ptr nound
   br i1 %73, label %_ZL19GetStackConsumptionPKc.exit, label %.preheader19.i, !llvm.loop !87
 
 _ZL19GetStackConsumptionPKc.exit:                 ; preds = %.preheader19.i, %71, %64, %65
-  %.116.i = phi i32 [ %67, %65 ], [ -1, %64 ], [ %.022.i, %.preheader19.i ], [ -1, %71 ]
+  %.116.i = phi i32 [ -1, %64 ], [ %67, %65 ], [ -1, %71 ], [ %.022.i, %.preheader19.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %74 = call i32 @getpid() #32
   %75 = call i32 @kill(i32 noundef %74, i32 noundef 12) #32
@@ -2236,7 +2236,7 @@ _ZL19GetStackConsumptionPKc.exit:                 ; preds = %.preheader19.i, %71
   br i1 %93, label %_ZL19GetStackConsumptionPKc.exit119, label %.preheader19.i110, !llvm.loop !87
 
 _ZL19GetStackConsumptionPKc.exit119:              ; preds = %.preheader19.i110, %91, %84, %85
-  %.116.i113 = phi i32 [ %87, %85 ], [ -1, %84 ], [ %.022.i111, %.preheader19.i110 ], [ -1, %91 ]
+  %.116.i113 = phi i32 [ -1, %84 ], [ %87, %85 ], [ -1, %91 ], [ %.022.i111, %.preheader19.i110 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %94 = icmp ne i32 %.116.i, -1
   %95 = icmp ne i32 %.116.i113, -1

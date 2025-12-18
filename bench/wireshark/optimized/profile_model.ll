@@ -3620,7 +3620,7 @@ _ZNK12ProfileModel5guardERK11QModelIndex.exit:    ; preds = %2
   br label %161
 
 70:                                               ; preds = %61, %55, %57, %41, %.lr.ph
-  %.134 = phi i1 [ false, %.lr.ph ], [ %switch.selectcmp, %61 ], [ false, %57 ], [ false, %55 ], [ false, %41 ]
+  %.134 = phi i1 [ false, %.lr.ph ], [ %switch.selectcmp, %61 ], [ false, %41 ], [ false, %55 ], [ false, %57 ]
   %71 = getelementptr inbounds nuw i8, ptr %.03279, i64 8
   %72 = load ptr, ptr %71, align 8
   %73 = icmp eq ptr %72, null
@@ -22236,7 +22236,7 @@ define linkonce_odr void @_ZSt22__final_insertion_sortIN5QListIiE8iteratorEN9__g
   br i1 %28, label %.lr.ph.i.i, label %_ZSt13move_backwardIN5QListIiE8iteratorES2_ET0_T_S4_S3_.exit.i, !llvm.loop !279
 
 _ZSt13move_backwardIN5QListIiE8iteratorES2_ET0_T_S4_S3_.exit.i: ; preds = %.lr.ph.i.i, %.lr.ph.i.i.i.i.i.i, %23, %12
-  %.sink.i = phi ptr [ %0, %12 ], [ %.sroa.0.020.i, %23 ], [ %0, %.lr.ph.i.i.i.i.i.i ], [ %.sroa.0.09.i.i, %.lr.ph.i.i ]
+  %.sink.i = phi ptr [ %0, %12 ], [ %0, %.lr.ph.i.i.i.i.i.i ], [ %.sroa.0.020.i, %23 ], [ %.sroa.0.09.i.i, %.lr.ph.i.i ]
   store i32 %9, ptr %.sink.i, align 4
   %.sroa.0.0.i = getelementptr i8, ptr %.sroa.0.020.i, i64 4
   %.not.i = icmp eq ptr %.sroa.0.0.i, %7
@@ -22324,7 +22324,7 @@ _ZSt25__unguarded_linear_insertIN5QListIiE8iteratorEN9__gnu_cxx5__ops14_Val_comp
   br i1 %57, label %.lr.ph.i.i29, label %_ZSt13move_backwardIN5QListIiE8iteratorES2_ET0_T_S4_S3_.exit.i25, !llvm.loop !279
 
 _ZSt13move_backwardIN5QListIiE8iteratorES2_ET0_T_S4_S3_.exit.i25: ; preds = %.lr.ph.i.i29, %.lr.ph.i.i.i.i.i.i34, %52, %41
-  %.sink.i26 = phi ptr [ %0, %41 ], [ %.sroa.0.020.i23, %52 ], [ %0, %.lr.ph.i.i.i.i.i.i34 ], [ %.sroa.0.09.i.i30, %.lr.ph.i.i29 ]
+  %.sink.i26 = phi ptr [ %0, %41 ], [ %0, %.lr.ph.i.i.i.i.i.i34 ], [ %.sroa.0.020.i23, %52 ], [ %.sroa.0.09.i.i30, %.lr.ph.i.i29 ]
   store i32 %38, ptr %.sink.i26, align 4
   %.sroa.0.0.i27 = getelementptr i8, ptr %.sroa.0.020.i23, i64 4
   %.not.i28 = icmp eq ptr %.sroa.0.0.i27, %1

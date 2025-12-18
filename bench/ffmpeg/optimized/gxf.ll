@@ -669,7 +669,7 @@ define internal i32 @gxf_packet(ptr noundef %0, ptr noundef %1) #1 {
   br i1 %.not, label %.lr.ph, label %.thread75
 
 .thread75:                                        ; preds = %80, %2, %66, %75, %14, %25, %12
-  %.2 = phi i32 [ %67, %66 ], [ %67, %75 ], [ -1, %14 ], [ %29, %25 ], [ -1, %12 ], [ -541478725, %2 ], [ -541478725, %80 ]
+  %.2 = phi i32 [ -1, %12 ], [ %67, %66 ], [ %67, %75 ], [ -1, %14 ], [ %29, %25 ], [ -541478725, %2 ], [ -541478725, %80 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.2
@@ -1206,8 +1206,8 @@ define internal fastcc range(i64 0, -9223372036854775807) i64 @gxf_resync_media(
   br i1 %41, label %.outer, label %.loopexit
 
 .loopexit:                                        ; preds = %31, %39, %28, %19, %._crit_edge, %15, %.lr.ph, %8
-  %.138 = phi i64 [ %.037.ph, %28 ], [ %.037.ph, %.lr.ph ], [ %.037.ph, %8 ], [ %.037.ph, %15 ], [ %.037.ph, %._crit_edge ], [ %.037.ph, %19 ], [ %37, %39 ], [ %37, %31 ]
-  %.134 = phi i64 [ %.033.ph, %28 ], [ %.033.ph, %.lr.ph ], [ %.033.ph, %8 ], [ %.033.ph, %15 ], [ %.033.ph, %._crit_edge ], [ %.033.ph, %19 ], [ %35, %39 ], [ %35, %31 ]
+  %.138 = phi i64 [ %.037.ph, %.lr.ph ], [ %.037.ph, %28 ], [ %.037.ph, %8 ], [ %.037.ph, %15 ], [ %.037.ph, %._crit_edge ], [ %.037.ph, %19 ], [ %37, %39 ], [ %37, %31 ]
+  %.134 = phi i64 [ %.033.ph, %.lr.ph ], [ %.033.ph, %28 ], [ %.033.ph, %8 ], [ %.033.ph, %15 ], [ %.033.ph, %._crit_edge ], [ %.033.ph, %19 ], [ %35, %39 ], [ %35, %31 ]
   %.not49 = icmp eq i64 %.138, 0
   br i1 %.not49, label %44, label %42
 

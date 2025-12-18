@@ -270,8 +270,8 @@ define dso_local noundef ptr @_ZN5clang11SemaOpenACC11ActOnClauseEN4llvm8ArrayRe
     i8 48, label %45
     i8 5, label %46
     i8 6, label %47
-    i8 0, label %48
-    i8 1, label %_ZN12_GLOBAL__N_126doesClauseApplyToDirectiveEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit
+    i8 0, label %_ZN12_GLOBAL__N_126doesClauseApplyToDirectiveEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit
+    i8 1, label %48
     i8 16, label %49
     i8 17, label %50
     i8 42, label %51
@@ -563,8 +563,10 @@ define dso_local noundef ptr @_ZN5clang11SemaOpenACC11ActOnClauseEN4llvm8ArrayRe
   ]
 
 48:                                               ; preds = %21
-  %cond6.i = icmp eq i8 %22, 5
-  br i1 %cond6.i, label %_ZN12_GLOBAL__N_126doesClauseApplyToDirectiveEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit.thread, label %_ZN12_GLOBAL__N_126doesClauseApplyToDirectiveEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit.thread31
+  switch i8 %22, label %_ZN12_GLOBAL__N_126doesClauseApplyToDirectiveEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit.thread31 [
+    i8 17, label %_ZN12_GLOBAL__N_126doesClauseApplyToDirectiveEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit.thread
+    i8 6, label %_ZN12_GLOBAL__N_126doesClauseApplyToDirectiveEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit.thread
+  ]
 
 49:                                               ; preds = %21
   %cond5.i = icmp eq i8 %22, 5
@@ -596,12 +598,10 @@ define dso_local noundef ptr @_ZN5clang11SemaOpenACC11ActOnClauseEN4llvm8ArrayRe
   br i1 %cond.i, label %_ZN12_GLOBAL__N_126doesClauseApplyToDirectiveEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit.thread, label %_ZN12_GLOBAL__N_126doesClauseApplyToDirectiveEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit.thread31
 
 _ZN12_GLOBAL__N_126doesClauseApplyToDirectiveEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit: ; preds = %21
-  switch i8 %22, label %_ZN12_GLOBAL__N_126doesClauseApplyToDirectiveEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit.thread31 [
-    i8 17, label %_ZN12_GLOBAL__N_126doesClauseApplyToDirectiveEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit.thread
-    i8 6, label %_ZN12_GLOBAL__N_126doesClauseApplyToDirectiveEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit.thread
-  ]
+  %cond6.i = icmp eq i8 %22, 5
+  br i1 %cond6.i, label %_ZN12_GLOBAL__N_126doesClauseApplyToDirectiveEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit.thread, label %_ZN12_GLOBAL__N_126doesClauseApplyToDirectiveEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit.thread31
 
-_ZN12_GLOBAL__N_126doesClauseApplyToDirectiveEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit.thread31: ; preds = %_ZN12_GLOBAL__N_126doesClauseApplyToDirectiveEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit, %47, %46, %45, %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %49, %50, %51, %52, %53, %54, %55, %48
+_ZN12_GLOBAL__N_126doesClauseApplyToDirectiveEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit.thread31: ; preds = %48, %47, %46, %45, %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %54, %53, %49, %52, %50, %51, %55, %_ZN12_GLOBAL__N_126doesClauseApplyToDirectiveEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %56 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %.sroa.0.0.copyload.i.i = load i32, ptr %56, align 4, !tbaa !20
@@ -665,7 +665,7 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_17OpenACCClauseKindEvEERKS1_OT_.
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %192
 
-_ZN12_GLOBAL__N_126doesClauseApplyToDirectiveEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit.thread: ; preds = %_ZN12_GLOBAL__N_126doesClauseApplyToDirectiveEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit, %_ZN12_GLOBAL__N_126doesClauseApplyToDirectiveEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit, %21, %47, %47, %47, %47, %47, %44, %44, %44, %44, %43, %43, %43, %43, %42, %42, %42, %42, %42, %42, %42, %42, %42, %42, %42, %42, %42, %41, %41, %41, %41, %41, %41, %40, %40, %40, %40, %39, %39, %39, %39, %39, %38, %38, %38, %38, %38, %38, %38, %38, %38, %38, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %36, %36, %36, %36, %36, %36, %36, %36, %35, %35, %35, %35, %35, %35, %35, %35, %34, %34, %34, %34, %34, %34, %34, %34, %33, %33, %33, %33, %33, %33, %33, %33, %33, %32, %32, %32, %32, %32, %32, %32, %32, %32, %31, %31, %31, %31, %31, %31, %31, %31, %30, %30, %30, %30, %30, %30, %30, %30, %29, %29, %29, %29, %29, %29, %29, %28, %28, %28, %28, %28, %28, %27, %27, %27, %27, %26, %26, %26, %26, %25, %25, %25, %25, %25, %25, %25, %24, %24, %24, %24, %24, %24, %24, %24, %24, %24, %24, %24, %24, %24, %24, %23, %23, %23, %23, %23, %23, %23, %46, %46, %46, %46, %46, %45, %45, %45, %45, %45, %49, %50, %51, %52, %53, %54, %55, %48
+_ZN12_GLOBAL__N_126doesClauseApplyToDirectiveEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit.thread: ; preds = %48, %48, %21, %47, %47, %47, %47, %47, %44, %44, %44, %44, %43, %43, %43, %43, %42, %42, %42, %42, %42, %42, %42, %42, %42, %42, %42, %42, %42, %41, %41, %41, %41, %41, %41, %40, %40, %40, %40, %39, %39, %39, %39, %39, %38, %38, %38, %38, %38, %38, %38, %38, %38, %38, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %36, %36, %36, %36, %36, %36, %36, %36, %35, %35, %35, %35, %35, %35, %35, %35, %34, %34, %34, %34, %34, %34, %34, %34, %33, %33, %33, %33, %33, %33, %33, %33, %33, %32, %32, %32, %32, %32, %32, %32, %32, %32, %31, %31, %31, %31, %31, %31, %31, %31, %30, %30, %30, %30, %30, %30, %30, %30, %29, %29, %29, %29, %29, %29, %29, %28, %28, %28, %28, %28, %28, %27, %27, %27, %27, %26, %26, %26, %26, %25, %25, %25, %25, %25, %25, %25, %24, %24, %24, %24, %24, %24, %24, %24, %24, %24, %24, %24, %24, %24, %24, %23, %23, %23, %23, %23, %23, %23, %46, %46, %46, %46, %46, %45, %45, %45, %45, %45, %54, %53, %49, %52, %50, %51, %55, %_ZN12_GLOBAL__N_126doesClauseApplyToDirectiveEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit
   %.idx1.i = shl nuw nsw i64 %2, 3
   %88 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx1.i
   %89 = lshr i64 %2, 2
@@ -2035,7 +2035,7 @@ _ZN4llvm11SmallVectorIPN5clang4ExprELj6EEC2IS3_vEENS_8ArrayRefIT_EE.exit.i: ; pr
   br i1 %.not.i.i.i.i.i, label %"_ZN4llvm8erase_ifINS_11SmallVectorIPN5clang4ExprELj6EEEZN12_GLOBAL__N_124SemaOpenACCClauseVisitor17VisitAttachClauseERNS2_11SemaOpenACC19OpenACCParsedClauseEE3$_0EEvRT_T0_.exit.i", label %.lr.ph.i.i.i.i.i94, !llvm.loop !81
 
 "_ZN4llvm8erase_ifINS_11SmallVectorIPN5clang4ExprELj6EEEZN12_GLOBAL__N_124SemaOpenACCClauseVisitor17VisitAttachClauseERNS2_11SemaOpenACC19OpenACCParsedClauseEE3$_0EEvRT_T0_.exit.i": ; preds = %413, %"_ZSt9__find_ifIPPN5clang4ExprEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_124SemaOpenACCClauseVisitor17VisitAttachClauseERNS0_11SemaOpenACC19OpenACCParsedClauseEE3$_0EEET_SE_SE_T0_.exit.i.i.i.i.i", %403, %._crit_edge.i.i.i.i.i.i.i
-  %.016.i.i.i.i.i = phi ptr [ %.028.i.i.i.i.i.i.i, %"_ZSt9__find_ifIPPN5clang4ExprEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_124SemaOpenACCClauseVisitor17VisitAttachClauseERNS0_11SemaOpenACC19OpenACCParsedClauseEE3$_0EEET_SE_SE_T0_.exit.i.i.i.i.i" ], [ %377, %._crit_edge.i.i.i.i.i.i.i ], [ %377, %403 ], [ %.1.i.i.i.i.i95, %413 ]
+  %.016.i.i.i.i.i = phi ptr [ %.028.i.i.i.i.i.i.i, %"_ZSt9__find_ifIPPN5clang4ExprEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_124SemaOpenACCClauseVisitor17VisitAttachClauseERNS0_11SemaOpenACC19OpenACCParsedClauseEE3$_0EEET_SE_SE_T0_.exit.i.i.i.i.i" ], [ %377, %403 ], [ %377, %._crit_edge.i.i.i.i.i.i.i ], [ %.1.i.i.i.i.i95, %413 ]
   %414 = load ptr, ptr %196, align 8, !tbaa !76
   %415 = ptrtoint ptr %.016.i.i.i.i.i to i64
   %416 = ptrtoint ptr %414 to i64
@@ -3892,7 +3892,7 @@ _ZN4llvm11SmallVectorIPN5clang4ExprELj6EEC2IS3_vEENS_8ArrayRefIT_EE.exit.i334: ;
   br i1 %.not.i.i.i.i.i380, label %"_ZN4llvm8erase_ifINS_11SmallVectorIPN5clang4ExprELj6EEEZN12_GLOBAL__N_124SemaOpenACCClauseVisitor17VisitDetachClauseERNS2_11SemaOpenACC19OpenACCParsedClauseEE3$_0EEvRT_T0_.exit.i", label %.lr.ph.i.i.i.i.i373, !llvm.loop !97
 
 "_ZN4llvm8erase_ifINS_11SmallVectorIPN5clang4ExprELj6EEEZN12_GLOBAL__N_124SemaOpenACCClauseVisitor17VisitDetachClauseERNS2_11SemaOpenACC19OpenACCParsedClauseEE3$_0EEvRT_T0_.exit.i": ; preds = %1268, %"_ZSt9__find_ifIPPN5clang4ExprEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_124SemaOpenACCClauseVisitor17VisitDetachClauseERNS0_11SemaOpenACC19OpenACCParsedClauseEE3$_0EEET_SE_SE_T0_.exit.i.i.i.i.i", %1258, %._crit_edge.i.i.i.i.i.i.i351
-  %.016.i.i.i.i.i357 = phi ptr [ %.028.i.i.i.i.i.i.i369, %"_ZSt9__find_ifIPPN5clang4ExprEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_124SemaOpenACCClauseVisitor17VisitDetachClauseERNS0_11SemaOpenACC19OpenACCParsedClauseEE3$_0EEET_SE_SE_T0_.exit.i.i.i.i.i" ], [ %1232, %._crit_edge.i.i.i.i.i.i.i351 ], [ %1232, %1258 ], [ %.1.i.i.i.i.i378, %1268 ]
+  %.016.i.i.i.i.i357 = phi ptr [ %.028.i.i.i.i.i.i.i369, %"_ZSt9__find_ifIPPN5clang4ExprEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_124SemaOpenACCClauseVisitor17VisitDetachClauseERNS0_11SemaOpenACC19OpenACCParsedClauseEE3$_0EEET_SE_SE_T0_.exit.i.i.i.i.i" ], [ %1232, %1258 ], [ %1232, %._crit_edge.i.i.i.i.i.i.i351 ], [ %.1.i.i.i.i.i378, %1268 ]
   %1269 = load ptr, ptr %170, align 8, !tbaa !76
   %1270 = ptrtoint ptr %.016.i.i.i.i.i357 to i64
   %1271 = ptrtoint ptr %1269 to i64
@@ -4248,7 +4248,7 @@ _ZN4llvm11SmallVectorIPN5clang4ExprELj6EEC2IS3_vEENS_8ArrayRefIT_EE.exit.i433: ;
   br i1 %.not.i.i.i.i.i470, label %"_ZN4llvm8erase_ifINS_11SmallVectorIPN5clang4ExprELj6EEEZN12_GLOBAL__N_124SemaOpenACCClauseVisitor20VisitDevicePtrClauseERNS2_11SemaOpenACC19OpenACCParsedClauseEE3$_0EEvRT_T0_.exit.i", label %.lr.ph.i.i.i.i.i463, !llvm.loop !99
 
 "_ZN4llvm8erase_ifINS_11SmallVectorIPN5clang4ExprELj6EEEZN12_GLOBAL__N_124SemaOpenACCClauseVisitor20VisitDevicePtrClauseERNS2_11SemaOpenACC19OpenACCParsedClauseEE3$_0EEvRT_T0_.exit.i": ; preds = %1394, %"_ZSt9__find_ifIPPN5clang4ExprEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_124SemaOpenACCClauseVisitor20VisitDevicePtrClauseERNS0_11SemaOpenACC19OpenACCParsedClauseEE3$_0EEET_SE_SE_T0_.exit.i.i.i.i.i", %1384, %._crit_edge.i.i.i.i.i.i.i450
-  %.016.i.i.i.i.i456 = phi ptr [ %.028.i.i.i.i.i.i.i459, %"_ZSt9__find_ifIPPN5clang4ExprEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_124SemaOpenACCClauseVisitor20VisitDevicePtrClauseERNS0_11SemaOpenACC19OpenACCParsedClauseEE3$_0EEET_SE_SE_T0_.exit.i.i.i.i.i" ], [ %1358, %._crit_edge.i.i.i.i.i.i.i450 ], [ %1358, %1384 ], [ %.1.i.i.i.i.i468, %1394 ]
+  %.016.i.i.i.i.i456 = phi ptr [ %.028.i.i.i.i.i.i.i459, %"_ZSt9__find_ifIPPN5clang4ExprEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_124SemaOpenACCClauseVisitor20VisitDevicePtrClauseERNS0_11SemaOpenACC19OpenACCParsedClauseEE3$_0EEET_SE_SE_T0_.exit.i.i.i.i.i" ], [ %1358, %1384 ], [ %1358, %._crit_edge.i.i.i.i.i.i.i450 ], [ %.1.i.i.i.i.i468, %1394 ]
   %1395 = load ptr, ptr %169, align 8, !tbaa !76
   %1396 = ptrtoint ptr %.016.i.i.i.i.i456 to i64
   %1397 = ptrtoint ptr %1395 to i64

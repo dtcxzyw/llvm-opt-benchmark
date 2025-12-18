@@ -556,8 +556,8 @@ define dso_local i64 @seq_read_iter(ptr noundef captures(none) %0, ptr noundef %
   br label %.loopexit17
 
 .loopexit17:                                      ; preds = %101, %.thread12, %166, %.loopexit, %49
-  %171 = phi i64 [ %50, %49 ], [ %57, %.loopexit ], [ %168, %166 ], [ %57, %.thread12 ], [ %57, %101 ]
-  %172 = phi i32 [ 0, %49 ], [ %112, %.loopexit ], [ %156, %166 ], [ -12, %.thread12 ], [ -12, %101 ]
+  %171 = phi i64 [ %57, %.thread12 ], [ %50, %49 ], [ %57, %.loopexit ], [ %168, %166 ], [ %57, %101 ]
+  %172 = phi i32 [ -12, %.thread12 ], [ 0, %49 ], [ %112, %.loopexit ], [ %156, %166 ], [ -12, %101 ]
   %173 = icmp eq i64 %171, 0
   br i1 %173, label %.thread15, label %180, !prof !15
 

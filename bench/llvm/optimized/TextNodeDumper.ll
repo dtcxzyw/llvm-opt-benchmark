@@ -9171,7 +9171,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit91:               ; preds = %247, %245, %_ZN4llv
   br label %_ZNK5clang4Decl15getOwningModuleEv.exit
 
 _ZNK5clang4Decl15getOwningModuleEv.exit:          ; preds = %255, %258
-  %261 = phi ptr [ %256, %255 ], [ %260, %258 ]
+  %261 = phi ptr [ %260, %258 ], [ %256, %255 ]
   %.not60 = icmp eq ptr %261, null
   br i1 %.not60, label %_ZNK5clang4Decl15getOwningModuleEv.exit.thread, label %262
 
@@ -14157,9 +14157,9 @@ _ZN4llvm11raw_ostreamlsEPKc.exit92:               ; preds = %177, %179
 .preheader:                                       ; preds = %.preheader.lr.ph, %"_ZZN5clang14TextNodeDumper19dumpAPValueChildrenERKNS_7APValueENS_8QualTypeEPFS3_S3_jEjN4llvm9StringRefES8_EN3$_0D2Ev.exit"
   %.0.i412 = phi i32 [ 0, %.preheader.lr.ph ], [ %.sroa.speculated, %"_ZZN5clang14TextNodeDumper19dumpAPValueChildrenERKNS_7APValueENS_8QualTypeEPFS3_S3_jEjN4llvm9StringRefES8_EN3$_0D2Ev.exit" ]
   %.val.i = load ptr, ptr %184, align 8, !tbaa !586
-  %190 = add i32 %.0.i412, 4
-  %191 = add nuw i32 %.0.i412, 1
-  %umax432 = call i32 @llvm.umax.i32(i32 %167, i32 %191)
+  %190 = add nuw i32 %.0.i412, 1
+  %umax432 = call i32 @llvm.umax.i32(i32 %167, i32 %190)
+  %191 = add i32 %.0.i412, 4
   br label %192
 
 192:                                              ; preds = %.preheader, %203
@@ -14207,8 +14207,8 @@ tailrecurse.i209:                                 ; preds = %196, %192
   br i1 %205, label %192, label %_ZL15isSimpleAPValueRKN5clang7APValueE.exit213, !llvm.loop !567
 
 _ZL15isSimpleAPValueRKN5clang7APValueE.exit213:   ; preds = %200, %203, %tailrecurse.i209, %tailrecurse.i209, %tailrecurse.i209
-  %storemerge.i382 = phi i32 [ %storemerge.i411, %tailrecurse.i209 ], [ %storemerge.i411, %tailrecurse.i209 ], [ %storemerge.i411, %tailrecurse.i209 ], [ %umax432, %203 ], [ %190, %200 ]
-  %.sroa.speculated = call i32 @llvm.umax.i32(i32 %191, i32 %storemerge.i382)
+  %storemerge.i382 = phi i32 [ %storemerge.i411, %tailrecurse.i209 ], [ %storemerge.i411, %tailrecurse.i209 ], [ %storemerge.i411, %tailrecurse.i209 ], [ %umax432, %203 ], [ %191, %200 ]
+  %.sroa.speculated = call i32 @llvm.umax.i32(i32 %190, i32 %storemerge.i382)
   %206 = sub i32 %.sroa.speculated, %.0.i412
   %207 = icmp ugt i32 %206, 1
   %.sroa.0.0.copyload.i.sroa.speculated = select i1 %207, ptr @.str.509, ptr @.str.508
@@ -14852,9 +14852,9 @@ _ZN4llvm11raw_ostreamlsEPKc.exit157:              ; preds = %548, %550
 .preheader374:                                    ; preds = %.preheader374.lr.ph, %"_ZZN5clang14TextNodeDumper19dumpAPValueChildrenERKNS_7APValueENS_8QualTypeEPFS3_S3_jEjN4llvm9StringRefES8_EN3$_0D2Ev.exit215"
   %.0.i158400 = phi i32 [ 0, %.preheader374.lr.ph ], [ %.sroa.speculated314, %"_ZZN5clang14TextNodeDumper19dumpAPValueChildrenERKNS_7APValueENS_8QualTypeEPFS3_S3_jEjN4llvm9StringRefES8_EN3$_0D2Ev.exit215" ]
   %.val.i222 = load ptr, ptr %555, align 8, !tbaa !594
-  %561 = add i32 %.0.i158400, 4
-  %562 = add nuw i32 %.0.i158400, 1
-  %umax431 = call i32 @llvm.umax.i32(i32 %538, i32 %562)
+  %561 = add nuw i32 %.0.i158400, 1
+  %umax431 = call i32 @llvm.umax.i32(i32 %538, i32 %561)
+  %562 = add i32 %.0.i158400, 4
   br label %563
 
 563:                                              ; preds = %.preheader374, %574
@@ -14902,8 +14902,8 @@ tailrecurse.i217:                                 ; preds = %567, %563
   br i1 %576, label %563, label %_ZL15isSimpleAPValueRKN5clang7APValueE.exit221, !llvm.loop !567
 
 _ZL15isSimpleAPValueRKN5clang7APValueE.exit221:   ; preds = %571, %574, %tailrecurse.i217, %tailrecurse.i217, %tailrecurse.i217
-  %storemerge.i159385 = phi i32 [ %storemerge.i159399, %tailrecurse.i217 ], [ %storemerge.i159399, %tailrecurse.i217 ], [ %storemerge.i159399, %tailrecurse.i217 ], [ %umax431, %574 ], [ %561, %571 ]
-  %.sroa.speculated314 = call i32 @llvm.umax.i32(i32 %562, i32 %storemerge.i159385)
+  %storemerge.i159385 = phi i32 [ %storemerge.i159399, %tailrecurse.i217 ], [ %storemerge.i159399, %tailrecurse.i217 ], [ %storemerge.i159399, %tailrecurse.i217 ], [ %umax431, %574 ], [ %562, %571 ]
+  %.sroa.speculated314 = call i32 @llvm.umax.i32(i32 %561, i32 %storemerge.i159385)
   %577 = sub i32 %.sroa.speculated314, %.0.i158400
   %578 = icmp ugt i32 %577, 1
   %.sroa.0.0.copyload.i161.sroa.speculated = select i1 %578, ptr @.str.509, ptr @.str.508
@@ -15140,9 +15140,9 @@ _ZN4llvm11raw_ostreamlsEPKc.exit168:              ; preds = %668, %670
 .preheader378:                                    ; preds = %.preheader378.lr.ph, %"_ZZN5clang14TextNodeDumper19dumpAPValueChildrenERKNS_7APValueENS_8QualTypeEPFS3_S3_jEjN4llvm9StringRefES8_EN3$_0D2Ev.exit230"
   %.0.i169394 = phi i32 [ 0, %.preheader378.lr.ph ], [ %.sroa.speculated327, %"_ZZN5clang14TextNodeDumper19dumpAPValueChildrenERKNS_7APValueENS_8QualTypeEPFS3_S3_jEjN4llvm9StringRefES8_EN3$_0D2Ev.exit230" ]
   %.val.i237 = load ptr, ptr %675, align 8, !tbaa !604
-  %681 = add i32 %.0.i169394, 4
-  %682 = add nuw i32 %.0.i169394, 1
-  %umax = call i32 @llvm.umax.i32(i32 %674, i32 %682)
+  %681 = add nuw i32 %.0.i169394, 1
+  %umax = call i32 @llvm.umax.i32(i32 %674, i32 %681)
+  %682 = add i32 %.0.i169394, 4
   br label %683
 
 683:                                              ; preds = %.preheader378, %694
@@ -15190,8 +15190,8 @@ tailrecurse.i232:                                 ; preds = %687, %683
   br i1 %696, label %683, label %_ZL15isSimpleAPValueRKN5clang7APValueE.exit236, !llvm.loop !567
 
 _ZL15isSimpleAPValueRKN5clang7APValueE.exit236:   ; preds = %691, %694, %tailrecurse.i232, %tailrecurse.i232, %tailrecurse.i232
-  %storemerge.i170391 = phi i32 [ %storemerge.i170393, %tailrecurse.i232 ], [ %storemerge.i170393, %tailrecurse.i232 ], [ %storemerge.i170393, %tailrecurse.i232 ], [ %umax, %694 ], [ %681, %691 ]
-  %.sroa.speculated327 = call i32 @llvm.umax.i32(i32 %682, i32 %storemerge.i170391)
+  %storemerge.i170391 = phi i32 [ %storemerge.i170393, %tailrecurse.i232 ], [ %storemerge.i170393, %tailrecurse.i232 ], [ %storemerge.i170393, %tailrecurse.i232 ], [ %umax, %694 ], [ %682, %691 ]
+  %.sroa.speculated327 = call i32 @llvm.umax.i32(i32 %681, i32 %storemerge.i170391)
   %697 = sub i32 %.sroa.speculated327, %.0.i169394
   %698 = icmp ugt i32 %697, 1
   %.sroa.0.0.copyload.i172.sroa.speculated = select i1 %698, ptr @.str.525, ptr @.str.524
@@ -15236,9 +15236,9 @@ _ZN5clang14TextNodeDumper19dumpAPValueChildrenERKNS_7APValueENS_8QualTypeEPFS3_S
   %.0.i176397 = phi i32 [ 0, %.preheader376.lr.ph ], [ %.sroa.speculated340, %"_ZZN5clang14TextNodeDumper19dumpAPValueChildrenERKNS_7APValueENS_8QualTypeEPFS3_S3_jEjN4llvm9StringRefES8_EN3$_0D2Ev.exit239" ]
   %.val.i246 = load ptr, ptr %704, align 8, !tbaa !604
   %.val1.i = load i32, ptr %673, align 8, !tbaa !602
-  %710 = add i32 %.0.i176397, 4
-  %711 = add nuw i32 %.0.i176397, 1
-  %umax430 = call i32 @llvm.umax.i32(i32 %703, i32 %711)
+  %710 = add nuw i32 %.0.i176397, 1
+  %umax430 = call i32 @llvm.umax.i32(i32 %703, i32 %710)
+  %711 = add i32 %.0.i176397, 4
   br label %712
 
 712:                                              ; preds = %.preheader376, %724
@@ -15287,8 +15287,8 @@ tailrecurse.i241:                                 ; preds = %717, %712
   br i1 %726, label %712, label %_ZL15isSimpleAPValueRKN5clang7APValueE.exit245, !llvm.loop !567
 
 _ZL15isSimpleAPValueRKN5clang7APValueE.exit245:   ; preds = %721, %724, %tailrecurse.i241, %tailrecurse.i241, %tailrecurse.i241
-  %storemerge.i177388 = phi i32 [ %storemerge.i177396, %tailrecurse.i241 ], [ %storemerge.i177396, %tailrecurse.i241 ], [ %storemerge.i177396, %tailrecurse.i241 ], [ %umax430, %724 ], [ %710, %721 ]
-  %.sroa.speculated340 = call i32 @llvm.umax.i32(i32 %711, i32 %storemerge.i177388)
+  %storemerge.i177388 = phi i32 [ %storemerge.i177396, %tailrecurse.i241 ], [ %storemerge.i177396, %tailrecurse.i241 ], [ %storemerge.i177396, %tailrecurse.i241 ], [ %umax430, %724 ], [ %711, %721 ]
+  %.sroa.speculated340 = call i32 @llvm.umax.i32(i32 %710, i32 %storemerge.i177388)
   %727 = sub i32 %.sroa.speculated340, %.0.i176397
   %728 = icmp ugt i32 %727, 1
   %.sroa.0.0.copyload.i179.sroa.speculated = select i1 %728, ptr @.str.527, ptr @.str.526

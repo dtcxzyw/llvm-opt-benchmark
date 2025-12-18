@@ -4937,7 +4937,7 @@ define internal fastcc noundef ptr @"_ZN114_$LT$core..iter..adapters..flatten..F
   br label %12
 
 "_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6de5c49018454341E.exit": ; preds = %12, %.loopexit.i, %43, %"_ZN4core3ptr143drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$$GT$17hc1682510713ffeaaE.exit.i11.i"
-  %.0.i = phi ptr [ null, %.loopexit.i ], [ %45, %43 ], [ null, %"_ZN4core3ptr143drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$$GT$17hc1682510713ffeaaE.exit.i11.i" ], [ %13, %12 ]
+  %.0.i = phi ptr [ null, %"_ZN4core3ptr143drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$$GT$17hc1682510713ffeaaE.exit.i11.i" ], [ null, %.loopexit.i ], [ %45, %43 ], [ %13, %12 ]
   ret ptr %.0.i
 }
 

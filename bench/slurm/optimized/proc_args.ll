@@ -907,7 +907,7 @@ _end_on_byte.exit20.thread.fold.split:            ; preds = %_end_on_byte.exit22
   br label %_end_on_byte.exit20.thread
 
 _end_on_byte.exit20.thread:                       ; preds = %42, %39, %11, %_end_on_byte.exit20.thread.fold.split, %_end_on_byte.exit, %_end_on_byte.exit20, %26, %23, %46, %20, %37, %7, %1
-  %.010 = phi i64 [ %38, %37 ], [ -2, %1 ], [ -2, %7 ], [ -2, %_end_on_byte.exit20.thread.fold.split ], [ %4, %11 ], [ %22, %20 ], [ %47, %46 ], [ %4, %23 ], [ %4, %26 ], [ -2, %_end_on_byte.exit20 ], [ -2, %_end_on_byte.exit ], [ -2, %39 ], [ -2, %42 ]
+  %.010 = phi i64 [ %38, %37 ], [ -2, %1 ], [ -2, %7 ], [ -2, %_end_on_byte.exit20.thread.fold.split ], [ -2, %_end_on_byte.exit ], [ %4, %11 ], [ %22, %20 ], [ %47, %46 ], [ %4, %23 ], [ %4, %26 ], [ -2, %_end_on_byte.exit20 ], [ -2, %39 ], [ -2, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.010
 }

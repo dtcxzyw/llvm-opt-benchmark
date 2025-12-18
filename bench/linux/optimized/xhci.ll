@@ -400,8 +400,8 @@ define dso_local range(i32 -110, 1) i32 @xhci_handshake(ptr noundef %0, i32 noun
   br i1 %27, label %.loopexit, label %.split, !llvm.loop !8
 
 .loopexit:                                        ; preds = %21, %.split.us, %19, %4
-  %.pre-phi = phi i32 [ %6, %4 ], [ %.pre, %19 ], [ %13, %.split.us ], [ %24, %21 ]
-  %28 = phi i32 [ %5, %4 ], [ %20, %19 ], [ %12, %.split.us ], [ %23, %21 ]
+  %.pre-phi = phi i32 [ %13, %.split.us ], [ %6, %4 ], [ %.pre, %19 ], [ %24, %21 ]
+  %28 = phi i32 [ %12, %.split.us ], [ %5, %4 ], [ %20, %19 ], [ %23, %21 ]
   %29 = icmp eq i32 %28, -1
   %30 = icmp eq i32 %.pre-phi, %2
   %31 = select i1 %30, i32 0, i32 -110
@@ -481,8 +481,8 @@ define dso_local range(i32 -110, 1) i32 @xhci_handshake_check_state(ptr noundef 
   br i1 %43, label %.loopexit, label %29, !llvm.loop !10
 
 .loopexit:                                        ; preds = %29, %38, %25, %.split.us, %36, %12, %6
-  %.pre-phi = phi i32 [ %8, %6 ], [ %.pre5, %36 ], [ %8, %12 ], [ %21, %25 ], [ %21, %.split.us ], [ %40, %38 ], [ %40, %29 ]
-  %44 = phi i32 [ %7, %6 ], [ %37, %36 ], [ %7, %12 ], [ %20, %25 ], [ %20, %.split.us ], [ %39, %38 ], [ %39, %29 ]
+  %.pre-phi = phi i32 [ %21, %25 ], [ %8, %6 ], [ %.pre5, %36 ], [ %8, %12 ], [ %21, %.split.us ], [ %40, %38 ], [ %40, %29 ]
+  %44 = phi i32 [ %20, %25 ], [ %7, %6 ], [ %37, %36 ], [ %7, %12 ], [ %20, %.split.us ], [ %39, %38 ], [ %39, %29 ]
   %45 = icmp eq i32 %.pre-phi, %3
   %46 = icmp eq i32 %44, -1
   %47 = or i1 %46, %45
@@ -840,8 +840,8 @@ define dso_local range(i32 -110, 1) i32 @xhci_reset(ptr noundef %0, i64 noundef 
   br i1 %67, label %.loopexit5, label %53, !llvm.loop !10
 
 .loopexit5:                                       ; preds = %53, %62, %49, %.split.us, %60, %34, %27
-  %.pre-phi = phi i32 [ %30, %27 ], [ %.pre15, %60 ], [ 1, %34 ], [ 1, %49 ], [ %45, %.split.us ], [ %64, %62 ], [ 1, %53 ]
-  %68 = phi i32 [ %29, %27 ], [ %61, %60 ], [ %29, %34 ], [ %44, %49 ], [ %44, %.split.us ], [ %63, %62 ], [ %63, %53 ]
+  %.pre-phi = phi i32 [ 1, %49 ], [ %30, %27 ], [ %.pre15, %60 ], [ 1, %34 ], [ %45, %.split.us ], [ %64, %62 ], [ 1, %53 ]
+  %68 = phi i32 [ %44, %49 ], [ %29, %27 ], [ %61, %60 ], [ %29, %34 ], [ %44, %.split.us ], [ %63, %62 ], [ %63, %53 ]
   %69 = icmp eq i32 %.pre-phi, 0
   %70 = icmp eq i32 %68, -1
   %71 = or i1 %70, %69
@@ -929,8 +929,8 @@ define dso_local range(i32 -110, 1) i32 @xhci_reset(ptr noundef %0, i64 noundef 
   br i1 %112, label %.loopexit, label %.split7, !llvm.loop !8
 
 .loopexit:                                        ; preds = %106, %.split7.us, %104, %87
-  %.pre-phi17 = phi i32 [ %91, %87 ], [ %.pre16, %104 ], [ %98, %.split7.us ], [ %109, %106 ]
-  %113 = phi i32 [ %90, %87 ], [ %105, %104 ], [ %97, %.split7.us ], [ %108, %106 ]
+  %.pre-phi17 = phi i32 [ %98, %.split7.us ], [ %91, %87 ], [ %.pre16, %104 ], [ %109, %106 ]
+  %113 = phi i32 [ %97, %.split7.us ], [ %90, %87 ], [ %105, %104 ], [ %108, %106 ]
   %114 = icmp eq i32 %113, -1
   %115 = icmp eq i32 %.pre-phi17, 0
   %116 = select i1 %115, i32 0, i32 -110
@@ -11057,8 +11057,8 @@ default.unreachable9:                             ; preds = %27
   %144 = icmp samesign ult i64 %129, 256000
   br i1 %144, label %.thread4, label %.thread6
 
-.thread6:                                         ; preds = %69, %65, %136, %76, %141
-  %145 = phi i16 [ %143, %141 ], [ 255, %136 ], [ 255, %76 ], [ %.zext, %69 ], [ 1, %65 ]
+.thread6:                                         ; preds = %69, %65, %76, %136, %141
+  %145 = phi i16 [ %143, %141 ], [ 255, %76 ], [ 255, %136 ], [ %.zext, %69 ], [ 1, %65 ]
   %146 = load i16, ptr %4, align 2
   %147 = icmp ugt i16 %145, %146
   br i1 %147, label %.thread4, label %150

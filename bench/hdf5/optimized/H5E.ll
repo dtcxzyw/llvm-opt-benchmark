@@ -2615,7 +2615,7 @@ define range(i32 -1, 1) i32 @H5Epause_stack(i64 noundef %0) local_unnamed_addr #
 38:                                               ; preds = %35
   %39 = call ptr @H5I_object_verify(i64 noundef %0, i32 noundef 14) #7
   %40 = icmp eq ptr %39, null
-  br i1 %40, label %.thread24, label %45
+  br i1 %40, label %.thread24, label %45, !prof !14
 
 .thread24:                                        ; preds = %38
   %41 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !11

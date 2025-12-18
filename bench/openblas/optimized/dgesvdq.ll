@@ -1100,7 +1100,7 @@ define void @dgesvdq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   br label %542
 
 542:                                              ; preds = %.loopexit1952, %.loopexit1951, %._crit_edge1991, %515
-  %.01638 = phi double [ undef, %515 ], [ %541, %._crit_edge1991 ], [ undef, %.loopexit1951 ], [ undef, %.loopexit1952 ]
+  %.01638 = phi double [ %541, %._crit_edge1991 ], [ undef, %.loopexit1951 ], [ undef, %515 ], [ undef, %.loopexit1952 ]
   br i1 %54, label %.sink.split2651, label %543
 
 543:                                              ; preds = %542

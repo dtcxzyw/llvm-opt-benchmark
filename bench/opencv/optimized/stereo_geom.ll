@@ -677,7 +677,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZNSt6vectorIfSaIfE
   br i1 %exitcond.not, label %.loopexit240, label %.lr.ph, !llvm.loop !55
 
 .loopexit240:                                     ; preds = %.lr.ph, %.lr.ph245, %.lr.ph247, %193, %209, %204, %199
-  %.0131 = phi ptr [ %.sroa.0217.0228, %204 ], [ %.sroa.0217.0228, %199 ], [ %.sroa.0217.0228, %209 ], [ %198, %193 ], [ %.sroa.0217.0228, %.lr.ph245 ], [ %.sroa.0217.0228, %.lr.ph247 ], [ %.sroa.0217.0228, %.lr.ph ]
+  %.0131 = phi ptr [ %.sroa.0217.0228, %.lr.ph245 ], [ %.sroa.0217.0228, %199 ], [ %.sroa.0217.0228, %204 ], [ %.sroa.0217.0228, %209 ], [ %198, %193 ], [ %.sroa.0217.0228, %.lr.ph247 ], [ %.sroa.0217.0228, %.lr.ph ]
   br i1 %178, label %214, label %220
 
 214:                                              ; preds = %.loopexit240

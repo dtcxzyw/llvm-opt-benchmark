@@ -122,7 +122,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   br i1 %50, label %.thread113, label %51
 
 51:                                               ; preds = %47, %46, %16
-  %.088 = phi i32 [ %23, %16 ], [ %34, %46 ], [ %23, %47 ]
+  %.088 = phi i32 [ %23, %47 ], [ %23, %16 ], [ %34, %46 ]
   %52 = icmp eq i32 %.088, 0
   br i1 %52, label %.thread113, label %65
 

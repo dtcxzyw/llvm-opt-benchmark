@@ -612,7 +612,7 @@ define hidden noundef zeroext i1 @_ZNK12LIRGenerator22can_inline_as_constantEP11
   br label %26
 
 26:                                               ; preds = %2, %.fold.split, %12, %7
-  %.0 = phi i1 [ false, %2 ], [ false, %7 ], [ %25, %12 ], [ true, %.fold.split ]
+  %.0 = phi i1 [ false, %2 ], [ %25, %12 ], [ false, %7 ], [ true, %.fold.split ]
   ret i1 %.0
 }
 

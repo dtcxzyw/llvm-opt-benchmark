@@ -736,7 +736,7 @@ define internal void @io_waitid_cb(ptr noundef %0, ptr noundef captures(none) %1
   br label %34
 
 34:                                               ; preds = %17, %32, %12
-  %35 = phi i32 [ %15, %12 ], [ -125, %17 ], [ %30, %32 ]
+  %35 = phi i32 [ %15, %12 ], [ %30, %32 ], [ -125, %17 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 1
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 20

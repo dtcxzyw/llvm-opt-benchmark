@@ -14327,8 +14327,8 @@ define hidden void @_ZN8language6buffer6Buffer4edit17h5b254ba67dd01007E.llvm.229
   br label %.body103
 
 .body103:                                         ; preds = %62, %108, %110, %40
-  %.sroa.046.0.lpad-body = phi i1 [ true, %40 ], [ false, %110 ], [ false, %108 ], [ true, %62 ]
-  %eh.lpad-body104 = phi { ptr, i32 } [ %41, %40 ], [ %109, %110 ], [ %109, %108 ], [ %65, %62 ]
+  %.sroa.046.0.lpad-body = phi i1 [ false, %108 ], [ true, %40 ], [ false, %110 ], [ true, %62 ]
+  %eh.lpad-body104 = phi { ptr, i32 } [ %109, %108 ], [ %41, %40 ], [ %109, %110 ], [ %65, %62 ]
   %42 = extractvalue { ptr, i32 } %eh.lpad-body104, 0
   %43 = extractvalue { ptr, i32 } %eh.lpad-body104, 1
   br label %.thread
@@ -16055,7 +16055,7 @@ define hidden void @"_ZN99_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$a
   br i1 %.not.i.i.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h15d8be43ce3fe5baE.exit.thread.i.i", label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h15d8be43ce3fe5baE.exit.i.i"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h15d8be43ce3fe5baE.exit.i.i": ; preds = %98, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h3b6902ca1ed2d4d8E.exit.thread.i.i", %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h3b6902ca1ed2d4d8E.exit.i.i"
-  %.sroa.02.062.i.i = phi i8 [ %spec.select.i.i, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h3b6902ca1ed2d4d8E.exit.thread.i.i" ], [ 0, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h3b6902ca1ed2d4d8E.exit.i.i" ], [ 0, %98 ]
+  %.sroa.02.062.i.i = phi i8 [ 0, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h3b6902ca1ed2d4d8E.exit.i.i" ], [ %spec.select.i.i, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h3b6902ca1ed2d4d8E.exit.thread.i.i" ], [ 0, %98 ]
   %rhsc.i.i = load i8, ptr %91, align 1, !noalias !4841
   %104 = icmp eq i8 %rhsc.i.i, 10
   %spec.select78.i.i = zext i1 %104 to i64

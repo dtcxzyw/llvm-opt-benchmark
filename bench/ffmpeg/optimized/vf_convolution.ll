@@ -1063,7 +1063,7 @@ ff_sobel_init.exit:                               ; preds = %264, %241, %.prehea
   br label %.loopexit
 
 .loopexit:                                        ; preds = %335, %325, %315, %305, %296, %.preheader320, %.preheader318, %.preheader316, %.preheader314, %.preheader, %278, %309, %327, %329, %319, %299, %.critedge
-  %.2275 = phi i32 [ -22, %.critedge ], [ 0, %299 ], [ 0, %319 ], [ 0, %329 ], [ 0, %327 ], [ 0, %309 ], [ 0, %278 ], [ 0, %.preheader318 ], [ 0, %.preheader ], [ 0, %.preheader314 ], [ 0, %.preheader316 ], [ 0, %.preheader320 ], [ 0, %325 ], [ 0, %296 ], [ 0, %305 ], [ 0, %315 ], [ 0, %335 ]
+  %.2275 = phi i32 [ -22, %.critedge ], [ 0, %.preheader318 ], [ 0, %299 ], [ 0, %.preheader314 ], [ 0, %319 ], [ 0, %329 ], [ 0, %.preheader316 ], [ 0, %327 ], [ 0, %309 ], [ 0, %.preheader ], [ 0, %278 ], [ 0, %.preheader320 ], [ 0, %305 ], [ 0, %315 ], [ 0, %325 ], [ 0, %296 ], [ 0, %335 ]
   ret i32 %.2275
 }
 

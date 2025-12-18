@@ -174,7 +174,7 @@ define dso_local void @_ZN4llvm15PrintModulePass3runERNS_6ModuleERNS_15AnalysisM
   br i1 %.not.i13.i.i, label %.sink.split.i.i, label %.lr.ph.i10.i.i
 
 .sink.split.i.i:                                  ; preds = %.lr.ph.i.i.i, %.lr.ph.i10.i.i, %17, %11
-  %.sink.i.i = phi i8 [ 1, %11 ], [ 0, %17 ], [ 0, %.lr.ph.i10.i.i ], [ 1, %.lr.ph.i.i.i ]
+  %.sink.i.i = phi i8 [ 1, %11 ], [ 0, %.lr.ph.i10.i.i ], [ 0, %17 ], [ 1, %.lr.ph.i.i.i ]
   store i8 %.sink.i.i, ptr %8, align 8, !tbaa !29
   %.pre = load i8, ptr getelementptr inbounds nuw (i8, ptr @WriteNewDbgInfoFormat, i64 120), align 8, !tbaa !21, !range !27
   br label %_ZN4llvm25ScopedDbgInfoFormatSetterINS_6ModuleEEC2ERS1_b.exit
@@ -392,7 +392,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit19:               ; preds = %76, %74, %62, %61
   br i1 %.not.i13.i.i36, label %.sink.split.i.i28, label %.lr.ph.i10.i.i33
 
 .sink.split.i.i28:                                ; preds = %.lr.ph.i.i.i24, %.lr.ph.i10.i.i33, %115, %109
-  %.sink.i.i29 = phi i8 [ 1, %109 ], [ 0, %115 ], [ 0, %.lr.ph.i10.i.i33 ], [ 1, %.lr.ph.i.i.i24 ]
+  %.sink.i.i29 = phi i8 [ 1, %109 ], [ 0, %.lr.ph.i10.i.i33 ], [ 0, %115 ], [ 1, %.lr.ph.i.i.i24 ]
   store i8 %.sink.i.i29, ptr %8, align 8, !tbaa !29
   br label %_ZN4llvm25ScopedDbgInfoFormatSetterINS_6ModuleEED2Ev.exit
 

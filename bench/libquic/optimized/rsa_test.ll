@@ -759,7 +759,7 @@ _ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev.exit50.i: ;
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %.sink.split.sink.split.i, %243, %_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev.exit50.i, %233, %_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev.exit46.i, %220, %_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev.exit.i5
-  %.019.ph.ph.i = phi i1 [ true, %220 ], [ false, %233 ], [ true, %_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev.exit.i5 ], [ false, %_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev.exit46.i ], [ false, %_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev.exit50.i ], [ false, %243 ], [ false, %.sink.split.sink.split.i ]
+  %.019.ph.ph.i = phi i1 [ false, %243 ], [ true, %220 ], [ false, %233 ], [ false, %_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev.exit50.i ], [ true, %_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev.exit.i5 ], [ false, %_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev.exit46.i ], [ false, %.sink.split.sink.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %247
 
@@ -1709,8 +1709,8 @@ _ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit29:  ; preds = %79, %78, %43
   br label %81
 
 80:                                               ; preds = %_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE5resetEPS0_.exit, %34, %37, %13, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit
-  %.sroa.036.0 = phi ptr [ %23, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit ], [ %23, %37 ], [ %23, %34 ], [ %23, %_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE5resetEPS0_.exit ], [ %14, %13 ]
-  %.28 = phi i1 [ %.39, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit ], [ false, %37 ], [ false, %34 ], [ false, %_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE5resetEPS0_.exit ], [ false, %13 ]
+  %.sroa.036.0 = phi ptr [ %14, %13 ], [ %23, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit ], [ %23, %37 ], [ %23, %34 ], [ %23, %_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE5resetEPS0_.exit ]
+  %.28 = phi i1 [ false, %13 ], [ %.39, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit ], [ false, %37 ], [ false, %34 ], [ false, %_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE5resetEPS0_.exit ]
   %.not.i30 = icmp eq ptr %.sroa.036.0, null
   br i1 %.not.i30, label %83, label %.thread
 

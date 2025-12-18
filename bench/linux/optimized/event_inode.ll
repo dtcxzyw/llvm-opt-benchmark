@@ -1004,7 +1004,7 @@ define internal noundef ptr @eventfs_root_lookup(ptr noundef readonly captures(n
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.thread12, %249, %28, %.thread11, %141, %49, %44, %17, %13
-  %250 = phi ptr [ null, %17 ], [ null, %44 ], [ inttoptr (i64 -12 to ptr), %49 ], [ null, %141 ], [ null, %13 ], [ null, %28 ], [ null, %249 ], [ %.ph, %.thread11 ], [ null, %.thread12 ]
+  %250 = phi ptr [ null, %17 ], [ null, %44 ], [ inttoptr (i64 -12 to ptr), %49 ], [ null, %141 ], [ null, %13 ], [ null, %28 ], [ %.ph, %.thread11 ], [ null, %249 ], [ null, %.thread12 ]
   call void @mutex_unlock(ptr noundef nonnull @eventfs_mutex) #7
   br label %251
 

@@ -193,7 +193,7 @@ oidread.exit:                                     ; preds = %32, %.split.loop.ex
   br label %59
 
 59:                                               ; preds = %.sink.split, %56, %oidread.exit
-  %.0 = phi i32 [ 0, %oidread.exit ], [ 0, %56 ], [ -1, %.sink.split ]
+  %.0 = phi i32 [ 0, %56 ], [ 0, %oidread.exit ], [ -1, %.sink.split ]
   ret i32 %.0
 }
 

@@ -194,9 +194,9 @@ files_fget_by_index.exit45.loopexit:              ; preds = %files_fget_by_index
   br label %files_fget_by_index.exit45
 
 files_fget_by_index.exit45:                       ; preds = %files_fget_by_index.exit45.loopexit, %54, %47
-  %.036 = phi ptr [ %52, %47 ], [ %52, %54 ], [ %33, %files_fget_by_index.exit45.loopexit ]
-  %.135.in = phi i64 [ %indvars.iv.next57, %47 ], [ %indvars.iv.next57, %54 ], [ %indvars.iv56, %files_fget_by_index.exit45.loopexit ]
-  %.2 = phi i32 [ 0, %47 ], [ 0, %54 ], [ %55, %files_fget_by_index.exit45.loopexit ]
+  %.036 = phi ptr [ %52, %54 ], [ %52, %47 ], [ %33, %files_fget_by_index.exit45.loopexit ]
+  %.135.in = phi i64 [ %indvars.iv.next57, %54 ], [ %indvars.iv.next57, %47 ], [ %indvars.iv56, %files_fget_by_index.exit45.loopexit ]
+  %.2 = phi i32 [ 0, %54 ], [ 0, %47 ], [ %55, %files_fget_by_index.exit45.loopexit ]
   %.135 = trunc i64 %.135.in to i32
   store i32 %2, ptr %.036, align 8
   %56 = getelementptr inbounds nuw i8, ptr %.036, i64 4
@@ -623,7 +623,7 @@ files_fget_by_index.exit34:                       ; preds = %94, %100
   br i1 %107, label %.preheader, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %.split, %.thread36, %files_fget_by_index.exit34, %.split.us.us.split, %files_fget_by_index.exit34.us.us, %.thread36.us.us, %.split.us.us.split.us.us, %.thread36.us.us.us.us, %files_fget_by_index.exit34.us.us.us.us, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %.split.us.us.split.us.us ], [ %102, %files_fget_by_index.exit34 ], [ %70, %files_fget_by_index.exit34.us.us ], [ %35, %files_fget_by_index.exit34.us.us.us.us ], [ 0, %.split.us.us.split ], [ %25, %.thread36.us.us.us.us ], [ %60, %.thread36.us.us ], [ %92, %.thread36 ], [ 0, %.split ]
+  %.0 = phi i32 [ 0, %.split.us.us.split.us.us ], [ %102, %files_fget_by_index.exit34 ], [ 0, %.split.us.us.split ], [ 0, %4 ], [ %70, %files_fget_by_index.exit34.us.us ], [ %35, %files_fget_by_index.exit34.us.us.us.us ], [ %25, %.thread36.us.us.us.us ], [ %60, %.thread36.us.us ], [ %92, %.thread36 ], [ 0, %.split ]
   ret i32 %.0
 }
 

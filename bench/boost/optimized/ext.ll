@@ -28298,7 +28298,7 @@ _ZNSt15basic_streambufIcSt11char_traitsIcEE5sputcEc.exit36: ; preds = %44
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %_ZNSt15basic_streambufIcSt11char_traitsIcEE5sputcEc.exit34, %_ZNSt15basic_streambufIcSt11char_traitsIcEE5sputcEc.exit36, %63, %60, %22, %_ZNSt15basic_streambufIcSt11char_traitsIcEE5sputcEc.exit
-  %.0 = phi i1 [ false, %22 ], [ false, %_ZNSt15basic_streambufIcSt11char_traitsIcEE5sputcEc.exit ], [ true, %60 ], [ %69, %63 ], [ false, %_ZNSt15basic_streambufIcSt11char_traitsIcEE5sputcEc.exit36 ], [ false, %_ZNSt15basic_streambufIcSt11char_traitsIcEE5sputcEc.exit34 ]
+  %.0 = phi i1 [ false, %22 ], [ false, %_ZNSt15basic_streambufIcSt11char_traitsIcEE5sputcEc.exit ], [ %69, %63 ], [ true, %60 ], [ false, %_ZNSt15basic_streambufIcSt11char_traitsIcEE5sputcEc.exit36 ], [ false, %_ZNSt15basic_streambufIcSt11char_traitsIcEE5sputcEc.exit34 ]
   ret i1 %.0
 }
 
@@ -31177,7 +31177,7 @@ _ZSt7advanceIN5boost7process2v211environment12current_view8iteratorEmEvRT_T0_.ex
   br i1 %.not.i.i.i.i.i25, label %_ZSt4copyIN5boost7process2v211environment12current_view8iteratorEPNS3_14key_value_pairEET0_T_S9_S8_.exit27, label %.lr.ph.i.i.i.i.i22, !llvm.loop !935
 
 _ZSt4copyIN5boost7process2v211environment12current_view8iteratorEPNS3_14key_value_pairEET0_T_S9_S8_.exit27: ; preds = %.lr.ph.i.i.i.i.i22, %55, %_ZSt7advanceIN5boost7process2v211environment12current_view8iteratorEmEvRT_T0_.exit
-  %.sroa.0.030 = phi ptr [ %59, %_ZSt7advanceIN5boost7process2v211environment12current_view8iteratorEmEvRT_T0_.exit ], [ %1, %55 ], [ %59, %.lr.ph.i.i.i.i.i22 ]
+  %.sroa.0.030 = phi ptr [ %1, %55 ], [ %59, %_ZSt7advanceIN5boost7process2v211environment12current_view8iteratorEmEvRT_T0_.exit ], [ %59, %.lr.ph.i.i.i.i.i22 ]
   %65 = load ptr, ptr %38, align 8, !tbaa !378
   %66 = call noundef ptr @_ZSt16__do_uninit_copyIN5boost7process2v211environment12current_view8iteratorEPNS3_14key_value_pairEET0_T_S9_S8_(ptr %.sroa.0.030, ptr %2, ptr noundef %65)
   store ptr %66, ptr %38, align 8, !tbaa !378

@@ -1535,8 +1535,8 @@ bytestream2_get_byte.exit.split.us.i.i36.i:       ; preds = %bytestream2_get_byt
   %.pre = ptrtoint ptr %936 to i64
   br label %decode_nal_sei_message.exit.thread
 
-decode_nal_sei_message.exit.thread:               ; preds = %bytestream2_get_byte.exit.split.us.i.i36.i, %bytestream2_get_byte.exit.i.i34.i, %958
-  %.pre-phi = phi i64 [ %.pre, %958 ], [ %946, %bytestream2_get_byte.exit.i.i34.i ], [ %946, %bytestream2_get_byte.exit.split.us.i.i36.i ]
+decode_nal_sei_message.exit.thread:               ; preds = %bytestream2_get_byte.exit.split.us.i.i36.i, %958, %bytestream2_get_byte.exit.i.i34.i
+  %.pre-phi = phi i64 [ %946, %bytestream2_get_byte.exit.i.i34.i ], [ %.pre, %958 ], [ %946, %bytestream2_get_byte.exit.split.us.i.i36.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %959 = sub i64 %20, %.pre-phi
@@ -1544,7 +1544,7 @@ decode_nal_sei_message.exit.thread:               ; preds = %bytestream2_get_byt
   %961 = icmp sgt i32 %960, 0
   br i1 %961, label %bytestream2_init.exit.split, label %.loopexit, !llvm.loop !83
 
-decode_nal_sei_message.exit.thread17:             ; preds = %930, %907, %.preheader.i, %869, %get_se_golomb.exit.i.i.i.us, %get_ue_golomb.exit121.i.i.i.us, %get_ue_golomb.exit109.i.i.i.us, %get_ue_golomb.exit.i.i.i.us, %90, %67, %.preheader.i.us, %349, %get_ue_golomb.exit145.i.i.i.us, %get_ue_golomb_long.exit32.thread.i.i.i, %get_ue_golomb_long.exit.thread.i.i.i
+decode_nal_sei_message.exit.thread17:             ; preds = %930, %907, %.preheader.i, %869, %get_se_golomb.exit.i.i.i.us, %get_ue_golomb.exit121.i.i.i.us, %get_ue_golomb.exit109.i.i.i.us, %get_ue_golomb.exit.i.i.i.us, %90, %67, %.preheader.i.us, %349, %get_ue_golomb.exit145.i.i.i.us, %get_ue_golomb_long.exit.thread.i.i.i, %get_ue_golomb_long.exit32.thread.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit

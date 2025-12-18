@@ -330,7 +330,7 @@ _ZN4cvc58internal6theory14TypeEnumeratorD2Ev.exit25: ; preds = %111, %107, %105
   br label %235
 
 _ZNSt13unordered_mapIN4cvc58internal8TypeNodeEmSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_mEEE4findERS8_.exit: ; preds = %37, %15, %27
-  %.sroa.06.1.i.i = phi ptr [ %28, %27 ], [ %.sroa.06.0.i.i, %15 ], [ %43, %37 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %15 ], [ %28, %27 ], [ %43, %37 ]
   %115 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %116 = load i64, ptr %115, align 8, !tbaa !51
   br label %117

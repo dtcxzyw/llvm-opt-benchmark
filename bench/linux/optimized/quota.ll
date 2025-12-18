@@ -191,8 +191,8 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_quotactl
   br label %.thread
 
 .thread:                                          ; preds = %44, %44, %44, %44, %.thread.fold.split, %45
-  %46 = phi i1 [ false, %45 ], [ true, %44 ], [ true, %44 ], [ true, %44 ], [ true, %44 ], [ false, %.thread.fold.split ]
-  %47 = phi i1 [ false, %45 ], [ false, %44 ], [ false, %44 ], [ false, %44 ], [ false, %44 ], [ true, %.thread.fold.split ]
+  %46 = phi i1 [ true, %44 ], [ false, %45 ], [ true, %44 ], [ true, %44 ], [ true, %44 ], [ false, %.thread.fold.split ]
+  %47 = phi i1 [ false, %44 ], [ false, %45 ], [ false, %44 ], [ false, %44 ], [ false, %44 ], [ true, %.thread.fold.split ]
   %48 = load i32, ptr %5, align 4
   %49 = call ptr @user_get_super(i32 noundef %48, i1 noundef zeroext %46) #8
   %50 = icmp eq ptr %49, null

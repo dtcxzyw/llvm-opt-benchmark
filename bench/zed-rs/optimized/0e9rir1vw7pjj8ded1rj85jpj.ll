@@ -7488,7 +7488,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17h03c81629a115519fE.exit: ; preds = %.no
   br label %44
 
 .loopexit.split-lp:                               ; preds = %.invoke, %40, %._crit_edge
-  %.sroa.012.2.ph = phi i1 [ true, %.invoke ], [ true, %40 ], [ false, %._crit_edge ]
+  %.sroa.012.2.ph = phi i1 [ true, %40 ], [ true, %.invoke ], [ false, %._crit_edge ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %44

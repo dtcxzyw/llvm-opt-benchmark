@@ -959,7 +959,7 @@ localgetline.exit:                                ; preds = %.lr.ph, %83
   br i1 %exitcond.not, label %._crit_edge72.loopexit, label %.lr.ph71, !llvm.loop !76
 
 .thread41:                                        ; preds = %107, %94, %101, %._crit_edge.thread
-  %.040.i.ph = phi i32 [ -46, %._crit_edge.thread ], [ %100, %101 ], [ -27, %94 ], [ %108, %107 ]
+  %.040.i.ph = phi i32 [ -46, %._crit_edge.thread ], [ -27, %94 ], [ %100, %101 ], [ %108, %107 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread
 

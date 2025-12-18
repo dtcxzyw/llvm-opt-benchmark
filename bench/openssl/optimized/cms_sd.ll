@@ -176,7 +176,7 @@ define range(i32 0, 2) i32 @ossl_cms_SignerIdentifier_get0_signer_id(ptr noundef
   br label %18
 
 18:                                               ; preds = %.sink.split, %11, %15, %4
-  %.0 = phi i32 [ 0, %4 ], [ 1, %15 ], [ 1, %11 ], [ 1, %.sink.split ]
+  %.0 = phi i32 [ 0, %4 ], [ 1, %11 ], [ 1, %15 ], [ 1, %.sink.split ]
   ret i32 %.0
 }
 
@@ -1621,7 +1621,7 @@ define range(i32 0, 2) i32 @CMS_SignerInfo_get0_signer_id(ptr noundef readonly c
   br label %ossl_cms_SignerIdentifier_get0_signer_id.exit
 
 ossl_cms_SignerIdentifier_get0_signer_id.exit:    ; preds = %4, %13, %17, %.sink.split.i
-  %.0.i = phi i32 [ 0, %4 ], [ 1, %17 ], [ 1, %13 ], [ 1, %.sink.split.i ]
+  %.0.i = phi i32 [ 0, %4 ], [ 1, %13 ], [ 1, %17 ], [ 1, %.sink.split.i ]
   ret i32 %.0.i
 }
 
@@ -2158,7 +2158,7 @@ cms_SignerInfo_content_sign.exit:                 ; preds = %56, %76, %97
   br label %109
 
 .critedge:                                        ; preds = %39, %32, %.thread77.i, %.thread74.i, %.thread.i, %31
-  %.048.i.ph = phi ptr [ null, %.thread77.i ], [ %58, %.thread74.i ], [ null, %.thread.i ], [ null, %31 ], [ null, %32 ], [ null, %39 ]
+  %.048.i.ph = phi ptr [ null, %31 ], [ null, %.thread77.i ], [ %58, %.thread74.i ], [ null, %.thread.i ], [ null, %32 ], [ null, %39 ]
   call void @EVP_MD_CTX_free(ptr noundef nonnull %24) #7
   call void @EVP_PKEY_CTX_free(ptr noundef %.048.i.ph) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

@@ -2302,7 +2302,7 @@ zend_bitset_union.exit.us:                        ; preds = %.critedge.us416, %8
   br i1 %exitcond.not, label %zend_bitset_union.exit.us, label %.lr.ph409.split.us419
 
 zend_bitset_union.exit386.us:                     ; preds = %787, %.lr.ph.i382.us, %.lr.ph409.split.us.us.preheader, %zend_bitset_union.exit.us, %769, %763, %.lr.ph412.us
-  %.1321.us = phi i32 [ %.0320410.us, %.lr.ph412.us ], [ %.0320410.us, %763 ], [ %.0320410.us, %769 ], [ %.0320410.us, %zend_bitset_union.exit.us ], [ %.0320410.us, %.lr.ph409.split.us.us.preheader ], [ 1, %.lr.ph.i382.us ], [ %.0320410.us, %787 ]
+  %.1321.us = phi i32 [ %.0320410.us, %.lr.ph412.us ], [ %.0320410.us, %.lr.ph409.split.us.us.preheader ], [ %.0320410.us, %763 ], [ %.0320410.us, %769 ], [ %.0320410.us, %zend_bitset_union.exit.us ], [ 1, %.lr.ph.i382.us ], [ %.0320410.us, %787 ]
   %indvars.iv.next438 = add nuw nsw i64 %indvars.iv437, 1
   %exitcond441.not = icmp eq i64 %indvars.iv.next438, %wide.trip.count440
   br i1 %exitcond441.not, label %._crit_edge.us, label %.lr.ph412.us.backedge
@@ -3784,7 +3784,7 @@ _zend_ssa_rename_op.exit:                         ; preds = %468, %.thread, %72
   br i1 %.not264, label %.critedge, label %588
 
 .critedge:                                        ; preds = %.preheader278, %588, %.loopexit, %502, %.preheader280
-  %.6.lcssa375 = phi i32 [ %.7, %.preheader280 ], [ %.5326, %502 ], [ %.7, %.loopexit ], [ %.7, %588 ], [ %.7, %.preheader278 ]
+  %.6.lcssa375 = phi i32 [ %.5326, %502 ], [ %.7, %.preheader280 ], [ %.7, %.loopexit ], [ %.7, %588 ], [ %.7, %.preheader278 ]
   %indvars.iv.next347 = add nuw nsw i64 %indvars.iv346, 1
   %621 = load i32, ptr %495, align 4, !tbaa !111
   %622 = sext i32 %621 to i64
@@ -4543,7 +4543,7 @@ zend_ssa_next_use.exit62:                         ; preds = %56, %50
   br i1 %67, label %68, label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %61, %46, %28
-  %.0.be = phi i32 [ %48, %46 ], [ %30, %28 ], [ %66, %61 ]
+  %.0.be = phi i32 [ %66, %61 ], [ %48, %46 ], [ %30, %28 ]
   br label %.preheader
 
 68:                                               ; preds = %61

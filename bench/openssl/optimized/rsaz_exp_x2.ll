@@ -1161,7 +1161,7 @@ bn_reduce_once_in_place.exit.thread:              ; preds = %from_words52.exit29
   br i1 %exitcond.not.i.i297, label %RSAZ_mod_exp_x2_ifma256.exit.thread, label %610, !llvm.loop !18
 
 RSAZ_mod_exp_x2_ifma256.exit.thread:              ; preds = %610, %394, %383, %to_words52.exit258, %bn_reduce_once_in_place.exit.thread
-  %.0.ph = phi i32 [ 1, %bn_reduce_once_in_place.exit.thread ], [ 0, %to_words52.exit258 ], [ 0, %383 ], [ 0, %394 ], [ 1, %610 ]
+  %.0.ph = phi i32 [ 0, %394 ], [ 1, %bn_reduce_once_in_place.exit.thread ], [ 0, %to_words52.exit258 ], [ 0, %383 ], [ 1, %610 ]
   call void @OPENSSL_cleanse(ptr noundef nonnull %37, i64 noundef %36) #6
   call void @CRYPTO_free(ptr noundef nonnull %37, ptr noundef nonnull @.str, i32 noundef 312) #6
   br label %bn_reduce_once_in_place.exit298

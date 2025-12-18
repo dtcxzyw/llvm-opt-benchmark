@@ -474,7 +474,7 @@ define ptr @CRYPTO_clear_realloc(ptr noundef %0, i64 noundef %1, i64 noundef %2,
   br label %CRYPTO_malloc.exit
 
 48:                                               ; preds = %38, %42
-  %.0.i36 = phi ptr [ %43, %42 ], [ %39, %38 ]
+  %.0.i36 = phi ptr [ %39, %38 ], [ %43, %42 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.0.i36, ptr nonnull align 1 %0, i64 %1, i1 false)
   %.not.i40 = icmp eq i64 %1, 0
   br i1 %.not.i40, label %50, label %49

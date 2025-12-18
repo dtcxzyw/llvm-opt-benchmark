@@ -6364,7 +6364,7 @@ _ZNK10BlockBegin14is_predecessorEPS_.exit:        ; preds = %122, %.loopexit
   br label %.critedge104
 
 .critedge104:                                     ; preds = %.preheader, %._crit_edge, %166, %196, %199, %218, %163, %_ZNK8BlockEnd11default_suxEv.exit, %24, %28, %2
-  %.0 = phi i1 [ false, %_ZNK8BlockEnd11default_suxEv.exit ], [ false, %2 ], [ false, %28 ], [ false, %24 ], [ true, %163 ], [ true, %._crit_edge ], [ true, %218 ], [ true, %199 ], [ true, %196 ], [ true, %166 ], [ true, %.preheader ]
+  %.0 = phi i1 [ false, %_ZNK8BlockEnd11default_suxEv.exit ], [ false, %2 ], [ false, %28 ], [ false, %24 ], [ true, %166 ], [ true, %163 ], [ true, %._crit_edge ], [ true, %218 ], [ true, %199 ], [ true, %196 ], [ true, %.preheader ]
   ret i1 %.0
 }
 

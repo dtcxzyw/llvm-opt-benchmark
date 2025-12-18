@@ -388,7 +388,7 @@ define hidden noundef zeroext i1 @_ZN10duckdb_re217EmptyStringWalker9PostVisitEP
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph30, %.preheader23, %.preheader, %19, %22, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %26, %16
-  %.018 = phi i1 [ false, %26 ], [ true, %19 ], [ %18, %16 ], [ true, %6 ], [ %25, %22 ], [ true, %.preheader23 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ false, %.preheader ], [ %15, %.lr.ph30 ], [ %12, %.lr.ph ]
+  %.018 = phi i1 [ false, %26 ], [ true, %19 ], [ %18, %16 ], [ true, %6 ], [ %25, %22 ], [ true, %.preheader23 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ %15, %.lr.ph30 ], [ false, %.preheader ], [ %12, %.lr.ph ]
   ret i1 %.018
 }
 

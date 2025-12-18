@@ -138,9 +138,9 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7717CharsetRecog_UTF85matchEP
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %45, %51, %.lr.ph, %37
-  %.156 = phi i32 [ %.05567, %37 ], [ %.05567, %.lr.ph ], [ %.05567, %45 ], [ %52, %51 ], [ %.05567, %.loopexit.loopexit ]
-  %.153 = phi i32 [ %38, %37 ], [ %.05268, %.lr.ph ], [ %47, %45 ], [ %.05268, %51 ], [ %.05268, %.loopexit.loopexit ]
-  %.150 = phi i32 [ %.04969, %37 ], [ %.04969, %.lr.ph ], [ %46, %45 ], [ %40, %51 ], [ %53, %.loopexit.loopexit ]
+  %.156 = phi i32 [ %.05567, %37 ], [ %.05567, %.lr.ph ], [ %52, %51 ], [ %.05567, %45 ], [ %.05567, %.loopexit.loopexit ]
+  %.153 = phi i32 [ %38, %37 ], [ %.05268, %.lr.ph ], [ %.05268, %51 ], [ %47, %45 ], [ %.05268, %.loopexit.loopexit ]
+  %.150 = phi i32 [ %.04969, %37 ], [ %.04969, %.lr.ph ], [ %40, %51 ], [ %46, %45 ], [ %53, %.loopexit.loopexit ]
   %54 = add nsw i32 %.150, 1
   %55 = icmp slt i32 %54, %7
   br i1 %55, label %.lr.ph, label %._crit_edge, !llvm.loop !15

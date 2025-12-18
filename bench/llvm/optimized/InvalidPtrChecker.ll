@@ -10468,7 +10468,7 @@ select.unfold:                                    ; preds = %19
   br i1 %.not, label %.thread, label %.lr.ph
 
 .thread:                                          ; preds = %select.unfold, %_ZNK5clang4ento12ProgramState8containsIN12_GLOBAL__N_120InvalidMemoryRegionsEEEbNS0_17ProgramStateTraitIT_E8key_typeE.exit.thread, %19, %2, %14, %17
-  %.0 = phi ptr [ %.01231, %17 ], [ %.01231, %14 ], [ null, %2 ], [ null, %19 ], [ null, %_ZNK5clang4ento12ProgramState8containsIN12_GLOBAL__N_120InvalidMemoryRegionsEEEbNS0_17ProgramStateTraitIT_E8key_typeE.exit.thread ], [ null, %select.unfold ]
+  %.0 = phi ptr [ %.01231, %14 ], [ %.01231, %17 ], [ null, %2 ], [ null, %19 ], [ null, %_ZNK5clang4ento12ProgramState8containsIN12_GLOBAL__N_120InvalidMemoryRegionsEEEbNS0_17ProgramStateTraitIT_E8key_typeE.exit.thread ], [ null, %select.unfold ]
   ret ptr %.0
 }
 

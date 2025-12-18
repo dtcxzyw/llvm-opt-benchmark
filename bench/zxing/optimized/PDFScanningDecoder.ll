@@ -2238,7 +2238,7 @@ _ZN5ZXing6Pdf417L12GetModulusGFEv.exit.i86.i.i:   ; preds = %861, %858, %855
 
 877:                                              ; preds = %875
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #24
-          to label %.noexc156.i.i unwind label %.body91.thread376.i.i
+          to label %.noexc156.i.i unwind label %.body91.thread377.i.i
 
 .noexc156.i.i:                                    ; preds = %877
   unreachable
@@ -2246,7 +2246,7 @@ _ZN5ZXing6Pdf417L12GetModulusGFEv.exit.i86.i.i:   ; preds = %861, %858, %855
 _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %875
   %878 = shl nuw nsw i64 %874, 2
   %879 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %878) #23
-          to label %.noexc157.i.i unwind label %.body91.thread376.i.i
+          to label %.noexc157.i.i unwind label %.body91.thread377.i.i
 
 .noexc157.i.i:                                    ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i
   store i32 0, ptr %879, align 4, !tbaa !8
@@ -2271,7 +2271,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.i.i.i:         ; preds = %_ZSt6fill_nIPimiET_
   %.01617.i.i.i = phi i32 [ %.1.i.i.i, %904 ], [ 0, %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i.i.i ]
   %886 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
   %887 = invoke noundef i32 @_ZNK5ZXing6Pdf41711ModulusPoly10evaluateAtEi(ptr noundef nonnull align 8 dereferenceable(32) %24, i32 noundef %886)
-          to label %.noexc94.i.i unwind label %.body91.thread381.i.i
+          to label %.noexc94.i.i unwind label %.body91.thread382.i.i
 
 .noexc94.i.i:                                     ; preds = %.lr.ph.i88.i.i
   %888 = icmp eq i32 %887, 0
@@ -2309,12 +2309,12 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.i.i.i:         ; preds = %_ZSt6fill_nIPimiET_
   %909 = icmp eq i32 %.1.i.i.i, %873
   br i1 %909, label %.loopexit42.i.thread.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit122.i.thread.i
 
-.body91.thread381.i.i:                            ; preds = %.lr.ph.i88.i.i
+.body91.thread382.i.i:                            ; preds = %.lr.ph.i88.i.i
   %lpad.loopexit.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.body91..body91.thread_crit_edge.i.i
 
-.body91.thread376.i.i:                            ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i, %877
+.body91.thread377.i.i:                            ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i, %877
   %lpad.loopexit.split-lp.i.i = landingpad { ptr, i32 }
           cleanup
   br label %_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit85.i.i
@@ -2847,23 +2847,23 @@ _ZNSt6vectorIiSaIiEED2Ev.exit122.i.thread.i:      ; preds = %_ZNSt6vectorIiSaIiE
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit124.i.i
 
 .body91.i.i:                                      ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit70.i.i.i, %917
-  %.pn59.pn.i.i = phi { ptr, i32 } [ %918, %917 ], [ %.pn42.pn.i.i.i, %_ZNSt6vectorIiSaIiEED2Ev.exit70.i.i.i ]
+  %.pn59.pn.i.i = phi { ptr, i32 } [ %.pn42.pn.i.i.i, %_ZNSt6vectorIiSaIiEED2Ev.exit70.i.i.i ], [ %918, %917 ]
   %.not.i.i.i125.i.i = icmp eq ptr %.sroa.04.1366.i306.i, null
   br i1 %.not.i.i.i125.i.i, label %_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit85.i.i, label %.body91..body91.thread_crit_edge.i.i
 
-.body91..body91.thread_crit_edge.i.i:             ; preds = %.body91.i.i, %.body91.thread381.i.i
-  %.pn59.pn388.i.i = phi { ptr, i32 } [ %lpad.loopexit.i.i, %.body91.thread381.i.i ], [ %.pn59.pn.i.i, %.body91.i.i ]
-  %.sroa.23.4387.i.i = phi ptr [ %883, %.body91.thread381.i.i ], [ %.sroa.15.1371.i299.i, %.body91.i.i ]
-  %.sroa.04.4386.i.i = phi ptr [ %879, %.body91.thread381.i.i ], [ %.sroa.04.1366.i306.i, %.body91.i.i ]
-  %.pre233.i.i = ptrtoint ptr %.sroa.23.4387.i.i to i64
-  %.pre234.i.i = ptrtoint ptr %.sroa.04.4386.i.i to i64
+.body91..body91.thread_crit_edge.i.i:             ; preds = %.body91.i.i, %.body91.thread382.i.i
+  %.pn59.pn389.i.i = phi { ptr, i32 } [ %lpad.loopexit.i.i, %.body91.thread382.i.i ], [ %.pn59.pn.i.i, %.body91.i.i ]
+  %.sroa.23.4388.i.i = phi ptr [ %883, %.body91.thread382.i.i ], [ %.sroa.15.1371.i299.i, %.body91.i.i ]
+  %.sroa.04.4387.i.i = phi ptr [ %879, %.body91.thread382.i.i ], [ %.sroa.04.1366.i306.i, %.body91.i.i ]
+  %.pre233.i.i = ptrtoint ptr %.sroa.23.4388.i.i to i64
+  %.pre234.i.i = ptrtoint ptr %.sroa.04.4387.i.i to i64
   %.pre236.i.i = sub i64 %.pre233.i.i, %.pre234.i.i
   br label %.body91.thread.i.i
 
 .body91.thread.i.i:                               ; preds = %.body91..body91.thread_crit_edge.i.i, %1125, %.body118.i.i
   %.pre-phi237.i.i = phi i64 [ %.pre236.i.i, %.body91..body91.thread_crit_edge.i.i ], [ %974, %.body118.i.i ], [ %974, %1125 ]
-  %.pn59.pn34.i.i = phi { ptr, i32 } [ %.pn59.pn388.i.i, %.body91..body91.thread_crit_edge.i.i ], [ %eh.lpad-body119.i.i, %.body118.i.i ], [ %eh.lpad-body119.i.i, %1125 ]
-  %.sroa.04.432.i.i = phi ptr [ %.sroa.04.4386.i.i, %.body91..body91.thread_crit_edge.i.i ], [ %.sroa.04.1366.i306.i, %.body118.i.i ], [ %.sroa.04.1366.i306.i, %1125 ]
+  %.pn59.pn34.i.i = phi { ptr, i32 } [ %.pn59.pn389.i.i, %.body91..body91.thread_crit_edge.i.i ], [ %eh.lpad-body119.i.i, %.body118.i.i ], [ %eh.lpad-body119.i.i, %1125 ]
+  %.sroa.04.432.i.i = phi ptr [ %.sroa.04.4387.i.i, %.body91..body91.thread_crit_edge.i.i ], [ %.sroa.04.1366.i306.i, %.body118.i.i ], [ %.sroa.04.1366.i306.i, %1125 ]
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.04.432.i.i, i64 noundef %.pre-phi237.i.i) #21
   br label %_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit85.i.i
 
@@ -2914,8 +2914,8 @@ _ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit132.i.i:    ; preds = %1155, %_ZN5ZXing6Pd
   call void @_ZdlPvm(ptr noundef nonnull %1161, i64 noundef %1167) #21
   br label %.critedge144.i.i
 
-_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit85.i.i:     ; preds = %.body91.thread.i.i, %.body91.i.i, %.body91.thread376.i.i, %.body91.thread36.i.i, %849, %_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit83.i.i, %837
-  %.pn59.pn.pn.i.i = phi { ptr, i32 } [ %.pn.i.i, %849 ], [ %838, %837 ], [ %.pn.i.i, %_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit83.i.i ], [ %.pn59.pn.i.i, %.body91.i.i ], [ %.pn59.pn34.i.i, %.body91.thread.i.i ], [ %863, %.body91.thread36.i.i ], [ %lpad.loopexit.split-lp.i.i, %.body91.thread376.i.i ]
+_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit85.i.i:     ; preds = %.body91.thread.i.i, %.body91.i.i, %.body91.thread377.i.i, %.body91.thread36.i.i, %849, %_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit83.i.i, %837
+  %.pn59.pn.pn.i.i = phi { ptr, i32 } [ %.pn.i.i, %849 ], [ %838, %837 ], [ %.pn.i.i, %_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit83.i.i ], [ %.pn59.pn.i.i, %.body91.i.i ], [ %.pn59.pn34.i.i, %.body91.thread.i.i ], [ %863, %.body91.thread36.i.i ], [ %lpad.loopexit.split-lp.i.i, %.body91.thread377.i.i ]
   %1168 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %1169 = load ptr, ptr %1168, align 8, !tbaa !54
   %.not.i.i.i.i136.i.i = icmp eq ptr %1169, null
@@ -6782,7 +6782,7 @@ _ZNK5ZXing9BitMatrix3getEii.exit.i:               ; preds = %.lr.ph.i
   br i1 %.not53.i, label %.preheader.i, label %_ZN5ZXing6Pdf417L25AdjustCodewordStartColumnERKNS_9BitMatrixEiibii.exit, !llvm.loop !205
 
 _ZN5ZXing6Pdf417L25AdjustCodewordStartColumnERKNS_9BitMatrixEiibii.exit: ; preds = %.critedge.i, %42, %30
-  %spec.select.i = phi i32 [ %5, %42 ], [ %5, %30 ], [ %.us-phi.i, %.critedge.i ]
+  %spec.select.i = phi i32 [ %5, %30 ], [ %5, %42 ], [ %.us-phi.i, %.critedge.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %11, i8 0, i64 32, i1 false), !tbaa !8
   %51 = select i1 %4, i32 1, i32 -1

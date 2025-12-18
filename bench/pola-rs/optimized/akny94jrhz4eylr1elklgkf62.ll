@@ -9884,7 +9884,7 @@ _ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h7df8419d9464d12fE.exit
   invoke void %89(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noundef align 1 %80, ptr noalias noundef nonnull align 8 dereferenceable(1400) %.sroa.01.0, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %2)
           to label %90 unwind label %168
 
-_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h7df8419d9464d12fE.exit.thread23: ; preds = %21, %28, %35, %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h7df8419d9464d12fE.exit
+_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h7df8419d9464d12fE.exit.thread23: ; preds = %28, %21, %35, %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h7df8419d9464d12fE.exit
   store i64 0, ptr %0, align 8
   br label %167
 
@@ -38796,7 +38796,7 @@ _ZN11compact_str13CompactString7try_new17h700074de784f45d0E.exit.thread.i.i36: ;
           to label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h0b0d537f19a3c4ccE.exit.i" unwind label %650, !noalias !5192
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h0b0d537f19a3c4ccE.exit.thread.i": ; preds = %615, %611
-  %.sroa.3.0.i.i.ph.i.i = phi i64 [ %.sroa.4.19.i.i.i.i, %611 ], [ %621, %615 ]
+  %.sroa.3.0.i.i.ph.i.i = phi i64 [ %621, %615 ], [ %.sroa.4.19.i.i.i.i, %611 ]
   %626 = load ptr, ptr %.val60.i, align 8, !alias.scope !5274, !noalias !5277, !nonnull !3
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false), !noalias !5251
@@ -51457,7 +51457,7 @@ _ZN9polars_io3csv4read6parser15is_comment_line17hdae6b36d99c2d9a4E.exit285.threa
           to label %"_ZN112_$LT$polars_io..csv..read..splitfields..inner..SplitFields$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h770c4f73544bb716E.exit.i" unwind label %.thread486.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .thread.i.i.invoke:                               ; preds = %666, %698, %694, %.lr.ph953
-  %708 = phi i1 [ false, %.lr.ph953 ], [ true, %694 ], [ true, %698 ], [ false, %666 ]
+  %708 = phi i1 [ true, %698 ], [ false, %.lr.ph953 ], [ true, %694 ], [ false, %666 ]
   invoke void @_ZN9polars_io3csv4read11splitfields5inner11SplitFields6finish17h53ad067828f7079bE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %21, ptr noalias noundef nonnull align 8 dereferenceable(24) %.sroa.266.0..sroa_idx, i1 noundef zeroext %708)
           to label %"_ZN112_$LT$polars_io..csv..read..splitfields..inner..SplitFields$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h770c4f73544bb716E.exit.i" unwind label %.thread486.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -52039,7 +52039,7 @@ default.unreachable:                              ; preds = %772
           to label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hf80726eb90237cbaE.exit.thread" unwind label %.loopexit.split-lp.loopexit.split-lp
 
 939:                                              ; preds = %931, %927
-  %.sroa.3.0.i.i.ph.i = phi i64 [ %.sroa.4.19.i.i.i, %927 ], [ %937, %931 ]
+  %.sroa.3.0.i.i.ph.i = phi i64 [ %937, %931 ], [ %.sroa.4.19.i.i.i, %927 ]
   %940 = load ptr, ptr %858, align 8, !alias.scope !6468, !noalias !6471, !nonnull !3
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %16, ptr noundef nonnull align 16 dereferenceable(48) %46, i64 48, i1 false), !noalias !6442

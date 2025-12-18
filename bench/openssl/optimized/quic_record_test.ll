@@ -723,7 +723,7 @@ rx_state_teardown.exit65.i:                       ; preds = %195, %193
   unreachable
 
 .loopexit.i:                                      ; preds = %46, %199, %rx_state_teardown.exit65.i, %176, %169, %160, %151, %144, %97, %86, %75, %58, %52, %rx_state_teardown.exit.i
-  %.1.i = phi i64 [ %.0.i, %rx_state_teardown.exit.i ], [ %.0.i, %52 ], [ %.0.i, %58 ], [ %.0.i, %75 ], [ %.0.i, %86 ], [ %.0.i, %97 ], [ %147, %144 ], [ %.0.i, %151 ], [ %.0.i, %160 ], [ %.0.i, %169 ], [ %.0.i, %176 ], [ %.0.i, %rx_state_teardown.exit65.i ], [ %.0.i, %199 ], [ %.0.i, %46 ]
+  %.1.i = phi i64 [ %.0.i, %rx_state_teardown.exit.i ], [ %.0.i, %199 ], [ %.0.i, %52 ], [ %.0.i, %58 ], [ %.0.i, %75 ], [ %.0.i, %86 ], [ %.0.i, %97 ], [ %147, %144 ], [ %.0.i, %151 ], [ %.0.i, %160 ], [ %.0.i, %169 ], [ %.0.i, %176 ], [ %.0.i, %rx_state_teardown.exit65.i ], [ %.0.i, %46 ]
   %203 = getelementptr inbounds nuw i8, ptr %.028.i, i64 64
   br label %15, !llvm.loop !53
 
@@ -845,7 +845,7 @@ define internal range(i32 0, 2) i32 @test_wire_pkt_hdr(i32 noundef %0) #0 {
   br i1 %.not13.i, label %test_hdr_prot_stats.exit, label %30
 
 test_hdr_prot_stats.exit:                         ; preds = %.lr.ph.i, %30, %15, %11, %7, %.preheader.i11, %17
-  %.0 = phi i32 [ 0, %17 ], [ 1, %.preheader.i11 ], [ 1, %15 ], [ 0, %11 ], [ 0, %7 ], [ 1, %30 ], [ 0, %.lr.ph.i ]
+  %.0 = phi i32 [ 1, %15 ], [ 1, %.preheader.i11 ], [ 0, %11 ], [ 0, %17 ], [ 0, %7 ], [ 0, %.lr.ph.i ], [ 1, %30 ]
   ret i32 %.0
 }
 
@@ -1790,7 +1790,7 @@ PACKET_buf_init.exit:                             ; preds = %44, %47
   br i1 %exitcond.not, label %.thread, label %185, !llvm.loop !105
 
 .thread:                                          ; preds = %197, %170, %172
-  %.094144 = phi i32 [ 255, %172 ], [ 255, %170 ], [ %.094, %197 ]
+  %.094144 = phi i32 [ 255, %170 ], [ 255, %172 ], [ %.094, %197 ]
   %199 = zext i8 %163 to i32
   %200 = and i32 %.094144, %199
   %201 = call i32 @test_int_eq(ptr noundef nonnull @.str.3, i32 noundef 2907, ptr noundef nonnull @.str.132, ptr noundef nonnull @.str.86, i32 noundef %200, i32 noundef 0) #10
@@ -1814,7 +1814,7 @@ PACKET_buf_init.exit:                             ; preds = %44, %47
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.thread, %128, %132, %._crit_edge, %206
-  %.097 = phi i32 [ 0, %132 ], [ 0, %128 ], [ %spec.select140, %206 ], [ 0, %._crit_edge ], [ 0, %.thread ]
+  %.097 = phi i32 [ 0, %132 ], [ 0, %128 ], [ 0, %._crit_edge ], [ %spec.select140, %206 ], [ 0, %.thread ]
   call void @ossl_quic_hdr_protector_cleanup(ptr noundef nonnull %11) #10
   br label %.thread146
 

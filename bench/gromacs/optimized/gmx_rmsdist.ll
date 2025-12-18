@@ -1640,8 +1640,8 @@ _ZL10read_equivPKcPPP7t_equiv.exit.i:             ; preds = %._crit_edge.loopexi
   br i1 %exitcond.not.i.i, label %_ZL10dump_equivP8_IO_FILEiPP7t_equiv.exit.i, label %.lr.ph25.i.i, !llvm.loop !71
 
 _ZL10dump_equivP8_IO_FILEiPP7t_equiv.exit.i:      ; preds = %._crit_edge.i.i223, %632, %.noexc235, %563
-  %.0211.i = phi ptr [ %.053.lcssa.i.i, %.noexc235 ], [ %.053.lcssa.i.i, %632 ], [ null, %563 ], [ %.053.lcssa.i.i, %._crit_edge.i.i223 ]
-  %.0168.i = phi i32 [ %.038.lcssa.i.i, %.noexc235 ], [ %.038.lcssa.i.i, %632 ], [ 0, %563 ], [ %.038.lcssa.i.i, %._crit_edge.i.i223 ]
+  %.0211.i = phi ptr [ null, %563 ], [ %.053.lcssa.i.i, %.noexc235 ], [ %.053.lcssa.i.i, %632 ], [ %.053.lcssa.i.i, %._crit_edge.i.i223 ]
+  %.0168.i = phi i32 [ 0, %563 ], [ %.038.lcssa.i.i, %.noexc235 ], [ %.038.lcssa.i.i, %632 ], [ %.038.lcssa.i.i, %._crit_edge.i.i223 ]
   %654 = icmp sgt i32 %556, 0
   br i1 %654, label %.lr.ph251.i, label %.loopexit237.thread.i
 
@@ -1929,7 +1929,7 @@ _ZL8is_equiviPP7t_equivPPciS2_S2_iS2_S2_.exit.i:  ; preds = %._crit_edge58.i.i
   br i1 %exitcond.not.i221, label %.loopexit237.i, label %.lr.ph.i218, !llvm.loop !97
 
 .loopexit237.thread.i:                            ; preds = %_ZL10dump_equivP8_IO_FILEiPP7t_equiv.exit.i, %.preheader238.i
-  %.1170.ph.i = phi i32 [ %556, %.preheader238.i ], [ 0, %_ZL10dump_equivP8_IO_FILEiPP7t_equiv.exit.i ]
+  %.1170.ph.i = phi i32 [ 0, %_ZL10dump_equivP8_IO_FILEiPP7t_equiv.exit.i ], [ %556, %.preheader238.i ]
   %804 = getelementptr inbounds i32, ptr %550, i64 %559
   store i32 %.1170.ph.i, ptr %804, align 4, !tbaa !4
   br label %._crit_edge.i
@@ -2098,7 +2098,7 @@ _ZL8is_equiviPP7t_equivPPciS2_S2_iS2_S2_.exit.i:  ; preds = %._crit_edge58.i.i
   br i1 %exitcond295.not.i, label %._crit_edge.i, label %.lr.ph257.i, !llvm.loop !106
 
 ._crit_edge.i:                                    ; preds = %.noexc241, %.loopexit.i222, %.loopexit237.thread.i
-  %.1170310311314.i = phi i32 [ %.1170.i, %.loopexit.i222 ], [ %.1170.ph.i, %.loopexit237.thread.i ], [ %.1170.i, %.noexc241 ]
+  %.1170310311314.i = phi i32 [ %.1170.ph.i, %.loopexit237.thread.i ], [ %.1170.i, %.loopexit.i222 ], [ %.1170.i, %.noexc241 ]
   invoke void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.88, ptr noundef nonnull @.str.46, i32 noundef 464, ptr noundef %560)
           to label %_ZL22analyze_noe_equivalentPKcPK7t_atomsiPKibPiP8t_noe_gr.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 

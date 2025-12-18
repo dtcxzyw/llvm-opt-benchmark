@@ -2383,8 +2383,8 @@ define internal i32 @DbObjCmd(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   br label %.thread1240
 
 .thread1240:                                      ; preds = %703, %732, %757, %726
-  %.1985 = phi i32 [ %706, %726 ], [ %706, %757 ], [ %706, %732 ], [ %.0984, %703 ]
-  %.1982 = phi ptr [ @.str.121, %726 ], [ @.str.121, %757 ], [ @.str.121, %732 ], [ @.str.119, %703 ]
+  %.1985 = phi i32 [ %706, %732 ], [ %706, %726 ], [ %706, %757 ], [ %.0984, %703 ]
+  %.1982 = phi ptr [ @.str.121, %732 ], [ @.str.121, %726 ], [ @.str.121, %757 ], [ @.str.119, %703 ]
   call void @free(ptr noundef %691) #15
   %763 = call i32 @fclose(ptr noundef nonnull %679)
   %764 = load ptr, ptr %18, align 8, !tbaa !78
@@ -3091,8 +3091,8 @@ define internal i32 @DbObjCmd(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   br label %.critedge1192.thread
 
 1131:                                             ; preds = %1125, %1088, %1098, %1106, %1102
-  %.11004 = phi i32 [ %1099, %1098 ], [ %1103, %1102 ], [ %1107, %1106 ], [ %.010031379, %1088 ], [ %.010031379, %1125 ]
-  %.1997 = phi i32 [ %.09961380, %1098 ], [ %.09961380, %1102 ], [ %.09961380, %1106 ], [ %1083, %1088 ], [ %1117, %1125 ]
+  %.11004 = phi i32 [ %.010031379, %1125 ], [ %.010031379, %1088 ], [ %1107, %1106 ], [ %1103, %1102 ], [ %1099, %1098 ]
+  %.1997 = phi i32 [ %1117, %1125 ], [ %1083, %1088 ], [ %.09961380, %1106 ], [ %.09961380, %1102 ], [ %.09961380, %1098 ]
   %1132 = add nsw i32 %.1997, 1
   %1133 = icmp slt i32 %1132, %1055
   br i1 %1133, label %1061, label %._crit_edge, !llvm.loop !101
@@ -3195,7 +3195,7 @@ safeToUseEvalObjv.exit:                           ; preds = %1163, %1167, %1167,
   br label %.critedge1174
 
 .critedge1192:                                    ; preds = %safeToUseEvalObjv.exit, %1176
-  %.14913 = phi i32 [ 0, %safeToUseEvalObjv.exit ], [ 1, %1176 ]
+  %.14913 = phi i32 [ 1, %1176 ], [ 0, %safeToUseEvalObjv.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br label %.critedge1174
@@ -4148,8 +4148,8 @@ safeToUseEvalObjv.exit:                           ; preds = %1163, %1167, %1167,
   call void @llvm.lifetime.end.p0(ptr nonnull %44)
   br label %.thread1303
 
-.thread1303:                                      ; preds = %1703, %1701, %1699, %1697, %1695, %1705
-  %.29581306 = phi i64 [ %1707, %1705 ], [ %1704, %1703 ], [ %1702, %1701 ], [ %1700, %1699 ], [ %1698, %1697 ], [ %.19571377, %1695 ]
+.thread1303:                                      ; preds = %1701, %1699, %1697, %1695, %1703, %1705
+  %.29581306 = phi i64 [ %1707, %1705 ], [ %1702, %1701 ], [ %1700, %1699 ], [ %1698, %1697 ], [ %.19571377, %1695 ], [ %1704, %1703 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %43)
   call void @llvm.lifetime.end.p0(ptr nonnull %42)
   %1708 = add nuw nsw i32 %.09551378, 1

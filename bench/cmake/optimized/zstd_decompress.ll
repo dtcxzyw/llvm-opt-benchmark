@@ -783,9 +783,9 @@ define dso_local i64 @ZSTD_findDecompressedSize(ptr noundef %0, i64 noundef %1) 
 
 28:                                               ; preds = %12, %25
   %.145 = phi i64 [ %.04471, %12 ], [ %24, %25 ]
-  %..i.pn = phi i64 [ %16, %12 ], [ %26, %25 ]
-  %.234 = getelementptr inbounds nuw i8, ptr %.03273, i64 %..i.pn
-  %.242 = sub i64 %.04072, %..i.pn
+  %.pn = phi i64 [ %16, %12 ], [ %26, %25 ]
+  %.234 = getelementptr inbounds nuw i8, ptr %.03273, i64 %.pn
+  %.242 = sub i64 %.04072, %.pn
   %.not = icmp ult i64 %.242, 5
   br i1 %.not, label %._crit_edge, label %7
 
@@ -1468,7 +1468,7 @@ ZSTD_copyRawBlock.exit.i:                         ; preds = %159
   br i1 %188, label %ZSTD_copyRawBlock.exit.thread.i, label %.thread156.i
 
 ZSTD_copyRawBlock.exit.thread.i:                  ; preds = %ZSTD_copyRawBlock.exit.i, %ZSTD_copyRawBlock.exit.thread151.i, %183, %173, %171
-  %.0108154.i = phi i64 [ %179, %ZSTD_copyRawBlock.exit.thread151.i ], [ %187, %ZSTD_copyRawBlock.exit.i ], [ 0, %171 ], [ %155, %173 ], [ 0, %183 ]
+  %.0108154.i = phi i64 [ %179, %ZSTD_copyRawBlock.exit.thread151.i ], [ %187, %ZSTD_copyRawBlock.exit.i ], [ 0, %183 ], [ %155, %173 ], [ 0, %171 ]
   %189 = load i32, ptr %45, align 8, !tbaa !89
   %.not129.i = icmp eq i32 %189, 0
   br i1 %.not129.i, label %192, label %190
@@ -1596,8 +1596,8 @@ ZSTD_decompressFrame.exit:                        ; preds = %217, %230, %ZSTD_de
   br i1 %.not64128, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !105
 
 .outer._crit_edge:                                ; preds = %.outer, %77, %14
-  %.047.ph.lcssa127 = phi ptr [ %1, %14 ], [ %.047.ph139, %77 ], [ %236, %.outer ]
-  %.085.lcssa = phi i64 [ %4, %14 ], [ %79, %77 ], [ %.387, %.outer ]
+  %.047.ph.lcssa127 = phi ptr [ %.047.ph139, %77 ], [ %1, %14 ], [ %236, %.outer ]
+  %.085.lcssa = phi i64 [ %79, %77 ], [ %4, %14 ], [ %.387, %.outer ]
   %.not65 = icmp eq i64 %.085.lcssa, 0
   br i1 %.not65, label %241, label %.thread
 
@@ -3607,7 +3607,7 @@ ZSTD_DDictHashSet_expand.exit.thread.i:           ; preds = %.thread, %81, %80, 
   br label %ZSTD_DDictHashSet_addDDict.exit.thread
 
 ZSTD_DDictHashSet_addDDict.exit.thread:           ; preds = %52, %._crit_edge.i20.i, %97, %ZSTD_DDictHashSet_expand.exit.thread.i, %ZSTD_customCalloc.exit.i.i, %7, %12, %ZSTD_createDDictHashSet.exit.thread, %2
-  %.017 = phi i64 [ -60, %2 ], [ -64, %ZSTD_createDDictHashSet.exit.thread ], [ 0, %7 ], [ -64, %ZSTD_customCalloc.exit.i.i ], [ 0, %12 ], [ -1, %ZSTD_DDictHashSet_expand.exit.thread.i ], [ 0, %97 ], [ 0, %._crit_edge.i20.i ], [ -1, %52 ]
+  %.017 = phi i64 [ -60, %2 ], [ -64, %ZSTD_createDDictHashSet.exit.thread ], [ 0, %7 ], [ -64, %ZSTD_customCalloc.exit.i.i ], [ 0, %12 ], [ 0, %._crit_edge.i20.i ], [ -1, %ZSTD_DDictHashSet_expand.exit.thread.i ], [ 0, %97 ], [ -1, %52 ]
   ret i64 %.017
 }
 
@@ -4801,7 +4801,7 @@ ZSTD_nextInputType.exit:                          ; preds = %386
   br label %ZSTD_checkOutBuffer.exit.thread
 
 ZSTD_checkOutBuffer.exit.thread:                  ; preds = %.thread476, %321, %333, %265, %277, %168, %293, %ZSTD_DCtx_selectFrameDDict.exit, %ZSTD_customMalloc.exit, %228, %201, %197, %156, %132, %138, %31, %397, %ZSTD_nextInputType.exit, %398, %393, %401, %400, %383, %381, %21, %3
-  %.0 = phi i64 [ -80, %381 ], [ -72, %3 ], [ -82, %383 ], [ %143, %138 ], [ %407, %ZSTD_nextInputType.exit ], [ -70, %21 ], [ 1, %397 ], [ %136, %132 ], [ 0, %393 ], [ 1, %401 ], [ 0, %398 ], [ 1, %400 ], [ -104, %31 ], [ %158, %156 ], [ -1, %.thread476 ], [ -16, %201 ], [ %91, %ZSTD_DCtx_selectFrameDDict.exit ], [ -70, %168 ], [ %281, %277 ], [ %199, %197 ], [ -64, %228 ], [ -64, %ZSTD_customMalloc.exit ], [ -20, %293 ], [ %270, %265 ], [ %326, %321 ], [ %337, %333 ]
+  %.0 = phi i64 [ -80, %381 ], [ -72, %3 ], [ -82, %383 ], [ %143, %138 ], [ %407, %ZSTD_nextInputType.exit ], [ -70, %21 ], [ 1, %397 ], [ %136, %132 ], [ 0, %393 ], [ 1, %401 ], [ 0, %398 ], [ 1, %400 ], [ -104, %31 ], [ %158, %156 ], [ -1, %.thread476 ], [ %91, %ZSTD_DCtx_selectFrameDDict.exit ], [ -70, %168 ], [ %281, %277 ], [ %199, %197 ], [ -16, %201 ], [ -64, %ZSTD_customMalloc.exit ], [ -64, %228 ], [ -20, %293 ], [ %270, %265 ], [ %326, %321 ], [ %337, %333 ]
   ret i64 %.0
 }
 

@@ -225,7 +225,7 @@ _ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit.thread: ; preds = 
   br i1 %.not, label %_ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit.thread14, label %.preheader17.split
 
 _ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit.thread14: ; preds = %_ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit.thread, %_ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit, %_ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit.thread.loopexit.us, %18, %4
-  %.0 = phi i1 [ false, %4 ], [ false, %_ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit.thread.loopexit.us ], [ true, %18 ], [ true, %_ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit ], [ false, %_ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit.thread ]
+  %.0 = phi i1 [ false, %4 ], [ true, %18 ], [ false, %_ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit.thread.loopexit.us ], [ true, %_ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit ], [ false, %_ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit.thread ]
   ret i1 %.0
 }
 
@@ -253,7 +253,7 @@ define internal fastcc noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..s
   br i1 %8, label %14, label %10
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h91698d84b16775d7E.exit": ; preds = %.critedge.backedge.us.i.i, %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h6ba1c9e390d9589bE.exit.us.i.i", %.lr.ph.split.us.i.i, %94, %11, %10, %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h81357aafb99f3895E.exit"
-  %.030 = phi i8 [ 0, %10 ], [ %.sroa.0.0, %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h81357aafb99f3895E.exit" ], [ %13, %11 ], [ 1, %.lr.ph.split.us.i.i ], [ %.4.i, %94 ], [ 1, %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h6ba1c9e390d9589bE.exit.us.i.i" ], [ 0, %.critedge.backedge.us.i.i ]
+  %.030 = phi i8 [ 0, %10 ], [ %.sroa.0.0, %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h81357aafb99f3895E.exit" ], [ %13, %11 ], [ %.4.i, %94 ], [ 1, %.lr.ph.split.us.i.i ], [ 1, %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h6ba1c9e390d9589bE.exit.us.i.i" ], [ 0, %.critedge.backedge.us.i.i ]
   %9 = trunc nuw i8 %.030 to i1
   ret i1 %9
 
@@ -830,7 +830,7 @@ _ZN4core3str11validations15next_code_point17h21efb77c384932d1E.exit.thread.i.i: 
   br label %260
 
 "_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h81357aafb99f3895E.exit": ; preds = %_ZN4core3str11validations15next_code_point17h21efb77c384932d1E.exit.thread.i.i, %.sink.split.i, %.preheader62, %260, %.preheader, %240, %185, %.preheader.i36, %.thread20.i.i, %.thread.i.i
-  %.sroa.0.0 = phi i8 [ 1, %.thread.i.i ], [ 0, %.preheader.i36 ], [ 0, %.thread20.i.i ], [ 0, %185 ], [ 0, %240 ], [ 0, %.sink.split.i ], [ 1, %.preheader ], [ 0, %260 ], [ 1, %.preheader62 ], [ 1, %_ZN4core3str11validations15next_code_point17h21efb77c384932d1E.exit.thread.i.i ]
+  %.sroa.0.0 = phi i8 [ 1, %.preheader ], [ 1, %.thread.i.i ], [ 0, %.preheader.i36 ], [ 0, %.thread20.i.i ], [ 1, %.preheader62 ], [ 0, %185 ], [ 0, %240 ], [ 0, %.sink.split.i ], [ 0, %260 ], [ 1, %_ZN4core3str11validations15next_code_point17h21efb77c384932d1E.exit.thread.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h91698d84b16775d7E.exit"
 }

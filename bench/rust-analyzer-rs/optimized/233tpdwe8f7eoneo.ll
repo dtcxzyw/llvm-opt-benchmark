@@ -37651,8 +37651,8 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17hfc8cc9bc85fdc
   br i1 %.not.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h5ebc6270dd934106E.llvm.2651244455829285093.exit._crit_edge", label %8
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17hafb52ddcb4f52468E.llvm.2651244455829285093.exit": ; preds = %13, %2, %.noexc
-  %.sroa.7.1 = phi i64 [ 0, %2 ], [ %12, %13 ], [ %12, %.noexc ]
-  %.sroa.16.1 = phi i64 [ 0, %2 ], [ 1, %13 ], [ 1, %.noexc ]
+  %.sroa.7.1 = phi i64 [ 0, %2 ], [ %12, %.noexc ], [ %12, %13 ]
+  %.sroa.16.1 = phi i64 [ 0, %2 ], [ 1, %.noexc ], [ 1, %13 ]
   %.not3.i = icmp eq i64 %.sroa.7.1, %4
   br i1 %.not3.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h5ebc6270dd934106E.llvm.2651244455829285093.exit", label %.lr.ph.i2.preheader
 
@@ -42342,9 +42342,9 @@ _ZN4core4iter8adapters11try_process17h5db063fcba74f2f6E.exit.i.i.i.i.i.i.i.i.i.i
   br label %"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17had459385ba70d9d1E.exit.thread.i.i.i.i.i.i.i.i.i.i"
 
 "_ZN3hir11term_search7tactics16type_constructor28_$u7b$$u7b$closure$u7d$$u7d$17hb239a3ee1dc23ec9E.exit.i.i.i.i.i.i.i.i.i.i.i": ; preds = %531, %469, %"_ZN4core3ptr58drop_in_place$LT$alloc..vec..Vec$LT$hir..TypeParam$GT$$GT$17hc25699c64cc6c7e5E.exit.i.i"
-  %.sroa.13.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %.sroa.13.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i, %531 ], [ %.sroa.640.0.i.i, %"_ZN4core3ptr58drop_in_place$LT$alloc..vec..Vec$LT$hir..TypeParam$GT$$GT$17hc25699c64cc6c7e5E.exit.i.i" ], [ %.sroa.13.sroa.0.0.copyload17.i.i.i.i.i.i.i.i.i.i.i, %469 ]
-  %.sroa.13.sroa.6.0.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %.sroa.13.sroa.6.0.copyload.i.i.i.i.i.i.i.i.i.i.i, %531 ], [ %.sroa.8.0.i.i, %"_ZN4core3ptr58drop_in_place$LT$alloc..vec..Vec$LT$hir..TypeParam$GT$$GT$17hc25699c64cc6c7e5E.exit.i.i" ], [ %.sroa.13.sroa.6.0.copyload19.i.i.i.i.i.i.i.i.i.i.i, %469 ]
-  %.sroa.0.1.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %.sroa.0.0.copyload9.i.i.i.i.i.i.i.i.i.i.i, %531 ], [ %.sroa.039.0.i.i, %"_ZN4core3ptr58drop_in_place$LT$alloc..vec..Vec$LT$hir..TypeParam$GT$$GT$17hc25699c64cc6c7e5E.exit.i.i" ], [ %.sroa.0.0.copyload10.i.i.i.i.i.i.i.i.i.i.i, %469 ]
+  %.sroa.13.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %.sroa.13.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i, %531 ], [ %.sroa.13.sroa.0.0.copyload17.i.i.i.i.i.i.i.i.i.i.i, %469 ], [ %.sroa.640.0.i.i, %"_ZN4core3ptr58drop_in_place$LT$alloc..vec..Vec$LT$hir..TypeParam$GT$$GT$17hc25699c64cc6c7e5E.exit.i.i" ]
+  %.sroa.13.sroa.6.0.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %.sroa.13.sroa.6.0.copyload.i.i.i.i.i.i.i.i.i.i.i, %531 ], [ %.sroa.13.sroa.6.0.copyload19.i.i.i.i.i.i.i.i.i.i.i, %469 ], [ %.sroa.8.0.i.i, %"_ZN4core3ptr58drop_in_place$LT$alloc..vec..Vec$LT$hir..TypeParam$GT$$GT$17hc25699c64cc6c7e5E.exit.i.i" ]
+  %.sroa.0.1.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %.sroa.0.0.copyload9.i.i.i.i.i.i.i.i.i.i.i, %531 ], [ %.sroa.0.0.copyload10.i.i.i.i.i.i.i.i.i.i.i, %469 ], [ %.sroa.039.0.i.i, %"_ZN4core3ptr58drop_in_place$LT$alloc..vec..Vec$LT$hir..TypeParam$GT$$GT$17hc25699c64cc6c7e5E.exit.i.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %49), !noalias !10522
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5152.i.i.i.i.i.i.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %61), !noalias !10522
@@ -51187,7 +51187,7 @@ common.resume.i:                                  ; preds = %86, %.body9.i, %32
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %51, %._crit_edge.loopexit34.i, %40
-  %.lcssa.i = phi ptr [ %.promoted.i.i, %40 ], [ %.promoted.i, %._crit_edge.loopexit34.i ], [ %55, %51 ]
+  %.lcssa.i = phi ptr [ %.promoted.i, %._crit_edge.loopexit34.i ], [ %.promoted.i.i, %40 ], [ %55, %51 ]
   store ptr %.lcssa.i, ptr %47, align 8, !noalias !13005
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !13095
   store ptr %9, ptr %3, align 8, !noalias !13095

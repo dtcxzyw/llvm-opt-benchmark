@@ -773,7 +773,7 @@ define dso_local i32 @GetSafeSnapshotBlockingPids(i32 noundef %0, ptr noundef wr
   br label %.loopexit
 
 .loopexit:                                        ; preds = %14, %.lr.ph46, %.loopexit.loopexit.split.loop.exit62, %3, %21, %17
-  %.0 = phi i32 [ 0, %17 ], [ 0, %3 ], [ 0, %21 ], [ %34, %.loopexit.loopexit.split.loop.exit62 ], [ %smax, %.lr.ph46 ], [ 0, %14 ]
+  %.0 = phi i32 [ 0, %17 ], [ 0, %3 ], [ 0, %21 ], [ %smax, %.lr.ph46 ], [ %34, %.loopexit.loopexit.split.loop.exit62 ], [ 0, %14 ]
   %35 = load ptr, ptr @MainLWLockArray, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 3584
   tail call void @LWLockRelease(ptr noundef nonnull %36) #11
@@ -4833,7 +4833,7 @@ define internal fastcc zeroext i1 @XidIsConcurrent(i32 noundef %0) unnamed_addr 
   br label %pg_lfind32.exit
 
 pg_lfind32.exit:                                  ; preds = %.preheader.i, %.lr.ph.i.i, %41, %20, %6, %1
-  %.0 = phi i1 [ true, %6 ], [ false, %1 ], [ %59, %41 ], [ false, %20 ], [ %23, %.lr.ph.i.i ], [ true, %.preheader.i ]
+  %.0 = phi i1 [ true, %6 ], [ false, %1 ], [ %23, %.lr.ph.i.i ], [ %59, %41 ], [ false, %20 ], [ true, %.preheader.i ]
   ret i1 %.0
 }
 

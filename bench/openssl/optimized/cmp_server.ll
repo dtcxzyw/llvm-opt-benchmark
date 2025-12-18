@@ -469,7 +469,7 @@ switch.early.test:                                ; preds = %32
   br label %84
 
 84:                                               ; preds = %82, %75
-  %.090 = phi ptr [ %76, %75 ], [ %83, %82 ]
+  %.090 = phi ptr [ %83, %82 ], [ %76, %75 ]
   %85 = icmp eq ptr %.090, null
   br i1 %85, label %.thread126, label %.thread123
 
@@ -1352,7 +1352,7 @@ process_genm.exit:                                ; preds = %150, %152, %157
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split.i, %230, %216, %187, %181, %169, %167, %144, %130, %123, %116, %109, %2, %233, %234, %process_cert_request.exit, %19, %108, %process_genm.exit, %149, %166, %186, %10
-  %.023 = phi ptr [ null, %10 ], [ null, %233 ], [ null, %234 ], [ null, %19 ], [ %.0.i, %process_cert_request.exit ], [ null, %108 ], [ null, %2 ], [ null, %149 ], [ %.0.i29, %process_genm.exit ], [ null, %166 ], [ null, %130 ], [ null, %186 ], [ %179, %169 ], [ null, %116 ], [ null, %123 ], [ null, %109 ], [ %.027.i, %144 ], [ null, %167 ], [ null, %181 ], [ null, %187 ], [ %231, %230 ], [ null, %216 ], [ null, %.critedge.sink.split.i ]
+  %.023 = phi ptr [ null, %10 ], [ null, %233 ], [ null, %234 ], [ null, %19 ], [ %.0.i, %process_cert_request.exit ], [ null, %108 ], [ null, %2 ], [ null, %149 ], [ %.0.i29, %process_genm.exit ], [ null, %166 ], [ null, %130 ], [ null, %186 ], [ %179, %169 ], [ null, %116 ], [ null, %123 ], [ null, %109 ], [ %.027.i, %144 ], [ null, %167 ], [ null, %181 ], [ null, %216 ], [ null, %187 ], [ %231, %230 ], [ null, %.critedge.sink.split.i ]
   ret ptr %.023
 }
 

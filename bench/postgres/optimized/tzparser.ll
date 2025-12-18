@@ -407,7 +407,7 @@ splitTzLine.exit:                                 ; preds = %108, %110, %120, %1
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit127
 
-.thread95:                                        ; preds = %127, %134, %.thread101
+.thread95:                                        ; preds = %127, %.thread101, %134
   %.sroa.17.3.ph = phi i8 [ %.sroa.17.2, %134 ], [ %.sroa.17.2107, %.thread101 ], [ 0, %127 ]
   %.sroa.11.3.ph = phi i32 [ %.sroa.11.2, %134 ], [ %.sroa.11.2108, %.thread101 ], [ %122, %127 ]
   %.sroa.8.3.ph = phi ptr [ %.sroa.8.2, %134 ], [ %.sroa.8.2109, %.thread101 ], [ null, %127 ]
@@ -545,8 +545,8 @@ addToArray.exit.thread:                           ; preds = %.thread.i
   br label %.loopexit127
 
 202:                                              ; preds = %169, %166
-  %.260.i = phi i32 [ %167, %166 ], [ %.05877.i, %169 ]
-  %.257.i = phi i32 [ %.05578.i, %166 ], [ %170, %169 ]
+  %.260.i = phi i32 [ %.05877.i, %169 ], [ %167, %166 ]
+  %.257.i = phi i32 [ %170, %169 ], [ %.05578.i, %166 ]
   %.not.i79 = icmp sgt i32 %.257.i, %.260.i
   br i1 %.not.i79, label %._crit_edge.i, label %.lr.ph.i78, !llvm.loop !11
 
@@ -595,7 +595,7 @@ addToArray.exit:                                  ; preds = %181, %186, %190, %2
   br i1 %219, label %.loopexit127, label %.outer128.backedge
 
 .loopexit127:                                     ; preds = %.outer.loopexit, %.outer128.backedge, %addToArray.exit, %.backedge, %.preheader126, %addToArray.exit.thread, %validateTzEntry.exit, %splitTzLine.exit, %.thread, %60, %72, %62
-  %.154 = phi i32 [ -1, %62 ], [ %.053.ph130173, %60 ], [ -1, %72 ], [ %.2.ph, %.thread ], [ -1, %validateTzEntry.exit ], [ -1, %splitTzLine.exit ], [ -1, %addToArray.exit.thread ], [ %4, %.preheader126 ], [ %.053.ph130.be, %.outer128.backedge ], [ %.053.ph130173, %.backedge ], [ %.2.i, %addToArray.exit ], [ %.053.ph130173, %.outer.loopexit ]
+  %.154 = phi i32 [ -1, %62 ], [ %.053.ph130173, %60 ], [ -1, %72 ], [ %.2.ph, %.thread ], [ -1, %validateTzEntry.exit ], [ -1, %splitTzLine.exit ], [ -1, %addToArray.exit.thread ], [ %4, %.preheader126 ], [ %.2.i, %addToArray.exit ], [ %.053.ph130173, %.backedge ], [ %.053.ph130.be, %.outer128.backedge ], [ %.053.ph130173, %.outer.loopexit ]
   %220 = call i32 @FreeFile(ptr noundef nonnull %36) #9
   br label %221
 

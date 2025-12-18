@@ -1463,7 +1463,7 @@ _ZN8unscanny7Scanner4snap17hc50e865a57a26991E.exit: ; preds = %_ZN8unscanny7Scan
   ret { ptr, i64 } %85
 
 86:                                               ; preds = %71, %69, %46
-  %.sroa.3.0.i = phi i64 [ 1, %46 ], [ 2, %69 ], [ %..i.i.i.i, %71 ]
+  %.sroa.3.0.i = phi i64 [ 1, %46 ], [ %..i.i.i.i, %71 ], [ 2, %69 ]
   %87 = add i64 %.sroa.3.0.i, %8
   store i64 %87, ptr %2, align 8
   %88 = icmp eq i64 %6, %87
@@ -1641,7 +1641,7 @@ _ZN8unscanny7Scanner4snap17hc50e865a57a26991E.exit: ; preds = %_ZN8unscanny7Scan
   ret { ptr, i64 } %85
 
 86:                                               ; preds = %71, %69, %46
-  %.sroa.3.0.i = phi i64 [ 1, %46 ], [ 2, %69 ], [ %..i.i.i.i, %71 ]
+  %.sroa.3.0.i = phi i64 [ 1, %46 ], [ %..i.i.i.i, %71 ], [ 2, %69 ]
   %87 = add i64 %.sroa.3.0.i, %8
   store i64 %87, ptr %2, align 8
   %88 = icmp eq i64 %6, %87

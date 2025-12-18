@@ -520,8 +520,8 @@ _ZNK6icu_7713CollationData7getCE32Ei.exit34:      ; preds = %71, %73
   br label %_ZN6icu_7712_GLOBAL__N_112binarySearchEPKlil.exit.i
 
 122:                                              ; preds = %119, %116
-  %.123.i.i = phi i32 [ %.02237.i.i, %116 ], [ %113, %119 ]
-  %.120.i.i = phi i32 [ %113, %116 ], [ %.01938.i.i, %119 ]
+  %.123.i.i = phi i32 [ %113, %119 ], [ %.02237.i.i, %116 ]
+  %.120.i.i = phi i32 [ %.01938.i.i, %119 ], [ %113, %116 ]
   %123 = add nsw i32 %.120.i.i, %.123.i.i
   %124 = sdiv i32 %123, 2
   %125 = sext i32 %124 to i64
@@ -531,7 +531,7 @@ _ZNK6icu_7713CollationData7getCE32Ei.exit34:      ; preds = %71, %73
   br i1 %128, label %_ZN6icu_7712_GLOBAL__N_112binarySearchEPKlil.exit.i, label %.lr.ph.i.i, !llvm.loop !53
 
 _ZN6icu_7712_GLOBAL__N_112binarySearchEPKlil.exit.i: ; preds = %122, %120, %117, %.preheader.i.i
-  %.018.i.i = phi i32 [ %118, %117 ], [ %121, %120 ], [ %107, %.preheader.i.i ], [ %124, %122 ]
+  %.018.i.i = phi i32 [ %107, %.preheader.i.i ], [ %121, %120 ], [ %118, %117 ], [ %124, %122 ]
   %129 = icmp slt i32 %.018.i.i, 0
   br i1 %129, label %_ZN6icu_7712_GLOBAL__N_112binarySearchEPKlil.exit.thread.i, label %_ZN6icu_7725CollationFastLatinBuilder11addUniqueCEElR10UErrorCode.exit
 
@@ -593,8 +593,8 @@ _ZN6icu_7725CollationFastLatinBuilder11addUniqueCEElR10UErrorCode.exit: ; preds 
   br label %_ZN6icu_7712_GLOBAL__N_112binarySearchEPKlil.exit.i44
 
 156:                                              ; preds = %153, %150
-  %.123.i.i42 = phi i32 [ %.02237.i.i41, %150 ], [ %147, %153 ]
-  %.120.i.i43 = phi i32 [ %147, %150 ], [ %.01938.i.i40, %153 ]
+  %.123.i.i42 = phi i32 [ %147, %153 ], [ %.02237.i.i41, %150 ]
+  %.120.i.i43 = phi i32 [ %.01938.i.i40, %153 ], [ %147, %150 ]
   %157 = add nsw i32 %.120.i.i43, %.123.i.i42
   %158 = sdiv i32 %157, 2
   %159 = sext i32 %158 to i64
@@ -604,7 +604,7 @@ _ZN6icu_7725CollationFastLatinBuilder11addUniqueCEElR10UErrorCode.exit: ; preds 
   br i1 %162, label %_ZN6icu_7712_GLOBAL__N_112binarySearchEPKlil.exit.i44, label %.lr.ph.i.i39, !llvm.loop !53
 
 _ZN6icu_7712_GLOBAL__N_112binarySearchEPKlil.exit.i44: ; preds = %156, %154, %151, %.preheader.i.i38
-  %.018.i.i45 = phi i32 [ %152, %151 ], [ %155, %154 ], [ %141, %.preheader.i.i38 ], [ %158, %156 ]
+  %.018.i.i45 = phi i32 [ %141, %.preheader.i.i38 ], [ %155, %154 ], [ %152, %151 ], [ %158, %156 ]
   %163 = icmp slt i32 %.018.i.i45, 0
   br i1 %163, label %_ZN6icu_7712_GLOBAL__N_112binarySearchEPKlil.exit.thread.i46, label %_ZN6icu_7725CollationFastLatinBuilder11addUniqueCEElR10UErrorCode.exit48
 
@@ -1606,8 +1606,8 @@ define void @_ZN6icu_7725CollationFastLatinBuilder11addUniqueCEElR10UErrorCode(p
   br label %_ZN6icu_7712_GLOBAL__N_112binarySearchEPKlil.exit
 
 31:                                               ; preds = %28, %25
-  %.123.i = phi i32 [ %.02237.i, %25 ], [ %22, %28 ]
-  %.120.i = phi i32 [ %22, %25 ], [ %.01938.i, %28 ]
+  %.123.i = phi i32 [ %22, %28 ], [ %.02237.i, %25 ]
+  %.120.i = phi i32 [ %.01938.i, %28 ], [ %22, %25 ]
   %32 = add nsw i32 %.120.i, %.123.i
   %33 = sdiv i32 %32, 2
   %34 = sext i32 %33 to i64
@@ -1617,7 +1617,7 @@ define void @_ZN6icu_7725CollationFastLatinBuilder11addUniqueCEElR10UErrorCode(p
   br i1 %37, label %_ZN6icu_7712_GLOBAL__N_112binarySearchEPKlil.exit, label %.lr.ph.i, !llvm.loop !53
 
 _ZN6icu_7712_GLOBAL__N_112binarySearchEPKlil.exit: ; preds = %31, %.preheader.i, %26, %29
-  %.018.i = phi i32 [ %27, %26 ], [ %30, %29 ], [ %16, %.preheader.i ], [ %33, %31 ]
+  %.018.i = phi i32 [ %16, %.preheader.i ], [ %30, %29 ], [ %27, %26 ], [ %33, %31 ]
   %38 = icmp slt i32 %.018.i, 0
   br i1 %38, label %_ZN6icu_7712_GLOBAL__N_112binarySearchEPKlil.exit.thread, label %40
 
@@ -1769,8 +1769,8 @@ _ZN6icu_779UVector6410addElementElR10UErrorCode.exit25: ; preds = %_ZN6icu_779UV
   br label %_ZN6icu_7712_GLOBAL__N_112binarySearchEPKlil.exit.i
 
 70:                                               ; preds = %67, %64
-  %.123.i.i = phi i32 [ %.02237.i.i, %64 ], [ %61, %67 ]
-  %.120.i.i = phi i32 [ %61, %64 ], [ %.01938.i.i, %67 ]
+  %.123.i.i = phi i32 [ %61, %67 ], [ %.02237.i.i, %64 ]
+  %.120.i.i = phi i32 [ %.01938.i.i, %67 ], [ %61, %64 ]
   %71 = add nsw i32 %.120.i.i, %.123.i.i
   %72 = sdiv i32 %71, 2
   %73 = sext i32 %72 to i64
@@ -1780,7 +1780,7 @@ _ZN6icu_779UVector6410addElementElR10UErrorCode.exit25: ; preds = %_ZN6icu_779UV
   br i1 %76, label %_ZN6icu_7712_GLOBAL__N_112binarySearchEPKlil.exit.i, label %.lr.ph.i.i, !llvm.loop !53
 
 _ZN6icu_7712_GLOBAL__N_112binarySearchEPKlil.exit.i: ; preds = %70, %68, %65, %.preheader.i.i
-  %.018.i.i = phi i32 [ %66, %65 ], [ %69, %68 ], [ %55, %.preheader.i.i ], [ %72, %70 ]
+  %.018.i.i = phi i32 [ %55, %.preheader.i.i ], [ %69, %68 ], [ %66, %65 ], [ %72, %70 ]
   %77 = icmp slt i32 %.018.i.i, 0
   br i1 %77, label %_ZN6icu_7712_GLOBAL__N_112binarySearchEPKlil.exit.thread.i, label %_ZN6icu_7725CollationFastLatinBuilder11addUniqueCEElR10UErrorCode.exit
 
@@ -1843,8 +1843,8 @@ _ZN6icu_7725CollationFastLatinBuilder11addUniqueCEElR10UErrorCode.exit: ; preds 
   br label %_ZN6icu_7712_GLOBAL__N_112binarySearchEPKlil.exit.i35
 
 106:                                              ; preds = %103, %100
-  %.123.i.i33 = phi i32 [ %.02237.i.i32, %100 ], [ %97, %103 ]
-  %.120.i.i34 = phi i32 [ %97, %100 ], [ %.01938.i.i31, %103 ]
+  %.123.i.i33 = phi i32 [ %97, %103 ], [ %.02237.i.i32, %100 ]
+  %.120.i.i34 = phi i32 [ %.01938.i.i31, %103 ], [ %97, %100 ]
   %107 = add nsw i32 %.120.i.i34, %.123.i.i33
   %108 = sdiv i32 %107, 2
   %109 = sext i32 %108 to i64
@@ -1854,7 +1854,7 @@ _ZN6icu_7725CollationFastLatinBuilder11addUniqueCEElR10UErrorCode.exit: ; preds 
   br i1 %112, label %_ZN6icu_7712_GLOBAL__N_112binarySearchEPKlil.exit.i35, label %.lr.ph.i.i30, !llvm.loop !53
 
 _ZN6icu_7712_GLOBAL__N_112binarySearchEPKlil.exit.i35: ; preds = %106, %104, %101, %.preheader.i.i29
-  %.018.i.i36 = phi i32 [ %102, %101 ], [ %105, %104 ], [ %91, %.preheader.i.i29 ], [ %108, %106 ]
+  %.018.i.i36 = phi i32 [ %91, %.preheader.i.i29 ], [ %105, %104 ], [ %102, %101 ], [ %108, %106 ]
   %113 = icmp slt i32 %.018.i.i36, 0
   br i1 %113, label %_ZN6icu_7712_GLOBAL__N_112binarySearchEPKlil.exit.thread.i37, label %_ZN6icu_7725CollationFastLatinBuilder11addUniqueCEElR10UErrorCode.exit39
 
@@ -2196,8 +2196,8 @@ define noundef range(i32 0, 65536) i32 @_ZNK6icu_7725CollationFastLatinBuilder9g
   br label %_ZN6icu_7712_GLOBAL__N_112binarySearchEPKlil.exit
 
 24:                                               ; preds = %21, %18
-  %.123.i = phi i32 [ %.02237.i, %18 ], [ %15, %21 ]
-  %.120.i = phi i32 [ %15, %18 ], [ %.01938.i, %21 ]
+  %.123.i = phi i32 [ %15, %21 ], [ %.02237.i, %18 ]
+  %.120.i = phi i32 [ %.01938.i, %21 ], [ %15, %18 ]
   %25 = add nsw i32 %.120.i, %.123.i
   %26 = sdiv i32 %25, 2
   %27 = sext i32 %26 to i64
@@ -2207,7 +2207,7 @@ define noundef range(i32 0, 65536) i32 @_ZNK6icu_7725CollationFastLatinBuilder9g
   br i1 %30, label %_ZN6icu_7712_GLOBAL__N_112binarySearchEPKlil.exit, label %.lr.ph.i, !llvm.loop !53
 
 _ZN6icu_7712_GLOBAL__N_112binarySearchEPKlil.exit: ; preds = %24, %2, %.preheader.i, %19, %22
-  %.018.i = phi i32 [ -1, %2 ], [ %20, %19 ], [ %23, %22 ], [ %9, %.preheader.i ], [ %26, %24 ]
+  %.018.i = phi i32 [ -1, %2 ], [ %23, %22 ], [ %20, %19 ], [ %9, %.preheader.i ], [ %26, %24 ]
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 7256
   %32 = load ptr, ptr %31, align 8, !tbaa !6
   %33 = sext i32 %.018.i to i64
@@ -2273,8 +2273,8 @@ define noundef i32 @_ZNK6icu_7725CollationFastLatinBuilder12encodeTwoCEsEll(ptr 
   br label %_ZNK6icu_7725CollationFastLatinBuilder9getMiniCEEl.exit
 
 27:                                               ; preds = %24, %21
-  %.123.i.i = phi i32 [ %.02237.i.i, %21 ], [ %18, %24 ]
-  %.120.i.i = phi i32 [ %18, %21 ], [ %.01938.i.i, %24 ]
+  %.123.i.i = phi i32 [ %18, %24 ], [ %.02237.i.i, %21 ]
+  %.120.i.i = phi i32 [ %.01938.i.i, %24 ], [ %18, %21 ]
   %28 = add nsw i32 %.120.i.i, %.123.i.i
   %29 = sdiv i32 %28, 2
   %30 = sext i32 %29 to i64
@@ -2284,7 +2284,7 @@ define noundef i32 @_ZNK6icu_7725CollationFastLatinBuilder12encodeTwoCEsEll(ptr 
   br i1 %33, label %_ZNK6icu_7725CollationFastLatinBuilder9getMiniCEEl.exit, label %.lr.ph.i.i, !llvm.loop !53
 
 _ZNK6icu_7725CollationFastLatinBuilder9getMiniCEEl.exit: ; preds = %27, %5, %.preheader.i.i, %22, %25
-  %.018.i.i = phi i32 [ -1, %5 ], [ %23, %22 ], [ %26, %25 ], [ %12, %.preheader.i.i ], [ %29, %27 ]
+  %.018.i.i = phi i32 [ -1, %5 ], [ %26, %25 ], [ %23, %22 ], [ %12, %.preheader.i.i ], [ %29, %27 ]
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 7256
   %35 = load ptr, ptr %34, align 8, !tbaa !6
   %36 = sext i32 %.018.i.i to i64
@@ -2341,8 +2341,8 @@ _ZNK6icu_7725CollationFastLatinBuilder9getMiniCEEl.exit: ; preds = %27, %5, %.pr
   br label %_ZNK6icu_7725CollationFastLatinBuilder9getMiniCEEl.exit58
 
 66:                                               ; preds = %63, %60
-  %.123.i.i55 = phi i32 [ %.02237.i.i54, %60 ], [ %57, %63 ]
-  %.120.i.i56 = phi i32 [ %57, %60 ], [ %.01938.i.i53, %63 ]
+  %.123.i.i55 = phi i32 [ %57, %63 ], [ %.02237.i.i54, %60 ]
+  %.120.i.i56 = phi i32 [ %.01938.i.i53, %63 ], [ %57, %60 ]
   %67 = add nsw i32 %.120.i.i56, %.123.i.i55
   %68 = sdiv i32 %67, 2
   %69 = sext i32 %68 to i64
@@ -2352,7 +2352,7 @@ _ZNK6icu_7725CollationFastLatinBuilder9getMiniCEEl.exit: ; preds = %27, %5, %.pr
   br i1 %72, label %_ZNK6icu_7725CollationFastLatinBuilder9getMiniCEEl.exit58, label %.lr.ph.i.i52, !llvm.loop !53
 
 _ZNK6icu_7725CollationFastLatinBuilder9getMiniCEEl.exit58: ; preds = %66, %49, %.preheader.i.i51, %61, %64
-  %.018.i.i57 = phi i32 [ -1, %49 ], [ %62, %61 ], [ %65, %64 ], [ %51, %.preheader.i.i51 ], [ %68, %66 ]
+  %.018.i.i57 = phi i32 [ -1, %49 ], [ %65, %64 ], [ %62, %61 ], [ %51, %.preheader.i.i51 ], [ %68, %66 ]
   %73 = sext i32 %.018.i.i57 to i64
   %74 = getelementptr inbounds i16, ptr %35, i64 %73
   %75 = load i16, ptr %74, align 2, !tbaa !49

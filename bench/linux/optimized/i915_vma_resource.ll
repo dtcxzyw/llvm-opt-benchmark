@@ -834,7 +834,7 @@ define dso_local i32 @i915_vma_resource_bind_dep_sync(ptr noundef readonly captu
   br i1 %70, label %.thread12, label %.preheader19.backedge
 
 .preheader19.backedge:                            ; preds = %67, %44
-  %.pn13.be = phi ptr [ %42, %44 ], [ %65, %67 ]
+  %.pn13.be = phi ptr [ %65, %67 ], [ %42, %44 ]
   br label %.preheader19, !llvm.loop !16
 
 .loopexit20:                                      ; preds = %56
@@ -915,7 +915,7 @@ define dso_local i32 @i915_vma_resource_bind_dep_sync(ptr noundef readonly captu
   br i1 %118, label %.thread12, label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %115, %92
-  %.pn15.be = phi ptr [ %90, %92 ], [ %113, %115 ]
+  %.pn15.be = phi ptr [ %113, %115 ], [ %90, %92 ]
   br label %.preheader, !llvm.loop !16
 
 .thread:                                          ; preds = %.thread.preheader, %124
@@ -963,7 +963,7 @@ define dso_local i32 @i915_vma_resource_bind_dep_sync(ptr noundef readonly captu
   br i1 %147, label %.thread12, label %.lr.ph, !llvm.loop !19
 
 .thread12:                                        ; preds = %48, %63, %67, %.loopexit, %.lr.ph, %130, %111, %96, %115, %.thread, %21, %27, %31, %.loopexit20
-  %148 = phi i32 [ 0, %.loopexit20 ], [ 0, %31 ], [ 0, %27 ], [ 0, %21 ], [ 0, %.thread ], [ 0, %111 ], [ 0, %.loopexit ], [ 0, %130 ], [ 0, %115 ], [ 0, %96 ], [ %76, %.lr.ph ], [ 0, %67 ], [ 0, %63 ], [ 0, %48 ]
+  %148 = phi i32 [ 0, %.loopexit20 ], [ 0, %130 ], [ 0, %.thread ], [ 0, %111 ], [ 0, %31 ], [ 0, %27 ], [ 0, %21 ], [ 0, %.loopexit ], [ 0, %115 ], [ 0, %96 ], [ %76, %.lr.ph ], [ 0, %67 ], [ 0, %63 ], [ 0, %48 ]
   ret i32 %148
 }
 
@@ -1169,7 +1169,7 @@ define dso_local i32 @i915_vma_resource_bind_dep_await(ptr noundef readonly capt
   br i1 %77, label %.thread12, label %.preheader19.backedge
 
 .preheader19.backedge:                            ; preds = %74, %51
-  %.pn13.be = phi ptr [ %49, %51 ], [ %72, %74 ]
+  %.pn13.be = phi ptr [ %72, %74 ], [ %49, %51 ]
   br label %.preheader19, !llvm.loop !16
 
 .loopexit20:                                      ; preds = %63
@@ -1255,7 +1255,7 @@ define dso_local i32 @i915_vma_resource_bind_dep_await(ptr noundef readonly capt
   br i1 %128, label %.thread12, label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %125, %102
-  %.pn15.be = phi ptr [ %100, %102 ], [ %123, %125 ]
+  %.pn15.be = phi ptr [ %123, %125 ], [ %100, %102 ]
   br label %.preheader, !llvm.loop !16
 
 .thread:                                          ; preds = %.thread.preheader, %134
@@ -1303,7 +1303,7 @@ define dso_local i32 @i915_vma_resource_bind_dep_await(ptr noundef readonly capt
   br i1 %157, label %.thread12, label %.lr.ph, !llvm.loop !21
 
 .thread12:                                        ; preds = %55, %70, %74, %.loopexit, %83, %140, %121, %106, %125, %.thread, %28, %34, %38, %.loopexit20
-  %158 = phi i32 [ 0, %.loopexit20 ], [ 0, %38 ], [ 0, %34 ], [ 0, %28 ], [ 0, %.thread ], [ 0, %121 ], [ 0, %.loopexit ], [ 0, %140 ], [ 0, %125 ], [ 0, %106 ], [ %86, %83 ], [ 0, %74 ], [ 0, %70 ], [ 0, %55 ]
+  %158 = phi i32 [ 0, %.loopexit20 ], [ 0, %140 ], [ 0, %.thread ], [ 0, %121 ], [ 0, %38 ], [ 0, %34 ], [ 0, %28 ], [ 0, %.loopexit ], [ 0, %125 ], [ 0, %106 ], [ %86, %83 ], [ 0, %74 ], [ 0, %70 ], [ 0, %55 ]
   ret i32 %158
 }
 

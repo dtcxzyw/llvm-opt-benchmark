@@ -138,14 +138,14 @@ define ptr @PGTYPESnumeric_from_asc(ptr noundef %0, ptr noundef captures(address
   br i1 %.not.i, label %._crit_edge.i.thread, label %.lr.ph.i.split, !llvm.loop !3
 
 ._crit_edge.i.thread:                             ; preds = %.lr.ph.i.split, %.else57, %.cont58.thread
-  %storemerge.lcssa.i.ph = phi ptr [ %0, %.cont58.thread ], [ %storemerge92.i, %.lr.ph.i.split ], [ %29, %.else57 ]
+  %storemerge.lcssa.i.ph = phi ptr [ %0, %.cont58.thread ], [ %29, %.else57 ], [ %storemerge92.i, %.lr.ph.i.split ]
   %31 = tail call i32 @pg_strncasecmp(ptr noundef nonnull %storemerge.lcssa.i.ph, ptr noundef nonnull @.str.1, i64 noundef 3) #15
   %32 = icmp eq i32 %31, 0
   %.else.val54132 = load ptr, ptr %1, align 8
   br i1 %32, label %.cont12, label %62
 
 ._crit_edge.i:                                    ; preds = %16, %.cont55.us.._crit_edge.i.loopexit.split.us_crit_edge, %.lr.ph.i.split.us, %.cont58
-  %.1 = phi ptr [ %0, %.cont58 ], [ %21, %.cont55.us.._crit_edge.i.loopexit.split.us_crit_edge ], [ %0, %.lr.ph.i.split.us ], [ %21, %16 ]
+  %.1 = phi ptr [ %0, %.cont58 ], [ %0, %.lr.ph.i.split.us ], [ %21, %.cont55.us.._crit_edge.i.loopexit.split.us_crit_edge ], [ %21, %16 ]
   %33 = tail call i32 @pg_strncasecmp(ptr noundef nonnull %.1, ptr noundef nonnull @.str.1, i64 noundef 3) #15
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %.cont12.thread, label %62
@@ -573,7 +573,7 @@ thread-pre-split.i:                               ; preds = %.else25, %.cont23.u
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %186
 
-186:                                              ; preds = %.split92.us, %100, %127, %.split.us, %.critedge87.i, %62
+186:                                              ; preds = %.split92.us, %100, %62, %127, %.split.us, %.critedge87.i
   %187 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %188 = load ptr, ptr %187, align 8
   tail call void @free(ptr noundef %188) #15
@@ -765,7 +765,7 @@ alloc_var.exit:                                   ; preds = %4
   br i1 %38, label %30, label %alloc_var.exit.thread, !llvm.loop !9
 
 alloc_var.exit.thread:                            ; preds = %30, %alloc_var.exit, %4, %2
-  %.019 = phi i32 [ -1, %2 ], [ -1, %4 ], [ 0, %alloc_var.exit ], [ 0, %30 ]
+  %.019 = phi i32 [ -1, %4 ], [ -1, %2 ], [ 0, %alloc_var.exit ], [ 0, %30 ]
   ret i32 %.019
 }
 
@@ -1438,7 +1438,7 @@ define internal fastcc range(i32 -1, 2) i32 @cmp_abs(ptr noundef readonly captur
   br i1 %.not, label %60, label %.loopexit, !llvm.loop !20
 
 .loopexit:                                        ; preds = %13, %24, %56, %60, %61, %48
-  %.0 = phi i32 [ %., %48 ], [ -1, %24 ], [ -1, %61 ], [ 1, %56 ], [ 0, %60 ], [ 1, %13 ]
+  %.0 = phi i32 [ -1, %61 ], [ -1, %24 ], [ %., %48 ], [ 1, %56 ], [ 0, %60 ], [ 1, %13 ]
   ret i32 %.0
 }
 
@@ -2762,7 +2762,7 @@ PGTYPESnumeric_copy.exit:                         ; preds = %37, %alloc_var.exit
   store i32 0, ptr %48, align 4
   br label %51
 
-.critedge:                                        ; preds = %11, %9
+.critedge:                                        ; preds = %9, %11
   %49 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %50 = load ptr, ptr %49, align 8
   call void @free(ptr noundef %50) #15

@@ -550,7 +550,7 @@ opj_j2k_get_default_thread_count.exit:            ; preds = %15, %18, %20, %24, 
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %opj_j2k_get_default_thread_count.exit, %34, %0
-  %.0 = phi ptr [ null, %0 ], [ %1, %34 ], [ %1, %opj_j2k_get_default_thread_count.exit ], [ null, %.thread.sink.split ]
+  %.0 = phi ptr [ null, %0 ], [ %1, %opj_j2k_get_default_thread_count.exit ], [ %1, %34 ], [ null, %.thread.sink.split ]
   ret ptr %.0
 }
 
@@ -1107,7 +1107,7 @@ switch.lookup:                                    ; preds = %74
   br i1 %155, label %134, label %.loopexit753, !llvm.loop !71
 
 .loopexit753:                                     ; preds = %126, %152, %.preheader754.thread, %.preheader754, %.preheader752, %130
-  %156 = phi i32 [ 1, %.preheader754.thread ], [ 1, %.preheader754 ], [ 1, %.preheader752 ], [ %92, %130 ], [ %153, %152 ], [ %127, %126 ]
+  %156 = phi i32 [ %153, %152 ], [ 1, %.preheader754.thread ], [ 1, %.preheader754 ], [ 1, %.preheader752 ], [ %92, %130 ], [ %127, %126 ]
   %157 = getelementptr inbounds nuw i8, ptr %1, i64 18712
   %158 = load i32, ptr %157, align 8, !tbaa !63
   %159 = icmp slt i32 %158, 1
@@ -2161,7 +2161,7 @@ opj_int_floorlog2.exit724:                        ; preds = %.lr.ph.i721, %695, 
   br i1 %704, label %.lr.ph.i726, label %opj_int_floorlog2.exit719, !llvm.loop !54
 
 opj_int_floorlog2.exit719:                        ; preds = %.lr.ph.i726, %.lr.ph.i716, %701, %opj_int_floorlog2.exit724, %679, %opj_int_floorlog2.exit714
-  %.sink = phi i32 [ 1, %opj_int_floorlog2.exit724 ], [ 1, %opj_int_floorlog2.exit714 ], [ 0, %679 ], [ 0, %701 ], [ %681, %.lr.ph.i716 ], [ %703, %.lr.ph.i726 ]
+  %.sink = phi i32 [ %681, %.lr.ph.i716 ], [ 1, %opj_int_floorlog2.exit724 ], [ 1, %opj_int_floorlog2.exit714 ], [ 0, %679 ], [ 0, %701 ], [ %703, %.lr.ph.i726 ]
   %705 = getelementptr inbounds nuw i32, ptr %658, i64 %indvars.iv.next857
   store i32 %.sink, ptr %705, align 4, !tbaa !125
   %indvars.iv.next859 = add nuw nsw i64 %indvars.iv858, 1
@@ -3174,7 +3174,7 @@ define internal fastcc range(i32 0, 2) i32 @opj_j2k_is_imf_compliant(ptr noundef
   br label %212
 
 212:                                              ; preds = %.sink.split, %210, %209
-  %.18 = phi i32 [ %.17, %209 ], [ %.17, %210 ], [ 0, %.sink.split ]
+  %.18 = phi i32 [ %.17, %210 ], [ %.17, %209 ], [ 0, %.sink.split ]
   %213 = getelementptr inbounds nuw i8, ptr %0, i64 4796
   %214 = load i32, ptr %213, align 4, !tbaa !57
   %.not301 = icmp eq i32 %214, 1
@@ -3294,7 +3294,7 @@ default.unreachable:                              ; preds = %217
   br label %258
 
 258:                                              ; preds = %.sink.split387, %244, %252, %254, %248, %233, %239, %237, %226, %228, %222, %220, %218
-  %.20 = phi i32 [ %.19, %218 ], [ %.19, %220 ], [ %.19, %222 ], [ %.19, %226 ], [ %.19, %254 ], [ %.19, %228 ], [ %.19, %233 ], [ %.19, %237 ], [ %.19, %239 ], [ %.19, %244 ], [ %.19, %248 ], [ %.19, %252 ], [ 0, %.sink.split387 ]
+  %.20 = phi i32 [ %.19, %252 ], [ %.19, %218 ], [ %.19, %248 ], [ %.19, %220 ], [ %.19, %244 ], [ %.19, %222 ], [ %.19, %239 ], [ %.19, %226 ], [ %.19, %237 ], [ %.19, %254 ], [ %.19, %233 ], [ %.19, %228 ], [ 0, %.sink.split387 ]
   %259 = load i32, ptr %12, align 8, !tbaa !49
   %260 = icmp eq i32 %259, 1
   %261 = getelementptr inbounds nuw i8, ptr %0, i64 5628
@@ -6283,7 +6283,7 @@ define internal fastcc range(i32 0, 2) i32 @opj_j2k_update_image_dimensions(ptr 
   br i1 %exitcond.not, label %.critedge, label %.lr.ph.split.split.split.split, !llvm.loop !268
 
 .critedge:                                        ; preds = %78, %2, %.split, %58, %76
-  %.2 = phi i32 [ 0, %76 ], [ 0, %58 ], [ 0, %.split ], [ 1, %2 ], [ 1, %78 ]
+  %.2 = phi i32 [ 0, %.split ], [ 0, %76 ], [ 0, %58 ], [ 1, %2 ], [ 1, %78 ]
   ret i32 %.2
 }
 
@@ -6411,7 +6411,7 @@ opj_j2k_get_default_thread_count.exit:            ; preds = %33, %36, %38, %42, 
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %opj_j2k_get_default_thread_count.exit, %52, %0
-  %.0 = phi ptr [ null, %0 ], [ %1, %52 ], [ %1, %opj_j2k_get_default_thread_count.exit ], [ null, %.thread.sink.split ]
+  %.0 = phi ptr [ null, %0 ], [ %1, %opj_j2k_get_default_thread_count.exit ], [ %1, %52 ], [ null, %.thread.sink.split ]
   ret ptr %.0
 }
 
@@ -8095,7 +8095,7 @@ define hidden range(i32 0, 2) i32 @opj_j2k_set_decoded_resolution_factor(ptr nou
   br i1 %exitcond.not, label %.loopexit, label %18, !llvm.loop !337
 
 .loopexit:                                        ; preds = %27, %.preheader, %25, %3, %10, %13, %7
-  %.2 = phi i32 [ 0, %25 ], [ 0, %7 ], [ 0, %13 ], [ 0, %10 ], [ 0, %3 ], [ 1, %.preheader ], [ 1, %27 ]
+  %.2 = phi i32 [ 0, %25 ], [ 0, %3 ], [ 0, %7 ], [ 0, %13 ], [ 0, %10 ], [ 1, %.preheader ], [ 1, %27 ]
   ret i32 %.2
 }
 
@@ -8236,7 +8236,7 @@ define hidden range(i32 0, 2) i32 @opj_j2k_encoder_set_extra_options(ptr noundef
   br label %.loopexit50
 
 .loopexit50:                                      ; preds = %.loopexit, %.loopexit50.sink.split, %.preheader49, %3
-  %.0 = phi i32 [ 1, %3 ], [ 1, %.preheader49 ], [ 0, %.loopexit50.sink.split ], [ 1, %.loopexit ]
+  %.0 = phi i32 [ 1, %3 ], [ 0, %.loopexit50.sink.split ], [ 1, %.preheader49 ], [ 1, %.loopexit ]
   ret i32 %.0
 }
 
@@ -8716,7 +8716,7 @@ opj_get_tile_dimensions.exit.i:                   ; preds = %.loopexit.i, %opj_g
   br i1 %exitcond205.not.i, label %.loopexit.i, label %.preheader106.us.i, !llvm.loop !365
 
 .loopexit.i:                                      ; preds = %._crit_edge.us.i, %._crit_edge.us134.i, %._crit_edge.us145.i, %._crit_edge.us156.i, %._crit_edge.us167.i, %.preheader106.lr.ph.i, %.preheader112.i, %.preheader107.lr.ph.i, %.preheader114.i, %.preheader.lr.ph.i, %.preheader109.i, %.preheader105.lr.ph.i, %.preheader110.i, %.preheader108.lr.ph.i, %.preheader116.i, %opj_get_tile_dimensions.exit.i
-  %.166.i = phi ptr [ %.065171.i, %opj_get_tile_dimensions.exit.i ], [ %.065171.i, %.preheader109.i ], [ %.065171.i, %.preheader110.i ], [ %.065171.i, %.preheader112.i ], [ %.065171.i, %.preheader114.i ], [ %.065171.i, %.preheader116.i ], [ %.065171.i, %.preheader105.lr.ph.i ], [ %.065171.i, %.preheader106.lr.ph.i ], [ %.065171.i, %.preheader108.lr.ph.i ], [ %.065171.i, %.preheader107.lr.ph.i ], [ %.065171.i, %.preheader.lr.ph.i ], [ %190, %._crit_edge.us134.i ], [ %177, %._crit_edge.us167.i ], [ %168, %._crit_edge.us156.i ], [ %199, %._crit_edge.us145.i ], [ %157, %._crit_edge.us.i ]
+  %.166.i = phi ptr [ %.065171.i, %opj_get_tile_dimensions.exit.i ], [ %199, %._crit_edge.us145.i ], [ %177, %._crit_edge.us167.i ], [ %168, %._crit_edge.us156.i ], [ %.065171.i, %.preheader106.lr.ph.i ], [ %.065171.i, %.preheader109.i ], [ %.065171.i, %.preheader105.lr.ph.i ], [ %.065171.i, %.preheader110.i ], [ %.065171.i, %.preheader108.lr.ph.i ], [ %.065171.i, %.preheader112.i ], [ %.065171.i, %.preheader107.lr.ph.i ], [ %.065171.i, %.preheader114.i ], [ %.065171.i, %.preheader.lr.ph.i ], [ %.065171.i, %.preheader116.i ], [ %190, %._crit_edge.us134.i ], [ %157, %._crit_edge.us.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %203 = load ptr, ptr %89, align 8, !tbaa !342
   %204 = getelementptr inbounds nuw i8, ptr %203, i64 16
@@ -8764,7 +8764,7 @@ opj_j2k_get_tile_data.exit:                       ; preds = %opj_j2k_get_tile_da
   br label %.critedge
 
 .critedge:                                        ; preds = %86, %3, %.thread, %.split.us, %77, %._crit_edge141, %216, %214, %215, %.loopexit, %67, %210
-  %.1 = phi i32 [ 1, %._crit_edge141 ], [ 0, %.loopexit ], [ 0, %210 ], [ 0, %.thread ], [ 0, %214 ], [ 0, %67 ], [ 0, %215 ], [ 1, %216 ], [ 0, %77 ], [ 0, %.split.us ], [ 1, %3 ], [ 0, %86 ]
+  %.1 = phi i32 [ 1, %._crit_edge141 ], [ 0, %.split.us ], [ 0, %.loopexit ], [ 0, %210 ], [ 0, %.thread ], [ 0, %214 ], [ 0, %67 ], [ 0, %215 ], [ 1, %216 ], [ 0, %77 ], [ 1, %3 ], [ 0, %86 ]
   ret i32 %.1
 }
 
@@ -9956,7 +9956,7 @@ opj_j2k_get_marker_handler.exit.i:                ; preds = %.preheader.i
   br i1 %.not.i99, label %.lr.ph.i, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %66, %opj_j2k_get_marker_handler.exit.i, %105, %101
-  %.str.37.sink = phi ptr [ @.str.163, %101 ], [ @.str.37, %105 ], [ @.str.41, %opj_j2k_get_marker_handler.exit.i ], [ @.str.37, %66 ]
+  %.str.37.sink = phi ptr [ @.str.37, %105 ], [ @.str.163, %101 ], [ @.str.41, %opj_j2k_get_marker_handler.exit.i ], [ @.str.37, %66 ]
   %108 = call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %2, i32 noundef 1, ptr noundef nonnull %.str.37.sink) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %109 = call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.160) #21
@@ -10453,7 +10453,7 @@ define internal range(i32 0, 2) i32 @opj_j2k_copy_default_tcp_and_create_tcd(ptr
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge, %48, %44, %61, %122, %._crit_edge132, %126
-  %.098 = phi i32 [ 0, %._crit_edge132 ], [ 0, %126 ], [ 1, %122 ], [ 0, %61 ], [ 0, %44 ], [ 0, %48 ], [ 0, %._crit_edge ]
+  %.098 = phi i32 [ 0, %61 ], [ 1, %122 ], [ 0, %126 ], [ 0, %._crit_edge132 ], [ 0, %44 ], [ 0, %48 ], [ 0, %._crit_edge ]
   ret i32 %.098
 }
 
@@ -11813,7 +11813,7 @@ opj_j2k_copy_tile_quantization_parameters.exit.sink.split: ; preds = %4
   br label %opj_j2k_copy_tile_quantization_parameters.exit
 
 opj_j2k_copy_tile_quantization_parameters.exit:   ; preds = %34, %opj_j2k_copy_tile_quantization_parameters.exit.sink.split, %22
-  %.0 = phi i32 [ 1, %22 ], [ 0, %opj_j2k_copy_tile_quantization_parameters.exit.sink.split ], [ 1, %34 ]
+  %.0 = phi i32 [ 0, %opj_j2k_copy_tile_quantization_parameters.exit.sink.split ], [ 1, %22 ], [ 1, %34 ]
   ret i32 %.0
 }
 
@@ -15349,7 +15349,7 @@ opj_j2k_tcp_data_destroy.exit:                    ; preds = %291, %285, %261, %2
   br label %.loopexit
 
 .loopexit:                                        ; preds = %249, %236, %60, %.preheader, %.loopexit181, %58, %47, %247
-  %.1 = phi i32 [ %312, %.loopexit181 ], [ 0, %247 ], [ 0, %47 ], [ 0, %58 ], [ 1, %.preheader ], [ 1, %60 ], [ 0, %236 ], [ 0, %249 ]
+  %.1 = phi i32 [ 0, %58 ], [ 1, %.preheader ], [ %312, %.loopexit181 ], [ 0, %47 ], [ 0, %247 ], [ 1, %60 ], [ 0, %236 ], [ 0, %249 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -15967,7 +15967,7 @@ opj_j2k_tcp_data_destroy.exit:                    ; preds = %88, %94
   br label %.loopexit
 
 .loopexit:                                        ; preds = %106, %75, %78, %.preheader, %.loopexit70, %.critedge, %104, %32
-  %.0 = phi i32 [ %109, %.loopexit70 ], [ 0, %104 ], [ 0, %32 ], [ 0, %.critedge ], [ 0, %.preheader ], [ 0, %78 ], [ 0, %75 ], [ 0, %106 ]
+  %.0 = phi i32 [ 0, %.critedge ], [ %109, %.loopexit70 ], [ 0, %104 ], [ 0, %32 ], [ 0, %.preheader ], [ 0, %78 ], [ 0, %75 ], [ 0, %106 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -18236,7 +18236,7 @@ opj_j2k_write_mco.exit:                           ; preds = %.lr.ph.i48, %._crit
   br label %.loopexit
 
 .loopexit:                                        ; preds = %opj_j2k_write_mct_record.exit, %opj_j2k_write_mcc_record.exit, %206, %opj_j2k_write_mco.exit, %opj_j2k_write_mcc_record.exit.thread, %opj_j2k_write_mct_record.exit.thread, %opj_j2k_write_cbd.exit.thread, %opj_j2k_write_cbd.exit
-  %.0 = phi i32 [ 0, %opj_j2k_write_cbd.exit ], [ 0, %opj_j2k_write_mcc_record.exit.thread ], [ 0, %opj_j2k_write_cbd.exit.thread ], [ 0, %opj_j2k_write_mct_record.exit.thread ], [ 0, %206 ], [ 1, %opj_j2k_write_mco.exit ], [ 0, %opj_j2k_write_mcc_record.exit ], [ 0, %opj_j2k_write_mct_record.exit ]
+  %.0 = phi i32 [ 0, %opj_j2k_write_cbd.exit ], [ 0, %opj_j2k_write_mcc_record.exit ], [ 1, %opj_j2k_write_mco.exit ], [ 0, %opj_j2k_write_mcc_record.exit.thread ], [ 0, %opj_j2k_write_cbd.exit.thread ], [ 0, %opj_j2k_write_mct_record.exit.thread ], [ 0, %206 ], [ 0, %opj_j2k_write_mct_record.exit ]
   ret i32 %.0
 }
 
@@ -18528,8 +18528,8 @@ define internal range(i32 0, 2) i32 @opj_j2k_update_rates(ptr noundef %0, ptr no
   br label %._crit_edge164
 
 ._crit_edge164:                                   ; preds = %._crit_edge160.us, %._crit_edge164.sink.split, %.preheader.lr.ph, %._crit_edge149
-  %140 = phi ptr [ %96, %.preheader.lr.ph ], [ %96, %._crit_edge149 ], [ %139, %._crit_edge164.sink.split ], [ %96, %._crit_edge160.us ]
-  %.lcssa140218 = phi i32 [ %93, %.preheader.lr.ph ], [ 0, %._crit_edge149 ], [ %.lcssa140218.ph, %._crit_edge164.sink.split ], [ %93, %._crit_edge160.us ]
+  %140 = phi ptr [ %139, %._crit_edge164.sink.split ], [ %96, %.preheader.lr.ph ], [ %96, %._crit_edge149 ], [ %96, %._crit_edge160.us ]
+  %.lcssa140218 = phi i32 [ %.lcssa140218.ph, %._crit_edge164.sink.split ], [ %93, %.preheader.lr.ph ], [ 0, %._crit_edge149 ], [ %93, %._crit_edge160.us ]
   %141 = load i32, ptr %13, align 8, !tbaa !58
   %.not178 = icmp eq i32 %141, 0
   br i1 %.not178, label %._crit_edge170, label %.lr.ph169

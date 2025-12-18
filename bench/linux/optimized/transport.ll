@@ -1870,7 +1870,7 @@ define dso_local noundef range(i32 0, 4) i32 @usb_stor_Bulk_transport(ptr nounde
   br label %.thread6
 
 .thread6:                                         ; preds = %78, %.thread6.fold.split, %94, %.thread4, %76
-  %107 = phi i32 [ 0, %76 ], [ 0, %94 ], [ 0, %.thread4 ], [ 1, %78 ], [ 0, %.thread6.fold.split ]
+  %107 = phi i32 [ 0, %76 ], [ 1, %78 ], [ 0, %94 ], [ 0, %.thread4 ], [ 0, %.thread6.fold.split ]
   %108 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %109 = load i32, ptr %108, align 4
   %110 = load ptr, ptr %55, align 8

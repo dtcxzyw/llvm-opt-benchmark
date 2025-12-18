@@ -628,7 +628,7 @@ init_mv.exit.preheader.i:                         ; preds = %243
   br i1 %260, label %.preheader.us.i, label %decode_p_frame.exit, !llvm.loop !74
 
 .loopexit:                                        ; preds = %252, %144, %._crit_edge.i, %174
-  %.0.i.ph = phi i32 [ -12, %174 ], [ -1094995529, %._crit_edge.i ], [ -1094995529, %144 ], [ %255, %252 ]
+  %.0.i.ph = phi i32 [ -1094995529, %144 ], [ -12, %174 ], [ -1094995529, %._crit_edge.i ], [ %255, %252 ]
   %261 = load ptr, ptr %10, align 16, !tbaa !43
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %261, i32 noundef 16, ptr noundef nonnull @.str.20) #9
   br label %.thread160
@@ -1838,8 +1838,8 @@ get_vlc2.exit:                                    ; preds = %._crit_edge99, %487
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %531, i32 noundef 16, ptr noundef nonnull @.str.32) #9
   br label %decode_i_mb.exit.thread
 
-decode_i_mb.exit.thread:                          ; preds = %.split103.us, %.split101.us, %.split.us, %get_vlc2.exit, %530, %113, %3, %107, %29, %19
-  %.0 = phi i32 [ -1094995529, %107 ], [ -1094995529, %19 ], [ -1094995529, %29 ], [ -12, %113 ], [ 0, %get_vlc2.exit ], [ -1094995529, %3 ], [ 0, %530 ], [ -1094995529, %.split.us ], [ -1094995529, %.split101.us ], [ -1094995529, %.split103.us ]
+decode_i_mb.exit.thread:                          ; preds = %.split101.us, %.split.us, %.split103.us, %get_vlc2.exit, %530, %113, %3, %107, %29, %19
+  %.0 = phi i32 [ -1094995529, %107 ], [ -1094995529, %19 ], [ -1094995529, %29 ], [ -12, %113 ], [ 0, %get_vlc2.exit ], [ -1094995529, %3 ], [ 0, %530 ], [ -1094995529, %.split103.us ], [ -1094995529, %.split.us ], [ -1094995529, %.split101.us ]
   ret i32 %.0
 }
 
@@ -2496,7 +2496,7 @@ default.unreachable107.i:                         ; preds = %190
   unreachable
 
 mcdc.exit:                                        ; preds = %56, %47, %15, %.preheader87.i, %.preheader85.i, %.preheader83.i, %.preheader.i, %131, %81, %83, %189, %178, %157, %110, %75
-  %.0106 = phi i32 [ -1094995529, %178 ], [ -1094995529, %75 ], [ -1094995529, %110 ], [ -1094995529, %189 ], [ 0, %131 ], [ 0, %81 ], [ -1094995529, %157 ], [ 0, %83 ], [ 0, %.preheader83.i ], [ 0, %.preheader85.i ], [ %49, %47 ], [ 0, %.preheader.i ], [ 0, %.preheader87.i ], [ -1094995529, %15 ], [ %58, %56 ]
+  %.0106 = phi i32 [ -1094995529, %178 ], [ 0, %83 ], [ 0, %.preheader87.i ], [ 0, %.preheader.i ], [ 0, %.preheader85.i ], [ -1094995529, %75 ], [ %49, %47 ], [ -1094995529, %110 ], [ -1094995529, %189 ], [ 0, %131 ], [ 0, %81 ], [ -1094995529, %157 ], [ 0, %.preheader83.i ], [ -1094995529, %15 ], [ %58, %56 ]
   ret i32 %.0106
 }
 

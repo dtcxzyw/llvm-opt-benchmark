@@ -293,7 +293,7 @@ make_rfile.exit:                                  ; preds = %.lr.ph223, %76
   br i1 %.wide, label %.loopexit.thread, label %.lr.ph223
 
 .loopexit.thread:                                 ; preds = %._crit_edge, %._crit_edge227, %.preheader193
-  %.1136.ph.ph = phi i1 [ true, %.preheader193 ], [ %117, %._crit_edge227 ], [ true, %._crit_edge ]
+  %.1136.ph.ph = phi i1 [ %117, %._crit_edge227 ], [ true, %.preheader193 ], [ true, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %169
 

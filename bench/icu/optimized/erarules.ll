@@ -503,7 +503,7 @@ _ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED
   br label %138
 
 138:                                              ; preds = %137, %136
-  %.3102 = phi i32 [ %.099, %136 ], [ %spec.select144, %137 ]
+  %.3102 = phi i32 [ %spec.select144, %137 ], [ %.099, %136 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %139 = load ptr, ptr %6, align 8, !tbaa !22
@@ -941,7 +941,7 @@ _ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit35: ; preds = %_ZN6icu_77L25comp
   br i1 %62, label %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit35, label %.loopexit, !llvm.loop !29
 
 .loopexit:                                        ; preds = %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit35, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit35.us43, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit35.us, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit.thread37.thread66, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit.thread37.thread59, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit.thread37.thread, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit.thread37, %5, %12
-  %.0 = phi i32 [ -1, %5 ], [ -1, %12 ], [ %17, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit.thread37 ], [ 0, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit.thread37.thread59 ], [ 0, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit.thread37.thread ], [ %17, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit.thread37.thread66 ], [ %54, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit35.us43 ], [ %..1.us, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit35.us ], [ %..1, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit35 ]
+  %.0 = phi i32 [ -1, %5 ], [ -1, %12 ], [ %17, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit.thread37 ], [ %17, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit.thread37.thread66 ], [ 0, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit.thread37.thread59 ], [ %54, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit35.us43 ], [ 0, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit.thread37.thread ], [ %..1.us, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit35.us ], [ %..1, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit35 ]
   ret i32 %.0
 }
 

@@ -2711,7 +2711,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
   br i1 %1090, label %.body164, label %1087
 
 .body164:                                         ; preds = %1087, %.body164.loopexit, %.thread295, %1083, %380
-  %.pn70.pn = phi { ptr, i32 } [ %lpad.thr_comm, %.thread295 ], [ %1084, %1083 ], [ %381, %380 ], [ %lpad.thr_comm.split-lp, %.body164.loopexit ], [ %.pn70, %1087 ]
+  %.pn70.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %.body164.loopexit ], [ %lpad.thr_comm, %.thread295 ], [ %381, %380 ], [ %1084, %1083 ], [ %.pn70, %1087 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfChangeBlockD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %44) #16
   br label %.body150
 

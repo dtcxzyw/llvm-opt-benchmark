@@ -167,7 +167,7 @@ do_pdlopen.exit40:                                ; preds = %43, %.sink.split.i3
   br label %do_pdlopen.exit40.thread
 
 do_pdlopen.exit40.thread:                         ; preds = %40, %33, %20, %9, %do_pdlopen.exit40, %51, %.thread
-  %.5 = phi i32 [ %.us-phi, %.thread ], [ -1, %do_pdlopen.exit40 ], [ 0, %51 ], [ -1, %9 ], [ -1, %20 ], [ -32, %33 ], [ -1, %40 ]
+  %.5 = phi i32 [ %.us-phi, %.thread ], [ -1, %20 ], [ -1, %do_pdlopen.exit40 ], [ 0, %51 ], [ -1, %9 ], [ -32, %33 ], [ -1, %40 ]
   ret i32 %.5
 }
 
@@ -381,7 +381,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.thread113
 
 .thread113:                                       ; preds = %.lr.ph184, %60, %.lr.ph136, %._crit_edge131, %.preheader, %.critedge.thread104
-  %.6103111 = phi i32 [ %.5.ph107, %.critedge.thread104 ], [ 0, %.preheader ], [ 0, %._crit_edge131 ], [ %65, %60 ], [ %65, %.lr.ph136 ], [ -26, %.lr.ph184 ]
+  %.6103111 = phi i32 [ %.5.ph107, %.critedge.thread104 ], [ %65, %60 ], [ 0, %._crit_edge131 ], [ 0, %.preheader ], [ %65, %.lr.ph136 ], [ -26, %.lr.ph184 ]
   call void @PMIx_Argv_free(ptr noundef nonnull %7) #8
   %.pr = load ptr, ptr %4, align 8, !tbaa !21
   %.not78 = icmp eq ptr %.pr, null

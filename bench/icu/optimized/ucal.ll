@@ -2434,7 +2434,7 @@ define noalias noundef ptr @ucal_getKeywordValuesForLocale_77(ptr noundef readno
   br i1 %.not84.old, label %..loopexit.loopexit_crit_edge, label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %78, %72
-  %.06494.be = phi i32 [ %.old, %78 ], [ %75, %72 ]
+  %.06494.be = phi i32 [ %75, %72 ], [ %.old, %78 ]
   br label %.preheader, !llvm.loop !33
 
 ..loopexit.loopexit_crit_edge:                    ; preds = %78
@@ -2442,7 +2442,7 @@ define noalias noundef ptr @ucal_getKeywordValuesForLocale_77(ptr noundef readno
   br label %.loopexit
 
 .loopexit:                                        ; preds = %72, %..loopexit.loopexit_crit_edge, %.loopexit93
-  %79 = phi i32 [ %.pre96.pre, %.loopexit93 ], [ %.pre97.pre, %..loopexit.loopexit_crit_edge ], [ %73, %72 ]
+  %79 = phi i32 [ %.pre97.pre, %..loopexit.loopexit_crit_edge ], [ %.pre96.pre, %.loopexit93 ], [ %73, %72 ]
   %80 = icmp slt i32 %79, 1
   br i1 %80, label %81, label %.loopexit.thread
 

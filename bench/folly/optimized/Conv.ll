@@ -1081,8 +1081,8 @@ _ZN10fast_float21fastfloat_strncasecmpIcEEbPKT_S3_m.exit57: ; preds = %.lr.ph.i5
   br label %_ZN10fast_float21fastfloat_strncasecmpIcEEbPKT_S3_m.exit51
 
 _ZN10fast_float21fastfloat_strncasecmpIcEEbPKT_S3_m.exit51: ; preds = %.lr.ph.i46, %41, %37, %12, %24, %27, %.lr.ph._crit_edge, %_ZN10fast_float21fastfloat_strncasecmpIcEEbPKT_S3_m.exit57
-  %.sroa.7.0 = phi i32 [ 0, %24 ], [ 0, %_ZN10fast_float21fastfloat_strncasecmpIcEEbPKT_S3_m.exit57 ], [ 0, %.lr.ph._crit_edge ], [ 0, %27 ], [ 22, %12 ], [ 0, %41 ], [ 0, %37 ], [ 22, %.lr.ph.i46 ]
-  %.sroa.0.2 = phi ptr [ %25, %24 ], [ %62, %_ZN10fast_float21fastfloat_strncasecmpIcEEbPKT_S3_m.exit57 ], [ %33, %.lr.ph._crit_edge ], [ %25, %27 ], [ %0, %12 ], [ %25, %41 ], [ %25, %37 ], [ %0, %.lr.ph.i46 ]
+  %.sroa.7.0 = phi i32 [ 0, %24 ], [ 0, %_ZN10fast_float21fastfloat_strncasecmpIcEEbPKT_S3_m.exit57 ], [ 0, %.lr.ph._crit_edge ], [ 0, %41 ], [ 22, %12 ], [ 0, %27 ], [ 0, %37 ], [ 22, %.lr.ph.i46 ]
+  %.sroa.0.2 = phi ptr [ %25, %24 ], [ %62, %_ZN10fast_float21fastfloat_strncasecmpIcEEbPKT_S3_m.exit57 ], [ %33, %.lr.ph._crit_edge ], [ %25, %41 ], [ %0, %12 ], [ %25, %27 ], [ %25, %37 ], [ %0, %.lr.ph.i46 ]
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %.sroa.0.2, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %.sroa.7.0, 1
   ret { ptr, i32 } %.fca.1.insert
@@ -3026,7 +3026,7 @@ _ZN10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i21: ; preds = %50
   br label %_ZN10fast_float9large_mulILt62EEEbRNS_8stackvecIXT_EEENS_4spanImEE.exit
 
 _ZN10fast_float9large_mulILt62EEEbRNS_8stackvecIXT_EEENS_4spanImEE.exit: ; preds = %.lr.ph, %23, %31, %._crit_edge.i18, %_ZN10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i21, %._crit_edge, %50
-  %.0 = phi i1 [ false, %50 ], [ true, %._crit_edge ], [ true, %_ZN10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i21 ], [ true, %._crit_edge.i18 ], [ true, %31 ], [ false, %23 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ true, %31 ], [ false, %23 ], [ false, %50 ], [ true, %._crit_edge ], [ true, %_ZN10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i21 ], [ true, %._crit_edge.i18 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -3332,7 +3332,7 @@ _ZN10fast_float8stackvecILt62EE10try_extendENS_4spanImEE.exit: ; preds = %.lr.ph
   br i1 %.not.i51, label %.critedge32, label %109, !llvm.loop !76
 
 .critedge32:                                      ; preds = %115, %109, %27, %.critedge34, %_ZN10fast_float8stackvecILt62EE10try_extendENS_4spanImEE.exit
-  %.6 = phi i1 [ false, %_ZN10fast_float8stackvecILt62EE10try_extendENS_4spanImEE.exit ], [ true, %.critedge34 ], [ false, %27 ], [ true, %109 ], [ true, %115 ]
+  %.6 = phi i1 [ false, %27 ], [ false, %_ZN10fast_float8stackvecILt62EE10try_extendENS_4spanImEE.exit ], [ true, %.critedge34 ], [ true, %109 ], [ true, %115 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.6
 }
@@ -4247,8 +4247,8 @@ _ZN10fast_float21fastfloat_strncasecmpIcEEbPKT_S3_m.exit57: ; preds = %.lr.ph.i5
   br label %_ZN10fast_float21fastfloat_strncasecmpIcEEbPKT_S3_m.exit51
 
 _ZN10fast_float21fastfloat_strncasecmpIcEEbPKT_S3_m.exit51: ; preds = %.lr.ph.i46, %41, %37, %12, %24, %27, %.lr.ph._crit_edge, %_ZN10fast_float21fastfloat_strncasecmpIcEEbPKT_S3_m.exit57
-  %.sroa.7.0 = phi i32 [ 0, %24 ], [ 0, %_ZN10fast_float21fastfloat_strncasecmpIcEEbPKT_S3_m.exit57 ], [ 0, %.lr.ph._crit_edge ], [ 0, %27 ], [ 22, %12 ], [ 0, %41 ], [ 0, %37 ], [ 22, %.lr.ph.i46 ]
-  %.sroa.0.2 = phi ptr [ %25, %24 ], [ %62, %_ZN10fast_float21fastfloat_strncasecmpIcEEbPKT_S3_m.exit57 ], [ %33, %.lr.ph._crit_edge ], [ %25, %27 ], [ %0, %12 ], [ %25, %41 ], [ %25, %37 ], [ %0, %.lr.ph.i46 ]
+  %.sroa.7.0 = phi i32 [ 0, %24 ], [ 0, %_ZN10fast_float21fastfloat_strncasecmpIcEEbPKT_S3_m.exit57 ], [ 0, %.lr.ph._crit_edge ], [ 0, %41 ], [ 22, %12 ], [ 0, %27 ], [ 0, %37 ], [ 22, %.lr.ph.i46 ]
+  %.sroa.0.2 = phi ptr [ %25, %24 ], [ %62, %_ZN10fast_float21fastfloat_strncasecmpIcEEbPKT_S3_m.exit57 ], [ %33, %.lr.ph._crit_edge ], [ %25, %41 ], [ %0, %12 ], [ %25, %27 ], [ %25, %37 ], [ %0, %.lr.ph.i46 ]
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %.sroa.0.2, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %.sroa.7.0, 1
   ret { ptr, i32 } %.fca.1.insert
@@ -5356,10 +5356,10 @@ sub_2:                                            ; preds = %sub_1
   br i1 %77, label %.lr.ph, label %._crit_edge, !llvm.loop !90
 
 ._crit_edge:                                      ; preds = %70, %9, %22, %41
-  %.038116 = phi i64 [ 3, %41 ], [ %12, %9 ], [ 3, %22 ], [ 3, %70 ]
-  %.2.lcssa = phi ptr [ %.181, %41 ], [ %.372.ph, %9 ], [ %storemerge, %22 ], [ %74, %70 ]
-  %.040.lcssa = phi i8 [ 0, %41 ], [ 0, %9 ], [ 0, %22 ], [ %73, %70 ]
-  %.lcssa = phi i64 [ %.pre101, %41 ], [ %12, %9 ], [ %24, %22 ], [ %76, %70 ]
+  %.038116 = phi i64 [ 3, %41 ], [ 3, %22 ], [ %12, %9 ], [ 3, %70 ]
+  %.2.lcssa = phi ptr [ %.181, %41 ], [ %storemerge, %22 ], [ %.372.ph, %9 ], [ %74, %70 ]
+  %.040.lcssa = phi i8 [ 0, %41 ], [ 0, %22 ], [ 0, %9 ], [ %73, %70 ]
+  %.lcssa = phi i64 [ %.pre101, %41 ], [ %24, %22 ], [ %12, %9 ], [ %76, %70 ]
   switch i64 %.lcssa, label %131 [
     i64 3, label %78
     i64 2, label %103
@@ -5451,9 +5451,9 @@ sub_2:                                            ; preds = %sub_1
   br label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIcLb1EE4initERPKc.exit
 
 _ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIcLb1EE4initERPKc.exit: ; preds = %.preheader, %.lr.ph, %135, %138, %140, %121, %103, %78, %131, %5, %39
-  %.sroa.071.0 = phi i8 [ 2, %5 ], [ 2, %39 ], [ 2, %131 ], [ 2, %121 ], [ 2, %78 ], [ 2, %103 ], [ 2, %135 ], [ 1, %140 ], [ 2, %138 ], [ 2, %.lr.ph ], [ 1, %.preheader ]
-  %.sroa.7.0 = phi i8 [ 6, %5 ], [ %40, %39 ], [ 2, %131 ], [ 5, %121 ], [ 5, %78 ], [ 5, %103 ], [ 8, %135 ], [ 0, %140 ], [ 7, %138 ], [ 5, %.lr.ph ], [ 0, %.preheader ]
-  %.sroa.12.0 = phi i8 [ 0, %5 ], [ 0, %39 ], [ 0, %131 ], [ 0, %121 ], [ 0, %78 ], [ 0, %103 ], [ 0, %135 ], [ %.0.i57, %140 ], [ 0, %138 ], [ 0, %.lr.ph ], [ 0, %.preheader ]
+  %.sroa.071.0 = phi i8 [ 2, %5 ], [ 2, %39 ], [ 2, %131 ], [ 2, %.lr.ph ], [ 2, %121 ], [ 2, %138 ], [ 2, %78 ], [ 2, %103 ], [ 2, %135 ], [ 1, %140 ], [ 1, %.preheader ]
+  %.sroa.7.0 = phi i8 [ 6, %5 ], [ %40, %39 ], [ 2, %131 ], [ 5, %.lr.ph ], [ 5, %121 ], [ 7, %138 ], [ 5, %78 ], [ 5, %103 ], [ 8, %135 ], [ 0, %140 ], [ 0, %.preheader ]
+  %.sroa.12.0 = phi i8 [ 0, %5 ], [ 0, %39 ], [ 0, %131 ], [ 0, %.lr.ph ], [ 0, %121 ], [ 0, %138 ], [ 0, %78 ], [ 0, %103 ], [ 0, %135 ], [ %.0.i57, %140 ], [ 0, %.preheader ]
   %.sroa.12.0.insert.ext = zext i8 %.sroa.12.0 to i24
   %.sroa.12.0.insert.shift = shl nuw i24 %.sroa.12.0.insert.ext, 16
   %.sroa.7.0.insert.ext = zext nneg i8 %.sroa.7.0 to i24
@@ -5610,10 +5610,10 @@ sub_2:                                            ; preds = %sub_1
   br i1 %77, label %.lr.ph, label %._crit_edge, !llvm.loop !92
 
 ._crit_edge:                                      ; preds = %70, %9, %22, %41
-  %.038116 = phi i64 [ 3, %41 ], [ %12, %9 ], [ 3, %22 ], [ 3, %70 ]
-  %.2.lcssa = phi ptr [ %.181, %41 ], [ %.372.ph, %9 ], [ %storemerge, %22 ], [ %74, %70 ]
-  %.040.lcssa = phi i8 [ 0, %41 ], [ 0, %9 ], [ 0, %22 ], [ %73, %70 ]
-  %.lcssa = phi i64 [ %.pre101, %41 ], [ %12, %9 ], [ %24, %22 ], [ %76, %70 ]
+  %.038116 = phi i64 [ 3, %41 ], [ 3, %22 ], [ %12, %9 ], [ 3, %70 ]
+  %.2.lcssa = phi ptr [ %.181, %41 ], [ %storemerge, %22 ], [ %.372.ph, %9 ], [ %74, %70 ]
+  %.040.lcssa = phi i8 [ 0, %41 ], [ 0, %22 ], [ 0, %9 ], [ %73, %70 ]
+  %.lcssa = phi i64 [ %.pre101, %41 ], [ %24, %22 ], [ %12, %9 ], [ %76, %70 ]
   switch i64 %.lcssa, label %131 [
     i64 3, label %78
     i64 2, label %103
@@ -5705,9 +5705,9 @@ sub_2:                                            ; preds = %sub_1
   br label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIaLb1EE4initERPKc.exit
 
 _ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIaLb1EE4initERPKc.exit: ; preds = %.preheader, %.lr.ph, %135, %138, %140, %121, %103, %78, %131, %5, %39
-  %.sroa.071.0 = phi i8 [ 2, %5 ], [ 2, %39 ], [ 2, %131 ], [ 2, %121 ], [ 2, %78 ], [ 2, %103 ], [ 2, %135 ], [ 1, %140 ], [ 2, %138 ], [ 2, %.lr.ph ], [ 1, %.preheader ]
-  %.sroa.7.0 = phi i8 [ 6, %5 ], [ %40, %39 ], [ 2, %131 ], [ 5, %121 ], [ 5, %78 ], [ 5, %103 ], [ 8, %135 ], [ 0, %140 ], [ 7, %138 ], [ 5, %.lr.ph ], [ 0, %.preheader ]
-  %.sroa.12.0 = phi i8 [ 0, %5 ], [ 0, %39 ], [ 0, %131 ], [ 0, %121 ], [ 0, %78 ], [ 0, %103 ], [ 0, %135 ], [ %.0.i57, %140 ], [ 0, %138 ], [ 0, %.lr.ph ], [ 0, %.preheader ]
+  %.sroa.071.0 = phi i8 [ 2, %5 ], [ 2, %39 ], [ 2, %131 ], [ 2, %.lr.ph ], [ 2, %121 ], [ 2, %138 ], [ 2, %78 ], [ 2, %103 ], [ 2, %135 ], [ 1, %140 ], [ 1, %.preheader ]
+  %.sroa.7.0 = phi i8 [ 6, %5 ], [ %40, %39 ], [ 2, %131 ], [ 5, %.lr.ph ], [ 5, %121 ], [ 7, %138 ], [ 5, %78 ], [ 5, %103 ], [ 8, %135 ], [ 0, %140 ], [ 0, %.preheader ]
+  %.sroa.12.0 = phi i8 [ 0, %5 ], [ 0, %39 ], [ 0, %131 ], [ 0, %.lr.ph ], [ 0, %121 ], [ 0, %138 ], [ 0, %78 ], [ 0, %103 ], [ 0, %135 ], [ %.0.i57, %140 ], [ 0, %.preheader ]
   %.sroa.12.0.insert.ext = zext i8 %.sroa.12.0 to i24
   %.sroa.12.0.insert.shift = shl nuw i24 %.sroa.12.0.insert.ext, 16
   %.sroa.7.0.insert.ext = zext nneg i8 %.sroa.7.0 to i24
@@ -5834,10 +5834,10 @@ sub_2:                                            ; preds = %sub_1
   br i1 %68, label %.lr.ph, label %._crit_edge, !llvm.loop !94
 
 ._crit_edge:                                      ; preds = %61, %2, %15, %32
-  %.038104 = phi i64 [ 3, %32 ], [ %5, %2 ], [ 3, %15 ], [ 3, %61 ]
-  %.2.lcssa = phi ptr [ %.167, %32 ], [ %0, %2 ], [ %storemerge, %15 ], [ %65, %61 ]
-  %.040.lcssa = phi i8 [ 0, %32 ], [ 0, %2 ], [ 0, %15 ], [ %64, %61 ]
-  %.lcssa = phi i64 [ %.pre88, %32 ], [ %5, %2 ], [ %17, %15 ], [ %67, %61 ]
+  %.038104 = phi i64 [ 3, %32 ], [ 3, %15 ], [ %5, %2 ], [ 3, %61 ]
+  %.2.lcssa = phi ptr [ %.167, %32 ], [ %storemerge, %15 ], [ %0, %2 ], [ %65, %61 ]
+  %.040.lcssa = phi i8 [ 0, %32 ], [ 0, %15 ], [ 0, %2 ], [ %64, %61 ]
+  %.lcssa = phi i64 [ %.pre88, %32 ], [ %17, %15 ], [ %5, %2 ], [ %67, %61 ]
   switch i64 %.lcssa, label %122 [
     i64 3, label %69
     i64 2, label %94
@@ -5915,9 +5915,9 @@ sub_2:                                            ; preds = %sub_1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %.lr.ph, %112, %94, %69, %122, %.tail, %.thread, %124
-  %.sroa.064.0 = phi i8 [ 1, %124 ], [ 2, %122 ], [ 2, %.tail ], [ 2, %.thread ], [ 2, %69 ], [ 2, %94 ], [ 2, %112 ], [ 2, %.lr.ph ], [ 1, %.preheader ]
-  %.sroa.6.0 = phi i8 [ 0, %124 ], [ 2, %122 ], [ 7, %.tail ], [ 7, %.thread ], [ 5, %69 ], [ 5, %94 ], [ 5, %112 ], [ 5, %.lr.ph ], [ 0, %.preheader ]
-  %.sroa.10.0 = phi i8 [ %.343, %124 ], [ 0, %122 ], [ 0, %.tail ], [ 0, %.thread ], [ 0, %69 ], [ 0, %94 ], [ 0, %112 ], [ 0, %.lr.ph ], [ 0, %.preheader ]
+  %.sroa.064.0 = phi i8 [ 1, %124 ], [ 2, %.lr.ph ], [ 2, %122 ], [ 2, %.tail ], [ 2, %.thread ], [ 2, %112 ], [ 2, %69 ], [ 2, %94 ], [ 1, %.preheader ]
+  %.sroa.6.0 = phi i8 [ 0, %124 ], [ 5, %.lr.ph ], [ 2, %122 ], [ 7, %.tail ], [ 7, %.thread ], [ 5, %112 ], [ 5, %69 ], [ 5, %94 ], [ 0, %.preheader ]
+  %.sroa.10.0 = phi i8 [ %.343, %124 ], [ 0, %.lr.ph ], [ 0, %122 ], [ 0, %.tail ], [ 0, %.thread ], [ 0, %112 ], [ 0, %69 ], [ 0, %94 ], [ 0, %.preheader ]
   %.sroa.10.0.insert.ext = zext i8 %.sroa.10.0 to i24
   %.sroa.10.0.insert.shift = shl nuw i24 %.sroa.10.0.insert.ext, 16
   %.sroa.6.0.insert.ext = zext nneg i8 %.sroa.6.0 to i24
@@ -6159,9 +6159,9 @@ _ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIsLb1EE8finalizeItEENS_8Expect
   br label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIsLb1EE4initERPKc.exit
 
 _ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIsLb1EE4initERPKc.exit: ; preds = %.preheader, %.lr.ph, %111, %93, %68, %120, %5, %29, %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIsLb1EE8finalizeItEENS_8ExpectedIsNS_14ConversionCodeEEET_.exit
-  %.sroa.070.0 = phi i32 [ 2, %5 ], [ 2, %29 ], [ 2, %120 ], [ %133, %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIsLb1EE8finalizeItEENS_8ExpectedIsNS_14ConversionCodeEEET_.exit ], [ 2, %68 ], [ 2, %93 ], [ 2, %111 ], [ 2, %.lr.ph ], [ 1, %.preheader ]
-  %.sroa.7.0 = phi i8 [ 6, %5 ], [ %30, %29 ], [ 2, %120 ], [ %.sroa.7.0.extract.trunc, %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIsLb1EE8finalizeItEENS_8ExpectedIsNS_14ConversionCodeEEET_.exit ], [ 5, %68 ], [ 5, %93 ], [ 5, %111 ], [ 5, %.lr.ph ], [ 0, %.preheader ]
-  %.sroa.12.0 = phi i32 [ 0, %5 ], [ 0, %29 ], [ 0, %120 ], [ %.sroa.12.0.extract.shift, %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIsLb1EE8finalizeItEENS_8ExpectedIsNS_14ConversionCodeEEET_.exit ], [ 0, %68 ], [ 0, %93 ], [ 0, %111 ], [ 0, %.lr.ph ], [ 0, %.preheader ]
+  %.sroa.070.0 = phi i32 [ 2, %5 ], [ 2, %29 ], [ 2, %120 ], [ 2, %.lr.ph ], [ %133, %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIsLb1EE8finalizeItEENS_8ExpectedIsNS_14ConversionCodeEEET_.exit ], [ 2, %111 ], [ 2, %68 ], [ 2, %93 ], [ 1, %.preheader ]
+  %.sroa.7.0 = phi i8 [ 6, %5 ], [ %30, %29 ], [ 2, %120 ], [ 5, %.lr.ph ], [ %.sroa.7.0.extract.trunc, %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIsLb1EE8finalizeItEENS_8ExpectedIsNS_14ConversionCodeEEET_.exit ], [ 5, %111 ], [ 5, %68 ], [ 5, %93 ], [ 0, %.preheader ]
+  %.sroa.12.0 = phi i32 [ 0, %5 ], [ 0, %29 ], [ 0, %120 ], [ 0, %.lr.ph ], [ %.sroa.12.0.extract.shift, %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIsLb1EE8finalizeItEENS_8ExpectedIsNS_14ConversionCodeEEET_.exit ], [ 0, %111 ], [ 0, %68 ], [ 0, %93 ], [ 0, %.preheader ]
   %.sroa.7.0.insert.ext = zext i8 %.sroa.7.0 to i32
   %.sroa.7.0.insert.shift = shl nuw nsw i32 %.sroa.7.0.insert.ext, 8
   %.sroa.7.0.insert.insert = or disjoint i32 %.sroa.7.0.insert.shift, %.sroa.12.0
@@ -6351,7 +6351,7 @@ define weak_odr i32 @_ZN5folly6detail9digits_toItEENS_8ExpectedIT_NS_14Conversio
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %.lr.ph, %102, %84, %59, %111, %19, %.thread, %113
-  %.sroa.6.0.insert.insert = phi i32 [ %116, %113 ], [ 514, %111 ], [ 1794, %19 ], [ 1794, %.thread ], [ 1282, %59 ], [ 1282, %84 ], [ 1282, %102 ], [ 1282, %.lr.ph ], [ 1, %.preheader ]
+  %.sroa.6.0.insert.insert = phi i32 [ %116, %113 ], [ 1282, %.lr.ph ], [ 514, %111 ], [ 1794, %19 ], [ 1794, %.thread ], [ 1282, %102 ], [ 1282, %59 ], [ 1282, %84 ], [ 1, %.preheader ]
   ret i32 %.sroa.6.0.insert.insert
 }
 
@@ -6582,9 +6582,9 @@ _ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIiLb1EE8finalizeIjEENS_8Expect
   br label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIiLb1EE4initERPKc.exit
 
 _ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIiLb1EE4initERPKc.exit: ; preds = %.preheader, %.lr.ph, %106, %90, %67, %116, %5, %29, %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIiLb1EE8finalizeIjEENS_8ExpectedIiNS_14ConversionCodeEEET_.exit
-  %.sroa.070.0 = phi i64 [ 2, %5 ], [ 2, %29 ], [ 2, %116 ], [ %130, %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIiLb1EE8finalizeIjEENS_8ExpectedIiNS_14ConversionCodeEEET_.exit ], [ 2, %67 ], [ 2, %90 ], [ 2, %106 ], [ 2, %.lr.ph ], [ 1, %.preheader ]
-  %.sroa.7.0 = phi i8 [ 6, %5 ], [ %30, %29 ], [ 2, %116 ], [ %.sroa.7.0.extract.trunc, %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIiLb1EE8finalizeIjEENS_8ExpectedIiNS_14ConversionCodeEEET_.exit ], [ 5, %67 ], [ 5, %90 ], [ 5, %106 ], [ 5, %.lr.ph ], [ 0, %.preheader ]
-  %.sroa.1271.0 = phi i64 [ 0, %5 ], [ 0, %29 ], [ 0, %116 ], [ %129, %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIiLb1EE8finalizeIjEENS_8ExpectedIiNS_14ConversionCodeEEET_.exit ], [ 0, %67 ], [ 0, %90 ], [ 0, %106 ], [ 0, %.lr.ph ], [ 0, %.preheader ]
+  %.sroa.070.0 = phi i64 [ 2, %5 ], [ 2, %29 ], [ 2, %116 ], [ 2, %.lr.ph ], [ %130, %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIiLb1EE8finalizeIjEENS_8ExpectedIiNS_14ConversionCodeEEET_.exit ], [ 2, %106 ], [ 2, %67 ], [ 2, %90 ], [ 1, %.preheader ]
+  %.sroa.7.0 = phi i8 [ 6, %5 ], [ %30, %29 ], [ 2, %116 ], [ 5, %.lr.ph ], [ %.sroa.7.0.extract.trunc, %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIiLb1EE8finalizeIjEENS_8ExpectedIiNS_14ConversionCodeEEET_.exit ], [ 5, %106 ], [ 5, %67 ], [ 5, %90 ], [ 0, %.preheader ]
+  %.sroa.1271.0 = phi i64 [ 0, %5 ], [ 0, %29 ], [ 0, %116 ], [ 0, %.lr.ph ], [ %129, %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIiLb1EE8finalizeIjEENS_8ExpectedIiNS_14ConversionCodeEEET_.exit ], [ 0, %106 ], [ 0, %67 ], [ 0, %90 ], [ 0, %.preheader ]
   %.sroa.7.0.insert.ext = zext i8 %.sroa.7.0 to i64
   %.sroa.7.0.insert.shift = shl nuw nsw i64 %.sroa.7.0.insert.ext, 8
   %.sroa.7.0.insert.insert = or disjoint i64 %.sroa.7.0.insert.shift, %.sroa.1271.0
@@ -6770,7 +6770,7 @@ define weak_odr i64 @_ZN5folly6detail9digits_toIjEENS_8ExpectedIT_NS_14Conversio
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %.lr.ph, %97, %81, %58, %107, %19, %.thread, %109
-  %.sroa.6.0.insert.insert = phi i64 [ %112, %109 ], [ 514, %107 ], [ 1794, %19 ], [ 1794, %.thread ], [ 1282, %58 ], [ 1282, %81 ], [ 1282, %97 ], [ 1282, %.lr.ph ], [ 1, %.preheader ]
+  %.sroa.6.0.insert.insert = phi i64 [ %112, %109 ], [ 1282, %.lr.ph ], [ 514, %107 ], [ 1794, %19 ], [ 1794, %.thread ], [ 1282, %97 ], [ 1282, %58 ], [ 1282, %81 ], [ 1, %.preheader ]
   ret i64 %.sroa.6.0.insert.insert
 }
 
@@ -7001,9 +7001,9 @@ define weak_odr { i64, i64 } @_ZN5folly6detail9digits_toIlEENS_8ExpectedIT_NS_14
   br label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIlLb1EE4initERPKc.exit
 
 _ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIlLb1EE4initERPKc.exit: ; preds = %.preheader, %.lr.ph, %109, %92, %68, %119, %5, %29, %129
-  %.sroa.070.0 = phi i64 [ 2, %5 ], [ 2, %29 ], [ 2, %119 ], [ %130, %129 ], [ 2, %68 ], [ 2, %92 ], [ 2, %109 ], [ 2, %.lr.ph ], [ 1, %.preheader ]
-  %.sroa.7.0 = phi i8 [ 6, %5 ], [ %30, %29 ], [ 2, %119 ], [ %.sroa.7.0.extract.trunc, %129 ], [ 5, %68 ], [ 5, %92 ], [ 5, %109 ], [ 5, %.lr.ph ], [ 0, %.preheader ]
-  %.sroa.12.sroa.2.0 = phi i64 [ 0, %5 ], [ 0, %29 ], [ 0, %119 ], [ %.sroa.7.sroa.1.0.i, %129 ], [ 0, %68 ], [ 0, %92 ], [ 0, %109 ], [ 0, %.lr.ph ], [ 0, %.preheader ]
+  %.sroa.070.0 = phi i64 [ 2, %5 ], [ 2, %29 ], [ 2, %119 ], [ 2, %.lr.ph ], [ %130, %129 ], [ 2, %109 ], [ 2, %68 ], [ 2, %92 ], [ 1, %.preheader ]
+  %.sroa.7.0 = phi i8 [ 6, %5 ], [ %30, %29 ], [ 2, %119 ], [ 5, %.lr.ph ], [ %.sroa.7.0.extract.trunc, %129 ], [ 5, %109 ], [ 5, %68 ], [ 5, %92 ], [ 0, %.preheader ]
+  %.sroa.12.sroa.2.0 = phi i64 [ 0, %5 ], [ 0, %29 ], [ 0, %119 ], [ 0, %.lr.ph ], [ %.sroa.7.sroa.1.0.i, %129 ], [ 0, %109 ], [ 0, %68 ], [ 0, %92 ], [ 0, %.preheader ]
   %.sroa.7.0.insert.ext = zext nneg i8 %.sroa.7.0 to i64
   %.sroa.7.0.insert.shift = shl nuw nsw i64 %.sroa.7.0.insert.ext, 8
   %.sroa.070.0.insert.insert = or disjoint i64 %.sroa.7.0.insert.shift, %.sroa.070.0
@@ -7190,8 +7190,8 @@ define weak_odr { i64, i64 } @_ZN5folly6detail9digits_toImEENS_8ExpectedIT_NS_14
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %.lr.ph, %100, %83, %59, %110, %19, %.thread, %112
-  %.sroa.6.0 = phi i64 [ 1, %112 ], [ 514, %110 ], [ 1794, %19 ], [ 1794, %.thread ], [ 1282, %59 ], [ 1282, %83 ], [ 1282, %100 ], [ 1282, %.lr.ph ], [ 1, %.preheader ]
-  %.sroa.10.sroa.2.0 = phi i64 [ %.342, %112 ], [ 0, %110 ], [ 0, %19 ], [ 0, %.thread ], [ 0, %59 ], [ 0, %83 ], [ 0, %100 ], [ 0, %.lr.ph ], [ 0, %.preheader ]
+  %.sroa.6.0 = phi i64 [ 1, %112 ], [ 1282, %.lr.ph ], [ 514, %110 ], [ 1794, %19 ], [ 1794, %.thread ], [ 1282, %100 ], [ 1282, %59 ], [ 1282, %83 ], [ 1, %.preheader ]
+  %.sroa.10.sroa.2.0 = phi i64 [ %.342, %112 ], [ 0, %.lr.ph ], [ 0, %110 ], [ 0, %19 ], [ 0, %.thread ], [ 0, %100 ], [ 0, %59 ], [ 0, %83 ], [ 0, %.preheader ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.6.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.10.sroa.2.0, 1
   ret { i64, i64 } %.fca.1.insert
@@ -7424,9 +7424,9 @@ define weak_odr { i64, i64 } @_ZN5folly6detail9digits_toIxEENS_8ExpectedIT_NS_14
   br label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIxLb1EE4initERPKc.exit
 
 _ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIxLb1EE4initERPKc.exit: ; preds = %.preheader, %.lr.ph, %109, %92, %68, %119, %5, %29, %129
-  %.sroa.070.0 = phi i64 [ 2, %5 ], [ 2, %29 ], [ 2, %119 ], [ %130, %129 ], [ 2, %68 ], [ 2, %92 ], [ 2, %109 ], [ 2, %.lr.ph ], [ 1, %.preheader ]
-  %.sroa.7.0 = phi i8 [ 6, %5 ], [ %30, %29 ], [ 2, %119 ], [ %.sroa.7.0.extract.trunc, %129 ], [ 5, %68 ], [ 5, %92 ], [ 5, %109 ], [ 5, %.lr.ph ], [ 0, %.preheader ]
-  %.sroa.12.sroa.2.0 = phi i64 [ 0, %5 ], [ 0, %29 ], [ 0, %119 ], [ %.sroa.7.sroa.1.0.i, %129 ], [ 0, %68 ], [ 0, %92 ], [ 0, %109 ], [ 0, %.lr.ph ], [ 0, %.preheader ]
+  %.sroa.070.0 = phi i64 [ 2, %5 ], [ 2, %29 ], [ 2, %119 ], [ 2, %.lr.ph ], [ %130, %129 ], [ 2, %109 ], [ 2, %68 ], [ 2, %92 ], [ 1, %.preheader ]
+  %.sroa.7.0 = phi i8 [ 6, %5 ], [ %30, %29 ], [ 2, %119 ], [ 5, %.lr.ph ], [ %.sroa.7.0.extract.trunc, %129 ], [ 5, %109 ], [ 5, %68 ], [ 5, %92 ], [ 0, %.preheader ]
+  %.sroa.12.sroa.2.0 = phi i64 [ 0, %5 ], [ 0, %29 ], [ 0, %119 ], [ 0, %.lr.ph ], [ %.sroa.7.sroa.1.0.i, %129 ], [ 0, %109 ], [ 0, %68 ], [ 0, %92 ], [ 0, %.preheader ]
   %.sroa.7.0.insert.ext = zext nneg i8 %.sroa.7.0 to i64
   %.sroa.7.0.insert.shift = shl nuw nsw i64 %.sroa.7.0.insert.ext, 8
   %.sroa.070.0.insert.insert = or disjoint i64 %.sroa.7.0.insert.shift, %.sroa.070.0
@@ -7613,8 +7613,8 @@ define weak_odr { i64, i64 } @_ZN5folly6detail9digits_toIyEENS_8ExpectedIT_NS_14
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %.lr.ph, %100, %83, %59, %110, %19, %.thread, %112
-  %.sroa.6.0 = phi i64 [ 1, %112 ], [ 514, %110 ], [ 1794, %19 ], [ 1794, %.thread ], [ 1282, %59 ], [ 1282, %83 ], [ 1282, %100 ], [ 1282, %.lr.ph ], [ 1, %.preheader ]
-  %.sroa.10.sroa.2.0 = phi i64 [ %.342, %112 ], [ 0, %110 ], [ 0, %19 ], [ 0, %.thread ], [ 0, %59 ], [ 0, %83 ], [ 0, %100 ], [ 0, %.lr.ph ], [ 0, %.preheader ]
+  %.sroa.6.0 = phi i64 [ 1, %112 ], [ 1282, %.lr.ph ], [ 514, %110 ], [ 1794, %19 ], [ 1794, %.thread ], [ 1282, %100 ], [ 1282, %59 ], [ 1282, %83 ], [ 1, %.preheader ]
+  %.sroa.10.sroa.2.0 = phi i64 [ %.342, %112 ], [ 0, %.lr.ph ], [ 0, %110 ], [ 0, %19 ], [ 0, %.thread ], [ 0, %100 ], [ 0, %59 ], [ 0, %83 ], [ 0, %.preheader ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.6.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.10.sroa.2.0, 1
   ret { i64, i64 } %.fca.1.insert
@@ -7767,9 +7767,9 @@ _ZN5folly5RangeIPKcE7advanceEm.exit:              ; preds = %41
   br label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIcLb1EE4initERPKc.exit
 
 _ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIcLb1EE4initERPKc.exit: ; preds = %7, %39, %36, %1, %_ZNR5folly8ExpectedIhNS_14ConversionCodeEE5errorEv.exit, %11, %15, %16, %_ZN5folly5RangeIPKcE7advanceEm.exit
-  %.sroa.044.0 = phi i8 [ 2, %15 ], [ 2, %16 ], [ 2, %11 ], [ 1, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ 2, %_ZNR5folly8ExpectedIhNS_14ConversionCodeEE5errorEv.exit ], [ 2, %1 ], [ 2, %36 ], [ 2, %39 ], [ 2, %7 ]
-  %.sroa.8.0 = phi i8 [ 2, %15 ], [ 5, %16 ], [ 6, %11 ], [ 0, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ %spec.select, %_ZNR5folly8ExpectedIhNS_14ConversionCodeEE5errorEv.exit ], [ 1, %1 ], [ 8, %36 ], [ 7, %39 ], [ 1, %7 ]
-  %.sroa.13.0 = phi i8 [ 0, %15 ], [ 0, %16 ], [ 0, %11 ], [ %.0.i21, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ 0, %_ZNR5folly8ExpectedIhNS_14ConversionCodeEE5errorEv.exit ], [ 0, %1 ], [ 0, %36 ], [ 0, %39 ], [ 0, %7 ]
+  %.sroa.044.0 = phi i8 [ 2, %_ZNR5folly8ExpectedIhNS_14ConversionCodeEE5errorEv.exit ], [ 2, %15 ], [ 2, %16 ], [ 2, %11 ], [ 1, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ 2, %39 ], [ 2, %1 ], [ 2, %36 ], [ 2, %7 ]
+  %.sroa.8.0 = phi i8 [ %spec.select, %_ZNR5folly8ExpectedIhNS_14ConversionCodeEE5errorEv.exit ], [ 2, %15 ], [ 5, %16 ], [ 6, %11 ], [ 0, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ 7, %39 ], [ 1, %1 ], [ 8, %36 ], [ 1, %7 ]
+  %.sroa.13.0 = phi i8 [ 0, %_ZNR5folly8ExpectedIhNS_14ConversionCodeEE5errorEv.exit ], [ 0, %15 ], [ 0, %16 ], [ 0, %11 ], [ %.0.i21, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ 0, %39 ], [ 0, %1 ], [ 0, %36 ], [ 0, %7 ]
   %.sroa.13.0.insert.ext = zext i8 %.sroa.13.0 to i24
   %.sroa.13.0.insert.shift = shl nuw i24 %.sroa.13.0.insert.ext, 16
   %.sroa.8.0.insert.ext = zext i8 %.sroa.8.0 to i24
@@ -7979,9 +7979,9 @@ _ZN5folly5RangeIPKcE7advanceEm.exit:              ; preds = %41
   br label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIaLb1EE4initERPKc.exit
 
 _ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIaLb1EE4initERPKc.exit: ; preds = %7, %39, %36, %1, %_ZNR5folly8ExpectedIhNS_14ConversionCodeEE5errorEv.exit, %11, %15, %16, %_ZN5folly5RangeIPKcE7advanceEm.exit
-  %.sroa.044.0 = phi i8 [ 2, %15 ], [ 2, %16 ], [ 2, %11 ], [ 1, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ 2, %_ZNR5folly8ExpectedIhNS_14ConversionCodeEE5errorEv.exit ], [ 2, %1 ], [ 2, %36 ], [ 2, %39 ], [ 2, %7 ]
-  %.sroa.8.0 = phi i8 [ 2, %15 ], [ 5, %16 ], [ 6, %11 ], [ 0, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ %spec.select, %_ZNR5folly8ExpectedIhNS_14ConversionCodeEE5errorEv.exit ], [ 1, %1 ], [ 8, %36 ], [ 7, %39 ], [ 1, %7 ]
-  %.sroa.13.0 = phi i8 [ 0, %15 ], [ 0, %16 ], [ 0, %11 ], [ %.0.i21, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ 0, %_ZNR5folly8ExpectedIhNS_14ConversionCodeEE5errorEv.exit ], [ 0, %1 ], [ 0, %36 ], [ 0, %39 ], [ 0, %7 ]
+  %.sroa.044.0 = phi i8 [ 2, %_ZNR5folly8ExpectedIhNS_14ConversionCodeEE5errorEv.exit ], [ 2, %15 ], [ 2, %16 ], [ 2, %11 ], [ 1, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ 2, %39 ], [ 2, %1 ], [ 2, %36 ], [ 2, %7 ]
+  %.sroa.8.0 = phi i8 [ %spec.select, %_ZNR5folly8ExpectedIhNS_14ConversionCodeEE5errorEv.exit ], [ 2, %15 ], [ 5, %16 ], [ 6, %11 ], [ 0, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ 7, %39 ], [ 1, %1 ], [ 8, %36 ], [ 1, %7 ]
+  %.sroa.13.0 = phi i8 [ 0, %_ZNR5folly8ExpectedIhNS_14ConversionCodeEE5errorEv.exit ], [ 0, %15 ], [ 0, %16 ], [ 0, %11 ], [ %.0.i21, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ 0, %39 ], [ 0, %1 ], [ 0, %36 ], [ 0, %7 ]
   %.sroa.13.0.insert.ext = zext i8 %.sroa.13.0 to i24
   %.sroa.13.0.insert.shift = shl nuw i24 %.sroa.13.0.insert.ext, 16
   %.sroa.8.0.insert.ext = zext i8 %.sroa.8.0 to i24
@@ -8102,9 +8102,9 @@ _ZN5folly5RangeIPKcE7advanceEm.exit:              ; preds = %_ZNR5folly8Expected
   br label %_ZNR5folly8ExpectedIhNS_14ConversionCodeEE5errorEv.exit13
 
 _ZNR5folly8ExpectedIhNS_14ConversionCodeEE5errorEv.exit13: ; preds = %7, %1, %_ZNR5folly8ExpectedIhNS_14ConversionCodeEE5errorEv.exit, %9, %_ZN5folly5RangeIPKcE7advanceEm.exit
-  %.sroa.032.0 = phi i8 [ 2, %9 ], [ 1, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ 2, %_ZNR5folly8ExpectedIhNS_14ConversionCodeEE5errorEv.exit ], [ 2, %1 ], [ 2, %7 ]
-  %.sroa.6.0 = phi i8 [ 5, %9 ], [ 0, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ %.sroa.7.0.extract.trunc, %_ZNR5folly8ExpectedIhNS_14ConversionCodeEE5errorEv.exit ], [ 1, %1 ], [ 1, %7 ]
-  %.sroa.9.0 = phi i8 [ 0, %9 ], [ %.sroa.10.0.extract.trunc, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ 0, %_ZNR5folly8ExpectedIhNS_14ConversionCodeEE5errorEv.exit ], [ 0, %1 ], [ 0, %7 ]
+  %.sroa.032.0 = phi i8 [ 2, %_ZNR5folly8ExpectedIhNS_14ConversionCodeEE5errorEv.exit ], [ 2, %9 ], [ 1, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ 2, %1 ], [ 2, %7 ]
+  %.sroa.6.0 = phi i8 [ %.sroa.7.0.extract.trunc, %_ZNR5folly8ExpectedIhNS_14ConversionCodeEE5errorEv.exit ], [ 5, %9 ], [ 0, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ 1, %1 ], [ 1, %7 ]
+  %.sroa.9.0 = phi i8 [ 0, %_ZNR5folly8ExpectedIhNS_14ConversionCodeEE5errorEv.exit ], [ 0, %9 ], [ %.sroa.10.0.extract.trunc, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ 0, %1 ], [ 0, %7 ]
   %.sroa.9.0.insert.ext = zext i8 %.sroa.9.0 to i24
   %.sroa.9.0.insert.shift = shl nuw i24 %.sroa.9.0.insert.ext, 16
   %.sroa.6.0.insert.ext = zext i8 %.sroa.6.0 to i24
@@ -8273,8 +8273,8 @@ _ZN5folly5RangeIPKcE7advanceEm.exit:              ; preds = %_ZN5folly6detail12_
   br label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIsLb1EE4initERPKc.exit
 
 _ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIsLb1EE4initERPKc.exit: ; preds = %7, %1, %41, %38, %_ZNR5folly8ExpectedItNS_14ConversionCodeEE5errorEv.exit, %11, %15, %16, %_ZN5folly5RangeIPKcE7advanceEm.exit
-  %.sroa.044.0 = phi i32 [ 2, %15 ], [ 2, %16 ], [ 2, %11 ], [ 1, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ 2, %_ZNR5folly8ExpectedItNS_14ConversionCodeEE5errorEv.exit ], [ 2, %38 ], [ 2, %41 ], [ 2, %1 ], [ 2, %7 ]
-  %.sroa.8.0.insert.insert = phi i32 [ 512, %15 ], [ 1280, %16 ], [ 1536, %11 ], [ %54, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ %36, %_ZNR5folly8ExpectedItNS_14ConversionCodeEE5errorEv.exit ], [ 2048, %38 ], [ 1792, %41 ], [ 256, %1 ], [ 256, %7 ]
+  %.sroa.044.0 = phi i32 [ 2, %41 ], [ 2, %15 ], [ 2, %16 ], [ 2, %11 ], [ 1, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ 2, %_ZNR5folly8ExpectedItNS_14ConversionCodeEE5errorEv.exit ], [ 2, %38 ], [ 2, %1 ], [ 2, %7 ]
+  %.sroa.8.0.insert.insert = phi i32 [ 1792, %41 ], [ 512, %15 ], [ 1280, %16 ], [ 1536, %11 ], [ %54, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ %36, %_ZNR5folly8ExpectedItNS_14ConversionCodeEE5errorEv.exit ], [ 2048, %38 ], [ 256, %1 ], [ 256, %7 ]
   %.sroa.044.0.insert.insert = or disjoint i32 %.sroa.8.0.insert.insert, %.sroa.044.0
   ret i32 %.sroa.044.0.insert.insert
 
@@ -8387,8 +8387,8 @@ _ZN5folly5RangeIPKcE7advanceEm.exit:              ; preds = %_ZNR5folly8Expected
   br label %_ZNR5folly8ExpectedItNS_14ConversionCodeEE5errorEv.exit13
 
 _ZNR5folly8ExpectedItNS_14ConversionCodeEE5errorEv.exit13: ; preds = %7, %1, %_ZNR5folly8ExpectedItNS_14ConversionCodeEE5errorEv.exit, %9, %_ZN5folly5RangeIPKcE7advanceEm.exit
-  %.sroa.032.0 = phi i32 [ 2, %9 ], [ 1, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ 2, %_ZNR5folly8ExpectedItNS_14ConversionCodeEE5errorEv.exit ], [ 2, %1 ], [ 2, %7 ]
-  %.sroa.9.0 = phi i32 [ 1280, %9 ], [ %.sroa.10.0.extract.shift, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ %25, %_ZNR5folly8ExpectedItNS_14ConversionCodeEE5errorEv.exit ], [ 256, %1 ], [ 256, %7 ]
+  %.sroa.032.0 = phi i32 [ 2, %_ZNR5folly8ExpectedItNS_14ConversionCodeEE5errorEv.exit ], [ 2, %9 ], [ 1, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ 2, %1 ], [ 2, %7 ]
+  %.sroa.9.0 = phi i32 [ %25, %_ZNR5folly8ExpectedItNS_14ConversionCodeEE5errorEv.exit ], [ 1280, %9 ], [ %.sroa.10.0.extract.shift, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ 256, %1 ], [ 256, %7 ]
   %.sroa.032.0.insert.insert = or disjoint i32 %.sroa.9.0, %.sroa.032.0
   ret i32 %.sroa.032.0.insert.insert
 
@@ -8551,8 +8551,8 @@ _ZN5folly5RangeIPKcE7advanceEm.exit:              ; preds = %_ZN5folly6detail12_
   br label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIiLb1EE4initERPKc.exit
 
 _ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIiLb1EE4initERPKc.exit: ; preds = %7, %1, %41, %38, %_ZNR5folly8ExpectedIjNS_14ConversionCodeEE5errorEv.exit, %11, %15, %16, %_ZN5folly5RangeIPKcE7advanceEm.exit
-  %.sroa.045.0 = phi i64 [ 2, %15 ], [ 2, %16 ], [ 2, %11 ], [ 1, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ 2, %_ZNR5folly8ExpectedIjNS_14ConversionCodeEE5errorEv.exit ], [ 2, %38 ], [ 2, %41 ], [ 2, %1 ], [ 2, %7 ]
-  %.sroa.8.0.insert.insert = phi i64 [ 512, %15 ], [ 1280, %16 ], [ 1536, %11 ], [ %54, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ %36, %_ZNR5folly8ExpectedIjNS_14ConversionCodeEE5errorEv.exit ], [ 2048, %38 ], [ 1792, %41 ], [ 256, %1 ], [ 256, %7 ]
+  %.sroa.045.0 = phi i64 [ 2, %41 ], [ 2, %15 ], [ 2, %16 ], [ 2, %11 ], [ 1, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ 2, %_ZNR5folly8ExpectedIjNS_14ConversionCodeEE5errorEv.exit ], [ 2, %38 ], [ 2, %1 ], [ 2, %7 ]
+  %.sroa.8.0.insert.insert = phi i64 [ 1792, %41 ], [ 512, %15 ], [ 1280, %16 ], [ 1536, %11 ], [ %54, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ %36, %_ZNR5folly8ExpectedIjNS_14ConversionCodeEE5errorEv.exit ], [ 2048, %38 ], [ 256, %1 ], [ 256, %7 ]
   %.sroa.045.0.insert.insert = or disjoint i64 %.sroa.8.0.insert.insert, %.sroa.045.0
   ret i64 %.sroa.045.0.insert.insert
 
@@ -8665,8 +8665,8 @@ _ZN5folly5RangeIPKcE7advanceEm.exit:              ; preds = %_ZNR5folly8Expected
   br label %_ZNR5folly8ExpectedIjNS_14ConversionCodeEE5errorEv.exit13
 
 _ZNR5folly8ExpectedIjNS_14ConversionCodeEE5errorEv.exit13: ; preds = %7, %1, %_ZNR5folly8ExpectedIjNS_14ConversionCodeEE5errorEv.exit, %9, %_ZN5folly5RangeIPKcE7advanceEm.exit
-  %.sroa.033.0 = phi i64 [ 2, %9 ], [ 1, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ 2, %_ZNR5folly8ExpectedIjNS_14ConversionCodeEE5errorEv.exit ], [ 2, %1 ], [ 2, %7 ]
-  %.sroa.935.0 = phi i64 [ 1280, %9 ], [ %.sroa.1023.0.extract.shift, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ %25, %_ZNR5folly8ExpectedIjNS_14ConversionCodeEE5errorEv.exit ], [ 256, %1 ], [ 256, %7 ]
+  %.sroa.033.0 = phi i64 [ 2, %_ZNR5folly8ExpectedIjNS_14ConversionCodeEE5errorEv.exit ], [ 2, %9 ], [ 1, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ 2, %1 ], [ 2, %7 ]
+  %.sroa.935.0 = phi i64 [ %25, %_ZNR5folly8ExpectedIjNS_14ConversionCodeEE5errorEv.exit ], [ 1280, %9 ], [ %.sroa.1023.0.extract.shift, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ 256, %1 ], [ 256, %7 ]
   %.sroa.033.0.insert.insert = or disjoint i64 %.sroa.935.0, %.sroa.033.0
   ret i64 %.sroa.033.0.insert.insert
 
@@ -8828,8 +8828,8 @@ _ZN5folly5RangeIPKcE7advanceEm.exit:              ; preds = %46
   br label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIlLb1EE4initERPKc.exit
 
 _ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIlLb1EE4initERPKc.exit: ; preds = %7, %1, %44, %41, %_ZNR5folly8ExpectedImNS_14ConversionCodeEE5errorEv.exit, %11, %15, %16, %_ZN5folly5RangeIPKcE7advanceEm.exit
-  %.sroa.8.0 = phi i64 [ 514, %15 ], [ 1282, %16 ], [ 1538, %11 ], [ 1, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ %39, %_ZNR5folly8ExpectedImNS_14ConversionCodeEE5errorEv.exit ], [ 2050, %41 ], [ 1794, %44 ], [ 258, %1 ], [ 258, %7 ]
-  %.sroa.13.sroa.2.0 = phi i64 [ 0, %15 ], [ 0, %16 ], [ 0, %11 ], [ %.0.i21, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ 0, %_ZNR5folly8ExpectedImNS_14ConversionCodeEE5errorEv.exit ], [ 0, %41 ], [ 0, %44 ], [ 0, %1 ], [ 0, %7 ]
+  %.sroa.8.0 = phi i64 [ 1794, %44 ], [ 514, %15 ], [ 1282, %16 ], [ 1538, %11 ], [ 1, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ %39, %_ZNR5folly8ExpectedImNS_14ConversionCodeEE5errorEv.exit ], [ 2050, %41 ], [ 258, %1 ], [ 258, %7 ]
+  %.sroa.13.sroa.2.0 = phi i64 [ 0, %44 ], [ 0, %15 ], [ 0, %16 ], [ 0, %11 ], [ %.0.i21, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ 0, %_ZNR5folly8ExpectedImNS_14ConversionCodeEE5errorEv.exit ], [ 0, %41 ], [ 0, %1 ], [ 0, %7 ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.8.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.13.sroa.2.0, 1
   ret { i64, i64 } %.fca.1.insert
@@ -8945,8 +8945,8 @@ _ZN5folly5RangeIPKcE7advanceEm.exit:              ; preds = %_ZNR5folly8Expected
   br label %_ZNR5folly8ExpectedImNS_14ConversionCodeEE5errorEv.exit13
 
 _ZNR5folly8ExpectedImNS_14ConversionCodeEE5errorEv.exit13: ; preds = %7, %1, %_ZNR5folly8ExpectedImNS_14ConversionCodeEE5errorEv.exit, %9, %_ZN5folly5RangeIPKcE7advanceEm.exit
-  %.sroa.6.0 = phi i64 [ 1282, %9 ], [ 1, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ %28, %_ZNR5folly8ExpectedImNS_14ConversionCodeEE5errorEv.exit ], [ 258, %1 ], [ 258, %7 ]
-  %.sroa.9.sroa.2.0 = phi i64 [ 0, %9 ], [ %25, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ 0, %_ZNR5folly8ExpectedImNS_14ConversionCodeEE5errorEv.exit ], [ 0, %1 ], [ 0, %7 ]
+  %.sroa.6.0 = phi i64 [ %28, %_ZNR5folly8ExpectedImNS_14ConversionCodeEE5errorEv.exit ], [ 1282, %9 ], [ 1, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ 258, %1 ], [ 258, %7 ]
+  %.sroa.9.sroa.2.0 = phi i64 [ 0, %_ZNR5folly8ExpectedImNS_14ConversionCodeEE5errorEv.exit ], [ 0, %9 ], [ %25, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ 0, %1 ], [ 0, %7 ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.6.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.9.sroa.2.0, 1
   ret { i64, i64 } %.fca.1.insert
@@ -9109,8 +9109,8 @@ _ZN5folly5RangeIPKcE7advanceEm.exit:              ; preds = %46
   br label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIxLb1EE4initERPKc.exit
 
 _ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIxLb1EE4initERPKc.exit: ; preds = %7, %1, %44, %41, %_ZNR5folly8ExpectedIyNS_14ConversionCodeEE5errorEv.exit, %11, %15, %16, %_ZN5folly5RangeIPKcE7advanceEm.exit
-  %.sroa.8.0 = phi i64 [ 514, %15 ], [ 1282, %16 ], [ 1538, %11 ], [ 1, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ %39, %_ZNR5folly8ExpectedIyNS_14ConversionCodeEE5errorEv.exit ], [ 2050, %41 ], [ 1794, %44 ], [ 258, %1 ], [ 258, %7 ]
-  %.sroa.13.sroa.2.0 = phi i64 [ 0, %15 ], [ 0, %16 ], [ 0, %11 ], [ %.0.i21, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ 0, %_ZNR5folly8ExpectedIyNS_14ConversionCodeEE5errorEv.exit ], [ 0, %41 ], [ 0, %44 ], [ 0, %1 ], [ 0, %7 ]
+  %.sroa.8.0 = phi i64 [ 1794, %44 ], [ 514, %15 ], [ 1282, %16 ], [ 1538, %11 ], [ 1, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ %39, %_ZNR5folly8ExpectedIyNS_14ConversionCodeEE5errorEv.exit ], [ 2050, %41 ], [ 258, %1 ], [ 258, %7 ]
+  %.sroa.13.sroa.2.0 = phi i64 [ 0, %44 ], [ 0, %15 ], [ 0, %16 ], [ 0, %11 ], [ %.0.i21, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ 0, %_ZNR5folly8ExpectedIyNS_14ConversionCodeEE5errorEv.exit ], [ 0, %41 ], [ 0, %1 ], [ 0, %7 ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.8.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.13.sroa.2.0, 1
   ret { i64, i64 } %.fca.1.insert
@@ -9226,8 +9226,8 @@ _ZN5folly5RangeIPKcE7advanceEm.exit:              ; preds = %_ZNR5folly8Expected
   br label %_ZNR5folly8ExpectedIyNS_14ConversionCodeEE5errorEv.exit13
 
 _ZNR5folly8ExpectedIyNS_14ConversionCodeEE5errorEv.exit13: ; preds = %7, %1, %_ZNR5folly8ExpectedIyNS_14ConversionCodeEE5errorEv.exit, %9, %_ZN5folly5RangeIPKcE7advanceEm.exit
-  %.sroa.6.0 = phi i64 [ 1282, %9 ], [ 1, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ %28, %_ZNR5folly8ExpectedIyNS_14ConversionCodeEE5errorEv.exit ], [ 258, %1 ], [ 258, %7 ]
-  %.sroa.9.sroa.2.0 = phi i64 [ 0, %9 ], [ %25, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ 0, %_ZNR5folly8ExpectedIyNS_14ConversionCodeEE5errorEv.exit ], [ 0, %1 ], [ 0, %7 ]
+  %.sroa.6.0 = phi i64 [ %28, %_ZNR5folly8ExpectedIyNS_14ConversionCodeEE5errorEv.exit ], [ 1282, %9 ], [ 1, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ 258, %1 ], [ 258, %7 ]
+  %.sroa.9.sroa.2.0 = phi i64 [ 0, %_ZNR5folly8ExpectedIyNS_14ConversionCodeEE5errorEv.exit ], [ 0, %9 ], [ %25, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ 0, %1 ], [ 0, %7 ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.6.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.9.sroa.2.0, 1
   ret { i64, i64 } %.fca.1.insert
@@ -9484,15 +9484,15 @@ define range(i24 1, 67584) i24 @_ZN5folly6detail11str_to_boolEPNS_5RangeIPKcEE(p
   br i1 %exitcond177, label %.critedge, label %.lr.ph.i54, !llvm.loop !129
 
 .critedge:                                        ; preds = %68, %76, %58, %48, %38, %28, %18, %.lr.ph134, %11, %61, %51, %41, %31
-  %.188 = phi i8 [ 1, %31 ], [ 0, %41 ], [ 1, %51 ], [ 0, %61 ], [ 0, %11 ], [ 0, %76 ], [ %.087132, %.lr.ph134 ], [ 1, %28 ], [ 0, %38 ], [ 1, %48 ], [ 0, %58 ], [ %20, %18 ], [ 1, %68 ]
-  %.2 = phi ptr [ %32, %31 ], [ %42, %41 ], [ %52, %51 ], [ %62, %61 ], [ %.0129, %11 ], [ %indvars.iv169, %76 ], [ %.1133, %.lr.ph134 ], [ %indvars.iv169, %28 ], [ %indvars.iv, %38 ], [ %indvars.iv189, %48 ], [ %indvars.iv179, %58 ], [ %scevgep, %18 ], [ %indvars.iv, %68 ]
+  %.188 = phi i8 [ 1, %28 ], [ %.087132, %.lr.ph134 ], [ 0, %38 ], [ 1, %31 ], [ 1, %48 ], [ 0, %41 ], [ 0, %58 ], [ 1, %51 ], [ 0, %76 ], [ 0, %61 ], [ 0, %11 ], [ %20, %18 ], [ 1, %68 ]
+  %.2 = phi ptr [ %indvars.iv169, %28 ], [ %.1133, %.lr.ph134 ], [ %indvars.iv, %38 ], [ %32, %31 ], [ %indvars.iv189, %48 ], [ %42, %41 ], [ %indvars.iv179, %58 ], [ %52, %51 ], [ %indvars.iv169, %76 ], [ %62, %61 ], [ %.0129, %11 ], [ %scevgep, %18 ], [ %indvars.iv, %68 ]
   store ptr %.2, ptr %0, align 8, !tbaa !7
   br label %.loopexit
 
 .loopexit:                                        ; preds = %9, %.lr.ph, %73, %.lr.ph.i54, %15, %1, %.critedge
-  %.sroa.086.0 = phi i8 [ 1, %.critedge ], [ 2, %1 ], [ 2, %73 ], [ 2, %15 ], [ 2, %.lr.ph.i54 ], [ 2, %.lr.ph ], [ 2, %9 ]
-  %.sroa.6.0 = phi i8 [ 0, %.critedge ], [ 1, %1 ], [ 4, %73 ], [ 3, %15 ], [ 4, %.lr.ph.i54 ], [ 1, %9 ], [ 4, %.lr.ph ]
-  %.sroa.11.0 = phi i8 [ %.188, %.critedge ], [ 0, %1 ], [ 0, %73 ], [ 0, %15 ], [ 0, %.lr.ph.i54 ], [ 0, %.lr.ph ], [ 0, %9 ]
+  %.sroa.086.0 = phi i8 [ 2, %1 ], [ 2, %73 ], [ 1, %.critedge ], [ 2, %15 ], [ 2, %.lr.ph.i54 ], [ 2, %.lr.ph ], [ 2, %9 ]
+  %.sroa.6.0 = phi i8 [ 1, %1 ], [ 4, %73 ], [ 0, %.critedge ], [ 3, %15 ], [ 4, %.lr.ph.i54 ], [ 4, %.lr.ph ], [ 1, %9 ]
+  %.sroa.11.0 = phi i8 [ 0, %1 ], [ 0, %73 ], [ %.188, %.critedge ], [ 0, %15 ], [ 0, %.lr.ph.i54 ], [ 0, %.lr.ph ], [ 0, %9 ]
   %.sroa.11.0.insert.ext = zext nneg i8 %.sroa.11.0 to i24
   %.sroa.11.0.insert.shift = shl nuw nsw i24 %.sroa.11.0.insert.ext, 16
   %.sroa.6.0.insert.ext = zext nneg i8 %.sroa.6.0 to i24

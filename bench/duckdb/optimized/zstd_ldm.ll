@@ -1634,8 +1634,8 @@ _ZN11duckdb_zstdL24ZSTD_matchState_dictModeEPKNS_17ZSTD_matchState_tE.exit: ; pr
   br i1 %.not.i.i, label %_ZN11duckdb_zstdL18maybeSplitSequenceEPNS_13rawSeqStore_tEjj.exit, label %77
 
 _ZN11duckdb_zstdL18maybeSplitSequenceEPNS_13rawSeqStore_tEjj.exit: ; preds = %77, %106, %71, %73, %85, %94, %105
-  %.sroa.8.0.i = phi i32 [ %.sroa.8.0.copyload.i, %71 ], [ %.sroa.8.1.i, %73 ], [ %.sroa.8.1.i, %85 ], [ %.sroa.8.1.i, %94 ], [ %.sroa.8.1.i, %105 ], [ %.sroa.8.1.i, %106 ], [ %.sroa.8.1.i, %77 ]
-  %.sroa.010.sroa.0.0.i = phi i64 [ %.sroa.010.0.copyload.i, %71 ], [ %.sroa.010.sroa.0.1.i, %73 ], [ %.sroa.010.sroa.0.1.i, %85 ], [ %.sroa.010.sroa.0.1.i, %94 ], [ %.sroa.010.sroa.0.1.i, %105 ], [ %.sroa.010.sroa.0.1.i, %106 ], [ %.sroa.010.sroa.0.1.i, %77 ]
+  %.sroa.8.0.i = phi i32 [ %.sroa.8.0.copyload.i, %71 ], [ %.sroa.8.1.i, %73 ], [ %.sroa.8.1.i, %105 ], [ %.sroa.8.1.i, %85 ], [ %.sroa.8.1.i, %94 ], [ %.sroa.8.1.i, %106 ], [ %.sroa.8.1.i, %77 ]
+  %.sroa.010.sroa.0.0.i = phi i64 [ %.sroa.010.0.copyload.i, %71 ], [ %.sroa.010.sroa.0.1.i, %73 ], [ %.sroa.010.sroa.0.1.i, %105 ], [ %.sroa.010.sroa.0.1.i, %85 ], [ %.sroa.010.sroa.0.1.i, %94 ], [ %.sroa.010.sroa.0.1.i, %106 ], [ %.sroa.010.sroa.0.1.i, %77 ]
   %.sroa.06.0.extract.trunc = trunc i64 %.sroa.010.sroa.0.0.i to i32
   %109 = icmp eq i32 %.sroa.06.0.extract.trunc, 0
   br i1 %109, label %.thread, label %110

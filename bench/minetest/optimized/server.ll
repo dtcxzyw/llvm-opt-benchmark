@@ -36024,7 +36024,7 @@ do.body.backedge.thread.i:                        ; preds = %do.body.backedge.i,
   br i1 %cmp3.i, label %cleanup183, label %do.cond.i, !llvm.loop !1066
 
 invoke.cont103.sink.split:                        ; preds = %lor.rhs.i, %if.end3.i.i.i.i.i, %lor.lhs.false.i.i.i.i.i, %for.cond.i.i.us.i
-  %storemerge27.i.sink62 = phi i32 [ %storemerge32.i, %if.end3.i.i.i.i.i ], [ %storemerge32.us.i, %for.cond.i.i.us.i ], [ %storemerge32.i, %lor.lhs.false.i.i.i.i.i ], [ %storemerge32.i, %lor.rhs.i ]
+  %storemerge27.i.sink62 = phi i32 [ %storemerge32.us.i, %for.cond.i.i.us.i ], [ %storemerge32.i, %if.end3.i.i.i.i.i ], [ %storemerge32.i, %lor.lhs.false.i.i.i.i.i ], [ %storemerge32.i, %lor.rhs.i ]
   store i32 %storemerge27.i.sink62, ptr %m_playing_sounds_id_last_used.i, align 8, !tbaa !1064
   br label %invoke.cont103
 
@@ -57573,7 +57573,7 @@ lpad46:                                           ; preds = %if.end44
   resume { ptr, i32 } %28
 
 cleanup62:                                        ; preds = %for.body.us, %land.rhs.i.i.i.i.i.i, %land.rhs.i.us.i.i
-  %retval.sroa.0.0.ph = phi ptr [ %__p.0.i.i, %land.rhs.i.i.i.i.i.i ], [ %__p.0.us.i.i, %land.rhs.i.us.i.i ], [ %__it.sroa.0.0107.us, %for.body.us ]
+  %retval.sroa.0.0.ph = phi ptr [ %__p.0.us.i.i, %land.rhs.i.us.i.i ], [ %__p.0.i.i, %land.rhs.i.i.i.i.i.i ], [ %__it.sroa.0.0107.us, %for.body.us ]
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ESt4hashIS5_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit, label %cleanup62.if.then.i_crit_edge
 
@@ -65365,7 +65365,7 @@ if.end13:                                         ; preds = %land.rhs.i.i.i.i.i,
   br label %cleanup16
 
 cleanup16:                                        ; preds = %if.end4.i, %if.end4.us.i, %lor.lhs.false.i, %if.end3.i, %lor.lhs.false.us.i, %if.end3.us.i, %if.end13, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_9MediaInfoENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit, %if.then
-  %retval.1 = phi i64 [ 1, %if.end13 ], [ 0, %if.then ], [ 0, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_9MediaInfoENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit ], [ 0, %if.end4.us.i ], [ 0, %lor.lhs.false.us.i ], [ 0, %lor.lhs.false.i ], [ 0, %if.end3.us.i ], [ 0, %if.end3.i ], [ 0, %if.end4.i ]
+  %retval.1 = phi i64 [ 1, %if.end13 ], [ 0, %if.then ], [ 0, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_9MediaInfoENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit ], [ 0, %if.end4.us.i ], [ 0, %lor.lhs.false.i ], [ 0, %lor.lhs.false.us.i ], [ 0, %if.end3.us.i ], [ 0, %if.end3.i ], [ 0, %if.end4.i ]
   ret i64 %retval.1
 }
 
@@ -67039,7 +67039,7 @@ for.inc:                                          ; preds = %land.rhs.i.i.i, %fo
   br i1 %cmp.i.not, label %if.end21, label %for.body, !llvm.loop !1547
 
 if.end21:                                         ; preds = %for.inc, %for.inc.us, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeC2IJS5_RS5_EEEPNSA_16_Hashtable_allocISaINSA_10_Hash_nodeIS8_Lb1EEEEEEDpOT_.exit.if.end21_crit_edge, %if.then
-  %27 = phi i64 [ %.pre26, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeC2IJS5_RS5_EEEPNSA_16_Hashtable_allocISaINSA_10_Hash_nodeIS8_Lb1EEEEEEDpOT_.exit.if.end21_crit_edge ], [ %.fr, %if.then ], [ %.fr, %for.inc.us ], [ %.fr, %for.inc ]
+  %27 = phi i64 [ %.pre26, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeC2IJS5_RS5_EEEPNSA_16_Hashtable_allocISaINSA_10_Hash_nodeIS8_Lb1EEEEEEDpOT_.exit.if.end21_crit_edge ], [ %.fr, %for.inc.us ], [ %.fr, %if.then ], [ %.fr, %for.inc ]
   %28 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !11
   %call.i5.i.i = invoke noundef i64 @_ZSt11_Hash_bytesPKvmm(ptr noundef %28, i64 noundef %27, i64 noundef 3339675911)
           to label %invoke.cont26 unwind label %terminate.lpad.i.i82

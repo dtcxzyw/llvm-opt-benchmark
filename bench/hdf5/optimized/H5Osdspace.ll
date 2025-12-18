@@ -581,7 +581,7 @@ H5O__sdspace_decode.exit.thread.loopexit:         ; preds = %.lr.ph23.i
   br label %H5O__sdspace_decode.exit.thread
 
 H5O__sdspace_decode.exit.thread:                  ; preds = %H5O__sdspace_decode.exit.thread.loopexit, %.thread51.i, %272, %270, %18, %H5O__sdspace_decode.exit, %22, %6
-  %.0 = phi ptr [ null, %18 ], [ %16, %22 ], [ null, %H5O__sdspace_decode.exit ], [ null, %6 ], [ %28, %270 ], [ %28, %272 ], [ %28, %.thread51.i ], [ %28, %H5O__sdspace_decode.exit.thread.loopexit ]
+  %.0 = phi ptr [ null, %18 ], [ %16, %22 ], [ null, %H5O__sdspace_decode.exit ], [ null, %6 ], [ %28, %.thread51.i ], [ %28, %270 ], [ %28, %272 ], [ %28, %H5O__sdspace_decode.exit.thread.loopexit ]
   ret ptr %.0
 }
 

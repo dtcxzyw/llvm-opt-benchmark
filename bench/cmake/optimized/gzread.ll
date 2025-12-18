@@ -264,7 +264,7 @@ gz_load.exit.thread:                              ; preds = %82, %87, %94, %48
   br i1 %.not46, label %gz_skip.exit, label %46, !llvm.loop !33
 
 gz_skip.exit:                                     ; preds = %33, %102, %91, %69, %gz_load.exit, %60, %3
-  %.039 = phi i64 [ 0, %gz_load.exit ], [ 0, %3 ], [ %.0, %60 ], [ 0, %91 ], [ %.2, %102 ], [ 0, %69 ], [ 0, %33 ]
+  %.039 = phi i64 [ 0, %gz_load.exit ], [ 0, %3 ], [ 0, %91 ], [ %.0, %60 ], [ %.2, %102 ], [ 0, %69 ], [ 0, %33 ]
   ret i64 %.039
 }
 
@@ -905,7 +905,7 @@ gz_skip.exit.thread:                              ; preds = %44, %38, %16, %13
   br label %gz_skip.exit
 
 gz_skip.exit:                                     ; preds = %41, %51, %gz_skip.exit.thread, %.loopexit, %7, %10, %3, %79
-  %.0 = phi ptr [ %1, %79 ], [ null, %3 ], [ null, %7 ], [ null, %.loopexit ], [ null, %10 ], [ null, %gz_skip.exit.thread ], [ null, %51 ], [ null, %41 ]
+  %.0 = phi ptr [ %1, %79 ], [ null, %3 ], [ null, %7 ], [ null, %.loopexit ], [ null, %gz_skip.exit.thread ], [ null, %10 ], [ null, %51 ], [ null, %41 ]
   ret ptr %.0
 }
 
@@ -1201,7 +1201,7 @@ define internal fastcc range(i32 -1, 1) i32 @gz_decomp(ptr noundef nonnull %0) u
   br label %.loopexit
 
 .loopexit:                                        ; preds = %9, %.loopexit30, %36, %18, %17, %16
-  %.0 = phi i32 [ -1, %18 ], [ -1, %16 ], [ -1, %17 ], [ 0, %36 ], [ 0, %.loopexit30 ], [ -1, %9 ]
+  %.0 = phi i32 [ -1, %18 ], [ 0, %.loopexit30 ], [ -1, %16 ], [ -1, %17 ], [ 0, %36 ], [ -1, %9 ]
   ret i32 %.0
 }
 

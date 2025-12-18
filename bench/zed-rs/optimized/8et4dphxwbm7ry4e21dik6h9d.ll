@@ -20721,7 +20721,7 @@ _ZN4core3str7pattern14small_slice_eq17hd45e01b9d0f41d47E.exit.thread: ; preds = 
   br i1 %.not, label %_ZN4core3str7pattern14small_slice_eq17hd45e01b9d0f41d47E.exit.thread18, label %.preheader21.split
 
 _ZN4core3str7pattern14small_slice_eq17hd45e01b9d0f41d47E.exit.thread18: ; preds = %_ZN4core3str7pattern14small_slice_eq17hd45e01b9d0f41d47E.exit.thread, %_ZN4core3str7pattern14small_slice_eq17hd45e01b9d0f41d47E.exit, %_ZN4core3str7pattern14small_slice_eq17hd45e01b9d0f41d47E.exit.thread.loopexit.us, %18, %4
-  %.sroa.0.0 = phi i1 [ false, %4 ], [ false, %_ZN4core3str7pattern14small_slice_eq17hd45e01b9d0f41d47E.exit.thread.loopexit.us ], [ true, %18 ], [ true, %_ZN4core3str7pattern14small_slice_eq17hd45e01b9d0f41d47E.exit ], [ false, %_ZN4core3str7pattern14small_slice_eq17hd45e01b9d0f41d47E.exit.thread ]
+  %.sroa.0.0 = phi i1 [ false, %4 ], [ true, %18 ], [ false, %_ZN4core3str7pattern14small_slice_eq17hd45e01b9d0f41d47E.exit.thread.loopexit.us ], [ true, %_ZN4core3str7pattern14small_slice_eq17hd45e01b9d0f41d47E.exit ], [ false, %_ZN4core3str7pattern14small_slice_eq17hd45e01b9d0f41d47E.exit.thread ]
   ret i1 %.sroa.0.0
 }
 
@@ -24211,7 +24211,7 @@ _ZN4core5slice4sort6shared17find_existing_run17h895bde1696cdb8f2E.exit.i: ; pred
   br label %_ZN4core5slice4sort6stable5drift10create_run17h1149cdc1998be4b0E.exit
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h70fd499b4ef07920E.exit.i": ; preds = %_ZN4core10intrinsics10typed_swap17h2a23742bb9e39bbeE.exit.i.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17he6b17cf3309f8eb0E.exit.i", %97, %25
-  %.sroa.0.0.i4144.i = phi i64 [ %.sroa.0.0.i.i, %97 ], [ %.sroa.0.0.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17he6b17cf3309f8eb0E.exit.i" ], [ %22, %25 ], [ %.sroa.0.0.i.i, %_ZN4core10intrinsics10typed_swap17h2a23742bb9e39bbeE.exit.i.i.i ]
+  %.sroa.0.0.i4144.i = phi i64 [ %22, %25 ], [ %.sroa.0.0.i.i, %97 ], [ %.sroa.0.0.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17he6b17cf3309f8eb0E.exit.i" ], [ %.sroa.0.0.i.i, %_ZN4core10intrinsics10typed_swap17h2a23742bb9e39bbeE.exit.i.i.i ]
   %103 = shl i64 %.sroa.0.0.i4144.i, 1
   %104 = or disjoint i64 %103, 1
   br label %_ZN4core5slice4sort6stable5drift10create_run17h1149cdc1998be4b0E.exit
@@ -27562,7 +27562,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17h8b140c0aff8f98d1E.exit.i: ; preds = %.
   br label %71
 
 .loopexit.split-lp.i:                             ; preds = %.invoke.i, %._crit_edge.i, %66, %65
-  %.sroa.012.2.ph.i = phi i1 [ true, %65 ], [ true, %66 ], [ false, %._crit_edge.i ], [ true, %.invoke.i ]
+  %.sroa.012.2.ph.i = phi i1 [ true, %66 ], [ false, %._crit_edge.i ], [ true, %.invoke.i ], [ true, %65 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %71
@@ -42585,8 +42585,8 @@ _ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17h5ac2ae42596d
   %70 = zext nneg i16 %69 to i64
   br label %_ZN9hashbrown3raw5inner13RawTableInner30find_or_find_insert_slot_inner17h905c416281a1f195E.exit.thread
 
-_ZN9hashbrown3raw5inner13RawTableInner30find_or_find_insert_slot_inner17h905c416281a1f195E.exit.thread: ; preds = %64, %60
-  %.sroa.3.0.i.ph = phi i64 [ %.sroa.4.1.i, %60 ], [ %70, %64 ]
+_ZN9hashbrown3raw5inner13RawTableInner30find_or_find_insert_slot_inner17h905c416281a1f195E.exit.thread: ; preds = %60, %64
+  %.sroa.3.0.i.ph = phi i64 [ %70, %64 ], [ %.sroa.4.1.i, %60 ]
   %71 = inttoptr i64 %.sroa.3.0.i.ph to ptr
   br label %.loopexit
 

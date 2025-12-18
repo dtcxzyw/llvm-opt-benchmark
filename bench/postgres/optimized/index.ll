@@ -1933,7 +1933,7 @@ define internal fastcc void @index_update_stats(ptr noundef %0, i1 noundef zeroe
   br label %60
 
 59:                                               ; preds = %55, %44
-  %.1 = phi i1 [ %.3, %55 ], [ %.not36, %44 ]
+  %.1 = phi i1 [ %.not36, %44 ], [ %.3, %55 ]
   br i1 %.1, label %60, label %63
 
 60:                                               ; preds = %.critedge, %59
@@ -3636,7 +3636,7 @@ define dso_local zeroext i1 @CompareIndexInfo(ptr noundef readonly captures(none
   br label %.loopexit
 
 .loopexit:                                        ; preds = %52, %67, %62, %55, %105, %102, %.critedge79, %87, %.critedge, %._crit_edge, %29, %24, %19, %14, %7, %84, %99
-  %.0 = phi i1 [ false, %84 ], [ false, %7 ], [ false, %14 ], [ false, %19 ], [ false, %24 ], [ false, %29 ], [ false, %.critedge ], [ false, %.critedge79 ], [ false, %102 ], [ false, %99 ], [ %.not72, %105 ], [ false, %._crit_edge ], [ false, %87 ], [ false, %55 ], [ false, %62 ], [ false, %67 ], [ false, %52 ]
+  %.0 = phi i1 [ false, %84 ], [ false, %7 ], [ false, %14 ], [ false, %19 ], [ false, %24 ], [ false, %87 ], [ false, %._crit_edge ], [ false, %29 ], [ %.not72, %105 ], [ false, %99 ], [ false, %.critedge ], [ false, %.critedge79 ], [ false, %102 ], [ false, %55 ], [ false, %62 ], [ false, %67 ], [ false, %52 ]
   ret i1 %.0
 }
 

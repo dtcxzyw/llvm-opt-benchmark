@@ -347,7 +347,7 @@ get_file_time_stamp.exit.thread:                  ; preds = %73, %103, %105
   br label %.thread
 
 .thread:                                          ; preds = %thread-pre-split.i, %get_file_time_stamp.exit.thread, %66, %35, %thread-pre-split, %41, %38, %110
-  %.0 = phi i32 [ 0, %38 ], [ 1, %110 ], [ 0, %41 ], [ %68, %66 ], [ %37, %35 ], [ 0, %get_file_time_stamp.exit.thread ], [ 0, %thread-pre-split ], [ 0, %thread-pre-split.i ]
+  %.0 = phi i32 [ 0, %thread-pre-split ], [ 0, %38 ], [ 0, %get_file_time_stamp.exit.thread ], [ 1, %110 ], [ 0, %41 ], [ %68, %66 ], [ %37, %35 ], [ 0, %thread-pre-split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %.0
 }
@@ -1359,7 +1359,7 @@ switch.early.test:                                ; preds = %.lr.ph238
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph225, %switch.early.test, %.critedge5.loopexit, %.critedge11.thread, %162, %._crit_edge, %.critedge5, %._crit_edge232, %.critedge9, %122, %139, %144, %.critedge11, %.critedge, %22
-  %.0142 = phi i1 [ false, %.critedge ], [ false, %22 ], [ false, %139 ], [ false, %._crit_edge ], [ false, %.critedge5 ], [ false, %._crit_edge232 ], [ false, %.critedge9 ], [ false, %122 ], [ true, %162 ], [ false, %144 ], [ false, %.critedge11 ], [ false, %.critedge11.thread ], [ false, %.critedge5.loopexit ], [ false, %.lr.ph225 ], [ false, %switch.early.test ], [ false, %.lr.ph ]
+  %.0142 = phi i1 [ false, %.critedge ], [ false, %22 ], [ false, %switch.early.test ], [ false, %139 ], [ false, %._crit_edge ], [ false, %.critedge5.loopexit ], [ false, %.critedge5 ], [ false, %._crit_edge232 ], [ false, %.critedge11.thread ], [ false, %.critedge9 ], [ false, %122 ], [ true, %162 ], [ false, %144 ], [ false, %.critedge11 ], [ false, %.lr.ph225 ], [ false, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i1 %.0142

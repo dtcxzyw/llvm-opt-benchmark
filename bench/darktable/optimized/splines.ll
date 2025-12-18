@@ -5017,7 +5017,7 @@ _ZNSt6vectorIN8interpol10base_pointIfEESaIS2_EE9push_backEOS2_.exit51: ; preds =
   br i1 %.not, label %.loopexit, label %60, !llvm.loop !148
 
 .loopexit:                                        ; preds = %_ZNSt6vectorIN8interpol10base_pointIfEESaIS2_EE9push_backEOS2_.exit51, %_ZNSt6vectorIN8interpol10base_pointIfEESaIS2_EE9push_backEOS2_.exit, %.preheader, %16
-  %97 = phi ptr [ null, %16 ], [ null, %.preheader ], [ %58, %_ZNSt6vectorIN8interpol10base_pointIfEESaIS2_EE9push_backEOS2_.exit ], [ %95, %_ZNSt6vectorIN8interpol10base_pointIfEESaIS2_EE9push_backEOS2_.exit51 ]
+  %97 = phi ptr [ %58, %_ZNSt6vectorIN8interpol10base_pointIfEESaIS2_EE9push_backEOS2_.exit ], [ null, %16 ], [ null, %.preheader ], [ %95, %_ZNSt6vectorIN8interpol10base_pointIfEESaIS2_EE9push_backEOS2_.exit51 ]
   %98 = load ptr, ptr %0, align 8, !tbaa !86
   %99 = icmp eq ptr %98, %97
   br i1 %99, label %100, label %107
@@ -6012,7 +6012,7 @@ _ZNSt6vectorIN8interpol10base_pointIfEESaIS2_EE9push_backEOS2_.exit33: ; preds =
   br i1 %.not, label %.loopexit, label %60, !llvm.loop !170
 
 .loopexit:                                        ; preds = %_ZNSt6vectorIN8interpol10base_pointIfEESaIS2_EE9push_backEOS2_.exit33, %_ZNSt6vectorIN8interpol10base_pointIfEESaIS2_EE9push_backEOS2_.exit, %.preheader, %16
-  %97 = phi ptr [ null, %16 ], [ null, %.preheader ], [ %58, %_ZNSt6vectorIN8interpol10base_pointIfEESaIS2_EE9push_backEOS2_.exit ], [ %95, %_ZNSt6vectorIN8interpol10base_pointIfEESaIS2_EE9push_backEOS2_.exit33 ]
+  %97 = phi ptr [ %58, %_ZNSt6vectorIN8interpol10base_pointIfEESaIS2_EE9push_backEOS2_.exit ], [ null, %16 ], [ null, %.preheader ], [ %95, %_ZNSt6vectorIN8interpol10base_pointIfEESaIS2_EE9push_backEOS2_.exit33 ]
   %98 = load ptr, ptr %0, align 8, !tbaa !86
   %99 = icmp eq ptr %98, %97
   br i1 %99, label %100, label %107

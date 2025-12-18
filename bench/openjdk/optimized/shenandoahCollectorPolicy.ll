@@ -254,7 +254,7 @@ _Z14is_explicit_gcN7GCCause5CauseE.exit.thread.fold.split: ; preds = %1
   br label %_Z14is_explicit_gcN7GCCause5CauseE.exit.thread
 
 _Z14is_explicit_gcN7GCCause5CauseE.exit.thread:   ; preds = %1, %1, %1, %1, %1, %_Z14is_explicit_gcN7GCCause5CauseE.exit.thread.fold.split
-  %.in = phi ptr [ @ShenandoahImplicitGCInvokesConcurrent, %_Z14is_explicit_gcN7GCCause5CauseE.exit.thread.fold.split ], [ @ExplicitGCInvokesConcurrent, %1 ], [ @ExplicitGCInvokesConcurrent, %1 ], [ @ExplicitGCInvokesConcurrent, %1 ], [ @ExplicitGCInvokesConcurrent, %1 ], [ @ExplicitGCInvokesConcurrent, %1 ]
+  %.in = phi ptr [ @ExplicitGCInvokesConcurrent, %1 ], [ @ShenandoahImplicitGCInvokesConcurrent, %_Z14is_explicit_gcN7GCCause5CauseE.exit.thread.fold.split ], [ @ExplicitGCInvokesConcurrent, %1 ], [ @ExplicitGCInvokesConcurrent, %1 ], [ @ExplicitGCInvokesConcurrent, %1 ], [ @ExplicitGCInvokesConcurrent, %1 ]
   %2 = load i8, ptr %.in, align 1
   %.v = trunc i8 %2 to i1
   %3 = xor i1 %.v, true

@@ -3912,13 +3912,13 @@ _ZN12regex_syntax3hir7literal3Seq13make_infinite17h7a2ed4b13adeb66dE.llvm.125789
   br i1 %119, label %.thread295, label %96
 
 _ZN12regex_syntax3hir7literal3Seq21longest_common_suffix17hd7d1c430dbec7596E.exit._crit_edge: ; preds = %.critedge, %36, %32, %84, %86
-  %120 = phi i1 [ false, %36 ], [ true, %.critedge ], [ true, %32 ], [ false, %86 ], [ true, %84 ]
+  %120 = phi i1 [ false, %86 ], [ false, %36 ], [ true, %.critedge ], [ true, %84 ], [ true, %32 ]
   %..val2.i.pre = load i64, ptr %14, align 8, !alias.scope !801
   br label %125
 
 121:                                              ; preds = %59, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6691be1d2e9015a1E.exit.thread.i95"
-  %.sroa.0.0.i97.pn.ph = phi ptr [ %91, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6691be1d2e9015a1E.exit.thread.i95" ], [ %60, %59 ]
-  %.sroa.5.0.i96.pn.ph = phi i64 [ %.0.i94, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6691be1d2e9015a1E.exit.thread.i95" ], [ %.0.i, %59 ]
+  %.sroa.0.0.i97.pn.ph = phi ptr [ %60, %59 ], [ %91, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6691be1d2e9015a1E.exit.thread.i95" ]
+  %.sroa.5.0.i96.pn.ph = phi i64 [ %.0.i, %59 ], [ %.0.i94, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6691be1d2e9015a1E.exit.thread.i95" ]
   %122 = add i64 %.sroa.5.0.i96.pn.ph, -1
   %123 = icmp ult i64 %122, 3
   %124 = and i1 %16, %123

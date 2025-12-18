@@ -445,7 +445,7 @@ _line_is_space.exit.thread:                       ; preds = %40, %34, %31, %62
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.outer.backedge, %23, %.preheader, %66, %.loopexit29, %13
-  %.017 = phi i32 [ -1, %13 ], [ %.4, %66 ], [ %.4, %.loopexit29 ], [ 0, %.preheader ], [ %.015.ph40, %23 ], [ %.015.ph.be, %.outer.backedge ]
+  %.017 = phi i32 [ %.4, %.loopexit29 ], [ -1, %13 ], [ %.4, %66 ], [ %.015.ph40, %23 ], [ 0, %.preheader ], [ %.015.ph.be, %.outer.backedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.017
@@ -1066,7 +1066,7 @@ _strip_cr_nl.exit:                                ; preds = %.lr.ph.i57, %251, %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %23, %36, %39, %261, %43, %19
-  %.0 = phi i32 [ -1, %19 ], [ -1, %43 ], [ %.042.ph, %261 ], [ 0, %39 ], [ 0, %36 ], [ -1, %23 ]
+  %.0 = phi i32 [ -1, %19 ], [ 0, %36 ], [ -1, %43 ], [ %.042.ph, %261 ], [ 0, %39 ], [ -1, %23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -1180,7 +1180,7 @@ _conf_hashtbl_lookup.exit:                        ; preds = %.lr.ph.i
   br label %.loopexit11
 
 .loopexit11:                                      ; preds = %38, %.loopexit11.sink.split, %3
-  %.0 = phi i32 [ 1, %3 ], [ 0, %.loopexit11.sink.split ], [ 1, %38 ]
+  %.0 = phi i32 [ 0, %.loopexit11.sink.split ], [ 1, %3 ], [ 1, %38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

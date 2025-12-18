@@ -916,7 +916,7 @@ Abc_NtkMfsTryResubOnce.exit210:                   ; preds = %311
   br label %.loopexit223
 
 .loopexit223:                                     ; preds = %.lr.ph251.split.us.split, %._crit_edge252, %307, %279, %Abc_NtkMfsTryResubOnce.exit210, %Abc_NtkMfsTryResubOnce.exit, %398, %401, %374, %367, %.loopexit224, %240, %Abc_Clock.exit, %191, %378, %Abc_Clock.exit192
-  %.0 = phi i32 [ 0, %374 ], [ 0, %Abc_NtkMfsTryResubOnce.exit ], [ 1, %191 ], [ 1, %Abc_Clock.exit192 ], [ 0, %Abc_Clock.exit ], [ 0, %.loopexit224 ], [ 0, %Abc_NtkMfsTryResubOnce.exit210 ], [ 1, %367 ], [ 1, %378 ], [ 0, %240 ], [ 0, %401 ], [ 0, %398 ], [ 0, %307 ], [ 0, %279 ], [ 0, %._crit_edge252 ], [ 0, %.lr.ph251.split.us.split ]
+  %.0 = phi i32 [ 0, %374 ], [ 0, %Abc_NtkMfsTryResubOnce.exit ], [ 1, %191 ], [ 1, %Abc_Clock.exit192 ], [ 0, %Abc_Clock.exit ], [ 0, %.loopexit224 ], [ 0, %398 ], [ 0, %Abc_NtkMfsTryResubOnce.exit210 ], [ 1, %367 ], [ 1, %378 ], [ 0, %240 ], [ 0, %401 ], [ 0, %279 ], [ 0, %307 ], [ 0, %._crit_edge252 ], [ 0, %.lr.ph251.split.us.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
@@ -1769,8 +1769,8 @@ Abc_MfsObjProb.exit236:                           ; preds = %.critedge291.split.
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit584, %.loopexit.loopexit582, %.loopexit.loopexit477, %.loopexit.loopexit474, %.loopexit.loopexit, %283
-  %.1157307 = phi i32 [ %380, %.loopexit.loopexit474 ], [ %382, %.loopexit.loopexit477 ], [ 1, %283 ], [ %378, %.loopexit.loopexit ], [ %384, %.loopexit.loopexit582 ], [ %386, %.loopexit.loopexit584 ]
-  %.2166 = phi i32 [ %381, %.loopexit.loopexit474 ], [ %383, %.loopexit.loopexit477 ], [ %.0164, %283 ], [ %379, %.loopexit.loopexit ], [ %385, %.loopexit.loopexit582 ], [ 0, %.loopexit.loopexit584 ]
+  %.1157307 = phi i32 [ %382, %.loopexit.loopexit477 ], [ %380, %.loopexit.loopexit474 ], [ 1, %283 ], [ %384, %.loopexit.loopexit582 ], [ %378, %.loopexit.loopexit ], [ %386, %.loopexit.loopexit584 ]
+  %.2166 = phi i32 [ %383, %.loopexit.loopexit477 ], [ %381, %.loopexit.loopexit474 ], [ %.0164, %283 ], [ %385, %.loopexit.loopexit582 ], [ %379, %.loopexit.loopexit ], [ 0, %.loopexit.loopexit584 ]
   %387 = icmp eq i32 %.1157307, %292
   br i1 %387, label %.loopexit295, label %388
 
@@ -2114,7 +2114,7 @@ Abc_Clock.exit277:                                ; preds = %Abc_NtkMfsUpdateNet
   br i1 %.not180, label %259, label %.loopexit295
 
 .loopexit295:                                     ; preds = %.loopexit293, %.loopexit, %.critedge187, %Abc_NtkMfsTryResubOnce.exit252, %Abc_NtkMfsTryResubOnce.exit, %Abc_Clock.exit254, %Abc_Clock.exit, %Abc_Clock.exit277, %Abc_Clock.exit230
-  %.0 = phi i32 [ 0, %Abc_Clock.exit254 ], [ 0, %Abc_NtkMfsTryResubOnce.exit ], [ 1, %Abc_Clock.exit230 ], [ 0, %Abc_Clock.exit ], [ 0, %Abc_NtkMfsTryResubOnce.exit252 ], [ 1, %Abc_Clock.exit277 ], [ 0, %.critedge187 ], [ 0, %.loopexit ], [ 0, %.loopexit293 ]
+  %.0 = phi i32 [ 0, %Abc_Clock.exit254 ], [ 0, %Abc_NtkMfsTryResubOnce.exit ], [ 1, %Abc_Clock.exit230 ], [ 0, %Abc_Clock.exit ], [ 1, %Abc_Clock.exit277 ], [ 0, %Abc_NtkMfsTryResubOnce.exit252 ], [ 0, %.critedge187 ], [ 0, %.loopexit ], [ 0, %.loopexit293 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
 }
@@ -2340,7 +2340,7 @@ define range(i32 0, 2) i32 @Abc_NtkMfsResubNode(ptr noundef %0, ptr noundef %1) 
   br i1 %47, label %30, label %.critedge2, !llvm.loop !111
 
 .critedge2:                                       ; preds = %19, %42, %45, %.critedge
-  %.024 = phi i32 [ 0, %.critedge ], [ 0, %45 ], [ 1, %42 ], [ 1, %19 ]
+  %.024 = phi i32 [ 0, %45 ], [ 0, %.critedge ], [ 1, %42 ], [ 1, %19 ]
   ret i32 %.024
 }
 
@@ -2421,7 +2421,7 @@ define range(i32 0, 2) i32 @Abc_NtkMfsResubNode2(ptr noundef %0, ptr noundef %1)
   br i1 %28, label %6, label %.critedge, !llvm.loop !113
 
 .critedge:                                        ; preds = %.critedge2, %22, %2
-  %.022 = phi i32 [ 0, %2 ], [ 1, %22 ], [ 0, %.critedge2 ]
+  %.022 = phi i32 [ 1, %22 ], [ 0, %2 ], [ 0, %.critedge2 ]
   ret i32 %.022
 }
 

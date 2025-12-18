@@ -1833,8 +1833,8 @@ _ZNK5Block8get_nodeEj.exit:                       ; preds = %179, %184
   br i1 %exitcond309.not, label %.preheader259, label %163, !llvm.loop !14
 
 ._crit_edge303:                                   ; preds = %..loopexit_crit_edge.us, %_ZN4NodenwEm.exit._crit_edge, %.preheader259
-  %.0183.lcssa324 = phi i32 [ %.1184.lcssa, %.preheader259 ], [ 0, %_ZN4NodenwEm.exit._crit_edge ], [ %.1184.lcssa, %..loopexit_crit_edge.us ]
-  %.0187.lcssa323 = phi i32 [ %52, %.preheader259 ], [ 10, %_ZN4NodenwEm.exit._crit_edge ], [ %52, %..loopexit_crit_edge.us ]
+  %.0183.lcssa324 = phi i32 [ 0, %_ZN4NodenwEm.exit._crit_edge ], [ %.1184.lcssa, %.preheader259 ], [ %.1184.lcssa, %..loopexit_crit_edge.us ]
+  %.0187.lcssa323 = phi i32 [ 10, %_ZN4NodenwEm.exit._crit_edge ], [ %52, %.preheader259 ], [ %52, %..loopexit_crit_edge.us ]
   %311 = getelementptr inbounds nuw i32, ptr %1, i64 %10
   %312 = load i32, ptr %311, align 4
   %313 = getelementptr inbounds nuw i8, ptr %0, i64 672
@@ -3522,7 +3522,7 @@ _ZNK5Block23non_connector_successorEi.exit.i:     ; preds = %.lr.ph.i.i.i, %49
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit46, %.critedge.loopexit, %27
-  %.128 = phi i32 [ %.02037, %27 ], [ %66, %.critedge.loopexit ], [ %indvars.le, %.critedge.loopexit46 ]
+  %.128 = phi i32 [ %66, %.critedge.loopexit ], [ %.02037, %27 ], [ %indvars.le, %.critedge.loopexit46 ]
   %67 = load i32, ptr %2, align 4
   %68 = getelementptr inbounds nuw i8, ptr %23, i64 132
   store i32 %67, ptr %68, align 4
@@ -4066,7 +4066,7 @@ _ZN13GrowableArrayIP10ScopeValueE10deallocateEPS1_.exit.i: ; preds = %.loopexit.
   br label %_ZN11PhaseOutput14sv_for_node_idEP13GrowableArrayIP10ScopeValueEi.exit135
 
 _ZN11PhaseOutput14sv_for_node_idEP13GrowableArrayIP10ScopeValueEi.exit135: ; preds = %163, %._crit_edge, %253, %_ZN13GrowableArrayIP10ScopeValueE10deallocateEPS1_.exit.i
-  %.0124 = phi ptr [ %200, %_ZN13GrowableArrayIP10ScopeValueE10deallocateEPS1_.exit.i ], [ %200, %253 ], [ %200, %._crit_edge ], [ %165, %163 ]
+  %.0124 = phi ptr [ %200, %._crit_edge ], [ %200, %_ZN13GrowableArrayIP10ScopeValueE10deallocateEPS1_.exit.i ], [ %200, %253 ], [ %165, %163 ]
   %257 = load i32, ptr %4, align 8
   %258 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %259 = load i32, ptr %258, align 4
@@ -5322,7 +5322,7 @@ _ZL13new_loc_valueP13PhaseRegAllociN8Location4TypeE.exit204: ; preds = %_ZN7Opto
   br label %_ZN11PhaseOutput14sv_for_node_idEP13GrowableArrayIP10ScopeValueEi.exit
 
 _ZN11PhaseOutput14sv_for_node_idEP13GrowableArrayIP10ScopeValueEi.exit: ; preds = %275, %154, %.lr.ph279, %_ZN11PhaseOutput22set_sv_for_object_nodeEP13GrowableArrayIP10ScopeValueEP11ObjectValue.exit, %._crit_edge277, %349, %_ZN13GrowableArrayIP10ScopeValueE10deallocateEPS1_.exit.i, %_ZL13new_loc_valueP13PhaseRegAllociN8Location4TypeE.exit, %_ZL13new_loc_valueP13PhaseRegAllociN8Location4TypeE.exit204, %414
-  %.0179 = phi ptr [ %383, %_ZL13new_loc_valueP13PhaseRegAllociN8Location4TypeE.exit204 ], [ %416, %414 ], [ %383, %_ZL13new_loc_valueP13PhaseRegAllociN8Location4TypeE.exit ], [ %298, %_ZN13GrowableArrayIP10ScopeValueE10deallocateEPS1_.exit.i ], [ %298, %349 ], [ %298, %._crit_edge277 ], [ %168, %_ZN11PhaseOutput22set_sv_for_object_nodeEP13GrowableArrayIP10ScopeValueEP11ObjectValue.exit ], [ %156, %154 ], [ %168, %.lr.ph279 ], [ %277, %275 ]
+  %.0179 = phi ptr [ %383, %_ZL13new_loc_valueP13PhaseRegAllociN8Location4TypeE.exit204 ], [ %156, %154 ], [ %298, %._crit_edge277 ], [ %416, %414 ], [ %383, %_ZL13new_loc_valueP13PhaseRegAllociN8Location4TypeE.exit ], [ %168, %_ZN11PhaseOutput22set_sv_for_object_nodeEP13GrowableArrayIP10ScopeValueEP11ObjectValue.exit ], [ %298, %_ZN13GrowableArrayIP10ScopeValueE10deallocateEPS1_.exit.i ], [ %298, %349 ], [ %168, %.lr.ph279 ], [ %277, %275 ]
   %421 = call noundef i32 @_ZN11BoxLockNode3regEP4Node(ptr noundef %137) #14
   %422 = load ptr, ptr %52, align 8
   %423 = getelementptr inbounds nuw i8, ptr %422, i64 2160
@@ -5559,7 +5559,7 @@ _ZN26GrowableArrayWithAllocatorIP12MonitorValue13GrowableArrayIS1_EE6appendERKS1
   br i1 %531, label %_ZNK17GrowableArrayViewIP10ScopeValueE8containsERKS1_.exit, label %526
 
 _ZNK17GrowableArrayViewIP10ScopeValueE8containsERKS1_.exit: ; preds = %511, %519, %527, %526, %.loopexit
-  %532 = phi i8 [ 0, %.loopexit ], [ 1, %519 ], [ 1, %527 ], [ 0, %526 ], [ 1, %511 ]
+  %532 = phi i8 [ 1, %527 ], [ 1, %519 ], [ 0, %.loopexit ], [ 0, %526 ], [ 1, %511 ]
   %533 = getelementptr inbounds nuw i8, ptr %506, i64 58
   store i8 %532, ptr %533, align 2
   %indvars.iv.next307 = add nuw nsw i64 %indvars.iv306, 1
@@ -6549,7 +6549,7 @@ _ZNK5Block23non_connector_successorEi.exit72:     ; preds = %.lr.ph.i.i70, %280
   br label %_ZN13GrowableArrayIlED2Ev.exit68
 
 _ZN13GrowableArrayIlED2Ev.exit68:                 ; preds = %33, %_ZN13GrowableArrayIlED2Ev.exit, %242, %_ZN13GrowableArrayIlE10deallocateEPl.exit.i109, %272, %275, %_ZNK5Block23non_connector_successorEi.exit72, %_ZNK5Block23non_connector_successorEi.exit
-  %.1 = phi i32 [ %.0134, %272 ], [ %264, %_ZNK5Block23non_connector_successorEi.exit ], [ %295, %_ZNK5Block23non_connector_successorEi.exit72 ], [ %.0134, %275 ], [ %.0134, %_ZN13GrowableArrayIlE10deallocateEPl.exit.i109 ], [ %.0134, %242 ], [ %.0134, %_ZN13GrowableArrayIlED2Ev.exit ], [ %.0134, %33 ]
+  %.1 = phi i32 [ %.0134, %272 ], [ %.0134, %_ZN13GrowableArrayIlED2Ev.exit ], [ %264, %_ZNK5Block23non_connector_successorEi.exit ], [ %295, %_ZNK5Block23non_connector_successorEi.exit72 ], [ %.0134, %275 ], [ %.0134, %_ZN13GrowableArrayIlE10deallocateEPl.exit.i109 ], [ %.0134, %242 ], [ %.0134, %33 ]
   %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 1
   %303 = load ptr, ptr %9, align 8
   %304 = getelementptr inbounds nuw i8, ptr %303, i64 2136
@@ -7856,7 +7856,7 @@ _ZNK10Node_ArrayixEj.exit.sink.split:             ; preds = %.loopexit, %4
   br label %_ZNK10Node_ArrayixEj.exit
 
 _ZNK10Node_ArrayixEj.exit:                        ; preds = %31, %_ZN10Scheduling16NodeFitsInBundleEP4Node.exit, %_ZNK10Node_ArrayixEj.exit.sink.split, %.loopexit, %4, %1
-  %.0 = phi ptr [ null, %.loopexit ], [ null, %1 ], [ null, %4 ], [ %83, %_ZNK10Node_ArrayixEj.exit.sink.split ], [ %26, %_ZN10Scheduling16NodeFitsInBundleEP4Node.exit ], [ %26, %31 ]
+  %.0 = phi ptr [ null, %.loopexit ], [ %83, %_ZNK10Node_ArrayixEj.exit.sink.split ], [ null, %1 ], [ null, %4 ], [ %26, %_ZN10Scheduling16NodeFitsInBundleEP4Node.exit ], [ %26, %31 ]
   ret ptr %.0
 }
 
@@ -8206,7 +8206,7 @@ _ZNK10Node_ArrayixEj.exit46:                      ; preds = %_ZNK10Node_ArrayixE
   br label %.loopexit
 
 .loopexit:                                        ; preds = %150, %.loopexit.loopexit.split.loop.exit, %134, %133, %_ZNK10Node_ArrayixEj.exit45, %127, %.loopexit51
-  %.1 = phi i32 [ %.055, %133 ], [ %.055, %127 ], [ %.055, %_ZNK10Node_ArrayixEj.exit45 ], [ %.055, %.loopexit51 ], [ 0, %134 ], [ %151, %.loopexit.loopexit.split.loop.exit ], [ %135, %150 ]
+  %.1 = phi i32 [ %.055, %.loopexit51 ], [ %.055, %_ZNK10Node_ArrayixEj.exit45 ], [ %.055, %133 ], [ %.055, %127 ], [ 0, %134 ], [ %151, %.loopexit.loopexit.split.loop.exit ], [ %135, %150 ]
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @_ZN10Node_Array6insertEjP4Node(ptr noundef nonnull align 8 dereferenceable(28) %152, i32 noundef %.1, ptr noundef nonnull %1) #14
   %153 = load i32, ptr %10, align 8
@@ -8617,9 +8617,9 @@ _ZN10Scheduling4stepEj.exit.thread:               ; preds = %85
   br i1 %exitcond.not.i.i71, label %_ZN10Scheduling4stepEj.exit67, label %175, !llvm.loop !49
 
 _ZN10Scheduling4stepEj.exit67:                    ; preds = %175, %132, %_ZN10Scheduling4stepEj.exit.thread, %138
-  %.not828793 = phi i1 [ %.not82, %138 ], [ %.not81, %_ZN10Scheduling4stepEj.exit.thread ], [ %.not82, %132 ], [ %.not82, %175 ]
-  %.051798892 = phi i32 [ %.05179, %138 ], [ %.05178, %_ZN10Scheduling4stepEj.exit.thread ], [ %.05179, %132 ], [ %.05179, %175 ]
-  %181 = phi ptr [ %91, %138 ], [ %93, %_ZN10Scheduling4stepEj.exit.thread ], [ %91, %132 ], [ %91, %175 ]
+  %.not828793 = phi i1 [ %.not82, %132 ], [ %.not82, %138 ], [ %.not81, %_ZN10Scheduling4stepEj.exit.thread ], [ %.not82, %175 ]
+  %.051798892 = phi i32 [ %.05179, %132 ], [ %.05179, %138 ], [ %.05178, %_ZN10Scheduling4stepEj.exit.thread ], [ %.05179, %175 ]
+  %181 = phi ptr [ %91, %132 ], [ %91, %138 ], [ %93, %_ZN10Scheduling4stepEj.exit.thread ], [ %91, %175 ]
   %182 = getelementptr inbounds nuw i8, ptr %26, i64 5
   %183 = load i8, ptr %182, align 1
   %184 = trunc i8 %183 to i1
@@ -9268,9 +9268,9 @@ _ZN15RegMaskIteratorC2ERK7RegMask.exit:           ; preds = %57
   br label %_ZN15RegMaskIterator4nextEv.exit
 
 _ZN15RegMaskIterator4nextEv.exit:                 ; preds = %69, %79
-  %.sroa.0135.4.in = phi i64 [ %82, %79 ], [ %72, %69 ]
-  %.sroa.7136.4 = phi i32 [ %75, %79 ], [ %.sroa.7136.0159, %69 ]
-  %.sink.i = phi i32 [ %85, %79 ], [ %73, %69 ]
+  %.sroa.0135.4.in = phi i64 [ %72, %69 ], [ %82, %79 ]
+  %.sroa.7136.4 = phi i32 [ %.sroa.7136.0159, %69 ], [ %75, %79 ]
+  %.sink.i = phi i32 [ %73, %69 ], [ %85, %79 ]
   tail call void @_ZN10Scheduling11anti_do_defEP5BlockP4Nodeii(ptr noundef nonnull align 8 dereferenceable(472) %0, ptr noundef nonnull %1, ptr noundef nonnull %34, i32 noundef %.sroa.11137.0160, i32 noundef %36)
   %.not140 = icmp eq i32 %.sink.i, -1
   br i1 %.not140, label %.loopexit145, label %.lr.ph, !llvm.loop !68
@@ -9304,7 +9304,7 @@ _ZN15RegMaskIterator4nextEv.exit:                 ; preds = %69, %79
   br label %.loopexit145
 
 .loopexit145:                                     ; preds = %56, %_ZN15RegMaskIterator4nextEv.exit, %.loopexit145.sink.split, %_ZN15RegMaskIteratorC2ERK7RegMask.exit
-  %.1 = phi i1 [ true, %_ZN15RegMaskIteratorC2ERK7RegMask.exit ], [ %.1.ph, %.loopexit145.sink.split ], [ true, %_ZN15RegMaskIterator4nextEv.exit ], [ true, %56 ]
+  %.1 = phi i1 [ true, %_ZN15RegMaskIterator4nextEv.exit ], [ true, %_ZN15RegMaskIteratorC2ERK7RegMask.exit ], [ %.1.ph, %.loopexit145.sink.split ], [ true, %56 ]
   %105 = load i32, ptr %37, align 4
   %106 = and i32 %105, 15
   %107 = icmp eq i32 %106, 10
@@ -9425,9 +9425,9 @@ _ZN15RegMaskIterator4nextEv.exit112.thread:       ; preds = %.preheader.i108
   br label %_ZN15RegMaskIterator4nextEv.exit112
 
 _ZN15RegMaskIterator4nextEv.exit112:              ; preds = %150, %160
-  %.sroa.7.4 = phi i32 [ %156, %160 ], [ %.sroa.7.0163, %150 ]
-  %.sroa.0.4.in = phi i64 [ %163, %160 ], [ %153, %150 ]
-  %.sink.i107 = phi i32 [ %166, %160 ], [ %154, %150 ]
+  %.sroa.7.4 = phi i32 [ %.sroa.7.0163, %150 ], [ %156, %160 ]
+  %.sroa.0.4.in = phi i64 [ %153, %150 ], [ %163, %160 ]
+  %.sink.i107 = phi i32 [ %154, %150 ], [ %166, %160 ]
   tail call void @_ZN10Scheduling11anti_do_defEP5BlockP4Nodeii(ptr noundef nonnull align 8 dereferenceable(472) %0, ptr noundef nonnull %1, ptr noundef nonnull %34, i32 noundef %.sroa.11.0162, i32 noundef 0)
   %.not141 = icmp eq i32 %.sink.i107, -1
   br i1 %.not141, label %.loopexit, label %.lr.ph165, !llvm.loop !69

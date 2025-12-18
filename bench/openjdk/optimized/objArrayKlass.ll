@@ -451,7 +451,7 @@ define hidden noundef ptr @_ZN13ObjArrayKlass23allocate_objArray_klassEP15ClassL
   br label %.loopexit
 
 .loopexit:                                        ; preds = %25, %37, %7
-  %.050 = phi ptr [ %38, %37 ], [ null, %7 ], [ %17, %25 ]
+  %.050 = phi ptr [ null, %7 ], [ %38, %37 ], [ %17, %25 ]
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 800
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
@@ -596,7 +596,7 @@ _ZN13ObjArrayKlass8allocateEP15ClassLoaderDataiP5KlassP6SymbolP10JavaThread.exit
   br label %.loopexit61
 
 .loopexit61:                                      ; preds = %28, %111, %_ZN13ObjArrayKlass8allocateEP15ClassLoaderDataiP5KlassP6SymbolP10JavaThread.exit, %13, %117
-  %.0 = phi ptr [ %88, %117 ], [ null, %13 ], [ null, %_ZN13ObjArrayKlass8allocateEP15ClassLoaderDataiP5KlassP6SymbolP10JavaThread.exit ], [ null, %111 ], [ null, %28 ]
+  %.0 = phi ptr [ %88, %117 ], [ null, %13 ], [ null, %111 ], [ null, %_ZN13ObjArrayKlass8allocateEP15ClassLoaderDataiP5KlassP6SymbolP10JavaThread.exit ], [ null, %28 ]
   ret ptr %.0
 }
 
@@ -882,7 +882,7 @@ _ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit: ; preds = %12, %_ZN10Hand
   br label %_ZNK14objArrayHandleclEv.exit
 
 _ZNK14objArrayHandleclEv.exit:                    ; preds = %34, %.loopexit.thread, %.loopexit, %4, %55
-  %.026 = phi ptr [ null, %55 ], [ null, %4 ], [ %59, %.loopexit.thread ], [ null, %.loopexit ], [ null, %34 ]
+  %.026 = phi ptr [ null, %55 ], [ null, %4 ], [ null, %.loopexit ], [ %59, %.loopexit.thread ], [ null, %34 ]
   ret ptr %.026
 }
 

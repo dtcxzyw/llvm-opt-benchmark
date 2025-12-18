@@ -1177,9 +1177,9 @@ define internal fastcc ptr @ReadRegionsInList(ptr noundef %0, ptr noundef nonnul
   br i1 %exitcond113.not.i.i, label %QueryColorMap.exit.i, label %.lr.ph100.i.i, !llvm.loop !26
 
 QueryColorMap.exit.i:                             ; preds = %.lr.ph.i.i, %135, %._crit_edge.i.i, %.preheader78.i.i
-  %.096.i = phi i32 [ %.063.lcssa.i.i, %._crit_edge.i.i ], [ 0, %.preheader78.i.i ], [ %.063.lcssa.i.i, %135 ], [ 0, %.lr.ph.i.i ]
-  %.095.i = phi i32 [ %.062.lcssa.i.i, %._crit_edge.i.i ], [ 0, %.preheader78.i.i ], [ %.062.lcssa.i.i, %135 ], [ 0, %.lr.ph.i.i ]
-  %.094.i = phi i32 [ %.061.lcssa.i.i, %._crit_edge.i.i ], [ 0, %.preheader78.i.i ], [ %.061.lcssa.i.i, %135 ], [ 0, %.lr.ph.i.i ]
+  %.096.i = phi i32 [ %.063.lcssa.i.i, %._crit_edge.i.i ], [ %.063.lcssa.i.i, %135 ], [ 0, %.preheader78.i.i ], [ 0, %.lr.ph.i.i ]
+  %.095.i = phi i32 [ %.062.lcssa.i.i, %._crit_edge.i.i ], [ %.062.lcssa.i.i, %135 ], [ 0, %.preheader78.i.i ], [ 0, %.lr.ph.i.i ]
+  %.094.i = phi i32 [ %.061.lcssa.i.i, %._crit_edge.i.i ], [ %.061.lcssa.i.i, %135 ], [ 0, %.preheader78.i.i ], [ 0, %.lr.ph.i.i ]
   %139 = tail call i32 @XQueryColors(ptr noundef %0, i64 noundef %83, ptr noundef %88, i32 noundef %86) #9
   %140 = load ptr, ptr %41, align 8
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 16

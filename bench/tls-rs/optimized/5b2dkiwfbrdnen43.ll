@@ -21349,8 +21349,8 @@ _ZN9aws_lc_rs2ec16evp_key_generate17ha2b48357b6849f7aE.exit.i.i: ; preds = %25
   br label %_ZN9aws_lc_rs9agreement9ephemeral19EphemeralPrivateKey8generate17he938b16eef0d851eE.exit
 
 _ZN9aws_lc_rs9agreement9ephemeral19EphemeralPrivateKey8generate17he938b16eef0d851eE.exit: ; preds = %7, %32, %31, %10
-  %33 = phi i64 [ 2, %32 ], [ 1, %31 ], [ 0, %10 ], [ 3, %7 ]
-  %34 = phi ptr [ %.sroa.7.0.ph.ph.i.i.i, %32 ], [ %.sroa.7.0.ph.ph.i.i.i, %31 ], [ %.sroa.7.0.ph.ph.i.i.i, %10 ], [ %.fca.1.extract.i.i, %7 ]
+  %33 = phi i64 [ 2, %32 ], [ 0, %10 ], [ 1, %31 ], [ 3, %7 ]
+  %34 = phi ptr [ %.sroa.7.0.ph.ph.i.i.i, %32 ], [ %.sroa.7.0.ph.ph.i.i.i, %10 ], [ %.sroa.7.0.ph.ph.i.i.i, %31 ], [ %.fca.1.extract.i.i, %7 ]
   store i64 %33, ptr %5, align 8
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %34, ptr %35, align 8

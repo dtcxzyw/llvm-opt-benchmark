@@ -1415,10 +1415,10 @@ Vec_PtrPushUnique.exit379:                        ; preds = %331, %Vec_PtrPush.e
   br i1 %368, label %.lr.ph431, label %.critedge17, !llvm.loop !81
 
 .critedge17:                                      ; preds = %.lr.ph431, %Vec_PtrPushUnique.exit379, %289, %.preheader, %Vec_PtrPush.exit.i354
-  %369 = phi i32 [ %314, %Vec_PtrPush.exit.i354 ], [ %271, %.preheader ], [ %271, %289 ], [ %319, %.lr.ph431 ], [ %362, %Vec_PtrPushUnique.exit379 ]
-  %370 = phi i32 [ %316, %Vec_PtrPush.exit.i354 ], [ %272, %.preheader ], [ %272, %289 ], [ %320, %.lr.ph431 ], [ %363, %Vec_PtrPushUnique.exit379 ]
-  %371 = phi i32 [ %314, %Vec_PtrPush.exit.i354 ], [ %273, %.preheader ], [ %273, %289 ], [ %322, %.lr.ph431 ], [ %365, %Vec_PtrPushUnique.exit379 ]
-  %372 = phi i32 [ %316, %Vec_PtrPush.exit.i354 ], [ %274, %.preheader ], [ %272, %289 ], [ %323, %.lr.ph431 ], [ %366, %Vec_PtrPushUnique.exit379 ]
+  %369 = phi i32 [ %271, %289 ], [ %314, %Vec_PtrPush.exit.i354 ], [ %271, %.preheader ], [ %362, %Vec_PtrPushUnique.exit379 ], [ %319, %.lr.ph431 ]
+  %370 = phi i32 [ %272, %289 ], [ %316, %Vec_PtrPush.exit.i354 ], [ %272, %.preheader ], [ %363, %Vec_PtrPushUnique.exit379 ], [ %320, %.lr.ph431 ]
+  %371 = phi i32 [ %273, %289 ], [ %314, %Vec_PtrPush.exit.i354 ], [ %273, %.preheader ], [ %365, %Vec_PtrPushUnique.exit379 ], [ %322, %.lr.ph431 ]
+  %372 = phi i32 [ %272, %289 ], [ %316, %Vec_PtrPush.exit.i354 ], [ %274, %.preheader ], [ %366, %Vec_PtrPushUnique.exit379 ], [ %323, %.lr.ph431 ]
   %indvars.iv.next474 = add nuw nsw i64 %indvars.iv473, 1
   %373 = load i32, ptr %154, align 4, !tbaa !57
   %374 = sext i32 %373 to i64

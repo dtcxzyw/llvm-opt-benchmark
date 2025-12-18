@@ -729,7 +729,7 @@ define dso_local noundef range(i32 0, 10) i32 @_ZN6asmjit9_abi_1_1010CodeHolder1
   br i1 %125, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %22, %123, %79, %45, %42, %13, %8, %3
-  %126 = phi i32 [ 0, %8 ], [ 1, %3 ], [ 9, %13 ], [ 1, %42 ], [ 0, %45 ], [ 0, %79 ], [ 0, %123 ], [ 1, %22 ]
+  %126 = phi i32 [ 0, %8 ], [ 1, %3 ], [ 9, %13 ], [ 1, %42 ], [ 0, %45 ], [ 0, %123 ], [ 0, %79 ], [ 1, %22 ]
   ret i32 %126
 }
 
@@ -1867,7 +1867,7 @@ _ZN6asmjit9_abi_1_1010CodeHolder13newLabelEntryEPPNS0_10LabelEntryE.exit.sink.sp
   br label %_ZN6asmjit9_abi_1_1010CodeHolder13newLabelEntryEPPNS0_10LabelEntryE.exit
 
 _ZN6asmjit9_abi_1_1010CodeHolder13newLabelEntryEPPNS0_10LabelEntryE.exit: ; preds = %168, %153, %_ZN6asmjit9_abi_1_1010CodeHolder13newLabelEntryEPPNS0_10LabelEntryE.exit.sink.split, %52, %49, %39, %202, %188, %185, %.loopexit, %118, %112, %97, %85, %82, %72, %70, %69, %.loopexit18, %37
-  %217 = phi i32 [ %83, %82 ], [ 17, %37 ], [ 16, %.loopexit18 ], [ 18, %70 ], [ 13, %72 ], [ 1, %85 ], [ 18, %112 ], [ 18, %118 ], [ 2, %69 ], [ %186, %185 ], [ 13, %.loopexit ], [ 1, %188 ], [ 1, %97 ], [ 1, %202 ], [ %50, %49 ], [ 13, %39 ], [ 1, %52 ], [ 0, %_ZN6asmjit9_abi_1_1010CodeHolder13newLabelEntryEPPNS0_10LabelEntryE.exit.sink.split ], [ 15, %153 ], [ 15, %168 ]
+  %217 = phi i32 [ 1, %52 ], [ %83, %82 ], [ 17, %37 ], [ 16, %.loopexit18 ], [ 18, %70 ], [ 13, %72 ], [ 15, %153 ], [ 1, %85 ], [ 18, %112 ], [ 18, %118 ], [ 2, %69 ], [ 0, %_ZN6asmjit9_abi_1_1010CodeHolder13newLabelEntryEPPNS0_10LabelEntryE.exit.sink.split ], [ %186, %185 ], [ 13, %.loopexit ], [ 1, %188 ], [ 1, %97 ], [ 1, %202 ], [ %50, %49 ], [ 13, %39 ], [ 15, %168 ]
   ret i32 %217
 }
 
@@ -2503,7 +2503,7 @@ define dso_local noundef range(i32 0, 10) i32 @_ZN6asmjit9_abi_1_1010CodeHolder7
   br label %.loopexit7
 
 .loopexit7:                                       ; preds = %34, %25, %123, %119, %.loopexit, %1
-  %128 = phi i32 [ 0, %1 ], [ 0, %119 ], [ 0, %123 ], [ 0, %.loopexit ], [ 9, %25 ], [ 9, %34 ]
+  %128 = phi i32 [ 0, %.loopexit ], [ 0, %1 ], [ 0, %119 ], [ 0, %123 ], [ 9, %25 ], [ 9, %34 ]
   ret i32 %128
 }
 
@@ -3036,7 +3036,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder14relocateToBaseEm
   br label %264
 
 .loopexit:                                        ; preds = %255, %245, %233, %212, %195, %192, %177, %170, %152, %219
-  %262 = phi i32 [ 23, %219 ], [ 23, %170 ], [ 24, %192 ], [ 23, %177 ], [ 23, %152 ], [ 23, %195 ], [ 23, %245 ], [ 24, %233 ], [ 23, %212 ], [ 23, %255 ]
+  %262 = phi i32 [ 23, %219 ], [ 24, %192 ], [ 23, %177 ], [ 23, %152 ], [ 23, %195 ], [ 23, %245 ], [ 24, %233 ], [ 23, %212 ], [ 23, %255 ], [ 23, %170 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %284
 

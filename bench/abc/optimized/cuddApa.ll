@@ -718,8 +718,8 @@ Cudd_ApaCopy.exit.thread:                         ; preds = %16
   br i1 %exitcond.not, label %.sink.split, label %.lr.ph58, !llvm.loop !20
 
 .sink.split:                                      ; preds = %42, %.thread, %._crit_edge.thread, %11
-  %.sink = phi ptr [ %9, %11 ], [ %14, %._crit_edge.thread ], [ %14, %.thread ], [ %14, %42 ]
-  %.0.ph = phi i32 [ 0, %11 ], [ 1, %._crit_edge.thread ], [ 1, %42 ], [ 0, %.thread ]
+  %.sink = phi ptr [ %14, %._crit_edge.thread ], [ %9, %11 ], [ %14, %.thread ], [ %14, %42 ]
+  %.0.ph = phi i32 [ 1, %._crit_edge.thread ], [ 0, %11 ], [ 1, %42 ], [ 0, %.thread ]
   tail call void @free(ptr noundef nonnull %.sink) #19
   br label %43
 

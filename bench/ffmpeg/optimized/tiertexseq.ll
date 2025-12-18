@@ -178,7 +178,7 @@ define internal range(i32 -1094995529, 1) i32 @seq_read_header(ptr noundef %0) #
   br label %seq_init_frame_buffers.exit.thread
 
 seq_init_frame_buffers.exit.thread:               ; preds = %11, %23, %30, %26, %41
-  %.0 = phi i32 [ -12, %30 ], [ 0, %41 ], [ -12, %26 ], [ %24, %23 ], [ -12, %11 ]
+  %.0 = phi i32 [ %24, %23 ], [ -12, %30 ], [ 0, %41 ], [ -12, %26 ], [ -12, %11 ]
   ret i32 %.0
 }
 
@@ -310,7 +310,7 @@ define internal range(i32 -2147483648, 1) i32 @seq_read_packet(ptr noundef reado
   br label %85
 
 85:                                               ; preds = %.sink.split, %69, %65, %26, %17, %9
-  %.0 = phi i32 [ -5, %26 ], [ -5, %65 ], [ %10, %9 ], [ %20, %17 ], [ %77, %69 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ -5, %26 ], [ -5, %65 ], [ %77, %69 ], [ %20, %17 ], [ %10, %9 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 

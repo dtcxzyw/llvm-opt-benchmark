@@ -7716,7 +7716,7 @@ land.rhs:                                         ; preds = %if.end29
   br label %return
 
 return:                                           ; preds = %for.body, %if.end29, %land.rhs, %for.end, %if.end, %lor.lhs.false, %lor.lhs.false9, %entry
-  %retval.0 = phi i1 [ false, %for.end ], [ true, %entry ], [ false, %if.end ], [ false, %lor.lhs.false9 ], [ false, %lor.lhs.false ], [ false, %if.end29 ], [ %call.i.i.i31, %land.rhs ], [ false, %for.body ]
+  %retval.0 = phi i1 [ false, %for.end ], [ true, %entry ], [ false, %if.end ], [ %call.i.i.i31, %land.rhs ], [ false, %lor.lhs.false9 ], [ false, %lor.lhs.false ], [ false, %if.end29 ], [ false, %for.body ]
   ret i1 %retval.0
 }
 
@@ -8035,7 +8035,7 @@ for.end:                                          ; preds = %for.inc, %if.end15
   br label %return
 
 return:                                           ; preds = %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_mESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i, %for.body, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmSt4lessIS5_ESaISt4pairIKS5_mEEE4findERS9_.exit.i, %if.end25, %_ZNK7openvdb5v11_06points12AttributeSet10Descriptor4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %if.end, %lor.lhs.false, %lor.lhs.false9, %entry, %for.end
-  %retval.0 = phi i1 [ %call.i.i.i, %for.end ], [ true, %entry ], [ false, %if.end ], [ false, %lor.lhs.false9 ], [ false, %lor.lhs.false ], [ false, %_ZNK7openvdb5v11_06points12AttributeSet10Descriptor4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ false, %if.end25 ], [ false, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmSt4lessIS5_ESaISt4pairIKS5_mEEE4findERS9_.exit.i ], [ false, %for.body ], [ false, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_mESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i ]
+  %retval.0 = phi i1 [ %call.i.i.i, %for.end ], [ true, %entry ], [ false, %if.end ], [ false, %lor.lhs.false ], [ false, %lor.lhs.false9 ], [ false, %_ZNK7openvdb5v11_06points12AttributeSet10Descriptor4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ false, %if.end25 ], [ false, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmSt4lessIS5_ESaISt4pairIKS5_mEEE4findERS9_.exit.i ], [ false, %for.body ], [ false, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_mESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i ]
   ret i1 %retval.0
 }
 
@@ -13009,7 +13009,7 @@ if.end55:                                         ; preds = %for.body51
   br i1 %cmp.i26.not, label %cleanup, label %for.body51
 
 cleanup:                                          ; preds = %for.body51, %if.end55, %if.end41, %for.end.i.i.i, %invoke.cont33
-  %retval.1 = phi i64 [ %hint, %invoke.cont33 ], [ %hint, %for.end.i.i.i ], [ 0, %if.end41 ], [ %offset.090, %for.body51 ], [ %inc, %if.end55 ]
+  %retval.1 = phi i64 [ %hint, %for.end.i.i.i ], [ %hint, %invoke.cont33 ], [ 0, %if.end41 ], [ %offset.090, %for.body51 ], [ %inc, %if.end55 ]
   %tobool.not.i.i.i28 = icmp eq ptr %indices.sroa.0.1.lcssa, null
   br i1 %tobool.not.i.i.i28, label %return, label %if.then.i.i.i29
 
@@ -15641,7 +15641,7 @@ while.body.i.i:                                   ; preds = %if.else.i, %while.b
   br i1 %cmp.i.i4.i, label %while.body.i.i, label %for.inc.i, !llvm.loop !140
 
 for.inc.i:                                        ; preds = %while.body.i.i, %for.body.i.i.i.i.i.i, %if.else.i
-  %.pre-phi.sink.i = phi ptr [ %__i.sroa.0.012.i.ptr, %if.else.i ], [ %retval.sroa.0.0.copyload.i.i, %for.body.i.i.i.i.i.i ], [ %__next.sroa.0.0.i.i, %while.body.i.i ]
+  %.pre-phi.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i.i, %for.body.i.i.i.i.i.i ], [ %__i.sroa.0.012.i.ptr, %if.else.i ], [ %__next.sroa.0.0.i.i, %while.body.i.i ]
   %incdec.ptr.i.i2.i = getelementptr inbounds i8, ptr %.pre-phi.sink.i, i64 -8
   store i64 %0, ptr %incdec.ptr.i.i2.i, align 8
   %cmp.i.i.i.not.i = icmp eq i64 %__i.sroa.0.012.i.add, -128
@@ -15730,7 +15730,7 @@ while.body.i.i30:                                 ; preds = %if.else.i23, %while
   br i1 %cmp.i.i4.i34, label %while.body.i.i30, label %for.inc.i25, !llvm.loop !140
 
 for.inc.i25:                                      ; preds = %while.body.i.i30, %for.body.i.i.i.i.i.i39, %if.else.i23, %if.then4.i35
-  %.pre-phi.sink.i26 = phi ptr [ %retval.sroa.0.0.copyload.i.i, %if.then4.i35 ], [ %__i.sroa.0.012.i19, %if.else.i23 ], [ %retval.sroa.0.0.copyload.i.i, %for.body.i.i.i.i.i.i39 ], [ %__next.sroa.0.0.i.i32, %while.body.i.i30 ]
+  %.pre-phi.sink.i26 = phi ptr [ %retval.sroa.0.0.copyload.i.i, %if.then4.i35 ], [ %retval.sroa.0.0.copyload.i.i, %for.body.i.i.i.i.i.i39 ], [ %__i.sroa.0.012.i19, %if.else.i23 ], [ %__next.sroa.0.0.i.i32, %while.body.i.i30 ]
   %incdec.ptr.i.i2.i27 = getelementptr inbounds i8, ptr %.pre-phi.sink.i26, i64 -8
   store i64 %11, ptr %incdec.ptr.i.i2.i27, align 8
   %cmp.i.i.i.not.i29 = icmp eq ptr %incdec.ptr.i.i.i.i20, %retval.sroa.0.0.copyload.i1.i
@@ -18080,8 +18080,8 @@ if.end19:                                         ; preds = %_ZNKSt4lessINSt7__c
   br i1 %cmp.not, label %return, label %while.body, !llvm.loop !172
 
 return:                                           ; preds = %if.end19, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i31, %entry, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_mESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS7_.exit
-  %retval.sroa.0.0 = phi ptr [ %__y.addr.0.lcssa.i, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_mESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS7_.exit ], [ %add.ptr.i, %entry ], [ %__y.addr.0.lcssa.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i31 ], [ %__y.1, %if.end19 ]
-  %retval.sroa.3.0 = phi ptr [ %__y.049, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_mESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS7_.exit ], [ %add.ptr.i, %entry ], [ %__y.addr.1.i33, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i31 ], [ %__y.1, %if.end19 ]
+  %retval.sroa.0.0 = phi ptr [ %__y.addr.0.lcssa.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i31 ], [ %__y.addr.0.lcssa.i, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_mESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS7_.exit ], [ %add.ptr.i, %entry ], [ %__y.1, %if.end19 ]
+  %retval.sroa.3.0 = phi ptr [ %__y.addr.1.i33, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i31 ], [ %__y.049, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_mESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS7_.exit ], [ %add.ptr.i, %entry ], [ %__y.1, %if.end19 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %retval.sroa.3.0, 1
   ret { ptr, ptr } %.fca.1.insert

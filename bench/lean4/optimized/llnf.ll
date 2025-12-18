@@ -6670,7 +6670,7 @@ _ZN4lean10object_refD2Ev.exit218.i:               ; preds = %507, %506, %504, %4
   br label %607
 
 ._crit_edge359.i:                                 ; preds = %._crit_edge354.i, %.preheader245.i, %._crit_edge.thread.i, %._crit_edge.i
-  %.lcssa453.i = phi i64 [ %513, %._crit_edge.i ], [ %115, %._crit_edge.thread.i ], [ %.lcssa454.i, %.preheader245.i ], [ %.lcssa454.i, %._crit_edge354.i ]
+  %.lcssa453.i = phi i64 [ %115, %._crit_edge.thread.i ], [ %513, %._crit_edge.i ], [ %.lcssa454.i, %.preheader245.i ], [ %.lcssa454.i, %._crit_edge354.i ]
   %524 = load ptr, ptr %13, align 8, !tbaa !101
   %.idx.i.i.i.i = shl nuw nsw i64 %.lcssa453.i, 3
   %525 = getelementptr inbounds nuw i8, ptr %524, i64 %.idx.i.i.i.i

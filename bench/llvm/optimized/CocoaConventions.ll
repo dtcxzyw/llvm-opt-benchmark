@@ -683,7 +683,7 @@ define dso_local noundef zeroext i1 @_ZN5clang4ento14coreFoundation17followsCrea
   br i1 %.not36, label %.thread58, label %.lr.ph.backedge
 
 .lr.ph.backedge:                                  ; preds = %23, %30, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread55, %_ZNK4llvm9StringRef11starts_withES0_.exit42
-  %.131.idx74.be = phi i64 [ %.131.add, %23 ], [ %.131.add62, %_ZNK4llvm9StringRef11starts_withES0_.exit42 ], [ %.131.add62, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread55 ], [ %.232.add, %30 ]
+  %.131.idx74.be = phi i64 [ %.131.add, %23 ], [ %.232.add, %30 ], [ %.131.add62, %_ZNK4llvm9StringRef11starts_withES0_.exit42 ], [ %.131.add62, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread55 ]
   br label %.lr.ph, !llvm.loop !52
 
 .loopexit:                                        ; preds = %.lr.ph, %16, %15

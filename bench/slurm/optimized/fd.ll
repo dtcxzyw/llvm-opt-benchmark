@@ -1142,7 +1142,7 @@ _mkdir.exit.thread:                               ; preds = %10, %.lr.ph, %_mkdi
   br label %_mkdir.exit14
 
 _mkdir.exit14:                                    ; preds = %_mkdir.exit, %30, %27, %23, %21, %._crit_edge
-  %.1 = phi i32 [ 0, %._crit_edge ], [ 0, %21 ], [ 0, %23 ], [ %25, %30 ], [ %25, %27 ], [ %12, %_mkdir.exit ]
+  %.1 = phi i32 [ %25, %27 ], [ 0, %._crit_edge ], [ 0, %21 ], [ 0, %23 ], [ %25, %30 ], [ %12, %_mkdir.exit ]
   call void @slurm_xfree(ptr noundef nonnull %4) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.1

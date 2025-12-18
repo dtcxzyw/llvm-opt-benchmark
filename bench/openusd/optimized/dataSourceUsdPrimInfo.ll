@@ -951,7 +951,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE9push_backERKS1
   ret void
 
 .loopexit:                                        ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit33, %.preheader, %124, %.body.thread, %.body26
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body27, %.body26 ], [ %7, %.body.thread ], [ %eh.lpad-body68, %124 ], [ %eh.lpad-body68, %.preheader ], [ %128, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit33 ]
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body27, %.body26 ], [ %7, %.body.thread ], [ %eh.lpad-body68, %.preheader ], [ %eh.lpad-body68, %124 ], [ %128, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit33 ]
   resume { ptr, i32 } %.pn
 }
 

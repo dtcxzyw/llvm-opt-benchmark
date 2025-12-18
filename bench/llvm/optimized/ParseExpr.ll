@@ -770,15 +770,15 @@ _ZN5clang6Parser35checkPotentialAngleBracketDelimiterERKNS_5TokenE.exit.thread: 
   %165 = load i64, ptr %164, align 8
   %166 = and i64 %165, 2048
   %.not.i.i = icmp eq i64 %166, 0
-  br i1 %.not.i.i, label %_ZN5clang6Parser20isNotExpressionStartEv.exit, label %167
+  br i1 %.not.i.i, label %167, label %_ZN5clang6Parser20isNotExpressionStartEv.exit
 
 167:                                              ; preds = %161
-  %168 = call noundef i32 @_ZN5clang6Parser25isCXXDeclarationSpecifierENS_23ImplicitTypenameContextENS0_8TPResultEPb(ptr noundef nonnull align 8 dereferenceable(2936) %0, i32 noundef 0, i32 noundef 1, ptr noundef null) #20
-  %169 = icmp eq i32 %168, 0
-  br i1 %169, label %_ZN5clang6Parser20isNotExpressionStartEv.exit.thread, label %183
+  %168 = call noundef zeroext i1 @_ZN5clang6Parser22isDeclarationSpecifierENS_23ImplicitTypenameContextEb(ptr noundef nonnull align 8 dereferenceable(2936) %0, i32 noundef 0, i1 noundef zeroext true) #20
+  br i1 %168, label %_ZN5clang6Parser20isNotExpressionStartEv.exit.thread, label %183
 
 _ZN5clang6Parser20isNotExpressionStartEv.exit:    ; preds = %161
-  %170 = call noundef zeroext i1 @_ZN5clang6Parser22isDeclarationSpecifierENS_23ImplicitTypenameContextEb(ptr noundef nonnull align 8 dereferenceable(2936) %0, i32 noundef 0, i1 noundef zeroext true) #20
+  %169 = call noundef i32 @_ZN5clang6Parser25isCXXDeclarationSpecifierENS_23ImplicitTypenameContextENS0_8TPResultEPb(ptr noundef nonnull align 8 dereferenceable(2936) %0, i32 noundef 0, i32 noundef 1, ptr noundef null) #20
+  %170 = icmp eq i32 %169, 0
   br i1 %170, label %_ZN5clang6Parser20isNotExpressionStartEv.exit.thread, label %183
 
 _ZN5clang6Parser20isNotExpressionStartEv.exit.thread: ; preds = %159, %159, %159, %159, %159, %159, %159, %159, %167, %_ZN5clang6Parser20isNotExpressionStartEv.exit
@@ -2402,11 +2402,11 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit193:         ; preds = %_ZNSt7__cxx1112basi
   br label %.thread487
 
 879:                                              ; preds = %.thread, %_ZN5clang17DiagnosticBuilderD2Ev.exit172, %693
-  %880 = phi i1 [ false, %_ZN5clang17DiagnosticBuilderD2Ev.exit172 ], [ %694, %693 ], [ %670, %.thread ]
-  %.2457 = phi i32 [ %576, %_ZN5clang17DiagnosticBuilderD2Ev.exit172 ], [ %576, %693 ], [ %692, %.thread ]
-  %.sroa.0406.5456 = phi i64 [ %.sroa.0406.3, %_ZN5clang17DiagnosticBuilderD2Ev.exit172 ], [ %.sroa.0406.3, %693 ], [ %.sroa.0406.6, %.thread ]
-  %.sroa.0378.1455 = phi i64 [ %.sroa.0378.0, %_ZN5clang17DiagnosticBuilderD2Ev.exit172 ], [ %.sroa.0378.0, %693 ], [ %669, %.thread ]
-  %.sroa.0421.7 = phi i64 [ %.sroa.0421.4, %_ZN5clang17DiagnosticBuilderD2Ev.exit172 ], [ %.sroa.0421.4, %693 ], [ %.sroa.0421.6, %.thread ]
+  %880 = phi i1 [ false, %_ZN5clang17DiagnosticBuilderD2Ev.exit172 ], [ %670, %.thread ], [ %694, %693 ]
+  %.2457 = phi i32 [ %576, %_ZN5clang17DiagnosticBuilderD2Ev.exit172 ], [ %692, %.thread ], [ %576, %693 ]
+  %.sroa.0406.5456 = phi i64 [ %.sroa.0406.3, %_ZN5clang17DiagnosticBuilderD2Ev.exit172 ], [ %.sroa.0406.6, %.thread ], [ %.sroa.0406.3, %693 ]
+  %.sroa.0378.1455 = phi i64 [ %.sroa.0378.0, %_ZN5clang17DiagnosticBuilderD2Ev.exit172 ], [ %669, %.thread ], [ %.sroa.0378.0, %693 ]
+  %.sroa.0421.7 = phi i64 [ %.sroa.0421.4, %_ZN5clang17DiagnosticBuilderD2Ev.exit172 ], [ %.sroa.0421.6, %.thread ], [ %.sroa.0421.4, %693 ]
   %881 = icmp eq i64 %.sroa.0421.7, 1
   br i1 %881, label %.thread487, label %882
 
@@ -2590,8 +2590,8 @@ _ZN5clang4Sema25CorrectDelayedTyposInExprENS_12ActionResultIPNS_4ExprELb1EEEPNS_
   br label %.loopexit
 
 960:                                              ; preds = %936, %_ZN5clang4Sema25CorrectDelayedTyposInExprENS_12ActionResultIPNS_4ExprELb1EEEPNS_7VarDeclEbN4llvm12function_refIFS4_S3_EEE.exit203
-  %.sroa.0421.1 = phi i64 [ 1, %_ZN5clang4Sema25CorrectDelayedTyposInExprENS_12ActionResultIPNS_4ExprELb1EEEPNS_7VarDeclEbN4llvm12function_refIFS4_S3_EEE.exit203 ], [ %.sroa.0421.9, %936 ]
-  %.1 = phi i32 [ %.2457464482500, %_ZN5clang4Sema25CorrectDelayedTyposInExprENS_12ActionResultIPNS_4ExprELb1EEEPNS_7VarDeclEbN4llvm12function_refIFS4_S3_EEE.exit203 ], [ %.2457, %936 ]
+  %.sroa.0421.1 = phi i64 [ %.sroa.0421.9, %936 ], [ 1, %_ZN5clang4Sema25CorrectDelayedTyposInExprENS_12ActionResultIPNS_4ExprELb1EEEPNS_7VarDeclEbN4llvm12function_refIFS4_S3_EEE.exit203 ]
+  %.1 = phi i32 [ %.2457, %936 ], [ %.2457464482500, %_ZN5clang4Sema25CorrectDelayedTyposInExprENS_12ActionResultIPNS_4ExprELb1EEEPNS_7VarDeclEbN4llvm12function_refIFS4_S3_EEE.exit203 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %50, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false), !tbaa.struct !991
   %961 = icmp slt i32 %.1, %2
@@ -5404,7 +5404,7 @@ _ZN5clang4Sema25CorrectDelayedTyposInExprENS_12ActionResultIPNS_4ExprELb1EEEPNS_
   br label %_ZN5clang32EnterExpressionEvaluationContextD2Ev.exit
 
 _ZN5clang32EnterExpressionEvaluationContextD2Ev.exit: ; preds = %20, %_ZN5clang4Sema25CorrectDelayedTyposInExprENS_12ActionResultIPNS_4ExprELb1EEEPNS_7VarDeclEbN4llvm12function_refIFS4_S3_EEE.exit12, %_ZN5clang4Sema25CorrectDelayedTyposInExprENS_12ActionResultIPNS_4ExprELb1EEEPNS_7VarDeclEbN4llvm12function_refIFS4_S3_EEE.exit, %2
-  %.sroa.08.0 = phi i64 [ 1, %2 ], [ 1, %_ZN5clang4Sema25CorrectDelayedTyposInExprENS_12ActionResultIPNS_4ExprELb1EEEPNS_7VarDeclEbN4llvm12function_refIFS4_S3_EEE.exit ], [ 1, %_ZN5clang4Sema25CorrectDelayedTyposInExprENS_12ActionResultIPNS_4ExprELb1EEEPNS_7VarDeclEbN4llvm12function_refIFS4_S3_EEE.exit12 ], [ %.sroa.022.0, %20 ]
+  %.sroa.08.0 = phi i64 [ 1, %2 ], [ 1, %_ZN5clang4Sema25CorrectDelayedTyposInExprENS_12ActionResultIPNS_4ExprELb1EEEPNS_7VarDeclEbN4llvm12function_refIFS4_S3_EEE.exit12 ], [ 1, %_ZN5clang4Sema25CorrectDelayedTyposInExprENS_12ActionResultIPNS_4ExprELb1EEEPNS_7VarDeclEbN4llvm12function_refIFS4_S3_EEE.exit ], [ %.sroa.022.0, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN5clang4Sema30PopExpressionEvaluationContextEv(ptr noundef nonnull align 8 dereferenceable(17504) %11) #20
@@ -5615,7 +5615,7 @@ _ZN5clang4Sema25CorrectDelayedTyposInExprENS_12ActionResultIPNS_4ExprELb1EEEPNS_
   br label %.thread
 
 .thread:                                          ; preds = %13, %_ZN5clang4Sema25CorrectDelayedTyposInExprENS_12ActionResultIPNS_4ExprELb1EEEPNS_7VarDeclEbN4llvm12function_refIFS4_S3_EEE.exit14, %_ZN5clang4Sema25CorrectDelayedTyposInExprENS_12ActionResultIPNS_4ExprELb1EEEPNS_7VarDeclEbN4llvm12function_refIFS4_S3_EEE.exit, %2
-  %.sroa.010.0 = phi i64 [ 1, %2 ], [ 1, %_ZN5clang4Sema25CorrectDelayedTyposInExprENS_12ActionResultIPNS_4ExprELb1EEEPNS_7VarDeclEbN4llvm12function_refIFS4_S3_EEE.exit ], [ 1, %_ZN5clang4Sema25CorrectDelayedTyposInExprENS_12ActionResultIPNS_4ExprELb1EEEPNS_7VarDeclEbN4llvm12function_refIFS4_S3_EEE.exit14 ], [ %.sroa.024.0, %13 ]
+  %.sroa.010.0 = phi i64 [ 1, %_ZN5clang4Sema25CorrectDelayedTyposInExprENS_12ActionResultIPNS_4ExprELb1EEEPNS_7VarDeclEbN4llvm12function_refIFS4_S3_EEE.exit14 ], [ 1, %2 ], [ 1, %_ZN5clang4Sema25CorrectDelayedTyposInExprENS_12ActionResultIPNS_4ExprELb1EEEPNS_7VarDeclEbN4llvm12function_refIFS4_S3_EEE.exit ], [ %.sroa.024.0, %13 ]
   ret i64 %.sroa.010.0
 }
 

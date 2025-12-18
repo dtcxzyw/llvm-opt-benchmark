@@ -511,7 +511,7 @@ IDANewyyp.exit.i.i.i:                             ; preds = %241, %244
   br label %IDAfnorm.exit.i.i.i
 
 IDAfnorm.exit.i.i.i:                              ; preds = %289, %283
-  %.1.i.i.i = phi double [ %294, %289 ], [ %286, %283 ]
+  %.1.i.i.i = phi double [ %286, %283 ], [ %294, %289 ]
   %295 = load i32, ptr %122, align 4, !tbaa !59
   %.not63.i.i.i = icmp eq i32 %295, 0
   br i1 %.not63.i.i.i, label %296, label %310
@@ -595,8 +595,8 @@ IDANewtonIC.exit.i:                               ; preds = %326, %.preheader.i.
   br label %IDAnlsIC.exit.thread134
 
 .loopexit:                                        ; preds = %326, %173, %332, %162, %IDANewtonIC.exit.i, %215, %237, %301, %282, %270, %303
-  %.not120 = phi i1 [ false, %301 ], [ false, %215 ], [ false, %303 ], [ false, %270 ], [ false, %282 ], [ false, %237 ], [ false, %326 ], [ false, %173 ], [ true, %332 ], [ false, %162 ], [ true, %IDANewtonIC.exit.i ]
-  %.0.i.ph = phi i32 [ 3, %301 ], [ 2, %215 ], [ 1, %282 ], [ 1, %270 ], [ 3, %303 ], [ 3, %237 ], [ 4, %326 ], [ 1, %173 ], [ 5, %332 ], [ 1, %162 ], [ 5, %IDANewtonIC.exit.i ]
+  %.not120 = phi i1 [ false, %215 ], [ false, %301 ], [ false, %303 ], [ false, %270 ], [ false, %282 ], [ false, %237 ], [ false, %173 ], [ true, %332 ], [ false, %162 ], [ false, %326 ], [ true, %IDANewtonIC.exit.i ]
+  %.0.i.ph = phi i32 [ 2, %215 ], [ 3, %301 ], [ 1, %282 ], [ 1, %270 ], [ 3, %303 ], [ 3, %237 ], [ 1, %173 ], [ 5, %332 ], [ 1, %162 ], [ 4, %326 ], [ 5, %IDANewtonIC.exit.i ]
   %339 = load i64, ptr %123, align 8, !tbaa !60
   %340 = add nsw i64 %339, 1
   store i64 %340, ptr %123, align 8, !tbaa !60
@@ -642,8 +642,8 @@ IDAnlsIC.exit.thread130:                          ; preds = %149, %186, %IDALine
   br i1 %exitcond.not, label %IDAnlsIC.exit.thread134, label %.preheader
 
 IDAnlsIC.exit.thread134:                          ; preds = %357, %IDAnlsIC.exit.thread130, %.loopexit, %129, %.preheader.us, %.thread
-  %.1110 = phi i32 [ %.0.i.ph.ph, %.thread ], [ %.0.i.ph, %.loopexit ], [ 0, %129 ], [ -24, %.preheader.us ], [ 0, %357 ], [ -24, %IDAnlsIC.exit.thread130 ]
-  %.3 = phi double [ %.4172, %.thread ], [ %.4172, %.loopexit ], [ %.1, %129 ], [ %.1, %.preheader.us ], [ %.4172, %IDAnlsIC.exit.thread130 ], [ %.4172, %357 ]
+  %.1110 = phi i32 [ %.0.i.ph, %.loopexit ], [ %.0.i.ph.ph, %.thread ], [ 0, %129 ], [ -24, %.preheader.us ], [ 0, %357 ], [ -24, %IDAnlsIC.exit.thread130 ]
+  %.3 = phi double [ %.4172, %.loopexit ], [ %.4172, %.thread ], [ %.1, %129 ], [ %.1, %.preheader.us ], [ %.4172, %IDAnlsIC.exit.thread130 ], [ %.4172, %357 ]
   %362 = load ptr, ptr %43, align 8, !tbaa !22
   tail call void @N_VDestroy(ptr noundef %362) #3
   %363 = load ptr, ptr %46, align 8, !tbaa !23

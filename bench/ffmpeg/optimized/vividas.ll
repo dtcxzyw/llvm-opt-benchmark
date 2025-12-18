@@ -485,7 +485,7 @@ decode_key.exit91:                                ; preds = %52
   br i1 %227, label %.lr.ph250.i, label %.loopexit, !llvm.loop !60
 
 track_header.exit.thread:                         ; preds = %.lr.ph232.i, %.lr.ph.i, %157, %.lr.ph250.i, %138, %101, %.thread196.i, %.preheader217.i
-  %.2.i.ph = phi i32 [ -12, %.preheader217.i ], [ %.10.i, %.thread196.i ], [ -1163346256, %101 ], [ -541478725, %.lr.ph.i ], [ -1094995529, %138 ], [ -1094995529, %157 ], [ -12, %.lr.ph250.i ], [ -541478725, %.lr.ph232.i ]
+  %.2.i.ph = phi i32 [ -1094995529, %138 ], [ %.10.i, %.thread196.i ], [ -541478725, %.lr.ph.i ], [ -1163346256, %101 ], [ -12, %.preheader217.i ], [ -1094995529, %157 ], [ -12, %.lr.ph250.i ], [ -541478725, %.lr.ph232.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @av_free(ptr noundef nonnull %77) #9
   br label %.thread
@@ -577,7 +577,7 @@ track_header.exit.thread:                         ; preds = %.lr.ph232.i, %.lr.p
   br i1 %.not65.i, label %track_index.exit.thread, label %266
 
 track_index.exit.thread:                          ; preds = %.lr.ph.i96, %229, %238, %._crit_edge.i99, %263
-  %.0.i.ph = phi i32 [ -1094995529, %229 ], [ -1094995529, %._crit_edge.i99 ], [ -12, %238 ], [ -12, %263 ], [ -1094995529, %.lr.ph.i96 ]
+  %.0.i.ph = phi i32 [ -1094995529, %229 ], [ -12, %263 ], [ -1094995529, %._crit_edge.i99 ], [ -12, %238 ], [ -1094995529, %.lr.ph.i96 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @av_free(ptr noundef nonnull %228) #9
   br label %.thread
@@ -904,7 +904,7 @@ define internal range(i32 -2147483648, 1) i32 @viv_read_packet(ptr noundef reado
   br label %.thread163
 
 .thread163:                                       ; preds = %147, %163, %161, %100, %.thread156, %106, %103, %84, %82, %76, %26, %15, %7, %2, %196
-  %.0 = phi i32 [ -5, %2 ], [ -541478725, %7 ], [ %24, %15 ], [ -5, %82 ], [ 0, %196 ], [ -1094995529, %84 ], [ -1094995529, %103 ], [ -5, %76 ], [ 0, %26 ], [ -1094995529, %100 ], [ -1094995529, %.thread156 ], [ %108, %106 ], [ %165, %163 ], [ -1094995529, %161 ], [ -1094995529, %147 ]
+  %.0 = phi i32 [ -5, %2 ], [ -541478725, %7 ], [ %24, %15 ], [ -5, %82 ], [ 0, %196 ], [ -1094995529, %84 ], [ -1094995529, %103 ], [ -5, %76 ], [ 0, %26 ], [ -1094995529, %161 ], [ -1094995529, %100 ], [ -1094995529, %.thread156 ], [ %108, %106 ], [ %165, %163 ], [ -1094995529, %147 ]
   ret i32 %.0
 }
 

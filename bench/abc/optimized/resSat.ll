@@ -1080,9 +1080,9 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   br i1 %exitcond.not, label %.loopexit, label %30, !llvm.loop !74
 
 .loopexit:                                        ; preds = %101, %._crit_edge, %21, %99, %35, %37, %32
-  %102 = phi ptr [ %.val7296, %32 ], [ %.val7296, %99 ], [ %.val7296, %35 ], [ %.val7296, %37 ], [ %24, %21 ], [ %.val72, %._crit_edge ], [ %.val72, %101 ]
-  %.160 = phi i32 [ %.05983, %32 ], [ %.05983, %99 ], [ 0, %35 ], [ 0, %37 ], [ %.056, %21 ], [ %1, %101 ], [ %98, %._crit_edge ]
-  %.1 = phi i32 [ 1, %32 ], [ %., %99 ], [ 0, %35 ], [ 0, %37 ], [ 1, %21 ], [ 1, %._crit_edge ], [ 1, %101 ]
+  %102 = phi ptr [ %.val7296, %37 ], [ %.val7296, %32 ], [ %24, %21 ], [ %.val7296, %99 ], [ %.val7296, %35 ], [ %.val72, %._crit_edge ], [ %.val72, %101 ]
+  %.160 = phi i32 [ 0, %37 ], [ %.05983, %32 ], [ %.056, %21 ], [ %.05983, %99 ], [ 0, %35 ], [ %1, %101 ], [ %98, %._crit_edge ]
+  %.1 = phi i32 [ 0, %37 ], [ 1, %32 ], [ 1, %21 ], [ %., %99 ], [ 0, %35 ], [ 1, %._crit_edge ], [ 1, %101 ]
   %.not.i = icmp eq ptr %102, null
   br i1 %.not.i, label %Vec_IntFree.exit, label %103
 

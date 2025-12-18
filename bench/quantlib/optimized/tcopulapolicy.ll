@@ -14766,7 +14766,7 @@ if.end46:                                         ; preds = %if.end23, %if.end
   br label %return
 
 return:                                           ; preds = %while.body41, %while.body, %if.else, %if.then31, %if.then26, %if.end46, %_ZN5boost4math6itruncIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEEiRKT_RKT0_.exit41, %_ZN5boost4math6tgammaIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_T0_ffffE4typeESC_SD_.exit23
-  %retval.0 = phi x86_fp80 [ %div, %_ZN5boost4math6tgammaIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_T0_ffffE4typeESC_SD_.exit23 ], [ %div21, %_ZN5boost4math6itruncIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEEiRKT_RKT0_.exit41 ], [ %call48, %if.end46 ], [ 0xK3FFF8000000000000000, %if.then26 ], [ %sub32, %if.then31 ], [ %div37, %if.else ], [ %mul, %while.body ], [ %div43, %while.body41 ]
+  %retval.0 = phi x86_fp80 [ %div, %_ZN5boost4math6tgammaIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_T0_ffffE4typeESC_SD_.exit23 ], [ %div21, %_ZN5boost4math6itruncIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEEiRKT_RKT0_.exit41 ], [ %call48, %if.end46 ], [ 0xK3FFF8000000000000000, %if.then26 ], [ %mul, %while.body ], [ %sub32, %if.then31 ], [ %div37, %if.else ], [ %div43, %while.body41 ]
   ret x86_fp80 %retval.0
 }
 
@@ -19416,7 +19416,7 @@ for.body79:                                       ; preds = %for.cond75.preheade
   br i1 %cmp77, label %if.end92, label %for.body79, !llvm.loop !199
 
 if.end92:                                         ; preds = %for.body79, %for.body, %for.cond75.preheader, %_ZN5boost4math6itruncIeEEiRKT_.exit, %for.cond.cleanup37
-  %result.1 = phi x86_fp80 [ %result.2.lcssa, %for.cond.cleanup37 ], [ %call.i, %_ZN5boost4math6itruncIeEEiRKT_.exit ], [ %result.4.lcssa, %for.cond75.preheader ], [ %add9, %for.body ], [ %add88, %for.body79 ]
+  %result.1 = phi x86_fp80 [ %add9, %for.body ], [ %result.2.lcssa, %for.cond.cleanup37 ], [ %call.i, %_ZN5boost4math6itruncIeEEiRKT_.exit ], [ %result.4.lcssa, %for.cond75.preheader ], [ %add88, %for.body79 ]
   ret x86_fp80 %result.1
 }
 
@@ -22948,7 +22948,7 @@ for.body79:                                       ; preds = %for.cond75.preheade
   br i1 %cmp77, label %if.end92, label %for.body79, !llvm.loop !246
 
 if.end92:                                         ; preds = %for.body79, %for.body, %for.cond75.preheader, %_ZN5boost4math6itruncIeEEiRKT_.exit, %for.cond.cleanup37
-  %result.1 = phi x86_fp80 [ %result.2.lcssa, %for.cond.cleanup37 ], [ %call.i, %_ZN5boost4math6itruncIeEEiRKT_.exit ], [ %result.4.lcssa, %for.cond75.preheader ], [ %add9, %for.body ], [ %add88, %for.body79 ]
+  %result.1 = phi x86_fp80 [ %add9, %for.body ], [ %result.2.lcssa, %for.cond.cleanup37 ], [ %call.i, %_ZN5boost4math6itruncIeEEiRKT_.exit ], [ %result.4.lcssa, %for.cond75.preheader ], [ %add88, %for.body79 ]
   ret x86_fp80 %result.1
 }
 

@@ -895,8 +895,8 @@ define internal fastcc ptr @CORD_substr_checked(ptr noundef %0, i64 noundef %1, 
   br label %47
 
 tailrecurse.outer._crit_edge:                     ; preds = %tailrecurse.outer, %tailrecurse, %3
-  %.tr171.ph.lcssa194 = phi i64 [ %1, %3 ], [ %.tr171.ph206, %tailrecurse ], [ %86, %tailrecurse.outer ]
-  %.tr.lcssa = phi ptr [ %0, %3 ], [ %91, %tailrecurse ], [ %85, %tailrecurse.outer ]
+  %.tr171.ph.lcssa194 = phi i64 [ %.tr171.ph206, %tailrecurse ], [ %1, %3 ], [ %86, %tailrecurse.outer ]
+  %.tr.lcssa = phi ptr [ %91, %tailrecurse ], [ %0, %3 ], [ %85, %tailrecurse.outer ]
   %8 = icmp ugt i64 %2, 310
   br i1 %8, label %9, label %34
 
@@ -1405,7 +1405,7 @@ CORD_substr_closure.exit134.thread:               ; preds = %221, %224, %179, %2
   br label %CORD_substr_closure.exit
 
 CORD_substr_closure.exit:                         ; preds = %79, %89, %162, %155, %136, %133, %129, %33, %26, %108, %CORD_substr_closure.exit134.thread, %43
-  %.0 = phi ptr [ %109, %108 ], [ %36, %43 ], [ %.4, %CORD_substr_closure.exit134.thread ], [ %19, %33 ], [ %132, %136 ], [ %132, %133 ], [ %148, %162 ], [ %148, %155 ], [ %19, %26 ], [ null, %129 ], [ %91, %89 ], [ %85, %79 ]
+  %.0 = phi ptr [ %109, %108 ], [ %36, %43 ], [ %.4, %CORD_substr_closure.exit134.thread ], [ %19, %33 ], [ %132, %136 ], [ %132, %133 ], [ %148, %162 ], [ %91, %89 ], [ %148, %155 ], [ %19, %26 ], [ null, %129 ], [ %85, %79 ]
   ret ptr %.0
 }
 
@@ -1703,7 +1703,7 @@ tailrecurse:                                      ; preds = %tailrecurse.outer, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %51, %tailrecurse, %16, %66, %.thread
-  %.050 = phi i32 [ 1, %66 ], [ 0, %.thread ], [ 0, %tailrecurse ], [ 1, %16 ], [ 1, %51 ]
+  %.050 = phi i32 [ 1, %66 ], [ 0, %.thread ], [ 1, %16 ], [ 0, %tailrecurse ], [ 1, %51 ]
   ret i32 %.050
 }
 
@@ -1976,9 +1976,9 @@ tailrecurse:                                      ; preds = %65, %68, %49
   br i1 %.not.i35, label %CORD_add_forest.exit, label %.lr.ph82, !llvm.loop !46
 
 CORD_add_forest.exit:                             ; preds = %103, %30, %._crit_edge73, %._crit_edge
-  %.lcssa.sink = phi i64 [ %.040.i.lcssa, %._crit_edge ], [ %.040.i29.lcssa, %._crit_edge73 ], [ %indvars.iv.next110, %30 ], [ %indvars.iv.next100, %103 ]
-  %.238.i33.lcssa.sink = phi ptr [ %19, %._crit_edge ], [ %92, %._crit_edge73 ], [ %.339.i, %30 ], [ %.339.i37, %103 ]
-  %.2.i34.lcssa.sink = phi i64 [ %20, %._crit_edge ], [ %93, %._crit_edge73 ], [ %.3.i, %30 ], [ %.3.i38, %103 ]
+  %.lcssa.sink = phi i64 [ %indvars.iv.next110, %30 ], [ %.040.i.lcssa, %._crit_edge ], [ %.040.i29.lcssa, %._crit_edge73 ], [ %indvars.iv.next100, %103 ]
+  %.238.i33.lcssa.sink = phi ptr [ %.339.i, %30 ], [ %19, %._crit_edge ], [ %92, %._crit_edge73 ], [ %.339.i37, %103 ]
+  %.2.i34.lcssa.sink = phi i64 [ %.3.i, %30 ], [ %20, %._crit_edge ], [ %93, %._crit_edge73 ], [ %.3.i38, %103 ]
   %106 = getelementptr %struct.ForestElement, ptr %2, i64 %.lcssa.sink
   %107 = getelementptr i8, ptr %106, i64 -16
   store ptr %.238.i33.lcssa.sink, ptr %107, align 8, !tbaa !32

@@ -885,7 +885,7 @@ DestroyAudioTrack.exit.i:                         ; preds = %136, %132
   br i1 %146, label %ReadFromAudioQueue.exit, label %.lr.ph
 
 ReadFromAudioQueue.exit:                          ; preds = %DestroyAudioTrack.exit.i, %93, %104, %109
-  %.0.i142 = phi ptr [ %96, %93 ], [ null, %104 ], [ null, %109 ], [ %.1121, %DestroyAudioTrack.exit.i ]
+  %.0.i142 = phi ptr [ %96, %93 ], [ null, %109 ], [ null, %104 ], [ %.1121, %DestroyAudioTrack.exit.i ]
   tail call void @ConvertAudio(i32 noundef %6, ptr noundef %.0.i142, i32 noundef %13, i32 noundef %15, ptr noundef %17, ptr noundef %.2, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %.1121, float noundef %9) #10
   %147 = getelementptr inbounds nuw i8, ptr %.2, i64 %33
   %148 = getelementptr inbounds nuw i8, ptr %.1121, i64 %33

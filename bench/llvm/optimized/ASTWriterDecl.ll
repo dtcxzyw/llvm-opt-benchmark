@@ -2086,7 +2086,7 @@ _ZN5clang4Decl14getDeclContextEv.exit51:          ; preds = %122, %127
   br label %_ZN5clang11DeclContext9getParentEv.exit
 
 _ZN5clang11DeclContext9getParentEv.exit:          ; preds = %150, %143
-  %.1 = phi ptr [ %151, %150 ], [ %149, %143 ]
+  %.1 = phi ptr [ %149, %143 ], [ %151, %150 ]
   %152 = call noundef ptr @_ZN5clang11DeclContext16getRedeclContextEv(ptr noundef nonnull align 8 dereferenceable(32) %.1) #21
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 8
   %154 = load i16, ptr %153, align 8
@@ -2234,8 +2234,8 @@ _ZN4llvm12is_containedIRNS_11SmallVectorIPKN5clang11DeclContextELj16EEES5_EEbOT_
   br label %_ZN4llvm12is_containedIRNS_11SmallVectorIPKN5clang11DeclContextELj16EEES5_EEbOT_RKT0_.exit
 
 _ZN4llvm12is_containedIRNS_11SmallVectorIPKN5clang11DeclContextELj16EEES5_EEbOT_RKT0_.exit: ; preds = %20, %_ZN4llvm12is_containedIRNS_11SmallVectorIPKN5clang11DeclContextELj16EEES5_EEbOT_RKT0_.exit.loopexit.split.loop.exit, %_ZN4llvm12is_containedIRNS_11SmallVectorIPKN5clang11DeclContextELj16EEES5_EEbOT_RKT0_.exit.loopexit.split.loop.exit38, %_ZN4llvm12is_containedIRNS_11SmallVectorIPKN5clang11DeclContextELj16EEES5_EEbOT_RKT0_.exit.loopexit.split.loop.exit40, %40, %46, %52
-  %59 = phi ptr [ %47, %46 ], [ %41, %40 ], [ %53, %52 ], [ %18, %_ZN4llvm12is_containedIRNS_11SmallVectorIPKN5clang11DeclContextELj16EEES5_EEbOT_RKT0_.exit.loopexit.split.loop.exit40 ], [ %18, %_ZN4llvm12is_containedIRNS_11SmallVectorIPKN5clang11DeclContextELj16EEES5_EEbOT_RKT0_.exit.loopexit.split.loop.exit38 ], [ %18, %_ZN4llvm12is_containedIRNS_11SmallVectorIPKN5clang11DeclContextELj16EEES5_EEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %18, %20 ]
-  %.028.i.i.i.i = phi ptr [ %.1.i.i.i.i, %46 ], [ %.029.lcssa.i.i.i.i, %40 ], [ %.2.i.i.i.i, %52 ], [ %58, %_ZN4llvm12is_containedIRNS_11SmallVectorIPKN5clang11DeclContextELj16EEES5_EEbOT_RKT0_.exit.loopexit.split.loop.exit40 ], [ %57, %_ZN4llvm12is_containedIRNS_11SmallVectorIPKN5clang11DeclContextELj16EEES5_EEbOT_RKT0_.exit.loopexit.split.loop.exit38 ], [ %56, %_ZN4llvm12is_containedIRNS_11SmallVectorIPKN5clang11DeclContextELj16EEES5_EEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %.02946.i.i.i.i, %20 ]
+  %59 = phi ptr [ %47, %46 ], [ %41, %40 ], [ %53, %52 ], [ %18, %_ZN4llvm12is_containedIRNS_11SmallVectorIPKN5clang11DeclContextELj16EEES5_EEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %18, %_ZN4llvm12is_containedIRNS_11SmallVectorIPKN5clang11DeclContextELj16EEES5_EEbOT_RKT0_.exit.loopexit.split.loop.exit40 ], [ %18, %_ZN4llvm12is_containedIRNS_11SmallVectorIPKN5clang11DeclContextELj16EEES5_EEbOT_RKT0_.exit.loopexit.split.loop.exit38 ], [ %18, %20 ]
+  %.028.i.i.i.i = phi ptr [ %.1.i.i.i.i, %46 ], [ %.029.lcssa.i.i.i.i, %40 ], [ %.2.i.i.i.i, %52 ], [ %56, %_ZN4llvm12is_containedIRNS_11SmallVectorIPKN5clang11DeclContextELj16EEES5_EEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %58, %_ZN4llvm12is_containedIRNS_11SmallVectorIPKN5clang11DeclContextELj16EEES5_EEbOT_RKT0_.exit.loopexit.split.loop.exit40 ], [ %57, %_ZN4llvm12is_containedIRNS_11SmallVectorIPKN5clang11DeclContextELj16EEES5_EEbOT_RKT0_.exit.loopexit.split.loop.exit38 ], [ %.02946.i.i.i.i, %20 ]
   %.not = icmp eq ptr %.028.i.i.i.i, %16
   br i1 %.not, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPKN5clang11DeclContextELj16EEES5_EEbOT_RKT0_.exit.thread, label %_ZN4llvm9SetVectorIPKN5clang11DeclContextENS_11SmallVectorIS4_Lj16EEENS_8DenseSetIS4_NS_12DenseMapInfoIS4_vEEEELj16EE7makeBigEv.exit
 
@@ -9979,9 +9979,9 @@ _ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit.thread157: ; preds = %40, %
   %50 = or i32 %spec.select214, %6
   br label %_ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit.thread157.thread
 
-_ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit.thread157.thread: ; preds = %38, %_ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit.thread157, %27, %23, %_ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit, %40, %10, %2, %15
-  %.0210 = phi i1 [ %49, %_ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit.thread157 ], [ false, %15 ], [ false, %2 ], [ false, %10 ], [ false, %40 ], [ false, %_ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit ], [ false, %23 ], [ false, %27 ], [ false, %38 ]
-  %51 = phi i32 [ %50, %_ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit.thread157 ], [ %6, %15 ], [ %6, %2 ], [ %6, %10 ], [ %6, %40 ], [ %6, %_ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit ], [ %6, %23 ], [ %6, %27 ], [ %6, %38 ]
+_ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit.thread157.thread: ; preds = %38, %_ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit.thread157, %23, %27, %_ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit, %40, %10, %2, %15
+  %.0210 = phi i1 [ false, %23 ], [ %49, %_ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit.thread157 ], [ false, %15 ], [ false, %2 ], [ false, %10 ], [ false, %40 ], [ false, %_ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit ], [ false, %27 ], [ false, %38 ]
+  %51 = phi i32 [ %6, %23 ], [ %50, %_ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit.thread157 ], [ %6, %15 ], [ %6, %2 ], [ %6, %10 ], [ %6, %40 ], [ %6, %_ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit ], [ %6, %27 ], [ %6, %38 ]
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %53 = load i8, ptr %52, align 8
   %54 = shl i8 %53, 4
@@ -18897,7 +18897,7 @@ _ZN5clang15ASTRecordWriter9push_backEm.exit47:    ; preds = %.critedge, %201
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %127, %_ZN5clang15ASTRecordWriter9push_backEm.exit41, %_ZNK5clang23NonTypeTemplateParmDecl18getDefaultArgumentEv.exit, %_ZN5clang15ASTRecordWriter9push_backEm.exit47, %121
-  %.sink = phi i32 [ 125, %121 ], [ 116, %_ZN5clang15ASTRecordWriter9push_backEm.exit47 ], [ 116, %_ZNK5clang23NonTypeTemplateParmDecl18getDefaultArgumentEv.exit ], [ 116, %_ZN5clang15ASTRecordWriter9push_backEm.exit41 ], [ 125, %127 ]
+  %.sink = phi i32 [ 125, %121 ], [ 116, %_ZN5clang15ASTRecordWriter9push_backEm.exit41 ], [ 116, %_ZN5clang15ASTRecordWriter9push_backEm.exit47 ], [ 116, %_ZNK5clang23NonTypeTemplateParmDecl18getDefaultArgumentEv.exit ], [ 125, %127 ]
   %211 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store i32 %.sink, ptr %211, align 8, !tbaa !47
   ret void
@@ -19202,7 +19202,7 @@ _ZN5clang15ASTRecordWriter9push_backEm.exit38:    ; preds = %.critedge, %159
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %91, %_ZN5clang15ASTRecordWriter9push_backEm.exit33, %_ZNK5clang24TemplateTemplateParmDecl18getDefaultArgumentEv.exit, %_ZN5clang15ASTRecordWriter9push_backEm.exit38, %86
-  %.sink = phi i32 [ 126, %86 ], [ 117, %_ZN5clang15ASTRecordWriter9push_backEm.exit38 ], [ 117, %_ZNK5clang24TemplateTemplateParmDecl18getDefaultArgumentEv.exit ], [ 117, %_ZN5clang15ASTRecordWriter9push_backEm.exit33 ], [ 126, %91 ]
+  %.sink = phi i32 [ 126, %86 ], [ 117, %_ZN5clang15ASTRecordWriter9push_backEm.exit33 ], [ 117, %_ZN5clang15ASTRecordWriter9push_backEm.exit38 ], [ 117, %_ZNK5clang24TemplateTemplateParmDecl18getDefaultArgumentEv.exit ], [ 126, %91 ]
   %169 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store i32 %.sink, ptr %169, align 8, !tbaa !47
   ret void
@@ -31626,9 +31626,9 @@ _ZN4llvm15BitstreamWriter8EmitCodeEj.exit:        ; preds = %7, %_ZN4llvm15Bitst
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph70, %72, %75, %82, %83, %87, %63
-  %.147 = phi i32 [ %64, %63 ], [ %91, %87 ], [ %.04672, %82 ], [ %.04672, %83 ], [ %54, %75 ], [ %.04672, %72 ], [ %54, %.lr.ph70 ], [ %.04672, %.lr.ph ]
-  %.245 = phi i32 [ %.14473, %63 ], [ %.14473, %87 ], [ %.14473, %82 ], [ %.14473, %83 ], [ %69, %75 ], [ %69, %72 ], [ %69, %.lr.ph70 ], [ %69, %.lr.ph ]
-  %.1 = phi ptr [ %.074, %63 ], [ %.074, %87 ], [ null, %82 ], [ null, %83 ], [ null, %75 ], [ null, %72 ], [ null, %.lr.ph70 ], [ null, %.lr.ph ]
+  %.147 = phi i32 [ %64, %63 ], [ %91, %87 ], [ %.04672, %82 ], [ %.04672, %83 ], [ %.04672, %72 ], [ %54, %75 ], [ %54, %.lr.ph70 ], [ %.04672, %.lr.ph ]
+  %.245 = phi i32 [ %.14473, %63 ], [ %.14473, %87 ], [ %.14473, %82 ], [ %.14473, %83 ], [ %69, %72 ], [ %69, %75 ], [ %69, %.lr.ph70 ], [ %69, %.lr.ph ]
+  %.1 = phi ptr [ %.074, %63 ], [ %.074, %87 ], [ null, %82 ], [ null, %83 ], [ null, %72 ], [ null, %75 ], [ null, %.lr.ph70 ], [ null, %.lr.ph ]
   %92 = add i32 %.245, 1
   %.not = icmp eq i32 %92, %45
   br i1 %.not, label %._crit_edge, label %56, !llvm.loop !1801

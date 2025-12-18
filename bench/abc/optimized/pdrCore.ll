@@ -1330,7 +1330,7 @@ define range(i32 -1, 2) i32 @ZPdr_ManDown(ptr noundef %0, i32 noundef %1, ptr no
   br label %.loopexit
 
 .loopexit:                                        ; preds = %108, %._crit_edge130, %129, %.loopexit.loopexit155, %124, %128, %140
-  %.0 = phi i32 [ 0, %124 ], [ 0, %140 ], [ 0, %128 ], [ 1, %._crit_edge130 ], [ 1, %129 ], [ 0, %108 ], [ %134, %.loopexit.loopexit155 ]
+  %.0 = phi i32 [ 0, %128 ], [ 1, %._crit_edge130 ], [ 0, %124 ], [ 1, %129 ], [ 0, %140 ], [ 0, %108 ], [ %134, %.loopexit.loopexit155 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
 }
@@ -5208,7 +5208,7 @@ Abc_Clock.exit618:                                ; preds = %1042, %1045
   br label %.loopexit640
 
 .loopexit640:                                     ; preds = %714, %314, %327, %226, %411, %864, %923, %.loopexit, %946, %983, %1032, %1060, %631, %500, %587, %701
-  %.4.ph = phi i32 [ -1, %701 ], [ -1, %587 ], [ -1, %500 ], [ 0, %631 ], [ -1, %1060 ], [ -1, %1032 ], [ -1, %983 ], [ -1, %946 ], [ 1, %.loopexit ], [ %., %923 ], [ -1, %864 ], [ -1, %411 ], [ 0, %226 ], [ %328, %327 ], [ -1, %314 ], [ 0, %714 ]
+  %.4.ph = phi i32 [ -1, %701 ], [ -1, %587 ], [ -1, %500 ], [ 0, %631 ], [ -1, %1060 ], [ -1, %1032 ], [ -1, %983 ], [ -1, %946 ], [ 1, %.loopexit ], [ %., %923 ], [ -1, %864 ], [ -1, %314 ], [ -1, %411 ], [ 0, %226 ], [ %328, %327 ], [ 0, %714 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
   ret i32 %.4.ph
 }

@@ -2280,7 +2280,7 @@ define internal fastcc noundef range(i32 1, 11) i32 @svcauth_gss_proc_init(ptr n
   call fastcc void @rsc_free(ptr noundef nonnull %3)
   br label %.thread47
 
-.thread43:                                        ; preds = %.thread38, %382
+.thread43:                                        ; preds = %382, %.thread38
   call fastcc void @rsc_free(ptr noundef nonnull %3)
   br label %413
 

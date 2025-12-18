@@ -341,7 +341,7 @@ jss_skip_whitespace.exit.i:                       ; preds = %43, %25
   br label %.backedge.i.backedge
 
 .backedge.i.backedge:                             ; preds = %78, %96, %.thread15.i
-  %.2.i.be = phi ptr [ %97, %96 ], [ %94, %.thread15.i ], [ %.3.i, %78 ]
+  %.2.i.be = phi ptr [ %94, %.thread15.i ], [ %97, %96 ], [ %.3.i, %78 ]
   br label %.backedge.i, !llvm.loop !33
 
 jacosub_to_ass.exit:                              ; preds = %.backedge.i, %.backedge.i

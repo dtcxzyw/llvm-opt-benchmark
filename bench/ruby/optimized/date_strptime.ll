@@ -457,8 +457,8 @@ define internal fastcc i64 @date__strptime_internal(ptr noundef %0, i64 noundef 
   br i1 %.not1026, label %.backedge1801, label %42, !llvm.loop !19
 
 .backedge1801:                                    ; preds = %45, %959, %962
-  %.0837.be = phi i64 [ %963, %962 ], [ %961, %959 ], [ %43, %45 ]
-  %.0766.be = phi i64 [ %.8774, %962 ], [ %960, %959 ], [ %.1767.lcssa, %45 ]
+  %.0837.be = phi i64 [ %961, %959 ], [ %963, %962 ], [ %43, %45 ]
+  %.0766.be = phi i64 [ %960, %959 ], [ %.8774, %962 ], [ %.1767.lcssa, %45 ]
   %52 = icmp ult i64 %.0837.be, %3
   br i1 %52, label %26, label %.thread1733, !llvm.loop !20
 
@@ -557,7 +557,7 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %54
   br i1 %.not1020, label %.loopexit1799.loopexit, label %.preheader1798.backedge
 
 .preheader1798.backedge:                          ; preds = %66, %72, %91
-  %.2839.be = phi i64 [ %59, %66 ], [ %59, %72 ], [ %94, %91 ]
+  %.2839.be = phi i64 [ %59, %72 ], [ %94, %91 ], [ %59, %66 ]
   br label %.preheader1798
 
 68:                                               ; preds = %.preheader1798
@@ -1002,7 +1002,7 @@ valid_range_p.exit.thread:                        ; preds = %216, %220, %valid_r
   br i1 %.not.i1134, label %.lr.ph.i1133, label %.loopexit1791, !llvm.loop !10
 
 .thread1667:                                      ; preds = %.lr.ph.i1118, %.lr.ph.i1127, %.lr.ph.i1112, %valid_range_p.exit.thread, %209, %202
-  %.lcssa.i1126.sink = phi i64 [ %.pr.i1109, %202 ], [ %.pr.i1115, %209 ], [ %.pr.i1124, %valid_range_p.exit.thread ], [ %224, %.lr.ph.i1127 ], [ %203, %.lr.ph.i1112 ], [ %210, %.lr.ph.i1118 ]
+  %.lcssa.i1126.sink = phi i64 [ %203, %.lr.ph.i1112 ], [ %224, %.lr.ph.i1127 ], [ %.pr.i1109, %202 ], [ %.pr.i1115, %209 ], [ %.pr.i1124, %valid_range_p.exit.thread ], [ %210, %.lr.ph.i1118 ]
   %227 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i1126.sink) #10
   %228 = tail call i64 @rb_hash_aset(i64 noundef %4, i64 noundef %227, i64 noundef 20) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -1339,7 +1339,7 @@ valid_range_p.exit1209.thread:                    ; preds = %336, %339, %valid_r
   br i1 %.not.i1220, label %.lr.ph.i1219, label %.loopexit1793, !llvm.loop !10
 
 .thread1693:                                      ; preds = %.lr.ph.i1201, %.lr.ph.i1213, %.lr.ph.i1195, %valid_range_p.exit1209.thread, %329, %322
-  %.lcssa.i1212.sink = phi i64 [ %.pr.i1192, %322 ], [ %.pr.i1198, %329 ], [ %.pr.i1210, %valid_range_p.exit1209.thread ], [ %343, %.lr.ph.i1213 ], [ %323, %.lr.ph.i1195 ], [ %330, %.lr.ph.i1201 ]
+  %.lcssa.i1212.sink = phi i64 [ %323, %.lr.ph.i1195 ], [ %343, %.lr.ph.i1213 ], [ %.pr.i1192, %322 ], [ %.pr.i1198, %329 ], [ %.pr.i1210, %valid_range_p.exit1209.thread ], [ %330, %.lr.ph.i1201 ]
   %346 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i1212.sink) #10
   %347 = tail call i64 @rb_hash_aset(i64 noundef %4, i64 noundef %346, i64 noundef 20) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -1450,7 +1450,7 @@ valid_range_p.exit1239.thread:                    ; preds = %373, %377, %valid_r
   br i1 %.not.i1250, label %.lr.ph.i1249, label %.loopexit1794, !llvm.loop !10
 
 .thread1704:                                      ; preds = %.lr.ph.i1231, %.lr.ph.i1243, %.lr.ph.i1225, %valid_range_p.exit1239.thread, %366, %359
-  %.lcssa.i1242.sink = phi i64 [ %.pr.i1222, %359 ], [ %.pr.i1228, %366 ], [ %.pr.i1240, %valid_range_p.exit1239.thread ], [ %381, %.lr.ph.i1243 ], [ %360, %.lr.ph.i1225 ], [ %367, %.lr.ph.i1231 ]
+  %.lcssa.i1242.sink = phi i64 [ %360, %.lr.ph.i1225 ], [ %381, %.lr.ph.i1243 ], [ %.pr.i1222, %359 ], [ %.pr.i1228, %366 ], [ %.pr.i1240, %valid_range_p.exit1239.thread ], [ %367, %.lr.ph.i1231 ]
   %384 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i1242.sink) #10
   %385 = tail call i64 @rb_hash_aset(i64 noundef %4, i64 noundef %384, i64 noundef 20) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %11)

@@ -69,8 +69,8 @@ define hidden { i64, ptr } @"_ZN12futures_util6stream17futures_unordered18ready_
   br label %16
 
 16:                                               ; preds = %.sink.split, %22, %19, %9
-  %.sroa.6.0 = phi ptr [ undef, %9 ], [ undef, %19 ], [ undef, %22 ], [ %.014, %.sink.split ]
-  %.sroa.0.0 = phi i64 [ 1, %9 ], [ 2, %19 ], [ 2, %22 ], [ 0, %.sink.split ]
+  %.sroa.6.0 = phi ptr [ undef, %22 ], [ undef, %9 ], [ undef, %19 ], [ %.014, %.sink.split ]
+  %.sroa.0.0 = phi i64 [ 2, %22 ], [ 1, %9 ], [ 2, %19 ], [ 0, %.sink.split ]
   %17 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %18 = insertvalue { i64, ptr } %17, ptr %.sroa.6.0, 1
   ret { i64, ptr } %18
@@ -137,8 +137,8 @@ define hidden { i64, ptr } @"_ZN12futures_util6stream17futures_unordered18ready_
   br label %16
 
 16:                                               ; preds = %.sink.split, %22, %19, %9
-  %.sroa.6.0 = phi ptr [ undef, %9 ], [ undef, %19 ], [ undef, %22 ], [ %.014, %.sink.split ]
-  %.sroa.0.0 = phi i64 [ 1, %9 ], [ 2, %19 ], [ 2, %22 ], [ 0, %.sink.split ]
+  %.sroa.6.0 = phi ptr [ undef, %22 ], [ undef, %9 ], [ undef, %19 ], [ %.014, %.sink.split ]
+  %.sroa.0.0 = phi i64 [ 2, %22 ], [ 1, %9 ], [ 2, %19 ], [ 0, %.sink.split ]
   %17 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %18 = insertvalue { i64, ptr } %17, ptr %.sroa.6.0, 1
   ret { i64, ptr } %18
@@ -205,8 +205,8 @@ define hidden { i64, ptr } @"_ZN12futures_util6stream17futures_unordered18ready_
   br label %16
 
 16:                                               ; preds = %.sink.split, %22, %19, %9
-  %.sroa.6.0 = phi ptr [ undef, %9 ], [ undef, %19 ], [ undef, %22 ], [ %.014, %.sink.split ]
-  %.sroa.0.0 = phi i64 [ 1, %9 ], [ 2, %19 ], [ 2, %22 ], [ 0, %.sink.split ]
+  %.sroa.6.0 = phi ptr [ undef, %22 ], [ undef, %9 ], [ undef, %19 ], [ %.014, %.sink.split ]
+  %.sroa.0.0 = phi i64 [ 2, %22 ], [ 1, %9 ], [ 2, %19 ], [ 0, %.sink.split ]
   %17 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %18 = insertvalue { i64, ptr } %17, ptr %.sroa.6.0, 1
   ret { i64, ptr } %18
@@ -273,8 +273,8 @@ define hidden { i64, ptr } @"_ZN12futures_util6stream17futures_unordered18ready_
   br label %16
 
 16:                                               ; preds = %.sink.split, %22, %19, %9
-  %.sroa.6.0 = phi ptr [ undef, %9 ], [ undef, %19 ], [ undef, %22 ], [ %.014, %.sink.split ]
-  %.sroa.0.0 = phi i64 [ 1, %9 ], [ 2, %19 ], [ 2, %22 ], [ 0, %.sink.split ]
+  %.sroa.6.0 = phi ptr [ undef, %22 ], [ undef, %9 ], [ undef, %19 ], [ %.014, %.sink.split ]
+  %.sroa.0.0 = phi i64 [ 2, %22 ], [ 1, %9 ], [ 2, %19 ], [ 0, %.sink.split ]
   %17 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %18 = insertvalue { i64, ptr } %17, ptr %.sroa.6.0, 1
   ret { i64, ptr } %18
@@ -341,8 +341,8 @@ define hidden { i64, ptr } @"_ZN12futures_util6stream17futures_unordered18ready_
   br label %16
 
 16:                                               ; preds = %.sink.split, %22, %19, %9
-  %.sroa.6.0 = phi ptr [ undef, %9 ], [ undef, %19 ], [ undef, %22 ], [ %.014, %.sink.split ]
-  %.sroa.0.0 = phi i64 [ 1, %9 ], [ 2, %19 ], [ 2, %22 ], [ 0, %.sink.split ]
+  %.sroa.6.0 = phi ptr [ undef, %22 ], [ undef, %9 ], [ undef, %19 ], [ %.014, %.sink.split ]
+  %.sroa.0.0 = phi i64 [ 2, %22 ], [ 1, %9 ], [ 2, %19 ], [ 0, %.sink.split ]
   %17 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %18 = insertvalue { i64, ptr } %17, ptr %.sroa.6.0, 1
   ret { i64, ptr } %18
@@ -409,8 +409,8 @@ define hidden { i64, ptr } @"_ZN12futures_util6stream17futures_unordered18ready_
   br label %16
 
 16:                                               ; preds = %.sink.split, %22, %19, %9
-  %.sroa.6.0 = phi ptr [ undef, %9 ], [ undef, %19 ], [ undef, %22 ], [ %.014, %.sink.split ]
-  %.sroa.0.0 = phi i64 [ 1, %9 ], [ 2, %19 ], [ 2, %22 ], [ 0, %.sink.split ]
+  %.sroa.6.0 = phi ptr [ undef, %22 ], [ undef, %9 ], [ undef, %19 ], [ %.014, %.sink.split ]
+  %.sroa.0.0 = phi i64 [ 2, %22 ], [ 1, %9 ], [ 2, %19 ], [ 0, %.sink.split ]
   %17 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %18 = insertvalue { i64, ptr } %17, ptr %.sroa.6.0, 1
   ret { i64, ptr } %18
@@ -1434,7 +1434,7 @@ define hidden void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %18, %._crit_edge, %13
-  %.sroa.22.061.lcssa.sink = phi i64 [ %.0.lcssa, %18 ], [ %.sroa.22.0.lcssa, %13 ], [ %.sroa.22.0.lcssa, %._crit_edge ], [ %.sroa.22.061, %.lr.ph ]
+  %.sroa.22.061.lcssa.sink = phi i64 [ %.sroa.22.0.lcssa, %._crit_edge ], [ %.0.lcssa, %18 ], [ %.sroa.22.0.lcssa, %13 ], [ %.sroa.22.061, %.lr.ph ]
   %20 = getelementptr inbounds { { i64, [9 x i64] }, i64 }, ptr %5, i64 %.sroa.22.061.lcssa.sink
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %20, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.0, i64 80, i1 false)
   %.sroa.7.0..sroa_idx38 = getelementptr inbounds nuw i8, ptr %20, i64 80
@@ -1518,7 +1518,7 @@ define hidden void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %18, %._crit_edge, %13
-  %.sroa.22.061.lcssa.sink = phi i64 [ %.0.lcssa, %18 ], [ %.sroa.22.0.lcssa, %13 ], [ %.sroa.22.0.lcssa, %._crit_edge ], [ %.sroa.22.061, %.lr.ph ]
+  %.sroa.22.061.lcssa.sink = phi i64 [ %.sroa.22.0.lcssa, %._crit_edge ], [ %.0.lcssa, %18 ], [ %.sroa.22.0.lcssa, %13 ], [ %.sroa.22.061, %.lr.ph ]
   %20 = getelementptr inbounds { { i64, [9 x i64] }, i64 }, ptr %5, i64 %.sroa.22.061.lcssa.sink
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %20, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.0, i64 80, i1 false)
   %.sroa.7.0..sroa_idx38 = getelementptr inbounds nuw i8, ptr %20, i64 80

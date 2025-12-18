@@ -266,12 +266,12 @@ define range(i32 0, 2) i32 @ECPKParameters_print(ptr noundef %0, ptr noundef %1,
   br label %.thread171
 
 .thread171:                                       ; preds = %90, %89, %26, %22, %.thread
-  %.092198 = phi i32 [ 0, %.thread ], [ 1, %90 ], [ 1, %26 ], [ 1, %22 ], [ 1, %89 ]
-  %.099195 = phi ptr [ %.099.ph, %.thread ], [ %6, %90 ], [ %6, %26 ], [ %6, %22 ], [ %6, %89 ]
-  %.0100193 = phi i64 [ %.0100.ph, %.thread ], [ %50, %90 ], [ 0, %26 ], [ 0, %22 ], [ %50, %89 ]
-  %.0104191 = phi ptr [ %.0104.ph, %.thread ], [ %31, %90 ], [ null, %26 ], [ null, %22 ], [ %31, %89 ]
-  %.0106189 = phi ptr [ %.0106.ph, %.thread ], [ %37, %90 ], [ null, %26 ], [ null, %22 ], [ %37, %89 ]
-  %.0109187 = phi ptr [ %.0109.ph, %.thread ], [ %34, %90 ], [ null, %26 ], [ null, %22 ], [ %34, %89 ]
+  %.092198 = phi i32 [ 0, %.thread ], [ 1, %90 ], [ 1, %22 ], [ 1, %26 ], [ 1, %89 ]
+  %.099195 = phi ptr [ %.099.ph, %.thread ], [ %6, %90 ], [ %6, %22 ], [ %6, %26 ], [ %6, %89 ]
+  %.0100193 = phi i64 [ %.0100.ph, %.thread ], [ %50, %90 ], [ 0, %22 ], [ 0, %26 ], [ %50, %89 ]
+  %.0104191 = phi ptr [ %.0104.ph, %.thread ], [ %31, %90 ], [ null, %22 ], [ null, %26 ], [ %31, %89 ]
+  %.0106189 = phi ptr [ %.0106.ph, %.thread ], [ %37, %90 ], [ null, %22 ], [ null, %26 ], [ %37, %89 ]
+  %.0109187 = phi ptr [ %.0109.ph, %.thread ], [ %34, %90 ], [ null, %22 ], [ null, %26 ], [ %34, %89 ]
   call void @BN_free(ptr noundef %.0104191) #5
   call void @BN_free(ptr noundef %.0109187) #5
   call void @BN_free(ptr noundef %.0106189) #5
@@ -437,7 +437,7 @@ define internal fastcc range(i32 0, 2) i32 @print_bin(ptr noundef %0, ptr nounde
   br label %.loopexit
 
 .loopexit:                                        ; preds = %27, %24, %36, %13, %8
-  %.022 = phi i32 [ %., %36 ], [ 0, %8 ], [ 0, %13 ], [ 0, %24 ], [ 0, %27 ]
+  %.022 = phi i32 [ 0, %13 ], [ %., %36 ], [ 0, %8 ], [ 0, %24 ], [ 0, %27 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.022
 }

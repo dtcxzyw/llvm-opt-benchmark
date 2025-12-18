@@ -3856,7 +3856,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit1013: ; preds = %1536, %1530, 
   br label %.thread1704, !llvm.loop !401
 
 .loopexit1728:                                    ; preds = %1571, %1549, %1562
-  %1582 = phi ptr [ %.pre1876, %1562 ], [ %1547, %1549 ], [ %.pre1876, %1571 ]
+  %1582 = phi ptr [ %1547, %1549 ], [ %.pre1876, %1562 ], [ %.pre1876, %1571 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %47)
   %1583 = load ptr, ptr %14, align 8, !tbaa !296
   store ptr %1582, ptr %48, align 8, !tbaa !252
@@ -4031,7 +4031,7 @@ _ZN4cvc58internal9TrustNodeD2Ev.exit1054:         ; preds = %_ZN4cvc58internal12
   br label %1677
 
 .thread1704:                                      ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %1548, %.noexc1015, %..loopexit_crit_edge21.i.i.i.i.i.i.i.i, %_ZN4cvc58internal9TrustNodeD2Ev.exit1054
-  %1657 = phi ptr [ %.pre1875, %_ZN4cvc58internal9TrustNodeD2Ev.exit1054 ], [ %.pre1876, %.noexc1015 ], [ %.pre1876, %..loopexit_crit_edge21.i.i.i.i.i.i.i.i ], [ %1547, %1548 ], [ %.pre1876, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %1657 = phi ptr [ %1547, %1548 ], [ %.pre1875, %_ZN4cvc58internal9TrustNodeD2Ev.exit1054 ], [ %.pre1876, %.noexc1015 ], [ %.pre1876, %..loopexit_crit_edge21.i.i.i.i.i.i.i.i ], [ %.pre1876, %.lr.ph.i.i.i.i.i.i.i.i ]
   %1658 = load i64, ptr %1657, align 8
   %1659 = and i64 %1658, 1152920405095219200
   %.not.i.i1055 = icmp eq i64 %1659, 1152920405095219200
@@ -8153,8 +8153,8 @@ _ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb0EEES3_SaIS3_ENSt8__detail9_Id
   resume { ptr, i32 } %48
 
 _ZNKSt10_HashtableIN4cvc58internal12NodeTemplateILb0EEES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS3_EEPNS5_10_Hash_nodeIS3_Lb1EEEmRKT_m.exit: ; preds = %11, %33, %.critedge, %24
-  %.sroa.031.1 = phi ptr [ %25, %24 ], [ %47, %.critedge ], [ %39, %33 ], [ %.sroa.028.0, %11 ]
-  %.sroa.432.1 = phi i8 [ 0, %24 ], [ 1, %.critedge ], [ 0, %33 ], [ 0, %11 ]
+  %.sroa.031.1 = phi ptr [ %47, %.critedge ], [ %39, %33 ], [ %25, %24 ], [ %.sroa.028.0, %11 ]
+  %.sroa.432.1 = phi i8 [ 1, %.critedge ], [ 0, %33 ], [ 0, %24 ], [ 0, %11 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.031.1, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.432.1, 1
   ret { ptr, i8 } %.fca.1.insert

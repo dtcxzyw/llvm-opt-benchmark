@@ -1993,7 +1993,7 @@ _ZN4llvm3isaIN5clang13NamespaceDeclENS1_15LinkageSpecDeclEJNS1_22ObjCImplementat
   br i1 %.not168, label %_ZN4llvm11raw_ostreamlsEPKc.exit57, label %_ZN4llvm9StringRefC2EPKc.exit.i
 
 _ZN4llvm9StringRefC2EPKc.exit.i:                  ; preds = %361, %342, %374, %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit, %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.thread, %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit53, %372
-  %.018 = phi ptr [ @.str.2, %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit ], [ @.str.2, %372 ], [ @.str.2, %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit53 ], [ @.str.2, %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.thread ], [ @.str.3, %374 ], [ @.str.2, %342 ], [ @.str.2, %361 ]
+  %.018 = phi ptr [ @.str.2, %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit ], [ @.str.2, %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit53 ], [ @.str.2, %372 ], [ @.str.2, %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.thread ], [ @.str.3, %374 ], [ @.str.2, %342 ], [ @.str.2, %361 ]
   %376 = load ptr, ptr %0, align 8, !tbaa !36
   %377 = getelementptr inbounds nuw i8, ptr %376, i64 24
   %378 = load ptr, ptr %377, align 8, !tbaa !39
@@ -4714,7 +4714,7 @@ _ZNK5clang17ObjCInterfaceDecl18getSuperClassTInfoEv.exit.i: ; preds = %120, %114
   br label %_ZNK5clang17ObjCInterfaceDecl17getSuperClassTypeEv.exit
 
 _ZNK5clang17ObjCInterfaceDecl17getSuperClassTypeEv.exit: ; preds = %_ZNK5clang17ObjCInterfaceDecl13hasDefinitionEv.exit.i.i58, %_ZNK5clang17ObjCInterfaceDecl18getSuperClassTInfoEv.exit.i, %123, %130
-  %132 = phi ptr [ %126, %123 ], [ %131, %130 ], [ null, %_ZNK5clang17ObjCInterfaceDecl18getSuperClassTInfoEv.exit.i ], [ null, %_ZNK5clang17ObjCInterfaceDecl13hasDefinitionEv.exit.i.i58 ]
+  %132 = phi ptr [ %131, %130 ], [ %126, %123 ], [ null, %_ZNK5clang17ObjCInterfaceDecl18getSuperClassTInfoEv.exit.i ], [ null, %_ZNK5clang17ObjCInterfaceDecl13hasDefinitionEv.exit.i.i58 ]
   %133 = ptrtoint ptr %132 to i64
   %134 = and i64 %133, -16
   store i64 %134, ptr %5, align 8

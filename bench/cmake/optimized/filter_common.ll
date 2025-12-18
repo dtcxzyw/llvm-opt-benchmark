@@ -373,12 +373,12 @@ lzma_validate_chain.exit:                         ; preds = %28
   br label %.thread70
 
 .thread70:                                        ; preds = %57, %.lr.ph, %41, %35, %.loopexit, %72
-  %.5 = phi i32 [ 0, %.loopexit ], [ %71, %72 ], [ 8, %41 ], [ 8, %35 ], [ 8, %.lr.ph ], [ 8, %57 ]
+  %.5 = phi i32 [ 8, %41 ], [ 0, %.loopexit ], [ %71, %72 ], [ 8, %35 ], [ 8, %.lr.ph ], [ 8, %57 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %lzma_validate_chain.exit.thread
 
 lzma_validate_chain.exit.thread:                  ; preds = %._crit_edge.i, %.lr.ph.i, %28, %8, %5, %.thread70
-  %.1 = phi i32 [ %.5, %.thread70 ], [ 8, %28 ], [ 11, %8 ], [ 11, %5 ], [ 8, %.lr.ph.i ], [ 8, %._crit_edge.i ]
+  %.1 = phi i32 [ %.5, %.thread70 ], [ 8, %.lr.ph.i ], [ 11, %5 ], [ 8, %28 ], [ 11, %8 ], [ 8, %._crit_edge.i ]
   ret i32 %.1
 }
 
@@ -484,7 +484,7 @@ lzma_validate_chain.exit:                         ; preds = %24, %45
   br label %.critedge
 
 .critedge:                                        ; preds = %._crit_edge.i, %.lr.ph.i, %lzma_validate_chain.exit, %40, %24, %4, %2, %49
-  %.1 = phi i64 [ %50, %49 ], [ -1, %2 ], [ -1, %4 ], [ -1, %24 ], [ -1, %.lr.ph.i ], [ -1, %lzma_validate_chain.exit ], [ -1, %40 ], [ -1, %._crit_edge.i ]
+  %.1 = phi i64 [ -1, %lzma_validate_chain.exit ], [ %50, %49 ], [ -1, %.lr.ph.i ], [ -1, %2 ], [ -1, %4 ], [ -1, %24 ], [ -1, %40 ], [ -1, %._crit_edge.i ]
   ret i64 %.1
 }
 

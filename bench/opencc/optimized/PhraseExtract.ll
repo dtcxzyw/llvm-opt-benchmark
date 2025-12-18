@@ -949,7 +949,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit42: ; preds = %_ZN
   br i1 %or.cond104, label %132, label %_ZN5TCLAP9SwitchArg12lastCombinedERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, !llvm.loop !37
 
 _ZN5TCLAP9SwitchArg12lastCombinedERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %.critedge31.thread.i, %132, %3, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit41.i, %.critedge.i, %40, %.loopexit, %23
-  %.016 = phi i1 [ false, %3 ], [ true, %23 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit41.i ], [ true, %.loopexit ], [ false, %40 ], [ false, %.critedge.i ], [ %.not.i44, %132 ], [ false, %.critedge31.thread.i ]
+  %.016 = phi i1 [ false, %3 ], [ true, %23 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit41.i ], [ true, %.loopexit ], [ %.not.i44, %132 ], [ false, %40 ], [ false, %.critedge.i ], [ false, %.critedge31.thread.i ]
   ret i1 %.016
 
 138:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i40, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit42, %123

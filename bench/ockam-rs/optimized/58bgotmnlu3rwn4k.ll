@@ -5834,7 +5834,7 @@ define hidden noundef align 8 ptr @"_ZN91_$LT$$RF$mut$u20$serde_bare..ser..Seria
   br label %"_ZN5serde3ser5impls85_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..result..Result$LT$T$C$E$GT$$GT$9serialize17hfb00e2c085767f22E.exit"
 
 "_ZN5serde3ser5impls85_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..result..Result$LT$T$C$E$GT$$GT$9serialize17hfb00e2c085767f22E.exit": ; preds = %.preheader9, %.preheader, %.critedge, %37
-  %.0 = phi ptr [ %20, %37 ], [ %36, %.critedge ], [ %33, %.preheader ], [ %34, %.preheader9 ]
+  %.0 = phi ptr [ %20, %37 ], [ %33, %.preheader ], [ %36, %.critedge ], [ %34, %.preheader9 ]
   ret ptr %.0
 }
 
@@ -6091,7 +6091,7 @@ define hidden noundef align 8 ptr @"_ZN91_$LT$$RF$mut$u20$serde_bare..ser..Seria
   br label %"_ZN5serde3ser5impls85_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..result..Result$LT$T$C$E$GT$$GT$9serialize17he72aef49010be8e6E.exit"
 
 "_ZN5serde3ser5impls85_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..result..Result$LT$T$C$E$GT$$GT$9serialize17he72aef49010be8e6E.exit": ; preds = %.preheader, %.critedge37, %38, %.critedge, %42
-  %.0 = phi ptr [ %20, %42 ], [ %35, %.critedge ], [ %41, %38 ], [ %36, %.critedge37 ], [ %33, %.preheader ]
+  %.0 = phi ptr [ %20, %42 ], [ %36, %.critedge37 ], [ %35, %.critedge ], [ %41, %38 ], [ %33, %.preheader ]
   ret ptr %.0
 }
 

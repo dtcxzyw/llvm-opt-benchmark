@@ -903,7 +903,7 @@ handle_biggest_offenders.exit.us:                 ; preds = %handle_biggest_offe
   br i1 %exitcond.not.i156, label %find_nearest.exit167, label %440, !llvm.loop !22
 
 find_nearest.exit167:                             ; preds = %463, %426, %428, %398
-  %465 = phi float [ %383, %398 ], [ %383, %428 ], [ %427, %426 ], [ %464, %463 ]
+  %465 = phi float [ %427, %426 ], [ %383, %398 ], [ %383, %428 ], [ %464, %463 ]
   store i32 %369, ptr %376, align 4
   br label %.lr.ph.preheader.i.i
 

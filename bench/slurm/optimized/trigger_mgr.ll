@@ -1147,7 +1147,7 @@ define dso_local range(i32 0, 2018) i32 @trigger_clear(i32 noundef %0, ptr nound
   br i1 %.not3746, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !12
 
 .outer._crit_edge:                                ; preds = %.outer.backedge, %.backedge, %.split.us, %.backedge.us, %.outer.backedge.us, %.backedge.us.us, %.split.us.us.us, %.backedge.us.us.us, %33
-  %.0.ph.lcssa = phi i32 [ 3, %33 ], [ %.0.ph50, %.backedge ], [ %.0.ph50.us.us, %.backedge.us.us.us ], [ 0, %.split.us.us.us ], [ %.0.ph50.us, %.backedge.us.us ], [ %.0.ph.be.us, %.outer.backedge.us ], [ %.0.ph50.us55, %.backedge.us ], [ 0, %.split.us ], [ %.0.ph.be, %.outer.backedge ]
+  %.0.ph.lcssa = phi i32 [ %.0.ph50, %.backedge ], [ 3, %33 ], [ %.0.ph50.us, %.backedge.us.us ], [ %.0.ph50.us.us, %.backedge.us.us.us ], [ %.0.ph50.us55, %.backedge.us ], [ 0, %.split.us.us.us ], [ 0, %.split.us ], [ %.0.ph.be.us, %.outer.backedge.us ], [ %.0.ph.be, %.outer.backedge ]
   tail call void @list_iterator_destroy(ptr noundef %35) #13
   tail call void @schedule_trigger_save() #13
   br label %127
@@ -1705,7 +1705,7 @@ define dso_local range(i32 0, 2090) i32 @trigger_set(i32 noundef %0, i32 noundef
   br i1 %209, label %27, label %.loopexit81, !llvm.loop !15
 
 .loopexit81:                                      ; preds = %206, %24, %21, %11, %14
-  %.2 = phi i32 [ 2002, %11 ], [ 2002, %14 ], [ 11, %21 ], [ 0, %24 ], [ %.1, %206 ]
+  %.2 = phi i32 [ 2002, %11 ], [ 11, %21 ], [ 2002, %14 ], [ 0, %24 ], [ %.1, %206 ]
   %210 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @trigger_mutex) #13
   %.not79 = icmp eq i32 %210, 0
   br i1 %.not79, label %213, label %211

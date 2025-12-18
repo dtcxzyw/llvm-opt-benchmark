@@ -437,7 +437,7 @@ cbs_fill_fragment_data.exit:                      ; preds = %18
   br i1 %81, label %40, label %cbs_read_fragment_content.exit, !llvm.loop !63
 
 cbs_read_fragment_content.exit:                   ; preds = %.loopexit.i, %18, %75, %33, %26, %7
-  %.0 = phi i32 [ %31, %26 ], [ -12, %7 ], [ %64, %75 ], [ 0, %33 ], [ -12, %18 ], [ 0, %.loopexit.i ]
+  %.0 = phi i32 [ -12, %18 ], [ %31, %26 ], [ -12, %7 ], [ %64, %75 ], [ 0, %33 ], [ 0, %.loopexit.i ]
   ret i32 %.0
 }
 

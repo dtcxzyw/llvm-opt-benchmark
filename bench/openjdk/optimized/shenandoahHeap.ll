@@ -5217,7 +5217,7 @@ define hidden void @_ZN14ShenandoahHeap6verifyE12VerifyOption(ptr noundef nonnul
   br label %_ZN19ShenandoahSafepoint26is_at_shenandoah_safepointEv.exit
 
 _ZN19ShenandoahSafepoint26is_at_shenandoah_safepointEv.exit: ; preds = %12, %20
-  %.0.i = phi i1 [ true, %12 ], [ %spec.select.i, %20 ]
+  %.0.i = phi i1 [ %spec.select.i, %20 ], [ true, %12 ]
   %26 = load i8, ptr @ShenandoahVerify, align 1
   %27 = trunc i8 %26 to i1
   %or.cond = select i1 %.0.i, i1 %27, i1 false

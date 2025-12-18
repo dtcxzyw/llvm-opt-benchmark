@@ -3684,8 +3684,8 @@ _ZN4ncnn3MatC2EimPNS_9AllocatorE.exit:            ; preds = %._crit_edge
   br i1 %exitcond682.not, label %.loopexit, label %194, !llvm.loop !101
 
 .loopexit:                                        ; preds = %238, %180, %129, %.lr.ph587.preheader, %84
-  %.1397 = phi ptr [ %.0396644, %84 ], [ %.0394645, %.lr.ph587.preheader ], [ %.0396644, %180 ], [ %.0394645, %129 ], [ %.0396644, %238 ]
-  %.1395 = phi ptr [ %.0394645, %84 ], [ %.0396644, %.lr.ph587.preheader ], [ %.0394645, %180 ], [ %.0396644, %129 ], [ %.0394645, %238 ]
+  %.1397 = phi ptr [ %.0396644, %84 ], [ %.0394645, %129 ], [ %.0394645, %.lr.ph587.preheader ], [ %.0396644, %180 ], [ %.0396644, %238 ]
+  %.1395 = phi ptr [ %.0394645, %84 ], [ %.0396644, %129 ], [ %.0396644, %.lr.ph587.preheader ], [ %.0394645, %180 ], [ %.0394645, %238 ]
   %260 = add nsw i32 %.0400642, 1
   %261 = icmp slt i32 %260, %6
   br i1 %261, label %262, label %.loopexit._crit_edge

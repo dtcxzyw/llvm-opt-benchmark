@@ -2350,7 +2350,7 @@ _ZN2cv19connectedcomponentsL8flattenLItEET_PS2_S2_.exit: ; preds = %339, %.loope
   br label %346
 
 _ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %._crit_edge, %.preheader, %.preheader266, %_ZN2cv19connectedcomponentsL8flattenLItEET_PS2_S2_.exit
-  %.015.lcssa.i371 = phi i16 [ %.015.lcssa.i, %_ZN2cv19connectedcomponentsL8flattenLItEET_PS2_S2_.exit ], [ 1, %.preheader266 ], [ 1, %.preheader ], [ %.015.lcssa.i372, %._crit_edge ]
+  %.015.lcssa.i371 = phi i16 [ 1, %.preheader ], [ %.015.lcssa.i, %_ZN2cv19connectedcomponentsL8flattenLItEET_PS2_S2_.exit ], [ 1, %.preheader266 ], [ %.015.lcssa.i372, %._crit_edge ]
   tail call void @_ZdlPv(ptr noundef nonnull %63) #15
   ret i16 %.015.lcssa.i371
 
@@ -3175,7 +3175,7 @@ _ZN2cv19connectedcomponentsL8flattenLIiEET_PS2_S2_.exit: ; preds = %340, %.loope
   br label %347
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge, %.preheader, %.preheader266, %_ZN2cv19connectedcomponentsL8flattenLIiEET_PS2_S2_.exit
-  %.015.lcssa.i377 = phi i32 [ %.015.lcssa.i, %_ZN2cv19connectedcomponentsL8flattenLIiEET_PS2_S2_.exit ], [ 1, %.preheader266 ], [ 1, %.preheader ], [ %.015.lcssa.i378, %._crit_edge ]
+  %.015.lcssa.i377 = phi i32 [ 1, %.preheader ], [ %.015.lcssa.i, %_ZN2cv19connectedcomponentsL8flattenLIiEET_PS2_S2_.exit ], [ 1, %.preheader266 ], [ %.015.lcssa.i378, %._crit_edge ]
   tail call void @_ZdlPv(ptr noundef nonnull %64) #15
   ret i32 %.015.lcssa.i377
 
@@ -3717,7 +3717,7 @@ _ZN2cv19connectedcomponentsL8flattenLIiEEvPT_iiRS2_.exit96: ; preds = %214, %.lr
   br i1 %218, label %.lr.ph, label %.loopexit, !llvm.loop !92
 
 .loopexit:                                        ; preds = %_ZN2cv19connectedcomponentsL8flattenLIiEEvPT_iiRS2_.exit96, %_ZN2cv19connectedcomponentsL8flattenLIiEEvPT_iiRS2_.exit, %_ZN2cv19connectedcomponents18LabelingWuParallelIihNS0_4NoOpEE24mergeLabels4ConnectivityERNS_3MatEPiPKi.exit, %.preheader
-  %storemerge = phi i32 [ 1, %.preheader ], [ 1, %_ZN2cv19connectedcomponents18LabelingWuParallelIihNS0_4NoOpEE24mergeLabels4ConnectivityERNS_3MatEPiPKi.exit ], [ %.lcssa145147, %_ZN2cv19connectedcomponentsL8flattenLIiEEvPT_iiRS2_.exit ], [ %.lcssa139141, %_ZN2cv19connectedcomponentsL8flattenLIiEEvPT_iiRS2_.exit96 ]
+  %storemerge = phi i32 [ %.lcssa145147, %_ZN2cv19connectedcomponentsL8flattenLIiEEvPT_iiRS2_.exit ], [ 1, %.preheader ], [ 1, %_ZN2cv19connectedcomponents18LabelingWuParallelIihNS0_4NoOpEE24mergeLabels4ConnectivityERNS_3MatEPiPKi.exit ], [ %.lcssa139141, %_ZN2cv19connectedcomponentsL8flattenLIiEEvPT_iiRS2_.exit96 ]
   store i32 %storemerge, ptr %13, align 4
   %219 = icmp slt i32 %18, 0
   br i1 %219, label %220, label %_ZNSt6vectorIN2cv19connectedcomponents4NoOpESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i
@@ -10926,7 +10926,7 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i3056.us: ; preds = %.lr
   br i1 %exitcond.not.i, label %_ZN2cv19connectedcomponentsL8flattenLItEET_PS2_S2_.exit, label %.lr.ph.i, !llvm.loop !62
 
 _ZN2cv19connectedcomponentsL8flattenLItEET_PS2_S2_.exit: ; preds = %3456, %.lr.ph3325, %_ZNSt6vectorItSaItEEC2EmRKtRKS0_.exit, %._crit_edge3326
-  %.015.lcssa.i = phi i16 [ 1, %._crit_edge3326 ], [ 1, %_ZNSt6vectorItSaItEEC2EmRKtRKS0_.exit ], [ 1, %.lr.ph3325 ], [ %.1.i, %3456 ]
+  %.015.lcssa.i = phi i16 [ 1, %._crit_edge3326 ], [ 1, %.lr.ph3325 ], [ 1, %_ZNSt6vectorItSaItEEC2EmRKtRKS0_.exit ], [ %.1.i, %3456 ]
   %3457 = load i32, ptr %14, align 8, !tbaa !31
   %.fr = freeze i32 %3457
   %3458 = and i32 %.fr, 1
@@ -18523,7 +18523,7 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i3056.us: ; preds = %.lr
   br i1 %exitcond.not.i, label %_ZN2cv19connectedcomponentsL8flattenLIiEET_PS2_S2_.exit, label %.lr.ph.i, !llvm.loop !71
 
 _ZN2cv19connectedcomponentsL8flattenLIiEET_PS2_S2_.exit: ; preds = %3456, %.lr.ph3325, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit, %._crit_edge3326
-  %.015.lcssa.i = phi i32 [ 1, %._crit_edge3326 ], [ 1, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit ], [ 1, %.lr.ph3325 ], [ %.1.i, %3456 ]
+  %.015.lcssa.i = phi i32 [ 1, %._crit_edge3326 ], [ 1, %.lr.ph3325 ], [ 1, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit ], [ %.1.i, %3456 ]
   %3457 = load i32, ptr %14, align 8, !tbaa !31
   %3458 = and i32 %3457, 1
   %.not = icmp eq i32 %3458, 0
@@ -19922,8 +19922,8 @@ _ZNSt6vectorItSaItEEC2EmRKtRKS0_.exit:            ; preds = %.noexc3797, %_ZNSt6
   br label %.loopexit4879
 
 .loopexit4879:                                    ; preds = %.loopexit4879.loopexit, %242, %197
-  %.43135 = phi i32 [ %223, %242 ], [ %185, %197 ], [ %200, %.loopexit4879.loopexit ]
-  %.10 = phi i16 [ %.8, %242 ], [ %.65206, %197 ], [ %.9.ph48815196, %.loopexit4879.loopexit ]
+  %.43135 = phi i32 [ %185, %197 ], [ %223, %242 ], [ %200, %.loopexit4879.loopexit ]
+  %.10 = phi i16 [ %.65206, %197 ], [ %.8, %242 ], [ %.9.ph48815196, %.loopexit4879.loopexit ]
   %201 = add nsw i32 %.43135, 1
   %202 = sext i32 %201 to i64
   %203 = getelementptr inbounds i8, ptr %75, i64 %202
@@ -29241,8 +29241,8 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i4701: ; preds = %.lr.ph
   br label %.loopexit4802
 
 .loopexit4802:                                    ; preds = %.loopexit4802.loopexit, %4874, %4738
-  %.143156 = phi i32 [ %4871, %4874 ], [ %4735, %4738 ], [ %4839, %.loopexit4802.loopexit ]
-  %.113 = phi i16 [ %.104, %4874 ], [ %.105, %4738 ], [ %.112.ph, %.loopexit4802.loopexit ]
+  %.143156 = phi i32 [ %4735, %4738 ], [ %4871, %4874 ], [ %4839, %.loopexit4802.loopexit ]
+  %.113 = phi i16 [ %.105, %4738 ], [ %.104, %4874 ], [ %.112.ph, %.loopexit4802.loopexit ]
   %4840 = add nsw i32 %.143156, 1
   %4841 = sext i32 %4840 to i64
   %4842 = getelementptr inbounds i8, ptr %4455, i64 %4841
@@ -31643,8 +31643,8 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc3797, %_ZNSt6
   br label %.loopexit4879
 
 .loopexit4879:                                    ; preds = %.loopexit4879.loopexit, %244, %197
-  %.43135 = phi i32 [ %224, %244 ], [ %185, %197 ], [ %201, %.loopexit4879.loopexit ]
-  %.10 = phi i32 [ %.8, %244 ], [ %.65206, %197 ], [ %200, %.loopexit4879.loopexit ]
+  %.43135 = phi i32 [ %185, %197 ], [ %224, %244 ], [ %201, %.loopexit4879.loopexit ]
+  %.10 = phi i32 [ %.65206, %197 ], [ %.8, %244 ], [ %200, %.loopexit4879.loopexit ]
   %202 = add nsw i32 %.43135, 1
   %203 = sext i32 %202 to i64
   %204 = getelementptr inbounds i8, ptr %75, i64 %203
@@ -40974,8 +40974,8 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i4701: ; preds = %.lr.ph
   br label %.loopexit4802
 
 .loopexit4802:                                    ; preds = %.loopexit4802.loopexit, %4879, %4743
-  %.143156 = phi i32 [ %4876, %4879 ], [ %4740, %4743 ], [ %4844, %.loopexit4802.loopexit ]
-  %.113 = phi i32 [ %.104, %4879 ], [ %.105, %4743 ], [ %.112.ph, %.loopexit4802.loopexit ]
+  %.143156 = phi i32 [ %4740, %4743 ], [ %4876, %4879 ], [ %4844, %.loopexit4802.loopexit ]
+  %.113 = phi i32 [ %.105, %4743 ], [ %.104, %4879 ], [ %.112.ph, %.loopexit4802.loopexit ]
   %4845 = add nsw i32 %.143156, 1
   %4846 = sext i32 %4845 to i64
   %4847 = getelementptr inbounds i8, ptr %4460, i64 %4846
@@ -44081,7 +44081,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %55
   br i1 %.not184, label %.lr.ph, label %.loopexit166
 
 .loopexit166:                                     ; preds = %.outer168, %80, %86, %90
-  %indvars.iv.next255.lcssa310.sink = phi i64 [ %indvars.iv254, %86 ], [ %indvars.iv.next255, %90 ], [ %indvars.iv.next255, %80 ], [ %indvars.iv.next255, %.outer168 ]
+  %indvars.iv.next255.lcssa310.sink = phi i64 [ %indvars.iv.next255, %90 ], [ %indvars.iv254, %86 ], [ %indvars.iv.next255, %80 ], [ %indvars.iv.next255, %.outer168 ]
   %98 = trunc nuw i64 %indvars.iv.next255.lcssa310.sink to i32
   %99 = icmp sgt i32 %13, 1
   br i1 %99, label %.lr.ph209, label %._crit_edge
@@ -55401,9 +55401,9 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents23LabelingBolelliPa
   br label %.loopexit4358
 
 .loopexit4358:                                    ; preds = %.loopexit4358.loopexit, %231, %179
-  %184 = phi ptr [ %207, %231 ], [ %165, %179 ], [ %229, %.loopexit4358.loopexit ]
-  %.42752 = phi i32 [ %208, %231 ], [ %166, %179 ], [ %183, %.loopexit4358.loopexit ]
-  %.102729 = phi i32 [ %.82727, %231 ], [ %.627254685, %179 ], [ %182, %.loopexit4358.loopexit ]
+  %184 = phi ptr [ %165, %179 ], [ %207, %231 ], [ %229, %.loopexit4358.loopexit ]
+  %.42752 = phi i32 [ %166, %179 ], [ %208, %231 ], [ %183, %.loopexit4358.loopexit ]
+  %.102729 = phi i32 [ %.627254685, %179 ], [ %.82727, %231 ], [ %182, %.loopexit4358.loopexit ]
   %185 = add nsw i32 %.42752, 1
   %186 = sext i32 %185 to i64
   %187 = getelementptr inbounds i8, ptr %37, i64 %186
@@ -64900,8 +64900,8 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit4267: ; preds = %.lr.
   br label %.loopexit4346
 
 .loopexit4346:                                    ; preds = %.loopexit4346.loopexit, %5031, %4892
-  %.113 = phi i32 [ %.104, %5031 ], [ %.105, %4892 ], [ %.112.ph, %.loopexit4346.loopexit ]
-  %.14 = phi i32 [ %5028, %5031 ], [ %4889, %4892 ], [ %4995, %.loopexit4346.loopexit ]
+  %.113 = phi i32 [ %.105, %4892 ], [ %.104, %5031 ], [ %.112.ph, %.loopexit4346.loopexit ]
+  %.14 = phi i32 [ %4889, %4892 ], [ %5028, %5031 ], [ %4995, %.loopexit4346.loopexit ]
   %4996 = add nsw i32 %.14, 1
   %4997 = sext i32 %4996 to i64
   %4998 = getelementptr inbounds i8, ptr %4593, i64 %4997
@@ -67759,7 +67759,7 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents25LabelingBolelli4C
   br i1 %.not117, label %.lr.ph, label %.loopexit99
 
 .loopexit99:                                      ; preds = %.outer101, %48, %55, %59
-  %indvars.iv.next181.lcssa225.sink = phi i64 [ %indvars.iv180, %55 ], [ %indvars.iv.next181, %59 ], [ %indvars.iv.next181, %48 ], [ %indvars.iv.next181, %.outer101 ]
+  %indvars.iv.next181.lcssa225.sink = phi i64 [ %indvars.iv.next181, %59 ], [ %indvars.iv180, %55 ], [ %indvars.iv.next181, %48 ], [ %indvars.iv.next181, %.outer101 ]
   %67 = trunc nsw i64 %indvars.iv.next181.lcssa225.sink to i32
   %68 = or disjoint i32 %4, 1
   %69 = icmp slt i32 %68, %.sroa.speculated
@@ -68861,8 +68861,8 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i229.us: ; preds = %.lr.
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZN2cv19connectedcomponentsL8flattenLItEET_PS2_S2_.exit, label %.lr.ph.i, !llvm.loop !62
 
-_ZN2cv19connectedcomponentsL8flattenLItEET_PS2_S2_.exit: ; preds = %339, %.lr.ph284, %.lr.ph303, %.preheader272, %.preheader269, %.loopexit270
-  %.015.lcssa.i = phi i16 [ 1, %.loopexit270 ], [ 1, %.preheader269 ], [ 1, %.preheader272 ], [ 1, %.lr.ph303 ], [ 1, %.lr.ph284 ], [ %.1.i, %339 ]
+_ZN2cv19connectedcomponentsL8flattenLItEET_PS2_S2_.exit: ; preds = %339, %.lr.ph284, %.preheader272, %.preheader269, %.lr.ph303, %.loopexit270
+  %.015.lcssa.i = phi i16 [ 1, %.loopexit270 ], [ 1, %.lr.ph284 ], [ 1, %.lr.ph303 ], [ 1, %.preheader269 ], [ 1, %.preheader272 ], [ %.1.i, %339 ]
   %340 = zext i16 %.015.lcssa.i to i32
   invoke void @_ZN2cv19connectedcomponents9CCStatsOp4initEi(ptr noundef nonnull align 8 dereferenceable(236) %4, i32 noundef %340)
           to label %.preheader unwind label %_ZNSt6vectorItSaItEED2Ev.exit255
@@ -69816,8 +69816,8 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i229.us: ; preds = %.lr.
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZN2cv19connectedcomponentsL8flattenLIiEET_PS2_S2_.exit, label %.lr.ph.i, !llvm.loop !71
 
-_ZN2cv19connectedcomponentsL8flattenLIiEET_PS2_S2_.exit: ; preds = %340, %.lr.ph284, %.lr.ph303, %.preheader272, %.preheader269, %.loopexit270
-  %.015.lcssa.i = phi i32 [ 1, %.loopexit270 ], [ 1, %.preheader269 ], [ 1, %.preheader272 ], [ 1, %.lr.ph303 ], [ 1, %.lr.ph284 ], [ %.1.i, %340 ]
+_ZN2cv19connectedcomponentsL8flattenLIiEET_PS2_S2_.exit: ; preds = %340, %.lr.ph284, %.preheader272, %.preheader269, %.lr.ph303, %.loopexit270
+  %.015.lcssa.i = phi i32 [ 1, %.loopexit270 ], [ 1, %.lr.ph284 ], [ 1, %.lr.ph303 ], [ 1, %.preheader269 ], [ 1, %.preheader272 ], [ %.1.i, %340 ]
   invoke void @_ZN2cv19connectedcomponents9CCStatsOp4initEi(ptr noundef nonnull align 8 dereferenceable(236) %4, i32 noundef %.015.lcssa.i)
           to label %.preheader unwind label %_ZNSt6vectorIiSaIiEED2Ev.exit255
 
@@ -90271,8 +90271,8 @@ _ZNSt6vectorItSaItEEC2EmRKtRKS0_.exit:            ; preds = %.noexc3800, %_ZNSt6
   br label %.loopexit4909
 
 .loopexit4909:                                    ; preds = %.loopexit4909.loopexit, %242, %197
-  %.43137 = phi i32 [ %223, %242 ], [ %185, %197 ], [ %200, %.loopexit4909.loopexit ]
-  %.10 = phi i16 [ %.8, %242 ], [ %.631285236, %197 ], [ %.9.ph49115226, %.loopexit4909.loopexit ]
+  %.43137 = phi i32 [ %185, %197 ], [ %223, %242 ], [ %200, %.loopexit4909.loopexit ]
+  %.10 = phi i16 [ %.631285236, %197 ], [ %.8, %242 ], [ %.9.ph49115226, %.loopexit4909.loopexit ]
   %201 = add nsw i32 %.43137, 1
   %202 = sext i32 %201 to i64
   %203 = getelementptr inbounds i8, ptr %75, i64 %202
@@ -99590,8 +99590,8 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i4704: ; preds = %.lr.ph
   br label %.loopexit4832
 
 .loopexit4832:                                    ; preds = %.loopexit4832.loopexit, %4874, %4738
-  %.143158 = phi i32 [ %4871, %4874 ], [ %4735, %4738 ], [ %4839, %.loopexit4832.loopexit ]
-  %.113 = phi i16 [ %.104, %4874 ], [ %.105, %4738 ], [ %.112.ph, %.loopexit4832.loopexit ]
+  %.143158 = phi i32 [ %4735, %4738 ], [ %4871, %4874 ], [ %4839, %.loopexit4832.loopexit ]
+  %.113 = phi i16 [ %.105, %4738 ], [ %.104, %4874 ], [ %.112.ph, %.loopexit4832.loopexit ]
   %4840 = add nsw i32 %.143158, 1
   %4841 = sext i32 %4840 to i64
   %4842 = getelementptr inbounds i8, ptr %4455, i64 %4841
@@ -102817,8 +102817,8 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc3800, %_ZNSt6
   br label %.loopexit4909
 
 .loopexit4909:                                    ; preds = %.loopexit4909.loopexit, %244, %197
-  %.43137 = phi i32 [ %224, %244 ], [ %185, %197 ], [ %201, %.loopexit4909.loopexit ]
-  %.10 = phi i32 [ %.8, %244 ], [ %.631285236, %197 ], [ %200, %.loopexit4909.loopexit ]
+  %.43137 = phi i32 [ %185, %197 ], [ %224, %244 ], [ %201, %.loopexit4909.loopexit ]
+  %.10 = phi i32 [ %.631285236, %197 ], [ %.8, %244 ], [ %200, %.loopexit4909.loopexit ]
   %202 = add nsw i32 %.43137, 1
   %203 = sext i32 %202 to i64
   %204 = getelementptr inbounds i8, ptr %75, i64 %203
@@ -112148,8 +112148,8 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i4704: ; preds = %.lr.ph
   br label %.loopexit4832
 
 .loopexit4832:                                    ; preds = %.loopexit4832.loopexit, %4879, %4743
-  %.143158 = phi i32 [ %4876, %4879 ], [ %4740, %4743 ], [ %4844, %.loopexit4832.loopexit ]
-  %.113 = phi i32 [ %.104, %4879 ], [ %.105, %4743 ], [ %.112.ph, %.loopexit4832.loopexit ]
+  %.143158 = phi i32 [ %4740, %4743 ], [ %4876, %4879 ], [ %4844, %.loopexit4832.loopexit ]
+  %.113 = phi i32 [ %.105, %4743 ], [ %.104, %4879 ], [ %.112.ph, %.loopexit4832.loopexit ]
   %4845 = add nsw i32 %.143158, 1
   %4846 = sext i32 %4845 to i64
   %4847 = getelementptr inbounds i8, ptr %4460, i64 %4846
@@ -116556,7 +116556,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %55
   br i1 %.not193, label %.lr.ph, label %.loopexit175
 
 .loopexit175:                                     ; preds = %.outer177, %80, %86, %90
-  %indvars.iv.next266.lcssa325.sink = phi i64 [ %indvars.iv265, %86 ], [ %indvars.iv.next266, %90 ], [ %indvars.iv.next266, %80 ], [ %indvars.iv.next266, %.outer177 ]
+  %indvars.iv.next266.lcssa325.sink = phi i64 [ %indvars.iv.next266, %90 ], [ %indvars.iv265, %86 ], [ %indvars.iv.next266, %80 ], [ %indvars.iv.next266, %.outer177 ]
   %98 = trunc nuw i64 %indvars.iv.next266.lcssa325.sink to i32
   %99 = icmp sgt i32 %13, 1
   br i1 %99, label %.lr.ph218, label %._crit_edge
@@ -131867,9 +131867,9 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents23LabelingBolelliPa
   br label %.loopexit4358
 
 .loopexit4358:                                    ; preds = %.loopexit4358.loopexit, %231, %179
-  %184 = phi ptr [ %207, %231 ], [ %165, %179 ], [ %229, %.loopexit4358.loopexit ]
-  %.42752 = phi i32 [ %208, %231 ], [ %166, %179 ], [ %183, %.loopexit4358.loopexit ]
-  %.102729 = phi i32 [ %.82727, %231 ], [ %.627254685, %179 ], [ %182, %.loopexit4358.loopexit ]
+  %184 = phi ptr [ %165, %179 ], [ %207, %231 ], [ %229, %.loopexit4358.loopexit ]
+  %.42752 = phi i32 [ %166, %179 ], [ %208, %231 ], [ %183, %.loopexit4358.loopexit ]
+  %.102729 = phi i32 [ %.627254685, %179 ], [ %.82727, %231 ], [ %182, %.loopexit4358.loopexit ]
   %185 = add nsw i32 %.42752, 1
   %186 = sext i32 %185 to i64
   %187 = getelementptr inbounds i8, ptr %37, i64 %186
@@ -141366,8 +141366,8 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit4267: ; preds = %.lr.
   br label %.loopexit4346
 
 .loopexit4346:                                    ; preds = %.loopexit4346.loopexit, %5031, %4892
-  %.113 = phi i32 [ %.104, %5031 ], [ %.105, %4892 ], [ %.112.ph, %.loopexit4346.loopexit ]
-  %.14 = phi i32 [ %5028, %5031 ], [ %4889, %4892 ], [ %4995, %.loopexit4346.loopexit ]
+  %.113 = phi i32 [ %.105, %4892 ], [ %.104, %5031 ], [ %.112.ph, %.loopexit4346.loopexit ]
+  %.14 = phi i32 [ %4889, %4892 ], [ %5028, %5031 ], [ %4995, %.loopexit4346.loopexit ]
   %4996 = add nsw i32 %.14, 1
   %4997 = sext i32 %4996 to i64
   %4998 = getelementptr inbounds i8, ptr %4593, i64 %4997
@@ -147346,7 +147346,7 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents25LabelingBolelli4C
   br i1 %.not117, label %.lr.ph, label %.loopexit99
 
 .loopexit99:                                      ; preds = %.outer101, %48, %55, %59
-  %indvars.iv.next181.lcssa225.sink = phi i64 [ %indvars.iv180, %55 ], [ %indvars.iv.next181, %59 ], [ %indvars.iv.next181, %48 ], [ %indvars.iv.next181, %.outer101 ]
+  %indvars.iv.next181.lcssa225.sink = phi i64 [ %indvars.iv.next181, %59 ], [ %indvars.iv180, %55 ], [ %indvars.iv.next181, %48 ], [ %indvars.iv.next181, %.outer101 ]
   %67 = trunc nsw i64 %indvars.iv.next181.lcssa225.sink to i32
   %68 = or disjoint i32 %4, 1
   %69 = icmp slt i32 %68, %.sroa.speculated

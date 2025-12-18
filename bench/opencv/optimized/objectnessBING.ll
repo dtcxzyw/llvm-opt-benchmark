@@ -2382,7 +2382,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit30: ; preds = %47,
   br label %_ZSt7find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEN2cv8saliency18MatchPathSeparatorEET_SG_SG_T0_.exit.i
 
 _ZSt7find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEN2cv8saliency18MatchPathSeparatorEET_SG_SG_T0_.exit.i: ; preds = %.lr.ph.i.i.i.i, %114, %104, %96, %._crit_edge.i.i.i.i, %87, %81, %75
-  %.sink.i.i.i.i = phi i64 [ %spec.select.i.i.i, %114 ], [ %106, %104 ], [ %93, %96 ], [ %.cast11.i.i.i.i, %87 ], [ %.cast10.i.i.i.i, %81 ], [ %.cast.i.i.i.i, %75 ], [ %59, %._crit_edge.i.i.i.i ], [ %66, %.lr.ph.i.i.i.i ]
+  %.sink.i.i.i.i = phi i64 [ %spec.select.i.i.i, %114 ], [ %106, %104 ], [ %93, %96 ], [ %59, %._crit_edge.i.i.i.i ], [ %.cast11.i.i.i.i, %87 ], [ %.cast10.i.i.i.i, %81 ], [ %.cast.i.i.i.i, %75 ], [ %66, %.lr.ph.i.i.i.i ]
   %120 = inttoptr i64 %.sink.i.i.i.i to ptr
   %121 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %121, ptr %14, align 8, !tbaa !6, !alias.scope !85
@@ -7356,7 +7356,7 @@ define linkonce_odr hidden void @_ZN2cv8saliency15removeExtensionERKNSt7__cxx111
   br label %_ZSt4findISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEcET_SD_SD_RKT0_.exit
 
 _ZSt4findISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEcET_SD_SD_RKT0_.exit: ; preds = %.lr.ph.i.i.i, %26, %32, %38, %._crit_edge.i.i.i, %47, %._crit_edge.i._crit_edge.i.i, %._crit_edge.i._crit_edge36.i.i
-  %.sink.i.i.i = phi i64 [ %spec.select.i.i, %._crit_edge.i._crit_edge36.i.i ], [ %56, %._crit_edge.i._crit_edge.i.i ], [ %44, %47 ], [ %.cast18.i.i.i, %38 ], [ %.cast17.i.i.i, %32 ], [ %.cast.i.i.i, %26 ], [ %10, %._crit_edge.i.i.i ], [ %17, %.lr.ph.i.i.i ]
+  %.sink.i.i.i = phi i64 [ %spec.select.i.i, %._crit_edge.i._crit_edge36.i.i ], [ %56, %._crit_edge.i._crit_edge.i.i ], [ %44, %47 ], [ %10, %._crit_edge.i.i.i ], [ %.cast18.i.i.i, %38 ], [ %.cast17.i.i.i, %32 ], [ %.cast.i.i.i, %26 ], [ %17, %.lr.ph.i.i.i ]
   %69 = inttoptr i64 %.sink.i.i.i to ptr
   %70 = icmp eq ptr %5, %69
   br i1 %70, label %71, label %84

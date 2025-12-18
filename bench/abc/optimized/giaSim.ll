@@ -1392,8 +1392,8 @@ Gia_ManSimInfoZero.exit:                          ; preds = %1, %.lr.ph.preheade
   br i1 %112, label %.lr.ph.i44, label %Gia_ManSimulateNode.exit, !llvm.loop !82
 
 Gia_ManSimulateNode.exit:                         ; preds = %.lr.ph.i39, %.lr.ph5.i, %.lr.ph.i44, %.lr.ph.i, %.lr.ph9.i, %.lr.ph11.i, %.lr.ph13.i, %98, %.preheader.i42, %.preheader1.i37, %.preheader.i, %.preheader1.i, %.preheader3.i, %.preheader5.i
-  %.117 = phi i32 [ %.01654, %.preheader5.i ], [ %.01654, %.preheader3.i ], [ %.01654, %.preheader1.i ], [ %.01654, %.preheader.i ], [ %.01654, %.preheader1.i37 ], [ %.01654, %.preheader.i42 ], [ %99, %98 ], [ %.01654, %.lr.ph5.i ], [ %.01654, %.lr.ph13.i ], [ %.01654, %.lr.ph11.i ], [ %.01654, %.lr.ph9.i ], [ %.01654, %.lr.ph.i ], [ %99, %.lr.ph.i44 ], [ %.01654, %.lr.ph.i39 ]
-  %.1 = phi i32 [ %.055, %.preheader5.i ], [ %.055, %.preheader3.i ], [ %.055, %.preheader1.i ], [ %.055, %.preheader.i ], [ %76, %.preheader1.i37 ], [ %76, %.preheader.i42 ], [ %.055, %98 ], [ %76, %.lr.ph5.i ], [ %.055, %.lr.ph13.i ], [ %.055, %.lr.ph11.i ], [ %.055, %.lr.ph9.i ], [ %.055, %.lr.ph.i ], [ %.055, %.lr.ph.i44 ], [ %76, %.lr.ph.i39 ]
+  %.117 = phi i32 [ %.01654, %.lr.ph11.i ], [ %.01654, %.lr.ph13.i ], [ %.01654, %.preheader5.i ], [ %.01654, %.preheader3.i ], [ %.01654, %.lr.ph5.i ], [ %99, %.lr.ph.i44 ], [ %.01654, %.preheader1.i ], [ %.01654, %.preheader.i ], [ %.01654, %.lr.ph.i ], [ %.01654, %.preheader1.i37 ], [ %.01654, %.preheader.i42 ], [ %.01654, %.lr.ph9.i ], [ %99, %98 ], [ %.01654, %.lr.ph.i39 ]
+  %.1 = phi i32 [ %.055, %.lr.ph11.i ], [ %.055, %.lr.ph13.i ], [ %.055, %.preheader5.i ], [ %.055, %.preheader3.i ], [ %76, %.lr.ph5.i ], [ %.055, %.lr.ph.i44 ], [ %.055, %.preheader1.i ], [ %.055, %.preheader.i ], [ %.055, %.lr.ph.i ], [ %76, %.preheader1.i37 ], [ %76, %.preheader.i42 ], [ %.055, %.lr.ph9.i ], [ %.055, %98 ], [ %76, %.lr.ph.i39 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %113 = load i32, ptr %8, align 8, !tbaa !43
   %114 = sext i32 %113 to i64
@@ -2076,8 +2076,8 @@ Gia_ManSimInfoTransfer.exit:                      ; preds = %Gia_ManSimInfoTrans
   br i1 %221, label %103, label %.loopexit, !llvm.loop !100
 
 .loopexit:                                        ; preds = %Gia_ManSimInfoTransfer.exit, %Gia_ManSimInfoInit.exit, %161, %Gia_ManResetRandom.exit71, %171
-  %.1 = phi i32 [ %172, %171 ], [ %.047104, %Gia_ManResetRandom.exit71 ], [ %.047104, %161 ], [ 0, %Gia_ManSimInfoInit.exit ], [ %220, %Gia_ManSimInfoTransfer.exit ]
-  %.046 = phi i32 [ 0, %171 ], [ 1, %Gia_ManResetRandom.exit71 ], [ 1, %161 ], [ 0, %Gia_ManSimInfoInit.exit ], [ 0, %Gia_ManSimInfoTransfer.exit ]
+  %.1 = phi i32 [ %.047104, %161 ], [ %172, %171 ], [ %.047104, %Gia_ManResetRandom.exit71 ], [ 0, %Gia_ManSimInfoInit.exit ], [ %220, %Gia_ManSimInfoTransfer.exit ]
+  %.046 = phi i32 [ 1, %161 ], [ 0, %171 ], [ 1, %Gia_ManResetRandom.exit71 ], [ 0, %Gia_ManSimInfoInit.exit ], [ 0, %Gia_ManSimInfoTransfer.exit ]
   call void @Gia_ManSimDelete(ptr noundef %46)
   %222 = load ptr, ptr %42, align 8, !tbaa !95
   %223 = icmp eq ptr %222, null
@@ -3720,7 +3720,7 @@ define i32 @Gia_ManBuiltInSimPack(ptr noundef readonly captures(none) %0, ptr no
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.critedge.us, %41, %43, %.preheader.lr.ph.split, %2
-  %.0 = phi i32 [ -1, %2 ], [ %spec.select, %.preheader.lr.ph.split ], [ %.01931.us, %43 ], [ %.01931.us, %.critedge.us ], [ -1, %41 ]
+  %.0 = phi i32 [ %spec.select, %.preheader.lr.ph.split ], [ -1, %2 ], [ %.01931.us, %43 ], [ %.01931.us, %.critedge.us ], [ -1, %41 ]
   ret i32 %.0
 }
 

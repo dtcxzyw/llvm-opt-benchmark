@@ -60396,7 +60396,7 @@ define hidden void @"_ZN126_$LT$ockam_identity..models..purpose_key_attestation.
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %151, %130, %113, %3
-  %.0154.ph.ph = phi i1 [ false, %130 ], [ true, %151 ], [ true, %3 ], [ true, %113 ]
+  %.0154.ph.ph = phi i1 [ true, %151 ], [ false, %130 ], [ true, %3 ], [ true, %113 ]
   %lpad.loopexit.split-lp283 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -132618,7 +132618,7 @@ define hidden void @"_ZN120_$LT$ockam_api..nodes..models..services..StartService
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %194, %"_ZN4core3ptr108drop_in_place$LT$core..option..Option$LT$ockam_api..nodes..models..services..StartKafkaDirectRequest$GT$$GT$17h8c40d316dd949257E.exit260", %152, %3
-  %.0211.ph.ph = phi i8 [ 0, %"_ZN4core3ptr108drop_in_place$LT$core..option..Option$LT$ockam_api..nodes..models..services..StartKafkaDirectRequest$GT$$GT$17h8c40d316dd949257E.exit260" ], [ 1, %194 ], [ 1, %3 ], [ 1, %152 ]
+  %.0211.ph.ph = phi i8 [ 1, %194 ], [ 0, %"_ZN4core3ptr108drop_in_place$LT$core..option..Option$LT$ockam_api..nodes..models..services..StartKafkaDirectRequest$GT$$GT$17h8c40d316dd949257E.exit260" ], [ 1, %3 ], [ 1, %152 ]
   %lpad.loopexit.split-lp319 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -133511,7 +133511,7 @@ define hidden void @"_ZN120_$LT$ockam_api..nodes..models..services..StartService
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %153, %144, %128, %3
-  %.0229.ph.ph = phi i1 [ false, %144 ], [ true, %153 ], [ true, %3 ], [ true, %128 ]
+  %.0229.ph.ph = phi i1 [ true, %153 ], [ false, %144 ], [ true, %3 ], [ true, %128 ]
   %lpad.loopexit.split-lp335 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -134297,7 +134297,7 @@ define hidden void @"_ZN120_$LT$ockam_api..nodes..models..services..StartService
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %190, %180, %152, %3
-  %.0211.ph.ph = phi i8 [ 0, %180 ], [ 1, %190 ], [ 1, %3 ], [ 1, %152 ]
+  %.0211.ph.ph = phi i8 [ 1, %190 ], [ 0, %180 ], [ 1, %3 ], [ 1, %152 ]
   %lpad.loopexit.split-lp304 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -140167,7 +140167,7 @@ define hidden void @"_ZN104_$LT$ockam_api..nodes..service..messages..SendMessage
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %217, %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h6efece2e510a2b43E.exit256", %162, %3
-  %.0211.ph.ph = phi i8 [ 0, %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h6efece2e510a2b43E.exit256" ], [ 1, %217 ], [ 1, %3 ], [ 1, %162 ]
+  %.0211.ph.ph = phi i8 [ 1, %217 ], [ 0, %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h6efece2e510a2b43E.exit256" ], [ 1, %3 ], [ 1, %162 ]
   %lpad.loopexit.split-lp313 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp

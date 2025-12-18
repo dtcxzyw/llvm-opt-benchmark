@@ -2683,8 +2683,8 @@ fw_domains_put.exit:                              ; preds = %536
   br i1 %558, label %.thread39, label %.thread41
 
 .thread39.sink.split:                             ; preds = %497, %498, %461, %462, %391, %392, %294, %295
-  %.sink83 = phi i64 [ 224, %461 ], [ 224, %391 ], [ 328, %294 ], [ 328, %295 ], [ 224, %392 ], [ 224, %462 ], [ 208, %498 ], [ 208, %497 ]
-  %.sink = phi ptr [ %435, %461 ], [ %365, %391 ], [ %266, %294 ], [ %266, %295 ], [ %365, %392 ], [ %435, %462 ], [ %469, %498 ], [ %469, %497 ]
+  %.sink83 = phi i64 [ 328, %294 ], [ 224, %461 ], [ 224, %391 ], [ 328, %295 ], [ 224, %392 ], [ 224, %462 ], [ 208, %498 ], [ 208, %497 ]
+  %.sink = phi ptr [ %266, %294 ], [ %435, %461 ], [ %365, %391 ], [ %266, %295 ], [ %365, %392 ], [ %435, %462 ], [ %469, %498 ], [ %469, %497 ]
   %559 = getelementptr i8, ptr %0, i64 %.sink83
   store ptr %.sink, ptr %559, align 8
   br label %.thread39
@@ -2993,8 +2993,8 @@ fw_domains_put.exit:                              ; preds = %536
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %735, i32 noundef 1, ptr noundef nonnull @.str.7) #12
   br label %.thread48
 
-.thread48:                                        ; preds = %596, %.thread41, %636, %41, %734, %726, %722, %61
-  %736 = phi i32 [ -19, %61 ], [ -5, %41 ], [ -19, %636 ], [ 0, %734 ], [ 0, %726 ], [ 0, %722 ], [ %575, %.thread41 ], [ %575, %596 ]
+.thread48:                                        ; preds = %596, %636, %.thread41, %41, %734, %726, %722, %61
+  %736 = phi i32 [ -19, %61 ], [ -5, %41 ], [ %575, %.thread41 ], [ 0, %734 ], [ 0, %726 ], [ 0, %722 ], [ -19, %636 ], [ %575, %596 ]
   ret i32 %736
 }
 
@@ -3581,8 +3581,8 @@ define dso_local range(i32 -110, 1) i32 @__intel_wait_for_register_fw(ptr nounde
   br i1 %126, label %.lr.ph, label %.thread6.loopexit
 
 .thread6.loopexit:                                ; preds = %.lr.ph, %.lr.ph18, %.split13, %.split13.us
-  %.us-phi14 = phi i1 [ %91, %.split13.us ], [ %113, %.split13 ], [ %106, %.lr.ph18 ], [ %125, %.lr.ph ]
-  %.us-phi15 = phi i32 [ %89, %.split13.us ], [ %111, %.split13 ], [ %104, %.lr.ph18 ], [ %123, %.lr.ph ]
+  %.us-phi14 = phi i1 [ %106, %.lr.ph18 ], [ %91, %.split13.us ], [ %113, %.split13 ], [ %125, %.lr.ph ]
+  %.us-phi15 = phi i32 [ %104, %.lr.ph18 ], [ %89, %.split13.us ], [ %111, %.split13 ], [ %123, %.lr.ph ]
   %127 = select i1 %.us-phi14, i32 -110, i32 0
   br label %.thread6
 

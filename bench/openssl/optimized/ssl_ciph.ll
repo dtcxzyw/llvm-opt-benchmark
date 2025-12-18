@@ -781,7 +781,7 @@ ssl_cipher_info_find.exit:                        ; preds = %8
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %ssl_cipher_info_find.exit, %21, %15, %28
-  %.1 = phi i32 [ 1, %28 ], [ 1, %15 ], [ 0, %21 ], [ 0, %ssl_cipher_info_find.exit ], [ 1, %.critedge.sink.split ]
+  %.1 = phi i32 [ 0, %ssl_cipher_info_find.exit ], [ 0, %21 ], [ 1, %28 ], [ 1, %15 ], [ 1, %.critedge.sink.split ]
   ret i32 %.1
 }
 
@@ -4006,9 +4006,9 @@ switch.early.test:                                ; preds = %25
   br label %129, !llvm.loop !168
 
 .critedge30:                                      ; preds = %125, %125, %125, %125, %125, %129, %129, %129, %129, %129, %.critedge284.thread308
-  %133 = phi i8 [ %.pr343, %.critedge284.thread308 ], [ %130, %129 ], [ %130, %129 ], [ %130, %129 ], [ %130, %129 ], [ %130, %129 ], [ %126, %125 ], [ %126, %125 ], [ %126, %125 ], [ %126, %125 ], [ %126, %125 ]
-  %.7 = phi ptr [ %.3213, %.critedge284.thread308 ], [ %.8, %129 ], [ %.8, %129 ], [ %.8, %129 ], [ %.8, %129 ], [ %.8, %129 ], [ %.6, %125 ], [ %.6, %125 ], [ %.6, %125 ], [ %.6, %125 ], [ %.6, %125 ]
-  %.3204 = phi i32 [ %.0201, %.critedge284.thread308 ], [ %.0201, %129 ], [ %.0201, %129 ], [ %.0201, %129 ], [ %.0201, %129 ], [ %.0201, %129 ], [ %124, %125 ], [ %124, %125 ], [ %124, %125 ], [ %124, %125 ], [ %124, %125 ]
+  %133 = phi i8 [ %130, %129 ], [ %.pr343, %.critedge284.thread308 ], [ %130, %129 ], [ %130, %129 ], [ %130, %129 ], [ %130, %129 ], [ %126, %125 ], [ %126, %125 ], [ %126, %125 ], [ %126, %125 ], [ %126, %125 ]
+  %.7 = phi ptr [ %.8, %129 ], [ %.3213, %.critedge284.thread308 ], [ %.8, %129 ], [ %.8, %129 ], [ %.8, %129 ], [ %.8, %129 ], [ %.6, %125 ], [ %.6, %125 ], [ %.6, %125 ], [ %.6, %125 ], [ %.6, %125 ]
+  %.3204 = phi i32 [ %.0201, %129 ], [ %.0201, %.critedge284.thread308 ], [ %.0201, %129 ], [ %.0201, %129 ], [ %.0201, %129 ], [ %.0201, %129 ], [ %124, %125 ], [ %124, %125 ], [ %124, %125 ], [ %124, %125 ], [ %124, %125 ]
   %134 = icmp eq i8 %133, 0
   br i1 %134, label %.loopexit, label %7
 
@@ -4429,7 +4429,7 @@ SSL_COMP_get_compression_methods.exit.thread.sink.split: ; preds = %SSL_COMP_get
   br label %SSL_COMP_get_compression_methods.exit.thread
 
 SSL_COMP_get_compression_methods.exit.thread:     ; preds = %SSL_COMP_get_compression_methods.exit.thread.sink.split, %2, %18, %12, %7, %SSL_COMP_get_compression_methods.exit
-  %.0 = phi i32 [ 1, %SSL_COMP_get_compression_methods.exit ], [ 0, %18 ], [ 1, %12 ], [ 1, %7 ], [ 1, %2 ], [ 1, %SSL_COMP_get_compression_methods.exit.thread.sink.split ]
+  %.0 = phi i32 [ 1, %2 ], [ 1, %SSL_COMP_get_compression_methods.exit ], [ 1, %7 ], [ 0, %18 ], [ 1, %12 ], [ 1, %SSL_COMP_get_compression_methods.exit.thread.sink.split ]
   ret i32 %.0
 }
 

@@ -402,7 +402,7 @@ define internal i32 @ttml_encode_frame(ptr noundef %0, ptr noundef %1, i32 nound
   br label %.thread50
 
 .thread50:                                        ; preds = %22, %.thread48, %21, %64, %._crit_edge, %66
-  %.4 = phi i32 [ %63, %64 ], [ 0, %._crit_edge ], [ -1397118274, %66 ], [ %38, %.thread48 ], [ -22, %21 ], [ -12, %22 ]
+  %.4 = phi i32 [ %63, %64 ], [ 0, %._crit_edge ], [ -1397118274, %66 ], [ -22, %21 ], [ %38, %.thread48 ], [ -12, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.4
 }

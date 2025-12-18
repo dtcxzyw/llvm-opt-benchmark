@@ -618,7 +618,7 @@ define hidden noundef ptr @_ZN13array_factory14get_some_valueEP4sort(ptr noundef
   br i1 %.not27.old.i.i.i, label %_ZNK7obj_mapI4sortP13obj_hashtableI4exprEE4findEPS0_RS4_.exit.thread, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %37, %34
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %37 ], [ %36, %34 ]
+  %.137.i.i.i.be = phi ptr [ %36, %34 ], [ %.old.i.i.i, %37 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !82
 
 .loopexit:                                        ; preds = %18, %29
@@ -1065,7 +1065,7 @@ define hidden noundef zeroext i1 @_ZN13array_factory15get_some_valuesEP4sortR7ob
   br i1 %.not27.old.i.i.i, label %_ZNK7obj_mapI4sortP13obj_hashtableI4exprEE4findEPS0_RS4_.exit.thread, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %38, %35
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %38 ], [ %37, %35 ]
+  %.137.i.i.i.be = phi ptr [ %37, %35 ], [ %.old.i.i.i, %38 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !82
 
 .loopexit:                                        ; preds = %19, %30
@@ -1160,7 +1160,7 @@ _ZNK7obj_mapI4sortP13obj_hashtableI4exprEE4findEPS0_RS4_.exit.thread._crit_edge:
   br i1 %.not27.old.i.i.i19, label %_ZNK7obj_mapI4sortP13obj_hashtableI4exprEE4findEPS0_RS4_.exit26, label %.lr.ph38.i.i.i15.backedge
 
 .lr.ph38.i.i.i15.backedge:                        ; preds = %72, %69
-  %.137.i.i.i16.be = phi ptr [ %.old.i.i.i18, %72 ], [ %71, %69 ]
+  %.137.i.i.i16.be = phi ptr [ %71, %69 ], [ %.old.i.i.i18, %72 ]
   br label %.lr.ph38.i.i.i15, !llvm.loop !82
 
 _ZNK7obj_mapI4sortP13obj_hashtableI4exprEE9find_coreEPS0_.exit.i22: ; preds = %53, %64
@@ -1170,7 +1170,7 @@ _ZNK7obj_mapI4sortP13obj_hashtableI4exprEE9find_coreEPS0_.exit.i22: ; preds = %5
   br label %_ZNK7obj_mapI4sortP13obj_hashtableI4exprEE4findEPS0_RS4_.exit26
 
 _ZNK7obj_mapI4sortP13obj_hashtableI4exprEE4findEPS0_RS4_.exit26: ; preds = %58, %69, %72, %.preheader.i.i.i13, %_ZNK7obj_mapI4sortP13obj_hashtableI4exprEE9find_coreEPS0_.exit.i22
-  %.1 = phi ptr [ %.03638, %.preheader.i.i.i13 ], [ %74, %_ZNK7obj_mapI4sortP13obj_hashtableI4exprEE9find_coreEPS0_.exit.i22 ], [ %.03638, %69 ], [ %.03638, %72 ], [ %.03638, %58 ]
+  %.1 = phi ptr [ %.03638, %.preheader.i.i.i13 ], [ %.03638, %69 ], [ %74, %_ZNK7obj_mapI4sortP13obj_hashtableI4exprEE9find_coreEPS0_.exit.i22 ], [ %.03638, %72 ], [ %.03638, %58 ]
   %75 = load ptr, ptr %.1, align 8, !tbaa !87
   %76 = getelementptr inbounds nuw i8, ptr %.1, i64 8
   %77 = load i32, ptr %76, align 8, !tbaa !88

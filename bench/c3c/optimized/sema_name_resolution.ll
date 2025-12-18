@@ -1492,7 +1492,7 @@ sema_find_decl_in_module.exit.thread:             ; preds = %63, %matches_subpat
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %sema_find_decl_in_module.exit.thread, %sema_find_decl_in_module.exit.thread.us, %3, %8
-  %.033.lcssa = phi ptr [ null, %8 ], [ null, %3 ], [ %.1.us, %sema_find_decl_in_module.exit.thread.us ], [ %.1, %sema_find_decl_in_module.exit.thread ]
+  %.033.lcssa = phi ptr [ null, %8 ], [ %.1.us, %sema_find_decl_in_module.exit.thread.us ], [ null, %3 ], [ %.1, %sema_find_decl_in_module.exit.thread ]
   ret ptr %.033.lcssa
 }
 
@@ -2835,7 +2835,7 @@ sema_find_local.exit:                             ; preds = %105
   br i1 %.not62, label %sema_find_local.exit.thread, label %sema_find_local.exit.thread78
 
 sema_find_local.exit.thread78:                    ; preds = %.lr.ph.i.i, %100, %105, %sema_find_local.exit
-  %.0.i6981 = phi ptr [ %109, %sema_find_local.exit ], [ %97, %105 ], [ %97, %100 ], [ %80, %.lr.ph.i.i ]
+  %.0.i6981 = phi ptr [ %109, %sema_find_local.exit ], [ %97, %100 ], [ %97, %105 ], [ %80, %.lr.ph.i.i ]
   %110 = getelementptr inbounds nuw i8, ptr %.0.i6981, i64 56
   %111 = load ptr, ptr %110, align 8
   %.not63 = icmp eq ptr %111, null
@@ -3613,7 +3613,7 @@ define internal fastcc noundef zeroext i1 @decl_is_visible(ptr noundef readonly 
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph17, !llvm.loop !41
 
 .loopexit:                                        ; preds = %36, %.lr.ph17, %._crit_edge13, %.critedge90, %._crit_edge9, %46, %._crit_edge, %1
-  %.067 = phi i1 [ true, %1 ], [ true, %._crit_edge ], [ false, %46 ], [ false, %._crit_edge9 ], [ false, %.critedge90 ], [ true, %._crit_edge13 ], [ true, %.lr.ph17 ], [ true, %36 ]
+  %.067 = phi i1 [ false, %46 ], [ true, %1 ], [ true, %._crit_edge ], [ false, %.critedge90 ], [ false, %._crit_edge9 ], [ true, %._crit_edge13 ], [ true, %.lr.ph17 ], [ true, %36 ]
   ret i1 %.067
 }
 
@@ -3822,7 +3822,7 @@ sema_find_local.exit.thread:                      ; preds = %26, %12, %7, %9, %2
   br label %sema_find_local.exit.thread31
 
 sema_find_local.exit.thread31:                    ; preds = %.lr.ph.i.i, %34, %39, %55, %51, %48, %sema_find_local.exit.thread, %sema_find_local.exit
-  %.0 = phi ptr [ %50, %48 ], [ %43, %sema_find_local.exit ], [ %47, %sema_find_local.exit.thread ], [ %57, %55 ], [ %54, %51 ], [ %31, %39 ], [ %31, %34 ], [ %14, %.lr.ph.i.i ]
+  %.0 = phi ptr [ %50, %48 ], [ %43, %sema_find_local.exit ], [ %47, %sema_find_local.exit.thread ], [ %57, %55 ], [ %54, %51 ], [ %31, %34 ], [ %31, %39 ], [ %14, %.lr.ph.i.i ]
   ret ptr %.0
 }
 

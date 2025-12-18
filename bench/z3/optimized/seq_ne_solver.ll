@@ -1651,7 +1651,7 @@ _ZN3smt7context16mark_as_relevantEN3sat7literalE.exit: ; preds = %.noexc201
   br i1 %.not, label %.loopexit230, label %.lr.ph276
 
 .loopexit230:                                     ; preds = %405, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5emptyEv.exit164.thread, %_ZNK20ref_pair_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit, %176, %_ZN6vectorISt4pairI10ref_vectorI4expr11ast_managerES4_ELb1EjE9push_backERKS5_.exit
-  %.277 = phi i8 [ 1, %_ZN6vectorISt4pairI10ref_vectorI4expr11ast_managerES4_ELb1EjE9push_backERKS5_.exit ], [ 0, %176 ], [ 1, %_ZNK20ref_pair_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit ], [ 1, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5emptyEv.exit164.thread ], [ 1, %405 ]
+  %.277 = phi i8 [ 0, %176 ], [ 1, %_ZN6vectorISt4pairI10ref_vectorI4expr11ast_managerES4_ELb1EjE9push_backERKS5_.exit ], [ 1, %_ZNK20ref_pair_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit ], [ 1, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5emptyEv.exit164.thread ], [ 1, %405 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %407 = load ptr, ptr %44, align 8, !tbaa !202
@@ -1666,7 +1666,7 @@ _ZN3smt7context16mark_as_relevantEN3sat7literalE.exit: ; preds = %.noexc201
   br label %.loopexit.split-lp234
 
 .loopexit231:                                     ; preds = %147, %141, %169, %389
-  %.2.ph = phi i1 [ true, %389 ], [ false, %147 ], [ false, %141 ], [ true, %169 ]
+  %.2.ph = phi i1 [ true, %389 ], [ false, %141 ], [ true, %169 ], [ false, %147 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread221.thread

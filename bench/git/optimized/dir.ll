@@ -1407,8 +1407,8 @@ define dso_local void @parse_path_pattern(ptr noundef captures(none) %0, ptr nou
   br i1 %27, label %._crit_edge.thread58, label %30
 
 ._crit_edge.thread58:                             ; preds = %25, %10, %18, %._crit_edge
-  %28 = phi i32 [ %21, %._crit_edge ], [ %20, %18 ], [ %11, %10 ], [ %21, %25 ]
-  %.04957 = phi i64 [ %.053, %._crit_edge ], [ 0, %18 ], [ 0, %10 ], [ %.053, %25 ]
+  %28 = phi i32 [ %11, %10 ], [ %21, %._crit_edge ], [ %20, %18 ], [ %21, %25 ]
+  %.04957 = phi i64 [ 0, %10 ], [ %.053, %._crit_edge ], [ 0, %18 ], [ %.053, %25 ]
   %29 = or i32 %28, 1
   store i32 %29, ptr %2, align 4, !tbaa !10
   br label %30
@@ -1729,8 +1729,8 @@ define dso_local void @add_pattern(ptr noundef readonly captures(none) %0, ptr n
   br i1 %25, label %._crit_edge.thread58.i, label %28
 
 ._crit_edge.thread58.i:                           ; preds = %23, %._crit_edge.i, %17, %5
-  %26 = phi i32 [ %.1, %._crit_edge.i ], [ %19, %17 ], [ %.0, %5 ], [ %.1, %23 ]
-  %.04957.i = phi i64 [ %.053.i, %._crit_edge.i ], [ 0, %17 ], [ 0, %5 ], [ %.053.i, %23 ]
+  %26 = phi i32 [ %.0, %5 ], [ %.1, %._crit_edge.i ], [ %19, %17 ], [ %.1, %23 ]
+  %.04957.i = phi i64 [ 0, %5 ], [ %.053.i, %._crit_edge.i ], [ 0, %17 ], [ %.053.i, %23 ]
   %27 = or i32 %26, 1
   br label %28
 
@@ -5718,7 +5718,7 @@ define dso_local noundef ptr @git_url_basename(ptr noundef %0, i32 noundef %1, i
   br label %.critedge122
 
 .critedge122:                                     ; preds = %.preheader134, %.critedge8, %43, %.critedge6.thread
-  %.3 = phi ptr [ %spec.select123, %.critedge8 ], [ %.197166, %.critedge6.thread ], [ %.197166, %43 ], [ %.197166, %.preheader134 ]
+  %.3 = phi ptr [ %.197166, %43 ], [ %spec.select123, %.critedge8 ], [ %.197166, %.critedge6.thread ], [ %.197166, %.preheader134 ]
   br label %53
 
 53:                                               ; preds = %55, %.critedge122
@@ -7578,7 +7578,7 @@ st_add.exit54:                                    ; preds = %st_add.exit
   br i1 %75, label %.loopexit, label %68
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph61, %68, %._crit_edge, %st_mult.exit53, %16, %2
-  %.043 = phi i32 [ -1, %2 ], [ -1, %16 ], [ -1, %st_mult.exit53 ], [ 0, %._crit_edge ], [ 0, %68 ], [ -1, %.lr.ph61 ], [ -1, %.lr.ph ]
+  %.043 = phi i32 [ 0, %._crit_edge ], [ -1, %2 ], [ -1, %16 ], [ -1, %st_mult.exit53 ], [ 0, %68 ], [ -1, %.lr.ph61 ], [ -1, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.043
 }
@@ -8768,7 +8768,7 @@ within_depth.exit105.thread110:                   ; preds = %187, %switch.early.
   br i1 %196, label %47, label %within_depth.exit, !llvm.loop !253
 
 within_depth.exit:                                ; preds = %within_depth.exit105.thread110, %32, %27, %34, %15, %20
-  %.069 = phi i32 [ 1, %20 ], [ 1, %15 ], [ 0, %34 ], [ 0, %32 ], [ 4, %27 ], [ %.171, %within_depth.exit105.thread110 ]
+  %.069 = phi i32 [ 1, %20 ], [ 1, %15 ], [ 4, %27 ], [ 0, %32 ], [ 0, %34 ], [ %.171, %within_depth.exit105.thread110 ]
   ret i32 %.069
 }
 
@@ -9592,7 +9592,7 @@ match_pathspec.exit.thread103:                    ; preds = %179, %match_pathspe
   br label %treat_path_fast.exit
 
 treat_path_fast.exit:                             ; preds = %94, %179, %57, %.preheader.i, %49, %strbuf_complete.exit, %24, %match_pathspec.exit.thread103, %match_pathspec.exit, %is_excluded.exit.thread, %159, %121, %.loopexit, %is_dot_or_dotdot.exit, %git_fspathcmp.exit, %163
-  %.0 = phi i32 [ 0, %git_fspathcmp.exit ], [ 0, %is_dot_or_dotdot.exit ], [ 2, %159 ], [ %167, %163 ], [ %.not6285, %match_pathspec.exit.thread103 ], [ 0, %match_pathspec.exit ], [ 0, %is_excluded.exit.thread ], [ 0, %121 ], [ 0, %.loopexit ], [ %53, %49 ], [ 3, %24 ], [ 1, %strbuf_complete.exit ], [ 0, %.preheader.i ], [ 0, %57 ], [ 0, %179 ], [ 0, %94 ]
+  %.0 = phi i32 [ 0, %git_fspathcmp.exit ], [ 0, %is_dot_or_dotdot.exit ], [ 0, %57 ], [ 2, %159 ], [ %167, %163 ], [ %.not6285, %match_pathspec.exit.thread103 ], [ 0, %match_pathspec.exit ], [ 0, %is_excluded.exit.thread ], [ 0, %121 ], [ 0, %.loopexit ], [ %53, %49 ], [ 3, %24 ], [ 1, %strbuf_complete.exit ], [ 0, %.preheader.i ], [ 0, %179 ], [ 0, %94 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }

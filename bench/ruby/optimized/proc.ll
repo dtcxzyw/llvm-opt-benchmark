@@ -1288,7 +1288,7 @@ tailrecurse.i:                                    ; preds = %43, %28
   unreachable
 
 .loopexit:                                        ; preds = %.split29.us, %tailrecurse, %tailrecurse.us, %tailrecurse.i, %37, %.split27.us
-  %.0 = phi ptr [ %18, %.split27.us ], [ %39, %37 ], [ null, %tailrecurse ], [ null, %tailrecurse.i ], [ null, %tailrecurse.us ], [ null, %.split29.us ]
+  %.0 = phi ptr [ %18, %.split27.us ], [ null, %tailrecurse.us ], [ null, %tailrecurse ], [ null, %tailrecurse.i ], [ %39, %37 ], [ null, %.split29.us ]
   ret ptr %.0
 }
 
@@ -1429,7 +1429,7 @@ tailrecurse.i.i.i:                                ; preds = %33, %21
   br label %tailrecurse.i
 
 method_def_iseq.exit:                             ; preds = %tailrecurse.i, %.split29.us.i.i, %tailrecurse.us.i.i, %tailrecurse.i.i.i, %7, %.split27.us.i.i, %30
-  %.0.i = phi ptr [ %9, %7 ], [ %15, %.split27.us.i.i ], [ %32, %30 ], [ null, %.split29.us.i.i ], [ null, %tailrecurse.i.i.i ], [ null, %tailrecurse.us.i.i ], [ null, %tailrecurse.i ]
+  %.0.i = phi ptr [ null, %.split29.us.i.i ], [ %9, %7 ], [ %15, %.split27.us.i.i ], [ null, %tailrecurse.us.i.i ], [ %32, %30 ], [ null, %tailrecurse.i.i.i ], [ null, %tailrecurse.i ]
   ret ptr %.0.i
 }
 
@@ -2772,7 +2772,7 @@ tailrecurse.i.i.i.i:                              ; preds = %68, %56
   br label %tailrecurse.i.i
 
 rb_method_iseq.exit:                              ; preds = %tailrecurse.i.i, %.split29.us.i.i.i, %tailrecurse.us.i.i.i, %tailrecurse.i.i.i.i, %42, %.split27.us.i.i.i, %65
-  %.0.i.i = phi ptr [ %44, %42 ], [ %50, %.split27.us.i.i.i ], [ %67, %65 ], [ null, %.split29.us.i.i.i ], [ null, %tailrecurse.i.i.i.i ], [ null, %tailrecurse.us.i.i.i ], [ null, %tailrecurse.i.i ]
+  %.0.i.i = phi ptr [ null, %.split29.us.i.i.i ], [ %44, %42 ], [ %50, %.split27.us.i.i.i ], [ null, %tailrecurse.us.i.i.i ], [ %67, %65 ], [ null, %tailrecurse.i.i.i.i ], [ null, %tailrecurse.i.i ]
   %72 = getelementptr inbounds nuw i8, ptr %.048, i64 8
   %73 = load ptr, ptr %72, align 8, !tbaa !35
   %74 = getelementptr i8, ptr %73, i64 8
@@ -2884,9 +2884,9 @@ rb_obj_write.exit:                                ; preds = %.preheader, %24
   unreachable
 
 rb_obj_write.exit.thread:                         ; preds = %.preheader, %130, %env_clone.exit, %11
-  %.049 = phi ptr [ %18, %11 ], [ %106, %env_clone.exit ], [ %106, %130 ], [ null, %.preheader ]
-  %.046 = phi ptr [ %13, %11 ], [ %.0.i.i, %env_clone.exit ], [ %.0.i.i, %130 ], [ null, %.preheader ]
-  %.045 = phi i64 [ %14, %11 ], [ %36, %env_clone.exit ], [ %36, %130 ], [ 36, %.preheader ]
+  %.049 = phi ptr [ %106, %130 ], [ %18, %11 ], [ %106, %env_clone.exit ], [ null, %.preheader ]
+  %.046 = phi ptr [ %.0.i.i, %130 ], [ %13, %11 ], [ %.0.i.i, %env_clone.exit ], [ null, %.preheader ]
+  %.045 = phi i64 [ %36, %130 ], [ %14, %11 ], [ %36, %env_clone.exit ], [ 36, %.preheader ]
   %132 = load i64, ptr @rb_cBinding, align 8, !tbaa !36
   %133 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef %132, i64 noundef 48, ptr noundef nonnull @ruby_binding_data_type) #21
   %134 = inttoptr i64 %133 to ptr
@@ -3131,7 +3131,7 @@ method_def_iseq.exit.thread:                      ; preds = %tailrecurse.i, %.sp
   br label %iseq_location.exit
 
 method_def_iseq.exit:                             ; preds = %13, %.split27.us.i.i, %34
-  %.0.i.in = phi ptr [ %14, %13 ], [ %19, %.split27.us.i.i ], [ %35, %34 ]
+  %.0.i.in = phi ptr [ %35, %34 ], [ %14, %13 ], [ %19, %.split27.us.i.i ]
   %.0.i = load ptr, ptr %.0.i.in, align 8, !tbaa !35
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %.not.i = icmp eq ptr %.0.i, null
@@ -3983,7 +3983,7 @@ rb_proc_get_iseq.exit.loopexit20:                 ; preds = %tailrecurse.i
   br label %rb_proc_get_iseq.exit
 
 rb_proc_get_iseq.exit:                            ; preds = %.split29.us.i, %tailrecurse.us.i, %tailrecurse.i.i, %rb_proc_get_iseq.exit.loopexit20, %.split27.us.i, %45
-  %.0.i11 = phi ptr [ %22, %.split27.us.i ], [ %47, %45 ], [ null, %rb_proc_get_iseq.exit.loopexit20 ], [ null, %tailrecurse.us.i ], [ null, %tailrecurse.i.i ], [ null, %.split29.us.i ]
+  %.0.i11 = phi ptr [ %22, %.split27.us.i ], [ null, %tailrecurse.i.i ], [ null, %rb_proc_get_iseq.exit.loopexit20 ], [ null, %tailrecurse.us.i ], [ %47, %45 ], [ null, %.split29.us.i ]
   %57 = load i64, ptr @rb_proc_parameters.keyword_ids, align 8, !tbaa !36
   %.not = icmp eq i64 %57, 0
   br i1 %.not, label %58, label %rb_scan_args_n_opt.exit
@@ -5022,7 +5022,7 @@ rbimpl_RB_TYPE_P_fastpath.exit:                   ; preds = %rbimpl_RB_TYPE_P_fa
   br i1 %101, label %rbimpl_RB_TYPE_P_fastpath.exit172, label %RCLASS_SINGLETON_P.exit180.thread, !llvm.loop !124
 
 RCLASS_SINGLETON_P.exit180.thread:                ; preds = %rbimpl_RB_TYPE_P_fastpath.exit172, %rbimpl_RB_TYPE_P_fastpath.exit, %rbimpl_RB_TYPE_P_fastpath.exit174, %RCLASS_SINGLETON_P.exit.thread, %rbimpl_RB_TYPE_P_fastpath.exit.i179
-  %.2 = phi i64 [ %73, %rbimpl_RB_TYPE_P_fastpath.exit174 ], [ %73, %RCLASS_SINGLETON_P.exit.thread ], [ %73, %rbimpl_RB_TYPE_P_fastpath.exit.i179 ], [ %93, %rbimpl_RB_TYPE_P_fastpath.exit ], [ %93, %rbimpl_RB_TYPE_P_fastpath.exit172 ]
+  %.2 = phi i64 [ %73, %rbimpl_RB_TYPE_P_fastpath.exit.i179 ], [ %73, %RCLASS_SINGLETON_P.exit.thread ], [ %73, %rbimpl_RB_TYPE_P_fastpath.exit174 ], [ %93, %rbimpl_RB_TYPE_P_fastpath.exit ], [ %93, %rbimpl_RB_TYPE_P_fastpath.exit172 ]
   %102 = tail call i64 @rb_inspect(i64 noundef %.2) #21
   %103 = tail call i64 @rb_str_buf_append(i64 noundef %4, i64 noundef %102) #21
   %.not164 = icmp eq i64 %.1154, %.2
@@ -5842,7 +5842,7 @@ tailrecurse.i.i.i.i:                              ; preds = %39, %27
   br label %tailrecurse.i.i
 
 method_def_iseq.exit.i:                           ; preds = %tailrecurse.i.i, %.split29.us.i.i.i, %tailrecurse.us.i.i.i, %tailrecurse.i.i.i.i, %36, %.split27.us.i.i.i, %13
-  %.0.i.i = phi ptr [ %15, %13 ], [ %21, %.split27.us.i.i.i ], [ %38, %36 ], [ null, %.split29.us.i.i.i ], [ null, %tailrecurse.i.i.i.i ], [ null, %tailrecurse.us.i.i.i ], [ null, %tailrecurse.i.i ]
+  %.0.i.i = phi ptr [ null, %.split29.us.i.i.i ], [ %15, %13 ], [ %21, %.split27.us.i.i.i ], [ null, %tailrecurse.us.i.i.i ], [ %38, %36 ], [ null, %tailrecurse.i.i.i.i ], [ null, %tailrecurse.i.i ]
   %46 = tail call i64 @rb_iseq_parameters(ptr noundef %.0.i.i, i32 noundef 0) #21
   br label %method_def_parameters.exit
 
@@ -5935,7 +5935,7 @@ tailrecurse.i.i.i27.i:                            ; preds = %73, %62
   br label %tailrecurse.i16.i
 
 method_def_iseq.exit34.i:                         ; preds = %71, %.split27.us.i.i32.i, %50
-  %.0.i25.in.i = phi ptr [ %51, %50 ], [ %56, %.split27.us.i.i32.i ], [ %72, %71 ]
+  %.0.i25.in.i = phi ptr [ %72, %71 ], [ %51, %50 ], [ %56, %.split27.us.i.i32.i ]
   %.0.i25.i = load ptr, ptr %.0.i25.in.i, align 8, !tbaa !35
   %.not.i = icmp eq ptr %.0.i25.i, null
   br i1 %.not.i, label %method_def_iseq.exit34.thread.i, label %80

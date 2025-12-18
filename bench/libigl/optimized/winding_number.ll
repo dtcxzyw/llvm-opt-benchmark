@@ -499,7 +499,7 @@ define weak_odr dso_local noundef double @_ZN3igl14winding_numberIN5Eigen6Matrix
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.us28, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.us28, %.lr.ph.split.us, %.lr.ph, %3
-  %.025.lcssa = phi double [ 0.000000e+00, %3 ], [ 0.000000e+00, %.lr.ph ], [ %55, %.lr.ph.split.us ], [ %73, %.lr.ph.split.us28 ]
+  %.025.lcssa = phi double [ 0.000000e+00, %3 ], [ %55, %.lr.ph.split.us ], [ 0.000000e+00, %.lr.ph ], [ %73, %.lr.ph.split.us28 ]
   ret double %.025.lcssa
 }
 
@@ -653,7 +653,7 @@ define weak_odr dso_local noundef double @_ZN3igl14winding_numberIN5Eigen6Matrix
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.us28, !llvm.loop !51
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.us28, %.lr.ph.split.us, %.lr.ph, %3
-  %.025.lcssa = phi double [ 0.000000e+00, %3 ], [ 0.000000e+00, %.lr.ph ], [ %55, %.lr.ph.split.us ], [ %73, %.lr.ph.split.us28 ]
+  %.025.lcssa = phi double [ 0.000000e+00, %3 ], [ %55, %.lr.ph.split.us ], [ 0.000000e+00, %.lr.ph ], [ %73, %.lr.ph.split.us28 ]
   ret double %.025.lcssa
 }
 
@@ -807,7 +807,7 @@ define weak_odr dso_local noundef double @_ZN3igl14winding_numberIN5Eigen6Matrix
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.us28, !llvm.loop !67
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.us28, %.lr.ph.split.us, %.lr.ph, %3
-  %.025.lcssa = phi double [ 0.000000e+00, %3 ], [ 0.000000e+00, %.lr.ph ], [ %55, %.lr.ph.split.us ], [ %73, %.lr.ph.split.us28 ]
+  %.025.lcssa = phi double [ 0.000000e+00, %3 ], [ %55, %.lr.ph.split.us ], [ 0.000000e+00, %.lr.ph ], [ %73, %.lr.ph.split.us28 ]
   ret double %.025.lcssa
 }
 
@@ -1012,7 +1012,7 @@ define weak_odr dso_local noundef double @_ZN3igl14winding_numberIN5Eigen6Matrix
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.us28, !llvm.loop !111
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.us28, %.lr.ph.split.us, %.lr.ph, %3
-  %.025.lcssa = phi double [ 0.000000e+00, %3 ], [ 0.000000e+00, %.lr.ph ], [ %48, %.lr.ph.split.us ], [ %65, %.lr.ph.split.us28 ]
+  %.025.lcssa = phi double [ 0.000000e+00, %3 ], [ %48, %.lr.ph.split.us ], [ 0.000000e+00, %.lr.ph ], [ %65, %.lr.ph.split.us28 ]
   ret double %.025.lcssa
 }
 
@@ -1158,7 +1158,7 @@ define weak_odr dso_local noundef double @_ZN3igl14winding_numberIN5Eigen6Matrix
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.us32, !llvm.loop !135
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.us32, %.lr.ph.split.us, %.lr.ph, %3
-  %.025.lcssa = phi double [ 0.000000e+00, %3 ], [ 0.000000e+00, %.lr.ph ], [ %48, %.lr.ph.split.us ], [ %65, %.lr.ph.split.us32 ]
+  %.025.lcssa = phi double [ 0.000000e+00, %3 ], [ %48, %.lr.ph.split.us ], [ 0.000000e+00, %.lr.ph ], [ %65, %.lr.ph.split.us32 ]
   ret double %.025.lcssa
 }
 
@@ -1395,7 +1395,7 @@ define weak_odr dso_local noundef float @_ZN3igl14winding_numberIN5Eigen6MatrixI
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.us28, !llvm.loop !174
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.us28, %.lr.ph.split.us, %.lr.ph, %3
-  %.025.lcssa = phi float [ 0.000000e+00, %3 ], [ 0.000000e+00, %.lr.ph ], [ %55, %.lr.ph.split.us ], [ %73, %.lr.ph.split.us28 ]
+  %.025.lcssa = phi float [ 0.000000e+00, %3 ], [ %55, %.lr.ph.split.us ], [ 0.000000e+00, %.lr.ph ], [ %73, %.lr.ph.split.us28 ]
   ret float %.025.lcssa
 }
 
@@ -1536,7 +1536,7 @@ define weak_odr dso_local noundef float @_ZN3igl14winding_numberIN5Eigen6MatrixI
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.us28, !llvm.loop !198
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.us28, %.lr.ph.split.us, %.lr.ph, %3
-  %.025.lcssa = phi float [ 0.000000e+00, %3 ], [ 0.000000e+00, %.lr.ph ], [ %48, %.lr.ph.split.us ], [ %65, %.lr.ph.split.us28 ]
+  %.025.lcssa = phi float [ 0.000000e+00, %3 ], [ %48, %.lr.ph.split.us ], [ 0.000000e+00, %.lr.ph ], [ %65, %.lr.ph.split.us28 ]
   ret float %.025.lcssa
 }
 
@@ -1763,7 +1763,7 @@ define weak_odr dso_local noundef float @_ZN3igl14winding_numberIN5Eigen6MatrixI
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.us32, !llvm.loop !235
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.us32, %.lr.ph.split.us, %.lr.ph, %3
-  %.025.lcssa = phi float [ 0.000000e+00, %3 ], [ 0.000000e+00, %.lr.ph ], [ %48, %.lr.ph.split.us ], [ %65, %.lr.ph.split.us32 ]
+  %.025.lcssa = phi float [ 0.000000e+00, %3 ], [ %48, %.lr.ph.split.us ], [ 0.000000e+00, %.lr.ph ], [ %65, %.lr.ph.split.us32 ]
   ret float %.025.lcssa
 }
 
@@ -4275,7 +4275,7 @@ define linkonce_odr dso_local noundef double @_ZN3igl14winding_numberIN5Eigen6Ma
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.us28, !llvm.loop !388
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.us28, %.lr.ph.split.us, %.lr.ph, %3
-  %.025.lcssa = phi double [ 0.000000e+00, %3 ], [ 0.000000e+00, %.lr.ph ], [ %55, %.lr.ph.split.us ], [ %73, %.lr.ph.split.us28 ]
+  %.025.lcssa = phi double [ 0.000000e+00, %3 ], [ %55, %.lr.ph.split.us ], [ 0.000000e+00, %.lr.ph ], [ %73, %.lr.ph.split.us28 ]
   ret double %.025.lcssa
 }
 
@@ -4926,7 +4926,7 @@ _ZN3igl17WindingNumberAABBIdiE23compute_min_max_cornersEv.exit: ; preds = %_ZN3i
   br label %_ZNK5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE3sumEv.exit
 
 _ZNK5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE3sumEv.exit: ; preds = %.lr.ph82.i.i.i, %117, %110, %80
-  %.0.i = phi double [ 0.000000e+00, %80 ], [ %118, %117 ], [ %111, %110 ], [ %115, %.lr.ph82.i.i.i ]
+  %.0.i = phi double [ 0.000000e+00, %80 ], [ %111, %110 ], [ %118, %117 ], [ %115, %.lr.ph82.i.i.i ]
   %119 = fmul double %.0.i, 5.000000e-01
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store double %119, ptr %120, align 8, !tbaa !298

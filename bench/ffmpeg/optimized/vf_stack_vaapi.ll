@@ -232,7 +232,7 @@ stack_init.exit:                                  ; preds = %._crit_edge.i
   br label %stack_init.exit.thread
 
 stack_init.exit.thread:                           ; preds = %57, %._crit_edge.i, %.thread62.i, %35, %26, %stack_init.exit, %68
-  %.0 = phi i32 [ -12, %stack_init.exit ], [ 0, %68 ], [ -22, %26 ], [ -12, %.thread62.i ], [ -22, %35 ], [ -12, %._crit_edge.i ], [ %58, %57 ]
+  %.0 = phi i32 [ -12, %stack_init.exit ], [ 0, %68 ], [ -22, %26 ], [ -12, %._crit_edge.i ], [ -12, %.thread62.i ], [ -22, %35 ], [ %58, %57 ]
   ret i32 %.0
 }
 
@@ -781,7 +781,7 @@ define internal i32 @config_output(ptr noundef %0) #0 {
   br i1 %.not243.i, label %161, label %.thread268.i, !llvm.loop !89
 
 .thread.i:                                        ; preds = %.preheader273.i.preheader, %.preheader273.i._crit_edge, %222, %219, %208, %203, %189, %184, %179
-  %.2.ph.i = phi i32 [ %177, %179 ], [ -22, %222 ], [ -22, %184 ], [ -22, %189 ], [ -22, %203 ], [ -22, %208 ], [ -22, %219 ], [ -22, %.preheader273.i._crit_edge ], [ -22, %.preheader273.i.preheader ]
+  %.2.ph.i = phi i32 [ -22, %222 ], [ %177, %179 ], [ -22, %184 ], [ -22, %189 ], [ -22, %203 ], [ -22, %208 ], [ -22, %219 ], [ -22, %.preheader273.i._crit_edge ], [ -22, %.preheader273.i.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -791,8 +791,8 @@ define internal i32 @config_output(ptr noundef %0) #0 {
   br label %.critedge
 
 .loopexit276.i:                                   ; preds = %104, %75, %.thread268.i, %._crit_edge315.i, %97, %68
-  %.1188.i = phi i32 [ %.3190.lcssa.i, %.thread268.i ], [ %154, %._crit_edge315.i ], [ %.0187.i, %68 ], [ 0, %97 ], [ %.0187.i, %75 ], [ %119, %104 ]
-  %.1181.i = phi i32 [ %.3183.lcssa.i, %.thread268.i ], [ %153, %._crit_edge315.i ], [ 0, %68 ], [ %.2182.i, %97 ], [ %90, %75 ], [ %.2182.i, %104 ]
+  %.1188.i = phi i32 [ %.3190.lcssa.i, %.thread268.i ], [ %.0187.i, %68 ], [ %154, %._crit_edge315.i ], [ %.0187.i, %75 ], [ 0, %97 ], [ %119, %104 ]
+  %.1181.i = phi i32 [ %.3183.lcssa.i, %.thread268.i ], [ 0, %68 ], [ %153, %._crit_edge315.i ], [ %90, %75 ], [ %.2182.i, %97 ], [ %.2182.i, %104 ]
   %247 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %.1181.i, ptr %247, align 8, !tbaa !79
   %248 = getelementptr inbounds nuw i8, ptr %0, i64 44

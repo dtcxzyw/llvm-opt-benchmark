@@ -2459,8 +2459,8 @@ _ZL10stbi__get8P13stbi__context.exit465.i:        ; preds = %_ZL19stbi__refill_b
   br i1 %979, label %.lr.ph57.i, label %.loopexit46.i, !llvm.loop !64
 
 .loopexit46.i:                                    ; preds = %916, %976, %.preheader45.i, %.preheader47.i
-  %.3300.i = phi i32 [ %.029761.i, %.preheader45.i ], [ %.029761.i, %.preheader47.i ], [ %.5302.i, %976 ], [ %.2299.i, %916 ]
-  %.4295.i = phi i32 [ %.229362.i, %.preheader45.i ], [ %.229362.i, %.preheader47.i ], [ %970, %976 ], [ %911, %916 ]
+  %.3300.i = phi i32 [ %.5302.i, %976 ], [ %.029761.i, %.preheader45.i ], [ %.029761.i, %.preheader47.i ], [ %.2299.i, %916 ]
+  %.4295.i = phi i32 [ %970, %976 ], [ %.229362.i, %.preheader45.i ], [ %.229362.i, %.preheader47.i ], [ %911, %916 ]
   br i1 %777, label %_ZL10stbi__skipP13stbi__contexti.exit475.i, label %980
 
 980:                                              ; preds = %.loopexit46.i
@@ -2503,8 +2503,8 @@ _ZL10stbi__skipP13stbi__contexti.exit475.i:       ; preds = %.thread.i471.i, %99
   br i1 %998, label %780, label %.loopexit40.i, !llvm.loop !65
 
 .loopexit40.i:                                    ; preds = %_ZL10stbi__skipP13stbi__contexti.exit475.i, %_ZL10stbi__skipP13stbi__contexti.exit435.i, %_ZL10stbi__skipP13stbi__contexti.exit.i, %.thread27.i, %.preheader39.i, %.preheader42.i
-  %999 = phi i32 [ %425, %.preheader42.i ], [ %438, %.preheader39.i ], [ %749, %.thread27.i ], [ %686, %_ZL10stbi__skipP13stbi__contexti.exit435.i ], [ %553, %_ZL10stbi__skipP13stbi__contexti.exit.i ], [ %997, %_ZL10stbi__skipP13stbi__contexti.exit475.i ]
-  %.0291.i = phi i32 [ %202, %.preheader42.i ], [ %202, %.preheader39.i ], [ %202, %.thread27.i ], [ %202, %_ZL10stbi__skipP13stbi__contexti.exit435.i ], [ %202, %_ZL10stbi__skipP13stbi__contexti.exit.i ], [ %.4295.i, %_ZL10stbi__skipP13stbi__contexti.exit475.i ]
+  %999 = phi i32 [ %425, %.preheader42.i ], [ %438, %.preheader39.i ], [ %553, %_ZL10stbi__skipP13stbi__contexti.exit.i ], [ %686, %_ZL10stbi__skipP13stbi__contexti.exit435.i ], [ %749, %.thread27.i ], [ %997, %_ZL10stbi__skipP13stbi__contexti.exit475.i ]
+  %.0291.i = phi i32 [ %202, %.preheader42.i ], [ %202, %.preheader39.i ], [ %202, %_ZL10stbi__skipP13stbi__contexti.exit.i ], [ %202, %_ZL10stbi__skipP13stbi__contexti.exit435.i ], [ %202, %.thread27.i ], [ %.4295.i, %_ZL10stbi__skipP13stbi__contexti.exit475.i ]
   %1000 = icmp eq i32 %spec.select.i, 4
   %1001 = icmp eq i32 %.0291.i, 0
   %or.cond25.i = select i1 %1000, i1 %1001, i1 false
@@ -3403,7 +3403,7 @@ _ZL25stbi__process_scan_headerP10stbi__jpeg.exit.i.i.i: ; preds = %1380, %1375
   br i1 %exitcond356.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.preheader.us.i.i.i.i, !llvm.loop !103
 
 .loopexit.i.i.i.i:                                ; preds = %._crit_edge318.us.i.i.i.i, %1433, %1405, %.preheader.lr.ph.i.i.i.i, %1385
-  %.3.i.i.i.i = phi i32 [ 1, %1385 ], [ 1, %.preheader.lr.ph.i.i.i.i ], [ 1, %1433 ], [ 0, %1405 ], [ 1, %._crit_edge318.us.i.i.i.i ]
+  %.3.i.i.i.i = phi i32 [ 1, %1433 ], [ 1, %1385 ], [ 1, %.preheader.lr.ph.i.i.i.i ], [ 0, %1405 ], [ 1, %._crit_edge318.us.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZL30stbi__parse_entropy_coded_dataP10stbi__jpeg.exit.i.i.i
 
@@ -4841,7 +4841,7 @@ _ZL21stbi__jpeg_dequantizePsPt.exit.us.i.i.i.i:   ; preds = %2133
   br i1 %2152, label %.lr.ph.i67.i.i.i, label %_ZL23stbi__decode_jpeg_imageP10stbi__jpeg.exit.i.i, !llvm.loop !133
 
 .critedge.sink.split.i.i.i:                       ; preds = %2091, %2086, %1378, %1375, %1371, %1369, %1139, %1134, %_ZL10stbi__get8P13stbi__context.exit.i.i.i.i, %1238, %1232, %_ZL22stbi__jpeg_huff_decodeP10stbi__jpegP13stbi__huffman.exit179.i.us.i.i.i.i, %1641, %1639, %1619, %1797, %1795, %1775, %1748, %.split.us.i.i.i.i, %.split302.us.i.i.i.i, %_ZL10stbi__get8P13stbi__context.exit.thread.i.i.i.i
-  %.str.67.sink.i.i.i = phi ptr [ @.str.67, %.split302.us.i.i.i.i ], [ @.str.67, %.split.us.i.i.i.i ], [ @.str.62, %_ZL10stbi__get8P13stbi__context.exit.thread.i.i.i.i ], [ @.str.65, %1238 ], [ @.str.67, %1797 ], [ @.str.67, %_ZL22stbi__jpeg_huff_decodeP10stbi__jpegP13stbi__huffman.exit179.i.us.i.i.i.i ], [ @.str.67, %1748 ], [ @.str.67, %1775 ], [ @.str.67, %1795 ], [ @.str.67, %1619 ], [ @.str.67, %1639 ], [ @.str.67, %1641 ], [ @.str.64, %1232 ], [ @.str.66, %1371 ], [ @.str.66, %1375 ], [ @.str.62, %_ZL10stbi__get8P13stbi__context.exit.i.i.i.i ], [ @.str.62, %1134 ], [ @.str.60, %2086 ], [ @.str.63, %1139 ], [ @.str.66, %1378 ], [ @.str.66, %1369 ], [ @.str.61, %2091 ]
+  %.str.67.sink.i.i.i = phi ptr [ @.str.62, %_ZL10stbi__get8P13stbi__context.exit.thread.i.i.i.i ], [ @.str.67, %.split302.us.i.i.i.i ], [ @.str.67, %1797 ], [ @.str.67, %.split.us.i.i.i.i ], [ @.str.67, %_ZL22stbi__jpeg_huff_decodeP10stbi__jpegP13stbi__huffman.exit179.i.us.i.i.i.i ], [ @.str.65, %1238 ], [ @.str.67, %1748 ], [ @.str.67, %1775 ], [ @.str.67, %1795 ], [ @.str.67, %1619 ], [ @.str.67, %1639 ], [ @.str.67, %1641 ], [ @.str.64, %1232 ], [ @.str.62, %_ZL10stbi__get8P13stbi__context.exit.i.i.i.i ], [ @.str.63, %1139 ], [ @.str.66, %1369 ], [ @.str.66, %1375 ], [ @.str.66, %1378 ], [ @.str.61, %2091 ], [ @.str.66, %1371 ], [ @.str.60, %2086 ], [ @.str.62, %1134 ]
   store ptr %.str.67.sink.i.i.i, ptr @_ZL22stbi__g_failure_reason, align 8, !tbaa !5
   br label %.loopexit366.i.i
 
@@ -5750,7 +5750,7 @@ _ZL18stbi__cleanup_jpegP10stbi__jpeg.exit327.i.i: ; preds = %2306, %_ZL17stbi__m
   br label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %2577, %2534, %.lr.ph415.i.i, %.lr.ph417.i.i, %2501, %2480, %2424, %2378, %2358, %.lr.ph442.i.i, %.loopexit.sink.split.i.i, %.preheader361.i.i, %.preheader363.i.i, %.preheader359.i.i, %.preheader357.i.i, %.preheader353.i.i, %.preheader355.i.i, %2416, %.preheader350.i.i, %.preheader348.i.i, %.preheader.i.i
-  %2616 = phi ptr [ %2350, %.preheader.i.i ], [ %.pre.i63, %.loopexit.sink.split.i.i ], [ %2471, %.preheader361.i.i ], [ %2471, %.preheader363.i.i ], [ %2471, %.preheader359.i.i ], [ %2471, %.preheader357.i.i ], [ %2471, %.preheader353.i.i ], [ %2471, %.preheader355.i.i ], [ %2421, %2416 ], [ %2350, %.preheader350.i.i ], [ %2350, %.preheader348.i.i ], [ %2471, %2534 ], [ %2350, %.lr.ph442.i.i ], [ %2350, %2358 ], [ %2350, %2378 ], [ %2421, %2424 ], [ %2471, %2480 ], [ %2471, %2501 ], [ %2471, %.lr.ph417.i.i ], [ %2471, %.lr.ph415.i.i ], [ %2471, %2577 ]
+  %2616 = phi ptr [ %2471, %2501 ], [ %2471, %2480 ], [ %2421, %2424 ], [ %2350, %2378 ], [ %2350, %2358 ], [ %2350, %.lr.ph442.i.i ], [ %2471, %2534 ], [ %2471, %.lr.ph415.i.i ], [ %2471, %.lr.ph417.i.i ], [ %2350, %.preheader.i.i ], [ %.pre.i63, %.loopexit.sink.split.i.i ], [ %2471, %.preheader361.i.i ], [ %2471, %.preheader363.i.i ], [ %2471, %.preheader359.i.i ], [ %2471, %.preheader357.i.i ], [ %2471, %.preheader353.i.i ], [ %2471, %.preheader355.i.i ], [ %2421, %2416 ], [ %2350, %.preheader350.i.i ], [ %2350, %.preheader348.i.i ], [ %2471, %2577 ]
   %2617 = add nuw i32 %.0264443.i.i, 1
   %2618 = getelementptr inbounds nuw i8, ptr %2616, i64 4
   %2619 = load i32, ptr %2618, align 4, !tbaa !43
@@ -5844,7 +5844,7 @@ _ZL18stbi__cleanup_jpegP10stbi__jpeg.exit336.i.i: ; preds = %_ZL18stbi__cleanup_
   br label %_ZL15load_jpeg_imageP10stbi__jpegPiS1_S1_i.exit.i
 
 _ZL15load_jpeg_imageP10stbi__jpegPiS1_S1_i.exit.i: ; preds = %2211, %2172, %2647, %2194, %.loopexit366.i.i, %1055
-  %.0.i.i56 = phi ptr [ null, %1055 ], [ %.3.i.i, %2647 ], [ null, %.loopexit366.i.i ], [ null, %2194 ], [ null, %2172 ], [ null, %2211 ]
+  %.0.i.i56 = phi ptr [ null, %1055 ], [ null, %2172 ], [ %.3.i.i, %2647 ], [ null, %.loopexit366.i.i ], [ null, %2194 ], [ null, %2211 ]
   call void @free(ptr noundef nonnull %calloc.i52) #39
   br label %_ZL15stbi__jpeg_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit
 
@@ -7744,21 +7744,21 @@ _ZL24stbi__expand_png_paletteP9stbi__pngPhii.exit: ; preds = %.lr.ph.i, %.lr.ph5
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZL10stbi__get8P13stbi__context.exit336, %.lr.ph738, %.lr.ph740, %_ZL10stbi__get8P13stbi__context.exit330, %.preheader414, %.preheader412, %.preheader410, %.preheader, %_ZL10stbi__getnP13stbi__contextPhi.exit, %70, %74, %86, %.thread.i, %201, %210, %_ZL10stbi__getnP13stbi__contextPhi.exit.thread384, %660, %664, %676, %.thread.i359
-  %.1242 = phi i32 [ %.0241, %_ZL10stbi__getnP13stbi__contextPhi.exit.thread384 ], [ %.0241, %_ZL10stbi__getnP13stbi__contextPhi.exit ], [ %.0241, %.thread.i ], [ %.0241, %70 ], [ %.0241, %74 ], [ %.0241, %86 ], [ %192, %210 ], [ %192, %201 ], [ %.0241, %660 ], [ %.0241, %664 ], [ %.0241, %676 ], [ %.0241, %.thread.i359 ], [ %.0241, %.preheader412 ], [ %.0241, %.preheader ], [ %.0241, %.preheader410 ], [ %.0241, %.preheader414 ], [ %.0241, %.lr.ph738 ], [ %.0241, %_ZL10stbi__get8P13stbi__context.exit330 ], [ %.0241, %.lr.ph740 ], [ %.0241, %_ZL10stbi__get8P13stbi__context.exit336 ]
-  %.1238 = phi i32 [ %.0237, %_ZL10stbi__getnP13stbi__contextPhi.exit.thread384 ], [ %.0237, %_ZL10stbi__getnP13stbi__contextPhi.exit ], [ %.0237, %.thread.i ], [ %.0237, %70 ], [ %.0237, %74 ], [ %.0237, %86 ], [ %184, %210 ], [ %184, %201 ], [ %.0237, %660 ], [ %.0237, %664 ], [ %.0237, %676 ], [ %.0237, %.thread.i359 ], [ %.0237, %.preheader412 ], [ %.0237, %.preheader ], [ %.0237, %.preheader410 ], [ %.0237, %.preheader414 ], [ %.0237, %.lr.ph738 ], [ %.0237, %_ZL10stbi__get8P13stbi__context.exit330 ], [ %.0237, %.lr.ph740 ], [ %.0237, %_ZL10stbi__get8P13stbi__context.exit336 ]
-  %.1235 = phi i32 [ %.0234, %_ZL10stbi__getnP13stbi__contextPhi.exit.thread384 ], [ %.0234, %_ZL10stbi__getnP13stbi__contextPhi.exit ], [ 1, %.thread.i ], [ 1, %70 ], [ 1, %74 ], [ 1, %86 ], [ %.0234, %210 ], [ %.0234, %201 ], [ %.0234, %660 ], [ %.0234, %664 ], [ %.0234, %676 ], [ %.0234, %.thread.i359 ], [ %.0234, %.preheader412 ], [ %.0234, %.preheader ], [ %.0234, %.preheader410 ], [ %.0234, %.preheader414 ], [ %.0234, %.lr.ph738 ], [ %.0234, %_ZL10stbi__get8P13stbi__context.exit330 ], [ %.0234, %.lr.ph740 ], [ %.0234, %_ZL10stbi__get8P13stbi__context.exit336 ]
-  %.1231 = phi i32 [ 0, %_ZL10stbi__getnP13stbi__contextPhi.exit.thread384 ], [ 0, %_ZL10stbi__getnP13stbi__contextPhi.exit ], [ %.0230, %.thread.i ], [ %.0230, %70 ], [ %.0230, %74 ], [ %.0230, %86 ], [ 0, %210 ], [ 0, %201 ], [ 0, %660 ], [ 0, %664 ], [ 0, %676 ], [ 0, %.thread.i359 ], [ 0, %.preheader412 ], [ 0, %.preheader ], [ 0, %.preheader410 ], [ 0, %.preheader414 ], [ 0, %.lr.ph738 ], [ 0, %_ZL10stbi__get8P13stbi__context.exit330 ], [ 0, %.lr.ph740 ], [ 0, %_ZL10stbi__get8P13stbi__context.exit336 ]
-  %.1224 = phi i32 [ %.0223, %_ZL10stbi__getnP13stbi__contextPhi.exit.thread384 ], [ %.0223, %_ZL10stbi__getnP13stbi__contextPhi.exit ], [ %.0223, %.thread.i ], [ %.0223, %70 ], [ %.0223, %74 ], [ %.0223, %86 ], [ %.0223, %210 ], [ %.0223, %201 ], [ %.0223, %660 ], [ %.0223, %664 ], [ %.0223, %676 ], [ %.0223, %.thread.i359 ], [ %.0223, %.preheader412 ], [ %.zext, %.preheader ], [ %.0223, %.preheader410 ], [ %.0223, %.preheader414 ], [ %.0223, %.lr.ph738 ], [ %.zext, %_ZL10stbi__get8P13stbi__context.exit330 ], [ %.0223, %.lr.ph740 ], [ %.0223, %_ZL10stbi__get8P13stbi__context.exit336 ]
-  %.1216 = phi i32 [ %.3218, %_ZL10stbi__getnP13stbi__contextPhi.exit.thread384 ], [ %.3218, %_ZL10stbi__getnP13stbi__contextPhi.exit ], [ %.0215, %.thread.i ], [ %.0215, %70 ], [ %.0215, %74 ], [ %.0215, %86 ], [ %.0215, %210 ], [ %.0215, %201 ], [ %.0215, %660 ], [ %.0215, %664 ], [ %.0215, %676 ], [ %.0215, %.thread.i359 ], [ %.0215, %.preheader412 ], [ %.0215, %.preheader ], [ %.0215, %.preheader410 ], [ %.0215, %.preheader414 ], [ %.0215, %.lr.ph738 ], [ %.0215, %_ZL10stbi__get8P13stbi__context.exit330 ], [ %.0215, %.lr.ph740 ], [ %.0215, %_ZL10stbi__get8P13stbi__context.exit336 ]
-  %.1213 = phi i32 [ %404, %_ZL10stbi__getnP13stbi__contextPhi.exit.thread384 ], [ %404, %_ZL10stbi__getnP13stbi__contextPhi.exit ], [ %.0212, %.thread.i ], [ %.0212, %70 ], [ %.0212, %74 ], [ %.0212, %86 ], [ %.0212, %210 ], [ %.0212, %201 ], [ %.0212, %660 ], [ %.0212, %664 ], [ %.0212, %676 ], [ %.0212, %.thread.i359 ], [ %.0212, %.preheader412 ], [ %.0212, %.preheader ], [ %.0212, %.preheader410 ], [ %.0212, %.preheader414 ], [ %.0212, %.lr.ph738 ], [ %.0212, %_ZL10stbi__get8P13stbi__context.exit330 ], [ %.0212, %.lr.ph740 ], [ %.0212, %_ZL10stbi__get8P13stbi__context.exit336 ]
-  %.1210 = phi i8 [ %.0209, %_ZL10stbi__getnP13stbi__contextPhi.exit.thread384 ], [ %.0209, %_ZL10stbi__getnP13stbi__contextPhi.exit ], [ %.0209, %.thread.i ], [ %.0209, %70 ], [ %.0209, %74 ], [ %.0209, %86 ], [ %.0209, %210 ], [ %.0209, %201 ], [ %.0209, %660 ], [ %.0209, %664 ], [ %.0209, %676 ], [ %.0209, %.thread.i359 ], [ 1, %.preheader412 ], [ %.0209, %.preheader ], [ 1, %.preheader410 ], [ %.0209, %.preheader414 ], [ 1, %.lr.ph738 ], [ %.0209, %_ZL10stbi__get8P13stbi__context.exit330 ], [ 1, %.lr.ph740 ], [ %.0209, %_ZL10stbi__get8P13stbi__context.exit336 ]
-  %.1205 = phi i8 [ %.0204, %_ZL10stbi__getnP13stbi__contextPhi.exit.thread384 ], [ %.0204, %_ZL10stbi__getnP13stbi__contextPhi.exit ], [ %.0204, %.thread.i ], [ %.0204, %70 ], [ %.0204, %74 ], [ %.0204, %86 ], [ %.3207, %210 ], [ 0, %201 ], [ %.0204, %660 ], [ %.0204, %664 ], [ %.0204, %676 ], [ %.0204, %.thread.i359 ], [ 0, %.preheader412 ], [ %.0204, %.preheader ], [ 0, %.preheader410 ], [ 4, %.preheader414 ], [ 0, %.lr.ph738 ], [ %.0204, %_ZL10stbi__get8P13stbi__context.exit330 ], [ 0, %.lr.ph740 ], [ 4, %_ZL10stbi__get8P13stbi__context.exit336 ]
+  %.1242 = phi i32 [ %.0241, %_ZL10stbi__getnP13stbi__contextPhi.exit.thread384 ], [ %.0241, %_ZL10stbi__getnP13stbi__contextPhi.exit ], [ %.0241, %.thread.i ], [ %.0241, %.thread.i359 ], [ %.0241, %.preheader410 ], [ %.0241, %.preheader412 ], [ %.0241, %.preheader ], [ %.0241, %70 ], [ %.0241, %74 ], [ %.0241, %86 ], [ %192, %210 ], [ %192, %201 ], [ %.0241, %660 ], [ %.0241, %664 ], [ %.0241, %676 ], [ %.0241, %.preheader414 ], [ %.0241, %.lr.ph738 ], [ %.0241, %_ZL10stbi__get8P13stbi__context.exit330 ], [ %.0241, %.lr.ph740 ], [ %.0241, %_ZL10stbi__get8P13stbi__context.exit336 ]
+  %.1238 = phi i32 [ %.0237, %_ZL10stbi__getnP13stbi__contextPhi.exit.thread384 ], [ %.0237, %_ZL10stbi__getnP13stbi__contextPhi.exit ], [ %.0237, %.thread.i ], [ %.0237, %.thread.i359 ], [ %.0237, %.preheader410 ], [ %.0237, %.preheader412 ], [ %.0237, %.preheader ], [ %.0237, %70 ], [ %.0237, %74 ], [ %.0237, %86 ], [ %184, %210 ], [ %184, %201 ], [ %.0237, %660 ], [ %.0237, %664 ], [ %.0237, %676 ], [ %.0237, %.preheader414 ], [ %.0237, %.lr.ph738 ], [ %.0237, %_ZL10stbi__get8P13stbi__context.exit330 ], [ %.0237, %.lr.ph740 ], [ %.0237, %_ZL10stbi__get8P13stbi__context.exit336 ]
+  %.1235 = phi i32 [ %.0234, %_ZL10stbi__getnP13stbi__contextPhi.exit.thread384 ], [ %.0234, %_ZL10stbi__getnP13stbi__contextPhi.exit ], [ 1, %.thread.i ], [ %.0234, %.thread.i359 ], [ %.0234, %.preheader410 ], [ %.0234, %.preheader412 ], [ %.0234, %.preheader ], [ 1, %70 ], [ 1, %74 ], [ 1, %86 ], [ %.0234, %210 ], [ %.0234, %201 ], [ %.0234, %660 ], [ %.0234, %664 ], [ %.0234, %676 ], [ %.0234, %.preheader414 ], [ %.0234, %.lr.ph738 ], [ %.0234, %_ZL10stbi__get8P13stbi__context.exit330 ], [ %.0234, %.lr.ph740 ], [ %.0234, %_ZL10stbi__get8P13stbi__context.exit336 ]
+  %.1231 = phi i32 [ 0, %_ZL10stbi__getnP13stbi__contextPhi.exit.thread384 ], [ 0, %_ZL10stbi__getnP13stbi__contextPhi.exit ], [ %.0230, %.thread.i ], [ 0, %.thread.i359 ], [ 0, %.preheader410 ], [ 0, %.preheader412 ], [ 0, %.preheader ], [ %.0230, %70 ], [ %.0230, %74 ], [ %.0230, %86 ], [ 0, %210 ], [ 0, %201 ], [ 0, %660 ], [ 0, %664 ], [ 0, %676 ], [ 0, %.preheader414 ], [ 0, %.lr.ph738 ], [ 0, %_ZL10stbi__get8P13stbi__context.exit330 ], [ 0, %.lr.ph740 ], [ 0, %_ZL10stbi__get8P13stbi__context.exit336 ]
+  %.1224 = phi i32 [ %.0223, %_ZL10stbi__getnP13stbi__contextPhi.exit.thread384 ], [ %.0223, %_ZL10stbi__getnP13stbi__contextPhi.exit ], [ %.0223, %.thread.i ], [ %.0223, %.thread.i359 ], [ %.0223, %.preheader410 ], [ %.0223, %.preheader412 ], [ %.zext, %.preheader ], [ %.0223, %70 ], [ %.0223, %74 ], [ %.0223, %86 ], [ %.0223, %210 ], [ %.0223, %201 ], [ %.0223, %660 ], [ %.0223, %664 ], [ %.0223, %676 ], [ %.0223, %.preheader414 ], [ %.0223, %.lr.ph738 ], [ %.zext, %_ZL10stbi__get8P13stbi__context.exit330 ], [ %.0223, %.lr.ph740 ], [ %.0223, %_ZL10stbi__get8P13stbi__context.exit336 ]
+  %.1216 = phi i32 [ %.3218, %_ZL10stbi__getnP13stbi__contextPhi.exit.thread384 ], [ %.3218, %_ZL10stbi__getnP13stbi__contextPhi.exit ], [ %.0215, %.thread.i ], [ %.0215, %.thread.i359 ], [ %.0215, %.preheader410 ], [ %.0215, %.preheader412 ], [ %.0215, %.preheader ], [ %.0215, %70 ], [ %.0215, %74 ], [ %.0215, %86 ], [ %.0215, %210 ], [ %.0215, %201 ], [ %.0215, %660 ], [ %.0215, %664 ], [ %.0215, %676 ], [ %.0215, %.preheader414 ], [ %.0215, %.lr.ph738 ], [ %.0215, %_ZL10stbi__get8P13stbi__context.exit330 ], [ %.0215, %.lr.ph740 ], [ %.0215, %_ZL10stbi__get8P13stbi__context.exit336 ]
+  %.1213 = phi i32 [ %404, %_ZL10stbi__getnP13stbi__contextPhi.exit.thread384 ], [ %404, %_ZL10stbi__getnP13stbi__contextPhi.exit ], [ %.0212, %.thread.i ], [ %.0212, %.thread.i359 ], [ %.0212, %.preheader410 ], [ %.0212, %.preheader412 ], [ %.0212, %.preheader ], [ %.0212, %70 ], [ %.0212, %74 ], [ %.0212, %86 ], [ %.0212, %210 ], [ %.0212, %201 ], [ %.0212, %660 ], [ %.0212, %664 ], [ %.0212, %676 ], [ %.0212, %.preheader414 ], [ %.0212, %.lr.ph738 ], [ %.0212, %_ZL10stbi__get8P13stbi__context.exit330 ], [ %.0212, %.lr.ph740 ], [ %.0212, %_ZL10stbi__get8P13stbi__context.exit336 ]
+  %.1210 = phi i8 [ %.0209, %_ZL10stbi__getnP13stbi__contextPhi.exit.thread384 ], [ %.0209, %_ZL10stbi__getnP13stbi__contextPhi.exit ], [ %.0209, %.thread.i ], [ %.0209, %.thread.i359 ], [ 1, %.preheader410 ], [ 1, %.preheader412 ], [ %.0209, %.preheader ], [ %.0209, %70 ], [ %.0209, %74 ], [ %.0209, %86 ], [ %.0209, %210 ], [ %.0209, %201 ], [ %.0209, %660 ], [ %.0209, %664 ], [ %.0209, %676 ], [ %.0209, %.preheader414 ], [ 1, %.lr.ph738 ], [ %.0209, %_ZL10stbi__get8P13stbi__context.exit330 ], [ 1, %.lr.ph740 ], [ %.0209, %_ZL10stbi__get8P13stbi__context.exit336 ]
+  %.1205 = phi i8 [ %.0204, %_ZL10stbi__getnP13stbi__contextPhi.exit.thread384 ], [ %.0204, %_ZL10stbi__getnP13stbi__contextPhi.exit ], [ %.0204, %.thread.i ], [ %.0204, %.thread.i359 ], [ 0, %.preheader410 ], [ 0, %.preheader412 ], [ %.0204, %.preheader ], [ %.0204, %70 ], [ %.0204, %74 ], [ %.0204, %86 ], [ %.3207, %210 ], [ 0, %201 ], [ %.0204, %660 ], [ %.0204, %664 ], [ %.0204, %676 ], [ 4, %.preheader414 ], [ 0, %.lr.ph738 ], [ %.0204, %_ZL10stbi__get8P13stbi__context.exit330 ], [ 0, %.lr.ph740 ], [ 4, %_ZL10stbi__get8P13stbi__context.exit336 ]
   %683 = tail call fastcc noundef i32 @_ZL13stbi__get16beP13stbi__context(ptr noundef %8)
   %684 = tail call fastcc noundef i32 @_ZL13stbi__get16beP13stbi__context(ptr noundef %8)
   br label %61, !llvm.loop !180
 
 .thread397:                                       ; preds = %403, %.thread.i351, %_ZL17stbi__malloc_mad3iiii.exit.thread.i, %183, %199, %209, %94, %214, %194, %189, %186, %181, %175, %146, %111, %107, %96, %446, %451, %644, %447, %stbi_zlib_decode_malloc_guesssize_headerflag.exit, %_ZL22stbi__create_png_imageP9stbi__pngPhjiiii.exit, %stbi_zlib_decode_malloc_guesssize_headerflag.exit.thread, %_ZL24stbi__expand_png_paletteP9stbi__pngPhii.exit.thread, %398, %395, %.thread380, %_ZL10stbi__getnP13stbi__contextPhi.exit.thread, %397, %402, %391, %362, %367, %365, %326, %322, %319, %316, %313, %223, %219, %216, %653, %649, %_ZL22stbi__check_png_headerP13stbi__context.exit.thread, %_ZL22stbi__check_png_headerP13stbi__context.exit
-  %.0 = phi i32 [ 0, %_ZL22stbi__check_png_headerP13stbi__context.exit.thread ], [ 1, %_ZL22stbi__check_png_headerP13stbi__context.exit ], [ 0, %183 ], [ 0, %stbi_zlib_decode_malloc_guesssize_headerflag.exit.thread ], [ 0, %_ZL24stbi__expand_png_paletteP9stbi__pngPhii.exit.thread ], [ 0, %_ZL22stbi__create_png_imageP9stbi__pngPhjiiii.exit ], [ 1, %644 ], [ 1, %447 ], [ 0, %451 ], [ 0, %stbi_zlib_decode_malloc_guesssize_headerflag.exit ], [ 0, %446 ], [ 1, %398 ], [ 0, %395 ], [ 0, %.thread380 ], [ 0, %_ZL10stbi__getnP13stbi__contextPhi.exit.thread ], [ 1, %397 ], [ 0, %402 ], [ 0, %391 ], [ 0, %362 ], [ 1, %367 ], [ 0, %365 ], [ 0, %326 ], [ 0, %322 ], [ 1, %319 ], [ 0, %316 ], [ 0, %313 ], [ 0, %223 ], [ 0, %219 ], [ 0, %216 ], [ 0, %649 ], [ 0, %653 ], [ 0, %96 ], [ 0, %107 ], [ 0, %111 ], [ 0, %146 ], [ 0, %175 ], [ 0, %181 ], [ 0, %186 ], [ 0, %189 ], [ 0, %194 ], [ 0, %214 ], [ 0, %94 ], [ 0, %209 ], [ 0, %199 ], [ 0, %_ZL17stbi__malloc_mad3iiii.exit.thread.i ], [ 0, %.thread.i351 ], [ 0, %403 ]
+  %.0 = phi i32 [ 0, %_ZL22stbi__check_png_headerP13stbi__context.exit.thread ], [ 1, %_ZL22stbi__check_png_headerP13stbi__context.exit ], [ 0, %183 ], [ 0, %stbi_zlib_decode_malloc_guesssize_headerflag.exit.thread ], [ 0, %_ZL24stbi__expand_png_paletteP9stbi__pngPhii.exit.thread ], [ 0, %_ZL22stbi__create_png_imageP9stbi__pngPhjiiii.exit ], [ 1, %644 ], [ 1, %447 ], [ 0, %451 ], [ 0, %stbi_zlib_decode_malloc_guesssize_headerflag.exit ], [ 0, %446 ], [ 1, %398 ], [ 0, %395 ], [ 0, %.thread380 ], [ 0, %_ZL10stbi__getnP13stbi__contextPhi.exit.thread ], [ 1, %397 ], [ 0, %402 ], [ 0, %.thread.i351 ], [ 0, %391 ], [ 0, %362 ], [ 1, %367 ], [ 0, %365 ], [ 0, %326 ], [ 0, %322 ], [ 1, %319 ], [ 0, %316 ], [ 0, %313 ], [ 0, %223 ], [ 0, %219 ], [ 0, %216 ], [ 0, %649 ], [ 0, %653 ], [ 0, %96 ], [ 0, %107 ], [ 0, %111 ], [ 0, %146 ], [ 0, %175 ], [ 0, %181 ], [ 0, %186 ], [ 0, %189 ], [ 0, %194 ], [ 0, %214 ], [ 0, %94 ], [ 0, %209 ], [ 0, %199 ], [ 0, %_ZL17stbi__malloc_mad3iiii.exit.thread.i ], [ 0, %403 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -9806,7 +9806,7 @@ _ZL21stbi__mad3sizes_validiiii.exit._crit_edge:   ; preds = %39, %_ZL21stbi__mul
   br i1 %.not608, label %.loopexit725, label %.preheader710, !llvm.loop !234
 
 .loopexit725:                                     ; preds = %._crit_edge742, %._crit_edge750, %._crit_edge759, %._crit_edge769, %._crit_edge779, %._crit_edge789, %._crit_edge798, %.preheader736, %.preheader734, %.preheader732, %.preheader730, %.preheader728, %.preheader726, %.preheader724, %203
-  %.4529 = phi ptr [ %.2527, %203 ], [ %.2527, %.preheader724 ], [ %.2527, %.preheader726 ], [ %.2527, %.preheader728 ], [ %.2527, %.preheader730 ], [ %.2527, %.preheader732 ], [ %.2527, %.preheader734 ], [ %.2527, %.preheader736 ], [ %285, %._crit_edge750 ], [ %215, %._crit_edge798 ], [ %224, %._crit_edge789 ], [ %232, %._crit_edge779 ], [ %248, %._crit_edge769 ], [ %274, %._crit_edge759 ], [ %294, %._crit_edge742 ]
+  %.4529 = phi ptr [ %.2527, %203 ], [ %232, %._crit_edge779 ], [ %248, %._crit_edge769 ], [ %274, %._crit_edge759 ], [ %285, %._crit_edge750 ], [ %215, %._crit_edge798 ], [ %224, %._crit_edge789 ], [ %.2527, %.preheader724 ], [ %.2527, %.preheader726 ], [ %.2527, %.preheader728 ], [ %.2527, %.preheader730 ], [ %.2527, %.preheader732 ], [ %.2527, %.preheader734 ], [ %.2527, %.preheader736 ], [ %294, %._crit_edge742 ]
   br i1 %brmerge.not, label %.lr.ph808, label %.loopexit723
 
 .lr.ph808:                                        ; preds = %.loopexit725
@@ -9827,7 +9827,7 @@ _ZL21stbi__mad3sizes_validiiii.exit._crit_edge:   ; preds = %39, %_ZL21stbi__mul
   br i1 %exitcond932.not, label %.loopexit723, label %299, !llvm.loop !235
 
 .loopexit723:                                     ; preds = %299, %.loopexit725, %.loopexit712
-  %.1526 = phi ptr [ %202, %.loopexit712 ], [ %.4529, %.loopexit725 ], [ %.4529, %299 ]
+  %.1526 = phi ptr [ %.4529, %.loopexit725 ], [ %202, %.loopexit712 ], [ %.4529, %299 ]
   %indvars.iv.next964 = add nuw nsw i64 %indvars.iv963, 1
   %exitcond967.not = icmp eq i64 %indvars.iv.next964, %wide.trip.count966
   br i1 %exitcond967.not, label %._crit_edge826, label %59, !llvm.loop !236
@@ -10204,7 +10204,7 @@ _ZL21stbi__mad3sizes_validiiii.exit._crit_edge:   ; preds = %39, %_ZL21stbi__mul
   br label %.critedge
 
 .critedge:                                        ; preds = %.loopexit, %.lr.ph831, %.critedge.sink.split, %._crit_edge826.thread, %476, %475
-  %.0517 = phi i32 [ 1, %475 ], [ 0, %.critedge.sink.split ], [ 1, %476 ], [ 1, %._crit_edge826.thread ], [ 1, %.lr.ph831 ], [ 1, %.loopexit ]
+  %.0517 = phi i32 [ 1, %.lr.ph831 ], [ 1, %475 ], [ 1, %._crit_edge826.thread ], [ 1, %476 ], [ 0, %.critedge.sink.split ], [ 1, %.loopexit ]
   ret i32 %.0517
 }
 
@@ -13529,7 +13529,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL19stbi__build_huffmanP13s
   br label %.loopexit65
 
 .loopexit65:                                      ; preds = %.loopexit, %.loopexit65.sink.split, %47
-  %.0 = phi i32 [ 1, %47 ], [ 0, %.loopexit65.sink.split ], [ 1, %.loopexit ]
+  %.0 = phi i32 [ 0, %.loopexit65.sink.split ], [ 1, %47 ], [ 1, %.loopexit ]
   ret i32 %.0
 }
 
@@ -14170,7 +14170,7 @@ _ZL20stbi__extend_receiveP10stbi__jpegi.exit95:   ; preds = %205, %208
   br label %.thread118.sink.split
 
 .thread118.sink.split:                            ; preds = %177, %175, %155, %126, %.thread118.sink.split.sink.split, %_ZL22stbi__mul2shorts_validss.exit, %108, %106, %_ZL19stbi__addints_validii.exit, %_ZL22stbi__jpeg_huff_decodeP10stbi__jpegP13stbi__huffman.exit, %20, %44, %46
-  %.str.67.sink = phi ptr [ @.str.69, %_ZL22stbi__mul2shorts_validss.exit ], [ @.str.68, %_ZL19stbi__addints_validii.exit ], [ @.str.67, %_ZL22stbi__jpeg_huff_decodeP10stbi__jpegP13stbi__huffman.exit ], [ @.str.67, %46 ], [ @.str.67, %44 ], [ @.str.67, %20 ], [ @.str.69, %106 ], [ @.str.69, %108 ], [ @.str.67, %.thread118.sink.split.sink.split ], [ @.str.67, %126 ], [ @.str.67, %155 ], [ @.str.67, %175 ], [ @.str.67, %177 ]
+  %.str.67.sink = phi ptr [ @.str.67, %.thread118.sink.split.sink.split ], [ @.str.69, %_ZL22stbi__mul2shorts_validss.exit ], [ @.str.68, %_ZL19stbi__addints_validii.exit ], [ @.str.67, %_ZL22stbi__jpeg_huff_decodeP10stbi__jpegP13stbi__huffman.exit ], [ @.str.67, %46 ], [ @.str.67, %44 ], [ @.str.67, %20 ], [ @.str.69, %108 ], [ @.str.69, %106 ], [ @.str.67, %126 ], [ @.str.67, %155 ], [ @.str.67, %175 ], [ @.str.67, %177 ]
   store ptr %.str.67.sink, ptr @_ZL22stbi__g_failure_reason, align 8, !tbaa !5
   br label %.thread118
 
@@ -14427,7 +14427,7 @@ _ZL19stbi__refill_bufferP13stbi__context.exit.i26: ; preds = %130, %128
   br label %.loopexit
 
 .thread:                                          ; preds = %_ZL10stbi__get8P13stbi__context.exit23, %23, %.split, %53
-  %.shrunk = phi i8 [ 0, %.split ], [ %.0.i, %53 ], [ 0, %23 ], [ -1, %_ZL10stbi__get8P13stbi__context.exit23 ]
+  %.shrunk = phi i8 [ 0, %.split ], [ 0, %23 ], [ %.0.i, %53 ], [ -1, %_ZL10stbi__get8P13stbi__context.exit23 ]
   %137 = zext i8 %.shrunk to i32
   %138 = load i32, ptr %3, align 4, !tbaa !91
   %139 = sub nsw i32 24, %138
@@ -16678,7 +16678,7 @@ _ZL13stbi__zexpandP10stbi__zbufPci.exit.i.i:      ; preds = %._crit_edge.i.i.i
   br label %_ZL30stbi__parse_uncompressed_blockP10stbi__zbuf.exit.i
 
 _ZL30stbi__parse_uncompressed_blockP10stbi__zbuf.exit.thread.i: ; preds = %._crit_edge.i.i.i, %171, %169, %159, %._crit_edge50.i.i, %.thread.i.i, %134, %.lr.ph.i.i.i
-  %.str.76.sink.i = phi ptr [ @.str.23, %.lr.ph.i.i.i ], [ @.str.23, %._crit_edge.i.i.i ], [ @.str.76, %.thread.i.i ], [ @.str.23, %171 ], [ @.str.78, %169 ], [ @.str.76, %._crit_edge50.i.i ], [ @.str.76, %134 ], [ @.str.77, %159 ]
+  %.str.76.sink.i = phi ptr [ @.str.23, %.lr.ph.i.i.i ], [ @.str.76, %.thread.i.i ], [ @.str.23, %._crit_edge.i.i.i ], [ @.str.23, %171 ], [ @.str.78, %169 ], [ @.str.76, %._crit_edge50.i.i ], [ @.str.76, %134 ], [ @.str.77, %159 ]
   store ptr %.str.76.sink.i, ptr @_ZL22stbi__g_failure_reason, align 8, !tbaa !5
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZL16stbi__parse_zlibP10stbi__zbufi.exit
@@ -17054,9 +17054,9 @@ _ZL15stbi__fill_bitsP10stbi__zbuf.exit.i.i.i:     ; preds = %_ZL11stbi__zget8P10
   br label %_ZL21stbi__zhuffman_decodeP10stbi__zbufP14stbi__zhuffman.exit.i.i
 
 _ZL21stbi__zhuffman_decodeP10stbi__zbufP14stbi__zhuffman.exit.i.i: ; preds = %356, %324
-  %.promoted.i.i110.i.i = phi i32 [ %327, %324 ], [ %357, %356 ]
-  %362 = phi i32 [ %328, %324 ], [ %358, %356 ]
-  %.0.i.i.i = phi i32 [ %329, %324 ], [ %361, %356 ]
+  %.promoted.i.i110.i.i = phi i32 [ %357, %356 ], [ %327, %324 ]
+  %362 = phi i32 [ %358, %356 ], [ %328, %324 ]
+  %.0.i.i.i = phi i32 [ %361, %356 ], [ %329, %324 ]
   %or.cond.i.i = icmp samesign ugt i32 %.0.i.i.i, 18
   br i1 %or.cond.i.i, label %_ZL27stbi__compute_huffman_codesP10stbi__zbuf.exit.thread.sink.split.i, label %363
 
@@ -17417,9 +17417,9 @@ _ZL15stbi__fill_bitsP10stbi__zbuf.exit.i.i52.i:   ; preds = %_ZL11stbi__zget8P10
   br label %_ZL21stbi__zhuffman_decodeP10stbi__zbufP14stbi__zhuffman.exit.i54.i
 
 _ZL21stbi__zhuffman_decodeP10stbi__zbufP14stbi__zhuffman.exit.i54.i: ; preds = %520, %488
-  %.promoted.i.i83.i.i = phi i32 [ %491, %488 ], [ %521, %520 ]
-  %.pr.i55.i = phi i32 [ %492, %488 ], [ %522, %520 ]
-  %.0.i.i56.i = phi i32 [ %493, %488 ], [ %525, %520 ]
+  %.promoted.i.i83.i.i = phi i32 [ %521, %520 ], [ %491, %488 ]
+  %.pr.i55.i = phi i32 [ %522, %520 ], [ %492, %488 ]
+  %.0.i.i56.i = phi i32 [ %525, %520 ], [ %493, %488 ]
   %526 = icmp samesign ult i32 %.0.i.i56.i, 256
   br i1 %526, label %528, label %559
 
@@ -17697,9 +17697,9 @@ _ZL15stbi__fill_bitsP10stbi__zbuf.exit.i93.i.i:   ; preds = %_ZL11stbi__zget8P10
   br label %_ZL21stbi__zhuffman_decodeP10stbi__zbufP14stbi__zhuffman.exit111.i.i
 
 _ZL21stbi__zhuffman_decodeP10stbi__zbufP14stbi__zhuffman.exit111.i.i: ; preds = %649, %617
-  %.promoted.i.i112.i.i = phi i32 [ %620, %617 ], [ %650, %649 ]
-  %655 = phi i32 [ %621, %617 ], [ %651, %649 ]
-  %.0.i95.i.i = phi i32 [ %622, %617 ], [ %654, %649 ]
+  %.promoted.i.i112.i.i = phi i32 [ %650, %649 ], [ %620, %617 ]
+  %655 = phi i32 [ %651, %649 ], [ %621, %617 ]
+  %.0.i95.i.i = phi i32 [ %654, %649 ], [ %622, %617 ]
   %or.cond.i59.i = icmp samesign ugt i32 %.0.i95.i.i, 29
   br i1 %or.cond.i59.i, label %_ZL21stbi__zhuffman_decodeP10stbi__zbufP14stbi__zhuffman.exit111.thread.i.i, label %656
 
@@ -17888,7 +17888,7 @@ _ZL14stbi__zreceiveP10stbi__zbufi.exit121.i.i:    ; preds = %_ZL11stbi__zget8P10
   br i1 %.not77.i.i, label %.loopexit.i.i, label %.preheader144.i.i, !llvm.loop !303
 
 .loopexit.i.i:                                    ; preds = %.preheader144.i.i, %733, %.preheader.preheader.i.i, %728, %556
-  %.165.i.i = phi ptr [ %558, %556 ], [ %.5.i.i, %733 ], [ %.5.i.i, %728 ], [ %scevgep227.i.i, %.preheader.preheader.i.i ], [ %736, %.preheader144.i.i ]
+  %.165.i.i = phi ptr [ %.5.i.i, %728 ], [ %.5.i.i, %733 ], [ %558, %556 ], [ %scevgep227.i.i, %.preheader.preheader.i.i ], [ %736, %.preheader144.i.i ]
   br label %463, !llvm.loop !304
 
 _ZL25stbi__parse_huffman_blockP10stbi__zbuf.exit.i: ; preds = %559
@@ -18069,7 +18069,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL20stbi__zbuild_huffmanP14
   br label %.loopexit70
 
 .loopexit70:                                      ; preds = %79, %.loopexit70.sink.split, %40
-  %.062 = phi i32 [ 1, %40 ], [ 0, %.loopexit70.sink.split ], [ 1, %79 ]
+  %.062 = phi i32 [ 0, %.loopexit70.sink.split ], [ 1, %40 ], [ 1, %79 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.062
@@ -19527,7 +19527,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL19stbi_write_tga_coreP19s
   br label %.loopexit141.us
 
 .loopexit141.us:                                  ; preds = %59, %55, %65, %43
-  %.0104.ph.us = phi i32 [ %66, %65 ], [ 1, %43 ], [ 2, %55 ], [ %61, %59 ]
+  %.0104.ph.us = phi i32 [ 1, %43 ], [ %66, %65 ], [ 2, %55 ], [ %61, %59 ]
   %67 = trunc i32 %.0104.ph.us to i8
   %68 = add i8 %67, -1
   %69 = load i32, ptr %33, align 8, !tbaa !314
@@ -21115,10 +21115,10 @@ _ZL14stbiw__sbgrowfPPvii.exit.i384:               ; preds = %390, %.thread.i381,
   br i1 %401, label %.lr.ph.i378.preheader, label %_ZL18stbiw__zlib_flushfPhPjPi.exit354, !llvm.loop !341
 
 _ZL18stbiw__zlib_flushfPhPjPi.exit354:            ; preds = %_ZL14stbiw__sbgrowfPPvii.exit.i352, %_ZL14stbiw__sbgrowfPPvii.exit.i384, %_ZL14stbiw__sbgrowfPPvii.exit.i368, %_ZL18stbiw__zlib_bitrevii.exit359, %_ZL18stbiw__zlib_bitrevii.exit375, %296, %_ZL18stbiw__zlib_flushfPhPjPi.exit343
-  %.3667 = phi i32 [ %304, %296 ], [ %.19683, %_ZL18stbiw__zlib_flushfPhPjPi.exit343 ], [ %343, %_ZL18stbiw__zlib_bitrevii.exit359 ], [ %377, %_ZL18stbiw__zlib_bitrevii.exit375 ], [ %399, %_ZL14stbiw__sbgrowfPPvii.exit.i384 ], [ %365, %_ZL14stbiw__sbgrowfPPvii.exit.i368 ], [ %328, %_ZL14stbiw__sbgrowfPPvii.exit.i352 ]
-  %.3638 = phi i32 [ %307, %296 ], [ %.19654, %_ZL18stbiw__zlib_flushfPhPjPi.exit343 ], [ %344, %_ZL18stbiw__zlib_bitrevii.exit359 ], [ %378, %_ZL18stbiw__zlib_bitrevii.exit375 ], [ %400, %_ZL14stbiw__sbgrowfPPvii.exit.i384 ], [ %366, %_ZL14stbiw__sbgrowfPPvii.exit.i368 ], [ %329, %_ZL14stbiw__sbgrowfPPvii.exit.i352 ]
-  %.5633 = phi ptr [ %.0.lcssa.i334, %296 ], [ %.0.lcssa.i334, %_ZL18stbiw__zlib_flushfPhPjPi.exit343 ], [ %.2630761, %_ZL18stbiw__zlib_bitrevii.exit359 ], [ %.2630761, %_ZL18stbiw__zlib_bitrevii.exit375 ], [ %.1.i385, %_ZL14stbiw__sbgrowfPPvii.exit.i384 ], [ %.1.i369, %_ZL14stbiw__sbgrowfPPvii.exit.i368 ], [ %.1.i353, %_ZL14stbiw__sbgrowfPPvii.exit.i352 ]
-  %.0189.pn = phi i32 [ %.0189.lcssa932, %296 ], [ %.0189.lcssa932, %_ZL18stbiw__zlib_flushfPhPjPi.exit343 ], [ 1, %_ZL18stbiw__zlib_bitrevii.exit359 ], [ 1, %_ZL18stbiw__zlib_bitrevii.exit375 ], [ 1, %_ZL14stbiw__sbgrowfPPvii.exit.i384 ], [ 1, %_ZL14stbiw__sbgrowfPPvii.exit.i368 ], [ %.0189.lcssa932, %_ZL14stbiw__sbgrowfPPvii.exit.i352 ]
+  %.3667 = phi i32 [ %304, %296 ], [ %.19683, %_ZL18stbiw__zlib_flushfPhPjPi.exit343 ], [ %365, %_ZL14stbiw__sbgrowfPPvii.exit.i368 ], [ %343, %_ZL18stbiw__zlib_bitrevii.exit359 ], [ %377, %_ZL18stbiw__zlib_bitrevii.exit375 ], [ %399, %_ZL14stbiw__sbgrowfPPvii.exit.i384 ], [ %328, %_ZL14stbiw__sbgrowfPPvii.exit.i352 ]
+  %.3638 = phi i32 [ %307, %296 ], [ %.19654, %_ZL18stbiw__zlib_flushfPhPjPi.exit343 ], [ %366, %_ZL14stbiw__sbgrowfPPvii.exit.i368 ], [ %344, %_ZL18stbiw__zlib_bitrevii.exit359 ], [ %378, %_ZL18stbiw__zlib_bitrevii.exit375 ], [ %400, %_ZL14stbiw__sbgrowfPPvii.exit.i384 ], [ %329, %_ZL14stbiw__sbgrowfPPvii.exit.i352 ]
+  %.5633 = phi ptr [ %.0.lcssa.i334, %296 ], [ %.0.lcssa.i334, %_ZL18stbiw__zlib_flushfPhPjPi.exit343 ], [ %.1.i369, %_ZL14stbiw__sbgrowfPPvii.exit.i368 ], [ %.2630761, %_ZL18stbiw__zlib_bitrevii.exit359 ], [ %.2630761, %_ZL18stbiw__zlib_bitrevii.exit375 ], [ %.1.i385, %_ZL14stbiw__sbgrowfPPvii.exit.i384 ], [ %.1.i353, %_ZL14stbiw__sbgrowfPPvii.exit.i352 ]
+  %.0189.pn = phi i32 [ %.0189.lcssa932, %296 ], [ %.0189.lcssa932, %_ZL18stbiw__zlib_flushfPhPjPi.exit343 ], [ 1, %_ZL14stbiw__sbgrowfPPvii.exit.i368 ], [ 1, %_ZL18stbiw__zlib_bitrevii.exit359 ], [ 1, %_ZL18stbiw__zlib_bitrevii.exit375 ], [ 1, %_ZL14stbiw__sbgrowfPPvii.exit.i384 ], [ %.0189.lcssa932, %_ZL14stbiw__sbgrowfPPvii.exit.i352 ]
   %.2 = add nsw i32 %.0189.pn, %.1182762
   %402 = icmp slt i32 %.2, %18
   br i1 %402, label %26, label %.preheader710, !llvm.loop !343
@@ -23580,8 +23580,8 @@ _ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit158: ; preds = %209,
   br i1 %231, label %222, label %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit, !llvm.loop !374
 
 _ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit: ; preds = %228, %176, %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit158, %158
-  %storemerge230 = phi i32 [ %167, %158 ], [ %219, %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit158 ], [ %177, %176 ], [ %229, %228 ]
-  %232 = phi i32 [ %163, %158 ], [ %214, %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit158 ], [ %178, %176 ], [ %230, %228 ]
+  %storemerge230 = phi i32 [ %177, %176 ], [ %167, %158 ], [ %219, %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit158 ], [ %229, %228 ]
+  %232 = phi i32 [ %178, %176 ], [ %163, %158 ], [ %214, %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit158 ], [ %230, %228 ]
   store i32 %storemerge230, ptr %1, align 4, !tbaa !10
   store i32 %232, ptr %2, align 4, !tbaa !10
   br label %233
@@ -23900,8 +23900,8 @@ _ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit210: ; preds = %339,
   br i1 %363, label %354, label %.sink.split, !llvm.loop !374
 
 .sink.split:                                      ; preds = %360, %261, %._crit_edge263.thread, %245
-  %.0.lcssa.i212.sink = phi i32 [ %252, %245 ], [ %351, %._crit_edge263.thread ], [ %262, %261 ], [ %361, %360 ]
-  %.018.lcssa.i211.sink = phi i32 [ %248, %245 ], [ %347, %._crit_edge263.thread ], [ %263, %261 ], [ %362, %360 ]
+  %.0.lcssa.i212.sink = phi i32 [ %262, %261 ], [ %252, %245 ], [ %351, %._crit_edge263.thread ], [ %361, %360 ]
+  %.018.lcssa.i211.sink = phi i32 [ %263, %261 ], [ %248, %245 ], [ %347, %._crit_edge263.thread ], [ %362, %360 ]
   store i32 %.0.lcssa.i212.sink, ptr %1, align 4, !tbaa !10
   store i32 %.018.lcssa.i211.sink, ptr %2, align 4, !tbaa !10
   br label %364

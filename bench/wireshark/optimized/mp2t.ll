@@ -430,7 +430,7 @@ mp2t_bits_per_second.exit:                        ; preds = %170, %109, %206
   br label %mp2t_bits_per_second.exit.thread
 
 mp2t_bits_per_second.exit.thread:                 ; preds = %19, %54, %38, %36, %.preheader119, %67, %63, %72, %.preheader122, %206, %111, %186, %170, %172, %109, %mp2t_bits_per_second.exit, %.loopexit, %49, %28, %26, %9, %219
-  %.0 = phi i32 [ -1, %206 ], [ -1, %.loopexit ], [ -1, %mp2t_bits_per_second.exit ], [ 1, %219 ], [ 0, %28 ], [ %., %9 ], [ %.112, %49 ], [ 0, %170 ], [ -1, %172 ], [ -1, %.preheader122 ], [ -1, %26 ], [ 0, %109 ], [ -1, %111 ], [ 0, %186 ], [ 0, %36 ], [ 0, %72 ], [ 0, %63 ], [ -1, %67 ], [ 0, %.preheader119 ], [ -1, %38 ], [ -1, %54 ], [ 0, %19 ]
+  %.0 = phi i32 [ 0, %63 ], [ -1, %172 ], [ -1, %.loopexit ], [ -1, %mp2t_bits_per_second.exit ], [ 1, %219 ], [ 0, %28 ], [ %., %9 ], [ %.112, %49 ], [ 0, %186 ], [ 0, %170 ], [ -1, %.preheader122 ], [ -1, %54 ], [ -1, %26 ], [ -1, %206 ], [ 0, %109 ], [ -1, %111 ], [ -1, %67 ], [ 0, %72 ], [ 0, %36 ], [ 0, %.preheader119 ], [ -1, %38 ], [ 0, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }

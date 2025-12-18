@@ -1031,7 +1031,7 @@ get_se_golomb.exit.i:                             ; preds = %86, %76
   br i1 %exitcond.not, label %.loopexit85, label %21, !llvm.loop !76
 
 .loopexit85:                                      ; preds = %.thread, %.lr.ph, %54, %get_se_golomb.exit.i, %2
-  %.0 = phi i32 [ -1094995529, %2 ], [ -1094995529, %.lr.ph ], [ -1094995529, %get_se_golomb.exit.i ], [ -1094995529, %54 ], [ 0, %.thread ]
+  %.0 = phi i32 [ -1094995529, %2 ], [ -1094995529, %get_se_golomb.exit.i ], [ -1094995529, %.lr.ph ], [ -1094995529, %54 ], [ 0, %.thread ]
   ret i32 %.0
 }
 

@@ -110,7 +110,7 @@ _ZN4core3ops8function6FnOnce9call_once17h70dc1a7e473706bdE.exit.i5.i.i.i.i.i: ; 
   br label %42
 
 _ZN4core4iter8adapters5chain17and_then_or_clear17he2baade32454bc0dE.exit.i: ; preds = %_ZN4core3ops8function6FnOnce9call_once17h70dc1a7e473706bdE.exit.i5.i.i.i.i.i, %_ZN4core4iter8adapters7flatten17and_then_or_clear17hd1866934b214806eE.exit.i.i.i.i.i
-  %.0.i.in.i = phi ptr [ %9, %_ZN4core4iter8adapters7flatten17and_then_or_clear17hd1866934b214806eE.exit.i.i.i.i.i ], [ %27, %_ZN4core3ops8function6FnOnce9call_once17h70dc1a7e473706bdE.exit.i5.i.i.i.i.i ]
+  %.0.i.in.i = phi ptr [ %27, %_ZN4core3ops8function6FnOnce9call_once17h70dc1a7e473706bdE.exit.i5.i.i.i.i.i ], [ %9, %_ZN4core4iter8adapters7flatten17and_then_or_clear17hd1866934b214806eE.exit.i.i.i.i.i ]
   %.0.i.i = load i32, ptr %.0.i.in.i, align 4, !range !56, !noalias !11, !noundef !11
   tail call void @llvm.experimental.noalias.scope.decl(metadata !57)
   br label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb415d01b6f012586E.exit"
@@ -360,8 +360,8 @@ _ZN4core3ops8function6FnOnce9call_once17h70dc1a7e473706bdE.exit.i5.i.i.i.i10.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4.sroa.6.i.i.i.i.i)
   br label %55
 
-"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb415d01b6f012586E.exit": ; preds = %_ZN4core3ops8function6FnOnce9call_once17h70dc1a7e473706bdE.exit.i5.i.i.i.i10.i.i.i.i.i, %_ZN4core4iter8adapters7flatten17and_then_or_clear17hd1866934b214806eE.exit.i.i.i.i7.i.i.i.i.i, %_ZN4core4iter8adapters7flatten17and_then_or_clear17hd1866934b214806eE.exit.i.i.i.i.i.i.i.i.i, %_ZN4core3ops8function6FnOnce9call_once17h70dc1a7e473706bdE.exit.i5.i.i.i.i.i.i.i.i.i, %_ZN4core4iter8adapters5chain17and_then_or_clear17he2baade32454bc0dE.exit.i, %145, %102, %42
-  %.0 = phi i32 [ 0, %145 ], [ 0, %42 ], [ 0, %102 ], [ %137, %_ZN4core3ops8function6FnOnce9call_once17h70dc1a7e473706bdE.exit.i5.i.i.i.i10.i.i.i.i.i ], [ %118, %_ZN4core4iter8adapters7flatten17and_then_or_clear17hd1866934b214806eE.exit.i.i.i.i7.i.i.i.i.i ], [ %65, %_ZN4core4iter8adapters7flatten17and_then_or_clear17hd1866934b214806eE.exit.i.i.i.i.i.i.i.i.i ], [ %83, %_ZN4core3ops8function6FnOnce9call_once17h70dc1a7e473706bdE.exit.i5.i.i.i.i.i.i.i.i.i ], [ %.0.i.i, %_ZN4core4iter8adapters5chain17and_then_or_clear17he2baade32454bc0dE.exit.i ]
+"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb415d01b6f012586E.exit": ; preds = %_ZN4core3ops8function6FnOnce9call_once17h70dc1a7e473706bdE.exit.i5.i.i.i.i10.i.i.i.i.i, %_ZN4core4iter8adapters7flatten17and_then_or_clear17hd1866934b214806eE.exit.i.i.i.i7.i.i.i.i.i, %_ZN4core3ops8function6FnOnce9call_once17h70dc1a7e473706bdE.exit.i5.i.i.i.i.i.i.i.i.i, %_ZN4core4iter8adapters7flatten17and_then_or_clear17hd1866934b214806eE.exit.i.i.i.i.i.i.i.i.i, %_ZN4core4iter8adapters5chain17and_then_or_clear17he2baade32454bc0dE.exit.i, %145, %102, %42
+  %.0 = phi i32 [ 0, %145 ], [ 0, %42 ], [ 0, %102 ], [ %137, %_ZN4core3ops8function6FnOnce9call_once17h70dc1a7e473706bdE.exit.i5.i.i.i.i10.i.i.i.i.i ], [ %118, %_ZN4core4iter8adapters7flatten17and_then_or_clear17hd1866934b214806eE.exit.i.i.i.i7.i.i.i.i.i ], [ %83, %_ZN4core3ops8function6FnOnce9call_once17h70dc1a7e473706bdE.exit.i5.i.i.i.i.i.i.i.i.i ], [ %65, %_ZN4core4iter8adapters7flatten17and_then_or_clear17hd1866934b214806eE.exit.i.i.i.i.i.i.i.i.i ], [ %.0.i.i, %_ZN4core4iter8adapters5chain17and_then_or_clear17he2baade32454bc0dE.exit.i ]
   ret i32 %.0
 }
 
@@ -18868,8 +18868,8 @@ _ZN4core3ops8function6FnOnce9call_once17h70dc1a7e473706bdE.exit.i5.i.i.i.i11.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4.sroa.6.i.i.i)
   br label %21
 
-103:                                              ; preds = %_ZN4core3ops8function6FnOnce9call_once17h70dc1a7e473706bdE.exit.i5.i.i.i.i11.i.i.i, %_ZN4core4iter8adapters7flatten17and_then_or_clear17hd1866934b214806eE.exit.i.i.i.i8.i.i.i, %_ZN4core4iter8adapters7flatten17and_then_or_clear17hd1866934b214806eE.exit.i.i.i.i.i.i.i, %_ZN4core3ops8function6FnOnce9call_once17h70dc1a7e473706bdE.exit.i5.i.i.i.i.i.i.i
-  %.0.i.ph.in = phi ptr [ %42, %_ZN4core3ops8function6FnOnce9call_once17h70dc1a7e473706bdE.exit.i5.i.i.i.i.i.i.i ], [ %24, %_ZN4core4iter8adapters7flatten17and_then_or_clear17hd1866934b214806eE.exit.i.i.i.i.i.i.i ], [ %65, %_ZN4core4iter8adapters7flatten17and_then_or_clear17hd1866934b214806eE.exit.i.i.i.i8.i.i.i ], [ %83, %_ZN4core3ops8function6FnOnce9call_once17h70dc1a7e473706bdE.exit.i5.i.i.i.i11.i.i.i ]
+103:                                              ; preds = %_ZN4core3ops8function6FnOnce9call_once17h70dc1a7e473706bdE.exit.i5.i.i.i.i11.i.i.i, %_ZN4core4iter8adapters7flatten17and_then_or_clear17hd1866934b214806eE.exit.i.i.i.i8.i.i.i, %_ZN4core3ops8function6FnOnce9call_once17h70dc1a7e473706bdE.exit.i5.i.i.i.i.i.i.i, %_ZN4core4iter8adapters7flatten17and_then_or_clear17hd1866934b214806eE.exit.i.i.i.i.i.i.i
+  %.0.i.ph.in = phi ptr [ %24, %_ZN4core4iter8adapters7flatten17and_then_or_clear17hd1866934b214806eE.exit.i.i.i.i.i.i.i ], [ %42, %_ZN4core3ops8function6FnOnce9call_once17h70dc1a7e473706bdE.exit.i5.i.i.i.i.i.i.i ], [ %65, %_ZN4core4iter8adapters7flatten17and_then_or_clear17hd1866934b214806eE.exit.i.i.i.i8.i.i.i ], [ %83, %_ZN4core3ops8function6FnOnce9call_once17h70dc1a7e473706bdE.exit.i5.i.i.i.i11.i.i.i ]
   %.0.i.ph = load i32, ptr %.0.i.ph.in, align 4, !range !56, !noalias !11, !noundef !11
   %104 = load i64, ptr %16, align 8, !noundef !11
   %105 = load i64, ptr %0, align 8, !noundef !11

@@ -699,8 +699,8 @@ _ZTW24softfloat_exceptionFlags.exit209.us269:     ; preds = %_ZTW24softfloat_exc
   br i1 %exitcond287.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !163
 
 ._crit_edge:                                      ; preds = %.thread251, %295, %276
-  %.2.lcssa = phi i1 [ %.3.us271, %295 ], [ %.3.us, %276 ], [ true, %.thread251 ]
-  %.sroa.021.0.lcssa = phi i64 [ %.sroa.021.1.us272, %295 ], [ %.sroa.021.1.us, %276 ], [ %301, %.thread251 ]
+  %.2.lcssa = phi i1 [ %.3.us, %276 ], [ %.3.us271, %295 ], [ true, %.thread251 ]
+  %.sroa.021.0.lcssa = phi i64 [ %.sroa.021.1.us, %276 ], [ %.sroa.021.1.us272, %295 ], [ %301, %.thread251 ]
   %297 = load ptr, ptr %74, align 8, !tbaa !145
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %297, i64 noundef 0) #16
   br i1 %.2.lcssa, label %338, label %.thread313
@@ -1588,8 +1588,8 @@ _ZTW24softfloat_exceptionFlags.exit209.us269:     ; preds = %_ZTW24softfloat_exc
   br i1 %exitcond287.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !172
 
 ._crit_edge:                                      ; preds = %.thread251, %295, %276
-  %.2.lcssa = phi i1 [ %.3.us271, %295 ], [ %.3.us, %276 ], [ true, %.thread251 ]
-  %.sroa.021.0.lcssa = phi i64 [ %.sroa.021.1.us272, %295 ], [ %.sroa.021.1.us, %276 ], [ %301, %.thread251 ]
+  %.2.lcssa = phi i1 [ %.3.us, %276 ], [ %.3.us271, %295 ], [ true, %.thread251 ]
+  %.sroa.021.0.lcssa = phi i64 [ %.sroa.021.1.us, %276 ], [ %.sroa.021.1.us272, %295 ], [ %301, %.thread251 ]
   %297 = load ptr, ptr %74, align 8, !tbaa !145
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %297, i64 noundef 0) #16
   br i1 %.2.lcssa, label %338, label %.thread313
@@ -2339,8 +2339,8 @@ _ZTW24softfloat_exceptionFlags.exit209.us269:     ; preds = %_ZTW24softfloat_exc
   br i1 %exitcond287.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !174
 
 ._crit_edge:                                      ; preds = %.thread251, %295, %276
-  %.2.lcssa = phi i1 [ %.3.us271, %295 ], [ %.3.us, %276 ], [ true, %.thread251 ]
-  %.sroa.021.0.lcssa = phi i64 [ %.sroa.021.1.us272, %295 ], [ %.sroa.021.1.us, %276 ], [ %301, %.thread251 ]
+  %.2.lcssa = phi i1 [ %.3.us, %276 ], [ %.3.us271, %295 ], [ true, %.thread251 ]
+  %.sroa.021.0.lcssa = phi i64 [ %.sroa.021.1.us, %276 ], [ %.sroa.021.1.us272, %295 ], [ %301, %.thread251 ]
   %297 = load ptr, ptr %74, align 8, !tbaa !145
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %297, i64 noundef 0) #16
   br i1 %.2.lcssa, label %338, label %.thread313
@@ -3092,8 +3092,8 @@ _ZTW24softfloat_exceptionFlags.exit209.us269:     ; preds = %_ZTW24softfloat_exc
   br i1 %exitcond287.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !176
 
 ._crit_edge:                                      ; preds = %.thread251, %295, %276
-  %.2.lcssa = phi i1 [ %.3.us271, %295 ], [ %.3.us, %276 ], [ true, %.thread251 ]
-  %.sroa.021.0.lcssa = phi i64 [ %.sroa.021.1.us272, %295 ], [ %.sroa.021.1.us, %276 ], [ %301, %.thread251 ]
+  %.2.lcssa = phi i1 [ %.3.us, %276 ], [ %.3.us271, %295 ], [ true, %.thread251 ]
+  %.sroa.021.0.lcssa = phi i64 [ %.sroa.021.1.us, %276 ], [ %.sroa.021.1.us272, %295 ], [ %301, %.thread251 ]
   %297 = load ptr, ptr %74, align 8, !tbaa !145
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %297, i64 noundef 0) #16
   br i1 %.2.lcssa, label %338, label %.thread313
@@ -3843,8 +3843,8 @@ _ZTW24softfloat_exceptionFlags.exit209.us269:     ; preds = %_ZTW24softfloat_exc
   br i1 %exitcond287.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !178
 
 ._crit_edge:                                      ; preds = %.thread251, %295, %276
-  %.2.lcssa = phi i1 [ %.3.us271, %295 ], [ %.3.us, %276 ], [ true, %.thread251 ]
-  %.sroa.021.0.lcssa = phi i64 [ %.sroa.021.1.us272, %295 ], [ %.sroa.021.1.us, %276 ], [ %301, %.thread251 ]
+  %.2.lcssa = phi i1 [ %.3.us, %276 ], [ %.3.us271, %295 ], [ true, %.thread251 ]
+  %.sroa.021.0.lcssa = phi i64 [ %.sroa.021.1.us, %276 ], [ %.sroa.021.1.us272, %295 ], [ %301, %.thread251 ]
   %297 = load ptr, ptr %74, align 8, !tbaa !145
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %297, i64 noundef 0) #16
   br i1 %.2.lcssa, label %338, label %.thread313
@@ -4596,8 +4596,8 @@ _ZTW24softfloat_exceptionFlags.exit209.us269:     ; preds = %_ZTW24softfloat_exc
   br i1 %exitcond287.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !180
 
 ._crit_edge:                                      ; preds = %.thread251, %295, %276
-  %.2.lcssa = phi i1 [ %.3.us271, %295 ], [ %.3.us, %276 ], [ true, %.thread251 ]
-  %.sroa.021.0.lcssa = phi i64 [ %.sroa.021.1.us272, %295 ], [ %.sroa.021.1.us, %276 ], [ %301, %.thread251 ]
+  %.2.lcssa = phi i1 [ %.3.us, %276 ], [ %.3.us271, %295 ], [ true, %.thread251 ]
+  %.sroa.021.0.lcssa = phi i64 [ %.sroa.021.1.us, %276 ], [ %.sroa.021.1.us272, %295 ], [ %301, %.thread251 ]
   %297 = load ptr, ptr %74, align 8, !tbaa !145
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %297, i64 noundef 0) #16
   br i1 %.2.lcssa, label %338, label %.thread313
@@ -5347,8 +5347,8 @@ _ZTW24softfloat_exceptionFlags.exit209.us269:     ; preds = %_ZTW24softfloat_exc
   br i1 %exitcond287.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !182
 
 ._crit_edge:                                      ; preds = %.thread251, %295, %276
-  %.2.lcssa = phi i1 [ %.3.us271, %295 ], [ %.3.us, %276 ], [ true, %.thread251 ]
-  %.sroa.021.0.lcssa = phi i64 [ %.sroa.021.1.us272, %295 ], [ %.sroa.021.1.us, %276 ], [ %301, %.thread251 ]
+  %.2.lcssa = phi i1 [ %.3.us, %276 ], [ %.3.us271, %295 ], [ true, %.thread251 ]
+  %.sroa.021.0.lcssa = phi i64 [ %.sroa.021.1.us, %276 ], [ %.sroa.021.1.us272, %295 ], [ %301, %.thread251 ]
   %297 = load ptr, ptr %74, align 8, !tbaa !145
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %297, i64 noundef 0) #16
   br i1 %.2.lcssa, label %338, label %.thread313
@@ -6100,8 +6100,8 @@ _ZTW24softfloat_exceptionFlags.exit209.us269:     ; preds = %_ZTW24softfloat_exc
   br i1 %exitcond287.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !184
 
 ._crit_edge:                                      ; preds = %.thread251, %295, %276
-  %.2.lcssa = phi i1 [ %.3.us271, %295 ], [ %.3.us, %276 ], [ true, %.thread251 ]
-  %.sroa.021.0.lcssa = phi i64 [ %.sroa.021.1.us272, %295 ], [ %.sroa.021.1.us, %276 ], [ %301, %.thread251 ]
+  %.2.lcssa = phi i1 [ %.3.us, %276 ], [ %.3.us271, %295 ], [ true, %.thread251 ]
+  %.sroa.021.0.lcssa = phi i64 [ %.sroa.021.1.us, %276 ], [ %.sroa.021.1.us272, %295 ], [ %301, %.thread251 ]
   %297 = load ptr, ptr %74, align 8, !tbaa !145
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %297, i64 noundef 0) #16
   br i1 %.2.lcssa, label %338, label %.thread313

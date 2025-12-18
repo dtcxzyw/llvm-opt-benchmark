@@ -321,9 +321,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %66, %
   br i1 %exitcond28.not.i.i, label %._crit_edge14.i.i, label %.lr.ph.us.i.i, !llvm.loop !40
 
 ._crit_edge14.i.i:                                ; preds = %._crit_edge.us.i.i, %.lr.ph13.i.i, %95
-  %114 = phi ptr [ %99, %.lr.ph13.i.i ], [ %96, %95 ], [ %99, %._crit_edge.us.i.i ]
-  %.sroa.0.09.i = phi i32 [ %.sroa.0.010.i, %.lr.ph13.i.i ], [ %88, %95 ], [ %.sroa.0.010.i, %._crit_edge.us.i.i ]
-  %.sroa.6.07.i = phi i32 [ %.sroa.6.08.i, %.lr.ph13.i.i ], [ %89, %95 ], [ %.sroa.6.08.i, %._crit_edge.us.i.i ]
+  %114 = phi ptr [ %96, %95 ], [ %99, %.lr.ph13.i.i ], [ %99, %._crit_edge.us.i.i ]
+  %.sroa.0.09.i = phi i32 [ %88, %95 ], [ %.sroa.0.010.i, %.lr.ph13.i.i ], [ %.sroa.0.010.i, %._crit_edge.us.i.i ]
+  %.sroa.6.07.i = phi i32 [ %89, %95 ], [ %.sroa.6.08.i, %.lr.ph13.i.i ], [ %.sroa.6.08.i, %._crit_edge.us.i.i ]
   br label %115
 
 115:                                              ; preds = %115, %._crit_edge14.i.i

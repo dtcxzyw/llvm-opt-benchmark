@@ -919,7 +919,7 @@ tailrecurse.us.i:                                 ; preds = %17, %tailrecurse.us
   br i1 %48, label %.lr.ph86.i, label %.loopexit.i, !llvm.loop !67
 
 .loopexit.i:                                      ; preds = %.lr.ph86.i, %.lr.ph91.i, %40, %29
-  %.pn.in.i = phi i8 [ 0, %29 ], [ 0, %40 ], [ %37, %.lr.ph91.i ], [ %46, %.lr.ph86.i ]
+  %.pn.in.i = phi i8 [ %37, %.lr.ph91.i ], [ 0, %29 ], [ 0, %40 ], [ %46, %.lr.ph86.i ]
   %.pn.i = zext i8 %.pn.in.i to i64
   %.052.i = getelementptr inbounds nuw i8, ptr %2, i64 %.pn.i
   %49 = getelementptr inbounds nuw i8, ptr %.us-phi.i, i64 32

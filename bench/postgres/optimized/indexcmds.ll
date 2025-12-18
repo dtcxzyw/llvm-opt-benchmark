@@ -1711,7 +1711,7 @@ list_length.exit540.thread:                       ; preds = %list_length.exit
   br i1 %209, label %.lr.ph67.i, label %.thread49.i
 
 .thread49.i:                                      ; preds = %.split.i, %191, %.lr.ph.lr.ph.i, %184
-  %.035.lcssa.i = phi ptr [ %.036.i, %184 ], [ %.036.i, %.lr.ph.lr.ph.i ], [ %.03570.i614, %191 ], [ %18, %.split.i ]
+  %.035.lcssa.i = phi ptr [ %.036.i, %184 ], [ %.03570.i614, %191 ], [ %.036.i, %.lr.ph.lr.ph.i ], [ %18, %.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %210 = call ptr @pstrdup(ptr noundef %.035.lcssa.i) #10
   %211 = call ptr @lappend(ptr noundef %.080.i616, ptr noundef %210) #10
@@ -2971,8 +2971,8 @@ list_length.exit544:                              ; preds = %805, %807
   br i1 %894, label %.lr.ph643, label %.critedge
 
 .critedge:                                        ; preds = %891, %855, %.lr.ph636, %885
-  %.3470 = phi i1 [ %spec.select534, %885 ], [ %.0467644, %.lr.ph636 ], [ %.0467644, %855 ], [ %.0467644, %891 ]
-  %.1453 = phi i1 [ true, %885 ], [ false, %.lr.ph636 ], [ false, %855 ], [ false, %891 ]
+  %.3470 = phi i1 [ %spec.select534, %885 ], [ %.0467644, %855 ], [ %.0467644, %.lr.ph636 ], [ %.0467644, %891 ]
+  %.1453 = phi i1 [ true, %885 ], [ false, %855 ], [ false, %.lr.ph636 ], [ false, %891 ]
   call void @list_free(ptr noundef %856) #10
   call void @AtEOXact_GUC(i1 noundef zeroext false, i32 noundef %832) #10
   %895 = load i32, ptr %28, align 4
@@ -4002,7 +4002,7 @@ define dso_local noundef ptr @ChooseRelationName(ptr noundef %0, ptr noundef %1,
   br i1 %.not, label %.split12.us, label %.lr.ph
 
 .split12.us:                                      ; preds = %.lr.ph, %10, %.split
-  %.us-phi = phi ptr [ %15, %.split ], [ %8, %10 ], [ %20, %.lr.ph ]
+  %.us-phi = phi ptr [ %8, %10 ], [ %15, %.split ], [ %20, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.us-phi
 }
@@ -5098,8 +5098,8 @@ define internal fastcc noundef zeroext i1 @ReindexRelationConcurrently(ptr nound
   unreachable
 
 179:                                              ; preds = %169, %131
-  %.6 = phi ptr [ %.3311, %131 ], [ %174, %169 ]
-  %.2 = phi ptr [ %.1, %131 ], [ %172, %169 ]
+  %.6 = phi ptr [ %174, %169 ], [ %.3311, %131 ]
+  %.2 = phi ptr [ %172, %169 ], [ %.1, %131 ]
   %.not399 = icmp eq ptr %.6, null
   br i1 %.not399, label %.thread, label %180
 

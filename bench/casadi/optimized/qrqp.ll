@@ -2086,7 +2086,7 @@ _ZN6casadi16InterruptHandler5checkEv.exit:        ; preds = %_ZN6casadi16Interru
   br label %_ZN6casadi19casadi_qrqp_prepareIdEEiPNS_16casadi_qrqp_dataIT_EE.exit
 
 _ZN6casadi19casadi_qrqp_prepareIdEEiPNS_16casadi_qrqp_dataIT_EE.exit: ; preds = %.thread.i, %125, %128, %.thread23.sink.split.i
-  %.not60 = phi i1 [ true, %128 ], [ true, %125 ], [ true, %.thread.i ], [ false, %.thread23.sink.split.i ]
+  %.not60 = phi i1 [ true, %.thread.i ], [ true, %125 ], [ true, %128 ], [ false, %.thread23.sink.split.i ]
   %131 = load i8, ptr %105, align 8, !tbaa !135, !range !147, !noundef !148
   %132 = trunc nuw i8 %131 to i1
   br i1 %132, label %133, label %152
@@ -3073,7 +3073,7 @@ define linkonce_odr hidden noundef i32 @_ZN6casadi27casadi_qrqp_print_iterationI
   br label %51
 
 51:                                               ; preds = %.sink.split, %32, %48
-  %.029 = phi i32 [ 0, %48 ], [ 0, %32 ], [ 1, %.sink.split ]
+  %.029 = phi i32 [ 0, %32 ], [ 0, %48 ], [ 1, %.sink.split ]
   ret i32 %.029
 }
 
@@ -17754,7 +17754,7 @@ _ZN6casadi18casadi_qr_singularIdEExPT_PxPKS1_PKxS7_S1_.exit: ; preds = %.lr.ph.s
   br i1 %exitcond.not.i231, label %_ZN6casadi19casadi_qrqp_kkt_dotIdEET_PNS_16casadi_qrqp_dataIS1_EEPKS1_x.exit, label %254, !llvm.loop !457
 
 _ZN6casadi19casadi_qrqp_kkt_dotIdEET_PNS_16casadi_qrqp_dataIS1_EEPKS1_x.exit: ; preds = %254, %236, %._crit_edge.i, %246
-  %.252.i = phi double [ %.050.lcssa.i, %._crit_edge.i ], [ %205, %246 ], [ %244, %236 ], [ %261, %254 ]
+  %.252.i = phi double [ %244, %236 ], [ %.050.lcssa.i, %._crit_edge.i ], [ %205, %246 ], [ %261, %254 ]
   %263 = tail call double @llvm.fabs.f64(double %.252.i)
   %264 = fcmp ogt double %263, 0x3D719799812DEA11
   %265 = zext i1 %264 to i64
@@ -18208,24 +18208,24 @@ _ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit263: ;
   br i1 %523, label %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit.thread294.sink.split, label %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit.thread294
 
 _ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit.thread294.sink.split: ; preds = %446, %504, %520, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit263, %464, %478, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit, %406, %420
-  %.sink = phi i64 [ -1, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit ], [ 1, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit263 ], [ -1, %420 ], [ -1, %406 ], [ 1, %478 ], [ 1, %464 ], [ 0, %520 ], [ 1, %504 ], [ -1, %446 ]
-  %.4204.ph = phi double [ %404, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit ], [ %462, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit263 ], [ %404, %420 ], [ %404, %406 ], [ %462, %478 ], [ %462, %464 ], [ %522, %520 ], [ %462, %504 ], [ %404, %446 ]
+  %.sink = phi i64 [ -1, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit ], [ 1, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit263 ], [ 1, %504 ], [ -1, %420 ], [ -1, %406 ], [ 0, %520 ], [ 1, %478 ], [ 1, %464 ], [ -1, %446 ]
+  %.4204.ph = phi double [ %404, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit ], [ %462, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit263 ], [ %462, %504 ], [ %404, %420 ], [ %404, %406 ], [ %522, %520 ], [ %462, %478 ], [ %462, %464 ], [ %404, %446 ]
   store i64 %.3196324, ptr %161, align 8, !tbaa !249
   store i64 %.sink, ptr %162, align 8, !tbaa !418
   br label %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit.thread294
 
-_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit.thread294: ; preds = %432, %440, %490, %498, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit.thread294.sink.split, %396, %.thread297, %449, %.thread298, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit263, %460, %455, %398, %402, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit, %516, %518, %520, %507, %370
-  %.4204 = phi double [ %.3203322, %398 ], [ %.3203322, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit ], [ %.3203322, %402 ], [ %.3203322, %455 ], [ %.3203322, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit263 ], [ %.3203322, %460 ], [ %.3203322, %449 ], [ %.3203322, %.thread298 ], [ %.3203322, %507 ], [ %.3203322, %520 ], [ %.3203322, %516 ], [ %.3203322, %518 ], [ %.3203322, %370 ], [ %.3203322, %.thread297 ], [ %.3203322, %396 ], [ %.4204.ph, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit.thread294.sink.split ], [ %.3203322, %490 ], [ %.3203322, %498 ], [ %.3203322, %440 ], [ %.3203322, %432 ]
-  %.4192 = phi i64 [ %.3191326, %398 ], [ %.3191326, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit ], [ %.3191326, %402 ], [ %.3191326, %455 ], [ %.3191326, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit263 ], [ %.3191326, %460 ], [ %.3191326, %449 ], [ %.3191326, %.thread298 ], [ %.3191326, %507 ], [ %.3191326, %520 ], [ %.3191326, %516 ], [ %.3191326, %518 ], [ %.3191326, %370 ], [ %.3191326, %.thread297 ], [ %.3191326, %396 ], [ %.1198339, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit.thread294.sink.split ], [ %.3191326, %490 ], [ %.3191326, %498 ], [ %.3191326, %440 ], [ %.3191326, %432 ]
-  %.4 = phi i64 [ %.3328, %398 ], [ %.3328, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit ], [ %.3328, %402 ], [ %.3328, %455 ], [ %.3328, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit263 ], [ %.3328, %460 ], [ %.3328, %449 ], [ %.3328, %.thread298 ], [ %.3328, %507 ], [ %.3328, %520 ], [ %.3328, %516 ], [ %.3328, %518 ], [ %.3328, %370 ], [ %.3328, %.thread297 ], [ %.3328, %396 ], [ %.1336, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit.thread294.sink.split ], [ %.3328, %490 ], [ %.3328, %498 ], [ %.3328, %440 ], [ %.3328, %432 ]
+_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit.thread294: ; preds = %440, %432, %498, %490, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit.thread294.sink.split, %396, %.thread297, %449, %.thread298, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit263, %460, %455, %398, %402, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit, %516, %518, %520, %507, %370
+  %.4204 = phi double [ %.3203322, %398 ], [ %.4204.ph, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit.thread294.sink.split ], [ %.3203322, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit ], [ %.3203322, %402 ], [ %.3203322, %455 ], [ %.3203322, %498 ], [ %.3203322, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit263 ], [ %.3203322, %460 ], [ %.3203322, %449 ], [ %.3203322, %.thread298 ], [ %.3203322, %.thread297 ], [ %.3203322, %507 ], [ %.3203322, %396 ], [ %.3203322, %520 ], [ %.3203322, %516 ], [ %.3203322, %518 ], [ %.3203322, %370 ], [ %.3203322, %490 ], [ %.3203322, %432 ], [ %.3203322, %440 ]
+  %.4192 = phi i64 [ %.3191326, %398 ], [ %.1198339, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit.thread294.sink.split ], [ %.3191326, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit ], [ %.3191326, %402 ], [ %.3191326, %455 ], [ %.3191326, %498 ], [ %.3191326, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit263 ], [ %.3191326, %460 ], [ %.3191326, %449 ], [ %.3191326, %.thread298 ], [ %.3191326, %.thread297 ], [ %.3191326, %507 ], [ %.3191326, %396 ], [ %.3191326, %520 ], [ %.3191326, %516 ], [ %.3191326, %518 ], [ %.3191326, %370 ], [ %.3191326, %490 ], [ %.3191326, %432 ], [ %.3191326, %440 ]
+  %.4 = phi i64 [ %.3328, %398 ], [ %.1336, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit.thread294.sink.split ], [ %.3328, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit ], [ %.3328, %402 ], [ %.3328, %455 ], [ %.3328, %498 ], [ %.3328, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit263 ], [ %.3328, %460 ], [ %.3328, %449 ], [ %.3328, %.thread298 ], [ %.3328, %.thread297 ], [ %.3328, %507 ], [ %.3328, %396 ], [ %.3328, %520 ], [ %.3328, %516 ], [ %.3328, %518 ], [ %.3328, %370 ], [ %.3328, %490 ], [ %.3328, %432 ], [ %.3328, %440 ]
   %524 = add nuw nsw i64 %.3196324, 1
   %exitcond.not = icmp eq i64 %524, %367
   br i1 %exitcond.not, label %_ZN6casadi24casadi_qrqp_pr_directionIdEEiPNS_16casadi_qrqp_dataIT_EE.exit.thread, label %370, !llvm.loop !462
 
 _ZN6casadi24casadi_qrqp_pr_directionIdEEiPNS_16casadi_qrqp_dataIT_EE.exit.thread: ; preds = %319, %330, %314, %335, %351, %358, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit.thread294, %_ZN6casadi24casadi_qrqp_du_directionIdEEiPNS_16casadi_qrqp_dataIT_EE.exit
-  %.2202 = phi double [ %.1201333, %_ZN6casadi24casadi_qrqp_du_directionIdEEiPNS_16casadi_qrqp_dataIT_EE.exit ], [ %.1201333, %351 ], [ %.4204, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit.thread294 ], [ %.1201333, %358 ], [ %.1201333, %335 ], [ %.1201333, %314 ], [ %.1201333, %330 ], [ %.1201333, %319 ]
-  %.2190 = phi i64 [ %.1189334, %_ZN6casadi24casadi_qrqp_du_directionIdEEiPNS_16casadi_qrqp_dataIT_EE.exit ], [ %.1189334, %351 ], [ %.4192, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit.thread294 ], [ %.1189334, %358 ], [ %.1189334, %335 ], [ %.1189334, %314 ], [ %.1189334, %330 ], [ %.1189334, %319 ]
-  %.2 = phi i64 [ %.1187335, %_ZN6casadi24casadi_qrqp_du_directionIdEEiPNS_16casadi_qrqp_dataIT_EE.exit ], [ %.1187335, %351 ], [ %.4, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit.thread294 ], [ %.1187335, %358 ], [ %.1187335, %335 ], [ %.1187335, %314 ], [ %.1187335, %330 ], [ %.1187335, %319 ]
+  %.2202 = phi double [ %.1201333, %351 ], [ %.4204, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit.thread294 ], [ %.1201333, %_ZN6casadi24casadi_qrqp_du_directionIdEEiPNS_16casadi_qrqp_dataIT_EE.exit ], [ %.1201333, %358 ], [ %.1201333, %335 ], [ %.1201333, %314 ], [ %.1201333, %330 ], [ %.1201333, %319 ]
+  %.2190 = phi i64 [ %.1189334, %351 ], [ %.4192, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit.thread294 ], [ %.1189334, %_ZN6casadi24casadi_qrqp_du_directionIdEEiPNS_16casadi_qrqp_dataIT_EE.exit ], [ %.1189334, %358 ], [ %.1189334, %335 ], [ %.1189334, %314 ], [ %.1189334, %330 ], [ %.1189334, %319 ]
+  %.2 = phi i64 [ %.1187335, %351 ], [ %.4, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit.thread294 ], [ %.1187335, %_ZN6casadi24casadi_qrqp_du_directionIdEEiPNS_16casadi_qrqp_dataIT_EE.exit ], [ %.1187335, %358 ], [ %.1187335, %335 ], [ %.1187335, %314 ], [ %.1187335, %330 ], [ %.1187335, %319 ]
   br i1 %.not215, label %280, label %525, !llvm.loop !463
 
 525:                                              ; preds = %_ZN6casadi24casadi_qrqp_pr_directionIdEEiPNS_16casadi_qrqp_dataIT_EE.exit.thread

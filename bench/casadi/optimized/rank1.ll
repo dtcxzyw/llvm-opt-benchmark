@@ -361,7 +361,7 @@ _ZNSt6vectorIN6casadi2MXESaIS1_EED2Ev.exit:       ; preds = %_ZNSt6vectorIN6casa
   br i1 %56, label %.loopexit, label %53
 
 .loopexit:                                        ; preds = %47, %53, %.thread
-  %.pn.pn = phi { ptr, i32 } [ %9, %.thread ], [ %.pn, %53 ], [ %46, %47 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %53 ], [ %9, %.thread ], [ %46, %47 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %59

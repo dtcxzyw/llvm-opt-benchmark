@@ -3765,8 +3765,8 @@ clamp_row_est.exit:                               ; preds = %228, %236, %238
   br i1 %242, label %113, label %.critedge105, !llvm.loop !11
 
 .critedge:                                        ; preds = %80, %.lr.ph122, %.preheader, %27, %append_nonpartial_cost.exit
-  %243 = phi double [ %196, %append_nonpartial_cost.exit ], [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %27 ], [ %49, %.lr.ph122 ], [ %95, %80 ]
-  %244 = phi double [ %.pre149, %append_nonpartial_cost.exit ], [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %27 ], [ %43, %.lr.ph122 ], [ %83, %80 ]
+  %243 = phi double [ %49, %.lr.ph122 ], [ %196, %append_nonpartial_cost.exit ], [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %27 ], [ %95, %80 ]
+  %244 = phi double [ %43, %.lr.ph122 ], [ %.pre149, %append_nonpartial_cost.exit ], [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %27 ], [ %83, %80 ]
   %245 = load double, ptr @cpu_tuple_cost, align 8
   %246 = fmul double %245, 5.000000e-01
   %247 = tail call double @llvm.fmuladd.f64(double %246, double %244, double %243)
@@ -5331,10 +5331,10 @@ cached_scansel.exit:                              ; preds = %92, %._crit_edge.i
   br label %136
 
 136:                                              ; preds = %cached_scansel.exit, %.fold.split, %9, %135
-  %.2160 = phi double [ 1.000000e+00, %cached_scansel.exit ], [ %.0158, %135 ], [ 1.000000e+00, %9 ], [ %.0158, %.fold.split ]
-  %.2157 = phi double [ %.0155, %cached_scansel.exit ], [ 0.000000e+00, %135 ], [ 0.000000e+00, %9 ], [ %.0155, %.fold.split ]
-  %.2154 = phi double [ %.0152, %cached_scansel.exit ], [ 1.000000e+00, %135 ], [ 1.000000e+00, %9 ], [ %.0152, %.fold.split ]
-  %.2 = phi double [ 0.000000e+00, %cached_scansel.exit ], [ %.0150, %135 ], [ 0.000000e+00, %9 ], [ %.0150, %.fold.split ]
+  %.2160 = phi double [ 1.000000e+00, %cached_scansel.exit ], [ 1.000000e+00, %9 ], [ %.0158, %135 ], [ %.0158, %.fold.split ]
+  %.2157 = phi double [ %.0155, %cached_scansel.exit ], [ 0.000000e+00, %9 ], [ 0.000000e+00, %135 ], [ %.0155, %.fold.split ]
+  %.2154 = phi double [ %.0152, %cached_scansel.exit ], [ 1.000000e+00, %9 ], [ 1.000000e+00, %135 ], [ %.0152, %.fold.split ]
+  %.2 = phi double [ 0.000000e+00, %cached_scansel.exit ], [ 0.000000e+00, %9 ], [ %.0150, %135 ], [ %.0150, %.fold.split ]
   %137 = fmul double %.0147, %.2
   %138 = call double @llvm.rint.f64(double %137)
   %139 = fmul double %.0148, %.2157
@@ -7004,7 +7004,7 @@ tailrecurse:                                      ; preds = %.lr.ph
   br label %.loopexit
 
 .loopexit:                                        ; preds = %tailrecurse, %.lr.ph, %.lr.ph, %.lr.ph, %2, %.critedge, %157, %98, %35
-  %.0 = phi i1 [ false, %35 ], [ %173, %.critedge ], [ false, %98 ], [ false, %157 ], [ false, %2 ], [ false, %.lr.ph ], [ false, %.lr.ph ], [ false, %.lr.ph ], [ false, %tailrecurse ]
+  %.0 = phi i1 [ false, %157 ], [ false, %35 ], [ %173, %.critedge ], [ false, %98 ], [ false, %2 ], [ false, %.lr.ph ], [ false, %.lr.ph ], [ false, %.lr.ph ], [ false, %tailrecurse ]
   ret i1 %.0
 }
 
@@ -7658,10 +7658,10 @@ define internal fastcc double @calc_joinrel_size_estimate(ptr noundef %0, ptr no
   br label %.critedge125.i
 
 .critedge125.i:                                   ; preds = %64, %76, %.split.us.i, %48
-  %.sroa.0.1.i = phi ptr [ %81, %.split.us.i ], [ %.sroa.0.0139.i, %48 ], [ %.sroa.0.0139.i, %76 ], [ %.sroa.0.0139.i, %64 ]
-  %.sroa.7.1.i = phi i32 [ %80, %.split.us.i ], [ %.sroa.7.0140.i, %48 ], [ %.sroa.7.0140.i, %76 ], [ %.sroa.7.0140.i, %64 ]
-  %.1103.i = phi ptr [ %82, %.split.us.i ], [ %.0102142.i, %48 ], [ %.0102142.i, %76 ], [ %.0102142.i, %64 ]
-  %.498.i = phi ptr [ %81, %.split.us.i ], [ %.397144.i, %48 ], [ %.397144.i, %76 ], [ %.397144.i, %64 ]
+  %.sroa.0.1.i = phi ptr [ %81, %.split.us.i ], [ %.sroa.0.0139.i, %76 ], [ %.sroa.0.0139.i, %48 ], [ %.sroa.0.0139.i, %64 ]
+  %.sroa.7.1.i = phi i32 [ %80, %.split.us.i ], [ %.sroa.7.0140.i, %76 ], [ %.sroa.7.0140.i, %48 ], [ %.sroa.7.0140.i, %64 ]
+  %.1103.i = phi ptr [ %82, %.split.us.i ], [ %.0102142.i, %76 ], [ %.0102142.i, %48 ], [ %.0102142.i, %64 ]
+  %.498.i = phi ptr [ %81, %.split.us.i ], [ %.397144.i, %76 ], [ %.397144.i, %48 ], [ %.397144.i, %64 ]
   %83 = add i32 %.sroa.7.1.i, 1
   %.not116.i = icmp eq ptr %.sroa.0.1.i, null
   br i1 %.not116.i, label %.critedge123.i, label %44, !llvm.loop !16
@@ -8923,7 +8923,7 @@ define internal fastcc double @get_indexpath_pages(ptr noundef readonly captures
   unreachable
 
 .critedge:                                        ; preds = %.lr.ph44, %.lr.ph55, %18, %.lr.ph, %3, %.lr.ph47, %33
-  %.1 = phi double [ %38, %33 ], [ 0.000000e+00, %3 ], [ 0.000000e+00, %.lr.ph47 ], [ 0.000000e+00, %18 ], [ 0.000000e+00, %.lr.ph ], [ %14, %.lr.ph55 ], [ %29, %.lr.ph44 ]
+  %.1 = phi double [ %38, %33 ], [ %14, %.lr.ph55 ], [ 0.000000e+00, %3 ], [ 0.000000e+00, %.lr.ph47 ], [ 0.000000e+00, %18 ], [ 0.000000e+00, %.lr.ph ], [ %29, %.lr.ph44 ]
   ret double %.1
 }
 

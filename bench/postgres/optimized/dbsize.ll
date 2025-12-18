@@ -173,7 +173,7 @@ sub_118:                                          ; preds = %.tail
   br i1 %.not1420, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !5
 
 .outer._crit_edge:                                ; preds = %.outer, %32, %11
-  %.0.ph.lcssa = phi i64 [ %13, %11 ], [ %.0.ph23, %32 ], [ %37, %.outer ]
+  %.0.ph.lcssa = phi i64 [ %.0.ph23, %32 ], [ %13, %11 ], [ %37, %.outer ]
   %39 = call i32 @FreeDir(ptr noundef %15) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)

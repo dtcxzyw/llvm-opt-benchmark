@@ -2948,8 +2948,8 @@ common.resume:                                    ; preds = %97, %106, %118, %71
   br i1 %93, label %.loopexit.i9, label %.lr.ph.i.i1
 
 .loopexit.i9:                                     ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hfbca9cfc34474e90E.exit.i8", %90, %85
-  %.sroa.7.044.i = phi i64 [ 0, %85 ], [ %.sroa.7.050.i, %90 ], [ 0, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hfbca9cfc34474e90E.exit.i8" ]
-  %.sroa.0.039.i = phi ptr [ %1, %85 ], [ %.sroa.0.051.i, %90 ], [ %127, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hfbca9cfc34474e90E.exit.i8" ]
+  %.sroa.7.044.i = phi i64 [ %.sroa.7.050.i, %90 ], [ 0, %85 ], [ 0, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hfbca9cfc34474e90E.exit.i8" ]
+  %.sroa.0.039.i = phi ptr [ %.sroa.0.051.i, %90 ], [ %1, %85 ], [ %127, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hfbca9cfc34474e90E.exit.i8" ]
   %94 = tail call noundef ptr @"_ZN61_$LT$std..io..stdio..StdoutLock$u20$as$u20$std..io..Write$GT$9write_all17haa5fcaa2153b2692E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, ptr noalias noundef nonnull readonly align 1 %.sroa.0.039.i, i64 noundef %.sroa.7.044.i)
   %95 = icmp eq ptr %94, null
   br i1 %95, label %_ZN6uu_cat21write_nonprint_to_end17h48f5ebf15047b60fE.exit, label %96

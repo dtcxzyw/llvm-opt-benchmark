@@ -22474,7 +22474,7 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
 
 39:                                               ; preds = %34
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br i1 %38, label %43, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hef3794e8b0f1aa4aE.exit.i.i.i"
+  br i1 %38, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hef3794e8b0f1aa4aE.exit.i.i.i", label %43
 
 41:                                               ; preds = %34
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -22484,6 +22484,11 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
   br i1 %or.cond.not.i.i.i, label %52, label %.critedge.i.i.i
 
 43:                                               ; preds = %39
+  %.val.i46.i.i.i = load ptr, ptr %40, align 8, !alias.scope !3848, !noalias !3851, !align !6, !noundef !4
+  %.not63.i.i.i = icmp eq ptr %.val.i46.i.i.i, null
+  br i1 %.not63.i.i.i, label %.critedge.i.i.i, label %52
+
+"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hef3794e8b0f1aa4aE.exit.i.i.i": ; preds = %39
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.val8.i.i.i.i = load ptr, ptr %40, align 8, !alias.scope !3848, !noalias !3851, !align !6, !noundef !4
   %45 = icmp eq ptr %.val8.i.i.i.i, null
@@ -22491,11 +22496,6 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
   %46 = icmp eq ptr %.val7.i.i.i.i, null
   %.not62.i.i.i = and i1 %45, %46
   br i1 %.not62.i.i.i, label %.critedge.i.i.i, label %52
-
-"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hef3794e8b0f1aa4aE.exit.i.i.i": ; preds = %39
-  %.val.i46.i.i.i = load ptr, ptr %40, align 8, !alias.scope !3848, !noalias !3851, !align !6, !noundef !4
-  %.not63.i.i.i = icmp eq ptr %.val.i46.i.i.i, null
-  br i1 %.not63.i.i.i, label %.critedge.i.i.i, label %52
 
 .critedge.i.i.i:                                  ; preds = %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hef3794e8b0f1aa4aE.exit.i.i.i", %43, %41, %"_ZN4core6option15Option$LT$T$GT$6map_or17h6fe7dc8925b54e2fE.exit45.i.i.i"
   br label %52
@@ -22650,7 +22650,7 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
 103:                                              ; preds = %99
   %.val8.i.i.i.i.i.i = load ptr, ptr %72, align 8, !alias.scope !3897, !noalias !3900, !align !6, !noundef !4
   %104 = icmp eq ptr %.val8.i.i.i.i.i.i, null
-  br i1 %102, label %106, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hef3794e8b0f1aa4aE.exit.i.i.i.i.i"
+  br i1 %102, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hef3794e8b0f1aa4aE.exit.i.i.i.i.i", label %106
 
 105:                                              ; preds = %99
   %.val9.i.i.i.i.i.i = load ptr, ptr %71, align 8, !alias.scope !3883, !noalias !3884, !align !6
@@ -22659,13 +22659,13 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
   br i1 %or.cond.not.i.i.i.i.i, label %113, label %.critedge.i.i.i.i.i
 
 106:                                              ; preds = %103
+  br i1 %104, label %.critedge.i.i.i.i.i, label %113
+
+"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hef3794e8b0f1aa4aE.exit.i.i.i.i.i": ; preds = %103
   %.val7.i.i.i.i.i.i = load ptr, ptr %71, align 8, !alias.scope !3897, !noalias !3900, !align !6, !noundef !4
   %107 = icmp eq ptr %.val7.i.i.i.i.i.i, null
   %.not62.i.i.i.i.i = and i1 %104, %107
   br i1 %.not62.i.i.i.i.i, label %.critedge.i.i.i.i.i, label %113
-
-"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hef3794e8b0f1aa4aE.exit.i.i.i.i.i": ; preds = %103
-  br i1 %104, label %.critedge.i.i.i.i.i, label %113
 
 .critedge.i.i.i.i.i:                              ; preds = %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hef3794e8b0f1aa4aE.exit.i.i.i.i.i", %106, %105, %"_ZN4core6option15Option$LT$T$GT$6map_or17h6fe7dc8925b54e2fE.exit45.i.i.i.i.i"
   br label %113

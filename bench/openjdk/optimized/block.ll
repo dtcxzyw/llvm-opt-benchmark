@@ -6630,11 +6630,11 @@ _ZN4Node8set_precEjPS_.exit:                      ; preds = %297, %_ZN4Node7del_
   br i1 %exitcond445.not, label %._crit_edge382, label %.lr.ph381, !llvm.loop !46
 
 ._crit_edge382:                                   ; preds = %._crit_edge379, %.loopexit, %.preheader308
-  %.sroa.35.5.lcssa504 = phi ptr [ %.sroa.35.6, %.preheader308 ], [ %.sroa.35.2.lcssa, %.loopexit ], [ %.sroa.35.6, %._crit_edge379 ]
-  %.sroa.20.5.lcssa503 = phi i32 [ %.sroa.20.6, %.preheader308 ], [ %.sroa.20.2.lcssa, %.loopexit ], [ %.sroa.20.6, %._crit_edge379 ]
-  %.sroa.0262.2.lcssa502 = phi i32 [ %.sroa.0262.3, %.preheader308 ], [ %.sroa.0262.0.lcssa, %.loopexit ], [ %.sroa.0262.3, %._crit_edge379 ]
-  %.sroa.17.3.lcssa501 = phi ptr [ %.sroa.17.4, %.preheader308 ], [ %.sroa.17.1393, %.loopexit ], [ %.sroa.17.4, %._crit_edge379 ]
-  %.sroa.10.3.lcssa500 = phi i32 [ %.sroa.10.4, %.preheader308 ], [ %.sroa.10.1392, %.loopexit ], [ %.sroa.10.4, %._crit_edge379 ]
+  %.sroa.35.5.lcssa504 = phi ptr [ %.sroa.35.2.lcssa, %.loopexit ], [ %.sroa.35.6, %.preheader308 ], [ %.sroa.35.6, %._crit_edge379 ]
+  %.sroa.20.5.lcssa503 = phi i32 [ %.sroa.20.2.lcssa, %.loopexit ], [ %.sroa.20.6, %.preheader308 ], [ %.sroa.20.6, %._crit_edge379 ]
+  %.sroa.0262.2.lcssa502 = phi i32 [ %.sroa.0262.0.lcssa, %.loopexit ], [ %.sroa.0262.3, %.preheader308 ], [ %.sroa.0262.3, %._crit_edge379 ]
+  %.sroa.17.3.lcssa501 = phi ptr [ %.sroa.17.1393, %.loopexit ], [ %.sroa.17.4, %.preheader308 ], [ %.sroa.17.4, %._crit_edge379 ]
+  %.sroa.10.3.lcssa500 = phi i32 [ %.sroa.10.1392, %.loopexit ], [ %.sroa.10.4, %.preheader308 ], [ %.sroa.10.4, %._crit_edge379 ]
   %306 = load i32, ptr %23, align 8
   %.not.i95 = icmp eq i32 %306, 0
   br i1 %.not.i95, label %._crit_edge.i, label %.lr.ph.i

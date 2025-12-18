@@ -810,7 +810,7 @@ fill_vaapi_pic.exit:                              ; preds = %4, %296, %302
   br label %find_frame_rps_type.exit.i
 
 find_frame_rps_type.exit.i:                       ; preds = %342, %353, %362, %377, %373
-  %.023.i.i = phi i32 [ 0, %377 ], [ 8, %373 ], [ 32, %353 ], [ 64, %362 ], [ 16, %342 ]
+  %.023.i.i = phi i32 [ 0, %377 ], [ 64, %362 ], [ 32, %353 ], [ 8, %373 ], [ 16, %342 ]
   store i32 %336, ptr %329, align 4, !tbaa !217
   %378 = getelementptr inbounds nuw i8, ptr %.1.i, i64 60
   %379 = load i32, ptr %378, align 4, !tbaa !218

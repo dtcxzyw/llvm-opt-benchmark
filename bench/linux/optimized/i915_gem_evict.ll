@@ -566,7 +566,7 @@ define dso_local i32 @i915_gem_evict_something(ptr noundef %0, ptr noundef %1, i
   br i1 %288, label %257, label %.thread37, !llvm.loop !31
 
 .thread37:                                        ; preds = %.loopexit43, %178, %.preheader, %263, %.thread35, %257, %.thread31, %221
-  %289 = phi i32 [ %234, %221 ], [ 0, %.thread31 ], [ %180, %178 ], [ %266, %.thread35 ], [ -28, %.preheader ], [ -28, %263 ], [ 0, %257 ], [ -28, %.loopexit43 ]
+  %289 = phi i32 [ %234, %221 ], [ 0, %.thread31 ], [ %266, %.thread35 ], [ %180, %178 ], [ -28, %.preheader ], [ -28, %263 ], [ 0, %257 ], [ -28, %.loopexit43 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %289

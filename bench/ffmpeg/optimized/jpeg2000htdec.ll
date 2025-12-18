@@ -2931,8 +2931,8 @@ recover_mag_sgn.exit205:                          ; preds = %1632
   br i1 %exitcond758.not, label %.preheader503, label %.preheader506, !llvm.loop !65
 
 jpeg2000_decode_ht_cleanup_segment.exit:          ; preds = %jpeg2000_bitbuf_get_bits_lsb.exit180.cont, %1548, %1236, %._crit_edge651.us, %.preheader502.lr.ph, %.preheader503, %171, %797
-  %1646 = phi i1 [ true, %171 ], [ true, %797 ], [ false, %.preheader503 ], [ false, %.preheader502.lr.ph ], [ true, %1548 ], [ false, %._crit_edge651.us ], [ true, %1236 ], [ true, %jpeg2000_bitbuf_get_bits_lsb.exit180.cont ]
-  %.0685.i = phi i32 [ -12, %171 ], [ -1094995529, %797 ], [ 1, %.preheader503 ], [ 1, %.preheader502.lr.ph ], [ -1094995529, %1548 ], [ 1, %._crit_edge651.us ], [ -1094995529, %1236 ], [ -1094995529, %jpeg2000_bitbuf_get_bits_lsb.exit180.cont ]
+  %1646 = phi i1 [ false, %.preheader502.lr.ph ], [ false, %.preheader503 ], [ true, %171 ], [ true, %797 ], [ false, %._crit_edge651.us ], [ true, %1548 ], [ true, %1236 ], [ true, %jpeg2000_bitbuf_get_bits_lsb.exit180.cont ]
+  %.0685.i = phi i32 [ 1, %.preheader502.lr.ph ], [ 1, %.preheader503 ], [ -12, %171 ], [ -1094995529, %797 ], [ 1, %._crit_edge651.us ], [ -1094995529, %1548 ], [ -1094995529, %1236 ], [ -1094995529, %jpeg2000_bitbuf_get_bits_lsb.exit180.cont ]
   call void @av_freep(ptr noundef nonnull %14) #10
   call void @av_freep(ptr noundef nonnull %15) #10
   call void @av_freep(ptr noundef nonnull %16) #10
@@ -3051,7 +3051,7 @@ jpeg2000_decode_ht_cleanup_segment.exit:          ; preds = %jpeg2000_bitbuf_get
   br i1 %exitcond777.not, label %.loopexit, label %.preheader.us, !llvm.loop !68
 
 .loopexit:                                        ; preds = %._crit_edge659.split.us663, %._crit_edge659.split.us.us.us, %.preheader.lr.ph, %.thread457, %jpeg2000_bitbuf_refill_forward.exit, %1647, %104
-  %.0123 = phi i32 [ -1094995529, %104 ], [ %.0.i456, %1647 ], [ -12, %jpeg2000_bitbuf_refill_forward.exit ], [ %.0685.i, %.thread457 ], [ %.0685.i, %.preheader.lr.ph ], [ %.0685.i, %._crit_edge659.split.us.us.us ], [ %.0685.i, %._crit_edge659.split.us663 ]
+  %.0123 = phi i32 [ -1094995529, %104 ], [ %.0.i456, %1647 ], [ -12, %jpeg2000_bitbuf_refill_forward.exit ], [ %.0685.i, %.preheader.lr.ph ], [ %.0685.i, %.thread457 ], [ %.0685.i, %._crit_edge659.split.us.us.us ], [ %.0685.i, %._crit_edge659.split.us663 ]
   call void @av_freep(ptr noundef nonnull %20) #10
   call void @av_freep(ptr noundef nonnull %21) #10
   br label %1688

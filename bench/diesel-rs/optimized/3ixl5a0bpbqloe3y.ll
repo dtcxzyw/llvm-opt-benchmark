@@ -397,7 +397,7 @@ define hidden void @_ZN13dsl_auto_type9auto_type19local_variables_map17LocalVari
   br i1 %148, label %.split.split, label %.split76.us
 
 .split76.us:                                      ; preds = %146, %113, %100, %87
-  %.us-phi77 = phi i64 [ %114, %113 ], [ %88, %87 ], [ %101, %100 ], [ %147, %146 ]
+  %.us-phi77 = phi i64 [ %114, %113 ], [ %101, %100 ], [ %88, %87 ], [ %147, %146 ]
   %.sroa.043.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 %.us-phi77, ptr %0, align 8
   %.sroa.247.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8

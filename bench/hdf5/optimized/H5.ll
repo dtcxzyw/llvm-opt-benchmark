@@ -1780,8 +1780,8 @@ switch.early.test:                                ; preds = %6
   br label %.loopexit
 
 .loopexit:                                        ; preds = %49, %.thread70, %58, %80, %39, %45, %61, %42
-  %.147 = phi ptr [ %.04682, %61 ], [ %.04682, %58 ], [ %.04682, %45 ], [ %.04682, %42 ], [ %.04682, %39 ], [ %69, %.thread70 ], [ %.04682, %80 ], [ %.04682, %49 ]
-  %.3 = phi ptr [ %.2.lcssa, %61 ], [ %.2.lcssa, %58 ], [ %.2.lcssa, %45 ], [ %.2.lcssa, %42 ], [ %.2.lcssa, %39 ], [ %77, %.thread70 ], [ %81, %80 ], [ %.2.lcssa, %49 ]
+  %.147 = phi ptr [ %.04682, %61 ], [ %.04682, %58 ], [ %.04682, %80 ], [ %.04682, %45 ], [ %.04682, %42 ], [ %.04682, %39 ], [ %69, %.thread70 ], [ %.04682, %49 ]
+  %.3 = phi ptr [ %.2.lcssa, %61 ], [ %.2.lcssa, %58 ], [ %81, %80 ], [ %.2.lcssa, %45 ], [ %.2.lcssa, %42 ], [ %.2.lcssa, %39 ], [ %77, %.thread70 ], [ %.2.lcssa, %49 ]
   %.not = icmp eq ptr %.3, null
   br i1 %.not, label %.critedge, label %.lr.ph85, !llvm.loop !50
 
@@ -2404,7 +2404,7 @@ define range(i32 -1, 1) i32 @H5open() local_unnamed_addr #0 {
   br label %24
 
 24:                                               ; preds = %15, %9, %19
-  %.047 = phi i32 [ -1, %19 ], [ 0, %15 ], [ 0, %9 ]
+  %.047 = phi i32 [ -1, %19 ], [ 0, %9 ], [ 0, %15 ]
   ret i32 %.047
 }
 

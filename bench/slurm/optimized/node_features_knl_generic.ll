@@ -2606,8 +2606,8 @@ _knl_numa_bits_cnt.exit:                          ; preds = %36
   br i1 %50, label %51, label %.lr.ph.backedge
 
 .lr.ph.backedge:                                  ; preds = %48, %51
-  %.02341.be = phi i32 [ 0, %48 ], [ %53, %51 ]
-  %.02440.be = phi i32 [ 0, %48 ], [ %52, %51 ]
+  %.02341.be = phi i32 [ %53, %51 ], [ 0, %48 ]
+  %.02440.be = phi i32 [ %52, %51 ], [ 0, %48 ]
   br label %.lr.ph, !llvm.loop !29
 
 51:                                               ; preds = %48, %46
@@ -3293,7 +3293,7 @@ define internal fastcc ptr @_find_key_val(ptr noundef readonly captures(address_
   br label %.thread
 
 .thread:                                          ; preds = %28, %23, %5, %9, %37, %.critedge, %2
-  %.027 = phi ptr [ null, %2 ], [ %24, %37 ], [ null, %.critedge ], [ null, %9 ], [ null, %5 ], [ %24, %23 ], [ %24, %28 ]
+  %.027 = phi ptr [ null, %2 ], [ %24, %37 ], [ null, %5 ], [ null, %.critedge ], [ null, %9 ], [ %24, %23 ], [ %24, %28 ]
   ret ptr %.027
 }
 
@@ -4520,7 +4520,7 @@ define dso_local noundef zeroext i1 @node_features_p_user_update(i32 noundef %0)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %15, %._crit_edge, %24, %21, %9, %5, %8
-  %.05 = phi i1 [ false, %5 ], [ true, %9 ], [ false, %8 ], [ false, %21 ], [ false, %24 ], [ false, %._crit_edge ], [ true, %15 ]
+  %.05 = phi i1 [ false, %5 ], [ true, %9 ], [ false, %._crit_edge ], [ false, %8 ], [ false, %21 ], [ false, %24 ], [ true, %15 ]
   ret i1 %.05
 }
 

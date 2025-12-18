@@ -2959,7 +2959,7 @@ _ZNK7oopDesc5klassEv.exit27:                      ; preds = %66, %76
   br label %.loopexit
 
 .loopexit:                                        ; preds = %11, %.preheader, %2, %10, %82
-  %.0 = phi i32 [ %.1, %82 ], [ 0, %10 ], [ 112, %2 ], [ 0, %.preheader ], [ 0, %11 ]
+  %.0 = phi i32 [ 112, %2 ], [ %.1, %82 ], [ 0, %10 ], [ 0, %.preheader ], [ 0, %11 ]
   ret i32 %.0
 }
 
@@ -3219,7 +3219,7 @@ define hidden noundef range(i32 0, 111) i32 @_ZN8JvmtiEnv13GetAllThreadsEPiPPP8_
   br label %34
 
 34:                                               ; preds = %.sink.split, %._crit_edge, %21
-  %.0 = phi i32 [ 110, %21 ], [ 110, %._crit_edge ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 110, %._crit_edge ], [ 110, %21 ], [ 0, %.sink.split ]
   call void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #19
   %35 = load ptr, ptr %11, align 8
   %.not.i.i.i.i = icmp eq ptr %35, null
@@ -3628,7 +3628,7 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit:    ; preds = %_ZN28JavaThreadIter
   br i1 %.not59, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread, label %81
 
 _ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread: ; preds = %_ZN6HandleC2EP6ThreadP7oopDesc.exit, %_ZN28JavaThreadIteratorWithHandle4nextEv.exit, %_ZNK7oopDesc4is_aEP5Klass.exit.thread84, %._crit_edge
-  %.sroa.079.0.ph.lcssa = phi ptr [ null, %._crit_edge ], [ %.sroa.079.0.ph92, %_ZN28JavaThreadIteratorWithHandle4nextEv.exit ], [ %.sroa.079.0.ph92, %_ZNK7oopDesc4is_aEP5Klass.exit.thread84 ], [ %.0.i.i.i.i61, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ]
+  %.sroa.079.0.ph.lcssa = phi ptr [ %.sroa.079.0.ph92, %_ZN28JavaThreadIteratorWithHandle4nextEv.exit ], [ null, %._crit_edge ], [ %.sroa.079.0.ph92, %_ZNK7oopDesc4is_aEP5Klass.exit.thread84 ], [ %.0.i.i.i.i61, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ]
   call void @_ZN17ThreadsListHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %61) #19
   call void @_ZN16JvmtiVTSuspender29register_all_vthreads_suspendEv() #19
   %79 = load i32, ptr %25, align 4
@@ -5165,7 +5165,7 @@ _ZN12JvmtiEnvBase10deallocateEPh.exit:            ; preds = %112, %116
   br i1 %exitcond65.not, label %._crit_edge58, label %112, !llvm.loop !22
 
 ._crit_edge58:                                    ; preds = %_ZN12JvmtiEnvBase10deallocateEPh.exit, %90, %_ZN12JvmtiEnvBase8allocateElPPh.exit.thread
-  %.276 = phi i32 [ %.2, %_ZN12JvmtiEnvBase8allocateElPPh.exit.thread ], [ 103, %90 ], [ %.277, %_ZN12JvmtiEnvBase10deallocateEPh.exit ]
+  %.276 = phi i32 [ 103, %90 ], [ %.2, %_ZN12JvmtiEnvBase8allocateElPPh.exit.thread ], [ %.277, %_ZN12JvmtiEnvBase10deallocateEPh.exit ]
   %117 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %118 = load i64, ptr %117, align 8
   %119 = and i64 %118, 1
@@ -5433,7 +5433,7 @@ _ZN12JvmtiEnvBase8allocateElPPh.exit.thread74:    ; preds = %95
   br i1 %exitcond.not, label %_ZN12JvmtiEnvBase8allocateElPPh.exit.thread, label %101, !llvm.loop !23
 
 _ZN12JvmtiEnvBase8allocateElPPh.exit.thread:      ; preds = %101, %_ZN12JvmtiEnvBase8allocateElPPh.exit.thread74, %97, %90
-  %.0.i56 = phi i32 [ 110, %97 ], [ 103, %90 ], [ 0, %_ZN12JvmtiEnvBase8allocateElPPh.exit.thread74 ], [ 0, %101 ]
+  %.0.i56 = phi i32 [ 103, %90 ], [ 110, %97 ], [ 0, %_ZN12JvmtiEnvBase8allocateElPPh.exit.thread74 ], [ 0, %101 ]
   store i32 %91, ptr %2, align 4
   br label %116
 
@@ -8994,7 +8994,7 @@ _ZN12JvmtiEnvBase8allocateElPPh.exit.sink.split:  ; preds = %32, %.thread74, %59
   br label %_ZN12JvmtiEnvBase8allocateElPPh.exit
 
 _ZN12JvmtiEnvBase8allocateElPPh.exit:             ; preds = %_ZN12JvmtiEnvBase8allocateElPPh.exit.sink.split, %.thread80, %.thread74, %55, %51, %.thread55, %32, %47, %49, %.thread84, %20
-  %.0 = phi i32 [ 0, %.thread55 ], [ 21, %20 ], [ 0, %.thread84 ], [ 0, %49 ], [ 0, %47 ], [ 0, %32 ], [ 103, %51 ], [ 110, %55 ], [ 0, %.thread74 ], [ 0, %.thread80 ], [ 0, %_ZN12JvmtiEnvBase8allocateElPPh.exit.sink.split ]
+  %.0 = phi i32 [ 0, %.thread55 ], [ 21, %20 ], [ 0, %.thread80 ], [ 0, %.thread84 ], [ 0, %49 ], [ 0, %.thread74 ], [ 0, %47 ], [ 0, %32 ], [ 103, %51 ], [ 110, %55 ], [ 0, %_ZN12JvmtiEnvBase8allocateElPPh.exit.sink.split ]
   %61 = load ptr, ptr %10, align 8
   %.not.i.i.i.i = icmp eq ptr %61, null
   br i1 %.not.i.i.i.i, label %63, label %62
@@ -11363,7 +11363,7 @@ _ZN20JvmtiPendingMonitors7destroyEP15JvmtiRawMonitor.exit.thread: ; preds = %.lo
   br label %.loopexit18
 
 .loopexit18:                                      ; preds = %.lr.ph, %_ZN20JvmtiPendingMonitors7destroyEP15JvmtiRawMonitor.exit, %_ZN20JvmtiPendingMonitors7destroyEP15JvmtiRawMonitor.exit.thread, %.loopexit
-  %.012 = phi i32 [ 51, %.loopexit ], [ 0, %_ZN20JvmtiPendingMonitors7destroyEP15JvmtiRawMonitor.exit.thread ], [ 0, %_ZN20JvmtiPendingMonitors7destroyEP15JvmtiRawMonitor.exit ], [ 113, %.lr.ph ]
+  %.012 = phi i32 [ 51, %.loopexit ], [ 0, %_ZN20JvmtiPendingMonitors7destroyEP15JvmtiRawMonitor.exit ], [ 0, %_ZN20JvmtiPendingMonitors7destroyEP15JvmtiRawMonitor.exit.thread ], [ 113, %.lr.ph ]
   ret i32 %.012
 }
 
@@ -11928,7 +11928,7 @@ _ZNK14SystemProperty8readableEv.exit.thread44:    ; preds = %23, %_ZNK14SystemPr
   br i1 %.not36, label %.critedge, label %.lr.ph, !llvm.loop !49
 
 .critedge:                                        ; preds = %_ZNK14SystemProperty8readableEv.exit.thread44, %.lr.ph, %_ZN12JvmtiEnvBase8allocateElPPh.exit, %12, %3, %_ZN8JvmtiEnv10DeallocateEPh.exit41
-  %.027 = phi i32 [ %.0.i38, %_ZN8JvmtiEnv10DeallocateEPh.exit41 ], [ 110, %12 ], [ 103, %3 ], [ 0, %_ZN12JvmtiEnvBase8allocateElPPh.exit ], [ 0, %.lr.ph ], [ 0, %_ZNK14SystemProperty8readableEv.exit.thread44 ]
+  %.027 = phi i32 [ 103, %3 ], [ %.0.i38, %_ZN8JvmtiEnv10DeallocateEPh.exit41 ], [ 110, %12 ], [ 0, %_ZN12JvmtiEnvBase8allocateElPPh.exit ], [ 0, %.lr.ph ], [ 0, %_ZNK14SystemProperty8readableEv.exit.thread44 ]
   ret i32 %.027
 }
 

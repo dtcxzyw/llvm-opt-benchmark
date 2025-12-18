@@ -5339,7 +5339,7 @@ hostrange_count.exit:                             ; preds = %41, %48
   br i1 %59, label %21, label %hostname_suffix_is_valid.exit.thread, !llvm.loop !57
 
 hostname_suffix_is_valid.exit.thread:             ; preds = %hostrange_count.exit, %.preheader, %26, %hostname_suffix_is_valid.exit, %29
-  %.032 = phi i32 [ %40, %29 ], [ %.03350, %hostname_suffix_is_valid.exit ], [ %.03350, %26 ], [ -1, %.preheader ], [ -1, %hostrange_count.exit ]
+  %.032 = phi i32 [ %40, %29 ], [ %.03350, %26 ], [ %.03350, %hostname_suffix_is_valid.exit ], [ -1, %.preheader ], [ -1, %hostrange_count.exit ]
   %60 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %13) #22
   %.not42 = icmp eq i32 %60, 0
   br i1 %.not42, label %63, label %61
@@ -6117,7 +6117,7 @@ define internal fastcc i32 @_get_boxes(ptr noundef writeonly captures(none) %0, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %48, %33, %23, %.loopexit.loopexit82, %.loopexit.loopexit81, %.loopexit.loopexit, %57, %58
-  %.2 = phi i32 [ %.0.lcssa, %57 ], [ %.0.lcssa, %58 ], [ %59, %.loopexit.loopexit ], [ %60, %.loopexit.loopexit81 ], [ %61, %.loopexit.loopexit82 ], [ %24, %23 ], [ %49, %48 ], [ %34, %33 ]
+  %.2 = phi i32 [ %61, %.loopexit.loopexit82 ], [ %59, %.loopexit.loopexit ], [ %60, %.loopexit.loopexit81 ], [ %.0.lcssa, %57 ], [ %.0.lcssa, %58 ], [ %34, %33 ], [ %24, %23 ], [ %49, %48 ]
   %62 = sext i32 %.2 to i64
   %63 = getelementptr inbounds i8, ptr %0, i64 %62
   store i8 0, ptr %63, align 1
@@ -6666,7 +6666,7 @@ _grow_ranges.exit:                                ; preds = %51
   br label %.loopexit
 
 .loopexit:                                        ; preds = %59, %40, %34, %.split37, %.split37.us.loopexit
-  %.022 = phi i32 [ %64, %.split37 ], [ %.pre, %.split37.us.loopexit ], [ -1, %40 ], [ -1, %34 ], [ -1, %59 ]
+  %.022 = phi i32 [ %64, %.split37 ], [ -1, %40 ], [ %.pre, %.split37.us.loopexit ], [ -1, %34 ], [ -1, %59 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.022
 }
@@ -7136,7 +7136,7 @@ define internal fastcc range(i32 0, 2) i32 @_parse_box_range(ptr noundef nonnull
   br label %.loopexit
 
 .loopexit:                                        ; preds = %35, %23, %5, %12, %.preheader.preheader
-  %.0 = phi i32 [ %42, %.preheader.preheader ], [ 0, %5 ], [ 0, %12 ], [ 0, %23 ], [ 0, %35 ]
+  %.0 = phi i32 [ %42, %.preheader.preheader ], [ 0, %12 ], [ 0, %5 ], [ 0, %23 ], [ 0, %35 ]
   ret i32 %.0
 }
 
@@ -7411,7 +7411,7 @@ _grow_ranges.exit.us:                             ; preds = %33
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph74.split, %72, %52, %9, %.critedge
-  %.2 = phi i32 [ 0, %.critedge ], [ 1, %9 ], [ 1, %52 ], [ 0, %.lr.ph74.split ], [ 1, %72 ]
+  %.2 = phi i32 [ 0, %.critedge ], [ 1, %9 ], [ 1, %52 ], [ 1, %72 ], [ 0, %.lr.ph74.split ]
   ret i32 %.2
 }
 
@@ -7928,7 +7928,7 @@ define internal fastcc range(i32 0, 2) i32 @_tell_if_used(i32 noundef %0, i32 no
   br i1 %.not.not, label %.lr.ph.split, label %.loopexit, !llvm.loop !80
 
 .loopexit:                                        ; preds = %57, %35, %6, %47
-  %61 = phi i32 [ %.pre, %47 ], [ %9, %6 ], [ %37, %35 ], [ %59, %57 ]
+  %61 = phi i32 [ %37, %35 ], [ %.pre, %47 ], [ %9, %6 ], [ %59, %57 ]
   %62 = add nsw i32 %61, -1
   store i32 %62, ptr %10, align 4
   br label %.loopexit1

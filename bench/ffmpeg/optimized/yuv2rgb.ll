@@ -25346,7 +25346,7 @@ isPlanar.exit.thread:                             ; preds = %794, %isPlanar.exit
   br label %fill_gv_table.exit
 
 fill_gv_table.exit:                               ; preds = %780, %677, %582, %517, %428, %341, %262, %183, %isPlanar.exit.thread, %isPlanar.exit, %isALPHA.exit, %isALPHA.exit451, %527, %438, %350, %271, %192, %150
-  %.0 = phi i32 [ -12, %isALPHA.exit ], [ -22, %isPlanar.exit.thread ], [ -12, %isALPHA.exit451 ], [ -12, %150 ], [ -12, %192 ], [ -12, %271 ], [ -12, %350 ], [ -12, %438 ], [ -12, %527 ], [ -22, %isPlanar.exit ], [ 0, %677 ], [ 0, %183 ], [ 0, %262 ], [ 0, %341 ], [ 0, %428 ], [ 0, %517 ], [ 0, %582 ], [ 0, %780 ]
+  %.0 = phi i32 [ -12, %isALPHA.exit ], [ -22, %isPlanar.exit.thread ], [ -12, %isALPHA.exit451 ], [ -12, %150 ], [ -12, %192 ], [ -12, %271 ], [ -12, %350 ], [ -12, %438 ], [ -12, %527 ], [ -22, %isPlanar.exit ], [ 0, %428 ], [ 0, %341 ], [ 0, %262 ], [ 0, %183 ], [ 0, %677 ], [ 0, %582 ], [ 0, %517 ], [ 0, %780 ]
   ret i32 %.0
 }
 

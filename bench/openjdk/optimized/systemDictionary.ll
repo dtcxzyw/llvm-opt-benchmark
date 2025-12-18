@@ -4203,7 +4203,7 @@ _ZN13PerfTraceTimeC2EP15PerfLongCounter.exit:     ; preds = %53, %59
   br label %.critedge
 
 _ZN22SharedClassLoadingMarkD2Ev.exit:             ; preds = %65, %_ZN13PerfTraceTimeC2EP15PerfLongCounter.exit, %61
-  %.270 = phi ptr [ %66, %65 ], [ null, %61 ], [ null, %_ZN13PerfTraceTimeC2EP15PerfLongCounter.exit ]
+  %.270 = phi ptr [ null, %_ZN13PerfTraceTimeC2EP15PerfLongCounter.exit ], [ %66, %65 ], [ null, %61 ]
   %76 = load i8, ptr @UsePerfData, align 1
   %77 = trunc i8 %76 to i1
   %78 = load i8, ptr %55, align 8

@@ -112,8 +112,8 @@ define internal void @array_subscript_transform(ptr noundef captures(none) %0, p
   br label %list_length.exit.thread
 
 .critedge:                                        ; preds = %73, %.lr.ph.split.us, %.lr.ph.split.us.preheader
-  %.043.lcssa = phi ptr [ null, %.lr.ph.split.us.preheader ], [ %29, %.lr.ph.split.us ], [ null, %73 ]
-  %.042.lcssa = phi ptr [ null, %.lr.ph.split.us.preheader ], [ %38, %.lr.ph.split.us ], [ %74, %73 ]
+  %.043.lcssa = phi ptr [ %29, %.lr.ph.split.us ], [ null, %.lr.ph.split.us.preheader ], [ null, %73 ]
+  %.042.lcssa = phi ptr [ %38, %.lr.ph.split.us ], [ null, %.lr.ph.split.us.preheader ], [ %74, %73 ]
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.042.lcssa, ptr %48, align 8
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -457,7 +457,7 @@ define internal noundef zeroext i1 @array_subscript_check_subscripts(ptr readnon
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.critedge, %.loopexit.sink.split, %.critedge.preheader
-  %.134 = phi i1 [ true, %.critedge.preheader ], [ false, %.loopexit.sink.split ], [ true, %.critedge ]
+  %.134 = phi i1 [ false, %.loopexit.sink.split ], [ true, %.critedge.preheader ], [ true, %.critedge ]
   ret i1 %.134
 }
 

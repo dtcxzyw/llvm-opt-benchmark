@@ -6086,7 +6086,7 @@ _ZNKSt4lessIN4cvc58internal6theory8CarePairEEclERKS3_S6_.exit: ; preds = %24
   %32 = icmp samesign ult i64 %28, %31
   br i1 %32, label %_ZNKSt4lessIN4cvc58internal6theory8CarePairEEclERKS3_S6_.exit.thread, label %_ZNKSt4lessIN4cvc58internal6theory8CarePairEEclERKS3_S6_.exit.thread27
 
-_ZNKSt4lessIN4cvc58internal6theory8CarePairEEclERKS3_S6_.exit.thread27: ; preds = %24, %15, %_ZNKSt4lessIN4cvc58internal6theory8CarePairEEclERKS3_S6_.exit
+_ZNKSt4lessIN4cvc58internal6theory8CarePairEEclERKS3_S6_.exit.thread27: ; preds = %15, %24, %_ZNKSt4lessIN4cvc58internal6theory8CarePairEEclERKS3_S6_.exit
   br label %_ZNKSt4lessIN4cvc58internal6theory8CarePairEEclERKS3_S6_.exit.thread
 
 _ZNKSt4lessIN4cvc58internal6theory8CarePairEEclERKS3_S6_.exit.thread: ; preds = %_ZNKSt4lessIN4cvc58internal6theory8CarePairEEclERKS3_S6_.exit, %10, %17, %_ZNKSt4lessIN4cvc58internal6theory8CarePairEEclERKS3_S6_.exit.thread27
@@ -6152,7 +6152,7 @@ _ZNKSt4lessIN4cvc58internal6theory8CarePairEEclERKS3_S6_.exit6: ; preds = %56
   %66 = icmp samesign ult i64 %62, %65
   br i1 %66, label %_ZNKSt4lessIN4cvc58internal6theory8CarePairEEclERKS3_S6_.exit6.thread, label %_ZNKSt4lessIN4cvc58internal6theory8CarePairEEclERKS3_S6_.exit6.thread32
 
-_ZNKSt4lessIN4cvc58internal6theory8CarePairEEclERKS3_S6_.exit6.thread32: ; preds = %56, %46, %_ZNKSt4lessIN4cvc58internal6theory8CarePairEEclERKS3_S6_.exit6
+_ZNKSt4lessIN4cvc58internal6theory8CarePairEEclERKS3_S6_.exit6.thread32: ; preds = %46, %56, %_ZNKSt4lessIN4cvc58internal6theory8CarePairEEclERKS3_S6_.exit6
   br label %_ZNKSt4lessIN4cvc58internal6theory8CarePairEEclERKS3_S6_.exit6.thread
 
 _ZNKSt4lessIN4cvc58internal6theory8CarePairEEclERKS3_S6_.exit6.thread: ; preds = %48, %39, %_ZNKSt4lessIN4cvc58internal6theory8CarePairEEclERKS3_S6_.exit6, %._crit_edge.thread, %_ZNKSt4lessIN4cvc58internal6theory8CarePairEEclERKS3_S6_.exit6.thread32

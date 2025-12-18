@@ -451,7 +451,7 @@ define internal fastcc noundef range(i32 -128, 256) i32 @_ZL11opt_ordinalP7OPTAR
   br i1 %exitcond100.not, label %.thread77, label %.thread73.split.split, !llvm.loop !28
 
 .thread77:                                        ; preds = %87, %.thread73.split.split, %59, %.thread73.split, %65, %79, %30, %44, %15, %5, %2
-  %.0 = phi i32 [ %32, %30 ], [ 0, %2 ], [ %., %15 ], [ 0, %5 ], [ %spec.select, %44 ], [ %67, %65 ], [ %spec.select68, %79 ], [ 0, %.thread73.split ], [ 0, %59 ], [ 0, %.thread73.split.split ], [ 0, %87 ]
+  %.0 = phi i32 [ %32, %30 ], [ 0, %2 ], [ %spec.select68, %79 ], [ %., %15 ], [ 0, %5 ], [ %spec.select, %44 ], [ %67, %65 ], [ 0, %.thread73.split ], [ 0, %59 ], [ 0, %.thread73.split.split ], [ 0, %87 ]
   ret i32 %.0
 }
 
@@ -2034,9 +2034,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %.thread401
 
 .thread401:                                       ; preds = %.lr.ph422, %456, %454, %451
-  %cond = phi i1 [ false, %451 ], [ false, %454 ], [ true, %456 ], [ true, %.lr.ph422 ]
-  %.4199 = phi ptr [ %435, %451 ], [ %435, %454 ], [ %.3198, %456 ], [ %.3198, %.lr.ph422 ]
-  %.6 = phi i32 [ 1, %451 ], [ 1, %454 ], [ 0, %456 ], [ 0, %.lr.ph422 ]
+  %cond = phi i1 [ false, %454 ], [ false, %451 ], [ true, %456 ], [ true, %.lr.ph422 ]
+  %.4199 = phi ptr [ %435, %454 ], [ %435, %451 ], [ %.3198, %456 ], [ %.3198, %.lr.ph422 ]
+  %.6 = phi i32 [ 1, %454 ], [ 1, %451 ], [ 0, %456 ], [ 0, %.lr.ph422 ]
   %463 = load ptr, ptr %8, align 8, !tbaa !46
   %464 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %465 = icmp eq ptr %463, %464

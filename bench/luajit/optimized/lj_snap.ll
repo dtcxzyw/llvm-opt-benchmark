@@ -405,7 +405,7 @@ snapshot_slots.exit.i:                            ; preds = %132, %lj_snap_grow_
   br i1 %209, label %.lr.ph.i27.i, label %snapshot_stack.exit, !llvm.loop !59
 
 snapshot_stack.exit:                              ; preds = %.outer.i.i, %195, %165
-  %.029.ph.lcssa.i.i = phi ptr [ %166, %165 ], [ %.029.ph38.i.i, %195 ], [ %spec.select.i28.i, %.outer.i.i ]
+  %.029.ph.lcssa.i.i = phi ptr [ %.029.ph38.i.i, %195 ], [ %166, %165 ], [ %spec.select.i28.i, %.outer.i.i ]
   %210 = getelementptr inbounds nuw i8, ptr %48, i64 9
   %211 = ptrtoint ptr %.029.ph.lcssa.i.i to i64
   %212 = ptrtoint ptr %146 to i64
@@ -830,7 +830,7 @@ define internal fastcc i32 @snap_usedef(ptr noundef readonly captures(none) %0, 
   br i1 %exitcond325.not, label %.thread186, label %.lr.ph257, !llvm.loop !79
 
 .loopexit:                                        ; preds = %.lr.ph229, %.preheader196, %36, %97, %90, %39
-  %.1153 = phi ptr [ %23, %36 ], [ %23, %39 ], [ %95, %90 ], [ %23, %97 ], [ %23, %.preheader196 ], [ %23, %.lr.ph229 ]
+  %.1153 = phi ptr [ %23, %36 ], [ %23, %39 ], [ %23, %97 ], [ %95, %90 ], [ %23, %.preheader196 ], [ %23, %.lr.ph229 ]
   %117 = and i16 %28, 7
   switch i16 %117, label %._crit_edge.backedge [
     i16 3, label %118
@@ -1017,7 +1017,7 @@ define internal fastcc i32 @snap_usedef(ptr noundef readonly captures(none) %0, 
   br i1 %exitcond297.not, label %._crit_edge.backedge, label %.lr.ph232, !llvm.loop !84
 
 .thread186:                                       ; preds = %175, %90, %36, %.lr.ph257, %.lr.ph262, %.preheader191, %.preheader, %.thread, %4
-  %.0 = phi i32 [ 0, %4 ], [ %89, %.thread ], [ 0, %.preheader191 ], [ 0, %.preheader ], [ 0, %.lr.ph257 ], [ 0, %.lr.ph262 ], [ %3, %36 ], [ %3, %90 ], [ %3, %175 ]
+  %.0 = phi i32 [ 0, %4 ], [ %89, %.thread ], [ 0, %.preheader ], [ 0, %.preheader191 ], [ 0, %.lr.ph262 ], [ 0, %.lr.ph257 ], [ %3, %36 ], [ %3, %90 ], [ %3, %175 ]
   ret i32 %.0
 }
 

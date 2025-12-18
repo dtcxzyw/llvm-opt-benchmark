@@ -668,7 +668,7 @@ _ZN3std2io5Write14write_vectored17hd0e762ba53a5b78cE.exit: ; preds = %"_ZN4core6
   br label %.loopexit
 
 .loopexit:                                        ; preds = %94, %.loopexit.sink.split, %21, %3
-  %.0 = phi ptr [ null, %21 ], [ null, %3 ], [ %.0.ph, %.loopexit.sink.split ], [ null, %94 ]
+  %.0 = phi ptr [ null, %3 ], [ %.0.ph, %.loopexit.sink.split ], [ null, %21 ], [ null, %94 ]
   ret ptr %.0
 
 44:                                               ; preds = %_ZN3std2io5Write14write_vectored17hd0e762ba53a5b78cE.exit

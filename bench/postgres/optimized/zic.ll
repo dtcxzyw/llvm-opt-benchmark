@@ -616,7 +616,7 @@ timerange_option.exit:                            ; preds = %170
   br label %.preheader90.backedge
 
 .preheader90.backedge:                            ; preds = %timerange_option.exit, %66, %75, %74, %178, %126, %125, %118, %114, %112, %99, %89, %79
-  %.0.be = phi i1 [ %.0, %66 ], [ %.0, %74 ], [ %.0, %75 ], [ %.0, %79 ], [ %.0, %89 ], [ %.0, %99 ], [ %.0, %112 ], [ %.0, %114 ], [ %.0, %118 ], [ %.0, %125 ], [ %.0, %126 ], [ %.0, %178 ], [ true, %timerange_option.exit ]
+  %.0.be = phi i1 [ true, %timerange_option.exit ], [ %.0, %178 ], [ %.0, %66 ], [ %.0, %74 ], [ %.0, %75 ], [ %.0, %79 ], [ %.0, %89 ], [ %.0, %99 ], [ %.0, %112 ], [ %.0, %114 ], [ %.0, %118 ], [ %.0, %125 ], [ %.0, %126 ]
   br label %.preheader90, !llvm.loop !6
 
 173:                                              ; preds = %137, %156, %145, %170, %152
@@ -1884,7 +1884,7 @@ stringoffset.exit140.i.i:                         ; preds = %741, %736, %731
   br label %stringzone.exit.i
 
 stringzone.exit.i:                                ; preds = %589, %587, %767, %766, %757, %746, %698, %697, %657, %.thread147.i.i, %656, %._crit_edge697.i
-  %.0102.i.i = phi i32 [ -1, %697 ], [ -1, %._crit_edge697.i ], [ -1, %.thread147.i.i ], [ -1, %757 ], [ -1, %766 ], [ %spec.select126.i.i, %767 ], [ -1, %746 ], [ -1, %657 ], [ 0, %698 ], [ -1, %656 ], [ -1, %587 ], [ -1, %589 ]
+  %.0102.i.i = phi i32 [ -1, %697 ], [ 0, %698 ], [ -1, %._crit_edge697.i ], [ -1, %657 ], [ -1, %.thread147.i.i ], [ -1, %757 ], [ -1, %766 ], [ %spec.select126.i.i, %767 ], [ -1, %746 ], [ -1, %656 ], [ -1, %587 ], [ -1, %589 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %768 = icmp slt i32 %.0102.i.i, 0
@@ -7053,7 +7053,7 @@ itsabbr.exit:                                     ; preds = %62, %52, %.loopexit
   br i1 %.not49, label %.loopexit70, label %52, !llvm.loop !80
 
 .loopexit70:                                      ; preds = %ciequal.exit, %44, %itsabbr.exit, %._crit_edge, %ciprefix.exit, %71, %2
-  %.040 = phi ptr [ null, %2 ], [ %.137, %71 ], [ %.137, %._crit_edge ], [ null, %ciprefix.exit ], [ null, %44 ], [ %.137, %itsabbr.exit ], [ %.03481, %ciequal.exit ]
+  %.040 = phi ptr [ %.137, %itsabbr.exit ], [ null, %2 ], [ null, %44 ], [ %.137, %._crit_edge ], [ %.137, %71 ], [ null, %ciprefix.exit ], [ %.03481, %ciequal.exit ]
   ret ptr %.040
 }
 
@@ -7372,7 +7372,7 @@ define internal fastcc noundef zeroext i1 @namecheck(ptr noundef %0) unnamed_add
   br label %14
 
 14:                                               ; preds = %12, %8
-  %.221 = phi ptr [ %13, %12 ], [ %.01931, %8 ]
+  %.221 = phi ptr [ %.01931, %8 ], [ %13, %12 ]
   %15 = getelementptr inbounds nuw i8, ptr %.02230, i64 1
   %16 = load i8, ptr %15, align 1
   %.not = icmp eq i8 %16, 0
@@ -7933,7 +7933,7 @@ oadd.exit108:                                     ; preds = %101, %104
   br i1 %.not99, label %._crit_edge, label %.lr.ph133.split, !llvm.loop !82
 
 ._crit_edge:                                      ; preds = %oadd.exit108, %oadd.exit108.us, %oadd.exit108.us.us
-  %.285.lcssa = phi i64 [ %53, %oadd.exit108.us ], [ %40, %oadd.exit108.us.us ], [ %107, %oadd.exit108 ]
+  %.285.lcssa = phi i64 [ %40, %oadd.exit108.us.us ], [ %53, %oadd.exit108.us ], [ %107, %oadd.exit108 ]
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %110 = load i32, ptr %109, align 4
   %111 = icmp eq i32 %18, 1

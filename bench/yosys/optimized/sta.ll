@@ -17853,8 +17853,8 @@ _ZN12_GLOBAL__N_19StaWorker10t_endpointD2Ev.exit59.i: ; preds = %_ZNSt6vectorIN5
   br label %_ZNK5Yosys7hashlib4dictINS_5RTLIL6SigBitEN12_GLOBAL__N_19StaWorker10t_endpointENS0_8hash_opsIS3_EEE9do_lookupERKS3_Rj.exit
 
 _ZNK5Yosys7hashlib4dictINS_5RTLIL6SigBitEN12_GLOBAL__N_19StaWorker10t_endpointENS0_8hash_opsIS3_EEE9do_lookupERKS3_Rj.exit: ; preds = %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.i, %60, %_ZN12_GLOBAL__N_19StaWorker10t_endpointD2Ev.exit59.i, %_ZN12_GLOBAL__N_19StaWorker10t_endpointD2Ev.exit.i
-  %.pre-phi97.i.sink = phi i32 [ %227, %_ZN12_GLOBAL__N_19StaWorker10t_endpointD2Ev.exit59.i ], [ %.pre96.i, %_ZN12_GLOBAL__N_19StaWorker10t_endpointD2Ev.exit.i ], [ %.022.i.us, %60 ], [ %.022.i, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.i ]
-  %.sink = phi i8 [ 1, %_ZN12_GLOBAL__N_19StaWorker10t_endpointD2Ev.exit59.i ], [ 1, %_ZN12_GLOBAL__N_19StaWorker10t_endpointD2Ev.exit.i ], [ 0, %60 ], [ 0, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.i ]
+  %.pre-phi97.i.sink = phi i32 [ %.022.i.us, %60 ], [ %.pre96.i, %_ZN12_GLOBAL__N_19StaWorker10t_endpointD2Ev.exit.i ], [ %227, %_ZN12_GLOBAL__N_19StaWorker10t_endpointD2Ev.exit59.i ], [ %.022.i, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.i ]
+  %.sink = phi i8 [ 0, %60 ], [ 1, %_ZN12_GLOBAL__N_19StaWorker10t_endpointD2Ev.exit.i ], [ 1, %_ZN12_GLOBAL__N_19StaWorker10t_endpointD2Ev.exit59.i ], [ 0, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.i ]
   store ptr %1, ptr %0, align 8, !tbaa !438
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.pre-phi97.i.sink, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !77

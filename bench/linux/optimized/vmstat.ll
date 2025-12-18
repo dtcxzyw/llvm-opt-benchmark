@@ -3106,7 +3106,7 @@ define internal noundef i32 @pagetypeinfo_show(ptr noundef %0, ptr noundef %1) #
   br label %143
 
 143:                                              ; preds = %140, %132
-  %144 = phi i32 [ %133, %132 ], [ %142, %140 ]
+  %144 = phi i32 [ %142, %140 ], [ %133, %132 ]
   %145 = icmp eq i32 %144, 0
   %146 = load i64, ptr @vmemmap_base, align 8
   %147 = inttoptr i64 %146 to ptr

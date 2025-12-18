@@ -8224,7 +8224,7 @@ define dso_local void @_ZN7AstNode15iterateChildrenER9VNVisitor(ptr noundef nonn
   br label %57
 
 57:                                               ; preds = %54, %52
-  %.1.i = phi ptr [ %56, %54 ], [ %51, %52 ]
+  %.1.i = phi ptr [ %51, %52 ], [ %56, %54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not20.i = icmp eq ptr %.1.i, null
   br i1 %.not20.i, label %_ZN7AstNode14iterateAndNextER9VNVisitor.exit, label %37, !llvm.loop !211
@@ -8299,7 +8299,7 @@ _ZN7AstNode14iterateAndNextER9VNVisitor.exit:     ; preds = %57, %.critedge.i, %
   br label %85
 
 85:                                               ; preds = %82, %80
-  %.1.i25 = phi ptr [ %84, %82 ], [ %79, %80 ]
+  %.1.i25 = phi ptr [ %79, %80 ], [ %84, %82 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not20.i26 = icmp eq ptr %.1.i25, null
   br i1 %.not20.i26, label %_ZN7AstNode14iterateAndNextER9VNVisitor.exit28, label %65, !llvm.loop !211
@@ -8374,7 +8374,7 @@ _ZN7AstNode14iterateAndNextER9VNVisitor.exit28:   ; preds = %85, %.critedge.i27,
   br label %113
 
 113:                                              ; preds = %110, %108
-  %.1.i35 = phi ptr [ %112, %110 ], [ %107, %108 ]
+  %.1.i35 = phi ptr [ %107, %108 ], [ %112, %110 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not20.i36 = icmp eq ptr %.1.i35, null
   br i1 %.not20.i36, label %_ZN7AstNode14iterateAndNextER9VNVisitor.exit38, label %93, !llvm.loop !211
@@ -8449,7 +8449,7 @@ _ZN7AstNode14iterateAndNextER9VNVisitor.exit38:   ; preds = %113, %.critedge.i37
   br label %141
 
 141:                                              ; preds = %138, %136
-  %.1.i45 = phi ptr [ %140, %138 ], [ %135, %136 ]
+  %.1.i45 = phi ptr [ %135, %136 ], [ %140, %138 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not20.i46 = icmp eq ptr %.1.i45, null
   br i1 %.not20.i46, label %_ZN7AstNode14iterateAndNextER9VNVisitor.exit48, label %121, !llvm.loop !211
@@ -8528,7 +8528,7 @@ define dso_local void @_ZN7AstNode14iterateAndNextER9VNVisitor(ptr noundef nonnu
   br label %29
 
 29:                                               ; preds = %26, %24
-  %.1 = phi ptr [ %28, %26 ], [ %23, %24 ]
+  %.1 = phi ptr [ %23, %24 ], [ %28, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not20 = icmp eq ptr %.1, null
   br i1 %.not20, label %.loopexit, label %9, !llvm.loop !211
@@ -14729,7 +14729,7 @@ _ZN7AstNode11privateCastI17AstPackArrayDTypePK12AstNodeDTypeEEPKT_PKS_.exit.i.i:
   br i1 %or.cond.i.i, label %_ZN7AstNode9privateIsI13AstBasicDTypePK12AstNodeDTypeEEbPKS_.exit.i, label %_ZNK12AstNodeDType12similarDTypeEPKS_.exit.thread81.i.backedge
 
 _ZNK12AstNodeDType12similarDTypeEPKS_.exit.thread81.i.backedge: ; preds = %30, %_ZN7AstNode11privateCastI17AstPackArrayDTypePK12AstNodeDTypeEEPKT_PKS_.exit.i.i
-  %.0.i37.i.be = phi ptr [ %29, %_ZN7AstNode11privateCastI17AstPackArrayDTypePK12AstNodeDTypeEEPKT_PKS_.exit.i.i ], [ %31, %30 ]
+  %.0.i37.i.be = phi ptr [ %31, %30 ], [ %29, %_ZN7AstNode11privateCastI17AstPackArrayDTypePK12AstNodeDTypeEEPKT_PKS_.exit.i.i ]
   br label %_ZNK12AstNodeDType12similarDTypeEPKS_.exit.thread81.i, !llvm.loop !333
 
 _ZN7AstNode9privateIsI13AstBasicDTypePK12AstNodeDTypeEEbPKS_.exit.i: ; preds = %30

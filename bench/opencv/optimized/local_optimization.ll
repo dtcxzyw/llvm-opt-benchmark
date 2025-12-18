@@ -4659,7 +4659,7 @@ _ZNSt6vectorIPN2cv6detail7GCGraphIdE3VtxESaIS5_EED2Ev.exit: ; preds = %.loopexit
   br label %395
 
 ._crit_edge431:                                   ; preds = %.loopexit340, %114, %._crit_edge
-  %.sroa.0.0639 = phi ptr [ null, %._crit_edge ], [ %.sroa.0.0641, %114 ], [ %.sroa.0.7.lcssa, %.loopexit340 ]
+  %.sroa.0.0639 = phi ptr [ %.sroa.0.0641, %114 ], [ null, %._crit_edge ], [ %.sroa.0.7.lcssa, %.loopexit340 ]
   %393 = load double, ptr %51, align 8, !tbaa !198
   %.not.i.i.i280 = icmp eq ptr %.sroa.0.0639, null
   br i1 %.not.i.i.i280, label %_ZNSt6vectorIPN2cv6detail7GCGraphIdE3VtxESaIS5_EED2Ev.exit281, label %394
@@ -6170,8 +6170,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv4usac35InnerIterativeLocalO
   br label %191
 
 191:                                              ; preds = %185, %181
-  %192 = phi i32 [ %.pre139, %185 ], [ %.pre140, %181 ]
-  %.157 = phi i32 [ %190, %185 ], [ %.056127, %181 ]
+  %192 = phi i32 [ %.pre140, %181 ], [ %.pre139, %185 ]
+  %.157 = phi i32 [ %.056127, %181 ], [ %190, %185 ]
   %193 = add nuw nsw i32 %.055128, 1
   %194 = icmp slt i32 %193, %192
   br i1 %194, label %55, label %.critedge, !llvm.loop !260

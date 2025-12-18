@@ -1416,7 +1416,7 @@ define hidden void @_ZN14polars_compute4cast7utf8_to17binary_to_binview17h52ad6b
   br label %.body.thread
 
 .loopexit.split-lp:                               ; preds = %182, %81, %86, %87, %101, %"_ZN5alloc4sync12Arc$LT$T$GT$19allocate_for_layout17hb1ee494bd2b2f7d9E.exit.i"
-  %.sroa.014.0.ph = phi i8 [ 0, %101 ], [ 1, %182 ], [ 0, %"_ZN5alloc4sync12Arc$LT$T$GT$19allocate_for_layout17hb1ee494bd2b2f7d9E.exit.i" ], [ 0, %87 ], [ 1, %86 ], [ 1, %81 ]
+  %.sroa.014.0.ph = phi i8 [ 1, %182 ], [ 0, %101 ], [ 0, %"_ZN5alloc4sync12Arc$LT$T$GT$19allocate_for_layout17hb1ee494bd2b2f7d9E.exit.i" ], [ 0, %87 ], [ 1, %86 ], [ 1, %81 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -1456,7 +1456,7 @@ define hidden void @_ZN14polars_compute4cast7utf8_to17binary_to_binview17h52ad6b
   unreachable
 
 .thread102:                                       ; preds = %66, %155
-  %.sroa.011.0.lcssa = phi i1 [ %.sroa.011.1, %155 ], [ %.sroa.011.0147, %66 ]
+  %.sroa.011.0.lcssa = phi i1 [ %.sroa.011.0147, %66 ], [ %.sroa.011.1, %155 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   br i1 %.sroa.011.0.lcssa, label %87, label %82
 

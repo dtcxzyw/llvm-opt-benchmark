@@ -448,7 +448,7 @@ rsakem_opname2id.exit.i:                          ; preds = %.preheader.i.i.i
   br label %rsakem_set_ctx_params.exit
 
 rsakem_set_ctx_params.exit:                       ; preds = %.preheader.i.i.i, %19, %rsakem_opname2id.exit.i, %ossl_param_is_empty.exit.i, %14, %24, %21, %12, %10, %7, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %12 ], [ 0, %7 ], [ 0, %10 ], [ 0, %21 ], [ 0, %24 ], [ 1, %14 ], [ 1, %ossl_param_is_empty.exit.i ], [ 1, %rsakem_opname2id.exit.i ], [ 1, %19 ], [ 0, %.preheader.i.i.i ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %12 ], [ 0, %7 ], [ 0, %10 ], [ 0, %21 ], [ 1, %19 ], [ 0, %24 ], [ 1, %14 ], [ 1, %ossl_param_is_empty.exit.i ], [ 1, %rsakem_opname2id.exit.i ], [ 0, %.preheader.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }

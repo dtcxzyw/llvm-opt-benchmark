@@ -893,7 +893,7 @@ define noundef ptr @uriEscapeExA(ptr noundef readonly captures(address) %0, ptr 
   br i1 %.not67, label %.lr.ph.split.split.split.split, label %.sink.split
 
 .sink.split:                                      ; preds = %.lr.ph.split.split.split.split, %192, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.us.split, %130, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.us.split, %64, %.lr.ph.split.us.split.us, %.preheader, %8
-  %.us-phi.sink = phi ptr [ %2, %8 ], [ %2, %.preheader ], [ %.06177.us.us, %.lr.ph.split.us.split.us ], [ %.06177.us92.us, %.lr.ph.split.split.split.us.split.us ], [ %.06177.us104, %.lr.ph.split.split.split.split.us ], [ %.2.us, %64 ], [ %.2.us95, %130 ], [ %.06177.us, %.lr.ph.split.us.split ], [ %.06177.us92, %.lr.ph.split.split.split.us.split ], [ %.06177, %.lr.ph.split.split.split.split ], [ %.2, %192 ]
+  %.us-phi.sink = phi ptr [ %.2.us, %64 ], [ %2, %8 ], [ %2, %.preheader ], [ %.06177.us92.us, %.lr.ph.split.split.split.us.split.us ], [ %.06177.us.us, %.lr.ph.split.us.split.us ], [ %.06177.us104, %.lr.ph.split.split.split.split.us ], [ %.2.us95, %130 ], [ %.06177.us, %.lr.ph.split.us.split ], [ %.06177.us92, %.lr.ph.split.split.split.us.split ], [ %.06177, %.lr.ph.split.split.split.split ], [ %.2, %192 ]
   store i8 0, ptr %.us-phi.sink, align 1, !tbaa !3
   br label %194
 
@@ -2046,7 +2046,7 @@ define noundef ptr @uriEscapeExW(ptr noundef readonly captures(address) %0, ptr 
   br i1 %.not67, label %.lr.ph.split.split.split.split, label %.sink.split
 
 .sink.split:                                      ; preds = %.lr.ph.split.split.split.split, %192, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.us.split, %130, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.us.split, %64, %.lr.ph.split.us.split.us, %.preheader, %8
-  %.us-phi.sink = phi ptr [ %2, %8 ], [ %2, %.preheader ], [ %.06177.us.us, %.lr.ph.split.us.split.us ], [ %.06177.us92.us, %.lr.ph.split.split.split.us.split.us ], [ %.06177.us104, %.lr.ph.split.split.split.split.us ], [ %.2.us, %64 ], [ %.2.us95, %130 ], [ %.06177.us, %.lr.ph.split.us.split ], [ %.06177.us92, %.lr.ph.split.split.split.us.split ], [ %.06177, %.lr.ph.split.split.split.split ], [ %.2, %192 ]
+  %.us-phi.sink = phi ptr [ %.2.us, %64 ], [ %2, %8 ], [ %2, %.preheader ], [ %.06177.us92.us, %.lr.ph.split.split.split.us.split.us ], [ %.06177.us.us, %.lr.ph.split.us.split.us ], [ %.06177.us104, %.lr.ph.split.split.split.split.us ], [ %.2.us95, %130 ], [ %.06177.us, %.lr.ph.split.us.split ], [ %.06177.us92, %.lr.ph.split.split.split.us.split ], [ %.06177, %.lr.ph.split.split.split.split ], [ %.2, %192 ]
   store i32 0, ptr %.us-phi.sink, align 4, !tbaa !6
   br label %194
 

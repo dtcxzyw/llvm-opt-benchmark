@@ -342,8 +342,8 @@ _ZL16startsWithPrefixPKDsi.exit:                  ; preds = %84
   br label %116
 
 116:                                              ; preds = %.thread234, %113, %115, %102, %74, %76, %75, %44, %_ZL16startsWithPrefixPKDsi.exit, %108, %99, %50
-  %.0138 = phi i32 [ 0, %44 ], [ 0, %50 ], [ 0, %74 ], [ 0, %75 ], [ 0, %76 ], [ %.1139, %115 ], [ %.1139, %113 ], [ %106, %108 ], [ 0, %_ZL16startsWithPrefixPKDsi.exit ], [ 0, %99 ], [ 0, %102 ], [ %.1141, %.thread234 ]
-  %.0135 = phi ptr [ %10, %44 ], [ %10, %50 ], [ %10, %74 ], [ %10, %75 ], [ %10, %76 ], [ %.1136, %115 ], [ %.1136, %113 ], [ %.2137, %108 ], [ %10, %_ZL16startsWithPrefixPKDsi.exit ], [ null, %99 ], [ %.2137, %102 ], [ %10, %.thread234 ]
+  %.0138 = phi i32 [ %.1141, %.thread234 ], [ 0, %102 ], [ 0, %44 ], [ 0, %50 ], [ 0, %74 ], [ 0, %75 ], [ 0, %76 ], [ %.1139, %115 ], [ %.1139, %113 ], [ %106, %108 ], [ 0, %_ZL16startsWithPrefixPKDsi.exit ], [ 0, %99 ]
+  %.0135 = phi ptr [ %10, %.thread234 ], [ %.2137, %102 ], [ %10, %44 ], [ %10, %50 ], [ %10, %74 ], [ %10, %75 ], [ %10, %76 ], [ %.1136, %115 ], [ %.1136, %113 ], [ %.2137, %108 ], [ %10, %_ZL16startsWithPrefixPKDsi.exit ], [ null, %99 ]
   %.not159 = icmp eq ptr %.2134, %9
   br i1 %.not159, label %117, label %.thread165
 
@@ -683,8 +683,8 @@ _ZL27compareCaseInsensitiveASCIIPKDsiS0_i.exit:   ; preds = %104, %93
   br label %uidna_toASCII_77.exit159.thread
 
 .loopexit:                                        ; preds = %.preheader.i, %.preheader, %.thread169
-  %.2126206 = phi ptr [ %.2126, %.thread169 ], [ %0, %.preheader ], [ %.2126, %.preheader.i ]
-  %.1123168205 = phi i32 [ %.1123168, %.thread169 ], [ 0, %.preheader ], [ %.1123168, %.preheader.i ]
+  %.2126206 = phi ptr [ %0, %.preheader ], [ %.2126, %.thread169 ], [ %.2126, %.preheader.i ]
+  %.1123168205 = phi i32 [ 0, %.preheader ], [ %.1123168, %.thread169 ], [ %.1123168, %.preheader.i ]
   %.not146 = icmp sgt i32 %.1123168205, %3
   br i1 %.not146, label %uidna_toASCII_77.exit159.thread, label %108
 
@@ -1244,8 +1244,8 @@ _ZL27compareCaseInsensitiveASCIIPKDsiS0_i.exit.thread: ; preds = %18
   br i1 %.not33.i, label %_ZL27compareCaseInsensitiveASCIIPKDsiS0_i.exit, label %.lr.ph.i, !llvm.loop !15
 
 _ZL27compareCaseInsensitiveASCIIPKDsiS0_i.exit:   ; preds = %51, %43, %37, %34
-  %.049 = phi ptr [ null, %34 ], [ %.150, %37 ], [ %.150, %43 ], [ %.150, %51 ]
-  %.0 = phi i32 [ -1, %34 ], [ %.026.i, %37 ], [ %.026.i, %51 ], [ %50, %43 ]
+  %.049 = phi ptr [ %.150, %37 ], [ null, %34 ], [ %.150, %43 ], [ %.150, %51 ]
+  %.0 = phi i32 [ %.026.i, %37 ], [ -1, %34 ], [ %.026.i, %51 ], [ %50, %43 ]
   %.not56 = icmp eq ptr %.046, %7
   br i1 %.not56, label %53, label %52
 

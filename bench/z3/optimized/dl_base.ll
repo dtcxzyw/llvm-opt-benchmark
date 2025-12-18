@@ -3571,7 +3571,7 @@ define hidden noundef zeroext i1 @_ZN7datalog10table_base12suggest_factER7svecto
   br label %18
 
 18:                                               ; preds = %.sink.split, %11, %7
-  %.0 = phi i1 [ false, %7 ], [ false, %11 ], [ true, %.sink.split ]
+  %.0 = phi i1 [ false, %11 ], [ false, %7 ], [ true, %.sink.split ]
   ret i1 %.0
 }
 

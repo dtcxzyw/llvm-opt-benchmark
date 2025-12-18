@@ -1682,7 +1682,7 @@ tailrecurse.us:                                   ; preds = %7
   br label %.loopexit
 
 .loopexit:                                        ; preds = %2, %.split.us, %.split29.us, %32, %31, %28, %23, %22, %19, %.split21.us
-  %.0 = phi i32 [ 0, %.split.us ], [ %15, %.split21.us ], [ 2147483647, %19 ], [ -2147483648, %22 ], [ %24, %23 ], [ 2147483647, %28 ], [ -2147483648, %31 ], [ %33, %32 ], [ 0, %.split29.us ], [ 0, %2 ]
+  %.0 = phi i32 [ 0, %.split29.us ], [ 0, %.split.us ], [ %15, %.split21.us ], [ 2147483647, %19 ], [ -2147483648, %22 ], [ %24, %23 ], [ 2147483647, %28 ], [ -2147483648, %31 ], [ %33, %32 ], [ 0, %2 ]
   ret i32 %.0
 }
 
@@ -1778,7 +1778,7 @@ tailrecurse.us:                                   ; preds = %7
   br label %.loopexit
 
 .loopexit:                                        ; preds = %2, %.split.us, %.split25.us, %37, %33, %30, %21, %18, %.split20.us
-  %.0 = phi i64 [ 0, %.split.us ], [ %14, %.split20.us ], [ 9223372036854775807, %18 ], [ -9223372036854775808, %21 ], [ %32, %30 ], [ %36, %33 ], [ %38, %37 ], [ 0, %.split25.us ], [ 0, %2 ]
+  %.0 = phi i64 [ 0, %.split25.us ], [ 0, %.split.us ], [ %14, %.split20.us ], [ 9223372036854775807, %18 ], [ -9223372036854775808, %21 ], [ %32, %30 ], [ %36, %33 ], [ %38, %37 ], [ 0, %2 ]
   ret i64 %.0
 }
 
@@ -1840,7 +1840,7 @@ tailrecurse.us:                                   ; preds = %7
   br label %.loopexit
 
 .loopexit:                                        ; preds = %2, %.split.us, %.split20.us, %.split17.us, %.split15.us
-  %.0 = phi double [ 0.000000e+00, %.split.us ], [ %15, %.split15.us ], [ %17, %.split17.us ], [ 0.000000e+00, %.split20.us ], [ 0.000000e+00, %2 ]
+  %.0 = phi double [ 0.000000e+00, %.split20.us ], [ 0.000000e+00, %.split.us ], [ %15, %.split15.us ], [ %17, %.split17.us ], [ 0.000000e+00, %2 ]
   ret double %.0
 }
 
@@ -2794,7 +2794,7 @@ tailrecurse.us.i:                                 ; preds = %7
   br label %_ZNK6icu_7711Formattable9getDoubleER10UErrorCode.exit
 
 _ZNK6icu_7711Formattable9getDoubleER10UErrorCode.exit: ; preds = %2, %.split15.us.i, %.split17.us.i, %.split20.us.i, %.split.us.i
-  %.0.i = phi double [ 0.000000e+00, %.split.us.i ], [ %15, %.split15.us.i ], [ %17, %.split17.us.i ], [ 0.000000e+00, %.split20.us.i ], [ 0.000000e+00, %2 ]
+  %.0.i = phi double [ 0.000000e+00, %.split20.us.i ], [ 0.000000e+00, %.split.us.i ], [ %15, %.split15.us.i ], [ %17, %.split17.us.i ], [ 0.000000e+00, %2 ]
   ret double %.0.i
 }
 
@@ -2886,7 +2886,7 @@ tailrecurse.us.i:                                 ; preds = %7
   br label %_ZNK6icu_7711Formattable7getLongER10UErrorCode.exit
 
 _ZNK6icu_7711Formattable7getLongER10UErrorCode.exit: ; preds = %2, %.split21.us.i, %19, %22, %23, %28, %31, %32, %.split29.us.i, %.split.us.i
-  %.0.i = phi i32 [ 0, %.split.us.i ], [ %15, %.split21.us.i ], [ 2147483647, %19 ], [ -2147483648, %22 ], [ %24, %23 ], [ 2147483647, %28 ], [ -2147483648, %31 ], [ %33, %32 ], [ 0, %.split29.us.i ], [ 0, %2 ]
+  %.0.i = phi i32 [ 0, %.split29.us.i ], [ 0, %.split.us.i ], [ %15, %.split21.us.i ], [ 2147483647, %19 ], [ -2147483648, %22 ], [ %24, %23 ], [ 2147483647, %28 ], [ -2147483648, %31 ], [ %33, %32 ], [ 0, %2 ]
   ret i32 %.0.i
 }
 

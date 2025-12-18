@@ -1431,7 +1431,7 @@ _ZN6bufferIcLb0ELj16EE6expandEv.exit.i190:        ; preds = %.noexc195, %._crit_
   br label %551
 
 .loopexit:                                        ; preds = %488, %310, %.preheader232, %.preheader
-  %498 = phi i32 [ %.pre273, %.preheader ], [ %.pre272, %.preheader232 ], [ %316, %310 ], [ %494, %488 ]
+  %498 = phi i32 [ %316, %310 ], [ %.pre273, %.preheader ], [ %.pre272, %.preheader232 ], [ %494, %488 ]
   %499 = icmp ugt i32 %498, 1
   br i1 %499, label %.lr.ph.i.i197.preheader, label %_ZSt7reverseIPcEvT_S1_.exit
 

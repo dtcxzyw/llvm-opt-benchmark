@@ -990,10 +990,10 @@ Gia_ManObjSimAnd.exit.loopexit55:                 ; preds = %.lr.ph.i31
   br label %Gia_ManObjSimAnd.exit
 
 Gia_ManObjSimAnd.exit:                            ; preds = %.lr.ph.i40, %.lr.ph31.i, %.lr.ph.i, %.lr.ph79.i, %.lr.ph81.i, %.lr.ph83.i, %Gia_ManObjSimAnd.exit.loopexit55, %.preheader.i44, %.preheader27.i, %87, %.preheader.i, %.preheader71.i, %.preheader73.i, %.preheader75.i, %99
-  %121 = phi i32 [ %.pre, %Gia_ManObjSimAnd.exit.loopexit55 ], [ %30, %99 ], [ %30, %.preheader.i44 ], [ %30, %.preheader27.i ], [ %30, %87 ], [ %30, %.preheader.i ], [ %30, %.preheader71.i ], [ %30, %.preheader73.i ], [ %30, %.preheader75.i ], [ %30, %.lr.ph31.i ], [ %30, %.lr.ph83.i ], [ %30, %.lr.ph81.i ], [ %30, %.lr.ph79.i ], [ %30, %.lr.ph.i ], [ %30, %.lr.ph.i40 ]
-  %.val56.i64 = phi i32 [ %96, %Gia_ManObjSimAnd.exit.loopexit55 ], [ %.val56.i, %99 ], [ %.val56.i, %.preheader.i44 ], [ %.val56.i, %.preheader27.i ], [ %.val56.i, %87 ], [ %.val56.i, %.preheader.i ], [ %.val56.i, %.preheader71.i ], [ %.val56.i, %.preheader73.i ], [ %.val56.i, %.preheader75.i ], [ %.val56.i, %.lr.ph31.i ], [ %.val56.i, %.lr.ph83.i ], [ %.val56.i, %.lr.ph81.i ], [ %.val56.i, %.lr.ph79.i ], [ %.val56.i, %.lr.ph.i ], [ %.val56.i, %.lr.ph.i40 ]
-  %.val.i3062 = phi i32 [ %96, %Gia_ManObjSimAnd.exit.loopexit55 ], [ %.val.i30, %99 ], [ %.val.i30, %.preheader.i44 ], [ %.val.i30, %.preheader27.i ], [ %.val.i30, %87 ], [ %.val56.i, %.preheader.i ], [ %.val56.i, %.preheader71.i ], [ %.val56.i, %.preheader73.i ], [ %.val56.i, %.preheader75.i ], [ %.val.i30, %.lr.ph31.i ], [ %.val56.i, %.lr.ph83.i ], [ %.val56.i, %.lr.ph81.i ], [ %.val56.i, %.lr.ph79.i ], [ %.val56.i, %.lr.ph.i ], [ %.val.i30, %.lr.ph.i40 ]
-  %.val21.i60 = phi i32 [ %96, %Gia_ManObjSimAnd.exit.loopexit55 ], [ %.val21.i, %99 ], [ %.val21.i, %.preheader.i44 ], [ %.val21.i, %.preheader27.i ], [ %.val.i30, %87 ], [ %.val56.i, %.preheader.i ], [ %.val56.i, %.preheader71.i ], [ %.val56.i, %.preheader73.i ], [ %.val56.i, %.preheader75.i ], [ %.val21.i, %.lr.ph31.i ], [ %.val56.i, %.lr.ph83.i ], [ %.val56.i, %.lr.ph81.i ], [ %.val56.i, %.lr.ph79.i ], [ %.val56.i, %.lr.ph.i ], [ %.val21.i, %.lr.ph.i40 ]
+  %121 = phi i32 [ %30, %.lr.ph.i ], [ %30, %.lr.ph79.i ], [ %.pre, %Gia_ManObjSimAnd.exit.loopexit55 ], [ %30, %.lr.ph81.i ], [ %30, %.lr.ph83.i ], [ %30, %.lr.ph31.i ], [ %30, %99 ], [ %30, %.preheader.i44 ], [ %30, %.preheader27.i ], [ %30, %87 ], [ %30, %.preheader.i ], [ %30, %.preheader71.i ], [ %30, %.preheader73.i ], [ %30, %.preheader75.i ], [ %30, %.lr.ph.i40 ]
+  %.val56.i64 = phi i32 [ %.val56.i, %.lr.ph.i ], [ %.val56.i, %.lr.ph79.i ], [ %96, %Gia_ManObjSimAnd.exit.loopexit55 ], [ %.val56.i, %.lr.ph81.i ], [ %.val56.i, %.lr.ph83.i ], [ %.val56.i, %.lr.ph31.i ], [ %.val56.i, %99 ], [ %.val56.i, %.preheader.i44 ], [ %.val56.i, %.preheader27.i ], [ %.val56.i, %87 ], [ %.val56.i, %.preheader.i ], [ %.val56.i, %.preheader71.i ], [ %.val56.i, %.preheader73.i ], [ %.val56.i, %.preheader75.i ], [ %.val56.i, %.lr.ph.i40 ]
+  %.val.i3062 = phi i32 [ %.val56.i, %.lr.ph.i ], [ %.val56.i, %.lr.ph79.i ], [ %96, %Gia_ManObjSimAnd.exit.loopexit55 ], [ %.val56.i, %.lr.ph81.i ], [ %.val56.i, %.lr.ph83.i ], [ %.val.i30, %.lr.ph31.i ], [ %.val.i30, %99 ], [ %.val.i30, %.preheader.i44 ], [ %.val.i30, %.preheader27.i ], [ %.val.i30, %87 ], [ %.val56.i, %.preheader.i ], [ %.val56.i, %.preheader71.i ], [ %.val56.i, %.preheader73.i ], [ %.val56.i, %.preheader75.i ], [ %.val.i30, %.lr.ph.i40 ]
+  %.val21.i60 = phi i32 [ %.val56.i, %.lr.ph.i ], [ %.val56.i, %.lr.ph79.i ], [ %96, %Gia_ManObjSimAnd.exit.loopexit55 ], [ %.val56.i, %.lr.ph81.i ], [ %.val56.i, %.lr.ph83.i ], [ %.val21.i, %.lr.ph31.i ], [ %.val21.i, %99 ], [ %.val21.i, %.preheader.i44 ], [ %.val21.i, %.preheader27.i ], [ %.val.i30, %87 ], [ %.val56.i, %.preheader.i ], [ %.val56.i, %.preheader71.i ], [ %.val56.i, %.preheader73.i ], [ %.val56.i, %.preheader75.i ], [ %.val21.i, %.lr.ph.i40 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %122 = sext i32 %121 to i64
   %123 = icmp slt i64 %indvars.iv.next, %122
@@ -2493,10 +2493,10 @@ define range(i32 0, 2) i32 @Gia_ManSimParamRead(ptr noundef %0, ptr noundef writ
   br label %.thread43
 
 .thread43:                                        ; preds = %.thread43.loopexit, %9, %16
-  %or.cond = phi i32 [ 0, %16 ], [ 0, %9 ], [ %20, %.thread43.loopexit ]
-  %.13051 = phi i32 [ 0, %16 ], [ %.029.ph, %9 ], [ %.029.ph, %.thread43.loopexit ]
-  %.13350 = phi i32 [ %17, %16 ], [ %.032.ph, %9 ], [ %.032.ph, %.thread43.loopexit ]
-  %.13649 = phi i32 [ %.3, %16 ], [ %.035.ph, %9 ], [ %.035.ph, %.thread43.loopexit ]
+  %or.cond = phi i32 [ 0, %9 ], [ 0, %16 ], [ %20, %.thread43.loopexit ]
+  %.13051 = phi i32 [ %.029.ph, %9 ], [ 0, %16 ], [ %.029.ph, %.thread43.loopexit ]
+  %.13350 = phi i32 [ %.032.ph, %9 ], [ %17, %16 ], [ %.032.ph, %.thread43.loopexit ]
+  %.13649 = phi i32 [ %.035.ph, %9 ], [ %.3, %16 ], [ %.035.ph, %.thread43.loopexit ]
   %spec.select = add nsw i32 %.13051, %or.cond
   br label %.critedge.outer, !llvm.loop !86
 
@@ -2567,7 +2567,7 @@ define void @Gia_ManSimFileRead(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   br i1 %.not30, label %16, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %14, %16
-  %.025.be = phi i32 [ 1, %14 ], [ 0, %16 ]
+  %.025.be = phi i32 [ 0, %16 ], [ 1, %14 ]
   br label %.backedge, !llvm.loop !87
 
 16:                                               ; preds = %14
@@ -3098,7 +3098,7 @@ Vec_WrdStart.exit85:                              ; preds = %Vec_WrdStart.exit, 
   br label %.outer._crit_edge
 
 .outer._crit_edge:                                ; preds = %.outer._crit_edge.loopexit114, %.outer._crit_edge.loopexit, %Vec_WrdStart.exit85
-  %.068.ph.lcssa = phi i32 [ 0, %Vec_WrdStart.exit85 ], [ %107, %.outer._crit_edge.loopexit ], [ %108, %.outer._crit_edge.loopexit114 ]
+  %.068.ph.lcssa = phi i32 [ %107, %.outer._crit_edge.loopexit ], [ 0, %Vec_WrdStart.exit85 ], [ %108, %.outer._crit_edge.loopexit114 ]
   %.not77 = icmp eq i32 %.068.ph.lcssa, %.062.ph.lcssa
   br i1 %.not77, label %110, label %109
 
@@ -7155,7 +7155,7 @@ Vec_IntPush.exit98:                               ; preds = %.Vec_IntGrow.exit10
   br i1 %exitcond129.not, label %.loopexit, label %.lr.ph123, !llvm.loop !144
 
 .loopexit:                                        ; preds = %Vec_IntPush.exit84, %Vec_IntPush.exit98, %.preheader116, %.preheader117
-  %130 = phi ptr [ %10, %.preheader117 ], [ %10, %.preheader116 ], [ %.pre.i87134, %Vec_IntPush.exit98 ], [ %.pre.i132, %Vec_IntPush.exit84 ]
+  %130 = phi ptr [ %10, %.preheader116 ], [ %.pre.i87134, %Vec_IntPush.exit98 ], [ %10, %.preheader117 ], [ %.pre.i132, %Vec_IntPush.exit84 ]
   %131 = load i32, ptr %5, align 4, !tbaa !41
   %132 = load i32, ptr %3, align 8, !tbaa !43
   %133 = icmp eq i32 %131, %132

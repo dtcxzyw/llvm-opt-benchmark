@@ -813,8 +813,8 @@ define range(i32 -128, 128) i32 @H5_get_option(i32 noundef %0, ptr noundef reado
   br i1 %.not85, label %.loopexit, label %.lr.ph111
 
 .loopexit:                                        ; preds = %61, %.lr.ph.split, %55, %57, %47, %53, %44, %54
-  %.064104 = phi i64 [ %indvars.iv, %57 ], [ %indvars.iv, %54 ], [ %indvars.iv, %55 ], [ %indvars.iv, %44 ], [ %indvars.iv, %53 ], [ %indvars.iv, %47 ], [ 0, %.lr.ph.split ], [ %indvars.iv.next, %61 ]
-  %.062.ph = phi i32 [ 63, %57 ], [ %41, %54 ], [ 63, %55 ], [ %41, %44 ], [ %41, %53 ], [ %41, %47 ], [ 63, %.lr.ph.split ], [ 63, %61 ]
+  %.064104 = phi i64 [ %indvars.iv, %57 ], [ %indvars.iv, %54 ], [ %indvars.iv, %55 ], [ %indvars.iv, %44 ], [ %indvars.iv, %47 ], [ %indvars.iv, %53 ], [ 0, %.lr.ph.split ], [ %indvars.iv.next, %61 ]
+  %.062.ph = phi i32 [ 63, %57 ], [ %41, %54 ], [ 63, %55 ], [ %41, %44 ], [ %41, %47 ], [ %41, %53 ], [ 63, %.lr.ph.split ], [ 63, %61 ]
   %64 = and i64 %.064104, 4294967295
   %65 = getelementptr inbounds nuw %struct.h5_long_options, ptr %3, i64 %64
   %66 = load ptr, ptr %65, align 8, !tbaa !34

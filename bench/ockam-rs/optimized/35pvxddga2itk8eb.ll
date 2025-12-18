@@ -32053,7 +32053,7 @@ define hidden void @"_ZN126_$LT$ockam_identity..models..purpose_key_attestation.
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %151, %130, %113, %3
-  %.0154.ph.ph = phi i1 [ false, %130 ], [ true, %151 ], [ true, %3 ], [ true, %113 ]
+  %.0154.ph.ph = phi i1 [ true, %151 ], [ false, %130 ], [ true, %3 ], [ true, %113 ]
   %lpad.loopexit.split-lp283 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -39927,7 +39927,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit: ;
   invoke fastcc void @"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17he610a15764eac745E"(ptr nonnull %20) #39
           to label %.thread.thread unwind label %78
 
-.thread.thread148:                                ; preds = %48, %23, %.thread.thread
+.thread.thread148:                                ; preds = %23, %48, %.thread.thread
   %.pn86144 = phi { ptr, i32 } [ %.pn86145, %.thread.thread ], [ %49, %48 ], [ %lpad.thr_comm.split-lp, %23 ]
   resume { ptr, i32 } %.pn86144
 

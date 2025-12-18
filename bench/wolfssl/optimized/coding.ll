@@ -683,7 +683,7 @@ Base64_SkipNewline.exit:                          ; preds = %267
   br i1 %271, label %.lr.ph, label %Base64_SkipNewline.exit.thread275.thread
 
 Base64_SkipNewline.exit.thread275:                ; preds = %.loopexit, %32, %.lr.ph62.i, %.preheader
-  %.096314 = phi i32 [ 0, %.preheader ], [ %.096317, %.lr.ph62.i ], [ %.096317, %32 ], [ %.096317, %.loopexit ]
+  %.096314 = phi i32 [ %.096317, %.lr.ph62.i ], [ 0, %.preheader ], [ %.096317, %32 ], [ %.096317, %.loopexit ]
   %.not119 = icmp eq ptr %2, null
   br i1 %.not119, label %277, label %Base64_SkipNewline.exit.thread275.thread
 
@@ -705,7 +705,7 @@ Base64_SkipNewline.exit.thread275.thread:         ; preds = %Base64_SkipNewline.
   br label %Base64_SkipNewline.exit.thread268
 
 Base64_SkipNewline.exit.thread268:                ; preds = %151, %Base64_SkipNewline.exit181, %150, %112, %Base64_SkipNewline.exit150, %111, %73, %49, %72, %31, %244, %180, %175, %170, %Base64_SkipNewline.exit212, %.lr.ph62.i140, %.lr.ph62.i171, %.lr.ph62.i202, %4, %277
-  %.0 = phi i32 [ 0, %277 ], [ -173, %4 ], [ -132, %.lr.ph62.i140 ], [ -132, %.lr.ph62.i202 ], [ -132, %.lr.ph62.i171 ], [ -154, %150 ], [ -132, %Base64_SkipNewline.exit181 ], [ -132, %151 ], [ -132, %Base64_SkipNewline.exit150 ], [ -132, %112 ], [ -132, %49 ], [ -132, %73 ], [ -154, %111 ], [ -154, %72 ], [ -154, %Base64_SkipNewline.exit212 ], [ -154, %170 ], [ -154, %175 ], [ -173, %180 ], [ -154, %244 ], [ -154, %31 ]
+  %.0 = phi i32 [ 0, %277 ], [ -173, %4 ], [ -132, %.lr.ph62.i171 ], [ -132, %.lr.ph62.i202 ], [ -132, %.lr.ph62.i140 ], [ -132, %Base64_SkipNewline.exit181 ], [ -154, %150 ], [ -132, %151 ], [ -132, %Base64_SkipNewline.exit150 ], [ -132, %112 ], [ -132, %49 ], [ -132, %73 ], [ -154, %111 ], [ -154, %72 ], [ -154, %Base64_SkipNewline.exit212 ], [ -154, %170 ], [ -154, %175 ], [ -173, %180 ], [ -154, %244 ], [ -154, %31 ]
   ret i32 %.0
 }
 
@@ -1628,7 +1628,7 @@ CEscape.exit:                                     ; preds = %CEscape.exit.sink.s
   br label %.thread328
 
 456:                                              ; preds = %401, %429, %428, %421, %413, %407, %403
-  %.5256.ph = phi i32 [ %410, %428 ], [ %402, %401 ], [ %433, %429 ], [ %425, %421 ], [ %417, %413 ], [ %408, %407 ], [ %402, %403 ]
+  %.5256.ph = phi i32 [ %402, %403 ], [ %410, %428 ], [ %408, %407 ], [ %402, %401 ], [ %433, %429 ], [ %425, %421 ], [ %417, %413 ]
   %spec.select349 = select i1 %.not415, i32 3, i32 1
   br label %.thread328
 
@@ -1741,7 +1741,7 @@ CEscape.exit239.thread393:                        ; preds = %487
 CEscape.exit239.thread:                           ; preds = %CEscape.exit239
   br i1 %6, label %.thread406, label %CEscape.exit239.thread.thread396
 
-CEscape.exit239.thread.thread396:                 ; preds = %.thread, %251, %153, %104, %51, %202, %.thread335, %489, %482, %437, %347, %293, %396, %.thread310, %.thread328, %CEscape.exit239.thread393, %CEscape.exit239.thread
+CEscape.exit239.thread.thread396:                 ; preds = %.thread, %251, %153, %104, %51, %202, %.thread335, %489, %482, %.thread310, %347, %437, %293, %396, %.thread328, %CEscape.exit239.thread393, %CEscape.exit239.thread
   %.6257347388 = phi i32 [ %483, %CEscape.exit239.thread393 ], [ %.3, %CEscape.exit239.thread ], [ %.0252.lcssa, %293 ], [ %.4255.ph, %396 ], [ %.5256.ph325, %.thread328 ], [ %.3, %.thread335 ], [ %.3, %482 ], [ %485, %489 ], [ %.4255.ph, %.thread310 ], [ %.12.ph, %347 ], [ %.4255.ph, %437 ], [ %.9.ph, %202 ], [ %.0252355, %51 ], [ %.7.ph, %104 ], [ %.8258.ph, %153 ], [ %.10.ph, %251 ], [ %.10.ph, %.thread ]
   %.8348386 = phi i32 [ 0, %CEscape.exit239.thread393 ], [ 0, %CEscape.exit239.thread ], [ -132, %293 ], [ -132, %396 ], [ -132, %.thread328 ], [ -132, %.thread335 ], [ -132, %482 ], [ 0, %489 ], [ -132, %.thread310 ], [ -132, %347 ], [ -132, %437 ], [ -132, %202 ], [ -132, %51 ], [ -132, %104 ], [ -132, %153 ], [ -132, %251 ], [ -132, %.thread ]
   %500 = phi i1 [ true, %CEscape.exit239.thread393 ], [ true, %CEscape.exit239.thread ], [ false, %293 ], [ false, %396 ], [ false, %.thread328 ], [ false, %.thread335 ], [ false, %482 ], [ true, %489 ], [ false, %.thread310 ], [ false, %347 ], [ false, %437 ], [ false, %202 ], [ false, %51 ], [ false, %104 ], [ false, %153 ], [ false, %251 ], [ false, %.thread ]

@@ -4345,7 +4345,7 @@ _ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit192:    ; preds = %.lr.ph.i185, %.lr.p
   br i1 %.not155, label %53, label %.critedge, !llvm.loop !193
 
 .critedge:                                        ; preds = %._crit_edge251, %.preheader, %.preheader.us234, %._crit_edge231.us, %.preheader203
-  %.not155208 = phi i32 [ 0, %.preheader203 ], [ 1, %.preheader ], [ 1, %._crit_edge231.us ], [ 1, %.preheader.us234 ], [ 0, %._crit_edge251 ]
+  %.not155208 = phi i32 [ 1, %._crit_edge231.us ], [ 1, %.preheader.us234 ], [ 1, %.preheader ], [ 0, %.preheader203 ], [ 0, %._crit_edge251 ]
   ret i32 %.not155208
 }
 

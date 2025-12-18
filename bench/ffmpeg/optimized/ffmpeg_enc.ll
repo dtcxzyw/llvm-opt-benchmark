@@ -2155,7 +2155,7 @@ encode_frame.exit:                                ; preds = %320, %329, %331, %2
   br label %do_subtitle_out.exit
 
 do_subtitle_out.exit:                             ; preds = %122, %128, %20, %21, %.thread.i, %48, %37, %34, %27, %24, %encode_frame.exit, %222
-  %.0 = phi i32 [ 0, %24 ], [ %.2.i, %encode_frame.exit ], [ 0, %222 ], [ 0, %27 ], [ 0, %20 ], [ %36, %34 ], [ 0, %37 ], [ %.2.ph.i, %.thread.i ], [ 0, %48 ], [ 0, %21 ], [ -541478725, %128 ], [ 0, %122 ]
+  %.0 = phi i32 [ 0, %24 ], [ %.2.i, %encode_frame.exit ], [ 0, %222 ], [ -541478725, %128 ], [ 0, %27 ], [ 0, %20 ], [ %36, %34 ], [ 0, %37 ], [ %.2.ph.i, %.thread.i ], [ 0, %48 ], [ 0, %21 ], [ 0, %122 ]
   ret i32 %.0
 }
 

@@ -6064,7 +6064,7 @@ _ZNSt6vectorItSaItEE9push_backEOt.exit:           ; preds = %31, %_ZNSt6vectorIt
   br i1 %exitcond.not, label %.loopexit, label %24, !llvm.loop !152
 
 .loopexit:                                        ; preds = %13, %_ZNSt6vectorItSaItEE9push_backEOt.exit, %.preheader36.lr.ph
-  %.3 = phi i64 [ 0, %.preheader36.lr.ph ], [ %10, %_ZNSt6vectorItSaItEE9push_backEOt.exit ], [ %.02746, %13 ]
+  %.3 = phi i64 [ %10, %_ZNSt6vectorItSaItEE9push_backEOt.exit ], [ 0, %.preheader36.lr.ph ], [ %.02746, %13 ]
   ret i64 %.3
 }
 
@@ -6186,7 +6186,7 @@ _ZNSt6vectorIjSaIjEE9push_backEOj.exit:           ; preds = %29, %_ZNSt6vectorIj
   br i1 %exitcond.not, label %.loopexit, label %23, !llvm.loop !156
 
 .loopexit:                                        ; preds = %13, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit, %.preheader36.lr.ph
-  %.3 = phi i64 [ 0, %.preheader36.lr.ph ], [ %10, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit ], [ %.02746, %13 ]
+  %.3 = phi i64 [ %10, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit ], [ 0, %.preheader36.lr.ph ], [ %.02746, %13 ]
   ret i64 %.3
 }
 

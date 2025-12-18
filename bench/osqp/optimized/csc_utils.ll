@@ -87,7 +87,7 @@ define range(i64 0, 2) i64 @csc_is_eq(ptr noundef readonly captures(none) %0, pt
   br i1 %45, label %.loopexit37, label %29
 
 .loopexit37:                                      ; preds = %17, %.loopexit, %31, %36, %.preheader, %3
-  %.033 = phi i64 [ 0, %3 ], [ 1, %.preheader ], [ 0, %31 ], [ 0, %36 ], [ 0, %17 ], [ 1, %.loopexit ]
+  %.033 = phi i64 [ 1, %.preheader ], [ 0, %3 ], [ 0, %31 ], [ 0, %36 ], [ 0, %17 ], [ 1, %.loopexit ]
   ret i64 %.033
 }
 
@@ -594,8 +594,8 @@ csc_cumsum.exit:                                  ; preds = %._crit_edge, %._cri
   br i1 %exitcond63.not, label %csc_done.exit.sink.split, label %.lr.ph58.split.split, !llvm.loop !29
 
 csc_done.exit.sink.split:                         ; preds = %.lr.ph58.split.split, %.lr.ph58.split.split.us, %.lr.ph58.split.us, %csc_cumsum.exit, %29, %32
-  %.sink = phi ptr [ %16, %29 ], [ %16, %32 ], [ %17, %csc_cumsum.exit ], [ %17, %.lr.ph58.split.split.us ], [ %17, %.lr.ph58.split.us ], [ %17, %.lr.ph58.split.split ]
-  %.0.ph = phi ptr [ null, %29 ], [ null, %32 ], [ %16, %csc_cumsum.exit ], [ %16, %.lr.ph58.split.split.us ], [ %16, %.lr.ph58.split.us ], [ %16, %.lr.ph58.split.split ]
+  %.sink = phi ptr [ %16, %29 ], [ %16, %32 ], [ %17, %.lr.ph58.split.us ], [ %17, %.lr.ph58.split.split.us ], [ %17, %csc_cumsum.exit ], [ %17, %.lr.ph58.split.split ]
+  %.0.ph = phi ptr [ null, %29 ], [ null, %32 ], [ %16, %.lr.ph58.split.us ], [ %16, %.lr.ph58.split.split.us ], [ %16, %csc_cumsum.exit ], [ %16, %.lr.ph58.split.split ]
   tail call void @free(ptr noundef nonnull %.sink) #18
   br label %csc_done.exit
 
@@ -830,8 +830,8 @@ csc_cumsum.exit:                                  ; preds = %._crit_edge, %._cri
   br i1 %exitcond63.not, label %csc_done.exit.sink.split, label %.lr.ph58.split.split, !llvm.loop !31
 
 csc_done.exit.sink.split:                         ; preds = %.lr.ph58.split.split, %.lr.ph58.split.split.us, %.lr.ph58.split.us, %csc_cumsum.exit, %29, %32
-  %.sink = phi ptr [ %16, %29 ], [ %16, %32 ], [ %17, %csc_cumsum.exit ], [ %17, %.lr.ph58.split.split.us ], [ %17, %.lr.ph58.split.us ], [ %17, %.lr.ph58.split.split ]
-  %.0.ph = phi ptr [ null, %29 ], [ null, %32 ], [ %16, %csc_cumsum.exit ], [ %16, %.lr.ph58.split.split.us ], [ %16, %.lr.ph58.split.us ], [ %16, %.lr.ph58.split.split ]
+  %.sink = phi ptr [ %16, %29 ], [ %16, %32 ], [ %17, %.lr.ph58.split.us ], [ %17, %.lr.ph58.split.split.us ], [ %17, %csc_cumsum.exit ], [ %17, %.lr.ph58.split.split ]
+  %.0.ph = phi ptr [ null, %29 ], [ null, %32 ], [ %16, %.lr.ph58.split.us ], [ %16, %.lr.ph58.split.split.us ], [ %16, %csc_cumsum.exit ], [ %16, %.lr.ph58.split.split ]
   tail call void @free(ptr noundef nonnull %.sink) #18
   br label %csc_done.exit
 
@@ -1360,8 +1360,8 @@ csc_cumsum.exit:                                  ; preds = %._crit_edge, %._cri
   br i1 %207, label %.lr.ph114, label %.loopexit, !llvm.loop !38
 
 csc_done.exit.sink.split:                         ; preds = %.loopexit, %.loopexit.us, %.loopexit.us.us123, %.loopexit.us.us, %.loopexit.us.us.us, %csc_cumsum.exit, %._crit_edge.thread, %32, %35
-  %.sink = phi ptr [ %19, %32 ], [ %19, %35 ], [ %20, %._crit_edge.thread ], [ %20, %csc_cumsum.exit ], [ %20, %.loopexit.us ], [ %20, %.loopexit.us.us.us ], [ %20, %.loopexit.us.us ], [ %20, %.loopexit.us.us123 ], [ %20, %.loopexit ]
-  %.0.ph = phi ptr [ null, %32 ], [ null, %35 ], [ %19, %._crit_edge.thread ], [ %19, %csc_cumsum.exit ], [ %19, %.loopexit.us ], [ %19, %.loopexit.us.us.us ], [ %19, %.loopexit.us.us ], [ %19, %.loopexit.us.us123 ], [ %19, %.loopexit ]
+  %.sink = phi ptr [ %19, %32 ], [ %19, %35 ], [ %20, %.loopexit.us.us.us ], [ %20, %.loopexit.us ], [ %20, %.loopexit.us.us123 ], [ %20, %.loopexit.us.us ], [ %20, %csc_cumsum.exit ], [ %20, %._crit_edge.thread ], [ %20, %.loopexit ]
+  %.0.ph = phi ptr [ null, %32 ], [ null, %35 ], [ %19, %.loopexit.us.us.us ], [ %19, %.loopexit.us ], [ %19, %.loopexit.us.us123 ], [ %19, %.loopexit.us.us ], [ %19, %csc_cumsum.exit ], [ %19, %._crit_edge.thread ], [ %19, %.loopexit ]
   tail call void @free(ptr noundef nonnull %.sink) #18
   br label %csc_done.exit
 

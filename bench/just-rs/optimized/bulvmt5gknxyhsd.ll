@@ -1749,7 +1749,7 @@ define hidden void @"_ZN116_$LT$similar..algorithms..patience..Patience$LT$Old$C
   unreachable
 
 "_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h5162163fef8afb15E.exit.thread": ; preds = %54, %.lr.ph180, %"_ZN4core5slice5index74_$LT$impl$u20$core..ops..index..Index$LT$I$GT$$u20$for$u20$$u5b$T$u5d$$GT$5index17h62d7905d3aa2c2d9E.exit21.us.us", %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h5162163fef8afb15E.exit.us.us"
-  %.us-phi = phi i64 [ %43, %.lr.ph180 ], [ %43, %"_ZN4core5slice5index74_$LT$impl$u20$core..ops..index..Index$LT$I$GT$$u20$for$u20$$u5b$T$u5d$$GT$5index17h62d7905d3aa2c2d9E.exit21.us.us" ], [ %43, %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h5162163fef8afb15E.exit.us.us" ], [ %55, %54 ]
+  %.us-phi = phi i64 [ %55, %54 ], [ %43, %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h5162163fef8afb15E.exit.us.us" ], [ %43, %.lr.ph180 ], [ %43, %"_ZN4core5slice5index74_$LT$impl$u20$core..ops..index..Index$LT$I$GT$$u20$for$u20$$u5b$T$u5d$$GT$5index17h62d7905d3aa2c2d9E.exit21.us.us" ]
   %59 = icmp ugt i64 %.us-phi, %23
   br i1 %59, label %61, label %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h5162163fef8afb15E.exit.thread.thread"
 
@@ -1988,7 +1988,7 @@ define hidden void @"_ZN116_$LT$similar..algorithms..patience..Patience$LT$Old$C
   unreachable
 
 .split.us:                                        ; preds = %62, %.lr.ph172, %"_ZN108_$LT$similar..algorithms..utils..OffsetLookup$LT$Int$GT$$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h04217c6585f0cb9aE.exit.us.us"
-  %.us-phi = phi i64 [ %45, %.lr.ph172 ], [ %45, %"_ZN108_$LT$similar..algorithms..utils..OffsetLookup$LT$Int$GT$$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h04217c6585f0cb9aE.exit.us.us" ], [ %63, %62 ]
+  %.us-phi = phi i64 [ %63, %62 ], [ %45, %"_ZN108_$LT$similar..algorithms..utils..OffsetLookup$LT$Int$GT$$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h04217c6585f0cb9aE.exit.us.us" ], [ %45, %.lr.ph172 ]
   %67 = icmp ugt i64 %.us-phi, %21
   br i1 %67, label %69, label %.split.us.thread
 
@@ -4502,7 +4502,7 @@ common.resume.sink.split:                         ; preds = %38, %51, %99, %121,
   br label %common.resume
 
 common.resume:                                    ; preds = %28, %65, %61, %common.resume.sink.split, %.body, %.body26, %.body14, %.critedge, %43
-  %common.resume.op = phi { ptr, i32 } [ %89, %.body ], [ %.pn2, %.body26 ], [ %44, %43 ], [ %106, %.body14 ], [ %75, %.critedge ], [ %common.resume.op.ph, %common.resume.sink.split ], [ %62, %61 ], [ %62, %65 ], [ %26, %28 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn2, %.body26 ], [ %75, %.critedge ], [ %62, %65 ], [ %106, %.body14 ], [ %44, %43 ], [ %common.resume.op.ph, %common.resume.sink.split ], [ %89, %.body ], [ %62, %61 ], [ %26, %28 ]
   resume { ptr, i32 } %common.resume.op
 
 33:                                               ; preds = %30
@@ -13921,7 +13921,7 @@ _ZN4core3str11validations15next_code_point17h56de14856462d818E.exit.thread.i.i.i
   br label %213
 
 .loopexit:                                        ; preds = %_ZN4core3str11validations15next_code_point17h56de14856462d818E.exit.thread.i.i.i, %.preheader22.i, %.preheader.i.us.us, %.preheader.i, %.thread.i.i.i
-  %.sroa.6.1.i = phi i64 [ %79, %.thread.i.i.i ], [ %202, %.preheader.i ], [ %112, %.preheader22.i ], [ %166, %.preheader.i.us.us ], [ %30, %_ZN4core3str11validations15next_code_point17h56de14856462d818E.exit.thread.i.i.i ]
+  %.sroa.6.1.i = phi i64 [ %202, %.preheader.i ], [ %79, %.thread.i.i.i ], [ %112, %.preheader22.i ], [ %166, %.preheader.i.us.us ], [ %30, %_ZN4core3str11validations15next_code_point17h56de14856462d818E.exit.thread.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !3087
   %231 = add i64 %3, %.sroa.6.1.i
   tail call void @_ZN5alloc6string6String13replace_range17hcae904cea93a0ec4E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %.sroa.6.1.i, i64 noundef %231, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %5)
@@ -18305,7 +18305,7 @@ define hidden noundef zeroext i1 @"_ZN69_$LT$just..expression..Expression$u20$as
   ]
 
 .critedge:                                        ; preds = %tailrecurse.backedge, %22, %114, %113, %112, %2, %14, %76, %73, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h03a4955529edbd10E.exit.i", %63, %52, %28, %88, %94, %100, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h8bf7786a08aee965E.exit", %106, %84, %80, %20
-  %.0 = phi i1 [ %87, %84 ], [ %21, %20 ], [ false, %63 ], [ false, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h8bf7786a08aee965E.exit" ], [ %111, %106 ], [ false, %14 ], [ false, %28 ], [ %83, %80 ], [ false, %100 ], [ false, %94 ], [ false, %88 ], [ %79, %76 ], [ false, %73 ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h03a4955529edbd10E.exit.i" ], [ false, %52 ], [ false, %2 ], [ false, %112 ], [ false, %113 ], [ false, %114 ], [ false, %22 ], [ false, %tailrecurse.backedge ]
+  %.0 = phi i1 [ %87, %84 ], [ false, %52 ], [ %21, %20 ], [ false, %63 ], [ false, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h8bf7786a08aee965E.exit" ], [ %111, %106 ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h03a4955529edbd10E.exit.i" ], [ false, %14 ], [ false, %28 ], [ false, %73 ], [ %83, %80 ], [ false, %100 ], [ false, %94 ], [ false, %88 ], [ %79, %76 ], [ false, %2 ], [ false, %112 ], [ false, %113 ], [ false, %114 ], [ false, %22 ], [ false, %tailrecurse.backedge ]
   ret i1 %.0
 
 13:                                               ; preds = %.lr.ph

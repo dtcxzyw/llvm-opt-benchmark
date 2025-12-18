@@ -522,7 +522,7 @@ Nf_StoCellIsDominated.exit.thread:                ; preds = %145, %130, %.crited
   br i1 %198, label %.critedge4, label %.loopexit, !llvm.loop !28
 
 .loopexit:                                        ; preds = %182, %195, %.loopexit169..loopexit_crit_edge, %.preheader165, %.preheader
-  %199 = phi i32 [ %.pre, %.loopexit169..loopexit_crit_edge ], [ %.val108, %.preheader ], [ %.val108, %.preheader165 ], [ %.val108, %195 ], [ %.val108, %182 ]
+  %199 = phi i32 [ %.pre, %.loopexit169..loopexit_crit_edge ], [ %.val108, %195 ], [ %.val108, %.preheader ], [ %.val108, %.preheader165 ], [ %.val108, %182 ]
   %200 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %201 = load i32, ptr %200, align 8
   %202 = and i32 %201, 67108863
@@ -4136,13 +4136,13 @@ Nf_CutCompareArea.exit.i.i.us.us.us:              ; preds = %878, %876, %867, %8
   br i1 %882, label %.lr.ph.i8.i.us.us.us, label %Nf_SetSortByArea.exit.i.us.us.us, !llvm.loop !160
 
 Nf_SetSortByArea.exit.i.us.us.us:                 ; preds = %.lr.ph.i8.i.us.us.us, %858, %870, %878, %Nf_CutCompareArea.exit.i.i.us.us.us, %Nf_SetLastCutContainsArea.exit.i.us.us.us, %778
-  %.0.i10.i.us.us.us = phi i32 [ %.0.i.i338.us.us.us, %Nf_SetLastCutContainsArea.exit.i.us.us.us ], [ %.4590.us.us.us, %778 ], [ %.0.i.i338.us.us.us, %Nf_CutCompareArea.exit.i.i.us.us.us ], [ %.0.i.i338.us.us.us, %878 ], [ %.0.i.i338.us.us.us, %870 ], [ %.0.i.i338.us.us.us, %858 ], [ %.0.i.i338.us.us.us, %.lr.ph.i8.i.us.us.us ]
+  %.0.i10.i.us.us.us = phi i32 [ %.4590.us.us.us, %778 ], [ %.0.i.i338.us.us.us, %Nf_SetLastCutContainsArea.exit.i.us.us.us ], [ %.0.i.i338.us.us.us, %Nf_CutCompareArea.exit.i.i.us.us.us ], [ %.0.i.i338.us.us.us, %878 ], [ %.0.i.i338.us.us.us, %870 ], [ %.0.i.i338.us.us.us, %858 ], [ %.0.i.i338.us.us.us, %.lr.ph.i8.i.us.us.us ]
   %883 = add nsw i32 %.0.i10.i.us.us.us, 1
   %884 = call noundef i32 @llvm.smin.i32(i32 %883, i32 %401)
   br label %Nf_SetAddCut.exit.us.us.us
 
 Nf_SetAddCut.exit.us.us.us:                       ; preds = %456, %487, %514, %499, %509, %Nf_SetSortByArea.exit.i.us.us.us, %Nf_CutParams.exit330.us.us.us, %407
-  %.5.us.us.us = phi i32 [ %.4590.us.us.us, %407 ], [ 1, %Nf_CutParams.exit330.us.us.us ], [ %884, %Nf_SetSortByArea.exit.i.us.us.us ], [ %.4590.us.us.us, %487 ], [ %.4590.us.us.us, %509 ], [ %.4590.us.us.us, %499 ], [ %.4590.us.us.us, %514 ], [ %.4590.us.us.us, %456 ]
+  %.5.us.us.us = phi i32 [ %.4590.us.us.us, %407 ], [ %.4590.us.us.us, %514 ], [ 1, %Nf_CutParams.exit330.us.us.us ], [ %884, %Nf_SetSortByArea.exit.i.us.us.us ], [ %.4590.us.us.us, %487 ], [ %.4590.us.us.us, %499 ], [ %.4590.us.us.us, %509 ], [ %.4590.us.us.us, %456 ]
   %885 = getelementptr inbounds nuw i8, ptr %.0153591.us.us.us, i64 48
   %886 = icmp ult ptr %885, %385
   br i1 %886, label %407, label %._crit_edge593.us.us.us, !llvm.loop !161
@@ -4397,7 +4397,7 @@ Gia_ObjIsXor.exit:                                ; preds = %Gia_ObjIsMuxId.exit
   br i1 %exitcond159.not.i.us, label %.loopexit.us, label %.lr.ph134.i.us, !llvm.loop !164
 
 .loopexit.us:                                     ; preds = %1001, %.preheader.i.us, %.lr.ph130.preheader.i.us, %.preheader116.i.us, %.lr.ph127.preheader.i.us, %.preheader117.i.us
-  %.5.lcssa.sink.i.us = phi i32 [ %983, %.lr.ph127.preheader.i.us ], [ 0, %.preheader.i.us ], [ %.1.i344.us, %.preheader117.i.us ], [ %.091.i.us, %.preheader116.i.us ], [ %996, %.lr.ph130.preheader.i.us ], [ %25, %1001 ]
+  %.5.lcssa.sink.i.us = phi i32 [ %983, %.lr.ph127.preheader.i.us ], [ 0, %.preheader.i.us ], [ %996, %.lr.ph130.preheader.i.us ], [ %.1.i344.us, %.preheader117.i.us ], [ %.091.i.us, %.preheader116.i.us ], [ %25, %1001 ]
   %1003 = getelementptr inbounds nuw i8, ptr %942, i64 16
   %1004 = load i32, ptr %1003, align 8
   %.5.lcssa.sink.i.us.fr = freeze i32 %.5.lcssa.sink.i.us
@@ -5107,13 +5107,13 @@ Nf_CutCompareArea.exit.i.i460.us:                 ; preds = %1366, %1364, %1355,
   br i1 %1370, label %.lr.ph.i8.i458.us, label %Nf_SetSortByArea.exit.i434.us, !llvm.loop !160
 
 Nf_SetSortByArea.exit.i434.us:                    ; preds = %.lr.ph.i8.i458.us, %1346, %1358, %1366, %Nf_CutCompareArea.exit.i.i460.us, %Nf_SetLastCutContainsArea.exit.i456.us, %1266
-  %.0.i10.i435.us = phi i32 [ %.0.i.i457.us, %Nf_SetLastCutContainsArea.exit.i456.us ], [ %.8609.us, %1266 ], [ %.0.i.i457.us, %Nf_CutCompareArea.exit.i.i460.us ], [ %.0.i.i457.us, %1366 ], [ %.0.i.i457.us, %1358 ], [ %.0.i.i457.us, %1346 ], [ %.0.i.i457.us, %.lr.ph.i8.i458.us ]
+  %.0.i10.i435.us = phi i32 [ %.8609.us, %1266 ], [ %.0.i.i457.us, %Nf_SetLastCutContainsArea.exit.i456.us ], [ %.0.i.i457.us, %Nf_CutCompareArea.exit.i.i460.us ], [ %.0.i.i457.us, %1366 ], [ %.0.i.i457.us, %1358 ], [ %.0.i.i457.us, %1346 ], [ %.0.i.i457.us, %.lr.ph.i8.i458.us ]
   %1371 = add nsw i32 %.0.i10.i435.us, 1
   %1372 = call noundef i32 @llvm.smin.i32(i32 %1371, i32 %915)
   br label %Nf_SetAddCut.exit479.us
 
 Nf_SetAddCut.exit479.us:                          ; preds = %969, %.lr.ph134.i.us, %1026, %1053, %1038, %1048, %Nf_SetSortByArea.exit.i434.us, %Nf_CutParams.exit433.us, %.loopexit120.i.us, %.loopexit121.i.us, %.preheader118.i.us, %930
-  %.9.us = phi i32 [ %.8609.us, %930 ], [ 1, %Nf_CutParams.exit433.us ], [ %1372, %Nf_SetSortByArea.exit.i434.us ], [ %.8609.us, %.loopexit121.i.us ], [ %.8609.us, %.loopexit120.i.us ], [ %.8609.us, %.preheader118.i.us ], [ %.8609.us, %.lr.ph134.i.us ], [ %.8609.us, %1048 ], [ %.8609.us, %1038 ], [ %.8609.us, %1053 ], [ %.8609.us, %1026 ], [ %.8609.us, %969 ]
+  %.9.us = phi i32 [ %.8609.us, %930 ], [ %.8609.us, %.preheader118.i.us ], [ 1, %Nf_CutParams.exit433.us ], [ %1372, %Nf_SetSortByArea.exit.i434.us ], [ %.8609.us, %.loopexit120.i.us ], [ %.8609.us, %1048 ], [ %.8609.us, %.loopexit121.i.us ], [ %.8609.us, %.lr.ph134.i.us ], [ %.8609.us, %1038 ], [ %.8609.us, %1026 ], [ %.8609.us, %1053 ], [ %.8609.us, %969 ]
   %1373 = getelementptr inbounds nuw i8, ptr %.1152613.us, i64 48
   %1374 = icmp ult ptr %1373, %184
   %indvar.next708 = add i64 %indvar707, 1
@@ -5636,7 +5636,7 @@ Nf_CutCompareArea.exit.i:                         ; preds = %106, %104, %95, %84
   br i1 %111, label %.lr.ph.i8, label %Nf_SetSortByArea.exit, !llvm.loop !160
 
 Nf_SetSortByArea.exit:                            ; preds = %.lr.ph.i8, %86, %98, %106, %Nf_CutCompareArea.exit.i, %5, %Nf_SetLastCutContainsArea.exit
-  %.0.i10 = phi i32 [ %.0.i, %Nf_SetLastCutContainsArea.exit ], [ %1, %5 ], [ %.0.i, %Nf_CutCompareArea.exit.i ], [ %.0.i, %106 ], [ %.0.i, %98 ], [ %.0.i, %86 ], [ %.0.i, %.lr.ph.i8 ]
+  %.0.i10 = phi i32 [ %1, %5 ], [ %.0.i, %Nf_SetLastCutContainsArea.exit ], [ %.0.i, %Nf_CutCompareArea.exit.i ], [ %.0.i, %106 ], [ %.0.i, %98 ], [ %.0.i, %86 ], [ %.0.i, %.lr.ph.i8 ]
   %112 = add nsw i32 %.0.i10, 1
   %113 = add nsw i32 %2, -1
   %114 = tail call noundef i32 @llvm.smin.i32(i32 %112, i32 %113)
@@ -6758,9 +6758,9 @@ define void @Nf_ManCutMatchOne(ptr noundef readonly captures(none) %0, i32 nound
   br label %.critedge145
 
 .critedge145:                                     ; preds = %174, %122, %149, %.critedge145.loopexit180
-  %216 = phi i32 [ %.pre, %.critedge145.loopexit180 ], [ %94, %122 ], [ %94, %149 ], [ %94, %174 ]
-  %.us-phi = phi i32 [ %.1136, %.critedge145.loopexit180 ], [ %114, %122 ], [ %141, %149 ], [ %166, %174 ]
-  %.us-phi165 = phi float [ %.1, %.critedge145.loopexit180 ], [ %.1.us.us.us, %122 ], [ %.1.us.us, %149 ], [ %.1.us, %174 ]
+  %216 = phi i32 [ %94, %149 ], [ %94, %122 ], [ %.pre, %.critedge145.loopexit180 ], [ %94, %174 ]
+  %.us-phi = phi i32 [ %141, %149 ], [ %114, %122 ], [ %.1136, %.critedge145.loopexit180 ], [ %166, %174 ]
+  %.us-phi165 = phi float [ %.1.us.us, %149 ], [ %.1.us.us.us, %122 ], [ %.1, %.critedge145.loopexit180 ], [ %.1.us, %174 ]
   %217 = icmp sgt i32 %216, %.us-phi
   br i1 %217, label %218, label %230
 
@@ -8780,7 +8780,7 @@ Nf_ObjUpdateRequired.exit336:                     ; preds = %278, %295
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader.preheader, %314, %Nf_ObjUpdateRequired.exit335, %.preheader345, %Nf_ObjUpdateRequired.exit334, %159, %Nf_ObjUpdateRequired.exit329
-  %.1 = phi i32 [ %.0356, %Nf_ObjUpdateRequired.exit329 ], [ %.0356, %159 ], [ %.0356, %Nf_ObjUpdateRequired.exit334 ], [ %241, %Nf_ObjUpdateRequired.exit335 ], [ %.2, %314 ], [ %.0356, %.preheader345 ], [ %.0356, %.preheader.preheader ]
+  %.1 = phi i32 [ %.0356, %Nf_ObjUpdateRequired.exit329 ], [ %.0356, %159 ], [ %.0356, %Nf_ObjUpdateRequired.exit334 ], [ %241, %Nf_ObjUpdateRequired.exit335 ], [ %.0356, %.preheader345 ], [ %.2, %314 ], [ %.0356, %.preheader.preheader ]
   %316 = load ptr, ptr %0, align 8, !tbaa !99
   %317 = getelementptr inbounds nuw i8, ptr %316, i64 1072
   %318 = load i32, ptr %317, align 8, !tbaa !172
@@ -10862,9 +10862,9 @@ Vec_IntGrow.exit.i:                               ; preds = %37, %Vec_IntAlloc.e
   br label %Vec_IntFill.exit
 
 Vec_IntFill.exit:                                 ; preds = %.lr.ph.i, %Vec_IntAlloc.exit.thread, %Vec_IntGrow.exit.i
-  %.val89 = phi ptr [ %41, %Vec_IntGrow.exit.i ], [ null, %Vec_IntAlloc.exit.thread ], [ %41, %.lr.ph.i ]
-  %46 = phi ptr [ %43, %Vec_IntGrow.exit.i ], [ %23, %Vec_IntAlloc.exit.thread ], [ %43, %.lr.ph.i ]
-  %47 = phi i32 [ %42, %Vec_IntGrow.exit.i ], [ %24, %Vec_IntAlloc.exit.thread ], [ %42, %.lr.ph.i ]
+  %.val89 = phi ptr [ null, %Vec_IntAlloc.exit.thread ], [ %41, %Vec_IntGrow.exit.i ], [ %41, %.lr.ph.i ]
+  %46 = phi ptr [ %23, %Vec_IntAlloc.exit.thread ], [ %43, %Vec_IntGrow.exit.i ], [ %43, %.lr.ph.i ]
+  %47 = phi i32 [ %24, %Vec_IntAlloc.exit.thread ], [ %42, %Vec_IntGrow.exit.i ], [ %42, %.lr.ph.i ]
   store i32 %47, ptr %17, align 4, !tbaa !22
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %49 = load ptr, ptr %48, align 8, !tbaa !186
@@ -13714,7 +13714,7 @@ tailrecurse.backedge:                             ; preds = %33, %41
   br i1 %57, label %.lr.ph, label %.critedge, !llvm.loop !289
 
 .critedge:                                        ; preds = %15, %Gia_ObjIsAndNotBuf.exit, %13, %12, %49, %.preheader, %32
-  %.039 = phi i32 [ 0, %32 ], [ 1, %.preheader ], [ %.1, %49 ], [ 1, %12 ], [ 1, %13 ], [ 1, %Gia_ObjIsAndNotBuf.exit ], [ 1, %15 ]
+  %.039 = phi i32 [ %.1, %49 ], [ 0, %32 ], [ 1, %.preheader ], [ 1, %12 ], [ 1, %13 ], [ 1, %Gia_ObjIsAndNotBuf.exit ], [ 1, %15 ]
   ret i32 %.039
 }
 

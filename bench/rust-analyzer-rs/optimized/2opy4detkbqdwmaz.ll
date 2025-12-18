@@ -6438,7 +6438,7 @@ _ZN9itertools9Itertools10next_tuple17h3f36666469f624f6E.llvm.8855768217806144362
   unreachable
 
 "_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$$LP$syntax..ast..generated..nodes..UseTree$C$$RP$$GT$$GT$17ha6a34f2f8307c3efE.llvm.8855768217806144362.exit.thread": ; preds = %.noexc, %.noexc9, %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$syntax..ast..generated..nodes..UseTree$GT$$GT$17hf7bd81c59646da09E.llvm.8855768217806144362.exit", %31
-  %.041 = phi ptr [ null, %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$syntax..ast..generated..nodes..UseTree$GT$$GT$17hf7bd81c59646da09E.llvm.8855768217806144362.exit" ], [ null, %31 ], [ %6, %.noexc9 ], [ null, %.noexc ]
+  %.041 = phi ptr [ %6, %.noexc9 ], [ null, %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$syntax..ast..generated..nodes..UseTree$GT$$GT$17hf7bd81c59646da09E.llvm.8855768217806144362.exit" ], [ null, %31 ], [ null, %.noexc ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1692)
   call void @llvm.experimental.noalias.scope.decl(metadata !1695)
   call void @llvm.experimental.noalias.scope.decl(metadata !1698)
@@ -22370,9 +22370,9 @@ _ZN4core3ops8function5FnMut8call_mut17hf22cf01b683f6fc7E.exit.i.i.i.i.i: ; preds
           to label %.body unwind label %302
 
 "_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h4d66cad6b2d0ca15E.exit.i": ; preds = %.noexc.i, %.noexc4.i, %.noexc5.i, %"_ZN115_$LT$core..iter..adapters..skip_while..SkipWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h421a7db23914c4d2E.exit.thread16.i.i"
-  %293 = phi i1 [ false, %"_ZN115_$LT$core..iter..adapters..skip_while..SkipWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h421a7db23914c4d2E.exit.thread16.i.i" ], [ true, %.noexc4.i ], [ false, %.noexc5.i ], [ true, %.noexc.i ]
-  %.sroa.6.015.i.i.pn = phi i64 [ 9, %"_ZN115_$LT$core..iter..adapters..skip_while..SkipWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h421a7db23914c4d2E.exit.thread16.i.i" ], [ 17, %.noexc4.i ], [ 9, %.noexc5.i ], [ 17, %.noexc.i ]
-  %.sroa.11.014.i.i.pn = phi ptr [ %storemerge.i.i.i.i, %"_ZN115_$LT$core..iter..adapters..skip_while..SkipWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h421a7db23914c4d2E.exit.thread16.i.i" ], [ undef, %.noexc4.i ], [ %storemerge.i.i.i.i, %.noexc5.i ], [ undef, %.noexc.i ]
+  %293 = phi i1 [ false, %.noexc5.i ], [ false, %"_ZN115_$LT$core..iter..adapters..skip_while..SkipWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h421a7db23914c4d2E.exit.thread16.i.i" ], [ true, %.noexc4.i ], [ true, %.noexc.i ]
+  %.sroa.6.015.i.i.pn = phi i64 [ 9, %.noexc5.i ], [ 9, %"_ZN115_$LT$core..iter..adapters..skip_while..SkipWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h421a7db23914c4d2E.exit.thread16.i.i" ], [ 17, %.noexc4.i ], [ 17, %.noexc.i ]
+  %.sroa.11.014.i.i.pn = phi ptr [ %storemerge.i.i.i.i, %.noexc5.i ], [ %storemerge.i.i.i.i, %"_ZN115_$LT$core..iter..adapters..skip_while..SkipWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h421a7db23914c4d2E.exit.thread16.i.i" ], [ undef, %.noexc4.i ], [ undef, %.noexc.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !5789)
   call void @llvm.experimental.noalias.scope.decl(metadata !5792)
   call void @llvm.experimental.noalias.scope.decl(metadata !5795)

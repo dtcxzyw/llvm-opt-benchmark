@@ -721,7 +721,7 @@ _ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread16: ; preds = %.lr.p
   br i1 %.not12, label %40, label %38
 
 _ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread: ; preds = %.preheader.i, %27, %_ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit._ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread.loopexit20_crit_edge
-  %37 = phi i64 [ %.pre46.pre, %_ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit._ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread.loopexit20_crit_edge ], [ %13, %27 ], [ %13, %.preheader.i ]
+  %37 = phi i64 [ %13, %27 ], [ %.pre46.pre, %_ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit._ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread.loopexit20_crit_edge ], [ %13, %.preheader.i ]
   store i64 %37, ptr %4, align 8
   br label %._crit_edge
 
@@ -3101,8 +3101,8 @@ _ZN13unicode_width6tables44starts_non_ideographic_text_presentation_seq17h725929
   br label %._crit_edge.i.i.i.i.i
 
 769:                                              ; preds = %767, %766, %765, %764, %762, %761, %760, %758
-  %.sroa.11.0.i.i.i.i = phi i64 [ 10, %767 ], [ 15, %760 ], [ 10, %761 ], [ 3, %762 ], [ 13, %764 ], [ 22, %765 ], [ 4, %766 ], [ 4, %758 ]
-  %.sroa.01.0.i.i.i.i = phi ptr [ @_ZN13unicode_width6tables24TEXT_PRESENTATION_LEAF_917h720007bbe6c7f623E, %767 ], [ @_ZN13unicode_width6tables24TEXT_PRESENTATION_LEAF_217he281acb422c8d601E, %760 ], [ @_ZN13unicode_width6tables24TEXT_PRESENTATION_LEAF_317h2e164551ac96bdf8E, %761 ], [ @_ZN13unicode_width6tables24TEXT_PRESENTATION_LEAF_417h9087c19be5b1ebe3E, %762 ], [ @_ZN13unicode_width6tables24TEXT_PRESENTATION_LEAF_617h063852d6eb924d4cE, %764 ], [ @_ZN13unicode_width6tables24TEXT_PRESENTATION_LEAF_717hae24286b795f5472E, %765 ], [ @_ZN13unicode_width6tables24TEXT_PRESENTATION_LEAF_817he34d68886706652bE, %766 ], [ @_ZN13unicode_width6tables24TEXT_PRESENTATION_LEAF_017h852d13fd8cc4342aE, %758 ]
+  %.sroa.11.0.i.i.i.i = phi i64 [ 10, %767 ], [ 4, %758 ], [ 15, %760 ], [ 10, %761 ], [ 3, %762 ], [ 4, %766 ], [ 13, %764 ], [ 22, %765 ]
+  %.sroa.01.0.i.i.i.i = phi ptr [ @_ZN13unicode_width6tables24TEXT_PRESENTATION_LEAF_917h720007bbe6c7f623E, %767 ], [ @_ZN13unicode_width6tables24TEXT_PRESENTATION_LEAF_017h852d13fd8cc4342aE, %758 ], [ @_ZN13unicode_width6tables24TEXT_PRESENTATION_LEAF_217he281acb422c8d601E, %760 ], [ @_ZN13unicode_width6tables24TEXT_PRESENTATION_LEAF_317h2e164551ac96bdf8E, %761 ], [ @_ZN13unicode_width6tables24TEXT_PRESENTATION_LEAF_417h9087c19be5b1ebe3E, %762 ], [ @_ZN13unicode_width6tables24TEXT_PRESENTATION_LEAF_817he34d68886706652bE, %766 ], [ @_ZN13unicode_width6tables24TEXT_PRESENTATION_LEAF_617h063852d6eb924d4cE, %764 ], [ @_ZN13unicode_width6tables24TEXT_PRESENTATION_LEAF_717hae24286b795f5472E, %765 ]
   %770 = trunc i32 %spec.select.i25.i to i8
   br label %.lr.ph.i.i.i.i.i
 
@@ -3351,8 +3351,8 @@ _ZN13unicode_width6tables44starts_non_ideographic_text_presentation_seq17h725929
   br i1 %or.cond2.i.i.i, label %"_ZN13unicode_width6tables9str_width28_$u7b$$u7b$closure$u7d$$u7d$17h2afe4d4a21c09a97E.exit.i", label %.thread55.i.i.i
 
 .thread47.i.i.i:                                  ; preds = %814, %812, %.thread55.i.i.i
-  %849 = phi i1 [ %810, %.thread55.i.i.i ], [ true, %814 ], [ true, %812 ]
-  %850 = phi i1 [ %809, %.thread55.i.i.i ], [ false, %814 ], [ false, %812 ]
+  %849 = phi i1 [ %810, %.thread55.i.i.i ], [ true, %812 ], [ true, %814 ]
+  %850 = phi i1 [ %809, %.thread55.i.i.i ], [ false, %812 ], [ false, %814 ]
   switch i32 %spec.select.i25.i, label %.thread47.thread.i.i.i [
     i32 8205, label %854
     i32 8419, label %855
@@ -3505,8 +3505,8 @@ _ZN13unicode_width6tables44starts_non_ideographic_text_presentation_seq17h725929
   br label %"_ZN13unicode_width6tables9str_width28_$u7b$$u7b$closure$u7d$$u7d$17h2afe4d4a21c09a97E.exit.i"
 
 "_ZN13unicode_width6tables9str_width28_$u7b$$u7b$closure$u7d$$u7d$17h2afe4d4a21c09a97E.exit.i": ; preds = %889, %888, %.noexc315, %884, %883, %882, %880, %880, %880, %880, %880, %879, %879, %879, %879, %879, %875, %873, %871, %869, %867, %865, %863, %.critedge.thread.i.i.i, %856, %855, %854, %854, %854, %854, %854, %.thread49.i, %851, %851, %.thread52.i.i.i, %844, %._crit_edge.i.i.i, %818, %816, %807, %807, %.noexc314, %803, %802, %801, %800, %799, %798, %798, %798, %798, %790, %788, %787, %787, %._crit_edge.i.i.i.i.i, %754, %751, %.noexc313, %746, %_ZN13unicode_width6tables44starts_non_ideographic_text_presentation_seq17h7259294516f48f4cE.exit.thread43.fold.split.i.i.i, %740
-  %.sroa.44.0.i.i.i = phi i16 [ 5, %740 ], [ 5, %.noexc315 ], [ 1, %888 ], [ 0, %746 ], [ %.sroa.031.0.i.i.i, %751 ], [ %789, %788 ], [ 0, %889 ], [ %749, %.noexc313 ], [ 17, %879 ], [ 11, %884 ], [ 5, %880 ], [ 18, %882 ], [ 19, %883 ], [ 30, %873 ], [ 9, %856 ], [ 2, %.critedge.thread.i.i.i ], [ 16, %875 ], [ 25, %863 ], [ 26, %865 ], [ 27, %867 ], [ 28, %869 ], [ 29, %871 ], [ 4103, %855 ], [ 4, %851 ], [ %.sroa.032.0.i.i.i, %754 ], [ 4, %851 ], [ %.sroa.0.1.i.i.i, %790 ], [ 4102, %854 ], [ 0, %802 ], [ 0, %844 ], [ 0, %.thread52.i.i.i ], [ 0, %816 ], [ 0, %818 ], [ 15364, %807 ], [ %.sroa.0.1.i.i.i, %787 ], [ 0, %798 ], [ 12543, %.noexc314 ], [ 0, %799 ], [ 0, %800 ], [ 15362, %801 ], [ 0, %803 ], [ 0, %798 ], [ 0, %798 ], [ 0, %798 ], [ 15364, %807 ], [ 4102, %854 ], [ 4102, %854 ], [ 4102, %854 ], [ 4102, %854 ], [ 5, %880 ], [ 5, %880 ], [ 5, %880 ], [ 5, %880 ], [ 17, %879 ], [ 17, %879 ], [ 17, %879 ], [ 17, %879 ], [ 0, %._crit_edge.i.i.i.i.i ], [ 10, %_ZN13unicode_width6tables44starts_non_ideographic_text_presentation_seq17h7259294516f48f4cE.exit.thread43.fold.split.i.i.i ], [ 5, %._crit_edge.i.i.i ], [ %.sroa.0.1.i.i.i, %787 ], [ 9, %.thread49.i ]
-  %.sroa.029.0.i.i.i = phi i8 [ %..i.i.i, %740 ], [ 0, %.noexc315 ], [ 1, %888 ], [ 1, %746 ], [ 0, %751 ], [ 0, %788 ], [ %spec.select.i.i.i, %889 ], [ %748, %.noexc313 ], [ 0, %879 ], [ 3, %884 ], [ 0, %880 ], [ 0, %882 ], [ 0, %883 ], [ 0, %873 ], [ 1, %856 ], [ 0, %.critedge.thread.i.i.i ], [ 0, %875 ], [ 0, %863 ], [ 0, %865 ], [ 0, %867 ], [ 0, %869 ], [ 0, %871 ], [ 0, %855 ], [ 1, %851 ], [ 0, %754 ], [ 1, %851 ], [ 0, %790 ], [ 0, %854 ], [ 0, %802 ], [ 0, %844 ], [ -1, %.thread52.i.i.i ], [ 0, %816 ], [ 0, %818 ], [ 1, %807 ], [ 0, %787 ], [ 0, %798 ], [ 0, %.noexc314 ], [ 0, %799 ], [ -1, %800 ], [ 0, %801 ], [ 0, %803 ], [ 0, %798 ], [ 0, %798 ], [ 0, %798 ], [ 1, %807 ], [ 0, %854 ], [ 0, %854 ], [ 0, %854 ], [ 0, %854 ], [ 0, %880 ], [ 0, %880 ], [ 0, %880 ], [ 0, %880 ], [ 0, %879 ], [ 0, %879 ], [ 0, %879 ], [ 0, %879 ], [ 1, %._crit_edge.i.i.i.i.i ], [ -1, %_ZN13unicode_width6tables44starts_non_ideographic_text_presentation_seq17h7259294516f48f4cE.exit.thread43.fold.split.i.i.i ], [ 0, %._crit_edge.i.i.i ], [ 0, %787 ], [ 1, %.thread49.i ]
+  %.sroa.44.0.i.i.i = phi i16 [ 5, %740 ], [ 5, %.noexc315 ], [ 1, %888 ], [ 0, %746 ], [ %.sroa.031.0.i.i.i, %751 ], [ %789, %788 ], [ 0, %889 ], [ %749, %.noexc313 ], [ 17, %879 ], [ 11, %884 ], [ 0, %._crit_edge.i.i.i.i.i ], [ 5, %880 ], [ 18, %882 ], [ 19, %883 ], [ 30, %873 ], [ 9, %856 ], [ 2, %.critedge.thread.i.i.i ], [ 16, %875 ], [ 25, %863 ], [ 26, %865 ], [ 27, %867 ], [ 28, %869 ], [ 29, %871 ], [ 4103, %855 ], [ 4, %851 ], [ %.sroa.032.0.i.i.i, %754 ], [ 4, %851 ], [ %.sroa.0.1.i.i.i, %790 ], [ 4102, %854 ], [ 0, %802 ], [ 0, %844 ], [ 0, %.thread52.i.i.i ], [ 0, %816 ], [ 0, %818 ], [ 15364, %807 ], [ %.sroa.0.1.i.i.i, %787 ], [ 0, %798 ], [ 12543, %.noexc314 ], [ 0, %799 ], [ 0, %800 ], [ 15362, %801 ], [ 0, %803 ], [ 0, %798 ], [ 0, %798 ], [ 0, %798 ], [ 15364, %807 ], [ 4102, %854 ], [ 4102, %854 ], [ 4102, %854 ], [ 4102, %854 ], [ 5, %880 ], [ 5, %880 ], [ 5, %880 ], [ 5, %880 ], [ 17, %879 ], [ 17, %879 ], [ 17, %879 ], [ 17, %879 ], [ 10, %_ZN13unicode_width6tables44starts_non_ideographic_text_presentation_seq17h7259294516f48f4cE.exit.thread43.fold.split.i.i.i ], [ 5, %._crit_edge.i.i.i ], [ %.sroa.0.1.i.i.i, %787 ], [ 9, %.thread49.i ]
+  %.sroa.029.0.i.i.i = phi i8 [ %..i.i.i, %740 ], [ 0, %.noexc315 ], [ 1, %888 ], [ 1, %746 ], [ 0, %751 ], [ 0, %788 ], [ %spec.select.i.i.i, %889 ], [ %748, %.noexc313 ], [ 0, %879 ], [ 3, %884 ], [ 1, %._crit_edge.i.i.i.i.i ], [ 0, %880 ], [ 0, %882 ], [ 0, %883 ], [ 0, %873 ], [ 1, %856 ], [ 0, %.critedge.thread.i.i.i ], [ 0, %875 ], [ 0, %863 ], [ 0, %865 ], [ 0, %867 ], [ 0, %869 ], [ 0, %871 ], [ 0, %855 ], [ 1, %851 ], [ 0, %754 ], [ 1, %851 ], [ 0, %790 ], [ 0, %854 ], [ 0, %802 ], [ 0, %844 ], [ -1, %.thread52.i.i.i ], [ 0, %816 ], [ 0, %818 ], [ 1, %807 ], [ 0, %787 ], [ 0, %798 ], [ 0, %.noexc314 ], [ 0, %799 ], [ -1, %800 ], [ 0, %801 ], [ 0, %803 ], [ 0, %798 ], [ 0, %798 ], [ 0, %798 ], [ 1, %807 ], [ 0, %854 ], [ 0, %854 ], [ 0, %854 ], [ 0, %854 ], [ 0, %880 ], [ 0, %880 ], [ 0, %880 ], [ 0, %880 ], [ 0, %879 ], [ 0, %879 ], [ 0, %879 ], [ 0, %879 ], [ -1, %_ZN13unicode_width6tables44starts_non_ideographic_text_presentation_seq17h7259294516f48f4cE.exit.thread43.fold.split.i.i.i ], [ 0, %._crit_edge.i.i.i ], [ 0, %787 ], [ 1, %.thread49.i ]
   %891 = sext i8 %.sroa.029.0.i.i.i to i64
   %892 = add i64 %.sroa.0.037.i, %891
   %.not.i.i309 = icmp eq ptr %6, %.sroa.2.324.i
@@ -3771,7 +3771,7 @@ _ZN13unicode_width6tables44starts_non_ideographic_text_presentation_seq17h725929
   br i1 %962, label %969, label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %1061, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h0c79b9d0d6020dddE.exit", %960
-  %963 = phi i64 [ %.pr528.pre841, %960 ], [ %.pr528.pre841, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h0c79b9d0d6020dddE.exit" ], [ %.pr528.pre, %1061 ]
+  %963 = phi i64 [ %.pr528.pre841, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h0c79b9d0d6020dddE.exit" ], [ %.pr528.pre841, %960 ], [ %.pr528.pre, %1061 ]
   %964 = icmp ult i64 %963, 576460752303423488
   call void @llvm.assume(i1 %964)
   %965 = icmp eq i64 %963, 0
@@ -4842,7 +4842,7 @@ _ZN22ruff_annotate_snippets8renderer12display_list20get_annotation_style17h3665f
   br i1 %.sroa.06.0.i.i410, label %_ZN22ruff_annotate_snippets8renderer12display_list8overlaps17h206deda514d12ba2E.exit.thread, label %_ZN22ruff_annotate_snippets8renderer12display_list8overlaps17h206deda514d12ba2E.exit
 
 .thread578:                                       ; preds = %1359, %_ZN22ruff_annotate_snippets8renderer12display_list23DisplaySourceAnnotation9has_label17h741c27e110e3f977E.exit418.backedge, %1368, %919
-  %.sroa.041.1 = phi i64 [ %.sroa.041.0730, %919 ], [ 1, %1368 ], [ 1, %1359 ], [ %.sroa.041.0730, %_ZN22ruff_annotate_snippets8renderer12display_list23DisplaySourceAnnotation9has_label17h741c27e110e3f977E.exit418.backedge ]
+  %.sroa.041.1 = phi i64 [ 1, %1368 ], [ %.sroa.041.0730, %919 ], [ 1, %1359 ], [ %.sroa.041.0730, %_ZN22ruff_annotate_snippets8renderer12display_list23DisplaySourceAnnotation9has_label17h741c27e110e3f977E.exit418.backedge ]
   %1345 = load i64, ptr %911, align 8, !alias.scope !334, !noalias !337, !noundef !3
   %1346 = load i64, ptr %83, align 8, !range !37, !alias.scope !334, !noalias !337, !noundef !3
   %1347 = icmp eq i64 %1345, %1346
@@ -6820,7 +6820,7 @@ _ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread16.i.i.i.i.i.i.i.i.i
   br i1 %.not12.i.i.i.i.i.i.i.i.i, label %188, label %186
 
 _ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread.i.i.i.i.i.i.i.i.i: ; preds = %.preheader.i.i.i.i.i.i.i.i.i.i, %175, %_ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit._ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread.loopexit20_crit_edge.i.i.i.i.i.i.i.i.i
-  %185 = phi i64 [ %.pre46.pre.i.i.i.i.i.i.i.i.i, %_ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit._ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread.loopexit20_crit_edge.i.i.i.i.i.i.i.i.i ], [ %161, %175 ], [ %161, %.preheader.i.i.i.i.i.i.i.i.i.i ]
+  %185 = phi i64 [ %161, %175 ], [ %.pre46.pre.i.i.i.i.i.i.i.i.i, %_ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit._ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread.loopexit20_crit_edge.i.i.i.i.i.i.i.i.i ], [ %161, %.preheader.i.i.i.i.i.i.i.i.i.i ]
   store i64 %185, ptr %.sroa.512.sroa.5.0..sroa.512.0..sroa_idx.sroa_idx.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !645, !noalias !648
   br label %.loopexit.i.i.i.i.i.i.i.i
 
@@ -6969,8 +6969,8 @@ _ZN4core4iter6traits8iterator8Iterator4fold17ha84315aa74c06525E.exit.i.i.i.i.i.i
   br label %.loopexit.split-lp36.i
 
 .loopexit.split-lp36.loopexit.split-lp.i:         ; preds = %502, %230, %229, %228, %219, %194
-  %.sroa.052.2.ph.ph.i = phi i8 [ 0, %502 ], [ 0, %230 ], [ 1, %228 ], [ 1, %229 ], [ 1, %219 ], [ 1, %194 ]
-  %.sroa.053.4.ph.ph.i = phi i8 [ 0, %502 ], [ 1, %230 ], [ 1, %228 ], [ 1, %229 ], [ 1, %219 ], [ 1, %194 ]
+  %.sroa.052.2.ph.ph.i = phi i8 [ 1, %228 ], [ 1, %229 ], [ 1, %219 ], [ 0, %230 ], [ 1, %194 ], [ 0, %502 ]
+  %.sroa.053.4.ph.ph.i = phi i8 [ 1, %228 ], [ 1, %229 ], [ 1, %219 ], [ 1, %230 ], [ 1, %194 ], [ 0, %502 ]
   %lpad.loopexit.split-lp42.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp36.i
@@ -7020,7 +7020,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17ha84315aa74c06525E.exit.i.i.i.i.i.i
   br label %.body.i
 
 .loopexit.split-lp.i:                             ; preds = %497, %487, %432, %281
-  %.sroa.053.6.ph.i = phi i8 [ 0, %281 ], [ 1, %432 ], [ 1, %487 ], [ 1, %497 ]
+  %.sroa.053.6.ph.i = phi i8 [ 1, %432 ], [ 1, %487 ], [ 1, %497 ], [ 0, %281 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
@@ -7563,7 +7563,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17ha84315aa74c06525E.exit.i.i.i.i.i.i
   br label %421
 
 .thread50.i.i:                                    ; preds = %337, %.body27.i.i, %.thread53.i.i
-  %.pn43.i.i = phi { ptr, i32 } [ %308, %.thread53.i.i ], [ %eh.lpad-body28.i.i, %.body27.i.i ], [ %eh.lpad-body.i.i.i, %337 ]
+  %.pn43.i.i = phi { ptr, i32 } [ %eh.lpad-body28.i.i, %.body27.i.i ], [ %308, %.thread53.i.i ], [ %eh.lpad-body.i.i.i, %337 ]
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$ruff_annotate_snippets..renderer..display_list..DisplayLine$GT$17hbaf86cb992367a4aE"(ptr noalias noundef align 8 dereferenceable(104) %20) #20
           to label %.thread44.i.i unwind label %407, !noalias !692
 
@@ -8191,9 +8191,9 @@ _ZN22ruff_annotate_snippets8renderer12display_list11format_body17h9f776d182275cc
   br label %_ZN22ruff_annotate_snippets8renderer12display_list13format_header17h1b87f2a9a9248d20E.exit
 
 _ZN22ruff_annotate_snippets8renderer12display_list13format_header17h1b87f2a9a9248d20E.exit: ; preds = %618, %607, %651, %.noexc12, %608
-  %.sroa.12.0 = phi i64 [ undef, %607 ], [ %649, %.noexc12 ], [ %649, %651 ], [ 1, %608 ], [ 1, %618 ]
-  %.sroa.11.0 = phi i64 [ undef, %607 ], [ 1, %.noexc12 ], [ %653, %651 ], [ 1, %608 ], [ 1, %618 ]
-  %.sroa.9.0 = phi i64 [ 0, %607 ], [ 1, %.noexc12 ], [ 1, %651 ], [ 1, %608 ], [ 1, %618 ]
+  %.sroa.12.0 = phi i64 [ undef, %607 ], [ %649, %651 ], [ %649, %.noexc12 ], [ 1, %608 ], [ 1, %618 ]
+  %.sroa.11.0 = phi i64 [ undef, %607 ], [ %653, %651 ], [ 1, %.noexc12 ], [ 1, %608 ], [ 1, %618 ]
+  %.sroa.9.0 = phi i64 [ 0, %607 ], [ 1, %651 ], [ 1, %.noexc12 ], [ 1, %608 ], [ 1, %618 ]
   %.sroa.17.0 = zext i1 %.sroa.033.0.i to i8
   store i64 3, ptr %58, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %58, i64 8

@@ -1234,7 +1234,7 @@ _Z37symbol_equals_compact_hashtable_entryP6SymbolPKci.exit.thread.i13: ; preds =
   br label %_ZNK16CompactHashtableIPKcP6SymbolXadL_Z33read_value_from_compact_hashtableIS3_ET_PhjEEXadL_Z37symbol_equals_compact_hashtable_entryS3_S1_iEEE6lookupES1_ji.exit24
 
 _ZNK16CompactHashtableIPKcP6SymbolXadL_Z33read_value_from_compact_hashtableIS3_ET_PhjEEXadL_Z37symbol_equals_compact_hashtable_entryS3_S1_iEEE6lookupES1_ji.exit24: ; preds = %_Z37symbol_equals_compact_hashtable_entryP6SymbolPKci.exit29.i, %_Z37symbol_equals_compact_hashtable_entryP6SymbolPKci.exit29.i19, %_Z37symbol_equals_compact_hashtable_entryP6SymbolPKci.exit.i, %_Z37symbol_equals_compact_hashtable_entryP6SymbolPKci.exit.thread.i13, %_Z37symbol_equals_compact_hashtable_entryP6SymbolPKci.exit.i22, %_ZNK16CompactHashtableIPKcP6SymbolXadL_Z33read_value_from_compact_hashtableIS3_ET_PhjEEXadL_Z37symbol_equals_compact_hashtable_entryS3_S1_iEEE6lookupES1_ji.exit, %3
-  %.0 = phi ptr [ null, %3 ], [ null, %_ZNK16CompactHashtableIPKcP6SymbolXadL_Z33read_value_from_compact_hashtableIS3_ET_PhjEEXadL_Z37symbol_equals_compact_hashtable_entryS3_S1_iEEE6lookupES1_ji.exit ], [ %83, %_Z37symbol_equals_compact_hashtable_entryP6SymbolPKci.exit.i22 ], [ null, %_Z37symbol_equals_compact_hashtable_entryP6SymbolPKci.exit.thread.i13 ], [ %33, %_Z37symbol_equals_compact_hashtable_entryP6SymbolPKci.exit.i ], [ %106, %_Z37symbol_equals_compact_hashtable_entryP6SymbolPKci.exit29.i19 ], [ %56, %_Z37symbol_equals_compact_hashtable_entryP6SymbolPKci.exit29.i ]
+  %.0 = phi ptr [ null, %3 ], [ %33, %_Z37symbol_equals_compact_hashtable_entryP6SymbolPKci.exit.i ], [ null, %_ZNK16CompactHashtableIPKcP6SymbolXadL_Z33read_value_from_compact_hashtableIS3_ET_PhjEEXadL_Z37symbol_equals_compact_hashtable_entryS3_S1_iEEE6lookupES1_ji.exit ], [ %83, %_Z37symbol_equals_compact_hashtable_entryP6SymbolPKci.exit.i22 ], [ null, %_Z37symbol_equals_compact_hashtable_entryP6SymbolPKci.exit.thread.i13 ], [ %106, %_Z37symbol_equals_compact_hashtable_entryP6SymbolPKci.exit29.i19 ], [ %56, %_Z37symbol_equals_compact_hashtable_entryP6SymbolPKci.exit29.i ]
   ret ptr %.0
 }
 
@@ -5820,7 +5820,7 @@ _ZN13GlobalCounter22critical_section_beginEP6Thread.exit44: ; preds = %._crit_ed
   br label %_ZN18GrowableArrayCHeapIPN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE4NodeELS2_11EED2Ev.exit
 
 _ZN18GrowableArrayCHeapIPN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE4NodeELS2_11EED2Ev.exit: ; preds = %35, %21, %_ZN13GlobalCounter22critical_section_beginEP6Thread.exit44, %.loopexit.thread.i.i.i
-  %.1 = phi i64 [ %162, %_ZN13GlobalCounter22critical_section_beginEP6Thread.exit44 ], [ %162, %.loopexit.thread.i.i.i ], [ %.066, %21 ], [ %.066, %35 ]
+  %.1 = phi i64 [ %162, %_ZN13GlobalCounter22critical_section_beginEP6Thread.exit44 ], [ %.066, %21 ], [ %162, %.loopexit.thread.i.i.i ], [ %.066, %35 ]
   %exitcond70.not = icmp eq i64 %24, %3
   br i1 %exitcond70.not, label %._crit_edge68, label %21, !llvm.loop !55
 

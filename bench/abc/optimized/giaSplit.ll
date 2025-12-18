@@ -1260,7 +1260,7 @@ Vec_IntPush.exit115:                              ; preds = %.Vec_IntGrow.exit10
   br i1 %134, label %.critedge, label %.critedge2, !llvm.loop !74
 
 .critedge2:                                       ; preds = %.critedge, %1, %.critedge.preheader
-  %135 = phi ptr [ %119, %.critedge.preheader ], [ %6, %1 ], [ %119, %.critedge ]
+  %135 = phi ptr [ %6, %1 ], [ %119, %.critedge.preheader ], [ %119, %.critedge ]
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %137 = load ptr, ptr %136, align 8, !tbaa !56
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 4
@@ -2833,7 +2833,7 @@ Vec_IntAppend.exit:                               ; preds = %Vec_IntPush.exit.i,
   br i1 %457, label %.sink.split, label %460
 
 .sink.split:                                      ; preds = %Spl_ManLutFanouts.exit242, %454, %95
-  %.sink360 = phi ptr [ %96, %95 ], [ %455, %454 ], [ %.pre336, %Spl_ManLutFanouts.exit242 ]
+  %.sink360 = phi ptr [ %455, %454 ], [ %96, %95 ], [ %.pre336, %Spl_ManLutFanouts.exit242 ]
   %458 = getelementptr i8, ptr %.sink360, i64 8
   %.val164 = load ptr, ptr %458, align 8, !tbaa !33
   %459 = load i32, ptr %.val164, align 4, !tbaa !34

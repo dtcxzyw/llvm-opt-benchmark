@@ -371,7 +371,7 @@ _ZL10readStringR10TempBufferIP7TStringEPKcmRm.exit: ; preds = %115, %_ZL10readVa
   br i1 %.not473, label %.loopexit775.preheader, label %.lr.ph, !llvm.loop !49
 
 .loopexit775.preheader:                           ; preds = %138, %103, %._crit_edge
-  %.ph1251 = phi i64 [ %.3860, %103 ], [ %.1739.lcssa, %._crit_edge ], [ %.3, %138 ]
+  %.ph1251 = phi i64 [ %.1739.lcssa, %._crit_edge ], [ %.3860, %103 ], [ %.3, %138 ]
   br label %.loopexit775
 
 .loopexit775:                                     ; preds = %.loopexit775.preheader, %.loopexit775
@@ -772,7 +772,7 @@ _ZL10readVarIntPKcmRm.exit80.i:                   ; preds = %_ZL10readVarIntPKcm
   br i1 %exitcond119.not.i, label %_ZL18remapUserdataTypesPcmPhj.exit.preheader, label %.preheader.i, !llvm.loop !71
 
 _ZL18remapUserdataTypesPcmPhj.exit.preheader:     ; preds = %_ZL10readVarIntPKcmRm.exit80.i, %307, %_ZL10readVarIntPKcmRm.exit559, %245, %_ZL10readVarIntPKcmRm.exit553._crit_edge, %229, %170
-  %.ph1199 = phi i64 [ %249, %307 ], [ %185, %229 ], [ %249, %245 ], [ %181, %170 ], [ %232, %_ZL10readVarIntPKcmRm.exit559 ], [ %228, %_ZL10readVarIntPKcmRm.exit553._crit_edge ], [ %249, %_ZL10readVarIntPKcmRm.exit80.i ]
+  %.ph1199 = phi i64 [ %228, %_ZL10readVarIntPKcmRm.exit553._crit_edge ], [ %249, %307 ], [ %185, %229 ], [ %249, %245 ], [ %181, %170 ], [ %232, %_ZL10readVarIntPKcmRm.exit559 ], [ %249, %_ZL10readVarIntPKcmRm.exit80.i ]
   br label %_ZL18remapUserdataTypesPcmPhj.exit
 
 _ZL18remapUserdataTypesPcmPhj.exit:               ; preds = %_ZL18remapUserdataTypesPcmPhj.exit.preheader, %_ZL18remapUserdataTypesPcmPhj.exit

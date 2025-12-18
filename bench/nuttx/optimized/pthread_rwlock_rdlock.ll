@@ -101,7 +101,7 @@ define i32 @pthread_rwlock_clockrdlock(ptr noundef %0, i32 noundef %1, ptr nound
   br i1 %.not19, label %.preheader.split, label %tryrdlock.exit, !llvm.loop !6
 
 tryrdlock.exit:                                   ; preds = %23, %12, %21, %.split.us
-  %.0 = phi i32 [ 0, %21 ], [ 11, %.split.us ], [ %13, %12 ], [ %24, %23 ]
+  %.0 = phi i32 [ 11, %.split.us ], [ 0, %21 ], [ %13, %12 ], [ %24, %23 ]
   %25 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #2
   br label %26
 
@@ -171,7 +171,7 @@ define i32 @pthread_rwlock_timedrdlock(ptr noundef %0, ptr noundef %1) local_unn
   br i1 %.not19.i, label %.preheader.split.i, label %tryrdlock.exit.i, !llvm.loop !6
 
 tryrdlock.exit.i:                                 ; preds = %22, %11, %20, %.split.us.i
-  %.0.i = phi i32 [ 0, %20 ], [ 11, %.split.us.i ], [ %12, %11 ], [ %23, %22 ]
+  %.0.i = phi i32 [ 11, %.split.us.i ], [ 0, %20 ], [ %12, %11 ], [ %23, %22 ]
   %24 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #2
   br label %pthread_rwlock_clockrdlock.exit
 
@@ -219,7 +219,7 @@ define i32 @pthread_rwlock_rdlock(ptr noundef %0) local_unnamed_addr #0 {
   br label %tryrdlock.exit.i.i
 
 tryrdlock.exit.i.i:                               ; preds = %10, %15, %.split.us.i.i
-  %.0.i.i = phi i32 [ 0, %15 ], [ 11, %.split.us.i.i ], [ %11, %10 ]
+  %.0.i.i = phi i32 [ 11, %.split.us.i.i ], [ 0, %15 ], [ %11, %10 ]
   %17 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #2
   br label %pthread_rwlock_timedrdlock.exit
 

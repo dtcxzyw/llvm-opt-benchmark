@@ -862,7 +862,7 @@ define internal fastcc i32 @read_chunk(ptr noundef %0) unnamed_addr #1 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.critedge, %55, %20, %1, %64, %49
-  %.0 = phi i32 [ %69, %64 ], [ -541478725, %1 ], [ %54, %49 ], [ -1094995529, %20 ], [ %62, %55 ], [ -541478725, %.critedge ]
+  %.0 = phi i32 [ %69, %64 ], [ -541478725, %1 ], [ %62, %55 ], [ %54, %49 ], [ -1094995529, %20 ], [ -541478725, %.critedge ]
   ret i32 %.0
 }
 

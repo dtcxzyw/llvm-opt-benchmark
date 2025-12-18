@@ -2505,8 +2505,8 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %262, %_ZN13duckdb_b
   br i1 %.not236, label %.loopexit, label %237, !llvm.loop !175
 
 .loopexit:                                        ; preds = %297, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit, %147, %143, %146, %179, %151, %189, %197
-  %.1207.ph = phi i64 [ %.0206353, %197 ], [ %.0206353, %189 ], [ %.0206353, %151 ], [ %.0206353, %179 ], [ %.0206353, %146 ], [ %.0206353, %143 ], [ %.0206353, %147 ], [ %.0206353, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit ], [ %.0219347, %297 ]
-  %.3.ph = phi i64 [ %.1354, %197 ], [ %.1354, %189 ], [ %.1354, %151 ], [ %.1354, %179 ], [ %.1354, %146 ], [ %.1354, %143 ], [ %.1354, %147 ], [ %.1354, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit ], [ %.5, %297 ]
+  %.1207.ph = phi i64 [ %.0206353, %197 ], [ %.0206353, %189 ], [ %.0206353, %151 ], [ %.0206353, %147 ], [ %.0206353, %179 ], [ %.0206353, %146 ], [ %.0206353, %143 ], [ %.0206353, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit ], [ %.0219347, %297 ]
+  %.3.ph = phi i64 [ %.1354, %197 ], [ %.1354, %189 ], [ %.1354, %151 ], [ %.1354, %147 ], [ %.1354, %179 ], [ %.1354, %146 ], [ %.1354, %143 ], [ %.1354, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit ], [ %.5, %297 ]
   %298 = add nuw nsw i64 %.0209351, 1
   %299 = icmp samesign ult i64 %.0209351, 15
   %300 = icmp ult i64 %.1207.ph, %21

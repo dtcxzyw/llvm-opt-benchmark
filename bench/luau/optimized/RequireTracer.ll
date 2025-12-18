@@ -5802,7 +5802,7 @@ _ZN4Luau10ModuleInfoD2Ev.exit.i.i.i:              ; preds = %.lr.ph.i.i.i, %_ZNK
   br i1 %exitcond.not.i.i.i, label %_ZN4Luau6detail14DenseHashTableIPKNS_7AstNodeESt4pairIS4_NS_10ModuleInfoEES5_IKS4_S6_ENS0_16ItemInterfaceMapIS4_S6_EENS_16DenseHashPointerESt8equal_toIS4_EE7destroyEv.exit.i, label %.lr.ph.i.i.i, !llvm.loop !107
 
 _ZN4Luau6detail14DenseHashTableIPKNS_7AstNodeESt4pairIS4_NS_10ModuleInfoEES5_IKS4_S6_ENS0_16ItemInterfaceMapIS4_S6_EENS_16DenseHashPointerESt8equal_toIS4_EE7destroyEv.exit.i: ; preds = %_ZN4Luau10ModuleInfoD2Ev.exit.i.i.i, %._crit_edge.thread, %21
-  %30 = phi ptr [ %19, %21 ], [ %20, %._crit_edge.thread ], [ %19, %_ZN4Luau10ModuleInfoD2Ev.exit.i.i.i ]
+  %30 = phi ptr [ %20, %._crit_edge.thread ], [ %19, %21 ], [ %19, %_ZN4Luau10ModuleInfoD2Ev.exit.i.i.i ]
   tail call void @_ZdlPv(ptr noundef nonnull %30) #16
   br label %_ZN4Luau6detail14DenseHashTableIPKNS_7AstNodeESt4pairIS4_NS_10ModuleInfoEES5_IKS4_S6_ENS0_16ItemInterfaceMapIS4_S6_EENS_16DenseHashPointerESt8equal_toIS4_EED2Ev.exit
 

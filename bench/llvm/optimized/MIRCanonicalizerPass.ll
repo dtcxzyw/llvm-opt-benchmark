@@ -1271,20 +1271,20 @@ _ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit.i: ; preds = %277
   %302 = and i32 %299, 4
   %303 = icmp ne i32 %302, 0
   %or.cond.i.i3.i = or i1 %301, %303
-  br i1 %or.cond.i.i3.i, label %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit, label %304
+  br i1 %or.cond.i.i3.i, label %304, label %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit
 
 304:                                              ; preds = %298
-  %305 = call noundef zeroext i1 @_ZNK4llvm12MachineInstr19hasPropertyInBundleEmNS0_9QueryTypeE(ptr noundef nonnull align 8 dereferenceable(70) %263, i64 noundef 1048576, i32 noundef 1) #22
-  br i1 %305, label %.critedge.i.i, label %311
+  %305 = getelementptr inbounds nuw i8, ptr %263, i64 16
+  %306 = load ptr, ptr %305, align 8, !tbaa !285
+  %307 = getelementptr inbounds nuw i8, ptr %306, i64 16
+  %308 = load i64, ptr %307, align 8, !tbaa !286
+  %309 = and i64 %308, 1048576
+  %.not51 = icmp eq i64 %309, 0
+  br i1 %.not51, label %311, label %.critedge.i.i
 
 _ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit: ; preds = %298
-  %306 = getelementptr inbounds nuw i8, ptr %263, i64 16
-  %307 = load ptr, ptr %306, align 8, !tbaa !285
-  %308 = getelementptr inbounds nuw i8, ptr %307, i64 16
-  %309 = load i64, ptr %308, align 8, !tbaa !286
-  %310 = and i64 %309, 1048576
-  %.not51 = icmp eq i64 %310, 0
-  br i1 %.not51, label %311, label %.critedge.i.i
+  %310 = call noundef zeroext i1 @_ZNK4llvm12MachineInstr19hasPropertyInBundleEmNS0_9QueryTypeE(ptr noundef nonnull align 8 dereferenceable(70) %263, i64 noundef 1048576, i32 noundef 1) #22
+  br i1 %310, label %.critedge.i.i, label %311
 
 311:                                              ; preds = %304, %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit
   %312 = getelementptr inbounds nuw i8, ptr %263, i64 32
@@ -1523,7 +1523,7 @@ _ZNSt6vectorIPN4llvm12MachineInstrESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu
   br label %_ZN4llvm19MachineRegisterInfo20defusechain_iteratorILb1ELb0ELb1ELb1ELb0ELb0EEppEv.exit.i.i
 
 ._crit_edge344.i.i:                               ; preds = %.critedge2.i.i.i.i.i.i, %.critedge2.i.i.i.i, %385
-  %.467.lcssa.i.i = phi i32 [ %.063364.i.i, %385 ], [ %.568.i.i, %.critedge2.i.i.i.i ], [ %.063364.i.i, %.critedge2.i.i.i.i.i.i ]
+  %.467.lcssa.i.i = phi i32 [ %.568.i.i, %.critedge2.i.i.i.i ], [ %.063364.i.i, %385 ], [ %.063364.i.i, %.critedge2.i.i.i.i.i.i ]
   %410 = getelementptr inbounds nuw i8, ptr %386, i64 48
   %411 = getelementptr inbounds nuw i8, ptr %386, i64 56
   %.sroa.0182.0346.i.i = load ptr, ptr %411, align 8, !tbaa !254

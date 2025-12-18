@@ -543,7 +543,7 @@ rsa_param_encode.exit.sink.split:                 ; preds = %.sink.split.i, %26
   br label %rsa_param_encode.exit
 
 rsa_param_encode.exit:                            ; preds = %rsa_param_encode.exit.sink.split, %11, %18
-  %.0 = phi i32 [ 1, %18 ], [ 0, %11 ], [ 0, %rsa_param_encode.exit.sink.split ]
+  %.0 = phi i32 [ 0, %11 ], [ 1, %18 ], [ 0, %rsa_param_encode.exit.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -1099,7 +1099,7 @@ ossl_rsa_pss_get_param.exit.thread:               ; preds = %10, %.sink.split.i.
   br label %36
 
 36:                                               ; preds = %32, %.fold.split, %33, %34
-  %.0 = phi i32 [ 68, %33 ], [ 39, %34 ], [ %23, %32 ], [ %35, %.fold.split ]
+  %.0 = phi i32 [ %23, %32 ], [ 68, %33 ], [ 39, %34 ], [ %35, %.fold.split ]
   call void @X509_SIG_INFO_set(ptr noundef %0, i32 noundef %23, i32 noundef 912, i32 noundef %.0, i32 noundef %.023) #7
   br label %37
 

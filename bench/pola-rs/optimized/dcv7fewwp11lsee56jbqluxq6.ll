@@ -8321,7 +8321,7 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h15c3c8b569a1e34cE.exit: ; preds
   br i1 %.sroa.01.0, label %29, label %28
 
 25:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator7collect17h15c3c8b569a1e34cE.exit, %19
-  %.sroa.01.2.ph = phi i1 [ true, %_ZN4core4iter6traits8iterator8Iterator7collect17h15c3c8b569a1e34cE.exit ], [ false, %19 ]
+  %.sroa.01.2.ph = phi i1 [ false, %19 ], [ true, %_ZN4core4iter6traits8iterator8Iterator7collect17h15c3c8b569a1e34cE.exit ]
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$polars_plan..dsl..plan..DslPlan$GT$$GT$17h73ff3e5ca5f4edc1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9) #27
@@ -8488,7 +8488,7 @@ define hidden void @_ZN11polars_lazy5frame9LazyFrame13sort_by_exprs17hbacc7dd733
   ret void
 
 55:                                               ; preds = %49, %51
-  %.sroa.03.3.ph = phi i1 [ true, %49 ], [ false, %51 ]
+  %.sroa.03.3.ph = phi i1 [ false, %51 ], [ true, %49 ]
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr72drop_in_place$LT$alloc..vec..Vec$LT$polars_plan..dsl..expr..Expr$GT$$GT$17h76a4a0bf5962ef50E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #27

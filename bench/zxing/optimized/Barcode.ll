@@ -3591,8 +3591,8 @@ define linkonce_odr { ptr, ptr } @_ZSt16__minmax_elementIPKiN9__gnu_cxx5__ops15_
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !149
 
 .loopexit:                                        ; preds = %40, %7, %17, %21, %2, %4
-  %.pn55 = phi ptr [ %0, %2 ], [ %0, %4 ], [ %storemerge2064, %17 ], [ %.14561, %21 ], [ %spec.select, %7 ], [ %.4, %40 ]
-  %.pn53 = phi ptr [ %0, %2 ], [ %0, %4 ], [ %.062, %17 ], [ %spec.select48, %21 ], [ %spec.select47, %7 ], [ %.2, %40 ]
+  %.pn55 = phi ptr [ %0, %2 ], [ %0, %4 ], [ %.14561, %21 ], [ %storemerge2064, %17 ], [ %spec.select, %7 ], [ %.4, %40 ]
+  %.pn53 = phi ptr [ %0, %2 ], [ %0, %4 ], [ %spec.select48, %21 ], [ %.062, %17 ], [ %spec.select47, %7 ], [ %.2, %40 ]
   %.fca.0.insert.i.pn = insertvalue { ptr, ptr } poison, ptr %.pn55, 0
   %.pn21 = insertvalue { ptr, ptr } %.fca.0.insert.i.pn, ptr %.pn53, 1
   ret { ptr, ptr } %.pn21

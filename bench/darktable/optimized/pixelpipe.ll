@@ -545,7 +545,7 @@ dt_hash.exit31.i:                                 ; preds = %.lr.ph.i27.i
   br i1 %exitcond.not.i40.i, label %.loopexit.i, label %.lr.ph.i37.i
 
 .loopexit.i:                                      ; preds = %.lr.ph.i37.i, %.lr.ph.i32.i, %40, %dt_hash.exit31.i, %28
-  %.3.i = phi i64 [ %.052.i, %28 ], [ %36, %dt_hash.exit31.i ], [ %36, %40 ], [ %52, %.lr.ph.i32.i ], [ %58, %.lr.ph.i37.i ]
+  %.3.i = phi i64 [ %.052.i, %28 ], [ %36, %dt_hash.exit31.i ], [ %52, %.lr.ph.i32.i ], [ %36, %40 ], [ %58, %.lr.ph.i37.i ]
   %60 = getelementptr inbounds nuw i8, ptr %.02253.i, i64 8
   %.022.i = load ptr, ptr %60, align 8, !tbaa !85
   %.not.i = icmp eq ptr %.022.i, null

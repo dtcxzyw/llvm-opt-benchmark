@@ -229,7 +229,7 @@ define dso_local noundef range(i32 -8, 1) i32 @apply_relocate_add(ptr noundef re
   br label %.thread
 
 .thread:                                          ; preds = %69, %65, %55, %75, %11
-  %78 = phi i32 [ -8, %75 ], [ 0, %11 ], [ -8, %55 ], [ -8, %65 ], [ 0, %69 ]
+  %78 = phi i32 [ -8, %75 ], [ 0, %11 ], [ -8, %65 ], [ -8, %55 ], [ 0, %69 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %9, label %80, label %79

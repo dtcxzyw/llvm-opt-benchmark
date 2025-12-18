@@ -2299,8 +2299,8 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i:  ; preds = %63
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %46, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i, %178, %80, %48
-  %.sroa.11.0 = phi ptr [ %49, %48 ], [ %.sink.i, %178 ], [ %73, %80 ], [ %65, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i ], [ undef, %46 ]
-  %.sroa.0.046 = phi i64 [ -9223372036854775807, %48 ], [ -9223372036854775807, %178 ], [ -9223372036854775807, %80 ], [ -9223372036854775807, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i ], [ -9223372036854775808, %46 ]
+  %.sroa.11.0 = phi ptr [ %49, %48 ], [ %.sink.i, %178 ], [ %65, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i ], [ %73, %80 ], [ undef, %46 ]
+  %.sroa.0.046 = phi i64 [ -9223372036854775807, %48 ], [ -9223372036854775807, %178 ], [ -9223372036854775807, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i ], [ -9223372036854775807, %80 ], [ -9223372036854775808, %46 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !374
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h88223068117532dcE.llvm.12355220772335189349"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %31), !noalias !275
   %179 = getelementptr inbounds nuw i8, ptr %6, i64 8

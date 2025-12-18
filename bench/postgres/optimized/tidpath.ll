@@ -276,8 +276,8 @@ IsCurrentOfClause.exit.thread:                    ; preds = %63, %61, %IsCurrent
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %is_andclause.exit.thread, %45, %.lr.ph, %15, %IsCurrentOfClause.exit.thread, %.critedge, %58, %list_length.exit83, %59
-  %.4.ph = phi ptr [ %.059132172, %59 ], [ %.059132172, %list_length.exit83 ], [ %47, %58 ], [ %.059132172, %IsCurrentOfClause.exit.thread ], [ %.059132172, %.critedge ], [ %.059132172, %15 ], [ %.059132172, %.lr.ph ], [ %.059132172, %45 ], [ %.059132172, %is_andclause.exit.thread ]
-  %.358.ph = phi ptr [ %.055135171, %59 ], [ %.055135171, %list_length.exit83 ], [ %.055135171, %58 ], [ %spec.select, %IsCurrentOfClause.exit.thread ], [ %.055135171, %.critedge ], [ %.055135171, %15 ], [ %.055135171, %.lr.ph ], [ %.055135171, %45 ], [ %.055135171, %is_andclause.exit.thread ]
+  %.4.ph = phi ptr [ %.059132172, %59 ], [ %.059132172, %list_length.exit83 ], [ %47, %58 ], [ %.059132172, %IsCurrentOfClause.exit.thread ], [ %.059132172, %.critedge ], [ %.059132172, %.lr.ph ], [ %.059132172, %15 ], [ %.059132172, %45 ], [ %.059132172, %is_andclause.exit.thread ]
+  %.358.ph = phi ptr [ %.055135171, %59 ], [ %.055135171, %list_length.exit83 ], [ %.055135171, %58 ], [ %spec.select, %IsCurrentOfClause.exit.thread ], [ %.055135171, %.critedge ], [ %.055135171, %.lr.ph ], [ %.055135171, %15 ], [ %.055135171, %45 ], [ %.055135171, %is_andclause.exit.thread ]
   %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147170, 1
   %71 = load i32, ptr %6, align 4
   %72 = sext i32 %71 to i64

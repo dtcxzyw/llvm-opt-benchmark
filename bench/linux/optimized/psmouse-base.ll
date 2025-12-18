@@ -2373,8 +2373,8 @@ psmouse_try_protocol.exit14.thread:               ; preds = %psmouse_try_protoco
   br label %.thread51
 
 .thread51:                                        ; preds = %181, %154, %.thread42, %.thread21.thread, %90, %128
-  %212 = phi i1 [ %.ph, %154 ], [ false, %.thread21.thread ], [ %.ph, %.thread42 ], [ %.ph, %128 ], [ false, %90 ], [ %.ph, %181 ]
-  %213 = phi i32 [ 6, %154 ], [ 6, %.thread21.thread ], [ %.pr50.pr, %.thread42 ], [ %.pr39.pr, %128 ], [ %39, %90 ], [ 6, %181 ]
+  %212 = phi i1 [ false, %.thread21.thread ], [ %.ph, %154 ], [ %.ph, %.thread42 ], [ false, %90 ], [ %.ph, %128 ], [ %.ph, %181 ]
+  %213 = phi i32 [ 6, %.thread21.thread ], [ 6, %154 ], [ %.pr50.pr, %.thread42 ], [ %39, %90 ], [ %.pr39.pr, %128 ], [ 6, %181 ]
   %214 = tail call i32 @ps2_command(ptr noundef nonnull %7, ptr noundef null, i32 noundef 246) #14
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i16 0, ptr %5, align 2, !annotation !7
@@ -2497,7 +2497,7 @@ psmouse_reset.exit:                               ; preds = %ps2bare_detect.exit
   br label %psmouse_try_protocol.exit.thread45
 
 psmouse_try_protocol.exit.thread45:               ; preds = %.thread52, %psmouse_try_protocol.exit.thread, %psmouse_do_detect.exit12.thread, %.thread35, %.thread26, %.thread19, %psmouse_reset.exit, %ps2bare_detect.exit, %psmouse_do_detect.exit15, %psmouse_try_protocol.exit14.thread, %psmouse_do_detect.exit12, %181, %154, %123, %122, %psmouse_do_detect.exit, %65, %64, %33, %32
-  %263 = phi i32 [ 18, %33 ], [ 18, %32 ], [ 8, %.thread35 ], [ 8, %181 ], [ 7, %122 ], [ %124, %123 ], [ 9, %.thread19 ], [ 17, %.thread26 ], [ 4, %psmouse_do_detect.exit12 ], [ 2, %psmouse_do_detect.exit12.thread ], [ 10, %psmouse_try_protocol.exit.thread ], [ 11, %psmouse_try_protocol.exit14.thread ], [ 17, %154 ], [ 5, %.thread52 ], [ 1, %psmouse_reset.exit ], [ 1, %ps2bare_detect.exit ], [ 9, %65 ], [ 9, %64 ], [ 3, %psmouse_do_detect.exit ], [ 6, %psmouse_do_detect.exit15 ]
+  %263 = phi i32 [ 18, %33 ], [ 18, %32 ], [ 9, %.thread19 ], [ 8, %181 ], [ 7, %122 ], [ %124, %123 ], [ 17, %.thread26 ], [ 8, %.thread35 ], [ 4, %psmouse_do_detect.exit12 ], [ 2, %psmouse_do_detect.exit12.thread ], [ 10, %psmouse_try_protocol.exit.thread ], [ 11, %psmouse_try_protocol.exit14.thread ], [ 17, %154 ], [ 5, %.thread52 ], [ 1, %psmouse_reset.exit ], [ 1, %ps2bare_detect.exit ], [ 9, %65 ], [ 9, %64 ], [ 3, %psmouse_do_detect.exit ], [ 6, %psmouse_do_detect.exit15 ]
   ret i32 %263
 }
 

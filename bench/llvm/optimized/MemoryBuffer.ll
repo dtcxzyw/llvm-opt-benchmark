@@ -346,8 +346,8 @@ define dso_local void @_ZN4llvm12MemoryBuffer14getFileOrSTDINERKNS_5TwineEbbSt8o
   br label %_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit
 
 _ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit: ; preds = %19, %21, %26, %30
-  %.sroa.3.0.i = phi i64 [ %32, %30 ], [ %29, %26 ], [ %25, %21 ], [ %20, %19 ]
-  %.sroa.0.0.i = phi ptr [ %31, %30 ], [ %27, %26 ], [ %23, %21 ], [ %18, %19 ]
+  %.sroa.3.0.i = phi i64 [ %32, %30 ], [ %29, %26 ], [ %20, %19 ], [ %25, %21 ]
+  %.sroa.0.0.i = phi ptr [ %31, %30 ], [ %27, %26 ], [ %18, %19 ], [ %23, %21 ]
   %.not.i = icmp eq i64 %.sroa.3.0.i, 1
   br i1 %.not.i, label %_ZN4llvmeqENS_9StringRefES0_.exit, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread7
 
@@ -1164,7 +1164,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i: ; p
   br label %52
 
 52:                                               ; preds = %44, %49
-  %.1 = phi i64 [ -1, %44 ], [ %51, %49 ]
+  %.1 = phi i64 [ %51, %49 ], [ -1, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   switch i32 %43, label %_ZN4llvm5ErrorD2Ev.exit [
     i32 5, label %53

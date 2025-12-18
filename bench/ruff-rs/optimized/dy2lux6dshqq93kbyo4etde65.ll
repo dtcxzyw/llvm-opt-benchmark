@@ -459,7 +459,7 @@ _ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread16.i.i.i: ; preds = 
   br i1 %.not12.i.i.i, label %47, label %45
 
 _ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread.i.i.i: ; preds = %.preheader.i.i.i.i, %34, %_ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit._ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread.loopexit20_crit_edge.i.i.i
-  %44 = phi i64 [ %.pre46.pre.i.i.i, %_ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit._ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread.loopexit20_crit_edge.i.i.i ], [ %20, %34 ], [ %20, %.preheader.i.i.i.i ]
+  %44 = phi i64 [ %20, %34 ], [ %.pre46.pre.i.i.i, %_ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit._ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread.loopexit20_crit_edge.i.i.i ], [ %20, %.preheader.i.i.i.i ]
   store i64 %44, ptr %9, align 8, !alias.scope !52, !noalias !55
   br label %.loopexit.i.i
 
@@ -525,8 +525,8 @@ _ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread.i.i.i: ; preds = %.
   br label %67
 
 67:                                               ; preds = %._crit_edge.i.i.i, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h1631b02891b11fa6E.exit.i.i"
-  %.sroa.4.0.i.i = phi i64 [ %58, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h1631b02891b11fa6E.exit.i.i" ], [ %65, %._crit_edge.i.i.i ]
-  %.sroa.0.0.i.i = phi ptr [ %59, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h1631b02891b11fa6E.exit.i.i" ], [ %66, %._crit_edge.i.i.i ]
+  %.sroa.4.0.i.i = phi i64 [ %65, %._crit_edge.i.i.i ], [ %58, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h1631b02891b11fa6E.exit.i.i" ]
+  %.sroa.0.0.i.i = phi ptr [ %66, %._crit_edge.i.i.i ], [ %59, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h1631b02891b11fa6E.exit.i.i" ]
   %68 = load i64, ptr %14, align 8, !noundef !4
   %69 = icmp ult i64 %68, 576460752303423488
   tail call void @llvm.assume(i1 %69)
@@ -958,7 +958,7 @@ define hidden noundef ptr @"_ZN67_$LT$flate2..zio..Writer$LT$W$C$D$GT$$u20$as$u2
   unreachable
 
 "_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h2f97b549be1d958aE.exit.thread33": ; preds = %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h2f97b549be1d958aE.exit", %30, %.thread, %51, %14
-  %.sroa.0.0 = phi ptr [ %15, %14 ], [ %52, %51 ], [ %46, %.thread ], [ inttoptr (i64 98784247811 to ptr), %30 ], [ %26, %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h2f97b549be1d958aE.exit" ]
+  %.sroa.0.0 = phi ptr [ %15, %14 ], [ %52, %51 ], [ inttoptr (i64 98784247811 to ptr), %30 ], [ %46, %.thread ], [ %26, %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h2f97b549be1d958aE.exit" ]
   ret ptr %.sroa.0.0
 }
 
@@ -1234,7 +1234,7 @@ define hidden noundef ptr @"_ZN6flate23zio19Writer$LT$W$C$D$GT$6finish17hd3dd9bf
   br i1 %45, label %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h2f97b549be1d958aE.exit.thread18", label %12
 
 "_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h2f97b549be1d958aE.exit.thread18": ; preds = %44, %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h2f97b549be1d958aE.exit", %26, %42
-  %.sroa.0.0 = phi ptr [ %43, %42 ], [ inttoptr (i64 98784247811 to ptr), %26 ], [ null, %44 ], [ %22, %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h2f97b549be1d958aE.exit" ]
+  %.sroa.0.0 = phi ptr [ inttoptr (i64 98784247811 to ptr), %26 ], [ %43, %42 ], [ null, %44 ], [ %22, %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h2f97b549be1d958aE.exit" ]
   ret ptr %.sroa.0.0
 }
 

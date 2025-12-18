@@ -1986,7 +1986,7 @@ valid_custom_variable_name.exit.thread:           ; preds = %13, %18, %16, %5, %
   br label %.critedge
 
 .critedge:                                        ; preds = %55, %28, %49, %57, %.critedge.sink.split.sink.split, %34, %.lr.ph, %.split, %56, %valid_custom_variable_name.exit.thread
-  %.4 = phi i1 [ false, %56 ], [ false, %valid_custom_variable_name.exit.thread ], [ false, %.split ], [ true, %.lr.ph ], [ true, %34 ], [ false, %.critedge.sink.split.sink.split ], [ false, %57 ], [ false, %49 ], [ false, %28 ], [ true, %55 ]
+  %.4 = phi i1 [ false, %56 ], [ false, %valid_custom_variable_name.exit.thread ], [ false, %28 ], [ true, %.lr.ph ], [ true, %34 ], [ false, %.split ], [ false, %.critedge.sink.split.sink.split ], [ false, %57 ], [ false, %49 ], [ true, %55 ]
   ret i1 %.4
 }
 
@@ -3177,7 +3177,7 @@ set_string_field.exit:                            ; preds = %209, %213, %191, %1
   br i1 %287, label %set_extra_field.exit, label %279, !llvm.loop !32
 
 set_extra_field.exit.sink.split:                  ; preds = %279, %238, %174, %129, %88
-  %.sink = phi ptr [ %220, %238 ], [ %70, %88 ], [ %113, %129 ], [ %154, %174 ], [ %263, %279 ]
+  %.sink = phi ptr [ %220, %238 ], [ %154, %174 ], [ %113, %129 ], [ %70, %88 ], [ %263, %279 ]
   tail call void @pfree(ptr noundef nonnull %.sink) #29
   br label %set_extra_field.exit
 
@@ -4336,13 +4336,13 @@ set_string_field.exit230:                         ; preds = %282, %286, %set_ext
   br i1 %347, label %set_extra_field.exit, label %339, !llvm.loop !32
 
 set_extra_field.exit.sink.split:                  ; preds = %339, %.preheader, %204, %165, %127
-  %.sink336 = phi ptr [ %291, %.preheader ], [ %108, %127 ], [ %146, %165 ], [ %185, %204 ], [ %320, %339 ]
-  %.1.ph = phi i1 [ %.5, %.preheader ], [ true, %127 ], [ true, %165 ], [ true, %204 ], [ true, %339 ]
+  %.sink336 = phi ptr [ %291, %.preheader ], [ %185, %204 ], [ %146, %165 ], [ %108, %127 ], [ %320, %339 ]
+  %.1.ph = phi i1 [ %.5, %.preheader ], [ true, %204 ], [ true, %165 ], [ true, %127 ], [ true, %339 ]
   tail call void @pfree(ptr noundef nonnull %.sink336) #29
   br label %set_extra_field.exit
 
 set_extra_field.exit:                             ; preds = %344, %340, %306, %302, %209, %205, %170, %166, %132, %128, %set_extra_field.exit.sink.split, %336, %333, %330, %327, %324, %318, %299, %296, %292, %set_string_field.exit230, %201, %198, %195, %192, %189, %183, %162, %159, %156, %153, %150, %144, %124, %121, %118, %115, %112, %106, %313, %178, %139, %101, %92
-  %.1 = phi i1 [ false, %92 ], [ false, %178 ], [ false, %101 ], [ false, %139 ], [ false, %313 ], [ true, %106 ], [ true, %112 ], [ true, %115 ], [ true, %118 ], [ true, %121 ], [ true, %124 ], [ true, %144 ], [ true, %150 ], [ true, %153 ], [ true, %156 ], [ true, %159 ], [ true, %162 ], [ true, %183 ], [ true, %189 ], [ true, %192 ], [ true, %195 ], [ true, %198 ], [ true, %201 ], [ %.5, %set_string_field.exit230 ], [ %.5, %292 ], [ %.5, %296 ], [ %.5, %299 ], [ true, %318 ], [ true, %324 ], [ true, %327 ], [ true, %330 ], [ true, %333 ], [ true, %336 ], [ %.1.ph, %set_extra_field.exit.sink.split ], [ %.5, %306 ], [ true, %132 ], [ true, %170 ], [ true, %209 ], [ true, %128 ], [ true, %166 ], [ true, %205 ], [ %.5, %302 ], [ true, %340 ], [ true, %344 ]
+  %.1 = phi i1 [ false, %92 ], [ false, %178 ], [ false, %101 ], [ false, %139 ], [ true, %170 ], [ false, %313 ], [ true, %209 ], [ %.5, %306 ], [ true, %132 ], [ true, %106 ], [ %.5, %299 ], [ true, %112 ], [ true, %115 ], [ true, %118 ], [ true, %121 ], [ true, %124 ], [ %.5, %296 ], [ true, %333 ], [ true, %144 ], [ true, %327 ], [ true, %150 ], [ true, %153 ], [ true, %156 ], [ true, %159 ], [ true, %162 ], [ true, %318 ], [ true, %330 ], [ true, %183 ], [ true, %324 ], [ true, %189 ], [ true, %192 ], [ true, %195 ], [ true, %198 ], [ true, %201 ], [ %.1.ph, %set_extra_field.exit.sink.split ], [ true, %336 ], [ %.5, %set_string_field.exit230 ], [ %.5, %292 ], [ true, %128 ], [ true, %166 ], [ true, %205 ], [ %.5, %302 ], [ true, %340 ], [ true, %344 ]
   %348 = getelementptr inbounds nuw i8, ptr %27, i64 48
   %349 = load ptr, ptr %348, align 8
   store ptr null, ptr %348, align 8
@@ -5696,7 +5696,7 @@ switch.early.test:                                ; preds = %.critedge.thread
   br label %.critedge729
 
 .critedge729:                                     ; preds = %87, %switch.early.test, %switch.early.test, %switch.early.test, %.critedge.thread, %50, %.fold.split, %85, %76, %57, %43, %40
-  %.0635 = phi i1 [ false, %40 ], [ false, %43 ], [ false, %85 ], [ false, %57 ], [ false, %76 ], [ false, %switch.early.test ], [ false, %87 ], [ true, %50 ], [ false, %.fold.split ], [ false, %.critedge.thread ], [ false, %switch.early.test ], [ false, %switch.early.test ]
+  %.0635 = phi i1 [ false, %40 ], [ false, %43 ], [ false, %85 ], [ true, %50 ], [ false, %57 ], [ false, %76 ], [ false, %switch.early.test ], [ false, %87 ], [ false, %.fold.split ], [ false, %.critedge.thread ], [ false, %switch.early.test ], [ false, %switch.early.test ]
   %96 = getelementptr inbounds nuw i8, ptr %.0633, i64 32
   %97 = load i32, ptr %96, align 8
   %98 = and i32 %97, 4096

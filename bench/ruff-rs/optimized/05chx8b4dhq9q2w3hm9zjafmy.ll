@@ -629,7 +629,7 @@ define hidden void @"_ZN10serde_json5value2de130_$LT$impl$u20$serde..de..Deseria
   br label %32
 
 .loopexit14:                                      ; preds = %.noexc5, %._crit_edge.i, %19, %24
-  %.sroa.79.0.ph = phi ptr [ %26, %24 ], [ %20, %19 ], [ %13, %._crit_edge.i ], [ %17, %.noexc5 ]
+  %.sroa.79.0.ph = phi ptr [ %13, %._crit_edge.i ], [ %26, %24 ], [ %20, %19 ], [ %17, %.noexc5 ]
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.79.0.ph, ptr %33, align 8
   br label %46
@@ -1678,7 +1678,7 @@ define hidden void @"_ZN10serde_json5value2de130_$LT$impl$u20$serde..de..Deseria
   br label %32
 
 .loopexit14:                                      ; preds = %.noexc5, %._crit_edge.i, %19, %24
-  %.sroa.79.0.ph = phi ptr [ %26, %24 ], [ %20, %19 ], [ %13, %._crit_edge.i ], [ %17, %.noexc5 ]
+  %.sroa.79.0.ph = phi ptr [ %13, %._crit_edge.i ], [ %26, %24 ], [ %20, %19 ], [ %17, %.noexc5 ]
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.79.0.ph, ptr %33, align 8
   br label %46
@@ -1951,7 +1951,7 @@ default.unreachable:                              ; preds = %21
   br i1 %.not102.i, label %85, label %66
 
 .loopexit:                                        ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h8454bff8a0ac612fE.exit.i", %61, %49, %38, %.invoke.i, %18
-  %.sink.i = phi ptr [ %20, %18 ], [ %48, %49 ], [ %33, %.invoke.i ], [ %37, %38 ], [ %60, %61 ], [ %30, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h8454bff8a0ac612fE.exit.i" ]
+  %.sink.i = phi ptr [ %20, %18 ], [ %60, %61 ], [ %48, %49 ], [ %33, %.invoke.i ], [ %37, %38 ], [ %30, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h8454bff8a0ac612fE.exit.i" ]
   %65 = load i64, ptr %7, align 8, !range !60, !noalias !54, !noundef !3
   %switch.i = icmp slt i64 %65, -9223372036854775806
   br i1 %switch.i, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h3cd75758604f11ccE.exit121.i", label %67
@@ -2217,7 +2217,7 @@ default.unreachable:                              ; preds = %16
   br label %44
 
 .loopexit17:                                      ; preds = %.noexc5, %.invoke, %._crit_edge.i, %39, %28
-  %.sroa.911.0.ph = phi ptr [ %24, %.invoke ], [ %41, %39 ], [ %15, %._crit_edge.i ], [ %30, %28 ], [ %21, %.noexc5 ]
+  %.sroa.911.0.ph = phi ptr [ %15, %._crit_edge.i ], [ %24, %.invoke ], [ %41, %39 ], [ %30, %28 ], [ %21, %.noexc5 ]
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.911.0.ph, ptr %45, align 8
   br label %59
@@ -2323,7 +2323,7 @@ define hidden void @"_ZN10serde_json5value2de130_$LT$impl$u20$serde..de..Deseria
   br label %17
 
 .loopexit.split-lp.i:                             ; preds = %.invoke, %78, %58
-  %.sroa.077.1.ph.i = phi i8 [ 1, %58 ], [ %.sroa.077.6.i, %78 ], [ 1, %.invoke ]
+  %.sroa.077.1.ph.i = phi i8 [ %.sroa.077.6.i, %78 ], [ 1, %.invoke ], [ 1, %58 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %17
@@ -2744,7 +2744,7 @@ define hidden void @"_ZN10serde_json5value2de130_$LT$impl$u20$serde..de..Deseria
   br label %17
 
 .loopexit.split-lp.i:                             ; preds = %.invoke, %78, %58
-  %.sroa.077.1.ph.i = phi i8 [ 1, %58 ], [ %.sroa.077.6.i, %78 ], [ 1, %.invoke ]
+  %.sroa.077.1.ph.i = phi i8 [ %.sroa.077.6.i, %78 ], [ 1, %.invoke ], [ 1, %58 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %17
@@ -3311,7 +3311,7 @@ default.unreachable:                              ; preds = %21
   br i1 %.not71.i, label %64, label %63
 
 .loopexit:                                        ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h8454bff8a0ac612fE.exit.i", %70, %54, %44, %.invoke.i, %32, %18
-  %.sink.i = phi ptr [ %20, %18 ], [ %39, %.invoke.i ], [ %43, %44 ], [ %34, %32 ], [ %56, %54 ], [ %69, %70 ], [ %28, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h8454bff8a0ac612fE.exit.i" ]
+  %.sink.i = phi ptr [ %20, %18 ], [ %39, %.invoke.i ], [ %43, %44 ], [ %69, %70 ], [ %34, %32 ], [ %56, %54 ], [ %28, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h8454bff8a0ac612fE.exit.i" ]
   %62 = load i64, ptr %8, align 8, !range !49, !noalias !96, !noundef !3
   %.not77.i = icmp eq i64 %62, -9223372036854775808
   br i1 %.not77.i, label %78, label %72
@@ -3378,9 +3378,9 @@ default.unreachable:                              ; preds = %21
   br label %92
 
 81:                                               ; preds = %63, %71
-  %.sroa.10.0 = phi i64 [ %.sroa.666.0.copyload.i, %71 ], [ %.sroa.454.0.copyload.i, %63 ]
-  %.sroa.7.0 = phi ptr [ %69, %71 ], [ %.sroa.352.0.copyload.i, %63 ]
-  %.sroa.0.0 = phi i64 [ %66, %71 ], [ %61, %63 ]
+  %.sroa.10.0 = phi i64 [ %.sroa.454.0.copyload.i, %63 ], [ %.sroa.666.0.copyload.i, %71 ]
+  %.sroa.7.0 = phi ptr [ %.sroa.352.0.copyload.i, %63 ], [ %69, %71 ]
+  %.sroa.0.0 = phi i64 [ %61, %63 ], [ %66, %71 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !96
   store i64 %.sroa.0.0, ptr %9, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -3509,7 +3509,7 @@ define hidden void @"_ZN10serde_json5value2de130_$LT$impl$u20$serde..de..Deseria
   br label %.body.i
 
 .loopexit.split-lp.i:                             ; preds = %123, %51, %35
-  %.sroa.069.1.ph.i = phi i8 [ %.sroa.069.6.i, %123 ], [ 1, %35 ], [ 1, %51 ]
+  %.sroa.069.1.ph.i = phi i8 [ 1, %35 ], [ %.sroa.069.6.i, %123 ], [ 1, %51 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
@@ -4338,7 +4338,7 @@ define hidden void @"_ZN10serde_json5value2de130_$LT$impl$u20$serde..de..Deseria
   br label %17
 
 .loopexit.split-lp.i:                             ; preds = %.invoke, %78, %58
-  %.sroa.077.1.ph.i = phi i8 [ 1, %58 ], [ %.sroa.077.6.i, %78 ], [ 1, %.invoke ]
+  %.sroa.077.1.ph.i = phi i8 [ %.sroa.077.6.i, %78 ], [ 1, %.invoke ], [ 1, %58 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %17
@@ -4808,7 +4808,7 @@ define hidden void @"_ZN10serde_json5value2de130_$LT$impl$u20$serde..de..Deseria
   br label %32
 
 .loopexit14:                                      ; preds = %.noexc5, %._crit_edge.i, %19, %24
-  %.sroa.79.0.ph = phi ptr [ %26, %24 ], [ %20, %19 ], [ %13, %._crit_edge.i ], [ %17, %.noexc5 ]
+  %.sroa.79.0.ph = phi ptr [ %13, %._crit_edge.i ], [ %26, %24 ], [ %20, %19 ], [ %17, %.noexc5 ]
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.79.0.ph, ptr %33, align 8
   br label %46
@@ -4917,7 +4917,7 @@ define hidden void @"_ZN10serde_json5value2de130_$LT$impl$u20$serde..de..Deseria
   br label %.loopexit.i
 
 .loopexit.split-lp.i:                             ; preds = %.invoke, %78, %57
-  %.sroa.054.1.ph.i = phi i8 [ 1, %57 ], [ %.sroa.054.5.i, %78 ], [ 1, %.invoke ]
+  %.sroa.054.1.ph.i = phi i8 [ %.sroa.054.5.i, %78 ], [ 1, %.invoke ], [ 1, %57 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.i
@@ -5354,7 +5354,7 @@ default.unreachable:                              ; preds = %16
   br label %44
 
 .loopexit17:                                      ; preds = %.noexc5, %.invoke, %._crit_edge.i, %39, %28
-  %.sroa.911.0.ph = phi ptr [ %24, %.invoke ], [ %41, %39 ], [ %15, %._crit_edge.i ], [ %30, %28 ], [ %21, %.noexc5 ]
+  %.sroa.911.0.ph = phi ptr [ %15, %._crit_edge.i ], [ %24, %.invoke ], [ %41, %39 ], [ %30, %28 ], [ %21, %.noexc5 ]
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.911.0.ph, ptr %45, align 8
   br label %59
@@ -5545,7 +5545,7 @@ default.unreachable:                              ; preds = %16
   br label %44
 
 .loopexit17:                                      ; preds = %.noexc5, %.invoke, %._crit_edge.i, %39, %28
-  %.sroa.911.0.ph = phi ptr [ %24, %.invoke ], [ %41, %39 ], [ %15, %._crit_edge.i ], [ %30, %28 ], [ %21, %.noexc5 ]
+  %.sroa.911.0.ph = phi ptr [ %15, %._crit_edge.i ], [ %24, %.invoke ], [ %41, %39 ], [ %30, %28 ], [ %21, %.noexc5 ]
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.911.0.ph, ptr %45, align 8
   br label %59
@@ -5988,7 +5988,7 @@ define hidden void @"_ZN10serde_json5value2de130_$LT$impl$u20$serde..de..Deseria
   br label %32
 
 .loopexit14:                                      ; preds = %.noexc5, %._crit_edge.i, %19, %24
-  %.sroa.79.0.ph = phi ptr [ %26, %24 ], [ %20, %19 ], [ %13, %._crit_edge.i ], [ %17, %.noexc5 ]
+  %.sroa.79.0.ph = phi ptr [ %13, %._crit_edge.i ], [ %26, %24 ], [ %20, %19 ], [ %17, %.noexc5 ]
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.79.0.ph, ptr %33, align 8
   br label %46
@@ -6319,7 +6319,7 @@ default.unreachable:                              ; preds = %23
   br label %105
 
 .loopexit:                                        ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h8454bff8a0ac612fE.exit.i", %75, %63, %53, %42, %.invoke.i, %20
-  %.sink.i = phi ptr [ %22, %20 ], [ %74, %75 ], [ %62, %63 ], [ %52, %53 ], [ %37, %.invoke.i ], [ %41, %42 ], [ %34, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h8454bff8a0ac612fE.exit.i" ]
+  %.sink.i = phi ptr [ %22, %20 ], [ %74, %75 ], [ %62, %63 ], [ %41, %42 ], [ %52, %53 ], [ %37, %.invoke.i ], [ %34, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h8454bff8a0ac612fE.exit.i" ]
   %80 = load i64, ptr %8, align 8, !range !60, !noalias !199, !noundef !3
   %switch.i = icmp slt i64 %80, -9223372036854775806
   br i1 %switch.i, label %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$17h12bfafbd756f5a87E.exit.i", label %84
@@ -6570,7 +6570,7 @@ define hidden void @"_ZN10serde_json5value2de130_$LT$impl$u20$serde..de..Deseria
   br label %.body.i
 
 .loopexit.split-lp.i:                             ; preds = %.invoke, %99, %77, %56
-  %.sroa.0107.1.ph.i = phi i8 [ 1, %77 ], [ %.sroa.0107.6.i, %99 ], [ 1, %56 ], [ 1, %.invoke ]
+  %.sroa.0107.1.ph.i = phi i8 [ 1, %56 ], [ %.sroa.0107.6.i, %99 ], [ 1, %.invoke ], [ 1, %77 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
@@ -7471,7 +7471,7 @@ define hidden void @"_ZN10serde_json5value2de130_$LT$impl$u20$serde..de..Deseria
   br label %32
 
 .loopexit14:                                      ; preds = %.noexc5, %._crit_edge.i, %19, %24
-  %.sroa.79.0.ph = phi ptr [ %26, %24 ], [ %20, %19 ], [ %13, %._crit_edge.i ], [ %17, %.noexc5 ]
+  %.sroa.79.0.ph = phi ptr [ %13, %._crit_edge.i ], [ %26, %24 ], [ %20, %19 ], [ %17, %.noexc5 ]
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.79.0.ph, ptr %33, align 8
   br label %46
@@ -7675,13 +7675,13 @@ define hidden void @"_ZN10serde_json5value2de130_$LT$impl$u20$serde..de..Deseria
   br label %.body.i
 
 .loopexit.split-lp.i:                             ; preds = %.invoke, %281, %160
-  %.sroa.0304.1.ph.i = phi i8 [ %.sroa.0304.12.i, %281 ], [ 1, %160 ], [ 1, %.invoke ]
-  %.sroa.0306.1.ph.i = phi i8 [ %.sroa.0306.12.i, %281 ], [ 1, %160 ], [ 1, %.invoke ]
-  %.sroa.0308.1.ph.i = phi i8 [ %.sroa.0308.12.i, %281 ], [ 1, %160 ], [ 1, %.invoke ]
-  %.sroa.0310.1.ph.i = phi i8 [ %.sroa.0310.13.i, %281 ], [ 1, %160 ], [ 1, %.invoke ]
-  %.sroa.0312.1.ph.i = phi i8 [ %.sroa.0312.8.i, %281 ], [ 1, %160 ], [ 1, %.invoke ]
-  %.sroa.0314.1.ph.i = phi i8 [ %.sroa.0314.8.i, %281 ], [ 1, %160 ], [ 1, %.invoke ]
-  %.sroa.0316.1.ph.i = phi i8 [ %.sroa.0316.7.i, %281 ], [ 1, %160 ], [ 1, %.invoke ]
+  %.sroa.0304.1.ph.i = phi i8 [ 1, %.invoke ], [ %.sroa.0304.12.i, %281 ], [ 1, %160 ]
+  %.sroa.0306.1.ph.i = phi i8 [ 1, %.invoke ], [ %.sroa.0306.12.i, %281 ], [ 1, %160 ]
+  %.sroa.0308.1.ph.i = phi i8 [ 1, %.invoke ], [ %.sroa.0308.12.i, %281 ], [ 1, %160 ]
+  %.sroa.0310.1.ph.i = phi i8 [ 1, %.invoke ], [ %.sroa.0310.13.i, %281 ], [ 1, %160 ]
+  %.sroa.0312.1.ph.i = phi i8 [ 1, %.invoke ], [ %.sroa.0312.8.i, %281 ], [ 1, %160 ]
+  %.sroa.0314.1.ph.i = phi i8 [ 1, %.invoke ], [ %.sroa.0314.8.i, %281 ], [ 1, %160 ]
+  %.sroa.0316.1.ph.i = phi i8 [ 1, %.invoke ], [ %.sroa.0316.7.i, %281 ], [ 1, %160 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
@@ -9004,7 +9004,7 @@ define hidden void @"_ZN10serde_json5value2de130_$LT$impl$u20$serde..de..Deseria
   br label %.loopexit.i
 
 .loopexit.split-lp.i:                             ; preds = %.invoke, %74, %57
-  %.sroa.051.1.ph.i = phi i8 [ 1, %57 ], [ %.sroa.051.5.i, %74 ], [ 1, %.invoke ]
+  %.sroa.051.1.ph.i = phi i8 [ %.sroa.051.5.i, %74 ], [ 1, %.invoke ], [ 1, %57 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.i
@@ -9537,7 +9537,7 @@ default.unreachable:                              ; preds = %21
   br label %15
 
 .loopexit:                                        ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h8454bff8a0ac612fE.exit.i", %57, %.invoke.i, %46, %38, %18
-  %.sink.i = phi ptr [ %20, %18 ], [ %53, %.invoke.i ], [ %59, %57 ], [ %48, %46 ], [ %37, %38 ], [ %33, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h8454bff8a0ac612fE.exit.i" ]
+  %.sink.i = phi ptr [ %20, %18 ], [ %53, %.invoke.i ], [ %59, %57 ], [ %37, %38 ], [ %48, %46 ], [ %33, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h8454bff8a0ac612fE.exit.i" ]
   %62 = load i64, ptr %7, align 8, !range !60, !noalias !320, !noundef !3
   %switch.i = icmp slt i64 %62, -9223372036854775806
   br i1 %switch.i, label %72, label %63
@@ -9813,9 +9813,9 @@ define hidden void @"_ZN10serde_json5value2de130_$LT$impl$u20$serde..de..Deseria
   br label %69
 
 58:                                               ; preds = %39, %47
-  %.sroa.10.0 = phi i64 [ %.sroa.652.0.copyload.i, %47 ], [ %.sroa.4.0.copyload.i, %39 ]
-  %.sroa.7.0 = phi ptr [ %45, %47 ], [ %.sroa.337.0.copyload.i, %39 ]
-  %.sroa.0.0 = phi i64 [ %42, %47 ], [ %22, %39 ]
+  %.sroa.10.0 = phi i64 [ %.sroa.4.0.copyload.i, %39 ], [ %.sroa.652.0.copyload.i, %47 ]
+  %.sroa.7.0 = phi ptr [ %.sroa.337.0.copyload.i, %39 ], [ %45, %47 ]
+  %.sroa.0.0 = phi i64 [ %22, %39 ], [ %42, %47 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !328
   store i64 %.sroa.0.0, ptr %7, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -10061,7 +10061,7 @@ default.unreachable:                              ; preds = %18
   br label %70
 
 .loopexit17:                                      ; preds = %.noexc5, %.invoke, %._crit_edge.i, %45, %34, %53, %64
-  %.sroa.7.0.ph = phi ptr [ %47, %45 ], [ %30, %.invoke ], [ %36, %34 ], [ %17, %._crit_edge.i ], [ %55, %53 ], [ %66, %64 ], [ %27, %.noexc5 ]
+  %.sroa.7.0.ph = phi ptr [ %17, %._crit_edge.i ], [ %47, %45 ], [ %30, %.invoke ], [ %36, %34 ], [ %66, %64 ], [ %55, %53 ], [ %27, %.noexc5 ]
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.7.0.ph, ptr %71, align 8
   br label %85
@@ -13688,7 +13688,7 @@ default.unreachable:                              ; preds = %19
   br label %13
 
 .loopexit:                                        ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h8454bff8a0ac612fE.exit.i", %46, %.invoke.i, %34, %16
-  %.sink.i = phi ptr [ %18, %16 ], [ %36, %34 ], [ %45, %46 ], [ %41, %.invoke.i ], [ %30, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h8454bff8a0ac612fE.exit.i" ]
+  %.sink.i = phi ptr [ %18, %16 ], [ %36, %34 ], [ %41, %.invoke.i ], [ %45, %46 ], [ %30, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h8454bff8a0ac612fE.exit.i" ]
   %51 = load i64, ptr %6, align 8, !range !60, !noalias !425, !noundef !3
   %switch.i = icmp slt i64 %51, -9223372036854775806
   br i1 %switch.i, label %61, label %52
@@ -13843,7 +13843,7 @@ define hidden void @"_ZN10serde_json5value2de130_$LT$impl$u20$serde..de..Deseria
   br label %.body.i
 
 .loopexit.split-lp.i:                             ; preds = %113, %48, %31
-  %.sroa.092.1.ph.i = phi i8 [ %.sroa.092.6.i, %113 ], [ 1, %31 ], [ 1, %48 ]
+  %.sroa.092.1.ph.i = phi i8 [ 1, %31 ], [ %.sroa.092.6.i, %113 ], [ 1, %48 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
@@ -14970,7 +14970,7 @@ default.unreachable:                              ; preds = %17
   br label %57
 
 .loopexit16:                                      ; preds = %.noexc5, %.invoke, %._crit_edge.i, %43, %32, %51
-  %.sroa.7.0.ph = phi ptr [ %28, %.invoke ], [ %45, %43 ], [ %34, %32 ], [ %16, %._crit_edge.i ], [ %53, %51 ], [ %25, %.noexc5 ]
+  %.sroa.7.0.ph = phi ptr [ %16, %._crit_edge.i ], [ %28, %.invoke ], [ %45, %43 ], [ %34, %32 ], [ %53, %51 ], [ %25, %.noexc5 ]
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.7.0.ph, ptr %58, align 8
   br label %72
@@ -15124,7 +15124,7 @@ define hidden void @"_ZN10serde_json5value2de130_$LT$impl$u20$serde..de..Deseria
   br label %32
 
 .loopexit14:                                      ; preds = %.noexc5, %._crit_edge.i, %19, %24
-  %.sroa.79.0.ph = phi ptr [ %26, %24 ], [ %20, %19 ], [ %13, %._crit_edge.i ], [ %17, %.noexc5 ]
+  %.sroa.79.0.ph = phi ptr [ %13, %._crit_edge.i ], [ %26, %24 ], [ %20, %19 ], [ %17, %.noexc5 ]
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.79.0.ph, ptr %33, align 8
   br label %46
@@ -15262,9 +15262,9 @@ define hidden void @"_ZN10serde_json5value2de130_$LT$impl$u20$serde..de..Deseria
   br label %.loopexit.i
 
 .loopexit.split-lp.i:                             ; preds = %.invoke, %124, %101
-  %.sroa.0161.1.ph.i = phi i8 [ 1, %101 ], [ %.sroa.0161.9.i, %124 ], [ 1, %.invoke ]
-  %.sroa.0163.1.ph.i = phi i8 [ 1, %101 ], [ %.sroa.0163.10.i, %124 ], [ 1, %.invoke ]
-  %.sroa.0165.1.ph.i = phi i8 [ 1, %101 ], [ %.sroa.0165.6.i, %124 ], [ 1, %.invoke ]
+  %.sroa.0161.1.ph.i = phi i8 [ %.sroa.0161.9.i, %124 ], [ 1, %.invoke ], [ 1, %101 ]
+  %.sroa.0163.1.ph.i = phi i8 [ %.sroa.0163.10.i, %124 ], [ 1, %.invoke ], [ 1, %101 ]
+  %.sroa.0165.1.ph.i = phi i8 [ %.sroa.0165.6.i, %124 ], [ 1, %.invoke ], [ 1, %101 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.i
@@ -16522,9 +16522,9 @@ define hidden void @"_ZN10serde_json5value2de130_$LT$impl$u20$serde..de..Deseria
   br label %69
 
 58:                                               ; preds = %39, %47
-  %.sroa.10.0 = phi i64 [ %.sroa.652.0.copyload.i, %47 ], [ %.sroa.4.0.copyload.i, %39 ]
-  %.sroa.7.0 = phi ptr [ %45, %47 ], [ %.sroa.337.0.copyload.i, %39 ]
-  %.sroa.0.0 = phi i64 [ %42, %47 ], [ %22, %39 ]
+  %.sroa.10.0 = phi i64 [ %.sroa.4.0.copyload.i, %39 ], [ %.sroa.652.0.copyload.i, %47 ]
+  %.sroa.7.0 = phi ptr [ %.sroa.337.0.copyload.i, %39 ], [ %45, %47 ]
+  %.sroa.0.0 = phi i64 [ %22, %39 ], [ %42, %47 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !515
   store i64 %.sroa.0.0, ptr %7, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -16768,9 +16768,9 @@ define hidden void @"_ZN10serde_json5value2de130_$LT$impl$u20$serde..de..Deseria
   br label %69
 
 58:                                               ; preds = %39, %47
-  %.sroa.10.0 = phi i64 [ %.sroa.652.0.copyload.i, %47 ], [ %.sroa.4.0.copyload.i, %39 ]
-  %.sroa.7.0 = phi ptr [ %45, %47 ], [ %.sroa.337.0.copyload.i, %39 ]
-  %.sroa.0.0 = phi i64 [ %42, %47 ], [ %22, %39 ]
+  %.sroa.10.0 = phi i64 [ %.sroa.4.0.copyload.i, %39 ], [ %.sroa.652.0.copyload.i, %47 ]
+  %.sroa.7.0 = phi ptr [ %.sroa.337.0.copyload.i, %39 ], [ %45, %47 ]
+  %.sroa.0.0 = phi i64 [ %22, %39 ], [ %42, %47 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !523
   store i64 %.sroa.0.0, ptr %7, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -16957,7 +16957,7 @@ default.unreachable:                              ; preds = %16
   br label %44
 
 .loopexit17:                                      ; preds = %.noexc5, %.invoke, %._crit_edge.i, %39, %28
-  %.sroa.911.0.ph = phi ptr [ %24, %.invoke ], [ %41, %39 ], [ %15, %._crit_edge.i ], [ %30, %28 ], [ %21, %.noexc5 ]
+  %.sroa.911.0.ph = phi ptr [ %15, %._crit_edge.i ], [ %24, %.invoke ], [ %41, %39 ], [ %30, %28 ], [ %21, %.noexc5 ]
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.911.0.ph, ptr %45, align 8
   br label %59
@@ -17357,10 +17357,10 @@ define hidden void @"_ZN10serde_json5value2de130_$LT$impl$u20$serde..de..Deseria
   br label %.body.i
 
 .loopexit.split-lp.i:                             ; preds = %.invoke, %134, %132, %130, %101
-  %.sroa.0202.1.ph.i = phi i8 [ %.sroa.0202.10.i, %130 ], [ %.sroa.0202.10.i, %132 ], [ %.sroa.0202.10.i, %134 ], [ 1, %101 ], [ 1, %.invoke ]
-  %.sroa.0204.1.ph.i = phi i8 [ %.sroa.0204.8.i, %130 ], [ %.sroa.0204.8.i, %132 ], [ %.sroa.0204.8.i, %134 ], [ 1, %101 ], [ 1, %.invoke ]
-  %.sroa.0206.1.ph.i = phi i8 [ %.sroa.0206.7.i, %130 ], [ %.sroa.0206.7.i, %132 ], [ %.sroa.0206.7.i, %134 ], [ 1, %101 ], [ 1, %.invoke ]
-  %.sroa.0208.1.ph.i = phi i8 [ %.sroa.0208.6.i, %130 ], [ %.sroa.0208.6.i, %132 ], [ %.sroa.0208.6.i, %134 ], [ 1, %101 ], [ 1, %.invoke ]
+  %.sroa.0202.1.ph.i = phi i8 [ 1, %.invoke ], [ 1, %101 ], [ %.sroa.0202.10.i, %132 ], [ %.sroa.0202.10.i, %134 ], [ %.sroa.0202.10.i, %130 ]
+  %.sroa.0204.1.ph.i = phi i8 [ 1, %.invoke ], [ 1, %101 ], [ %.sroa.0204.8.i, %132 ], [ %.sroa.0204.8.i, %134 ], [ %.sroa.0204.8.i, %130 ]
+  %.sroa.0206.1.ph.i = phi i8 [ 1, %.invoke ], [ 1, %101 ], [ %.sroa.0206.7.i, %132 ], [ %.sroa.0206.7.i, %134 ], [ %.sroa.0206.7.i, %130 ]
+  %.sroa.0208.1.ph.i = phi i8 [ 1, %.invoke ], [ 1, %101 ], [ %.sroa.0208.6.i, %132 ], [ %.sroa.0208.6.i, %134 ], [ %.sroa.0208.6.i, %130 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
@@ -18309,7 +18309,7 @@ default.unreachable:                              ; preds = %17
   br label %46
 
 .loopexit25:                                      ; preds = %.noexc5, %.invoke, %._crit_edge.i, %40, %29
-  %.sroa.911.0.ph = phi ptr [ %25, %.invoke ], [ %42, %40 ], [ %16, %._crit_edge.i ], [ %31, %29 ], [ %22, %.noexc5 ]
+  %.sroa.911.0.ph = phi ptr [ %16, %._crit_edge.i ], [ %25, %.invoke ], [ %42, %40 ], [ %31, %29 ], [ %22, %.noexc5 ]
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.911.0.ph, ptr %47, align 8
   br label %60
@@ -18418,7 +18418,7 @@ define hidden void @"_ZN10serde_json5value2de130_$LT$impl$u20$serde..de..Deseria
   br label %17
 
 .loopexit.split-lp.i:                             ; preds = %.invoke, %78, %58
-  %.sroa.077.1.ph.i = phi i8 [ 1, %58 ], [ %.sroa.077.6.i, %78 ], [ 1, %.invoke ]
+  %.sroa.077.1.ph.i = phi i8 [ %.sroa.077.6.i, %78 ], [ 1, %.invoke ], [ 1, %58 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %17
@@ -18981,9 +18981,9 @@ define hidden void @"_ZN10serde_json5value2de130_$LT$impl$u20$serde..de..Deseria
   br label %69
 
 58:                                               ; preds = %39, %47
-  %.sroa.10.0 = phi i64 [ %.sroa.652.0.copyload.i, %47 ], [ %.sroa.4.0.copyload.i, %39 ]
-  %.sroa.7.0 = phi ptr [ %45, %47 ], [ %.sroa.337.0.copyload.i, %39 ]
-  %.sroa.0.0 = phi i64 [ %42, %47 ], [ %22, %39 ]
+  %.sroa.10.0 = phi i64 [ %.sroa.4.0.copyload.i, %39 ], [ %.sroa.652.0.copyload.i, %47 ]
+  %.sroa.7.0 = phi ptr [ %.sroa.337.0.copyload.i, %39 ], [ %45, %47 ]
+  %.sroa.0.0 = phi i64 [ %22, %39 ], [ %42, %47 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !606
   store i64 %.sroa.0.0, ptr %7, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -19227,9 +19227,9 @@ define hidden void @"_ZN10serde_json5value2de130_$LT$impl$u20$serde..de..Deseria
   br label %69
 
 58:                                               ; preds = %39, %47
-  %.sroa.10.0 = phi i64 [ %.sroa.652.0.copyload.i, %47 ], [ %.sroa.4.0.copyload.i, %39 ]
-  %.sroa.7.0 = phi ptr [ %45, %47 ], [ %.sroa.337.0.copyload.i, %39 ]
-  %.sroa.0.0 = phi i64 [ %42, %47 ], [ %22, %39 ]
+  %.sroa.10.0 = phi i64 [ %.sroa.4.0.copyload.i, %39 ], [ %.sroa.652.0.copyload.i, %47 ]
+  %.sroa.7.0 = phi ptr [ %.sroa.337.0.copyload.i, %39 ], [ %45, %47 ]
+  %.sroa.0.0 = phi i64 [ %22, %39 ], [ %42, %47 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !614
   store i64 %.sroa.0.0, ptr %7, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -19723,9 +19723,9 @@ define hidden void @"_ZN10serde_json5value2de130_$LT$impl$u20$serde..de..Deseria
   br label %69
 
 58:                                               ; preds = %39, %47
-  %.sroa.10.0 = phi i64 [ %.sroa.652.0.copyload.i, %47 ], [ %.sroa.4.0.copyload.i, %39 ]
-  %.sroa.7.0 = phi ptr [ %45, %47 ], [ %.sroa.337.0.copyload.i, %39 ]
-  %.sroa.0.0 = phi i64 [ %42, %47 ], [ %22, %39 ]
+  %.sroa.10.0 = phi i64 [ %.sroa.4.0.copyload.i, %39 ], [ %.sroa.652.0.copyload.i, %47 ]
+  %.sroa.7.0 = phi ptr [ %.sroa.337.0.copyload.i, %39 ], [ %45, %47 ]
+  %.sroa.0.0 = phi i64 [ %22, %39 ], [ %42, %47 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !630
   store i64 %.sroa.0.0, ptr %7, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -21467,7 +21467,7 @@ default.unreachable:                              ; preds = %27
   br i1 %.not129.i, label %91, label %90
 
 .loopexit:                                        ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h8454bff8a0ac612fE.exit.i", %.invoke, %79, %97, %73, %61, %50, %41, %24
-  %.sroa.18.0 = phi ptr [ %26, %24 ], [ %96, %97 ], [ %43, %41 ], [ %69, %.invoke ], [ %49, %50 ], [ %74, %73 ], [ %60, %61 ], [ %83, %79 ], [ %37, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h8454bff8a0ac612fE.exit.i" ]
+  %.sroa.18.0 = phi ptr [ %26, %24 ], [ %83, %79 ], [ %96, %97 ], [ %43, %41 ], [ %69, %.invoke ], [ %49, %50 ], [ %74, %73 ], [ %60, %61 ], [ %37, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h8454bff8a0ac612fE.exit.i" ]
   %88 = load i64, ptr %10, align 8, !range !88, !noalias !672, !noundef !3
   %89 = icmp eq i64 %88, 1
   br i1 %89, label %105, label %"_ZN4core3ptr125drop_in_place$LT$core..option..Option$LT$serde_json..map..Map$LT$alloc..string..String$C$serde_json..value..Value$GT$$GT$$GT$17hc8b7471de908e161E.exit.i"
@@ -22284,7 +22284,7 @@ define hidden void @"_ZN10serde_json5value2de130_$LT$impl$u20$serde..de..Deseria
   br label %32
 
 .loopexit14:                                      ; preds = %.noexc5, %._crit_edge.i, %19, %24
-  %.sroa.79.0.ph = phi ptr [ %26, %24 ], [ %20, %19 ], [ %13, %._crit_edge.i ], [ %17, %.noexc5 ]
+  %.sroa.79.0.ph = phi ptr [ %13, %._crit_edge.i ], [ %26, %24 ], [ %20, %19 ], [ %17, %.noexc5 ]
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.79.0.ph, ptr %33, align 8
   br label %46
@@ -22558,7 +22558,7 @@ default.unreachable:                              ; preds = %23
   br label %17
 
 .loopexit:                                        ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h8454bff8a0ac612fE.exit.i", %63, %54, %.invoke.i, %42, %36, %20
-  %.sink.i = phi ptr [ %22, %20 ], [ %49, %.invoke.i ], [ %53, %54 ], [ %43, %42 ], [ %67, %63 ], [ %37, %36 ], [ %32, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h8454bff8a0ac612fE.exit.i" ]
+  %.sink.i = phi ptr [ %22, %20 ], [ %49, %.invoke.i ], [ %53, %54 ], [ %37, %36 ], [ %43, %42 ], [ %67, %63 ], [ %32, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h8454bff8a0ac612fE.exit.i" ]
   %60 = load i64, ptr %8, align 8, !range !49, !noalias !709, !noundef !3
   %.not111.i = icmp eq i64 %60, -9223372036854775808
   br i1 %.not111.i, label %74, label %68
@@ -22618,9 +22618,9 @@ default.unreachable:                              ; preds = %23
   br label %88
 
 77:                                               ; preds = %61, %63
-  %.sroa.10.0 = phi i64 [ %.sroa.598.0.copyload.i, %63 ], [ %.sroa.480.0.copyload.i, %61 ]
-  %.sroa.7.0 = phi ptr [ %67, %63 ], [ %.sroa.378.0.copyload.i, %61 ]
-  %.sroa.0.0 = phi i64 [ %64, %63 ], [ %26, %61 ]
+  %.sroa.10.0 = phi i64 [ %.sroa.480.0.copyload.i, %61 ], [ %.sroa.598.0.copyload.i, %63 ]
+  %.sroa.7.0 = phi ptr [ %.sroa.378.0.copyload.i, %61 ], [ %67, %63 ]
+  %.sroa.0.0 = phi i64 [ %26, %61 ], [ %64, %63 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !709
   store i64 %.sroa.0.0, ptr %9, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -22874,9 +22874,9 @@ define hidden void @"_ZN10serde_json5value2de130_$LT$impl$u20$serde..de..Deseria
   br label %69
 
 58:                                               ; preds = %39, %47
-  %.sroa.10.0 = phi i64 [ %.sroa.652.0.copyload.i, %47 ], [ %.sroa.4.0.copyload.i, %39 ]
-  %.sroa.7.0 = phi ptr [ %45, %47 ], [ %.sroa.337.0.copyload.i, %39 ]
-  %.sroa.0.0 = phi i64 [ %42, %47 ], [ %22, %39 ]
+  %.sroa.10.0 = phi i64 [ %.sroa.4.0.copyload.i, %39 ], [ %.sroa.652.0.copyload.i, %47 ]
+  %.sroa.7.0 = phi ptr [ %.sroa.337.0.copyload.i, %39 ], [ %45, %47 ]
+  %.sroa.0.0 = phi i64 [ %22, %39 ], [ %42, %47 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !717
   store i64 %.sroa.0.0, ptr %7, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -24103,9 +24103,9 @@ define hidden void @"_ZN10serde_json5value2de130_$LT$impl$u20$serde..de..Deseria
   br label %69
 
 58:                                               ; preds = %39, %47
-  %.sroa.10.0 = phi i64 [ %.sroa.652.0.copyload.i, %47 ], [ %.sroa.4.0.copyload.i, %39 ]
-  %.sroa.7.0 = phi ptr [ %45, %47 ], [ %.sroa.337.0.copyload.i, %39 ]
-  %.sroa.0.0 = phi i64 [ %42, %47 ], [ %22, %39 ]
+  %.sroa.10.0 = phi i64 [ %.sroa.4.0.copyload.i, %39 ], [ %.sroa.652.0.copyload.i, %47 ]
+  %.sroa.7.0 = phi ptr [ %.sroa.337.0.copyload.i, %39 ], [ %45, %47 ]
+  %.sroa.0.0 = phi i64 [ %22, %39 ], [ %42, %47 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !753
   store i64 %.sroa.0.0, ptr %7, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -24256,7 +24256,7 @@ define hidden void @"_ZN10serde_json5value2de130_$LT$impl$u20$serde..de..Deseria
   br label %32
 
 .loopexit14:                                      ; preds = %.noexc5, %._crit_edge.i, %19, %24
-  %.sroa.79.0.ph = phi ptr [ %26, %24 ], [ %20, %19 ], [ %13, %._crit_edge.i ], [ %17, %.noexc5 ]
+  %.sroa.79.0.ph = phi ptr [ %13, %._crit_edge.i ], [ %26, %24 ], [ %20, %19 ], [ %17, %.noexc5 ]
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.79.0.ph, ptr %33, align 8
   br label %46
@@ -25075,7 +25075,7 @@ define hidden void @"_ZN10serde_json5value2de130_$LT$impl$u20$serde..de..Deseria
   br label %32
 
 .loopexit14:                                      ; preds = %.noexc5, %._crit_edge.i, %19, %24
-  %.sroa.79.0.ph = phi ptr [ %26, %24 ], [ %20, %19 ], [ %13, %._crit_edge.i ], [ %17, %.noexc5 ]
+  %.sroa.79.0.ph = phi ptr [ %13, %._crit_edge.i ], [ %26, %24 ], [ %20, %19 ], [ %17, %.noexc5 ]
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.79.0.ph, ptr %33, align 8
   br label %46
@@ -25262,7 +25262,7 @@ default.unreachable:                              ; preds = %16
   br label %44
 
 .loopexit17:                                      ; preds = %.noexc5, %.invoke, %._crit_edge.i, %39, %28
-  %.sroa.911.0.ph = phi ptr [ %24, %.invoke ], [ %41, %39 ], [ %15, %._crit_edge.i ], [ %30, %28 ], [ %21, %.noexc5 ]
+  %.sroa.911.0.ph = phi ptr [ %15, %._crit_edge.i ], [ %24, %.invoke ], [ %41, %39 ], [ %30, %28 ], [ %21, %.noexc5 ]
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.911.0.ph, ptr %45, align 8
   br label %59
@@ -25523,7 +25523,7 @@ default.unreachable:                              ; preds = %20
   br label %76
 
 .loopexit25:                                      ; preds = %.noexc5, %.invoke, %._crit_edge.i, %47, %36, %55, %68
-  %.sroa.7.0.ph = phi ptr [ %48, %47 ], [ %32, %.invoke ], [ %37, %36 ], [ %19, %._crit_edge.i ], [ %57, %55 ], [ %70, %68 ], [ %29, %.noexc5 ]
+  %.sroa.7.0.ph = phi ptr [ %19, %._crit_edge.i ], [ %48, %47 ], [ %32, %.invoke ], [ %37, %36 ], [ %70, %68 ], [ %57, %55 ], [ %29, %.noexc5 ]
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.7.0.ph, ptr %77, align 8
   br label %91
@@ -25799,14 +25799,14 @@ define hidden void @"_ZN10serde_json5value2de130_$LT$impl$u20$serde..de..Deseria
   br label %47
 
 .loopexit16:                                      ; preds = %.noexc5, %._crit_edge.i, %22, %27, %39
-  %.sroa.910.0.ph = phi ptr [ %29, %27 ], [ %41, %39 ], [ %23, %22 ], [ %15, %._crit_edge.i ], [ %20, %.noexc5 ]
+  %.sroa.910.0.ph = phi ptr [ %29, %27 ], [ %15, %._crit_edge.i ], [ %41, %39 ], [ %23, %22 ], [ %20, %.noexc5 ]
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.910.0.ph, ptr %48, align 8
   br label %61
 
 "_ZN194_$LT$lsp_types..notebook.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$lsp_types..notebook..NotebookDocumentClientCapabilities$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h2f46c67d893ed836E.exit": ; preds = %18, %42
-  %.sroa.7.0 = phi i8 [ %46, %42 ], [ %.sroa.5.043.i, %18 ]
-  %.sroa.5.0 = phi i8 [ %44, %42 ], [ %.sroa.05.042.i, %18 ]
+  %.sroa.7.0 = phi i8 [ %.sroa.5.043.i, %18 ], [ %46, %42 ]
+  %.sroa.5.0 = phi i8 [ %.sroa.05.042.i, %18 ], [ %44, %42 ]
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %50 = load i64, ptr %49, align 8, !noundef !3
   %51 = icmp eq i64 %50, 0
@@ -26045,9 +26045,9 @@ define hidden void @"_ZN10serde_json5value2de130_$LT$impl$u20$serde..de..Deseria
   br label %69
 
 58:                                               ; preds = %39, %47
-  %.sroa.10.0 = phi i64 [ %.sroa.652.0.copyload.i, %47 ], [ %.sroa.4.0.copyload.i, %39 ]
-  %.sroa.7.0 = phi ptr [ %45, %47 ], [ %.sroa.337.0.copyload.i, %39 ]
-  %.sroa.0.0 = phi i64 [ %42, %47 ], [ %22, %39 ]
+  %.sroa.10.0 = phi i64 [ %.sroa.4.0.copyload.i, %39 ], [ %.sroa.652.0.copyload.i, %47 ]
+  %.sroa.7.0 = phi ptr [ %.sroa.337.0.copyload.i, %39 ], [ %45, %47 ]
+  %.sroa.0.0 = phi i64 [ %22, %39 ], [ %42, %47 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !800
   store i64 %.sroa.0.0, ptr %7, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -26187,9 +26187,9 @@ define hidden void @"_ZN10serde_json5value2de130_$LT$impl$u20$serde..de..Deseria
   br label %.body.i
 
 .loopexit.split-lp.i:                             ; preds = %.invoke, %.noexc245.i, %99, %78
-  %.sroa.0163.1.ph.i = phi i8 [ 1, %99 ], [ %.sroa.0163.8.i, %.noexc245.i ], [ 1, %78 ], [ 1, %.invoke ]
-  %.sroa.0165.1.ph.i = phi i8 [ 1, %99 ], [ %.sroa.0165.7.i, %.noexc245.i ], [ 1, %78 ], [ 1, %.invoke ]
-  %.sroa.0167.1.ph.i = phi i8 [ 1, %99 ], [ %.sroa.0167.6.i, %.noexc245.i ], [ 1, %78 ], [ 1, %.invoke ]
+  %.sroa.0163.1.ph.i = phi i8 [ 1, %78 ], [ 1, %.invoke ], [ %.sroa.0163.8.i, %.noexc245.i ], [ 1, %99 ]
+  %.sroa.0165.1.ph.i = phi i8 [ 1, %78 ], [ 1, %.invoke ], [ %.sroa.0165.7.i, %.noexc245.i ], [ 1, %99 ]
+  %.sroa.0167.1.ph.i = phi i8 [ 1, %78 ], [ 1, %.invoke ], [ %.sroa.0167.6.i, %.noexc245.i ], [ 1, %99 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
@@ -27381,7 +27381,7 @@ define hidden void @"_ZN10serde_json5value2de130_$LT$impl$u20$serde..de..Deseria
   br label %32
 
 .loopexit14:                                      ; preds = %.noexc5, %._crit_edge.i, %19, %24
-  %.sroa.79.0.ph = phi ptr [ %26, %24 ], [ %20, %19 ], [ %13, %._crit_edge.i ], [ %17, %.noexc5 ]
+  %.sroa.79.0.ph = phi ptr [ %13, %._crit_edge.i ], [ %26, %24 ], [ %20, %19 ], [ %17, %.noexc5 ]
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.79.0.ph, ptr %33, align 8
   br label %46
@@ -27618,7 +27618,7 @@ default.unreachable:                              ; preds = %19
   br label %13
 
 .loopexit:                                        ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h8454bff8a0ac612fE.exit.i", %46, %.invoke.i, %34, %16
-  %.sink.i = phi ptr [ %18, %16 ], [ %36, %34 ], [ %45, %46 ], [ %41, %.invoke.i ], [ %30, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h8454bff8a0ac612fE.exit.i" ]
+  %.sink.i = phi ptr [ %18, %16 ], [ %36, %34 ], [ %41, %.invoke.i ], [ %45, %46 ], [ %30, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h8454bff8a0ac612fE.exit.i" ]
   %51 = load i64, ptr %6, align 8, !range !60, !noalias !854, !noundef !3
   %switch.i = icmp slt i64 %51, -9223372036854775806
   br i1 %switch.i, label %61, label %52
@@ -28691,11 +28691,11 @@ define hidden void @"_ZN10serde_json5value2de130_$LT$impl$u20$serde..de..Deseria
   br label %.body.i
 
 .loopexit.split-lp.i:                             ; preds = %.invoke, %143, %141, %139, %110
-  %.sroa.0225.1.ph.i = phi i8 [ %.sroa.0225.12.i, %139 ], [ %.sroa.0225.12.i, %141 ], [ %.sroa.0225.12.i, %143 ], [ 1, %110 ], [ 1, %.invoke ]
-  %.sroa.0227.1.ph.i = phi i8 [ %.sroa.0227.13.i, %139 ], [ %.sroa.0227.13.i, %141 ], [ %.sroa.0227.13.i, %143 ], [ 1, %110 ], [ 1, %.invoke ]
-  %.sroa.0229.1.ph.i = phi i8 [ %.sroa.0229.8.i, %139 ], [ %.sroa.0229.8.i, %141 ], [ %.sroa.0229.8.i, %143 ], [ 1, %110 ], [ 1, %.invoke ]
-  %.sroa.0231.1.ph.i = phi i8 [ %.sroa.0231.7.i, %139 ], [ %.sroa.0231.7.i, %141 ], [ %.sroa.0231.7.i, %143 ], [ 1, %110 ], [ 1, %.invoke ]
-  %.sroa.0233.1.ph.i = phi i8 [ %.sroa.0233.6.i, %139 ], [ %.sroa.0233.6.i, %141 ], [ %.sroa.0233.6.i, %143 ], [ 1, %110 ], [ 1, %.invoke ]
+  %.sroa.0225.1.ph.i = phi i8 [ 1, %.invoke ], [ 1, %110 ], [ %.sroa.0225.12.i, %141 ], [ %.sroa.0225.12.i, %143 ], [ %.sroa.0225.12.i, %139 ]
+  %.sroa.0227.1.ph.i = phi i8 [ 1, %.invoke ], [ 1, %110 ], [ %.sroa.0227.13.i, %141 ], [ %.sroa.0227.13.i, %143 ], [ %.sroa.0227.13.i, %139 ]
+  %.sroa.0229.1.ph.i = phi i8 [ 1, %.invoke ], [ 1, %110 ], [ %.sroa.0229.8.i, %141 ], [ %.sroa.0229.8.i, %143 ], [ %.sroa.0229.8.i, %139 ]
+  %.sroa.0231.1.ph.i = phi i8 [ 1, %.invoke ], [ 1, %110 ], [ %.sroa.0231.7.i, %141 ], [ %.sroa.0231.7.i, %143 ], [ %.sroa.0231.7.i, %139 ]
+  %.sroa.0233.1.ph.i = phi i8 [ 1, %.invoke ], [ 1, %110 ], [ %.sroa.0233.6.i, %141 ], [ %.sroa.0233.6.i, %143 ], [ %.sroa.0233.6.i, %139 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
@@ -29757,13 +29757,13 @@ define hidden void @"_ZN10serde_json5value2de130_$LT$impl$u20$serde..de..Deseria
   br label %43
 
 .loopexit15:                                      ; preds = %.noexc5, %._crit_edge.i, %21, %26, %37
-  %.sroa.710.0.ph = phi ptr [ %28, %26 ], [ %39, %37 ], [ %22, %21 ], [ %14, %._crit_edge.i ], [ %19, %.noexc5 ]
+  %.sroa.710.0.ph = phi ptr [ %28, %26 ], [ %14, %._crit_edge.i ], [ %39, %37 ], [ %22, %21 ], [ %19, %.noexc5 ]
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.710.0.ph, ptr %44, align 8
   br label %56
 
 "_ZN186_$LT$lsp_types..window.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$lsp_types..window..ShowDocumentClientCapabilities$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h1cf671e1f22eeac9E.exit": ; preds = %17, %40
-  %.sroa.5.0 = phi i8 [ %42, %40 ], [ %.sroa.05.036.i, %17 ]
+  %.sroa.5.0 = phi i8 [ %.sroa.05.036.i, %17 ], [ %42, %40 ]
   %45 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %46 = load i64, ptr %45, align 8, !noundef !3
   %47 = icmp eq i64 %46, 0
@@ -29896,8 +29896,8 @@ define hidden void @"_ZN10serde_json5value2de130_$LT$impl$u20$serde..de..Deseria
   br label %44
 
 .loopexit.split-lp.i:                             ; preds = %.invoke, %160, %137, %127
-  %.sroa.0210.1.ph.i = phi i8 [ 1, %127 ], [ 1, %137 ], [ %.sroa.0210.10.i, %160 ], [ 1, %.invoke ]
-  %.sroa.0212.1.ph.i = phi i8 [ 1, %127 ], [ 1, %137 ], [ %.sroa.0212.6.i, %160 ], [ 1, %.invoke ]
+  %.sroa.0210.1.ph.i = phi i8 [ 1, %127 ], [ %.sroa.0210.10.i, %160 ], [ 1, %.invoke ], [ 1, %137 ]
+  %.sroa.0212.1.ph.i = phi i8 [ 1, %127 ], [ %.sroa.0212.6.i, %160 ], [ 1, %.invoke ], [ 1, %137 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %44
@@ -30641,7 +30641,7 @@ define hidden void @"_ZN10serde_json5value2de130_$LT$impl$u20$serde..de..Deseria
   br label %32
 
 .loopexit14:                                      ; preds = %.noexc5, %._crit_edge.i, %19, %24
-  %.sroa.79.0.ph = phi ptr [ %26, %24 ], [ %20, %19 ], [ %13, %._crit_edge.i ], [ %17, %.noexc5 ]
+  %.sroa.79.0.ph = phi ptr [ %13, %._crit_edge.i ], [ %26, %24 ], [ %20, %19 ], [ %17, %.noexc5 ]
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.79.0.ph, ptr %33, align 8
   br label %46
@@ -30885,9 +30885,9 @@ define hidden void @"_ZN10serde_json5value2de130_$LT$impl$u20$serde..de..Deseria
   br label %69
 
 58:                                               ; preds = %39, %47
-  %.sroa.10.0 = phi i64 [ %.sroa.652.0.copyload.i, %47 ], [ %.sroa.4.0.copyload.i, %39 ]
-  %.sroa.7.0 = phi ptr [ %45, %47 ], [ %.sroa.337.0.copyload.i, %39 ]
-  %.sroa.0.0 = phi i64 [ %42, %47 ], [ %22, %39 ]
+  %.sroa.10.0 = phi i64 [ %.sroa.4.0.copyload.i, %39 ], [ %.sroa.652.0.copyload.i, %47 ]
+  %.sroa.7.0 = phi ptr [ %.sroa.337.0.copyload.i, %39 ], [ %45, %47 ]
+  %.sroa.0.0 = phi i64 [ %22, %39 ], [ %42, %47 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !957
   store i64 %.sroa.0.0, ptr %7, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -31131,9 +31131,9 @@ define hidden void @"_ZN10serde_json5value2de130_$LT$impl$u20$serde..de..Deseria
   br label %69
 
 58:                                               ; preds = %39, %47
-  %.sroa.10.0 = phi i64 [ %.sroa.652.0.copyload.i, %47 ], [ %.sroa.4.0.copyload.i, %39 ]
-  %.sroa.7.0 = phi ptr [ %45, %47 ], [ %.sroa.337.0.copyload.i, %39 ]
-  %.sroa.0.0 = phi i64 [ %42, %47 ], [ %22, %39 ]
+  %.sroa.10.0 = phi i64 [ %.sroa.4.0.copyload.i, %39 ], [ %.sroa.652.0.copyload.i, %47 ]
+  %.sroa.7.0 = phi ptr [ %.sroa.337.0.copyload.i, %39 ], [ %45, %47 ]
+  %.sroa.0.0 = phi i64 [ %22, %39 ], [ %42, %47 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !965
   store i64 %.sroa.0.0, ptr %7, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -31406,7 +31406,7 @@ default.unreachable:                              ; preds = %21
   br i1 %.not102.i, label %85, label %66
 
 .loopexit:                                        ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h8454bff8a0ac612fE.exit.i", %61, %49, %38, %.invoke.i, %18
-  %.sink.i = phi ptr [ %20, %18 ], [ %48, %49 ], [ %33, %.invoke.i ], [ %37, %38 ], [ %60, %61 ], [ %30, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h8454bff8a0ac612fE.exit.i" ]
+  %.sink.i = phi ptr [ %20, %18 ], [ %60, %61 ], [ %48, %49 ], [ %33, %.invoke.i ], [ %37, %38 ], [ %30, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h8454bff8a0ac612fE.exit.i" ]
   %65 = load i64, ptr %7, align 8, !range !60, !noalias !973, !noundef !3
   %switch.i = icmp slt i64 %65, -9223372036854775806
   br i1 %switch.i, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h3cd75758604f11ccE.exit121.i", label %67
@@ -31636,7 +31636,7 @@ define hidden void @"_ZN10serde_json5value2de130_$LT$impl$u20$serde..de..Deseria
   br label %32
 
 .loopexit14:                                      ; preds = %.noexc5, %._crit_edge.i, %19, %24
-  %.sroa.79.0.ph = phi ptr [ %26, %24 ], [ %20, %19 ], [ %13, %._crit_edge.i ], [ %17, %.noexc5 ]
+  %.sroa.79.0.ph = phi ptr [ %13, %._crit_edge.i ], [ %26, %24 ], [ %20, %19 ], [ %17, %.noexc5 ]
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.79.0.ph, ptr %33, align 8
   br label %46
@@ -31787,7 +31787,7 @@ define hidden void @"_ZN10serde_json5value2de130_$LT$impl$u20$serde..de..Deseria
   br label %32
 
 .loopexit14:                                      ; preds = %.noexc5, %._crit_edge.i, %19, %24
-  %.sroa.79.0.ph = phi ptr [ %26, %24 ], [ %20, %19 ], [ %13, %._crit_edge.i ], [ %17, %.noexc5 ]
+  %.sroa.79.0.ph = phi ptr [ %13, %._crit_edge.i ], [ %26, %24 ], [ %20, %19 ], [ %17, %.noexc5 ]
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.79.0.ph, ptr %33, align 8
   br label %46
@@ -31913,8 +31913,8 @@ define hidden void @"_ZN10serde_json5value2de130_$LT$impl$u20$serde..de..Deseria
   br label %.loopexit.i
 
 .loopexit.split-lp.i:                             ; preds = %.invoke, %109, %86
-  %.sroa.0128.1.ph.i = phi i8 [ 1, %86 ], [ %.sroa.0128.10.i, %109 ], [ 1, %.invoke ]
-  %.sroa.0130.1.ph.i = phi i8 [ 1, %86 ], [ %.sroa.0130.6.i, %109 ], [ 1, %.invoke ]
+  %.sroa.0128.1.ph.i = phi i8 [ 1, %.invoke ], [ 1, %86 ], [ %.sroa.0128.10.i, %109 ]
+  %.sroa.0130.1.ph.i = phi i8 [ 1, %.invoke ], [ 1, %86 ], [ %.sroa.0130.6.i, %109 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.i

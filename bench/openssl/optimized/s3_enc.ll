@@ -476,7 +476,7 @@ define range(i32 0, 2) i32 @ssl3_finish_mac(ptr noundef %0, ptr noundef %1, i64 
   br label %17
 
 17:                                               ; preds = %.sink.split, %15, %9
-  %.0 = phi i32 [ 1, %9 ], [ 1, %15 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 1, %15 ], [ 1, %9 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 

@@ -817,9 +817,9 @@ get_bits1_vector.exit108.i.i:                     ; preds = %.lr.ph.i56.i, %326,
   br label %read_sbr_data.exit
 
 read_sbr_channel_pair_element.exit.i:             ; preds = %.lr.ph130.i.i, %.lr.ph.i.i, %357, %get_bits1_vector.exit108.i.i, %128, %112
-  %387 = phi i32 [ %119, %112 ], [ %317, %357 ], [ %317, %get_bits1_vector.exit108.i.i ], [ %119, %128 ], [ %119, %.lr.ph.i.i ], [ %317, %.lr.ph130.i.i ]
-  %388 = phi ptr [ %114, %112 ], [ %312, %357 ], [ %312, %get_bits1_vector.exit108.i.i ], [ %114, %128 ], [ %114, %.lr.ph.i.i ], [ %312, %.lr.ph130.i.i ]
-  %389 = phi i32 [ %spec.select.i31.i.i, %112 ], [ %spec.select.i125.i.i, %357 ], [ %spec.select.i125.i.i, %get_bits1_vector.exit108.i.i ], [ %spec.select.i31.i.i, %128 ], [ %spec.select.i32.i.i, %.lr.ph.i.i ], [ %spec.select.i126.i.i, %.lr.ph130.i.i ]
+  %387 = phi i32 [ %119, %.lr.ph.i.i ], [ %119, %112 ], [ %317, %357 ], [ %317, %get_bits1_vector.exit108.i.i ], [ %119, %128 ], [ %317, %.lr.ph130.i.i ]
+  %388 = phi ptr [ %114, %.lr.ph.i.i ], [ %114, %112 ], [ %312, %357 ], [ %312, %get_bits1_vector.exit108.i.i ], [ %114, %128 ], [ %312, %.lr.ph130.i.i ]
+  %389 = phi i32 [ %spec.select.i32.i.i, %.lr.ph.i.i ], [ %spec.select.i31.i.i, %112 ], [ %spec.select.i125.i.i, %357 ], [ %spec.select.i125.i.i, %get_bits1_vector.exit108.i.i ], [ %spec.select.i31.i.i, %128 ], [ %spec.select.i126.i.i, %.lr.ph130.i.i ]
   %390 = lshr i32 %389, 3
   %391 = zext nneg i32 %390 to i64
   %392 = getelementptr inbounds nuw i8, ptr %388, i64 %391
@@ -2859,7 +2859,7 @@ check_n_master.exit858.i:                         ; preds = %581
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %sbr_make_f_master.exit.thread
 
-sbr_make_f_master.exit.thread:                    ; preds = %17, %157, %143, %.critedge789.i, %179, %184
+sbr_make_f_master.exit.thread:                    ; preds = %17, %157, %143, %.critedge789.i, %184, %179
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.critedge
 
@@ -4023,7 +4023,7 @@ get_bits1_vector.exit209:                         ; preds = %get_bits1_vector.ex
   br i1 %exitcond281.not, label %get_bits1_vector.exit, label %.lr.ph261, !llvm.loop !54
 
 get_bits1_vector.exit:                            ; preds = %.lr.ph257, %.lr.ph261, %.lr.ph263, %371, %502, %213, %195, %get_bits1_vector.exit209, %get_bits1_vector.exit205, %448, %445, %442, %read_sbr_invf.exit241, %392, %391, %317, %314, %311, %read_sbr_invf.exit227, %251, %192, %read_sbr_invf.exit, %161
-  %.0 = phi i32 [ %446, %445 ], [ -1, %161 ], [ %190, %read_sbr_invf.exit ], [ %449, %448 ], [ %193, %192 ], [ -1, %251 ], [ %309, %read_sbr_invf.exit227 ], [ %312, %311 ], [ %315, %314 ], [ %318, %317 ], [ -1, %391 ], [ -1, %392 ], [ %440, %read_sbr_invf.exit241 ], [ %443, %442 ], [ 0, %get_bits1_vector.exit205 ], [ 0, %get_bits1_vector.exit209 ], [ 0, %195 ], [ 0, %502 ], [ 0, %213 ], [ 0, %371 ], [ 0, %.lr.ph261 ], [ 0, %.lr.ph263 ], [ 0, %.lr.ph257 ]
+  %.0 = phi i32 [ %446, %445 ], [ -1, %161 ], [ %190, %read_sbr_invf.exit ], [ %449, %448 ], [ %193, %192 ], [ -1, %251 ], [ %309, %read_sbr_invf.exit227 ], [ %312, %311 ], [ %315, %314 ], [ %318, %317 ], [ -1, %391 ], [ -1, %392 ], [ %440, %read_sbr_invf.exit241 ], [ %443, %442 ], [ 0, %502 ], [ 0, %get_bits1_vector.exit205 ], [ 0, %213 ], [ 0, %get_bits1_vector.exit209 ], [ 0, %195 ], [ 0, %371 ], [ 0, %.lr.ph261 ], [ 0, %.lr.ph263 ], [ 0, %.lr.ph257 ]
   ret i32 %.0
 }
 

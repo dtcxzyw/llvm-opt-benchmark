@@ -7595,7 +7595,7 @@ _ZNSt3mapISt17reference_wrapperIKN6google8protobuf6MapKeyEEPvSt4lessIS3_ENS2_8in
   br label %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE8InnerMap11DestroyTreeEPSt3mapISt17reference_wrapperIKS2_EPvSt4lessIS2_ENS0_8internal12MapAllocatorISt4pairIKS9_SA_EEEE.exit
 
 _ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE8InnerMap11DestroyTreeEPSt3mapISt17reference_wrapperIKS2_EPvSt4lessIS2_ENS0_8internal12MapAllocatorISt4pairIKS9_SA_EEEE.exit: ; preds = %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE8InnerMap11DestroyNodeEPNS5_4NodeE.exit, %14, %7, %_ZNSt3mapISt17reference_wrapperIKN6google8protobuf6MapKeyEEPvSt4lessIS3_ENS2_8internal12MapAllocatorISt4pairIKS5_S6_EEEED2Ev.exit.i, %57
-  %.1 = phi i64 [ %.037, %14 ], [ %28, %_ZNSt3mapISt17reference_wrapperIKN6google8protobuf6MapKeyEEPvSt4lessIS3_ENS2_8internal12MapAllocatorISt4pairIKS5_S6_EEEED2Ev.exit.i ], [ %28, %57 ], [ %.037, %7 ], [ %.037, %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE8InnerMap11DestroyNodeEPNS5_4NodeE.exit ]
+  %.1 = phi i64 [ %.037, %14 ], [ %28, %_ZNSt3mapISt17reference_wrapperIKN6google8protobuf6MapKeyEEPvSt4lessIS3_ENS2_8internal12MapAllocatorISt4pairIKS5_S6_EEEED2Ev.exit.i ], [ %.037, %7 ], [ %28, %57 ], [ %.037, %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE8InnerMap11DestroyNodeEPNS5_4NodeE.exit ]
   %65 = add i64 %.1, 1
   %66 = load i64, ptr %2, align 8, !tbaa !55
   %67 = icmp ult i64 %65, %66
@@ -7927,7 +7927,7 @@ _ZNSt3mapISt17reference_wrapperIKN6google8protobuf6MapKeyEEPvSt4lessIS3_ENS2_8in
   br label %45
 
 .critedge:                                        ; preds = %23, %_ZNSt8_Rb_treeISt17reference_wrapperIKN6google8protobuf6MapKeyEESt4pairIKS5_PvESt10_Select1stIS9_ESt4lessIS3_ENS2_8internal12MapAllocatorIS9_EEE14_M_lower_boundEPSt13_Rb_tree_nodeIS9_EPSt18_Rb_tree_node_baseRS7_.exit.i.i, %_ZNK6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE8InnerMap16TableEntryIsTreeEm.exit, %4, %_ZNSt3mapISt17reference_wrapperIKN6google8protobuf6MapKeyEEPvSt4lessIS3_ENS2_8internal12MapAllocatorISt4pairIKS5_S6_EEEE4findERSC_.exit
-  %.034 = phi i64 [ %26, %_ZNSt8_Rb_treeISt17reference_wrapperIKN6google8protobuf6MapKeyEESt4pairIKS5_PvESt10_Select1stIS9_ESt4lessIS3_ENS2_8internal12MapAllocatorIS9_EEE14_M_lower_boundEPSt13_Rb_tree_nodeIS9_EPSt18_Rb_tree_node_baseRS7_.exit.i.i ], [ %26, %_ZNSt3mapISt17reference_wrapperIKN6google8protobuf6MapKeyEEPvSt4lessIS3_ENS2_8internal12MapAllocatorISt4pairIKS5_S6_EEEE4findERSC_.exit ], [ %14, %4 ], [ %26, %_ZNK6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE8InnerMap16TableEntryIsTreeEm.exit ], [ %14, %23 ]
+  %.034 = phi i64 [ %26, %_ZNK6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE8InnerMap16TableEntryIsTreeEm.exit ], [ %26, %_ZNSt3mapISt17reference_wrapperIKN6google8protobuf6MapKeyEEPvSt4lessIS3_ENS2_8internal12MapAllocatorISt4pairIKS5_S6_EEEE4findERSC_.exit ], [ %26, %_ZNSt8_Rb_treeISt17reference_wrapperIKN6google8protobuf6MapKeyEESt4pairIKS5_PvESt10_Select1stIS9_ESt4lessIS3_ENS2_8internal12MapAllocatorIS9_EEE14_M_lower_boundEPSt13_Rb_tree_nodeIS9_EPSt18_Rb_tree_node_baseRS7_.exit.i.i ], [ %14, %4 ], [ %14, %23 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   br label %45
 
@@ -8513,7 +8513,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapVa
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE8InnerMap24ResizeIfLoadIsOutOfRangeEm.exit.thread
 
-_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE8InnerMap24ResizeIfLoadIsOutOfRangeEm.exit.thread: ; preds = %19, %22, %33, %35
+_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE8InnerMap24ResizeIfLoadIsOutOfRangeEm.exit.thread: ; preds = %33, %22, %19, %35
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %40 = load i64, ptr %39, align 8, !tbaa !253
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 40

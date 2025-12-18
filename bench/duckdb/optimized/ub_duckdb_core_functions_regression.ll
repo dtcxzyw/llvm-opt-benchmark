@@ -4492,9 +4492,9 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit37:  ; preds = %.lr.ph55.split, %_Z
   br i1 %exitcond103.not, label %..loopexit_crit_edge, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit37, !llvm.loop !102
 
 ..loopexit_crit_edge:                             ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit37, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37.us68, %_ZNK6duckdb15SelectionVector9get_indexEm.exit39.us
-  %.us-phi = phi double [ %144, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37.us68 ], [ %122, %_ZNK6duckdb15SelectionVector9get_indexEm.exit39.us ], [ %213, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37 ]
-  %.us-phi64 = phi double [ %142, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37.us68 ], [ %120, %_ZNK6duckdb15SelectionVector9get_indexEm.exit39.us ], [ %211, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37 ]
-  %.us-phi65 = phi double [ %138, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37.us68 ], [ %116, %_ZNK6duckdb15SelectionVector9get_indexEm.exit39.us ], [ %207, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37 ]
+  %.us-phi = phi double [ %122, %_ZNK6duckdb15SelectionVector9get_indexEm.exit39.us ], [ %144, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37.us68 ], [ %213, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37 ]
+  %.us-phi64 = phi double [ %120, %_ZNK6duckdb15SelectionVector9get_indexEm.exit39.us ], [ %142, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37.us68 ], [ %211, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37 ]
+  %.us-phi65 = phi double [ %116, %_ZNK6duckdb15SelectionVector9get_indexEm.exit39.us ], [ %138, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37.us68 ], [ %207, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37 ]
   %.us-phi67 = add i64 %.promoted, %4
   %.us-phi66 = add i64 %.promoted56, %4
   store i64 %.us-phi67, ptr %3, align 8, !tbaa !72
@@ -6381,13 +6381,13 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit37:  ; preds = %.lr.ph50.split, %_Z
   br i1 %exitcond134.not, label %..loopexit_crit_edge, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit37, !llvm.loop !146
 
 ..loopexit_crit_edge:                             ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit37, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37.us78, %_ZNK6duckdb15SelectionVector9get_indexEm.exit39.us
-  %.us-phi = phi double [ %108, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37.us78 ], [ %71, %_ZNK6duckdb15SelectionVector9get_indexEm.exit39.us ], [ %208, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37 ]
-  %.us-phi69 = phi double [ %105, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37.us78 ], [ %68, %_ZNK6duckdb15SelectionVector9get_indexEm.exit39.us ], [ %205, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37 ]
-  %.us-phi71 = phi double [ %100, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37.us78 ], [ %63, %_ZNK6duckdb15SelectionVector9get_indexEm.exit39.us ], [ %200, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37 ]
-  %.us-phi72 = phi double [ %98, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37.us78 ], [ %61, %_ZNK6duckdb15SelectionVector9get_indexEm.exit39.us ], [ %198, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37 ]
-  %.us-phi73 = phi double [ %95, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37.us78 ], [ %58, %_ZNK6duckdb15SelectionVector9get_indexEm.exit39.us ], [ %195, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37 ]
-  %.us-phi75 = phi double [ %90, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37.us78 ], [ %53, %_ZNK6duckdb15SelectionVector9get_indexEm.exit39.us ], [ %190, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37 ]
-  %.us-phi76 = phi double [ %88, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37.us78 ], [ %51, %_ZNK6duckdb15SelectionVector9get_indexEm.exit39.us ], [ %188, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37 ]
+  %.us-phi = phi double [ %71, %_ZNK6duckdb15SelectionVector9get_indexEm.exit39.us ], [ %108, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37.us78 ], [ %208, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37 ]
+  %.us-phi69 = phi double [ %68, %_ZNK6duckdb15SelectionVector9get_indexEm.exit39.us ], [ %105, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37.us78 ], [ %205, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37 ]
+  %.us-phi71 = phi double [ %63, %_ZNK6duckdb15SelectionVector9get_indexEm.exit39.us ], [ %100, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37.us78 ], [ %200, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37 ]
+  %.us-phi72 = phi double [ %61, %_ZNK6duckdb15SelectionVector9get_indexEm.exit39.us ], [ %98, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37.us78 ], [ %198, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37 ]
+  %.us-phi73 = phi double [ %58, %_ZNK6duckdb15SelectionVector9get_indexEm.exit39.us ], [ %95, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37.us78 ], [ %195, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37 ]
+  %.us-phi75 = phi double [ %53, %_ZNK6duckdb15SelectionVector9get_indexEm.exit39.us ], [ %90, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37.us78 ], [ %190, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37 ]
+  %.us-phi76 = phi double [ %51, %_ZNK6duckdb15SelectionVector9get_indexEm.exit39.us ], [ %88, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37.us78 ], [ %188, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37 ]
   %.us-phi77 = add i64 %.promoted, %4
   %.us-phi74 = add i64 %.promoted55, %4
   %.us-phi70 = add i64 %.promoted63, %4
@@ -13891,11 +13891,11 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit37:  ; preds = %.lr.ph50.split, %_Z
   br i1 %exitcond110.not, label %..loopexit_crit_edge, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit37, !llvm.loop !195
 
 ..loopexit_crit_edge:                             ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit37, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37.us69, %_ZNK6duckdb15SelectionVector9get_indexEm.exit39.us
-  %.us-phi = phi double [ %94, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37.us69 ], [ %61, %_ZNK6duckdb15SelectionVector9get_indexEm.exit39.us ], [ %184, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37 ]
-  %.us-phi63 = phi double [ %91, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37.us69 ], [ %58, %_ZNK6duckdb15SelectionVector9get_indexEm.exit39.us ], [ %181, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37 ]
-  %.us-phi65 = phi double [ %86, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37.us69 ], [ %53, %_ZNK6duckdb15SelectionVector9get_indexEm.exit39.us ], [ %176, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37 ]
-  %.us-phi66 = phi double [ %84, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37.us69 ], [ %51, %_ZNK6duckdb15SelectionVector9get_indexEm.exit39.us ], [ %174, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37 ]
-  %.us-phi67 = phi double [ %80, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37.us69 ], [ %47, %_ZNK6duckdb15SelectionVector9get_indexEm.exit39.us ], [ %170, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37 ]
+  %.us-phi = phi double [ %61, %_ZNK6duckdb15SelectionVector9get_indexEm.exit39.us ], [ %94, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37.us69 ], [ %184, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37 ]
+  %.us-phi63 = phi double [ %58, %_ZNK6duckdb15SelectionVector9get_indexEm.exit39.us ], [ %91, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37.us69 ], [ %181, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37 ]
+  %.us-phi65 = phi double [ %53, %_ZNK6duckdb15SelectionVector9get_indexEm.exit39.us ], [ %86, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37.us69 ], [ %176, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37 ]
+  %.us-phi66 = phi double [ %51, %_ZNK6duckdb15SelectionVector9get_indexEm.exit39.us ], [ %84, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37.us69 ], [ %174, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37 ]
+  %.us-phi67 = phi double [ %47, %_ZNK6duckdb15SelectionVector9get_indexEm.exit39.us ], [ %80, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37.us69 ], [ %170, %_ZNK6duckdb15SelectionVector9get_indexEm.exit37 ]
   %.us-phi68 = add i64 %.promoted, %4
   %.us-phi64 = add i64 %.promoted57, %4
   store i64 %.us-phi68, ptr %3, align 8, !tbaa !68

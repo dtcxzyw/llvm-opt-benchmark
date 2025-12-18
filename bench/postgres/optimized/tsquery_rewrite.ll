@@ -273,7 +273,7 @@ define internal fastcc ptr @dofindsubquery(ptr noundef %0, ptr noundef %1, ptr n
   br label %findeq.exit
 
 findeq.exit:                                      ; preds = %43, %109, %123
-  %.077.i = phi ptr [ %.087.i, %43 ], [ %0, %109 ], [ %.289.i, %123 ]
+  %.077.i = phi ptr [ %.289.i, %123 ], [ %0, %109 ], [ %.087.i, %43 ]
   %.not34 = icmp eq ptr %.077.i, null
   br i1 %.not34, label %160, label %findeq.exit.thread
 

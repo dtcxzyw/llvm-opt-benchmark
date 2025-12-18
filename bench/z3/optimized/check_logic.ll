@@ -3791,7 +3791,7 @@ _ZNK17arith_recognizers6is_addEPK4expr.exit.i:    ; preds = %_ZNK11check_logic3i
   br i1 %or.cond, label %42, label %_ZN11check_logic3imp9is_offsetEP3app.exit
 
 _ZN11check_logic3imp9is_offsetEP3app.exit:        ; preds = %_ZNK17arith_recognizers6is_addEPK4expr.exit.i, %_ZNK11check_logic3imp11is_diff_varEP4expr.exit.i, %_ZNK4decl13get_family_idEv.exit.i.i, %58, %53, %._crit_edge.i, %42, %46, %25, %21, %7, %_ZNK4decl13get_family_idEv.exit.i, %_ZNK17arith_recognizers6is_subEPK4expr.exit, %_ZNK11check_logic3imp11is_diff_varEP4expr.exit.thread9, %_ZNK11check_logic3imp11is_diff_varEP4expr.exit
-  %.0 = phi i1 [ true, %_ZNK11check_logic3imp11is_diff_varEP4expr.exit.thread9 ], [ true, %_ZNK11check_logic3imp11is_diff_varEP4expr.exit ], [ true, %7 ], [ false, %_ZNK17arith_recognizers6is_subEPK4expr.exit ], [ false, %21 ], [ true, %_ZNK4decl13get_family_idEv.exit.i ], [ false, %25 ], [ false, %46 ], [ true, %._crit_edge.i ], [ true, %58 ], [ true, %_ZNK11check_logic3imp11is_diff_varEP4expr.exit.i ], [ false, %_ZNK17arith_recognizers6is_addEPK4expr.exit.i ], [ true, %42 ], [ false, %53 ], [ true, %_ZNK4decl13get_family_idEv.exit.i.i ]
+  %.0 = phi i1 [ true, %_ZNK11check_logic3imp11is_diff_varEP4expr.exit.thread9 ], [ true, %_ZNK11check_logic3imp11is_diff_varEP4expr.exit ], [ true, %7 ], [ false, %_ZNK17arith_recognizers6is_subEPK4expr.exit ], [ false, %25 ], [ false, %21 ], [ true, %_ZNK4decl13get_family_idEv.exit.i ], [ false, %46 ], [ false, %_ZNK17arith_recognizers6is_addEPK4expr.exit.i ], [ true, %_ZNK4decl13get_family_idEv.exit.i.i ], [ true, %._crit_edge.i ], [ true, %58 ], [ true, %_ZNK11check_logic3imp11is_diff_varEP4expr.exit.i ], [ false, %53 ], [ true, %42 ]
   ret i1 %.0
 }
 

@@ -1050,7 +1050,7 @@ _ZNSt6vectorIPN5Yosys5RTLIL8CaseRuleESaIS3_EE5eraseEN9__gnu_cxx17__normal_iterat
   br i1 %445, label %_ZN12_GLOBAL__N_117proc_clean_switchEPN5Yosys5RTLIL10SwitchRuleEPNS1_8CaseRuleERbRii.exit, label %.lr.ph145, !llvm.loop !70
 
 _ZN12_GLOBAL__N_117proc_clean_switchEPN5Yosys5RTLIL10SwitchRuleEPNS1_8CaseRuleERbRii.exit: ; preds = %441, %.lr.ph145, %429, %395, %.critedge, %.preheader118, %407, %._crit_edge156, %380, %383, %._crit_edge162, %400, %_ZNSt6vectorIPN5Yosys5RTLIL10SwitchRuleESaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EE.exit
-  %.128 = phi i64 [ %77, %_ZNSt6vectorIPN5Yosys5RTLIL10SwitchRuleESaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EE.exit ], [ %.027168, %407 ], [ %.027168, %400 ], [ %.027168, %._crit_edge162 ], [ %.027168, %383 ], [ %.027168, %380 ], [ %.027168, %._crit_edge156 ], [ %.027168, %.preheader118 ], [ %.027168, %.critedge ], [ %.027168, %395 ], [ %.027168, %429 ], [ %.027168, %.lr.ph145 ], [ %.027168, %441 ]
+  %.128 = phi i64 [ %77, %_ZNSt6vectorIPN5Yosys5RTLIL10SwitchRuleESaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EE.exit ], [ %.027168, %407 ], [ %.027168, %._crit_edge156 ], [ %.027168, %400 ], [ %.027168, %._crit_edge162 ], [ %.027168, %383 ], [ %.027168, %380 ], [ %.027168, %.preheader118 ], [ %.027168, %429 ], [ %.027168, %395 ], [ %.027168, %.critedge ], [ %.027168, %.lr.ph145 ], [ %.027168, %441 ]
   %446 = add i64 %.128, 1
   %447 = load ptr, ptr %11, align 8, !tbaa !13
   %448 = load ptr, ptr %10, align 8, !tbaa !17

@@ -31085,8 +31085,8 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17h17dad0a642dc5
   br i1 %.not.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h9ac242483b1a13c1E.llvm.14581243670548862388.exit._crit_edge", label %7
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h88718bee07116cf6E.llvm.14581243670548862388.exit": ; preds = %20, %16, %13, %2
-  %.sroa.7.2 = phi i64 [ 0, %2 ], [ %12, %13 ], [ %12, %20 ], [ %12, %16 ]
-  %.sroa.16.1 = phi i64 [ 0, %2 ], [ 1, %13 ], [ 1, %20 ], [ 1, %16 ]
+  %.sroa.7.2 = phi i64 [ 0, %2 ], [ %12, %16 ], [ %12, %13 ], [ %12, %20 ]
+  %.sroa.16.1 = phi i64 [ 0, %2 ], [ 1, %16 ], [ 1, %13 ], [ 1, %20 ]
   %.not1.i = icmp eq i64 %.sroa.7.2, %4
   br i1 %.not1.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h9ac242483b1a13c1E.llvm.14581243670548862388.exit", label %.lr.ph.i2.preheader
 
@@ -47085,8 +47085,8 @@ _ZN10serde_json3ser6to_vec17h214dee172cea73c7E.exit.i.i.i.i.i: ; preds = %472
   br label %.body.i.i
 
 1084:                                             ; preds = %1071, %1037
-  %.sroa.9.0.i.i = phi ptr [ %.sroa.0359.2.i.i.i, %1071 ], [ %.sroa.0359.3.i.i.i, %1037 ]
-  %.sroa.11.0.i.i = phi ptr [ %.sroa.9360.2.i.i.i, %1071 ], [ %.sroa.9360.3.i.i.i, %1037 ]
+  %.sroa.9.0.i.i = phi ptr [ %.sroa.0359.3.i.i.i, %1037 ], [ %.sroa.0359.2.i.i.i, %1071 ]
+  %.sroa.11.0.i.i = phi ptr [ %.sroa.9360.3.i.i.i, %1037 ], [ %.sroa.9360.2.i.i.i, %1071 ]
   store i8 1, ptr %205, align 8, !noalias !10073
   call void @llvm.lifetime.end.p0(ptr nonnull %74), !noalias !10030
   call void @llvm.lifetime.end.p0(ptr nonnull %78), !noalias !10030
@@ -48455,7 +48455,7 @@ define { ptr, ptr } @"_ZN104_$LT$language_model..provider..open_ai..OpenAiLangua
   invoke void @"_ZN4core3ptr66drop_in_place$LT$language_model..request..LanguageModelRequest$GT$17hfd07492a80b4b610E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %16) #41
           to label %.critedge41.thread105 unwind label %114
 
-.critedge41.thread105:                            ; preds = %34, %129, %.critedge41
+.critedge41.thread105:                            ; preds = %129, %34, %.critedge41
   %.pn36.pn112 = phi { ptr, i32 } [ %.pn3681, %.critedge41 ], [ %.pn.ph, %129 ], [ %35, %34 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17h74b7a5b81b252084E.llvm.14581243670548862388"(ptr noalias noundef nonnull align 8 dereferenceable(72) %4) #41
           to label %131 unwind label %114
@@ -53723,7 +53723,7 @@ define hidden void @_ZN14language_model8registry21LanguageModelRegistry17registe
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h1a4db3a33151be32E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.42.0..sroa_idx.i)
           to label %"_ZN4core3ptr60drop_in_place$LT$language_model..LanguageModelProviderId$GT$17hc7c2a08a4bebd50cE.exit33" unwind label %132
 
-"_ZN4core3ptr60drop_in_place$LT$language_model..LanguageModelProviderId$GT$17hc7c2a08a4bebd50cE.exit33.thread": ; preds = %126, %116, %.thread, %"_ZN4core3ptr60drop_in_place$LT$language_model..LanguageModelProviderId$GT$17hc7c2a08a4bebd50cE.exit33"
+"_ZN4core3ptr60drop_in_place$LT$language_model..LanguageModelProviderId$GT$17hc7c2a08a4bebd50cE.exit33.thread": ; preds = %116, %126, %.thread, %"_ZN4core3ptr60drop_in_place$LT$language_model..LanguageModelProviderId$GT$17hc7c2a08a4bebd50cE.exit33"
   %.pn11.pn39 = phi { ptr, i32 } [ %.pn11.pn71, %.thread ], [ %.pn11, %"_ZN4core3ptr60drop_in_place$LT$language_model..LanguageModelProviderId$GT$17hc7c2a08a4bebd50cE.exit33" ], [ %117, %116 ], [ %127, %126 ]
   resume { ptr, i32 } %.pn11.pn39
 
@@ -54740,7 +54740,7 @@ define hidden void @_ZN14language_model8registry21LanguageModelRegistry17registe
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h1a4db3a33151be32E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.42.0..sroa_idx.i)
           to label %"_ZN4core3ptr60drop_in_place$LT$language_model..LanguageModelProviderId$GT$17hc7c2a08a4bebd50cE.exit32" unwind label %131
 
-"_ZN4core3ptr60drop_in_place$LT$language_model..LanguageModelProviderId$GT$17hc7c2a08a4bebd50cE.exit32.thread": ; preds = %125, %115, %.thread, %"_ZN4core3ptr60drop_in_place$LT$language_model..LanguageModelProviderId$GT$17hc7c2a08a4bebd50cE.exit32"
+"_ZN4core3ptr60drop_in_place$LT$language_model..LanguageModelProviderId$GT$17hc7c2a08a4bebd50cE.exit32.thread": ; preds = %115, %125, %.thread, %"_ZN4core3ptr60drop_in_place$LT$language_model..LanguageModelProviderId$GT$17hc7c2a08a4bebd50cE.exit32"
   %.pn11.pn38 = phi { ptr, i32 } [ %.pn11.pn70, %.thread ], [ %.pn11, %"_ZN4core3ptr60drop_in_place$LT$language_model..LanguageModelProviderId$GT$17hc7c2a08a4bebd50cE.exit32" ], [ %116, %115 ], [ %126, %125 ]
   resume { ptr, i32 } %.pn11.pn38
 

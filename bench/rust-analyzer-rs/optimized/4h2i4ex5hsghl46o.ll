@@ -20205,8 +20205,8 @@ define hidden { i64, i64 } @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$12g
   br label %.split15
 
 "_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$3get17hc1d9fa9416bad891E.exit.thread": ; preds = %._crit_edge.i.i, %75, %._crit_edge.i.i.us, %46
-  %.sroa.3.0 = phi i64 [ %.val3.i.i.i, %75 ], [ %.val3.i.i.i.us.us, %46 ], [ undef, %._crit_edge.i.i.us ], [ undef, %._crit_edge.i.i ]
-  %.sroa.0.0 = phi i64 [ 1, %75 ], [ 1, %46 ], [ 0, %._crit_edge.i.i.us ], [ 0, %._crit_edge.i.i ]
+  %.sroa.3.0 = phi i64 [ undef, %._crit_edge.i.i.us ], [ %.val3.i.i.i, %75 ], [ %.val3.i.i.i.us.us, %46 ], [ undef, %._crit_edge.i.i ]
+  %.sroa.0.0 = phi i64 [ 0, %._crit_edge.i.i.us ], [ 1, %75 ], [ 1, %46 ], [ 0, %._crit_edge.i.i ]
   %82 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %83 = insertvalue { i64, i64 } %82, i64 %.sroa.3.0, 1
   ret { i64, i64 } %83

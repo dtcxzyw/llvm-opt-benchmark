@@ -271,9 +271,9 @@ malloc_read_fd.exit89.i:                          ; preds = %86, %.preheader99.i
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %malloc_read_fd.exit89.i, %malloc_read_fd.exit80.i, %malloc_read_fd.exit.i18, %100, %77
-  %.020 = phi i64 [ 0, %77 ], [ %94, %100 ], [ 0, %malloc_read_fd.exit.i18 ], [ 0, %malloc_read_fd.exit80.i ], [ 0, %malloc_read_fd.exit89.i ]
-  %.145.i = phi i32 [ %.044.i.ph, %77 ], [ %.044.i.ph, %100 ], [ %.044.i.ph, %malloc_read_fd.exit80.i ], [ %.044.i.ph, %malloc_read_fd.exit89.i ], [ %40, %malloc_read_fd.exit.i18 ]
-  %.1.i = phi i32 [ %79, %77 ], [ 0, %100 ], [ 2, %malloc_read_fd.exit.i18 ], [ 2, %malloc_read_fd.exit80.i ], [ 2, %malloc_read_fd.exit89.i ]
+  %.020 = phi i64 [ %94, %100 ], [ 0, %77 ], [ 0, %malloc_read_fd.exit.i18 ], [ 0, %malloc_read_fd.exit80.i ], [ 0, %malloc_read_fd.exit89.i ]
+  %.145.i = phi i32 [ %.044.i.ph, %100 ], [ %.044.i.ph, %77 ], [ %.044.i.ph, %malloc_read_fd.exit80.i ], [ %.044.i.ph, %malloc_read_fd.exit89.i ], [ %40, %malloc_read_fd.exit.i18 ]
+  %.1.i = phi i32 [ 0, %100 ], [ %79, %77 ], [ 2, %malloc_read_fd.exit.i18 ], [ 2, %malloc_read_fd.exit80.i ], [ 2, %malloc_read_fd.exit89.i ]
   %101 = call i64 (i64, ...) @syscall(i64 noundef 3, i32 noundef range(i32 0, -2147483648) %.145.i) #9
   br label %prof_mapping_containing_addr.exit
 

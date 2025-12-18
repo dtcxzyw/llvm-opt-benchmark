@@ -6166,7 +6166,7 @@ _ZNSt10_HashtableIjSt4pairIKjP16SplitLogicVertexESaIS4_ENSt8__detail10_Select1st
   br label %.body
 
 .loopexit146:                                     ; preds = %120, %.noexc67, %115
-  %.pn.i.i = phi ptr [ %116, %115 ], [ %131, %.noexc67 ], [ %122, %120 ]
+  %.pn.i.i = phi ptr [ %131, %.noexc67 ], [ %116, %115 ], [ %122, %120 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   %133 = load ptr, ptr %.1.i.i, align 8, !tbaa !162
   %.not46 = icmp eq ptr %133, null
@@ -6233,7 +6233,7 @@ _ZNSt10_HashtableIjSt4pairIKjP16SplitLogicVertexESaIS4_ENSt8__detail10_Select1st
   br label %.body79
 
 .loopexit145:                                     ; preds = %147, %.noexc78, %142
-  %.pn.i.i76 = phi ptr [ %143, %142 ], [ %158, %.noexc78 ], [ %149, %147 ]
+  %.pn.i.i76 = phi ptr [ %158, %.noexc78 ], [ %143, %142 ], [ %149, %147 ]
   %.1.i.i77 = getelementptr inbounds nuw i8, ptr %.pn.i.i76, i64 16
   %160 = load ptr, ptr %.1.i.i77, align 8, !tbaa !162
   store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %135, align 8, !tbaa !15
@@ -6315,7 +6315,7 @@ _ZNSt10_HashtableIjSt4pairIKjP16SplitLogicVertexESaIS4_ENSt8__detail10_Select1st
   br label %.body
 
 .loopexit:                                        ; preds = %176, %.noexc93, %171
-  %.pn.i.i91 = phi ptr [ %172, %171 ], [ %187, %.noexc93 ], [ %178, %176 ]
+  %.pn.i.i91 = phi ptr [ %187, %.noexc93 ], [ %172, %171 ], [ %178, %176 ]
   %.1.i.i92 = getelementptr inbounds nuw i8, ptr %.pn.i.i91, i64 16
   store ptr %.sroa.0.0.i.i64, ptr %.1.i.i92, align 8, !tbaa !162
   %189 = getelementptr inbounds nuw i8, ptr %.030183, i64 8
@@ -10183,7 +10183,7 @@ _ZNSt10_HashtableIjSt4pairIKjP7AstNodeESaIS4_ENSt8__detail10_Select1stESt8equal_
   br label %common.resume
 
 _ZNSt13unordered_mapIjP7AstNodeSt4hashIjESt8equal_toIjESaISt4pairIKjS1_EEEixERS7_.exit: ; preds = %43, %38, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %39, %38 ], [ %54, %.loopexit.i.i ], [ %45, %43 ]
+  %.pn.i.i = phi ptr [ %54, %.loopexit.i.i ], [ %39, %38 ], [ %45, %43 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   store ptr %26, ptr %.1.i.i, align 8, !tbaa !273
   %56 = load ptr, ptr %8, align 8, !tbaa !306
@@ -10860,8 +10860,8 @@ _ZNSt10_HashtableIjjSaIjENSt8__detail9_IdentityESt8equal_toIjESt4hashIjENS1_18_M
   resume { ptr, i32 } %47
 
 _ZNKSt10_HashtableIjjSaIjENSt8__detail9_IdentityESt8equal_toIjESt4hashIjENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE15_M_find_node_trIjEEPNS1_10_Hash_nodeIjLb0EEEmRKT_m.exit: ; preds = %33, %19, %.critedge, %28
-  %.sroa.031.1 = phi ptr [ %29, %28 ], [ %46, %.critedge ], [ %.sroa.028.0, %19 ], [ %35, %33 ]
-  %.sroa.432.1 = phi i8 [ 0, %28 ], [ 1, %.critedge ], [ 0, %19 ], [ 0, %33 ]
+  %.sroa.031.1 = phi ptr [ %.sroa.028.0, %19 ], [ %46, %.critedge ], [ %29, %28 ], [ %35, %33 ]
+  %.sroa.432.1 = phi i8 [ 0, %19 ], [ 1, %.critedge ], [ 0, %28 ], [ 0, %33 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.031.1, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.432.1, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -11740,7 +11740,7 @@ _ZNSt10_HashtableIjSt4pairIKjP7AstNodeESaIS4_ENSt8__detail10_Select1stESt8equal_
   br label %common.resume
 
 _ZNSt13unordered_mapIjP7AstNodeSt4hashIjESt8equal_toIjESaISt4pairIKjS1_EEEixERS7_.exit: ; preds = %31, %26, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %27, %26 ], [ %42, %.loopexit.i.i ], [ %33, %31 ]
+  %.pn.i.i = phi ptr [ %42, %.loopexit.i.i ], [ %27, %26 ], [ %33, %31 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   %44 = load ptr, ptr %.1.i.i, align 8, !tbaa !273
   tail call void @_ZN7AstNode11addNextHereEPS_(ptr noundef nonnull align 8 dereferenceable(152) %44, ptr noundef %17)
@@ -11796,7 +11796,7 @@ _ZNSt10_HashtableIjSt4pairIKjP7AstNodeESaIS4_ENSt8__detail10_Select1stESt8equal_
   br label %common.resume
 
 _ZNSt13unordered_mapIjP7AstNodeSt4hashIjESt8equal_toIjESaISt4pairIKjS1_EEEixERS7_.exit19: ; preds = %55, %50, %.loopexit.i.i15
-  %.pn.i.i17 = phi ptr [ %51, %50 ], [ %66, %.loopexit.i.i15 ], [ %57, %55 ]
+  %.pn.i.i17 = phi ptr [ %66, %.loopexit.i.i15 ], [ %51, %50 ], [ %57, %55 ]
   %.1.i.i18 = getelementptr inbounds nuw i8, ptr %.pn.i.i17, i64 16
   store ptr %17, ptr %.1.i.i18, align 8, !tbaa !273
   ret void
@@ -12030,7 +12030,7 @@ _ZNSt10_HashtableIjSt4pairIKjP9AstNodeIfESaIS4_ENSt8__detail10_Select1stESt8equa
   br label %.body
 
 .loopexit165:                                     ; preds = %80, %.noexc53, %75
-  %.pn.i.i = phi ptr [ %76, %75 ], [ %91, %.noexc53 ], [ %82, %80 ]
+  %.pn.i.i = phi ptr [ %91, %.noexc53 ], [ %76, %75 ], [ %82, %80 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   store ptr %42, ptr %.1.i.i, align 8, !tbaa !314
   %93 = load i64, ptr %21, align 8, !tbaa !305
@@ -12089,7 +12089,7 @@ _ZNSt10_HashtableIjSt4pairIKjP7AstNodeESaIS4_ENSt8__detail10_Select1stESt8equal_
   br label %.body
 
 .loopexit164:                                     ; preds = %103, %.noexc65, %98
-  %.pn.i.i63 = phi ptr [ %99, %98 ], [ %114, %.noexc65 ], [ %105, %103 ]
+  %.pn.i.i63 = phi ptr [ %114, %.noexc65 ], [ %99, %98 ], [ %105, %103 ]
   %.1.i.i64 = getelementptr inbounds nuw i8, ptr %.pn.i.i63, i64 16
   %116 = load ptr, ptr %.1.i.i64, align 8, !tbaa !273
   invoke void @_ZN7AstNode11addNextHereEPS_(ptr noundef nonnull align 8 dereferenceable(152) %116, ptr noundef nonnull %42)
@@ -12152,7 +12152,7 @@ _ZNSt10_HashtableIjSt4pairIKjP7AstNodeESaIS4_ENSt8__detail10_Select1stESt8equal_
   br label %.body
 
 .loopexit163:                                     ; preds = %128, %.noexc78, %123
-  %.pn.i.i76 = phi ptr [ %124, %123 ], [ %139, %.noexc78 ], [ %130, %128 ]
+  %.pn.i.i76 = phi ptr [ %139, %.noexc78 ], [ %124, %123 ], [ %130, %128 ]
   %.1.i.i77 = getelementptr inbounds nuw i8, ptr %.pn.i.i76, i64 16
   store ptr %28, ptr %.1.i.i77, align 8, !tbaa !273
   %.sroa.0153.0 = load ptr, ptr %.sroa.0153.0214, align 8, !tbaa !78
@@ -12303,7 +12303,7 @@ _ZNSt10_HashtableIjSt4pairIKjP7AstNodeESaIS4_ENSt8__detail10_Select1stESt8equal_
   br label %.body
 
 .loopexit161:                                     ; preds = %186, %.noexc106, %181
-  %.pn.i.i104 = phi ptr [ %182, %181 ], [ %197, %.noexc106 ], [ %188, %186 ]
+  %.pn.i.i104 = phi ptr [ %197, %.noexc106 ], [ %182, %181 ], [ %188, %186 ]
   %.1.i.i105 = getelementptr inbounds nuw i8, ptr %.pn.i.i104, i64 16
   store ptr %175, ptr %.1.i.i105, align 8, !tbaa !273
   %.sroa.0147.0 = load ptr, ptr %.sroa.0147.0217, align 8, !tbaa !78
@@ -12494,7 +12494,7 @@ _ZNSt10_HashtableIjSt4pairIKjP7AstNodeESaIS4_ENSt8__detail10_Select1stESt8equal_
   br label %.body
 
 .loopexit:                                        ; preds = %255, %.noexc139, %250
-  %.pn.i.i137 = phi ptr [ %251, %250 ], [ %266, %.noexc139 ], [ %257, %255 ]
+  %.pn.i.i137 = phi ptr [ %266, %.noexc139 ], [ %251, %250 ], [ %257, %255 ]
   %.1.i.i138 = getelementptr inbounds nuw i8, ptr %.pn.i.i137, i64 16
   store ptr %244, ptr %.1.i.i138, align 8, !tbaa !273
   %.sroa.0143.0 = load ptr, ptr %.sroa.0143.0222, align 8, !tbaa !78
@@ -12782,7 +12782,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(56) ptr @_
   unreachable
 
 _ZNKSt13unordered_mapIP9AstNodeIfSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEES3_IS1_ES5_IS1_ESaISt4pairIKS1_S8_EEE4findERSC_.exit: ; preds = %26, %8, %21
-  %.sroa.06.1.i.i = phi ptr [ %22, %21 ], [ %.sroa.06.0.i.i, %8 ], [ %28, %26 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %8 ], [ %22, %21 ], [ %28, %26 ]
   %37 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   ret ptr %37
 }

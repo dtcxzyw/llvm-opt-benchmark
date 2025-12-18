@@ -1394,7 +1394,7 @@ Vec_IntFetch.exit.thread:                         ; preds = %17
   br i1 %exitcond113.not, label %.loopexit, label %.lr.ph94, !llvm.loop !51
 
 .loopexit:                                        ; preds = %.lr.ph98, %.lr.ph94, %.lr.ph, %.lr.ph92, %.lr.ph96, %Vec_IntFetch.exit.thread, %.preheader88, %.preheader86, %.thread82, %.preheader83, %.preheader, %10
-  %.074 = phi ptr [ %16, %10 ], [ %.0.i128, %.preheader86 ], [ %.0.i, %.preheader ], [ %.0.i128, %.preheader83 ], [ %.0.i128, %.thread82 ], [ %.0.i128, %.preheader88 ], [ null, %Vec_IntFetch.exit.thread ], [ %.0.i128, %.lr.ph94 ], [ %.0.i128, %.lr.ph96 ], [ %.0.i128, %.lr.ph92 ], [ %.0.i128, %.lr.ph ], [ %.0.i, %.lr.ph98 ]
+  %.074 = phi ptr [ %16, %10 ], [ %.0.i128, %.preheader86 ], [ %.0.i128, %.thread82 ], [ %.0.i, %.preheader ], [ %.0.i128, %.preheader83 ], [ %.0.i128, %.preheader88 ], [ %.0.i128, %.lr.ph96 ], [ %.0.i128, %.lr.ph ], [ null, %Vec_IntFetch.exit.thread ], [ %.0.i128, %.lr.ph92 ], [ %.0.i128, %.lr.ph94 ], [ %.0.i, %.lr.ph98 ]
   ret ptr %.074
 }
 

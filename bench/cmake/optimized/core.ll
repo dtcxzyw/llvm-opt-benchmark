@@ -2100,7 +2100,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv__getpwuid_r(ptr nou
   br label %.loopexit
 
 .loopexit:                                        ; preds = %9, %5, %25, %1, %43, %42, %23
-  %.0 = phi i32 [ 0, %43 ], [ -22, %1 ], [ %24, %23 ], [ -12, %42 ], [ -2, %25 ], [ -12, %5 ], [ -12, %9 ]
+  %.0 = phi i32 [ 0, %43 ], [ -22, %1 ], [ %24, %23 ], [ -2, %25 ], [ -12, %42 ], [ -12, %5 ], [ -12, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0

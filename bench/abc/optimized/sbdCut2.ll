@@ -1251,7 +1251,7 @@ Vec_IntPushOrder.exit.i82:                        ; preds = %177, %._crit_edge.l
   br i1 %183, label %19, label %.critedge, !llvm.loop !64
 
 .critedge:                                        ; preds = %.critedge56, %139, %7, %Vec_IntPushOrder.exit.i82, %Vec_IntPushUniqueOrder.exit
-  %.2 = phi i32 [ 1, %Vec_IntPushUniqueOrder.exit ], [ 1, %Vec_IntPushOrder.exit.i82 ], [ 0, %7 ], [ 1, %139 ], [ 0, %.critedge56 ]
+  %.2 = phi i32 [ 0, %7 ], [ 1, %Vec_IntPushUniqueOrder.exit ], [ 1, %Vec_IntPushOrder.exit.i82 ], [ 1, %139 ], [ 0, %.critedge56 ]
   ret i32 %.2
 }
 

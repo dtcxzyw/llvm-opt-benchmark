@@ -1594,7 +1594,7 @@ get_sample_info_wave.exit:                        ; preds = %598
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %1085
 
-.loopexit566:                                     ; preds = %594, %.thread1153.i, %595, %172, %.thread405.i
+.loopexit566:                                     ; preds = %594, %.thread405.i, %.thread1153.i, %595, %172
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %607 = load i64, ptr %53, align 8, !tbaa !43
@@ -4802,7 +4802,7 @@ parse_cuesheet.exit.thread:                       ; preds = %87, %65, %70, %80, 
   br label %428
 
 428:                                              ; preds = %425, %423
-  %.1402 = phi i64 [ %426, %425 ], [ %.0401677, %423 ]
+  %.1402 = phi i64 [ %.0401677, %423 ], [ %426, %425 ]
   %429 = add nuw i64 %.0404676, 1
   %430 = load i64, ptr %193, align 8, !tbaa !111
   %431 = icmp ult i64 %429, %430
@@ -5570,7 +5570,7 @@ static_metadata_append.exit583:                   ; preds = %606
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %795
 
-795:                                              ; preds = %773, %765, %.critedge.critedge.i
+795:                                              ; preds = %.critedge.critedge.i, %773, %765
   %796 = load i32, ptr %8, align 8, !tbaa !84
   %.not20.i595 = icmp eq i32 %796, 0
   br i1 %.not20.i595, label %._crit_edge.i601, label %.lr.ph.i596

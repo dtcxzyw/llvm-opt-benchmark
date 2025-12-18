@@ -351,7 +351,7 @@ define void @ff_xface_generate_face(ptr noundef captures(none) %0, ptr noundef r
   br i1 %exitcond.not, label %.split101.us, label %.split.split.split, !llvm.loop !15
 
 .split101.us:                                     ; preds = %40, %26, %13
-  %.us-phi = phi i32 [ %.092117, %13 ], [ %.2.us111, %26 ], [ %.2, %40 ]
+  %.us-phi = phi i32 [ %.2.us111, %26 ], [ %.092117, %13 ], [ %.2, %40 ]
   %42 = add nsw i32 %.091118, 1
   %exitcond132 = icmp eq i32 %42, %indvars.iv130
   br i1 %exitcond132, label %43, label %13, !llvm.loop !16

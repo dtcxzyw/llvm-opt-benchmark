@@ -510,7 +510,7 @@ _ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit.i29: ; pred
   br i1 %.not.i30, label %_ZN14arrow_vendored17double_conversion6Bignum16MultiplyByUInt32Ej.exit31.thread33, label %.lr.ph20.i27, !llvm.loop !22
 
 _ZN14arrow_vendored17double_conversion6Bignum16MultiplyByUInt32Ej.exit31.thread33: ; preds = %_ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit.i29, %._crit_edge, %62, %.preheader.i25
-  %94 = phi i16 [ %.pr, %.preheader.i25 ], [ %.pr, %62 ], [ %.pr, %._crit_edge ], [ %92, %_ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit.i29 ]
+  %94 = phi i16 [ %.pr, %._crit_edge ], [ %.pr, %.preheader.i25 ], [ %.pr, %62 ], [ %92, %_ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit.i29 ]
   %95 = sdiv i32 %1, 28
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %97 = load i16, ptr %96, align 2, !tbaa !8
@@ -2159,7 +2159,7 @@ _ZNK14arrow_vendored17double_conversion6Bignum11BigitOrZeroEi.exit32.i.i: ; pred
   br label %.preheader, !llvm.loop !42
 
 _ZN14arrow_vendored17double_conversion6Bignum5ClampEv.exit: ; preds = %102, %121, %.lr.ph.i33, %.critedge.thread3.i, %.critedge.i, %83, %2
-  %.0 = phi i16 [ 0, %2 ], [ %70, %.critedge.thread3.i ], [ %87, %83 ], [ %70, %.critedge.i ], [ %.132, %121 ], [ %70, %.lr.ph.i33 ], [ %.132, %102 ]
+  %.0 = phi i16 [ 0, %2 ], [ %70, %.critedge.thread3.i ], [ %87, %83 ], [ %.132, %121 ], [ %70, %.critedge.i ], [ %70, %.lr.ph.i33 ], [ %.132, %102 ]
   ret i16 %.0
 }
 

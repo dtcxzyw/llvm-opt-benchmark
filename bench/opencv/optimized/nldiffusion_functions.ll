@@ -1435,8 +1435,8 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit119:              ; preds = %52
   br label %212
 
 ._crit_edge147:                                   ; preds = %._crit_edge.us150, %97, %.lr.ph146
-  %187 = phi float [ %129, %.lr.ph146 ], [ 0.000000e+00, %97 ], [ %129, %._crit_edge.us150 ]
-  %.090.lcssa = phi float [ 0.000000e+00, %.lr.ph146 ], [ 0.000000e+00, %97 ], [ %.292.us, %._crit_edge.us150 ]
+  %187 = phi float [ 0.000000e+00, %97 ], [ %129, %.lr.ph146 ], [ %129, %._crit_edge.us150 ]
+  %.090.lcssa = phi float [ 0.000000e+00, %97 ], [ 0.000000e+00, %.lr.ph146 ], [ %.292.us, %._crit_edge.us150 ]
   %188 = fmul float %1, %.090.lcssa
   %189 = fptosi float %188 to i32
   %190 = icmp sgt i32 %189, 0
@@ -2550,7 +2550,7 @@ define hidden noundef zeroext i1 @_ZN2cv27check_maximum_neighbourhoodERKNS_3MatE
   br i1 %.not, label %.thread, label %.lr.ph, !llvm.loop !127
 
 .thread:                                          ; preds = %._crit_edge, %52, %._crit_edge.us, %25, %37, %6
-  %.not55 = phi i1 [ true, %6 ], [ false, %52 ], [ false, %37 ], [ false, %25 ], [ true, %._crit_edge.us ], [ true, %._crit_edge ]
+  %.not55 = phi i1 [ false, %52 ], [ false, %25 ], [ true, %._crit_edge.us ], [ true, %6 ], [ false, %37 ], [ true, %._crit_edge ]
   ret i1 %.not55
 }
 

@@ -279,7 +279,7 @@ Kit_TruthIsEqual.exit.thread:                     ; preds = %74, %56, %39, %35, 
   br i1 %.not, label %Aig_ManObj.exit, label %32, !llvm.loop !45
 
 Aig_ManObj.exit:                                  ; preds = %Kit_TruthIsEqual.exit.thread, %Csw_CutHash.exit, %65, %Kit_TruthIsEqual.exit, %Aig_ManObj.exit43
-  %.0 = phi ptr [ %94, %Aig_ManObj.exit43 ], [ %71, %65 ], [ null, %Kit_TruthIsEqual.exit ], [ null, %Csw_CutHash.exit ], [ null, %Kit_TruthIsEqual.exit.thread ]
+  %.0 = phi ptr [ null, %Kit_TruthIsEqual.exit ], [ %94, %Aig_ManObj.exit43 ], [ %71, %65 ], [ null, %Csw_CutHash.exit ], [ null, %Kit_TruthIsEqual.exit.thread ]
   ret ptr %.0
 }
 

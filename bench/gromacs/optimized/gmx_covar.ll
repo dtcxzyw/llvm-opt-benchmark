@@ -1747,7 +1747,7 @@ _ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit571:    ; preds = %.lr.ph913, %_ZL13gm
   br i1 %exitcond1021.not, label %.preheader845, label %.preheader847, !llvm.loop !81
 
 .preheader845:                                    ; preds = %.split.us919, %_ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit571.preheader, %.loopexit848
-  %.01193 = phi ptr [ %337, %.loopexit848 ], [ %649, %_ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit571.preheader ], [ %.01194, %.split.us919 ]
+  %.01193 = phi ptr [ %649, %_ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit571.preheader ], [ %337, %.loopexit848 ], [ %.01194, %.split.us919 ]
   %690 = icmp sgt i32 %338, 0
   br i1 %690, label %.preheader844.preheader, label %._crit_edge926
 
@@ -2794,8 +2794,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit704: ; preds = %10
   br label %1208
 
 .loopexit:                                        ; preds = %1045, %.preheader, %1035, %1038
-  %1061 = phi i1 [ false, %1038 ], [ false, %1035 ], [ true, %.preheader ], [ true, %1045 ]
-  %.0393 = phi i32 [ 0, %1038 ], [ 2, %1035 ], [ 1, %.preheader ], [ 1, %1045 ]
+  %1061 = phi i1 [ false, %1035 ], [ false, %1038 ], [ true, %.preheader ], [ true, %1045 ]
+  %.0393 = phi i32 [ 2, %1035 ], [ 0, %1038 ], [ 1, %.preheader ], [ 1, %1045 ]
   %1062 = load i32, ptr @_ZZ9gmx_covariPPcE3end, align 4, !tbaa !4
   %1063 = trunc nuw i8 %.3383 to i1
   %1064 = load i8, ptr @_ZZ9gmx_covariPPcE2bM, align 1, !tbaa !28, !range !30, !noundef !31

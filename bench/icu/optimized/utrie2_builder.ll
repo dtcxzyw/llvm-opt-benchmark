@@ -1177,7 +1177,7 @@ define void @utrie2_freeze_77(ptr noundef %0, i32 noundef %1, ptr noundef captur
   br label %101
 
 _ZL13findHighStartP9UNewTrie2j.exit.i:            ; preds = %70, %78, %.preheader.i.i, %.preheader.us.i.i
-  %.0.i.i = phi i32 [ %indvars.iv150.in.i.i, %78 ], [ %.486.us.i.i, %.preheader.us.i.i ], [ %.486.i.i, %.preheader.i.i ], [ %.04578.i.i, %70 ]
+  %.0.i.i = phi i32 [ %.486.us.i.i, %.preheader.us.i.i ], [ %indvars.iv150.in.i.i, %78 ], [ %.486.i.i, %.preheader.i.i ], [ %.04578.i.i, %70 ]
   %90 = add nsw i32 %.0.i.i, 2047
   %91 = and i32 %90, -2048
   %92 = icmp eq i32 %91, 1114112
@@ -1235,7 +1235,7 @@ _ZL13findHighStartP9UNewTrie2j.exit.i:            ; preds = %70, %78, %.preheade
   br i1 %exitcond.not.i.i, label %.preheader118.i.i, label %116, !llvm.loop !63
 
 .preheader.i32.i:                                 ; preds = %.outer.i34.i, %.backedge.i.i, %.preheader118.i.i
-  %.099.ph.lcssa.i.i = phi i32 [ 192, %.preheader118.i.i ], [ %.099.ph161.i.i, %.backedge.i.i ], [ %.2101.i.i, %.outer.i34.i ]
+  %.099.ph.lcssa.i.i = phi i32 [ %.099.ph161.i.i, %.backedge.i.i ], [ 192, %.preheader118.i.i ], [ %.2101.i.i, %.outer.i34.i ]
   %119 = getelementptr inbounds nuw i8, ptr %12, i64 144144
   %120 = load i32, ptr %119, align 8, !tbaa !37
   %121 = icmp sgt i32 %120, 0
@@ -1423,8 +1423,8 @@ _ZL12equal_uint32PKjS0_i.exit.loopexit.i.i:       ; preds = %163
   br label %.outer.i34.i
 
 .outer.i34.i:                                     ; preds = %.lr.ph146.i.i, %.outer.loopexit.i.i, %._crit_edge152.i.i
-  %.3106.i.i = phi i32 [ %178, %._crit_edge152.i.i ], [ %191, %.outer.loopexit.i.i ], [ %188, %.lr.ph146.i.i ]
-  %.2101.i.i = phi i32 [ %.099.ph161.i.i, %._crit_edge152.i.i ], [ %192, %.outer.loopexit.i.i ], [ %188, %.lr.ph146.i.i ]
+  %.3106.i.i = phi i32 [ %191, %.outer.loopexit.i.i ], [ %178, %._crit_edge152.i.i ], [ %188, %.lr.ph146.i.i ]
+  %.2101.i.i = phi i32 [ %192, %.outer.loopexit.i.i ], [ %.099.ph161.i.i, %._crit_edge152.i.i ], [ %188, %.lr.ph146.i.i ]
   %193 = load i32, ptr %113, align 8, !tbaa !32
   %194 = icmp slt i32 %.3106.i.i, %193
   br i1 %194, label %.lr.ph137.i.i, label %.preheader.i32.i, !llvm.loop !64
@@ -1519,7 +1519,7 @@ _ZL11compactDataP9UNewTrie2.exit.i:               ; preds = %215, %._crit_edge16
   br label %.lr.ph.i.i44.i
 
 .preheader.i39.i:                                 ; preds = %.outer.i54.i, %_ZL19findSameIndex2BlockPKiii.exit.i.i, %222
-  %.062.ph.lcssa.i.i = phi i32 [ %226, %222 ], [ %.062.ph95.i.i, %_ZL19findSameIndex2BlockPKiii.exit.i.i ], [ %.264.i.i, %.outer.i54.i ]
+  %.062.ph.lcssa.i.i = phi i32 [ %.062.ph95.i.i, %_ZL19findSameIndex2BlockPKiii.exit.i.i ], [ %226, %222 ], [ %.264.i.i, %.outer.i54.i ]
   br label %292
 
 .lr.ph.i.i44.i:                                   ; preds = %_ZL19findSameIndex2BlockPKiii.exit.i.i, %.lr.ph.i.preheader.i.i
@@ -2370,7 +2370,7 @@ _ZL14setIndex2EntryP9UNewTrie2ii.exit:            ; preds = %155, %168
   br i1 %179, label %178, label %.critedge128, !llvm.loop !104
 
 .critedge128:                                     ; preds = %.lr.ph.i140, %147, %178, %_ZL14setIndex2EntryP9UNewTrie2ii.exit, %_ZL15isWritableBlockP9UNewTrie2i.exit.thread, %_ZL13isInNullBlockP9UNewTrie2ia.exit
-  %.2104 = phi i32 [ %.1103174, %_ZL13isInNullBlockP9UNewTrie2ia.exit ], [ %.1103174, %_ZL14setIndex2EntryP9UNewTrie2ii.exit ], [ %.1103174, %_ZL15isWritableBlockP9UNewTrie2i.exit.thread ], [ %.1103174, %147 ], [ %172, %178 ], [ %.1103174, %.lr.ph.i140 ]
+  %.2104 = phi i32 [ %.1103174, %_ZL13isInNullBlockP9UNewTrie2ia.exit ], [ %.1103174, %_ZL14setIndex2EntryP9UNewTrie2ii.exit ], [ %.1103174, %147 ], [ %172, %178 ], [ %.1103174, %_ZL15isWritableBlockP9UNewTrie2i.exit.thread ], [ %.1103174, %.lr.ph.i140 ]
   %.3 = add nuw nsw i32 %.2175, 32
   %180 = icmp slt i32 %.3, %67
   br i1 %180, label %83, label %._crit_edge

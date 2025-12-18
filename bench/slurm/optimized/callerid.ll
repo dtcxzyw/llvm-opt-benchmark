@@ -474,7 +474,7 @@ define dso_local range(i32 -1, 1) i32 @find_pid_by_inode(ptr noundef writeonly c
   %47 = call i32 @closedir(ptr noundef nonnull %29)
   br label %.backedge.sink.split
 
-.critedge17:                                      ; preds = %43, %46
+.critedge17:                                      ; preds = %46, %43
   %48 = call i32 @closedir(ptr noundef nonnull %29)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

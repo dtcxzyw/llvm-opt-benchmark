@@ -2255,9 +2255,9 @@ Ndr_ObjReadOutName.exit476.i:                     ; preds = %Ndr_DataSize.exit.i
   br label %Ndr_ObjIsType.exit448.thread.i
 
 Ndr_ObjIsType.exit448.thread.i:                   ; preds = %Ndr_ObjReadOutName.exit476.i, %386
-  %.val371.pre.i = phi ptr [ %.val371.pre1037.i, %386 ], [ %.val371.pre.pre.i, %Ndr_ObjReadOutName.exit476.i ]
-  %489 = phi i8 [ %389, %386 ], [ %.pre1036.i, %Ndr_ObjReadOutName.exit476.i ]
-  %.val.i477.i = phi ptr [ %.val.i4771020.i, %386 ], [ %.val.i477.pre.i, %Ndr_ObjReadOutName.exit476.i ]
+  %.val371.pre.i = phi ptr [ %.val371.pre.pre.i, %Ndr_ObjReadOutName.exit476.i ], [ %.val371.pre1037.i, %386 ]
+  %489 = phi i8 [ %.pre1036.i, %Ndr_ObjReadOutName.exit476.i ], [ %389, %386 ]
+  %.val.i477.i = phi ptr [ %.val.i477.pre.i, %Ndr_ObjReadOutName.exit476.i ], [ %.val.i4771020.i, %386 ]
   %490 = icmp ugt i8 %489, 3
   br i1 %490, label %Ndr_DataSize.exit478.i, label %Ndr_ObjIsType.exit448.thread.i.Ndr_ObjIsType.exit448.thread.thread.i_crit_edge
 
@@ -2267,9 +2267,9 @@ Ndr_ObjIsType.exit448.thread.i.Ndr_ObjIsType.exit448.thread.thread.i_crit_edge: 
   br label %Ndr_DataSize.exit478.i
 
 Ndr_DataSize.exit478.i:                           ; preds = %Ndr_DataSize.exit.i447.i, %Ndr_DataSize.exit.i454.i, %Ndr_ObjReadBody.exit462.i, %390, %Ndr_ObjIsType.exit448.i, %Ndr_ObjIsType.exit455.i, %Ndr_ObjReadOutName.exit469.i, %Ndr_ObjIsType.exit448.thread.i.Ndr_ObjIsType.exit448.thread.thread.i_crit_edge, %Ndr_ObjIsType.exit448.thread.i
-  %.val.i4771223.i = phi ptr [ %.val.i477.i, %Ndr_ObjIsType.exit448.thread.i ], [ %.val.i477.i, %Ndr_ObjIsType.exit448.thread.i.Ndr_ObjIsType.exit448.thread.thread.i_crit_edge ], [ %.val.i4771020.i, %Ndr_ObjReadOutName.exit469.i ], [ %.val.i4771020.i, %Ndr_ObjIsType.exit448.i ], [ %.val.i4771020.i, %390 ], [ %.val.i4771020.i, %Ndr_ObjIsType.exit455.i ], [ %.val.i4771020.i, %Ndr_DataSize.exit.i454.i ], [ %.val.i4771020.i, %Ndr_ObjReadBody.exit462.i ], [ %.val.i4771020.i, %Ndr_DataSize.exit.i447.i ]
-  %.val371.pre1221.i = phi ptr [ %.val371.pre.i, %Ndr_ObjIsType.exit448.thread.i ], [ %.val371.pre.i, %Ndr_ObjIsType.exit448.thread.i.Ndr_ObjIsType.exit448.thread.thread.i_crit_edge ], [ %.val371.pre1037.i, %Ndr_ObjReadOutName.exit469.i ], [ %.val371.pre1037.i, %Ndr_ObjIsType.exit448.i ], [ %.val371.pre1037.i, %390 ], [ %.val371.pre1037.i, %Ndr_ObjIsType.exit455.i ], [ %.val371.pre1037.i, %Ndr_DataSize.exit.i454.i ], [ %.val371.pre1037.i, %Ndr_ObjReadBody.exit462.i ], [ %.val371.pre1037.i, %Ndr_DataSize.exit.i447.i ]
-  %491 = phi i32 [ 1, %Ndr_ObjIsType.exit448.thread.i ], [ %.pre219, %Ndr_ObjIsType.exit448.thread.i.Ndr_ObjIsType.exit448.thread.thread.i_crit_edge ], [ %393, %Ndr_ObjReadOutName.exit469.i ], [ %393, %Ndr_ObjIsType.exit448.i ], [ %393, %390 ], [ %393, %Ndr_ObjIsType.exit455.i ], [ %393, %Ndr_DataSize.exit.i454.i ], [ %393, %Ndr_ObjReadBody.exit462.i ], [ %393, %Ndr_DataSize.exit.i447.i ]
+  %.val.i4771223.i = phi ptr [ %.val.i477.i, %Ndr_ObjIsType.exit448.thread.i ], [ %.val.i477.i, %Ndr_ObjIsType.exit448.thread.i.Ndr_ObjIsType.exit448.thread.thread.i_crit_edge ], [ %.val.i4771020.i, %Ndr_DataSize.exit.i454.i ], [ %.val.i4771020.i, %Ndr_ObjReadBody.exit462.i ], [ %.val.i4771020.i, %Ndr_ObjReadOutName.exit469.i ], [ %.val.i4771020.i, %Ndr_ObjIsType.exit448.i ], [ %.val.i4771020.i, %390 ], [ %.val.i4771020.i, %Ndr_ObjIsType.exit455.i ], [ %.val.i4771020.i, %Ndr_DataSize.exit.i447.i ]
+  %.val371.pre1221.i = phi ptr [ %.val371.pre.i, %Ndr_ObjIsType.exit448.thread.i ], [ %.val371.pre.i, %Ndr_ObjIsType.exit448.thread.i.Ndr_ObjIsType.exit448.thread.thread.i_crit_edge ], [ %.val371.pre1037.i, %Ndr_DataSize.exit.i454.i ], [ %.val371.pre1037.i, %Ndr_ObjReadBody.exit462.i ], [ %.val371.pre1037.i, %Ndr_ObjReadOutName.exit469.i ], [ %.val371.pre1037.i, %Ndr_ObjIsType.exit448.i ], [ %.val371.pre1037.i, %390 ], [ %.val371.pre1037.i, %Ndr_ObjIsType.exit455.i ], [ %.val371.pre1037.i, %Ndr_DataSize.exit.i447.i ]
+  %491 = phi i32 [ 1, %Ndr_ObjIsType.exit448.thread.i ], [ %.pre219, %Ndr_ObjIsType.exit448.thread.i.Ndr_ObjIsType.exit448.thread.thread.i_crit_edge ], [ %393, %Ndr_DataSize.exit.i454.i ], [ %393, %Ndr_ObjReadBody.exit462.i ], [ %393, %Ndr_ObjReadOutName.exit469.i ], [ %393, %Ndr_ObjIsType.exit448.i ], [ %393, %390 ], [ %393, %Ndr_ObjIsType.exit455.i ], [ %393, %Ndr_DataSize.exit.i447.i ]
   %492 = add nsw i32 %491, %.4893.i
   %493 = getelementptr inbounds i32, ptr %.val371.pre1221.i, i64 %19
   %494 = load i32, ptr %493, align 4, !tbaa !3
@@ -4793,11 +4793,11 @@ Vec_IntGetEntry.exit124:                          ; preds = %213, %Vec_IntGrow.e
   br label %.loopexit
 
 .loopexit:                                        ; preds = %..loopexit_crit_edge, %164
-  %.val61.pre = phi ptr [ %.val61.pre.pre, %..loopexit_crit_edge ], [ %.val61.pre195, %164 ]
-  %257 = phi i8 [ %.pre194, %..loopexit_crit_edge ], [ %167, %164 ]
-  %.val.i125 = phi ptr [ %.val.i125.pre, %..loopexit_crit_edge ], [ %.val.i125191, %164 ]
-  %.promoted153189 = phi ptr [ %storemerge155, %..loopexit_crit_edge ], [ %.promoted153, %164 ]
-  %.promoted184 = phi i32 [ %.promoted186, %..loopexit_crit_edge ], [ %.promoted, %164 ]
+  %.val61.pre = phi ptr [ %.val61.pre195, %164 ], [ %.val61.pre.pre, %..loopexit_crit_edge ]
+  %257 = phi i8 [ %167, %164 ], [ %.pre194, %..loopexit_crit_edge ]
+  %.val.i125 = phi ptr [ %.val.i125191, %164 ], [ %.val.i125.pre, %..loopexit_crit_edge ]
+  %.promoted153189 = phi ptr [ %.promoted153, %164 ], [ %storemerge155, %..loopexit_crit_edge ]
+  %.promoted184 = phi i32 [ %.promoted, %164 ], [ %.promoted186, %..loopexit_crit_edge ]
   %258 = icmp ugt i8 %257, 3
   br i1 %258, label %Ndr_DataSize.exit126, label %.loopexit.thread
 
@@ -4824,7 +4824,7 @@ Ndr_DataSize.exit126:                             ; preds = %.loopexit, %.loopex
   br i1 %266, label %164, label %._crit_edge, !llvm.loop !66
 
 ._crit_edge:                                      ; preds = %Ndr_DataSize.exit126, %1, %.preheader
-  %267 = phi ptr [ %.val.i95178, %.preheader ], [ %4, %1 ], [ %.promoted153189259, %Ndr_DataSize.exit126 ]
+  %267 = phi ptr [ %4, %1 ], [ %.val.i95178, %.preheader ], [ %.promoted153189259, %Ndr_DataSize.exit126 ]
   %.not.i127 = icmp eq ptr %267, null
   br i1 %.not.i127, label %Vec_IntFree.exit, label %268
 
@@ -6330,9 +6330,9 @@ Wlc_ObjFanin1.exit:                               ; preds = %Wlc_ObjHasArray.exi
   br label %Ndr_ObjIsType.exit309.thread
 
 Ndr_ObjIsType.exit309.thread:                     ; preds = %Ndr_DataSize.exit.i308, %Ndr_DataSize.exit.i315, %Ndr_ObjIsType.exit309, %151, %Vec_IntPush.exit379, %Wlc_ObjFanin1.exit, %.cont, %147, %Ndr_ObjIsType.exit316
-  %.sroa.5511.6 = phi i32 [ %.sroa.5511.0605, %Ndr_ObjIsType.exit316 ], [ %.sroa.5511.0605, %Ndr_ObjIsType.exit309 ], [ %.sroa.5511.0605, %147 ], [ %.sroa.5511.0605, %Vec_IntPush.exit379 ], [ %.sroa.5511.3, %Wlc_ObjFanin1.exit ], [ %.sroa.5511.3, %.cont ], [ %.sroa.5511.0605, %151 ], [ %.sroa.5511.0605, %Ndr_DataSize.exit.i315 ], [ %.sroa.5511.0605, %Ndr_DataSize.exit.i308 ]
-  %.sroa.0510.6 = phi i32 [ %.sroa.0510.0606, %Ndr_ObjIsType.exit316 ], [ %.sroa.0510.0606, %Ndr_ObjIsType.exit309 ], [ %.sroa.0510.0606, %147 ], [ %.sroa.0510.0606, %Vec_IntPush.exit379 ], [ %.sroa.0510.3, %Wlc_ObjFanin1.exit ], [ %.sroa.0510.3, %.cont ], [ %.sroa.0510.0606, %151 ], [ %.sroa.0510.0606, %Ndr_DataSize.exit.i315 ], [ %.sroa.0510.0606, %Ndr_DataSize.exit.i308 ]
-  %.7 = phi ptr [ %.0531607, %Ndr_ObjIsType.exit316 ], [ %.0531607, %Ndr_ObjIsType.exit309 ], [ %.0531607, %147 ], [ %.0531607, %Vec_IntPush.exit379 ], [ %.4535, %Wlc_ObjFanin1.exit ], [ %.4535, %.cont ], [ %.0531607, %151 ], [ %.0531607, %Ndr_DataSize.exit.i315 ], [ %.0531607, %Ndr_DataSize.exit.i308 ]
+  %.sroa.5511.6 = phi i32 [ %.sroa.5511.0605, %Ndr_DataSize.exit.i315 ], [ %.sroa.5511.0605, %Ndr_ObjIsType.exit316 ], [ %.sroa.5511.0605, %Ndr_ObjIsType.exit309 ], [ %.sroa.5511.0605, %147 ], [ %.sroa.5511.0605, %Vec_IntPush.exit379 ], [ %.sroa.5511.3, %Wlc_ObjFanin1.exit ], [ %.sroa.5511.3, %.cont ], [ %.sroa.5511.0605, %151 ], [ %.sroa.5511.0605, %Ndr_DataSize.exit.i308 ]
+  %.sroa.0510.6 = phi i32 [ %.sroa.0510.0606, %Ndr_DataSize.exit.i315 ], [ %.sroa.0510.0606, %Ndr_ObjIsType.exit316 ], [ %.sroa.0510.0606, %Ndr_ObjIsType.exit309 ], [ %.sroa.0510.0606, %147 ], [ %.sroa.0510.0606, %Vec_IntPush.exit379 ], [ %.sroa.0510.3, %Wlc_ObjFanin1.exit ], [ %.sroa.0510.3, %.cont ], [ %.sroa.0510.0606, %151 ], [ %.sroa.0510.0606, %Ndr_DataSize.exit.i308 ]
+  %.7 = phi ptr [ %.0531607, %Ndr_DataSize.exit.i315 ], [ %.0531607, %Ndr_ObjIsType.exit316 ], [ %.0531607, %Ndr_ObjIsType.exit309 ], [ %.0531607, %147 ], [ %.0531607, %Vec_IntPush.exit379 ], [ %.4535, %Wlc_ObjFanin1.exit ], [ %.4535, %.cont ], [ %.0531607, %151 ], [ %.0531607, %Ndr_DataSize.exit.i308 ]
   %.val.i415 = load ptr, ptr %57, align 8, !tbaa !15
   %635 = getelementptr inbounds i8, ptr %.val.i415, i64 %148
   %636 = load i8, ptr %635, align 1, !tbaa !7

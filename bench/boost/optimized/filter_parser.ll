@@ -943,8 +943,8 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix9anonymous13filter_pa
   unreachable
 
 .thread70:                                        ; preds = %10, %4, %.thread
-  %37 = phi ptr [ %15, %.thread ], [ %7, %4 ], [ %12, %10 ]
-  %.174 = phi i32 [ %19, %.thread ], [ %3, %4 ], [ %3, %10 ]
+  %37 = phi ptr [ %7, %4 ], [ %15, %.thread ], [ %12, %10 ]
+  %.174 = phi i32 [ %3, %4 ], [ %19, %.thread ], [ %3, %10 ]
   %38 = icmp eq ptr %37, %2
   %39 = icmp ne i32 %.174, 0
   %or.cond = and i1 %39, %38
@@ -1494,8 +1494,8 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix9anonymous13filter_pa
   unreachable
 
 .thread70:                                        ; preds = %10, %4, %.thread
-  %41 = phi ptr [ %15, %.thread ], [ %7, %4 ], [ %12, %10 ]
-  %.174 = phi i32 [ %19, %.thread ], [ %3, %4 ], [ %3, %10 ]
+  %41 = phi ptr [ %7, %4 ], [ %15, %.thread ], [ %12, %10 ]
+  %.174 = phi i32 [ %3, %4 ], [ %19, %.thread ], [ %3, %10 ]
   %42 = icmp eq ptr %41, %2
   %43 = icmp ne i32 %.174, 0
   %or.cond = and i1 %43, %42

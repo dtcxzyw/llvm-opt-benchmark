@@ -4991,7 +4991,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit96: ; preds = %217
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEN9__gnu_cxx17__normal_iteratorIPKcS4_EES9_.exit.i.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEN9__gnu_cxx17__normal_iteratorIPKcS4_EES9_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i, %._crit_edge.i._crit_edge36.i.i.i.i, %._crit_edge.i._crit_edge.i.i.i.i, %310, %._crit_edge.i.i.i.i.i, %301, %296, %291
-  %.sink.i.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %._crit_edge.i._crit_edge36.i.i.i.i ], [ %318, %._crit_edge.i._crit_edge.i.i.i.i ], [ %307, %310 ], [ %.cast23.i.i.i.i.i, %301 ], [ %.cast21.i.i.i.i.i, %296 ], [ %.cast.i.i.i.i.i, %291 ], [ %277, %._crit_edge.i.i.i.i.i ], [ %284, %.lr.ph.i.i.i.i.i ]
+  %.sink.i.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %._crit_edge.i._crit_edge36.i.i.i.i ], [ %318, %._crit_edge.i._crit_edge.i.i.i.i ], [ %307, %310 ], [ %277, %._crit_edge.i.i.i.i.i ], [ %.cast23.i.i.i.i.i, %301 ], [ %.cast21.i.i.i.i.i, %296 ], [ %.cast.i.i.i.i.i, %291 ], [ %284, %.lr.ph.i.i.i.i.i ]
   %329 = sub i64 %.sink.i.i.i.i.i, %277
   store i64 %329, ptr %243, align 8, !tbaa !25, !noalias !115
   %330 = getelementptr inbounds nuw i8, ptr %273, i64 %329
@@ -9599,7 +9599,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEN9__gnu_cxx17__normal_iteratorIPKcS4_EES9_.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEN9__gnu_cxx17__normal_iteratorIPKcS4_EES9_.exit.i: ; preds = %.lr.ph.i.i.i.i, %80, %70, %62, %._crit_edge.i.i.i.i, %53, %47, %41
-  %.sink.i.i.i.i = phi i64 [ %spec.select.i.i.i, %80 ], [ %72, %70 ], [ %59, %62 ], [ %.cast11.i.i.i.i, %53 ], [ %.cast10.i.i.i.i, %47 ], [ %.cast.i.i.i.i, %41 ], [ %25, %._crit_edge.i.i.i.i ], [ %32, %.lr.ph.i.i.i.i ]
+  %.sink.i.i.i.i = phi i64 [ %spec.select.i.i.i, %80 ], [ %72, %70 ], [ %59, %62 ], [ %25, %._crit_edge.i.i.i.i ], [ %.cast11.i.i.i.i, %53 ], [ %.cast10.i.i.i.i, %47 ], [ %.cast.i.i.i.i, %41 ], [ %32, %.lr.ph.i.i.i.i ]
   %86 = sub i64 %.sink.i.i.i.i, %25
   store i64 %86, ptr %18, align 8, !tbaa !25, !noalias !181
   %87 = getelementptr inbounds nuw i8, ptr %21, i64 %86

@@ -425,7 +425,7 @@ list_length.exit59.i:                             ; preds = %199
   br label %213
 
 213:                                              ; preds = %210, %196, %193, %188
-  %.1.i = phi ptr [ %192, %188 ], [ %195, %193 ], [ %198, %196 ], [ %212, %210 ]
+  %.1.i = phi ptr [ %212, %210 ], [ %198, %196 ], [ %192, %188 ], [ %195, %193 ]
   %.not54.i = icmp eq ptr %.1.i, null
   br i1 %.not54.i, label %.thread.i, label %220
 

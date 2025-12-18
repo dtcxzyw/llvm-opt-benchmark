@@ -160,7 +160,7 @@ _ZN4llvm25ScopedDbgInfoFormatSetterINS_6ModuleEEC2ERS1_b.exit: ; preds = %4
   br i1 %.not.i13.i.i25, label %.sink.split.i.i17, label %.lr.ph.i10.i.i22
 
 .sink.split.i.i17:                                ; preds = %.lr.ph.i.i.i13, %.lr.ph.i10.i.i22, %52, %46
-  %.sink.i.i18 = phi i8 [ 1, %46 ], [ 0, %52 ], [ 0, %.lr.ph.i10.i.i22 ], [ 1, %.lr.ph.i.i.i13 ]
+  %.sink.i.i18 = phi i8 [ 1, %46 ], [ 0, %.lr.ph.i10.i.i22 ], [ 0, %52 ], [ 1, %.lr.ph.i.i.i13 ]
   store i8 %.sink.i.i18, ptr %5, align 8, !tbaa !3
   br label %_ZN4llvm25ScopedDbgInfoFormatSetterINS_6ModuleEED2Ev.exit
 
@@ -473,7 +473,7 @@ _ZN4llvm25ScopedDbgInfoFormatSetterINS_6ModuleEEC2ERS1_b.exit: ; preds = %2
   br i1 %.not.i13.i.i22, label %.sink.split.i.i14, label %.lr.ph.i10.i.i19
 
 .sink.split.i.i14:                                ; preds = %.lr.ph.i.i.i10, %.lr.ph.i10.i.i19, %30, %24
-  %.sink.i.i15 = phi i8 [ 1, %24 ], [ 0, %30 ], [ 0, %.lr.ph.i10.i.i19 ], [ 1, %.lr.ph.i.i.i10 ]
+  %.sink.i.i15 = phi i8 [ 1, %24 ], [ 0, %.lr.ph.i10.i.i19 ], [ 0, %30 ], [ 1, %.lr.ph.i.i.i10 ]
   store i8 %.sink.i.i15, ptr %3, align 8, !tbaa !3
   br label %_ZN4llvm25ScopedDbgInfoFormatSetterINS_6ModuleEED2Ev.exit
 

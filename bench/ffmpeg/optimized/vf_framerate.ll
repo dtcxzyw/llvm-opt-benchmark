@@ -649,7 +649,7 @@ blend_frames.exit.thread69:                       ; preds = %170
   br label %process_work_frame.exit
 
 process_work_frame.exit:                          ; preds = %214, %203, %blend_frames.exit.thread69, %27, %259, %261, %256, %205
-  %.1 = phi i32 [ 0, %27 ], [ %213, %205 ], [ -1497649742, %259 ], [ 0, %256 ], [ 0, %261 ], [ -12, %blend_frames.exit.thread69 ], [ -12, %203 ], [ %215, %214 ]
+  %.1 = phi i32 [ 0, %27 ], [ %213, %205 ], [ -1497649742, %259 ], [ 0, %256 ], [ 0, %261 ], [ -12, %203 ], [ -12, %blend_frames.exit.thread69 ], [ %215, %214 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

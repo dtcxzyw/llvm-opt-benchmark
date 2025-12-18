@@ -25460,7 +25460,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12buc
   br label %.body384
 
 .body384:                                         ; preds = %.body387, %1190, %449
-  %.pn.pn = phi { ptr, i32 } [ %1191, %1190 ], [ %450, %449 ], [ %.pn, %.body387 ]
+  %.pn.pn = phi { ptr, i32 } [ %450, %449 ], [ %1191, %1190 ], [ %.pn, %.body387 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %25) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #25
   br label %.body373
@@ -25503,8 +25503,8 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12buc
   br label %.loopexit1152
 
 .body399:                                         ; preds = %1202, %489, %1198
-  %1206 = phi i1 [ false, %489 ], [ false, %1198 ], [ true, %1202 ]
-  %.pn226.pn = phi { ptr, i32 } [ %490, %489 ], [ %1199, %1198 ], [ %.pn226, %1202 ]
+  %1206 = phi i1 [ false, %1198 ], [ false, %489 ], [ true, %1202 ]
+  %.pn226.pn = phi { ptr, i32 } [ %1199, %1198 ], [ %490, %489 ], [ %.pn226, %1202 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %31) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %30) #25
   br i1 %1206, label %.loopexit1152, label %.preheader1151.preheader
@@ -25540,7 +25540,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12buc
   br label %.body429
 
 .body429:                                         ; preds = %.body434, %1209, %534
-  %.pn231.pn = phi { ptr, i32 } [ %1210, %1209 ], [ %535, %534 ], [ %.pn231, %.body434 ]
+  %.pn231.pn = phi { ptr, i32 } [ %535, %534 ], [ %1210, %1209 ], [ %.pn231, %.body434 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %36) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %32) #25
   br label %.body373
@@ -25583,8 +25583,8 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12buc
   br label %.loopexit1150
 
 .body454:                                         ; preds = %1221, %574, %1217
-  %1225 = phi i1 [ false, %574 ], [ false, %1217 ], [ true, %1221 ]
-  %.pn235.pn = phi { ptr, i32 } [ %575, %574 ], [ %1218, %1217 ], [ %.pn235, %1221 ]
+  %1225 = phi i1 [ false, %1217 ], [ false, %574 ], [ true, %1221 ]
+  %.pn235.pn = phi { ptr, i32 } [ %1218, %1217 ], [ %575, %574 ], [ %.pn235, %1221 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %42) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %41) #25
   br i1 %1225, label %.loopexit1150, label %.preheader1149.preheader
@@ -25620,7 +25620,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12buc
   br label %.body484
 
 .body484:                                         ; preds = %.body489, %1228, %619
-  %.pn240.pn = phi { ptr, i32 } [ %1229, %1228 ], [ %620, %619 ], [ %.pn240, %.body489 ]
+  %.pn240.pn = phi { ptr, i32 } [ %620, %619 ], [ %1229, %1228 ], [ %.pn240, %.body489 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %47) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %43) #25
   br label %.body373
@@ -25663,8 +25663,8 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12buc
   br label %.loopexit1148
 
 .body509:                                         ; preds = %1240, %659, %1236
-  %1244 = phi i1 [ false, %659 ], [ false, %1236 ], [ true, %1240 ]
-  %.pn244.pn = phi { ptr, i32 } [ %660, %659 ], [ %1237, %1236 ], [ %.pn244, %1240 ]
+  %1244 = phi i1 [ false, %1236 ], [ false, %659 ], [ true, %1240 ]
+  %.pn244.pn = phi { ptr, i32 } [ %1237, %1236 ], [ %660, %659 ], [ %.pn244, %1240 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %53) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %52) #25
   br i1 %1244, label %.loopexit1148, label %.preheader1147.preheader
@@ -25716,8 +25716,8 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12buc
   br i1 %1258, label %.body549, label %1255
 
 .body549:                                         ; preds = %1255, %1251, %712
-  %1259 = phi i1 [ false, %712 ], [ false, %1251 ], [ true, %1255 ]
-  %.pn249.pn = phi { ptr, i32 } [ %713, %712 ], [ %1252, %1251 ], [ %.pn249, %1255 ]
+  %1259 = phi i1 [ false, %1251 ], [ false, %712 ], [ true, %1255 ]
+  %.pn249.pn = phi { ptr, i32 } [ %1252, %1251 ], [ %713, %712 ], [ %.pn249, %1255 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %60) #25
   br label %.body539
 
@@ -25784,8 +25784,8 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12buc
   br label %.loopexit1144
 
 .body574:                                         ; preds = %1271, %761, %1267
-  %1275 = phi i1 [ false, %761 ], [ false, %1267 ], [ true, %1271 ]
-  %.pn255.pn = phi { ptr, i32 } [ %762, %761 ], [ %1268, %1267 ], [ %.pn255, %1271 ]
+  %1275 = phi i1 [ false, %1267 ], [ false, %761 ], [ true, %1271 ]
+  %.pn255.pn = phi { ptr, i32 } [ %1268, %1267 ], [ %762, %761 ], [ %.pn255, %1271 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %66) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %65) #25
   br i1 %1275, label %.loopexit1144, label %.preheader1143.preheader
@@ -25867,8 +25867,8 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12buc
   br i1 %1301, label %.body644, label %1298
 
 .body644:                                         ; preds = %1298, %1294, %838
-  %1302 = phi i1 [ false, %838 ], [ false, %1294 ], [ true, %1298 ]
-  %.pn260.pn = phi { ptr, i32 } [ %839, %838 ], [ %1295, %1294 ], [ %.pn260, %1298 ]
+  %1302 = phi i1 [ false, %1294 ], [ false, %838 ], [ true, %1298 ]
+  %.pn260.pn = phi { ptr, i32 } [ %1295, %1294 ], [ %839, %838 ], [ %.pn260, %1298 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %79) #25
   br label %.body639
 
@@ -25979,8 +25979,8 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12buc
   br label %.loopexit1140
 
 .body669:                                         ; preds = %1315, %887, %1311
-  %1319 = phi i1 [ false, %887 ], [ false, %1311 ], [ true, %1315 ]
-  %.pn272.pn = phi { ptr, i32 } [ %888, %887 ], [ %1312, %1311 ], [ %.pn272, %1315 ]
+  %1319 = phi i1 [ false, %1311 ], [ false, %887 ], [ true, %1315 ]
+  %.pn272.pn = phi { ptr, i32 } [ %1312, %1311 ], [ %888, %887 ], [ %.pn272, %1315 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %85) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %84) #25
   br i1 %1319, label %.loopexit1140, label %.preheader1139.preheader
@@ -26032,8 +26032,8 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12buc
   br i1 %1333, label %.body709, label %1330
 
 .body709:                                         ; preds = %1330, %1326, %940
-  %1334 = phi i1 [ false, %940 ], [ false, %1326 ], [ true, %1330 ]
-  %.pn277.pn = phi { ptr, i32 } [ %941, %940 ], [ %1327, %1326 ], [ %.pn277, %1330 ]
+  %1334 = phi i1 [ false, %1326 ], [ false, %940 ], [ true, %1330 ]
+  %.pn277.pn = phi { ptr, i32 } [ %1327, %1326 ], [ %941, %940 ], [ %.pn277, %1330 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %92) #25
   br label %.body699
 
@@ -26100,8 +26100,8 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12buc
   br label %.loopexit1136
 
 .body734:                                         ; preds = %1346, %989, %1342
-  %1350 = phi i1 [ false, %989 ], [ false, %1342 ], [ true, %1346 ]
-  %.pn283.pn = phi { ptr, i32 } [ %990, %989 ], [ %1343, %1342 ], [ %.pn283, %1346 ]
+  %1350 = phi i1 [ false, %1342 ], [ false, %989 ], [ true, %1346 ]
+  %.pn283.pn = phi { ptr, i32 } [ %1343, %1342 ], [ %990, %989 ], [ %.pn283, %1346 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %98) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %97) #25
   br i1 %1350, label %.loopexit1136, label %.preheader1135.preheader
@@ -26153,8 +26153,8 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12buc
   br label %.loopexit1134
 
 .body764:                                         ; preds = %1359, %1038, %1355
-  %1363 = phi i1 [ false, %1038 ], [ false, %1355 ], [ true, %1359 ]
-  %.pn288.pn = phi { ptr, i32 } [ %1039, %1038 ], [ %1356, %1355 ], [ %.pn288, %1359 ]
+  %1363 = phi i1 [ false, %1355 ], [ false, %1038 ], [ true, %1359 ]
+  %.pn288.pn = phi { ptr, i32 } [ %1356, %1355 ], [ %1039, %1038 ], [ %.pn288, %1359 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %104) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %103) #25
   br i1 %1363, label %.loopexit1134, label %.preheader1133.preheader
@@ -26206,8 +26206,8 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12buc
   br label %.loopexit
 
 .body794:                                         ; preds = %1372, %1087, %1368
-  %.pn293.pn = phi { ptr, i32 } [ %1369, %1368 ], [ %1088, %1087 ], [ %.pn293, %1372 ]
-  %1376 = phi i1 [ false, %1368 ], [ false, %1087 ], [ true, %1372 ]
+  %.pn293.pn = phi { ptr, i32 } [ %1088, %1087 ], [ %1369, %1368 ], [ %.pn293, %1372 ]
+  %1376 = phi i1 [ false, %1087 ], [ false, %1368 ], [ true, %1372 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %110) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %109) #25
   br i1 %1376, label %.loopexit, label %.preheader.preheader
@@ -36137,7 +36137,7 @@ _ZSteqIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpressionESaIS1_EEbRKSt
   br label %_ZSteqIN32pxrInternal_v0_24__pxrReserved__14SdfPathPattern9ComponentESaIS2_EEbRKSt6vectorIT_T0_ES9_.exit
 
 _ZSteqIN32pxrInternal_v0_24__pxrReserved__14SdfPathPattern9ComponentESaIS2_EEbRKSt6vectorIT_T0_ES9_.exit: ; preds = %29, %_ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_22SdfPredicateExpressionES2_.exit.i.i.i.i.i.i, %_ZSteqIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpressionESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit.i, %_ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_22SdfPredicateExpressionES2_.exit.thread.i.i.i.i.i.i, %.loopexit, %2
-  %96 = phi i1 [ false, %2 ], [ %95, %_ZSteqIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpressionESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit.i ], [ false, %.loopexit ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_22SdfPredicateExpressionES2_.exit.thread.i.i.i.i.i.i ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_22SdfPredicateExpressionES2_.exit.i.i.i.i.i.i ], [ false, %29 ]
+  %96 = phi i1 [ false, %_ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_22SdfPredicateExpressionES2_.exit.i.i.i.i.i.i ], [ false, %2 ], [ %95, %_ZSteqIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpressionESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit.i ], [ false, %.loopexit ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_22SdfPredicateExpressionES2_.exit.thread.i.i.i.i.i.i ], [ false, %29 ]
   ret i1 %96
 }
 

@@ -1695,7 +1695,7 @@ _ZN5serde2de10EnumAccess7variant17h57b14bb0b1425697E.exit.i: ; preds = %47
           cleanup
   br label %.body.thread
 
-.body.thread82:                                   ; preds = %.body.i, %188, %146, %197, %.body.thread, %.body.thread
+.body.thread82:                                   ; preds = %188, %146, %.body.i, %197, %.body.thread, %.body.thread
   %.pn1278 = phi { ptr, i32 } [ %.pn1279, %197 ], [ %.pn1279, %.body.thread ], [ %.pn1279, %.body.thread ], [ %147, %146 ], [ %180, %.body.i ], [ %180, %188 ]
   resume { ptr, i32 } %.pn1278
 
@@ -2271,7 +2271,7 @@ _ZN5serde2de10EnumAccess7variant17h5b24f302e5c85f22E.exit.i: ; preds = %47
           cleanup
   br label %.body.thread
 
-.body.thread82:                                   ; preds = %.body.i, %188, %146, %197, %.body.thread, %.body.thread
+.body.thread82:                                   ; preds = %188, %146, %.body.i, %197, %.body.thread, %.body.thread
   %.pn1278 = phi { ptr, i32 } [ %.pn1279, %197 ], [ %.pn1279, %.body.thread ], [ %.pn1279, %.body.thread ], [ %147, %146 ], [ %180, %.body.i ], [ %180, %188 ]
   resume { ptr, i32 } %.pn1278
 
@@ -2847,7 +2847,7 @@ _ZN5serde2de10EnumAccess7variant17hc4e0ce5337b9092fE.exit.i: ; preds = %47
           cleanup
   br label %.body.thread
 
-.body.thread82:                                   ; preds = %.body.i, %188, %146, %197, %.body.thread, %.body.thread
+.body.thread82:                                   ; preds = %188, %146, %.body.i, %197, %.body.thread, %.body.thread
   %.pn1278 = phi { ptr, i32 } [ %.pn1279, %197 ], [ %.pn1279, %.body.thread ], [ %.pn1279, %.body.thread ], [ %147, %146 ], [ %180, %.body.i ], [ %180, %188 ]
   resume { ptr, i32 } %.pn1278
 
@@ -3423,7 +3423,7 @@ _ZN5serde2de10EnumAccess7variant17ha349232f15998be9E.exit.i: ; preds = %47
           cleanup
   br label %.body.thread
 
-.body.thread82:                                   ; preds = %.body.i, %188, %146, %197, %.body.thread, %.body.thread
+.body.thread82:                                   ; preds = %188, %146, %.body.i, %197, %.body.thread, %.body.thread
   %.pn1278 = phi { ptr, i32 } [ %.pn1279, %197 ], [ %.pn1279, %.body.thread ], [ %.pn1279, %.body.thread ], [ %147, %146 ], [ %180, %.body.i ], [ %180, %188 ]
   resume { ptr, i32 } %.pn1278
 
@@ -3999,7 +3999,7 @@ _ZN5serde2de10EnumAccess7variant17h17bc5f611d41052eE.exit.i: ; preds = %47
           cleanup
   br label %.body.thread
 
-.body.thread82:                                   ; preds = %.body.i, %188, %146, %197, %.body.thread, %.body.thread
+.body.thread82:                                   ; preds = %188, %146, %.body.i, %197, %.body.thread, %.body.thread
   %.pn1278 = phi { ptr, i32 } [ %.pn1279, %197 ], [ %.pn1279, %.body.thread ], [ %.pn1279, %.body.thread ], [ %147, %146 ], [ %180, %.body.i ], [ %180, %188 ]
   resume { ptr, i32 } %.pn1278
 
@@ -4575,7 +4575,7 @@ _ZN5serde2de10EnumAccess7variant17h34e00c0070fe1998E.exit.i: ; preds = %47
           cleanup
   br label %.body.thread
 
-.body.thread82:                                   ; preds = %.body.i, %188, %146, %197, %.body.thread, %.body.thread
+.body.thread82:                                   ; preds = %188, %146, %.body.i, %197, %.body.thread, %.body.thread
   %.pn1278 = phi { ptr, i32 } [ %.pn1279, %197 ], [ %.pn1279, %.body.thread ], [ %.pn1279, %.body.thread ], [ %147, %146 ], [ %180, %.body.i ], [ %180, %188 ]
   resume { ptr, i32 } %.pn1278
 
@@ -9484,7 +9484,7 @@ _ZN4text12subscription7publish17h82068e3ddc4c113bE.exit: ; preds = %328, %325
   br label %427
 
 397:                                              ; preds = %383, %380, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h5d04cf43252714e0E.llvm.7770800806426765245.exit.i134", %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h5d04cf43252714e0E.llvm.7770800806426765245.exit.i"
-  %.sroa.029.5.ph = phi i1 [ false, %380 ], [ true, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h5d04cf43252714e0E.llvm.7770800806426765245.exit.i" ], [ false, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h5d04cf43252714e0E.llvm.7770800806426765245.exit.i134" ], [ false, %383 ]
+  %.sroa.029.5.ph = phi i1 [ false, %383 ], [ false, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h5d04cf43252714e0E.llvm.7770800806426765245.exit.i134" ], [ true, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h5d04cf43252714e0E.llvm.7770800806426765245.exit.i" ], [ false, %380 ]
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   %398 = load i64, ptr %51, align 8, !noalias !2109, !noundef !9
@@ -15196,7 +15196,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17hce5af486008e3847E.exit122.i: ; preds =
   br label %.thread425.i
 
 .thread436.loopexit.split-lp.i:                   ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h5d04cf43252714e0E.llvm.7770800806426765245.exit.i.i", %797, %779, %778, %771
-  %.sroa.040.3.ph.ph.i = phi i8 [ 0, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h5d04cf43252714e0E.llvm.7770800806426765245.exit.i.i" ], [ 0, %797 ], [ 1, %778 ], [ 1, %771 ], [ 1, %779 ]
+  %.sroa.040.3.ph.ph.i = phi i8 [ 0, %797 ], [ 0, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h5d04cf43252714e0E.llvm.7770800806426765245.exit.i.i" ], [ 1, %778 ], [ 1, %771 ], [ 1, %779 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.thread425.i
@@ -17715,7 +17715,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17hce5af486008e3847E.exit124.i: ; preds =
   br label %513
 
 .thread403.loopexit.split-lp.i:                   ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h5d04cf43252714e0E.llvm.7770800806426765245.exit.i.i", %734, %716, %715, %._crit_edge
-  %.sroa.044.3.ph.ph.i = phi i8 [ 0, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h5d04cf43252714e0E.llvm.7770800806426765245.exit.i.i" ], [ 0, %734 ], [ 1, %715 ], [ 1, %._crit_edge ], [ 1, %716 ]
+  %.sroa.044.3.ph.ph.i = phi i8 [ 0, %734 ], [ 0, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h5d04cf43252714e0E.llvm.7770800806426765245.exit.i.i" ], [ 1, %715 ], [ 1, %._crit_edge ], [ 1, %716 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.thread392.i
@@ -23116,7 +23116,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17hce5af486008e3847E.exit129: ; preds = %
   br label %.thread422
 
 .thread433.loopexit.split-lp:                     ; preds = %704, %696, %703, %722, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h5d04cf43252714e0E.llvm.7770800806426765245.exit.i"
-  %.sroa.044.3.ph.ph = phi i8 [ 0, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h5d04cf43252714e0E.llvm.7770800806426765245.exit.i" ], [ 0, %722 ], [ 1, %703 ], [ 1, %696 ], [ 1, %704 ]
+  %.sroa.044.3.ph.ph = phi i8 [ 0, %722 ], [ 0, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h5d04cf43252714e0E.llvm.7770800806426765245.exit.i" ], [ 1, %703 ], [ 1, %696 ], [ 1, %704 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.thread422
@@ -26110,7 +26110,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17hce5af486008e3847E.exit122.i.i.i: ; pre
   br label %.thread428.i.i.i
 
 .thread439.loopexit.split-lp.i.i.i:               ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h5d04cf43252714e0E.llvm.7770800806426765245.exit.i.i.i.i", %944, %926, %925, %918
-  %.sroa.040.3.ph.ph.i.i.i = phi i8 [ 0, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h5d04cf43252714e0E.llvm.7770800806426765245.exit.i.i.i.i" ], [ 0, %944 ], [ 1, %925 ], [ 1, %918 ], [ 1, %926 ]
+  %.sroa.040.3.ph.ph.i.i.i = phi i8 [ 0, %944 ], [ 0, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h5d04cf43252714e0E.llvm.7770800806426765245.exit.i.i.i.i" ], [ 1, %925 ], [ 1, %918 ], [ 1, %926 ]
   %lpad.loopexit.split-lp.i.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.thread428.i.i.i
@@ -29117,7 +29117,7 @@ define hidden void @_ZN12multi_buffer11MultiBuffer4edit17h08813d1370953ff2E(ptr 
   br i1 %639, label %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$4item17h81e479196274c322E.exit200.thread", label %641
 
 .invoke1170:                                      ; preds = %354, %331, %272, %249, %626
-  %640 = phi ptr [ @anon.b22011231498234c7e83aed0fb57f227.90, %626 ], [ @anon.b22011231498234c7e83aed0fb57f227.85, %354 ], [ @anon.b22011231498234c7e83aed0fb57f227.83, %331 ], [ @anon.b22011231498234c7e83aed0fb57f227.79, %272 ], [ @anon.b22011231498234c7e83aed0fb57f227.77, %249 ]
+  %640 = phi ptr [ @anon.b22011231498234c7e83aed0fb57f227.90, %626 ], [ @anon.b22011231498234c7e83aed0fb57f227.83, %331 ], [ @anon.b22011231498234c7e83aed0fb57f227.79, %272 ], [ @anon.b22011231498234c7e83aed0fb57f227.77, %249 ], [ @anon.b22011231498234c7e83aed0fb57f227.85, %354 ]
   invoke void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.b3aa91ad3910538ca077da0228902b5c.59.llvm.7770800806426765245, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %640) #48
           to label %.cont1171 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -29129,9 +29129,9 @@ define hidden void @_ZN12multi_buffer11MultiBuffer4edit17h08813d1370953ff2E(ptr 
   br i1 %642, label %646, label %.invoke
 
 .invoke:                                          ; preds = %368, %345, %286, %263, %641
-  %643 = phi i64 [ %635, %641 ], [ %363, %368 ], [ %340, %345 ], [ %281, %286 ], [ %258, %263 ]
-  %644 = phi i64 [ %638, %641 ], [ %366, %368 ], [ %343, %345 ], [ %284, %286 ], [ %261, %263 ]
-  %645 = phi ptr [ @anon.b22011231498234c7e83aed0fb57f227.90, %641 ], [ @anon.b22011231498234c7e83aed0fb57f227.85, %368 ], [ @anon.b22011231498234c7e83aed0fb57f227.83, %345 ], [ @anon.b22011231498234c7e83aed0fb57f227.79, %286 ], [ @anon.b22011231498234c7e83aed0fb57f227.77, %263 ]
+  %643 = phi i64 [ %635, %641 ], [ %340, %345 ], [ %281, %286 ], [ %258, %263 ], [ %363, %368 ]
+  %644 = phi i64 [ %638, %641 ], [ %343, %345 ], [ %284, %286 ], [ %261, %263 ], [ %366, %368 ]
+  %645 = phi ptr [ @anon.b22011231498234c7e83aed0fb57f227.90, %641 ], [ @anon.b22011231498234c7e83aed0fb57f227.83, %345 ], [ @anon.b22011231498234c7e83aed0fb57f227.79, %286 ], [ @anon.b22011231498234c7e83aed0fb57f227.77, %263 ], [ @anon.b22011231498234c7e83aed0fb57f227.85, %368 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %643, i64 noundef %644, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %645) #48
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -31158,7 +31158,7 @@ define hidden void @_ZN12multi_buffer11MultiBuffer4edit17h51632a2038d5f461E(ptr 
   br i1 %644, label %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$4item17h81e479196274c322E.exit201.thread", label %646
 
 .invoke1116:                                      ; preds = %359, %336, %277, %254, %631
-  %645 = phi ptr [ @anon.b22011231498234c7e83aed0fb57f227.90, %631 ], [ @anon.b22011231498234c7e83aed0fb57f227.85, %359 ], [ @anon.b22011231498234c7e83aed0fb57f227.83, %336 ], [ @anon.b22011231498234c7e83aed0fb57f227.79, %277 ], [ @anon.b22011231498234c7e83aed0fb57f227.77, %254 ]
+  %645 = phi ptr [ @anon.b22011231498234c7e83aed0fb57f227.90, %631 ], [ @anon.b22011231498234c7e83aed0fb57f227.83, %336 ], [ @anon.b22011231498234c7e83aed0fb57f227.79, %277 ], [ @anon.b22011231498234c7e83aed0fb57f227.77, %254 ], [ @anon.b22011231498234c7e83aed0fb57f227.85, %359 ]
   invoke void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.b3aa91ad3910538ca077da0228902b5c.59.llvm.7770800806426765245, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %645) #48
           to label %.cont1117 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -31170,9 +31170,9 @@ define hidden void @_ZN12multi_buffer11MultiBuffer4edit17h51632a2038d5f461E(ptr 
   br i1 %647, label %651, label %.invoke
 
 .invoke:                                          ; preds = %373, %350, %291, %268, %646
-  %648 = phi i64 [ %640, %646 ], [ %368, %373 ], [ %345, %350 ], [ %286, %291 ], [ %263, %268 ]
-  %649 = phi i64 [ %643, %646 ], [ %371, %373 ], [ %348, %350 ], [ %289, %291 ], [ %266, %268 ]
-  %650 = phi ptr [ @anon.b22011231498234c7e83aed0fb57f227.90, %646 ], [ @anon.b22011231498234c7e83aed0fb57f227.85, %373 ], [ @anon.b22011231498234c7e83aed0fb57f227.83, %350 ], [ @anon.b22011231498234c7e83aed0fb57f227.79, %291 ], [ @anon.b22011231498234c7e83aed0fb57f227.77, %268 ]
+  %648 = phi i64 [ %640, %646 ], [ %345, %350 ], [ %286, %291 ], [ %263, %268 ], [ %368, %373 ]
+  %649 = phi i64 [ %643, %646 ], [ %348, %350 ], [ %289, %291 ], [ %266, %268 ], [ %371, %373 ]
+  %650 = phi ptr [ @anon.b22011231498234c7e83aed0fb57f227.90, %646 ], [ @anon.b22011231498234c7e83aed0fb57f227.83, %350 ], [ @anon.b22011231498234c7e83aed0fb57f227.79, %291 ], [ @anon.b22011231498234c7e83aed0fb57f227.77, %268 ], [ @anon.b22011231498234c7e83aed0fb57f227.85, %373 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %648, i64 noundef %649, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %650) #48
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -33149,7 +33149,7 @@ define hidden void @_ZN12multi_buffer11MultiBuffer4edit17h6b9aac71cd279bb3E(ptr 
   br i1 %651, label %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$4item17h81e479196274c322E.exit200.thread", label %653
 
 .invoke1180:                                      ; preds = %366, %343, %284, %261, %638
-  %652 = phi ptr [ @anon.b22011231498234c7e83aed0fb57f227.90, %638 ], [ @anon.b22011231498234c7e83aed0fb57f227.85, %366 ], [ @anon.b22011231498234c7e83aed0fb57f227.83, %343 ], [ @anon.b22011231498234c7e83aed0fb57f227.79, %284 ], [ @anon.b22011231498234c7e83aed0fb57f227.77, %261 ]
+  %652 = phi ptr [ @anon.b22011231498234c7e83aed0fb57f227.90, %638 ], [ @anon.b22011231498234c7e83aed0fb57f227.83, %343 ], [ @anon.b22011231498234c7e83aed0fb57f227.79, %284 ], [ @anon.b22011231498234c7e83aed0fb57f227.77, %261 ], [ @anon.b22011231498234c7e83aed0fb57f227.85, %366 ]
   invoke void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.b3aa91ad3910538ca077da0228902b5c.59.llvm.7770800806426765245, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %652) #48
           to label %.cont1181 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -33161,9 +33161,9 @@ define hidden void @_ZN12multi_buffer11MultiBuffer4edit17h6b9aac71cd279bb3E(ptr 
   br i1 %654, label %658, label %.invoke
 
 .invoke:                                          ; preds = %380, %357, %298, %275, %653
-  %655 = phi i64 [ %647, %653 ], [ %375, %380 ], [ %352, %357 ], [ %293, %298 ], [ %270, %275 ]
-  %656 = phi i64 [ %650, %653 ], [ %378, %380 ], [ %355, %357 ], [ %296, %298 ], [ %273, %275 ]
-  %657 = phi ptr [ @anon.b22011231498234c7e83aed0fb57f227.90, %653 ], [ @anon.b22011231498234c7e83aed0fb57f227.85, %380 ], [ @anon.b22011231498234c7e83aed0fb57f227.83, %357 ], [ @anon.b22011231498234c7e83aed0fb57f227.79, %298 ], [ @anon.b22011231498234c7e83aed0fb57f227.77, %275 ]
+  %655 = phi i64 [ %647, %653 ], [ %352, %357 ], [ %293, %298 ], [ %270, %275 ], [ %375, %380 ]
+  %656 = phi i64 [ %650, %653 ], [ %355, %357 ], [ %296, %298 ], [ %273, %275 ], [ %378, %380 ]
+  %657 = phi ptr [ @anon.b22011231498234c7e83aed0fb57f227.90, %653 ], [ @anon.b22011231498234c7e83aed0fb57f227.83, %357 ], [ @anon.b22011231498234c7e83aed0fb57f227.79, %298 ], [ @anon.b22011231498234c7e83aed0fb57f227.77, %275 ], [ @anon.b22011231498234c7e83aed0fb57f227.85, %380 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %655, i64 noundef %656, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %657) #48
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -35158,7 +35158,7 @@ define hidden void @_ZN12multi_buffer11MultiBuffer4edit17h7ce8a3f11caa2820E(ptr 
   br i1 %643, label %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$4item17h81e479196274c322E.exit202.thread", label %645
 
 .invoke1052:                                      ; preds = %358, %335, %276, %253, %630
-  %644 = phi ptr [ @anon.b22011231498234c7e83aed0fb57f227.90, %630 ], [ @anon.b22011231498234c7e83aed0fb57f227.85, %358 ], [ @anon.b22011231498234c7e83aed0fb57f227.83, %335 ], [ @anon.b22011231498234c7e83aed0fb57f227.79, %276 ], [ @anon.b22011231498234c7e83aed0fb57f227.77, %253 ]
+  %644 = phi ptr [ @anon.b22011231498234c7e83aed0fb57f227.90, %630 ], [ @anon.b22011231498234c7e83aed0fb57f227.83, %335 ], [ @anon.b22011231498234c7e83aed0fb57f227.79, %276 ], [ @anon.b22011231498234c7e83aed0fb57f227.77, %253 ], [ @anon.b22011231498234c7e83aed0fb57f227.85, %358 ]
   invoke void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.b3aa91ad3910538ca077da0228902b5c.59.llvm.7770800806426765245, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %644) #48
           to label %.cont1053 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -35170,9 +35170,9 @@ define hidden void @_ZN12multi_buffer11MultiBuffer4edit17h7ce8a3f11caa2820E(ptr 
   br i1 %646, label %650, label %.invoke
 
 .invoke:                                          ; preds = %372, %349, %290, %267, %645
-  %647 = phi i64 [ %639, %645 ], [ %367, %372 ], [ %344, %349 ], [ %285, %290 ], [ %262, %267 ]
-  %648 = phi i64 [ %642, %645 ], [ %370, %372 ], [ %347, %349 ], [ %288, %290 ], [ %265, %267 ]
-  %649 = phi ptr [ @anon.b22011231498234c7e83aed0fb57f227.90, %645 ], [ @anon.b22011231498234c7e83aed0fb57f227.85, %372 ], [ @anon.b22011231498234c7e83aed0fb57f227.83, %349 ], [ @anon.b22011231498234c7e83aed0fb57f227.79, %290 ], [ @anon.b22011231498234c7e83aed0fb57f227.77, %267 ]
+  %647 = phi i64 [ %639, %645 ], [ %344, %349 ], [ %285, %290 ], [ %262, %267 ], [ %367, %372 ]
+  %648 = phi i64 [ %642, %645 ], [ %347, %349 ], [ %288, %290 ], [ %265, %267 ], [ %370, %372 ]
+  %649 = phi ptr [ @anon.b22011231498234c7e83aed0fb57f227.90, %645 ], [ @anon.b22011231498234c7e83aed0fb57f227.83, %349 ], [ @anon.b22011231498234c7e83aed0fb57f227.79, %290 ], [ @anon.b22011231498234c7e83aed0fb57f227.77, %267 ], [ @anon.b22011231498234c7e83aed0fb57f227.85, %372 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %647, i64 noundef %648, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %649) #48
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -37182,7 +37182,7 @@ define hidden void @_ZN12multi_buffer11MultiBuffer4edit17h8189a83824fc7f63E(ptr 
   br i1 %660, label %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$4item17h81e479196274c322E.exit200.thread", label %662
 
 .invoke1170:                                      ; preds = %375, %352, %293, %270, %647
-  %661 = phi ptr [ @anon.b22011231498234c7e83aed0fb57f227.90, %647 ], [ @anon.b22011231498234c7e83aed0fb57f227.85, %375 ], [ @anon.b22011231498234c7e83aed0fb57f227.83, %352 ], [ @anon.b22011231498234c7e83aed0fb57f227.79, %293 ], [ @anon.b22011231498234c7e83aed0fb57f227.77, %270 ]
+  %661 = phi ptr [ @anon.b22011231498234c7e83aed0fb57f227.90, %647 ], [ @anon.b22011231498234c7e83aed0fb57f227.83, %352 ], [ @anon.b22011231498234c7e83aed0fb57f227.79, %293 ], [ @anon.b22011231498234c7e83aed0fb57f227.77, %270 ], [ @anon.b22011231498234c7e83aed0fb57f227.85, %375 ]
   invoke void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.b3aa91ad3910538ca077da0228902b5c.59.llvm.7770800806426765245, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %661) #48
           to label %.cont1171 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -37194,9 +37194,9 @@ define hidden void @_ZN12multi_buffer11MultiBuffer4edit17h8189a83824fc7f63E(ptr 
   br i1 %663, label %667, label %.invoke
 
 .invoke:                                          ; preds = %389, %366, %307, %284, %662
-  %664 = phi i64 [ %656, %662 ], [ %384, %389 ], [ %361, %366 ], [ %302, %307 ], [ %279, %284 ]
-  %665 = phi i64 [ %659, %662 ], [ %387, %389 ], [ %364, %366 ], [ %305, %307 ], [ %282, %284 ]
-  %666 = phi ptr [ @anon.b22011231498234c7e83aed0fb57f227.90, %662 ], [ @anon.b22011231498234c7e83aed0fb57f227.85, %389 ], [ @anon.b22011231498234c7e83aed0fb57f227.83, %366 ], [ @anon.b22011231498234c7e83aed0fb57f227.79, %307 ], [ @anon.b22011231498234c7e83aed0fb57f227.77, %284 ]
+  %664 = phi i64 [ %656, %662 ], [ %361, %366 ], [ %302, %307 ], [ %279, %284 ], [ %384, %389 ]
+  %665 = phi i64 [ %659, %662 ], [ %364, %366 ], [ %305, %307 ], [ %282, %284 ], [ %387, %389 ]
+  %666 = phi ptr [ @anon.b22011231498234c7e83aed0fb57f227.90, %662 ], [ @anon.b22011231498234c7e83aed0fb57f227.83, %366 ], [ @anon.b22011231498234c7e83aed0fb57f227.79, %307 ], [ @anon.b22011231498234c7e83aed0fb57f227.77, %284 ], [ @anon.b22011231498234c7e83aed0fb57f227.85, %389 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %664, i64 noundef %665, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %666) #48
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -39214,7 +39214,7 @@ define hidden void @_ZN12multi_buffer11MultiBuffer4edit17h8b4802a88b11beccE(ptr 
   br i1 %644, label %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$4item17h81e479196274c322E.exit199.thread", label %646
 
 .invoke1236:                                      ; preds = %359, %336, %277, %254, %631
-  %645 = phi ptr [ @anon.b22011231498234c7e83aed0fb57f227.90, %631 ], [ @anon.b22011231498234c7e83aed0fb57f227.85, %359 ], [ @anon.b22011231498234c7e83aed0fb57f227.83, %336 ], [ @anon.b22011231498234c7e83aed0fb57f227.79, %277 ], [ @anon.b22011231498234c7e83aed0fb57f227.77, %254 ]
+  %645 = phi ptr [ @anon.b22011231498234c7e83aed0fb57f227.90, %631 ], [ @anon.b22011231498234c7e83aed0fb57f227.83, %336 ], [ @anon.b22011231498234c7e83aed0fb57f227.79, %277 ], [ @anon.b22011231498234c7e83aed0fb57f227.77, %254 ], [ @anon.b22011231498234c7e83aed0fb57f227.85, %359 ]
   invoke void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.b3aa91ad3910538ca077da0228902b5c.59.llvm.7770800806426765245, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %645) #48
           to label %.cont1237 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -39226,9 +39226,9 @@ define hidden void @_ZN12multi_buffer11MultiBuffer4edit17h8b4802a88b11beccE(ptr 
   br i1 %647, label %651, label %.invoke
 
 .invoke:                                          ; preds = %373, %350, %291, %268, %646
-  %648 = phi i64 [ %640, %646 ], [ %368, %373 ], [ %345, %350 ], [ %286, %291 ], [ %263, %268 ]
-  %649 = phi i64 [ %643, %646 ], [ %371, %373 ], [ %348, %350 ], [ %289, %291 ], [ %266, %268 ]
-  %650 = phi ptr [ @anon.b22011231498234c7e83aed0fb57f227.90, %646 ], [ @anon.b22011231498234c7e83aed0fb57f227.85, %373 ], [ @anon.b22011231498234c7e83aed0fb57f227.83, %350 ], [ @anon.b22011231498234c7e83aed0fb57f227.79, %291 ], [ @anon.b22011231498234c7e83aed0fb57f227.77, %268 ]
+  %648 = phi i64 [ %640, %646 ], [ %345, %350 ], [ %286, %291 ], [ %263, %268 ], [ %368, %373 ]
+  %649 = phi i64 [ %643, %646 ], [ %348, %350 ], [ %289, %291 ], [ %266, %268 ], [ %371, %373 ]
+  %650 = phi ptr [ @anon.b22011231498234c7e83aed0fb57f227.90, %646 ], [ @anon.b22011231498234c7e83aed0fb57f227.83, %350 ], [ @anon.b22011231498234c7e83aed0fb57f227.79, %291 ], [ @anon.b22011231498234c7e83aed0fb57f227.77, %268 ], [ @anon.b22011231498234c7e83aed0fb57f227.85, %373 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %648, i64 noundef %649, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %650) #48
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -41230,7 +41230,7 @@ define hidden void @_ZN12multi_buffer11MultiBuffer4edit17h8c0c1cec87231b57E(ptr 
   br i1 %640, label %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$4item17h81e479196274c322E.exit200.thread", label %642
 
 .invoke1087:                                      ; preds = %355, %332, %273, %250, %627
-  %641 = phi ptr [ @anon.b22011231498234c7e83aed0fb57f227.90, %627 ], [ @anon.b22011231498234c7e83aed0fb57f227.85, %355 ], [ @anon.b22011231498234c7e83aed0fb57f227.83, %332 ], [ @anon.b22011231498234c7e83aed0fb57f227.79, %273 ], [ @anon.b22011231498234c7e83aed0fb57f227.77, %250 ]
+  %641 = phi ptr [ @anon.b22011231498234c7e83aed0fb57f227.90, %627 ], [ @anon.b22011231498234c7e83aed0fb57f227.83, %332 ], [ @anon.b22011231498234c7e83aed0fb57f227.79, %273 ], [ @anon.b22011231498234c7e83aed0fb57f227.77, %250 ], [ @anon.b22011231498234c7e83aed0fb57f227.85, %355 ]
   invoke void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.b3aa91ad3910538ca077da0228902b5c.59.llvm.7770800806426765245, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %641) #48
           to label %.cont1088 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -41242,9 +41242,9 @@ define hidden void @_ZN12multi_buffer11MultiBuffer4edit17h8c0c1cec87231b57E(ptr 
   br i1 %643, label %647, label %.invoke
 
 .invoke:                                          ; preds = %369, %346, %287, %264, %642
-  %644 = phi i64 [ %636, %642 ], [ %364, %369 ], [ %341, %346 ], [ %282, %287 ], [ %259, %264 ]
-  %645 = phi i64 [ %639, %642 ], [ %367, %369 ], [ %344, %346 ], [ %285, %287 ], [ %262, %264 ]
-  %646 = phi ptr [ @anon.b22011231498234c7e83aed0fb57f227.90, %642 ], [ @anon.b22011231498234c7e83aed0fb57f227.85, %369 ], [ @anon.b22011231498234c7e83aed0fb57f227.83, %346 ], [ @anon.b22011231498234c7e83aed0fb57f227.79, %287 ], [ @anon.b22011231498234c7e83aed0fb57f227.77, %264 ]
+  %644 = phi i64 [ %636, %642 ], [ %341, %346 ], [ %282, %287 ], [ %259, %264 ], [ %364, %369 ]
+  %645 = phi i64 [ %639, %642 ], [ %344, %346 ], [ %285, %287 ], [ %262, %264 ], [ %367, %369 ]
+  %646 = phi ptr [ @anon.b22011231498234c7e83aed0fb57f227.90, %642 ], [ @anon.b22011231498234c7e83aed0fb57f227.83, %346 ], [ @anon.b22011231498234c7e83aed0fb57f227.79, %287 ], [ @anon.b22011231498234c7e83aed0fb57f227.77, %264 ], [ @anon.b22011231498234c7e83aed0fb57f227.85, %369 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %644, i64 noundef %645, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %646) #48
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -43288,7 +43288,7 @@ define hidden void @_ZN12multi_buffer11MultiBuffer4edit17h95487682e3cfbc0fE(ptr 
   br i1 %649, label %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$4item17h81e479196274c322E.exit205.thread", label %651
 
 .invoke1057:                                      ; preds = %364, %341, %282, %259, %636
-  %650 = phi ptr [ @anon.b22011231498234c7e83aed0fb57f227.90, %636 ], [ @anon.b22011231498234c7e83aed0fb57f227.85, %364 ], [ @anon.b22011231498234c7e83aed0fb57f227.83, %341 ], [ @anon.b22011231498234c7e83aed0fb57f227.79, %282 ], [ @anon.b22011231498234c7e83aed0fb57f227.77, %259 ]
+  %650 = phi ptr [ @anon.b22011231498234c7e83aed0fb57f227.90, %636 ], [ @anon.b22011231498234c7e83aed0fb57f227.83, %341 ], [ @anon.b22011231498234c7e83aed0fb57f227.79, %282 ], [ @anon.b22011231498234c7e83aed0fb57f227.77, %259 ], [ @anon.b22011231498234c7e83aed0fb57f227.85, %364 ]
   invoke void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.b3aa91ad3910538ca077da0228902b5c.59.llvm.7770800806426765245, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %650) #48
           to label %.cont1058 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -43300,9 +43300,9 @@ define hidden void @_ZN12multi_buffer11MultiBuffer4edit17h95487682e3cfbc0fE(ptr 
   br i1 %652, label %656, label %.invoke
 
 .invoke:                                          ; preds = %378, %355, %296, %273, %651
-  %653 = phi i64 [ %645, %651 ], [ %373, %378 ], [ %350, %355 ], [ %291, %296 ], [ %268, %273 ]
-  %654 = phi i64 [ %648, %651 ], [ %376, %378 ], [ %353, %355 ], [ %294, %296 ], [ %271, %273 ]
-  %655 = phi ptr [ @anon.b22011231498234c7e83aed0fb57f227.90, %651 ], [ @anon.b22011231498234c7e83aed0fb57f227.85, %378 ], [ @anon.b22011231498234c7e83aed0fb57f227.83, %355 ], [ @anon.b22011231498234c7e83aed0fb57f227.79, %296 ], [ @anon.b22011231498234c7e83aed0fb57f227.77, %273 ]
+  %653 = phi i64 [ %645, %651 ], [ %350, %355 ], [ %291, %296 ], [ %268, %273 ], [ %373, %378 ]
+  %654 = phi i64 [ %648, %651 ], [ %353, %355 ], [ %294, %296 ], [ %271, %273 ], [ %376, %378 ]
+  %655 = phi ptr [ @anon.b22011231498234c7e83aed0fb57f227.90, %651 ], [ @anon.b22011231498234c7e83aed0fb57f227.83, %355 ], [ @anon.b22011231498234c7e83aed0fb57f227.79, %296 ], [ @anon.b22011231498234c7e83aed0fb57f227.77, %273 ], [ @anon.b22011231498234c7e83aed0fb57f227.85, %378 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %653, i64 noundef %654, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %655) #48
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -45321,7 +45321,7 @@ define hidden void @_ZN12multi_buffer11MultiBuffer4edit17hb08b6c05cd7ce889E(ptr 
   br i1 %653, label %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$4item17h81e479196274c322E.exit192.thread", label %655
 
 .invoke1149:                                      ; preds = %368, %345, %286, %263, %640
-  %654 = phi ptr [ @anon.b22011231498234c7e83aed0fb57f227.90, %640 ], [ @anon.b22011231498234c7e83aed0fb57f227.85, %368 ], [ @anon.b22011231498234c7e83aed0fb57f227.83, %345 ], [ @anon.b22011231498234c7e83aed0fb57f227.79, %286 ], [ @anon.b22011231498234c7e83aed0fb57f227.77, %263 ]
+  %654 = phi ptr [ @anon.b22011231498234c7e83aed0fb57f227.90, %640 ], [ @anon.b22011231498234c7e83aed0fb57f227.83, %345 ], [ @anon.b22011231498234c7e83aed0fb57f227.79, %286 ], [ @anon.b22011231498234c7e83aed0fb57f227.77, %263 ], [ @anon.b22011231498234c7e83aed0fb57f227.85, %368 ]
   invoke void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.b3aa91ad3910538ca077da0228902b5c.59.llvm.7770800806426765245, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %654) #48
           to label %.cont1150 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -45333,9 +45333,9 @@ define hidden void @_ZN12multi_buffer11MultiBuffer4edit17hb08b6c05cd7ce889E(ptr 
   br i1 %656, label %660, label %.invoke
 
 .invoke:                                          ; preds = %382, %359, %300, %277, %655
-  %657 = phi i64 [ %649, %655 ], [ %377, %382 ], [ %354, %359 ], [ %295, %300 ], [ %272, %277 ]
-  %658 = phi i64 [ %652, %655 ], [ %380, %382 ], [ %357, %359 ], [ %298, %300 ], [ %275, %277 ]
-  %659 = phi ptr [ @anon.b22011231498234c7e83aed0fb57f227.90, %655 ], [ @anon.b22011231498234c7e83aed0fb57f227.85, %382 ], [ @anon.b22011231498234c7e83aed0fb57f227.83, %359 ], [ @anon.b22011231498234c7e83aed0fb57f227.79, %300 ], [ @anon.b22011231498234c7e83aed0fb57f227.77, %277 ]
+  %657 = phi i64 [ %649, %655 ], [ %354, %359 ], [ %295, %300 ], [ %272, %277 ], [ %377, %382 ]
+  %658 = phi i64 [ %652, %655 ], [ %357, %359 ], [ %298, %300 ], [ %275, %277 ], [ %380, %382 ]
+  %659 = phi ptr [ @anon.b22011231498234c7e83aed0fb57f227.90, %655 ], [ @anon.b22011231498234c7e83aed0fb57f227.83, %359 ], [ @anon.b22011231498234c7e83aed0fb57f227.79, %300 ], [ @anon.b22011231498234c7e83aed0fb57f227.77, %277 ], [ @anon.b22011231498234c7e83aed0fb57f227.85, %382 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %657, i64 noundef %658, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %659) #48
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -47290,7 +47290,7 @@ define hidden void @_ZN12multi_buffer11MultiBuffer4edit17hcd74352130f1d6ddE(ptr 
   br i1 %645, label %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$4item17h81e479196274c322E.exit196.thread", label %647
 
 .invoke1036:                                      ; preds = %360, %337, %278, %255, %632
-  %646 = phi ptr [ @anon.b22011231498234c7e83aed0fb57f227.90, %632 ], [ @anon.b22011231498234c7e83aed0fb57f227.85, %360 ], [ @anon.b22011231498234c7e83aed0fb57f227.83, %337 ], [ @anon.b22011231498234c7e83aed0fb57f227.79, %278 ], [ @anon.b22011231498234c7e83aed0fb57f227.77, %255 ]
+  %646 = phi ptr [ @anon.b22011231498234c7e83aed0fb57f227.90, %632 ], [ @anon.b22011231498234c7e83aed0fb57f227.83, %337 ], [ @anon.b22011231498234c7e83aed0fb57f227.79, %278 ], [ @anon.b22011231498234c7e83aed0fb57f227.77, %255 ], [ @anon.b22011231498234c7e83aed0fb57f227.85, %360 ]
   invoke void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.b3aa91ad3910538ca077da0228902b5c.59.llvm.7770800806426765245, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %646) #48
           to label %.cont1037 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -47302,9 +47302,9 @@ define hidden void @_ZN12multi_buffer11MultiBuffer4edit17hcd74352130f1d6ddE(ptr 
   br i1 %648, label %652, label %.invoke
 
 .invoke:                                          ; preds = %374, %351, %292, %269, %647
-  %649 = phi i64 [ %641, %647 ], [ %369, %374 ], [ %346, %351 ], [ %287, %292 ], [ %264, %269 ]
-  %650 = phi i64 [ %644, %647 ], [ %372, %374 ], [ %349, %351 ], [ %290, %292 ], [ %267, %269 ]
-  %651 = phi ptr [ @anon.b22011231498234c7e83aed0fb57f227.90, %647 ], [ @anon.b22011231498234c7e83aed0fb57f227.85, %374 ], [ @anon.b22011231498234c7e83aed0fb57f227.83, %351 ], [ @anon.b22011231498234c7e83aed0fb57f227.79, %292 ], [ @anon.b22011231498234c7e83aed0fb57f227.77, %269 ]
+  %649 = phi i64 [ %641, %647 ], [ %346, %351 ], [ %287, %292 ], [ %264, %269 ], [ %369, %374 ]
+  %650 = phi i64 [ %644, %647 ], [ %349, %351 ], [ %290, %292 ], [ %267, %269 ], [ %372, %374 ]
+  %651 = phi ptr [ @anon.b22011231498234c7e83aed0fb57f227.90, %647 ], [ @anon.b22011231498234c7e83aed0fb57f227.83, %351 ], [ @anon.b22011231498234c7e83aed0fb57f227.79, %292 ], [ @anon.b22011231498234c7e83aed0fb57f227.77, %269 ], [ @anon.b22011231498234c7e83aed0fb57f227.85, %374 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %649, i64 noundef %650, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %651) #48
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -49256,7 +49256,7 @@ define hidden void @_ZN12multi_buffer11MultiBuffer4edit17hcf470cf5dca3ee53E(ptr 
   br i1 %649, label %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$4item17h81e479196274c322E.exit192.thread", label %651
 
 .invoke1149:                                      ; preds = %364, %341, %282, %259, %636
-  %650 = phi ptr [ @anon.b22011231498234c7e83aed0fb57f227.90, %636 ], [ @anon.b22011231498234c7e83aed0fb57f227.85, %364 ], [ @anon.b22011231498234c7e83aed0fb57f227.83, %341 ], [ @anon.b22011231498234c7e83aed0fb57f227.79, %282 ], [ @anon.b22011231498234c7e83aed0fb57f227.77, %259 ]
+  %650 = phi ptr [ @anon.b22011231498234c7e83aed0fb57f227.90, %636 ], [ @anon.b22011231498234c7e83aed0fb57f227.83, %341 ], [ @anon.b22011231498234c7e83aed0fb57f227.79, %282 ], [ @anon.b22011231498234c7e83aed0fb57f227.77, %259 ], [ @anon.b22011231498234c7e83aed0fb57f227.85, %364 ]
   invoke void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.b3aa91ad3910538ca077da0228902b5c.59.llvm.7770800806426765245, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %650) #48
           to label %.cont1150 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -49268,9 +49268,9 @@ define hidden void @_ZN12multi_buffer11MultiBuffer4edit17hcf470cf5dca3ee53E(ptr 
   br i1 %652, label %656, label %.invoke
 
 .invoke:                                          ; preds = %378, %355, %296, %273, %651
-  %653 = phi i64 [ %645, %651 ], [ %373, %378 ], [ %350, %355 ], [ %291, %296 ], [ %268, %273 ]
-  %654 = phi i64 [ %648, %651 ], [ %376, %378 ], [ %353, %355 ], [ %294, %296 ], [ %271, %273 ]
-  %655 = phi ptr [ @anon.b22011231498234c7e83aed0fb57f227.90, %651 ], [ @anon.b22011231498234c7e83aed0fb57f227.85, %378 ], [ @anon.b22011231498234c7e83aed0fb57f227.83, %355 ], [ @anon.b22011231498234c7e83aed0fb57f227.79, %296 ], [ @anon.b22011231498234c7e83aed0fb57f227.77, %273 ]
+  %653 = phi i64 [ %645, %651 ], [ %350, %355 ], [ %291, %296 ], [ %268, %273 ], [ %373, %378 ]
+  %654 = phi i64 [ %648, %651 ], [ %353, %355 ], [ %294, %296 ], [ %271, %273 ], [ %376, %378 ]
+  %655 = phi ptr [ @anon.b22011231498234c7e83aed0fb57f227.90, %651 ], [ @anon.b22011231498234c7e83aed0fb57f227.83, %355 ], [ @anon.b22011231498234c7e83aed0fb57f227.79, %296 ], [ @anon.b22011231498234c7e83aed0fb57f227.77, %273 ], [ @anon.b22011231498234c7e83aed0fb57f227.85, %378 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %653, i64 noundef %654, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %655) #48
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -51227,7 +51227,7 @@ define hidden void @_ZN12multi_buffer11MultiBuffer4edit17hd40ccd980ef2e9efE(ptr 
   br i1 %643, label %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$4item17h81e479196274c322E.exit202.thread", label %645
 
 .invoke1052:                                      ; preds = %358, %335, %276, %253, %630
-  %644 = phi ptr [ @anon.b22011231498234c7e83aed0fb57f227.90, %630 ], [ @anon.b22011231498234c7e83aed0fb57f227.85, %358 ], [ @anon.b22011231498234c7e83aed0fb57f227.83, %335 ], [ @anon.b22011231498234c7e83aed0fb57f227.79, %276 ], [ @anon.b22011231498234c7e83aed0fb57f227.77, %253 ]
+  %644 = phi ptr [ @anon.b22011231498234c7e83aed0fb57f227.90, %630 ], [ @anon.b22011231498234c7e83aed0fb57f227.83, %335 ], [ @anon.b22011231498234c7e83aed0fb57f227.79, %276 ], [ @anon.b22011231498234c7e83aed0fb57f227.77, %253 ], [ @anon.b22011231498234c7e83aed0fb57f227.85, %358 ]
   invoke void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.b3aa91ad3910538ca077da0228902b5c.59.llvm.7770800806426765245, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %644) #48
           to label %.cont1053 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -51239,9 +51239,9 @@ define hidden void @_ZN12multi_buffer11MultiBuffer4edit17hd40ccd980ef2e9efE(ptr 
   br i1 %646, label %650, label %.invoke
 
 .invoke:                                          ; preds = %372, %349, %290, %267, %645
-  %647 = phi i64 [ %639, %645 ], [ %367, %372 ], [ %344, %349 ], [ %285, %290 ], [ %262, %267 ]
-  %648 = phi i64 [ %642, %645 ], [ %370, %372 ], [ %347, %349 ], [ %288, %290 ], [ %265, %267 ]
-  %649 = phi ptr [ @anon.b22011231498234c7e83aed0fb57f227.90, %645 ], [ @anon.b22011231498234c7e83aed0fb57f227.85, %372 ], [ @anon.b22011231498234c7e83aed0fb57f227.83, %349 ], [ @anon.b22011231498234c7e83aed0fb57f227.79, %290 ], [ @anon.b22011231498234c7e83aed0fb57f227.77, %267 ]
+  %647 = phi i64 [ %639, %645 ], [ %344, %349 ], [ %285, %290 ], [ %262, %267 ], [ %367, %372 ]
+  %648 = phi i64 [ %642, %645 ], [ %347, %349 ], [ %288, %290 ], [ %265, %267 ], [ %370, %372 ]
+  %649 = phi ptr [ @anon.b22011231498234c7e83aed0fb57f227.90, %645 ], [ @anon.b22011231498234c7e83aed0fb57f227.83, %349 ], [ @anon.b22011231498234c7e83aed0fb57f227.79, %290 ], [ @anon.b22011231498234c7e83aed0fb57f227.77, %267 ], [ @anon.b22011231498234c7e83aed0fb57f227.85, %372 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %647, i64 noundef %648, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %649) #48
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -53240,7 +53240,7 @@ define hidden void @_ZN12multi_buffer11MultiBuffer4edit17hd5b6018d55796ca1E(ptr 
   br i1 %643, label %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$4item17h81e479196274c322E.exit202.thread", label %645
 
 .invoke1052:                                      ; preds = %358, %335, %276, %253, %630
-  %644 = phi ptr [ @anon.b22011231498234c7e83aed0fb57f227.90, %630 ], [ @anon.b22011231498234c7e83aed0fb57f227.85, %358 ], [ @anon.b22011231498234c7e83aed0fb57f227.83, %335 ], [ @anon.b22011231498234c7e83aed0fb57f227.79, %276 ], [ @anon.b22011231498234c7e83aed0fb57f227.77, %253 ]
+  %644 = phi ptr [ @anon.b22011231498234c7e83aed0fb57f227.90, %630 ], [ @anon.b22011231498234c7e83aed0fb57f227.83, %335 ], [ @anon.b22011231498234c7e83aed0fb57f227.79, %276 ], [ @anon.b22011231498234c7e83aed0fb57f227.77, %253 ], [ @anon.b22011231498234c7e83aed0fb57f227.85, %358 ]
   invoke void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.b3aa91ad3910538ca077da0228902b5c.59.llvm.7770800806426765245, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %644) #48
           to label %.cont1053 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -53252,9 +53252,9 @@ define hidden void @_ZN12multi_buffer11MultiBuffer4edit17hd5b6018d55796ca1E(ptr 
   br i1 %646, label %650, label %.invoke
 
 .invoke:                                          ; preds = %372, %349, %290, %267, %645
-  %647 = phi i64 [ %639, %645 ], [ %367, %372 ], [ %344, %349 ], [ %285, %290 ], [ %262, %267 ]
-  %648 = phi i64 [ %642, %645 ], [ %370, %372 ], [ %347, %349 ], [ %288, %290 ], [ %265, %267 ]
-  %649 = phi ptr [ @anon.b22011231498234c7e83aed0fb57f227.90, %645 ], [ @anon.b22011231498234c7e83aed0fb57f227.85, %372 ], [ @anon.b22011231498234c7e83aed0fb57f227.83, %349 ], [ @anon.b22011231498234c7e83aed0fb57f227.79, %290 ], [ @anon.b22011231498234c7e83aed0fb57f227.77, %267 ]
+  %647 = phi i64 [ %639, %645 ], [ %344, %349 ], [ %285, %290 ], [ %262, %267 ], [ %367, %372 ]
+  %648 = phi i64 [ %642, %645 ], [ %347, %349 ], [ %288, %290 ], [ %265, %267 ], [ %370, %372 ]
+  %649 = phi ptr [ @anon.b22011231498234c7e83aed0fb57f227.90, %645 ], [ @anon.b22011231498234c7e83aed0fb57f227.83, %349 ], [ @anon.b22011231498234c7e83aed0fb57f227.79, %290 ], [ @anon.b22011231498234c7e83aed0fb57f227.77, %267 ], [ @anon.b22011231498234c7e83aed0fb57f227.85, %372 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %647, i64 noundef %648, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %649) #48
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -55242,7 +55242,7 @@ define hidden void @_ZN12multi_buffer11MultiBuffer4edit17hd88fde074eeb0cfdE(ptr 
   br i1 %642, label %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$4item17h81e479196274c322E.exit202.thread", label %644
 
 .invoke1173:                                      ; preds = %357, %334, %275, %252, %629
-  %643 = phi ptr [ @anon.b22011231498234c7e83aed0fb57f227.90, %629 ], [ @anon.b22011231498234c7e83aed0fb57f227.85, %357 ], [ @anon.b22011231498234c7e83aed0fb57f227.83, %334 ], [ @anon.b22011231498234c7e83aed0fb57f227.79, %275 ], [ @anon.b22011231498234c7e83aed0fb57f227.77, %252 ]
+  %643 = phi ptr [ @anon.b22011231498234c7e83aed0fb57f227.90, %629 ], [ @anon.b22011231498234c7e83aed0fb57f227.83, %334 ], [ @anon.b22011231498234c7e83aed0fb57f227.79, %275 ], [ @anon.b22011231498234c7e83aed0fb57f227.77, %252 ], [ @anon.b22011231498234c7e83aed0fb57f227.85, %357 ]
   invoke void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.b3aa91ad3910538ca077da0228902b5c.59.llvm.7770800806426765245, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %643) #48
           to label %.cont1174 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -55254,9 +55254,9 @@ define hidden void @_ZN12multi_buffer11MultiBuffer4edit17hd88fde074eeb0cfdE(ptr 
   br i1 %645, label %649, label %.invoke
 
 .invoke:                                          ; preds = %371, %348, %289, %266, %644
-  %646 = phi i64 [ %638, %644 ], [ %366, %371 ], [ %343, %348 ], [ %284, %289 ], [ %261, %266 ]
-  %647 = phi i64 [ %641, %644 ], [ %369, %371 ], [ %346, %348 ], [ %287, %289 ], [ %264, %266 ]
-  %648 = phi ptr [ @anon.b22011231498234c7e83aed0fb57f227.90, %644 ], [ @anon.b22011231498234c7e83aed0fb57f227.85, %371 ], [ @anon.b22011231498234c7e83aed0fb57f227.83, %348 ], [ @anon.b22011231498234c7e83aed0fb57f227.79, %289 ], [ @anon.b22011231498234c7e83aed0fb57f227.77, %266 ]
+  %646 = phi i64 [ %638, %644 ], [ %343, %348 ], [ %284, %289 ], [ %261, %266 ], [ %366, %371 ]
+  %647 = phi i64 [ %641, %644 ], [ %346, %348 ], [ %287, %289 ], [ %264, %266 ], [ %369, %371 ]
+  %648 = phi ptr [ @anon.b22011231498234c7e83aed0fb57f227.90, %644 ], [ @anon.b22011231498234c7e83aed0fb57f227.83, %348 ], [ @anon.b22011231498234c7e83aed0fb57f227.79, %289 ], [ @anon.b22011231498234c7e83aed0fb57f227.77, %266 ], [ @anon.b22011231498234c7e83aed0fb57f227.85, %371 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %646, i64 noundef %647, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %648) #48
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -57253,7 +57253,7 @@ define hidden void @_ZN12multi_buffer11MultiBuffer4edit17hecabd5b18629ceadE(ptr 
   br i1 %643, label %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$4item17h81e479196274c322E.exit202.thread", label %645
 
 .invoke1173:                                      ; preds = %358, %335, %276, %253, %630
-  %644 = phi ptr [ @anon.b22011231498234c7e83aed0fb57f227.90, %630 ], [ @anon.b22011231498234c7e83aed0fb57f227.85, %358 ], [ @anon.b22011231498234c7e83aed0fb57f227.83, %335 ], [ @anon.b22011231498234c7e83aed0fb57f227.79, %276 ], [ @anon.b22011231498234c7e83aed0fb57f227.77, %253 ]
+  %644 = phi ptr [ @anon.b22011231498234c7e83aed0fb57f227.90, %630 ], [ @anon.b22011231498234c7e83aed0fb57f227.83, %335 ], [ @anon.b22011231498234c7e83aed0fb57f227.79, %276 ], [ @anon.b22011231498234c7e83aed0fb57f227.77, %253 ], [ @anon.b22011231498234c7e83aed0fb57f227.85, %358 ]
   invoke void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.b3aa91ad3910538ca077da0228902b5c.59.llvm.7770800806426765245, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %644) #48
           to label %.cont1174 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -57265,9 +57265,9 @@ define hidden void @_ZN12multi_buffer11MultiBuffer4edit17hecabd5b18629ceadE(ptr 
   br i1 %646, label %650, label %.invoke
 
 .invoke:                                          ; preds = %372, %349, %290, %267, %645
-  %647 = phi i64 [ %639, %645 ], [ %367, %372 ], [ %344, %349 ], [ %285, %290 ], [ %262, %267 ]
-  %648 = phi i64 [ %642, %645 ], [ %370, %372 ], [ %347, %349 ], [ %288, %290 ], [ %265, %267 ]
-  %649 = phi ptr [ @anon.b22011231498234c7e83aed0fb57f227.90, %645 ], [ @anon.b22011231498234c7e83aed0fb57f227.85, %372 ], [ @anon.b22011231498234c7e83aed0fb57f227.83, %349 ], [ @anon.b22011231498234c7e83aed0fb57f227.79, %290 ], [ @anon.b22011231498234c7e83aed0fb57f227.77, %267 ]
+  %647 = phi i64 [ %639, %645 ], [ %344, %349 ], [ %285, %290 ], [ %262, %267 ], [ %367, %372 ]
+  %648 = phi i64 [ %642, %645 ], [ %347, %349 ], [ %288, %290 ], [ %265, %267 ], [ %370, %372 ]
+  %649 = phi ptr [ @anon.b22011231498234c7e83aed0fb57f227.90, %645 ], [ @anon.b22011231498234c7e83aed0fb57f227.83, %349 ], [ @anon.b22011231498234c7e83aed0fb57f227.79, %290 ], [ @anon.b22011231498234c7e83aed0fb57f227.77, %267 ], [ @anon.b22011231498234c7e83aed0fb57f227.85, %372 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %647, i64 noundef %648, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %649) #48
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -70158,18 +70158,18 @@ default.unreachable:                              ; preds = %"_ZN134_$LT$$LP$cor
 
 "_ZN134_$LT$$LP$core..ops..range..Bound$LT$T$GT$$C$core..ops..range..Bound$LT$T$GT$$RP$$u20$as$u20$core..ops..range..RangeBounds$LT$T$GT$$GT$11start_bound17h14205e390fe41337E.exit.i": ; preds = %67, %66, %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$4item17haa7a209179b0f728E.exit"
   switch i64 %.sroa.0.0.i1541, label %default.unreachable [
-    i64 0, label %69
-    i64 1, label %_ZN4core3ops5range11RangeBounds8contains17hdb0b8aba0ffc3872E.exit
+    i64 0, label %_ZN4core3ops5range11RangeBounds8contains17hdb0b8aba0ffc3872E.exit
+    i64 1, label %69
     i64 2, label %_ZN4core3ops5range11RangeBounds8contains17hdb0b8aba0ffc3872E.exit.thread50
   ]
 
 69:                                               ; preds = %"_ZN134_$LT$$LP$core..ops..range..Bound$LT$T$GT$$C$core..ops..range..Bound$LT$T$GT$$RP$$u20$as$u20$core..ops..range..RangeBounds$LT$T$GT$$GT$11start_bound17h14205e390fe41337E.exit.i"
-  %.not = icmp ugt i64 %.val, %.sroa.48.0
-  br i1 %.not, label %_ZN4core3ops5range11RangeBounds8contains17hdb0b8aba0ffc3872E.exit.thread, label %_ZN4core3ops5range11RangeBounds8contains17hdb0b8aba0ffc3872E.exit.thread50
-
-_ZN4core3ops5range11RangeBounds8contains17hdb0b8aba0ffc3872E.exit: ; preds = %"_ZN134_$LT$$LP$core..ops..range..Bound$LT$T$GT$$C$core..ops..range..Bound$LT$T$GT$$RP$$u20$as$u20$core..ops..range..RangeBounds$LT$T$GT$$GT$11start_bound17h14205e390fe41337E.exit.i"
   %70 = icmp ult i64 %.val, %.sroa.48.0
   br i1 %70, label %_ZN4core3ops5range11RangeBounds8contains17hdb0b8aba0ffc3872E.exit.thread50, label %_ZN4core3ops5range11RangeBounds8contains17hdb0b8aba0ffc3872E.exit.thread
+
+_ZN4core3ops5range11RangeBounds8contains17hdb0b8aba0ffc3872E.exit: ; preds = %"_ZN134_$LT$$LP$core..ops..range..Bound$LT$T$GT$$C$core..ops..range..Bound$LT$T$GT$$RP$$u20$as$u20$core..ops..range..RangeBounds$LT$T$GT$$GT$11start_bound17h14205e390fe41337E.exit.i"
+  %.not = icmp ugt i64 %.val, %.sroa.48.0
+  br i1 %.not, label %_ZN4core3ops5range11RangeBounds8contains17hdb0b8aba0ffc3872E.exit.thread, label %_ZN4core3ops5range11RangeBounds8contains17hdb0b8aba0ffc3872E.exit.thread50
 
 _ZN4core3ops5range11RangeBounds8contains17hdb0b8aba0ffc3872E.exit.thread: ; preds = %66, %67, %69, %_ZN4core3ops5range11RangeBounds8contains17hdb0b8aba0ffc3872E.exit
   call void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$14search_forward17h53ecc734e06e7f24E"(ptr noalias noundef nonnull align 8 dereferenceable(552) %6, ptr noalias noundef nonnull readonly align 1 inttoptr (i64 1 to ptr), ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b22011231498234c7e83aed0fb57f227.161)
@@ -151332,7 +151332,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17h2bc4f3e1c
   br label %71
 
 .loopexit.split-lp:                               ; preds = %67, %.loopexit135, %106, %116, %121, %130
-  %.sroa.03.0.ph = phi i8 [ %.sroa.03.2, %116 ], [ 1, %67 ], [ %.sroa.03.2, %.loopexit135 ], [ %.sroa.03.2, %106 ], [ %.sroa.03.2, %121 ], [ %.sroa.03.2, %130 ]
+  %.sroa.03.0.ph = phi i8 [ 1, %67 ], [ %.sroa.03.2, %116 ], [ %.sroa.03.2, %.loopexit135 ], [ %.sroa.03.2, %106 ], [ %.sroa.03.2, %121 ], [ %.sroa.03.2, %130 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %71
@@ -152040,7 +152040,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17h2ce1551a0
   br label %71
 
 .loopexit.split-lp:                               ; preds = %67, %.loopexit135, %106, %116, %121, %130
-  %.sroa.03.0.ph = phi i8 [ %.sroa.03.2, %116 ], [ 1, %67 ], [ %.sroa.03.2, %.loopexit135 ], [ %.sroa.03.2, %106 ], [ %.sroa.03.2, %121 ], [ %.sroa.03.2, %130 ]
+  %.sroa.03.0.ph = phi i8 [ 1, %67 ], [ %.sroa.03.2, %116 ], [ %.sroa.03.2, %.loopexit135 ], [ %.sroa.03.2, %106 ], [ %.sroa.03.2, %121 ], [ %.sroa.03.2, %130 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %71
@@ -152748,7 +152748,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17h36f3ff940
   br label %71
 
 .loopexit.split-lp:                               ; preds = %67, %.loopexit135, %106, %116, %121, %130
-  %.sroa.03.0.ph = phi i8 [ %.sroa.03.2, %116 ], [ 1, %67 ], [ %.sroa.03.2, %.loopexit135 ], [ %.sroa.03.2, %106 ], [ %.sroa.03.2, %121 ], [ %.sroa.03.2, %130 ]
+  %.sroa.03.0.ph = phi i8 [ 1, %67 ], [ %.sroa.03.2, %116 ], [ %.sroa.03.2, %.loopexit135 ], [ %.sroa.03.2, %106 ], [ %.sroa.03.2, %121 ], [ %.sroa.03.2, %130 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %71
@@ -153456,7 +153456,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17h3a56ed4b7
   br label %71
 
 .loopexit.split-lp:                               ; preds = %67, %.loopexit135, %106, %116, %121, %130
-  %.sroa.03.0.ph = phi i8 [ %.sroa.03.2, %116 ], [ 1, %67 ], [ %.sroa.03.2, %.loopexit135 ], [ %.sroa.03.2, %106 ], [ %.sroa.03.2, %121 ], [ %.sroa.03.2, %130 ]
+  %.sroa.03.0.ph = phi i8 [ 1, %67 ], [ %.sroa.03.2, %116 ], [ %.sroa.03.2, %.loopexit135 ], [ %.sroa.03.2, %106 ], [ %.sroa.03.2, %121 ], [ %.sroa.03.2, %130 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %71
@@ -154330,7 +154330,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17h5124b9cc5
   br label %71
 
 .loopexit.split-lp:                               ; preds = %67, %.loopexit135, %106, %116, %121, %130
-  %.sroa.03.0.ph = phi i8 [ %.sroa.03.2, %116 ], [ 1, %67 ], [ %.sroa.03.2, %.loopexit135 ], [ %.sroa.03.2, %106 ], [ %.sroa.03.2, %121 ], [ %.sroa.03.2, %130 ]
+  %.sroa.03.0.ph = phi i8 [ 1, %67 ], [ %.sroa.03.2, %116 ], [ %.sroa.03.2, %.loopexit135 ], [ %.sroa.03.2, %106 ], [ %.sroa.03.2, %121 ], [ %.sroa.03.2, %130 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %71
@@ -155204,7 +155204,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17h5ed060a8f
   br label %71
 
 .loopexit.split-lp:                               ; preds = %67, %.loopexit135, %106, %116, %121, %130
-  %.sroa.03.0.ph = phi i8 [ %.sroa.03.2, %116 ], [ 1, %67 ], [ %.sroa.03.2, %.loopexit135 ], [ %.sroa.03.2, %106 ], [ %.sroa.03.2, %121 ], [ %.sroa.03.2, %130 ]
+  %.sroa.03.0.ph = phi i8 [ 1, %67 ], [ %.sroa.03.2, %116 ], [ %.sroa.03.2, %.loopexit135 ], [ %.sroa.03.2, %106 ], [ %.sroa.03.2, %121 ], [ %.sroa.03.2, %130 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %71
@@ -155912,7 +155912,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17h80d40f229
   br label %71
 
 .loopexit.split-lp:                               ; preds = %67, %.loopexit135, %106, %116, %121, %130
-  %.sroa.03.0.ph = phi i8 [ %.sroa.03.2, %116 ], [ 1, %67 ], [ %.sroa.03.2, %.loopexit135 ], [ %.sroa.03.2, %106 ], [ %.sroa.03.2, %121 ], [ %.sroa.03.2, %130 ]
+  %.sroa.03.0.ph = phi i8 [ 1, %67 ], [ %.sroa.03.2, %116 ], [ %.sroa.03.2, %.loopexit135 ], [ %.sroa.03.2, %106 ], [ %.sroa.03.2, %121 ], [ %.sroa.03.2, %130 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %71
@@ -156877,7 +156877,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17ha3ffbe5bf
   br label %71
 
 .loopexit.split-lp:                               ; preds = %67, %.loopexit135, %106, %116, %121, %130
-  %.sroa.03.0.ph = phi i8 [ %.sroa.03.2, %116 ], [ 1, %67 ], [ %.sroa.03.2, %.loopexit135 ], [ %.sroa.03.2, %106 ], [ %.sroa.03.2, %121 ], [ %.sroa.03.2, %130 ]
+  %.sroa.03.0.ph = phi i8 [ 1, %67 ], [ %.sroa.03.2, %116 ], [ %.sroa.03.2, %.loopexit135 ], [ %.sroa.03.2, %106 ], [ %.sroa.03.2, %121 ], [ %.sroa.03.2, %130 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %71
@@ -157672,7 +157672,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17hb62acae4c
   br label %71
 
 .loopexit.split-lp:                               ; preds = %67, %.loopexit135, %106, %116, %121, %130
-  %.sroa.03.0.ph = phi i8 [ %.sroa.03.2, %116 ], [ 1, %67 ], [ %.sroa.03.2, %.loopexit135 ], [ %.sroa.03.2, %106 ], [ %.sroa.03.2, %121 ], [ %.sroa.03.2, %130 ]
+  %.sroa.03.0.ph = phi i8 [ 1, %67 ], [ %.sroa.03.2, %116 ], [ %.sroa.03.2, %.loopexit135 ], [ %.sroa.03.2, %106 ], [ %.sroa.03.2, %121 ], [ %.sroa.03.2, %130 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %71
@@ -158380,7 +158380,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17hbf80d905b
   br label %71
 
 .loopexit.split-lp:                               ; preds = %67, %.loopexit135, %106, %116, %121, %130
-  %.sroa.03.0.ph = phi i8 [ %.sroa.03.2, %116 ], [ 1, %67 ], [ %.sroa.03.2, %.loopexit135 ], [ %.sroa.03.2, %106 ], [ %.sroa.03.2, %121 ], [ %.sroa.03.2, %130 ]
+  %.sroa.03.0.ph = phi i8 [ 1, %67 ], [ %.sroa.03.2, %116 ], [ %.sroa.03.2, %.loopexit135 ], [ %.sroa.03.2, %106 ], [ %.sroa.03.2, %121 ], [ %.sroa.03.2, %130 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %71
@@ -159088,7 +159088,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17hca7ebc5eb
   br label %71
 
 .loopexit.split-lp:                               ; preds = %67, %.loopexit135, %106, %116, %121, %130
-  %.sroa.03.0.ph = phi i8 [ %.sroa.03.2, %116 ], [ 1, %67 ], [ %.sroa.03.2, %.loopexit135 ], [ %.sroa.03.2, %106 ], [ %.sroa.03.2, %121 ], [ %.sroa.03.2, %130 ]
+  %.sroa.03.0.ph = phi i8 [ 1, %67 ], [ %.sroa.03.2, %116 ], [ %.sroa.03.2, %.loopexit135 ], [ %.sroa.03.2, %106 ], [ %.sroa.03.2, %121 ], [ %.sroa.03.2, %130 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %71
@@ -160268,7 +160268,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17hffdc63951
   br label %65
 
 .loopexit.split-lp:                               ; preds = %62, %.loopexit129, %100, %110, %115, %124
-  %.sroa.03.0.ph = phi i8 [ %.sroa.03.2, %110 ], [ 1, %62 ], [ %.sroa.03.2, %.loopexit129 ], [ %.sroa.03.2, %100 ], [ %.sroa.03.2, %115 ], [ %.sroa.03.2, %124 ]
+  %.sroa.03.0.ph = phi i8 [ 1, %62 ], [ %.sroa.03.2, %110 ], [ %.sroa.03.2, %.loopexit129 ], [ %.sroa.03.2, %100 ], [ %.sroa.03.2, %115 ], [ %.sroa.03.2, %124 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %65
@@ -171645,7 +171645,7 @@ define hidden void @_ZN6editor11display_map8fold_map13FoldMapWriter4fold17he3018
   br label %68
 
 .loopexit.split-lp:                               ; preds = %"_ZN108_$LT$core..iter..adapters..peekable..Peekable$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc81a6fc5dea2c813E.exit.thread", %.loopexit113, %"_ZN4core3ptr81drop_in_place$LT$sum_tree..SumTree$LT$editor..display_map..fold_map..Fold$GT$$GT$17h82dfbf15e520e7c1E.exit", %101
-  %.sroa.04.2.ph = phi i8 [ 1, %101 ], [ 1, %"_ZN108_$LT$core..iter..adapters..peekable..Peekable$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc81a6fc5dea2c813E.exit.thread" ], [ 1, %.loopexit113 ], [ 0, %"_ZN4core3ptr81drop_in_place$LT$sum_tree..SumTree$LT$editor..display_map..fold_map..Fold$GT$$GT$17h82dfbf15e520e7c1E.exit" ]
+  %.sroa.04.2.ph = phi i8 [ 1, %"_ZN108_$LT$core..iter..adapters..peekable..Peekable$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc81a6fc5dea2c813E.exit.thread" ], [ 1, %101 ], [ 1, %.loopexit113 ], [ 0, %"_ZN4core3ptr81drop_in_place$LT$sum_tree..SumTree$LT$editor..display_map..fold_map..Fold$GT$$GT$17h82dfbf15e520e7c1E.exit" ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %68
@@ -175715,15 +175715,15 @@ _ZN6editor21selections_collection20SelectionsCollection16disjoint_anchors17h9faa
   %109 = icmp eq i64 %108, 0
   %110 = getelementptr inbounds nuw i8, ptr %66, i64 80
   %111 = load i64, ptr %110, align 8, !alias.scope !35695, !noalias !35696, !noundef !9
-  br i1 %109, label %112, label %"_ZN6editor7lsp_ext42find_specific_language_server_in_selection28_$u7b$$u7b$closure$u7d$$u7d$17h519543d22410ed8eE.exit.i.i.i.i"
+  br i1 %109, label %"_ZN6editor7lsp_ext42find_specific_language_server_in_selection28_$u7b$$u7b$closure$u7d$$u7d$17h519543d22410ed8eE.exit.i.i.i.i", label %112
 
 112:                                              ; preds = %106
-  %113 = icmp ne i64 %111, 0
+  %113 = icmp ne i64 %108, %111
   %brmerge74.i.i.i = or i1 %69, %113
   br i1 %brmerge74.i.i.i, label %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hb1813ddb4808ea7eE.exit.thread.i.i.i", label %115
 
 "_ZN6editor7lsp_ext42find_specific_language_server_in_selection28_$u7b$$u7b$closure$u7d$$u7d$17h519543d22410ed8eE.exit.i.i.i.i": ; preds = %106
-  %114 = icmp ne i64 %108, %111
+  %114 = icmp ne i64 %111, 0
   %brmerge.i.i.i = or i1 %69, %114
   br i1 %brmerge.i.i.i, label %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hb1813ddb4808ea7eE.exit.thread.i.i.i", label %115
 
@@ -176423,15 +176423,15 @@ _ZN6editor21selections_collection20SelectionsCollection16disjoint_anchors17h9faa
   %117 = icmp eq i64 %116, 0
   %118 = getelementptr inbounds nuw i8, ptr %74, i64 80
   %119 = load i64, ptr %118, align 8, !alias.scope !35854, !noalias !35855, !noundef !9
-  br i1 %117, label %120, label %"_ZN6editor7lsp_ext42find_specific_language_server_in_selection28_$u7b$$u7b$closure$u7d$$u7d$17h8ca051f9a8bdef7eE.exit.i.i.i.i"
+  br i1 %117, label %"_ZN6editor7lsp_ext42find_specific_language_server_in_selection28_$u7b$$u7b$closure$u7d$$u7d$17h8ca051f9a8bdef7eE.exit.i.i.i.i", label %120
 
 120:                                              ; preds = %114
-  %121 = icmp ne i64 %119, 0
+  %121 = icmp ne i64 %116, %119
   %brmerge43.i.i.i = or i1 %77, %121
   br i1 %brmerge43.i.i.i, label %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hca2b28ee6c6472f2E.exit.thread.i.i.i", label %123
 
 "_ZN6editor7lsp_ext42find_specific_language_server_in_selection28_$u7b$$u7b$closure$u7d$$u7d$17h8ca051f9a8bdef7eE.exit.i.i.i.i": ; preds = %114
-  %122 = icmp ne i64 %116, %119
+  %122 = icmp ne i64 %119, 0
   %brmerge.i.i.i = or i1 %77, %122
   br i1 %brmerge.i.i.i, label %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hca2b28ee6c6472f2E.exit.thread.i.i.i", label %123
 

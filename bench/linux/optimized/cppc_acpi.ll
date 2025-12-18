@@ -2923,7 +2923,7 @@ define internal fastcc range(i32 -110, 1) i32 @check_pcc_chan(i32 noundef %0, i1
   br i1 %39, label %.thread, label %.loopexit.thread, !prof !38
 
 .loopexit.thread:                                 ; preds = %32, %.split.us, %9, %.loopexit
-  %40 = phi i32 [ %38, %.loopexit ], [ %21, %9 ], [ %27, %.split.us ], [ %34, %32 ]
+  %40 = phi i32 [ %38, %.loopexit ], [ %27, %.split.us ], [ %21, %9 ], [ %34, %32 ]
   store i8 0, ptr %6, align 1
   %41 = and i32 %40, 4
   %42 = icmp ne i32 %41, 0

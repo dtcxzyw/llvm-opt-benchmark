@@ -432,7 +432,7 @@ _ZN11XMarkStripe13publish_stackEP6XStackI15XMarkStackEntryLm254EEb.exit.loopexit
   br label %.split, !llvm.loop !11
 
 .loopexit:                                        ; preds = %_ZN22XMarkThreadLocalStacks14allocate_stackEP19XMarkStackAllocator.exit, %_ZN22XMarkThreadLocalStacks14allocate_stackEP19XMarkStackAllocator.exit.us, %_ZN6XStackI15XMarkStackEntryLm254EE4pushES0_.exit.thread, %_ZN22XMarkThreadLocalStacks14allocate_stackEP19XMarkStackAllocator.exit.thread
-  %.0 = phi i1 [ true, %_ZN6XStackI15XMarkStackEntryLm254EE4pushES0_.exit.thread ], [ false, %_ZN22XMarkThreadLocalStacks14allocate_stackEP19XMarkStackAllocator.exit.thread ], [ false, %_ZN22XMarkThreadLocalStacks14allocate_stackEP19XMarkStackAllocator.exit.us ], [ false, %_ZN22XMarkThreadLocalStacks14allocate_stackEP19XMarkStackAllocator.exit ]
+  %.0 = phi i1 [ false, %_ZN22XMarkThreadLocalStacks14allocate_stackEP19XMarkStackAllocator.exit.thread ], [ true, %_ZN6XStackI15XMarkStackEntryLm254EE4pushES0_.exit.thread ], [ false, %_ZN22XMarkThreadLocalStacks14allocate_stackEP19XMarkStackAllocator.exit.us ], [ false, %_ZN22XMarkThreadLocalStacks14allocate_stackEP19XMarkStackAllocator.exit ]
   ret i1 %.0
 }
 

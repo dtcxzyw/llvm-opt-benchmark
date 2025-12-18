@@ -1100,8 +1100,8 @@ Fraig_GetMaxLevel.exit34:                         ; preds = %40, %Fraig_MappingS
   br i1 %.not22, label %.loopexit, label %.lr.ph, !llvm.loop !54
 
 .loopexit:                                        ; preds = %.lr.ph, %55, %61
-  %.2 = phi i32 [ %.02040, %61 ], [ %.02040, %55 ], [ %65, %.lr.ph ]
-  %.1 = phi i32 [ %.01842, %61 ], [ %.01842, %55 ], [ %64, %.lr.ph ]
+  %.2 = phi i32 [ %.02040, %55 ], [ %.02040, %61 ], [ %65, %.lr.ph ]
+  %.1 = phi i32 [ %.01842, %55 ], [ %.01842, %61 ], [ %64, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %55, !llvm.loop !55
@@ -2198,8 +2198,8 @@ tailrecurse:                                      ; preds = %4, %.split13
   %82 = load ptr, ptr %81, align 8, !tbaa !31
   br label %tailrecurse
 
-Fraig_NodeIsMuxType.exit.thread22:                ; preds = %22, %29, %30, %75, %68, %53, %15, %8, %7
-  %.us-phi = phi ptr [ %.tr.ph36.us, %15 ], [ %.tr.ph36.us, %7 ], [ %.tr.ph36.us, %8 ], [ %.tr, %53 ], [ %.tr, %68 ], [ %.tr, %75 ], [ %.tr, %30 ], [ %.tr, %29 ], [ %.tr, %22 ]
+Fraig_NodeIsMuxType.exit.thread22:                ; preds = %22, %29, %30, %53, %68, %75, %15, %8, %7
+  %.us-phi = phi ptr [ %.tr.ph36.us, %15 ], [ %.tr.ph36.us, %7 ], [ %.tr.ph36.us, %8 ], [ %.tr, %75 ], [ %.tr, %68 ], [ %.tr, %53 ], [ %.tr, %30 ], [ %.tr, %29 ], [ %.tr, %22 ]
   %83 = tail call i32 @Fraig_NodeVecPushUnique(ptr noundef %1, ptr noundef %.us-phi) #15
   ret void
 }

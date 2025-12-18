@@ -384,8 +384,8 @@ _ZN4llvm11SmallVectorIZNS_28performOptimizedStructLayoutENS_15MutableArrayRefINS
   br label %.loopexit
 
 .loopexit:                                        ; preds = %45, %2, %.preheader155, %._crit_edge, %_ZN4llvm11SmallVectorIZNS_28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEE14AlignmentQueueLj8EED2Ev.exit
-  %.sroa.074.0 = phi i64 [ %20, %._crit_edge ], [ %126, %_ZN4llvm11SmallVectorIZNS_28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEE14AlignmentQueueLj8EED2Ev.exit ], [ %.0138.lcssa, %.preheader155 ], [ 0, %2 ], [ %48, %45 ]
-  %.sroa.4.0 = phi i8 [ %.sroa.speculated120, %._crit_edge ], [ %.sroa.0115.1.lcssa, %_ZN4llvm11SmallVectorIZNS_28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEE14AlignmentQueueLj8EED2Ev.exit ], [ %.sroa.0115.1.lcssa, %.preheader155 ], [ 0, %2 ], [ %.sroa.0115.1.lcssa, %45 ]
+  %.sroa.074.0 = phi i64 [ %20, %._crit_edge ], [ %126, %_ZN4llvm11SmallVectorIZNS_28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEE14AlignmentQueueLj8EED2Ev.exit ], [ 0, %2 ], [ %.0138.lcssa, %.preheader155 ], [ %48, %45 ]
+  %.sroa.4.0 = phi i8 [ %.sroa.speculated120, %._crit_edge ], [ %.sroa.0115.1.lcssa, %_ZN4llvm11SmallVectorIZNS_28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEE14AlignmentQueueLj8EED2Ev.exit ], [ 0, %2 ], [ %.sroa.0115.1.lcssa, %.preheader155 ], [ %.sroa.0115.1.lcssa, %45 ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.074.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.4.0, 1
   ret { i64, i8 } %.fca.1.insert
@@ -532,9 +532,9 @@ define internal fastcc noundef zeroext i1 @"_ZZN4llvm28performOptimizedStructLay
   br i1 %52, label %44, label %.thread.i, !llvm.loop !46
 
 .thread.i:                                        ; preds = %45, %44, %.lr.ph60.us, %34, %.split
-  %.us-phi = phi i64 [ %.pre160, %.split ], [ %.031.us, %.lr.ph60.us ], [ %.031.us, %34 ], [ %43, %44 ], [ %43, %45 ]
-  %.us-phi62 = phi ptr [ %.028.lcssa, %.split ], [ %.129.us, %.lr.ph60.us ], [ %36, %34 ], [ %.230.us106, %45 ], [ %.val, %44 ]
-  %.us-phi64 = phi i64 [ -1, %.split ], [ %32, %.lr.ph60.us ], [ %32, %34 ], [ -1, %44 ], [ -1, %45 ]
+  %.us-phi = phi i64 [ %.031.us, %.lr.ph60.us ], [ %.031.us, %34 ], [ %.pre160, %.split ], [ %43, %44 ], [ %43, %45 ]
+  %.us-phi62 = phi ptr [ %.129.us, %.lr.ph60.us ], [ %36, %34 ], [ %.028.lcssa, %.split ], [ %.val, %44 ], [ %.230.us106, %45 ]
+  %.us-phi64 = phi i64 [ %32, %.lr.ph60.us ], [ %32, %34 ], [ -1, %.split ], [ -1, %44 ], [ -1, %45 ]
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %54 = load ptr, ptr %53, align 8, !tbaa !49
   %.val42.le = load ptr, ptr %54, align 8

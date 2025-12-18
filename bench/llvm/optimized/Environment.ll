@@ -152,7 +152,7 @@ tailrecurse.i.i:                                  ; preds = %3, %tailrecurse.i.i
   br label %tailrecurse.i.i.backedge
 
 tailrecurse.i.i.backedge:                         ; preds = %.sink.split.i.i, %10
-  %.tr.i.i.be = phi ptr [ %12, %10 ], [ %15, %.sink.split.i.i ]
+  %.tr.i.i.be = phi ptr [ %15, %.sink.split.i.i ], [ %12, %10 ]
   br label %tailrecurse.i.i
 
 _ZL22ignoreTransparentExprsPKN5clang4StmtE.exit:  ; preds = %tailrecurse.i.i, %10, %3

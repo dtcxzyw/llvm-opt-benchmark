@@ -1677,7 +1677,7 @@ _ZNSt6vectorIPK8VariableSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__nor
   br label %_Z18is_variable_in_setRKSt6vectorIPK8VariableSaIS2_EES2_.exit
 
 _Z18is_variable_in_setRKSt6vectorIPK8VariableSaIS2_EES2_.exit: ; preds = %.lr.ph.i, %_ZNSt6vectorIPK8VariableSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %17
-  %.0 = phi i1 [ true, %17 ], [ true, %_ZNSt6vectorIPK8VariableSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ false, %.lr.ph.i ]
+  %.0 = phi i1 [ true, %_ZNSt6vectorIPK8VariableSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ true, %17 ], [ false, %.lr.ph.i ]
   ret i1 %.0
 }
 
@@ -1762,7 +1762,7 @@ _Z18is_variable_in_setRKSt6vectorIPK8VariableSaIS2_EES2_.exit: ; preds = %.lr.ph
   br i1 %exitcond.not, label %_Z18is_variable_in_setRKSt6vectorIPK8VariableSaIS2_EES2_.exit.thread, label %.lr.ph.i.preheader, !llvm.loop !90
 
 _Z18is_variable_in_setRKSt6vectorIPK8VariableSaIS2_EES2_.exit.thread: ; preds = %_Z18is_variable_in_setRKSt6vectorIPK8VariableSaIS2_EES2_.exit, %19, %.preheader, %.lr.ph, %2
-  %.08 = phi i1 [ false, %2 ], [ true, %.preheader ], [ false, %.lr.ph ], [ false, %19 ], [ true, %_Z18is_variable_in_setRKSt6vectorIPK8VariableSaIS2_EES2_.exit ]
+  %.08 = phi i1 [ false, %.lr.ph ], [ false, %2 ], [ false, %19 ], [ true, %.preheader ], [ true, %_Z18is_variable_in_setRKSt6vectorIPK8VariableSaIS2_EES2_.exit ]
   ret i1 %.08
 }
 
@@ -1817,7 +1817,7 @@ _Z18is_variable_in_setRKSt6vectorIPK8VariableSaIS2_EES2_.exit: ; preds = %.lr.ph
   br i1 %exitcond.not, label %_Z18is_variable_in_setRKSt6vectorIPK8VariableSaIS2_EES2_.exit.thread, label %.lr.ph.i.preheader, !llvm.loop !91
 
 _Z18is_variable_in_setRKSt6vectorIPK8VariableSaIS2_EES2_.exit.thread: ; preds = %_Z18is_variable_in_setRKSt6vectorIPK8VariableSaIS2_EES2_.exit, %19, %.preheader, %.lr.ph, %2
-  %.08 = phi i1 [ false, %2 ], [ true, %.preheader ], [ false, %.lr.ph ], [ false, %19 ], [ true, %_Z18is_variable_in_setRKSt6vectorIPK8VariableSaIS2_EES2_.exit ]
+  %.08 = phi i1 [ false, %.lr.ph ], [ false, %2 ], [ false, %19 ], [ true, %.preheader ], [ true, %_Z18is_variable_in_setRKSt6vectorIPK8VariableSaIS2_EES2_.exit ]
   ret i1 %.08
 }
 
@@ -2966,7 +2966,7 @@ define dso_local noundef ptr @_ZN8Variable14CreateVariableERKNSt7__cxx1112basic_
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %26, %29
-  %.024 = phi ptr [ %10, %29 ], [ %10, %26 ], [ null, %.thread.sink.split ]
+  %.024 = phi ptr [ %10, %26 ], [ %10, %29 ], [ null, %.thread.sink.split ]
   ret ptr %.024
 }
 
@@ -3809,7 +3809,7 @@ _Z20find_variable_in_setRKSt6vectorIP8VariableSaIS1_EEPKS0_.exit.thread: ; preds
   br i1 %.not.not, label %_ZNK8Variable5matchEPKS_.exit.thread, label %.preheader.split, !llvm.loop !157
 
 _ZNK8Variable5matchEPKS_.exit.thread:             ; preds = %_ZNK8Variable5matchEPKS_.exit, %63, %58, %.lr.ph.split.us, %_Z20find_variable_in_setRKSt6vectorIP8VariableSaIS1_EEPKS0_.exit.split, %_Z20find_variable_in_setRKSt6vectorIP8VariableSaIS1_EEPKS0_.exit.thread, %_Z20find_variable_in_setRKSt6vectorIP8VariableSaIS1_EEPKS0_.exit.split.us.us, %_Z20find_variable_in_setRKSt6vectorIP8VariableSaIS1_EEPKS0_.exit.thread.us, %12, %4
-  %.013 = phi i1 [ %8, %4 ], [ %16, %12 ], [ true, %.lr.ph.split.us ], [ false, %_Z20find_variable_in_setRKSt6vectorIP8VariableSaIS1_EEPKS0_.exit.thread.us ], [ false, %_Z20find_variable_in_setRKSt6vectorIP8VariableSaIS1_EEPKS0_.exit.thread ], [ true, %_Z20find_variable_in_setRKSt6vectorIP8VariableSaIS1_EEPKS0_.exit.split.us.us ], [ true, %_Z20find_variable_in_setRKSt6vectorIP8VariableSaIS1_EEPKS0_.exit.split ], [ true, %58 ], [ true, %63 ], [ true, %_ZNK8Variable5matchEPKS_.exit ]
+  %.013 = phi i1 [ %8, %4 ], [ %16, %12 ], [ false, %_Z20find_variable_in_setRKSt6vectorIP8VariableSaIS1_EEPKS0_.exit.thread ], [ false, %_Z20find_variable_in_setRKSt6vectorIP8VariableSaIS1_EEPKS0_.exit.thread.us ], [ true, %.lr.ph.split.us ], [ true, %_Z20find_variable_in_setRKSt6vectorIP8VariableSaIS1_EEPKS0_.exit.split.us.us ], [ true, %_Z20find_variable_in_setRKSt6vectorIP8VariableSaIS1_EEPKS0_.exit.split ], [ true, %58 ], [ true, %63 ], [ true, %_ZNK8Variable5matchEPKS_.exit ]
   ret i1 %.013
 }
 

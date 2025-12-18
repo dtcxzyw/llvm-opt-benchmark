@@ -3101,7 +3101,7 @@ _ZNK5eastl10BitsetBaseILm5EhE10DoFindNextEm.exit: ; preds = %if.then9.i, %if.the
   br label %_ZNK5eastl10BitsetBaseILm5EhE10DoFindNextEm.exit.thread
 
 _ZNK5eastl10BitsetBaseILm5EhE10DoFindNextEm.exit.thread: ; preds = %if.end.i, %_ZNK5eastl10BitsetBaseILm5EhE10DoFindNextEm.exit, %entry
-  %6 = phi i64 [ %spec.select, %_ZNK5eastl10BitsetBaseILm5EhE10DoFindNextEm.exit ], [ 33, %entry ], [ 33, %if.end.i ]
+  %6 = phi i64 [ 33, %entry ], [ %spec.select, %_ZNK5eastl10BitsetBaseILm5EhE10DoFindNextEm.exit ], [ 33, %if.end.i ]
   ret i64 %6
 }
 
@@ -3195,7 +3195,7 @@ _ZNK5eastl10BitsetBaseILm5EhE10DoFindPrevEm.exit: ; preds = %if.then12.i, %if.th
   br label %_ZNK5eastl10BitsetBaseILm5EhE10DoFindPrevEm.exit.thread
 
 _ZNK5eastl10BitsetBaseILm5EhE10DoFindPrevEm.exit.thread: ; preds = %if.end.i, %_ZNK5eastl10BitsetBaseILm5EhE10DoFindPrevEm.exit, %entry
-  %2 = phi i64 [ %spec.select, %_ZNK5eastl10BitsetBaseILm5EhE10DoFindPrevEm.exit ], [ 33, %entry ], [ 33, %if.end.i ]
+  %2 = phi i64 [ 33, %entry ], [ %spec.select, %_ZNK5eastl10BitsetBaseILm5EhE10DoFindPrevEm.exit ], [ 33, %if.end.i ]
   ret i64 %2
 }
 
@@ -4129,7 +4129,7 @@ _ZNK5eastl10BitsetBaseILm9EhE10DoFindNextEm.exit: ; preds = %if.then9.i, %if.the
   br label %_ZNK5eastl10BitsetBaseILm9EhE10DoFindNextEm.exit.thread
 
 _ZNK5eastl10BitsetBaseILm9EhE10DoFindNextEm.exit.thread: ; preds = %if.end.i, %_ZNK5eastl10BitsetBaseILm9EhE10DoFindNextEm.exit, %entry
-  %6 = phi i64 [ %spec.select, %_ZNK5eastl10BitsetBaseILm9EhE10DoFindNextEm.exit ], [ 65, %entry ], [ 65, %if.end.i ]
+  %6 = phi i64 [ 65, %entry ], [ %spec.select, %_ZNK5eastl10BitsetBaseILm9EhE10DoFindNextEm.exit ], [ 65, %if.end.i ]
   ret i64 %6
 }
 
@@ -4223,7 +4223,7 @@ _ZNK5eastl10BitsetBaseILm9EhE10DoFindPrevEm.exit: ; preds = %if.then12.i, %if.th
   br label %_ZNK5eastl10BitsetBaseILm9EhE10DoFindPrevEm.exit.thread
 
 _ZNK5eastl10BitsetBaseILm9EhE10DoFindPrevEm.exit.thread: ; preds = %if.end.i, %_ZNK5eastl10BitsetBaseILm9EhE10DoFindPrevEm.exit, %entry
-  %2 = phi i64 [ %spec.select, %_ZNK5eastl10BitsetBaseILm9EhE10DoFindPrevEm.exit ], [ 65, %entry ], [ 65, %if.end.i ]
+  %2 = phi i64 [ 65, %entry ], [ %spec.select, %_ZNK5eastl10BitsetBaseILm9EhE10DoFindPrevEm.exit ], [ 65, %if.end.i ]
   ret i64 %2
 }
 
@@ -5156,7 +5156,7 @@ _ZNK5eastl10BitsetBaseILm17EhE10DoFindNextEm.exit: ; preds = %if.then9.i, %if.th
   br label %_ZNK5eastl10BitsetBaseILm17EhE10DoFindNextEm.exit.thread
 
 _ZNK5eastl10BitsetBaseILm17EhE10DoFindNextEm.exit.thread: ; preds = %if.end.i, %_ZNK5eastl10BitsetBaseILm17EhE10DoFindNextEm.exit, %entry
-  %6 = phi i64 [ %spec.select, %_ZNK5eastl10BitsetBaseILm17EhE10DoFindNextEm.exit ], [ 129, %entry ], [ 129, %if.end.i ]
+  %6 = phi i64 [ 129, %entry ], [ %spec.select, %_ZNK5eastl10BitsetBaseILm17EhE10DoFindNextEm.exit ], [ 129, %if.end.i ]
   ret i64 %6
 }
 
@@ -5250,7 +5250,7 @@ _ZNK5eastl10BitsetBaseILm17EhE10DoFindPrevEm.exit: ; preds = %if.then12.i, %if.t
   br label %_ZNK5eastl10BitsetBaseILm17EhE10DoFindPrevEm.exit.thread
 
 _ZNK5eastl10BitsetBaseILm17EhE10DoFindPrevEm.exit.thread: ; preds = %if.end.i, %_ZNK5eastl10BitsetBaseILm17EhE10DoFindPrevEm.exit, %entry
-  %2 = phi i64 [ %spec.select, %_ZNK5eastl10BitsetBaseILm17EhE10DoFindPrevEm.exit ], [ 129, %entry ], [ 129, %if.end.i ]
+  %2 = phi i64 [ 129, %entry ], [ %spec.select, %_ZNK5eastl10BitsetBaseILm17EhE10DoFindPrevEm.exit ], [ 129, %if.end.i ]
   ret i64 %2
 }
 
@@ -6758,7 +6758,7 @@ _ZNK5eastl10BitsetBaseILm3EtE10DoFindNextEm.exit: ; preds = %if.then9.i, %if.the
   br label %_ZNK5eastl10BitsetBaseILm3EtE10DoFindNextEm.exit.thread
 
 _ZNK5eastl10BitsetBaseILm3EtE10DoFindNextEm.exit.thread: ; preds = %if.end.i, %_ZNK5eastl10BitsetBaseILm3EtE10DoFindNextEm.exit, %entry
-  %7 = phi i64 [ %spec.select, %_ZNK5eastl10BitsetBaseILm3EtE10DoFindNextEm.exit ], [ 33, %entry ], [ 33, %if.end.i ]
+  %7 = phi i64 [ 33, %entry ], [ %spec.select, %_ZNK5eastl10BitsetBaseILm3EtE10DoFindNextEm.exit ], [ 33, %if.end.i ]
   ret i64 %7
 }
 
@@ -6862,7 +6862,7 @@ _ZNK5eastl10BitsetBaseILm3EtE10DoFindPrevEm.exit: ; preds = %if.then12.i, %if.th
   br label %_ZNK5eastl10BitsetBaseILm3EtE10DoFindPrevEm.exit.thread
 
 _ZNK5eastl10BitsetBaseILm3EtE10DoFindPrevEm.exit.thread: ; preds = %if.end.i, %_ZNK5eastl10BitsetBaseILm3EtE10DoFindPrevEm.exit, %entry
-  %3 = phi i64 [ %spec.select, %_ZNK5eastl10BitsetBaseILm3EtE10DoFindPrevEm.exit ], [ 33, %entry ], [ 33, %if.end.i ]
+  %3 = phi i64 [ 33, %entry ], [ %spec.select, %_ZNK5eastl10BitsetBaseILm3EtE10DoFindPrevEm.exit ], [ 33, %if.end.i ]
   ret i64 %3
 }
 
@@ -7808,7 +7808,7 @@ _ZNK5eastl10BitsetBaseILm5EtE10DoFindNextEm.exit: ; preds = %if.then9.i, %if.the
   br label %_ZNK5eastl10BitsetBaseILm5EtE10DoFindNextEm.exit.thread
 
 _ZNK5eastl10BitsetBaseILm5EtE10DoFindNextEm.exit.thread: ; preds = %if.end.i, %_ZNK5eastl10BitsetBaseILm5EtE10DoFindNextEm.exit, %entry
-  %7 = phi i64 [ %spec.select, %_ZNK5eastl10BitsetBaseILm5EtE10DoFindNextEm.exit ], [ 65, %entry ], [ 65, %if.end.i ]
+  %7 = phi i64 [ 65, %entry ], [ %spec.select, %_ZNK5eastl10BitsetBaseILm5EtE10DoFindNextEm.exit ], [ 65, %if.end.i ]
   ret i64 %7
 }
 
@@ -7912,7 +7912,7 @@ _ZNK5eastl10BitsetBaseILm5EtE10DoFindPrevEm.exit: ; preds = %if.then12.i, %if.th
   br label %_ZNK5eastl10BitsetBaseILm5EtE10DoFindPrevEm.exit.thread
 
 _ZNK5eastl10BitsetBaseILm5EtE10DoFindPrevEm.exit.thread: ; preds = %if.end.i, %_ZNK5eastl10BitsetBaseILm5EtE10DoFindPrevEm.exit, %entry
-  %3 = phi i64 [ %spec.select, %_ZNK5eastl10BitsetBaseILm5EtE10DoFindPrevEm.exit ], [ 65, %entry ], [ 65, %if.end.i ]
+  %3 = phi i64 [ 65, %entry ], [ %spec.select, %_ZNK5eastl10BitsetBaseILm5EtE10DoFindPrevEm.exit ], [ 65, %if.end.i ]
   ret i64 %3
 }
 
@@ -8857,7 +8857,7 @@ _ZNK5eastl10BitsetBaseILm9EtE10DoFindNextEm.exit: ; preds = %if.then9.i, %if.the
   br label %_ZNK5eastl10BitsetBaseILm9EtE10DoFindNextEm.exit.thread
 
 _ZNK5eastl10BitsetBaseILm9EtE10DoFindNextEm.exit.thread: ; preds = %if.end.i, %_ZNK5eastl10BitsetBaseILm9EtE10DoFindNextEm.exit, %entry
-  %7 = phi i64 [ %spec.select, %_ZNK5eastl10BitsetBaseILm9EtE10DoFindNextEm.exit ], [ 129, %entry ], [ 129, %if.end.i ]
+  %7 = phi i64 [ 129, %entry ], [ %spec.select, %_ZNK5eastl10BitsetBaseILm9EtE10DoFindNextEm.exit ], [ 129, %if.end.i ]
   ret i64 %7
 }
 
@@ -8961,7 +8961,7 @@ _ZNK5eastl10BitsetBaseILm9EtE10DoFindPrevEm.exit: ; preds = %if.then12.i, %if.th
   br label %_ZNK5eastl10BitsetBaseILm9EtE10DoFindPrevEm.exit.thread
 
 _ZNK5eastl10BitsetBaseILm9EtE10DoFindPrevEm.exit.thread: ; preds = %if.end.i, %_ZNK5eastl10BitsetBaseILm9EtE10DoFindPrevEm.exit, %entry
-  %3 = phi i64 [ %spec.select, %_ZNK5eastl10BitsetBaseILm9EtE10DoFindPrevEm.exit ], [ 129, %entry ], [ 129, %if.end.i ]
+  %3 = phi i64 [ 129, %entry ], [ %spec.select, %_ZNK5eastl10BitsetBaseILm9EtE10DoFindPrevEm.exit ], [ 129, %if.end.i ]
   ret i64 %3
 }
 
@@ -11561,7 +11561,7 @@ _ZNK5eastl10BitsetBaseILm3EjE10DoFindNextEm.exit: ; preds = %if.then7.i, %if.the
   br label %_ZNK5eastl10BitsetBaseILm3EjE10DoFindNextEm.exit.thread
 
 _ZNK5eastl10BitsetBaseILm3EjE10DoFindNextEm.exit.thread: ; preds = %if.end.i, %_ZNK5eastl10BitsetBaseILm3EjE10DoFindNextEm.exit, %entry
-  %3 = phi i64 [ %spec.select, %_ZNK5eastl10BitsetBaseILm3EjE10DoFindNextEm.exit ], [ 65, %entry ], [ 65, %if.end.i ]
+  %3 = phi i64 [ 65, %entry ], [ %spec.select, %_ZNK5eastl10BitsetBaseILm3EjE10DoFindNextEm.exit ], [ 65, %if.end.i ]
   ret i64 %3
 }
 
@@ -11689,7 +11689,7 @@ _ZNK5eastl10BitsetBaseILm3EjE10DoFindPrevEm.exit: ; preds = %_ZN5eastl10GetLastB
   br label %_ZNK5eastl10BitsetBaseILm3EjE10DoFindPrevEm.exit.thread
 
 _ZNK5eastl10BitsetBaseILm3EjE10DoFindPrevEm.exit.thread: ; preds = %if.end.i, %_ZNK5eastl10BitsetBaseILm3EjE10DoFindPrevEm.exit, %entry
-  %5 = phi i64 [ %spec.select, %_ZNK5eastl10BitsetBaseILm3EjE10DoFindPrevEm.exit ], [ 65, %entry ], [ 65, %if.end.i ]
+  %5 = phi i64 [ 65, %entry ], [ %spec.select, %_ZNK5eastl10BitsetBaseILm3EjE10DoFindPrevEm.exit ], [ 65, %if.end.i ]
   ret i64 %5
 }
 
@@ -12637,7 +12637,7 @@ _ZNK5eastl10BitsetBaseILm5EjE10DoFindNextEm.exit: ; preds = %if.then7.i, %if.the
   br label %_ZNK5eastl10BitsetBaseILm5EjE10DoFindNextEm.exit.thread
 
 _ZNK5eastl10BitsetBaseILm5EjE10DoFindNextEm.exit.thread: ; preds = %if.end.i, %_ZNK5eastl10BitsetBaseILm5EjE10DoFindNextEm.exit, %entry
-  %3 = phi i64 [ %spec.select, %_ZNK5eastl10BitsetBaseILm5EjE10DoFindNextEm.exit ], [ 129, %entry ], [ 129, %if.end.i ]
+  %3 = phi i64 [ 129, %entry ], [ %spec.select, %_ZNK5eastl10BitsetBaseILm5EjE10DoFindNextEm.exit ], [ 129, %if.end.i ]
   ret i64 %3
 }
 
@@ -12765,7 +12765,7 @@ _ZNK5eastl10BitsetBaseILm5EjE10DoFindPrevEm.exit: ; preds = %_ZN5eastl10GetLastB
   br label %_ZNK5eastl10BitsetBaseILm5EjE10DoFindPrevEm.exit.thread
 
 _ZNK5eastl10BitsetBaseILm5EjE10DoFindPrevEm.exit.thread: ; preds = %if.end.i, %_ZNK5eastl10BitsetBaseILm5EjE10DoFindPrevEm.exit, %entry
-  %5 = phi i64 [ %spec.select, %_ZNK5eastl10BitsetBaseILm5EjE10DoFindPrevEm.exit ], [ 129, %entry ], [ 129, %if.end.i ]
+  %5 = phi i64 [ 129, %entry ], [ %spec.select, %_ZNK5eastl10BitsetBaseILm5EjE10DoFindPrevEm.exit ], [ 129, %if.end.i ]
   ret i64 %5
 }
 
@@ -19228,7 +19228,7 @@ _ZNK5eastl10BitsetBaseILm3EmE10DoFindPrevEm.exit.i5919: ; preds = %_ZN5eastl10Ge
   br label %_ZNK5eastl6bitsetILm137EmE9find_prevEm.exit5929
 
 _ZNK5eastl6bitsetILm137EmE9find_prevEm.exit5929:  ; preds = %if.end.i.i5924, %_ZNK5eastl6bitsetILm137EmE9find_prevEm.exit5875, %_ZNK5eastl10BitsetBaseILm3EmE10DoFindPrevEm.exit.i5919
-  %cmp2470 = phi i1 [ %223, %_ZNK5eastl10BitsetBaseILm3EmE10DoFindPrevEm.exit.i5919 ], [ true, %_ZNK5eastl6bitsetILm137EmE9find_prevEm.exit5875 ], [ true, %if.end.i.i5924 ]
+  %cmp2470 = phi i1 [ true, %_ZNK5eastl6bitsetILm137EmE9find_prevEm.exit5875 ], [ %223, %_ZNK5eastl10BitsetBaseILm3EmE10DoFindPrevEm.exit.i5919 ], [ true, %if.end.i.i5924 ]
   %call2471 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp2470, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 1271, ptr noundef nonnull @.str.246)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %b1372441, i8 -1, i64 16, i1 false)
   store i64 511, ptr %arrayidx.i.i5569, align 8

@@ -534,7 +534,7 @@ SizeASNLength.exit:                               ; preds = %41, %BytePrecision.
   br i1 %116, label %.lr.ph.i, label %SizeASN_CalcDataLength.exit, !llvm.loop !19
 
 SizeASN_CalcDataLength.exit:                      ; preds = %71, %74, %113, %.lr.ph.i, %.preheader, %82, %61
-  %.3 = phi i32 [ %.085128, %61 ], [ %.085128, %82 ], [ %.085128, %.preheader ], [ %.085128, %113 ], [ %.085128, %.lr.ph.i ], [ %.4123, %71 ], [ %78, %74 ]
+  %.3 = phi i32 [ %.085128, %61 ], [ %.085128, %.preheader ], [ %.085128, %82 ], [ %.085128, %113 ], [ %.085128, %.lr.ph.i ], [ %.4123, %71 ], [ %78, %74 ]
   %117 = getelementptr inbounds nuw i8, ptr %62, i64 1
   %118 = load i8, ptr %117, align 1, !tbaa !13
   %119 = icmp eq i8 %118, 1
@@ -713,14 +713,14 @@ define i32 @SetASN_Items(ptr noundef readonly captures(none) %0, ptr noundef cap
   br i1 %.not39.i, label %.lr.ph.preheader.i, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %.preheader.i, %42, %34
-  %.032.sink.i = phi i8 [ 0, %34 ], [ 0, %42 ], [ %.133.i, %.preheader.i ]
+  %.032.sink.i = phi i8 [ 0, %42 ], [ 0, %34 ], [ %.133.i, %.preheader.i ]
   %43 = getelementptr inbounds nuw i8, ptr %17, i64 2
   store i8 %.032.sink.i, ptr %43, align 1, !tbaa !3
   br label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %29, %42, %.sink.split.i
-  %.137.i = phi i64 [ 2, %42 ], [ 2, %29 ], [ 3, %.sink.split.i ]
-  %.2.i = phi i8 [ 1, %42 ], [ 1, %29 ], [ 2, %.sink.split.i ]
+  %.137.i = phi i64 [ 2, %29 ], [ 2, %42 ], [ 3, %.sink.split.i ]
+  %.2.i = phi i8 [ 1, %29 ], [ 1, %42 ], [ 2, %.sink.split.i ]
   %44 = getelementptr inbounds nuw i8, ptr %17, i64 1
   store i8 %.2.i, ptr %44, align 1, !tbaa !3
   %45 = getelementptr inbounds nuw i8, ptr %17, i64 %.137.i
@@ -773,15 +773,15 @@ define i32 @SetASN_Items(ptr noundef readonly captures(none) %0, ptr noundef cap
   br i1 %.not39.i140, label %69, label %.sink.split.i141
 
 .sink.split.i141:                                 ; preds = %.preheader.i155, %65, %56
-  %.032.sink.i142 = phi i8 [ 0, %56 ], [ 0, %65 ], [ %.133.i156, %.preheader.i155 ]
+  %.032.sink.i142 = phi i8 [ 0, %65 ], [ 0, %56 ], [ %.133.i156, %.preheader.i155 ]
   %.2.ph.i143 = add i8 %.034.i134, 1
   %68 = getelementptr inbounds nuw i8, ptr %17, i64 2
   store i8 %.032.sink.i142, ptr %68, align 1, !tbaa !3
   br label %69
 
 69:                                               ; preds = %.sink.split.i141, %65, %55
-  %.137.i144 = phi i32 [ 2, %65 ], [ 2, %55 ], [ 3, %.sink.split.i141 ]
-  %.2.i145 = phi i8 [ %.034.i134, %65 ], [ %.034.i134, %55 ], [ %.2.ph.i143, %.sink.split.i141 ]
+  %.137.i144 = phi i32 [ 2, %55 ], [ 2, %65 ], [ 3, %.sink.split.i141 ]
+  %.2.i145 = phi i8 [ %.034.i134, %55 ], [ %.034.i134, %65 ], [ %.2.ph.i143, %.sink.split.i141 ]
   %70 = getelementptr inbounds nuw i8, ptr %17, i64 1
   store i8 %.2.i145, ptr %70, align 1, !tbaa !3
   %71 = icmp sgt i32 %indvars.iv43.in.i133, 7
@@ -1572,8 +1572,8 @@ GetASN_BitString.exit:                            ; preds = %160
   br i1 %.not.i195, label %GetASN_UTF8String.exit, label %GetLength_ex.exit.thread
 
 GetASN_UTF8String.exit:                           ; preds = %._crit_edge.i191, %GetASN_Integer.exit.thread243.thread, %136, %207, %174, %GetASN_BitString.exit, %203, %GetASN_Integer.exit, %GetASN_Integer.exit.thread243
-  %.0232 = phi i32 [ %.240.i, %207 ], [ %.240.i, %203 ], [ %152, %GetASN_Integer.exit.thread243 ], [ %.240.i, %GetASN_Integer.exit.thread243.thread ], [ 1, %GetASN_Integer.exit ], [ %161, %GetASN_BitString.exit ], [ 0, %174 ], [ 1, %136 ], [ %.240.i, %._crit_edge.i191 ]
-  %.2231 = phi i32 [ %.2.i, %207 ], [ %.2.i, %203 ], [ %151, %GetASN_Integer.exit.thread243 ], [ %.2.i, %GetASN_Integer.exit.thread243.thread ], [ %.2.i, %GetASN_Integer.exit ], [ %170, %GetASN_BitString.exit ], [ %.2.i, %174 ], [ %.2.i, %136 ], [ %.2.i, %._crit_edge.i191 ]
+  %.0232 = phi i32 [ %.240.i, %207 ], [ 1, %136 ], [ %.240.i, %203 ], [ %152, %GetASN_Integer.exit.thread243 ], [ %.240.i, %GetASN_Integer.exit.thread243.thread ], [ 1, %GetASN_Integer.exit ], [ %161, %GetASN_BitString.exit ], [ 0, %174 ], [ %.240.i, %._crit_edge.i191 ]
+  %.2231 = phi i32 [ %.2.i, %207 ], [ %.2.i, %136 ], [ %.2.i, %203 ], [ %151, %GetASN_Integer.exit.thread243 ], [ %.2.i, %GetASN_Integer.exit.thread243.thread ], [ %.2.i, %GetASN_Integer.exit ], [ %170, %GetASN_BitString.exit ], [ %.2.i, %174 ], [ %.2.i, %._crit_edge.i191 ]
   %212 = getelementptr inbounds nuw i8, ptr %23, i64 2
   %213 = load i8, ptr %212, align 1
   %214 = and i8 %213, 2
@@ -1919,8 +1919,8 @@ GetASN_StoreData.exit:                            ; preds = %.lr.ph117.i, %.lr.p
   br label %.loopexit260
 
 .loopexit260:                                     ; preds = %363, %366, %.lr.ph313, %..loopexit260.loopexit_crit_edge, %..loopexit260.loopexit_crit_edge544, %.preheader261, %.preheader259, %GetASN_StoreData.exit, %215
-  %.1 = phi i32 [ %353, %GetASN_StoreData.exit ], [ %.2231, %215 ], [ %.0318, %.preheader259 ], [ %353, %.preheader261 ], [ %.0318, %.lr.ph313 ], [ %.0318, %..loopexit260.loopexit_crit_edge544 ], [ %.0318, %..loopexit260.loopexit_crit_edge ], [ %353, %366 ], [ %353, %363 ]
-  %.2145 = phi i32 [ %.1144321, %GetASN_StoreData.exit ], [ %.1144321, %215 ], [ %.1144321, %.preheader259 ], [ %.1144321, %.preheader261 ], [ %.1144321, %.lr.ph313 ], [ %368, %..loopexit260.loopexit_crit_edge544 ], [ %19, %..loopexit260.loopexit_crit_edge ], [ %.1147.in306, %363 ], [ %19, %366 ]
+  %.1 = phi i32 [ %.2231, %215 ], [ %353, %GetASN_StoreData.exit ], [ %.0318, %.preheader259 ], [ %353, %.preheader261 ], [ %.0318, %.lr.ph313 ], [ %.0318, %..loopexit260.loopexit_crit_edge544 ], [ %.0318, %..loopexit260.loopexit_crit_edge ], [ %353, %366 ], [ %353, %363 ]
+  %.2145 = phi i32 [ %.1144321, %215 ], [ %.1144321, %GetASN_StoreData.exit ], [ %.1144321, %.preheader259 ], [ %.1144321, %.preheader261 ], [ %.1144321, %.lr.ph313 ], [ %368, %..loopexit260.loopexit_crit_edge544 ], [ %19, %..loopexit260.loopexit_crit_edge ], [ %.1147.in306, %363 ], [ %19, %366 ]
   %369 = add nsw i32 %.2145, 1
   %370 = icmp slt i32 %369, %2
   br i1 %370, label %.lr.ph322, label %._crit_edge, !llvm.loop !44
@@ -1945,7 +1945,7 @@ GetASN_StoreData.exit:                            ; preds = %.lr.ph117.i, %.lr.p
   br i1 %378, label %GetLength_ex.exit.thread, label %372
 
 .loopexit:                                        ; preds = %372, %14, %._crit_edge
-  %.0.lcssa428 = phi i32 [ %.1, %._crit_edge ], [ %11, %14 ], [ %.1, %372 ]
+  %.0.lcssa428 = phi i32 [ %11, %14 ], [ %.1, %._crit_edge ], [ %.1, %372 ]
   br label %380
 
 379:                                              ; preds = %380
@@ -1963,7 +1963,7 @@ GetASN_StoreData.exit:                            ; preds = %.lr.ph117.i, %.lr.p
   br label %GetLength_ex.exit.thread
 
 GetLength_ex.exit.thread:                         ; preds = %.preheader.i198, %312, %311, %322, %287, %281, %278, %266, %249, %232, %225, %205, %207, %160, %153, %155, %150, %137, %127, %145, %.thread68.i, %99, %._crit_edge.i, %115, %77, %93, %69, %187, %300, %197, %.lr.ph.i193, %.lr.ph327, %380, %297, %GetOID.exit.i, %64, %61, %59, %384
-  %.2 = phi i32 [ 0, %384 ], [ -132, %59 ], [ -140, %61 ], [ %switch.select186, %64 ], [ -142, %297 ], [ -148, %GetOID.exit.i ], [ -140, %197 ], [ -140, %300 ], [ -140, %187 ], [ -140, %380 ], [ -140, %.lr.ph327 ], [ -140, %.lr.ph.i193 ], [ -140, %225 ], [ -140, %232 ], [ -140, %249 ], [ -132, %266 ], [ -140, %278 ], [ -140, %281 ], [ -110, %287 ], [ -146, %322 ], [ -140, %311 ], [ -192, %312 ], [ -140, %.preheader.i198 ], [ -140, %207 ], [ -140, %153 ], [ -140, %155 ], [ -140, %127 ], [ -140, %137 ], [ -146, %150 ], [ -140, %99 ], [ -140, %._crit_edge.i ], [ -140, %115 ], [ -140, %77 ], [ -140, %93 ], [ -140, %205 ], [ -140, %69 ], [ -140, %160 ], [ -146, %145 ], [ -140, %.thread68.i ]
+  %.2 = phi i32 [ 0, %384 ], [ -132, %59 ], [ -140, %61 ], [ %switch.select186, %64 ], [ -140, %.lr.ph327 ], [ -148, %GetOID.exit.i ], [ -140, %380 ], [ -140, %187 ], [ -142, %297 ], [ -140, %300 ], [ -140, %197 ], [ -140, %.lr.ph.i193 ], [ -140, %232 ], [ -140, %249 ], [ -132, %266 ], [ -140, %278 ], [ -140, %281 ], [ -110, %287 ], [ -146, %322 ], [ -140, %311 ], [ -192, %312 ], [ -140, %.preheader.i198 ], [ -140, %207 ], [ -140, %225 ], [ -140, %153 ], [ -140, %155 ], [ -140, %127 ], [ -140, %137 ], [ -146, %150 ], [ -140, %99 ], [ -140, %._crit_edge.i ], [ -140, %115 ], [ -140, %77 ], [ -140, %93 ], [ -140, %69 ], [ -140, %160 ], [ -146, %145 ], [ -140, %.thread68.i ], [ -140, %205 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.2
@@ -5741,7 +5741,7 @@ SetLength.exit153:                                ; preds = %63, %BytePrecision.
   br i1 %.not26.wide.i.i.i.i, label %.thread.i.i156, label %.lr.ph.split.i.i.i.i, !llvm.loop !48
 
 .thread.i.i156:                                   ; preds = %74, %.lr.ph.split.i.i.i.i, %SetLength.exit.thread, %.thread.i.i.i.i
-  %82 = phi i32 [ %53, %.thread.i.i.i.i ], [ %55, %SetLength.exit.thread ], [ %53, %.lr.ph.split.i.i.i.i ], [ %53, %74 ]
+  %82 = phi i32 [ %53, %.thread.i.i.i.i ], [ %53, %.lr.ph.split.i.i.i.i ], [ %55, %SetLength.exit.thread ], [ %53, %74 ]
   store i8 48, ptr %2, align 1, !tbaa !3
   %83 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %84 = icmp ult i32 %82, 128
@@ -7483,7 +7483,7 @@ CopyString.exit:                                  ; preds = %19
   br i1 %.not.i17, label %FreeAltNames.exit, label %.lr.ph.i, !llvm.loop !86
 
 FreeAltNames.exit:                                ; preds = %31, %2, %CopyString.exit
-  %.0 = phi ptr [ %3, %CopyString.exit ], [ null, %2 ], [ null, %31 ]
+  %.0 = phi ptr [ null, %2 ], [ %3, %CopyString.exit ], [ null, %31 ]
   ret ptr %.0
 }
 
@@ -8409,7 +8409,7 @@ SetSubject.exit.i:                                ; preds = %124, %122, %121, %.
   br label %GetRDN.exit
 
 GetRDN.exit:                                      ; preds = %82, %85, %99, %.critedge79.i, %129, %SetSubject.exit.i, %116, %110, %108, %94, %89, %79
-  %.233 = phi i32 [ %.13248, %79 ], [ %.13248, %94 ], [ %.13248, %116 ], [ %137, %129 ], [ %.13248, %SetSubject.exit.i ], [ %.13248, %89 ], [ %.13248, %108 ], [ %.13248, %110 ], [ %.13248, %.critedge79.i ], [ %.13248, %99 ], [ %.13248, %85 ], [ %.13248, %82 ]
+  %.233 = phi i32 [ %.13248, %108 ], [ %.13248, %79 ], [ %.13248, %94 ], [ %.13248, %116 ], [ %137, %129 ], [ %.13248, %SetSubject.exit.i ], [ %.13248, %89 ], [ %.13248, %110 ], [ %.13248, %.critedge79.i ], [ %.13248, %99 ], [ %.13248, %85 ], [ %.13248, %82 ]
   %138 = load i32, ptr %9, align 4
   %139 = icmp ult i32 %138, %6
   br i1 %139, label %76, label %GetASN_Sequence.exit.thread71, !llvm.loop !115
@@ -10809,12 +10809,12 @@ DecodeGeneralName.exit.i.i.i:                     ; preds = %770, %763, %731, %7
   br i1 %772, label %636, label %DecodeAltNames.exit.i.i
 
 .loopexit.sink.split.i.i.i:                       ; preds = %753, %748, %._crit_edge.i.i.i.i, %721, %GetASN_Sequence.exit.i.i.i.i, %704, %._crit_edge.i.i.i.i.i.i, %.thread68.i.i.i.i.i.i, %688, %682, %.thread.i.i.i.i.i, %665, %662, %645, %.preheader.i.i.i.i, %638, %636, %DecodeGeneralName.exit.thread79.sink.split.i.i.i
-  %.3.ph.i.i.i = phi i32 [ -125, %DecodeGeneralName.exit.thread79.sink.split.i.i.i ], [ -140, %665 ], [ -140, %682 ], [ -140, %.thread.i.i.i.i.i ], [ -140, %704 ], [ -140, %._crit_edge.i.i.i.i.i.i ], [ -140, %688 ], [ -140, %.thread68.i.i.i.i.i.i ], [ -125, %753 ], [ -125, %GetASN_Sequence.exit.i.i.i.i ], [ -140, %662 ], [ -125, %645 ], [ -125, %721 ], [ -161, %748 ], [ -161, %._crit_edge.i.i.i.i ], [ %639, %638 ], [ -161, %.preheader.i.i.i.i ], [ -161, %636 ]
+  %.3.ph.i.i.i = phi i32 [ -125, %DecodeGeneralName.exit.thread79.sink.split.i.i.i ], [ -140, %._crit_edge.i.i.i.i.i.i ], [ -140, %688 ], [ -140, %.thread68.i.i.i.i.i.i ], [ -125, %753 ], [ -140, %662 ], [ -125, %645 ], [ -125, %721 ], [ -125, %GetASN_Sequence.exit.i.i.i.i ], [ -161, %748 ], [ -161, %._crit_edge.i.i.i.i ], [ %639, %638 ], [ -161, %.preheader.i.i.i.i ], [ -140, %704 ], [ -140, %.thread.i.i.i.i.i ], [ -140, %682 ], [ -140, %665 ], [ -161, %636 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %DecodeAltNames.exit.i.i
 
 DecodeAltNames.exit.i.i:                          ; preds = %DecodeGeneralName.exit.i.i.i, %.loopexit.sink.split.i.i.i, %GetASN_Sequence.exit.i.i.i, %632, %._crit_edge.i.i.i.i.i, %.thread68.i.i.i.i.i, %617, %611, %598, %593
-  %.3.i.i.i = phi i32 [ %.3.ph.i.i.i, %.loopexit.sink.split.i.i.i ], [ -140, %593 ], [ -140, %GetASN_Sequence.exit.i.i.i ], [ -140, %611 ], [ -140, %.thread68.i.i.i.i.i ], [ -140, %._crit_edge.i.i.i.i.i ], [ -140, %632 ], [ -140, %617 ], [ -140, %598 ], [ 0, %DecodeGeneralName.exit.i.i.i ]
+  %.3.i.i.i = phi i32 [ -140, %593 ], [ -140, %598 ], [ %.3.ph.i.i.i, %.loopexit.sink.split.i.i.i ], [ -140, %617 ], [ -140, %GetASN_Sequence.exit.i.i.i ], [ -140, %611 ], [ -140, %.thread68.i.i.i.i.i ], [ -140, %._crit_edge.i.i.i.i.i ], [ -140, %632 ], [ 0, %DecodeGeneralName.exit.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %DecodeExtensionType.exit.i
 
@@ -13473,7 +13473,7 @@ PermittedListOk.exit67.i:                         ; preds = %419
   br i1 %exitcond.not.i, label %ConfirmNameConstraints.exit, label %336, !llvm.loop !182
 
 ConfirmNameConstraints.exit:                      ; preds = %.critedge.i, %102, %323, %315, %switch.early.test174, %switch.early.test174, %112
-  %.4 = phi i32 [ %.5, %315 ], [ %.0136, %switch.early.test174 ], [ %.0136, %112 ], [ %.0136, %switch.early.test174 ], [ %.5, %323 ], [ %.2, %102 ], [ %.5, %.critedge.i ]
+  %.4 = phi i32 [ %.2, %102 ], [ %.5, %315 ], [ %.0136, %switch.early.test174 ], [ %.0136, %112 ], [ %.0136, %switch.early.test174 ], [ %.5, %323 ], [ %.5, %.critedge.i ]
   %421 = getelementptr inbounds nuw i8, ptr %0, i64 1008
   %422 = load i32, ptr %421, align 8, !tbaa !161
   %423 = icmp ne i32 %422, 0
@@ -13488,8 +13488,8 @@ ConfirmNameConstraints.exit:                      ; preds = %.critedge.i, %102, 
   %.4. = select i1 %.not170, i32 %.4, i32 %427
   br label %ConfirmSignature.exit.thread
 
-ConfirmSignature.exit.thread:                     ; preds = %PermittedListOk.exit67.i, %336, %PermittedListOk.exit.i, %400, %364, %316, %117, %ConfirmSignature.exit.thread187, %425, %ConfirmNameConstraints.exit, %113, %102, %56, %31, %25, %5, %ConfirmSignature.exit
-  %.0 = phi i32 [ -173, %5 ], [ -226, %31 ], [ %.3, %56 ], [ -188, %113 ], [ %.4., %425 ], [ %422, %ConfirmNameConstraints.exit ], [ -238, %102 ], [ %.8.i, %ConfirmSignature.exit ], [ -173, %117 ], [ %20, %25 ], [ %.8.i.ph, %ConfirmSignature.exit.thread187 ], [ -198, %316 ], [ -198, %PermittedListOk.exit.i ], [ -198, %364 ], [ -198, %400 ], [ -198, %336 ], [ -198, %PermittedListOk.exit67.i ]
+ConfirmSignature.exit.thread:                     ; preds = %336, %PermittedListOk.exit67.i, %PermittedListOk.exit.i, %400, %364, %316, %117, %ConfirmSignature.exit.thread187, %425, %ConfirmNameConstraints.exit, %113, %102, %56, %31, %25, %5, %ConfirmSignature.exit
+  %.0 = phi i32 [ -173, %5 ], [ -226, %31 ], [ %.3, %56 ], [ -188, %113 ], [ %.4., %425 ], [ %422, %ConfirmNameConstraints.exit ], [ -238, %102 ], [ %.8.i, %ConfirmSignature.exit ], [ -173, %117 ], [ %20, %25 ], [ %.8.i.ph, %ConfirmSignature.exit.thread187 ], [ -198, %316 ], [ -198, %PermittedListOk.exit.i ], [ -198, %364 ], [ -198, %400 ], [ -198, %PermittedListOk.exit67.i ], [ -198, %336 ]
   ret i32 %.0
 }
 
@@ -14611,7 +14611,7 @@ SkipEndOfLineChars.exit105:                       ; preds = %.lr.ph.i101, %.crit
   br label %wc_PemGetHeaderFooter.exit.thread
 
 wc_PemGetHeaderFooter.exit.thread:                ; preds = %.lr.ph.split.split, %21, %7, %.lr.ph, %85, %93, %88, %79, %75, %70, %50, %51
-  %.0 = phi i32 [ -132, %50 ], [ -132, %70 ], [ %77, %75 ], [ 0, %93 ], [ -132, %79 ], [ 0, %85 ], [ -132, %51 ], [ 0, %88 ], [ -173, %7 ], [ -162, %.lr.ph ], [ -162, %21 ], [ -162, %.lr.ph.split.split ]
+  %.0 = phi i32 [ -173, %7 ], [ -132, %50 ], [ -132, %70 ], [ %77, %75 ], [ 0, %93 ], [ -132, %79 ], [ 0, %85 ], [ -132, %51 ], [ 0, %88 ], [ -162, %.lr.ph ], [ -162, %21 ], [ -162, %.lr.ph.split.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
@@ -16037,8 +16037,8 @@ define internal fastcc range(i32 -198, 1) i32 @DecodeSubtree(ptr noundef nonnull
   br label %72
 
 72:                                               ; preds = %70, %24
-  %.16.ph.i = phi i64 [ %71, %70 ], [ 0, %24 ]
-  %.029.ph.i = phi i32 [ %.240.i.i.i, %70 ], [ %30, %24 ]
+  %.16.ph.i = phi i64 [ 0, %24 ], [ %71, %70 ]
+  %.029.ph.i = phi i32 [ %30, %24 ], [ %.240.i.i.i, %70 ]
   %73 = call ptr @wolfSSL_Malloc(i64 noundef 24) #23
   %74 = icmp eq ptr %73, null
   br i1 %74, label %.loopexit.sink.split, label %GetASN_Sequence.exit.i
@@ -16087,7 +16087,7 @@ DecodeSubtreeGeneralName.exit:                    ; preds = %81, %22
   br label %.loopexit
 
 .loopexit:                                        ; preds = %DecodeSubtreeGeneralName.exit, %.loopexit.sink.split, %3
-  %.4 = phi i32 [ 0, %3 ], [ %.4.ph, %.loopexit.sink.split ], [ 0, %DecodeSubtreeGeneralName.exit ]
+  %.4 = phi i32 [ %.4.ph, %.loopexit.sink.split ], [ 0, %3 ], [ 0, %DecodeSubtreeGeneralName.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.4
@@ -16177,7 +16177,7 @@ define internal fastcc i32 @HashForSignature(ptr noundef nonnull %0, i32 noundef
   br label %37
 
 37:                                               ; preds = %.sink.split, %6, %34, %31, %28, %25, %22, %19, %16, %13, %10, %7
-  %.0 = phi i32 [ %35, %34 ], [ %8, %7 ], [ %11, %10 ], [ %14, %13 ], [ %17, %16 ], [ %20, %19 ], [ %23, %22 ], [ %26, %25 ], [ %29, %28 ], [ %32, %31 ], [ -232, %6 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ %35, %34 ], [ -232, %6 ], [ %8, %7 ], [ %32, %31 ], [ %11, %10 ], [ %29, %28 ], [ %14, %13 ], [ %26, %25 ], [ %17, %16 ], [ %23, %22 ], [ %20, %19 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 

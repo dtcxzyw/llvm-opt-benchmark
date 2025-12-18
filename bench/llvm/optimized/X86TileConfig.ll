@@ -1372,7 +1372,7 @@ _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %471, %473
   br i1 %.not.i.i.i.i.i, label %._crit_edge444, label %.lr.ph443
 
 .lr.ph443:                                        ; preds = %485, %491
-  %.sroa.0.0.i.i189 = phi ptr [ %.0.i.i.i186, %485 ], [ %490, %491 ]
+  %.sroa.0.0.i.i189 = phi ptr [ %490, %491 ], [ %.0.i.i.i186, %485 ]
   %.neg396 = select i1 %.0140447, i64 -2579, i64 -2523
   %494 = sext i32 %475 to i64
   %495 = select i1 %.0140447, i32 256, i32 1024
@@ -3230,7 +3230,7 @@ define linkonce_odr hidden void @_ZN4llvm6ShapeT9deduceImmEPKNS_19MachineRegiste
   br i1 %.not.i.i.i.i.i.i, label %_ZZN4llvm6ShapeT9deduceImmEPKNS_19MachineRegisterInfoEENKUlNS_8RegisterEE_clES4_.exit, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %26, %20
-  %.sroa.014.021.i.ph = phi ptr [ %25, %26 ], [ %.0.i.i.i.i, %20 ]
+  %.sroa.014.021.i.ph = phi ptr [ %.0.i.i.i.i, %20 ], [ %25, %26 ]
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %49
@@ -3272,7 +3272,7 @@ define linkonce_odr hidden void @_ZN4llvm6ShapeT9deduceImmEPKNS_19MachineRegiste
   br i1 %.not.i.i.i13.i, label %_ZZN4llvm6ShapeT9deduceImmEPKNS_19MachineRegisterInfoEENKUlNS_8RegisterEE_clES4_.exit, label %.lr.ph.i
 
 _ZZN4llvm6ShapeT9deduceImmEPKNS_19MachineRegisterInfoEENKUlNS_8RegisterEE_clES4_.exit: ; preds = %46, %49, %5, %23, %26, %36, %43
-  %.1.i = phi i64 [ %45, %43 ], [ 0, %36 ], [ -1, %26 ], [ -1, %5 ], [ -1, %23 ], [ -1, %49 ], [ -1, %46 ]
+  %.1.i = phi i64 [ 0, %36 ], [ %45, %43 ], [ -1, %26 ], [ -1, %23 ], [ -1, %5 ], [ -1, %49 ], [ -1, %46 ]
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.1.i, ptr %52, align 8, !tbaa !463
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3312,7 +3312,7 @@ _ZZN4llvm6ShapeT9deduceImmEPKNS_19MachineRegisterInfoEENKUlNS_8RegisterEE_clES4_
   br i1 %.not.i.i.i.i.i.i23, label %_ZZN4llvm6ShapeT9deduceImmEPKNS_19MachineRegisterInfoEENKUlNS_8RegisterEE_clES4_.exit24.thread, label %.lr.ph.i16.preheader
 
 .lr.ph.i16.preheader:                             ; preds = %72, %66
-  %.sroa.014.021.i17.ph = phi ptr [ %71, %72 ], [ %.0.i.i.i.i11, %66 ]
+  %.sroa.014.021.i17.ph = phi ptr [ %.0.i.i.i.i11, %66 ], [ %71, %72 ]
   br label %.lr.ph.i16
 
 .lr.ph.i16:                                       ; preds = %.lr.ph.i16.preheader, %93
@@ -3353,7 +3353,7 @@ _ZZN4llvm6ShapeT9deduceImmEPKNS_19MachineRegisterInfoEENKUlNS_8RegisterEE_clES4_
   %.not.i.i.i13.i21 = icmp eq i32 %95, 0
   br i1 %.not.i.i.i13.i21, label %_ZZN4llvm6ShapeT9deduceImmEPKNS_19MachineRegisterInfoEENKUlNS_8RegisterEE_clES4_.exit24.thread, label %.lr.ph.i16
 
-_ZZN4llvm6ShapeT9deduceImmEPKNS_19MachineRegisterInfoEENKUlNS_8RegisterEE_clES4_.exit24.thread: ; preds = %90, %93, %72, %_ZZN4llvm6ShapeT9deduceImmEPKNS_19MachineRegisterInfoEENKUlNS_8RegisterEE_clES4_.exit, %69
+_ZZN4llvm6ShapeT9deduceImmEPKNS_19MachineRegisterInfoEENKUlNS_8RegisterEE_clES4_.exit24.thread: ; preds = %90, %93, %72, %69, %_ZZN4llvm6ShapeT9deduceImmEPKNS_19MachineRegisterInfoEENKUlNS_8RegisterEE_clES4_.exit
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 -1, ptr %96, align 8, !tbaa !464
   br label %.loopexit
@@ -3422,7 +3422,7 @@ _ZZN4llvm6ShapeT9deduceImmEPKNS_19MachineRegisterInfoEENKUlNS_8RegisterEE_clES4_
   br i1 %.not.i.i.i.i.i.i38, label %_ZZN4llvm6ShapeT9deduceImmEPKNS_19MachineRegisterInfoEENKUlNS_8RegisterEE_clES4_.exit39, label %.lr.ph.i31.preheader
 
 .lr.ph.i31.preheader:                             ; preds = %131, %125
-  %.sroa.014.021.i32.ph = phi ptr [ %130, %131 ], [ %.0.i.i.i.i26, %125 ]
+  %.sroa.014.021.i32.ph = phi ptr [ %.0.i.i.i.i26, %125 ], [ %130, %131 ]
   br label %.lr.ph.i31
 
 .lr.ph.i31:                                       ; preds = %.lr.ph.i31.preheader, %154
@@ -3464,7 +3464,7 @@ _ZZN4llvm6ShapeT9deduceImmEPKNS_19MachineRegisterInfoEENKUlNS_8RegisterEE_clES4_
   br i1 %.not.i.i.i13.i36, label %_ZZN4llvm6ShapeT9deduceImmEPKNS_19MachineRegisterInfoEENKUlNS_8RegisterEE_clES4_.exit39, label %.lr.ph.i31
 
 _ZZN4llvm6ShapeT9deduceImmEPKNS_19MachineRegisterInfoEENKUlNS_8RegisterEE_clES4_.exit39: ; preds = %151, %154, %112, %128, %131, %141, %148
-  %.1.i34 = phi i64 [ %150, %148 ], [ 0, %141 ], [ -1, %131 ], [ -1, %112 ], [ -1, %128 ], [ -1, %154 ], [ -1, %151 ]
+  %.1.i34 = phi i64 [ 0, %141 ], [ %150, %148 ], [ -1, %131 ], [ -1, %128 ], [ -1, %112 ], [ -1, %154 ], [ -1, %151 ]
   %157 = load i32, ptr %109, align 8, !tbaa !256
   %158 = load i32, ptr %110, align 4, !tbaa !257
   %.not.i.i.not.i = icmp ult i32 %157, %158

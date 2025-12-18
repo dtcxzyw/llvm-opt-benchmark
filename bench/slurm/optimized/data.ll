@@ -2242,7 +2242,7 @@ data_get_string.exit:                             ; preds = %22, %25
   unreachable
 
 data_set_bool.exit:                               ; preds = %.lr.ph, %.lr.ph61, %71, %83, %70, %67, %63, %62, %59, %52, %51, %48, %41, %39, %36, %28, %2, %data_get_string.exit
-  %.035 = phi ptr [ %.036, %data_get_string.exit ], [ %.036, %39 ], [ %.036, %51 ], [ %.036, %62 ], [ null, %2 ], [ %.036, %28 ], [ %.036, %36 ], [ %.036, %41 ], [ %.036, %48 ], [ %.036, %52 ], [ %.036, %59 ], [ %.036, %63 ], [ %.036, %67 ], [ %.036, %70 ], [ %.036, %83 ], [ %.036, %71 ], [ %.036, %.lr.ph61 ], [ %.036, %.lr.ph ]
+  %.035 = phi ptr [ %.036, %data_get_string.exit ], [ %.036, %70 ], [ %.036, %39 ], [ %.036, %51 ], [ %.036, %62 ], [ null, %2 ], [ %.036, %83 ], [ %.036, %28 ], [ %.036, %36 ], [ %.036, %41 ], [ %.036, %48 ], [ %.036, %52 ], [ %.036, %59 ], [ %.036, %63 ], [ %.036, %67 ], [ %.036, %71 ], [ %.036, %.lr.ph61 ], [ %.036, %.lr.ph ]
   ret ptr %.035
 }
 
@@ -3425,8 +3425,8 @@ data_get_string.exit.i:                           ; preds = %9, %6
   br label %13
 
 13:                                               ; preds = %.fold.split.i, %12, %data_get_string.exit.i
-  %.046.i = phi i1 [ true, %12 ], [ false, %data_get_string.exit.i ], [ false, %.fold.split.i ]
-  %.045.i = phi i64 [ 1, %12 ], [ 1, %data_get_string.exit.i ], [ 0, %.fold.split.i ]
+  %.046.i = phi i1 [ false, %data_get_string.exit.i ], [ true, %12 ], [ false, %.fold.split.i ]
+  %.045.i = phi i64 [ 1, %data_get_string.exit.i ], [ 1, %12 ], [ 0, %.fold.split.i ]
   %14 = tail call ptr @__ctype_tolower_loc() #18
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %.045.i
@@ -4177,7 +4177,7 @@ data_get_type.exit.i:                             ; preds = %.preheader.i.i
   br label %data_dict_for_each.exit
 
 data_dict_for_each.exit:                          ; preds = %.preheader18, %.preheader, %30, %data_get_type.exit.thread.i, %data_get_type.exit.i, %19, %2
-  %.0 = phi i64 [ 0, %2 ], [ 0, %19 ], [ %spec.select, %30 ], [ 0, %data_get_type.exit.thread.i ], [ 0, %data_get_type.exit.i ], [ %16, %.preheader ], [ %27, %.preheader18 ]
+  %.0 = phi i64 [ 0, %2 ], [ 0, %19 ], [ %spec.select, %30 ], [ %16, %.preheader ], [ 0, %data_get_type.exit.thread.i ], [ 0, %data_get_type.exit.i ], [ %27, %.preheader18 ]
   ret i64 %.0
 }
 
@@ -4948,7 +4948,7 @@ _find_dict_match.exit:                            ; preds = %data_key_get_const.
   br i1 %.not24.i, label %data_dict_for_each_const.exit, label %.lr.ph.i, !llvm.loop !26
 
 data_dict_for_each_const.exit:                    ; preds = %.thread.i, %.preheader.preheader, %70
-  %.0.i = phi i32 [ %71, %70 ], [ 0, %.preheader.preheader ], [ %72, %.thread.i ]
+  %.0.i = phi i32 [ 0, %.preheader.preheader ], [ %71, %70 ], [ %72, %.thread.i ]
   %75 = icmp sgt i32 %.0.i, -1
   br label %76
 
@@ -5062,7 +5062,7 @@ define internal fastcc noundef zeroext i1 @_data_match_lists(ptr noundef nonnull
   br i1 %50, label %.split.us, label %.outer.split, !llvm.loop !30
 
 .split.us:                                        ; preds = %.outer, %.outer.split, %.outer.us, %38, %18, %9, %6, %3
-  %.027 = phi i1 [ false, %9 ], [ false, %3 ], [ false, %6 ], [ true, %18 ], [ %30, %.outer.us ], [ false, %38 ], [ %43, %.outer ], [ false, %.outer.split ]
+  %.027 = phi i1 [ false, %9 ], [ false, %3 ], [ false, %6 ], [ false, %38 ], [ true, %18 ], [ %30, %.outer.us ], [ false, %.outer.split ], [ %43, %.outer ]
   ret i1 %.027
 }
 
@@ -5204,7 +5204,7 @@ data_key_get.exit:                                ; preds = %.lr.ph.i.i
   br i1 %.not42, label %data_key_get.exit.thread, label %.preheader, !llvm.loop !33
 
 data_key_get.exit.thread:                         ; preds = %58, %data_key_get.exit, %._crit_edge, %44, %49, %54, %13
-  %.136 = phi ptr [ %0, %13 ], [ null, %54 ], [ null, %44 ], [ null, %._crit_edge ], [ null, %data_key_get.exit ], [ %57, %58 ], [ null, %49 ]
+  %.136 = phi ptr [ null, %54 ], [ %0, %13 ], [ null, %._crit_edge ], [ null, %44 ], [ null, %data_key_get.exit ], [ %57, %58 ], [ null, %49 ]
   %60 = load ptr, ptr %4, align 8
   %.not48 = icmp eq ptr %60, %5
   br i1 %.not48, label %62, label %61

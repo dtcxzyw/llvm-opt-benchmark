@@ -1782,7 +1782,7 @@ _ZN6LibRaw16make_decoder_refEPPKh.exit:           ; preds = %._crit_edge40.i, %.
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit126
 
 _ZNSt6vectorIhSaIhEED2Ev.exit126:                 ; preds = %69, %47, %46, %38, %37, %188, %190, %180, %183, %186, %13, %14, %215
-  %.0 = phi i32 [ 0, %190 ], [ 0, %13 ], [ 0, %180 ], [ 1, %215 ], [ 0, %14 ], [ %.mux, %188 ], [ 0, %186 ], [ 0, %183 ], [ 0, %37 ], [ 0, %38 ], [ 0, %46 ], [ 0, %47 ], [ 0, %69 ]
+  %.0 = phi i32 [ 1, %215 ], [ 0, %13 ], [ 0, %190 ], [ 0, %183 ], [ 0, %186 ], [ %.mux, %188 ], [ 0, %14 ], [ 0, %180 ], [ 0, %37 ], [ 0, %38 ], [ 0, %46 ], [ 0, %47 ], [ 0, %69 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 65536) #18
   ret i32 %.0
 }

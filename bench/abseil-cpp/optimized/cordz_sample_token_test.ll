@@ -6611,7 +6611,7 @@ _ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcE
   br i1 %.not49, label %_ZN7testing8internal15PrintIfNotEmptyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSo.exit, label %.lr.ph206, !llvm.loop !255
 
 _ZN7testing8internal15PrintIfNotEmptyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSo.exit: ; preds = %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit, %_ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit, %_ZN7testing19MatchResultListenerlsIA16_cEERS0_RKT_.exit, %242, %_ZN7testing19MatchResultListenerlsIA15_cEERS0_RKT_.exit, %.noexc87, %261, %241, %178, %_ZN7testing7MessageD2Ev.exit
-  %.0 = phi i1 [ false, %241 ], [ false, %178 ], [ false, %_ZN7testing7MessageD2Ev.exit ], [ true, %261 ], [ false, %_ZN7testing19MatchResultListenerlsIA15_cEERS0_RKT_.exit ], [ false, %.noexc87 ], [ false, %_ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit ], [ false, %242 ], [ false, %_ZN7testing19MatchResultListenerlsIA16_cEERS0_RKT_.exit ], [ true, %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit ]
+  %.0 = phi i1 [ false, %241 ], [ false, %178 ], [ false, %_ZN7testing7MessageD2Ev.exit ], [ true, %261 ], [ false, %_ZN7testing19MatchResultListenerlsIA15_cEERS0_RKT_.exit ], [ false, %.noexc87 ], [ false, %_ZN7testing19MatchResultListenerlsIA16_cEERS0_RKT_.exit ], [ false, %_ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit ], [ false, %242 ], [ true, %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit ]
   %289 = load ptr, ptr %9, align 8, !tbaa !234
   %290 = load ptr, ptr %33, align 8, !tbaa !238
   %.not4.i.i.i.i = icmp eq ptr %289, %290
@@ -9006,7 +9006,7 @@ _ZSt8_DestroyISt6threadEvPT_.exit.i.i.i.i:        ; preds = %._crit_edge, %35
   unreachable
 
 _ZSt8_DestroyIPSt6threadS0_EvT_S2_RSaIT0_E.exit.i: ; preds = %35, %_ZN4absl9MutexLockD2Ev.exit, %._crit_edge
-  %38 = phi ptr [ %.pre21, %._crit_edge ], [ %15, %_ZN4absl9MutexLockD2Ev.exit ], [ %.pre21, %35 ]
+  %38 = phi ptr [ %15, %_ZN4absl9MutexLockD2Ev.exit ], [ %.pre21, %._crit_edge ], [ %.pre21, %35 ]
   %.not.i.i.i5 = icmp eq ptr %38, null
   br i1 %.not.i.i.i5, label %_ZNSt6vectorISt6threadSaIS0_EED2Ev.exit, label %39
 
@@ -10346,7 +10346,7 @@ _ZN4absl12TestCordDataD2Ev.exit89.i.i.i.i.i:      ; preds = %202, %196
   br i1 %206, label %.loopexit.i.i.i.i.i, label %196
 
 .loopexit.i.i.i.i.i:                              ; preds = %.preheader98.i.i.i.i.i, %_ZN4absl12TestCordDataD2Ev.exit89.i.i.i.i.i, %63
-  %.pn55.pn.pn.i.i.i.i.i = phi { ptr, i32 } [ %64, %63 ], [ %.pn55.pn.i.i.i.i.i, %_ZN4absl12TestCordDataD2Ev.exit89.i.i.i.i.i ], [ %64, %.preheader98.i.i.i.i.i ]
+  %.pn55.pn.pn.i.i.i.i.i = phi { ptr, i32 } [ %.pn55.pn.i.i.i.i.i, %_ZN4absl12TestCordDataD2Ev.exit89.i.i.i.i.i ], [ %64, %63 ], [ %64, %.preheader98.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %.pn55.pn.pn.i.i.i.i.i

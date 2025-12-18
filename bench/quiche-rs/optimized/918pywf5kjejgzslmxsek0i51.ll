@@ -740,7 +740,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17h0d8ff8e881057f72E(ptr dea
   br i1 %65, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6c468d07b6031dbcE.exit105.thread", label %.lr.ph327
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6c468d07b6031dbcE.exit105.thread": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2ccda8f819825e8aE.exit140", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2ccda8f819825e8aE.exit132", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2ccda8f819825e8aE.exit124", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2ccda8f819825e8aE.exit116", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2ccda8f819825e8aE.exit108", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2ccda8f819825e8aE.exit148", %.preheader287, %.preheader285, %.preheader283, %.preheader281, %.preheader279, %.preheader
-  %.sroa.27.6 = phi i64 [ %64, %.preheader ], [ %64, %.preheader279 ], [ %64, %.preheader281 ], [ %64, %.preheader283 ], [ %64, %.preheader285 ], [ %64, %.preheader287 ], [ %109, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2ccda8f819825e8aE.exit132" ], [ %133, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2ccda8f819825e8aE.exit148" ], [ %72, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2ccda8f819825e8aE.exit108" ], [ %84, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2ccda8f819825e8aE.exit116" ], [ %97, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2ccda8f819825e8aE.exit124" ], [ %122, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2ccda8f819825e8aE.exit140" ]
+  %.sroa.27.6 = phi i64 [ %97, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2ccda8f819825e8aE.exit124" ], [ %109, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2ccda8f819825e8aE.exit132" ], [ %84, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2ccda8f819825e8aE.exit116" ], [ %72, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2ccda8f819825e8aE.exit108" ], [ %133, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2ccda8f819825e8aE.exit148" ], [ %64, %.preheader ], [ %64, %.preheader279 ], [ %64, %.preheader281 ], [ %64, %.preheader283 ], [ %64, %.preheader285 ], [ %64, %.preheader287 ], [ %122, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2ccda8f819825e8aE.exit140" ]
   %66 = sub i64 %.sroa.01.0.i, %.sroa.27.6
   store i64 %66, ptr %55, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %18, i64 24, i1 false)
@@ -1703,8 +1703,8 @@ define hidden { i64, i64 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   br label %49
 
 49:                                               ; preds = %38, %42
-  %50 = phi i8 [ %40, %38 ], [ %.pre, %42 ]
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.19.i.i, %38 ], [ %48, %42 ]
+  %50 = phi i8 [ %.pre, %42 ], [ %40, %38 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %48, %42 ], [ %.sroa.6.19.i.i, %38 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !166)
   %51 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %.sroa.3.0.i.ph.i
   %52 = and i8 %50, 1
@@ -1841,8 +1841,8 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hb9
   br label %51
 
 51:                                               ; preds = %40, %44
-  %52 = phi i8 [ %42, %40 ], [ %.pre, %44 ]
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.19.i.i, %40 ], [ %50, %44 ]
+  %52 = phi i8 [ %.pre, %44 ], [ %42, %40 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %50, %44 ], [ %.sroa.6.19.i.i, %40 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !187)
   %53 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %.sroa.3.0.i.ph.i
   %54 = and i8 %52, 1
@@ -1986,8 +1986,8 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
   br label %48
 
 48:                                               ; preds = %37, %41
-  %49 = phi i8 [ %39, %37 ], [ %.pre, %41 ]
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.19.i.i, %37 ], [ %47, %41 ]
+  %49 = phi i8 [ %.pre, %41 ], [ %39, %37 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %47, %41 ], [ %.sroa.6.19.i.i, %37 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !203)
   %50 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %.sroa.3.0.i.ph.i
   %51 = and i8 %49, 1

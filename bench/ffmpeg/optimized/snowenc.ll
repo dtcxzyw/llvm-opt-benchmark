@@ -3762,7 +3762,7 @@ dequantize.exit:                                  ; preds = %._crit_edge.us.i823
   br i1 %exitcond1218.not, label %._crit_edge1045, label %1701, !llvm.loop !264
 
 ._crit_edge1045:                                  ; preds = %.split1041.us, %1123, %.preheader916
-  %.lcssa9341373 = phi i32 [ %1698, %.preheader916 ], [ %1124, %1123 ], [ %1698, %.split1041.us ]
+  %.lcssa9341373 = phi i32 [ %1124, %1123 ], [ %1698, %.preheader916 ], [ %1698, %.split1041.us ]
   %1748 = load ptr, ptr %339, align 8, !tbaa !186
   %1749 = load ptr, ptr %340, align 8, !tbaa !191
   %1750 = load i32, ptr %341, align 4, !tbaa !78
@@ -8886,8 +8886,8 @@ add_yblock.exit.i.us.us.us.i:                     ; preds = %._crit_edge.us.i.us
   br i1 %1446, label %.lr.ph.us208.us.us.us.i.us.us.us.i, label %._crit_edge198.i.us.us.us.i, !llvm.loop !326
 
 ._crit_edge198.i.us.us.us.i:                      ; preds = %._crit_edge.split.us209.i.split.us.us.us.i, %._crit_edge.split.us209.i.split.us.us.us.us.us.i, %._crit_edge.split.us.us.us.split.i.us.us.us.i, %._crit_edge.split.us.us.us.split.us.us.split.i.us.us.us.i, %._crit_edge.split.us.us.us.split.us.us.split.us.us.i.us.us.us.i, %.lr.ph197.i.us.us.us.i, %add_yblock.exit.i.us.us.us.i
-  %.1161.lcssa.i.us.us.us.i = phi i32 [ %.0160229.i.us.us.us.i, %add_yblock.exit.i.us.us.us.i ], [ %.0160229.i.us.us.us.i, %.lr.ph197.i.us.us.us.i ], [ %.us-phi696.us.us.us.i, %._crit_edge.split.us209.i.split.us.us.us.us.us.i ], [ %.us-phi225.i.us.us.us.i, %._crit_edge.split.us.us.us.split.us.us.split.us.us.i.us.us.us.i ], [ %.us-phi720.us.us.us.i, %._crit_edge.split.us.us.us.split.us.us.split.i.us.us.us.i ], [ %.us-phi708.us.us.us.i, %._crit_edge.split.us.us.us.split.i.us.us.us.i ], [ %.us-phi693.us.us.us.i, %._crit_edge.split.us209.i.split.us.us.us.i ]
-  %.1158.lcssa.i.us.us.us.i = phi i32 [ %.0157230.i.us.us.us.i, %add_yblock.exit.i.us.us.us.i ], [ %.0157230.i.us.us.us.i, %.lr.ph197.i.us.us.us.i ], [ %.us-phi.us.us.us.i, %._crit_edge.split.us209.i.split.us.us.us.us.us.i ], [ %.us-phi226.i.us.us.us.i, %._crit_edge.split.us.us.us.split.us.us.split.us.us.i.us.us.us.i ], [ %.us-phi719.us.us.us.i, %._crit_edge.split.us.us.us.split.us.us.split.i.us.us.us.i ], [ %.us-phi707.us.us.us.i, %._crit_edge.split.us.us.us.split.i.us.us.us.i ], [ %.us-phi692.us.us.us.i, %._crit_edge.split.us209.i.split.us.us.us.i ]
+  %.1161.lcssa.i.us.us.us.i = phi i32 [ %.0160229.i.us.us.us.i, %add_yblock.exit.i.us.us.us.i ], [ %.us-phi720.us.us.us.i, %._crit_edge.split.us.us.us.split.us.us.split.i.us.us.us.i ], [ %.us-phi225.i.us.us.us.i, %._crit_edge.split.us.us.us.split.us.us.split.us.us.i.us.us.us.i ], [ %.0160229.i.us.us.us.i, %.lr.ph197.i.us.us.us.i ], [ %.us-phi696.us.us.us.i, %._crit_edge.split.us209.i.split.us.us.us.us.us.i ], [ %.us-phi708.us.us.us.i, %._crit_edge.split.us.us.us.split.i.us.us.us.i ], [ %.us-phi693.us.us.us.i, %._crit_edge.split.us209.i.split.us.us.us.i ]
+  %.1158.lcssa.i.us.us.us.i = phi i32 [ %.0157230.i.us.us.us.i, %add_yblock.exit.i.us.us.us.i ], [ %.us-phi719.us.us.us.i, %._crit_edge.split.us.us.us.split.us.us.split.i.us.us.us.i ], [ %.us-phi226.i.us.us.us.i, %._crit_edge.split.us.us.us.split.us.us.split.us.us.i.us.us.us.i ], [ %.0157230.i.us.us.us.i, %.lr.ph197.i.us.us.us.i ], [ %.us-phi.us.us.us.i, %._crit_edge.split.us209.i.split.us.us.us.us.us.i ], [ %.us-phi707.us.us.us.i, %._crit_edge.split.us.us.us.split.i.us.us.us.i ], [ %.us-phi692.us.us.us.i, %._crit_edge.split.us209.i.split.us.us.us.i ]
   %1447 = add nuw nsw i32 %.0231.i.us.us.us.i, 1
   %exitcond.not.i.us.us.us.i = icmp eq i32 %1447, 4
   br i1 %exitcond.not.i.us.us.us.i, label %get_dc.exit.us.us.us.i, label %851, !llvm.loop !327

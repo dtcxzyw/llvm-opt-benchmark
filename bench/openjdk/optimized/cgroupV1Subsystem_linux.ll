@@ -583,7 +583,7 @@ _ZN24CgroupV1MemoryController19read_mem_swappinessEv.exit: ; preds = %12, %13, %
   br label %24
 
 24:                                               ; preds = %21, %.sink.split, %_ZN24CgroupV1MemoryController19read_mem_swappinessEv.exit, %3
-  %.0 = phi i64 [ %22, %21 ], [ -1, %3 ], [ %22, %.sink.split ], [ %6, %_ZN24CgroupV1MemoryController19read_mem_swappinessEv.exit ]
+  %.0 = phi i64 [ %22, %21 ], [ -1, %3 ], [ %6, %_ZN24CgroupV1MemoryController19read_mem_swappinessEv.exit ], [ %22, %.sink.split ]
   ret i64 %.0
 }
 

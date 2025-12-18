@@ -1000,7 +1000,7 @@ ff_read_frame_flush.exit:                         ; preds = %101
   br i1 %exitcond.not.i78, label %avpriv_update_cur_dts.exit, label %116, !llvm.loop !48
 
 avpriv_update_cur_dts.exit:                       ; preds = %116, %80, %ff_read_frame_flush.exit, %68, %4, %78
-  %.0 = phi i32 [ -1, %68 ], [ -1, %4 ], [ %79, %78 ], [ 0, %ff_read_frame_flush.exit ], [ 0, %80 ], [ 0, %116 ]
+  %.0 = phi i32 [ -1, %68 ], [ -1, %4 ], [ %79, %78 ], [ 0, %80 ], [ 0, %ff_read_frame_flush.exit ], [ 0, %116 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -1468,7 +1468,7 @@ read_timestamp.exit39:                            ; preds = %61
   br i1 %64, label %.split47.us, label %.lr.ph
 
 .split47.us:                                      ; preds = %read_timestamp.exit39, %61, %45, %read_timestamp.exit39.us, %.preheader.split, %.preheader.split.us
-  %.us-phi48 = phi i64 [ %22, %.preheader.split.us ], [ %29, %.preheader.split ], [ %41, %45 ], [ %41, %read_timestamp.exit39.us ], [ %57, %61 ], [ %57, %read_timestamp.exit39 ]
+  %.us-phi48 = phi i64 [ %41, %45 ], [ %22, %.preheader.split.us ], [ %29, %.preheader.split ], [ %41, %read_timestamp.exit39.us ], [ %57, %61 ], [ %57, %read_timestamp.exit39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not35 = icmp eq ptr %2, null
   br i1 %.not35, label %66, label %65
@@ -2169,7 +2169,7 @@ ff_read_frame_flush.exit.i.i:                     ; preds = %303, %.thread111.i.
   br i1 %exitcond.not.i97.i.i, label %seek_frame_internal.exit.thread, label %339, !llvm.loop !48
 
 seek_frame_internal.exit:                         ; preds = %ff_read_frame_flush.exit66.i, %211, %247, %325
-  %.036.i = phi i32 [ %151, %ff_read_frame_flush.exit66.i ], [ %326, %325 ], [ %248, %247 ], [ %212, %211 ]
+  %.036.i = phi i32 [ %151, %ff_read_frame_flush.exit66.i ], [ %248, %247 ], [ %212, %211 ], [ %326, %325 ]
   %352 = icmp sgt i32 %.036.i, -1
   br i1 %352, label %seek_frame_internal.exit.thread, label %seek_frame_internal.exit.thread27
 

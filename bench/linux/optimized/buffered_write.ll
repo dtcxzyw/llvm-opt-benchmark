@@ -512,8 +512,8 @@ define dso_local i64 @netfs_perform_write(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %295, label %select.unfold30, label %550
 
 .thread:                                          ; preds = %243, %194, %179, %175, %247, %204
-  %296 = phi i32 [ 1, %204 ], [ 4, %247 ], [ 0, %175 ], [ 2, %179 ], [ 5, %194 ], [ 3, %243 ]
-  %297 = phi i64 [ %206, %204 ], [ -5, %247 ], [ -14, %175 ], [ -14, %179 ], [ -14, %194 ], [ -14, %243 ]
+  %296 = phi i32 [ 5, %194 ], [ 1, %204 ], [ 4, %247 ], [ 0, %175 ], [ 2, %179 ], [ 3, %243 ]
+  %297 = phi i64 [ -14, %194 ], [ %206, %204 ], [ -5, %247 ], [ -14, %175 ], [ -14, %179 ], [ -14, %243 ]
   %298 = load volatile i32, ptr %53, align 4
   %299 = tail call i64 @copy_page_from_iter_atomic(ptr noundef %77, i64 noundef %93, i64 noundef %95, ptr noundef %1) #11
   %300 = icmp eq i64 %299, 0

@@ -49063,8 +49063,8 @@ _ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i166: ; preds = %.noexc168
   unreachable
 
 .invoke1193:                                      ; preds = %.noexc, %.noexc168, %.noexc157, %.noexc123, %.noexc96, %.noexc146, %.noexc197
-  %.lcssa1097.sink = phi { i64, i64 } [ %330, %.noexc197 ], [ %286, %.noexc168 ], [ %247, %.noexc146 ], [ %163, %.noexc96 ], [ %209, %.noexc123 ], [ %263, %.noexc157 ], [ %112, %.noexc ]
-  %332 = phi i64 [ %331, %.noexc197 ], [ %287, %.noexc168 ], [ %248, %.noexc146 ], [ %164, %.noexc96 ], [ %210, %.noexc123 ], [ %264, %.noexc157 ], [ %113, %.noexc ]
+  %.lcssa1097.sink = phi { i64, i64 } [ %247, %.noexc146 ], [ %286, %.noexc168 ], [ %330, %.noexc197 ], [ %163, %.noexc96 ], [ %209, %.noexc123 ], [ %263, %.noexc157 ], [ %112, %.noexc ]
+  %332 = phi i64 [ %248, %.noexc146 ], [ %287, %.noexc168 ], [ %331, %.noexc197 ], [ %164, %.noexc96 ], [ %210, %.noexc123 ], [ %264, %.noexc157 ], [ %113, %.noexc ]
   %333 = extractvalue { i64, i64 } %.lcssa1097.sink, 1
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef %332, i64 noundef %333) #38
           to label %.cont1194 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -49095,9 +49095,9 @@ _ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i195: ; preds = %.noexc197
   br i1 %343, label %347, label %.invoke, !prof !5
 
 .invoke:                                          ; preds = %115, %289, %188, %168, %166, %154, %145, %132, %231, %222, %335, %.lr.ph
-  %344 = phi i64 [ %316, %335 ], [ %136, %289 ], [ %226, %231 ], [ %316, %.lr.ph ], [ %226, %222 ], [ %136, %188 ], [ %143, %168 ], [ %136, %166 ], [ %136, %154 ], [ %143, %145 ], [ %136, %132 ], [ %.010.i, %115 ]
-  %345 = phi i64 [ %342, %335 ], [ %296, %289 ], [ %.sink4.i.i135, %231 ], [ %.sink4.i.i186, %.lr.ph ], [ %229, %222 ], [ %.sink4.i.i112, %188 ], [ %175, %168 ], [ %.sink4.i.i79, %166 ], [ %.sink4.i.i82, %154 ], [ %.sink4.i.i79, %145 ], [ %.sink4.i.i, %132 ], [ %121, %115 ]
-  %346 = phi ptr [ @anon.ccb8bbd7296c103e264204178ad661d4.205, %335 ], [ @anon.ccb8bbd7296c103e264204178ad661d4.203, %289 ], [ @anon.ccb8bbd7296c103e264204178ad661d4.201, %231 ], [ @anon.ccb8bbd7296c103e264204178ad661d4.204, %.lr.ph ], [ @anon.ccb8bbd7296c103e264204178ad661d4.200, %222 ], [ @anon.ccb8bbd7296c103e264204178ad661d4.199, %188 ], [ @anon.ccb8bbd7296c103e264204178ad661d4.197, %168 ], [ @anon.ccb8bbd7296c103e264204178ad661d4.198, %166 ], [ @anon.ccb8bbd7296c103e264204178ad661d4.202, %154 ], [ @anon.ccb8bbd7296c103e264204178ad661d4.195, %145 ], [ @anon.ccb8bbd7296c103e264204178ad661d4.194, %132 ], [ @anon.ccb8bbd7296c103e264204178ad661d4.193, %115 ]
+  %344 = phi i64 [ %136, %289 ], [ %226, %231 ], [ %316, %335 ], [ %316, %.lr.ph ], [ %226, %222 ], [ %143, %168 ], [ %136, %166 ], [ %136, %154 ], [ %143, %145 ], [ %136, %188 ], [ %136, %132 ], [ %.010.i, %115 ]
+  %345 = phi i64 [ %296, %289 ], [ %.sink4.i.i135, %231 ], [ %342, %335 ], [ %.sink4.i.i186, %.lr.ph ], [ %229, %222 ], [ %175, %168 ], [ %.sink4.i.i79, %166 ], [ %.sink4.i.i82, %154 ], [ %.sink4.i.i79, %145 ], [ %.sink4.i.i112, %188 ], [ %.sink4.i.i, %132 ], [ %121, %115 ]
+  %346 = phi ptr [ @anon.ccb8bbd7296c103e264204178ad661d4.203, %289 ], [ @anon.ccb8bbd7296c103e264204178ad661d4.201, %231 ], [ @anon.ccb8bbd7296c103e264204178ad661d4.205, %335 ], [ @anon.ccb8bbd7296c103e264204178ad661d4.204, %.lr.ph ], [ @anon.ccb8bbd7296c103e264204178ad661d4.200, %222 ], [ @anon.ccb8bbd7296c103e264204178ad661d4.197, %168 ], [ @anon.ccb8bbd7296c103e264204178ad661d4.198, %166 ], [ @anon.ccb8bbd7296c103e264204178ad661d4.202, %154 ], [ @anon.ccb8bbd7296c103e264204178ad661d4.195, %145 ], [ @anon.ccb8bbd7296c103e264204178ad661d4.199, %188 ], [ @anon.ccb8bbd7296c103e264204178ad661d4.194, %132 ], [ @anon.ccb8bbd7296c103e264204178ad661d4.193, %115 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %344, i64 noundef %345, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %346) #38
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -49117,8 +49117,8 @@ _ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i195: ; preds = %.noexc197
   br i1 %353, label %.loopexit, label %.lr.ph
 
 .loopexit270:                                     ; preds = %.loopexit267, %100, %.preheader
-  %354 = phi i64 [ %76, %.preheader ], [ %96, %100 ], [ %89, %.loopexit267 ]
-  %.037559 = phi i1 [ false, %.preheader ], [ %.037599, %100 ], [ %.138.lcssa, %.loopexit267 ]
+  %354 = phi i64 [ %96, %100 ], [ %76, %.preheader ], [ %89, %.loopexit267 ]
+  %.037559 = phi i1 [ %.037599, %100 ], [ false, %.preheader ], [ %.138.lcssa, %.loopexit267 ]
   %355 = load i64, ptr %.sroa.3.0..sroa_idx, align 8, !alias.scope !19304, !noalias !19307, !noundef !4
   %356 = icmp ugt i64 %355, 16
   %357 = load ptr, ptr %12, align 8, !alias.scope !19304, !noalias !19307, !nonnull !4

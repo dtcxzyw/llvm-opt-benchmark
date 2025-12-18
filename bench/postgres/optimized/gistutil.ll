@@ -2633,7 +2633,7 @@ define dso_local noundef zeroext i1 @gistproperty(i32 noundef %0, i32 noundef %1
   br label %32
 
 32:                                               ; preds = %.sink.split, %10, %6
-  %.014 = phi i1 [ false, %6 ], [ false, %10 ], [ true, %.sink.split ]
+  %.014 = phi i1 [ false, %10 ], [ false, %6 ], [ true, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i1 %.014

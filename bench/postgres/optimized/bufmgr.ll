@@ -3663,8 +3663,8 @@ BufferGetBlock.exit86:                            ; preds = %121, %129
   br label %.critedge
 
 .critedge:                                        ; preds = %WaitReadBuffersCanStartIO.exit84, %BufferGetBlock.exit86, %.critedge.sink.split, %BufferGetBlock.exit
-  %.079107 = phi i32 [ 1, %BufferGetBlock.exit ], [ %.079111, %.critedge.sink.split ], [ %.079111, %WaitReadBuffersCanStartIO.exit84 ], [ %136, %BufferGetBlock.exit86 ]
-  %.2104 = phi i32 [ %.078118, %BufferGetBlock.exit ], [ %.2112, %.critedge.sink.split ], [ %.2112, %WaitReadBuffersCanStartIO.exit84 ], [ %46, %BufferGetBlock.exit86 ]
+  %.079107 = phi i32 [ 1, %BufferGetBlock.exit ], [ %.079111, %.critedge.sink.split ], [ %136, %BufferGetBlock.exit86 ], [ %.079111, %WaitReadBuffersCanStartIO.exit84 ]
+  %.2104 = phi i32 [ %.078118, %BufferGetBlock.exit ], [ %.2112, %.critedge.sink.split ], [ %46, %BufferGetBlock.exit86 ], [ %.2112, %WaitReadBuffersCanStartIO.exit84 ]
   %140 = load i8, ptr @track_io_timing, align 1, !range !5, !noundef !6
   %141 = trunc nuw i8 %140 to i1
   %142 = call i64 @pgstat_prepare_io_time(i1 noundef zeroext %141) #15
@@ -6114,7 +6114,7 @@ rlocator_comparator.exit:                         ; preds = %109
   %.not126 = icmp ult i32 %.sroa.0.0.copyload.i, %.sroa.0.0.extract.trunc
   br i1 %.not126, label %rlocator_comparator.exit.thread122, label %bsearch.exit
 
-rlocator_comparator.exit.thread122:               ; preds = %107, %103, %rlocator_comparator.exit
+rlocator_comparator.exit.thread122:               ; preds = %103, %107, %rlocator_comparator.exit
   %111 = add nuw i64 %99, 1
   br label %rlocator_comparator.exit.thread
 
@@ -6940,7 +6940,7 @@ rlocator_comparator.exit:                         ; preds = %58
   %.not = icmp ult i32 %.sroa.0.0.copyload.i, %.sroa.0.0.extract.trunc
   br i1 %.not, label %rlocator_comparator.exit.thread62, label %bsearch.exit
 
-rlocator_comparator.exit.thread62:                ; preds = %56, %52, %rlocator_comparator.exit
+rlocator_comparator.exit.thread62:                ; preds = %52, %56, %rlocator_comparator.exit
   %60 = add nuw i64 %48, 1
   br label %rlocator_comparator.exit.thread
 
@@ -7678,7 +7678,7 @@ ReservePrivateRefCountEntry.exit:                 ; preds = %18, %23, %25
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %14, %11, %ReservePrivateRefCountEntry.exit
-  %.0 = phi ptr [ %16, %14 ], [ null, %11 ], [ %39, %ReservePrivateRefCountEntry.exit ], [ %48, %.loopexit.loopexit ]
+  %.0 = phi ptr [ %16, %14 ], [ %39, %ReservePrivateRefCountEntry.exit ], [ null, %11 ], [ %48, %.loopexit.loopexit ]
   ret ptr %.0
 }
 
@@ -8776,7 +8776,7 @@ rlocator_comparator.exit.i:                       ; preds = %25
   %38 = icmp ugt i32 %35, %37
   br i1 %38, label %buffertag_comparator.exit.thread208, label %.critedge
 
-buffertag_comparator.exit.thread208:              ; preds = %33, %19, %23, %31, %rlocator_comparator.exit.i
+buffertag_comparator.exit.thread208:              ; preds = %33, %31, %23, %rlocator_comparator.exit.i, %19
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.sroa.0.i, ptr noundef nonnull align 4 dereferenceable(20) %.0130276, i64 20, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.0130276, ptr noundef nonnull align 4 dereferenceable(20) %13, i64 20, i1 false)
@@ -8851,7 +8851,7 @@ buffertag_comparator.exit168.thread:              ; preds = %53, %.lr.ph, %49, %
   %68 = icmp ult ptr %67, %10
   br i1 %68, label %.lr.ph, label %.critedge155, !llvm.loop !58
 
-buffertag_comparator.exit168.thread212:           ; preds = %61, %47, %51, %59, %rlocator_comparator.exit.i162
+buffertag_comparator.exit168.thread212:           ; preds = %61, %59, %51, %rlocator_comparator.exit.i162, %47
   %69 = lshr i64 %.0, 1
   %70 = getelementptr inbounds nuw %struct.PendingWriteback, ptr %.0127.ph, i64 %69
   %.not = icmp eq i64 %.0, 7
@@ -8975,9 +8975,9 @@ buffertag_comparator.exit182:                     ; preds = %110
   %.not151 = icmp ugt ptr %119, %.0135
   br i1 %.not151, label %.critedge2, label %.lr.ph249, !llvm.loop !59
 
-.critedge2:                                       ; preds = %buffertag_comparator.exit182, %118, %rlocator_comparator.exit.i176, %108, %101, %97, %92
-  %.1140.lcssa = phi ptr [ %.0139, %92 ], [ %.1140247, %97 ], [ %.1140247, %101 ], [ %.1140247, %108 ], [ %.1140247, %rlocator_comparator.exit.i176 ], [ %.2141, %118 ], [ %.1140247, %buffertag_comparator.exit182 ]
-  %.1138.lcssa = phi ptr [ %.0137, %92 ], [ %.1138248, %97 ], [ %.1138248, %101 ], [ %.1138248, %108 ], [ %.1138248, %rlocator_comparator.exit.i176 ], [ %119, %118 ], [ %.1138248, %buffertag_comparator.exit182 ]
+.critedge2:                                       ; preds = %buffertag_comparator.exit182, %118, %97, %rlocator_comparator.exit.i176, %101, %108, %92
+  %.1140.lcssa = phi ptr [ %.0139, %92 ], [ %.1140247, %108 ], [ %.1140247, %101 ], [ %.1140247, %rlocator_comparator.exit.i176 ], [ %.1140247, %97 ], [ %.2141, %118 ], [ %.1140247, %buffertag_comparator.exit182 ]
+  %.1138.lcssa = phi ptr [ %.0137, %92 ], [ %.1138248, %108 ], [ %.1138248, %101 ], [ %.1138248, %rlocator_comparator.exit.i176 ], [ %.1138248, %97 ], [ %119, %118 ], [ %.1138248, %buffertag_comparator.exit182 ]
   %.not152264 = icmp ugt ptr %.1138.lcssa, %.0135
   br i1 %.not152264, label %.critedge4, label %.lr.ph267
 
@@ -10208,7 +10208,7 @@ define internal fastcc void @sort_checkpoint_bufferids(ptr noundef %0, i64 nound
   %47 = icmp ugt i32 %44, %46
   br i1 %47, label %ckpt_buforder_comparator.exit.thread172, label %.critedge
 
-ckpt_buforder_comparator.exit.thread172:          ; preds = %42, %40, %32, %24
+ckpt_buforder_comparator.exit.thread172:          ; preds = %42, %32, %24, %40
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %9, ptr noundef nonnull align 4 dereferenceable(20) %.0130238, i64 20, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.0130238, ptr noundef nonnull align 4 dereferenceable(20) %20, i64 20, i1 false)
@@ -10271,7 +10271,7 @@ ckpt_buforder_comparator.exit158.thread:          ; preds = %64, %56, %.lr.ph, %
   %79 = icmp ult ptr %78, %17
   br i1 %79, label %.lr.ph, label %.critedge155, !llvm.loop !64
 
-ckpt_buforder_comparator.exit158.thread176:       ; preds = %72, %70, %62, %54
+ckpt_buforder_comparator.exit158.thread176:       ; preds = %72, %62, %54, %70
   %80 = lshr i64 %.0, 1
   %81 = getelementptr inbounds nuw %struct.CkptSortItem, ptr %.0127.ph, i64 %80
   %.not = icmp eq i64 %.0, 7
@@ -10383,9 +10383,9 @@ ckpt_buforder_comparator.exit161:                 ; preds = %123
   %.not151 = icmp ugt ptr %132, %.0135
   br i1 %.not151, label %.critedge2, label %.lr.ph213, !llvm.loop !65
 
-.critedge2:                                       ; preds = %ckpt_buforder_comparator.exit161, %131, %107, %114, %121, %103
-  %.1140.lcssa = phi ptr [ %.0139, %103 ], [ %.1140211, %121 ], [ %.1140211, %114 ], [ %.1140211, %107 ], [ %.2141, %131 ], [ %.1140211, %ckpt_buforder_comparator.exit161 ]
-  %.1138.lcssa = phi ptr [ %.0137, %103 ], [ %.1138212, %121 ], [ %.1138212, %114 ], [ %.1138212, %107 ], [ %132, %131 ], [ %.1138212, %ckpt_buforder_comparator.exit161 ]
+.critedge2:                                       ; preds = %ckpt_buforder_comparator.exit161, %131, %121, %107, %114, %103
+  %.1140.lcssa = phi ptr [ %.0139, %103 ], [ %.1140211, %114 ], [ %.1140211, %107 ], [ %.1140211, %121 ], [ %.2141, %131 ], [ %.1140211, %ckpt_buforder_comparator.exit161 ]
+  %.1138.lcssa = phi ptr [ %.0137, %103 ], [ %.1138212, %114 ], [ %.1138212, %107 ], [ %.1138212, %121 ], [ %132, %131 ], [ %.1138212, %ckpt_buforder_comparator.exit161 ]
   %.not152226 = icmp ugt ptr %.1138.lcssa, %.0135
   br i1 %.not152226, label %.critedge4, label %.lr.ph229
 
@@ -10794,8 +10794,8 @@ ckpt_buforder_comparator.exit24.thread:           ; preds = %95, %87, %ckpt_bufo
   %spec.select38 = select i1 %133, ptr %0, ptr %2
   br label %ckpt_buforder_comparator.exit21
 
-ckpt_buforder_comparator.exit21:                  ; preds = %103, %128, %77, %101, %93, %85, %44, %36, %31, %52, %110, %118, %126, %ckpt_buforder_comparator.exit24.thread, %112, %120, %59, %67, %75, %ckpt_buforder_comparator.exit18, %61, %69
-  %134 = phi ptr [ %1, %103 ], [ %1, %44 ], [ %0, %120 ], [ %1, %101 ], [ %0, %59 ], [ %0, %67 ], [ %0, %75 ], [ %1, %93 ], [ %2, %ckpt_buforder_comparator.exit18 ], [ %2, %61 ], [ %2, %69 ], [ %spec.select, %77 ], [ %2, %110 ], [ %2, %118 ], [ %2, %126 ], [ %spec.select38, %128 ], [ %0, %ckpt_buforder_comparator.exit24.thread ], [ %0, %112 ], [ %1, %52 ], [ %1, %31 ], [ %1, %36 ], [ %1, %85 ]
+ckpt_buforder_comparator.exit21:                  ; preds = %103, %128, %77, %93, %85, %101, %44, %36, %31, %52, %110, %118, %126, %ckpt_buforder_comparator.exit24.thread, %112, %120, %59, %67, %75, %ckpt_buforder_comparator.exit18, %61, %69
+  %134 = phi ptr [ %1, %103 ], [ %1, %44 ], [ %0, %120 ], [ %1, %93 ], [ %0, %59 ], [ %0, %67 ], [ %0, %75 ], [ %1, %85 ], [ %2, %ckpt_buforder_comparator.exit18 ], [ %2, %61 ], [ %2, %69 ], [ %spec.select, %77 ], [ %2, %110 ], [ %2, %118 ], [ %2, %126 ], [ %spec.select38, %128 ], [ %0, %ckpt_buforder_comparator.exit24.thread ], [ %0, %112 ], [ %1, %52 ], [ %1, %31 ], [ %1, %36 ], [ %1, %101 ]
   ret ptr %134
 }
 
@@ -11100,8 +11100,8 @@ rlocator_comparator.exit.i61:                     ; preds = %104
   %spec.select78 = select i1 %117, ptr %0, ptr %2
   br label %buffertag_comparator.exit41
 
-buffertag_comparator.exit41:                      ; preds = %91, %112, %68, %77, %81, %89, %rlocator_comparator.exit.i48, %39, %29, %35, %41, %47, %98, %102, %rlocator_comparator.exit.i61, %110, %106, %100, %buffertag_comparator.exit54.thread, %104, %54, %58, %rlocator_comparator.exit.i35, %66, %62, %56, %buffertag_comparator.exit28, %60
-  %118 = phi ptr [ %1, %91 ], [ %1, %39 ], [ %0, %104 ], [ %1, %77 ], [ %0, %54 ], [ %0, %58 ], [ %0, %rlocator_comparator.exit.i35 ], [ %0, %66 ], [ %1, %81 ], [ %2, %62 ], [ %2, %56 ], [ %2, %buffertag_comparator.exit28 ], [ %2, %60 ], [ %spec.select, %68 ], [ %2, %98 ], [ %2, %102 ], [ %2, %rlocator_comparator.exit.i61 ], [ %2, %110 ], [ %spec.select78, %112 ], [ %0, %106 ], [ %0, %100 ], [ %0, %buffertag_comparator.exit54.thread ], [ %1, %47 ], [ %1, %41 ], [ %1, %35 ], [ %1, %29 ], [ %1, %rlocator_comparator.exit.i48 ], [ %1, %89 ]
+buffertag_comparator.exit41:                      ; preds = %91, %112, %68, %89, %81, %rlocator_comparator.exit.i48, %77, %39, %29, %35, %41, %47, %98, %102, %rlocator_comparator.exit.i61, %110, %106, %100, %buffertag_comparator.exit54.thread, %104, %54, %58, %rlocator_comparator.exit.i35, %66, %62, %56, %buffertag_comparator.exit28, %60
+  %118 = phi ptr [ %1, %91 ], [ %1, %39 ], [ %0, %104 ], [ %1, %89 ], [ %0, %54 ], [ %0, %58 ], [ %0, %rlocator_comparator.exit.i35 ], [ %0, %66 ], [ %1, %81 ], [ %2, %62 ], [ %2, %56 ], [ %2, %buffertag_comparator.exit28 ], [ %2, %60 ], [ %spec.select, %68 ], [ %2, %98 ], [ %2, %102 ], [ %2, %rlocator_comparator.exit.i61 ], [ %2, %110 ], [ %spec.select78, %112 ], [ %0, %106 ], [ %0, %100 ], [ %0, %buffertag_comparator.exit54.thread ], [ %1, %47 ], [ %1, %41 ], [ %1, %35 ], [ %1, %29 ], [ %1, %77 ], [ %1, %rlocator_comparator.exit.i48 ]
   ret ptr %118
 }
 

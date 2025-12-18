@@ -3976,7 +3976,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14UsdSkelBindingESaIS1_EE12empla
   br i1 %.not323, label %_ZN32pxrInternal_v0_24__pxrReserved__12UsdPrimRange8iteratorD2Ev.exit281, label %.lr.ph
 
 _ZN32pxrInternal_v0_24__pxrReserved__12UsdPrimRange8iteratorD2Ev.exit281: ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14UsdSkelBindingESaIS1_EE12emplace_backIJRKNS0_15UsdSkelSkeletonERKNS0_7VtArrayINS0_20UsdSkelSkinningQueryEEEEEERS1_DpOT_.exit, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14UsdSkelBindingESaIS1_EE7reserveEm.exit, %1303, %1290, %1288
-  %.2 = phi i1 [ false, %1288 ], [ false, %1290 ], [ false, %1303 ], [ true, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14UsdSkelBindingESaIS1_EE7reserveEm.exit ], [ true, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14UsdSkelBindingESaIS1_EE12emplace_backIJRKNS0_15UsdSkelSkeletonERKNS0_7VtArrayINS0_20UsdSkelSkinningQueryEEEEEERS1_DpOT_.exit ]
+  %.2 = phi i1 [ false, %1303 ], [ false, %1288 ], [ false, %1290 ], [ true, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14UsdSkelBindingESaIS1_EE7reserveEm.exit ], [ true, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14UsdSkelBindingESaIS1_EE12emplace_backIJRKNS0_15UsdSkelSkeletonERKNS0_7VtArrayINS0_20UsdSkelSkinningQueryEEEEEERS1_DpOT_.exit ]
   %1369 = load i32, ptr %186, align 8
   %.not.i.i.i294 = icmp eq i32 %1369, 0
   br i1 %.not.i.i.i294, label %_ZN32pxrInternal_v0_24__pxrReserved__12UsdPrimRangeD2Ev.exit, label %1370

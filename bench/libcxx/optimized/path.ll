@@ -835,7 +835,7 @@ _ZNKSt3__117basic_string_viewIcNS_11char_traitsIcEEE12find_last_ofB8ne210000Ecm.
   unreachable
 
 _ZNSt3__14__fs10filesystem6parser17separate_filenameB8ne210000ERKNS_17basic_string_viewIcNS_11char_traitsIcEEEE.exit: ; preds = %8, %17, %_ZNKSt3__117basic_string_viewIcNS_11char_traitsIcEEE12find_last_ofB8ne210000Ecm.exit.i, %1, %_ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EENS_15__type_identityIS6_E4typeE.exit.i, %_ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EENS_15__type_identityIS6_E4typeE.exit18.i
-  %.sroa.66.0 = phi i64 [ %4, %1 ], [ 2, %_ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EENS_15__type_identityIS6_E4typeE.exit18.i ], [ 1, %_ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EENS_15__type_identityIS6_E4typeE.exit.i ], [ %4, %_ZNKSt3__117basic_string_viewIcNS_11char_traitsIcEEE12find_last_ofB8ne210000Ecm.exit.i ], [ %15, %17 ], [ %4, %8 ]
+  %.sroa.66.0 = phi i64 [ %4, %1 ], [ %15, %17 ], [ 2, %_ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EENS_15__type_identityIS6_E4typeE.exit18.i ], [ 1, %_ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EENS_15__type_identityIS6_E4typeE.exit.i ], [ %4, %_ZNKSt3__117basic_string_viewIcNS_11char_traitsIcEEE12find_last_ofB8ne210000Ecm.exit.i ], [ %4, %8 ]
   %.fca.1.insert = insertvalue { ptr, i64 } %2, i64 %.sroa.66.0, 1
   ret { ptr, i64 } %.fca.1.insert
 }
@@ -2133,7 +2133,7 @@ _ZNKSt3__117basic_string_viewIcNS_11char_traitsIcEEE7compareB8ne210000ES3_.exit.
   br label %_ZNSt3__14__fs10filesystemL14CompareRootDirEPNS1_6parser10PathParserES4_.exit
 
 _ZNSt3__14__fs10filesystemL14CompareRootDirEPNS1_6parser10PathParserES4_.exit: ; preds = %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit20.i, %.thread.i, %83, %82, %77, %47, %46, %_ZNSt3__14__fs10filesystemL15CompareRootNameEPNS1_6parser10PathParserES4_.exit
-  %.0 = phi i32 [ %.0.i.i, %_ZNSt3__14__fs10filesystemL15CompareRootNameEPNS1_6parser10PathParserES4_.exit ], [ -1, %46 ], [ 1, %47 ], [ %79, %77 ], [ 0, %.thread.i ], [ -1, %82 ], [ 1, %83 ], [ %73, %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit20.i ]
+  %.0 = phi i32 [ 1, %83 ], [ %.0.i.i, %_ZNSt3__14__fs10filesystemL15CompareRootNameEPNS1_6parser10PathParserES4_.exit ], [ -1, %46 ], [ 1, %47 ], [ %79, %77 ], [ 0, %.thread.i ], [ -1, %82 ], [ %73, %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit20.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -2824,7 +2824,7 @@ _ZNKSt3__14__fs10filesystem6parser10PathParser11consumeNameB8ne210000EPKcS5_.exi
   br label %_ZNKSt3__14__fs10filesystem6parser10PathParser11consumeNameB8ne210000EPKcS5_.exit
 
 _ZNKSt3__14__fs10filesystem6parser10PathParser11consumeNameB8ne210000EPKcS5_.exit: ; preds = %_ZNKSt3__14__fs10filesystem6parser10PathParser11consumeNameB8ne210000EPKcS5_.exit.loopexit, %.critedge
-  %.0.i47 = phi i64 [ %34, %_ZNKSt3__14__fs10filesystem6parser10PathParser11consumeNameB8ne210000EPKcS5_.exit.loopexit ], [ 0, %.critedge ]
+  %.0.i47 = phi i64 [ 0, %.critedge ], [ %34, %_ZNKSt3__14__fs10filesystem6parser10PathParser11consumeNameB8ne210000EPKcS5_.exit.loopexit ]
   store i8 4, ptr %6, align 8, !tbaa !21
   %35 = ptrtoint ptr %.0.i to i64
   %36 = sub i64 %.0.i47, %35
@@ -3155,8 +3155,8 @@ _ZNKSt3__14__fs10filesystem6parser10PathParser20consumeAllSeparatorsB8ne210000EP
   br i1 %81, label %_ZNKSt3__14__fs10filesystem6parser10PathParser11consumeNameB8ne210000EPKcS5_.exit85, label %78, !llvm.loop !103
 
 _ZNKSt3__14__fs10filesystem6parser10PathParser11consumeNameB8ne210000EPKcS5_.exit85: ; preds = %78, %79, %59, %_ZNKSt3__14__fs10filesystem6parser10PathParser20consumeAllSeparatorsB8ne210000EPKcS5_.exit76
-  %.0.i729295 = phi ptr [ %.014.i74, %_ZNKSt3__14__fs10filesystem6parser10PathParser20consumeAllSeparatorsB8ne210000EPKcS5_.exit76 ], [ null, %59 ], [ %.014.i74, %79 ], [ %.014.i74, %78 ]
-  %.0.i84 = phi ptr [ null, %_ZNKSt3__14__fs10filesystem6parser10PathParser20consumeAllSeparatorsB8ne210000EPKcS5_.exit76 ], [ null, %59 ], [ %.025.i82, %79 ], [ %.025.i82, %78 ]
+  %.0.i729295 = phi ptr [ null, %59 ], [ %.014.i74, %_ZNKSt3__14__fs10filesystem6parser10PathParser20consumeAllSeparatorsB8ne210000EPKcS5_.exit76 ], [ %.014.i74, %79 ], [ %.014.i74, %78 ]
+  %.0.i84 = phi ptr [ null, %59 ], [ null, %_ZNKSt3__14__fs10filesystem6parser10PathParser20consumeAllSeparatorsB8ne210000EPKcS5_.exit76 ], [ %.025.i82, %79 ], [ %.025.i82, %78 ]
   %82 = getelementptr inbounds nuw i8, ptr %.0.i84, i64 1
   %83 = getelementptr inbounds nuw i8, ptr %.0.i729295, i64 1
   store i8 4, ptr %4, align 8, !tbaa !21

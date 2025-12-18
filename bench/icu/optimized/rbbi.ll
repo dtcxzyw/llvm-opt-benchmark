@@ -4202,7 +4202,7 @@ define noundef ptr @_ZN6icu_7722RuleBasedBreakIterator22getLanguageBreakEngineEi
   br label %_ZN6icu_776UStack4pushEPvR10UErrorCode.exit
 
 _ZN6icu_776UStack4pushEPvR10UErrorCode.exit:      ; preds = %29, %67, %59, %58, %82, %83, %20
-  %.0 = phi ptr [ null, %20 ], [ %88, %83 ], [ null, %67 ], [ null, %82 ], [ %53, %58 ], [ %53, %59 ], [ %32, %29 ]
+  %.0 = phi ptr [ null, %20 ], [ %88, %83 ], [ %53, %59 ], [ null, %67 ], [ null, %82 ], [ %53, %58 ], [ %32, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 

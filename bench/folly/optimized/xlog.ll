@@ -372,7 +372,7 @@ _ZNSt10_HashtableIPKvSt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stESt8equal_toIS
   resume { ptr, i32 } %48
 
 _ZNSt13unordered_mapIPKvmSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_mEEEixERS7_.exit: ; preds = %36, %31, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %32, %31 ], [ %47, %.loopexit.i.i ], [ %38, %36 ]
+  %.pn.i.i = phi ptr [ %47, %.loopexit.i.i ], [ %32, %31 ], [ %38, %36 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   ret ptr %.1.i.i
 }

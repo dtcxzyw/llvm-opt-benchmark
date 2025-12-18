@@ -1390,7 +1390,7 @@ _ZN4core5slice4sort6shared17find_existing_run17ha7e9d1747c1a3977E.exit.i: ; pred
   br label %_ZN4core5slice4sort6stable5drift10create_run17h735837d698f3100dE.exit
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h2eb526c1ba54f576E.exit.i": ; preds = %_ZN4core10intrinsics25typed_swap_nonoverlapping17hb2237ef941ff0df8E.exit.i.i.i, %.preheader28.i, %58, %28
-  %.sroa.0.0.i2427.i = phi i64 [ %.sroa.0.0.i.i, %58 ], [ %25, %28 ], [ 2, %.preheader28.i ], [ %.sroa.0.0.i586568.i, %_ZN4core10intrinsics25typed_swap_nonoverlapping17hb2237ef941ff0df8E.exit.i.i.i ]
+  %.sroa.0.0.i2427.i = phi i64 [ %25, %28 ], [ %.sroa.0.0.i.i, %58 ], [ 2, %.preheader28.i ], [ %.sroa.0.0.i586568.i, %_ZN4core10intrinsics25typed_swap_nonoverlapping17hb2237ef941ff0df8E.exit.i.i.i ]
   %65 = shl i64 %.sroa.0.0.i2427.i, 1
   %66 = or disjoint i64 %65, 1
   br label %_ZN4core5slice4sort6stable5drift10create_run17h735837d698f3100dE.exit
@@ -3879,7 +3879,7 @@ define internal fastcc noundef align 8 ptr @"_ZN5wasmi6engine10translator6driver
   br label %.loopexit
 
 .loopexit:                                        ; preds = %31, %._crit_edge, %12, %27
-  %.sroa.0.1 = phi ptr [ %14, %12 ], [ %26, %._crit_edge ], [ %30, %27 ], [ %33, %31 ]
+  %.sroa.0.1 = phi ptr [ %30, %27 ], [ %14, %12 ], [ %26, %._crit_edge ], [ %33, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.sroa.0.1
 
@@ -3971,7 +3971,7 @@ define internal fastcc noundef align 8 ptr @"_ZN5wasmi6engine10translator6driver
   br label %.loopexit
 
 .loopexit:                                        ; preds = %31, %._crit_edge, %12, %27
-  %.sroa.0.1 = phi ptr [ %14, %12 ], [ %26, %._crit_edge ], [ %30, %27 ], [ %33, %31 ]
+  %.sroa.0.1 = phi ptr [ %30, %27 ], [ %14, %12 ], [ %26, %._crit_edge ], [ %33, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.sroa.0.1
 
@@ -4444,8 +4444,8 @@ _ZN5wasmi6engine10translator5stack8provider13ProviderStack23preserve_locals_inpl
   br i1 %79, label %.loopexit.i, label %.outer.i
 
 .loopexit.i:                                      ; preds = %77, %.outer.i, %62
-  %.sroa.010.1.i = phi i16 [ %.sroa.010.0.ph.i, %62 ], [ 1, %77 ], [ %.sroa.010.0.ph.i, %.outer.i ]
-  %.sroa.412.1.i = phi i16 [ %.sroa.412.0.ph.i, %62 ], [ %.sroa.412.2.i, %77 ], [ %.sroa.412.0.ph.i, %.outer.i ]
+  %.sroa.010.1.i = phi i16 [ %.sroa.010.0.ph.i, %62 ], [ %.sroa.010.0.ph.i, %.outer.i ], [ 1, %77 ]
+  %.sroa.412.1.i = phi i16 [ %.sroa.412.0.ph.i, %62 ], [ %.sroa.412.0.ph.i, %.outer.i ], [ %.sroa.412.2.i, %77 ]
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i16 %.sroa.010.1.i, ptr %80, align 2, !alias.scope !378, !noalias !388
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 4

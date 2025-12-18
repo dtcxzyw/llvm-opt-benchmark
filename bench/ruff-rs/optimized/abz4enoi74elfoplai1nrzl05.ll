@@ -1241,8 +1241,8 @@ _ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread16.i: ; preds = %.lr
   br label %37
 
 "_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h1631b02891b11fa6E.exit": ; preds = %37, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hce5f7d83e7f90ed8E.exit.i", %_ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.i, %.preheader.i.i, %25
-  %.sink.i26 = phi i64 [ 0, %25 ], [ 0, %_ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.i ], [ 0, %.preheader.i.i ], [ 0, %37 ], [ 1, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hce5f7d83e7f90ed8E.exit.i" ]
-  %47 = phi i64 [ undef, %25 ], [ undef, %_ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.i ], [ undef, %.preheader.i.i ], [ undef, %37 ], [ %36, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hce5f7d83e7f90ed8E.exit.i" ]
+  %.sink.i26 = phi i64 [ 0, %25 ], [ 0, %.preheader.i.i ], [ 1, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hce5f7d83e7f90ed8E.exit.i" ], [ 0, %37 ], [ 0, %_ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.i ]
+  %47 = phi i64 [ undef, %25 ], [ undef, %.preheader.i.i ], [ %36, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hce5f7d83e7f90ed8E.exit.i" ], [ undef, %37 ], [ undef, %_ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %48 = insertvalue { i64, i64 } poison, i64 %.sink.i26, 0
   %49 = insertvalue { i64, i64 } %48, i64 %47, 1
@@ -1975,7 +1975,7 @@ _ZN4core3str7pattern13simd_contains17h3d353a735ba2a5d2E.exit: ; preds = %15
   br label %261
 
 "_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h3cb23c7047c105e7E.exit": ; preds = %173, %.sink.split.i, %.preheader45, %261, %.preheader, %175, %240, %183, %.preheader.i21
-  %.sroa.0.0 = phi i8 [ 0, %183 ], [ 0, %.preheader.i21 ], [ 0, %240 ], [ %spec.select, %175 ], [ 0, %.sink.split.i ], [ 1, %.preheader ], [ 0, %261 ], [ 1, %.preheader45 ], [ 1, %173 ]
+  %.sroa.0.0 = phi i8 [ 0, %183 ], [ 0, %261 ], [ 0, %.preheader.i21 ], [ 0, %240 ], [ %spec.select, %175 ], [ 1, %.preheader ], [ 1, %.preheader45 ], [ 0, %.sink.split.i ], [ 1, %173 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %8
 }
@@ -6268,7 +6268,7 @@ _ZN21ruff_python_formatter6string9normalize39is_fstring_with_quoted_debug_expres
   br label %_ZN21ruff_python_formatter6string9normalize39is_fstring_with_quoted_debug_expression17h1dfc0798ba75a8cbE.exit
 
 _ZN21ruff_python_formatter6string9normalize39is_fstring_with_quoted_debug_expression17h1dfc0798ba75a8cbE.exit: ; preds = %52, %75, %_ZN21ruff_python_formatter6string9normalize39is_fstring_with_quoted_debug_expression17h1dfc0798ba75a8cbE.exit.sink.split, %82, %_ZN21ruff_python_formatter6string9normalize66is_fstring_with_triple_quoted_literal_expression_containing_quotes17h2d0c7e2ce7ae187cE.exit, %31, %_ZN21ruff_python_formatter6string9normalize44is_fstring_with_quoted_format_spec_and_debug17h720d8c75a08aa9f1E.exit.thread
-  %.sroa.0.1 = phi i8 [ 2, %_ZN21ruff_python_formatter6string9normalize66is_fstring_with_triple_quoted_literal_expression_containing_quotes17h2d0c7e2ce7ae187cE.exit ], [ %spec.select, %_ZN21ruff_python_formatter6string9normalize44is_fstring_with_quoted_format_spec_and_debug17h720d8c75a08aa9f1E.exit.thread ], [ 2, %31 ], [ 1, %82 ], [ %30, %_ZN21ruff_python_formatter6string9normalize39is_fstring_with_quoted_debug_expression17h1dfc0798ba75a8cbE.exit.sink.split ], [ 2, %75 ], [ 2, %52 ]
+  %.sroa.0.1 = phi i8 [ 1, %82 ], [ 2, %_ZN21ruff_python_formatter6string9normalize66is_fstring_with_triple_quoted_literal_expression_containing_quotes17h2d0c7e2ce7ae187cE.exit ], [ 2, %75 ], [ %30, %_ZN21ruff_python_formatter6string9normalize39is_fstring_with_quoted_debug_expression17h1dfc0798ba75a8cbE.exit.sink.split ], [ %spec.select, %_ZN21ruff_python_formatter6string9normalize44is_fstring_with_quoted_format_spec_and_debug17h720d8c75a08aa9f1E.exit.thread ], [ 2, %31 ], [ 2, %52 ]
   ret i8 %.sroa.0.1
 
 31:                                               ; preds = %24, %22, %3
@@ -9091,8 +9091,8 @@ _ZN5alloc6string6String4push17h444d5a6351d622eeE.exit140.i.i: ; preds = %496, %4
           to label %536 unwind label %.loopexit216.i.i, !noalias !701
 
 .invoke.i.i:                                      ; preds = %507, %505, %403, %401, %528, %526
-  %534 = phi i64 [ %.sroa.11.0228.i.i, %403 ], [ %.sroa.17.0232.i.i, %528 ], [ %.sroa.17.0232.i.i, %526 ], [ %.sroa.11.0228.i.i, %401 ], [ %.sroa.067.0.i.i, %505 ], [ %.sroa.067.0.i.i, %507 ]
-  %535 = phi ptr [ @anon.86c23db3b5593fac2c462c369b316c3a.328, %403 ], [ @anon.86c23db3b5593fac2c462c369b316c3a.330, %528 ], [ @anon.86c23db3b5593fac2c462c369b316c3a.330, %526 ], [ @anon.86c23db3b5593fac2c462c369b316c3a.328, %401 ], [ @anon.86c23db3b5593fac2c462c369b316c3a.329, %505 ], [ @anon.86c23db3b5593fac2c462c369b316c3a.329, %507 ]
+  %534 = phi i64 [ %.sroa.17.0232.i.i, %528 ], [ %.sroa.11.0228.i.i, %403 ], [ %.sroa.17.0232.i.i, %526 ], [ %.sroa.11.0228.i.i, %401 ], [ %.sroa.067.0.i.i, %505 ], [ %.sroa.067.0.i.i, %507 ]
+  %535 = phi ptr [ @anon.86c23db3b5593fac2c462c369b316c3a.330, %528 ], [ @anon.86c23db3b5593fac2c462c369b316c3a.328, %403 ], [ @anon.86c23db3b5593fac2c462c369b316c3a.330, %526 ], [ @anon.86c23db3b5593fac2c462c369b316c3a.328, %401 ], [ @anon.86c23db3b5593fac2c462c369b316c3a.329, %505 ], [ @anon.86c23db3b5593fac2c462c369b316c3a.329, %507 ]
   invoke void @_ZN4core3str16slice_error_fail17h9782f1ca63c1749dE(ptr noalias noundef nonnull readonly align 1 %296, i64 noundef %295, i64 noundef 0, i64 noundef %534, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %535) #22
           to label %.cont.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.i.i.loopexit.split-lp, !noalias !701
 
@@ -10214,7 +10214,7 @@ define internal fastcc noundef zeroext i1 @_ZN21ruff_python_formatter6string9nor
   br label %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17hc136889a5cda7203E.exit"
 
 "_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17hc136889a5cda7203E.exit": ; preds = %.lr.ph.i.i8, %.lr.ph.i.i, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17hc136889a5cda7203E.exit.sink.split", %.preheader.i.i6, %.preheader.i.i
-  %phi.call = phi i1 [ false, %.preheader.i.i6 ], [ false, %.preheader.i.i ], [ %43, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17hc136889a5cda7203E.exit.sink.split" ], [ %35, %.lr.ph.i.i ], [ %39, %.lr.ph.i.i8 ]
+  %phi.call = phi i1 [ false, %.preheader.i.i6 ], [ %35, %.lr.ph.i.i ], [ false, %.preheader.i.i ], [ %43, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17hc136889a5cda7203E.exit.sink.split" ], [ %39, %.lr.ph.i.i8 ]
   ret i1 %phi.call
 }
 

@@ -481,7 +481,7 @@ getNextGISTSearchItem.exit:                       ; preds = %gistkillitems.exit
   br i1 %244, label %177, label %.loopexit, !llvm.loop !10
 
 .critedge:                                        ; preds = %gistkillitems.exit, %getNextGISTSearchItem.exit, %93, %getNextGISTSearchItem.exit.i, %.thread35.i, %62, %9, %147
-  %.0 = phi i1 [ true, %147 ], [ false, %9 ], [ true, %.thread35.i ], [ false, %62 ], [ false, %93 ], [ false, %getNextGISTSearchItem.exit.i ], [ false, %getNextGISTSearchItem.exit ], [ false, %gistkillitems.exit ]
+  %.0 = phi i1 [ false, %93 ], [ true, %147 ], [ false, %62 ], [ false, %9 ], [ true, %.thread35.i ], [ false, %getNextGISTSearchItem.exit.i ], [ false, %getNextGISTSearchItem.exit ], [ false, %gistkillitems.exit ]
   ret i1 %.0
 }
 
@@ -1067,8 +1067,8 @@ index_getattr.exit.thread:                        ; preds = %299, %index_getattr
   br i1 %337, label %256, label %gistindex_keytest.exit, !llvm.loop !14
 
 gistindex_keytest.exit:                           ; preds = %333, %149, %.preheader.i, %._crit_edge.i
-  %.3 = phi i8 [ 0, %.preheader.i ], [ %.0150, %._crit_edge.i ], [ 0, %149 ], [ %.0150, %333 ]
-  %.2 = phi i8 [ 0, %.preheader.i ], [ 0, %._crit_edge.i ], [ 0, %149 ], [ %.1, %333 ]
+  %.3 = phi i8 [ 0, %149 ], [ 0, %.preheader.i ], [ %.0150, %._crit_edge.i ], [ %.0150, %333 ]
+  %.2 = phi i8 [ 0, %149 ], [ 0, %.preheader.i ], [ 0, %._crit_edge.i ], [ %.1, %333 ]
   store ptr %124, ptr @CurrentMemoryContext, align 8
   %338 = load ptr, ptr %11, align 8
   %339 = getelementptr inbounds nuw i8, ptr %338, i64 8

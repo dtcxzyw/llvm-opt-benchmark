@@ -1481,7 +1481,7 @@ rock_check_overflow.exit:                         ; preds = %96
   br label %136
 
 .thread13:                                        ; preds = %.thread, %195, %189, %185, %130
-  %209 = phi ptr [ %81, %130 ], [ %171, %189 ], [ %196, %195 ], [ %171, %185 ], [ %178, %.thread ]
+  %209 = phi ptr [ %81, %130 ], [ %171, %185 ], [ %171, %189 ], [ %196, %195 ], [ %178, %.thread ]
   %210 = icmp eq ptr %209, null
   br i1 %210, label %.thread15, label %.thread13.thread-pre-split_crit_edge
 

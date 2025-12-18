@@ -3109,7 +3109,7 @@ terminate.lpad.i.i189:                            ; preds = %if.then.i.i.i187
   unreachable
 
 eh.resume:                                        ; preds = %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEdlEED2Ev.exit172, %if.then.i.i.i, %lpad, %if.then.i.i.i187, %ehcleanup, %if.then.i.i.i175, %lpad44
-  %.pn17 = phi { ptr, i32 } [ %.pn, %if.then.i.i.i187 ], [ %33, %if.then.i.i.i175 ], [ %33, %lpad44 ], [ %.pn, %ehcleanup ], [ %2, %lpad ], [ %2, %if.then.i.i.i ], [ %lpad.phi, %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEdlEED2Ev.exit172 ]
+  %.pn17 = phi { ptr, i32 } [ %2, %lpad ], [ %.pn, %ehcleanup ], [ %.pn, %if.then.i.i.i187 ], [ %33, %if.then.i.i.i175 ], [ %2, %if.then.i.i.i ], [ %33, %lpad44 ], [ %lpad.phi, %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEdlEED2Ev.exit172 ]
   resume { ptr, i32 } %.pn17
 }
 

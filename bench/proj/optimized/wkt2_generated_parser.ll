@@ -901,9 +901,9 @@ define hidden range(i32 0, 3) i32 @pj_wkt2_parse(ptr noundef %0) local_unnamed_a
   br label %.thread288
 
 .thread288:                                       ; preds = %.thread252, %136, %152, %.thread245
-  %.6169286 = phi ptr [ %.5168, %.thread245 ], [ %.1164, %152 ], [ %.1164, %136 ], [ %.1164, %.thread252 ]
-  %.0186282 = phi i32 [ 2, %.thread245 ], [ 1, %152 ], [ 0, %.thread252 ], [ 1, %136 ]
-  %.6238278 = phi ptr [ %.2, %.thread245 ], [ %.5237, %152 ], [ %.0233, %136 ], [ %.0233, %.thread252 ]
+  %.6169286 = phi ptr [ %.1164, %152 ], [ %.5168, %.thread245 ], [ %.1164, %136 ], [ %.1164, %.thread252 ]
+  %.0186282 = phi i32 [ 1, %152 ], [ 2, %.thread245 ], [ 1, %136 ], [ 0, %.thread252 ]
+  %.6238278 = phi ptr [ %.5237, %152 ], [ %.2, %.thread245 ], [ %.0233, %136 ], [ %.0233, %.thread252 ]
   %.not226 = icmp eq ptr %.6169286, %3
   br i1 %.not226, label %162, label %.thread288.thread
 
@@ -1215,7 +1215,7 @@ yytnamerr.exit131:                                ; preds = %73, %.preheader, %y
   br label %.preheader
 
 .critedge:                                        ; preds = %yytnamerr.exit120, %.preheader, %70, %.thread7
-  %.7 = phi i32 [ 2, %.thread7 ], [ 1, %70 ], [ 0, %.preheader ], [ 2, %yytnamerr.exit120 ]
+  %.7 = phi i32 [ 1, %70 ], [ 0, %.preheader ], [ 2, %.thread7 ], [ 2, %yytnamerr.exit120 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.7
 }

@@ -751,7 +751,7 @@ define noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Far22TopologyRefinerFactoryINS
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit34, %.loopexit.loopexit, %.preheader, %26
-  %.3 = phi i32 [ %.126, %26 ], [ %.01931, %.preheader ], [ %43, %.loopexit.loopexit ], [ %44, %.loopexit.loopexit34 ]
+  %.3 = phi i32 [ %43, %.loopexit.loopexit ], [ %.126, %26 ], [ %.01931, %.preheader ], [ %44, %.loopexit.loopexit34 ]
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   %45 = load i32, ptr %3, align 4
   %46 = sext i32 %45 to i64
@@ -1040,7 +1040,7 @@ define noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Far22TopologyRefinerFactoryINS
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit51, %.loopexit.loopexit, %.preheader, %30
-  %.3 = phi i32 [ %.140, %30 ], [ %.03145, %.preheader ], [ %44, %.loopexit.loopexit ], [ %45, %.loopexit.loopexit51 ]
+  %.3 = phi i32 [ %44, %.loopexit.loopexit ], [ %.140, %30 ], [ %.03145, %.preheader ], [ %45, %.loopexit.loopexit51 ]
   %46 = add nuw nsw i32 %.03046, 1
   %47 = load i32, ptr %9, align 4
   %48 = icmp slt i32 %46, %47

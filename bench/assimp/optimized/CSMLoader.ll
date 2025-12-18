@@ -1531,9 +1531,9 @@ thread-pre-split368:                              ; preds = %405
   br label %452, !llvm.loop !14
 
 _ZNSt6vectorIP10aiNodeAnimSaIS1_EED2Ev.exit:      ; preds = %430, %454, %452, %425, %_ZN6Assimp15ASSIMP_strincmpEPKcS1_j.exit.thread.i202, %244, %233, %101, %151, %136
-  %.2330 = phi i32 [ %.0328, %_ZN6Assimp15ASSIMP_strincmpEPKcS1_j.exit.thread.i202 ], [ %.0328, %101 ], [ %.0.i165, %136 ], [ %.0328, %151 ], [ %.0328, %233 ], [ %.0328, %244 ], [ %.1329, %425 ], [ %.0328, %454 ], [ %.0328, %452 ], [ %.1329, %430 ]
-  %.2327 = phi i32 [ %.0325, %_ZN6Assimp15ASSIMP_strincmpEPKcS1_j.exit.thread.i202 ], [ %.0.i141, %101 ], [ %.0325, %136 ], [ %.0325, %151 ], [ %.0325, %233 ], [ %.0325, %244 ], [ %.1326, %425 ], [ %.0325, %454 ], [ %.0325, %452 ], [ %.1326, %430 ]
-  %.8 = phi ptr [ %67, %_ZN6Assimp15ASSIMP_strincmpEPKcS1_j.exit.thread.i202 ], [ %.08.lcssa.i.i, %101 ], [ %.08.lcssa.i.i162, %136 ], [ %150, %151 ], [ %.0.lcssa.i.i194, %233 ], [ %67, %244 ], [ %.0.lcssa.i.i214, %425 ], [ %scevgep25.i.i, %454 ], [ %.1.i.i, %452 ], [ %.0.lcssa.i.i214, %430 ]
+  %.2330 = phi i32 [ %.0328, %_ZN6Assimp15ASSIMP_strincmpEPKcS1_j.exit.thread.i202 ], [ %.0328, %101 ], [ %.0.i165, %136 ], [ %.0328, %151 ], [ %.0328, %233 ], [ %.1329, %425 ], [ %.0328, %454 ], [ %.0328, %244 ], [ %.0328, %452 ], [ %.1329, %430 ]
+  %.2327 = phi i32 [ %.0325, %_ZN6Assimp15ASSIMP_strincmpEPKcS1_j.exit.thread.i202 ], [ %.0.i141, %101 ], [ %.0325, %136 ], [ %.0325, %151 ], [ %.0325, %233 ], [ %.1326, %425 ], [ %.0325, %454 ], [ %.0325, %244 ], [ %.0325, %452 ], [ %.1326, %430 ]
+  %.8 = phi ptr [ %67, %_ZN6Assimp15ASSIMP_strincmpEPKcS1_j.exit.thread.i202 ], [ %.08.lcssa.i.i, %101 ], [ %.08.lcssa.i.i162, %136 ], [ %150, %151 ], [ %.0.lcssa.i.i194, %233 ], [ %.0.lcssa.i.i214, %425 ], [ %scevgep25.i.i, %454 ], [ %67, %244 ], [ %.1.i.i, %452 ], [ %.0.lcssa.i.i214, %430 ]
   br label %53, !llvm.loop !15
 
 457:                                              ; preds = %_ZN6Assimp10SkipSpacesIcEEbPPKT_S3_.exit

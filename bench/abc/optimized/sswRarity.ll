@@ -2462,7 +2462,7 @@ define range(i32 0, 2) i32 @Ssw_RarCheckTrivial(ptr noundef captures(none) %0, i
   br i1 %exitcond39.not, label %.critedge, label %.lr.ph.split, !llvm.loop !121
 
 .critedge:                                        ; preds = %34, %.lr.ph.split, %17, %2, %29, %33
-  %.020 = phi i32 [ 1, %29 ], [ 1, %33 ], [ 0, %2 ], [ 0, %17 ], [ 0, %.lr.ph.split ], [ 0, %34 ]
+  %.020 = phi i32 [ 1, %29 ], [ 1, %33 ], [ 0, %17 ], [ 0, %2 ], [ 0, %.lr.ph.split ], [ 0, %34 ]
   ret i32 %.020
 }
 
@@ -2822,8 +2822,8 @@ Abc_Clock.exit215:                                ; preds = %176, %179
   br label %185
 
 185:                                              ; preds = %Abc_Clock.exit207, %Abc_Clock.exit215
-  %.3158 = phi i64 [ %.0.i214, %Abc_Clock.exit215 ], [ %.1156290, %Abc_Clock.exit207 ]
-  %.3 = phi i32 [ 0, %Abc_Clock.exit215 ], [ %.1150291, %Abc_Clock.exit207 ]
+  %.3158 = phi i64 [ %.1156290, %Abc_Clock.exit207 ], [ %.0.i214, %Abc_Clock.exit215 ]
+  %.3 = phi i32 [ %.1150291, %Abc_Clock.exit207 ], [ 0, %Abc_Clock.exit215 ]
   %186 = load i32, ptr %23, align 8, !tbaa !123
   %.not181 = icmp eq i32 %186, 0
   br i1 %.not181, label %212, label %187
@@ -3134,8 +3134,8 @@ Abc_Clock.exit229:                                ; preds = %305, %325
   br label %102, !llvm.loop !136
 
 .thread:                                          ; preds = %104, %249, %Vec_PtrCountZero.exit, %Abc_Clock.exit213, %147, %130, %230, %238, %197, %205
-  %.2162 = phi i32 [ %.1161289, %197 ], [ %.1161289, %205 ], [ %.1161289, %230 ], [ %.1161289, %238 ], [ %.1161289, %Abc_Clock.exit213 ], [ %.1161289, %130 ], [ %.1161289, %147 ], [ %.1161289, %249 ], [ %.1161289, %Vec_PtrCountZero.exit ], [ %.0160, %104 ]
-  %.5 = phi i32 [ %.3, %197 ], [ %.3, %205 ], [ %.3, %230 ], [ %.3, %238 ], [ 0, %Abc_Clock.exit213 ], [ %.1150291, %130 ], [ 0, %147 ], [ %.3, %249 ], [ %.3, %Vec_PtrCountZero.exit ], [ %.0149, %104 ]
+  %.2162 = phi i32 [ %.1161289, %197 ], [ %.1161289, %205 ], [ %.1161289, %230 ], [ %.1161289, %238 ], [ %.1161289, %147 ], [ %.1161289, %Abc_Clock.exit213 ], [ %.1161289, %249 ], [ %.1161289, %130 ], [ %.1161289, %Vec_PtrCountZero.exit ], [ %.0160, %104 ]
+  %.5 = phi i32 [ %.3, %197 ], [ %.3, %205 ], [ %.3, %230 ], [ %.3, %238 ], [ 0, %147 ], [ 0, %Abc_Clock.exit213 ], [ %.3, %249 ], [ %.1150291, %130 ], [ %.3, %Vec_PtrCountZero.exit ], [ %.0149, %104 ]
   %337 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %338 = load i32, ptr %337, align 4, !tbaa !137
   %.not190 = icmp eq i32 %338, 0

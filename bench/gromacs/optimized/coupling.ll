@@ -210,29 +210,29 @@ define void @_Z14update_tcouplelPK10t_inputrecP7t_stateP14gmx_ekindata_tPK9t_ext
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 196
   %17 = load i32, ptr %16, align 4, !tbaa !103
   %.not.i = icmp eq i32 %17, 0
-  br i1 %switch, label %18, label %23
+  br i1 %switch, label %18, label %19
 
 18:                                               ; preds = %12
-  br i1 %.not.i, label %.critedge, label %19
-
-19:                                               ; preds = %18
-  %20 = sext i32 %17 to i64
-  %21 = srem i64 %0, %20
-  %22 = icmp eq i64 %21, 0
-  br i1 %22, label %29, label %.critedge
-
-23:                                               ; preds = %12
   br i1 %.not.i, label %.critedge, label %_Z11do_per_stepll.exit
 
-_Z11do_per_stepll.exit:                           ; preds = %23
-  %24 = sext i32 %17 to i64
-  %25 = add i64 %0, -1
-  %26 = add i64 %25, %24
-  %27 = srem i64 %26, %24
+19:                                               ; preds = %12
+  br i1 %.not.i, label %.critedge, label %20
+
+20:                                               ; preds = %19
+  %21 = sext i32 %17 to i64
+  %22 = add i64 %0, -1
+  %23 = add i64 %22, %21
+  %24 = srem i64 %23, %21
+  %25 = icmp eq i64 %24, 0
+  br i1 %25, label %29, label %.critedge
+
+_Z11do_per_stepll.exit:                           ; preds = %18
+  %26 = sext i32 %17 to i64
+  %27 = srem i64 %0, %26
   %28 = icmp eq i64 %27, 0
   br i1 %28, label %29, label %.critedge
 
-29:                                               ; preds = %19, %_Z11do_per_stepll.exit
+29:                                               ; preds = %20, %_Z11do_per_stepll.exit
   %30 = sitofp i32 %17 to double
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %32 = load double, ptr %31, align 8, !tbaa !104
@@ -403,7 +403,7 @@ _ZL17nosehoover_tcouplRK14gmx_ekindata_tfN3gmx8ArrayRefIdEES4_RK9t_extmass.exit:
   %exitcond.not.i49 = icmp eq i64 %indvars.iv.next.i48, 3
   br i1 %exitcond.not.i49, label %110, label %111, !llvm.loop !127
 
-.critedge:                                        ; preds = %23, %18, %19, %7, %_Z11do_per_stepll.exit
+.critedge:                                        ; preds = %19, %18, %20, %7, %_Z11do_per_stepll.exit
   %115 = getelementptr inbounds nuw i8, ptr %1, i64 744
   %116 = load i32, ptr %115, align 8, !tbaa !130
   %117 = icmp sgt i32 %116, 0
@@ -2264,9 +2264,9 @@ _ZL26calculateScalingMatrixImplIL16PressureCoupling1EEvRK23PressureCouplingOptio
   br label %_ZL26calculateScalingMatrixImplIL16PressureCoupling1EEvRK23PressureCouplingOptionslfPN3gmx13MultiDimArrayISt5arrayIfLm9EENS4_7extentsIJLl3ELl3EEEENS4_12layout_rightEEEfPA3_KfSF_l.exit
 
 _ZL26calculateScalingMatrixImplIL16PressureCoupling1EEvRK23PressureCouplingOptionslfPN3gmx13MultiDimArrayISt5arrayIfLm9EENS4_7extentsIJLl3ELl3EEEENS4_12layout_rightEEEfPA3_KfSF_l.exit: ; preds = %123, %28, %_ZL26calculateScalingMatrixImplIL16PressureCoupling1EEvRK23PressureCouplingOptionslfPN3gmx13MultiDimArrayISt5arrayIfLm9EENS4_7extentsIJLl3ELl3EEEENS4_12layout_rightEEEfPA3_KfSF_l.exit.loopexit59, %44
-  %164 = phi float [ %163, %_ZL26calculateScalingMatrixImplIL16PressureCoupling1EEvRK23PressureCouplingOptionslfPN3gmx13MultiDimArrayISt5arrayIfLm9EENS4_7extentsIJLl3ELl3EEEENS4_12layout_rightEEEfPA3_KfSF_l.exit.loopexit59 ], [ 0.000000e+00, %44 ], [ 0.000000e+00, %28 ], [ 0.000000e+00, %123 ]
-  %165 = phi float [ %162, %_ZL26calculateScalingMatrixImplIL16PressureCoupling1EEvRK23PressureCouplingOptionslfPN3gmx13MultiDimArrayISt5arrayIfLm9EENS4_7extentsIJLl3ELl3EEEENS4_12layout_rightEEEfPA3_KfSF_l.exit.loopexit59 ], [ 0.000000e+00, %44 ], [ 0.000000e+00, %28 ], [ 0.000000e+00, %123 ]
-  %166 = phi float [ %161, %_ZL26calculateScalingMatrixImplIL16PressureCoupling1EEvRK23PressureCouplingOptionslfPN3gmx13MultiDimArrayISt5arrayIfLm9EENS4_7extentsIJLl3ELl3EEEENS4_12layout_rightEEEfPA3_KfSF_l.exit.loopexit59 ], [ 0.000000e+00, %44 ], [ 0.000000e+00, %28 ], [ 0.000000e+00, %123 ]
+  %164 = phi float [ 0.000000e+00, %28 ], [ %163, %_ZL26calculateScalingMatrixImplIL16PressureCoupling1EEvRK23PressureCouplingOptionslfPN3gmx13MultiDimArrayISt5arrayIfLm9EENS4_7extentsIJLl3ELl3EEEENS4_12layout_rightEEEfPA3_KfSF_l.exit.loopexit59 ], [ 0.000000e+00, %44 ], [ 0.000000e+00, %123 ]
+  %165 = phi float [ 0.000000e+00, %28 ], [ %162, %_ZL26calculateScalingMatrixImplIL16PressureCoupling1EEvRK23PressureCouplingOptionslfPN3gmx13MultiDimArrayISt5arrayIfLm9EENS4_7extentsIJLl3ELl3EEEENS4_12layout_rightEEEfPA3_KfSF_l.exit.loopexit59 ], [ 0.000000e+00, %44 ], [ 0.000000e+00, %123 ]
+  %166 = phi float [ 0.000000e+00, %28 ], [ %161, %_ZL26calculateScalingMatrixImplIL16PressureCoupling1EEvRK23PressureCouplingOptionslfPN3gmx13MultiDimArrayISt5arrayIfLm9EENS4_7extentsIJLl3ELl3EEEENS4_12layout_rightEEEfPA3_KfSF_l.exit.loopexit59 ], [ 0.000000e+00, %44 ], [ 0.000000e+00, %123 ]
   %167 = getelementptr i8, ptr %10, i64 4
   %168 = getelementptr i8, ptr %10, i64 12
   store float %166, ptr %168, align 4, !tbaa !114
@@ -3481,9 +3481,9 @@ _ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_12ThreeFry2x64ILj0EEEEEfRT_.ex
   br i1 %exitcond.not, label %.loopexit, label %153, !llvm.loop !295
 
 .loopexit:                                        ; preds = %_ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit, %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit, %127
-  %260 = phi i64 [ %35, %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit ], [ %35, %127 ], [ %249, %_ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit ]
-  %261 = phi i64 [ %36, %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit ], [ %36, %127 ], [ %250, %_ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit ]
-  %.sroa.6.1 = phi i64 [ %.sroa.6.052, %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit ], [ %.sroa.6.052, %127 ], [ %256, %_ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit ]
+  %260 = phi i64 [ %35, %127 ], [ %35, %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit ], [ %249, %_ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit ]
+  %261 = phi i64 [ %36, %127 ], [ %36, %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit ], [ %250, %_ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit ]
+  %.sroa.6.1 = phi i64 [ %.sroa.6.052, %127 ], [ %.sroa.6.052, %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit ], [ %256, %_ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit ]
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %exitcond59.not = icmp eq i64 %indvars.iv.next57, %wide.trip.count
   br i1 %exitcond59.not, label %._crit_edge, label %34, !llvm.loop !296
@@ -5753,7 +5753,7 @@ _ZL12boxv_trotterPK10t_inputrecPffPA3_KfPK14gmx_ekindata_tS5_PK9t_extmass.exit: 
   br label %.loopexit100
 
 .loopexit100:                                     ; preds = %.loopexit, %193, %.loopexit100.loopexit113, %.preheader99, %92, %176, %_ZL12boxv_trotterPK10t_inputrecPffPA3_KfPK14gmx_ekindata_tS5_PK9t_extmass.exit
-  %.184 = phi i32 [ %.083111, %92 ], [ %.083111, %_ZL12boxv_trotterPK10t_inputrecPffPA3_KfPK14gmx_ekindata_tS5_PK9t_extmass.exit ], [ %.083111, %176 ], [ %.083111, %.preheader99 ], [ %251, %.loopexit100.loopexit113 ], [ %.083111, %193 ], [ %.3, %.loopexit ]
+  %.184 = phi i32 [ %.083111, %92 ], [ %.083111, %_ZL12boxv_trotterPK10t_inputrecPffPA3_KfPK14gmx_ekindata_tS5_PK9t_extmass.exit ], [ %.083111, %176 ], [ %.083111, %.preheader99 ], [ %.083111, %193 ], [ %251, %.loopexit100.loopexit113 ], [ %.3, %.loopexit ]
   %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
   %exitcond155.not = icmp eq i64 %indvars.iv.next153, 3
   br i1 %exitcond155.not, label %252, label %92, !llvm.loop !360

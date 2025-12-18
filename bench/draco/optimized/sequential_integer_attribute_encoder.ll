@@ -3647,7 +3647,7 @@ _ZN5draco23GetParallelogramEntriesINS_24MeshAttributeCornerTableEEEvNS_9IndexTyp
   %exitcond.not.i51 = icmp eq i64 %indvars.iv.next.i50, %wide.trip.count.i47
   br i1 %exitcond.not.i51, label %_ZN5draco30ComputeParallelogramPredictionINS_24MeshAttributeCornerTableEiEEbiNS_9IndexTypeIjNS_21CornerIndex_tag_type_EEEPKT_RKSt6vectorIiSaIiEEPKT0_iPSD_.exit, label %.lr.ph.i48, !llvm.loop !261
 
-140:                                              ; preds = %_ZN5draco23GetParallelogramEntriesINS_24MeshAttributeCornerTableEEEvNS_9IndexTypeIjNS_21CornerIndex_tag_type_EEEPKT_RKSt6vectorIiSaIiEEPiSD_SD_.exit.i, %_ZNK5draco24MeshAttributeCornerTable8OppositeENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.i, %85, %81
+140:                                              ; preds = %_ZN5draco23GetParallelogramEntriesINS_24MeshAttributeCornerTableEEEvNS_9IndexTypeIjNS_21CornerIndex_tag_type_EEEPKT_RKSt6vectorIiSaIiEEPiSD_SD_.exit.i, %_ZNK5draco24MeshAttributeCornerTable8OppositeENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.i, %81, %85
   %141 = getelementptr inbounds i32, ptr %1, i64 %83
   %142 = getelementptr inbounds i32, ptr %2, i64 %83
   %143 = load i32, ptr %7, align 8, !tbaa !231
@@ -5103,8 +5103,8 @@ _ZNK5draco24MeshAttributeCornerTable8OppositeENS_9IndexTypeIjNS_21CornerIndex_ta
   br label %_ZNK5draco24MeshAttributeCornerTable10SwingRightENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit217
 
 _ZNK5draco24MeshAttributeCornerTable10SwingRightENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit217: ; preds = %298, %300, %286
-  %.sroa.0401.2 = phi i32 [ %.sroa.0401.1, %286 ], [ %299, %298 ], [ %301, %300 ]
-  %.1152 = phi i1 [ %.0151606, %286 ], [ false, %298 ], [ false, %300 ]
+  %.sroa.0401.2 = phi i32 [ %.sroa.0401.1, %286 ], [ %301, %300 ], [ %299, %298 ]
+  %.1152 = phi i1 [ %.0151606, %286 ], [ false, %300 ], [ false, %298 ]
   %.not472 = icmp eq i32 %.sroa.0401.2, -1
   br i1 %.not472, label %._crit_edge, label %177, !llvm.loop !272
 
@@ -5959,11 +5959,11 @@ _ZZN5draco56MeshPredictionSchemeConstrainedMultiParallelogramEncoderIiNS_37Predi
   br i1 %590, label %153, label %.preheader, !llvm.loop !285
 
 591:                                              ; preds = %.loopexit483, %.loopexit.split-lp, %463, %568, %550
-  %.sroa.15.1 = phi ptr [ %.sroa.15.3.lcssa857, %568 ], [ %.sroa.15.3.lcssa857, %550 ], [ %.sroa.15.4, %463 ], [ %.sroa.15.5.ph, %.loopexit483 ], [ %.sroa.15.5.ph484, %.loopexit.split-lp ]
-  %.sroa.34.1 = phi ptr [ %.sroa.34.3.lcssa858, %568 ], [ %.sroa.34.3.lcssa858, %550 ], [ %.sroa.34.4, %463 ], [ %.sroa.34.5.ph, %.loopexit483 ], [ %.sroa.34.5.ph485, %.loopexit.split-lp ]
-  %.sroa.40.1 = phi ptr [ %.sroa.40.2.lcssa859, %568 ], [ %.sroa.40.2.lcssa859, %550 ], [ %.sroa.40.3, %463 ], [ %.sroa.40.3, %.loopexit483 ], [ %.sroa.40.3, %.loopexit.split-lp ]
-  %.sroa.59.1 = phi ptr [ %.sroa.59.2.lcssa860, %568 ], [ %.sroa.59.2.lcssa860, %550 ], [ %.sroa.59.3, %463 ], [ %.sroa.59.3, %.loopexit483 ], [ %.sroa.59.3, %.loopexit.split-lp ]
-  %.pn160.pn = phi { ptr, i32 } [ %569, %568 ], [ %551, %550 ], [ %464, %463 ], [ %lpad.loopexit, %.loopexit483 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.sroa.15.1 = phi ptr [ %.sroa.15.4, %463 ], [ %.sroa.15.3.lcssa857, %568 ], [ %.sroa.15.3.lcssa857, %550 ], [ %.sroa.15.5.ph, %.loopexit483 ], [ %.sroa.15.5.ph484, %.loopexit.split-lp ]
+  %.sroa.34.1 = phi ptr [ %.sroa.34.4, %463 ], [ %.sroa.34.3.lcssa858, %568 ], [ %.sroa.34.3.lcssa858, %550 ], [ %.sroa.34.5.ph, %.loopexit483 ], [ %.sroa.34.5.ph485, %.loopexit.split-lp ]
+  %.sroa.40.1 = phi ptr [ %.sroa.40.3, %463 ], [ %.sroa.40.2.lcssa859, %568 ], [ %.sroa.40.2.lcssa859, %550 ], [ %.sroa.40.3, %.loopexit483 ], [ %.sroa.40.3, %.loopexit.split-lp ]
+  %.sroa.59.1 = phi ptr [ %.sroa.59.3, %463 ], [ %.sroa.59.2.lcssa860, %568 ], [ %.sroa.59.2.lcssa860, %550 ], [ %.sroa.59.3, %.loopexit483 ], [ %.sroa.59.3, %.loopexit.split-lp ]
+  %.pn160.pn = phi { ptr, i32 } [ %464, %463 ], [ %569, %568 ], [ %551, %550 ], [ %lpad.loopexit, %.loopexit483 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.not.i.i.i.i270 = icmp eq ptr %.sroa.40.1, null
   br i1 %.not.i.i.i.i270, label %_ZNSt6vectorIiSaIiEED2Ev.exit.i271, label %.thread452
 
@@ -8405,7 +8405,7 @@ _ZNK5draco17GeometryAttribute17ConvertTypedValueIalEEbNS_9IndexTypeIjNS_29Attrib
   br label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIalEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit
 
 _ZNK5draco17GeometryAttribute17ConvertTypedValueIalEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit: ; preds = %288, %.lr.ph42.i146, %260, %.lr.ph42.i, %228, %200, %198, %174, %149, %124, %99, %74, %49, %24, %_ZNK5draco17GeometryAttribute17ConvertTypedValueIalEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit.sink.split, %.critedge.i169, %.critedge.i155, %.lr.ph.i143, %.critedge.i137, %.lr.ph.i132, %.critedge.i129, %.critedge.i120, %.critedge.i107, %.critedge.i94, %.critedge.i81, %.critedge.i68, %.critedge.i55, %.critedge.i, %6, %4
-  %.0 = phi i1 [ false, %4 ], [ false, %6 ], [ true, %.critedge.i ], [ true, %.critedge.i55 ], [ true, %.critedge.i68 ], [ true, %.critedge.i81 ], [ true, %.critedge.i94 ], [ true, %.critedge.i107 ], [ true, %.critedge.i120 ], [ true, %.critedge.i129 ], [ true, %.critedge.i137 ], [ false, %.lr.ph.i132 ], [ true, %.critedge.i155 ], [ false, %.lr.ph.i143 ], [ true, %.critedge.i169 ], [ true, %_ZNK5draco17GeometryAttribute17ConvertTypedValueIalEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit.sink.split ], [ false, %.lr.ph42.i146 ], [ false, %24 ], [ false, %49 ], [ false, %74 ], [ false, %99 ], [ false, %124 ], [ false, %149 ], [ false, %174 ], [ false, %200 ], [ false, %.lr.ph42.i ], [ false, %198 ], [ false, %228 ], [ false, %260 ], [ false, %288 ]
+  %.0 = phi i1 [ false, %.lr.ph42.i146 ], [ false, %4 ], [ false, %6 ], [ false, %24 ], [ false, %49 ], [ false, %74 ], [ false, %99 ], [ false, %124 ], [ false, %149 ], [ true, %_ZNK5draco17GeometryAttribute17ConvertTypedValueIalEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit.sink.split ], [ false, %200 ], [ false, %.lr.ph42.i ], [ true, %.critedge.i ], [ false, %174 ], [ true, %.critedge.i55 ], [ true, %.critedge.i129 ], [ true, %.critedge.i68 ], [ false, %.lr.ph.i132 ], [ true, %.critedge.i81 ], [ true, %.critedge.i137 ], [ true, %.critedge.i94 ], [ false, %.lr.ph.i143 ], [ true, %.critedge.i107 ], [ true, %.critedge.i155 ], [ true, %.critedge.i120 ], [ true, %.critedge.i169 ], [ false, %198 ], [ false, %228 ], [ false, %260 ], [ false, %288 ]
   ret i1 %.0
 }
 
@@ -11738,8 +11738,8 @@ _ZNK5draco11CornerTable8OppositeENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.ex
   br label %_ZNK5draco11CornerTable10SwingRightENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit210
 
 _ZNK5draco11CornerTable10SwingRightENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit210: ; preds = %261, %263, %255
-  %.sroa.0394.2 = phi i32 [ %.sroa.0394.1, %255 ], [ %262, %261 ], [ %264, %263 ]
-  %.1152 = phi i1 [ %.0151600, %255 ], [ false, %261 ], [ false, %263 ]
+  %.sroa.0394.2 = phi i32 [ %.sroa.0394.1, %255 ], [ %264, %263 ], [ %262, %261 ]
+  %.1152 = phi i1 [ %.0151600, %255 ], [ false, %263 ], [ false, %261 ]
   %.not465 = icmp eq i32 %.sroa.0394.2, -1
   br i1 %.not465, label %._crit_edge, label %_ZNK5draco11CornerTable8OppositeENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.i, !llvm.loop !424
 
@@ -12594,11 +12594,11 @@ _ZZN5draco56MeshPredictionSchemeConstrainedMultiParallelogramEncoderIiNS_37Predi
   br i1 %553, label %152, label %.preheader, !llvm.loop !433
 
 554:                                              ; preds = %.loopexit476, %.loopexit.split-lp, %426, %531, %513
-  %.sroa.15.1 = phi ptr [ %.sroa.15.3.lcssa852, %531 ], [ %.sroa.15.3.lcssa852, %513 ], [ %.sroa.15.4, %426 ], [ %.sroa.15.5.ph, %.loopexit476 ], [ %.sroa.15.5.ph477, %.loopexit.split-lp ]
-  %.sroa.34.1 = phi ptr [ %.sroa.34.3.lcssa853, %531 ], [ %.sroa.34.3.lcssa853, %513 ], [ %.sroa.34.4, %426 ], [ %.sroa.34.5.ph, %.loopexit476 ], [ %.sroa.34.5.ph478, %.loopexit.split-lp ]
-  %.sroa.40.1 = phi ptr [ %.sroa.40.2.lcssa854, %531 ], [ %.sroa.40.2.lcssa854, %513 ], [ %.sroa.40.3, %426 ], [ %.sroa.40.3, %.loopexit476 ], [ %.sroa.40.3, %.loopexit.split-lp ]
-  %.sroa.59.1 = phi ptr [ %.sroa.59.2.lcssa855, %531 ], [ %.sroa.59.2.lcssa855, %513 ], [ %.sroa.59.3, %426 ], [ %.sroa.59.3, %.loopexit476 ], [ %.sroa.59.3, %.loopexit.split-lp ]
-  %.pn160.pn = phi { ptr, i32 } [ %532, %531 ], [ %514, %513 ], [ %427, %426 ], [ %lpad.loopexit, %.loopexit476 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.sroa.15.1 = phi ptr [ %.sroa.15.4, %426 ], [ %.sroa.15.3.lcssa852, %531 ], [ %.sroa.15.3.lcssa852, %513 ], [ %.sroa.15.5.ph, %.loopexit476 ], [ %.sroa.15.5.ph477, %.loopexit.split-lp ]
+  %.sroa.34.1 = phi ptr [ %.sroa.34.4, %426 ], [ %.sroa.34.3.lcssa853, %531 ], [ %.sroa.34.3.lcssa853, %513 ], [ %.sroa.34.5.ph, %.loopexit476 ], [ %.sroa.34.5.ph478, %.loopexit.split-lp ]
+  %.sroa.40.1 = phi ptr [ %.sroa.40.3, %426 ], [ %.sroa.40.2.lcssa854, %531 ], [ %.sroa.40.2.lcssa854, %513 ], [ %.sroa.40.3, %.loopexit476 ], [ %.sroa.40.3, %.loopexit.split-lp ]
+  %.sroa.59.1 = phi ptr [ %.sroa.59.3, %426 ], [ %.sroa.59.2.lcssa855, %531 ], [ %.sroa.59.2.lcssa855, %513 ], [ %.sroa.59.3, %.loopexit476 ], [ %.sroa.59.3, %.loopexit.split-lp ]
+  %.pn160.pn = phi { ptr, i32 } [ %427, %426 ], [ %532, %531 ], [ %514, %513 ], [ %lpad.loopexit, %.loopexit476 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.not.i.i.i.i263 = icmp eq ptr %.sroa.40.1, null
   br i1 %.not.i.i.i.i263, label %_ZNSt6vectorIiSaIiEED2Ev.exit.i264, label %.thread445
 
@@ -16397,7 +16397,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   br label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIaiEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit
 
 _ZNK5draco17GeometryAttribute17ConvertTypedValueIaiEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit: ; preds = %296, %259, %257, %224, %222, %190, %188, %156, %123, %90, %57, %24, %.lr.ph37.preheader.i143, %.critedge.i141, %.lr.ph39.preheader.i130, %.critedge.i128, %.lr.ph39.preheader.i117, %.critedge.i115, %.lr.ph39.preheader.i, %.critedge.i103, %.lr.ph37.preheader.i96, %.critedge.i94, %.lr.ph37.preheader.i83, %.critedge.i81, %.lr.ph37.preheader.i70, %.critedge.i68, %.lr.ph37.preheader.i57, %.critedge.i55, %.lr.ph37.preheader.i, %.critedge.i, %6, %4, %279, %277
-  %.0 = phi i1 [ false, %4 ], [ false, %6 ], [ %278, %277 ], [ %280, %279 ], [ true, %.critedge.i ], [ true, %.lr.ph37.preheader.i ], [ true, %.critedge.i55 ], [ true, %.lr.ph37.preheader.i57 ], [ true, %.critedge.i68 ], [ true, %.lr.ph37.preheader.i70 ], [ true, %.critedge.i81 ], [ true, %.lr.ph37.preheader.i83 ], [ true, %.critedge.i94 ], [ true, %.lr.ph37.preheader.i96 ], [ true, %.critedge.i103 ], [ true, %.lr.ph39.preheader.i ], [ true, %.critedge.i115 ], [ true, %.lr.ph39.preheader.i117 ], [ true, %.critedge.i128 ], [ true, %.lr.ph39.preheader.i130 ], [ true, %.critedge.i141 ], [ true, %.lr.ph37.preheader.i143 ], [ false, %259 ], [ false, %24 ], [ false, %57 ], [ false, %90 ], [ false, %123 ], [ false, %156 ], [ false, %190 ], [ false, %224 ], [ false, %188 ], [ false, %222 ], [ false, %257 ], [ false, %296 ]
+  %.0 = phi i1 [ false, %190 ], [ false, %4 ], [ false, %6 ], [ false, %224 ], [ false, %259 ], [ false, %24 ], [ false, %57 ], [ false, %90 ], [ false, %123 ], [ false, %156 ], [ %278, %277 ], [ %280, %279 ], [ true, %.critedge.i ], [ true, %.lr.ph37.preheader.i ], [ true, %.critedge.i55 ], [ true, %.lr.ph37.preheader.i57 ], [ true, %.critedge.i68 ], [ true, %.lr.ph37.preheader.i70 ], [ true, %.critedge.i81 ], [ true, %.lr.ph37.preheader.i83 ], [ true, %.critedge.i94 ], [ true, %.lr.ph37.preheader.i96 ], [ true, %.critedge.i103 ], [ true, %.lr.ph39.preheader.i ], [ true, %.lr.ph37.preheader.i143 ], [ true, %.critedge.i115 ], [ true, %.lr.ph39.preheader.i117 ], [ true, %.critedge.i141 ], [ true, %.critedge.i128 ], [ true, %.lr.ph39.preheader.i130 ], [ false, %188 ], [ false, %222 ], [ false, %257 ], [ false, %296 ]
   ret i1 %.0
 }
 
@@ -16520,7 +16520,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute17ConvertTy
   br label %.loopexit
 
 .loopexit:                                        ; preds = %41, %.lr.ph45, %23, %.lr.ph52, %31, %.lr.ph59.preheader, %.lr.ph.split.us, %.lr.ph.split, %.critedge
-  %.not31 = phi i1 [ true, %.critedge ], [ false, %.lr.ph.split.us ], [ false, %.lr.ph.split ], [ true, %.lr.ph59.preheader ], [ false, %23 ], [ false, %31 ], [ false, %.lr.ph52 ], [ false, %.lr.ph45 ], [ false, %41 ]
+  %.not31 = phi i1 [ true, %.critedge ], [ false, %23 ], [ true, %.lr.ph59.preheader ], [ false, %.lr.ph.split.us ], [ false, %.lr.ph.split ], [ false, %31 ], [ false, %.lr.ph52 ], [ false, %.lr.ph45 ], [ false, %41 ]
   ret i1 %.not31
 }
 
@@ -16642,7 +16642,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute17ConvertTy
   br label %.loopexit
 
 .loopexit:                                        ; preds = %39, %.lr.ph45, %23, %.lr.ph52, %31, %.lr.ph59.preheader, %.lr.ph.split.us, %.lr.ph.split, %.critedge
-  %.not31 = phi i1 [ true, %.critedge ], [ false, %.lr.ph.split.us ], [ false, %.lr.ph.split ], [ true, %.lr.ph59.preheader ], [ false, %23 ], [ false, %31 ], [ false, %.lr.ph52 ], [ false, %.lr.ph45 ], [ false, %39 ]
+  %.not31 = phi i1 [ true, %.critedge ], [ false, %23 ], [ true, %.lr.ph59.preheader ], [ false, %.lr.ph.split.us ], [ false, %.lr.ph.split ], [ false, %31 ], [ false, %.lr.ph52 ], [ false, %.lr.ph45 ], [ false, %39 ]
   ret i1 %.not31
 }
 

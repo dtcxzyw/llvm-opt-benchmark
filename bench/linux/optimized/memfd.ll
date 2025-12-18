@@ -157,7 +157,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @memfd_fcntl(ptr noundef
   br label %.critedge
 
 .critedge:                                        ; preds = %57, %45, %28, %76, %64, %35, %30
-  %80 = phi i64 [ 0, %76 ], [ %67, %64 ], [ -22, %30 ], [ -1, %35 ], [ -22, %28 ], [ -16, %45 ], [ -16, %57 ]
+  %80 = phi i64 [ 0, %76 ], [ -22, %28 ], [ %67, %64 ], [ -22, %30 ], [ -1, %35 ], [ -16, %45 ], [ -16, %57 ]
   tail call void @up_write(ptr noundef nonnull %14) #9
   br label %.thread8
 

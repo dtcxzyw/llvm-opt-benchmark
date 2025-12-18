@@ -531,11 +531,11 @@ ValidateCommandLine.exit.i:                       ; preds = %136
   %162 = phi i32 [ %.promoted84, %.lr.ph.i.i ], [ %422, %421 ]
   %163 = phi ptr [ %.promoted83, %.lr.ph.i.i ], [ %423, %421 ]
   %164 = phi i32 [ %.promoted, %.lr.ph.i.i ], [ %424, %421 ]
-  %.021167.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %.1.i.i, %421 ]
+  %.021168.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %.1.i.i, %421 ]
   %.021266.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %.1213.i.i, %421 ]
   %165 = sext i32 %.021266.i.i to i64
   %166 = getelementptr inbounds %struct.FeatureArg, ptr %145, i64 %165
-  %167 = sext i32 %.021167.i.i to i64
+  %167 = sext i32 %.021168.i.i to i64
   %168 = getelementptr inbounds ptr, ptr %156, i64 %167
   %169 = load ptr, ptr %168, align 8, !tbaa !15
   %170 = load i8, ptr %169, align 1, !tbaa !24
@@ -553,7 +553,7 @@ ValidateCommandLine.exit.i:                       ; preds = %136
 
 176:                                              ; preds = %174
   store i32 2, ptr %157, align 8, !tbaa !25
-  %177 = add nsw i32 %.021167.i.i, 1
+  %177 = add nsw i32 %.021168.i.i, 1
   br label %421
 
 178:                                              ; preds = %174
@@ -567,7 +567,7 @@ ValidateCommandLine.exit.i:                       ; preds = %136
   br i1 %.not243.i.i, label %183, label %202
 
 183:                                              ; preds = %181
-  %184 = add nsw i32 %.021167.i.i, 2
+  %184 = add nsw i32 %.021168.i.i, 2
   %185 = icmp slt i32 %55, %184
   br i1 %185, label %186, label %189
 
@@ -619,7 +619,7 @@ ValidateCommandLine.exit.i:                       ; preds = %136
 
 206:                                              ; preds = %204
   store i32 1, ptr %157, align 8, !tbaa !25
-  %207 = add nsw i32 %.021167.i.i, 1
+  %207 = add nsw i32 %.021168.i.i, 1
   br label %421
 
 208:                                              ; preds = %204
@@ -639,7 +639,7 @@ ValidateCommandLine.exit.i:                       ; preds = %136
 215:                                              ; preds = %213
   store i32 3, ptr %157, align 8, !tbaa !25
   store i32 0, ptr %143, align 8, !tbaa !20
-  %216 = add nsw i32 %.021167.i.i, 1
+  %216 = add nsw i32 %.021168.i.i, 1
   br label %421
 
 217:                                              ; preds = %213
@@ -653,7 +653,7 @@ ValidateCommandLine.exit.i:                       ; preds = %136
   br i1 %.not246.i.i, label %222, label %244
 
 222:                                              ; preds = %220
-  %223 = add nsw i32 %.021167.i.i, 3
+  %223 = add nsw i32 %.021168.i.i, 3
   %224 = icmp slt i32 %55, %223
   br i1 %224, label %225, label %228
 
@@ -710,7 +710,7 @@ ValidateCommandLine.exit.i:                       ; preds = %136
   br i1 %.not248.i.i, label %248, label %sub_1.i20.i
 
 248:                                              ; preds = %246, %244
-  %249 = add nsw i32 %.021167.i.i, 2
+  %249 = add nsw i32 %.021168.i.i, 2
   %250 = icmp slt i32 %55, %249
   br i1 %250, label %251, label %254
 
@@ -758,8 +758,8 @@ ValidateCommandLine.exit.i:                       ; preds = %136
 sub_1.i20.i:                                      ; preds = %246
   %269 = getelementptr inbounds nuw i8, ptr %169, i64 1
   %270 = load i8, ptr %269, align 1
-  %.not70.i.i = icmp eq i8 %270, 111
-  br i1 %.not70.i.i, label %.tail.i21.i, label %.tail.thread.i.i
+  %.not71.i.i = icmp eq i8 %270, 111
+  br i1 %.not71.i.i, label %.tail.i21.i, label %.tail.thread.i.i
 
 .tail.i21.i:                                      ; preds = %sub_1.i20.i
   %271 = getelementptr inbounds nuw i8, ptr %169, i64 2
@@ -768,7 +768,7 @@ sub_1.i20.i:                                      ; preds = %246
   br i1 %273, label %274, label %.tail.thread.i.thread.i
 
 274:                                              ; preds = %.tail.i21.i
-  %275 = add nsw i32 %.021167.i.i, 2
+  %275 = add nsw i32 %.021168.i.i, 2
   %276 = icmp slt i32 %55, %275
   br i1 %276, label %277, label %280
 
@@ -794,7 +794,7 @@ sub_1.i20.i:                                      ; preds = %246
   br i1 %.not251.i4.i, label %285, label %.tail9.thread.i.i
 
 285:                                              ; preds = %.tail.thread.i.thread.i, %.tail.thread.i.i
-  %286 = add nsw i32 %.021167.i.i, 2
+  %286 = add nsw i32 %.021168.i.i, 2
   %287 = icmp slt i32 %55, %286
   br i1 %287, label %288, label %291
 
@@ -830,8 +830,8 @@ sub_1.i20.i:                                      ; preds = %246
   br label %421
 
 sub_111.i.i:                                      ; preds = %.tail.thread.i.i
-  %.not72.i.i = icmp eq i8 %270, 104
-  br i1 %.not72.i.i, label %.tail9.i.i, label %.tail9.thread.i.i
+  %.not73.i.i = icmp eq i8 %270, 104
+  br i1 %.not73.i.i, label %.tail9.i.i, label %.tail9.thread.i.i
 
 .tail9.i.i:                                       ; preds = %sub_111.i.i
   %303 = getelementptr inbounds nuw i8, ptr %169, i64 2
@@ -868,8 +868,8 @@ sub_111.i.i:                                      ; preds = %.tail.thread.i.i
   unreachable
 
 sub_116.i.i:                                      ; preds = %308
-  %.not74.i.i = icmp eq i8 %270, 45
-  br i1 %.not74.i.i, label %.tail14.i.i, label %.tail14.thread.i.i
+  %.not75.i.i = icmp eq i8 %270, 45
+  br i1 %.not75.i.i, label %.tail14.i.i, label %.tail14.thread.i.i
 
 .tail14.i.i:                                      ; preds = %sub_116.i.i
   %318 = getelementptr inbounds nuw i8, ptr %169, i64 2
@@ -879,11 +879,11 @@ sub_116.i.i:                                      ; preds = %308
 
 321:                                              ; preds = %.tail14.i.i
   %322 = add nsw i32 %55, -1
-  %323 = icmp slt i32 %.021167.i.i, %322
+  %323 = icmp slt i32 %.021168.i.i, %322
   br i1 %323, label %324, label %ParseCommandLine.exit.i
 
 324:                                              ; preds = %321
-  %325 = add nsw i32 %.021167.i.i, 1
+  %325 = add nsw i32 %.021168.i.i, 1
   %326 = icmp eq ptr %163, null
   br i1 %326, label %327, label %331
 
@@ -955,7 +955,7 @@ sub_116.i.i:                                      ; preds = %308
   br label %ParseCommandLine.exit.thread.i
 
 360:                                              ; preds = %.thread1.i.i
-  %361 = add nsw i32 %.021167.i.i, 2
+  %361 = add nsw i32 %.021168.i.i, 2
   %362 = icmp slt i32 %55, %361
   br i1 %362, label %363, label %366
 
@@ -973,7 +973,7 @@ sub_116.i.i:                                      ; preds = %308
   br label %421
 
 371:                                              ; preds = %.thread1.i.i
-  %372 = add nsw i32 %.021167.i.i, 1
+  %372 = add nsw i32 %.021168.i.i, 1
   br label %421
 
 373:                                              ; preds = %348
@@ -984,7 +984,7 @@ sub_116.i.i:                                      ; preds = %308
   br i1 %or.cond.i19.i, label %376, label %387
 
 376:                                              ; preds = %373
-  %377 = add nsw i32 %.021167.i.i, 2
+  %377 = add nsw i32 %.021168.i.i, 2
   %378 = icmp slt i32 %55, %377
   br i1 %378, label %379, label %382
 
@@ -1010,7 +1010,7 @@ sub_116.i.i:                                      ; preds = %308
   br i1 %or.cond7.i.i, label %390, label %401
 
 390:                                              ; preds = %387
-  %391 = add nsw i32 %.021167.i.i, 2
+  %391 = add nsw i32 %.021168.i.i, 2
   %392 = icmp slt i32 %55, %391
   br i1 %392, label %393, label %396
 
@@ -1035,7 +1035,7 @@ sub_116.i.i:                                      ; preds = %308
   br i1 %or.cond8.i.i, label %403, label %414
 
 403:                                              ; preds = %401
-  %404 = add nsw i32 %.021167.i.i, 2
+  %404 = add nsw i32 %.021168.i.i, 2
   %405 = icmp slt i32 %55, %404
   br i1 %405, label %406, label %409
 
@@ -1059,7 +1059,7 @@ sub_116.i.i:                                      ; preds = %308
 
 416:                                              ; preds = %414
   store ptr %169, ptr %158, align 8, !tbaa !32
-  %417 = add nsw i32 %.021167.i.i, 1
+  %417 = add nsw i32 %.021168.i.i, 1
   br label %421
 
 418:                                              ; preds = %414
@@ -1068,11 +1068,11 @@ sub_116.i.i:                                      ; preds = %308
   br label %ParseCommandLine.exit.thread.i
 
 421:                                              ; preds = %416, %409, %396, %382, %371, %366, %300, %280, %259, %233, %215, %206, %194, %176
-  %422 = phi i32 [ %162, %300 ], [ %162, %280 ], [ 4, %259 ], [ 4, %233 ], [ %162, %215 ], [ %162, %206 ], [ 5, %194 ], [ %162, %176 ], [ %162, %416 ], [ 7, %409 ], [ 6, %396 ], [ 4, %382 ], [ %355, %366 ], [ %355, %371 ]
-  %423 = phi ptr [ %302, %300 ], [ %163, %280 ], [ %163, %259 ], [ %163, %233 ], [ %163, %215 ], [ %163, %206 ], [ %163, %194 ], [ %163, %176 ], [ %169, %416 ], [ %163, %409 ], [ %163, %396 ], [ %163, %382 ], [ %163, %366 ], [ %163, %371 ]
-  %424 = phi i32 [ 4, %300 ], [ %164, %280 ], [ 2, %259 ], [ 2, %233 ], [ 3, %215 ], [ 1, %206 ], [ 6, %194 ], [ 2, %176 ], [ %164, %416 ], [ 2, %409 ], [ 2, %396 ], [ 1, %382 ], [ 2, %366 ], [ %164, %371 ]
-  %.1213.i.i = phi i32 [ %.021266.i.i, %300 ], [ %.021266.i.i, %280 ], [ %265, %259 ], [ %240, %233 ], [ %.021266.i.i, %215 ], [ %.021266.i.i, %206 ], [ %198, %194 ], [ %.021266.i.i, %176 ], [ %.021266.i.i, %416 ], [ %413, %409 ], [ %400, %396 ], [ %386, %382 ], [ %370, %366 ], [ %.021266.i.i, %371 ]
-  %.1.i.i = phi i32 [ %286, %300 ], [ %275, %280 ], [ %249, %259 ], [ %223, %233 ], [ %216, %215 ], [ %207, %206 ], [ %184, %194 ], [ %177, %176 ], [ %417, %416 ], [ %404, %409 ], [ %391, %396 ], [ %377, %382 ], [ %361, %366 ], [ %372, %371 ]
+  %422 = phi i32 [ %355, %371 ], [ %355, %366 ], [ 4, %382 ], [ 6, %396 ], [ 7, %409 ], [ %162, %416 ], [ %162, %176 ], [ 5, %194 ], [ %162, %206 ], [ %162, %215 ], [ 4, %233 ], [ 4, %259 ], [ %162, %280 ], [ %162, %300 ]
+  %423 = phi ptr [ %163, %371 ], [ %163, %366 ], [ %163, %382 ], [ %163, %396 ], [ %163, %409 ], [ %169, %416 ], [ %163, %176 ], [ %163, %194 ], [ %163, %206 ], [ %163, %215 ], [ %163, %233 ], [ %163, %259 ], [ %163, %280 ], [ %302, %300 ]
+  %424 = phi i32 [ %164, %371 ], [ 2, %366 ], [ 1, %382 ], [ 2, %396 ], [ 2, %409 ], [ %164, %416 ], [ 2, %176 ], [ 6, %194 ], [ 1, %206 ], [ 3, %215 ], [ 2, %233 ], [ 2, %259 ], [ %164, %280 ], [ 4, %300 ]
+  %.1213.i.i = phi i32 [ %.021266.i.i, %371 ], [ %370, %366 ], [ %386, %382 ], [ %400, %396 ], [ %413, %409 ], [ %.021266.i.i, %416 ], [ %.021266.i.i, %176 ], [ %198, %194 ], [ %.021266.i.i, %206 ], [ %.021266.i.i, %215 ], [ %240, %233 ], [ %265, %259 ], [ %.021266.i.i, %280 ], [ %.021266.i.i, %300 ]
+  %.1.i.i = phi i32 [ %372, %371 ], [ %361, %366 ], [ %377, %382 ], [ %391, %396 ], [ %404, %409 ], [ %417, %416 ], [ %177, %176 ], [ %184, %194 ], [ %207, %206 ], [ %216, %215 ], [ %223, %233 ], [ %249, %259 ], [ %275, %280 ], [ %286, %300 ]
   %425 = icmp slt i32 %.1.i.i, %55
   br i1 %425, label %161, label %ParseCommandLine.exit.i
 

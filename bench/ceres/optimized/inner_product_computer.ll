@@ -1210,8 +1210,8 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %71, %69, %67, %65
   br i1 %205, label %199, label %._crit_edge126.loopexit, !llvm.loop !120
 
 .loopexit:                                        ; preds = %._crit_edge126, %.preheader.lr.ph, %170, %147
-  %.1100 = phi i32 [ %.099128, %147 ], [ %.2101, %170 ], [ %.2101, %.preheader.lr.ph ], [ %.2101, %._crit_edge126 ]
-  %.198 = phi i32 [ %.097129, %147 ], [ %.2, %170 ], [ %.2, %.preheader.lr.ph ], [ %.2, %._crit_edge126 ]
+  %.1100 = phi i32 [ %.099128, %147 ], [ %.2101, %.preheader.lr.ph ], [ %.2101, %170 ], [ %.2101, %._crit_edge126 ]
+  %.198 = phi i32 [ %.097129, %147 ], [ %.2, %.preheader.lr.ph ], [ %.2, %170 ], [ %.2, %._crit_edge126 ]
   %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
   %exitcond150.not = icmp eq i64 %indvars.iv.next148, %123
   br i1 %exitcond150.not, label %.loopexit111, label %.lr.ph131, !llvm.loop !121

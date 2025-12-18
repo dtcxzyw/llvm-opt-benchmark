@@ -2361,7 +2361,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br i1 %.not.i.i399, label %_ZNSt14_Fwd_list_baseISt4pairIiPvESaIS2_EED2Ev.exit400, label %.lr.ph.i.i397, !llvm.loop !126
 
 _ZNSt14_Fwd_list_baseISt4pairIiPvESaIS2_EED2Ev.exit: ; preds = %.lr.ph.i.i, %501, %765
-  %.2 = phi i32 [ %.10, %765 ], [ 1, %501 ], [ %.10, %.lr.ph.i.i ]
+  %.2 = phi i32 [ 1, %501 ], [ %.10, %765 ], [ %.10, %.lr.ph.i.i ]
   %769 = load ptr, ptr %375, align 8, !tbaa !70
   invoke void @_ZNSt8_Rb_treeIN7Imf_2_54NameESt4pairIKS1_NS0_5SliceEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %37, ptr noundef %769)
           to label %_ZN7Imf_2_511FrameBufferD2Ev.exit unwind label %770

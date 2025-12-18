@@ -1271,7 +1271,7 @@ get_conn_by_number.exit.thread.sink.split:        ; preds = %.lr.ph, %._crit_edg
   br label %get_conn_by_number.exit.thread
 
 get_conn_by_number.exit.thread:                   ; preds = %9, %get_conn_by_number.exit.thread.sink.split, %14, %3, %._crit_edge, %11, %get_conn_by_number.exit
-  %.017 = phi i1 [ false, %11 ], [ false, %get_conn_by_number.exit ], [ false, %._crit_edge ], [ false, %3 ], [ false, %14 ], [ true, %get_conn_by_number.exit.thread.sink.split ], [ false, %9 ]
+  %.017 = phi i1 [ true, %get_conn_by_number.exit.thread.sink.split ], [ false, %14 ], [ false, %11 ], [ false, %get_conn_by_number.exit ], [ false, %._crit_edge ], [ false, %3 ], [ false, %9 ]
   ret i1 %.017
 }
 
@@ -1339,7 +1339,7 @@ get_conn_by_number.exit:                          ; preds = %.lr.ph.i
   br i1 %.not14, label %get_conn_by_number.exit.thread, label %.lr.ph, !llvm.loop !12
 
 get_conn_by_number.exit.thread:                   ; preds = %9, %23, %14, %3, %11, %get_conn_by_number.exit, %19
-  %.010 = phi i1 [ true, %19 ], [ false, %11 ], [ false, %get_conn_by_number.exit ], [ false, %3 ], [ false, %14 ], [ false, %23 ], [ false, %9 ]
+  %.010 = phi i1 [ true, %19 ], [ false, %11 ], [ false, %get_conn_by_number.exit ], [ false, %14 ], [ false, %3 ], [ false, %23 ], [ false, %9 ]
   ret i1 %.010
 }
 
@@ -1641,8 +1641,8 @@ quic_find_stateless_reset_token.exit:             ; preds = %126
   br label %.thread199
 
 .thread199:                                       ; preds = %.thread199.loopexit, %84, %quic_connection_from_conv.exit.i, %82, %81
-  %137 = phi i8 [ %71, %82 ], [ %71, %81 ], [ %71, %quic_connection_from_conv.exit.i ], [ %71, %84 ], [ %.pre, %.thread199.loopexit ]
-  %.0194 = phi ptr [ null, %82 ], [ %72, %81 ], [ null, %quic_connection_from_conv.exit.i ], [ null, %84 ], [ null, %.thread199.loopexit ]
+  %137 = phi i8 [ %71, %84 ], [ %71, %82 ], [ %71, %81 ], [ %.pre, %.thread199.loopexit ], [ %71, %quic_connection_from_conv.exit.i ]
+  %.0194 = phi ptr [ null, %84 ], [ null, %82 ], [ %72, %81 ], [ null, %.thread199.loopexit ], [ null, %quic_connection_from_conv.exit.i ]
   %138 = load i32, ptr %42, align 4
   %139 = load i8, ptr %45, align 1, !range !6, !noundef !7
   %140 = trunc nuw i8 %139 to i1
@@ -2438,9 +2438,9 @@ is_quic_draft_max.exit.thread2.i:                 ; preds = %is_quic_draft_max.e
   br label %is_quic_draft_max.exit66.i
 
 is_quic_draft_max.exit66.i:                       ; preds = %.fold.split.i.i60.i, %492, %490, %488
-  %493 = phi i32 [ %487, %488 ], [ %491, %.fold.split.i.i60.i ], [ %491, %490 ], [ %491, %492 ]
-  %.05.i = phi i32 [ %.0.i168, %488 ], [ %.06.i, %.fold.split.i.i60.i ], [ %.06.i, %490 ], [ %.06.i, %492 ]
-  %.0.i.i61.i = phi i8 [ %489, %488 ], [ 27, %.fold.split.i.i60.i ], [ 22, %490 ], [ %switch.select20.i.i65.i, %492 ]
+  %493 = phi i32 [ %487, %488 ], [ %491, %492 ], [ %491, %490 ], [ %491, %.fold.split.i.i60.i ]
+  %.05.i = phi i32 [ %.0.i168, %488 ], [ %.06.i, %492 ], [ %.06.i, %490 ], [ %.06.i, %.fold.split.i.i60.i ]
+  %.0.i.i61.i = phi i8 [ %489, %488 ], [ %switch.select20.i.i65.i, %492 ], [ 22, %490 ], [ 27, %.fold.split.i.i60.i ]
   %494 = add i8 %.0.i.i61.i, -1
   %495 = icmp ult i8 %494, 24
   %496 = icmp ult i32 %493, 16
@@ -3925,7 +3925,7 @@ dissect_quic_short_header.exit:                   ; preds = %1131, %1133, %1134,
   br label %1242
 
 1242:                                             ; preds = %dissect_quic_long_header.exit, %dissect_quic_retry_packet.exit, %dissect_quic_short_header.exit
-  %.2 = phi i32 [ %.0132.i, %dissect_quic_short_header.exit ], [ %.1.i, %dissect_quic_retry_packet.exit ], [ %.0.i175, %dissect_quic_long_header.exit ]
+  %.2 = phi i32 [ %.0132.i, %dissect_quic_short_header.exit ], [ %.0.i175, %dissect_quic_long_header.exit ], [ %.1.i, %dissect_quic_retry_packet.exit ]
   %1243 = call i32 @tvb_reported_length_remaining(ptr noundef %.3.i, i32 noundef %.2)
   %.not143 = icmp eq i32 %1243, 0
   br i1 %.not143, label %1247, label %1244
@@ -3943,7 +3943,7 @@ dissect_quic_short_header.exit:                   ; preds = %1131, %1133, %1134,
   br i1 %.not144, label %.loopexit234, label %300, !llvm.loop !19
 
 .loopexit234:                                     ; preds = %1247, %444, %dissect_quic_version_negotiation.exit, %437, %.loopexit, %dissect_quic_stateless_reset.exit
-  %.0 = phi i32 [ %299, %dissect_quic_stateless_reset.exit ], [ %.0115, %.loopexit ], [ %442, %444 ], [ %464, %dissect_quic_version_negotiation.exit ], [ %442, %437 ], [ %1249, %1247 ]
+  %.0 = phi i32 [ %299, %dissect_quic_stateless_reset.exit ], [ %442, %437 ], [ %.0115, %.loopexit ], [ %442, %444 ], [ %464, %dissect_quic_version_negotiation.exit ], [ %1249, %1247 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
   ret i32 %.0
@@ -6396,9 +6396,9 @@ quic_get_crypto_state.exit:                       ; preds = %431, %439, %443
   unreachable
 
 524:                                              ; preds = %515, %504, %488, %486
-  %.0217.i.i = phi i32 [ %460, %486 ], [ %494, %488 ], [ %521, %515 ], [ %460, %504 ]
-  %.0203.i.i = phi i32 [ %457, %486 ], [ %493, %488 ], [ %520, %515 ], [ %457, %504 ]
-  %.0.i.i55 = phi i32 [ %420, %486 ], [ %495, %488 ], [ %522, %515 ], [ %420, %504 ]
+  %.0217.i.i = phi i32 [ %460, %486 ], [ %494, %488 ], [ %460, %504 ], [ %521, %515 ]
+  %.0203.i.i = phi i32 [ %457, %486 ], [ %493, %488 ], [ %457, %504 ], [ %520, %515 ]
+  %.0.i.i55 = phi i32 [ %420, %486 ], [ %495, %488 ], [ %420, %504 ], [ %522, %515 ]
   %525 = getelementptr inbounds nuw i8, ptr %.025.i, i64 16
   %526 = load ptr, ptr %525, align 8
   %527 = call ptr @wmem_tree_lookup32_le(ptr noundef %526, i32 noundef %.0217.i.i)
@@ -6607,9 +6607,9 @@ quic_get_crypto_state.exit:                       ; preds = %431, %439, %443
   br label %624
 
 624:                                              ; preds = %.thread12.i.i, %603, %.thread2.thread39.i.i
-  %.1216.i.i = phi ptr [ %.0215.i.i, %.thread12.i.i ], [ %.0215.i.i, %.thread2.thread39.i.i ], [ %607, %603 ]
-  %.0212.i.i = phi i1 [ true, %.thread12.i.i ], [ false, %.thread2.thread39.i.i ], [ false, %603 ]
-  %.2208.i.i = phi ptr [ %.0206615.i.i, %.thread12.i.i ], [ %.0206616.i.i, %.thread2.thread39.i.i ], [ %616, %603 ]
+  %.1216.i.i = phi ptr [ %.0215.i.i, %.thread12.i.i ], [ %607, %603 ], [ %.0215.i.i, %.thread2.thread39.i.i ]
+  %.0212.i.i = phi i1 [ true, %.thread12.i.i ], [ false, %603 ], [ false, %.thread2.thread39.i.i ]
+  %.2208.i.i = phi ptr [ %.0206615.i.i, %.thread12.i.i ], [ %616, %603 ], [ %.0206616.i.i, %.thread2.thread39.i.i ]
   %625 = icmp eq ptr %.2208.i.i, null
   br i1 %625, label %dissect_quic_crypto_payload.exit, label %.thread18.i.i
 
@@ -7096,7 +7096,7 @@ proto_item_set_generated.exit.thread.i.i.i:       ; preds = %875
   br label %950
 
 891:                                              ; preds = %871, %868
-  %.1226.i.i.i = phi i32 [ 0, %868 ], [ %spec.select.i.i.i, %871 ]
+  %.1226.i.i.i = phi i32 [ %spec.select.i.i.i, %871 ], [ 0, %868 ]
   br i1 %.not251.i.i.i, label %proto_item_set_generated.exit.i.i.i, label %892
 
 892:                                              ; preds = %891
@@ -8164,7 +8164,7 @@ quic_hp_cipher_init.exit:                         ; preds = %16
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %15, %quic_hp_cipher_init.exit
-  %.0 = phi i1 [ true, %quic_hp_cipher_init.exit ], [ true, %15 ], [ false, %.critedge.sink.split ]
+  %.0 = phi i1 [ true, %15 ], [ true, %quic_hp_cipher_init.exit ], [ false, %.critedge.sink.split ]
   ret i1 %.0
 }
 
@@ -8281,7 +8281,7 @@ quic_pp_cipher_init.exit:                         ; preds = %34
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %18, %quic_pp_cipher_init.exit
-  %.0 = phi i1 [ true, %quic_pp_cipher_init.exit ], [ true, %18 ], [ false, %.critedge.sink.split ]
+  %.0 = phi i1 [ true, %18 ], [ true, %quic_pp_cipher_init.exit ], [ false, %.critedge.sink.split ]
   ret i1 %.0
 }
 
@@ -8522,7 +8522,7 @@ is_quic_draft_max.exit:                           ; preds = %3
   br label %is_quic_draft_max.exit16
 
 is_quic_draft_max.exit16:                         ; preds = %is_quic_draft_max.exit, %8, %8, %8, %8, %8, %.thread, %14
-  %.0.i.i11 = phi i8 [ 27, %8 ], [ 34, %.thread ], [ %switch.select20.i.i15, %14 ], [ 27, %8 ], [ 27, %8 ], [ 27, %8 ], [ 27, %8 ], [ %11, %is_quic_draft_max.exit ]
+  %.0.i.i11 = phi i8 [ 27, %8 ], [ %switch.select20.i.i15, %14 ], [ 34, %.thread ], [ 27, %8 ], [ 27, %8 ], [ 27, %8 ], [ 27, %8 ], [ %11, %is_quic_draft_max.exit ]
   %15 = add i8 %.0.i.i11, -1
   %16 = icmp ult i8 %15, 34
   %17 = select i1 %16, ptr @.str.583, ptr @.str.584

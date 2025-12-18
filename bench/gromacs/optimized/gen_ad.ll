@@ -523,9 +523,9 @@ _ZL9gen_exclsP7t_atomsP7t_exclsN3gmx8ArrayRefI21MoleculePatchDatabaseEEbNS4_IKiE
   br label %.body788
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %1804, %1801, %._crit_edge.i612, %1574, %_ZL11clean_exclsP8t_nextnbiP7t_excls.exit, %1571, %1561, %1551
-  %.sroa.20.0.ph.ph.ph.ph.ph.ph.ph.ph = phi ptr [ %1790, %_ZL11clean_exclsP8t_nextnbiP7t_excls.exit ], [ %1790, %1801 ], [ %1790, %1804 ], [ %1790, %._crit_edge.i612 ], [ null, %1574 ], [ null, %1571 ], [ null, %1561 ], [ null, %1551 ]
-  %.sroa.131131.0.ph.ph.ph.ph.ph.ph.ph.ph = phi ptr [ %1788, %_ZL11clean_exclsP8t_nextnbiP7t_excls.exit ], [ %1788, %1801 ], [ %1788, %1804 ], [ %1788, %._crit_edge.i612 ], [ null, %1574 ], [ null, %1571 ], [ null, %1561 ], [ null, %1551 ]
-  %.sroa.01125.0.ph.ph.ph.ph.ph.ph.ph.ph = phi ptr [ %1786, %_ZL11clean_exclsP8t_nextnbiP7t_excls.exit ], [ %1786, %1801 ], [ %1786, %1804 ], [ %1786, %._crit_edge.i612 ], [ null, %1574 ], [ null, %1571 ], [ null, %1561 ], [ null, %1551 ]
+  %.sroa.20.0.ph.ph.ph.ph.ph.ph.ph.ph = phi ptr [ null, %1561 ], [ null, %1551 ], [ %1790, %1801 ], [ %1790, %1804 ], [ %1790, %._crit_edge.i612 ], [ %1790, %_ZL11clean_exclsP8t_nextnbiP7t_excls.exit ], [ null, %1574 ], [ null, %1571 ]
+  %.sroa.131131.0.ph.ph.ph.ph.ph.ph.ph.ph = phi ptr [ null, %1561 ], [ null, %1551 ], [ %1788, %1801 ], [ %1788, %1804 ], [ %1788, %._crit_edge.i612 ], [ %1788, %_ZL11clean_exclsP8t_nextnbiP7t_excls.exit ], [ null, %1574 ], [ null, %1571 ]
+  %.sroa.01125.0.ph.ph.ph.ph.ph.ph.ph.ph = phi ptr [ null, %1561 ], [ null, %1551 ], [ %1786, %1801 ], [ %1786, %1804 ], [ %1786, %._crit_edge.i612 ], [ %1786, %_ZL11clean_exclsP8t_nextnbiP7t_excls.exit ], [ null, %1574 ], [ null, %1571 ]
   %lpad.loopexit.split-lp1249 = landingpad { ptr, i32 }
           cleanup
   br label %.body788
@@ -747,7 +747,7 @@ _ZSt10_ConstructI17BondedInteractionJRKS0_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds =
   br i1 %.not.i.i.i.i.i785, label %_ZN21BondedInteractionListC2ERKS_.exit, label %.lr.ph.i.i.i.i.i783, !llvm.loop !59
 
 .body867:                                         ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i7.i, %210
-  %eh.lpad-body868 = phi { ptr, i32 } [ %211, %210 ], [ %235, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i7.i ], [ %211, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i ]
+  %eh.lpad-body868 = phi { ptr, i32 } [ %235, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i7.i ], [ %211, %210 ], [ %211, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i ]
   %254 = extractvalue { ptr, i32 } %eh.lpad-body868, 0
   %255 = call ptr @__cxa_begin_catch(ptr %254) #25
   invoke void @_ZSt8_DestroyIP17BondedInteractionEvT_S2_(ptr noundef %187, ptr noundef nonnull %.014.i.i.i.i.i)

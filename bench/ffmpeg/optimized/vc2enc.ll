@@ -503,7 +503,7 @@ define internal range(i32 -22, 1) i32 @vc2_encode_init(ptr noundef %0) #0 {
   br label %.critedge207
 
 .critedge207:                                     ; preds = %124, %._crit_edge, %177, %223, %79, %70, %63
-  %.0 = phi i32 [ -22, %63 ], [ -22, %70 ], [ 0, %223 ], [ -12, %177 ], [ -22, %79 ], [ -12, %._crit_edge ], [ -12, %124 ]
+  %.0 = phi i32 [ -22, %63 ], [ -22, %70 ], [ -22, %79 ], [ 0, %223 ], [ -12, %177 ], [ -12, %._crit_edge ], [ -12, %124 ]
   ret i32 %.0
 }
 
@@ -2585,8 +2585,8 @@ define internal noundef i32 @dwt_plane(ptr readnone captures(none) %0, ptr nound
   br i1 %91, label %.preheader91, label %.loopexit, !llvm.loop !167
 
 .loopexit:                                        ; preds = %._crit_edge, %._crit_edge102, %64, %36
-  %92 = phi i32 [ %33, %36 ], [ %33, %64 ], [ %61, %._crit_edge102 ], [ %89, %._crit_edge ]
-  %.1 = phi ptr [ %14, %36 ], [ %14, %64 ], [ %58, %._crit_edge102 ], [ %86, %._crit_edge ]
+  %92 = phi i32 [ %61, %._crit_edge102 ], [ %33, %36 ], [ %33, %64 ], [ %89, %._crit_edge ]
+  %.1 = phi ptr [ %58, %._crit_edge102 ], [ %14, %36 ], [ %14, %64 ], [ %86, %._crit_edge ]
   %93 = getelementptr inbounds nuw i8, ptr %11, i64 504
   %94 = load i64, ptr %93, align 8, !tbaa !82
   %95 = getelementptr inbounds nuw i8, ptr %11, i64 500
@@ -3861,9 +3861,9 @@ put_bits.exit.us.i:                               ; preds = %242, %235, %234
   br i1 %exitcond66.not.i, label %encode_subband.exit, label %.preheader.us.i, !llvm.loop !182
 
 encode_subband.exit:                              ; preds = %._crit_edge.us.i, %68, %.preheader.lr.ph.i
-  %.sroa.46.11 = phi ptr [ %.sroa.46.2140, %.preheader.lr.ph.i ], [ %.sroa.46.2140, %68 ], [ %.sroa.46.10, %._crit_edge.us.i ]
-  %.sroa.22.6 = phi i32 [ %.sroa.22.2141, %.preheader.lr.ph.i ], [ %.sroa.22.2141, %68 ], [ %.sroa.22.5, %._crit_edge.us.i ]
-  %.sroa.0.6 = phi i32 [ %.sroa.0.2142, %.preheader.lr.ph.i ], [ %.sroa.0.2142, %68 ], [ %.sroa.0.5, %._crit_edge.us.i ]
+  %.sroa.46.11 = phi ptr [ %.sroa.46.2140, %68 ], [ %.sroa.46.2140, %.preheader.lr.ph.i ], [ %.sroa.46.10, %._crit_edge.us.i ]
+  %.sroa.22.6 = phi i32 [ %.sroa.22.2141, %68 ], [ %.sroa.22.2141, %.preheader.lr.ph.i ], [ %.sroa.22.5, %._crit_edge.us.i ]
+  %.sroa.0.6 = phi i32 [ %.sroa.0.2142, %68 ], [ %.sroa.0.2142, %.preheader.lr.ph.i ], [ %.sroa.0.5, %._crit_edge.us.i ]
   %indvars.iv.next163 = add nuw nsw i64 %indvars.iv162, 1
   %exitcond165.not = icmp eq i64 %indvars.iv.next163, 4
   br i1 %exitcond165.not, label %250, label %68, !llvm.loop !183

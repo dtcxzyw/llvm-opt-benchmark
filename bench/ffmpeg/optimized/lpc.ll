@@ -943,7 +943,7 @@ quantize_lpc_coefs.exit212:                       ; preds = %244, %._crit_edge66
   br i1 %exitcond310.not, label %quantize_lpc_coefs.exit, label %233, !llvm.loop !46
 
 quantize_lpc_coefs.exit:                          ; preds = %quantize_lpc_coefs.exit212, %225, %._crit_edge66.i, %196
-  %.0158 = phi i32 [ %.0.i, %196 ], [ %.0.i, %._crit_edge66.i ], [ %4, %225 ], [ %4, %quantize_lpc_coefs.exit212 ]
+  %.0158 = phi i32 [ %.0.i, %._crit_edge66.i ], [ %.0.i, %196 ], [ %4, %225 ], [ %4, %quantize_lpc_coefs.exit212 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)

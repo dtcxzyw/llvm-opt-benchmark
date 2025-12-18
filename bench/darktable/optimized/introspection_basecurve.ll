@@ -570,7 +570,7 @@ _match.exit43:                                    ; preds = %43
   br i1 %61, label %9, label %.thread
 
 .thread:                                          ; preds = %60, %49, %54, %58
-  %62 = phi i32 [ 1, %58 ], [ 1, %54 ], [ 1, %49 ], [ 0, %60 ]
+  %62 = phi i32 [ 1, %49 ], [ 1, %58 ], [ 1, %54 ], [ 0, %60 ]
   ret i32 %62
 }
 
@@ -4242,8 +4242,8 @@ define internal range(i32 0, 2) i32 @dt_iop_basecurve_key_press(ptr noundef %0, 
   br label %15
 
 15:                                               ; preds = %13, %14, %12, %9, %9
-  %.016 = phi nsz float [ 0.000000e+00, %12 ], [ 0x3F50624DE0000000, %13 ], [ 0xBF50624DE0000000, %14 ], [ 0.000000e+00, %9 ], [ 0.000000e+00, %9 ]
-  %.0 = phi nsz float [ 0xBF50624DE0000000, %12 ], [ 0.000000e+00, %13 ], [ 0.000000e+00, %14 ], [ 0x3F50624DE0000000, %9 ], [ 0x3F50624DE0000000, %9 ]
+  %.016 = phi nsz float [ 0.000000e+00, %9 ], [ 0.000000e+00, %12 ], [ 0x3F50624DE0000000, %13 ], [ 0xBF50624DE0000000, %14 ], [ 0.000000e+00, %9 ]
+  %.0 = phi nsz float [ 0x3F50624DE0000000, %9 ], [ 0xBF50624DE0000000, %12 ], [ 0.000000e+00, %13 ], [ 0.000000e+00, %14 ], [ 0x3F50624DE0000000, %9 ]
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %17 = load i32, ptr %16, align 8, !tbaa !240
   tail call fastcc void @_move_point_internal(ptr noundef nonnull %2, ptr noundef %0, float noundef %.016, float noundef %.0, i32 noundef %17)

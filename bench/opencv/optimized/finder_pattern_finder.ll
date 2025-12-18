@@ -2312,8 +2312,8 @@ _ZSt8_DestroyIPN5zxing3RefINS0_6qrcode13FinderPatternEEES4_EvT_S6_RSaIT0_E.exit.
   br label %_ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit452
 
 .loopexit.split-lp527:                            ; preds = %_ZNSt6vectorIN5zxing3RefINS0_6qrcode13FinderPatternEEESaIS4_EEaSEOS6_.exit, %_ZNSt6vectorIN5zxing3RefINS0_6qrcode13FinderPatternEEESaIS4_EED2Ev.exit230, %376, %385, %388
-  %.sroa.18.1.ph = phi ptr [ %157, %_ZNSt6vectorIN5zxing3RefINS0_6qrcode13FinderPatternEEESaIS4_EEaSEOS6_.exit ], [ %254, %_ZNSt6vectorIN5zxing3RefINS0_6qrcode13FinderPatternEEESaIS4_EED2Ev.exit230 ], [ %.sroa.18.3, %376 ], [ %.sroa.18.3, %388 ], [ %.sroa.18.3, %385 ]
-  %.sroa.0486.1.ph = phi ptr [ %155, %_ZNSt6vectorIN5zxing3RefINS0_6qrcode13FinderPatternEEESaIS4_EEaSEOS6_.exit ], [ %252, %_ZNSt6vectorIN5zxing3RefINS0_6qrcode13FinderPatternEEESaIS4_EED2Ev.exit230 ], [ %.sroa.0486.3, %376 ], [ %.sroa.0486.3, %388 ], [ %.sroa.0486.3, %385 ]
+  %.sroa.18.1.ph = phi ptr [ %254, %_ZNSt6vectorIN5zxing3RefINS0_6qrcode13FinderPatternEEESaIS4_EED2Ev.exit230 ], [ %.sroa.18.3, %376 ], [ %.sroa.18.3, %388 ], [ %.sroa.18.3, %385 ], [ %157, %_ZNSt6vectorIN5zxing3RefINS0_6qrcode13FinderPatternEEESaIS4_EEaSEOS6_.exit ]
+  %.sroa.0486.1.ph = phi ptr [ %252, %_ZNSt6vectorIN5zxing3RefINS0_6qrcode13FinderPatternEEESaIS4_EED2Ev.exit230 ], [ %.sroa.0486.3, %376 ], [ %.sroa.0486.3, %388 ], [ %.sroa.0486.3, %385 ], [ %155, %_ZNSt6vectorIN5zxing3RefINS0_6qrcode13FinderPatternEEESaIS4_EEaSEOS6_.exit ]
   %lpad.loopexit.split-lp529 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit452
@@ -9469,7 +9469,7 @@ _ZSt8_DestroyIPN5zxing3RefINS0_6qrcode13FinderPatternEEES4_EvT_S6_RSaIT0_E.exit.
   br label %.loopexit.split-lp
 
 _ZNSt6vectorIN5zxing3RefINS0_6qrcode13FinderPatternEEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit: ; preds = %.lr.ph, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS4_12_GLOBAL__N_129FurthestFromAverageComparatorEEvT_SE_T0_.exit, %._ZNSt6vectorIN5zxing3RefINS0_6qrcode13FinderPatternEEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit_crit_edge, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS4_12_GLOBAL__N_115CountComparatorEEvT_SE_T0_.exit264, %_ZSt8_DestroyIPN5zxing3RefINS0_6qrcode13FinderPatternEEES4_EvT_S6_RSaIT0_E.exit.i.i.i, %775
-  %785 = phi ptr [ %.pre534, %._ZNSt6vectorIN5zxing3RefINS0_6qrcode13FinderPatternEEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit_crit_edge ], [ %763, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS4_12_GLOBAL__N_115CountComparatorEEvT_SE_T0_.exit264 ], [ %762, %_ZSt8_DestroyIPN5zxing3RefINS0_6qrcode13FinderPatternEEES4_EvT_S6_RSaIT0_E.exit.i.i.i ], [ %745, %775 ], [ %682, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS4_12_GLOBAL__N_129FurthestFromAverageComparatorEEvT_SE_T0_.exit ], [ %745, %.lr.ph ]
+  %785 = phi ptr [ %.pre534, %._ZNSt6vectorIN5zxing3RefINS0_6qrcode13FinderPatternEEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit_crit_edge ], [ %682, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS4_12_GLOBAL__N_129FurthestFromAverageComparatorEEvT_SE_T0_.exit ], [ %763, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS4_12_GLOBAL__N_115CountComparatorEEvT_SE_T0_.exit264 ], [ %762, %_ZSt8_DestroyIPN5zxing3RefINS0_6qrcode13FinderPatternEEES4_EvT_S6_RSaIT0_E.exit.i.i.i ], [ %745, %775 ], [ %745, %.lr.ph ]
   %786 = load ptr, ptr %12, align 8, !tbaa !78
   %787 = ptrtoint ptr %785 to i64
   %788 = ptrtoint ptr %786 to i64
@@ -11177,7 +11177,7 @@ define hidden noundef zeroext i1 @_ZN5zxing6qrcode19FinderPatternFinder18crossCh
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %63, %78, %111, %125, %.preheader213, %.critedge5, %.critedge, %.critedge3, %154, %.critedge11, %146, %151, %.critedge9, %.critedge7, %42, %44
-  %.1 = phi i1 [ false, %42 ], [ false, %44 ], [ false, %.critedge3 ], [ false, %.critedge ], [ false, %.critedge9 ], [ false, %.critedge7 ], [ false, %.critedge11 ], [ false, %146 ], [ %159, %154 ], [ false, %151 ], [ false, %.preheader213 ], [ false, %.critedge5 ], [ false, %78 ], [ false, %125 ], [ false, %111 ], [ false, %63 ]
+  %.1 = phi i1 [ false, %42 ], [ false, %44 ], [ false, %.critedge3 ], [ false, %.critedge ], [ false, %.critedge9 ], [ false, %.critedge7 ], [ false, %.critedge11 ], [ false, %146 ], [ %159, %154 ], [ false, %151 ], [ false, %.preheader213 ], [ false, %.critedge5 ], [ false, %78 ], [ false, %111 ], [ false, %125 ], [ false, %63 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %160
 
@@ -11650,7 +11650,7 @@ define hidden noundef float @_ZN5zxing6qrcode19FinderPatternFinder18crossCheckVe
   br label %.critedge2.thread
 
 .critedge2.thread:                                ; preds = %64, %.critedge, %93, %105, %48, %195, %192, %.critedge10, %.critedge8, %.critedge6, %.critedge2, %38, %40, %.loopexit, %201
-  %.0 = phi float [ %210, %201 ], [ 0x7FF8000000000000, %38 ], [ 0x7FF8000000000000, %.critedge2 ], [ 0x7FF8000000000000, %.critedge6 ], [ 0x7FF8000000000000, %.critedge8 ], [ 0x7FF8000000000000, %.critedge10 ], [ 0x7FF8000000000000, %.loopexit ], [ 0x7FF8000000000000, %192 ], [ 0x7FF8000000000000, %40 ], [ 0x7FF8000000000000, %195 ], [ 0x7FF8000000000000, %48 ], [ 0x7FF8000000000000, %.critedge ], [ 0x7FF8000000000000, %105 ], [ 0x7FF8000000000000, %93 ], [ 0x7FF8000000000000, %64 ]
+  %.0 = phi float [ %210, %201 ], [ 0x7FF8000000000000, %38 ], [ 0x7FF8000000000000, %48 ], [ 0x7FF8000000000000, %.critedge2 ], [ 0x7FF8000000000000, %.critedge6 ], [ 0x7FF8000000000000, %.critedge8 ], [ 0x7FF8000000000000, %.critedge10 ], [ 0x7FF8000000000000, %.loopexit ], [ 0x7FF8000000000000, %192 ], [ 0x7FF8000000000000, %40 ], [ 0x7FF8000000000000, %195 ], [ 0x7FF8000000000000, %.critedge ], [ 0x7FF8000000000000, %105 ], [ 0x7FF8000000000000, %93 ], [ 0x7FF8000000000000, %64 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret float %.0
 }
@@ -12125,7 +12125,7 @@ define hidden noundef float @_ZN5zxing6qrcode19FinderPatternFinder20crossCheckHo
   br label %.critedge2.thread
 
 .critedge2.thread:                                ; preds = %58, %.critedge, %83, %96, %46, %198, %195, %.critedge10, %.critedge8, %.critedge6, %.critedge2, %37, %39, %.loopexit, %203
-  %.0 = phi float [ %212, %203 ], [ 0x7FF8000000000000, %37 ], [ 0x7FF8000000000000, %.critedge2 ], [ 0x7FF8000000000000, %.critedge6 ], [ 0x7FF8000000000000, %.critedge8 ], [ 0x7FF8000000000000, %.critedge10 ], [ 0x7FF8000000000000, %.loopexit ], [ 0x7FF8000000000000, %195 ], [ 0x7FF8000000000000, %39 ], [ 0x7FF8000000000000, %198 ], [ 0x7FF8000000000000, %46 ], [ 0x7FF8000000000000, %.critedge ], [ 0x7FF8000000000000, %96 ], [ 0x7FF8000000000000, %83 ], [ 0x7FF8000000000000, %58 ]
+  %.0 = phi float [ %212, %203 ], [ 0x7FF8000000000000, %37 ], [ 0x7FF8000000000000, %46 ], [ 0x7FF8000000000000, %.critedge2 ], [ 0x7FF8000000000000, %.critedge6 ], [ 0x7FF8000000000000, %.critedge8 ], [ 0x7FF8000000000000, %.critedge10 ], [ 0x7FF8000000000000, %.loopexit ], [ 0x7FF8000000000000, %195 ], [ 0x7FF8000000000000, %39 ], [ 0x7FF8000000000000, %198 ], [ 0x7FF8000000000000, %.critedge ], [ 0x7FF8000000000000, %96 ], [ 0x7FF8000000000000, %83 ], [ 0x7FF8000000000000, %58 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret float %.0
 }

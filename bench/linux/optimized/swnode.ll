@@ -1837,7 +1837,7 @@ define internal i32 @software_node_read_int_array(ptr noundef readonly captures(
   br i1 %79, label %.thread17.i, label %83
 
 .thread17.i:                                      ; preds = %58, %78, %.thread15.i, %73, %64, %62, %51, %48
-  %80 = phi ptr [ %76, %78 ], [ inttoptr (i64 -61 to ptr), %64 ], [ inttoptr (i64 -22 to ptr), %62 ], [ inttoptr (i64 -61 to ptr), %73 ], [ inttoptr (i64 -22 to ptr), %48 ], [ inttoptr (i64 -22 to ptr), %51 ], [ inttoptr (i64 -75 to ptr), %.thread15.i ], [ inttoptr (i64 -22 to ptr), %58 ]
+  %80 = phi ptr [ %76, %78 ], [ inttoptr (i64 -61 to ptr), %64 ], [ inttoptr (i64 -75 to ptr), %.thread15.i ], [ inttoptr (i64 -22 to ptr), %62 ], [ inttoptr (i64 -61 to ptr), %73 ], [ inttoptr (i64 -22 to ptr), %48 ], [ inttoptr (i64 -22 to ptr), %51 ], [ inttoptr (i64 -22 to ptr), %58 ]
   %81 = ptrtoint ptr %80 to i64
   %82 = trunc i64 %81 to i32
   br label %property_entry_read_int_array.exit
@@ -1847,7 +1847,7 @@ define internal i32 @software_node_read_int_array(ptr noundef readonly captures(
   br label %property_entry_read_int_array.exit
 
 property_entry_read_int_array.exit:               ; preds = %30, %21, %23, %34, %36, %41, %43, %.thread17.i, %83
-  %84 = phi i32 [ %82, %.thread17.i ], [ 0, %83 ], [ -6, %43 ], [ %40, %36 ], [ -22, %34 ], [ -22, %21 ], [ -22, %23 ], [ -6, %41 ], [ -22, %30 ]
+  %84 = phi i32 [ %82, %.thread17.i ], [ 0, %83 ], [ -6, %43 ], [ %40, %36 ], [ -22, %34 ], [ -6, %41 ], [ -22, %21 ], [ -22, %23 ], [ -22, %30 ]
   ret i32 %84
 }
 
@@ -1959,7 +1959,7 @@ define internal i32 @software_node_read_string_array(ptr noundef readonly captur
   br i1 %68, label %.thread22, label %72
 
 .thread22:                                        ; preds = %47, %.thread20, %53, %62, %51, %67
-  %69 = phi ptr [ %65, %67 ], [ inttoptr (i64 -61 to ptr), %53 ], [ inttoptr (i64 -22 to ptr), %51 ], [ inttoptr (i64 -61 to ptr), %62 ], [ inttoptr (i64 -75 to ptr), %.thread20 ], [ inttoptr (i64 -22 to ptr), %47 ]
+  %69 = phi ptr [ %65, %67 ], [ inttoptr (i64 -61 to ptr), %53 ], [ inttoptr (i64 -75 to ptr), %.thread20 ], [ inttoptr (i64 -22 to ptr), %51 ], [ inttoptr (i64 -61 to ptr), %62 ], [ inttoptr (i64 -22 to ptr), %47 ]
   %70 = ptrtoint ptr %69 to i64
   %71 = trunc i64 %70 to i32
   br label %.thread16
@@ -2352,7 +2352,7 @@ define internal i32 @software_node_get_reference_args(ptr noundef readonly captu
   br label %113
 
 .thread28:                                        ; preds = %86, %.thread26, %92, %79, %74, %101, %90, %106
-  %109 = phi ptr [ %104, %106 ], [ inttoptr (i64 -61 to ptr), %92 ], [ inttoptr (i64 -22 to ptr), %90 ], [ inttoptr (i64 -61 to ptr), %101 ], [ inttoptr (i64 -22 to ptr), %74 ], [ inttoptr (i64 -22 to ptr), %79 ], [ inttoptr (i64 -75 to ptr), %.thread26 ], [ inttoptr (i64 -22 to ptr), %86 ]
+  %109 = phi ptr [ %104, %106 ], [ inttoptr (i64 -61 to ptr), %92 ], [ inttoptr (i64 -75 to ptr), %.thread26 ], [ inttoptr (i64 -22 to ptr), %90 ], [ inttoptr (i64 -61 to ptr), %101 ], [ inttoptr (i64 -22 to ptr), %74 ], [ inttoptr (i64 -22 to ptr), %79 ], [ inttoptr (i64 -22 to ptr), %86 ]
   %110 = ptrtoint ptr %109 to i64
   %111 = trunc i64 %110 to i32
   %112 = icmp eq i32 %111, 0
@@ -2406,7 +2406,7 @@ define internal i32 @software_node_get_reference_args(ptr noundef readonly captu
   br i1 %141, label %.thread20, label %135, !llvm.loop !26
 
 .thread20:                                        ; preds = %28, %135, %48, %21, %.thread, %.thread22, %125, %.thread30, %113, %.thread28, %67, %42, %38, %34, %32
-  %142 = phi i32 [ -2, %32 ], [ -22, %34 ], [ -22, %38 ], [ -2, %42 ], [ -2, %67 ], [ %111, %.thread28 ], [ -22, %113 ], [ 0, %.thread30 ], [ 0, %125 ], [ -2, %.thread22 ], [ -2, %.thread ], [ -2, %21 ], [ -2, %48 ], [ 0, %135 ], [ -2, %28 ]
+  %142 = phi i32 [ -2, %32 ], [ -22, %34 ], [ -22, %38 ], [ -2, %42 ], [ -2, %67 ], [ %111, %.thread28 ], [ -22, %113 ], [ 0, %.thread30 ], [ 0, %125 ], [ -2, %48 ], [ -2, %.thread22 ], [ 0, %135 ], [ -2, %.thread ], [ -2, %21 ], [ -2, %28 ]
   ret i32 %142
 }
 
@@ -2605,8 +2605,8 @@ define internal ptr @software_node_graph_get_next_endpoint(ptr noundef %0, ptr n
   br i1 %115, label %.thread20.thread, label %.preheader, !llvm.loop !27
 
 .thread20.thread:                                 ; preds = %113, %15, %17, %24, %112, %.thread20
-  %116 = phi ptr [ %77, %112 ], [ %73, %.thread20 ], [ null, %24 ], [ null, %17 ], [ null, %15 ], [ %77, %113 ]
-  %117 = phi ptr [ %110, %112 ], [ %1, %.thread20 ], [ %1, %24 ], [ %1, %17 ], [ %1, %15 ], [ null, %113 ]
+  %116 = phi ptr [ %77, %112 ], [ %73, %.thread20 ], [ null, %15 ], [ null, %24 ], [ null, %17 ], [ %77, %113 ]
+  %117 = phi ptr [ %110, %112 ], [ %1, %.thread20 ], [ %1, %15 ], [ %1, %24 ], [ %1, %17 ], [ null, %113 ]
   tail call void @fwnode_handle_put(ptr noundef %116) #12
   br label %.thread
 

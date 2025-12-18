@@ -309,8 +309,8 @@ bytestream2_get_be32.exit126.i:                   ; preds = %88
   br label %bytestream2_get_be32.exit128.i
 
 bytestream2_get_be32.exit128.i:                   ; preds = %96, %bytestream2_get_be32.exit126.i
-  %.sroa.0.1.i = phi ptr [ %90, %bytestream2_get_be32.exit126.i ], [ %97, %96 ]
-  %.0.i67 = phi i32 [ %92, %bytestream2_get_be32.exit126.i ], [ %99, %96 ]
+  %.sroa.0.1.i = phi ptr [ %97, %96 ], [ %90, %bytestream2_get_be32.exit126.i ]
+  %.0.i67 = phi i32 [ %99, %96 ], [ %92, %bytestream2_get_be32.exit126.i ]
   %100 = icmp sgt i32 %.0.i67, 0
   br i1 %100, label %101, label %bytestream2_get_be32.exit124.thread.i
 
@@ -715,7 +715,7 @@ tm2_read_stream.exit.thread:                      ; preds = %101, %105, %135, %t
   br label %.loopexit
 
 tm2_read_stream.exit:                             ; preds = %271, %.lr.ph217.split.i, %.lr.ph217.split.us.i, %227, %236, %244, %249, %260, %268, %bytestream2_get_be32.exit132.thread.i, %.preheader.i, %.lr.ph217.split.preheader.i.split.us
-  %.0103.i = phi i32 [ -1094995529, %227 ], [ %233, %236 ], [ -1094995529, %.lr.ph217.split.preheader.i.split.us ], [ -1094995529, %260 ], [ -1094995529, %268 ], [ -1094995529, %bytestream2_get_be32.exit132.thread.i ], [ -1094995529, %244 ], [ %78, %.preheader.i ], [ %78, %249 ], [ %78, %.lr.ph217.split.i ], [ %78, %.lr.ph217.split.us.i ], [ %78, %271 ]
+  %.0103.i = phi i32 [ -1094995529, %227 ], [ %233, %236 ], [ -1094995529, %.lr.ph217.split.preheader.i.split.us ], [ -1094995529, %260 ], [ -1094995529, %268 ], [ -1094995529, %bytestream2_get_be32.exit132.thread.i ], [ -1094995529, %244 ], [ %78, %.preheader.i ], [ %78, %.lr.ph217.split.us.i ], [ %78, %249 ], [ %78, %.lr.ph217.split.i ], [ %78, %271 ]
   %279 = load ptr, ptr %52, align 8, !tbaa !76
   call void @av_free(ptr noundef %279) #8
   call void @ff_vlc_free(ptr noundef nonnull %10) #8
@@ -2890,7 +2890,7 @@ tm2_hi_res_block.exit.us.i:                       ; preds = %1492
   br label %tm2_update_block.exit.us.i
 
 tm2_update_block.exit.us.i:                       ; preds = %565, %678, %851, %1494, %tm2_hi_res_block.exit.us.i, %tm2_med_res_block.exit.us.i, %tm2_low_res_block.exit.us.i, %tm2_null_res_block.exit.us.i, %568
-  %.2218.us.i = phi i32 [ %.1217384.us.i, %1494 ], [ %.1217384.us.i, %tm2_hi_res_block.exit.us.i ], [ %.1217384.us.i, %tm2_med_res_block.exit.us.i ], [ %.1217384.us.i, %tm2_low_res_block.exit.us.i ], [ %.1217384.us.i, %tm2_null_res_block.exit.us.i ], [ 0, %568 ], [ 0, %678 ], [ 0, %851 ], [ 0, %565 ]
+  %.2218.us.i = phi i32 [ %.1217384.us.i, %1494 ], [ %.1217384.us.i, %tm2_hi_res_block.exit.us.i ], [ %.1217384.us.i, %tm2_med_res_block.exit.us.i ], [ %.1217384.us.i, %tm2_low_res_block.exit.us.i ], [ %.1217384.us.i, %tm2_null_res_block.exit.us.i ], [ 0, %678 ], [ 0, %851 ], [ 0, %568 ], [ 0, %565 ]
   %1496 = load i32, ptr %20, align 8, !tbaa !52
   %.not228.us.i = icmp eq i32 %1496, 0
   br i1 %.not228.us.i, label %368, label %tm2_decode_blocks.exit.thread

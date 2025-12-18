@@ -3159,7 +3159,7 @@ count_hex_bytes.exit72:                           ; preds = %.outer.i69, %85, %8
   br i1 %.not36, label %103, label %.sink.split
 
 .sink.split:                                      ; preds = %35, %74, %94, %count_hex_bytes.exit72, %82, %count_hex_bytes.exit59, %63, %count_hex_bytes.exit, %23, %22, %62
-  %.str.184.sink = phi ptr [ @.str.183, %count_hex_bytes.exit59 ], [ @.str.182, %count_hex_bytes.exit ], [ @.str.183, %62 ], [ @.str.182, %22 ], [ @.str.182, %23 ], [ @.str.183, %63 ], [ @.str.184, %82 ], [ @.str.184, %count_hex_bytes.exit72 ], [ @.str.183, %74 ], [ @.str.184, %94 ], [ @.str.182, %35 ]
+  %.str.184.sink = phi ptr [ @.str.183, %count_hex_bytes.exit59 ], [ @.str.182, %count_hex_bytes.exit ], [ @.str.183, %62 ], [ @.str.182, %22 ], [ @.str.184, %94 ], [ @.str.182, %23 ], [ @.str.183, %74 ], [ @.str.183, %63 ], [ @.str.184, %count_hex_bytes.exit72 ], [ @.str.184, %82 ], [ @.str.182, %35 ]
   %102 = tail call noalias ptr @g_strdup(ptr noundef nonnull %.str.184.sink)
   store ptr %102, ptr %1, align 8
   br label %103
@@ -3590,7 +3590,7 @@ count_hex_bytes.exit72:                           ; preds = %.outer.i69, %85, %8
   br i1 %.not36, label %103, label %.sink.split
 
 .sink.split:                                      ; preds = %34, %73, %94, %count_hex_bytes.exit72, %81, %count_hex_bytes.exit59, %62, %count_hex_bytes.exit, %23, %22, %61
-  %.str.186.sink = phi ptr [ @.str.183, %count_hex_bytes.exit59 ], [ @.str.182, %count_hex_bytes.exit ], [ @.str.183, %61 ], [ @.str.182, %22 ], [ @.str.182, %23 ], [ @.str.183, %62 ], [ @.str.186, %81 ], [ @.str.186, %count_hex_bytes.exit72 ], [ @.str.183, %73 ], [ @.str.186, %94 ], [ @.str.182, %34 ]
+  %.str.186.sink = phi ptr [ @.str.183, %count_hex_bytes.exit59 ], [ @.str.182, %count_hex_bytes.exit ], [ @.str.183, %61 ], [ @.str.182, %22 ], [ @.str.186, %94 ], [ @.str.182, %23 ], [ @.str.183, %73 ], [ @.str.183, %62 ], [ @.str.186, %count_hex_bytes.exit72 ], [ @.str.186, %81 ], [ @.str.182, %34 ]
   %102 = tail call noalias ptr @g_strdup(ptr noundef nonnull %.str.186.sink)
   store ptr %102, ptr %1, align 8
   br label %103
@@ -3699,7 +3699,7 @@ define internal fastcc void @parse_hex_string(ptr noundef readonly captures(addr
   br i1 %.not19.i, label %count_hex_bytes.exit, label %.lr.ph.i, !llvm.loop !17
 
 count_hex_bytes.exit:                             ; preds = %14, %.outer.i, %5, %5, %13, %3
-  %.010.i = phi i8 [ 0, %3 ], [ %.0.ph28.i, %5 ], [ %.0.ph28.i, %13 ], [ %.0.ph28.i, %5 ], [ 0, %14 ], [ %20, %.outer.i ]
+  %.010.i = phi i8 [ 0, %3 ], [ %.0.ph28.i, %5 ], [ %.0.ph28.i, %13 ], [ %.0.ph28.i, %5 ], [ %20, %.outer.i ], [ 0, %14 ]
   store i8 %.010.i, ptr %2, align 1
   %22 = zext i8 %.010.i to i64
   %23 = tail call noalias ptr @g_malloc0(i64 noundef %22) #27
@@ -4689,7 +4689,7 @@ switch.early.test107:                             ; preds = %23
   br label %.loopexit
 
 .loopexit:                                        ; preds = %switch.early.test107, %switch.early.test, %31, %64, %1, %10, %._crit_edge
-  %.0 = phi i8 [ 0, %._crit_edge ], [ 1, %10 ], [ 1, %1 ], [ 1, %64 ], [ 1, %31 ], [ 1, %switch.early.test ], [ 1, %switch.early.test107 ]
+  %.0 = phi i8 [ 1, %1 ], [ 1, %10 ], [ 0, %._crit_edge ], [ 1, %64 ], [ 1, %31 ], [ 1, %switch.early.test ], [ 1, %switch.early.test107 ]
   ret i8 %.0
 }
 
@@ -6501,7 +6501,7 @@ addresses_equal.exit:                             ; preds = %232, %226, %221, %2
   br label %.thread146
 
 .thread146:                                       ; preds = %is_retransmission.exit138, %dof_dissect_dnp_length.exit.thread, %114, %108, %97, %._crit_edge
-  %.3 = phi i32 [ %249, %._crit_edge ], [ %105, %dof_dissect_dnp_length.exit.thread ], [ %119, %114 ], [ %112, %108 ], [ 0, %97 ], [ 0, %is_retransmission.exit138 ]
+  %.3 = phi i32 [ %249, %._crit_edge ], [ 0, %97 ], [ %105, %dof_dissect_dnp_length.exit.thread ], [ %119, %114 ], [ %112, %108 ], [ 0, %is_retransmission.exit138 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %250
 
@@ -7088,7 +7088,7 @@ DOFObjectID_GetDataSize.exit:                     ; preds = %25, %.thread.i.i.i4
   br label %ObjectID_DataToString.exit
 
 ObjectID_DataToString.exit:                       ; preds = %.thread.i, %43
-  %.281.i = phi i32 [ %42, %.thread.i ], [ %45, %43 ]
+  %.281.i = phi i32 [ %45, %43 ], [ %42, %.thread.i ]
   switch i8 %9, label %DOFObjectID_GetIDClass.exit66 [
     i8 2, label %.lr.ph.preheader.i.i
     i8 3, label %46
@@ -7518,7 +7518,7 @@ DOFObjectID_GetAttributeAtIndex.exit:             ; preds = %155, %DOFObjectID_G
   br label %187
 
 187:                                              ; preds = %184, %.thread.i113, %170
-  %.pn = phi i32 [ %171, %170 ], [ %183, %.thread.i113 ], [ %186, %184 ]
+  %.pn = phi i32 [ %171, %170 ], [ %186, %184 ], [ %183, %.thread.i113 ]
   %spec.select40 = add i32 %.2133, 5
   %188 = add i32 %spec.select40, %167
   %.6 = add i32 %188, %.pn
@@ -7527,7 +7527,7 @@ DOFObjectID_GetAttributeAtIndex.exit:             ; preds = %155, %DOFObjectID_G
   br i1 %exitcond.not, label %.thread, label %.lr.ph, !llvm.loop !46
 
 .thread:                                          ; preds = %187, %DOFObjectID_HasAttributes.exit.i82, %.lr.ph.i89, %DOFObjectID_GetAttributeCount.exit.thread, %DOFObjectID_GetAttributeCount.exit, %DOFObjectID_HasAttributes.exit
-  %.1 = phi i32 [ %.032, %DOFObjectID_HasAttributes.exit ], [ %123, %DOFObjectID_GetAttributeCount.exit ], [ %97, %DOFObjectID_GetAttributeCount.exit.thread ], [ %.2133, %.lr.ph.i89 ], [ %.6, %187 ], [ %.2133, %DOFObjectID_HasAttributes.exit.i82 ]
+  %.1 = phi i32 [ %.032, %DOFObjectID_HasAttributes.exit ], [ %97, %DOFObjectID_GetAttributeCount.exit.thread ], [ %123, %DOFObjectID_GetAttributeCount.exit ], [ %.2133, %.lr.ph.i89 ], [ %.6, %187 ], [ %.2133, %DOFObjectID_HasAttributes.exit.i82 ]
   tail call void @decrement_dissection_depth(ptr noundef %1)
   ret i32 %.1
 }
@@ -8089,7 +8089,7 @@ DOFObjectID_GetAttributeAtIndex.exit.thread:      ; preds = %DOFObjectID_GetBase
   br i1 %exitcond.not, label %.thread162, label %.lr.ph, !llvm.loop !47
 
 .thread162:                                       ; preds = %245, %DOFObjectID_HasAttributes.exit.i117, %.lr.ph.i124, %DOFObjectID_GetAttributeCount.exit.thread, %DOFObjectID_GetAttributeCount.exit
-  %.4169 = phi i32 [ %156, %DOFObjectID_GetAttributeCount.exit ], [ %126, %DOFObjectID_GetAttributeCount.exit.thread ], [ %.4174, %.lr.ph.i124 ], [ %.8, %245 ], [ %.4174, %DOFObjectID_HasAttributes.exit.i117 ]
+  %.4169 = phi i32 [ %126, %DOFObjectID_GetAttributeCount.exit.thread ], [ %156, %DOFObjectID_GetAttributeCount.exit ], [ %.4174, %.lr.ph.i124 ], [ %.8, %245 ], [ %.4174, %DOFObjectID_HasAttributes.exit.i117 ]
   %247 = add i32 %.4169, 1
   %248 = zext i32 %.4169 to i64
   %249 = getelementptr i8, ptr %1, i64 %248
@@ -8256,7 +8256,7 @@ define internal fastcc i32 @ObjectID_DataToString(ptr noundef readonly captures(
   br label %.loopexit
 
 .loopexit:                                        ; preds = %26, %.thread, %._crit_edge96, %48, %27
-  %.281 = phi i32 [ %28, %27 ], [ %45, %._crit_edge96 ], [ %50, %48 ], [ 0, %.thread ], [ %.180, %26 ]
+  %.281 = phi i32 [ %50, %48 ], [ %28, %27 ], [ %45, %._crit_edge96 ], [ 0, %.thread ], [ %.180, %26 ]
   ret i32 %.281
 }
 
@@ -10653,7 +10653,7 @@ validate_c2.exit72:                               ; preds = %read_c2.exit70, %72
   br i1 %92, label %.lr.ph.i, label %dissect_options.exit, !llvm.loop !69
 
 dissect_options.exit:                             ; preds = %validate_c2.exit72, %.lr.ph.i, %52, %76, %38, %6, %4, %35
-  %.0 = phi i32 [ 0, %6 ], [ 0, %4 ], [ %.sink.i, %35 ], [ %49, %38 ], [ %49, %76 ], [ %49, %52 ], [ %90, %.lr.ph.i ], [ %.015.ph.i68, %validate_c2.exit72 ]
+  %.0 = phi i32 [ 0, %6 ], [ 0, %4 ], [ %.sink.i, %35 ], [ %49, %38 ], [ %90, %.lr.ph.i ], [ %49, %76 ], [ %49, %52 ], [ %.015.ph.i68, %validate_c2.exit72 ]
   ret i32 %.0
 }
 

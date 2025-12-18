@@ -479,9 +479,9 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %_ZL18computeBucketC
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIN4llvm7support6detail31packed_endian_specific_integralIjLNS0_10endiannessE1ELm1ELm1EEESaIS5_EEC2EmRKS6_.exit, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !65
 
 _ZNSt6vectorIN4llvm7support6detail31packed_endian_specific_integralIjLNS0_10endiannessE1ELm1ELm1EEESaIS5_EEC2EmRKS6_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %_ZN4llvm5ErrorD2Ev.exit, %24
-  %.sroa.11.0 = phi ptr [ %28, %24 ], [ null, %_ZN4llvm5ErrorD2Ev.exit ], [ %28, %.lr.ph.i.i.i.i.i.i.i.i.i ]
-  %.sroa.044.0 = phi ptr [ %27, %24 ], [ null, %_ZN4llvm5ErrorD2Ev.exit ], [ %27, %.lr.ph.i.i.i.i.i.i.i.i.i ]
-  %.0.i.i.i.i.i = phi ptr [ %29, %24 ], [ null, %_ZN4llvm5ErrorD2Ev.exit ], [ %33, %.lr.ph.i.i.i.i.i.i.i.i.i ]
+  %.sroa.11.0 = phi ptr [ null, %_ZN4llvm5ErrorD2Ev.exit ], [ %28, %24 ], [ %28, %.lr.ph.i.i.i.i.i.i.i.i.i ]
+  %.sroa.044.0 = phi ptr [ null, %_ZN4llvm5ErrorD2Ev.exit ], [ %27, %24 ], [ %27, %.lr.ph.i.i.i.i.i.i.i.i.i ]
+  %.0.i.i.i.i.i = phi ptr [ null, %_ZN4llvm5ErrorD2Ev.exit ], [ %29, %24 ], [ %33, %.lr.ph.i.i.i.i.i.i.i.i.i ]
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %37 = load ptr, ptr %36, align 8, !tbaa !29
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 48

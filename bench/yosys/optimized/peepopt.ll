@@ -21061,7 +21061,7 @@ _ZN5Yosys5RTLIL7SigSpec6appendENS0_5StateE.exit.i.i.i.i.i.i: ; preds = %8632
   br i1 %8639, label %.loopexit.i.i.i.i.i.i, label %8636
 
 .loopexit.i.i.i.i.i.i:                            ; preds = %8636, %.thread.i.i.i.i.i.i.loopexit, %.thread.i.i.i.i.i.i.loopexit.split-lp, %8558, %.body2350, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i2329, %8589, %.loopexit.loopexit173.i.i.i.i.i.i
-  %.pn52.i.i.i.i.i.i = phi { ptr, i32 } [ %8633, %.loopexit.loopexit173.i.i.i.i.i.i ], [ %lpad.loopexit.split-lp7375, %.thread.i.i.i.i.i.i.loopexit.split-lp ], [ %8552, %.body2350 ], [ %8552, %8558 ], [ %lpad.phi7381, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i2329 ], [ %lpad.phi7381, %8589 ], [ %lpad.loopexit7374, %.thread.i.i.i.i.i.i.loopexit ], [ %8635, %8636 ]
+  %.pn52.i.i.i.i.i.i = phi { ptr, i32 } [ %8633, %.loopexit.loopexit173.i.i.i.i.i.i ], [ %lpad.phi7381, %8589 ], [ %lpad.loopexit.split-lp7375, %.thread.i.i.i.i.i.i.loopexit.split-lp ], [ %8552, %.body2350 ], [ %8552, %8558 ], [ %lpad.phi7381, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i2329 ], [ %lpad.loopexit7374, %.thread.i.i.i.i.i.i.loopexit ], [ %8635, %8636 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %104)
   br label %9328
 
@@ -28598,7 +28598,7 @@ _ZN5Yosys5RTLIL7SigSpec6appendENS0_5StateE.exit.i.i.i.i.i.i264: ; preds = %11815
   br i1 %11822, label %.loopexit.i.i.i.i.i.i247, label %11819
 
 .loopexit.i.i.i.i.i.i247:                         ; preds = %11819, %.loopexit.loopexit207.i.i.i.i.i.i, %.thread.i.i.i.i.i.i246
-  %.pn57.i.i.i.i.i.i = phi { ptr, i32 } [ %11663, %.thread.i.i.i.i.i.i246 ], [ %11816, %.loopexit.loopexit207.i.i.i.i.i.i ], [ %11818, %11819 ]
+  %.pn57.i.i.i.i.i.i = phi { ptr, i32 } [ %11816, %.loopexit.loopexit207.i.i.i.i.i.i ], [ %11663, %.thread.i.i.i.i.i.i246 ], [ %11818, %11819 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %63)
   br label %12015
 
@@ -72923,7 +72923,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit211.i.i: ; preds =
   br i1 %1265, label %.loopexit.i.i, label %1262
 
 .loopexit.i.i:                                    ; preds = %1262, %.loopexit.loopexit455.i.i, %.thread.i.i
-  %.pn101.i.i = phi { ptr, i32 } [ %1085, %.thread.i.i ], [ %1259, %.loopexit.loopexit455.i.i ], [ %1261, %1262 ]
+  %.pn101.i.i = phi { ptr, i32 } [ %1259, %.loopexit.loopexit455.i.i ], [ %1085, %.thread.i.i ], [ %1261, %1262 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %1590
 

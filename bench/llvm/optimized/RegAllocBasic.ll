@@ -2026,7 +2026,7 @@ _ZN4llvm13LiveRangeEditD2Ev.exit.i:               ; preds = %289, %_ZN4llvm19Sma
   br i1 %.not.i39, label %.loopexit.i, label %.lr.ph76.i
 
 .loopexit.i:                                      ; preds = %291, %.lr.ph.i36, %._crit_edge.i, %156
-  %.not5965.i = phi i1 [ true, %._crit_edge.i ], [ true, %156 ], [ false, %.lr.ph.i36 ], [ true, %291 ]
+  %.not5965.i = phi i1 [ true, %._crit_edge.i ], [ false, %.lr.ph.i36 ], [ true, %156 ], [ true, %291 ]
   %293 = load ptr, ptr %4, align 8, !tbaa !48
   %294 = icmp eq ptr %293, %124
   br i1 %294, label %_ZN12_GLOBAL__N_17RABasic18spillInterferencesERKN4llvm12LiveIntervalENS1_10MCRegisterERNS1_15SmallVectorImplINS1_8RegisterEEE.exit, label %295

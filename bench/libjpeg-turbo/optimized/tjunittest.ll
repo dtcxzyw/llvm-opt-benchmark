@@ -1692,7 +1692,7 @@ setVal.exit141.us201.i.i:                         ; preds = %setVal.exit142.thre
   br i1 %exitcond313.not.i.i, label %initBuf.exit.i, label %.preheader.i.i, !llvm.loop !31
 
 initBuf.exit.i:                                   ; preds = %.split.i.i, %.split.us.us.i.i, %.split171.split.i.i, %.split171.us.us.i.i, %.split191.us.i.i
-  %267 = phi i32 [ %.fr204.i.i, %.split.us.us.i.i ], [ %.fr205.i.i, %.split191.us.i.i ], [ %.fr.i.i, %.split171.us.us.i.i ], [ %.fr.i.i, %.split171.split.i.i ], [ %.fr204.i.i, %.split.i.i ]
+  %267 = phi i32 [ %.fr204.i.i, %.split.us.us.i.i ], [ %.fr.i.i, %.split171.split.i.i ], [ %.fr.i.i, %.split171.us.us.i.i ], [ %.fr205.i.i, %.split191.us.i.i ], [ %.fr204.i.i, %.split.i.i ]
   %268 = load ptr, ptr %8, align 8, !tbaa !4
   %.not115.i = icmp eq ptr %268, null
   br i1 %.not115.i, label %272, label %269
@@ -3480,7 +3480,7 @@ define internal fastcc range(i32 0, 2) i32 @checkBufYUV(ptr noundef nonnull read
   %169 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.125, ptr noundef nonnull @.str.129, i32 noundef %167, i32 noundef %168, i32 noundef 149, i32 noundef %118)
   br label %.preheader206
 
-.preheader206:                                    ; preds = %.split.us, %.split252.us, %.split.us258, %.split247.us, %.split322.us, %.split327.us, %.split348.us, %.split311.us, %.split316.us, %.split343.us
+.preheader206:                                    ; preds = %.split.us, %.split343.us, %.split252.us, %.split.us258, %.split247.us, %.split322.us, %.split327.us, %.split348.us, %.split311.us, %.split316.us
   store i1 true, ptr @exitStatus, align 4
   br i1 %32, label %.preheader205.lr.ph, label %._crit_edge379
 
@@ -3617,7 +3617,7 @@ define internal fastcc range(i32 0, 2) i32 @checkBufYUV(ptr noundef nonnull read
   br i1 %exitcond506.not, label %.loopexit, label %.preheader, !llvm.loop !51
 
 .loopexit:                                        ; preds = %._crit_edge.us339, %.preheader, %._crit_edge.us387, %._crit_edge383.thread539, %._crit_edge273, %77, %.preheader207.lr.ph
-  %.3163536 = phi i32 [ 0, %._crit_edge383.thread539 ], [ 1, %._crit_edge273 ], [ 1, %77 ], [ 1, %.preheader207.lr.ph ], [ 0, %.preheader ], [ 0, %._crit_edge.us387 ], [ 1, %._crit_edge.us339 ]
+  %.3163536 = phi i32 [ 0, %.preheader ], [ 0, %._crit_edge383.thread539 ], [ 0, %._crit_edge.us387 ], [ 1, %._crit_edge273 ], [ 1, %77 ], [ 1, %.preheader207.lr.ph ], [ 1, %._crit_edge.us339 ]
   ret i32 %.3163536
 }
 
@@ -4463,23 +4463,23 @@ getVal.exit331.us847.i:                           ; preds = %411, %406
   br i1 %exitcond1365.not.i, label %.loopexit, label %.preheader483.us.i, !llvm.loop !55
 
 .split815.us.i:                                   ; preds = %429, %388, %341, %306
-  %.us-phi816.i = phi i32 [ %.0262843.us.i, %388 ], [ %.0262843.us.us.i, %306 ], [ %.0262843.us.us.i, %341 ], [ %.0262843.us.i, %429 ]
-  %.us-phi818.i = phi i32 [ %.0.i355361375.us.i.us, %388 ], [ %283, %306 ], [ %318, %341 ], [ %.0.i355361375.us.i, %429 ]
-  %.us-phi819.i = phi i32 [ %375, %388 ], [ %293, %306 ], [ %328, %341 ], [ %416, %429 ]
+  %.us-phi816.i = phi i32 [ %.0262843.us.i, %388 ], [ %.0262843.us.us.i, %341 ], [ %.0262843.us.us.i, %306 ], [ %.0262843.us.i, %429 ]
+  %.us-phi818.i = phi i32 [ %.0.i355361375.us.i.us, %388 ], [ %318, %341 ], [ %283, %306 ], [ %.0.i355361375.us.i, %429 ]
+  %.us-phi819.i = phi i32 [ %375, %388 ], [ %328, %341 ], [ %293, %306 ], [ %416, %429 ]
   %438 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.125, ptr noundef nonnull @.str.147, i32 noundef %.us-phi816.i, i32 noundef %.us-phi819.i, i32 noundef %269, i32 noundef %.us-phi818.i)
   br label %.thread386.i
 
 .split821.us.i:                                   ; preds = %430, %389, %342, %307
-  %.us-phi822.i = phi i32 [ %.0262843.us.i, %389 ], [ %.0262843.us.us.i, %307 ], [ %.0262843.us.us.i, %342 ], [ %.0262843.us.i, %430 ]
-  %.us-phi824.i = phi i32 [ %.0.i326363373.us.i.us, %389 ], [ %286, %307 ], [ %321, %342 ], [ %.0.i326363373.us.i, %430 ]
-  %.us-phi825.i = phi i32 [ %375, %389 ], [ %293, %307 ], [ %328, %342 ], [ %416, %430 ]
+  %.us-phi822.i = phi i32 [ %.0262843.us.i, %389 ], [ %.0262843.us.us.i, %342 ], [ %.0262843.us.us.i, %307 ], [ %.0262843.us.i, %430 ]
+  %.us-phi824.i = phi i32 [ %.0.i326363373.us.i.us, %389 ], [ %321, %342 ], [ %286, %307 ], [ %.0.i326363373.us.i, %430 ]
+  %.us-phi825.i = phi i32 [ %375, %389 ], [ %328, %342 ], [ %293, %307 ], [ %416, %430 ]
   %439 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.125, ptr noundef nonnull @.str.148, i32 noundef %.us-phi822.i, i32 noundef %.us-phi825.i, i32 noundef %269, i32 noundef %.us-phi824.i)
   br label %.thread386.i
 
 .split827.us.i:                                   ; preds = %432, %391, %344, %309
-  %.us-phi828.i = phi i32 [ %.0262843.us.i, %391 ], [ %.0262843.us.us.i, %309 ], [ %.0262843.us.us.i, %344 ], [ %.0262843.us.i, %432 ]
-  %.us-phi830.i = phi i32 [ %.0.i328377.us.i.us, %391 ], [ %289, %309 ], [ %324, %344 ], [ %.0.i328377.us.i, %432 ]
-  %.us-phi831.i = phi i32 [ %375, %391 ], [ %293, %309 ], [ %328, %344 ], [ %416, %432 ]
+  %.us-phi828.i = phi i32 [ %.0262843.us.i, %391 ], [ %.0262843.us.us.i, %344 ], [ %.0262843.us.us.i, %309 ], [ %.0262843.us.i, %432 ]
+  %.us-phi830.i = phi i32 [ %.0.i328377.us.i.us, %391 ], [ %324, %344 ], [ %289, %309 ], [ %.0.i328377.us.i, %432 ]
+  %.us-phi831.i = phi i32 [ %375, %391 ], [ %328, %344 ], [ %293, %309 ], [ %416, %432 ]
   %440 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.125, ptr noundef nonnull @.str.126, i32 noundef %.us-phi828.i, i32 noundef %.us-phi831.i, i32 noundef %269, i32 noundef %.us-phi830.i)
   br label %.thread386.i
 
@@ -4498,23 +4498,23 @@ getVal.exit331.us847.i:                           ; preds = %411, %406
   br label %.thread386.i
 
 .split.us788.i:                                   ; preds = %422, %381, %334, %299
-  %.us-phi.i = phi i32 [ %.0262843.us.i, %381 ], [ %.0262843.us.us.i, %299 ], [ %.0262843.us.us.i, %334 ], [ %.0262843.us.i, %422 ]
-  %.us-phi789.i = phi i32 [ %.0.i355361375.us.i.us, %381 ], [ %283, %299 ], [ %318, %334 ], [ %.0.i355361375.us.i, %422 ]
-  %.us-phi790.i = phi i32 [ %375, %381 ], [ %293, %299 ], [ %328, %334 ], [ %416, %422 ]
+  %.us-phi.i = phi i32 [ %.0262843.us.i, %381 ], [ %.0262843.us.us.i, %334 ], [ %.0262843.us.us.i, %299 ], [ %.0262843.us.i, %422 ]
+  %.us-phi789.i = phi i32 [ %.0.i355361375.us.i.us, %381 ], [ %318, %334 ], [ %283, %299 ], [ %.0.i355361375.us.i, %422 ]
+  %.us-phi790.i = phi i32 [ %375, %381 ], [ %328, %334 ], [ %293, %299 ], [ %416, %422 ]
   %443 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.125, ptr noundef nonnull @.str.147, i32 noundef %.us-phi.i, i32 noundef %.us-phi790.i, i32 noundef %269, i32 noundef %.us-phi789.i)
   br label %.thread386.i
 
 .split793.us.i:                                   ; preds = %423, %382, %335, %300
-  %.us-phi794.i = phi i32 [ %.0262843.us.i, %382 ], [ %.0262843.us.us.i, %300 ], [ %.0262843.us.us.i, %335 ], [ %.0262843.us.i, %423 ]
-  %.us-phi795.i = phi i32 [ %.0.i328377.us.i.us, %382 ], [ %289, %300 ], [ %324, %335 ], [ %.0.i328377.us.i, %423 ]
-  %.us-phi796.i = phi i32 [ %375, %382 ], [ %293, %300 ], [ %328, %335 ], [ %416, %423 ]
+  %.us-phi794.i = phi i32 [ %.0262843.us.i, %382 ], [ %.0262843.us.us.i, %335 ], [ %.0262843.us.us.i, %300 ], [ %.0262843.us.i, %423 ]
+  %.us-phi795.i = phi i32 [ %.0.i328377.us.i.us, %382 ], [ %324, %335 ], [ %289, %300 ], [ %.0.i328377.us.i, %423 ]
+  %.us-phi796.i = phi i32 [ %375, %382 ], [ %328, %335 ], [ %293, %300 ], [ %416, %423 ]
   %444 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.127, ptr noundef nonnull @.str.126, i32 noundef %.us-phi794.i, i32 noundef %.us-phi796.i, i32 noundef %.us-phi795.i)
   br label %.thread386.i
 
 .split798.us.i:                                   ; preds = %425, %384, %337, %302
-  %.us-phi799.i = phi i32 [ %.0262843.us.i, %384 ], [ %.0262843.us.us.i, %302 ], [ %.0262843.us.us.i, %337 ], [ %.0262843.us.i, %425 ]
-  %.us-phi800.i = phi i32 [ %.0.i330.us.i.us, %384 ], [ %292, %302 ], [ %327, %337 ], [ %.0.i330.us.i, %425 ]
-  %.us-phi801.i = phi i32 [ %375, %384 ], [ %293, %302 ], [ %328, %337 ], [ %416, %425 ]
+  %.us-phi799.i = phi i32 [ %.0262843.us.i, %384 ], [ %.0262843.us.us.i, %337 ], [ %.0262843.us.us.i, %302 ], [ %.0262843.us.i, %425 ]
+  %.us-phi800.i = phi i32 [ %.0.i330.us.i.us, %384 ], [ %327, %337 ], [ %292, %302 ], [ %.0.i330.us.i, %425 ]
+  %.us-phi801.i = phi i32 [ %375, %384 ], [ %328, %337 ], [ %293, %302 ], [ %416, %425 ]
   %445 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.125, ptr noundef nonnull @.str.149, i32 noundef %.us-phi799.i, i32 noundef %.us-phi801.i, i32 noundef %269, i32 noundef %.us-phi800.i)
   br label %.thread386.i
 
@@ -4778,7 +4778,7 @@ getVal.exit353.us.i:                              ; preds = %535, %531, %527
   br i1 %exitcond1379.not.i, label %.loopexit, label %.preheader.i, !llvm.loop !57
 
 .loopexit:                                        ; preds = %._crit_edge.us.i, %._crit_edge.split.us848.i, %._crit_edge.split.us.us.us.i, %.preheader.i, %._crit_edge.split.us1035.i, %._crit_edge.split.us.us.us1038.i, %.thread386.i, %.preheader486.lr.ph.i, %.preheader487.i, %.preheader483.lr.ph.i, %.preheader484.i
-  %.str.146.sink = phi ptr [ @str.22, %.preheader486.lr.ph.i ], [ @str.22, %.preheader484.i ], [ @str.22, %.preheader483.lr.ph.i ], [ @str.22, %.preheader487.i ], [ @str.21, %.thread386.i ], [ @str.22, %._crit_edge.split.us848.i ], [ @str.21, %._crit_edge.split.us.us.us1038.i ], [ @str.21, %._crit_edge.split.us1035.i ], [ @str.21, %.preheader.i ], [ @str.22, %._crit_edge.split.us.us.us.i ], [ @str.22, %._crit_edge.us.i ]
+  %.str.146.sink = phi ptr [ @str.22, %.preheader486.lr.ph.i ], [ @str.21, %._crit_edge.split.us1035.i ], [ @str.21, %._crit_edge.split.us.us.us1038.i ], [ @str.22, %._crit_edge.split.us848.i ], [ @str.22, %.preheader484.i ], [ @str.22, %.preheader483.lr.ph.i ], [ @str.22, %.preheader487.i ], [ @str.22, %._crit_edge.split.us.us.us.i ], [ @str.21, %.preheader.i ], [ @str.21, %.thread386.i ], [ @str.22, %._crit_edge.us.i ]
   %545 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %.str.146.sink)
   %putchar = tail call i32 @putchar(i32 10)
   br label %.thread

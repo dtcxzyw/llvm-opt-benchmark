@@ -3500,7 +3500,7 @@ drm_vblank_count.exit:                            ; preds = %104, %106
   br label %.thread20
 
 .thread20:                                        ; preds = %.thread11, %.thread20.fold.split, %157, %151, %144
-  %203 = phi i32 [ 0, %144 ], [ 0, %157 ], [ 0, %151 ], [ -16, %.thread11 ], [ 0, %.thread20.fold.split ]
+  %203 = phi i32 [ -16, %.thread11 ], [ 0, %144 ], [ 0, %157 ], [ 0, %151 ], [ 0, %.thread20.fold.split ]
   call fastcc void @drm_wait_vblank_reply(ptr noundef %0, i32 noundef %58, ptr noundef %1)
   %204 = icmp eq ptr %0, null
   br i1 %204, label %208, label %205

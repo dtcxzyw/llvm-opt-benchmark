@@ -3249,7 +3249,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit28.i: ; preds = %156, %150
   br i1 %160, label %.loopexit.i, label %150
 
 .loopexit.i:                                      ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit26.i, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit28.i, %.thread.i
-  %.pn.i = phi { ptr, i32 } [ %24, %.thread.i ], [ %148, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit28.i ], [ %135, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit26.i ]
+  %.pn.i = phi { ptr, i32 } [ %148, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit28.i ], [ %24, %.thread.i ], [ %135, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit26.i ]
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_PrimTypeUsesVelocityERKNS_7TfTokenEE5types) #29
   br label %.body
 
@@ -3955,7 +3955,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver16DirtiedPrimEntryC2E
   br i1 %158, label %.loopexit63, label %155
 
 .loopexit63:                                      ; preds = %155, %.loopexit63.loopexit69, %.thread
-  %.pn = phi { ptr, i32 } [ %lpad.thr_comm, %.thread ], [ %lpad.thr_comm.split-lp, %.loopexit63.loopexit69 ], [ %153, %155 ]
+  %.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %.loopexit63.loopexit69 ], [ %lpad.thr_comm, %.thread ], [ %153, %155 ]
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN32pxrInternal_v0_24__pxrReserved__37HdsiVelocityMotionResolvingSceneIndex13_PrimsDirtiedERKNS_16HdSceneIndexBaseERKNS_13TfSmallVectorINS_20HdSceneIndexObserver16DirtiedPrimEntryELj16EEEE17positionsLocators) #29
   br label %206
 
@@ -3991,7 +3991,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver16DirtiedPrimEntryC2E
   br i1 %170, label %.loopexit61, label %167
 
 .loopexit61:                                      ; preds = %160, %167, %.thread49
-  %.pn30 = phi { ptr, i32 } [ %lpad.thr_comm47, %.thread49 ], [ %165, %167 ], [ %lpad.thr_comm.split-lp48, %160 ]
+  %.pn30 = phi { ptr, i32 } [ %165, %167 ], [ %lpad.thr_comm47, %.thread49 ], [ %lpad.thr_comm.split-lp48, %160 ]
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN32pxrInternal_v0_24__pxrReserved__37HdsiVelocityMotionResolvingSceneIndex13_PrimsDirtiedERKNS_16HdSceneIndexBaseERKNS_13TfSmallVectorINS_20HdSceneIndexObserver16DirtiedPrimEntryELj16EEEE26positionsAffectingLocators) #29
   br label %206
 
@@ -4036,7 +4036,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver16DirtiedPrimEntryC2E
   br i1 %180, label %.loopexit, label %177
 
 .loopexit:                                        ; preds = %177, %.loopexit.loopexit67, %.thread56
-  %.pn36 = phi { ptr, i32 } [ %lpad.thr_comm54, %.thread56 ], [ %lpad.thr_comm.split-lp55, %.loopexit.loopexit67 ], [ %175, %177 ]
+  %.pn36 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp55, %.loopexit.loopexit67 ], [ %lpad.thr_comm54, %.thread56 ], [ %175, %177 ]
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN32pxrInternal_v0_24__pxrReserved__37HdsiVelocityMotionResolvingSceneIndex13_PrimsDirtiedERKNS_16HdSceneIndexBaseERKNS_13TfSmallVectorINS_20HdSceneIndexObserver16DirtiedPrimEntryELj16EEEE26rotationsAffectingLocators) #29
   br label %206
 
@@ -6656,7 +6656,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit16.i: ; preds = %108, %102
   br i1 %112, label %.loopexit.i, label %102
 
 .loopexit.i:                                      ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit14.i, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit16.i, %.thread.i
-  %.pn.i = phi { ptr, i32 } [ %24, %.thread.i ], [ %100, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit16.i ], [ %87, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit14.i ]
+  %.pn.i = phi { ptr, i32 } [ %100, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit16.i ], [ %24, %.thread.i ], [ %87, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit14.i ]
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_126_PrimvarAffectedByVelocityERKNS_7TfTokenEE8primvars) #29
   br label %.body
 

@@ -200,7 +200,7 @@ php_pcre2_substring_copy_bynumber.exit:           ; preds = %63, %54
   br i1 %.not, label %php_pcre2_substring_nametable_scan.exit.thread, label %54
 
 php_pcre2_substring_nametable_scan.exit.thread:   ; preds = %.split.i, %php_pcre2_substring_copy_bynumber.exit, %.preheader, %97, %92, %._crit_edge.i.i, %84, %78, %74, %73, %4
-  %.0 = phi i32 [ -41, %4 ], [ -2, %73 ], [ -55, %84 ], [ -67, %._crit_edge.i.i ], [ %71, %74 ], [ -49, %78 ], [ -48, %92 ], [ 0, %97 ], [ -54, %.preheader ], [ %.224, %php_pcre2_substring_copy_bynumber.exit ], [ -49, %.split.i ]
+  %.0 = phi i32 [ %.224, %php_pcre2_substring_copy_bynumber.exit ], [ -41, %4 ], [ -54, %.preheader ], [ 0, %97 ], [ -2, %73 ], [ -55, %84 ], [ -67, %._crit_edge.i.i ], [ %71, %74 ], [ -49, %78 ], [ -48, %92 ], [ -49, %.split.i ]
   ret i32 %.0
 }
 
@@ -786,7 +786,7 @@ php_pcre2_substring_get_bynumber.exit:            ; preds = %63, %54
   br i1 %.not, label %php_pcre2_substring_nametable_scan.exit.thread, label %54
 
 php_pcre2_substring_nametable_scan.exit.thread:   ; preds = %.split.i, %php_pcre2_substring_get_bynumber.exit, %.preheader, %98, %92, %._crit_edge.i.i, %84, %78, %74, %73, %4
-  %.0 = phi i32 [ -41, %4 ], [ -2, %73 ], [ -55, %84 ], [ -67, %._crit_edge.i.i ], [ %71, %74 ], [ -49, %78 ], [ -48, %92 ], [ 0, %98 ], [ -54, %.preheader ], [ %.224, %php_pcre2_substring_get_bynumber.exit ], [ -49, %.split.i ]
+  %.0 = phi i32 [ %.224, %php_pcre2_substring_get_bynumber.exit ], [ -41, %4 ], [ -54, %.preheader ], [ 0, %98 ], [ -2, %73 ], [ -55, %84 ], [ -67, %._crit_edge.i.i ], [ %71, %74 ], [ -49, %78 ], [ -48, %92 ], [ -49, %.split.i ]
   ret i32 %.0
 }
 
@@ -1106,7 +1106,7 @@ php_pcre2_substring_length_bynumber.exit:         ; preds = %62, %53
   br i1 %.not, label %php_pcre2_substring_nametable_scan.exit.thread, label %53
 
 php_pcre2_substring_nametable_scan.exit.thread:   ; preds = %.split.i, %php_pcre2_substring_length_bynumber.exit, %.preheader, %92, %91, %._crit_edge.i, %83, %77, %73, %72, %3
-  %.0 = phi i32 [ -41, %3 ], [ 0, %92 ], [ -67, %._crit_edge.i ], [ -55, %83 ], [ 0, %91 ], [ -49, %77 ], [ %70, %73 ], [ -2, %72 ], [ -54, %.preheader ], [ %.223, %php_pcre2_substring_length_bynumber.exit ], [ -49, %.split.i ]
+  %.0 = phi i32 [ %.223, %php_pcre2_substring_length_bynumber.exit ], [ -41, %3 ], [ -54, %.preheader ], [ -2, %72 ], [ 0, %92 ], [ -67, %._crit_edge.i ], [ -55, %83 ], [ 0, %91 ], [ -49, %77 ], [ %70, %73 ], [ -49, %.split.i ]
   ret i32 %.0
 }
 

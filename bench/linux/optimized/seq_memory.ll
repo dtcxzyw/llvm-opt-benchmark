@@ -365,7 +365,7 @@ define dso_local i32 @snd_seq_expand_var_event_at(ptr noundef readonly captures(
   br label %.thread
 
 .thread:                                          ; preds = %63, %29, %21, %43, %38, %4, %.thread15, %9
-  %72 = phi i32 [ %16, %21 ], [ 0, %9 ], [ -22, %4 ], [ %16, %43 ], [ -14, %.thread15 ], [ %16, %38 ], [ %16, %29 ], [ %16, %63 ]
+  %72 = phi i32 [ %16, %21 ], [ 0, %9 ], [ %16, %29 ], [ -22, %4 ], [ %16, %43 ], [ -14, %.thread15 ], [ %16, %38 ], [ %16, %63 ]
   ret i32 %72
 }
 
@@ -747,7 +747,7 @@ define dso_local noundef range(i32 -512, 1) i32 @snd_seq_event_dup(ptr noundef %
   br label %163
 
 .loopexit:                                        ; preds = %128, %155, %116, %122, %94, %65, %40, %.critedge
-  %.ph = phi i32 [ -14, %.critedge ], [ %44, %40 ], [ -14, %116 ], [ %69, %65 ], [ %99, %94 ], [ %126, %122 ], [ %133, %128 ], [ -14, %155 ]
+  %.ph = phi i32 [ -14, %.critedge ], [ %44, %40 ], [ %69, %65 ], [ %99, %94 ], [ -14, %116 ], [ %126, %122 ], [ -14, %155 ], [ %133, %128 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   tail call void @snd_seq_cell_free(ptr noundef %29)
   br label %163

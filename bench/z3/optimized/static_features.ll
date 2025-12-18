@@ -4988,7 +4988,7 @@ _ZNK9table2mapI17default_map_entryIjjE6u_hash4u_eqE9find_coreERKj.exit.i.i.us: ;
   br i1 %.not27.i.i.i.i.us, label %_ZNK15static_features13get_ite_depthEPK4expr.exit.us, label %.lr.ph34.i.i.i.i.us, !llvm.loop !232
 
 _ZNK15static_features13get_ite_depthEPK4expr.exit.us: ; preds = %.lr.ph.i.i.i.i.us, %.lr.ph34.i.i.i.i.us, %131, %_ZNK9table2mapI17default_map_entryIjjE6u_hash4u_eqE9find_coreERKj.exit.i.i.us, %.preheader.i.i.i.i.us
-  %.1.us = phi i32 [ %.06977.us, %.preheader.i.i.i.i.us ], [ %130, %_ZNK9table2mapI17default_map_entryIjjE6u_hash4u_eqE9find_coreERKj.exit.i.i.us ], [ %.06977.us, %.lr.ph34.i.i.i.i.us ], [ %.06977.us, %131 ], [ %.06977.us, %.lr.ph.i.i.i.i.us ]
+  %.1.us = phi i32 [ %.06977.us, %.lr.ph34.i.i.i.i.us ], [ %.06977.us, %.preheader.i.i.i.i.us ], [ %130, %_ZNK9table2mapI17default_map_entryIjjE6u_hash4u_eqE9find_coreERKj.exit.i.i.us ], [ %.06977.us, %131 ], [ %.06977.us, %.lr.ph.i.i.i.i.us ]
   %133 = getelementptr inbounds nuw i8, ptr %.079.us, i64 8
   %.not.us = icmp eq ptr %133, %66
   br i1 %.not.us, label %._crit_edge.loopexit, label %.lr.ph.split.us

@@ -1636,7 +1636,7 @@ _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit70.i: ; p
   unreachable
 
 .loopexit87.i:                                    ; preds = %.preheader86.i, %563, %425, %.thread.i
-  %.pn48.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.i, %425 ], [ %412, %.thread.i ], [ %.pn48.pn.pn.i, %563 ], [ %.pn.pn.pn.i, %.preheader86.i ]
+  %.pn48.pn.pn.pn.i = phi { ptr, i32 } [ %.pn48.pn.pn.i, %563 ], [ %.pn.pn.pn.i, %425 ], [ %412, %.thread.i ], [ %.pn.pn.pn.i, %.preheader86.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #17
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit75.i
 

@@ -263,7 +263,7 @@ define internal range(i32 -2147483648, 1) i32 @ipmovie_read_header(ptr noundef %
   br label %init_audio.exit
 
 init_audio.exit:                                  ; preds = %13, %94, %60, %39, %35, %26, %24, %1, %96
-  %.0 = phi i32 [ -5, %26 ], [ %8, %1 ], [ -1094995529, %24 ], [ -12, %39 ], [ 0, %96 ], [ -1094995529, %35 ], [ 0, %94 ], [ -12, %60 ], [ -541478725, %13 ]
+  %.0 = phi i32 [ -5, %26 ], [ %8, %1 ], [ -12, %60 ], [ -1094995529, %24 ], [ -12, %39 ], [ 0, %96 ], [ -1094995529, %35 ], [ 0, %94 ], [ -541478725, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0

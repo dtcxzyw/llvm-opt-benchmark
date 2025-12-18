@@ -2816,7 +2816,7 @@ _ZNSt3__110unique_ptrIA_fNS_14default_deleteIS1_EEED2B8ne190000Ev.exit180: ; pre
   br label %201
 
 .loopexit:                                        ; preds = %._crit_edge.us, %._crit_edge.us256.us, %._crit_edge.us256.us277, %.lr.ph251.split, %.lr.ph251.split.us.split, %.preheader235, %_ZNSt3__110unique_ptrIA_fNS_14default_deleteIS1_EEED2B8ne190000Ev.exit174
-  %188 = phi i32 [ %30, %.lr.ph251.split.us.split ], [ %30, %.lr.ph251.split ], [ %.pre368, %_ZNSt3__110unique_ptrIA_fNS_14default_deleteIS1_EEED2B8ne190000Ev.exit174 ], [ 0, %.preheader235 ], [ %39, %._crit_edge.us256.us ], [ %79, %._crit_edge.us256.us277 ], [ %87, %._crit_edge.us ]
+  %188 = phi i32 [ %39, %._crit_edge.us256.us ], [ %30, %.lr.ph251.split.us.split ], [ %79, %._crit_edge.us256.us277 ], [ %30, %.lr.ph251.split ], [ %.pre368, %_ZNSt3__110unique_ptrIA_fNS_14default_deleteIS1_EEED2B8ne190000Ev.exit174 ], [ 0, %.preheader235 ], [ %87, %._crit_edge.us ]
   %189 = mul i32 %188, %21
   %190 = zext i32 %189 to i64
   %191 = icmp eq i32 %189, 0
@@ -3425,7 +3425,7 @@ _ZNSt3__110unique_ptrIA_fNS_14default_deleteIS1_EEED2B8ne190000Ev.exit180: ; pre
   br label %201
 
 .loopexit:                                        ; preds = %._crit_edge.us, %._crit_edge.us256.us, %._crit_edge.us256.us277, %.lr.ph251.split, %.lr.ph251.split.us.split, %.preheader235, %_ZNSt3__110unique_ptrIA_fNS_14default_deleteIS1_EEED2B8ne190000Ev.exit171
-  %188 = phi i32 [ %30, %.lr.ph251.split.us.split ], [ %30, %.lr.ph251.split ], [ %.pre368, %_ZNSt3__110unique_ptrIA_fNS_14default_deleteIS1_EEED2B8ne190000Ev.exit171 ], [ 0, %.preheader235 ], [ %39, %._crit_edge.us256.us ], [ %79, %._crit_edge.us256.us277 ], [ %87, %._crit_edge.us ]
+  %188 = phi i32 [ %39, %._crit_edge.us256.us ], [ %30, %.lr.ph251.split.us.split ], [ %79, %._crit_edge.us256.us277 ], [ %30, %.lr.ph251.split ], [ %.pre368, %_ZNSt3__110unique_ptrIA_fNS_14default_deleteIS1_EEED2B8ne190000Ev.exit171 ], [ 0, %.preheader235 ], [ %87, %._crit_edge.us ]
   %189 = mul i32 %188, %21
   %190 = zext i32 %189 to i64
   %191 = icmp eq i32 %189, 0
@@ -4194,7 +4194,7 @@ _ZNSt3__110unique_ptrIA_fNS_14default_deleteIS1_EEED2B8ne190000Ev.exit180: ; pre
   br label %201
 
 .loopexit:                                        ; preds = %._crit_edge.us, %._crit_edge.us256.us, %._crit_edge.us256.us277, %.lr.ph251.split, %.lr.ph251.split.us.split, %.preheader235, %_ZNSt3__110unique_ptrIA_fNS_14default_deleteIS1_EEED2B8ne190000Ev.exit171
-  %188 = phi i32 [ %30, %.lr.ph251.split.us.split ], [ %30, %.lr.ph251.split ], [ %.pre368, %_ZNSt3__110unique_ptrIA_fNS_14default_deleteIS1_EEED2B8ne190000Ev.exit171 ], [ 0, %.preheader235 ], [ %39, %._crit_edge.us256.us ], [ %79, %._crit_edge.us256.us277 ], [ %87, %._crit_edge.us ]
+  %188 = phi i32 [ %39, %._crit_edge.us256.us ], [ %30, %.lr.ph251.split.us.split ], [ %79, %._crit_edge.us256.us277 ], [ %30, %.lr.ph251.split ], [ %.pre368, %_ZNSt3__110unique_ptrIA_fNS_14default_deleteIS1_EEED2B8ne190000Ev.exit171 ], [ 0, %.preheader235 ], [ %87, %._crit_edge.us ]
   %189 = mul i32 %188, %21
   %190 = zext i32 %189 to i64
   %191 = icmp eq i32 %189, 0

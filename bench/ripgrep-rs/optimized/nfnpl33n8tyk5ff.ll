@@ -1386,10 +1386,10 @@ _ZN4core3ops8function5FnMut8call_mut17h3a4ecc868dc5d38eE.llvm.169799788501305706
 
 .noexc55.i:                                       ; preds = %.thread4.i.i
   %86 = icmp ult i64 %85, 2
-  br i1 %86, label %87, label %_ZN10grep_regex7literal4TSeq7is_good17hce6d105a205405b8E.exit.i
+  br i1 %86, label %_ZN10grep_regex7literal4TSeq7is_good17hce6d105a205405b8E.exit.i, label %87
 
 87:                                               ; preds = %.noexc55.i
-  %88 = icmp ult i64 %69, 4
+  %88 = icmp ult i64 %69, 65
   br i1 %88, label %_ZN10grep_regex7literal9Extractor16extract_untagged17h27fbadaba4370a8eE.exit, label %_ZN10grep_regex7literal4TSeq7is_good17hce6d105a205405b8E.exit.thread.i
 
 89:                                               ; preds = %56
@@ -1423,7 +1423,7 @@ _ZN4core3ops8function5FnMut8call_mut17h3a4ecc868dc5d38eE.llvm.169799788501305706
   br label %64
 
 _ZN10grep_regex7literal4TSeq7is_good17hce6d105a205405b8E.exit.i: ; preds = %.noexc55.i
-  %99 = icmp ult i64 %69, 65
+  %99 = icmp ult i64 %69, 4
   br i1 %99, label %_ZN10grep_regex7literal9Extractor16extract_untagged17h27fbadaba4370a8eE.exit, label %_ZN10grep_regex7literal4TSeq7is_good17hce6d105a205405b8E.exit.thread.i
 
 100:                                              ; preds = %111, %_ZN10grep_regex7literal4TSeq7is_good17hce6d105a205405b8E.exit.thread.i
@@ -2773,10 +2773,10 @@ _ZN10grep_regex7literal4TSeq10is_inexact17hb06843111824c26aE.exit: ; preds = %23
   br label %.lr.ph.i.i73.preheader
 
 _ZN10grep_regex7literal4TSeq12make_inexact17h2b2e65ee766ac2e1E.exit: ; preds = %.lr.ph.i.i73, %255, %253, %.thread148
-  %.sroa.14.1256 = phi i8 [ %.sroa.14.1, %.thread148 ], [ %.sroa.14.1, %255 ], [ %.sroa.14.1, %253 ], [ %.sroa.14.1257262275, %.lr.ph.i.i73 ]
-  %.sroa.11.1254 = phi i64 [ %.sroa.11.1, %.thread148 ], [ 0, %255 ], [ %.sroa.11.1, %253 ], [ %.sroa.11.1255263274, %.lr.ph.i.i73 ]
-  %.sroa.8.1252 = phi ptr [ %.sroa.8.1, %.thread148 ], [ %.sroa.8.1, %255 ], [ %.sroa.8.1, %253 ], [ %.sroa.8.1253264273, %.lr.ph.i.i73 ]
-  %.sroa.0195.1251 = phi i64 [ %.sroa.0195.1, %.thread148 ], [ %.sroa.0195.1, %255 ], [ -9223372036854775808, %253 ], [ %.sroa.0195.1250265272, %.lr.ph.i.i73 ]
+  %.sroa.14.1256 = phi i8 [ %.sroa.14.1, %253 ], [ %.sroa.14.1, %.thread148 ], [ %.sroa.14.1, %255 ], [ %.sroa.14.1257262275, %.lr.ph.i.i73 ]
+  %.sroa.11.1254 = phi i64 [ %.sroa.11.1, %253 ], [ %.sroa.11.1, %.thread148 ], [ 0, %255 ], [ %.sroa.11.1255263274, %.lr.ph.i.i73 ]
+  %.sroa.8.1252 = phi ptr [ %.sroa.8.1, %253 ], [ %.sroa.8.1, %.thread148 ], [ %.sroa.8.1, %255 ], [ %.sroa.8.1253264273, %.lr.ph.i.i73 ]
+  %.sroa.0195.1251 = phi i64 [ -9223372036854775808, %253 ], [ %.sroa.0195.1, %.thread148 ], [ %.sroa.0195.1, %255 ], [ %.sroa.0195.1250265272, %.lr.ph.i.i73 ]
   store i64 %.sroa.0195.1251, ptr %0, align 8, !noalias !429
   %.sroa.8.0..sroa_idx201 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.8.1252, ptr %.sroa.8.0..sroa_idx201, align 8, !noalias !429
@@ -4322,7 +4322,7 @@ _ZN4core3ops8function5FnMut8call_mut17h3a4ecc868dc5d38eE.llvm.169799788501305706
   br label %_ZN10grep_regex7literal4TSeq21has_poisonous_literal17h83e0672257217638E.llvm.16979978850130570624.exit
 
 _ZN10grep_regex7literal4TSeq21has_poisonous_literal17h83e0672257217638E.llvm.16979978850130570624.exit: ; preds = %_ZN4core3ops8function5FnMut8call_mut17h3a4ecc868dc5d38eE.llvm.16979978850130570624.exit.i.i, %.lr.ph.i.i, %4, %1, %.thread4
-  %.0 = phi i1 [ %spec.select, %.thread4 ], [ false, %1 ], [ false, %4 ], [ false, %.lr.ph.i.i ], [ false, %_ZN4core3ops8function5FnMut8call_mut17h3a4ecc868dc5d38eE.llvm.16979978850130570624.exit.i.i ]
+  %.0 = phi i1 [ false, %1 ], [ false, %4 ], [ %spec.select, %.thread4 ], [ false, %.lr.ph.i.i ], [ false, %_ZN4core3ops8function5FnMut8call_mut17h3a4ecc868dc5d38eE.llvm.16979978850130570624.exit.i.i ]
   ret i1 %.0
 }
 

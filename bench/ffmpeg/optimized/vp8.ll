@@ -15953,7 +15953,7 @@ vp7_decode_mv_mb_modes.exit.thread:               ; preds = %._crit_edge.i, %147
   br label %vp78_decode_frame.exit
 
 vp7_decode_mv_mb_modes.exit:                      ; preds = %vpx_rac_is_end.exit.i.i, %1402, %vp8_find_free_buffer.exit, %.thread612.i, %549, %539, %vpx_rac_is_end.exit.i, %460, %45, %4, %44, %25, %vpx_rac_is_end.exit203.i, %1366, %vp7_decode_frame_header.exit
-  %.1.i = phi i32 [ %.0168.i, %vp7_decode_frame_header.exit ], [ -1094995529, %vpx_rac_is_end.exit203.i ], [ -1094995529, %1366 ], [ %497, %.thread612.i ], [ -12, %549 ], [ -12, %539 ], [ -1094995529, %vpx_rac_is_end.exit.i ], [ %466, %460 ], [ %50, %45 ], [ -1094995529, %4 ], [ -1094995529, %44 ], [ -1094995529, %25 ], [ %.0.i11, %1402 ], [ %1385, %vp8_find_free_buffer.exit ], [ -1094995529, %vpx_rac_is_end.exit.i.i ]
+  %.1.i = phi i32 [ %.0168.i, %vp7_decode_frame_header.exit ], [ -1094995529, %vpx_rac_is_end.exit203.i ], [ %1385, %vp8_find_free_buffer.exit ], [ -1094995529, %1366 ], [ %497, %.thread612.i ], [ -12, %549 ], [ -12, %539 ], [ -1094995529, %vpx_rac_is_end.exit.i ], [ %466, %460 ], [ %50, %45 ], [ -1094995529, %4 ], [ -1094995529, %44 ], [ -1094995529, %25 ], [ %.0.i11, %1402 ], [ -1094995529, %vpx_rac_is_end.exit.i.i ]
   %3176 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %3177 = getelementptr inbounds nuw i8, ptr %6, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3176, ptr noundef nonnull align 8 dereferenceable(32) %3177, i64 32, i1 false)
@@ -19231,7 +19231,7 @@ define internal range(i32 -2147483648, 1) i32 @vp7_decode_mb_row_sliced(ptr noun
   br i1 %95, label %.lr.ph.split, label %vp78_decode_mb_row_sliced.exit, !llvm.loop !257
 
 vp78_decode_mb_row_sliced.exit:                   ; preds = %51, %91, %4, %.split.us, %67
-  %.0.i = phi i32 [ %.us-phi5, %.split.us ], [ %.us-phi5, %67 ], [ 0, %4 ], [ 0, %91 ], [ 0, %51 ]
+  %.0.i = phi i32 [ %.us-phi5, %.split.us ], [ %.us-phi5, %67 ], [ 0, %91 ], [ 0, %4 ], [ 0, %51 ]
   ret i32 %.0.i
 }
 
@@ -19391,7 +19391,7 @@ define internal range(i32 -2147483648, 1) i32 @vp8_decode_mb_row_sliced(ptr noun
   br i1 %95, label %.lr.ph.split, label %vp78_decode_mb_row_sliced.exit, !llvm.loop !257
 
 vp78_decode_mb_row_sliced.exit:                   ; preds = %51, %91, %4, %.split.us, %67
-  %.0.i = phi i32 [ %.us-phi5, %.split.us ], [ %.us-phi5, %67 ], [ 0, %4 ], [ 0, %91 ], [ 0, %51 ]
+  %.0.i = phi i32 [ %.us-phi5, %.split.us ], [ %.us-phi5, %67 ], [ 0, %91 ], [ 0, %4 ], [ 0, %51 ]
   ret i32 %.0.i
 }
 

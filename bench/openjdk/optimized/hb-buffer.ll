@@ -5037,7 +5037,7 @@ define hidden range(i32 0, 256) i32 @hb_buffer_diff(ptr noundef readonly capture
   br i1 %exitcond112.not, label %.loopexit, label %77, !llvm.loop !78
 
 .loopexit:                                        ; preds = %109, %15, %.thread126, %.thread, %._crit_edge.loopexit108, %.split101.us, %107, %25, %12
-  %.064 = phi i32 [ 1, %12 ], [ 0, %25 ], [ %108, %107 ], [ %.us-phi102, %.split101.us ], [ 2, %15 ], [ %24, %._crit_edge.loopexit108 ], [ 2, %.thread126 ], [ 0, %.thread ], [ %.us-phi102, %109 ]
+  %.064 = phi i32 [ 1, %12 ], [ 2, %.thread126 ], [ 0, %25 ], [ %108, %107 ], [ %.us-phi102, %.split101.us ], [ 2, %15 ], [ %24, %._crit_edge.loopexit108 ], [ 0, %.thread ], [ %.us-phi102, %109 ]
   ret i32 %.064
 }
 
@@ -5557,7 +5557,7 @@ _ZN11hb_buffer_t23_infos_find_min_clusterEPK15hb_glyph_info_tjjj.exit56: ; preds
   br i1 %exitcond.not.i83, label %_ZN11hb_buffer_t22_infos_set_glyph_flagsEP15hb_glyph_info_tjjjj.exit89, label %.lr.ph.i78, !llvm.loop !83
 
 _ZN11hb_buffer_t22_infos_set_glyph_flagsEP15hb_glyph_info_tjjjj.exit89: ; preds = %.lr.ph.i78, %209, %195, %200, %191, %_ZN11hb_buffer_t23_infos_find_min_clusterEPK15hb_glyph_info_tjjj.exit56, %.loopexit.thread, %.preheader55.i77, %.preheader.i84
-  %.013.i57129 = phi i32 [ %.013.i57.ph182, %.loopexit.thread ], [ %.sroa.speculated.i, %.preheader55.i77 ], [ %.sroa.speculated.i, %.preheader.i84 ], [ %.013.i46, %_ZN11hb_buffer_t23_infos_find_min_clusterEPK15hb_glyph_info_tjjj.exit56 ], [ %.sroa.speculated.i, %195 ], [ %.013.i57.ph182, %191 ], [ %.sroa.speculated.i, %200 ], [ %.sroa.speculated.i, %209 ], [ %.sroa.speculated.i, %.lr.ph.i78 ]
+  %.013.i57129 = phi i32 [ %.013.i57.ph182, %191 ], [ %.013.i57.ph182, %.loopexit.thread ], [ %.013.i46, %_ZN11hb_buffer_t23_infos_find_min_clusterEPK15hb_glyph_info_tjjj.exit56 ], [ %.sroa.speculated.i, %.preheader55.i77 ], [ %.sroa.speculated.i, %.preheader.i84 ], [ %.sroa.speculated.i, %195 ], [ %.sroa.speculated.i, %200 ], [ %.sroa.speculated.i, %209 ], [ %.sroa.speculated.i, %.lr.ph.i78 ]
   %215 = load ptr, ptr %122, align 8
   %216 = load i32, ptr %124, align 4
   %217 = icmp eq i32 %216, %.sroa.speculated

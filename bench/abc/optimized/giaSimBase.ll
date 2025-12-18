@@ -3334,9 +3334,9 @@ Vec_IntPush.exit.i:                               ; preds = %145, %Vec_IntGrow.e
   br i1 %153, label %121, label %Vec_IntAppend.exit, !llvm.loop !97
 
 Vec_IntAppend.exit:                               ; preds = %Vec_IntPush.exit.i, %Vec_IntPush.exit, %Vec_IntUniqify.exit
-  %.val6.i119125 = phi ptr [ %.val6.i100, %Vec_IntUniqify.exit ], [ %.val6.i102, %Vec_IntPush.exit ], [ %.val6.i100, %Vec_IntPush.exit.i ]
-  %.val22.i96 = phi ptr [ %.val22.i93, %Vec_IntUniqify.exit ], [ %.val22.i95, %Vec_IntPush.exit ], [ %.val6.i100, %Vec_IntPush.exit.i ]
-  %.pre.i6183 = phi ptr [ %.pre.i6184, %Vec_IntUniqify.exit ], [ %.pre.i6182, %Vec_IntPush.exit ], [ %.val6.i100, %Vec_IntPush.exit.i ]
+  %.val6.i119125 = phi ptr [ %.val6.i102, %Vec_IntPush.exit ], [ %.val6.i100, %Vec_IntUniqify.exit ], [ %.val6.i100, %Vec_IntPush.exit.i ]
+  %.val22.i96 = phi ptr [ %.val22.i95, %Vec_IntPush.exit ], [ %.val22.i93, %Vec_IntUniqify.exit ], [ %.val6.i100, %Vec_IntPush.exit.i ]
+  %.pre.i6183 = phi ptr [ %.pre.i6182, %Vec_IntPush.exit ], [ %.pre.i6184, %Vec_IntUniqify.exit ], [ %.val6.i100, %Vec_IntPush.exit.i ]
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %154 = load ptr, ptr %2, align 8, !tbaa !3
   %155 = getelementptr i8, ptr %154, i64 4
@@ -5204,7 +5204,7 @@ define range(i32 0, 2) i32 @Gia_ManSimBitPackOne(i32 noundef %0, ptr noundef rea
   br i1 %exitcond73.not, label %._crit_edge, label %47, !llvm.loop !126
 
 ._crit_edge:                                      ; preds = %66, %.preheader.lr.ph.split, %._crit_edge56
-  %.046.lcssa78 = phi i32 [ %.046.lcssa, %._crit_edge56 ], [ %spec.select, %.preheader.lr.ph.split ], [ %.046.lcssa, %66 ]
+  %.046.lcssa78 = phi i32 [ %spec.select, %.preheader.lr.ph.split ], [ %.046.lcssa, %._crit_edge56 ], [ %.046.lcssa, %66 ]
   %69 = icmp eq i32 %.046.lcssa78, %3
   %70 = zext i1 %69 to i32
   ret i32 %70
@@ -8341,8 +8341,8 @@ Gia_ObjLevelId.exit:                              ; preds = %104, %._crit_edge.i
   br label %Abc_TtIntersect.exit
 
 Abc_TtIntersect.exit:                             ; preds = %.lr.ph25.i, %.lr.ph.i66, %.thread, %Gia_ObjLevelId.exit
-  %147 = phi ptr [ %86, %.thread ], [ %.pre, %Gia_ObjLevelId.exit ], [ %86, %.lr.ph.i66 ], [ %86, %.lr.ph25.i ]
-  %.1 = phi i32 [ 1, %.thread ], [ 1, %Gia_ObjLevelId.exit ], [ %.051116, %.lr.ph.i66 ], [ %.051116, %.lr.ph25.i ]
+  %147 = phi ptr [ %86, %.thread ], [ %86, %.lr.ph.i66 ], [ %.pre, %Gia_ObjLevelId.exit ], [ %86, %.lr.ph25.i ]
+  %.1 = phi i32 [ 1, %.thread ], [ %.051116, %.lr.ph.i66 ], [ 1, %Gia_ObjLevelId.exit ], [ %.051116, %.lr.ph25.i ]
   %148 = load i32, ptr %42, align 8, !tbaa !162
   %149 = icmp sgt i32 %148, 0
   br i1 %149, label %.lr.ph.preheader.i72, label %.thread110
@@ -8491,7 +8491,7 @@ Gia_ObjLevelId.exit103:                           ; preds = %166, %._crit_edge.i
   br label %Abc_TtIntersect.exit79
 
 Abc_TtIntersect.exit79:                           ; preds = %.lr.ph.i74, %.lr.ph25.i83, %.thread110, %Gia_ObjLevelId.exit103
-  %.2 = phi i32 [ 1, %.thread110 ], [ 1, %Gia_ObjLevelId.exit103 ], [ %.1, %.lr.ph25.i83 ], [ %.1, %.lr.ph.i74 ]
+  %.2 = phi i32 [ 1, %.thread110 ], [ %.1, %.lr.ph25.i83 ], [ 1, %Gia_ObjLevelId.exit103 ], [ %.1, %.lr.ph.i74 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val = load i32, ptr %70, align 4, !tbaa !28
   %209 = sext i32 %.val to i64

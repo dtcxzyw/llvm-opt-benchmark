@@ -317,8 +317,8 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_seq_prioq_cell_in(ptr nounde
   br label %112
 
 .thread13:                                        ; preds = %89, %79, %.lr.ph.split.us, %.lr.ph.split.us.preheader
-  %.lcssa16 = phi ptr [ null, %.lr.ph.split.us.preheader ], [ %66, %.lr.ph.split.us ], [ %74, %79 ], [ %74, %89 ]
-  %.lcssa = phi ptr [ %42, %.lr.ph.split.us.preheader ], [ %63, %.lr.ph.split.us ], [ %73, %79 ], [ %73, %89 ]
+  %.lcssa16 = phi ptr [ %66, %.lr.ph.split.us ], [ null, %.lr.ph.split.us.preheader ], [ %74, %79 ], [ %74, %89 ]
+  %.lcssa = phi ptr [ %63, %.lr.ph.split.us ], [ %42, %.lr.ph.split.us.preheader ], [ %73, %79 ], [ %73, %89 ]
   %99 = icmp eq ptr %.lcssa16, null
   br i1 %99, label %.thread13.thread50, label %.thread13.thread
 

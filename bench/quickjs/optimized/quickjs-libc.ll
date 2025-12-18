@@ -3376,8 +3376,8 @@ define internal { i64, i64 } @js_std_getenviron(ptr noundef %0, i64 %1, i64 %2, 
   br label %JS_FreeValue.exit
 
 JS_FreeValue.exit:                                ; preds = %28, %10, %41, %36, %33, %5
-  %.sroa.430.0 = phi i64 [ 0, %5 ], [ 0, %33 ], [ 0, %36 ], [ 0, %41 ], [ %7, %10 ], [ %7, %28 ]
-  %.sroa.6.0 = phi i64 [ 6, %5 ], [ 6, %33 ], [ 6, %36 ], [ 6, %41 ], [ %8, %10 ], [ %8, %28 ]
+  %.sroa.430.0 = phi i64 [ 0, %5 ], [ 0, %41 ], [ 0, %33 ], [ 0, %36 ], [ %7, %10 ], [ %7, %28 ]
+  %.sroa.6.0 = phi i64 [ 6, %5 ], [ 6, %41 ], [ 6, %33 ], [ 6, %36 ], [ %8, %10 ], [ %8, %28 ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.430.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.6.0, 1
   ret { i64, i64 } %.fca.1.insert
@@ -5107,7 +5107,7 @@ handle_posted_message.exit:                       ; preds = %190
   br i1 %.not141, label %JS_FreeValue.exit.thread, label %.lr.ph230, !llvm.loop !104
 
 JS_FreeValue.exit.thread:                         ; preds = %.thread, %.preheader, %free_timer.exit, %71, %76, %300, %21, %151, %169, %._crit_edge217, %36
-  %.2 = phi i32 [ 0, %21 ], [ 0, %151 ], [ -1, %36 ], [ 0, %300 ], [ 0, %._crit_edge217 ], [ 0, %169 ], [ 0, %76 ], [ 0, %71 ], [ 0, %free_timer.exit ], [ 0, %.preheader ], [ 0, %.thread ]
+  %.2 = phi i32 [ 0, %21 ], [ 0, %151 ], [ -1, %36 ], [ 0, %300 ], [ 0, %._crit_edge217 ], [ 0, %free_timer.exit ], [ 0, %169 ], [ 0, %76 ], [ 0, %71 ], [ 0, %.preheader ], [ 0, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -8696,11 +8696,11 @@ JS_FreeValue.exit275:                             ; preds = %150, %153, %158
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %JS_FreeValue.exit269, %101, %146, %133, %120, %87, %74, %118, %162, %69, %72, %JS_FreeValue.exit270, %JS_FreeValue.exit271, %JS_FreeValue.exit273, %JS_FreeValue.exit274, %JS_FreeValue.exit275, %213
-  %.3211 = phi ptr [ %.1209, %213 ], [ %14, %69 ], [ %14, %72 ], [ %14, %74 ], [ %14, %87 ], [ %14, %118 ], [ %14, %120 ], [ %.2210, %133 ], [ %.2210, %146 ], [ %.1209, %162 ], [ %.2210, %JS_FreeValue.exit275 ], [ %.2210, %JS_FreeValue.exit274 ], [ null, %JS_FreeValue.exit273 ], [ %14, %JS_FreeValue.exit271 ], [ %14, %JS_FreeValue.exit270 ], [ %14, %101 ], [ %14, %JS_FreeValue.exit269 ], [ %14, %.lr.ph ]
-  %.3207 = phi ptr [ %.1205, %213 ], [ null, %69 ], [ null, %72 ], [ null, %74 ], [ null, %87 ], [ %.2206, %118 ], [ %.2206, %120 ], [ %.2206, %133 ], [ %.2206, %146 ], [ %.1205, %162 ], [ %.2206, %JS_FreeValue.exit275 ], [ %.2206, %JS_FreeValue.exit274 ], [ %.2206, %JS_FreeValue.exit273 ], [ null, %JS_FreeValue.exit271 ], [ null, %JS_FreeValue.exit270 ], [ %.2206, %101 ], [ null, %JS_FreeValue.exit269 ], [ null, %.lr.ph ]
-  %.4 = phi ptr [ %.1, %213 ], [ null, %69 ], [ null, %72 ], [ null, %74 ], [ %.2, %87 ], [ %.2, %118 ], [ %.2, %120 ], [ %.2, %133 ], [ %.2, %146 ], [ %.1, %162 ], [ %.2, %JS_FreeValue.exit275 ], [ %.2, %JS_FreeValue.exit274 ], [ %.2, %JS_FreeValue.exit273 ], [ %.2, %JS_FreeValue.exit271 ], [ null, %JS_FreeValue.exit270 ], [ %.2, %101 ], [ null, %JS_FreeValue.exit269 ], [ null, %.lr.ph ]
-  %.sroa.6.0 = phi i64 [ 0, %213 ], [ 6, %69 ], [ 6, %72 ], [ 6, %74 ], [ 6, %87 ], [ 6, %118 ], [ 6, %120 ], [ 6, %133 ], [ 6, %146 ], [ 6, %162 ], [ 6, %JS_FreeValue.exit275 ], [ 6, %JS_FreeValue.exit274 ], [ 6, %JS_FreeValue.exit273 ], [ 6, %JS_FreeValue.exit271 ], [ 6, %JS_FreeValue.exit270 ], [ 6, %101 ], [ 6, %JS_FreeValue.exit269 ], [ 6, %.lr.ph ]
-  %.sroa.079.sroa.0.0 = phi i64 [ %.sroa.0.0.insert.ext.i, %213 ], [ 0, %69 ], [ 0, %72 ], [ 0, %74 ], [ 0, %87 ], [ 0, %118 ], [ 0, %120 ], [ 0, %133 ], [ 0, %146 ], [ 0, %162 ], [ 0, %JS_FreeValue.exit275 ], [ 0, %JS_FreeValue.exit274 ], [ 0, %JS_FreeValue.exit273 ], [ 0, %JS_FreeValue.exit271 ], [ 0, %JS_FreeValue.exit270 ], [ 0, %101 ], [ 0, %JS_FreeValue.exit269 ], [ 0, %.lr.ph ]
+  %.3211 = phi ptr [ %.1209, %213 ], [ %14, %101 ], [ %14, %JS_FreeValue.exit271 ], [ %14, %69 ], [ %14, %72 ], [ %14, %74 ], [ %14, %87 ], [ %14, %JS_FreeValue.exit270 ], [ %14, %118 ], [ %14, %120 ], [ %.2210, %133 ], [ %.2210, %146 ], [ %.1209, %162 ], [ %.2210, %JS_FreeValue.exit275 ], [ %.2210, %JS_FreeValue.exit274 ], [ null, %JS_FreeValue.exit273 ], [ %14, %JS_FreeValue.exit269 ], [ %14, %.lr.ph ]
+  %.3207 = phi ptr [ %.1205, %213 ], [ %.2206, %101 ], [ null, %JS_FreeValue.exit271 ], [ null, %69 ], [ null, %72 ], [ null, %74 ], [ null, %87 ], [ null, %JS_FreeValue.exit270 ], [ %.2206, %118 ], [ %.2206, %120 ], [ %.2206, %133 ], [ %.2206, %146 ], [ %.1205, %162 ], [ %.2206, %JS_FreeValue.exit275 ], [ %.2206, %JS_FreeValue.exit274 ], [ %.2206, %JS_FreeValue.exit273 ], [ null, %JS_FreeValue.exit269 ], [ null, %.lr.ph ]
+  %.4 = phi ptr [ %.1, %213 ], [ %.2, %101 ], [ %.2, %JS_FreeValue.exit271 ], [ null, %69 ], [ null, %72 ], [ null, %74 ], [ %.2, %87 ], [ null, %JS_FreeValue.exit270 ], [ %.2, %118 ], [ %.2, %120 ], [ %.2, %133 ], [ %.2, %146 ], [ %.1, %162 ], [ %.2, %JS_FreeValue.exit275 ], [ %.2, %JS_FreeValue.exit274 ], [ %.2, %JS_FreeValue.exit273 ], [ null, %JS_FreeValue.exit269 ], [ null, %.lr.ph ]
+  %.sroa.6.0 = phi i64 [ 0, %213 ], [ 6, %101 ], [ 6, %JS_FreeValue.exit271 ], [ 6, %69 ], [ 6, %72 ], [ 6, %74 ], [ 6, %87 ], [ 6, %JS_FreeValue.exit270 ], [ 6, %118 ], [ 6, %120 ], [ 6, %133 ], [ 6, %146 ], [ 6, %162 ], [ 6, %JS_FreeValue.exit275 ], [ 6, %JS_FreeValue.exit274 ], [ 6, %JS_FreeValue.exit273 ], [ 6, %JS_FreeValue.exit269 ], [ 6, %.lr.ph ]
+  %.sroa.079.sroa.0.0 = phi i64 [ %.sroa.0.0.insert.ext.i, %213 ], [ 0, %101 ], [ 0, %JS_FreeValue.exit271 ], [ 0, %69 ], [ 0, %72 ], [ 0, %74 ], [ 0, %87 ], [ 0, %JS_FreeValue.exit270 ], [ 0, %118 ], [ 0, %120 ], [ 0, %133 ], [ 0, %146 ], [ 0, %162 ], [ 0, %JS_FreeValue.exit275 ], [ 0, %JS_FreeValue.exit274 ], [ 0, %JS_FreeValue.exit273 ], [ 0, %JS_FreeValue.exit269 ], [ 0, %.lr.ph ]
   call void @JS_FreeCString(ptr noundef %0, ptr noundef %.4) #30
   call void @JS_FreeCString(ptr noundef %0, ptr noundef %.3207) #30
   %214 = load i32, ptr %6, align 4, !tbaa !7
@@ -9230,7 +9230,7 @@ JS_FreeValue.exit:                                ; preds = %22, %26, %31
   br i1 %60, label %.lr.ph86, label %._crit_edge87, !llvm.loop !151
 
 ._crit_edge87:                                    ; preds = %.lr.ph86, %.preheader, %.critedge
-  %.067110 = phi ptr [ %.067, %.critedge ], [ %13, %.preheader ], [ %.067, %.lr.ph86 ]
+  %.067110 = phi ptr [ %13, %.preheader ], [ %.067, %.critedge ], [ %.067, %.lr.ph86 ]
   %61 = load ptr, ptr %5, align 8, !tbaa !146
   call void @js_free(ptr noundef %0, ptr noundef %61) #30
   br label %68

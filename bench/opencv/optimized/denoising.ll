@@ -3106,7 +3106,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %113, %116
   br i1 %152, label %.loopexit90, label %149
 
 .loopexit90:                                      ; preds = %149, %.loopexit90.loopexit93, %.thread88
-  %.pn63.pn.pn.pn.pn = phi { ptr, i32 } [ %90, %.thread88 ], [ %139, %.loopexit90.loopexit93 ], [ %.pn63.pn.pn.pn, %149 ]
+  %.pn63.pn.pn.pn.pn = phi { ptr, i32 } [ %139, %.loopexit90.loopexit93 ], [ %90, %.thread88 ], [ %.pn63.pn.pn.pn, %149 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %153
 
@@ -3124,7 +3124,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %113, %116
   br i1 %158, label %.loopexit, label %155
 
 .loopexit:                                        ; preds = %155, %.loopexit.loopexit94, %.thread
-  %.pn63.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %73, %.thread ], [ %132, %.loopexit.loopexit94 ], [ %.pn63.pn.pn.pn.pn.pn, %155 ]
+  %.pn63.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %132, %.loopexit.loopexit94 ], [ %73, %.thread ], [ %.pn63.pn.pn.pn.pn.pn, %155 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %16) #24
   br label %159
@@ -6078,7 +6078,7 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EEC2EmRKS2_.exit.i124: ; preds = %.lr.ph.i.i.
   br i1 %205, label %.loopexit, label %202
 
 .loopexit:                                        ; preds = %202, %.loopexit.loopexit200, %.thread
-  %.pn93 = phi { ptr, i32 } [ %173, %.thread ], [ %199, %.loopexit.loopexit200 ], [ %201, %202 ]
+  %.pn93 = phi { ptr, i32 } [ %199, %.loopexit.loopexit200 ], [ %173, %.thread ], [ %201, %202 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %289
 
@@ -6384,7 +6384,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZNSt6vectorIN2cv3M
   br i1 %287, label %.loopexit191, label %284
 
 .loopexit191:                                     ; preds = %284, %.loopexit191.loopexit199, %.thread188
-  %.pn77.pn.pn.pn.pn = phi { ptr, i32 } [ %218, %.thread188 ], [ %274, %.loopexit191.loopexit199 ], [ %.pn77.pn.pn.pn, %284 ]
+  %.pn77.pn.pn.pn.pn = phi { ptr, i32 } [ %274, %.loopexit191.loopexit199 ], [ %218, %.thread188 ], [ %.pn77.pn.pn.pn, %284 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   br label %288
 
@@ -9499,7 +9499,7 @@ _ZN2cv7Array2dIiED2Ev.exit59.i.loopexit:          ; preds = %_ZN2cv7Array2dIiED2
   br i1 %exitcond.not, label %._crit_edge, label %240, !llvm.loop !225
 
 _ZNK27FastNlMeansDenoisingInvokerIhij11DistSquarediE32calcDistSumsForElementInFirstRowEiiiRN2cv7Array2dIiEERNS2_7Array3dIiEES8_.exit: ; preds = %._crit_edge, %._crit_edge.i116.split, %._crit_edge.i116.split.us.us, %192, %132
-  %262 = phi i32 [ %133, %132 ], [ %196, %192 ], [ %133, %._crit_edge.i116.split ], [ %133, %._crit_edge.i116.split.us.us ], [ %196, %._crit_edge ]
+  %262 = phi i32 [ %133, %._crit_edge.i116.split ], [ %133, %._crit_edge.i116.split.us.us ], [ %133, %132 ], [ %196, %192 ], [ %196, %._crit_edge ]
   %263 = add nsw i32 %.195227, 1
   %264 = load i32, ptr %12, align 4, !tbaa !98
   %265 = srem i32 %263, %264
@@ -18875,7 +18875,7 @@ _ZN2cv7Array2dIiED2Ev.exit59.i.loopexit:          ; preds = %_ZN2cv7Array2dIiED2
   br i1 %exitcond.not, label %._crit_edge, label %240, !llvm.loop !652
 
 _ZNK27FastNlMeansDenoisingInvokerIhij7DistAbsiE32calcDistSumsForElementInFirstRowEiiiRN2cv7Array2dIiEERNS2_7Array3dIiEES8_.exit: ; preds = %._crit_edge, %._crit_edge.i116.split, %._crit_edge.i116.split.us.us, %192, %132
-  %262 = phi i32 [ %133, %132 ], [ %196, %192 ], [ %133, %._crit_edge.i116.split ], [ %133, %._crit_edge.i116.split.us.us ], [ %196, %._crit_edge ]
+  %262 = phi i32 [ %133, %._crit_edge.i116.split ], [ %133, %._crit_edge.i116.split.us.us ], [ %133, %132 ], [ %196, %192 ], [ %196, %._crit_edge ]
   %263 = add nsw i32 %.195227, 1
   %264 = load i32, ptr %12, align 4, !tbaa !544
   %265 = srem i32 %263, %264

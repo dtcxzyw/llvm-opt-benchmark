@@ -228,7 +228,7 @@ transformTargetEntry.exit.us:                     ; preds = %22, %21
   ]
 
 .critedge:                                        ; preds = %.lr.ph.split, %transformTargetEntry.exit.us, %.lr.ph.split.preheader, %.lr.ph.split.us.split, %3
-  %.0.lcssa = phi ptr [ null, %3 ], [ null, %.lr.ph.split.us.split ], [ null, %.lr.ph.split.preheader ], [ %29, %transformTargetEntry.exit.us ], [ %.3, %.lr.ph.split ]
+  %.0.lcssa = phi ptr [ null, %3 ], [ null, %.lr.ph.split.us.split ], [ %29, %transformTargetEntry.exit.us ], [ null, %.lr.ph.split.preheader ], [ %.3, %.lr.ph.split ]
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %40 = load ptr, ptr %39, align 8
   %.not42 = icmp eq ptr %40, null
@@ -1610,7 +1610,7 @@ define dso_local ptr @checkInsertTargets(ptr noundef %0, ptr noundef readonly ca
   br i1 %.not, label %42, label %.critedge, !llvm.loop !8
 
 .critedge:                                        ; preds = %89, %41, %.preheader, %9
-  %.2 = phi ptr [ null, %9 ], [ %1, %.preheader ], [ %.1, %41 ], [ %1, %89 ]
+  %.2 = phi ptr [ %1, %.preheader ], [ null, %9 ], [ %.1, %41 ], [ %1, %89 ]
   ret ptr %.2
 }
 
@@ -2226,7 +2226,7 @@ switch.lookup279:                                 ; preds = %117
   br label %.critedge135
 
 .critedge135:                                     ; preds = %tailrecurse.backedge, %.lr.ph174, %105, %101, %.critedge135.sink.split, %.lr.ph177, %5, %2, %78, %83, %51, %60, %55, %74, %90, %97, %.critedge
-  %.0 = phi i32 [ 0, %.lr.ph177 ], [ 0, %51 ], [ %58, %60 ], [ 2, %55 ], [ 0, %.critedge ], [ 0, %74 ], [ 0, %78 ], [ 2, %90 ], [ 0, %97 ], [ 0, %83 ], [ 0, %101 ], [ 0, %105 ], [ 0, %2 ], [ 0, %5 ], [ %.0.ph, %.critedge135.sink.split ], [ 0, %.lr.ph174 ], [ 0, %tailrecurse.backedge ]
+  %.0 = phi i32 [ 0, %97 ], [ 0, %2 ], [ 0, %.lr.ph177 ], [ 0, %105 ], [ 0, %5 ], [ %.0.ph, %.critedge135.sink.split ], [ 2, %90 ], [ 0, %.critedge ], [ 0, %101 ], [ 0, %51 ], [ %58, %60 ], [ 2, %55 ], [ 0, %83 ], [ 0, %74 ], [ 0, %78 ], [ 0, %.lr.ph174 ], [ 0, %tailrecurse.backedge ]
   ret i32 %.0
 }
 
@@ -2440,7 +2440,7 @@ define internal fastcc ptr @ExpandRowReference(ptr noundef %0, ptr noundef %1, i
   br i1 %exitcond.not, label %ExpandSingleTable.exit, label %.lr.ph.split, !llvm.loop !12
 
 ExpandSingleTable.exit:                           ; preds = %116, %89, %.lr.ph30.i, %53, %.lr.ph.i, %34, %19
-  %.0 = phi ptr [ %20, %19 ], [ null, %34 ], [ %26, %.lr.ph.i ], [ null, %53 ], [ %.1.us, %89 ], [ %26, %.lr.ph30.i ], [ %.1, %116 ]
+  %.0 = phi ptr [ %26, %.lr.ph30.i ], [ %20, %19 ], [ null, %34 ], [ %26, %.lr.ph.i ], [ null, %53 ], [ %.1.us, %89 ], [ %.1, %116 ]
   ret ptr %.0
 }
 

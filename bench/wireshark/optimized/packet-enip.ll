@@ -5556,7 +5556,7 @@ define internal fastcc ptr @enip_match_request(ptr noundef %0, ptr noundef %1, p
   br label %56
 
 56:                                               ; preds = %51, %38, %39, %47
-  %.154 = phi ptr [ %55, %51 ], [ %46, %47 ], [ %.053, %39 ], [ %.053, %38 ]
+  %.154 = phi ptr [ %55, %51 ], [ %.053, %38 ], [ %46, %47 ], [ %.053, %39 ]
   %57 = icmp eq ptr %1, null
   %58 = icmp eq ptr %.154, null
   %or.cond3.not86 = select i1 %57, i1 true, i1 %58

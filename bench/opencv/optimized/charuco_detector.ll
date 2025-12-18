@@ -4814,8 +4814,8 @@ _ZN2cv3Mat2atINS_6Point_IiEEEERT_i.exit124:       ; preds = %.preheader, %_ZN2cv
   br i1 %exitcond.not, label %.split.us, label %_ZN2cv3Mat2atINS_6Point_IiEEEERT_i.exit124, !llvm.loop !172
 
 .split.us:                                        ; preds = %_ZN2cv3Mat2atINS_6Point_IiEEEERT_i.exit124, %_ZN2cv3Mat2atINS_6Point_IiEEEERT_i.exit124.us, %_ZN2cv3Mat2atINS_6Point_IiEEEERT_i.exit124.us.us197, %_ZN2cv3Mat2atINS_6Point_IiEEEERT_i.exit124.us.us
-  %.us-phi = phi i32 [ %262, %_ZN2cv3Mat2atINS_6Point_IiEEEERT_i.exit124.us ], [ %244, %_ZN2cv3Mat2atINS_6Point_IiEEEERT_i.exit124.us.us ], [ %252, %_ZN2cv3Mat2atINS_6Point_IiEEEERT_i.exit124.us.us197 ], [ %269, %_ZN2cv3Mat2atINS_6Point_IiEEEERT_i.exit124 ]
-  %.us-phi191 = phi i32 [ %261, %_ZN2cv3Mat2atINS_6Point_IiEEEERT_i.exit124.us ], [ %243, %_ZN2cv3Mat2atINS_6Point_IiEEEERT_i.exit124.us.us ], [ %251, %_ZN2cv3Mat2atINS_6Point_IiEEEERT_i.exit124.us.us197 ], [ %268, %_ZN2cv3Mat2atINS_6Point_IiEEEERT_i.exit124 ]
+  %.us-phi = phi i32 [ %244, %_ZN2cv3Mat2atINS_6Point_IiEEEERT_i.exit124.us.us ], [ %252, %_ZN2cv3Mat2atINS_6Point_IiEEEERT_i.exit124.us.us197 ], [ %262, %_ZN2cv3Mat2atINS_6Point_IiEEEERT_i.exit124.us ], [ %269, %_ZN2cv3Mat2atINS_6Point_IiEEEERT_i.exit124 ]
+  %.us-phi191 = phi i32 [ %243, %_ZN2cv3Mat2atINS_6Point_IiEEEERT_i.exit124.us.us ], [ %251, %_ZN2cv3Mat2atINS_6Point_IiEEEERT_i.exit124.us.us197 ], [ %261, %_ZN2cv3Mat2atINS_6Point_IiEEEERT_i.exit124.us ], [ %268, %_ZN2cv3Mat2atINS_6Point_IiEEEERT_i.exit124 ]
   %270 = sitofp i32 %.us-phi191 to double
   %271 = fmul double %270, 2.500000e-01
   %272 = insertelement <2 x double> poison, double %271, i64 0

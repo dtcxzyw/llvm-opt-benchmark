@@ -2094,8 +2094,8 @@ strlen_max_width.exit.thread.us:                  ; preds = %426
   br label %493
 
 493:                                              ; preds = %.sink.split, %492, %482
-  %.not842.not = phi i1 [ false, %492 ], [ false, %482 ], [ true, %.sink.split ]
-  %494 = phi i32 [ 0, %492 ], [ 0, %482 ], [ %.sink, %.sink.split ]
+  %.not842.not = phi i1 [ false, %482 ], [ false, %492 ], [ true, %.sink.split ]
+  %494 = phi i32 [ 0, %482 ], [ 0, %492 ], [ %.sink, %.sink.split ]
   %495 = load ptr, ptr %378, align 8
   %496 = getelementptr inbounds nuw i8, ptr %495, i64 %indvars.iv803
   %497 = load i8, ptr %496, align 1
@@ -3524,8 +3524,8 @@ strlen_max_width.exit:                            ; preds = %strlen_max_width.ex
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %297, %293, %301
-  %.2332518 = phi i32 [ %.2332, %301 ], [ 1, %297 ], [ 0, %293 ], [ %.2332, %.thread.sink.split ]
-  %.2338517 = phi i32 [ %.2338, %301 ], [ %.0336581, %297 ], [ %289, %293 ], [ %.2338, %.thread.sink.split ]
+  %.2332518 = phi i32 [ %.2332, %301 ], [ 0, %293 ], [ 1, %297 ], [ %.2332, %.thread.sink.split ]
+  %.2338517 = phi i32 [ %.2338, %301 ], [ %289, %293 ], [ %.0336581, %297 ], [ %.2338, %.thread.sink.split ]
   br i1 %.not584, label %304, label %373
 
 304:                                              ; preds = %.thread

@@ -2738,7 +2738,7 @@ _ZNK2OT23IndexSubtableFormat1Or3INS_7IntTypeIjLj4EEEE14get_image_dataEjPjS4_.exi
   br label %_ZNK2OT23IndexSubtableFormat1Or3INS_7IntTypeIjLj4EEEE14get_image_dataEjPjS4_.exit
 
 _ZNK2OT23IndexSubtableFormat1Or3INS_7IntTypeIjLj4EEEE14get_image_dataEjPjS4_.exit: ; preds = %_ZNK2OT23IndexSubtableFormat1Or3INS_7IntTypeIjLj4EEEE14get_image_dataEjPjS4_.exit.sink.split, %106, %20, %5
-  %.0 = phi i1 [ false, %5 ], [ false, %20 ], [ false, %106 ], [ true, %_ZNK2OT23IndexSubtableFormat1Or3INS_7IntTypeIjLj4EEEE14get_image_dataEjPjS4_.exit.sink.split ]
+  %.0 = phi i1 [ false, %106 ], [ false, %5 ], [ false, %20 ], [ true, %_ZNK2OT23IndexSubtableFormat1Or3INS_7IntTypeIjLj4EEEE14get_image_dataEjPjS4_.exit.sink.split ]
   ret i1 %.0
 }
 
@@ -2938,7 +2938,7 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %13, %22
   br i1 %26, label %28, label %33
 
 28:                                               ; preds = %25
-  br i1 %.not19, label %.critedge23, label %29
+  br i1 %.not19, label %.critedge25, label %29
 
 29:                                               ; preds = %28
   store i32 0, ptr %10, align 4
@@ -2956,7 +2956,7 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %13, %22
   %34 = load i8, ptr %5, align 8
   %35 = trunc i8 %34 to i1
   %or.cond = select i1 %.not19, i1 true, i1 %35
-  br i1 %or.cond, label %.critedge25, label %36
+  br i1 %or.cond, label %.critedge23, label %36
 
 36:                                               ; preds = %33
   %37 = tail call ptr @hb_blob_get_data_writable(ptr noundef %1, ptr noundef null)
@@ -2966,27 +2966,27 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %13, %22
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 %39
   store ptr %40, ptr %7, align 8
   %.not18 = icmp eq ptr %37, null
-  br i1 %.not18, label %.critedge25, label %13
+  br i1 %.not18, label %.critedge23, label %13
 
-.critedge23:                                      ; preds = %28
+.critedge25:                                      ; preds = %28
   %41 = load ptr, ptr %4, align 8
   tail call void @hb_blob_destroy(ptr noundef %41)
   store ptr null, ptr %4, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6, i8 0, i64 20, i1 false)
   br label %42
 
-42:                                               ; preds = %29, %.critedge23
+42:                                               ; preds = %29, %.critedge25
   tail call void @hb_blob_make_immutable(ptr noundef %1)
   br label %45
 
-.critedge25:                                      ; preds = %36, %33
+.critedge23:                                      ; preds = %36, %33
   %43 = load ptr, ptr %4, align 8
   tail call void @hb_blob_destroy(ptr noundef %43)
   store ptr null, ptr %4, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6, i8 0, i64 20, i1 false)
   br label %.critedge
 
-.critedge:                                        ; preds = %29, %.critedge25
+.critedge:                                        ; preds = %29, %.critedge23
   tail call void @hb_blob_destroy(ptr noundef %1)
   %44 = tail call ptr @hb_blob_get_empty()
   br label %45
@@ -3487,7 +3487,7 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %13, %22
   br i1 %26, label %28, label %33
 
 28:                                               ; preds = %25
-  br i1 %.not19, label %.critedge23, label %29
+  br i1 %.not19, label %.critedge25, label %29
 
 29:                                               ; preds = %28
   store i32 0, ptr %10, align 4
@@ -3505,7 +3505,7 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %13, %22
   %34 = load i8, ptr %5, align 8
   %35 = trunc i8 %34 to i1
   %or.cond = select i1 %.not19, i1 true, i1 %35
-  br i1 %or.cond, label %.critedge25, label %36
+  br i1 %or.cond, label %.critedge23, label %36
 
 36:                                               ; preds = %33
   %37 = tail call ptr @hb_blob_get_data_writable(ptr noundef %1, ptr noundef null)
@@ -3515,27 +3515,27 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %13, %22
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 %39
   store ptr %40, ptr %7, align 8
   %.not18 = icmp eq ptr %37, null
-  br i1 %.not18, label %.critedge25, label %13
+  br i1 %.not18, label %.critedge23, label %13
 
-.critedge23:                                      ; preds = %28
+.critedge25:                                      ; preds = %28
   %41 = load ptr, ptr %4, align 8
   tail call void @hb_blob_destroy(ptr noundef %41)
   store ptr null, ptr %4, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6, i8 0, i64 20, i1 false)
   br label %42
 
-42:                                               ; preds = %29, %.critedge23
+42:                                               ; preds = %29, %.critedge25
   tail call void @hb_blob_make_immutable(ptr noundef %1)
   br label %45
 
-.critedge25:                                      ; preds = %36, %33
+.critedge23:                                      ; preds = %36, %33
   %43 = load ptr, ptr %4, align 8
   tail call void @hb_blob_destroy(ptr noundef %43)
   store ptr null, ptr %4, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6, i8 0, i64 20, i1 false)
   br label %.critedge
 
-.critedge:                                        ; preds = %29, %.critedge25
+.critedge:                                        ; preds = %29, %.critedge23
   tail call void @hb_blob_destroy(ptr noundef %1)
   %44 = tail call ptr @hb_blob_get_empty()
   br label %45
@@ -3957,7 +3957,7 @@ _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i68: ; preds = %288
   br label %.thread
 
 .thread:                                          ; preds = %.thread103, %275, %263, %288, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i68, %296, %88, %.thread.fold.split, %247, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i65, %.thread97, %206, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i62, %.thread91, %165, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i59, %.thread85, %124, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i, %95, %53, %_ZNK2OT14UnsizedArrayOfINS_11LayerRecordEE16sanitize_shallowEP21hb_sanitize_context_tj.exit, %13, %44, %_ZNK2OT14UnsizedArrayOfINS_15BaseGlyphRecordEE16sanitize_shallowEP21hb_sanitize_context_tj.exit, %2
-  %297 = phi i1 [ false, %13 ], [ false, %206 ], [ false, %2 ], [ true, %88 ], [ false, %.thread97 ], [ false, %.thread91 ], [ false, %.thread85 ], [ false, %95 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i65 ], [ false, %53 ], [ false, %124 ], [ false, %165 ], [ false, %_ZNK2OT14UnsizedArrayOfINS_15BaseGlyphRecordEE16sanitize_shallowEP21hb_sanitize_context_tj.exit ], [ false, %.thread.fold.split ], [ false, %44 ], [ false, %_ZNK2OT14UnsizedArrayOfINS_11LayerRecordEE16sanitize_shallowEP21hb_sanitize_context_tj.exit ], [ false, %247 ], [ false, %288 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i59 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i62 ], [ false, %.thread103 ], [ true, %275 ], [ true, %263 ], [ true, %296 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i68 ]
+  %297 = phi i1 [ false, %13 ], [ false, %206 ], [ false, %2 ], [ true, %88 ], [ false, %.thread97 ], [ false, %.thread91 ], [ false, %.thread85 ], [ false, %95 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i65 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i62 ], [ false, %53 ], [ false, %124 ], [ false, %165 ], [ false, %_ZNK2OT14UnsizedArrayOfINS_15BaseGlyphRecordEE16sanitize_shallowEP21hb_sanitize_context_tj.exit ], [ false, %.thread.fold.split ], [ false, %44 ], [ false, %_ZNK2OT14UnsizedArrayOfINS_11LayerRecordEE16sanitize_shallowEP21hb_sanitize_context_tj.exit ], [ false, %247 ], [ false, %288 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i59 ], [ false, %.thread103 ], [ true, %275 ], [ true, %263 ], [ true, %296 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i68 ]
   ret i1 %297
 }
 
@@ -8275,7 +8275,7 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %13, %22
   br i1 %26, label %28, label %33
 
 28:                                               ; preds = %25
-  br i1 %.not19, label %.critedge23, label %29
+  br i1 %.not19, label %.critedge25, label %29
 
 29:                                               ; preds = %28
   store i32 0, ptr %10, align 4
@@ -8293,7 +8293,7 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %13, %22
   %34 = load i8, ptr %5, align 8
   %35 = trunc i8 %34 to i1
   %or.cond = select i1 %.not19, i1 true, i1 %35
-  br i1 %or.cond, label %.critedge25, label %36
+  br i1 %or.cond, label %.critedge23, label %36
 
 36:                                               ; preds = %33
   %37 = tail call ptr @hb_blob_get_data_writable(ptr noundef %1, ptr noundef null)
@@ -8303,27 +8303,27 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %13, %22
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 %39
   store ptr %40, ptr %7, align 8
   %.not18 = icmp eq ptr %37, null
-  br i1 %.not18, label %.critedge25, label %13
+  br i1 %.not18, label %.critedge23, label %13
 
-.critedge23:                                      ; preds = %28
+.critedge25:                                      ; preds = %28
   %41 = load ptr, ptr %4, align 8
   tail call void @hb_blob_destroy(ptr noundef %41)
   store ptr null, ptr %4, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6, i8 0, i64 20, i1 false)
   br label %42
 
-42:                                               ; preds = %29, %.critedge23
+42:                                               ; preds = %29, %.critedge25
   tail call void @hb_blob_make_immutable(ptr noundef %1)
   br label %45
 
-.critedge25:                                      ; preds = %36, %33
+.critedge23:                                      ; preds = %36, %33
   %43 = load ptr, ptr %4, align 8
   tail call void @hb_blob_destroy(ptr noundef %43)
   store ptr null, ptr %4, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6, i8 0, i64 20, i1 false)
   br label %.critedge
 
-.critedge:                                        ; preds = %29, %.critedge25
+.critedge:                                        ; preds = %29, %.critedge23
   tail call void @hb_blob_destroy(ptr noundef %1)
   %44 = tail call ptr @hb_blob_get_empty()
   br label %45
@@ -8562,7 +8562,7 @@ _ZN21hb_sanitize_context_t8dispatchIN2OT18IndexSubtableArrayEJRKNS1_7IntTypeIjLj
   br label %_ZN21hb_sanitize_context_t8dispatchIN2OT18IndexSubtableArrayEJRKNS1_7IntTypeIjLj4EEEEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS9_.exit.thread24
 
 _ZN21hb_sanitize_context_t8dispatchIN2OT18IndexSubtableArrayEJRKNS1_7IntTypeIjLj4EEEEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS9_.exit.thread24: ; preds = %.lr.ph.i.i.i, %17, %56, %59, %_ZNK2OT14UnsizedArrayOfINS_19IndexSubtableRecordEE16sanitize_shallowEP21hb_sanitize_context_tj.exit.i.i.i, %74, %_ZN21hb_sanitize_context_t8dispatchIN2OT18IndexSubtableArrayEJRKNS1_7IntTypeIjLj4EEEEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS9_.exit, %3
-  %79 = phi i1 [ false, %_ZN21hb_sanitize_context_t8dispatchIN2OT18IndexSubtableArrayEJRKNS1_7IntTypeIjLj4EEEEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS9_.exit ], [ %78, %74 ], [ false, %3 ], [ false, %_ZNK2OT14UnsizedArrayOfINS_19IndexSubtableRecordEE16sanitize_shallowEP21hb_sanitize_context_tj.exit.i.i.i ], [ false, %59 ], [ false, %56 ], [ false, %17 ], [ false, %.lr.ph.i.i.i ]
+  %79 = phi i1 [ false, %_ZN21hb_sanitize_context_t8dispatchIN2OT18IndexSubtableArrayEJRKNS1_7IntTypeIjLj4EEEEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS9_.exit ], [ %78, %74 ], [ false, %3 ], [ false, %17 ], [ false, %_ZNK2OT14UnsizedArrayOfINS_19IndexSubtableRecordEE16sanitize_shallowEP21hb_sanitize_context_tj.exit.i.i.i ], [ false, %59 ], [ false, %56 ], [ false, %.lr.ph.i.i.i ]
   ret i1 %79
 }
 
@@ -8918,7 +8918,7 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %13, %22
   br i1 %26, label %28, label %33
 
 28:                                               ; preds = %25
-  br i1 %.not19, label %.critedge23, label %29
+  br i1 %.not19, label %.critedge25, label %29
 
 29:                                               ; preds = %28
   store i32 0, ptr %10, align 4
@@ -8936,7 +8936,7 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %13, %22
   %34 = load i8, ptr %5, align 8
   %35 = trunc i8 %34 to i1
   %or.cond = select i1 %.not19, i1 true, i1 %35
-  br i1 %or.cond, label %.critedge25, label %36
+  br i1 %or.cond, label %.critedge23, label %36
 
 36:                                               ; preds = %33
   %37 = tail call ptr @hb_blob_get_data_writable(ptr noundef %1, ptr noundef null)
@@ -8946,27 +8946,27 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %13, %22
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 %39
   store ptr %40, ptr %7, align 8
   %.not18 = icmp eq ptr %37, null
-  br i1 %.not18, label %.critedge25, label %13
+  br i1 %.not18, label %.critedge23, label %13
 
-.critedge23:                                      ; preds = %28
+.critedge25:                                      ; preds = %28
   %41 = load ptr, ptr %4, align 8
   tail call void @hb_blob_destroy(ptr noundef %41)
   store ptr null, ptr %4, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6, i8 0, i64 20, i1 false)
   br label %42
 
-42:                                               ; preds = %29, %.critedge23
+42:                                               ; preds = %29, %.critedge25
   tail call void @hb_blob_make_immutable(ptr noundef %1)
   br label %45
 
-.critedge25:                                      ; preds = %36, %33
+.critedge23:                                      ; preds = %36, %33
   %43 = load ptr, ptr %4, align 8
   tail call void @hb_blob_destroy(ptr noundef %43)
   store ptr null, ptr %4, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6, i8 0, i64 20, i1 false)
   br label %.critedge
 
-.critedge:                                        ; preds = %29, %.critedge25
+.critedge:                                        ; preds = %29, %.critedge23
   tail call void @hb_blob_destroy(ptr noundef %1)
   %44 = tail call ptr @hb_blob_get_empty()
   br label %45

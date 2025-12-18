@@ -519,7 +519,7 @@ _ZN4ncnnL17get_masked_optionERKNS_6OptionEi.exit: ; preds = %42, %111
   br label %.thread41
 
 .thread41:                                        ; preds = %27, %_ZN4ncnnL17get_masked_optionERKNS_6OptionEi.exit, %114
-  %.5 = phi i32 [ %113, %_ZN4ncnnL17get_masked_optionERKNS_6OptionEi.exit ], [ %115, %114 ], [ %32, %27 ]
+  %.5 = phi i32 [ %115, %114 ], [ %113, %_ZN4ncnnL17get_masked_optionERKNS_6OptionEi.exit ], [ %32, %27 ]
   ret i32 %.5
 }
 
@@ -2342,9 +2342,9 @@ _ZNSt6vectorIN4ncnn3MatESaIS1_EED2Ev.exit:        ; preds = %_ZSt8_DestroyIPN4nc
   br label %932
 
 .thread356:                                       ; preds = %_ZN4ncnn3MatD2Ev.exit204, %_ZNK4ncnn3Mat5emptyEv.exit206, %639, %887, %.preheader, %652, %.loopexit, %_ZNSt6vectorIN4ncnn3MatESaIS1_EED2Ev.exit
-  %900 = phi ptr [ %640, %652 ], [ %640, %_ZNSt6vectorIN4ncnn3MatESaIS1_EED2Ev.exit ], [ %640, %.loopexit ], [ %640, %.preheader ], [ %640, %887 ], [ %425, %639 ], [ %425, %_ZNK4ncnn3Mat5emptyEv.exit206 ], [ %425, %_ZN4ncnn3MatD2Ev.exit204 ]
-  %901 = phi i1 [ false, %652 ], [ false, %_ZNSt6vectorIN4ncnn3MatESaIS1_EED2Ev.exit ], [ true, %.loopexit ], [ true, %.preheader ], [ true, %887 ], [ false, %639 ], [ false, %_ZNK4ncnn3Mat5emptyEv.exit206 ], [ false, %_ZN4ncnn3MatD2Ev.exit204 ]
-  %.10 = phi i32 [ %651, %652 ], [ %752, %_ZNSt6vectorIN4ncnn3MatESaIS1_EED2Ev.exit ], [ 0, %.loopexit ], [ 0, %.preheader ], [ 0, %887 ], [ -100, %_ZN4ncnn3MatD2Ev.exit204 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit206 ], [ %636, %639 ]
+  %900 = phi ptr [ %640, %.preheader ], [ %640, %652 ], [ %640, %_ZNSt6vectorIN4ncnn3MatESaIS1_EED2Ev.exit ], [ %640, %.loopexit ], [ %640, %887 ], [ %425, %639 ], [ %425, %_ZNK4ncnn3Mat5emptyEv.exit206 ], [ %425, %_ZN4ncnn3MatD2Ev.exit204 ]
+  %901 = phi i1 [ true, %.preheader ], [ false, %652 ], [ false, %_ZNSt6vectorIN4ncnn3MatESaIS1_EED2Ev.exit ], [ true, %.loopexit ], [ true, %887 ], [ false, %639 ], [ false, %_ZNK4ncnn3Mat5emptyEv.exit206 ], [ false, %_ZN4ncnn3MatD2Ev.exit204 ]
+  %.10 = phi i32 [ 0, %.preheader ], [ %651, %652 ], [ %752, %_ZNSt6vectorIN4ncnn3MatESaIS1_EED2Ev.exit ], [ 0, %.loopexit ], [ 0, %887 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit206 ], [ %636, %639 ], [ -100, %_ZN4ncnn3MatD2Ev.exit204 ]
   %902 = load ptr, ptr %8, align 8, !tbaa !62
   %903 = load ptr, ptr %900, align 8, !tbaa !109
   %.not4.i.i.i.i339 = icmp eq ptr %902, %903
@@ -10630,7 +10630,7 @@ _ZN4ncnnL17get_masked_optionERKNS_6OptionEi.exit: ; preds = %63, %122
   br i1 %exitcond.not, label %.thread, label %37, !llvm.loop !206
 
 .thread:                                          ; preds = %137, %16, %54, %43, %130
-  %.125 = phi i32 [ -1, %130 ], [ -1, %43 ], [ -1, %54 ], [ 0, %16 ], [ 0, %137 ]
+  %.125 = phi i32 [ -1, %130 ], [ -1, %54 ], [ -1, %43 ], [ 0, %16 ], [ 0, %137 ]
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %139 = load i8, ptr %138, align 4, !tbaa !207, !range !76, !noundef !80
   %140 = trunc nuw i8 %139 to i1

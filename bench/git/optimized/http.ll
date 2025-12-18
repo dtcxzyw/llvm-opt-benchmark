@@ -3935,7 +3935,7 @@ st_mult.exit87.i:                                 ; preds = %.thread.i.st_mult.e
   br i1 %exitcond131.not.i, label %write_accept_language.exit, label %.lr.ph115.i, !llvm.loop !131
 
 write_accept_language.exit:                       ; preds = %.lr.ph115.i, %47, %.loopexit.i
-  %.367145.i = phi ptr [ %55, %.loopexit.i ], [ %.266.i, %47 ], [ %55, %.lr.ph115.i ]
+  %.367145.i = phi ptr [ %.266.i, %47 ], [ %55, %.loopexit.i ], [ %55, %.lr.ph115.i ]
   call void @free(ptr noundef %.367145.i) #23
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !30
@@ -4139,7 +4139,7 @@ strbuf_setlen.exit:                               ; preds = %70, %68
   br label %.critedge
 
 .critedge:                                        ; preds = %strbuf_setlen.exit, %.lr.ph.split, %strbuf_setlen.exit.us, %.lr.ph.split.us, %.critedge.sink.split, %update_url_from_redirect.exit.thread, %9
-  %.0 = phi i32 [ %10, %9 ], [ %10, %update_url_from_redirect.exit.thread ], [ %65, %strbuf_setlen.exit.us ], [ 3, %.critedge.sink.split ], [ 4, %.lr.ph.split.us ], [ 4, %.lr.ph.split ], [ %72, %strbuf_setlen.exit ]
+  %.0 = phi i32 [ %10, %9 ], [ 3, %.critedge.sink.split ], [ %65, %strbuf_setlen.exit.us ], [ %10, %update_url_from_redirect.exit.thread ], [ 4, %.lr.ph.split.us ], [ 4, %.lr.ph.split ], [ %72, %strbuf_setlen.exit ]
   ret i32 %.0
 }
 
@@ -4496,7 +4496,7 @@ fetch_pack_index.exit.i:                          ; preds = %50
   br label %fetch_and_setup_pack_index.exit
 
 skip_prefix.exit:                                 ; preds = %16, %25, %30, %21
-  %70 = phi ptr [ %.pre, %21 ], [ %scevgep21, %30 ], [ %.pre, %25 ], [ %14, %16 ]
+  %70 = phi ptr [ %.pre, %25 ], [ %.pre, %21 ], [ %scevgep21, %30 ], [ %14, %16 ]
   %71 = call ptr @strchrnul(ptr noundef %70, i32 noundef 10) #24
   store ptr %71, ptr %5, align 8, !tbaa !41
   br label %fetch_and_setup_pack_index.exit

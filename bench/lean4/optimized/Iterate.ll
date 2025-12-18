@@ -195,8 +195,8 @@ lean_nat_lt.exit.thread34:                        ; preds = %.split.split
   br i1 %64, label %.critedge.i, label %.split45.us
 
 .split45.us:                                      ; preds = %lean_nat_lt.exit.thread34, %lean_nat_lt.exit.thread34.us53, %lean_nat_lt.exit.thread34.us, %lean_nat_lt.exit.thread34.us.us
-  %.us-phi46 = phi ptr [ %.018.us48, %lean_nat_lt.exit.thread34.us53 ], [ %.018.us.us, %lean_nat_lt.exit.thread34.us.us ], [ %.018.us, %lean_nat_lt.exit.thread34.us ], [ %.018, %lean_nat_lt.exit.thread34 ]
-  %.us-phi47 = phi ptr [ %.015.us49, %lean_nat_lt.exit.thread34.us53 ], [ %.015.us.us, %lean_nat_lt.exit.thread34.us.us ], [ %.015.us, %lean_nat_lt.exit.thread34.us ], [ %.015, %lean_nat_lt.exit.thread34 ]
+  %.us-phi46 = phi ptr [ %.018.us48, %lean_nat_lt.exit.thread34.us53 ], [ %.018.us, %lean_nat_lt.exit.thread34.us ], [ %.018.us.us, %lean_nat_lt.exit.thread34.us.us ], [ %.018, %lean_nat_lt.exit.thread34 ]
+  %.us-phi47 = phi ptr [ %.015.us49, %lean_nat_lt.exit.thread34.us53 ], [ %.015.us, %lean_nat_lt.exit.thread34.us ], [ %.015.us.us, %lean_nat_lt.exit.thread34.us.us ], [ %.015, %lean_nat_lt.exit.thread34 ]
   %65 = load i32, ptr %.us-phi47, align 4, !tbaa !6
   %66 = icmp sgt i32 %65, 1
   br i1 %66, label %67, label %69, !prof !5
@@ -215,7 +215,7 @@ lean_nat_lt.exit.thread34:                        ; preds = %.split.split
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %lean_nat_lt.exit.thread, %lean_nat_lt.exit.us51, %lean_nat_lt.exit.thread.us, %lean_nat_lt.exit.us.us, %70, %69, %67
-  %.01843 = phi ptr [ %.us-phi46, %67 ], [ %.us-phi46, %70 ], [ %.us-phi46, %69 ], [ %.018.us48, %lean_nat_lt.exit.us51 ], [ %.018.us.us, %lean_nat_lt.exit.us.us ], [ %.018.us, %lean_nat_lt.exit.thread.us ], [ %.018, %lean_nat_lt.exit.thread ]
+  %.01843 = phi ptr [ %.us-phi46, %67 ], [ %.us-phi46, %70 ], [ %.us-phi46, %69 ], [ %.018.us48, %lean_nat_lt.exit.us51 ], [ %.018.us, %lean_nat_lt.exit.thread.us ], [ %.018.us.us, %lean_nat_lt.exit.us.us ], [ %.018, %lean_nat_lt.exit.thread ]
   br i1 %.not39, label %71, label %89
 
 71:                                               ; preds = %lean_dec.exit

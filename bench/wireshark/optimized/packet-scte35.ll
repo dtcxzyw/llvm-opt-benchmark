@@ -677,7 +677,7 @@ define internal i32 @dissect_scte35_splice_insert(ptr noundef %0, ptr noundef re
   br i1 %75, label %dissect_component.exit, label %76
 
 76:                                               ; preds = %74, %72
-  %.0.i.us = phi i32 [ 6, %74 ], [ 2, %72 ]
+  %.0.i.us = phi i32 [ 2, %72 ], [ 6, %74 ]
   %77 = call zeroext i8 @tvb_get_uint8(ptr noundef %69, i32 noundef 0)
   %78 = zext i8 %77 to i32
   %79 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %21, ptr noundef %69, i32 noundef 0, i32 noundef %.0.i.us, i32 noundef range(i32 -2147483648, 255) %.0127147.us, ptr noundef nonnull %5, ptr noundef nonnull @.str.181, i32 noundef range(i32 -2147483648, 255) %.0127147.us, i32 noundef %78)
@@ -734,8 +734,8 @@ dissect_component.exit:                           ; preds = %.lr.ph.split, %.lr.
   br label %128
 
 .thread:                                          ; preds = %.critedge.i, %93, %.preheader, %52, %38, %56
-  %.3126 = phi i32 [ 6, %56 ], [ 7, %38 ], [ 11, %52 ], [ 7, %.preheader ], [ %94, %93 ], [ %105, %.critedge.i ]
-  %.3 = phi i32 [ %.0122, %56 ], [ %39, %38 ], [ %50, %52 ], [ %66, %.preheader ], [ %66, %93 ], [ %66, %.critedge.i ]
+  %.3126 = phi i32 [ 6, %56 ], [ 11, %52 ], [ 7, %38 ], [ 7, %.preheader ], [ %94, %93 ], [ %105, %.critedge.i ]
+  %.3 = phi i32 [ %.0122, %56 ], [ %50, %52 ], [ %39, %38 ], [ %66, %.preheader ], [ %66, %93 ], [ %66, %.critedge.i ]
   %.not141 = icmp eq i8 %32, 0
   br i1 %.not141, label %118, label %107
 
@@ -1252,13 +1252,13 @@ dissect_scte35_splice_descriptor.exit.thread:     ; preds = %72, %79, %83
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit
 
-dissect_scte35_splice_descriptor.exit.thread112:  ; preds = %98, %88, %76
-  %.ph = phi i32 [ 10, %76 ], [ %97, %88 ], [ 11, %98 ]
+dissect_scte35_splice_descriptor.exit.thread112:  ; preds = %98, %76, %88
+  %.ph = phi i32 [ %97, %88 ], [ 10, %76 ], [ 11, %98 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %175
 
 dissect_scte35_splice_descriptor.exit:            ; preds = %.lr.ph, %162
-  %.036.i = phi i32 [ %70, %.lr.ph ], [ %171, %162 ]
+  %.036.i = phi i32 [ %171, %162 ], [ %70, %.lr.ph ]
   %172 = icmp slt i32 %.036.i, 1
   %173 = add nuw i32 %.036.i, 6
   %spec.select.i = select i1 %172, i32 %.036.i, i32 %173

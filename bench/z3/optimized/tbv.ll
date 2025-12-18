@@ -877,7 +877,7 @@ _ZN8rationalD2Ev.exit20:                          ; preds = %.noexc.i19
   br i1 %.not, label %_ZN11tbv_manager8allocateEm.exit, label %63, !llvm.loop !39
 
 _ZN11tbv_manager8allocateEm.exit:                 ; preds = %105, %select.unfold.i, %_ZNK8rational9is_uint64Ev.exit.thread, %15
-  %.016 = phi ptr [ %18, %15 ], [ %49, %_ZNK8rational9is_uint64Ev.exit.thread ], [ %18, %select.unfold.i ], [ %49, %105 ]
+  %.016 = phi ptr [ %49, %_ZNK8rational9is_uint64Ev.exit.thread ], [ %18, %15 ], [ %18, %select.unfold.i ], [ %49, %105 ]
   ret ptr %.016
 }
 

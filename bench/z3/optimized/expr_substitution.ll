@@ -876,7 +876,7 @@ _ZN11ast_manager7dec_refEP3ast.exit:              ; preds = %52, %58
   br i1 %.not27.old.i.i, label %_ZNK7obj_mapI4exprP3appE9find_coreEPS0_.exit, label %.lr.ph38.i.i.backedge
 
 .lr.ph38.i.i.backedge:                            ; preds = %97, %94
-  %.137.i.i.be = phi ptr [ %.old.i.i, %97 ], [ %96, %94 ]
+  %.137.i.i.be = phi ptr [ %96, %94 ], [ %.old.i.i, %97 ]
   br label %.lr.ph38.i.i, !llvm.loop !126
 
 _ZNK7obj_mapI4exprP3appE9find_coreEPS0_.exit:     ; preds = %78, %83, %89, %94, %97, %.preheader.i.i
@@ -993,7 +993,7 @@ _ZN11ast_manager7dec_refEP3ast.exit30:            ; preds = %_ZN11ast_manager7in
   br i1 %.not27.old.i.i43, label %_ZNK7obj_mapI4exprPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyEE9find_coreEPS0_.exit, label %.lr.ph38.i.i39.backedge
 
 .lr.ph38.i.i39.backedge:                          ; preds = %149, %146
-  %.137.i.i40.be = phi ptr [ %.old.i.i42, %149 ], [ %148, %146 ]
+  %.137.i.i40.be = phi ptr [ %148, %146 ], [ %.old.i.i42, %149 ]
   br label %.lr.ph38.i.i39, !llvm.loop !130
 
 _ZNK7obj_mapI4exprPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyEE9find_coreEPS0_.exit: ; preds = %130, %135, %141, %146, %149, %.preheader.i.i37
@@ -1124,7 +1124,7 @@ define hidden void @_ZN17expr_substitution5eraseEP4expr(ptr noundef nonnull alig
   br i1 %.not27.old.i.i.i, label %_ZNK7obj_mapI4exprP3appE4findEPS0_RS2_.exit.thread, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %44, %41
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %44 ], [ %43, %41 ]
+  %.137.i.i.i.be = phi ptr [ %43, %41 ], [ %.old.i.i.i, %44 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !126
 
 .loopexit62:                                      ; preds = %25, %36
@@ -1160,7 +1160,7 @@ _ZN11ast_manager7dec_refEP3ast.exit:              ; preds = %.loopexit62, %48, %
   br label %_ZNK7obj_mapI4exprP3appE4findEPS0_RS2_.exit.thread
 
 _ZNK7obj_mapI4exprP3appE4findEPS0_RS2_.exit.thread: ; preds = %30, %44, %41, %.preheader.i.i.i, %_ZN11ast_manager7dec_refEP3ast.exit, %2
-  %56 = phi i8 [ %7, %2 ], [ %7, %.preheader.i.i.i ], [ %.pre89, %_ZN11ast_manager7dec_refEP3ast.exit ], [ %7, %44 ], [ %7, %41 ], [ %7, %30 ]
+  %56 = phi i8 [ %7, %44 ], [ %7, %2 ], [ %7, %.preheader.i.i.i ], [ %.pre89, %_ZN11ast_manager7dec_refEP3ast.exit ], [ %7, %41 ], [ %7, %30 ]
   %57 = and i8 %56, 1
   %.not56 = icmp eq i8 %57, 0
   br i1 %.not56, label %_ZNK7obj_mapI4exprPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyEE4findEPS0_RS6_.exit.thread, label %58
@@ -1237,7 +1237,7 @@ _ZNK7obj_mapI4exprP3appE4findEPS0_RS2_.exit.thread: ; preds = %30, %44, %41, %.p
   br i1 %.not27.old.i.i.i20, label %_ZNK7obj_mapI4exprPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyEE4findEPS0_RS6_.exit.thread, label %.lr.ph38.i.i.i16.backedge
 
 .lr.ph38.i.i.i16.backedge:                        ; preds = %93, %90
-  %.137.i.i.i17.be = phi ptr [ %.old.i.i.i19, %93 ], [ %92, %90 ]
+  %.137.i.i.i17.be = phi ptr [ %92, %90 ], [ %.old.i.i.i19, %93 ]
   br label %.lr.ph38.i.i.i16, !llvm.loop !130
 
 .loopexit59:                                      ; preds = %74, %85
@@ -1345,7 +1345,7 @@ _ZNK7obj_mapI4exprPN18dependency_managerIN11ast_manager22expr_dependency_configE
   br i1 %.not27.old.i.i.i39, label %_ZN11ast_manager7dec_refEP3ast.exit48, label %.lr.ph38.i.i.i35.backedge
 
 .lr.ph38.i.i.i35.backedge:                        ; preds = %142, %139
-  %.137.i.i.i36.be = phi ptr [ %.old.i.i.i38, %142 ], [ %141, %139 ]
+  %.137.i.i.i36.be = phi ptr [ %141, %139 ], [ %.old.i.i.i38, %142 ]
   br label %.lr.ph38.i.i.i35, !llvm.loop !132
 
 .loopexit:                                        ; preds = %123, %134
@@ -1467,7 +1467,7 @@ define hidden noundef zeroext i1 @_ZN17expr_substitution4findEP4exprRS1_RP3app(p
   br i1 %.not27.old.i.i.i, label %_ZNK7obj_mapI4exprP3appE4findEPS0_RS2_.exit, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %38, %35
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %38 ], [ %37, %35 ]
+  %.137.i.i.i.be = phi ptr [ %37, %35 ], [ %.old.i.i.i, %38 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !132
 
 .loopexit:                                        ; preds = %19, %30
@@ -1551,7 +1551,7 @@ define hidden noundef zeroext i1 @_ZN17expr_substitution4findEP4exprRS1_RP3app(p
   br i1 %.not27.old.i.i.i18, label %_ZNK7obj_mapI4exprP3appE4findEPS0_RS2_.exit, label %.lr.ph38.i.i.i14.backedge
 
 .lr.ph38.i.i.i14.backedge:                        ; preds = %77, %74
-  %.137.i.i.i15.be = phi ptr [ %.old.i.i.i17, %77 ], [ %76, %74 ]
+  %.137.i.i.i15.be = phi ptr [ %76, %74 ], [ %.old.i.i.i17, %77 ]
   br label %.lr.ph38.i.i.i14, !llvm.loop !126
 
 _ZNK7obj_mapI4exprP3appE9find_coreEPS0_.exit.i:   ; preds = %58, %69
@@ -1562,7 +1562,7 @@ _ZNK7obj_mapI4exprP3appE9find_coreEPS0_.exit.i:   ; preds = %58, %69
   br label %_ZNK7obj_mapI4exprP3appE4findEPS0_RS2_.exit
 
 _ZNK7obj_mapI4exprP3appE4findEPS0_RS2_.exit:      ; preds = %24, %38, %35, %63, %77, %74, %.preheader.i.i.i, %_ZNK7obj_mapI4exprP3appE9find_coreEPS0_.exit.i, %.preheader.i.i.i12, %.loopexit
-  %80 = phi i1 [ true, %_ZNK7obj_mapI4exprP3appE9find_coreEPS0_.exit.i ], [ true, %.loopexit ], [ true, %.preheader.i.i.i12 ], [ false, %.preheader.i.i.i ], [ false, %38 ], [ true, %77 ], [ true, %63 ], [ true, %74 ], [ false, %35 ], [ false, %24 ]
+  %80 = phi i1 [ true, %_ZNK7obj_mapI4exprP3appE9find_coreEPS0_.exit.i ], [ true, %.loopexit ], [ true, %.preheader.i.i.i12 ], [ true, %77 ], [ false, %38 ], [ true, %63 ], [ false, %.preheader.i.i.i ], [ true, %74 ], [ false, %35 ], [ false, %24 ]
   ret i1 %80
 }
 
@@ -1638,7 +1638,7 @@ define hidden noundef zeroext i1 @_ZN17expr_substitution4findEP4exprRS1_RP3appRP
   br i1 %.not27.old.i.i.i, label %_ZNK7obj_mapI4exprPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyEE4findEPS0_RS6_.exit, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %39, %36
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %39 ], [ %38, %36 ]
+  %.137.i.i.i.be = phi ptr [ %38, %36 ], [ %.old.i.i.i, %39 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !132
 
 .loopexit:                                        ; preds = %20, %31
@@ -1722,7 +1722,7 @@ define hidden noundef zeroext i1 @_ZN17expr_substitution4findEP4exprRS1_RP3appRP
   br i1 %.not27.old.i.i.i20, label %_ZNK7obj_mapI4exprP3appE4findEPS0_RS2_.exit, label %.lr.ph38.i.i.i16.backedge
 
 .lr.ph38.i.i.i16.backedge:                        ; preds = %78, %75
-  %.137.i.i.i17.be = phi ptr [ %.old.i.i.i19, %78 ], [ %77, %75 ]
+  %.137.i.i.i17.be = phi ptr [ %77, %75 ], [ %.old.i.i.i19, %78 ]
   br label %.lr.ph38.i.i.i16, !llvm.loop !126
 
 _ZNK7obj_mapI4exprP3appE9find_coreEPS0_.exit.i:   ; preds = %59, %70
@@ -1734,7 +1734,7 @@ _ZNK7obj_mapI4exprP3appE9find_coreEPS0_.exit.i:   ; preds = %59, %70
   br label %_ZNK7obj_mapI4exprP3appE4findEPS0_RS2_.exit
 
 _ZNK7obj_mapI4exprP3appE4findEPS0_RS2_.exit:      ; preds = %64, %78, %75, %_ZNK7obj_mapI4exprP3appE9find_coreEPS0_.exit.i, %.preheader.i.i.i14, %.loopexit
-  %81 = phi i8 [ %43, %.loopexit ], [ %.pre, %_ZNK7obj_mapI4exprP3appE9find_coreEPS0_.exit.i ], [ %43, %.preheader.i.i.i14 ], [ %43, %78 ], [ %43, %75 ], [ %43, %64 ]
+  %81 = phi i8 [ %43, %78 ], [ %43, %.loopexit ], [ %.pre, %_ZNK7obj_mapI4exprP3appE9find_coreEPS0_.exit.i ], [ %43, %.preheader.i.i.i14 ], [ %43, %75 ], [ %43, %64 ]
   %82 = and i8 %81, 1
   %.not44 = icmp eq i8 %82, 0
   br i1 %.not44, label %_ZNK7obj_mapI4exprPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyEE4findEPS0_RS6_.exit, label %83
@@ -1809,7 +1809,7 @@ _ZNK7obj_mapI4exprP3appE4findEPS0_RS2_.exit:      ; preds = %64, %78, %75, %_ZNK
   br i1 %.not27.old.i.i.i38, label %_ZNK7obj_mapI4exprPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyEE4findEPS0_RS6_.exit, label %.lr.ph38.i.i.i34.backedge
 
 .lr.ph38.i.i.i34.backedge:                        ; preds = %116, %113
-  %.137.i.i.i35.be = phi ptr [ %.old.i.i.i37, %116 ], [ %115, %113 ]
+  %.137.i.i.i35.be = phi ptr [ %115, %113 ], [ %.old.i.i.i37, %116 ]
   br label %.lr.ph38.i.i.i34, !llvm.loop !130
 
 _ZNK7obj_mapI4exprPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyEE9find_coreEPS0_.exit.i: ; preds = %97, %108
@@ -1820,7 +1820,7 @@ _ZNK7obj_mapI4exprPN18dependency_managerIN11ast_manager22expr_dependency_configE
   br label %_ZNK7obj_mapI4exprPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyEE4findEPS0_RS6_.exit
 
 _ZNK7obj_mapI4exprPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyEE4findEPS0_RS6_.exit: ; preds = %25, %39, %36, %102, %116, %113, %.preheader.i.i.i, %_ZNK7obj_mapI4exprPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyEE9find_coreEPS0_.exit.i, %.preheader.i.i.i32, %_ZNK7obj_mapI4exprP3appE4findEPS0_RS2_.exit
-  %119 = phi i1 [ true, %_ZNK7obj_mapI4exprPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyEE9find_coreEPS0_.exit.i ], [ true, %_ZNK7obj_mapI4exprP3appE4findEPS0_RS2_.exit ], [ true, %.preheader.i.i.i32 ], [ false, %.preheader.i.i.i ], [ false, %39 ], [ true, %116 ], [ true, %102 ], [ true, %113 ], [ false, %36 ], [ false, %25 ]
+  %119 = phi i1 [ true, %_ZNK7obj_mapI4exprPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyEE9find_coreEPS0_.exit.i ], [ true, %_ZNK7obj_mapI4exprP3appE4findEPS0_RS2_.exit ], [ true, %.preheader.i.i.i32 ], [ true, %116 ], [ false, %39 ], [ true, %102 ], [ false, %.preheader.i.i.i ], [ true, %113 ], [ false, %36 ], [ false, %25 ]
   ret i1 %119
 }
 
@@ -1896,7 +1896,7 @@ define hidden noundef zeroext i1 @_ZN17expr_substitution8containsEP4expr(ptr nou
   br i1 %.not27.old.i.i.i, label %_ZNK7obj_mapI4exprPS0_E8containsES1_.exit, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %35, %32
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %35 ], [ %34, %32 ]
+  %.137.i.i.i.be = phi ptr [ %34, %32 ], [ %.old.i.i.i, %35 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !132
 
 _ZNK7obj_mapI4exprPS0_E8containsES1_.exit:        ; preds = %16, %21, %27, %32, %35, %.preheader.i.i.i
@@ -3600,7 +3600,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI4exprP3appE13obj_
   br i1 %.not32.old, label %.loopexit, label %.lr.ph48.backedge
 
 .lr.ph48.backedge:                                ; preds = %36, %33
-  %.247.be = phi ptr [ %.old, %36 ], [ %35, %33 ]
+  %.247.be = phi ptr [ %35, %33 ], [ %.old, %36 ]
   br label %.lr.ph48, !llvm.loop !175
 
 .loopexit38:                                      ; preds = %17, %28
@@ -3829,7 +3829,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI4exprPN18dependen
   br i1 %.not32.old, label %.loopexit, label %.lr.ph48.backedge
 
 .lr.ph48.backedge:                                ; preds = %36, %33
-  %.247.be = phi ptr [ %.old, %36 ], [ %35, %33 ]
+  %.247.be = phi ptr [ %35, %33 ], [ %.old, %36 ]
   br label %.lr.ph48, !llvm.loop !177
 
 .loopexit38:                                      ; preds = %17, %28
@@ -4056,7 +4056,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI4exprPS1_E13obj_m
   br i1 %.not32.old, label %.loopexit, label %.lr.ph48.backedge
 
 .lr.ph48.backedge:                                ; preds = %36, %33
-  %.247.be = phi ptr [ %.old, %36 ], [ %35, %33 ]
+  %.247.be = phi ptr [ %35, %33 ], [ %.old, %36 ]
   br label %.lr.ph48, !llvm.loop !179
 
 .loopexit38:                                      ; preds = %17, %28

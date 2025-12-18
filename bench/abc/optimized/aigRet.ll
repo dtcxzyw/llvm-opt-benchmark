@@ -2901,8 +2901,8 @@ Abc_Clock.exit:                                   ; preds = %4, %13
   br i1 %100, label %.critedge2.i, label %Rtm_ManMarkAutoFwd.exit, !llvm.loop !60
 
 Rtm_ManMarkAutoFwd.exit:                          ; preds = %.critedge.i, %.critedge2.i, %.critedge2.preheader.i, %.critedge.preheader.i
-  %.val149269328 = phi i32 [ %.val26.i, %.critedge.preheader.i ], [ %.val39.i, %.critedge2.preheader.i ], [ %.val.i164, %.critedge2.i ], [ %.val.i, %.critedge.i ]
-  %.0125 = phi i32 [ 0, %.critedge.preheader.i ], [ 0, %.critedge2.preheader.i ], [ %98, %.critedge2.i ], [ %61, %.critedge.i ]
+  %.val149269328 = phi i32 [ %.val.i164, %.critedge2.i ], [ %.val26.i, %.critedge.preheader.i ], [ %.val39.i, %.critedge2.preheader.i ], [ %.val.i, %.critedge.i ]
+  %.0125 = phi i32 [ %98, %.critedge2.i ], [ 0, %.critedge.preheader.i ], [ 0, %.critedge2.preheader.i ], [ %61, %.critedge.i ]
   %.not135 = icmp eq i32 %3, 0
   br i1 %.not135, label %115, label %101
 
@@ -3582,8 +3582,8 @@ Rtm_ObjCheckRetimeFwd.exit:                       ; preds = %.lr.ph.i180, %Rtm_O
   br i1 %421, label %.lr.ph290.split, label %.critedge8, !llvm.loop !96
 
 .critedge8:                                       ; preds = %.critedge10.loopexit259, %.critedge10.loopexit.us, %137, %189, %.critedge4
-  %.lcssa285 = phi i32 [ %.promoted, %.critedge4 ], [ 0, %189 ], [ 0, %137 ], [ %332, %.critedge10.loopexit.us ], [ %419, %.critedge10.loopexit259 ]
-  %.0.lcssa = phi i32 [ 0, %.critedge4 ], [ 0, %189 ], [ 0, %137 ], [ %.3.lcssa.us, %.critedge10.loopexit.us ], [ %.1.lcssa, %.critedge10.loopexit259 ]
+  %.lcssa285 = phi i32 [ %.promoted, %.critedge4 ], [ %332, %.critedge10.loopexit.us ], [ 0, %137 ], [ 0, %189 ], [ %419, %.critedge10.loopexit259 ]
+  %.0.lcssa = phi i32 [ 0, %.critedge4 ], [ %.3.lcssa.us, %.critedge10.loopexit.us ], [ 0, %137 ], [ 0, %189 ], [ %.1.lcssa, %.critedge10.loopexit259 ]
   br i1 %.not135, label %456, label %422
 
 422:                                              ; preds = %.critedge8

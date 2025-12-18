@@ -95,9 +95,9 @@ define noundef zeroext i1 @_ZN5ZXing15DetectWhiteRectERKNS_9BitMatrixEiiiRNS_11R
   br i1 %37, label %.lr.ph.split.us.split, label %.critedge.preheader, !llvm.loop !15
 
 .critedge.preheader:                              ; preds = %.loopexit527, %.lr.ph.split.us.split, %.lr.ph.split.us.split.us, %.preheader
-  %.1190.lcssa = phi i32 [ %.0189403, %.preheader ], [ %spec.select264.us.us, %.lr.ph.split.us.split.us ], [ %spec.select264.us, %.lr.ph.split.us.split ], [ %spec.select264, %.loopexit527 ]
-  %.1178.lcssa = phi i8 [ 0, %.preheader ], [ 0, %.lr.ph.split.us.split.us ], [ 0, %.lr.ph.split.us.split ], [ %51, %.loopexit527 ]
-  %.1173.lcssa = phi i1 [ %.0172407, %.preheader ], [ true, %.lr.ph.split.us.split.us ], [ false, %.lr.ph.split.us.split ], [ %52, %.loopexit527 ]
+  %.1190.lcssa = phi i32 [ %.0189403, %.preheader ], [ %spec.select264.us, %.lr.ph.split.us.split ], [ %spec.select264.us.us, %.lr.ph.split.us.split.us ], [ %spec.select264, %.loopexit527 ]
+  %.1178.lcssa = phi i8 [ 0, %.preheader ], [ 0, %.lr.ph.split.us.split ], [ 0, %.lr.ph.split.us.split.us ], [ %51, %.loopexit527 ]
+  %.1173.lcssa = phi i1 [ %.0172407, %.preheader ], [ false, %.lr.ph.split.us.split ], [ true, %.lr.ph.split.us.split.us ], [ %52, %.loopexit527 ]
   %38 = icmp slt i32 %.0183405, %.fr
   br i1 %38, label %.lr.ph382, label %.critedge8.preheader
 

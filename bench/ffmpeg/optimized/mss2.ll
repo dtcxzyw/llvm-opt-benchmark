@@ -1663,7 +1663,7 @@ bytestream2_init.exit385:                         ; preds = %750
   br label %decode_pal_v2.exit.thread
 
 decode_pal_v2.exit.thread:                        ; preds = %317, %821, %811, %813, %488, %493, %860, %778, %bytestream2_init.exit385, %750, %calc_split_position.exit, %.loopexit481, %723, %725, %663, %641, %619, %612, %bytestream2_init.exit383, %567, %.thread444.thread, %538, %517, %._crit_edge, %179, %align_get_bits.exit, %159, %163, %4, %864, %563, %411, %347
-  %.0292 = phi i32 [ -1094995529, %._crit_edge ], [ -1094995529, %4 ], [ -1094995529, %159 ], [ -1094995529, %align_get_bits.exit ], [ -1094995529, %179 ], [ -1094995529, %347 ], [ -1094995529, %411 ], [ -1094995529, %488 ], [ -1094995529, %517 ], [ %569, %567 ], [ %862, %860 ], [ -1094995529, %778 ], [ %865, %864 ], [ -1094995529, %bytestream2_init.exit383 ], [ -1094995529, %612 ], [ %632, %619 ], [ %649, %641 ], [ -1094995529, %663 ], [ -1094995529, %.loopexit481 ], [ -1094995529, %calc_split_position.exit ], [ -1094995529, %750 ], [ -1094995529, %bytestream2_init.exit385 ], [ -1094995529, %563 ], [ %543, %538 ], [ %565, %.thread444.thread ], [ -1094995529, %163 ], [ -1094995529, %725 ], [ -1094995529, %723 ], [ -1094995529, %493 ], [ %824, %821 ], [ -1094995529, %813 ], [ -1094995529, %811 ], [ -1094995529, %317 ]
+  %.0292 = phi i32 [ -1094995529, %._crit_edge ], [ -1094995529, %4 ], [ -1094995529, %159 ], [ -1094995529, %align_get_bits.exit ], [ -1094995529, %179 ], [ -1094995529, %347 ], [ -1094995529, %411 ], [ -1094995529, %493 ], [ -1094995529, %488 ], [ -1094995529, %517 ], [ %569, %567 ], [ %862, %860 ], [ -1094995529, %778 ], [ %865, %864 ], [ -1094995529, %bytestream2_init.exit383 ], [ -1094995529, %612 ], [ %632, %619 ], [ %649, %641 ], [ -1094995529, %663 ], [ -1094995529, %.loopexit481 ], [ -1094995529, %calc_split_position.exit ], [ -1094995529, %750 ], [ -1094995529, %bytestream2_init.exit385 ], [ -1094995529, %563 ], [ %543, %538 ], [ %565, %.thread444.thread ], [ -1094995529, %163 ], [ -1094995529, %811 ], [ -1094995529, %725 ], [ -1094995529, %723 ], [ -1094995529, %813 ], [ %824, %821 ], [ -1094995529, %317 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -2282,7 +2282,7 @@ bytestream2_get_byte.exit146:                     ; preds = %119, %120
   br i1 %.not124, label %.critedge, label %82, !llvm.loop !155
 
 .critedge:                                        ; preds = %150, %.critedge.critedge, %bytestream2_get_byte.exit140
-  %.2 = phi i32 [ -1094995529, %bytestream2_get_byte.exit140 ], [ -1094995529, %.critedge.critedge ], [ 0, %150 ]
+  %.2 = phi i32 [ -1094995529, %.critedge.critedge ], [ -1094995529, %bytestream2_get_byte.exit140 ], [ 0, %150 ]
   ret i32 %.2
 }
 
@@ -2822,7 +2822,7 @@ get_vlc2.exit:                                    ; preds = %193, %214, %235
   br label %.critedge
 
 .critedge:                                        ; preds = %._crit_edge, %125, %16, %180, %178, %331
-  %.1 = phi i32 [ -1094995529, %16 ], [ -1094995529, %178 ], [ 0, %331 ], [ %181, %180 ], [ -1094995529, %125 ], [ -1094995529, %._crit_edge ]
+  %.1 = phi i32 [ %181, %180 ], [ -1094995529, %16 ], [ -1094995529, %125 ], [ -1094995529, %178 ], [ 0, %331 ], [ -1094995529, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)

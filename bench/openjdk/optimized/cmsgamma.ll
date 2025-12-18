@@ -2080,7 +2080,7 @@ _cmsQuickSaturateWord.exit:                       ; preds = %.lr.ph148, %318, %3
   br label %.critedge117
 
 .critedge117:                                     ; preds = %.critedge115, %.critedge116, %310, %329
-  %.3 = phi i32 [ %.mux, %.critedge115 ], [ 1, %.critedge116 ], [ 0, %329 ], [ 0, %310 ]
+  %.3 = phi i32 [ 0, %310 ], [ %.mux, %.critedge115 ], [ 1, %.critedge116 ], [ 0, %329 ]
   br i1 %36, label %.critedge117.thread, label %330
 
 .critedge117.thread:                              ; preds = %_cmsQuickSaturateWord.exit, %328, %305, %.critedge117

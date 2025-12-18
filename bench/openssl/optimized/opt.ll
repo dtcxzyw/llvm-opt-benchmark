@@ -2047,8 +2047,8 @@ sub_057:                                          ; preds = %sub_057.lr.ph.split
   br i1 %.not47, label %.split.us, label %121
 
 .split.us:                                        ; preds = %sub_057.us, %sub_057, %45, %sub_057.us65
-  %.us-phi = phi ptr [ %.063, %sub_057 ], [ %.063.us66, %45 ], [ %.063.us66, %sub_057.us65 ], [ %.063.us, %sub_057.us ]
-  %.us-phi64 = phi ptr [ %50, %sub_057 ], [ %42, %45 ], [ %42, %sub_057.us65 ], [ %34, %sub_057.us ]
+  %.us-phi = phi ptr [ %.063.us66, %45 ], [ %.063, %sub_057 ], [ %.063.us66, %sub_057.us65 ], [ %.063.us, %sub_057.us ]
+  %.us-phi64 = phi ptr [ %42, %45 ], [ %50, %sub_057 ], [ %42, %sub_057.us65 ], [ %34, %sub_057.us ]
   %52 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 12
   %53 = load i32, ptr %52, align 4, !tbaa !20
   %54 = icmp eq ptr %30, null
@@ -2189,7 +2189,7 @@ switch.edge:                                      ; preds = %71
   br label %111
 
 111:                                              ; preds = %71, %switch.edge, %.fold.split55, %.fold.split, %110
-  %112 = phi i64 [ 38, %71 ], [ 4094, %110 ], [ 70, %.fold.split ], [ 6, %.fold.split55 ], [ 14, %switch.edge ]
+  %112 = phi i64 [ 38, %71 ], [ 70, %.fold.split ], [ 4094, %110 ], [ 6, %.fold.split55 ], [ 14, %switch.edge ]
   %113 = call i32 @opt_format(ptr noundef nonnull %72, i64 noundef %112, ptr noundef nonnull %2)
   %.not53 = icmp eq i32 %113, 0
   br i1 %.not53, label %114, label %118

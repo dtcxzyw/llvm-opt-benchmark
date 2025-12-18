@@ -7223,8 +7223,8 @@ _ZN4cvc58internal8RationalD2Ev.exit256:           ; preds = %724, %722
   br i1 %775, label %.body199, label %772
 
 .body199:                                         ; preds = %772, %768, %.body.i196
-  %.pn97.pn = phi { ptr, i32 } [ %769, %768 ], [ %.pn5.i.i197, %.body.i196 ], [ %.pn97, %772 ]
-  %.18 = phi i1 [ true, %768 ], [ true, %.body.i196 ], [ false, %772 ]
+  %.pn97.pn = phi { ptr, i32 } [ %.pn5.i.i197, %.body.i196 ], [ %769, %768 ], [ %.pn97, %772 ]
+  %.18 = phi i1 [ true, %.body.i196 ], [ true, %768 ], [ false, %772 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %71) #20
   br label %.body193
 
@@ -7340,17 +7340,17 @@ _ZN4cvc58internal8RationalD2Ev.exit257:           ; preds = %776, %752
   call void @llvm.lifetime.end.p0(ptr nonnull %63)
   br label %.loopexit325
 
-.preheader324.preheader:                          ; preds = %274, %746
-  %.pn97.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph = phi { ptr, i32 } [ %747, %746 ], [ %.pn5.i157, %274 ]
+.preheader324.preheader:                          ; preds = %746, %274
+  %.pn97.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph = phi { ptr, i32 } [ %.pn5.i157, %274 ], [ %747, %746 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %63) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %63)
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %62) #20
   br label %.loopexit325
 
 .loopexit325:                                     ; preds = %.body149, %.preheader324.preheader, %.body149.thread306, %.body149.thread
-  %.4304 = phi i1 [ false, %.body149.thread ], [ %.7, %.body149 ], [ false, %.body149.thread306 ], [ false, %.preheader324.preheader ]
-  %.pn97.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn303 = phi { ptr, i32 } [ %.pn97.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %.body149.thread ], [ %.pn97.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body149 ], [ %.pn97.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %.body149.thread306 ], [ %.pn97.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %.preheader324.preheader ]
-  %.482302 = phi ptr [ %226, %.body149.thread ], [ %.785, %.body149 ], [ %226, %.body149.thread306 ], [ %226, %.preheader324.preheader ]
+  %.4304 = phi i1 [ false, %.body149.thread ], [ false, %.body149.thread306 ], [ %.7, %.body149 ], [ false, %.preheader324.preheader ]
+  %.pn97.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn303 = phi { ptr, i32 } [ %.pn97.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %.body149.thread ], [ %.pn97.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %.body149.thread306 ], [ %.pn97.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body149 ], [ %.pn97.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %.preheader324.preheader ]
+  %.482302 = phi ptr [ %226, %.body149.thread ], [ %226, %.body149.thread306 ], [ %.785, %.body149 ], [ %226, %.preheader324.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %62)
   call void @llvm.lifetime.end.p0(ptr nonnull %61)
   call void @llvm.lifetime.end.p0(ptr nonnull %60)
@@ -7362,9 +7362,9 @@ _ZN4cvc58internal8RationalD2Ev.exit257:           ; preds = %776, %752
   br label %.loopexit.sink.split
 
 .body130:                                         ; preds = %.loopexit325, %224, %740, %738, %212
-  %.179 = phi ptr [ %197, %738 ], [ %197, %212 ], [ %.482302, %.loopexit325 ], [ %214, %224 ], [ %214, %740 ]
-  %.pn97.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %739, %738 ], [ %.pn5.i137, %212 ], [ %.pn97.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn303, %.loopexit325 ], [ %.pn.i142, %224 ], [ %741, %740 ]
-  %.1 = phi i1 [ false, %738 ], [ false, %212 ], [ %.4304, %.loopexit325 ], [ false, %224 ], [ false, %740 ]
+  %.179 = phi ptr [ %214, %740 ], [ %214, %224 ], [ %197, %738 ], [ %197, %212 ], [ %.482302, %.loopexit325 ]
+  %.pn97.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %741, %740 ], [ %.pn.i142, %224 ], [ %739, %738 ], [ %.pn5.i137, %212 ], [ %.pn97.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn303, %.loopexit325 ]
+  %.1 = phi i1 [ false, %740 ], [ false, %224 ], [ false, %738 ], [ false, %212 ], [ %.4304, %.loopexit325 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %59) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %59)
   %786 = icmp eq ptr %58, %.179
@@ -18547,7 +18547,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit762: ; preds = %1927, %1933, %1939
   br i1 %1943, label %.loopexit, label %1927
 
 .loopexit:                                        ; preds = %.preheader975, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit762, %.body271
-  %.pn149.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %532, %.body271 ], [ %.pn149.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit762 ], [ %532, %.preheader975 ]
+  %.pn149.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn149.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit762 ], [ %532, %.body271 ], [ %532, %.preheader975 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %44)
   br label %1944
 
@@ -25638,7 +25638,7 @@ define linkonce_odr hidden void @_ZNK4cvc58internal12NodeTemplateILb1EE10substit
   br label %.loopexit, !llvm.loop !526
 
 .loopexit54:                                      ; preds = %87, %66, %77
-  %.sroa.06.1.i.i = phi ptr [ %78, %77 ], [ %.sroa.06.0.i.i, %66 ], [ %93, %87 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %66 ], [ %78, %77 ], [ %93, %87 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %98 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %99 = load ptr, ptr %98, align 8, !tbaa !52
@@ -26354,7 +26354,7 @@ _ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS3_S3_ESaIS6_ENSt
   resume { ptr, i32 } %36
 
 _ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit: ; preds = %22, %.loopexit, %12
-  %.pn = phi ptr [ %13, %12 ], [ %34, %.loopexit ], [ %28, %22 ]
+  %.pn = phi ptr [ %34, %.loopexit ], [ %13, %12 ], [ %28, %22 ]
   %.1 = getelementptr inbounds nuw i8, ptr %.pn, i64 16
   ret ptr %.1
 }

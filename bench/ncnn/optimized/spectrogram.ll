@@ -257,7 +257,7 @@ define hidden noundef i32 @_ZN4ncnn11Spectrogram10load_paramERKNS_9ParamDictE(pt
   br i1 %exitcond82.not, label %.loopexit, label %61, !llvm.loop !47
 
 .loopexit:                                        ; preds = %61, %48, %.lr.ph55, %.loopexit43
-  %.5 = phi ptr [ %.038.lcssa, %.loopexit43 ], [ %56, %48 ], [ %43, %.lr.ph55 ], [ %69, %61 ]
+  %.5 = phi ptr [ %.038.lcssa, %.loopexit43 ], [ %43, %.lr.ph55 ], [ %56, %48 ], [ %69, %61 ]
   %.neg = sdiv i32 %33, -2
   %71 = add i32 %.neg, %33
   %72 = icmp sgt i32 %71, 0

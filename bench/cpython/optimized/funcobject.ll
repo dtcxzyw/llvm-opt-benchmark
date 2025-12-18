@@ -1687,7 +1687,7 @@ Py_XDECREF.exit:                                  ; preds = %Py_DECREF.exit71, %
   br label %handle_func_event.exit
 
 handle_func_event.exit:                           ; preds = %103, %143, %140, %138, %Py_XDECREF.exit, %67
-  %.0 = phi ptr [ %48, %67 ], [ null, %Py_XDECREF.exit ], [ null, %138 ], [ null, %140 ], [ null, %143 ], [ %48, %103 ]
+  %.0 = phi ptr [ null, %143 ], [ %48, %67 ], [ null, %Py_XDECREF.exit ], [ null, %138 ], [ null, %140 ], [ %48, %103 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }

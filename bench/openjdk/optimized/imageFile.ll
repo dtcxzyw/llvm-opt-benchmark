@@ -1687,7 +1687,7 @@ _ZN12ImageStrings11starts_withEPKcS1_.exit64.thread: ; preds = %.lr.ph.i57, %74,
   br label %_ZN12ImageStrings11starts_withEPKcS1_.exit
 
 _ZN12ImageStrings11starts_withEPKcS1_.exit:       ; preds = %26, %25, %43, %.lr.ph.i39.preheader, %56, %73, %38, %21, %67, %46, %30, %19, %_ZN12ImageStrings11starts_withEPKcS1_.exit64.thread
-  %.0 = phi i1 [ false, %19 ], [ %79, %_ZN12ImageStrings11starts_withEPKcS1_.exit64.thread ], [ false, %67 ], [ false, %46 ], [ false, %30 ], [ false, %21 ], [ false, %38 ], [ false, %43 ], [ false, %73 ], [ false, %56 ], [ false, %.lr.ph.i39.preheader ], [ false, %25 ], [ false, %26 ]
+  %.0 = phi i1 [ false, %19 ], [ false, %73 ], [ false, %56 ], [ false, %43 ], [ %79, %_ZN12ImageStrings11starts_withEPKcS1_.exit64.thread ], [ false, %67 ], [ false, %46 ], [ false, %30 ], [ false, %21 ], [ false, %38 ], [ false, %.lr.ph.i39.preheader ], [ false, %25 ], [ false, %26 ]
   ret i1 %.0
 }
 

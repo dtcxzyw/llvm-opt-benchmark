@@ -998,7 +998,7 @@ define internal fastcc void @unpack_alpha(ptr noundef captures(none) %0, ptr nou
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit100, %.loopexit.loopexit99, %.loopexit.loopexit98, %.loopexit.loopexit, %.preheader84, %.preheader
-  %.7 = phi i32 [ %.273.lcssa, %.preheader ], [ %.273.lcssa, %.preheader84 ], [ %142, %.loopexit.loopexit ], [ %143, %.loopexit.loopexit98 ], [ %144, %.loopexit.loopexit99 ], [ %145, %.loopexit.loopexit100 ]
+  %.7 = phi i32 [ %142, %.loopexit.loopexit ], [ %.273.lcssa, %.preheader ], [ %144, %.loopexit.loopexit99 ], [ %.273.lcssa, %.preheader84 ], [ %143, %.loopexit.loopexit98 ], [ %145, %.loopexit.loopexit100 ]
   %146 = icmp slt i32 %.7, %2
   br i1 %146, label %18, label %147, !llvm.loop !86
 
@@ -1280,8 +1280,8 @@ define internal range(i32 -1094995529, 1) i32 @decode_slice_thread(ptr noundef %
   br label %172
 
 172:                                              ; preds = %169, %164
-  %.0138.i.i = phi i32 [ %168, %164 ], [ 6, %169 ]
-  %.0129.i.i = phi i32 [ %167, %164 ], [ %171, %169 ]
+  %.0138.i.i = phi i32 [ 6, %169 ], [ %168, %164 ]
+  %.0129.i.i = phi i32 [ %171, %169 ], [ %167, %164 ]
   %173 = lshr i32 %.0129.i.i, 1
   %174 = and i32 %.0129.i.i, 1
   %175 = sub nsw i32 0, %174
@@ -1612,9 +1612,9 @@ decode_dc_coeffs.exit.i:                          ; preds = %230, %172
   br label %382
 
 382:                                              ; preds = %377, %373, %363
-  %.1171.i.i = phi i32 [ %370, %363 ], [ %379, %377 ], [ %375, %373 ]
-  %.3169.i.i = phi i32 [ %372, %363 ], [ %381, %377 ], [ %.203.i.i, %373 ]
-  %.1164.i.i = phi i32 [ %369, %363 ], [ %378, %377 ], [ %356, %373 ]
+  %.1171.i.i = phi i32 [ %379, %377 ], [ %370, %363 ], [ %375, %373 ]
+  %.3169.i.i = phi i32 [ %381, %377 ], [ %372, %363 ], [ %.203.i.i, %373 ]
+  %.1164.i.i = phi i32 [ %378, %377 ], [ %369, %363 ], [ %356, %373 ]
   %383 = add i32 %.1164.i.i, 1
   %384 = lshr i32 %326, %249
   %385 = ashr i32 %.1171.i.i, 31
@@ -1924,8 +1924,8 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_slice_chroma(ptr no
   br label %48
 
 48:                                               ; preds = %45, %40
-  %.0138.i = phi i32 [ %44, %40 ], [ 6, %45 ]
-  %.0129.i = phi i32 [ %43, %40 ], [ %47, %45 ]
+  %.0138.i = phi i32 [ 6, %45 ], [ %44, %40 ]
+  %.0129.i = phi i32 [ %47, %45 ], [ %43, %40 ]
   %49 = lshr i32 %.0129.i, 1
   %50 = and i32 %.0129.i, 1
   %51 = sub nsw i32 0, %50
@@ -2256,9 +2256,9 @@ decode_dc_coeffs.exit:                            ; preds = %106, %48
   br label %258
 
 258:                                              ; preds = %249, %253, %239
-  %.1171.i = phi i32 [ %246, %239 ], [ %255, %253 ], [ %251, %249 ]
-  %.3169.i = phi i32 [ %248, %239 ], [ %257, %253 ], [ %.203.i, %249 ]
-  %.1164.i = phi i32 [ %245, %239 ], [ %254, %253 ], [ %232, %249 ]
+  %.1171.i = phi i32 [ %255, %253 ], [ %246, %239 ], [ %251, %249 ]
+  %.3169.i = phi i32 [ %257, %253 ], [ %248, %239 ], [ %.203.i, %249 ]
+  %.1164.i = phi i32 [ %254, %253 ], [ %245, %239 ], [ %232, %249 ]
   %259 = add i32 %.1164.i, 1
   %260 = lshr i32 %202, %125
   %261 = ashr i32 %.1171.i, 31
@@ -2324,7 +2324,7 @@ decode_ac_coeffs.exit:                            ; preds = %145, %258, %decode_
   br i1 %296, label %.preheader, label %decode_dc_coeffs.exit.thread, !llvm.loop !102
 
 decode_dc_coeffs.exit.thread:                     ; preds = %84, %178, %234, %293, %decode_ac_coeffs.exit, %203, %36
-  %.0 = phi i32 [ -1094995529, %36 ], [ -1094995529, %203 ], [ 0, %decode_ac_coeffs.exit ], [ -1094995529, %178 ], [ 0, %293 ], [ -1094995529, %234 ], [ -1094995529, %84 ]
+  %.0 = phi i32 [ 0, %decode_ac_coeffs.exit ], [ -1094995529, %178 ], [ -1094995529, %36 ], [ -1094995529, %203 ], [ 0, %293 ], [ -1094995529, %234 ], [ -1094995529, %84 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
 }

@@ -223,7 +223,7 @@ define noundef i32 @_ZNK5nblib17ParticleSequencerclERKNS_10StrongTypeINSt7__cxx1
   unreachable
 
 .loopexit:                                        ; preds = %62, %44, %57
-  %.sroa.06.1.i.i.i = phi ptr [ %58, %57 ], [ %.sroa.06.0.i.i.i, %44 ], [ %64, %62 ]
+  %.sroa.06.1.i.i.i = phi ptr [ %.sroa.06.0.i.i.i, %44 ], [ %58, %57 ], [ %64, %62 ]
   %70 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.experimental.noalias.scope.decl(metadata !36)

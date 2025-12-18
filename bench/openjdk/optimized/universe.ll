@@ -2673,7 +2673,7 @@ _ZNK6HandleclEv.exit:                             ; preds = %.lr.ph
   br label %.split.us, !llvm.loop !18
 
 .split.us:                                        ; preds = %_ZNK6HandleclEv.exit, %_ZNK6HandleclEv.exit.us, %_ZN8Universe20out_of_memory_errorsEv.exit.split, %..split_crit_edge, %_ZN8Universe20out_of_memory_errorsEv.exit.split.us, %..split.us_crit_edge
-  %.us-phi = phi i1 [ true, %..split.us_crit_edge ], [ false, %_ZN8Universe20out_of_memory_errorsEv.exit.split.us ], [ true, %..split_crit_edge ], [ false, %_ZN8Universe20out_of_memory_errorsEv.exit.split ], [ false, %_ZNK6HandleclEv.exit.us ], [ false, %_ZNK6HandleclEv.exit ]
+  %.us-phi = phi i1 [ false, %_ZNK6HandleclEv.exit.us ], [ true, %..split.us_crit_edge ], [ false, %_ZN8Universe20out_of_memory_errorsEv.exit.split.us ], [ true, %..split_crit_edge ], [ false, %_ZN8Universe20out_of_memory_errorsEv.exit.split ], [ false, %_ZNK6HandleclEv.exit ]
   ret i1 %.us-phi
 }
 

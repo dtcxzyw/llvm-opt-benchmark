@@ -1414,7 +1414,7 @@ tailrecurse:                                      ; preds = %6, %1
   br label %25
 
 25:                                               ; preds = %.loopexit, %14, %17, %20, %9
-  %.0 = phi ptr [ @_ZZNK25cmInstallCommandArguments12GetComponentB5cxx11EvE20unspecifiedComponentB5cxx11, %14 ], [ %10, %9 ], [ @_ZZNK25cmInstallCommandArguments12GetComponentB5cxx11EvE20unspecifiedComponentB5cxx11, %20 ], [ @_ZZNK25cmInstallCommandArguments12GetComponentB5cxx11EvE20unspecifiedComponentB5cxx11, %17 ], [ %24, %.loopexit ]
+  %.0 = phi ptr [ @_ZZNK25cmInstallCommandArguments12GetComponentB5cxx11EvE20unspecifiedComponentB5cxx11, %14 ], [ %10, %9 ], [ @_ZZNK25cmInstallCommandArguments12GetComponentB5cxx11EvE20unspecifiedComponentB5cxx11, %17 ], [ @_ZZNK25cmInstallCommandArguments12GetComponentB5cxx11EvE20unspecifiedComponentB5cxx11, %20 ], [ %24, %.loopexit ]
   ret ptr %.0
 }
 
@@ -1542,7 +1542,7 @@ tailrecurse.i:                                    ; preds = %1, %10
   br label %_ZNK25cmInstallCommandArguments12GetComponentB5cxx11Ev.exit
 
 _ZNK25cmInstallCommandArguments12GetComponentB5cxx11Ev.exit: ; preds = %.loopexit.i, %24, %21, %18, %13, %1
-  %.0 = phi ptr [ %3, %1 ], [ @_ZZNK25cmInstallCommandArguments12GetComponentB5cxx11EvE20unspecifiedComponentB5cxx11, %18 ], [ %14, %13 ], [ @_ZZNK25cmInstallCommandArguments12GetComponentB5cxx11EvE20unspecifiedComponentB5cxx11, %24 ], [ @_ZZNK25cmInstallCommandArguments12GetComponentB5cxx11EvE20unspecifiedComponentB5cxx11, %21 ], [ %28, %.loopexit.i ]
+  %.0 = phi ptr [ %3, %1 ], [ @_ZZNK25cmInstallCommandArguments12GetComponentB5cxx11EvE20unspecifiedComponentB5cxx11, %18 ], [ %14, %13 ], [ @_ZZNK25cmInstallCommandArguments12GetComponentB5cxx11EvE20unspecifiedComponentB5cxx11, %21 ], [ @_ZZNK25cmInstallCommandArguments12GetComponentB5cxx11EvE20unspecifiedComponentB5cxx11, %24 ], [ %28, %.loopexit.i ]
   ret ptr %.0
 }
 
@@ -2107,7 +2107,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i.i.i56.i.i.i.i
   br label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZN25cmInstallCommandArguments16CheckPermissionsEvE3$_0EbT_SF_T0_.exit"
 
 "_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZN25cmInstallCommandArguments16CheckPermissionsEvE3$_0EbT_SF_T0_.exit": ; preds = %.lr.ph.i.i.i.i, %32, %54, %76, %15, %37, %59, %81, %107, %130, %153, %._crit_edge.i.i.i.i, %105, %128, %151, %170
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %8, %._crit_edge.i.i.i.i ], [ %8, %170 ], [ %.sroa.061.0.lcssa.i.i.i.i, %105 ], [ %.sroa.061.1.i.i.i.i, %128 ], [ %.sroa.061.2.i.i.i.i, %151 ], [ %.sroa.061.0.lcssa.i.i.i.i, %107 ], [ %79, %81 ], [ %57, %59 ], [ %35, %37 ], [ %.sroa.061.0107.i.i.i.i, %15 ], [ %.sroa.061.2.i.i.i.i, %153 ], [ %.sroa.061.1.i.i.i.i, %130 ], [ %79, %76 ], [ %57, %54 ], [ %35, %32 ], [ %.sroa.061.0107.i.i.i.i, %.lr.ph.i.i.i.i ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %79, %81 ], [ %8, %._crit_edge.i.i.i.i ], [ %.sroa.061.2.i.i.i.i, %153 ], [ %.sroa.061.0107.i.i.i.i, %15 ], [ %.sroa.061.0.lcssa.i.i.i.i, %107 ], [ %35, %37 ], [ %57, %59 ], [ %8, %170 ], [ %.sroa.061.0.lcssa.i.i.i.i, %105 ], [ %.sroa.061.1.i.i.i.i, %128 ], [ %.sroa.061.2.i.i.i.i, %151 ], [ %.sroa.061.1.i.i.i.i, %130 ], [ %79, %76 ], [ %57, %54 ], [ %35, %32 ], [ %.sroa.061.0107.i.i.i.i, %.lr.ph.i.i.i.i ]
   %173 = icmp eq ptr %8, %.sroa.08.0.in.sroa.speculated.i.i.i.i
   ret i1 %173
 }

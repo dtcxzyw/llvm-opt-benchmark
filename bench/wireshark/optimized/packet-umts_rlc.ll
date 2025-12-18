@@ -1599,7 +1599,7 @@ define internal fastcc void @rlc_call_subdissector(i32 noundef range(i32 0, 9) %
   br label %.critedge
 
 13:                                               ; preds = %4, %4, %4, %10, %11, %4
-  %.039 = phi i32 [ %0, %4 ], [ %0, %4 ], [ %0, %4 ], [ 1, %10 ], [ 6, %11 ], [ %0, %4 ]
+  %.039 = phi i32 [ %0, %4 ], [ 1, %10 ], [ 6, %11 ], [ %0, %4 ], [ %0, %4 ], [ %0, %4 ]
   %14 = call ptr @wmem_file_scope()
   %15 = load i32, ptr @proto_fp, align 4
   %16 = call ptr @p_get_proto_data(ptr noundef %14, ptr noundef %2, i32 noundef %15, i32 noundef 0)
@@ -5534,8 +5534,8 @@ define internal fastcc void @dissect_rlc_status(ptr noundef %0, ptr noundef %1, 
   br label %.critedge
 
 .loopexit:                                        ; preds = %84, %194, %._crit_edge236, %88, %287, %.loopexit224, %253, %._crit_edge245, %43
-  %.1198 = phi i32 [ %290, %287 ], [ %50, %43 ], [ %58, %88 ], [ %.3200.lcssa, %._crit_edge245 ], [ %180, %194 ], [ %.4201.lcssa284, %._crit_edge236 ], [ %260, %253 ], [ %286, %.loopexit224 ], [ %85, %84 ]
-  %.1 = phi i16 [ %.0251323, %287 ], [ %.0251323, %43 ], [ %.0251323, %88 ], [ %.2.lcssa, %._crit_edge245 ], [ %.0251323, %194 ], [ %.0251323, %._crit_edge236 ], [ %.0251323, %253 ], [ %.0251323, %.loopexit224 ], [ %.0251323, %84 ]
+  %.1198 = phi i32 [ %290, %287 ], [ %286, %.loopexit224 ], [ %50, %43 ], [ %260, %253 ], [ %58, %88 ], [ %.3200.lcssa, %._crit_edge245 ], [ %180, %194 ], [ %.4201.lcssa284, %._crit_edge236 ], [ %85, %84 ]
+  %.1 = phi i16 [ %.0251323, %287 ], [ %.0251323, %.loopexit224 ], [ %.0251323, %43 ], [ %.0251323, %253 ], [ %.0251323, %88 ], [ %.2.lcssa, %._crit_edge245 ], [ %.0251323, %194 ], [ %.0251323, %._crit_edge236 ], [ %.0251323, %84 ]
   %293 = add i32 %.1198, 7
   %294 = sdiv i32 %293, 8
   %295 = sub nsw i32 %294, %23

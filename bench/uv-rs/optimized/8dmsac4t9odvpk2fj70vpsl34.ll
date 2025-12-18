@@ -11576,7 +11576,7 @@ _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread19: ; preds = %.lr.p
   br i1 %or.cond, label %49, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf2911acfb79bdbbdE.exit"
 
 _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread: ; preds = %.preheader.i, %_ZN4core5slice6memchr6memchr17h6928691f02359212E.exit, %41, %_ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.us, %.preheader.i.us, %28
-  %.sroa.0.0.i18 = phi i64 [ 0, %28 ], [ 0, %41 ], [ %22, %_ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.us ], [ 0, %.preheader.i.us ], [ %44, %_ZN4core5slice6memchr6memchr17h6928691f02359212E.exit ], [ 0, %.preheader.i ]
+  %.sroa.0.0.i18 = phi i64 [ 0, %41 ], [ 0, %28 ], [ %22, %_ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.us ], [ 0, %.preheader.i.us ], [ %44, %_ZN4core5slice6memchr6memchr17h6928691f02359212E.exit ], [ 0, %.preheader.i ]
   store i64 %6, ptr %4, align 8
   br label %.loopexit
 
@@ -11603,7 +11603,7 @@ _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread: ; preds = %.prehea
   br label %.loopexit
 
 .loopexit:                                        ; preds = %49, %32, %2, %_ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread, %.split.us65
-  %storemerge = phi i64 [ 1, %.split.us65 ], [ %.sroa.0.0.i18, %_ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread ], [ 0, %2 ], [ 0, %32 ], [ 0, %49 ]
+  %storemerge = phi i64 [ %.sroa.0.0.i18, %_ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread ], [ 1, %.split.us65 ], [ 0, %2 ], [ 0, %32 ], [ 0, %49 ]
   store i64 %storemerge, ptr %0, align 8
   ret void
 }
@@ -13903,7 +13903,7 @@ _ZN3std4sync6poison4once4Once9call_once17heed035821479dc8eE.exit.i: ; preds = %.
   br i1 %.not46.i.i, label %"_ZN4core3num21_$LT$impl$u20$u32$GT$16from_ascii_radix17h9db09a45631ff61cE.exit.i", label %.lr.ph.i.i
 
 "_ZN4core3num21_$LT$impl$u20$u32$GT$16from_ascii_radix17h9db09a45631ff61cE.exit.thread.i": ; preds = %275, %273, %264, %.lr.ph.i.i, %255, %255, %254
-  %.sroa.8.0.insert.insert.i.ph.i = phi i8 [ 1, %255 ], [ 0, %254 ], [ 1, %255 ], [ 1, %.lr.ph.i.i ], [ 2, %275 ], [ 2, %273 ], [ 1, %264 ]
+  %.sroa.8.0.insert.insert.i.ph.i = phi i8 [ 1, %255 ], [ 1, %255 ], [ 1, %.lr.ph.i.i ], [ 0, %254 ], [ 2, %273 ], [ 1, %264 ], [ 2, %275 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %17), !noalias !2981
   store i8 %.sroa.8.0.insert.insert.i.ph.i, ptr %17, align 1, !noalias !2981
   br label %"_ZN4core3num21_$LT$impl$u20$u32$GT$16from_ascii_radix17h9db09a45631ff61cE.exit173.thread.invoke.i"
@@ -13994,7 +13994,7 @@ _ZN3std4sync6poison4once4Once9call_once17heed035821479dc8eE.exit.i: ; preds = %.
   br i1 %.not46.i159.i, label %"_ZN4core3num21_$LT$impl$u20$u32$GT$16from_ascii_radix17h9db09a45631ff61cE.exit173.i", label %.lr.ph.i155.i
 
 "_ZN4core3num21_$LT$impl$u20$u32$GT$16from_ascii_radix17h9db09a45631ff61cE.exit173.thread.i": ; preds = %308, %306, %297, %.lr.ph.i155.i, %288, %288, %"_ZN4core3num21_$LT$impl$u20$u32$GT$16from_ascii_radix17h9db09a45631ff61cE.exit.i"
-  %.sroa.8.0.insert.insert.i151.ph.i = phi i8 [ 1, %288 ], [ 0, %"_ZN4core3num21_$LT$impl$u20$u32$GT$16from_ascii_radix17h9db09a45631ff61cE.exit.i" ], [ 1, %288 ], [ 1, %.lr.ph.i155.i ], [ 2, %308 ], [ 2, %306 ], [ 1, %297 ]
+  %.sroa.8.0.insert.insert.i151.ph.i = phi i8 [ 1, %288 ], [ 1, %288 ], [ 1, %.lr.ph.i155.i ], [ 0, %"_ZN4core3num21_$LT$impl$u20$u32$GT$16from_ascii_radix17h9db09a45631ff61cE.exit.i" ], [ 2, %306 ], [ 1, %297 ], [ 2, %308 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !2988
   store i8 %.sroa.8.0.insert.insert.i151.ph.i, ptr %16, align 1, !noalias !2988
   br label %"_ZN4core3num21_$LT$impl$u20$u32$GT$16from_ascii_radix17h9db09a45631ff61cE.exit173.thread.invoke.i"
@@ -15539,7 +15539,7 @@ _ZN3std4sync6poison4once4Once9call_once17heed035821479dc8eE.exit: ; preds = %.no
   br label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hd137984fce1eb30aE.exit"
 
 "_ZN4core3num21_$LT$impl$u20$u32$GT$16from_ascii_radix17h9db09a45631ff61cE.exit.thread": ; preds = %120, %118, %109, %.lr.ph.i, %100, %100, %97
-  %.sroa.8.0.insert.insert.i.ph = phi i8 [ 1, %100 ], [ 0, %97 ], [ 1, %100 ], [ 1, %.lr.ph.i ], [ 1, %109 ], [ 2, %118 ], [ 2, %120 ]
+  %.sroa.8.0.insert.insert.i.ph = phi i8 [ 1, %100 ], [ 1, %100 ], [ 1, %.lr.ph.i ], [ 0, %97 ], [ 1, %109 ], [ 2, %118 ], [ 2, %120 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !3163
   store i8 %.sroa.8.0.insert.insert.i.ph, ptr %8, align 1, !noalias !3163
   br label %"_ZN4core3num21_$LT$impl$u20$u32$GT$16from_ascii_radix17h9db09a45631ff61cE.exit136.thread.invoke"
@@ -15632,7 +15632,7 @@ _ZN3std4sync6poison4once4Once9call_once17heed035821479dc8eE.exit: ; preds = %.no
   br i1 %.not46.i122, label %"_ZN4core3num21_$LT$impl$u20$u32$GT$16from_ascii_radix17h9db09a45631ff61cE.exit136", label %.lr.ph.i118
 
 "_ZN4core3num21_$LT$impl$u20$u32$GT$16from_ascii_radix17h9db09a45631ff61cE.exit136.thread": ; preds = %164, %162, %153, %.lr.ph.i118, %144, %144, %"_ZN4core3num21_$LT$impl$u20$u32$GT$16from_ascii_radix17h9db09a45631ff61cE.exit"
-  %.sroa.8.0.insert.insert.i114.ph = phi i8 [ 1, %144 ], [ 0, %"_ZN4core3num21_$LT$impl$u20$u32$GT$16from_ascii_radix17h9db09a45631ff61cE.exit" ], [ 1, %144 ], [ 1, %.lr.ph.i118 ], [ 1, %153 ], [ 2, %162 ], [ 2, %164 ]
+  %.sroa.8.0.insert.insert.i114.ph = phi i8 [ 1, %144 ], [ 1, %144 ], [ 1, %.lr.ph.i118 ], [ 0, %"_ZN4core3num21_$LT$impl$u20$u32$GT$16from_ascii_radix17h9db09a45631ff61cE.exit" ], [ 1, %153 ], [ 2, %162 ], [ 2, %164 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !3170
   store i8 %.sroa.8.0.insert.insert.i114.ph, ptr %7, align 1, !noalias !3170
   br label %"_ZN4core3num21_$LT$impl$u20$u32$GT$16from_ascii_radix17h9db09a45631ff61cE.exit136.thread.invoke"
@@ -17515,7 +17515,7 @@ thread-pre-split.i:                               ; preds = %17
   br i1 %.not.i, label %.loopexit.i, label %34
 
 .loopexit.i:                                      ; preds = %.preheader94.i, %53, %.preheader88.i, %79, %.preheader.i, %.preheader91.i
-  %.sroa.025.1.i = phi i32 [ 0, %.preheader.i ], [ 0, %.preheader91.i ], [ %57, %53 ], [ %83, %79 ], [ %.sroa.025.0.i, %.preheader88.i ], [ %.sroa.025.3.i, %.preheader94.i ]
+  %.sroa.025.1.i = phi i32 [ %57, %53 ], [ %83, %79 ], [ %.sroa.025.0.i, %.preheader88.i ], [ 0, %.preheader.i ], [ 0, %.preheader91.i ], [ %.sroa.025.3.i, %.preheader94.i ]
   %32 = zext i32 %.sroa.025.1.i to i64
   %33 = shl nuw i64 %32, 32
   br label %"_ZN4core3num21_$LT$impl$u20$i32$GT$16from_ascii_radix17h51acf63a04f90865E.exit"
@@ -17616,7 +17616,7 @@ thread-pre-split.i:                               ; preds = %17
           to label %92 unwind label %10
 
 "_ZN4core3num21_$LT$impl$u20$i32$GT$16from_ascii_radix17h51acf63a04f90865E.exit": ; preds = %45, %43, %34, %.lr.ph.i, %71, %69, %60, %.lr.ph110.i, %.loopexit.i, %20, %20, %17
-  %.sroa.12.0.insert.insert.i = phi i64 [ 1, %17 ], [ 257, %20 ], [ %33, %.loopexit.i ], [ 257, %20 ], [ 513, %71 ], [ 257, %.lr.ph110.i ], [ 257, %.lr.ph.i ], [ 513, %69 ], [ 257, %60 ], [ 257, %34 ], [ 769, %45 ], [ 769, %43 ]
+  %.sroa.12.0.insert.insert.i = phi i64 [ 1, %17 ], [ 257, %20 ], [ %33, %.loopexit.i ], [ 257, %20 ], [ 513, %71 ], [ 257, %.lr.ph110.i ], [ 257, %.lr.ph.i ], [ 513, %69 ], [ 257, %60 ], [ 769, %45 ], [ 257, %34 ], [ 769, %43 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !3470
   call void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17hb32769802217bf7fE.llvm.15708457484008905079"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4, i64 noundef 1, i64 noundef 1)
   %85 = getelementptr inbounds nuw i8, ptr %2, i64 8

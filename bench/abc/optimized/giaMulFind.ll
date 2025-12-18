@@ -2344,7 +2344,7 @@ Vec_IntFind.exit301.thread:                       ; preds = %351, %Vec_IntFind.e
   br label %Vec_IntPushUnique.exit
 
 Vec_IntPushUnique.exit:                           ; preds = %354, %317, %276, %237, %Vec_IntPush.exit.i306, %Vec_IntPush.exit.i282, %Vec_IntPush.exit.i258, %Vec_IntPush.exit.i236, %Vec_IntFind.exit301.thread
-  %.1 = phi i32 [ %387, %Vec_IntFind.exit301.thread ], [ %.0411, %Vec_IntPush.exit.i236 ], [ %.0411, %Vec_IntPush.exit.i258 ], [ %.0411, %Vec_IntPush.exit.i282 ], [ %.0411, %Vec_IntPush.exit.i306 ], [ %.0411, %317 ], [ %.0411, %237 ], [ %.0411, %276 ], [ %.0411, %354 ]
+  %.1 = phi i32 [ %387, %Vec_IntFind.exit301.thread ], [ %.0411, %Vec_IntPush.exit.i236 ], [ %.0411, %Vec_IntPush.exit.i258 ], [ %.0411, %Vec_IntPush.exit.i282 ], [ %.0411, %Vec_IntPush.exit.i306 ], [ %.0411, %237 ], [ %.0411, %276 ], [ %.0411, %317 ], [ %.0411, %354 ]
   %indvars.iv.next449 = add nuw nsw i64 %indvars.iv448, 2
   %.val172 = load i32, ptr %9, align 4, !tbaa !33
   %389 = trunc i64 %indvars.iv.next449 to i32
@@ -2595,9 +2595,9 @@ Vec_IntFind.exit348:                              ; preds = %453, %465
   br i1 %475, label %.critedge16, label %.critedge14._crit_edge, !llvm.loop !65
 
 .critedge14._crit_edge:                           ; preds = %Vec_IntFind.exit348, %._crit_edge414, %.critedge14.preheader
-  %.val171.lcssa544 = phi i32 [ %.val171, %.critedge14.preheader ], [ %.val171415, %._crit_edge414 ], [ %.val171, %Vec_IntFind.exit348 ]
-  %.val170543 = phi i32 [ %.val170.pre, %.critedge14.preheader ], [ 0, %._crit_edge414 ], [ %.val170.pre, %Vec_IntFind.exit348 ]
-  %476 = phi ptr [ %.pre.i.i323480, %.critedge14.preheader ], [ %.pre.i.i215472, %._crit_edge414 ], [ %.pre.i.i323480, %Vec_IntFind.exit348 ]
+  %.val171.lcssa544 = phi i32 [ %.val171415, %._crit_edge414 ], [ %.val171, %.critedge14.preheader ], [ %.val171, %Vec_IntFind.exit348 ]
+  %.val170543 = phi i32 [ 0, %._crit_edge414 ], [ %.val170.pre, %.critedge14.preheader ], [ %.val170.pre, %Vec_IntFind.exit348 ]
+  %476 = phi ptr [ %.pre.i.i215472, %._crit_edge414 ], [ %.pre.i.i323480, %.critedge14.preheader ], [ %.pre.i.i323480, %Vec_IntFind.exit348 ]
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %482, label %477
 
@@ -8384,7 +8384,7 @@ Vec_IntPush.exit.i:                               ; preds = %364, %Vec_IntGrow.e
   br label %Vec_IntPushUnique.exit
 
 Vec_IntPushUnique.exit:                           ; preds = %331, %340, %Vec_IntPush.exit.i
-  %.val = phi i32 [ %.val.pre, %Vec_IntPush.exit.i ], [ %.val286, %340 ], [ %.val286, %331 ]
+  %.val = phi i32 [ %.val286, %340 ], [ %.val.pre, %Vec_IntPush.exit.i ], [ %.val286, %331 ]
   %indvars.iv.next268 = add nuw nsw i64 %indvars.iv267, 1
   %371 = sext i32 %.val to i64
   %372 = icmp slt i64 %indvars.iv.next268, %371

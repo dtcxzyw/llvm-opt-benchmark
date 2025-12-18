@@ -25614,7 +25614,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit45.i: 
   br label %.loopexit136.i
 
 .loopexit136.i:                                   ; preds = %1631, %1599, %.loopexit135..loopexit136_crit_edge.i, %1622
-  %1646 = phi i32 [ %.pre.i84, %.loopexit135..loopexit136_crit_edge.i ], [ %1630, %1622 ], [ %1597, %1599 ], [ %1630, %1631 ]
+  %1646 = phi i32 [ %.pre.i84, %.loopexit135..loopexit136_crit_edge.i ], [ %1597, %1599 ], [ %1630, %1622 ], [ %1630, %1631 ]
   %.not.i.i.i85 = icmp eq i32 %1646, 0
   br i1 %.not.i.i.i85, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i86, label %1647
 
@@ -25772,7 +25772,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit52.i: 
   br label %.loopexit132.i
 
 .loopexit132.i:                                   ; preds = %1707, %1675, %.loopexit131..loopexit132_crit_edge.i, %1698
-  %1722 = phi i32 [ %.pre145.i, %.loopexit131..loopexit132_crit_edge.i ], [ %1706, %1698 ], [ %1673, %1675 ], [ %1706, %1707 ]
+  %1722 = phi i32 [ %.pre145.i, %.loopexit131..loopexit132_crit_edge.i ], [ %1673, %1675 ], [ %1706, %1698 ], [ %1706, %1707 ]
   %.not.i.i70.i = icmp eq i32 %1722, 0
   br i1 %.not.i.i70.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit71.i, label %1723
 
@@ -25930,7 +25930,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit76.i: 
   br label %.loopexit128.i
 
 .loopexit128.i:                                   ; preds = %1783, %1751, %.loopexit..loopexit128_crit_edge.i, %1774
-  %1798 = phi i32 [ %.pre146.i89, %.loopexit..loopexit128_crit_edge.i ], [ %1782, %1774 ], [ %1749, %1751 ], [ %1782, %1783 ]
+  %1798 = phi i32 [ %.pre146.i89, %.loopexit..loopexit128_crit_edge.i ], [ %1749, %1751 ], [ %1782, %1774 ], [ %1782, %1783 ]
   %.not.i.i94.i = icmp eq i32 %1798, 0
   br i1 %.not.i.i94.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit95.i, label %1799
 

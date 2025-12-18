@@ -589,7 +589,7 @@ bytestream2_get_byte.exit.thread:                 ; preds = %196, %bytestream2_g
   br label %pcx_rle_decode.exit.thread
 
 pcx_rle_decode.exit.thread:                       ; preds = %.preheader238.split.us, %.preheader238.split, %235, %176, %101, %bytestream2_get_byte.exit.thread, %170, %174, %205, %286
-  %.0163 = phi i32 [ %.7, %286 ], [ %206, %205 ], [ %175, %174 ], [ -1094995529, %170 ], [ -1094995529, %bytestream2_get_byte.exit.thread ], [ %253, %.preheader238.split ], [ -1094995529, %101 ], [ %177, %176 ], [ %236, %235 ], [ %212, %.preheader238.split.us ]
+  %.0163 = phi i32 [ %177, %176 ], [ %.7, %286 ], [ -1094995529, %bytestream2_get_byte.exit.thread ], [ %253, %.preheader238.split ], [ %206, %205 ], [ %175, %174 ], [ %236, %235 ], [ -1094995529, %170 ], [ -1094995529, %101 ], [ %212, %.preheader238.split.us ]
   tail call void @av_free(ptr noundef nonnull %92) #8
   br label %287
 

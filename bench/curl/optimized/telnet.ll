@@ -2163,10 +2163,10 @@ thread-pre-split.thread:                          ; preds = %839, %thread-pre-sp
   br label %telrcv.exit.thread
 
 telrcv.exit.thread:                               ; preds = %198, %211, %827, %179, %thread-pre-split.thread, %852, %845, %.fold.split, %176, %173, %854, %175
-  %.159 = phi i64 [ %.058.ph, %173 ], [ %.058.ph, %175 ], [ %.058.ph, %176 ], [ %.058.ph, %.fold.split ], [ %856, %854 ], [ %.058.ph, %852 ], [ %.058.ph, %thread-pre-split.thread ], [ %.058.ph, %845 ], [ %.058.ph, %179 ], [ %.058.ph, %827 ], [ %.058.ph, %211 ], [ %.058.ph, %198 ]
-  %.257 = phi i64 [ %.055.ph, %173 ], [ %.055.ph, %175 ], [ %.055.ph, %176 ], [ %.156, %.fold.split ], [ %.156, %854 ], [ %.156, %852 ], [ %.156, %thread-pre-split.thread ], [ %.156, %845 ], [ %180, %179 ], [ %180, %827 ], [ %180, %211 ], [ %180, %198 ]
-  %.253 = phi i1 [ true, %173 ], [ false, %175 ], [ false, %176 ], [ true, %.fold.split ], [ true, %854 ], [ false, %852 ], [ %.not, %thread-pre-split.thread ], [ false, %845 ], [ false, %179 ], [ false, %827 ], [ false, %211 ], [ false, %198 ]
-  %.4 = phi i32 [ %174, %173 ], [ %174, %175 ], [ 0, %176 ], [ %.3, %.fold.split ], [ 0, %854 ], [ %853, %852 ], [ %.3, %thread-pre-split.thread ], [ %.3, %845 ], [ %181, %179 ], [ %833, %827 ], [ %204, %198 ], [ %217, %211 ]
+  %.159 = phi i64 [ %.058.ph, %173 ], [ %.058.ph, %175 ], [ %.058.ph, %845 ], [ %.058.ph, %176 ], [ %.058.ph, %.fold.split ], [ %856, %854 ], [ %.058.ph, %852 ], [ %.058.ph, %thread-pre-split.thread ], [ %.058.ph, %179 ], [ %.058.ph, %827 ], [ %.058.ph, %211 ], [ %.058.ph, %198 ]
+  %.257 = phi i64 [ %.055.ph, %173 ], [ %.055.ph, %175 ], [ %.156, %845 ], [ %.055.ph, %176 ], [ %.156, %.fold.split ], [ %.156, %854 ], [ %.156, %852 ], [ %.156, %thread-pre-split.thread ], [ %180, %179 ], [ %180, %827 ], [ %180, %211 ], [ %180, %198 ]
+  %.253 = phi i1 [ true, %173 ], [ false, %175 ], [ false, %845 ], [ false, %176 ], [ true, %.fold.split ], [ true, %854 ], [ false, %852 ], [ %.not, %thread-pre-split.thread ], [ false, %179 ], [ false, %827 ], [ false, %211 ], [ false, %198 ]
+  %.4 = phi i32 [ %174, %173 ], [ %174, %175 ], [ %.3, %845 ], [ 0, %176 ], [ %.3, %.fold.split ], [ 0, %854 ], [ %853, %852 ], [ %.3, %thread-pre-split.thread ], [ %181, %179 ], [ %833, %827 ], [ %204, %198 ], [ %217, %211 ]
   %858 = load i32, ptr %166, align 8, !tbaa !120
   %.not82 = icmp eq i32 %858, 0
   br i1 %.not82, label %869, label %859

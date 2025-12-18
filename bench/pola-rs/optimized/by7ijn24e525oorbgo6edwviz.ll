@@ -1791,7 +1791,7 @@ common.resume.i.i.i:                              ; preds = %205, %.body.i.i.i.i
   br label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17he3c850baa0e8db7cE.exit.thread.i.i.i.i.i"
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17he3c850baa0e8db7cE.exit.thread.i.i.i.i.i": ; preds = %178, %174
-  %.sroa.3.0.i.i.ph.i.i.i.i.i.i = phi i64 [ %.sroa.4.19.i.i.i.i.i.i.i.i, %174 ], [ %184, %178 ]
+  %.sroa.3.0.i.i.ph.i.i.i.i.i.i = phi i64 [ %184, %178 ], [ %.sroa.4.19.i.i.i.i.i.i.i.i, %174 ]
   %185 = load ptr, ptr %.sroa.6.0.copyload, align 8, !alias.scope !355, !noalias !358, !nonnull !4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false), !noalias !332
@@ -2105,7 +2105,7 @@ _ZN9hashbrown3map9make_hash17h6a99b7fe13fc1b34E.exit.i.i.i.i.i.i.i: ; preds = %2
   br label %106
 
 106:                                              ; preds = %99, %95
-  %.sroa.3.0.i.i.ph.i.i.i.i.i.i.i = phi i64 [ %.sroa.4.19.i.i.i.i.i.i.i.i.i, %95 ], [ %105, %99 ]
+  %.sroa.3.0.i.i.ph.i.i.i.i.i.i.i = phi i64 [ %105, %99 ], [ %.sroa.4.19.i.i.i.i.i.i.i.i.i, %95 ]
   %107 = load ptr, ptr %2, align 8, !alias.scope !438, !noalias !441, !nonnull !4
   call void @llvm.experimental.noalias.scope.decl(metadata !454)
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 %.sroa.3.0.i.i.ph.i.i.i.i.i.i.i
@@ -15678,7 +15678,7 @@ define internal fastcc void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6in
   ret void
 
 122:                                              ; preds = %114, %110
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %110 ], [ %120, %114 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %120, %114 ], [ %.sroa.4.19.i.i, %110 ]
   %123 = load ptr, ptr %0, align 8, !alias.scope !1958, !noalias !1963, !nonnull !4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)

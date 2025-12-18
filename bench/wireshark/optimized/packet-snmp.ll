@@ -1219,9 +1219,9 @@ define hidden i32 @dissect_snmp_pdu(ptr noundef %0, i32 noundef %1, ptr noundef 
   br label %dissect_snmp_SNMPv3Message.exit
 
 126:                                              ; preds = %121, %._crit_edge.i.i
-  %.022.i = phi ptr [ %116, %121 ], [ null, %._crit_edge.i.i ]
-  %.021.i = phi i64 [ %101, %121 ], [ 0, %._crit_edge.i.i ]
-  %.046.i.i = phi i1 [ %.not58.i.i, %121 ], [ false, %._crit_edge.i.i ]
+  %.022.i = phi ptr [ null, %._crit_edge.i.i ], [ %116, %121 ]
+  %.021.i = phi i64 [ 0, %._crit_edge.i.i ], [ %101, %121 ]
+  %.046.i.i = phi i1 [ false, %._crit_edge.i.i ], [ %.not58.i.i, %121 ]
   %127 = zext i1 %.046.i.i to i8
   store i8 %127, ptr getelementptr inbounds nuw (i8, ptr @usm_p, i64 80), align 8
   %128 = load i32, ptr @hf_snmp_msgAuthentication, align 4
@@ -4797,7 +4797,7 @@ define internal i32 @dissect_snmp_T_msgSecurityParameters(i1 noundef zeroext %0,
   br label %get_user_assoc.exit
 
 get_user_assoc.exit:                              ; preds = %115, %8, %21, %24, %.preheader.i, %113, %114, %.loopexit43.i
-  %.0.i = phi ptr [ null, %24 ], [ %64, %113 ], [ null, %21 ], [ null, %8 ], [ %64, %114 ], [ %storemerge49.i, %.loopexit43.i ], [ null, %.preheader.i ], [ null, %115 ]
+  %.0.i = phi ptr [ null, %24 ], [ %storemerge49.i, %.loopexit43.i ], [ %64, %113 ], [ null, %21 ], [ null, %8 ], [ %64, %114 ], [ null, %.preheader.i ], [ null, %115 ]
   store ptr %.0.i, ptr getelementptr inbounds nuw (i8, ptr @usm_p, i64 72), align 8
   br label %119
 

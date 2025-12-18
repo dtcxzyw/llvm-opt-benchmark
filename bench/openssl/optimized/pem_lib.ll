@@ -322,7 +322,7 @@ pem_free.exit31:                                  ; preds = %17, %21
   %.not.i.i = icmp sgt i32 %46, 12
   br i1 %.not.i.i, label %47, label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %44, %65, %.thread.i, %69, %62, %56, %ossl_pem_check_suffix.exit.i, %51, %47, %123, %120, %check_pem.exit
+.backedge.backedge:                               ; preds = %44, %65, %62, %69, %.thread.i, %56, %ossl_pem_check_suffix.exit.i, %51, %47, %123, %120, %check_pem.exit
   br label %.backedge, !llvm.loop !13
 
 47:                                               ; preds = %44
@@ -1303,8 +1303,8 @@ define i32 @PEM_write_bio(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr no
   br label %.thread74
 
 .loopexit:                                        ; preds = %.lr.ph, %36, %5, %15, %13, %9, %24, %22, %47, %54, %52, %50
-  %.052 = phi ptr [ %26, %52 ], [ null, %5 ], [ null, %9 ], [ %26, %50 ], [ null, %22 ], [ %26, %47 ], [ null, %15 ], [ null, %13 ], [ null, %24 ], [ %26, %54 ], [ %26, %36 ], [ %26, %.lr.ph ]
-  %.050 = phi i32 [ 524320, %52 ], [ 524294, %5 ], [ 524320, %9 ], [ 524320, %50 ], [ 524320, %22 ], [ 524320, %47 ], [ 524320, %15 ], [ 524320, %13 ], [ 524320, %24 ], [ 524320, %54 ], [ 524294, %.lr.ph ], [ 524320, %36 ]
+  %.052 = phi ptr [ %26, %52 ], [ null, %5 ], [ null, %9 ], [ %26, %50 ], [ %26, %54 ], [ null, %22 ], [ null, %24 ], [ %26, %47 ], [ null, %15 ], [ null, %13 ], [ %26, %36 ], [ %26, %.lr.ph ]
+  %.050 = phi i32 [ 524320, %52 ], [ 524294, %5 ], [ 524320, %9 ], [ 524320, %50 ], [ 524320, %54 ], [ 524320, %22 ], [ 524320, %24 ], [ 524320, %47 ], [ 524320, %15 ], [ 524320, %13 ], [ 524294, %.lr.ph ], [ 524320, %36 ]
   call void @ERR_new() #10
   call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 700, ptr noundef nonnull @__func__.PEM_write_bio) #10
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 9, i32 noundef %.050, ptr noundef null) #10
@@ -1783,7 +1783,7 @@ pem_malloc.exit.i57:                              ; preds = %109, %106
   br label %sanitize_line.exit.i
 
 sanitize_line.exit.i:                             ; preds = %149, %156, %.loopexit.loopexit82.split.loop.exit86.i.i, %.loopexit.loopexit82.split.loop.exit84.i.i, %.loopexit.loopexit.split.loop.exit89.i.i, %.critedge.i.i
-  %.3.i.i = phi i32 [ %138, %.critedge.i.i ], [ %157, %.loopexit.loopexit.split.loop.exit89.i.i ], [ %159, %.loopexit.loopexit82.split.loop.exit86.i.i ], [ %158, %.loopexit.loopexit82.split.loop.exit84.i.i ], [ %119, %156 ], [ %119, %149 ]
+  %.3.i.i = phi i32 [ %138, %.critedge.i.i ], [ %119, %156 ], [ %157, %.loopexit.loopexit.split.loop.exit89.i.i ], [ %159, %.loopexit.loopexit82.split.loop.exit86.i.i ], [ %158, %.loopexit.loopexit82.split.loop.exit84.i.i ], [ %119, %149 ]
   %160 = add nsw i32 %.3.i.i, 1
   %161 = sext i32 %.3.i.i to i64
   %162 = getelementptr inbounds i8, ptr %112, i64 %161

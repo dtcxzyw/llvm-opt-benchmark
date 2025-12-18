@@ -410,7 +410,7 @@ _ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE8containsEPKS1_.exit.thread56: ; pr
   br i1 %.not.i.i52, label %_ZN4llvm8for_eachIRKNS_15SmallVectorImplIPNS_13IntrinsicInstEEENS_12function_refIFvPNS_11InstructionEEEEEET0_OT_SC_.exit, label %.lr.ph.i.i50, !llvm.loop !41
 
 _ZN4llvm8for_eachIRKNS_15SmallVectorImplIPNS_13IntrinsicInstEEENS_12function_refIFvPNS_11InstructionEEEEEET0_OT_SC_.exit: ; preds = %.lr.ph.i.i50, %.lr.ph.i.i46, %106, %._crit_edge68.thread
-  %.039.lcssa86 = phi i1 [ true, %._crit_edge68.thread ], [ false, %106 ], [ true, %.lr.ph.i.i46 ], [ false, %.lr.ph.i.i50 ]
+  %.039.lcssa86 = phi i1 [ true, %.lr.ph.i.i46 ], [ true, %._crit_edge68.thread ], [ false, %106 ], [ false, %.lr.ph.i.i50 ]
   %112 = load ptr, ptr %9, align 8, !tbaa !9
   %113 = icmp eq ptr %112, %33
   br i1 %113, label %_ZN4llvm11SmallVectorIPNS_11InstructionELj8EED2Ev.exit, label %114

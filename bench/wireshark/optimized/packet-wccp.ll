@@ -3711,8 +3711,8 @@ dissect_wccp2_mask_value_set_element.exit.thread2: ; preds = %dissect_wccp2_valu
   call void @proto_item_set_len(ptr noundef %89, i32 noundef %.pre-phi.i)
   br label %dissect_wccp2_mask_value_set_element.exit
 
-dissect_wccp2_mask_value_set_element.exit.thread: ; preds = %.lr.ph, %30, %43, %78, %72, %66, %57
-  %.1.i.ph = phi i32 [ %58, %57 ], [ %67, %66 ], [ %73, %72 ], [ %79, %78 ], [ %44, %43 ], [ %31, %30 ], [ %23, %.lr.ph ]
+dissect_wccp2_mask_value_set_element.exit.thread: ; preds = %.lr.ph, %30, %57, %43, %78, %72, %66
+  %.1.i.ph = phi i32 [ %67, %66 ], [ %73, %72 ], [ %79, %78 ], [ %44, %43 ], [ %31, %30 ], [ %58, %57 ], [ %23, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread
 
@@ -4103,7 +4103,7 @@ dissect_wccp2_alternate_mask_value_set_element.exit.thread2: ; preds = %40, %31
   br label %79
 
 dissect_wccp2_alternate_mask_value_set_element.exit.thread: ; preds = %.lr.ph, %dissect_wccp2_web_cache_value_element.exit.i, %29, %54, %44
-  %.1.i.ph = phi i32 [ %45, %44 ], [ %55, %54 ], [ %30, %29 ], [ %.037.i.i, %dissect_wccp2_web_cache_value_element.exit.i ], [ %22, %.lr.ph ]
+  %.1.i.ph = phi i32 [ %30, %29 ], [ %45, %44 ], [ %.037.i.i, %dissect_wccp2_web_cache_value_element.exit.i ], [ %55, %54 ], [ %22, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread
 

@@ -5261,7 +5261,7 @@ define hidden void @"_ZN129_$LT$futures_util..stream..futures_unordered..ready_t
 35:                                               ; preds = %12
   ret void
 
-36:                                               ; preds = %19, %21
+36:                                               ; preds = %21, %19
   call void @_ZN12futures_util6stream17futures_unordered5abort5abort17he441bd176a2489f8E(ptr noalias noundef nonnull readonly align 1 @anon.a57ff48817fa2156c85fa0e18ced9d74.14.llvm.11880408977092959598, i64 noundef 20) #27
   unreachable
 }
@@ -14048,7 +14048,7 @@ define hidden void @"_ZN4core3ptr136drop_in_place$LT$sum_tree..Node$LT$sum_tree.
   br i1 %35, label %common.resume, label %.lr.ph12.i.i.i.i
 
 common.resume:                                    ; preds = %"_ZN4core3ptr139drop_in_place$LT$sum_tree..SumTree$LT$sum_tree..tree_map..MapEntry$LT$worktree..ProjectEntryId$C$worktree..LocalRepositoryEntry$GT$$GT$$GT$17hb59a0feb5a3063cbE.exit8.i.i.i.i", %38, %42, %26
-  %common.resume.op = phi { ptr, i32 } [ %27, %26 ], [ %39, %42 ], [ %39, %38 ], [ %27, %"_ZN4core3ptr139drop_in_place$LT$sum_tree..SumTree$LT$sum_tree..tree_map..MapEntry$LT$worktree..ProjectEntryId$C$worktree..LocalRepositoryEntry$GT$$GT$$GT$17hb59a0feb5a3063cbE.exit8.i.i.i.i" ]
+  %common.resume.op = phi { ptr, i32 } [ %27, %26 ], [ %39, %38 ], [ %39, %42 ], [ %27, %"_ZN4core3ptr139drop_in_place$LT$sum_tree..SumTree$LT$sum_tree..tree_map..MapEntry$LT$worktree..ProjectEntryId$C$worktree..LocalRepositoryEntry$GT$$GT$$GT$17hb59a0feb5a3063cbE.exit8.i.i.i.i" ]
   resume { ptr, i32 } %common.resume.op
 
 36:                                               ; preds = %34

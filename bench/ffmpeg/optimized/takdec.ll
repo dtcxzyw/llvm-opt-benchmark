@@ -1006,7 +1006,7 @@ bits_read_bit_le.exit.thread:                     ; preds = %212, %bits_read_bit
   br label %bits_init8_le.exit.thread
 
 bits_init8_le.exit.thread:                        ; preds = %268, %263, %231, %228, %261, %305, %298, %293, %.lr.ph417, %257, %220, %121, %117, %16, %11, %381, %202, %102, %76, %50, %20, %4, %126, %.loopexit, %75, %70, %67, %60, %56
-  %.0 = phi i32 [ %130, %126 ], [ -1094995529, %4 ], [ -1094995529, %16 ], [ %32, %20 ], [ -1163346256, %56 ], [ -1094995529, %60 ], [ -1094995529, %67 ], [ -1094995529, %70 ], [ -1094995529, %75 ], [ -1094995529, %50 ], [ %80, %76 ], [ %452, %.loopexit ], [ %106, %102 ], [ %208, %202 ], [ %119, %117 ], [ -1094995529, %381 ], [ -1094995529, %11 ], [ -12, %121 ], [ -1094995529, %220 ], [ -1094995529, %257 ], [ %318, %305 ], [ %191, %.lr.ph417 ], [ %302, %298 ], [ %297, %293 ], [ -1094995529, %261 ], [ -1094995529, %228 ], [ -1094995529, %231 ], [ -1094995529, %263 ], [ -1094995529, %268 ]
+  %.0 = phi i32 [ %130, %126 ], [ -1094995529, %4 ], [ -1094995529, %16 ], [ %32, %20 ], [ -1163346256, %56 ], [ -1094995529, %60 ], [ -1094995529, %67 ], [ -1094995529, %70 ], [ -1094995529, %75 ], [ -1094995529, %50 ], [ %80, %76 ], [ %191, %.lr.ph417 ], [ %452, %.loopexit ], [ %106, %102 ], [ -1094995529, %257 ], [ %208, %202 ], [ -1094995529, %220 ], [ %318, %305 ], [ %119, %117 ], [ -1094995529, %381 ], [ -1094995529, %11 ], [ -12, %121 ], [ %302, %298 ], [ %297, %293 ], [ -1094995529, %261 ], [ -1094995529, %228 ], [ -1094995529, %231 ], [ -1094995529, %263 ], [ -1094995529, %268 ]
   ret i32 %.0
 }
 
@@ -2454,8 +2454,8 @@ bits_read_signed_nz_le.exit298.i:                 ; preds = %bits_priv_refill_32
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %187, ptr nonnull align 2 %566, i64 %568, i1 false)
   br label %.lr.ph358.split.i, !llvm.loop !104
 
-decode_subframe.exit.thread:                      ; preds = %236, %238, %bits_read_nz_le.exit251.i, %bits_read_bit_le.exit247.thread.i, %._crit_edge332.i, %bits_read_nz_le.exit228.i, %bits_read_bit_le.exit224.thread.i, %264, %bits_read_bit_le.exit224.thread.thread.i
-  %.0179.i.ph = phi i32 [ -1094995529, %bits_read_bit_le.exit224.thread.thread.i ], [ %265, %264 ], [ -1094995529, %bits_read_bit_le.exit224.thread.i ], [ -1094995529, %bits_read_nz_le.exit228.i ], [ %549, %._crit_edge332.i ], [ -1094995529, %bits_read_bit_le.exit247.thread.i ], [ -1094995529, %bits_read_nz_le.exit251.i ], [ -1094995529, %238 ], [ -1094995529, %236 ]
+decode_subframe.exit.thread:                      ; preds = %236, %238, %bits_read_nz_le.exit251.i, %bits_read_bit_le.exit247.thread.i, %._crit_edge332.i, %264, %bits_read_nz_le.exit228.i, %bits_read_bit_le.exit224.thread.i, %bits_read_bit_le.exit224.thread.thread.i
+  %.0179.i.ph = phi i32 [ -1094995529, %bits_read_bit_le.exit224.thread.thread.i ], [ -1094995529, %bits_read_bit_le.exit224.thread.i ], [ -1094995529, %bits_read_nz_le.exit228.i ], [ %265, %264 ], [ %549, %._crit_edge332.i ], [ -1094995529, %bits_read_bit_le.exit247.thread.i ], [ -1094995529, %bits_read_nz_le.exit251.i ], [ -1094995529, %238 ], [ -1094995529, %236 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit
 
@@ -2481,7 +2481,7 @@ decode_subframe.exit:                             ; preds = %194, %bits_read_bit
   br i1 %694, label %189, label %.loopexit, !llvm.loop !108
 
 .loopexit:                                        ; preds = %bits_read_nz_le.exit85, %decode_subframe.exit, %687, %decode_subframe.exit.thread, %172, %123, %get_bits_esc4.exit
-  %.0 = phi i32 [ %.0179.i.ph, %decode_subframe.exit.thread ], [ -1094995529, %get_bits_esc4.exit ], [ -1094995529, %123 ], [ -1094995529, %172 ], [ 0, %687 ], [ %685, %decode_subframe.exit ], [ -1094995529, %bits_read_nz_le.exit85 ]
+  %.0 = phi i32 [ %.0179.i.ph, %decode_subframe.exit.thread ], [ -1094995529, %get_bits_esc4.exit ], [ 0, %687 ], [ -1094995529, %123 ], [ -1094995529, %172 ], [ %685, %decode_subframe.exit ], [ -1094995529, %bits_read_nz_le.exit85 ]
   ret i32 %.0
 }
 

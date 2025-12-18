@@ -820,7 +820,7 @@ _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %_ZNSt6vectorImSaImE
   br i1 %.not, label %_ZNSt6vectorImSaImEED2Ev.exit261, label %.split.split
 
 _ZNSt6vectorImSaImEED2Ev.exit261:                 ; preds = %.critedge159, %257, %253, %247, %243
-  %.us-phi318 = phi i1 [ %242, %243 ], [ %246, %247 ], [ true, %.critedge159 ], [ false, %257 ], [ false, %253 ]
+  %.us-phi318 = phi i1 [ %242, %243 ], [ %246, %247 ], [ false, %257 ], [ false, %253 ], [ true, %.critedge159 ]
   call void @_ZdlPv(ptr noundef nonnull %239) #16
   br label %258
 

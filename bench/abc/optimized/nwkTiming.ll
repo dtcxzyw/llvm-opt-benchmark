@@ -460,7 +460,7 @@ define float @Nwk_NodeComputeArrival(ptr noundef readonly captures(none) %0, i32
   br i1 %exitcond139.not, label %.critedge.thread, label %110, !llvm.loop !46
 
 .critedge:                                        ; preds = %55, %.preheader101, %39, %.preheader
-  %.val90 = phi i32 [ %.val92, %.preheader101 ], [ %.val92, %55 ], [ %18, %.preheader ], [ %.val92, %39 ]
+  %.val90 = phi i32 [ %.val92, %39 ], [ %.val92, %.preheader101 ], [ %.val92, %55 ], [ %18, %.preheader ]
   %.val90.fr = freeze i32 %.val90
   %119 = icmp eq i32 %.val90.fr, 0
   br i1 %119, label %120, label %.critedge.thread
@@ -1102,7 +1102,7 @@ define float @Nwk_NodePropagateRequired(ptr noundef readonly captures(none) %0, 
   br label %.critedge, !llvm.loop !54
 
 .critedge:                                        ; preds = %96, %111, %39, %46, %24, %17, %.lr.ph, %..critedge.loopexit148_crit_edge153, %.lr.ph99, %..critedge.loopexit147_crit_edge159, %53, %.preheader, %32, %9
-  %.062 = phi float [ 0.000000e+00, %53 ], [ %11, %9 ], [ %35, %32 ], [ 0.000000e+00, %.preheader ], [ %117, %..critedge.loopexit147_crit_edge159 ], [ 0.000000e+00, %.lr.ph99 ], [ 0.000000e+00, %.lr.ph ], [ %101, %..critedge.loopexit148_crit_edge153 ], [ %117, %111 ], [ %11, %24 ], [ %35, %39 ], [ %11, %17 ], [ %35, %46 ], [ %101, %96 ]
+  %.062 = phi float [ 0.000000e+00, %53 ], [ %11, %9 ], [ %35, %32 ], [ 0.000000e+00, %.preheader ], [ %35, %39 ], [ %11, %24 ], [ %117, %111 ], [ 0.000000e+00, %.lr.ph ], [ %101, %..critedge.loopexit148_crit_edge153 ], [ %117, %..critedge.loopexit147_crit_edge159 ], [ 0.000000e+00, %.lr.ph99 ], [ %11, %17 ], [ %35, %46 ], [ %101, %96 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret float %.062
@@ -2056,7 +2056,7 @@ Vec_PtrPush.exit:                                 ; preds = %1, %Vec_PtrGrow.exi
   br i1 %107, label %89, label %.critedge3, !llvm.loop !73
 
 .critedge3:                                       ; preds = %89, %104, %88, %.preheader, %68, %59, %58, %44
-  %.1 = phi ptr [ %.098, %44 ], [ %.098, %59 ], [ %.098, %58 ], [ %.098, %68 ], [ %.098, %.preheader ], [ %81, %88 ], [ null, %89 ], [ %96, %104 ]
+  %.1 = phi ptr [ %.098, %44 ], [ %81, %88 ], [ %.098, %59 ], [ %.098, %58 ], [ %.098, %68 ], [ %.098, %.preheader ], [ null, %89 ], [ %96, %104 ]
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
   %.val = load i32, ptr %8, align 4, !tbaa !15
   %108 = sext i32 %.val to i64
@@ -2292,7 +2292,7 @@ define void @Nwk_NodeUpdateRequired(ptr noundef %0) local_unnamed_addr #3 {
   br i1 %103, label %.lr.ph106, label %.critedge5, !llvm.loop !77
 
 .critedge5:                                       ; preds = %.lr.ph106, %100, %88, %.preheader, %68, %59, %58, %45
-  %.3 = phi ptr [ %.2116, %45 ], [ %.2116, %59 ], [ %.2116, %58 ], [ %.2116, %68 ], [ %.2116, %.preheader ], [ %81, %88 ], [ null, %.lr.ph106 ], [ %92, %100 ]
+  %.3 = phi ptr [ %.2116, %45 ], [ %81, %88 ], [ %.2116, %59 ], [ %.2116, %58 ], [ %.2116, %68 ], [ %.2116, %.preheader ], [ null, %.lr.ph106 ], [ %92, %100 ]
   %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
   %.val = load i32, ptr %8, align 4, !tbaa !15
   %104 = sext i32 %.val to i64
@@ -2588,7 +2588,7 @@ Vec_PtrPush.exit:                                 ; preds = %1, %Vec_PtrGrow.exi
   br i1 %87, label %69, label %.critedge2, !llvm.loop !82
 
 .critedge2:                                       ; preds = %69, %84, %68, %.preheader, %50, %46, %45, %28
-  %.1 = phi ptr [ %.077, %28 ], [ %.077, %46 ], [ %.077, %45 ], [ %.077, %50 ], [ %.077, %.preheader ], [ %61, %68 ], [ null, %69 ], [ %76, %84 ]
+  %.1 = phi ptr [ %.077, %28 ], [ %61, %68 ], [ %.077, %46 ], [ %.077, %45 ], [ %.077, %50 ], [ %.077, %.preheader ], [ null, %69 ], [ %76, %84 ]
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
   %.val = load i32, ptr %7, align 4, !tbaa !15
   %88 = sext i32 %.val to i64

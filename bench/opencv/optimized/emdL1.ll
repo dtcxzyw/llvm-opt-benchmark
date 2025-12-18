@@ -3485,7 +3485,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
   br label %193
 
 ._crit_edge157:                                   ; preds = %.loopexit143, %..loopexit143_crit_edge.us, %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit
-  %77 = phi i32 [ 0, %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit ], [ %61, %..loopexit143_crit_edge.us ], [ %61, %.loopexit143 ]
+  %77 = phi i32 [ %61, %..loopexit143_crit_edge.us ], [ 0, %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit ], [ %61, %.loopexit143 ]
   %78 = sext i32 %.lcssa145 to i64
   %79 = icmp slt i32 %.lcssa145, 0
   br i1 %79, label %80, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i102
@@ -3699,7 +3699,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZNSt6vectorIfSaIfE
   br i1 %exitcond224.not, label %.preheader, label %.preheader142.us, !llvm.loop !158
 
 .preheader:                                       ; preds = %._crit_edge171.us, %.preheader142.lr.ph, %._crit_edge164
-  %165 = phi i32 [ -1, %.preheader142.lr.ph ], [ %86, %._crit_edge164 ], [ %86, %._crit_edge171.us ]
+  %165 = phi i32 [ %86, %._crit_edge164 ], [ -1, %.preheader142.lr.ph ], [ %86, %._crit_edge171.us ]
   br i1 %87, label %.lr.ph175, label %_ZNSt6vectorIfSaIfEED2Ev.exit114
 
 .lr.ph175:                                        ; preds = %.preheader
@@ -4168,8 +4168,8 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
   br label %.loopexit.split-lp
 
 ._crit_edge273:                                   ; preds = %.loopexit246, %..loopexit246_crit_edge.split.us.us.us, %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit
-  %141 = phi i32 [ 0, %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit ], [ %117, %..loopexit246_crit_edge.split.us.us.us ], [ %117, %.loopexit246 ]
-  %.lcssa253499503510 = phi i32 [ 1, %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit ], [ %107, %..loopexit246_crit_edge.split.us.us.us ], [ %107, %.loopexit246 ]
+  %141 = phi i32 [ %117, %..loopexit246_crit_edge.split.us.us.us ], [ 0, %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit ], [ %117, %.loopexit246 ]
+  %.lcssa253499503510 = phi i32 [ %107, %..loopexit246_crit_edge.split.us.us.us ], [ 1, %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit ], [ %107, %.loopexit246 ]
   %142 = icmp slt i32 %120, 0
   br i1 %142, label %143, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i172
 
@@ -4280,8 +4280,8 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit180:            ; preds = %_ZSt6fill_nIPfmfET_
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit200
 
 ._crit_edge288:                                   ; preds = %.preheader243.lr.ph.us, %..loopexit244_crit_edge.split.us.us.us, %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit180
-  %171 = phi i32 [ 0, %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit180 ], [ %151, %..loopexit244_crit_edge.split.us.us.us ], [ %151, %.preheader243.lr.ph.us ]
-  %172 = phi i32 [ 1, %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit180 ], [ %120, %..loopexit244_crit_edge.split.us.us.us ], [ %120, %.preheader243.lr.ph.us ]
+  %171 = phi i32 [ %151, %..loopexit244_crit_edge.split.us.us.us ], [ 0, %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit180 ], [ %151, %.preheader243.lr.ph.us ]
+  %172 = phi i32 [ %120, %..loopexit244_crit_edge.split.us.us.us ], [ 1, %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit180 ], [ %120, %.preheader243.lr.ph.us ]
   %173 = sext i32 %154 to i64
   %174 = icmp slt i32 %154, 0
   br i1 %174, label %175, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i181

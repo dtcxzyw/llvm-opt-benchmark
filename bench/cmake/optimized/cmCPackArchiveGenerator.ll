@@ -3615,7 +3615,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %_ZN
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit266
 
 _ZN23cmCPackArchiveGenerator12Deduplicator13IsDeduplicateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit: ; preds = %475, %477
-  %.0 = phi i32 [ %476, %475 ], [ %478, %477 ]
+  %.0 = phi i32 [ %478, %477 ], [ %476, %475 ]
   switch i32 %.0, label %.thread [
     i32 1, label %_ZN23cmCPackArchiveGenerator12Deduplicator13IsDeduplicateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit.thread
     i32 2, label %569

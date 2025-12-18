@@ -1432,7 +1432,7 @@ cleanup97.loopexit:                               ; preds = %cleanup89
   br label %cleanup97
 
 cleanup97:                                        ; preds = %cleanup97.loopexit, %cleanup89.thread, %while.end, %invoke.cont6
-  %retval.0 = phi i8 [ 0, %invoke.cont6 ], [ %call96, %while.end ], [ %retval.2.ph, %cleanup89.thread ], [ %.call82.le, %cleanup97.loopexit ]
+  %retval.0 = phi i8 [ 0, %invoke.cont6 ], [ %retval.2.ph, %cleanup89.thread ], [ %call96, %while.end ], [ %.call82.le, %cleanup97.loopexit ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %delimiter) #20
   ret i8 %retval.0
 
@@ -3627,7 +3627,7 @@ arraydestroy.body30.i:                            ; preds = %arraydestroy.body30
   br i1 %arraydestroy.done33.i, label %common.resume, label %arraydestroy.body30.i
 
 common.resume:                                    ; preds = %arraydestroy.body.i, %arraydestroy.body30.i, %arraydestroy.body.i12, %arraydestroy.body27.i
-  %common.resume.op = phi { ptr, i32 } [ %2, %arraydestroy.body30.i ], [ %7, %arraydestroy.body27.i ], [ %6, %arraydestroy.body.i12 ], [ %1, %arraydestroy.body.i ]
+  %common.resume.op = phi { ptr, i32 } [ %2, %arraydestroy.body30.i ], [ %6, %arraydestroy.body.i12 ], [ %7, %arraydestroy.body27.i ], [ %1, %arraydestroy.body.i ]
   resume { ptr, i32 } %common.resume.op
 
 __cxx_global_var_init.exit:                       ; preds = %arraydestroy.body24.i

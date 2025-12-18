@@ -12333,7 +12333,7 @@ define noundef zeroext i1 @_ZNK6icu_7717DateFormatSymbolseqERKS0_(ptr noundef no
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %4, %10, %16, %22, %28, %34, %40, %46, %52, %58, %64, %70, %76, %82, %88, %94, %100, %106, %112, %118, %124, %130, %136, %142, %148, %154, %160, %166, %172, %178, %184, %190, %196, %202, %208, %446, %439, %432, %425, %418, %411, %404, %397, %390, %383, %376, %369, %362, %355, %348, %344, %337, %330, %323, %316, %309, %302, %295, %288, %281, %274, %267, %260, %253, %246, %239, %232, %225, %218, %212, %460, %2, %491
-  %.085 = phi i1 [ true, %2 ], [ false, %491 ], [ true, %460 ], [ false, %212 ], [ false, %218 ], [ false, %225 ], [ false, %232 ], [ false, %239 ], [ false, %246 ], [ false, %253 ], [ false, %260 ], [ false, %267 ], [ false, %274 ], [ false, %281 ], [ false, %288 ], [ false, %295 ], [ false, %302 ], [ false, %309 ], [ false, %316 ], [ false, %323 ], [ false, %330 ], [ false, %337 ], [ false, %344 ], [ false, %348 ], [ false, %355 ], [ false, %362 ], [ false, %369 ], [ false, %376 ], [ false, %383 ], [ false, %390 ], [ false, %397 ], [ false, %404 ], [ false, %411 ], [ false, %418 ], [ false, %425 ], [ false, %432 ], [ false, %439 ], [ false, %446 ], [ false, %208 ], [ false, %202 ], [ false, %196 ], [ false, %190 ], [ false, %184 ], [ false, %178 ], [ false, %172 ], [ false, %166 ], [ false, %160 ], [ false, %154 ], [ false, %148 ], [ false, %142 ], [ false, %136 ], [ false, %130 ], [ false, %124 ], [ false, %118 ], [ false, %112 ], [ false, %106 ], [ false, %100 ], [ false, %94 ], [ false, %88 ], [ false, %82 ], [ false, %76 ], [ false, %70 ], [ false, %64 ], [ false, %58 ], [ false, %52 ], [ false, %46 ], [ false, %40 ], [ false, %34 ], [ false, %28 ], [ false, %22 ], [ false, %16 ], [ false, %10 ], [ false, %4 ], [ true, %.preheader ], [ %486, %.lr.ph ]
+  %.085 = phi i1 [ false, %4 ], [ true, %2 ], [ false, %491 ], [ true, %460 ], [ false, %212 ], [ false, %218 ], [ false, %225 ], [ false, %232 ], [ false, %239 ], [ false, %246 ], [ false, %253 ], [ false, %260 ], [ false, %267 ], [ false, %274 ], [ false, %281 ], [ false, %288 ], [ false, %295 ], [ false, %302 ], [ false, %309 ], [ false, %316 ], [ false, %323 ], [ false, %330 ], [ false, %337 ], [ false, %344 ], [ false, %348 ], [ false, %355 ], [ false, %362 ], [ false, %369 ], [ false, %376 ], [ false, %383 ], [ false, %390 ], [ false, %397 ], [ false, %404 ], [ false, %411 ], [ false, %418 ], [ false, %425 ], [ false, %432 ], [ false, %439 ], [ false, %446 ], [ false, %208 ], [ false, %202 ], [ false, %196 ], [ false, %190 ], [ false, %184 ], [ false, %178 ], [ false, %172 ], [ false, %166 ], [ false, %160 ], [ false, %154 ], [ false, %148 ], [ false, %142 ], [ false, %136 ], [ false, %130 ], [ false, %124 ], [ false, %118 ], [ false, %112 ], [ false, %106 ], [ false, %100 ], [ false, %94 ], [ false, %88 ], [ false, %82 ], [ false, %76 ], [ false, %70 ], [ false, %64 ], [ false, %58 ], [ false, %52 ], [ false, %46 ], [ false, %40 ], [ false, %34 ], [ false, %28 ], [ false, %22 ], [ false, %16 ], [ false, %10 ], [ true, %.preheader ], [ %486, %.lr.ph ]
   ret i1 %.085
 }
 
@@ -13678,7 +13678,7 @@ _ZN6icu_77L21newUnicodeStringArrayEm.exit92:      ; preds = %185, %.loopexit.loo
   br i1 %205, label %.lr.ph.i93, label %.sink.split, !llvm.loop !158
 
 .sink.split:                                      ; preds = %.lr.ph.i93, %.lr.ph.i82, %.lr.ph.i71, %.lr.ph.i60, %.lr.ph.i49, %.lr.ph.i, %_ZN6icu_77L21newUnicodeStringArrayEm.exit92, %_ZN6icu_77L21newUnicodeStringArrayEm.exit81, %_ZN6icu_77L21newUnicodeStringArrayEm.exit70, %_ZN6icu_77L21newUnicodeStringArrayEm.exit59, %_ZN6icu_77L21newUnicodeStringArrayEm.exit48, %_ZN6icu_77L21newUnicodeStringArrayEm.exit
-  %.sink120 = phi i64 [ 96, %_ZN6icu_77L21newUnicodeStringArrayEm.exit59 ], [ 112, %_ZN6icu_77L21newUnicodeStringArrayEm.exit70 ], [ 128, %_ZN6icu_77L21newUnicodeStringArrayEm.exit81 ], [ 80, %_ZN6icu_77L21newUnicodeStringArrayEm.exit48 ], [ 64, %_ZN6icu_77L21newUnicodeStringArrayEm.exit ], [ 144, %_ZN6icu_77L21newUnicodeStringArrayEm.exit92 ], [ 128, %.lr.ph.i82 ], [ 64, %.lr.ph.i ], [ 80, %.lr.ph.i49 ], [ 96, %.lr.ph.i60 ], [ 112, %.lr.ph.i71 ], [ 144, %.lr.ph.i93 ]
+  %.sink120 = phi i64 [ 96, %_ZN6icu_77L21newUnicodeStringArrayEm.exit59 ], [ 112, %_ZN6icu_77L21newUnicodeStringArrayEm.exit70 ], [ 128, %_ZN6icu_77L21newUnicodeStringArrayEm.exit81 ], [ 80, %_ZN6icu_77L21newUnicodeStringArrayEm.exit48 ], [ 64, %_ZN6icu_77L21newUnicodeStringArrayEm.exit ], [ 144, %_ZN6icu_77L21newUnicodeStringArrayEm.exit92 ], [ 96, %.lr.ph.i60 ], [ 112, %.lr.ph.i71 ], [ 128, %.lr.ph.i82 ], [ 64, %.lr.ph.i ], [ 80, %.lr.ph.i49 ], [ 144, %.lr.ph.i93 ]
   %206 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink120
   store i32 %2, ptr %206, align 8, !tbaa !12
   br label %207
@@ -14475,7 +14475,7 @@ _ZN6icu_77L21newUnicodeStringArrayEm.exit128:     ; preds = %251, %.loopexit.loo
   br i1 %271, label %.lr.ph.i129, label %.sink.split, !llvm.loop !158
 
 .sink.split:                                      ; preds = %.lr.ph.i129, %.lr.ph.i118, %.lr.ph.i107, %.lr.ph.i96, %.lr.ph.i85, %.lr.ph.i74, %.lr.ph.i63, %.lr.ph.i, %_ZN6icu_77L21newUnicodeStringArrayEm.exit128, %_ZN6icu_77L21newUnicodeStringArrayEm.exit117, %_ZN6icu_77L21newUnicodeStringArrayEm.exit106, %_ZN6icu_77L21newUnicodeStringArrayEm.exit95, %_ZN6icu_77L21newUnicodeStringArrayEm.exit84, %_ZN6icu_77L21newUnicodeStringArrayEm.exit73, %_ZN6icu_77L21newUnicodeStringArrayEm.exit62, %_ZN6icu_77L21newUnicodeStringArrayEm.exit
-  %.sink164 = phi i64 [ 208, %_ZN6icu_77L21newUnicodeStringArrayEm.exit84 ], [ 224, %_ZN6icu_77L21newUnicodeStringArrayEm.exit95 ], [ 240, %_ZN6icu_77L21newUnicodeStringArrayEm.exit106 ], [ 256, %_ZN6icu_77L21newUnicodeStringArrayEm.exit117 ], [ 192, %_ZN6icu_77L21newUnicodeStringArrayEm.exit73 ], [ 160, %_ZN6icu_77L21newUnicodeStringArrayEm.exit ], [ 176, %_ZN6icu_77L21newUnicodeStringArrayEm.exit62 ], [ 272, %_ZN6icu_77L21newUnicodeStringArrayEm.exit128 ], [ 256, %.lr.ph.i118 ], [ 160, %.lr.ph.i ], [ 176, %.lr.ph.i63 ], [ 192, %.lr.ph.i74 ], [ 208, %.lr.ph.i85 ], [ 224, %.lr.ph.i96 ], [ 240, %.lr.ph.i107 ], [ 272, %.lr.ph.i129 ]
+  %.sink164 = phi i64 [ 208, %_ZN6icu_77L21newUnicodeStringArrayEm.exit84 ], [ 224, %_ZN6icu_77L21newUnicodeStringArrayEm.exit95 ], [ 240, %_ZN6icu_77L21newUnicodeStringArrayEm.exit106 ], [ 256, %_ZN6icu_77L21newUnicodeStringArrayEm.exit117 ], [ 192, %_ZN6icu_77L21newUnicodeStringArrayEm.exit73 ], [ 160, %_ZN6icu_77L21newUnicodeStringArrayEm.exit ], [ 176, %_ZN6icu_77L21newUnicodeStringArrayEm.exit62 ], [ 272, %_ZN6icu_77L21newUnicodeStringArrayEm.exit128 ], [ 224, %.lr.ph.i96 ], [ 240, %.lr.ph.i107 ], [ 256, %.lr.ph.i118 ], [ 160, %.lr.ph.i ], [ 176, %.lr.ph.i63 ], [ 192, %.lr.ph.i74 ], [ 208, %.lr.ph.i85 ], [ 272, %.lr.ph.i129 ]
   %272 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink164
   store i32 %2, ptr %272, align 8, !tbaa !12
   br label %273
@@ -14956,7 +14956,7 @@ _ZN6icu_77L21newUnicodeStringArrayEm.exit92:      ; preds = %185, %.loopexit.loo
   br i1 %205, label %.lr.ph.i93, label %.sink.split, !llvm.loop !158
 
 .sink.split:                                      ; preds = %.lr.ph.i93, %.lr.ph.i82, %.lr.ph.i71, %.lr.ph.i60, %.lr.ph.i49, %.lr.ph.i, %_ZN6icu_77L21newUnicodeStringArrayEm.exit92, %_ZN6icu_77L21newUnicodeStringArrayEm.exit81, %_ZN6icu_77L21newUnicodeStringArrayEm.exit70, %_ZN6icu_77L21newUnicodeStringArrayEm.exit59, %_ZN6icu_77L21newUnicodeStringArrayEm.exit48, %_ZN6icu_77L21newUnicodeStringArrayEm.exit
-  %.sink120 = phi i64 [ 416, %_ZN6icu_77L21newUnicodeStringArrayEm.exit59 ], [ 432, %_ZN6icu_77L21newUnicodeStringArrayEm.exit70 ], [ 448, %_ZN6icu_77L21newUnicodeStringArrayEm.exit81 ], [ 400, %_ZN6icu_77L21newUnicodeStringArrayEm.exit48 ], [ 384, %_ZN6icu_77L21newUnicodeStringArrayEm.exit ], [ 464, %_ZN6icu_77L21newUnicodeStringArrayEm.exit92 ], [ 448, %.lr.ph.i82 ], [ 384, %.lr.ph.i ], [ 400, %.lr.ph.i49 ], [ 416, %.lr.ph.i60 ], [ 432, %.lr.ph.i71 ], [ 464, %.lr.ph.i93 ]
+  %.sink120 = phi i64 [ 416, %_ZN6icu_77L21newUnicodeStringArrayEm.exit59 ], [ 432, %_ZN6icu_77L21newUnicodeStringArrayEm.exit70 ], [ 448, %_ZN6icu_77L21newUnicodeStringArrayEm.exit81 ], [ 400, %_ZN6icu_77L21newUnicodeStringArrayEm.exit48 ], [ 384, %_ZN6icu_77L21newUnicodeStringArrayEm.exit ], [ 464, %_ZN6icu_77L21newUnicodeStringArrayEm.exit92 ], [ 416, %.lr.ph.i60 ], [ 432, %.lr.ph.i71 ], [ 448, %.lr.ph.i82 ], [ 384, %.lr.ph.i ], [ 400, %.lr.ph.i49 ], [ 464, %.lr.ph.i93 ]
   %206 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink120
   store i32 %2, ptr %206, align 8, !tbaa !12
   br label %207
@@ -16905,8 +16905,8 @@ _ZN6icu_779Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit261: ; preds =
   br label %304
 
 304:                                              ; preds = %.thread291, %302
-  %.1129 = phi i32 [ %303, %.thread291 ], [ %.0128378, %302 ]
-  %.2126 = phi i8 [ %.0124379, %.thread291 ], [ 1, %302 ]
+  %.1129 = phi i32 [ %.0128378, %302 ], [ %303, %.thread291 ]
+  %.2126 = phi i8 [ 1, %302 ], [ %.0124379, %.thread291 ]
   %305 = load i32, ptr %30, align 8, !tbaa !167
   %.not201 = icmp slt i32 %.1129, %305
   br i1 %.not201, label %.lr.ph, label %.thread299, !llvm.loop !178
@@ -17988,8 +17988,8 @@ _ZN6icu_7713UnicodeString13retainBetweenEii.exit: ; preds = %_ZN6icu_7712LocalPo
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZN6icu_7713UnicodeString13retainBetweenEii.exit.thread248
 
-_ZN6icu_7713UnicodeString13retainBetweenEii.exit.thread248: ; preds = %261, %_ZN6icu_7713UnicodeString8truncateEi.exit.i200, %_ZN6icu_7713UnicodeString8truncateEi.exit.i, %322, %_ZNK6icu_7713UnicodeString8endsWithENS_14ConstChar16PtrEi.exit, %_ZN6icu_7713UnicodeString13retainBetweenEii.exit
-  %.1108253 = phi ptr [ %.2109, %_ZN6icu_7713UnicodeString13retainBetweenEii.exit ], [ %.0107267, %_ZNK6icu_7713UnicodeString8endsWithENS_14ConstChar16PtrEi.exit ], [ %.0107267, %322 ], [ %.0107267, %_ZN6icu_7713UnicodeString8truncateEi.exit.i ], [ %.0107267, %_ZN6icu_7713UnicodeString8truncateEi.exit.i200 ], [ %.0107267, %261 ]
+_ZN6icu_7713UnicodeString13retainBetweenEii.exit.thread248: ; preds = %_ZN6icu_7713UnicodeString8truncateEi.exit.i, %322, %_ZNK6icu_7713UnicodeString8endsWithENS_14ConstChar16PtrEi.exit, %_ZN6icu_7713UnicodeString8truncateEi.exit.i200, %261, %_ZN6icu_7713UnicodeString13retainBetweenEii.exit
+  %.1108253 = phi ptr [ %.2109, %_ZN6icu_7713UnicodeString13retainBetweenEii.exit ], [ %.0107267, %261 ], [ %.0107267, %_ZN6icu_7713UnicodeString8truncateEi.exit.i200 ], [ %.0107267, %_ZNK6icu_7713UnicodeString8endsWithENS_14ConstChar16PtrEi.exit ], [ %.0107267, %322 ], [ %.0107267, %_ZN6icu_7713UnicodeString8truncateEi.exit.i ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %324 = add nuw nsw i32 %.0110265, 1

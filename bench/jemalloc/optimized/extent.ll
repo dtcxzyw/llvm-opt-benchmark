@@ -1485,7 +1485,7 @@ tsd_fetch_impl.exit.i17.i.i:                      ; preds = %115, %111, %ehooks_
   br label %extent_decommit_wrapper.exit
 
 extent_decommit_wrapper.exit:                     ; preds = %88, %tsd_fetch_impl.exit.i17.i.i, %122
-  %.0.i.i = phi i1 [ %89, %88 ], [ %110, %tsd_fetch_impl.exit.i17.i.i ], [ %110, %122 ]
+  %.0.i.i = phi i1 [ %89, %88 ], [ %110, %122 ], [ %110, %tsd_fetch_impl.exit.i17.i.i ]
   %.val11.i = load i64, ptr %3, align 8, !tbaa !43
   %123 = and i64 %.val11.i, 8192
   %124 = icmp ne i64 %123, 0
@@ -2634,8 +2634,8 @@ extent_coalesce.exit52:                           ; preds = %26
   br i1 %34, label %.sink.split, label %35
 
 .sink.split:                                      ; preds = %extent_coalesce.exit52, %extent_coalesce.exit, %.loopexit61
-  %.sink = phi i8 [ 0, %.loopexit61 ], [ 1, %extent_coalesce.exit ], [ 1, %extent_coalesce.exit52 ]
-  %.3.ph = phi ptr [ %.138.ph60, %.loopexit61 ], [ %.037.ph, %extent_coalesce.exit ], [ %25, %extent_coalesce.exit52 ]
+  %.sink = phi i8 [ 1, %extent_coalesce.exit ], [ 0, %.loopexit61 ], [ 1, %extent_coalesce.exit52 ]
+  %.3.ph = phi ptr [ %.037.ph, %extent_coalesce.exit ], [ %.138.ph60, %.loopexit61 ], [ %25, %extent_coalesce.exit52 ]
   store i8 %.sink, ptr %5, align 1, !tbaa !4
   br label %35
 

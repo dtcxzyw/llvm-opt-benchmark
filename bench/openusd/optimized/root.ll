@@ -3287,7 +3287,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12UsdPrimRangeD2Ev.exit93: ; preds = %362, 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12UsdPrimRangeD2Ev.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__12UsdPrimRangeD2Ev.exit: ; preds = %365, %356, %343, %_ZN32pxrInternal_v0_24__pxrReserved__12UsdPrimRange8iteratorD2Ev.exit86, %432
-  %.4 = phi i1 [ true, %432 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__12UsdPrimRange8iteratorD2Ev.exit86 ], [ false, %343 ], [ false, %356 ], [ false, %365 ]
+  %.4 = phi i1 [ true, %432 ], [ false, %356 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__12UsdPrimRange8iteratorD2Ev.exit86 ], [ false, %343 ], [ false, %365 ]
   %436 = load ptr, ptr %15, align 8
   %437 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %438 = load ptr, ptr %437, align 8

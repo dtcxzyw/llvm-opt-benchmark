@@ -3618,7 +3618,7 @@ smart_str_alloc.exit._crit_edge.i.i:              ; preds = %smart_str_alloc.exi
   br label %351
 
 .loopexit.i.i:                                    ; preds = %passthru.exit291.i.i, %passthru.exit307.i.i, %183, %187, %197, %216, %check_host_whitelist.exit.i.i.i, %check_host_whitelist.exit.thread.i.i.i, %261, %smart_str_append_ex.exit.i.i.i, %select.unfold.i.i, %smart_str_alloc.exit.i.i
-  %.6.i.i = phi ptr [ %26, %smart_str_alloc.exit.i.i ], [ %.9.i.i, %select.unfold.i.i ], [ %164, %check_host_whitelist.exit.i.i.i ], [ %164, %216 ], [ %164, %197 ], [ %164, %187 ], [ %164, %183 ], [ %164, %passthru.exit307.i.i ], [ %164, %smart_str_append_ex.exit.i.i.i ], [ %.15.i.i, %passthru.exit291.i.i ], [ %164, %261 ], [ %164, %check_host_whitelist.exit.thread.i.i.i ]
+  %.6.i.i = phi ptr [ %26, %smart_str_alloc.exit.i.i ], [ %.9.i.i, %select.unfold.i.i ], [ %164, %check_host_whitelist.exit.thread.i.i.i ], [ %164, %check_host_whitelist.exit.i.i.i ], [ %164, %216 ], [ %164, %197 ], [ %164, %187 ], [ %164, %183 ], [ %164, %passthru.exit307.i.i ], [ %164, %smart_str_append_ex.exit.i.i.i ], [ %.15.i.i, %passthru.exit291.i.i ], [ %164, %261 ]
   store i32 0, ptr %28, align 8, !tbaa !81
   br label %.preheader379.i.i
 
@@ -3822,7 +3822,7 @@ select.unfold.i.i:                                ; preds = %102, %passthru.exit
   ]
 
 .preheader373.sink.split.i.i:                     ; preds = %332, %415, %407, %passthru.exit327.i.i, %373, %325, %323, %310
-  %.2207.ph.ph.i.i = phi ptr [ %295, %310 ], [ %.4209.i.i, %323 ], [ %.4209.i.i, %325 ], [ %408, %407 ], [ %.24.i.i, %passthru.exit327.i.i ], [ %366, %373 ], [ %416, %415 ], [ %.4209.i.i, %332 ]
+  %.2207.ph.ph.i.i = phi ptr [ %295, %310 ], [ %416, %415 ], [ %.4209.i.i, %323 ], [ %.4209.i.i, %325 ], [ %408, %407 ], [ %.24.i.i, %passthru.exit327.i.i ], [ %366, %373 ], [ %.4209.i.i, %332 ]
   store i32 2, ptr %28, align 8, !tbaa !81
   br label %.preheader373.i.i
 
@@ -4324,7 +4324,7 @@ handle_form.exit.i.i:                             ; preds = %159, %154
   ]
 
 .preheader365.i.i.preheader:                      ; preds = %332, %325, %323
-  %.19.i.i.ph = phi ptr [ %326, %325 ], [ %.4209.i.i, %323 ], [ %331, %332 ]
+  %.19.i.i.ph = phi ptr [ %.4209.i.i, %323 ], [ %326, %325 ], [ %331, %332 ]
   br label %.preheader365.i.i
 
 .preheader365.i.i:                                ; preds = %.preheader365.i.i.preheader, %329
@@ -4546,7 +4546,7 @@ passthru.exit327.i.i:                             ; preds = %386, %381
   br label %.preheader373.sink.split.i.i
 
 .thread.i.i:                                      ; preds = %.preheader377.i.i, %.preheader375.i.i, %handle_form.exit.i.i, %.preheader371.i.i, %.preheader369.i.i, %.preheader367.i.i, %.preheader365.i.i, %.preheader363.i.i, %411, %403, %351, %318, %287, %.preheader373.i.i, %73, %.preheader379.i.i
-  %.0204.i.i = phi ptr [ %.5210.i.i, %351 ], [ %.1206.i.i, %73 ], [ %.3208.i.i, %287 ], [ %.4209.i.i, %318 ], [ %.0205.ph.i.i, %.preheader379.i.i ], [ %.2207.ph.i.i, %.preheader373.i.i ], [ %.1206.i.i, %.preheader375.i.i ], [ %.5210.i.i, %403 ], [ %.5210.i.i, %411 ], [ %.5210.i.i, %.preheader363.i.i ], [ %.4209.i.i, %.preheader365.i.i ], [ %.4209.i.i, %.preheader367.i.i ], [ %.3208.i.i, %.preheader369.i.i ], [ %.2207.i81.i, %.preheader371.i.i ], [ %144, %handle_form.exit.i.i ], [ %.0205399.i80.i, %.preheader377.i.i ]
+  %.0204.i.i = phi ptr [ %.4209.i.i, %.preheader367.i.i ], [ %.5210.i.i, %411 ], [ %.5210.i.i, %.preheader363.i.i ], [ %.0205.ph.i.i, %.preheader379.i.i ], [ %.5210.i.i, %403 ], [ %.5210.i.i, %351 ], [ %.3208.i.i, %.preheader369.i.i ], [ %144, %handle_form.exit.i.i ], [ %.4209.i.i, %318 ], [ %.1206.i.i, %.preheader375.i.i ], [ %.2207.i81.i, %.preheader371.i.i ], [ %.1206.i.i, %73 ], [ %.4209.i.i, %.preheader365.i.i ], [ %.3208.i.i, %287 ], [ %.2207.ph.i.i, %.preheader373.i.i ], [ %.0205399.i80.i, %.preheader377.i.i ]
   %417 = icmp ult ptr %27, %.0204.i.i
   %418 = ptrtoint ptr %27 to i64
   %419 = ptrtoint ptr %.0204.i.i to i64

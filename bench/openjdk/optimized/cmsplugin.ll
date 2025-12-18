@@ -198,7 +198,7 @@ _cmsReadUInt16Number.exit:                        ; preds = %.lr.ph.split
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !6
 
 .loopexit:                                        ; preds = %_cmsReadUInt16Number.exit, %_cmsReadUInt16Number.exit14.us, %.lr.ph.split.us, %3, %_cmsReadUInt16Number.exit.thread
-  %.08 = phi i32 [ 0, %_cmsReadUInt16Number.exit.thread ], [ 1, %3 ], [ 1, %_cmsReadUInt16Number.exit14.us ], [ 0, %.lr.ph.split.us ], [ 1, %_cmsReadUInt16Number.exit ]
+  %.08 = phi i32 [ 1, %_cmsReadUInt16Number.exit14.us ], [ 0, %_cmsReadUInt16Number.exit.thread ], [ 1, %3 ], [ 0, %.lr.ph.split.us ], [ 1, %_cmsReadUInt16Number.exit ]
   ret i32 %.08
 }
 

@@ -2368,7 +2368,7 @@ trad_enc_encrypt_update.exit155:                  ; preds = %284, %.thread172, %
   br label %.loopexit173
 
 .loopexit173:                                     ; preds = %272, %321, %.thread170, %342, %345, %3, %337, %325, %244, %148, %103
-  %.0 = phi i64 [ %149, %148 ], [ -30, %337 ], [ %.2.ph, %.thread170 ], [ %245, %244 ], [ 0, %3 ], [ %326, %325 ], [ -25, %321 ], [ %104, %103 ], [ %spec.select, %345 ], [ %spec.select, %342 ], [ -30, %272 ]
+  %.0 = phi i64 [ %149, %148 ], [ -30, %337 ], [ %spec.select, %342 ], [ %.2.ph, %.thread170 ], [ %245, %244 ], [ 0, %3 ], [ %326, %325 ], [ -25, %321 ], [ %104, %103 ], [ %spec.select, %345 ], [ -30, %272 ]
   ret i64 %.0
 }
 
@@ -3155,7 +3155,7 @@ define internal range(i32 -30, 1) i32 @archive_write_zip_close(ptr noundef %0) #
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %53, %43, %._crit_edge._crit_edge, %63
-  %.045 = phi i32 [ 0, %63 ], [ -30, %._crit_edge._crit_edge ], [ -30, %43 ], [ -30, %53 ], [ -30, %.lr.ph ]
+  %.045 = phi i32 [ 0, %63 ], [ -30, %53 ], [ -30, %._crit_edge._crit_edge ], [ -30, %43 ], [ -30, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.045
 }

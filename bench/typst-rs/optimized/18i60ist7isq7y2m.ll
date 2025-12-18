@@ -591,17 +591,17 @@ _ZN10ttf_parser9Transform10is_default17h310561374b706d35E.exit: ; preds = %193
   br label %311
 
 311:                                              ; preds = %309, %276
-  %.sroa.22.0 = phi i64 [ 0, %276 ], [ %300, %309 ]
-  %.sroa.29.0 = phi i64 [ 0, %276 ], [ %291, %309 ]
-  %312 = phi i64 [ 0, %276 ], [ %292, %309 ]
-  %.sroa.39111.0 = phi i16 [ 0, %276 ], [ %275, %309 ]
-  %313 = phi ptr [ @anon.d826bc7b5104a02f59040d00c4e2e6a7.11, %276 ], [ %310, %309 ]
-  %314 = phi ptr [ @anon.d826bc7b5104a02f59040d00c4e2e6a7.11, %276 ], [ %305, %309 ]
-  %.sroa.20108.0 = phi ptr [ @anon.d826bc7b5104a02f59040d00c4e2e6a7.11, %276 ], [ %301, %309 ]
-  %.sroa.18.0 = phi i16 [ 0, %276 ], [ %297, %309 ]
-  %.sroa.16.0 = phi i16 [ 0, %276 ], [ 1, %309 ]
-  %.val12.i.i = phi i64 [ 0, %276 ], [ %265, %309 ]
-  %.val11.i.i = phi ptr [ @anon.d826bc7b5104a02f59040d00c4e2e6a7.11, %276 ], [ %260, %309 ]
+  %.sroa.22.0 = phi i64 [ %300, %309 ], [ 0, %276 ]
+  %.sroa.29.0 = phi i64 [ %291, %309 ], [ 0, %276 ]
+  %312 = phi i64 [ %292, %309 ], [ 0, %276 ]
+  %.sroa.39111.0 = phi i16 [ %275, %309 ], [ 0, %276 ]
+  %313 = phi ptr [ %310, %309 ], [ @anon.d826bc7b5104a02f59040d00c4e2e6a7.11, %276 ]
+  %314 = phi ptr [ %305, %309 ], [ @anon.d826bc7b5104a02f59040d00c4e2e6a7.11, %276 ]
+  %.sroa.20108.0 = phi ptr [ %301, %309 ], [ @anon.d826bc7b5104a02f59040d00c4e2e6a7.11, %276 ]
+  %.sroa.18.0 = phi i16 [ %297, %309 ], [ 0, %276 ]
+  %.sroa.16.0 = phi i16 [ 1, %309 ], [ 0, %276 ]
+  %.val12.i.i = phi i64 [ %265, %309 ], [ 0, %276 ]
+  %.val11.i.i = phi ptr [ %260, %309 ], [ @anon.d826bc7b5104a02f59040d00c4e2e6a7.11, %276 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !158
   %.not.i92226 = icmp eq i16 %.sroa.39111.0, 0
   br i1 %.not.i92226, label %.loopexit, label %.lr.ph227
@@ -4300,7 +4300,7 @@ _ZN10ttf_parser6tables3svg16SvgDocumentsList4find17h603d677cde62fc58E.exit.threa
   br label %_ZN10ttf_parser6tables3svg16SvgDocumentsList4find17h603d677cde62fc58E.exit.thread
 
 _ZN10ttf_parser6tables3svg16SvgDocumentsList4find17h603d677cde62fc58E.exit.thread: ; preds = %.lr.ph.i.i, %66, %_ZN10ttf_parser6tables3svg16SvgDocumentsList4find17h603d677cde62fc58E.exit.thread.sink.split, %52, %"_ZN10ttf_parser6parser20LazyArray16$LT$T$GT$3get17he63e5c5b055c32a6E.exit.i.i", %75, %69, %4
-  %.6 = phi i1 [ false, %52 ], [ false, %4 ], [ false, %69 ], [ false, %75 ], [ false, %"_ZN10ttf_parser6parser20LazyArray16$LT$T$GT$3get17he63e5c5b055c32a6E.exit.i.i" ], [ %.6.ph, %_ZN10ttf_parser6tables3svg16SvgDocumentsList4find17h603d677cde62fc58E.exit.thread.sink.split ], [ false, %66 ], [ false, %.lr.ph.i.i ]
+  %.6 = phi i1 [ %.6.ph, %_ZN10ttf_parser6tables3svg16SvgDocumentsList4find17h603d677cde62fc58E.exit.thread.sink.split ], [ false, %"_ZN10ttf_parser6parser20LazyArray16$LT$T$GT$3get17he63e5c5b055c32a6E.exit.i.i" ], [ false, %52 ], [ false, %4 ], [ false, %69 ], [ false, %75 ], [ false, %66 ], [ false, %.lr.ph.i.i ]
   ret i1 %.6
 
 305:                                              ; preds = %182, %271, %"_ZN4core3ptr36drop_in_place$LT$usvg_tree..Tree$GT$17h54c5804abd70b314E.exit", %165, %100, %.body
@@ -5166,7 +5166,7 @@ _ZN10ttf_parser6tables4glyf5Table7outline17h4ce9d5e6ee9deaa8E.exit.i: ; preds = 
   br label %330
 
 325:                                              ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h1fc2b0f4daad4902E.exit.i._crit_edge", %324, %311, %_ZN10ttf_parser6tables4glyf5Table7outline17h4ce9d5e6ee9deaa8E.exit.i
-  %326 = phi i16 [ %.pre, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h1fc2b0f4daad4902E.exit.i._crit_edge" ], [ %storemerge.i, %324 ], [ %storemerge15.i, %311 ], [ %298, %_ZN10ttf_parser6tables4glyf5Table7outline17h4ce9d5e6ee9deaa8E.exit.i ]
+  %326 = phi i16 [ %.pre, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h1fc2b0f4daad4902E.exit.i._crit_edge" ], [ %storemerge.i, %324 ], [ %298, %_ZN10ttf_parser6tables4glyf5Table7outline17h4ce9d5e6ee9deaa8E.exit.i ], [ %storemerge15.i, %311 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %trunc = trunc nuw i16 %326 to i1
   call void @llvm.lifetime.end.p0(ptr nonnull %40)

@@ -14073,9 +14073,9 @@ default.unreachable:                              ; preds = %.noexc2
   br label %.invoke
 
 .invoke:                                          ; preds = %62, %59, %110, %.preheader.i.i, %81, %130
-  %132 = phi i64 [ %umax.i.i.i, %130 ], [ %93, %.preheader.i.i ], [ %umax.i29.i.i, %81 ], [ %112, %110 ], [ %63, %62 ], [ %60, %59 ]
-  %133 = phi i64 [ %21, %130 ], [ %25, %.preheader.i.i ], [ %21, %81 ], [ %21, %110 ], [ %21, %62 ], [ %25, %59 ]
-  %134 = phi ptr [ @anon.75cef3805c38ca33f719bfa6e69e326b.19, %130 ], [ @anon.75cef3805c38ca33f719bfa6e69e326b.16, %.preheader.i.i ], [ @anon.75cef3805c38ca33f719bfa6e69e326b.19, %81 ], [ @anon.75cef3805c38ca33f719bfa6e69e326b.17, %110 ], [ @anon.75cef3805c38ca33f719bfa6e69e326b.17, %62 ], [ @anon.75cef3805c38ca33f719bfa6e69e326b.16, %59 ]
+  %132 = phi i64 [ %umax.i.i.i, %130 ], [ %93, %.preheader.i.i ], [ %112, %110 ], [ %umax.i29.i.i, %81 ], [ %60, %59 ], [ %63, %62 ]
+  %133 = phi i64 [ %21, %130 ], [ %25, %.preheader.i.i ], [ %21, %110 ], [ %21, %81 ], [ %25, %59 ], [ %21, %62 ]
+  %134 = phi ptr [ @anon.75cef3805c38ca33f719bfa6e69e326b.19, %130 ], [ @anon.75cef3805c38ca33f719bfa6e69e326b.16, %.preheader.i.i ], [ @anon.75cef3805c38ca33f719bfa6e69e326b.17, %110 ], [ @anon.75cef3805c38ca33f719bfa6e69e326b.19, %81 ], [ @anon.75cef3805c38ca33f719bfa6e69e326b.16, %59 ], [ @anon.75cef3805c38ca33f719bfa6e69e326b.17, %62 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %132, i64 noundef %133, ptr noalias noundef readonly align 8 dereferenceable(24) %134) #40
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp
 

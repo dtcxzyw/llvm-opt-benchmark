@@ -2694,7 +2694,7 @@ parse_type.exit:                                  ; preds = %.split8.i, %.split.
   br label %.loopexit39
 
 .loopexit39:                                      ; preds = %14, %51, %2, %.loopexit
-  %.029 = phi i1 [ true, %.loopexit ], [ true, %2 ], [ false, %51 ], [ false, %14 ]
+  %.029 = phi i1 [ true, %.loopexit ], [ false, %51 ], [ true, %2 ], [ false, %14 ]
   ret i1 %.029
 }
 
@@ -3545,7 +3545,7 @@ extend_span_with_token.exit132:                   ; preds = %100, %101
   br label %.loopexit
 
 .loopexit:                                        ; preds = %113, %150, %91, %65, %60, %3, %.loopexit135, %35, %30, %17, %14, %13
-  %.0107 = phi i1 [ false, %30 ], [ false, %35 ], [ true, %.loopexit135 ], [ false, %91 ], [ false, %60 ], [ false, %3 ], [ false, %65 ], [ false, %13 ], [ false, %14 ], [ true, %17 ], [ false, %150 ], [ false, %113 ]
+  %.0107 = phi i1 [ false, %30 ], [ false, %35 ], [ true, %.loopexit135 ], [ false, %150 ], [ false, %91 ], [ false, %60 ], [ false, %3 ], [ false, %65 ], [ false, %13 ], [ false, %14 ], [ true, %17 ], [ false, %113 ]
   ret i1 %.0107
 }
 
@@ -4181,7 +4181,7 @@ extend_span_with_token.exit230:                   ; preds = %142, %143
   br label %.loopexit
 
 .loopexit:                                        ; preds = %185, %67, %245, %203, %174, %168, %167, %163, %157, %152, %138, %133, %128, %113, %extend_span_with_token.exit221, %97, %92, %extend_span_with_token.exit, %72, %25, %21, %19
-  %.0177 = phi i1 [ false, %25 ], [ true, %245 ], [ false, %21 ], [ false, %19 ], [ false, %extend_span_with_token.exit ], [ false, %168 ], [ false, %92 ], [ false, %97 ], [ false, %113 ], [ false, %174 ], [ %205, %203 ], [ false, %extend_span_with_token.exit221 ], [ false, %128 ], [ false, %138 ], [ false, %133 ], [ false, %152 ], [ false, %157 ], [ false, %163 ], [ false, %167 ], [ false, %72 ], [ false, %67 ], [ false, %185 ]
+  %.0177 = phi i1 [ false, %25 ], [ true, %245 ], [ false, %21 ], [ false, %19 ], [ false, %extend_span_with_token.exit ], [ false, %168 ], [ false, %92 ], [ false, %97 ], [ false, %113 ], [ false, %174 ], [ %205, %203 ], [ false, %72 ], [ false, %extend_span_with_token.exit221 ], [ false, %128 ], [ false, %138 ], [ false, %133 ], [ false, %152 ], [ false, %157 ], [ false, %163 ], [ false, %167 ], [ false, %67 ], [ false, %185 ]
   ret i1 %.0177
 }
 
@@ -4599,7 +4599,7 @@ parse_type.exit156:                               ; preds = %.split8.i155, %.spl
   br label %.loopexit
 
 .loopexit:                                        ; preds = %132, %59, %180, %8, %199, %195, %189, %177, %138, %118, %114, %106, %67, %55, %49, %44, %29
-  %.0127 = phi i1 [ false, %106 ], [ false, %55 ], [ false, %49 ], [ %46, %44 ], [ %31, %29 ], [ false, %67 ], [ false, %8 ], [ false, %114 ], [ false, %118 ], [ false, %177 ], [ false, %189 ], [ false, %195 ], [ false, %138 ], [ true, %199 ], [ false, %180 ], [ false, %59 ], [ false, %132 ]
+  %.0127 = phi i1 [ false, %106 ], [ false, %55 ], [ false, %49 ], [ %46, %44 ], [ %31, %29 ], [ false, %67 ], [ false, %8 ], [ false, %114 ], [ false, %118 ], [ false, %177 ], [ false, %189 ], [ false, %195 ], [ false, %180 ], [ false, %138 ], [ true, %199 ], [ false, %59 ], [ false, %132 ]
   ret i1 %.0127
 }
 
@@ -4875,7 +4875,7 @@ define internal fastcc noundef zeroext i1 @parse_bitstruct_body(ptr noundef %0, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %95, %83, %16, %78, %6, %._crit_edge, %107, %102, %38, %30, %27
-  %.0113 = phi i1 [ false, %38 ], [ false, %107 ], [ false, %102 ], [ false, %78 ], [ false, %27 ], [ false, %30 ], [ false, %6 ], [ true, %._crit_edge ], [ false, %16 ], [ false, %83 ], [ false, %95 ]
+  %.0113 = phi i1 [ true, %._crit_edge ], [ false, %38 ], [ false, %107 ], [ false, %102 ], [ false, %6 ], [ false, %78 ], [ false, %30 ], [ false, %27 ], [ false, %16 ], [ false, %83 ], [ false, %95 ]
   ret i1 %.0113
 }
 
@@ -5890,7 +5890,7 @@ parse_doc_optreturn.exit:                         ; preds = %extend_span_with_to
   br label %12
 
 parse_contract_param.exit.thread:                 ; preds = %217, %211, %201, %124, %113, %119, %72, %45, %50, %57, %2, %253, %252, %248
-  %.0 = phi i1 [ false, %252 ], [ false, %253 ], [ true, %2 ], [ false, %72 ], [ true, %248 ], [ false, %57 ], [ false, %50 ], [ false, %45 ], [ false, %119 ], [ false, %124 ], [ false, %113 ], [ false, %201 ], [ false, %211 ], [ false, %217 ]
+  %.0 = phi i1 [ false, %252 ], [ false, %253 ], [ true, %2 ], [ false, %124 ], [ false, %72 ], [ false, %119 ], [ false, %45 ], [ true, %248 ], [ false, %57 ], [ false, %50 ], [ false, %113 ], [ false, %201 ], [ false, %211 ], [ false, %217 ]
   ret i1 %.0
 }
 

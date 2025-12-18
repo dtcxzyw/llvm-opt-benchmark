@@ -1816,7 +1816,7 @@ _ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit.thread: ; preds = %.crite
   br i1 %.not44.not, label %.loopexit, label %.lr.ph63
 
 .loopexit:                                        ; preds = %_ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit.thread, %40, %_ZNK5ceres8internal14ParameterBlock22LowerBoundForParameterEi.exit, %_ZNK5ceres8internal14ParameterBlock22LowerBoundForParameterEi.exit.us, %_ZNK5ceres8internal14ParameterBlock22LowerBoundForParameterEi.exit.thread.us, %1
-  %.not4447 = phi i1 [ false, %1 ], [ true, %40 ], [ true, %_ZNK5ceres8internal14ParameterBlock22LowerBoundForParameterEi.exit.thread.us ], [ true, %_ZNK5ceres8internal14ParameterBlock22LowerBoundForParameterEi.exit.us ], [ true, %_ZNK5ceres8internal14ParameterBlock22LowerBoundForParameterEi.exit ], [ false, %_ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit.thread ]
+  %.not4447 = phi i1 [ true, %_ZNK5ceres8internal14ParameterBlock22LowerBoundForParameterEi.exit.thread.us ], [ true, %_ZNK5ceres8internal14ParameterBlock22LowerBoundForParameterEi.exit.us ], [ true, %40 ], [ false, %1 ], [ true, %_ZNK5ceres8internal14ParameterBlock22LowerBoundForParameterEi.exit ], [ false, %_ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit.thread ]
   ret i1 %.not4447
 }
 
@@ -2272,7 +2272,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i65
   br label %.loopexit106
 
 .loopexit106:                                     ; preds = %.loopexit, %.loopexit106.sink.split, %.critedge
-  %.not104111 = phi i1 [ true, %.critedge ], [ false, %.loopexit106.sink.split ], [ true, %.loopexit ]
+  %.not104111 = phi i1 [ false, %.loopexit106.sink.split ], [ true, %.critedge ], [ true, %.loopexit ]
   ret i1 %.not104111
 }
 

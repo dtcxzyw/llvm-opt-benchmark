@@ -1777,7 +1777,7 @@ _ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i: ; preds = %28
   br i1 %exitcond.not.i.i, label %_ZNK20btAlignedObjectArrayI9btVector3E4copyEiiPS0_.exit.i, label %34, !llvm.loop !19
 
 _ZNK20btAlignedObjectArrayI9btVector3E4copyEiiPS0_.exit.i: ; preds = %34, %28, %_ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i
-  %.0.i.i194 = phi ptr [ %31, %_ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i ], [ null, %28 ], [ %31, %34 ]
+  %.0.i.i194 = phi ptr [ null, %28 ], [ %31, %_ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i ], [ %31, %34 ]
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %39 = load ptr, ptr %38, align 8, !tbaa !13
   %.not.i5.i = icmp ne ptr %39, null

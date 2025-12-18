@@ -479,7 +479,7 @@ define dso_local noundef i32 @snd_hda_parse_pin_defcfg(ptr noundef %0, ptr nound
   br label %.thread
 
 .thread:                                          ; preds = %.preheader55, %29, %35, %236, %235, %224, %223, %202, %199, %181, %178, %160, %157, %139, %136, %129, %128, %118, %117, %109, %108, %101, %95, %83, %79, %.loopexit56, %39
-  %237 = phi i16 [ %31, %223 ], [ %31, %128 ], [ %31, %117 ], [ %31, %101 ], [ %105, %108 ], [ %31, %39 ], [ %31, %.loopexit56 ], [ %31, %79 ], [ %31, %95 ], [ %31, %83 ], [ %31, %235 ], [ %31, %236 ], [ %31, %224 ], [ %31, %129 ], [ %31, %118 ], [ %105, %109 ], [ %31, %136 ], [ %31, %139 ], [ %31, %157 ], [ %31, %160 ], [ %31, %178 ], [ %31, %181 ], [ %31, %199 ], [ %31, %202 ], [ %31, %35 ], [ %31, %29 ], [ %31, %.preheader55 ]
+  %237 = phi i16 [ %31, %223 ], [ %31, %128 ], [ %31, %117 ], [ %31, %101 ], [ %105, %108 ], [ %31, %39 ], [ %31, %.loopexit56 ], [ %31, %79 ], [ %31, %95 ], [ %31, %83 ], [ %31, %235 ], [ %31, %236 ], [ %31, %224 ], [ %31, %129 ], [ %31, %118 ], [ %105, %109 ], [ %31, %136 ], [ %31, %139 ], [ %31, %157 ], [ %31, %160 ], [ %31, %178 ], [ %31, %181 ], [ %31, %199 ], [ %31, %202 ], [ %31, %29 ], [ %31, %35 ], [ %31, %.preheader55 ]
   %238 = add nuw nsw i32 %30, 1
   %239 = load i16, ptr %11, align 2
   %240 = zext i16 %239 to i32
@@ -1548,7 +1548,7 @@ hda_get_input_pin_label.exit:                     ; preds = %76, %78, %80, %81
   br i1 %99, label %103, label %hda_get_input_pin_label.exit.thread
 
 hda_get_input_pin_label.exit.thread:              ; preds = %.preheader, %41, %59, %71, %.loopexit, %89, %86, %91, %92, %93, %94, %95, %25, %19, %hda_get_input_pin_label.exit
-  %100 = phi ptr [ %98, %hda_get_input_pin_label.exit ], [ @.str.32, %71 ], [ @.str.35, %.loopexit ], [ %spec.select.i, %89 ], [ @.str.32, %86 ], [ @.str.36, %91 ], [ @.str.37, %92 ], [ @.str.38, %93 ], [ @.str.31, %94 ], [ @.str.39, %95 ], [ %22, %25 ], [ %22, %19 ], [ %61, %59 ], [ %22, %41 ], [ %22, %.preheader ]
+  %100 = phi ptr [ %98, %hda_get_input_pin_label.exit ], [ @.str.32, %71 ], [ @.str.35, %.loopexit ], [ %spec.select.i, %89 ], [ @.str.32, %86 ], [ @.str.36, %91 ], [ @.str.37, %92 ], [ @.str.38, %93 ], [ @.str.31, %94 ], [ @.str.39, %95 ], [ %61, %59 ], [ %22, %25 ], [ %22, %19 ], [ %22, %41 ], [ %22, %.preheader ]
   %101 = sext i32 %4 to i64
   %102 = tail call i64 @strscpy(ptr noundef %3, ptr noundef nonnull %100, i64 noundef %101) #11
   br label %103
@@ -2225,7 +2225,7 @@ define dso_local void @snd_hda_pick_pin_fixup(ptr noundef captures(none) %0, ptr
   br i1 %88, label %.split14.us, label %.split, !llvm.loop !23
 
 .split14.us:                                      ; preds = %69, %.loopexit, %.thread
-  %.us-phi = phi i1 [ %55, %.loopexit ], [ %87, %.thread ], [ %55, %69 ]
+  %.us-phi = phi i1 [ %55, %69 ], [ %87, %.thread ], [ %55, %.loopexit ]
   br i1 %.us-phi, label %.critedge, label %.critedge20
 
 .critedge:                                        ; preds = %.thread.us.lr.ph, %..split14.us_crit_edge, %30, %.split14.us, %.thread.us..split14.us_crit_edge.split

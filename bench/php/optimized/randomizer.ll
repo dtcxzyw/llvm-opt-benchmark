@@ -114,11 +114,11 @@ zend_parse_arg_object.exit:                       ; preds = %25
   br label %33
 
 33:                                               ; preds = %10, %29, %zend_parse_arg_object.exit
-  %.045 = phi ptr [ null, %10 ], [ %32, %29 ], [ null, %zend_parse_arg_object.exit ]
-  %.044 = phi i32 [ 1, %10 ], [ 4, %29 ], [ 9, %zend_parse_arg_object.exit ]
-  %.042 = phi i32 [ 0, %10 ], [ 0, %29 ], [ 19, %zend_parse_arg_object.exit ]
-  %.041 = phi ptr [ null, %10 ], [ %14, %29 ], [ %14, %zend_parse_arg_object.exit ]
-  %.0 = phi i32 [ 0, %10 ], [ 1, %29 ], [ 1, %zend_parse_arg_object.exit ]
+  %.045 = phi ptr [ null, %10 ], [ null, %zend_parse_arg_object.exit ], [ %32, %29 ]
+  %.044 = phi i32 [ 1, %10 ], [ 9, %zend_parse_arg_object.exit ], [ 4, %29 ]
+  %.042 = phi i32 [ 0, %10 ], [ 19, %zend_parse_arg_object.exit ], [ 0, %29 ]
+  %.041 = phi ptr [ null, %10 ], [ %14, %zend_parse_arg_object.exit ], [ %14, %29 ]
+  %.0 = phi i32 [ 0, %10 ], [ 1, %zend_parse_arg_object.exit ], [ 1, %29 ]
   tail call void @zend_wrong_parameter_error(i32 noundef %.044, i32 noundef %.0, ptr noundef %.045, i32 noundef %.042, ptr noundef %.041) #9
   br label %randomizer_common_init.exit
 
@@ -951,7 +951,7 @@ zend_string_alloc.exit:                           ; preds = %.critedge
   br label %.loopexit
 
 .loopexit:                                        ; preds = %43, %.loopexit.loopexit, %.loopexit104, %zend_string_alloc.exit
-  %.2 = phi i64 [ 0, %zend_string_alloc.exit ], [ %.1, %.loopexit104 ], [ %64, %.loopexit.loopexit ], [ %29, %43 ]
+  %.2 = phi i64 [ %64, %.loopexit.loopexit ], [ 0, %zend_string_alloc.exit ], [ %.1, %.loopexit104 ], [ %29, %43 ]
   %46 = icmp ult i64 %.2, %17
   br i1 %46, label %47, label %69
 

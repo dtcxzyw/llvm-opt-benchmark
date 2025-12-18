@@ -363,7 +363,7 @@ _PySemaphore_Wait.exit:                           ; preds = %_PySemaphore_Platfo
   br label %_PyRawMutex_Unlock.exit29
 
 _PyRawMutex_Unlock.exit29:                        ; preds = %_PySemaphore_Wait.exit, %_PySemaphore_PlatformWait.exit.i.us, %_PyRawMutex_Unlock.exit27.split.us.preheader, %90, %82, %_PyRawMutex_Unlock.exit25
-  %.0 = phi i32 [ 0, %_PyRawMutex_Unlock.exit25 ], [ %53, %82 ], [ %53, %90 ], [ 0, %_PyRawMutex_Unlock.exit27.split.us.preheader ], [ 0, %_PySemaphore_PlatformWait.exit.i.us ], [ 0, %_PySemaphore_Wait.exit ]
+  %.0 = phi i32 [ 0, %_PyRawMutex_Unlock.exit25 ], [ %53, %90 ], [ %53, %82 ], [ 0, %_PyRawMutex_Unlock.exit27.split.us.preheader ], [ 0, %_PySemaphore_PlatformWait.exit.i.us ], [ 0, %_PySemaphore_Wait.exit ]
   %91 = call i32 @sem_destroy(ptr noundef nonnull %38) #10
   br label %_PyRawMutex_Unlock.exit
 

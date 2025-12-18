@@ -1246,7 +1246,7 @@ _ZN4core4hash6Hasher11write_isize17hdfc3d9f617f96267E.llvm.16046706290494260226.
   br i1 %147, label %"_ZN64_$LT$http..header..name..HdrName$u20$as$u20$core..hash..Hash$GT$4hash17h7dafea821947fdd0E.exit", label %.lr.ph.i.i.i20
 
 "_ZN64_$LT$http..header..name..HdrName$u20$as$u20$core..hash..Hash$GT$4hash17h7dafea821947fdd0E.exit": ; preds = %.lr.ph.i.i.i20, %.lr.ph.i.i.i.i, %131, %_ZN4core4hash6Hasher11write_isize17hdfc3d9f617f96267E.llvm.16046706290494260226.exit6.i.i, %132, %"_ZN64_$LT$http..header..name..HdrName$u20$as$u20$core..hash..Hash$GT$4hash17h57e9554c38fa59bcE.exit"
-  %.sroa.0.0 = phi i64 [ %104, %"_ZN64_$LT$http..header..name..HdrName$u20$as$u20$core..hash..Hash$GT$4hash17h57e9554c38fa59bcE.exit" ], [ %122, %_ZN4core4hash6Hasher11write_isize17hdfc3d9f617f96267E.llvm.16046706290494260226.exit6.i.i ], [ %113, %131 ], [ %113, %132 ], [ %137, %.lr.ph.i.i.i.i ], [ %145, %.lr.ph.i.i.i20 ]
+  %.sroa.0.0 = phi i64 [ %104, %"_ZN64_$LT$http..header..name..HdrName$u20$as$u20$core..hash..Hash$GT$4hash17h57e9554c38fa59bcE.exit" ], [ %122, %_ZN4core4hash6Hasher11write_isize17hdfc3d9f617f96267E.llvm.16046706290494260226.exit6.i.i ], [ %113, %131 ], [ %137, %.lr.ph.i.i.i.i ], [ %113, %132 ], [ %145, %.lr.ph.i.i.i20 ]
   %148 = trunc i64 %.sroa.0.0 to i16
   %149 = and i16 %148, 32767
   ret i16 %149
@@ -3780,8 +3780,8 @@ define hidden void @_ZN4http6header4name7HdrName10from_bytes17hfe4af09ee3ac6cd3E
 
 "_ZN69_$LT$$RF$str$u20$as$u20$http..header..map..as_header_name..Sealed$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h0b200acb866c948dE.exit": ; preds = %80, %"_ZN106_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$LT$http..header..name..HdrName$GT$$GT$2eq17h5e8acf25d92f5742E.exit.i.i", %39, %42, %.preheader.i.i.i.i, %11
   %.sroa.4.0 = phi i64 [ undef, %11 ], [ %.sroa.03.0.i.i, %.preheader.i.i.i.i ], [ %.sroa.03.0.i.i, %42 ], [ %.sroa.03.0.i.i, %39 ], [ %.sroa.03.0.i.i, %"_ZN106_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$LT$http..header..name..HdrName$GT$$GT$2eq17h5e8acf25d92f5742E.exit.i.i" ], [ %.sroa.03.0.i.i, %80 ]
-  %.sroa.5.0 = phi i64 [ undef, %11 ], [ %43, %.preheader.i.i.i.i ], [ %43, %80 ], [ %43, %"_ZN106_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$LT$http..header..name..HdrName$GT$$GT$2eq17h5e8acf25d92f5742E.exit.i.i" ], [ undef, %39 ], [ undef, %42 ]
-  %.sink.i.i = phi i64 [ 0, %11 ], [ 1, %.preheader.i.i.i.i ], [ 1, %80 ], [ 1, %"_ZN106_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$LT$http..header..name..HdrName$GT$$GT$2eq17h5e8acf25d92f5742E.exit.i.i" ], [ 0, %39 ], [ 0, %42 ]
+  %.sroa.5.0 = phi i64 [ undef, %11 ], [ %43, %.preheader.i.i.i.i ], [ %43, %"_ZN106_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$LT$http..header..name..HdrName$GT$$GT$2eq17h5e8acf25d92f5742E.exit.i.i" ], [ undef, %39 ], [ undef, %42 ], [ %43, %80 ]
+  %.sink.i.i = phi i64 [ 0, %11 ], [ 1, %.preheader.i.i.i.i ], [ 1, %"_ZN106_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$LT$http..header..name..HdrName$GT$$GT$2eq17h5e8acf25d92f5742E.exit.i.i" ], [ 0, %39 ], [ 0, %42 ], [ 1, %80 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store i64 %.sink.i.i, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8

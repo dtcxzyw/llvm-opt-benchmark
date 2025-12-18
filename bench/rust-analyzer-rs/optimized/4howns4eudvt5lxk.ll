@@ -3335,22 +3335,22 @@ _ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit.i: ; preds = %154
 
 165:                                              ; preds = %163
   switch i16 %140, label %_ZN6parser7grammar6params14opt_self_param17h2f9b3d86a67666b7E.exit [
-    i16 82, label %167
-    i16 88, label %166
+    i16 82, label %166
+    i16 88, label %168
   ]
 
 166:                                              ; preds = %165
+  %167 = icmp eq i16 %129, 126
+  %spec.select.i = and i1 %167, %153
+  br i1 %spec.select.i, label %.critedge.i, label %_ZN6parser7grammar6params14opt_self_param17h2f9b3d86a67666b7E.exit
+
+168:                                              ; preds = %165
   switch i16 %129, label %_ZN6parser7grammar6params14opt_self_param17h2f9b3d86a67666b7E.exit [
     i16 126, label %.critedge.i
     i16 82, label %.critedge.i
   ]
 
-167:                                              ; preds = %165
-  %168 = icmp eq i16 %129, 126
-  %spec.select.i = and i1 %168, %153
-  br i1 %spec.select.i, label %.critedge.i, label %_ZN6parser7grammar6params14opt_self_param17h2f9b3d86a67666b7E.exit
-
-.critedge.i:                                      ; preds = %167, %166, %166, %163
+.critedge.i:                                      ; preds = %168, %168, %166, %163
   %169 = invoke noundef zeroext i1 @_ZN6parser6parser6Parser6nth_at17h20e46c565405313aE(ptr noundef nonnull align 8 dereferenceable(48) %0, i64 noundef 0, i16 noundef 17)
           to label %.noexc24.i unwind label %204, !noalias !466
 
@@ -3496,7 +3496,7 @@ _ZN6parser7grammar6params14opt_self_param17h2f9b3d86a67666b7E.exit.thread: ; pre
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %209
 
-_ZN6parser7grammar6params14opt_self_param17h2f9b3d86a67666b7E.exit: ; preds = %154, %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit.i, %165, %166, %167
+_ZN6parser7grammar6params14opt_self_param17h2f9b3d86a67666b7E.exit: ; preds = %154, %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit.i, %165, %166, %168
   %.sroa.0.0.copyload142 = load i64, ptr %28, align 8, !alias.scope !466, !noalias !462
   %207 = getelementptr inbounds nuw i8, ptr %29, i64 8
   call void @llvm.lifetime.end.p0(ptr nonnull %28)

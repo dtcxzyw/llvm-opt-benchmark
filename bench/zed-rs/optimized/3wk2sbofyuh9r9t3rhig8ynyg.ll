@@ -3599,8 +3599,8 @@ define hidden { i64, ptr } @"_ZN10async_task4task17Task$LT$T$C$M$GT$9poll_task17
   br i1 %22, label %"_ZN10async_task6header15Header$LT$M$GT$6notify17h67c573601baacc7cE.llvm.6110214326448453520.exit25", label %25
 
 "_ZN10async_task6header15Header$LT$M$GT$6notify17h67c573601baacc7cE.llvm.6110214326448453520.exit25": ; preds = %20, %98, %92, %79, %74, %69, %"_ZN10async_task6header15Header$LT$M$GT$6notify17h67c573601baacc7cE.llvm.6110214326448453520.exit"
-  %.sroa.5.0 = phi ptr [ %.sroa.58.0.copyload, %"_ZN10async_task6header15Header$LT$M$GT$6notify17h67c573601baacc7cE.llvm.6110214326448453520.exit" ], [ undef, %69 ], [ undef, %74 ], [ undef, %79 ], [ undef, %92 ], [ undef, %98 ], [ undef, %20 ]
-  %.sroa.0.0 = phi i64 [ 1, %"_ZN10async_task6header15Header$LT$M$GT$6notify17h67c573601baacc7cE.llvm.6110214326448453520.exit" ], [ 2, %69 ], [ 0, %74 ], [ 0, %79 ], [ 0, %92 ], [ 0, %98 ], [ 2, %20 ]
+  %.sroa.5.0 = phi ptr [ %.sroa.58.0.copyload, %"_ZN10async_task6header15Header$LT$M$GT$6notify17h67c573601baacc7cE.llvm.6110214326448453520.exit" ], [ undef, %98 ], [ undef, %69 ], [ undef, %74 ], [ undef, %79 ], [ undef, %92 ], [ undef, %20 ]
+  %.sroa.0.0 = phi i64 [ 1, %"_ZN10async_task6header15Header$LT$M$GT$6notify17h67c573601baacc7cE.llvm.6110214326448453520.exit" ], [ 0, %98 ], [ 2, %69 ], [ 0, %74 ], [ 0, %79 ], [ 0, %92 ], [ 2, %20 ]
   %23 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %24 = insertvalue { i64, ptr } %23, ptr %.sroa.5.0, 1
   ret { i64, ptr } %24
@@ -3822,8 +3822,8 @@ define hidden { i64, ptr } @"_ZN10async_task4task17Task$LT$T$C$M$GT$9poll_task17
   br i1 %22, label %"_ZN10async_task6header15Header$LT$M$GT$6notify17h67c573601baacc7cE.llvm.6110214326448453520.exit26", label %25
 
 "_ZN10async_task6header15Header$LT$M$GT$6notify17h67c573601baacc7cE.llvm.6110214326448453520.exit26": ; preds = %20, %99, %93, %80, %75, %70, %"_ZN10async_task6header15Header$LT$M$GT$6notify17h67c573601baacc7cE.llvm.6110214326448453520.exit"
-  %.sroa.5.0 = phi ptr [ %.sroa.6.0.copyload, %"_ZN10async_task6header15Header$LT$M$GT$6notify17h67c573601baacc7cE.llvm.6110214326448453520.exit" ], [ undef, %70 ], [ undef, %75 ], [ undef, %80 ], [ undef, %93 ], [ undef, %99 ], [ undef, %20 ]
-  %.sroa.0.0 = phi i64 [ %.sroa.47.0.copyload, %"_ZN10async_task6header15Header$LT$M$GT$6notify17h67c573601baacc7cE.llvm.6110214326448453520.exit" ], [ 3, %70 ], [ 2, %75 ], [ 2, %80 ], [ 2, %93 ], [ 2, %99 ], [ 3, %20 ]
+  %.sroa.5.0 = phi ptr [ %.sroa.6.0.copyload, %"_ZN10async_task6header15Header$LT$M$GT$6notify17h67c573601baacc7cE.llvm.6110214326448453520.exit" ], [ undef, %99 ], [ undef, %70 ], [ undef, %75 ], [ undef, %80 ], [ undef, %93 ], [ undef, %20 ]
+  %.sroa.0.0 = phi i64 [ %.sroa.47.0.copyload, %"_ZN10async_task6header15Header$LT$M$GT$6notify17h67c573601baacc7cE.llvm.6110214326448453520.exit" ], [ 2, %99 ], [ 3, %70 ], [ 2, %75 ], [ 2, %80 ], [ 2, %93 ], [ 3, %20 ]
   %23 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %24 = insertvalue { i64, ptr } %23, ptr %.sroa.5.0, 1
   ret { i64, ptr } %24
@@ -4535,8 +4535,8 @@ define hidden { i64, ptr } @"_ZN10async_task4task17Task$LT$T$C$M$GT$9poll_task17
   br i1 %22, label %"_ZN10async_task6header15Header$LT$M$GT$6notify17h67c573601baacc7cE.llvm.6110214326448453520.exit25", label %25
 
 "_ZN10async_task6header15Header$LT$M$GT$6notify17h67c573601baacc7cE.llvm.6110214326448453520.exit25": ; preds = %20, %98, %92, %79, %74, %69, %"_ZN10async_task6header15Header$LT$M$GT$6notify17h67c573601baacc7cE.llvm.6110214326448453520.exit"
-  %.sroa.5.0 = phi ptr [ %.sroa.58.0.copyload, %"_ZN10async_task6header15Header$LT$M$GT$6notify17h67c573601baacc7cE.llvm.6110214326448453520.exit" ], [ undef, %69 ], [ undef, %74 ], [ undef, %79 ], [ undef, %92 ], [ undef, %98 ], [ undef, %20 ]
-  %.sroa.0.0 = phi i64 [ 1, %"_ZN10async_task6header15Header$LT$M$GT$6notify17h67c573601baacc7cE.llvm.6110214326448453520.exit" ], [ 2, %69 ], [ 0, %74 ], [ 0, %79 ], [ 0, %92 ], [ 0, %98 ], [ 2, %20 ]
+  %.sroa.5.0 = phi ptr [ %.sroa.58.0.copyload, %"_ZN10async_task6header15Header$LT$M$GT$6notify17h67c573601baacc7cE.llvm.6110214326448453520.exit" ], [ undef, %98 ], [ undef, %69 ], [ undef, %74 ], [ undef, %79 ], [ undef, %92 ], [ undef, %20 ]
+  %.sroa.0.0 = phi i64 [ 1, %"_ZN10async_task6header15Header$LT$M$GT$6notify17h67c573601baacc7cE.llvm.6110214326448453520.exit" ], [ 0, %98 ], [ 2, %69 ], [ 0, %74 ], [ 0, %79 ], [ 0, %92 ], [ 2, %20 ]
   %23 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %24 = insertvalue { i64, ptr } %23, ptr %.sroa.5.0, 1
   ret { i64, ptr } %24
@@ -6289,7 +6289,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17h58ee3b748d524ffcE(pt
   br i1 %.sroa.18.0.in.i.us, label %.split18.us, label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %17, %14, %12
-  %.sroa.0.0.us.be = phi i32 [ %16, %14 ], [ %.sroa.08.0.i.us, %17 ], [ %.sroa.08.0.i14.us, %12 ]
+  %.sroa.0.0.us.be = phi i32 [ %.sroa.08.0.i14.us, %12 ], [ %16, %14 ], [ %.sroa.08.0.i.us, %17 ]
   br label %.split.us
 
 .split:                                           ; preds = %4, %.split.backedge
@@ -6415,7 +6415,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17h58ee3b748d524ffcE(pt
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %46, %23, %44
-  %.sroa.0.0.be = phi i32 [ %48, %46 ], [ %.sroa.08.0.i, %23 ], [ %.sroa.08.0.i14, %44 ]
+  %.sroa.0.0.be = phi i32 [ %.sroa.08.0.i14, %44 ], [ %48, %46 ], [ %.sroa.08.0.i, %23 ]
   br label %.split
 }
 
@@ -6457,7 +6457,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17hb578506f59b14a16E(pt
   br i1 %.sroa.18.0.in.i.us, label %.split17.us, label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %16, %13, %11
-  %.sroa.0.0.us.be = phi i32 [ %15, %13 ], [ %.sroa.08.0.i.us, %16 ], [ %.sroa.08.0.i13.us, %11 ]
+  %.sroa.0.0.us.be = phi i32 [ %.sroa.08.0.i13.us, %11 ], [ %15, %13 ], [ %.sroa.08.0.i.us, %16 ]
   br label %.split.us
 
 .split:                                           ; preds = %4, %.split.backedge
@@ -6566,7 +6566,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17hb578506f59b14a16E(pt
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %42, %22, %40
-  %.sroa.0.0.be = phi i32 [ %44, %42 ], [ %.sroa.08.0.i, %22 ], [ %.sroa.08.0.i13, %40 ]
+  %.sroa.0.0.be = phi i32 [ %.sroa.08.0.i13, %40 ], [ %44, %42 ], [ %.sroa.08.0.i, %22 ]
   br label %.split
 }
 

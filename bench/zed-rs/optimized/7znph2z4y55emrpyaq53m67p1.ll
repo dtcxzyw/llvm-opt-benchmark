@@ -569,7 +569,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   %67 = icmp eq ptr %66, null
   br i1 %67, label %171, label %173
 
-68:                                               ; preds = %49, %52
+68:                                               ; preds = %52, %49
   %69 = load ptr, ptr %26, align 8, !nonnull !4, !align !6, !noundef !4
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %71 = load ptr, ptr %70, align 8, !nonnull !4, !noundef !4
@@ -1761,8 +1761,8 @@ define hidden { i64, ptr } @"_ZN12futures_util6stream17futures_unordered18ready_
   br label %16
 
 16:                                               ; preds = %.sink.split, %22, %19, %9
-  %.sroa.6.0 = phi ptr [ undef, %9 ], [ undef, %19 ], [ undef, %22 ], [ %.sroa.09.0, %.sink.split ]
-  %.sroa.0.0 = phi i64 [ 1, %9 ], [ 2, %19 ], [ 2, %22 ], [ 0, %.sink.split ]
+  %.sroa.6.0 = phi ptr [ undef, %22 ], [ undef, %9 ], [ undef, %19 ], [ %.sroa.09.0, %.sink.split ]
+  %.sroa.0.0 = phi i64 [ 2, %22 ], [ 1, %9 ], [ 2, %19 ], [ 0, %.sink.split ]
   %17 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %18 = insertvalue { i64, ptr } %17, ptr %.sroa.6.0, 1
   ret { i64, ptr } %18
@@ -31784,7 +31784,7 @@ _ZN3std4path4Path4join17h0a9f8b918b442e00E.exit:  ; preds = %144
   br label %.body
 
 185:                                              ; preds = %207, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h24bb92e6c41c3d5eE.exit.thread"
-  %.sroa.013.0.ph = phi i1 [ true, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h24bb92e6c41c3d5eE.exit.thread" ], [ false, %207 ]
+  %.sroa.013.0.ph = phi i1 [ false, %207 ], [ true, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h24bb92e6c41c3d5eE.exit.thread" ]
   %lpad.thr_comm.split-lp112 = landingpad { ptr, i32 }
           cleanup
   br label %.thread97

@@ -26615,7 +26615,7 @@ _ZN15tree_sitter_cli8generate10node_types13ChildQuantity5union17h2bdfecdd0baef79
   br label %"_ZN4core3ptr69drop_in_place$LT$tree_sitter_cli..generate..node_types..ChildType$GT$17hf2333655db875ab7E.exit"
 
 643:                                              ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hade10c463f6b6fabE.exit.i423", %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hb0ef411744fc5f31E.llvm.4798233110106368611.exit.i421", %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h065661e0bb5f267fE.exit.i419"
-  %.0.i411.in = phi ptr [ %628, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h065661e0bb5f267fE.exit.i419" ], [ %617, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hade10c463f6b6fabE.exit.i423" ], [ %621, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hb0ef411744fc5f31E.llvm.4798233110106368611.exit.i421" ]
+  %.0.i411.in = phi ptr [ %628, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h065661e0bb5f267fE.exit.i419" ], [ %621, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hb0ef411744fc5f31E.llvm.4798233110106368611.exit.i421" ], [ %617, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hade10c463f6b6fabE.exit.i423" ]
   %.0.i411 = load i8, ptr %.0.i411.in, align 8, !range !6844, !noalias !6845, !noundef !17
   %switch.i = icmp samesign ugt i8 %.0.i411, 1
   br i1 %switch.i, label %.thread594, label %.thread598
@@ -27062,7 +27062,7 @@ _ZN15tree_sitter_cli8generate10node_types28variable_type_for_child_type17h82b7ad
   br i1 %or.cond652, label %827, label %818
 
 _ZN15tree_sitter_cli8generate10node_types28variable_type_for_child_type17h82b7adb28763f6e9E.exit: ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h065661e0bb5f267fE.exit.i", %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hb0ef411744fc5f31E.llvm.4798233110106368611.exit.i", %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hade10c463f6b6fabE.exit.i", %673
-  %.0.i294 = phi i8 [ %..i.i, %673 ], [ %699, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h065661e0bb5f267fE.exit.i" ], [ %689, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hade10c463f6b6fabE.exit.i" ], [ %694, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hb0ef411744fc5f31E.llvm.4798233110106368611.exit.i" ]
+  %.0.i294 = phi i8 [ %..i.i, %673 ], [ %694, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hb0ef411744fc5f31E.llvm.4798233110106368611.exit.i" ], [ %699, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h065661e0bb5f267fE.exit.i" ], [ %689, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hade10c463f6b6fabE.exit.i" ]
   %813 = icmp eq i8 %.0.i294, 3
   br i1 %813, label %_ZN15tree_sitter_cli8generate10node_types13ChildQuantity6append17h8aa74b5fabcc801dE.exit332, label %_ZN15tree_sitter_cli8generate10node_types28variable_type_for_child_type17h82b7adb28763f6e9E.exit.thread
 
@@ -27745,7 +27745,7 @@ define hidden void @_ZN15tree_sitter_cli8generate10node_types24generate_node_typ
   br label %.body
 
 .loopexit.split-lp1059.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.invoke, %637, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h486b3483c8a64608E.llvm.15559585470061597875.exit.i354", %.noexc278, %214, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.llvm.4798233110106368611.exit.i.i274, %207
-  %.2.ph.ph.ph.ph = phi i8 [ 0, %637 ], [ 1, %.noexc278 ], [ 1, %207 ], [ 0, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h486b3483c8a64608E.llvm.15559585470061597875.exit.i354" ], [ 1, %.invoke ], [ 1, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.llvm.4798233110106368611.exit.i.i274 ], [ 1, %214 ]
+  %.2.ph.ph.ph.ph = phi i8 [ 1, %.noexc278 ], [ 1, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.llvm.4798233110106368611.exit.i.i274 ], [ 1, %214 ], [ 0, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h486b3483c8a64608E.llvm.15559585470061597875.exit.i354" ], [ 1, %.invoke ], [ 1, %207 ], [ 0, %637 ]
   %lpad.loopexit.split-lp1072 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -28376,7 +28376,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.llvm.47982
   br label %.body366
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %697, %"_ZN119_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h7904fe55a5cc946bE.exit"
-  %.7.ph.ph.ph.ph.ph.ph.ph.ph = phi i8 [ 0, %"_ZN119_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h7904fe55a5cc946bE.exit" ], [ 1, %697 ]
+  %.7.ph.ph.ph.ph.ph.ph.ph.ph = phi i8 [ 1, %697 ], [ 0, %"_ZN119_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h7904fe55a5cc946bE.exit" ]
   %lpad.loopexit.split-lp1015 = landingpad { ptr, i32 }
           cleanup
   br label %.body366
@@ -33481,7 +33481,7 @@ _ZN4core4iter6traits8iterator8Iterator6max_by17h07c68a99e858bb04E.exit.i: ; pred
   br label %"_ZN4core3ptr86drop_in_place$LT$$u5b$$LP$tree_sitter_cli..generate..rules..Alias$C$usize$RP$$u5d$$GT$17h5faf0a34cba0f7e1E.exit.backedge"
 
 .thread488:                                       ; preds = %541, %684, %.body357.thread588, %.body357.thread, %"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$$LP$usize$C$usize$RP$$GT$$GT$17hc06759142baa82ceE.exit", %.thread492
-  %.pn198487 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread492 ], [ %lpad.thr_comm586, %.body357.thread588 ], [ %eh.lpad-body358581, %.body357.thread ], [ %.pn.pn, %"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$$LP$usize$C$usize$RP$$GT$$GT$17hc06759142baa82ceE.exit" ], [ %685, %684 ], [ %544, %541 ]
+  %.pn198487 = phi { ptr, i32 } [ %685, %684 ], [ %lpad.thr_comm, %.thread492 ], [ %lpad.thr_comm586, %.body357.thread588 ], [ %eh.lpad-body358581, %.body357.thread ], [ %.pn.pn, %"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$$LP$usize$C$usize$RP$$GT$$GT$17hc06759142baa82ceE.exit" ], [ %544, %541 ]
   %695 = load i64, ptr %182, align 8, !alias.scope !8714, !noalias !8725, !noundef !17
   %696 = icmp eq i64 %695, 0
   br i1 %696, label %.body415, label %697
@@ -34978,8 +34978,8 @@ select.unfold514:                                 ; preds = %397
   br label %.loopexit567
 
 .loopexit567:                                     ; preds = %477, %select.unfold518, %563, %515, %409
-  %.8286 = phi i8 [ %.9287, %515 ], [ 1, %409 ], [ 1, %563 ], [ 1, %select.unfold518 ], [ 0, %477 ]
-  %.6 = phi ptr [ %488, %515 ], [ %.4, %409 ], [ %553, %563 ], [ %463, %select.unfold518 ], [ %476, %477 ]
+  %.8286 = phi i8 [ %.9287, %515 ], [ 1, %409 ], [ 1, %select.unfold518 ], [ 1, %563 ], [ 0, %477 ]
+  %.6 = phi ptr [ %488, %515 ], [ %.4, %409 ], [ %463, %select.unfold518 ], [ %553, %563 ], [ %476, %477 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %71)
   invoke void @"_ZN59_$LT$tree_sitter..Tree$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc6f087642b0bff0cE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %72)
           to label %"_ZN4core3ptr38drop_in_place$LT$tree_sitter..Tree$GT$17h7871ab78d24a3633E.exit388" unwind label %.loopexit.split-lp556

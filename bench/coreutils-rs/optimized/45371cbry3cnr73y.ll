@@ -10246,7 +10246,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i139:
   br label %.thread280
 
 .loopexit315:                                     ; preds = %159, %151, %131
-  %.sroa.4.0.ph = phi i64 [ 0, %131 ], [ %.1.us.i, %151 ], [ %.1.i, %159 ]
+  %.sroa.4.0.ph = phi i64 [ %.1.us.i, %151 ], [ 0, %131 ], [ %.1.i, %159 ]
   invoke void @_ZN9indicatif12progress_bar11ProgressBar3new17hbcfdb7541dbeb3adE(ptr noalias noundef nonnull sret({ ptr, ptr, ptr }) align 8 captures(none) dereferenceable(24) %62, i64 noundef %.sroa.4.0.ph)
           to label %213 unwind label %.loopexit.split-lp311.loopexit.split-lp
 

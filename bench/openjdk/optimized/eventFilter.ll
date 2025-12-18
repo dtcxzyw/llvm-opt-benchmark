@@ -1720,7 +1720,7 @@ findFilter.exit.i18.i:                            ; preds = %.lr.ph.i.i14.i
   br label %setWatchpoint.exit.i
 
 setWatchpoint.exit.i:                             ; preds = %59, %findFilter.exit.thread.sink.split.i.i
-  %.011.i = phi i32 [ %30, %findFilter.exit.thread.sink.split.i.i ], [ %69, %59 ]
+  %.011.i = phi i32 [ %69, %59 ], [ %30, %findFilter.exit.thread.sink.split.i.i ]
   %70 = icmp eq i32 %.011.i, 0
   br i1 %70, label %setWatchpoint.exit.thread23.i, label %enableEvents.exit
 
@@ -1765,7 +1765,7 @@ requestThread.exit.i:                             ; preds = %79, %76, %setWatchp
   br label %enableEvents.exit
 
 enableEvents.exit:                                ; preds = %38, %11, %1, %1, %1, %1, %1, %1, %1, %1, %4, %31, %setWatchpoint.exit.i, %requestThread.exit.i, %84
-  %.0.i = phi i32 [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %requestThread.exit.i ], [ %86, %84 ], [ %.011.i, %setWatchpoint.exit.i ], [ 181, %4 ], [ 181, %31 ], [ 181, %11 ], [ 181, %38 ]
+  %.0.i = phi i32 [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %requestThread.exit.i ], [ %86, %84 ], [ %.011.i, %setWatchpoint.exit.i ], [ 181, %4 ], [ 181, %11 ], [ 181, %31 ], [ 181, %38 ]
   ret i32 %.0.i
 }
 
@@ -1924,7 +1924,7 @@ findFilter.exit.i21.i:                            ; preds = %.lr.ph.i.i17.i
   br label %clearWatchpoint.exit.i
 
 clearWatchpoint.exit.i:                           ; preds = %38, %11, %59, %findFilter.exit.i21.i, %31, %findFilter.exit.thread.sink.split.i.i, %findFilter.exit.i.i, %4, %1
-  %.013.i = phi i32 [ 0, %1 ], [ %30, %findFilter.exit.thread.sink.split.i.i ], [ 181, %4 ], [ 0, %findFilter.exit.i.i ], [ %69, %59 ], [ 0, %findFilter.exit.i21.i ], [ 181, %31 ], [ 181, %11 ], [ 181, %38 ]
+  %.013.i = phi i32 [ 0, %1 ], [ %30, %findFilter.exit.thread.sink.split.i.i ], [ 181, %4 ], [ 0, %findFilter.exit.i.i ], [ 181, %11 ], [ %69, %59 ], [ 0, %findFilter.exit.i21.i ], [ 181, %31 ], [ 181, %38 ]
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %71 = load i32, ptr %70, align 8
   %72 = icmp sgt i32 %71, 0

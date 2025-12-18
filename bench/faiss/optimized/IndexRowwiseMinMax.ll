@@ -681,8 +681,8 @@ _ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP16ESaIS2_EE17_S_check_init_le
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP16ESaIS2_EEC2EmRKS3_.exit.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, !llvm.loop !35
 
 _ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP16ESaIS2_EEC2EmRKS3_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i, %.noexc97.i, %_ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP16ESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i
-  %.sroa.0120.0.i = phi ptr [ %32, %.noexc97.i ], [ null, %_ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP16ESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i ], [ %32, %.lr.ph.i.i.i.i.i.i.i.i.i.i ]
-  %.sroa.12.0.i = phi ptr [ %33, %.noexc97.i ], [ null, %_ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP16ESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i ], [ %33, %.lr.ph.i.i.i.i.i.i.i.i.i.i ]
+  %.sroa.0120.0.i = phi ptr [ null, %_ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP16ESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i ], [ %32, %.noexc97.i ], [ %32, %.lr.ph.i.i.i.i.i.i.i.i.i.i ]
+  %.sroa.12.0.i = phi ptr [ null, %_ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP16ESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i ], [ %33, %.noexc97.i ], [ %33, %.lr.ph.i.i.i.i.i.i.i.i.i.i ]
   %.not158.i = icmp eq i64 %1, 0
   br i1 %.not158.i, label %._crit_edge163.i, label %.lr.ph162.i
 
@@ -1013,8 +1013,8 @@ _ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP16ESaIS2_EE17_S_check_init_le
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP16ESaIS2_EEC2EmRKS3_.exit.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, !llvm.loop !35
 
 _ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP16ESaIS2_EEC2EmRKS3_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i, %.noexc72.i, %_ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP16ESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i
-  %.sroa.9.0.i = phi ptr [ %33, %.noexc72.i ], [ null, %_ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP16ESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i ], [ %33, %.lr.ph.i.i.i.i.i.i.i.i.i.i ]
-  %.sroa.084.0.i = phi ptr [ %32, %.noexc72.i ], [ null, %_ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP16ESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i ], [ %32, %.lr.ph.i.i.i.i.i.i.i.i.i.i ]
+  %.sroa.9.0.i = phi ptr [ null, %_ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP16ESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i ], [ %33, %.noexc72.i ], [ %33, %.lr.ph.i.i.i.i.i.i.i.i.i.i ]
+  %.sroa.084.0.i = phi ptr [ null, %_ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP16ESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i ], [ %32, %.noexc72.i ], [ %32, %.lr.ph.i.i.i.i.i.i.i.i.i.i ]
   %.not110.i = icmp eq i64 %1, 0
   br i1 %.not110.i, label %._crit_edge115.i, label %.lr.ph114.i
 
@@ -1846,8 +1846,8 @@ _ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP32ESaIS2_EE17_S_check_init_le
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP32ESaIS2_EEC2EmRKS3_.exit.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, !llvm.loop !55
 
 _ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP32ESaIS2_EEC2EmRKS3_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i, %.noexc91.i, %_ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP32ESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i
-  %.sroa.0114.0.i = phi ptr [ %32, %.noexc91.i ], [ null, %_ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP32ESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i ], [ %32, %.lr.ph.i.i.i.i.i.i.i.i.i.i ]
-  %.sroa.12.0.i = phi ptr [ %33, %.noexc91.i ], [ null, %_ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP32ESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i ], [ %33, %.lr.ph.i.i.i.i.i.i.i.i.i.i ]
+  %.sroa.0114.0.i = phi ptr [ null, %_ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP32ESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i ], [ %32, %.noexc91.i ], [ %32, %.lr.ph.i.i.i.i.i.i.i.i.i.i ]
+  %.sroa.12.0.i = phi ptr [ null, %_ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP32ESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i ], [ %33, %.noexc91.i ], [ %33, %.lr.ph.i.i.i.i.i.i.i.i.i.i ]
   %.not151.i = icmp eq i64 %1, 0
   br i1 %.not151.i, label %._crit_edge156.i, label %.lr.ph155.i
 
@@ -2160,8 +2160,8 @@ _ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP16ESaIS2_EE17_S_check_init_le
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP16ESaIS2_EEC2EmRKS3_.exit.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, !llvm.loop !35
 
 _ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP16ESaIS2_EEC2EmRKS3_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i, %.noexc68.i, %_ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP16ESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i
-  %.sroa.9.0.i = phi ptr [ %33, %.noexc68.i ], [ null, %_ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP16ESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i ], [ %33, %.lr.ph.i.i.i.i.i.i.i.i.i.i ]
-  %.sroa.081.0.i = phi ptr [ %32, %.noexc68.i ], [ null, %_ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP16ESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i ], [ %32, %.lr.ph.i.i.i.i.i.i.i.i.i.i ]
+  %.sroa.9.0.i = phi ptr [ null, %_ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP16ESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i ], [ %33, %.noexc68.i ], [ %33, %.lr.ph.i.i.i.i.i.i.i.i.i.i ]
+  %.sroa.081.0.i = phi ptr [ null, %_ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP16ESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i ], [ %32, %.noexc68.i ], [ %32, %.lr.ph.i.i.i.i.i.i.i.i.i.i ]
   %.not106.i = icmp eq i64 %1, 0
   br i1 %.not106.i, label %._crit_edge113.i, label %.lr.ph112.i
 

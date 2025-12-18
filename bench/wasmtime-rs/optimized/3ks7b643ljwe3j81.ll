@@ -2902,7 +2902,7 @@ switch.lookup:                                    ; preds = %5
   br label %8
 
 8:                                                ; preds = %switch.lookup, %9, %1
-  %.0 = phi i8 [ 3, %1 ], [ %switch.masked, %switch.lookup ], [ %.5, %9 ]
+  %.0 = phi i8 [ 3, %1 ], [ %.5, %9 ], [ %switch.masked, %switch.lookup ]
   ret i8 %.0
 
 9:                                                ; preds = %5
@@ -3625,7 +3625,7 @@ switch.lookup:                                    ; preds = %26
   br label %_ZN11wasi_common4sync4file13filetype_from17hd53e7a46c3969dfaE.exit
 
 _ZN11wasi_common4sync4file13filetype_from17hd53e7a46c3969dfaE.exit: ; preds = %switch.lookup, %28, %22
-  %.0.i = phi i8 [ 3, %22 ], [ %switch.masked, %switch.lookup ], [ %.5.i, %28 ]
+  %.0.i = phi i8 [ 3, %22 ], [ %.5.i, %28 ], [ %switch.masked, %switch.lookup ]
   %31 = icmp eq i32 %.sroa.1072.sroa.7.0.copyload, 1000000000
   br i1 %31, label %32, label %36
 

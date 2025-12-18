@@ -1506,7 +1506,7 @@ _ZN16hb_lazy_loader_tIN3AAT4morxE22hb_table_lazy_loader_tIS1_Lj28ELb0EE9hb_face_
   br label %.loopexit67
 
 .loopexit67:                                      ; preds = %.noexc39, %.loopexit.split.loop.exit12.i.i, %26
-  %.07.i.i = phi ptr [ %40, %.loopexit.split.loop.exit12.i.i ], [ %27, %26 ], [ %.1.i.i, %.noexc39 ]
+  %.07.i.i = phi ptr [ %27, %26 ], [ %40, %.loopexit.split.loop.exit12.i.i ], [ %.1.i.i, %.noexc39 ]
   %41 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 16
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 24
@@ -1644,7 +1644,7 @@ _ZN16hb_lazy_loader_tIN3AAT4mortE22hb_table_lazy_loader_tIS1_Lj29ELb0EE9hb_face_
   br label %.loopexit63
 
 .loopexit63:                                      ; preds = %.noexc55, %.loopexit.split.loop.exit12.i.i43, %73
-  %.07.i.i45 = phi ptr [ %87, %.loopexit.split.loop.exit12.i.i43 ], [ %74, %73 ], [ %.1.i.i49, %.noexc55 ]
+  %.07.i.i45 = phi ptr [ %74, %73 ], [ %87, %.loopexit.split.loop.exit12.i.i43 ], [ %.1.i.i49, %.noexc55 ]
   %88 = getelementptr inbounds nuw i8, ptr %.07.i.i45, i64 16
   %89 = load ptr, ptr %88, align 8
   %90 = getelementptr inbounds nuw i8, ptr %.07.i.i45, i64 24
@@ -2435,7 +2435,7 @@ _ZN16hb_lazy_loader_tIN3AAT4ankrE22hb_table_lazy_loader_tIS1_Lj31ELb0EE9hb_face_
   br label %.loopexit28
 
 .loopexit28:                                      ; preds = %.noexc25, %.loopexit.split.loop.exit12.i.i14, %43
-  %.07.i.i16 = phi ptr [ %57, %.loopexit.split.loop.exit12.i.i14 ], [ %44, %43 ], [ %.1.i.i20, %.noexc25 ]
+  %.07.i.i16 = phi ptr [ %44, %43 ], [ %57, %.loopexit.split.loop.exit12.i.i14 ], [ %.1.i.i20, %.noexc25 ]
   %58 = getelementptr inbounds nuw i8, ptr %.07.i.i16, i64 16
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds nuw i8, ptr %.07.i.i16, i64 24
@@ -6720,7 +6720,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT6Layout6Common8Coverage16c
   br i1 %or.cond.not, label %.lr.ph.i, label %_ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE16collect_coverageI24hb_set_digest_combiner_tI28hb_set_digest_bits_pattern_tImLj4EES6_IS7_ImLj0EES7_ImLj9EEEEEEbPT_.exit
 
 _ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE16collect_coverageI24hb_set_digest_combiner_tI28hb_set_digest_bits_pattern_tImLj4EES6_IS7_ImLj0EES7_ImLj9EEEEEEbPT_.exit: ; preds = %.lr.ph.i, %45, %55, %9, %2
-  %.0 = phi i1 [ false, %2 ], [ true, %9 ], [ true, %55 ], [ true, %45 ], [ %65, %.lr.ph.i ]
+  %.0 = phi i1 [ true, %45 ], [ false, %2 ], [ true, %9 ], [ true, %55 ], [ %65, %.lr.ph.i ]
   ret i1 %.0
 }
 
@@ -7158,7 +7158,7 @@ _ZNK3AAT8mortmorxINS_13ExtendedTypesELj1836020344EE8sanitizeEP21hb_sanitize_cont
   tail call void @hb_blob_make_immutable(ptr noundef %1)
   br label %156
 
-.sink.split113:                                   ; preds = %.loopexit, %145, %25, %26, %92, %85, %_ZNK3AAT8mortmorxINS_13ExtendedTypesELj1836020344EE8sanitizeEP21hb_sanitize_context_t.exit30
+.sink.split113:                                   ; preds = %.loopexit, %145, %25, %26, %85, %92, %_ZNK3AAT8mortmorxINS_13ExtendedTypesELj1836020344EE8sanitizeEP21hb_sanitize_context_t.exit30
   %153 = load ptr, ptr %4, align 8
   tail call void @hb_blob_destroy(ptr noundef %153)
   store ptr null, ptr %4, align 8
@@ -7901,7 +7901,7 @@ _ZNK21hb_sanitize_context_t11check_arrayIN3AAT5EntryIvEEEEbPKT_j.exit: ; preds =
   br label %.thread
 
 .thread:                                          ; preds = %.loopexit188, %165, %120, %126, %115, %173, %_ZNK21hb_sanitize_context_t11check_arrayIN3AAT5EntryIvEEEEbPKT_j.exit, %138, %134, %_ZNK21hb_sanitize_context_t11check_rangeIN2OT7IntTypeItLj2EEEEEbPKT_jj.exit94, %36, %191, %192, %57, %3, %14
-  %.070 = phi i1 [ false, %3 ], [ false, %57 ], [ true, %191 ], [ false, %14 ], [ false, %36 ], [ true, %192 ], [ false, %_ZNK21hb_sanitize_context_t11check_rangeIN2OT7IntTypeItLj2EEEEEbPKT_jj.exit94 ], [ false, %134 ], [ false, %138 ], [ false, %_ZNK21hb_sanitize_context_t11check_arrayIN3AAT5EntryIvEEEEbPKT_j.exit ], [ false, %173 ], [ false, %115 ], [ false, %126 ], [ false, %120 ], [ false, %165 ], [ false, %.loopexit188 ]
+  %.070 = phi i1 [ false, %3 ], [ false, %57 ], [ true, %192 ], [ false, %36 ], [ false, %14 ], [ true, %191 ], [ false, %_ZNK21hb_sanitize_context_t11check_rangeIN2OT7IntTypeItLj2EEEEEbPKT_jj.exit94 ], [ false, %134 ], [ false, %138 ], [ false, %_ZNK21hb_sanitize_context_t11check_arrayIN3AAT5EntryIvEEEEbPKT_j.exit ], [ false, %173 ], [ false, %115 ], [ false, %126 ], [ false, %120 ], [ false, %165 ], [ false, %.loopexit188 ]
   ret i1 %.070
 }
 
@@ -8835,7 +8835,7 @@ _ZNK21hb_sanitize_context_t11check_arrayIN3AAT5EntryINS1_18ContextualSubtableINS
   br label %.thread
 
 .thread:                                          ; preds = %.loopexit188, %165, %120, %126, %115, %173, %_ZNK21hb_sanitize_context_t11check_arrayIN3AAT5EntryINS1_18ContextualSubtableINS1_13ExtendedTypesEE9EntryDataEEEEEbPKT_j.exit, %138, %134, %_ZNK21hb_sanitize_context_t11check_rangeIN2OT7IntTypeItLj2EEEEEbPKT_jj.exit94, %36, %191, %192, %57, %3, %14
-  %.070 = phi i1 [ false, %3 ], [ false, %57 ], [ true, %191 ], [ false, %14 ], [ false, %36 ], [ true, %192 ], [ false, %_ZNK21hb_sanitize_context_t11check_rangeIN2OT7IntTypeItLj2EEEEEbPKT_jj.exit94 ], [ false, %134 ], [ false, %138 ], [ false, %_ZNK21hb_sanitize_context_t11check_arrayIN3AAT5EntryINS1_18ContextualSubtableINS1_13ExtendedTypesEE9EntryDataEEEEEbPKT_j.exit ], [ false, %173 ], [ false, %115 ], [ false, %126 ], [ false, %120 ], [ false, %165 ], [ false, %.loopexit188 ]
+  %.070 = phi i1 [ false, %3 ], [ false, %57 ], [ true, %192 ], [ false, %36 ], [ false, %14 ], [ true, %191 ], [ false, %_ZNK21hb_sanitize_context_t11check_rangeIN2OT7IntTypeItLj2EEEEEbPKT_jj.exit94 ], [ false, %134 ], [ false, %138 ], [ false, %_ZNK21hb_sanitize_context_t11check_arrayIN3AAT5EntryINS1_18ContextualSubtableINS1_13ExtendedTypesEE9EntryDataEEEEEbPKT_j.exit ], [ false, %173 ], [ false, %115 ], [ false, %126 ], [ false, %120 ], [ false, %165 ], [ false, %.loopexit188 ]
   ret i1 %.070
 }
 
@@ -9592,7 +9592,7 @@ _ZNK21hb_sanitize_context_t11check_arrayIN3AAT5EntryINS1_13LigatureEntryILb1EE9E
   br label %.thread
 
 .thread:                                          ; preds = %.loopexit188, %165, %120, %126, %115, %173, %_ZNK21hb_sanitize_context_t11check_arrayIN3AAT5EntryINS1_13LigatureEntryILb1EE9EntryDataEEEEEbPKT_j.exit, %138, %134, %_ZNK21hb_sanitize_context_t11check_rangeIN2OT7IntTypeItLj2EEEEEbPKT_jj.exit94, %36, %191, %192, %57, %3, %14
-  %.070 = phi i1 [ false, %3 ], [ false, %57 ], [ true, %191 ], [ false, %14 ], [ false, %36 ], [ true, %192 ], [ false, %_ZNK21hb_sanitize_context_t11check_rangeIN2OT7IntTypeItLj2EEEEEbPKT_jj.exit94 ], [ false, %134 ], [ false, %138 ], [ false, %_ZNK21hb_sanitize_context_t11check_arrayIN3AAT5EntryINS1_13LigatureEntryILb1EE9EntryDataEEEEEbPKT_j.exit ], [ false, %173 ], [ false, %115 ], [ false, %126 ], [ false, %120 ], [ false, %165 ], [ false, %.loopexit188 ]
+  %.070 = phi i1 [ false, %3 ], [ false, %57 ], [ true, %192 ], [ false, %36 ], [ false, %14 ], [ true, %191 ], [ false, %_ZNK21hb_sanitize_context_t11check_rangeIN2OT7IntTypeItLj2EEEEEbPKT_jj.exit94 ], [ false, %134 ], [ false, %138 ], [ false, %_ZNK21hb_sanitize_context_t11check_arrayIN3AAT5EntryINS1_13LigatureEntryILb1EE9EntryDataEEEEEbPKT_j.exit ], [ false, %173 ], [ false, %115 ], [ false, %126 ], [ false, %120 ], [ false, %165 ], [ false, %.loopexit188 ]
   ret i1 %.070
 }
 
@@ -9878,7 +9878,7 @@ _ZNK21hb_sanitize_context_t11check_arrayIN3AAT5EntryINS1_17InsertionSubtableINS1
   br label %.thread
 
 .thread:                                          ; preds = %.loopexit188, %165, %120, %126, %115, %173, %_ZNK21hb_sanitize_context_t11check_arrayIN3AAT5EntryINS1_17InsertionSubtableINS1_13ExtendedTypesEE9EntryDataEEEEEbPKT_j.exit, %138, %134, %_ZNK21hb_sanitize_context_t11check_rangeIN2OT7IntTypeItLj2EEEEEbPKT_jj.exit94, %36, %191, %192, %57, %3, %14
-  %.070 = phi i1 [ false, %3 ], [ false, %57 ], [ true, %191 ], [ false, %14 ], [ false, %36 ], [ true, %192 ], [ false, %_ZNK21hb_sanitize_context_t11check_rangeIN2OT7IntTypeItLj2EEEEEbPKT_jj.exit94 ], [ false, %134 ], [ false, %138 ], [ false, %_ZNK21hb_sanitize_context_t11check_arrayIN3AAT5EntryINS1_17InsertionSubtableINS1_13ExtendedTypesEE9EntryDataEEEEEbPKT_j.exit ], [ false, %173 ], [ false, %115 ], [ false, %126 ], [ false, %120 ], [ false, %165 ], [ false, %.loopexit188 ]
+  %.070 = phi i1 [ false, %3 ], [ false, %57 ], [ true, %192 ], [ false, %36 ], [ false, %14 ], [ true, %191 ], [ false, %_ZNK21hb_sanitize_context_t11check_rangeIN2OT7IntTypeItLj2EEEEEbPKT_jj.exit94 ], [ false, %134 ], [ false, %138 ], [ false, %_ZNK21hb_sanitize_context_t11check_arrayIN3AAT5EntryINS1_17InsertionSubtableINS1_13ExtendedTypesEE9EntryDataEEEEEbPKT_j.exit ], [ false, %173 ], [ false, %115 ], [ false, %126 ], [ false, %120 ], [ false, %165 ], [ false, %.loopexit188 ]
   ret i1 %.070
 }
 
@@ -10452,7 +10452,7 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %13, %22
   br i1 %26, label %28, label %33
 
 28:                                               ; preds = %25
-  br i1 %.not19, label %.critedge23, label %29
+  br i1 %.not19, label %.critedge25, label %29
 
 29:                                               ; preds = %28
   store i32 0, ptr %10, align 4
@@ -10470,7 +10470,7 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %13, %22
   %34 = load i8, ptr %5, align 8
   %35 = trunc i8 %34 to i1
   %or.cond = select i1 %.not19, i1 true, i1 %35
-  br i1 %or.cond, label %.critedge25, label %36
+  br i1 %or.cond, label %.critedge23, label %36
 
 36:                                               ; preds = %33
   %37 = tail call ptr @hb_blob_get_data_writable(ptr noundef %1, ptr noundef null)
@@ -10480,27 +10480,27 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %13, %22
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 %39
   store ptr %40, ptr %7, align 8
   %.not18 = icmp eq ptr %37, null
-  br i1 %.not18, label %.critedge25, label %13
+  br i1 %.not18, label %.critedge23, label %13
 
-.critedge23:                                      ; preds = %28
+.critedge25:                                      ; preds = %28
   %41 = load ptr, ptr %4, align 8
   tail call void @hb_blob_destroy(ptr noundef %41)
   store ptr null, ptr %4, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6, i8 0, i64 20, i1 false)
   br label %42
 
-42:                                               ; preds = %29, %.critedge23
+42:                                               ; preds = %29, %.critedge25
   tail call void @hb_blob_make_immutable(ptr noundef %1)
   br label %45
 
-.critedge25:                                      ; preds = %36, %33
+.critedge23:                                      ; preds = %36, %33
   %43 = load ptr, ptr %4, align 8
   tail call void @hb_blob_destroy(ptr noundef %43)
   store ptr null, ptr %4, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6, i8 0, i64 20, i1 false)
   br label %.critedge
 
-.critedge:                                        ; preds = %29, %.critedge25
+.critedge:                                        ; preds = %29, %.critedge23
   tail call void @hb_blob_destroy(ptr noundef %1)
   %44 = tail call ptr @hb_blob_get_empty()
   br label %45
@@ -10961,7 +10961,7 @@ _ZNK3AAT8mortmorxINS_13ObsoleteTypesELj1836020340EE8sanitizeEP21hb_sanitize_cont
   tail call void @hb_blob_make_immutable(ptr noundef %1)
   br label %156
 
-.sink.split113:                                   ; preds = %.loopexit, %145, %25, %26, %92, %85, %_ZNK3AAT8mortmorxINS_13ObsoleteTypesELj1836020340EE8sanitizeEP21hb_sanitize_context_t.exit30
+.sink.split113:                                   ; preds = %.loopexit, %145, %25, %26, %85, %92, %_ZNK3AAT8mortmorxINS_13ObsoleteTypesELj1836020340EE8sanitizeEP21hb_sanitize_context_t.exit30
   %153 = load ptr, ptr %4, align 8
   tail call void @hb_blob_destroy(ptr noundef %153)
   store ptr null, ptr %4, align 8
@@ -11660,7 +11660,7 @@ _ZNK21hb_sanitize_context_t11check_arrayIN3AAT5EntryIvEEEEbPKT_j.exit: ; preds =
   br label %.thread
 
 .thread:                                          ; preds = %97, %139, %_ZNK21hb_sanitize_context_t11check_arrayIN3AAT5EntryIvEEEEbPKT_j.exit, %118, %_ZNK21hb_sanitize_context_t11check_rangeIN2OT7IntTypeIhLj1EEEEEbPKT_jj.exit93, %109, %_ZNK21hb_sanitize_context_t11check_rangeIN2OT7IntTypeIhLj1EEEEEbPKT_jj.exit, %94, %113, %.loopexit158, %_ZN21hb_sanitize_context_t8dispatchIN3AAT10ClassTableIN2OT7IntTypeIhLj1EEEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS9_.exit, %26, %39, %172, %173, %3, %14
-  %.070 = phi i1 [ false, %3 ], [ false, %14 ], [ true, %172 ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN3AAT10ClassTableIN2OT7IntTypeIhLj1EEEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS9_.exit ], [ true, %173 ], [ false, %39 ], [ false, %26 ], [ false, %.loopexit158 ], [ false, %113 ], [ false, %94 ], [ false, %_ZNK21hb_sanitize_context_t11check_rangeIN2OT7IntTypeIhLj1EEEEEbPKT_jj.exit ], [ false, %109 ], [ false, %_ZNK21hb_sanitize_context_t11check_rangeIN2OT7IntTypeIhLj1EEEEEbPKT_jj.exit93 ], [ false, %118 ], [ false, %_ZNK21hb_sanitize_context_t11check_arrayIN3AAT5EntryIvEEEEbPKT_j.exit ], [ false, %139 ], [ false, %97 ]
+  %.070 = phi i1 [ false, %3 ], [ false, %14 ], [ false, %26 ], [ false, %39 ], [ true, %173 ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN3AAT10ClassTableIN2OT7IntTypeIhLj1EEEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS9_.exit ], [ true, %172 ], [ false, %.loopexit158 ], [ false, %113 ], [ false, %94 ], [ false, %_ZNK21hb_sanitize_context_t11check_rangeIN2OT7IntTypeIhLj1EEEEEbPKT_jj.exit ], [ false, %109 ], [ false, %_ZNK21hb_sanitize_context_t11check_rangeIN2OT7IntTypeIhLj1EEEEEbPKT_jj.exit93 ], [ false, %118 ], [ false, %_ZNK21hb_sanitize_context_t11check_arrayIN3AAT5EntryIvEEEEbPKT_j.exit ], [ false, %139 ], [ false, %97 ]
   ret i1 %.070
 }
 
@@ -11948,7 +11948,7 @@ _ZNK21hb_sanitize_context_t11check_arrayIN3AAT5EntryINS1_18ContextualSubtableINS
   br label %.thread
 
 .thread:                                          ; preds = %97, %139, %_ZNK21hb_sanitize_context_t11check_arrayIN3AAT5EntryINS1_18ContextualSubtableINS1_13ObsoleteTypesEE9EntryDataEEEEEbPKT_j.exit, %118, %_ZNK21hb_sanitize_context_t11check_rangeIN2OT7IntTypeIhLj1EEEEEbPKT_jj.exit93, %109, %_ZNK21hb_sanitize_context_t11check_rangeIN2OT7IntTypeIhLj1EEEEEbPKT_jj.exit, %94, %113, %.loopexit158, %_ZN21hb_sanitize_context_t8dispatchIN3AAT10ClassTableIN2OT7IntTypeIhLj1EEEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS9_.exit, %26, %39, %172, %173, %3, %14
-  %.070 = phi i1 [ false, %3 ], [ false, %14 ], [ true, %172 ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN3AAT10ClassTableIN2OT7IntTypeIhLj1EEEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS9_.exit ], [ true, %173 ], [ false, %39 ], [ false, %26 ], [ false, %.loopexit158 ], [ false, %113 ], [ false, %94 ], [ false, %_ZNK21hb_sanitize_context_t11check_rangeIN2OT7IntTypeIhLj1EEEEEbPKT_jj.exit ], [ false, %109 ], [ false, %_ZNK21hb_sanitize_context_t11check_rangeIN2OT7IntTypeIhLj1EEEEEbPKT_jj.exit93 ], [ false, %118 ], [ false, %_ZNK21hb_sanitize_context_t11check_arrayIN3AAT5EntryINS1_18ContextualSubtableINS1_13ObsoleteTypesEE9EntryDataEEEEEbPKT_j.exit ], [ false, %139 ], [ false, %97 ]
+  %.070 = phi i1 [ false, %3 ], [ false, %14 ], [ false, %26 ], [ false, %39 ], [ true, %173 ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN3AAT10ClassTableIN2OT7IntTypeIhLj1EEEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS9_.exit ], [ true, %172 ], [ false, %.loopexit158 ], [ false, %113 ], [ false, %94 ], [ false, %_ZNK21hb_sanitize_context_t11check_rangeIN2OT7IntTypeIhLj1EEEEEbPKT_jj.exit ], [ false, %109 ], [ false, %_ZNK21hb_sanitize_context_t11check_rangeIN2OT7IntTypeIhLj1EEEEEbPKT_jj.exit93 ], [ false, %118 ], [ false, %_ZNK21hb_sanitize_context_t11check_arrayIN3AAT5EntryINS1_18ContextualSubtableINS1_13ObsoleteTypesEE9EntryDataEEEEEbPKT_j.exit ], [ false, %139 ], [ false, %97 ]
   ret i1 %.070
 }
 
@@ -12236,7 +12236,7 @@ _ZNK21hb_sanitize_context_t11check_arrayIN3AAT5EntryINS1_17InsertionSubtableINS1
   br label %.thread
 
 .thread:                                          ; preds = %97, %139, %_ZNK21hb_sanitize_context_t11check_arrayIN3AAT5EntryINS1_17InsertionSubtableINS1_13ObsoleteTypesEE9EntryDataEEEEEbPKT_j.exit, %118, %_ZNK21hb_sanitize_context_t11check_rangeIN2OT7IntTypeIhLj1EEEEEbPKT_jj.exit93, %109, %_ZNK21hb_sanitize_context_t11check_rangeIN2OT7IntTypeIhLj1EEEEEbPKT_jj.exit, %94, %113, %.loopexit158, %_ZN21hb_sanitize_context_t8dispatchIN3AAT10ClassTableIN2OT7IntTypeIhLj1EEEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS9_.exit, %26, %39, %172, %173, %3, %14
-  %.070 = phi i1 [ false, %3 ], [ false, %14 ], [ true, %172 ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN3AAT10ClassTableIN2OT7IntTypeIhLj1EEEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS9_.exit ], [ true, %173 ], [ false, %39 ], [ false, %26 ], [ false, %.loopexit158 ], [ false, %113 ], [ false, %94 ], [ false, %_ZNK21hb_sanitize_context_t11check_rangeIN2OT7IntTypeIhLj1EEEEEbPKT_jj.exit ], [ false, %109 ], [ false, %_ZNK21hb_sanitize_context_t11check_rangeIN2OT7IntTypeIhLj1EEEEEbPKT_jj.exit93 ], [ false, %118 ], [ false, %_ZNK21hb_sanitize_context_t11check_arrayIN3AAT5EntryINS1_17InsertionSubtableINS1_13ObsoleteTypesEE9EntryDataEEEEEbPKT_j.exit ], [ false, %139 ], [ false, %97 ]
+  %.070 = phi i1 [ false, %3 ], [ false, %14 ], [ false, %26 ], [ false, %39 ], [ true, %173 ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN3AAT10ClassTableIN2OT7IntTypeIhLj1EEEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS9_.exit ], [ true, %172 ], [ false, %.loopexit158 ], [ false, %113 ], [ false, %94 ], [ false, %_ZNK21hb_sanitize_context_t11check_rangeIN2OT7IntTypeIhLj1EEEEEbPKT_jj.exit ], [ false, %109 ], [ false, %_ZNK21hb_sanitize_context_t11check_rangeIN2OT7IntTypeIhLj1EEEEEbPKT_jj.exit93 ], [ false, %118 ], [ false, %_ZNK21hb_sanitize_context_t11check_arrayIN3AAT5EntryINS1_17InsertionSubtableINS1_13ObsoleteTypesEE9EntryDataEEEEEbPKT_j.exit ], [ false, %139 ], [ false, %97 ]
   ret i1 %.070
 }
 
@@ -13466,7 +13466,7 @@ _ZN11hb_buffer_t23_infos_find_min_clusterEPK15hb_glyph_info_tjjj.exit56: ; preds
   br i1 %exitcond.not.i83, label %_ZN11hb_buffer_t22_infos_set_glyph_flagsEP15hb_glyph_info_tjjjj.exit89, label %.lr.ph.i78, !llvm.loop !81
 
 _ZN11hb_buffer_t22_infos_set_glyph_flagsEP15hb_glyph_info_tjjjj.exit89: ; preds = %.lr.ph.i78, %209, %195, %200, %191, %_ZN11hb_buffer_t23_infos_find_min_clusterEPK15hb_glyph_info_tjjj.exit56, %.loopexit.thread, %.preheader55.i77, %.preheader.i84
-  %.013.i57129 = phi i32 [ %.013.i57.ph182, %.loopexit.thread ], [ %.sroa.speculated.i, %.preheader55.i77 ], [ %.sroa.speculated.i, %.preheader.i84 ], [ %.013.i46, %_ZN11hb_buffer_t23_infos_find_min_clusterEPK15hb_glyph_info_tjjj.exit56 ], [ %.sroa.speculated.i, %195 ], [ %.013.i57.ph182, %191 ], [ %.sroa.speculated.i, %200 ], [ %.sroa.speculated.i, %209 ], [ %.sroa.speculated.i, %.lr.ph.i78 ]
+  %.013.i57129 = phi i32 [ %.013.i57.ph182, %191 ], [ %.013.i57.ph182, %.loopexit.thread ], [ %.013.i46, %_ZN11hb_buffer_t23_infos_find_min_clusterEPK15hb_glyph_info_tjjj.exit56 ], [ %.sroa.speculated.i, %.preheader55.i77 ], [ %.sroa.speculated.i, %.preheader.i84 ], [ %.sroa.speculated.i, %195 ], [ %.sroa.speculated.i, %200 ], [ %.sroa.speculated.i, %209 ], [ %.sroa.speculated.i, %.lr.ph.i78 ]
   %215 = load ptr, ptr %122, align 8
   %216 = load i32, ptr %124, align 4
   %217 = icmp eq i32 %216, %.sroa.speculated
@@ -24182,7 +24182,7 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %13, %22
   br i1 %26, label %28, label %33
 
 28:                                               ; preds = %25
-  br i1 %.not19, label %.critedge23, label %29
+  br i1 %.not19, label %.critedge25, label %29
 
 29:                                               ; preds = %28
   store i32 0, ptr %10, align 4
@@ -24200,7 +24200,7 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %13, %22
   %34 = load i8, ptr %5, align 8
   %35 = trunc i8 %34 to i1
   %or.cond = select i1 %.not19, i1 true, i1 %35
-  br i1 %or.cond, label %.critedge25, label %36
+  br i1 %or.cond, label %.critedge23, label %36
 
 36:                                               ; preds = %33
   %37 = tail call ptr @hb_blob_get_data_writable(ptr noundef %1, ptr noundef null)
@@ -24210,27 +24210,27 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %13, %22
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 %39
   store ptr %40, ptr %7, align 8
   %.not18 = icmp eq ptr %37, null
-  br i1 %.not18, label %.critedge25, label %13
+  br i1 %.not18, label %.critedge23, label %13
 
-.critedge23:                                      ; preds = %28
+.critedge25:                                      ; preds = %28
   %41 = load ptr, ptr %4, align 8
   tail call void @hb_blob_destroy(ptr noundef %41)
   store ptr null, ptr %4, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6, i8 0, i64 20, i1 false)
   br label %42
 
-42:                                               ; preds = %29, %.critedge23
+42:                                               ; preds = %29, %.critedge25
   tail call void @hb_blob_make_immutable(ptr noundef %1)
   br label %45
 
-.critedge25:                                      ; preds = %36, %33
+.critedge23:                                      ; preds = %36, %33
   %43 = load ptr, ptr %4, align 8
   tail call void @hb_blob_destroy(ptr noundef %43)
   store ptr null, ptr %4, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6, i8 0, i64 20, i1 false)
   br label %.critedge
 
-.critedge:                                        ; preds = %29, %.critedge25
+.critedge:                                        ; preds = %29, %.critedge23
   tail call void @hb_blob_destroy(ptr noundef %1)
   %44 = tail call ptr @hb_blob_get_empty()
   br label %45
@@ -24888,7 +24888,7 @@ _ZNK21hb_sanitize_context_t11check_arrayIN3AAT5EntryINS1_12Format1EntryILb1EE9En
   br label %.thread
 
 .thread:                                          ; preds = %.loopexit188, %165, %120, %126, %115, %173, %_ZNK21hb_sanitize_context_t11check_arrayIN3AAT5EntryINS1_12Format1EntryILb1EE9EntryDataEEEEEbPKT_j.exit, %138, %134, %_ZNK21hb_sanitize_context_t11check_rangeIN2OT7IntTypeItLj2EEEEEbPKT_jj.exit94, %36, %191, %192, %57, %3, %14
-  %.070 = phi i1 [ false, %3 ], [ false, %57 ], [ true, %191 ], [ false, %14 ], [ false, %36 ], [ true, %192 ], [ false, %_ZNK21hb_sanitize_context_t11check_rangeIN2OT7IntTypeItLj2EEEEEbPKT_jj.exit94 ], [ false, %134 ], [ false, %138 ], [ false, %_ZNK21hb_sanitize_context_t11check_arrayIN3AAT5EntryINS1_12Format1EntryILb1EE9EntryDataEEEEEbPKT_j.exit ], [ false, %173 ], [ false, %115 ], [ false, %126 ], [ false, %120 ], [ false, %165 ], [ false, %.loopexit188 ]
+  %.070 = phi i1 [ false, %3 ], [ false, %57 ], [ true, %192 ], [ false, %36 ], [ false, %14 ], [ true, %191 ], [ false, %_ZNK21hb_sanitize_context_t11check_rangeIN2OT7IntTypeItLj2EEEEEbPKT_jj.exit94 ], [ false, %134 ], [ false, %138 ], [ false, %_ZNK21hb_sanitize_context_t11check_arrayIN3AAT5EntryINS1_12Format1EntryILb1EE9EntryDataEEEEEbPKT_j.exit ], [ false, %173 ], [ false, %115 ], [ false, %126 ], [ false, %120 ], [ false, %165 ], [ false, %.loopexit188 ]
   ret i1 %.070
 }
 
@@ -25298,7 +25298,7 @@ _ZNK21hb_sanitize_context_t11check_arrayIN3AAT5EntryINS1_19KerxSubTableFormat4IN
   br label %.thread
 
 .thread:                                          ; preds = %.loopexit188, %165, %120, %126, %115, %173, %_ZNK21hb_sanitize_context_t11check_arrayIN3AAT5EntryINS1_19KerxSubTableFormat4INS1_18KerxSubTableHeaderEE9EntryDataEEEEEbPKT_j.exit, %138, %134, %_ZNK21hb_sanitize_context_t11check_rangeIN2OT7IntTypeItLj2EEEEEbPKT_jj.exit94, %36, %191, %192, %57, %3, %14
-  %.070 = phi i1 [ false, %3 ], [ false, %57 ], [ true, %191 ], [ false, %14 ], [ false, %36 ], [ true, %192 ], [ false, %_ZNK21hb_sanitize_context_t11check_rangeIN2OT7IntTypeItLj2EEEEEbPKT_jj.exit94 ], [ false, %134 ], [ false, %138 ], [ false, %_ZNK21hb_sanitize_context_t11check_arrayIN3AAT5EntryINS1_19KerxSubTableFormat4INS1_18KerxSubTableHeaderEE9EntryDataEEEEEbPKT_j.exit ], [ false, %173 ], [ false, %115 ], [ false, %126 ], [ false, %120 ], [ false, %165 ], [ false, %.loopexit188 ]
+  %.070 = phi i1 [ false, %3 ], [ false, %57 ], [ true, %192 ], [ false, %36 ], [ false, %14 ], [ true, %191 ], [ false, %_ZNK21hb_sanitize_context_t11check_rangeIN2OT7IntTypeItLj2EEEEEbPKT_jj.exit94 ], [ false, %134 ], [ false, %138 ], [ false, %_ZNK21hb_sanitize_context_t11check_arrayIN3AAT5EntryINS1_19KerxSubTableFormat4INS1_18KerxSubTableHeaderEE9EntryDataEEEEEbPKT_j.exit ], [ false, %173 ], [ false, %115 ], [ false, %126 ], [ false, %120 ], [ false, %165 ], [ false, %.loopexit188 ]
   ret i1 %.070
 }
 
@@ -26179,7 +26179,7 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %13, %22
   br i1 %26, label %28, label %33
 
 28:                                               ; preds = %25
-  br i1 %.not19, label %.critedge23, label %29
+  br i1 %.not19, label %.critedge25, label %29
 
 29:                                               ; preds = %28
   store i32 0, ptr %10, align 4
@@ -26197,7 +26197,7 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %13, %22
   %34 = load i8, ptr %5, align 8
   %35 = trunc i8 %34 to i1
   %or.cond = select i1 %.not19, i1 true, i1 %35
-  br i1 %or.cond, label %.critedge25, label %36
+  br i1 %or.cond, label %.critedge23, label %36
 
 36:                                               ; preds = %33
   %37 = tail call ptr @hb_blob_get_data_writable(ptr noundef %1, ptr noundef null)
@@ -26207,27 +26207,27 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %13, %22
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 %39
   store ptr %40, ptr %7, align 8
   %.not18 = icmp eq ptr %37, null
-  br i1 %.not18, label %.critedge25, label %13
+  br i1 %.not18, label %.critedge23, label %13
 
-.critedge23:                                      ; preds = %28
+.critedge25:                                      ; preds = %28
   %41 = load ptr, ptr %4, align 8
   tail call void @hb_blob_destroy(ptr noundef %41)
   store ptr null, ptr %4, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6, i8 0, i64 20, i1 false)
   br label %42
 
-42:                                               ; preds = %29, %.critedge23
+42:                                               ; preds = %29, %.critedge25
   tail call void @hb_blob_make_immutable(ptr noundef %1)
   br label %45
 
-.critedge25:                                      ; preds = %36, %33
+.critedge23:                                      ; preds = %36, %33
   %43 = load ptr, ptr %4, align 8
   tail call void @hb_blob_destroy(ptr noundef %43)
   store ptr null, ptr %4, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6, i8 0, i64 20, i1 false)
   br label %.critedge
 
-.critedge:                                        ; preds = %29, %.critedge25
+.critedge:                                        ; preds = %29, %.critedge23
   tail call void @hb_blob_destroy(ptr noundef %1)
   %44 = tail call ptr @hb_blob_get_empty()
   br label %45
@@ -28008,7 +28008,7 @@ _ZL50_hb_glyph_info_is_default_ignorable_and_not_hiddenPK15hb_glyph_info_t.exit.
   br label %164
 
 164:                                              ; preds = %_ZL50_hb_glyph_info_is_default_ignorable_and_not_hiddenPK15hb_glyph_info_t.exit.thread, %159
-  %165 = phi i1 [ true, %_ZL50_hb_glyph_info_is_default_ignorable_and_not_hiddenPK15hb_glyph_info_t.exit.thread ], [ false, %159 ]
+  %165 = phi i1 [ false, %159 ], [ true, %_ZL50_hb_glyph_info_is_default_ignorable_and_not_hiddenPK15hb_glyph_info_t.exit.thread ]
   %166 = load ptr, ptr %82, align 8
   %.not137 = icmp eq ptr %166, null
   br i1 %.not137, label %175, label %167
@@ -30494,7 +30494,7 @@ _ZL50_hb_glyph_info_is_default_ignorable_and_not_hiddenPK15hb_glyph_info_t.exit.
   br label %164
 
 164:                                              ; preds = %_ZL50_hb_glyph_info_is_default_ignorable_and_not_hiddenPK15hb_glyph_info_t.exit.thread, %159
-  %165 = phi i1 [ true, %_ZL50_hb_glyph_info_is_default_ignorable_and_not_hiddenPK15hb_glyph_info_t.exit.thread ], [ false, %159 ]
+  %165 = phi i1 [ false, %159 ], [ true, %_ZL50_hb_glyph_info_is_default_ignorable_and_not_hiddenPK15hb_glyph_info_t.exit.thread ]
   %166 = load ptr, ptr %82, align 8
   %.not137 = icmp eq ptr %166, null
   br i1 %.not137, label %175, label %167
@@ -33160,7 +33160,7 @@ _ZL50_hb_glyph_info_is_default_ignorable_and_not_hiddenPK15hb_glyph_info_t.exit.
   br label %164
 
 164:                                              ; preds = %_ZL50_hb_glyph_info_is_default_ignorable_and_not_hiddenPK15hb_glyph_info_t.exit.thread, %159
-  %165 = phi i1 [ true, %_ZL50_hb_glyph_info_is_default_ignorable_and_not_hiddenPK15hb_glyph_info_t.exit.thread ], [ false, %159 ]
+  %165 = phi i1 [ false, %159 ], [ true, %_ZL50_hb_glyph_info_is_default_ignorable_and_not_hiddenPK15hb_glyph_info_t.exit.thread ]
   %166 = load ptr, ptr %82, align 8
   %.not137 = icmp eq ptr %166, null
   br i1 %.not137, label %175, label %167
@@ -34599,7 +34599,7 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %13, %22
   br i1 %26, label %28, label %33
 
 28:                                               ; preds = %25
-  br i1 %.not19, label %.critedge23, label %29
+  br i1 %.not19, label %.critedge25, label %29
 
 29:                                               ; preds = %28
   store i32 0, ptr %10, align 4
@@ -34617,7 +34617,7 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %13, %22
   %34 = load i8, ptr %5, align 8
   %35 = trunc i8 %34 to i1
   %or.cond = select i1 %.not19, i1 true, i1 %35
-  br i1 %or.cond, label %.critedge25, label %36
+  br i1 %or.cond, label %.critedge23, label %36
 
 36:                                               ; preds = %33
   %37 = tail call ptr @hb_blob_get_data_writable(ptr noundef %1, ptr noundef null)
@@ -34627,27 +34627,27 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %13, %22
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 %39
   store ptr %40, ptr %7, align 8
   %.not18 = icmp eq ptr %37, null
-  br i1 %.not18, label %.critedge25, label %13
+  br i1 %.not18, label %.critedge23, label %13
 
-.critedge23:                                      ; preds = %28
+.critedge25:                                      ; preds = %28
   %41 = load ptr, ptr %4, align 8
   tail call void @hb_blob_destroy(ptr noundef %41)
   store ptr null, ptr %4, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6, i8 0, i64 20, i1 false)
   br label %42
 
-42:                                               ; preds = %29, %.critedge23
+42:                                               ; preds = %29, %.critedge25
   tail call void @hb_blob_make_immutable(ptr noundef %1)
   br label %45
 
-.critedge25:                                      ; preds = %36, %33
+.critedge23:                                      ; preds = %36, %33
   %43 = load ptr, ptr %4, align 8
   tail call void @hb_blob_destroy(ptr noundef %43)
   store ptr null, ptr %4, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6, i8 0, i64 20, i1 false)
   br label %.critedge
 
-.critedge:                                        ; preds = %29, %.critedge25
+.critedge:                                        ; preds = %29, %.critedge23
   tail call void @hb_blob_destroy(ptr noundef %1)
   %44 = tail call ptr @hb_blob_get_empty()
   br label %45
@@ -35025,7 +35025,7 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %2, %16
 22:                                               ; preds = %_ZN21hb_sanitize_context_t16start_processingEv.exit
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %.not.i = icmp ult i32 %10, 12
-  br i1 %.not.i, label %_ZNK3AAT4feat8sanitizeEP21hb_sanitize_context_t.exit, label %24
+  br i1 %.not.i, label %.critedge, label %24
 
 24:                                               ; preds = %22
   %25 = load i8, ptr %8, align 1
@@ -35036,7 +35036,7 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %2, %16
   %30 = zext i8 %29 to i32
   %31 = or disjoint i32 %27, %30
   %32 = icmp eq i32 %31, 1
-  br i1 %32, label %33, label %_ZNK3AAT4feat8sanitizeEP21hb_sanitize_context_t.exit
+  br i1 %32, label %33, label %.critedge
 
 33:                                               ; preds = %24
   %34 = getelementptr inbounds nuw i8, ptr %8, i64 4
@@ -35050,17 +35050,17 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %2, %16
   %42 = mul nuw nsw i32 %41, 12
   %gepdiff = add i32 %10, -12
   %.not16.i.i.i.i = icmp ugt i32 %42, %gepdiff
-  br i1 %.not16.i.i.i.i, label %_ZNK3AAT4feat8sanitizeEP21hb_sanitize_context_t.exit, label %_ZNK2OT14UnsizedArrayOfIN3AAT11FeatureNameEE16sanitize_shallowEP21hb_sanitize_context_tj.exit.i
+  br i1 %.not16.i.i.i.i, label %.critedge, label %_ZNK2OT14UnsizedArrayOfIN3AAT11FeatureNameEE16sanitize_shallowEP21hb_sanitize_context_tj.exit.i
 
 _ZNK2OT14UnsizedArrayOfIN3AAT11FeatureNameEE16sanitize_shallowEP21hb_sanitize_context_tj.exit.i: ; preds = %33
   %43 = sub nsw i32 %.sroa.speculated.sink.i, %42
   store i32 %43, ptr %18, align 4
   %44 = icmp sgt i32 %43, 0
-  br i1 %44, label %.preheader.i, label %_ZNK3AAT4feat8sanitizeEP21hb_sanitize_context_t.exit
+  br i1 %44, label %.preheader.i, label %.critedge
 
 .preheader.i:                                     ; preds = %_ZNK2OT14UnsizedArrayOfIN3AAT11FeatureNameEE16sanitize_shallowEP21hb_sanitize_context_tj.exit.i
   %.not34.i = icmp eq i32 %41, 0
-  br i1 %.not34.i, label %.critedge, label %.lr.ph.preheader.i
+  br i1 %.not34.i, label %_ZNK3AAT4feat8sanitizeEP21hb_sanitize_context_t.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
   %wide.trip.count.i = zext nneg i32 %41 to i64
@@ -35072,13 +35072,13 @@ _ZNK2OT14UnsizedArrayOfIN3AAT11FeatureNameEE16sanitize_shallowEP21hb_sanitize_co
 46:                                               ; preds = %_ZN21hb_sanitize_context_t8dispatchIN3AAT11FeatureNameEJPKNS1_4featEEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS8_.exit.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.critedge, label %.lr.ph.i, !llvm.loop !194
+  br i1 %exitcond.not.i, label %_ZNK3AAT4feat8sanitizeEP21hb_sanitize_context_t.exit, label %.lr.ph.i, !llvm.loop !194
 
 .lr.ph.i:                                         ; preds = %46, %.lr.ph.preheader.i
   %47 = phi i32 [ %43, %.lr.ph.preheader.i ], [ %79, %46 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %46 ]
   %exitcond = icmp eq i64 %indvars.iv.i, %.zext
-  br i1 %exitcond, label %_ZNK3AAT4feat8sanitizeEP21hb_sanitize_context_t.exit, label %48
+  br i1 %exitcond, label %.critedge, label %48
 
 48:                                               ; preds = %.lr.ph.i
   %49 = getelementptr inbounds nuw %"struct.AAT::FeatureName", ptr %23, i64 %indvars.iv.i
@@ -35114,15 +35114,22 @@ _ZNK2OT14UnsizedArrayOfIN3AAT11FeatureNameEE16sanitize_shallowEP21hb_sanitize_co
   %78 = sub i32 %10, %77
   %.not16.i.i.i.i.i.i.i = icmp ugt i32 %76, %78
   %or.cond.i = select i1 %.not.i.i.i.i.i.i.i, i1 true, i1 %.not16.i.i.i.i.i.i.i
-  br i1 %or.cond.i, label %_ZNK3AAT4feat8sanitizeEP21hb_sanitize_context_t.exit, label %_ZN21hb_sanitize_context_t8dispatchIN3AAT11FeatureNameEJPKNS1_4featEEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS8_.exit.i
+  br i1 %or.cond.i, label %.critedge, label %_ZN21hb_sanitize_context_t8dispatchIN3AAT11FeatureNameEJPKNS1_4featEEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS8_.exit.i
 
 _ZN21hb_sanitize_context_t8dispatchIN3AAT11FeatureNameEJPKNS1_4featEEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS8_.exit.i: ; preds = %48
   %79 = sub nsw i32 %47, %76
   store i32 %79, ptr %18, align 4
   %80 = icmp sgt i32 %79, 0
-  br i1 %80, label %46, label %_ZNK3AAT4feat8sanitizeEP21hb_sanitize_context_t.exit
+  br i1 %80, label %46, label %.critedge
 
-_ZNK3AAT4feat8sanitizeEP21hb_sanitize_context_t.exit: ; preds = %.lr.ph.i, %_ZN21hb_sanitize_context_t8dispatchIN3AAT11FeatureNameEJPKNS1_4featEEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS8_.exit.i, %48, %33, %_ZNK2OT14UnsizedArrayOfIN3AAT11FeatureNameEE16sanitize_shallowEP21hb_sanitize_context_tj.exit.i, %22, %24
+_ZNK3AAT4feat8sanitizeEP21hb_sanitize_context_t.exit: ; preds = %46, %.preheader.i
+  tail call void @hb_blob_destroy(ptr noundef %3)
+  store ptr null, ptr %4, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6, i8 0, i64 20, i1 false)
+  tail call void @hb_blob_make_immutable(ptr noundef %1)
+  br label %82
+
+.critedge:                                        ; preds = %48, %.lr.ph.i, %_ZN21hb_sanitize_context_t8dispatchIN3AAT11FeatureNameEJPKNS1_4featEEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS8_.exit.i, %24, %_ZNK2OT14UnsizedArrayOfIN3AAT11FeatureNameEE16sanitize_shallowEP21hb_sanitize_context_tj.exit.i, %33, %22
   tail call void @hb_blob_destroy(ptr noundef %3)
   store ptr null, ptr %4, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6, i8 0, i64 20, i1 false)
@@ -35130,15 +35137,8 @@ _ZNK3AAT4feat8sanitizeEP21hb_sanitize_context_t.exit: ; preds = %.lr.ph.i, %_ZN2
   %81 = tail call ptr @hb_blob_get_empty()
   br label %82
 
-.critedge:                                        ; preds = %46, %.preheader.i
-  tail call void @hb_blob_destroy(ptr noundef %3)
-  store ptr null, ptr %4, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6, i8 0, i64 20, i1 false)
-  tail call void @hb_blob_make_immutable(ptr noundef %1)
-  br label %82
-
-82:                                               ; preds = %_ZNK3AAT4feat8sanitizeEP21hb_sanitize_context_t.exit, %.critedge, %21
-  %.0 = phi ptr [ %1, %.critedge ], [ %81, %_ZNK3AAT4feat8sanitizeEP21hb_sanitize_context_t.exit ], [ %1, %21 ]
+82:                                               ; preds = %.critedge, %_ZNK3AAT4feat8sanitizeEP21hb_sanitize_context_t.exit, %21
+  %.0 = phi ptr [ %1, %_ZNK3AAT4feat8sanitizeEP21hb_sanitize_context_t.exit ], [ %81, %.critedge ], [ %1, %21 ]
   ret ptr %.0
 }
 

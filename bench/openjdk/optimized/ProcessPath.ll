@@ -1578,7 +1578,7 @@ ProcessCubic.exit:                                ; preds = %ProcessCubic.exit.l
   br label %.loopexit
 
 .loopexit:                                        ; preds = %279, %160, %144, %118, %49, %._crit_edge, %544
-  %.0192 = phi i8 [ 1, %544 ], [ 1, %._crit_edge ], [ 1, %49 ], [ 0, %118 ], [ 0, %144 ], [ 0, %160 ], [ 0, %279 ]
+  %.0192 = phi i8 [ 1, %._crit_edge ], [ 1, %544 ], [ 1, %49 ], [ 0, %118 ], [ 0, %144 ], [ 0, %160 ], [ 0, %279 ]
   ret i8 %.0192
 }
 
@@ -1875,8 +1875,8 @@ define internal fastcc void @ProcessLine(ptr noundef %0, float %.0.val, float %.
   tail call void %178(ptr noundef nonnull %0, i32 noundef %170, i32 noundef %172, i32 noundef %170, i32 noundef %177, ptr noundef nonnull %1, i8 noundef zeroext 0, i8 noundef zeroext %168) #14
   br label %.thread
 
-.thread.critedge:                                 ; preds = %146, %174
-  %.4.ph = phi float [ %.222854, %146 ], [ %.3., %174 ]
+.thread.critedge:                                 ; preds = %174, %146
+  %.4.ph = phi float [ %.3., %174 ], [ %.222854, %146 ]
   %179 = fmul float %.4.ph, 1.024000e+03
   %180 = fptosi float %179 to i32
   %181 = fmul float %.0224, 1.024000e+03

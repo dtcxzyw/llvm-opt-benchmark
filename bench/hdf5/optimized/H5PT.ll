@@ -544,7 +544,7 @@ define i64 @H5PTopen(i64 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not46 = icmp eq i64 %23, -1
   br i1 %.not46, label %.thread109, label %.thread82.thread102
 
-.thread82.thread102:                              ; preds = %.thread75, %51, %.thread82.thread106, %.thread82
+.thread82.thread102:                              ; preds = %51, %.thread75, %.thread82.thread106, %.thread82
   %54 = call i32 @H5Tclose(i64 noundef %23) #7
   br label %.thread109
 

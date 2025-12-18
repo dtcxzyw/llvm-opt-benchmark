@@ -292,8 +292,8 @@ parse_pk12.exit.thread:                           ; preds = %36, %parse_pk12.exi
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.thread.us90.us, %.thread.us.us, %.loopexit.sink.split, %parse_pk12.exit.thread, %87
-  %.053 = phi ptr [ %.1, %87 ], [ %.1, %parse_pk12.exit.thread ], [ %.053.ph, %.loopexit.sink.split ], [ %.1, %.thread.us.us ], [ %.1, %.thread.us90.us ]
-  %.052 = phi ptr [ null, %87 ], [ null, %parse_pk12.exit.thread ], [ null, %.loopexit.sink.split ], [ %61, %.thread.us.us ], [ %66, %.thread.us90.us ]
+  %.053 = phi ptr [ %.1, %.thread.us.us ], [ %.1, %parse_pk12.exit.thread ], [ %.1, %87 ], [ %.053.ph, %.loopexit.sink.split ], [ %.1, %.thread.us90.us ]
+  %.052 = phi ptr [ %61, %.thread.us.us ], [ null, %parse_pk12.exit.thread ], [ null, %87 ], [ null, %.loopexit.sink.split ], [ %66, %.thread.us90.us ]
   br i1 %.not, label %101, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.thread.us96, %.loopexit
@@ -531,8 +531,8 @@ parse_bag.exit.thread:                            ; preds = %28, %38, %63, %23, 
   %70 = icmp slt i32 %68, %69
   br i1 %70, label %12, label %parse_bag.exit.thread15, !llvm.loop !28
 
-parse_bag.exit.thread15:                          ; preds = %parse_bag.exit, %parse_bag.exit.thread, %44, %28, %35, %38, %6, %53, %.critedge.i, %65
-  %.011 = phi i32 [ 0, %65 ], [ 0, %.critedge.i ], [ 0, %53 ], [ 1, %6 ], [ 0, %35 ], [ 0, %28 ], [ 0, %44 ], [ 1, %parse_bag.exit.thread ], [ 0, %parse_bag.exit ], [ 0, %38 ]
+parse_bag.exit.thread15:                          ; preds = %parse_bag.exit, %parse_bag.exit.thread, %44, %28, %35, %38, %6, %65, %.critedge.i, %53
+  %.011 = phi i32 [ 0, %53 ], [ 0, %.critedge.i ], [ 0, %65 ], [ 1, %6 ], [ 0, %35 ], [ 0, %28 ], [ 0, %44 ], [ 1, %parse_bag.exit.thread ], [ 0, %parse_bag.exit ], [ 0, %38 ]
   ret i32 %.011
 }
 

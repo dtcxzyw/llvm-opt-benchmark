@@ -11913,7 +11913,7 @@ _ZNK5drjit6TensorINS_12DynamicArrayIfEEE5shapeEm.exit.us: ; preds = %.lr.ph.spli
   br i1 %or.cond125, label %_ZNK5drjit6TensorINS_12DynamicArrayIfEEE5shapeEm.exit56, label %.split.us.invoke
 
 .split.us.invoke:                                 ; preds = %.lr.ph.split.split, %.lr.ph.split.split.us.split, %.lr.ph.split.us.split.split
-  %43 = phi i64 [ %.070.us76, %.lr.ph.split.split.us.split ], [ %.070.us, %.lr.ph.split.us.split.split ], [ %.070, %.lr.ph.split.split ]
+  %43 = phi i64 [ %.070.us, %.lr.ph.split.us.split.split ], [ %.070.us76, %.lr.ph.split.split.us.split ], [ %.070, %.lr.ph.split.split ]
   invoke void (ptr, ...) @_ZN5drjit11drjit_raiseEPKcz(ptr noundef nonnull @.str.55, i64 noundef %43) #33
           to label %.split.us.cont unwind label %52
 
@@ -16392,7 +16392,7 @@ _ZNSt3__116__constrain_hashB8ne190000Emm.exit55:  ; preds = %48, %50
   br i1 %.not52, label %.critedge, label %.lr.ph.split, !llvm.loop !203
 
 .critedge:                                        ; preds = %_ZNSt3__116__constrain_hashB8ne190000Emm.exit55, %.critedge2, %_ZNSt3__116__constrain_hashB8ne190000Emm.exit55.us, %.critedge2.us, %.preheader, %_ZNSt3__116__constrain_hashB8ne190000Emm.exit, %5
-  %.044 = phi i64 [ %31, %_ZNSt3__116__constrain_hashB8ne190000Emm.exit ], [ undef, %5 ], [ %31, %.preheader ], [ %31, %_ZNSt3__116__constrain_hashB8ne190000Emm.exit55.us ], [ %31, %.critedge2.us ], [ %31, %.critedge2 ], [ %31, %_ZNSt3__116__constrain_hashB8ne190000Emm.exit55 ]
+  %.044 = phi i64 [ undef, %5 ], [ %31, %_ZNSt3__116__constrain_hashB8ne190000Emm.exit ], [ %31, %.preheader ], [ %31, %_ZNSt3__116__constrain_hashB8ne190000Emm.exit55.us ], [ %31, %.critedge2.us ], [ %31, %.critedge2 ], [ %31, %_ZNSt3__116__constrain_hashB8ne190000Emm.exit55 ]
   %58 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #34, !noalias !204
   store ptr null, ptr %58, align 8, !noalias !204
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8

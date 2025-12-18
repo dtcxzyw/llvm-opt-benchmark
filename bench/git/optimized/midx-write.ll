@@ -758,7 +758,7 @@ _.exit323:                                        ; preds = %thread-pre-split.th
   br label %.thread420
 
 291:                                              ; preds = %._crit_edge, %thread-pre-split, %_.exit323
-  %292 = phi i32 [ %284, %._crit_edge ], [ %244, %thread-pre-split ], [ %.pre589, %_.exit323 ]
+  %292 = phi i32 [ %284, %._crit_edge ], [ %.pre589, %_.exit323 ], [ %244, %thread-pre-split ]
   %293 = getelementptr inbounds nuw i8, ptr %26, i64 96
   %294 = icmp sgt i32 %292, -1
   br i1 %294, label %295, label %.thread420
@@ -1510,9 +1510,9 @@ _.exit345:                                        ; preds = %627, %629
   br label %bsearch.exit.thread
 
 bsearch.exit.thread:                              ; preds = %619, %st_mult.exit338, %_.exit345, %bsearch.exit, %._crit_edge513
-  %.0202.lcssa703 = phi i64 [ 0, %st_mult.exit338 ], [ %605, %_.exit345 ], [ %605, %bsearch.exit ], [ %605, %._crit_edge513 ], [ %605, %619 ]
-  %.0204.lcssa701 = phi i32 [ 0, %st_mult.exit338 ], [ %.1205, %_.exit345 ], [ %.1205, %bsearch.exit ], [ %.1205, %._crit_edge513 ], [ %.1205, %619 ]
-  %.0211.lcssa694699 = phi i32 [ 0, %st_mult.exit338 ], [ %.1212, %_.exit345 ], [ %.1212, %bsearch.exit ], [ %.1212, %._crit_edge513 ], [ %.1212, %619 ]
+  %.0202.lcssa703 = phi i64 [ 0, %st_mult.exit338 ], [ %605, %._crit_edge513 ], [ %605, %bsearch.exit ], [ %605, %_.exit345 ], [ %605, %619 ]
+  %.0204.lcssa701 = phi i32 [ 0, %st_mult.exit338 ], [ %.1205, %._crit_edge513 ], [ %.1205, %bsearch.exit ], [ %.1205, %_.exit345 ], [ %.1205, %619 ]
+  %.0211.lcssa694699 = phi i32 [ 0, %st_mult.exit338 ], [ %.1212, %._crit_edge513 ], [ %.1212, %bsearch.exit ], [ %.1212, %_.exit345 ], [ %.1212, %619 ]
   %631 = srem i32 %.0204.lcssa701, 4
   %.not283 = icmp eq i32 %631, 0
   %reass.sub = add i32 %.0204.lcssa701, 4

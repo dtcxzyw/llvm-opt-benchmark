@@ -1358,11 +1358,11 @@ zend_parse_arg_bool_ex.exit152:                   ; preds = %67
   %cond.fr169 = freeze i1 %71
   br i1 %cond.fr169, label %.critedge, label %.thread179, !prof !19
 
-.thread179:                                       ; preds = %zend_parse_arg_bool_ex.exit152, %zend_parse_arg_str_ex.exit144, %zend_parse_arg_array_ht_or_long.exit, %zend_parse_arg_str_ex.exit146, %zend_parse_arg_str_ex.exit148, %zend_parse_arg_str_ex.exit, %zend_parse_arg_bool_ex.exit, %14
-  %.0119189 = phi i32 [ 1, %14 ], [ 9, %zend_parse_arg_bool_ex.exit ], [ 9, %zend_parse_arg_str_ex.exit144 ], [ 9, %zend_parse_arg_array_ht_or_long.exit ], [ 9, %zend_parse_arg_str_ex.exit146 ], [ 9, %zend_parse_arg_str_ex.exit148 ], [ 9, %zend_parse_arg_str_ex.exit ], [ 9, %zend_parse_arg_bool_ex.exit152 ]
-  %.0120188 = phi i32 [ 0, %14 ], [ 6, %zend_parse_arg_bool_ex.exit ], [ 4, %zend_parse_arg_str_ex.exit144 ], [ 3, %zend_parse_arg_array_ht_or_long.exit ], [ 2, %zend_parse_arg_str_ex.exit146 ], [ 1, %zend_parse_arg_str_ex.exit148 ], [ 5, %zend_parse_arg_str_ex.exit ], [ 7, %zend_parse_arg_bool_ex.exit152 ]
-  %.0121187 = phi i32 [ 0, %14 ], [ 2, %zend_parse_arg_bool_ex.exit ], [ 4, %zend_parse_arg_str_ex.exit144 ], [ 8, %zend_parse_arg_array_ht_or_long.exit ], [ 4, %zend_parse_arg_str_ex.exit146 ], [ 4, %zend_parse_arg_str_ex.exit148 ], [ 4, %zend_parse_arg_str_ex.exit ], [ 2, %zend_parse_arg_bool_ex.exit152 ]
-  %.0122186 = phi ptr [ null, %14 ], [ %64, %zend_parse_arg_bool_ex.exit ], [ %44, %zend_parse_arg_str_ex.exit144 ], [ %34, %zend_parse_arg_array_ht_or_long.exit ], [ %25, %zend_parse_arg_str_ex.exit146 ], [ %16, %zend_parse_arg_str_ex.exit148 ], [ %53, %zend_parse_arg_str_ex.exit ], [ %70, %zend_parse_arg_bool_ex.exit152 ]
+.thread179:                                       ; preds = %zend_parse_arg_bool_ex.exit152, %zend_parse_arg_str_ex.exit146, %zend_parse_arg_str_ex.exit144, %zend_parse_arg_str_ex.exit148, %zend_parse_arg_str_ex.exit, %zend_parse_arg_array_ht_or_long.exit, %zend_parse_arg_bool_ex.exit, %14
+  %.0119189 = phi i32 [ 1, %14 ], [ 9, %zend_parse_arg_bool_ex.exit ], [ 9, %zend_parse_arg_str_ex.exit146 ], [ 9, %zend_parse_arg_str_ex.exit144 ], [ 9, %zend_parse_arg_str_ex.exit148 ], [ 9, %zend_parse_arg_str_ex.exit ], [ 9, %zend_parse_arg_array_ht_or_long.exit ], [ 9, %zend_parse_arg_bool_ex.exit152 ]
+  %.0120188 = phi i32 [ 0, %14 ], [ 6, %zend_parse_arg_bool_ex.exit ], [ 2, %zend_parse_arg_str_ex.exit146 ], [ 4, %zend_parse_arg_str_ex.exit144 ], [ 1, %zend_parse_arg_str_ex.exit148 ], [ 5, %zend_parse_arg_str_ex.exit ], [ 3, %zend_parse_arg_array_ht_or_long.exit ], [ 7, %zend_parse_arg_bool_ex.exit152 ]
+  %.0121187 = phi i32 [ 0, %14 ], [ 2, %zend_parse_arg_bool_ex.exit ], [ 4, %zend_parse_arg_str_ex.exit146 ], [ 4, %zend_parse_arg_str_ex.exit144 ], [ 4, %zend_parse_arg_str_ex.exit148 ], [ 4, %zend_parse_arg_str_ex.exit ], [ 8, %zend_parse_arg_array_ht_or_long.exit ], [ 2, %zend_parse_arg_bool_ex.exit152 ]
+  %.0122186 = phi ptr [ null, %14 ], [ %64, %zend_parse_arg_bool_ex.exit ], [ %25, %zend_parse_arg_str_ex.exit146 ], [ %44, %zend_parse_arg_str_ex.exit144 ], [ %16, %zend_parse_arg_str_ex.exit148 ], [ %53, %zend_parse_arg_str_ex.exit ], [ %34, %zend_parse_arg_array_ht_or_long.exit ], [ %70, %zend_parse_arg_bool_ex.exit152 ]
   call void @zend_wrong_parameter_error(i32 noundef %.0119189, i32 noundef %.0120188, ptr noundef null, i32 noundef %.0121187, ptr noundef %.0122186) #10
   br label %zend_string_release.exit
 
@@ -1628,8 +1628,8 @@ zval_get_string.exit79.i:                         ; preds = %175, %180, %183, %1
   br i1 %.not.i154, label %php_head_parse_cookie_options_array.exit, label %.lr.ph.i
 
 php_head_parse_cookie_options_array.exit:         ; preds = %zval_get_string.exit79.i, %31, %22, %77, %.critedge
-  %.not129192 = phi i1 [ true, %.critedge ], [ false, %77 ], [ true, %22 ], [ true, %31 ], [ false, %zval_get_string.exit79.i ]
-  %.0158 = phi ptr [ null, %.critedge ], [ null, %77 ], [ null, %22 ], [ null, %31 ], [ %.3, %zval_get_string.exit79.i ]
+  %.not129192 = phi i1 [ true, %.critedge ], [ true, %31 ], [ false, %77 ], [ true, %22 ], [ false, %zval_get_string.exit79.i ]
+  %.0158 = phi ptr [ null, %.critedge ], [ null, %31 ], [ null, %77 ], [ null, %22 ], [ %.3, %zval_get_string.exit79.i ]
   %188 = load ptr, ptr %5, align 8, !tbaa !36
   %189 = load ptr, ptr %6, align 8, !tbaa !36
   %190 = load i64, ptr %4, align 8, !tbaa !20
@@ -1647,8 +1647,8 @@ php_head_parse_cookie_options_array.exit:         ; preds = %zval_get_string.exi
   store i32 %spec.select, ptr %200, align 8, !tbaa !8
   br i1 %.not129192, label %zend_string_release.exit, label %php_head_parse_cookie_options_array.exit.thread
 
-php_head_parse_cookie_options_array.exit.thread:  ; preds = %96, %.thread109.i, %php_head_parse_cookie_options_array.exit
-  %.1159 = phi ptr [ %.0158, %php_head_parse_cookie_options_array.exit ], [ %.2160, %.thread109.i ], [ %.2160, %96 ]
+php_head_parse_cookie_options_array.exit.thread:  ; preds = %.thread109.i, %96, %php_head_parse_cookie_options_array.exit
+  %.1159 = phi ptr [ %.0158, %php_head_parse_cookie_options_array.exit ], [ %.2160, %96 ], [ %.2160, %.thread109.i ]
   %201 = load ptr, ptr %7, align 8, !tbaa !36
   %.not131 = icmp eq ptr %201, null
   br i1 %.not131, label %zend_string_release.exit142, label %202

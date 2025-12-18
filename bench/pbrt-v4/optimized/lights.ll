@@ -1881,7 +1881,7 @@ _ZNSt12shared_mutex11lock_sharedEv.exit.i:        ; preds = %313, %306, %303, %3
   br i1 %.not.i5, label %_ZNSt12shared_mutex11lock_sharedEv.exit._crit_edge.i, label %300, !llvm.loop !85
 
 "_ZN4pbrt11InternCacheINS_22DenselySampledSpectrumESt4hashIS1_EE6LookupIZNS_9LightBase14LookupSpectrumENS_8SpectrumEE3$_0EEPKS1_RS9_T_.exit": ; preds = %.preheader.i70.i, %311, %.preheader.i.i, %202, %"_ZZN4pbrt9LightBase14LookupSpectrumENS_8SpectrumEENK3$_0clEN4pstd3pmr21polymorphic_allocatorISt4byteEERKNS_22DenselySampledSpectrumE.exit.i"
-  %.1.i = phi ptr [ %268, %"_ZZN4pbrt9LightBase14LookupSpectrumENS_8SpectrumEENK3$_0clEN4pstd3pmr21polymorphic_allocatorISt4byteEERKNS_22DenselySampledSpectrumE.exit.i" ], [ %301, %311 ], [ %192, %202 ], [ %192, %.preheader.i.i ], [ %301, %.preheader.i70.i ]
+  %.1.i = phi ptr [ %268, %"_ZZN4pbrt9LightBase14LookupSpectrumENS_8SpectrumEENK3$_0clEN4pstd3pmr21polymorphic_allocatorISt4byteEERKNS_22DenselySampledSpectrumE.exit.i" ], [ %192, %202 ], [ %301, %311 ], [ %192, %.preheader.i.i ], [ %301, %.preheader.i70.i ]
   %323 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %107) #39
   store i64 0, ptr %44, align 8, !tbaa !70
   %324 = load ptr, ptr %42, align 8, !tbaa !66
@@ -29256,9 +29256,9 @@ _ZNK4pbrt3XYZixEi.exit.us23.i:                    ; preds = %24, %23, %_ZN4pbrt3
   br i1 %exitcond.not.i, label %.split.i, label %_ZN4pbrt3RGBixEi.exit.split.us21.i, !llvm.loop !649
 
 .split.i:                                         ; preds = %_ZNK4pbrt3XYZixEi.exit.us23.i, %_ZNK4pbrt3XYZixEi.exit.us.i, %_ZNK4pbrt3XYZixEi.exit.i
-  %27 = phi float [ %6, %_ZNK4pbrt3XYZixEi.exit.us.i ], [ %37, %_ZNK4pbrt3XYZixEi.exit.i ], [ %6, %_ZNK4pbrt3XYZixEi.exit.us23.i ]
-  %28 = phi float [ %18, %_ZNK4pbrt3XYZixEi.exit.us.i ], [ %7, %_ZNK4pbrt3XYZixEi.exit.i ], [ %7, %_ZNK4pbrt3XYZixEi.exit.us23.i ]
-  %29 = phi float [ %8, %_ZNK4pbrt3XYZixEi.exit.us.i ], [ %8, %_ZNK4pbrt3XYZixEi.exit.i ], [ %26, %_ZNK4pbrt3XYZixEi.exit.us23.i ]
+  %27 = phi float [ %37, %_ZNK4pbrt3XYZixEi.exit.i ], [ %6, %_ZNK4pbrt3XYZixEi.exit.us.i ], [ %6, %_ZNK4pbrt3XYZixEi.exit.us23.i ]
+  %28 = phi float [ %7, %_ZNK4pbrt3XYZixEi.exit.i ], [ %18, %_ZNK4pbrt3XYZixEi.exit.us.i ], [ %7, %_ZNK4pbrt3XYZixEi.exit.us23.i ]
+  %29 = phi float [ %8, %_ZNK4pbrt3XYZixEi.exit.i ], [ %8, %_ZNK4pbrt3XYZixEi.exit.us.i ], [ %26, %_ZNK4pbrt3XYZixEi.exit.us23.i ]
   %indvars.iv.next43.i = add nuw nsw i64 %indvars.iv42.i, 1
   %exitcond45.not.i = icmp eq i64 %indvars.iv.next43.i, 3
   br i1 %exitcond45.not.i, label %_ZN4pbrt3MulINS_3RGBELi3ENS_3XYZEEET_RKNS_12SquareMatrixIXT0_EEERKT1_.exit, label %5, !llvm.loop !650
@@ -34630,8 +34630,8 @@ _ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE7reserveEm.exit: ; preds = %
   br label %204
 
 ._crit_edge75:                                    ; preds = %97, %._crit_edge, %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE7reserveEm.exit
-  %65 = phi i64 [ 0, %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE7reserveEm.exit ], [ 0, %._crit_edge ], [ %102, %97 ]
-  %66 = phi ptr [ %42, %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE7reserveEm.exit ], [ null, %._crit_edge ], [ %98, %97 ]
+  %65 = phi i64 [ 0, %._crit_edge ], [ 0, %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE7reserveEm.exit ], [ %102, %97 ]
+  %66 = phi ptr [ null, %._crit_edge ], [ %42, %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE7reserveEm.exit ], [ %98, %97 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %.sroa.068.4.vec.extract = extractelement <2 x float> %5, i64 1
   %.sroa.4.12.vec.extract = extractelement <2 x float> %6, i64 1

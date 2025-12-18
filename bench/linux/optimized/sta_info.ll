@@ -373,7 +373,7 @@ define internal fastcc ptr @rhltable_lookup(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %116, label %.loopexit, label %.split11, !prof !9
 
 .loopexit:                                        ; preds = %.split9, %.preheader, %.split9.us.us, %55
-  %117 = phi ptr [ %100, %.preheader ], [ %56, %55 ], [ null, %.split9.us.us ], [ null, %.split9 ]
+  %117 = phi ptr [ %56, %55 ], [ %100, %.preheader ], [ null, %.split9.us.us ], [ null, %.split9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %117
 }
@@ -586,7 +586,7 @@ define dso_local ptr @ieee80211_find_sta_by_link_addrs(ptr noundef %0, ptr nound
   br i1 %45, label %.loopexit, label %.split, !llvm.loop !17
 
 .loopexit:                                        ; preds = %42, %29, %40, %4
-  %46 = phi ptr [ null, %4 ], [ %41, %40 ], [ %30, %29 ], [ null, %42 ]
+  %46 = phi ptr [ null, %4 ], [ %30, %29 ], [ %41, %40 ], [ null, %42 ]
   ret ptr %46
 }
 
@@ -8227,8 +8227,8 @@ define internal fastcc i32 @rhltable_insert(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %165, label %.split15.us, label %.lr.ph, !llvm.loop !298
 
 .split15.us:                                      ; preds = %158, %143, %.split.split, %.split.split.us
-  %.us-phi16 = phi ptr [ null, %.split.split.us ], [ null, %.split.split ], [ %150, %143 ], [ %187, %158 ]
-  %.us-phi17 = phi ptr [ %111, %.split.split.us ], [ %111, %.split.split ], [ %151, %143 ], [ %188, %158 ]
+  %.us-phi16 = phi ptr [ %150, %143 ], [ null, %.split.split.us ], [ null, %.split.split ], [ %187, %158 ]
+  %.us-phi17 = phi ptr [ %151, %143 ], [ %111, %.split.split.us ], [ %111, %.split.split ], [ %188, %158 ]
   store volatile ptr %.us-phi17, ptr %113, align 8
   %166 = load ptr, ptr %.us-phi17, align 8
   store volatile ptr %166, ptr %1, align 8
@@ -8292,7 +8292,7 @@ define internal fastcc i32 @rhltable_insert(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %191, label %158, label %.split13.us, !llvm.loop !298
 
 .split13.us:                                      ; preds = %.lr.ph, %.lr.ph24, %.split.us
-  %.us-phi = phi i32 [ %149, %.lr.ph24 ], [ %122, %.split.us ], [ %186, %.lr.ph ]
+  %.us-phi = phi i32 [ %122, %.split.us ], [ %149, %.lr.ph24 ], [ %186, %.lr.ph ]
   %192 = icmp slt i32 %.us-phi, 1
   br i1 %192, label %87, label %193
 

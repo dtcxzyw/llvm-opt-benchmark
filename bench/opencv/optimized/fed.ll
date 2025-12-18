@@ -253,7 +253,7 @@ _Z21fed_is_prime_internalRKi.exit.thread.backedge: ; preds = %_Z21fed_is_prime_i
 _Z21fed_is_prime_internalRKi.exit:                ; preds = %.lr.ph.i
   br i1 %spec.select.i, label %.preheader97, label %_Z21fed_is_prime_internalRKi.exit.thread.backedge
 
-.preheader97:                                     ; preds = %_Z21fed_is_prime_internalRKi.exit, %65, %65, %65, %65, %75
+.preheader97:                                     ; preds = %_Z21fed_is_prime_internalRKi.exit, %75, %65, %65, %65, %65
   %82 = icmp sgt i32 %.lcssa101124, 0
   br i1 %82, label %.preheader.lr.ph, label %.loopexit
 
@@ -287,7 +287,7 @@ _Z21fed_is_prime_internalRKi.exit:                ; preds = %.lr.ph.i
   br i1 %exitcond.not, label %.loopexit.thread, label %.preheader, !llvm.loop !24
 
 .loopexit:                                        ; preds = %.lr.ph.split, %.preheader97, %._crit_edge
-  %.lcssa101123 = phi i32 [ %.lcssa101124, %.preheader97 ], [ %.pre, %._crit_edge ], [ %60, %.lr.ph.split ]
+  %.lcssa101123 = phi i32 [ %.pre, %._crit_edge ], [ %.lcssa101124, %.preheader97 ], [ %60, %.lr.ph.split ]
   %.not.i.i.i61 = icmp eq ptr %.sroa.086.1, null
   br i1 %.not.i.i.i61, label %_ZNSt6vectorIfSaIfEED2Ev.exit62, label %.loopexit.thread
 
@@ -357,7 +357,7 @@ define hidden noundef zeroext i1 @_Z21fed_is_prime_internalRKi(ptr noundef nonnu
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !22
 
 .loopexit:                                        ; preds = %.lr.ph, %4, %15, %6, %1
-  %.017 = phi i1 [ false, %6 ], [ false, %1 ], [ true, %15 ], [ true, %4 ], [ %spec.select, %.lr.ph ]
+  %.017 = phi i1 [ false, %6 ], [ false, %1 ], [ true, %4 ], [ true, %15 ], [ %spec.select, %.lr.ph ]
   ret i1 %.017
 }
 

@@ -1599,7 +1599,7 @@ define internal fastcc i32 @__resolve_freq(ptr noundef %0, i32 noundef %1, i32 n
   br i1 %265, label %.split53.split, label %.loopexit35
 
 .loopexit35:                                      ; preds = %.loopexit33.us, %.loopexit30.us.us, %.loopexit27.us, %.loopexit24.us.us, %.loopexit21, %.loopexit.us, %262, %226
-  %266 = phi i32 [ %227, %226 ], [ 0, %262 ], [ %124, %.loopexit30.us.us ], [ %206, %.loopexit.us ], [ %263, %.loopexit21 ], [ %.us-phi52.us.us, %.loopexit24.us.us ], [ %86, %.loopexit27.us ], [ %.us-phi.us, %.loopexit33.us ]
+  %266 = phi i32 [ %227, %226 ], [ 0, %262 ], [ %206, %.loopexit.us ], [ %124, %.loopexit30.us.us ], [ %.us-phi52.us.us, %.loopexit24.us.us ], [ %263, %.loopexit21 ], [ %86, %.loopexit27.us ], [ %.us-phi.us, %.loopexit33.us ]
   %267 = getelementptr inbounds nuw i8, ptr %0, i64 520
   store i32 %266, ptr %267, align 8
   %268 = getelementptr inbounds nuw i8, ptr %0, i64 516
@@ -4269,7 +4269,7 @@ define internal fastcc i32 @cpufreq_online(i32 noundef %0) unnamed_addr #0 align
   br label %.thread
 
 78:                                               ; preds = %54, %69
-  %79 = phi i32 [ -22, %54 ], [ %70, %69 ]
+  %79 = phi i32 [ %70, %69 ], [ -22, %54 ]
   %80 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.33, ptr noundef nonnull @__func__.cpufreq_add_policy_cpu) #23
   br label %.thread
 

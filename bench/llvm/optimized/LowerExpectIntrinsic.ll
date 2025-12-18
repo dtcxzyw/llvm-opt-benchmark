@@ -760,7 +760,7 @@ _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.i.i.i.i:      ; preds = %_ZL15getBranchWeigh
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZN4llvm11SmallVectorIjLj16EEC2EmRKj.exit.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, !llvm.loop !118
 
 _ZN4llvm11SmallVectorIjLj16EEC2EmRKj.exit.i.i:    ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.i.i.i.i
-  %242 = phi ptr [ %17, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.i.i.i.i ], [ %236, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i ], [ %17, %.lr.ph.i.i.i.i.i.i.i.i.i.i ]
+  %242 = phi ptr [ %236, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i ], [ %17, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.i.i.i.i ], [ %17, %.lr.ph.i.i.i.i.i.i.i.i.i.i ]
   store i32 %204, ptr %18, align 8, !tbaa !26
   %243 = icmp eq i64 %208, 4294967294
   %244 = add nuw nsw i64 %208, 1
@@ -1898,8 +1898,8 @@ define linkonce_odr hidden { ptr, i64 } @_ZSt9__find_ifIN4llvm10SwitchInst16Case
   br label %.loopexit
 
 .loopexit:                                        ; preds = %36, %28, %20, %13, %70, %60, %49, %78
-  %.sroa.014.0.in.sroa.speculated = phi ptr [ %0, %60 ], [ %2, %78 ], [ %0, %49 ], [ %0, %70 ], [ %0, %13 ], [ %0, %20 ], [ %0, %28 ], [ %0, %36 ]
-  %.sroa.9.0 = phi i64 [ %.sroa.15.1, %60 ], [ %3, %78 ], [ %.sroa.15.0.lcssa, %49 ], [ %.sroa.15.2, %70 ], [ %37, %36 ], [ %29, %28 ], [ %21, %20 ], [ %.sroa.15.076, %13 ]
+  %.sroa.014.0.in.sroa.speculated = phi ptr [ %0, %60 ], [ %0, %70 ], [ %0, %49 ], [ %2, %78 ], [ %0, %13 ], [ %0, %20 ], [ %0, %28 ], [ %0, %36 ]
+  %.sroa.9.0 = phi i64 [ %.sroa.15.1, %60 ], [ %.sroa.15.2, %70 ], [ %.sroa.15.0.lcssa, %49 ], [ %3, %78 ], [ %37, %36 ], [ %29, %28 ], [ %21, %20 ], [ %.sroa.15.076, %13 ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.014.0.in.sroa.speculated, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.9.0, 1
   ret { ptr, i64 } %.fca.1.insert

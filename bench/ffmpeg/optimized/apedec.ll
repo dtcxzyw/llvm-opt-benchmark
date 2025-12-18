@@ -252,7 +252,7 @@ define internal range(i32 -1163346256, 1) i32 @ape_decode_init(ptr noundef %0) #
   br label %.loopexit
 
 .loopexit:                                        ; preds = %59, %88, %89, %47, %20, %12, %9
-  %.0 = phi i32 [ -22, %9 ], [ -22, %12 ], [ -1163346256, %20 ], [ -1094995529, %47 ], [ 0, %89 ], [ 0, %88 ], [ -12, %59 ]
+  %.0 = phi i32 [ -22, %9 ], [ -22, %12 ], [ -1163346256, %20 ], [ -1094995529, %47 ], [ 0, %88 ], [ 0, %89 ], [ -12, %59 ]
   ret i32 %.0
 }
 
@@ -5935,7 +5935,7 @@ init_predictor_decoder.exit:                      ; preds = %102, %109
   br i1 %exitcond.not, label %init_entropy_decoder.exit.thread, label %120, !llvm.loop !160
 
 init_entropy_decoder.exit.thread:                 ; preds = %126, %120, %5, %58
-  %.0 = phi i32 [ -1094995529, %58 ], [ -1094995529, %5 ], [ 0, %120 ], [ 0, %126 ]
+  %.0 = phi i32 [ -1094995529, %5 ], [ -1094995529, %58 ], [ 0, %120 ], [ 0, %126 ]
   ret i32 %.0
 }
 

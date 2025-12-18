@@ -383,18 +383,18 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
 89:                                               ; preds = %84
   %90 = and i32 %86, 67108864
   %91 = icmp eq i32 %90, 0
-  br i1 %91, label %"_ZN71_$LT$core..ops..range..Range$LT$Idx$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h29b1d31db1a0a13aE.exit.i", label %94
+  br i1 %91, label %94, label %"_ZN71_$LT$core..ops..range..Range$LT$Idx$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h29b1d31db1a0a13aE.exit.i"
 
 92:                                               ; preds = %84
   %93 = call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..LowerHex$u20$for$u20$u64$GT$3fmt17hc7e919af99a7375fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %85, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
   br i1 %93, label %"_ZN71_$LT$tinyvec..tinyvec..TinyVec$LT$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h86276e75c55e68d8E.exit", label %.backedge.i
 
 94:                                               ; preds = %89
-  %95 = call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..UpperHex$u20$for$u20$u64$GT$3fmt17he8f22090de8b36beE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %85, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
+  %95 = call noundef zeroext i1 @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$u64$GT$3fmt17h590346b58ab714e8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %85, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
   br i1 %95, label %"_ZN71_$LT$tinyvec..tinyvec..TinyVec$LT$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h86276e75c55e68d8E.exit", label %.backedge.i
 
 "_ZN71_$LT$core..ops..range..Range$LT$Idx$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h29b1d31db1a0a13aE.exit.i": ; preds = %89
-  %96 = call noundef zeroext i1 @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$u64$GT$3fmt17h590346b58ab714e8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %85, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
+  %96 = call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..UpperHex$u20$for$u20$u64$GT$3fmt17he8f22090de8b36beE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %85, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
   br i1 %96, label %"_ZN71_$LT$tinyvec..tinyvec..TinyVec$LT$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h86276e75c55e68d8E.exit", label %.backedge.i
 
 .backedge.i:                                      ; preds = %"_ZN71_$LT$core..ops..range..Range$LT$Idx$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h29b1d31db1a0a13aE.exit.i", %94, %92
@@ -431,7 +431,7 @@ _ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit42.i: ; preds = %45
   br label %68
 
 "_ZN71_$LT$tinyvec..tinyvec..TinyVec$LT$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h86276e75c55e68d8E.exit": ; preds = %75, %77, %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$u64$GT$3fmt17h4dca074e83c4d4a9E.exit.i.i", %80, %92, %94, %"_ZN71_$LT$core..ops..range..Range$LT$Idx$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h29b1d31db1a0a13aE.exit.i", %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit42.i, %2, %43, %50, %64
-  %.sroa.0.0.i = phi i1 [ true, %64 ], [ true, %43 ], [ true, %2 ], [ %53, %50 ], [ true, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit42.i ], [ true, %"_ZN71_$LT$core..ops..range..Range$LT$Idx$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h29b1d31db1a0a13aE.exit.i" ], [ true, %94 ], [ true, %92 ], [ true, %80 ], [ true, %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$u64$GT$3fmt17h4dca074e83c4d4a9E.exit.i.i" ], [ true, %77 ], [ true, %75 ]
+  %.sroa.0.0.i = phi i1 [ true, %2 ], [ true, %64 ], [ true, %43 ], [ %53, %50 ], [ true, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit42.i ], [ true, %"_ZN71_$LT$core..ops..range..Range$LT$Idx$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h29b1d31db1a0a13aE.exit.i" ], [ true, %94 ], [ true, %92 ], [ true, %80 ], [ true, %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$u64$GT$3fmt17h4dca074e83c4d4a9E.exit.i.i" ], [ true, %77 ], [ true, %75 ]
   ret i1 %.sroa.0.0.i
 }
 
@@ -4169,7 +4169,7 @@ define noundef zeroext i1 @_ZN11quinn_proto9range_set15array_range_set13ArrayRan
   br i1 %44, label %47, label %45
 
 "_ZN7tinyvec7tinyvec16TinyVec$LT$A$GT$4push17h8a8b9b22489ca452E.exit": ; preds = %49, %.thread40, %62, %"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h05b403b6c4741911E.exit33", %"_ZN4core3ptr109drop_in_place$LT$tinyvec..tinyvec..TinyVec$LT$$u5b$core..ops..range..Range$LT$u64$GT$$u3b$$u20$2$u5d$$GT$$GT$17h94f331ee33f8c12dE.exit.i", %"_ZN7tinyvec8arrayvec17ArrayVec$LT$A$GT$8try_push17ha8cc315bfb4bf1c4E.exit.i", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf7df4a505fdd4d65E.exit.i", %3, %47
-  %.sroa.0.1 = phi i1 [ true, %47 ], [ false, %3 ], [ true, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf7df4a505fdd4d65E.exit.i" ], [ true, %"_ZN7tinyvec8arrayvec17ArrayVec$LT$A$GT$8try_push17ha8cc315bfb4bf1c4E.exit.i" ], [ true, %"_ZN4core3ptr109drop_in_place$LT$tinyvec..tinyvec..TinyVec$LT$$u5b$core..ops..range..Range$LT$u64$GT$$u3b$$u20$2$u5d$$GT$$GT$17h94f331ee33f8c12dE.exit.i" ], [ true, %.thread40 ], [ true, %"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h05b403b6c4741911E.exit33" ], [ true, %62 ], [ %.sroa.0.2, %49 ]
+  %.sroa.0.1 = phi i1 [ true, %"_ZN4core3ptr109drop_in_place$LT$tinyvec..tinyvec..TinyVec$LT$$u5b$core..ops..range..Range$LT$u64$GT$$u3b$$u20$2$u5d$$GT$$GT$17h94f331ee33f8c12dE.exit.i" ], [ true, %47 ], [ true, %.thread40 ], [ false, %3 ], [ true, %"_ZN7tinyvec8arrayvec17ArrayVec$LT$A$GT$8try_push17ha8cc315bfb4bf1c4E.exit.i" ], [ true, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf7df4a505fdd4d65E.exit.i" ], [ true, %"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h05b403b6c4741911E.exit33" ], [ true, %62 ], [ %.sroa.0.2, %49 ]
   ret i1 %.sroa.0.1
 
 45:                                               ; preds = %"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hd3aa1c250e3a7311E.exit"

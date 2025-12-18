@@ -4224,7 +4224,7 @@ _ZNK4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapI
   br i1 %106, label %_ZNK4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapInfoIjvEENS0_12DenseSetPairIjEEEES5_E8containsERKj.exit14, label %.lr.ph.i.i.i.i8, !prof !128, !llvm.loop !338
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapIjNS_6detail13DenseSetEmptyENS_12DenseMapInfoIjvEENS2_12DenseSetPairIjEEEEjS3_S5_S7_E6doFindIjEEPKS7_RKT_.exit.thread.i.i13: ; preds = %.lr.ph.i.i.i.i8, %65, %_ZNK4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapInfoIjvEENS0_12DenseSetPairIjEEEES5_E8containsERKj.exit.thread
-  %107 = phi i32 [ 0, %_ZNK4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapInfoIjvEENS0_12DenseSetPairIjEEEES5_E8containsERKj.exit.thread ], [ 0, %65 ], [ %64, %.lr.ph.i.i.i.i8 ]
+  %107 = phi i32 [ 0, %65 ], [ 0, %_ZNK4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapInfoIjvEENS0_12DenseSetPairIjEEEES5_E8containsERKj.exit.thread ], [ %64, %.lr.ph.i.i.i.i8 ]
   %108 = zext i32 %107 to i64
   br label %_ZNK4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapInfoIjvEENS0_12DenseSetPairIjEEEES5_E8containsERKj.exit14
 
@@ -4946,7 +4946,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_6detail13DenseSetEmptyENS_12DenseMapInfo
   br label %_ZNK4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapInfoIjvEENS0_12DenseSetPairIjEEEES5_E8containsERKj.exit.thread
 
 _ZNK4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapInfoIjvEENS0_12DenseSetPairIjEEEES5_E8containsERKj.exit.thread: ; preds = %.lr.ph.i.i.i.i, %145, %199, %134, %.lr.ph, %_ZNK4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapInfoIjvEENS0_12DenseSetPairIjEEEES5_E8containsERKj.exit
-  %201 = phi ptr [ %109, %_ZNK4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapInfoIjvEENS0_12DenseSetPairIjEEEES5_E8containsERKj.exit ], [ %190, %199 ], [ %109, %134 ], [ %109, %.lr.ph ], [ %109, %145 ], [ %109, %.lr.ph.i.i.i.i ]
+  %201 = phi ptr [ %109, %145 ], [ %109, %_ZNK4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapInfoIjvEENS0_12DenseSetPairIjEEEES5_E8containsERKj.exit ], [ %190, %199 ], [ %109, %134 ], [ %109, %.lr.ph ], [ %109, %.lr.ph.i.i.i.i ]
   %202 = getelementptr inbounds nuw i8, ptr %.sroa.098.0153, i64 4
   %.not4.i3.i.i = icmp eq ptr %202, %.pn12.i.i
   br i1 %.not4.i3.i.i, label %_ZN4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapInfoIjvEENS0_12DenseSetPairIjEEEES5_E8IteratorppEv.exit, label %.lr.ph.i4.i.i
@@ -6569,7 +6569,7 @@ _ZN4llvm12IRSimilarity17IRInstructionData16getBlockOperValsEv.exit71: ; preds = 
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.critedge
 
-.thread:                                          ; preds = %237, %151, %_ZN4llvm3isaINS_13IntrinsicInstEPNS_11InstructionEEEbRKT0_.exit.thread, %"_ZSt7find_ifIN4llvm6detail12zip_shortestIJPiS3_PKPNS0_5ValueES7_EEEZNS0_12IRSimilarity21IRSimilarityCandidate16compareStructureERKSA_SC_RNS0_8DenseMapIjNS0_8DenseSetIjNS0_12DenseMapInfoIjvEEEESG_NS1_12DenseMapPairIjSH_EEEESL_E3$_0ET_SN_SN_T0_.exit.i.thread9.i.i", %214, %153, %156
+.thread:                                          ; preds = %237, %151, %_ZN4llvm3isaINS_13IntrinsicInstEPNS_11InstructionEEEbRKT0_.exit.thread, %214, %"_ZSt7find_ifIN4llvm6detail12zip_shortestIJPiS3_PKPNS0_5ValueES7_EEEZNS0_12IRSimilarity21IRSimilarityCandidate16compareStructureERKSA_SC_RNS0_8DenseMapIjNS0_8DenseSetIjNS0_12DenseMapInfoIjvEEEESG_NS1_12DenseMapPairIjSH_EEEESL_E3$_0ET_SN_SN_T0_.exit.i.thread9.i.i", %153, %156
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -16439,7 +16439,7 @@ _ZN4llvm12IRSimilarity19IRInstructionMapper25InstructionClassification13visitCal
   br label %_ZN4llvm12IRSimilarity19IRInstructionMapper25InstructionClassification13visitCallInstERNS_8CallInstE.exit
 
 _ZN4llvm12IRSimilarity19IRInstructionMapper25InstructionClassification13visitCallInstERNS_8CallInstE.exit: ; preds = %_ZNK4llvm8CallBase17getCalledFunctionEv.exit, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit, %_ZN4llvm12IRSimilarity19IRInstructionMapper25InstructionClassification13visitCallInstERNS_8CallInstE.exit.fold.split, %_ZNK4llvm13IntrinsicInst21isAssumeLikeIntrinsicEv.exit.i.i29, %_ZNK4llvm13IntrinsicInst21isAssumeLikeIntrinsicEv.exit.i.i27, %_ZNK4llvm13IntrinsicInst21isAssumeLikeIntrinsicEv.exit.i.i25, %_ZNK4llvm13IntrinsicInst21isAssumeLikeIntrinsicEv.exit.i.i, %_ZNK4llvm13IntrinsicInst21isAssumeLikeIntrinsicEv.exit.i.i.i.i23, %_ZNK4llvm13IntrinsicInst21isAssumeLikeIntrinsicEv.exit.i.i.i, %_ZNK4llvm13IntrinsicInst21isAssumeLikeIntrinsicEv.exit.i.i.i.i21, %_ZNK4llvm13IntrinsicInst21isAssumeLikeIntrinsicEv.exit.i.i.i.i.i, %_ZNK4llvm13IntrinsicInst21isAssumeLikeIntrinsicEv.exit.i.i.i.i, %_ZNK4llvm13IntrinsicInst21isAssumeLikeIntrinsicEv.exit.i, %62, %61, %56, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.i
-  %.1 = phi i32 [ 1, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.i ], [ 1, %56 ], [ 1, %61 ], [ %not.or.cond20.i, %62 ], [ %not..i.i, %_ZNK4llvm13IntrinsicInst21isAssumeLikeIntrinsicEv.exit.i.i ], [ %not..i.i.i.i.i, %_ZNK4llvm13IntrinsicInst21isAssumeLikeIntrinsicEv.exit.i.i.i.i.i ], [ 2, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit ], [ 2, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit ], [ 2, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit ], [ %not..i.i.i.i, %_ZNK4llvm13IntrinsicInst21isAssumeLikeIntrinsicEv.exit.i.i.i.i ], [ %not..i.i.i.i22, %_ZNK4llvm13IntrinsicInst21isAssumeLikeIntrinsicEv.exit.i.i.i.i21 ], [ %not..i, %_ZNK4llvm13IntrinsicInst21isAssumeLikeIntrinsicEv.exit.i ], [ %not..i.i.i, %_ZNK4llvm13IntrinsicInst21isAssumeLikeIntrinsicEv.exit.i.i.i ], [ %not..i.i28, %_ZNK4llvm13IntrinsicInst21isAssumeLikeIntrinsicEv.exit.i.i27 ], [ %not..i.i.i.i24, %_ZNK4llvm13IntrinsicInst21isAssumeLikeIntrinsicEv.exit.i.i.i.i23 ], [ %not..i.i26, %_ZNK4llvm13IntrinsicInst21isAssumeLikeIntrinsicEv.exit.i.i25 ], [ %not..i.i30, %_ZNK4llvm13IntrinsicInst21isAssumeLikeIntrinsicEv.exit.i.i29 ], [ 1, %_ZN4llvm12IRSimilarity19IRInstructionMapper25InstructionClassification13visitCallInstERNS_8CallInstE.exit.fold.split ]
+  %.1 = phi i32 [ 1, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.i ], [ 1, %56 ], [ 1, %61 ], [ %not.or.cond20.i, %62 ], [ %not..i.i, %_ZNK4llvm13IntrinsicInst21isAssumeLikeIntrinsicEv.exit.i.i ], [ %not..i.i.i.i.i, %_ZNK4llvm13IntrinsicInst21isAssumeLikeIntrinsicEv.exit.i.i.i.i.i ], [ 2, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit ], [ 2, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit ], [ 2, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit ], [ %not..i.i30, %_ZNK4llvm13IntrinsicInst21isAssumeLikeIntrinsicEv.exit.i.i29 ], [ %not..i.i26, %_ZNK4llvm13IntrinsicInst21isAssumeLikeIntrinsicEv.exit.i.i25 ], [ %not..i.i.i.i24, %_ZNK4llvm13IntrinsicInst21isAssumeLikeIntrinsicEv.exit.i.i.i.i23 ], [ %not..i.i.i.i, %_ZNK4llvm13IntrinsicInst21isAssumeLikeIntrinsicEv.exit.i.i.i.i ], [ %not..i.i.i.i22, %_ZNK4llvm13IntrinsicInst21isAssumeLikeIntrinsicEv.exit.i.i.i.i21 ], [ %not..i, %_ZNK4llvm13IntrinsicInst21isAssumeLikeIntrinsicEv.exit.i ], [ %not..i.i.i, %_ZNK4llvm13IntrinsicInst21isAssumeLikeIntrinsicEv.exit.i.i.i ], [ %not..i.i28, %_ZNK4llvm13IntrinsicInst21isAssumeLikeIntrinsicEv.exit.i.i27 ], [ 1, %_ZN4llvm12IRSimilarity19IRInstructionMapper25InstructionClassification13visitCallInstERNS_8CallInstE.exit.fold.split ]
   ret i32 %.1
 }
 
@@ -18119,7 +18119,7 @@ _ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit:       ; preds = %47, %50
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !764
 
 _ZSt11swap_rangesIPcS0_ET0_T_S2_S1_.exit:         ; preds = %._crit_edge, %._crit_edge110, %.lr.ph.i, %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit, %_ZSt4moveIPcS0_ET0_T_S2_S1_.exit, %5, %3
-  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %21, %_ZSt4moveIPcS0_ET0_T_S2_S1_.exit ], [ %21, %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit ], [ %1, %.lr.ph.i ], [ %21, %._crit_edge110 ], [ %21, %._crit_edge ]
+  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %1, %.lr.ph.i ], [ %21, %_ZSt4moveIPcS0_ET0_T_S2_S1_.exit ], [ %21, %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit ], [ %21, %._crit_edge110 ], [ %21, %._crit_edge ]
   ret ptr %.053
 }
 

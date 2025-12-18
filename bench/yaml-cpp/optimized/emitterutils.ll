@@ -1435,7 +1435,7 @@ tailrecurse._crit_edge.i:                         ; preds = %.thread76
   br label %_ZN4YAML5Utils12_GLOBAL__N_130WriteDoubleQuoteEscapeSequenceERNS_15ostream_wrapperEiNS_14StringEscaping5valueE.exit
 
 _ZN4YAML5Utils12_GLOBAL__N_130WriteDoubleQuoteEscapeSequenceERNS_15ostream_wrapperEiNS_14StringEscaping5valueE.exit: ; preds = %57, %70, %53, %80, %48, %47, %46, %45, %44, %43, %42
-  %.33238 = phi ptr [ %.332, %53 ], [ %.332394752, %80 ], [ %.332, %48 ], [ %.332, %47 ], [ %.332, %46 ], [ %.332, %45 ], [ %.332, %44 ], [ %.332, %43 ], [ %.332, %42 ], [ %.332394752, %70 ], [ %.332, %57 ]
+  %.33238 = phi ptr [ %.332, %42 ], [ %.332394752, %70 ], [ %.332, %53 ], [ %.332394752, %80 ], [ %.332, %48 ], [ %.332, %47 ], [ %.332, %46 ], [ %.332, %45 ], [ %.332, %44 ], [ %.332, %43 ], [ %.332, %57 ]
   %.not = icmp eq ptr %.33238, %7
   br i1 %.not, label %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread33, label %9, !llvm.loop !21
 }
@@ -2186,12 +2186,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZN4Y
   br label %_ZNK4YAML5RegEx5MatchINS_16StringCharSourceEEEiRKT_.exit
 
 _ZNK4YAML5RegEx5MatchINS_16StringCharSourceEEEiRKT_.exit: ; preds = %60, %.lr.ph.i25, %76
-  %78 = phi i32 [ %77, %76 ], [ %52, %.lr.ph.i25 ], [ %spec.select.i, %60 ]
+  %78 = phi i32 [ %52, %.lr.ph.i25 ], [ %77, %76 ], [ %spec.select.i, %60 ]
   %79 = icmp sgt i32 %78, 0
   br i1 %79, label %.preheader.preheader, label %.critedge
 
-.preheader.preheader:                             ; preds = %33, %73, %38, %_ZNK4YAML5RegEx5MatchINS_16StringCharSourceEEEiRKT_.exit
-  %80 = phi i32 [ %78, %_ZNK4YAML5RegEx5MatchINS_16StringCharSourceEEEiRKT_.exit ], [ 1, %38 ], [ 1, %73 ], [ 1, %33 ]
+.preheader.preheader:                             ; preds = %38, %73, %33, %_ZNK4YAML5RegEx5MatchINS_16StringCharSourceEEEiRKT_.exit
+  %80 = phi i32 [ %78, %_ZNK4YAML5RegEx5MatchINS_16StringCharSourceEEEiRKT_.exit ], [ 1, %33 ], [ 1, %73 ], [ 1, %38 ]
   %.pre = load i64, ptr %18, align 8, !tbaa !11
   br label %.preheader
 
@@ -2235,7 +2235,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24: ; preds = %81,
   br label %.critedge
 
 .critedge:                                        ; preds = %73, %38, %69, %54, %47, %33, %30, %_ZNK4YAML5RegEx5MatchINS_16StringCharSourceEEEiRKT_.exit, %.lr.ph.i, %50, %._crit_edge, %93
-  %94 = phi i1 [ true, %93 ], [ true, %._crit_edge ], [ false, %.lr.ph.i ], [ false, %50 ], [ false, %_ZNK4YAML5RegEx5MatchINS_16StringCharSourceEEEiRKT_.exit ], [ false, %30 ], [ false, %33 ], [ false, %47 ], [ false, %54 ], [ false, %69 ], [ false, %38 ], [ false, %73 ]
+  %94 = phi i1 [ false, %.lr.ph.i ], [ false, %50 ], [ true, %93 ], [ true, %._crit_edge ], [ false, %_ZNK4YAML5RegEx5MatchINS_16StringCharSourceEEEiRKT_.exit ], [ false, %30 ], [ false, %33 ], [ false, %47 ], [ false, %54 ], [ false, %69 ], [ false, %38 ], [ false, %73 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %94
 }
@@ -2820,12 +2820,12 @@ define noundef zeroext i1 @_ZN4YAML5Utils18WriteTagWithPrefixERNS_15ostream_wrap
   br label %_ZNK4YAML5RegEx5MatchINS_16StringCharSourceEEEiRKT_.exit
 
 _ZNK4YAML5RegEx5MatchINS_16StringCharSourceEEEiRKT_.exit: ; preds = %56, %.lr.ph.i31, %74
-  %76 = phi i32 [ %75, %74 ], [ %46, %.lr.ph.i31 ], [ %spec.select.i, %56 ]
+  %76 = phi i32 [ %46, %.lr.ph.i31 ], [ %75, %74 ], [ %spec.select.i, %56 ]
   %77 = icmp sgt i32 %76, 0
   br i1 %77, label %.preheader58.preheader, label %.critedge
 
-.preheader58.preheader:                           ; preds = %22, %28, %71, %_ZNK4YAML5RegEx5MatchINS_16StringCharSourceEEEiRKT_.exit
-  %78 = phi i32 [ %76, %_ZNK4YAML5RegEx5MatchINS_16StringCharSourceEEEiRKT_.exit ], [ 1, %71 ], [ 1, %28 ], [ 1, %22 ]
+.preheader58.preheader:                           ; preds = %28, %71, %22, %_ZNK4YAML5RegEx5MatchINS_16StringCharSourceEEEiRKT_.exit
+  %78 = phi i32 [ %76, %_ZNK4YAML5RegEx5MatchINS_16StringCharSourceEEEiRKT_.exit ], [ 1, %22 ], [ 1, %71 ], [ 1, %28 ]
   %.pre = load i64, ptr %12, align 8, !tbaa !11
   br label %.preheader58
 
@@ -2975,12 +2975,12 @@ _ZNK4YAML5RegEx5MatchINS_16StringCharSourceEEEiRKT_.exit: ; preds = %56, %.lr.ph
   br label %_ZNK4YAML5RegEx5MatchINS_16StringCharSourceEEEiRKT_.exit30
 
 _ZNK4YAML5RegEx5MatchINS_16StringCharSourceEEEiRKT_.exit30: ; preds = %135, %.lr.ph.i46, %153
-  %155 = phi i32 [ %154, %153 ], [ %125, %.lr.ph.i46 ], [ %spec.select.i41, %135 ]
+  %155 = phi i32 [ %125, %.lr.ph.i46 ], [ %154, %153 ], [ %spec.select.i41, %135 ]
   %156 = icmp sgt i32 %155, 0
   br i1 %156, label %.preheader.preheader, label %.critedge24
 
-.preheader.preheader:                             ; preds = %101, %107, %150, %_ZNK4YAML5RegEx5MatchINS_16StringCharSourceEEEiRKT_.exit30
-  %157 = phi i32 [ %155, %_ZNK4YAML5RegEx5MatchINS_16StringCharSourceEEEiRKT_.exit30 ], [ 1, %150 ], [ 1, %107 ], [ 1, %101 ]
+.preheader.preheader:                             ; preds = %107, %150, %101, %_ZNK4YAML5RegEx5MatchINS_16StringCharSourceEEEiRKT_.exit30
+  %157 = phi i32 [ %155, %_ZNK4YAML5RegEx5MatchINS_16StringCharSourceEEEiRKT_.exit30 ], [ 1, %101 ], [ 1, %150 ], [ 1, %107 ]
   %.pre100 = load i64, ptr %91, align 8, !tbaa !11
   br label %.preheader
 
@@ -3002,12 +3002,12 @@ _ZNK4YAML5RegEx5MatchINS_16StringCharSourceEEEiRKT_.exit30: ; preds = %135, %.lr
   br i1 %165, label %.preheader, label %.loopexit, !llvm.loop !59
 
 .critedge24:                                      ; preds = %.loopexit, %_ZNK4YAML5RegEx5MatchINS_16StringCharSourceEEEiRKT_.exit30, %.lr.ph72, %101, %100, %118, %127, %144, %107, %150, %.lr.ph.i37, %123, %._crit_edge
-  %166 = phi i1 [ true, %._crit_edge ], [ false, %.lr.ph.i37 ], [ false, %123 ], [ true, %.loopexit ], [ false, %_ZNK4YAML5RegEx5MatchINS_16StringCharSourceEEEiRKT_.exit30 ], [ false, %.lr.ph72 ], [ false, %101 ], [ false, %100 ], [ false, %118 ], [ false, %127 ], [ false, %144 ], [ false, %107 ], [ false, %150 ]
+  %166 = phi i1 [ false, %.lr.ph.i37 ], [ false, %123 ], [ true, %._crit_edge ], [ true, %.loopexit ], [ false, %_ZNK4YAML5RegEx5MatchINS_16StringCharSourceEEEiRKT_.exit30 ], [ false, %.lr.ph72 ], [ false, %101 ], [ false, %100 ], [ false, %118 ], [ false, %127 ], [ false, %144 ], [ false, %107 ], [ false, %150 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.critedge
 
 .critedge:                                        ; preds = %71, %28, %65, %48, %39, %21, %22, %.lr.ph, %_ZNK4YAML5RegEx5MatchINS_16StringCharSourceEEEiRKT_.exit, %.lr.ph.i, %44, %.critedge24
-  %.2 = phi i1 [ %166, %.critedge24 ], [ false, %.lr.ph.i ], [ false, %44 ], [ false, %_ZNK4YAML5RegEx5MatchINS_16StringCharSourceEEEiRKT_.exit ], [ false, %.lr.ph ], [ false, %22 ], [ false, %21 ], [ false, %39 ], [ false, %48 ], [ false, %65 ], [ false, %28 ], [ false, %71 ]
+  %.2 = phi i1 [ false, %44 ], [ %166, %.critedge24 ], [ false, %.lr.ph.i ], [ false, %_ZNK4YAML5RegEx5MatchINS_16StringCharSourceEEEiRKT_.exit ], [ false, %.lr.ph ], [ false, %22 ], [ false, %21 ], [ false, %39 ], [ false, %48 ], [ false, %65 ], [ false, %28 ], [ false, %71 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.2
 }
@@ -5603,7 +5603,7 @@ _ZNK4YAML5RegEx5MatchINS_16StringCharSourceEEEiRKT_.exit.thread36: ; preds = %30
   br label %50
 
 _ZNK4YAML5RegEx5MatchINS_16StringCharSourceEEEiRKT_.exit: ; preds = %22, %41, %43, %45, %47
-  %49 = phi i32 [ %48, %47 ], [ %23, %22 ], [ %42, %41 ], [ %44, %43 ], [ %46, %45 ]
+  %49 = phi i32 [ %44, %43 ], [ %48, %47 ], [ %23, %22 ], [ %46, %45 ], [ %42, %41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not = icmp eq i32 %49, -1
   br i1 %.not, label %._crit_edge, label %50

@@ -999,7 +999,7 @@ define dso_local noundef float @_Z9SolveP5_1fffff(float noundef %0, float nounde
   br i1 %77, label %52, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.preheader131, %54, %52, %66, %32, %34, %5
-  %.0106 = phi float [ 0.000000e+00, %5 ], [ %.0117, %32 ], [ %.0111, %34 ], [ %.4, %54 ], [ %.5, %66 ], [ %.2, %52 ], [ %41, %.preheader131 ]
+  %.0106 = phi float [ 0.000000e+00, %5 ], [ %.4, %54 ], [ %.0117, %32 ], [ %.0111, %34 ], [ %.5, %66 ], [ %.2, %52 ], [ %41, %.preheader131 ]
   ret float %.0106
 }
 

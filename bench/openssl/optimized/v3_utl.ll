@@ -1001,8 +1001,8 @@ strip_spaces.exit132:                             ; preds = %.critedge25.i130
   br label %121
 
 .loopexit.sink.split:                             ; preds = %52, %.critedge.i85, %.critedge25.i92, %29, %.critedge.i69, %.critedge25.i76, %9, %.critedge.i, %.critedge25.i, %57, %34, %14, %103, %83, %99, %.critedge.i123, %.critedge25.i130, %79, %.critedge.i102, %.critedge25.i109
-  %.sink262 = phi i32 [ 380, %79 ], [ 380, %.critedge.i102 ], [ 389, %.critedge25.i130 ], [ 389, %.critedge.i123 ], [ 389, %99 ], [ 380, %.critedge25.i109 ], [ 380, %83 ], [ 389, %103 ], [ 340, %14 ], [ 349, %34 ], [ 364, %57 ], [ 340, %.critedge25.i ], [ 340, %.critedge.i ], [ 340, %9 ], [ 349, %.critedge25.i76 ], [ 349, %.critedge.i69 ], [ 349, %29 ], [ 364, %.critedge25.i92 ], [ 364, %.critedge.i85 ], [ 364, %52 ]
-  %.sink = phi i32 [ 109, %79 ], [ 109, %.critedge.i102 ], [ 108, %.critedge25.i130 ], [ 108, %.critedge.i123 ], [ 108, %99 ], [ 109, %.critedge25.i109 ], [ 109, %83 ], [ 108, %103 ], [ 108, %14 ], [ 108, %34 ], [ 109, %57 ], [ 108, %.critedge25.i ], [ 108, %.critedge.i ], [ 108, %9 ], [ 108, %.critedge25.i76 ], [ 108, %.critedge.i69 ], [ 108, %29 ], [ 109, %.critedge25.i92 ], [ 109, %.critedge.i85 ], [ 109, %52 ]
+  %.sink262 = phi i32 [ 380, %79 ], [ 380, %83 ], [ 364, %57 ], [ 349, %34 ], [ 389, %.critedge.i123 ], [ 389, %103 ], [ 389, %99 ], [ 380, %.critedge25.i109 ], [ 380, %.critedge.i102 ], [ 340, %14 ], [ 389, %.critedge25.i130 ], [ 340, %.critedge.i ], [ 340, %9 ], [ 349, %.critedge25.i76 ], [ 349, %.critedge.i69 ], [ 349, %29 ], [ 364, %.critedge25.i92 ], [ 364, %.critedge.i85 ], [ 364, %52 ], [ 340, %.critedge25.i ]
+  %.sink = phi i32 [ 109, %79 ], [ 109, %83 ], [ 109, %57 ], [ 108, %34 ], [ 108, %.critedge.i123 ], [ 108, %103 ], [ 108, %99 ], [ 109, %.critedge25.i109 ], [ 109, %.critedge.i102 ], [ 108, %14 ], [ 108, %.critedge25.i130 ], [ 108, %.critedge.i ], [ 108, %9 ], [ 108, %.critedge25.i76 ], [ 108, %.critedge.i69 ], [ 108, %29 ], [ 109, %.critedge25.i92 ], [ 109, %.critedge.i85 ], [ 109, %52 ], [ 108, %.critedge25.i ]
   tail call void @ERR_new() #12
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink262, ptr noundef nonnull @__func__.X509V3_parse_list) #12
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef %.sink, ptr noundef null) #12
@@ -2097,7 +2097,7 @@ define internal fastcc range(i32 0, 2) i32 @ipv4_from_asc(ptr noundef writeonly 
   br label %get_ipv4_component.exit.thread
 
 get_ipv4_component.exit.thread:                   ; preds = %17, %7, %3, %39, %29, %25, %61, %51, %47, %83, %73, %69, %63, %41, %19, %85
-  %.0 = phi i32 [ %spec.select, %85 ], [ 0, %63 ], [ 0, %41 ], [ 0, %19 ], [ 0, %39 ], [ 0, %83 ], [ 0, %61 ], [ 0, %69 ], [ 0, %73 ], [ 0, %47 ], [ 0, %51 ], [ 0, %25 ], [ 0, %29 ], [ 0, %3 ], [ 0, %7 ], [ 0, %17 ]
+  %.0 = phi i32 [ 0, %39 ], [ %spec.select, %85 ], [ 0, %63 ], [ 0, %83 ], [ 0, %41 ], [ 0, %61 ], [ 0, %19 ], [ 0, %69 ], [ 0, %73 ], [ 0, %47 ], [ 0, %51 ], [ 0, %25 ], [ 0, %29 ], [ 0, %3 ], [ 0, %7 ], [ 0, %17 ]
   ret i32 %.0
 }
 
@@ -2846,7 +2846,7 @@ equal_nocase.exit76.i:                            ; preds = %128, %equal_nocase.
   br i1 %.not53.i, label %equal_nocase.exit, label %.lr.ph.i29, !llvm.loop !62
 
 equal_nocase.exit:                                ; preds = %107, %.lr.ph.i.i28, %123, %.lr.ph.i65.i, %157, %153, %88, %83, %.lr.ph.i24, %149, %146, %140, %135, %92, %.preheader.i, %skip_prefix.exit.i
-  %.021 = phi i32 [ 0, %skip_prefix.exit.i ], [ 1, %.preheader.i ], [ 0, %92 ], [ 0, %135 ], [ 0, %140 ], [ 1, %146 ], [ 1, %149 ], [ 0, %123 ], [ 0, %83 ], [ 0, %153 ], [ 1, %88 ], [ 0, %.lr.ph.i24 ], [ 1, %157 ], [ 0, %.lr.ph.i65.i ], [ 0, %.lr.ph.i.i28 ], [ 0, %107 ]
+  %.021 = phi i32 [ 0, %83 ], [ 0, %skip_prefix.exit.i ], [ 1, %.preheader.i ], [ 0, %153 ], [ 1, %149 ], [ 0, %92 ], [ 0, %123 ], [ 0, %135 ], [ 0, %140 ], [ 1, %146 ], [ 1, %88 ], [ 0, %.lr.ph.i24 ], [ 1, %157 ], [ 0, %.lr.ph.i65.i ], [ 0, %.lr.ph.i.i28 ], [ 0, %107 ]
   ret i32 %.021
 }
 
@@ -2906,8 +2906,8 @@ skip_prefix.exit:                                 ; preds = %5, %.critedge.i
   br i1 %.not, label %skip_prefix.exit.thread, label %23
 
 skip_prefix.exit.thread:                          ; preds = %17, %12, %.critedge.i, %skip_prefix.exit
-  %.0814 = phi i64 [ %1, %skip_prefix.exit ], [ %3, %.critedge.i ], [ %3, %12 ], [ %3, %17 ]
-  %.0913 = phi ptr [ %0, %skip_prefix.exit ], [ %.015.lcssa.i, %.critedge.i ], [ %scevgep33.i, %12 ], [ %scevgep33.i, %17 ]
+  %.0814 = phi i64 [ %1, %skip_prefix.exit ], [ %3, %12 ], [ %3, %.critedge.i ], [ %3, %17 ]
+  %.0913 = phi ptr [ %0, %skip_prefix.exit ], [ %scevgep33.i, %12 ], [ %.015.lcssa.i, %.critedge.i ], [ %scevgep33.i, %17 ]
   %bcmp = tail call i32 @bcmp(ptr %.0913, ptr %2, i64 %.0814)
   %.not5 = icmp eq i32 %bcmp, 0
   %22 = zext i1 %.not5 to i32

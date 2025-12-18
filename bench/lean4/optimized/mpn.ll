@@ -980,7 +980,7 @@ define internal fastcc noundef i64 @_ZN4leanL13div_normalizeEPKjmS1_mRNS_10mpn_b
   br i1 %.not69, label %._crit_edge83, label %.lr.ph82, !llvm.loop !41
 
 .loopexit:                                        ; preds = %31, %.preheader, %37, %._crit_edge83
-  %.1 = phi i64 [ %.062.lcssa, %._crit_edge83 ], [ 0, %37 ], [ 0, %.preheader ], [ 0, %31 ]
+  %.1 = phi i64 [ 0, %37 ], [ %.062.lcssa, %._crit_edge83 ], [ 0, %.preheader ], [ 0, %31 ]
   ret i64 %.1
 }
 

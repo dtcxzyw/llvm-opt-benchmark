@@ -6101,7 +6101,7 @@ define linkonce_odr hidden void @_ZNK4cvc58internal6theory5arith6linear9DioSolve
   br i1 %39, label %_ZNKSt13unordered_mapIN4cvc58internal12NodeTemplateILb1EEEmSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_mEEE4findERS9_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !190
 
 _ZNKSt13unordered_mapIN4cvc58internal12NodeTemplateILb1EEEmSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_mEEE4findERS9_.exit: ; preds = %.lr.ph.i.i.i.i, %9, %13
-  %.sroa.06.1.i.i = phi ptr [ %22, %13 ], [ %.sroa.06.0.i.i, %9 ], [ %31, %.lr.ph.i.i.i.i ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %9 ], [ %22, %13 ], [ %31, %.lr.ph.i.i.i.i ]
   %40 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %41 = load i64, ptr %40, align 8, !tbaa !191
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 128

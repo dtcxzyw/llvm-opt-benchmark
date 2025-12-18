@@ -1466,7 +1466,7 @@ _ZN11ast_manager7inc_refEP3ast.exit.i44:          ; preds = %_ZNK10arith_util6mk
   br i1 %.not27.old.i.i, label %.loopexit, label %.lr.ph38.i.i.backedge
 
 .lr.ph38.i.i.backedge:                            ; preds = %226, %223
-  %.137.i.i.be = phi ptr [ %.old.i.i, %226 ], [ %225, %223 ]
+  %.137.i.i.be = phi ptr [ %225, %223 ], [ %.old.i.i, %226 ]
   br label %.lr.ph38.i.i, !llvm.loop !60
 
 _ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit: ; preds = %207, %218
@@ -2461,7 +2461,7 @@ _ZN14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE
   br i1 %.not27.old.i.i, label %_ZNK2qe10def_vector4sizeEv.exit31.preheader, label %.lr.ph38.i.i.backedge
 
 .lr.ph38.i.i.backedge:                            ; preds = %70, %67
-  %.137.i.i.be = phi ptr [ %.old.i.i, %70 ], [ %69, %67 ]
+  %.137.i.i.be = phi ptr [ %69, %67 ], [ %.old.i.i, %70 ]
   br label %.lr.ph38.i.i, !llvm.loop !91
 
 _ZNK2qe10def_vector4sizeEv.exit31.preheader:      ; preds = %56, %67, %70, %.preheader.i.i
@@ -2887,7 +2887,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableI14obj_hash_entryI9func_decl
   br i1 %.not32.old, label %.loopexit, label %.lr.ph48.backedge
 
 .lr.ph48.backedge:                                ; preds = %36, %33
-  %.247.be = phi ptr [ %.old, %36 ], [ %35, %33 ]
+  %.247.be = phi ptr [ %35, %33 ], [ %.old, %36 ]
   br label %.lr.ph48, !llvm.loop !97
 
 .loopexit38:                                      ; preds = %17, %28
@@ -4962,7 +4962,7 @@ _ZN6vectorIP4exprLb0EjE4backEv.exit:              ; preds = %_ZNK6vectorIP4exprL
   br i1 %.not27.old.i.i.i, label %.loopexit158, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %105, %102
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %105 ], [ %104, %102 ]
+  %.137.i.i.i.be = phi ptr [ %104, %102 ], [ %.old.i.i.i, %105 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !248
 
 _ZNK7obj_mapI4exprPS0_E8containsES1_.exit:        ; preds = %86, %97
@@ -5103,7 +5103,7 @@ _ZNK7obj_mapI4exprPS0_E8containsES1_.exit:        ; preds = %86, %97
   br i1 %.not27.old.i.i.i50, label %.loopexit155, label %.lr.ph38.i.i.i46.backedge
 
 .lr.ph38.i.i.i46.backedge:                        ; preds = %156, %153
-  %.137.i.i.i47.be = phi ptr [ %.old.i.i.i49, %156 ], [ %155, %153 ]
+  %.137.i.i.i47.be = phi ptr [ %155, %153 ], [ %.old.i.i.i49, %156 ]
   br label %.lr.ph38.i.i.i46, !llvm.loop !248
 
 .loopexit154:                                     ; preds = %137, %148
@@ -5746,7 +5746,7 @@ _ZNK6vectorIP4exprLb0EjE5emptyEv.exit.thread:     ; preds = %_ZNK6vectorIP4exprL
   br i1 %.not27.old.i.i.i115, label %.loopexit, label %.lr.ph38.i.i.i111.backedge
 
 .lr.ph38.i.i.i111.backedge:                       ; preds = %427, %424
-  %.137.i.i.i112.be = phi ptr [ %.old.i.i.i114, %427 ], [ %426, %424 ]
+  %.137.i.i.i112.be = phi ptr [ %426, %424 ], [ %.old.i.i.i114, %427 ]
   br label %.lr.ph38.i.i.i111, !llvm.loop !248
 
 _ZNK7obj_mapI4exprPS0_E4findES1_RS1_.exit122:     ; preds = %408, %419
@@ -14068,7 +14068,7 @@ _ZN6vectorIP4exprLb0EjE4backEv.exit:              ; preds = %_ZNK6vectorIP4exprL
   br i1 %.not27.old.i.i.i, label %.loopexit, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %62, %59
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %62 ], [ %61, %59 ]
+  %.137.i.i.i.be = phi ptr [ %61, %59 ], [ %.old.i.i.i, %62 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !248
 
 _ZNK7obj_mapI4exprPS0_E8containsES1_.exit:        ; preds = %43, %54
@@ -15461,7 +15461,7 @@ define linkonce_odr hidden noundef ptr @_ZN2qe3nnf6lookupEP4exprb(ptr noundef no
   br i1 %.not27.old.i.i.i, label %_ZNK7obj_mapI4exprPS0_E4findES1_RS1_.exit21.thread, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %39, %36
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %39 ], [ %38, %36 ]
+  %.137.i.i.i.be = phi ptr [ %38, %36 ], [ %.old.i.i.i, %39 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !248
 
 .loopexit:                                        ; preds = %20, %31
@@ -15539,7 +15539,7 @@ define linkonce_odr hidden noundef ptr @_ZN2qe3nnf6lookupEP4exprb(ptr noundef no
   br i1 %.not27.old.i.i.i14, label %_ZNK7obj_mapI4exprPS0_E4findES1_RS1_.exit21.thread, label %.lr.ph38.i.i.i10.backedge
 
 .lr.ph38.i.i.i10.backedge:                        ; preds = %73, %70
-  %.137.i.i.i11.be = phi ptr [ %.old.i.i.i13, %73 ], [ %72, %70 ]
+  %.137.i.i.i11.be = phi ptr [ %72, %70 ], [ %.old.i.i.i13, %73 ]
   br label %.lr.ph38.i.i.i10, !llvm.loop !248
 
 .loopexit35:                                      ; preds = %54, %65
@@ -15759,7 +15759,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2qe3nnf8containsEP4exprb(ptr n
   br i1 %.not27.old.i.i.i, label %_ZNK7obj_mapI4exprPS0_E8containsES1_.exit, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %37, %34
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %37 ], [ %36, %34 ]
+  %.137.i.i.i.be = phi ptr [ %36, %34 ], [ %.old.i.i.i, %37 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !248
 
 38:                                               ; preds = %3
@@ -15831,7 +15831,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2qe3nnf8containsEP4exprb(ptr n
   br i1 %.not27.old.i.i.i16, label %_ZNK7obj_mapI4exprPS0_E8containsES1_.exit, label %.lr.ph38.i.i.i12.backedge
 
 .lr.ph38.i.i.i12.backedge:                        ; preds = %69, %66
-  %.137.i.i.i13.be = phi ptr [ %.old.i.i.i15, %69 ], [ %68, %66 ]
+  %.137.i.i.i13.be = phi ptr [ %68, %66 ], [ %.old.i.i.i15, %69 ]
   br label %.lr.ph38.i.i.i12, !llvm.loop !248
 
 _ZNK7obj_mapI4exprPS0_E8containsES1_.exit:        ; preds = %55, %50, %69, %66, %61, %23, %18, %37, %34, %29, %.preheader.i.i.i10, %.preheader.i.i.i
@@ -17891,7 +17891,7 @@ _ZN6vectorIP4exprLb0EjE5resetEv.exit:             ; preds = %46, %49
   br i1 %.not27.old.i.i.i, label %.loopexit65, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %92, %89
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %92 ], [ %91, %89 ]
+  %.137.i.i.i.be = phi ptr [ %91, %89 ], [ %.old.i.i.i, %92 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !248
 
 .loopexit:                                        ; preds = %73, %84
@@ -18934,7 +18934,7 @@ _ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE6appendEjPKPS0_
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE6appendEjPKPS0_.exit, %.lr.ph, %_ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit.i, %.loopexit.sink.split, %.preheader, %13
-  %.0 = phi i32 [ %42, %.loopexit.sink.split ], [ 0, %13 ], [ 1, %.preheader ], [ 0, %_ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit.i ], [ 1, %_ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE6appendEjPKPS0_.exit ], [ %12, %.lr.ph ]
+  %.0 = phi i32 [ 1, %.preheader ], [ 0, %_ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit.i ], [ 0, %13 ], [ %42, %.loopexit.sink.split ], [ %12, %.lr.ph ], [ 1, %_ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE6appendEjPKPS0_.exit ]
   ret i32 %.0
 }
 
@@ -23420,7 +23420,7 @@ _ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_
   br i1 %.not27.old.i.i.i, label %.loopexit, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %58, %55
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %58 ], [ %57, %55 ]
+  %.137.i.i.i.be = phi ptr [ %57, %55 ], [ %.old.i.i.i, %58 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !556
 
 .loopexit:                                        ; preds = %44, %55, %58, %.preheader.i.i.i
@@ -29976,7 +29976,7 @@ _ZN8rationalaSERKS_.exit.sink.split:              ; preds = %31, %54
   br label %_ZN8rationalaSERKS_.exit
 
 _ZN8rationalaSERKS_.exit:                         ; preds = %_ZN8rationalaSERKS_.exit.sink.split, %.invoke, %59
-  %.0 = phi i1 [ %61, %59 ], [ true, %.invoke ], [ true, %_ZN8rationalaSERKS_.exit.sink.split ]
+  %.0 = phi i1 [ true, %.invoke ], [ %61, %59 ], [ true, %_ZN8rationalaSERKS_.exit.sink.split ]
   %65 = load ptr, ptr %6, align 8, !tbaa !35
   %.not.i.i = icmp eq ptr %65, null
   br i1 %.not.i.i, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit, label %66
@@ -30412,23 +30412,23 @@ _ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i.i.i.i.i: ; preds = %32, %25
   %45 = load i8, ptr %44, align 4
   %46 = and i8 %45, 1
   %47 = icmp eq i8 %46, 0
-  br i1 %47, label %48, label %_ZNK14core_hashtableI17default_map_entryI8rationaljEN9table2mapIS2_NS1_9hash_procENS1_7eq_procEE15entry_hash_procENS6_13entry_eq_procEE6equalsERK9_key_dataIS1_jESD_.exit
+  br i1 %47, label %48, label %52
 
 48:                                               ; preds = %42
   %49 = load i8, ptr %18, align 4
   %50 = and i8 %49, 1
   %51 = icmp eq i8 %50, 0
-  br i1 %51, label %52, label %_ZNK14core_hashtableI17default_map_entryI8rationaljEN9table2mapIS2_NS1_9hash_procENS1_7eq_procEE15entry_hash_procENS6_13entry_eq_procEE6equalsERK9_key_dataIS1_jESD_.exit
+  br i1 %51, label %_ZNK14core_hashtableI17default_map_entryI8rationaljEN9table2mapIS2_NS1_9hash_procENS1_7eq_procEE15entry_hash_procENS6_13entry_eq_procEE6equalsERK9_key_dataIS1_jESD_.exit, label %52
 
-52:                                               ; preds = %48
-  %53 = load i32, ptr %43, align 8, !tbaa !527
-  %54 = load i32, ptr %4, align 8, !tbaa !527
-  %55 = icmp eq i32 %53, %54
-  br i1 %55, label %.loopexit, label %_ZNK14core_hashtableI17default_map_entryI8rationaljEN9table2mapIS2_NS1_9hash_procENS1_7eq_procEE15entry_hash_procENS6_13entry_eq_procEE6equalsERK9_key_dataIS1_jESD_.exit.thread
+52:                                               ; preds = %48, %42
+  %53 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %27, ptr noundef nonnull align 8 dereferenceable(16) %43, ptr noundef nonnull align 8 dereferenceable(16) %4)
+  %54 = icmp eq i32 %53, 0
+  br i1 %54, label %.loopexit, label %_ZNK14core_hashtableI17default_map_entryI8rationaljEN9table2mapIS2_NS1_9hash_procENS1_7eq_procEE15entry_hash_procENS6_13entry_eq_procEE6equalsERK9_key_dataIS1_jESD_.exit.thread
 
-_ZNK14core_hashtableI17default_map_entryI8rationaljEN9table2mapIS2_NS1_9hash_procENS1_7eq_procEE15entry_hash_procENS6_13entry_eq_procEE6equalsERK9_key_dataIS1_jESD_.exit: ; preds = %42, %48
-  %56 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %27, ptr noundef nonnull align 8 dereferenceable(16) %43, ptr noundef nonnull align 8 dereferenceable(16) %4)
-  %57 = icmp eq i32 %56, 0
+_ZNK14core_hashtableI17default_map_entryI8rationaljEN9table2mapIS2_NS1_9hash_procENS1_7eq_procEE15entry_hash_procENS6_13entry_eq_procEE6equalsERK9_key_dataIS1_jESD_.exit: ; preds = %48
+  %55 = load i32, ptr %43, align 8, !tbaa !527
+  %56 = load i32, ptr %4, align 8, !tbaa !527
+  %57 = icmp eq i32 %55, %56
   br i1 %57, label %.loopexit, label %_ZNK14core_hashtableI17default_map_entryI8rationaljEN9table2mapIS2_NS1_9hash_procENS1_7eq_procEE15entry_hash_procENS6_13entry_eq_procEE6equalsERK9_key_dataIS1_jESD_.exit.thread
 
 _ZNK14core_hashtableI17default_map_entryI8rationaljEN9table2mapIS2_NS1_9hash_procENS1_7eq_procEE15entry_hash_procENS6_13entry_eq_procEE6equalsERK9_key_dataIS1_jESD_.exit.thread: ; preds = %19, %36, %_ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i.i.i.i.i, %52, %_ZNK14core_hashtableI17default_map_entryI8rationaljEN9table2mapIS2_NS1_9hash_procENS1_7eq_procEE15entry_hash_procENS6_13entry_eq_procEE6equalsERK9_key_dataIS1_jESD_.exit, %22
@@ -30496,23 +30496,23 @@ _ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i.i.i.i.i28: ; preds = %75, %68
   %88 = load i8, ptr %87, align 4
   %89 = and i8 %88, 1
   %90 = icmp eq i8 %89, 0
-  br i1 %90, label %91, label %_ZNK14core_hashtableI17default_map_entryI8rationaljEN9table2mapIS2_NS1_9hash_procENS1_7eq_procEE15entry_hash_procENS6_13entry_eq_procEE6equalsERK9_key_dataIS1_jESD_.exit29
+  br i1 %90, label %91, label %95
 
 91:                                               ; preds = %85
   %92 = load i8, ptr %61, align 4
   %93 = and i8 %92, 1
   %94 = icmp eq i8 %93, 0
-  br i1 %94, label %95, label %_ZNK14core_hashtableI17default_map_entryI8rationaljEN9table2mapIS2_NS1_9hash_procENS1_7eq_procEE15entry_hash_procENS6_13entry_eq_procEE6equalsERK9_key_dataIS1_jESD_.exit29
+  br i1 %94, label %_ZNK14core_hashtableI17default_map_entryI8rationaljEN9table2mapIS2_NS1_9hash_procENS1_7eq_procEE15entry_hash_procENS6_13entry_eq_procEE6equalsERK9_key_dataIS1_jESD_.exit29, label %95
 
-95:                                               ; preds = %91
-  %96 = load i32, ptr %86, align 8, !tbaa !527
-  %97 = load i32, ptr %4, align 8, !tbaa !527
-  %98 = icmp eq i32 %96, %97
-  br i1 %98, label %.loopexit, label %_ZNK14core_hashtableI17default_map_entryI8rationaljEN9table2mapIS2_NS1_9hash_procENS1_7eq_procEE15entry_hash_procENS6_13entry_eq_procEE6equalsERK9_key_dataIS1_jESD_.exit29.thread
+95:                                               ; preds = %91, %85
+  %96 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %70, ptr noundef nonnull align 8 dereferenceable(16) %86, ptr noundef nonnull align 8 dereferenceable(16) %4)
+  %97 = icmp eq i32 %96, 0
+  br i1 %97, label %.loopexit, label %_ZNK14core_hashtableI17default_map_entryI8rationaljEN9table2mapIS2_NS1_9hash_procENS1_7eq_procEE15entry_hash_procENS6_13entry_eq_procEE6equalsERK9_key_dataIS1_jESD_.exit29.thread
 
-_ZNK14core_hashtableI17default_map_entryI8rationaljEN9table2mapIS2_NS1_9hash_procENS1_7eq_procEE15entry_hash_procENS6_13entry_eq_procEE6equalsERK9_key_dataIS1_jESD_.exit29: ; preds = %85, %91
-  %99 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %70, ptr noundef nonnull align 8 dereferenceable(16) %86, ptr noundef nonnull align 8 dereferenceable(16) %4)
-  %100 = icmp eq i32 %99, 0
+_ZNK14core_hashtableI17default_map_entryI8rationaljEN9table2mapIS2_NS1_9hash_procENS1_7eq_procEE15entry_hash_procENS6_13entry_eq_procEE6equalsERK9_key_dataIS1_jESD_.exit29: ; preds = %91
+  %98 = load i32, ptr %86, align 8, !tbaa !527
+  %99 = load i32, ptr %4, align 8, !tbaa !527
+  %100 = icmp eq i32 %98, %99
   br i1 %100, label %.loopexit, label %_ZNK14core_hashtableI17default_map_entryI8rationaljEN9table2mapIS2_NS1_9hash_procENS1_7eq_procEE15entry_hash_procENS6_13entry_eq_procEE6equalsERK9_key_dataIS1_jESD_.exit29.thread
 
 _ZNK14core_hashtableI17default_map_entryI8rationaljEN9table2mapIS2_NS1_9hash_procENS1_7eq_procEE15entry_hash_procENS6_13entry_eq_procEE6equalsERK9_key_dataIS1_jESD_.exit29.thread: ; preds = %62, %79, %_ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i.i.i.i.i28, %95, %_ZNK14core_hashtableI17default_map_entryI8rationaljEN9table2mapIS2_NS1_9hash_procENS1_7eq_procEE15entry_hash_procENS6_13entry_eq_procEE6equalsERK9_key_dataIS1_jESD_.exit29, %65
@@ -30717,23 +30717,23 @@ _ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i.i.i.i.i: ; preds = %43, %36
   %56 = load i8, ptr %55, align 4
   %57 = and i8 %56, 1
   %58 = icmp eq i8 %57, 0
-  br i1 %58, label %59, label %_ZNK14core_hashtableI17default_map_entryI8rationaljEN9table2mapIS2_NS1_9hash_procENS1_7eq_procEE15entry_hash_procENS6_13entry_eq_procEE6equalsERK9_key_dataIS1_jESD_.exit
+  br i1 %58, label %59, label %63
 
 59:                                               ; preds = %53
   %60 = load i8, ptr %29, align 4
   %61 = and i8 %60, 1
   %62 = icmp eq i8 %61, 0
-  br i1 %62, label %63, label %_ZNK14core_hashtableI17default_map_entryI8rationaljEN9table2mapIS2_NS1_9hash_procENS1_7eq_procEE15entry_hash_procENS6_13entry_eq_procEE6equalsERK9_key_dataIS1_jESD_.exit
+  br i1 %62, label %_ZNK14core_hashtableI17default_map_entryI8rationaljEN9table2mapIS2_NS1_9hash_procENS1_7eq_procEE15entry_hash_procENS6_13entry_eq_procEE6equalsERK9_key_dataIS1_jESD_.exit, label %63
 
-63:                                               ; preds = %59
-  %64 = load i32, ptr %54, align 8, !tbaa !527
-  %65 = load i32, ptr %16, align 8, !tbaa !527
-  %66 = icmp eq i32 %64, %65
-  br i1 %66, label %69, label %_ZNK14core_hashtableI17default_map_entryI8rationaljEN9table2mapIS2_NS1_9hash_procENS1_7eq_procEE15entry_hash_procENS6_13entry_eq_procEE6equalsERK9_key_dataIS1_jESD_.exit.thread
+63:                                               ; preds = %59, %53
+  %64 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %38, ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(16) %16)
+  %65 = icmp eq i32 %64, 0
+  br i1 %65, label %69, label %_ZNK14core_hashtableI17default_map_entryI8rationaljEN9table2mapIS2_NS1_9hash_procENS1_7eq_procEE15entry_hash_procENS6_13entry_eq_procEE6equalsERK9_key_dataIS1_jESD_.exit.thread
 
-_ZNK14core_hashtableI17default_map_entryI8rationaljEN9table2mapIS2_NS1_9hash_procENS1_7eq_procEE15entry_hash_procENS6_13entry_eq_procEE6equalsERK9_key_dataIS1_jESD_.exit: ; preds = %53, %59
-  %67 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %38, ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(16) %16)
-  %68 = icmp eq i32 %67, 0
+_ZNK14core_hashtableI17default_map_entryI8rationaljEN9table2mapIS2_NS1_9hash_procENS1_7eq_procEE15entry_hash_procENS6_13entry_eq_procEE6equalsERK9_key_dataIS1_jESD_.exit: ; preds = %59
+  %66 = load i32, ptr %54, align 8, !tbaa !527
+  %67 = load i32, ptr %16, align 8, !tbaa !527
+  %68 = icmp eq i32 %66, %67
   br i1 %68, label %69, label %_ZNK14core_hashtableI17default_map_entryI8rationaljEN9table2mapIS2_NS1_9hash_procENS1_7eq_procEE15entry_hash_procENS6_13entry_eq_procEE6equalsERK9_key_dataIS1_jESD_.exit.thread
 
 69:                                               ; preds = %63, %_ZNK14core_hashtableI17default_map_entryI8rationaljEN9table2mapIS2_NS1_9hash_procENS1_7eq_procEE15entry_hash_procENS6_13entry_eq_procEE6equalsERK9_key_dataIS1_jESD_.exit
@@ -30967,23 +30967,23 @@ _ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i.i.i.i.i50: ; preds = %200, %193
   %213 = load i8, ptr %212, align 4
   %214 = and i8 %213, 1
   %215 = icmp eq i8 %214, 0
-  br i1 %215, label %216, label %_ZNK14core_hashtableI17default_map_entryI8rationaljEN9table2mapIS2_NS1_9hash_procENS1_7eq_procEE15entry_hash_procENS6_13entry_eq_procEE6equalsERK9_key_dataIS1_jESD_.exit51
+  br i1 %215, label %216, label %220
 
 216:                                              ; preds = %210
   %217 = load i8, ptr %186, align 4
   %218 = and i8 %217, 1
   %219 = icmp eq i8 %218, 0
-  br i1 %219, label %220, label %_ZNK14core_hashtableI17default_map_entryI8rationaljEN9table2mapIS2_NS1_9hash_procENS1_7eq_procEE15entry_hash_procENS6_13entry_eq_procEE6equalsERK9_key_dataIS1_jESD_.exit51
+  br i1 %219, label %_ZNK14core_hashtableI17default_map_entryI8rationaljEN9table2mapIS2_NS1_9hash_procENS1_7eq_procEE15entry_hash_procENS6_13entry_eq_procEE6equalsERK9_key_dataIS1_jESD_.exit51, label %220
 
-220:                                              ; preds = %216
-  %221 = load i32, ptr %211, align 8, !tbaa !527
-  %222 = load i32, ptr %16, align 8, !tbaa !527
-  %223 = icmp eq i32 %221, %222
-  br i1 %223, label %226, label %_ZNK14core_hashtableI17default_map_entryI8rationaljEN9table2mapIS2_NS1_9hash_procENS1_7eq_procEE15entry_hash_procENS6_13entry_eq_procEE6equalsERK9_key_dataIS1_jESD_.exit51.thread
+220:                                              ; preds = %216, %210
+  %221 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %195, ptr noundef nonnull align 8 dereferenceable(16) %211, ptr noundef nonnull align 8 dereferenceable(16) %16)
+  %222 = icmp eq i32 %221, 0
+  br i1 %222, label %226, label %_ZNK14core_hashtableI17default_map_entryI8rationaljEN9table2mapIS2_NS1_9hash_procENS1_7eq_procEE15entry_hash_procENS6_13entry_eq_procEE6equalsERK9_key_dataIS1_jESD_.exit51.thread
 
-_ZNK14core_hashtableI17default_map_entryI8rationaljEN9table2mapIS2_NS1_9hash_procENS1_7eq_procEE15entry_hash_procENS6_13entry_eq_procEE6equalsERK9_key_dataIS1_jESD_.exit51: ; preds = %210, %216
-  %224 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %195, ptr noundef nonnull align 8 dereferenceable(16) %211, ptr noundef nonnull align 8 dereferenceable(16) %16)
-  %225 = icmp eq i32 %224, 0
+_ZNK14core_hashtableI17default_map_entryI8rationaljEN9table2mapIS2_NS1_9hash_procENS1_7eq_procEE15entry_hash_procENS6_13entry_eq_procEE6equalsERK9_key_dataIS1_jESD_.exit51: ; preds = %216
+  %223 = load i32, ptr %211, align 8, !tbaa !527
+  %224 = load i32, ptr %16, align 8, !tbaa !527
+  %225 = icmp eq i32 %223, %224
   br i1 %225, label %226, label %_ZNK14core_hashtableI17default_map_entryI8rationaljEN9table2mapIS2_NS1_9hash_procENS1_7eq_procEE15entry_hash_procENS6_13entry_eq_procEE6equalsERK9_key_dataIS1_jESD_.exit51.thread
 
 226:                                              ; preds = %220, %_ZNK14core_hashtableI17default_map_entryI8rationaljEN9table2mapIS2_NS1_9hash_procENS1_7eq_procEE15entry_hash_procENS6_13entry_eq_procEE6equalsERK9_key_dataIS1_jESD_.exit51
@@ -33910,7 +33910,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i204: ; pr
   br label %.body165
 
 .critedge:                                        ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit113, %._crit_edge240, %_ZN6vectorIjLb0EjED2Ev.exit125, %_ZNK6vectorIjLb0EjE5emptyEv.exit
-  %.049 = phi i1 [ false, %_ZNK6vectorIjLb0EjE5emptyEv.exit ], [ true, %_ZN6vectorIjLb0EjED2Ev.exit125 ], [ false, %._crit_edge240 ], [ false, %_ZNK6vectorIjLb0EjE4sizeEv.exit113 ]
+  %.049 = phi i1 [ false, %_ZNK6vectorIjLb0EjE5emptyEv.exit ], [ false, %._crit_edge240 ], [ true, %_ZN6vectorIjLb0EjED2Ev.exit125 ], [ false, %_ZNK6vectorIjLb0EjE4sizeEv.exit113 ]
   %538 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %539 = load ptr, ptr %538, align 8, !tbaa !387
   %.not.i.i.i = icmp eq ptr %539, null
@@ -36237,8 +36237,8 @@ _ZN6vectorIP3appLb0EjE5eraseEPS1_.exit.i.i.i:     ; preds = %.lr.ph.preheader.i.
   br label %.loopexit
 
 .loopexit:                                        ; preds = %161, %183, %178, %_ZN6vectorIP3appLb0EjE5eraseEPS1_.exit.i.i.i, %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i.i
-  %184 = phi ptr [ %.pre60, %183 ], [ %156, %178 ], [ %156, %_ZN6vectorIP3appLb0EjE5eraseEPS1_.exit.i.i.i ], [ %156, %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i.i ], [ %156, %161 ]
-  %185 = phi ptr [ %.pre, %183 ], [ %152, %178 ], [ %152, %_ZN6vectorIP3appLb0EjE5eraseEPS1_.exit.i.i.i ], [ %152, %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i.i ], [ %152, %161 ]
+  %184 = phi ptr [ %156, %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i.i ], [ %.pre60, %183 ], [ %156, %178 ], [ %156, %_ZN6vectorIP3appLb0EjE5eraseEPS1_.exit.i.i.i ], [ %156, %161 ]
+  %185 = phi ptr [ %152, %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i.i ], [ %.pre, %183 ], [ %152, %178 ], [ %152, %_ZN6vectorIP3appLb0EjE5eraseEPS1_.exit.i.i.i ], [ %152, %161 ]
   %186 = getelementptr inbounds nuw i8, ptr %152, i64 224
   store i8 0, ptr %186, align 8, !tbaa !539
   %187 = icmp eq ptr %184, null
@@ -40577,7 +40577,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK13rewriter_core10is_blockedEP
   br i1 %.not27.old.i.i, label %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit, label %.lr.ph38.i.i.backedge
 
 .lr.ph38.i.i.backedge:                            ; preds = %35, %32
-  %.137.i.i.be = phi ptr [ %.old.i.i, %35 ], [ %34, %32 ]
+  %.137.i.i.be = phi ptr [ %34, %32 ], [ %.old.i.i, %35 ]
   br label %.lr.ph38.i.i, !llvm.loop !60
 
 _ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit: ; preds = %16, %21, %27, %32, %35, %.preheader.i.i

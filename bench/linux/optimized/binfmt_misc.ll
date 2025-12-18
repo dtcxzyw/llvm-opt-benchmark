@@ -348,7 +348,7 @@ define internal i32 @load_misc_binary(ptr noundef %0) #2 align 16 {
   br i1 %159, label %.thread24, label %.split, !llvm.loop !13
 
 .thread20:                                        ; preds = %100, %156, %137, %148, %83, %65, %85
-  %160 = phi ptr [ %91, %137 ], [ %27, %85 ], [ %27, %65 ], [ %27, %83 ], [ %91, %148 ], [ %91, %156 ], [ %91, %100 ]
+  %160 = phi ptr [ %27, %65 ], [ %27, %85 ], [ %27, %83 ], [ %91, %148 ], [ %91, %137 ], [ %91, %156 ], [ %91, %100 ]
   %161 = icmp eq ptr %160, null
   br i1 %161, label %.thread24, label %162
 

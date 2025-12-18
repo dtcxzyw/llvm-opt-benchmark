@@ -3115,8 +3115,8 @@ GIP_ParseMetadata.exit.i.i:                       ; preds = %453, %429
   br label %.thread.i69.i
 
 .thread.i69.i:                                    ; preds = %482, %.thread.sink.split.i.i, %478
-  %.not73.i.i = phi i1 [ true, %478 ], [ %.not73.ph.i.i, %.thread.sink.split.i.i ], [ true, %482 ]
-  %.1.i.i = phi ptr [ null, %478 ], [ %.1.ph.i.i, %.thread.sink.split.i.i ], [ null, %482 ]
+  %.not73.i.i = phi i1 [ %.not73.ph.i.i, %.thread.sink.split.i.i ], [ true, %478 ], [ true, %482 ]
+  %.1.i.i = phi ptr [ %.1.ph.i.i, %.thread.sink.split.i.i ], [ null, %478 ], [ null, %482 ]
   %.not23.i.i = icmp eq i8 %400, 0
   br i1 %.not23.i.i, label %.preheader.i.i, label %.lr.ph19.i.i
 

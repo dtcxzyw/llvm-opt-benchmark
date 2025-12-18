@@ -1528,7 +1528,7 @@ define internal fastcc range(i32 0, 2) i32 @load_keys(ptr noundef %0, ptr nounde
   br i1 %22, label %.split, label %.split34.us, !llvm.loop !53
 
 .split34.us:                                      ; preds = %34, %21, %.split.us
-  %35 = phi i32 [ 1, %.split.us ], [ 1, %21 ], [ 2, %34 ]
+  %35 = phi i32 [ 1, %21 ], [ 1, %.split.us ], [ 2, %34 ]
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 %35, ptr %36, align 8, !tbaa !28
   br label %41

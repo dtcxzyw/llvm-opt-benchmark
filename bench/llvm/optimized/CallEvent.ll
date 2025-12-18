@@ -3597,8 +3597,8 @@ _ZL18isTransparentUnionN5clang8QualTypeE.exit34.thread3.i: ; preds = %160, %_ZL1
   br label %_ZL15processArgumentN5clang4ento4SValEPKNS_4ExprEPKNS_11ParmVarDeclERNS0_11SValBuilderE.exit
 
 _ZL15processArgumentN5clang4ento4SValEPKNS_4ExprEPKNS_11ParmVarDeclERNS0_11SValBuilderE.exit: ; preds = %137, %_ZL26castArgToParamTypeIfNeededRKN5clang4ento9CallEventEjNS0_4SValERNS0_11SValBuilderE.exit, %121, %126, %_ZL18isTransparentUnionN5clang8QualTypeE.exit.i, %_ZL18isTransparentUnionN5clang8QualTypeE.exit34.i, %_ZL18isTransparentUnionN5clang8QualTypeE.exit34.thread3.i
-  %.pn8.i = phi ptr [ %163, %_ZL18isTransparentUnionN5clang8QualTypeE.exit34.thread3.i ], [ %.sroa.019.0.i, %126 ], [ %.sroa.019.0.i, %121 ], [ %.sroa.019.0.i, %_ZL26castArgToParamTypeIfNeededRKN5clang4ento9CallEventEjNS0_4SValERNS0_11SValBuilderE.exit ], [ %.sroa.019.0.i, %_ZL18isTransparentUnionN5clang8QualTypeE.exit34.i ], [ %.sroa.019.0.i, %_ZL18isTransparentUnionN5clang8QualTypeE.exit.i ], [ %.sroa.019.0.i, %137 ]
-  %.pn6.i = phi i8 [ 5, %_ZL18isTransparentUnionN5clang8QualTypeE.exit34.thread3.i ], [ %.sroa.5.0.i, %126 ], [ %.sroa.5.0.i, %121 ], [ %.sroa.5.0.i, %_ZL26castArgToParamTypeIfNeededRKN5clang4ento9CallEventEjNS0_4SValERNS0_11SValBuilderE.exit ], [ %.sroa.5.0.i, %_ZL18isTransparentUnionN5clang8QualTypeE.exit34.i ], [ %.sroa.5.0.i, %_ZL18isTransparentUnionN5clang8QualTypeE.exit.i ], [ %.sroa.5.0.i, %137 ]
+  %.pn8.i = phi ptr [ %163, %_ZL18isTransparentUnionN5clang8QualTypeE.exit34.thread3.i ], [ %.sroa.019.0.i, %126 ], [ %.sroa.019.0.i, %121 ], [ %.sroa.019.0.i, %_ZL26castArgToParamTypeIfNeededRKN5clang4ento9CallEventEjNS0_4SValERNS0_11SValBuilderE.exit ], [ %.sroa.019.0.i, %_ZL18isTransparentUnionN5clang8QualTypeE.exit.i ], [ %.sroa.019.0.i, %_ZL18isTransparentUnionN5clang8QualTypeE.exit34.i ], [ %.sroa.019.0.i, %137 ]
+  %.pn6.i = phi i8 [ 5, %_ZL18isTransparentUnionN5clang8QualTypeE.exit34.thread3.i ], [ %.sroa.5.0.i, %126 ], [ %.sroa.5.0.i, %121 ], [ %.sroa.5.0.i, %_ZL26castArgToParamTypeIfNeededRKN5clang4ento9CallEventEjNS0_4SValERNS0_11SValBuilderE.exit ], [ %.sroa.5.0.i, %_ZL18isTransparentUnionN5clang8QualTypeE.exit.i ], [ %.sroa.5.0.i, %_ZL18isTransparentUnionN5clang8QualTypeE.exit34.i ], [ %.sroa.5.0.i, %137 ]
   store ptr %113, ptr %12, align 8, !tbaa !198
   store i8 4, ptr %.sroa.056.sroa.4.0..sroa_idx, align 8, !tbaa !725
   store ptr %.pn8.i, ptr %30, align 8, !tbaa !198
@@ -6240,11 +6240,11 @@ _ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit: ; preds = %_ZNK5clang14
   %.not96 = icmp eq ptr %.0, null
   br i1 %.not96, label %.critedge104, label %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.thread
 
-_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.thread: ; preds = %140, %142, %24, %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit
-  %.0155 = phi ptr [ %.0, %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit ], [ %.3, %140 ], [ %.3, %142 ], [ %32, %24 ]
-  %.058154 = phi i1 [ false, %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit ], [ true, %140 ], [ %146, %142 ], [ false, %24 ]
-  %.067153 = phi i1 [ %.067, %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit ], [ %.370, %140 ], [ %.370, %142 ], [ true, %24 ]
-  %.075152 = phi ptr [ %.075, %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit ], [ %72, %140 ], [ %72, %142 ], [ null, %24 ]
+_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.thread: ; preds = %142, %140, %24, %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit
+  %.0155 = phi ptr [ %.0, %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit ], [ %.3, %142 ], [ %.3, %140 ], [ %32, %24 ]
+  %.058154 = phi i1 [ false, %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit ], [ %146, %142 ], [ true, %140 ], [ false, %24 ]
+  %.067153 = phi i1 [ %.067, %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit ], [ %.370, %142 ], [ %.370, %140 ], [ true, %24 ]
+  %.075152 = phi ptr [ %.075, %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit ], [ %72, %142 ], [ %72, %140 ], [ null, %24 ]
   br label %147
 
 147:                                              ; preds = %_ZNK5clang4Type5getAsINS_14ObjCObjectTypeEEEPKT_v.exit.thread16.i, %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.thread

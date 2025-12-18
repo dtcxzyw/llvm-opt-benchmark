@@ -893,7 +893,7 @@ hwloc_utils_check_api_version.exit._crit_edge:    ; preds = %hwloc_utils_check_a
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.outer.backedge.i, %.loopexit.sink.split.i, %261
-  %.1.i = phi i64 [ 4, %261 ], [ %.1.ph.i, %.loopexit.sink.split.i ], [ %270, %.outer.backedge.i ]
+  %.1.i = phi i64 [ %.1.ph.i, %.loopexit.sink.split.i ], [ 4, %261 ], [ %270, %.outer.backedge.i ]
   %284 = load ptr, ptr @json_output, align 8, !tbaa !11
   %285 = call i64 @fwrite(ptr nonnull @.str.75, i64 2, i64 1, ptr %284)
   call fastcc void @run(ptr noundef %217, ptr noundef %218, i64 noundef %.1.i, ptr noundef null)
@@ -1343,7 +1343,7 @@ hwloc_get_child_covering_cpuset.exit.loopexit.i:  ; preds = %23
   br i1 %.not11.i.i, label %hwloc_get_obj_covering_cpuset.exit.preheader, label %.lr.ph.i.i, !llvm.loop !58
 
 hwloc_get_obj_covering_cpuset.exit.preheader:     ; preds = %hwloc_get_child_covering_cpuset.exit.loopexit.i, %25, %10, %14, %hwloc_get_child_covering_cpuset.exit.preheader.i
-  %.0.ph = phi ptr [ %15, %hwloc_get_child_covering_cpuset.exit.preheader.i ], [ null, %14 ], [ null, %10 ], [ %.01226.i, %25 ], [ %.03.i.i, %hwloc_get_child_covering_cpuset.exit.loopexit.i ]
+  %.0.ph = phi ptr [ %.01226.i, %25 ], [ %15, %hwloc_get_child_covering_cpuset.exit.preheader.i ], [ null, %10 ], [ null, %14 ], [ %.03.i.i, %hwloc_get_child_covering_cpuset.exit.loopexit.i ]
   br label %hwloc_get_obj_covering_cpuset.exit
 
 hwloc_get_obj_covering_cpuset.exit:               ; preds = %hwloc_get_obj_covering_cpuset.exit.preheader, %29
@@ -1448,7 +1448,7 @@ hwloc_get_child_covering_cpuset.exit.loopexit.i56: ; preds = %68
   br i1 %.not11.i.i60, label %hwloc_get_obj_covering_cpuset.exit61.preheader, label %.lr.ph.i.i52, !llvm.loop !58
 
 hwloc_get_obj_covering_cpuset.exit61.preheader:   ; preds = %hwloc_get_child_covering_cpuset.exit.loopexit.i56, %70, %57, %59, %hwloc_get_child_covering_cpuset.exit.preheader.i46
-  %.1.ph = phi ptr [ %.01226.i51, %70 ], [ %60, %hwloc_get_child_covering_cpuset.exit.preheader.i46 ], [ null, %59 ], [ null, %57 ], [ %.03.i.i53, %hwloc_get_child_covering_cpuset.exit.loopexit.i56 ]
+  %.1.ph = phi ptr [ %.01226.i51, %70 ], [ %60, %hwloc_get_child_covering_cpuset.exit.preheader.i46 ], [ null, %57 ], [ null, %59 ], [ %.03.i.i53, %hwloc_get_child_covering_cpuset.exit.loopexit.i56 ]
   br label %hwloc_get_obj_covering_cpuset.exit61
 
 hwloc_get_obj_covering_cpuset.exit61:             ; preds = %hwloc_get_obj_covering_cpuset.exit61.preheader, %74
@@ -1686,7 +1686,7 @@ hwloc_get_child_covering_cpuset.exit.loopexit.i:  ; preds = %24
   br i1 %.not11.i.i, label %hwloc_get_obj_covering_cpuset.exit, label %.lr.ph.i.i, !llvm.loop !58
 
 hwloc_get_obj_covering_cpuset.exit:               ; preds = %hwloc_get_child_covering_cpuset.exit.loopexit.i, %26, %hwloc_get_child_covering_cpuset.exit.preheader.i
-  %.0.i = phi ptr [ %19, %hwloc_get_child_covering_cpuset.exit.preheader.i ], [ %.01226.i, %26 ], [ %.03.i.i, %hwloc_get_child_covering_cpuset.exit.loopexit.i ]
+  %.0.i = phi ptr [ %.01226.i, %26 ], [ %19, %hwloc_get_child_covering_cpuset.exit.preheader.i ], [ %.03.i.i, %hwloc_get_child_covering_cpuset.exit.loopexit.i ]
   %28 = getelementptr inbounds nuw i8, ptr %.0.i, i64 72
   %29 = load ptr, ptr %28, align 8, !tbaa !59
   %.not5071 = icmp eq ptr %29, null

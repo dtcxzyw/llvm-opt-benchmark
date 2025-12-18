@@ -1335,8 +1335,8 @@ FCxtrans.exit.i:                                  ; preds = %313, %311
   br i1 %exitcond1644.not.i, label %.loopexit1304.i, label %302
 
 .loopexit1304.i:                                  ; preds = %333, %331, %326
-  %.0998.i = phi i64 [ %329, %326 ], [ 0, %331 ], [ 0, %333 ]
-  %.0996.i = phi i64 [ %330, %326 ], [ 0, %331 ], [ 0, %333 ]
+  %.0998.i = phi i64 [ 0, %331 ], [ %329, %326 ], [ 0, %333 ]
+  %.0996.i = phi i64 [ 0, %331 ], [ %330, %326 ], [ 0, %333 ]
   %335 = tail call i32 @dt_conf_get_int(ptr noundef nonnull @.str.143) #25
   %336 = load ptr, ptr %23, align 8, !tbaa !69
   %337 = getelementptr inbounds nuw i8, ptr %336, i64 132
@@ -5121,7 +5121,7 @@ passthrough_monochrome.exit:                      ; preds = %._crit_edge.us.i256
   br i1 %exitcond72.not.i, label %2438, label %2441
 
 .loopexit.i282:                                   ; preds = %.lr.ph.i277, %2438, %2432, %2421
-  %.047.i = phi ptr [ null, %2421 ], [ null, %2432 ], [ %2434, %2438 ], [ null, %.lr.ph.i277 ]
+  %.047.i = phi ptr [ null, %2421 ], [ %2434, %2438 ], [ null, %2432 ], [ null, %.lr.ph.i277 ]
   tail call void @free(ptr noundef %2426) #25, !noalias !161
   tail call void @free(ptr noundef %.047.i) #25, !noalias !161
   br label %dual_demosaic.exit

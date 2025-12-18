@@ -32395,7 +32395,7 @@ _ZL12lean_dec_refP11lean_object.exit81:           ; preds = %81, %83, %84
   br label %_ZL12lean_dec_refP11lean_object.exit83
 
 _ZL12lean_dec_refP11lean_object.exit83:           ; preds = %_ZL8lean_decP11lean_object.exit, %.preheader96, %49, %48, %46, %_ZL12lean_dec_refP11lean_object.exit81, %95
-  %.0 = phi ptr [ %96, %95 ], [ %88, %_ZL12lean_dec_refP11lean_object.exit81 ], [ %43, %46 ], [ %43, %48 ], [ %43, %49 ], [ %0, %.preheader96 ], [ %0, %_ZL8lean_decP11lean_object.exit ]
+  %.0 = phi ptr [ %43, %49 ], [ %96, %95 ], [ %88, %_ZL12lean_dec_refP11lean_object.exit81 ], [ %43, %46 ], [ %43, %48 ], [ %0, %.preheader96 ], [ %0, %_ZL8lean_decP11lean_object.exit ]
   ret ptr %.0
 }
 

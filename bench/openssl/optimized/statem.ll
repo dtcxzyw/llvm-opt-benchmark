@@ -1236,7 +1236,7 @@ grow_init_buf.exit.i:                             ; preds = %213
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 786691, ptr noundef null)
   br label %read_state_machine.exit.thread
 
-read_state_machine.exit.thread:                   ; preds = %192, %196, %242, %266, %266, %266, %283, %203, %254, %247, %229, %.critedge.i, %272, %.critedge83.i
+read_state_machine.exit.thread:                   ; preds = %192, %196, %242, %266, %266, %266, %283, %203, %.critedge83.i, %254, %247, %229, %272, %.critedge.i
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1531,14 +1531,14 @@ write_state_machine.exit.thread.sink.split.sink.split: ; preds = %.thread93.i, %
   br label %write_state_machine.exit.thread.sink.split
 
 write_state_machine.exit.thread.sink.split:       ; preds = %293, %write_state_machine.exit.thread.sink.split.sink.split, %383, %386, %337, %340, %309, %312, %300, %303
-  %.sink220 = phi i32 [ 937, %383 ], [ 856, %300 ], [ 864, %309 ], [ 937, %386 ], [ 900, %337 ], [ 856, %303 ], [ 864, %312 ], [ 900, %340 ], [ %.sink220.ph, %write_state_machine.exit.thread.sink.split.sink.split ], [ 954, %293 ]
-  %.sink = phi i32 [ 256, %383 ], [ 256, %300 ], [ 256, %309 ], [ 256, %386 ], [ 256, %337 ], [ 256, %303 ], [ 256, %312 ], [ 256, %340 ], [ 786691, %write_state_machine.exit.thread.sink.split.sink.split ], [ 786691, %293 ]
+  %.sink220 = phi i32 [ 937, %383 ], [ 856, %300 ], [ 864, %309 ], [ 937, %386 ], [ %.sink220.ph, %write_state_machine.exit.thread.sink.split.sink.split ], [ 900, %337 ], [ 856, %303 ], [ 864, %312 ], [ 900, %340 ], [ 954, %293 ]
+  %.sink = phi i32 [ 256, %383 ], [ 256, %300 ], [ 256, %309 ], [ 256, %386 ], [ 786691, %write_state_machine.exit.thread.sink.split.sink.split ], [ 256, %337 ], [ 256, %303 ], [ 256, %312 ], [ 256, %340 ], [ 786691, %293 ]
   call void @ERR_new() #7
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink220, ptr noundef nonnull @__func__.write_state_machine) #7
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef %.sink, ptr noundef null)
   br label %write_state_machine.exit.thread
 
-write_state_machine.exit.thread:                  ; preds = %write_state_machine.exit.thread.sink.split, %340, %386, %303, %312
+write_state_machine.exit.thread:                  ; preds = %write_state_machine.exit.thread.sink.split, %340, %386, %312, %303
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -1558,7 +1558,7 @@ write_state_machine.exit.thread153:               ; preds = %380, %380, %380, %3
   store i32 0, ptr %158, align 4, !tbaa !125
   br label %.backedge239
 
-391:                                              ; preds = %306, %380
+391:                                              ; preds = %380, %306
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -1700,7 +1700,7 @@ define range(i32 0, 2) i32 @ossl_statem_app_data_allowed(ptr noundef readonly ca
   br label %20
 
 20:                                               ; preds = %18, %17, %5, %8, %1
-  %.0.shrunk = phi i1 [ false, %1 ], [ false, %5 ], [ %switch.selectcmp, %17 ], [ false, %8 ], [ %19, %18 ]
+  %.0.shrunk = phi i1 [ %19, %18 ], [ false, %1 ], [ false, %5 ], [ %switch.selectcmp, %17 ], [ false, %8 ]
   %.0 = zext i1 %.0.shrunk to i32
   ret i32 %.0
 }

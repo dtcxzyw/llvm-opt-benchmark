@@ -1737,7 +1737,7 @@ _ZNK3irr5video9S3DVertexltERKS1_.exit:            ; preds = %lor.rhs.i.i
   %cmp7.i107.i = fcmp nsz olt float %10, %agg.tmp3659.sroa.30.0.copyload
   br i1 %cmp7.i107.i, label %while.body.i, label %if.end.i.i.i.i.i.i.i.i
 
-if.end.i.i.i.i.i.i.i.i:                           ; preds = %_ZNK3irr4core8vector3dIfEeqERKS2_.exit79.i, %land.lhs.true11.i53.i, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit.i, %lor.lhs.false.i47.i, %lor.rhs.i.i, %land.lhs.true11.i.i, %land.lhs.true26.i, %_ZNK3irr5video9S3DVertexltERKS1_.exit
+if.end.i.i.i.i.i.i.i.i:                           ; preds = %_ZNK3irr4core8vector3dIfEeqERKS2_.exit79.i, %lor.rhs.i.i, %lor.lhs.false.i47.i, %land.lhs.true11.i.i, %land.lhs.true26.i, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit.i, %land.lhs.true11.i53.i, %_ZNK3irr5video9S3DVertexltERKS1_.exit
   %cmp.i.i2 = fcmp nsz olt float %agg.tmp3659.sroa.0.0.copyload, %1
   br i1 %cmp.i.i2, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIN3irr5video9S3DVertexELm3EESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops14_Iter_less_valEEvT_T0_SF_T1_RT2_.exit, label %land.lhs.true.i.i5
 
@@ -1823,7 +1823,7 @@ _ZNK3irr5video9S3DVertexltERKS1_.exit67:          ; preds = %lor.rhs.i.i49
   %cmp7.i107.i54 = fcmp nsz olt float %agg.tmp3659.sroa.30.0.copyload, %19
   br i1 %cmp7.i107.i54, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIN3irr5video9S3DVertexELm3EESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops14_Iter_less_valEEvT_T0_SF_T1_RT2_.exit, label %for.inc.i.i.i.i.i.i.i.i
 
-for.inc.i.i.i.i.i.i.i.i:                          ; preds = %if.end.i.i.i.i.i.i.i.i.thread, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit79.i55, %land.lhs.true11.i53.i27, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit.i15, %lor.lhs.false.i47.i21, %lor.rhs.i.i49, %land.lhs.true11.i.i9, %land.lhs.true26.i41, %_ZNK3irr5video9S3DVertexltERKS1_.exit67
+for.inc.i.i.i.i.i.i.i.i:                          ; preds = %if.end.i.i.i.i.i.i.i.i.thread, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit79.i55, %lor.rhs.i.i49, %lor.lhs.false.i47.i21, %land.lhs.true11.i.i9, %land.lhs.true26.i41, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit.i15, %land.lhs.true11.i53.i27, %_ZNK3irr5video9S3DVertexltERKS1_.exit67
   %__first1.addr.028.i.i.i.i.i.ptr.1.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 36
   %20 = load float, ptr %__first1.addr.028.i.i.i.i.i.ptr.1.i.i.i, align 4, !tbaa !51
   %cmp.i.i68 = fcmp nsz olt float %20, %agg.tmp3659.sroa.32.0.copyload
@@ -1911,7 +1911,7 @@ _ZNK3irr5video9S3DVertexltERKS1_.exit133:         ; preds = %lor.rhs.i.i115
   %cmp7.i107.i120 = fcmp nsz olt float %29, %agg.tmp3659.sroa.58.0.copyload
   br i1 %cmp7.i107.i120, label %while.body.i, label %if.end.i.i.i.i.i.1.i.i.i
 
-if.end.i.i.i.i.i.1.i.i.i:                         ; preds = %_ZNK3irr4core8vector3dIfEeqERKS2_.exit79.i121, %land.lhs.true11.i53.i93, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit.i81, %lor.lhs.false.i47.i87, %lor.rhs.i.i115, %land.lhs.true11.i.i75, %land.lhs.true26.i107, %_ZNK3irr5video9S3DVertexltERKS1_.exit133
+if.end.i.i.i.i.i.1.i.i.i:                         ; preds = %_ZNK3irr4core8vector3dIfEeqERKS2_.exit79.i121, %lor.rhs.i.i115, %lor.lhs.false.i47.i87, %land.lhs.true11.i.i75, %land.lhs.true26.i107, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit.i81, %land.lhs.true11.i53.i93, %_ZNK3irr5video9S3DVertexltERKS1_.exit133
   %cmp.i.i134 = fcmp nsz olt float %agg.tmp3659.sroa.32.0.copyload, %20
   br i1 %cmp.i.i134, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIN3irr5video9S3DVertexELm3EESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops14_Iter_less_valEEvT_T0_SF_T1_RT2_.exit, label %land.lhs.true.i.i137
 
@@ -1997,7 +1997,7 @@ _ZNK3irr5video9S3DVertexltERKS1_.exit199:         ; preds = %lor.rhs.i.i181
   %cmp7.i107.i186 = fcmp nsz olt float %agg.tmp3659.sroa.58.0.copyload, %38
   br i1 %cmp7.i107.i186, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIN3irr5video9S3DVertexELm3EESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops14_Iter_less_valEEvT_T0_SF_T1_RT2_.exit, label %for.inc.i.i.i.i.i.1.i.i.i
 
-for.inc.i.i.i.i.i.1.i.i.i:                        ; preds = %if.end.i.i.i.i.i.1.i.i.i.thread, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit79.i187, %land.lhs.true11.i53.i159, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit.i147, %lor.lhs.false.i47.i153, %lor.rhs.i.i181, %land.lhs.true11.i.i141, %land.lhs.true26.i173, %_ZNK3irr5video9S3DVertexltERKS1_.exit199
+for.inc.i.i.i.i.i.1.i.i.i:                        ; preds = %if.end.i.i.i.i.i.1.i.i.i.thread, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit79.i187, %lor.rhs.i.i181, %lor.lhs.false.i47.i153, %land.lhs.true11.i.i141, %land.lhs.true26.i173, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit.i147, %land.lhs.true11.i53.i159, %_ZNK3irr5video9S3DVertexltERKS1_.exit199
   %__first1.addr.028.i.i.i.i.i.ptr.2.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 72
   %39 = load float, ptr %__first1.addr.028.i.i.i.i.i.ptr.2.i.i.i, align 4, !tbaa !51
   %cmp.i.i200 = fcmp nsz olt float %39, %agg.tmp3659.sroa.60.0.copyload
@@ -2091,8 +2091,8 @@ while.body.i:                                     ; preds = %land.lhs.true.i215,
   %cmp.i = icmp sgt i64 %__parent.036.i, %__holeIndex
   br i1 %cmp.i, label %land.rhs.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIN3irr5video9S3DVertexELm3EESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops14_Iter_less_valEEvT_T0_SF_T1_RT2_.exit, !llvm.loop !70
 
-_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIN3irr5video9S3DVertexELm3EESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops14_Iter_less_valEEvT_T0_SF_T1_RT2_.exit: ; preds = %_ZNK3irr5video9S3DVertexltERKS1_.exit265, %land.lhs.true26.i239, %land.lhs.true11.i.i207, %lor.rhs.i.i247, %lor.lhs.false.i47.i219, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit.i213, %lor.lhs.false.i.i201, %land.lhs.true11.i53.i225, %land.lhs.true.i149, %land.lhs.true.i49.i155, %if.end.i.i.i.i.i.1.i.i.i, %land.lhs.true.i.i137, %land.rhs.i177, %_ZNK3irr4core8vector3dIfEltERKS2_.exit.i143, %_ZNK3irr4core8vector3dIfEltERKS2_.exit59.i195, %land.lhs.true16.i191, %land.lhs.true.i17, %land.lhs.true.i49.i23, %if.end.i.i.i.i.i.i.i.i, %land.lhs.true.i.i5, %land.rhs.i45, %_ZNK3irr4core8vector3dIfEltERKS2_.exit.i11, %_ZNK3irr4core8vector3dIfEltERKS2_.exit59.i63, %land.lhs.true16.i59, %while.body.i, %_ZNK3irr5video9S3DVertexltERKS1_.exit199, %_ZNK3irr5video9S3DVertexltERKS1_.exit67, %if.end.i.i.i.i.i.i.i.i.thread, %if.end.i.i.i.i.i.1.i.i.i.thread, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit79.i253, %if.end33
-  %__holeIndex.addr.031.i = phi i64 [ %__holeIndex.addr.1, %if.end33 ], [ %__holeIndex.addr.035.i, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit79.i253 ], [ %__holeIndex.addr.035.i, %if.end.i.i.i.i.i.i.i.i.thread ], [ %__holeIndex.addr.035.i, %_ZNK3irr5video9S3DVertexltERKS1_.exit265 ], [ %__holeIndex.addr.035.i, %land.lhs.true26.i239 ], [ %__holeIndex.addr.035.i, %if.end.i.i.i.i.i.1.i.i.i.thread ], [ %__holeIndex.addr.035.i, %land.lhs.true11.i.i207 ], [ %__holeIndex.addr.035.i, %lor.rhs.i.i247 ], [ %__holeIndex.addr.035.i, %lor.lhs.false.i47.i219 ], [ %__holeIndex.addr.035.i, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit.i213 ], [ %__holeIndex.addr.035.i, %lor.lhs.false.i.i201 ], [ %__holeIndex.addr.035.i, %land.lhs.true11.i53.i225 ], [ %__holeIndex.addr.035.i, %land.lhs.true.i49.i23 ], [ %__holeIndex.addr.035.i, %if.end.i.i.i.i.i.i.i.i ], [ %__holeIndex.addr.035.i, %land.lhs.true.i.i5 ], [ %__holeIndex.addr.035.i, %land.rhs.i45 ], [ %__holeIndex.addr.035.i, %_ZNK3irr4core8vector3dIfEltERKS2_.exit.i11 ], [ %__holeIndex.addr.035.i, %land.lhs.true.i.i137 ], [ %__holeIndex.addr.035.i, %_ZNK3irr4core8vector3dIfEltERKS2_.exit59.i63 ], [ %__holeIndex.addr.035.i, %if.end.i.i.i.i.i.1.i.i.i ], [ %__holeIndex.addr.035.i, %land.lhs.true16.i59 ], [ %__holeIndex.addr.035.i, %land.lhs.true.i49.i155 ], [ %__holeIndex.addr.035.i, %_ZNK3irr4core8vector3dIfEltERKS2_.exit.i143 ], [ %__holeIndex.addr.035.i, %land.lhs.true.i149 ], [ %__holeIndex.addr.035.i, %land.lhs.true16.i191 ], [ %__holeIndex.addr.035.i, %land.rhs.i177 ], [ %__holeIndex.addr.035.i, %_ZNK3irr4core8vector3dIfEltERKS2_.exit59.i195 ], [ %__parent.036.i, %while.body.i ], [ %__holeIndex.addr.035.i, %_ZNK3irr5video9S3DVertexltERKS1_.exit67 ], [ %__holeIndex.addr.035.i, %_ZNK3irr5video9S3DVertexltERKS1_.exit199 ], [ %__holeIndex.addr.035.i, %land.lhs.true.i17 ]
+_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIN3irr5video9S3DVertexELm3EESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops14_Iter_less_valEEvT_T0_SF_T1_RT2_.exit: ; preds = %_ZNK3irr5video9S3DVertexltERKS1_.exit265, %land.lhs.true11.i53.i225, %lor.lhs.false.i.i201, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit.i213, %land.lhs.true26.i239, %land.lhs.true11.i.i207, %lor.lhs.false.i47.i219, %lor.rhs.i.i247, %land.lhs.true.i149, %land.lhs.true.i49.i155, %if.end.i.i.i.i.i.1.i.i.i, %land.lhs.true.i.i137, %land.rhs.i177, %_ZNK3irr4core8vector3dIfEltERKS2_.exit.i143, %_ZNK3irr4core8vector3dIfEltERKS2_.exit59.i195, %land.lhs.true16.i191, %land.lhs.true.i17, %land.lhs.true.i49.i23, %if.end.i.i.i.i.i.i.i.i, %land.lhs.true.i.i5, %land.rhs.i45, %_ZNK3irr4core8vector3dIfEltERKS2_.exit.i11, %_ZNK3irr4core8vector3dIfEltERKS2_.exit59.i63, %land.lhs.true16.i59, %while.body.i, %_ZNK3irr5video9S3DVertexltERKS1_.exit199, %_ZNK3irr5video9S3DVertexltERKS1_.exit67, %if.end.i.i.i.i.i.i.i.i.thread, %if.end.i.i.i.i.i.1.i.i.i.thread, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit79.i253, %if.end33
+  %__holeIndex.addr.031.i = phi i64 [ %__holeIndex.addr.1, %if.end33 ], [ %__holeIndex.addr.035.i, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit79.i253 ], [ %__holeIndex.addr.035.i, %if.end.i.i.i.i.i.i.i.i.thread ], [ %__holeIndex.addr.035.i, %_ZNK3irr5video9S3DVertexltERKS1_.exit265 ], [ %__holeIndex.addr.035.i, %land.lhs.true11.i53.i225 ], [ %__holeIndex.addr.035.i, %lor.lhs.false.i.i201 ], [ %__holeIndex.addr.035.i, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit.i213 ], [ %__holeIndex.addr.035.i, %land.lhs.true26.i239 ], [ %__holeIndex.addr.035.i, %if.end.i.i.i.i.i.1.i.i.i.thread ], [ %__holeIndex.addr.035.i, %land.lhs.true11.i.i207 ], [ %__holeIndex.addr.035.i, %lor.lhs.false.i47.i219 ], [ %__holeIndex.addr.035.i, %lor.rhs.i.i247 ], [ %__holeIndex.addr.035.i, %land.lhs.true.i49.i23 ], [ %__holeIndex.addr.035.i, %if.end.i.i.i.i.i.i.i.i ], [ %__holeIndex.addr.035.i, %land.lhs.true.i.i5 ], [ %__holeIndex.addr.035.i, %land.rhs.i45 ], [ %__holeIndex.addr.035.i, %_ZNK3irr4core8vector3dIfEltERKS2_.exit.i11 ], [ %__holeIndex.addr.035.i, %land.lhs.true.i.i137 ], [ %__holeIndex.addr.035.i, %_ZNK3irr4core8vector3dIfEltERKS2_.exit59.i63 ], [ %__holeIndex.addr.035.i, %if.end.i.i.i.i.i.1.i.i.i ], [ %__holeIndex.addr.035.i, %land.lhs.true16.i59 ], [ %__holeIndex.addr.035.i, %land.lhs.true.i49.i155 ], [ %__holeIndex.addr.035.i, %_ZNK3irr4core8vector3dIfEltERKS2_.exit.i143 ], [ %__holeIndex.addr.035.i, %land.lhs.true.i149 ], [ %__holeIndex.addr.035.i, %land.lhs.true16.i191 ], [ %__holeIndex.addr.035.i, %land.rhs.i177 ], [ %__holeIndex.addr.035.i, %_ZNK3irr4core8vector3dIfEltERKS2_.exit59.i195 ], [ %__parent.036.i, %while.body.i ], [ %__holeIndex.addr.035.i, %_ZNK3irr5video9S3DVertexltERKS1_.exit67 ], [ %__holeIndex.addr.035.i, %_ZNK3irr5video9S3DVertexltERKS1_.exit199 ], [ %__holeIndex.addr.035.i, %land.lhs.true.i17 ]
   %add.ptr.i25.i = getelementptr inbounds %"struct.std::array.25", ptr %__first.coerce, i64 %__holeIndex.addr.031.i
   store float %agg.tmp3659.sroa.0.0.copyload, ptr %add.ptr.i25.i, align 4
   %agg.tmp3659.sroa.6.0.add.ptr.i25.i.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i25.i, i64 4
@@ -3843,7 +3843,7 @@ _ZNK3irr5video9S3DVertexltERKS1_.exit:            ; preds = %lor.rhs.i.i
   %cmp7.i107.i = fcmp nsz olt float %__val.sroa.30.0.copyload, %9
   br i1 %cmp7.i107.i, label %while.body, label %if.end.i.i.i.i.i.i.i
 
-if.end.i.i.i.i.i.i.i:                             ; preds = %_ZNK3irr4core8vector3dIfEeqERKS2_.exit79.i, %land.lhs.true11.i53.i, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit.i, %lor.lhs.false.i47.i, %lor.rhs.i.i, %land.lhs.true11.i.i, %land.lhs.true26.i, %_ZNK3irr5video9S3DVertexltERKS1_.exit
+if.end.i.i.i.i.i.i.i:                             ; preds = %_ZNK3irr4core8vector3dIfEeqERKS2_.exit79.i, %lor.rhs.i.i, %lor.lhs.false.i47.i, %land.lhs.true11.i.i, %land.lhs.true26.i, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit.i, %land.lhs.true11.i53.i, %_ZNK3irr5video9S3DVertexltERKS1_.exit
   %cmp.i.i1 = fcmp nsz olt float %0, %__val.sroa.0.0.copyload
   br i1 %cmp.i.i1, label %while.end, label %land.lhs.true.i.i4
 
@@ -3929,7 +3929,7 @@ _ZNK3irr5video9S3DVertexltERKS1_.exit66:          ; preds = %lor.rhs.i.i48
   %cmp7.i107.i53 = fcmp nsz olt float %18, %__val.sroa.30.0.copyload
   br i1 %cmp7.i107.i53, label %while.end, label %for.inc.i.i.i.i.i.i.i
 
-for.inc.i.i.i.i.i.i.i:                            ; preds = %if.end.i.i.i.i.i.i.i.thread, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit79.i54, %land.lhs.true11.i53.i26, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit.i14, %lor.lhs.false.i47.i20, %lor.rhs.i.i48, %land.lhs.true11.i.i8, %land.lhs.true26.i40, %_ZNK3irr5video9S3DVertexltERKS1_.exit66
+for.inc.i.i.i.i.i.i.i:                            ; preds = %if.end.i.i.i.i.i.i.i.thread, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit79.i54, %lor.rhs.i.i48, %lor.lhs.false.i47.i20, %land.lhs.true11.i.i8, %land.lhs.true26.i40, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit.i14, %land.lhs.true11.i53.i26, %_ZNK3irr5video9S3DVertexltERKS1_.exit66
   %__first2.addr.029.i.i.i.i.i.ptr.1.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.0, i64 -72
   %19 = load float, ptr %__first2.addr.029.i.i.i.i.i.ptr.1.i.i, align 4, !tbaa !51
   %cmp.i.i67 = fcmp nsz olt float %__val.sroa.32.0.copyload, %19
@@ -4017,7 +4017,7 @@ _ZNK3irr5video9S3DVertexltERKS1_.exit132:         ; preds = %lor.rhs.i.i114
   %cmp7.i107.i119 = fcmp nsz olt float %__val.sroa.58.0.copyload, %28
   br i1 %cmp7.i107.i119, label %while.body, label %if.end.i.i.i.i.i.1.i.i
 
-if.end.i.i.i.i.i.1.i.i:                           ; preds = %_ZNK3irr4core8vector3dIfEeqERKS2_.exit79.i120, %land.lhs.true11.i53.i92, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit.i80, %lor.lhs.false.i47.i86, %lor.rhs.i.i114, %land.lhs.true11.i.i74, %land.lhs.true26.i106, %_ZNK3irr5video9S3DVertexltERKS1_.exit132
+if.end.i.i.i.i.i.1.i.i:                           ; preds = %_ZNK3irr4core8vector3dIfEeqERKS2_.exit79.i120, %lor.rhs.i.i114, %lor.lhs.false.i47.i86, %land.lhs.true11.i.i74, %land.lhs.true26.i106, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit.i80, %land.lhs.true11.i53.i92, %_ZNK3irr5video9S3DVertexltERKS1_.exit132
   %cmp.i.i133 = fcmp nsz olt float %19, %__val.sroa.32.0.copyload
   br i1 %cmp.i.i133, label %while.end, label %land.lhs.true.i.i136
 
@@ -4103,7 +4103,7 @@ _ZNK3irr5video9S3DVertexltERKS1_.exit198:         ; preds = %lor.rhs.i.i180
   %cmp7.i107.i185 = fcmp nsz olt float %37, %__val.sroa.58.0.copyload
   br i1 %cmp7.i107.i185, label %while.end, label %for.inc.i.i.i.i.i.1.i.i
 
-for.inc.i.i.i.i.i.1.i.i:                          ; preds = %if.end.i.i.i.i.i.1.i.i.thread, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit79.i186, %land.lhs.true11.i53.i158, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit.i146, %lor.lhs.false.i47.i152, %lor.rhs.i.i180, %land.lhs.true11.i.i140, %land.lhs.true26.i172, %_ZNK3irr5video9S3DVertexltERKS1_.exit198
+for.inc.i.i.i.i.i.1.i.i:                          ; preds = %if.end.i.i.i.i.i.1.i.i.thread, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit79.i186, %lor.rhs.i.i180, %lor.lhs.false.i47.i152, %land.lhs.true11.i.i140, %land.lhs.true26.i172, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit.i146, %land.lhs.true11.i53.i158, %_ZNK3irr5video9S3DVertexltERKS1_.exit198
   %__first2.addr.029.i.i.i.i.i.ptr.2.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.0, i64 -36
   %38 = load float, ptr %__first2.addr.029.i.i.i.i.i.ptr.2.i.i, align 4, !tbaa !51
   %cmp.i.i199 = fcmp nsz olt float %__val.sroa.60.0.copyload, %38
@@ -4195,7 +4195,7 @@ while.body:                                       ; preds = %land.lhs.true.i214,
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(108) %__last.sroa.0.0, ptr noundef nonnull align 4 dereferenceable(108) %__next.sroa.0.0, i64 108, i1 false), !tbaa.struct !30
   br label %while.cond, !llvm.loop !75
 
-while.end:                                        ; preds = %_ZNK3irr4core8vector3dIfEeqERKS2_.exit79.i252, %if.end.i.i.i.i.i.1.i.i.thread, %if.end.i.i.i.i.i.i.i.thread, %_ZNK3irr5video9S3DVertexltERKS1_.exit264, %land.lhs.true26.i238, %land.lhs.true11.i.i206, %lor.rhs.i.i246, %lor.lhs.false.i47.i218, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit.i212, %lor.lhs.false.i.i200, %land.lhs.true11.i53.i224, %land.lhs.true.i148, %land.lhs.true.i49.i154, %if.end.i.i.i.i.i.1.i.i, %land.lhs.true.i.i136, %land.rhs.i176, %_ZNK3irr4core8vector3dIfEltERKS2_.exit.i142, %_ZNK3irr4core8vector3dIfEltERKS2_.exit59.i194, %land.lhs.true16.i190, %land.lhs.true.i16, %land.lhs.true.i49.i22, %if.end.i.i.i.i.i.i.i, %land.lhs.true.i.i4, %land.rhs.i44, %_ZNK3irr4core8vector3dIfEltERKS2_.exit.i10, %_ZNK3irr4core8vector3dIfEltERKS2_.exit59.i62, %land.lhs.true16.i58, %_ZNK3irr5video9S3DVertexltERKS1_.exit198, %_ZNK3irr5video9S3DVertexltERKS1_.exit66
+while.end:                                        ; preds = %_ZNK3irr4core8vector3dIfEeqERKS2_.exit79.i252, %if.end.i.i.i.i.i.1.i.i.thread, %if.end.i.i.i.i.i.i.i.thread, %_ZNK3irr5video9S3DVertexltERKS1_.exit264, %land.lhs.true11.i53.i224, %lor.lhs.false.i.i200, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit.i212, %land.lhs.true26.i238, %land.lhs.true11.i.i206, %lor.lhs.false.i47.i218, %lor.rhs.i.i246, %land.lhs.true.i148, %land.lhs.true.i49.i154, %if.end.i.i.i.i.i.1.i.i, %land.lhs.true.i.i136, %land.rhs.i176, %_ZNK3irr4core8vector3dIfEltERKS2_.exit.i142, %_ZNK3irr4core8vector3dIfEltERKS2_.exit59.i194, %land.lhs.true16.i190, %land.lhs.true.i16, %land.lhs.true.i49.i22, %if.end.i.i.i.i.i.i.i, %land.lhs.true.i.i4, %land.rhs.i44, %_ZNK3irr4core8vector3dIfEltERKS2_.exit.i10, %_ZNK3irr4core8vector3dIfEltERKS2_.exit59.i62, %land.lhs.true16.i58, %_ZNK3irr5video9S3DVertexltERKS1_.exit198, %_ZNK3irr5video9S3DVertexltERKS1_.exit66
   store float %__val.sroa.0.0.copyload, ptr %__last.sroa.0.0, align 4
   %__val.sroa.6.0.__last.sroa.0.0.sroa_idx = getelementptr inbounds nuw i8, ptr %__last.sroa.0.0, i64 4
   store float %__val.sroa.6.0.copyload, ptr %__val.sroa.6.0.__last.sroa.0.0.sroa_idx, align 4

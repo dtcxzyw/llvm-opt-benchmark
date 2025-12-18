@@ -34718,8 +34718,8 @@ define hidden void @_ZN5alloc11collections5btree3mem7replace17h01757993f582e95fE
           to label %32 unwind label %30
 
 "_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$27deallocating_next_unchecked28_$u7b$$u7b$closure$u7d$$u7d$17h33bb47633382db7dE.llvm.3189713146689755573.exit": ; preds = %.lr.ph.i.i.i.i, %11, %9
-  %.sroa.7.0.ph.i = phi i64 [ 0, %11 ], [ %10, %9 ], [ 0, %.lr.ph.i.i.i.i ]
-  %.sroa.0.0.ph.i = phi ptr [ %14, %11 ], [ %.sroa.0.0.lcssa.i.i, %9 ], [ %17, %.lr.ph.i.i.i.i ]
+  %.sroa.7.0.ph.i = phi i64 [ %10, %9 ], [ 0, %11 ], [ 0, %.lr.ph.i.i.i.i ]
+  %.sroa.0.0.ph.i = phi ptr [ %.sroa.0.0.lcssa.i.i, %9 ], [ %14, %11 ], [ %17, %.lr.ph.i.i.i.i ]
   store ptr %.sroa.0.0.lcssa.i.i, ptr %0, align 8
   %.sroa.8.24..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.5.0.lcssa.i.i, ptr %.sroa.8.24..sroa_idx, align 8
@@ -34823,8 +34823,8 @@ define hidden void @_ZN5alloc11collections5btree3mem7replace17h069f51584ff739d5E
           to label %33 unwind label %31
 
 "_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$27deallocating_next_unchecked28_$u7b$$u7b$closure$u7d$$u7d$17hc0257ae63b37cb28E.llvm.3189713146689755573.exit": ; preds = %.lr.ph.i.i.i.i, %11, %9
-  %.sroa.7.0.ph.i = phi i64 [ 0, %11 ], [ %10, %9 ], [ 0, %.lr.ph.i.i.i.i ]
-  %.sroa.0.0.ph.i = phi ptr [ %14, %11 ], [ %.sroa.0.0.lcssa.i.i, %9 ], [ %17, %.lr.ph.i.i.i.i ]
+  %.sroa.7.0.ph.i = phi i64 [ %10, %9 ], [ 0, %11 ], [ 0, %.lr.ph.i.i.i.i ]
+  %.sroa.0.0.ph.i = phi ptr [ %.sroa.0.0.lcssa.i.i, %9 ], [ %14, %11 ], [ %17, %.lr.ph.i.i.i.i ]
   store ptr %.sroa.0.0.lcssa.i.i, ptr %0, align 8
   %.sroa.8.24..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.5.0.lcssa.i.i, ptr %.sroa.8.24..sroa_idx, align 8
@@ -34928,8 +34928,8 @@ define hidden void @_ZN5alloc11collections5btree3mem7replace17h0b9a905c1bbbf1daE
           to label %33 unwind label %31
 
 "_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$27deallocating_next_unchecked28_$u7b$$u7b$closure$u7d$$u7d$17hc9386d1868aebd79E.llvm.3189713146689755573.exit": ; preds = %.lr.ph.i.i.i.i, %11, %9
-  %.sroa.7.0.ph.i = phi i64 [ 0, %11 ], [ %10, %9 ], [ 0, %.lr.ph.i.i.i.i ]
-  %.sroa.0.0.ph.i = phi ptr [ %14, %11 ], [ %.sroa.0.0.lcssa.i.i, %9 ], [ %17, %.lr.ph.i.i.i.i ]
+  %.sroa.7.0.ph.i = phi i64 [ %10, %9 ], [ 0, %11 ], [ 0, %.lr.ph.i.i.i.i ]
+  %.sroa.0.0.ph.i = phi ptr [ %.sroa.0.0.lcssa.i.i, %9 ], [ %14, %11 ], [ %17, %.lr.ph.i.i.i.i ]
   store ptr %.sroa.0.0.lcssa.i.i, ptr %0, align 8
   %.sroa.8.24..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.5.0.lcssa.i.i, ptr %.sroa.8.24..sroa_idx, align 8
@@ -35328,8 +35328,8 @@ define hidden void @_ZN5alloc11collections5btree3mem7replace17h245722b089c2c318E
           to label %32 unwind label %30
 
 "_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$27deallocating_next_unchecked28_$u7b$$u7b$closure$u7d$$u7d$17h889572a4fcc2bdf1E.llvm.3189713146689755573.exit": ; preds = %.lr.ph.i.i.i.i, %11, %9
-  %.sroa.7.0.ph.i = phi i64 [ 0, %11 ], [ %10, %9 ], [ 0, %.lr.ph.i.i.i.i ]
-  %.sroa.0.0.ph.i = phi ptr [ %14, %11 ], [ %.sroa.0.0.lcssa.i.i, %9 ], [ %17, %.lr.ph.i.i.i.i ]
+  %.sroa.7.0.ph.i = phi i64 [ %10, %9 ], [ 0, %11 ], [ 0, %.lr.ph.i.i.i.i ]
+  %.sroa.0.0.ph.i = phi ptr [ %.sroa.0.0.lcssa.i.i, %9 ], [ %14, %11 ], [ %17, %.lr.ph.i.i.i.i ]
   store ptr %.sroa.0.0.lcssa.i.i, ptr %0, align 8
   %.sroa.8.24..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.5.0.lcssa.i.i, ptr %.sroa.8.24..sroa_idx, align 8
@@ -35433,8 +35433,8 @@ define hidden void @_ZN5alloc11collections5btree3mem7replace17h29f742c53266e08dE
           to label %33 unwind label %31
 
 "_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$27deallocating_next_unchecked28_$u7b$$u7b$closure$u7d$$u7d$17h98120455727d4063E.llvm.3189713146689755573.exit": ; preds = %.lr.ph.i.i.i.i, %11, %9
-  %.sroa.7.0.ph.i = phi i64 [ 0, %11 ], [ %10, %9 ], [ 0, %.lr.ph.i.i.i.i ]
-  %.sroa.0.0.ph.i = phi ptr [ %14, %11 ], [ %.sroa.0.0.lcssa.i.i, %9 ], [ %17, %.lr.ph.i.i.i.i ]
+  %.sroa.7.0.ph.i = phi i64 [ %10, %9 ], [ 0, %11 ], [ 0, %.lr.ph.i.i.i.i ]
+  %.sroa.0.0.ph.i = phi ptr [ %.sroa.0.0.lcssa.i.i, %9 ], [ %14, %11 ], [ %17, %.lr.ph.i.i.i.i ]
   store ptr %.sroa.0.0.lcssa.i.i, ptr %0, align 8
   %.sroa.8.24..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.5.0.lcssa.i.i, ptr %.sroa.8.24..sroa_idx, align 8
@@ -35636,8 +35636,8 @@ define hidden void @_ZN5alloc11collections5btree3mem7replace17h2d460701e63d5634E
           to label %32 unwind label %30
 
 "_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$27deallocating_next_unchecked28_$u7b$$u7b$closure$u7d$$u7d$17h68dec91ab155dc1dE.llvm.3189713146689755573.exit": ; preds = %.lr.ph.i.i.i.i, %11, %9
-  %.sroa.7.0.ph.i = phi i64 [ 0, %11 ], [ %10, %9 ], [ 0, %.lr.ph.i.i.i.i ]
-  %.sroa.0.0.ph.i = phi ptr [ %14, %11 ], [ %.sroa.0.0.lcssa.i.i, %9 ], [ %17, %.lr.ph.i.i.i.i ]
+  %.sroa.7.0.ph.i = phi i64 [ %10, %9 ], [ 0, %11 ], [ 0, %.lr.ph.i.i.i.i ]
+  %.sroa.0.0.ph.i = phi ptr [ %.sroa.0.0.lcssa.i.i, %9 ], [ %14, %11 ], [ %17, %.lr.ph.i.i.i.i ]
   store ptr %.sroa.0.0.lcssa.i.i, ptr %0, align 8
   %.sroa.8.24..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.5.0.lcssa.i.i, ptr %.sroa.8.24..sroa_idx, align 8
@@ -35840,8 +35840,8 @@ define hidden void @_ZN5alloc11collections5btree3mem7replace17h3cc8f6fd5d97d6a0E
           to label %33 unwind label %31
 
 "_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$27deallocating_next_unchecked28_$u7b$$u7b$closure$u7d$$u7d$17hec6f89eca9d3d556E.llvm.3189713146689755573.exit": ; preds = %.lr.ph.i.i.i.i, %11, %9
-  %.sroa.7.0.ph.i = phi i64 [ 0, %11 ], [ %10, %9 ], [ 0, %.lr.ph.i.i.i.i ]
-  %.sroa.0.0.ph.i = phi ptr [ %14, %11 ], [ %.sroa.0.0.lcssa.i.i, %9 ], [ %17, %.lr.ph.i.i.i.i ]
+  %.sroa.7.0.ph.i = phi i64 [ %10, %9 ], [ 0, %11 ], [ 0, %.lr.ph.i.i.i.i ]
+  %.sroa.0.0.ph.i = phi ptr [ %.sroa.0.0.lcssa.i.i, %9 ], [ %14, %11 ], [ %17, %.lr.ph.i.i.i.i ]
   store ptr %.sroa.0.0.lcssa.i.i, ptr %0, align 8
   %.sroa.8.24..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.5.0.lcssa.i.i, ptr %.sroa.8.24..sroa_idx, align 8
@@ -35944,8 +35944,8 @@ define hidden void @_ZN5alloc11collections5btree3mem7replace17h4c68826962d43f6bE
           to label %32 unwind label %30
 
 "_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$27deallocating_next_unchecked28_$u7b$$u7b$closure$u7d$$u7d$17h41cbedff5be9e957E.llvm.3189713146689755573.exit": ; preds = %.lr.ph.i.i.i.i, %11, %9
-  %.sroa.7.0.ph.i = phi i64 [ 0, %11 ], [ %10, %9 ], [ 0, %.lr.ph.i.i.i.i ]
-  %.sroa.0.0.ph.i = phi ptr [ %14, %11 ], [ %.sroa.0.0.lcssa.i.i, %9 ], [ %17, %.lr.ph.i.i.i.i ]
+  %.sroa.7.0.ph.i = phi i64 [ %10, %9 ], [ 0, %11 ], [ 0, %.lr.ph.i.i.i.i ]
+  %.sroa.0.0.ph.i = phi ptr [ %.sroa.0.0.lcssa.i.i, %9 ], [ %14, %11 ], [ %17, %.lr.ph.i.i.i.i ]
   store ptr %.sroa.0.0.lcssa.i.i, ptr %0, align 8
   %.sroa.8.24..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.5.0.lcssa.i.i, ptr %.sroa.8.24..sroa_idx, align 8
@@ -36049,8 +36049,8 @@ define hidden void @_ZN5alloc11collections5btree3mem7replace17h57e277efb04cc89aE
           to label %33 unwind label %31
 
 "_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$27deallocating_next_unchecked28_$u7b$$u7b$closure$u7d$$u7d$17h5d031b7f964f9e02E.llvm.3189713146689755573.exit": ; preds = %.lr.ph.i.i.i.i, %11, %9
-  %.sroa.7.0.ph.i = phi i64 [ 0, %11 ], [ %10, %9 ], [ 0, %.lr.ph.i.i.i.i ]
-  %.sroa.0.0.ph.i = phi ptr [ %14, %11 ], [ %.sroa.0.0.lcssa.i.i, %9 ], [ %17, %.lr.ph.i.i.i.i ]
+  %.sroa.7.0.ph.i = phi i64 [ %10, %9 ], [ 0, %11 ], [ 0, %.lr.ph.i.i.i.i ]
+  %.sroa.0.0.ph.i = phi ptr [ %.sroa.0.0.lcssa.i.i, %9 ], [ %14, %11 ], [ %17, %.lr.ph.i.i.i.i ]
   store ptr %.sroa.0.0.lcssa.i.i, ptr %0, align 8
   %.sroa.8.24..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.5.0.lcssa.i.i, ptr %.sroa.8.24..sroa_idx, align 8
@@ -36253,8 +36253,8 @@ define hidden void @_ZN5alloc11collections5btree3mem7replace17h7c0230719adead8dE
           to label %33 unwind label %31
 
 "_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$27deallocating_next_unchecked28_$u7b$$u7b$closure$u7d$$u7d$17h8c05354752ffad23E.llvm.3189713146689755573.exit": ; preds = %.lr.ph.i.i.i.i, %11, %9
-  %.sroa.7.0.ph.i = phi i64 [ 0, %11 ], [ %10, %9 ], [ 0, %.lr.ph.i.i.i.i ]
-  %.sroa.0.0.ph.i = phi ptr [ %14, %11 ], [ %.sroa.0.0.lcssa.i.i, %9 ], [ %17, %.lr.ph.i.i.i.i ]
+  %.sroa.7.0.ph.i = phi i64 [ %10, %9 ], [ 0, %11 ], [ 0, %.lr.ph.i.i.i.i ]
+  %.sroa.0.0.ph.i = phi ptr [ %.sroa.0.0.lcssa.i.i, %9 ], [ %14, %11 ], [ %17, %.lr.ph.i.i.i.i ]
   store ptr %.sroa.0.0.lcssa.i.i, ptr %0, align 8
   %.sroa.8.24..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.5.0.lcssa.i.i, ptr %.sroa.8.24..sroa_idx, align 8
@@ -36358,8 +36358,8 @@ define hidden void @_ZN5alloc11collections5btree3mem7replace17h7c1dacce062b215fE
           to label %33 unwind label %31
 
 "_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$27deallocating_next_unchecked28_$u7b$$u7b$closure$u7d$$u7d$17hc88e10925cb75e45E.llvm.3189713146689755573.exit": ; preds = %.lr.ph.i.i.i.i, %11, %9
-  %.sroa.7.0.ph.i = phi i64 [ 0, %11 ], [ %10, %9 ], [ 0, %.lr.ph.i.i.i.i ]
-  %.sroa.0.0.ph.i = phi ptr [ %14, %11 ], [ %.sroa.0.0.lcssa.i.i, %9 ], [ %17, %.lr.ph.i.i.i.i ]
+  %.sroa.7.0.ph.i = phi i64 [ %10, %9 ], [ 0, %11 ], [ 0, %.lr.ph.i.i.i.i ]
+  %.sroa.0.0.ph.i = phi ptr [ %.sroa.0.0.lcssa.i.i, %9 ], [ %14, %11 ], [ %17, %.lr.ph.i.i.i.i ]
   store ptr %.sroa.0.0.lcssa.i.i, ptr %0, align 8
   %.sroa.8.24..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.5.0.lcssa.i.i, ptr %.sroa.8.24..sroa_idx, align 8
@@ -36463,8 +36463,8 @@ define hidden void @_ZN5alloc11collections5btree3mem7replace17h8da0367e5a8e2871E
           to label %33 unwind label %31
 
 "_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$27deallocating_next_unchecked28_$u7b$$u7b$closure$u7d$$u7d$17h4e1b7ca08a4a91c3E.llvm.3189713146689755573.exit": ; preds = %.lr.ph.i.i.i.i, %11, %9
-  %.sroa.7.0.ph.i = phi i64 [ 0, %11 ], [ %10, %9 ], [ 0, %.lr.ph.i.i.i.i ]
-  %.sroa.0.0.ph.i = phi ptr [ %14, %11 ], [ %.sroa.0.0.lcssa.i.i, %9 ], [ %17, %.lr.ph.i.i.i.i ]
+  %.sroa.7.0.ph.i = phi i64 [ %10, %9 ], [ 0, %11 ], [ 0, %.lr.ph.i.i.i.i ]
+  %.sroa.0.0.ph.i = phi ptr [ %.sroa.0.0.lcssa.i.i, %9 ], [ %14, %11 ], [ %17, %.lr.ph.i.i.i.i ]
   store ptr %.sroa.0.0.lcssa.i.i, ptr %0, align 8
   %.sroa.8.24..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.5.0.lcssa.i.i, ptr %.sroa.8.24..sroa_idx, align 8
@@ -36665,8 +36665,8 @@ define hidden void @_ZN5alloc11collections5btree3mem7replace17h9ab1ddc76aa26cf3E
           to label %32 unwind label %30
 
 "_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$27deallocating_next_unchecked28_$u7b$$u7b$closure$u7d$$u7d$17h3613ab37eb258476E.llvm.3189713146689755573.exit": ; preds = %.lr.ph.i.i.i.i, %11, %9
-  %.sroa.7.0.ph.i = phi i64 [ 0, %11 ], [ %10, %9 ], [ 0, %.lr.ph.i.i.i.i ]
-  %.sroa.0.0.ph.i = phi ptr [ %14, %11 ], [ %.sroa.0.0.lcssa.i.i, %9 ], [ %17, %.lr.ph.i.i.i.i ]
+  %.sroa.7.0.ph.i = phi i64 [ %10, %9 ], [ 0, %11 ], [ 0, %.lr.ph.i.i.i.i ]
+  %.sroa.0.0.ph.i = phi ptr [ %.sroa.0.0.lcssa.i.i, %9 ], [ %14, %11 ], [ %17, %.lr.ph.i.i.i.i ]
   store ptr %.sroa.0.0.lcssa.i.i, ptr %0, align 8
   %.sroa.8.24..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.5.0.lcssa.i.i, ptr %.sroa.8.24..sroa_idx, align 8
@@ -36770,8 +36770,8 @@ define hidden void @_ZN5alloc11collections5btree3mem7replace17h9acb041d587e07b2E
           to label %33 unwind label %31
 
 "_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$27deallocating_next_unchecked28_$u7b$$u7b$closure$u7d$$u7d$17h2420f9e108c0b6cbE.llvm.3189713146689755573.exit": ; preds = %.lr.ph.i.i.i.i, %11, %9
-  %.sroa.7.0.ph.i = phi i64 [ 0, %11 ], [ %10, %9 ], [ 0, %.lr.ph.i.i.i.i ]
-  %.sroa.0.0.ph.i = phi ptr [ %14, %11 ], [ %.sroa.0.0.lcssa.i.i, %9 ], [ %17, %.lr.ph.i.i.i.i ]
+  %.sroa.7.0.ph.i = phi i64 [ %10, %9 ], [ 0, %11 ], [ 0, %.lr.ph.i.i.i.i ]
+  %.sroa.0.0.ph.i = phi ptr [ %.sroa.0.0.lcssa.i.i, %9 ], [ %14, %11 ], [ %17, %.lr.ph.i.i.i.i ]
   store ptr %.sroa.0.0.lcssa.i.i, ptr %0, align 8
   %.sroa.8.24..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.5.0.lcssa.i.i, ptr %.sroa.8.24..sroa_idx, align 8
@@ -36974,8 +36974,8 @@ define hidden void @_ZN5alloc11collections5btree3mem7replace17ha9edbae9f5c3186dE
           to label %33 unwind label %31
 
 "_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$27deallocating_next_unchecked28_$u7b$$u7b$closure$u7d$$u7d$17h1eae99c6bb4ae276E.llvm.3189713146689755573.exit": ; preds = %.lr.ph.i.i.i.i, %11, %9
-  %.sroa.7.0.ph.i = phi i64 [ 0, %11 ], [ %10, %9 ], [ 0, %.lr.ph.i.i.i.i ]
-  %.sroa.0.0.ph.i = phi ptr [ %14, %11 ], [ %.sroa.0.0.lcssa.i.i, %9 ], [ %17, %.lr.ph.i.i.i.i ]
+  %.sroa.7.0.ph.i = phi i64 [ %10, %9 ], [ 0, %11 ], [ 0, %.lr.ph.i.i.i.i ]
+  %.sroa.0.0.ph.i = phi ptr [ %.sroa.0.0.lcssa.i.i, %9 ], [ %14, %11 ], [ %17, %.lr.ph.i.i.i.i ]
   store ptr %.sroa.0.0.lcssa.i.i, ptr %0, align 8
   %.sroa.8.24..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.5.0.lcssa.i.i, ptr %.sroa.8.24..sroa_idx, align 8
@@ -37277,8 +37277,8 @@ define hidden void @_ZN5alloc11collections5btree3mem7replace17had6ec5229e0f2a10E
           to label %33 unwind label %31
 
 "_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$27deallocating_next_unchecked28_$u7b$$u7b$closure$u7d$$u7d$17hf7a4690f5fcc82adE.llvm.3189713146689755573.exit": ; preds = %.lr.ph.i.i.i.i, %11, %9
-  %.sroa.7.0.ph.i = phi i64 [ 0, %11 ], [ %10, %9 ], [ 0, %.lr.ph.i.i.i.i ]
-  %.sroa.0.0.ph.i = phi ptr [ %14, %11 ], [ %.sroa.0.0.lcssa.i.i, %9 ], [ %17, %.lr.ph.i.i.i.i ]
+  %.sroa.7.0.ph.i = phi i64 [ %10, %9 ], [ 0, %11 ], [ 0, %.lr.ph.i.i.i.i ]
+  %.sroa.0.0.ph.i = phi ptr [ %.sroa.0.0.lcssa.i.i, %9 ], [ %14, %11 ], [ %17, %.lr.ph.i.i.i.i ]
   store ptr %.sroa.0.0.lcssa.i.i, ptr %0, align 8
   %.sroa.8.24..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.5.0.lcssa.i.i, ptr %.sroa.8.24..sroa_idx, align 8
@@ -37382,8 +37382,8 @@ define hidden void @_ZN5alloc11collections5btree3mem7replace17had89dbeab36686ceE
           to label %33 unwind label %31
 
 "_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$27deallocating_next_unchecked28_$u7b$$u7b$closure$u7d$$u7d$17h1f43fb3e3302b90eE.llvm.3189713146689755573.exit": ; preds = %.lr.ph.i.i.i.i, %11, %9
-  %.sroa.7.0.ph.i = phi i64 [ 0, %11 ], [ %10, %9 ], [ 0, %.lr.ph.i.i.i.i ]
-  %.sroa.0.0.ph.i = phi ptr [ %14, %11 ], [ %.sroa.0.0.lcssa.i.i, %9 ], [ %17, %.lr.ph.i.i.i.i ]
+  %.sroa.7.0.ph.i = phi i64 [ %10, %9 ], [ 0, %11 ], [ 0, %.lr.ph.i.i.i.i ]
+  %.sroa.0.0.ph.i = phi ptr [ %.sroa.0.0.lcssa.i.i, %9 ], [ %14, %11 ], [ %17, %.lr.ph.i.i.i.i ]
   store ptr %.sroa.0.0.lcssa.i.i, ptr %0, align 8
   %.sroa.8.24..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.5.0.lcssa.i.i, ptr %.sroa.8.24..sroa_idx, align 8
@@ -37486,8 +37486,8 @@ define hidden void @_ZN5alloc11collections5btree3mem7replace17hb1bb6a9189e9f40fE
           to label %32 unwind label %30
 
 "_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$27deallocating_next_unchecked28_$u7b$$u7b$closure$u7d$$u7d$17h5ed4310581199ce1E.llvm.3189713146689755573.exit": ; preds = %.lr.ph.i.i.i.i, %11, %9
-  %.sroa.7.0.ph.i = phi i64 [ 0, %11 ], [ %10, %9 ], [ 0, %.lr.ph.i.i.i.i ]
-  %.sroa.0.0.ph.i = phi ptr [ %14, %11 ], [ %.sroa.0.0.lcssa.i.i, %9 ], [ %17, %.lr.ph.i.i.i.i ]
+  %.sroa.7.0.ph.i = phi i64 [ %10, %9 ], [ 0, %11 ], [ 0, %.lr.ph.i.i.i.i ]
+  %.sroa.0.0.ph.i = phi ptr [ %.sroa.0.0.lcssa.i.i, %9 ], [ %14, %11 ], [ %17, %.lr.ph.i.i.i.i ]
   store ptr %.sroa.0.0.lcssa.i.i, ptr %0, align 8
   %.sroa.8.24..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.5.0.lcssa.i.i, ptr %.sroa.8.24..sroa_idx, align 8
@@ -37590,8 +37590,8 @@ define hidden void @_ZN5alloc11collections5btree3mem7replace17hb2bc05b8ac3f74f3E
           to label %32 unwind label %30
 
 "_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$27deallocating_next_unchecked28_$u7b$$u7b$closure$u7d$$u7d$17hdac9d07c5c252ba6E.llvm.3189713146689755573.exit": ; preds = %.lr.ph.i.i.i.i, %11, %9
-  %.sroa.7.0.ph.i = phi i64 [ 0, %11 ], [ %10, %9 ], [ 0, %.lr.ph.i.i.i.i ]
-  %.sroa.0.0.ph.i = phi ptr [ %14, %11 ], [ %.sroa.0.0.lcssa.i.i, %9 ], [ %17, %.lr.ph.i.i.i.i ]
+  %.sroa.7.0.ph.i = phi i64 [ %10, %9 ], [ 0, %11 ], [ 0, %.lr.ph.i.i.i.i ]
+  %.sroa.0.0.ph.i = phi ptr [ %.sroa.0.0.lcssa.i.i, %9 ], [ %14, %11 ], [ %17, %.lr.ph.i.i.i.i ]
   store ptr %.sroa.0.0.lcssa.i.i, ptr %0, align 8
   %.sroa.8.24..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.5.0.lcssa.i.i, ptr %.sroa.8.24..sroa_idx, align 8
@@ -37695,8 +37695,8 @@ define hidden void @_ZN5alloc11collections5btree3mem7replace17hb8eed4ff673b2104E
           to label %33 unwind label %31
 
 "_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$27deallocating_next_unchecked28_$u7b$$u7b$closure$u7d$$u7d$17hfd43d00e295e4782E.llvm.3189713146689755573.exit": ; preds = %.lr.ph.i.i.i.i, %11, %9
-  %.sroa.7.0.ph.i = phi i64 [ 0, %11 ], [ %10, %9 ], [ 0, %.lr.ph.i.i.i.i ]
-  %.sroa.0.0.ph.i = phi ptr [ %14, %11 ], [ %.sroa.0.0.lcssa.i.i, %9 ], [ %17, %.lr.ph.i.i.i.i ]
+  %.sroa.7.0.ph.i = phi i64 [ %10, %9 ], [ 0, %11 ], [ 0, %.lr.ph.i.i.i.i ]
+  %.sroa.0.0.ph.i = phi ptr [ %.sroa.0.0.lcssa.i.i, %9 ], [ %14, %11 ], [ %17, %.lr.ph.i.i.i.i ]
   store ptr %.sroa.0.0.lcssa.i.i, ptr %0, align 8
   %.sroa.8.24..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.5.0.lcssa.i.i, ptr %.sroa.8.24..sroa_idx, align 8
@@ -37899,8 +37899,8 @@ define hidden void @_ZN5alloc11collections5btree3mem7replace17hc39295d3c5605db0E
           to label %33 unwind label %31
 
 "_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$27deallocating_next_unchecked28_$u7b$$u7b$closure$u7d$$u7d$17h1be56da484217cd1E.llvm.3189713146689755573.exit": ; preds = %.lr.ph.i.i.i.i, %11, %9
-  %.sroa.7.0.ph.i = phi i64 [ 0, %11 ], [ %10, %9 ], [ 0, %.lr.ph.i.i.i.i ]
-  %.sroa.0.0.ph.i = phi ptr [ %14, %11 ], [ %.sroa.0.0.lcssa.i.i, %9 ], [ %17, %.lr.ph.i.i.i.i ]
+  %.sroa.7.0.ph.i = phi i64 [ %10, %9 ], [ 0, %11 ], [ 0, %.lr.ph.i.i.i.i ]
+  %.sroa.0.0.ph.i = phi ptr [ %.sroa.0.0.lcssa.i.i, %9 ], [ %14, %11 ], [ %17, %.lr.ph.i.i.i.i ]
   store ptr %.sroa.0.0.lcssa.i.i, ptr %0, align 8
   %.sroa.8.24..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.5.0.lcssa.i.i, ptr %.sroa.8.24..sroa_idx, align 8
@@ -38004,8 +38004,8 @@ define hidden void @_ZN5alloc11collections5btree3mem7replace17hc6087a883027e2f5E
           to label %33 unwind label %31
 
 "_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$27deallocating_next_unchecked28_$u7b$$u7b$closure$u7d$$u7d$17h96d4b7d3f0154901E.llvm.3189713146689755573.exit": ; preds = %.lr.ph.i.i.i.i, %11, %9
-  %.sroa.7.0.ph.i = phi i64 [ 0, %11 ], [ %10, %9 ], [ 0, %.lr.ph.i.i.i.i ]
-  %.sroa.0.0.ph.i = phi ptr [ %14, %11 ], [ %.sroa.0.0.lcssa.i.i, %9 ], [ %17, %.lr.ph.i.i.i.i ]
+  %.sroa.7.0.ph.i = phi i64 [ %10, %9 ], [ 0, %11 ], [ 0, %.lr.ph.i.i.i.i ]
+  %.sroa.0.0.ph.i = phi ptr [ %.sroa.0.0.lcssa.i.i, %9 ], [ %14, %11 ], [ %17, %.lr.ph.i.i.i.i ]
   store ptr %.sroa.0.0.lcssa.i.i, ptr %0, align 8
   %.sroa.8.24..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.5.0.lcssa.i.i, ptr %.sroa.8.24..sroa_idx, align 8
@@ -38109,8 +38109,8 @@ define hidden void @_ZN5alloc11collections5btree3mem7replace17hca833f111c359780E
           to label %33 unwind label %31
 
 "_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$27deallocating_next_unchecked28_$u7b$$u7b$closure$u7d$$u7d$17h7bb2b59675415dafE.llvm.3189713146689755573.exit": ; preds = %.lr.ph.i.i.i.i, %11, %9
-  %.sroa.7.0.ph.i = phi i64 [ 0, %11 ], [ %10, %9 ], [ 0, %.lr.ph.i.i.i.i ]
-  %.sroa.0.0.ph.i = phi ptr [ %14, %11 ], [ %.sroa.0.0.lcssa.i.i, %9 ], [ %17, %.lr.ph.i.i.i.i ]
+  %.sroa.7.0.ph.i = phi i64 [ %10, %9 ], [ 0, %11 ], [ 0, %.lr.ph.i.i.i.i ]
+  %.sroa.0.0.ph.i = phi ptr [ %.sroa.0.0.lcssa.i.i, %9 ], [ %14, %11 ], [ %17, %.lr.ph.i.i.i.i ]
   store ptr %.sroa.0.0.lcssa.i.i, ptr %0, align 8
   %.sroa.8.24..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.5.0.lcssa.i.i, ptr %.sroa.8.24..sroa_idx, align 8
@@ -38313,8 +38313,8 @@ define hidden void @_ZN5alloc11collections5btree3mem7replace17hdb8d852b2923920cE
           to label %33 unwind label %31
 
 "_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$27deallocating_next_unchecked28_$u7b$$u7b$closure$u7d$$u7d$17h0e0b260de7b957bcE.llvm.3189713146689755573.exit": ; preds = %.lr.ph.i.i.i.i, %11, %9
-  %.sroa.7.0.ph.i = phi i64 [ 0, %11 ], [ %10, %9 ], [ 0, %.lr.ph.i.i.i.i ]
-  %.sroa.0.0.ph.i = phi ptr [ %14, %11 ], [ %.sroa.0.0.lcssa.i.i, %9 ], [ %17, %.lr.ph.i.i.i.i ]
+  %.sroa.7.0.ph.i = phi i64 [ %10, %9 ], [ 0, %11 ], [ 0, %.lr.ph.i.i.i.i ]
+  %.sroa.0.0.ph.i = phi ptr [ %.sroa.0.0.lcssa.i.i, %9 ], [ %14, %11 ], [ %17, %.lr.ph.i.i.i.i ]
   store ptr %.sroa.0.0.lcssa.i.i, ptr %0, align 8
   %.sroa.8.24..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.5.0.lcssa.i.i, ptr %.sroa.8.24..sroa_idx, align 8
@@ -38418,8 +38418,8 @@ define hidden void @_ZN5alloc11collections5btree3mem7replace17hdfe9efaf91256bc9E
           to label %33 unwind label %31
 
 "_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$27deallocating_next_unchecked28_$u7b$$u7b$closure$u7d$$u7d$17h25c0b3b7092d612bE.llvm.3189713146689755573.exit": ; preds = %.lr.ph.i.i.i.i, %11, %9
-  %.sroa.7.0.ph.i = phi i64 [ 0, %11 ], [ %10, %9 ], [ 0, %.lr.ph.i.i.i.i ]
-  %.sroa.0.0.ph.i = phi ptr [ %14, %11 ], [ %.sroa.0.0.lcssa.i.i, %9 ], [ %17, %.lr.ph.i.i.i.i ]
+  %.sroa.7.0.ph.i = phi i64 [ %10, %9 ], [ 0, %11 ], [ 0, %.lr.ph.i.i.i.i ]
+  %.sroa.0.0.ph.i = phi ptr [ %.sroa.0.0.lcssa.i.i, %9 ], [ %14, %11 ], [ %17, %.lr.ph.i.i.i.i ]
   store ptr %.sroa.0.0.lcssa.i.i, ptr %0, align 8
   %.sroa.8.24..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.5.0.lcssa.i.i, ptr %.sroa.8.24..sroa_idx, align 8
@@ -38621,8 +38621,8 @@ define hidden void @_ZN5alloc11collections5btree3mem7replace17hed99a78e18692154E
           to label %33 unwind label %31
 
 "_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$27deallocating_next_unchecked28_$u7b$$u7b$closure$u7d$$u7d$17h363ecef82bdad677E.llvm.3189713146689755573.exit": ; preds = %.lr.ph.i.i.i.i, %11, %9
-  %.sroa.7.0.ph.i = phi i64 [ 0, %11 ], [ %10, %9 ], [ 0, %.lr.ph.i.i.i.i ]
-  %.sroa.0.0.ph.i = phi ptr [ %14, %11 ], [ %.sroa.0.0.lcssa.i.i, %9 ], [ %17, %.lr.ph.i.i.i.i ]
+  %.sroa.7.0.ph.i = phi i64 [ %10, %9 ], [ 0, %11 ], [ 0, %.lr.ph.i.i.i.i ]
+  %.sroa.0.0.ph.i = phi ptr [ %.sroa.0.0.lcssa.i.i, %9 ], [ %14, %11 ], [ %17, %.lr.ph.i.i.i.i ]
   store ptr %.sroa.0.0.lcssa.i.i, ptr %0, align 8
   %.sroa.8.24..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.5.0.lcssa.i.i, ptr %.sroa.8.24..sroa_idx, align 8
@@ -46044,10 +46044,10 @@ default.unreachable.i38.i.i:                      ; preds = %"_ZN110_$LT$core..i
   br label %"_ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$$GT$22find_upper_bound_index17hf5be7070d4c5c575E.exit.i"
 
 "_ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$$GT$22find_upper_bound_index17hf5be7070d4c5c575E.exit.i": ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbda7d97cccb4cf74E.exit.i30.i.i", %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbda7d97cccb4cf74E.exit.i.i.i", %"_ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$$GT$22find_upper_bound_index17hf5be7070d4c5c575E.exit.i.loopexit295", %"_ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$$GT$22find_upper_bound_index17hf5be7070d4c5c575E.exit.i.loopexit", %"._ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$$GT$22find_upper_bound_index17hf5be7070d4c5c575E.exit.i_crit_edge"
-  %.pre-phi = phi i64 [ %.pre211, %"._ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$$GT$22find_upper_bound_index17hf5be7070d4c5c575E.exit.i_crit_edge" ], [ %12, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbda7d97cccb4cf74E.exit.i.i.i" ], [ %23, %"_ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$$GT$22find_upper_bound_index17hf5be7070d4c5c575E.exit.i.loopexit295" ], [ %12, %"_ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$$GT$22find_upper_bound_index17hf5be7070d4c5c575E.exit.i.loopexit" ], [ %23, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbda7d97cccb4cf74E.exit.i30.i.i" ]
-  %.sroa.16.1.i = phi ptr [ %.sroa.16.0.i, %"._ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$$GT$22find_upper_bound_index17hf5be7070d4c5c575E.exit.i_crit_edge" ], [ %.sroa.16.0.i, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbda7d97cccb4cf74E.exit.i.i.i" ], [ %.sroa.5.0.i, %"_ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$$GT$22find_upper_bound_index17hf5be7070d4c5c575E.exit.i.loopexit295" ], [ %.sroa.5.0.i, %"_ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$$GT$22find_upper_bound_index17hf5be7070d4c5c575E.exit.i.loopexit" ], [ %.sroa.16.0.i, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbda7d97cccb4cf74E.exit.i30.i.i" ]
-  %.sroa.9.0.i = phi i64 [ 2, %"._ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$$GT$22find_upper_bound_index17hf5be7070d4c5c575E.exit.i_crit_edge" ], [ 3, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbda7d97cccb4cf74E.exit.i.i.i" ], [ 1, %"_ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$$GT$22find_upper_bound_index17hf5be7070d4c5c575E.exit.i.loopexit295" ], [ 0, %"_ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$$GT$22find_upper_bound_index17hf5be7070d4c5c575E.exit.i.loopexit" ], [ 2, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbda7d97cccb4cf74E.exit.i30.i.i" ]
-  %.sroa.062.0.i = phi i64 [ 0, %"._ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$$GT$22find_upper_bound_index17hf5be7070d4c5c575E.exit.i_crit_edge" ], [ %.sroa.8.0.i.i.i, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbda7d97cccb4cf74E.exit.i.i.i" ], [ %.sroa.8.0.i29.i.i, %"_ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$$GT$22find_upper_bound_index17hf5be7070d4c5c575E.exit.i.loopexit295" ], [ %.sroa.8.0.i.i.i, %"_ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$$GT$22find_upper_bound_index17hf5be7070d4c5c575E.exit.i.loopexit" ], [ %27, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbda7d97cccb4cf74E.exit.i30.i.i" ]
+  %.pre-phi = phi i64 [ %.pre211, %"._ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$$GT$22find_upper_bound_index17hf5be7070d4c5c575E.exit.i_crit_edge" ], [ %12, %"_ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$$GT$22find_upper_bound_index17hf5be7070d4c5c575E.exit.i.loopexit" ], [ %12, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbda7d97cccb4cf74E.exit.i.i.i" ], [ %23, %"_ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$$GT$22find_upper_bound_index17hf5be7070d4c5c575E.exit.i.loopexit295" ], [ %23, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbda7d97cccb4cf74E.exit.i30.i.i" ]
+  %.sroa.16.1.i = phi ptr [ %.sroa.16.0.i, %"._ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$$GT$22find_upper_bound_index17hf5be7070d4c5c575E.exit.i_crit_edge" ], [ %.sroa.5.0.i, %"_ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$$GT$22find_upper_bound_index17hf5be7070d4c5c575E.exit.i.loopexit" ], [ %.sroa.16.0.i, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbda7d97cccb4cf74E.exit.i.i.i" ], [ %.sroa.5.0.i, %"_ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$$GT$22find_upper_bound_index17hf5be7070d4c5c575E.exit.i.loopexit295" ], [ %.sroa.16.0.i, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbda7d97cccb4cf74E.exit.i30.i.i" ]
+  %.sroa.9.0.i = phi i64 [ 2, %"._ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$$GT$22find_upper_bound_index17hf5be7070d4c5c575E.exit.i_crit_edge" ], [ 0, %"_ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$$GT$22find_upper_bound_index17hf5be7070d4c5c575E.exit.i.loopexit" ], [ 3, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbda7d97cccb4cf74E.exit.i.i.i" ], [ 1, %"_ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$$GT$22find_upper_bound_index17hf5be7070d4c5c575E.exit.i.loopexit295" ], [ 2, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbda7d97cccb4cf74E.exit.i30.i.i" ]
+  %.sroa.062.0.i = phi i64 [ 0, %"._ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$$GT$22find_upper_bound_index17hf5be7070d4c5c575E.exit.i_crit_edge" ], [ %.sroa.8.0.i.i.i, %"_ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$$GT$22find_upper_bound_index17hf5be7070d4c5c575E.exit.i.loopexit" ], [ %.sroa.8.0.i.i.i, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbda7d97cccb4cf74E.exit.i.i.i" ], [ %.sroa.8.0.i29.i.i, %"_ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$$GT$22find_upper_bound_index17hf5be7070d4c5c575E.exit.i.loopexit295" ], [ %27, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbda7d97cccb4cf74E.exit.i30.i.i" ]
   %33 = icmp ult i64 %.sroa.062.0.i, %.pre-phi
   br i1 %33, label %.preheader, label %"_ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$$GT$22find_upper_bound_index17hf5be7070d4c5c575E.exit.i.thread"
 
@@ -46056,9 +46056,9 @@ default.unreachable.i38.i.i:                      ; preds = %"_ZN110_$LT$core..i
   br i1 %.not.i.not155, label %._crit_edge, label %.lr.ph.preheader
 
 "_ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$$GT$22find_upper_bound_index17hf5be7070d4c5c575E.exit.i.thread": ; preds = %25, %14, %29, %"_ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$$GT$22find_upper_bound_index17hf5be7070d4c5c575E.exit.i"
-  %.sroa.062.0.i218 = phi i64 [ %.sroa.062.0.i, %"_ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$$GT$22find_upper_bound_index17hf5be7070d4c5c575E.exit.i" ], [ %32, %29 ], [ %12, %14 ], [ %23, %25 ]
-  %.sroa.9.0.i217 = phi i64 [ %.sroa.9.0.i, %"_ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$$GT$22find_upper_bound_index17hf5be7070d4c5c575E.exit.i" ], [ 3, %29 ], [ 0, %14 ], [ 1, %25 ]
-  %.sroa.16.1.i216 = phi ptr [ %.sroa.16.1.i, %"_ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$$GT$22find_upper_bound_index17hf5be7070d4c5c575E.exit.i" ], [ %.sroa.16.0.i, %29 ], [ %.sroa.5.0.i, %14 ], [ %.sroa.5.0.i, %25 ]
+  %.sroa.062.0.i218 = phi i64 [ %.sroa.062.0.i, %"_ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$$GT$22find_upper_bound_index17hf5be7070d4c5c575E.exit.i" ], [ %12, %14 ], [ %32, %29 ], [ %23, %25 ]
+  %.sroa.9.0.i217 = phi i64 [ %.sroa.9.0.i, %"_ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$$GT$22find_upper_bound_index17hf5be7070d4c5c575E.exit.i" ], [ 0, %14 ], [ 3, %29 ], [ 1, %25 ]
+  %.sroa.16.1.i216 = phi ptr [ %.sroa.16.1.i, %"_ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$$GT$22find_upper_bound_index17hf5be7070d4c5c575E.exit.i" ], [ %.sroa.5.0.i, %14 ], [ %.sroa.16.0.i, %29 ], [ %.sroa.5.0.i, %25 ]
   %.not.i.not.i = icmp eq i64 %.sroa.6.0.i, 0
   br i1 %.not.i.not.i, label %39, label %34
 
@@ -50318,8 +50318,8 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   unreachable
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i, %13, %15
-  %.sroa.7.0.ph = phi i64 [ 0, %15 ], [ %14, %13 ], [ 0, %.lr.ph.i.i.i ]
-  %.sroa.0.0.ph = phi ptr [ %18, %15 ], [ %.sroa.0.0.lcssa.i, %13 ], [ %21, %.lr.ph.i.i.i ]
+  %.sroa.7.0.ph = phi i64 [ %14, %13 ], [ 0, %15 ], [ 0, %.lr.ph.i.i.i ]
+  %.sroa.0.0.ph = phi ptr [ %.sroa.0.0.lcssa.i, %13 ], [ %18, %15 ], [ %21, %.lr.ph.i.i.i ]
   store ptr %.sroa.0.0.ph, ptr %0, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %.sroa.6.0..sroa_idx, align 8
@@ -50408,8 +50408,8 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   unreachable
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i, %13, %15
-  %.sroa.7.0.ph = phi i64 [ 0, %15 ], [ %14, %13 ], [ 0, %.lr.ph.i.i.i ]
-  %.sroa.0.0.ph = phi ptr [ %18, %15 ], [ %.sroa.0.0.lcssa.i, %13 ], [ %21, %.lr.ph.i.i.i ]
+  %.sroa.7.0.ph = phi i64 [ %14, %13 ], [ 0, %15 ], [ 0, %.lr.ph.i.i.i ]
+  %.sroa.0.0.ph = phi ptr [ %.sroa.0.0.lcssa.i, %13 ], [ %18, %15 ], [ %21, %.lr.ph.i.i.i ]
   store ptr %.sroa.0.0.ph, ptr %0, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %.sroa.6.0..sroa_idx, align 8
@@ -50498,8 +50498,8 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   unreachable
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i, %13, %15
-  %.sroa.7.0.ph = phi i64 [ 0, %15 ], [ %14, %13 ], [ 0, %.lr.ph.i.i.i ]
-  %.sroa.0.0.ph = phi ptr [ %18, %15 ], [ %.sroa.0.0.lcssa.i, %13 ], [ %21, %.lr.ph.i.i.i ]
+  %.sroa.7.0.ph = phi i64 [ %14, %13 ], [ 0, %15 ], [ 0, %.lr.ph.i.i.i ]
+  %.sroa.0.0.ph = phi ptr [ %.sroa.0.0.lcssa.i, %13 ], [ %18, %15 ], [ %21, %.lr.ph.i.i.i ]
   store ptr %.sroa.0.0.ph, ptr %0, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %.sroa.6.0..sroa_idx, align 8
@@ -50588,8 +50588,8 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   unreachable
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i, %13, %15
-  %.sroa.7.0.ph = phi i64 [ 0, %15 ], [ %14, %13 ], [ 0, %.lr.ph.i.i.i ]
-  %.sroa.0.0.ph = phi ptr [ %18, %15 ], [ %.sroa.0.0.lcssa.i, %13 ], [ %21, %.lr.ph.i.i.i ]
+  %.sroa.7.0.ph = phi i64 [ %14, %13 ], [ 0, %15 ], [ 0, %.lr.ph.i.i.i ]
+  %.sroa.0.0.ph = phi ptr [ %.sroa.0.0.lcssa.i, %13 ], [ %18, %15 ], [ %21, %.lr.ph.i.i.i ]
   store ptr %.sroa.0.0.ph, ptr %0, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %.sroa.6.0..sroa_idx, align 8
@@ -50678,8 +50678,8 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   unreachable
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i, %13, %15
-  %.sroa.7.0.ph = phi i64 [ 0, %15 ], [ %14, %13 ], [ 0, %.lr.ph.i.i.i ]
-  %.sroa.0.0.ph = phi ptr [ %18, %15 ], [ %.sroa.0.0.lcssa.i, %13 ], [ %21, %.lr.ph.i.i.i ]
+  %.sroa.7.0.ph = phi i64 [ %14, %13 ], [ 0, %15 ], [ 0, %.lr.ph.i.i.i ]
+  %.sroa.0.0.ph = phi ptr [ %.sroa.0.0.lcssa.i, %13 ], [ %18, %15 ], [ %21, %.lr.ph.i.i.i ]
   store ptr %.sroa.0.0.ph, ptr %0, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %.sroa.6.0..sroa_idx, align 8
@@ -50768,8 +50768,8 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   unreachable
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i, %13, %15
-  %.sroa.7.0.ph = phi i64 [ 0, %15 ], [ %14, %13 ], [ 0, %.lr.ph.i.i.i ]
-  %.sroa.0.0.ph = phi ptr [ %18, %15 ], [ %.sroa.0.0.lcssa.i, %13 ], [ %21, %.lr.ph.i.i.i ]
+  %.sroa.7.0.ph = phi i64 [ %14, %13 ], [ 0, %15 ], [ 0, %.lr.ph.i.i.i ]
+  %.sroa.0.0.ph = phi ptr [ %.sroa.0.0.lcssa.i, %13 ], [ %18, %15 ], [ %21, %.lr.ph.i.i.i ]
   store ptr %.sroa.0.0.ph, ptr %0, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %.sroa.6.0..sroa_idx, align 8
@@ -50857,8 +50857,8 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   unreachable
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i, %13, %15
-  %.sroa.7.0.ph = phi i64 [ 0, %15 ], [ %14, %13 ], [ 0, %.lr.ph.i.i.i ]
-  %.sroa.0.0.ph = phi ptr [ %18, %15 ], [ %.sroa.0.0.lcssa.i, %13 ], [ %21, %.lr.ph.i.i.i ]
+  %.sroa.7.0.ph = phi i64 [ %14, %13 ], [ 0, %15 ], [ 0, %.lr.ph.i.i.i ]
+  %.sroa.0.0.ph = phi ptr [ %.sroa.0.0.lcssa.i, %13 ], [ %18, %15 ], [ %21, %.lr.ph.i.i.i ]
   store ptr %.sroa.0.0.ph, ptr %0, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %.sroa.6.0..sroa_idx, align 8
@@ -50946,8 +50946,8 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   unreachable
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i, %13, %15
-  %.sroa.7.0.ph = phi i64 [ 0, %15 ], [ %14, %13 ], [ 0, %.lr.ph.i.i.i ]
-  %.sroa.0.0.ph = phi ptr [ %18, %15 ], [ %.sroa.0.0.lcssa.i, %13 ], [ %21, %.lr.ph.i.i.i ]
+  %.sroa.7.0.ph = phi i64 [ %14, %13 ], [ 0, %15 ], [ 0, %.lr.ph.i.i.i ]
+  %.sroa.0.0.ph = phi ptr [ %.sroa.0.0.lcssa.i, %13 ], [ %18, %15 ], [ %21, %.lr.ph.i.i.i ]
   store ptr %.sroa.0.0.ph, ptr %0, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %.sroa.6.0..sroa_idx, align 8
@@ -51036,8 +51036,8 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   unreachable
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i, %13, %15
-  %.sroa.7.0.ph = phi i64 [ 0, %15 ], [ %14, %13 ], [ 0, %.lr.ph.i.i.i ]
-  %.sroa.0.0.ph = phi ptr [ %18, %15 ], [ %.sroa.0.0.lcssa.i, %13 ], [ %21, %.lr.ph.i.i.i ]
+  %.sroa.7.0.ph = phi i64 [ %14, %13 ], [ 0, %15 ], [ 0, %.lr.ph.i.i.i ]
+  %.sroa.0.0.ph = phi ptr [ %.sroa.0.0.lcssa.i, %13 ], [ %18, %15 ], [ %21, %.lr.ph.i.i.i ]
   store ptr %.sroa.0.0.ph, ptr %0, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %.sroa.6.0..sroa_idx, align 8
@@ -51125,8 +51125,8 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   unreachable
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i, %13, %15
-  %.sroa.7.0.ph = phi i64 [ 0, %15 ], [ %14, %13 ], [ 0, %.lr.ph.i.i.i ]
-  %.sroa.0.0.ph = phi ptr [ %18, %15 ], [ %.sroa.0.0.lcssa.i, %13 ], [ %21, %.lr.ph.i.i.i ]
+  %.sroa.7.0.ph = phi i64 [ %14, %13 ], [ 0, %15 ], [ 0, %.lr.ph.i.i.i ]
+  %.sroa.0.0.ph = phi ptr [ %.sroa.0.0.lcssa.i, %13 ], [ %18, %15 ], [ %21, %.lr.ph.i.i.i ]
   store ptr %.sroa.0.0.ph, ptr %0, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %.sroa.6.0..sroa_idx, align 8
@@ -51215,8 +51215,8 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   unreachable
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i, %13, %15
-  %.sroa.7.0.ph = phi i64 [ 0, %15 ], [ %14, %13 ], [ 0, %.lr.ph.i.i.i ]
-  %.sroa.0.0.ph = phi ptr [ %18, %15 ], [ %.sroa.0.0.lcssa.i, %13 ], [ %21, %.lr.ph.i.i.i ]
+  %.sroa.7.0.ph = phi i64 [ %14, %13 ], [ 0, %15 ], [ 0, %.lr.ph.i.i.i ]
+  %.sroa.0.0.ph = phi ptr [ %.sroa.0.0.lcssa.i, %13 ], [ %18, %15 ], [ %21, %.lr.ph.i.i.i ]
   store ptr %.sroa.0.0.ph, ptr %0, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %.sroa.6.0..sroa_idx, align 8
@@ -51305,8 +51305,8 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   unreachable
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i, %13, %15
-  %.sroa.7.0.ph = phi i64 [ 0, %15 ], [ %14, %13 ], [ 0, %.lr.ph.i.i.i ]
-  %.sroa.0.0.ph = phi ptr [ %18, %15 ], [ %.sroa.0.0.lcssa.i, %13 ], [ %21, %.lr.ph.i.i.i ]
+  %.sroa.7.0.ph = phi i64 [ %14, %13 ], [ 0, %15 ], [ 0, %.lr.ph.i.i.i ]
+  %.sroa.0.0.ph = phi ptr [ %.sroa.0.0.lcssa.i, %13 ], [ %18, %15 ], [ %21, %.lr.ph.i.i.i ]
   store ptr %.sroa.0.0.ph, ptr %0, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %.sroa.6.0..sroa_idx, align 8
@@ -51394,8 +51394,8 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   unreachable
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i, %13, %15
-  %.sroa.7.0.ph = phi i64 [ 0, %15 ], [ %14, %13 ], [ 0, %.lr.ph.i.i.i ]
-  %.sroa.0.0.ph = phi ptr [ %18, %15 ], [ %.sroa.0.0.lcssa.i, %13 ], [ %21, %.lr.ph.i.i.i ]
+  %.sroa.7.0.ph = phi i64 [ %14, %13 ], [ 0, %15 ], [ 0, %.lr.ph.i.i.i ]
+  %.sroa.0.0.ph = phi ptr [ %.sroa.0.0.lcssa.i, %13 ], [ %18, %15 ], [ %21, %.lr.ph.i.i.i ]
   store ptr %.sroa.0.0.ph, ptr %0, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %.sroa.6.0..sroa_idx, align 8
@@ -51483,8 +51483,8 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   unreachable
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i, %13, %15
-  %.sroa.7.0.ph = phi i64 [ 0, %15 ], [ %14, %13 ], [ 0, %.lr.ph.i.i.i ]
-  %.sroa.0.0.ph = phi ptr [ %18, %15 ], [ %.sroa.0.0.lcssa.i, %13 ], [ %21, %.lr.ph.i.i.i ]
+  %.sroa.7.0.ph = phi i64 [ %14, %13 ], [ 0, %15 ], [ 0, %.lr.ph.i.i.i ]
+  %.sroa.0.0.ph = phi ptr [ %.sroa.0.0.lcssa.i, %13 ], [ %18, %15 ], [ %21, %.lr.ph.i.i.i ]
   store ptr %.sroa.0.0.ph, ptr %0, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %.sroa.6.0..sroa_idx, align 8
@@ -51573,8 +51573,8 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   unreachable
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i, %13, %15
-  %.sroa.7.0.ph = phi i64 [ 0, %15 ], [ %14, %13 ], [ 0, %.lr.ph.i.i.i ]
-  %.sroa.0.0.ph = phi ptr [ %18, %15 ], [ %.sroa.0.0.lcssa.i, %13 ], [ %21, %.lr.ph.i.i.i ]
+  %.sroa.7.0.ph = phi i64 [ %14, %13 ], [ 0, %15 ], [ 0, %.lr.ph.i.i.i ]
+  %.sroa.0.0.ph = phi ptr [ %.sroa.0.0.lcssa.i, %13 ], [ %18, %15 ], [ %21, %.lr.ph.i.i.i ]
   store ptr %.sroa.0.0.ph, ptr %0, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %.sroa.6.0..sroa_idx, align 8
@@ -51662,8 +51662,8 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   unreachable
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i, %13, %15
-  %.sroa.7.0.ph = phi i64 [ 0, %15 ], [ %14, %13 ], [ 0, %.lr.ph.i.i.i ]
-  %.sroa.0.0.ph = phi ptr [ %18, %15 ], [ %.sroa.0.0.lcssa.i, %13 ], [ %21, %.lr.ph.i.i.i ]
+  %.sroa.7.0.ph = phi i64 [ %14, %13 ], [ 0, %15 ], [ 0, %.lr.ph.i.i.i ]
+  %.sroa.0.0.ph = phi ptr [ %.sroa.0.0.lcssa.i, %13 ], [ %18, %15 ], [ %21, %.lr.ph.i.i.i ]
   store ptr %.sroa.0.0.ph, ptr %0, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %.sroa.6.0..sroa_idx, align 8
@@ -51752,8 +51752,8 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   unreachable
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i, %13, %15
-  %.sroa.7.0.ph = phi i64 [ 0, %15 ], [ %14, %13 ], [ 0, %.lr.ph.i.i.i ]
-  %.sroa.0.0.ph = phi ptr [ %18, %15 ], [ %.sroa.0.0.lcssa.i, %13 ], [ %21, %.lr.ph.i.i.i ]
+  %.sroa.7.0.ph = phi i64 [ %14, %13 ], [ 0, %15 ], [ 0, %.lr.ph.i.i.i ]
+  %.sroa.0.0.ph = phi ptr [ %.sroa.0.0.lcssa.i, %13 ], [ %18, %15 ], [ %21, %.lr.ph.i.i.i ]
   store ptr %.sroa.0.0.ph, ptr %0, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %.sroa.6.0..sroa_idx, align 8
@@ -51842,8 +51842,8 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   unreachable
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i, %13, %15
-  %.sroa.7.0.ph = phi i64 [ 0, %15 ], [ %14, %13 ], [ 0, %.lr.ph.i.i.i ]
-  %.sroa.0.0.ph = phi ptr [ %18, %15 ], [ %.sroa.0.0.lcssa.i, %13 ], [ %21, %.lr.ph.i.i.i ]
+  %.sroa.7.0.ph = phi i64 [ %14, %13 ], [ 0, %15 ], [ 0, %.lr.ph.i.i.i ]
+  %.sroa.0.0.ph = phi ptr [ %.sroa.0.0.lcssa.i, %13 ], [ %18, %15 ], [ %21, %.lr.ph.i.i.i ]
   store ptr %.sroa.0.0.ph, ptr %0, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %.sroa.6.0..sroa_idx, align 8
@@ -51932,8 +51932,8 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   unreachable
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i, %13, %15
-  %.sroa.7.0.ph = phi i64 [ 0, %15 ], [ %14, %13 ], [ 0, %.lr.ph.i.i.i ]
-  %.sroa.0.0.ph = phi ptr [ %18, %15 ], [ %.sroa.0.0.lcssa.i, %13 ], [ %21, %.lr.ph.i.i.i ]
+  %.sroa.7.0.ph = phi i64 [ %14, %13 ], [ 0, %15 ], [ 0, %.lr.ph.i.i.i ]
+  %.sroa.0.0.ph = phi ptr [ %.sroa.0.0.lcssa.i, %13 ], [ %18, %15 ], [ %21, %.lr.ph.i.i.i ]
   store ptr %.sroa.0.0.ph, ptr %0, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %.sroa.6.0..sroa_idx, align 8
@@ -52022,8 +52022,8 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   unreachable
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i, %13, %15
-  %.sroa.7.0.ph = phi i64 [ 0, %15 ], [ %14, %13 ], [ 0, %.lr.ph.i.i.i ]
-  %.sroa.0.0.ph = phi ptr [ %18, %15 ], [ %.sroa.0.0.lcssa.i, %13 ], [ %21, %.lr.ph.i.i.i ]
+  %.sroa.7.0.ph = phi i64 [ %14, %13 ], [ 0, %15 ], [ 0, %.lr.ph.i.i.i ]
+  %.sroa.0.0.ph = phi ptr [ %.sroa.0.0.lcssa.i, %13 ], [ %18, %15 ], [ %21, %.lr.ph.i.i.i ]
   store ptr %.sroa.0.0.ph, ptr %0, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %.sroa.6.0..sroa_idx, align 8
@@ -52112,8 +52112,8 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   unreachable
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i, %13, %15
-  %.sroa.7.0.ph = phi i64 [ 0, %15 ], [ %14, %13 ], [ 0, %.lr.ph.i.i.i ]
-  %.sroa.0.0.ph = phi ptr [ %18, %15 ], [ %.sroa.0.0.lcssa.i, %13 ], [ %21, %.lr.ph.i.i.i ]
+  %.sroa.7.0.ph = phi i64 [ %14, %13 ], [ 0, %15 ], [ 0, %.lr.ph.i.i.i ]
+  %.sroa.0.0.ph = phi ptr [ %.sroa.0.0.lcssa.i, %13 ], [ %18, %15 ], [ %21, %.lr.ph.i.i.i ]
   store ptr %.sroa.0.0.ph, ptr %0, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %.sroa.6.0..sroa_idx, align 8
@@ -52202,8 +52202,8 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   unreachable
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i, %13, %15
-  %.sroa.7.0.ph = phi i64 [ 0, %15 ], [ %14, %13 ], [ 0, %.lr.ph.i.i.i ]
-  %.sroa.0.0.ph = phi ptr [ %18, %15 ], [ %.sroa.0.0.lcssa.i, %13 ], [ %21, %.lr.ph.i.i.i ]
+  %.sroa.7.0.ph = phi i64 [ %14, %13 ], [ 0, %15 ], [ 0, %.lr.ph.i.i.i ]
+  %.sroa.0.0.ph = phi ptr [ %.sroa.0.0.lcssa.i, %13 ], [ %18, %15 ], [ %21, %.lr.ph.i.i.i ]
   store ptr %.sroa.0.0.ph, ptr %0, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %.sroa.6.0..sroa_idx, align 8
@@ -52291,8 +52291,8 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   unreachable
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i, %13, %15
-  %.sroa.7.0.ph = phi i64 [ 0, %15 ], [ %14, %13 ], [ 0, %.lr.ph.i.i.i ]
-  %.sroa.0.0.ph = phi ptr [ %18, %15 ], [ %.sroa.0.0.lcssa.i, %13 ], [ %21, %.lr.ph.i.i.i ]
+  %.sroa.7.0.ph = phi i64 [ %14, %13 ], [ 0, %15 ], [ 0, %.lr.ph.i.i.i ]
+  %.sroa.0.0.ph = phi ptr [ %.sroa.0.0.lcssa.i, %13 ], [ %18, %15 ], [ %21, %.lr.ph.i.i.i ]
   store ptr %.sroa.0.0.ph, ptr %0, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %.sroa.6.0..sroa_idx, align 8
@@ -52381,8 +52381,8 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   unreachable
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i, %13, %15
-  %.sroa.7.0.ph = phi i64 [ 0, %15 ], [ %14, %13 ], [ 0, %.lr.ph.i.i.i ]
-  %.sroa.0.0.ph = phi ptr [ %18, %15 ], [ %.sroa.0.0.lcssa.i, %13 ], [ %21, %.lr.ph.i.i.i ]
+  %.sroa.7.0.ph = phi i64 [ %14, %13 ], [ 0, %15 ], [ 0, %.lr.ph.i.i.i ]
+  %.sroa.0.0.ph = phi ptr [ %.sroa.0.0.lcssa.i, %13 ], [ %18, %15 ], [ %21, %.lr.ph.i.i.i ]
   store ptr %.sroa.0.0.ph, ptr %0, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %.sroa.6.0..sroa_idx, align 8
@@ -52471,8 +52471,8 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   unreachable
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i, %13, %15
-  %.sroa.7.0.ph = phi i64 [ 0, %15 ], [ %14, %13 ], [ 0, %.lr.ph.i.i.i ]
-  %.sroa.0.0.ph = phi ptr [ %18, %15 ], [ %.sroa.0.0.lcssa.i, %13 ], [ %21, %.lr.ph.i.i.i ]
+  %.sroa.7.0.ph = phi i64 [ %14, %13 ], [ 0, %15 ], [ 0, %.lr.ph.i.i.i ]
+  %.sroa.0.0.ph = phi ptr [ %.sroa.0.0.lcssa.i, %13 ], [ %18, %15 ], [ %21, %.lr.ph.i.i.i ]
   store ptr %.sroa.0.0.ph, ptr %0, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %.sroa.6.0..sroa_idx, align 8
@@ -52561,8 +52561,8 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   unreachable
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i, %13, %15
-  %.sroa.7.0.ph = phi i64 [ 0, %15 ], [ %14, %13 ], [ 0, %.lr.ph.i.i.i ]
-  %.sroa.0.0.ph = phi ptr [ %18, %15 ], [ %.sroa.0.0.lcssa.i, %13 ], [ %21, %.lr.ph.i.i.i ]
+  %.sroa.7.0.ph = phi i64 [ %14, %13 ], [ 0, %15 ], [ 0, %.lr.ph.i.i.i ]
+  %.sroa.0.0.ph = phi ptr [ %.sroa.0.0.lcssa.i, %13 ], [ %18, %15 ], [ %21, %.lr.ph.i.i.i ]
   store ptr %.sroa.0.0.ph, ptr %0, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %.sroa.6.0..sroa_idx, align 8

@@ -1061,7 +1061,7 @@ _outgoing_buf_free.exit:                          ; preds = %18
   br label %.loopexit
 
 .loopexit:                                        ; preds = %158, %195, %_outgoing_buf_free.exit, %41, %203, %188, %126, %89, %71
-  %.0 = phi i32 [ 0, %71 ], [ 0, %89 ], [ 0, %126 ], [ -1, %_outgoing_buf_free.exit ], [ 0, %188 ], [ 0, %203 ], [ -1, %41 ], [ 0, %195 ], [ 0, %158 ]
+  %.0 = phi i32 [ 0, %71 ], [ 0, %89 ], [ 0, %126 ], [ -1, %_outgoing_buf_free.exit ], [ 0, %188 ], [ 0, %195 ], [ 0, %203 ], [ -1, %41 ], [ 0, %158 ]
   ret i32 %.0
 }
 
@@ -1983,7 +1983,7 @@ define dso_local noundef ptr @client_io_handler_create(ptr noundef readonly byva
   br i1 %.not.i, label %_wid.exit, label %.lr.ph.i, !llvm.loop !14
 
 _wid.exit:                                        ; preds = %.lr.ph.i, %7, %14
-  %.sink = phi i32 [ 1, %14 ], [ 0, %7 ], [ %17, %.lr.ph.i ]
+  %.sink = phi i32 [ 0, %7 ], [ 1, %14 ], [ %17, %.lr.ph.i ]
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 %.sink, ptr %18, align 4
   %19 = tail call ptr @xstrdup(ptr noundef %3) #10

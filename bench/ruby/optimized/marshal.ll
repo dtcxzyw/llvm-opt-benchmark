@@ -5409,7 +5409,7 @@ r_entry0.exit:                                    ; preds = %rb_float_new_inline
   br i1 %exitcond.not.i480, label %r_long.exit486, label %362, !llvm.loop !26
 
 r_long.exit486:                                   ; preds = %362, %350, %347
-  %.034.i481 = phi i64 [ %349, %347 ], [ %355, %350 ], [ %370, %362 ]
+  %.034.i481 = phi i64 [ %355, %350 ], [ %349, %347 ], [ %370, %362 ]
   %372 = icmp slt i64 %.034.i481, 5
   br i1 %372, label %.preheader702, label %397
 
@@ -7418,7 +7418,7 @@ define internal fastcc void @r_ivar(i64 noundef %0, ptr noundef writeonly captur
   br i1 %exitcond.not.i, label %r_long.exit, label %27, !llvm.loop !26
 
 r_long.exit:                                      ; preds = %27, %15, %12
-  %.034.i = phi i64 [ %14, %12 ], [ %20, %15 ], [ %35, %27 ]
+  %.034.i = phi i64 [ %20, %15 ], [ %14, %12 ], [ %35, %27 ]
   %37 = icmp sgt i64 %.034.i, 0
   br i1 %37, label %38, label %r_long.exit.thread
 
@@ -8484,7 +8484,7 @@ r_long.exit:                                      ; preds = %29, %14, %2, %11, %
   br i1 %exitcond.not.i25, label %r_long.exit31, label %74, !llvm.loop !26
 
 r_long.exit31:                                    ; preds = %74, %62, %59
-  %.034.i26 = phi i64 [ %61, %59 ], [ %67, %62 ], [ %82, %74 ]
+  %.034.i26 = phi i64 [ %67, %62 ], [ %61, %59 ], [ %82, %74 ]
   %84 = icmp sgt i64 %.034.i26, 0
   br i1 %84, label %.lr.ph, label %.thread
 

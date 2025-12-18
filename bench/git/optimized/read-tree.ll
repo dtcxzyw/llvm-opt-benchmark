@@ -834,7 +834,7 @@ define dso_local range(i32 0, 129) i32 @cmd_read_tree(i32 noundef %0, ptr nounde
   unreachable
 
 .critedge:                                        ; preds = %.lr.ph91, %366, %351, %._crit_edge92
-  %.2 = phi i32 [ 0, %366 ], [ 128, %._crit_edge92 ], [ 0, %351 ], [ 128, %.lr.ph91 ]
+  %.2 = phi i32 [ 0, %351 ], [ 0, %366 ], [ 128, %._crit_edge92 ], [ 128, %.lr.ph91 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

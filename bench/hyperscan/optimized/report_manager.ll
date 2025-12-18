@@ -1065,7 +1065,7 @@ _ZNSt10_HashtableIjSt4pairIKjjESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4
   br label %.body
 
 .loopexit:                                        ; preds = %97, %.noexc23, %92
-  %.pn.i.i = phi ptr [ %93, %92 ], [ %108, %.noexc23 ], [ %99, %97 ]
+  %.pn.i.i = phi ptr [ %108, %.noexc23 ], [ %93, %92 ], [ %99, %97 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 12
   %110 = trunc i64 %85 to i32
   store i32 %110, ptr %.1.i.i, align 4
@@ -1319,13 +1319,13 @@ define hidden noundef i32 @_ZNK3ue213ReportManager7getDkeyERKNS_6ReportE(ptr nou
   br label %_ZN3ue2L16isExternalReportERKNS_6ReportE.exit, !llvm.loop !22
 
 _ZNKSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE4findERS5_.exit: ; preds = %30, %12, %25
-  %.sroa.06.1.i.i = phi ptr [ %26, %25 ], [ %.sroa.06.0.i.i, %12 ], [ %32, %30 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %12 ], [ %26, %25 ], [ %32, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 12
   %39 = load i32, ptr %38, align 4
   br label %_ZN3ue2L16isExternalReportERKNS_6ReportE.exit
 
 _ZN3ue2L16isExternalReportERKNS_6ReportE.exit:    ; preds = %.lr.ph.i.i.i.i, %11, %2, %16, %..loopexit_crit_edge21.i.i.i.i, %_ZNKSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE4findERS5_.exit
-  %.0 = phi i32 [ %39, %_ZNKSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE4findERS5_.exit ], [ -1, %16 ], [ -1, %..loopexit_crit_edge21.i.i.i.i ], [ -1, %2 ], [ -1, %11 ], [ -1, %.lr.ph.i.i.i.i ]
+  %.0 = phi i32 [ -1, %11 ], [ -1, %2 ], [ -1, %16 ], [ %39, %_ZNKSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE4findERS5_.exit ], [ -1, %..loopexit_crit_edge21.i.i.i.i ], [ -1, %.lr.ph.i.i.i.i ]
   ret i32 %.0
 }
 
@@ -1397,7 +1397,7 @@ define hidden void @_ZN3ue213ReportManager17registerExtReportEjRKNS_20external_r
   br label %.loopexit, !llvm.loop !49
 
 _ZNSt13unordered_mapIjN3ue220external_report_infoESt4hashIjESt8equal_toIjESaISt4pairIKjS1_EEE4findERS7_.exit: ; preds = %30, %13, %25
-  %.sroa.06.1.i.i = phi ptr [ %26, %25 ], [ %.sroa.06.0.i.i, %13 ], [ %32, %30 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %13 ], [ %26, %25 ], [ %32, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 12
   %39 = load i8, ptr %38, align 4, !range !18, !noundef !19
   %40 = load i8, ptr %2, align 4, !range !18, !noundef !19
@@ -1688,7 +1688,7 @@ define hidden noundef i32 @_ZNK3ue213ReportManager16getProgramOffsetEj(ptr nound
   unreachable
 
 _ZNKSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE2atERS5_.exit: ; preds = %26, %8, %21
-  %.sroa.06.1.i.i.i = phi ptr [ %22, %21 ], [ %.sroa.06.0.i.i.i, %8 ], [ %28, %26 ]
+  %.sroa.06.1.i.i.i = phi ptr [ %.sroa.06.0.i.i.i, %8 ], [ %22, %21 ], [ %28, %26 ]
   %34 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 12
   %35 = load i32, ptr %34, align 4
   ret i32 %35
@@ -3635,7 +3635,7 @@ _ZNSt10_HashtableIjSt4pairIKjN3ue220external_report_infoEESaIS4_ENSt8__detail10_
   resume { ptr, i32 } %46
 
 _ZNKSt10_HashtableIjSt4pairIKjN3ue220external_report_infoEESaIS4_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS1_m.exit: ; preds = %35, %21, %30
-  %.sroa.043.0.ph = phi ptr [ %31, %30 ], [ %.sroa.035.0, %21 ], [ %37, %35 ]
+  %.sroa.043.0.ph = phi ptr [ %.sroa.035.0, %21 ], [ %31, %30 ], [ %37, %35 ]
   tail call void @_ZdlPv(ptr noundef nonnull %4) #23
   br label %_ZNSt10_HashtableIjSt4pairIKjN3ue220external_report_infoEESaIS4_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 
@@ -3935,7 +3935,7 @@ _ZNSt10_HashtableIjSt4pairIKjjESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4
   resume { ptr, i32 } %46
 
 _ZNKSt10_HashtableIjSt4pairIKjjESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS1_m.exit: ; preds = %35, %21, %30
-  %.sroa.043.0.ph = phi ptr [ %31, %30 ], [ %.sroa.035.0, %21 ], [ %37, %35 ]
+  %.sroa.043.0.ph = phi ptr [ %.sroa.035.0, %21 ], [ %31, %30 ], [ %37, %35 ]
   tail call void @_ZdlPv(ptr noundef nonnull %4) #23
   br label %_ZNSt10_HashtableIjSt4pairIKjjESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 

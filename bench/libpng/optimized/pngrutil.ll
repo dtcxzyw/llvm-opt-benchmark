@@ -602,7 +602,7 @@ define range(i32 1, 4) i32 @png_handle_unknown(ptr noalias noundef %0, ptr noali
     i32 2, label %.thread54
   ]
 
-.thread54:                                        ; preds = %23, %19, %39
+.thread54:                                        ; preds = %19, %23, %39
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %41 = load i32, ptr %40, align 8, !tbaa !28
   %42 = and i32 %41, 536870912
@@ -2201,7 +2201,7 @@ png_read_chunk_header.exit:                       ; preds = %97
   unreachable
 
 png_crc_read.exit:                                ; preds = %129, %123
-  %.021.i = phi ptr [ %128, %129 ], [ %122, %123 ]
+  %.021.i = phi ptr [ %122, %123 ], [ %128, %129 ]
   call void @png_read_data(ptr noundef nonnull %0, ptr noundef nonnull %.021.i, i64 noundef %121) #13
   call void @png_calculate_crc(ptr noundef nonnull %0, ptr noundef nonnull %.021.i, i64 noundef %121) #13
   %131 = load i32, ptr %12, align 8, !tbaa !87
@@ -3876,7 +3876,7 @@ define internal range(i32 0, 4) i32 @png_handle_eXIf(ptr noalias noundef %0, ptr
   br label %43
 
 png_crc_read.exit:                                ; preds = %18, %11
-  %.021.i = phi ptr [ %17, %18 ], [ %6, %11 ]
+  %.021.i = phi ptr [ %6, %11 ], [ %17, %18 ]
   tail call void @png_read_data(ptr noundef nonnull %0, ptr noundef nonnull %.021.i, i64 noundef %4) #13
   tail call void @png_calculate_crc(ptr noundef nonnull %0, ptr noundef nonnull %.021.i, i64 noundef %4) #13
   %22 = tail call fastcc range(i32 0, 2) i32 @png_crc_finish_critical(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 0)
@@ -4419,7 +4419,7 @@ define internal range(i32 0, 4) i32 @png_handle_iTXt(ptr noalias noundef %0, ptr
   br label %.critedge116
 
 png_crc_read.exit:                                ; preds = %37, %30
-  %.021.i = phi ptr [ %36, %37 ], [ %25, %30 ]
+  %.021.i = phi ptr [ %25, %30 ], [ %36, %37 ]
   %41 = zext i32 %2 to i64
   tail call void @png_read_data(ptr noundef nonnull %0, ptr noundef nonnull %.021.i, i64 noundef %41) #13
   tail call void @png_calculate_crc(ptr noundef nonnull %0, ptr noundef nonnull %.021.i, i64 noundef %41) #13
@@ -4927,7 +4927,7 @@ define internal range(i32 0, 4) i32 @png_handle_pCAL(ptr noalias noundef %0, ptr
   br label %137
 
 png_crc_read.exit:                                ; preds = %19, %12
-  %.021.i = phi ptr [ %18, %19 ], [ %7, %12 ]
+  %.021.i = phi ptr [ %7, %12 ], [ %18, %19 ]
   %23 = zext i32 %2 to i64
   tail call void @png_read_data(ptr noundef nonnull %0, ptr noundef nonnull %.021.i, i64 noundef %23) #13
   tail call void @png_calculate_crc(ptr noundef nonnull %0, ptr noundef nonnull %.021.i, i64 noundef %23) #13
@@ -5356,7 +5356,7 @@ define internal range(i32 0, 4) i32 @png_handle_sCAL(ptr noalias noundef %0, ptr
   br label %58
 
 png_crc_read.exit:                                ; preds = %21, %14
-  %.021.i = phi ptr [ %20, %21 ], [ %9, %14 ]
+  %.021.i = phi ptr [ %9, %14 ], [ %20, %21 ]
   %25 = zext i32 %2 to i64
   tail call void @png_read_data(ptr noundef nonnull %0, ptr noundef nonnull %.021.i, i64 noundef %25) #13
   tail call void @png_calculate_crc(ptr noundef nonnull %0, ptr noundef nonnull %.021.i, i64 noundef %25) #13
@@ -5517,7 +5517,7 @@ define internal range(i32 0, 4) i32 @png_handle_sPLT(ptr noalias noundef %0, ptr
   br label %135
 
 png_crc_read.exit:                                ; preds = %30, %23
-  %.021.i = phi ptr [ %29, %30 ], [ %18, %23 ]
+  %.021.i = phi ptr [ %18, %23 ], [ %29, %30 ]
   %34 = zext i32 %2 to i64
   tail call void @png_read_data(ptr noundef nonnull %0, ptr noundef nonnull %.021.i, i64 noundef %34) #13
   tail call void @png_calculate_crc(ptr noundef nonnull %0, ptr noundef nonnull %.021.i, i64 noundef %34) #13
@@ -5824,7 +5824,7 @@ define internal range(i32 0, 4) i32 @png_handle_tEXt(ptr noalias noundef %0, ptr
   br label %52
 
 png_crc_read.exit:                                ; preds = %36, %29
-  %.021.i = phi ptr [ %35, %36 ], [ %24, %29 ]
+  %.021.i = phi ptr [ %24, %29 ], [ %35, %36 ]
   %40 = zext i32 %2 to i64
   tail call void @png_read_data(ptr noundef nonnull %0, ptr noundef nonnull %.021.i, i64 noundef %40) #13
   tail call void @png_calculate_crc(ptr noundef nonnull %0, ptr noundef nonnull %.021.i, i64 noundef %40) #13
@@ -6161,7 +6161,7 @@ define internal range(i32 0, 4) i32 @png_handle_zTXt(ptr noalias noundef %0, ptr
   br label %77
 
 png_crc_read.exit:                                ; preds = %36, %29
-  %.021.i = phi ptr [ %35, %36 ], [ %24, %29 ]
+  %.021.i = phi ptr [ %24, %29 ], [ %35, %36 ]
   tail call void @png_read_data(ptr noundef nonnull %0, ptr noundef nonnull %.021.i, i64 noundef %22) #13
   tail call void @png_calculate_crc(ptr noundef nonnull %0, ptr noundef nonnull %.021.i, i64 noundef %22) #13
   %40 = tail call fastcc range(i32 0, 2) i32 @png_crc_finish_critical(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 0)

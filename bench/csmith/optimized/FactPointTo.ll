@@ -2491,7 +2491,7 @@ _ZNK8Variable21is_inside_union_fieldEv.exit:      ; preds = %_ZNK8Variable21is_i
   br i1 %.not, label %.critedge, label %_ZNK8Variable21is_inside_union_fieldEv.exit
 
 .critedge:                                        ; preds = %tailrecurse.i, %_ZNK8Variable21is_inside_union_fieldEv.exit, %_ZNK8Variable21is_inside_union_fieldEv.exit.preheader
-  %.031 = phi ptr [ %69, %_ZNK8Variable21is_inside_union_fieldEv.exit.preheader ], [ %80, %_ZNK8Variable21is_inside_union_fieldEv.exit ], [ %69, %tailrecurse.i ]
+  %.031 = phi ptr [ %80, %_ZNK8Variable21is_inside_union_fieldEv.exit ], [ %69, %_ZNK8Variable21is_inside_union_fieldEv.exit.preheader ], [ %69, %tailrecurse.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   invoke void @_ZNK8Variable19find_pointer_fieldsERSt6vectorIPKS_SaIS2_EE(ptr noundef nonnull align 8 dereferenceable(200) %.031, ptr noundef nonnull align 8 dereferenceable(24) %8)

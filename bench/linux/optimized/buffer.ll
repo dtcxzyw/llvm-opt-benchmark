@@ -6709,7 +6709,7 @@ drop_buffers.exit3:                               ; preds = %104, %98, %94
   br label %drop_buffers.exit3.thread
 
 drop_buffers.exit3.thread:                        ; preds = %63, %108, %drop_buffers.exit3
-  %.25 = phi ptr [ %62, %108 ], [ %62, %drop_buffers.exit3 ], [ null, %63 ]
+  %.25 = phi ptr [ %62, %drop_buffers.exit3 ], [ %62, %108 ], [ null, %63 ]
   tail call void @_raw_spin_unlock(ptr noundef nonnull %60) #13
   br label %drop_buffers.exit
 

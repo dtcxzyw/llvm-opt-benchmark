@@ -2366,7 +2366,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i:                  ; preds = %178, %.preheader
   br i1 %197, label %_ZNSt6vectorIiSaIiEED2Ev.exit118.thread, label %194
 
 _ZNSt6vectorIiSaIiEED2Ev.exit118.thread:          ; preds = %89, %194, %87
-  %.pn96.pn.pn.pn.pn = phi { ptr, i32 } [ %88, %87 ], [ %.pn96.pn.pn.pn, %194 ], [ %.pn.pn.pn.pn.pn.pn.pn, %89 ]
+  %.pn96.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn96.pn.pn.pn, %194 ], [ %88, %87 ], [ %.pn.pn.pn.pn.pn.pn.pn, %89 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn96.pn.pn.pn.pn
 }

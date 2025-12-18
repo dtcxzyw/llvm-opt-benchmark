@@ -4975,7 +4975,7 @@ _ZN5clang4Decl14getDeclContextEv.exit:            ; preds = %.critedge, %54
   br label %88
 
 88:                                               ; preds = %84, %62, %31
-  %.0 = phi ptr [ %1, %31 ], [ %1, %62 ], [ %87, %84 ]
+  %.0 = phi ptr [ %1, %31 ], [ %87, %84 ], [ %1, %62 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %.0, ptr %7, align 8, !tbaa !56
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 112

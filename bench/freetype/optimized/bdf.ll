@@ -289,7 +289,7 @@ define internal i32 @BDF_Face_Init(ptr noundef %0, ptr noundef %1, i32 noundef %
   br label %.preheader.i.i
 
 bdf_readstream_.exit.i:                           ; preds = %57, %50, %66, %49, %31, %21
-  %.3.i.i = phi ptr [ %29, %21 ], [ %.06235.i.i, %49 ], [ %29, %31 ], [ %.06235.i.i, %66 ], [ %52, %50 ], [ %.2.i.i, %57 ]
+  %.3.i.i = phi ptr [ %.06235.i.i, %66 ], [ %29, %21 ], [ %.06235.i.i, %49 ], [ %29, %31 ], [ %.2.i.i, %57 ], [ %52, %50 ]
   call void @ft_mem_free(ptr noundef %28, ptr noundef %.3.i.i) #18
   %73 = load i32, ptr %10, align 4, !tbaa !25
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -1339,7 +1339,7 @@ sub_0:                                            ; preds = %532
   %.not238 = icmp eq i32 %539, 0
   br i1 %.not238, label %543, label %.critedge
 
-.thread303:                                       ; preds = %529, %.tail
+.thread303:                                       ; preds = %.tail, %529
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %1, ptr %13, align 8, !tbaa !105
   %540 = getelementptr inbounds nuw i8, ptr %13, i64 8

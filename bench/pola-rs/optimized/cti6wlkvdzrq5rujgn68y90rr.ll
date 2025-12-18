@@ -3642,7 +3642,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17h801db48987db936
   br i1 %exitcond5.not.i.i36, label %._crit_edge.i.i30, label %53
 
 .lr.ph.i.i:                                       ; preds = %47, %._crit_edge.i.i30, %42
-  %.sroa.3.0.i23.ph = phi i64 [ 1, %42 ], [ %52, %._crit_edge.i.i30 ], [ 1, %47 ]
+  %.sroa.3.0.i23.ph = phi i64 [ %52, %._crit_edge.i.i30 ], [ 1, %42 ], [ 1, %47 ]
   %57 = icmp ne ptr %22, null
   tail call void @llvm.assume(i1 %57)
   %58 = icmp ne ptr %21, null
@@ -4931,7 +4931,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17ha5333c248501ac4
   br i1 %exitcond5.not.i.i36, label %._crit_edge.i.i30, label %51
 
 .lr.ph.i.i:                                       ; preds = %45, %._crit_edge.i.i30, %40
-  %.sroa.3.0.i23.ph = phi i64 [ 1, %40 ], [ %50, %._crit_edge.i.i30 ], [ 1, %45 ]
+  %.sroa.3.0.i23.ph = phi i64 [ %50, %._crit_edge.i.i30 ], [ 1, %40 ], [ 1, %45 ]
   %55 = icmp ne ptr %22, null
   tail call void @llvm.assume(i1 %55)
   %56 = icmp ne ptr %21, null

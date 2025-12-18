@@ -478,9 +478,9 @@ strtoexp.exit:                                    ; preds = %147
   br label %181
 
 181:                                              ; preds = %.sink.split, %75, %179, %40
-  %.0149 = phi ptr [ %.1150, %179 ], [ null, %75 ], [ null, %40 ], [ %.1150, %.sink.split ]
-  %.075 = phi ptr [ %.0.i130, %179 ], [ %.0.i107.lcssa, %75 ], [ %.0.i.lcssa, %40 ], [ %.0.i130, %.sink.split ]
-  %.074 = phi i64 [ %.1, %179 ], [ %78, %75 ], [ %43, %40 ], [ %.1, %.sink.split ]
+  %.0149 = phi ptr [ null, %40 ], [ %.1150, %179 ], [ null, %75 ], [ %.1150, %.sink.split ]
+  %.075 = phi ptr [ %.0.i.lcssa, %40 ], [ %.0.i130, %179 ], [ %.0.i107.lcssa, %75 ], [ %.0.i130, %.sink.split ]
+  %.074 = phi i64 [ %43, %40 ], [ %.1, %179 ], [ %78, %75 ], [ %.1, %.sink.split ]
   %182 = sdiv i64 %.074, 19
   %.neg.i = mul nsw i64 %182, -19
   %183 = add i64 %.neg.i, %.074
@@ -973,7 +973,7 @@ coeff_to_string.exit133:                          ; preds = %136, %127
   br i1 %.not.i135, label %coeff_to_string.exit127, label %160, !llvm.loop !36
 
 coeff_to_string.exit127:                          ; preds = %.lr.ph, %160, %119, %coeff_to_string.exit133, %150, %._crit_edge
-  %.5 = phi ptr [ %113, %._crit_edge ], [ %154, %150 ], [ %.011.lcssa.i128, %coeff_to_string.exit133 ], [ %164, %160 ], [ %123, %119 ], [ %145, %.lr.ph ]
+  %.5 = phi ptr [ %164, %160 ], [ %123, %119 ], [ %113, %._crit_edge ], [ %154, %150 ], [ %.011.lcssa.i128, %coeff_to_string.exit133 ], [ %145, %.lr.ph ]
   %.not112 = icmp ne i64 %61, %.099
   %brmerge = or i1 %.not103, %.not112
   br i1 %brmerge, label %166, label %coeff_to_string.exit

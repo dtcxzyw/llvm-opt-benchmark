@@ -1712,7 +1712,7 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_
   br label %_ZNK12param_descrs3imp10split_nameERK6symbolRSt17basic_string_viewIcSt11char_traitsIcEERS1_.exit.thread
 
 _ZNK12param_descrs3imp10split_nameERK6symbolRSt17basic_string_viewIcSt11char_traitsIcEERS1_.exit.thread: ; preds = %.lr.ph.i.i.i.i13, %99, %.lr.ph34.i.i.i.i18, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %_ZNK12param_descrs3imp10get_moduleERK6symbol.exit, %.preheader.i.i.i.i16, %52, %_ZNK12param_descrs3imp8get_kindERK6symbol.exit.thread, %_ZNK12param_descrs3imp8get_kindERK6symbol.exit24, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit, %_ZNK12param_descrs3imp8get_kindERK6symbol.exit
-  %.0 = phi i32 [ %.sroa.0.0.copyload.i23, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit ], [ %.sroa.0.0.copyload.i, %_ZNK12param_descrs3imp8get_kindERK6symbol.exit ], [ 19, %_ZNK12param_descrs3imp8get_kindERK6symbol.exit24 ], [ 19, %52 ], [ 19, %_ZNK12param_descrs3imp8get_kindERK6symbol.exit.thread ], [ 19, %.preheader.i.i.i.i16 ], [ 19, %_ZNK12param_descrs3imp10get_moduleERK6symbol.exit ], [ 19, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ 19, %99 ], [ 19, %.lr.ph34.i.i.i.i18 ], [ 19, %.lr.ph.i.i.i.i13 ]
+  %.0 = phi i32 [ %.sroa.0.0.copyload.i23, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit ], [ %.sroa.0.0.copyload.i, %_ZNK12param_descrs3imp8get_kindERK6symbol.exit ], [ 19, %_ZNK12param_descrs3imp8get_kindERK6symbol.exit24 ], [ 19, %52 ], [ 19, %99 ], [ 19, %_ZNK12param_descrs3imp8get_kindERK6symbol.exit.thread ], [ 19, %.preheader.i.i.i.i16 ], [ 19, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ 19, %_ZNK12param_descrs3imp10get_moduleERK6symbol.exit ], [ 19, %.lr.ph34.i.i.i.i18 ], [ 19, %.lr.ph.i.i.i.i13 ]
   ret i32 %.0
 }
 
@@ -2516,9 +2516,9 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit110: ; preds = %192, %
   br i1 %exitcond201.not, label %._crit_edge187, label %.lr.ph186, !llvm.loop !64
 
 _ZNK9table2mapI17default_map_entryI6symbolN12param_descrs3imp4infoEE16symbol_hash_proc14symbol_eq_procE4findERKS1_RS4_.exit: ; preds = %.lr.ph.i.i.i, %142, %.lr.ph34.i.i.i, %_ZNK9table2mapI17default_map_entryI6symbolN12param_descrs3imp4infoEE16symbol_hash_proc14symbol_eq_procE9find_coreERKS1_.exit.i, %.preheader.i.i.i
-  %.sroa.10.1 = phi ptr [ null, %.preheader.i.i.i ], [ %.sroa.10.0.copyload, %_ZNK9table2mapI17default_map_entryI6symbolN12param_descrs3imp4infoEE16symbol_hash_proc14symbol_eq_procE9find_coreERKS1_.exit.i ], [ null, %142 ], [ null, %.lr.ph34.i.i.i ], [ null, %.lr.ph.i.i.i ]
-  %.sroa.0157.0 = phi i32 [ 19, %.preheader.i.i.i ], [ %.sroa.0157.0.copyload, %_ZNK9table2mapI17default_map_entryI6symbolN12param_descrs3imp4infoEE16symbol_hash_proc14symbol_eq_procE9find_coreERKS1_.exit.i ], [ 19, %142 ], [ 19, %.lr.ph34.i.i.i ], [ 19, %.lr.ph.i.i.i ]
-  %.sroa.7159.1 = phi ptr [ null, %.preheader.i.i.i ], [ %.sroa.7159.0.copyload, %_ZNK9table2mapI17default_map_entryI6symbolN12param_descrs3imp4infoEE16symbol_hash_proc14symbol_eq_procE9find_coreERKS1_.exit.i ], [ null, %142 ], [ null, %.lr.ph34.i.i.i ], [ null, %.lr.ph.i.i.i ]
+  %.sroa.10.1 = phi ptr [ null, %.preheader.i.i.i ], [ null, %142 ], [ %.sroa.10.0.copyload, %_ZNK9table2mapI17default_map_entryI6symbolN12param_descrs3imp4infoEE16symbol_hash_proc14symbol_eq_procE9find_coreERKS1_.exit.i ], [ null, %.lr.ph34.i.i.i ], [ null, %.lr.ph.i.i.i ]
+  %.sroa.0157.0 = phi i32 [ 19, %.preheader.i.i.i ], [ 19, %142 ], [ %.sroa.0157.0.copyload, %_ZNK9table2mapI17default_map_entryI6symbolN12param_descrs3imp4infoEE16symbol_hash_proc14symbol_eq_procE9find_coreERKS1_.exit.i ], [ 19, %.lr.ph34.i.i.i ], [ 19, %.lr.ph.i.i.i ]
+  %.sroa.7159.1 = phi ptr [ null, %.preheader.i.i.i ], [ null, %142 ], [ %.sroa.7159.0.copyload, %_ZNK9table2mapI17default_map_entryI6symbolN12param_descrs3imp4infoEE16symbol_hash_proc14symbol_eq_procE9find_coreERKS1_.exit.i ], [ null, %.lr.ph34.i.i.i ], [ null, %.lr.ph.i.i.i ]
   br i1 %5, label %195, label %202
 
 195:                                              ; preds = %_ZNK9table2mapI17default_map_entryI6symbolN12param_descrs3imp4infoEE16symbol_hash_proc14symbol_eq_procE4findERKS1_RS4_.exit
@@ -5692,7 +5692,7 @@ _ZNK6params5emptyEv.exit.i:                       ; preds = %5
   br label %_ZNK6params10get_doubleERK6symbold.exit
 
 _ZNK6params10get_doubleERK6symbold.exit:          ; preds = %21, %23, %_ZNK6params5emptyEv.exit.i, %5, %3
-  %26 = phi double [ %2, %3 ], [ %25, %23 ], [ %2, %_ZNK6params5emptyEv.exit.i ], [ %2, %5 ], [ %2, %21 ]
+  %26 = phi double [ %2, %3 ], [ %25, %23 ], [ %2, %5 ], [ %2, %_ZNK6params5emptyEv.exit.i ], [ %2, %21 ]
   ret double %26
 }
 
@@ -5738,7 +5738,7 @@ _ZNK6params5emptyEv.exit:                         ; preds = %3
   br label %_ZNK6params5emptyEv.exit.thread
 
 _ZNK6params5emptyEv.exit.thread:                  ; preds = %19, %3, %21, %_ZNK6params5emptyEv.exit
-  %.011 = phi double [ %23, %21 ], [ %2, %_ZNK6params5emptyEv.exit ], [ %2, %3 ], [ %2, %19 ]
+  %.011 = phi double [ %23, %21 ], [ %2, %3 ], [ %2, %_ZNK6params5emptyEv.exit ], [ %2, %19 ]
   ret double %.011
 }
 
@@ -5787,7 +5787,7 @@ _ZNK6params5emptyEv.exit.i:                       ; preds = %5
   br label %_ZNK6params10get_doubleEPKcd.exit
 
 _ZNK6params10get_doubleEPKcd.exit:                ; preds = %18, %20, %_ZNK6params5emptyEv.exit.i, %5, %3
-  %23 = phi double [ %2, %3 ], [ %22, %20 ], [ %2, %_ZNK6params5emptyEv.exit.i ], [ %2, %5 ], [ %2, %18 ]
+  %23 = phi double [ %2, %3 ], [ %22, %20 ], [ %2, %5 ], [ %2, %_ZNK6params5emptyEv.exit.i ], [ %2, %18 ]
   ret double %23
 }
 
@@ -5831,7 +5831,7 @@ _ZNK6params5emptyEv.exit:                         ; preds = %3
   br label %_ZNK6params5emptyEv.exit.thread
 
 _ZNK6params5emptyEv.exit.thread:                  ; preds = %16, %3, %18, %_ZNK6params5emptyEv.exit
-  %.011 = phi double [ %20, %18 ], [ %2, %_ZNK6params5emptyEv.exit ], [ %2, %3 ], [ %2, %16 ]
+  %.011 = phi double [ %20, %18 ], [ %2, %3 ], [ %2, %_ZNK6params5emptyEv.exit ], [ %2, %16 ]
   ret double %.011
 }
 
@@ -6661,7 +6661,7 @@ _ZNK6params5emptyEv.exit.i:                       ; preds = %5
   br label %_ZNK6params7get_symERK6symbolS2_.exit
 
 _ZNK6params7get_symERK6symbolS2_.exit:            ; preds = %21, %3, %.loopexit.i, %_ZNK6params5emptyEv.exit.i, %5
-  %.sroa.0.0.in = phi ptr [ %23, %.loopexit.i ], [ %2, %5 ], [ %2, %_ZNK6params5emptyEv.exit.i ], [ %2, %3 ], [ %2, %21 ]
+  %.sroa.0.0.in = phi ptr [ %2, %3 ], [ %23, %.loopexit.i ], [ %2, %5 ], [ %2, %_ZNK6params5emptyEv.exit.i ], [ %2, %21 ]
   %.sroa.0.0 = load ptr, ptr %.sroa.0.0.in, align 8
   ret ptr %.sroa.0.0
 }
@@ -6759,7 +6759,7 @@ _ZNK6params5emptyEv.exit.i:                       ; preds = %5
   br label %_ZNK6params7get_symEPKcRK6symbol.exit
 
 _ZNK6params7get_symEPKcRK6symbol.exit:            ; preds = %18, %3, %.loopexit.i, %_ZNK6params5emptyEv.exit.i, %5
-  %.sroa.0.0.in = phi ptr [ %20, %.loopexit.i ], [ %2, %5 ], [ %2, %_ZNK6params5emptyEv.exit.i ], [ %2, %3 ], [ %2, %18 ]
+  %.sroa.0.0.in = phi ptr [ %2, %3 ], [ %20, %.loopexit.i ], [ %2, %5 ], [ %2, %_ZNK6params5emptyEv.exit.i ], [ %2, %18 ]
   %.sroa.0.0 = load ptr, ptr %.sroa.0.0.in, align 8
   ret ptr %.sroa.0.0
 }
@@ -6924,14 +6924,14 @@ _ZNK6params5emptyEv.exit.i.i:                     ; preds = %39
   br i1 %.not.not.i.i, label %_ZNK6params8get_boolEPKcRK10params_refb.exit, label %.lr.ph.i.i, !llvm.loop !90
 
 _ZNK6params8get_boolEPKcRK10params_refb.exit.sink.split: ; preds = %15, %31, %48
-  %.01215.i.i.lcssa.sink = phi ptr [ %.01215.i.i.i, %31 ], [ %.01215.i.i, %48 ], [ %.01318.i, %15 ]
+  %.01215.i.i.lcssa.sink = phi ptr [ %.01215.i.i, %48 ], [ %.01215.i.i.i, %31 ], [ %.01318.i, %15 ]
   %54 = getelementptr inbounds nuw i8, ptr %.01215.i.i.lcssa.sink, i64 16
   %55 = load i8, ptr %54, align 8, !tbaa !3, !range !75, !noundef !76
   %56 = trunc nuw i8 %55 to i1
   br label %_ZNK6params8get_boolEPKcRK10params_refb.exit
 
 _ZNK6params8get_boolEPKcRK10params_refb.exit:     ; preds = %35, %52, %_ZNK6params8get_boolEPKcRK10params_refb.exit.sink.split, %_ZNK6params5emptyEv.exit.i.i, %39, %37, %_ZNK6params5emptyEv.exit.i.i.i, %22, %_ZNK6params5emptyEv.exit.thread.i
-  %57 = phi i1 [ %3, %_ZNK6params5emptyEv.exit.thread.i ], [ %3, %22 ], [ %3, %_ZNK6params5emptyEv.exit.i.i.i ], [ %3, %37 ], [ %3, %39 ], [ %3, %_ZNK6params5emptyEv.exit.i.i ], [ %56, %_ZNK6params8get_boolEPKcRK10params_refb.exit.sink.split ], [ %3, %52 ], [ %3, %35 ]
+  %57 = phi i1 [ %3, %52 ], [ %56, %_ZNK6params8get_boolEPKcRK10params_refb.exit.sink.split ], [ %3, %_ZNK6params5emptyEv.exit.thread.i ], [ %3, %22 ], [ %3, %_ZNK6params5emptyEv.exit.i.i.i ], [ %3, %37 ], [ %3, %39 ], [ %3, %_ZNK6params5emptyEv.exit.i.i ], [ %3, %35 ]
   ret i1 %57
 }
 
@@ -7015,7 +7015,7 @@ _ZNK10params_ref8get_boolEPKcb.exit.sink.split:   ; preds = %13, %29
   br label %_ZNK10params_ref8get_boolEPKcb.exit
 
 _ZNK10params_ref8get_boolEPKcb.exit:              ; preds = %33, %_ZNK10params_ref8get_boolEPKcb.exit.sink.split, %_ZNK6params5emptyEv.exit.i.i, %20, %_ZNK6params5emptyEv.exit.thread
-  %.1 = phi i1 [ %3, %_ZNK6params5emptyEv.exit.thread ], [ %3, %20 ], [ %3, %_ZNK6params5emptyEv.exit.i.i ], [ %37, %_ZNK10params_ref8get_boolEPKcb.exit.sink.split ], [ %3, %33 ]
+  %.1 = phi i1 [ %37, %_ZNK10params_ref8get_boolEPKcb.exit.sink.split ], [ %3, %_ZNK6params5emptyEv.exit.thread ], [ %3, %20 ], [ %3, %_ZNK6params5emptyEv.exit.i.i ], [ %3, %33 ]
   ret i1 %.1
 }
 
@@ -7135,13 +7135,13 @@ _ZNK6params5emptyEv.exit.i.i:                     ; preds = %39
   br i1 %.not.not.i.i, label %_ZNK6params8get_uintEPKcRK10params_refj.exit, label %.lr.ph.i.i, !llvm.loop !92
 
 _ZNK6params8get_uintEPKcRK10params_refj.exit.sink.split: ; preds = %15, %31, %48
-  %.01215.i.i.lcssa.sink = phi ptr [ %.01215.i.i.i, %31 ], [ %.01215.i.i, %48 ], [ %.01318.i, %15 ]
+  %.01215.i.i.lcssa.sink = phi ptr [ %.01215.i.i, %48 ], [ %.01215.i.i.i, %31 ], [ %.01318.i, %15 ]
   %54 = getelementptr inbounds nuw i8, ptr %.01215.i.i.lcssa.sink, i64 16
   %55 = load i32, ptr %54, align 8, !tbaa !3
   br label %_ZNK6params8get_uintEPKcRK10params_refj.exit
 
 _ZNK6params8get_uintEPKcRK10params_refj.exit:     ; preds = %35, %52, %_ZNK6params8get_uintEPKcRK10params_refj.exit.sink.split, %_ZNK6params5emptyEv.exit.i.i, %39, %37, %_ZNK6params5emptyEv.exit.i.i.i, %22, %_ZNK6params5emptyEv.exit.thread.i
-  %56 = phi i32 [ %3, %_ZNK6params5emptyEv.exit.thread.i ], [ %3, %22 ], [ %3, %_ZNK6params5emptyEv.exit.i.i.i ], [ %3, %37 ], [ %3, %39 ], [ %3, %_ZNK6params5emptyEv.exit.i.i ], [ %55, %_ZNK6params8get_uintEPKcRK10params_refj.exit.sink.split ], [ %3, %52 ], [ %3, %35 ]
+  %56 = phi i32 [ %3, %52 ], [ %55, %_ZNK6params8get_uintEPKcRK10params_refj.exit.sink.split ], [ %3, %_ZNK6params5emptyEv.exit.thread.i ], [ %3, %22 ], [ %3, %_ZNK6params5emptyEv.exit.i.i.i ], [ %3, %37 ], [ %3, %39 ], [ %3, %_ZNK6params5emptyEv.exit.i.i ], [ %3, %35 ]
   ret i32 %56
 }
 
@@ -7224,7 +7224,7 @@ _ZNK10params_ref8get_uintEPKcj.exit.sink.split:   ; preds = %13, %29
   br label %_ZNK10params_ref8get_uintEPKcj.exit
 
 _ZNK10params_ref8get_uintEPKcj.exit:              ; preds = %33, %_ZNK10params_ref8get_uintEPKcj.exit.sink.split, %_ZNK6params5emptyEv.exit.i.i, %20, %_ZNK6params5emptyEv.exit.thread
-  %.1 = phi i32 [ %3, %_ZNK6params5emptyEv.exit.thread ], [ %3, %20 ], [ %3, %_ZNK6params5emptyEv.exit.i.i ], [ %36, %_ZNK10params_ref8get_uintEPKcj.exit.sink.split ], [ %3, %33 ]
+  %.1 = phi i32 [ %36, %_ZNK10params_ref8get_uintEPKcj.exit.sink.split ], [ %3, %_ZNK6params5emptyEv.exit.thread ], [ %3, %20 ], [ %3, %_ZNK6params5emptyEv.exit.i.i ], [ %3, %33 ]
   ret i32 %.1
 }
 
@@ -7344,13 +7344,13 @@ _ZNK6params5emptyEv.exit.i.i:                     ; preds = %39
   br i1 %.not.not.i.i, label %_ZNK6params10get_doubleEPKcRK10params_refd.exit, label %.lr.ph.i.i, !llvm.loop !94
 
 _ZNK6params10get_doubleEPKcRK10params_refd.exit.sink.split: ; preds = %15, %31, %48
-  %.01216.i.i.lcssa.sink = phi ptr [ %.01216.i.i.i, %31 ], [ %.01216.i.i, %48 ], [ %.01318.i, %15 ]
+  %.01216.i.i.lcssa.sink = phi ptr [ %.01216.i.i, %48 ], [ %.01216.i.i.i, %31 ], [ %.01318.i, %15 ]
   %54 = getelementptr inbounds nuw i8, ptr %.01216.i.i.lcssa.sink, i64 16
   %55 = load double, ptr %54, align 8, !tbaa !3
   br label %_ZNK6params10get_doubleEPKcRK10params_refd.exit
 
 _ZNK6params10get_doubleEPKcRK10params_refd.exit:  ; preds = %35, %52, %_ZNK6params10get_doubleEPKcRK10params_refd.exit.sink.split, %_ZNK6params5emptyEv.exit.i.i, %39, %37, %_ZNK6params5emptyEv.exit.i.i.i, %22, %_ZNK6params5emptyEv.exit.thread.i
-  %56 = phi double [ %3, %22 ], [ %3, %_ZNK6params5emptyEv.exit.thread.i ], [ %3, %_ZNK6params5emptyEv.exit.i.i.i ], [ %3, %37 ], [ %3, %_ZNK6params5emptyEv.exit.i.i ], [ %3, %39 ], [ %55, %_ZNK6params10get_doubleEPKcRK10params_refd.exit.sink.split ], [ %3, %52 ], [ %3, %35 ]
+  %56 = phi double [ %3, %_ZNK6params5emptyEv.exit.i.i ], [ %3, %_ZNK6params5emptyEv.exit.i.i.i ], [ %3, %_ZNK6params5emptyEv.exit.thread.i ], [ %55, %_ZNK6params10get_doubleEPKcRK10params_refd.exit.sink.split ], [ %3, %22 ], [ %3, %37 ], [ %3, %52 ], [ %3, %39 ], [ %3, %35 ]
   ret double %56
 }
 
@@ -7433,7 +7433,7 @@ _ZNK10params_ref10get_doubleEPKcd.exit.sink.split: ; preds = %13, %29
   br label %_ZNK10params_ref10get_doubleEPKcd.exit
 
 _ZNK10params_ref10get_doubleEPKcd.exit:           ; preds = %33, %_ZNK10params_ref10get_doubleEPKcd.exit.sink.split, %_ZNK6params5emptyEv.exit.i.i, %20, %_ZNK6params5emptyEv.exit.thread
-  %.1 = phi double [ %3, %20 ], [ %3, %_ZNK6params5emptyEv.exit.thread ], [ %3, %_ZNK6params5emptyEv.exit.i.i ], [ %36, %_ZNK10params_ref10get_doubleEPKcd.exit.sink.split ], [ %3, %33 ]
+  %.1 = phi double [ %3, %_ZNK6params5emptyEv.exit.i.i ], [ %3, %_ZNK6params5emptyEv.exit.thread ], [ %36, %_ZNK10params_ref10get_doubleEPKcd.exit.sink.split ], [ %3, %20 ], [ %3, %33 ]
   ret double %.1
 }
 
@@ -7553,13 +7553,13 @@ _ZNK6params5emptyEv.exit.i.i:                     ; preds = %39
   br i1 %.not.not.i.i, label %_ZNK6params7get_strEPKcRK10params_refS1_.exit, label %.lr.ph.i.i, !llvm.loop !96
 
 _ZNK6params7get_strEPKcRK10params_refS1_.exit.sink.split: ; preds = %15, %31, %48
-  %.01215.i.i.lcssa.sink = phi ptr [ %.01215.i.i.i, %31 ], [ %.01215.i.i, %48 ], [ %.01318.i, %15 ]
+  %.01215.i.i.lcssa.sink = phi ptr [ %.01215.i.i, %48 ], [ %.01215.i.i.i, %31 ], [ %.01318.i, %15 ]
   %54 = getelementptr inbounds nuw i8, ptr %.01215.i.i.lcssa.sink, i64 16
   %55 = load ptr, ptr %54, align 8, !tbaa !3
   br label %_ZNK6params7get_strEPKcRK10params_refS1_.exit
 
 _ZNK6params7get_strEPKcRK10params_refS1_.exit:    ; preds = %35, %52, %_ZNK6params7get_strEPKcRK10params_refS1_.exit.sink.split, %_ZNK6params5emptyEv.exit.i.i, %39, %37, %_ZNK6params5emptyEv.exit.i.i.i, %22, %_ZNK6params5emptyEv.exit.thread.i
-  %56 = phi ptr [ %3, %_ZNK6params5emptyEv.exit.thread.i ], [ %3, %22 ], [ %3, %_ZNK6params5emptyEv.exit.i.i.i ], [ %3, %37 ], [ %3, %39 ], [ %3, %_ZNK6params5emptyEv.exit.i.i ], [ %55, %_ZNK6params7get_strEPKcRK10params_refS1_.exit.sink.split ], [ %3, %52 ], [ %3, %35 ]
+  %56 = phi ptr [ %3, %52 ], [ %55, %_ZNK6params7get_strEPKcRK10params_refS1_.exit.sink.split ], [ %3, %_ZNK6params5emptyEv.exit.thread.i ], [ %3, %22 ], [ %3, %_ZNK6params5emptyEv.exit.i.i.i ], [ %3, %37 ], [ %3, %39 ], [ %3, %_ZNK6params5emptyEv.exit.i.i ], [ %3, %35 ]
   ret ptr %56
 }
 
@@ -7642,7 +7642,7 @@ _ZNK10params_ref7get_strEPKcS1_.exit.sink.split:  ; preds = %13, %29
   br label %_ZNK10params_ref7get_strEPKcS1_.exit
 
 _ZNK10params_ref7get_strEPKcS1_.exit:             ; preds = %33, %_ZNK10params_ref7get_strEPKcS1_.exit.sink.split, %_ZNK6params5emptyEv.exit.i.i, %20, %_ZNK6params5emptyEv.exit.thread
-  %.1 = phi ptr [ %3, %_ZNK6params5emptyEv.exit.thread ], [ %3, %20 ], [ %3, %_ZNK6params5emptyEv.exit.i.i ], [ %36, %_ZNK10params_ref7get_strEPKcS1_.exit.sink.split ], [ %3, %33 ]
+  %.1 = phi ptr [ %36, %_ZNK10params_ref7get_strEPKcS1_.exit.sink.split ], [ %3, %_ZNK6params5emptyEv.exit.thread ], [ %3, %20 ], [ %3, %_ZNK6params5emptyEv.exit.i.i ], [ %3, %33 ]
   ret ptr %.1
 }
 
@@ -7774,7 +7774,7 @@ _ZNK6params5emptyEv.exit.i.i:                     ; preds = %42
   br label %_ZNK6params7get_symEPKcRK10params_refRK6symbol.exit
 
 _ZNK6params7get_symEPKcRK10params_refRK6symbol.exit: ; preds = %37, %55, %.loopexit.i.i, %_ZNK6params5emptyEv.exit.i.i, %42, %40, %.loopexit.i.i.i, %_ZNK6params5emptyEv.exit.i.i.i, %24, %_ZNK6params5emptyEv.exit.thread.i, %21
-  %.sroa.0.0.in = phi ptr [ %22, %21 ], [ %39, %.loopexit.i.i.i ], [ %3, %24 ], [ %3, %_ZNK6params5emptyEv.exit.i.i.i ], [ %3, %_ZNK6params5emptyEv.exit.thread.i ], [ %57, %.loopexit.i.i ], [ %3, %42 ], [ %3, %_ZNK6params5emptyEv.exit.i.i ], [ %3, %40 ], [ %3, %55 ], [ %3, %37 ]
+  %.sroa.0.0.in = phi ptr [ %3, %55 ], [ %22, %21 ], [ %3, %_ZNK6params5emptyEv.exit.thread.i ], [ %39, %.loopexit.i.i.i ], [ %3, %24 ], [ %3, %_ZNK6params5emptyEv.exit.i.i.i ], [ %3, %40 ], [ %57, %.loopexit.i.i ], [ %3, %42 ], [ %3, %_ZNK6params5emptyEv.exit.i.i ], [ %3, %37 ]
   %.sroa.0.0 = load ptr, ptr %.sroa.0.0.in, align 8
   ret ptr %.sroa.0.0
 }
@@ -7860,7 +7860,7 @@ _ZNK6params5emptyEv.exit.i.i:                     ; preds = %22
   br label %_ZNK10params_ref7get_symEPKcRK6symbol.exit
 
 _ZNK10params_ref7get_symEPKcRK6symbol.exit:       ; preds = %35, %.loopexit.i.i, %_ZNK6params5emptyEv.exit.i.i, %22, %_ZNK6params5emptyEv.exit.thread, %19
-  %.sroa.0.1.in = phi ptr [ %20, %19 ], [ %37, %.loopexit.i.i ], [ %3, %22 ], [ %3, %_ZNK6params5emptyEv.exit.i.i ], [ %3, %_ZNK6params5emptyEv.exit.thread ], [ %3, %35 ]
+  %.sroa.0.1.in = phi ptr [ %20, %19 ], [ %3, %_ZNK6params5emptyEv.exit.thread ], [ %37, %.loopexit.i.i ], [ %3, %22 ], [ %3, %_ZNK6params5emptyEv.exit.i.i ], [ %3, %35 ]
   %.sroa.0.1 = load ptr, ptr %.sroa.0.1.in, align 8
   ret ptr %.sroa.0.1
 }

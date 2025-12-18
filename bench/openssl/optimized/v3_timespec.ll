@@ -1217,7 +1217,7 @@ i2r_OSSL_PERIOD.exit.thread.i:                    ; preds = %335, %.loopexit.i.i
   br label %i2r_OSSL_TIME_SPEC_TIME.exit
 
 i2r_OSSL_TIME_SPEC_TIME.exit:                     ; preds = %81, %._crit_edge.i, %i2r_OSSL_PERIOD.exit.thread.i, %70, %i2r_OSSL_TIME_SPEC_ABSOLUTE.exit.thread2.i, %i2r_OSSL_TIME_SPEC_ABSOLUTE.exit.i, %64, %62, %54, %51, %49, %46, %44, %41, %39, %29, %25, %22, %19, %11, %9
-  %.0 = phi i32 [ 0, %19 ], [ 0, %9 ], [ 0, %11 ], [ 0, %22 ], [ 0, %i2r_OSSL_PERIOD.exit.thread.i ], [ %360, %._crit_edge.i ], [ 0, %29 ], [ %69, %i2r_OSSL_TIME_SPEC_ABSOLUTE.exit.thread2.i ], [ 0, %i2r_OSSL_TIME_SPEC_ABSOLUTE.exit.i ], [ 0, %70 ], [ 0, %25 ], [ 0, %44 ], [ 0, %41 ], [ 0, %39 ], [ 0, %51 ], [ 0, %49 ], [ 0, %46 ], [ 0, %62 ], [ 0, %54 ], [ 0, %64 ], [ 0, %81 ]
+  %.0 = phi i32 [ 0, %19 ], [ 0, %9 ], [ 0, %11 ], [ 0, %22 ], [ 0, %i2r_OSSL_PERIOD.exit.thread.i ], [ %360, %._crit_edge.i ], [ 0, %29 ], [ %69, %i2r_OSSL_TIME_SPEC_ABSOLUTE.exit.thread2.i ], [ 0, %i2r_OSSL_TIME_SPEC_ABSOLUTE.exit.i ], [ 0, %64 ], [ 0, %70 ], [ 0, %25 ], [ 0, %44 ], [ 0, %41 ], [ 0, %39 ], [ 0, %51 ], [ 0, %49 ], [ 0, %46 ], [ 0, %62 ], [ 0, %54 ], [ 0, %81 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }

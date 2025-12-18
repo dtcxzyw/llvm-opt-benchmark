@@ -8985,7 +8985,7 @@ define internal fastcc void @"_ZN17crossbeam_channel7flavors4zero16Channel$LT$T$
   br label %.body
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %44, %86, %.thread71, %.thread75, %217, %59, %64, %148, %153, %209, %214
-  %.sroa.04.2.ph.ph.ph = phi i1 [ false, %209 ], [ false, %148 ], [ false, %59 ], [ false, %217 ], [ false, %.thread75 ], [ true, %44 ], [ false, %214 ], [ false, %.thread71 ], [ false, %64 ], [ false, %153 ], [ false, %86 ]
+  %.sroa.04.2.ph.ph.ph = phi i1 [ false, %86 ], [ false, %59 ], [ false, %148 ], [ false, %209 ], [ false, %217 ], [ false, %.thread75 ], [ true, %44 ], [ false, %214 ], [ false, %.thread71 ], [ false, %64 ], [ false, %153 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -9572,7 +9572,7 @@ define internal fastcc void @"_ZN17crossbeam_channel7flavors4zero16Channel$LT$T$
   br label %.body
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %42, %84, %.thread75, %.thread79, %233, %57, %62, %146, %151, %226, %231
-  %.sroa.07.2.ph.ph.ph = phi i1 [ false, %226 ], [ false, %146 ], [ false, %57 ], [ false, %233 ], [ false, %.thread79 ], [ true, %42 ], [ false, %231 ], [ false, %.thread75 ], [ false, %62 ], [ false, %151 ], [ false, %84 ]
+  %.sroa.07.2.ph.ph.ph = phi i1 [ false, %84 ], [ false, %57 ], [ false, %146 ], [ false, %226 ], [ false, %233 ], [ false, %.thread79 ], [ true, %42 ], [ false, %231 ], [ false, %.thread75 ], [ false, %62 ], [ false, %151 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -11196,7 +11196,7 @@ define internal fastcc void @"_ZN17crossbeam_channel7flavors4zero16Channel$LT$T$
   br label %.body
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.invoke, %42, %84, %.thread, %.thread90, %57, %62, %146, %151, %225, %230
-  %.sroa.026.2.ph.ph.ph = phi i1 [ false, %225 ], [ false, %146 ], [ false, %57 ], [ false, %.thread90 ], [ true, %42 ], [ false, %230 ], [ false, %84 ], [ false, %.thread ], [ false, %62 ], [ false, %151 ], [ false, %.invoke ]
+  %.sroa.026.2.ph.ph.ph = phi i1 [ false, %84 ], [ false, %57 ], [ false, %146 ], [ false, %225 ], [ false, %.thread90 ], [ true, %42 ], [ false, %230 ], [ false, %.invoke ], [ false, %.thread ], [ false, %62 ], [ false, %151 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -11844,7 +11844,7 @@ define internal fastcc void @"_ZN17crossbeam_channel7flavors4zero16Channel$LT$T$
   br label %.body
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.invoke, %45, %87, %.thread, %.thread82, %60, %65, %149, %154, %209, %214
-  %.sroa.019.2.ph.ph.ph = phi i1 [ false, %209 ], [ false, %149 ], [ false, %60 ], [ false, %.thread82 ], [ true, %45 ], [ false, %214 ], [ false, %87 ], [ false, %.thread ], [ false, %65 ], [ false, %154 ], [ false, %.invoke ]
+  %.sroa.019.2.ph.ph.ph = phi i1 [ false, %87 ], [ false, %60 ], [ false, %149 ], [ false, %209 ], [ false, %.thread82 ], [ true, %45 ], [ false, %214 ], [ false, %.invoke ], [ false, %.thread ], [ false, %65 ], [ false, %154 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body

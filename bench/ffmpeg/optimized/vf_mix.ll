@@ -562,7 +562,7 @@ define internal i32 @process_frame(ptr noundef readonly captures(none) %0) #1 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %20, %41, %27, %47, %31
-  %.0 = phi i32 [ -12, %27 ], [ %40, %31 ], [ %62, %47 ], [ -12, %41 ], [ %23, %20 ]
+  %.0 = phi i32 [ -12, %27 ], [ %40, %31 ], [ -12, %41 ], [ %62, %47 ], [ %23, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -2031,7 +2031,7 @@ define internal i32 @tmix_filter_frame(ptr noundef readonly captures(none) %0, p
   br label %.loopexit67
 
 .loopexit67:                                      ; preds = %.lr.ph, %71, %66, %77, %69, %14
-  %.0 = phi i32 [ %15, %14 ], [ -12, %66 ], [ %70, %69 ], [ %94, %77 ], [ -12, %71 ], [ -12, %.lr.ph ]
+  %.0 = phi i32 [ %15, %14 ], [ -12, %66 ], [ %70, %69 ], [ -12, %71 ], [ %94, %77 ], [ -12, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

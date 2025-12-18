@@ -627,7 +627,7 @@ tile_log2.exit234.i:                              ; preds = %183
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %249, %..loopexit238_crit_edge.i, %.preheader.i, %._crit_edge263.i, %164
-  %.0188245.i = phi i32 [ %.0188256.i, %.preheader.i ], [ %.0188256.i, %._crit_edge263.i ], [ %179, %..loopexit238_crit_edge.i ], [ %spec.select.i, %164 ], [ %.0188256.i, %249 ]
+  %.0188245.i = phi i32 [ %.0188256.i, %.preheader.i ], [ %.0188256.i, %._crit_edge263.i ], [ %spec.select.i, %164 ], [ %179, %..loopexit238_crit_edge.i ], [ %.0188256.i, %249 ]
   store i32 %.0188245.i, ptr %.phi.trans.insert.i, align 8, !tbaa !72
   %265 = load i32, ptr %84, align 4, !tbaa !71
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.98, i32 noundef %265, i32 noundef %.0188245.i) #14

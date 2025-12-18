@@ -4582,7 +4582,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge2, %227
   br label %.loopexit
 
 .loopexit:                                        ; preds = %261, %.loopexit.sink.split, %106
-  %.0 = phi i32 [ -1, %106 ], [ %.0.ph, %.loopexit.sink.split ], [ -1, %261 ]
+  %.0 = phi i32 [ %.0.ph, %.loopexit.sink.split ], [ -1, %106 ], [ -1, %261 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -6646,7 +6646,7 @@ Sbd_ManCoverReverseOrder.exit268:                 ; preds = %444, %._crit_edge32
   br i1 %501, label %361, label %.loopexit, !llvm.loop !190
 
 .loopexit:                                        ; preds = %Sbd_ManCoverReverseOrder.exit268, %Sbd_ManCoverReverseOrder.exit268.preheader, %492, %488, %Abc_Clock.exit270
-  %.0159 = phi i32 [ 0, %Abc_Clock.exit270 ], [ 1, %492 ], [ 1, %488 ], [ 0, %Sbd_ManCoverReverseOrder.exit268.preheader ], [ 0, %Sbd_ManCoverReverseOrder.exit268 ]
+  %.0159 = phi i32 [ 0, %Abc_Clock.exit270 ], [ 1, %488 ], [ 1, %492 ], [ 0, %Sbd_ManCoverReverseOrder.exit268.preheader ], [ 0, %Sbd_ManCoverReverseOrder.exit268 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -7631,7 +7631,7 @@ Vec_IntPush.exit125:                              ; preds = %.Vec_IntGrow.exit10
   br label %Sbd_ManFindCandsSimple.exit
 
 Sbd_ManFindCandsSimple.exit:                      ; preds = %.loopexit127, %.loopexit127.i, %229, %Vec_IntPush.exit125.i, %Vec_IntPush.exit104.i, %Vec_IntPush.exit.i, %22, %404, %370, %Vec_IntPush.exit125, %Vec_IntPush.exit
-  %.0 = phi i32 [ 1, %Vec_IntPush.exit ], [ 1, %Vec_IntPush.exit125 ], [ 1, %370 ], [ 1, %404 ], [ 1, %Vec_IntPush.exit.i ], [ 1, %Vec_IntPush.exit104.i ], [ 1, %Vec_IntPush.exit125.i ], [ 1, %229 ], [ 0, %22 ], [ 0, %.loopexit127.i ], [ 0, %.loopexit127 ]
+  %.0 = phi i32 [ 0, %.loopexit127.i ], [ 1, %Vec_IntPush.exit ], [ 1, %Vec_IntPush.exit125 ], [ 1, %370 ], [ 1, %404 ], [ 1, %Vec_IntPush.exit.i ], [ 1, %Vec_IntPush.exit104.i ], [ 1, %Vec_IntPush.exit125.i ], [ 1, %229 ], [ 0, %22 ], [ 0, %.loopexit127 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -9710,7 +9710,7 @@ Abc_Clock.exit541:                                ; preds = %Abc_Clock.exit539, 
   br label %.loopexit584
 
 .loopexit584:                                     ; preds = %119, %.thread558, %618, %._crit_edge726, %._crit_edge684, %388, %.thread551, %._crit_edge648, %.critedge3.thread, %.critedge3, %234, %._crit_edge602
-  %.4 = phi i32 [ %478, %._crit_edge684 ], [ 1, %._crit_edge602 ], [ 0, %.critedge3 ], [ 0, %.critedge3.thread ], [ %357, %._crit_edge648 ], [ 0, %.thread551 ], [ 0, %388 ], [ 0, %234 ], [ %612, %618 ], [ 0, %._crit_edge726 ], [ 0, %.thread558 ], [ 0, %119 ]
+  %.4 = phi i32 [ %478, %._crit_edge684 ], [ 0, %.thread558 ], [ 1, %._crit_edge602 ], [ 0, %.critedge3 ], [ 0, %.critedge3.thread ], [ %357, %._crit_edge648 ], [ 0, %.thread551 ], [ 0, %388 ], [ 0, %234 ], [ %612, %618 ], [ 0, %._crit_edge726 ], [ 0, %119 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)

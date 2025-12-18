@@ -10887,7 +10887,7 @@ define linkonce_odr dso_local void @_Z8refine4dPiPKim(ptr noundef %0, ptr nounde
   br i1 %exitcond157.not, label %22, label %.preheader78
 
 .split124.us:                                     ; preds = %.split112, %.split112.us.split.us120, %.split112.us.split.us.us.us.split, %.split112.us.split.us.us.us.split.us.us
-  %.us-phi125 = phi i64 [ %106, %.split112.us.split.us120 ], [ %47, %.split112.us.split.us.us.us.split.us.us ], [ %74, %.split112.us.split.us.us.us.split ], [ %152, %.split112 ]
+  %.us-phi125 = phi i64 [ %47, %.split112.us.split.us.us.us.split.us.us ], [ %106, %.split112.us.split.us120 ], [ %74, %.split112.us.split.us.us.us.split ], [ %152, %.split112 ]
   %113 = sdiv i64 %.us-phi125, 65536
   %114 = trunc i64 %113 to i32
   %gep129 = getelementptr i32, ptr %invariant.gep128, i64 %.073130

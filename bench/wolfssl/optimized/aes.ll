@@ -5459,7 +5459,7 @@ xorbufout.exit99.i:                               ; preds = %.lr.ph52.i71.i, %.l
   br i1 %exitcond.not.i103.i, label %AES_GCM_encrypt_C.exit, label %.lr.ph38.i.i, !llvm.loop !20
 
 AES_GCM_encrypt_C.exit:                           ; preds = %IncrementGcmCounter.exit.i, %.lr.ph38.i.i, %IncrementGcmCounter.exit63.i, %xorbufout.exit99.i, %107, %.loopexit.i111.i
-  %.040.i = phi i32 [ %109, %107 ], [ %76, %IncrementGcmCounter.exit63.i ], [ 0, %xorbufout.exit99.i ], [ 0, %.loopexit.i111.i ], [ 0, %.lr.ph38.i.i ], [ %44, %IncrementGcmCounter.exit.i ]
+  %.040.i = phi i32 [ %109, %107 ], [ 0, %.lr.ph38.i.i ], [ %76, %IncrementGcmCounter.exit63.i ], [ 0, %xorbufout.exit99.i ], [ 0, %.loopexit.i111.i ], [ %44, %IncrementGcmCounter.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -5931,7 +5931,7 @@ define range(i32 -260, 1) i32 @wc_AesGcmEncrypt_ex(ptr noundef %0, ptr noundef %
   br i1 %.not.i, label %.preheader, label %IncCtr.exit, !llvm.loop !43
 
 IncCtr.exit:                                      ; preds = %41, %.preheader, %29, %21, %18, %17, %13, %10, %34
-  %.2 = phi i32 [ %37, %34 ], [ -173, %10 ], [ -173, %21 ], [ -173, %18 ], [ -173, %17 ], [ -173, %13 ], [ -260, %29 ], [ 0, %.preheader ], [ 0, %41 ]
+  %.2 = phi i32 [ -260, %29 ], [ %37, %34 ], [ -173, %13 ], [ -173, %10 ], [ -173, %21 ], [ -173, %18 ], [ -173, %17 ], [ 0, %.preheader ], [ 0, %41 ]
   ret i32 %.2
 }
 
@@ -6029,7 +6029,7 @@ wc_AesGcmSetKey.exit.thread:                      ; preds = %20, %21, %24
   br i1 %.not.i.i, label %.preheader.i, label %.preheader23.i.i, !llvm.loop !43
 
 .preheader23.i.i:                                 ; preds = %.preheader.i, %44, %33, %wc_AesGcmSetKey.exit.thread, %29, %28
-  %.1 = phi i32 [ %31, %29 ], [ %40, %33 ], [ %.019.i.ph, %wc_AesGcmSetKey.exit.thread ], [ -173, %28 ], [ 0, %44 ], [ 0, %.preheader.i ]
+  %.1 = phi i32 [ %.019.i.ph, %wc_AesGcmSetKey.exit.thread ], [ -173, %28 ], [ %40, %33 ], [ %31, %29 ], [ 0, %44 ], [ 0, %.preheader.i ]
   br label %.lr.ph29.i.i
 
 .lr.ph29.i.i:                                     ; preds = %.lr.ph29.i.i, %.preheader23.i.i

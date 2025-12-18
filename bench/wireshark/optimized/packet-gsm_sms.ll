@@ -2567,7 +2567,7 @@ default.unreachable:                              ; preds = %.preheader
   br label %.preheader
 
 .sink.split.i:                                    ; preds = %55, %140, %138, %132, %129, %118, %113, %108, %69, %63, %51, %43
-  %.sink234.sink.i = phi i32 [ %41, %43 ], [ %136, %138 ], [ 7, %51 ], [ 1, %113 ], [ 1, %118 ], [ 1, %132 ], [ 1, %129 ], [ 1, %108 ], [ 7, %69 ], [ 7, %63 ], [ 7, %140 ], [ 7, %55 ]
+  %.sink234.sink.i = phi i32 [ %41, %43 ], [ %136, %138 ], [ 7, %51 ], [ 1, %113 ], [ 1, %118 ], [ 1, %132 ], [ 1, %129 ], [ 1, %108 ], [ 7, %140 ], [ 7, %69 ], [ 7, %63 ], [ 7, %55 ]
   %189 = add i32 %38, %.sink234.sink.i
   br label %dis_field_vp.exit
 
@@ -3130,7 +3130,7 @@ default.unreachable72:                            ; preds = %.critedge, %23, %21
   br label %56
 
 .critedge71:                                      ; preds = %23, %23, %26
-  %.sink73 = phi i32 [ 4, %26 ], [ 1, %23 ], [ 1, %23 ]
+  %.sink73 = phi i32 [ 1, %23 ], [ 4, %26 ], [ 1, %23 ]
   store i32 %.sink73, ptr %4, align 4
   %41 = load i32, ptr @hf_gsm_sms_dcs_indication_sense, align 4
   %42 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %41, ptr noundef %0, i32 noundef %2, i32 noundef 1, i32 noundef 0)

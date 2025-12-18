@@ -2060,7 +2060,7 @@ _ZN5boost9intrusive22bstree_algorithms_baseINS0_18rbtree_node_traitsIPvLb1EEEE9i
   br i1 %46, label %.lr.ph.i, label %_ZN5boost9intrusive22bstree_algorithms_baseINS0_18rbtree_node_traitsIPvLb1EEEE9prev_nodeEPNS0_19compact_rbtree_nodeIS3_EE.exit, !llvm.loop !113
 
 _ZN5boost9intrusive22bstree_algorithms_baseINS0_18rbtree_node_traitsIPvLb1EEEE9prev_nodeEPNS0_19compact_rbtree_nodeIS3_EE.exit: ; preds = %.lr.ph.i, %_ZN5boost9intrusive22bstree_algorithms_baseINS0_18rbtree_node_traitsIPvLb1EEEE9is_headerEPKNS0_19compact_rbtree_nodeIS3_EE.exit.thread17.i, %19, %28, %30, %35, %.preheader.i
-  %.013.i = phi ptr [ %23, %19 ], [ %23, %35 ], [ %23, %30 ], [ %23, %28 ], [ %.022.i, %.preheader.i ], [ %.05.i.i, %_ZN5boost9intrusive22bstree_algorithms_baseINS0_18rbtree_node_traitsIPvLb1EEEE9is_headerEPKNS0_19compact_rbtree_nodeIS3_EE.exit.thread17.i ], [ %.0.i, %.lr.ph.i ]
+  %.013.i = phi ptr [ %.05.i.i, %_ZN5boost9intrusive22bstree_algorithms_baseINS0_18rbtree_node_traitsIPvLb1EEEE9is_headerEPKNS0_19compact_rbtree_nodeIS3_EE.exit.thread17.i ], [ %23, %19 ], [ %23, %35 ], [ %23, %30 ], [ %23, %28 ], [ %.022.i, %.preheader.i ], [ %.0.i, %.lr.ph.i ]
   %47 = getelementptr inbounds nuw i8, ptr %.013.i, i64 32
   %48 = load ptr, ptr %47, align 8, !tbaa !10
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 32

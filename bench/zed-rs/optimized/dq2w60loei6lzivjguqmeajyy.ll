@@ -4490,8 +4490,8 @@ define internal fastcc { i64, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$4find17
   br label %171
 
 "_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17he21cac0fa60d7f79E.exit": ; preds = %70, %.sink.split.i, %.preheader4, %171, %.preheader, %69, %150, %93, %.preheader.i
-  %.sroa.6.3 = phi i64 [ undef, %93 ], [ undef, %.preheader.i ], [ undef, %150 ], [ %13, %69 ], [ undef, %.sink.split.i ], [ %160, %.preheader ], [ undef, %171 ], [ %103, %.preheader4 ], [ %16, %70 ]
-  %not. = phi i64 [ 0, %93 ], [ 0, %.preheader.i ], [ 0, %150 ], [ %spec.select169, %69 ], [ 0, %.sink.split.i ], [ 1, %.preheader ], [ 0, %171 ], [ 1, %.preheader4 ], [ 1, %70 ]
+  %.sroa.6.3 = phi i64 [ undef, %93 ], [ undef, %171 ], [ undef, %.preheader.i ], [ undef, %150 ], [ %13, %69 ], [ %160, %.preheader ], [ %103, %.preheader4 ], [ undef, %.sink.split.i ], [ %16, %70 ]
+  %not. = phi i64 [ 0, %93 ], [ 0, %171 ], [ 0, %.preheader.i ], [ 0, %150 ], [ %spec.select169, %69 ], [ 1, %.preheader ], [ 1, %.preheader4 ], [ 0, %.sink.split.i ], [ 1, %70 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %204 = insertvalue { i64, i64 } poison, i64 %not., 0
   %205 = insertvalue { i64, i64 } %204, i64 %.sroa.6.3, 1

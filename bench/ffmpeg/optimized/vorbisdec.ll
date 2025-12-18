@@ -1633,7 +1633,7 @@ get_vlc2.exit348.i.i.us.i:                        ; preds = %802, %781, %764
   br i1 %exitcond569.not.i.us.i, label %.thread176.i.us.i, label %764, !llvm.loop !121
 
 .thread176.i.us.i:                                ; preds = %._crit_edge395.i.us.i, %644, %741, %._crit_edge416.i.us.i, %.preheader.i.us.i, %.preheader215.i.us.i, %.preheader218.i.us.i, %495, %463, %.preheader223.i.us..thread176.i.us_crit_edge.i
-  %843 = phi i32 [ %.pre.i, %.preheader223.i.us..thread176.i.us_crit_edge.i ], [ %.pre412.i, %463 ], [ %.pre412.i, %.preheader.i.us.i ], [ %.pre412.i, %.preheader215.i.us.i ], [ %.pre412.i, %.preheader218.i.us.i ], [ %.pre412.i, %495 ], [ %.pre412.i, %644 ], [ %.pre412.i, %._crit_edge416.i.us.i ], [ %.pre412.i, %741 ], [ %.pre412.i, %._crit_edge395.i.us.i ]
+  %843 = phi i32 [ %.pre.i, %.preheader223.i.us..thread176.i.us_crit_edge.i ], [ %.pre412.i, %644 ], [ %.pre412.i, %741 ], [ %.pre412.i, %._crit_edge416.i.us.i ], [ %.pre412.i, %463 ], [ %.pre412.i, %.preheader.i.us.i ], [ %.pre412.i, %.preheader215.i.us.i ], [ %.pre412.i, %.preheader218.i.us.i ], [ %.pre412.i, %495 ], [ %.pre412.i, %._crit_edge395.i.us.i ]
   %indvars.iv.next571.i.us.i = add nsw i64 %indvars.iv570.i.us.i, 1
   %844 = add i32 %843, %.1297.i426.i.us.i
   %845 = add nuw nsw i32 %.0271.i428.i.us.i, 1
@@ -2877,8 +2877,8 @@ get_vlc2.exit.i87.i.i:                            ; preds = %1605, %1584, %1557
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.thread212.i.i, %.thread198.i.i, %.thread184.i.i, %.loopexit.sink.split.i, %314, %291, %.preheader.i
-  %.0229.lcssa446452.i = phi i32 [ 0, %291 ], [ %.1230.i, %314 ], [ 0, %.preheader.i ], [ %.1230.i, %.loopexit.sink.split.i ], [ %.1230.i, %.thread198.i.i ], [ %.1230.i, %.thread184.i.i ], [ %.1230.i, %.thread212.i.i ]
-  %.1223.lcssa447451.i = phi i8 [ %.2224.i, %291 ], [ %.2224.i, %314 ], [ %.0222329.i, %.preheader.i ], [ %.2224.i, %.loopexit.sink.split.i ], [ %.2224.i, %.thread198.i.i ], [ %.2224.i, %.thread184.i.i ], [ %.2224.i, %.thread212.i.i ]
+  %.0229.lcssa446452.i = phi i32 [ %.1230.i, %.loopexit.sink.split.i ], [ %.1230.i, %.thread198.i.i ], [ 0, %.preheader.i ], [ 0, %291 ], [ %.1230.i, %.thread184.i.i ], [ %.1230.i, %314 ], [ %.1230.i, %.thread212.i.i ]
+  %.1223.lcssa447451.i = phi i8 [ %.2224.i, %.loopexit.sink.split.i ], [ %.2224.i, %.thread198.i.i ], [ %.0222329.i, %.preheader.i ], [ %.2224.i, %291 ], [ %.2224.i, %.thread184.i.i ], [ %.2224.i, %314 ], [ %.2224.i, %.thread212.i.i ]
   %1634 = mul i32 %.0229.lcssa446452.i, %176
   %1635 = zext i32 %1634 to i64
   %1636 = getelementptr inbounds nuw float, ptr %.0220330.i, i64 %1635
@@ -3074,8 +3074,8 @@ get_vlc2.exit.i87.i.i:                            ; preds = %1605, %1584, %1557
   %1766 = icmp samesign ult i64 %indvars.iv.next410.i, %1765
   br i1 %1766, label %1713, label %vorbis_parse_audio_packet.exit, !llvm.loop !144
 
-vorbis_parse_audio_packet.exit.thread:            ; preds = %get_vlc2.exit344.i.i.us.i, %get_vlc2.exit352.i.i.us.i, %get_vlc2.exit356.i.i.us.i, %get_vlc2.exit348.i.i.us.i, %get_vlc2.exit364.i.i.i, %get_vlc2.exit360.i.i.i, %128, %227, %._crit_edge332.i, %154, %289, %setup_classifs.exit.i.i, %setup_classifs.exit140.i.i, %setup_classifs.exit156.i.i, %949, %329, %1301, %1630
-  %.0.i.ph = phi i32 [ -1094995529, %1630 ], [ -1094995529, %1301 ], [ -1094995529, %329 ], [ -1094995529, %949 ], [ -1094995529, %setup_classifs.exit156.i.i ], [ -1094995529, %setup_classifs.exit140.i.i ], [ -1094995529, %setup_classifs.exit.i.i ], [ -1094995529, %289 ], [ -1094995529, %154 ], [ -1094995529, %._crit_edge332.i ], [ -1094995529, %227 ], [ -1094995529, %128 ], [ %.062.i350.i.i.us.i, %get_vlc2.exit352.i.i.us.i ], [ %.062.i358.i.i.i, %get_vlc2.exit360.i.i.i ], [ %.062.i362.i.i.i, %get_vlc2.exit364.i.i.i ], [ %.062.i346.i.i.us.i, %get_vlc2.exit348.i.i.us.i ], [ %.062.i354.i.i.us.i, %get_vlc2.exit356.i.i.us.i ], [ %.062.i342.i.i.us.i, %get_vlc2.exit344.i.i.us.i ]
+vorbis_parse_audio_packet.exit.thread:            ; preds = %get_vlc2.exit344.i.i.us.i, %get_vlc2.exit352.i.i.us.i, %get_vlc2.exit356.i.i.us.i, %get_vlc2.exit348.i.i.us.i, %get_vlc2.exit364.i.i.i, %get_vlc2.exit360.i.i.i, %128, %227, %._crit_edge332.i, %154, %289, %setup_classifs.exit.i.i, %setup_classifs.exit140.i.i, %setup_classifs.exit156.i.i, %1630, %949, %329, %1301
+  %.0.i.ph = phi i32 [ %.062.i358.i.i.i, %get_vlc2.exit360.i.i.i ], [ -1094995529, %1301 ], [ -1094995529, %329 ], [ %.062.i354.i.i.us.i, %get_vlc2.exit356.i.i.us.i ], [ -1094995529, %949 ], [ -1094995529, %1630 ], [ %.062.i350.i.i.us.i, %get_vlc2.exit352.i.i.us.i ], [ %.062.i346.i.i.us.i, %get_vlc2.exit348.i.i.us.i ], [ -1094995529, %128 ], [ %.062.i362.i.i.i, %get_vlc2.exit364.i.i.i ], [ -1094995529, %setup_classifs.exit156.i.i ], [ -1094995529, %setup_classifs.exit140.i.i ], [ -1094995529, %setup_classifs.exit.i.i ], [ -1094995529, %289 ], [ -1094995529, %154 ], [ -1094995529, %._crit_edge332.i ], [ -1094995529, %227 ], [ %.062.i342.i.i.us.i, %get_vlc2.exit344.i.i.us.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -4140,8 +4140,8 @@ define internal fastcc i32 @vorbis_parse_setup_hdr_codebooks(ptr noundef capture
   br label %._crit_edge329
 
 .loopexit261:                                     ; preds = %124, %126, %140, %.preheader262, %.preheader260, %._crit_edge
-  %186 = phi i32 [ %174, %._crit_edge ], [ %spec.select.i241, %.preheader260 ], [ %spec.select.i241, %.preheader262 ], [ %143, %140 ], [ %135, %126 ], [ %spec.select.i242300, %124 ]
-  %.3207 = phi i32 [ %71, %._crit_edge ], [ 0, %.preheader260 ], [ 0, %.preheader262 ], [ 0, %140 ], [ %71, %126 ], [ %.1205, %124 ]
+  %186 = phi i32 [ %174, %._crit_edge ], [ %spec.select.i241, %.preheader260 ], [ %135, %126 ], [ %spec.select.i241, %.preheader262 ], [ %143, %140 ], [ %spec.select.i242300, %124 ]
+  %.3207 = phi i32 [ %71, %._crit_edge ], [ 0, %.preheader260 ], [ %71, %126 ], [ 0, %.preheader262 ], [ 0, %140 ], [ %.1205, %124 ]
   %187 = lshr i32 %186, 3
   %188 = zext nneg i32 %187 to i64
   %189 = getelementptr inbounds nuw i8, ptr %36, i64 %188
@@ -5263,7 +5263,7 @@ create_map.exit:                                  ; preds = %._crit_edge.i
   br i1 %462, label %29, label %.thread231, !llvm.loop !194
 
 .thread231:                                       ; preds = %.loopexit, %._crit_edge274, %._crit_edge266, %316, %create_map.exit, %397, %.preheader237, %298, %314, %282, %.thread223, %213, %220, %152, %129, %458, %1
-  %.0166 = phi i32 [ -1094995529, %282 ], [ -12, %1 ], [ -1094995529, %458 ], [ -1094995529, %129 ], [ -1094995529, %.thread223 ], [ -1094995529, %213 ], [ -1094995529, %220 ], [ -1094995529, %152 ], [ -1094995529, %298 ], [ -1094995529, %314 ], [ 0, %.preheader237 ], [ -12, %397 ], [ -12, %316 ], [ -12, %._crit_edge266 ], [ -1094995529, %._crit_edge274 ], [ 0, %.loopexit ], [ -12, %create_map.exit ]
+  %.0166 = phi i32 [ -1094995529, %282 ], [ -12, %1 ], [ -1094995529, %458 ], [ -1094995529, %129 ], [ -1094995529, %.thread223 ], [ -1094995529, %213 ], [ -12, %397 ], [ -1094995529, %220 ], [ -1094995529, %152 ], [ -1094995529, %298 ], [ -1094995529, %314 ], [ 0, %.preheader237 ], [ -12, %316 ], [ -12, %._crit_edge266 ], [ -1094995529, %._crit_edge274 ], [ 0, %.loopexit ], [ -12, %create_map.exit ]
   ret i32 %.0166
 }
 
@@ -5584,7 +5584,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @vorbis_parse_setup_hdr_res
   br i1 %exitcond177.not, label %._crit_edge133, label %.preheader, !llvm.loop !197
 
 .thread:                                          ; preds = %114, %79, %111, %192
-  %.2.ph = phi i32 [ -1094995529, %192 ], [ -1094995529, %111 ], [ -1094995529, %79 ], [ -12, %114 ]
+  %.2.ph = phi i32 [ -1094995529, %79 ], [ -1094995529, %192 ], [ -1094995529, %111 ], [ -12, %114 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.loopexit
 
@@ -6644,7 +6644,7 @@ get_vlc2.exit140:                                 ; preds = %165, %190, %211
   br label %.critedge
 
 .critedge:                                        ; preds = %get_vlc2.exit140, %3, %._crit_edge165
-  %.0 = phi i32 [ 0, %._crit_edge165 ], [ 1, %3 ], [ -1094995529, %get_vlc2.exit140 ]
+  %.0 = phi i32 [ 1, %3 ], [ 0, %._crit_edge165 ], [ -1094995529, %get_vlc2.exit140 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

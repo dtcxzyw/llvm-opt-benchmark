@@ -2043,11 +2043,11 @@ call5.i.i.i.i2.i.i.noexc109:                      ; preds = %if.end.i.i.i.i.i.i.
   br label %invoke.cont9
 
 invoke.cont9:                                     ; preds = %call5.i.i.i.i2.i.i.noexc109, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
-  %ref.tmp.sroa.11.0570586 = phi ptr [ %add.ptr.i.i.i, %call5.i.i.i.i2.i.i.noexc109 ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %ref.tmp.sroa.0.0576584 = phi ptr [ %call5.i.i.i.i2.i.i91, %call5.i.i.i.i2.i.i.noexc109 ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %ref.tmp4.sroa.11.0 = phi ptr [ %add.ptr.i.i.i97, %call5.i.i.i.i2.i.i.noexc109 ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %ref.tmp4.sroa.0.0 = phi ptr [ %call5.i.i.i.i2.i.i110, %call5.i.i.i.i2.i.i.noexc109 ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %retval.0.i.i.i.i.i.i.i104 = phi ptr [ %add.ptr.i.i.i.i.i.i.i99, %call5.i.i.i.i2.i.i.noexc109 ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %ref.tmp.sroa.11.0570586 = phi ptr [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ], [ %add.ptr.i.i.i, %call5.i.i.i.i2.i.i.noexc109 ]
+  %ref.tmp.sroa.0.0576584 = phi ptr [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ], [ %call5.i.i.i.i2.i.i91, %call5.i.i.i.i2.i.i.noexc109 ]
+  %ref.tmp4.sroa.11.0 = phi ptr [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ], [ %add.ptr.i.i.i97, %call5.i.i.i.i2.i.i.noexc109 ]
+  %ref.tmp4.sroa.0.0 = phi ptr [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ], [ %call5.i.i.i.i2.i.i110, %call5.i.i.i.i2.i.i.noexc109 ]
+  %retval.0.i.i.i.i.i.i.i104 = phi ptr [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ], [ %add.ptr.i.i.i.i.i.i.i99, %call5.i.i.i.i2.i.i.noexc109 ]
   %sectorExposure_ = getelementptr inbounds nuw i8, ptr %this, i64 144
   %1 = load ptr, ptr %sectorExposure_, align 8, !tbaa !3
   %_M_finish.i.i.i.i112 = getelementptr inbounds nuw i8, ptr %this, i64 152
@@ -2145,11 +2145,11 @@ call5.i.i.i.i2.i.i.noexc220:                      ; preds = %if.end.i.i.i.i.i.i.
   br label %invoke.cont30
 
 invoke.cont30:                                    ; preds = %call5.i.i.i.i2.i.i.noexc220, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i167
-  %ref.tmp18.sroa.11.0594610 = phi ptr [ %add.ptr.i.i.i171, %call5.i.i.i.i2.i.i.noexc220 ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i167 ]
-  %ref.tmp18.sroa.0.0600608 = phi ptr [ %call5.i.i.i.i2.i.i184, %call5.i.i.i.i2.i.i.noexc220 ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i167 ]
-  %ref.tmp25.sroa.0.0 = phi ptr [ %call5.i.i.i.i2.i.i221, %call5.i.i.i.i2.i.i.noexc220 ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i167 ]
-  %ref.tmp25.sroa.11.0 = phi ptr [ %add.ptr.i.i.i208, %call5.i.i.i.i2.i.i.noexc220 ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i167 ]
-  %retval.0.i.i.i.i.i.i.i215 = phi ptr [ %add.ptr.i.i.i.i.i.i.i210, %call5.i.i.i.i2.i.i.noexc220 ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i167 ]
+  %ref.tmp18.sroa.11.0594610 = phi ptr [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i167 ], [ %add.ptr.i.i.i171, %call5.i.i.i.i2.i.i.noexc220 ]
+  %ref.tmp18.sroa.0.0600608 = phi ptr [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i167 ], [ %call5.i.i.i.i2.i.i184, %call5.i.i.i.i2.i.i.noexc220 ]
+  %ref.tmp25.sroa.0.0 = phi ptr [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i167 ], [ %call5.i.i.i.i2.i.i221, %call5.i.i.i.i2.i.i.noexc220 ]
+  %ref.tmp25.sroa.11.0 = phi ptr [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i167 ], [ %add.ptr.i.i.i208, %call5.i.i.i.i2.i.i.noexc220 ]
+  %retval.0.i.i.i.i.i.i.i215 = phi ptr [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i167 ], [ %add.ptr.i.i.i.i.i.i.i210, %call5.i.i.i.i2.i.i.noexc220 ]
   %sectorUl_ = getelementptr inbounds nuw i8, ptr %this, i64 192
   %6 = load ptr, ptr %sectorUl_, align 8, !tbaa !3
   %_M_finish.i.i.i.i223 = getelementptr inbounds nuw i8, ptr %this, i64 200

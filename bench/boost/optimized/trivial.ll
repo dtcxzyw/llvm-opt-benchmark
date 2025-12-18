@@ -272,7 +272,7 @@ define weak_odr noundef zeroext i1 @_ZN5boost3log11v2_mt_posix7trivial11from_str
   br label %16
 
 16:                                               ; preds = %.sink.split, %10, %12, %14, %3
-  %.0 = phi i1 [ false, %3 ], [ false, %14 ], [ false, %12 ], [ false, %10 ], [ true, %.sink.split ]
+  %.0 = phi i1 [ false, %10 ], [ false, %12 ], [ false, %14 ], [ false, %3 ], [ true, %.sink.split ]
   ret i1 %.0
 }
 
@@ -411,7 +411,7 @@ define weak_odr noundef zeroext i1 @_ZN5boost3log11v2_mt_posix7trivial11from_str
   br label %22
 
 22:                                               ; preds = %.sink.split, %13, %16, %19, %3
-  %.0 = phi i1 [ false, %3 ], [ false, %19 ], [ false, %16 ], [ false, %13 ], [ true, %.sink.split ]
+  %.0 = phi i1 [ false, %13 ], [ false, %16 ], [ false, %19 ], [ false, %3 ], [ true, %.sink.split ]
   ret i1 %.0
 }
 

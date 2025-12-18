@@ -2058,7 +2058,7 @@ define noundef zeroext i1 @"_ZN81_$LT$ring..rsa..padding..pss..PSS$u20$as$u20$ri
   br label %.sink.split.sink.split
 
 .sink.split.sink.split:                           ; preds = %84, %.sink.split.sink.split.sink.split, %89, %64
-  %.1.ph.ph = phi i1 [ true, %89 ], [ true, %64 ], [ %.1.ph.ph.ph, %.sink.split.sink.split.sink.split ], [ true, %84 ]
+  %.1.ph.ph = phi i1 [ true, %89 ], [ %.1.ph.ph.ph, %.sink.split.sink.split.sink.split ], [ true, %64 ], [ true, %84 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.sink.split
 

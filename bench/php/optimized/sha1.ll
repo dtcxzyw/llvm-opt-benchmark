@@ -129,7 +129,7 @@ zend_parse_arg_bool_ex.exit:                      ; preds = %20
   br i1 %45, label %.lr.ph.i, label %PHP_SHA1Update.exit
 
 PHP_SHA1Update.exit:                              ; preds = %.lr.ph.i, %.critedge, %39
-  %.1.i = phi i64 [ 64, %39 ], [ 0, %.critedge ], [ %43, %.lr.ph.i ]
+  %.1.i = phi i64 [ 0, %.critedge ], [ 64, %39 ], [ %43, %.lr.ph.i ]
   %46 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %47 = getelementptr inbounds nuw i8, ptr %32, i64 %.1.i
   %48 = sub i64 %34, %.1.i

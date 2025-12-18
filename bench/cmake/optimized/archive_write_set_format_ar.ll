@@ -837,7 +837,7 @@ define internal fastcc range(i32 -1, 1) i32 @format_decimal(i64 noundef %0, ptr 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader32.preheader, %.lr.ph.preheader, %.preheader.preheader, %20
-  %.0 = phi i32 [ 0, %20 ], [ -1, %.preheader.preheader ], [ 0, %.lr.ph.preheader ], [ -1, %.preheader32.preheader ]
+  %.0 = phi i32 [ 0, %20 ], [ 0, %.lr.ph.preheader ], [ -1, %.preheader.preheader ], [ -1, %.preheader32.preheader ]
   ret i32 %.0
 }
 

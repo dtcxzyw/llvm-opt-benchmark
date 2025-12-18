@@ -6630,7 +6630,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit28:        ; preds = %59
   br i1 %75, label %.loopexit, label %72
 
 .loopexit:                                        ; preds = %66, %72, %.thread
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %16, %.thread ], [ %.pn.pn.pn, %72 ], [ %65, %66 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %72 ], [ %16, %.thread ], [ %65, %66 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -7351,7 +7351,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit28:        ; preds = %59
   br i1 %75, label %.loopexit, label %72
 
 .loopexit:                                        ; preds = %66, %72, %.thread
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %16, %.thread ], [ %.pn.pn.pn, %72 ], [ %65, %66 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %72 ], [ %16, %.thread ], [ %65, %66 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

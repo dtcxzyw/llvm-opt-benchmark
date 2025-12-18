@@ -1890,7 +1890,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit: 
   br i1 %.not4074, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit, %71, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit
-  %.pre.i60 = phi ptr [ null, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit ], [ null, %71 ], [ %162, %_ZN7obj_refI4expr11ast_managerED2Ev.exit ]
+  %.pre.i60 = phi ptr [ null, %71 ], [ null, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit ], [ %162, %_ZN7obj_refI4expr11ast_managerED2Ev.exit ]
   %88 = getelementptr inbounds nuw i8, ptr %.03877, i64 56
   %89 = load i8, ptr %88, align 8, !tbaa !500, !range !502, !noundef !503
   %90 = trunc nuw i8 %89 to i1
@@ -3038,7 +3038,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.
   br i1 %.not27.old.i.i.i, label %.loopexit, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %72, %69
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %72 ], [ %71, %69 ]
+  %.137.i.i.i.be = phi ptr [ %71, %69 ], [ %.old.i.i.i, %72 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !579
 
 .loopexit:                                        ; preds = %58, %69, %72, %.preheader.i.i.i

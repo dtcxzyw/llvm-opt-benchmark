@@ -1328,7 +1328,7 @@ Py_DECREF.exit59.i:                               ; preds = %Py_XDECREF.exit.i, 
   br i1 %141, label %._crit_edge.i, label %42
 
 Py_DECREF.exit53.i:                               ; preds = %Py_XDECREF.exit.i, %82, %79, %Py_DECREF.exit55.i, %56, %53, %51, %41, %._crit_edge.i
-  %.1.i = phi i32 [ %.039.lcssa.i, %41 ], [ -1, %._crit_edge.i ], [ -1, %56 ], [ -1, %51 ], [ -1, %53 ], [ -1, %Py_DECREF.exit55.i ], [ -1, %79 ], [ -1, %82 ], [ %.4.i, %Py_XDECREF.exit.i ]
+  %.1.i = phi i32 [ %.039.lcssa.i, %41 ], [ -1, %._crit_edge.i ], [ -1, %82 ], [ -1, %56 ], [ -1, %51 ], [ -1, %53 ], [ -1, %Py_DECREF.exit55.i ], [ -1, %79 ], [ %.4.i, %Py_XDECREF.exit.i ]
   %142 = load ptr, ptr %3, align 8, !tbaa !4
   %143 = load i32, ptr %142, align 8, !tbaa !21
   %.not.i62.i = icmp sgt i32 %143, -1
@@ -1405,8 +1405,8 @@ define internal ptr @stopiteration_error(ptr noundef readonly captures(none) %0,
   %.not25 = icmp eq i32 %17, 0
   br i1 %.not25, label %.critedge, label %.thread
 
-.thread:                                          ; preds = %12, %11, %15
-  %.02140 = phi ptr [ @.str.31, %15 ], [ %spec.select, %12 ], [ @.str.29, %11 ]
+.thread:                                          ; preds = %11, %12, %15
+  %.02140 = phi ptr [ @.str.31, %15 ], [ @.str.29, %11 ], [ %spec.select, %12 ]
   %18 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.02140) #5
   %19 = tail call ptr @_PyUnicode_FromASCII(ptr noundef nonnull %.02140, i64 noundef %18) #4
   %20 = icmp eq ptr %19, null

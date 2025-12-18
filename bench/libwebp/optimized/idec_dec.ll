@@ -1265,7 +1265,7 @@ DecodeVP8LHeader.exit.sink.split:                 ; preds = %336, %318
   br label %DecodeVP8LHeader.exit
 
 DecodeVP8LHeader.exit:                            ; preds = %DecodeVP8LHeader.exit.sink.split, %111, %339, %DecodeRemaining.exit
-  %.5.ph.ph = phi i32 [ %.3, %DecodeRemaining.exit ], [ 5, %339 ], [ 5, %111 ], [ 5, %DecodeVP8LHeader.exit.sink.split ]
+  %.5.ph.ph = phi i32 [ %.3, %DecodeRemaining.exit ], [ 5, %111 ], [ 5, %339 ], [ 5, %DecodeVP8LHeader.exit.sink.split ]
   %.pr51.pr = load i32, ptr %0, align 8, !tbaa !3
   %359 = icmp eq i32 %.pr51.pr, 5
   br i1 %359, label %360, label %.critedge

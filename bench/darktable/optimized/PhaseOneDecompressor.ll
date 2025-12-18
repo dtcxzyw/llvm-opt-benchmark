@@ -736,8 +736,8 @@ _ZN8rawspeed11BitStreamerINS_16BitStreamerMSB32ENS_39BitStreamerForwardSequentia
   br i1 %.not43, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %117, %.thread.loopexit.us, %79, %78
-  %.sroa.052.1 = phi i64 [ %.sroa.052.7, %78 ], [ %.sroa.052.7, %79 ], [ %95, %.thread.loopexit.us ], [ %.sroa.052.5, %117 ]
-  %.sroa.13.1 = phi i32 [ %.sroa.13.7, %78 ], [ %.sroa.13.7, %79 ], [ %94, %.thread.loopexit.us ], [ %.sroa.13.5, %117 ]
+  %.sroa.052.1 = phi i64 [ %95, %.thread.loopexit.us ], [ %.sroa.052.7, %78 ], [ %.sroa.052.7, %79 ], [ %.sroa.052.5, %117 ]
+  %.sroa.13.1 = phi i32 [ %94, %.thread.loopexit.us ], [ %.sroa.13.7, %78 ], [ %.sroa.13.7, %79 ], [ %.sroa.13.5, %117 ]
   %118 = and i64 %indvars.iv, 1
   %119 = getelementptr inbounds nuw i32, ptr %4, i64 %118
   %120 = load i32, ptr %119, align 4, !tbaa !109

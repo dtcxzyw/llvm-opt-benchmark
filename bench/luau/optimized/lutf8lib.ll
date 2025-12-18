@@ -183,8 +183,8 @@ _ZL10u_posrelatim.exit.thread:                    ; preds = %13, %22, %_ZL10u_po
   br i1 %67, label %.preheader47, label %.critedge, !llvm.loop !14
 
 .critedge:                                        ; preds = %63, %.critedge2, %.critedge2.thread, %.preheader48
-  %.036 = phi i32 [ %.23851, %.preheader48 ], [ %48, %.critedge2.thread ], [ %54, %.critedge2 ], [ %.238, %63 ]
-  %.1 = phi i32 [ %23, %.preheader48 ], [ 0, %.critedge2.thread ], [ %indvars.le, %.critedge2 ], [ %64, %63 ]
+  %.036 = phi i32 [ %54, %.critedge2 ], [ %.23851, %.preheader48 ], [ %48, %.critedge2.thread ], [ %.238, %63 ]
+  %.1 = phi i32 [ %indvars.le, %.critedge2 ], [ %23, %.preheader48 ], [ 0, %.critedge2.thread ], [ %64, %63 ]
   %68 = icmp eq i32 %.036, 0
   br i1 %68, label %.critedge.thread, label %.critedge.thread84
 
@@ -331,7 +331,7 @@ _ZL10u_posrelatim.exit36:                         ; preds = %_ZL10u_posrelatim.e
   %68 = getelementptr inbounds nuw i8, ptr %.03047, i64 %indvars.iv.i
   br label %69
 
-.loopexit:                                        ; preds = %62, %54, %45
+.loopexit:                                        ; preds = %54, %62, %45
   call void (ptr, ptr, ...) @_Z11luaL_errorLP9lua_StatePKcz(ptr noundef %0, ptr noundef nonnull @.str.12) #4
   unreachable
 
@@ -625,7 +625,7 @@ _ZL10u_posrelatim.exit35:                         ; preds = %_ZL10u_posrelatim.e
   %64 = getelementptr inbounds nuw i8, ptr %36, i64 %indvars.iv.i
   br label %66
 
-.thread:                                          ; preds = %50, %58, %41
+.thread:                                          ; preds = %58, %50, %41
   call void @_Z11lua_pushnilP9lua_State(ptr noundef %0)
   %65 = add nsw i32 %.02354, 1
   br label %._crit_edge
@@ -788,7 +788,7 @@ define internal noundef range(i32 0, 3) i32 @_ZL8iter_auxP9lua_State(ptr noundef
   %48 = icmp slt i8 %47, -64
   br i1 %48, label %_ZL11utf8_decodePKcPi.exit.thread, label %49
 
-_ZL11utf8_decodePKcPi.exit.thread:                ; preds = %21, %30, %38, %45
+_ZL11utf8_decodePKcPi.exit.thread:                ; preds = %21, %38, %30, %45
   call void (ptr, ptr, ...) @_Z11luaL_errorLP9lua_StatePKcz(ptr noundef %0, ptr noundef nonnull @.str.12) #4
   unreachable
 

@@ -5947,7 +5947,7 @@ decode_mode.exit:                                 ; preds = %.loopexit.i, %.preh
   br i1 %3807, label %.lr.ph118.i, label %.loopexit58.i, !llvm.loop !142
 
 .loopexit58.i:                                    ; preds = %.lr.ph116.i, %.lr.ph118.i, %._crit_edge110.i, %.preheader57.i
-  %.5650.i.lcssa519.i = phi i32 [ %.5650.i.lcssa521.i, %.preheader57.i ], [ 0, %._crit_edge110.i ], [ %.5650.i.lcssa521.i, %.lr.ph118.i ], [ %.5650.i.lcssa520523.i, %.lr.ph116.i ]
+  %.5650.i.lcssa519.i = phi i32 [ 0, %._crit_edge110.i ], [ %.5650.i.lcssa521.i, %.preheader57.i ], [ %.5650.i.lcssa521.i, %.lr.ph118.i ], [ %.5650.i.lcssa520523.i, %.lr.ph116.i ]
   %.not10.i = icmp ugt i32 %3610, %3618
   br i1 %.not10.i, label %.preheader53.i, label %.preheader55.i
 
@@ -6144,7 +6144,7 @@ decode_mode.exit:                                 ; preds = %.loopexit.i, %.preh
   br i1 %3885, label %.lr.ph93.i, label %.loopexit70.i, !llvm.loop !150
 
 .loopexit70.i:                                    ; preds = %.lr.ph91.i, %.lr.ph93.i, %._crit_edge88.i, %.preheader69.i
-  %.7652.i.lcssa526.i = phi i32 [ %.7652.i.lcssa528.i, %.preheader69.i ], [ 0, %._crit_edge88.i ], [ %.7652.i.lcssa528.i, %.lr.ph93.i ], [ %.7652.i.lcssa527530.i, %.lr.ph91.i ]
+  %.7652.i.lcssa526.i = phi i32 [ 0, %._crit_edge88.i ], [ %.7652.i.lcssa528.i, %.preheader69.i ], [ %.7652.i.lcssa528.i, %.lr.ph93.i ], [ %.7652.i.lcssa527530.i, %.lr.ph91.i ]
   %.not8.i = icmp ugt i32 %3610, %3618
   br i1 %.not8.i, label %.preheader65.i, label %.preheader67.i
 
@@ -6192,7 +6192,7 @@ decode_mode.exit:                                 ; preds = %.loopexit.i, %.preh
   br i1 %3902, label %.lr.ph97.i, label %.loopexit45.i, !llvm.loop !152
 
 .loopexit45.i:                                    ; preds = %.lr.ph95.i, %.lr.ph97.i, %.lr.ph120.i, %.lr.ph122.i, %.lr.ph142.i, %._crit_edge.us152.i, %.preheader51.i, %.preheader65.i, %.preheader67.i, %.preheader53.i, %.preheader55.i, %.preheader46.i, %.preheader43.lr.ph.i, %.preheader44.i, %3651
-  %.0645.i.i = phi i32 [ 0, %3651 ], [ %.7652.i.lcssa526.i, %.preheader65.i ], [ %.3648.i.lcssa515.i, %.preheader46.i ], [ %.5650.i.lcssa519.i, %.preheader53.i ], [ %.5650.i.lcssa519.i, %.preheader55.i ], [ 0, %.preheader44.i ], [ %.7652.i.lcssa526.i, %.preheader67.i ], [ 0, %.preheader43.lr.ph.i ], [ 0, %.preheader51.i ], [ %.7652.i.lcssa526.i, %.lr.ph97.i ], [ %3689, %._crit_edge.us152.i ], [ %.3648.i.lcssa516556.i, %.lr.ph142.i ], [ %.5650.i.lcssa519.i, %.lr.ph122.i ], [ %.5650.i.lcssa519.i, %.lr.ph120.i ], [ %.7652.i.lcssa526.i, %.lr.ph95.i ]
+  %.0645.i.i = phi i32 [ 0, %3651 ], [ %.5650.i.lcssa519.i, %.preheader53.i ], [ %.7652.i.lcssa526.i, %.preheader65.i ], [ %.3648.i.lcssa515.i, %.preheader46.i ], [ %.7652.i.lcssa526.i, %.preheader67.i ], [ %.5650.i.lcssa519.i, %.preheader55.i ], [ 0, %.preheader44.i ], [ %.5650.i.lcssa519.i, %.lr.ph122.i ], [ 0, %.preheader43.lr.ph.i ], [ %.5650.i.lcssa519.i, %.lr.ph120.i ], [ %.7652.i.lcssa526.i, %.lr.ph97.i ], [ 0, %.preheader51.i ], [ %.3648.i.lcssa516556.i, %.lr.ph142.i ], [ %3689, %._crit_edge.us152.i ], [ %.7652.i.lcssa526.i, %.lr.ph95.i ]
   %3903 = load i32, ptr %3632, align 4, !tbaa !121
   %3904 = zext i32 %3903 to i64
   %3905 = getelementptr inbounds nuw [2 x [2 x [6 x [6 x [11 x i8]]]]], ptr %3585, i64 %3904
@@ -6758,7 +6758,7 @@ decode_mode.exit:                                 ; preds = %.loopexit.i, %.preh
   br i1 %4143, label %.lr.ph174.i, label %.loopexit.i500, !llvm.loop !176
 
 .loopexit.i500:                                   ; preds = %.lr.ph174.i, %.lr.ph176.i, %.lr.ph198.i, %.lr.ph200.i, %.lr.ph219.i, %._crit_edge224.i, %.preheader32.i, %.preheader34.i, %.preheader21.i, %.preheader23.i, %.preheader15.i, %.preheader14.i, %3938
-  %.18663.i.i = phi i32 [ %.9654.i232.i, %3938 ], [ %.16661.i.lcssa.i, %.preheader32.i ], [ %.12657.i.lcssa.i, %.preheader15.i ], [ %.14659.i.lcssa.i, %.preheader21.i ], [ %.14659.i.lcssa.i, %.preheader23.i ], [ %.9654.i232.i, %.preheader14.i ], [ %.16661.i.lcssa.i, %.preheader34.i ], [ %.16661.i.lcssa.i, %.lr.ph176.i ], [ %.11656.i.lcssa.i, %._crit_edge224.i ], [ %.12657.i.lcssa.i, %.lr.ph219.i ], [ %.14659.i.lcssa.i, %.lr.ph200.i ], [ %.14659.i.lcssa.i, %.lr.ph198.i ], [ %.16661.i.lcssa.i, %.lr.ph174.i ]
+  %.18663.i.i = phi i32 [ %.9654.i232.i, %3938 ], [ %.14659.i.lcssa.i, %.preheader23.i ], [ %.16661.i.lcssa.i, %.preheader32.i ], [ %.16661.i.lcssa.i, %.preheader34.i ], [ %.12657.i.lcssa.i, %.preheader15.i ], [ %.14659.i.lcssa.i, %.preheader21.i ], [ %.9654.i232.i, %.preheader14.i ], [ %.14659.i.lcssa.i, %.lr.ph200.i ], [ %.14659.i.lcssa.i, %.lr.ph198.i ], [ %.16661.i.lcssa.i, %.lr.ph176.i ], [ %.11656.i.lcssa.i, %._crit_edge224.i ], [ %.12657.i.lcssa.i, %.lr.ph219.i ], [ %.16661.i.lcssa.i, %.lr.ph174.i ]
   br i1 %3939, label %3938, label %decode_coeffs_8bpp.exit, !llvm.loop !177
 
 4144:                                             ; preds = %3579
@@ -7168,7 +7168,7 @@ decode_mode.exit:                                 ; preds = %.loopexit.i, %.preh
   br i1 %4312, label %.lr.ph126.i595, label %.loopexit66.i, !llvm.loop !142
 
 .loopexit66.i:                                    ; preds = %.lr.ph124.i590, %.lr.ph126.i595, %._crit_edge118.i, %.preheader65.i593
-  %.5650.i.lcssa520.i = phi i32 [ %.5650.i.lcssa522.i, %.preheader65.i593 ], [ 0, %._crit_edge118.i ], [ %.5650.i.lcssa522.i, %.lr.ph126.i595 ], [ %.5650.i.lcssa521524.i, %.lr.ph124.i590 ]
+  %.5650.i.lcssa520.i = phi i32 [ 0, %._crit_edge118.i ], [ %.5650.i.lcssa522.i, %.preheader65.i593 ], [ %.5650.i.lcssa522.i, %.lr.ph126.i595 ], [ %.5650.i.lcssa521524.i, %.lr.ph124.i590 ]
   %.not18.i = icmp ugt i32 %3610, %3618
   br i1 %.not18.i, label %.preheader61.i, label %.preheader63.i591
 
@@ -7370,7 +7370,7 @@ decode_mode.exit:                                 ; preds = %.loopexit.i, %.preh
   br i1 %4394, label %.lr.ph101.i580, label %.loopexit78.i, !llvm.loop !150
 
 .loopexit78.i:                                    ; preds = %.lr.ph99.i518, %.lr.ph101.i580, %._crit_edge96.i, %.preheader77.i
-  %.7652.i.lcssa527.i = phi i32 [ %.7652.i.lcssa529.i, %.preheader77.i ], [ 0, %._crit_edge96.i ], [ %.7652.i.lcssa529.i, %.lr.ph101.i580 ], [ %.7652.i.lcssa528531.i, %.lr.ph99.i518 ]
+  %.7652.i.lcssa527.i = phi i32 [ 0, %._crit_edge96.i ], [ %.7652.i.lcssa529.i, %.preheader77.i ], [ %.7652.i.lcssa529.i, %.lr.ph101.i580 ], [ %.7652.i.lcssa528531.i, %.lr.ph99.i518 ]
   %.not16.i = icmp ugt i32 %3610, %3618
   br i1 %.not16.i, label %.preheader73.i, label %.preheader75.i519
 
@@ -7418,7 +7418,7 @@ decode_mode.exit:                                 ; preds = %.loopexit.i, %.preh
   br i1 %4411, label %.lr.ph105.i, label %.loopexit53.i, !llvm.loop !152
 
 .loopexit53.i:                                    ; preds = %.lr.ph103.i, %.lr.ph105.i, %.lr.ph128.i, %.lr.ph130.i, %.lr.ph150.i, %._crit_edge.us160.i, %.preheader59.i607, %.preheader73.i, %.preheader75.i519, %.preheader61.i, %.preheader63.i591, %.preheader54.i, %.preheader51.lr.ph.i, %.preheader52.i609, %4144
-  %.0645.i.i520 = phi i32 [ 0, %4144 ], [ %.7652.i.lcssa527.i, %.preheader73.i ], [ %.3648.i.lcssa516.i604, %.preheader54.i ], [ %.5650.i.lcssa520.i, %.preheader61.i ], [ %.5650.i.lcssa520.i, %.preheader63.i591 ], [ 0, %.preheader52.i609 ], [ %.7652.i.lcssa527.i, %.preheader75.i519 ], [ 0, %.preheader51.lr.ph.i ], [ 0, %.preheader59.i607 ], [ %.7652.i.lcssa527.i, %.lr.ph105.i ], [ %4186, %._crit_edge.us160.i ], [ %.3648.i.lcssa517557.i, %.lr.ph150.i ], [ %.5650.i.lcssa520.i, %.lr.ph130.i ], [ %.5650.i.lcssa520.i, %.lr.ph128.i ], [ %.7652.i.lcssa527.i, %.lr.ph103.i ]
+  %.0645.i.i520 = phi i32 [ 0, %4144 ], [ %.5650.i.lcssa520.i, %.preheader61.i ], [ %.7652.i.lcssa527.i, %.preheader73.i ], [ %.3648.i.lcssa516.i604, %.preheader54.i ], [ %.7652.i.lcssa527.i, %.preheader75.i519 ], [ %.5650.i.lcssa520.i, %.preheader63.i591 ], [ 0, %.preheader52.i609 ], [ %.5650.i.lcssa520.i, %.lr.ph130.i ], [ 0, %.preheader51.lr.ph.i ], [ %.5650.i.lcssa520.i, %.lr.ph128.i ], [ %.7652.i.lcssa527.i, %.lr.ph105.i ], [ 0, %.preheader59.i607 ], [ %.3648.i.lcssa517557.i, %.lr.ph150.i ], [ %4186, %._crit_edge.us160.i ], [ %.7652.i.lcssa527.i, %.lr.ph103.i ]
   %4412 = load i32, ptr %3632, align 4, !tbaa !121
   %4413 = zext i32 %4412 to i64
   %4414 = getelementptr inbounds nuw [2 x [2 x [6 x [6 x [11 x i8]]]]], ptr %3585, i64 %4413
@@ -8004,7 +8004,7 @@ decode_mode.exit:                                 ; preds = %.loopexit.i, %.preh
   br i1 %4668, label %.lr.ph182.i, label %.loopexit.i539, !llvm.loop !176
 
 .loopexit.i539:                                   ; preds = %.lr.ph182.i, %.lr.ph184.i542, %.lr.ph206.i, %.lr.ph208.i557, %.lr.ph227.i, %._crit_edge232.i, %.preheader40.i541, %.preheader42.i538, %.preheader29.i556, %.preheader31.i555, %.preheader23.i569, %.preheader22.i, %4447
-  %.18663.i.i540 = phi i32 [ %.9654.i240.i, %4447 ], [ %.16661.i.lcssa.i534, %.preheader40.i541 ], [ %.12657.i.lcssa.i568, %.preheader23.i569 ], [ %.14659.i.lcssa.i553, %.preheader29.i556 ], [ %.14659.i.lcssa.i553, %.preheader31.i555 ], [ %.9654.i240.i, %.preheader22.i ], [ %.16661.i.lcssa.i534, %.preheader42.i538 ], [ %.16661.i.lcssa.i534, %.lr.ph184.i542 ], [ %.11656.i.lcssa.i575, %._crit_edge232.i ], [ %.12657.i.lcssa.i568, %.lr.ph227.i ], [ %.14659.i.lcssa.i553, %.lr.ph208.i557 ], [ %.14659.i.lcssa.i553, %.lr.ph206.i ], [ %.16661.i.lcssa.i534, %.lr.ph182.i ]
+  %.18663.i.i540 = phi i32 [ %.9654.i240.i, %4447 ], [ %.14659.i.lcssa.i553, %.preheader31.i555 ], [ %.16661.i.lcssa.i534, %.preheader40.i541 ], [ %.16661.i.lcssa.i534, %.preheader42.i538 ], [ %.12657.i.lcssa.i568, %.preheader23.i569 ], [ %.14659.i.lcssa.i553, %.preheader29.i556 ], [ %.9654.i240.i, %.preheader22.i ], [ %.14659.i.lcssa.i553, %.lr.ph208.i557 ], [ %.14659.i.lcssa.i553, %.lr.ph206.i ], [ %.16661.i.lcssa.i534, %.lr.ph184.i542 ], [ %.11656.i.lcssa.i575, %._crit_edge232.i ], [ %.12657.i.lcssa.i568, %.lr.ph227.i ], [ %.16661.i.lcssa.i534, %.lr.ph182.i ]
   br i1 %4448, label %4447, label %decode_coeffs_8bpp.exit, !llvm.loop !177
 
 decode_coeffs_8bpp.exit:                          ; preds = %.loopexit.i539, %.loopexit.i500

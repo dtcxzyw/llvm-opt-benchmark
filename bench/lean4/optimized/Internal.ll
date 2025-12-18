@@ -28914,7 +28914,7 @@ lean_array_uset.exit166:                          ; preds = %lean_ensure_exclusi
   br label %224
 
 224:                                              ; preds = %lean_array_uset.exit149, %lean_array_uset.exit166
-  %.179 = phi ptr [ %.0.i.i146, %lean_array_uset.exit149 ], [ %.0.i.i163, %lean_array_uset.exit166 ]
+  %.179 = phi ptr [ %.0.i.i163, %lean_array_uset.exit166 ], [ %.0.i.i146, %lean_array_uset.exit149 ]
   %.173 = add nuw i64 %.072204, 1
   %exitcond.not = icmp eq i64 %.173, %0
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph

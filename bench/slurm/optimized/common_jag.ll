@@ -968,7 +968,7 @@ _get_freq.exit.i:                                 ; preds = %391, %389, %387
   br i1 %.not21.i, label %.sink.split.i, label %.lr.ph.i209, !llvm.loop !13
 
 .sink.split.i:                                    ; preds = %_get_freq.exit.i, %_get_freq.exit.thread.i, %.preheader.i, %373, %370, %365, %361
-  %.sink.i = phi ptr [ %354, %361 ], [ %354, %365 ], [ %354, %373 ], [ %354, %370 ], [ %384, %.preheader.i ], [ %384, %_get_freq.exit.thread.i ], [ %384, %_get_freq.exit.i ]
+  %.sink.i = phi ptr [ %354, %361 ], [ %354, %365 ], [ %354, %373 ], [ %354, %370 ], [ %384, %_get_freq.exit.thread.i ], [ %384, %.preheader.i ], [ %384, %_get_freq.exit.i ]
   %407 = call i32 @fclose(ptr noundef nonnull %.sink.i)
   br label %_get_sys_interface_freq_line.exit
 

@@ -320,7 +320,7 @@ _ZNK5clang9FieldDecl9getParentEv.exit76:          ; preds = %.lr.ph, %153
   br i1 %.not53, label %.thread80, label %.lr.ph
 
 .thread80:                                        ; preds = %_ZNK5clang9FieldDecl9getParentEv.exit76, %140, %135, %_ZNK5clang6interp7Pointer9getRecordEv.exit72
-  %.040 = phi i32 [ %104, %_ZNK5clang6interp7Pointer9getRecordEv.exit72 ], [ %137, %135 ], [ %62, %140 ], [ %164, %_ZNK5clang9FieldDecl9getParentEv.exit76 ]
+  %.040 = phi i32 [ %137, %135 ], [ %104, %_ZNK5clang6interp7Pointer9getRecordEv.exit72 ], [ %62, %140 ], [ %164, %_ZNK5clang9FieldDecl9getParentEv.exit76 ]
   %166 = load ptr, ptr %57, align 8, !tbaa !21
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 32
   %168 = load ptr, ptr %167, align 8, !tbaa !25

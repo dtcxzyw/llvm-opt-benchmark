@@ -12352,8 +12352,8 @@ ncp_hash_lookup.exit272:                          ; preds = %.lr.ph.i270
   br label %121
 
 121:                                              ; preds = %.loopexit353, %55, %99, %77
-  %.0234 = phi ptr [ %.0.lcssa.i274.ph, %.loopexit353 ], [ %.0.lcssa.i298, %55 ], [ %.0.lcssa.i264302, %77 ], [ %.0.lcssa.i269306, %99 ]
-  %.3 = phi ptr [ %120, %.loopexit353 ], [ %.0232, %55 ], [ %.1233, %77 ], [ %.2, %99 ]
+  %.0234 = phi ptr [ %.0.lcssa.i274.ph, %.loopexit353 ], [ %.0.lcssa.i269306, %99 ], [ %.0.lcssa.i298, %55 ], [ %.0.lcssa.i264302, %77 ]
+  %.3 = phi ptr [ %120, %.loopexit353 ], [ %.2, %99 ], [ %.0232, %55 ], [ %.1233, %77 ]
   %122 = load i32, ptr %6, align 4
   call void @tap_queue_packet(i32 noundef %122, ptr noundef %1, ptr noundef %.0234)
   %.not462 = icmp eq ptr %.3, null
@@ -12449,11 +12449,11 @@ ncp_error_string.exit.thread:                     ; preds = %.thread, %.thread31
   br i1 %159, label %187, label %193
 
 ncp_error_string.exit:                            ; preds = %.lr.ph, %.lr.ph.i278._crit_edge, %146, %143, %140
-  %162 = phi i8 [ 0, %140 ], [ %133, %143 ], [ %133, %.lr.ph.i278._crit_edge ], [ %133, %146 ], [ %133, %.lr.ph ]
-  %.0234317325 = phi ptr [ %.0234317327, %140 ], [ %.0234, %143 ], [ %.0234, %.lr.ph.i278._crit_edge ], [ %.0234, %146 ], [ %.0234, %.lr.ph ]
-  %.3318322 = phi ptr [ %.3318324, %140 ], [ %.3, %143 ], [ %.3, %.lr.ph.i278._crit_edge ], [ %.3, %146 ], [ %.3, %.lr.ph ]
-  %163 = phi i1 [ %141, %140 ], [ true, %143 ], [ true, %.lr.ph.i278._crit_edge ], [ true, %146 ], [ true, %.lr.ph ]
-  %.0230 = phi ptr [ %.str.13..str.14, %140 ], [ @.str.15, %143 ], [ %158, %.lr.ph.i278._crit_edge ], [ @.str.6857, %146 ], [ @.str.6857, %.lr.ph ]
+  %162 = phi i8 [ 0, %140 ], [ %133, %146 ], [ %133, %143 ], [ %133, %.lr.ph.i278._crit_edge ], [ %133, %.lr.ph ]
+  %.0234317325 = phi ptr [ %.0234317327, %140 ], [ %.0234, %146 ], [ %.0234, %143 ], [ %.0234, %.lr.ph.i278._crit_edge ], [ %.0234, %.lr.ph ]
+  %.3318322 = phi ptr [ %.3318324, %140 ], [ %.3, %146 ], [ %.3, %143 ], [ %.3, %.lr.ph.i278._crit_edge ], [ %.3, %.lr.ph ]
+  %163 = phi i1 [ %141, %140 ], [ true, %146 ], [ true, %143 ], [ true, %.lr.ph.i278._crit_edge ], [ true, %.lr.ph ]
+  %.0230 = phi ptr [ %.str.13..str.14, %140 ], [ @.str.6857, %146 ], [ @.str.15, %143 ], [ %158, %.lr.ph.i278._crit_edge ], [ @.str.6857, %.lr.ph ]
   %164 = zext i8 %162 to i32
   %165 = icmp eq i16 %4, 13107
   %or.cond = and i1 %165, %163
@@ -22012,7 +22012,7 @@ check_offset_addition.exit.us:                    ; preds = %35
   br label %.loopexit.us
 
 .loopexit.us:                                     ; preds = %68, %63, %101, %97, %93, %86, %79, %75, %57, %50, %check_offset_addition.exit.us, %.split.us, %.split.us, %.split.us, %.split.us, %.split.us, %.split.us, %.split.us, %.split.us, %.split.us, %.split.us, %.split.us, %.split.us
-  %.3.us = phi i32 [ %110, %101 ], [ %100, %97 ], [ %.0191.us, %.split.us ], [ %.0191.us, %.split.us ], [ %.0191.us, %.split.us ], [ %.0191.us, %.split.us ], [ %.0191.us, %.split.us ], [ %.0191.us, %.split.us ], [ %.0191.us, %.split.us ], [ %.0191.us, %.split.us ], [ %.0191.us, %.split.us ], [ %.0191.us, %.split.us ], [ %.0191.us, %.split.us ], [ %.0191.us, %.split.us ], [ %96, %93 ], [ %92, %86 ], [ %85, %79 ], [ %78, %75 ], [ %62, %57 ], [ %56, %50 ], [ %49, %check_offset_addition.exit.us ], [ %67, %63 ], [ %72, %68 ]
+  %.3.us = phi i32 [ %110, %101 ], [ %100, %97 ], [ %.0191.us, %.split.us ], [ %.0191.us, %.split.us ], [ %.0191.us, %.split.us ], [ %.0191.us, %.split.us ], [ %.0191.us, %.split.us ], [ %.0191.us, %.split.us ], [ %.0191.us, %.split.us ], [ %.0191.us, %.split.us ], [ %.0191.us, %.split.us ], [ %.0191.us, %.split.us ], [ %.0191.us, %.split.us ], [ %.0191.us, %.split.us ], [ %96, %93 ], [ %92, %86 ], [ %85, %79 ], [ %78, %75 ], [ %49, %check_offset_addition.exit.us ], [ %62, %57 ], [ %56, %50 ], [ %67, %63 ], [ %72, %68 ]
   %111 = tail call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %.3.us)
   %112 = icmp eq i32 %111, 7
   br i1 %112, label %.split254.us, label %113
@@ -22694,7 +22694,7 @@ process_entry_info.exit:                          ; preds = %442, %444
   br label %.loopexit200
 
 .loopexit200:                                     ; preds = %process_entry_info.exit, %152, %.loopexit200.sink.split, %136, %136, %136, %136, %136, %136, %136
-  %.3 = phi i32 [ %466, %.loopexit200.sink.split ], [ %137, %136 ], [ %137, %136 ], [ %137, %136 ], [ %137, %136 ], [ %137, %136 ], [ %137, %136 ], [ %137, %136 ], [ %453, %process_entry_info.exit ], [ %.4, %152 ]
+  %.3 = phi i32 [ %137, %136 ], [ %137, %136 ], [ %137, %136 ], [ %137, %136 ], [ %137, %136 ], [ %466, %.loopexit200.sink.split ], [ %137, %136 ], [ %137, %136 ], [ %.4, %152 ], [ %453, %process_entry_info.exit ]
   %467 = call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %.3)
   %468 = icmp eq i32 %467, 7
   br i1 %468, label %.split254.us, label %469
@@ -24169,7 +24169,7 @@ sub_1737:                                         ; preds = %.tail730, %sub_1732
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph780, %121, %check_offset_addition.exit, %113, %23, %129, %108, %96, %554, %471, %448, %439, %420, %398, %check_offset_addition.exit694, %._crit_edge, %check_offset_addition.exit685, %check_offset_addition.exit681, %check_offset_addition.exit679, %154, %134, %101, %85
-  %.2658 = phi i32 [ %562, %554 ], [ %95, %85 ], [ %.0656791, %96 ], [ %489, %471 ], [ %107, %101 ], [ %.0656791, %108 ], [ %470, %448 ], [ %447, %439 ], [ %.0656791, %129 ], [ %438, %420 ], [ %140, %134 ], [ %155, %154 ], [ %170, %check_offset_addition.exit679 ], [ %227, %check_offset_addition.exit681 ], [ %262, %check_offset_addition.exit685 ], [ %357, %._crit_edge ], [ %397, %check_offset_addition.exit694 ], [ %419, %398 ], [ %30, %23 ], [ %116, %113 ], [ %83, %check_offset_addition.exit ], [ %.3777, %.lr.ph780 ], [ %127, %121 ]
+  %.2658 = phi i32 [ %562, %554 ], [ %419, %398 ], [ %95, %85 ], [ %.0656791, %96 ], [ %489, %471 ], [ %107, %101 ], [ %.0656791, %108 ], [ %470, %448 ], [ %83, %check_offset_addition.exit ], [ %447, %439 ], [ %397, %check_offset_addition.exit694 ], [ %.0656791, %129 ], [ %438, %420 ], [ %140, %134 ], [ %155, %154 ], [ %170, %check_offset_addition.exit679 ], [ %227, %check_offset_addition.exit681 ], [ %262, %check_offset_addition.exit685 ], [ %357, %._crit_edge ], [ %30, %23 ], [ %116, %113 ], [ %.3777, %.lr.ph780 ], [ %127, %121 ]
   %563 = call i32 @tvb_captured_length_remaining(ptr noundef %2, i32 noundef %.2658)
   %564 = icmp sgt i32 %563, 4
   %565 = and i32 %.2658, 3

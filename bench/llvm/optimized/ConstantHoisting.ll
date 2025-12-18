@@ -1724,8 +1724,8 @@ _ZN4llvm19SmallPtrSetImplBase5clearEv.exit.i.backedge: ; preds = %.lr.ph.i.i.i.i
   br i1 %244, label %.critedge.i, label %.lr.ph.i.i.i.i.i.i.i, !prof !184, !llvm.loop !185
 
 _ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5countEPKS1_.exit.thread156.i: ; preds = %_ZN4llvm15SmallPtrSetImplIPNS_10BasicBlockEE6insertES2_.exit.i, %.lr.ph.i.i81.i, %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5countEPKS1_.exit._ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5countEPKS1_.exit.thread156.loopexit188_crit_edge.i
-  %245 = phi i32 [ %.pre193.pre.i, %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5countEPKS1_.exit._ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5countEPKS1_.exit.thread156.loopexit188_crit_edge.i ], [ %194, %.lr.ph.i.i81.i ], [ %194, %_ZN4llvm15SmallPtrSetImplIPNS_10BasicBlockEE6insertES2_.exit.i ]
-  %246 = phi ptr [ %.pre192.pre.i, %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5countEPKS1_.exit._ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5countEPKS1_.exit.thread156.loopexit188_crit_edge.i ], [ %195, %.lr.ph.i.i81.i ], [ %195, %_ZN4llvm15SmallPtrSetImplIPNS_10BasicBlockEE6insertES2_.exit.i ]
+  %245 = phi i32 [ %194, %.lr.ph.i.i81.i ], [ %.pre193.pre.i, %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5countEPKS1_.exit._ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5countEPKS1_.exit.thread156.loopexit188_crit_edge.i ], [ %194, %_ZN4llvm15SmallPtrSetImplIPNS_10BasicBlockEE6insertES2_.exit.i ]
+  %246 = phi ptr [ %195, %.lr.ph.i.i81.i ], [ %.pre192.pre.i, %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5countEPKS1_.exit._ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5countEPKS1_.exit.thread156.loopexit188_crit_edge.i ], [ %195, %_ZN4llvm15SmallPtrSetImplIPNS_10BasicBlockEE6insertES2_.exit.i ]
   %247 = load i8, ptr %132, align 4, !tbaa !32, !range !48, !noundef !49
   %248 = trunc nuw i8 %247 to i1
   %249 = load i32, ptr %129, align 8
@@ -4355,7 +4355,7 @@ _ZN4llvm5APIntD2Ev.exit35:                        ; preds = %86, %89, %92
   br i1 %.not61, label %.loopexit, label %.lr.ph.split, !llvm.loop !340
 
 .loopexit:                                        ; preds = %29, %_ZN4llvm5APIntD2Ev.exit35, %.preheader68, %.preheader
-  %.0 = phi i32 [ 0, %.preheader ], [ 0, %.preheader68 ], [ %47, %_ZN4llvm5APIntD2Ev.exit35 ], [ %21, %29 ]
+  %.0 = phi i32 [ %47, %_ZN4llvm5APIntD2Ev.exit35 ], [ 0, %.preheader ], [ 0, %.preheader68 ], [ %21, %29 ]
   ret i32 %.0
 }
 

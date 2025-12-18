@@ -12468,7 +12468,7 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread19: ; preds = %.lr.p
   br i1 %or.cond, label %49, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he2debabd90ff5e33E.exit"
 
 _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread: ; preds = %.preheader.i, %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit, %41, %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.us, %.preheader.i.us, %28
-  %.sroa.0.0.i18 = phi i64 [ 0, %28 ], [ 0, %41 ], [ %22, %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.us ], [ 0, %.preheader.i.us ], [ %44, %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit ], [ 0, %.preheader.i ]
+  %.sroa.0.0.i18 = phi i64 [ 0, %41 ], [ 0, %28 ], [ %22, %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.us ], [ 0, %.preheader.i.us ], [ %44, %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit ], [ 0, %.preheader.i ]
   store i64 %6, ptr %4, align 8
   br label %.loopexit
 
@@ -12495,7 +12495,7 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread: ; preds = %.prehea
   br label %.loopexit
 
 .loopexit:                                        ; preds = %49, %32, %2, %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread, %.split.us65
-  %storemerge = phi i64 [ 1, %.split.us65 ], [ %.sroa.0.0.i18, %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread ], [ 0, %2 ], [ 0, %32 ], [ 0, %49 ]
+  %storemerge = phi i64 [ %.sroa.0.0.i18, %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread ], [ 1, %.split.us65 ], [ 0, %2 ], [ 0, %32 ], [ 0, %49 ]
   store i64 %storemerge, ptr %0, align 8
   ret void
 }
@@ -13917,7 +13917,7 @@ _ZN4core3ops8function6FnOnce9call_once17h239df4181534843eE.exit.i: ; preds = %38
   br label %397
 
 .loopexit.split-lp216:                            ; preds = %433, %435, %"_ZN4core3ptr51drop_in_place$LT$async_io..reactor..ReactorLock$GT$17h67f0abf55a1ae6c7E.exit", %451, %453, %463, %465, %468, %470, %440, %444, %446, %449
-  %.sroa.017.2.ph = phi i8 [ 0, %446 ], [ 0, %444 ], [ 0, %440 ], [ 1, %433 ], [ 1, %435 ], [ 0, %449 ], [ 0, %"_ZN4core3ptr51drop_in_place$LT$async_io..reactor..ReactorLock$GT$17h67f0abf55a1ae6c7E.exit" ], [ 0, %451 ], [ 0, %453 ], [ 1, %463 ], [ 1, %465 ], [ 1, %468 ], [ 1, %470 ]
+  %.sroa.017.2.ph = phi i8 [ 0, %440 ], [ 1, %433 ], [ 1, %435 ], [ 0, %449 ], [ 0, %"_ZN4core3ptr51drop_in_place$LT$async_io..reactor..ReactorLock$GT$17h67f0abf55a1ae6c7E.exit" ], [ 0, %451 ], [ 0, %453 ], [ 0, %444 ], [ 1, %463 ], [ 1, %465 ], [ 0, %446 ], [ 1, %468 ], [ 1, %470 ]
   %lpad.loopexit.split-lp218 = landingpad { ptr, i32 }
           cleanup
   br label %397
@@ -15076,7 +15076,7 @@ _ZN4core3ops8function6FnOnce9call_once17h239df4181534843eE.exit.i: ; preds = %23
   br label %243
 
 .loopexit.split-lp170:                            ; preds = %279, %281, %"_ZN4core3ptr51drop_in_place$LT$async_io..reactor..ReactorLock$GT$17h67f0abf55a1ae6c7E.exit", %297, %299, %309, %311, %314, %316, %286, %290, %292, %295
-  %.sroa.017.2.ph = phi i8 [ 0, %292 ], [ 0, %290 ], [ 0, %286 ], [ 1, %279 ], [ 1, %281 ], [ 0, %295 ], [ 0, %"_ZN4core3ptr51drop_in_place$LT$async_io..reactor..ReactorLock$GT$17h67f0abf55a1ae6c7E.exit" ], [ 0, %297 ], [ 0, %299 ], [ 1, %309 ], [ 1, %311 ], [ 1, %314 ], [ 1, %316 ]
+  %.sroa.017.2.ph = phi i8 [ 0, %286 ], [ 1, %279 ], [ 1, %281 ], [ 0, %295 ], [ 0, %"_ZN4core3ptr51drop_in_place$LT$async_io..reactor..ReactorLock$GT$17h67f0abf55a1ae6c7E.exit" ], [ 0, %297 ], [ 0, %299 ], [ 0, %290 ], [ 1, %309 ], [ 1, %311 ], [ 0, %292 ], [ 1, %314 ], [ 1, %316 ]
   %lpad.loopexit.split-lp172 = landingpad { ptr, i32 }
           cleanup
   br label %243

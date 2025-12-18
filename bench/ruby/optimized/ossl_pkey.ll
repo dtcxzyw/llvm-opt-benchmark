@@ -3168,7 +3168,7 @@ define internal range(i32 0, 2) i32 @pkey_gen_cb(ptr noundef %0) #0 {
   br label %20
 
 20:                                               ; preds = %.sink.split, %11, %14
-  %.0 = phi i32 [ 1, %14 ], [ 1, %11 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 1, %11 ], [ 1, %14 ], [ 0, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }

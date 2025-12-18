@@ -963,7 +963,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br i1 %144, label %106, label %.critedge4, !llvm.loop !82
 
 .critedge4:                                       ; preds = %Vec_IntPush.exit, %Vec_IntFree.exit112, %.critedge2
-  %.1146 = phi ptr [ %.1, %.critedge2 ], [ %85, %Vec_IntFree.exit112 ], [ %.1, %Vec_IntPush.exit ]
+  %.1146 = phi ptr [ %85, %Vec_IntFree.exit112 ], [ %.1, %.critedge2 ], [ %.1, %Vec_IntPush.exit ]
   %145 = getelementptr inbounds nuw i8, ptr %.1146, i64 8
   %146 = load ptr, ptr %145, align 8, !tbaa !58
   %.not.i113 = icmp eq ptr %146, null

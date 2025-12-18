@@ -2662,7 +2662,7 @@ define dso_local noundef i32 @_ZN30btGeneric6DofSpring2Constraint15setLinearLimi
   br label %.thread
 
 .thread:                                          ; preds = %144, %132, %132, %.thread.fold.split, %154, %149
-  %159 = phi i1 [ %158, %154 ], [ false, %.thread.fold.split ], [ true, %132 ], [ true, %132 ], [ true, %149 ], [ %or.cond83, %144 ]
+  %159 = phi i1 [ %158, %154 ], [ false, %.thread.fold.split ], [ true, %132 ], [ true, %132 ], [ %or.cond83, %144 ], [ true, %149 ]
   %160 = and i64 %138, 4294967295
   %161 = select i1 %.cmp90, i64 2, i64 %160
   %162 = getelementptr inbounds nuw %class.btRotationalLimitMotor2, ptr %62, i64 %161

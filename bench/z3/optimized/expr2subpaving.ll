@@ -633,7 +633,7 @@ define linkonce_odr hidden noundef i32 @_ZN14expr2subpaving3imp7processEP4exprjR
   br i1 %.not27.old.i.i.i.i, label %.loopexit, label %.lr.ph38.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.backedge:                        ; preds = %42, %39
-  %.137.i.i.i.i.be = phi ptr [ %.old.i.i.i.i, %42 ], [ %41, %39 ]
+  %.137.i.i.i.i.be = phi ptr [ %41, %39 ], [ %.old.i.i.i.i, %42 ]
   br label %.lr.ph38.i.i.i.i, !llvm.loop !80
 
 _ZN14expr2subpaving3imp9is_cachedEP4expr.exit:    ; preds = %23, %34

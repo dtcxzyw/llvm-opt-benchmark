@@ -1846,7 +1846,7 @@ _ZNKSt3__110__equal_toclB8ne190000INS_12basic_stringIcNS_11char_traitsIcEENS_9al
   br i1 %.not, label %_ZNK7mitsuba10filesystem4patheqERKS1_.exit, label %.lr.ph.split, !llvm.loop !27
 
 _ZNK7mitsuba10filesystem4patheqERKS1_.exit:       ; preds = %.loopexit, %_ZNKSt3__110__equal_toclB8ne190000INS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES7_EEbRKT_RKT0_.exit.thread.i.i.i.i.i, %18, %.lr.ph.split.us, %4
-  %.010 = phi ptr [ %0, %4 ], [ %.012, %_ZNKSt3__110__equal_toclB8ne190000INS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES7_EEbRKT_RKT0_.exit.thread.i.i.i.i.i ], [ %19, %18 ], [ %.012.us, %.lr.ph.split.us ], [ %56, %.loopexit ]
+  %.010 = phi ptr [ %.012, %_ZNKSt3__110__equal_toclB8ne190000INS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES7_EEbRKT_RKT0_.exit.thread.i.i.i.i.i ], [ %0, %4 ], [ %19, %18 ], [ %.012.us, %.lr.ph.split.us ], [ %56, %.loopexit ]
   ret ptr %.010
 }
 
@@ -1962,7 +1962,7 @@ _ZNKSt3__110__equal_toclB8ne190000INS_12basic_stringIcNS_11char_traitsIcEENS_9al
   br i1 %.not, label %_ZNK7mitsuba10filesystem4patheqERKS1_.exit, label %.lr.ph.split, !llvm.loop !28
 
 _ZNK7mitsuba10filesystem4patheqERKS1_.exit:       ; preds = %.loopexit, %_ZNKSt3__110__equal_toclB8ne190000INS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES7_EEbRKT_RKT0_.exit.thread.i.i.i.i.i, %18, %.lr.ph.split.us, %4
-  %.010 = phi ptr [ %0, %4 ], [ %.012, %_ZNKSt3__110__equal_toclB8ne190000INS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES7_EEbRKT_RKT0_.exit.thread.i.i.i.i.i ], [ %19, %18 ], [ %.012.us, %.lr.ph.split.us ], [ %56, %.loopexit ]
+  %.010 = phi ptr [ %.012, %_ZNKSt3__110__equal_toclB8ne190000INS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES7_EEbRKT_RKT0_.exit.thread.i.i.i.i.i ], [ %0, %4 ], [ %19, %18 ], [ %.012.us, %.lr.ph.split.us ], [ %56, %.loopexit ]
   ret ptr %.010
 }
 

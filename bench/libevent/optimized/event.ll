@@ -10455,7 +10455,7 @@ define hidden i32 @event_base_foreach_event_nolock_(ptr noundef %0, ptr noundef 
   br i1 %57, label %45, label %.loopexit, !llvm.loop !44
 
 .loopexit:                                        ; preds = %20, %38, %._crit_edge89, %52, %.preheader, %3
-  %.046 = phi i32 [ %4, %3 ], [ 0, %.preheader ], [ %39, %38 ], [ %53, %52 ], [ 0, %._crit_edge89 ], [ %21, %20 ]
+  %.046 = phi i32 [ 0, %.preheader ], [ %4, %3 ], [ %53, %52 ], [ 0, %._crit_edge89 ], [ %39, %38 ], [ %21, %20 ]
   ret i32 %.046
 }
 

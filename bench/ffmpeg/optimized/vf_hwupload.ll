@@ -145,7 +145,7 @@ define internal range(i32 -2147483648, 1) i32 @hwupload_query_formats(ptr nounde
   br label %.loopexit25
 
 .loopexit25:                                      ; preds = %.lr.ph, %29, %.loopexit, %3, %11
-  %.015 = phi i32 [ %spec.select, %29 ], [ %27, %.loopexit ], [ -22, %3 ], [ -12, %11 ], [ %23, %.lr.ph ]
+  %.015 = phi i32 [ %spec.select, %29 ], [ -12, %11 ], [ %27, %.loopexit ], [ -22, %3 ], [ %23, %.lr.ph ]
   call void @av_hwframe_constraints_free(ptr noundef nonnull %4) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

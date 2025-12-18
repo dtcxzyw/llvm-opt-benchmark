@@ -692,8 +692,8 @@ if.end24.loopexit20.split.loop.exit21:            ; preds = %land.rhs
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %while.cond, %do.body, %if.end24.loopexit, %if.end24.loopexit20.split.loop.exit21
-  %index.1.sink = phi i32 [ %7, %if.end24.loopexit ], [ %8, %if.end24.loopexit20.split.loop.exit21 ], [ 0, %do.body ], [ %smax, %while.cond ]
-  %retval.0.ph = phi i32 [ %7, %if.end24.loopexit ], [ %8, %if.end24.loopexit20.split.loop.exit21 ], [ -1, %do.body ], [ %smax, %while.cond ]
+  %index.1.sink = phi i32 [ 0, %do.body ], [ %7, %if.end24.loopexit ], [ %8, %if.end24.loopexit20.split.loop.exit21 ], [ %smax, %while.cond ]
+  %retval.0.ph = phi i32 [ -1, %do.body ], [ %7, %if.end24.loopexit ], [ %8, %if.end24.loopexit20.split.loop.exit21 ], [ %smax, %while.cond ]
   store i32 %index.1.sink, ptr %lastIndex, align 8
   br label %return
 
@@ -764,8 +764,8 @@ if.end24.loopexit20.split.loop.exit21.i:          ; preds = %land.rhs.i
   br label %return.sink.split.i
 
 return.sink.split.i:                              ; preds = %while.cond.i, %do.body.i, %if.end24.loopexit20.split.loop.exit21.i, %if.end24.loopexit.i
-  %index.1.sink.i = phi i32 [ %7, %if.end24.loopexit.i ], [ %8, %if.end24.loopexit20.split.loop.exit21.i ], [ 0, %do.body.i ], [ %smax.i, %while.cond.i ]
-  %retval.0.ph.i = phi i32 [ %7, %if.end24.loopexit.i ], [ %8, %if.end24.loopexit20.split.loop.exit21.i ], [ -1, %do.body.i ], [ %smax.i, %while.cond.i ]
+  %index.1.sink.i = phi i32 [ 0, %do.body.i ], [ %7, %if.end24.loopexit.i ], [ %8, %if.end24.loopexit20.split.loop.exit21.i ], [ %smax.i, %while.cond.i ]
+  %retval.0.ph.i = phi i32 [ -1, %do.body.i ], [ %7, %if.end24.loopexit.i ], [ %8, %if.end24.loopexit20.split.loop.exit21.i ], [ %smax.i, %while.cond.i ]
   store i32 %index.1.sink.i, ptr %lastIndex.i, align 8
   %9 = add nsw i32 %retval.0.ph.i, 1
   br label %_ZNK7msdfgen8Scanline6moveToEd.exit
@@ -841,7 +841,7 @@ if.end24.loopexit20.split.loop.exit21.i:          ; preds = %land.rhs.i
   br label %_ZNK7msdfgen8Scanline6moveToEd.exit
 
 _ZNK7msdfgen8Scanline6moveToEd.exit:              ; preds = %while.cond.i, %if.end24.loopexit.i, %if.end24.loopexit20.split.loop.exit21.i
-  %index.1.sink.i = phi i32 [ %7, %if.end24.loopexit.i ], [ %8, %if.end24.loopexit20.split.loop.exit21.i ], [ %smax.i, %while.cond.i ]
+  %index.1.sink.i = phi i32 [ %8, %if.end24.loopexit20.split.loop.exit21.i ], [ %7, %if.end24.loopexit.i ], [ %smax.i, %while.cond.i ]
   store i32 %index.1.sink.i, ptr %lastIndex.i, align 8
   %cmp = icmp sgt i32 %index.1.sink.i, -1
   br i1 %cmp, label %if.then, label %return
@@ -924,7 +924,7 @@ if.end24.loopexit20.split.loop.exit21.i.i:        ; preds = %land.rhs.i.i
   br label %_ZNK7msdfgen8Scanline6moveToEd.exit.i
 
 _ZNK7msdfgen8Scanline6moveToEd.exit.i:            ; preds = %while.cond.i.i, %if.end24.loopexit20.split.loop.exit21.i.i, %if.end24.loopexit.i.i
-  %index.1.sink.i.i = phi i32 [ %7, %if.end24.loopexit.i.i ], [ %8, %if.end24.loopexit20.split.loop.exit21.i.i ], [ %smax.i.i, %while.cond.i.i ]
+  %index.1.sink.i.i = phi i32 [ %8, %if.end24.loopexit20.split.loop.exit21.i.i ], [ %7, %if.end24.loopexit.i.i ], [ %smax.i.i, %while.cond.i.i ]
   store i32 %index.1.sink.i.i, ptr %lastIndex.i.i, align 8
   %cmp.i = icmp sgt i32 %index.1.sink.i.i, -1
   br i1 %cmp.i, label %if.then.i, label %_ZNK7msdfgen8Scanline16sumIntersectionsEd.exit

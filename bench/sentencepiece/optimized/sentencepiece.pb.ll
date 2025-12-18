@@ -2702,7 +2702,7 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx
   br i1 %.not16, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit.backedge, !prof !54
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN13sentencepiece17SentencePieceText22_internal_mutable_textB5cxx11Ev.exit, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit, %149, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %122, %105, %119, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i, %28, %.thread55
-  %.3 = phi ptr [ %.0.i2048, %.thread55 ], [ %spec.select, %28 ], [ null, %122 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i ], [ null, %119 ], [ null, %105 ], [ null, %149 ], [ null, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ null, %_ZN13sentencepiece17SentencePieceText22_internal_mutable_textB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit ], [ %.fca.0.extract.i.i, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
+  %.3 = phi ptr [ %spec.select, %28 ], [ %.0.i2048, %.thread55 ], [ null, %122 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i ], [ null, %119 ], [ null, %105 ], [ null, %149 ], [ null, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ null, %_ZN13sentencepiece17SentencePieceText22_internal_mutable_textB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit ], [ %.fca.0.extract.i.i, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
   %163 = load i32, ptr %13, align 8, !tbaa !29
   %164 = or i32 %163, %.sroa.0.0.ph
   store i32 %164, ptr %13, align 8, !tbaa !29
@@ -3999,7 +3999,7 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx
   br label %14, !llvm.loop !92
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %102, %85, %99, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i, %26, %.thread39
-  %.3 = phi ptr [ %.0.i1134, %.thread39 ], [ %spec.select, %26 ], [ null, %102 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i ], [ null, %99 ], [ null, %85 ], [ null, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit ], [ %.fca.0.extract.i.i, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
+  %.3 = phi ptr [ null, %102 ], [ %spec.select, %26 ], [ %.0.i1134, %.thread39 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i ], [ null, %99 ], [ null, %85 ], [ null, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit ], [ %.fca.0.extract.i.i, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
   ret ptr %.3
 }
 
@@ -4423,7 +4423,7 @@ _ZNK13sentencepiece17SentencePieceText13IsInitializedEv.exit.loopexit.i: ; preds
   br i1 %28, label %19, label %_ZN6google8protobuf8internal17AllAreInitializedIN13sentencepiece17SentencePieceTextEEEbRKNS0_16RepeatedPtrFieldIT_EE.exit, !llvm.loop !84
 
 _ZN6google8protobuf8internal17AllAreInitializedIN13sentencepiece17SentencePieceTextEEEbRKNS0_16RepeatedPtrFieldIT_EE.exit: ; preds = %_ZNK13sentencepiece17SentencePieceText13IsInitializedEv.exit.loopexit.i, %8, %22, %1
-  %29 = phi i1 [ true, %1 ], [ false, %22 ], [ %13, %8 ], [ %13, %_ZNK13sentencepiece17SentencePieceText13IsInitializedEv.exit.loopexit.i ]
+  %29 = phi i1 [ false, %22 ], [ true, %1 ], [ %13, %8 ], [ %13, %_ZNK13sentencepiece17SentencePieceText13IsInitializedEv.exit.loopexit.i ]
   ret i1 %29
 }
 

@@ -1281,7 +1281,7 @@ define internal fastcc range(i32 -1, 1) i32 @pyurandom(ptr noundef %0, i64 nound
   br label %py_getrandom.exit
 
 py_getrandom.exit:                                ; preds = %.split.split.us.us.i, %46, %.split.split.i, %56, %.split.us.split.us.us.us.i, %.lr.ph147.us.us.i, %.split.us.split.us170.i, %.lr.ph126.us.i, %.critedge50.i, %128, %.critedge.thread.i, %112, %111, %.split44.us.i, %11, %7, %8
-  %.0 = phi i32 [ 0, %128 ], [ -1, %7 ], [ 0, %11 ], [ -1, %8 ], [ -1, %.split44.us.i ], [ -1, %112 ], [ -1, %.critedge50.i ], [ -1, %.critedge.thread.i ], [ 0, %111 ], [ -1, %46 ], [ -1, %.lr.ph126.us.i ], [ 0, %.split.us.split.us170.i ], [ -1, %.lr.ph147.us.us.i ], [ 0, %.split.us.split.us.us.us.i ], [ -1, %56 ], [ 0, %.split.split.i ], [ 0, %.split.split.us.us.i ]
+  %.0 = phi i32 [ 0, %128 ], [ -1, %7 ], [ 0, %11 ], [ 0, %.split.split.i ], [ -1, %8 ], [ -1, %46 ], [ 0, %.split.us.split.us.us.us.i ], [ 0, %.split.us.split.us170.i ], [ -1, %.split44.us.i ], [ -1, %112 ], [ -1, %.critedge50.i ], [ -1, %.critedge.thread.i ], [ 0, %111 ], [ -1, %56 ], [ -1, %.lr.ph126.us.i ], [ -1, %.lr.ph147.us.us.i ], [ 0, %.split.split.us.us.i ]
   ret i32 %.0
 }
 

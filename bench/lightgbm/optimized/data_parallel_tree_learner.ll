@@ -2109,8 +2109,8 @@ _ZNK8LightGBM9SplitInfogtERKS0_.exit.i:           ; preds = %159, %157
   br i1 %exitcond.not.i, label %_ZN8LightGBM9ArrayArgsINS_9SplitInfoEE6ArgMaxERKSt6vectorIS1_SaIS1_EE.exit, label %.lr.ph.i, !llvm.loop !289
 
 _ZN8LightGBM9ArrayArgsINS_9SplitInfoEE6ArgMaxERKSt6vectorIS1_SaIS1_EE.exit: ; preds = %_ZNK8LightGBM9SplitInfogtERKS0_.exit.i, %._ZN8LightGBM9ArrayArgsINS_9SplitInfoEE6ArgMaxERKSt6vectorIS1_SaIS1_EE.exit_crit_edge, %.preheader.i, %137
-  %167 = phi ptr [ %138, %137 ], [ %138, %.preheader.i ], [ %.pre, %._ZN8LightGBM9ArrayArgsINS_9SplitInfoEE6ArgMaxERKSt6vectorIS1_SaIS1_EE.exit_crit_edge ], [ %138, %_ZNK8LightGBM9SplitInfogtERKS0_.exit.i ]
-  %.013.i = phi i64 [ 0, %137 ], [ 0, %.preheader.i ], [ %149, %._ZN8LightGBM9ArrayArgsINS_9SplitInfoEE6ArgMaxERKSt6vectorIS1_SaIS1_EE.exit_crit_edge ], [ %spec.select.i, %_ZNK8LightGBM9SplitInfogtERKS0_.exit.i ]
+  %167 = phi ptr [ %138, %137 ], [ %.pre, %._ZN8LightGBM9ArrayArgsINS_9SplitInfoEE6ArgMaxERKSt6vectorIS1_SaIS1_EE.exit_crit_edge ], [ %138, %.preheader.i ], [ %138, %_ZNK8LightGBM9SplitInfogtERKS0_.exit.i ]
+  %.013.i = phi i64 [ 0, %137 ], [ %149, %._ZN8LightGBM9ArrayArgsINS_9SplitInfoEE6ArgMaxERKSt6vectorIS1_SaIS1_EE.exit_crit_edge ], [ 0, %.preheader.i ], [ %spec.select.i, %_ZNK8LightGBM9SplitInfogtERKS0_.exit.i ]
   %168 = load ptr, ptr %54, align 8, !tbaa !259
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 4
   %170 = load i32, ptr %169, align 4, !tbaa !267
@@ -2200,8 +2200,8 @@ _ZNK8LightGBM9SplitInfogtERKS0_.exit.i65:         ; preds = %210, %208
   br i1 %exitcond.not.i68, label %_ZN8LightGBM9ArrayArgsINS_9SplitInfoEE6ArgMaxERKSt6vectorIS1_SaIS1_EE.exit70, label %.lr.ph.i61, !llvm.loop !289
 
 _ZN8LightGBM9ArrayArgsINS_9SplitInfoEE6ArgMaxERKSt6vectorIS1_SaIS1_EE.exit70: ; preds = %_ZNK8LightGBM9SplitInfogtERKS0_.exit.i65, %._ZN8LightGBM9ArrayArgsINS_9SplitInfoEE6ArgMaxERKSt6vectorIS1_SaIS1_EE.exit70_crit_edge, %.preheader.i59, %188
-  %218 = phi ptr [ %189, %188 ], [ %189, %.preheader.i59 ], [ %.pre148, %._ZN8LightGBM9ArrayArgsINS_9SplitInfoEE6ArgMaxERKSt6vectorIS1_SaIS1_EE.exit70_crit_edge ], [ %189, %_ZNK8LightGBM9SplitInfogtERKS0_.exit.i65 ]
-  %.013.i60 = phi i64 [ 0, %188 ], [ 0, %.preheader.i59 ], [ %200, %._ZN8LightGBM9ArrayArgsINS_9SplitInfoEE6ArgMaxERKSt6vectorIS1_SaIS1_EE.exit70_crit_edge ], [ %spec.select.i67, %_ZNK8LightGBM9SplitInfogtERKS0_.exit.i65 ]
+  %218 = phi ptr [ %189, %188 ], [ %.pre148, %._ZN8LightGBM9ArrayArgsINS_9SplitInfoEE6ArgMaxERKSt6vectorIS1_SaIS1_EE.exit70_crit_edge ], [ %189, %.preheader.i59 ], [ %189, %_ZNK8LightGBM9SplitInfogtERKS0_.exit.i65 ]
+  %.013.i60 = phi i64 [ 0, %188 ], [ %200, %._ZN8LightGBM9ArrayArgsINS_9SplitInfoEE6ArgMaxERKSt6vectorIS1_SaIS1_EE.exit70_crit_edge ], [ 0, %.preheader.i59 ], [ %spec.select.i67, %_ZNK8LightGBM9SplitInfogtERKS0_.exit.i65 ]
   %219 = getelementptr inbounds nuw %"struct.LightGBM::SplitInfo", ptr %218, i64 %.013.i60
   %220 = zext nneg i32 %186 to i64
   %221 = load ptr, ptr %172, align 8, !tbaa !277
@@ -4385,8 +4385,8 @@ _ZNK8LightGBM9SplitInfogtERKS0_.exit.i:           ; preds = %159, %157
   br i1 %exitcond.not.i, label %_ZN8LightGBM9ArrayArgsINS_9SplitInfoEE6ArgMaxERKSt6vectorIS1_SaIS1_EE.exit, label %.lr.ph.i, !llvm.loop !289
 
 _ZN8LightGBM9ArrayArgsINS_9SplitInfoEE6ArgMaxERKSt6vectorIS1_SaIS1_EE.exit: ; preds = %_ZNK8LightGBM9SplitInfogtERKS0_.exit.i, %._ZN8LightGBM9ArrayArgsINS_9SplitInfoEE6ArgMaxERKSt6vectorIS1_SaIS1_EE.exit_crit_edge, %.preheader.i, %137
-  %167 = phi ptr [ %138, %137 ], [ %138, %.preheader.i ], [ %.pre, %._ZN8LightGBM9ArrayArgsINS_9SplitInfoEE6ArgMaxERKSt6vectorIS1_SaIS1_EE.exit_crit_edge ], [ %138, %_ZNK8LightGBM9SplitInfogtERKS0_.exit.i ]
-  %.013.i = phi i64 [ 0, %137 ], [ 0, %.preheader.i ], [ %149, %._ZN8LightGBM9ArrayArgsINS_9SplitInfoEE6ArgMaxERKSt6vectorIS1_SaIS1_EE.exit_crit_edge ], [ %spec.select.i, %_ZNK8LightGBM9SplitInfogtERKS0_.exit.i ]
+  %167 = phi ptr [ %138, %137 ], [ %.pre, %._ZN8LightGBM9ArrayArgsINS_9SplitInfoEE6ArgMaxERKSt6vectorIS1_SaIS1_EE.exit_crit_edge ], [ %138, %.preheader.i ], [ %138, %_ZNK8LightGBM9SplitInfogtERKS0_.exit.i ]
+  %.013.i = phi i64 [ 0, %137 ], [ %149, %._ZN8LightGBM9ArrayArgsINS_9SplitInfoEE6ArgMaxERKSt6vectorIS1_SaIS1_EE.exit_crit_edge ], [ 0, %.preheader.i ], [ %spec.select.i, %_ZNK8LightGBM9SplitInfogtERKS0_.exit.i ]
   %168 = load ptr, ptr %54, align 8, !tbaa !259
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 4
   %170 = load i32, ptr %169, align 4, !tbaa !267
@@ -4476,8 +4476,8 @@ _ZNK8LightGBM9SplitInfogtERKS0_.exit.i65:         ; preds = %210, %208
   br i1 %exitcond.not.i68, label %_ZN8LightGBM9ArrayArgsINS_9SplitInfoEE6ArgMaxERKSt6vectorIS1_SaIS1_EE.exit70, label %.lr.ph.i61, !llvm.loop !289
 
 _ZN8LightGBM9ArrayArgsINS_9SplitInfoEE6ArgMaxERKSt6vectorIS1_SaIS1_EE.exit70: ; preds = %_ZNK8LightGBM9SplitInfogtERKS0_.exit.i65, %._ZN8LightGBM9ArrayArgsINS_9SplitInfoEE6ArgMaxERKSt6vectorIS1_SaIS1_EE.exit70_crit_edge, %.preheader.i59, %188
-  %218 = phi ptr [ %189, %188 ], [ %189, %.preheader.i59 ], [ %.pre148, %._ZN8LightGBM9ArrayArgsINS_9SplitInfoEE6ArgMaxERKSt6vectorIS1_SaIS1_EE.exit70_crit_edge ], [ %189, %_ZNK8LightGBM9SplitInfogtERKS0_.exit.i65 ]
-  %.013.i60 = phi i64 [ 0, %188 ], [ 0, %.preheader.i59 ], [ %200, %._ZN8LightGBM9ArrayArgsINS_9SplitInfoEE6ArgMaxERKSt6vectorIS1_SaIS1_EE.exit70_crit_edge ], [ %spec.select.i67, %_ZNK8LightGBM9SplitInfogtERKS0_.exit.i65 ]
+  %218 = phi ptr [ %189, %188 ], [ %.pre148, %._ZN8LightGBM9ArrayArgsINS_9SplitInfoEE6ArgMaxERKSt6vectorIS1_SaIS1_EE.exit70_crit_edge ], [ %189, %.preheader.i59 ], [ %189, %_ZNK8LightGBM9SplitInfogtERKS0_.exit.i65 ]
+  %.013.i60 = phi i64 [ 0, %188 ], [ %200, %._ZN8LightGBM9ArrayArgsINS_9SplitInfoEE6ArgMaxERKSt6vectorIS1_SaIS1_EE.exit70_crit_edge ], [ 0, %.preheader.i59 ], [ %spec.select.i67, %_ZNK8LightGBM9SplitInfogtERKS0_.exit.i65 ]
   %219 = getelementptr inbounds nuw %"struct.LightGBM::SplitInfo", ptr %218, i64 %.013.i60
   %220 = zext nneg i32 %186 to i64
   %221 = load ptr, ptr %172, align 8, !tbaa !277
@@ -7916,9 +7916,9 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %386
 
 _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %.lr.ph.i.i.i.i.i91, %.preheader420, %308, %..loopexit_crit_edge21.i.i.i.i.i95, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i, %328
-  %349 = phi ptr [ %295, %328 ], [ %295, %308 ], [ %295, %..loopexit_crit_edge21.i.i.i.i.i95 ], [ %342, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %295, %.preheader420 ], [ %295, %.lr.ph.i.i.i.i.i91 ]
-  %350 = phi ptr [ %296, %328 ], [ %296, %308 ], [ %296, %..loopexit_crit_edge21.i.i.i.i.i95 ], [ %348, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %296, %.preheader420 ], [ %296, %.lr.ph.i.i.i.i.i91 ]
-  %351 = phi ptr [ %329, %328 ], [ %297, %308 ], [ %297, %..loopexit_crit_edge21.i.i.i.i.i95 ], [ %346, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %297, %.preheader420 ], [ %297, %.lr.ph.i.i.i.i.i91 ]
+  %349 = phi ptr [ %295, %.preheader420 ], [ %295, %328 ], [ %295, %308 ], [ %295, %..loopexit_crit_edge21.i.i.i.i.i95 ], [ %342, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %295, %.lr.ph.i.i.i.i.i91 ]
+  %350 = phi ptr [ %296, %.preheader420 ], [ %296, %328 ], [ %296, %308 ], [ %296, %..loopexit_crit_edge21.i.i.i.i.i95 ], [ %348, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %296, %.lr.ph.i.i.i.i.i91 ]
+  %351 = phi ptr [ %297, %.preheader420 ], [ %329, %328 ], [ %297, %308 ], [ %297, %..loopexit_crit_edge21.i.i.i.i.i95 ], [ %346, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %297, %.lr.ph.i.i.i.i.i91 ]
   %352 = getelementptr inbounds nuw i8, ptr %.sroa.0200.0299, i64 4
   %.not258 = icmp eq ptr %352, %270
   br i1 %.not258, label %._crit_edge301.loopexit, label %294
@@ -8220,9 +8220,9 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %498
 
 _ZNSt6vectorIiSaIiEE9push_backERKi.exit140:       ; preds = %.lr.ph.i.i.i.i.i119, %.preheader262, %426, %..loopexit_crit_edge21.i.i.i.i.i123, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i137, %446
-  %467 = phi ptr [ %417, %446 ], [ %417, %426 ], [ %417, %..loopexit_crit_edge21.i.i.i.i.i123 ], [ %460, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i137 ], [ %417, %.preheader262 ], [ %417, %.lr.ph.i.i.i.i.i119 ]
-  %468 = phi ptr [ %418, %446 ], [ %418, %426 ], [ %418, %..loopexit_crit_edge21.i.i.i.i.i123 ], [ %466, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i137 ], [ %418, %.preheader262 ], [ %418, %.lr.ph.i.i.i.i.i119 ]
-  %469 = phi ptr [ %447, %446 ], [ %419, %426 ], [ %419, %..loopexit_crit_edge21.i.i.i.i.i123 ], [ %464, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i137 ], [ %419, %.preheader262 ], [ %419, %.lr.ph.i.i.i.i.i119 ]
+  %467 = phi ptr [ %417, %.preheader262 ], [ %417, %446 ], [ %417, %426 ], [ %417, %..loopexit_crit_edge21.i.i.i.i.i123 ], [ %460, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i137 ], [ %417, %.lr.ph.i.i.i.i.i119 ]
+  %468 = phi ptr [ %418, %.preheader262 ], [ %418, %446 ], [ %418, %426 ], [ %418, %..loopexit_crit_edge21.i.i.i.i.i123 ], [ %466, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i137 ], [ %418, %.lr.ph.i.i.i.i.i119 ]
+  %469 = phi ptr [ %419, %.preheader262 ], [ %447, %446 ], [ %419, %426 ], [ %419, %..loopexit_crit_edge21.i.i.i.i.i123 ], [ %464, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i137 ], [ %419, %.lr.ph.i.i.i.i.i119 ]
   %470 = getelementptr inbounds nuw i8, ptr %.sroa.0188.0295, i64 4
   %.not257 = icmp eq ptr %470, %392
   br i1 %.not257, label %._crit_edge297.loopexit, label %416
@@ -9120,7 +9120,7 @@ define internal void @_ZN8LightGBM23DataParallelTreeLearnerINS_14GPUTreeLearnerE
   br i1 %exitcond.not.i88, label %_ZN8LightGBM16FeatureHistogram8SubtractILb1EiiiLi16ELi16ELi16EEEvRKS0_PKi.exit, label %334, !llvm.loop !372
 
 _ZN8LightGBM16FeatureHistogram8SubtractILb1EiiiLi16ELi16ELi16EEEvRKS0_PKi.exit: ; preds = %334, %.lr.ph.i80, %.lr.ph.i74, %.lr.ph.i71, %.lr.ph.i, %317, %309, %295, %242, %213
-  %340 = phi ptr [ %214, %213 ], [ %318, %317 ], [ %282, %309 ], [ %282, %295 ], [ %244, %242 ], [ %282, %.lr.ph.i80 ], [ %214, %.lr.ph.i ], [ %244, %.lr.ph.i71 ], [ %282, %.lr.ph.i74 ], [ %318, %334 ]
+  %340 = phi ptr [ %244, %.lr.ph.i71 ], [ %214, %.lr.ph.i ], [ %282, %.lr.ph.i80 ], [ %282, %.lr.ph.i74 ], [ %214, %213 ], [ %318, %317 ], [ %282, %309 ], [ %282, %295 ], [ %244, %242 ], [ %318, %334 ]
   %341 = load ptr, ptr %6, align 8, !tbaa !231
   %342 = getelementptr inbounds nuw i8, ptr %341, i64 %indvars.iv
   %343 = load i8, ptr %342, align 1, !tbaa !232
@@ -10452,8 +10452,8 @@ _ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_M
   resume { ptr, i32 } %47
 
 _ZNKSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE15_M_find_node_trIiEEPNS1_10_Hash_nodeIiLb0EEEmRKT_m.exit: ; preds = %33, %19, %.critedge, %28
-  %.sroa.031.1 = phi ptr [ %29, %28 ], [ %46, %.critedge ], [ %.sroa.028.0, %19 ], [ %35, %33 ]
-  %.sroa.432.1 = phi i8 [ 0, %28 ], [ 1, %.critedge ], [ 0, %19 ], [ 0, %33 ]
+  %.sroa.031.1 = phi ptr [ %.sroa.028.0, %19 ], [ %46, %.critedge ], [ %29, %28 ], [ %35, %33 ]
+  %.sroa.432.1 = phi i8 [ 0, %19 ], [ 1, %.critedge ], [ 0, %28 ], [ 0, %33 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.031.1, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.432.1, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -13068,7 +13068,7 @@ define internal void @_ZN8LightGBM23DataParallelTreeLearnerINS_17SerialTreeLearn
   br i1 %exitcond.not.i88, label %_ZN8LightGBM16FeatureHistogram8SubtractILb1EiiiLi16ELi16ELi16EEEvRKS0_PKi.exit, label %334, !llvm.loop !372
 
 _ZN8LightGBM16FeatureHistogram8SubtractILb1EiiiLi16ELi16ELi16EEEvRKS0_PKi.exit: ; preds = %334, %.lr.ph.i80, %.lr.ph.i74, %.lr.ph.i71, %.lr.ph.i, %317, %309, %295, %242, %213
-  %340 = phi ptr [ %214, %213 ], [ %318, %317 ], [ %282, %309 ], [ %282, %295 ], [ %244, %242 ], [ %282, %.lr.ph.i80 ], [ %214, %.lr.ph.i ], [ %244, %.lr.ph.i71 ], [ %282, %.lr.ph.i74 ], [ %318, %334 ]
+  %340 = phi ptr [ %244, %.lr.ph.i71 ], [ %214, %.lr.ph.i ], [ %282, %.lr.ph.i80 ], [ %282, %.lr.ph.i74 ], [ %214, %213 ], [ %318, %317 ], [ %282, %309 ], [ %282, %295 ], [ %244, %242 ], [ %318, %334 ]
   %341 = load ptr, ptr %6, align 8, !tbaa !231
   %342 = getelementptr inbounds nuw i8, ptr %341, i64 %indvars.iv
   %343 = load i8, ptr %342, align 1, !tbaa !232

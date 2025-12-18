@@ -2944,7 +2944,7 @@ _ZN4node4i18nL14GetColumnWidthEib.exit:           ; preds = %do.end56.us, %do.en
   br i1 %cmp59, label %while.body.lr.ph, label %while.end, !llvm.loop !5
 
 while.end:                                        ; preds = %_ZN4node4i18nL14GetColumnWidthEib.exit, %_ZN4node4i18nL14GetColumnWidthEib.exit.us112, %_ZN4node4i18nL14GetColumnWidthEib.exit.us, %if.then66.us
-  %width.0.ph.lcssa = phi i32 [ %add70.us114, %_ZN4node4i18nL14GetColumnWidthEib.exit.us112 ], [ %width.0.ph67.us, %if.then66.us ], [ %add70.us, %_ZN4node4i18nL14GetColumnWidthEib.exit.us ], [ %add70, %_ZN4node4i18nL14GetColumnWidthEib.exit ]
+  %width.0.ph.lcssa = phi i32 [ %add70.us, %_ZN4node4i18nL14GetColumnWidthEib.exit.us ], [ %width.0.ph67.us, %if.then66.us ], [ %add70.us114, %_ZN4node4i18nL14GetColumnWidthEib.exit.us112 ], [ %add70, %_ZN4node4i18nL14GetColumnWidthEib.exit ]
   %65 = load ptr, ptr %args, align 8
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %65, i64 24
   %cmp.i192 = icmp sgt i32 %width.0.ph.lcssa, -1

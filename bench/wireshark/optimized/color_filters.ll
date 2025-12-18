@@ -1146,8 +1146,8 @@ getc_unlocked.exit100:                            ; preds = %71, %73
   br label %.outer.outer.backedge
 
 .loopexit:                                        ; preds = %89, %63, %getc_unlocked.exit, %getc_unlocked.exit96
-  %.166 = phi ptr [ %.065.ph.ph, %63 ], [ %.065.ph.ph, %getc_unlocked.exit96 ], [ %.065.ph.ph, %getc_unlocked.exit ], [ %.267, %89 ]
-  %.1 = phi ptr [ %.2, %63 ], [ %.0.ph, %getc_unlocked.exit96 ], [ %.0.ph, %getc_unlocked.exit ], [ %.2, %89 ]
+  %.166 = phi ptr [ %.065.ph.ph, %63 ], [ %.065.ph.ph, %getc_unlocked.exit ], [ %.065.ph.ph, %getc_unlocked.exit96 ], [ %.267, %89 ]
+  %.1 = phi ptr [ %.2, %63 ], [ %.0.ph, %getc_unlocked.exit ], [ %.0.ph, %getc_unlocked.exit96 ], [ %.2, %89 ]
   %127 = call i32 @ferror(ptr noundef nonnull %1) #14
   %.not94 = icmp eq i32 %127, 0
   br i1 %.not94, label %131, label %128

@@ -159,7 +159,7 @@ getgclist.exit.loopexit:                          ; preds = %tailrecurse
   br label %getgclist.exit
 
 getgclist.exit:                                   ; preds = %tailrecurse, %tailrecurse, %getgclist.exit.loopexit, %30, %47, %48
-  %.sink68 = phi i64 [ 120, %48 ], [ 40, %getgclist.exit.loopexit ], [ 72, %47 ], [ 32, %30 ], [ 16, %tailrecurse ], [ 16, %tailrecurse ]
+  %.sink68 = phi i64 [ 120, %48 ], [ 40, %getgclist.exit.loopexit ], [ 32, %30 ], [ 72, %47 ], [ 16, %tailrecurse ], [ 16, %tailrecurse ]
   %49 = getelementptr inbounds nuw i8, ptr %.tr32, i64 %.sink68
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %51 = load ptr, ptr %50, align 8, !tbaa !46
@@ -979,7 +979,7 @@ sweeplist.exit.i.i:                               ; preds = %.lr.ph.i.i.i
   br i1 %103, label %83, label %entersweep.exit
 
 entersweep.exit:                                  ; preds = %83, %sweeplist.exit.i.i, %101
-  %104 = phi ptr [ null, %101 ], [ %.023.i.i.i, %sweeplist.exit.i.i ], [ null, %83 ]
+  %104 = phi ptr [ null, %101 ], [ null, %83 ], [ %.023.i.i.i, %sweeplist.exit.i.i ]
   %105 = getelementptr inbounds nuw i8, ptr %80, i64 120
   store ptr %104, ptr %105, align 8, !tbaa !53
   br label %203
@@ -1851,7 +1851,7 @@ sweeplist.exit.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i
   br i1 %284, label %264, label %minor2inc.exit.i
 
 minor2inc.exit.i:                                 ; preds = %sweeplist.exit.i.i.i.i, %264, %282
-  %285 = phi ptr [ null, %282 ], [ %.023.i.i.i.i.i, %sweeplist.exit.i.i.i.i ], [ null, %264 ]
+  %285 = phi ptr [ null, %282 ], [ null, %264 ], [ %.023.i.i.i.i.i, %sweeplist.exit.i.i.i.i ]
   %286 = getelementptr inbounds nuw i8, ptr %261, i64 120
   store ptr %285, ptr %286, align 8, !tbaa !53
   %287 = getelementptr inbounds nuw i8, ptr %3, i64 105
@@ -1964,7 +1964,7 @@ sweeplist.exit.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i
   br i1 %38, label %18, label %fullgen.exit
 
 fullgen.exit:                                     ; preds = %18, %sweeplist.exit.i.i.i.i, %36
-  %39 = phi ptr [ null, %36 ], [ %.023.i.i.i.i.i, %sweeplist.exit.i.i.i.i ], [ null, %18 ]
+  %39 = phi ptr [ null, %36 ], [ null, %18 ], [ %.023.i.i.i.i.i, %sweeplist.exit.i.i.i.i ]
   %40 = getelementptr inbounds nuw i8, ptr %15, i64 120
   store ptr %39, ptr %40, align 8, !tbaa !53
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 105
@@ -2054,7 +2054,7 @@ sweeplist.exit.i.i:                               ; preds = %.lr.ph.i.i.i
   br i1 %31, label %11, label %entersweep.exit
 
 entersweep.exit:                                  ; preds = %11, %sweeplist.exit.i.i, %29
-  %32 = phi ptr [ null, %29 ], [ %.023.i.i.i, %sweeplist.exit.i.i ], [ null, %11 ]
+  %32 = phi ptr [ null, %29 ], [ null, %11 ], [ %.023.i.i.i, %sweeplist.exit.i.i ]
   %33 = getelementptr inbounds nuw i8, ptr %8, i64 120
   store ptr %32, ptr %33, align 8, !tbaa !53
   br label %34

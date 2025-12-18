@@ -341,7 +341,7 @@ _ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.thread37.i198.thread.i.i: ; preds
   br i1 %.not.i201317.i.i, label %._crit_edge.i202.thread.i.i, label %.lr.ph.i184.i.i.backedge
 
 .lr.ph.i184.i.i.backedge:                         ; preds = %_ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.thread37.i198.thread.i.i, %_ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.thread37.i198.i.i
-  %.03546.i188.i.i.be = phi ptr [ %.035.i200316.i.i, %_ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.thread37.i198.thread.i.i ], [ %.035.i200.i.i, %_ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.thread37.i198.i.i ]
+  %.03546.i188.i.i.be = phi ptr [ %.035.i200.i.i, %_ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.thread37.i198.i.i ], [ %.035.i200316.i.i, %_ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.thread37.i198.thread.i.i ]
   br label %.lr.ph.i184.i.i, !llvm.loop !50
 
 ._crit_edge.thread.i222.i.i:                      ; preds = %_ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.thread37.i198.i.i, %90
@@ -713,7 +713,7 @@ _ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.thread37.i.thread.i.i: ; preds = 
   br i1 %.not.i162346.i.i, label %._crit_edge.i.thread.i.i, label %.lr.ph.i.i.i.backedge
 
 .lr.ph.i.i.i.backedge:                            ; preds = %_ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.thread37.i.thread.i.i, %_ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.thread37.i.i.i
-  %.03546.i.i.i.be = phi ptr [ %.035.i345.i.i, %_ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.thread37.i.thread.i.i ], [ %.035.i.i.i, %_ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.thread37.i.i.i ]
+  %.03546.i.i.i.be = phi ptr [ %.035.i.i.i, %_ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.thread37.i.i.i ], [ %.035.i345.i.i, %_ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.thread37.i.thread.i.i ]
   br label %.lr.ph.i.i.i, !llvm.loop !50
 
 ._crit_edge.thread.i.i.i:                         ; preds = %_ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.thread37.i.i.i, %_ZNSt3setIN4llvm9StringRefESt4lessIS1_ESaIS1_EE6insertISt13move_iteratorIPS1_EEEvT_SA_.exit.i.i.i

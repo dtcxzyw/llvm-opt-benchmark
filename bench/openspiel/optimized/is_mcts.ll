@@ -2896,7 +2896,7 @@ define void @_ZNK10open_spiel10algorithms9ISMCTSBot14GetFinalPolicyERKNS_5StateE
   br i1 %49, label %.invoke, label %51
 
 .invoke:                                          ; preds = %365, %226, %91, %276, %141, %46
-  %50 = phi ptr [ @.str.46, %276 ], [ @.str.46, %46 ], [ @.str.46, %141 ], [ @.str.44, %226 ], [ @.str.44, %91 ], [ @.str.44, %365 ]
+  %50 = phi ptr [ @.str.46, %276 ], [ @.str.46, %46 ], [ @.str.44, %91 ], [ @.str.46, %141 ], [ @.str.44, %226 ], [ @.str.44, %365 ]
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull %50) #29
           to label %.cont unwind label %.loopexit.split-lp327.loopexit.split-lp.loopexit.split-lp
 
@@ -3723,7 +3723,7 @@ _ZN4absl7debian218container_internal12AssertIsFullEPa.exit.i222: ; preds = %_ZNS
   br i1 %405, label %.loopexit325, label %354
 
 .loopexit325:                                     ; preds = %._crit_edge.i.i223, %._crit_edge.i.i147, %._crit_edge.i.i, %.loopexit342, %.loopexit336, %.loopexit331, %34
-  %.promoted412 = phi ptr [ null, %34 ], [ %.promoted387, %.loopexit342 ], [ %.promoted401, %.loopexit336 ], [ %.promoted407, %.loopexit331 ], [ %244, %._crit_edge.i.i147 ], [ %109, %._crit_edge.i.i ], [ %383, %._crit_edge.i.i223 ]
+  %.promoted412 = phi ptr [ %244, %._crit_edge.i.i147 ], [ %109, %._crit_edge.i.i ], [ null, %34 ], [ %.promoted387, %.loopexit342 ], [ %.promoted401, %.loopexit336 ], [ %.promoted407, %.loopexit331 ], [ %383, %._crit_edge.i.i223 ]
   %406 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %407 = load ptr, ptr %0, align 8
   %408 = load ptr, ptr %2, align 8

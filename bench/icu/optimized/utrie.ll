@@ -661,9 +661,9 @@ _ZL20utrie_allocDataBlockP8UNewTrie.exit.i118:    ; preds = %104
   br i1 %119, label %.lr.ph.i122, label %_ZL15utrie_fillBlockPjiijja.exit117, !llvm.loop !23
 
 _ZL15utrie_fillBlockPjiijja.exit117:              ; preds = %.lr.ph.i122, %.lr.ph.i112, %92, %94, %102
-  %120 = phi ptr [ %79, %94 ], [ %79, %102 ], [ %79, %.lr.ph.i112 ], [ %79, %92 ], [ %117, %.lr.ph.i122 ]
-  %121 = phi ptr [ %80, %94 ], [ %80, %102 ], [ %79, %.lr.ph.i112 ], [ %79, %92 ], [ %117, %.lr.ph.i122 ]
-  %.2 = phi i32 [ %.182152, %94 ], [ %.182152, %102 ], [ %.182152, %.lr.ph.i112 ], [ %.182152, %92 ], [ %105, %.lr.ph.i122 ]
+  %120 = phi ptr [ %79, %94 ], [ %79, %102 ], [ %79, %92 ], [ %79, %.lr.ph.i112 ], [ %117, %.lr.ph.i122 ]
+  %121 = phi ptr [ %80, %94 ], [ %80, %102 ], [ %79, %92 ], [ %79, %.lr.ph.i112 ], [ %117, %.lr.ph.i122 ]
+  %.2 = phi i32 [ %.182152, %94 ], [ %.182152, %102 ], [ %.182152, %92 ], [ %.182152, %.lr.ph.i112 ], [ %105, %.lr.ph.i122 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 32
   %122 = trunc nuw i64 %indvars.iv.next to i32
   %123 = icmp sgt i32 %71, %122
@@ -744,7 +744,7 @@ _ZL18utrie_getDataBlockP8UNewTriei.exit127:       ; preds = %._ZL18utrie_getData
   br i1 %156, label %.lr.ph19.i133, label %_ZL15utrie_fillBlockPjiijja.exit135, !llvm.loop !24
 
 _ZL15utrie_fillBlockPjiijja.exit135:              ; preds = %.lr.ph.i104, %66, %_ZL20utrie_allocDataBlockP8UNewTrie.exit.i118, %104, %.lr.ph.i130, %154, %131, %_ZL20utrie_allocDataBlockP8UNewTrie.exit.i125, %27, %_ZL20utrie_allocDataBlockP8UNewTrie.exit.i, %.preheader.i106, %.preheader15.i103, %._crit_edge, %14, %5, %7
-  %.0 = phi i8 [ 0, %5 ], [ 1, %14 ], [ 0, %27 ], [ 0, %7 ], [ 1, %._crit_edge ], [ 1, %.preheader.i106 ], [ 1, %.preheader15.i103 ], [ 0, %_ZL20utrie_allocDataBlockP8UNewTrie.exit.i ], [ 0, %_ZL20utrie_allocDataBlockP8UNewTrie.exit.i125 ], [ 0, %131 ], [ 1, %66 ], [ 1, %154 ], [ 1, %.lr.ph.i130 ], [ 0, %_ZL20utrie_allocDataBlockP8UNewTrie.exit.i118 ], [ 0, %104 ], [ 1, %.lr.ph.i104 ]
+  %.0 = phi i8 [ 0, %131 ], [ 0, %5 ], [ 1, %14 ], [ 0, %27 ], [ 1, %154 ], [ 0, %7 ], [ 1, %._crit_edge ], [ 1, %66 ], [ 1, %.lr.ph.i130 ], [ 0, %_ZL20utrie_allocDataBlockP8UNewTrie.exit.i118 ], [ 1, %.preheader.i106 ], [ 1, %.preheader15.i103 ], [ 0, %_ZL20utrie_allocDataBlockP8UNewTrie.exit.i ], [ 0, %_ZL20utrie_allocDataBlockP8UNewTrie.exit.i125 ], [ 0, %104 ], [ 1, %.lr.ph.i104 ]
   ret i8 %.0
 }
 
@@ -1207,7 +1207,7 @@ utrie_get32_77.exit.thread:                       ; preds = %14, %utrie_get32_77
   br i1 %22, label %.split.split, label %.split19.us, !llvm.loop !42
 
 .split19.us:                                      ; preds = %utrie_get32_77.exit.thread, %14, %.split
-  %.us-phi = phi i32 [ 0, %.split ], [ %2, %14 ], [ 0, %utrie_get32_77.exit.thread ]
+  %.us-phi = phi i32 [ 0, %.split ], [ 0, %utrie_get32_77.exit.thread ], [ %2, %14 ]
   ret i32 %.us-phi
 }
 
@@ -1273,7 +1273,7 @@ _ZL17_findUnusedBlocksP8UNewTrie.exit:            ; preds = %.lr.ph.i, %7
   br label %29
 
 .preheader:                                       ; preds = %.outer, %.backedge, %_ZL17_findUnusedBlocksP8UNewTrie.exit
-  %.077.ph.lcssa = phi i32 [ 32, %_ZL17_findUnusedBlocksP8UNewTrie.exit ], [ %.077.ph37, %.backedge ], [ %.2, %.outer ]
+  %.077.ph.lcssa = phi i32 [ %.077.ph37, %.backedge ], [ 32, %_ZL17_findUnusedBlocksP8UNewTrie.exit ], [ %.2, %.outer ]
   %27 = load i32, ptr %9, align 4, !tbaa !18
   %28 = icmp sgt i32 %27, 0
   br i1 %28, label %.lr.ph40, label %._crit_edge
@@ -1447,8 +1447,8 @@ _ZL18_findSameDataBlockPKjiii.exit.thread:        ; preds = %39, %54
   br label %.outer
 
 .outer:                                           ; preds = %.outer.loopexit41, %.outer.loopexit, %.critedge, %98
-  %.280 = phi i32 [ %99, %98 ], [ %77, %.critedge ], [ %100, %.outer.loopexit ], [ %102, %.outer.loopexit41 ]
-  %.2 = phi i32 [ %99, %98 ], [ %.077.ph37, %.critedge ], [ %101, %.outer.loopexit ], [ %103, %.outer.loopexit41 ]
+  %.280 = phi i32 [ %100, %.outer.loopexit ], [ %99, %98 ], [ %77, %.critedge ], [ %102, %.outer.loopexit41 ]
+  %.2 = phi i32 [ %101, %.outer.loopexit ], [ %99, %98 ], [ %.077.ph37, %.critedge ], [ %103, %.outer.loopexit41 ]
   %104 = load i32, ptr %20, align 4, !tbaa !15
   %105 = icmp slt i32 %.280, %104
   br i1 %105, label %.lr.ph, label %.preheader, !llvm.loop !44
@@ -1743,7 +1743,7 @@ define range(i32 -1, 5376) i32 @utrie_unserializeDummy_77(ptr noundef captures(n
   br i1 %exitcond148.not, label %.loopexit, label %.lr.ph119, !llvm.loop !66
 
 .loopexit:                                        ; preds = %37, %.lr.ph119, %49, %35
-  %.093100104 = phi i32 [ %17, %49 ], [ %20, %35 ], [ %17, %.lr.ph119 ], [ %20, %37 ]
+  %.093100104 = phi i32 [ %17, %49 ], [ %17, %.lr.ph119 ], [ %20, %35 ], [ %20, %37 ]
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr @utrie_defaultGetFoldingOffset_77, ptr %51, align 8, !tbaa !59
   br label %52
@@ -1799,7 +1799,7 @@ define void @utrie_enum_77(ptr noundef readonly captures(address_is_null) %0, pt
   br label %21
 
 21:                                               ; preds = %.fold.split.us, %20, %.split.us
-  %.1164.us = phi i32 [ 1760, %20 ], [ 2048, %.split.us ], [ %.0163283.us, %.fold.split.us ]
+  %.1164.us = phi i32 [ 2048, %.split.us ], [ 1760, %20 ], [ %.0163283.us, %.fold.split.us ]
   %22 = sext i32 %.1164.us to i64
   %23 = getelementptr inbounds i16, ptr %7, i64 %22
   %24 = load i16, ptr %23, align 2, !tbaa !37
@@ -1912,7 +1912,7 @@ define void @utrie_enum_77(ptr noundef readonly captures(address_is_null) %0, pt
   br label %54
 
 54:                                               ; preds = %.split, %.fold.split, %53
-  %.1164 = phi i32 [ 1760, %53 ], [ 2048, %.split ], [ %.0163283, %.fold.split ]
+  %.1164 = phi i32 [ 2048, %.split ], [ 1760, %53 ], [ %.0163283, %.fold.split ]
   %55 = sext i32 %.1164 to i64
   %56 = getelementptr inbounds i16, ptr %7, i64 %55
   %57 = load i16, ptr %56, align 2, !tbaa !37

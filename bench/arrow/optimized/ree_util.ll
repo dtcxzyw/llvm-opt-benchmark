@@ -519,7 +519,7 @@ _ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE5beginEv.exit.i: ; preds = %_ZSt7a
   br i1 %.not36.not.i39, label %.critedge.i31, label %_ZN5arrow8ree_util12_GLOBAL__N_116LogicalNullCountIsEElRKNS_9ArraySpanE.exit, !llvm.loop !86
 
 _ZN5arrow8ree_util12_GLOBAL__N_116LogicalNullCountIsEElRKNS_9ArraySpanE.exit: ; preds = %.critedge.i11, %.critedge.i, %.critedge.i31, %.lr.ph.i28, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE5beginEv.exit.i, %.lr.ph.i8, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE5beginEv.exit.i, %.lr.ph.i, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE5beginEv.exit.i
-  %.0 = phi i64 [ 0, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE5beginEv.exit.i ], [ 0, %.lr.ph.i ], [ 0, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE5beginEv.exit.i ], [ 0, %.lr.ph.i8 ], [ 0, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE5beginEv.exit.i ], [ 0, %.lr.ph.i28 ], [ %.1.i, %.critedge.i ], [ %.1.i38, %.critedge.i31 ], [ %.1.i18, %.critedge.i11 ]
+  %.0 = phi i64 [ %.1.i38, %.critedge.i31 ], [ %.1.i, %.critedge.i ], [ 0, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE5beginEv.exit.i ], [ 0, %.lr.ph.i ], [ 0, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE5beginEv.exit.i ], [ 0, %.lr.ph.i8 ], [ 0, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE5beginEv.exit.i ], [ 0, %.lr.ph.i28 ], [ %.1.i18, %.critedge.i11 ]
   ret i64 %.0
 }
 
@@ -899,9 +899,9 @@ _ZSt7advanceIPKllEvRT_T0_.exit.i.i.i.i:           ; preds = %39, %_ZSt7advanceIP
   br i1 %48, label %_ZSt7advanceIPKllEvRT_T0_.exit.i.i.i.i, label %_ZN5arrow8ree_util8internal17FindPhysicalIndexIsEElRKNS_9ArraySpanEll.exit, !llvm.loop !85
 
 _ZN5arrow8ree_util8internal17FindPhysicalIndexIsEElRKNS_9ArraySpanEll.exit: ; preds = %_ZSt7advanceIPKilEvRT_T0_.exit.i.i.i.i, %_ZSt7advanceIPKslEvRT_T0_.exit.i.i.i.i, %_ZSt7advanceIPKllEvRT_T0_.exit.i.i.i.i, %39, %28, %17
-  %.sink = phi ptr [ %29, %28 ], [ %18, %17 ], [ %40, %39 ], [ %18, %_ZSt7advanceIPKslEvRT_T0_.exit.i.i.i.i ], [ %40, %_ZSt7advanceIPKllEvRT_T0_.exit.i.i.i.i ], [ %29, %_ZSt7advanceIPKilEvRT_T0_.exit.i.i.i.i ]
-  %.0.lcssa.i.i.i.i20.sink = phi ptr [ %29, %28 ], [ %18, %17 ], [ %40, %39 ], [ %.1.i.i.i.i, %_ZSt7advanceIPKslEvRT_T0_.exit.i.i.i.i ], [ %.1.i.i.i.i26, %_ZSt7advanceIPKllEvRT_T0_.exit.i.i.i.i ], [ %.1.i.i.i.i19, %_ZSt7advanceIPKilEvRT_T0_.exit.i.i.i.i ]
-  %.sink30 = phi i64 [ 2, %28 ], [ 1, %17 ], [ 3, %39 ], [ 1, %_ZSt7advanceIPKslEvRT_T0_.exit.i.i.i.i ], [ 3, %_ZSt7advanceIPKllEvRT_T0_.exit.i.i.i.i ], [ 2, %_ZSt7advanceIPKilEvRT_T0_.exit.i.i.i.i ]
+  %.sink = phi ptr [ %29, %28 ], [ %18, %17 ], [ %18, %_ZSt7advanceIPKslEvRT_T0_.exit.i.i.i.i ], [ %40, %_ZSt7advanceIPKllEvRT_T0_.exit.i.i.i.i ], [ %40, %39 ], [ %29, %_ZSt7advanceIPKilEvRT_T0_.exit.i.i.i.i ]
+  %.0.lcssa.i.i.i.i20.sink = phi ptr [ %29, %28 ], [ %18, %17 ], [ %.1.i.i.i.i, %_ZSt7advanceIPKslEvRT_T0_.exit.i.i.i.i ], [ %.1.i.i.i.i26, %_ZSt7advanceIPKllEvRT_T0_.exit.i.i.i.i ], [ %40, %39 ], [ %.1.i.i.i.i19, %_ZSt7advanceIPKilEvRT_T0_.exit.i.i.i.i ]
+  %.sink30 = phi i64 [ 2, %28 ], [ 1, %17 ], [ 1, %_ZSt7advanceIPKslEvRT_T0_.exit.i.i.i.i ], [ 3, %_ZSt7advanceIPKllEvRT_T0_.exit.i.i.i.i ], [ 3, %39 ], [ 2, %_ZSt7advanceIPKilEvRT_T0_.exit.i.i.i.i ]
   %49 = ptrtoint ptr %.sink to i64
   %50 = ptrtoint ptr %.0.lcssa.i.i.i.i20.sink to i64
   %51 = sub i64 %50, %49

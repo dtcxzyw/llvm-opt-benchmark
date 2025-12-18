@@ -1011,10 +1011,10 @@ Vec_IntPush.exit46:                               ; preds = %Vec_IntPush.exit46.
   br label %Wlc_NtkPairIsUifable.exit.thread
 
 Wlc_NtkPairIsUifable.exit.thread:                 ; preds = %Wlc_ObjFanin.exit40.us51.i, %88, %Wlc_ObjFanin.exit40.i, %110, %63, %Wlc_ObjFanin.exit40.us.i, %35, %28, %38, %Vec_IntPush.exit46
-  %.val3387 = phi i32 [ %.val32.pre, %Vec_IntPush.exit46 ], [ %.val3389, %35 ], [ %.val3389, %28 ], [ %.val3389, %38 ], [ %.val3389, %Wlc_ObjFanin.exit40.i ], [ %.val3389, %63 ], [ %.val3389, %Wlc_ObjFanin.exit40.us.i ], [ %.val3389, %110 ], [ %.val3389, %88 ], [ %.val3389, %Wlc_ObjFanin.exit40.us51.i ]
-  %.val32 = phi i32 [ %.val32.pre, %Vec_IntPush.exit46 ], [ %.val3284, %35 ], [ %.val3284, %28 ], [ %.val3284, %38 ], [ %.val3284, %Wlc_ObjFanin.exit40.i ], [ %.val3284, %63 ], [ %.val3284, %Wlc_ObjFanin.exit40.us.i ], [ %.val3284, %110 ], [ %.val3284, %88 ], [ %.val3284, %Wlc_ObjFanin.exit40.us51.i ]
-  %.pre.i4281 = phi ptr [ %.pre.i4282, %Vec_IntPush.exit46 ], [ %.pre.i4280, %35 ], [ %.pre.i4280, %28 ], [ %.pre.i4280, %38 ], [ %.pre.i4280, %Wlc_ObjFanin.exit40.i ], [ %.pre.i4280, %63 ], [ %.pre.i4280, %Wlc_ObjFanin.exit40.us.i ], [ %.pre.i4280, %110 ], [ %.pre.i4280, %88 ], [ %.pre.i4280, %Wlc_ObjFanin.exit40.us51.i ]
-  %.pre.i76 = phi ptr [ %.pre.i4282, %Vec_IntPush.exit46 ], [ %22, %35 ], [ %22, %28 ], [ %22, %38 ], [ %22, %Wlc_ObjFanin.exit40.i ], [ %22, %63 ], [ %22, %Wlc_ObjFanin.exit40.us.i ], [ %22, %110 ], [ %22, %88 ], [ %22, %Wlc_ObjFanin.exit40.us51.i ]
+  %.val3387 = phi i32 [ %.val3389, %Wlc_ObjFanin.exit40.i ], [ %.val3389, %63 ], [ %.val32.pre, %Vec_IntPush.exit46 ], [ %.val3389, %35 ], [ %.val3389, %28 ], [ %.val3389, %38 ], [ %.val3389, %Wlc_ObjFanin.exit40.us.i ], [ %.val3389, %110 ], [ %.val3389, %88 ], [ %.val3389, %Wlc_ObjFanin.exit40.us51.i ]
+  %.val32 = phi i32 [ %.val3284, %Wlc_ObjFanin.exit40.i ], [ %.val3284, %63 ], [ %.val32.pre, %Vec_IntPush.exit46 ], [ %.val3284, %35 ], [ %.val3284, %28 ], [ %.val3284, %38 ], [ %.val3284, %Wlc_ObjFanin.exit40.us.i ], [ %.val3284, %110 ], [ %.val3284, %88 ], [ %.val3284, %Wlc_ObjFanin.exit40.us51.i ]
+  %.pre.i4281 = phi ptr [ %.pre.i4280, %Wlc_ObjFanin.exit40.i ], [ %.pre.i4280, %63 ], [ %.pre.i4282, %Vec_IntPush.exit46 ], [ %.pre.i4280, %35 ], [ %.pre.i4280, %28 ], [ %.pre.i4280, %38 ], [ %.pre.i4280, %Wlc_ObjFanin.exit40.us.i ], [ %.pre.i4280, %110 ], [ %.pre.i4280, %88 ], [ %.pre.i4280, %Wlc_ObjFanin.exit40.us51.i ]
+  %.pre.i76 = phi ptr [ %22, %Wlc_ObjFanin.exit40.i ], [ %22, %63 ], [ %.pre.i4282, %Vec_IntPush.exit46 ], [ %22, %35 ], [ %22, %28 ], [ %22, %38 ], [ %22, %Wlc_ObjFanin.exit40.us.i ], [ %22, %110 ], [ %22, %88 ], [ %22, %Wlc_ObjFanin.exit40.us51.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %166 = sext i32 %.val32 to i64
   %167 = icmp slt i64 %indvars.iv.next, %166

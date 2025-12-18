@@ -304,8 +304,8 @@ formTextDatum.exit124:                            ; preds = %127, %123
   br label %156
 
 156:                                              ; preds = %154, %.lr.ph.i125
-  %.224.i = phi i32 [ %.02227.i, %154 ], [ %146, %.lr.ph.i125 ]
-  %.221.i = phi i32 [ %155, %154 ], [ %.01928.i, %.lr.ph.i125 ]
+  %.224.i = phi i32 [ %146, %.lr.ph.i125 ], [ %.02227.i, %154 ]
+  %.221.i = phi i32 [ %.01928.i, %.lr.ph.i125 ], [ %155, %154 ]
   %157 = icmp slt i32 %.221.i, %.224.i
   br i1 %157, label %.lr.ph.i125, label %.loopexit, !llvm.loop !8
 

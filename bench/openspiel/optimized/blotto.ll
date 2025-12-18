@@ -1565,7 +1565,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.thread:     ; preds = %_ZNSt6vectorIiSaIiE
   unreachable
 
 .loopexit83:                                      ; preds = %90, %73, %85
-  %.sroa.06.1.i.i.i = phi ptr [ %86, %85 ], [ %.sroa.06.0.i.i.i, %73 ], [ %92, %90 ]
+  %.sroa.06.1.i.i.i = phi ptr [ %.sroa.06.0.i.i.i, %73 ], [ %86, %85 ], [ %92, %90 ]
   %97 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 16
   %98 = load ptr, ptr %53, align 8
   %.not.i = icmp eq ptr %58, %98
@@ -2846,7 +2846,7 @@ define void @_ZNK10open_spiel6blotto10BlottoGame14ActionToStringB5cxx11Eil(ptr d
   unreachable
 
 _ZN4absl7debian211string_viewC2EPKc.exit:         ; preds = %31, %15, %26
-  %.sroa.06.1.i.i.i = phi ptr [ %27, %26 ], [ %.sroa.06.0.i.i.i, %15 ], [ %33, %31 ]
+  %.sroa.06.1.i.i.i = phi ptr [ %.sroa.06.0.i.i.i, %15 ], [ %27, %26 ], [ %33, %31 ]
   %38 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 16
   %39 = load ptr, ptr %38, align 8, !noalias !17
   %40 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 24

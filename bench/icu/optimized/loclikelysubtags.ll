@@ -1016,7 +1016,7 @@ _ZN6icu_7712LocalPointerINS_13UnicodeStringEEC2EPS1_R10UErrorCode.exit38.i..crit
   br label %_ZN6icu_7712_GLOBAL__N_121getStaticMacroregionsER10UErrorCode.exit
 
 _ZN6icu_7712_GLOBAL__N_121getStaticMacroregionsER10UErrorCode.exit: ; preds = %35, %.critedge.thread65.i, %27, %24
-  %.0.i.ph = phi ptr [ null, %24 ], [ null, %27 ], [ null, %.critedge.thread65.i ], [ %21, %35 ]
+  %.0.i.ph = phi ptr [ null, %27 ], [ null, %24 ], [ null, %.critedge.thread65.i ], [ %21, %35 ]
   %.pr = load ptr, ptr @_ZN6icu_7712_GLOBAL__N_114gLikelySubtagsE, align 8
   %.pre = load i32, ptr %0, align 4, !tbaa !13
   %121 = icmp sgt i32 %.pre, 0
@@ -3302,8 +3302,8 @@ _ZN6icu_7713LikelySubtags8trieNextERNS_9BytesTrieENS_11StringPieceEi.exit: ; pre
   %.sroa.224.0.copyload.pr = load i32, ptr %27, align 8
   br label %136
 
-_ZN6icu_7713LikelySubtags8trieNextERNS_9BytesTrieENS_11StringPieceEi.exit.thread: ; preds = %.noexc125, %106, %.noexc112, %94, %_ZN6icu_7713LikelySubtags8trieNextERNS_9BytesTrieENS_11StringPieceEi.exit
-  %.077167 = phi i32 [ %112, %_ZN6icu_7713LikelySubtags8trieNextERNS_9BytesTrieENS_11StringPieceEi.exit ], [ 0, %.noexc125 ], [ 1, %106 ], [ 0, %.noexc112 ], [ 1, %94 ]
+_ZN6icu_7713LikelySubtags8trieNextERNS_9BytesTrieENS_11StringPieceEi.exit.thread: ; preds = %106, %.noexc125, %94, %.noexc112, %_ZN6icu_7713LikelySubtags8trieNextERNS_9BytesTrieENS_11StringPieceEi.exit
+  %.077167 = phi i32 [ %112, %_ZN6icu_7713LikelySubtags8trieNextERNS_9BytesTrieENS_11StringPieceEi.exit ], [ 1, %106 ], [ 0, %.noexc125 ], [ 1, %94 ], [ 0, %.noexc112 ]
   %122 = load i32, ptr %26, align 8, !tbaa !131
   %123 = icmp ne i32 %122, 0
   %124 = load i32, ptr %67, align 8, !tbaa !116
@@ -3388,8 +3388,8 @@ _ZN6icu_7713LikelySubtags8trieNextERNS_9BytesTrieENS_11StringPieceEi.exit141: ; 
   %157 = icmp sgt i32 %156, -1
   br i1 %157, label %_ZN6icu_7713LikelySubtags8trieNextERNS_9BytesTrieENS_11StringPieceEi.exit141.thread, label %_ZN6icu_7713LikelySubtags8trieNextERNS_9BytesTrieENS_11StringPieceEi.exit141.thread194
 
-_ZN6icu_7713LikelySubtags8trieNextERNS_9BytesTrieENS_11StringPieceEi.exit141.thread: ; preds = %.noexc139, %149, %_ZN6icu_7713LikelySubtags8trieNextERNS_9BytesTrieENS_11StringPieceEi.exit141
-  %.014.i136192 = phi i32 [ %156, %_ZN6icu_7713LikelySubtags8trieNextERNS_9BytesTrieENS_11StringPieceEi.exit141 ], [ 0, %.noexc139 ], [ 1, %149 ]
+_ZN6icu_7713LikelySubtags8trieNextERNS_9BytesTrieENS_11StringPieceEi.exit141.thread: ; preds = %149, %.noexc139, %_ZN6icu_7713LikelySubtags8trieNextERNS_9BytesTrieENS_11StringPieceEi.exit141
+  %.014.i136192 = phi i32 [ %156, %_ZN6icu_7713LikelySubtags8trieNextERNS_9BytesTrieENS_11StringPieceEi.exit141 ], [ 1, %149 ], [ 0, %.noexc139 ]
   %158 = load i32, ptr %27, align 8, !tbaa !131
   %159 = icmp ne i32 %158, 0
   br label %_ZN6icu_7713LikelySubtags8trieNextERNS_9BytesTrieEPKci.exit
@@ -3547,8 +3547,8 @@ _ZN6icu_7713LikelySubtags8trieNextERNS_9BytesTrieENS_11StringPieceEi.exit158: ; 
   %221 = icmp sgt i32 %220, -1
   br i1 %221, label %_ZN6icu_7713LikelySubtags8trieNextERNS_9BytesTrieENS_11StringPieceEi.exit158.thread, label %_ZN6icu_7713LikelySubtags8trieNextERNS_9BytesTrieENS_11StringPieceEi.exit158.thread223
 
-_ZN6icu_7713LikelySubtags8trieNextERNS_9BytesTrieENS_11StringPieceEi.exit158.thread: ; preds = %.noexc156, %213, %_ZN6icu_7713LikelySubtags8trieNextERNS_9BytesTrieENS_11StringPieceEi.exit158
-  %.014.i153221 = phi i32 [ %220, %_ZN6icu_7713LikelySubtags8trieNextERNS_9BytesTrieENS_11StringPieceEi.exit158 ], [ 0, %.noexc156 ], [ 1, %213 ]
+_ZN6icu_7713LikelySubtags8trieNextERNS_9BytesTrieENS_11StringPieceEi.exit158.thread: ; preds = %213, %.noexc156, %_ZN6icu_7713LikelySubtags8trieNextERNS_9BytesTrieENS_11StringPieceEi.exit158
+  %.014.i153221 = phi i32 [ %220, %_ZN6icu_7713LikelySubtags8trieNextERNS_9BytesTrieENS_11StringPieceEi.exit158 ], [ 1, %213 ], [ 0, %.noexc156 ]
   %222 = load i32, ptr %57, align 8, !tbaa !131
   %.not229 = icmp eq i32 %222, 0
   br i1 %.not229, label %_ZN6icu_7713LikelySubtags8trieNextERNS_9BytesTrieEPKci.exit163, label %223
@@ -3929,7 +3929,7 @@ define noundef i32 @_ZN6icu_7713LikelySubtags8trieNextERNS_9BytesTrieENS_11Strin
   br label %.loopexit
 
 .loopexit:                                        ; preds = %8, %15, %26, %18, %17
-  %.014 = phi i32 [ -1, %26 ], [ %25, %18 ], [ 1, %17 ], [ 0, %15 ], [ -1, %8 ]
+  %.014 = phi i32 [ -1, %26 ], [ 0, %15 ], [ %25, %18 ], [ 1, %17 ], [ -1, %8 ]
   ret i32 %.014
 }
 
@@ -5106,7 +5106,7 @@ _ZN6icu_7717UniqueCharStrings3addEPKDsR10UErrorCode.exit: ; preds = %49, %51
   br i1 %.not40, label %35, label %.sink.split, !llvm.loop !141
 
 .sink.split:                                      ; preds = %63, %_ZN6icu_7717UniqueCharStrings3addEPKDsR10UErrorCode.exit, %_ZN6icu_7711LocalMemoryIiE22allocateInsteadAndCopyEii.exit, %34, %14, %20, %_ZN6icu_7717UniqueCharStrings3addEPKDsR10UErrorCode.exit.thread
-  %.029.ph = phi i1 [ true, %_ZN6icu_7711LocalMemoryIiE22allocateInsteadAndCopyEii.exit ], [ false, %34 ], [ false, %14 ], [ true, %20 ], [ false, %_ZN6icu_7717UniqueCharStrings3addEPKDsR10UErrorCode.exit.thread ], [ false, %_ZN6icu_7717UniqueCharStrings3addEPKDsR10UErrorCode.exit ], [ true, %63 ]
+  %.029.ph = phi i1 [ true, %_ZN6icu_7711LocalMemoryIiE22allocateInsteadAndCopyEii.exit ], [ false, %34 ], [ true, %20 ], [ false, %14 ], [ false, %_ZN6icu_7717UniqueCharStrings3addEPKDsR10UErrorCode.exit.thread ], [ false, %_ZN6icu_7717UniqueCharStrings3addEPKDsR10UErrorCode.exit ], [ true, %63 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %66
 
@@ -5298,7 +5298,7 @@ _ZN6icu_7717LikelySubtagsData8toRegionERKNS_13ResourceArrayERNS_13ResourceValueE
   br label %.thread
 
 .thread:                                          ; preds = %76, %38, %18, %25, %16, %._crit_edge, %8
-  %.043 = phi i1 [ true, %16 ], [ false, %8 ], [ true, %._crit_edge ], [ false, %38 ], [ false, %18 ], [ true, %25 ], [ false, %76 ]
+  %.043 = phi i1 [ true, %16 ], [ false, %8 ], [ true, %._crit_edge ], [ true, %25 ], [ false, %38 ], [ false, %18 ], [ false, %76 ]
   ret i1 %.043
 }
 

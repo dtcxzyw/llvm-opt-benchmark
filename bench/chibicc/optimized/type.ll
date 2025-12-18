@@ -215,7 +215,7 @@ tailrecurse.outer.backedge:                       ; preds = %5, %20
   br label %.loopexit
 
 .loopexit:                                        ; preds = %tailrecurse, %.lr.ph, %10, %13, %.loopexit.loopexit125, %62, %58, %52, %._crit_edge, %31, %25, %14
-  %.037 = phi i1 [ false, %58 ], [ %65, %62 ], [ %19, %14 ], [ false, %52 ], [ %51, %._crit_edge ], [ false, %25 ], [ false, %31 ], [ true, %.loopexit.loopexit125 ], [ false, %10 ], [ false, %.lr.ph ], [ false, %13 ], [ true, %tailrecurse ]
+  %.037 = phi i1 [ false, %31 ], [ false, %58 ], [ %65, %62 ], [ false, %10 ], [ true, %.loopexit.loopexit125 ], [ %19, %14 ], [ false, %52 ], [ %51, %._crit_edge ], [ false, %25 ], [ false, %.lr.ph ], [ false, %13 ], [ true, %tailrecurse ]
   ret i1 %.037
 }
 

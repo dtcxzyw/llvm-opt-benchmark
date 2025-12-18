@@ -2606,8 +2606,8 @@ _ZL7getMassRK7t_atomsib.exit.thread.us.i:         ; preds = %.lr.ph.i172, %_ZL7g
   br i1 %exitcond210.not.i, label %._crit_edge.i178, label %_ZL7getMassRK7t_atomsib.exit.thread.us.i, !llvm.loop !255
 
 ._crit_edge.i178:                                 ; preds = %_ZL7getMassRK7t_atomsib.exit.thread.i175, %_ZL7getMassRK7t_atomsib.exit.thread.us.i, %_ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit.i, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i
-  %.sroa.25.3242.i = phi i64 [ %505, %_ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit.i ], [ 0, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ %505, %_ZL7getMassRK7t_atomsib.exit.thread.us.i ], [ %505, %_ZL7getMassRK7t_atomsib.exit.thread.i175 ]
-  %.sroa.0117.3240.i = phi ptr [ %503, %_ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit.i ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ %503, %_ZL7getMassRK7t_atomsib.exit.thread.us.i ], [ %503, %_ZL7getMassRK7t_atomsib.exit.thread.i175 ]
+  %.sroa.25.3242.i = phi i64 [ %505, %_ZL7getMassRK7t_atomsib.exit.thread.us.i ], [ 0, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ %505, %_ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit.i ], [ %505, %_ZL7getMassRK7t_atomsib.exit.thread.i175 ]
+  %.sroa.0117.3240.i = phi ptr [ %503, %_ZL7getMassRK7t_atomsib.exit.thread.us.i ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ %503, %_ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit.i ], [ %503, %_ZL7getMassRK7t_atomsib.exit.thread.i175 ]
   %510 = load i32, ptr %.sroa.0140.0194.i, align 8, !tbaa !253
   switch i32 %510, label %568 [
     i32 66, label %522
@@ -6078,8 +6078,8 @@ _ZL22getAtomConstraintPropsRK13gmx_moltype_tRK14gmx_ffparams_t.exit.i.i: ; preds
   br label %596
 
 .loopexit.i.i:                                    ; preds = %495, %464, %._crit_edge166.us.i.i, %.lr.ph171.split.i.i, %.thread.i.i, %469
-  %.088.lcssa227.i.i = phi float [ %.088.lcssa228232.i.i, %.thread.i.i ], [ %462, %469 ], [ %.088.lcssa228232.i.i, %.lr.ph171.split.i.i ], [ %462, %464 ], [ %.088.lcssa228232.i.i, %._crit_edge166.us.i.i ], [ %462, %495 ]
-  %.1.i.i = phi float [ 0.000000e+00, %.thread.i.i ], [ %481, %469 ], [ 0.000000e+00, %.lr.ph171.split.i.i ], [ 0.000000e+00, %464 ], [ %.6.us.i.i, %._crit_edge166.us.i.i ], [ %.3.i.i, %495 ]
+  %.088.lcssa227.i.i = phi float [ %.088.lcssa228232.i.i, %.thread.i.i ], [ %.088.lcssa228232.i.i, %._crit_edge166.us.i.i ], [ %.088.lcssa228232.i.i, %.lr.ph171.split.i.i ], [ %462, %469 ], [ %462, %464 ], [ %462, %495 ]
+  %.1.i.i = phi float [ 0.000000e+00, %.thread.i.i ], [ %.6.us.i.i, %._crit_edge166.us.i.i ], [ 0.000000e+00, %.lr.ph171.split.i.i ], [ %481, %469 ], [ 0.000000e+00, %464 ], [ %.3.i.i, %495 ]
   %545 = fdiv float %.015.i, %.088.lcssa227.i.i
   %546 = tail call float @llvm.fmuladd.f32(float %.1.i.i, float -2.000000e+00, float %300)
   %547 = fmul float %546, %546
@@ -6176,7 +6176,7 @@ _ZNSt6vectorI17VerletbufAtomtypeSaIS0_EED2Ev.exit.loopexit208: ; preds = %_ZL24c
   br label %_ZNSt6vectorI17VerletbufAtomtypeSaIS0_EED2Ev.exit
 
 _ZNSt6vectorI17VerletbufAtomtypeSaIS0_EED2Ev.exit: ; preds = %_ZL31chanceOfUpdateGroupCrossingCellRK10gmx_mtop_tN3gmx8ArrayRefIKNS2_17RangePartitioningEEEff.exit, %_ZL24chanceOfAtomCrossingCellN3gmx8ArrayRefIK17VerletbufAtomtypeEEff.exit.loopexit.us, %_ZNSt6vectorI17VerletbufAtomtypeSaIS0_EED2Ev.exit.loopexit208, %_ZNSt6vectorI17VerletbufAtomtypeSaIS0_EED2Ev.exit.loopexit, %.loopexit96
-  %.047.lcssa = phi float [ 0.000000e+00, %.loopexit96 ], [ %606, %_ZNSt6vectorI17VerletbufAtomtypeSaIS0_EED2Ev.exit.loopexit ], [ %608, %_ZNSt6vectorI17VerletbufAtomtypeSaIS0_EED2Ev.exit.loopexit208 ], [ %127, %_ZL24chanceOfAtomCrossingCellN3gmx8ArrayRefIK17VerletbufAtomtypeEEff.exit.loopexit.us ], [ %300, %_ZL31chanceOfUpdateGroupCrossingCellRK10gmx_mtop_tN3gmx8ArrayRefIKNS2_17RangePartitioningEEEff.exit ]
+  %.047.lcssa = phi float [ 0.000000e+00, %.loopexit96 ], [ %127, %_ZL24chanceOfAtomCrossingCellN3gmx8ArrayRefIK17VerletbufAtomtypeEEff.exit.loopexit.us ], [ %608, %_ZNSt6vectorI17VerletbufAtomtypeSaIS0_EED2Ev.exit.loopexit208 ], [ %606, %_ZNSt6vectorI17VerletbufAtomtypeSaIS0_EED2Ev.exit.loopexit ], [ %300, %_ZL31chanceOfUpdateGroupCrossingCellRK10gmx_mtop_tN3gmx8ArrayRefIKNS2_17RangePartitioningEEEff.exit ]
   %609 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %610 = load ptr, ptr %609, align 8, !tbaa !203
   %611 = ptrtoint ptr %610 to i64

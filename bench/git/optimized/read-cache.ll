@@ -823,6 +823,9 @@ remove_index_entry_at.exit.i11.i.i:               ; preds = %remove_index_entry_
   %.not.i.i17.i.i = icmp ult i32 %193, %208
   br i1 %.not.i.i17.i.i, label %209, label %remove_index_entry_at.exit.i11.i.i.outer.backedge
 
+remove_index_entry_at.exit.i11.i.i.outer.backedge: ; preds = %204, %209
+  br label %remove_index_entry_at.exit.i11.i.i.outer
+
 209:                                              ; preds = %204
   %210 = sub nuw i32 %208, %193
   %211 = zext i32 %210 to i64
@@ -832,9 +835,6 @@ remove_index_entry_at.exit.i11.i.i:               ; preds = %remove_index_entry_
   %215 = shl nuw nsw i64 %211, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %213, ptr nonnull readonly align 1 %214, i64 %215, i1 false)
   br label %remove_index_entry_at.exit.i11.i.i.outer.backedge
-
-remove_index_entry_at.exit.i11.i.i.outer.backedge: ; preds = %209, %204
-  br label %remove_index_entry_at.exit.i11.i.i.outer
 
 216:                                              ; preds = %191
   %217 = xor i32 %193, -1
@@ -2919,11 +2919,14 @@ define internal fastcc range(i32 0, 3) i32 @verify_path_internal(ptr noundef %0,
     i8 0, label %51
   ]
 
-.preheader:                                       ; preds = %verify_dotfile.exit, %46, %verify_dotfile.exit.thread40, %19
-  br i1 %5, label %.preheader.split.us, label %.preheader.split
+.preheader:                                       ; preds = %verify_dotfile.exit, %verify_dotfile.exit.thread40, %19
+  br i1 %5, label %.preheader.split.us.preheader, label %.preheader.split
 
-.preheader.split.us:                              ; preds = %.preheader, %.preheader.split.us.backedge
-  %.1.us = phi ptr [ %22, %.preheader.split.us.backedge ], [ %20, %.preheader ]
+.preheader.split.us.preheader:                    ; preds = %46, %.preheader
+  br label %.preheader.split.us
+
+.preheader.split.us:                              ; preds = %.preheader.split.us.backedge, %.preheader.split.us.preheader
+  %.1.us = phi ptr [ %20, %.preheader.split.us.preheader ], [ %22, %.preheader.split.us.backedge ]
   %22 = getelementptr inbounds nuw i8, ptr %.1.us, i64 1
   %23 = load i8, ptr %.1.us, align 1, !tbaa !38
   switch i8 %23, label %24 [
@@ -2959,7 +2962,7 @@ define internal fastcc range(i32 0, 3) i32 @verify_path_internal(ptr noundef %0,
     i8 47, label %verify_dotfile.exit.thread
     i8 103, label %34
     i8 71, label %34
-    i8 46, label %46
+    i8 46, label %verify_dotfile.exit
   ]
 
 34:                                               ; preds = %32, %32
@@ -2993,13 +2996,13 @@ define internal fastcc range(i32 0, 3) i32 @verify_path_internal(ptr noundef %0,
   store ptr %41, ptr %3, align 8, !tbaa !81
   %45 = call fastcc i32 @skip_iprefix(ptr noundef nonnull %41, ptr noundef %3)
   %.not14.i = icmp eq i32 %45, 0
-  br i1 %.not14.i, label %verify_dotfile.exit.thread40, label %verify_dotfile.exit
+  br i1 %.not14.i, label %verify_dotfile.exit.thread40, label %46
 
-46:                                               ; preds = %32
-  %47 = getelementptr inbounds nuw i8, ptr %.022, i64 2
+46:                                               ; preds = %44
+  %47 = load ptr, ptr %3, align 8, !tbaa !81
   %48 = load i8, ptr %47, align 1, !tbaa !38
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  switch i8 %48, label %.preheader [
+  switch i8 %48, label %.preheader.split.us.preheader [
     i8 47, label %.loopexit
     i8 0, label %.loopexit
   ]
@@ -3012,8 +3015,8 @@ verify_dotfile.exit.thread:                       ; preds = %32, %32, %40, %40
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit
 
-verify_dotfile.exit:                              ; preds = %44
-  %49 = load ptr, ptr %3, align 8, !tbaa !81
+verify_dotfile.exit:                              ; preds = %32
+  %49 = getelementptr inbounds nuw i8, ptr %.022, i64 2
   %50 = load i8, ptr %49, align 1, !tbaa !38
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   switch i8 %50, label %.preheader [
@@ -3051,7 +3054,7 @@ verify_dotfile.exit:                              ; preds = %44
   ]
 
 .loopexit:                                        ; preds = %19, %17, %14, %10, %7, %46, %46, %verify_dotfile.exit, %verify_dotfile.exit, %58, %.preheader.split, %30, %28, %.preheader.split.us, %verify_dotfile.exit.thread, %51
-  %.0 = phi i32 [ 1, %verify_dotfile.exit.thread ], [ %53, %51 ], [ 0, %.preheader.split ], [ 1, %28 ], [ 1, %30 ], [ 0, %.preheader.split.us ], [ 1, %58 ], [ 1, %verify_dotfile.exit ], [ 1, %verify_dotfile.exit ], [ 1, %46 ], [ 1, %46 ], [ 1, %7 ], [ 1, %10 ], [ 1, %14 ], [ 1, %17 ], [ 1, %19 ]
+  %.0 = phi i32 [ 1, %28 ], [ 1, %verify_dotfile.exit.thread ], [ %53, %51 ], [ 0, %.preheader.split ], [ 1, %30 ], [ 0, %.preheader.split.us ], [ 1, %58 ], [ 1, %verify_dotfile.exit ], [ 1, %verify_dotfile.exit ], [ 1, %46 ], [ 1, %46 ], [ 1, %7 ], [ 1, %10 ], [ 1, %14 ], [ 1, %17 ], [ 1, %19 ]
   ret i32 %.0
 }
 
@@ -5445,7 +5448,7 @@ load_cache_entries_threaded.exit:                 ; preds = %475, %417
   br label %507
 
 .thread127:                                       ; preds = %338, %read_eoie_extension.exit.thread, %.thread124, %176, %289, %361, %368, %293
-  %.ph = phi i1 [ true, %368 ], [ true, %361 ], [ true, %293 ], [ true, %289 ], [ false, %read_eoie_extension.exit.thread ], [ false, %176 ], [ false, %.thread124 ], [ true, %338 ]
+  %.ph = phi i1 [ true, %368 ], [ true, %361 ], [ false, %.thread124 ], [ true, %293 ], [ true, %289 ], [ false, %read_eoie_extension.exit.thread ], [ false, %176 ], [ true, %338 ]
   %486 = call ptr @xmalloc(i64 noundef 24) #31
   %487 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store ptr %486, ptr %487, align 8, !tbaa !117

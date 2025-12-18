@@ -12721,8 +12721,8 @@ _ZN5Ipopt8SmartPtrINS_16NLPScalingObjectEED2Ev.exit: ; preds = %_ZNSt7__cxx1112b
   ret void
 
 455:                                              ; preds = %424, %426, %421, %_ZN5Ipopt8SmartPtrINS_19IpoptAdditionalDataEED2Ev.exit130, %422, %246
-  %.sroa.0164.2 = phi ptr [ %.sroa.0164.1, %422 ], [ %.sroa.0164.0, %246 ], [ %.sroa.0164.1, %421 ], [ %.sroa.0164.1, %_ZN5Ipopt8SmartPtrINS_19IpoptAdditionalDataEED2Ev.exit130 ], [ %.sroa.0164.1, %424 ], [ %.sroa.0164.1, %426 ]
-  %.pn60.pn.pn = phi { ptr, i32 } [ %423, %422 ], [ %247, %246 ], [ %400, %421 ], [ %388, %_ZN5Ipopt8SmartPtrINS_19IpoptAdditionalDataEED2Ev.exit130 ], [ %425, %424 ], [ %427, %426 ]
+  %.sroa.0164.2 = phi ptr [ %.sroa.0164.1, %424 ], [ %.sroa.0164.1, %422 ], [ %.sroa.0164.0, %246 ], [ %.sroa.0164.1, %421 ], [ %.sroa.0164.1, %426 ], [ %.sroa.0164.1, %_ZN5Ipopt8SmartPtrINS_19IpoptAdditionalDataEED2Ev.exit130 ]
+  %.pn60.pn.pn = phi { ptr, i32 } [ %425, %424 ], [ %423, %422 ], [ %247, %246 ], [ %400, %421 ], [ %427, %426 ], [ %388, %_ZN5Ipopt8SmartPtrINS_19IpoptAdditionalDataEED2Ev.exit130 ]
   %.not.i.i148 = icmp eq ptr %.sroa.0164.2, null
   br i1 %.not.i.i148, label %_ZN5Ipopt8SmartPtrINS_19IpoptAdditionalDataEED2Ev.exit149, label %456
 

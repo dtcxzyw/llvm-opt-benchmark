@@ -1246,8 +1246,8 @@ _ZN3std2io4Read8read_buf17hb1dae27afe5553c4E.exit.thread: ; preds = %._crit_edge
   br label %.loopexit
 
 .loopexit:                                        ; preds = %57, %84, %88, %82, %_ZN3std2io5error5Error14is_interrupted17h7eca20d7cd17b577E.llvm.6599896593330520474.exit, %.loopexit.split.loop.exit100, %.loopexit125, %28, %54, %34
-  %.sroa.8.1 = phi i64 [ 0, %34 ], [ %32, %28 ], [ %56, %54 ], [ %109, %.loopexit125 ], [ %116, %.loopexit.split.loop.exit100 ], [ %80, %84 ], [ %80, %_ZN3std2io5error5Error14is_interrupted17h7eca20d7cd17b577E.llvm.6599896593330520474.exit ], [ %80, %82 ], [ %80, %88 ], [ 163208757251, %57 ]
-  %.sroa.0.1 = phi i64 [ 0, %34 ], [ %30, %28 ], [ 0, %54 ], [ 0, %.loopexit125 ], [ 1, %.loopexit.split.loop.exit100 ], [ 1, %84 ], [ 1, %_ZN3std2io5error5Error14is_interrupted17h7eca20d7cd17b577E.llvm.6599896593330520474.exit ], [ 1, %82 ], [ 1, %88 ], [ 1, %57 ]
+  %.sroa.8.1 = phi i64 [ 0, %34 ], [ %32, %28 ], [ %56, %54 ], [ %109, %.loopexit125 ], [ %80, %84 ], [ %116, %.loopexit.split.loop.exit100 ], [ %80, %_ZN3std2io5error5Error14is_interrupted17h7eca20d7cd17b577E.llvm.6599896593330520474.exit ], [ %80, %82 ], [ %80, %88 ], [ 163208757251, %57 ]
+  %.sroa.0.1 = phi i64 [ 0, %34 ], [ %30, %28 ], [ 0, %54 ], [ 0, %.loopexit125 ], [ 1, %84 ], [ 1, %.loopexit.split.loop.exit100 ], [ 1, %_ZN3std2io5error5Error14is_interrupted17h7eca20d7cd17b577E.llvm.6599896593330520474.exit ], [ 1, %82 ], [ 1, %88 ], [ 1, %57 ]
   %117 = inttoptr i64 %.sroa.8.1 to ptr
   %118 = insertvalue { i64, ptr } poison, i64 %.sroa.0.1, 0
   %119 = insertvalue { i64, ptr } %118, ptr %117, 1

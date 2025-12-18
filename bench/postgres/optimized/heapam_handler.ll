@@ -1872,8 +1872,8 @@ HeapTupleIsHotUpdated.exit178.thread:             ; preds = %185, %189
   unreachable
 
 .thread:                                          ; preds = %158, %162, %127, %141, %165, %HeapTupleIsHotUpdated.exit178.thread, %204, %200
-  %.0140.ph = phi i1 [ true, %162 ], [ false, %HeapTupleIsHotUpdated.exit178.thread ], [ false, %200 ], [ false, %165 ], [ true, %141 ], [ true, %127 ], [ false, %204 ], [ true, %158 ]
-  %.1.ph = phi double [ %163, %162 ], [ %199, %HeapTupleIsHotUpdated.exit178.thread ], [ %.0130221, %200 ], [ %166, %165 ], [ %142, %141 ], [ %128, %127 ], [ %.0130221, %204 ], [ %.0130221, %158 ]
+  %.0140.ph = phi i1 [ true, %162 ], [ false, %HeapTupleIsHotUpdated.exit178.thread ], [ false, %200 ], [ false, %204 ], [ false, %165 ], [ true, %141 ], [ true, %127 ], [ true, %158 ]
+  %.1.ph = phi double [ %163, %162 ], [ %199, %HeapTupleIsHotUpdated.exit178.thread ], [ %.0130221, %200 ], [ %.0130221, %204 ], [ %166, %165 ], [ %142, %141 ], [ %128, %127 ], [ %.0130221, %158 ]
   %215 = load i32, ptr %76, align 4
   call void @LockBuffer(i32 noundef %215, i32 noundef 0) #10
   br label %222
@@ -2752,7 +2752,7 @@ HeapTupleHeaderGetXmin.exit:                      ; preds = %121, %130
   br i1 %exitcond, label %.loopexit, label %106, !llvm.loop !17
 
 .loopexit:                                        ; preds = %134, %70, %BufferGetPage.exit, %.preheader
-  %.2 = phi i32 [ 0, %.preheader ], [ 0, %BufferGetPage.exit ], [ %.1, %70 ], [ %.4, %134 ]
+  %.2 = phi i32 [ %.1, %70 ], [ 0, %.preheader ], [ 0, %BufferGetPage.exit ], [ %.4, %134 ]
   call void @LockBuffer(i32 noundef %46, i32 noundef 0) #10
   store i32 %.2, ptr %10, align 4
   %135 = load i32, ptr %51, align 4

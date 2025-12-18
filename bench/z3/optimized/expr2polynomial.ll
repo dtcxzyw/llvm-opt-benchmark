@@ -925,7 +925,7 @@ _Z4sizeRK7obj_refIN10polynomial10polynomialENS0_7managerEE.exit: ; preds = %4
   br i1 %exitcond39.not.i, label %_ZN15expr2polynomial3imp11is_int_polyERK7obj_refIN10polynomial10polynomialENS2_7managerEE.exit, label %.lr.ph37.i, !llvm.loop !122
 
 _ZN15expr2polynomial3imp11is_int_polyERK7obj_refIN10polynomial10polynomialENS2_7managerEE.exit: ; preds = %.critedge.i, %.noexc83, %.noexc
-  %.not2631.i = phi i1 [ true, %.noexc ], [ false, %.noexc83 ], [ true, %.critedge.i ]
+  %.not2631.i = phi i1 [ false, %.noexc83 ], [ true, %.noexc ], [ true, %.critedge.i ]
   %.not278 = icmp eq i32 %23, 0
   br i1 %.not278, label %._crit_edge277, label %.lr.ph276
 
@@ -2792,7 +2792,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN15expr2polynomial3imp5visitEP4
   br i1 %.not27.old.i.i.i.i, label %.loopexit, label %.lr.ph38.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.backedge:                        ; preds = %40, %37
-  %.137.i.i.i.i.be = phi ptr [ %.old.i.i.i.i, %40 ], [ %39, %37 ]
+  %.137.i.i.i.i.be = phi ptr [ %39, %37 ], [ %.old.i.i.i.i, %40 ]
   br label %.lr.ph38.i.i.i.i, !llvm.loop !154
 
 _ZN15expr2polynomial3imp9is_cachedEP4expr.exit:   ; preds = %21, %32

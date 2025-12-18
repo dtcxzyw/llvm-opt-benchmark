@@ -465,7 +465,7 @@ int_table_check.exit:                             ; preds = %11
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.critedge.backedge, %.critedge.preheader, %20, %28, %52, %46, %44
-  %.028.ph = phi ptr [ %30, %44 ], [ %30, %46 ], [ %30, %52 ], [ %29, %28 ], [ %21, %20 ], [ null, %.critedge.preheader ], [ null, %.critedge.backedge ]
+  %.028.ph = phi ptr [ %21, %20 ], [ %30, %44 ], [ %30, %46 ], [ %30, %52 ], [ %29, %28 ], [ null, %.critedge.preheader ], [ null, %.critedge.backedge ]
   %53 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i32 1, ptr %53, align 8, !tbaa !15
   br label %int_table_check.exit.thread

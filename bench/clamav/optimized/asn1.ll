@@ -745,7 +745,7 @@ thread-pre-split:                                 ; preds = %181, %.preheader
   br label %asn1_expect_objtype.exit.thread
 
 asn1_expect_objtype.exit.thread:                  ; preds = %thread-pre-split, %42, %23, %18, %.thread98, %39, %37, %34, %31, %asn1_expect_objtype.exit, %2, %30
-  %.043 = phi i32 [ 1, %39 ], [ 1, %2 ], [ 1, %30 ], [ 1, %asn1_expect_objtype.exit ], [ 1, %31 ], [ 1, %34 ], [ 1, %37 ], [ 1, %.thread98 ], [ 1, %18 ], [ 1, %23 ], [ 0, %42 ], [ 0, %thread-pre-split ]
+  %.043 = phi i32 [ 1, %39 ], [ 1, %2 ], [ 1, %23 ], [ 1, %30 ], [ 1, %asn1_expect_objtype.exit ], [ 1, %31 ], [ 1, %34 ], [ 1, %37 ], [ 1, %.thread98 ], [ 1, %18 ], [ 0, %42 ], [ 0, %thread-pre-split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.043
@@ -1351,7 +1351,7 @@ asn1_expect_objtype.exit394:                      ; preds = %49
   br label %.thread428
 
 ._crit_edge507:                                   ; preds = %260, %206, %235
-  %.3220.lcssa572577 = phi i32 [ %.5222, %235 ], [ 27, %206 ], [ %.5222, %260 ]
+  %.3220.lcssa572577 = phi i32 [ 27, %206 ], [ %.5222, %235 ], [ %.5222, %260 ]
   %262 = load i32, ptr %122, align 8, !tbaa !63
   %.not314 = icmp eq i32 %262, 0
   br i1 %.not314, label %264, label %263
@@ -3124,7 +3124,7 @@ thread-pre-split:                                 ; preds = %174
   br label %.loopexit396
 
 .loopexit396:                                     ; preds = %184, %261, %287, %220
-  %.287 = phi i32 [ %.085.ph521, %261 ], [ 1, %220 ], [ %.085.ph521, %287 ], [ %.085.ph521, %184 ]
+  %.287 = phi i32 [ %.085.ph521, %261 ], [ %.085.ph521, %287 ], [ 1, %220 ], [ %.085.ph521, %184 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -3285,8 +3285,8 @@ thread-pre-split:                                 ; preds = %174
   br label %351
 
 .sink.split465:                                   ; preds = %140, %4, %21, %26, %asn1_expect_objtype.exit, %36, %asn1_expect_objtype.exit173, %51, %58, %60, %62, %78, %81, %84, %89, %94, %97, %100, %102, %113, %115, %.thread394, %149, %295, %315, %321, %324, %327, %343, %345, %318
-  %.str.183.sink.sink = phi ptr [ @.str.178, %318 ], [ @.str.182, %343 ], [ @.str.181, %327 ], [ @.str.180, %324 ], [ @.str.179, %321 ], [ @.str.177, %315 ], [ @.str.175, %295 ], [ @.str.159, %115 ], [ @.str.158, %113 ], [ @.str.157, %102 ], [ @.str.156, %100 ], [ @.str.155, %97 ], [ @.str.154, %94 ], [ @.str.153, %89 ], [ @.str.152, %84 ], [ @.str.151, %81 ], [ @.str.150, %78 ], [ @.str.149, %62 ], [ @.str.148, %60 ], [ @.str.147, %58 ], [ @.str.146, %51 ], [ @.str.144, %asn1_expect_objtype.exit173 ], [ @.str.143, %36 ], [ @.str.142, %26 ], [ @.str.141, %4 ], [ @.str.142, %21 ], [ @.str.143, %asn1_expect_objtype.exit ], [ @.str.175, %.thread394 ], [ @.str.175, %149 ], [ @.str.183, %345 ], [ @.str.175, %140 ]
-  %.080.ph = phi i32 [ 0, %318 ], [ 1, %343 ], [ 1, %327 ], [ 1, %324 ], [ 1, %321 ], [ 1, %315 ], [ 1, %295 ], [ 1, %115 ], [ 1, %113 ], [ 1, %102 ], [ 1, %100 ], [ 1, %97 ], [ 1, %94 ], [ 1, %89 ], [ 1, %84 ], [ 1, %81 ], [ 1, %78 ], [ 1, %62 ], [ 1, %60 ], [ 1, %58 ], [ 1, %51 ], [ 1, %asn1_expect_objtype.exit173 ], [ 1, %36 ], [ 2, %26 ], [ 2, %4 ], [ 2, %21 ], [ 1, %asn1_expect_objtype.exit ], [ 1, %.thread394 ], [ 1, %149 ], [ 1, %345 ], [ 1, %140 ]
+  %.str.183.sink.sink = phi ptr [ @.str.178, %318 ], [ @.str.182, %343 ], [ @.str.181, %327 ], [ @.str.180, %324 ], [ @.str.179, %321 ], [ @.str.177, %315 ], [ @.str.175, %295 ], [ @.str.159, %115 ], [ @.str.158, %113 ], [ @.str.157, %102 ], [ @.str.156, %100 ], [ @.str.155, %97 ], [ @.str.154, %94 ], [ @.str.153, %89 ], [ @.str.152, %84 ], [ @.str.151, %81 ], [ @.str.150, %78 ], [ @.str.149, %62 ], [ @.str.148, %60 ], [ @.str.147, %58 ], [ @.str.146, %51 ], [ @.str.144, %asn1_expect_objtype.exit173 ], [ @.str.143, %36 ], [ @.str.142, %26 ], [ @.str.141, %4 ], [ @.str.142, %21 ], [ @.str.143, %asn1_expect_objtype.exit ], [ @.str.183, %345 ], [ @.str.175, %.thread394 ], [ @.str.175, %149 ], [ @.str.175, %140 ]
+  %.080.ph = phi i32 [ 0, %318 ], [ 1, %343 ], [ 1, %327 ], [ 1, %324 ], [ 1, %321 ], [ 1, %315 ], [ 1, %295 ], [ 1, %115 ], [ 1, %113 ], [ 1, %102 ], [ 1, %100 ], [ 1, %97 ], [ 1, %94 ], [ 1, %89 ], [ 1, %84 ], [ 1, %81 ], [ 1, %78 ], [ 1, %62 ], [ 1, %60 ], [ 1, %58 ], [ 1, %51 ], [ 1, %asn1_expect_objtype.exit173 ], [ 1, %36 ], [ 2, %26 ], [ 2, %4 ], [ 2, %21 ], [ 1, %asn1_expect_objtype.exit ], [ 1, %345 ], [ 1, %.thread394 ], [ 1, %149 ], [ 1, %140 ]
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull %.str.183.sink.sink) #11
   br label %351
 
@@ -4950,7 +4950,7 @@ asn1_expect_objtype.exit.i:                       ; preds = %54
   br label %.thread40
 
 .thread40:                                        ; preds = %.thread40.sink.split, %.thread, %62
-  %.017 = phi ptr [ %49, %.thread ], [ %49, %62 ], [ null, %.thread40.sink.split ]
+  %.017 = phi ptr [ %49, %62 ], [ %49, %.thread ], [ null, %.thread40.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.017

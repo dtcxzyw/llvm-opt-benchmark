@@ -2415,7 +2415,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br i1 %.not.i13.i.i30, label %.sink.split.i.i22, label %.lr.ph.i10.i.i27
 
 .sink.split.i.i22:                                ; preds = %.lr.ph.i.i.i18, %.lr.ph.i10.i.i27, %871, %865
-  %.sink.i.i23 = phi i8 [ 1, %865 ], [ 0, %871 ], [ 0, %.lr.ph.i10.i.i27 ], [ 1, %.lr.ph.i.i.i18 ]
+  %.sink.i.i23 = phi i8 [ 1, %865 ], [ 0, %.lr.ph.i10.i.i27 ], [ 0, %871 ], [ 1, %.lr.ph.i.i.i18 ]
   store i8 %.sink.i.i23, ptr %61, align 8, !tbaa !9
   br label %_ZN4llvm25ScopedDbgInfoFormatSetterINS_6ModuleEED2Ev.exit
 
@@ -6440,7 +6440,7 @@ _ZNK4llvm5Value11getMetadataEj.exit.thread.i.i:   ; preds = %_ZNK4llvm5Value11ha
   br label %"_ZZN12_GLOBAL__N_127splitAndWriteThinLTOBitcodeERN4llvm11raw_ostreamEPS1_NS0_12function_refIFRNS0_9AAResultsERNS0_8FunctionEEEERNS0_6ModuleEENK3$_1clEPKNS0_11GlobalValueE.exit"
 
 "_ZZN12_GLOBAL__N_127splitAndWriteThinLTOBitcodeERN4llvm11raw_ostreamEPS1_NS0_12function_refIFRNS0_9AAResultsERNS0_8FunctionEEEERNS0_6ModuleEENK3$_1clEPKNS0_11GlobalValueE.exit": ; preds = %24, %.lr.ph.i.i.i.i.i24.i, %51, %11, %33, %39, %.thread.i, %59, %_ZNK4llvm5Value11hasMetadataEj.exit.i.i, %_ZNK4llvm5Value11getMetadataEj.exit.thread.i.i, %91
-  %.1.i = phi i1 [ false, %33 ], [ true, %_ZNK4llvm5Value11hasMetadataEj.exit.i.i ], [ true, %11 ], [ false, %59 ], [ false, %.thread.i ], [ false, %_ZNK4llvm5Value11getMetadataEj.exit.thread.i.i ], [ %93, %91 ], [ true, %39 ], [ %.not46.not.i.not.not, %.lr.ph.i.i.i.i.i24.i ], [ %.not46.not.i.not.not, %51 ], [ true, %24 ]
+  %.1.i = phi i1 [ false, %33 ], [ true, %_ZNK4llvm5Value11hasMetadataEj.exit.i.i ], [ %.not46.not.i.not.not, %.lr.ph.i.i.i.i.i24.i ], [ true, %11 ], [ false, %59 ], [ false, %.thread.i ], [ false, %_ZNK4llvm5Value11getMetadataEj.exit.thread.i.i ], [ %93, %91 ], [ true, %39 ], [ %.not46.not.i.not.not, %51 ], [ true, %24 ]
   ret i1 %.1.i
 }
 
@@ -7542,7 +7542,7 @@ _ZSt13move_backwardIPPN4llvm8MetadataES3_ET0_T_S5_S4_.exit: ; preds = %_ZN4llvm1
   br i1 %.not44, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !466
 
 _ZSt4copyIPPN4llvm6MDNodeEPPNS0_8MetadataEET0_T_S8_S7_.exit: ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i, %._crit_edge, %_ZSt13move_backwardIPPN4llvm8MetadataES3_ET0_T_S5_S4_.exit, %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE6appendIPPNS_6MDNodeEvEEvT_S8_.exit
-  %.041 = phi ptr [ %36, %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE6appendIPPNS_6MDNodeEvEEvT_S8_.exit ], [ %48, %_ZSt13move_backwardIPPN4llvm8MetadataES3_ET0_T_S5_S4_.exit ], [ %48, %._crit_edge ], [ %48, %.lr.ph.i.i.i.i.i.i.i.i ], [ %48, %.lr.ph.i.i.i.i.i ]
+  %.041 = phi ptr [ %36, %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE6appendIPPNS_6MDNodeEvEEvT_S8_.exit ], [ %48, %.lr.ph.i.i.i.i.i.i.i.i ], [ %48, %_ZSt13move_backwardIPPN4llvm8MetadataES3_ET0_T_S5_S4_.exit ], [ %48, %._crit_edge ], [ %48, %.lr.ph.i.i.i.i.i ]
   ret ptr %.041
 }
 

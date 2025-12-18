@@ -2654,7 +2654,7 @@ define void @"_ZN5alloc11collections5btree4node212Handle$LT$alloc..collections..
   br label %25
 
 .loopexit.split-lp:                               ; preds = %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$13edge_area_mut17h8603e27fa83eb91fE.exit", %15, %34, %35
-  %.1.ph = phi i1 [ false, %35 ], [ true, %15 ], [ true, %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$13edge_area_mut17h8603e27fa83eb91fE.exit" ], [ true, %34 ]
+  %.1.ph = phi i1 [ true, %15 ], [ true, %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$13edge_area_mut17h8603e27fa83eb91fE.exit" ], [ true, %34 ], [ false, %35 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %25
@@ -2804,7 +2804,7 @@ define void @"_ZN5alloc11collections5btree4node212Handle$LT$alloc..collections..
   br label %25
 
 .loopexit.split-lp:                               ; preds = %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$13edge_area_mut17h27a46de0cc9b1aafE.exit", %15, %34, %35
-  %.1.ph = phi i1 [ false, %35 ], [ true, %15 ], [ true, %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$13edge_area_mut17h27a46de0cc9b1aafE.exit" ], [ true, %34 ]
+  %.1.ph = phi i1 [ true, %15 ], [ true, %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$13edge_area_mut17h27a46de0cc9b1aafE.exit" ], [ true, %34 ], [ false, %35 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %25

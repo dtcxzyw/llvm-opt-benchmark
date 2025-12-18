@@ -456,7 +456,7 @@ g_list_shorter_than.exit.sink.split:              ; preds = %128, %46, %21
   br label %g_list_shorter_than.exit
 
 g_list_shorter_than.exit:                         ; preds = %7, %137, %g_list_shorter_than.exit.sink.split, %.preheader
-  %.0 = phi i32 [ 0, %.preheader ], [ %.0.ph, %g_list_shorter_than.exit.sink.split ], [ 0, %137 ], [ 0, %7 ]
+  %.0 = phi i32 [ 0, %.preheader ], [ 0, %137 ], [ %.0.ph, %g_list_shorter_than.exit.sink.split ], [ 0, %7 ]
   ret i32 %.0
 }
 

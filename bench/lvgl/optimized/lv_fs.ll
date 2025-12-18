@@ -204,7 +204,7 @@ lv_fs_get_drv.exit.thread.sink.split:             ; preds = %47, %40
   br label %lv_fs_get_drv.exit.thread
 
 lv_fs_get_drv.exit.thread:                        ; preds = %16, %lv_fs_get_drv.exit.thread.sink.split, %lv_fs_resolve_path.exit, %31, %20, %22, %33, %3
-  %.0 = phi i32 [ 11, %3 ], [ 0, %33 ], [ 12, %31 ], [ 1, %20 ], [ 9, %22 ], [ 3, %lv_fs_resolve_path.exit ], [ 0, %lv_fs_get_drv.exit.thread.sink.split ], [ 3, %16 ]
+  %.0 = phi i32 [ 11, %3 ], [ 0, %33 ], [ 12, %31 ], [ 1, %20 ], [ 0, %lv_fs_get_drv.exit.thread.sink.split ], [ 9, %22 ], [ 3, %lv_fs_resolve_path.exit ], [ 3, %16 ]
   ret i32 %.0
 }
 
@@ -1126,7 +1126,7 @@ define ptr @lv_fs_get_last(ptr noundef %0) local_unnamed_addr #0 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.critedge, %8, %.preheader, %10, %1
-  %.023 = phi ptr [ %0, %1 ], [ %12, %10 ], [ %0, %.preheader ], [ %0, %8 ], [ %0, %.critedge ]
+  %.023 = phi ptr [ %0, %.preheader ], [ %0, %1 ], [ %12, %10 ], [ %0, %8 ], [ %0, %.critedge ]
   ret ptr %.023
 }
 

@@ -3427,9 +3427,9 @@ _ZN3vcg23InterpolationParametersI6CFaceOfEEbT_iRKNS_6Point3IT0_EERS5_.exit.sink.
   br label %_ZN3vcg23InterpolationParametersI6CFaceOfEEbT_iRKNS_6Point3IT0_EERS5_.exit
 
 _ZN3vcg23InterpolationParametersI6CFaceOfEEbT_iRKNS_6Point3IT0_EERS5_.exit: ; preds = %_ZN3vcg23InterpolationParametersI6CFaceOfEEbT_iRKNS_6Point3IT0_EERS5_.exit.sink.split, %174, %144, %99, %56
-  %.sink54 = phi float [ %45, %56 ], [ %88, %99 ], [ %134, %144 ], [ %164, %174 ], [ 0x3FD5555560000000, %_ZN3vcg23InterpolationParametersI6CFaceOfEEbT_iRKNS_6Point3IT0_EERS5_.exit.sink.split ]
-  %.sink51 = phi float [ %52, %56 ], [ %95, %99 ], [ %140, %144 ], [ %170, %174 ], [ 0x3FD5555560000000, %_ZN3vcg23InterpolationParametersI6CFaceOfEEbT_iRKNS_6Point3IT0_EERS5_.exit.sink.split ]
-  %.sink48 = phi float [ %54, %56 ], [ %97, %99 ], [ %142, %144 ], [ %172, %174 ], [ 0x3FD5555560000000, %_ZN3vcg23InterpolationParametersI6CFaceOfEEbT_iRKNS_6Point3IT0_EERS5_.exit.sink.split ]
+  %.sink54 = phi float [ %164, %174 ], [ %134, %144 ], [ %88, %99 ], [ %45, %56 ], [ 0x3FD5555560000000, %_ZN3vcg23InterpolationParametersI6CFaceOfEEbT_iRKNS_6Point3IT0_EERS5_.exit.sink.split ]
+  %.sink51 = phi float [ %170, %174 ], [ %140, %144 ], [ %95, %99 ], [ %52, %56 ], [ 0x3FD5555560000000, %_ZN3vcg23InterpolationParametersI6CFaceOfEEbT_iRKNS_6Point3IT0_EERS5_.exit.sink.split ]
+  %.sink48 = phi float [ %172, %174 ], [ %142, %144 ], [ %97, %99 ], [ %54, %56 ], [ 0x3FD5555560000000, %_ZN3vcg23InterpolationParametersI6CFaceOfEEbT_iRKNS_6Point3IT0_EERS5_.exit.sink.split ]
   %178 = fcmp oge float %.sink54, 0xBF1A36E2E0000000
   %179 = fcmp ole float %.sink54, 0x3FF00068E0000000
   %narrow.i.i31.i21 = and i1 %178, %179
@@ -11798,14 +11798,14 @@ define linkonce_odr noundef ptr @_ZN3vcg11GridClosestINS_13GridStaticPtrI6CFaceO
   br i1 %.not, label %_ZNK3vcg4Box3IfE6IsInExERKNS_6Point3IfEE.exit.thread, label %70, !llvm.loop !111
 
 _ZNK3vcg4Box3IfE6IsInExERKNS_6Point3IfEE.exit.thread: ; preds = %94, %45, %6, %32
-  %.sroa.0146.0 = phi i32 [ 1, %32 ], [ 1, %6 ], [ %50, %45 ], [ %50, %94 ]
-  %.sroa.4147.0 = phi i32 [ 1, %32 ], [ 1, %6 ], [ %52, %45 ], [ %52, %94 ]
-  %.sroa.8148.0 = phi i32 [ 1, %32 ], [ 1, %6 ], [ %54, %45 ], [ %54, %94 ]
-  %.sroa.12.0 = phi i32 [ -1, %32 ], [ -1, %6 ], [ %50, %45 ], [ %50, %94 ]
-  %.sroa.16.0 = phi i32 [ -1, %32 ], [ -1, %6 ], [ %52, %45 ], [ %52, %94 ]
-  %.sroa.20.0 = phi i32 [ -1, %32 ], [ -1, %6 ], [ %54, %45 ], [ %54, %94 ]
-  %.059 = phi float [ %sqrt.i, %32 ], [ %sqrt.i, %6 ], [ %sqrt.i, %45 ], [ %.362, %94 ]
-  %.0 = phi ptr [ null, %32 ], [ null, %6 ], [ null, %45 ], [ %.3, %94 ]
+  %.sroa.0146.0 = phi i32 [ 1, %6 ], [ 1, %32 ], [ %50, %45 ], [ %50, %94 ]
+  %.sroa.4147.0 = phi i32 [ 1, %6 ], [ 1, %32 ], [ %52, %45 ], [ %52, %94 ]
+  %.sroa.8148.0 = phi i32 [ 1, %6 ], [ 1, %32 ], [ %54, %45 ], [ %54, %94 ]
+  %.sroa.12.0 = phi i32 [ -1, %6 ], [ -1, %32 ], [ %50, %45 ], [ %50, %94 ]
+  %.sroa.16.0 = phi i32 [ -1, %6 ], [ -1, %32 ], [ %52, %45 ], [ %52, %94 ]
+  %.sroa.20.0 = phi i32 [ -1, %6 ], [ -1, %32 ], [ %54, %45 ], [ %54, %94 ]
+  %.059 = phi float [ %sqrt.i, %6 ], [ %sqrt.i, %32 ], [ %sqrt.i, %45 ], [ %.362, %94 ]
+  %.0 = phi ptr [ null, %6 ], [ null, %32 ], [ null, %45 ], [ %.3, %94 ]
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %97 = load i32, ptr %96, align 4
   %98 = add nsw i32 %97, -1
@@ -25118,7 +25118,7 @@ _ZN3vcg15ClosestIteratorINS_13GridStaticPtrI8CVertexOfEENS_6vertex20PointDistanc
   br label %._crit_edge
 
 _ZN3vcg15ClosestIteratorINS_13GridStaticPtrI8CVertexOfEENS_6vertex20PointDistanceFunctorIfEENS_3tri10EmptyTMarkI6CMeshOEEEppEv.exit: ; preds = %.noexc35._ZN3vcg15ClosestIteratorINS_13GridStaticPtrI8CVertexOfEENS_6vertex20PointDistanceFunctorIfEENS_3tri10EmptyTMarkI6CMeshOEEEppEv.exit.loopexit_crit_edge, %_ZN3vcg15ClosestIteratorINS_13GridStaticPtrI8CVertexOfEENS_6vertex20PointDistanceFunctorIfEENS_3tri10EmptyTMarkI6CMeshOEEE4DistEv.exit.i.i
-  %.pre-phi = phi i1 [ false, %_ZN3vcg15ClosestIteratorINS_13GridStaticPtrI8CVertexOfEENS_6vertex20PointDistanceFunctorIfEENS_3tri10EmptyTMarkI6CMeshOEEE4DistEv.exit.i.i ], [ %.pre59, %.noexc35._ZN3vcg15ClosestIteratorINS_13GridStaticPtrI8CVertexOfEENS_6vertex20PointDistanceFunctorIfEENS_3tri10EmptyTMarkI6CMeshOEEEppEv.exit.loopexit_crit_edge ]
+  %.pre-phi = phi i1 [ %.pre59, %.noexc35._ZN3vcg15ClosestIteratorINS_13GridStaticPtrI8CVertexOfEENS_6vertex20PointDistanceFunctorIfEENS_3tri10EmptyTMarkI6CMeshOEEEppEv.exit.loopexit_crit_edge ], [ false, %_ZN3vcg15ClosestIteratorINS_13GridStaticPtrI8CVertexOfEENS_6vertex20PointDistanceFunctorIfEENS_3tri10EmptyTMarkI6CMeshOEEE4DistEv.exit.i.i ]
   %268 = add nuw i32 %.055, 1
   %269 = icmp uge i32 %268, %3
   %.not18 = select i1 %.pre-phi, i1 true, i1 %269

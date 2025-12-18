@@ -3749,8 +3749,8 @@ define noundef i32 @_Z16tMPI_Type_commitPP14tmpi_datatype_(ptr noundef captures(
   br label %.critedge
 
 .critedge:                                        ; preds = %43, %._crit_edge.thread, %48
-  %.036.lcssa8890 = phi ptr [ %.1, %48 ], [ %2, %._crit_edge.thread ], [ %.1, %43 ]
-  %54 = phi ptr [ %.pre, %48 ], [ %41, %._crit_edge.thread ], [ %40, %43 ]
+  %.036.lcssa8890 = phi ptr [ %2, %._crit_edge.thread ], [ %.1, %48 ], [ %.1, %43 ]
+  %54 = phi ptr [ %41, %._crit_edge.thread ], [ %.pre, %48 ], [ %40, %43 ]
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 24
   %56 = load ptr, ptr %55, align 8, !tbaa !155
   tail call void @free(ptr noundef %56) #6

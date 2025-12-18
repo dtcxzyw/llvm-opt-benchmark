@@ -2275,8 +2275,8 @@ dsdKernelFindContainingComponent.exit845:         ; preds = %.lr.ph1232, %.lr.ph
   br label %dsdKernelCopyListPlusOne.exit
 
 dsdKernelCopyListPlusOne.exit:                    ; preds = %351, %.lr.ph.i757, %.lr.ph.i, %.lr.ph.i782, %.lr.ph.i763, %.lr.ph.i737, %329, %675, %dsdKernelCopyListPlusOne.exit799, %dsdKernelCopyListPlusOne.exit806, %156, %82, %211, %dsdKernelCopyListPlusOne.exit774, %.lr.ph.i776, %65, %dsdKernelCopyListPlusOne.exit748, %.lr.ph.i750, %.loopexit, %465
-  %.0555 = phi ptr [ %68, %65 ], [ %140, %dsdKernelCopyListPlusOne.exit748 ], [ %153, %.lr.ph.i750 ], [ %214, %211 ], [ %202, %dsdKernelCopyListPlusOne.exit774 ], [ %223, %.lr.ph.i776 ], [ %468, %465 ], [ %686, %.loopexit ], [ %.13, %675 ], [ %89, %82 ], [ %163, %156 ], [ %338, %329 ], [ %.7, %dsdKernelCopyListPlusOne.exit799 ], [ %.10, %dsdKernelCopyListPlusOne.exit806 ], [ %100, %.lr.ph.i737 ], [ %177, %.lr.ph.i763 ], [ %218, %.lr.ph.i782 ], [ %163, %.lr.ph.i757 ], [ %89, %.lr.ph.i ], [ %338, %351 ]
-  %.0540 = phi ptr [ null, %65 ], [ %110, %dsdKernelCopyListPlusOne.exit748 ], [ %110, %.lr.ph.i750 ], [ %192, %211 ], [ %192, %dsdKernelCopyListPlusOne.exit774 ], [ %192, %.lr.ph.i776 ], [ %242, %465 ], [ %242, %.loopexit ], [ %242, %675 ], [ %78, %82 ], [ %110, %156 ], [ %242, %329 ], [ %242, %dsdKernelCopyListPlusOne.exit799 ], [ %242, %dsdKernelCopyListPlusOne.exit806 ], [ %78, %.lr.ph.i737 ], [ %110, %.lr.ph.i763 ], [ %192, %.lr.ph.i782 ], [ %110, %.lr.ph.i757 ], [ %78, %.lr.ph.i ], [ %242, %351 ]
+  %.0555 = phi ptr [ %68, %65 ], [ %100, %.lr.ph.i737 ], [ %89, %.lr.ph.i ], [ %140, %dsdKernelCopyListPlusOne.exit748 ], [ %153, %.lr.ph.i750 ], [ %177, %.lr.ph.i763 ], [ %218, %.lr.ph.i782 ], [ %214, %211 ], [ %202, %dsdKernelCopyListPlusOne.exit774 ], [ %223, %.lr.ph.i776 ], [ %163, %.lr.ph.i757 ], [ %468, %465 ], [ %686, %.loopexit ], [ %.13, %675 ], [ %89, %82 ], [ %163, %156 ], [ %338, %329 ], [ %.7, %dsdKernelCopyListPlusOne.exit799 ], [ %.10, %dsdKernelCopyListPlusOne.exit806 ], [ %338, %351 ]
+  %.0540 = phi ptr [ null, %65 ], [ %78, %.lr.ph.i737 ], [ %78, %.lr.ph.i ], [ %110, %dsdKernelCopyListPlusOne.exit748 ], [ %110, %.lr.ph.i750 ], [ %110, %.lr.ph.i763 ], [ %192, %.lr.ph.i782 ], [ %192, %211 ], [ %192, %dsdKernelCopyListPlusOne.exit774 ], [ %192, %.lr.ph.i776 ], [ %110, %.lr.ph.i757 ], [ %242, %465 ], [ %242, %.loopexit ], [ %242, %675 ], [ %78, %82 ], [ %110, %156 ], [ %242, %329 ], [ %242, %dsdKernelCopyListPlusOne.exit799 ], [ %242, %dsdKernelCopyListPlusOne.exit806 ], [ %242, %351 ]
   %1059 = ptrtoint ptr %.0555 to i64
   %1060 = and i64 %1059, -2
   %1061 = inttoptr i64 %1060 to ptr
@@ -2616,8 +2616,8 @@ define internal fastcc void @dsdKernelComputeSumOfComponents(ptr %.0.val, ptr no
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !78
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.split, %.lr.ph.split.split.us, %.lr.ph.split.us.split, %.lr.ph.split.us.split.us, %11
-  %.142.lcssa = phi ptr [ null, %11 ], [ %53, %.lr.ph.split.split.us ], [ null, %.lr.ph.split.us.split.us ], [ null, %.lr.ph.split.us.split ], [ %68, %.lr.ph.split.split ]
-  %.039.lcssa = phi ptr [ %10, %11 ], [ %50, %.lr.ph.split.split.us ], [ %26, %.lr.ph.split.us.split.us ], [ %38, %.lr.ph.split.us.split ], [ %65, %.lr.ph.split.split ]
+  %.142.lcssa = phi ptr [ null, %11 ], [ null, %.lr.ph.split.us.split.us ], [ null, %.lr.ph.split.us.split ], [ %53, %.lr.ph.split.split.us ], [ %68, %.lr.ph.split.split ]
+  %.039.lcssa = phi ptr [ %10, %11 ], [ %26, %.lr.ph.split.us.split.us ], [ %38, %.lr.ph.split.us.split ], [ %50, %.lr.ph.split.split.us ], [ %65, %.lr.ph.split.split ]
   tail call void @Cudd_Deref(ptr noundef %.039.lcssa) #11
   store ptr %.039.lcssa, ptr %2, align 8, !tbaa !22
   br i1 %.not, label %70, label %69

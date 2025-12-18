@@ -2249,7 +2249,7 @@ _ZN9VectorSet8test_setEj.exit:                    ; preds = %.backedge, %30
   br i1 %.not, label %.loopexit, label %._crit_edge128.thread
 
 ._crit_edge128.thread:                            ; preds = %._crit_edge, %99, %59, %67, %._crit_edge.thread, %._crit_edge128
-  %.091.lcssa149 = phi ptr [ %.091.lcssa, %._crit_edge128 ], [ %spec.select114154, %._crit_edge.thread ], [ %52, %59 ], [ %41, %67 ], [ %41, %99 ], [ %41, %._crit_edge ]
+  %.091.lcssa149 = phi ptr [ %.091.lcssa, %._crit_edge128 ], [ %41, %67 ], [ %52, %59 ], [ %spec.select114154, %._crit_edge.thread ], [ %41, %99 ], [ %41, %._crit_edge ]
   %102 = icmp eq ptr %.091.lcssa149, %18
   %103 = icmp eq ptr %.091.lcssa149, %19
   %or.cond111 = or i1 %102, %103
@@ -2389,7 +2389,7 @@ _ZN10Node_StackC2Ei.exit:                         ; preds = %141, %143
   br label %.loopexit
 
 .loopexit:                                        ; preds = %49, %_ZN9VectorSet8test_setEj.exit, %155, %.preheader, %._crit_edge128, %168, %_ZN10Node_StackC2Ei.exit, %183, %113, %104
-  %.089 = phi ptr [ %185, %183 ], [ %107, %104 ], [ %124, %113 ], [ %151, %_ZN10Node_StackC2Ei.exit ], [ null, %168 ], [ null, %._crit_edge128 ], [ null, %.preheader ], [ null, %155 ], [ null, %_ZN9VectorSet8test_setEj.exit ], [ null, %49 ]
+  %.089 = phi ptr [ %185, %183 ], [ %107, %104 ], [ %124, %113 ], [ null, %.preheader ], [ %151, %_ZN10Node_StackC2Ei.exit ], [ null, %._crit_edge128 ], [ null, %168 ], [ null, %155 ], [ null, %_ZN9VectorSet8test_setEj.exit ], [ null, %49 ]
   ret ptr %.089
 }
 
@@ -2851,7 +2851,7 @@ _ZN4Node8init_reqEjPS_.exit:                      ; preds = %_ZN4Node8init_reqEj
   br i1 %exitcond161.not, label %_ZN13GrowableArrayIP4NodeED2Ev.exit, label %239, !llvm.loop !16
 
 _ZN13GrowableArrayIP4NodeED2Ev.exit:              ; preds = %_ZN7PhiNode18is_same_inst_fieldEPK4Typeiiii.exit, %223, %227, %.thread149, %216, %180, %_ZN4Node8init_reqEjPS_.exit, %_ZN10Node_Stack4pushEP4Nodej.exit, %73, %._crit_edge
-  %.078 = phi ptr [ null, %73 ], [ %72, %._crit_edge ], [ %.0.i.i.i, %_ZN10Node_Stack4pushEP4Nodej.exit ], [ null, %223 ], [ %.0.i.i.i, %_ZN4Node8init_reqEjPS_.exit ], [ null, %180 ], [ null, %216 ], [ null, %.thread149 ], [ null, %227 ], [ %29, %_ZN7PhiNode18is_same_inst_fieldEPK4Typeiiii.exit ]
+  %.078 = phi ptr [ null, %73 ], [ %.0.i.i.i, %_ZN4Node8init_reqEjPS_.exit ], [ %72, %._crit_edge ], [ null, %223 ], [ %.0.i.i.i, %_ZN10Node_Stack4pushEP4Nodej.exit ], [ null, %180 ], [ null, %216 ], [ null, %.thread149 ], [ null, %227 ], [ %29, %_ZN7PhiNode18is_same_inst_fieldEPK4Typeiiii.exit ]
   ret ptr %.078
 }
 
@@ -3493,7 +3493,7 @@ _ZN26GrowableArrayWithAllocatorIP13SafePointNode13GrowableArrayIS1_EE6appendERKS
   br label %.thread.loopexit.sink.split
 
 _ZN26GrowableArrayWithAllocatorIP13SafePointNode13GrowableArrayIS1_EE17append_if_missingERKS1_.exit: ; preds = %164, %115, %98, %77, %_ZN26GrowableArrayWithAllocatorIP13SafePointNode13GrowableArrayIS1_EE6appendERKS1_.exit.i, %155, %202, %184, %189, %197, %135
-  %.6 = phi i8 [ 1, %135 ], [ 1, %202 ], [ 1, %184 ], [ %.5, %_ZN26GrowableArrayWithAllocatorIP13SafePointNode13GrowableArrayIS1_EE6appendERKS1_.exit.i ], [ 1, %189 ], [ 1, %197 ], [ %.mux, %155 ], [ 1, %77 ], [ %.4, %115 ], [ 1, %98 ], [ %.5, %164 ]
+  %.6 = phi i8 [ %.4, %115 ], [ 1, %135 ], [ 1, %202 ], [ 1, %98 ], [ 1, %77 ], [ 1, %184 ], [ %.5, %_ZN26GrowableArrayWithAllocatorIP13SafePointNode13GrowableArrayIS1_EE6appendERKS1_.exit.i ], [ 1, %189 ], [ 1, %197 ], [ %.mux, %155 ], [ %.5, %164 ]
   %219 = getelementptr inbounds nuw i8, ptr %.06895, i64 8
   %220 = icmp ult ptr %219, %56
   %221 = trunc nuw i8 %.6 to i1
@@ -3508,7 +3508,7 @@ _ZN26GrowableArrayWithAllocatorIP13SafePointNode13GrowableArrayIS1_EE17append_if
   br label %.thread
 
 .thread.loopexit.loopexit:                        ; preds = %_ZN26GrowableArrayWithAllocatorIP13SafePointNode13GrowableArrayIS1_EE17append_if_missingERKS1_.exit, %65, %149
-  %.1.ph.ph = phi i8 [ 0, %65 ], [ %.6, %_ZN26GrowableArrayWithAllocatorIP13SafePointNode13GrowableArrayIS1_EE17append_if_missingERKS1_.exit ], [ 0, %149 ]
+  %.1.ph.ph = phi i8 [ 0, %149 ], [ %.6, %_ZN26GrowableArrayWithAllocatorIP13SafePointNode13GrowableArrayIS1_EE17append_if_missingERKS1_.exit ], [ 0, %65 ]
   %226 = trunc nuw i8 %.1.ph.ph to i1
   br label %.thread
 
@@ -10964,7 +10964,7 @@ _ZN4Node8init_reqEjPS_.exit261:                   ; preds = %968, %957, %953, %9
   br i1 %exitcond.not, label %.loopexit, label %903, !llvm.loop !37
 
 .loopexit:                                        ; preds = %_ZN4Node8init_reqEjPS_.exit261, %890, %897, %_ZN4Node7set_reqEjPS_.exit245, %895, %_ZN4Node8init_reqEjPS_.exit222
-  %.1 = phi ptr [ %.0.i.i.i155, %_ZN4Node8init_reqEjPS_.exit222 ], [ %1, %895 ], [ %1, %_ZN4Node7set_reqEjPS_.exit245 ], [ %1, %897 ], [ %1, %890 ], [ %.0.i.i.i256, %_ZN4Node8init_reqEjPS_.exit261 ]
+  %.1 = phi ptr [ %.0.i.i.i155, %_ZN4Node8init_reqEjPS_.exit222 ], [ %1, %895 ], [ %1, %_ZN4Node7set_reqEjPS_.exit245 ], [ %1, %890 ], [ %1, %897 ], [ %.0.i.i.i256, %_ZN4Node8init_reqEjPS_.exit261 ]
   ret ptr %.1
 }
 
@@ -11560,7 +11560,7 @@ _ZN12PhaseIterGVN16replace_input_ofEP4NodejS1_.exit: ; preds = %_ZN9VectorSet8te
   br i1 %exitcond119.not, label %.loopexit98, label %244, !llvm.loop !40
 
 .loopexit98:                                      ; preds = %._crit_edge, %235, %230, %_ZN12FastLockNode12set_box_nodeEP4Node.exit
-  %.2 = phi i8 [ %.177, %230 ], [ %.177, %_ZN12FastLockNode12set_box_nodeEP4Node.exit ], [ %.177, %235 ], [ %.4.lcssa, %._crit_edge ]
+  %.2 = phi i8 [ %.177, %_ZN12FastLockNode12set_box_nodeEP4Node.exit ], [ %.177, %230 ], [ %.177, %235 ], [ %.4.lcssa, %._crit_edge ]
   %307 = zext nneg i8 %.2 to i32
   %spec.select = add i32 %.075109, %307
   %308 = load i32, ptr %54, align 8
@@ -14212,7 +14212,7 @@ _ZN16PhaseMacroExpand21expand_allocate_arrayEP17AllocateArrayNode.exit: ; preds 
   br label %_ZN7Compile16check_node_countEjPKc.exit.thread
 
 _ZN7Compile16check_node_countEjPKc.exit.thread:   ; preds = %404, %393, %551, %540, %493, %481, %386, %374, %.split.us, %9, %._crit_edge162
-  %.0 = phi i1 [ true, %9 ], [ true, %386 ], [ false, %._crit_edge162 ], [ true, %.split.us ], [ true, %374 ], [ true, %481 ], [ true, %493 ], [ true, %551 ], [ true, %540 ], [ true, %393 ], [ true, %404 ]
+  %.0 = phi i1 [ true, %551 ], [ true, %9 ], [ true, %374 ], [ true, %386 ], [ true, %493 ], [ false, %._crit_edge162 ], [ true, %.split.us ], [ true, %481 ], [ true, %540 ], [ true, %393 ], [ true, %404 ]
   ret i1 %.0
 }
 

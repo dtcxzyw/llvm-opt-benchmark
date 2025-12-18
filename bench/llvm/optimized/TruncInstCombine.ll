@@ -1989,7 +1989,7 @@ _ZNK4llvm5Value9hasOneUseEv.exit.us:              ; preds = %.lr.ph252.split.us
   br i1 %41, label %.loopexit.us, label %.lr.ph.us
 
 .loopexit.us:                                     ; preds = %.thread.us.us.us269, %.thread.us.us260, %.lr.ph252.split.us, %_ZNK4llvm5Value9hasOneUseEv.exit.us
-  %.287.us = phi i32 [ %.085251.us, %_ZNK4llvm5Value9hasOneUseEv.exit.us ], [ %.085251.us, %.lr.ph252.split.us ], [ %.691213.us.us, %.thread.us.us260 ], [ %.085251.us, %.thread.us.us.us269 ]
+  %.287.us = phi i32 [ %.085251.us, %_ZNK4llvm5Value9hasOneUseEv.exit.us ], [ %.691213.us.us, %.thread.us.us260 ], [ %.085251.us, %.lr.ph252.split.us ], [ %.085251.us, %.thread.us.us.us269 ]
   %42 = getelementptr inbounds nuw i8, ptr %.093250.us, i64 24
   %.not.us = icmp eq ptr %42, %20
   br i1 %.not.us, label %.thread217, label %.lr.ph252.split.us
@@ -2794,7 +2794,7 @@ _ZN4llvm9KnownBitsD2Ev.exit181:                   ; preds = %_ZN4llvm5APIntD2Ev.
   br label %.critedge128
 
 .critedge128:                                     ; preds = %121, %_ZNK4llvm4User10getOperandEj.exit, %.lr.ph.split.us.split.us.split.us272, %_ZNK4llvm4User10getOperandEj.exit.us.us, %_ZN4llvm9KnownBitsD2Ev.exit181, %_ZN4llvm9KnownBitsD2Ev.exit162, %387, %386, %.critedge132, %1
-  %.0 = phi ptr [ null, %1 ], [ null, %_ZN4llvm9KnownBitsD2Ev.exit162 ], [ null, %.critedge132 ], [ %390, %387 ], [ null, %386 ], [ null, %.lr.ph.split.us.split.us.split.us272 ], [ null, %_ZN4llvm9KnownBitsD2Ev.exit181 ], [ null, %_ZNK4llvm4User10getOperandEj.exit.us.us ], [ null, %_ZNK4llvm4User10getOperandEj.exit ], [ null, %121 ]
+  %.0 = phi ptr [ null, %1 ], [ null, %_ZN4llvm9KnownBitsD2Ev.exit162 ], [ null, %.critedge132 ], [ %390, %387 ], [ null, %386 ], [ null, %.lr.ph.split.us.split.us.split.us272 ], [ null, %_ZNK4llvm4User10getOperandEj.exit.us.us ], [ null, %_ZN4llvm9KnownBitsD2Ev.exit181 ], [ null, %_ZNK4llvm4User10getOperandEj.exit ], [ null, %121 ]
   ret ptr %.0
 }
 
@@ -5690,7 +5690,7 @@ _ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IR
   br i1 %.not.i.i.i.i, label %_ZN4llvm8erase_ifINS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS4_EUlRKS5_E_EEvRT_T0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !261
 
 _ZN4llvm8erase_ifINS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS4_EUlRKS5_E_EEvRT_T0_.exit: ; preds = %57, %._crit_edge.i.i.i.i.i.i, %43, %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i
-  %.016.i.i.i.i = phi ptr [ %.028.i.i.i.i.i.i, %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i ], [ %10, %._crit_edge.i.i.i.i.i.i ], [ %10, %43 ], [ %.1.i.i.i.i, %57 ]
+  %.016.i.i.i.i = phi ptr [ %.028.i.i.i.i.i.i, %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i ], [ %10, %43 ], [ %10, %._crit_edge.i.i.i.i.i.i ], [ %.1.i.i.i.i, %57 ]
   %58 = ptrtoint ptr %.016.i.i.i.i to i64
   %59 = ptrtoint ptr %6 to i64
   %60 = sub i64 %58, %59

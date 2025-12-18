@@ -607,8 +607,8 @@ win64_create_params.exit:                         ; preds = %73, %63, %66
   br i1 %exitcond.not.i26, label %win64_vector_call_args.exit.sink.split, label %88, !llvm.loop !7
 
 win64_vector_call_args.exit.sink.split:           ; preds = %88, %win64_reclassify_hva_arg.exit.i, %81, %win64_create_params.exit
-  %.sink39 = phi i64 [ 80, %win64_create_params.exit ], [ 80, %81 ], [ 72, %win64_reclassify_hva_arg.exit.i ], [ 80, %88 ]
-  %.sink = phi ptr [ null, %win64_create_params.exit ], [ null, %81 ], [ %34, %win64_reclassify_hva_arg.exit.i ], [ %87, %88 ]
+  %.sink39 = phi i64 [ 80, %81 ], [ 72, %win64_reclassify_hva_arg.exit.i ], [ 80, %win64_create_params.exit ], [ 80, %88 ]
+  %.sink = phi ptr [ null, %81 ], [ %34, %win64_reclassify_hva_arg.exit.i ], [ null, %win64_create_params.exit ], [ %87, %88 ]
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink39
   store ptr %.sink, ptr %93, align 8
   br label %win64_vector_call_args.exit

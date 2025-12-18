@@ -394,7 +394,7 @@ define dso_local void @__fprop_add_percpu_max(ptr noundef %0, ptr noundef %1, i3
   br label %24
 
 24:                                               ; preds = %20, %16
-  %25 = phi i64 [ %23, %20 ], [ %3, %16 ]
+  %25 = phi i64 [ %3, %16 ], [ %23, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %26

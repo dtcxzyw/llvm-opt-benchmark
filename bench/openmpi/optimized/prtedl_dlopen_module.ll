@@ -158,7 +158,7 @@ do_dlopen.exit39:                                 ; preds = %39, %.sink.split.i3
   br label %do_dlopen.exit39.thread
 
 do_dlopen.exit39.thread:                          ; preds = %36, %29, %18, %9, %do_dlopen.exit39, %47, %.thread
-  %.5 = phi i32 [ -11, %.thread ], [ -1, %do_dlopen.exit39 ], [ 0, %47 ], [ -1, %9 ], [ -1, %18 ], [ -2, %29 ], [ -1, %36 ]
+  %.5 = phi i32 [ -11, %.thread ], [ -1, %18 ], [ -1, %do_dlopen.exit39 ], [ 0, %47 ], [ -1, %9 ], [ -2, %29 ], [ -1, %36 ]
   ret i32 %.5
 }
 
@@ -350,7 +350,7 @@ define internal i32 @dlopen_foreachfile(ptr noundef %0, ptr noundef readonly cap
   br label %.thread101
 
 .thread101:                                       ; preds = %.lr.ph169, %53, %.lr.ph124, %._crit_edge119, %.preheader, %.critedge.thread94
-  %.69399 = phi i32 [ -11, %.critedge.thread94 ], [ 0, %.preheader ], [ 0, %._crit_edge119 ], [ %58, %53 ], [ %58, %.lr.ph124 ], [ -11, %.lr.ph169 ]
+  %.69399 = phi i32 [ -11, %.critedge.thread94 ], [ %58, %53 ], [ 0, %._crit_edge119 ], [ 0, %.preheader ], [ %58, %.lr.ph124 ], [ -11, %.lr.ph169 ]
   call void @PMIx_Argv_free(ptr noundef nonnull %7) #8
   %.pr = load ptr, ptr %4, align 8, !tbaa !21
   %.not74 = icmp eq ptr %.pr, null

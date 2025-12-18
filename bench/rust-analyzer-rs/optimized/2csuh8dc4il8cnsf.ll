@@ -652,8 +652,8 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17ha2c41f9e0634d
   br i1 %.not.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h084a1753cb32b7ecE.llvm.7213935477003618358.exit._crit_edge", label %8
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17ha6d42b8552bef76fE.llvm.7213935477003618358.exit": ; preds = %13, %2, %.noexc
-  %.sroa.7.1 = phi i64 [ 0, %2 ], [ %12, %13 ], [ %12, %.noexc ]
-  %.sroa.16.1 = phi i64 [ 0, %2 ], [ 1, %13 ], [ 1, %.noexc ]
+  %.sroa.7.1 = phi i64 [ 0, %2 ], [ %12, %.noexc ], [ %12, %13 ]
+  %.sroa.16.1 = phi i64 [ 0, %2 ], [ 1, %.noexc ], [ 1, %13 ]
   %.not3.i = icmp eq i64 %.sroa.7.1, %4
   br i1 %.not3.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h084a1753cb32b7ecE.llvm.7213935477003618358.exit", label %.lr.ph.i2.preheader
 

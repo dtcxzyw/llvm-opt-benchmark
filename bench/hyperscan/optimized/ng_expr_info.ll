@@ -520,8 +520,8 @@ _ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolder
   br i1 %.not80, label %.preheader, label %.lr.ph
 
 ._crit_edge106:                                   ; preds = %._crit_edge, %2, %.preheader
-  %.sroa.068.0.lcssa119 = phi ptr [ %.sroa.068.1, %.preheader ], [ null, %2 ], [ %.sroa.068.1, %._crit_edge ]
-  %.sroa.10.0.lcssa118 = phi ptr [ %.sroa.10.1, %.preheader ], [ null, %2 ], [ %.sroa.10.1, %._crit_edge ]
+  %.sroa.068.0.lcssa119 = phi ptr [ null, %2 ], [ %.sroa.068.1, %.preheader ], [ %.sroa.068.1, %._crit_edge ]
+  %.sroa.10.0.lcssa118 = phi ptr [ null, %2 ], [ %.sroa.10.1, %.preheader ], [ %.sroa.10.1, %._crit_edge ]
   invoke void @_ZN3ue215remove_verticesIN9__gnu_cxx17__normal_iteratorIPKNS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESt6vectorISA_SaISA_EEEEEEvT_SH_RS6_b(ptr %.sroa.068.0.lcssa119, ptr %.sroa.10.0.lcssa118, ptr noundef nonnull align 8 dereferenceable(136) %0, i1 noundef zeroext true)
           to label %_ZN3ue215remove_verticesISt6vectorINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESaIS9_EEEEvRKT_RS5_b.exit unwind label %94
 
@@ -778,7 +778,7 @@ _ZNKSt6vectorIN3ue211DepthMinMaxESaIS1_EE2atEm.exit: ; preds = %9
   unreachable
 
 _ZN3ue25depthpLEi.exit:                           ; preds = %23, %32
-  %.sroa.0.0.i.i = phi i32 [ %29, %23 ], [ %33, %32 ]
+  %.sroa.0.0.i.i = phi i32 [ %33, %32 ], [ %29, %23 ]
   store i32 %.sroa.0.0.i.i, ptr %4, align 8
   %.off1 = add i32 %31, -2147483647
   %switch2 = icmp ult i32 %.off1, 2
@@ -795,7 +795,7 @@ _ZN3ue25depthpLEi.exit:                           ; preds = %23, %32
   unreachable
 
 _ZN3ue25depthpLEi.exit42:                         ; preds = %_ZN3ue25depthpLEi.exit, %37
-  %.sroa.0.0.i.i41 = phi i32 [ %31, %_ZN3ue25depthpLEi.exit ], [ %38, %37 ]
+  %.sroa.0.0.i.i41 = phi i32 [ %38, %37 ], [ %31, %_ZN3ue25depthpLEi.exit ]
   store i32 %.sroa.0.0.i.i41, ptr %22, align 4
   %42 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %43 = load i64, ptr %42, align 8

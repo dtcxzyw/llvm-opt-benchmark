@@ -1402,7 +1402,7 @@ _ZNK6icu_777UVector7indexOfE8UElementia.exit:     ; preds = %.lr.ph.i, %.lr.ph35
   br i1 %.not, label %24, label %.thread
 
 .thread:                                          ; preds = %24, %_ZNK6icu_777UVector7indexOfE8UElementia.exit, %.preheader28.i, %.preheader.i, %45, %40, %18, %_ZNK6icu_777UVector7indexOfE8UElementia.exit.loopexit.us, %22, %2, %.lr.ph.split.us
-  %50 = phi i8 [ 0, %.lr.ph.split.us ], [ 1, %2 ], [ 0, %40 ], [ 0, %45 ], [ 0, %22 ], [ 1, %18 ], [ 0, %_ZNK6icu_777UVector7indexOfE8UElementia.exit.loopexit.us ], [ 0, %_ZNK6icu_777UVector7indexOfE8UElementia.exit ], [ 1, %24 ], [ 0, %.preheader.i ], [ 0, %.preheader28.i ]
+  %50 = phi i8 [ 1, %2 ], [ 0, %45 ], [ 0, %40 ], [ 0, %.lr.ph.split.us ], [ 1, %18 ], [ 0, %22 ], [ 0, %_ZNK6icu_777UVector7indexOfE8UElementia.exit.loopexit.us ], [ 0, %_ZNK6icu_777UVector7indexOfE8UElementia.exit ], [ 1, %24 ], [ 0, %.preheader.i ], [ 0, %.preheader28.i ]
   ret i8 %50
 }
 
@@ -1495,7 +1495,7 @@ define noundef range(i32 -2147483648, 2147483647) i32 @_ZNK6icu_777UVector7index
   br label %.thread
 
 .thread:                                          ; preds = %29, %36, %23, %.thread.loopexit59.split.loop.exit61, %.thread.loopexit57.split.loop.exit, %.thread.loopexit.split.loop.exit, %.preheader28, %.preheader
-  %.1 = phi i32 [ -1, %.preheader28 ], [ -1, %.preheader ], [ %37, %.thread.loopexit.split.loop.exit ], [ %38, %.thread.loopexit57.split.loop.exit ], [ %39, %.thread.loopexit59.split.loop.exit61 ], [ -1, %36 ], [ -1, %23 ], [ -1, %29 ]
+  %.1 = phi i32 [ -1, %.preheader28 ], [ -1, %23 ], [ -1, %36 ], [ -1, %.preheader ], [ %37, %.thread.loopexit.split.loop.exit ], [ %38, %.thread.loopexit57.split.loop.exit ], [ %39, %.thread.loopexit59.split.loop.exit61 ], [ -1, %29 ]
   ret i32 %.1
 }
 
@@ -1630,7 +1630,7 @@ _ZNK6icu_777UVector7indexOfE8UElementia.exit.thread: ; preds = %41, %36, %.prehe
   br i1 %49, label %.lr.ph.splitthread-pre-split, label %._crit_edge, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %_ZNK6icu_777UVector7indexOfE8UElementia.exit, %_ZNK6icu_777UVector7indexOfE8UElementia.exit.thread, %_ZNK6icu_777UVector7indexOfE8UElementia.exit.loopexit.us.us, %_ZNK6icu_777UVector7indexOfE8UElementia.exit.thread.us.us, %.lr.ph.split.us, %2
-  %50 = phi i8 [ 1, %.lr.ph.split.us ], [ 1, %2 ], [ 1, %_ZNK6icu_777UVector7indexOfE8UElementia.exit.thread.us.us ], [ 0, %_ZNK6icu_777UVector7indexOfE8UElementia.exit.loopexit.us.us ], [ 1, %_ZNK6icu_777UVector7indexOfE8UElementia.exit.thread ], [ 0, %_ZNK6icu_777UVector7indexOfE8UElementia.exit ]
+  %50 = phi i8 [ 1, %_ZNK6icu_777UVector7indexOfE8UElementia.exit.thread.us.us ], [ 1, %2 ], [ 1, %.lr.ph.split.us ], [ 0, %_ZNK6icu_777UVector7indexOfE8UElementia.exit.loopexit.us.us ], [ 1, %_ZNK6icu_777UVector7indexOfE8UElementia.exit.thread ], [ 0, %_ZNK6icu_777UVector7indexOfE8UElementia.exit ]
   ret i8 %50
 }
 
@@ -1759,7 +1759,7 @@ _ZN6icu_777UVector15orphanElementAtEi.exit.i:     ; preds = %.lr.ph.i.i, %37
   br label %_ZN6icu_777UVector15removeElementAtEi.exit
 
 _ZN6icu_777UVector15removeElementAtEi.exit:       ; preds = %29, %24, %.preheader.i, %.preheader28.i, %54, %52, %_ZN6icu_777UVector15orphanElementAtEi.exit.i, %34, %_ZNK6icu_777UVector7indexOfE8UElementia.exit
-  %.1 = phi i8 [ 1, %54 ], [ %.017, %_ZNK6icu_777UVector7indexOfE8UElementia.exit ], [ 1, %34 ], [ 1, %_ZN6icu_777UVector15orphanElementAtEi.exit.i ], [ 1, %52 ], [ %.017, %.preheader28.i ], [ %.017, %.preheader.i ], [ %.017, %24 ], [ %.017, %29 ]
+  %.1 = phi i8 [ 1, %54 ], [ %.017, %_ZNK6icu_777UVector7indexOfE8UElementia.exit ], [ 1, %34 ], [ 1, %_ZN6icu_777UVector15orphanElementAtEi.exit.i ], [ 1, %52 ], [ %.017, %.preheader28.i ], [ %.017, %24 ], [ %.017, %.preheader.i ], [ %.017, %29 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %55 = load i32, ptr %3, align 8, !tbaa !18
   %56 = sext i32 %55 to i64
@@ -2177,7 +2177,7 @@ define noundef i32 @_ZNK6icu_777UVector7indexOfEPvi(ptr noundef nonnull readonly
   br label %_ZNK6icu_777UVector7indexOfE8UElementia.exit
 
 _ZNK6icu_777UVector7indexOfE8UElementia.exit:     ; preds = %19, %26, %.preheader28.i, %.preheader.i, %.thread.loopexit57.split.loop.exit.i, %.thread.loopexit59.split.loop.exit61.i
-  %.1.i = phi i32 [ -1, %.preheader28.i ], [ %28, %.thread.loopexit59.split.loop.exit61.i ], [ -1, %.preheader.i ], [ %27, %.thread.loopexit57.split.loop.exit.i ], [ -1, %26 ], [ -1, %19 ]
+  %.1.i = phi i32 [ -1, %.preheader28.i ], [ %28, %.thread.loopexit59.split.loop.exit61.i ], [ %27, %.thread.loopexit57.split.loop.exit.i ], [ -1, %.preheader.i ], [ -1, %26 ], [ -1, %19 ]
   ret i32 %.1.i
 }
 
@@ -2323,7 +2323,7 @@ define noundef i32 @_ZNK6icu_777UVector7indexOfEii(ptr noundef nonnull readonly 
   br label %_ZNK6icu_777UVector7indexOfE8UElementia.exit
 
 _ZNK6icu_777UVector7indexOfE8UElementia.exit:     ; preds = %24, %18, %.preheader28.i, %.preheader.i, %.thread.loopexit.split.loop.exit.i, %.thread.loopexit59.split.loop.exit61.i
-  %.1.i = phi i32 [ -1, %.preheader28.i ], [ %29, %.thread.loopexit59.split.loop.exit61.i ], [ -1, %.preheader.i ], [ %28, %.thread.loopexit.split.loop.exit.i ], [ -1, %18 ], [ -1, %24 ]
+  %.1.i = phi i32 [ -1, %.preheader28.i ], [ -1, %18 ], [ %29, %.thread.loopexit59.split.loop.exit61.i ], [ -1, %.preheader.i ], [ %28, %.thread.loopexit.split.loop.exit.i ], [ -1, %24 ]
   ret i32 %.1.i
 }
 

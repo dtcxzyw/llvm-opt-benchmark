@@ -175,7 +175,7 @@ _ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin
   br i1 %exitcond102.not.i.i.i.i, label %_ZNK5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE8nonZerosEv.exit, label %.lr.ph94.i.i.i.i, !llvm.loop !29
 
 _ZNK5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE8nonZerosEv.exit: ; preds = %.lr.ph89.i.i.i.i, %.lr.ph94.i.i.i.i, %.preheader.i.i.i.i, %88, %14
-  %.sink = phi i32 [ %20, %14 ], [ %89, %88 ], [ %.075.lcssa.i.i.i.i, %.preheader.i.i.i.i ], [ %93, %.lr.ph94.i.i.i.i ], [ %85, %.lr.ph89.i.i.i.i ]
+  %.sink = phi i32 [ %20, %14 ], [ %93, %.lr.ph94.i.i.i.i ], [ %.075.lcssa.i.i.i.i, %.preheader.i.i.i.i ], [ %89, %88 ], [ %85, %.lr.ph89.i.i.i.i ]
   %95 = sext i32 %.sink to i64
   %96 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %97 = load ptr, ptr %96, align 8, !tbaa !21

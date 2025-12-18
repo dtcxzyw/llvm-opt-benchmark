@@ -4848,7 +4848,7 @@ Py_DECREF.exit:                                   ; preds = %28, %31, %34
   br label %.thread45
 
 .thread45:                                        ; preds = %19, %Py_DECREF.exit, %._crit_edge, %45
-  %.03347 = phi ptr [ @_Py_NoneStruct, %._crit_edge ], [ %46, %45 ], [ null, %Py_DECREF.exit ], [ null, %19 ]
+  %.03347 = phi ptr [ %46, %45 ], [ @_Py_NoneStruct, %._crit_edge ], [ null, %Py_DECREF.exit ], [ null, %19 ]
   %47 = load i32, ptr %5, align 8, !tbaa !25
   %.not.i.i = icmp sgt i32 %47, -1
   br i1 %.not.i.i, label %48, label %Py_XDECREF.exit
@@ -5087,9 +5087,9 @@ Py_DECREF.exit126:                                ; preds = %30, %35, %38
   br label %46
 
 46:                                               ; preds = %44, %42, %7
-  %.089 = phi ptr [ null, %7 ], [ %33, %44 ], [ %33, %42 ]
-  %.086 = phi ptr [ null, %7 ], [ %17, %44 ], [ %17, %42 ]
-  %.0 = phi ptr [ %4, %7 ], [ %45, %44 ], [ %4, %42 ]
+  %.089 = phi ptr [ null, %7 ], [ %33, %42 ], [ %33, %44 ]
+  %.086 = phi ptr [ null, %7 ], [ %17, %42 ], [ %17, %44 ]
+  %.0 = phi ptr [ %4, %7 ], [ %4, %42 ], [ %45, %44 ]
   %.not112 = icmp eq ptr %1, null
   br i1 %.not112, label %_Py_NewRef.exit.thread, label %47
 
@@ -5300,7 +5300,7 @@ Py_DECREF.exit:                                   ; preds = %107, %110, %113
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %_Py_NewRef.exit.thread, %92, %102, %Py_DECREF.exit, %104, %99, %96, %89, %85, %82, %78, %138, %140, %143
-  %.088161 = phi ptr [ null, %140 ], [ null, %143 ], [ null, %138 ], [ %76, %78 ], [ null, %_Py_NewRef.exit.thread ], [ %76, %92 ], [ null, %102 ], [ null, %Py_DECREF.exit ], [ null, %104 ], [ %76, %99 ], [ %76, %96 ], [ %76, %89 ], [ %76, %85 ], [ %76, %82 ]
+  %.088161 = phi ptr [ null, %140 ], [ null, %143 ], [ null, %138 ], [ %76, %78 ], [ %76, %82 ], [ null, %_Py_NewRef.exit.thread ], [ %76, %92 ], [ null, %102 ], [ null, %Py_DECREF.exit ], [ null, %104 ], [ %76, %99 ], [ %76, %96 ], [ %76, %89 ], [ %76, %85 ]
   %.not.i138 = icmp eq ptr %.195, null
   br i1 %.not.i138, label %Py_XDECREF.exit140, label %Py_XDECREF.exit.thread169
 
@@ -5949,7 +5949,7 @@ Py_DECREF.exit:                                   ; preds = %Py_DECREF.exit54, %
   br i1 %.not49, label %.critedge, label %.preheader, !llvm.loop !92
 
 .critedge:                                        ; preds = %11, %Py_DECREF.exit56, %.preheader, %50, %Py_DECREF.exit, %26, %23, %21, %6, %1
-  %.0 = phi i32 [ -1, %21 ], [ -1, %1 ], [ -1, %6 ], [ -1, %23 ], [ -1, %26 ], [ 0, %Py_DECREF.exit ], [ -1, %50 ], [ -1, %.preheader ], [ -1, %Py_DECREF.exit56 ], [ -1, %11 ]
+  %.0 = phi i32 [ -1, %21 ], [ -1, %1 ], [ 0, %Py_DECREF.exit ], [ -1, %26 ], [ -1, %6 ], [ -1, %23 ], [ -1, %50 ], [ -1, %.preheader ], [ -1, %Py_DECREF.exit56 ], [ -1, %11 ]
   ret i32 %.0
 }
 
@@ -7702,7 +7702,7 @@ define internal noundef ptr @_ssl__SSLContext_load_dh_params(ptr noundef readonl
   br label %_ssl__SSLContext_load_dh_params_impl.exit
 
 _ssl__SSLContext_load_dh_params_impl.exit:        ; preds = %2, %24, %.sink.split.i
-  %.0.i = phi ptr [ null, %2 ], [ @_Py_NoneStruct, %24 ], [ null, %.sink.split.i ]
+  %.0.i = phi ptr [ @_Py_NoneStruct, %24 ], [ null, %2 ], [ null, %.sink.split.i ]
   ret ptr %.0.i
 }
 
@@ -9473,7 +9473,7 @@ _ssl_configure_hostname.exit.thread:              ; preds = %128, %153, %119, %1
   tail call void @_Py_Dealloc(ptr noundef nonnull %37) #11
   br label %Py_DECREF.exit96
 
-_ssl_configure_hostname.exit.thread106:           ; preds = %136, %148, %_ssl_configure_hostname.exit, %107
+_ssl_configure_hostname.exit.thread106:           ; preds = %148, %136, %_ssl_configure_hostname.exit, %107
   br i1 %.not, label %182, label %171
 
 171:                                              ; preds = %_ssl_configure_hostname.exit.thread106
@@ -11218,7 +11218,7 @@ define internal range(i32 -1, 1) i32 @_ssl__SSLContext_num_tickets_set(ptr nound
   br label %_ssl__SSLContext_num_tickets_set_impl.exit
 
 _ssl__SSLContext_num_tickets_set_impl.exit:       ; preds = %3, %12, %.sink.split.i
-  %.0.i = phi i32 [ -1, %3 ], [ 0, %12 ], [ -1, %.sink.split.i ]
+  %.0.i = phi i32 [ 0, %12 ], [ -1, %3 ], [ -1, %.sink.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0.i
 }
@@ -11396,7 +11396,7 @@ define internal range(i32 -1, 1) i32 @_ssl__SSLContext_verify_flags_set(ptr noun
   br label %_ssl__SSLContext_verify_flags_set_impl.exit
 
 _ssl__SSLContext_verify_flags_set_impl.exit:      ; preds = %3, %18, %19, %.sink.split.i
-  %.0.i = phi i32 [ -1, %3 ], [ 0, %19 ], [ 0, %18 ], [ -1, %.sink.split.i ]
+  %.0.i = phi i32 [ -1, %3 ], [ 0, %18 ], [ 0, %19 ], [ -1, %.sink.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0.i
 }
@@ -11996,7 +11996,7 @@ Py_DECREF.exit63:                                 ; preds = %45, %47, %50
   br label %Py_DECREF.exit65
 
 Py_DECREF.exit65:                                 ; preds = %Py_DECREF.exit63, %55, %58, %29
-  %.041 = phi ptr [ %31, %29 ], [ %53, %Py_DECREF.exit63 ], [ %53, %55 ], [ %53, %58 ]
+  %.041 = phi ptr [ %31, %29 ], [ %53, %58 ], [ %53, %55 ], [ %53, %Py_DECREF.exit63 ]
   %59 = load ptr, ptr %4, align 8, !tbaa !26
   %60 = load i32, ptr %59, align 8, !tbaa !25
   %.not.i58 = icmp sgt i32 %60, -1
@@ -13704,9 +13704,9 @@ Py_XDECREF.exit88.thread.i:                       ; preds = %Py_XDECREF.exit88.i
   br label %_ssl__SSLSocket_read_impl.exit
 
 .loopexit.i:                                      ; preds = %_PySSL_errno.exit.i, %165, %163, %159, %70, %50
-  %183 = phi i1 [ %94, %165 ], [ true, %50 ], [ %94, %163 ], [ %94, %159 ], [ false, %70 ], [ %94, %_PySSL_errno.exit.i ]
-  %.0.i100104114.i = phi ptr [ %.0.i100104111116130.i, %165 ], [ %.0.i100104113.i, %50 ], [ %.0.i100104111116130.i, %163 ], [ %.0.i100104111116130.i, %159 ], [ %.0.i100104112.i, %70 ], [ %.0.i100104111116130.i, %_PySSL_errno.exit.i ]
-  %.not105109.i = phi i1 [ %.not105106118129.i, %165 ], [ %.not105108.i, %50 ], [ %.not105106118129.i, %163 ], [ %.not105106118129.i, %159 ], [ %.not105107.i, %70 ], [ %.not105106118129.i, %_PySSL_errno.exit.i ]
+  %183 = phi i1 [ %94, %165 ], [ false, %70 ], [ true, %50 ], [ %94, %163 ], [ %94, %159 ], [ %94, %_PySSL_errno.exit.i ]
+  %.0.i100104114.i = phi ptr [ %.0.i100104111116130.i, %165 ], [ %.0.i100104112.i, %70 ], [ %.0.i100104113.i, %50 ], [ %.0.i100104111116130.i, %163 ], [ %.0.i100104111116130.i, %159 ], [ %.0.i100104111116130.i, %_PySSL_errno.exit.i ]
+  %.not105109.i = phi i1 [ %.not105106118129.i, %165 ], [ %.not105107.i, %70 ], [ %.not105108.i, %50 ], [ %.not105106118129.i, %163 ], [ %.not105106118129.i, %159 ], [ %.not105106118129.i, %_PySSL_errno.exit.i ]
   %184 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %185 = load ptr, ptr %184, align 8, !tbaa !145
   %186 = icmp eq ptr %185, null
@@ -14686,7 +14686,7 @@ Py_DECREF.exit30.i:                               ; preds = %47, %44, %_Py_NewRe
   br label %_ssl__SSLSocket_get_unverified_chain_impl.exit
 
 _ssl__SSLSocket_get_unverified_chain_impl.exit:   ; preds = %2, %7, %14, %.critedge.i, %39, %Py_DECREF.exit30.i, %49, %51, %.critedge28.sink.split.i
-  %.0.i = phi ptr [ @_Py_NoneStruct, %2 ], [ %12, %14 ], [ null, %7 ], [ %12, %Py_DECREF.exit30.i ], [ null, %.critedge.i ], [ null, %39 ], [ null, %49 ], [ null, %51 ], [ null, %.critedge28.sink.split.i ]
+  %.0.i = phi ptr [ null, %51 ], [ @_Py_NoneStruct, %2 ], [ %12, %14 ], [ null, %7 ], [ %12, %Py_DECREF.exit30.i ], [ null, %.critedge.i ], [ null, %39 ], [ null, %49 ], [ null, %.critedge28.sink.split.i ]
   ret ptr %.0.i
 }
 
@@ -15081,7 +15081,7 @@ define internal fastcc ptr @_PySSL_CertificateFromX509Stack(ptr noundef readonly
   br i1 %exitcond.not, label %Py_DECREF.exit.thread, label %9, !llvm.loop !158
 
 Py_DECREF.exit.thread:                            ; preds = %22, %.preheader, %16, %18, %21, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %21 ], [ null, %18 ], [ null, %16 ], [ %5, %.preheader ], [ %5, %22 ]
+  %.0 = phi ptr [ null, %2 ], [ null, %16 ], [ null, %21 ], [ null, %18 ], [ %5, %.preheader ], [ %5, %22 ]
   ret ptr %.0
 }
 

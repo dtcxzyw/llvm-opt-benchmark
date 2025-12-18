@@ -3537,8 +3537,8 @@ dmp_national_sec_class.exit.sink.split:           ; preds = %80, %96
   br label %dmp_national_sec_class.exit
 
 dmp_national_sec_class.exit:                      ; preds = %84, %100, %dmp_national_sec_class.exit.sink.split, %85, %68, %72
-  %103 = phi i1 [ %69, %68 ], [ true, %72 ], [ false, %85 ], [ %.ph, %dmp_national_sec_class.exit.sink.split ], [ false, %100 ], [ true, %84 ]
-  %.0382 = phi ptr [ null, %68 ], [ null, %72 ], [ null, %85 ], [ %102, %dmp_national_sec_class.exit.sink.split ], [ null, %100 ], [ null, %84 ]
+  %103 = phi i1 [ %.ph, %dmp_national_sec_class.exit.sink.split ], [ %69, %68 ], [ true, %72 ], [ false, %100 ], [ false, %85 ], [ true, %84 ]
+  %.0382 = phi ptr [ %102, %dmp_national_sec_class.exit.sink.split ], [ null, %68 ], [ null, %72 ], [ null, %100 ], [ null, %85 ], [ null, %84 ]
   %104 = and i8 %61, 24
   %or.cond6 = icmp eq i8 %104, 16
   %105 = icmp eq ptr %.0382, null
@@ -5472,7 +5472,7 @@ dissect_dmp_notification.exit.sink.split:         ; preds = %1139, %1157, %1159,
   br label %dissect_dmp_notification.exit
 
 dissect_dmp_notification.exit:                    ; preds = %dissect_dmp_report.exit, %1060, %dissect_dmp_notification.exit.sink.split, %896, %895
-  %.8 = phi i32 [ %.6, %896 ], [ %.6, %895 ], [ %.6, %1060 ], [ %.1.i447.sink, %dissect_dmp_notification.exit.sink.split ], [ %.1.i444, %dissect_dmp_report.exit ]
+  %.8 = phi i32 [ %.6, %896 ], [ %.6, %1060 ], [ %.6, %895 ], [ %.1.i447.sink, %dissect_dmp_notification.exit.sink.split ], [ %.1.i444, %dissect_dmp_report.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.8
 }
@@ -5780,8 +5780,8 @@ dissect_7bit_string.exit50:                       ; preds = %86
   br label %dissect_7bit_string.exit
 
 dissect_7bit_string.exit:                         ; preds = %45, %dissect_7bit_string.exit50, %48, %10, %94
-  %.051 = phi i8 [ 0, %94 ], [ 0, %10 ], [ %.132.i42, %dissect_7bit_string.exit50 ], [ 0, %48 ], [ %.132.i, %45 ]
-  %.0 = phi ptr [ %99, %94 ], [ @.str.576, %10 ], [ %93, %dissect_7bit_string.exit50 ], [ @.str.623, %48 ], [ %22, %45 ]
+  %.051 = phi i8 [ 0, %94 ], [ 0, %48 ], [ 0, %10 ], [ %.132.i42, %dissect_7bit_string.exit50 ], [ %.132.i, %45 ]
+  %.0 = phi ptr [ %99, %94 ], [ @.str.623, %48 ], [ @.str.576, %10 ], [ %93, %dissect_7bit_string.exit50 ], [ %22, %45 ]
   %100 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @dmp, i64 48), align 8
   %101 = tail call i64 @strlen(ptr noundef %.0) #16
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %100, ptr noundef nonnull @.str.621, i64 noundef %101)
@@ -6495,8 +6495,8 @@ dissect_7bit_string.exit88:                       ; preds = %117, %77
   br label %dissect_7bit_string.exit
 
 dissect_7bit_string.exit:                         ; preds = %62, %133, %65, %28, %134
-  %.089 = phi i8 [ 0, %134 ], [ 0, %28 ], [ %.2, %133 ], [ 0, %65 ], [ %.132.i, %62 ]
-  %.072 = phi ptr [ %137, %134 ], [ @.str.576, %28 ], [ %.0.i, %133 ], [ @.str.623, %65 ], [ %39, %62 ]
+  %.089 = phi i8 [ 0, %134 ], [ 0, %65 ], [ 0, %28 ], [ %.2, %133 ], [ %.132.i, %62 ]
+  %.072 = phi ptr [ %137, %134 ], [ @.str.623, %65 ], [ @.str.576, %28 ], [ %.0.i, %133 ], [ %39, %62 ]
   %138 = call i64 @strlen(ptr noundef %.072) #16
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.621, i64 noundef %138)
   %139 = getelementptr inbounds nuw i8, ptr %1, i64 408
@@ -7315,7 +7315,7 @@ copy_address_wmem.exit91:                         ; preds = %copy_address_wmem.e
   br label %.thread
 
 207:                                              ; preds = %192, %187
-  %.075 = phi ptr [ %195, %192 ], [ %189, %187 ]
+  %.075 = phi ptr [ %189, %187 ], [ %195, %192 ]
   %.not88 = icmp eq ptr %.075, null
   br i1 %.not88, label %208, label %.thread
 

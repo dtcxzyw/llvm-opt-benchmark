@@ -888,7 +888,7 @@ define internal fastcc i32 @ft_stroke_border_lineto(ptr noundef nonnull captures
   br label %63
 
 ft_stroke_border_grow.exit:                       ; preds = %49, %56
-  %62 = phi i32 [ %60, %56 ], [ %55, %49 ]
+  %62 = phi i32 [ %55, %49 ], [ %60, %56 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %73
 
@@ -1392,7 +1392,7 @@ define internal fastcc i32 @ft_stroke_border_conicto(ptr noundef nonnull capture
   br label %32
 
 ft_stroke_border_grow.exit:                       ; preds = %18, %25
-  %31 = phi i32 [ %29, %25 ], [ %24, %18 ]
+  %31 = phi i32 [ %24, %18 ], [ %29, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %44
 
@@ -1988,7 +1988,7 @@ define internal fastcc i32 @ft_stroke_border_cubicto(ptr noundef nonnull capture
   br label %33
 
 ft_stroke_border_grow.exit:                       ; preds = %19, %26
-  %32 = phi i32 [ %30, %26 ], [ %25, %19 ]
+  %32 = phi i32 [ %25, %19 ], [ %30, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %47
 
@@ -2215,7 +2215,7 @@ define i32 @FT_Stroker_EndSubPath(ptr noundef %0) local_unnamed_addr #0 {
   br label %76
 
 ft_stroker_add_reverse_left.exit:                 ; preds = %32, %39
-  %75 = phi i32 [ %43, %39 ], [ %38, %32 ]
+  %75 = phi i32 [ %38, %32 ], [ %43, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %209
 
@@ -3416,7 +3416,7 @@ select.unfold:                                    ; preds = %94
   br i1 %128, label %35, label %FT_Stroker_BeginSubPath.exit.thread, !llvm.loop !76
 
 FT_Stroker_BeginSubPath.exit.thread:              ; preds = %125, %123, %121, %41, %79, %117, %FT_Stroker_Rewind.exit, %.thread135, %.thread140, %.thread, %12, %3
-  %.082 = phi i32 [ %83, %79 ], [ 20, %.thread140 ], [ 6, %12 ], [ 20, %3 ], [ %.387.ph, %.thread ], [ 20, %.thread135 ], [ 0, %FT_Stroker_Rewind.exit ], [ %119, %117 ], [ %124, %123 ], [ 20, %41 ], [ %.4, %121 ], [ 0, %125 ]
+  %.082 = phi i32 [ %83, %79 ], [ 0, %FT_Stroker_Rewind.exit ], [ 6, %12 ], [ 20, %3 ], [ %.387.ph, %.thread ], [ 20, %.thread140 ], [ 20, %.thread135 ], [ %119, %117 ], [ 0, %125 ], [ %124, %123 ], [ 20, %41 ], [ %.4, %121 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.082

@@ -1531,8 +1531,8 @@ faulthandler_allocate_stack.exit.i:               ; preds = %41, %33
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %faulthandler_enable.exit
 
-faulthandler_enable.exit:                         ; preds = %55, %Py_XDECREF.exit, %58, %39, %43, %get_thread_state.exit.thread, %8, %3
-  %.0 = phi ptr [ null, %3 ], [ null, %8 ], [ null, %get_thread_state.exit.thread ], [ @_Py_NoneStruct, %Py_XDECREF.exit ], [ null, %58 ], [ null, %39 ], [ null, %43 ], [ @_Py_NoneStruct, %55 ]
+faulthandler_enable.exit:                         ; preds = %55, %Py_XDECREF.exit, %43, %58, %39, %get_thread_state.exit.thread, %8, %3
+  %.0 = phi ptr [ null, %3 ], [ null, %8 ], [ null, %get_thread_state.exit.thread ], [ null, %39 ], [ @_Py_NoneStruct, %Py_XDECREF.exit ], [ null, %43 ], [ null, %58 ], [ @_Py_NoneStruct, %55 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0

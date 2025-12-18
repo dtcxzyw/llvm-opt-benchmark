@@ -809,7 +809,7 @@ _ZN19brotli_decompressor6writer9write_all17hd82ef04ab5f10320E.exit: ; preds = %5
   br label %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17hf0d416f44f117e07E.exit"
 
 "_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17hf0d416f44f117e07E.exit": ; preds = %.loopexit42, %20, %67, %70, %_ZN19brotli_decompressor6writer9write_all17hd82ef04ab5f10320E.exit
-  %.0 = phi ptr [ %33, %_ZN19brotli_decompressor6writer9write_all17hd82ef04ab5f10320E.exit ], [ %71, %70 ], [ %68, %67 ], [ null, %20 ], [ null, %.loopexit42 ]
+  %.0 = phi ptr [ %68, %67 ], [ %33, %_ZN19brotli_decompressor6writer9write_all17hd82ef04ab5f10320E.exit ], [ %71, %70 ], [ null, %20 ], [ null, %.loopexit42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

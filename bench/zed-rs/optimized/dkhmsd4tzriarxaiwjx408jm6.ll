@@ -8705,7 +8705,7 @@ _ZN4core3ops8function6FnOnce9call_once17h095083296ca669e2E.exit.i: ; preds = %55
   br label %559
 
 .loopexit.split-lp211:                            ; preds = %593, %595, %"_ZN4core3ptr51drop_in_place$LT$async_io..reactor..ReactorLock$GT$17h05d4791246b1e435E.exit", %611, %613, %623, %625, %628, %630, %600, %604, %609
-  %.sroa.017.2.ph = phi i8 [ 0, %604 ], [ 0, %600 ], [ 1, %593 ], [ 1, %595 ], [ 0, %609 ], [ 0, %"_ZN4core3ptr51drop_in_place$LT$async_io..reactor..ReactorLock$GT$17h05d4791246b1e435E.exit" ], [ 0, %611 ], [ 0, %613 ], [ 1, %623 ], [ 1, %625 ], [ 1, %628 ], [ 1, %630 ]
+  %.sroa.017.2.ph = phi i8 [ 1, %593 ], [ 1, %595 ], [ 0, %609 ], [ 0, %"_ZN4core3ptr51drop_in_place$LT$async_io..reactor..ReactorLock$GT$17h05d4791246b1e435E.exit" ], [ 0, %611 ], [ 0, %613 ], [ 0, %600 ], [ 1, %623 ], [ 1, %625 ], [ 0, %604 ], [ 1, %628 ], [ 1, %630 ]
   %lpad.loopexit.split-lp213 = landingpad { ptr, i32 }
           cleanup
   br label %559

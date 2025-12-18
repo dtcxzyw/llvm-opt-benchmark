@@ -1540,9 +1540,9 @@ define internal noundef zeroext i1 @dissect_f5ethtrailer_heur(ptr noundef %0, pt
   br i1 %56, label %dissect_f5ethtrailer.exit, label %.preheader22.i
 
 .thread14.i:                                      ; preds = %.thread5.i, %33, %24
-  %57 = phi i1 [ true, %24 ], [ true, %33 ], [ false, %.thread5.i ]
-  %.2122.i = phi i1 [ false, %24 ], [ true, %33 ], [ false, %.thread5.i ]
-  %.3115.i = phi i32 [ %.1113.i, %24 ], [ %30, %33 ], [ %.1113.i, %.thread5.i ]
+  %57 = phi i1 [ true, %33 ], [ true, %24 ], [ false, %.thread5.i ]
+  %.2122.i = phi i1 [ true, %33 ], [ false, %24 ], [ false, %.thread5.i ]
+  %.3115.i = phi i32 [ %30, %33 ], [ %.1113.i, %24 ], [ %.1113.i, %.thread5.i ]
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %59 = load ptr, ptr %58, align 8
   %60 = tail call noalias dereferenceable_or_null(40) ptr @wmem_alloc0(ptr noundef %59, i64 noundef 40) #11
@@ -2144,8 +2144,8 @@ proto_item_set_hidden.exit152.i.i.i:              ; preds = %331, %328, %325
   br label %.thread.i96.i.i
 
 .thread.i96.i.i:                                  ; preds = %.thread.sink.split.i.i.i, %389, %388, %371, %370, %353, %352, %343, %343, %343
-  %.0220.shrunk.i.i.i = phi i8 [ -1, %343 ], [ %355, %353 ], [ %373, %371 ], [ %391, %389 ], [ -1, %343 ], [ -1, %343 ], [ -1, %370 ], [ -1, %352 ], [ -1, %388 ], [ 0, %.thread.sink.split.i.i.i ]
-  %.0219.i.i.i = phi i32 [ 0, %343 ], [ %350, %353 ], [ %368, %371 ], [ %386, %389 ], [ 0, %343 ], [ 0, %343 ], [ 0, %370 ], [ 0, %352 ], [ 0, %388 ], [ %.sink278.i.i.i, %.thread.sink.split.i.i.i ]
+  %.0220.shrunk.i.i.i = phi i8 [ -1, %343 ], [ -1, %388 ], [ %355, %353 ], [ -1, %352 ], [ %373, %371 ], [ -1, %370 ], [ %391, %389 ], [ -1, %343 ], [ -1, %343 ], [ 0, %.thread.sink.split.i.i.i ]
+  %.0219.i.i.i = phi i32 [ 0, %343 ], [ 0, %388 ], [ %350, %353 ], [ 0, %352 ], [ %368, %371 ], [ 0, %370 ], [ %386, %389 ], [ 0, %343 ], [ 0, %343 ], [ %.sink278.i.i.i, %.thread.sink.split.i.i.i ]
   %404 = load i8, ptr @pref_perform_analysis, align 1, !range !6, !noundef !7
   %405 = icmp eq i8 %404, 0
   %406 = icmp eq ptr %342, null
@@ -2674,8 +2674,8 @@ dissect_low_trailer.exit.thread.i.i:              ; preds = %545, %382, %380, %3
   br label %dissect_dpt_trailer.exit.i
 
 dissect_low_trailer.exit.thread111.i.i:           ; preds = %696, %693, %proto_item_set_hidden.exit128.i.i.i, %569, %552, %521, %513, %511, %498, %.thread.i96.i.i, %.thread155.i.i.i, %.thread.i.i.i, %313, %258, %255
-  %.sink186.i.i = phi i32 [ %173, %521 ], [ %173, %.thread155.i.i.i ], [ 35, %.thread.i.i.i ], [ 35, %258 ], [ %173, %255 ], [ %173, %313 ], [ %173, %.thread.i96.i.i ], [ %173, %498 ], [ %173, %511 ], [ %173, %513 ], [ 42, %552 ], [ 42, %569 ], [ 42, %proto_item_set_hidden.exit128.i.i.i ], [ 42, %693 ], [ 42, %696 ]
-  %.sink184.i.i = phi i8 [ 2, %521 ], [ 1, %.thread155.i.i.i ], [ 1, %.thread.i.i.i ], [ 1, %258 ], [ 1, %255 ], [ 1, %313 ], [ 2, %.thread.i96.i.i ], [ 2, %498 ], [ 2, %511 ], [ 2, %513 ], [ 4, %552 ], [ 4, %569 ], [ 4, %proto_item_set_hidden.exit128.i.i.i ], [ 4, %693 ], [ 4, %696 ]
+  %.sink186.i.i = phi i32 [ %173, %521 ], [ %173, %.thread155.i.i.i ], [ 35, %258 ], [ 35, %.thread.i.i.i ], [ %173, %255 ], [ %173, %313 ], [ %173, %.thread.i96.i.i ], [ %173, %498 ], [ %173, %511 ], [ %173, %513 ], [ 42, %552 ], [ 42, %569 ], [ 42, %proto_item_set_hidden.exit128.i.i.i ], [ 42, %693 ], [ 42, %696 ]
+  %.sink184.i.i = phi i8 [ 2, %521 ], [ 1, %.thread155.i.i.i ], [ 1, %258 ], [ 1, %.thread.i.i.i ], [ 1, %255 ], [ 1, %313 ], [ 2, %.thread.i96.i.i ], [ 2, %498 ], [ 2, %511 ], [ 2, %513 ], [ 4, %552 ], [ 4, %569 ], [ 4, %proto_item_set_hidden.exit128.i.i.i ], [ 4, %693 ], [ 4, %696 ]
   %700 = load i32, ptr %164, align 4
   %701 = add i32 %700, %.sink186.i.i
   store i32 %701, ptr %164, align 4
@@ -2688,7 +2688,7 @@ dissect_low_trailer.exit.thread111.i.i:           ; preds = %696, %693, %proto_i
   br i1 %706, label %169, label %dissect_dpt_trailer.exit.i, !llvm.loop !12
 
 dissect_dpt_trailer.exit.i:                       ; preds = %dissect_low_trailer.exit.thread111.i.i, %178, %169, %155, %107, %dissect_low_trailer.exit.thread.i.i, %159, %134, %.split.us.i.i, %111, %.preheader.i.i
-  %.0111.i = phi i32 [ %76, %.preheader.i.i ], [ %76, %111 ], [ %76, %.split.us.i.i ], [ %76, %134 ], [ %.079132.i.i, %dissect_low_trailer.exit.thread.i.i ], [ 0, %159 ], [ %76, %107 ], [ %76, %155 ], [ %704, %dissect_low_trailer.exit.thread111.i.i ], [ %.079132.i.i, %169 ], [ %.079132.i.i, %178 ]
+  %.0111.i = phi i32 [ %76, %155 ], [ %76, %.preheader.i.i ], [ %76, %107 ], [ %76, %111 ], [ %76, %.split.us.i.i ], [ %76, %134 ], [ %.079132.i.i, %dissect_low_trailer.exit.thread.i.i ], [ 0, %159 ], [ %704, %dissect_low_trailer.exit.thread111.i.i ], [ %.079132.i.i, %169 ], [ %.079132.i.i, %178 ]
   %707 = getelementptr inbounds nuw i8, ptr %60, i64 4
   store i32 %.0111.i, ptr %707, align 4
   call void @proto_item_set_len(ptr noundef %.0108.i, i32 noundef %.0111.i)

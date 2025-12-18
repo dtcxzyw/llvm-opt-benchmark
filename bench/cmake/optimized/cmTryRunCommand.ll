@@ -3482,7 +3482,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit365: ; preds = %54
   br label %1012
 
 548:                                              ; preds = %467, %471, %390
-  %.290 = phi i1 [ %.189, %390 ], [ %.not597, %471 ], [ %.not597, %467 ]
+  %.290 = phi i1 [ %.not597, %467 ], [ %.189, %390 ], [ %.not597, %471 ]
   br i1 %.290, label %.critedge, label %962
 
 .critedge:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit321, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit362, %548

@@ -344,8 +344,8 @@ _ZN26GrowableArrayWithAllocatorIN13ReplacedNodes12ReplacedNodeE13GrowableArrayIS
   br label %_ZNK13ReplacedNodes8has_nodeERKNS_12ReplacedNodeE.exit
 
 _ZNK13ReplacedNodes8has_nodeERKNS_12ReplacedNodeE.exit: ; preds = %30, %46, %.thread, %_ZN26GrowableArrayWithAllocatorIN13ReplacedNodes12ReplacedNodeE13GrowableArrayIS1_EE4pushERKS1_.exit
-  %68 = phi i32 [ %.pre21, %_ZN26GrowableArrayWithAllocatorIN13ReplacedNodes12ReplacedNodeE13GrowableArrayIS1_EE4pushERKS1_.exit ], [ %20, %.thread ], [ %20, %46 ], [ %20, %30 ]
-  %69 = phi ptr [ %.pre20, %_ZN26GrowableArrayWithAllocatorIN13ReplacedNodes12ReplacedNodeE13GrowableArrayIS1_EE4pushERKS1_.exit ], [ %21, %.thread ], [ %21, %46 ], [ %21, %30 ]
+  %68 = phi i32 [ %20, %46 ], [ %.pre21, %_ZN26GrowableArrayWithAllocatorIN13ReplacedNodes12ReplacedNodeE13GrowableArrayIS1_EE4pushERKS1_.exit ], [ %20, %.thread ], [ %20, %30 ]
+  %69 = phi ptr [ %21, %46 ], [ %.pre20, %_ZN26GrowableArrayWithAllocatorIN13ReplacedNodes12ReplacedNodeE13GrowableArrayIS1_EE4pushERKS1_.exit ], [ %21, %.thread ], [ %21, %30 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %70 = sext i32 %68 to i64
   %71 = icmp slt i64 %indvars.iv.next, %70

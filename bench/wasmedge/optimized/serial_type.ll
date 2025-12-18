@@ -18696,7 +18696,7 @@ _ZN3fmt2v86detail21default_arg_formatterIcEclIPKvEENS0_8appenderET_.exit: ; pred
   br label %_ZN3fmt2v86detail21default_arg_formatterIcEclIPKcEENS0_8appenderET_.exit
 
 _ZN3fmt2v86detail21default_arg_formatterIcEclIPKcEENS0_8appenderET_.exit: ; preds = %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i.i.i.i, %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i.i.i.i.i, %_ZN3fmt2v86detail7get_argINS0_20basic_format_contextINS0_8appenderEcEEiEENT_10format_argERS6_T0_.exit, %172, %146, %212, %_ZN3fmt2v86detail21default_arg_formatterIcEclIPKvEENS0_8appenderET_.exit, %142, %_ZN3fmt2v86detail21default_arg_formatterIcEclIdEENS0_8appenderET_.exit, %_ZN3fmt2v86detail21default_arg_formatterIcEclIfEENS0_8appenderET_.exit, %_ZN3fmt2v86detail21default_arg_formatterIcEclIcEENS0_8appenderET_.exit, %84, %82, %80, %78, %76, %74, %72
-  %.sroa.0132.0 = phi ptr [ %.sroa.0.0.copyload.i.i, %212 ], [ %73, %72 ], [ %75, %74 ], [ %77, %76 ], [ %79, %78 ], [ %81, %80 ], [ %83, %82 ], [ %96, %84 ], [ %.sroa.0.0.copyload.i, %_ZN3fmt2v86detail21default_arg_formatterIcEclIcEENS0_8appenderET_.exit ], [ %.sroa.07.0.i.i, %_ZN3fmt2v86detail21default_arg_formatterIcEclIfEENS0_8appenderET_.exit ], [ %.sroa.07.0.i.i165, %_ZN3fmt2v86detail21default_arg_formatterIcEclIdEENS0_8appenderET_.exit ], [ %143, %142 ], [ %211, %_ZN3fmt2v86detail21default_arg_formatterIcEclIPKvEENS0_8appenderET_.exit ], [ %.sroa.0.0.copyload.i, %146 ], [ %.sroa.0.0.copyload.i, %172 ], [ %.sroa.0.0.copyload.i, %_ZN3fmt2v86detail7get_argINS0_20basic_format_contextINS0_8appenderEcEEiEENT_10format_argERS6_T0_.exit ], [ %.sroa.0.0.copyload.i, %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i.i.i.i.i ], [ %.sroa.0.0.copyload.i, %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i.i.i.i ]
+  %.sroa.0132.0 = phi ptr [ %.sroa.0.0.copyload.i, %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i.i.i.i.i ], [ %.sroa.0.0.copyload.i.i, %212 ], [ %73, %72 ], [ %75, %74 ], [ %77, %76 ], [ %79, %78 ], [ %81, %80 ], [ %83, %82 ], [ %96, %84 ], [ %.sroa.0.0.copyload.i, %_ZN3fmt2v86detail21default_arg_formatterIcEclIcEENS0_8appenderET_.exit ], [ %.sroa.07.0.i.i, %_ZN3fmt2v86detail21default_arg_formatterIcEclIfEENS0_8appenderET_.exit ], [ %.sroa.07.0.i.i165, %_ZN3fmt2v86detail21default_arg_formatterIcEclIdEENS0_8appenderET_.exit ], [ %143, %142 ], [ %211, %_ZN3fmt2v86detail21default_arg_formatterIcEclIPKvEENS0_8appenderET_.exit ], [ %.sroa.0.0.copyload.i, %_ZN3fmt2v86detail7get_argINS0_20basic_format_contextINS0_8appenderEcEEiEENT_10format_argERS6_T0_.exit ], [ %.sroa.0.0.copyload.i, %146 ], [ %.sroa.0.0.copyload.i, %172 ], [ %.sroa.0.0.copyload.i, %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i.i.i.i ]
   store ptr %.sroa.0132.0, ptr %35, align 8
   br label %346
 
@@ -21052,7 +21052,7 @@ _ZN3fmt2v86detail13width_checkerINS1_13error_handlerEEclIxTnNSt9enable_ifIXsr10i
   unreachable
 
 _ZN3fmt2v86detail13width_checkerINS1_13error_handlerEEclIxTnNSt9enable_ifIXsr10is_integerIT_EE5valueEiE4typeELi0EEEyS7_.exit: ; preds = %19, %13, %23, %17, %10
-  %.0 = phi i64 [ %.sroa.012.0.extract.trunc, %19 ], [ %12, %10 ], [ %18, %17 ], [ %14, %13 ], [ %.sroa.06.0.extract.trunc, %23 ]
+  %.0 = phi i64 [ %.sroa.06.0.extract.trunc, %23 ], [ %14, %13 ], [ %.sroa.012.0.extract.trunc, %19 ], [ %12, %10 ], [ %18, %17 ]
   %35 = icmp ugt i64 %.0, 2147483647
   br i1 %35, label %_ZN3fmt2v86detail13width_checkerINS1_13error_handlerEEclIxTnNSt9enable_ifIXsr10is_integerIT_EE5valueEiE4typeELi0EEEyS7_.exit.thread66, label %36
 
@@ -21507,7 +21507,7 @@ _ZN3fmt2v86detail17precision_checkerINS1_13error_handlerEEclIxTnNSt9enable_ifIXs
   unreachable
 
 _ZN3fmt2v86detail17precision_checkerINS1_13error_handlerEEclIxTnNSt9enable_ifIXsr10is_integerIT_EE5valueEiE4typeELi0EEEyS7_.exit: ; preds = %19, %13, %23, %17, %10
-  %.0 = phi i64 [ %.sroa.012.0.extract.trunc, %19 ], [ %12, %10 ], [ %18, %17 ], [ %14, %13 ], [ %.sroa.06.0.extract.trunc, %23 ]
+  %.0 = phi i64 [ %.sroa.06.0.extract.trunc, %23 ], [ %14, %13 ], [ %.sroa.012.0.extract.trunc, %19 ], [ %12, %10 ], [ %18, %17 ]
   %35 = icmp ugt i64 %.0, 2147483647
   br i1 %35, label %_ZN3fmt2v86detail17precision_checkerINS1_13error_handlerEEclIxTnNSt9enable_ifIXsr10is_integerIT_EE5valueEiE4typeELi0EEEyS7_.exit.thread66, label %36
 

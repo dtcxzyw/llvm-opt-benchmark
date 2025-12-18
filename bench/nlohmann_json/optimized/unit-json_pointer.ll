@@ -31974,10 +31974,10 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   br i1 %10793, label %.loopexit10812, label %10790
 
 .loopexit10812:                                   ; preds = %10790, %.body8582, %.body8582.thread
-  %.272422 = phi i1 [ true, %.body8582.thread ], [ true, %.body8582 ], [ %.282423, %10790 ]
-  %.112392 = phi i1 [ true, %.body8582.thread ], [ true, %.body8582 ], [ %.122393, %10790 ]
-  %.102379 = phi i1 [ true, %.body8582.thread ], [ true, %.body8582 ], [ %.112380, %10790 ]
-  %.pn3668.pn.pn.pn = phi { ptr, i32 } [ %10129, %.body8582.thread ], [ %10135, %.body8582 ], [ %.pn3668.pn.pn, %10790 ]
+  %.272422 = phi i1 [ true, %.body8582 ], [ true, %.body8582.thread ], [ %.282423, %10790 ]
+  %.112392 = phi i1 [ true, %.body8582 ], [ true, %.body8582.thread ], [ %.122393, %10790 ]
+  %.102379 = phi i1 [ true, %.body8582 ], [ true, %.body8582.thread ], [ %.112380, %10790 ]
+  %.pn3668.pn.pn.pn = phi { ptr, i32 } [ %10135, %.body8582 ], [ %10129, %.body8582.thread ], [ %.pn3668.pn.pn, %10790 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %796)
   br label %10794
 
@@ -31998,11 +31998,11 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   br i1 %10799, label %.loopexit10811, label %10796
 
 .loopexit10811:                                   ; preds = %10796, %.body8574, %.body8574.thread
-  %.252420 = phi i1 [ true, %.body8574.thread ], [ true, %.body8574 ], [ %.262421, %10796 ]
-  %.92390 = phi i1 [ true, %.body8574.thread ], [ true, %.body8574 ], [ %.102391, %10796 ]
-  %.82377 = phi i1 [ true, %.body8574.thread ], [ true, %.body8574 ], [ %.92378, %10796 ]
-  %.82360 = phi ptr [ %10113, %.body8574.thread ], [ %10113, %.body8574 ], [ %.92361, %10796 ]
-  %.pn3668.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %10115, %.body8574.thread ], [ %10121, %.body8574 ], [ %.pn3668.pn.pn.pn.pn, %10796 ]
+  %.252420 = phi i1 [ true, %.body8574 ], [ true, %.body8574.thread ], [ %.262421, %10796 ]
+  %.92390 = phi i1 [ true, %.body8574 ], [ true, %.body8574.thread ], [ %.102391, %10796 ]
+  %.82377 = phi i1 [ true, %.body8574 ], [ true, %.body8574.thread ], [ %.92378, %10796 ]
+  %.82360 = phi ptr [ %10113, %.body8574 ], [ %10113, %.body8574.thread ], [ %.92361, %10796 ]
+  %.pn3668.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %10121, %.body8574 ], [ %10115, %.body8574.thread ], [ %.pn3668.pn.pn.pn.pn, %10796 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %795)
   br label %10800
 
@@ -32023,11 +32023,11 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   br i1 %10805, label %.loopexit10810, label %10802
 
 .loopexit10810:                                   ; preds = %10802, %.body8566, %.body8566.thread
-  %.232418 = phi i1 [ true, %.body8566.thread ], [ true, %.body8566 ], [ %.242419, %10802 ]
-  %.72388 = phi i1 [ true, %.body8566.thread ], [ true, %.body8566 ], [ %.82389, %10802 ]
-  %.62375 = phi i1 [ true, %.body8566.thread ], [ true, %.body8566 ], [ %.72376, %10802 ]
-  %.62358 = phi ptr [ %10099, %.body8566.thread ], [ %10099, %.body8566 ], [ %.72359, %10802 ]
-  %.pn3668.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %10101, %.body8566.thread ], [ %10107, %.body8566 ], [ %.pn3668.pn.pn.pn.pn.pn.pn, %10802 ]
+  %.232418 = phi i1 [ true, %.body8566 ], [ true, %.body8566.thread ], [ %.242419, %10802 ]
+  %.72388 = phi i1 [ true, %.body8566 ], [ true, %.body8566.thread ], [ %.82389, %10802 ]
+  %.62375 = phi i1 [ true, %.body8566 ], [ true, %.body8566.thread ], [ %.72376, %10802 ]
+  %.62358 = phi ptr [ %10099, %.body8566 ], [ %10099, %.body8566.thread ], [ %.72359, %10802 ]
+  %.pn3668.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %10107, %.body8566 ], [ %10101, %.body8566.thread ], [ %.pn3668.pn.pn.pn.pn.pn.pn, %10802 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %794)
   br label %10806
 
@@ -32048,11 +32048,11 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   br i1 %10811, label %.loopexit10809, label %10808
 
 .loopexit10809:                                   ; preds = %10808, %.body8560, %.body8560.thread
-  %.212416 = phi i1 [ true, %.body8560.thread ], [ true, %.body8560 ], [ %.222417, %10808 ]
-  %.52386 = phi i1 [ true, %.body8560.thread ], [ true, %.body8560 ], [ %.62387, %10808 ]
-  %.42373 = phi i1 [ true, %.body8560.thread ], [ true, %.body8560 ], [ %.52374, %10808 ]
-  %.42356 = phi ptr [ %10085, %.body8560.thread ], [ %10085, %.body8560 ], [ %.52357, %10808 ]
-  %.pn3668.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %10087, %.body8560.thread ], [ %10093, %.body8560 ], [ %.pn3668.pn.pn.pn.pn.pn.pn.pn.pn, %10808 ]
+  %.212416 = phi i1 [ true, %.body8560 ], [ true, %.body8560.thread ], [ %.222417, %10808 ]
+  %.52386 = phi i1 [ true, %.body8560 ], [ true, %.body8560.thread ], [ %.62387, %10808 ]
+  %.42373 = phi i1 [ true, %.body8560 ], [ true, %.body8560.thread ], [ %.52374, %10808 ]
+  %.42356 = phi ptr [ %10085, %.body8560 ], [ %10085, %.body8560.thread ], [ %.52357, %10808 ]
+  %.pn3668.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %10093, %.body8560 ], [ %10087, %.body8560.thread ], [ %.pn3668.pn.pn.pn.pn.pn.pn.pn.pn, %10808 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %793)
   br label %10812
 
@@ -32269,9 +32269,9 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   br i1 %10865, label %.loopexit10799, label %10862
 
 .loopexit10799:                                   ; preds = %10862, %.body8517, %.body8517.thread
-  %.42399 = phi i1 [ false, %.body8517.thread ], [ false, %.body8517 ], [ %.52400, %10862 ]
-  %.42320 = phi ptr [ %9986, %.body8517.thread ], [ %9986, %.body8517 ], [ %.52321, %10862 ]
-  %.pn3668.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %9988, %.body8517.thread ], [ %9994, %.body8517 ], [ %.pn3668.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %10862 ]
+  %.42399 = phi i1 [ false, %.body8517 ], [ false, %.body8517.thread ], [ %.52400, %10862 ]
+  %.42320 = phi ptr [ %9986, %.body8517 ], [ %9986, %.body8517.thread ], [ %.52321, %10862 ]
+  %.pn3668.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %9994, %.body8517 ], [ %9988, %.body8517.thread ], [ %.pn3668.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %10862 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %782)
   br label %10866
 
@@ -32425,8 +32425,8 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   br i1 %10923, label %.loopexit10788, label %10920
 
 .loopexit10788:                                   ; preds = %10920, %.body8690, %.body8690.thread
-  %.262500 = phi i1 [ false, %.body8690.thread ], [ false, %.body8690 ], [ %10918, %10920 ]
-  %.pn3700.pn = phi { ptr, i32 } [ %10502, %.body8690.thread ], [ %10508, %.body8690 ], [ %.pn3700, %10920 ]
+  %.262500 = phi i1 [ false, %.body8690 ], [ false, %.body8690.thread ], [ %10918, %10920 ]
+  %.pn3700.pn = phi { ptr, i32 } [ %10508, %.body8690 ], [ %10502, %.body8690.thread ], [ %.pn3700, %10920 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %812)
   br label %10924
 
@@ -32445,9 +32445,9 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   br i1 %10929, label %.loopexit10787, label %10926
 
 .loopexit10787:                                   ; preds = %10926, %.body8682, %.body8682.thread
-  %.242498 = phi i1 [ false, %.body8682.thread ], [ false, %.body8682 ], [ %.252499, %10926 ]
-  %.242450 = phi ptr [ %10486, %.body8682.thread ], [ %10486, %.body8682 ], [ %.252451, %10926 ]
-  %.pn3700.pn.pn.pn = phi { ptr, i32 } [ %10488, %.body8682.thread ], [ %10494, %.body8682 ], [ %.pn3700.pn.pn, %10926 ]
+  %.242498 = phi i1 [ false, %.body8682 ], [ false, %.body8682.thread ], [ %.252499, %10926 ]
+  %.242450 = phi ptr [ %10486, %.body8682 ], [ %10486, %.body8682.thread ], [ %.252451, %10926 ]
+  %.pn3700.pn.pn.pn = phi { ptr, i32 } [ %10494, %.body8682 ], [ %10488, %.body8682.thread ], [ %.pn3700.pn.pn, %10926 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %811)
   br label %10930
 
@@ -32466,9 +32466,9 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   br i1 %10935, label %.loopexit10786, label %10932
 
 .loopexit10786:                                   ; preds = %10932, %.body8674, %.body8674.thread
-  %.222496 = phi i1 [ false, %.body8674.thread ], [ false, %.body8674 ], [ %.232497, %10932 ]
-  %.222448 = phi ptr [ %10472, %.body8674.thread ], [ %10472, %.body8674 ], [ %.232449, %10932 ]
-  %.pn3700.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %10474, %.body8674.thread ], [ %10480, %.body8674 ], [ %.pn3700.pn.pn.pn.pn, %10932 ]
+  %.222496 = phi i1 [ false, %.body8674 ], [ false, %.body8674.thread ], [ %.232497, %10932 ]
+  %.222448 = phi ptr [ %10472, %.body8674 ], [ %10472, %.body8674.thread ], [ %.232449, %10932 ]
+  %.pn3700.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %10480, %.body8674 ], [ %10474, %.body8674.thread ], [ %.pn3700.pn.pn.pn.pn, %10932 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %810)
   br label %10936
 
@@ -32487,9 +32487,9 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   br i1 %10941, label %.loopexit10785, label %10938
 
 .loopexit10785:                                   ; preds = %10938, %.body8666, %.body8666.thread
-  %.202494 = phi i1 [ false, %.body8666.thread ], [ false, %.body8666 ], [ %.212495, %10938 ]
-  %.202446 = phi ptr [ %10458, %.body8666.thread ], [ %10458, %.body8666 ], [ %.212447, %10938 ]
-  %.pn3700.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %10460, %.body8666.thread ], [ %10466, %.body8666 ], [ %.pn3700.pn.pn.pn.pn.pn.pn, %10938 ]
+  %.202494 = phi i1 [ false, %.body8666 ], [ false, %.body8666.thread ], [ %.212495, %10938 ]
+  %.202446 = phi ptr [ %10458, %.body8666 ], [ %10458, %.body8666.thread ], [ %.212447, %10938 ]
+  %.pn3700.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %10466, %.body8666 ], [ %10460, %.body8666.thread ], [ %.pn3700.pn.pn.pn.pn.pn.pn, %10938 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %809)
   br label %10942
 
@@ -32529,9 +32529,9 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   br i1 %10953, label %.loopexit10783, label %10950
 
 .loopexit10783:                                   ; preds = %10950, %.body8655, %.body8655.thread
-  %.162490 = phi i1 [ false, %.body8655.thread ], [ false, %.body8655 ], [ %.172491, %10950 ]
-  %.162442 = phi ptr [ %10432, %.body8655.thread ], [ %10432, %.body8655 ], [ %.172443, %10950 ]
-  %.pn3700.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %10434, %.body8655.thread ], [ %10440, %.body8655 ], [ %.pn3700.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %10950 ]
+  %.162490 = phi i1 [ false, %.body8655 ], [ false, %.body8655.thread ], [ %.172491, %10950 ]
+  %.162442 = phi ptr [ %10432, %.body8655 ], [ %10432, %.body8655.thread ], [ %.172443, %10950 ]
+  %.pn3700.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %10440, %.body8655 ], [ %10434, %.body8655.thread ], [ %.pn3700.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %10950 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %807)
   br label %10954
 
@@ -32655,9 +32655,9 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   br i1 %10989, label %.loopexit10777, label %10986
 
 .loopexit10777:                                   ; preds = %10986, %.body8623, %.body8623.thread
-  %.42478 = phi i1 [ false, %.body8623.thread ], [ false, %.body8623 ], [ %.52479, %10986 ]
-  %.42430 = phi ptr [ %10360, %.body8623.thread ], [ %10360, %.body8623 ], [ %.52431, %10986 ]
-  %.pn3700.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %10362, %.body8623.thread ], [ %10368, %.body8623 ], [ %.pn3700.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %10986 ]
+  %.42478 = phi i1 [ false, %.body8623 ], [ false, %.body8623.thread ], [ %.52479, %10986 ]
+  %.42430 = phi ptr [ %10360, %.body8623 ], [ %10360, %.body8623.thread ], [ %.52431, %10986 ]
+  %.pn3700.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %10368, %.body8623 ], [ %10362, %.body8623.thread ], [ %.pn3700.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %10986 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %801)
   br label %10990
 
@@ -38619,10 +38619,10 @@ _ZN8nlohmann16json_abi_v3_11_312json_pointerINSt7__cxx1112basic_stringIcSt11char
   br i1 %12994, label %.loopexit10754, label %12991
 
 .loopexit10754:                                   ; preds = %12991, %.body9044, %.body9044.thread
-  %.292692 = phi i1 [ true, %.body9044.thread ], [ true, %.body9044 ], [ %.302693, %12991 ]
-  %.112660 = phi i1 [ true, %.body9044.thread ], [ true, %.body9044 ], [ %.122661, %12991 ]
-  %.102646 = phi i1 [ true, %.body9044.thread ], [ true, %.body9044 ], [ %.112647, %12991 ]
-  %.pn3849.pn.pn.pn = phi { ptr, i32 } [ %12286, %.body9044.thread ], [ %12292, %.body9044 ], [ %.pn3849.pn.pn, %12991 ]
+  %.292692 = phi i1 [ true, %.body9044 ], [ true, %.body9044.thread ], [ %.302693, %12991 ]
+  %.112660 = phi i1 [ true, %.body9044 ], [ true, %.body9044.thread ], [ %.122661, %12991 ]
+  %.102646 = phi i1 [ true, %.body9044 ], [ true, %.body9044.thread ], [ %.112647, %12991 ]
+  %.pn3849.pn.pn.pn = phi { ptr, i32 } [ %12292, %.body9044 ], [ %12286, %.body9044.thread ], [ %.pn3849.pn.pn, %12991 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %939)
   br label %12995
 
@@ -38643,11 +38643,11 @@ _ZN8nlohmann16json_abi_v3_11_312json_pointerINSt7__cxx1112basic_stringIcSt11char
   br i1 %13000, label %.loopexit10753, label %12997
 
 .loopexit10753:                                   ; preds = %12997, %.body9036, %.body9036.thread
-  %.272690 = phi i1 [ true, %.body9036.thread ], [ true, %.body9036 ], [ %.282691, %12997 ]
-  %.92658 = phi i1 [ true, %.body9036.thread ], [ true, %.body9036 ], [ %.102659, %12997 ]
-  %.82644 = phi i1 [ true, %.body9036.thread ], [ true, %.body9036 ], [ %.92645, %12997 ]
-  %.82566 = phi ptr [ %12270, %.body9036.thread ], [ %12270, %.body9036 ], [ %.92567, %12997 ]
-  %.pn3849.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %12272, %.body9036.thread ], [ %12278, %.body9036 ], [ %.pn3849.pn.pn.pn.pn, %12997 ]
+  %.272690 = phi i1 [ true, %.body9036 ], [ true, %.body9036.thread ], [ %.282691, %12997 ]
+  %.92658 = phi i1 [ true, %.body9036 ], [ true, %.body9036.thread ], [ %.102659, %12997 ]
+  %.82644 = phi i1 [ true, %.body9036 ], [ true, %.body9036.thread ], [ %.92645, %12997 ]
+  %.82566 = phi ptr [ %12270, %.body9036 ], [ %12270, %.body9036.thread ], [ %.92567, %12997 ]
+  %.pn3849.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %12278, %.body9036 ], [ %12272, %.body9036.thread ], [ %.pn3849.pn.pn.pn.pn, %12997 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %938)
   br label %13001
 
@@ -38668,11 +38668,11 @@ _ZN8nlohmann16json_abi_v3_11_312json_pointerINSt7__cxx1112basic_stringIcSt11char
   br i1 %13006, label %.loopexit10752, label %13003
 
 .loopexit10752:                                   ; preds = %13003, %.body9028, %.body9028.thread
-  %.252688 = phi i1 [ true, %.body9028.thread ], [ true, %.body9028 ], [ %.262689, %13003 ]
-  %.72656 = phi i1 [ true, %.body9028.thread ], [ true, %.body9028 ], [ %.82657, %13003 ]
-  %.62642 = phi i1 [ true, %.body9028.thread ], [ true, %.body9028 ], [ %.72643, %13003 ]
-  %.62564 = phi ptr [ %12256, %.body9028.thread ], [ %12256, %.body9028 ], [ %.72565, %13003 ]
-  %.pn3849.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %12258, %.body9028.thread ], [ %12264, %.body9028 ], [ %.pn3849.pn.pn.pn.pn.pn.pn, %13003 ]
+  %.252688 = phi i1 [ true, %.body9028 ], [ true, %.body9028.thread ], [ %.262689, %13003 ]
+  %.72656 = phi i1 [ true, %.body9028 ], [ true, %.body9028.thread ], [ %.82657, %13003 ]
+  %.62642 = phi i1 [ true, %.body9028 ], [ true, %.body9028.thread ], [ %.72643, %13003 ]
+  %.62564 = phi ptr [ %12256, %.body9028 ], [ %12256, %.body9028.thread ], [ %.72565, %13003 ]
+  %.pn3849.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %12264, %.body9028 ], [ %12258, %.body9028.thread ], [ %.pn3849.pn.pn.pn.pn.pn.pn, %13003 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %937)
   br label %13007
 
@@ -38693,11 +38693,11 @@ _ZN8nlohmann16json_abi_v3_11_312json_pointerINSt7__cxx1112basic_stringIcSt11char
   br i1 %13012, label %.loopexit10751, label %13009
 
 .loopexit10751:                                   ; preds = %13009, %.body9020, %.body9020.thread
-  %.232686 = phi i1 [ true, %.body9020.thread ], [ true, %.body9020 ], [ %.242687, %13009 ]
-  %.52654 = phi i1 [ true, %.body9020.thread ], [ true, %.body9020 ], [ %.62655, %13009 ]
-  %.42640 = phi i1 [ true, %.body9020.thread ], [ true, %.body9020 ], [ %.52641, %13009 ]
-  %.42562 = phi ptr [ %12242, %.body9020.thread ], [ %12242, %.body9020 ], [ %.52563, %13009 ]
-  %.pn3849.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %12244, %.body9020.thread ], [ %12250, %.body9020 ], [ %.pn3849.pn.pn.pn.pn.pn.pn.pn.pn, %13009 ]
+  %.232686 = phi i1 [ true, %.body9020 ], [ true, %.body9020.thread ], [ %.242687, %13009 ]
+  %.52654 = phi i1 [ true, %.body9020 ], [ true, %.body9020.thread ], [ %.62655, %13009 ]
+  %.42640 = phi i1 [ true, %.body9020 ], [ true, %.body9020.thread ], [ %.52641, %13009 ]
+  %.42562 = phi ptr [ %12242, %.body9020 ], [ %12242, %.body9020.thread ], [ %.52563, %13009 ]
+  %.pn3849.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %12250, %.body9020 ], [ %12244, %.body9020.thread ], [ %.pn3849.pn.pn.pn.pn.pn.pn.pn.pn, %13009 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %936)
   br label %13013
 
@@ -38913,9 +38913,9 @@ _ZN8nlohmann16json_abi_v3_11_312json_pointerINSt7__cxx1112basic_stringIcSt11char
   br i1 %13065, label %.loopexit10741, label %13062
 
 .loopexit10741:                                   ; preds = %13062, %.body8972, %.body8972.thread
-  %.62669 = phi i1 [ true, %.body8972.thread ], [ true, %.body8972 ], [ %.72670, %13062 ]
-  %.62525 = phi ptr [ %12143, %.body8972.thread ], [ %12143, %.body8972 ], [ %.72526, %13062 ]
-  %.pn3849.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %12145, %.body8972.thread ], [ %12151, %.body8972 ], [ %.pn3849.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %13062 ]
+  %.62669 = phi i1 [ true, %.body8972 ], [ true, %.body8972.thread ], [ %.72670, %13062 ]
+  %.62525 = phi ptr [ %12143, %.body8972 ], [ %12143, %.body8972.thread ], [ %.72526, %13062 ]
+  %.pn3849.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %12151, %.body8972 ], [ %12145, %.body8972.thread ], [ %.pn3849.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %13062 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %925)
   br label %13066
 
@@ -42465,10 +42465,10 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   br i1 %14317, label %.loopexit10728, label %14314
 
 .loopexit10728:                                   ; preds = %14314, %.body9446, %.body9446.thread
-  %.102629 = phi i1 [ true, %.body9446.thread ], [ true, %.body9446 ], [ %.112630, %14314 ]
-  %.112616 = phi i1 [ true, %.body9446.thread ], [ true, %.body9446 ], [ %.122617, %14314 ]
-  %.292601 = phi i1 [ true, %.body9446.thread ], [ true, %.body9446 ], [ %.302602, %14314 ]
-  %.pn3957.pn.pn.pn = phi { ptr, i32 } [ %13523, %.body9446.thread ], [ %13529, %.body9446 ], [ %.pn3957.pn.pn, %14314 ]
+  %.102629 = phi i1 [ true, %.body9446 ], [ true, %.body9446.thread ], [ %.112630, %14314 ]
+  %.112616 = phi i1 [ true, %.body9446 ], [ true, %.body9446.thread ], [ %.122617, %14314 ]
+  %.292601 = phi i1 [ true, %.body9446 ], [ true, %.body9446.thread ], [ %.302602, %14314 ]
+  %.pn3957.pn.pn.pn = phi { ptr, i32 } [ %13529, %.body9446 ], [ %13523, %.body9446.thread ], [ %.pn3957.pn.pn, %14314 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1029)
   br label %14318
 
@@ -42489,11 +42489,11 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   br i1 %14323, label %.loopexit10727, label %14320
 
 .loopexit10727:                                   ; preds = %14320, %.body9438, %.body9438.thread
-  %.82731 = phi ptr [ %13507, %.body9438.thread ], [ %13507, %.body9438 ], [ %.92732, %14320 ]
-  %.82627 = phi i1 [ true, %.body9438.thread ], [ true, %.body9438 ], [ %.92628, %14320 ]
-  %.92614 = phi i1 [ true, %.body9438.thread ], [ true, %.body9438 ], [ %.102615, %14320 ]
-  %.272599 = phi i1 [ true, %.body9438.thread ], [ true, %.body9438 ], [ %.282600, %14320 ]
-  %.pn3957.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %13509, %.body9438.thread ], [ %13515, %.body9438 ], [ %.pn3957.pn.pn.pn.pn, %14320 ]
+  %.82731 = phi ptr [ %13507, %.body9438 ], [ %13507, %.body9438.thread ], [ %.92732, %14320 ]
+  %.82627 = phi i1 [ true, %.body9438 ], [ true, %.body9438.thread ], [ %.92628, %14320 ]
+  %.92614 = phi i1 [ true, %.body9438 ], [ true, %.body9438.thread ], [ %.102615, %14320 ]
+  %.272599 = phi i1 [ true, %.body9438 ], [ true, %.body9438.thread ], [ %.282600, %14320 ]
+  %.pn3957.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %13515, %.body9438 ], [ %13509, %.body9438.thread ], [ %.pn3957.pn.pn.pn.pn, %14320 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1028)
   br label %14324
 
@@ -42514,11 +42514,11 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   br i1 %14329, label %.loopexit10726, label %14326
 
 .loopexit10726:                                   ; preds = %14326, %.body9430, %.body9430.thread
-  %.62729 = phi ptr [ %13493, %.body9430.thread ], [ %13493, %.body9430 ], [ %.72730, %14326 ]
-  %.62625 = phi i1 [ true, %.body9430.thread ], [ true, %.body9430 ], [ %.72626, %14326 ]
-  %.72612 = phi i1 [ true, %.body9430.thread ], [ true, %.body9430 ], [ %.82613, %14326 ]
-  %.252597 = phi i1 [ true, %.body9430.thread ], [ true, %.body9430 ], [ %.262598, %14326 ]
-  %.pn3957.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %13495, %.body9430.thread ], [ %13501, %.body9430 ], [ %.pn3957.pn.pn.pn.pn.pn.pn, %14326 ]
+  %.62729 = phi ptr [ %13493, %.body9430 ], [ %13493, %.body9430.thread ], [ %.72730, %14326 ]
+  %.62625 = phi i1 [ true, %.body9430 ], [ true, %.body9430.thread ], [ %.72626, %14326 ]
+  %.72612 = phi i1 [ true, %.body9430 ], [ true, %.body9430.thread ], [ %.82613, %14326 ]
+  %.252597 = phi i1 [ true, %.body9430 ], [ true, %.body9430.thread ], [ %.262598, %14326 ]
+  %.pn3957.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %13501, %.body9430 ], [ %13495, %.body9430.thread ], [ %.pn3957.pn.pn.pn.pn.pn.pn, %14326 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1027)
   br label %14330
 
@@ -42539,11 +42539,11 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   br i1 %14335, label %.loopexit10725, label %14332
 
 .loopexit10725:                                   ; preds = %14332, %.body9422, %.body9422.thread
-  %.42727 = phi ptr [ %13479, %.body9422.thread ], [ %13479, %.body9422 ], [ %.52728, %14332 ]
-  %.42623 = phi i1 [ true, %.body9422.thread ], [ true, %.body9422 ], [ %.52624, %14332 ]
-  %.52610 = phi i1 [ true, %.body9422.thread ], [ true, %.body9422 ], [ %.62611, %14332 ]
-  %.232595 = phi i1 [ true, %.body9422.thread ], [ true, %.body9422 ], [ %.242596, %14332 ]
-  %.pn3957.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %13481, %.body9422.thread ], [ %13487, %.body9422 ], [ %.pn3957.pn.pn.pn.pn.pn.pn.pn.pn, %14332 ]
+  %.42727 = phi ptr [ %13479, %.body9422 ], [ %13479, %.body9422.thread ], [ %.52728, %14332 ]
+  %.42623 = phi i1 [ true, %.body9422 ], [ true, %.body9422.thread ], [ %.52624, %14332 ]
+  %.52610 = phi i1 [ true, %.body9422 ], [ true, %.body9422.thread ], [ %.62611, %14332 ]
+  %.232595 = phi i1 [ true, %.body9422 ], [ true, %.body9422.thread ], [ %.242596, %14332 ]
+  %.pn3957.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %13487, %.body9422 ], [ %13481, %.body9422.thread ], [ %.pn3957.pn.pn.pn.pn.pn.pn.pn.pn, %14332 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1026)
   br label %14336
 
@@ -42759,9 +42759,9 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   br i1 %14388, label %.loopexit10715, label %14385
 
 .loopexit10715:                                   ; preds = %14385, %.body9374, %.body9374.thread
-  %.62703 = phi ptr [ %13380, %.body9374.thread ], [ %13380, %.body9374 ], [ %.72704, %14385 ]
-  %.62578 = phi i1 [ true, %.body9374.thread ], [ true, %.body9374 ], [ %.72579, %14385 ]
-  %.pn3957.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %13382, %.body9374.thread ], [ %13388, %.body9374 ], [ %.pn3957.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %14385 ]
+  %.62703 = phi ptr [ %13380, %.body9374 ], [ %13380, %.body9374.thread ], [ %.72704, %14385 ]
+  %.62578 = phi i1 [ true, %.body9374 ], [ true, %.body9374.thread ], [ %.72579, %14385 ]
+  %.pn3957.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %13388, %.body9374 ], [ %13382, %.body9374.thread ], [ %.pn3957.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %14385 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1015)
   br label %14389
 
@@ -53132,8 +53132,8 @@ _ZNKSt4lessIN8nlohmann16json_abi_v3_11_312json_pointerINSt7__cxx1112basic_string
   br label %_ZNKSt4lessIN8nlohmann16json_abi_v3_11_312json_pointerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclERKS9_SC_.exit.thread.i.i.i
 
 _ZNKSt4lessIN8nlohmann16json_abi_v3_11_312json_pointerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclERKS9_SC_.exit.thread.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %34, %_ZNKSt4lessIN8nlohmann16json_abi_v3_11_312json_pointerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclERKS9_SC_.exit.i.i.i, %._crit_edge.i.i.i.i.i.i.i
-  %.sink.i.i.i = phi i64 [ 24, %34 ], [ 16, %._crit_edge.i.i.i.i.i.i.i ], [ 16, %_ZNKSt4lessIN8nlohmann16json_abi_v3_11_312json_pointerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclERKS9_SC_.exit.i.i.i ], [ 16, %.lr.ph.i.i.i.i.i.i.i ]
-  %.19.i.i.i = phi ptr [ %.0820.i.i.i, %34 ], [ %.021.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %.021.i.i.i, %_ZNKSt4lessIN8nlohmann16json_abi_v3_11_312json_pointerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclERKS9_SC_.exit.i.i.i ], [ %.021.i.i.i, %.lr.ph.i.i.i.i.i.i.i ]
+  %.sink.i.i.i = phi i64 [ 24, %34 ], [ 16, %_ZNKSt4lessIN8nlohmann16json_abi_v3_11_312json_pointerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclERKS9_SC_.exit.i.i.i ], [ 16, %._crit_edge.i.i.i.i.i.i.i ], [ 16, %.lr.ph.i.i.i.i.i.i.i ]
+  %.19.i.i.i = phi ptr [ %.0820.i.i.i, %34 ], [ %.021.i.i.i, %_ZNKSt4lessIN8nlohmann16json_abi_v3_11_312json_pointerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclERKS9_SC_.exit.i.i.i ], [ %.021.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %.021.i.i.i, %.lr.ph.i.i.i.i.i.i.i ]
   %35 = getelementptr inbounds nuw i8, ptr %.021.i.i.i, i64 %.sink.i.i.i
   %.1.i.i.i = load ptr, ptr %35, align 8, !tbaa !456
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
@@ -61434,7 +61434,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   br label %256
 
 _ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISD_EED2Ev.exit: ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev.exit, %_ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISD_EE7reserveEm.exit143, %_ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISD_EE7reserveEm.exit, %.loopexit
-  %249 = phi ptr [ %.lcssa331.sink, %.loopexit ], [ %.promoted, %_ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISD_EE7reserveEm.exit143 ], [ %.promoted251, %_ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISD_EE7reserveEm.exit ], [ %246, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev.exit ]
+  %249 = phi ptr [ %.lcssa331.sink, %.loopexit ], [ %.promoted251, %_ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISD_EE7reserveEm.exit ], [ %.promoted, %_ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISD_EE7reserveEm.exit143 ], [ %246, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev.exit ]
   %.not.i.i = icmp eq ptr %249, null
   br i1 %.not.i.i, label %_ZNSt12_Vector_baseIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES4_IhSaIhEEvEESaISE_EED2Ev.exit, label %250
 
@@ -65078,7 +65078,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7
   br label %_ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIPKcEEE12scan_literalESI_mNS1_10lexer_baseISF_E10token_typeE.exit7
 
 _ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIPKcEEE12scan_literalESI_mNS1_10lexer_baseISF_E10token_typeE.exit7: ; preds = %.lr.ph, %64, %70, %.critedge, %87, %86, %84, %82, %_ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIPKcEEE12scan_literalESI_mNS1_10lexer_baseISF_E10token_typeE.exit12, %_ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIPKcEEE12scan_literalESI_mNS1_10lexer_baseISF_E10token_typeE.exit, %53, %52, %51, %50, %49, %_ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIPKcEEE8skip_bomEv.exit.thread14
-  %.0 = phi i32 [ 14, %_ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIPKcEEE8skip_bomEv.exit.thread14 ], [ 14, %87 ], [ 10, %49 ], [ 9, %50 ], [ 11, %51 ], [ 12, %52 ], [ 13, %53 ], [ %63, %_ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIPKcEEE12scan_literalESI_mNS1_10lexer_baseISF_E10token_typeE.exit ], [ 8, %.critedge ], [ %81, %_ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIPKcEEE12scan_literalESI_mNS1_10lexer_baseISF_E10token_typeE.exit12 ], [ %83, %82 ], [ %85, %84 ], [ 15, %86 ], [ 14, %70 ], [ 2, %64 ], [ 14, %.lr.ph ]
+  %.0 = phi i32 [ 14, %_ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIPKcEEE8skip_bomEv.exit.thread14 ], [ 14, %87 ], [ 2, %64 ], [ 10, %49 ], [ 9, %50 ], [ 11, %51 ], [ 12, %52 ], [ 13, %53 ], [ %63, %_ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIPKcEEE12scan_literalESI_mNS1_10lexer_baseISF_E10token_typeE.exit ], [ 8, %.critedge ], [ %81, %_ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIPKcEEE12scan_literalESI_mNS1_10lexer_baseISF_E10token_typeE.exit12 ], [ %83, %82 ], [ %85, %84 ], [ 15, %86 ], [ 14, %70 ], [ 14, %.lr.ph ]
   ret i32 %.0
 }
 
@@ -65308,7 +65308,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_3
   br label %.loopexit
 
 .loopexit:                                        ; preds = %12, %.preheader, %.loopexit.sink.split
-  %.0 = phi i1 [ false, %.loopexit.sink.split ], [ true, %.preheader ], [ true, %12 ]
+  %.0 = phi i1 [ true, %.preheader ], [ false, %.loopexit.sink.split ], [ true, %12 ]
   ret i1 %.0
 }
 
@@ -66353,7 +66353,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7
   br label %.thread93
 
 .thread93:                                        ; preds = %358, %356, %354, %352, %350, %348, %346, %_ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIPKcEEE3getEv.exit, %.thread93.sink.split
-  %.1 = phi i32 [ 14, %.thread93.sink.split ], [ 14, %354 ], [ 14, %352 ], [ 14, %350 ], [ 14, %348 ], [ 14, %346 ], [ 4, %_ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIPKcEEE3getEv.exit ], [ 14, %358 ], [ 14, %356 ]
+  %.1 = phi i32 [ 14, %.thread93.sink.split ], [ 14, %356 ], [ 14, %358 ], [ 4, %_ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIPKcEEE3getEv.exit ], [ 14, %346 ], [ 14, %348 ], [ 14, %350 ], [ 14, %352 ], [ 14, %354 ]
   ret i32 %.1
 }
 
@@ -67215,7 +67215,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7
   br i1 %switch20, label %365, label %_ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIPKcEEE3getEv.exit.thread
 
 _ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIPKcEEE3getEv.exit.thread: ; preds = %_ZNSt6vectorIcSaIcEE9push_backEOc.exit.i, %154, %261, %_ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIPKcEEE3addEi.exit67, %.preheader, %183, %96
-  %.212 = phi i32 [ %.010, %96 ], [ %.111.ph, %183 ], [ 7, %.preheader ], [ 7, %261 ], [ 7, %_ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIPKcEEE3addEi.exit67 ], [ %.111.ph, %154 ], [ %.111.ph, %_ZNSt6vectorIcSaIcEE9push_backEOc.exit.i ]
+  %.212 = phi i32 [ %.010, %96 ], [ 7, %261 ], [ 7, %.preheader ], [ %.111.ph, %183 ], [ 7, %_ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIPKcEEE3addEi.exit67 ], [ %.111.ph, %154 ], [ %.111.ph, %_ZNSt6vectorIcSaIcEE9push_backEOc.exit.i ]
   %383 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 1, ptr %383, align 8, !tbaa !673
   %384 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -82590,7 +82590,7 @@ _ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.thread.i.i.i: ; preds = %_ZSteqIhSaIhE
   br label %_ZSteqIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES4_IhSaIhEEvEESaISE_EEbRKS4_IT_T0_ESK_.exit
 
 _ZSteqIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES4_IhSaIhEEvEESaISE_EEbRKS4_IT_T0_ESK_.exit: ; preds = %_ZSteqIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorS5_blmdSaNS8_14adl_serializerESB_IhSaIhEEvEEEbRKSt4pairIT_T0_ESL_.exit.i.i, %60, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit65, %.lr.ph, %.lr.ph83, %38, %.preheader, %130, %_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.thread.i.i.i, %_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i.i, %104, %76, %74, %64, %28, %7, %6, %187, %181, %174, %166, %157, %148, %138, %134, %98, %92, %86, %80
-  %.0 = phi i1 [ false, %134 ], [ false, %187 ], [ true, %74 ], [ false, %_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i.i ], [ false, %104 ], [ %85, %80 ], [ %91, %86 ], [ %97, %92 ], [ %103, %98 ], [ true, %6 ], [ %144, %138 ], [ %154, %148 ], [ %163, %157 ], [ %172, %166 ], [ %179, %174 ], [ %186, %181 ], [ false, %7 ], [ %133, %130 ], [ false, %28 ], [ false, %_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.thread.i.i.i ], [ false, %64 ], [ %79, %76 ], [ true, %38 ], [ true, %.preheader ], [ %25, %.lr.ph83 ], [ true, %60 ], [ false, %.lr.ph ], [ false, %_ZSteqIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorS5_blmdSaNS8_14adl_serializerESB_IhSaIhEEvEEEbRKSt4pairIT_T0_ESL_.exit.i.i ], [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit65 ]
+  %.0 = phi i1 [ false, %134 ], [ false, %187 ], [ true, %74 ], [ false, %_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i.i ], [ false, %104 ], [ %85, %80 ], [ %91, %86 ], [ %97, %92 ], [ %103, %98 ], [ true, %6 ], [ %144, %138 ], [ %154, %148 ], [ %163, %157 ], [ %172, %166 ], [ %179, %174 ], [ %186, %181 ], [ false, %7 ], [ %133, %130 ], [ false, %28 ], [ false, %_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.thread.i.i.i ], [ %25, %.lr.ph83 ], [ false, %64 ], [ %79, %76 ], [ true, %38 ], [ true, %.preheader ], [ false, %.lr.ph ], [ false, %_ZSteqIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorS5_blmdSaNS8_14adl_serializerESB_IhSaIhEEvEEEbRKSt4pairIT_T0_ESL_.exit.i.i ], [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit65 ], [ true, %60 ]
   ret i1 %.0
 }
 
@@ -86445,13 +86445,13 @@ _ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_st
   br label %.critedge46
 
 .critedge46:                                      ; preds = %36, %69
-  %.136 = phi ptr [ %37, %36 ], [ %70, %69 ]
+  %.136 = phi ptr [ %70, %69 ], [ %37, %36 ]
   %71 = getelementptr inbounds nuw i8, ptr %.sroa.066.092, i64 32
   %72 = icmp eq ptr %71, %5
   br i1 %72, label %.critedge46.thread, label %.lr.ph94
 
 .critedge46.thread:                               ; preds = %.critedge46, %.lr.ph94, %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE8containsERKS9_.exit, %45, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i53, %8, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorS5_blmdSaNS9_14adl_serializerESC_IhSaIhEEvEEESt10_Select1stISH_ESt4lessIvESaISH_EE14_M_lower_boundEPSt13_Rb_tree_nodeISH_EPSt18_Rb_tree_node_baseRS7_.exit.i.i.i, %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4sizeEv.exit, %.critedge50, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %.lr.ph, %2
-  %73 = phi i1 [ true, %2 ], [ false, %.lr.ph ], [ false, %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4sizeEv.exit ], [ false, %8 ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i53 ], [ false, %45 ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ false, %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE8containsERKS9_.exit ], [ false, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorS5_blmdSaNS9_14adl_serializerESC_IhSaIhEEvEEESt10_Select1stISH_ESt4lessIvESaISH_EE14_M_lower_boundEPSt13_Rb_tree_nodeISH_EPSt18_Rb_tree_node_baseRS7_.exit.i.i.i ], [ false, %.lr.ph94 ], [ true, %.critedge46 ], [ false, %.critedge50 ]
+  %73 = phi i1 [ false, %.lr.ph ], [ true, %2 ], [ false, %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4sizeEv.exit ], [ false, %8 ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i53 ], [ false, %45 ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ false, %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE8containsERKS9_.exit ], [ false, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorS5_blmdSaNS9_14adl_serializerESC_IhSaIhEEvEEESt10_Select1stISH_ESt4lessIvESaISH_EE14_M_lower_boundEPSt13_Rb_tree_nodeISH_EPSt18_Rb_tree_node_baseRS7_.exit.i.i.i ], [ false, %.lr.ph94 ], [ true, %.critedge46 ], [ false, %.critedge50 ]
   ret i1 %73
 }
 
@@ -94903,7 +94903,7 @@ _ZNKSt8__detail10_Synth3wayclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph.i.i.i.i.i.i, %14, %._crit_edge.i.i.i.i.i.i, %.loopexit.split.loop.exit.i.i.i.i.i.i
-  %44 = phi i1 [ true, %14 ], [ %41, %._crit_edge.i.i.i.i.i.i ], [ %43, %.loopexit.split.loop.exit.i.i.i.i.i.i ], [ false, %.lr.ph.i.i.i.i.i.i ]
+  %44 = phi i1 [ %43, %.loopexit.split.loop.exit.i.i.i.i.i.i ], [ true, %14 ], [ %41, %._crit_edge.i.i.i.i.i.i ], [ false, %.lr.ph.i.i.i.i.i.i ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %44, ptr noundef nonnull %8, ptr noundef nonnull %13, ptr noundef nonnull align 8 dereferenceable(32) %15) #29
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %46 = load i64, ptr %45, align 8, !tbaa !326
@@ -95320,8 +95320,8 @@ _ZNKSt4lessIN8nlohmann16json_abi_v3_11_312json_pointerINSt7__cxx1112basic_string
   br label %_ZNKSt4lessIN8nlohmann16json_abi_v3_11_312json_pointerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclERKS9_SC_.exit60.thread
 
 _ZNKSt4lessIN8nlohmann16json_abi_v3_11_312json_pointerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclERKS9_SC_.exit60.thread: ; preds = %.lr.ph.i.i.i.i44, %146, %94, %_ZNKSt4lessIN8nlohmann16json_abi_v3_11_312json_pointerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclERKS9_SC_.exit60, %._crit_edge.i.i.i.i58, %_ZNKSt4lessIN8nlohmann16json_abi_v3_11_312json_pointerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclERKS9_SC_.exit77.thread, %119, %_ZNKSt4lessIN8nlohmann16json_abi_v3_11_312json_pointerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclERKS9_SC_.exit43.thread, %66, %_ZNKSt4lessIN8nlohmann16json_abi_v3_11_312json_pointerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclERKS9_SC_.exit, %._crit_edge.i.i.i.i, %_ZNKSt4lessIN8nlohmann16json_abi_v3_11_312json_pointerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclERKS9_SC_.exit.thread
-  %.sroa.098.0 = phi ptr [ %38, %_ZNKSt4lessIN8nlohmann16json_abi_v3_11_312json_pointerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclERKS9_SC_.exit.thread ], [ %1, %_ZNKSt4lessIN8nlohmann16json_abi_v3_11_312json_pointerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclERKS9_SC_.exit60 ], [ null, %_ZNKSt4lessIN8nlohmann16json_abi_v3_11_312json_pointerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclERKS9_SC_.exit ], [ %spec.select105, %146 ], [ null, %._crit_edge.i.i.i.i ], [ %99, %_ZNKSt4lessIN8nlohmann16json_abi_v3_11_312json_pointerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclERKS9_SC_.exit43.thread ], [ %68, %66 ], [ %151, %_ZNKSt4lessIN8nlohmann16json_abi_v3_11_312json_pointerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclERKS9_SC_.exit77.thread ], [ null, %119 ], [ %spec.select, %94 ], [ %1, %._crit_edge.i.i.i.i58 ], [ %1, %.lr.ph.i.i.i.i44 ]
-  %.sroa.12.0 = phi ptr [ %39, %_ZNKSt4lessIN8nlohmann16json_abi_v3_11_312json_pointerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclERKS9_SC_.exit.thread ], [ null, %_ZNKSt4lessIN8nlohmann16json_abi_v3_11_312json_pointerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclERKS9_SC_.exit60 ], [ %11, %_ZNKSt4lessIN8nlohmann16json_abi_v3_11_312json_pointerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclERKS9_SC_.exit ], [ %spec.select106, %146 ], [ %11, %._crit_edge.i.i.i.i ], [ %100, %_ZNKSt4lessIN8nlohmann16json_abi_v3_11_312json_pointerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclERKS9_SC_.exit43.thread ], [ %68, %66 ], [ %152, %_ZNKSt4lessIN8nlohmann16json_abi_v3_11_312json_pointerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclERKS9_SC_.exit77.thread ], [ %121, %119 ], [ %spec.select104, %94 ], [ null, %._crit_edge.i.i.i.i58 ], [ null, %.lr.ph.i.i.i.i44 ]
+  %.sroa.098.0 = phi ptr [ %38, %_ZNKSt4lessIN8nlohmann16json_abi_v3_11_312json_pointerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclERKS9_SC_.exit.thread ], [ %1, %_ZNKSt4lessIN8nlohmann16json_abi_v3_11_312json_pointerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclERKS9_SC_.exit60 ], [ null, %_ZNKSt4lessIN8nlohmann16json_abi_v3_11_312json_pointerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclERKS9_SC_.exit ], [ %spec.select105, %146 ], [ null, %._crit_edge.i.i.i.i ], [ %99, %_ZNKSt4lessIN8nlohmann16json_abi_v3_11_312json_pointerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclERKS9_SC_.exit43.thread ], [ %68, %66 ], [ %1, %._crit_edge.i.i.i.i58 ], [ %151, %_ZNKSt4lessIN8nlohmann16json_abi_v3_11_312json_pointerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclERKS9_SC_.exit77.thread ], [ null, %119 ], [ %spec.select, %94 ], [ %1, %.lr.ph.i.i.i.i44 ]
+  %.sroa.12.0 = phi ptr [ %39, %_ZNKSt4lessIN8nlohmann16json_abi_v3_11_312json_pointerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclERKS9_SC_.exit.thread ], [ null, %_ZNKSt4lessIN8nlohmann16json_abi_v3_11_312json_pointerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclERKS9_SC_.exit60 ], [ %11, %_ZNKSt4lessIN8nlohmann16json_abi_v3_11_312json_pointerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclERKS9_SC_.exit ], [ %spec.select106, %146 ], [ %11, %._crit_edge.i.i.i.i ], [ %100, %_ZNKSt4lessIN8nlohmann16json_abi_v3_11_312json_pointerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclERKS9_SC_.exit43.thread ], [ %68, %66 ], [ null, %._crit_edge.i.i.i.i58 ], [ %152, %_ZNKSt4lessIN8nlohmann16json_abi_v3_11_312json_pointerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclERKS9_SC_.exit77.thread ], [ %121, %119 ], [ %spec.select104, %94 ], [ null, %.lr.ph.i.i.i.i44 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.098.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -95744,8 +95744,8 @@ _ZNKSt4lessIN8nlohmann16json_abi_v3_11_312json_pointerINSt7__cxx1112basic_string
   br label %_ZNKSt4lessIN8nlohmann16json_abi_v3_11_312json_pointerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclERKS9_SC_.exit.thread.i
 
 _ZNKSt4lessIN8nlohmann16json_abi_v3_11_312json_pointerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclERKS9_SC_.exit.thread.i: ; preds = %.lr.ph.i.i.i.i.i, %32, %_ZNKSt4lessIN8nlohmann16json_abi_v3_11_312json_pointerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclERKS9_SC_.exit.i, %._crit_edge.i.i.i.i.i
-  %.sink.i = phi i64 [ 24, %32 ], [ 16, %._crit_edge.i.i.i.i.i ], [ 16, %_ZNKSt4lessIN8nlohmann16json_abi_v3_11_312json_pointerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclERKS9_SC_.exit.i ], [ 16, %.lr.ph.i.i.i.i.i ]
-  %.19.i = phi ptr [ %.0820.i, %32 ], [ %.021.i, %._crit_edge.i.i.i.i.i ], [ %.021.i, %_ZNKSt4lessIN8nlohmann16json_abi_v3_11_312json_pointerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclERKS9_SC_.exit.i ], [ %.021.i, %.lr.ph.i.i.i.i.i ]
+  %.sink.i = phi i64 [ 24, %32 ], [ 16, %_ZNKSt4lessIN8nlohmann16json_abi_v3_11_312json_pointerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclERKS9_SC_.exit.i ], [ 16, %._crit_edge.i.i.i.i.i ], [ 16, %.lr.ph.i.i.i.i.i ]
+  %.19.i = phi ptr [ %.0820.i, %32 ], [ %.021.i, %_ZNKSt4lessIN8nlohmann16json_abi_v3_11_312json_pointerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclERKS9_SC_.exit.i ], [ %.021.i, %._crit_edge.i.i.i.i.i ], [ %.021.i, %.lr.ph.i.i.i.i.i ]
   %33 = getelementptr inbounds nuw i8, ptr %.021.i, i64 %.sink.i
   %.1.i = load ptr, ptr %33, align 8, !tbaa !456
   %.not.i = icmp eq ptr %.1.i, null
@@ -97080,13 +97080,13 @@ _ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_st
   br label %.critedge46
 
 .critedge46:                                      ; preds = %36, %69
-  %.136 = phi ptr [ %37, %36 ], [ %70, %69 ]
+  %.136 = phi ptr [ %70, %69 ], [ %37, %36 ]
   %71 = getelementptr inbounds nuw i8, ptr %.sroa.066.092, i64 32
   %72 = icmp eq ptr %71, %5
   br i1 %72, label %.critedge46.thread, label %.lr.ph94
 
 .critedge46.thread:                               ; preds = %.critedge46, %.lr.ph94, %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE8containsERKS9_.exit, %45, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i53, %8, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorS5_blmdSaNS9_14adl_serializerESC_IhSaIhEEvEEESt10_Select1stISH_ESt4lessIvESaISH_EE14_M_lower_boundEPSt13_Rb_tree_nodeISH_EPSt18_Rb_tree_node_baseRS7_.exit.i.i.i, %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4sizeEv.exit, %.critedge50, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %.lr.ph, %2
-  %73 = phi i1 [ true, %2 ], [ false, %.lr.ph ], [ false, %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4sizeEv.exit ], [ false, %8 ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i53 ], [ false, %45 ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ false, %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE8containsERKS9_.exit ], [ false, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorS5_blmdSaNS9_14adl_serializerESC_IhSaIhEEvEEESt10_Select1stISH_ESt4lessIvESaISH_EE14_M_lower_boundEPSt13_Rb_tree_nodeISH_EPSt18_Rb_tree_node_baseRS7_.exit.i.i.i ], [ false, %.lr.ph94 ], [ true, %.critedge46 ], [ false, %.critedge50 ]
+  %73 = phi i1 [ false, %.lr.ph ], [ true, %2 ], [ false, %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4sizeEv.exit ], [ false, %8 ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i53 ], [ false, %45 ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ false, %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE8containsERKS9_.exit ], [ false, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorS5_blmdSaNS9_14adl_serializerESC_IhSaIhEEvEEESt10_Select1stISH_ESt4lessIvESaISH_EE14_M_lower_boundEPSt13_Rb_tree_nodeISH_EPSt18_Rb_tree_node_baseRS7_.exit.i.i.i ], [ false, %.lr.ph94 ], [ true, %.critedge46 ], [ false, %.critedge50 ]
   ret i1 %73
 }
 
@@ -97513,13 +97513,13 @@ _ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_st
   br label %.critedge46
 
 .critedge46:                                      ; preds = %36, %69
-  %.136 = phi ptr [ %37, %36 ], [ %70, %69 ]
+  %.136 = phi ptr [ %70, %69 ], [ %37, %36 ]
   %71 = getelementptr inbounds nuw i8, ptr %.sroa.066.092, i64 32
   %72 = icmp eq ptr %71, %5
   br i1 %72, label %.critedge46.thread, label %.lr.ph94
 
 .critedge46.thread:                               ; preds = %.critedge46, %.lr.ph94, %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE8containsERKS9_.exit, %45, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i53, %8, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorS5_blmdSaNS9_14adl_serializerESC_IhSaIhEEvEEESt10_Select1stISH_ESt4lessIvESaISH_EE14_M_lower_boundEPSt13_Rb_tree_nodeISH_EPSt18_Rb_tree_node_baseRS7_.exit.i.i.i, %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4sizeEv.exit, %.critedge50, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %.lr.ph, %2
-  %73 = phi i1 [ true, %2 ], [ false, %.lr.ph ], [ false, %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4sizeEv.exit ], [ false, %8 ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i53 ], [ false, %45 ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ false, %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE8containsERKS9_.exit ], [ false, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorS5_blmdSaNS9_14adl_serializerESC_IhSaIhEEvEEESt10_Select1stISH_ESt4lessIvESaISH_EE14_M_lower_boundEPSt13_Rb_tree_nodeISH_EPSt18_Rb_tree_node_baseRS7_.exit.i.i.i ], [ false, %.lr.ph94 ], [ true, %.critedge46 ], [ false, %.critedge50 ]
+  %73 = phi i1 [ false, %.lr.ph ], [ true, %2 ], [ false, %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4sizeEv.exit ], [ false, %8 ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i53 ], [ false, %45 ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ false, %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE8containsERKS9_.exit ], [ false, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorS5_blmdSaNS9_14adl_serializerESC_IhSaIhEEvEEESt10_Select1stISH_ESt4lessIvESaISH_EE14_M_lower_boundEPSt13_Rb_tree_nodeISH_EPSt18_Rb_tree_node_baseRS7_.exit.i.i.i ], [ false, %.lr.ph94 ], [ true, %.critedge46 ], [ false, %.critedge50 ]
   ret i1 %73
 }
 

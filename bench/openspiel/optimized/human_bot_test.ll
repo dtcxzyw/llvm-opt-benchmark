@@ -682,7 +682,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN10open_spiel12_GLOBAL__N_115EmptyActionTestEv.exit
 
 .loopexit.i:                                      ; preds = %192, %204, %198, %196, %.loopexit.loopexit48.i, %.thread.i
-  %.pn14.i = phi { ptr, i32 } [ %199, %198 ], [ %197, %196 ], [ %205, %204 ], [ %132, %.thread.i ], [ %189, %.loopexit.loopexit48.i ], [ %.pn12.i, %192 ]
+  %.pn14.i = phi { ptr, i32 } [ %199, %198 ], [ %197, %196 ], [ %205, %204 ], [ %189, %.loopexit.loopexit48.i ], [ %132, %.thread.i ], [ %.pn12.i, %192 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %91) #17
   br label %247
 
@@ -1002,7 +1002,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit.
   br label %.body24.i6
 
 .body24.i6:                                       ; preds = %.body27.i, %337, %.body188
-  %.pn13.pn.i = phi { ptr, i32 } [ %338, %337 ], [ %302, %.body188 ], [ %.pn13.i, %.body27.i ]
+  %.pn13.pn.i = phi { ptr, i32 } [ %302, %.body188 ], [ %338, %337 ], [ %.pn13.i, %.body27.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %78) #17
   br label %390
 
@@ -2375,7 +2375,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN10open_spiel12_GLOBAL__N_123IllegalStringActionTestEv.exit
 
 .loopexit.i89:                                    ; preds = %711, %717, %715, %.loopexit.loopexit48.i90, %.thread.i88
-  %.pn15.i = phi { ptr, i32 } [ %718, %717 ], [ %716, %715 ], [ %655, %.thread.i88 ], [ %708, %.loopexit.loopexit48.i90 ], [ %.pn13.i92, %711 ]
+  %.pn15.i = phi { ptr, i32 } [ %718, %717 ], [ %716, %715 ], [ %708, %.loopexit.loopexit48.i90 ], [ %655, %.thread.i88 ], [ %.pn13.i92, %711 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %40) #17
   br label %760
 
@@ -2914,7 +2914,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN10open_spiel12_GLOBAL__N_120IllegalIntActionTestEv.exit
 
 .loopexit.i145:                                   ; preds = %860, %872, %866, %864, %.loopexit.loopexit48.i147, %.thread.i144
-  %.pn14.i146 = phi { ptr, i32 } [ %867, %866 ], [ %865, %864 ], [ %873, %872 ], [ %800, %.thread.i144 ], [ %857, %.loopexit.loopexit48.i147 ], [ %.pn12.i150, %860 ]
+  %.pn14.i146 = phi { ptr, i32 } [ %867, %866 ], [ %865, %864 ], [ %873, %872 ], [ %857, %.loopexit.loopexit48.i147 ], [ %800, %.thread.i144 ], [ %.pn12.i150, %860 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %25) #17
   br label %915
 

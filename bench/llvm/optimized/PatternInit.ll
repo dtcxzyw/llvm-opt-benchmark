@@ -264,7 +264,7 @@ _ZSt6fill_nIPPN4llvm8ConstantEmS2_ET_S4_T0_RKT1_.exit.i.i: ; preds = %91
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN4llvm11SmallVectorIPNS_8ConstantELj8EEC2EmRKS2_.exit, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !701
 
 _ZN4llvm11SmallVectorIPNS_8ConstantELj8EEC2EmRKS2_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i, %_ZSt6fill_nIPPN4llvm8ConstantEmS2_ET_S4_T0_RKT1_.exit.i.i
-  %108 = phi ptr [ %97, %_ZSt6fill_nIPPN4llvm8ConstantEmS2_ET_S4_T0_RKT1_.exit.i.i ], [ %102, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %97, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %108 = phi ptr [ %102, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %97, %_ZSt6fill_nIPPN4llvm8ConstantEmS2_ET_S4_T0_RKT1_.exit.i.i ], [ %97, %.lr.ph.i.i.i.i.i.i.i.i ]
   %storemerge.i = trunc i64 %93 to i32
   store i32 %storemerge.i, ptr %98, align 8, !tbaa !699
   %109 = and i64 %93, 4294967295

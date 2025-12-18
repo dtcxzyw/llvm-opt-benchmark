@@ -5374,7 +5374,7 @@ _ZN5boost6detail10lowest_bitImEEiT_.exit.i67.i.i: ; preds = %_ZN5boost6detail10l
   br label %_ZNK5boost14dynamic_bitsetImSaImEE9find_nextEm.exit.i.i
 
 _ZNK5boost14dynamic_bitsetImSaImEE9find_nextEm.exit.i.i: ; preds = %_ZN5boost6detail10lowest_bitImEEiT_.exit.i67.i.i, %_ZN5boost6detail10lowest_bitImEEiT_.exit.i.i.i
-  %.0.i.i.i = phi i64 [ %1906, %_ZN5boost6detail10lowest_bitImEEiT_.exit.i.i.i ], [ %1957, %_ZN5boost6detail10lowest_bitImEEiT_.exit.i67.i.i ]
+  %.0.i.i.i = phi i64 [ %1957, %_ZN5boost6detail10lowest_bitImEEiT_.exit.i67.i.i ], [ %1906, %_ZN5boost6detail10lowest_bitImEEiT_.exit.i.i.i ]
   %.not11.i.i = icmp eq i64 %.0.i.i.i, -1
   br i1 %.not11.i.i, label %._crit_edge.i.i65, label %1851, !llvm.loop !363
 
@@ -5793,7 +5793,7 @@ _ZN5boost6detail10lowest_bitImEEiT_.exit.i90.i.i: ; preds = %_ZN5boost6detail10l
   br label %_ZNK5boost14dynamic_bitsetImSaImEE9find_nextEm.exit53.i.i
 
 _ZNK5boost14dynamic_bitsetImSaImEE9find_nextEm.exit53.i.i: ; preds = %_ZN5boost6detail10lowest_bitImEEiT_.exit.i90.i.i, %_ZN5boost6detail10lowest_bitImEEiT_.exit.i50.i.i
-  %.0.i52.i.i = phi i64 [ %2067, %_ZN5boost6detail10lowest_bitImEEiT_.exit.i50.i.i ], [ %2118, %_ZN5boost6detail10lowest_bitImEEiT_.exit.i90.i.i ]
+  %.0.i52.i.i = phi i64 [ %2118, %_ZN5boost6detail10lowest_bitImEEiT_.exit.i90.i.i ], [ %2067, %_ZN5boost6detail10lowest_bitImEEiT_.exit.i50.i.i ]
   %.not13.i.i = icmp eq i64 %.0.i52.i.i, -1
   br i1 %.not13.i.i, label %.loopexit.i.i66, label %2012, !llvm.loop !368
 
@@ -6418,7 +6418,7 @@ _ZN5boost6detail10lowest_bitImEEiT_.exit.i79.i.i: ; preds = %_ZN5boost6detail10l
   br label %_ZNK5boost14dynamic_bitsetImSaImEE9find_nextEm.exit.i104.i
 
 _ZNK5boost14dynamic_bitsetImSaImEE9find_nextEm.exit.i104.i: ; preds = %_ZN5boost6detail10lowest_bitImEEiT_.exit.i79.i.i, %_ZN5boost6detail10lowest_bitImEEiT_.exit.i.i102.i
-  %.0.i.i105.i = phi i64 [ %2299, %_ZN5boost6detail10lowest_bitImEEiT_.exit.i.i102.i ], [ %2350, %_ZN5boost6detail10lowest_bitImEEiT_.exit.i79.i.i ]
+  %.0.i.i105.i = phi i64 [ %2350, %_ZN5boost6detail10lowest_bitImEEiT_.exit.i79.i.i ], [ %2299, %_ZN5boost6detail10lowest_bitImEEiT_.exit.i.i102.i ]
   %.not.i106.i = icmp eq i64 %.0.i.i105.i, -1
   br i1 %.not.i106.i, label %._crit_edge.i107.loopexit.i, label %2246, !llvm.loop !374
 
@@ -6701,7 +6701,7 @@ _ZN5boost6detail10lowest_bitImEEiT_.exit.i102.i.i: ; preds = %_ZN5boost6detail10
   br label %_ZNK5boost14dynamic_bitsetImSaImEE9find_nextEm.exit65.i.i
 
 _ZNK5boost14dynamic_bitsetImSaImEE9find_nextEm.exit65.i.i: ; preds = %_ZN5boost6detail10lowest_bitImEEiT_.exit.i102.i.i, %_ZN5boost6detail10lowest_bitImEEiT_.exit.i62.i.i
-  %.0.i64.i.i = phi i64 [ %2404, %_ZN5boost6detail10lowest_bitImEEiT_.exit.i62.i.i ], [ %2455, %_ZN5boost6detail10lowest_bitImEEiT_.exit.i102.i.i ]
+  %.0.i64.i.i = phi i64 [ %2455, %_ZN5boost6detail10lowest_bitImEEiT_.exit.i102.i.i ], [ %2404, %_ZN5boost6detail10lowest_bitImEEiT_.exit.i62.i.i ]
   %.not23.i.i = icmp eq i64 %.0.i64.i.i, -1
   br i1 %.not23.i.i, label %._crit_edge155.i.i, label %2351, !llvm.loop !380
 
@@ -12422,7 +12422,7 @@ _ZNK5boost14dynamic_bitsetImSaImEE10find_firstEv.exit.i: ; preds = %_ZN5boost6de
   br label %116
 
 ._crit_edge.i:                                    ; preds = %_ZNK5boost14dynamic_bitsetImSaImEE9find_nextEm.exit.i, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEPFbmEET_SA_SA_T0_.exit.i110.i, %_ZNSt6vectorIN12_GLOBAL__N_18StateSet5StateESaIS2_EE12emplace_backIJRmRjRKmNS2_9node_typeEEEEvDpOT_.exit.i, %40, %28, %_ZNK5boost14dynamic_bitsetImSaImEE10find_firstEv.exit.i, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEPFbmEET_SA_SA_T0_.exit.i.i
-  %103 = phi ptr [ %41, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEPFbmEET_SA_SA_T0_.exit.i.i ], [ %41, %_ZNK5boost14dynamic_bitsetImSaImEE10find_firstEv.exit.i ], [ %41, %40 ], [ null, %28 ], [ %41, %_ZNSt6vectorIN12_GLOBAL__N_18StateSet5StateESaIS2_EE12emplace_backIJRmRjRKmNS2_9node_typeEEEEvDpOT_.exit.i ], [ %41, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEPFbmEET_SA_SA_T0_.exit.i110.i ], [ %41, %_ZNK5boost14dynamic_bitsetImSaImEE9find_nextEm.exit.i ]
+  %103 = phi ptr [ %41, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEPFbmEET_SA_SA_T0_.exit.i.i ], [ null, %28 ], [ %41, %40 ], [ %41, %_ZNK5boost14dynamic_bitsetImSaImEE10find_firstEv.exit.i ], [ %41, %_ZNSt6vectorIN12_GLOBAL__N_18StateSet5StateESaIS2_EE12emplace_backIJRmRjRKmNS2_9node_typeEEEEvDpOT_.exit.i ], [ %41, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEPFbmEET_SA_SA_T0_.exit.i110.i ], [ %41, %_ZNK5boost14dynamic_bitsetImSaImEE9find_nextEm.exit.i ]
   %104 = load ptr, ptr %26, align 8
   %105 = getelementptr inbounds nuw %"class.boost::dynamic_bitset", ptr %104, i64 %29
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
@@ -12727,7 +12727,7 @@ _ZN5boost6detail10lowest_bitImEEiT_.exit.i125.i:  ; preds = %_ZN5boost6detail10l
   br label %_ZNK5boost14dynamic_bitsetImSaImEE9find_nextEm.exit.i
 
 _ZNK5boost14dynamic_bitsetImSaImEE9find_nextEm.exit.i: ; preds = %_ZN5boost6detail10lowest_bitImEEiT_.exit.i125.i, %_ZN5boost6detail10lowest_bitImEEiT_.exit.i.i
-  %.0.i.i = phi i64 [ %168, %_ZN5boost6detail10lowest_bitImEEiT_.exit.i.i ], [ %214, %_ZN5boost6detail10lowest_bitImEEiT_.exit.i125.i ]
+  %.0.i.i = phi i64 [ %214, %_ZN5boost6detail10lowest_bitImEEiT_.exit.i125.i ], [ %168, %_ZN5boost6detail10lowest_bitImEEiT_.exit.i.i ]
   %.not13.i = icmp eq i64 %.0.i.i, -1
   br i1 %.not13.i, label %._crit_edge.i, label %116
 
@@ -13202,7 +13202,7 @@ _ZN5boost6detail10lowest_bitImEEiT_.exit.i205.i:  ; preds = %_ZN5boost6detail10l
   br label %_ZNK5boost14dynamic_bitsetImSaImEE9find_nextEm.exit84.i
 
 _ZNK5boost14dynamic_bitsetImSaImEE9find_nextEm.exit84.i: ; preds = %_ZN5boost6detail10lowest_bitImEEiT_.exit.i205.i, %_ZN5boost6detail10lowest_bitImEEiT_.exit.i80.i
-  %.0.i82.i = phi i64 [ %330, %_ZN5boost6detail10lowest_bitImEEiT_.exit.i80.i ], [ %376, %_ZN5boost6detail10lowest_bitImEEiT_.exit.i205.i ]
+  %.0.i82.i = phi i64 [ %376, %_ZN5boost6detail10lowest_bitImEEiT_.exit.i205.i ], [ %330, %_ZN5boost6detail10lowest_bitImEEiT_.exit.i80.i ]
   %.not15.i = icmp eq i64 %.0.i82.i, -1
   br i1 %.not15.i, label %._crit_edge324.thread.i, label %278
 
@@ -13449,7 +13449,7 @@ _ZNK5boost14dynamic_bitsetImSaImEE10find_firstEv.exit.i242: ; preds = %_ZN5boost
   br label %475
 
 ._crit_edge.i73:                                  ; preds = %_ZNK5boost14dynamic_bitsetImSaImEE9find_nextEm.exit.i266, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEPFbmEET_SA_SA_T0_.exit.i110.i277, %_ZNSt6vectorIN12_GLOBAL__N_18StateSet5StateESaIS2_EE12emplace_backIJRmRjRKmNS2_9node_typeEEEEvDpOT_.exit.i250, %399, %387, %_ZNK5boost14dynamic_bitsetImSaImEE10find_firstEv.exit.i242, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEPFbmEET_SA_SA_T0_.exit.i.i69
-  %462 = phi ptr [ %400, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEPFbmEET_SA_SA_T0_.exit.i.i69 ], [ %400, %_ZNK5boost14dynamic_bitsetImSaImEE10find_firstEv.exit.i242 ], [ %400, %399 ], [ null, %387 ], [ %400, %_ZNSt6vectorIN12_GLOBAL__N_18StateSet5StateESaIS2_EE12emplace_backIJRmRjRKmNS2_9node_typeEEEEvDpOT_.exit.i250 ], [ %400, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEPFbmEET_SA_SA_T0_.exit.i110.i277 ], [ %400, %_ZNK5boost14dynamic_bitsetImSaImEE9find_nextEm.exit.i266 ]
+  %462 = phi ptr [ %400, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEPFbmEET_SA_SA_T0_.exit.i.i69 ], [ null, %387 ], [ %400, %399 ], [ %400, %_ZNK5boost14dynamic_bitsetImSaImEE10find_firstEv.exit.i242 ], [ %400, %_ZNSt6vectorIN12_GLOBAL__N_18StateSet5StateESaIS2_EE12emplace_backIJRmRjRKmNS2_9node_typeEEEEvDpOT_.exit.i250 ], [ %400, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEPFbmEET_SA_SA_T0_.exit.i110.i277 ], [ %400, %_ZNK5boost14dynamic_bitsetImSaImEE9find_nextEm.exit.i266 ]
   %463 = load ptr, ptr %385, align 8
   %464 = getelementptr inbounds nuw %"class.boost::dynamic_bitset", ptr %463, i64 %388
   %465 = getelementptr inbounds nuw i8, ptr %464, i64 8
@@ -13754,7 +13754,7 @@ _ZN5boost6detail10lowest_bitImEEiT_.exit.i125.i291: ; preds = %_ZN5boost6detail1
   br label %_ZNK5boost14dynamic_bitsetImSaImEE9find_nextEm.exit.i266
 
 _ZNK5boost14dynamic_bitsetImSaImEE9find_nextEm.exit.i266: ; preds = %_ZN5boost6detail10lowest_bitImEEiT_.exit.i125.i291, %_ZN5boost6detail10lowest_bitImEEiT_.exit.i.i264
-  %.0.i.i267 = phi i64 [ %527, %_ZN5boost6detail10lowest_bitImEEiT_.exit.i.i264 ], [ %573, %_ZN5boost6detail10lowest_bitImEEiT_.exit.i125.i291 ]
+  %.0.i.i267 = phi i64 [ %573, %_ZN5boost6detail10lowest_bitImEEiT_.exit.i125.i291 ], [ %527, %_ZN5boost6detail10lowest_bitImEEiT_.exit.i.i264 ]
   %.not13.i268 = icmp eq i64 %.0.i.i267, -1
   br i1 %.not13.i268, label %._crit_edge.i73, label %475
 
@@ -14229,7 +14229,7 @@ _ZN5boost6detail10lowest_bitImEEiT_.exit.i205.i171: ; preds = %_ZN5boost6detail1
   br label %_ZNK5boost14dynamic_bitsetImSaImEE9find_nextEm.exit84.i146
 
 _ZNK5boost14dynamic_bitsetImSaImEE9find_nextEm.exit84.i146: ; preds = %_ZN5boost6detail10lowest_bitImEEiT_.exit.i205.i171, %_ZN5boost6detail10lowest_bitImEEiT_.exit.i80.i144
-  %.0.i82.i147 = phi i64 [ %689, %_ZN5boost6detail10lowest_bitImEEiT_.exit.i80.i144 ], [ %735, %_ZN5boost6detail10lowest_bitImEEiT_.exit.i205.i171 ]
+  %.0.i82.i147 = phi i64 [ %735, %_ZN5boost6detail10lowest_bitImEEiT_.exit.i205.i171 ], [ %689, %_ZN5boost6detail10lowest_bitImEEiT_.exit.i80.i144 ]
   %.not15.i148 = icmp eq i64 %.0.i82.i147, -1
   br i1 %.not15.i148, label %._crit_edge324.thread.i106, label %637
 
@@ -14638,7 +14638,7 @@ _ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit.thread.i.thread.i: ; preds = %_ZNKSt4le
   br i1 %.not.i20.i, label %._crit_edge.i.thread.i, label %.lr.ph.i.i382.backedge
 
 .lr.ph.i.i382.backedge:                           ; preds = %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit.thread.i.thread.i, %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit.thread.i.i
-  %.02126.i.i.be = phi ptr [ %.021.i.i, %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit.thread.i.i ], [ %.021.i19.i, %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit.thread.i.thread.i ]
+  %.02126.i.i.be = phi ptr [ %.021.i19.i, %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit.thread.i.thread.i ], [ %.021.i.i, %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit.thread.i.i ]
   br label %.lr.ph.i.i382, !llvm.loop !516
 
 ._crit_edge.thread.i.i:                           ; preds = %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit.thread.i.i, %871

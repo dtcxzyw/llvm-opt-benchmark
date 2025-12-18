@@ -15425,7 +15425,7 @@ _ZN12aho_corasick9automaton9get_match17h8f38831a14e71d47E.exit25: ; preds = %"_Z
   br i1 %410, label %.backedge, label %358
 
 _ZN12aho_corasick9automaton28try_find_overlapping_fwd_imp17h146b802d1cd69f33E.exit: ; preds = %356, %173, %34, %36, %407, %_ZN12aho_corasick9automaton9get_match17h8f38831a14e71d47E.exit25, %._crit_edge, %_ZN12aho_corasick9automaton9get_match17h8f38831a14e71d47E.exit23, %_ZN12aho_corasick9automaton9get_match17h8f38831a14e71d47E.exit, %225, %_ZN12aho_corasick9automaton9get_match17h8f38831a14e71d47E.exit31, %._crit_edge213, %_ZN12aho_corasick9automaton9get_match17h8f38831a14e71d47E.exit29, %_ZN12aho_corasick9automaton9get_match17h8f38831a14e71d47E.exit27, %3
-  %.0 = phi ptr [ null, %3 ], [ null, %_ZN12aho_corasick9automaton9get_match17h8f38831a14e71d47E.exit27 ], [ null, %_ZN12aho_corasick9automaton9get_match17h8f38831a14e71d47E.exit29 ], [ null, %_ZN12aho_corasick9automaton9get_match17h8f38831a14e71d47E.exit31 ], [ null, %._crit_edge213 ], [ null, %_ZN12aho_corasick9automaton9get_match17h8f38831a14e71d47E.exit ], [ null, %_ZN12aho_corasick9automaton9get_match17h8f38831a14e71d47E.exit23 ], [ null, %_ZN12aho_corasick9automaton9get_match17h8f38831a14e71d47E.exit25 ], [ null, %407 ], [ null, %._crit_edge ], [ %226, %225 ], [ %35, %34 ], [ %37, %36 ], [ null, %173 ], [ null, %356 ]
+  %.0 = phi ptr [ null, %173 ], [ null, %3 ], [ null, %_ZN12aho_corasick9automaton9get_match17h8f38831a14e71d47E.exit27 ], [ null, %_ZN12aho_corasick9automaton9get_match17h8f38831a14e71d47E.exit29 ], [ null, %_ZN12aho_corasick9automaton9get_match17h8f38831a14e71d47E.exit31 ], [ %37, %36 ], [ null, %._crit_edge213 ], [ null, %_ZN12aho_corasick9automaton9get_match17h8f38831a14e71d47E.exit ], [ null, %_ZN12aho_corasick9automaton9get_match17h8f38831a14e71d47E.exit23 ], [ null, %_ZN12aho_corasick9automaton9get_match17h8f38831a14e71d47E.exit25 ], [ null, %407 ], [ null, %._crit_edge ], [ %226, %225 ], [ %35, %34 ], [ null, %356 ]
   ret ptr %.0
 }
 
@@ -29494,8 +29494,8 @@ define hidden void @"_ZN101_$LT$tokenizers..models..wordpiece..serialization..Wo
   resume { ptr, i32 } %.pn121264
 
 .body:                                            ; preds = %81, %33
-  %.1 = phi i8 [ %.0, %33 ], [ %.4, %81 ]
-  %.pn121 = phi { ptr, i32 } [ %34, %33 ], [ %.pn119, %81 ]
+  %.1 = phi i8 [ %.4, %81 ], [ %.0, %33 ]
+  %.pn121 = phi { ptr, i32 } [ %.pn119, %81 ], [ %34, %33 ]
   %32 = trunc nuw i8 %.1 to i1
   br i1 %32, label %.body.thread, label %"_ZN4core3ptr68drop_in_place$LT$tokenizers..models..wordpiece..WordPieceBuilder$GT$17h66fb1bfa14f4a867E.exit210"
 
@@ -29675,7 +29675,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h2e060df0334ea3a6E.exit.i.i.i
   br label %.body172
 
 .loopexit.split-lp267:                            ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5b546449e10d9f38E.exit168.thread", %116, %155, %164, %184, %203
-  %.6.ph = phi i8 [ 0, %164 ], [ 1, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5b546449e10d9f38E.exit168.thread" ], [ 1, %116 ], [ 0, %184 ], [ 0, %155 ], [ 0, %203 ]
+  %.6.ph = phi i8 [ 1, %116 ], [ 0, %184 ], [ 0, %155 ], [ 1, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5b546449e10d9f38E.exit168.thread" ], [ 0, %164 ], [ 0, %203 ]
   %lpad.loopexit.split-lp269 = landingpad { ptr, i32 }
           cleanup
   br label %.body172

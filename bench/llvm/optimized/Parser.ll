@@ -4611,7 +4611,7 @@ _ZN5clang6Parser12ConsumeBraceEv.exit149:         ; preds = %184, %.sink.split.i
   br label %.backedge
 
 .loopexit:                                        ; preds = %209, %181, %153, %125, %58, %50, %48, %48, %48, %48, %48, %.lr.ph181, %.preheader, %39, %41, %66, %_ZN5clang6Parser35handleUnexpectedCodeCompletionTokenEv.exit
-  %.2 = phi i1 [ false, %66 ], [ false, %_ZN5clang6Parser35handleUnexpectedCodeCompletionTokenEv.exit ], [ true, %41 ], [ true, %39 ], [ true, %.preheader ], [ true, %.lr.ph181 ], [ false, %48 ], [ false, %48 ], [ false, %48 ], [ false, %48 ], [ false, %48 ], [ false, %50 ], [ false, %58 ], [ false, %125 ], [ false, %153 ], [ false, %181 ], [ false, %209 ]
+  %.2 = phi i1 [ true, %39 ], [ true, %.preheader ], [ true, %41 ], [ false, %_ZN5clang6Parser35handleUnexpectedCodeCompletionTokenEv.exit ], [ false, %66 ], [ true, %.lr.ph181 ], [ false, %48 ], [ false, %48 ], [ false, %48 ], [ false, %48 ], [ false, %48 ], [ false, %50 ], [ false, %58 ], [ false, %125 ], [ false, %153 ], [ false, %181 ], [ false, %209 ]
   ret i1 %.2
 }
 

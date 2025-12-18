@@ -8905,7 +8905,7 @@ Py_DECREF.exit:                                   ; preds = %112, %116, %119
   br label %Py_DECREF.exit64
 
 Py_DECREF.exit64:                                 ; preds = %111, %108, %106, %94, %97, %70, %73, %38, %35, %32, %29, %27, %Py_DECREF.exit, %124, %18, %14, %33, %_Py_NewRef.exit86.thread, %3
-  %.0 = phi ptr [ @_Py_NoneStruct, %3 ], [ %2, %38 ], [ %16, %18 ], [ null, %32 ], [ null, %33 ], [ %2, %97 ], [ %113, %Py_DECREF.exit ], [ null, %124 ], [ %2, %70 ], [ null, %14 ], [ null, %_Py_NewRef.exit86.thread ], [ null, %27 ], [ null, %29 ], [ %2, %35 ], [ %2, %73 ], [ %2, %94 ], [ null, %106 ], [ null, %108 ], [ null, %111 ]
+  %.0 = phi ptr [ @_Py_NoneStruct, %3 ], [ %2, %38 ], [ %16, %18 ], [ null, %32 ], [ null, %33 ], [ %2, %94 ], [ %113, %Py_DECREF.exit ], [ null, %124 ], [ %2, %70 ], [ null, %14 ], [ null, %_Py_NewRef.exit86.thread ], [ null, %27 ], [ null, %29 ], [ %2, %35 ], [ %2, %73 ], [ %2, %97 ], [ null, %106 ], [ null, %108 ], [ null, %111 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
@@ -9202,7 +9202,7 @@ Py_DECREF.exit:                                   ; preds = %112, %116, %119
   br label %Py_DECREF.exit64
 
 Py_DECREF.exit64:                                 ; preds = %111, %108, %106, %94, %97, %70, %73, %38, %35, %32, %29, %27, %Py_DECREF.exit, %124, %18, %14, %33, %_Py_NewRef.exit86.thread, %3
-  %.0 = phi ptr [ @_Py_NoneStruct, %3 ], [ %2, %38 ], [ %16, %18 ], [ null, %32 ], [ null, %33 ], [ %2, %97 ], [ %113, %Py_DECREF.exit ], [ null, %124 ], [ %2, %70 ], [ null, %14 ], [ null, %_Py_NewRef.exit86.thread ], [ null, %27 ], [ null, %29 ], [ %2, %35 ], [ %2, %73 ], [ %2, %94 ], [ null, %106 ], [ null, %108 ], [ null, %111 ]
+  %.0 = phi ptr [ @_Py_NoneStruct, %3 ], [ %2, %38 ], [ %16, %18 ], [ null, %32 ], [ null, %33 ], [ %2, %94 ], [ %113, %Py_DECREF.exit ], [ null, %124 ], [ %2, %70 ], [ null, %14 ], [ null, %_Py_NewRef.exit86.thread ], [ null, %27 ], [ null, %29 ], [ %2, %35 ], [ %2, %73 ], [ %2, %97 ], [ null, %106 ], [ null, %108 ], [ null, %111 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
@@ -11689,7 +11689,7 @@ PyStgInfo_FromType.exit:                          ; preds = %42, %PyStgInfo_From
   br i1 %exitcond.not, label %Py_DECREF.exit.thread, label %120, !llvm.loop !190
 
 Py_DECREF.exit.thread:                            ; preds = %128, %116, %122, %124, %127, %._crit_edge119, %68, %61, %56, %._crit_edge, %.thread108, %93, %88, %113, %22
-  %.2 = phi ptr [ null, %22 ], [ null, %113 ], [ %77, %._crit_edge119 ], [ %112, %._crit_edge ], [ %57, %56 ], [ %64, %61 ], [ %69, %68 ], [ %89, %88 ], [ %96, %93 ], [ null, %.thread108 ], [ null, %127 ], [ null, %124 ], [ null, %122 ], [ %114, %116 ], [ %114, %128 ]
+  %.2 = phi ptr [ null, %22 ], [ null, %113 ], [ null, %122 ], [ %77, %._crit_edge119 ], [ %112, %._crit_edge ], [ %57, %56 ], [ %64, %61 ], [ %69, %68 ], [ %89, %88 ], [ %96, %93 ], [ null, %.thread108 ], [ null, %127 ], [ null, %124 ], [ %114, %116 ], [ %114, %128 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -14368,7 +14368,7 @@ Py_INCREF.exit.i:                                 ; preds = %39, %Py_XDECREF.exi
   br label %_ctypes_CFuncPtr_argtypes_set_impl.exit
 
 _ctypes_CFuncPtr_argtypes_set_impl.exit:          ; preds = %Py_DECREF.exit35.i, %17, %19, %22, %Py_INCREF.exit.i, %43, %45, %.critedge.sink.split.i
-  %.1.i = phi i32 [ -1, %22 ], [ 0, %Py_DECREF.exit35.i ], [ 0, %17 ], [ 0, %19 ], [ 0, %Py_INCREF.exit.i ], [ 0, %43 ], [ 0, %45 ], [ 0, %.critedge.sink.split.i ]
+  %.1.i = phi i32 [ -1, %22 ], [ 0, %45 ], [ 0, %Py_DECREF.exit35.i ], [ 0, %17 ], [ 0, %19 ], [ 0, %Py_INCREF.exit.i ], [ 0, %43 ], [ 0, %.critedge.sink.split.i ]
   ret i32 %.1.i
 }
 

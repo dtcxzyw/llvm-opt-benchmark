@@ -709,7 +709,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %19, %21, %23, %25
   br i1 %.not.i.i18.us, label %_ZN3gmx22ComputeDebyeScattering21computeIntensityZeroQEv.exit.us, label %.lr.ph.i.i.us, !llvm.loop !51
 
 _ZN3gmx22ComputeDebyeScattering21computeIntensityZeroQEv.exit.us: ; preds = %.lr.ph.i6.i.us, %.lr.ph.i.i.us, %63, %59
-  %.0.i.us = phi double [ 0.000000e+00, %63 ], [ 0.000000e+00, %59 ], [ %67, %.lr.ph.i.i.us ], [ %61, %.lr.ph.i6.i.us ]
+  %.0.i.us = phi double [ %67, %.lr.ph.i.i.us ], [ 0.000000e+00, %63 ], [ 0.000000e+00, %59 ], [ %61, %.lr.ph.i6.i.us ]
   %69 = getelementptr inbounds nuw double, ptr %42, i64 %.022.us
   store double %.0.i.us, ptr %69, align 8, !tbaa !35
   br label %..loopexit_crit_edge.us
@@ -883,7 +883,7 @@ define noundef double @_ZN3gmx22ComputeDebyeScattering21computeIntensityZeroQEv(
   br i1 %.not.i9, label %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdET0_T_S8_S7_.exit, label %.lr.ph.i6, !llvm.loop !51
 
 _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdET0_T_S8_S7_.exit: ; preds = %.lr.ph.i6, %.lr.ph.i, %14, %5
-  %.0 = phi double [ 0.000000e+00, %5 ], [ 0.000000e+00, %14 ], [ %12, %.lr.ph.i ], [ %20, %.lr.ph.i6 ]
+  %.0 = phi double [ %12, %.lr.ph.i ], [ 0.000000e+00, %5 ], [ 0.000000e+00, %14 ], [ %20, %.lr.ph.i6 ]
   ret double %.0
 }
 

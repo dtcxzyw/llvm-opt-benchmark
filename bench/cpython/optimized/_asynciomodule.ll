@@ -4096,7 +4096,7 @@ module_init.exit:                                 ; preds = %149
   tail call void @_Py_Dealloc(ptr noundef nonnull %128) #8
   br label %module_init.exit.thread29
 
-module_init.exit.thread29:                        ; preds = %149, %147, %module_init.exit
+module_init.exit.thread29:                        ; preds = %147, %149, %module_init.exit
   %157 = load ptr, ptr %135, align 8, !tbaa !30
   %158 = tail call i32 @PyModule_AddObjectRef(ptr noundef nonnull %0, ptr noundef nonnull @.str.23, ptr noundef %157) #8
   %159 = icmp slt i32 %158, 0
@@ -8454,7 +8454,7 @@ Py_DECREF.exit147.i:                              ; preds = %37, %34, %32, %30
   br label %Py_DECREF.exit145.i
 
 Py_DECREF.exit145.i:                              ; preds = %45, %42, %40, %Py_DECREF.exit147.i, %Py_DECREF.exit149.i, %16
-  %.098.i = phi i64 [ 0, %16 ], [ 0, %Py_DECREF.exit149.i ], [ 1, %Py_DECREF.exit147.i ], [ 1, %40 ], [ 1, %42 ], [ 1, %45 ]
+  %.098.i = phi i64 [ 0, %16 ], [ 1, %Py_DECREF.exit147.i ], [ 0, %Py_DECREF.exit149.i ], [ 1, %40 ], [ 1, %42 ], [ 1, %45 ]
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %47 = load ptr, ptr %46, align 8, !tbaa !102
   %48 = icmp eq ptr %47, null
@@ -9261,7 +9261,7 @@ Py_INCREF.exit.i:                                 ; preds = %58, %50
   br i1 %65, label %50, label %_asyncio_Future__callbacks_get_impl.exit, !llvm.loop !122
 
 _asyncio_Future__callbacks_get_impl.exit:         ; preds = %Py_INCREF.exit.i, %future_ensure_alive.exit.i, %15, %17, %24, %26, %29, %45, %.preheader.i
-  %.0.i = phi ptr [ null, %future_ensure_alive.exit.i ], [ @_Py_NoneStruct, %15 ], [ null, %17 ], [ %18, %45 ], [ null, %29 ], [ null, %26 ], [ null, %24 ], [ %18, %.preheader.i ], [ %18, %Py_INCREF.exit.i ]
+  %.0.i = phi ptr [ null, %future_ensure_alive.exit.i ], [ @_Py_NoneStruct, %15 ], [ null, %17 ], [ %18, %45 ], [ null, %24 ], [ null, %29 ], [ null, %26 ], [ %18, %.preheader.i ], [ %18, %Py_INCREF.exit.i ]
   ret ptr %.0.i
 }
 
@@ -10421,7 +10421,7 @@ Py_DECREF.exit.i.i.i:                             ; preds = %65, %62, %59
   br i1 %.not.i.i.i, label %is_coroutine.exit.thread.i, label %_asyncio_Task___init___impl.exit
 
 is_coroutine.exit.i:                              ; preds = %Py_DECREF.exit.i.i.i, %49
-  %.0.i.i = phi i32 [ %52, %49 ], [ %60, %Py_DECREF.exit.i.i.i ]
+  %.0.i.i = phi i32 [ %60, %Py_DECREF.exit.i.i.i ], [ %52, %49 ]
   switch i32 %.0.i.i, label %is_coroutine.exit.thread.i [
     i32 -1, label %_asyncio_Task___init___impl.exit
     i32 0, label %73
@@ -10687,7 +10687,7 @@ Py_DECREF.exit.i:                                 ; preds = %162, %159, %157
   br label %_asyncio_Task___init___impl.exit
 
 _asyncio_Task___init___impl.exit:                 ; preds = %170, %167, %165, %163, %154, %Py_XDECREF.exit83.i, %Py_XDECREF.exit.i, %73, %is_coroutine.exit.i, %71, %54, %40, %35, %14
-  %.044 = phi i32 [ -1, %35 ], [ -1, %14 ], [ -1, %40 ], [ -1, %71 ], [ -1, %73 ], [ %.0.i.i, %is_coroutine.exit.i ], [ -1, %Py_XDECREF.exit.i ], [ -1, %Py_XDECREF.exit83.i ], [ 0, %170 ], [ -1, %165 ], [ 0, %167 ], [ -1, %54 ], [ %..i, %163 ], [ -1, %154 ]
+  %.044 = phi i32 [ -1, %35 ], [ -1, %14 ], [ -1, %40 ], [ -1, %54 ], [ -1, %73 ], [ %.0.i.i, %is_coroutine.exit.i ], [ -1, %Py_XDECREF.exit.i ], [ -1, %Py_XDECREF.exit83.i ], [ 0, %170 ], [ -1, %165 ], [ 0, %167 ], [ -1, %71 ], [ %..i, %163 ], [ -1, %154 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.044
 }

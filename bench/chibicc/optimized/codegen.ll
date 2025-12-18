@@ -1030,8 +1030,8 @@ switch.lookup42:                                  ; preds = %.split.i108.i
   br label %store_gp.exit102.i
 
 store_gp.exit102.i:                               ; preds = %281, %307, %switch.lookup42, %301, %store_fp.exit104.i, %switch.lookup39, %store_fp.exit95.i, %store_gp.exit.i, %.lr.ph125.i
-  %.179.i = phi i32 [ %.078121.i, %.lr.ph125.i ], [ %271, %switch.lookup39 ], [ %.280.i, %store_fp.exit95.i ], [ %.078121.i, %store_fp.exit104.i ], [ %.280.i, %store_gp.exit.i ], [ %295, %301 ], [ %295, %switch.lookup42 ], [ %295, %307 ], [ %271, %281 ]
-  %.1.i20 = phi i32 [ %.077122.i, %.lr.ph125.i ], [ %.2.i, %switch.lookup39 ], [ %267, %store_fp.exit95.i ], [ %290, %store_fp.exit104.i ], [ %.2.i, %store_gp.exit.i ], [ %.077122.i, %301 ], [ %.077122.i, %switch.lookup42 ], [ %.077122.i, %307 ], [ %.2.i, %281 ]
+  %.179.i = phi i32 [ %.078121.i, %.lr.ph125.i ], [ %271, %switch.lookup39 ], [ %.280.i, %store_fp.exit95.i ], [ %.078121.i, %store_fp.exit104.i ], [ %.280.i, %store_gp.exit.i ], [ %295, %307 ], [ %295, %301 ], [ %295, %switch.lookup42 ], [ %271, %281 ]
+  %.1.i20 = phi i32 [ %.077122.i, %.lr.ph125.i ], [ %.2.i, %switch.lookup39 ], [ %267, %store_fp.exit95.i ], [ %290, %store_fp.exit104.i ], [ %.2.i, %store_gp.exit.i ], [ %.077122.i, %307 ], [ %.077122.i, %301 ], [ %.077122.i, %switch.lookup42 ], [ %.2.i, %281 ]
   %.076.i = load ptr, ptr %.076123.i, align 8, !tbaa !27
   %.not92.i = icmp eq ptr %.076.i, null
   br i1 %.not92.i, label %._crit_edge126.i, label %.lr.ph125.i, !llvm.loop !65
@@ -3244,7 +3244,7 @@ select.unfold:                                    ; preds = %select.unfold.prehe
   br i1 %15, label %select.unfold, label %.loopexit31, !llvm.loop !126
 
 .loopexit31:                                      ; preds = %select.unfold, %.loopexit31.sink.split, %10
-  %.024 = phi i32 [ 0, %10 ], [ 1, %.loopexit31.sink.split ], [ 0, %select.unfold ]
+  %.024 = phi i32 [ 1, %.loopexit31.sink.split ], [ 0, %10 ], [ 0, %select.unfold ]
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %17 = load i32, ptr %16, align 4, !tbaa !32
   %18 = icmp sgt i32 %17, 8
@@ -3697,7 +3697,7 @@ define internal fastcc void @copy_ret_buffer(ptr noundef nonnull readonly captur
   br i1 %17, label %12, label %.loopexit35, !llvm.loop !132
 
 .loopexit35:                                      ; preds = %12, %.loopexit35.sink.split, %.preheader
-  %.030 = phi i32 [ 0, %.preheader ], [ 1, %.loopexit35.sink.split ], [ 0, %12 ]
+  %.030 = phi i32 [ 1, %.loopexit35.sink.split ], [ 0, %.preheader ], [ 0, %12 ]
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %19 = load i32, ptr %18, align 4, !tbaa !32
   %20 = icmp sgt i32 %19, 8

@@ -479,7 +479,7 @@ define i32 @QRfact(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr n
   br label %.loopexit
 
 .loopexit:                                        ; preds = %51, %.preheader144, %110, %121
-  %.2 = phi i32 [ %0, %121 ], [ 0, %110 ], [ 0, %.preheader144 ], [ %.1, %51 ]
+  %.2 = phi i32 [ 0, %110 ], [ %0, %121 ], [ 0, %.preheader144 ], [ %.1, %51 ]
   ret i32 %.2
 }
 

@@ -3749,7 +3749,7 @@ _ZN4llvm9BitVector6resizeEjb.exit.i62:            ; preds = %388, %_ZN4llvm15Sma
   br i1 %.not.i67, label %_ZNK4llvm9BitVector4testERKS0_.exit, label %402, !llvm.loop !239
 
 _ZNK4llvm9BitVector4testERKS0_.exit:              ; preds = %348, %402, %_ZN4llvm9BitVector6resizeEjb.exit.i62, %.preheader.i
-  %408 = phi i32 [ %334, %.preheader.i ], [ 0, %_ZN4llvm9BitVector6resizeEjb.exit.i62 ], [ %398, %402 ], [ %334, %348 ]
+  %408 = phi i32 [ %398, %402 ], [ %334, %.preheader.i ], [ 0, %_ZN4llvm9BitVector6resizeEjb.exit.i62 ], [ %334, %348 ]
   %409 = load i32, ptr %26, align 8, !tbaa !238
   switch i32 %409, label %_ZNK4llvm9BitVector4testERKS0_.exit._ZN4llvm9BitVectoroRERKS0_.exit121_crit_edge [
     i32 0, label %410
@@ -4059,8 +4059,8 @@ _ZN4llvm9BitVector6resizeEjb.exit.i129:           ; preds = %_ZN4llvm9BitVector5
   br i1 %.not.i134, label %_ZN4llvm9BitVectoroRERKS0_.exit121, label %540, !llvm.loop !239
 
 _ZN4llvm9BitVectoroRERKS0_.exit121:               ; preds = %540, %472, %_ZNK4llvm9BitVector4testERKS0_.exit._ZN4llvm9BitVectoroRERKS0_.exit121_crit_edge, %_ZN4llvm9BitVector6resizeEjb.exit.i129, %_ZN4llvm9BitVector6resizeEjb.exit.i95
-  %.pre290.pre = phi ptr [ %.pre290.pre.pre, %_ZNK4llvm9BitVector4testERKS0_.exit._ZN4llvm9BitVectoroRERKS0_.exit121_crit_edge ], [ %.pre290.pre.pre291, %_ZN4llvm9BitVector6resizeEjb.exit.i129 ], [ %.pre290.pre.pre292, %_ZN4llvm9BitVector6resizeEjb.exit.i95 ], [ %.pre290.pre.pre292, %472 ], [ %.pre290.pre.pre291, %540 ]
-  %546 = phi i32 [ %408, %_ZNK4llvm9BitVector4testERKS0_.exit._ZN4llvm9BitVectoroRERKS0_.exit121_crit_edge ], [ %535, %_ZN4llvm9BitVector6resizeEjb.exit.i129 ], [ %467, %_ZN4llvm9BitVector6resizeEjb.exit.i95 ], [ %467, %472 ], [ %535, %540 ]
+  %.pre290.pre = phi ptr [ %.pre290.pre.pre292, %472 ], [ %.pre290.pre.pre, %_ZNK4llvm9BitVector4testERKS0_.exit._ZN4llvm9BitVectoroRERKS0_.exit121_crit_edge ], [ %.pre290.pre.pre291, %_ZN4llvm9BitVector6resizeEjb.exit.i129 ], [ %.pre290.pre.pre292, %_ZN4llvm9BitVector6resizeEjb.exit.i95 ], [ %.pre290.pre.pre291, %540 ]
+  %546 = phi i32 [ %467, %472 ], [ %408, %_ZNK4llvm9BitVector4testERKS0_.exit._ZN4llvm9BitVectoroRERKS0_.exit121_crit_edge ], [ %535, %_ZN4llvm9BitVector6resizeEjb.exit.i129 ], [ %467, %_ZN4llvm9BitVector6resizeEjb.exit.i95 ], [ %535, %540 ]
   %547 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i, i64 224
   %548 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i, i64 232
   %549 = load i32, ptr %548, align 8, !tbaa !68
@@ -4225,8 +4225,8 @@ _ZN4llvm9BitVector6resizeEjb.exit.i171:           ; preds = %601, %_ZN4llvm15Sma
   br i1 %.not.i176, label %_ZNK4llvm9BitVector4testERKS0_.exit170, label %614, !llvm.loop !239
 
 _ZNK4llvm9BitVector4testERKS0_.exit170:           ; preds = %560, %614, %_ZN4llvm9BitVector6resizeEjb.exit.i171, %.preheader.i164
-  %620 = phi ptr [ %.pre290.pre, %.preheader.i164 ], [ %.pre289, %_ZN4llvm9BitVector6resizeEjb.exit.i171 ], [ %.pre289, %614 ], [ %.pre290.pre, %560 ]
-  %.2 = phi i1 [ %.1, %.preheader.i164 ], [ true, %_ZN4llvm9BitVector6resizeEjb.exit.i171 ], [ true, %614 ], [ %.1, %560 ]
+  %620 = phi ptr [ %.pre289, %614 ], [ %.pre290.pre, %.preheader.i164 ], [ %.pre289, %_ZN4llvm9BitVector6resizeEjb.exit.i171 ], [ %.pre290.pre, %560 ]
+  %.2 = phi i1 [ true, %614 ], [ %.1, %.preheader.i164 ], [ true, %_ZN4llvm9BitVector6resizeEjb.exit.i171 ], [ %.1, %560 ]
   %621 = icmp eq ptr %620, %22
   br i1 %621, label %_ZN4llvm9BitVectorD2Ev.exit, label %622
 
@@ -8699,7 +8699,7 @@ _ZN4llvm9BitVectorC2Ejb.exit36.loopexit48:        ; preds = %_ZSt6fill_nIPmmmET_
   br label %_ZN4llvm9BitVectorC2Ejb.exit36
 
 _ZN4llvm9BitVectorC2Ejb.exit36:                   ; preds = %_ZN4llvm9BitVectorC2Ejb.exit36.loopexit48, %_ZN4llvm9BitVectorC2Ejb.exit36.loopexit, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i26.thread
-  %59 = phi ptr [ %42, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i26.thread ], [ %26, %_ZN4llvm9BitVectorC2Ejb.exit36.loopexit ], [ %58, %_ZN4llvm9BitVectorC2Ejb.exit36.loopexit48 ]
+  %59 = phi ptr [ %26, %_ZN4llvm9BitVectorC2Ejb.exit36.loopexit ], [ %42, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i26.thread ], [ %58, %_ZN4llvm9BitVectorC2Ejb.exit36.loopexit48 ]
   store i32 %4, ptr %59, align 8, !tbaa !68
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 280
   store i32 %1, ptr %60, align 8, !tbaa !67

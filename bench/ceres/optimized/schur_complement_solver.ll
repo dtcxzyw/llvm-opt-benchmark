@@ -13179,7 +13179,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal11ParallelForIZNS0_4NormIN5Ei
   br label %_ZN5ceres8internal15InvokeOnSegmentIZNS0_4NormIN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEEEEdRKNS3_9DenseBaseIT_EEPNS0_11ContextImplEiEUliSt5tupleIJiiEEE_EEviSE_OS7_.exit
 
 _ZN5ceres8internal15InvokeOnSegmentIZNS0_4NormIN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEEEEdRKNS3_9DenseBaseIT_EEPNS0_11ContextImplEiEUliSt5tupleIJiiEEE_EEviSE_OS7_.exit: ; preds = %.lr.ph85.i.i.i.i.i.i.i, %23, %61, %69
-  %.0.i.i.i.i.i = phi double [ 0.000000e+00, %23 ], [ %71, %69 ], [ %62, %61 ], [ %67, %.lr.ph85.i.i.i.i.i.i.i ]
+  %.0.i.i.i.i.i = phi double [ 0.000000e+00, %23 ], [ %62, %61 ], [ %71, %69 ], [ %67, %.lr.ph85.i.i.i.i.i.i.i ]
   %72 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %73 = load ptr, ptr %72, align 8, !tbaa !652
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 264
@@ -13668,7 +13668,7 @@ _ZNSt14_Function_baseD2Ev.exit23:                 ; preds = %63, %60, %58
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph85.i.i.i.i.i.i.i, %136, %128, %79
-  %.0.i.i.i.i.i = phi double [ 0.000000e+00, %79 ], [ %138, %136 ], [ %129, %128 ], [ %134, %.lr.ph85.i.i.i.i.i.i.i ]
+  %.0.i.i.i.i.i = phi double [ 0.000000e+00, %79 ], [ %129, %128 ], [ %138, %136 ], [ %134, %.lr.ph85.i.i.i.i.i.i.i ]
   %139 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %140 = load ptr, ptr %139, align 8, !tbaa !652
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 264
@@ -14293,7 +14293,7 @@ _ZNSt14_Function_baseD2Ev.exit23:                 ; preds = %93, %90, %88
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph85.i.i.i.i.i.i.i, %166, %158, %109
-  %.0.i.i.i.i.i = phi double [ 0.000000e+00, %109 ], [ %168, %166 ], [ %159, %158 ], [ %164, %.lr.ph85.i.i.i.i.i.i.i ]
+  %.0.i.i.i.i.i = phi double [ 0.000000e+00, %109 ], [ %159, %158 ], [ %168, %166 ], [ %164, %.lr.ph85.i.i.i.i.i.i.i ]
   %169 = getelementptr inbounds nuw i8, ptr %119, i64 8
   %170 = load ptr, ptr %169, align 8, !tbaa !652
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 264
@@ -16297,7 +16297,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal11ParallelForIZNS0_3DotIN5Eig
   br label %_ZN5ceres8internal15InvokeOnSegmentIZNS0_3DotIN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEES5_EEdRKT_RKT0_PNS0_11ContextImplEiEUliSt5tupleIJiiEEE_EEviSF_OS6_.exit
 
 _ZN5ceres8internal15InvokeOnSegmentIZNS0_3DotIN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEES5_EEdRKT_RKT0_PNS0_11ContextImplEiEUliSt5tupleIJiiEEE_EEviSF_OS6_.exit: ; preds = %.lr.ph85.i.i.i.i.i.i.i.i, %23, %74, %84
-  %.0.i.i.i.i.i.i = phi double [ 0.000000e+00, %23 ], [ %87, %84 ], [ %75, %74 ], [ %82, %.lr.ph85.i.i.i.i.i.i.i.i ]
+  %.0.i.i.i.i.i.i = phi double [ 0.000000e+00, %23 ], [ %75, %74 ], [ %87, %84 ], [ %82, %.lr.ph85.i.i.i.i.i.i.i.i ]
   %88 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %89 = load ptr, ptr %88, align 8, !tbaa !741
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 264
@@ -16799,7 +16799,7 @@ _ZNSt14_Function_baseD2Ev.exit23:                 ; preds = %63, %60, %58
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph85.i.i.i.i.i.i.i.i, %151, %141, %79
-  %.0.i.i.i.i.i.i24 = phi double [ 0.000000e+00, %79 ], [ %154, %151 ], [ %142, %141 ], [ %149, %.lr.ph85.i.i.i.i.i.i.i.i ]
+  %.0.i.i.i.i.i.i24 = phi double [ 0.000000e+00, %79 ], [ %142, %141 ], [ %154, %151 ], [ %149, %.lr.ph85.i.i.i.i.i.i.i.i ]
   %155 = getelementptr inbounds nuw i8, ptr %89, i64 16
   %156 = load ptr, ptr %155, align 8, !tbaa !741
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 264
@@ -17315,7 +17315,7 @@ _ZNSt14_Function_baseD2Ev.exit23:                 ; preds = %93, %90, %88
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph85.i.i.i.i.i.i.i.i, %181, %171, %109
-  %.0.i.i.i.i.i.i25 = phi double [ 0.000000e+00, %109 ], [ %184, %181 ], [ %172, %171 ], [ %179, %.lr.ph85.i.i.i.i.i.i.i.i ]
+  %.0.i.i.i.i.i.i25 = phi double [ 0.000000e+00, %109 ], [ %172, %171 ], [ %184, %181 ], [ %179, %.lr.ph85.i.i.i.i.i.i.i.i ]
   %185 = getelementptr inbounds nuw i8, ptr %119, i64 16
   %186 = load ptr, ptr %185, align 8, !tbaa !741
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 264

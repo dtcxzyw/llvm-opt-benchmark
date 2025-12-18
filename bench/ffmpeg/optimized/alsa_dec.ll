@@ -227,7 +227,7 @@ define internal range(i32 -2147483648, 1) i32 @audio_read_packet(ptr noundef %0,
   br label %.critedge
 
 .critedge:                                        ; preds = %44, %10, %65, %51
-  %.1 = phi i32 [ -5, %51 ], [ 0, %65 ], [ %16, %10 ], [ -11, %44 ]
+  %.1 = phi i32 [ %16, %10 ], [ -5, %51 ], [ 0, %65 ], [ -11, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.1
 }

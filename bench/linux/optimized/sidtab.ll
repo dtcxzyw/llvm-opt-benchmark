@@ -930,7 +930,7 @@ define internal fastcc ptr @sidtab_do_lookup(ptr noundef captures(none) %0, i32 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %28, %58, %.loopexit4, %16
-  %68 = phi ptr [ %67, %.loopexit4 ], [ null, %16 ], [ null, %58 ], [ null, %28 ]
+  %68 = phi ptr [ %67, %.loopexit4 ], [ null, %58 ], [ null, %16 ], [ null, %28 ]
   ret ptr %68
 }
 
@@ -1116,7 +1116,7 @@ define internal fastcc i32 @sidtab_convert_tree(ptr noundef captures(none) %0, p
   br label %.loopexit
 
 .loopexit:                                        ; preds = %24, %20, %17, %41, %54, %32, %11
-  %56 = phi i32 [ -12, %11 ], [ -12, %32 ], [ 0, %54 ], [ %47, %41 ], [ 0, %17 ], [ 0, %20 ], [ %29, %24 ]
+  %56 = phi i32 [ -12, %11 ], [ -12, %32 ], [ 0, %54 ], [ %47, %41 ], [ 0, %20 ], [ %29, %24 ], [ 0, %17 ]
   ret i32 %56
 }
 

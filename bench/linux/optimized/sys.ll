@@ -6167,7 +6167,7 @@ define internal fastcc i32 @prctl_set_mm(i32 noundef %0, i64 noundef %1, i64 nou
   br label %.thread
 
 .thread:                                          ; preds = %158, %186, %168, %194, %192, %83
-  %195 = phi i32 [ -22, %83 ], [ -14, %192 ], [ 0, %194 ], [ -22, %186 ], [ %178, %168 ], [ -22, %158 ]
+  %195 = phi i32 [ -22, %83 ], [ -14, %192 ], [ 0, %194 ], [ %178, %168 ], [ -22, %186 ], [ -22, %158 ]
   tail call void @_raw_spin_unlock(ptr noundef nonnull %85) #13
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_mmap_lock_released, i64 8), i32 2) #13
           to label %197 [label %196], !srcloc !57

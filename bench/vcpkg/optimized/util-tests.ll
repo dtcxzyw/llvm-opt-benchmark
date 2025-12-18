@@ -2100,7 +2100,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit:             ; preds = %105, %109
   br label %.loopexit195
 
 .loopexit195:                                     ; preds = %142, %153, %159, %165, %._crit_edge.i.i.i.i96, %174, %._crit_edge._crit_edge.i.i.i.i102, %._crit_edge._crit_edge47.i.i.i.i98
-  %.sink.i.i.i.i101 = phi i64 [ %spec.select.i.i.i100, %._crit_edge._crit_edge47.i.i.i.i98 ], [ %183, %._crit_edge._crit_edge.i.i.i.i102 ], [ %171, %174 ], [ %.cast18.i.i.i.i109, %165 ], [ %.cast17.i.i.i.i110, %159 ], [ %.cast.i.i.i.i111, %153 ], [ %135, %._crit_edge.i.i.i.i96 ], [ %144, %142 ]
+  %.sink.i.i.i.i101 = phi i64 [ %spec.select.i.i.i100, %._crit_edge._crit_edge47.i.i.i.i98 ], [ %183, %._crit_edge._crit_edge.i.i.i.i102 ], [ %171, %174 ], [ %135, %._crit_edge.i.i.i.i96 ], [ %.cast18.i.i.i.i109, %165 ], [ %.cast17.i.i.i.i110, %159 ], [ %.cast.i.i.i.i111, %153 ], [ %144, %142 ]
   %196 = inttoptr i64 %.sink.i.i.i.i101 to ptr
   %197 = icmp eq ptr %133, %196
   %198 = getelementptr inbounds i8, ptr %196, i64 -4
@@ -2356,7 +2356,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit63:           ; preds = %226, %230
   br label %.loopexit194
 
 .loopexit194:                                     ; preds = %255, %266, %272, %278, %._crit_edge.i.i.i.i113, %287, %._crit_edge._crit_edge.i.i.i.i119, %._crit_edge._crit_edge47.i.i.i.i115
-  %.sink.i.i.i.i118 = phi i64 [ %spec.select.i.i.i117, %._crit_edge._crit_edge47.i.i.i.i115 ], [ %296, %._crit_edge._crit_edge.i.i.i.i119 ], [ %284, %287 ], [ %.cast18.i.i.i.i126, %278 ], [ %.cast17.i.i.i.i127, %272 ], [ %.cast.i.i.i.i128, %266 ], [ %248, %._crit_edge.i.i.i.i113 ], [ %257, %255 ]
+  %.sink.i.i.i.i118 = phi i64 [ %spec.select.i.i.i117, %._crit_edge._crit_edge47.i.i.i.i115 ], [ %296, %._crit_edge._crit_edge.i.i.i.i119 ], [ %284, %287 ], [ %248, %._crit_edge.i.i.i.i113 ], [ %.cast18.i.i.i.i126, %278 ], [ %.cast17.i.i.i.i127, %272 ], [ %.cast.i.i.i.i128, %266 ], [ %257, %255 ]
   %309 = inttoptr i64 %.sink.i.i.i.i118 to ptr
   %310 = icmp eq ptr %246, %309
   %311 = getelementptr inbounds i8, ptr %309, i64 -4
@@ -2606,7 +2606,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit68:           ; preds = %337, %341
   br label %.loopexit
 
 .loopexit:                                        ; preds = %366, %377, %383, %389, %._crit_edge.i.i.i.i130, %398, %._crit_edge._crit_edge.i.i.i.i136, %._crit_edge._crit_edge47.i.i.i.i132
-  %.sink.i.i.i.i135 = phi i64 [ %spec.select.i.i.i134, %._crit_edge._crit_edge47.i.i.i.i132 ], [ %407, %._crit_edge._crit_edge.i.i.i.i136 ], [ %395, %398 ], [ %.cast18.i.i.i.i143, %389 ], [ %.cast17.i.i.i.i144, %383 ], [ %.cast.i.i.i.i145, %377 ], [ %359, %._crit_edge.i.i.i.i130 ], [ %368, %366 ]
+  %.sink.i.i.i.i135 = phi i64 [ %spec.select.i.i.i134, %._crit_edge._crit_edge47.i.i.i.i132 ], [ %407, %._crit_edge._crit_edge.i.i.i.i136 ], [ %395, %398 ], [ %359, %._crit_edge.i.i.i.i130 ], [ %.cast18.i.i.i.i143, %389 ], [ %.cast17.i.i.i.i144, %383 ], [ %.cast.i.i.i.i145, %377 ], [ %368, %366 ]
   %420 = inttoptr i64 %.sink.i.i.i.i135 to ptr
   %421 = icmp eq ptr %357, %420
   %422 = getelementptr inbounds i8, ptr %420, i64 -4
@@ -6744,7 +6744,7 @@ define linkonce_odr dso_local void @_ZN5vcpkg4Util8find_nthISt16reverse_iterator
   br label %_ZSt4findISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEiET_S9_S9_RKT0_.exit
 
 _ZSt4findISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEiET_S9_S9_RKT0_.exit: ; preds = %16, %27, %33, %39, %._crit_edge.i.i.i, %48, %57, %68
-  %.sink.i.i.i = phi i64 [ %spec.select.i.i, %68 ], [ %60, %57 ], [ %45, %48 ], [ %.cast18.i.i.i, %39 ], [ %.cast17.i.i.i, %33 ], [ %.cast.i.i.i, %27 ], [ %7, %._crit_edge.i.i.i ], [ %18, %16 ]
+  %.sink.i.i.i = phi i64 [ %spec.select.i.i, %68 ], [ %60, %57 ], [ %45, %48 ], [ %7, %._crit_edge.i.i.i ], [ %.cast18.i.i.i, %39 ], [ %.cast17.i.i.i, %33 ], [ %.cast.i.i.i, %27 ], [ %18, %16 ]
   store i64 %.sink.i.i.i, ptr %1, align 8
   %.not65 = icmp eq i64 %4, 0
   br i1 %.not65, label %.critedge, label %.lr.ph
@@ -6891,7 +6891,7 @@ _ZSt4findISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiE
   br label %_ZSt4findISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEiET_S9_S9_RKT0_.exit20
 
 _ZSt4findISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEiET_S9_S9_RKT0_.exit20: ; preds = %87, %98, %104, %110, %._crit_edge.i.i.i4, %119, %128, %139
-  %.sink.i.i.i9 = phi i64 [ %spec.select.i.i8, %139 ], [ %131, %128 ], [ %116, %119 ], [ %.cast18.i.i.i17, %110 ], [ %.cast17.i.i.i18, %104 ], [ %.cast.i.i.i19, %98 ], [ %79, %._crit_edge.i.i.i4 ], [ %89, %87 ]
+  %.sink.i.i.i9 = phi i64 [ %spec.select.i.i8, %139 ], [ %131, %128 ], [ %116, %119 ], [ %79, %._crit_edge.i.i.i4 ], [ %.cast18.i.i.i17, %110 ], [ %.cast17.i.i.i18, %104 ], [ %.cast.i.i.i19, %98 ], [ %89, %87 ]
   store i64 %.sink.i.i.i9, ptr %1, align 8
   %146 = add nuw i64 %.063, 1
   %exitcond.not = icmp eq i64 %146, %4

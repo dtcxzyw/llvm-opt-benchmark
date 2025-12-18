@@ -7045,8 +7045,8 @@ phar_zip_u2d_time.exit:                           ; preds = %63, %73
   %281 = icmp ne i32 %.2, 0
   br label %.thread288
 
-.thread288:                                       ; preds = %128, %134, %137, %123, %.thread292
-  %.3 = phi i1 [ %281, %.thread292 ], [ false, %123 ], [ false, %137 ], [ false, %134 ], [ false, %128 ]
+.thread288:                                       ; preds = %137, %134, %123, %128, %.thread292
+  %.3 = phi i1 [ %281, %.thread292 ], [ false, %128 ], [ false, %123 ], [ false, %134 ], [ false, %137 ]
   %282 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %283 = load i16, ptr %9, align 2
   %284 = and i16 %283, 256

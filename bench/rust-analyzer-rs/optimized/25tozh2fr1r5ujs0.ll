@@ -1762,7 +1762,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17hb7fc86ffe3a4d146E(ptr noa
   br i1 %59, label %.loopexit, label %.lr.ph335
 
 .loopexit:                                        ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h35f21cc0663ce855E.exit169", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h35f21cc0663ce855E.exit146", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h35f21cc0663ce855E.exit123", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h35f21cc0663ce855E.exit100", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h35f21cc0663ce855E.exit77", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h35f21cc0663ce855E.exit192", %.preheader294, %.preheader292, %.preheader290, %.preheader288, %.preheader286, %.preheader
-  %.sroa.27.6 = phi i64 [ %58, %.preheader ], [ %58, %.preheader286 ], [ %58, %.preheader288 ], [ %58, %.preheader290 ], [ %58, %.preheader292 ], [ %58, %.preheader294 ], [ %101, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h35f21cc0663ce855E.exit146" ], [ %124, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h35f21cc0663ce855E.exit192" ], [ %66, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h35f21cc0663ce855E.exit77" ], [ %78, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h35f21cc0663ce855E.exit100" ], [ %90, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h35f21cc0663ce855E.exit123" ], [ %113, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h35f21cc0663ce855E.exit169" ]
+  %.sroa.27.6 = phi i64 [ %124, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h35f21cc0663ce855E.exit192" ], [ %101, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h35f21cc0663ce855E.exit146" ], [ %66, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h35f21cc0663ce855E.exit77" ], [ %78, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h35f21cc0663ce855E.exit100" ], [ %90, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h35f21cc0663ce855E.exit123" ], [ %58, %.preheader ], [ %58, %.preheader286 ], [ %58, %.preheader288 ], [ %58, %.preheader290 ], [ %58, %.preheader292 ], [ %58, %.preheader294 ], [ %113, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h35f21cc0663ce855E.exit169" ]
   %60 = sub i64 %.0.i.i, %.sroa.27.6
   store i64 %60, ptr %43, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %17, i64 24, i1 false)
@@ -2170,8 +2170,8 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17h24de84239c257
   br i1 %.not.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17ha17a5a30c27c7142E.llvm.3987168240820916128.exit._crit_edge", label %8
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h371cdef9cdf62bcfE.llvm.3987168240820916128.exit": ; preds = %13, %2, %.noexc
-  %.sroa.7.1 = phi i64 [ 0, %2 ], [ %12, %13 ], [ %12, %.noexc ]
-  %.sroa.16.1 = phi i64 [ 0, %2 ], [ 1, %13 ], [ 1, %.noexc ]
+  %.sroa.7.1 = phi i64 [ 0, %2 ], [ %12, %.noexc ], [ %12, %13 ]
+  %.sroa.16.1 = phi i64 [ 0, %2 ], [ 1, %.noexc ], [ 1, %13 ]
   %.not3.i = icmp eq i64 %.sroa.7.1, %4
   br i1 %.not3.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17ha17a5a30c27c7142E.llvm.3987168240820916128.exit", label %.lr.ph.i2.preheader
 

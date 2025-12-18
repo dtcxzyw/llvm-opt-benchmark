@@ -144,7 +144,7 @@ compare_addr.exit20.thread.us47:                  ; preds = %compare_addr.exit20
   br i1 %exitcond70.not, label %.loopexit, label %.lr.ph39.split.us42, !llvm.loop !23
 
 .loopexit:                                        ; preds = %compare_addr.exit.us35, %compare_addr.exit.us, %compare_addr.exit20.us45, %compare_addr.exit20.thread.us47, %compare_addr.exit20.us, %compare_addr.exit20.thread.us, %.lr.ph39, %.preheader, %.loopexit29
-  %.014 = phi i32 [ 0, %.loopexit29 ], [ 1, %.preheader ], [ 1, %.lr.ph39 ], [ 1, %compare_addr.exit.us ], [ 0, %compare_addr.exit20.us ], [ 1, %compare_addr.exit20.thread.us47 ], [ 1, %compare_addr.exit20.thread.us ], [ 0, %compare_addr.exit20.us45 ], [ 1, %compare_addr.exit.us35 ]
+  %.014 = phi i32 [ 0, %.loopexit29 ], [ 1, %compare_addr.exit20.thread.us47 ], [ 1, %.preheader ], [ 1, %.lr.ph39 ], [ 1, %compare_addr.exit.us ], [ 0, %compare_addr.exit20.us ], [ 1, %compare_addr.exit20.thread.us ], [ 0, %compare_addr.exit20.us45 ], [ 1, %compare_addr.exit.us35 ]
   ret i32 %.014
 }
 

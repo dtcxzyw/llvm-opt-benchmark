@@ -2160,7 +2160,7 @@ H5S_select_iter_init.exit:                        ; preds = %47, %51
   br i1 %211, label %.lr.ph231.split, label %.loopexit.thread278
 
 .loopexit.thread278:                              ; preds = %._crit_edge.split, %._crit_edge.split.us.us, %.thread144, %.preheader205
-  %.093172282 = phi i32 [ 0, %.preheader205 ], [ -1, %.thread144 ], [ %.299.lcssa.us, %._crit_edge.split.us.us ], [ %.299.lcssa, %._crit_edge.split ]
+  %.093172282 = phi i32 [ 0, %.preheader205 ], [ %.299.lcssa.us, %._crit_edge.split.us.us ], [ -1, %.thread144 ], [ %.299.lcssa, %._crit_edge.split ]
   %212 = call ptr @H5FL_seq_free(ptr noundef nonnull @H5_size_t_seq_free_list, ptr noundef nonnull %85) #8
   %213 = call ptr @H5FL_seq_free(ptr noundef nonnull @H5_hsize_t_seq_free_list, ptr noundef nonnull %92) #8
   br label %.thread183
@@ -2504,7 +2504,7 @@ define i32 @H5S_select_shape_same(ptr noundef %0, ptr noundef %1) local_unnamed_
   br i1 %.not173, label %105, label %.thread
 
 .thread:                                          ; preds = %76, %.lr.ph, %56, %68, %100
-  %.3156.ph = phi i32 [ 1, %100 ], [ -1, %68 ], [ -1, %56 ], [ 0, %.lr.ph ], [ 0, %76 ]
+  %.3156.ph = phi i32 [ 1, %100 ], [ -1, %56 ], [ 0, %.lr.ph ], [ -1, %68 ], [ 0, %76 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -2823,7 +2823,7 @@ H5S_select_iter_init.exit.thread:                 ; preds = %123, %H5S_select_it
   br label %.thread190
 
 .thread190:                                       ; preds = %261, %259, %.lr.ph295, %222, %.lr.ph297, %.lr.ph300, %.lr.ph303, %278, %268, %255, %245, %182, %172, %162
-  %.6.ph = phi i32 [ -1, %162 ], [ -1, %278 ], [ -1, %268 ], [ -1, %255 ], [ -1, %245 ], [ -1, %182 ], [ -1, %172 ], [ 0, %.lr.ph300 ], [ 0, %.lr.ph297 ], [ 0, %.lr.ph295 ], [ 0, %.lr.ph303 ], [ 0, %222 ], [ 0, %261 ], [ 1, %259 ]
+  %.6.ph = phi i32 [ -1, %182 ], [ -1, %162 ], [ 0, %.lr.ph300 ], [ -1, %172 ], [ 0, %.lr.ph297 ], [ -1, %278 ], [ -1, %268 ], [ 0, %.lr.ph303 ], [ -1, %255 ], [ -1, %245 ], [ 0, %.lr.ph295 ], [ 0, %222 ], [ 0, %261 ], [ 1, %259 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -4442,7 +4442,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Sselect_project_intersection(i
   br label %93
 
 93:                                               ; preds = %89, %81
-  %94 = phi ptr [ %.pre57, %81 ], [ %86, %89 ]
+  %94 = phi ptr [ %86, %89 ], [ %.pre57, %81 ]
   %.not56 = icmp eq ptr %94, null
   br i1 %.not56, label %.thread53, label %95
 

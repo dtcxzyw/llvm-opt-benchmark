@@ -2704,7 +2704,7 @@ define internal fastcc ptr @drm_connector_pick_cmdline_mode(ptr noundef readonly
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit4, %83, %80, %49, %16, %91, %12
-  %93 = phi ptr [ null, %12 ], [ %92, %91 ], [ null, %16 ], [ %61, %83 ], [ %30, %49 ], [ %61, %80 ], [ null, %.loopexit4 ]
+  %93 = phi ptr [ null, %12 ], [ %92, %91 ], [ %30, %49 ], [ null, %16 ], [ %61, %83 ], [ %61, %80 ], [ null, %.loopexit4 ]
   ret ptr %93
 }
 

@@ -4357,9 +4357,9 @@ define dso_local void @_ZN34btDeformableBackwardEulerObjective18applyExplicitFor
   br i1 %54, label %32, label %.preheader54, !llvm.loop !244
 
 .preheader:                                       ; preds = %62, %.preheader55, %.preheader54
-  %.sroa.552.0.lcssa116 = phi float [ %.sroa.552.1, %.preheader54 ], [ undef, %.preheader55 ], [ %.sroa.552.1, %62 ]
-  %.sroa.451.0.lcssa115 = phi float [ %.sroa.451.1, %.preheader54 ], [ undef, %.preheader55 ], [ %.sroa.451.1, %62 ]
-  %.sroa.050.0.lcssa114 = phi float [ %.sroa.050.1, %.preheader54 ], [ undef, %.preheader55 ], [ %.sroa.050.1, %62 ]
+  %.sroa.552.0.lcssa116 = phi float [ undef, %.preheader55 ], [ %.sroa.552.1, %.preheader54 ], [ %.sroa.552.1, %62 ]
+  %.sroa.451.0.lcssa115 = phi float [ undef, %.preheader55 ], [ %.sroa.451.1, %.preheader54 ], [ %.sroa.451.1, %62 ]
+  %.sroa.050.0.lcssa114 = phi float [ undef, %.preheader55 ], [ %.sroa.050.1, %.preheader54 ], [ %.sroa.050.1, %62 ]
   %55 = load ptr, ptr %3, align 8, !tbaa !186
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 4
   %57 = load i32, ptr %56, align 4, !tbaa !187

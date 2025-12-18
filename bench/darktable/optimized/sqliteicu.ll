@@ -642,7 +642,7 @@ select.unfold:                                    ; preds = %select.unfold.outer
   br i1 %41, label %.preheader105, label %.loopexit106
 
 .loopexit106:                                     ; preds = %.preheader105, %.preheader107, %37
-  %.375 = phi ptr [ %38, %37 ], [ %.274, %.preheader107 ], [ %.577, %.preheader105 ]
+  %.375 = phi ptr [ %.274, %.preheader107 ], [ %38, %37 ], [ %.577, %.preheader105 ]
   %43 = getelementptr inbounds nuw i8, ptr %.471, i64 1
   br label %.preheader107
 
@@ -690,10 +690,6 @@ select.unfold:                                    ; preds = %select.unfold.outer
   %60 = getelementptr inbounds nuw i8, ptr %.072.ph, i64 1
   %61 = icmp ugt i8 %57, -65
   br i1 %61, label %.preheader111, label %select.unfold.outer.backedge
-
-select.unfold.outer.backedge:                     ; preds = %.preheader111, %59, %.loopexit110
-  %.072.ph.be = phi ptr [ %60, %59 ], [ %.10, %.loopexit110 ], [ %.9, %.preheader111 ]
-  br label %select.unfold.outer
 
 .preheader111:                                    ; preds = %59, %.preheader111
   %.9 = phi ptr [ %64, %.preheader111 ], [ %60, %59 ]
@@ -748,6 +744,10 @@ select.unfold.outer.backedge:                     ; preds = %.preheader111, %59,
   %.not89 = icmp eq i32 %91, %92
   br i1 %.not89, label %select.unfold.outer.backedge, label %.thread
 
+select.unfold.outer.backedge:                     ; preds = %.preheader111, %.loopexit110, %59
+  %.072.ph.be = phi ptr [ %.10, %.loopexit110 ], [ %60, %59 ], [ %.9, %.preheader111 ]
+  br label %select.unfold.outer
+
 93:                                               ; preds = %.loopexit112
   %94 = load i8, ptr %.072.ph, align 1, !tbaa !19
   %95 = icmp eq i8 %94, 0
@@ -755,7 +755,7 @@ select.unfold.outer.backedge:                     ; preds = %.preheader111, %59,
   br label %.thread
 
 .thread:                                          ; preds = %.loopexit110, %56, %.preheader107, %34, %.loopexit, %.lr.ph130, %.preheader104, %93
-  %.5 = phi i32 [ %96, %93 ], [ 1, %.preheader107 ], [ 0, %.preheader104 ], [ 1, %.lr.ph130 ], [ 0, %.loopexit ], [ 0, %34 ], [ 0, %56 ], [ 0, %.loopexit110 ]
+  %.5 = phi i32 [ %96, %93 ], [ 1, %.lr.ph130 ], [ 1, %.preheader107 ], [ 0, %.preheader104 ], [ 0, %.loopexit ], [ 0, %34 ], [ 0, %56 ], [ 0, %.loopexit110 ]
   ret i32 %.5
 }
 

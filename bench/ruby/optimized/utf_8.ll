@@ -237,7 +237,7 @@ mbc_enc_len.exit:                                 ; preds = %37, %24, %11
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %62, %65
-  %.017 = phi i32 [ %67, %65 ], [ %63, %62 ], [ %61, %.lr.ph ]
+  %.017 = phi i32 [ %63, %62 ], [ %67, %65 ], [ %61, %.lr.ph ]
   ret i32 %.017
 }
 

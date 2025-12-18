@@ -68,7 +68,7 @@ define dso_local range(i32 -21, -22) i32 @xfrm6_rcv_encap(ptr noundef initialize
   br label %.loopexit4
 
 12:                                               ; preds = %8, %7, %4
-  %13 = phi ptr [ @ipcomp6_handlers, %8 ], [ @ah6_handlers, %7 ], [ @esp6_handlers, %4 ]
+  %13 = phi ptr [ @esp6_handlers, %4 ], [ @ipcomp6_handlers, %8 ], [ @ah6_handlers, %7 ]
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr null, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 76

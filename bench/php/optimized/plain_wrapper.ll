@@ -581,7 +581,7 @@ define internal noundef i64 @php_stdiop_read(ptr noundef captures(none) %0, ptr 
   br label %52
 
 52:                                               ; preds = %.thread, %.fold.split, %30, %28, %36, %34, %40
-  %.1 = phi i64 [ %42, %40 ], [ %.026, %30 ], [ %.026, %28 ], [ 0, %36 ], [ %.0, %34 ], [ 0, %.thread ], [ %.026, %.fold.split ]
+  %.1 = phi i64 [ %42, %40 ], [ 0, %.thread ], [ %.026, %30 ], [ %.026, %28 ], [ 0, %36 ], [ %.0, %34 ], [ %.026, %.fold.split ]
   ret i64 %.1
 }
 
@@ -1802,7 +1802,7 @@ define dso_local ptr @_php_stream_fopen_with_path(ptr noundef %0, ptr noundef %1
   br i1 %.not167, label %.critedge2, label %.lr.ph.split
 
 .critedge2:                                       ; preds = %.lr.ph.split, %86, %.lr.ph.split.us, %74, %57
-  %.1206 = phi ptr [ null, %57 ], [ %.1205, %.lr.ph.split.us ], [ %.1205, %74 ], [ %.1205, %86 ], [ %.1205, %.lr.ph.split ]
+  %.1206 = phi ptr [ %.1205, %.lr.ph.split.us ], [ null, %57 ], [ %.1205, %74 ], [ %.1205, %86 ], [ %.1205, %.lr.ph.split ]
   call void @_efree(ptr noundef %.1206) #17
   br label %87
 
@@ -2323,7 +2323,7 @@ define internal range(i32 0, 2) i32 @php_plain_files_mkdir(ptr readnone captures
   br label %.critedge3
 
 .critedge3:                                       ; preds = %52, %.preheader96.split.us, %.lr.ph110.preheader, %.preheader, %27
-  %.059 = phi ptr [ %.fr, %27 ], [ %.us-phi, %.preheader ], [ %scevgep131, %.lr.ph110.preheader ], [ null, %.preheader96.split.us ], [ null, %52 ]
+  %.059 = phi ptr [ %.fr, %27 ], [ %scevgep131, %.lr.ph110.preheader ], [ %.us-phi, %.preheader ], [ null, %.preheader96.split.us ], [ null, %52 ]
   %.not81 = icmp eq ptr %.059, null
   %spec.select87 = select i1 %.not81, ptr %6, ptr %.059
   br label %.loopexit
@@ -2389,7 +2389,7 @@ define internal range(i32 0, 2) i32 @php_plain_files_mkdir(ptr readnone captures
   br label %.thread91
 
 .thread91:                                        ; preds = %.thread91.sink.split, %._crit_edge, %84, %72
-  %.495 = phi i32 [ 0, %72 ], [ 0, %84 ], [ 1, %._crit_edge ], [ 0, %.thread91.sink.split ]
+  %.495 = phi i32 [ 0, %84 ], [ 0, %72 ], [ 1, %._crit_edge ], [ 0, %.thread91.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %90
 

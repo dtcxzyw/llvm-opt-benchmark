@@ -1942,7 +1942,7 @@ _ZN4core5slice4sort6shared17find_existing_run17h4d556d4b44f5630fE.exit.i: ; pred
   br label %_ZN4core5slice4sort6stable5drift10create_run17h90485ecbad954f67E.exit
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h0bd7f4f102d655b8E.exit.i": ; preds = %_ZN4core10intrinsics25typed_swap_nonoverlapping17hf349573e58af02a0E.exit.i.i.i, %.preheader13.i, %44, %25
-  %.sroa.0.0.i912.i = phi i64 [ %.sroa.0.0.i.i, %44 ], [ %22, %25 ], [ 2, %.preheader13.i ], [ %.sroa.0.0.i364346.i, %_ZN4core10intrinsics25typed_swap_nonoverlapping17hf349573e58af02a0E.exit.i.i.i ]
+  %.sroa.0.0.i912.i = phi i64 [ %22, %25 ], [ %.sroa.0.0.i.i, %44 ], [ 2, %.preheader13.i ], [ %.sroa.0.0.i364346.i, %_ZN4core10intrinsics25typed_swap_nonoverlapping17hf349573e58af02a0E.exit.i.i.i ]
   %51 = shl i64 %.sroa.0.0.i912.i, 1
   %52 = or disjoint i64 %51, 1
   br label %_ZN4core5slice4sort6stable5drift10create_run17h90485ecbad954f67E.exit
@@ -36583,7 +36583,7 @@ _ZN11compact_str13CompactString7try_new17hd9cf0378c923f47bE.exit130.thread: ; pr
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h0d5a858967a8e5e9E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %300)
           to label %.body148.thread.thread unwind label %296, !noalias !2766
 
-_ZN12polars_arrow9datatypes5field5Field13with_metadata17h82ab22026ac6ea35E.exit: ; preds = %295, %273, %292, %288
+_ZN12polars_arrow9datatypes5field5Field13with_metadata17h82ab22026ac6ea35E.exit: ; preds = %273, %295, %292, %288
   %.sroa.6167.0 = phi ptr [ %281, %292 ], [ %281, %288 ], [ %.sroa.6167.0.copyload169, %273 ], [ %281, %295 ]
   %.sroa.7170.0 = phi i8 [ %277, %292 ], [ %277, %288 ], [ %.sroa.7170.0.copyload172, %273 ], [ %277, %295 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -37047,7 +37047,7 @@ define void @_ZN12polars_arrow6legacy5array15fixed_size_list16AnonymousBuilder6f
   br label %26
 
 .loopexit.split-lp:                               ; preds = %16, %25, %28, %55, %75, %90, %.loopexit
-  %.sroa.017.0.ph = phi i1 [ true, %25 ], [ true, %16 ], [ true, %28 ], [ true, %55 ], [ true, %.loopexit ], [ false, %90 ], [ true, %75 ]
+  %.sroa.017.0.ph = phi i1 [ true, %28 ], [ true, %16 ], [ true, %25 ], [ true, %55 ], [ true, %.loopexit ], [ false, %90 ], [ true, %75 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %26

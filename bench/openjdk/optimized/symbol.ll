@@ -211,7 +211,7 @@ define hidden noundef i32 @_ZNK6Symbol11index_of_atEiPKci(ptr noundef nonnull al
   br i1 %.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !6
 
 .loopexit:                                        ; preds = %.lr.ph.split, %48, %.lr.ph.split.us, %35, %6, %4, %.split.us
-  %.027 = phi i32 [ 0, %4 ], [ -1, %6 ], [ %47, %.split.us ], [ -1, %.lr.ph.split.us ], [ -1, %35 ], [ -1, %48 ], [ -1, %.lr.ph.split ]
+  %.027 = phi i32 [ %47, %.split.us ], [ 0, %4 ], [ -1, %6 ], [ -1, %.lr.ph.split.us ], [ -1, %35 ], [ -1, %48 ], [ -1, %.lr.ph.split ]
   ret i32 %.027
 }
 

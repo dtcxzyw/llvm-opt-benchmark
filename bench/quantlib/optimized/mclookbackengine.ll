@@ -2145,7 +2145,7 @@ ehcleanup69:                                      ; preds = %if.then.i.i68, %ehc
   br label %eh.resume
 
 sw.epilog:                                        ; preds = %while.body.i.i42, %while.body.i.i, %sw.bb30, %sw.bb
-  %underlying.0.in = phi ptr [ %add.ptr, %sw.bb ], [ %add.ptr32, %sw.bb30 ], [ %spec.select.i.i, %while.body.i.i ], [ %spec.select.i.i46, %while.body.i.i42 ]
+  %underlying.0.in = phi ptr [ %spec.select.i.i, %while.body.i.i ], [ %add.ptr, %sw.bb ], [ %add.ptr32, %sw.bb30 ], [ %spec.select.i.i46, %while.body.i.i42 ]
   %payoff_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %underlying.0 = load double, ptr %underlying.0.in, align 8, !tbaa !70
   %call73 = tail call noundef double @_ZNK8QuantLib18PlainVanillaPayoffclEd(ptr noundef nonnull align 8 dereferenceable(24) %payoff_, double noundef %underlying.0)
@@ -2686,7 +2686,7 @@ ehcleanup73:                                      ; preds = %if.then.i.i70, %ehc
   br label %eh.resume
 
 sw.epilog:                                        ; preds = %while.body.i.i44, %while.body.i.i, %sw.bb33, %sw.bb
-  %underlying.0.in = phi ptr [ %add.ptr30, %sw.bb ], [ %add.ptr36, %sw.bb33 ], [ %spec.select.i.i, %while.body.i.i ], [ %spec.select.i.i48, %while.body.i.i44 ]
+  %underlying.0.in = phi ptr [ %spec.select.i.i, %while.body.i.i ], [ %add.ptr30, %sw.bb ], [ %add.ptr36, %sw.bb33 ], [ %spec.select.i.i48, %while.body.i.i44 ]
   %payoff_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %underlying.0 = load double, ptr %underlying.0.in, align 8, !tbaa !70
   %call77 = tail call noundef double @_ZNK8QuantLib18PlainVanillaPayoffclEd(ptr noundef nonnull align 8 dereferenceable(24) %payoff_, double noundef %underlying.0)
@@ -3066,7 +3066,7 @@ ehcleanup70:                                      ; preds = %if.then.i.i71, %ehc
   br label %eh.resume
 
 sw.epilog:                                        ; preds = %while.body.i.i45, %while.body.i.i, %sw.bb31, %sw.bb31, %sw.bb, %sw.bb
-  %strike.0.in = phi ptr [ %add.ptr, %sw.bb ], [ %add.ptr33, %sw.bb31 ], [ %add.ptr, %sw.bb ], [ %add.ptr33, %sw.bb31 ], [ %spec.select.i.i, %while.body.i.i ], [ %spec.select.i.i49, %while.body.i.i45 ]
+  %strike.0.in = phi ptr [ %add.ptr33, %sw.bb31 ], [ %add.ptr, %sw.bb ], [ %add.ptr33, %sw.bb31 ], [ %spec.select.i.i, %while.body.i.i ], [ %add.ptr, %sw.bb ], [ %spec.select.i.i49, %while.body.i.i45 ]
   %payoff_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %strike.0 = load double, ptr %strike.0.in, align 8, !tbaa !70
   %call74 = tail call noundef double @_ZNK8QuantLib18FloatingTypePayoffclEdd(ptr noundef nonnull align 8 dereferenceable(12) %payoff_, double noundef %22, double noundef %strike.0)
@@ -3456,7 +3456,7 @@ ehcleanup76:                                      ; preds = %if.then.i.i70, %ehc
   br label %eh.resume
 
 sw.epilog:                                        ; preds = %while.body.i.i44, %while.body.i.i, %sw.bb35, %sw.bb
-  %strike.0.in = phi ptr [ %add.ptr, %sw.bb ], [ %add.ptr37, %sw.bb35 ], [ %spec.select.i.i, %while.body.i.i ], [ %spec.select.i.i48, %while.body.i.i44 ]
+  %strike.0.in = phi ptr [ %spec.select.i.i, %while.body.i.i ], [ %add.ptr, %sw.bb ], [ %add.ptr37, %sw.bb35 ], [ %spec.select.i.i48, %while.body.i.i44 ]
   %payoff_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %strike.0 = load double, ptr %strike.0.in, align 8, !tbaa !70
   %call80 = tail call noundef double @_ZNK8QuantLib18FloatingTypePayoffclEdd(ptr noundef nonnull align 8 dereferenceable(12) %payoff_, double noundef %23, double noundef %strike.0)

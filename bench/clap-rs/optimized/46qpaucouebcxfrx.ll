@@ -7865,8 +7865,8 @@ define hidden noundef nonnull align 8 ptr @"_ZN12clap_builder5error14Error$LT$F$
   unreachable
 
 .body179:                                         ; preds = %57, %131, %41
-  %.0140 = phi i8 [ 1, %131 ], [ 1, %41 ], [ 0, %57 ]
-  %.pn.pn = phi { ptr, i32 } [ %eh.lpad-body178237, %131 ], [ %42, %41 ], [ %58, %57 ]
+  %.0140 = phi i8 [ 1, %131 ], [ 0, %57 ], [ 1, %41 ]
+  %.pn.pn = phi { ptr, i32 } [ %eh.lpad-body178237, %131 ], [ %58, %57 ], [ %42, %41 ]
   %40 = load i64, ptr %5, align 8, !range !118, !noundef !7
   %.not258 = icmp eq i64 %40, -9223372036854775808
   br i1 %.not258, label %.body179.thread, label %132
@@ -10264,8 +10264,8 @@ define hidden noundef nonnull align 8 ptr @"_ZN12clap_builder5error14Error$LT$F$
           to label %.body83 unwind label %95
 
 .body83:                                          ; preds = %97, %69
-  %.4 = phi i1 [ false, %97 ], [ true, %69 ]
-  %.pn61 = phi { ptr, i32 } [ %78, %97 ], [ %70, %69 ]
+  %.4 = phi i1 [ true, %69 ], [ false, %97 ]
+  %.pn61 = phi { ptr, i32 } [ %70, %69 ], [ %78, %97 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$clap_builder..builder..styled_str..StyledStr$GT$17hbb8b221fb765b0c8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %17) #42
           to label %44 unwind label %95
 

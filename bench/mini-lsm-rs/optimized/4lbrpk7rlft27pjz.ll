@@ -2662,7 +2662,7 @@ define hidden noundef zeroext i1 @"_ZN17crossbeam_channel7flavors4list16Channel$
   br i1 %18, label %.lr.ph190, label %._crit_edge
 
 .critedge:                                        ; preds = %.outer.backedge, %84, %2
-  %.073.ph.lcssa110 = phi ptr [ null, %2 ], [ %.073.ph115, %84 ], [ %.073.ph.be, %.outer.backedge ]
+  %.073.ph.lcssa110 = phi ptr [ %.073.ph115, %84 ], [ null, %2 ], [ %.073.ph.be, %.outer.backedge ]
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr null, ptr %19, align 8
   br label %93
@@ -2944,7 +2944,7 @@ define hidden noundef zeroext i1 @"_ZN17crossbeam_channel7flavors4list16Channel$
   br i1 %18, label %.lr.ph190, label %._crit_edge
 
 .critedge:                                        ; preds = %.outer.backedge, %83, %2
-  %.073.ph.lcssa110 = phi ptr [ null, %2 ], [ %.073.ph115, %83 ], [ %.073.ph.be, %.outer.backedge ]
+  %.073.ph.lcssa110 = phi ptr [ %.073.ph115, %83 ], [ null, %2 ], [ %.073.ph.be, %.outer.backedge ]
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr null, ptr %19, align 8
   br label %92
@@ -3221,7 +3221,7 @@ define hidden noundef zeroext i1 @"_ZN17crossbeam_channel7flavors4list16Channel$
   br i1 %16, label %.lr.ph189, label %._crit_edge
 
 .critedge:                                        ; preds = %.outer.backedge, %71, %2
-  %.073.ph.lcssa110 = phi ptr [ null, %2 ], [ %.073.ph115, %71 ], [ %.073.ph.be, %.outer.backedge ]
+  %.073.ph.lcssa110 = phi ptr [ %.073.ph115, %71 ], [ null, %2 ], [ %.073.ph.be, %.outer.backedge ]
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr null, ptr %17, align 8
   br label %80
@@ -3466,7 +3466,7 @@ define hidden noundef zeroext i1 @"_ZN17crossbeam_channel7flavors4list16Channel$
   br i1 %18, label %.lr.ph190, label %._crit_edge
 
 .critedge:                                        ; preds = %.outer.backedge, %83, %2
-  %.073.ph.lcssa110 = phi ptr [ null, %2 ], [ %.073.ph115, %83 ], [ %.073.ph.be, %.outer.backedge ]
+  %.073.ph.lcssa110 = phi ptr [ %.073.ph115, %83 ], [ null, %2 ], [ %.073.ph.be, %.outer.backedge ]
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr null, ptr %19, align 8
   br label %92

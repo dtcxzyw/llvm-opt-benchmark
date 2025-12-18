@@ -33542,7 +33542,7 @@ define internal void @_ZZN9grpc_core12_GLOBAL__N_120InitTransportClosureIXadL_ZL
   br i1 %39, label %.lr.ph.i.i.i.i, label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIjP18grpc_chttp2_streamEENS0_13hash_internal4HashIjEESt8equal_toIjESaISt4pairIKjS5_EEE5beginEv.exit.i.i, !llvm.loop !373
 
 _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIjP18grpc_chttp2_streamEENS0_13hash_internal4HashIjEESt8equal_toIjESaISt4pairIKjS5_EEE5beginEv.exit.i.i: ; preds = %.lr.ph.i.i.i.i, %22, %16
-  %.sroa.6.0.i.i.i = phi ptr [ %21, %16 ], [ %.sroa.0.0.copyload.i.i.i.i.i, %22 ], [ %37, %.lr.ph.i.i.i.i ]
+  %.sroa.6.0.i.i.i = phi ptr [ %.sroa.0.0.copyload.i.i.i.i.i, %22 ], [ %21, %16 ], [ %37, %.lr.ph.i.i.i.i ]
   %40 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.i.i.i, i64 8
   %41 = load ptr, ptr %40, align 8, !tbaa !1342
   %42 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN9grpc_core20resource_quota_traceE, i64 16) monotonic, align 8
@@ -34566,7 +34566,7 @@ _ZN9grpc_coremiENS_9TimestampES0_.exit.thread.i.i: ; preds = %82, %.thread.i.i.i
   br label %_ZN9grpc_coreplENS_8DurationES0_.exit.i.i
 
 _ZN9grpc_coremiENS_9TimestampES0_.exit.i.i:       ; preds = %88, %85, %77, %73, %41
-  %.sroa.07.0.i.i = phi i64 [ 0, %41 ], [ %spec.select.i.i.i, %73 ], [ -9223372036854775808, %77 ], [ -9223372036854775808, %85 ], [ %89, %88 ]
+  %.sroa.07.0.i.i = phi i64 [ 0, %41 ], [ %spec.select.i.i.i, %73 ], [ %89, %88 ], [ -9223372036854775808, %77 ], [ -9223372036854775808, %85 ]
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %93 = load ptr, ptr %92, align 8, !tbaa !327
   call void @llvm.lifetime.start.p0(ptr nonnull %6)

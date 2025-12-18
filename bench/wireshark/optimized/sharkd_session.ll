@@ -1001,7 +1001,7 @@ is_param_match.exit.i.i:                          ; preds = %164, %159
   br label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %.backedge.i.i, %.backedge.us.i.i, %.critedge172.i.i, %193, %191, %183, %181
-  %.4.ph.i.i = phi i1 [ true, %181 ], [ true, %.critedge172.i.i ], [ true, %183 ], [ true, %191 ], [ true, %193 ], [ %.0122281.i.i, %.backedge.us.i.i ], [ %.0122281.i.i, %.backedge.i.i ]
+  %.4.ph.i.i = phi i1 [ true, %181 ], [ true, %193 ], [ true, %.critedge172.i.i ], [ true, %183 ], [ true, %191 ], [ %.0122281.i.i, %.backedge.us.i.i ], [ %.0122281.i.i, %.backedge.i.i ]
   br i1 %exitcond.i.i, label %197, label %.preheader228.i.i, !llvm.loop !13
 
 197:                                              ; preds = %.loopexit.i.i
@@ -1058,7 +1058,7 @@ json_find_attr.exit194.i.i:                       ; preds = %.lr.ph.i188.i.i
   br i1 %.not156.i.i, label %json_find_attr.exit194.thread.i.i, label %223
 
 json_find_attr.exit194.thread.i.i:                ; preds = %json_find_attr.exit194.i.i, %209, %.preheader230.i.i
-  %221 = phi ptr [ @.str.8, %.preheader230.i.i ], [ %208, %209 ], [ %208, %json_find_attr.exit194.i.i ]
+  %221 = phi ptr [ %208, %209 ], [ @.str.8, %.preheader230.i.i ], [ %208, %json_find_attr.exit194.i.i ]
   %222 = load i32, ptr @rpcid, align 4
   call void (i32, i32, ptr, ptr, ...) @sharkd_json_error(i32 noundef %222, i32 noundef -32600, ptr poison, ptr noundef nonnull @.str.114, ptr noundef %221)
   br label %sharkd_session_process.exit
@@ -3821,7 +3821,7 @@ sub_2427:                                         ; preds = %sub_1426
   br label %.loopexit
 
 json_find_attr.exit380.thread:                    ; preds = %json_find_attr.exit380, %31, %json_find_attr.exit.thread
-  %.0277468 = phi i32 [ 0, %json_find_attr.exit.thread ], [ %.0277495, %31 ], [ %.0277495, %json_find_attr.exit380 ]
+  %.0277468 = phi i32 [ %.0277495, %31 ], [ 0, %json_find_attr.exit.thread ], [ %.0277495, %json_find_attr.exit380 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -7348,7 +7348,7 @@ define internal void @sharkd_session_process_tap_conv_cb(ptr noundef readonly ca
   br i1 %118, label %89, label %.thread, !llvm.loop !52
 
 .thread:                                          ; preds = %112, %74, %.preheader86, %.preheader, %22, %83
-  %.3 = phi i32 [ 0, %83 ], [ 0, %22 ], [ 0, %.preheader ], [ 0, %.preheader86 ], [ %.2, %74 ], [ %spec.select84, %112 ]
+  %.3 = phi i32 [ 0, %83 ], [ %.2, %74 ], [ 0, %22 ], [ 0, %.preheader ], [ 0, %.preheader86 ], [ %spec.select84, %112 ]
   tail call void @json_dumper_end_array(ptr noundef nonnull @dumper)
   tail call void @json_dumper_set_member_name(ptr noundef nonnull @dumper, ptr noundef nonnull @.str.38)
   tail call void @json_dumper_value_string(ptr noundef nonnull @dumper, ptr noundef %.0)

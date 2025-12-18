@@ -43,39 +43,39 @@ define internal fastcc ptr @lj_strfmt_wfnum(ptr noundef %0, i32 noundef %1, doub
   %.sroa.0.0.extract.trunc = trunc i64 %14 to i32
   %21 = or i32 %20, %.sroa.0.0.extract.trunc
   %.not604 = icmp eq i32 %21, 0
-  br i1 %.not604, label %22, label %28
+  br i1 %.not604, label %25, label %22
 
 22:                                               ; preds = %17
-  %23 = xor i32 %19, 6909542
-  %.not605 = icmp sgt i64 %14, -1
-  br i1 %.not605, label %24, label %.thread
-
-24:                                               ; preds = %22
-  %25 = and i32 %1, 512
-  %.not606 = icmp eq i32 %25, 0
-  br i1 %.not606, label %26, label %.thread
-
-26:                                               ; preds = %24
-  %27 = and i32 %1, 2048
-  %.not607.not = icmp eq i32 %27, 0
-  br i1 %.not607.not, label %31, label %.thread
-
-28:                                               ; preds = %17
-  %29 = xor i32 %19, 7233902
-  %30 = and i32 %1, 2048
-  %.not608.not = icmp eq i32 %30, 0
+  %23 = xor i32 %19, 7233902
+  %24 = and i32 %1, 2048
+  %.not608.not = icmp eq i32 %24, 0
   br i1 %.not608.not, label %31, label %.thread
 
-.thread:                                          ; preds = %22, %24, %26, %28
-  %.0489751 = phi i8 [ 32, %26 ], [ 32, %28 ], [ 45, %22 ], [ 43, %24 ]
-  %.0527749 = phi i32 [ %23, %26 ], [ %29, %28 ], [ %23, %22 ], [ %23, %24 ]
+25:                                               ; preds = %17
+  %26 = xor i32 %19, 6909542
+  %.not605 = icmp sgt i64 %14, -1
+  br i1 %.not605, label %27, label %.thread
+
+27:                                               ; preds = %25
+  %28 = and i32 %1, 512
+  %.not606 = icmp eq i32 %28, 0
+  br i1 %.not606, label %29, label %.thread
+
+29:                                               ; preds = %27
+  %30 = and i32 %1, 2048
+  %.not607.not = icmp eq i32 %30, 0
+  br i1 %.not607.not, label %31, label %.thread
+
+.thread:                                          ; preds = %25, %27, %22, %29
+  %.0489751 = phi i8 [ 32, %22 ], [ 32, %29 ], [ 45, %25 ], [ 43, %27 ]
+  %.0527749 = phi i32 [ %23, %22 ], [ %26, %29 ], [ %26, %25 ], [ %26, %27 ]
   br label %31
 
-31:                                               ; preds = %26, %28, %.thread
-  %.0489750 = phi i8 [ %.0489751, %.thread ], [ 0, %28 ], [ 0, %26 ]
-  %32 = phi i1 [ true, %.thread ], [ false, %28 ], [ false, %26 ]
-  %.0527748 = phi i32 [ %.0527749, %.thread ], [ %29, %28 ], [ %23, %26 ]
-  %33 = phi i32 [ 4, %.thread ], [ 3, %28 ], [ 3, %26 ]
+31:                                               ; preds = %22, %29, %.thread
+  %.0489750 = phi i8 [ %.0489751, %.thread ], [ 0, %29 ], [ 0, %22 ]
+  %32 = phi i1 [ true, %.thread ], [ false, %29 ], [ false, %22 ]
+  %.0527748 = phi i32 [ %.0527749, %.thread ], [ %26, %29 ], [ %23, %22 ]
+  %33 = phi i32 [ 4, %.thread ], [ 3, %29 ], [ 3, %22 ]
   %.not609 = icmp eq ptr %3, null
   br i1 %.not609, label %34, label %lj_buf_more.exit
 

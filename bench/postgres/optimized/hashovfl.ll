@@ -1242,7 +1242,7 @@ BufferGetPage.exit181:                            ; preds = %147, %153
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %207, %219, %214
-  %.0160 = phi i1 [ %218, %219 ], [ false, %214 ], [ true, %207 ], [ true, %.lr.ph ]
+  %.0160 = phi i1 [ false, %214 ], [ %218, %219 ], [ true, %207 ], [ true, %.lr.ph ]
   call void @XLogRegisterBuffer(i8 noundef zeroext 2, i32 noundef %2, i8 noundef zeroext 8) #5
   %220 = load i8, ptr %200, align 1, !range !9
   %221 = trunc nuw i8 %220 to i1

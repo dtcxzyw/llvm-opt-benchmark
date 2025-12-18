@@ -19907,7 +19907,7 @@ _ZL25tryBitfieldInsertOpFromOrPN4llvm6SDNodeERKNS_5APIntEPNS_12SelectionDAGE.exi
   call void @llvm.lifetime.end.p0(ptr nonnull %59)
   br label %970
 
-789:                                              ; preds = %78, %.critedge158.i, %598, %.critedge153.i, %600, %604, %611, %622
+789:                                              ; preds = %622, %78, %.critedge158.i, %598, %.critedge153.i, %600, %604, %611
   call void @llvm.lifetime.end.p0(ptr nonnull %45)
   call void @llvm.lifetime.end.p0(ptr nonnull %48)
   call void @llvm.lifetime.end.p0(ptr nonnull %51)
@@ -36607,7 +36607,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %_ZN4llvm5SDLocC2ENS
   br label %_ZNK4llvm5APIntneEm.exit.thread
 
 _ZNK4llvm5APIntneEm.exit.thread:                  ; preds = %_ZNK4llvm5APIntneEm.exit, %_ZN4llvm5SDLocD2Ev.exit
-  %176 = phi i32 [ %.pre, %_ZN4llvm5SDLocD2Ev.exit ], [ %153, %_ZNK4llvm5APIntneEm.exit ]
+  %176 = phi i32 [ %153, %_ZNK4llvm5APIntneEm.exit ], [ %.pre, %_ZN4llvm5SDLocD2Ev.exit ]
   %177 = icmp ugt i32 %176, 64
   br i1 %177, label %_ZNK4llvm5APIntneEm.exit.thread.thread55, label %_ZN4llvm5APIntD2Ev.exit29
 
@@ -37872,7 +37872,7 @@ _ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit: ; preds = %77,
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %.loopexit, %69, %.critedge91
-  %.0 = phi i1 [ false, %.critedge91 ], [ true, %69 ], [ true, %.loopexit ], [ true, %.critedge.sink.split ]
+  %.0 = phi i1 [ true, %.loopexit ], [ true, %69 ], [ false, %.critedge91 ], [ true, %.critedge.sink.split ]
   %123 = load ptr, ptr %7, align 8, !tbaa !219
   %.not.i.i.i.i.i = icmp eq ptr %123, null
   br i1 %.not.i.i.i.i.i, label %_ZN4llvm5SDLocD2Ev.exit, label %124
@@ -38151,7 +38151,7 @@ _ZL14narrowIfNeededPN4llvm12SelectionDAGENS_7SDValueE.exit: ; preds = %70, %_ZN4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZL17isMemOpOrPrefetchPN4llvm6SDNodeE.exit, %27, %27, %_ZN4llvm5SDLocC2ENS_7SDValueE.exit, %_ZN4llvm5SDLocC2ENS_7SDValueE.exit, %.critedge115, %_ZL14narrowIfNeededPN4llvm12SelectionDAGENS_7SDValueE.exit, %90, %54, %45
-  %.1 = phi i1 [ false, %_ZN4llvm5SDLocC2ENS_7SDValueE.exit ], [ false, %27 ], [ true, %90 ], [ true, %45 ], [ true, %54 ], [ false, %.critedge115 ], [ true, %_ZL14narrowIfNeededPN4llvm12SelectionDAGENS_7SDValueE.exit ], [ false, %_ZN4llvm5SDLocC2ENS_7SDValueE.exit ], [ false, %27 ], [ false, %_ZL17isMemOpOrPrefetchPN4llvm6SDNodeE.exit ]
+  %.1 = phi i1 [ false, %_ZN4llvm5SDLocC2ENS_7SDValueE.exit ], [ false, %27 ], [ true, %90 ], [ true, %45 ], [ true, %54 ], [ false, %.critedge115 ], [ true, %_ZL14narrowIfNeededPN4llvm12SelectionDAGENS_7SDValueE.exit ], [ false, %27 ], [ false, %_ZN4llvm5SDLocC2ENS_7SDValueE.exit ], [ false, %_ZL17isMemOpOrPrefetchPN4llvm6SDNodeE.exit ]
   %103 = load ptr, ptr %11, align 8, !tbaa !219
   %.not.i.i.i.i.i = icmp eq ptr %103, null
   br i1 %.not.i.i.i.i.i, label %_ZN4llvm5SDLocD2Ev.exit, label %104
@@ -38455,7 +38455,7 @@ _ZL17isMemOpOrPrefetchPN4llvm6SDNodeE.exit34.thread.i49: ; preds = %_ZL17isMemOp
   br i1 %.not.i54, label %_ZL17isWorthFoldingSHLN4llvm7SDValueE.exit, label %.lr.ph58.i41
 
 _ZL17isWorthFoldingSHLN4llvm7SDValueE.exit:       ; preds = %.critedge25.i, %.critedge25.i30, %.critedge25.i52, %_ZL17isMemOpOrPrefetchPN4llvm6SDNodeE.exit34.i48, %21, %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit.i, %114, %78, %99, %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit.i34, %_ZL17isWorthFoldingSHLN4llvm7SDValueE.exit.thread, %_ZL17isWorthFoldingSHLN4llvm7SDValueE.exit33.thread, %36, %16, %16, %4, %8
-  %.0 = phi i1 [ true, %4 ], [ false, %16 ], [ true, %8 ], [ false, %16 ], [ true, %36 ], [ false, %_ZL17isWorthFoldingSHLN4llvm7SDValueE.exit.thread ], [ false, %_ZL17isWorthFoldingSHLN4llvm7SDValueE.exit33.thread ], [ false, %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit.i34 ], [ false, %99 ], [ true, %78 ], [ true, %114 ], [ false, %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit.i ], [ false, %21 ], [ true, %.critedge25.i30 ], [ false, %_ZL17isMemOpOrPrefetchPN4llvm6SDNodeE.exit34.i48 ], [ true, %.critedge25.i52 ], [ true, %.critedge25.i ]
+  %.0 = phi i1 [ true, %114 ], [ true, %4 ], [ false, %16 ], [ false, %_ZL17isMemOpOrPrefetchPN4llvm6SDNodeE.exit34.i48 ], [ true, %8 ], [ false, %16 ], [ true, %36 ], [ false, %_ZL17isWorthFoldingSHLN4llvm7SDValueE.exit.thread ], [ false, %_ZL17isWorthFoldingSHLN4llvm7SDValueE.exit33.thread ], [ false, %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit.i34 ], [ false, %99 ], [ false, %21 ], [ true, %.critedge25.i52 ], [ true, %78 ], [ true, %.critedge25.i30 ], [ false, %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit.i ], [ true, %.critedge25.i ]
   ret i1 %.0
 }
 
@@ -38760,7 +38760,7 @@ switch.lookup82:                                  ; preds = %34
   br label %_ZNK4llvm3EVTeqES0_.exit22
 
 _ZNK4llvm3EVTeqES0_.exit22:                       ; preds = %.critedge15, %switch.lookup82, %.critedge, %switch.lookup, %2, %_ZNK4llvm3EVTeqES0_.exit22.fold.split80, %_ZNK4llvm3EVTeqES0_.exit22.fold.split78, %36, %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit, %54, %52, %50
-  %.1 = phi i32 [ -1, %2 ], [ -1, %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit ], [ 7, %54 ], [ %51, %50 ], [ %53, %52 ], [ %switch.offset, %switch.lookup ], [ -1, %_ZNK4llvm3EVTeqES0_.exit22.fold.split80 ], [ %switch.offset84, %switch.lookup82 ], [ 11, %.critedge ], [ -1, %36 ], [ 7, %.critedge15 ], [ -1, %_ZNK4llvm3EVTeqES0_.exit22.fold.split78 ]
+  %.1 = phi i32 [ -1, %2 ], [ 7, %.critedge15 ], [ -1, %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit ], [ -1, %_ZNK4llvm3EVTeqES0_.exit22.fold.split78 ], [ 7, %54 ], [ %51, %50 ], [ %53, %52 ], [ 11, %.critedge ], [ %switch.offset, %switch.lookup ], [ -1, %_ZNK4llvm3EVTeqES0_.exit22.fold.split80 ], [ -1, %36 ], [ %switch.offset84, %switch.lookup82 ]
   ret i32 %.1
 }
 
@@ -38992,7 +38992,7 @@ _ZL24isValidAsScaledImmediateljj.exit.thread.sink.split: ; preds = %.critedge78,
   br label %_ZL24isValidAsScaledImmediateljj.exit.thread
 
 _ZL24isValidAsScaledImmediateljj.exit.thread:     ; preds = %_ZL17isMemOpOrPrefetchPN4llvm6SDNodeE.exit, %_ZL24isValidAsScaledImmediateljj.exit.thread.sink.split, %_ZL14isPreferredADDl.exit.thread134, %_ZL24isValidAsScaledImmediateljj.exit, %49, %_ZL14isPreferredADDl.exit82, %_ZL14isPreferredADDl.exit
-  %.4 = phi i1 [ false, %_ZL14isPreferredADDl.exit82 ], [ false, %_ZL24isValidAsScaledImmediateljj.exit ], [ false, %_ZL14isPreferredADDl.exit ], [ false, %49 ], [ false, %_ZL14isPreferredADDl.exit.thread134 ], [ true, %_ZL24isValidAsScaledImmediateljj.exit.thread.sink.split ], [ false, %_ZL17isMemOpOrPrefetchPN4llvm6SDNodeE.exit ]
+  %.4 = phi i1 [ false, %_ZL14isPreferredADDl.exit82 ], [ true, %_ZL24isValidAsScaledImmediateljj.exit.thread.sink.split ], [ false, %_ZL24isValidAsScaledImmediateljj.exit ], [ false, %_ZL14isPreferredADDl.exit ], [ false, %49 ], [ false, %_ZL14isPreferredADDl.exit.thread134 ], [ false, %_ZL17isMemOpOrPrefetchPN4llvm6SDNodeE.exit ]
   %103 = load ptr, ptr %9, align 8, !tbaa !219
   %.not.i.i.i.i.i = icmp eq ptr %103, null
   br i1 %.not.i.i.i.i.i, label %_ZN4llvm5SDLocD2Ev.exit, label %104
@@ -40148,7 +40148,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZN4llvm5SDLocC2ENS
   br label %56
 
 56:                                               ; preds = %.sink.split, %45, %_ZN4llvm5APIntD2Ev.exit
-  %.1 = phi i1 [ false, %_ZN4llvm5APIntD2Ev.exit ], [ false, %45 ], [ true, %.sink.split ]
+  %.1 = phi i1 [ false, %45 ], [ false, %_ZN4llvm5APIntD2Ev.exit ], [ true, %.sink.split ]
   %57 = load ptr, ptr %6, align 8, !tbaa !219
   %.not.i.i.i.i.i = icmp eq ptr %57, null
   br i1 %.not.i.i.i.i.i, label %_ZN4llvm5SDLocD2Ev.exit, label %58
@@ -40521,7 +40521,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZNK4llvm5APInt12ge
   br label %58
 
 58:                                               ; preds = %.sink.split, %47, %_ZN4llvm5APIntD2Ev.exit
-  %.1 = phi i1 [ false, %_ZN4llvm5APIntD2Ev.exit ], [ false, %47 ], [ true, %.sink.split ]
+  %.1 = phi i1 [ false, %47 ], [ false, %_ZN4llvm5APIntD2Ev.exit ], [ true, %.sink.split ]
   %59 = load ptr, ptr %6, align 8, !tbaa !219
   %.not.i.i.i.i.i = icmp eq ptr %59, null
   br i1 %.not.i.i.i.i.i, label %_ZN4llvm5SDLocD2Ev.exit, label %60
@@ -40675,7 +40675,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZNK4llvm5APInt12ge
   br label %66
 
 66:                                               ; preds = %.sink.split, %55, %40, %_ZN4llvm5APIntD2Ev.exit
-  %.1 = phi i1 [ false, %_ZN4llvm5APIntD2Ev.exit ], [ false, %40 ], [ false, %55 ], [ true, %.sink.split ]
+  %.1 = phi i1 [ false, %55 ], [ false, %_ZN4llvm5APIntD2Ev.exit ], [ false, %40 ], [ true, %.sink.split ]
   %67 = load ptr, ptr %7, align 8, !tbaa !219
   %.not.i.i.i.i.i = icmp eq ptr %67, null
   br i1 %.not.i.i.i.i.i, label %_ZN4llvm5SDLocD2Ev.exit, label %68

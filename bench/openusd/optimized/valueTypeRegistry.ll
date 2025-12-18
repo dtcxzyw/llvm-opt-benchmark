@@ -1274,7 +1274,7 @@ _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEEC2ERS3_b.exit.i: ; preds 
   br label %.loopexit.i, !llvm.loop !17
 
 _ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_17Sdf_ValueTypeImplENS0_6TfHashESt8equal_toIS1_ESaISt4pairIKS1_S2_EEE4findERS7_.exit.i: ; preds = %57, %29, %46
-  %.sroa.06.1.i.i.i = phi ptr [ %47, %46 ], [ %.sroa.06.0.i.i.i, %29 ], [ %65, %57 ]
+  %.sroa.06.1.i.i.i = phi ptr [ %.sroa.06.0.i.i.i, %29 ], [ %47, %46 ], [ %65, %57 ]
   %70 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 16
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18Registry20FindOrCreateTypeNameERKNS_7TfTokenE.exit
 
@@ -1366,7 +1366,7 @@ _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit.i: ; preds = %1
   br label %.loopexit.i.i, !llvm.loop !17
 
 _ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_17Sdf_ValueTypeImplENS0_6TfHashESt8equal_toIS1_ESaISt4pairIKS1_S2_EEE4findERS7_.exit.i.i: ; preds = %107, %80, %96
-  %.sroa.06.1.i.i.i.i = phi ptr [ %97, %96 ], [ %.sroa.06.0.i.i.i.i, %80 ], [ %115, %107 ]
+  %.sroa.06.1.i.i.i.i = phi ptr [ %.sroa.06.0.i.i.i.i, %80 ], [ %97, %96 ], [ %115, %107 ]
   %120 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i, i64 16
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18Registry20FindOrCreateTypeNameERKNS_7TfTokenE.exit
 
@@ -2427,7 +2427,7 @@ define internal fastcc noundef nonnull ptr @_ZNK32pxrInternal_v0_24__pxrReserved
   br label %.loopexit, !llvm.loop !17
 
 _ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_17Sdf_ValueTypeImplENS0_6TfHashESt8equal_toIS1_ESaISt4pairIKS1_S2_EEE4findERS7_.exit: ; preds = %36, %8, %25
-  %.sroa.06.1.i.i = phi ptr [ %26, %25 ], [ %.sroa.06.0.i.i, %8 ], [ %44, %36 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %8 ], [ %26, %25 ], [ %44, %36 ]
   %49 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   br label %_ZN32pxrInternal_v0_24__pxrReserved__20Sdf_ValueTypePrivate16GetEmptyTypeNameEv.exit
 

@@ -4958,7 +4958,7 @@ _ZN3std2io5Write14write_vectored17h49cd76168e184d3bE.exit: ; preds = %30, %37
   br i1 %47, label %49, label %51
 
 .loopexit:                                        ; preds = %100, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h7a9b210b614835d3E.exit.thread.i15", %92, %81, %88, %83, %49, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h7a9b210b614835d3E.exit.i", %3
-  %.sroa.0.0 = phi ptr [ null, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h7a9b210b614835d3E.exit.i" ], [ null, %3 ], [ %.sroa.3.0.i.i.i.i, %92 ], [ null, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h7a9b210b614835d3E.exit.thread.i15" ], [ @anon.d80e60adfe729c318e59c386bf5e42ea.61, %49 ], [ %.sroa.3.0.i.i.i.i, %83 ], [ %.sroa.3.0.i.i.i.i, %88 ], [ %.sroa.3.0.i.i.i.i, %81 ], [ null, %100 ]
+  %.sroa.0.0 = phi ptr [ null, %3 ], [ %.sroa.3.0.i.i.i.i, %92 ], [ null, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h7a9b210b614835d3E.exit.i" ], [ null, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h7a9b210b614835d3E.exit.thread.i15" ], [ @anon.d80e60adfe729c318e59c386bf5e42ea.61, %49 ], [ %.sroa.3.0.i.i.i.i, %83 ], [ %.sroa.3.0.i.i.i.i, %88 ], [ %.sroa.3.0.i.i.i.i, %81 ], [ null, %100 ]
   ret ptr %.sroa.0.0
 
 49:                                               ; preds = %_ZN3std2io5Write14write_vectored17h49cd76168e184d3bE.exit
@@ -25897,7 +25897,7 @@ _ZN9async_tls7rusttls6stream4Conn6reader17h616f3ca02dae2d75E.exit: ; preds = %_Z
   %53 = icmp eq i64 %51, 1
   br i1 %53, label %65, label %69
 
-_ZN9async_tls7rusttls6stream4Conn10wants_read17haaee421a6059c5b6E.exit.thread26: ; preds = %23, %31, %_ZN9async_tls7rusttls6stream4Conn10wants_read17haaee421a6059c5b6E.exit
+_ZN9async_tls7rusttls6stream4Conn10wants_read17haaee421a6059c5b6E.exit.thread26: ; preds = %31, %23, %_ZN9async_tls7rusttls6stream4Conn10wants_read17haaee421a6059c5b6E.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @"_ZN9async_tls7rusttls6stream16Stream$LT$IO$GT$17complete_inner_io17h41048d0f9fa1d044E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noalias noundef nonnull align 8 dereferenceable(32) %1, i8 noundef 1)
   %54 = load i64, ptr %7, align 8, !range !958, !noundef !4
@@ -26605,7 +26605,7 @@ _ZN9async_tls7rusttls6stream4Conn10wants_read17haaee421a6059c5b6E.exit.thread: ;
     i8 2, label %109
   ]
 
-_ZN9async_tls7rusttls6stream4Conn10wants_read17haaee421a6059c5b6E.exit.thread59: ; preds = %48, %56, %_ZN9async_tls7rusttls6stream4Conn10wants_read17haaee421a6059c5b6E.exit
+_ZN9async_tls7rusttls6stream4Conn10wants_read17haaee421a6059c5b6E.exit.thread59: ; preds = %56, %48, %_ZN9async_tls7rusttls6stream4Conn10wants_read17haaee421a6059c5b6E.exit
   call void @llvm.experimental.noalias.scope.decl(metadata !4334)
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !4337
   %63 = load ptr, ptr %14, align 8, !alias.scope !4334, !noalias !4339, !nonnull !4, !align !10, !noundef !4

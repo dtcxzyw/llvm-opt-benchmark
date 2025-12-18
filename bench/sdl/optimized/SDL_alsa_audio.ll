@@ -2158,15 +2158,15 @@ define internal fastcc range(i32 -1, 2) i32 @ALSA_pcm_cfg_hw_chans_n_scan(ptr no
   br label %14
 
 .thread92.sink.split:                             ; preds = %112, %103, %94, %82, %71, %62, %60, %28, %19, %.backedge
-  %.lcssa224.sink = phi i32 [ %35, %.backedge ], [ %110, %103 ], [ %101, %94 ], [ %92, %82 ], [ %80, %71 ], [ %69, %62 ], [ %35, %60 ], [ %35, %28 ], [ %26, %19 ], [ %119, %112 ]
-  %.str.99.sink = phi ptr [ @.str.93, %.backedge ], [ @.str.98, %103 ], [ @.str.97, %94 ], [ @.str.96, %82 ], [ @.str.95, %71 ], [ @.str.94, %62 ], [ @.str.93, %60 ], [ @.str.92, %28 ], [ @.str.91, %19 ], [ @.str.99, %112 ]
+  %.lcssa224.sink = phi i32 [ %35, %.backedge ], [ %101, %94 ], [ %92, %82 ], [ %80, %71 ], [ %69, %62 ], [ %35, %60 ], [ %35, %28 ], [ %26, %19 ], [ %119, %112 ], [ %110, %103 ]
+  %.str.99.sink = phi ptr [ @.str.93, %.backedge ], [ @.str.97, %94 ], [ @.str.96, %82 ], [ @.str.95, %71 ], [ @.str.94, %62 ], [ @.str.93, %60 ], [ @.str.92, %28 ], [ @.str.91, %19 ], [ @.str.99, %112 ], [ @.str.98, %103 ]
   %135 = load ptr, ptr @ALSA_snd_strerror, align 8
   %136 = tail call ptr %135(i32 noundef %.lcssa224.sink) #8
   %137 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull %.str.99.sink, ptr noundef %136) #8
   br label %.thread92
 
 .thread92:                                        ; preds = %124, %121, %17, %15, %.thread92.sink.split
-  %.176 = phi i32 [ -1, %.thread92.sink.split ], [ -1, %121 ], [ 0, %124 ], [ 1, %17 ], [ 1, %15 ]
+  %.176 = phi i32 [ -1, %.thread92.sink.split ], [ 1, %15 ], [ 1, %17 ], [ 0, %124 ], [ -1, %121 ]
   ret i32 %.176
 }
 
@@ -2715,7 +2715,7 @@ swizzle_map_compute.exit.thread:                  ; preds = %174, %191, %swizzle
   br label %.thread47
 
 .thread47:                                        ; preds = %161, %.loopexit.i, %14, %alsa_chmap_cfg_ordered.exit, %198, %swizzle_map_compute.exit.thread, %172, %alsa_chmap_cfg_unordered.exit, %alsa_chmap_cfg_ordered.exit.thread, %114, %13
-  %.0 = phi i32 [ 0, %13 ], [ 0, %114 ], [ -1, %alsa_chmap_cfg_ordered.exit ], [ 1, %alsa_chmap_cfg_ordered.exit.thread ], [ %.2, %198 ], [ %.2, %swizzle_map_compute.exit.thread ], [ -1, %172 ], [ -1, %alsa_chmap_cfg_unordered.exit ], [ 1, %14 ], [ 1, %.loopexit.i ], [ 1, %161 ]
+  %.0 = phi i32 [ 0, %13 ], [ 0, %114 ], [ -1, %alsa_chmap_cfg_ordered.exit ], [ 1, %alsa_chmap_cfg_ordered.exit.thread ], [ -1, %alsa_chmap_cfg_unordered.exit ], [ %.2, %198 ], [ %.2, %swizzle_map_compute.exit.thread ], [ -1, %172 ], [ 1, %.loopexit.i ], [ 1, %14 ], [ 1, %161 ]
   ret i32 %.0
 }
 

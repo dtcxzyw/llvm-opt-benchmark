@@ -1252,7 +1252,7 @@ append_tokens.exit.i:                             ; preds = %free_token.exit.i, 
   br label %handle_df.exit.thread.i
 
 handle_df.exit.thread.i:                          ; preds = %185, %183, %178, %175, %172, %.preheader.i90.i, %append_tokens.exit.i, %handle_df.exit.i, %378, %375, %371, %367, %365, %349, %347, %344, %340, %321, %318, %138
-  %.2236.i = phi i64 [ %.2.i, %handle_df.exit.i ], [ %.2.i, %append_tokens.exit.i ], [ %.1.i, %138 ], [ %.072148.i, %378 ], [ %.072148.i, %375 ], [ %.072148.i, %371 ], [ %.072148.i, %349 ], [ %.072148.i, %347 ], [ %.072148.i, %344 ], [ %.072148.i, %340 ], [ %.072148.i, %321 ], [ %.072148.i, %367 ], [ %.072148.i, %318 ], [ %.072148.i, %365 ], [ %.1.i, %.preheader.i90.i ], [ %.1.i, %172 ], [ %.1.i, %175 ], [ %.1.i, %178 ], [ %.1.i, %183 ], [ %.1.i, %185 ]
+  %.2236.i = phi i64 [ %.2.i, %handle_df.exit.i ], [ %.2.i, %append_tokens.exit.i ], [ %.072148.i, %365 ], [ %.072148.i, %318 ], [ %.072148.i, %367 ], [ %.072148.i, %321 ], [ %.072148.i, %340 ], [ %.072148.i, %344 ], [ %.1.i, %138 ], [ %.072148.i, %378 ], [ %.072148.i, %375 ], [ %.072148.i, %371 ], [ %.072148.i, %349 ], [ %.072148.i, %347 ], [ %.1.i, %.preheader.i90.i ], [ %.1.i, %172 ], [ %.1.i, %175 ], [ %.1.i, %178 ], [ %.1.i, %183 ], [ %.1.i, %185 ]
   %479 = load ptr, ptr %8, align 8, !tbaa !25
   %480 = getelementptr inbounds nuw %struct.token, ptr %479, i64 %.2236.i
   %481 = getelementptr inbounds nuw i8, ptr %480, i64 8
@@ -1789,7 +1789,7 @@ yylex.exit.thread.thread172:                      ; preds = %textbuf_clean.exit.
   unreachable
 
 yylex.exit:                                       ; preds = %parseOperator.exit.i, %parseOperator.exit112.i, %177, %179, %181, %183, %185, %187, %189, %203
-  %.0.i = phi i32 [ %132, %parseOperator.exit.i ], [ %176, %parseOperator.exit112.i ], [ %178, %177 ], [ %180, %179 ], [ %182, %181 ], [ %184, %183 ], [ %204, %203 ], [ %186, %185 ], [ %188, %187 ], [ %190, %189 ]
+  %.0.i = phi i32 [ %132, %parseOperator.exit.i ], [ %176, %parseOperator.exit112.i ], [ %178, %177 ], [ %180, %179 ], [ %182, %181 ], [ %184, %183 ], [ %204, %203 ], [ %190, %189 ], [ %188, %187 ], [ %186, %185 ]
   %.not100 = icmp eq i32 %.0.i, 0
   br i1 %.not100, label %yylex.exit.thread138, label %yylex.exit.thread
 
@@ -2270,8 +2270,8 @@ yyget_text.exit125:                               ; preds = %406, %410
   unreachable
 
 .thread144:                                       ; preds = %.thread.thread, %scope_new.exit, %231, %add_token.exit, %.thread
-  %.0.i136148 = phi i32 [ %.0.i136149.ph, %.thread ], [ 73, %scope_new.exit ], [ 11, %add_token.exit ], [ 3, %231 ], [ 14, %.thread.thread ]
-  %.1146 = phi ptr [ %.0, %.thread ], [ %346, %scope_new.exit ], [ %305, %add_token.exit ], [ %.0, %231 ], [ %.0, %.thread.thread ]
+  %.0.i136148 = phi i32 [ %.0.i136149.ph, %.thread ], [ 3, %231 ], [ 11, %add_token.exit ], [ 73, %scope_new.exit ], [ 14, %.thread.thread ]
+  %.1146 = phi ptr [ %.0, %.thread ], [ %.0, %231 ], [ %305, %add_token.exit ], [ %346, %scope_new.exit ], [ %.0, %.thread.thread ]
   %414 = load i64, ptr %20, align 8, !tbaa !23
   %415 = add i64 %414, 1
   %416 = load i64, ptr %24, align 8, !tbaa !24
@@ -3360,7 +3360,7 @@ buf_outs.exit232.i:                               ; preds = %.critedge.thread38.
   br label %output_token.exit
 
 output_token.exit:                                ; preds = %.critedge.thread38.i165.i, %.critedge.thread38.i140.i, %.critedge.thread38.i108.i, %.critedge.thread38.i78.i, %.critedge.thread38.i193.i, %138, %141, %._crit_edge.i75.i, %._crit_edge.i105.i, %output_space.exit122.i, %._crit_edge.i137.i, %._crit_edge.i162.i, %._crit_edge.i190.i, %358, %buf_outs.exit232.i, %406
-  %.0.i21 = phi i8 [ 97, %output_space.exit122.i ], [ 0, %buf_outs.exit232.i ], [ 0, %358 ], [ 34, %141 ], [ 48, %._crit_edge.i75.i ], [ 97, %._crit_edge.i162.i ], [ 48, %._crit_edge.i105.i ], [ 97, %._crit_edge.i137.i ], [ %409, %406 ], [ 34, %138 ], [ 97, %._crit_edge.i190.i ], [ 97, %.critedge.thread38.i140.i ], [ 97, %.critedge.thread38.i193.i ], [ 48, %.critedge.thread38.i78.i ], [ 48, %.critedge.thread38.i108.i ], [ 97, %.critedge.thread38.i165.i ]
+  %.0.i21 = phi i8 [ 97, %output_space.exit122.i ], [ 0, %buf_outs.exit232.i ], [ 0, %358 ], [ 34, %141 ], [ 48, %._crit_edge.i75.i ], [ 97, %._crit_edge.i162.i ], [ 48, %._crit_edge.i105.i ], [ 97, %._crit_edge.i137.i ], [ %409, %406 ], [ 34, %138 ], [ 97, %._crit_edge.i190.i ], [ 48, %.critedge.thread38.i108.i ], [ 97, %.critedge.thread38.i140.i ], [ 97, %.critedge.thread38.i193.i ], [ 48, %.critedge.thread38.i78.i ], [ 97, %.critedge.thread38.i165.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.pre117 = load i64, ptr %50, align 8, !tbaa !23
   br label %state_update_scope.exit.thread

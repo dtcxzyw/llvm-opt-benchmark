@@ -4302,7 +4302,7 @@ s7comm_decode_szl_id_0x94_idx_xxxx.exit:          ; preds = %.loopexit.i, %674
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.thread, %.preheader, %7, %101, %793, %s7comm_get_szl_id_index_description_text.exit.thread
-  %.0206 = phi i32 [ %34, %s7comm_get_szl_id_index_description_text.exit.thread ], [ %94, %101 ], [ %6, %793 ], [ %6, %7 ], [ %94, %.preheader ], [ %.3, %.thread ]
+  %.0206 = phi i32 [ %34, %s7comm_get_szl_id_index_description_text.exit.thread ], [ %6, %7 ], [ %94, %101 ], [ %6, %793 ], [ %94, %.preheader ], [ %.3, %.thread ]
   ret i32 %.0206
 }
 

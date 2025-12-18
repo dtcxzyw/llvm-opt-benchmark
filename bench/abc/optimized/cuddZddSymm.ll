@@ -1093,7 +1093,7 @@ define internal fastcc range(i32 0, 2) i32 @cuddZddSymmSiftingAux(ptr noundef %0
   br label %.loopexit407
 
 .loopexit407:                                     ; preds = %50, %100, %140, %197, %.preheader406, %..loopexit407_crit_edge, %.loopexit, %.thread
-  %.0337 = phi i32 [ 0, %.thread ], [ 0, %.loopexit ], [ 1, %..loopexit407_crit_edge ], [ 1, %.preheader406 ], [ 0, %197 ], [ 0, %140 ], [ 0, %100 ], [ 0, %50 ]
+  %.0337 = phi i32 [ 0, %.loopexit ], [ 0, %.thread ], [ 1, %..loopexit407_crit_edge ], [ 1, %.preheader406 ], [ 0, %197 ], [ 0, %140 ], [ 0, %100 ], [ 0, %50 ]
   ret i32 %.0337
 }
 
@@ -1919,7 +1919,7 @@ cuddZddSymmSummary.exit:                          ; preds = %cuddZddSymmSummary.
   store ptr null, ptr @zdd_entry, align 8, !tbaa !43
   br label %356
 
-cuddZddSymmSiftingConvAux.exit.thread:            ; preds = %67, %117, %166, %199, %253, %.loopexit.i, %.thread.i, %21
+cuddZddSymmSiftingConvAux.exit.thread:            ; preds = %67, %117, %166, %199, %253, %.thread.i, %.loopexit.i, %21
   %.pr = load ptr, ptr @zdd_entry, align 8, !tbaa !43
   %.not130 = icmp eq ptr %.pr, null
   br i1 %.not130, label %354, label %353
@@ -2107,7 +2107,7 @@ split:                                            ; preds = %48, %._crit_edge106
   br label %.loopexit90
 
 .loopexit90:                                      ; preds = %51, %split, %..loopexit_crit_edge, %4, %._crit_edge.loopexit, %69
-  %.074 = phi ptr [ null, %4 ], [ %70, %69 ], [ inttoptr (i64 1 to ptr), %split ], [ %.pre, %._crit_edge.loopexit ], [ inttoptr (i64 1 to ptr), %..loopexit_crit_edge ], [ %49, %51 ]
+  %.074 = phi ptr [ inttoptr (i64 1 to ptr), %split ], [ null, %4 ], [ %70, %69 ], [ %.pre, %._crit_edge.loopexit ], [ inttoptr (i64 1 to ptr), %..loopexit_crit_edge ], [ %49, %51 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.074
 }
@@ -2285,7 +2285,7 @@ define internal fastcc range(i32 0, 2) i32 @cuddZddSymmSiftingBackward(ptr nound
   br i1 %.not85.not.i, label %.preheader.i, label %zdd_group_move_backward.exit, !llvm.loop !112
 
 zdd_group_move_backward.exit:                     ; preds = %._crit_edge.i, %73, %.preheader89.i, %29
-  %.0 = phi i32 [ %30, %29 ], [ -1, %.preheader89.i ], [ 0, %73 ], [ %.171.lcssa.i, %._crit_edge.i ]
+  %.0 = phi i32 [ %30, %29 ], [ 0, %73 ], [ -1, %.preheader89.i ], [ %.171.lcssa.i, %._crit_edge.i ]
   %80 = icmp eq i32 %.0, %spec.select
   %or.cond45 = select i1 %6, i1 %80, i1 false
   br i1 %or.cond45, label %._crit_edge, label %81
@@ -2460,7 +2460,7 @@ split:                                            ; preds = %45, %._crit_edge93
   br label %.loopexit77
 
 .loopexit77:                                      ; preds = %48, %split, %..loopexit_crit_edge, %4, %._crit_edge.loopexit, %65
-  %.0 = phi ptr [ null, %4 ], [ %66, %65 ], [ inttoptr (i64 1 to ptr), %split ], [ %.pre, %._crit_edge.loopexit ], [ inttoptr (i64 1 to ptr), %..loopexit_crit_edge ], [ %46, %48 ]
+  %.0 = phi ptr [ inttoptr (i64 1 to ptr), %split ], [ null, %4 ], [ %66, %65 ], [ %.pre, %._crit_edge.loopexit ], [ inttoptr (i64 1 to ptr), %..loopexit_crit_edge ], [ %46, %48 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }

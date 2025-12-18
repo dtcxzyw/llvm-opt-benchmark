@@ -1998,8 +1998,8 @@ define internal fastcc void @SDL_PrivateSendMouseButton(i64 noundef %0, ptr noun
   store i32 %2, ptr %44, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %30, %._crit_edge.i, %40, %18, %17
-  %.034.i.ph = phi ptr [ %14, %17 ], [ %14, %18 ], [ %44, %40 ], [ %.03526.i, %._crit_edge.i ], [ %31, %30 ]
+.loopexit:                                        ; preds = %30, %._crit_edge.i, %40, %17, %18
+  %.034.i.ph = phi ptr [ %.03526.i, %._crit_edge.i ], [ %14, %18 ], [ %14, %17 ], [ %44, %40 ], [ %31, %30 ]
   %45 = getelementptr inbounds nuw i8, ptr %.034.i.ph, i64 4
   %46 = load i32, ptr %45, align 4
   %47 = load i8, ptr getelementptr inbounds nuw (i8, ptr @SDL_mouse, i64 229), align 1, !range !3, !noundef !4

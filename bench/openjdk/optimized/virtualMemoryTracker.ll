@@ -426,8 +426,8 @@ _ZL24find_preceding_node_fromP14LinkedListNodeI21CommittedMemoryRegionEPh.exit48
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph, %.lr.ph89, %.lr.ph.i43.preheader, %36, %_ZL24find_preceding_node_fromP14LinkedListNodeI21CommittedMemoryRegionEPh.exit48._ZL24find_preceding_node_fromP14LinkedListNodeI21CommittedMemoryRegionEPh.exit48.thread76_crit_edge, %4, %_ZL10is_same_asP21CommittedMemoryRegionPhmRK15NativeCallStack.exit.thread, %_ZL24find_preceding_node_fromP14LinkedListNodeI21CommittedMemoryRegionEPh.exit.thread65
-  %.034 = phi ptr [ %.0810.i87, %_ZL24find_preceding_node_fromP14LinkedListNodeI21CommittedMemoryRegionEPh.exit.thread65 ], [ %.0.lcssa.i61115, %_ZL10is_same_asP21CommittedMemoryRegionPhmRK15NativeCallStack.exit.thread ], [ null, %36 ], [ null, %4 ], [ %.0810.i4588, %_ZL24find_preceding_node_fromP14LinkedListNodeI21CommittedMemoryRegionEPh.exit48._ZL24find_preceding_node_fromP14LinkedListNodeI21CommittedMemoryRegionEPh.exit48.thread76_crit_edge ], [ null, %.lr.ph.i43.preheader ], [ %.0810.i4588, %.lr.ph89 ], [ %.0810.i87, %.lr.ph ]
-  %.0 = phi ptr [ null, %_ZL24find_preceding_node_fromP14LinkedListNodeI21CommittedMemoryRegionEPh.exit.thread65 ], [ %20, %_ZL10is_same_asP21CommittedMemoryRegionPhmRK15NativeCallStack.exit.thread ], [ %38, %36 ], [ null, %4 ], [ %.pre94, %_ZL24find_preceding_node_fromP14LinkedListNodeI21CommittedMemoryRegionEPh.exit48._ZL24find_preceding_node_fromP14LinkedListNodeI21CommittedMemoryRegionEPh.exit48.thread76_crit_edge ], [ %38, %.lr.ph.i43.preheader ], [ null, %.lr.ph89 ], [ null, %.lr.ph ]
+  %.034 = phi ptr [ %.0810.i87, %_ZL24find_preceding_node_fromP14LinkedListNodeI21CommittedMemoryRegionEPh.exit.thread65 ], [ %.0.lcssa.i61115, %_ZL10is_same_asP21CommittedMemoryRegionPhmRK15NativeCallStack.exit.thread ], [ null, %.lr.ph.i43.preheader ], [ null, %36 ], [ null, %4 ], [ %.0810.i4588, %_ZL24find_preceding_node_fromP14LinkedListNodeI21CommittedMemoryRegionEPh.exit48._ZL24find_preceding_node_fromP14LinkedListNodeI21CommittedMemoryRegionEPh.exit48.thread76_crit_edge ], [ %.0810.i4588, %.lr.ph89 ], [ %.0810.i87, %.lr.ph ]
+  %.0 = phi ptr [ null, %_ZL24find_preceding_node_fromP14LinkedListNodeI21CommittedMemoryRegionEPh.exit.thread65 ], [ %20, %_ZL10is_same_asP21CommittedMemoryRegionPhmRK15NativeCallStack.exit.thread ], [ %38, %.lr.ph.i43.preheader ], [ %38, %36 ], [ null, %4 ], [ %.pre94, %_ZL24find_preceding_node_fromP14LinkedListNodeI21CommittedMemoryRegionEPh.exit48._ZL24find_preceding_node_fromP14LinkedListNodeI21CommittedMemoryRegionEPh.exit48.thread76_crit_edge ], [ null, %.lr.ph89 ], [ null, %.lr.ph ]
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %52 = load i8, ptr %51, align 8
   %53 = zext i8 %52 to i64
@@ -880,7 +880,7 @@ _ZN19VirtualMemoryRegion14exclude_regionEPhm.exit51: ; preds = %133
   br i1 %.not71, label %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE12remove_afterEP14LinkedListNodeIS0_E.exit, label %.lr.ph, !llvm.loop !12
 
 _ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE12remove_afterEP14LinkedListNodeIS0_E.exit: ; preds = %.outer, %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE12remove_afterEP14LinkedListNodeIS0_E.exit47, %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE12remove_afterEP14LinkedListNodeIS0_E.exit47.us, %3, %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i, %55, %44, %_ZN19VirtualMemoryRegion14exclude_regionEPhm.exit51, %_ZN20ReservedMemoryRegion25remove_uncommitted_regionEP14LinkedListNodeI21CommittedMemoryRegionEPhm.exit
-  %.0 = phi i1 [ %.0.i, %_ZN20ReservedMemoryRegion25remove_uncommitted_regionEP14LinkedListNodeI21CommittedMemoryRegionEPhm.exit ], [ true, %_ZN19VirtualMemoryRegion14exclude_regionEPhm.exit51 ], [ true, %44 ], [ true, %55 ], [ true, %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i ], [ true, %3 ], [ true, %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE12remove_afterEP14LinkedListNodeIS0_E.exit47 ], [ true, %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE12remove_afterEP14LinkedListNodeIS0_E.exit47.us ], [ true, %.outer ]
+  %.0 = phi i1 [ true, %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i ], [ %.0.i, %_ZN20ReservedMemoryRegion25remove_uncommitted_regionEP14LinkedListNodeI21CommittedMemoryRegionEPhm.exit ], [ true, %_ZN19VirtualMemoryRegion14exclude_regionEPhm.exit51 ], [ true, %44 ], [ true, %55 ], [ true, %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE12remove_afterEP14LinkedListNodeIS0_E.exit47.us ], [ true, %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE12remove_afterEP14LinkedListNodeIS0_E.exit47 ], [ true, %3 ], [ true, %.outer ]
   ret i1 %.0
 }
 
@@ -1514,7 +1514,7 @@ _ZN16SortedLinkedListI21CommittedMemoryRegionXadL_Z24compare_committed_regionRKS
   unreachable
 
 _ZN20ReservedMemoryRegion8set_flagE8MEMFLAGS.exit: ; preds = %_ZN16SortedLinkedListI21CommittedMemoryRegionXadL_Z24compare_committed_regionRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addES2_.exit.i, %_ZN20VirtualMemorySummary21move_committed_memoryE8MEMFLAGSS0_m.exit.i, %.thread, %134, %132, %129, %127, %28
-  %.0.ph = phi i1 [ true, %.thread ], [ true, %132 ], [ true, %127 ], [ true, %129 ], [ true, %_ZN20VirtualMemorySummary21move_committed_memoryE8MEMFLAGSS0_m.exit.i ], [ true, %134 ], [ %38, %28 ], [ true, %_ZN16SortedLinkedListI21CommittedMemoryRegionXadL_Z24compare_committed_regionRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addES2_.exit.i ]
+  %.0.ph = phi i1 [ %38, %28 ], [ true, %.thread ], [ true, %132 ], [ true, %127 ], [ true, %129 ], [ true, %_ZN20VirtualMemorySummary21move_committed_memoryE8MEMFLAGSS0_m.exit.i ], [ true, %134 ], [ true, %_ZN16SortedLinkedListI21CommittedMemoryRegionXadL_Z24compare_committed_regionRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addES2_.exit.i ]
   %.pr = load ptr, ptr %8, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTV14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE, i64 16), ptr %7, align 8
   store ptr null, ptr %8, align 8
@@ -2148,7 +2148,7 @@ _ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLA
   br i1 %.not.i.i.i.i56, label %_ZN20ReservedMemoryRegionD2Ev.exit, label %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i.i54, !llvm.loop !16
 
 _ZN20ReservedMemoryRegionD2Ev.exit:               ; preds = %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i.i54, %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i.i, %109, %49, %_ZNK19VirtualMemoryRegion14contain_regionEPhm.exit, %32, %_ZN19VirtualMemoryRegion14exclude_regionEPhm.exit, %30
-  %.0 = phi i1 [ %31, %30 ], [ false, %32 ], [ true, %_ZNK19VirtualMemoryRegion14contain_regionEPhm.exit ], [ true, %_ZN19VirtualMemoryRegion14exclude_regionEPhm.exit ], [ true, %49 ], [ %98, %109 ], [ true, %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i.i ], [ %98, %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i.i54 ]
+  %.0 = phi i1 [ %31, %30 ], [ false, %32 ], [ true, %_ZNK19VirtualMemoryRegion14contain_regionEPhm.exit ], [ true, %_ZN19VirtualMemoryRegion14exclude_regionEPhm.exit ], [ true, %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i.i ], [ true, %49 ], [ %98, %109 ], [ %98, %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i.i54 ]
   store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTV14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE, i64 16), ptr %7, align 8
   %113 = load ptr, ptr %8, align 8
   store ptr null, ptr %8, align 8
@@ -2766,7 +2766,7 @@ _ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLA
   br label %.critedge18
 
 .critedge18:                                      ; preds = %.preheader, %.critedge18.sink.split, %6
-  %.014 = phi i1 [ true, %6 ], [ true, %.critedge18.sink.split ], [ false, %.preheader ]
+  %.014 = phi i1 [ true, %.critedge18.sink.split ], [ true, %6 ], [ false, %.preheader ]
   ret i1 %.014
 }
 
@@ -3766,7 +3766,7 @@ _ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLA
   br label %.critedge18
 
 .critedge18:                                      ; preds = %.preheader, %.critedge18.sink.split, %6
-  %.014 = phi i1 [ true, %6 ], [ true, %.critedge18.sink.split ], [ false, %.preheader ]
+  %.014 = phi i1 [ true, %.critedge18.sink.split ], [ true, %6 ], [ false, %.preheader ]
   ret i1 %.014
 }
 

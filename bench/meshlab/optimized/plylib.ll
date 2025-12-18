@@ -1254,7 +1254,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   br label %_ZN3vcg3ply7PlyFile7DestroyEv.exit114
 
 ._crit_edge124:                                   ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit, %130, %158, %155, %151, %148, %145, %142, %139, %134, %132, %119, %85, %162, %76, %72, %70, %63, %._crit_edge, %31, %27, %25, %20
-  %.sink142 = phi i32 [ 3, %20 ], [ 3, %76 ], [ 3, %72 ], [ 4, %70 ], [ 3, %63 ], [ 4, %._crit_edge ], [ 3, %31 ], [ 3, %27 ], [ 2, %25 ], [ 5, %158 ], [ 7, %155 ], [ 5, %151 ], [ 7, %148 ], [ 5, %145 ], [ 7, %142 ], [ 5, %139 ], [ 5, %134 ], [ 6, %132 ], [ 5, %119 ], [ 3, %85 ], [ 3, %162 ], [ 5, %130 ], [ 3, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit ]
+  %.sink142 = phi i32 [ 3, %20 ], [ 3, %76 ], [ 3, %72 ], [ 4, %70 ], [ 3, %63 ], [ 4, %._crit_edge ], [ 5, %158 ], [ 3, %31 ], [ 3, %27 ], [ 2, %25 ], [ 7, %155 ], [ 5, %151 ], [ 7, %148 ], [ 5, %145 ], [ 7, %142 ], [ 5, %139 ], [ 5, %134 ], [ 6, %132 ], [ 5, %119 ], [ 3, %85 ], [ 3, %162 ], [ 5, %130 ], [ 3, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit ]
   %170 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i32 %.sink142, ptr %170, align 4
   %.pr = load ptr, ptr %12, align 8
@@ -2424,7 +2424,7 @@ _ZN3vcg3ply10PlyElement9AddToReadEPKciimiiiim.exit: ; preds = %.thread.i, %60
   br label %78
 
 .loopexit:                                        ; preds = %27, %39, %.thread.i, %_ZN3vcg3ply10PlyElement8FindPropEPKc.exit.i, %35, %46, %42, %60, %49, %_ZN3vcg3ply7PlyFile11FindElementEPKc.exit
-  %.0.i17.ph = phi i32 [ 9, %_ZN3vcg3ply7PlyFile11FindElementEPKc.exit ], [ 12, %49 ], [ 12, %60 ], [ 11, %42 ], [ 11, %46 ], [ 10, %35 ], [ 10, %_ZN3vcg3ply10PlyElement8FindPropEPKc.exit.i ], [ 12, %.thread.i ], [ 11, %39 ], [ 9, %27 ]
+  %.0.i17.ph = phi i32 [ 11, %39 ], [ 9, %_ZN3vcg3ply7PlyFile11FindElementEPKc.exit ], [ 12, %49 ], [ 12, %60 ], [ 11, %42 ], [ 11, %46 ], [ 10, %35 ], [ 10, %_ZN3vcg3ply10PlyElement8FindPropEPKc.exit.i ], [ 12, %.thread.i ], [ 9, %27 ]
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i32 %.0.i17.ph, ptr %77, align 4
   br label %78

@@ -337,7 +337,7 @@ malloc_mutex_lock.exit.i.i:                       ; preds = %57, %51
   br label %hpa_alloc_batch_psset.exit
 
 duckdb_je_hpa_central_extract.exit.i:             ; preds = %95, %74
-  %.0.i.i = phi ptr [ %68, %74 ], [ %.154.i.i, %95 ]
+  %.0.i.i = phi ptr [ %.154.i.i, %95 ], [ %68, %74 ]
   %112 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %113 = call i32 @pthread_mutex_trylock(ptr noundef nonnull %112) #8
   %.not.i57.i = icmp eq i32 %113, 0

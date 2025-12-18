@@ -5664,7 +5664,7 @@ _ZN6casadi13casadi_lb_eigIdEET_PKxPKS1_.exit:     ; preds = %._crit_edge.i266
   br i1 %286, label %157, label %_ZN6casadi17casadi_regularizeIdEEvPKxPT_S3_.exit, !llvm.loop !173
 
 _ZN6casadi17casadi_regularizeIdEEvPKxPT_S3_.exit: ; preds = %219, %283, %.loopexit.i272, %147, %_ZN6casadi13casadi_lb_eigIdEET_PKxPKS1_.exit, %108, %_ZN6casadi14casadi_projectIdEEvPKT_PKxPS1_S5_S6_.exit
-  %.0 = phi i32 [ 0, %108 ], [ 0, %_ZN6casadi14casadi_projectIdEEvPKT_PKxPS1_S5_S6_.exit ], [ 0, %_ZN6casadi13casadi_lb_eigIdEET_PKxPKS1_.exit ], [ 0, %147 ], [ 0, %.loopexit.i272 ], [ %225, %219 ], [ 0, %283 ]
+  %.0 = phi i32 [ 0, %108 ], [ 0, %_ZN6casadi14casadi_projectIdEEvPKT_PKxPS1_S5_S6_.exit ], [ 0, %147 ], [ 0, %_ZN6casadi13casadi_lb_eigIdEET_PKxPKS1_.exit ], [ 0, %.loopexit.i272 ], [ %225, %219 ], [ 0, %283 ]
   ret i32 %.0
 }
 

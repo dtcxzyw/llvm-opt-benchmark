@@ -387,7 +387,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_d
   br label %"_ZN10serde_json2de21Deserializer$LT$R$GT$14f64_from_parts17h6b2eb501a15d402aE.exit"
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %63, %61
-  %.1.i = phi double [ %64, %63 ], [ %62, %61 ], [ %.01828.i, %.lr.ph.i ]
+  %.1.i = phi double [ %62, %61 ], [ %64, %63 ], [ %.01828.i, %.lr.ph.i ]
   %59 = fneg double %.1.i
   %.2.i = select i1 %2, double %.1.i, double %59
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -880,7 +880,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$14parse_e
   br label %"_ZN10serde_json2de21Deserializer$LT$R$GT$14f64_from_parts17h6b2eb501a15d402aE.exit"
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %71, %69
-  %.1.i = phi double [ %72, %71 ], [ %70, %69 ], [ %.01828.i, %.lr.ph.i ]
+  %.1.i = phi double [ %70, %69 ], [ %72, %71 ], [ %.01828.i, %.lr.ph.i ]
   %67 = fneg double %.1.i
   %.2.i = select i1 %2, double %.1.i, double %67
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1060,7 +1060,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$18parse_l
   br label %"_ZN10serde_json2de21Deserializer$LT$R$GT$14f64_from_parts17h6b2eb501a15d402aE.exit"
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %41, %39
-  %.1.i = phi double [ %42, %41 ], [ %40, %39 ], [ %.01828.i, %.lr.ph.i ]
+  %.1.i = phi double [ %40, %39 ], [ %42, %41 ], [ %.01828.i, %.lr.ph.i ]
   %37 = fneg double %.1.i
   %.2.i = select i1 %2, double %.1.i, double %37
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1247,7 +1247,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$22parse_d
   br label %"_ZN10serde_json2de21Deserializer$LT$R$GT$14f64_from_parts17h6b2eb501a15d402aE.exit"
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %40, %38
-  %.1.i = phi double [ %41, %40 ], [ %39, %38 ], [ %.01828.i, %.lr.ph.i ]
+  %.1.i = phi double [ %39, %38 ], [ %41, %40 ], [ %.01828.i, %.lr.ph.i ]
   %36 = fneg double %.1.i
   %.2.i = select i1 %2, double %.1.i, double %36
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4624,8 +4624,8 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   %114 = trunc nuw i8 %113 to i1
   br i1 %114, label %219, label %214
 
-115:                                              ; preds = %54, %61
-  %.0.i.ph = phi ptr [ %62, %61 ], [ %55, %54 ]
+115:                                              ; preds = %61, %54
+  %.0.i.ph = phi ptr [ %55, %54 ], [ %62, %61 ]
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.0.i.ph, ptr %116, align 8
   store i8 22, ptr %0, align 8
@@ -4640,15 +4640,15 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   %118 = icmp eq i8 %.sroa.080.0, 22
   br i1 %118, label %282, label %.thread
 
-119:                                              ; preds = %70, %77
-  %.0.i55.ph = phi ptr [ %78, %77 ], [ %71, %70 ]
+119:                                              ; preds = %77, %70
+  %.0.i55.ph = phi ptr [ %71, %70 ], [ %78, %77 ]
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.0.i55.ph, ptr %120, align 8
   store i8 22, ptr %0, align 8
   br label %286
 
-121:                                              ; preds = %86, %93
-  %.0.i60.ph = phi ptr [ %94, %93 ], [ %87, %86 ]
+121:                                              ; preds = %93, %86
+  %.0.i60.ph = phi ptr [ %87, %86 ], [ %94, %93 ]
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.0.i60.ph, ptr %122, align 8
   store i8 22, ptr %0, align 8
@@ -5226,11 +5226,11 @@ switch.lookup355:                                 ; preds = %275
   br label %286
 
 .thread:                                          ; preds = %81, %65, %49, %139, %switch.lookup, %switch.lookup355, %117
-  %.sroa.37.0141 = phi i64 [ %.sroa.37.0, %117 ], [ %.sroa.37.1, %139 ], [ undef, %switch.lookup ], [ undef, %switch.lookup355 ], [ undef, %65 ], [ undef, %49 ], [ undef, %81 ]
-  %.sroa.35.0140 = phi i64 [ %.sroa.35.0, %117 ], [ %.sroa.35.1, %139 ], [ undef, %switch.lookup ], [ undef, %switch.lookup355 ], [ undef, %65 ], [ undef, %49 ], [ undef, %81 ]
-  %.sroa.2389.0139 = phi i64 [ %.sroa.2389.0, %117 ], [ %.sroa.2389.1, %139 ], [ %.sroa.2.0.copyload, %switch.lookup ], [ %.sroa.2105.0.copyload, %switch.lookup355 ], [ undef, %65 ], [ undef, %49 ], [ undef, %81 ]
-  %.sroa.21.0138 = phi i8 [ %.sroa.21.0, %117 ], [ undef, %139 ], [ undef, %switch.lookup ], [ undef, %switch.lookup355 ], [ 1, %65 ], [ undef, %49 ], [ 0, %81 ]
-  %.sroa.080.0137 = phi i8 [ %.sroa.080.0, %117 ], [ %.sroa.080.1, %139 ], [ %switch.masked, %switch.lookup ], [ %switch.masked359, %switch.lookup355 ], [ 0, %65 ], [ 18, %49 ], [ 0, %81 ]
+  %.sroa.37.0141 = phi i64 [ %.sroa.37.0, %117 ], [ %.sroa.37.1, %139 ], [ undef, %switch.lookup ], [ undef, %65 ], [ undef, %49 ], [ undef, %switch.lookup355 ], [ undef, %81 ]
+  %.sroa.35.0140 = phi i64 [ %.sroa.35.0, %117 ], [ %.sroa.35.1, %139 ], [ undef, %switch.lookup ], [ undef, %65 ], [ undef, %49 ], [ undef, %switch.lookup355 ], [ undef, %81 ]
+  %.sroa.2389.0139 = phi i64 [ %.sroa.2389.0, %117 ], [ %.sroa.2389.1, %139 ], [ %.sroa.2.0.copyload, %switch.lookup ], [ undef, %65 ], [ undef, %49 ], [ %.sroa.2105.0.copyload, %switch.lookup355 ], [ undef, %81 ]
+  %.sroa.21.0138 = phi i8 [ %.sroa.21.0, %117 ], [ undef, %139 ], [ undef, %switch.lookup ], [ 1, %65 ], [ undef, %49 ], [ undef, %switch.lookup355 ], [ 0, %81 ]
+  %.sroa.080.0137 = phi i8 [ %.sroa.080.0, %117 ], [ %.sroa.080.1, %139 ], [ %switch.masked, %switch.lookup ], [ 0, %65 ], [ 18, %49 ], [ %switch.masked359, %switch.lookup355 ], [ 0, %81 ]
   store i8 %.sroa.080.0137, ptr %0, align 8
   %.sroa.2119.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sroa.21.0138, ptr %.sroa.2119.0..sroa_idx, align 1

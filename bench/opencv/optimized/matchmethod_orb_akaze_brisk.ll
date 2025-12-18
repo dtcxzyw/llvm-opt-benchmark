@@ -3574,9 +3574,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i57
   br label %.body525
 
 .loopexit.split-lp802:                            ; preds = %_ZNSt6vectorIdSaIdEE9push_backERKd.exit, %1271, %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i
-  %.sroa.17.7.ph = phi ptr [ %.sroa.17.1998, %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i ], [ %.sroa.17.15, %_ZNSt6vectorIdSaIdEE9push_backERKd.exit ], [ %.sroa.17.1998, %1271 ]
-  %.sroa.11.7.ph = phi ptr [ %.sroa.11.11007, %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i ], [ %.sroa.11.15, %_ZNSt6vectorIdSaIdEE9push_backERKd.exit ], [ %.sroa.11.11007, %1271 ]
-  %.sroa.0765.8.ph = phi ptr [ %.sroa.0765.21016, %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i ], [ %.sroa.0765.17, %_ZNSt6vectorIdSaIdEE9push_backERKd.exit ], [ %.sroa.0765.21016, %1271 ]
+  %.sroa.17.7.ph = phi ptr [ %.sroa.17.1998, %1271 ], [ %.sroa.17.15, %_ZNSt6vectorIdSaIdEE9push_backERKd.exit ], [ %.sroa.17.1998, %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i ]
+  %.sroa.11.7.ph = phi ptr [ %.sroa.11.11007, %1271 ], [ %.sroa.11.15, %_ZNSt6vectorIdSaIdEE9push_backERKd.exit ], [ %.sroa.11.11007, %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i ]
+  %.sroa.0765.8.ph = phi ptr [ %.sroa.0765.21016, %1271 ], [ %.sroa.0765.17, %_ZNSt6vectorIdSaIdEE9push_backERKd.exit ], [ %.sroa.0765.21016, %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i ]
   %lpad.loopexit.split-lp804 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTIN2cv9ExceptionE
@@ -3985,12 +3985,12 @@ _ZNSt6vectorIdSaIdEE9push_backEOd.exit:           ; preds = %_ZNSt6vectorIdSaIdE
   br label %.loopexit812
 
 .loopexit812:                                     ; preds = %1295, %1367, %909, %905, %903, %901, %899
-  %.sroa.0739.1 = phi ptr [ %.sroa.0739.0997, %1367 ], [ %.sroa.0739.0997, %909 ], [ %.sroa.0739.0997, %905 ], [ %537, %903 ], [ %537, %901 ], [ %537, %899 ], [ %.sroa.0739.0997, %1295 ]
-  %.sroa.17.2 = phi ptr [ %.sroa.17.13, %1367 ], [ %.sroa.17.1998, %909 ], [ %.sroa.17.1998, %905 ], [ %.sroa.17.01036, %903 ], [ %.sroa.17.01036, %901 ], [ %.sroa.17.01036, %899 ], [ %.sroa.17.3, %1295 ]
-  %.sroa.11.2 = phi ptr [ %.sroa.11.13, %1367 ], [ %.sroa.11.11007, %909 ], [ %.sroa.11.11007, %905 ], [ %.sroa.11.01037, %903 ], [ %.sroa.11.01037, %901 ], [ %.sroa.11.01037, %899 ], [ %.sroa.11.3, %1295 ]
-  %.sroa.0765.3 = phi ptr [ %.sroa.0765.14, %1367 ], [ %.sroa.0765.21016, %909 ], [ %.sroa.0765.21016, %905 ], [ %.sroa.0765.01038, %903 ], [ %.sroa.0765.01038, %901 ], [ %.sroa.0765.01038, %899 ], [ %.sroa.0765.4, %1295 ]
-  %.2355 = phi i32 [ %.5789, %1367 ], [ %912, %909 ], [ %908, %905 ], [ %.2658, %903 ], [ %.2456, %901 ], [ %.2153, %899 ], [ %.3264, %1295 ]
-  %.23 = phi ptr [ %.57, %1367 ], [ %911, %909 ], [ %907, %905 ], [ %.26, %903 ], [ %.24, %901 ], [ %.21, %899 ], [ %.32, %1295 ]
+  %.sroa.0739.1 = phi ptr [ %.sroa.0739.0997, %1367 ], [ %537, %899 ], [ %.sroa.0739.0997, %909 ], [ %.sroa.0739.0997, %905 ], [ %537, %903 ], [ %537, %901 ], [ %.sroa.0739.0997, %1295 ]
+  %.sroa.17.2 = phi ptr [ %.sroa.17.13, %1367 ], [ %.sroa.17.01036, %899 ], [ %.sroa.17.1998, %909 ], [ %.sroa.17.1998, %905 ], [ %.sroa.17.01036, %903 ], [ %.sroa.17.01036, %901 ], [ %.sroa.17.3, %1295 ]
+  %.sroa.11.2 = phi ptr [ %.sroa.11.13, %1367 ], [ %.sroa.11.01037, %899 ], [ %.sroa.11.11007, %909 ], [ %.sroa.11.11007, %905 ], [ %.sroa.11.01037, %903 ], [ %.sroa.11.01037, %901 ], [ %.sroa.11.3, %1295 ]
+  %.sroa.0765.3 = phi ptr [ %.sroa.0765.14, %1367 ], [ %.sroa.0765.01038, %899 ], [ %.sroa.0765.21016, %909 ], [ %.sroa.0765.21016, %905 ], [ %.sroa.0765.01038, %903 ], [ %.sroa.0765.01038, %901 ], [ %.sroa.0765.4, %1295 ]
+  %.2355 = phi i32 [ %.5789, %1367 ], [ %.2153, %899 ], [ %912, %909 ], [ %908, %905 ], [ %.2658, %903 ], [ %.2456, %901 ], [ %.3264, %1295 ]
+  %.23 = phi ptr [ %.57, %1367 ], [ %.21, %899 ], [ %911, %909 ], [ %907, %905 ], [ %.26, %903 ], [ %.24, %901 ], [ %.32, %1295 ]
   %1368 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2cv9ExceptionE) #24
   %1369 = icmp eq i32 %.2355, %1368
   br i1 %1369, label %1370, label %.loopexit828
@@ -4162,9 +4162,9 @@ _ZNSt12__shared_ptrIN2cv17DescriptorMatcherELN9__gnu_cxx12_Lock_policyE2EED2Ev.e
   br label %.loopexit828
 
 .loopexit828:                                     ; preds = %.loopexit812, %1428, %793, %728, %663, %598
-  %.sroa.0765.1 = phi ptr [ %.sroa.0765.3, %1428 ], [ %.sroa.0765.01038, %728 ], [ %.sroa.0765.01038, %793 ], [ %.sroa.0765.01038, %663 ], [ %.sroa.0765.01038, %598 ], [ %.sroa.0765.3, %.loopexit812 ]
-  %.2052 = phi i32 [ %.5890, %1428 ], [ %731, %728 ], [ %796, %793 ], [ %666, %663 ], [ %601, %598 ], [ %.2355, %.loopexit812 ]
-  %.20 = phi ptr [ %.58, %1428 ], [ %730, %728 ], [ %795, %793 ], [ %665, %663 ], [ %600, %598 ], [ %.23, %.loopexit812 ]
+  %.sroa.0765.1 = phi ptr [ %.sroa.0765.3, %1428 ], [ %.sroa.0765.01038, %598 ], [ %.sroa.0765.01038, %728 ], [ %.sroa.0765.01038, %793 ], [ %.sroa.0765.01038, %663 ], [ %.sroa.0765.3, %.loopexit812 ]
+  %.2052 = phi i32 [ %.5890, %1428 ], [ %601, %598 ], [ %731, %728 ], [ %796, %793 ], [ %666, %663 ], [ %.2355, %.loopexit812 ]
+  %.20 = phi ptr [ %.58, %1428 ], [ %600, %598 ], [ %730, %728 ], [ %795, %793 ], [ %665, %663 ], [ %.23, %.loopexit812 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %38) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %37) #24

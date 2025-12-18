@@ -2621,7 +2621,7 @@ while.body21.i.i.i.i.i.i.i.i:                     ; preds = %while.cond18.prehea
   br i1 %cmp20.i.i.i.i.i.i.i.i, label %while.body21.i.i.i.i.i.i.i.i, label %_ZN5boost11multi_index6detail18ordered_index_nodeINS1_19null_augment_policyENS2_IS3_NS1_15index_node_baseINS_6bimaps8relation15mutant_relationINS5_4tags6taggedIKNS_17basic_string_viewIcSt11char_traitsIcEEENS6_9member_at4leftEEENS9_IKN8QuantLib5MonthENSF_5rightEEEN4mpl_2naELb1EEESaISP_EEEEEE9decrementERPST_.exit.i.i.i.i.i.i, !llvm.loop !62
 
 _ZN5boost11multi_index6detail18ordered_index_nodeINS1_19null_augment_policyENS2_IS3_NS1_15index_node_baseINS_6bimaps8relation15mutant_relationINS5_4tags6taggedIKNS_17basic_string_viewIcSt11char_traitsIcEEENS6_9member_at4leftEEENS9_IKN8QuantLib5MonthENSF_5rightEEEN4mpl_2naELb1EEESaISP_EEEEEE9decrementERPST_.exit.i.i.i.i.i.i: ; preds = %while.cond.i.i.i.i.i.i.i.i, %while.body21.i.i.i.i.i.i.i.i, %while.cond18.preheader.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
-  %y.0.lcssa.sink.i.i.i.i.i.i.i.i = phi ptr [ %15, %if.then.i.i.i.i.i.i.i.i ], [ %y15.025.i.i.i.i.i.i.i.i, %while.cond18.preheader.i.i.i.i.i.i.i.i ], [ %y15.0.i.i.i.i.i.i.i.i, %while.body21.i.i.i.i.i.i.i.i ], [ %y.0.i.i.i.i.i.i.i.i, %while.cond.i.i.i.i.i.i.i.i ]
+  %y.0.lcssa.sink.i.i.i.i.i.i.i.i = phi ptr [ %15, %if.then.i.i.i.i.i.i.i.i ], [ %y15.0.i.i.i.i.i.i.i.i, %while.body21.i.i.i.i.i.i.i.i ], [ %y15.025.i.i.i.i.i.i.i.i, %while.cond18.preheader.i.i.i.i.i.i.i.i ], [ %y.0.i.i.i.i.i.i.i.i, %while.cond.i.i.i.i.i.i.i.i ]
   %21 = icmp eq ptr %y.0.lcssa.sink.i.i.i.i.i.i.i.i, null
   %sub.ptr.i.i17.i.i.i.i.i.i = getelementptr inbounds i8, ptr %y.0.lcssa.sink.i.i.i.i.i.i.i.i, i64 -48
   %22 = select i1 %21, ptr null, ptr %sub.ptr.i.i17.i.i.i.i.i.i
@@ -2755,7 +2755,7 @@ while.body21.i.i.i.i.i.i.i.i.i:                   ; preds = %while.cond18.prehea
   br i1 %cmp20.i.i.i.i.i.i.i.i.i, label %while.body21.i.i.i.i.i.i.i.i.i, label %_ZN5boost11multi_index6detail18ordered_index_nodeINS1_19null_augment_policyENS1_15index_node_baseINS_6bimaps8relation15mutant_relationINS5_4tags6taggedIKNS_17basic_string_viewIcSt11char_traitsIcEEENS6_9member_at4leftEEENS9_IKN8QuantLib5MonthENSF_5rightEEEN4mpl_2naELb1EEESaISP_EEEE9decrementERPSS_.exit.i.i.i.i.i.i.i, !llvm.loop !62
 
 _ZN5boost11multi_index6detail18ordered_index_nodeINS1_19null_augment_policyENS1_15index_node_baseINS_6bimaps8relation15mutant_relationINS5_4tags6taggedIKNS_17basic_string_viewIcSt11char_traitsIcEEENS6_9member_at4leftEEENS9_IKN8QuantLib5MonthENSF_5rightEEEN4mpl_2naELb1EEESaISP_EEEE9decrementERPSS_.exit.i.i.i.i.i.i.i: ; preds = %while.cond.i.i.i.i.i.i.i.i.i, %while.body21.i.i.i.i.i.i.i.i.i, %while.cond18.preheader.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i
-  %y.0.lcssa.sink.i.i.i.i.i.i.i.i.i = phi ptr [ %37, %if.then.i.i.i.i.i.i.i.i.i ], [ %y15.025.i.i.i.i.i.i.i.i.i, %while.cond18.preheader.i.i.i.i.i.i.i.i.i ], [ %y15.0.i.i.i.i.i.i.i.i.i, %while.body21.i.i.i.i.i.i.i.i.i ], [ %y.0.i.i.i.i.i.i.i.i.i, %while.cond.i.i.i.i.i.i.i.i.i ]
+  %y.0.lcssa.sink.i.i.i.i.i.i.i.i.i = phi ptr [ %37, %if.then.i.i.i.i.i.i.i.i.i ], [ %y15.0.i.i.i.i.i.i.i.i.i, %while.body21.i.i.i.i.i.i.i.i.i ], [ %y15.025.i.i.i.i.i.i.i.i.i, %while.cond18.preheader.i.i.i.i.i.i.i.i.i ], [ %y.0.i.i.i.i.i.i.i.i.i, %while.cond.i.i.i.i.i.i.i.i.i ]
   %43 = icmp eq ptr %y.0.lcssa.sink.i.i.i.i.i.i.i.i.i, null
   %sub.ptr.i.i19.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %y.0.lcssa.sink.i.i.i.i.i.i.i.i.i, i64 -24
   %44 = select i1 %43, ptr null, ptr %sub.ptr.i.i19.i.i.i.i.i.i.i
@@ -3558,8 +3558,8 @@ if.end18.i:                                       ; preds = %if.else.i, %while.b
   br i1 %cmp.not.i, label %_ZNSt8_Rb_treeIN8QuantLib4DateES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE11equal_rangeERKS1_.exit, label %while.body.i, !llvm.loop !98
 
 _ZNSt8_Rb_treeIN8QuantLib4DateES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE11equal_rangeERKS1_.exit: ; preds = %if.end18.i, %while.body.i23.i, %entry, %_ZNSt8_Rb_treeIN8QuantLib4DateES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit.i
-  %retval.sroa.0.0.i = phi ptr [ %__y.addr.0.lcssa.i.i, %_ZNSt8_Rb_treeIN8QuantLib4DateES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit.i ], [ %add.ptr.i.i, %entry ], [ %__y.addr.0.lcssa.i.i, %while.body.i23.i ], [ %__y.1.i, %if.end18.i ]
-  %retval.sroa.3.0.i = phi ptr [ %__y.040.i, %_ZNSt8_Rb_treeIN8QuantLib4DateES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit.i ], [ %add.ptr.i.i, %entry ], [ %__y.addr.1.i28.i, %while.body.i23.i ], [ %__y.1.i, %if.end18.i ]
+  %retval.sroa.0.0.i = phi ptr [ %__y.addr.0.lcssa.i.i, %while.body.i23.i ], [ %__y.addr.0.lcssa.i.i, %_ZNSt8_Rb_treeIN8QuantLib4DateES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit.i ], [ %add.ptr.i.i, %entry ], [ %__y.1.i, %if.end18.i ]
+  %retval.sroa.3.0.i = phi ptr [ %__y.addr.1.i28.i, %while.body.i23.i ], [ %__y.040.i, %_ZNSt8_Rb_treeIN8QuantLib4DateES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit.i ], [ %add.ptr.i.i, %entry ], [ %__y.1.i, %if.end18.i ]
   %_M_node_count.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %6 = load i64, ptr %_M_node_count.i, align 8, !tbaa !17
   %_M_left.i.i1 = getelementptr inbounds nuw i8, ptr %this, i64 24

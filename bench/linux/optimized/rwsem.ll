@@ -1335,8 +1335,8 @@ rwsem_spin_on_owner.exit:                         ; preds = %62
   %81 = select i1 %80, i32 1, i32 2
   br label %rwsem_spin_on_owner.exit.thread12
 
-rwsem_spin_on_owner.exit.thread12:                ; preds = %rwsem_spin_on_owner.exit, %46, %.lr.ph51, %62
-  %82 = phi i32 [ %81, %rwsem_spin_on_owner.exit ], [ 1, %46 ], [ 4, %.lr.ph51 ], [ 4, %62 ]
+rwsem_spin_on_owner.exit.thread12:                ; preds = %rwsem_spin_on_owner.exit, %62, %.lr.ph51, %46
+  %82 = phi i32 [ %81, %rwsem_spin_on_owner.exit ], [ 4, %62 ], [ 4, %.lr.ph51 ], [ 1, %46 ]
   %83 = load volatile i64, ptr %0, align 8
   %84 = and i64 %83, -251
   %85 = icmp eq i64 %84, 0

@@ -4231,7 +4231,7 @@ _ZN4llvm12LoadStoreOpt19StoreMergeCandidate17addPotentialAliasERNS_12MachineInst
   br label %_ZNK4llvm15SmallPtrSetImplIPNS_12MachineInstrEE8containsEPKS1_.exit.thread38
 
 _ZNK4llvm15SmallPtrSetImplIPNS_12MachineInstrEE8containsEPKS1_.exit.thread38: ; preds = %.lr.ph.i.i, %65, %_ZN4llvm12LoadStoreOpt19StoreMergeCandidate17addPotentialAliasERNS_12MachineInstrE.exit, %61, %92, %84, %_ZNK4llvm15SmallPtrSetImplIPNS_12MachineInstrEE8containsEPKS1_.exit, %_ZN4llvm12LoadStoreOpt19StoreMergeCandidate17addPotentialAliasERNS_12MachineInstrE.exit28, %96, %_ZL21isInstHardMergeHazardRN4llvm12MachineInstrE.exit.thread
-  %.1 = phi i8 [ %.049, %_ZNK4llvm15SmallPtrSetImplIPNS_12MachineInstrEE8containsEPKS1_.exit ], [ %91, %_ZL21isInstHardMergeHazardRN4llvm12MachineInstrE.exit.thread ], [ %99, %96 ], [ %.049, %_ZN4llvm12LoadStoreOpt19StoreMergeCandidate17addPotentialAliasERNS_12MachineInstrE.exit28 ], [ %.049, %84 ], [ %.049, %92 ], [ %.049, %_ZN4llvm12LoadStoreOpt19StoreMergeCandidate17addPotentialAliasERNS_12MachineInstrE.exit ], [ %68, %65 ], [ %.049, %61 ], [ %.049, %.lr.ph.i.i ]
+  %.1 = phi i8 [ %.049, %61 ], [ %.049, %_ZNK4llvm15SmallPtrSetImplIPNS_12MachineInstrEE8containsEPKS1_.exit ], [ %91, %_ZL21isInstHardMergeHazardRN4llvm12MachineInstrE.exit.thread ], [ %99, %96 ], [ %.049, %_ZN4llvm12LoadStoreOpt19StoreMergeCandidate17addPotentialAliasERNS_12MachineInstrE.exit28 ], [ %.049, %84 ], [ %.049, %92 ], [ %.049, %_ZN4llvm12LoadStoreOpt19StoreMergeCandidate17addPotentialAliasERNS_12MachineInstrE.exit ], [ %68, %65 ], [ %.049, %.lr.ph.i.i ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.033.047, align 8
   %115 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, -8
   %116 = inttoptr i64 %115 to ptr
@@ -4796,7 +4796,7 @@ _ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.i.i:          ; preds = %_ZNK4llvm3LLT13getS
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN4llvm11SmallVectorIlLj8EEC2EmRKl.exit, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !437
 
 _ZN4llvm11SmallVectorIlLj8EEC2EmRKl.exit:         ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.i.i
-  %177 = phi ptr [ %166, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.i.i ], [ %171, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %166, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %177 = phi ptr [ %171, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %166, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.i.i ], [ %166, %.lr.ph.i.i.i.i.i.i.i.i ]
   %storemerge.i = trunc i64 %164 to i32
   store i32 %storemerge.i, ptr %167, align 8, !tbaa !268
   %178 = getelementptr inbounds nuw i64, ptr %177, i64 %108
@@ -5034,9 +5034,9 @@ _ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_14BinaryOp_matchINS0_7bind_ty
   %299 = icmp eq i32 %298, %storemerge.i
   br i1 %299, label %.loopexit331.sink.split, label %.critedge.thread296
 
-.critedge.thread296:                              ; preds = %296, %239, %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit
-  %.2101301 = phi ptr [ %.099340, %239 ], [ %.099340, %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit ], [ %.5104, %296 ]
-  %.1106300 = phi i32 [ %191, %239 ], [ %191, %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit ], [ 0, %296 ]
+.critedge.thread296:                              ; preds = %296, %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit, %239
+  %.2101301 = phi ptr [ %.099340, %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit ], [ %.099340, %239 ], [ %.5104, %296 ]
+  %.1106300 = phi i32 [ %191, %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit ], [ %191, %239 ], [ 0, %296 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %.sroa.0270.0.in.in = load i64, ptr %.sroa.0270.0341, align 8
   %.sroa.0270.0.in = and i64 %.sroa.0270.0.in.in, -8
@@ -5470,7 +5470,7 @@ _ZN4llvm15SmallPtrSetImplIPNS_6GStoreEE6insertES2_.exit: ; preds = %.lr.ph.i.i, 
   br i1 %.not117, label %.loopexit, label %464
 
 .loopexit:                                        ; preds = %_ZN4llvm15SmallPtrSetImplIPNS_6GStoreEE6insertES2_.exit, %_ZNK4llvm13GMemOperation6getMMOEv.exit224, %_ZNK4llvm12LoadStoreOpt24isLegalOrBeforeLegalizerERKNS_13LegalityQueryERNS_15MachineFunctionE.exit217.thread, %_ZNK4llvm12LoadStoreOpt24isLegalOrBeforeLegalizerERKNS_13LegalityQueryERNS_15MachineFunctionE.exit.thread, %_ZNK4llvm12LoadStoreOpt24isLegalOrBeforeLegalizerERKNS_13LegalityQueryERNS_15MachineFunctionE.exit217, %_ZNK4llvm12LoadStoreOpt24isLegalOrBeforeLegalizerERKNS_13LegalityQueryERNS_15MachineFunctionE.exit, %347, %350
-  %.5 = phi i1 [ false, %347 ], [ false, %_ZNK4llvm12LoadStoreOpt24isLegalOrBeforeLegalizerERKNS_13LegalityQueryERNS_15MachineFunctionE.exit ], [ false, %_ZNK4llvm12LoadStoreOpt24isLegalOrBeforeLegalizerERKNS_13LegalityQueryERNS_15MachineFunctionE.exit217 ], [ false, %350 ], [ false, %_ZNK4llvm12LoadStoreOpt24isLegalOrBeforeLegalizerERKNS_13LegalityQueryERNS_15MachineFunctionE.exit.thread ], [ false, %_ZNK4llvm12LoadStoreOpt24isLegalOrBeforeLegalizerERKNS_13LegalityQueryERNS_15MachineFunctionE.exit217.thread ], [ true, %_ZNK4llvm13GMemOperation6getMMOEv.exit224 ], [ true, %_ZN4llvm15SmallPtrSetImplIPNS_6GStoreEE6insertES2_.exit ]
+  %.5 = phi i1 [ false, %347 ], [ false, %_ZNK4llvm12LoadStoreOpt24isLegalOrBeforeLegalizerERKNS_13LegalityQueryERNS_15MachineFunctionE.exit ], [ false, %_ZNK4llvm12LoadStoreOpt24isLegalOrBeforeLegalizerERKNS_13LegalityQueryERNS_15MachineFunctionE.exit217 ], [ false, %350 ], [ false, %_ZNK4llvm12LoadStoreOpt24isLegalOrBeforeLegalizerERKNS_13LegalityQueryERNS_15MachineFunctionE.exit217.thread ], [ false, %_ZNK4llvm12LoadStoreOpt24isLegalOrBeforeLegalizerERKNS_13LegalityQueryERNS_15MachineFunctionE.exit.thread ], [ true, %_ZNK4llvm13GMemOperation6getMMOEv.exit224 ], [ true, %_ZN4llvm15SmallPtrSetImplIPNS_6GStoreEE6insertES2_.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %481
@@ -5773,7 +5773,7 @@ define internal fastcc noundef zeroext i1 @"_ZZN4llvm12LoadStoreOpt15mergeTruncS
   br i1 %or.cond48.not, label %35, label %.thread, !llvm.loop !486
 
 .thread:                                          ; preds = %35, %15, %23, %.preheader
-  %.117 = phi i1 [ true, %23 ], [ true, %.preheader ], [ %.not20, %15 ], [ %.not18, %35 ]
+  %.117 = phi i1 [ true, %23 ], [ %.not20, %15 ], [ true, %.preheader ], [ %.not18, %35 ]
   ret i1 %.117
 }
 
@@ -6221,7 +6221,7 @@ _ZN4llvm23early_inc_iterator_implINS_26MachineInstrBundleIteratorINS_12MachineIn
   br i1 %.not33, label %._crit_edge42, label %.lr.ph41
 
 .loopexit:                                        ; preds = %._crit_edge42, %2, %.preheader, %._crit_edge
-  %.0.lcssa51 = phi i1 [ false, %._crit_edge ], [ true, %.preheader ], [ false, %2 ], [ true, %._crit_edge42 ]
+  %.0.lcssa51 = phi i1 [ false, %2 ], [ false, %._crit_edge ], [ true, %.preheader ], [ true, %._crit_edge42 ]
   ret i1 %.0.lcssa51
 }
 
@@ -6683,7 +6683,7 @@ _ZN4llvm14MIPatternMatch2OrIJNS0_14BinaryOp_matchINS0_7bind_tyINS_8RegisterEEENS
   br label %_ZN4llvm14MIPatternMatch2OrIJNS0_14BinaryOp_matchINS0_7bind_tyINS_8RegisterEEENS0_13ConstantMatchIlEELj142ELb0EEEEE5matchIRS4_EEbRKNS_19MachineRegisterInfoEOT_.exit
 
 _ZN4llvm14MIPatternMatch2OrIJNS0_14BinaryOp_matchINS0_7bind_tyINS_8RegisterEEENS0_13ConstantMatchIlEELj142ELb0EEEEE5matchIRS4_EEbRKNS_19MachineRegisterInfoEOT_.exit: ; preds = %_ZN4llvm14MIPatternMatch2OrIJNS0_14BinaryOp_matchINS0_7bind_tyINS_8RegisterEEENS0_13ConstantMatchIlEELj142ELb0EEEEE5matchIRS4_EEbRKNS_19MachineRegisterInfoEOT_.exit.sink.split, %35, %31, %27, %25
-  %49 = phi i1 [ false, %25 ], [ false, %27 ], [ false, %31 ], [ false, %35 ], [ true, %_ZN4llvm14MIPatternMatch2OrIJNS0_14BinaryOp_matchINS0_7bind_tyINS_8RegisterEEENS0_13ConstantMatchIlEELj142ELb0EEEEE5matchIRS4_EEbRKNS_19MachineRegisterInfoEOT_.exit.sink.split ]
+  %49 = phi i1 [ false, %35 ], [ false, %31 ], [ false, %25 ], [ false, %27 ], [ true, %_ZN4llvm14MIPatternMatch2OrIJNS0_14BinaryOp_matchINS0_7bind_tyINS_8RegisterEEENS0_13ConstantMatchIlEELj142ELb0EEEEE5matchIRS4_EEbRKNS_19MachineRegisterInfoEOT_.exit.sink.split ]
   ret i1 %49
 }
 

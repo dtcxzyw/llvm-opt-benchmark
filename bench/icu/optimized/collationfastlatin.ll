@@ -1594,7 +1594,7 @@ _ZN6icu_7718CollationFastLatin15getQuaternariesEjj.exit548: ; preds = %638, %635
   br label %.backedge.backedge
 
 _ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread556: ; preds = %36, %65, %97, %126, %651, %644, %287, %289, %.thread652, %.thread634, %415, %413, %.thread, %.thread639, %.thread622
-  %.4 = phi i32 [ 0, %.thread622 ], [ 0, %.thread639 ], [ %148, %.thread ], [ %547, %.thread634 ], [ %414, %413 ], [ %650, %.thread652 ], [ %416, %415 ], [ %291, %289 ], [ -2, %287 ], [ -2, %97 ], [ 0, %651 ], [ 0, %644 ], [ -2, %126 ], [ -2, %65 ], [ -2, %36 ]
+  %.4 = phi i32 [ -2, %287 ], [ 0, %.thread622 ], [ 0, %.thread639 ], [ -2, %97 ], [ %148, %.thread ], [ 0, %651 ], [ %547, %.thread634 ], [ %414, %413 ], [ %650, %.thread652 ], [ %416, %415 ], [ %291, %289 ], [ 0, %644 ], [ -2, %126 ], [ -2, %65 ], [ -2, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.4
@@ -1780,9 +1780,9 @@ define noundef i32 @_ZN6icu_7718CollationFastLatin8nextPairEPKtijPKDsPKhRiS7_(pt
   store i32 %27, ptr %6, align 4, !tbaa !32
   br label %.thread
 
-.thread:                                          ; preds = %86, %84, %52, %40, %38, %88
-  %.0115148 = phi i32 [ %29, %88 ], [ %29, %38 ], [ %29, %86 ], [ %85, %84 ], [ %57, %52 ], [ %29, %40 ]
-  %.5124 = phi i32 [ -1, %88 ], [ %39, %38 ], [ %.0119, %86 ], [ %.3122, %84 ], [ %56, %52 ], [ -1, %40 ]
+.thread:                                          ; preds = %86, %52, %84, %40, %38, %88
+  %.0115148 = phi i32 [ %29, %88 ], [ %29, %38 ], [ %29, %86 ], [ %57, %52 ], [ %85, %84 ], [ %29, %40 ]
+  %.5124 = phi i32 [ -1, %88 ], [ %39, %38 ], [ %.0119, %86 ], [ %56, %52 ], [ %.3122, %84 ], [ -1, %40 ]
   %89 = zext nneg i32 %26 to i64
   %90 = getelementptr inbounds nuw i16, ptr %0, i64 %89
   %91 = load i16, ptr %90, align 2, !tbaa !25
@@ -1811,7 +1811,7 @@ define noundef i32 @_ZN6icu_7718CollationFastLatin8nextPairEPKtijPKDsPKhRiS7_(pt
   br label %.critedge
 
 .critedge:                                        ; preds = %104, %102, %24
-  %.0109 = phi i32 [ %26, %24 ], [ %26, %102 ], [ %95, %104 ]
+  %.0109 = phi i32 [ %26, %24 ], [ %95, %104 ], [ %26, %102 ]
   %105 = sext i32 %.0109 to i64
   %106 = getelementptr inbounds i16, ptr %0, i64 %105
   %107 = load i16, ptr %106, align 2, !tbaa !25
@@ -2194,8 +2194,8 @@ define noundef range(i32 -2, 2) i32 @_ZN6icu_7718CollationFastLatin11compareUTF8
   br i1 %switch.selectcmp37.i, label %_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit.thread, label %_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit
 
 _ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit: ; preds = %87, %78, %59, %38
-  %.0368 = phi i32 [ %28, %38 ], [ %53, %59 ], [ 226, %78 ], [ 239, %87 ]
-  %.4318 = phi i32 [ %41, %38 ], [ %62, %59 ], [ %83, %78 ], [ %switch.select.i, %87 ]
+  %.0368 = phi i32 [ %28, %38 ], [ %53, %59 ], [ 239, %87 ], [ 226, %78 ]
+  %.4318 = phi i32 [ %41, %38 ], [ %62, %59 ], [ %switch.select.i, %87 ], [ %83, %78 ]
   %88 = icmp samesign ugt i32 %.4318, 4095
   br i1 %88, label %89, label %_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit.thread
 
@@ -2370,8 +2370,8 @@ _ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread: ; preds = %_ZN6icu_
   br i1 %switch.selectcmp37.i478, label %_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit480.thread, label %_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit480
 
 _ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit480: ; preds = %177, %168, %149, %128
-  %.0379 = phi i32 [ %118, %128 ], [ %143, %149 ], [ 226, %168 ], [ 239, %177 ]
-  %.4345 = phi i32 [ %131, %128 ], [ %152, %149 ], [ %173, %168 ], [ %switch.select.i477, %177 ]
+  %.0379 = phi i32 [ %118, %128 ], [ %143, %149 ], [ 239, %177 ], [ 226, %168 ]
+  %.4345 = phi i32 [ %131, %128 ], [ %152, %149 ], [ %switch.select.i477, %177 ], [ %173, %168 ]
   %178 = icmp samesign ugt i32 %.4345, 4095
   br i1 %178, label %179, label %_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit480.thread
 
@@ -3682,8 +3682,8 @@ _ZN6icu_7718CollationFastLatin15getQuaternariesEjj.exit558: ; preds = %792, %789
   %809 = lshr i32 %.24365, 16
   br label %.backedge.backedge
 
-_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread568: ; preds = %94, %36, %184, %126, %805, %798, %357, %359, %.thread684, %.thread662, %513, %511, %.thread, %.thread667, %.thread646
-  %.4 = phi i32 [ 0, %.thread646 ], [ 0, %.thread667 ], [ %206, %.thread ], [ %673, %.thread662 ], [ %512, %511 ], [ %804, %.thread684 ], [ %514, %513 ], [ %361, %359 ], [ -2, %357 ], [ -2, %184 ], [ 0, %805 ], [ 0, %798 ], [ -2, %126 ], [ -2, %36 ], [ -2, %94 ]
+_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread568: ; preds = %36, %94, %126, %184, %805, %798, %357, %359, %.thread684, %.thread662, %513, %511, %.thread, %.thread667, %.thread646
+  %.4 = phi i32 [ -2, %357 ], [ 0, %.thread646 ], [ 0, %.thread667 ], [ -2, %126 ], [ %206, %.thread ], [ 0, %805 ], [ %673, %.thread662 ], [ %512, %511 ], [ %804, %.thread684 ], [ %514, %513 ], [ %361, %359 ], [ 0, %798 ], [ -2, %184 ], [ -2, %94 ], [ -2, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.4
@@ -3736,7 +3736,7 @@ define noundef range(i32 0, 65536) i32 @_ZN6icu_7718CollationFastLatin10lookupUT
   br label %31
 
 31:                                               ; preds = %30, %21, %5, %27
-  %.1 = phi i32 [ 1, %5 ], [ 1, %27 ], [ %switch.select38, %30 ], [ %26, %21 ]
+  %.1 = phi i32 [ 1, %5 ], [ %26, %21 ], [ 1, %27 ], [ %switch.select38, %30 ]
   ret i32 %.1
 }
 

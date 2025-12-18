@@ -1455,7 +1455,7 @@ Py_DECREF.exit.i:                                 ; preds = %26, %23, %20
   br label %gc_get_stats_impl.exit
 
 gc_get_stats_impl.exit:                           ; preds = %11, %2, %27, %29, %32
-  %.0.i = phi ptr [ null, %2 ], [ null, %27 ], [ null, %29 ], [ null, %32 ], [ %9, %11 ]
+  %.0.i = phi ptr [ null, %32 ], [ null, %2 ], [ null, %27 ], [ null, %29 ], [ %9, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0.i
 }

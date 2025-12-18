@@ -1645,10 +1645,10 @@ for.body.lr.ph.split:                             ; preds = %if.end341.thread
   br label %for.body
 
 for.cond.cleanup:                                 ; preds = %for.body, %cond.end356.us, %if.end341.thread, %if.end341
-  %u.sroa.0.0681 = phi ptr [ null, %if.end341.thread ], [ %call5.i.i.i.i.i.i331, %if.end341 ], [ %call5.i.i.i.i.i.i331, %cond.end356.us ], [ null, %for.body ]
-  %u.sroa.23.0679 = phi ptr [ null, %if.end341.thread ], [ %add.ptr19.i.i.i326, %if.end341 ], [ %add.ptr19.i.i.i326, %cond.end356.us ], [ null, %for.body ]
-  %z.sroa.0.0677 = phi ptr [ null, %if.end341.thread ], [ %call5.i.i.i.i.i.i363, %if.end341 ], [ %call5.i.i.i.i.i.i363, %cond.end356.us ], [ null, %for.body ]
-  %z.sroa.22.0675 = phi ptr [ null, %if.end341.thread ], [ %add.ptr19.i.i.i358, %if.end341 ], [ %add.ptr19.i.i.i358, %cond.end356.us ], [ null, %for.body ]
+  %u.sroa.0.0681 = phi ptr [ null, %if.end341.thread ], [ %call5.i.i.i.i.i.i331, %cond.end356.us ], [ %call5.i.i.i.i.i.i331, %if.end341 ], [ null, %for.body ]
+  %u.sroa.23.0679 = phi ptr [ null, %if.end341.thread ], [ %add.ptr19.i.i.i326, %cond.end356.us ], [ %add.ptr19.i.i.i326, %if.end341 ], [ null, %for.body ]
+  %z.sroa.0.0677 = phi ptr [ null, %if.end341.thread ], [ %call5.i.i.i.i.i.i363, %cond.end356.us ], [ %call5.i.i.i.i.i.i363, %if.end341 ], [ null, %for.body ]
+  %z.sroa.22.0675 = phi ptr [ null, %if.end341.thread ], [ %add.ptr19.i.i.i358, %cond.end356.us ], [ %add.ptr19.i.i.i358, %if.end341 ], [ null, %for.body ]
   %pn.i385 = getelementptr inbounds nuw i8, ptr %transform, i64 8
   %142 = load ptr, ptr %pn.i385, align 8, !tbaa !25
   %cmp.not.i.i386 = icmp eq ptr %142, null

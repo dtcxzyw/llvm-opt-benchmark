@@ -2272,8 +2272,8 @@ _ZN12_GLOBAL__N_113gridshiftData19grid_apply_internalEP6pj_ctxRKNSt7__cxx1112bas
   br i1 %136, label %.split, label %.sink.split
 
 .loopexit:                                        ; preds = %83, %70, %_ZN12_GLOBAL__N_113gridshiftData19grid_apply_internalEP6pj_ctxRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb6PJ_XYZ12PJ_DIRECTIONPKN5osgeo4proj16GenericShiftGridEPNSE_19GenericShiftGridSetERb.exit.thread118
-  %137 = phi double [ %52, %70 ], [ %.sroa.10.0.ph, %_ZN12_GLOBAL__N_113gridshiftData19grid_apply_internalEP6pj_ctxRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb6PJ_XYZ12PJ_DIRECTIONPKN5osgeo4proj16GenericShiftGridEPNSE_19GenericShiftGridSetERb.exit.thread118 ], [ %77, %83 ]
-  %138 = phi double [ %50, %70 ], [ %.sroa.0.0.ph, %_ZN12_GLOBAL__N_113gridshiftData19grid_apply_internalEP6pj_ctxRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb6PJ_XYZ12PJ_DIRECTIONPKN5osgeo4proj16GenericShiftGridEPNSE_19GenericShiftGridSetERb.exit.thread118 ], [ %78, %83 ]
+  %137 = phi double [ %.sroa.10.0.ph, %_ZN12_GLOBAL__N_113gridshiftData19grid_apply_internalEP6pj_ctxRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb6PJ_XYZ12PJ_DIRECTIONPKN5osgeo4proj16GenericShiftGridEPNSE_19GenericShiftGridSetERb.exit.thread118 ], [ %52, %70 ], [ %77, %83 ]
+  %138 = phi double [ %.sroa.0.0.ph, %_ZN12_GLOBAL__N_113gridshiftData19grid_apply_internalEP6pj_ctxRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb6PJ_XYZ12PJ_DIRECTIONPKN5osgeo4proj16GenericShiftGridEPNSE_19GenericShiftGridSetERb.exit.thread118 ], [ %50, %70 ], [ %78, %83 ]
   %139 = fcmp oeq double %138, 0x7FF0000000000000
   %140 = fcmp oeq double %137, 0x7FF0000000000000
   %or.cond5 = select i1 %139, i1 true, i1 %140
@@ -2574,10 +2574,10 @@ _ZNK12_GLOBAL__N_113gridshiftData8findGridERKNSt7__cxx1112basic_stringIcSt11char
 .critedge:                                        ; preds = %155
   br i1 %101, label %.critedge.thread, label %158
 
-.critedge.thread:                                 ; preds = %109, %_ZNK12_GLOBAL__N_113gridshiftData8findGridERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK6PJ_XYZRPN5osgeo4proj19GenericShiftGridSetE.exit, %102, %105, %.critedge
-  %.sroa.10.3104 = phi double [ %.sroa.10.4, %.critedge ], [ %.sroa.10.1, %105 ], [ %.sroa.10.1, %102 ], [ %.sroa.10.1, %_ZNK12_GLOBAL__N_113gridshiftData8findGridERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK6PJ_XYZRPN5osgeo4proj19GenericShiftGridSetE.exit ], [ %.sroa.10.1, %109 ]
-  %.sroa.012.3103 = phi double [ %.sroa.012.4, %.critedge ], [ %.sroa.012.1, %105 ], [ %.sroa.012.1, %102 ], [ %.sroa.012.1, %_ZNK12_GLOBAL__N_113gridshiftData8findGridERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK6PJ_XYZRPN5osgeo4proj19GenericShiftGridSetE.exit ], [ %.sroa.012.1, %109 ]
-  %.4102 = phi ptr [ %.3, %.critedge ], [ %.186, %105 ], [ %.186, %102 ], [ %.186, %_ZNK12_GLOBAL__N_113gridshiftData8findGridERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK6PJ_XYZRPN5osgeo4proj19GenericShiftGridSetE.exit ], [ %.186, %109 ]
+.critedge.thread:                                 ; preds = %_ZNK12_GLOBAL__N_113gridshiftData8findGridERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK6PJ_XYZRPN5osgeo4proj19GenericShiftGridSetE.exit, %109, %102, %105, %.critedge
+  %.sroa.10.3104 = phi double [ %.sroa.10.4, %.critedge ], [ %.sroa.10.1, %105 ], [ %.sroa.10.1, %102 ], [ %.sroa.10.1, %109 ], [ %.sroa.10.1, %_ZNK12_GLOBAL__N_113gridshiftData8findGridERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK6PJ_XYZRPN5osgeo4proj19GenericShiftGridSetE.exit ]
+  %.sroa.012.3103 = phi double [ %.sroa.012.4, %.critedge ], [ %.sroa.012.1, %105 ], [ %.sroa.012.1, %102 ], [ %.sroa.012.1, %109 ], [ %.sroa.012.1, %_ZNK12_GLOBAL__N_113gridshiftData8findGridERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK6PJ_XYZRPN5osgeo4proj19GenericShiftGridSetE.exit ]
+  %.4102 = phi ptr [ %.3, %.critedge ], [ %.186, %105 ], [ %.186, %102 ], [ %.186, %109 ], [ %.186, %_ZNK12_GLOBAL__N_113gridshiftData8findGridERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK6PJ_XYZRPN5osgeo4proj19GenericShiftGridSetE.exit ]
   tail call void (ptr, i32, ptr, ...) @_Z6pj_logP6pj_ctxiPKcz(ptr noundef %2, i32 noundef 3, ptr noundef nonnull @.str.23)
   br label %158
 

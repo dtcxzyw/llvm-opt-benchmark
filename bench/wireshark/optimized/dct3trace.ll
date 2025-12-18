@@ -89,7 +89,7 @@ define hidden range(i32 -1, 2) i32 @dct3trace_open(ptr noundef %0, ptr noundef w
   br label %27
 
 27:                                               ; preds = %13, %17, %18, %19
-  %.0 = phi i32 [ 1, %19 ], [ %16, %13 ], [ 0, %18 ], [ 0, %17 ]
+  %.0 = phi i32 [ 1, %19 ], [ %16, %13 ], [ 0, %17 ], [ 0, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -395,7 +395,7 @@ hc2b.exit.thread22.i:                             ; preds = %82, %78
   br i1 %.not35.i, label %hex2bin.exit, label %.lr.ph.i, !llvm.loop !10
 
 hex2bin.exit:                                     ; preds = %.outer.i, %hc2b.exit.thread.i, %74
-  %.017.ph.lcssa31.i = phi ptr [ %.074.ph.ph.ph, %74 ], [ %.017.ph40.i, %hc2b.exit.thread.i ], [ %.118.i, %.outer.i ]
+  %.017.ph.lcssa31.i = phi ptr [ %.017.ph40.i, %hc2b.exit.thread.i ], [ %.074.ph.ph.ph, %74 ], [ %.118.i, %.outer.i ]
   %100 = ptrtoint ptr %.017.ph.lcssa31.i to i64
   %101 = sub i64 %100, %17
   %102 = trunc i64 %101 to i32
@@ -503,7 +503,7 @@ hc2b.exit.thread22.i111:                          ; preds = %126, %122
   br i1 %.not35.i117, label %hex2bin.exit124, label %.lr.ph.i104, !llvm.loop !10
 
 hex2bin.exit124:                                  ; preds = %.outer.i113, %hc2b.exit.thread.i122, %115
-  %.017.ph.lcssa31.i119 = phi ptr [ %118, %115 ], [ %.017.ph40.i106, %hc2b.exit.thread.i122 ], [ %.118.i115, %.outer.i113 ]
+  %.017.ph.lcssa31.i119 = phi ptr [ %.017.ph40.i106, %hc2b.exit.thread.i122 ], [ %118, %115 ], [ %.118.i115, %.outer.i113 ]
   %144 = ptrtoint ptr %.017.ph.lcssa31.i119 to i64
   %145 = ptrtoint ptr %118 to i64
   %146 = sub i64 %144, %145

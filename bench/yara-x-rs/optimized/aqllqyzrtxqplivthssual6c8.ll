@@ -4321,7 +4321,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   br i1 %.not.i.not.i, label %._crit_edge.i, label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h62a52e6e7c7393e4E.exit"
 
 "_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h62a52e6e7c7393e4E.exit": ; preds = %13, %21, %._crit_edge.i
-  %.sroa.52.0.copyload.sink = phi i64 [ %.sroa.52.0.copyload, %._crit_edge.i ], [ %.sroa.52.0.copyload, %21 ], [ %15, %13 ]
+  %.sroa.52.0.copyload.sink = phi i64 [ %.sroa.52.0.copyload, %21 ], [ %.sroa.52.0.copyload, %._crit_edge.i ], [ %15, %13 ]
   %30 = icmp ne ptr %.sroa.01.0.copyload, null
   tail call void @llvm.assume(i1 %30)
   store i64 %.sroa.52.0.copyload.sink, ptr %.sroa.01.0.copyload, align 8, !noalias !1017
@@ -17188,7 +17188,7 @@ default.unreachable:                              ; preds = %39, %11
           to label %57 unwind label %55
 
 .loopexit13:                                      ; preds = %.noexc5, %.noexc, %._crit_edge.i
-  %.sroa.04.0.i = phi i1 [ true, %.noexc ], [ %30, %._crit_edge.i ], [ true, %.noexc5 ]
+  %.sroa.04.0.i = phi i1 [ %30, %._crit_edge.i ], [ true, %.noexc ], [ true, %.noexc5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @"_ZN4core3ptr60drop_in_place$LT$regex_syntax..hir..visitor..HeapVisitor$GT$17h2836e1a7f9fce4b1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7)
@@ -59048,7 +59048,7 @@ _ZN12regex_syntax3hir7visitor5visit17he9e5a6fe756dbb00E.exit._crit_edge: ; preds
   br label %.thread267
 
 186:                                              ; preds = %195, %.thread292
-  %.sroa.0106.4.ph = phi i8 [ 1, %195 ], [ %.sroa.0106.6, %.thread292 ]
+  %.sroa.0106.4.ph = phi i8 [ %.sroa.0106.6, %.thread292 ], [ 1, %195 ]
   %lpad.thr_comm.split-lp276 = landingpad { ptr, i32 }
           cleanup
   br label %.thread249

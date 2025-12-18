@@ -1846,7 +1846,7 @@ for.cond.backedge:                                ; preds = %for.end57, %if.end3
   br label %for.cond, !llvm.loop !21
 
 return:                                           ; preds = %for.end57, %for.end, %for.body.i, %if.else, %entry, %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit, %_ZSt4moveIPcS0_ET0_T_S2_S1_.exit
-  %retval.0 = phi ptr [ %__last, %entry ], [ %add.ptr, %_ZSt4moveIPcS0_ET0_T_S2_S1_.exit ], [ %__first, %if.else ], [ %add.ptr, %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit ], [ %__middle, %for.body.i ], [ %add.ptr, %for.end ], [ %add.ptr, %for.end57 ]
+  %retval.0 = phi ptr [ %__middle, %for.body.i ], [ %__last, %entry ], [ %add.ptr, %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit ], [ %add.ptr, %_ZSt4moveIPcS0_ET0_T_S2_S1_.exit ], [ %__first, %if.else ], [ %add.ptr, %for.end ], [ %add.ptr, %for.end57 ]
   ret ptr %retval.0
 }
 

@@ -1372,7 +1372,7 @@ define dso_local void @zend_ssa_find_false_dependencies(ptr noundef readonly cap
   br label %.loopexit.us
 
 .loopexit.us:                                     ; preds = %77, %.preheader.us, %96, %87, %32, %30
-  %.4.us = phi i1 [ false, %96 ], [ false, %87 ], [ false, %32 ], [ %.3110.us, %30 ], [ false, %.preheader.us ], [ false, %77 ]
+  %.4.us = phi i1 [ false, %96 ], [ false, %87 ], [ %.3110.us, %30 ], [ false, %32 ], [ false, %.preheader.us ], [ false, %77 ]
   %108 = lshr i64 %.0112.us, 1
   %indvars.iv.next124 = add nsw i64 %indvars.iv123, 1
   %.not88.us = icmp eq i64 %108, 0
@@ -10786,7 +10786,7 @@ define dso_local range(i32 -2147483520, 0) i32 @zend_array_type_info(ptr noundef
   br i1 %.not42, label %.loopexit, label %.lr.ph52
 
 .loopexit:                                        ; preds = %.lr.ph, %46, %14, %29, %8
-  %.1 = phi i32 [ %9, %8 ], [ %., %29 ], [ %15, %14 ], [ %.5, %46 ], [ %.3, %.lr.ph ]
+  %.1 = phi i32 [ %9, %8 ], [ %.5, %46 ], [ %., %29 ], [ %15, %14 ], [ %.3, %.lr.ph ]
   ret i32 %.1
 }
 
@@ -11134,7 +11134,7 @@ define dso_local range(i32 -1, 1) i32 @zend_update_type_info(ptr noundef %0, ptr
   br label %_ssa_op1_info.exit50
 
 _ssa_op1_info.exit50:                             ; preds = %.lr.ph.i, %88, %39, %103, %100, %97, %95, %50, %56, %71
-  %.0.i48 = phi i32 [ -521143298, %39 ], [ %spec.select.i91, %97 ], [ %96, %95 ], [ %51, %50 ], [ %..i, %71 ], [ %57, %56 ], [ %106, %103 ], [ -486539265, %100 ], [ %.5.i, %88 ], [ %.3.i, %.lr.ph.i ]
+  %.0.i48 = phi i32 [ -486539265, %100 ], [ -521143298, %39 ], [ %spec.select.i91, %97 ], [ %96, %95 ], [ %51, %50 ], [ %.5.i, %88 ], [ %..i, %71 ], [ %57, %56 ], [ %106, %103 ], [ %.3.i, %.lr.ph.i ]
   %107 = getelementptr inbounds nuw i8, ptr %.07500.i, i64 30
   %108 = load i8, ptr %107, align 2, !tbaa !87
   %109 = icmp eq i8 %108, 1
@@ -11298,11 +11298,11 @@ _ssa_op1_info.exit50.thread:                      ; preds = %99
   br label %_ssa_op2_info.exit59
 
 _ssa_op2_info.exit59:                             ; preds = %.lr.ph.i290, %179, %_ssa_op1_info.exit50.thread, %130, %190, %195, %191, %188, %186, %141, %147, %162
-  %199 = phi i1 [ true, %130 ], [ true, %188 ], [ true, %186 ], [ true, %141 ], [ true, %162 ], [ true, %147 ], [ false, %195 ], [ false, %191 ], [ false, %190 ], [ false, %_ssa_op1_info.exit50.thread ], [ true, %179 ], [ true, %.lr.ph.i290 ]
-  %200 = phi i8 [ 1, %130 ], [ 1, %188 ], [ 1, %186 ], [ 1, %141 ], [ 1, %162 ], [ 1, %147 ], [ %108, %195 ], [ %108, %191 ], [ %108, %190 ], [ %111, %_ssa_op1_info.exit50.thread ], [ 1, %179 ], [ 1, %.lr.ph.i290 ]
-  %201 = phi ptr [ %114, %130 ], [ %114, %188 ], [ %114, %186 ], [ %114, %141 ], [ %114, %162 ], [ %114, %147 ], [ %107, %195 ], [ %107, %191 ], [ %107, %190 ], [ %110, %_ssa_op1_info.exit50.thread ], [ %114, %179 ], [ %114, %.lr.ph.i290 ]
-  %.0.i481486 = phi i32 [ %.0.i481488, %130 ], [ %.0.i481488, %188 ], [ %.0.i481488, %186 ], [ %.0.i481488, %141 ], [ %.0.i481488, %162 ], [ %.0.i481488, %147 ], [ %.0.i48, %195 ], [ %.0.i48, %191 ], [ %.0.i48, %190 ], [ -486539265, %_ssa_op1_info.exit50.thread ], [ %.0.i481488, %179 ], [ %.0.i481488, %.lr.ph.i290 ]
-  %.0.i57 = phi i32 [ -521143298, %130 ], [ %spec.select.i83, %188 ], [ %187, %186 ], [ %142, %141 ], [ %..i286, %162 ], [ %148, %147 ], [ %198, %195 ], [ -486539265, %191 ], [ -486539265, %190 ], [ -486539265, %_ssa_op1_info.exit50.thread ], [ %.5.i303, %179 ], [ %.3.i293, %.lr.ph.i290 ]
+  %199 = phi i1 [ true, %179 ], [ true, %130 ], [ true, %188 ], [ true, %186 ], [ true, %141 ], [ false, %190 ], [ true, %162 ], [ true, %147 ], [ false, %195 ], [ false, %191 ], [ false, %_ssa_op1_info.exit50.thread ], [ true, %.lr.ph.i290 ]
+  %200 = phi i8 [ 1, %179 ], [ 1, %130 ], [ 1, %188 ], [ 1, %186 ], [ 1, %141 ], [ %108, %190 ], [ 1, %162 ], [ 1, %147 ], [ %108, %195 ], [ %108, %191 ], [ %111, %_ssa_op1_info.exit50.thread ], [ 1, %.lr.ph.i290 ]
+  %201 = phi ptr [ %114, %179 ], [ %114, %130 ], [ %114, %188 ], [ %114, %186 ], [ %114, %141 ], [ %107, %190 ], [ %114, %162 ], [ %114, %147 ], [ %107, %195 ], [ %107, %191 ], [ %110, %_ssa_op1_info.exit50.thread ], [ %114, %.lr.ph.i290 ]
+  %.0.i481486 = phi i32 [ %.0.i481488, %179 ], [ %.0.i481488, %130 ], [ %.0.i481488, %188 ], [ %.0.i481488, %186 ], [ %.0.i481488, %141 ], [ %.0.i48, %190 ], [ %.0.i481488, %162 ], [ %.0.i481488, %147 ], [ %.0.i48, %195 ], [ %.0.i48, %191 ], [ -486539265, %_ssa_op1_info.exit50.thread ], [ %.0.i481488, %.lr.ph.i290 ]
+  %.0.i57 = phi i32 [ %.5.i303, %179 ], [ -521143298, %130 ], [ %spec.select.i83, %188 ], [ %187, %186 ], [ %142, %141 ], [ -486539265, %190 ], [ %..i286, %162 ], [ %148, %147 ], [ %198, %195 ], [ -486539265, %191 ], [ -486539265, %_ssa_op1_info.exit50.thread ], [ %.3.i293, %.lr.ph.i290 ]
   %202 = and i32 %.0.i481486, 16778239
   %.not.i = icmp eq i32 %202, 0
   %203 = and i32 %.0.i57, 16778239
@@ -11451,7 +11451,7 @@ _ssa_op2_info.exit59:                             ; preds = %.lr.ph.i290, %179, 
   br label %_ssa_result_info.exit
 
 _ssa_result_info.exit:                            ; preds = %.lr.ph.i311, %269, %271, %232, %279, %276, %248, %257
-  %.0.i61 = phi i32 [ %282, %279 ], [ %spec.select.i79, %276 ], [ %..i307, %232 ], [ %..i307, %257 ], [ %..i307, %248 ], [ %273, %271 ], [ %.5.i324, %269 ], [ %.3.i314, %.lr.ph.i311 ]
+  %.0.i61 = phi i32 [ %273, %271 ], [ %282, %279 ], [ %spec.select.i79, %276 ], [ %..i307, %232 ], [ %.5.i324, %269 ], [ %..i307, %248 ], [ %..i307, %257 ], [ %.3.i314, %.lr.ph.i311 ]
   %283 = and i32 %.0.i61, 16778239
   %.not8902.i = icmp eq i32 %283, 0
   br i1 %.not8902.i, label %367, label %_ssa_result_info.exit.thread
@@ -11609,7 +11609,7 @@ _ssa_result_info.exit.thread:                     ; preds = %228, %278, %_ssa_re
   br label %_ssa_op1_info.exit46
 
 _ssa_op1_info.exit46:                             ; preds = %.lr.ph.i332, %349, %351, %312, %362, %356, %328, %337
-  %.0.i44 = phi i32 [ %365, %362 ], [ %spec.select.i95, %356 ], [ %..i328, %312 ], [ %..i328, %337 ], [ %..i328, %328 ], [ %353, %351 ], [ %.5.i345, %349 ], [ %.3.i335, %.lr.ph.i332 ]
+  %.0.i44 = phi i32 [ %353, %351 ], [ %365, %362 ], [ %spec.select.i95, %356 ], [ %..i328, %312 ], [ %.5.i345, %349 ], [ %..i328, %328 ], [ %..i328, %337 ], [ %.3.i335, %.lr.ph.i332 ]
   %366 = and i32 %.0.i44, 16778239
   %.not8904.i = icmp eq i32 %366, 0
   br i1 %.not8904.i, label %367, label %_ssa_op1_info.exit46.thread
@@ -20706,7 +20706,7 @@ zend_ssa_next_use.exit.i:                         ; preds = %4957, %4951
   br label %.thread564
 
 .thread564:                                       ; preds = %4921, %4931, %4963, %4939
-  %.997616.i = phi i32 [ %4933, %4931 ], [ %4965, %4963 ], [ %4941, %4939 ], [ %.987615.i, %4921 ]
+  %.997616.i = phi i32 [ %4941, %4939 ], [ %4933, %4931 ], [ %4965, %4963 ], [ %.987615.i, %4921 ]
   %4966 = and i32 %.997616.i, -536870913
   %spec.select10788.i = select i1 %.not9219.i, i32 %.997616.i, i32 %4966
   br label %.thread559
@@ -23673,7 +23673,7 @@ zend_arena_alloc.exit:                            ; preds = %25, %27
   br i1 %69, label %52, label %.loopexit
 
 .loopexit:                                        ; preds = %66, %.lr.ph53, %.preheader49, %.preheader
-  %70 = phi i32 [ %42, %.preheader ], [ %42, %.preheader49 ], [ %49, %.lr.ph53 ], [ %67, %66 ]
+  %70 = phi i32 [ %49, %.lr.ph53 ], [ %42, %.preheader ], [ %42, %.preheader49 ], [ %67, %66 ]
   %71 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %72 = load i32, ptr %71, align 8, !tbaa !4
   %73 = icmp slt i32 %70, %72
@@ -26900,7 +26900,7 @@ zend_ssa_next_use_phi.exit:                       ; preds = %1658, %1650
   br i1 %.not901, label %.loopexit, label %.lr.ph1095
 
 .loopexit:                                        ; preds = %1685, %._crit_edge1090, %zend_ssa_range_narrowing.exit988.thread, %1293
-  %.4 = phi i1 [ false, %zend_ssa_range_narrowing.exit988.thread ], [ %.31098, %1293 ], [ false, %._crit_edge1090 ], [ false, %1685 ]
+  %.4 = phi i1 [ %.31098, %1293 ], [ false, %zend_ssa_range_narrowing.exit988.thread ], [ false, %._crit_edge1090 ], [ false, %1685 ]
   %1687 = lshr i64 %.08171099, 1
   %indvars.iv.next1154 = add nsw i64 %indvars.iv1153, 1
   %.not898 = icmp eq i64 %1687, 0
@@ -27320,7 +27320,7 @@ define internal fastcc range(i32 -1, 1) i32 @zend_infer_types(ptr noundef %0, pt
   br label %_ssa_op1_info.exit.i
 
 _ssa_op1_info.exit.i:                             ; preds = %.lr.ph.i.i, %184, %200, %197, %195, %193, %191, %167, %152, %146, %135
-  %.0.i.i = phi i32 [ -521143298, %135 ], [ %spec.select.i.i, %193 ], [ %192, %191 ], [ %147, %146 ], [ %..i.i, %167 ], [ %153, %152 ], [ %203, %200 ], [ -486539265, %197 ], [ -486539265, %195 ], [ %.5.i.i, %184 ], [ %.3.i228.i, %.lr.ph.i.i ]
+  %.0.i.i = phi i32 [ %.5.i.i, %184 ], [ -521143298, %135 ], [ %spec.select.i.i, %193 ], [ %192, %191 ], [ %147, %146 ], [ -486539265, %195 ], [ %..i.i, %167 ], [ %153, %152 ], [ %203, %200 ], [ -486539265, %197 ], [ %.3.i228.i, %.lr.ph.i.i ]
   %204 = shl i32 %.0.i.i, 1
   %205 = and i32 %204, 2
   %spec.select.i = or i32 %205, %.0.i.i
@@ -29185,7 +29185,7 @@ define dso_local zeroext i1 @zend_may_throw(ptr noundef %0, ptr noundef readonly
   br label %_ssa_op1_info.exit
 
 _ssa_op1_info.exit:                               ; preds = %.lr.ph.i, %73, %24, %84, %90, %87, %82, %80, %35, %41, %56
-  %.0.i = phi i32 [ -521143298, %24 ], [ %spec.select.i18, %82 ], [ %81, %80 ], [ %36, %35 ], [ %..i, %56 ], [ %42, %41 ], [ %93, %90 ], [ -486539265, %87 ], [ -486539265, %84 ], [ %.5.i, %73 ], [ %.3.i, %.lr.ph.i ]
+  %.0.i = phi i32 [ %.5.i, %73 ], [ -521143298, %24 ], [ %spec.select.i18, %82 ], [ %81, %80 ], [ %36, %35 ], [ -486539265, %84 ], [ %..i, %56 ], [ %42, %41 ], [ %93, %90 ], [ -486539265, %87 ], [ %.3.i, %.lr.ph.i ]
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 30
   %95 = load i8, ptr %94, align 2, !tbaa !87
   %96 = icmp eq i8 %95, 1
@@ -29343,7 +29343,7 @@ _ssa_op1_info.exit:                               ; preds = %.lr.ph.i, %73, %24,
   br label %_ssa_op2_info.exit
 
 _ssa_op2_info.exit:                               ; preds = %.lr.ph.i30, %162, %113, %173, %180, %176, %171, %169, %124, %130, %145
-  %.0.i13 = phi i32 [ -521143298, %113 ], [ %spec.select.i, %171 ], [ %170, %169 ], [ %125, %124 ], [ %..i26, %145 ], [ %131, %130 ], [ %183, %180 ], [ -486539265, %176 ], [ -486539265, %173 ], [ %.5.i43, %162 ], [ %.3.i33, %.lr.ph.i30 ]
+  %.0.i13 = phi i32 [ %.5.i43, %162 ], [ -521143298, %113 ], [ %spec.select.i, %171 ], [ %170, %169 ], [ %125, %124 ], [ -486539265, %173 ], [ %..i26, %145 ], [ %131, %130 ], [ %183, %180 ], [ -486539265, %176 ], [ %.3.i33, %.lr.ph.i30 ]
   %184 = tail call zeroext i1 @zend_may_throw_ex(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %.0.i, i32 noundef %.0.i13)
   ret i1 %184
 }
@@ -29523,8 +29523,8 @@ minOR.exit53:                                     ; preds = %56, %66, %62
   br i1 %.not.i60, label %maxOR.exit61, label %70
 
 maxOR.exit61:                                     ; preds = %79, %72, %76
-  %.020.i57 = phi i64 [ %75, %72 ], [ %1, %76 ], [ %1, %79 ]
-  %.019.i58 = phi i64 [ %3, %72 ], [ %78, %76 ], [ %3, %79 ]
+  %.020.i57 = phi i64 [ %1, %76 ], [ %75, %72 ], [ %1, %79 ]
+  %.019.i58 = phi i64 [ %78, %76 ], [ %3, %72 ], [ %3, %79 ]
   %81 = or i64 %.019.i58, %.020.i57
   br label %.sink.split
 
@@ -29878,8 +29878,8 @@ maxAND.exit71:                                    ; preds = %89, %94, %82
   br i1 %.not.i79, label %minAND.exit80, label %99
 
 minAND.exit80:                                    ; preds = %108, %101, %105
-  %.020.i76 = phi i64 [ %2, %101 ], [ %107, %105 ], [ %2, %108 ]
-  %.019.i77 = phi i64 [ %104, %101 ], [ %0, %105 ], [ %0, %108 ]
+  %.020.i76 = phi i64 [ %107, %105 ], [ %2, %101 ], [ %2, %108 ]
+  %.019.i77 = phi i64 [ %0, %105 ], [ %104, %101 ], [ %0, %108 ]
   %110 = and i64 %.019.i77, %.020.i76
   store i64 %110, ptr %4, align 8, !tbaa !82
   %111 = xor i64 %3, -1
@@ -30591,8 +30591,8 @@ define internal fastcc ptr @zend_fetch_prop_info(ptr noundef readonly captures(n
   %.not28.i = icmp eq i32 %73, 0
   br i1 %.not28.i, label %.thread, label %lookup_prop_info.exit.thread31
 
-lookup_prop_info.exit.thread31:                   ; preds = %57, %70, %64
-  %.1.i34 = phi ptr [ %59, %57 ], [ %65, %64 ], [ %65, %70 ]
+lookup_prop_info.exit.thread31:                   ; preds = %57, %64, %70
+  %.1.i34 = phi ptr [ %59, %57 ], [ %65, %70 ], [ %65, %64 ]
   %74 = getelementptr inbounds nuw i8, ptr %.1.i34, i64 4
   %75 = load i32, ptr %74, align 4, !tbaa !168
   %76 = and i32 %75, 16
@@ -30684,7 +30684,7 @@ define internal fastcc ptr @zend_fetch_static_prop_info(ptr noundef %0, ptr noun
   br label %48
 
 48:                                               ; preds = %14, %24, %43
-  %.129 = phi ptr [ %47, %43 ], [ %16, %14 ], [ %26, %24 ]
+  %.129 = phi ptr [ %26, %24 ], [ %47, %43 ], [ %16, %14 ]
   %.not36 = icmp eq ptr %.129, null
   br i1 %.not36, label %.thread, label %49
 
@@ -30767,8 +30767,8 @@ define internal fastcc ptr @zend_fetch_static_prop_info(ptr noundef %0, ptr noun
   %.not28.i = icmp eq i32 %94, 0
   br i1 %.not28.i, label %.thread, label %lookup_prop_info.exit.thread6
 
-lookup_prop_info.exit.thread6:                    ; preds = %78, %91, %85
-  %.1.i9 = phi ptr [ %80, %78 ], [ %86, %85 ], [ %86, %91 ]
+lookup_prop_info.exit.thread6:                    ; preds = %78, %85, %91
+  %.1.i9 = phi ptr [ %80, %78 ], [ %86, %91 ], [ %86, %85 ]
   %95 = getelementptr inbounds nuw i8, ptr %.1.i9, i64 4
   %96 = load i32, ptr %95, align 4, !tbaa !168
   %97 = and i32 %96, 16
@@ -32468,7 +32468,7 @@ zend_ssa_next_use.exit.us.us:                     ; preds = %474, %477
   br i1 %482, label %187, label %._crit_edge300.us.us
 
 zend_inference_narrowing_meet.exit.us.us:         ; preds = %.preheader.us.us, %zend_ssa_next_use_phi.exit.us.us, %175, %._crit_edge300.us.us, %127, %64, %62
-  %.4.us.us = phi i1 [ %.3308.us.us, %62 ], [ false, %64 ], [ false, %127 ], [ false, %._crit_edge300.us.us ], [ false, %175 ], [ false, %zend_ssa_next_use_phi.exit.us.us ], [ false, %.preheader.us.us ]
+  %.4.us.us = phi i1 [ %.3308.us.us, %62 ], [ false, %127 ], [ false, %64 ], [ false, %._crit_edge300.us.us ], [ false, %175 ], [ false, %zend_ssa_next_use_phi.exit.us.us ], [ false, %.preheader.us.us ]
   %483 = lshr i64 %.0246311.us.us, 1
   %indvars.iv.next336 = add nsw i64 %indvars.iv335, 1
   %.not264.us.us = icmp eq i64 %483, 0
@@ -33481,7 +33481,7 @@ join_class_entries.exit:                          ; preds = %._crit_edge.i, %283
   br label %_ssa_op1_info.exit406
 
 _ssa_op1_info.exit406:                            ; preds = %.lr.ph.i669, %436, %387, %451, %448, %445, %443, %398, %404, %419
-  %.0.i404 = phi i32 [ -521143298, %387 ], [ %spec.select.i447, %445 ], [ %444, %443 ], [ %399, %398 ], [ %..i667, %419 ], [ %405, %404 ], [ %454, %451 ], [ -486539265, %448 ], [ %.5.i, %436 ], [ %.3.i, %.lr.ph.i669 ]
+  %.0.i404 = phi i32 [ -486539265, %448 ], [ -521143298, %387 ], [ %spec.select.i447, %445 ], [ %444, %443 ], [ %399, %398 ], [ %.5.i, %436 ], [ %..i667, %419 ], [ %405, %404 ], [ %454, %451 ], [ %.3.i, %.lr.ph.i669 ]
   %455 = getelementptr inbounds nuw i8, ptr %.07500.i, i64 30
   %456 = load i8, ptr %455, align 2, !tbaa !87
   %457 = icmp eq i8 %456, 1
@@ -33643,11 +33643,11 @@ _ssa_op1_info.exit406.thread:                     ; preds = %447
   br label %_ssa_op2_info.exit415
 
 _ssa_op2_info.exit415:                            ; preds = %.lr.ph.i678, %525, %_ssa_op1_info.exit406.thread, %476, %536, %541, %537, %534, %532, %487, %493, %508
-  %545 = phi i1 [ true, %476 ], [ true, %534 ], [ true, %532 ], [ true, %487 ], [ true, %508 ], [ true, %493 ], [ false, %541 ], [ false, %537 ], [ false, %536 ], [ false, %_ssa_op1_info.exit406.thread ], [ true, %525 ], [ true, %.lr.ph.i678 ]
-  %546 = phi i8 [ 1, %476 ], [ 1, %534 ], [ 1, %532 ], [ 1, %487 ], [ 1, %508 ], [ 1, %493 ], [ %456, %541 ], [ %456, %537 ], [ %456, %536 ], [ %459, %_ssa_op1_info.exit406.thread ], [ 1, %525 ], [ 1, %.lr.ph.i678 ]
-  %547 = phi ptr [ %462, %476 ], [ %462, %534 ], [ %462, %532 ], [ %462, %487 ], [ %462, %508 ], [ %462, %493 ], [ %455, %541 ], [ %455, %537 ], [ %455, %536 ], [ %458, %_ssa_op1_info.exit406.thread ], [ %462, %525 ], [ %462, %.lr.ph.i678 ]
-  %.0.i4043427 = phi i32 [ %.0.i4043429, %476 ], [ %.0.i4043429, %534 ], [ %.0.i4043429, %532 ], [ %.0.i4043429, %487 ], [ %.0.i4043429, %508 ], [ %.0.i4043429, %493 ], [ %.0.i404, %541 ], [ %.0.i404, %537 ], [ %.0.i404, %536 ], [ -486539265, %_ssa_op1_info.exit406.thread ], [ %.0.i4043429, %525 ], [ %.0.i4043429, %.lr.ph.i678 ]
-  %.0.i413 = phi i32 [ -521143298, %476 ], [ %spec.select.i439, %534 ], [ %533, %532 ], [ %488, %487 ], [ %..i674, %508 ], [ %494, %493 ], [ %544, %541 ], [ -486539265, %537 ], [ -486539265, %536 ], [ -486539265, %_ssa_op1_info.exit406.thread ], [ %.5.i691, %525 ], [ %.3.i681, %.lr.ph.i678 ]
+  %545 = phi i1 [ true, %525 ], [ true, %476 ], [ true, %534 ], [ true, %532 ], [ true, %487 ], [ false, %536 ], [ true, %508 ], [ true, %493 ], [ false, %541 ], [ false, %537 ], [ false, %_ssa_op1_info.exit406.thread ], [ true, %.lr.ph.i678 ]
+  %546 = phi i8 [ 1, %525 ], [ 1, %476 ], [ 1, %534 ], [ 1, %532 ], [ 1, %487 ], [ %456, %536 ], [ 1, %508 ], [ 1, %493 ], [ %456, %541 ], [ %456, %537 ], [ %459, %_ssa_op1_info.exit406.thread ], [ 1, %.lr.ph.i678 ]
+  %547 = phi ptr [ %462, %525 ], [ %462, %476 ], [ %462, %534 ], [ %462, %532 ], [ %462, %487 ], [ %455, %536 ], [ %462, %508 ], [ %462, %493 ], [ %455, %541 ], [ %455, %537 ], [ %458, %_ssa_op1_info.exit406.thread ], [ %462, %.lr.ph.i678 ]
+  %.0.i4043427 = phi i32 [ %.0.i4043429, %525 ], [ %.0.i4043429, %476 ], [ %.0.i4043429, %534 ], [ %.0.i4043429, %532 ], [ %.0.i4043429, %487 ], [ %.0.i404, %536 ], [ %.0.i4043429, %508 ], [ %.0.i4043429, %493 ], [ %.0.i404, %541 ], [ %.0.i404, %537 ], [ -486539265, %_ssa_op1_info.exit406.thread ], [ %.0.i4043429, %.lr.ph.i678 ]
+  %.0.i413 = phi i32 [ %.5.i691, %525 ], [ -521143298, %476 ], [ %spec.select.i439, %534 ], [ %533, %532 ], [ %488, %487 ], [ -486539265, %536 ], [ %..i674, %508 ], [ %494, %493 ], [ %544, %541 ], [ -486539265, %537 ], [ -486539265, %_ssa_op1_info.exit406.thread ], [ %.3.i681, %.lr.ph.i678 ]
   %548 = and i32 %.0.i4043427, 16778239
   %.not.i = icmp eq i32 %548, 0
   %549 = and i32 %.0.i413, 16778239
@@ -33794,7 +33794,7 @@ _ssa_op2_info.exit415:                            ; preds = %.lr.ph.i678, %525, 
   br label %_ssa_result_info.exit
 
 _ssa_result_info.exit:                            ; preds = %.lr.ph.i699, %613, %615, %576, %623, %620, %592, %601
-  %.0.i417 = phi i32 [ %626, %623 ], [ %spec.select.i435, %620 ], [ %..i695, %576 ], [ %..i695, %601 ], [ %..i695, %592 ], [ %617, %615 ], [ %.5.i712, %613 ], [ %.3.i702, %.lr.ph.i699 ]
+  %.0.i417 = phi i32 [ %617, %615 ], [ %626, %623 ], [ %spec.select.i435, %620 ], [ %..i695, %576 ], [ %.5.i712, %613 ], [ %..i695, %592 ], [ %..i695, %601 ], [ %.3.i702, %.lr.ph.i699 ]
   %627 = and i32 %.0.i417, 16778239
   %.not8902.i = icmp eq i32 %627, 0
   br i1 %.not8902.i, label %709, label %_ssa_result_info.exit.thread
@@ -33950,7 +33950,7 @@ _ssa_result_info.exit.thread:                     ; preds = %572, %622, %_ssa_re
   br label %_ssa_op1_info.exit402
 
 _ssa_op1_info.exit402:                            ; preds = %.lr.ph.i720, %691, %693, %654, %704, %698, %670, %679
-  %.0.i400 = phi i32 [ %707, %704 ], [ %spec.select.i451, %698 ], [ %..i716, %654 ], [ %..i716, %679 ], [ %..i716, %670 ], [ %695, %693 ], [ %.5.i733, %691 ], [ %.3.i723, %.lr.ph.i720 ]
+  %.0.i400 = phi i32 [ %695, %693 ], [ %707, %704 ], [ %spec.select.i451, %698 ], [ %..i716, %654 ], [ %.5.i733, %691 ], [ %..i716, %670 ], [ %..i716, %679 ], [ %.3.i723, %.lr.ph.i720 ]
   %708 = and i32 %.0.i400, 16778239
   %.not8904.i = icmp eq i32 %708, 0
   br i1 %.not8904.i, label %709, label %_ssa_op1_info.exit402.thread
@@ -43528,7 +43528,7 @@ zend_ssa_next_use.exit.i:                         ; preds = %5507, %5503
   br label %.thread1432
 
 .thread1432:                                      ; preds = %5486, %5490, %5513
-  %.997616.i = phi i32 [ %5492, %5490 ], [ %5515, %5513 ], [ %.987615.i, %5486 ]
+  %.997616.i = phi i32 [ %5515, %5513 ], [ %5492, %5490 ], [ %.987615.i, %5486 ]
   %5516 = and i32 %.997616.i, -536870913
   %spec.select10788.i = select i1 %.not9219.i, i32 %.997616.i, i32 %5516
   br label %.thread1427
@@ -47163,7 +47163,7 @@ zval_get_double.exit147:                          ; preds = %212, %214
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %is_effective_op2_double_cast.exit, %188, %187, %is_effective_op1_double_cast.exit, %177, %176, %175
-  %.sink = phi i32 [ 0, %is_effective_op1_double_cast.exit ], [ 0, %175 ], [ 0, %176 ], [ 0, %177 ], [ 0, %187 ], [ 0, %188 ], [ 0, %is_effective_op2_double_cast.exit ], [ 4, %.sink.split.sink.split ]
+  %.sink = phi i32 [ 0, %is_effective_op1_double_cast.exit ], [ 0, %is_effective_op2_double_cast.exit ], [ 0, %188 ], [ 0, %175 ], [ 0, %176 ], [ 0, %177 ], [ 0, %187 ], [ 4, %.sink.split.sink.split ]
   store i32 %.sink, ptr %44, align 8, !tbaa !28
   br label %219
 
@@ -47292,7 +47292,7 @@ zend_ssa_next_use_phi.exit:                       ; preds = %269, %261
   br i1 %.not, label %.thread161, label %237
 
 .thread161:                                       ; preds = %56, %switch.early.test.i, %switch.early.test.i, %60, %82, %zend_ssa_is_no_val_use.exit.thread, %.preheader, %237, %245, %zend_ssa_next_use_phi.exit, %264, %._crit_edge, %.thread164, %5
-  %.0132 = phi i1 [ false, %.thread164 ], [ true, %5 ], [ true, %._crit_edge ], [ false, %237 ], [ true, %264 ], [ true, %.preheader ], [ true, %zend_ssa_next_use_phi.exit ], [ false, %245 ], [ false, %zend_ssa_is_no_val_use.exit.thread ], [ false, %82 ], [ false, %60 ], [ false, %switch.early.test.i ], [ false, %switch.early.test.i ], [ false, %56 ]
+  %.0132 = phi i1 [ true, %264 ], [ false, %.thread164 ], [ true, %5 ], [ true, %._crit_edge ], [ false, %237 ], [ true, %.preheader ], [ true, %zend_ssa_next_use_phi.exit ], [ false, %245 ], [ false, %zend_ssa_is_no_val_use.exit.thread ], [ false, %82 ], [ false, %60 ], [ false, %switch.early.test.i ], [ false, %switch.early.test.i ], [ false, %56 ]
   ret i1 %.0132
 }
 

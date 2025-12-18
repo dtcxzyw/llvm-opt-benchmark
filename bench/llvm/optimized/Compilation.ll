@@ -780,7 +780,7 @@ define dso_local noundef nonnull align 8 dereferenceable(328) ptr @_ZN5clang6dri
   br i1 %.not.i.i.i.i, label %_ZNK5clang6driver11Compilation25getSingleOffloadToolChainILNS0_6Action11OffloadKindE1EEEPKNS0_9ToolChainEv.exit, label %.lr.ph.i.i.i.i, !llvm.loop !178
 
 _ZNK5clang6driver11Compilation25getSingleOffloadToolChainILNS0_6Action11OffloadKindE1EEEPKNS0_9ToolChainEv.exit: ; preds = %33, %.lr.ph.i.i.i.i.i, %20, %27
-  %.sroa.037.0.i.i.i.i = phi ptr [ %22, %20 ], [ %.044.i.i.i.i, %27 ], [ %.19.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.123.i.i.i.i, %33 ]
+  %.sroa.037.0.i.i.i.i = phi ptr [ %22, %20 ], [ %.19.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.044.i.i.i.i, %27 ], [ %.123.i.i.i.i, %33 ]
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.037.0.i.i.i.i, i64 40
   %36 = load ptr, ptr %35, align 8, !tbaa !77
   %37 = getelementptr inbounds nuw i8, ptr %.0, i64 48
@@ -2761,7 +2761,7 @@ define internal fastcc noundef zeroext i1 @_ZL12ActionFailedPKN5clang6driver6Act
   br i1 %or.cond, label %.loopexit, label %.lr.ph45
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph45, %._crit_edge, %5, %14, %19, %2
-  %.0 = phi i1 [ true, %14 ], [ false, %2 ], [ true, %5 ], [ true, %19 ], [ false, %._crit_edge ], [ %40, %.lr.ph45 ], [ true, %.lr.ph ]
+  %.0 = phi i1 [ true, %14 ], [ false, %2 ], [ true, %5 ], [ %40, %.lr.ph45 ], [ true, %19 ], [ false, %._crit_edge ], [ true, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -4057,7 +4057,7 @@ _ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj1EEppEv.exit.us: ; preds = %.lr.ph.spli
   br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us
 
 ._crit_edge:                                      ; preds = %.thread25.i.i.i, %_ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj1EEppEv.exit, %.lr.ph.split.us, %_ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj1EEppEv.exit.us, %.lr.ph.i.i.preheader.i, %_ZNK4llvm3opt7ArgList8filteredIJNS0_12OptSpecifierEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit
-  %.0.lcssa = phi ptr [ null, %_ZNK4llvm3opt7ArgList8filteredIJNS0_12OptSpecifierEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit ], [ null, %.lr.ph.i.i.preheader.i ], [ %27, %_ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj1EEppEv.exit ], [ %18, %.lr.ph.split.us ], [ %18, %_ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj1EEppEv.exit.us ], [ null, %.thread25.i.i.i ]
+  %.0.lcssa = phi ptr [ null, %_ZNK4llvm3opt7ArgList8filteredIJNS0_12OptSpecifierEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit ], [ %27, %_ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj1EEppEv.exit ], [ null, %.lr.ph.i.i.preheader.i ], [ %18, %.lr.ph.split.us ], [ %18, %_ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj1EEppEv.exit.us ], [ null, %.thread25.i.i.i ]
   ret ptr %.0.lcssa
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj1EEppEv.exit

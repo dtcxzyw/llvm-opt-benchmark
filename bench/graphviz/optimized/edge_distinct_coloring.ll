@@ -798,7 +798,7 @@ splines_intersect.exit:                           ; preds = %.critedge235.split.
   br i1 %exitcond271.not, label %.loopexit, label %330, !llvm.loop !26
 
 .loopexit111:                                     ; preds = %.loopexit116, %.loopexit, %.loopexit.us, %83, %.preheader110
-  %.3 = phi ptr [ %46, %.preheader110 ], [ %46, %83 ], [ %.5.lcssa, %.loopexit ], [ %.5.lcssa.us, %.loopexit.us ], [ %.1.lcssa, %.loopexit116 ]
+  %.3 = phi ptr [ %.5.lcssa, %.loopexit ], [ %46, %.preheader110 ], [ %.5.lcssa.us, %.loopexit.us ], [ %46, %83 ], [ %.1.lcssa, %.loopexit116 ]
   %350 = call ptr @SparseMatrix_from_coordinate_format(ptr noundef %.3) #15
   %.not104 = icmp eq ptr %.3, %350
   br i1 %.not104, label %352, label %351

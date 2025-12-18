@@ -1317,7 +1317,7 @@ common.resume.sink.split:                         ; preds = %38, %51, %99, %121,
   br label %common.resume
 
 common.resume:                                    ; preds = %28, %65, %61, %common.resume.sink.split, %.body, %.body24, %.body46, %.critedge, %43
-  %common.resume.op = phi { ptr, i32 } [ %89, %.body ], [ %.pn2, %.body24 ], [ %44, %43 ], [ %106, %.body46 ], [ %75, %.critedge ], [ %common.resume.op.ph, %common.resume.sink.split ], [ %62, %61 ], [ %62, %65 ], [ %26, %28 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn2, %.body24 ], [ %75, %.critedge ], [ %62, %65 ], [ %106, %.body46 ], [ %44, %43 ], [ %common.resume.op.ph, %common.resume.sink.split ], [ %89, %.body ], [ %62, %61 ], [ %26, %28 ]
   resume { ptr, i32 } %common.resume.op
 
 33:                                               ; preds = %30
@@ -4628,13 +4628,13 @@ _ZN7similar10algorithms5utils17common_prefix_len17hb88392a7f90a6daeE.exit.i: ; p
   br label %200
 
 _ZN7similar10algorithms5myers17find_middle_snake17hba1e2e6b39a4a45aE.exit: ; preds = %174, %135
-  %.sroa.4.0 = phi i64 [ %136, %135 ], [ %175, %174 ]
-  %.sroa.6.0 = phi i64 [ %137, %135 ], [ %176, %174 ]
+  %.sroa.4.0 = phi i64 [ %175, %174 ], [ %136, %135 ]
+  %.sroa.6.0 = phi i64 [ %176, %174 ], [ %137, %135 ]
   call void @_ZN7similar10algorithms5myers7conquer17h1eca0892963784faE.llvm.13711779418236020091(ptr noalias noundef nonnull align 8 dereferenceable(200) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef %30, i64 noundef %.sroa.4.0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4, i64 noundef %31, i64 noundef %.sroa.6.0, ptr noalias noundef nonnull align 8 dereferenceable(32) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %8, i64 %9, i32 noundef %10)
   call void @_ZN7similar10algorithms5myers7conquer17h1eca0892963784faE.llvm.13711779418236020091(ptr noalias noundef nonnull align 8 dereferenceable(200) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef %.sroa.4.0, i64 noundef %37, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4, i64 noundef %.sroa.6.0, i64 noundef %38, ptr noalias noundef nonnull align 8 dereferenceable(32) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %8, i64 %9, i32 noundef %10)
   br label %200
 
-.loopexit:                                        ; preds = %._crit_edge174.i, %82, %.preheader.i
+.loopexit:                                        ; preds = %82, %._crit_edge174.i, %.preheader.i
   %185 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.sroa.0.0.copyload.i.i62 = load i64, ptr %185, align 8, !alias.scope !701
   %.sroa.4.0..sroa_idx.i.i63 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -6284,13 +6284,13 @@ _ZN7similar10algorithms5utils17common_prefix_len17hfa9b297c9346738dE.exit.i: ; p
   br label %200
 
 _ZN7similar10algorithms5myers17find_middle_snake17h2f27aa0cf6e70037E.exit: ; preds = %174, %135
-  %.sroa.4.0 = phi i64 [ %136, %135 ], [ %175, %174 ]
-  %.sroa.6.0 = phi i64 [ %137, %135 ], [ %176, %174 ]
+  %.sroa.4.0 = phi i64 [ %175, %174 ], [ %136, %135 ]
+  %.sroa.6.0 = phi i64 [ %176, %174 ], [ %137, %135 ]
   call void @_ZN7similar10algorithms5myers7conquer17hb27dd45eb763e329E.llvm.13711779418236020091(ptr noalias noundef nonnull align 8 dereferenceable(216) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef %30, i64 noundef %.sroa.4.0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4, i64 noundef %31, i64 noundef %.sroa.6.0, ptr noalias noundef nonnull align 8 dereferenceable(32) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %8, i64 %9, i32 noundef %10)
   call void @_ZN7similar10algorithms5myers7conquer17hb27dd45eb763e329E.llvm.13711779418236020091(ptr noalias noundef nonnull align 8 dereferenceable(216) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef %.sroa.4.0, i64 noundef %37, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4, i64 noundef %.sroa.6.0, i64 noundef %38, ptr noalias noundef nonnull align 8 dereferenceable(32) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %8, i64 %9, i32 noundef %10)
   br label %200
 
-.loopexit:                                        ; preds = %._crit_edge174.i, %82, %.preheader.i
+.loopexit:                                        ; preds = %82, %._crit_edge174.i, %.preheader.i
   %185 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.sroa.0.0.copyload.i.i62 = load i64, ptr %185, align 8, !alias.scope !984
   %.sroa.4.0..sroa_idx.i.i63 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -14510,7 +14510,7 @@ _ZN4just6parser6Parser7next_is17ha4f3f77e569ff8ddE.exit.thread.i: ; preds = %33
   br label %.loopexit
 
 .loopexit:                                        ; preds = %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h6687c269233862adE.exit.thread.i.i.i.i", %_ZN4just6parser6Parser4rest17h648ca49f9737a975E.exit.i.i.i, %33, %37
-  %.sroa.6137.0.ph = phi i8 [ %.sroa.0.i.sroa.6.0.copyload156, %37 ], [ 34, %33 ], [ 34, %_ZN4just6parser6Parser4rest17h648ca49f9737a975E.exit.i.i.i ], [ 34, %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h6687c269233862adE.exit.thread.i.i.i.i" ]
+  %.sroa.6137.0.ph = phi i8 [ 34, %_ZN4just6parser6Parser4rest17h648ca49f9737a975E.exit.i.i.i ], [ %.sroa.0.i.sroa.6.0.copyload156, %37 ], [ 34, %33 ], [ 34, %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h6687c269233862adE.exit.thread.i.i.i.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.sroa.0)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.sroa.8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0.sroa.0, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0136, i64 64, i1 false)
@@ -18759,7 +18759,7 @@ _ZN4just6parser6Parser7next_is17ha4f3f77e569ff8ddE.exit877.thread: ; preds = %96
   br label %978
 
 _ZN4just6parser6Parser7next_is17ha4f3f77e569ff8ddE.exit877.thread2572: ; preds = %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h6687c269233862adE.exit.thread.i.i.i873", %965, %_ZN4just6parser6Parser4rest17h648ca49f9737a975E.exit.i.i865, %978
-  %.sroa.0170.0 = phi i64 [ %.sroa.01038.02583, %978 ], [ -9223372036854775808, %_ZN4just6parser6Parser4rest17h648ca49f9737a975E.exit.i.i865 ], [ -9223372036854775808, %965 ], [ -9223372036854775808, %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h6687c269233862adE.exit.thread.i.i.i873" ]
+  %.sroa.0170.0 = phi i64 [ %.sroa.01038.02583, %978 ], [ -9223372036854775808, %965 ], [ -9223372036854775808, %_ZN4just6parser6Parser4rest17h648ca49f9737a975E.exit.i.i865 ], [ -9223372036854775808, %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h6687c269233862adE.exit.thread.i.i.i873" ]
   call void @llvm.lifetime.start.p0(ptr nonnull %119)
   store i64 -9223372036854775808, ptr %197, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %198, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.0149, i64 72, i1 false)

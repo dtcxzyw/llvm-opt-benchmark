@@ -1812,7 +1812,7 @@ _ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit.thread: ; preds = 
   br i1 %.not, label %_ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit.thread14, label %.preheader17.split
 
 _ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit.thread14: ; preds = %_ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit.thread, %_ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit, %_ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit.thread.loopexit.us, %18, %4
-  %.0 = phi i1 [ false, %4 ], [ false, %_ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit.thread.loopexit.us ], [ true, %18 ], [ true, %_ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit ], [ false, %_ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit.thread ]
+  %.0 = phi i1 [ false, %4 ], [ true, %18 ], [ false, %_ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit.thread.loopexit.us ], [ true, %_ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit ], [ false, %_ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit.thread ]
   ret i1 %.0
 }
 
@@ -4698,7 +4698,7 @@ _ZN4core3str11validations15next_code_point17hf9f5ecc635d7edf4E.llvm.142444036174
   br label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h81357aafb99f3895E.exit.i.i"
 
 "_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h81357aafb99f3895E.exit.i.i": ; preds = %210, %.sink.split.i.i.i, %.preheader.i.i, %288, %231, %.loopexit11.i.i.i, %.thread.i.i.i.i, %.preheader.i39.i.i
-  %290 = phi i8 [ %289, %288 ], [ 0, %.thread.i.i.i.i ], [ 1, %.loopexit11.i.i.i ], [ 0, %.preheader.i39.i.i ], [ 0, %231 ], [ 0, %.sink.split.i.i.i ], [ 1, %.preheader.i.i ], [ 0, %210 ]
+  %290 = phi i8 [ %289, %288 ], [ 0, %.thread.i.i.i.i ], [ 1, %.loopexit11.i.i.i ], [ 0, %.preheader.i39.i.i ], [ 1, %.preheader.i.i ], [ 0, %231 ], [ 0, %.sink.split.i.i.i ], [ 0, %210 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !2118
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !2118
   br label %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h04515ee06e6bece1E.exit.i"
@@ -4712,7 +4712,7 @@ _ZN4core3str11validations15next_code_point17hf9f5ecc635d7edf4E.llvm.142444036174
   br label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit
 
 "_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h04515ee06e6bece1E.exit.i": ; preds = %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h81357aafb99f3895E.exit.i.i", %141, %58
-  %.030.i.i = phi i8 [ %.4.i.i.i, %141 ], [ %290, %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h81357aafb99f3895E.exit.i.i" ], [ %60, %58 ]
+  %.030.i.i = phi i8 [ %60, %58 ], [ %.4.i.i.i, %141 ], [ %290, %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h81357aafb99f3895E.exit.i.i" ]
   %291 = trunc nuw i8 %.030.i.i to i1
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !2070
   br i1 %291, label %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$15is_alphanumeric17hbd08afcff9d24bd4E.exit.thread", label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit

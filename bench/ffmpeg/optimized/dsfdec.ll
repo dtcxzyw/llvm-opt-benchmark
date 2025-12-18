@@ -400,7 +400,7 @@ define internal range(i32 -2147483648, 1) i32 @dsf_read_packet(ptr noundef reado
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph, %.thread.sink.split, %33, %26, %.thread90, %2
-  %.073 = phi i32 [ -1094995529, %26 ], [ -541478725, %2 ], [ %76, %.thread90 ], [ %35, %33 ], [ 0, %.thread.sink.split ], [ -541478725, %.lr.ph ]
+  %.073 = phi i32 [ -1094995529, %26 ], [ -541478725, %2 ], [ 0, %.thread.sink.split ], [ %76, %.thread90 ], [ %35, %33 ], [ -541478725, %.lr.ph ]
   ret i32 %.073
 }
 

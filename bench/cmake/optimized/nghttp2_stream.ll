@@ -1293,7 +1293,7 @@ stream_subtree_active.exit.thread:                ; preds = %stream_active.exit.
   br i1 %.not.i55, label %stream_obq_move.exit, label %.lr.ph.i, !llvm.loop !45
 
 stream_obq_move.exit:                             ; preds = %28, %.lr.ph.i, %90, %66, %stream_subtree_active.exit.thread, %stream_subtree_active.exit
-  %.033 = phi i32 [ 0, %stream_subtree_active.exit.thread ], [ 0, %stream_subtree_active.exit ], [ %89, %66 ], [ 0, %.lr.ph.i ], [ 0, %90 ], [ %51, %28 ]
+  %.033 = phi i32 [ 0, %stream_subtree_active.exit.thread ], [ %89, %66 ], [ 0, %stream_subtree_active.exit ], [ 0, %.lr.ph.i ], [ 0, %90 ], [ %51, %28 ]
   ret i32 %.033
 }
 

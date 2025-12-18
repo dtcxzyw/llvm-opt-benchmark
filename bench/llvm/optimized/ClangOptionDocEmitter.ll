@@ -693,7 +693,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
   br i1 %.not.i.i, label %"_ZZN12_GLOBAL__N_120extractDocumentationERKN4llvm12RecordKeeperEPKNS0_6RecordEENK3$_4clES6_.exit.i", label %.lr.ph.i.i
 
 "_ZZN12_GLOBAL__N_120extractDocumentationERKN4llvm12RecordKeeperEPKNS0_6RecordEENK3$_4clES6_.exit.i": ; preds = %250, %245, %"_ZZN12_GLOBAL__N_120extractDocumentationERKN4llvm12RecordKeeperEPKNS0_6RecordEENK3$_3clES6_.exit.i.i", %.lr.ph.i.i, %242, %229
-  %.2.i.i = phi ptr [ null, %229 ], [ %.096.i.i, %242 ], [ null, %245 ], [ null, %250 ], [ %.096.i.i, %"_ZZN12_GLOBAL__N_120extractDocumentationERKN4llvm12RecordKeeperEPKNS0_6RecordEENK3$_3clES6_.exit.i.i" ], [ %.096.i.i, %.lr.ph.i.i ]
+  %.2.i.i = phi ptr [ %.096.i.i, %242 ], [ null, %229 ], [ %.096.i.i, %.lr.ph.i.i ], [ null, %250 ], [ %.096.i.i, %"_ZZN12_GLOBAL__N_120extractDocumentationERKN4llvm12RecordKeeperEPKNS0_6RecordEENK3$_3clES6_.exit.i.i" ], [ null, %245 ]
   store ptr %.2.i.i, ptr %26, align 8, !tbaa !16, !noalias !29
   br label %253
 
@@ -1751,7 +1751,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit182.i: ; preds = %
   br i1 %.not.i198.i, label %"_ZZN12_GLOBAL__N_120extractDocumentationERKN4llvm12RecordKeeperEPKNS0_6RecordEENK3$_4clES6_.exit199.i", label %.lr.ph.i185.i
 
 "_ZZN12_GLOBAL__N_120extractDocumentationERKN4llvm12RecordKeeperEPKNS0_6RecordEENK3$_4clES6_.exit199.i": ; preds = %626, %621, %"_ZZN12_GLOBAL__N_120extractDocumentationERKN4llvm12RecordKeeperEPKNS0_6RecordEENK3$_3clES6_.exit.i195.i", %.lr.ph.i185.i, %618, %605
-  %.2.i194.i = phi ptr [ null, %605 ], [ %.096.i186.i, %618 ], [ null, %621 ], [ null, %626 ], [ %.096.i186.i, %"_ZZN12_GLOBAL__N_120extractDocumentationERKN4llvm12RecordKeeperEPKNS0_6RecordEENK3$_3clES6_.exit.i195.i" ], [ %.096.i186.i, %.lr.ph.i185.i ]
+  %.2.i194.i = phi ptr [ %.096.i186.i, %618 ], [ null, %605 ], [ %.096.i186.i, %.lr.ph.i185.i ], [ null, %626 ], [ %.096.i186.i, %"_ZZN12_GLOBAL__N_120extractDocumentationERKN4llvm12RecordKeeperEPKNS0_6RecordEENK3$_3clES6_.exit.i195.i" ], [ null, %621 ]
   store ptr %.2.i194.i, ptr %37, align 8, !tbaa !16, !noalias !29
   br label %629
 
@@ -2232,7 +2232,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread59.i279:  ; preds = %_ZN4llvmeqENS_9Stri
   br i1 %.not65.i280, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i281, label %.lr.ph.i273
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread.i281:    ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i304, %_ZN4llvmeqENS_9StringRefES0_.exit.thread59.i279, %.lr.ph.i273.us, %.lr.ph.i103
-  %.not65.lcssa.i282 = phi i1 [ true, %.lr.ph.i103 ], [ %.not.i.i278.us.not, %.lr.ph.i273.us ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.i304 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit.thread59.i279 ]
+  %.not65.lcssa.i282 = phi i1 [ true, %.lr.ph.i103 ], [ %.not.i.i278.us.not, %.lr.ph.i273.us ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit.thread59.i279 ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.i304 ]
   %.not.i.i.i.i283 = icmp eq ptr %144, null
   br i1 %.not.i.i.i.i283, label %_ZNSt6vectorIPKN4llvm6RecordESaIS3_EED2Ev.exit.i284, label %155
 
@@ -2305,7 +2305,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit47.thread62.i296: ; preds = %_ZN4llvmeqENS_9Str
   br i1 %.not67.i297, label %_ZN4llvmeqENS_9StringRefES0_.exit47.thread.i298, label %.lr.ph77.i290
 
 _ZN4llvmeqENS_9StringRefES0_.exit47.thread.i298:  ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit47.i302, %_ZN4llvmeqENS_9StringRefES0_.exit47.thread62.i296, %.lr.ph77.i290.us, %165
-  %.not67.lcssa.i299 = phi i1 [ true, %165 ], [ %.not.i44.i295.us.not, %.lr.ph77.i290.us ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit47.i302 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit47.thread62.i296 ]
+  %.not67.lcssa.i299 = phi i1 [ true, %165 ], [ %.not.i44.i295.us.not, %.lr.ph77.i290.us ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit47.thread62.i296 ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit47.i302 ]
   %.not.i.i.i48.i300 = icmp eq ptr %168, null
   br i1 %.not.i.i.i48.i300, label %_ZNSt6vectorIPKN4llvm6RecordESaIS3_EED2Ev.exit49.i301, label %179
 
@@ -2408,7 +2408,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread59.i243:  ; preds = %_ZN4llvmeqENS_9Stri
   br i1 %.not65.i244, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i245, label %.lr.ph.i237
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread.i245:    ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i268, %_ZN4llvmeqENS_9StringRefES0_.exit.thread59.i243, %.lr.ph.i237.us, %.lr.ph49.i119
-  %.not65.lcssa.i246 = phi i1 [ true, %.lr.ph49.i119 ], [ %.not.i.i242.us.not, %.lr.ph.i237.us ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.i268 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit.thread59.i243 ]
+  %.not65.lcssa.i246 = phi i1 [ true, %.lr.ph49.i119 ], [ %.not.i.i242.us.not, %.lr.ph.i237.us ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit.thread59.i243 ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.i268 ]
   %.not.i.i.i.i247 = icmp eq ptr %194, null
   br i1 %.not.i.i.i.i247, label %_ZNSt6vectorIPKN4llvm6RecordESaIS3_EED2Ev.exit.i248, label %205
 
@@ -2481,7 +2481,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit47.thread62.i260: ; preds = %_ZN4llvmeqENS_9Str
   br i1 %.not67.i261, label %_ZN4llvmeqENS_9StringRefES0_.exit47.thread.i262, label %.lr.ph77.i254
 
 _ZN4llvmeqENS_9StringRefES0_.exit47.thread.i262:  ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit47.i266, %_ZN4llvmeqENS_9StringRefES0_.exit47.thread62.i260, %.lr.ph77.i254.us, %215
-  %.not67.lcssa.i263 = phi i1 [ true, %215 ], [ %.not.i44.i259.us.not, %.lr.ph77.i254.us ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit47.i266 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit47.thread62.i260 ]
+  %.not67.lcssa.i263 = phi i1 [ true, %215 ], [ %.not.i44.i259.us.not, %.lr.ph77.i254.us ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit47.thread62.i260 ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit47.i266 ]
   %.not.i.i.i48.i264 = icmp eq ptr %218, null
   br i1 %.not.i.i.i48.i264, label %_ZNSt6vectorIPKN4llvm6RecordESaIS3_EED2Ev.exit49.i265, label %229
 
@@ -3323,7 +3323,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread59.i164:  ; preds = %_ZN4llvmeqENS_9Stri
   br i1 %.not65.i165, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i166, label %.lr.ph.i158
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread.i166:    ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i189, %_ZN4llvmeqENS_9StringRefES0_.exit.thread59.i164, %.lr.ph.i158.us, %.lr.ph.i29
-  %.not65.lcssa.i167 = phi i1 [ true, %.lr.ph.i29 ], [ %.not.i.i163.us.not, %.lr.ph.i158.us ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.i189 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit.thread59.i164 ]
+  %.not65.lcssa.i167 = phi i1 [ true, %.lr.ph.i29 ], [ %.not.i.i163.us.not, %.lr.ph.i158.us ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit.thread59.i164 ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.i189 ]
   %.not.i.i.i.i168 = icmp eq ptr %524, null
   br i1 %.not.i.i.i.i168, label %_ZNSt6vectorIPKN4llvm6RecordESaIS3_EED2Ev.exit.i169, label %535
 
@@ -3396,7 +3396,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit47.thread62.i181: ; preds = %_ZN4llvmeqENS_9Str
   br i1 %.not67.i182, label %_ZN4llvmeqENS_9StringRefES0_.exit47.thread.i183, label %.lr.ph77.i175
 
 _ZN4llvmeqENS_9StringRefES0_.exit47.thread.i183:  ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit47.i187, %_ZN4llvmeqENS_9StringRefES0_.exit47.thread62.i181, %.lr.ph77.i175.us, %545
-  %.not67.lcssa.i184 = phi i1 [ true, %545 ], [ %.not.i44.i180.us.not, %.lr.ph77.i175.us ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit47.i187 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit47.thread62.i181 ]
+  %.not67.lcssa.i184 = phi i1 [ true, %545 ], [ %.not.i44.i180.us.not, %.lr.ph77.i175.us ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit47.thread62.i181 ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit47.i187 ]
   %.not.i.i.i48.i185 = icmp eq ptr %548, null
   br i1 %.not.i.i.i48.i185, label %_ZNSt6vectorIPKN4llvm6RecordESaIS3_EED2Ev.exit49.i186, label %559
 
@@ -3499,7 +3499,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread59.i:     ; preds = %_ZN4llvmeqENS_9Stri
   br i1 %.not65.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i, label %.lr.ph.i143
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread.i:       ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i154, %_ZN4llvmeqENS_9StringRefES0_.exit.thread59.i, %.lr.ph.i143.us, %.lr.ph49.i
-  %.not65.lcssa.i = phi i1 [ true, %.lr.ph49.i ], [ %.not.i.i147.us.not, %.lr.ph.i143.us ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.i154 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit.thread59.i ]
+  %.not65.lcssa.i = phi i1 [ true, %.lr.ph49.i ], [ %.not.i.i147.us.not, %.lr.ph.i143.us ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit.thread59.i ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.i154 ]
   %.not.i.i.i.i148 = icmp eq ptr %574, null
   br i1 %.not.i.i.i.i148, label %_ZNSt6vectorIPKN4llvm6RecordESaIS3_EED2Ev.exit.i149, label %585
 
@@ -3572,7 +3572,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit47.thread62.i:   ; preds = %_ZN4llvmeqENS_9Stri
   br i1 %.not67.i153, label %_ZN4llvmeqENS_9StringRefES0_.exit47.thread.i, label %.lr.ph77.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit47.thread.i:     ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit47.i, %_ZN4llvmeqENS_9StringRefES0_.exit47.thread62.i, %.lr.ph77.i.us, %595
-  %.not67.lcssa.i = phi i1 [ true, %595 ], [ %.not.i44.i.us.not, %.lr.ph77.i.us ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit47.i ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit47.thread62.i ]
+  %.not67.lcssa.i = phi i1 [ true, %595 ], [ %.not.i44.i.us.not, %.lr.ph77.i.us ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit47.thread62.i ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit47.i ]
   %.not.i.i.i48.i = icmp eq ptr %598, null
   br i1 %.not.i.i.i48.i, label %_ZNSt6vectorIPKN4llvm6RecordESaIS3_EED2Ev.exit49.i, label %609
 

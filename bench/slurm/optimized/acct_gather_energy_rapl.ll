@@ -259,7 +259,7 @@ define dso_local void @acct_gather_energy_p_conf_set(i32 %0, ptr readnone captur
   br label %.backedge.i
 
 .outer._crit_edge.i:                              ; preds = %.outer.i, %.backedge.i, %.preheader.i
-  %.0.ph.lcssa13.i = phi i1 [ false, %.preheader.i ], [ %.0.ph17.i, %.backedge.i ], [ %spec.select.i, %.outer.i ]
+  %.0.ph.lcssa13.i = phi i1 [ %.0.ph17.i, %.backedge.i ], [ false, %.preheader.i ], [ %spec.select.i, %.outer.i ]
   %58 = call i32 @fclose(ptr noundef nonnull %13)
   %59 = load i32, ptr %8, align 4
   %60 = icmp eq i32 %59, 6

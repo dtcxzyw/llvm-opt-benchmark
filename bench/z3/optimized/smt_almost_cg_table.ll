@@ -1111,7 +1111,7 @@ _ZNK14core_hashtableI17default_map_entryIPN3smt5enodeEP4listIS3_EEN9table2mapIS7
   br i1 %.not27, label %_ZNK14core_hashtableI17default_map_entryIPN3smt5enodeEP4listIS3_EEN9table2mapIS7_NS1_15almost_cg_table7cg_hashENS9_5cg_eqEE15entry_hash_procENSC_13entry_eq_procEE6equalsERK9_key_dataIS3_S6_ESJ_.exit, label %80, !llvm.loop !71
 
 _ZNK14core_hashtableI17default_map_entryIPN3smt5enodeEP4listIS3_EEN9table2mapIS7_NS1_15almost_cg_table7cg_hashENS9_5cg_eqEE15entry_hash_procENSC_13entry_eq_procEE6equalsERK9_key_dataIS3_S6_ESJ_.exit: ; preds = %27, %.preheader.i.i.i, %78, %_ZNK14core_hashtableI17default_map_entryIPN3smt5enodeEP4listIS3_EEN9table2mapIS7_NS1_15almost_cg_table7cg_hashENS9_5cg_eqEE15entry_hash_procENSC_13entry_eq_procEE6equalsERK9_key_dataIS3_S6_ESJ_.exit42.thread, %.preheader.i.i.i35, %80, %131, %.preheader
-  %.026 = phi ptr [ null, %.preheader ], [ %.156, %131 ], [ null, %80 ], [ %.053, %78 ], [ null, %_ZNK14core_hashtableI17default_map_entryIPN3smt5enodeEP4listIS3_EEN9table2mapIS7_NS1_15almost_cg_table7cg_hashENS9_5cg_eqEE15entry_hash_procENSC_13entry_eq_procEE6equalsERK9_key_dataIS3_S6_ESJ_.exit42.thread ], [ %.156, %.preheader.i.i.i35 ], [ null, %27 ], [ %.053, %.preheader.i.i.i ]
+  %.026 = phi ptr [ null, %.preheader ], [ %.156, %131 ], [ %.053, %78 ], [ null, %80 ], [ null, %_ZNK14core_hashtableI17default_map_entryIPN3smt5enodeEP4listIS3_EEN9table2mapIS7_NS1_15almost_cg_table7cg_hashENS9_5cg_eqEE15entry_hash_procENSC_13entry_eq_procEE6equalsERK9_key_dataIS3_S6_ESJ_.exit42.thread ], [ %.156, %.preheader.i.i.i35 ], [ null, %27 ], [ %.053, %.preheader.i.i.i ]
   ret ptr %.026
 }
 

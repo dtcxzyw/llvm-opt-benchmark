@@ -1117,7 +1117,7 @@ _ZN8rationalD2Ev.exit._ZNK6vectorIS_I8rationalLb1EjELb1EjE4sizeEv.exit89.prehead
   br label %_ZNK6vectorIS_I8rationalLb1EjELb1EjE4sizeEv.exit89.preheader, !llvm.loop !28
 
 _ZNK6vectorIS_I8rationalLb1EjELb1EjE4sizeEv.exit89.preheader: ; preds = %_ZNK6vectorI8rationalLb1EjE4sizeEv.exit87, %_ZNK6vectorI8rationalLb1EjE4sizeEv.exit87.preheader, %_ZN8rationalD2Ev.exit._ZNK6vectorIS_I8rationalLb1EjELb1EjE4sizeEv.exit89.preheader.loopexit_crit_edge, %_ZNK8rational6is_oneEv.exit.preheader, %.critedge108
-  %.ph = phi ptr [ %301, %_ZN8rationalD2Ev.exit._ZNK6vectorIS_I8rationalLb1EjELb1EjE4sizeEv.exit89.preheader.loopexit_crit_edge ], [ %227, %_ZNK6vectorI8rationalLb1EjE4sizeEv.exit87.preheader ], [ %227, %_ZNK8rational6is_oneEv.exit.preheader ], [ %.pre160, %.critedge108 ], [ %301, %_ZNK6vectorI8rationalLb1EjE4sizeEv.exit87 ]
+  %.ph = phi ptr [ %.pre160, %.critedge108 ], [ %301, %_ZN8rationalD2Ev.exit._ZNK6vectorIS_I8rationalLb1EjELb1EjE4sizeEv.exit89.preheader.loopexit_crit_edge ], [ %227, %_ZNK6vectorI8rationalLb1EjE4sizeEv.exit87.preheader ], [ %227, %_ZNK8rational6is_oneEv.exit.preheader ], [ %301, %_ZNK6vectorI8rationalLb1EjE4sizeEv.exit87 ]
   br label %_ZNK6vectorIS_I8rationalLb1EjELb1EjE4sizeEv.exit89
 
 _ZNK6vectorIS_I8rationalLb1EjELb1EjE4sizeEv.exit89: ; preds = %_ZNK6vectorIS_I8rationalLb1EjELb1EjE4sizeEv.exit89.preheader, %451

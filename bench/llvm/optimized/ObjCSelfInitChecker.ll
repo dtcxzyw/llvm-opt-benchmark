@@ -4848,7 +4848,7 @@ _ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12
   br label %.critedge.thread.i
 
 .critedge.thread.i:                               ; preds = %.critedge.thread.sink.split.i, %.critedge.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit51.i, %_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_116PreCallSelfFlagsEEENS0_17ProgramStateTraitIT_E9data_typeEv.exit.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i
-  %.sroa.05.030.i = phi ptr [ %39, %.critedge.i ], [ %39, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit51.i ], [ %28, %_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_116PreCallSelfFlagsEEENS0_17ProgramStateTraitIT_E9data_typeEv.exit.i ], [ %28, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i ], [ %39, %.critedge.thread.sink.split.i ]
+  %.sroa.05.030.i = phi ptr [ %39, %.critedge.i ], [ %28, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i ], [ %28, %_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_116PreCallSelfFlagsEEENS0_17ProgramStateTraitIT_E9data_typeEv.exit.i ], [ %39, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit51.i ], [ %39, %.critedge.thread.sink.split.i ]
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %.sroa.05.030.i) #23
   br label %_ZNK12_GLOBAL__N_119ObjCSelfInitChecker13checkPostCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit
 

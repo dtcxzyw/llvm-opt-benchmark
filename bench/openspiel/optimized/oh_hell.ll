@@ -678,7 +678,7 @@ define internal void @__cxx_global_var_init.1() #3 section ".text.startup" comda
   br i1 %51, label %.loopexit, label %47
 
 .loopexit:                                        ; preds = %39, %47, %.thread
-  %.pn = phi { ptr, i32 } [ %15, %.thread ], [ %45, %47 ], [ %38, %39 ]
+  %.pn = phi { ptr, i32 } [ %45, %47 ], [ %15, %.thread ], [ %38, %39 ]
   call void @__cxa_guard_abort(ptr nonnull @_ZGVN10open_spiel7oh_hell9kPhaseStrB5cxx11E) #25
   resume { ptr, i32 } %.pn
 }

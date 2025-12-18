@@ -892,7 +892,7 @@ select.unfold46:                                  ; preds = %107, %101, %87, %84
   br label %_Z10luai_veceqPKfS0_.exit
 
 _ZL10get_compTMP9lua_StateP8LuaTableS2_3TMS.exit: ; preds = %94, %107, %58, %71
-  %.0 = phi ptr [ %56, %71 ], [ %56, %58 ], [ %92, %94 ], [ %92, %107 ]
+  %.0 = phi ptr [ %56, %58 ], [ %56, %71 ], [ %92, %107 ], [ %92, %94 ]
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %117 = load ptr, ptr %116, align 8, !tbaa !36
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 48

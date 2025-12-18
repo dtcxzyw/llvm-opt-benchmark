@@ -1695,11 +1695,11 @@ _ZN4smt26parser5errorEPKc.exit38:                 ; preds = %.invoke, %117, %106
   br i1 %150, label %41, label %.loopexit, !llvm.loop !122
 
 .loopexit:                                        ; preds = %149, %42, %30, %86
-  %.1 = phi i1 [ %.2, %86 ], [ false, %30 ], [ %.2, %42 ], [ false, %149 ]
+  %.1 = phi i1 [ %.2, %86 ], [ %.2, %42 ], [ false, %30 ], [ false, %149 ]
   ret i1 %.1
 
 .loopexit42:                                      ; preds = %114, %141, %129, %127, %125, %31, %13
-  %.merged = phi { ptr, i32 } [ %130, %129 ], [ %128, %127 ], [ %126, %125 ], [ %32, %31 ], [ %14, %13 ], [ %142, %141 ], [ %.pn, %114 ]
+  %.merged = phi { ptr, i32 } [ %130, %129 ], [ %128, %127 ], [ %126, %125 ], [ %32, %31 ], [ %142, %141 ], [ %14, %13 ], [ %.pn, %114 ]
   resume { ptr, i32 } %.merged
 
 151:                                              ; preds = %141, %129, %127, %125, %31
@@ -12899,7 +12899,7 @@ define linkonce_odr hidden void @_ZN4smt26parser10parse_exprEv(ptr noundef nonnu
   br label %_ZN4smt26parser16parse_expr_stateEv.exit
 
 _ZN4smt26parser16parse_expr_stateEv.exit:         ; preds = %20, %24
-  %.0.i = phi i32 [ %25, %24 ], [ %23, %20 ]
+  %.0.i = phi i32 [ %23, %20 ], [ %25, %24 ]
   switch i32 %.0.i, label %51 [
     i32 0, label %_ZN4smt26parser16parse_expr_stateEv.exit.threadthread-pre-split
     i32 1, label %49
@@ -20950,7 +20950,7 @@ thread-pre-split:                                 ; preds = %_ZN4smt26parser4nex
   br label %.thread
 
 .thread:                                          ; preds = %474, %.thread.sink.split, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit
-  %.0 = phi i32 [ 0, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit ], [ %.0.ph, %.thread.sink.split ], [ 3, %474 ]
+  %.0 = phi i32 [ %.0.ph, %.thread.sink.split ], [ 0, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit ], [ 3, %474 ]
   ret i32 %.0
 }
 
@@ -22382,7 +22382,7 @@ _ZN4smt26parser9is_bv_numERK6symbol.exit:         ; preds = %72
   %75 = call noundef zeroext i1 @_ZN4smt26parser12is_bv_binaryEPKc(ptr noundef nonnull align 8 dereferenceable(2176) %0, ptr noundef nonnull %67)
   br i1 %75, label %76, label %_ZN4smt26parser9is_bv_numERK6symbol.exit.thread
 
-76:                                               ; preds = %73, %70, %_ZN4smt26parser9is_bv_numERK6symbol.exit
+76:                                               ; preds = %70, %73, %_ZN4smt26parser9is_bv_numERK6symbol.exit
   %.not = icmp eq i32 %61, 1
   br i1 %.not, label %77, label %89
 
@@ -22551,7 +22551,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0
   call void @_ZN4smt26parser15check_qualifierEP4exprb(ptr noundef nonnull align 8 dereferenceable(2176) %0, ptr noundef %123, i1 noundef zeroext %158)
   br label %258
 
-_ZN4smt26parser9is_bv_numERK6symbol.exit.thread:  ; preds = %72, %_ZNK6vectorI9parameterLb1EjE4sizeEv.exit21, %63, %73, %70, %_ZN4smt26parser9is_bv_numERK6symbol.exit
+_ZN4smt26parser9is_bv_numERK6symbol.exit.thread:  ; preds = %72, %_ZNK6vectorI9parameterLb1EjE4sizeEv.exit21, %63, %70, %73, %_ZN4smt26parser9is_bv_numERK6symbol.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %159 = load ptr, ptr %0, align 8, !tbaa !114
   call void @_ZN11cmd_context12init_managerEv(ptr noundef nonnull align 8 dereferenceable(896) %159)

@@ -3973,7 +3973,7 @@ _ZN4Luau12TypeChecker211isErrorCallEPKNS_11AstExprCallE.exit: ; preds = %34
   br i1 %109, label %110, label %common.ret
 
 common.ret:                                       ; preds = %31, %8, %_ZN4Luau12TypeChecker211isErrorCallEPKNS_11AstExprCallE.exit.thread117, %37, %44, %_ZNK4Luau7AstNameeqEPKc.exit14.i, %51, %70, %62, %91, %87, %106, %92, %.lr.ph, %28, %24, %110
-  %common.ret.op = phi ptr [ %., %110 ], [ null, %87 ], [ null, %31 ], [ null, %.lr.ph ], [ %.tr140, %62 ], [ %.tr140, %91 ], [ %.tr140, %8 ], [ null, %106 ], [ %.tr140, %37 ], [ null, %_ZN4Luau12TypeChecker211isErrorCallEPKNS_11AstExprCallE.exit.thread117 ], [ %.tr140, %44 ], [ %.tr140, %_ZNK4Luau7AstNameeqEPKc.exit14.i ], [ %.tr140, %51 ], [ %.tr140, %70 ], [ %.tr140, %92 ], [ %.tr140, %28 ], [ %27, %24 ]
+  %common.ret.op = phi ptr [ %., %110 ], [ null, %87 ], [ null, %31 ], [ null, %.lr.ph ], [ %.tr140, %62 ], [ %.tr140, %91 ], [ %.tr140, %8 ], [ %.tr140, %92 ], [ null, %106 ], [ %.tr140, %37 ], [ null, %_ZN4Luau12TypeChecker211isErrorCallEPKNS_11AstExprCallE.exit.thread117 ], [ %.tr140, %44 ], [ %.tr140, %_ZNK4Luau7AstNameeqEPKc.exit14.i ], [ %.tr140, %51 ], [ %.tr140, %70 ], [ %.tr140, %28 ], [ %27, %24 ]
   ret ptr %common.ret.op
 
 110:                                              ; preds = %95, %106, %102
@@ -4115,7 +4115,7 @@ _ZN4Luau11StackPusherD2Ev.exit:                   ; preds = %40, %_ZNSt6vectorIN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %27, %29, %3, %10, %_ZN4Luau11StackPusherD2Ev.exit
-  %.sink = phi i8 [ 1, %_ZN4Luau11StackPusherD2Ev.exit ], [ 0, %10 ], [ 0, %3 ], [ 0, %29 ], [ 0, %27 ]
+  %.sink = phi i8 [ 1, %_ZN4Luau11StackPusherD2Ev.exit ], [ 0, %3 ], [ 0, %10 ], [ 0, %29 ], [ 0, %27 ]
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %.sink, ptr %66, align 8, !tbaa !81
   ret void
@@ -5749,7 +5749,7 @@ define dso_local noundef ptr @_ZN4Luau12TypeChecker231checkForTypeFunctionInhabi
   br label %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i
 
 _ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i: ; preds = %49, %.thread44, %.thread, %.loopexit.i.i, %35
-  %59 = phi i64 [ %.pre.i, %.loopexit.i.i ], [ %18, %35 ], [ %18, %.thread ], [ %39, %.thread44 ], [ %18, %49 ]
+  %59 = phi i64 [ %.pre.i, %.loopexit.i.i ], [ %18, %35 ], [ %39, %.thread44 ], [ %18, %.thread ], [ %18, %49 ]
   %60 = add i64 %59, -1
   %61 = ptrtoint ptr %1 to i64
   %62 = lshr i64 %61, 4
@@ -17171,7 +17171,7 @@ _ZN4Luau3getINS_11GenericTypeEEEPKT_PKNS_4TypeE.exit.thread: ; preds = %134, %sw
   br label %.thread752, !llvm.loop !740
 
 _ZNKSt13unordered_mapIN4Luau13AstExprBinary2OpEPKcSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERSA_.exit: ; preds = %242, %226, %237
-  %.sroa.06.1.i.i = phi ptr [ %238, %237 ], [ %.sroa.06.0.i.i, %226 ], [ %244, %242 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %226 ], [ %238, %237 ], [ %244, %242 ]
   %.sroa.065.0.copyload = load ptr, ptr %0, align 8, !tbaa !138
   %250 = invoke { ptr, i8 } @_ZN4Luau12getMetatableEPKNS_4TypeENS_7NotNullINS_12BuiltinTypesEEE(ptr noundef %110, ptr %.sroa.065.0.copyload)
           to label %251 unwind label %272
@@ -19402,7 +19402,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit553: ; preds = %_Z
   br label %_ZN4Luau3getINS_7AnyTypeEEEPKT_PKNS_4TypeE.exit
 
 .thread752:                                       ; preds = %.lr.ph.i.i.i.i, %.preheader, %230, %..loopexit_crit_edge21.i.i.i.i, %.thread764
-  %1131 = phi i32 [ %.pre1009, %.thread764 ], [ %225, %230 ], [ %225, %..loopexit_crit_edge21.i.i.i.i ], [ %225, %.preheader ], [ %225, %.lr.ph.i.i.i.i ]
+  %1131 = phi i32 [ %225, %.preheader ], [ %.pre1009, %.thread764 ], [ %225, %230 ], [ %225, %..loopexit_crit_edge21.i.i.i.i ], [ %225, %.lr.ph.i.i.i.i ]
   switch i32 %1131, label %.invoke [
     i32 0, label %1132
     i32 1, label %1132
@@ -25011,7 +25011,7 @@ define dso_local void @_ZN4Luau12TypeChecker25visitEPNS_12AstExprUnaryE(ptr noun
   br label %.critedge90, !llvm.loop !846
 
 _ZNKSt13unordered_mapIN4Luau12AstExprUnary2OpEPKcSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERSA_.exit: ; preds = %48, %32, %43
-  %.sroa.06.1.i.i = phi ptr [ %44, %43 ], [ %.sroa.06.0.i.i, %32 ], [ %50, %48 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %32 ], [ %44, %43 ], [ %50, %48 ]
   %.sroa.022.0.copyload = load ptr, ptr %0, align 8, !tbaa !138
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %57 = load ptr, ptr %56, align 8, !tbaa !220
@@ -25517,7 +25517,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZNSt14_Optional_baseIN4Luau18FunctionDefinitionELb0ELb0EED2Ev.exit140
 
 .critedge90:                                      ; preds = %.lr.ph.i.i.i.i, %.preheader, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit..critedge90_crit_edge, %36, %..loopexit_crit_edge21.i.i.i.i
-  %269 = phi i32 [ %.pre203, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit..critedge90_crit_edge ], [ %31, %..loopexit_crit_edge21.i.i.i.i ], [ %31, %36 ], [ %31, %.preheader ], [ %31, %.lr.ph.i.i.i.i ]
+  %269 = phi i32 [ %.pre203, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit..critedge90_crit_edge ], [ %31, %.preheader ], [ %31, %..loopexit_crit_edge21.i.i.i.i ], [ %31, %36 ], [ %31, %.lr.ph.i.i.i.i ]
   switch i32 %269, label %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit.thread [
     i32 2, label %270
     i32 1, label %390
@@ -34605,9 +34605,9 @@ _ZN4Luau12GenericErrorD2Ev.exit347:               ; preds = %_ZN4Luau7VariantIJN
   br label %.thread489
 
 .thread489:                                       ; preds = %421, %419, %396, %402, %.critedge, %444, %391, %389, %393, %_ZN4Luau12GenericErrorD2Ev.exit342
-  %.1133 = phi i64 [ %.0132540, %_ZN4Luau12GenericErrorD2Ev.exit342 ], [ %.0132540, %393 ], [ %390, %389 ], [ %.0132540, %391 ], [ %.0132540, %.critedge ], [ %445, %444 ], [ %.0132540, %402 ], [ %.0132540, %396 ], [ %.0132540, %419 ], [ %.0132540, %421 ]
-  %.1130 = phi i64 [ %.0129541, %_ZN4Luau12GenericErrorD2Ev.exit342 ], [ %.0129541, %393 ], [ %.0129541, %389 ], [ %392, %391 ], [ %.0129541, %.critedge ], [ %.0129541, %444 ], [ %.0129541, %402 ], [ %.0129541, %396 ], [ %.0129541, %419 ], [ %.0129541, %421 ]
-  %.1126 = phi i64 [ %.0125542, %_ZN4Luau12GenericErrorD2Ev.exit342 ], [ %.0125542, %393 ], [ 0, %389 ], [ 0, %391 ], [ %448, %.critedge ], [ %.0125542, %444 ], [ %.0125542, %402 ], [ %.0125542, %396 ], [ %.0125542, %419 ], [ %.0125542, %421 ]
+  %.1133 = phi i64 [ %.0132540, %_ZN4Luau12GenericErrorD2Ev.exit342 ], [ %.0132540, %393 ], [ %390, %389 ], [ %.0132540, %391 ], [ %.0132540, %.critedge ], [ %445, %444 ], [ %.0132540, %396 ], [ %.0132540, %402 ], [ %.0132540, %419 ], [ %.0132540, %421 ]
+  %.1130 = phi i64 [ %.0129541, %_ZN4Luau12GenericErrorD2Ev.exit342 ], [ %.0129541, %393 ], [ %.0129541, %389 ], [ %392, %391 ], [ %.0129541, %.critedge ], [ %.0129541, %444 ], [ %.0129541, %396 ], [ %.0129541, %402 ], [ %.0129541, %419 ], [ %.0129541, %421 ]
+  %.1126 = phi i64 [ %.0125542, %_ZN4Luau12GenericErrorD2Ev.exit342 ], [ %.0125542, %393 ], [ 0, %389 ], [ 0, %391 ], [ %448, %.critedge ], [ %.0125542, %444 ], [ %.0125542, %396 ], [ %.0125542, %402 ], [ %.0125542, %419 ], [ %.0125542, %421 ]
   %449 = getelementptr inbounds nuw i8, ptr %.0120543, i64 16
   %.not209 = icmp eq ptr %449, %324
   br i1 %.not209, label %._crit_edge546, label %337
@@ -45079,7 +45079,7 @@ _ZNK4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EE8conta
   br label %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i
 
 _ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i: ; preds = %.thread211, %.thread212, %.thread, %.loopexit.i.i, %52
-  %69 = phi i64 [ %.pre.i, %.loopexit.i.i ], [ %34, %52 ], [ %34, %.thread ], [ %56, %.thread212 ], [ %34, %.thread211 ]
+  %69 = phi i64 [ %.pre.i, %.loopexit.i.i ], [ %34, %52 ], [ %56, %.thread212 ], [ %34, %.thread ], [ %34, %.thread211 ]
   %70 = add i64 %69, -1
   %71 = ptrtoint ptr %2 to i64
   %72 = lshr i64 %71, 4
@@ -54962,8 +54962,8 @@ _ZNSt10_HashtableIN4Luau13AstExprBinary2OpESt4pairIKS2_PKcESaIS7_ENSt8__detail10
   resume { ptr, i32 } %50
 
 _ZNKSt10_HashtableIN4Luau13AstExprBinary2OpESt4pairIKS2_PKcESaIS7_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE15_M_find_node_trIS2_EEPNS9_10_Hash_nodeIS7_Lb0EEEmRKT_m.exit: ; preds = %33, %19, %.critedge, %28
-  %.sroa.031.1 = phi ptr [ %29, %28 ], [ %49, %.critedge ], [ %.sroa.028.0, %19 ], [ %35, %33 ]
-  %.sroa.432.1 = phi i8 [ 0, %28 ], [ 1, %.critedge ], [ 0, %19 ], [ 0, %33 ]
+  %.sroa.031.1 = phi ptr [ %.sroa.028.0, %19 ], [ %49, %.critedge ], [ %29, %28 ], [ %35, %33 ]
+  %.sroa.432.1 = phi i8 [ 0, %19 ], [ 1, %.critedge ], [ 0, %28 ], [ 0, %33 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.031.1, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.432.1, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -55363,8 +55363,8 @@ _ZNSt10_HashtableIN4Luau12AstExprUnary2OpESt4pairIKS2_PKcESaIS7_ENSt8__detail10_
   resume { ptr, i32 } %50
 
 _ZNKSt10_HashtableIN4Luau12AstExprUnary2OpESt4pairIKS2_PKcESaIS7_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE15_M_find_node_trIS2_EEPNS9_10_Hash_nodeIS7_Lb0EEEmRKT_m.exit: ; preds = %33, %19, %.critedge, %28
-  %.sroa.031.1 = phi ptr [ %29, %28 ], [ %49, %.critedge ], [ %.sroa.028.0, %19 ], [ %35, %33 ]
-  %.sroa.432.1 = phi i8 [ 0, %28 ], [ 1, %.critedge ], [ 0, %19 ], [ 0, %33 ]
+  %.sroa.031.1 = phi ptr [ %.sroa.028.0, %19 ], [ %49, %.critedge ], [ %29, %28 ], [ %35, %33 ]
+  %.sroa.432.1 = phi i8 [ 0, %19 ], [ 1, %.critedge ], [ 0, %28 ], [ 0, %33 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.031.1, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.432.1, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -55775,7 +55775,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau12visit_detail7hasSeen
   br label %_ZN4Luau6detail14DenseHashTableIPvS2_S2_NS0_16ItemInterfaceSetIS2_EENS_16DenseHashPointerESt8equal_toIS2_EE14rehash_if_fullERKS2_.exit.i
 
 _ZN4Luau6detail14DenseHashTableIPvS2_S2_NS0_16ItemInterfaceSetIS2_EENS_16DenseHashPointerESt8equal_toIS2_EE14rehash_if_fullERKS2_.exit.i: ; preds = %42, %.thread12, %.thread, %.loopexit.i.i, %28
-  %52 = phi i64 [ %.pre.i, %.loopexit.i.i ], [ %11, %28 ], [ %11, %.thread ], [ %32, %.thread12 ], [ %11, %42 ]
+  %52 = phi i64 [ %.pre.i, %.loopexit.i.i ], [ %11, %28 ], [ %32, %.thread12 ], [ %11, %.thread ], [ %11, %42 ]
   %53 = add i64 %52, -1
   %54 = ptrtoint ptr %1 to i64
   %55 = lshr i64 %54, 4
@@ -55818,7 +55818,7 @@ _ZN4Luau6detail14DenseHashTableIPvS2_S2_NS0_16ItemInterfaceSetIS2_EENS_16DenseHa
   br i1 %74, label %._crit_edge.i, label %.lr.ph.i
 
 _ZNK4Luau12DenseHashSetIPvNS_16DenseHashPointerESt8equal_toIS1_EE8containsERKS1_.exit: ; preds = %19, %.lr.ph.i, %._crit_edge.i
-  %.0.i.i9 = phi i1 [ false, %._crit_edge.i ], [ false, %.lr.ph.i ], [ true, %19 ]
+  %.0.i.i9 = phi i1 [ false, %.lr.ph.i ], [ false, %._crit_edge.i ], [ true, %19 ]
   ret i1 %.0.i.i9
 }
 
@@ -59917,7 +59917,7 @@ _ZN4Luau8VecDequeISt4pairIPKNS_9UnionTypeEmESaIS5_EE9pop_frontEv.exit.i: ; preds
   br label %_ZN4Luau6detail14DenseHashTableIPKNS_9UnionTypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i
 
 _ZN4Luau6detail14DenseHashTableIPKNS_9UnionTypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i: ; preds = %87, %.thread19, %.thread, %.loopexit.i.i, %74
-  %96 = phi i64 [ %.pre.i7, %.loopexit.i.i ], [ %29, %74 ], [ %29, %.thread ], [ %77, %.thread19 ], [ %29, %87 ]
+  %96 = phi i64 [ %.pre.i7, %.loopexit.i.i ], [ %29, %74 ], [ %77, %.thread19 ], [ %29, %.thread ], [ %29, %87 ]
   %97 = add i64 %96, -1
   %98 = ptrtoint ptr %23 to i64
   %99 = lshr i64 %98, 4
@@ -63906,7 +63906,7 @@ _ZN4Luau8VecDequeISt4pairIPKNS_16IntersectionTypeEmESaIS5_EE9pop_frontEv.exit.i:
   br label %_ZN4Luau6detail14DenseHashTableIPKNS_16IntersectionTypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i
 
 _ZN4Luau6detail14DenseHashTableIPKNS_16IntersectionTypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i: ; preds = %87, %.thread19, %.thread, %.loopexit.i.i, %74
-  %96 = phi i64 [ %.pre.i7, %.loopexit.i.i ], [ %29, %74 ], [ %29, %.thread ], [ %77, %.thread19 ], [ %29, %87 ]
+  %96 = phi i64 [ %.pre.i7, %.loopexit.i.i ], [ %29, %74 ], [ %77, %.thread19 ], [ %29, %.thread ], [ %29, %87 ]
   %97 = add i64 %96, -1
   %98 = ptrtoint ptr %23 to i64
   %99 = lshr i64 %98, 4

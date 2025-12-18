@@ -855,8 +855,8 @@ define internal range(i32 -1, 1) i32 @H5T__ref_mem_read(ptr readnone captures(no
   br label %103
 
 95:                                               ; preds = %87, %76
-  %.144 = phi ptr [ %81, %87 ], [ %9, %76 ]
-  %.241 = phi ptr [ %81, %87 ], [ null, %76 ]
+  %.144 = phi ptr [ %9, %76 ], [ %81, %87 ]
+  %.241 = phi ptr [ null, %76 ], [ %81, %87 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %96

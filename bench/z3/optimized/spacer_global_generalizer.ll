@@ -3588,7 +3588,7 @@ define hidden noundef ptr @_ZN6spacer24lemma_global_generalizer8subsumer9find_re
   br i1 %.not27.old.i.i.i.i, label %_ZNK10model_core16get_const_interpEP9func_decl.exit, label %.lr.ph38.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.backedge:                        ; preds = %40, %37
-  %.137.i.i.i.i.be = phi ptr [ %.old.i.i.i.i, %40 ], [ %39, %37 ]
+  %.137.i.i.i.i.be = phi ptr [ %39, %37 ], [ %.old.i.i.i.i, %40 ]
   br label %.lr.ph38.i.i.i.i, !llvm.loop !307
 
 .loopexit.i:                                      ; preds = %21, %32
@@ -3797,7 +3797,7 @@ _ZN13ast_fast_markILj2EE4markEP3ast.exit:         ; preds = %_ZN6bufferIP3astLb0
   br label %272
 
 ._crit_edge81:                                    ; preds = %187, %._crit_edge, %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit40
-  %83 = phi ptr [ null, %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit40 ], [ null, %._crit_edge ], [ %188, %187 ]
+  %83 = phi ptr [ null, %._crit_edge ], [ null, %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit40 ], [ %188, %187 ]
   %84 = load ptr, ptr %1, align 8, !tbaa !217
   invoke void @_ZN17expr_safe_replaceclEP4exprR7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(136) %7, ptr noundef %84, ptr noundef nonnull align 8 dereferenceable(16) %1)
           to label %190 unwind label %.loopexit.split-lp
@@ -3934,7 +3934,7 @@ _ZN11ast_manager7inc_refEP3ast.exit.i:            ; preds = %102
   br i1 %.not27.old.i.i.i.i.i, label %_ZN6spacer24lemma_global_generalizer8subsumer9find_reprERK3refI5modelEPK3app.exit.thread, label %.lr.ph38.i.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.i.backedge:                      ; preds = %151, %148
-  %.137.i.i.i.i.i.be = phi ptr [ %.old.i.i.i.i.i, %151 ], [ %150, %148 ]
+  %.137.i.i.i.i.i.be = phi ptr [ %150, %148 ], [ %.old.i.i.i.i.i, %151 ]
   br label %.lr.ph38.i.i.i.i.i, !llvm.loop !307
 
 _ZN6spacer24lemma_global_generalizer8subsumer9find_reprERK3refI5modelEPK3app.exit: ; preds = %132, %143

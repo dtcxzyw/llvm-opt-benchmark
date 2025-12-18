@@ -2924,8 +2924,8 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit: ; preds = %27, %21, 
   br label %.loopexit260, !llvm.loop !156
 
 .loopexit260:                                     ; preds = %61, %.lr.ph.i.i.i.i.i.i.i, %38, %39, %.noexc67, %52, %..loopexit_crit_edge21.i.i.i.i.i.i.i
-  %72 = phi ptr [ %.pre, %..loopexit_crit_edge21.i.i.i.i.i.i.i ], [ %.pre, %52 ], [ %.pre, %.noexc67 ], [ %37, %38 ], [ %37, %39 ], [ %.pre, %.lr.ph.i.i.i.i.i.i.i ], [ %.pre, %61 ]
-  %.sroa.06.1.i.i.i.i.i = phi ptr [ null, %..loopexit_crit_edge21.i.i.i.i.i.i.i ], [ %53, %52 ], [ null, %.noexc67 ], [ null, %38 ], [ %.sroa.06.0.i.i.i.i.i, %39 ], [ %67, %61 ], [ null, %.lr.ph.i.i.i.i.i.i.i ]
+  %72 = phi ptr [ %.pre, %..loopexit_crit_edge21.i.i.i.i.i.i.i ], [ %37, %38 ], [ %.pre, %52 ], [ %.pre, %.noexc67 ], [ %37, %39 ], [ %.pre, %.lr.ph.i.i.i.i.i.i.i ], [ %.pre, %61 ]
+  %.sroa.06.1.i.i.i.i.i = phi ptr [ null, %..loopexit_crit_edge21.i.i.i.i.i.i.i ], [ null, %38 ], [ %53, %52 ], [ null, %.noexc67 ], [ %.sroa.06.0.i.i.i.i.i, %39 ], [ %67, %61 ], [ null, %.lr.ph.i.i.i.i.i.i.i ]
   %73 = icmp eq ptr %.sroa.06.1.i.i.i.i.i, null
   %74 = load i64, ptr %72, align 8
   %75 = and i64 %74, 1152920405095219200
@@ -3636,8 +3636,8 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit126: ; preds = %364, %
   br label %.loopexit, !llvm.loop !156
 
 .loopexit:                                        ; preds = %397, %.lr.ph.i.i.i.i.i.i.i129, %374, %375, %.noexc138, %388, %..loopexit_crit_edge21.i.i.i.i.i.i.i133
-  %408 = phi ptr [ %.pre535, %..loopexit_crit_edge21.i.i.i.i.i.i.i133 ], [ %.pre535, %388 ], [ %.pre535, %.noexc138 ], [ %373, %374 ], [ %373, %375 ], [ %.pre535, %.lr.ph.i.i.i.i.i.i.i129 ], [ %.pre535, %397 ]
-  %.sroa.06.1.i.i.i.i.i134 = phi ptr [ null, %..loopexit_crit_edge21.i.i.i.i.i.i.i133 ], [ %389, %388 ], [ null, %.noexc138 ], [ null, %374 ], [ %.sroa.06.0.i.i.i.i.i136, %375 ], [ %403, %397 ], [ null, %.lr.ph.i.i.i.i.i.i.i129 ]
+  %408 = phi ptr [ %.pre535, %..loopexit_crit_edge21.i.i.i.i.i.i.i133 ], [ %373, %374 ], [ %.pre535, %388 ], [ %.pre535, %.noexc138 ], [ %373, %375 ], [ %.pre535, %.lr.ph.i.i.i.i.i.i.i129 ], [ %.pre535, %397 ]
+  %.sroa.06.1.i.i.i.i.i134 = phi ptr [ null, %..loopexit_crit_edge21.i.i.i.i.i.i.i133 ], [ null, %374 ], [ %389, %388 ], [ null, %.noexc138 ], [ %.sroa.06.0.i.i.i.i.i136, %375 ], [ %403, %397 ], [ null, %.lr.ph.i.i.i.i.i.i.i129 ]
   %409 = icmp eq ptr %.sroa.06.1.i.i.i.i.i134, null
   %410 = load i64, ptr %408, align 8
   %411 = and i64 %410, 1152920405095219200
@@ -4118,9 +4118,9 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit163: ; preds = %_ZN4cvc57context9C
   br i1 %611, label %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit109, label %._crit_edge, !llvm.loop !185
 
 612:                                              ; preds = %.loopexit259, %.loopexit.split-lp, %592, %597, %602, %581, %173
-  %.sroa.19.1 = phi ptr [ %.sroa.19.0, %173 ], [ %.sroa.19.4410, %592 ], [ %.sroa.19.10, %602 ], [ %.sroa.19.4410, %597 ], [ %.sroa.19.4410, %581 ], [ %.sroa.12221.3411, %.loopexit259 ], [ %.sroa.12221.3411, %.loopexit.split-lp ]
-  %.sroa.0215.1 = phi ptr [ %.sroa.0215.0, %173 ], [ %.sroa.0215.4412, %592 ], [ %.sroa.0215.10, %602 ], [ %.sroa.0215.4412, %597 ], [ %.sroa.0215.4412, %581 ], [ %.sroa.0215.4412, %.loopexit259 ], [ %.sroa.0215.4412, %.loopexit.split-lp ]
-  %.pn46.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn35, %173 ], [ %.pn39.pn.pn, %592 ], [ %.pn46, %602 ], [ %.pn43.pn, %597 ], [ %582, %581 ], [ %lpad.loopexit, %.loopexit259 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.sroa.19.1 = phi ptr [ %.sroa.19.4410, %592 ], [ %.sroa.19.4410, %597 ], [ %.sroa.19.0, %173 ], [ %.sroa.19.10, %602 ], [ %.sroa.19.4410, %581 ], [ %.sroa.12221.3411, %.loopexit.split-lp ], [ %.sroa.12221.3411, %.loopexit259 ]
+  %.sroa.0215.1 = phi ptr [ %.sroa.0215.4412, %592 ], [ %.sroa.0215.4412, %597 ], [ %.sroa.0215.0, %173 ], [ %.sroa.0215.10, %602 ], [ %.sroa.0215.4412, %581 ], [ %.sroa.0215.4412, %.loopexit.split-lp ], [ %.sroa.0215.4412, %.loopexit259 ]
+  %.pn46.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn39.pn.pn, %592 ], [ %.pn43.pn, %597 ], [ %.pn35, %173 ], [ %.pn46, %602 ], [ %582, %581 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit259 ]
   %.not.i.i.i164 = icmp eq ptr %.sroa.0215.1, null
   br i1 %.not.i.i.i164, label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EED2Ev.exit165, label %.thread
 
@@ -5950,7 +5950,7 @@ _ZNSt12__shared_ptrIN4cvc58internal9ProofNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev
   br label %.loopexit793, !llvm.loop !254
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i: ; preds = %434, %412, %424
-  %.sroa.06.1.i.i.i.i = phi ptr [ %425, %424 ], [ %.sroa.06.0.i.i.i.i, %412 ], [ %440, %434 ]
+  %.sroa.06.1.i.i.i.i = phi ptr [ %.sroa.06.0.i.i.i.i, %412 ], [ %425, %424 ], [ %440, %434 ]
   %445 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i, i64 16
   %446 = load ptr, ptr %445, align 8, !tbaa !216, !noalias !250
   %447 = icmp eq ptr %446, null
@@ -6123,7 +6123,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i254: ; preds = %484, %4
   br label %.loopexit, !llvm.loop !254
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i268: ; preds = %529, %507, %519
-  %.sroa.06.1.i.i.i.i269 = phi ptr [ %520, %519 ], [ %.sroa.06.0.i.i.i.i271, %507 ], [ %535, %529 ]
+  %.sroa.06.1.i.i.i.i269 = phi ptr [ %.sroa.06.0.i.i.i.i271, %507 ], [ %520, %519 ], [ %535, %529 ]
   %540 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i269, i64 16
   %541 = load ptr, ptr %540, align 8, !tbaa !216, !noalias !261
   %542 = icmp eq ptr %541, null
@@ -6296,7 +6296,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i280: ; preds = %579, %5
   br label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, !llvm.loop !254
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i293: ; preds = %623, %601, %613
-  %.sroa.06.1.i.i.i.i294 = phi ptr [ %614, %613 ], [ %.sroa.06.0.i.i.i.i297, %601 ], [ %629, %623 ]
+  %.sroa.06.1.i.i.i.i294 = phi ptr [ %.sroa.06.0.i.i.i.i297, %601 ], [ %614, %613 ], [ %629, %623 ]
   %634 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i294, i64 16
   %635 = load ptr, ptr %634, align 8, !tbaa !216, !noalias !270
   %.not.i295 = icmp eq ptr %635, null
@@ -6549,7 +6549,7 @@ _ZNK4cvc58internal6theory8booleans17CircuitPropagator10isAssignedENS0_12NodeTemp
   br label %_ZNK4cvc58internal6theory8booleans17CircuitPropagator10isAssignedENS0_12NodeTemplateILb0EEE.exit338.thread, !llvm.loop !254
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i331: ; preds = %780, %758, %770
-  %.sroa.06.1.i.i.i.i332 = phi ptr [ %771, %770 ], [ %.sroa.06.0.i.i.i.i335, %758 ], [ %786, %780 ]
+  %.sroa.06.1.i.i.i.i332 = phi ptr [ %.sroa.06.0.i.i.i.i335, %758 ], [ %771, %770 ], [ %786, %780 ]
   %791 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i332, i64 16
   %792 = load ptr, ptr %791, align 8, !tbaa !216, !noalias !297
   %.not.i333 = icmp eq ptr %792, null
@@ -6644,7 +6644,7 @@ _ZNK4cvc58internal6theory8booleans17CircuitPropagator10isAssignedENS0_12NodeTemp
   br i1 %853, label %.loopexit801, label %.lr.ph.i.i.i.i.i.i346, !llvm.loop !254
 
 .loopexit801:                                     ; preds = %.lr.ph.i.i.i.i.i.i346, %824, %.noexc352
-  %.sroa.06.1.i.i.i.i349 = phi ptr [ %836, %.noexc352 ], [ %.sroa.06.0.i.i.i.i351, %824 ], [ %845, %.lr.ph.i.i.i.i.i.i346 ]
+  %.sroa.06.1.i.i.i.i349 = phi ptr [ %.sroa.06.0.i.i.i.i351, %824 ], [ %836, %.noexc352 ], [ %845, %.lr.ph.i.i.i.i.i.i346 ]
   %854 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i349, i64 16
   %855 = load ptr, ptr %854, align 8, !tbaa !216, !noalias !306
   %856 = getelementptr inbounds nuw i8, ptr %855, i64 48
@@ -6717,7 +6717,7 @@ _ZNK4cvc58internal6theory8booleans17CircuitPropagator10isAssignedENS0_12NodeTemp
   br i1 %904, label %.loopexit799, label %.lr.ph.i.i.i.i.i.i357, !llvm.loop !254
 
 .loopexit799:                                     ; preds = %.lr.ph.i.i.i.i.i.i357, %875, %.noexc363
-  %.sroa.06.1.i.i.i.i360 = phi ptr [ %887, %.noexc363 ], [ %.sroa.06.0.i.i.i.i362, %875 ], [ %896, %.lr.ph.i.i.i.i.i.i357 ]
+  %.sroa.06.1.i.i.i.i360 = phi ptr [ %.sroa.06.0.i.i.i.i362, %875 ], [ %887, %.noexc363 ], [ %896, %.lr.ph.i.i.i.i.i.i357 ]
   %905 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i360, i64 16
   %906 = load ptr, ptr %905, align 8, !tbaa !216, !noalias !312
   %907 = getelementptr inbounds nuw i8, ptr %906, i64 48
@@ -6937,7 +6937,7 @@ _ZNK4cvc58internal6theory8booleans17CircuitPropagator10isAssignedENS0_12NodeTemp
   br label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, !llvm.loop !254
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i384: ; preds = %1007, %985, %997
-  %.sroa.06.1.i.i.i.i385 = phi ptr [ %998, %997 ], [ %.sroa.06.0.i.i.i.i388, %985 ], [ %1013, %1007 ]
+  %.sroa.06.1.i.i.i.i385 = phi ptr [ %.sroa.06.0.i.i.i.i388, %985 ], [ %998, %997 ], [ %1013, %1007 ]
   %1018 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i385, i64 16
   %1019 = load ptr, ptr %1018, align 8, !tbaa !216, !noalias !318
   %.not.i386 = icmp eq ptr %1019, null
@@ -7103,7 +7103,7 @@ _ZNK4cvc58internal6theory8booleans17CircuitPropagator10isAssignedENS0_12NodeTemp
   br label %_ZNK4cvc58internal6theory8booleans17CircuitPropagator10isAssignedENS0_12NodeTemplateILb0EEE.exit418.thread, !llvm.loop !254
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i411: ; preds = %1101, %1079, %1091
-  %.sroa.06.1.i.i.i.i412 = phi ptr [ %1092, %1091 ], [ %.sroa.06.0.i.i.i.i415, %1079 ], [ %1107, %1101 ]
+  %.sroa.06.1.i.i.i.i412 = phi ptr [ %.sroa.06.0.i.i.i.i415, %1079 ], [ %1092, %1091 ], [ %1107, %1101 ]
   %1112 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i412, i64 16
   %1113 = load ptr, ptr %1112, align 8, !tbaa !216, !noalias !333
   %.not.i413 = icmp eq ptr %1113, null
@@ -7198,7 +7198,7 @@ _ZNK4cvc58internal6theory8booleans17CircuitPropagator10isAssignedENS0_12NodeTemp
   br i1 %1174, label %.loopexit810, label %.lr.ph.i.i.i.i.i.i426, !llvm.loop !254
 
 .loopexit810:                                     ; preds = %.lr.ph.i.i.i.i.i.i426, %1145, %.noexc432
-  %.sroa.06.1.i.i.i.i429 = phi ptr [ %1157, %.noexc432 ], [ %.sroa.06.0.i.i.i.i431, %1145 ], [ %1166, %.lr.ph.i.i.i.i.i.i426 ]
+  %.sroa.06.1.i.i.i.i429 = phi ptr [ %.sroa.06.0.i.i.i.i431, %1145 ], [ %1157, %.noexc432 ], [ %1166, %.lr.ph.i.i.i.i.i.i426 ]
   %1175 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i429, i64 16
   %1176 = load ptr, ptr %1175, align 8, !tbaa !216, !noalias !342
   %1177 = getelementptr inbounds nuw i8, ptr %1176, i64 48
@@ -7271,7 +7271,7 @@ _ZNK4cvc58internal6theory8booleans17CircuitPropagator10isAssignedENS0_12NodeTemp
   br i1 %1225, label %.loopexit808, label %.lr.ph.i.i.i.i.i.i438, !llvm.loop !254
 
 .loopexit808:                                     ; preds = %.lr.ph.i.i.i.i.i.i438, %1196, %.noexc444
-  %.sroa.06.1.i.i.i.i441 = phi ptr [ %1208, %.noexc444 ], [ %.sroa.06.0.i.i.i.i443, %1196 ], [ %1217, %.lr.ph.i.i.i.i.i.i438 ]
+  %.sroa.06.1.i.i.i.i441 = phi ptr [ %.sroa.06.0.i.i.i.i443, %1196 ], [ %1208, %.noexc444 ], [ %1217, %.lr.ph.i.i.i.i.i.i438 ]
   %1226 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i441, i64 16
   %1227 = load ptr, ptr %1226, align 8, !tbaa !216, !noalias !348
   %1228 = getelementptr inbounds nuw i8, ptr %1227, i64 48
@@ -7491,7 +7491,7 @@ _ZNK4cvc58internal6theory8booleans17CircuitPropagator10isAssignedENS0_12NodeTemp
   br label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, !llvm.loop !254
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i465: ; preds = %1328, %1306, %1318
-  %.sroa.06.1.i.i.i.i466 = phi ptr [ %1319, %1318 ], [ %.sroa.06.0.i.i.i.i469, %1306 ], [ %1334, %1328 ]
+  %.sroa.06.1.i.i.i.i466 = phi ptr [ %.sroa.06.0.i.i.i.i469, %1306 ], [ %1319, %1318 ], [ %1334, %1328 ]
   %1339 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i466, i64 16
   %1340 = load ptr, ptr %1339, align 8, !tbaa !216, !noalias !354
   %.not.i467 = icmp eq ptr %1340, null
@@ -7663,7 +7663,7 @@ _ZNK4cvc58internal6theory8booleans17CircuitPropagator10isAssignedENS0_12NodeTemp
   br label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit511, !llvm.loop !254
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i493: ; preds = %1426, %1404, %1416
-  %.sroa.06.1.i.i.i.i494 = phi ptr [ %1417, %1416 ], [ %.sroa.06.0.i.i.i.i496, %1404 ], [ %1432, %1426 ]
+  %.sroa.06.1.i.i.i.i494 = phi ptr [ %.sroa.06.0.i.i.i.i496, %1404 ], [ %1417, %1416 ], [ %1432, %1426 ]
   %1437 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i494, i64 16
   %1438 = load ptr, ptr %1437, align 8, !tbaa !216, !noalias !369
   %1439 = icmp eq ptr %1438, null
@@ -7905,7 +7905,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit511: ; preds = %.lr.ph.i.i.i.i.i.i
   br label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, !llvm.loop !254
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i523: ; preds = %1553, %1531, %1543
-  %.sroa.06.1.i.i.i.i524 = phi ptr [ %1544, %1543 ], [ %.sroa.06.0.i.i.i.i526, %1531 ], [ %1559, %1553 ]
+  %.sroa.06.1.i.i.i.i524 = phi ptr [ %.sroa.06.0.i.i.i.i526, %1531 ], [ %1544, %1543 ], [ %1559, %1553 ]
   %1564 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i524, i64 16
   %1565 = load ptr, ptr %1564, align 8, !tbaa !216, !noalias !378
   %1566 = icmp eq ptr %1565, null
@@ -8288,7 +8288,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i555: ; preds = %1705, %
   br label %_ZNK4cvc58internal6theory8booleans17CircuitPropagator10isAssignedENS0_12NodeTemplateILb0EEE.exit575.thread, !llvm.loop !254
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i568: ; preds = %1748, %1726, %1738
-  %.sroa.06.1.i.i.i.i569 = phi ptr [ %1739, %1738 ], [ %.sroa.06.0.i.i.i.i572, %1726 ], [ %1754, %1748 ]
+  %.sroa.06.1.i.i.i.i569 = phi ptr [ %.sroa.06.0.i.i.i.i572, %1726 ], [ %1739, %1738 ], [ %1754, %1748 ]
   %1759 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i569, i64 16
   %1760 = load ptr, ptr %1759, align 8, !tbaa !216, !noalias !393
   %.not.i570 = icmp eq ptr %1760, null
@@ -8383,7 +8383,7 @@ _ZNK4cvc58internal6theory8booleans17CircuitPropagator10isAssignedENS0_12NodeTemp
   br i1 %1821, label %.loopexit824, label %.lr.ph.i.i.i.i.i.i583, !llvm.loop !254
 
 .loopexit824:                                     ; preds = %.lr.ph.i.i.i.i.i.i583, %1792, %.noexc589
-  %.sroa.06.1.i.i.i.i586 = phi ptr [ %1804, %.noexc589 ], [ %.sroa.06.0.i.i.i.i588, %1792 ], [ %1813, %.lr.ph.i.i.i.i.i.i583 ]
+  %.sroa.06.1.i.i.i.i586 = phi ptr [ %.sroa.06.0.i.i.i.i588, %1792 ], [ %1804, %.noexc589 ], [ %1813, %.lr.ph.i.i.i.i.i.i583 ]
   %1822 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i586, i64 16
   %1823 = load ptr, ptr %1822, align 8, !tbaa !216, !noalias !402
   %1824 = getelementptr inbounds nuw i8, ptr %1823, i64 48
@@ -8456,7 +8456,7 @@ _ZNK4cvc58internal6theory8booleans17CircuitPropagator10isAssignedENS0_12NodeTemp
   br i1 %1872, label %.loopexit822, label %.lr.ph.i.i.i.i.i.i595, !llvm.loop !254
 
 .loopexit822:                                     ; preds = %.lr.ph.i.i.i.i.i.i595, %1843, %.noexc601
-  %.sroa.06.1.i.i.i.i598 = phi ptr [ %1855, %.noexc601 ], [ %.sroa.06.0.i.i.i.i600, %1843 ], [ %1864, %.lr.ph.i.i.i.i.i.i595 ]
+  %.sroa.06.1.i.i.i.i598 = phi ptr [ %.sroa.06.0.i.i.i.i600, %1843 ], [ %1855, %.noexc601 ], [ %1864, %.lr.ph.i.i.i.i.i.i595 ]
   %1873 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i598, i64 16
   %1874 = load ptr, ptr %1873, align 8, !tbaa !216, !noalias !408
   %1875 = getelementptr inbounds nuw i8, ptr %1874, i64 48
@@ -8676,7 +8676,7 @@ _ZNK4cvc58internal6theory8booleans17CircuitPropagator10isAssignedENS0_12NodeTemp
   br label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, !llvm.loop !254
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i622: ; preds = %1975, %1953, %1965
-  %.sroa.06.1.i.i.i.i623 = phi ptr [ %1966, %1965 ], [ %.sroa.06.0.i.i.i.i626, %1953 ], [ %1981, %1975 ]
+  %.sroa.06.1.i.i.i.i623 = phi ptr [ %.sroa.06.0.i.i.i.i626, %1953 ], [ %1966, %1965 ], [ %1981, %1975 ]
   %1986 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i623, i64 16
   %1987 = load ptr, ptr %1986, align 8, !tbaa !216, !noalias !414
   %.not.i624 = icmp eq ptr %1987, null
@@ -8843,7 +8843,7 @@ _ZNK4cvc58internal6theory8booleans17CircuitPropagator10isAssignedENS0_12NodeTemp
   br label %_ZNK4cvc58internal6theory8booleans17CircuitPropagator10isAssignedENS0_12NodeTemplateILb0EEE.exit656.thread, !llvm.loop !254
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i649: ; preds = %2070, %2048, %2060
-  %.sroa.06.1.i.i.i.i650 = phi ptr [ %2061, %2060 ], [ %.sroa.06.0.i.i.i.i653, %2048 ], [ %2076, %2070 ]
+  %.sroa.06.1.i.i.i.i650 = phi ptr [ %.sroa.06.0.i.i.i.i653, %2048 ], [ %2061, %2060 ], [ %2076, %2070 ]
   %2081 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i650, i64 16
   %2082 = load ptr, ptr %2081, align 8, !tbaa !216, !noalias !429
   %.not.i651 = icmp eq ptr %2082, null
@@ -8938,7 +8938,7 @@ _ZNK4cvc58internal6theory8booleans17CircuitPropagator10isAssignedENS0_12NodeTemp
   br i1 %2143, label %.loopexit833, label %.lr.ph.i.i.i.i.i.i664, !llvm.loop !254
 
 .loopexit833:                                     ; preds = %.lr.ph.i.i.i.i.i.i664, %2114, %.noexc670
-  %.sroa.06.1.i.i.i.i667 = phi ptr [ %2126, %.noexc670 ], [ %.sroa.06.0.i.i.i.i669, %2114 ], [ %2135, %.lr.ph.i.i.i.i.i.i664 ]
+  %.sroa.06.1.i.i.i.i667 = phi ptr [ %.sroa.06.0.i.i.i.i669, %2114 ], [ %2126, %.noexc670 ], [ %2135, %.lr.ph.i.i.i.i.i.i664 ]
   %2144 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i667, i64 16
   %2145 = load ptr, ptr %2144, align 8, !tbaa !216, !noalias !438
   %2146 = getelementptr inbounds nuw i8, ptr %2145, i64 48
@@ -9011,7 +9011,7 @@ _ZNK4cvc58internal6theory8booleans17CircuitPropagator10isAssignedENS0_12NodeTemp
   br i1 %2194, label %.loopexit831, label %.lr.ph.i.i.i.i.i.i676, !llvm.loop !254
 
 .loopexit831:                                     ; preds = %.lr.ph.i.i.i.i.i.i676, %2165, %.noexc682
-  %.sroa.06.1.i.i.i.i679 = phi ptr [ %2177, %.noexc682 ], [ %.sroa.06.0.i.i.i.i681, %2165 ], [ %2186, %.lr.ph.i.i.i.i.i.i676 ]
+  %.sroa.06.1.i.i.i.i679 = phi ptr [ %.sroa.06.0.i.i.i.i681, %2165 ], [ %2177, %.noexc682 ], [ %2186, %.lr.ph.i.i.i.i.i.i676 ]
   %2195 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i679, i64 16
   %2196 = load ptr, ptr %2195, align 8, !tbaa !216, !noalias !444
   %2197 = getelementptr inbounds nuw i8, ptr %2196, i64 48
@@ -9231,7 +9231,7 @@ _ZNK4cvc58internal6theory8booleans17CircuitPropagator10isAssignedENS0_12NodeTemp
   br label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, !llvm.loop !254
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i703: ; preds = %2297, %2275, %2287
-  %.sroa.06.1.i.i.i.i704 = phi ptr [ %2288, %2287 ], [ %.sroa.06.0.i.i.i.i707, %2275 ], [ %2303, %2297 ]
+  %.sroa.06.1.i.i.i.i704 = phi ptr [ %.sroa.06.0.i.i.i.i707, %2275 ], [ %2288, %2287 ], [ %2303, %2297 ]
   %2308 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i704, i64 16
   %2309 = load ptr, ptr %2308, align 8, !tbaa !216, !noalias !450
   %.not.i705 = icmp eq ptr %2309, null
@@ -9433,7 +9433,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4cvc58internal6theory8boolean
   br label %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.thread, !llvm.loop !254
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit: ; preds = %32, %9, %22
-  %.sroa.06.1.i.i.i = phi ptr [ %23, %22 ], [ %.sroa.06.0.i.i.i, %9 ], [ %38, %32 ]
+  %.sroa.06.1.i.i.i = phi ptr [ %.sroa.06.0.i.i.i, %9 ], [ %23, %22 ], [ %38, %32 ]
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 16
   %44 = load ptr, ptr %43, align 8, !tbaa !216, !noalias !462
   %.not = icmp eq ptr %44, null
@@ -9446,7 +9446,7 @@ _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8boolean
   br label %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.thread
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.thread: ; preds = %.lr.ph.i.i.i.i.i, %8, %13, %..loopexit_crit_edge21.i.i.i.i.i, %45, %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit
-  %49 = phi i1 [ false, %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit ], [ %48, %45 ], [ false, %..loopexit_crit_edge21.i.i.i.i.i ], [ false, %13 ], [ false, %8 ], [ false, %.lr.ph.i.i.i.i.i ]
+  %49 = phi i1 [ false, %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit ], [ %48, %45 ], [ false, %..loopexit_crit_edge21.i.i.i.i.i ], [ false, %8 ], [ false, %13 ], [ false, %.lr.ph.i.i.i.i.i ]
   ret i1 %49
 }
 
@@ -9506,7 +9506,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4cvc58internal6theory8boolean
   br i1 %38, label %_ZNKSt13unordered_mapIN4cvc58internal12NodeTemplateILb0EEEPNS0_7context11CDOhash_mapIS3_NS1_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS3_EEESB_St8equal_toIS3_ESaISt4pairIKS3_SD_EEE4findERSH_.exit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !254
 
 _ZNKSt13unordered_mapIN4cvc58internal12NodeTemplateILb0EEEPNS0_7context11CDOhash_mapIS3_NS1_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS3_EEESB_St8equal_toIS3_ESaISt4pairIKS3_SD_EEE4findERSH_.exit.i: ; preds = %.lr.ph.i.i.i.i.i, %8, %12
-  %.sroa.06.1.i.i.i = phi ptr [ %21, %12 ], [ %.sroa.06.0.i.i.i, %8 ], [ %30, %.lr.ph.i.i.i.i.i ]
+  %.sroa.06.1.i.i.i = phi ptr [ %.sroa.06.0.i.i.i, %8 ], [ %21, %12 ], [ %30, %.lr.ph.i.i.i.i.i ]
   %39 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 16
   %40 = load ptr, ptr %39, align 8, !tbaa !216, !noalias !465
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 48
@@ -9775,8 +9775,8 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit: ; preds = %137, %143
   br label %_ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb1EEESt6vectorIS3_SaIS3_EESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S6_EEE4findERSC_.exit, !llvm.loop !160
 
 _ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb1EEESt6vectorIS3_SaIS3_EESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S6_EEE4findERSC_.exit: ; preds = %.lr.ph.i.i.i.i, %173, %152, %151, %..loopexit_crit_edge21.i.i.i.i, %164, %.noexc
-  %184 = phi ptr [ %.pre, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre, %164 ], [ %.pre, %.noexc ], [ %131, %152 ], [ %131, %151 ], [ %.pre, %173 ], [ %.pre, %.lr.ph.i.i.i.i ]
-  %.sroa.06.1.i.i = phi ptr [ null, %..loopexit_crit_edge21.i.i.i.i ], [ %165, %164 ], [ null, %.noexc ], [ %.sroa.06.0.i.i, %152 ], [ null, %151 ], [ null, %.lr.ph.i.i.i.i ], [ %179, %173 ]
+  %184 = phi ptr [ %.pre, %..loopexit_crit_edge21.i.i.i.i ], [ %131, %152 ], [ %.pre, %164 ], [ %.pre, %.noexc ], [ %131, %151 ], [ %.pre, %173 ], [ %.pre, %.lr.ph.i.i.i.i ]
+  %.sroa.06.1.i.i = phi ptr [ null, %..loopexit_crit_edge21.i.i.i.i ], [ %.sroa.06.0.i.i, %152 ], [ %165, %164 ], [ null, %.noexc ], [ null, %151 ], [ null, %.lr.ph.i.i.i.i ], [ %179, %173 ]
   %185 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %186 = load i64, ptr %184, align 8
   %187 = and i64 %186, 1152920405095219200
@@ -10120,7 +10120,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit270: ; preds = %_ZN4cvc58internal1
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit.thread.i.i.i", !llvm.loop !254
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i.i.i.i: ; preds = %349, %329, %339
-  %.sroa.06.1.i.i.i.i.i.i.i.i.i = phi ptr [ %340, %339 ], [ %.sroa.06.0.i.i.i.i.i.i.i.i.i, %329 ], [ %355, %349 ]
+  %.sroa.06.1.i.i.i.i.i.i.i.i.i = phi ptr [ %.sroa.06.0.i.i.i.i.i.i.i.i.i, %329 ], [ %340, %339 ], [ %355, %349 ]
   %360 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i.i.i.i.i.i, i64 16
   %361 = load ptr, ptr %360, align 8, !tbaa !216, !noalias !474
   %362 = icmp eq ptr %361, null
@@ -10208,7 +10208,7 @@ _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8boolean
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit38.thread.i.i.i", !llvm.loop !254
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i33.i.i.i: ; preds = %389, %369, %379
-  %.sroa.06.1.i.i.i.i.i.i34.i.i.i = phi ptr [ %380, %379 ], [ %.sroa.06.0.i.i.i.i.i.i36.i.i.i, %369 ], [ %395, %389 ]
+  %.sroa.06.1.i.i.i.i.i.i34.i.i.i = phi ptr [ %.sroa.06.0.i.i.i.i.i.i36.i.i.i, %369 ], [ %380, %379 ], [ %395, %389 ]
   %400 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i.i.i34.i.i.i, i64 16
   %401 = load ptr, ptr %400, align 8, !tbaa !216, !noalias !480
   %402 = icmp eq ptr %401, null
@@ -10297,7 +10297,7 @@ _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8boolean
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit53.thread.i.i.i", !llvm.loop !254
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i48.i.i.i: ; preds = %430, %410, %420
-  %.sroa.06.1.i.i.i.i.i.i49.i.i.i = phi ptr [ %421, %420 ], [ %.sroa.06.0.i.i.i.i.i.i51.i.i.i, %410 ], [ %436, %430 ]
+  %.sroa.06.1.i.i.i.i.i.i49.i.i.i = phi ptr [ %.sroa.06.0.i.i.i.i.i.i51.i.i.i, %410 ], [ %421, %420 ], [ %436, %430 ]
   %441 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i.i.i49.i.i.i, i64 16
   %442 = load ptr, ptr %441, align 8, !tbaa !216, !noalias !486
   %443 = icmp eq ptr %442, null
@@ -10386,7 +10386,7 @@ _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8boolean
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit68.thread.i.i.i", !llvm.loop !254
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i63.i.i.i: ; preds = %471, %451, %461
-  %.sroa.06.1.i.i.i.i.i.i64.i.i.i = phi ptr [ %462, %461 ], [ %.sroa.06.0.i.i.i.i.i.i66.i.i.i, %451 ], [ %477, %471 ]
+  %.sroa.06.1.i.i.i.i.i.i64.i.i.i = phi ptr [ %.sroa.06.0.i.i.i.i.i.i66.i.i.i, %451 ], [ %462, %461 ], [ %477, %471 ]
   %482 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i.i.i64.i.i.i, i64 16
   %483 = load ptr, ptr %482, align 8, !tbaa !216, !noalias !492
   %484 = icmp eq ptr %483, null
@@ -10495,7 +10495,7 @@ _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8boolean
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit83.thread.i.i.i", !llvm.loop !254
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i78.i.i.i: ; preds = %516, %496, %506
-  %.sroa.06.1.i.i.i.i.i.i79.i.i.i = phi ptr [ %507, %506 ], [ %.sroa.06.0.i.i.i.i.i.i81.i.i.i, %496 ], [ %522, %516 ]
+  %.sroa.06.1.i.i.i.i.i.i79.i.i.i = phi ptr [ %.sroa.06.0.i.i.i.i.i.i81.i.i.i, %496 ], [ %507, %506 ], [ %522, %516 ]
   %527 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i.i.i79.i.i.i, i64 16
   %528 = load ptr, ptr %527, align 8, !tbaa !216, !noalias !499
   %529 = icmp eq ptr %528, null
@@ -10587,7 +10587,7 @@ _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8boolean
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit98.thread.i.i.i", !llvm.loop !254
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i93.i.i.i: ; preds = %557, %537, %547
-  %.sroa.06.1.i.i.i.i.i.i94.i.i.i = phi ptr [ %548, %547 ], [ %.sroa.06.0.i.i.i.i.i.i96.i.i.i, %537 ], [ %563, %557 ]
+  %.sroa.06.1.i.i.i.i.i.i94.i.i.i = phi ptr [ %.sroa.06.0.i.i.i.i.i.i96.i.i.i, %537 ], [ %548, %547 ], [ %563, %557 ]
   %568 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i.i.i94.i.i.i, i64 16
   %569 = load ptr, ptr %568, align 8, !tbaa !216, !noalias !505
   %570 = icmp eq ptr %569, null
@@ -10679,7 +10679,7 @@ _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8boolean
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit113.thread.i.i.i", !llvm.loop !254
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i108.i.i.i: ; preds = %598, %578, %588
-  %.sroa.06.1.i.i.i.i.i.i109.i.i.i = phi ptr [ %589, %588 ], [ %.sroa.06.0.i.i.i.i.i.i111.i.i.i, %578 ], [ %604, %598 ]
+  %.sroa.06.1.i.i.i.i.i.i109.i.i.i = phi ptr [ %.sroa.06.0.i.i.i.i.i.i111.i.i.i, %578 ], [ %589, %588 ], [ %604, %598 ]
   %609 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i.i.i109.i.i.i, i64 16
   %610 = load ptr, ptr %609, align 8, !tbaa !216, !noalias !511
   %611 = icmp eq ptr %610, null
@@ -10865,7 +10865,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %643, %641
   br label %_ZNSt12__shared_ptrIN4cvc58internal9ProofNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !llvm.loop !254
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i: ; preds = %674, %653, %664
-  %.sroa.06.1.i.i.i.i = phi ptr [ %665, %664 ], [ %.sroa.06.0.i.i.i.i, %653 ], [ %680, %674 ]
+  %.sroa.06.1.i.i.i.i = phi ptr [ %.sroa.06.0.i.i.i.i, %653 ], [ %665, %664 ], [ %680, %674 ]
   %685 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i, i64 16
   %686 = load ptr, ptr %685, align 8, !tbaa !216, !noalias !514
   %687 = icmp eq ptr %686, null
@@ -10962,7 +10962,7 @@ _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8boolean
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit.thread.i.i.i", !llvm.loop !254
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i.i.i.i343: ; preds = %725, %705, %715
-  %.sroa.06.1.i.i.i.i.i.i.i.i.i344 = phi ptr [ %716, %715 ], [ %.sroa.06.0.i.i.i.i.i.i.i.i.i396, %705 ], [ %731, %725 ]
+  %.sroa.06.1.i.i.i.i.i.i.i.i.i344 = phi ptr [ %.sroa.06.0.i.i.i.i.i.i.i.i.i396, %705 ], [ %716, %715 ], [ %731, %725 ]
   %736 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i.i.i.i.i.i344, i64 16
   %737 = load ptr, ptr %736, align 8, !tbaa !216, !noalias !520
   %738 = icmp eq ptr %737, null
@@ -11050,7 +11050,7 @@ _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8boolean
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit38.thread.i.i.i", !llvm.loop !254
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i33.i.i.i354: ; preds = %765, %745, %755
-  %.sroa.06.1.i.i.i.i.i.i34.i.i.i355 = phi ptr [ %756, %755 ], [ %.sroa.06.0.i.i.i.i.i.i36.i.i.i392, %745 ], [ %771, %765 ]
+  %.sroa.06.1.i.i.i.i.i.i34.i.i.i355 = phi ptr [ %.sroa.06.0.i.i.i.i.i.i36.i.i.i392, %745 ], [ %756, %755 ], [ %771, %765 ]
   %776 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i.i.i34.i.i.i355, i64 16
   %777 = load ptr, ptr %776, align 8, !tbaa !216, !noalias !526
   %778 = icmp eq ptr %777, null
@@ -11139,7 +11139,7 @@ _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8boolean
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit53.thread.i.i.i", !llvm.loop !254
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i48.i.i.i365: ; preds = %806, %786, %796
-  %.sroa.06.1.i.i.i.i.i.i49.i.i.i366 = phi ptr [ %797, %796 ], [ %.sroa.06.0.i.i.i.i.i.i51.i.i.i388, %786 ], [ %812, %806 ]
+  %.sroa.06.1.i.i.i.i.i.i49.i.i.i366 = phi ptr [ %.sroa.06.0.i.i.i.i.i.i51.i.i.i388, %786 ], [ %797, %796 ], [ %812, %806 ]
   %817 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i.i.i49.i.i.i366, i64 16
   %818 = load ptr, ptr %817, align 8, !tbaa !216, !noalias !532
   %819 = icmp eq ptr %818, null
@@ -11228,7 +11228,7 @@ _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8boolean
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit68.thread.i.i.i", !llvm.loop !254
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i63.i.i.i376: ; preds = %847, %827, %837
-  %.sroa.06.1.i.i.i.i.i.i64.i.i.i377 = phi ptr [ %838, %837 ], [ %.sroa.06.0.i.i.i.i.i.i66.i.i.i384, %827 ], [ %853, %847 ]
+  %.sroa.06.1.i.i.i.i.i.i64.i.i.i377 = phi ptr [ %.sroa.06.0.i.i.i.i.i.i66.i.i.i384, %827 ], [ %838, %837 ], [ %853, %847 ]
   %858 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i.i.i64.i.i.i377, i64 16
   %859 = load ptr, ptr %858, align 8, !tbaa !216, !noalias !538
   %860 = icmp eq ptr %859, null
@@ -11337,7 +11337,7 @@ _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8boolean
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit83.thread.i.i.i", !llvm.loop !254
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i78.i.i.i326: ; preds = %892, %872, %882
-  %.sroa.06.1.i.i.i.i.i.i79.i.i.i327 = phi ptr [ %883, %882 ], [ %.sroa.06.0.i.i.i.i.i.i81.i.i.i330, %872 ], [ %898, %892 ]
+  %.sroa.06.1.i.i.i.i.i.i79.i.i.i327 = phi ptr [ %.sroa.06.0.i.i.i.i.i.i81.i.i.i330, %872 ], [ %883, %882 ], [ %898, %892 ]
   %903 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i.i.i79.i.i.i327, i64 16
   %904 = load ptr, ptr %903, align 8, !tbaa !216, !noalias !545
   %905 = icmp eq ptr %904, null
@@ -11429,7 +11429,7 @@ _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8boolean
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit98.thread.i.i.i", !llvm.loop !254
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i93.i.i.i312: ; preds = %933, %913, %923
-  %.sroa.06.1.i.i.i.i.i.i94.i.i.i313 = phi ptr [ %924, %923 ], [ %.sroa.06.0.i.i.i.i.i.i96.i.i.i316, %913 ], [ %939, %933 ]
+  %.sroa.06.1.i.i.i.i.i.i94.i.i.i313 = phi ptr [ %.sroa.06.0.i.i.i.i.i.i96.i.i.i316, %913 ], [ %924, %923 ], [ %939, %933 ]
   %944 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i.i.i94.i.i.i313, i64 16
   %945 = load ptr, ptr %944, align 8, !tbaa !216, !noalias !551
   %946 = icmp eq ptr %945, null
@@ -11521,7 +11521,7 @@ _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8boolean
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit113.thread.i.i.i", !llvm.loop !254
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i108.i.i.i296: ; preds = %974, %954, %964
-  %.sroa.06.1.i.i.i.i.i.i109.i.i.i297 = phi ptr [ %965, %964 ], [ %.sroa.06.0.i.i.i.i.i.i111.i.i.i301, %954 ], [ %980, %974 ]
+  %.sroa.06.1.i.i.i.i.i.i109.i.i.i297 = phi ptr [ %.sroa.06.0.i.i.i.i.i.i111.i.i.i301, %954 ], [ %965, %964 ], [ %980, %974 ]
   %985 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i.i.i109.i.i.i297, i64 16
   %986 = load ptr, ptr %985, align 8, !tbaa !216, !noalias !557
   %987 = icmp eq ptr %986, null
@@ -11944,7 +11944,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i421: ; preds = %1112, %
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit.thread.i.i.i", !llvm.loop !254
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i.i.i.i488: ; preds = %1154, %1134, %1144
-  %.sroa.06.1.i.i.i.i.i.i.i.i.i489 = phi ptr [ %1145, %1144 ], [ %.sroa.06.0.i.i.i.i.i.i.i.i.i541, %1134 ], [ %1160, %1154 ]
+  %.sroa.06.1.i.i.i.i.i.i.i.i.i489 = phi ptr [ %.sroa.06.0.i.i.i.i.i.i.i.i.i541, %1134 ], [ %1145, %1144 ], [ %1160, %1154 ]
   %1165 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i.i.i.i.i.i489, i64 16
   %1166 = load ptr, ptr %1165, align 8, !tbaa !216, !noalias !566
   %1167 = icmp eq ptr %1166, null
@@ -12032,7 +12032,7 @@ _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8boolean
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit38.thread.i.i.i", !llvm.loop !254
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i33.i.i.i499: ; preds = %1194, %1174, %1184
-  %.sroa.06.1.i.i.i.i.i.i34.i.i.i500 = phi ptr [ %1185, %1184 ], [ %.sroa.06.0.i.i.i.i.i.i36.i.i.i537, %1174 ], [ %1200, %1194 ]
+  %.sroa.06.1.i.i.i.i.i.i34.i.i.i500 = phi ptr [ %.sroa.06.0.i.i.i.i.i.i36.i.i.i537, %1174 ], [ %1185, %1184 ], [ %1200, %1194 ]
   %1205 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i.i.i34.i.i.i500, i64 16
   %1206 = load ptr, ptr %1205, align 8, !tbaa !216, !noalias !572
   %1207 = icmp eq ptr %1206, null
@@ -12121,7 +12121,7 @@ _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8boolean
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit53.thread.i.i.i", !llvm.loop !254
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i48.i.i.i510: ; preds = %1235, %1215, %1225
-  %.sroa.06.1.i.i.i.i.i.i49.i.i.i511 = phi ptr [ %1226, %1225 ], [ %.sroa.06.0.i.i.i.i.i.i51.i.i.i533, %1215 ], [ %1241, %1235 ]
+  %.sroa.06.1.i.i.i.i.i.i49.i.i.i511 = phi ptr [ %.sroa.06.0.i.i.i.i.i.i51.i.i.i533, %1215 ], [ %1226, %1225 ], [ %1241, %1235 ]
   %1246 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i.i.i49.i.i.i511, i64 16
   %1247 = load ptr, ptr %1246, align 8, !tbaa !216, !noalias !578
   %1248 = icmp eq ptr %1247, null
@@ -12210,7 +12210,7 @@ _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8boolean
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit68.thread.i.i.i", !llvm.loop !254
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i63.i.i.i521: ; preds = %1276, %1256, %1266
-  %.sroa.06.1.i.i.i.i.i.i64.i.i.i522 = phi ptr [ %1267, %1266 ], [ %.sroa.06.0.i.i.i.i.i.i66.i.i.i529, %1256 ], [ %1282, %1276 ]
+  %.sroa.06.1.i.i.i.i.i.i64.i.i.i522 = phi ptr [ %.sroa.06.0.i.i.i.i.i.i66.i.i.i529, %1256 ], [ %1267, %1266 ], [ %1282, %1276 ]
   %1287 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i.i.i64.i.i.i522, i64 16
   %1288 = load ptr, ptr %1287, align 8, !tbaa !216, !noalias !584
   %1289 = icmp eq ptr %1288, null
@@ -12319,7 +12319,7 @@ _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8boolean
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit83.thread.i.i.i", !llvm.loop !254
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i78.i.i.i471: ; preds = %1321, %1301, %1311
-  %.sroa.06.1.i.i.i.i.i.i79.i.i.i472 = phi ptr [ %1312, %1311 ], [ %.sroa.06.0.i.i.i.i.i.i81.i.i.i475, %1301 ], [ %1327, %1321 ]
+  %.sroa.06.1.i.i.i.i.i.i79.i.i.i472 = phi ptr [ %.sroa.06.0.i.i.i.i.i.i81.i.i.i475, %1301 ], [ %1312, %1311 ], [ %1327, %1321 ]
   %1332 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i.i.i79.i.i.i472, i64 16
   %1333 = load ptr, ptr %1332, align 8, !tbaa !216, !noalias !591
   %1334 = icmp eq ptr %1333, null
@@ -12411,7 +12411,7 @@ _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8boolean
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit98.thread.i.i.i", !llvm.loop !254
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i93.i.i.i457: ; preds = %1362, %1342, %1352
-  %.sroa.06.1.i.i.i.i.i.i94.i.i.i458 = phi ptr [ %1353, %1352 ], [ %.sroa.06.0.i.i.i.i.i.i96.i.i.i461, %1342 ], [ %1368, %1362 ]
+  %.sroa.06.1.i.i.i.i.i.i94.i.i.i458 = phi ptr [ %.sroa.06.0.i.i.i.i.i.i96.i.i.i461, %1342 ], [ %1353, %1352 ], [ %1368, %1362 ]
   %1373 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i.i.i94.i.i.i458, i64 16
   %1374 = load ptr, ptr %1373, align 8, !tbaa !216, !noalias !597
   %1375 = icmp eq ptr %1374, null
@@ -12503,7 +12503,7 @@ _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8boolean
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_2EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit113.thread.i.i.i", !llvm.loop !254
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i108.i.i.i441: ; preds = %1403, %1383, %1393
-  %.sroa.06.1.i.i.i.i.i.i109.i.i.i442 = phi ptr [ %1394, %1393 ], [ %.sroa.06.0.i.i.i.i.i.i111.i.i.i446, %1383 ], [ %1409, %1403 ]
+  %.sroa.06.1.i.i.i.i.i.i109.i.i.i442 = phi ptr [ %.sroa.06.0.i.i.i.i.i.i111.i.i.i446, %1383 ], [ %1394, %1393 ], [ %1409, %1403 ]
   %1414 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i.i.i109.i.i.i442, i64 16
   %1415 = load ptr, ptr %1414, align 8, !tbaa !216, !noalias !603
   %1416 = icmp eq ptr %1415, null
@@ -12689,7 +12689,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i552: ; preds = %1448, %
   br label %_ZNSt12__shared_ptrIN4cvc58internal9ProofNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !llvm.loop !254
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i563: ; preds = %1479, %1458, %1469
-  %.sroa.06.1.i.i.i.i564 = phi ptr [ %1470, %1469 ], [ %.sroa.06.0.i.i.i.i566, %1458 ], [ %1485, %1479 ]
+  %.sroa.06.1.i.i.i.i564 = phi ptr [ %.sroa.06.0.i.i.i.i566, %1458 ], [ %1470, %1469 ], [ %1485, %1479 ]
   %1490 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i564, i64 16
   %1491 = load ptr, ptr %1490, align 8, !tbaa !216, !noalias !606
   %1492 = icmp eq ptr %1491, null
@@ -12786,7 +12786,7 @@ _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8boolean
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit.thread.i.i.i", !llvm.loop !254
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i.i.i.i630: ; preds = %1530, %1510, %1520
-  %.sroa.06.1.i.i.i.i.i.i.i.i.i631 = phi ptr [ %1521, %1520 ], [ %.sroa.06.0.i.i.i.i.i.i.i.i.i683, %1510 ], [ %1536, %1530 ]
+  %.sroa.06.1.i.i.i.i.i.i.i.i.i631 = phi ptr [ %.sroa.06.0.i.i.i.i.i.i.i.i.i683, %1510 ], [ %1521, %1520 ], [ %1536, %1530 ]
   %1541 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i.i.i.i.i.i631, i64 16
   %1542 = load ptr, ptr %1541, align 8, !tbaa !216, !noalias !612
   %1543 = icmp eq ptr %1542, null
@@ -12874,7 +12874,7 @@ _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8boolean
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit38.thread.i.i.i", !llvm.loop !254
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i33.i.i.i641: ; preds = %1570, %1550, %1560
-  %.sroa.06.1.i.i.i.i.i.i34.i.i.i642 = phi ptr [ %1561, %1560 ], [ %.sroa.06.0.i.i.i.i.i.i36.i.i.i679, %1550 ], [ %1576, %1570 ]
+  %.sroa.06.1.i.i.i.i.i.i34.i.i.i642 = phi ptr [ %.sroa.06.0.i.i.i.i.i.i36.i.i.i679, %1550 ], [ %1561, %1560 ], [ %1576, %1570 ]
   %1581 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i.i.i34.i.i.i642, i64 16
   %1582 = load ptr, ptr %1581, align 8, !tbaa !216, !noalias !618
   %1583 = icmp eq ptr %1582, null
@@ -12963,7 +12963,7 @@ _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8boolean
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit53.thread.i.i.i", !llvm.loop !254
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i48.i.i.i652: ; preds = %1611, %1591, %1601
-  %.sroa.06.1.i.i.i.i.i.i49.i.i.i653 = phi ptr [ %1602, %1601 ], [ %.sroa.06.0.i.i.i.i.i.i51.i.i.i675, %1591 ], [ %1617, %1611 ]
+  %.sroa.06.1.i.i.i.i.i.i49.i.i.i653 = phi ptr [ %.sroa.06.0.i.i.i.i.i.i51.i.i.i675, %1591 ], [ %1602, %1601 ], [ %1617, %1611 ]
   %1622 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i.i.i49.i.i.i653, i64 16
   %1623 = load ptr, ptr %1622, align 8, !tbaa !216, !noalias !624
   %1624 = icmp eq ptr %1623, null
@@ -13052,7 +13052,7 @@ _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8boolean
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit68.thread.i.i.i", !llvm.loop !254
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i63.i.i.i663: ; preds = %1652, %1632, %1642
-  %.sroa.06.1.i.i.i.i.i.i64.i.i.i664 = phi ptr [ %1643, %1642 ], [ %.sroa.06.0.i.i.i.i.i.i66.i.i.i671, %1632 ], [ %1658, %1652 ]
+  %.sroa.06.1.i.i.i.i.i.i64.i.i.i664 = phi ptr [ %.sroa.06.0.i.i.i.i.i.i66.i.i.i671, %1632 ], [ %1643, %1642 ], [ %1658, %1652 ]
   %1663 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i.i.i64.i.i.i664, i64 16
   %1664 = load ptr, ptr %1663, align 8, !tbaa !216, !noalias !630
   %1665 = icmp eq ptr %1664, null
@@ -13161,7 +13161,7 @@ _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8boolean
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit83.thread.i.i.i", !llvm.loop !254
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i78.i.i.i613: ; preds = %1697, %1677, %1687
-  %.sroa.06.1.i.i.i.i.i.i79.i.i.i614 = phi ptr [ %1688, %1687 ], [ %.sroa.06.0.i.i.i.i.i.i81.i.i.i617, %1677 ], [ %1703, %1697 ]
+  %.sroa.06.1.i.i.i.i.i.i79.i.i.i614 = phi ptr [ %.sroa.06.0.i.i.i.i.i.i81.i.i.i617, %1677 ], [ %1688, %1687 ], [ %1703, %1697 ]
   %1708 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i.i.i79.i.i.i614, i64 16
   %1709 = load ptr, ptr %1708, align 8, !tbaa !216, !noalias !637
   %1710 = icmp eq ptr %1709, null
@@ -13253,7 +13253,7 @@ _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8boolean
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit98.thread.i.i.i", !llvm.loop !254
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i93.i.i.i599: ; preds = %1738, %1718, %1728
-  %.sroa.06.1.i.i.i.i.i.i94.i.i.i600 = phi ptr [ %1729, %1728 ], [ %.sroa.06.0.i.i.i.i.i.i96.i.i.i603, %1718 ], [ %1744, %1738 ]
+  %.sroa.06.1.i.i.i.i.i.i94.i.i.i600 = phi ptr [ %.sroa.06.0.i.i.i.i.i.i96.i.i.i603, %1718 ], [ %1729, %1728 ], [ %1744, %1738 ]
   %1749 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i.i.i94.i.i.i600, i64 16
   %1750 = load ptr, ptr %1749, align 8, !tbaa !216, !noalias !643
   %1751 = icmp eq ptr %1750, null
@@ -13345,7 +13345,7 @@ _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8boolean
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator16propagateForwardENS3_12NodeTemplateILb0EEEbE3$_3EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit113.thread.i.i.i", !llvm.loop !254
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i108.i.i.i583: ; preds = %1779, %1759, %1769
-  %.sroa.06.1.i.i.i.i.i.i109.i.i.i584 = phi ptr [ %1770, %1769 ], [ %.sroa.06.0.i.i.i.i.i.i111.i.i.i588, %1759 ], [ %1785, %1779 ]
+  %.sroa.06.1.i.i.i.i.i.i109.i.i.i584 = phi ptr [ %.sroa.06.0.i.i.i.i.i.i111.i.i.i588, %1759 ], [ %1770, %1769 ], [ %1785, %1779 ]
   %1790 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i.i.i109.i.i.i584, i64 16
   %1791 = load ptr, ptr %1790, align 8, !tbaa !216, !noalias !649
   %1792 = icmp eq ptr %1791, null
@@ -13768,7 +13768,7 @@ _ZNSt12__shared_ptrIN4cvc58internal9ProofNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev
   br label %_ZNSt12__shared_ptrIN4cvc58internal9ProofNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit756, !llvm.loop !254
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i722: ; preds = %1970, %1949, %1960
-  %.sroa.06.1.i.i.i.i723 = phi ptr [ %1961, %1960 ], [ %.sroa.06.0.i.i.i.i726, %1949 ], [ %1976, %1970 ]
+  %.sroa.06.1.i.i.i.i723 = phi ptr [ %.sroa.06.0.i.i.i.i726, %1949 ], [ %1961, %1960 ], [ %1976, %1970 ]
   %1981 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i723, i64 16
   %1982 = load ptr, ptr %1981, align 8, !tbaa !216, !noalias !661
   %.not.i724 = icmp eq ptr %1982, null
@@ -13846,7 +13846,7 @@ _ZNK4cvc58internal6theory8booleans17CircuitPropagator10isAssignedENS0_12NodeTemp
   br i1 %2024, label %.loopexit1660, label %.lr.ph.i.i.i.i.i.i733, !llvm.loop !254
 
 .loopexit1660:                                    ; preds = %.lr.ph.i.i.i.i.i.i733, %.preheader2275, %.noexc739
-  %.sroa.06.1.i.i.i.i736 = phi ptr [ %2007, %.noexc739 ], [ %.sroa.06.0.i.i.i.i738, %.preheader2275 ], [ %2016, %.lr.ph.i.i.i.i.i.i733 ]
+  %.sroa.06.1.i.i.i.i736 = phi ptr [ %.sroa.06.0.i.i.i.i738, %.preheader2275 ], [ %2007, %.noexc739 ], [ %2016, %.lr.ph.i.i.i.i.i.i733 ]
   %2025 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i736, i64 16
   %2026 = load ptr, ptr %2025, align 8, !tbaa !216, !noalias !667
   %2027 = getelementptr inbounds nuw i8, ptr %2026, i64 48
@@ -13916,7 +13916,7 @@ _ZNK4cvc58internal6theory8booleans17CircuitPropagator10isAssignedENS0_12NodeTemp
   br i1 %2068, label %.loopexit1658, label %.lr.ph.i.i.i.i.i.i744, !llvm.loop !254
 
 .loopexit1658:                                    ; preds = %.lr.ph.i.i.i.i.i.i744, %.preheader2273, %.noexc750
-  %.sroa.06.1.i.i.i.i747 = phi ptr [ %2051, %.noexc750 ], [ %.sroa.06.0.i.i.i.i749, %.preheader2273 ], [ %2060, %.lr.ph.i.i.i.i.i.i744 ]
+  %.sroa.06.1.i.i.i.i747 = phi ptr [ %.sroa.06.0.i.i.i.i749, %.preheader2273 ], [ %2051, %.noexc750 ], [ %2060, %.lr.ph.i.i.i.i.i.i744 ]
   %2069 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i747, i64 16
   %2070 = load ptr, ptr %2069, align 8, !tbaa !216, !noalias !673
   %2071 = getelementptr inbounds nuw i8, ptr %2070, i64 48
@@ -14091,7 +14091,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i754: ; preds = %2094, %
   br label %_ZNSt12__shared_ptrIN4cvc58internal9ProofNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit756, !llvm.loop !254
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i767: ; preds = %2143, %2122, %2133
-  %.sroa.06.1.i.i.i.i768 = phi ptr [ %2134, %2133 ], [ %.sroa.06.0.i.i.i.i771, %2122 ], [ %2149, %2143 ]
+  %.sroa.06.1.i.i.i.i768 = phi ptr [ %.sroa.06.0.i.i.i.i771, %2122 ], [ %2134, %2133 ], [ %2149, %2143 ]
   %2154 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i768, i64 16
   %2155 = load ptr, ptr %2154, align 8, !tbaa !216, !noalias !679
   %.not.i769 = icmp eq ptr %2155, null
@@ -14169,7 +14169,7 @@ _ZNK4cvc58internal6theory8booleans17CircuitPropagator10isAssignedENS0_12NodeTemp
   br i1 %2197, label %.loopexit1666, label %.lr.ph.i.i.i.i.i.i779, !llvm.loop !254
 
 .loopexit1666:                                    ; preds = %.lr.ph.i.i.i.i.i.i779, %.preheader2282, %.noexc785
-  %.sroa.06.1.i.i.i.i782 = phi ptr [ %2180, %.noexc785 ], [ %.sroa.06.0.i.i.i.i784, %.preheader2282 ], [ %2189, %.lr.ph.i.i.i.i.i.i779 ]
+  %.sroa.06.1.i.i.i.i782 = phi ptr [ %.sroa.06.0.i.i.i.i784, %.preheader2282 ], [ %2180, %.noexc785 ], [ %2189, %.lr.ph.i.i.i.i.i.i779 ]
   %2198 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i782, i64 16
   %2199 = load ptr, ptr %2198, align 8, !tbaa !216, !noalias !685
   %2200 = getelementptr inbounds nuw i8, ptr %2199, i64 48
@@ -14239,7 +14239,7 @@ _ZNK4cvc58internal6theory8booleans17CircuitPropagator10isAssignedENS0_12NodeTemp
   br i1 %2241, label %.loopexit1664, label %.lr.ph.i.i.i.i.i.i791, !llvm.loop !254
 
 .loopexit1664:                                    ; preds = %.lr.ph.i.i.i.i.i.i791, %.preheader2280, %.noexc797
-  %.sroa.06.1.i.i.i.i794 = phi ptr [ %2224, %.noexc797 ], [ %.sroa.06.0.i.i.i.i796, %.preheader2280 ], [ %2233, %.lr.ph.i.i.i.i.i.i791 ]
+  %.sroa.06.1.i.i.i.i794 = phi ptr [ %.sroa.06.0.i.i.i.i796, %.preheader2280 ], [ %2224, %.noexc797 ], [ %2233, %.lr.ph.i.i.i.i.i.i791 ]
   %2242 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i794, i64 16
   %2243 = load ptr, ptr %2242, align 8, !tbaa !216, !noalias !691
   %2244 = getelementptr inbounds nuw i8, ptr %2243, i64 48
@@ -14427,7 +14427,7 @@ _ZNSt12__shared_ptrIN4cvc58internal9ProofNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev
   br label %_ZNSt12__shared_ptrIN4cvc58internal9ProofNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit829, !llvm.loop !254
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i818: ; preds = %2327, %2306, %2317
-  %.sroa.06.1.i.i.i.i819 = phi ptr [ %2318, %2317 ], [ %.sroa.06.0.i.i.i.i821, %2306 ], [ %2333, %2327 ]
+  %.sroa.06.1.i.i.i.i819 = phi ptr [ %.sroa.06.0.i.i.i.i821, %2306 ], [ %2318, %2317 ], [ %2333, %2327 ]
   %2338 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i819, i64 16
   %2339 = load ptr, ptr %2338, align 8, !tbaa !216, !noalias !700
   %2340 = icmp eq ptr %2339, null
@@ -14618,7 +14618,7 @@ _ZNSt12__shared_ptrIN4cvc58internal9ProofNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev
   br label %_ZNSt12__shared_ptrIN4cvc58internal9ProofNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !llvm.loop !254
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i844: ; preds = %2423, %2402, %2413
-  %.sroa.06.1.i.i.i.i845 = phi ptr [ %2414, %2413 ], [ %.sroa.06.0.i.i.i.i847, %2402 ], [ %2429, %2423 ]
+  %.sroa.06.1.i.i.i.i845 = phi ptr [ %.sroa.06.0.i.i.i.i847, %2402 ], [ %2414, %2413 ], [ %2429, %2423 ]
   %2434 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i845, i64 16
   %2435 = load ptr, ptr %2434, align 8, !tbaa !216, !noalias !709
   %2436 = icmp eq ptr %2435, null
@@ -14787,7 +14787,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i853: ; preds = %2461, %
   br label %.thread, !llvm.loop !254
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i866: ; preds = %2503, %2482, %2493
-  %.sroa.06.1.i.i.i.i867 = phi ptr [ %2494, %2493 ], [ %.sroa.06.0.i.i.i.i870, %2482 ], [ %2509, %2503 ]
+  %.sroa.06.1.i.i.i.i867 = phi ptr [ %.sroa.06.0.i.i.i.i870, %2482 ], [ %2494, %2493 ], [ %2509, %2503 ]
   %2514 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i867, i64 16
   %2515 = load ptr, ptr %2514, align 8, !tbaa !216, !noalias !715
   %.not.i868 = icmp eq ptr %2515, null
@@ -14968,7 +14968,7 @@ _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8boolean
   br i1 %2611, label %.loopexit1684, label %.lr.ph.i.i.i.i.i.i896, !llvm.loop !254
 
 .loopexit1684:                                    ; preds = %.lr.ph.i.i.i.i.i.i896, %.preheader2302, %.noexc902
-  %.sroa.06.1.i.i.i.i899 = phi ptr [ %2594, %.noexc902 ], [ %.sroa.06.0.i.i.i.i901, %.preheader2302 ], [ %2603, %.lr.ph.i.i.i.i.i.i896 ]
+  %.sroa.06.1.i.i.i.i899 = phi ptr [ %.sroa.06.0.i.i.i.i901, %.preheader2302 ], [ %2594, %.noexc902 ], [ %2603, %.lr.ph.i.i.i.i.i.i896 ]
   %2612 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i899, i64 16
   %2613 = load ptr, ptr %2612, align 8, !tbaa !216, !noalias !727
   %2614 = getelementptr inbounds nuw i8, ptr %2613, i64 48
@@ -15038,7 +15038,7 @@ _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8boolean
   br i1 %2655, label %.loopexit1682, label %.lr.ph.i.i.i.i.i.i908, !llvm.loop !254
 
 .loopexit1682:                                    ; preds = %.lr.ph.i.i.i.i.i.i908, %.preheader2300, %.noexc914
-  %.sroa.06.1.i.i.i.i911 = phi ptr [ %2638, %.noexc914 ], [ %.sroa.06.0.i.i.i.i913, %.preheader2300 ], [ %2647, %.lr.ph.i.i.i.i.i.i908 ]
+  %.sroa.06.1.i.i.i.i911 = phi ptr [ %.sroa.06.0.i.i.i.i913, %.preheader2300 ], [ %2638, %.noexc914 ], [ %2647, %.lr.ph.i.i.i.i.i.i908 ]
   %2656 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i911, i64 16
   %2657 = load ptr, ptr %2656, align 8, !tbaa !216, !noalias !733
   %2658 = getelementptr inbounds nuw i8, ptr %2657, i64 48
@@ -15109,7 +15109,7 @@ _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8boolean
   br i1 %2701, label %.loopexit1680, label %.lr.ph.i.i.i.i.i.i920, !llvm.loop !254
 
 .loopexit1680:                                    ; preds = %.lr.ph.i.i.i.i.i.i920, %.preheader2298, %.noexc926
-  %.sroa.06.1.i.i.i.i923 = phi ptr [ %2684, %.noexc926 ], [ %.sroa.06.0.i.i.i.i925, %.preheader2298 ], [ %2693, %.lr.ph.i.i.i.i.i.i920 ]
+  %.sroa.06.1.i.i.i.i923 = phi ptr [ %.sroa.06.0.i.i.i.i925, %.preheader2298 ], [ %2684, %.noexc926 ], [ %2693, %.lr.ph.i.i.i.i.i.i920 ]
   %2702 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i923, i64 16
   %2703 = load ptr, ptr %2702, align 8, !tbaa !216, !noalias !739
   %2704 = getelementptr inbounds nuw i8, ptr %2703, i64 48
@@ -15179,7 +15179,7 @@ _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8boolean
   br i1 %2745, label %.loopexit1678, label %.lr.ph.i.i.i.i.i.i932, !llvm.loop !254
 
 .loopexit1678:                                    ; preds = %.lr.ph.i.i.i.i.i.i932, %.preheader2296, %.noexc938
-  %.sroa.06.1.i.i.i.i935 = phi ptr [ %2728, %.noexc938 ], [ %.sroa.06.0.i.i.i.i937, %.preheader2296 ], [ %2737, %.lr.ph.i.i.i.i.i.i932 ]
+  %.sroa.06.1.i.i.i.i935 = phi ptr [ %.sroa.06.0.i.i.i.i937, %.preheader2296 ], [ %2728, %.noexc938 ], [ %2737, %.lr.ph.i.i.i.i.i.i932 ]
   %2746 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i935, i64 16
   %2747 = load ptr, ptr %2746, align 8, !tbaa !216, !noalias !745
   %2748 = getelementptr inbounds nuw i8, ptr %2747, i64 48
@@ -15350,7 +15350,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i942: ; preds = %2771, %
   br label %_ZNSt12__shared_ptrIN4cvc58internal9ProofNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !llvm.loop !254
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i952: ; preds = %2813, %2792, %2803
-  %.sroa.06.1.i.i.i.i953 = phi ptr [ %2804, %2803 ], [ %.sroa.06.0.i.i.i.i956, %2792 ], [ %2819, %2813 ]
+  %.sroa.06.1.i.i.i.i953 = phi ptr [ %.sroa.06.0.i.i.i.i956, %2792 ], [ %2804, %2803 ], [ %2819, %2813 ]
   %2824 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i953, i64 16
   %2825 = load ptr, ptr %2824, align 8, !tbaa !216, !noalias !748
   %.not.i954 = icmp eq ptr %2825, null
@@ -15431,7 +15431,7 @@ _ZNK4cvc58internal6theory8booleans17CircuitPropagator10isAssignedENS0_12NodeTemp
   br i1 %2871, label %.loopexit1671, label %.lr.ph.i.i.i.i.i.i964, !llvm.loop !254
 
 .loopexit1671:                                    ; preds = %.lr.ph.i.i.i.i.i.i964, %.preheader2288, %.noexc970
-  %.sroa.06.1.i.i.i.i967 = phi ptr [ %2854, %.noexc970 ], [ %.sroa.06.0.i.i.i.i969, %.preheader2288 ], [ %2863, %.lr.ph.i.i.i.i.i.i964 ]
+  %.sroa.06.1.i.i.i.i967 = phi ptr [ %.sroa.06.0.i.i.i.i969, %.preheader2288 ], [ %2854, %.noexc970 ], [ %2863, %.lr.ph.i.i.i.i.i.i964 ]
   %2872 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i967, i64 16
   %2873 = load ptr, ptr %2872, align 8, !tbaa !216, !noalias !754
   %2874 = getelementptr inbounds nuw i8, ptr %2873, i64 48
@@ -15801,7 +15801,7 @@ _ZNSt12__shared_ptrIN4cvc58internal9ProofNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev
   br i1 %3052, label %.loopexit1673, label %.lr.ph.i.i.i.i.i.i997, !llvm.loop !254
 
 .loopexit1673:                                    ; preds = %.lr.ph.i.i.i.i.i.i997, %.preheader2290, %.noexc1003
-  %.sroa.06.1.i.i.i.i1000 = phi ptr [ %3035, %.noexc1003 ], [ %.sroa.06.0.i.i.i.i1002, %.preheader2290 ], [ %3044, %.lr.ph.i.i.i.i.i.i997 ]
+  %.sroa.06.1.i.i.i.i1000 = phi ptr [ %.sroa.06.0.i.i.i.i1002, %.preheader2290 ], [ %3035, %.noexc1003 ], [ %3044, %.lr.ph.i.i.i.i.i.i997 ]
   %3053 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i1000, i64 16
   %3054 = load ptr, ptr %3053, align 8, !tbaa !216, !noalias !763
   %3055 = getelementptr inbounds nuw i8, ptr %3054, i64 48
@@ -16188,7 +16188,7 @@ _ZNSt12__shared_ptrIN4cvc58internal9ProofNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev
   br label %.thread1516, !llvm.loop !254
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i1039: ; preds = %3232, %3211, %3222
-  %.sroa.06.1.i.i.i.i1040 = phi ptr [ %3223, %3222 ], [ %.sroa.06.0.i.i.i.i1043, %3211 ], [ %3238, %3232 ]
+  %.sroa.06.1.i.i.i.i1040 = phi ptr [ %.sroa.06.0.i.i.i.i1043, %3211 ], [ %3223, %3222 ], [ %3238, %3232 ]
   %3243 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i1040, i64 16
   %3244 = load ptr, ptr %3243, align 8, !tbaa !216, !noalias !775
   %.not.i1041 = icmp eq ptr %3244, null
@@ -16369,7 +16369,7 @@ _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8boolean
   br i1 %3340, label %.loopexit1701, label %.lr.ph.i.i.i.i.i.i1069, !llvm.loop !254
 
 .loopexit1701:                                    ; preds = %.lr.ph.i.i.i.i.i.i1069, %.preheader2324, %.noexc1075
-  %.sroa.06.1.i.i.i.i1072 = phi ptr [ %3323, %.noexc1075 ], [ %.sroa.06.0.i.i.i.i1074, %.preheader2324 ], [ %3332, %.lr.ph.i.i.i.i.i.i1069 ]
+  %.sroa.06.1.i.i.i.i1072 = phi ptr [ %.sroa.06.0.i.i.i.i1074, %.preheader2324 ], [ %3323, %.noexc1075 ], [ %3332, %.lr.ph.i.i.i.i.i.i1069 ]
   %3341 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i1072, i64 16
   %3342 = load ptr, ptr %3341, align 8, !tbaa !216, !noalias !787
   %3343 = getelementptr inbounds nuw i8, ptr %3342, i64 48
@@ -16447,7 +16447,7 @@ _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8boolean
   br i1 %3386, label %_ZNK4cvc58internal6theory8booleans17CircuitPropagator13getAssignmentENS0_12NodeTemplateILb0EEE.exit1088, label %.lr.ph.i.i.i.i.i.i1081, !llvm.loop !254
 
 _ZNK4cvc58internal6theory8booleans17CircuitPropagator13getAssignmentENS0_12NodeTemplateILb0EEE.exit1088: ; preds = %.lr.ph.i.i.i.i.i.i1081, %.preheader2322, %.noexc1087
-  %.sroa.06.1.i.i.i.i1084 = phi ptr [ %3369, %.noexc1087 ], [ %.sroa.06.0.i.i.i.i1086, %.preheader2322 ], [ %3378, %.lr.ph.i.i.i.i.i.i1081 ]
+  %.sroa.06.1.i.i.i.i1084 = phi ptr [ %.sroa.06.0.i.i.i.i1086, %.preheader2322 ], [ %3369, %.noexc1087 ], [ %3378, %.lr.ph.i.i.i.i.i.i1081 ]
   %3387 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i1084, i64 16
   %3388 = load ptr, ptr %3387, align 8, !tbaa !216, !noalias !793
   %3389 = getelementptr inbounds nuw i8, ptr %3388, i64 48
@@ -16521,7 +16521,7 @@ _ZNK4cvc58internal6theory8booleans17CircuitPropagator13getAssignmentENS0_12NodeT
   br i1 %3433, label %.loopexit1698, label %.lr.ph.i.i.i.i.i.i1093, !llvm.loop !254
 
 .loopexit1698:                                    ; preds = %.lr.ph.i.i.i.i.i.i1093, %.preheader2320, %.noexc1099
-  %.sroa.06.1.i.i.i.i1096 = phi ptr [ %3416, %.noexc1099 ], [ %.sroa.06.0.i.i.i.i1098, %.preheader2320 ], [ %3425, %.lr.ph.i.i.i.i.i.i1093 ]
+  %.sroa.06.1.i.i.i.i1096 = phi ptr [ %.sroa.06.0.i.i.i.i1098, %.preheader2320 ], [ %3416, %.noexc1099 ], [ %3425, %.lr.ph.i.i.i.i.i.i1093 ]
   %3434 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i1096, i64 16
   %3435 = load ptr, ptr %3434, align 8, !tbaa !216, !noalias !799
   %3436 = getelementptr inbounds nuw i8, ptr %3435, i64 48
@@ -16591,7 +16591,7 @@ _ZNK4cvc58internal6theory8booleans17CircuitPropagator13getAssignmentENS0_12NodeT
   br i1 %3477, label %.loopexit1696, label %.lr.ph.i.i.i.i.i.i1105, !llvm.loop !254
 
 .loopexit1696:                                    ; preds = %.lr.ph.i.i.i.i.i.i1105, %.preheader2318, %.noexc1111
-  %.sroa.06.1.i.i.i.i1108 = phi ptr [ %3460, %.noexc1111 ], [ %.sroa.06.0.i.i.i.i1110, %.preheader2318 ], [ %3469, %.lr.ph.i.i.i.i.i.i1105 ]
+  %.sroa.06.1.i.i.i.i1108 = phi ptr [ %.sroa.06.0.i.i.i.i1110, %.preheader2318 ], [ %3460, %.noexc1111 ], [ %3469, %.lr.ph.i.i.i.i.i.i1105 ]
   %3478 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i1108, i64 16
   %3479 = load ptr, ptr %3478, align 8, !tbaa !216, !noalias !805
   %3480 = getelementptr inbounds nuw i8, ptr %3479, i64 48
@@ -16781,7 +16781,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i1115: ; preds = %3503, 
   br label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1147, !llvm.loop !254
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i1129: ; preds = %3559, %3538, %3549
-  %.sroa.06.1.i.i.i.i1130 = phi ptr [ %3550, %3549 ], [ %.sroa.06.0.i.i.i.i1132, %3538 ], [ %3565, %3559 ]
+  %.sroa.06.1.i.i.i.i1130 = phi ptr [ %.sroa.06.0.i.i.i.i1132, %3538 ], [ %3550, %3549 ], [ %3565, %3559 ]
   %3570 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i1130, i64 16
   %3571 = load ptr, ptr %3570, align 8, !tbaa !216, !noalias !811
   %3572 = icmp eq ptr %3571, null
@@ -17038,7 +17038,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1147: ; preds = %.lr.ph.i.i.i.i.i.
   br label %_ZNSt12__shared_ptrIN4cvc58internal9ProofNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !llvm.loop !254
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i1159: ; preds = %3685, %3664, %3675
-  %.sroa.06.1.i.i.i.i1160 = phi ptr [ %3676, %3675 ], [ %.sroa.06.0.i.i.i.i1162, %3664 ], [ %3691, %3685 ]
+  %.sroa.06.1.i.i.i.i1160 = phi ptr [ %.sroa.06.0.i.i.i.i1162, %3664 ], [ %3676, %3675 ], [ %3691, %3685 ]
   %3696 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i1160, i64 16
   %3697 = load ptr, ptr %3696, align 8, !tbaa !216, !noalias !820
   %3698 = icmp eq ptr %3697, null
@@ -17276,7 +17276,7 @@ _ZNSt12__shared_ptrIN4cvc58internal9ProofNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev
   br label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1225, !llvm.loop !254
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i1185: ; preds = %3800, %3779, %3790
-  %.sroa.06.1.i.i.i.i1186 = phi ptr [ %3791, %3790 ], [ %.sroa.06.0.i.i.i.i1189, %3779 ], [ %3806, %3800 ]
+  %.sroa.06.1.i.i.i.i1186 = phi ptr [ %.sroa.06.0.i.i.i.i1189, %3779 ], [ %3791, %3790 ], [ %3806, %3800 ]
   %3811 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i1186, i64 16
   %3812 = load ptr, ptr %3811, align 8, !tbaa !216, !noalias !826
   %.not.i1187 = icmp eq ptr %3812, null
@@ -17373,7 +17373,7 @@ _ZNK4cvc58internal6theory8booleans17CircuitPropagator10isAssignedENS0_12NodeTemp
   br i1 %3869, label %.loopexit1724, label %.lr.ph.i.i.i.i.i.i1200, !llvm.loop !254
 
 .loopexit1724:                                    ; preds = %.lr.ph.i.i.i.i.i.i1200, %.preheader2351, %.noexc1206
-  %.sroa.06.1.i.i.i.i1203 = phi ptr [ %3852, %.noexc1206 ], [ %.sroa.06.0.i.i.i.i1205, %.preheader2351 ], [ %3861, %.lr.ph.i.i.i.i.i.i1200 ]
+  %.sroa.06.1.i.i.i.i1203 = phi ptr [ %.sroa.06.0.i.i.i.i1205, %.preheader2351 ], [ %3852, %.noexc1206 ], [ %3861, %.lr.ph.i.i.i.i.i.i1200 ]
   %3870 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i1203, i64 16
   %3871 = load ptr, ptr %3870, align 8, !tbaa !216, !noalias !835
   %3872 = getelementptr inbounds nuw i8, ptr %3871, i64 48
@@ -17430,7 +17430,7 @@ _ZNK4cvc58internal6theory8booleans17CircuitPropagator10isAssignedENS0_12NodeTemp
   br i1 %3904, label %.loopexit1722, label %.lr.ph.i.i.i.i.i.i1209, !llvm.loop !254
 
 .loopexit1722:                                    ; preds = %.lr.ph.i.i.i.i.i.i1209, %.preheader2349, %.noexc1215
-  %.sroa.06.1.i.i.i.i1212 = phi ptr [ %3887, %.noexc1215 ], [ %.sroa.06.0.i.i.i.i1214, %.preheader2349 ], [ %3896, %.lr.ph.i.i.i.i.i.i1209 ]
+  %.sroa.06.1.i.i.i.i1212 = phi ptr [ %.sroa.06.0.i.i.i.i1214, %.preheader2349 ], [ %3887, %.noexc1215 ], [ %3896, %.lr.ph.i.i.i.i.i.i1209 ]
   %3905 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i1212, i64 16
   %3906 = load ptr, ptr %3905, align 8, !tbaa !216, !noalias !838
   %3907 = getelementptr inbounds nuw i8, ptr %3906, i64 48
@@ -17649,7 +17649,7 @@ _ZNSt12__shared_ptrIN4cvc58internal9ProofNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev
   br i1 %4015, label %.loopexit1728, label %.lr.ph.i.i.i.i.i.i1230, !llvm.loop !254
 
 .loopexit1728:                                    ; preds = %.lr.ph.i.i.i.i.i.i1230, %.preheader2355, %.noexc1236
-  %.sroa.06.1.i.i.i.i1233 = phi ptr [ %3998, %.noexc1236 ], [ %.sroa.06.0.i.i.i.i1235, %.preheader2355 ], [ %4007, %.lr.ph.i.i.i.i.i.i1230 ]
+  %.sroa.06.1.i.i.i.i1233 = phi ptr [ %.sroa.06.0.i.i.i.i1235, %.preheader2355 ], [ %3998, %.noexc1236 ], [ %4007, %.lr.ph.i.i.i.i.i.i1230 ]
   %4016 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i1233, i64 16
   %4017 = load ptr, ptr %4016, align 8, !tbaa !216, !noalias !844
   %4018 = getelementptr inbounds nuw i8, ptr %4017, i64 48
@@ -17706,7 +17706,7 @@ _ZNSt12__shared_ptrIN4cvc58internal9ProofNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev
   br i1 %4050, label %.loopexit1726, label %.lr.ph.i.i.i.i.i.i1239, !llvm.loop !254
 
 .loopexit1726:                                    ; preds = %.lr.ph.i.i.i.i.i.i1239, %.preheader2353, %.noexc1245
-  %.sroa.06.1.i.i.i.i1242 = phi ptr [ %4033, %.noexc1245 ], [ %.sroa.06.0.i.i.i.i1244, %.preheader2353 ], [ %4042, %.lr.ph.i.i.i.i.i.i1239 ]
+  %.sroa.06.1.i.i.i.i1242 = phi ptr [ %.sroa.06.0.i.i.i.i1244, %.preheader2353 ], [ %4033, %.noexc1245 ], [ %4042, %.lr.ph.i.i.i.i.i.i1239 ]
   %4051 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i1242, i64 16
   %4052 = load ptr, ptr %4051, align 8, !tbaa !216, !noalias !847
   %4053 = getelementptr inbounds nuw i8, ptr %4052, i64 48
@@ -17932,7 +17932,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1225: ; preds = %.lr.ph.i.i.i.i.i.
   br label %_ZNSt12__shared_ptrIN4cvc58internal9ProofNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !llvm.loop !254
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i1266: ; preds = %4151, %4130, %4141
-  %.sroa.06.1.i.i.i.i1267 = phi ptr [ %4142, %4141 ], [ %.sroa.06.0.i.i.i.i1270, %4130 ], [ %4157, %4151 ]
+  %.sroa.06.1.i.i.i.i1267 = phi ptr [ %.sroa.06.0.i.i.i.i1270, %4130 ], [ %4142, %4141 ], [ %4157, %4151 ]
   %4162 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i1267, i64 16
   %4163 = load ptr, ptr %4162, align 8, !tbaa !216, !noalias !853
   %.not.i1268 = icmp eq ptr %4163, null
@@ -18113,7 +18113,7 @@ _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8boolean
   br i1 %4259, label %.loopexit1714, label %.lr.ph.i.i.i.i.i.i1296, !llvm.loop !254
 
 .loopexit1714:                                    ; preds = %.lr.ph.i.i.i.i.i.i1296, %.preheader2339, %.noexc1302
-  %.sroa.06.1.i.i.i.i1299 = phi ptr [ %4242, %.noexc1302 ], [ %.sroa.06.0.i.i.i.i1301, %.preheader2339 ], [ %4251, %.lr.ph.i.i.i.i.i.i1296 ]
+  %.sroa.06.1.i.i.i.i1299 = phi ptr [ %.sroa.06.0.i.i.i.i1301, %.preheader2339 ], [ %4242, %.noexc1302 ], [ %4251, %.lr.ph.i.i.i.i.i.i1296 ]
   %4260 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i1299, i64 16
   %4261 = load ptr, ptr %4260, align 8, !tbaa !216, !noalias !865
   %4262 = getelementptr inbounds nuw i8, ptr %4261, i64 48
@@ -18183,7 +18183,7 @@ _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8boolean
   br i1 %4303, label %.loopexit1712, label %.lr.ph.i.i.i.i.i.i1308, !llvm.loop !254
 
 .loopexit1712:                                    ; preds = %.lr.ph.i.i.i.i.i.i1308, %.preheader2337, %.noexc1314
-  %.sroa.06.1.i.i.i.i1311 = phi ptr [ %4286, %.noexc1314 ], [ %.sroa.06.0.i.i.i.i1313, %.preheader2337 ], [ %4295, %.lr.ph.i.i.i.i.i.i1308 ]
+  %.sroa.06.1.i.i.i.i1311 = phi ptr [ %.sroa.06.0.i.i.i.i1313, %.preheader2337 ], [ %4286, %.noexc1314 ], [ %4295, %.lr.ph.i.i.i.i.i.i1308 ]
   %4304 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i1311, i64 16
   %4305 = load ptr, ptr %4304, align 8, !tbaa !216, !noalias !871
   %4306 = getelementptr inbounds nuw i8, ptr %4305, i64 48
@@ -18254,7 +18254,7 @@ _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8boolean
   br i1 %4349, label %.loopexit1710, label %.lr.ph.i.i.i.i.i.i1320, !llvm.loop !254
 
 .loopexit1710:                                    ; preds = %.lr.ph.i.i.i.i.i.i1320, %.preheader2335, %.noexc1326
-  %.sroa.06.1.i.i.i.i1323 = phi ptr [ %4332, %.noexc1326 ], [ %.sroa.06.0.i.i.i.i1325, %.preheader2335 ], [ %4341, %.lr.ph.i.i.i.i.i.i1320 ]
+  %.sroa.06.1.i.i.i.i1323 = phi ptr [ %.sroa.06.0.i.i.i.i1325, %.preheader2335 ], [ %4332, %.noexc1326 ], [ %4341, %.lr.ph.i.i.i.i.i.i1320 ]
   %4350 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i1323, i64 16
   %4351 = load ptr, ptr %4350, align 8, !tbaa !216, !noalias !877
   %4352 = getelementptr inbounds nuw i8, ptr %4351, i64 48
@@ -18324,7 +18324,7 @@ _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8boolean
   br i1 %4393, label %.loopexit1708, label %.lr.ph.i.i.i.i.i.i1332, !llvm.loop !254
 
 .loopexit1708:                                    ; preds = %.lr.ph.i.i.i.i.i.i1332, %.preheader2333, %.noexc1338
-  %.sroa.06.1.i.i.i.i1335 = phi ptr [ %4376, %.noexc1338 ], [ %.sroa.06.0.i.i.i.i1337, %.preheader2333 ], [ %4385, %.lr.ph.i.i.i.i.i.i1332 ]
+  %.sroa.06.1.i.i.i.i1335 = phi ptr [ %.sroa.06.0.i.i.i.i1337, %.preheader2333 ], [ %4376, %.noexc1338 ], [ %4385, %.lr.ph.i.i.i.i.i.i1332 ]
   %4394 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i1335, i64 16
   %4395 = load ptr, ptr %4394, align 8, !tbaa !216, !noalias !883
   %4396 = getelementptr inbounds nuw i8, ptr %4395, i64 48
@@ -18765,7 +18765,7 @@ _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit147: ; preds = %42
   br i1 %98, label %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit162, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !254
 
 _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit162: ; preds = %.lr.ph.i.i.i.i.i.i, %.preheader, %.noexc148
-  %.sroa.06.1.i.i.i.i = phi ptr [ %81, %.noexc148 ], [ %.sroa.06.0.i.i.i.i, %.preheader ], [ %90, %.lr.ph.i.i.i.i.i.i ]
+  %.sroa.06.1.i.i.i.i = phi ptr [ %.sroa.06.0.i.i.i.i, %.preheader ], [ %81, %.noexc148 ], [ %90, %.lr.ph.i.i.i.i.i.i ]
   %99 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i, i64 16
   %100 = load ptr, ptr %99, align 8, !tbaa !216, !noalias !890
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 48
@@ -21125,7 +21125,7 @@ _ZNKSt10_HashtableIKN4cvc58internal12NodeTemplateILb1EEESt4pairIS4_KbESaIS7_ENSt
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph.i, %.lr.ph, %..loopexit_crit_edge21.i, %23, %5, %_ZNKSt10_HashtableIKN4cvc58internal12NodeTemplateILb1EEESt4pairIS4_KbESaIS7_ENSt8__detail10_Select1stESt8equal_toIS4_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_find_before_nodeEmRS4_m.exit
-  %.0 = phi i64 [ 1, %_ZNKSt10_HashtableIKN4cvc58internal12NodeTemplateILb1EEESt4pairIS4_KbESaIS7_ENSt8__detail10_Select1stESt8equal_toIS4_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_find_before_nodeEmRS4_m.exit ], [ 0, %5 ], [ 0, %23 ], [ 0, %..loopexit_crit_edge21.i ], [ 0, %.lr.ph ], [ 0, %.lr.ph.i ]
+  %.0 = phi i64 [ 1, %_ZNKSt10_HashtableIKN4cvc58internal12NodeTemplateILb1EEESt4pairIS4_KbESaIS7_ENSt8__detail10_Select1stESt8equal_toIS4_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_find_before_nodeEmRS4_m.exit ], [ 0, %.lr.ph ], [ 0, %5 ], [ 0, %23 ], [ 0, %..loopexit_crit_edge21.i ], [ 0, %.lr.ph.i ]
   ret i64 %.0
 }
 
@@ -22306,7 +22306,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIN4cvc58internal12NodeT
   br label %_ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS3_PNS0_7context11CDOhash_mapIS3_NS1_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS3_EEEESaISG_ENSt8__detail10_Select1stESt8equal_toIS3_ESD_NSI_18_Mod_range_hashingENSI_20_Default_ranged_hashENSI_20_Prime_rehash_policyENSI_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit29
 
 _ZNKSt10_HashtableIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS3_PNS0_7context11CDOhash_mapIS3_NS1_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS3_EEEESaISG_ENSt8__detail10_Select1stESt8equal_toIS3_ESD_NSI_18_Mod_range_hashingENSI_20_Default_ranged_hashENSI_20_Prime_rehash_policyENSI_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS5_m.exit: ; preds = %14, %38, %28
-  %.sroa.042.0.ph = phi ptr [ %29, %28 ], [ %44, %38 ], [ %.sroa.034.0, %14 ]
+  %.sroa.042.0.ph = phi ptr [ %44, %38 ], [ %29, %28 ], [ %.sroa.034.0, %14 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 32) #26
   br label %_ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS3_PNS0_7context11CDOhash_mapIS3_NS1_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS3_EEEESaISG_ENSt8__detail10_Select1stESt8equal_toIS3_ESD_NSI_18_Mod_range_hashingENSI_20_Default_ranged_hashENSI_20_Prime_rehash_policyENSI_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 
@@ -22841,7 +22841,7 @@ _ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS3_PNS0_7context1
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph.i, %.lr.ph, %..loopexit_crit_edge21.i, %23, %5, %_ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS3_PNS0_7context11CDOhash_mapIS3_NS1_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS3_EEEESaISG_ENSt8__detail10_Select1stESt8equal_toIS3_ESD_NSI_18_Mod_range_hashingENSI_20_Default_ranged_hashENSI_20_Prime_rehash_policyENSI_17_Hashtable_traitsILb1ELb0ELb1EEEE8_M_eraseEmPNSI_15_Hash_node_baseEPNSI_10_Hash_nodeISG_Lb1EEE.exit
-  %.0 = phi i64 [ 1, %_ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS3_PNS0_7context11CDOhash_mapIS3_NS1_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS3_EEEESaISG_ENSt8__detail10_Select1stESt8equal_toIS3_ESD_NSI_18_Mod_range_hashingENSI_20_Default_ranged_hashENSI_20_Prime_rehash_policyENSI_17_Hashtable_traitsILb1ELb0ELb1EEEE8_M_eraseEmPNSI_15_Hash_node_baseEPNSI_10_Hash_nodeISG_Lb1EEE.exit ], [ 0, %5 ], [ 0, %23 ], [ 0, %..loopexit_crit_edge21.i ], [ 0, %.lr.ph ], [ 0, %.lr.ph.i ]
+  %.0 = phi i64 [ 1, %_ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS3_PNS0_7context11CDOhash_mapIS3_NS1_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS3_EEEESaISG_ENSt8__detail10_Select1stESt8equal_toIS3_ESD_NSI_18_Mod_range_hashingENSI_20_Default_ranged_hashENSI_20_Prime_rehash_policyENSI_17_Hashtable_traitsILb1ELb0ELb1EEEE8_M_eraseEmPNSI_15_Hash_node_baseEPNSI_10_Hash_nodeISG_Lb1EEE.exit ], [ 0, %.lr.ph ], [ 0, %5 ], [ 0, %23 ], [ 0, %..loopexit_crit_edge21.i ], [ 0, %.lr.ph.i ]
   ret i64 %.0
 }
 
@@ -23030,7 +23030,7 @@ _ZN4cvc57context15CDInsertHashMapINS_8internal12NodeTemplateILb1EEEbSt4hashIS4_E
   br label %_ZNK4cvc57context15CDInsertHashMapINS_8internal12NodeTemplateILb1EEEbSt4hashIS4_EE8containsERKS4_.exit
 
 _ZNK4cvc57context15CDInsertHashMapINS_8internal12NodeTemplateILb1EEEbSt4hashIS4_EE8containsERKS4_.exit: ; preds = %35, %12, %25, %_ZN4cvc57context15CDInsertHashMapINS_8internal12NodeTemplateILb1EEEbSt4hashIS4_EE6insertERKS4_RKb.exit
-  %.0 = phi i1 [ true, %_ZN4cvc57context15CDInsertHashMapINS_8internal12NodeTemplateILb1EEEbSt4hashIS4_EE6insertERKS4_RKb.exit ], [ false, %25 ], [ false, %12 ], [ false, %35 ]
+  %.0 = phi i1 [ true, %_ZN4cvc57context15CDInsertHashMapINS_8internal12NodeTemplateILb1EEEbSt4hashIS4_EE6insertERKS4_RKb.exit ], [ false, %12 ], [ false, %25 ], [ false, %35 ]
   ret i1 %.0
 }
 
@@ -24612,7 +24612,7 @@ define internal fastcc ptr @"_ZSt7find_ifIN4cvc58internal4expr9NodeValue8iterato
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit.thread.i.i", !llvm.loop !254
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i.i.i: ; preds = %43, %23, %33
-  %.sroa.06.1.i.i.i.i.i.i.i.i = phi ptr [ %34, %33 ], [ %.sroa.06.0.i.i.i.i.i.i.i.i, %23 ], [ %49, %43 ]
+  %.sroa.06.1.i.i.i.i.i.i.i.i = phi ptr [ %.sroa.06.0.i.i.i.i.i.i.i.i, %23 ], [ %34, %33 ], [ %49, %43 ]
   %54 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i.i.i.i.i, i64 16
   %55 = load ptr, ptr %54, align 8, !tbaa !216, !noalias !977
   %56 = icmp eq ptr %55, null
@@ -24697,7 +24697,7 @@ _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8boolean
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit38.thread.i.i", !llvm.loop !254
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i33.i.i: ; preds = %83, %63, %73
-  %.sroa.06.1.i.i.i.i.i.i34.i.i = phi ptr [ %74, %73 ], [ %.sroa.06.0.i.i.i.i.i.i36.i.i, %63 ], [ %89, %83 ]
+  %.sroa.06.1.i.i.i.i.i.i34.i.i = phi ptr [ %.sroa.06.0.i.i.i.i.i.i36.i.i, %63 ], [ %74, %73 ], [ %89, %83 ]
   %94 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i.i.i34.i.i, i64 16
   %95 = load ptr, ptr %94, align 8, !tbaa !216, !noalias !983
   %96 = icmp eq ptr %95, null
@@ -24783,7 +24783,7 @@ _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8boolean
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit53.thread.i.i", !llvm.loop !254
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i48.i.i: ; preds = %124, %104, %114
-  %.sroa.06.1.i.i.i.i.i.i49.i.i = phi ptr [ %115, %114 ], [ %.sroa.06.0.i.i.i.i.i.i51.i.i, %104 ], [ %130, %124 ]
+  %.sroa.06.1.i.i.i.i.i.i49.i.i = phi ptr [ %.sroa.06.0.i.i.i.i.i.i51.i.i, %104 ], [ %115, %114 ], [ %130, %124 ]
   %135 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i.i.i49.i.i, i64 16
   %136 = load ptr, ptr %135, align 8, !tbaa !216, !noalias !989
   %137 = icmp eq ptr %136, null
@@ -24869,7 +24869,7 @@ _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8boolean
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit68.thread.i.i", !llvm.loop !254
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i63.i.i: ; preds = %165, %145, %155
-  %.sroa.06.1.i.i.i.i.i.i64.i.i = phi ptr [ %156, %155 ], [ %.sroa.06.0.i.i.i.i.i.i66.i.i, %145 ], [ %171, %165 ]
+  %.sroa.06.1.i.i.i.i.i.i64.i.i = phi ptr [ %.sroa.06.0.i.i.i.i.i.i66.i.i, %145 ], [ %156, %155 ], [ %171, %165 ]
   %176 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i.i.i64.i.i, i64 16
   %177 = load ptr, ptr %176, align 8, !tbaa !216, !noalias !995
   %178 = icmp eq ptr %177, null
@@ -24982,7 +24982,7 @@ _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8boolean
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit83.thread.i.i", !llvm.loop !254
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i78.i.i: ; preds = %216, %194, %206
-  %.sroa.06.1.i.i.i.i.i.i79.i.i = phi ptr [ %207, %206 ], [ %.sroa.06.0.i.i.i.i.i.i81.i.i, %194 ], [ %222, %216 ]
+  %.sroa.06.1.i.i.i.i.i.i79.i.i = phi ptr [ %.sroa.06.0.i.i.i.i.i.i81.i.i, %194 ], [ %207, %206 ], [ %222, %216 ]
   %227 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i.i.i79.i.i, i64 16
   %228 = load ptr, ptr %227, align 8, !tbaa !216, !noalias !1002
   %229 = icmp eq ptr %228, null
@@ -25078,7 +25078,7 @@ _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8boolean
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit98.thread.i.i", !llvm.loop !254
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i93.i.i: ; preds = %263, %241, %253
-  %.sroa.06.1.i.i.i.i.i.i94.i.i = phi ptr [ %254, %253 ], [ %.sroa.06.0.i.i.i.i.i.i96.i.i, %241 ], [ %269, %263 ]
+  %.sroa.06.1.i.i.i.i.i.i94.i.i = phi ptr [ %.sroa.06.0.i.i.i.i.i.i96.i.i, %241 ], [ %254, %253 ], [ %269, %263 ]
   %274 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i.i.i94.i.i, i64 16
   %275 = load ptr, ptr %274, align 8, !tbaa !216, !noalias !1008
   %276 = icmp eq ptr %275, null
@@ -25174,7 +25174,7 @@ _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8boolean
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit113.thread.i.i", !llvm.loop !254
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i108.i.i: ; preds = %310, %288, %300
-  %.sroa.06.1.i.i.i.i.i.i109.i.i = phi ptr [ %301, %300 ], [ %.sroa.06.0.i.i.i.i.i.i111.i.i, %288 ], [ %316, %310 ]
+  %.sroa.06.1.i.i.i.i.i.i109.i.i = phi ptr [ %.sroa.06.0.i.i.i.i.i.i111.i.i, %288 ], [ %301, %300 ], [ %316, %310 ]
   %321 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i.i.i109.i.i, i64 16
   %322 = load ptr, ptr %321, align 8, !tbaa !216, !noalias !1014
   %323 = icmp eq ptr %322, null
@@ -25301,7 +25301,7 @@ define internal fastcc ptr @"_ZSt7find_ifIN4cvc58internal4expr9NodeValue8iterato
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit.thread.i.i", !llvm.loop !254
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i.i.i: ; preds = %43, %23, %33
-  %.sroa.06.1.i.i.i.i.i.i.i.i = phi ptr [ %34, %33 ], [ %.sroa.06.0.i.i.i.i.i.i.i.i, %23 ], [ %49, %43 ]
+  %.sroa.06.1.i.i.i.i.i.i.i.i = phi ptr [ %.sroa.06.0.i.i.i.i.i.i.i.i, %23 ], [ %34, %33 ], [ %49, %43 ]
   %54 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i.i.i.i.i, i64 16
   %55 = load ptr, ptr %54, align 8, !tbaa !216, !noalias !1020
   %56 = icmp eq ptr %55, null
@@ -25386,7 +25386,7 @@ _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8boolean
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit38.thread.i.i", !llvm.loop !254
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i33.i.i: ; preds = %83, %63, %73
-  %.sroa.06.1.i.i.i.i.i.i34.i.i = phi ptr [ %74, %73 ], [ %.sroa.06.0.i.i.i.i.i.i36.i.i, %63 ], [ %89, %83 ]
+  %.sroa.06.1.i.i.i.i.i.i34.i.i = phi ptr [ %.sroa.06.0.i.i.i.i.i.i36.i.i, %63 ], [ %74, %73 ], [ %89, %83 ]
   %94 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i.i.i34.i.i, i64 16
   %95 = load ptr, ptr %94, align 8, !tbaa !216, !noalias !1026
   %96 = icmp eq ptr %95, null
@@ -25472,7 +25472,7 @@ _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8boolean
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit53.thread.i.i", !llvm.loop !254
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i48.i.i: ; preds = %124, %104, %114
-  %.sroa.06.1.i.i.i.i.i.i49.i.i = phi ptr [ %115, %114 ], [ %.sroa.06.0.i.i.i.i.i.i51.i.i, %104 ], [ %130, %124 ]
+  %.sroa.06.1.i.i.i.i.i.i49.i.i = phi ptr [ %.sroa.06.0.i.i.i.i.i.i51.i.i, %104 ], [ %115, %114 ], [ %130, %124 ]
   %135 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i.i.i49.i.i, i64 16
   %136 = load ptr, ptr %135, align 8, !tbaa !216, !noalias !1032
   %137 = icmp eq ptr %136, null
@@ -25558,7 +25558,7 @@ _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8boolean
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit68.thread.i.i", !llvm.loop !254
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i63.i.i: ; preds = %165, %145, %155
-  %.sroa.06.1.i.i.i.i.i.i64.i.i = phi ptr [ %156, %155 ], [ %.sroa.06.0.i.i.i.i.i.i66.i.i, %145 ], [ %171, %165 ]
+  %.sroa.06.1.i.i.i.i.i.i64.i.i = phi ptr [ %.sroa.06.0.i.i.i.i.i.i66.i.i, %145 ], [ %156, %155 ], [ %171, %165 ]
   %176 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i.i.i64.i.i, i64 16
   %177 = load ptr, ptr %176, align 8, !tbaa !216, !noalias !1038
   %178 = icmp eq ptr %177, null
@@ -25671,7 +25671,7 @@ _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8boolean
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit83.thread.i.i", !llvm.loop !254
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i78.i.i: ; preds = %216, %194, %206
-  %.sroa.06.1.i.i.i.i.i.i79.i.i = phi ptr [ %207, %206 ], [ %.sroa.06.0.i.i.i.i.i.i81.i.i, %194 ], [ %222, %216 ]
+  %.sroa.06.1.i.i.i.i.i.i79.i.i = phi ptr [ %.sroa.06.0.i.i.i.i.i.i81.i.i, %194 ], [ %207, %206 ], [ %222, %216 ]
   %227 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i.i.i79.i.i, i64 16
   %228 = load ptr, ptr %227, align 8, !tbaa !216, !noalias !1045
   %229 = icmp eq ptr %228, null
@@ -25767,7 +25767,7 @@ _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8boolean
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit98.thread.i.i", !llvm.loop !254
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i93.i.i: ; preds = %263, %241, %253
-  %.sroa.06.1.i.i.i.i.i.i94.i.i = phi ptr [ %254, %253 ], [ %.sroa.06.0.i.i.i.i.i.i96.i.i, %241 ], [ %269, %263 ]
+  %.sroa.06.1.i.i.i.i.i.i94.i.i = phi ptr [ %.sroa.06.0.i.i.i.i.i.i96.i.i, %241 ], [ %254, %253 ], [ %269, %263 ]
   %274 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i.i.i94.i.i, i64 16
   %275 = load ptr, ptr %274, align 8, !tbaa !216, !noalias !1051
   %276 = icmp eq ptr %275, null
@@ -25863,7 +25863,7 @@ _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8boolean
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4cvc58internal6theory8booleans17CircuitPropagator17propagateBackwardENS3_12NodeTemplateILb0EEEbE3$_1EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.exit113.thread.i.i", !llvm.loop !254
 
 _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS4_EE4findERKS4_.exit.i.i.i108.i.i: ; preds = %310, %288, %300
-  %.sroa.06.1.i.i.i.i.i.i109.i.i = phi ptr [ %301, %300 ], [ %.sroa.06.0.i.i.i.i.i.i111.i.i, %288 ], [ %316, %310 ]
+  %.sroa.06.1.i.i.i.i.i.i109.i.i = phi ptr [ %.sroa.06.0.i.i.i.i.i.i111.i.i, %288 ], [ %301, %300 ], [ %316, %310 ]
   %321 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i.i.i109.i.i, i64 16
   %322 = load ptr, ptr %321, align 8, !tbaa !216, !noalias !1057
   %323 = icmp eq ptr %322, null

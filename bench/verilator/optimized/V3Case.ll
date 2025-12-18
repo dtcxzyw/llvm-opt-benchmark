@@ -4965,7 +4965,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit374: ; preds = %585
   br label %.loopexit
 
 .loopexit:                                        ; preds = %592, %.loopexit.sink.split, %569, %.critedge216
-  %.4 = phi i1 [ false, %.critedge216 ], [ %not.or.cond217.not909, %569 ], [ false, %.loopexit.sink.split ], [ true, %592 ]
+  %.4 = phi i1 [ false, %.loopexit.sink.split ], [ false, %.critedge216 ], [ %not.or.cond217.not909, %569 ], [ true, %592 ]
   %593 = load ptr, ptr %91, align 8, !tbaa !130
   invoke void @_ZNSt8_Rb_treeIP7AstNodeSt4pairIKS1_P11AstCaseItemESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef %593)
           to label %_ZNSt3mapIP7AstNodeP11AstCaseItemSt4lessIS1_ESaISt4pairIKS1_S3_EEED2Ev.exit unwind label %594

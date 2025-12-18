@@ -377,7 +377,7 @@ define noundef zeroext i1 @_ZN5Yosys15const_to_mp_intERKNS_5RTLIL5ConstEP6mp_int
   br label %43
 
 43:                                               ; preds = %.sink.split, %41, %.critedge, %8, %4
-  %.030 = phi i1 [ false, %4 ], [ false, %8 ], [ true, %.critedge ], [ true, %41 ], [ false, %.sink.split ]
+  %.030 = phi i1 [ false, %4 ], [ false, %8 ], [ true, %41 ], [ true, %.critedge ], [ false, %.sink.split ]
   ret i1 %.030
 }
 
@@ -1945,8 +1945,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit193: ; preds = %44
   br label %465
 
 .loopexit:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit109, %76, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit165, %440, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit190, %297
-  %449 = phi ptr [ %151, %297 ], [ %151, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit190 ], [ %151, %440 ], [ %151, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit165 ], [ %30, %76 ], [ %30, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit109 ]
-  %.0 = phi i32 [ 1, %297 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit190 ], [ 0, %440 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit165 ], [ 0, %76 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit109 ]
+  %449 = phi ptr [ %151, %297 ], [ %151, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit165 ], [ %151, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit190 ], [ %151, %440 ], [ %30, %76 ], [ %30, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit109 ]
+  %.0 = phi i32 [ 1, %297 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit165 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit190 ], [ 0, %440 ], [ 0, %76 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit109 ]
   %450 = load ptr, ptr %10, align 8, !tbaa !34
   %451 = load ptr, ptr %449, align 8, !tbaa !31
   %.not4.i.i.i.i194 = icmp eq ptr %450, %451

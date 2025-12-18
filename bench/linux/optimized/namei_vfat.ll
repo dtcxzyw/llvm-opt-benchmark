@@ -2231,7 +2231,7 @@ define internal fastcc i32 @vfat_add_entry(ptr noundef %0, ptr noundef readonly 
   br label %570
 
 .thread83:                                        ; preds = %72, %97, %133, %138, %138, %138, %138, %138, %138, %138, %138, %138, %.thread62, %63, %66, %.critedge, %.thread51
-  %.ph82 = phi i32 [ %494, %.thread62 ], [ %64, %63 ], [ -22, %.thread51 ], [ -22, %.critedge ], [ -36, %66 ], [ -22, %133 ], [ -22, %138 ], [ -22, %138 ], [ -22, %138 ], [ -22, %138 ], [ -22, %138 ], [ -22, %138 ], [ -22, %138 ], [ -22, %138 ], [ -22, %138 ], [ -36, %72 ], [ -22, %97 ]
+  %.ph82 = phi i32 [ %494, %.thread62 ], [ %64, %63 ], [ -22, %.thread51 ], [ -22, %.critedge ], [ -22, %133 ], [ -36, %66 ], [ -22, %138 ], [ -22, %138 ], [ -22, %138 ], [ -22, %138 ], [ -22, %138 ], [ -22, %138 ], [ -22, %138 ], [ -22, %138 ], [ -22, %138 ], [ -36, %72 ], [ -22, %97 ]
   %569 = load ptr, ptr @names_cachep, align 8
   call void @kmem_cache_free(ptr noundef %569, ptr noundef nonnull %46) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %19)

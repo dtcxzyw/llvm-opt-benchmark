@@ -1644,7 +1644,7 @@ _ZN4core5slice6memchr6memchr17hf042c2b2d8451469E.exit.thread16.i: ; preds = %.lr
   br i1 %.not12.i, label %43, label %41
 
 _ZN4core5slice6memchr6memchr17hf042c2b2d8451469E.exit.thread.i: ; preds = %.preheader.i.i, %30, %_ZN4core5slice6memchr6memchr17hf042c2b2d8451469E.exit._ZN4core5slice6memchr6memchr17hf042c2b2d8451469E.exit.thread.loopexit20_crit_edge.i
-  %40 = phi i64 [ %.pre46.pre.i, %_ZN4core5slice6memchr6memchr17hf042c2b2d8451469E.exit._ZN4core5slice6memchr6memchr17hf042c2b2d8451469E.exit.thread.loopexit20_crit_edge.i ], [ %16, %30 ], [ %16, %.preheader.i.i ]
+  %40 = phi i64 [ %16, %30 ], [ %.pre46.pre.i, %_ZN4core5slice6memchr6memchr17hf042c2b2d8451469E.exit._ZN4core5slice6memchr6memchr17hf042c2b2d8451469E.exit.thread.loopexit20_crit_edge.i ], [ %16, %.preheader.i.i ]
   store i64 %40, ptr %8, align 8, !alias.scope !274, !noalias !277
   br label %.loopexit
 

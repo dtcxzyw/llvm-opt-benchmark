@@ -4829,7 +4829,7 @@ spl_array_is_object.exit.thread:                  ; preds = %._crit_edge.i, %spl
   br label %_zend_handle_numeric_str.exit.thread
 
 _zend_handle_numeric_str.exit.thread:             ; preds = %5, %21, %20, %10, %spl_array_is_object.exit, %spl_array_is_object.exit.thread, %_zend_handle_numeric_str.exit, %8
-  %.029 = phi i32 [ 0, %_zend_handle_numeric_str.exit ], [ 0, %8 ], [ 0, %spl_array_is_object.exit.thread ], [ 0, %spl_array_is_object.exit ], [ 0, %10 ], [ 0, %20 ], [ 0, %21 ], [ -1, %5 ]
+  %.029 = phi i32 [ 0, %_zend_handle_numeric_str.exit ], [ 0, %8 ], [ 0, %21 ], [ 0, %spl_array_is_object.exit.thread ], [ 0, %spl_array_is_object.exit ], [ 0, %10 ], [ 0, %20 ], [ -1, %5 ]
   ret i32 %.029
 }
 

@@ -1784,12 +1784,12 @@ define i32 @exr_write_header(ptr noundef %0) local_unnamed_addr #0 {
   br label %.critedge5
 
 .critedge5:                                       ; preds = %86, %..critedge5.loopexit_crit_edge, %.thread125, %80, %82
-  %.385131 = phi i32 [ %84, %82 ], [ %.284.ph.ph, %.thread125 ], [ %77, %80 ], [ 0, %..critedge5.loopexit_crit_edge ], [ 0, %86 ]
+  %.385131 = phi i32 [ %84, %82 ], [ %77, %80 ], [ %.284.ph.ph, %.thread125 ], [ 0, %..critedge5.loopexit_crit_edge ], [ 0, %86 ]
   %103 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %3) #13
   br label %.critedge
 
 .critedge:                                        ; preds = %61, %50, %.thread107, %1, %.critedge5, %15, %6
-  %.0 = phi i32 [ %10, %6 ], [ %19, %15 ], [ %.385131, %.critedge5 ], [ 2, %1 ], [ %38, %.thread107 ], [ %65, %61 ], [ %55, %50 ]
+  %.0 = phi i32 [ %10, %6 ], [ %19, %15 ], [ %.385131, %.critedge5 ], [ 2, %1 ], [ %38, %.thread107 ], [ %55, %50 ], [ %65, %61 ]
   ret i32 %.0
 }
 

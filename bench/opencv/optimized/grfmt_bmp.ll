@@ -593,7 +593,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit105: ; preds = %68
   br i1 %exitcond.not, label %.invoke, label %.preheader129, !llvm.loop !86
 
 .invoke:                                          ; preds = %100, %77, %80
-  %.sink = phi i32 [ -36, %80 ], [ -36, %77 ], [ -56, %100 ]
+  %.sink = phi i32 [ -36, %77 ], [ -36, %80 ], [ -56, %100 ]
   %101 = add nsw i32 %23, %.sink
   invoke void @_ZN2cv11RBaseStream4skipEi(ptr noundef nonnull align 8 dereferenceable(57) %18, i32 noundef %101)
           to label %102 unwind label %85
@@ -878,7 +878,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit108: ; preds = %12
 213:                                              ; preds = %211
   resume { ptr, i32 } %212
 
-.thread122:                                       ; preds = %152, %159, %167, %163, %208
+.thread122:                                       ; preds = %163, %167, %159, %152, %208
   %.2125 = phi i1 [ true, %208 ], [ true, %167 ], [ true, %152 ], [ true, %163 ], [ %or.cond13, %159 ]
   %214 = load i32, ptr %58, align 4, !tbaa !60
   %215 = icmp eq i32 %214, 32
@@ -2279,7 +2279,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit330: ; preds = %61
           to label %650 unwind label %659
 
 .loopexit:                                        ; preds = %_ZN2cv10BmpDecoder14maskBGRAtoGrayEPhPKhi.exit, %_ZN2cv10BmpDecoder14maskBGRAtoGrayEPhPKhi.exit.us, %440, %422, %406, %281, %152, %130, %457, %428, %412, %396, %268, %139, %116, %265, %136, %.thread358, %.thread377
-  %.2231 = phi i1 [ %.0229, %.thread358 ], [ false, %136 ], [ %.1230, %.thread377 ], [ false, %265 ], [ true, %428 ], [ true, %116 ], [ true, %139 ], [ true, %268 ], [ true, %396 ], [ true, %412 ], [ true, %457 ], [ true, %_ZN2cv10BmpDecoder14maskBGRAtoGrayEPhPKhi.exit.us ], [ true, %130 ], [ true, %152 ], [ true, %281 ], [ true, %406 ], [ true, %422 ], [ true, %440 ], [ true, %_ZN2cv10BmpDecoder14maskBGRAtoGrayEPhPKhi.exit ]
+  %.2231 = phi i1 [ true, %396 ], [ true, %412 ], [ %.0229, %.thread358 ], [ false, %136 ], [ true, %428 ], [ %.1230, %.thread377 ], [ false, %265 ], [ true, %116 ], [ true, %139 ], [ true, %268 ], [ true, %457 ], [ true, %130 ], [ true, %152 ], [ true, %281 ], [ true, %406 ], [ true, %422 ], [ true, %440 ], [ true, %_ZN2cv10BmpDecoder14maskBGRAtoGrayEPhPKhi.exit.us ], [ true, %_ZN2cv10BmpDecoder14maskBGRAtoGrayEPhPKhi.exit ]
   %627 = getelementptr inbounds nuw i8, ptr %0, i64 185
   %628 = load i8, ptr %627, align 1, !tbaa !111, !range !112, !noundef !113
   %629 = trunc nuw i8 %628 to i1

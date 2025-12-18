@@ -13737,7 +13737,7 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   br label %.body
 
 .loopexit:                                        ; preds = %104, %.noexc29, %99
-  %.pn.i.i = phi ptr [ %100, %99 ], [ %115, %.noexc29 ], [ %106, %104 ]
+  %.pn.i.i = phi ptr [ %115, %.noexc29 ], [ %100, %99 ], [ %106, %104 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 12
   %117 = trunc i64 %69 to i32
   store i32 %117, ptr %.1.i.i, align 4, !tbaa !59
@@ -13931,7 +13931,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit34: ; preds = %193
   br label %.body
 
 .loopexit42:                                      ; preds = %87, %71, %82, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %197 = phi i32 [ %.pre69, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %67, %82 ], [ %67, %71 ], [ %67, %87 ]
+  %197 = phi i32 [ %67, %71 ], [ %.pre69, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %67, %82 ], [ %67, %87 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %198 = sext i32 %197 to i64
   %199 = icmp slt i64 %indvars.iv.next, %198
@@ -15151,8 +15151,8 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br label %.critedge184
 
 .critedge184:                                     ; preds = %..critedge184_crit_edge, %119, %121
-  %124 = phi ptr [ %.pre325, %..critedge184_crit_edge ], [ %.pre326, %121 ], [ %.pre326, %119 ]
-  %125 = phi i1 [ false, %..critedge184_crit_edge ], [ %123, %121 ], [ true, %119 ]
+  %124 = phi ptr [ %.pre326, %119 ], [ %.pre326, %121 ], [ %.pre325, %..critedge184_crit_edge ]
+  %125 = phi i1 [ true, %119 ], [ %123, %121 ], [ false, %..critedge184_crit_edge ]
   %126 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %127 = icmp eq ptr %124, %126
   br i1 %127, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i

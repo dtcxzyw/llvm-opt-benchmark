@@ -888,7 +888,7 @@ define range(i32 0, 2) i32 @Aig_ObjRecognizeExor(ptr noundef readonly captures(n
   br label %45
 
 45:                                               ; preds = %.sink.split, %30, %36, %20, %27, %13, %16, %3
-  %.0 = phi i32 [ 0, %20 ], [ 0, %30 ], [ 0, %13 ], [ 0, %3 ], [ 0, %16 ], [ 0, %27 ], [ 0, %36 ], [ 1, %.sink.split ]
+  %.0 = phi i32 [ 0, %36 ], [ 0, %20 ], [ 0, %30 ], [ 0, %27 ], [ 0, %13 ], [ 0, %3 ], [ 0, %16 ], [ 1, %.sink.split ]
   ret i32 %.0
 }
 
@@ -1588,7 +1588,7 @@ Aig_ObjIsMuxType.exit:                            ; preds = %118
   %.not94 = icmp eq i64 %121, 0
   br i1 %.not94, label %Aig_ObjIsMuxType.exit.thread, label %Aig_ObjIsMuxType.exit.thread127
 
-Aig_ObjIsMuxType.exit.thread127:                  ; preds = %Aig_ObjIsMuxType.exit, %115, %107, %99
+Aig_ObjIsMuxType.exit.thread127:                  ; preds = %Aig_ObjIsMuxType.exit, %99, %107, %115
   %122 = xor i64 %96, %93
   %.not31.i = icmp ult i64 %122, 2
   br i1 %.not31.i, label %123, label %140
@@ -1623,7 +1623,7 @@ Aig_ObjIsMuxType.exit.thread127:                  ; preds = %Aig_ObjIsMuxType.ex
   %fputs101 = tail call i32 @fputs(ptr nonnull %139, ptr %0)
   br label %184
 
-140:                                              ; preds = %Aig_ObjIsMuxType.exit.thread127, %123
+140:                                              ; preds = %123, %Aig_ObjIsMuxType.exit.thread127
   %141 = call ptr @Aig_ObjRecognizeMux(ptr noundef nonnull %11, ptr noundef nonnull %6, ptr noundef nonnull %5)
   %142 = icmp eq i32 %3, 0
   %143 = select i1 %142, ptr @.str.3, ptr @.str.5
@@ -4591,7 +4591,7 @@ Aig_ObjIsMuxType.exit:                            ; preds = %68
   %.not11 = icmp eq i64 %71, 0
   br i1 %.not11, label %Aig_ObjIsMuxType.exit.thread, label %Aig_ObjIsMuxType.exit.thread17
 
-Aig_ObjIsMuxType.exit.thread17:                   ; preds = %49, %57, %65, %Aig_ObjIsMuxType.exit
+Aig_ObjIsMuxType.exit.thread17:                   ; preds = %65, %57, %49, %Aig_ObjIsMuxType.exit
   %72 = icmp eq i32 %12, %11
   br i1 %72, label %73, label %.Vec_PtrGrow.exit11_crit_edge.i
 
@@ -4780,7 +4780,7 @@ define void @Aig_ManMuxesDeref(ptr noundef readnone captures(none) %0, ptr nound
   store i64 %58, ptr %53, align 8
   br label %61
 
-59:                                               ; preds = %27, %37, %20, %8, %23, %34, %43
+59:                                               ; preds = %43, %27, %37, %34, %20, %8, %23
   %60 = call ptr @Aig_ObjRecognizeMux(ptr noundef nonnull %10, ptr noundef nonnull %3, ptr noundef nonnull %4)
   br label %61
 
@@ -4915,7 +4915,7 @@ define void @Aig_ManMuxesRef(ptr noundef readnone captures(none) %0, ptr noundef
   store i64 %58, ptr %53, align 8
   br label %61
 
-59:                                               ; preds = %27, %37, %20, %8, %23, %34, %43
+59:                                               ; preds = %43, %27, %37, %34, %20, %8, %23
   %60 = call ptr @Aig_ObjRecognizeMux(ptr noundef nonnull %10, ptr noundef nonnull %3, ptr noundef nonnull %4)
   br label %61
 

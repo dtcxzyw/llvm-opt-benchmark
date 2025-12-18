@@ -4271,7 +4271,7 @@ lpad5.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then3
   br label %lpad5.body
 
 lpad5.body:                                       ; preds = %catch.fallthrough.i21.i.i.i.i.i.i, %catch.fallthrough.i.i.i.i.i.i.i, %catch.fallthrough.i.i.i, %lpad5.loopexit, %lpad5.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad5.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad5.loopexit.split-lp.loopexit, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit15.i.i, %ehcleanup.i.i.i, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit27.i.i.i.i.i.i, %ehcleanup.i35.i.i.i.i.i.i, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit88.i.i.i.i.i.i, %ehcleanup.i.i.i.i.i.i.i
-  %eh.lpad-body = phi { ptr, i32 } [ %.pn.i.i, %ehcleanup.i.i.i ], [ %72, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit15.i.i ], [ %.pn19.i.i.i.i.i.i, %ehcleanup.i35.i.i.i.i.i.i ], [ %114, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit27.i.i.i.i.i.i ], [ %.pn.i.i.i.i.i.i, %ehcleanup.i.i.i.i.i.i.i ], [ %146, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit88.i.i.i.i.i.i ], [ %lpad.loopexit.split-lp, %lpad5.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit, %lpad5.loopexit ], [ %lpad.loopexit56, %lpad5.loopexit.split-lp.loopexit ], [ %lpad.loopexit60, %lpad5.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %138, %catch.fallthrough.i.i.i.i.i.i.i ], [ %64, %catch.fallthrough.i.i.i ], [ %106, %catch.fallthrough.i21.i.i.i.i.i.i ]
+  %eh.lpad-body = phi { ptr, i32 } [ %138, %catch.fallthrough.i.i.i.i.i.i.i ], [ %64, %catch.fallthrough.i.i.i ], [ %.pn.i.i, %ehcleanup.i.i.i ], [ %72, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit15.i.i ], [ %lpad.loopexit.split-lp, %lpad5.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %.pn19.i.i.i.i.i.i, %ehcleanup.i35.i.i.i.i.i.i ], [ %114, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit27.i.i.i.i.i.i ], [ %.pn.i.i.i.i.i.i, %ehcleanup.i.i.i.i.i.i.i ], [ %146, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit88.i.i.i.i.i.i ], [ %lpad.loopexit, %lpad5.loopexit ], [ %lpad.loopexit56, %lpad5.loopexit.split-lp.loopexit ], [ %lpad.loopexit60, %lpad5.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %106, %catch.fallthrough.i21.i.i.i.i.i.i ]
   call void @_ZNSt6vectorIN8facebook5velox4exec18LocalDecodedVectorESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %decodedArgs) #24
   br label %eh.resume
 
@@ -7029,7 +7029,7 @@ if.end19.i.i.i.i.i.i:                             ; preds = %if.end12.i.i.i.i.i.
   br i1 %cmp5.i.i.i.i.i.i, label %while.body.i37.i.i.i.i.i, label %_ZN8facebook5velox9functions12_GLOBAL__N_111widthBucketIdEEldRNS0_13DecodedVectorEii.exit.i.i.i.i.i, !llvm.loop !65
 
 _ZN8facebook5velox9functions12_GLOBAL__N_111widthBucketIdEEldRNS0_13DecodedVectorEii.exit.i.i.i.i.i: ; preds = %if.end19.i.i.i.i.i.i, %while.body.us67.i.i.i.i.i.i, %if.end19.us.i.i.i.i.i.i, %while.body.lr.ph.split.split.us.i.split.split.i.i.i.i.i
-  %lower.0.lcssa.i.i.i.i.i.i = phi i32 [ 0, %while.body.lr.ph.split.split.us.i.split.split.i.i.i.i.i ], [ %add22.us77.i.i.i.i.i.i, %while.body.us67.i.i.i.i.i.i ], [ %lower.1.us.i.i.i.i.i.i, %if.end19.us.i.i.i.i.i.i ], [ %lower.1.i.i.i.i.i.i, %if.end19.i.i.i.i.i.i ]
+  %lower.0.lcssa.i.i.i.i.i.i = phi i32 [ %add22.us77.i.i.i.i.i.i, %while.body.us67.i.i.i.i.i.i ], [ %lower.1.us.i.i.i.i.i.i, %if.end19.us.i.i.i.i.i.i ], [ 0, %while.body.lr.ph.split.split.us.i.split.split.i.i.i.i.i ], [ %lower.1.i.i.i.i.i.i, %if.end19.i.i.i.i.i.i ]
   %conv.i41.i.i.i.i.i = zext nneg i32 %lower.0.lcssa.i.i.i.i.i.i to i64
   %205 = load ptr, ptr %agg.tmp.sroa.4.0.agg.tmp65.sroa_idx, align 8
   %206 = load ptr, ptr %205, align 8
@@ -7432,7 +7432,7 @@ lpad28.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then
   br label %lpad28.body
 
 lpad28.body:                                      ; preds = %catch.fallthrough.i21.i.i.i.i.i.i, %catch.fallthrough.i.i.i.i.i.i.i, %catch.fallthrough.i.i.i, %lpad28.loopexit, %lpad28.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad28.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad28.loopexit.split-lp.loopexit, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit16.i.i, %ehcleanup.i.i.i, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit28.i.i.i.i.i.i, %ehcleanup.i35.i.i.i.i.i.i, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit62.i.i.i.i.i.i, %ehcleanup.i.i.i.i.i.i.i
-  %eh.lpad-body72 = phi { ptr, i32 } [ %.pn.i.i, %ehcleanup.i.i.i ], [ %95, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit16.i.i ], [ %.pn19.i.i.i.i.i.i, %ehcleanup.i35.i.i.i.i.i.i ], [ %142, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit28.i.i.i.i.i.i ], [ %.pn.i.i.i.i.i.i, %ehcleanup.i.i.i.i.i.i.i ], [ %215, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit62.i.i.i.i.i.i ], [ %lpad.loopexit.split-lp, %lpad28.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit, %lpad28.loopexit ], [ %lpad.loopexit134, %lpad28.loopexit.split-lp.loopexit ], [ %lpad.loopexit140, %lpad28.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %207, %catch.fallthrough.i.i.i.i.i.i.i ], [ %87, %catch.fallthrough.i.i.i ], [ %134, %catch.fallthrough.i21.i.i.i.i.i.i ]
+  %eh.lpad-body72 = phi { ptr, i32 } [ %207, %catch.fallthrough.i.i.i.i.i.i.i ], [ %87, %catch.fallthrough.i.i.i ], [ %.pn.i.i, %ehcleanup.i.i.i ], [ %95, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit16.i.i ], [ %lpad.loopexit.split-lp, %lpad28.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %.pn19.i.i.i.i.i.i, %ehcleanup.i35.i.i.i.i.i.i ], [ %142, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit28.i.i.i.i.i.i ], [ %.pn.i.i.i.i.i.i, %ehcleanup.i.i.i.i.i.i.i ], [ %215, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit62.i.i.i.i.i.i ], [ %lpad.loopexit, %lpad28.loopexit ], [ %lpad.loopexit134, %lpad28.loopexit.split-lp.loopexit ], [ %lpad.loopexit140, %lpad28.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %134, %catch.fallthrough.i21.i.i.i.i.i.i ]
   call void @_ZN8facebook5velox4exec18LocalDecodedVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %elementsHolder) #24
   br label %ehcleanup
 
@@ -8698,7 +8698,7 @@ return.sink.split:                                ; preds = %if.then.i, %_ZZN8fa
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.then27, %if.then3, %for.end, %entry
-  %retval.0 = phi i1 [ true, %entry ], [ true, %for.end ], [ true, %if.then3 ], [ true, %if.then27 ], [ false, %return.sink.split ]
+  %retval.0 = phi i1 [ true, %entry ], [ true, %for.end ], [ true, %if.then27 ], [ true, %if.then3 ], [ false, %return.sink.split ]
   ret i1 %retval.0
 }
 
@@ -10299,7 +10299,7 @@ if.end12.i.i.i.i.i.i:                             ; preds = %while.body.i37.i.i.
   br i1 %cmp5.i.i.i.i.i.i, label %while.body.i37.i.i.i.i.i, label %_ZN8facebook5velox9functions12_GLOBAL__N_111widthBucketIlEEldRNS0_13DecodedVectorEii.exit.i.i.i.i.i, !llvm.loop !88
 
 _ZN8facebook5velox9functions12_GLOBAL__N_111widthBucketIlEEldRNS0_13DecodedVectorEii.exit.i.i.i.i.i: ; preds = %if.end12.i.i.i.i.i.i, %if.end12.us.i.i.i.i.i.i, %if.end12.thread.us.i.i.i.i.i.i, %while.body.lr.ph.split.split.us.i.i.i.i.i.i
-  %lower.0.lcssa.i.i.i.i.i.i = phi i32 [ 0, %while.body.lr.ph.split.split.us.i.i.i.i.i.i ], [ %add22.us76.i.i.i.i.i.i, %if.end12.us.i.i.i.i.i.i ], [ %lower.1.us.i.i.i.i.i.i, %if.end12.thread.us.i.i.i.i.i.i ], [ %lower.1.i.i.i.i.i.i, %if.end12.i.i.i.i.i.i ]
+  %lower.0.lcssa.i.i.i.i.i.i = phi i32 [ %add22.us76.i.i.i.i.i.i, %if.end12.us.i.i.i.i.i.i ], [ %lower.1.us.i.i.i.i.i.i, %if.end12.thread.us.i.i.i.i.i.i ], [ 0, %while.body.lr.ph.split.split.us.i.i.i.i.i.i ], [ %lower.1.i.i.i.i.i.i, %if.end12.i.i.i.i.i.i ]
   %conv24.i.i.i.i.i.i = zext nneg i32 %lower.0.lcssa.i.i.i.i.i.i to i64
   %199 = load ptr, ptr %agg.tmp.sroa.4.0.agg.tmp65.sroa_idx, align 8
   %200 = load ptr, ptr %199, align 8
@@ -10702,7 +10702,7 @@ lpad24.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then
   br label %lpad24.body
 
 lpad24.body:                                      ; preds = %catch.fallthrough.i21.i.i.i.i.i.i, %catch.fallthrough.i.i.i.i.i.i.i, %catch.fallthrough.i.i.i, %lpad24.loopexit, %lpad24.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad24.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad24.loopexit.split-lp.loopexit, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit16.i.i, %ehcleanup.i.i.i, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit28.i.i.i.i.i.i, %ehcleanup.i35.i.i.i.i.i.i, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit62.i.i.i.i.i.i, %ehcleanup.i.i.i.i.i.i.i
-  %eh.lpad-body72 = phi { ptr, i32 } [ %.pn.i.i, %ehcleanup.i.i.i ], [ %95, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit16.i.i ], [ %.pn19.i.i.i.i.i.i, %ehcleanup.i35.i.i.i.i.i.i ], [ %142, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit28.i.i.i.i.i.i ], [ %.pn.i.i.i.i.i.i, %ehcleanup.i.i.i.i.i.i.i ], [ %209, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit62.i.i.i.i.i.i ], [ %lpad.loopexit.split-lp, %lpad24.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit, %lpad24.loopexit ], [ %lpad.loopexit133, %lpad24.loopexit.split-lp.loopexit ], [ %lpad.loopexit137, %lpad24.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %201, %catch.fallthrough.i.i.i.i.i.i.i ], [ %87, %catch.fallthrough.i.i.i ], [ %134, %catch.fallthrough.i21.i.i.i.i.i.i ]
+  %eh.lpad-body72 = phi { ptr, i32 } [ %201, %catch.fallthrough.i.i.i.i.i.i.i ], [ %87, %catch.fallthrough.i.i.i ], [ %.pn.i.i, %ehcleanup.i.i.i ], [ %95, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit16.i.i ], [ %lpad.loopexit.split-lp, %lpad24.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %.pn19.i.i.i.i.i.i, %ehcleanup.i35.i.i.i.i.i.i ], [ %142, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit28.i.i.i.i.i.i ], [ %.pn.i.i.i.i.i.i, %ehcleanup.i.i.i.i.i.i.i ], [ %209, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit62.i.i.i.i.i.i ], [ %lpad.loopexit, %lpad24.loopexit ], [ %lpad.loopexit133, %lpad24.loopexit.split-lp.loopexit ], [ %lpad.loopexit137, %lpad24.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %134, %catch.fallthrough.i21.i.i.i.i.i.i ]
   call void @_ZN8facebook5velox4exec18LocalDecodedVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %elementsHolder) #24
   br label %ehcleanup
 

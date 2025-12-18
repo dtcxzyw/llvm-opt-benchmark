@@ -448,7 +448,7 @@ consume_one.exit59:                               ; preds = %60, %61
   br label %.loopexit
 
 .loopexit:                                        ; preds = %11, %.thread, %75, %._crit_edge, %3
-  %.038 = phi i32 [ 0, %3 ], [ -1, %._crit_edge ], [ 0, %.thread ], [ -1, %75 ], [ 1, %11 ]
+  %.038 = phi i32 [ 0, %3 ], [ -1, %75 ], [ -1, %._crit_edge ], [ 0, %.thread ], [ 1, %11 ]
   ret i32 %.038
 }
 

@@ -16,7 +16,7 @@ define dso_local i32 @oid_pos(ptr noundef readonly captures(none) %0, ptr nounde
   ]
 
 .thread.preheader:                                ; preds = %11, %.preheader, %56, %4
-  %.358.ph = phi i64 [ 0, %.preheader ], [ %63, %56 ], [ 0, %4 ], [ 0, %11 ]
+  %.358.ph = phi i64 [ 0, %4 ], [ 0, %.preheader ], [ %63, %56 ], [ 0, %11 ]
   br label %.thread
 
 .preheader:                                       ; preds = %4

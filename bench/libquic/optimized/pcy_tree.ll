@@ -1004,11 +1004,11 @@ tree_add_auth_node.exit44.thread52.i:             ; preds = %tree_add_auth_node.
   br label %.thread66
 
 tree_calculate_user_set.exit:                     ; preds = %223, %144, %170, %135, %201, %323, %tree_add_auth_node.exit44.i, %392, %376, %361, %300, %tree_add_auth_node.exit.i, %tree_add_unmatched.exit.sink.split.i.i.i, %tree_init.exit
-  %.04549 = phi ptr [ null, %tree_init.exit ], [ %48, %tree_add_unmatched.exit.sink.split.i.i.i ], [ %48, %tree_add_auth_node.exit.i ], [ %48, %300 ], [ %48, %144 ], [ %48, %361 ], [ %48, %392 ], [ %48, %323 ], [ %48, %201 ], [ %48, %135 ], [ %48, %170 ], [ %48, %376 ], [ %48, %tree_add_auth_node.exit44.i ], [ %48, %223 ]
+  %.04549 = phi ptr [ %48, %144 ], [ %48, %135 ], [ null, %tree_init.exit ], [ %48, %392 ], [ %48, %170 ], [ %48, %300 ], [ %48, %tree_add_auth_node.exit.i ], [ %48, %323 ], [ %48, %tree_add_unmatched.exit.sink.split.i.i.i ], [ %48, %361 ], [ %48, %201 ], [ %48, %376 ], [ %48, %tree_add_auth_node.exit44.i ], [ %48, %223 ]
   call void @X509_policy_tree_free(ptr noundef %.04549)
   br label %.thread66
 
-.thread66:                                        ; preds = %.lr.ph.i, %54, %._crit_edge.thread.i, %112, %5, %402, %tree_evaluate.exit, %tree_init.exit, %tree_calculate_user_set.exit, %406, %tree_init.exit.thread57, %113
+.thread66:                                        ; preds = %.lr.ph.i, %54, %112, %._crit_edge.thread.i, %5, %402, %tree_evaluate.exit, %tree_init.exit, %tree_calculate_user_set.exit, %406, %tree_init.exit.thread57, %113
   %.0 = phi i32 [ 0, %tree_calculate_user_set.exit ], [ %., %tree_evaluate.exit ], [ 0, %54 ], [ -2, %tree_init.exit.thread57 ], [ 1, %406 ], [ 1, %tree_init.exit ], [ -1, %113 ], [ 1, %5 ], [ -2, %402 ], [ 0, %112 ], [ 0, %._crit_edge.thread.i ], [ 0, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0

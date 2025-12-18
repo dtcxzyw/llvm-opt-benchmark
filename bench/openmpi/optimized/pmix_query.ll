@@ -323,7 +323,7 @@ pmix_obj_run_constructors.exit151:                ; preds = %.lr.ph.i148, %73
   br label %89
 
 89:                                               ; preds = %.sink.split285, %86, %79
-  %.sink = phi ptr [ getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 4), %79 ], [ %7, %86 ], [ %7, %.sink.split285 ]
+  %.sink = phi ptr [ %7, %86 ], [ getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 4), %79 ], [ %7, %.sink.split285 ]
   store ptr %.sink, ptr %29, align 8, !tbaa !62
   %90 = load ptr, ptr %33, align 8, !tbaa !63
   %91 = load ptr, ptr %90, align 8, !tbaa !64
@@ -1586,7 +1586,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i79, %155
   br label %pmix_query_resolve_all_pre_init.exit.thread
 
 pmix_query_resolve_all_pre_init.exit.thread:      ; preds = %97, %32, %38, %30, %169, %171, %177, %82, %pmix_query_resolve_all_pre_init.exit, %65, %71
-  %.0 = phi i32 [ 0, %pmix_query_resolve_all_pre_init.exit ], [ %139, %169 ], [ -27, %82 ], [ 0, %71 ], [ 0, %65 ], [ %139, %177 ], [ %139, %171 ], [ -31, %30 ], [ -31, %38 ], [ -31, %32 ], [ -27, %97 ]
+  %.0 = phi i32 [ -31, %32 ], [ 0, %pmix_query_resolve_all_pre_init.exit ], [ %139, %169 ], [ -27, %82 ], [ 0, %71 ], [ 0, %65 ], [ %139, %177 ], [ %139, %171 ], [ -31, %30 ], [ -31, %38 ], [ -27, %97 ]
   ret i32 %.0
 }
 

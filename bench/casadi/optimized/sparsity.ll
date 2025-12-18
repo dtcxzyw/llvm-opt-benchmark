@@ -9378,7 +9378,7 @@ _ZN6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEED2Ev.exit
   br i1 %255, label %.loopexit, label %249
 
 .loopexit:                                        ; preds = %_ZN6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEED2Ev.exit111, %237, %.thread
-  %.pn55.pn.pn = phi { ptr, i32 } [ %196, %.thread ], [ %238, %237 ], [ %.pn55.pn, %_ZN6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEED2Ev.exit111 ]
+  %.pn55.pn.pn = phi { ptr, i32 } [ %238, %237 ], [ %196, %.thread ], [ %.pn55.pn, %_ZN6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEED2Ev.exit111 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
@@ -17393,7 +17393,7 @@ _ZN6casadi8Sparsity8getCacheEv.exit:              ; preds = %_ZN6casadi13hash_sp
   br label %.critedge263, !llvm.loop !255
 
 _ZNSt10_HashtableImSt4pairIKmN6casadi7WeakRefEESaIS4_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb0EEEE4findERS1_.exit.i.i: ; preds = %594, %580, %589
-  %.sroa.06.1.i.i.i = phi ptr [ %590, %589 ], [ %.sroa.06.0.i.i.i, %580 ], [ %596, %594 ]
+  %.sroa.06.1.i.i.i = phi ptr [ %.sroa.06.0.i.i.i, %580 ], [ %590, %589 ], [ %596, %594 ]
   br label %601
 
 601:                                              ; preds = %602, %_ZNSt10_HashtableImSt4pairIKmN6casadi7WeakRefEESaIS4_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb0EEEE4findERS1_.exit.i.i
@@ -39987,8 +39987,8 @@ _ZN6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEED2Ev.exit
   br i1 %356, label %.body152, label %353
 
 .body152:                                         ; preds = %353, %.body184.thread, %262, %.body184
-  %.pn90.pn = phi { ptr, i32 } [ %256, %.body184 ], [ %256, %262 ], [ %261, %.body184.thread ], [ %.pn90, %353 ]
-  %.3 = phi i1 [ true, %.body184 ], [ true, %262 ], [ true, %.body184.thread ], [ false, %353 ]
+  %.pn90.pn = phi { ptr, i32 } [ %256, %262 ], [ %256, %.body184 ], [ %261, %.body184.thread ], [ %.pn90, %353 ]
+  %.3 = phi i1 [ true, %262 ], [ true, %.body184 ], [ true, %.body184.thread ], [ false, %353 ]
   br label %357
 
 357:                                              ; preds = %_ZN6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEED2Ev.exit172, %.body152
@@ -40009,8 +40009,8 @@ _ZN6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEED2Ev.exit
   br i1 %363, label %.loopexit237, label %357
 
 .loopexit237:                                     ; preds = %_ZN6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEED2Ev.exit172, %346, %.thread224
-  %.pn90.pn.pn = phi { ptr, i32 } [ %241, %.thread224 ], [ %347, %346 ], [ %.pn90.pn, %_ZN6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEED2Ev.exit172 ]
-  %.2 = phi i1 [ true, %.thread224 ], [ true, %346 ], [ %.3, %_ZN6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEED2Ev.exit172 ]
+  %.pn90.pn.pn = phi { ptr, i32 } [ %347, %346 ], [ %241, %.thread224 ], [ %.pn90.pn, %_ZN6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEED2Ev.exit172 ]
+  %.2 = phi i1 [ true, %346 ], [ true, %.thread224 ], [ %.3, %_ZN6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEED2Ev.exit172 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br label %.body
 
@@ -42352,7 +42352,7 @@ _ZNSt10_HashtableImSt4pairIKmN6casadi7WeakRefEESaIS4_ENSt8__detail10_Select1stES
   br i1 %35, label %.loopexit, label %31, !llvm.loop !597
 
 .loopexit:                                        ; preds = %.preheader.i, %32, %31, %_ZNSt10_HashtableImSt4pairIKmN6casadi7WeakRefEESaIS4_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb0EEEE12_Scoped_nodeC2IJS0_ImS3_EEEEPNS6_16_Hashtable_allocISaINS6_10_Hash_nodeIS4_Lb0EEEEEEDpOT_.exit
-  %.sroa.020.2.i = phi ptr [ %1, %_ZNSt10_HashtableImSt4pairIKmN6casadi7WeakRefEESaIS4_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb0EEEE12_Scoped_nodeC2IJS0_ImS3_EEEEPNS6_16_Hashtable_allocISaINS6_10_Hash_nodeIS4_Lb0EEEEEEDpOT_.exit ], [ %.sroa.0.0.i, %32 ], [ %1, %31 ], [ %.sroa.012.033.i, %.preheader.i ]
+  %.sroa.020.2.i = phi ptr [ %.sroa.0.0.i, %32 ], [ %1, %_ZNSt10_HashtableImSt4pairIKmN6casadi7WeakRefEESaIS4_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb0EEEE12_Scoped_nodeC2IJS0_ImS3_EEEEPNS6_16_Hashtable_allocISaINS6_10_Hash_nodeIS4_Lb0EEEEEEDpOT_.exit ], [ %1, %31 ], [ %.sroa.012.033.i, %.preheader.i ]
   %36 = invoke ptr @_ZNSt10_HashtableImSt4pairIKmN6casadi7WeakRefEESaIS4_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb0EEEE20_M_insert_multi_nodeEPNS6_10_Hash_nodeIS4_Lb0EEEmSK_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %.sroa.020.2.i, i64 noundef %.pre39.i, ptr noundef nonnull %5)
           to label %_ZNSt10_HashtableImSt4pairIKmN6casadi7WeakRefEESaIS4_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb0EEEE12_Scoped_nodeD2Ev.exit unwind label %37
 

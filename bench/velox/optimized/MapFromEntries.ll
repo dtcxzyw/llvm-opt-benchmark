@@ -9104,7 +9104,7 @@ ehcleanup280:                                     ; preds = %lpad.i.i552, %_ZNSt
   br label %ehcleanup282
 
 ehcleanup282:                                     ; preds = %catch.fallthrough.i20.i.i.i.i.i.i, %catch.fallthrough.i.i.i.i.i.i.i, %catch.fallthrough.i.i.i, %lpad67.loopexit, %lpad67.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad67.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad67.loopexit.split-lp.loopexit, %ehcleanup.i.i.i.i.i.i.i, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit42.i.i.i.i.i.i, %ehcleanup.i29.i.i.i.i.i.i, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit26.i.i.i.i.i.i, %ehcleanup.i.i.i, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i, %ehcleanup280
-  %.pn33.pn = phi { ptr, i32 } [ %.pn33, %ehcleanup280 ], [ %.pn.i.i, %ehcleanup.i.i.i ], [ %103, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i ], [ %.pn19.i.i.i.i.i.i, %ehcleanup.i29.i.i.i.i.i.i ], [ %127, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit26.i.i.i.i.i.i ], [ %.pn.i.i.i.i.i.i, %ehcleanup.i.i.i.i.i.i.i ], [ %176, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit42.i.i.i.i.i.i ], [ %lpad.loopexit.split-lp, %lpad67.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit, %lpad67.loopexit ], [ %lpad.loopexit8, %lpad67.loopexit.split-lp.loopexit ], [ %lpad.loopexit12, %lpad67.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %168, %catch.fallthrough.i.i.i.i.i.i.i ], [ %95, %catch.fallthrough.i.i.i ], [ %119, %catch.fallthrough.i20.i.i.i.i.i.i ]
+  %.pn33.pn = phi { ptr, i32 } [ %.pn33, %ehcleanup280 ], [ %168, %catch.fallthrough.i.i.i.i.i.i.i ], [ %95, %catch.fallthrough.i.i.i ], [ %.pn.i.i, %ehcleanup.i.i.i ], [ %103, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i ], [ %lpad.loopexit.split-lp, %lpad67.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %.pn19.i.i.i.i.i.i, %ehcleanup.i29.i.i.i.i.i.i ], [ %127, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit26.i.i.i.i.i.i ], [ %.pn.i.i.i.i.i.i, %ehcleanup.i.i.i.i.i.i.i ], [ %176, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit42.i.i.i.i.i.i ], [ %lpad.loopexit, %lpad67.loopexit ], [ %lpad.loopexit8, %lpad67.loopexit.split-lp.loopexit ], [ %lpad.loopexit12, %lpad67.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %119, %catch.fallthrough.i20.i.i.i.i.i.i ]
   call void @_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %sizes59) #26
   br label %ehcleanup283
 
@@ -10099,7 +10099,7 @@ return.sink.split:                                ; preds = %if.then.i, %_ZZN8fa
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.then27, %if.then3, %for.end, %entry
-  %retval.0 = phi i1 [ true, %entry ], [ true, %for.end ], [ true, %if.then3 ], [ true, %if.then27 ], [ false, %return.sink.split ]
+  %retval.0 = phi i1 [ true, %entry ], [ true, %for.end ], [ true, %if.then27 ], [ true, %if.then3 ], [ false, %return.sink.split ]
   ret i1 %retval.0
 }
 

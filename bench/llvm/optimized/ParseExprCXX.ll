@@ -3279,7 +3279,7 @@ _ZN5clang9FixItHintD2Ev.exit415:                  ; preds = %1093, %_ZNKSt7__cxx
   br label %_ZN5clang17DiagnosticBuilderD2Ev.exit260
 
 _ZN5clang17DiagnosticBuilderD2Ev.exit260:         ; preds = %1119, %_ZN5clang6Parser22TentativeParsingAction6CommitEv.exit324, %_ZNK5clang20PreferredTypeBuilder3getENS_14SourceLocationE.exit, %1123, %.loopexit, %.thread571, %.thread602, %.thread544, %204, %201, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i256, %_ZN5clang6Parser9NextTokenEv.exit, %165, %_ZN5clang8DeclSpecD2Ev.exit, %205, %44
-  %.0 = phi i1 [ false, %44 ], [ true, %165 ], [ true, %204 ], [ false, %.thread544 ], [ false, %_ZN5clang8DeclSpecD2Ev.exit ], [ %210, %205 ], [ false, %_ZN5clang6Parser9NextTokenEv.exit ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i256 ], [ true, %201 ], [ true, %_ZNK5clang20PreferredTypeBuilder3getENS_14SourceLocationE.exit ], [ false, %.thread571 ], [ false, %1123 ], [ false, %.thread602 ], [ false, %.loopexit ], [ true, %_ZN5clang6Parser22TentativeParsingAction6CommitEv.exit324 ], [ %.14, %1119 ]
+  %.0 = phi i1 [ false, %44 ], [ true, %165 ], [ true, %204 ], [ false, %.thread544 ], [ false, %_ZN5clang8DeclSpecD2Ev.exit ], [ %210, %205 ], [ false, %_ZN5clang6Parser9NextTokenEv.exit ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i256 ], [ true, %201 ], [ true, %_ZNK5clang20PreferredTypeBuilder3getENS_14SourceLocationE.exit ], [ true, %_ZN5clang6Parser22TentativeParsingAction6CommitEv.exit324 ], [ false, %.loopexit ], [ false, %.thread571 ], [ false, %1123 ], [ false, %.thread602 ], [ %.14, %1119 ]
   ret i1 %.0
 }
 
@@ -5282,7 +5282,7 @@ _ZN5clang6Parser9NextTokenEv.exit.i:              ; preds = %87, %83
   %91 = icmp eq i16 %90, 20
   br i1 %91, label %_ZN5clang6Parser33tryParseCXXPackIndexingExpressionENS_12ActionResultIPNS_4ExprELb1EEE.exit, label %_ZN5clang6Parser33tryParseCXXPackIndexingExpressionENS_12ActionResultIPNS_4ExprELb1EEE.exit.thread
 
-_ZN5clang6Parser33tryParseCXXPackIndexingExpressionENS_12ActionResultIPNS_4ExprELb1EEE.exit.thread: ; preds = %_ZN5clang6Parser9NextTokenEv.exit.i, %71, %70
+_ZN5clang6Parser33tryParseCXXPackIndexingExpressionENS_12ActionResultIPNS_4ExprELb1EEE.exit.thread: ; preds = %71, %_ZN5clang6Parser9NextTokenEv.exit.i, %70
   store i64 %.sroa.0.0.copyload, ptr %5, align 8, !tbaa !971
   br label %94
 
@@ -5668,7 +5668,7 @@ _ZNK5clang12CXXScopeSpec7isEmptyEv.exit.thread:   ; preds = %129, %138, %125
   br label %.critedge211
 
 .critedge211:                                     ; preds = %160, %.critedge211.fold.split, %159, %166, %169, %157
-  %.4 = phi i1 [ %158, %157 ], [ true, %160 ], [ false, %169 ], [ false, %166 ], [ false, %159 ], [ false, %.critedge211.fold.split ]
+  %.4 = phi i1 [ %158, %157 ], [ true, %160 ], [ false, %159 ], [ false, %169 ], [ false, %166 ], [ false, %.critedge211.fold.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %.critedge
 
@@ -6760,7 +6760,7 @@ _ZN5clang6Parser9NextTokenEv.exit:                ; preds = %15, %19
   br label %.fold.split
 
 .fold.split:                                      ; preds = %2, %24, %_ZN5clang6Parser9NextTokenEv.exit
-  %.sroa.02.0 = phi i64 [ %1, %2 ], [ %25, %24 ], [ %1, %_ZN5clang6Parser9NextTokenEv.exit ]
+  %.sroa.02.0 = phi i64 [ %1, %2 ], [ %1, %_ZN5clang6Parser9NextTokenEv.exit ], [ %25, %24 ]
   ret i64 %.sroa.02.0
 }
 

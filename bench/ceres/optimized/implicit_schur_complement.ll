@@ -6649,7 +6649,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1
   br label %_ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi1ELin1ELb1EEELi1ELin1ELb0EEEE6lpNormILi1EEEdv.exit
 
 _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi1ELin1ELb1EEELi1ELin1ELb0EEEE6lpNormILi1EEEdv.exit: ; preds = %.lr.ph85.i.i.i.i.i, %109, %117
-  %.0.i.i.i19 = phi double [ %110, %109 ], [ %119, %117 ], [ %115, %.lr.ph85.i.i.i.i.i ]
+  %.0.i.i.i19 = phi double [ %119, %117 ], [ %110, %109 ], [ %115, %.lr.ph85.i.i.i.i.i ]
   %120 = fadd double %.0.i.i.i, %.0.i.i.i19
   %121 = fcmp ogt double %120, %62
   br i1 %121, label %122, label %123
@@ -14101,7 +14101,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1
   br label %_ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi1ELin1ELb1EEELi1ELin1ELb0EEEE6lpNormILi1EEEdv.exit.i
 
 _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi1ELin1ELb1EEELi1ELin1ELb0EEEE6lpNormILi1EEEdv.exit.i: ; preds = %.lr.ph85.i.i.i.i.i.i, %576, %568
-  %.0.i.i.i19.i = phi double [ %569, %568 ], [ %578, %576 ], [ %574, %.lr.ph85.i.i.i.i.i.i ]
+  %.0.i.i.i19.i = phi double [ %578, %576 ], [ %569, %568 ], [ %574, %.lr.ph85.i.i.i.i.i.i ]
   %579 = fadd double %.0.i.i.i.i, %.0.i.i.i19.i
   %580 = fcmp ogt double %579, %521
   br i1 %580, label %581, label %582
@@ -14138,7 +14138,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi1E
   br label %common.resume
 
 _ZN5Eigen3LLTINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi2EEC2INS_3MapIS2_Li0ENS_6StrideILi0ELi0EEEEEEERKNS_9EigenBaseIT_EE.exit: ; preds = %518, %236, %.critedge.i
-  %.0.i = phi i64 [ %517, %.critedge.i ], [ %237, %236 ], [ -1, %518 ]
+  %.0.i = phi i64 [ %237, %236 ], [ %517, %.critedge.i ], [ -1, %518 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %586 = icmp ne i64 %.0.i, -1
   %587 = zext i1 %586 to i32

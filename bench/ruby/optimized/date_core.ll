@@ -12795,7 +12795,7 @@ c_valid_time_p.exit.thread:                       ; preds = %f_zero_p.exit80.thr
   %202 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.030, i64 noundef 43, i32 noundef 1, i64 noundef 3) #22
   br label %203
 
-203:                                              ; preds = %.thread182, %196, %201
+203:                                              ; preds = %196, %.thread182, %201
   %204 = phi i32 [ 0, %201 ], [ %193, %196 ], [ 0, %.thread182 ]
   %.019145157167179201209 = phi double [ %.4, %201 ], [ %.4, %196 ], [ 0x41418A8C80000000, %.thread182 ]
   %.0146156168177202207 = phi i64 [ %164, %201 ], [ %164, %196 ], [ 1, %.thread182 ]
@@ -22789,7 +22789,7 @@ rb_array_const_ptr.exit716:                       ; preds = %rb_array_len.exit71
   br label %493
 
 493:                                              ; preds = %243, %rb_array_len.exit638, %384, %445, %rbimpl_intern_const.exit662, %rbimpl_intern_const.exit668, %328, %rbimpl_intern_const.exit692, %376, %371, %441, %436, %489, %484
-  %.0228 = phi i64 [ 4, %243 ], [ %.1, %rbimpl_intern_const.exit668 ], [ %.1, %rbimpl_intern_const.exit662 ], [ %.3, %rbimpl_intern_const.exit692 ], [ %386, %384 ], [ %.7, %371 ], [ %.12, %436 ], [ 4, %445 ], [ 4, %rb_array_len.exit638 ], [ %.3, %328 ], [ %.7, %376 ], [ %.12, %441 ], [ %.16, %489 ], [ %.16, %484 ]
+  %.0228 = phi i64 [ 4, %243 ], [ %.1, %rbimpl_intern_const.exit668 ], [ %.1, %rbimpl_intern_const.exit662 ], [ %.16, %484 ], [ %.3, %rbimpl_intern_const.exit692 ], [ %386, %384 ], [ %.7, %371 ], [ %.12, %436 ], [ 4, %445 ], [ 4, %rb_array_len.exit638 ], [ %.3, %328 ], [ %.7, %376 ], [ %.12, %441 ], [ %.16, %489 ]
   %.pr.i717 = load i64, ptr @rt_complete_frags.rbimpl_id.290, align 8, !tbaa !6
   %.not4.i718 = icmp eq i64 %.pr.i717, 0
   br i1 %.not4.i718, label %.lr.ph.i720, label %rbimpl_intern_const.exit722
@@ -23027,8 +23027,8 @@ f_gt_p.exit.thread827:                            ; preds = %554, %f_gt_p.exit
   br i1 %.not.i785, label %.lr.ph.i784, label %f_gt_p.exit.thread.sink.split, !llvm.loop !51
 
 f_gt_p.exit.thread.sink.split:                    ; preds = %.lr.ph.i784, %.lr.ph.i770, %f_gt_p.exit.thread827, %547
-  %.lcssa.i783.sink = phi i64 [ %.pr.i767, %547 ], [ %.pr.i781, %f_gt_p.exit.thread827 ], [ %548, %.lr.ph.i770 ], [ %557, %.lr.ph.i784 ]
-  %.sink1176 = phi i64 [ 1, %547 ], [ 119, %f_gt_p.exit.thread827 ], [ 1, %.lr.ph.i770 ], [ 119, %.lr.ph.i784 ]
+  %.lcssa.i783.sink = phi i64 [ %548, %.lr.ph.i770 ], [ %.pr.i767, %547 ], [ %.pr.i781, %f_gt_p.exit.thread827 ], [ %557, %.lr.ph.i784 ]
+  %.sink1176 = phi i64 [ 1, %.lr.ph.i770 ], [ 1, %547 ], [ 119, %f_gt_p.exit.thread827 ], [ 119, %.lr.ph.i784 ]
   %558 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i783.sink) #22
   %559 = tail call i64 @rb_hash_aset(i64 noundef %1, i64 noundef %558, i64 noundef %.sink1176) #22
   br label %f_gt_p.exit.thread
@@ -27066,7 +27066,7 @@ RSTRING_PTR.exit:                                 ; preds = %21, %27
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.critedge.thread, %56, %60, %33
-  %.sink = phi i64 [ %35, %33 ], [ %59, %60 ], [ %59, %56 ], [ %35, %.critedge.thread ]
+  %.sink = phi i64 [ %35, %33 ], [ %59, %56 ], [ %59, %60 ], [ %35, %.critedge.thread ]
   %61 = load i64, ptr %5, align 8, !tbaa !6
   call void @rb_enc_copy(i64 noundef %.sink, i64 noundef %61) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

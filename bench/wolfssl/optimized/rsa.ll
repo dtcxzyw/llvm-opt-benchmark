@@ -1134,7 +1134,7 @@ ConstantCompare.exit.i:                           ; preds = %.lr.ph.i137.i, %178
   br label %RsaUnPad_OAEP.exit
 
 RsaUnPad_OAEP.exit:                               ; preds = %.lr.ph35.i.i, %73, %76, %79, %83, %RsaMGF.exit.i, %.preheader.i84.i, %._crit_edge.i22, %ConstantCompare.exit.i
-  %.069.i = phi i32 [ %199, %ConstantCompare.exit.i ], [ -132, %73 ], [ -173, %76 ], [ %96, %RsaMGF.exit.i ], [ -173, %79 ], [ %177, %._crit_edge.i22 ], [ %.0.i815.i, %.preheader.i84.i ], [ -173, %83 ], [ %.0.i815.i, %.lr.ph35.i.i ]
+  %.069.i = phi i32 [ %199, %ConstantCompare.exit.i ], [ -132, %73 ], [ -173, %76 ], [ -173, %83 ], [ %96, %RsaMGF.exit.i ], [ -173, %79 ], [ %177, %._crit_edge.i22 ], [ %.0.i815.i, %.preheader.i84.i ], [ %.0.i815.i, %.lr.ph35.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %RsaUnPad.exit
@@ -3005,7 +3005,7 @@ define internal fastcc i32 @RsaMGF1(i32 noundef range(i32 4, 18) %0, ptr noundef
   br i1 %60, label %.split, label %.thread, !llvm.loop !41
 
 .thread:                                          ; preds = %._crit_edge, %.split, %.preheader.us.us, %.split.us.split, %13, %5
-  %.043 = phi i32 [ -173, %13 ], [ %.fr7, %5 ], [ %40, %.split.us.split ], [ %38, %.preheader.us.us ], [ 0, %._crit_edge ], [ %48, %.split ]
+  %.043 = phi i32 [ -173, %13 ], [ %.fr7, %5 ], [ %38, %.preheader.us.us ], [ %40, %.split.us.split ], [ 0, %._crit_edge ], [ %48, %.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.043
 }

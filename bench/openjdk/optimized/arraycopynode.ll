@@ -3227,7 +3227,7 @@ _ZN9Node_List4pushEP4Node.exit.i73:               ; preds = %235, %229
   br label %_ZN16Unique_Node_List4pushEP4Node.exit74
 
 _ZN16Unique_Node_List4pushEP4Node.exit74:         ; preds = %154, %32, %_ZN9Node_List4pushEP4Node.exit.i73, %_ZN9VectorSet8test_setEj.exit.i70, %180, %240
-  %.0 = phi ptr [ %244, %240 ], [ %30, %180 ], [ %30, %_ZN9VectorSet8test_setEj.exit.i70 ], [ %30, %_ZN9Node_List4pushEP4Node.exit.i73 ], [ %30, %32 ], [ %30, %154 ]
+  %.0 = phi ptr [ %244, %240 ], [ %30, %180 ], [ %30, %_ZN9Node_List4pushEP4Node.exit.i73 ], [ %30, %_ZN9VectorSet8test_setEj.exit.i70 ], [ %30, %32 ], [ %30, %154 ]
   ret ptr %.0
 }
 

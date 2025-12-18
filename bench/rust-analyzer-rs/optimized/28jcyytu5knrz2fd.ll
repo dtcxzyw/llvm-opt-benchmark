@@ -7929,7 +7929,7 @@ define hidden void @_ZN7ide_ssr7parsing10ParsedRule3new17hb195050937d55b3eE(ptr 
   %76 = invoke noundef ptr @_ZN7ide_ssr9fragments4stmt17h09be24b4e7c3d3a9E(ptr noalias noundef nonnull readonly align 1 %..val.i, i64 noundef %..val2.i)
           to label %_ZN4core3ops8function6FnOnce9call_once17hba777363681c23daE.exit unwind label %.thread
 
-.thread171.thread211:                             ; preds = %175, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i, %.noexc118
+.thread171.thread211:                             ; preds = %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i, %175, %.noexc118
   %lpad.thr_comm209 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -9392,7 +9392,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i:  ; preds = %69
   br label %.thread.i
 
 .thread275.i.loopexit.split-lp:                   ; preds = %254, %.noexc227.i, %.loopexit423
-  %.0179.ph.i.ph = phi i8 [ 1, %.noexc227.i ], [ 0, %.loopexit423 ], [ 1, %254 ]
+  %.0179.ph.i.ph = phi i8 [ 0, %.loopexit423 ], [ 1, %254 ], [ 1, %.noexc227.i ]
   %lpad.loopexit.split-lp177 = landingpad { ptr, i32 }
           cleanup
   br label %.thread.i

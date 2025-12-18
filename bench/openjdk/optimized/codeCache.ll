@@ -1612,7 +1612,7 @@ _ZN13MutexUnlockerD2Ev.exit:                      ; preds = %.thread
   br i1 %.not, label %.lr.ph, label %.loopexit, !llvm.loop !25
 
 .loopexit:                                        ; preds = %_ZN9CodeCache13get_code_heapE12CodeBlobType.exit, %56, %4, %.thread, %_ZN13MutexUnlockerD2Ev.exit
-  %.026 = phi ptr [ null, %.thread ], [ null, %_ZN13MutexUnlockerD2Ev.exit ], [ null, %4 ], [ %57, %56 ], [ %23, %_ZN9CodeCache13get_code_heapE12CodeBlobType.exit ]
+  %.026 = phi ptr [ null, %4 ], [ null, %.thread ], [ null, %_ZN13MutexUnlockerD2Ev.exit ], [ %57, %56 ], [ %23, %_ZN9CodeCache13get_code_heapE12CodeBlobType.exit ]
   ret ptr %.026
 }
 

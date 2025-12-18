@@ -2660,7 +2660,7 @@ _ZN16java_lang_String9hash_codeEPKai.exit.i:      ; preds = %.lr.ph.i21.i, %.lr.
   store i32 %.0.i, ptr %56, align 4
   br label %_ZN16java_lang_String14hash_code_implEP7oopDescb.exit
 
-_ZN16java_lang_String9hash_codeEPKai.exit.i.thread: ; preds = %13, %_ZN16java_lang_String6lengthEP7oopDescP16typeArrayOopDesc.exit.i, %_ZN16java_lang_String9hash_codeEPKai.exit.i
+_ZN16java_lang_String9hash_codeEPKai.exit.i.thread: ; preds = %_ZN16java_lang_String6lengthEP7oopDescP16typeArrayOopDesc.exit.i, %13, %_ZN16java_lang_String9hash_codeEPKai.exit.i
   %57 = load i32, ptr @_ZN16java_lang_String18_hashIsZero_offsetE, align 4
   %58 = sext i32 %57 to i64
   %59 = add nsw i64 %58, %3
@@ -2753,7 +2753,7 @@ _ZN16java_lang_String6lengthEP7oopDescP16typeArrayOopDesc.exit.i: ; preds = %13
   br i1 %51, label %.lr.ph.i21.i, label %_ZN16java_lang_String14hash_code_implEP7oopDescb.exit, !llvm.loop !17
 
 _ZN16java_lang_String14hash_code_implEP7oopDescb.exit: ; preds = %.lr.ph.i21.i, %.lr.ph.i.i, %13, %_ZN16java_lang_String6lengthEP7oopDescP16typeArrayOopDesc.exit.i, %1, %_ZN16java_lang_String11hash_is_setEP7oopDesc.exit.i
-  %.018.i = phi i32 [ %7, %1 ], [ 0, %_ZN16java_lang_String11hash_is_setEP7oopDesc.exit.i ], [ 0, %_ZN16java_lang_String6lengthEP7oopDescP16typeArrayOopDesc.exit.i ], [ 0, %13 ], [ %42, %.lr.ph.i.i ], [ %49, %.lr.ph.i21.i ]
+  %.018.i = phi i32 [ %7, %1 ], [ 0, %_ZN16java_lang_String11hash_is_setEP7oopDesc.exit.i ], [ %42, %.lr.ph.i.i ], [ 0, %13 ], [ 0, %_ZN16java_lang_String6lengthEP7oopDescP16typeArrayOopDesc.exit.i ], [ %49, %.lr.ph.i21.i ]
   ret i32 %.018.i
 }
 
@@ -3739,7 +3739,7 @@ _ZN16java_lang_String6lengthEP7oopDescP16typeArrayOopDesc.exit: ; preds = %3, %9
   br i1 %or.cond50.not, label %49, label %.loopexit, !llvm.loop !19
 
 .loopexit:                                        ; preds = %44, %49, %.preheader26, %.preheader, %_ZN16java_lang_String6lengthEP7oopDescP16typeArrayOopDesc.exit
-  %.022 = phi i1 [ false, %_ZN16java_lang_String6lengthEP7oopDescP16typeArrayOopDesc.exit ], [ true, %.preheader26 ], [ true, %.preheader ], [ %.not25, %49 ], [ %.not24, %44 ]
+  %.022 = phi i1 [ false, %_ZN16java_lang_String6lengthEP7oopDescP16typeArrayOopDesc.exit ], [ true, %.preheader26 ], [ %.not25, %49 ], [ true, %.preheader ], [ %.not24, %44 ]
   ret i1 %.022
 }
 
@@ -3872,7 +3872,7 @@ _ZN16java_lang_String6lengthEP7oopDescP16typeArrayOopDesc.exit: ; preds = %2
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %_ZN16java_lang_String6lengthEP7oopDescP16typeArrayOopDesc.exit, %2
-  %.str.18.sink = phi ptr [ @.str.17, %2 ], [ @.str.18, %_ZN16java_lang_String6lengthEP7oopDescP16typeArrayOopDesc.exit ], [ @.str.18, %.lr.ph.split.us ], [ @.str.18, %.lr.ph.split ]
+  %.str.18.sink = phi ptr [ @.str.17, %2 ], [ @.str.18, %.lr.ph.split.us ], [ @.str.18, %_ZN16java_lang_String6lengthEP7oopDescP16typeArrayOopDesc.exit ], [ @.str.18, %.lr.ph.split ]
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull %.str.18.sink) #19
   ret void
 }

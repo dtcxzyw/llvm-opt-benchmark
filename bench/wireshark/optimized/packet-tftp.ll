@@ -1365,7 +1365,7 @@ define internal fastcc noundef zeroext i1 @is_valid_request_body(ptr noundef %0,
   br i1 %or.cond59, label %.critedge, label %27, !llvm.loop !10
 
 .critedge:                                        ; preds = %9, %27, %2, %._crit_edge
-  %.3 = phi i1 [ false, %._crit_edge ], [ false, %2 ], [ %31, %27 ], [ false, %9 ]
+  %.3 = phi i1 [ %31, %27 ], [ false, %._crit_edge ], [ false, %2 ], [ false, %9 ]
   ret i1 %.3
 }
 

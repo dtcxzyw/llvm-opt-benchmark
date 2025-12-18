@@ -771,7 +771,7 @@ define internal fastcc void @Kf_SetMergeOrder(ptr noundef %0, ptr noundef readon
   br label %.loopexit
 
 .loopexit:                                        ; preds = %60, %._crit_edge115.loopexit.i, %.preheader102.i, %._crit_edge.loopexit.i, %.preheader103.i, %.preheader.i
-  %.5.lcssa.sink.i = phi i32 [ %97, %._crit_edge.loopexit.i ], [ 0, %.preheader.i ], [ %.3.i, %.preheader103.i ], [ %.1.i, %.preheader102.i ], [ %110, %._crit_edge115.loopexit.i ], [ %29, %60 ]
+  %.5.lcssa.sink.i = phi i32 [ %97, %._crit_edge.loopexit.i ], [ 0, %.preheader.i ], [ %110, %._crit_edge115.loopexit.i ], [ %.3.i, %.preheader103.i ], [ %.1.i, %.preheader102.i ], [ %29, %60 ]
   %111 = getelementptr inbounds nuw i8, ptr %51, i64 28
   store i32 %.5.lcssa.sink.i, ptr %111, align 4, !tbaa !81
   %112 = load i64, ptr %21, align 8, !tbaa !79
@@ -885,7 +885,7 @@ Kf_SetRemoveDuplicatesOrder.exit:                 ; preds = %Kf_SetCutIsContaine
   store i32 %49, ptr %118, align 4, !tbaa !37
   br label %Kf_SetMergeOrderOne.exit.thread
 
-Kf_SetMergeOrderOne.exit.thread:                  ; preds = %84, %.lr.ph118.i, %.preheader.i.i, %144, %130, %.preheader104.i, %100, %87, %39, %Kf_SetRemoveDuplicatesOrder.exit
+Kf_SetMergeOrderOne.exit.thread:                  ; preds = %84, %.lr.ph118.i, %.preheader.i.i, %144, %130, %.preheader104.i, %87, %100, %39, %Kf_SetRemoveDuplicatesOrder.exit
   %165 = getelementptr inbounds nuw i8, ptr %.05594, i64 96
   %166 = load i32, ptr %7, align 8, !tbaa !78
   %167 = sext i32 %166 to i64

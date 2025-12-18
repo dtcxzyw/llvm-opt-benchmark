@@ -5864,10 +5864,10 @@ _ZN12Disassembler11is_abstractEv.exit:            ; preds = %2, %19
   br i1 %112, label %.preheader.split.split, label %.split.us, !llvm.loop !58
 
 .split.us:                                        ; preds = %.preheader.split.split, %.preheader.split.split.us, %.preheader.split.us
-  %.us-phi = phi ptr [ %97, %.preheader.split.split.us ], [ %86, %.preheader.split.us ], [ %109, %.preheader.split.split ]
-  %.us-phi133 = phi ptr [ %.7.i.us147, %.preheader.split.split.us ], [ %.7.i.us, %.preheader.split.us ], [ %.7.i, %.preheader.split.split ]
-  %.us-phi134 = phi ptr [ %.1110132.us136, %.preheader.split.split.us ], [ %.1110132.us, %.preheader.split.us ], [ %.1110132, %.preheader.split.split ]
-  %.us-phi135 = phi i1 [ %99, %.preheader.split.split.us ], [ %88, %.preheader.split.us ], [ %111, %.preheader.split.split ]
+  %.us-phi = phi ptr [ %86, %.preheader.split.us ], [ %97, %.preheader.split.split.us ], [ %109, %.preheader.split.split ]
+  %.us-phi133 = phi ptr [ %.7.i.us, %.preheader.split.us ], [ %.7.i.us147, %.preheader.split.split.us ], [ %.7.i, %.preheader.split.split ]
+  %.us-phi134 = phi ptr [ %.1110132.us, %.preheader.split.us ], [ %.1110132.us136, %.preheader.split.split.us ], [ %.1110132, %.preheader.split.split ]
+  %.us-phi135 = phi i1 [ %88, %.preheader.split.us ], [ %99, %.preheader.split.split.us ], [ %111, %.preheader.split.split ]
   %113 = icmp ugt ptr %.us-phi134, %.0104157
   br i1 %113, label %114, label %115
 
@@ -8984,7 +8984,7 @@ _ZN6Thread16current_in_asgctEv.exit.thread:       ; preds = %_ZN6Thread16current
   br i1 %exitcond.not.i56, label %_ZN11PcDescCache12find_pc_descEib.exit, label %_ZN6Thread16current_in_asgctEv.exit.thread, !llvm.loop !11
 
 _ZN11PcDescCache12find_pc_descEib.exit:           ; preds = %34, %25, %_ZN6Thread16current_in_asgctEv.exit.thread, %57, %55, %_ZL10match_descP6PcDescib.exit.i, %_ZN6Thread16current_in_asgctEv.exit, %.loopexit, %6, %8
-  %.038 = phi ptr [ %51, %_ZN6Thread16current_in_asgctEv.exit ], [ null, %6 ], [ null, %55 ], [ null, %.loopexit ], [ null, %8 ], [ %15, %_ZL10match_descP6PcDescib.exit.i ], [ null, %57 ], [ %22, %25 ], [ %51, %_ZN6Thread16current_in_asgctEv.exit.thread ], [ %31, %34 ]
+  %.038 = phi ptr [ %51, %_ZN6Thread16current_in_asgctEv.exit ], [ null, %6 ], [ null, %55 ], [ null, %.loopexit ], [ null, %8 ], [ null, %57 ], [ %15, %_ZL10match_descP6PcDescib.exit.i ], [ %51, %_ZN6Thread16current_in_asgctEv.exit.thread ], [ %22, %25 ], [ %31, %34 ]
   ret ptr %.038
 }
 

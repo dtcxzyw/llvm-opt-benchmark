@@ -2197,7 +2197,7 @@ _ZN13GlobalCounter22critical_section_beginEP6Thread.exit46: ; preds = %._crit_ed
   br label %_ZN18GrowableArrayCHeapIPN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE4NodeELS2_5EED2Ev.exit
 
 _ZN18GrowableArrayCHeapIPN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE4NodeELS2_5EED2Ev.exit: ; preds = %52, %.thread, %_ZN13GlobalCounter22critical_section_beginEP6Thread.exit46, %.loopexit.thread.i.i.i
-  %.1 = phi i64 [ %150, %_ZN13GlobalCounter22critical_section_beginEP6Thread.exit46 ], [ %150, %.loopexit.thread.i.i.i ], [ %.069, %.thread ], [ %.069, %52 ]
+  %.1 = phi i64 [ %150, %_ZN13GlobalCounter22critical_section_beginEP6Thread.exit46 ], [ %.069, %.thread ], [ %150, %.loopexit.thread.i.i.i ], [ %.069, %52 ]
   %exitcond73.not = icmp eq i64 %24, %3
   br i1 %exitcond73.not, label %._crit_edge71, label %21, !llvm.loop !27
 
@@ -3537,7 +3537,7 @@ _ZN13GlobalCounter22critical_section_beginEP6Thread.exit46: ; preds = %._crit_ed
   br label %_ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE14HaveDeletablesILb1E13CleanCallbackE14have_deletableEPNS2_6BucketERS4_S7_.exit
 
 _ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE14HaveDeletablesILb1E13CleanCallbackE14have_deletableEPNS2_6BucketERS4_S7_.exit: ; preds = %54, %.thread, %_ZN13GlobalCounter22critical_section_beginEP6Thread.exit46, %.loopexit.thread.i.i.i
-  %.1 = phi i64 [ %153, %_ZN13GlobalCounter22critical_section_beginEP6Thread.exit46 ], [ %.073, %.thread ], [ %153, %.loopexit.thread.i.i.i ], [ %.073, %54 ]
+  %.1 = phi i64 [ %153, %.loopexit.thread.i.i.i ], [ %153, %_ZN13GlobalCounter22critical_section_beginEP6Thread.exit46 ], [ %.073, %.thread ], [ %.073, %54 ]
   %exitcond77.not = icmp eq i64 %26, %3
   br i1 %exitcond77.not, label %._crit_edge75, label %23, !llvm.loop !39
 

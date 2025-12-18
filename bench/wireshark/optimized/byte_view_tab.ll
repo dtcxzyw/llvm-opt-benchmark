@@ -2197,7 +2197,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %_ZNK7QObject12findC
   br label %78
 
 ._crit_edge:                                      ; preds = %74, %36, %64, %34, %_ZN7QStringD2Ev.exit
-  %.018.lcssa = phi ptr [ null, %_ZN7QStringD2Ev.exit ], [ %35, %34 ], [ %65, %64 ], [ null, %36 ], [ null, %74 ]
+  %.018.lcssa = phi ptr [ null, %_ZN7QStringD2Ev.exit ], [ %65, %64 ], [ %35, %34 ], [ null, %36 ], [ null, %74 ]
   %45 = load ptr, ptr %4, align 8
   %.not.i.i.i39 = icmp eq ptr %45, null
   br i1 %.not.i.i.i39, label %_ZN5QListIP12ByteViewTextED2Ev.exit, label %_ZN17QArrayDataPointerIP12ByteViewTextE5derefEv.exit.i.i

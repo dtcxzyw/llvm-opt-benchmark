@@ -580,7 +580,7 @@ _ZNK3app13get_decl_kindEv.exit:                   ; preds = %35
   br i1 %.not27.old.i.i, label %.invoke, label %.lr.ph38.i.i.backedge
 
 .lr.ph38.i.i.backedge:                            ; preds = %84, %81
-  %.137.i.i.be = phi ptr [ %.old.i.i, %84 ], [ %83, %81 ]
+  %.137.i.i.be = phi ptr [ %83, %81 ], [ %.old.i.i, %84 ]
   br label %.lr.ph38.i.i, !llvm.loop !130
 
 .invoke:                                          ; preds = %70, %65, %81, %84, %76, %_ZNK3app13get_decl_kindEv.exit, %.preheader.i.i
@@ -2134,7 +2134,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit152: ; preds = %_Z
   unreachable
 
 .loopexit:                                        ; preds = %280, %264, %275
-  %.sroa.06.1.i.i.i = phi ptr [ %276, %275 ], [ %.sroa.06.0.i.i.i, %264 ], [ %282, %280 ]
+  %.sroa.06.1.i.i.i = phi ptr [ %.sroa.06.0.i.i.i, %264 ], [ %276, %275 ], [ %282, %280 ]
   %288 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 12
   %289 = load i32, ptr %288, align 4, !tbaa !140
   %290 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.20, i64 noundef 5)
@@ -4161,7 +4161,7 @@ _ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit: ; preds = 
   br label %.preheader
 
 thread-pre-split:                                 ; preds = %191, %202, %.thread-pre-split_crit_edge, %_ZNK3app9is_app_ofEii.exit.i107, %_ZNK3app13get_family_idEv.exit6.i106, %.thread190, %44
-  %.pr = phi i32 [ %.pr.pre, %.thread-pre-split_crit_edge ], [ %38, %44 ], [ %.pre-phi317, %_ZNK3app9is_app_ofEii.exit.i107 ], [ %.pre-phi317, %_ZNK3app13get_family_idEv.exit6.i106 ], [ %38, %.thread190 ], [ %.pre-phi317, %202 ], [ %.pre-phi317, %191 ]
+  %.pr = phi i32 [ %.pr.pre, %.thread-pre-split_crit_edge ], [ %.pre-phi317, %202 ], [ %38, %44 ], [ %.pre-phi317, %_ZNK3app9is_app_ofEii.exit.i107 ], [ %.pre-phi317, %_ZNK3app13get_family_idEv.exit6.i106 ], [ %38, %.thread190 ], [ %.pre-phi317, %191 ]
   %35 = icmp eq i32 %.pr, 0
   br i1 %35, label %299, label %.preheader.backedge
 
@@ -4426,7 +4426,7 @@ _ZNK3app13get_family_idEv.exit.thread.i:          ; preds = %_ZNK3app13get_famil
   br i1 %.not27.old.i.i.i, label %.loopexit.i.invoke, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %144, %141
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %144 ], [ %143, %141 ]
+  %.137.i.i.i.be = phi ptr [ %143, %141 ], [ %.old.i.i.i, %144 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !239
 
 .loopexit.i.invoke:                               ; preds = %.preheader.i.i.i, %_ZNK3app9is_app_ofEii.exit.i, %130, %141, %144
@@ -4613,7 +4613,7 @@ _ZNK3app13get_family_idEv.exit.thread.i108:       ; preds = %_ZNK3app13get_famil
   br i1 %.not27.old.i.i.i122, label %.invoke, label %.lr.ph38.i.i.i118.backedge
 
 .lr.ph38.i.i.i118.backedge:                       ; preds = %210, %207
-  %.137.i.i.i119.be = phi ptr [ %.old.i.i.i121, %210 ], [ %209, %207 ]
+  %.137.i.i.i119.be = phi ptr [ %209, %207 ], [ %.old.i.i.i121, %210 ]
   br label %.lr.ph38.i.i.i118, !llvm.loop !239
 
 _ZNK3app13get_family_idEv.exit6.i106:             ; preds = %_ZNK3app13get_family_idEv.exit.i105
@@ -4972,7 +4972,7 @@ _ZNSt10_HashtableIjSt4pairIKjjESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4
   resume { ptr, i32 } %47
 
 _ZNKSt10_HashtableIjSt4pairIKjjESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS1_m.exit: ; preds = %36, %22, %31
-  %.sroa.042.0.ph = phi ptr [ %32, %31 ], [ %.sroa.034.0, %22 ], [ %38, %36 ]
+  %.sroa.042.0.ph = phi ptr [ %.sroa.034.0, %22 ], [ %32, %31 ], [ %38, %36 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 16) #22
   br label %_ZNSt10_HashtableIjSt4pairIKjjESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 

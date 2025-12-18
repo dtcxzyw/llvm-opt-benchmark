@@ -675,7 +675,7 @@ define range(i32 -2147483648, 1) i32 @av_frame_ref(ptr noundef initializes((104,
   br label %85
 
 .thread106:                                       ; preds = %35, %.lr.ph, %73, %70, %64, %42, %29, %26, %17, %2
-  %.073 = phi i32 [ %15, %2 ], [ %20, %17 ], [ -12, %42 ], [ %30, %29 ], [ -12, %64 ], [ %27, %26 ], [ -12, %73 ], [ -22, %70 ], [ -12, %.lr.ph ], [ -12, %35 ]
+  %.073 = phi i32 [ %15, %2 ], [ %20, %17 ], [ -22, %70 ], [ -12, %42 ], [ -12, %.lr.ph ], [ %30, %29 ], [ -12, %64 ], [ %27, %26 ], [ -12, %73 ], [ -12, %35 ]
   tail call void @av_frame_unref(ptr noundef nonnull %0)
   br label %85
 
@@ -1089,7 +1089,7 @@ define i32 @av_frame_copy(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   br label %frame_copy_video.exit
 
 frame_copy_video.exit:                            ; preds = %71, %68, %37, %.lr.ph.i, %.critedge.i14, %61, %52, %.critedge.i, %30, %20, %16, %49, %45, %2
-  %.0 = phi i32 [ -22, %2 ], [ -22, %49 ], [ -22, %45 ], [ -22, %16 ], [ %31, %30 ], [ 0, %.critedge.i ], [ -22, %20 ], [ -22, %52 ], [ 0, %.critedge.i14 ], [ -22, %61 ], [ -22, %37 ], [ -22, %.lr.ph.i ], [ -22, %68 ], [ -22, %71 ]
+  %.0 = phi i32 [ -22, %2 ], [ -22, %49 ], [ -22, %37 ], [ -22, %45 ], [ -22, %16 ], [ %31, %30 ], [ 0, %.critedge.i ], [ -22, %20 ], [ -22, %61 ], [ -22, %52 ], [ 0, %.critedge.i14 ], [ -22, %.lr.ph.i ], [ -22, %68 ], [ -22, %71 ]
   ret i32 %.0
 }
 
@@ -1366,7 +1366,7 @@ define i32 @av_frame_replace(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   br label %135
 
 .thread160:                                       ; preds = %48, %91, %127, %125, %122, %._crit_edge, %.thread157, %40, %23, %20
-  %.0106 = phi i32 [ %38, %23 ], [ %44, %40 ], [ %113, %.thread157 ], [ -12, %._crit_edge ], [ %21, %20 ], [ -22, %122 ], [ %113, %125 ], [ -12, %127 ], [ %97, %91 ], [ %52, %48 ]
+  %.0106 = phi i32 [ %38, %23 ], [ %44, %40 ], [ %113, %.thread157 ], [ -12, %127 ], [ -12, %._crit_edge ], [ %97, %91 ], [ %21, %20 ], [ -22, %122 ], [ %113, %125 ], [ %52, %48 ]
   tail call void @av_frame_unref(ptr noundef %0)
   br label %135
 
@@ -1795,7 +1795,7 @@ define ptr @av_frame_get_plane_buffer(ptr noundef readonly captures(none) %0, i3
   br i1 %exitcond94.not, label %.critedge72, label %41, !llvm.loop !100
 
 .critedge72:                                      ; preds = %30, %46, %52, %.critedge, %5, %13, %15
-  %.1 = phi ptr [ null, %15 ], [ null, %13 ], [ null, %5 ], [ null, %.critedge ], [ null, %52 ], [ %43, %46 ], [ %26, %30 ]
+  %.1 = phi ptr [ null, %15 ], [ null, %13 ], [ null, %52 ], [ null, %5 ], [ null, %.critedge ], [ %43, %46 ], [ %26, %30 ]
   ret ptr %.1
 }
 
@@ -2165,7 +2165,7 @@ calc_cropping_offsets.exit.loopexit130:           ; preds = %88
   br label %calc_cropping_offsets.exit
 
 calc_cropping_offsets.exit:                       ; preds = %66, %calc_cropping_offsets.exit.loopexit130, %.lr.ph61.i.split, %.lr.ph61.i.split.us, %138, %._crit_edge, %27, %11, %17, %2, %7, %._crit_edge109, %35
-  %.066 = phi i32 [ -22, %2 ], [ 0, %35 ], [ -558323010, %27 ], [ 0, %._crit_edge109 ], [ -34, %11 ], [ -22, %7 ], [ -34, %17 ], [ %143, %138 ], [ -558323010, %._crit_edge ], [ -558323010, %.lr.ph61.i.split.us ], [ -558323010, %.lr.ph61.i.split ], [ -558323010, %calc_cropping_offsets.exit.loopexit130 ], [ -558323010, %66 ]
+  %.066 = phi i32 [ -22, %2 ], [ 0, %35 ], [ -558323010, %27 ], [ 0, %._crit_edge109 ], [ -558323010, %calc_cropping_offsets.exit.loopexit130 ], [ -34, %11 ], [ -22, %7 ], [ -34, %17 ], [ -558323010, %._crit_edge ], [ %143, %138 ], [ -558323010, %.lr.ph61.i.split ], [ -558323010, %.lr.ph61.i.split.us ], [ -558323010, %66 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.066
 }
@@ -2263,7 +2263,7 @@ define internal fastcc range(i32 -558323010, 1) i32 @calc_cropping_offsets(ptr n
   br i1 %.not, label %.thread50, label %13, !llvm.loop !110
 
 .thread50:                                        ; preds = %35, %.preheader, %30, %3, %.thread52
-  %52 = phi i32 [ 0, %.thread52 ], [ 0, %3 ], [ -558323010, %30 ], [ -558323010, %.preheader ], [ 0, %35 ]
+  %52 = phi i32 [ -558323010, %30 ], [ 0, %.thread52 ], [ 0, %3 ], [ 0, %35 ], [ -558323010, %.preheader ]
   ret i32 %52
 }
 

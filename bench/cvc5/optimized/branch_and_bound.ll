@@ -5226,7 +5226,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1093: ; preds = %_ZN4cvc58internal
   br label %.loopexit1549
 
 .loopexit1549:                                    ; preds = %.preheader, %.loopexit1549.sink.split, %.loopexit1550
-  %.pn334.pn.pn.pn.pn.pn.pn.pn15351541 = phi { ptr, i32 } [ %.pn334.pn.pn.pn.pn.pn, %.loopexit1550 ], [ %.pn334.pn.pn.pn.pn.pn.pn.pn15351541.ph, %.loopexit1549.sink.split ], [ %.pn334.pn.pn.pn.pn.pn, %.preheader ]
+  %.pn334.pn.pn.pn.pn.pn.pn.pn15351541 = phi { ptr, i32 } [ %.pn334.pn.pn.pn.pn.pn.pn.pn15351541.ph, %.loopexit1549.sink.split ], [ %.pn334.pn.pn.pn.pn.pn, %.loopexit1550 ], [ %.pn334.pn.pn.pn.pn.pn, %.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %95)
   call void @llvm.lifetime.end.p0(ptr nonnull %94)
   br label %2083
@@ -5252,7 +5252,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1093: ; preds = %_ZN4cvc58internal
   br i1 %2050, label %.loopexit1547, label %.body908
 
 .loopexit1547:                                    ; preds = %2044, %.body908, %.thread1542
-  %.pn343 = phi { ptr, i32 } [ %1278, %.thread1542 ], [ %1290, %.body908 ], [ %2043, %2044 ]
+  %.pn343 = phi { ptr, i32 } [ %1290, %.body908 ], [ %1278, %.thread1542 ], [ %2043, %2044 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %105)
   br label %2082
 

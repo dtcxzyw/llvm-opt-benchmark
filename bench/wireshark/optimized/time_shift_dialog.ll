@@ -3169,7 +3169,7 @@ _ZN7QStringD2Ev.exit144:                          ; preds = %244, %_ZN17QArrayDa
   br label %256
 
 256:                                              ; preds = %_ZN7QStringD2Ev.exit43, %253, %_ZN7QStringD2Ev.exit68, %_ZN7QStringD2Ev.exit120
-  %.017 = phi ptr [ %59, %_ZN7QStringD2Ev.exit43 ], [ %181, %_ZN7QStringD2Ev.exit120 ], [ %110, %_ZN7QStringD2Ev.exit68 ], [ %255, %253 ]
+  %.017 = phi ptr [ %255, %253 ], [ %59, %_ZN7QStringD2Ev.exit43 ], [ %181, %_ZN7QStringD2Ev.exit120 ], [ %110, %_ZN7QStringD2Ev.exit68 ]
   %.not35 = icmp eq ptr %.017, null
   br i1 %.not35, label %.thread, label %_ZN14QByteArrayViewC2IPKcTnNSt9enable_ifIXsr9QtPrivate28IsCompatibleByteArrayPointerIT_EE5valueEbE4typeELb1EEERKS4_.exit.i
 

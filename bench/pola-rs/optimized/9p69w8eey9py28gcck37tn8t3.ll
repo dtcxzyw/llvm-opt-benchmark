@@ -2548,7 +2548,7 @@ _ZN3std4sync6poison4once4Once9call_once17h8c2124998ca56c96E.exit.i: ; preds = %.
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %_ZN10polars_ops5frame4join9hash_join17single_keys_outer11probe_outer17h77799eb3a724a6a6E.exit, %146
-  %.sroa.02.4.ph.ph.ph.ph.ph.ph.ph.ph = phi i8 [ 0, %_ZN10polars_ops5frame4join9hash_join17single_keys_outer11probe_outer17h77799eb3a724a6a6E.exit ], [ 1, %146 ]
+  %.sroa.02.4.ph.ph.ph.ph.ph.ph.ph.ph = phi i8 [ 1, %146 ], [ 0, %_ZN10polars_ops5frame4join9hash_join17single_keys_outer11probe_outer17h77799eb3a724a6a6E.exit ]
   %lpad.loopexit.split-lp270 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -4775,7 +4775,7 @@ _ZN3std4sync6poison4once4Once9call_once17h8c2124998ca56c96E.exit.i: ; preds = %.
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %_ZN10polars_ops5frame4join9hash_join17single_keys_outer11probe_outer17h394c170d6763f77aE.exit, %146
-  %.sroa.02.4.ph.ph.ph.ph.ph.ph.ph.ph = phi i8 [ 0, %_ZN10polars_ops5frame4join9hash_join17single_keys_outer11probe_outer17h394c170d6763f77aE.exit ], [ 1, %146 ]
+  %.sroa.02.4.ph.ph.ph.ph.ph.ph.ph.ph = phi i8 [ 1, %146 ], [ 0, %_ZN10polars_ops5frame4join9hash_join17single_keys_outer11probe_outer17h394c170d6763f77aE.exit ]
   %lpad.loopexit.split-lp270 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -6997,7 +6997,7 @@ _ZN3std4sync6poison4once4Once9call_once17h8c2124998ca56c96E.exit.i: ; preds = %.
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %_ZN10polars_ops5frame4join9hash_join17single_keys_outer11probe_outer17hcd16e3685dc60528E.exit, %143
-  %.sroa.02.4.ph.ph.ph.ph.ph.ph.ph.ph.ph.ph = phi i8 [ 0, %_ZN10polars_ops5frame4join9hash_join17single_keys_outer11probe_outer17hcd16e3685dc60528E.exit ], [ 1, %143 ]
+  %.sroa.02.4.ph.ph.ph.ph.ph.ph.ph.ph.ph.ph = phi i8 [ 1, %143 ], [ 0, %_ZN10polars_ops5frame4join9hash_join17single_keys_outer11probe_outer17hcd16e3685dc60528E.exit ]
   %lpad.loopexit.split-lp270 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -9216,7 +9216,7 @@ _ZN3std4sync6poison4once4Once9call_once17h8c2124998ca56c96E.exit.i: ; preds = %.
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %_ZN10polars_ops5frame4join9hash_join17single_keys_outer11probe_outer17hf84e84b476230e04E.exit, %146
-  %.sroa.02.4.ph.ph.ph.ph.ph.ph.ph.ph = phi i8 [ 0, %_ZN10polars_ops5frame4join9hash_join17single_keys_outer11probe_outer17hf84e84b476230e04E.exit ], [ 1, %146 ]
+  %.sroa.02.4.ph.ph.ph.ph.ph.ph.ph.ph = phi i8 [ 1, %146 ], [ 0, %_ZN10polars_ops5frame4join9hash_join17single_keys_outer11probe_outer17hf84e84b476230e04E.exit ]
   %lpad.loopexit.split-lp273 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -11445,7 +11445,7 @@ _ZN3std4sync6poison4once4Once9call_once17h8c2124998ca56c96E.exit.i: ; preds = %.
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %_ZN10polars_ops5frame4join9hash_join17single_keys_outer11probe_outer17h21b97075b6d1441eE.exit, %146
-  %.sroa.02.4.ph.ph.ph.ph.ph.ph.ph.ph = phi i8 [ 0, %_ZN10polars_ops5frame4join9hash_join17single_keys_outer11probe_outer17h21b97075b6d1441eE.exit ], [ 1, %146 ]
+  %.sroa.02.4.ph.ph.ph.ph.ph.ph.ph.ph = phi i8 [ 1, %146 ], [ 0, %_ZN10polars_ops5frame4join9hash_join17single_keys_outer11probe_outer17h21b97075b6d1441eE.exit ]
   %lpad.loopexit.split-lp273 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -21977,7 +21977,7 @@ _ZN9hashbrown3raw13RawTableInner16find_insert_slot17hacf9389ee4557603E.exit.i.i.
   br label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h8089ff55c10678bbE.exit.i.i"
 
 _ZN9hashbrown3raw13RawTableInner10find_inner17hbc01e1da12514d5dE.exit.thread.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.us.i.i.i.i.i.i, %89, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h7566d5e107c58a83E.exit.us.i.us.i.i.i.i.i.i"
-  %173 = phi i64 [ %85, %89 ], [ %66, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h7566d5e107c58a83E.exit.us.i.us.i.i.i.i.i.i" ], [ %53, %.lr.ph.i.us.i.i.i.i.i.i ]
+  %173 = phi i64 [ %66, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h7566d5e107c58a83E.exit.us.i.us.i.i.i.i.i.i" ], [ %85, %89 ], [ %53, %.lr.ph.i.us.i.i.i.i.i.i ]
   %174 = getelementptr inbounds { ptr, { i8, [7 x i8], { ptr, i32, i32 } } }, ptr %45, i64 %173
   %175 = getelementptr inbounds i8, ptr %174, i64 -16
   %176 = getelementptr inbounds i8, ptr %174, i64 -8
@@ -22435,7 +22435,7 @@ _ZN9hashbrown3raw13RawTableInner16find_insert_slot17hacf9389ee4557603E.exit.i.i.
   br label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17hbdce339100795ae8E.exit.i.i"
 
 _ZN9hashbrown3raw13RawTableInner10find_inner17hbc01e1da12514d5dE.exit.thread.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.us.i.i.i.i.i.i, %89, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hca97d3860b077f18E.exit.us.i.us.i.i.i.i.i.i"
-  %173 = phi i64 [ %85, %89 ], [ %66, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hca97d3860b077f18E.exit.us.i.us.i.i.i.i.i.i" ], [ %53, %.lr.ph.i.us.i.i.i.i.i.i ]
+  %173 = phi i64 [ %66, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hca97d3860b077f18E.exit.us.i.us.i.i.i.i.i.i" ], [ %85, %89 ], [ %53, %.lr.ph.i.us.i.i.i.i.i.i ]
   %174 = getelementptr inbounds { ptr, { i8, [7 x i8], { ptr, i32, i32 } } }, ptr %45, i64 %173
   %175 = getelementptr inbounds i8, ptr %174, i64 -16
   %176 = getelementptr inbounds i8, ptr %174, i64 -8
@@ -23241,7 +23241,7 @@ _ZN9hashbrown3raw13RawTableInner16find_insert_slot17hacf9389ee4557603E.exit.i.i.
   br label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17hfbf6af31af1614f5E.exit.i.i"
 
 _ZN9hashbrown3raw13RawTableInner10find_inner17hbc01e1da12514d5dE.exit.thread.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.us.i.i.i.i.i.i, %89, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h8ab794ba5e081ca7E.exit.us.i.us.i.i.i.i.i.i"
-  %173 = phi i64 [ %85, %89 ], [ %66, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h8ab794ba5e081ca7E.exit.us.i.us.i.i.i.i.i.i" ], [ %53, %.lr.ph.i.us.i.i.i.i.i.i ]
+  %173 = phi i64 [ %66, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h8ab794ba5e081ca7E.exit.us.i.us.i.i.i.i.i.i" ], [ %85, %89 ], [ %53, %.lr.ph.i.us.i.i.i.i.i.i ]
   %174 = getelementptr inbounds { ptr, { i8, [7 x i8], { ptr, i32, i32 } } }, ptr %45, i64 %173
   %175 = getelementptr inbounds i8, ptr %174, i64 -16
   %176 = getelementptr inbounds i8, ptr %174, i64 -8
@@ -24031,7 +24031,7 @@ _ZN9hashbrown3raw13RawTableInner16find_insert_slot17hacf9389ee4557603E.exit.i.i.
   br label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h35c01e64caaf1775E.exit.i.i"
 
 _ZN9hashbrown3raw13RawTableInner10find_inner17hbc01e1da12514d5dE.exit.thread.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.us.i.i.i.i.i.i, %89, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hd68d9c0f191fbb06E.exit.us.i.us.i.i.i.i.i.i"
-  %173 = phi i64 [ %85, %89 ], [ %66, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hd68d9c0f191fbb06E.exit.us.i.us.i.i.i.i.i.i" ], [ %53, %.lr.ph.i.us.i.i.i.i.i.i ]
+  %173 = phi i64 [ %66, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hd68d9c0f191fbb06E.exit.us.i.us.i.i.i.i.i.i" ], [ %85, %89 ], [ %53, %.lr.ph.i.us.i.i.i.i.i.i ]
   %174 = getelementptr inbounds { ptr, { i8, [7 x i8], { ptr, i32, i32 } } }, ptr %45, i64 %173
   %175 = getelementptr inbounds i8, ptr %174, i64 -16
   %176 = getelementptr inbounds i8, ptr %174, i64 -8
@@ -28717,7 +28717,7 @@ define hidden { i64, i1 } @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$11in
   br label %90
 
 94:                                               ; preds = %72, %76
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %72 ], [ %82, %76 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %82, %76 ], [ %.sroa.4.19.i.i, %72 ]
   %95 = load ptr, ptr %10, align 8, !alias.scope !4137, !noalias !4140, !nonnull !7
   %96 = load i64, ptr %8, align 8, !noundef !7
   %97 = icmp ult i64 %96, 288230376151711744
@@ -29000,8 +29000,8 @@ define hidden { i64, ptr } @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$11i
   ret { i64, ptr } %74
 
 75:                                               ; preds = %52, %56
-  %76 = phi i8 [ %54, %52 ], [ %.pre, %56 ]
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %52 ], [ %62, %56 ]
+  %76 = phi i8 [ %.pre, %56 ], [ %54, %52 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %62, %56 ], [ %.sroa.4.19.i.i, %52 ]
   %77 = load i64, ptr %8, align 8, !noundef !7
   %78 = icmp ult i64 %77, 384307168202282326
   tail call void @llvm.assume(i1 %78)
@@ -29302,7 +29302,7 @@ define hidden void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$11insert_fu
   ret void
 
 98:                                               ; preds = %75, %79
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %75 ], [ %85, %79 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %85, %79 ], [ %.sroa.4.19.i.i, %75 ]
   %99 = load ptr, ptr %13, align 8, !alias.scope !4207, !noalias !4210, !nonnull !7
   %100 = load i64, ptr %11, align 8, !noundef !7
   %101 = icmp ult i64 %100, 115292150460684698

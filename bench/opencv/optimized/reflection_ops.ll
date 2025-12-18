@@ -1615,7 +1615,7 @@ _ZN6google8protobuf11MapIteratorppEv.exit:        ; preds = %70, %91
   br label %.critedge103
 
 .critedge103:                                     ; preds = %26, %114, %.lr.ph127, %96, %124, %.critedge104
-  %.15 = phi i1 [ true, %.critedge104 ], [ false, %124 ], [ false, %96 ], [ false, %114 ], [ false, %.lr.ph127 ], [ false, %26 ]
+  %.15 = phi i1 [ true, %.critedge104 ], [ false, %124 ], [ false, %.lr.ph127 ], [ false, %96 ], [ false, %114 ], [ false, %26 ]
   ret i1 %.15
 }
 
@@ -2580,7 +2580,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br i1 %.not129, label %.thread123thread-pre-split, label %53
 
 .thread123thread-pre-split:                       ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i111, %200, %.thread127, %190
-  %.not129182.ph = phi i1 [ false, %190 ], [ false, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i111 ], [ false, %200 ], [ true, %.thread127 ]
+  %.not129182.ph = phi i1 [ false, %190 ], [ false, %200 ], [ true, %.thread127 ], [ false, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i111 ]
   %.pr = load ptr, ptr %11, align 8, !tbaa !13
   br label %.thread123
 

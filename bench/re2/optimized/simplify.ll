@@ -1068,7 +1068,7 @@ for.inc149:                                       ; preds = %if.end143, %if.then
   br i1 %cmp134, label %for.body135, label %return, !llvm.loop !14
 
 return:                                           ; preds = %for.body71, %for.inc149, %_ZN3re26Regexp8AllocSubEi.exit126, %_ZN3re26Regexp8AllocSubEi.exit149, %for.end, %if.then23, %if.then28, %if.then53, %if.then7, %if.then
-  %retval.0 = phi ptr [ %call2, %if.then ], [ %call54, %if.then53 ], [ %call8, %if.then7 ], [ %call10, %if.then23 ], [ %call10, %for.end ], [ %call10, %if.then28 ], [ %call121, %_ZN3re26Regexp8AllocSubEi.exit149 ], [ %call57, %_ZN3re26Regexp8AllocSubEi.exit126 ], [ %call121, %for.inc149 ], [ %call57, %for.body71 ]
+  %retval.0 = phi ptr [ %call2, %if.then ], [ %call54, %if.then53 ], [ %call8, %if.then7 ], [ %call121, %_ZN3re26Regexp8AllocSubEi.exit149 ], [ %call10, %if.then23 ], [ %call10, %for.end ], [ %call10, %if.then28 ], [ %call121, %for.inc149 ], [ %call57, %_ZN3re26Regexp8AllocSubEi.exit126 ], [ %call57, %for.body71 ]
   ret ptr %retval.0
 
 eh.resume:                                        ; preds = %lpad122, %lpad58, %lpad

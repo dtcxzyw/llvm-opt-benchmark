@@ -4617,7 +4617,7 @@ proto_item_set_generated.exit.i396:               ; preds = %1530, %1527, %1511
   br label %.thread500.i
 
 .thread500.i:                                     ; preds = %1446, %1405, %1548, %proto_item_set_generated.exit.i396, %1505, %1414, %1386, %._crit_edge.i400, %1366, %1326, %1308
-  %.2469502.i = phi i32 [ %1549, %1548 ], [ %1510, %1505 ], [ %1547, %proto_item_set_generated.exit.i396 ], [ %1369, %1366 ], [ %1365, %1326 ], [ %1325, %1308 ], [ %1385, %._crit_edge.i400 ], [ %1396, %1386 ], [ %1423, %1414 ], [ %1412, %1405 ], [ %1447, %1446 ]
+  %.2469502.i = phi i32 [ %1549, %1548 ], [ %1510, %1505 ], [ %1547, %proto_item_set_generated.exit.i396 ], [ %1369, %1366 ], [ %1365, %1326 ], [ %1325, %1308 ], [ %1412, %1405 ], [ %1385, %._crit_edge.i400 ], [ %1396, %1386 ], [ %1423, %1414 ], [ %1447, %1446 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %1550 = sub nsw i32 %1201, %.0475.i
   %1551 = add i32 %.0473518.i, 1
@@ -5191,7 +5191,7 @@ dissect_rtcp_rtpfb.exit:                          ; preds = %1668, %1679
   br i1 %1954, label %.lr.ph.split.us159.i, label %._crit_edge.i412, !llvm.loop !28
 
 ._crit_edge.i412:                                 ; preds = %1952, %.lr.ph.split.us150.i, %.lr.ph.split.us141.i, %1740, %.thread.i411, %.lr.ph.i409, %1734
-  %.0116.lcssa.i = phi i32 [ %1727, %1734 ], [ %1727, %.lr.ph.i409 ], [ %.3.i.us.i, %.thread.i411 ], [ %1772, %.lr.ph.split.us150.i ], [ %1750, %1740 ], [ %1760, %.lr.ph.split.us141.i ], [ %.0.lcssa.i.us.i, %1952 ]
+  %.0116.lcssa.i = phi i32 [ %1727, %1734 ], [ %1727, %.lr.ph.i409 ], [ %1772, %.lr.ph.split.us150.i ], [ %1750, %1740 ], [ %1760, %.lr.ph.split.us141.i ], [ %.3.i.us.i, %.thread.i411 ], [ %.0.lcssa.i.us.i, %1952 ]
   %.neg.i413 = sub i32 %.033563248, %.0116.lcssa.i
   %1955 = add i32 %.neg.i413, %102
   %1956 = icmp sgt i32 %1955, 0
@@ -5203,7 +5203,7 @@ dissect_rtcp_rtpfb.exit:                          ; preds = %1668, %1679
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.thread500.i, %1132, %dissect_rtcp_sdes.exit, %1553, %dissect_rtcp_rsi.exit, %1617, %1632, %1647, %dissect_rtcp_rtpfb.exit, %282, %170, %274, %277, %279, %384, %._crit_edge55.i, %.thread3, %1144, %1154, %.thread.i403, %1729, %._crit_edge.i412, %1957
-  %.3338 = phi i32 [ %91, %170 ], [ %284, %282 ], [ %357, %dissect_rtcp_sdes.exit ], [ %281, %279 ], [ %.0.i391, %1132 ], [ %.0.i391.ph, %.thread3 ], [ %1585, %1553 ], [ %1616, %dissect_rtcp_rsi.exit ], [ %1631, %1617 ], [ %1646, %1632 ], [ %1667, %1647 ], [ %.0.i408, %dissect_rtcp_rtpfb.exit ], [ %276, %274 ], [ %226, %277 ], [ %.1.i, %384 ], [ %395, %._crit_edge55.i ], [ %1142, %1144 ], [ %1157, %1154 ], [ %1192, %.thread.i403 ], [ %176, %1729 ], [ %.0116.lcssa.i, %._crit_edge.i412 ], [ %176, %1957 ], [ %.2469502.i, %.thread500.i ]
+  %.3338 = phi i32 [ %.0116.lcssa.i, %._crit_edge.i412 ], [ %176, %1957 ], [ %91, %170 ], [ %284, %282 ], [ %357, %dissect_rtcp_sdes.exit ], [ %281, %279 ], [ %.0.i391, %1132 ], [ %.0.i391.ph, %.thread3 ], [ %1585, %1553 ], [ %1616, %dissect_rtcp_rsi.exit ], [ %1631, %1617 ], [ %1646, %1632 ], [ %1667, %1647 ], [ %.0.i408, %dissect_rtcp_rtpfb.exit ], [ %276, %274 ], [ %226, %277 ], [ %.1.i, %384 ], [ %395, %._crit_edge55.i ], [ %1142, %1144 ], [ %1157, %1154 ], [ %1192, %.thread.i403 ], [ %176, %1729 ], [ %.2469502.i, %.thread500.i ]
   %1960 = load ptr, ptr %71, align 8
   call void @col_set_fence(ptr noundef %1960, i32 noundef 25)
   %1961 = call zeroext i1 @tvb_bytes_exist(ptr noundef %0, i32 noundef %.3338, i32 noundef 4)

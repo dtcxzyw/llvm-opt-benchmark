@@ -1031,9 +1031,9 @@ if.end89:                                         ; preds = %if.else68, %if.end8
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !10
 
 while.end:                                        ; preds = %if.end89, %while.body, %if.end, %entry, %if.then74, %if.then62, %if.then46, %if.then36
-  %target.057 = phi ptr [ %target.070, %if.then36 ], [ %target.070, %if.then46 ], [ %target.070, %if.then62 ], [ %target.070, %if.then74 ], [ %1, %entry ], [ %target.1, %if.end89 ], [ %target.070, %while.body ], [ %target.070, %if.end ]
-  %source.1 = phi ptr [ %add.ptr, %if.then36 ], [ %add.ptr51, %if.then46 ], [ %add.ptr67, %if.then62 ], [ %add.ptr79, %if.then74 ], [ %0, %entry ], [ %source.2, %if.end89 ], [ %source.069, %while.body ], [ %source.069, %if.end ]
-  %result.0 = phi i32 [ 2, %if.then36 ], [ 3, %if.then46 ], [ 3, %if.then62 ], [ 2, %if.then74 ], [ 0, %entry ], [ 0, %if.end89 ], [ 1, %while.body ], [ 3, %if.end ]
+  %target.057 = phi ptr [ %target.070, %if.then74 ], [ %target.070, %if.then36 ], [ %target.070, %if.then46 ], [ %target.070, %if.then62 ], [ %1, %entry ], [ %target.1, %if.end89 ], [ %target.070, %while.body ], [ %target.070, %if.end ]
+  %source.1 = phi ptr [ %add.ptr79, %if.then74 ], [ %add.ptr, %if.then36 ], [ %add.ptr51, %if.then46 ], [ %add.ptr67, %if.then62 ], [ %0, %entry ], [ %source.2, %if.end89 ], [ %source.069, %while.body ], [ %source.069, %if.end ]
+  %result.0 = phi i32 [ 2, %if.then74 ], [ 2, %if.then36 ], [ 3, %if.then46 ], [ 3, %if.then62 ], [ 0, %entry ], [ 0, %if.end89 ], [ 1, %while.body ], [ 3, %if.end ]
   store ptr %source.1, ptr %sourceStart, align 8
   store ptr %target.057, ptr %targetStart, align 8
   ret i32 %result.0

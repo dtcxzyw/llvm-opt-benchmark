@@ -1169,7 +1169,7 @@ define noundef ptr @umsg_clone_77(ptr noundef %0, ptr noundef captures(address_i
   br label %15
 
 15:                                               ; preds = %.sink.split, %9, %2, %4
-  %.0 = phi ptr [ null, %2 ], [ null, %4 ], [ %13, %9 ], [ null, %.sink.split ]
+  %.0 = phi ptr [ null, %2 ], [ %13, %9 ], [ null, %4 ], [ null, %.sink.split ]
   ret ptr %.0
 }
 

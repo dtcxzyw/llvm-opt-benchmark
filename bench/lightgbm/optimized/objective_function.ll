@@ -3906,8 +3906,8 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit:             ; preds = %44
   br i1 %exitcond.not.i, label %.thread, label %.lr.ph.i, !llvm.loop !184
 
 .thread:                                          ; preds = %.lr.ph.i, %..thread_crit_edge, %87, %.preheader.i
-  %106 = phi ptr [ %88, %87 ], [ %88, %.preheader.i ], [ %.pre534, %..thread_crit_edge ], [ %88, %.lr.ph.i ]
-  %.013.i = phi i64 [ 0, %87 ], [ 0, %.preheader.i ], [ %99, %..thread_crit_edge ], [ %.1.i, %.lr.ph.i ]
+  %106 = phi ptr [ %88, %87 ], [ %.pre534, %..thread_crit_edge ], [ %88, %.preheader.i ], [ %88, %.lr.ph.i ]
+  %.013.i = phi i64 [ 0, %87 ], [ %99, %..thread_crit_edge ], [ 0, %.preheader.i ], [ %.1.i, %.lr.ph.i ]
   %107 = getelementptr inbounds nuw double, ptr %106, i64 %.013.i
   %108 = load double, ptr %107, align 8, !tbaa !153
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit
@@ -4220,8 +4220,8 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit215:          ; preds = %182
   br i1 %exitcond.not.i233, label %.thread471, label %.lr.ph.i229, !llvm.loop !184
 
 .thread471:                                       ; preds = %.lr.ph.i229, %..thread471_crit_edge, %232, %.preheader.i227
-  %251 = phi ptr [ %233, %232 ], [ %233, %.preheader.i227 ], [ %.pre, %..thread471_crit_edge ], [ %233, %.lr.ph.i229 ]
-  %.013.i228 = phi i64 [ 0, %232 ], [ 0, %.preheader.i227 ], [ %244, %..thread471_crit_edge ], [ %.1.i232, %.lr.ph.i229 ]
+  %251 = phi ptr [ %233, %232 ], [ %.pre, %..thread471_crit_edge ], [ %233, %.preheader.i227 ], [ %233, %.lr.ph.i229 ]
+  %.013.i228 = phi i64 [ 0, %232 ], [ %244, %..thread471_crit_edge ], [ 0, %.preheader.i227 ], [ %.1.i232, %.lr.ph.i229 ]
   %252 = getelementptr inbounds nuw double, ptr %251, i64 %.013.i228
   %253 = load double, ptr %252, align 8, !tbaa !153
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit259
@@ -7345,7 +7345,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !252
 
 _ZSt11swap_rangesIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit: ; preds = %._crit_edge, %._crit_edge102, %.lr.ph.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit, %5, %3
-  %.sroa.025.0 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %23, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit ], [ %23, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit ], [ %1, %.lr.ph.i ], [ %23, %._crit_edge102 ], [ %23, %._crit_edge ]
+  %.sroa.025.0 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %23, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit ], [ %1, %.lr.ph.i ], [ %23, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit ], [ %23, %._crit_edge102 ], [ %23, %._crit_edge ]
   ret ptr %.sroa.025.0
 }
 
@@ -9264,9 +9264,9 @@ _ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_NS0_5_
   br i1 %.not.i16, label %_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lNS0_5__ops15_Iter_comp_iterIZNK8LightGBM16RegressionL1loss15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSH_iEUliiE0_EEEvT_SK_T0_T1_T2_.exit, label %.lr.ph.i15, !llvm.loop !269
 
 _ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lNS0_5__ops15_Iter_comp_iterIZNK8LightGBM16RegressionL1loss15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSH_iEUliiE0_EEEvT_SK_T0_T1_T2_.exit: ; preds = %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_NS0_5__ops15_Iter_comp_iterIZNK8LightGBM16RegressionL1loss15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSH_iEUliiE0_EEET0_T_SL_SL_SL_SK_T1_.exit, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_NS0_5__ops15_Iter_comp_iterIZNK8LightGBM16RegressionL1loss15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSH_iEUliiE0_EEET0_T_SL_SL_SL_SK_T1_.exit.us, %25
-  %.sroa.019.0.lcssa.i = phi ptr [ %0, %25 ], [ %27, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_NS0_5__ops15_Iter_comp_iterIZNK8LightGBM16RegressionL1loss15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSH_iEUliiE0_EEET0_T_SL_SL_SL_SK_T1_.exit.us ], [ %34, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_NS0_5__ops15_Iter_comp_iterIZNK8LightGBM16RegressionL1loss15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSH_iEUliiE0_EEET0_T_SL_SL_SL_SK_T1_.exit ]
-  %.0.lcssa.i = phi ptr [ %2, %25 ], [ %30, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_NS0_5__ops15_Iter_comp_iterIZNK8LightGBM16RegressionL1loss15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSH_iEUliiE0_EEET0_T_SL_SL_SL_SK_T1_.exit.us ], [ %80, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_NS0_5__ops15_Iter_comp_iterIZNK8LightGBM16RegressionL1loss15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSH_iEUliiE0_EEET0_T_SL_SL_SL_SK_T1_.exit ]
-  %.lcssa.i = phi i64 [ %19, %25 ], [ %32, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_NS0_5__ops15_Iter_comp_iterIZNK8LightGBM16RegressionL1loss15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSH_iEUliiE0_EEET0_T_SL_SL_SL_SK_T1_.exit.us ], [ %82, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_NS0_5__ops15_Iter_comp_iterIZNK8LightGBM16RegressionL1loss15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSH_iEUliiE0_EEET0_T_SL_SL_SL_SK_T1_.exit ]
+  %.sroa.019.0.lcssa.i = phi ptr [ %27, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_NS0_5__ops15_Iter_comp_iterIZNK8LightGBM16RegressionL1loss15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSH_iEUliiE0_EEET0_T_SL_SL_SL_SK_T1_.exit.us ], [ %0, %25 ], [ %34, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_NS0_5__ops15_Iter_comp_iterIZNK8LightGBM16RegressionL1loss15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSH_iEUliiE0_EEET0_T_SL_SL_SL_SK_T1_.exit ]
+  %.0.lcssa.i = phi ptr [ %30, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_NS0_5__ops15_Iter_comp_iterIZNK8LightGBM16RegressionL1loss15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSH_iEUliiE0_EEET0_T_SL_SL_SL_SK_T1_.exit.us ], [ %2, %25 ], [ %80, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_NS0_5__ops15_Iter_comp_iterIZNK8LightGBM16RegressionL1loss15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSH_iEUliiE0_EEET0_T_SL_SL_SL_SK_T1_.exit ]
+  %.lcssa.i = phi i64 [ %32, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_NS0_5__ops15_Iter_comp_iterIZNK8LightGBM16RegressionL1loss15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSH_iEUliiE0_EEET0_T_SL_SL_SL_SK_T1_.exit.us ], [ %19, %25 ], [ %82, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_NS0_5__ops15_Iter_comp_iterIZNK8LightGBM16RegressionL1loss15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSH_iEUliiE0_EEET0_T_SL_SL_SL_SK_T1_.exit ]
   %.sroa.speculated.i = call i64 @llvm.smin.i64(i64 %.059, i64 %.lcssa.i)
   %83 = getelementptr inbounds i32, ptr %.sroa.019.0.lcssa.i, i64 %.sroa.speculated.i
   %84 = call noundef ptr @_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_NS0_5__ops15_Iter_comp_iterIZNK8LightGBM16RegressionL1loss15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSH_iEUliiE0_EEET0_T_SL_SL_SL_SK_T1_(ptr %.sroa.019.0.lcssa.i, ptr %83, ptr %83, ptr %1, ptr noundef %.0.lcssa.i, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter.59") align 8 %14)
@@ -12059,8 +12059,8 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit:             ; preds = %44
   br i1 %exitcond.not.i, label %.thread, label %.lr.ph.i, !llvm.loop !184
 
 .thread:                                          ; preds = %.lr.ph.i, %..thread_crit_edge, %91, %.preheader.i
-  %110 = phi ptr [ %92, %91 ], [ %92, %.preheader.i ], [ %.pre534, %..thread_crit_edge ], [ %92, %.lr.ph.i ]
-  %.013.i = phi i64 [ 0, %91 ], [ 0, %.preheader.i ], [ %103, %..thread_crit_edge ], [ %.1.i, %.lr.ph.i ]
+  %110 = phi ptr [ %92, %91 ], [ %.pre534, %..thread_crit_edge ], [ %92, %.preheader.i ], [ %92, %.lr.ph.i ]
+  %.013.i = phi i64 [ 0, %91 ], [ %103, %..thread_crit_edge ], [ 0, %.preheader.i ], [ %.1.i, %.lr.ph.i ]
   %111 = getelementptr inbounds nuw double, ptr %110, i64 %.013.i
   %112 = load double, ptr %111, align 8, !tbaa !153
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit
@@ -12377,8 +12377,8 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit215:          ; preds = %186
   br i1 %exitcond.not.i233, label %.thread471, label %.lr.ph.i229, !llvm.loop !184
 
 .thread471:                                       ; preds = %.lr.ph.i229, %..thread471_crit_edge, %240, %.preheader.i227
-  %259 = phi ptr [ %241, %240 ], [ %241, %.preheader.i227 ], [ %.pre, %..thread471_crit_edge ], [ %241, %.lr.ph.i229 ]
-  %.013.i228 = phi i64 [ 0, %240 ], [ 0, %.preheader.i227 ], [ %252, %..thread471_crit_edge ], [ %.1.i232, %.lr.ph.i229 ]
+  %259 = phi ptr [ %241, %240 ], [ %.pre, %..thread471_crit_edge ], [ %241, %.preheader.i227 ], [ %241, %.lr.ph.i229 ]
+  %.013.i228 = phi i64 [ 0, %240 ], [ %252, %..thread471_crit_edge ], [ 0, %.preheader.i227 ], [ %.1.i232, %.lr.ph.i229 ]
   %260 = getelementptr inbounds nuw double, ptr %259, i64 %.013.i228
   %261 = load double, ptr %260, align 8, !tbaa !153
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit259
@@ -16429,9 +16429,9 @@ _ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_NS0_5_
   br i1 %.not.i16, label %_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lNS0_5__ops15_Iter_comp_iterIZNK8LightGBM22RegressionQuantileloss15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSH_iEUliiE0_EEEvT_SK_T0_T1_T2_.exit, label %.lr.ph.i15, !llvm.loop !338
 
 _ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lNS0_5__ops15_Iter_comp_iterIZNK8LightGBM22RegressionQuantileloss15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSH_iEUliiE0_EEEvT_SK_T0_T1_T2_.exit: ; preds = %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_NS0_5__ops15_Iter_comp_iterIZNK8LightGBM22RegressionQuantileloss15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSH_iEUliiE0_EEET0_T_SL_SL_SL_SK_T1_.exit, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_NS0_5__ops15_Iter_comp_iterIZNK8LightGBM22RegressionQuantileloss15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSH_iEUliiE0_EEET0_T_SL_SL_SL_SK_T1_.exit.us, %25
-  %.sroa.019.0.lcssa.i = phi ptr [ %0, %25 ], [ %27, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_NS0_5__ops15_Iter_comp_iterIZNK8LightGBM22RegressionQuantileloss15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSH_iEUliiE0_EEET0_T_SL_SL_SL_SK_T1_.exit.us ], [ %34, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_NS0_5__ops15_Iter_comp_iterIZNK8LightGBM22RegressionQuantileloss15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSH_iEUliiE0_EEET0_T_SL_SL_SL_SK_T1_.exit ]
-  %.0.lcssa.i = phi ptr [ %2, %25 ], [ %30, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_NS0_5__ops15_Iter_comp_iterIZNK8LightGBM22RegressionQuantileloss15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSH_iEUliiE0_EEET0_T_SL_SL_SL_SK_T1_.exit.us ], [ %80, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_NS0_5__ops15_Iter_comp_iterIZNK8LightGBM22RegressionQuantileloss15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSH_iEUliiE0_EEET0_T_SL_SL_SL_SK_T1_.exit ]
-  %.lcssa.i = phi i64 [ %19, %25 ], [ %32, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_NS0_5__ops15_Iter_comp_iterIZNK8LightGBM22RegressionQuantileloss15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSH_iEUliiE0_EEET0_T_SL_SL_SL_SK_T1_.exit.us ], [ %82, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_NS0_5__ops15_Iter_comp_iterIZNK8LightGBM22RegressionQuantileloss15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSH_iEUliiE0_EEET0_T_SL_SL_SL_SK_T1_.exit ]
+  %.sroa.019.0.lcssa.i = phi ptr [ %27, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_NS0_5__ops15_Iter_comp_iterIZNK8LightGBM22RegressionQuantileloss15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSH_iEUliiE0_EEET0_T_SL_SL_SL_SK_T1_.exit.us ], [ %0, %25 ], [ %34, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_NS0_5__ops15_Iter_comp_iterIZNK8LightGBM22RegressionQuantileloss15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSH_iEUliiE0_EEET0_T_SL_SL_SL_SK_T1_.exit ]
+  %.0.lcssa.i = phi ptr [ %30, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_NS0_5__ops15_Iter_comp_iterIZNK8LightGBM22RegressionQuantileloss15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSH_iEUliiE0_EEET0_T_SL_SL_SL_SK_T1_.exit.us ], [ %2, %25 ], [ %80, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_NS0_5__ops15_Iter_comp_iterIZNK8LightGBM22RegressionQuantileloss15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSH_iEUliiE0_EEET0_T_SL_SL_SL_SK_T1_.exit ]
+  %.lcssa.i = phi i64 [ %32, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_NS0_5__ops15_Iter_comp_iterIZNK8LightGBM22RegressionQuantileloss15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSH_iEUliiE0_EEET0_T_SL_SL_SL_SK_T1_.exit.us ], [ %19, %25 ], [ %82, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_NS0_5__ops15_Iter_comp_iterIZNK8LightGBM22RegressionQuantileloss15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSH_iEUliiE0_EEET0_T_SL_SL_SL_SK_T1_.exit ]
   %.sroa.speculated.i = call i64 @llvm.smin.i64(i64 %.059, i64 %.lcssa.i)
   %83 = getelementptr inbounds i32, ptr %.sroa.019.0.lcssa.i, i64 %.sroa.speculated.i
   %84 = call noundef ptr @_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_NS0_5__ops15_Iter_comp_iterIZNK8LightGBM22RegressionQuantileloss15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSH_iEUliiE0_EEET0_T_SL_SL_SL_SK_T1_(ptr %.sroa.019.0.lcssa.i, ptr %83, ptr %83, ptr %1, ptr noundef %.0.lcssa.i, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter.72") align 8 %14)
@@ -32676,9 +32676,9 @@ _ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_NS0_5_
   br i1 %.not.i16, label %_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lNS0_5__ops15_Iter_comp_iterIZNK8LightGBM18RegressionMAPELOSS15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSH_iEUliiE0_EEEvT_SK_T0_T1_T2_.exit, label %.lr.ph.i15, !llvm.loop !589
 
 _ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lNS0_5__ops15_Iter_comp_iterIZNK8LightGBM18RegressionMAPELOSS15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSH_iEUliiE0_EEEvT_SK_T0_T1_T2_.exit: ; preds = %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_NS0_5__ops15_Iter_comp_iterIZNK8LightGBM18RegressionMAPELOSS15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSH_iEUliiE0_EEET0_T_SL_SL_SL_SK_T1_.exit, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_NS0_5__ops15_Iter_comp_iterIZNK8LightGBM18RegressionMAPELOSS15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSH_iEUliiE0_EEET0_T_SL_SL_SL_SK_T1_.exit.us, %25
-  %.sroa.019.0.lcssa.i = phi ptr [ %0, %25 ], [ %27, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_NS0_5__ops15_Iter_comp_iterIZNK8LightGBM18RegressionMAPELOSS15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSH_iEUliiE0_EEET0_T_SL_SL_SL_SK_T1_.exit.us ], [ %34, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_NS0_5__ops15_Iter_comp_iterIZNK8LightGBM18RegressionMAPELOSS15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSH_iEUliiE0_EEET0_T_SL_SL_SL_SK_T1_.exit ]
-  %.0.lcssa.i = phi ptr [ %2, %25 ], [ %30, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_NS0_5__ops15_Iter_comp_iterIZNK8LightGBM18RegressionMAPELOSS15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSH_iEUliiE0_EEET0_T_SL_SL_SL_SK_T1_.exit.us ], [ %80, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_NS0_5__ops15_Iter_comp_iterIZNK8LightGBM18RegressionMAPELOSS15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSH_iEUliiE0_EEET0_T_SL_SL_SL_SK_T1_.exit ]
-  %.lcssa.i = phi i64 [ %19, %25 ], [ %32, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_NS0_5__ops15_Iter_comp_iterIZNK8LightGBM18RegressionMAPELOSS15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSH_iEUliiE0_EEET0_T_SL_SL_SL_SK_T1_.exit.us ], [ %82, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_NS0_5__ops15_Iter_comp_iterIZNK8LightGBM18RegressionMAPELOSS15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSH_iEUliiE0_EEET0_T_SL_SL_SL_SK_T1_.exit ]
+  %.sroa.019.0.lcssa.i = phi ptr [ %27, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_NS0_5__ops15_Iter_comp_iterIZNK8LightGBM18RegressionMAPELOSS15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSH_iEUliiE0_EEET0_T_SL_SL_SL_SK_T1_.exit.us ], [ %0, %25 ], [ %34, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_NS0_5__ops15_Iter_comp_iterIZNK8LightGBM18RegressionMAPELOSS15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSH_iEUliiE0_EEET0_T_SL_SL_SL_SK_T1_.exit ]
+  %.0.lcssa.i = phi ptr [ %30, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_NS0_5__ops15_Iter_comp_iterIZNK8LightGBM18RegressionMAPELOSS15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSH_iEUliiE0_EEET0_T_SL_SL_SL_SK_T1_.exit.us ], [ %2, %25 ], [ %80, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_NS0_5__ops15_Iter_comp_iterIZNK8LightGBM18RegressionMAPELOSS15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSH_iEUliiE0_EEET0_T_SL_SL_SL_SK_T1_.exit ]
+  %.lcssa.i = phi i64 [ %32, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_NS0_5__ops15_Iter_comp_iterIZNK8LightGBM18RegressionMAPELOSS15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSH_iEUliiE0_EEET0_T_SL_SL_SL_SK_T1_.exit.us ], [ %19, %25 ], [ %82, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_NS0_5__ops15_Iter_comp_iterIZNK8LightGBM18RegressionMAPELOSS15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSH_iEUliiE0_EEET0_T_SL_SL_SL_SK_T1_.exit ]
   %.sroa.speculated.i = call i64 @llvm.smin.i64(i64 %.059, i64 %.lcssa.i)
   %83 = getelementptr inbounds i32, ptr %.sroa.019.0.lcssa.i, i64 %.sroa.speculated.i
   %84 = call noundef ptr @_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_NS0_5__ops15_Iter_comp_iterIZNK8LightGBM18RegressionMAPELOSS15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSH_iEUliiE0_EEET0_T_SL_SL_SL_SK_T1_(ptr %.sroa.019.0.lcssa.i, ptr %83, ptr %83, ptr %1, ptr noundef %.0.lcssa.i, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter.103") align 8 %14)
@@ -38460,8 +38460,8 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br label %.critedge184
 
 .critedge184:                                     ; preds = %..critedge184_crit_edge, %119, %121
-  %124 = phi ptr [ %.pre325, %..critedge184_crit_edge ], [ %.pre326, %121 ], [ %.pre326, %119 ]
-  %125 = phi i1 [ false, %..critedge184_crit_edge ], [ %123, %121 ], [ true, %119 ]
+  %124 = phi ptr [ %.pre326, %119 ], [ %.pre326, %121 ], [ %.pre325, %..critedge184_crit_edge ]
+  %125 = phi i1 [ true, %119 ], [ %123, %121 ], [ false, %..critedge184_crit_edge ]
   %126 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %127 = icmp eq ptr %124, %126
   br i1 %127, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i

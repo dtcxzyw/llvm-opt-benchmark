@@ -4759,106 +4759,106 @@ define internal i32 @dissect_inap_Digits(i1 noundef zeroext %0, ptr noundef %1, 
 16:                                               ; preds = %13
   %17 = load i32, ptr @hf_inap_correlationID, align 4
   %18 = icmp eq i32 %5, %17
-  br i1 %18, label %19, label %25
+  br i1 %18, label %65, label %19
 
 19:                                               ; preds = %16
-  %20 = load i32, ptr @ett_inap_correlationID, align 4
-  %21 = load i32, ptr @opcode, align 4
-  %.not40 = icmp eq i32 %21, 16
-  %22 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %23 = load ptr, ptr %22, align 8
-  %24 = call ptr @proto_item_add_subtree(ptr noundef %23, i32 noundef %20)
-  br i1 %.not40, label %74, label %71
+  %20 = load i32, ptr @hf_inap_calledAddressValue, align 4
+  %21 = icmp eq i32 %5, %20
+  br i1 %21, label %.thread37, label %22
 
-25:                                               ; preds = %16
-  %26 = load i32, ptr @hf_inap_calledAddressValue, align 4
+22:                                               ; preds = %19
+  %23 = load i32, ptr @hf_inap_callingAddressValue, align 4
+  %24 = icmp eq i32 %5, %23
+  br i1 %24, label %.thread37, label %25
+
+25:                                               ; preds = %22
+  %26 = load i32, ptr @hf_inap_number, align 4
   %27 = icmp eq i32 %5, %26
   br i1 %27, label %.thread37, label %28
 
 28:                                               ; preds = %25
-  %29 = load i32, ptr @hf_inap_callingAddressValue, align 4
+  %29 = load i32, ptr @hf_inap_dialledNumber, align 4
   %30 = icmp eq i32 %5, %29
-  br i1 %30, label %.thread37, label %31
+  br i1 %30, label %.thread, label %31
 
 31:                                               ; preds = %28
-  %32 = load i32, ptr @hf_inap_number, align 4
+  %32 = load i32, ptr @hf_inap_callingLineID, align 4
   %33 = icmp eq i32 %5, %32
-  br i1 %33, label %.thread37, label %34
+  br i1 %33, label %.thread, label %34
 
 34:                                               ; preds = %31
-  %35 = load i32, ptr @hf_inap_dialledNumber, align 4
+  %35 = load i32, ptr @hf_inap_iNServiceControlCode, align 4
   %36 = icmp eq i32 %5, %35
   br i1 %36, label %.thread, label %37
 
 37:                                               ; preds = %34
-  %38 = load i32, ptr @hf_inap_callingLineID, align 4
+  %38 = load i32, ptr @hf_inap_iNServiceControlCodeLow, align 4
   %39 = icmp eq i32 %5, %38
   br i1 %39, label %.thread, label %40
 
 40:                                               ; preds = %37
-  %41 = load i32, ptr @hf_inap_iNServiceControlCode, align 4
+  %41 = load i32, ptr @hf_inap_iNServiceControlCodeHigh, align 4
   %42 = icmp eq i32 %5, %41
   br i1 %42, label %.thread, label %43
 
 43:                                               ; preds = %40
-  %44 = load i32, ptr @hf_inap_iNServiceControlCodeLow, align 4
+  %44 = load i32, ptr @hf_inap_lineID, align 4
   %45 = icmp eq i32 %5, %44
   br i1 %45, label %.thread, label %46
 
 46:                                               ; preds = %43
-  %47 = load i32, ptr @hf_inap_iNServiceControlCodeHigh, align 4
+  %47 = load i32, ptr @hf_inap_prefix, align 4
   %48 = icmp eq i32 %5, %47
   br i1 %48, label %.thread, label %49
 
 49:                                               ; preds = %46
-  %50 = load i32, ptr @hf_inap_lineID, align 4
+  %50 = load i32, ptr @hf_inap_iPAddressValue, align 4
   %51 = icmp eq i32 %5, %50
-  br i1 %51, label %.thread, label %52
+  br i1 %51, label %.thread37, label %52
 
 52:                                               ; preds = %49
-  %53 = load i32, ptr @hf_inap_prefix, align 4
+  %53 = load i32, ptr @hf_inap_digitsResponse, align 4
   %54 = icmp eq i32 %5, %53
-  br i1 %54, label %.thread, label %55
+  %55 = load i32, ptr @ett_inap_digitsResponse, align 4
+  %spec.select = select i1 %54, i32 %55, i32 -1
+  %56 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %57 = load ptr, ptr %56, align 8
+  %58 = call ptr @proto_item_add_subtree(ptr noundef %57, i32 noundef %spec.select)
+  br i1 %54, label %71, label %74
 
-55:                                               ; preds = %52
-  %56 = load i32, ptr @hf_inap_iPAddressValue, align 4
-  %57 = icmp eq i32 %5, %56
-  br i1 %57, label %.thread37, label %64
-
-.thread:                                          ; preds = %52, %49, %46, %43, %40, %37, %34
-  %.029.ph.in = phi ptr [ @ett_inap_lineID, %49 ], [ @ett_inap_iNServiceControlCodeHigh, %46 ], [ @ett_inap_iNServiceControlCodeLow, %43 ], [ @ett_inap_iNServiceControlCode, %40 ], [ @ett_inap_callingLineID, %37 ], [ @ett_inap_dialledNumber, %34 ], [ @ett_inap_prefix, %52 ]
+.thread:                                          ; preds = %46, %43, %40, %37, %34, %31, %28
+  %.029.ph.in = phi ptr [ @ett_inap_lineID, %43 ], [ @ett_inap_iNServiceControlCodeHigh, %40 ], [ @ett_inap_iNServiceControlCodeLow, %37 ], [ @ett_inap_iNServiceControlCode, %34 ], [ @ett_inap_callingLineID, %31 ], [ @ett_inap_dialledNumber, %28 ], [ @ett_inap_prefix, %46 ]
   %.029.ph = load i32, ptr %.029.ph.in, align 4
-  %58 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %59 = load ptr, ptr %58, align 8
-  %60 = call ptr @proto_item_add_subtree(ptr noundef %59, i32 noundef %.029.ph)
+  %59 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %60 = load ptr, ptr %59, align 8
+  %61 = call ptr @proto_item_add_subtree(ptr noundef %60, i32 noundef %.029.ph)
   br label %71
 
-.thread37:                                        ; preds = %55, %31, %28, %25, %13, %10
-  %.029.ph36.in = phi ptr [ @ett_inap_number, %31 ], [ @ett_inap_callingAddressValue, %28 ], [ @ett_inap_calledAddressValue, %25 ], [ @ett_inap_assistingSSPIPRoutingAddress, %13 ], [ @ett_inap_additionalCallingPartyNumber, %10 ], [ @ett_inap_iPAddressValue, %55 ]
+.thread37:                                        ; preds = %49, %25, %22, %19, %13, %10
+  %.029.ph36.in = phi ptr [ @ett_inap_number, %25 ], [ @ett_inap_callingAddressValue, %22 ], [ @ett_inap_calledAddressValue, %19 ], [ @ett_inap_assistingSSPIPRoutingAddress, %13 ], [ @ett_inap_additionalCallingPartyNumber, %10 ], [ @ett_inap_iPAddressValue, %49 ]
   %.029.ph36 = load i32, ptr %.029.ph36.in, align 4
-  %61 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %62 = load ptr, ptr %61, align 8
-  %63 = call ptr @proto_item_add_subtree(ptr noundef %62, i32 noundef %.029.ph36)
+  %62 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %63 = load ptr, ptr %62, align 8
+  %64 = call ptr @proto_item_add_subtree(ptr noundef %63, i32 noundef %.029.ph36)
   br label %74
 
-64:                                               ; preds = %55
-  %65 = load i32, ptr @hf_inap_digitsResponse, align 4
-  %66 = icmp eq i32 %5, %65
-  %67 = load i32, ptr @ett_inap_digitsResponse, align 4
-  %spec.select = select i1 %66, i32 %67, i32 -1
+65:                                               ; preds = %16
+  %66 = load i32, ptr @ett_inap_correlationID, align 4
+  %67 = load i32, ptr @opcode, align 4
+  %.not40 = icmp eq i32 %67, 16
   %68 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %69 = load ptr, ptr %68, align 8
-  %70 = call ptr @proto_item_add_subtree(ptr noundef %69, i32 noundef %spec.select)
-  br i1 %66, label %71, label %74
+  %70 = call ptr @proto_item_add_subtree(ptr noundef %69, i32 noundef %66)
+  br i1 %.not40, label %74, label %71
 
-71:                                               ; preds = %19, %.thread, %64
-  %72 = phi ptr [ %60, %.thread ], [ %70, %64 ], [ %24, %19 ]
+71:                                               ; preds = %52, %.thread, %65
+  %72 = phi ptr [ %61, %.thread ], [ %70, %65 ], [ %58, %52 ]
   %73 = load ptr, ptr %7, align 8
   call void @dissect_isup_generic_digits_parameter(ptr noundef %73, ptr noundef %72, ptr noundef null)
   br label %79
 
-74:                                               ; preds = %19, %.thread37, %64
-  %75 = phi ptr [ %63, %.thread37 ], [ %70, %64 ], [ %24, %19 ]
+74:                                               ; preds = %52, %.thread37, %65
+  %75 = phi ptr [ %64, %.thread37 ], [ %70, %65 ], [ %58, %52 ]
   %76 = load ptr, ptr %7, align 8
   %77 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %78 = load ptr, ptr %77, align 8

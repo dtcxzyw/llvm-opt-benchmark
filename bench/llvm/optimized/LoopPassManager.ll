@@ -607,7 +607,7 @@ _ZNK4llvm15SmallPtrSetImplIPvE5countEPKv.exit.thread.thread.i: ; preds = %_ZNK4l
   br label %_ZN4llvm17PreservedAnalyses24PreservedAnalysisChecker9preservedEv.exit
 
 _ZN4llvm17PreservedAnalyses24PreservedAnalysisChecker9preservedEv.exit: ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i.i.i, %.lr.ph.i.i4.i, %134, %_ZNK4llvm17PreservedAnalyses10getCheckerINS_16LoopNestAnalysisEEENS0_24PreservedAnalysisCheckerEv.exit, %_ZNK4llvm15SmallPtrSetImplIPvE5countEPKv.exit.i, %_ZNK4llvm15SmallPtrSetImplIPvE5countEPKv.exit.thread.thread.i, %153
-  %156 = phi i1 [ false, %_ZNK4llvm17PreservedAnalyses10getCheckerINS_16LoopNestAnalysisEEENS0_24PreservedAnalysisCheckerEv.exit ], [ true, %_ZNK4llvm15SmallPtrSetImplIPvE5countEPKv.exit.i ], [ %155, %153 ], [ false, %_ZNK4llvm15SmallPtrSetImplIPvE5countEPKv.exit.thread.thread.i ], [ false, %134 ], [ true, %.lr.ph.i.i.i ], [ %151, %.lr.ph.i.i4.i ], [ false, %.lr.ph.i.i.i.i ]
+  %156 = phi i1 [ false, %_ZNK4llvm17PreservedAnalyses10getCheckerINS_16LoopNestAnalysisEEENS0_24PreservedAnalysisCheckerEv.exit ], [ true, %_ZNK4llvm15SmallPtrSetImplIPvE5countEPKv.exit.i ], [ %151, %.lr.ph.i.i4.i ], [ %155, %153 ], [ false, %_ZNK4llvm15SmallPtrSetImplIPvE5countEPKv.exit.thread.thread.i ], [ false, %134 ], [ true, %.lr.ph.i.i.i ], [ false, %.lr.ph.i.i.i.i ]
   %157 = icmp ne i8 %.151, 0
   %158 = select i1 %156, i1 %157, i1 false
   %159 = zext i1 %158 to i8
@@ -3126,13 +3126,13 @@ _ZZN4llvm17PreservedAnalyses9intersectEOS0_ENKUlPvE_clES2_.exit34.thread: ; pred
   br label %_ZZN4llvm17PreservedAnalyses9intersectEOS0_ENKUlPvE_clES2_.exit34.thread40
 
 _ZZN4llvm17PreservedAnalyses9intersectEOS0_ENKUlPvE_clES2_.exit34.thread40: ; preds = %.lr.ph.i.i.i30, %58, %_ZZN4llvm17PreservedAnalyses9intersectEOS0_ENKUlPvE_clES2_.exit34, %_ZZN4llvm17PreservedAnalyses9intersectEOS0_ENKUlPvE_clES2_.exit34.thread
-  %.3 = phi i1 [ %.245, %58 ], [ true, %_ZZN4llvm17PreservedAnalyses9intersectEOS0_ENKUlPvE_clES2_.exit34.thread ], [ %.245, %_ZZN4llvm17PreservedAnalyses9intersectEOS0_ENKUlPvE_clES2_.exit34 ], [ %.245, %.lr.ph.i.i.i30 ]
+  %.3 = phi i1 [ %.245, %_ZZN4llvm17PreservedAnalyses9intersectEOS0_ENKUlPvE_clES2_.exit34 ], [ %.245, %58 ], [ true, %_ZZN4llvm17PreservedAnalyses9intersectEOS0_ENKUlPvE_clES2_.exit34.thread ], [ %.245, %.lr.ph.i.i.i30 ]
   %75 = getelementptr inbounds nuw i8, ptr %.02244, i64 8
   %.not = icmp eq ptr %75, %54
   br i1 %.not, label %.loopexit, label %58, !llvm.loop !242
 
 .loopexit:                                        ; preds = %_ZZN4llvm17PreservedAnalyses9intersectEOS0_ENKUlPvE_clES2_.exit34.thread40, %49, %28, %50, %6
-  %.0.in = phi i1 [ false, %6 ], [ false, %50 ], [ %.1, %49 ], [ %.1.us, %28 ], [ %.3, %_ZZN4llvm17PreservedAnalyses9intersectEOS0_ENKUlPvE_clES2_.exit34.thread40 ]
+  %.0.in = phi i1 [ %.1, %49 ], [ false, %6 ], [ %.1.us, %28 ], [ false, %50 ], [ %.3, %_ZZN4llvm17PreservedAnalyses9intersectEOS0_ENKUlPvE_clES2_.exit34.thread40 ]
   ret i1 %.0.in
 }
 

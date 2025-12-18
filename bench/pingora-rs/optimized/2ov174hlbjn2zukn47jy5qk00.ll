@@ -5183,8 +5183,8 @@ define hidden void @_ZN6brotli3enc9metablock20BrotliBuildMetaBlock17h4b945eecf2c
   br label %.thread78
 
 .loopexit.split-lp:                               ; preds = %115, %100, %92, %.loopexit117, %76, %45, %44, %38
-  %.sroa.026.1.ph87.ph = phi i1 [ false, %38 ], [ false, %44 ], [ true, %100 ], [ false, %92 ], [ true, %115 ], [ false, %.loopexit117 ], [ false, %45 ], [ false, %76 ]
-  %.sroa.025.1.ph88.ph = phi i1 [ false, %38 ], [ false, %44 ], [ true, %100 ], [ true, %92 ], [ true, %115 ], [ false, %.loopexit117 ], [ false, %45 ], [ false, %76 ]
+  %.sroa.026.1.ph87.ph = phi i1 [ false, %44 ], [ true, %100 ], [ false, %92 ], [ true, %115 ], [ false, %.loopexit117 ], [ false, %45 ], [ false, %38 ], [ false, %76 ]
+  %.sroa.025.1.ph88.ph = phi i1 [ false, %44 ], [ true, %100 ], [ true, %92 ], [ true, %115 ], [ false, %.loopexit117 ], [ false, %45 ], [ false, %38 ], [ false, %76 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.thread78
@@ -5535,7 +5535,7 @@ define hidden void @_ZN6brotli3enc9metablock20BrotliBuildMetaBlock17h4b945eecf2c
 .cont:                                            ; preds = %.invoke
   unreachable
 
-.thread78:                                        ; preds = %.loopexit119, %.loopexit.split-lp, %83, %112
+.thread78:                                        ; preds = %.loopexit119, %.loopexit.split-lp, %112, %83
   %.sroa.025.285 = phi i1 [ true, %112 ], [ false, %83 ], [ false, %.loopexit119 ], [ %.sroa.025.1.ph88.ph, %.loopexit.split-lp ]
   %.sroa.026.284 = phi i1 [ true, %112 ], [ false, %83 ], [ false, %.loopexit119 ], [ %.sroa.026.1.ph87.ph, %.loopexit.split-lp ]
   %.pn83 = phi { ptr, i32 } [ %113, %112 ], [ %84, %83 ], [ %lpad.loopexit, %.loopexit119 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]

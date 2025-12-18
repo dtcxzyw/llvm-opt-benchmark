@@ -818,7 +818,7 @@ getX11FontPath.exit.i:                            ; preds = %152, %._crit_edge.i
   br i1 %exitcond96.not.i.i, label %.loopexit.i.i, label %.lr.ph50.i.i, !llvm.loop !19
 
 .loopexit.i.i:                                    ; preds = %243, %239, %._crit_edge46.i.i, %.preheader.i72.i
-  %.0.i73.i = phi ptr [ null, %239 ], [ null, %._crit_edge46.i.i ], [ null, %.preheader.i72.i ], [ %241, %243 ]
+  %.0.i73.i = phi ptr [ null, %._crit_edge46.i.i ], [ null, %239 ], [ null, %.preheader.i72.i ], [ %241, %243 ]
   call void @free(ptr noundef %197) #13
   br label %mergePaths.exit.i
 

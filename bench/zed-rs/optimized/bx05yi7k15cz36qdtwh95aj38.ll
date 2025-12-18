@@ -27316,7 +27316,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN10async_task4task17Task$LT$T$C$M$GT
   br i1 %22, label %"_ZN10async_task6header15Header$LT$M$GT$6notify17he3d0d33b7c694f94E.llvm.9710696410615594107.exit22", label %23
 
 "_ZN10async_task6header15Header$LT$M$GT$6notify17he3d0d33b7c694f94E.llvm.9710696410615594107.exit22": ; preds = %20, %98, %92, %79, %74, %69, %"_ZN10async_task6header15Header$LT$M$GT$6notify17he3d0d33b7c694f94E.llvm.9710696410615594107.exit"
-  %.sroa.0.0 = phi i8 [ 1, %"_ZN10async_task6header15Header$LT$M$GT$6notify17he3d0d33b7c694f94E.llvm.9710696410615594107.exit" ], [ 2, %69 ], [ 0, %74 ], [ 0, %79 ], [ 0, %92 ], [ 0, %98 ], [ 2, %20 ]
+  %.sroa.0.0 = phi i8 [ 1, %"_ZN10async_task6header15Header$LT$M$GT$6notify17he3d0d33b7c694f94E.llvm.9710696410615594107.exit" ], [ 0, %98 ], [ 2, %69 ], [ 0, %74 ], [ 0, %79 ], [ 0, %92 ], [ 2, %20 ]
   ret i8 %.sroa.0.0
 
 23:                                               ; preds = %20, %10
@@ -34372,9 +34372,9 @@ default.unreachable:                              ; preds = %"_ZN4text15operatio
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke128, %.invoke
-  %.sroa.13.0.ph.ph = phi ptr [ %.sroa.13.2, %.invoke ], [ %.sroa.13.3, %.invoke128 ]
-  %.sroa.7.0.ph.ph = phi ptr [ %.sroa.7.2, %.invoke ], [ %25, %.invoke128 ]
-  %.sroa.0.0.ph.ph = phi ptr [ %2, %.invoke ], [ %.sroa.0.2, %.invoke128 ]
+  %.sroa.13.0.ph.ph = phi ptr [ %.sroa.13.3, %.invoke128 ], [ %.sroa.13.2, %.invoke ]
+  %.sroa.7.0.ph.ph = phi ptr [ %25, %.invoke128 ], [ %.sroa.7.2, %.invoke ]
+  %.sroa.0.0.ph.ph = phi ptr [ %.sroa.0.2, %.invoke128 ], [ %2, %.invoke ]
   %lpad.loopexit.split-lp39 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -48883,8 +48883,8 @@ _ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17h5ac2ae42596d
   %70 = zext nneg i16 %69 to i64
   br label %_ZN9hashbrown3raw5inner13RawTableInner30find_or_find_insert_slot_inner17h905c416281a1f195E.exit.thread
 
-_ZN9hashbrown3raw5inner13RawTableInner30find_or_find_insert_slot_inner17h905c416281a1f195E.exit.thread: ; preds = %64, %60
-  %.sroa.3.0.i.ph = phi i64 [ %.sroa.4.1.i, %60 ], [ %70, %64 ]
+_ZN9hashbrown3raw5inner13RawTableInner30find_or_find_insert_slot_inner17h905c416281a1f195E.exit.thread: ; preds = %60, %64
+  %.sroa.3.0.i.ph = phi i64 [ %70, %64 ], [ %.sroa.4.1.i, %60 ]
   %71 = inttoptr i64 %.sroa.3.0.i.ph to ptr
   br label %.loopexit
 

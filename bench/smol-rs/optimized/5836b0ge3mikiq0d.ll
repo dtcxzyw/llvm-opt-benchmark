@@ -1045,7 +1045,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h75ffbf7bbedb93daE.exit.i.
   br label %.loopexit.split-lp602.i.i
 
 .loopexit.split-lp602.loopexit.split-lp.i.i:      ; preds = %355, %313
-  %.0284.ph.ph611.i.i = phi i8 [ 1, %313 ], [ %.3287.i.i, %355 ]
+  %.0284.ph.ph611.i.i = phi i8 [ %.3287.i.i, %355 ], [ 1, %313 ]
   %lpad.loopexit.split-lp613.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp602.i.i
@@ -1063,7 +1063,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h75ffbf7bbedb93daE.exit.i.
   br label %.loopexit.split-lp.i.i
 
 .loopexit.split-lp.loopexit.i.i:                  ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hff2f44893287cde2E.exit411.i.i", %390, %387, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hff2f44893287cde2E.exit402.i.i", %368, %365, %353, %351, %"_ZN4core3ptr51drop_in_place$LT$async_io..reactor..ReactorLock$GT$17ha6acd7fbd5da471fE.exit.i.i", %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hff2f44893287cde2E.exit388.i.i", %338, %335, %_ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.llvm.14408593437386099104.exit.i.i.i.i.i.i, %330, %324, %321
-  %.2286.ph.ph.i.i = phi i8 [ 1, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hff2f44893287cde2E.exit411.i.i" ], [ 1, %390 ], [ 1, %387 ], [ 1, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hff2f44893287cde2E.exit402.i.i" ], [ 0, %330 ], [ 1, %368 ], [ 1, %365 ], [ 0, %_ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.llvm.14408593437386099104.exit.i.i.i.i.i.i ], [ 0, %353 ], [ 0, %351 ], [ 0, %"_ZN4core3ptr51drop_in_place$LT$async_io..reactor..ReactorLock$GT$17ha6acd7fbd5da471fE.exit.i.i" ], [ 0, %338 ], [ 1, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hff2f44893287cde2E.exit388.i.i" ], [ 0, %335 ], [ 1, %324 ], [ 1, %321 ]
+  %.2286.ph.ph.i.i = phi i8 [ 1, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hff2f44893287cde2E.exit411.i.i" ], [ 1, %321 ], [ 1, %390 ], [ 1, %387 ], [ 1, %324 ], [ 1, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hff2f44893287cde2E.exit402.i.i" ], [ 0, %330 ], [ 1, %368 ], [ 1, %365 ], [ 0, %_ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.llvm.14408593437386099104.exit.i.i.i.i.i.i ], [ 0, %353 ], [ 0, %351 ], [ 0, %"_ZN4core3ptr51drop_in_place$LT$async_io..reactor..ReactorLock$GT$17ha6acd7fbd5da471fE.exit.i.i" ], [ 0, %338 ], [ 1, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hff2f44893287cde2E.exit388.i.i" ], [ 0, %335 ]
   %lpad.loopexit615.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp.i.i
@@ -1488,7 +1488,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h75ffbf7bbedb93daE.exit405
   br i1 %.not597.i.i, label %.invoke723.i.i, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hff2f44893287cde2E.exit411.i.i"
 
 .invoke723.i.i:                                   ; preds = %394, %372, %339, %286
-  %404 = phi ptr [ @anon.48b364105262d98143e18c033d61e33e.38, %286 ], [ @anon.48b364105262d98143e18c033d61e33e.44, %372 ], [ @anon.48b364105262d98143e18c033d61e33e.41, %339 ], [ @anon.48b364105262d98143e18c033d61e33e.47, %394 ]
+  %404 = phi ptr [ @anon.48b364105262d98143e18c033d61e33e.38, %286 ], [ @anon.48b364105262d98143e18c033d61e33e.41, %339 ], [ @anon.48b364105262d98143e18c033d61e33e.47, %394 ], [ @anon.48b364105262d98143e18c033d61e33e.44, %372 ]
   invoke void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1 @anon.48b364105262d98143e18c033d61e33e.31, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %404) #12
           to label %.cont724.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.i.i, !noalias !104
 

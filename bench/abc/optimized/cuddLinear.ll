@@ -89,7 +89,7 @@ define range(i32 0, 2) i32 @Cudd_PrintLinear(ptr noundef readonly captures(none)
   br i1 %34, label %.loopexit, label %16
 
 .loopexit:                                        ; preds = %._crit_edge, %16, %23, %.preheader.us, %14, %1
-  %.020 = phi i32 [ 1, %1 ], [ 0, %23 ], [ 0, %.preheader.us ], [ 1, %14 ], [ 0, %._crit_edge ], [ 1, %16 ]
+  %.020 = phi i32 [ 0, %23 ], [ 0, %.preheader.us ], [ 1, %1 ], [ 1, %14 ], [ 0, %._crit_edge ], [ 1, %16 ]
   ret i32 %.020
 }
 
@@ -566,8 +566,8 @@ cuddInitLinear.exit.thread:                       ; preds = %.lr.ph31.i, %.prehe
   br i1 %.not29.i156.i, label %ddLinearAndSiftingBackward.exit.i, label %.lr.ph38.i153.i, !llvm.loop !52
 
 ddLinearAndSiftingBackward.exit.i:                ; preds = %232, %.lr.ph38.i153.i, %195, %.lr.ph38.i138.i, %119, %.lr.ph38.i.i, %164
-  %.190.i = phi ptr [ null, %164 ], [ %166, %195 ], [ null, %119 ], [ null, %.lr.ph38.i.i ], [ %166, %.lr.ph38.i138.i ], [ %199, %.lr.ph38.i153.i ], [ %199, %232 ]
-  %.1.i = phi ptr [ %162, %164 ], [ %162, %195 ], [ %90, %119 ], [ %90, %.lr.ph38.i.i ], [ %162, %.lr.ph38.i138.i ], [ %203, %.lr.ph38.i153.i ], [ %203, %232 ]
+  %.190.i = phi ptr [ null, %119 ], [ %166, %195 ], [ null, %164 ], [ null, %.lr.ph38.i.i ], [ %166, %.lr.ph38.i138.i ], [ %199, %.lr.ph38.i153.i ], [ %199, %232 ]
+  %.1.i = phi ptr [ %90, %119 ], [ %162, %195 ], [ %162, %164 ], [ %90, %.lr.ph38.i.i ], [ %162, %.lr.ph38.i138.i ], [ %203, %.lr.ph38.i153.i ], [ %203, %232 ]
   %.not112186.i = icmp eq ptr %.1.i, null
   br i1 %.not112186.i, label %.preheader.i67, label %.lr.ph188.i
 
@@ -613,8 +613,8 @@ ddLinearAndSiftingBackward.exit.i:                ; preds = %232, %.lr.ph38.i153
   br i1 %.not113.i, label %..loopexit_crit_edge.i, label %241, !llvm.loop !57
 
 ddLinearAndSiftingBackward.exit.thread.i:         ; preds = %164, %228, %220, %215, %191, %183, %178, %115, %107, %102
-  %.089.i = phi ptr [ %199, %228 ], [ null, %115 ], [ %166, %191 ], [ null, %102 ], [ null, %107 ], [ %166, %178 ], [ %166, %183 ], [ %199, %215 ], [ %199, %220 ], [ inttoptr (i64 -1 to ptr), %164 ]
-  %.088.i = phi ptr [ %203, %228 ], [ %90, %115 ], [ %162, %191 ], [ %90, %102 ], [ %90, %107 ], [ %162, %178 ], [ %162, %183 ], [ %203, %215 ], [ %203, %220 ], [ %162, %164 ]
+  %.089.i = phi ptr [ %166, %191 ], [ null, %115 ], [ %199, %228 ], [ null, %102 ], [ null, %107 ], [ %166, %178 ], [ %166, %183 ], [ %199, %215 ], [ %199, %220 ], [ inttoptr (i64 -1 to ptr), %164 ]
+  %.088.i = phi ptr [ %162, %191 ], [ %90, %115 ], [ %203, %228 ], [ %90, %102 ], [ %90, %107 ], [ %162, %178 ], [ %162, %183 ], [ %203, %215 ], [ %203, %220 ], [ %162, %164 ]
   %.not114180.i = icmp eq ptr %.088.i, null
   br i1 %.not114180.i, label %.preheader172.i, label %.lr.ph.i
 

@@ -2054,7 +2054,7 @@ define internal range(i32 -110, 1) i32 @i801_access(ptr noundef readonly capture
   br label %.thread18
 
 .thread18:                                        ; preds = %376, %491, %.thread18.loopexit35, %488, %339, %312
-  %496 = phi i32 [ %490, %488 ], [ -110, %312 ], [ %342, %339 ], [ %495, %.thread18.loopexit35 ], [ -110, %491 ], [ -110, %376 ]
+  %496 = phi i32 [ %490, %488 ], [ %495, %.thread18.loopexit35 ], [ -110, %491 ], [ -110, %312 ], [ %342, %339 ], [ -110, %376 ]
   %497 = and i1 %303, %306
   br i1 %497, label %498, label %.thread23
 

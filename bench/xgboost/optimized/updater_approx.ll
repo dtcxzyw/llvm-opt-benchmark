@@ -13013,8 +13013,8 @@ _ZNK7xgboost15MultiTargetTree6ParentEi.exit6.i:   ; preds = %.noexc290
   br label %.loopexit326
 
 .loopexit326:                                     ; preds = %.lr.ph.i, %.loopexit326.loopexit561, %.preheader.i
-  %498 = phi ptr [ null, %.preheader.i ], [ %.pre613, %.loopexit326.loopexit561 ], [ null, %.lr.ph.i ]
-  %.07.i = phi i32 [ 0, %.preheader.i ], [ %.016.i, %.loopexit326.loopexit561 ], [ %492, %.lr.ph.i ]
+  %498 = phi ptr [ %.pre613, %.loopexit326.loopexit561 ], [ null, %.preheader.i ], [ null, %.lr.ph.i ]
+  %.07.i = phi i32 [ %.016.i, %.loopexit326.loopexit561 ], [ 0, %.preheader.i ], [ %492, %.lr.ph.i ]
   store i32 %445, ptr %36, align 8, !tbaa !535
   store i32 %.07.i, ptr %119, align 4, !tbaa !474
   store float 0.000000e+00, ptr %120, align 8, !tbaa !548
@@ -13115,7 +13115,7 @@ _ZNK7xgboost15MultiTargetTree6ParentEi.exit6.i301: ; preds = %.noexc305
   br i1 %548, label %.loopexit, label %.lr.ph.i171, !llvm.loop !547
 
 .loopexit:                                        ; preds = %_ZNK7xgboost15MultiTargetTree6ParentEi.exit.i297, %.lr.ph.i171, %.preheader.i170
-  %.07.i169 = phi i32 [ 0, %.preheader.i170 ], [ %543, %.lr.ph.i171 ], [ %.016.i298, %_ZNK7xgboost15MultiTargetTree6ParentEi.exit.i297 ]
+  %.07.i169 = phi i32 [ %543, %.lr.ph.i171 ], [ 0, %.preheader.i170 ], [ %.016.i298, %_ZNK7xgboost15MultiTargetTree6ParentEi.exit.i297 ]
   store i32 %447, ptr %37, align 8, !tbaa !535
   store i32 %.07.i169, ptr %125, align 4, !tbaa !474
   store float 0.000000e+00, ptr %126, align 8, !tbaa !548
@@ -20556,7 +20556,7 @@ _ZNSt6vectorISt10shared_ptrIN7xgboost16HostDeviceVectorIjEEESaIS4_EE17_S_check_i
   br i1 %61, label %_ZNK7xgboost7RegTree8GetDepthEi.exit, label %.lr.ph.i, !llvm.loop !547
 
 _ZNK7xgboost7RegTree8GetDepthEi.exit:             ; preds = %.lr.ph.i, %.preheader.i, %53
-  %.07.i = phi i32 [ 0, %.preheader.i ], [ %54, %53 ], [ %56, %.lr.ph.i ]
+  %.07.i = phi i32 [ %54, %53 ], [ 0, %.preheader.i ], [ %56, %.lr.ph.i ]
   invoke void @_ZN7xgboost6common13ColumnSampler13GetFeatureSetEi(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.333") align 8 %11, ptr noundef nonnull align 8 dereferenceable(5112) %46, i32 noundef %.07.i)
           to label %62 unwind label %120
 
@@ -43426,8 +43426,8 @@ _ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i:           ; preds = %_ZN7xgboost6common4
   br label %261
 
 .sink.split.i84:                                  ; preds = %270, %.noexc87, %_ZN7xgboost6common16SparseColumnIterItEixEm.exit.i, %272, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i83
-  %.sroa.13.1 = phi i64 [ %.sroa.13.3, %_ZN7xgboost6common16SparseColumnIterItEixEm.exit.i ], [ %.sroa.13.3, %.noexc87 ], [ %.sroa.13.3, %272 ], [ %.sroa.13.0, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i83 ], [ %217, %270 ]
-  %.sink.i85 = phi ptr [ %11, %_ZN7xgboost6common16SparseColumnIterItEixEm.exit.i ], [ %10, %.noexc87 ], [ %11, %272 ], [ %11, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i83 ], [ %11, %270 ]
+  %.sroa.13.1 = phi i64 [ %.sroa.13.0, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i83 ], [ %.sroa.13.3, %_ZN7xgboost6common16SparseColumnIterItEixEm.exit.i ], [ %.sroa.13.3, %.noexc87 ], [ %.sroa.13.3, %272 ], [ %217, %270 ]
+  %.sink.i85 = phi ptr [ %11, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i83 ], [ %11, %_ZN7xgboost6common16SparseColumnIterItEixEm.exit.i ], [ %10, %.noexc87 ], [ %11, %272 ], [ %11, %270 ]
   %251 = lshr i64 %265, 3
   %252 = and i64 %265, 7
   %253 = load ptr, ptr %.sink.i85, align 8, !tbaa !1444
@@ -45434,8 +45434,8 @@ _ZNK7xgboost6common12ColumnMatrix12SparseColumnItEEDajm.exit: ; preds = %_ZSt7ad
   br label %_ZN7xgboost6common16PartitionBuilderILm2048EE20PartitionRangeKernelIZNS2_9PartitionItLb1ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS8_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmEUlT_E_EESt4pairImmENS0_4SpanISN_Lm18446744073709551615EEENST_ImLm18446744073709551615EEESV_SP_.exit
 
 _ZN7xgboost6common16PartitionBuilderILm2048EE20PartitionRangeKernelIZNS2_9PartitionItLb1ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS8_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmEUlT_E_EESt4pairImmENS0_4SpanISN_Lm18446744073709551615EEENST_ImLm18446744073709551615EEESV_SP_.exit: ; preds = %326, %267, %126, %269, %210, %125, %383
-  %.sroa.10.0 = phi i64 [ %.sroa.10.2, %383 ], [ 0, %125 ], [ 0, %210 ], [ 0, %269 ], [ %.1.i92, %267 ], [ %.120.i, %126 ], [ %.1.i109, %326 ]
-  %.sroa.0167.0 = phi i64 [ %.sroa.0167.2, %383 ], [ 0, %125 ], [ 0, %210 ], [ 0, %269 ], [ %.128.i, %267 ], [ %.1.i, %126 ], [ %.128.i108, %326 ]
+  %.sroa.10.0 = phi i64 [ %.1.i92, %267 ], [ %.sroa.10.2, %383 ], [ %.120.i, %126 ], [ 0, %125 ], [ 0, %210 ], [ 0, %269 ], [ %.1.i109, %326 ]
+  %.sroa.0167.0 = phi i64 [ %.128.i, %267 ], [ %.sroa.0167.2, %383 ], [ %.1.i, %126 ], [ 0, %125 ], [ 0, %210 ], [ 0, %269 ], [ %.128.i108, %326 ]
   %384 = load ptr, ptr %21, align 8, !tbaa !168
   %385 = getelementptr inbounds nuw i64, ptr %384, i64 %22
   %386 = load i64, ptr %385, align 8, !tbaa !44
@@ -50134,8 +50134,8 @@ _ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i:           ; preds = %_ZN7xgboost6common4
   br label %260
 
 .sink.split.i84:                                  ; preds = %269, %.noexc87, %_ZN7xgboost6common16SparseColumnIterIjEixEm.exit.i, %271, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i83
-  %.sroa.13.1 = phi i64 [ %.sroa.13.3, %_ZN7xgboost6common16SparseColumnIterIjEixEm.exit.i ], [ %.sroa.13.3, %.noexc87 ], [ %.sroa.13.3, %271 ], [ %.sroa.13.0, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i83 ], [ %216, %269 ]
-  %.sink.i85 = phi ptr [ %11, %_ZN7xgboost6common16SparseColumnIterIjEixEm.exit.i ], [ %10, %.noexc87 ], [ %11, %271 ], [ %11, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i83 ], [ %11, %269 ]
+  %.sroa.13.1 = phi i64 [ %.sroa.13.0, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i83 ], [ %.sroa.13.3, %_ZN7xgboost6common16SparseColumnIterIjEixEm.exit.i ], [ %.sroa.13.3, %.noexc87 ], [ %.sroa.13.3, %271 ], [ %216, %269 ]
+  %.sink.i85 = phi ptr [ %11, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i83 ], [ %11, %_ZN7xgboost6common16SparseColumnIterIjEixEm.exit.i ], [ %10, %.noexc87 ], [ %11, %271 ], [ %11, %269 ]
   %250 = lshr i64 %264, 3
   %251 = and i64 %264, 7
   %252 = load ptr, ptr %.sink.i85, align 8, !tbaa !1444
@@ -51547,8 +51547,8 @@ _ZNK7xgboost6common12ColumnMatrix12SparseColumnIjEEDajm.exit: ; preds = %_ZSt7ad
   br label %_ZN7xgboost6common16PartitionBuilderILm2048EE20PartitionRangeKernelIZNS2_9PartitionIjLb1ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS8_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmEUlT_E_EESt4pairImmENS0_4SpanISN_Lm18446744073709551615EEENST_ImLm18446744073709551615EEESV_SP_.exit
 
 _ZN7xgboost6common16PartitionBuilderILm2048EE20PartitionRangeKernelIZNS2_9PartitionIjLb1ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS8_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmEUlT_E_EESt4pairImmENS0_4SpanISN_Lm18446744073709551615EEENST_ImLm18446744073709551615EEESV_SP_.exit: ; preds = %324, %266, %126, %268, %210, %125, %381
-  %.sroa.10.0 = phi i64 [ %.sroa.10.2, %381 ], [ 0, %125 ], [ 0, %210 ], [ 0, %268 ], [ %.1.i92, %266 ], [ %.120.i, %126 ], [ %.1.i109, %324 ]
-  %.sroa.0167.0 = phi i64 [ %.sroa.0167.2, %381 ], [ 0, %125 ], [ 0, %210 ], [ 0, %268 ], [ %.128.i, %266 ], [ %.1.i, %126 ], [ %.128.i108, %324 ]
+  %.sroa.10.0 = phi i64 [ %.1.i92, %266 ], [ %.sroa.10.2, %381 ], [ %.120.i, %126 ], [ 0, %125 ], [ 0, %210 ], [ 0, %268 ], [ %.1.i109, %324 ]
+  %.sroa.0167.0 = phi i64 [ %.128.i, %266 ], [ %.sroa.0167.2, %381 ], [ %.1.i, %126 ], [ 0, %125 ], [ 0, %210 ], [ 0, %268 ], [ %.128.i108, %324 ]
   %382 = load ptr, ptr %21, align 8, !tbaa !168
   %383 = getelementptr inbounds nuw i64, ptr %382, i64 %22
   %384 = load i64, ptr %383, align 8, !tbaa !44
@@ -55458,8 +55458,8 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
   br label %_ZN7xgboost6common16SparseColumnIterIhEixEm.exit.i
 
 _ZN7xgboost6common16SparseColumnIterIhEixEm.exit.i: ; preds = %282, %286, %284, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i82
-  %.sroa.13.1 = phi i64 [ %.sroa.13.2, %286 ], [ %.sroa.13.2, %284 ], [ %.sroa.13.0, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i82 ], [ %237, %282 ]
-  %.0.i.i = phi i32 [ %290, %286 ], [ -1, %284 ], [ -1, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i82 ], [ -1, %282 ]
+  %.sroa.13.1 = phi i64 [ %.sroa.13.0, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i82 ], [ %.sroa.13.2, %286 ], [ %.sroa.13.2, %284 ], [ %237, %282 ]
+  %.0.i.i = phi i32 [ -1, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i82 ], [ %290, %286 ], [ -1, %284 ], [ -1, %282 ]
   %291 = call noundef zeroext i1 @_ZZN7xgboost6common16PartitionBuilderILm2048EE8MaskRowsIhLb0ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmPNS_17BitFieldContainerIhNS_11RBitsPolicyIhEELb0EEESS_ENKUlT_T0_E_clImiEEDaST_SU_(ptr noundef nonnull align 8 dereferenceable(48) %16, i64 noundef %276, i32 noundef %.0.i.i)
   br i1 %291, label %292, label %271
 
@@ -56773,8 +56773,8 @@ _ZNK7xgboost6common12ColumnMatrix12SparseColumnIhEEDajm.exit: ; preds = %_ZSt7ad
   br label %_ZN7xgboost6common16SparseColumnIterIhEixEm.exit.i
 
 _ZN7xgboost6common16SparseColumnIterIhEixEm.exit.i: ; preds = %312, %316, %314, %.lr.ph.i101
-  %.sroa.17.1 = phi i64 [ %.sroa.17.2, %316 ], [ %.sroa.17.2, %314 ], [ %.sroa.17.0, %.lr.ph.i101 ], [ %269, %312 ]
-  %.0.i.i102 = phi i32 [ %320, %316 ], [ -1, %314 ], [ -1, %.lr.ph.i101 ], [ -1, %312 ]
+  %.sroa.17.1 = phi i64 [ %.sroa.17.0, %.lr.ph.i101 ], [ %.sroa.17.2, %316 ], [ %.sroa.17.2, %314 ], [ %269, %312 ]
+  %.0.i.i102 = phi i32 [ -1, %.lr.ph.i101 ], [ %320, %316 ], [ -1, %314 ], [ -1, %312 ]
   %321 = load i8, ptr %13, align 1, !tbaa !758, !range !114, !noundef !115
   %322 = trunc nuw i8 %321 to i1
   br i1 %322, label %.noexc112, label %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIhLb0ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_T0_E_clImiEEDaSO_SP_.exit.i
@@ -56882,8 +56882,8 @@ _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.thread
   br label %_ZN7xgboost6common16SparseColumnIterIhEixEm.exit.i118
 
 _ZN7xgboost6common16SparseColumnIterIhEixEm.exit.i118: ; preds = %366, %370, %368, %.lr.ph.i114
-  %.sroa.17.4 = phi i64 [ %.sroa.17.5, %370 ], [ %.sroa.17.5, %368 ], [ %.sroa.17.3, %.lr.ph.i114 ], [ %269, %366 ]
-  %.0.i.i119 = phi i32 [ %374, %370 ], [ -1, %368 ], [ -1, %.lr.ph.i114 ], [ -1, %366 ]
+  %.sroa.17.4 = phi i64 [ %.sroa.17.3, %.lr.ph.i114 ], [ %.sroa.17.5, %370 ], [ %.sroa.17.5, %368 ], [ %269, %366 ]
+  %.0.i.i119 = phi i32 [ -1, %.lr.ph.i114 ], [ %374, %370 ], [ -1, %368 ], [ -1, %366 ]
   %375 = load i8, ptr %13, align 1, !tbaa !758, !range !114, !noundef !115
   %376 = trunc nuw i8 %375 to i1
   br i1 %376, label %.noexc138, label %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIhLb0ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_T0_E_clImiEEDaSO_SP_.exit.i120
@@ -56957,8 +56957,8 @@ _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.thread
   br i1 %exitcond.not.i125, label %_ZN7xgboost6common16PartitionBuilderILm2048EE20PartitionRangeKernelIZNS2_9PartitionIhLb0ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS8_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmEUlT_E_EESt4pairImmENS0_4SpanISN_Lm18446744073709551615EEENST_ImLm18446744073709551615EEESV_SP_.exit, label %.lr.ph.i114, !llvm.loop !1864
 
 _ZN7xgboost6common16PartitionBuilderILm2048EE20PartitionRangeKernelIZNS2_9PartitionIhLb0ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS8_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmEUlT_E_EESt4pairImmENS0_4SpanISN_Lm18446744073709551615EEENST_ImLm18446744073709551615EEESV_SP_.exit: ; preds = %411, %357, %130, %129, %228
-  %.sroa.10169.0 = phi i64 [ %.sroa.10169.1, %228 ], [ 0, %129 ], [ %.1.i104, %357 ], [ %.120.i, %130 ], [ %.1.i124, %411 ]
-  %.sroa.0168.0 = phi i64 [ %.sroa.0168.1, %228 ], [ 0, %129 ], [ %.124.i, %357 ], [ %.1.i, %130 ], [ %.124.i123, %411 ]
+  %.sroa.10169.0 = phi i64 [ %.sroa.10169.1, %228 ], [ %.1.i104, %357 ], [ %.120.i, %130 ], [ 0, %129 ], [ %.1.i124, %411 ]
+  %.sroa.0168.0 = phi i64 [ %.sroa.0168.1, %228 ], [ %.124.i, %357 ], [ %.1.i, %130 ], [ 0, %129 ], [ %.124.i123, %411 ]
   %413 = load ptr, ptr %25, align 8, !tbaa !168
   %414 = getelementptr inbounds nuw i64, ptr %413, i64 %26
   %415 = load i64, ptr %414, align 8, !tbaa !44
@@ -60781,8 +60781,8 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
   br label %_ZN7xgboost6common16SparseColumnIterItEixEm.exit.i
 
 _ZN7xgboost6common16SparseColumnIterItEixEm.exit.i: ; preds = %282, %286, %284, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i82
-  %.sroa.13.1 = phi i64 [ %.sroa.13.2, %286 ], [ %.sroa.13.2, %284 ], [ %.sroa.13.0, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i82 ], [ %237, %282 ]
-  %.0.i.i = phi i32 [ %290, %286 ], [ -1, %284 ], [ -1, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i82 ], [ -1, %282 ]
+  %.sroa.13.1 = phi i64 [ %.sroa.13.0, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i82 ], [ %.sroa.13.2, %286 ], [ %.sroa.13.2, %284 ], [ %237, %282 ]
+  %.0.i.i = phi i32 [ -1, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i82 ], [ %290, %286 ], [ -1, %284 ], [ -1, %282 ]
   %291 = call noundef zeroext i1 @_ZZN7xgboost6common16PartitionBuilderILm2048EE8MaskRowsItLb0ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmPNS_17BitFieldContainerIhNS_11RBitsPolicyIhEELb0EEESS_ENKUlT_T0_E_clImiEEDaST_SU_(ptr noundef nonnull align 8 dereferenceable(48) %16, i64 noundef %276, i32 noundef %.0.i.i)
   br i1 %291, label %292, label %271
 
@@ -62095,8 +62095,8 @@ _ZNK7xgboost6common12ColumnMatrix12SparseColumnItEEDajm.exit: ; preds = %_ZSt7ad
   br label %_ZN7xgboost6common16SparseColumnIterItEixEm.exit.i
 
 _ZN7xgboost6common16SparseColumnIterItEixEm.exit.i: ; preds = %312, %316, %314, %.lr.ph.i101
-  %.sroa.17.1 = phi i64 [ %.sroa.17.2, %316 ], [ %.sroa.17.2, %314 ], [ %.sroa.17.0, %.lr.ph.i101 ], [ %269, %312 ]
-  %.0.i.i102 = phi i32 [ %320, %316 ], [ -1, %314 ], [ -1, %.lr.ph.i101 ], [ -1, %312 ]
+  %.sroa.17.1 = phi i64 [ %.sroa.17.0, %.lr.ph.i101 ], [ %.sroa.17.2, %316 ], [ %.sroa.17.2, %314 ], [ %269, %312 ]
+  %.0.i.i102 = phi i32 [ -1, %.lr.ph.i101 ], [ %320, %316 ], [ -1, %314 ], [ -1, %312 ]
   %321 = load i8, ptr %13, align 1, !tbaa !758, !range !114, !noundef !115
   %322 = trunc nuw i8 %321 to i1
   br i1 %322, label %.noexc112, label %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionItLb0ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_T0_E_clImiEEDaSO_SP_.exit.i
@@ -62204,8 +62204,8 @@ _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.thread
   br label %_ZN7xgboost6common16SparseColumnIterItEixEm.exit.i118
 
 _ZN7xgboost6common16SparseColumnIterItEixEm.exit.i118: ; preds = %366, %370, %368, %.lr.ph.i114
-  %.sroa.17.4 = phi i64 [ %.sroa.17.5, %370 ], [ %.sroa.17.5, %368 ], [ %.sroa.17.3, %.lr.ph.i114 ], [ %269, %366 ]
-  %.0.i.i119 = phi i32 [ %374, %370 ], [ -1, %368 ], [ -1, %.lr.ph.i114 ], [ -1, %366 ]
+  %.sroa.17.4 = phi i64 [ %.sroa.17.3, %.lr.ph.i114 ], [ %.sroa.17.5, %370 ], [ %.sroa.17.5, %368 ], [ %269, %366 ]
+  %.0.i.i119 = phi i32 [ -1, %.lr.ph.i114 ], [ %374, %370 ], [ -1, %368 ], [ -1, %366 ]
   %375 = load i8, ptr %13, align 1, !tbaa !758, !range !114, !noundef !115
   %376 = trunc nuw i8 %375 to i1
   br i1 %376, label %.noexc138, label %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionItLb0ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_T0_E_clImiEEDaSO_SP_.exit.i120
@@ -62279,8 +62279,8 @@ _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.thread
   br i1 %exitcond.not.i125, label %_ZN7xgboost6common16PartitionBuilderILm2048EE20PartitionRangeKernelIZNS2_9PartitionItLb0ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS8_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmEUlT_E_EESt4pairImmENS0_4SpanISN_Lm18446744073709551615EEENST_ImLm18446744073709551615EEESV_SP_.exit, label %.lr.ph.i114, !llvm.loop !2014
 
 _ZN7xgboost6common16PartitionBuilderILm2048EE20PartitionRangeKernelIZNS2_9PartitionItLb0ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS8_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmEUlT_E_EESt4pairImmENS0_4SpanISN_Lm18446744073709551615EEENST_ImLm18446744073709551615EEESV_SP_.exit: ; preds = %411, %357, %130, %129, %228
-  %.sroa.10169.0 = phi i64 [ %.sroa.10169.1, %228 ], [ 0, %129 ], [ %.1.i104, %357 ], [ %.120.i, %130 ], [ %.1.i124, %411 ]
-  %.sroa.0168.0 = phi i64 [ %.sroa.0168.1, %228 ], [ 0, %129 ], [ %.124.i, %357 ], [ %.1.i, %130 ], [ %.124.i123, %411 ]
+  %.sroa.10169.0 = phi i64 [ %.sroa.10169.1, %228 ], [ %.1.i104, %357 ], [ %.120.i, %130 ], [ 0, %129 ], [ %.1.i124, %411 ]
+  %.sroa.0168.0 = phi i64 [ %.sroa.0168.1, %228 ], [ %.124.i, %357 ], [ %.1.i, %130 ], [ 0, %129 ], [ %.124.i123, %411 ]
   %413 = load ptr, ptr %25, align 8, !tbaa !168
   %414 = getelementptr inbounds nuw i64, ptr %413, i64 %26
   %415 = load i64, ptr %414, align 8, !tbaa !44
@@ -66101,8 +66101,8 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
   br label %_ZN7xgboost6common16SparseColumnIterIjEixEm.exit.i
 
 _ZN7xgboost6common16SparseColumnIterIjEixEm.exit.i: ; preds = %281, %285, %283, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i82
-  %.sroa.13.1 = phi i64 [ %.sroa.13.2, %285 ], [ %.sroa.13.2, %283 ], [ %.sroa.13.0, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i82 ], [ %236, %281 ]
-  %.0.i.i = phi i32 [ %288, %285 ], [ -1, %283 ], [ -1, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i82 ], [ -1, %281 ]
+  %.sroa.13.1 = phi i64 [ %.sroa.13.0, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i82 ], [ %.sroa.13.2, %285 ], [ %.sroa.13.2, %283 ], [ %236, %281 ]
+  %.0.i.i = phi i32 [ -1, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i82 ], [ %288, %285 ], [ -1, %283 ], [ -1, %281 ]
   %289 = call noundef zeroext i1 @_ZZN7xgboost6common16PartitionBuilderILm2048EE8MaskRowsIjLb0ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmPNS_17BitFieldContainerIhNS_11RBitsPolicyIhEELb0EEESS_ENKUlT_T0_E_clImiEEDaST_SU_(ptr noundef nonnull align 8 dereferenceable(48) %16, i64 noundef %275, i32 noundef %.0.i.i)
   br i1 %289, label %290, label %270
 
@@ -67414,8 +67414,8 @@ _ZNK7xgboost6common12ColumnMatrix12SparseColumnIjEEDajm.exit: ; preds = %_ZSt7ad
   br label %_ZN7xgboost6common16SparseColumnIterIjEixEm.exit.i
 
 _ZN7xgboost6common16SparseColumnIterIjEixEm.exit.i: ; preds = %312, %316, %314, %.lr.ph.i101
-  %.sroa.17.1 = phi i64 [ %.sroa.17.2, %316 ], [ %.sroa.17.2, %314 ], [ %.sroa.17.0, %.lr.ph.i101 ], [ %269, %312 ]
-  %.0.i.i102 = phi i32 [ %319, %316 ], [ -1, %314 ], [ -1, %.lr.ph.i101 ], [ -1, %312 ]
+  %.sroa.17.1 = phi i64 [ %.sroa.17.0, %.lr.ph.i101 ], [ %.sroa.17.2, %316 ], [ %.sroa.17.2, %314 ], [ %269, %312 ]
+  %.0.i.i102 = phi i32 [ -1, %.lr.ph.i101 ], [ %319, %316 ], [ -1, %314 ], [ -1, %312 ]
   %320 = load i8, ptr %13, align 1, !tbaa !758, !range !114, !noundef !115
   %321 = trunc nuw i8 %320 to i1
   br i1 %321, label %.noexc112, label %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIjLb0ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_T0_E_clImiEEDaSO_SP_.exit.i
@@ -67522,8 +67522,8 @@ _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.thread
   br label %_ZN7xgboost6common16SparseColumnIterIjEixEm.exit.i118
 
 _ZN7xgboost6common16SparseColumnIterIjEixEm.exit.i118: ; preds = %365, %369, %367, %.lr.ph.i114
-  %.sroa.17.4 = phi i64 [ %.sroa.17.5, %369 ], [ %.sroa.17.5, %367 ], [ %.sroa.17.3, %.lr.ph.i114 ], [ %269, %365 ]
-  %.0.i.i119 = phi i32 [ %372, %369 ], [ -1, %367 ], [ -1, %.lr.ph.i114 ], [ -1, %365 ]
+  %.sroa.17.4 = phi i64 [ %.sroa.17.3, %.lr.ph.i114 ], [ %.sroa.17.5, %369 ], [ %.sroa.17.5, %367 ], [ %269, %365 ]
+  %.0.i.i119 = phi i32 [ -1, %.lr.ph.i114 ], [ %372, %369 ], [ -1, %367 ], [ -1, %365 ]
   %373 = load i8, ptr %13, align 1, !tbaa !758, !range !114, !noundef !115
   %374 = trunc nuw i8 %373 to i1
   br i1 %374, label %.noexc138, label %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIjLb0ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_T0_E_clImiEEDaSO_SP_.exit.i120
@@ -67597,8 +67597,8 @@ _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.thread
   br i1 %exitcond.not.i125, label %_ZN7xgboost6common16PartitionBuilderILm2048EE20PartitionRangeKernelIZNS2_9PartitionIjLb0ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS8_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmEUlT_E_EESt4pairImmENS0_4SpanISN_Lm18446744073709551615EEENST_ImLm18446744073709551615EEESV_SP_.exit, label %.lr.ph.i114, !llvm.loop !2163
 
 _ZN7xgboost6common16PartitionBuilderILm2048EE20PartitionRangeKernelIZNS2_9PartitionIjLb0ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS8_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmEUlT_E_EESt4pairImmENS0_4SpanISN_Lm18446744073709551615EEENST_ImLm18446744073709551615EEESV_SP_.exit: ; preds = %409, %356, %130, %129, %228
-  %.sroa.10169.0 = phi i64 [ %.sroa.10169.1, %228 ], [ 0, %129 ], [ %.1.i104, %356 ], [ %.120.i, %130 ], [ %.1.i124, %409 ]
-  %.sroa.0168.0 = phi i64 [ %.sroa.0168.1, %228 ], [ 0, %129 ], [ %.124.i, %356 ], [ %.1.i, %130 ], [ %.124.i123, %409 ]
+  %.sroa.10169.0 = phi i64 [ %.sroa.10169.1, %228 ], [ %.1.i104, %356 ], [ %.120.i, %130 ], [ 0, %129 ], [ %.1.i124, %409 ]
+  %.sroa.0168.0 = phi i64 [ %.sroa.0168.1, %228 ], [ %.124.i, %356 ], [ %.1.i, %130 ], [ 0, %129 ], [ %.124.i123, %409 ]
   %411 = load ptr, ptr %25, align 8, !tbaa !168
   %412 = getelementptr inbounds nuw i64, ptr %411, i64 %26
   %413 = load i64, ptr %412, align 8, !tbaa !44
@@ -71366,8 +71366,8 @@ _ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i:           ; preds = %_ZN7xgboost6common4
   br label %241
 
 .sink.split.i83:                                  ; preds = %250, %259, %_ZN7xgboost6common16SparseColumnIterIhEixEm.exit.i, %252, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i82
-  %.sroa.13.1 = phi i64 [ %.sroa.13.3, %_ZN7xgboost6common16SparseColumnIterIhEixEm.exit.i ], [ %.sroa.13.3, %259 ], [ %.sroa.13.3, %252 ], [ %.sroa.13.0, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i82 ], [ %197, %250 ]
-  %.sink.i84 = phi ptr [ %11, %_ZN7xgboost6common16SparseColumnIterIhEixEm.exit.i ], [ %10, %259 ], [ %11, %252 ], [ %11, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i82 ], [ %11, %250 ]
+  %.sroa.13.1 = phi i64 [ %.sroa.13.0, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i82 ], [ %.sroa.13.3, %_ZN7xgboost6common16SparseColumnIterIhEixEm.exit.i ], [ %.sroa.13.3, %259 ], [ %.sroa.13.3, %252 ], [ %197, %250 ]
+  %.sink.i84 = phi ptr [ %11, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i82 ], [ %11, %_ZN7xgboost6common16SparseColumnIterIhEixEm.exit.i ], [ %10, %259 ], [ %11, %252 ], [ %11, %250 ]
   %231 = lshr i64 %245, 3
   %232 = and i64 %245, 7
   %233 = load ptr, ptr %.sink.i84, align 8, !tbaa !1444
@@ -72452,7 +72452,7 @@ _ZN7xgboost6common16SparseColumnIterIhEixEm.exit.i: ; preds = %294
   br i1 %300, label %_ZN7xgboost6common16SparseColumnIterIhEixEm.exit.thread.i, label %303
 
 _ZN7xgboost6common16SparseColumnIterIhEixEm.exit.thread.i: ; preds = %292, %_ZN7xgboost6common16SparseColumnIterIhEixEm.exit.i, %294, %.lr.ph.i124
-  %.sroa.17.1 = phi i64 [ %.sroa.17.3, %_ZN7xgboost6common16SparseColumnIterIhEixEm.exit.i ], [ %.sroa.17.3, %294 ], [ %.sroa.17.0, %.lr.ph.i124 ], [ %251, %292 ]
+  %.sroa.17.1 = phi i64 [ %.sroa.17.0, %.lr.ph.i124 ], [ %.sroa.17.3, %_ZN7xgboost6common16SparseColumnIterIhEixEm.exit.i ], [ %.sroa.17.3, %294 ], [ %251, %292 ]
   %301 = add i64 %.02733.i, 1
   %302 = getelementptr inbounds nuw i64, ptr %30, i64 %.02733.i
   store i64 %286, ptr %302, align 8, !tbaa !44
@@ -72518,7 +72518,7 @@ _ZN7xgboost6common16SparseColumnIterIhEixEm.exit.i147: ; preds = %321
   br i1 %327, label %_ZN7xgboost6common16SparseColumnIterIhEixEm.exit.thread.i138, label %330
 
 _ZN7xgboost6common16SparseColumnIterIhEixEm.exit.thread.i138: ; preds = %319, %_ZN7xgboost6common16SparseColumnIterIhEixEm.exit.i147, %321, %.lr.ph.i134
-  %.sroa.17.5 = phi i64 [ %.sroa.17.7, %_ZN7xgboost6common16SparseColumnIterIhEixEm.exit.i147 ], [ %.sroa.17.7, %321 ], [ %.sroa.17.4, %.lr.ph.i134 ], [ %251, %319 ]
+  %.sroa.17.5 = phi i64 [ %.sroa.17.4, %.lr.ph.i134 ], [ %.sroa.17.7, %_ZN7xgboost6common16SparseColumnIterIhEixEm.exit.i147 ], [ %.sroa.17.7, %321 ], [ %251, %319 ]
   %328 = add i64 %.02634.i136, 1
   %329 = getelementptr inbounds nuw i64, ptr %31, i64 %.02634.i136
   store i64 %313, ptr %329, align 8, !tbaa !44
@@ -72549,8 +72549,8 @@ _ZN7xgboost6common16SparseColumnIterIhEixEm.exit.thread.i138: ; preds = %319, %_
   br i1 %exitcond.not.i141, label %_ZN7xgboost6common16PartitionBuilderILm2048EE20PartitionRangeKernelIZNS2_9PartitionIhLb1ELb0ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS8_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmEUlT_E_EESt4pairImmENS0_4SpanISN_Lm18446744073709551615EEENST_ImLm18446744073709551615EEESV_SP_.exit, label %.lr.ph.i134, !llvm.loop !2307
 
 _ZN7xgboost6common16PartitionBuilderILm2048EE20PartitionRangeKernelIZNS2_9PartitionIhLb1ELb0ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS8_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmEUlT_E_EESt4pairImmENS0_4SpanISN_Lm18446744073709551615EEENST_ImLm18446744073709551615EEESV_SP_.exit: ; preds = %337, %310, %236, %207, %107, %209, %180, %105
-  %.sroa.10193.0 = phi i64 [ 0, %105 ], [ 0, %180 ], [ 0, %209 ], [ %.1.i126, %310 ], [ %.120.i, %107 ], [ %.1.i92, %207 ], [ %.1.i105, %236 ], [ %.1.i140, %337 ]
-  %.sroa.0192.0 = phi i64 [ 0, %105 ], [ 0, %180 ], [ 0, %209 ], [ %.128.i125, %310 ], [ %.1.i, %107 ], [ %.128.i, %207 ], [ %.128.i104, %236 ], [ %.128.i139, %337 ]
+  %.sroa.10193.0 = phi i64 [ %.1.i92, %207 ], [ %.1.i126, %310 ], [ %.1.i105, %236 ], [ %.120.i, %107 ], [ 0, %105 ], [ 0, %180 ], [ 0, %209 ], [ %.1.i140, %337 ]
+  %.sroa.0192.0 = phi i64 [ %.128.i, %207 ], [ %.128.i125, %310 ], [ %.128.i104, %236 ], [ %.1.i, %107 ], [ 0, %105 ], [ 0, %180 ], [ 0, %209 ], [ %.128.i139, %337 ]
   %339 = load ptr, ptr %12, align 8, !tbaa !168
   %340 = getelementptr inbounds nuw i64, ptr %339, i64 %13
   %341 = load i64, ptr %340, align 8, !tbaa !44
@@ -75866,8 +75866,8 @@ _ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i:           ; preds = %_ZN7xgboost6common4
   br label %241
 
 .sink.split.i83:                                  ; preds = %250, %259, %_ZN7xgboost6common16SparseColumnIterItEixEm.exit.i, %252, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i82
-  %.sroa.13.1 = phi i64 [ %.sroa.13.3, %_ZN7xgboost6common16SparseColumnIterItEixEm.exit.i ], [ %.sroa.13.3, %259 ], [ %.sroa.13.3, %252 ], [ %.sroa.13.0, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i82 ], [ %197, %250 ]
-  %.sink.i84 = phi ptr [ %11, %_ZN7xgboost6common16SparseColumnIterItEixEm.exit.i ], [ %10, %259 ], [ %11, %252 ], [ %11, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i82 ], [ %11, %250 ]
+  %.sroa.13.1 = phi i64 [ %.sroa.13.0, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i82 ], [ %.sroa.13.3, %_ZN7xgboost6common16SparseColumnIterItEixEm.exit.i ], [ %.sroa.13.3, %259 ], [ %.sroa.13.3, %252 ], [ %197, %250 ]
+  %.sink.i84 = phi ptr [ %11, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i82 ], [ %11, %_ZN7xgboost6common16SparseColumnIterItEixEm.exit.i ], [ %10, %259 ], [ %11, %252 ], [ %11, %250 ]
   %231 = lshr i64 %245, 3
   %232 = and i64 %245, 7
   %233 = load ptr, ptr %.sink.i84, align 8, !tbaa !1444
@@ -76947,7 +76947,7 @@ _ZN7xgboost6common16SparseColumnIterItEixEm.exit.i: ; preds = %294
   br i1 %300, label %_ZN7xgboost6common16SparseColumnIterItEixEm.exit.thread.i, label %303
 
 _ZN7xgboost6common16SparseColumnIterItEixEm.exit.thread.i: ; preds = %292, %_ZN7xgboost6common16SparseColumnIterItEixEm.exit.i, %294, %.lr.ph.i124
-  %.sroa.17.1 = phi i64 [ %.sroa.17.3, %_ZN7xgboost6common16SparseColumnIterItEixEm.exit.i ], [ %.sroa.17.3, %294 ], [ %.sroa.17.0, %.lr.ph.i124 ], [ %251, %292 ]
+  %.sroa.17.1 = phi i64 [ %.sroa.17.0, %.lr.ph.i124 ], [ %.sroa.17.3, %_ZN7xgboost6common16SparseColumnIterItEixEm.exit.i ], [ %.sroa.17.3, %294 ], [ %251, %292 ]
   %301 = add i64 %.02733.i, 1
   %302 = getelementptr inbounds nuw i64, ptr %30, i64 %.02733.i
   store i64 %286, ptr %302, align 8, !tbaa !44
@@ -77013,7 +77013,7 @@ _ZN7xgboost6common16SparseColumnIterItEixEm.exit.i147: ; preds = %321
   br i1 %327, label %_ZN7xgboost6common16SparseColumnIterItEixEm.exit.thread.i138, label %330
 
 _ZN7xgboost6common16SparseColumnIterItEixEm.exit.thread.i138: ; preds = %319, %_ZN7xgboost6common16SparseColumnIterItEixEm.exit.i147, %321, %.lr.ph.i134
-  %.sroa.17.5 = phi i64 [ %.sroa.17.7, %_ZN7xgboost6common16SparseColumnIterItEixEm.exit.i147 ], [ %.sroa.17.7, %321 ], [ %.sroa.17.4, %.lr.ph.i134 ], [ %251, %319 ]
+  %.sroa.17.5 = phi i64 [ %.sroa.17.4, %.lr.ph.i134 ], [ %.sroa.17.7, %_ZN7xgboost6common16SparseColumnIterItEixEm.exit.i147 ], [ %.sroa.17.7, %321 ], [ %251, %319 ]
   %328 = add i64 %.02634.i136, 1
   %329 = getelementptr inbounds nuw i64, ptr %31, i64 %.02634.i136
   store i64 %313, ptr %329, align 8, !tbaa !44
@@ -77044,8 +77044,8 @@ _ZN7xgboost6common16SparseColumnIterItEixEm.exit.thread.i138: ; preds = %319, %_
   br i1 %exitcond.not.i141, label %_ZN7xgboost6common16PartitionBuilderILm2048EE20PartitionRangeKernelIZNS2_9PartitionItLb1ELb0ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS8_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmEUlT_E_EESt4pairImmENS0_4SpanISN_Lm18446744073709551615EEENST_ImLm18446744073709551615EEESV_SP_.exit, label %.lr.ph.i134, !llvm.loop !2434
 
 _ZN7xgboost6common16PartitionBuilderILm2048EE20PartitionRangeKernelIZNS2_9PartitionItLb1ELb0ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS8_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmEUlT_E_EESt4pairImmENS0_4SpanISN_Lm18446744073709551615EEENST_ImLm18446744073709551615EEESV_SP_.exit: ; preds = %337, %310, %236, %207, %107, %209, %180, %105
-  %.sroa.10193.0 = phi i64 [ 0, %105 ], [ 0, %180 ], [ 0, %209 ], [ %.1.i126, %310 ], [ %.120.i, %107 ], [ %.1.i92, %207 ], [ %.1.i105, %236 ], [ %.1.i140, %337 ]
-  %.sroa.0192.0 = phi i64 [ 0, %105 ], [ 0, %180 ], [ 0, %209 ], [ %.128.i125, %310 ], [ %.1.i, %107 ], [ %.128.i, %207 ], [ %.128.i104, %236 ], [ %.128.i139, %337 ]
+  %.sroa.10193.0 = phi i64 [ %.1.i92, %207 ], [ %.1.i126, %310 ], [ %.1.i105, %236 ], [ %.120.i, %107 ], [ 0, %105 ], [ 0, %180 ], [ 0, %209 ], [ %.1.i140, %337 ]
+  %.sroa.0192.0 = phi i64 [ %.128.i, %207 ], [ %.128.i125, %310 ], [ %.128.i104, %236 ], [ %.1.i, %107 ], [ 0, %105 ], [ 0, %180 ], [ 0, %209 ], [ %.128.i139, %337 ]
   %339 = load ptr, ptr %12, align 8, !tbaa !168
   %340 = getelementptr inbounds nuw i64, ptr %339, i64 %13
   %341 = load i64, ptr %340, align 8, !tbaa !44
@@ -80360,8 +80360,8 @@ _ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i:           ; preds = %_ZN7xgboost6common4
   br label %240
 
 .sink.split.i83:                                  ; preds = %249, %257, %_ZN7xgboost6common16SparseColumnIterIjEixEm.exit.i, %251, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i82
-  %.sroa.13.1 = phi i64 [ %.sroa.13.3, %_ZN7xgboost6common16SparseColumnIterIjEixEm.exit.i ], [ %.sroa.13.3, %257 ], [ %.sroa.13.3, %251 ], [ %.sroa.13.0, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i82 ], [ %196, %249 ]
-  %.sink.i84 = phi ptr [ %11, %_ZN7xgboost6common16SparseColumnIterIjEixEm.exit.i ], [ %10, %257 ], [ %11, %251 ], [ %11, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i82 ], [ %11, %249 ]
+  %.sroa.13.1 = phi i64 [ %.sroa.13.0, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i82 ], [ %.sroa.13.3, %_ZN7xgboost6common16SparseColumnIterIjEixEm.exit.i ], [ %.sroa.13.3, %257 ], [ %.sroa.13.3, %251 ], [ %196, %249 ]
+  %.sink.i84 = phi ptr [ %11, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i82 ], [ %11, %_ZN7xgboost6common16SparseColumnIterIjEixEm.exit.i ], [ %10, %257 ], [ %11, %251 ], [ %11, %249 ]
   %230 = lshr i64 %244, 3
   %231 = and i64 %244, 7
   %232 = load ptr, ptr %.sink.i84, align 8, !tbaa !1444
@@ -81437,7 +81437,7 @@ _ZN7xgboost6common16SparseColumnIterIjEixEm.exit.i: ; preds = %292
   br i1 %297, label %_ZN7xgboost6common16SparseColumnIterIjEixEm.exit.thread.i, label %300
 
 _ZN7xgboost6common16SparseColumnIterIjEixEm.exit.thread.i: ; preds = %290, %_ZN7xgboost6common16SparseColumnIterIjEixEm.exit.i, %292, %.lr.ph.i124
-  %.sroa.17.1 = phi i64 [ %.sroa.17.3, %_ZN7xgboost6common16SparseColumnIterIjEixEm.exit.i ], [ %.sroa.17.3, %292 ], [ %.sroa.17.0, %.lr.ph.i124 ], [ %249, %290 ]
+  %.sroa.17.1 = phi i64 [ %.sroa.17.0, %.lr.ph.i124 ], [ %.sroa.17.3, %_ZN7xgboost6common16SparseColumnIterIjEixEm.exit.i ], [ %.sroa.17.3, %292 ], [ %249, %290 ]
   %298 = add i64 %.02733.i, 1
   %299 = getelementptr inbounds nuw i64, ptr %30, i64 %.02733.i
   store i64 %284, ptr %299, align 8, !tbaa !44
@@ -81502,7 +81502,7 @@ _ZN7xgboost6common16SparseColumnIterIjEixEm.exit.i147: ; preds = %318
   br i1 %323, label %_ZN7xgboost6common16SparseColumnIterIjEixEm.exit.thread.i138, label %326
 
 _ZN7xgboost6common16SparseColumnIterIjEixEm.exit.thread.i138: ; preds = %316, %_ZN7xgboost6common16SparseColumnIterIjEixEm.exit.i147, %318, %.lr.ph.i134
-  %.sroa.17.5 = phi i64 [ %.sroa.17.7, %_ZN7xgboost6common16SparseColumnIterIjEixEm.exit.i147 ], [ %.sroa.17.7, %318 ], [ %.sroa.17.4, %.lr.ph.i134 ], [ %249, %316 ]
+  %.sroa.17.5 = phi i64 [ %.sroa.17.4, %.lr.ph.i134 ], [ %.sroa.17.7, %_ZN7xgboost6common16SparseColumnIterIjEixEm.exit.i147 ], [ %.sroa.17.7, %318 ], [ %249, %316 ]
   %324 = add i64 %.02634.i136, 1
   %325 = getelementptr inbounds nuw i64, ptr %31, i64 %.02634.i136
   store i64 %310, ptr %325, align 8, !tbaa !44
@@ -81533,8 +81533,8 @@ _ZN7xgboost6common16SparseColumnIterIjEixEm.exit.thread.i138: ; preds = %316, %_
   br i1 %exitcond.not.i141, label %_ZN7xgboost6common16PartitionBuilderILm2048EE20PartitionRangeKernelIZNS2_9PartitionIjLb1ELb0ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS8_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmEUlT_E_EESt4pairImmENS0_4SpanISN_Lm18446744073709551615EEENST_ImLm18446744073709551615EEESV_SP_.exit, label %.lr.ph.i134, !llvm.loop !2561
 
 _ZN7xgboost6common16PartitionBuilderILm2048EE20PartitionRangeKernelIZNS2_9PartitionIjLb1ELb0ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS8_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmEUlT_E_EESt4pairImmENS0_4SpanISN_Lm18446744073709551615EEENST_ImLm18446744073709551615EEESV_SP_.exit: ; preds = %333, %307, %234, %206, %107, %208, %180, %105
-  %.sroa.10193.0 = phi i64 [ 0, %105 ], [ 0, %180 ], [ 0, %208 ], [ %.1.i126, %307 ], [ %.120.i, %107 ], [ %.1.i92, %206 ], [ %.1.i105, %234 ], [ %.1.i140, %333 ]
-  %.sroa.0192.0 = phi i64 [ 0, %105 ], [ 0, %180 ], [ 0, %208 ], [ %.128.i125, %307 ], [ %.1.i, %107 ], [ %.128.i, %206 ], [ %.128.i104, %234 ], [ %.128.i139, %333 ]
+  %.sroa.10193.0 = phi i64 [ %.1.i92, %206 ], [ %.1.i126, %307 ], [ %.1.i105, %234 ], [ %.120.i, %107 ], [ 0, %105 ], [ 0, %180 ], [ 0, %208 ], [ %.1.i140, %333 ]
+  %.sroa.0192.0 = phi i64 [ %.128.i, %206 ], [ %.128.i125, %307 ], [ %.128.i104, %234 ], [ %.1.i, %107 ], [ 0, %105 ], [ 0, %180 ], [ 0, %208 ], [ %.128.i139, %333 ]
   %335 = load ptr, ptr %12, align 8, !tbaa !168
   %336 = getelementptr inbounds nuw i64, ptr %335, i64 %13
   %337 = load i64, ptr %336, align 8, !tbaa !44
@@ -85081,8 +85081,8 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
   br label %_ZN7xgboost6common16SparseColumnIterIhEixEm.exit.i
 
 _ZN7xgboost6common16SparseColumnIterIhEixEm.exit.i: ; preds = %259, %263, %261, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i81
-  %.sroa.13.1 = phi i64 [ %.sroa.13.2, %263 ], [ %.sroa.13.2, %261 ], [ %.sroa.13.0, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i81 ], [ %214, %259 ]
-  %.0.i.i = phi i32 [ %267, %263 ], [ -1, %261 ], [ -1, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i81 ], [ -1, %259 ]
+  %.sroa.13.1 = phi i64 [ %.sroa.13.0, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i81 ], [ %.sroa.13.2, %263 ], [ %.sroa.13.2, %261 ], [ %214, %259 ]
+  %.0.i.i = phi i32 [ -1, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i81 ], [ %267, %263 ], [ -1, %261 ], [ -1, %259 ]
   %.not19.i82 = icmp sgt i32 %.0.i.i, %5
   br i1 %.not19.i82, label %248, label %268
 
@@ -86168,8 +86168,8 @@ _ZNK7xgboost6common12ColumnMatrix12SparseColumnIhEEDajm.exit: ; preds = %_ZSt7ad
   br label %_ZN7xgboost6common16SparseColumnIterIhEixEm.exit.i
 
 _ZN7xgboost6common16SparseColumnIterIhEixEm.exit.i: ; preds = %293, %297, %295, %.lr.ph.i120
-  %.sroa.17.1 = phi i64 [ %.sroa.17.2, %297 ], [ %.sroa.17.2, %295 ], [ %.sroa.17.0, %.lr.ph.i120 ], [ %252, %293 ]
-  %.0.i.i122 = phi i32 [ %301, %297 ], [ -1, %295 ], [ -1, %.lr.ph.i120 ], [ -1, %293 ]
+  %.sroa.17.1 = phi i64 [ %.sroa.17.0, %.lr.ph.i120 ], [ %.sroa.17.2, %297 ], [ %.sroa.17.2, %295 ], [ %252, %293 ]
+  %.0.i.i122 = phi i32 [ -1, %.lr.ph.i120 ], [ %301, %297 ], [ -1, %295 ], [ -1, %293 ]
   %.not.i123 = icmp sgt i32 %.0.i.i122, %5
   br i1 %.not.i123, label %305, label %302
 
@@ -86227,8 +86227,8 @@ _ZN7xgboost6common16SparseColumnIterIhEixEm.exit.i: ; preds = %293, %297, %295, 
   br label %_ZN7xgboost6common16SparseColumnIterIhEixEm.exit.i136
 
 _ZN7xgboost6common16SparseColumnIterIhEixEm.exit.i136: ; preds = %317, %321, %319, %.lr.ph.i132
-  %.sroa.17.4 = phi i64 [ %.sroa.17.5, %321 ], [ %.sroa.17.5, %319 ], [ %.sroa.17.3, %.lr.ph.i132 ], [ %252, %317 ]
-  %.0.i.i137 = phi i32 [ %325, %321 ], [ -1, %319 ], [ -1, %.lr.ph.i132 ], [ -1, %317 ]
+  %.sroa.17.4 = phi i64 [ %.sroa.17.3, %.lr.ph.i132 ], [ %.sroa.17.5, %321 ], [ %.sroa.17.5, %319 ], [ %252, %317 ]
+  %.0.i.i137 = phi i32 [ -1, %.lr.ph.i132 ], [ %325, %321 ], [ -1, %319 ], [ -1, %317 ]
   %.not.i138 = icmp sgt i32 %.0.i.i137, %5
   br i1 %.not.i138, label %329, label %326
 
@@ -86252,8 +86252,8 @@ _ZN7xgboost6common16SparseColumnIterIhEixEm.exit.i136: ; preds = %317, %321, %31
   br i1 %exitcond.not.i141, label %_ZN7xgboost6common16PartitionBuilderILm2048EE20PartitionRangeKernelIZNS2_9PartitionIhLb0ELb0ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS8_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmEUlT_E_EESt4pairImmENS0_4SpanISN_Lm18446744073709551615EEENST_ImLm18446744073709551615EEESV_SP_.exit, label %.lr.ph.i132, !llvm.loop !2693
 
 _ZN7xgboost6common16PartitionBuilderILm2048EE20PartitionRangeKernelIZNS2_9PartitionIhLb0ELb0ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS8_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmEUlT_E_EESt4pairImmENS0_4SpanISN_Lm18446744073709551615EEENST_ImLm18446744073709551615EEESV_SP_.exit: ; preds = %332, %308, %213, %197, %111, %199, %183, %109
-  %.sroa.10189.0 = phi i64 [ 0, %109 ], [ 0, %183 ], [ 0, %199 ], [ %.1.i125, %308 ], [ %.120.i, %111 ], [ %.1.i92, %197 ], [ %.1.i103, %213 ], [ %.1.i140, %332 ]
-  %.sroa.0188.0 = phi i64 [ 0, %109 ], [ 0, %183 ], [ 0, %199 ], [ %.123.i124, %308 ], [ %.1.i, %111 ], [ %.123.i, %197 ], [ %.123.i102, %213 ], [ %.123.i139, %332 ]
+  %.sroa.10189.0 = phi i64 [ %.1.i92, %197 ], [ %.1.i125, %308 ], [ %.1.i103, %213 ], [ %.120.i, %111 ], [ 0, %109 ], [ 0, %183 ], [ 0, %199 ], [ %.1.i140, %332 ]
+  %.sroa.0188.0 = phi i64 [ %.123.i, %197 ], [ %.123.i124, %308 ], [ %.123.i102, %213 ], [ %.1.i, %111 ], [ 0, %109 ], [ 0, %183 ], [ 0, %199 ], [ %.123.i139, %332 ]
   %334 = load ptr, ptr %16, align 8, !tbaa !168
   %335 = getelementptr inbounds nuw i64, ptr %334, i64 %17
   %336 = load i64, ptr %335, align 8, !tbaa !44
@@ -89696,8 +89696,8 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
   br label %_ZN7xgboost6common16SparseColumnIterItEixEm.exit.i
 
 _ZN7xgboost6common16SparseColumnIterItEixEm.exit.i: ; preds = %259, %263, %261, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i81
-  %.sroa.13.1 = phi i64 [ %.sroa.13.2, %263 ], [ %.sroa.13.2, %261 ], [ %.sroa.13.0, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i81 ], [ %214, %259 ]
-  %.0.i.i = phi i32 [ %267, %263 ], [ -1, %261 ], [ -1, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i81 ], [ -1, %259 ]
+  %.sroa.13.1 = phi i64 [ %.sroa.13.0, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i81 ], [ %.sroa.13.2, %263 ], [ %.sroa.13.2, %261 ], [ %214, %259 ]
+  %.0.i.i = phi i32 [ -1, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i81 ], [ %267, %263 ], [ -1, %261 ], [ -1, %259 ]
   %.not19.i82 = icmp sgt i32 %.0.i.i, %5
   br i1 %.not19.i82, label %248, label %268
 
@@ -90783,8 +90783,8 @@ _ZNK7xgboost6common12ColumnMatrix12SparseColumnItEEDajm.exit: ; preds = %_ZSt7ad
   br label %_ZN7xgboost6common16SparseColumnIterItEixEm.exit.i
 
 _ZN7xgboost6common16SparseColumnIterItEixEm.exit.i: ; preds = %293, %297, %295, %.lr.ph.i120
-  %.sroa.17.1 = phi i64 [ %.sroa.17.2, %297 ], [ %.sroa.17.2, %295 ], [ %.sroa.17.0, %.lr.ph.i120 ], [ %252, %293 ]
-  %.0.i.i122 = phi i32 [ %301, %297 ], [ -1, %295 ], [ -1, %.lr.ph.i120 ], [ -1, %293 ]
+  %.sroa.17.1 = phi i64 [ %.sroa.17.0, %.lr.ph.i120 ], [ %.sroa.17.2, %297 ], [ %.sroa.17.2, %295 ], [ %252, %293 ]
+  %.0.i.i122 = phi i32 [ -1, %.lr.ph.i120 ], [ %301, %297 ], [ -1, %295 ], [ -1, %293 ]
   %.not.i123 = icmp sgt i32 %.0.i.i122, %5
   br i1 %.not.i123, label %305, label %302
 
@@ -90842,8 +90842,8 @@ _ZN7xgboost6common16SparseColumnIterItEixEm.exit.i: ; preds = %293, %297, %295, 
   br label %_ZN7xgboost6common16SparseColumnIterItEixEm.exit.i136
 
 _ZN7xgboost6common16SparseColumnIterItEixEm.exit.i136: ; preds = %317, %321, %319, %.lr.ph.i132
-  %.sroa.17.4 = phi i64 [ %.sroa.17.5, %321 ], [ %.sroa.17.5, %319 ], [ %.sroa.17.3, %.lr.ph.i132 ], [ %252, %317 ]
-  %.0.i.i137 = phi i32 [ %325, %321 ], [ -1, %319 ], [ -1, %.lr.ph.i132 ], [ -1, %317 ]
+  %.sroa.17.4 = phi i64 [ %.sroa.17.3, %.lr.ph.i132 ], [ %.sroa.17.5, %321 ], [ %.sroa.17.5, %319 ], [ %252, %317 ]
+  %.0.i.i137 = phi i32 [ -1, %.lr.ph.i132 ], [ %325, %321 ], [ -1, %319 ], [ -1, %317 ]
   %.not.i138 = icmp sgt i32 %.0.i.i137, %5
   br i1 %.not.i138, label %329, label %326
 
@@ -90867,8 +90867,8 @@ _ZN7xgboost6common16SparseColumnIterItEixEm.exit.i136: ; preds = %317, %321, %31
   br i1 %exitcond.not.i141, label %_ZN7xgboost6common16PartitionBuilderILm2048EE20PartitionRangeKernelIZNS2_9PartitionItLb0ELb0ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS8_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmEUlT_E_EESt4pairImmENS0_4SpanISN_Lm18446744073709551615EEENST_ImLm18446744073709551615EEESV_SP_.exit, label %.lr.ph.i132, !llvm.loop !2820
 
 _ZN7xgboost6common16PartitionBuilderILm2048EE20PartitionRangeKernelIZNS2_9PartitionItLb0ELb0ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS8_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmEUlT_E_EESt4pairImmENS0_4SpanISN_Lm18446744073709551615EEENST_ImLm18446744073709551615EEESV_SP_.exit: ; preds = %332, %308, %213, %197, %111, %199, %183, %109
-  %.sroa.10189.0 = phi i64 [ 0, %109 ], [ 0, %183 ], [ 0, %199 ], [ %.1.i125, %308 ], [ %.120.i, %111 ], [ %.1.i92, %197 ], [ %.1.i103, %213 ], [ %.1.i140, %332 ]
-  %.sroa.0188.0 = phi i64 [ 0, %109 ], [ 0, %183 ], [ 0, %199 ], [ %.123.i124, %308 ], [ %.1.i, %111 ], [ %.123.i, %197 ], [ %.123.i102, %213 ], [ %.123.i139, %332 ]
+  %.sroa.10189.0 = phi i64 [ %.1.i92, %197 ], [ %.1.i125, %308 ], [ %.1.i103, %213 ], [ %.120.i, %111 ], [ 0, %109 ], [ 0, %183 ], [ 0, %199 ], [ %.1.i140, %332 ]
+  %.sroa.0188.0 = phi i64 [ %.123.i, %197 ], [ %.123.i124, %308 ], [ %.123.i102, %213 ], [ %.1.i, %111 ], [ 0, %109 ], [ 0, %183 ], [ 0, %199 ], [ %.123.i139, %332 ]
   %334 = load ptr, ptr %16, align 8, !tbaa !168
   %335 = getelementptr inbounds nuw i64, ptr %334, i64 %17
   %336 = load i64, ptr %335, align 8, !tbaa !44
@@ -94309,8 +94309,8 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
   br label %_ZN7xgboost6common16SparseColumnIterIjEixEm.exit.i
 
 _ZN7xgboost6common16SparseColumnIterIjEixEm.exit.i: ; preds = %258, %262, %260, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i81
-  %.sroa.13.1 = phi i64 [ %.sroa.13.2, %262 ], [ %.sroa.13.2, %260 ], [ %.sroa.13.0, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i81 ], [ %213, %258 ]
-  %.0.i.i = phi i32 [ %265, %262 ], [ -1, %260 ], [ -1, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i81 ], [ -1, %258 ]
+  %.sroa.13.1 = phi i64 [ %.sroa.13.0, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i81 ], [ %.sroa.13.2, %262 ], [ %.sroa.13.2, %260 ], [ %213, %258 ]
+  %.0.i.i = phi i32 [ -1, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i81 ], [ %265, %262 ], [ -1, %260 ], [ -1, %258 ]
   %.not19.i82 = icmp sgt i32 %.0.i.i, %5
   br i1 %.not19.i82, label %247, label %266
 
@@ -95393,8 +95393,8 @@ _ZNK7xgboost6common12ColumnMatrix12SparseColumnIjEEDajm.exit: ; preds = %_ZSt7ad
   br label %_ZN7xgboost6common16SparseColumnIterIjEixEm.exit.i
 
 _ZN7xgboost6common16SparseColumnIterIjEixEm.exit.i: ; preds = %291, %295, %293, %.lr.ph.i120
-  %.sroa.17.1 = phi i64 [ %.sroa.17.2, %295 ], [ %.sroa.17.2, %293 ], [ %.sroa.17.0, %.lr.ph.i120 ], [ %250, %291 ]
-  %.0.i.i122 = phi i32 [ %298, %295 ], [ -1, %293 ], [ -1, %.lr.ph.i120 ], [ -1, %291 ]
+  %.sroa.17.1 = phi i64 [ %.sroa.17.0, %.lr.ph.i120 ], [ %.sroa.17.2, %295 ], [ %.sroa.17.2, %293 ], [ %250, %291 ]
+  %.0.i.i122 = phi i32 [ -1, %.lr.ph.i120 ], [ %298, %295 ], [ -1, %293 ], [ -1, %291 ]
   %.not.i123 = icmp sgt i32 %.0.i.i122, %5
   br i1 %.not.i123, label %302, label %299
 
@@ -95451,8 +95451,8 @@ _ZN7xgboost6common16SparseColumnIterIjEixEm.exit.i: ; preds = %291, %295, %293, 
   br label %_ZN7xgboost6common16SparseColumnIterIjEixEm.exit.i136
 
 _ZN7xgboost6common16SparseColumnIterIjEixEm.exit.i136: ; preds = %314, %318, %316, %.lr.ph.i132
-  %.sroa.17.4 = phi i64 [ %.sroa.17.5, %318 ], [ %.sroa.17.5, %316 ], [ %.sroa.17.3, %.lr.ph.i132 ], [ %250, %314 ]
-  %.0.i.i137 = phi i32 [ %321, %318 ], [ -1, %316 ], [ -1, %.lr.ph.i132 ], [ -1, %314 ]
+  %.sroa.17.4 = phi i64 [ %.sroa.17.3, %.lr.ph.i132 ], [ %.sroa.17.5, %318 ], [ %.sroa.17.5, %316 ], [ %250, %314 ]
+  %.0.i.i137 = phi i32 [ -1, %.lr.ph.i132 ], [ %321, %318 ], [ -1, %316 ], [ -1, %314 ]
   %.not.i138 = icmp sgt i32 %.0.i.i137, %5
   br i1 %.not.i138, label %325, label %322
 
@@ -95476,8 +95476,8 @@ _ZN7xgboost6common16SparseColumnIterIjEixEm.exit.i136: ; preds = %314, %318, %31
   br i1 %exitcond.not.i141, label %_ZN7xgboost6common16PartitionBuilderILm2048EE20PartitionRangeKernelIZNS2_9PartitionIjLb0ELb0ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS8_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmEUlT_E_EESt4pairImmENS0_4SpanISN_Lm18446744073709551615EEENST_ImLm18446744073709551615EEESV_SP_.exit, label %.lr.ph.i132, !llvm.loop !2947
 
 _ZN7xgboost6common16PartitionBuilderILm2048EE20PartitionRangeKernelIZNS2_9PartitionIjLb0ELb0ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS8_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmEUlT_E_EESt4pairImmENS0_4SpanISN_Lm18446744073709551615EEENST_ImLm18446744073709551615EEESV_SP_.exit: ; preds = %328, %305, %211, %196, %111, %198, %183, %109
-  %.sroa.10189.0 = phi i64 [ 0, %109 ], [ 0, %183 ], [ 0, %198 ], [ %.1.i125, %305 ], [ %.120.i, %111 ], [ %.1.i92, %196 ], [ %.1.i103, %211 ], [ %.1.i140, %328 ]
-  %.sroa.0188.0 = phi i64 [ 0, %109 ], [ 0, %183 ], [ 0, %198 ], [ %.123.i124, %305 ], [ %.1.i, %111 ], [ %.123.i, %196 ], [ %.123.i102, %211 ], [ %.123.i139, %328 ]
+  %.sroa.10189.0 = phi i64 [ %.1.i92, %196 ], [ %.1.i125, %305 ], [ %.1.i103, %211 ], [ %.120.i, %111 ], [ 0, %109 ], [ 0, %183 ], [ 0, %198 ], [ %.1.i140, %328 ]
+  %.sroa.0188.0 = phi i64 [ %.123.i, %196 ], [ %.123.i124, %305 ], [ %.123.i102, %211 ], [ %.1.i, %111 ], [ 0, %109 ], [ 0, %183 ], [ 0, %198 ], [ %.123.i139, %328 ]
   %330 = load ptr, ptr %16, align 8, !tbaa !168
   %331 = getelementptr inbounds nuw i64, ptr %330, i64 %17
   %332 = load i64, ptr %331, align 8, !tbaa !44
@@ -98396,8 +98396,8 @@ _ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i:           ; preds = %_ZN7xgboost6common4
   br label %261
 
 .sink.split.i84:                                  ; preds = %270, %.noexc87, %_ZN7xgboost6common16SparseColumnIterIhEixEm.exit.i, %272, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i83
-  %.sroa.13.1 = phi i64 [ %.sroa.13.3, %_ZN7xgboost6common16SparseColumnIterIhEixEm.exit.i ], [ %.sroa.13.3, %.noexc87 ], [ %.sroa.13.3, %272 ], [ %.sroa.13.0, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i83 ], [ %217, %270 ]
-  %.sink.i85 = phi ptr [ %11, %_ZN7xgboost6common16SparseColumnIterIhEixEm.exit.i ], [ %10, %.noexc87 ], [ %11, %272 ], [ %11, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i83 ], [ %11, %270 ]
+  %.sroa.13.1 = phi i64 [ %.sroa.13.0, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i83 ], [ %.sroa.13.3, %_ZN7xgboost6common16SparseColumnIterIhEixEm.exit.i ], [ %.sroa.13.3, %.noexc87 ], [ %.sroa.13.3, %272 ], [ %217, %270 ]
+  %.sink.i85 = phi ptr [ %11, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i83 ], [ %11, %_ZN7xgboost6common16SparseColumnIterIhEixEm.exit.i ], [ %10, %.noexc87 ], [ %11, %272 ], [ %11, %270 ]
   %251 = lshr i64 %265, 3
   %252 = and i64 %265, 7
   %253 = load ptr, ptr %.sink.i85, align 8, !tbaa !1444
@@ -99806,8 +99806,8 @@ _ZNK7xgboost6common12ColumnMatrix12SparseColumnIhEEDajm.exit: ; preds = %_ZSt7ad
   br label %_ZN7xgboost6common16PartitionBuilderILm2048EE20PartitionRangeKernelIZNS2_9PartitionIhLb1ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS8_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmEUlT_E_EESt4pairImmENS0_4SpanISN_Lm18446744073709551615EEENST_ImLm18446744073709551615EEESV_SP_.exit
 
 _ZN7xgboost6common16PartitionBuilderILm2048EE20PartitionRangeKernelIZNS2_9PartitionIhLb1ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS8_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmEUlT_E_EESt4pairImmENS0_4SpanISN_Lm18446744073709551615EEENST_ImLm18446744073709551615EEESV_SP_.exit: ; preds = %326, %267, %126, %269, %210, %125, %383
-  %.sroa.10.0 = phi i64 [ %.sroa.10.2, %383 ], [ 0, %125 ], [ 0, %210 ], [ 0, %269 ], [ %.1.i92, %267 ], [ %.120.i, %126 ], [ %.1.i109, %326 ]
-  %.sroa.0167.0 = phi i64 [ %.sroa.0167.2, %383 ], [ 0, %125 ], [ 0, %210 ], [ 0, %269 ], [ %.128.i, %267 ], [ %.1.i, %126 ], [ %.128.i108, %326 ]
+  %.sroa.10.0 = phi i64 [ %.1.i92, %267 ], [ %.sroa.10.2, %383 ], [ %.120.i, %126 ], [ 0, %125 ], [ 0, %210 ], [ 0, %269 ], [ %.1.i109, %326 ]
+  %.sroa.0167.0 = phi i64 [ %.128.i, %267 ], [ %.sroa.0167.2, %383 ], [ %.1.i, %126 ], [ 0, %125 ], [ 0, %210 ], [ 0, %269 ], [ %.128.i108, %326 ]
   %384 = load ptr, ptr %21, align 8, !tbaa !168
   %385 = getelementptr inbounds nuw i64, ptr %384, i64 %22
   %386 = load i64, ptr %385, align 8, !tbaa !44
@@ -105312,11 +105312,11 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0
   br label %208
 
 _ZSt8for_eachIN7xgboost6common6detail12SpanIteratorINS1_4SpanIKmLm18446744073709551615EEELb0EEEZNS0_4tree13HistEvaluator13EnumeratePartILi1EEEvRKNS1_13HistogramCutsES6_NS4_IKNS0_6detail20GradientPairInternalIdEELm18446744073709551615EEEjiRKNS8_13TreeEvaluator14SplitEvaluatorINS8_10TrainParamEEEPNS8_19SplitEntryContainerINS8_9GradStatsEEEEUlmE_ET0_T_SV_SU_.exit: ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEppEv.exit.i, %58, %159, %._crit_edge
-  %175 = phi float [ %111, %159 ], [ %111, %._crit_edge ], [ 0.000000e+00, %58 ], [ %111, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEppEv.exit.i ]
-  %176 = phi i32 [ %112, %159 ], [ %112, %._crit_edge ], [ 0, %58 ], [ %112, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEppEv.exit.i ]
-  %177 = phi float [ %110, %159 ], [ %110, %._crit_edge ], [ 0.000000e+00, %58 ], [ %110, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEppEv.exit.i ]
-  %178 = phi i8 [ %109, %159 ], [ %109, %._crit_edge ], [ 0, %58 ], [ %109, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEppEv.exit.i ]
-  %179 = phi ptr [ %124, %159 ], [ null, %._crit_edge ], [ null, %58 ], [ %124, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEppEv.exit.i ]
+  %175 = phi float [ 0.000000e+00, %58 ], [ %111, %159 ], [ %111, %._crit_edge ], [ %111, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEppEv.exit.i ]
+  %176 = phi i32 [ 0, %58 ], [ %112, %159 ], [ %112, %._crit_edge ], [ %112, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEppEv.exit.i ]
+  %177 = phi float [ 0.000000e+00, %58 ], [ %110, %159 ], [ %110, %._crit_edge ], [ %110, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEppEv.exit.i ]
+  %178 = phi i8 [ 0, %58 ], [ %109, %159 ], [ %109, %._crit_edge ], [ %109, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEppEv.exit.i ]
+  %179 = phi ptr [ null, %58 ], [ %124, %159 ], [ null, %._crit_edge ], [ %124, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEppEv.exit.i ]
   %180 = call float @llvm.fabs.f32(float %175)
   %181 = fcmp oeq float %180, 0x7FF0000000000000
   br i1 %181, label %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateERKS3_.exit, label %182
@@ -105797,11 +105797,11 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0
   br label %207
 
 _ZSt8for_eachIN7xgboost6common6detail12SpanIteratorINS1_4SpanIKmLm18446744073709551615EEELb0EEEZNS0_4tree13HistEvaluator13EnumeratePartILin1EEEvRKNS1_13HistogramCutsES6_NS4_IKNS0_6detail20GradientPairInternalIdEELm18446744073709551615EEEjiRKNS8_13TreeEvaluator14SplitEvaluatorINS8_10TrainParamEEEPNS8_19SplitEntryContainerINS8_9GradStatsEEEEUlmE_ET0_T_SV_SU_.exit: ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEppEv.exit.i, %58, %158, %._crit_edge
-  %174 = phi float [ %111, %158 ], [ %111, %._crit_edge ], [ 0.000000e+00, %58 ], [ %111, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEppEv.exit.i ]
-  %175 = phi i32 [ %112, %158 ], [ %112, %._crit_edge ], [ 0, %58 ], [ %112, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEppEv.exit.i ]
-  %176 = phi float [ %110, %158 ], [ %110, %._crit_edge ], [ 0.000000e+00, %58 ], [ %110, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEppEv.exit.i ]
-  %177 = phi i8 [ %109, %158 ], [ %109, %._crit_edge ], [ 0, %58 ], [ %109, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEppEv.exit.i ]
-  %178 = phi ptr [ %124, %158 ], [ null, %._crit_edge ], [ null, %58 ], [ %124, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEppEv.exit.i ]
+  %174 = phi float [ 0.000000e+00, %58 ], [ %111, %158 ], [ %111, %._crit_edge ], [ %111, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEppEv.exit.i ]
+  %175 = phi i32 [ 0, %58 ], [ %112, %158 ], [ %112, %._crit_edge ], [ %112, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEppEv.exit.i ]
+  %176 = phi float [ 0.000000e+00, %58 ], [ %110, %158 ], [ %110, %._crit_edge ], [ %110, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEppEv.exit.i ]
+  %177 = phi i8 [ 0, %58 ], [ %109, %158 ], [ %109, %._crit_edge ], [ %109, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEppEv.exit.i ]
+  %178 = phi ptr [ null, %58 ], [ %124, %158 ], [ null, %._crit_edge ], [ %124, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEppEv.exit.i ]
   %179 = call float @llvm.fabs.f32(float %174)
   %180 = fcmp oeq float %179, 0x7FF0000000000000
   br i1 %180, label %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateERKS3_.exit, label %181
@@ -108134,7 +108134,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !3219
 
 _ZSt11swap_rangesIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit: ; preds = %._crit_edge, %._crit_edge102, %.lr.ph.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit, %5, %3
-  %.sroa.025.0 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %23, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit ], [ %23, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit ], [ %1, %.lr.ph.i ], [ %23, %._crit_edge102 ], [ %23, %._crit_edge ]
+  %.sroa.025.0 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %23, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit ], [ %1, %.lr.ph.i ], [ %23, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit ], [ %23, %._crit_edge102 ], [ %23, %._crit_edge ]
   ret ptr %.sroa.025.0
 }
 

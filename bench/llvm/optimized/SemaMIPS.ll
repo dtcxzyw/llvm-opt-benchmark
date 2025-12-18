@@ -2757,8 +2757,8 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIbvEERKS1_OT_.exit: ; preds = %_ZNK5
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %8) #16
   br label %_ZNK5clang4Decl7getAttrINS_10Mips16AttrEEEPT_v.exit.thread
 
-_ZNK5clang4Decl7getAttrINS_10Mips16AttrEEEPT_v.exit.thread: ; preds = %23, %12, %_ZN5clangneENS_22specific_attr_iteratorINS_10Mips16AttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, %3, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIbvEERKS1_OT_.exit
-  %.not59 = phi i1 [ true, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIbvEERKS1_OT_.exit ], [ false, %3 ], [ false, %_ZN5clangneENS_22specific_attr_iteratorINS_10Mips16AttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i ], [ false, %12 ], [ false, %23 ]
+_ZNK5clang4Decl7getAttrINS_10Mips16AttrEEEPT_v.exit.thread: ; preds = %23, %_ZN5clangneENS_22specific_attr_iteratorINS_10Mips16AttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, %12, %3, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIbvEERKS1_OT_.exit
+  %.not59 = phi i1 [ true, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIbvEERKS1_OT_.exit ], [ false, %3 ], [ false, %12 ], [ false, %_ZN5clangneENS_22specific_attr_iteratorINS_10Mips16AttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i ], [ false, %23 ]
   ret i1 %.not59
 }
 

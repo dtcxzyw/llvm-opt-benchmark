@@ -1108,8 +1108,8 @@ define range(i32 0, 2) i32 @Lpk_NodeCutsCheckDsd(ptr noundef captures(none) %0, 
   br i1 %120, label %.critedge6._crit_edge, label %.critedge2
 
 .critedge6._crit_edge:                            ; preds = %.critedge2, %.critedge6, %118, %.critedge.preheader, %.critedge2.preheader
-  %121 = phi i32 [ %89, %.critedge2.preheader ], [ %12, %.critedge.preheader ], [ %89, %118 ], [ %89, %.critedge6 ], [ %89, %.critedge2 ]
-  %.0 = phi i32 [ 0, %.critedge2.preheader ], [ 0, %.critedge.preheader ], [ 1, %118 ], [ 0, %.critedge2 ], [ 1, %.critedge6 ]
+  %121 = phi i32 [ %89, %.critedge2.preheader ], [ %89, %118 ], [ %12, %.critedge.preheader ], [ %89, %.critedge6 ], [ %89, %.critedge2 ]
+  %.0 = phi i32 [ 0, %.critedge2.preheader ], [ 1, %118 ], [ 0, %.critedge.preheader ], [ 1, %.critedge6 ], [ 0, %.critedge2 ]
   %122 = and i32 %121, 63
   %.not102 = icmp eq i32 %122, 0
   br i1 %.not102, label %.critedge8, label %.lr.ph99
@@ -1318,7 +1318,7 @@ Lpk_NodeCutsOneDominance.exit.thread:             ; preds = %69, %54, %Lpk_NodeC
   br i1 %exitcond97.not, label %Lpk_NodeCutsOneDominance.exit, label %8, !llvm.loop !95
 
 Lpk_NodeCutsOneDominance.exit:                    ; preds = %._crit_edge, %Lpk_NodeCutsOneDominance.exit.thread, %._crit_edge.us.i, %32, %3
-  %.041 = phi i32 [ 0, %3 ], [ 1, %._crit_edge.us.i ], [ 1, %32 ], [ 1, %._crit_edge ], [ 0, %Lpk_NodeCutsOneDominance.exit.thread ]
+  %.041 = phi i32 [ 1, %._crit_edge.us.i ], [ 0, %3 ], [ 1, %32 ], [ 0, %Lpk_NodeCutsOneDominance.exit.thread ], [ 1, %._crit_edge ]
   ret i32 %.041
 }
 
@@ -2202,7 +2202,7 @@ Abc_NodeIsTravIdCurrent.exit:                     ; preds = %14, %._crit_edge.i.
   br i1 %101, label %81, label %.critedge4, !llvm.loop !117
 
 .critedge4:                                       ; preds = %.critedge6, %2, %.critedge.preheader
-  %.0.lcssa80 = phi i32 [ %.1.lcssa, %.critedge.preheader ], [ 0, %2 ], [ %.1.lcssa, %.critedge6 ]
+  %.0.lcssa80 = phi i32 [ 0, %2 ], [ %.1.lcssa, %.critedge.preheader ], [ %.1.lcssa, %.critedge6 ]
   ret i32 %.0.lcssa80
 }
 

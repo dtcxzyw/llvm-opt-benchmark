@@ -1655,7 +1655,7 @@ switch.early.test156:                             ; preds = %220
   br label %.loopexit
 
 .loopexit:                                        ; preds = %101, %116, %switch.early.test, %183, %switch.early.test156, %.lr.ph220, %.loopexit.sink.split, %233, %._crit_edge208, %._crit_edge200
-  %.7 = phi ptr [ %.9.lcssa, %._crit_edge208 ], [ %.3.lcssa, %._crit_edge200 ], [ %239, %233 ], [ %.7.ph, %.loopexit.sink.split ], [ %.6, %116 ], [ %251, %.lr.ph220 ], [ %.11, %switch.early.test156 ], [ %.10, %183 ], [ %.2, %switch.early.test ], [ %.4, %101 ]
+  %.7 = phi ptr [ %.2, %switch.early.test ], [ %.10, %183 ], [ %239, %233 ], [ %.11, %switch.early.test156 ], [ %.6, %116 ], [ %.9.lcssa, %._crit_edge208 ], [ %.7.ph, %.loopexit.sink.split ], [ %251, %.lr.ph220 ], [ %.3.lcssa, %._crit_edge200 ], [ %.4, %101 ]
   %262 = getelementptr inbounds nuw i8, ptr %.7, i64 1
   store i8 0, ptr %.7, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv312, 1
@@ -1665,7 +1665,7 @@ switch.early.test156:                             ; preds = %220
   br i1 %.not184, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !15
 
 .outer._crit_edge:                                ; preds = %.loopexit, %.backedge, %6
-  %indvars.iv310 = phi i64 [ 0, %6 ], [ %indvars.iv312, %.backedge ], [ %indvars.iv.next, %.loopexit ]
+  %indvars.iv310 = phi i64 [ %indvars.iv312, %.backedge ], [ 0, %6 ], [ %indvars.iv.next, %.loopexit ]
   %.0126.ph255 = trunc i64 %indvars.iv310 to i32
   store i32 %.0126.ph255, ptr %4, align 4
   br label %.loopexit163
@@ -3034,7 +3034,7 @@ j2date.exit403:                                   ; preds = %538, %541
   br label %.thread417
 
 .thread417:                                       ; preds = %323, %320, %315, %307, %106, %104, %101, %98, %97, %587, %35, %358, %584, %582, %168, %173, %176, %164, %160, %.thread442, %.thread430, %207, %DecodePosixTimezone.exit.thread, %.thread, %630, %634, %649, %612, %593, %658, %626
-  %.2 = phi i32 [ -1, %.thread ], [ -1, %.thread442 ], [ %629, %626 ], [ -1, %DecodePosixTimezone.exit.thread ], [ -1, %207 ], [ %.6.ph, %.thread430 ], [ -1, %630 ], [ 0, %658 ], [ -1, %612 ], [ -1, %593 ], [ -1, %649 ], [ -1, %634 ], [ -1, %160 ], [ -1, %164 ], [ -1, %176 ], [ -1, %173 ], [ -1, %168 ], [ -1, %582 ], [ -1, %584 ], [ -1, %358 ], [ -1, %35 ], [ -1, %587 ], [ -1, %97 ], [ -1, %98 ], [ -1, %101 ], [ -1, %104 ], [ -1, %106 ], [ -1, %307 ], [ -1, %315 ], [ -1, %320 ], [ -1, %323 ]
+  %.2 = phi i32 [ -1, %634 ], [ -1, %649 ], [ -1, %.thread ], [ -1, %593 ], [ -1, %.thread442 ], [ %629, %626 ], [ -1, %DecodePosixTimezone.exit.thread ], [ -1, %612 ], [ 0, %658 ], [ -1, %207 ], [ %.6.ph, %.thread430 ], [ -1, %630 ], [ -1, %160 ], [ -1, %164 ], [ -1, %176 ], [ -1, %173 ], [ -1, %168 ], [ -1, %582 ], [ -1, %584 ], [ -1, %358 ], [ -1, %35 ], [ -1, %587 ], [ -1, %97 ], [ -1, %98 ], [ -1, %101 ], [ -1, %104 ], [ -1, %106 ], [ -1, %307 ], [ -1, %315 ], [ -1, %320 ], [ -1, %323 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
@@ -3346,8 +3346,8 @@ define internal fastcc range(i32 -1, 1) i32 @DecodeDate(ptr noundef %0, i32 noun
   br i1 %.not76, label %.loopexit88, label %.preheader87, !llvm.loop !26
 
 .loopexit88:                                      ; preds = %.preheader89, %.preheader87, %35
-  %43 = phi i8 [ %23, %35 ], [ %37, %.preheader87 ], [ %29, %.preheader89 ]
-  %.3 = phi ptr [ %.154, %35 ], [ %.4, %.preheader87 ], [ %.255, %.preheader89 ]
+  %43 = phi i8 [ %37, %.preheader87 ], [ %23, %35 ], [ %29, %.preheader89 ]
+  %.3 = phi ptr [ %.4, %.preheader87 ], [ %.154, %35 ], [ %.255, %.preheader89 ]
   %.not78 = icmp eq i8 %43, 0
   br i1 %.not78, label %.thread138, label %44
 
@@ -3570,7 +3570,7 @@ DecodeSpecial.exit:                               ; preds = %78, %63
   br label %.loopexit
 
 .loopexit:                                        ; preds = %96, %90, %112, %110, %106, %._crit_edge.thread, %.thread, %126, %134, %138, %136, %.thread152, %122, %._crit_edge112
-  %.0 = phi i32 [ -1, %._crit_edge112 ], [ -1, %122 ], [ 0, %.thread152 ], [ 0, %136 ], [ 0, %138 ], [ 0, %134 ], [ 0, %126 ], [ -1, %.thread ], [ -1, %._crit_edge.thread ], [ -1, %112 ], [ -1, %106 ], [ -1, %110 ], [ -1, %90 ], [ -1, %96 ]
+  %.0 = phi i32 [ -1, %._crit_edge112 ], [ -1, %._crit_edge.thread ], [ 0, %138 ], [ -1, %.thread ], [ 0, %126 ], [ 0, %134 ], [ -1, %122 ], [ 0, %.thread152 ], [ 0, %136 ], [ -1, %112 ], [ -1, %106 ], [ -1, %110 ], [ -1, %90 ], [ -1, %96 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -3876,8 +3876,8 @@ define range(i32 -1, 2) i32 @PGTYPEStimestamp_defmt_scan(ptr noundef readonly ca
   br label %.backedgethread-pre-split
 
 .backedgethread-pre-split:                        ; preds = %90, %75, %54, %40, %31, %80, %65, %51, %37, %301, %238, %142, %260, %250, %304, %285, %.loopexit313, %279, %282, %241, %.tail306.thread, %194, %.tail298.thread, %168, %145, %116, %123, %87, %72, %63, %49, %275, %270, %265, %255, %234, %233, %138, %135, %129, %125, %112, %100, %95
-  %.0262.be.ph = phi ptr [ %81, %80 ], [ %52, %51 ], [ %38, %37 ], [ %66, %65 ], [ %302, %301 ], [ %302, %304 ], [ %286, %.loopexit313 ], [ %286, %285 ], [ %280, %282 ], [ %280, %279 ], [ %276, %275 ], [ %271, %270 ], [ %266, %265 ], [ %261, %260 ], [ %256, %255 ], [ %251, %250 ], [ %143, %142 ], [ %239, %241 ], [ %235, %234 ], [ %215, %233 ], [ %172, %.tail306.thread ], [ %172, %194 ], [ %146, %.tail298.thread ], [ %146, %168 ], [ %239, %238 ], [ %143, %145 ], [ %139, %138 ], [ %136, %135 ], [ %130, %129 ], [ %126, %125 ], [ %117, %116 ], [ %117, %123 ], [ %113, %112 ], [ %101, %100 ], [ %96, %95 ], [ %81, %87 ], [ %66, %72 ], [ %52, %63 ], [ %38, %49 ], [ %32, %31 ], [ %66, %75 ], [ %38, %40 ], [ %52, %54 ], [ %81, %90 ]
-  %.0257.be.ph = phi i32 [ 1, %80 ], [ 1, %51 ], [ 1, %37 ], [ 1, %65 ], [ 1, %301 ], [ 0, %304 ], [ %.9, %.loopexit313 ], [ 1, %285 ], [ %284, %282 ], [ 1, %279 ], [ %277, %275 ], [ %spec.store.select5, %270 ], [ %spec.store.select4, %265 ], [ %spec.store.select7, %260 ], [ %spec.store.select, %255 ], [ %spec.store.select6, %250 ], [ 1, %142 ], [ 0, %241 ], [ %236, %234 ], [ %.8, %233 ], [ %.7, %.tail306.thread ], [ 0, %194 ], [ %.4261, %.tail298.thread ], [ 0, %168 ], [ 1, %238 ], [ 0, %145 ], [ %140, %138 ], [ %137, %135 ], [ %131, %129 ], [ %127, %125 ], [ %118, %116 ], [ %118, %123 ], [ %114, %112 ], [ %102, %100 ], [ %97, %95 ], [ 0, %87 ], [ 0, %72 ], [ 0, %63 ], [ 0, %49 ], [ 0, %31 ], [ 1, %75 ], [ 1, %40 ], [ 1, %54 ], [ 1, %90 ]
+  %.0262.be.ph = phi ptr [ %38, %40 ], [ %52, %54 ], [ %32, %31 ], [ %66, %75 ], [ %81, %80 ], [ %302, %304 ], [ %286, %.loopexit313 ], [ %286, %285 ], [ %280, %282 ], [ %280, %279 ], [ %276, %275 ], [ %271, %270 ], [ %266, %265 ], [ %261, %260 ], [ %256, %255 ], [ %251, %250 ], [ %143, %142 ], [ %239, %241 ], [ %235, %234 ], [ %215, %233 ], [ %172, %.tail306.thread ], [ %172, %194 ], [ %146, %.tail298.thread ], [ %146, %168 ], [ %239, %238 ], [ %143, %145 ], [ %139, %138 ], [ %136, %135 ], [ %130, %129 ], [ %126, %125 ], [ %117, %116 ], [ %117, %123 ], [ %113, %112 ], [ %101, %100 ], [ %96, %95 ], [ %52, %51 ], [ %81, %87 ], [ %38, %37 ], [ %66, %72 ], [ %66, %65 ], [ %52, %63 ], [ %302, %301 ], [ %38, %49 ], [ %81, %90 ]
+  %.0257.be.ph = phi i32 [ 1, %40 ], [ 1, %54 ], [ 0, %31 ], [ 1, %75 ], [ 1, %80 ], [ 0, %304 ], [ %.9, %.loopexit313 ], [ 1, %285 ], [ %284, %282 ], [ 1, %279 ], [ %277, %275 ], [ %spec.store.select5, %270 ], [ %spec.store.select4, %265 ], [ %spec.store.select7, %260 ], [ %spec.store.select, %255 ], [ %spec.store.select6, %250 ], [ 1, %142 ], [ 0, %241 ], [ %236, %234 ], [ %.8, %233 ], [ %.7, %.tail306.thread ], [ 0, %194 ], [ %.4261, %.tail298.thread ], [ 0, %168 ], [ 1, %238 ], [ 0, %145 ], [ %140, %138 ], [ %137, %135 ], [ %131, %129 ], [ %127, %125 ], [ %118, %116 ], [ %118, %123 ], [ %114, %112 ], [ %102, %100 ], [ %97, %95 ], [ 1, %51 ], [ 0, %87 ], [ 1, %37 ], [ 0, %72 ], [ 1, %65 ], [ 0, %63 ], [ 1, %301 ], [ 0, %49 ], [ 1, %90 ]
   %.pr410 = load i8, ptr %.0262.be.ph, align 1
   br label %.backedge
 
@@ -4673,7 +4673,7 @@ sub_0307:                                         ; preds = %180, %.tail302.thre
   br label %.loopexit316
 
 .loopexit316:                                     ; preds = %29, %10, %._crit_edge, %391, %242, %206, %198, %104, %246, %210, %202, %108
-  %.0 = phi i32 [ 1, %242 ], [ %111, %108 ], [ %205, %202 ], [ 1, %104 ], [ %213, %210 ], [ 1, %198 ], [ %249, %246 ], [ 1, %206 ], [ %.0257.be, %._crit_edge ], [ %.18, %391 ], [ 1, %10 ], [ 1, %29 ]
+  %.0 = phi i32 [ 1, %242 ], [ %111, %108 ], [ %.18, %391 ], [ %205, %202 ], [ 1, %104 ], [ %213, %210 ], [ 1, %198 ], [ %249, %246 ], [ 1, %206 ], [ %.0257.be, %._crit_edge ], [ 1, %10 ], [ 1, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)

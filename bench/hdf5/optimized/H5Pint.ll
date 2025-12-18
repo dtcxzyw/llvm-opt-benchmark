@@ -440,8 +440,8 @@ define range(i32 -1, 1) i32 @H5P__init_package() local_unnamed_addr #0 {
   br label %87
 
 87:                                               ; preds = %84, %23, %.preheader
-  %.261 = phi i64 [ %85, %84 ], [ %.05999, %23 ], [ %.05999, %.preheader ]
-  %.4 = phi i64 [ %86, %84 ], [ %.2101, %23 ], [ %.2101, %.preheader ]
+  %.261 = phi i64 [ %.05999, %.preheader ], [ %.05999, %23 ], [ %85, %84 ]
+  %.4 = phi i64 [ %.2101, %.preheader ], [ %.2101, %23 ], [ %86, %84 ]
   %88 = add nuw nsw i64 %.057100, 1
   %exitcond.not = icmp eq i64 %88, 22
   br i1 %exitcond.not, label %89, label %.preheader.backedge
@@ -521,7 +521,7 @@ H5P__close_class.exit:                            ; preds = %118, %111, %106, %1
   br label %.thread82
 
 .thread82:                                        ; preds = %89, %H5P__close_class.exit, %.thread82.sink.split, %0, %.thread76
-  %.052 = phi i32 [ -1, %.thread76 ], [ 0, %0 ], [ -1, %.thread82.sink.split ], [ -1, %H5P__close_class.exit ], [ 0, %89 ]
+  %.052 = phi i32 [ -1, %H5P__close_class.exit ], [ -1, %.thread76 ], [ 0, %0 ], [ -1, %.thread82.sink.split ], [ 0, %89 ]
   ret i32 %.052
 }
 
@@ -1940,7 +1940,7 @@ H5P__free_prop.exit:                              ; preds = %118, %137
   %.not160 = icmp eq ptr %.1127, null
   br i1 %.not160, label %.thread197, label %269, !llvm.loop !78
 
-.thread197.thread321:                             ; preds = %.thread.thread, %165, %.split252.us, %.thread176, %93, %154, %.thread187, %.split.us, %261, %63, %71, %H5P__free_prop.exit, %289
+.thread197.thread321:                             ; preds = %.thread.thread, %.split252.us, %165, %.thread176, %261, %.thread187, %.split.us, %154, %93, %63, %71, %H5P__free_prop.exit, %289
   %295 = call i32 @H5SL_close(ptr noundef nonnull %47) #14
   br label %.thread197.thread318
 
@@ -1949,7 +1949,7 @@ H5P__free_prop.exit:                              ; preds = %118, %137
   %296 = call i32 @H5SL_close(ptr noundef nonnull %47) #14
   br label %.thread197.thread
 
-.thread197.thread318:                             ; preds = %42, %34, %49, %.thread197.thread321
+.thread197.thread318:                             ; preds = %42, %49, %34, %.thread197.thread321
   %297 = call i32 @H5P_close(ptr noundef nonnull %21)
   br label %.thread197.thread
 
@@ -2606,7 +2606,7 @@ define range(i32 -1, 1) i32 @H5P_close(ptr noundef %0) local_unnamed_addr #0 {
   %160 = call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5P_genplist_t_reg_free_list, ptr noundef nonnull %0) #14
   br label %.thread131
 
-.thread136:                                       ; preds = %.thread118, %118, %.thread122, %144, %73
+.thread136:                                       ; preds = %.thread118, %118, %.thread122, %73, %144
   %161 = call i32 @H5SL_close(ptr noundef nonnull %36) #14
   br label %.thread131
 
@@ -3736,13 +3736,13 @@ define internal range(i32 -1, -2147483648) i32 @H5P__set_plist_cb(ptr noundef re
   br label %83
 
 83:                                               ; preds = %.thread55, %79, %75
-  %.139 = phi i32 [ -1, %75 ], [ %.4, %79 ], [ -1, %.thread55 ]
+  %.139 = phi i32 [ %.4, %79 ], [ -1, %.thread55 ], [ -1, %75 ]
   %.not48 = icmp eq ptr %.142, null
   br i1 %.not48, label %.thread59, label %.thread64
 
-.thread64:                                        ; preds = %.thread, %48, %83
-  %.13969 = phi i32 [ %.139, %83 ], [ -1, %48 ], [ -1, %.thread ]
-  %.04168 = phi ptr [ %.142, %83 ], [ %25, %48 ], [ %25, %.thread ]
+.thread64:                                        ; preds = %48, %.thread, %83
+  %.13969 = phi i32 [ %.139, %83 ], [ -1, %.thread ], [ -1, %48 ]
+  %.04168 = phi ptr [ %.142, %83 ], [ %25, %.thread ], [ %25, %48 ]
   %84 = call ptr @H5MM_xfree(ptr noundef nonnull %.04168) #14
   br label %.thread59
 
@@ -3879,14 +3879,14 @@ define internal range(i32 -1, -2147483648) i32 @H5P__set_pclass_cb(ptr noundef r
   br label %H5P__add_prop.exit.thread
 
 H5P__add_prop.exit.thread:                        ; preds = %60, %71, %77, %56
-  %.1 = phi i32 [ -1, %56 ], [ -1, %77 ], [ %.3, %71 ], [ %.3, %60 ]
+  %.1 = phi i32 [ -1, %77 ], [ -1, %56 ], [ %.3, %71 ], [ %.3, %60 ]
   %.not47 = icmp eq ptr %.139, null
   br i1 %.not47, label %85, label %.thread61
 
-.thread61:                                        ; preds = %.thread, %47, %H5P__add_prop.exit.thread
-  %.168 = phi i32 [ %.1, %H5P__add_prop.exit.thread ], [ -1, %47 ], [ -1, %.thread ]
-  %.03867 = phi ptr [ %.139, %H5P__add_prop.exit.thread ], [ %24, %47 ], [ %24, %.thread ]
-  %.04066 = phi ptr [ %54, %H5P__add_prop.exit.thread ], [ null, %47 ], [ null, %.thread ]
+.thread61:                                        ; preds = %47, %.thread, %H5P__add_prop.exit.thread
+  %.168 = phi i32 [ %.1, %H5P__add_prop.exit.thread ], [ -1, %.thread ], [ -1, %47 ]
+  %.03867 = phi ptr [ %.139, %H5P__add_prop.exit.thread ], [ %24, %.thread ], [ %24, %47 ]
+  %.04066 = phi ptr [ %54, %H5P__add_prop.exit.thread ], [ null, %.thread ], [ null, %47 ]
   %84 = call ptr @H5MM_xfree(ptr noundef nonnull %.03867) #14
   br label %85
 
@@ -4257,7 +4257,7 @@ define range(i32 -1, 1) i32 @H5P_get_nprops_pclass(ptr noundef readonly captures
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !100
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %12, %19, %16
-  %.0 = phi i32 [ -1, %12 ], [ 0, %19 ], [ 0, %16 ], [ 0, %.preheader ], [ 0, %.lr.ph ]
+  %.0 = phi i32 [ -1, %12 ], [ 0, %16 ], [ 0, %19 ], [ 0, %.preheader ], [ 0, %.lr.ph ]
   ret i32 %.0
 }
 
@@ -5112,7 +5112,7 @@ tailrecurse.i:                                    ; preds = %52, %32
   br label %H5P_class_isa.exit
 
 H5P_class_isa.exit:                               ; preds = %52, %49, %11, %21, %28, %.loopexit, %15
-  %.0 = phi i32 [ -1, %11 ], [ -1, %21 ], [ -1, %28 ], [ -1, %.loopexit ], [ -1, %15 ], [ 0, %52 ], [ 1, %49 ]
+  %.0 = phi i32 [ -1, %11 ], [ -1, %21 ], [ -1, %28 ], [ -1, %.loopexit ], [ -1, %15 ], [ 1, %49 ], [ 0, %52 ]
   ret i32 %.0
 }
 
@@ -6105,7 +6105,7 @@ define internal range(i32 -1, -2147483648) i32 @H5P__del_pclass_cb(ptr noundef c
   br label %65
 
 65:                                               ; preds = %61, %57, %48
-  %.2 = phi i32 [ %.1, %61 ], [ -1, %48 ], [ -1, %57 ]
+  %.2 = phi i32 [ -1, %57 ], [ %.1, %61 ], [ -1, %48 ]
   %.not39 = icmp eq ptr %.031, null
   br i1 %.not39, label %67, label %.thread44
 

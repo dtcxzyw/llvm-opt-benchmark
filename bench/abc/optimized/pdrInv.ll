@@ -4670,8 +4670,8 @@ Vec_IntPush.exit216:                              ; preds = %Vec_IntPush.exit216
   br i1 %.not290, label %94, label %.critedge167, !llvm.loop !169
 
 .critedge167:                                     ; preds = %.loopexit244, %Vec_IntPush.exit209, %._crit_edge272
-  %.0144255 = phi i32 [ %.0144277, %Vec_IntPush.exit209 ], [ %.0144277, %._crit_edge272 ], [ %.1145, %.loopexit244 ]
-  %230 = phi i1 [ false, %Vec_IntPush.exit209 ], [ false, %._crit_edge272 ], [ true, %.loopexit244 ]
+  %.0144255 = phi i32 [ %.0144277, %._crit_edge272 ], [ %.0144277, %Vec_IntPush.exit209 ], [ %.1145, %.loopexit244 ]
+  %230 = phi i1 [ false, %._crit_edge272 ], [ false, %Vec_IntPush.exit209 ], [ true, %.loopexit244 ]
   %.not159 = icmp eq i32 %.0144255, 0
   br i1 %.not159, label %.critedge167.thread, label %231
 

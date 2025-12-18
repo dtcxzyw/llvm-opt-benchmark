@@ -1630,8 +1630,8 @@ _ZNSt6vectorIP4NodeSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_i
   br label %_ZNSt6vectorIP4NodeSaIS1_EE9push_backERKS1_.exit
 
 _ZNSt6vectorIP4NodeSaIS1_EE9push_backERKS1_.exit: ; preds = %169, %216, %_ZNSt6vectorIP4NodeSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
-  %.1133 = phi i32 [ %.0132265, %_ZNSt6vectorIP4NodeSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %130, %169 ], [ %.0132265, %216 ]
-  %.1127 = phi i32 [ %.0126266, %_ZNSt6vectorIP4NodeSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %spec.select168, %169 ], [ %.0126266, %216 ]
+  %.1133 = phi i32 [ %.0132265, %_ZNSt6vectorIP4NodeSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %.0132265, %216 ], [ %130, %169 ]
+  %.1127 = phi i32 [ %.0126266, %_ZNSt6vectorIP4NodeSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %.0126266, %216 ], [ %spec.select168, %169 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %233 = call i64 @fread(ptr noundef nonnull %10, i64 noundef 4, i64 noundef 1, ptr noundef nonnull %29)
@@ -1644,7 +1644,7 @@ _ZNSt6vectorIP4NodeSaIS1_EE9push_backERKS1_.exit: ; preds = %169, %216, %_ZNSt6v
   br label %265
 
 .thread218:                                       ; preds = %95, %88, %84, %._crit_edge, %173, %196, %208, %111
-  %.1115.ph.ph = phi i64 [ %94, %111 ], [ %94, %208 ], [ %94, %196 ], [ %94, %173 ], [ %94, %._crit_edge ], [ %.0114268, %88 ], [ %94, %95 ], [ %.0114268, %84 ]
+  %.1115.ph.ph = phi i64 [ %94, %111 ], [ %94, %196 ], [ %94, %173 ], [ %94, %._crit_edge ], [ %.0114268, %88 ], [ %94, %95 ], [ %.0114268, %84 ], [ %94, %208 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %241
 

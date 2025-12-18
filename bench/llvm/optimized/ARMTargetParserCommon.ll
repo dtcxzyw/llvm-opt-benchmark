@@ -1101,7 +1101,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit91.thread:       ; preds = %_ZN4llvmeqENS_9Stri
   br label %.critedge
 
 .critedge:                                        ; preds = %.thread, %.critedge.sink.split, %_ZN4llvmeqENS_9StringRefES0_.exit62.thread134
-  %.not161 = phi i1 [ true, %_ZN4llvmeqENS_9StringRefES0_.exit62.thread134 ], [ false, %.critedge.sink.split ], [ true, %.thread ]
+  %.not161 = phi i1 [ false, %.critedge.sink.split ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit62.thread134 ], [ true, %.thread ]
   %65 = load ptr, ptr %9, align 8, !tbaa !24
   %66 = icmp eq ptr %65, %14
   br i1 %66, label %_ZN4llvm11SmallVectorINS_9StringRefELj4EED2Ev.exit, label %67

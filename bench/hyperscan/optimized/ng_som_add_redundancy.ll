@@ -449,7 +449,7 @@ _ZNSt6vectorIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_8NGHolderEN
   unreachable
 
 _ZNK3ue25depthplEi.exit.i:                        ; preds = %144, %146
-  %.sroa.0.0.i.i = phi i32 [ %145, %144 ], [ %147, %146 ]
+  %.sroa.0.0.i.i = phi i32 [ %147, %146 ], [ %145, %144 ]
   %151 = and i64 %133, 4294967295
   store i64 %151, ptr %137, align 8
   %152 = load ptr, ptr %17, align 8
@@ -1037,7 +1037,7 @@ _ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS
   br i1 %65, label %_ZN3ue2L15hasFloatingPredENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERKS3_RKSt6vectorINS_11DepthMinMaxESaISB_EE.exit.thread, label %._crit_edge
 
 _ZN3ue2L15hasFloatingPredENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERKS3_RKSt6vectorINS_11DepthMinMaxESaISB_EE.exit.thread: ; preds = %_ZN3ue2L8getDepthENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERKS3_RKSt6vectorINS_11DepthMinMaxESaISB_EE.exit.i, %362, %29, %34, %42
-  %.1.ph = phi i64 [ %.051109, %29 ], [ %.2, %362 ], [ %.051109, %42 ], [ %.051109, %34 ], [ %.051109, %_ZN3ue2L8getDepthENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERKS3_RKSt6vectorINS_11DepthMinMaxESaISB_EE.exit.i ]
+  %.1.ph = phi i64 [ %.051109, %34 ], [ %.051109, %29 ], [ %.2, %362 ], [ %.051109, %42 ], [ %.051109, %_ZN3ue2L8getDepthENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERKS3_RKSt6vectorINS_11DepthMinMaxESaISB_EE.exit.i ]
   %.not55 = icmp eq ptr %30, %16
   br i1 %.not55, label %._crit_edge, label %29, !llvm.loop !41
 

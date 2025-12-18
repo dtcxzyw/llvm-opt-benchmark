@@ -1979,7 +1979,7 @@ if.end.i.i.i.i.i.i10.i:                           ; preds = %if.end26.i
   br label %_ZN6hermes2vm13toPropertyKeyERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit
 
 _ZN6hermes2vm13toPropertyKeyERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit: ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit.i, %if.then.i.i.i.i.i.i13.i, %if.end.i.i.i.i.i.i10.i
-  %retval.sroa.0.0.i14 = phi ptr [ %retval.0.i.i.i.i.i.i.i12, %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit.i ], [ %22, %if.then.i.i.i.i.i.i13.i ], [ %call7.i.i.i.i.i.i11.i, %if.end.i.i.i.i.i.i10.i ]
+  %retval.sroa.0.0.i14 = phi ptr [ %call7.i.i.i.i.i.i11.i, %if.end.i.i.i.i.i.i10.i ], [ %22, %if.then.i.i.i.i.i.i13.i ], [ %retval.0.i.i.i.i.i.i.i12, %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit.i ]
   %cmp.i.i17.not = icmp eq ptr %retval.sroa.0.0.i14, inttoptr (i64 -1 to ptr)
   br i1 %cmp.i.i17.not, label %return, label %if.end33
 
@@ -4419,8 +4419,8 @@ if.end42:                                         ; preds = %if.end26
   %51 = and i1 %cmp.i.i167, %tobool.i169
   br i1 %51, label %do.body, label %cleanup, !llvm.loop !21
 
-cleanup:                                          ; preds = %if.end55.i, %if.end42, %if.end, %_ZN6hermes2vm12_GLOBAL__N_137getOwnComputedPrimitiveDescriptorImplENS0_6HandleINS0_8JSObjectEEERNS0_7RuntimeENS2_INS0_11HermesValueEEENS3_11IgnoreProxyERNS0_8SymbolIDERNS0_13MutableHandleISA_EERNS0_26ComputedPropertyDescriptorE.exit, %if.then127.i, %if.then15.i, %if.then33, %if.then16
-  %retval.0 = phi i32 [ 1, %if.then16 ], [ 1, %if.then33 ], [ 1, %if.then127.i ], [ 1, %if.then15.i ], [ 1, %if.end55.i ], [ 1, %if.end42 ], [ 0, %_ZN6hermes2vm12_GLOBAL__N_137getOwnComputedPrimitiveDescriptorImplENS0_6HandleINS0_8JSObjectEEERNS0_7RuntimeENS2_INS0_11HermesValueEEENS3_11IgnoreProxyERNS0_8SymbolIDERNS0_13MutableHandleISA_EERNS0_26ComputedPropertyDescriptorE.exit ], [ 1, %if.end ]
+cleanup:                                          ; preds = %if.end55.i, %if.end42, %if.end, %_ZN6hermes2vm12_GLOBAL__N_137getOwnComputedPrimitiveDescriptorImplENS0_6HandleINS0_8JSObjectEEERNS0_7RuntimeENS2_INS0_11HermesValueEEENS3_11IgnoreProxyERNS0_8SymbolIDERNS0_13MutableHandleISA_EERNS0_26ComputedPropertyDescriptorE.exit, %if.then15.i, %if.then127.i, %if.then33, %if.then16
+  %retval.0 = phi i32 [ 1, %if.then16 ], [ 1, %if.then33 ], [ 1, %if.then15.i ], [ 1, %if.then127.i ], [ 1, %if.end55.i ], [ 1, %if.end42 ], [ 0, %_ZN6hermes2vm12_GLOBAL__N_137getOwnComputedPrimitiveDescriptorImplENS0_6HandleINS0_8JSObjectEEERNS0_7RuntimeENS2_INS0_11HermesValueEEENS3_11IgnoreProxyERNS0_8SymbolIDERNS0_13MutableHandleISA_EERNS0_26ComputedPropertyDescriptorE.exit ], [ 1, %if.end ]
   %52 = load ptr, ptr %chunks_.i.i, align 8
   %arrayidx.i19.i.i.i = getelementptr inbounds nuw ptr, ptr %52, i64 %conv.i.i164
   %53 = load ptr, ptr %arrayidx.i19.i.i.i, align 8
@@ -5590,7 +5590,7 @@ if.end.i.i.i.i.i.i10.i:                           ; preds = %if.end26.i
   br label %_ZN6hermes2vm13toPropertyKeyERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit
 
 _ZN6hermes2vm13toPropertyKeyERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit: ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit.i, %if.then.i.i.i.i.i.i13.i, %if.end.i.i.i.i.i.i10.i
-  %retval.sroa.0.0.i = phi ptr [ %retval.0.i.i.i.i.i.i.i, %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit.i ], [ %22, %if.then.i.i.i.i.i.i13.i ], [ %call7.i.i.i.i.i.i11.i, %if.end.i.i.i.i.i.i10.i ]
+  %retval.sroa.0.0.i = phi ptr [ %call7.i.i.i.i.i.i11.i, %if.end.i.i.i.i.i.i10.i ], [ %22, %if.then.i.i.i.i.i.i13.i ], [ %retval.0.i.i.i.i.i.i.i, %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit.i ]
   %cmp.i.i27.not = icmp eq ptr %retval.sroa.0.0.i, inttoptr (i64 -1 to ptr)
   br i1 %cmp.i.i27.not, label %return, label %if.end58
 
@@ -8019,7 +8019,7 @@ if.end.i.i.i.i.i.i10.i:                           ; preds = %if.end26.i
   br label %_ZN6hermes2vm13toPropertyKeyERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit
 
 _ZN6hermes2vm13toPropertyKeyERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit: ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit.i, %if.then.i.i.i.i.i.i13.i, %if.end.i.i.i.i.i.i10.i
-  %retval.sroa.0.0.i = phi ptr [ %retval.0.i.i.i.i.i.i.i, %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit.i ], [ %44, %if.then.i.i.i.i.i.i13.i ], [ %call7.i.i.i.i.i.i11.i, %if.end.i.i.i.i.i.i10.i ]
+  %retval.sroa.0.0.i = phi ptr [ %call7.i.i.i.i.i.i11.i, %if.end.i.i.i.i.i.i10.i ], [ %44, %if.then.i.i.i.i.i.i13.i ], [ %retval.0.i.i.i.i.i.i.i, %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit.i ]
   %cmp.i.i137.not = icmp eq ptr %retval.sroa.0.0.i, inttoptr (i64 -1 to ptr)
   br i1 %cmp.i.i137.not, label %return, label %if.end186
 

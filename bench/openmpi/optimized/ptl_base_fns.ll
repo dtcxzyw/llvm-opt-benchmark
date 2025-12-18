@@ -1479,7 +1479,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %117, %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %66, %pmix_obj_run_destructors.exit62, %pmix_obj_new_tma.exit, %152, %151, %.loopexit66, %11, %103
-  %.0 = phi i32 [ -25, %.loopexit66 ], [ -25, %11 ], [ -25, %103 ], [ %109, %151 ], [ %109, %152 ], [ 0, %pmix_obj_new_tma.exit ], [ -25, %pmix_obj_run_destructors.exit62 ], [ -25, %66 ]
+  %.0 = phi i32 [ -25, %.loopexit66 ], [ -25, %11 ], [ -25, %103 ], [ 0, %pmix_obj_new_tma.exit ], [ -25, %pmix_obj_run_destructors.exit62 ], [ %109, %151 ], [ %109, %152 ], [ -25, %66 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -2343,7 +2343,7 @@ construct_message.exit.thread20.i:                ; preds = %.lr.ph.i153.i.i, %2
   br i1 %.not12.i, label %send_connect_ack.exit.thread41, label %send_connect_ack.exit.thread
 
 construct_message.exit.thread.i:                  ; preds = %.lr.ph.i144.i.i, %pmix_obj_run_destructors.exit151.i.i, %162, %161
-  %.0.i.ph.i = phi i32 [ -29, %162 ], [ -29, %161 ], [ -47, %pmix_obj_run_destructors.exit151.i.i ], [ -29, %.lr.ph.i144.i.i ]
+  %.0.i.ph.i = phi i32 [ -47, %pmix_obj_run_destructors.exit151.i.i ], [ -29, %162 ], [ -29, %161 ], [ -29, %.lr.ph.i144.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -2566,8 +2566,8 @@ recv_connect_ack.exit:                            ; preds = %306
   call void (i32, ptr, ...) @pmix_output(i32 noundef %305, ptr noundef nonnull @.str.59) #20
   br label %recv_connect_ack.exit.thread47
 
-recv_connect_ack.exit.thread47:                   ; preds = %306, %304, %300, %pmix_ptl_base_set_timeout.exit.thread.i, %recv_connect_ack.exit
-  %358 = phi i32 [ %297, %recv_connect_ack.exit ], [ %297, %306 ], [ %297, %304 ], [ %297, %300 ], [ %299, %pmix_ptl_base_set_timeout.exit.thread.i ]
+recv_connect_ack.exit.thread47:                   ; preds = %300, %pmix_ptl_base_set_timeout.exit.thread.i, %304, %306, %recv_connect_ack.exit
+  %358 = phi i32 [ %297, %recv_connect_ack.exit ], [ %297, %300 ], [ %299, %pmix_ptl_base_set_timeout.exit.thread.i ], [ %297, %304 ], [ %297, %306 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

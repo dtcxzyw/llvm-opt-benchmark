@@ -7111,7 +7111,7 @@ _ZNSt16allocator_traitsISaISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_tr
   br i1 %.not.i.i8, label %_ZNSt7__cxx1110_List_baseINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %.lr.ph.i.i7, !llvm.loop !165
 
 _ZNSt7__cxx1110_List_baseINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit: ; preds = %_ZNSt16allocator_traitsISaISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE7destroyIS6_EEvRS8_PT_.exit.i.i, %4, %16
-  %.sroa.06.022 = phi ptr [ %.sroa.06.0, %16 ], [ %1, %4 ], [ %.sroa.06.0, %_ZNSt16allocator_traitsISaISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE7destroyIS6_EEvRS8_PT_.exit.i.i ]
+  %.sroa.06.022 = phi ptr [ %1, %4 ], [ %.sroa.06.0, %16 ], [ %.sroa.06.0, %_ZNSt16allocator_traitsISaISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE7destroyIS6_EEvRS8_PT_.exit.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.sroa.06.022
 }
@@ -18562,7 +18562,7 @@ _ZN5osgeo4proj4util15BaseObjectNNPtrC2INS0_3crs3CRSEEERKN7dropbox6oxygen2nnISt10
   resume { ptr, i32 } %.pn49
 
 .loopexit:                                        ; preds = %12, %35, %_ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %.thread71, %164, %55
-  %.0 = phi ptr [ %34, %35 ], [ %54, %55 ], [ %.3, %_ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ null, %.thread71 ], [ %163, %164 ], [ null, %12 ]
+  %.0 = phi ptr [ %163, %164 ], [ %34, %35 ], [ %54, %55 ], [ %.3, %_ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ null, %.thread71 ], [ null, %12 ]
   ret ptr %.0
 }
 
@@ -21349,9 +21349,9 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj8metadata21GeographicBoundingBo
   br label %204
 
 204:                                              ; preds = %198, %.fold.split, %193, %200, %202, %203, %201, %199
-  %205 = phi i1 [ false, %193 ], [ false, %199 ], [ false, %200 ], [ false, %201 ], [ false, %202 ], [ false, %203 ], [ true, %198 ], [ false, %.fold.split ]
-  %or.cond5.not = phi i1 [ false, %193 ], [ false, %199 ], [ true, %200 ], [ true, %201 ], [ true, %202 ], [ true, %203 ], [ false, %198 ], [ true, %.fold.split ]
-  %.0149 = phi i32 [ 12, %193 ], [ 10, %199 ], [ 9, %200 ], [ 15, %201 ], [ 14, %202 ], [ 16, %203 ], [ 13, %198 ], [ 8, %.fold.split ]
+  %205 = phi i1 [ true, %198 ], [ false, %193 ], [ false, %199 ], [ false, %200 ], [ false, %201 ], [ false, %202 ], [ false, %203 ], [ false, %.fold.split ]
+  %or.cond5.not = phi i1 [ false, %198 ], [ false, %193 ], [ false, %199 ], [ true, %200 ], [ true, %201 ], [ true, %202 ], [ true, %203 ], [ true, %.fold.split ]
+  %.0149 = phi i32 [ 13, %198 ], [ 12, %193 ], [ 10, %199 ], [ 9, %200 ], [ 15, %201 ], [ 14, %202 ], [ 16, %203 ], [ 8, %.fold.split ]
   br i1 %.not196, label %.critedge231, label %206
 
 206:                                              ; preds = %204
@@ -21960,7 +21960,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj8metadata21GeographicBoundingBo
   br label %.critedge
 
 .critedge:                                        ; preds = %209, %408, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj8metadata21GeographicBoundingBoxEEED2Ev.exit266, %253, %256, %261, %240, %243, %248, %224, %219, %469
-  %.7 = phi i32 [ %.6309, %224 ], [ %.6309, %253 ], [ %471, %469 ], [ %.6309, %240 ], [ %.6309, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj8metadata21GeographicBoundingBoxEEED2Ev.exit266 ], [ %.6309, %219 ], [ %.6309, %408 ], [ %.6309, %248 ], [ %.6309, %243 ], [ %.6309, %261 ], [ %.6309, %256 ], [ %.6309, %209 ]
+  %.7 = phi i32 [ %.6309, %224 ], [ %.6309, %253 ], [ %471, %469 ], [ %.6309, %240 ], [ %.6309, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj8metadata21GeographicBoundingBoxEEED2Ev.exit266 ], [ %.6309, %219 ], [ %.6309, %408 ], [ %.6309, %256 ], [ %.6309, %248 ], [ %.6309, %243 ], [ %.6309, %261 ], [ %.6309, %209 ]
   %.sroa.0283.0 = load ptr, ptr %.sroa.0283.0310, align 8, !tbaa !162
   %.not294 = icmp eq ptr %.sroa.0283.0, %9
   br i1 %.not294, label %._crit_edge313, label %193
@@ -22781,7 +22781,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2io15DatabaseContextEEED2Ev.exi
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %224, %112, %._crit_edge.loopexit108, %.preheader
-  %.065.lcssa = phi i32 [ 0, %.preheader ], [ %155, %._crit_edge.loopexit108 ], [ %.469.us.us, %112 ], [ %.469, %224 ]
+  %.065.lcssa = phi i32 [ 0, %.preheader ], [ %.469.us.us, %112 ], [ %155, %._crit_edge.loopexit108 ], [ %.469, %224 ]
   %156 = sext i32 %.065.lcssa to i64
   %157 = getelementptr inbounds ptr, ptr %67, i64 %156
   store ptr null, ptr %157, align 8, !tbaa !341
@@ -68589,7 +68589,7 @@ define i32 @proj_coordoperation_get_param_index(ptr noundef %0, ptr noundef read
   br label %.loopexit
 
 .loopexit:                                        ; preds = %28, %.lr.ph, %.loopexit.sink.split, %17
-  %.0 = phi i32 [ -1, %17 ], [ -1, %.loopexit.sink.split ], [ -1, %28 ], [ %.02036, %.lr.ph ]
+  %.0 = phi i32 [ -1, %17 ], [ -1, %.loopexit.sink.split ], [ %.02036, %.lr.ph ], [ -1, %28 ]
   ret i32 %.0
 }
 
@@ -69099,8 +69099,8 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %36, %39
   resume { ptr, i32 } %37
 
 .critedge:                                        ; preds = %29, %..critedge_crit_edge, %.preheader, %34
-  %45 = phi ptr [ %.pre, %..critedge_crit_edge ], [ %20, %34 ], [ %20, %.preheader ], [ %20, %29 ]
-  %.2 = phi i32 [ 0, %..critedge_crit_edge ], [ 0, %34 ], [ 1, %.preheader ], [ 1, %29 ]
+  %45 = phi ptr [ %20, %34 ], [ %.pre, %..critedge_crit_edge ], [ %20, %.preheader ], [ %20, %29 ]
+  %.2 = phi i32 [ 0, %34 ], [ 0, %..critedge_crit_edge ], [ 1, %.preheader ], [ 1, %29 ]
   %.not.i.i.i30 = icmp eq ptr %45, null
   br i1 %.not.i.i.i30, label %_ZNSt6vectorIdSaIdEED2Ev.exit31, label %.critedge.thread
 

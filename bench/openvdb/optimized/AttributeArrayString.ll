@@ -5930,10 +5930,10 @@ _ZNSt15_Deque_iteratorISt4pairIjjERS1_PS1_EpLEl.exit.i203: ; preds = %cond.end.i
   br i1 %cmp.i206, label %while.body.i177, label %return, !llvm.loop !118
 
 return:                                           ; preds = %_ZNSt15_Deque_iteratorISt4pairIjjERS1_PS1_EpLEl.exit.i129, %_ZNSt15_Deque_iteratorISt4pairIjjERS1_PS1_EpLEl.exit.i203, %if.end, %for.end
-  %.sink238 = phi ptr [ %27, %for.end ], [ %34, %if.end ], [ %storemerge.i.i204, %_ZNSt15_Deque_iteratorISt4pairIjjERS1_PS1_EpLEl.exit.i203 ], [ %storemerge.i.i130, %_ZNSt15_Deque_iteratorISt4pairIjjERS1_PS1_EpLEl.exit.i129 ]
-  %.sink = phi ptr [ %26, %for.end ], [ %35, %if.end ], [ %agg.tmp12.sroa.4.1, %_ZNSt15_Deque_iteratorISt4pairIjjERS1_PS1_EpLEl.exit.i203 ], [ %agg.tmp9.sroa.4.1, %_ZNSt15_Deque_iteratorISt4pairIjjERS1_PS1_EpLEl.exit.i129 ]
-  %agg.tmp12.sroa.8.2.sink = phi ptr [ %25, %for.end ], [ %36, %if.end ], [ %agg.tmp12.sroa.8.1, %_ZNSt15_Deque_iteratorISt4pairIjjERS1_PS1_EpLEl.exit.i203 ], [ %agg.tmp9.sroa.8.1, %_ZNSt15_Deque_iteratorISt4pairIjjERS1_PS1_EpLEl.exit.i129 ]
-  %agg.tmp12.sroa.12.2.sink = phi ptr [ %24, %for.end ], [ %37, %if.end ], [ %agg.tmp12.sroa.12.1, %_ZNSt15_Deque_iteratorISt4pairIjjERS1_PS1_EpLEl.exit.i203 ], [ %agg.tmp9.sroa.12.1, %_ZNSt15_Deque_iteratorISt4pairIjjERS1_PS1_EpLEl.exit.i129 ]
+  %.sink238 = phi ptr [ %storemerge.i.i204, %_ZNSt15_Deque_iteratorISt4pairIjjERS1_PS1_EpLEl.exit.i203 ], [ %27, %for.end ], [ %34, %if.end ], [ %storemerge.i.i130, %_ZNSt15_Deque_iteratorISt4pairIjjERS1_PS1_EpLEl.exit.i129 ]
+  %.sink = phi ptr [ %agg.tmp12.sroa.4.1, %_ZNSt15_Deque_iteratorISt4pairIjjERS1_PS1_EpLEl.exit.i203 ], [ %26, %for.end ], [ %35, %if.end ], [ %agg.tmp9.sroa.4.1, %_ZNSt15_Deque_iteratorISt4pairIjjERS1_PS1_EpLEl.exit.i129 ]
+  %agg.tmp12.sroa.8.2.sink = phi ptr [ %agg.tmp12.sroa.8.1, %_ZNSt15_Deque_iteratorISt4pairIjjERS1_PS1_EpLEl.exit.i203 ], [ %25, %for.end ], [ %36, %if.end ], [ %agg.tmp9.sroa.8.1, %_ZNSt15_Deque_iteratorISt4pairIjjERS1_PS1_EpLEl.exit.i129 ]
+  %agg.tmp12.sroa.12.2.sink = phi ptr [ %agg.tmp12.sroa.12.1, %_ZNSt15_Deque_iteratorISt4pairIjjERS1_PS1_EpLEl.exit.i203 ], [ %24, %for.end ], [ %37, %if.end ], [ %agg.tmp9.sroa.12.1, %_ZNSt15_Deque_iteratorISt4pairIjjERS1_PS1_EpLEl.exit.i129 ]
   store ptr %.sink238, ptr %agg.result, align 8
   %_M_first.i8.i168 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %.sink, ptr %_M_first.i8.i168, align 8
@@ -6544,10 +6544,10 @@ _ZNSt15_Deque_iteratorISt4pairIjjERS1_PS1_EmIEl.exit.i241: ; preds = %cond.end.i
   br i1 %cmp.i244, label %while.body.i212, label %return, !llvm.loop !133
 
 return:                                           ; preds = %_ZNSt15_Deque_iteratorISt4pairIjjERS1_PS1_EmIEl.exit.i150, %_ZNSt15_Deque_iteratorISt4pairIjjERS1_PS1_EmIEl.exit.i241, %if.end, %for.end
-  %.sink302 = phi ptr [ %37, %for.end ], [ %50, %if.end ], [ %storemerge.i.i.i242, %_ZNSt15_Deque_iteratorISt4pairIjjERS1_PS1_EmIEl.exit.i241 ], [ %storemerge.i.i.i151, %_ZNSt15_Deque_iteratorISt4pairIjjERS1_PS1_EmIEl.exit.i150 ]
-  %.sink = phi ptr [ %36, %for.end ], [ %51, %if.end ], [ %61, %_ZNSt15_Deque_iteratorISt4pairIjjERS1_PS1_EmIEl.exit.i241 ], [ %47, %_ZNSt15_Deque_iteratorISt4pairIjjERS1_PS1_EmIEl.exit.i150 ]
-  %agg.tmp12.sroa.9.2.sink = phi ptr [ %35, %for.end ], [ %52, %if.end ], [ %agg.tmp12.sroa.9.1, %_ZNSt15_Deque_iteratorISt4pairIjjERS1_PS1_EmIEl.exit.i241 ], [ %agg.tmp9.sroa.9.1, %_ZNSt15_Deque_iteratorISt4pairIjjERS1_PS1_EmIEl.exit.i150 ]
-  %agg.tmp12.sroa.12.2.sink = phi ptr [ %34, %for.end ], [ %53, %if.end ], [ %agg.tmp12.sroa.12.1, %_ZNSt15_Deque_iteratorISt4pairIjjERS1_PS1_EmIEl.exit.i241 ], [ %agg.tmp9.sroa.12.1, %_ZNSt15_Deque_iteratorISt4pairIjjERS1_PS1_EmIEl.exit.i150 ]
+  %.sink302 = phi ptr [ %storemerge.i.i.i242, %_ZNSt15_Deque_iteratorISt4pairIjjERS1_PS1_EmIEl.exit.i241 ], [ %37, %for.end ], [ %50, %if.end ], [ %storemerge.i.i.i151, %_ZNSt15_Deque_iteratorISt4pairIjjERS1_PS1_EmIEl.exit.i150 ]
+  %.sink = phi ptr [ %61, %_ZNSt15_Deque_iteratorISt4pairIjjERS1_PS1_EmIEl.exit.i241 ], [ %36, %for.end ], [ %51, %if.end ], [ %47, %_ZNSt15_Deque_iteratorISt4pairIjjERS1_PS1_EmIEl.exit.i150 ]
+  %agg.tmp12.sroa.9.2.sink = phi ptr [ %agg.tmp12.sroa.9.1, %_ZNSt15_Deque_iteratorISt4pairIjjERS1_PS1_EmIEl.exit.i241 ], [ %35, %for.end ], [ %52, %if.end ], [ %agg.tmp9.sroa.9.1, %_ZNSt15_Deque_iteratorISt4pairIjjERS1_PS1_EmIEl.exit.i150 ]
+  %agg.tmp12.sroa.12.2.sink = phi ptr [ %agg.tmp12.sroa.12.1, %_ZNSt15_Deque_iteratorISt4pairIjjERS1_PS1_EmIEl.exit.i241 ], [ %34, %for.end ], [ %53, %if.end ], [ %agg.tmp9.sroa.12.1, %_ZNSt15_Deque_iteratorISt4pairIjjERS1_PS1_EmIEl.exit.i150 ]
   store ptr %.sink302, ptr %agg.result, align 8
   %_M_first.i.i203 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %.sink, ptr %_M_first.i.i203, align 8

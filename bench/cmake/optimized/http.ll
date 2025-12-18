@@ -1383,8 +1383,8 @@ define internal fastcc void @http_perhapsrewind(ptr noundef %0, ptr noundef %1) 
   br i1 %.not56, label %48, label %.critedge66
 
 48:                                               ; preds = %45, %38
-  %.not60 = phi i1 [ false, %45 ], [ true, %38 ]
-  %.0 = phi ptr [ @.str.117, %45 ], [ null, %38 ]
+  %.not60 = phi i1 [ true, %38 ], [ false, %45 ]
+  %.0 = phi ptr [ null, %38 ], [ @.str.117, %45 ]
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 2562
   %50 = load i64, ptr %49, align 2
   %51 = and i64 %50, 134217728
@@ -1699,9 +1699,9 @@ define internal fastcc i32 @output_auth_headers(ptr noundef %0, ptr noundef read
   br i1 %.not77, label %Curl_checkProxyheaders.exit.thread, label %Curl_checkProxyheaders.exit.thread100
 
 Curl_checkProxyheaders.exit.thread:               ; preds = %41, %32, %45
-  %.022.in.v.i = phi i64 [ 4864, %32 ], [ 4840, %45 ], [ 4864, %41 ]
-  %.023.in.v.i = phi i64 [ 4856, %32 ], [ 4832, %45 ], [ 4856, %41 ]
-  %.024.v.i = phi i64 [ 4848, %32 ], [ 4784, %45 ], [ 4848, %41 ]
+  %.022.in.v.i = phi i64 [ 4840, %45 ], [ 4864, %32 ], [ 4864, %41 ]
+  %.023.in.v.i = phi i64 [ 4832, %45 ], [ 4856, %32 ], [ 4856, %41 ]
+  %.024.v.i = phi i64 [ 4784, %45 ], [ 4848, %32 ], [ 4848, %41 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 0, ptr %7, align 8, !tbaa !114
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -2610,7 +2610,7 @@ thread-pre-split:                                 ; preds = %72
   br i1 %exitcond.not, label %.thread168, label %35, !llvm.loop !151
 
 .thread168:                                       ; preds = %._crit_edge, %104, %58
-  %.7 = phi i32 [ 27, %58 ], [ %.091, %104 ], [ 0, %._crit_edge ]
+  %.7 = phi i32 [ %.091, %104 ], [ 27, %58 ], [ 0, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.7
 }
@@ -3626,7 +3626,7 @@ Curl_use_http_1_1plus.exit.i:                     ; preds = %51
   %.not24.i = icmp eq i32 %63, 0
   br i1 %.not24.i, label %addexpect.exit.thread, label %addexpect.exit.thread79
 
-addexpect.exit.thread:                            ; preds = %62, %41, %60, %47, %Curl_use_http_1_1plus.exit.i, %43, %51, %.thread72.thread, %10
+addexpect.exit.thread:                            ; preds = %62, %41, %47, %Curl_use_http_1_1plus.exit.i, %43, %60, %51, %.thread72.thread, %10
   %.068 = phi i1 [ false, %10 ], [ false, %47 ], [ %42, %41 ], [ false, %43 ], [ false, %Curl_use_http_1_1plus.exit.i ], [ false, %60 ], [ false, %.thread72.thread ], [ false, %51 ], [ true, %62 ]
   %64 = tail call i32 @Curl_dyn_addn(ptr noundef %1, ptr noundef nonnull @.str.49, i64 noundef 2) #12
   %.not63 = icmp eq i32 %64, 0
@@ -3677,7 +3677,7 @@ addexpect.exit.thread82:                          ; preds = %65, %addexpect.exit
   br label %addexpect.exit.thread79
 
 addexpect.exit.thread79:                          ; preds = %.lr.ph, %62, %35, %21, %addexpect.exit.thread, %addexpect.exit.thread87, %addexpect.exit.thread82, %8
-  %.040 = phi i32 [ %9, %8 ], [ 0, %addexpect.exit.thread82 ], [ %.011.i, %addexpect.exit.thread87 ], [ %63, %62 ], [ %36, %35 ], [ %22, %21 ], [ %64, %addexpect.exit.thread ], [ %31, %.lr.ph ]
+  %.040 = phi i32 [ %9, %8 ], [ 0, %addexpect.exit.thread82 ], [ %.011.i, %addexpect.exit.thread87 ], [ %63, %62 ], [ %36, %35 ], [ %64, %addexpect.exit.thread ], [ %22, %21 ], [ %31, %.lr.ph ]
   ret i32 %.040
 }
 
@@ -6424,8 +6424,8 @@ checkhttpprefix.exit.thread:                      ; preds = %439, %checkhttppref
   store i32 %491, ptr %489, align 1
   br label %.critedge235.thread
 
-.critedge235:                                     ; preds = %417, %417, %428, %396, %385, %385, %checkhttpprefix.exit.thread, %488
-  %492 = phi ptr [ %348, %417 ], [ %348, %417 ], [ %348, %428 ], [ %348, %396 ], [ %348, %385 ], [ %348, %385 ], [ %.pre, %checkhttpprefix.exit.thread ], [ %348, %488 ]
+.critedge235:                                     ; preds = %417, %417, %428, %385, %385, %396, %checkhttpprefix.exit.thread, %488
+  %492 = phi ptr [ %348, %417 ], [ %348, %417 ], [ %348, %428 ], [ %348, %385 ], [ %348, %385 ], [ %348, %396 ], [ %.pre, %checkhttpprefix.exit.thread ], [ %348, %488 ]
   %493 = tail call i32 @Curl_http_statusline(ptr noundef nonnull %0, ptr noundef %492)
   %.not212 = icmp eq i32 %493, 0
   br i1 %.not212, label %494, label %.critedge235.thread
@@ -6462,7 +6462,7 @@ verify_header.exit:                               ; preds = %494, %502
   tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %0, ptr noundef nonnull %.str.157.sink.i) #12
   br label %.critedge235.thread
 
-504:                                              ; preds = %496, %502, %501
+504:                                              ; preds = %501, %502, %496
   %505 = tail call i32 @Curl_http_header(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %2)
   %.not214 = icmp eq i32 %505, 0
   br i1 %.not214, label %506, label %.critedge235.thread

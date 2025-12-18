@@ -3690,7 +3690,7 @@ _ZN4llvm11df_iteratorINS_7InverseIPKNS_10BasicBlockEEENS_23df_iterator_default_s
   br label %_ZN4llvm11df_iteratorINS_7InverseIPKNS_10BasicBlockEEENS_23df_iterator_default_setIS4_Lj8EEELb0ENS_11GraphTraitsIS5_EEE12skipChildrenEv.exit, !llvm.loop !309
 
 _ZNK4llvm11df_iteratorINS_7InverseIPKNS_10BasicBlockEEENS_23df_iterator_default_setIS4_Lj8EEELb0ENS_11GraphTraitsIS5_EEEneERKSA_.exit: ; preds = %50, %54, %61, %25, %42, %73
-  %not. = phi i1 [ false, %42 ], [ true, %73 ], [ false, %25 ], [ true, %61 ], [ true, %54 ], [ true, %50 ]
+  %not. = phi i1 [ false, %42 ], [ true, %73 ], [ true, %50 ], [ true, %61 ], [ true, %54 ], [ false, %25 ]
   %83 = load ptr, ptr %9, align 8, !tbaa !284
   %.not.i.i.i.i = icmp eq ptr %83, null
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorISt4pairIPKN4llvm10BasicBlockESt8optionalINS1_12PredIteratorIS3_NS1_5Value18user_iterator_implIKNS1_4UserEEEEEEESaISE_EED2Ev.exit.i, label %84
@@ -6586,7 +6586,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm8GVNHoist24makeGepOperandsAvailabl
   br i1 %28, label %29, label %.critedge
 
 29:                                               ; preds = %21, %23, %11
-  %.0 = phi ptr [ null, %11 ], [ %16, %21 ], [ %16, %23 ]
+  %.0 = phi ptr [ %16, %23 ], [ null, %11 ], [ %16, %21 ]
   br i1 %.not59, label %.thread48, label %.critedge
 
 .thread48:                                        ; preds = %6, %29
@@ -10005,9 +10005,9 @@ _ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEE
   br i1 %247, label %_ZN4llvm15SmallVectorImplIPNS_10BasicBlockEE6appendINS_12PredIteratorIS1_NS_5Value18user_iterator_implINS_4UserEEEEEvEEvT_SB_.exit.loopexit.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.preheader.i, !llvm.loop !519
 
 _ZN4llvm15SmallVectorImplIPNS_10BasicBlockEE6appendINS_12PredIteratorIS1_NS_5Value18user_iterator_implINS_4UserEEEEEvEEvT_SB_.exit.loopexit.i.i: ; preds = %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i.i.i.i.i.i.i, %238, %.lr.ph.i.i.i.i9.preheader.i.i.i, %.lr.ph.i.i.i.i9.preheader.i.i.thread.i
-  %248 = phi ptr [ %85, %.lr.ph.i.i.i.i9.preheader.i.i.thread.i ], [ %227, %.lr.ph.i.i.i.i9.preheader.i.i.i ], [ %227, %238 ], [ %227, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i.i.i.i.i.i.i ]
-  %249 = phi i32 [ 0, %.lr.ph.i.i.i.i9.preheader.i.i.thread.i ], [ %228, %.lr.ph.i.i.i.i9.preheader.i.i.i ], [ %228, %238 ], [ %228, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i.i.i.i.i.i.i ]
-  %250 = phi i64 [ 1, %.lr.ph.i.i.i.i9.preheader.i.i.thread.i ], [ %222, %.lr.ph.i.i.i.i9.preheader.i.i.i ], [ %222, %238 ], [ %222, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i.i.i.i.i.i.i ]
+  %248 = phi ptr [ %85, %.lr.ph.i.i.i.i9.preheader.i.i.thread.i ], [ %227, %238 ], [ %227, %.lr.ph.i.i.i.i9.preheader.i.i.i ], [ %227, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i.i.i.i.i.i.i ]
+  %249 = phi i32 [ 0, %.lr.ph.i.i.i.i9.preheader.i.i.thread.i ], [ %228, %238 ], [ %228, %.lr.ph.i.i.i.i9.preheader.i.i.i ], [ %228, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i.i.i.i.i.i.i ]
+  %250 = phi i64 [ 1, %.lr.ph.i.i.i.i9.preheader.i.i.thread.i ], [ %222, %238 ], [ %222, %.lr.ph.i.i.i.i9.preheader.i.i.i ], [ %222, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i.i.i.i.i.i.i ]
   %251 = trunc i64 %250 to i32
   %252 = add i32 %249, %251
   br label %_ZN4llvm11SmallVectorIPNS_10BasicBlockELj8EEC2INS_12PredIteratorIS1_NS_5Value18user_iterator_implINS_4UserEEEEEvEET_SB_.exit.i
@@ -11877,9 +11877,9 @@ _ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEE
   br i1 %65, label %_ZN4llvm11SmallVectorIPNS_10BasicBlockELj8EEC2INS_12PredIteratorIS1_NS_5Value18user_iterator_implINS_4UserEEEEEEERKNS_14iterator_rangeIT_EE.exit, label %.lr.ph.i.i.i.i.i.i.i.i.preheader, !llvm.loop !519
 
 _ZN4llvm11SmallVectorIPNS_10BasicBlockELj8EEC2INS_12PredIteratorIS1_NS_5Value18user_iterator_implINS_4UserEEEEEEERKNS_14iterator_rangeIT_EE.exit: ; preds = %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i.i.i.i.i.i, %56, %.lr.ph.i.i.i.i9.preheader.i.i.thread, %.lr.ph.i.i.i.i9.preheader.i.i
-  %66 = phi i32 [ 0, %.lr.ph.i.i.i.i9.preheader.i.i.thread ], [ %46, %.lr.ph.i.i.i.i9.preheader.i.i ], [ %46, %56 ], [ %46, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i.i.i.i.i.i ]
-  %67 = phi ptr [ %19, %.lr.ph.i.i.i.i9.preheader.i.i.thread ], [ %45, %.lr.ph.i.i.i.i9.preheader.i.i ], [ %45, %56 ], [ %45, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i.i.i.i.i.i ]
-  %68 = phi i64 [ 1, %.lr.ph.i.i.i.i9.preheader.i.i.thread ], [ %40, %.lr.ph.i.i.i.i9.preheader.i.i ], [ %40, %56 ], [ %40, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i.i.i.i.i.i ]
+  %66 = phi i32 [ 0, %.lr.ph.i.i.i.i9.preheader.i.i.thread ], [ %46, %56 ], [ %46, %.lr.ph.i.i.i.i9.preheader.i.i ], [ %46, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i.i.i.i.i.i ]
+  %67 = phi ptr [ %19, %.lr.ph.i.i.i.i9.preheader.i.i.thread ], [ %45, %56 ], [ %45, %.lr.ph.i.i.i.i9.preheader.i.i ], [ %45, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i.i.i.i.i.i ]
+  %68 = phi i64 [ 1, %.lr.ph.i.i.i.i9.preheader.i.i.thread ], [ %40, %56 ], [ %40, %.lr.ph.i.i.i.i9.preheader.i.i ], [ %40, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i.i.i.i.i.i ]
   %69 = trunc i64 %68 to i32
   %70 = add i32 %66, %69
   %71 = zext i32 %70 to i64
@@ -12002,9 +12002,9 @@ _ZSt9__find_ifIPPN4llvm10BasicBlockEN9__gnu_cxx5__ops16_Iter_equals_valIKDnEEET_
   br i1 %.not.i.i.i, label %_ZN4llvm5eraseINS_11SmallVectorIPNS_10BasicBlockELj8EEEDnEEvRT_T0_.exit, label %.lr.ph.i.i.i, !llvm.loop !578
 
 _ZN4llvm5eraseINS_11SmallVectorIPNS_10BasicBlockELj8EEEDnEEvRT_T0_.exit: ; preds = %115, %._crit_edge.i.i.i.i.i.thread, %._crit_edge.i.i.i.i.i, %104, %_ZSt9__find_ifIPPN4llvm10BasicBlockEN9__gnu_cxx5__ops16_Iter_equals_valIKDnEEET_S9_S9_T0_.exit.i.i.i
-  %116 = phi ptr [ %67, %_ZSt9__find_ifIPPN4llvm10BasicBlockEN9__gnu_cxx5__ops16_Iter_equals_valIKDnEEET_S9_S9_T0_.exit.i.i.i ], [ %67, %._crit_edge.i.i.i.i.i ], [ %67, %104 ], [ %15, %._crit_edge.i.i.i.i.i.thread ], [ %67, %115 ]
-  %117 = phi ptr [ %20, %_ZSt9__find_ifIPPN4llvm10BasicBlockEN9__gnu_cxx5__ops16_Iter_equals_valIKDnEEET_S9_S9_T0_.exit.i.i.i ], [ %20, %._crit_edge.i.i.i.i.i ], [ %20, %104 ], [ %16, %._crit_edge.i.i.i.i.i.thread ], [ %20, %115 ]
-  %.016.i.i.i = phi ptr [ %.028.i.i.i.i.i, %_ZSt9__find_ifIPPN4llvm10BasicBlockEN9__gnu_cxx5__ops16_Iter_equals_valIKDnEEET_S9_S9_T0_.exit.i.i.i ], [ %72, %._crit_edge.i.i.i.i.i ], [ %72, %104 ], [ %15, %._crit_edge.i.i.i.i.i.thread ], [ %.1.i.i.i, %115 ]
+  %116 = phi ptr [ %67, %_ZSt9__find_ifIPPN4llvm10BasicBlockEN9__gnu_cxx5__ops16_Iter_equals_valIKDnEEET_S9_S9_T0_.exit.i.i.i ], [ %67, %104 ], [ %67, %._crit_edge.i.i.i.i.i ], [ %15, %._crit_edge.i.i.i.i.i.thread ], [ %67, %115 ]
+  %117 = phi ptr [ %20, %_ZSt9__find_ifIPPN4llvm10BasicBlockEN9__gnu_cxx5__ops16_Iter_equals_valIKDnEEET_S9_S9_T0_.exit.i.i.i ], [ %20, %104 ], [ %20, %._crit_edge.i.i.i.i.i ], [ %16, %._crit_edge.i.i.i.i.i.thread ], [ %20, %115 ]
+  %.016.i.i.i = phi ptr [ %.028.i.i.i.i.i, %_ZSt9__find_ifIPPN4llvm10BasicBlockEN9__gnu_cxx5__ops16_Iter_equals_valIKDnEEET_S9_S9_T0_.exit.i.i.i ], [ %72, %104 ], [ %72, %._crit_edge.i.i.i.i.i ], [ %15, %._crit_edge.i.i.i.i.i.thread ], [ %.1.i.i.i, %115 ]
   %118 = ptrtoint ptr %.016.i.i.i to i64
   %119 = ptrtoint ptr %116 to i64
   %120 = sub i64 %118, %119
@@ -12218,7 +12218,7 @@ _ZSt9__find_ifIPPN4llvm10BasicBlockEN9__gnu_cxx5__ops16_Iter_equals_valIKS2_EEET
   br i1 %.not.i.i.i38, label %_ZN4llvm5eraseINS_11SmallVectorIPNS_10BasicBlockELj8EEES3_EEvRT_T0_.exit, label %.lr.ph.i.i.i33, !llvm.loop !581
 
 _ZN4llvm5eraseINS_11SmallVectorIPNS_10BasicBlockELj8EEES3_EEvRT_T0_.exit: ; preds = %220, %._crit_edge.i.i.i.i.i25, %._crit_edge._crit_edge52.i.i.i.i.i, %_ZSt9__find_ifIPPN4llvm10BasicBlockEN9__gnu_cxx5__ops16_Iter_equals_valIKS2_EEET_S9_S9_T0_.exit.i.i.i
-  %.016.i.i.i28 = phi ptr [ %.028.i.i.i.i.i29, %_ZSt9__find_ifIPPN4llvm10BasicBlockEN9__gnu_cxx5__ops16_Iter_equals_valIKS2_EEET_S9_S9_T0_.exit.i.i.i ], [ %178, %._crit_edge.i.i.i.i.i25 ], [ %178, %._crit_edge._crit_edge52.i.i.i.i.i ], [ %.1.i.i.i36, %220 ]
+  %.016.i.i.i28 = phi ptr [ %.028.i.i.i.i.i29, %_ZSt9__find_ifIPPN4llvm10BasicBlockEN9__gnu_cxx5__ops16_Iter_equals_valIKS2_EEET_S9_S9_T0_.exit.i.i.i ], [ %178, %._crit_edge._crit_edge52.i.i.i.i.i ], [ %178, %._crit_edge.i.i.i.i.i25 ], [ %.1.i.i.i36, %220 ]
   %221 = ptrtoint ptr %.016.i.i.i28 to i64
   %222 = sub i64 %221, %119
   %223 = lshr exact i64 %222, 3
@@ -14570,8 +14570,8 @@ define linkonce_odr { ptr, i32 } @_ZSt9__find_ifIN4llvm12SuccIteratorINS0_11Inst
   br label %.loopexit
 
 .loopexit:                                        ; preds = %23, %19, %15, %12, %44, %38, %32, %48
-  %.sroa.020.0.in.sroa.speculated = phi ptr [ %0, %38 ], [ %2, %48 ], [ %0, %32 ], [ %0, %44 ], [ %0, %12 ], [ %0, %15 ], [ %0, %19 ], [ %0, %23 ]
-  %.sroa.9.0 = phi i32 [ %.sroa.15.1, %38 ], [ %3, %48 ], [ %.sroa.15.0.lcssa, %32 ], [ %.sroa.15.2, %44 ], [ %24, %23 ], [ %20, %19 ], [ %16, %15 ], [ %.sroa.15.096, %12 ]
+  %.sroa.020.0.in.sroa.speculated = phi ptr [ %0, %38 ], [ %0, %44 ], [ %0, %32 ], [ %2, %48 ], [ %0, %12 ], [ %0, %15 ], [ %0, %19 ], [ %0, %23 ]
+  %.sroa.9.0 = phi i32 [ %.sroa.15.1, %38 ], [ %.sroa.15.2, %44 ], [ %.sroa.15.0.lcssa, %32 ], [ %3, %48 ], [ %24, %23 ], [ %20, %19 ], [ %16, %15 ], [ %.sroa.15.096, %12 ]
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %.sroa.020.0.in.sroa.speculated, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %.sroa.9.0, 1
   ret { ptr, i32 } %.fca.1.insert
@@ -16529,7 +16529,7 @@ _ZSt4moveIPN4llvm6CHIArgES2_ET0_T_S4_S3_.exit54:  ; preds = %.lr.ph.i.i.i.i.i50,
   br label %_ZSt4moveIPN4llvm6CHIArgES2_ET0_T_S4_S3_.exit42
 
 _ZSt4moveIPN4llvm6CHIArgES2_ET0_T_S4_S3_.exit42:  ; preds = %.lr.ph.i.i.i.i.i38, %.lr.ph.i.i.i.i.i56, %_ZSt4moveIPN4llvm6CHIArgES2_ET0_T_S4_S3_.exit54, %_ZSt13move_backwardIPN4llvm6CHIArgES2_ET0_T_S4_S3_.exit, %56, %9, %102
-  %.0 = phi ptr [ %2, %56 ], [ %103, %102 ], [ %0, %9 ], [ %0, %_ZSt13move_backwardIPN4llvm6CHIArgES2_ET0_T_S4_S3_.exit ], [ %2, %_ZSt4moveIPN4llvm6CHIArgES2_ET0_T_S4_S3_.exit54 ], [ %93, %.lr.ph.i.i.i.i.i56 ], [ %52, %.lr.ph.i.i.i.i.i38 ]
+  %.0 = phi ptr [ %2, %56 ], [ %103, %102 ], [ %93, %.lr.ph.i.i.i.i.i56 ], [ %0, %9 ], [ %0, %_ZSt13move_backwardIPN4llvm6CHIArgES2_ET0_T_S4_S3_.exit ], [ %2, %_ZSt4moveIPN4llvm6CHIArgES2_ET0_T_S4_S3_.exit54 ], [ %52, %.lr.ph.i.i.i.i.i38 ]
   ret ptr %.0
 }
 

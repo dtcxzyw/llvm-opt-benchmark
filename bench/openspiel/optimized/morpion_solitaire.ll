@@ -1481,7 +1481,7 @@ define void @_ZN10open_spiel17morpion_solitaire12MorpionState13DoApplyActionEl(p
   unreachable
 
 _ZNSt13unordered_mapIiPN10open_spiel17morpion_solitaire4LineESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE2atERS9_.exit: ; preds = %29, %11, %24
-  %.sroa.06.1.i.i.i = phi ptr [ %25, %24 ], [ %.sroa.06.0.i.i.i, %11 ], [ %31, %29 ]
+  %.sroa.06.1.i.i.i = phi ptr [ %.sroa.06.0.i.i.i, %11 ], [ %25, %24 ], [ %31, %29 ]
   %37 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 16
   %38 = load ptr, ptr %37, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) %38, i64 24, i1 false)
@@ -2074,7 +2074,7 @@ define void @_ZNK10open_spiel17morpion_solitaire12MorpionState14ActionToStringB5
   unreachable
 
 _ZNKSt13unordered_mapIiPN10open_spiel17morpion_solitaire4LineESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE2atERS9_.exit: ; preds = %35, %17, %30
-  %.sroa.06.1.i.i.i = phi ptr [ %31, %30 ], [ %.sroa.06.0.i.i.i, %17 ], [ %37, %35 ]
+  %.sroa.06.1.i.i.i = phi ptr [ %.sroa.06.0.i.i.i, %17 ], [ %31, %30 ], [ %37, %35 ]
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 16
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 24
@@ -3218,7 +3218,7 @@ _ZNSt10_HashtableIiSt4pairIKiPN10open_spiel17morpion_solitaire4LineEESaIS6_ENSt8
   br label %.body
 
 .loopexit:                                        ; preds = %341, %.noexc110, %336
-  %.0.i.pn.i.i = phi ptr [ %337, %336 ], [ %352, %.noexc110 ], [ %343, %341 ]
+  %.0.i.pn.i.i = phi ptr [ %352, %.noexc110 ], [ %337, %336 ], [ %343, %341 ]
   %.0.i.i = getelementptr inbounds nuw i8, ptr %.0.i.pn.i.i, i64 16
   store ptr %.sroa.0197.0300, ptr %.0.i.i, align 8
   %354 = getelementptr inbounds nuw i8, ptr %.sroa.0197.0300, i64 48

@@ -1576,7 +1576,7 @@ define hidden noundef ptr @_ZN12JvmtiEnvBase24jvf_for_thread_and_depthEP10JavaTh
   br i1 %.not.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !25
 
 _ZN12JvmtiEnvBase28check_and_skip_hidden_framesEP10JavaThreadP10javaVFrame.exit: ; preds = %35, %13, %33
-  %.010.i.i = phi ptr [ %8, %13 ], [ %34, %33 ], [ %.017.i.i, %35 ]
+  %.010.i.i = phi ptr [ %34, %33 ], [ %8, %13 ], [ %.017.i.i, %35 ]
   %47 = icmp ne ptr %.010.i.i, null
   %48 = icmp sgt i32 %1, 0
   %49 = and i1 %47, %48
@@ -1593,7 +1593,7 @@ _ZN12JvmtiEnvBase28check_and_skip_hidden_framesEP10JavaThreadP10javaVFrame.exit:
   br i1 %54, label %.lr.ph, label %.loopexit, !llvm.loop !26
 
 .loopexit:                                        ; preds = %45, %.lr.ph, %23, %12, %_ZN12JvmtiEnvBase28check_and_skip_hidden_framesEP10JavaThreadP10javaVFrame.exit, %2
-  %.012 = phi ptr [ null, %2 ], [ %.010.i.i, %_ZN12JvmtiEnvBase28check_and_skip_hidden_framesEP10JavaThreadP10javaVFrame.exit ], [ null, %12 ], [ null, %23 ], [ %50, %.lr.ph ], [ null, %45 ]
+  %.012 = phi ptr [ null, %2 ], [ %.010.i.i, %_ZN12JvmtiEnvBase28check_and_skip_hidden_framesEP10JavaThreadP10javaVFrame.exit ], [ %50, %.lr.ph ], [ null, %12 ], [ null, %23 ], [ null, %45 ]
   ret ptr %.012
 }
 
@@ -5150,10 +5150,10 @@ _ZN12JvmtiEnvBase13jni_referenceEP10JavaThread6Handle.exit151: ; preds = %_ZN12J
   br i1 %exitcond371.not, label %.loopexit, label %.lr.ph367, !llvm.loop !59
 
 .loopexit:                                        ; preds = %240, %186, %73, %.loopexit351
-  %.sroa.16167.1.ph343 = phi ptr [ %.sroa.16167.1.ph.ph, %.loopexit351 ], [ null, %73 ], [ %.sroa.16167.1.ph.ph, %186 ], [ %.sroa.16167.1.ph.ph, %240 ]
-  %.ph234261.ph340 = phi i32 [ 0, %.loopexit351 ], [ 0, %73 ], [ %137, %186 ], [ %137, %240 ]
-  %.sroa.7.1.ph274 = phi ptr [ %.sroa.7.1.ph, %.loopexit351 ], [ null, %73 ], [ %.sroa.7.1.ph, %186 ], [ %.sroa.7.1.ph, %240 ]
-  %.085195 = phi i32 [ %98, %.loopexit351 ], [ 0, %73 ], [ %98, %186 ], [ %98, %240 ]
+  %.sroa.16167.1.ph343 = phi ptr [ null, %73 ], [ %.sroa.16167.1.ph.ph, %.loopexit351 ], [ %.sroa.16167.1.ph.ph, %186 ], [ %.sroa.16167.1.ph.ph, %240 ]
+  %.ph234261.ph340 = phi i32 [ 0, %73 ], [ 0, %.loopexit351 ], [ %137, %186 ], [ %137, %240 ]
+  %.sroa.7.1.ph274 = phi ptr [ null, %73 ], [ %.sroa.7.1.ph, %.loopexit351 ], [ %.sroa.7.1.ph, %186 ], [ %.sroa.7.1.ph, %240 ]
+  %.085195 = phi i32 [ 0, %73 ], [ %98, %.loopexit351 ], [ %98, %186 ], [ %98, %240 ]
   store ptr %.sroa.0161.0, ptr %3, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %.sroa.3.0, ptr %.sroa.3.0..sroa_idx, align 8

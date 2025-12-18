@@ -2262,8 +2262,8 @@ define void @_ZNK10open_spiel8havannah13HavannahState12LegalActionsEv(ptr dead_o
   br label %8
 
 .loopexit.split-lp:                               ; preds = %43, %82, %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i11, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit19
-  %.sroa.24.0.ph.ph = phi ptr [ %.sroa.12.060, %43 ], [ %.sroa.24.2.lcssa, %82 ], [ %.sroa.24.7, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit19 ], [ %.sroa.24.2.lcssa, %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i11 ]
-  %.sroa.0.0.ph.ph = phi ptr [ %.sroa.0.261, %43 ], [ %.sroa.0.2.lcssa, %82 ], [ %.sroa.0.7, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit19 ], [ %.sroa.0.2.lcssa, %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i11 ]
+  %.sroa.24.0.ph.ph = phi ptr [ %.sroa.12.060, %43 ], [ %.sroa.24.2.lcssa, %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i11 ], [ %.sroa.24.2.lcssa, %82 ], [ %.sroa.24.7, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit19 ]
+  %.sroa.0.0.ph.ph = phi ptr [ %.sroa.0.261, %43 ], [ %.sroa.0.2.lcssa, %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i11 ], [ %.sroa.0.2.lcssa, %82 ], [ %.sroa.0.7, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit19 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %8

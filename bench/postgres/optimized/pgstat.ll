@@ -1495,7 +1495,7 @@ pgstat_get_kind_info.exit48.thread:               ; preds = %86, %89, %94, %pgst
   br label %.critedge
 
 .critedge:                                        ; preds = %pgstat_get_kind_info.exit.thread, %.critedge.sink.split, %100, %35
-  %.1 = phi i64 [ 10000, %35 ], [ 10000, %100 ], [ %.1.ph, %.critedge.sink.split ], [ 0, %pgstat_get_kind_info.exit.thread ]
+  %.1 = phi i64 [ 10000, %35 ], [ %.1.ph, %.critedge.sink.split ], [ 10000, %100 ], [ 0, %pgstat_get_kind_info.exit.thread ]
   ret i64 %.1
 }
 

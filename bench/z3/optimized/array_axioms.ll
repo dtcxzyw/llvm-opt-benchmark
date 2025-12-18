@@ -7002,7 +7002,7 @@ define hidden { ptr, ptr } @_ZN5array6solver10mk_epsilonEP4sort(ptr noundef nonn
   br i1 %.not27.old.i.i.i.i, label %.noexc, label %.lr.ph38.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.backedge:                        ; preds = %40, %37
-  %.137.i.i.i.i.be = phi ptr [ %.old.i.i.i.i, %40 ], [ %39, %37 ]
+  %.137.i.i.i.i.be = phi ptr [ %39, %37 ], [ %.old.i.i.i.i, %40 ]
   br label %.lr.ph38.i.i.i.i, !llvm.loop !248
 
 _ZN16ast2ast_trailmapI4sort3appE4findEPS0_RPS1_.exit: ; preds = %21, %32
@@ -7131,7 +7131,7 @@ _ZN16ast2ast_trailmapI4sort3appE4findEPS0_RPS1_.exit: ; preds = %21, %32
   br i1 %.not27.old.i.i.i.i17, label %.noexc26, label %.lr.ph38.i.i.i.i13.backedge
 
 .lr.ph38.i.i.i.i13.backedge:                      ; preds = %102, %99
-  %.137.i.i.i.i14.be = phi ptr [ %.old.i.i.i.i16, %102 ], [ %101, %99 ]
+  %.137.i.i.i.i14.be = phi ptr [ %101, %99 ], [ %.old.i.i.i.i16, %102 ]
   br label %.lr.ph38.i.i.i.i13, !llvm.loop !258
 
 _ZN16ast2ast_trailmapI4sort9func_declE4findEPS0_RPS1_.exit: ; preds = %83, %94
@@ -8751,7 +8751,7 @@ _ZNK17array_recognizers6is_extEP4expr.exit.thread: ; preds = %20, %13, %_ZNK17ar
   br i1 %.not.not, label %.thread, label %13
 
 .thread:                                          ; preds = %_ZNK17array_recognizers8is_constEP4expr.exit, %_ZNK17array_recognizers6is_extEP4expr.exit.thread, %_ZNK17array_recognizers6is_extEP4expr.exit, %35, %2, %_ZNK3euf13enode_parents3endEv.exit
-  %.not48 = phi i1 [ false, %_ZNK3euf13enode_parents3endEv.exit ], [ false, %2 ], [ true, %35 ], [ false, %_ZNK17array_recognizers6is_extEP4expr.exit.thread ], [ true, %_ZNK17array_recognizers6is_extEP4expr.exit ], [ true, %_ZNK17array_recognizers8is_constEP4expr.exit ]
+  %.not48 = phi i1 [ true, %35 ], [ false, %_ZNK3euf13enode_parents3endEv.exit ], [ false, %2 ], [ true, %_ZNK17array_recognizers8is_constEP4expr.exit ], [ false, %_ZNK17array_recognizers6is_extEP4expr.exit.thread ], [ true, %_ZNK17array_recognizers6is_extEP4expr.exit ]
   ret i1 %.not48
 }
 
@@ -8869,7 +8869,7 @@ _ZNK3euf13enode_parents3endEv.exit:               ; preds = %31
   br i1 %exitcond.not, label %.critedge33, label %9, !llvm.loop !316
 
 .critedge33:                                      ; preds = %.critedge31, %.lr.ph, %1, %_ZNK3euf13th_euf_solver12get_num_varsEv.exit
-  %.not2938 = phi i1 [ true, %_ZNK3euf13th_euf_solver12get_num_varsEv.exit ], [ true, %1 ], [ false, %.lr.ph ], [ true, %.critedge31 ]
+  %.not2938 = phi i1 [ false, %.lr.ph ], [ true, %_ZNK3euf13th_euf_solver12get_num_varsEv.exit ], [ true, %1 ], [ true, %.critedge31 ]
   ret i1 %.not2938
 }
 
@@ -9418,7 +9418,7 @@ _ZNK14core_hashtableI18default_hash_entryIjEN5array6solver12axiom_record4hashENS
   br i1 %.not27, label %_ZNK14core_hashtableI18default_hash_entryIjEN5array6solver12axiom_record4hashENS4_2eqEE6equalsERKjS9_.exit.thread35, label %79, !llvm.loop !329
 
 _ZNK14core_hashtableI18default_hash_entryIjEN5array6solver12axiom_record4hashENS4_2eqEE6equalsERKjS9_.exit.thread35: ; preds = %25, %_ZNK14core_hashtableI18default_hash_entryIjEN5array6solver12axiom_record4hashENS4_2eqEE6equalsERKjS9_.exit, %57, %_ZNK14core_hashtableI18default_hash_entryIjEN5array6solver12axiom_record4hashENS4_2eqEE6equalsERKjS9_.exit33, %_ZNK14core_hashtableI18default_hash_entryIjEN5array6solver12axiom_record4hashENS4_2eqEE6equalsERKjS9_.exit33.thread, %79, %111, %.preheader
-  %.026 = phi ptr [ null, %.preheader ], [ %.150, %111 ], [ null, %79 ], [ %.048, %57 ], [ %.150, %_ZNK14core_hashtableI18default_hash_entryIjEN5array6solver12axiom_record4hashENS4_2eqEE6equalsERKjS9_.exit33 ], [ null, %_ZNK14core_hashtableI18default_hash_entryIjEN5array6solver12axiom_record4hashENS4_2eqEE6equalsERKjS9_.exit33.thread ], [ null, %25 ], [ %.048, %_ZNK14core_hashtableI18default_hash_entryIjEN5array6solver12axiom_record4hashENS4_2eqEE6equalsERKjS9_.exit ]
+  %.026 = phi ptr [ %.150, %111 ], [ null, %.preheader ], [ %.048, %57 ], [ null, %79 ], [ %.150, %_ZNK14core_hashtableI18default_hash_entryIjEN5array6solver12axiom_record4hashENS4_2eqEE6equalsERKjS9_.exit33 ], [ null, %_ZNK14core_hashtableI18default_hash_entryIjEN5array6solver12axiom_record4hashENS4_2eqEE6equalsERKjS9_.exit33.thread ], [ null, %25 ], [ %.048, %_ZNK14core_hashtableI18default_hash_entryIjEN5array6solver12axiom_record4hashENS4_2eqEE6equalsERKjS9_.exit ]
   ret ptr %.026
 }
 
@@ -11811,7 +11811,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI4sortP3appE13obj_
   br i1 %.not32.old, label %.loopexit, label %.lr.ph48.backedge
 
 .lr.ph48.backedge:                                ; preds = %36, %33
-  %.247.be = phi ptr [ %.old, %36 ], [ %35, %33 ]
+  %.247.be = phi ptr [ %35, %33 ], [ %.old, %36 ]
   br label %.lr.ph48, !llvm.loop !367
 
 .loopexit38:                                      ; preds = %17, %28
@@ -12630,7 +12630,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI4sortP9func_declE
   br i1 %.not32.old, label %.loopexit, label %.lr.ph48.backedge
 
 .lr.ph48.backedge:                                ; preds = %36, %33
-  %.247.be = phi ptr [ %.old, %36 ], [ %35, %33 ]
+  %.247.be = phi ptr [ %35, %33 ], [ %.old, %36 ]
   br label %.lr.ph48, !llvm.loop !381
 
 .loopexit38:                                      ; preds = %17, %28

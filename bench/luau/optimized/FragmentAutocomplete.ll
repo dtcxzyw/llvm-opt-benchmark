@@ -2990,8 +2990,8 @@ _ZNSt6vectorIPKN4Luau5ScopeESaIS3_EE12emplace_backIJRS3_EEES7_DpOT_.exit: ; pred
   br i1 %.not311, label %._crit_edge467, label %72, !llvm.loop !17
 
 ._crit_edge467:                                   ; preds = %.loopexit326, %7, %.preheader
-  %.sroa.0291.0.lcssa628 = phi ptr [ %.sroa.0291.1, %.preheader ], [ null, %7 ], [ %.sroa.0291.1, %.loopexit326 ]
-  %.sroa.13.0.lcssa622 = phi ptr [ %.sroa.13.1, %.preheader ], [ null, %7 ], [ %.sroa.13.1, %.loopexit326 ]
+  %.sroa.0291.0.lcssa628 = phi ptr [ null, %7 ], [ %.sroa.0291.1, %.preheader ], [ %.sroa.0291.1, %.loopexit326 ]
+  %.sroa.13.0.lcssa622 = phi ptr [ null, %7 ], [ %.sroa.13.1, %.preheader ], [ %.sroa.13.1, %.loopexit326 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr getelementptr inbounds nuw inrange(-16, 496) (i8, ptr @_ZTVN4Luau31MixedModeIncrementalTCDefFinderE, i64 16), ptr %15, align 8, !tbaa !18
   %69 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -4018,7 +4018,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   br label %.body212
 
 .loopexit318:                                     ; preds = %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N4Luau7TypeFunEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS8_mRKNS_16_Hash_node_valueISB_Lb1EEE.exit.i.i.i, %415, %.noexc211
-  %.pn.i204 = phi ptr [ %465, %.noexc211 ], [ %.0.us.i.i.i208, %415 ], [ %.0.i.i.i200, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N4Luau7TypeFunEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS8_mRKNS_16_Hash_node_valueISB_Lb1EEE.exit.i.i.i ]
+  %.pn.i204 = phi ptr [ %.0.us.i.i.i208, %415 ], [ %465, %.noexc211 ], [ %.0.i.i.i200, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N4Luau7TypeFunEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS8_mRKNS_16_Hash_node_valueISB_Lb1EEE.exit.i.i.i ]
   %.1.i205 = getelementptr inbounds nuw i8, ptr %.pn.i204, i64 40
   %487 = load ptr, ptr %.1.i205, align 8, !tbaa !77
   %488 = getelementptr inbounds nuw i8, ptr %.pn.i204, i64 48
@@ -6259,9 +6259,9 @@ _ZN4Luau6detail14DenseHashTableINS_7AstNameESt4pairIS2_PNS_8AstLocalEES3_IKS2_S5
   br label %455
 
 .loopexit301:                                     ; preds = %.loopexit, %.loopexit299, %.loopexit300, %43, %187, %308, %37, %303, %307, %186
-  %.sroa.29.4 = phi ptr [ %.sroa.29.2478, %303 ], [ %.sroa.29.2478, %307 ], [ %.sroa.29.14, %186 ], [ %.sroa.29.2478, %37 ], [ %.sroa.29.2478, %308 ], [ %.sroa.29.14, %187 ], [ %.sroa.29.2478, %43 ], [ %.sroa.29.15, %.loopexit299 ], [ %.sroa.29.13, %.loopexit300 ], [ %.sroa.29.16, %.loopexit ]
-  %.sroa.16.3 = phi ptr [ %.sroa.16.2479, %303 ], [ %.sroa.16.2479, %307 ], [ %.sroa.16.8, %186 ], [ %.sroa.16.2479, %37 ], [ %.sroa.16.2479, %308 ], [ %.sroa.16.8, %187 ], [ %.sroa.16.2479, %43 ], [ %.sroa.16.9, %.loopexit299 ], [ %.sroa.16.7, %.loopexit300 ], [ %.sroa.16.10, %.loopexit ]
-  %.sroa.0254.4 = phi ptr [ %.sroa.0254.2480, %303 ], [ %.sroa.0254.2480, %307 ], [ %.sroa.0254.14, %186 ], [ %.sroa.0254.2480, %37 ], [ %.sroa.0254.2480, %308 ], [ %.sroa.0254.14, %187 ], [ %.sroa.0254.2480, %43 ], [ %.sroa.0254.15, %.loopexit299 ], [ %.sroa.0254.13, %.loopexit300 ], [ %.sroa.0254.16, %.loopexit ]
+  %.sroa.29.4 = phi ptr [ %.sroa.29.2478, %303 ], [ %.sroa.29.2478, %37 ], [ %.sroa.29.2478, %307 ], [ %.sroa.29.15, %.loopexit299 ], [ %.sroa.29.14, %186 ], [ %.sroa.29.13, %.loopexit300 ], [ %.sroa.29.2478, %308 ], [ %.sroa.29.14, %187 ], [ %.sroa.29.2478, %43 ], [ %.sroa.29.16, %.loopexit ]
+  %.sroa.16.3 = phi ptr [ %.sroa.16.2479, %303 ], [ %.sroa.16.2479, %37 ], [ %.sroa.16.2479, %307 ], [ %.sroa.16.9, %.loopexit299 ], [ %.sroa.16.8, %186 ], [ %.sroa.16.7, %.loopexit300 ], [ %.sroa.16.2479, %308 ], [ %.sroa.16.8, %187 ], [ %.sroa.16.2479, %43 ], [ %.sroa.16.10, %.loopexit ]
+  %.sroa.0254.4 = phi ptr [ %.sroa.0254.2480, %303 ], [ %.sroa.0254.2480, %37 ], [ %.sroa.0254.2480, %307 ], [ %.sroa.0254.15, %.loopexit299 ], [ %.sroa.0254.14, %186 ], [ %.sroa.0254.13, %.loopexit300 ], [ %.sroa.0254.2480, %308 ], [ %.sroa.0254.14, %187 ], [ %.sroa.0254.2480, %43 ], [ %.sroa.0254.16, %.loopexit ]
   %426 = getelementptr inbounds nuw i8, ptr %.071481, i64 8
   %.not78 = icmp eq ptr %426, %24
   br i1 %.not78, label %.loopexit315, label %.lr.ph483

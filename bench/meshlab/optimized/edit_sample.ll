@@ -9366,7 +9366,7 @@ _ZN11GLLogStream4logfIJRfS1_RsEEEviPKcDpOT_.exit.i63: ; preds = %384, %365
   br label %.sink.split
 
 .sink.split:                                      ; preds = %_ZNK19MeshLabPluginLogger3logIJRfS1_RsEEEvN11GLLogStream6LevelsEPKcDpOT_.exit45, %_ZNK19MeshLabPluginLogger3logIJRhS1_S1_S1_EEEvN11GLLogStream6LevelsEPKcDpOT_.exit58, %363, %_ZN11GLLogStream4logfIJRfS1_RsEEEviPKcDpOT_.exit.i63
-  %.sink = phi ptr [ %289, %_ZN11GLLogStream4logfIJRfS1_RsEEEviPKcDpOT_.exit.i63 ], [ %289, %363 ], [ %289, %_ZNK19MeshLabPluginLogger3logIJRhS1_S1_S1_EEEvN11GLLogStream6LevelsEPKcDpOT_.exit58 ], [ %90, %_ZNK19MeshLabPluginLogger3logIJRfS1_RsEEEvN11GLLogStream6LevelsEPKcDpOT_.exit45 ]
+  %.sink = phi ptr [ %289, %_ZNK19MeshLabPluginLogger3logIJRhS1_S1_S1_EEEvN11GLLogStream6LevelsEPKcDpOT_.exit58 ], [ %289, %_ZN11GLLogStream4logfIJRfS1_RsEEEviPKcDpOT_.exit.i63 ], [ %289, %363 ], [ %90, %_ZNK19MeshLabPluginLogger3logIJRfS1_RsEEEvN11GLLogStream6LevelsEPKcDpOT_.exit45 ]
   call void @_ZNK19MeshLabPluginLogger3logEN11GLLogStream6LevelsEPKc(ptr noundef nonnull align 8 dereferenceable(16) %.sink, i32 noundef 2, ptr noundef nonnull @.str.29)
   br label %385
 

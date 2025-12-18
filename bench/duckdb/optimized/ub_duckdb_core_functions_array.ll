@@ -940,7 +940,7 @@ _ZNSt14_Function_baseD2Ev.exit70.i:               ; preds = %233, %231
   br i1 %242, label %.loopexit.i, label %239
 
 .loopexit.i:                                      ; preds = %239, %.loopexit.loopexit170.i, %.thread.i
-  %.pn44.pn.pn.pn.i = phi { ptr, i32 } [ %88, %.thread.i ], [ %224, %.loopexit.loopexit170.i ], [ %.pn44.pn.pn.i, %239 ]
+  %.pn44.pn.pn.pn.i = phi { ptr, i32 } [ %224, %.loopexit.loopexit170.i ], [ %88, %.thread.i ], [ %.pn44.pn.pn.i, %239 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %247
 
@@ -1448,7 +1448,7 @@ _ZNSt14_Function_baseD2Ev.exit120.i:              ; preds = %394, %392
   br i1 %403, label %.loopexit165.i, label %400
 
 .loopexit165.i:                                   ; preds = %400, %.loopexit165.loopexit171.i, %.thread148.i
-  %.pn36.pn.pn.pn.i = phi { ptr, i32 } [ %249, %.thread148.i ], [ %385, %.loopexit165.loopexit171.i ], [ %.pn36.pn.pn.i, %400 ]
+  %.pn36.pn.pn.pn.i = phi { ptr, i32 } [ %385, %.loopexit165.loopexit171.i ], [ %249, %.thread148.i ], [ %.pn36.pn.pn.i, %400 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %408
 
@@ -2352,7 +2352,7 @@ _ZNSt14_Function_baseD2Ev.exit70.i:               ; preds = %237, %235
   br i1 %246, label %.loopexit.i, label %243
 
 .loopexit.i:                                      ; preds = %243, %.loopexit.loopexit170.i, %.thread.i
-  %.pn44.pn.pn.pn.i = phi { ptr, i32 } [ %92, %.thread.i ], [ %228, %.loopexit.loopexit170.i ], [ %.pn44.pn.pn.i, %243 ]
+  %.pn44.pn.pn.pn.i = phi { ptr, i32 } [ %228, %.loopexit.loopexit170.i ], [ %92, %.thread.i ], [ %.pn44.pn.pn.i, %243 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %251
 
@@ -2860,7 +2860,7 @@ _ZNSt14_Function_baseD2Ev.exit120.i:              ; preds = %398, %396
   br i1 %407, label %.loopexit165.i, label %404
 
 .loopexit165.i:                                   ; preds = %404, %.loopexit165.loopexit171.i, %.thread148.i
-  %.pn36.pn.pn.pn.i = phi { ptr, i32 } [ %253, %.thread148.i ], [ %389, %.loopexit165.loopexit171.i ], [ %.pn36.pn.pn.i, %404 ]
+  %.pn36.pn.pn.pn.i = phi { ptr, i32 } [ %389, %.loopexit165.loopexit171.i ], [ %253, %.thread148.i ], [ %.pn36.pn.pn.i, %404 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %412
 
@@ -3678,7 +3678,7 @@ _ZNSt14_Function_baseD2Ev.exit70.i:               ; preds = %237, %235
   br i1 %246, label %.loopexit.i, label %243
 
 .loopexit.i:                                      ; preds = %243, %.loopexit.loopexit170.i, %.thread.i
-  %.pn44.pn.pn.pn.i = phi { ptr, i32 } [ %92, %.thread.i ], [ %228, %.loopexit.loopexit170.i ], [ %.pn44.pn.pn.i, %243 ]
+  %.pn44.pn.pn.pn.i = phi { ptr, i32 } [ %228, %.loopexit.loopexit170.i ], [ %92, %.thread.i ], [ %.pn44.pn.pn.i, %243 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %251
 
@@ -4186,7 +4186,7 @@ _ZNSt14_Function_baseD2Ev.exit120.i:              ; preds = %398, %396
   br i1 %407, label %.loopexit165.i, label %404
 
 .loopexit165.i:                                   ; preds = %404, %.loopexit165.loopexit171.i, %.thread148.i
-  %.pn36.pn.pn.pn.i = phi { ptr, i32 } [ %253, %.thread148.i ], [ %389, %.loopexit165.loopexit171.i ], [ %.pn36.pn.pn.i, %404 ]
+  %.pn36.pn.pn.pn.i = phi { ptr, i32 } [ %389, %.loopexit165.loopexit171.i ], [ %253, %.thread148.i ], [ %.pn36.pn.pn.i, %404 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %412
 
@@ -5004,7 +5004,7 @@ _ZNSt14_Function_baseD2Ev.exit70.i:               ; preds = %237, %235
   br i1 %246, label %.loopexit.i, label %243
 
 .loopexit.i:                                      ; preds = %243, %.loopexit.loopexit170.i, %.thread.i
-  %.pn44.pn.pn.pn.i = phi { ptr, i32 } [ %92, %.thread.i ], [ %228, %.loopexit.loopexit170.i ], [ %.pn44.pn.pn.i, %243 ]
+  %.pn44.pn.pn.pn.i = phi { ptr, i32 } [ %228, %.loopexit.loopexit170.i ], [ %92, %.thread.i ], [ %.pn44.pn.pn.i, %243 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %251
 
@@ -5512,7 +5512,7 @@ _ZNSt14_Function_baseD2Ev.exit120.i:              ; preds = %398, %396
   br i1 %407, label %.loopexit165.i, label %404
 
 .loopexit165.i:                                   ; preds = %404, %.loopexit165.loopexit171.i, %.thread148.i
-  %.pn36.pn.pn.pn.i = phi { ptr, i32 } [ %253, %.thread148.i ], [ %389, %.loopexit165.loopexit171.i ], [ %.pn36.pn.pn.i, %404 ]
+  %.pn36.pn.pn.pn.i = phi { ptr, i32 } [ %389, %.loopexit165.loopexit171.i ], [ %253, %.thread148.i ], [ %.pn36.pn.pn.i, %404 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %412
 
@@ -6330,7 +6330,7 @@ _ZNSt14_Function_baseD2Ev.exit70.i:               ; preds = %237, %235
   br i1 %246, label %.loopexit.i, label %243
 
 .loopexit.i:                                      ; preds = %243, %.loopexit.loopexit170.i, %.thread.i
-  %.pn44.pn.pn.pn.i = phi { ptr, i32 } [ %92, %.thread.i ], [ %228, %.loopexit.loopexit170.i ], [ %.pn44.pn.pn.i, %243 ]
+  %.pn44.pn.pn.pn.i = phi { ptr, i32 } [ %228, %.loopexit.loopexit170.i ], [ %92, %.thread.i ], [ %.pn44.pn.pn.i, %243 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %251
 
@@ -6838,7 +6838,7 @@ _ZNSt14_Function_baseD2Ev.exit120.i:              ; preds = %398, %396
   br i1 %407, label %.loopexit165.i, label %404
 
 .loopexit165.i:                                   ; preds = %404, %.loopexit165.loopexit171.i, %.thread148.i
-  %.pn36.pn.pn.pn.i = phi { ptr, i32 } [ %253, %.thread148.i ], [ %389, %.loopexit165.loopexit171.i ], [ %.pn36.pn.pn.i, %404 ]
+  %.pn36.pn.pn.pn.i = phi { ptr, i32 } [ %389, %.loopexit165.loopexit171.i ], [ %253, %.thread148.i ], [ %.pn36.pn.pn.i, %404 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %412
 
@@ -7778,7 +7778,7 @@ _ZNSt14_Function_baseD2Ev.exit88:                 ; preds = %264, %266
   br i1 %275, label %.loopexit125, label %272
 
 .loopexit125:                                     ; preds = %272, %.loopexit125.loopexit133, %.thread
-  %.pn33.pn.pn.pn.pn = phi { ptr, i32 } [ %33, %.thread ], [ %254, %.loopexit125.loopexit133 ], [ %.pn33.pn.pn.pn, %272 ]
+  %.pn33.pn.pn.pn.pn = phi { ptr, i32 } [ %254, %.loopexit125.loopexit133 ], [ %33, %.thread ], [ %.pn33.pn.pn.pn, %272 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %302
 
@@ -7852,7 +7852,7 @@ _ZNSt14_Function_baseD2Ev.exit90:                 ; preds = %286, %288
   br i1 %297, label %.loopexit, label %294
 
 .loopexit:                                        ; preds = %294, %.loopexit.loopexit132, %.thread122
-  %.pn39.pn.pn.pn.pn = phi { ptr, i32 } [ %136, %.thread122 ], [ %276, %.loopexit.loopexit132 ], [ %.pn39.pn.pn.pn, %294 ]
+  %.pn39.pn.pn.pn.pn = phi { ptr, i32 } [ %276, %.loopexit.loopexit132 ], [ %136, %.thread122 ], [ %.pn39.pn.pn.pn, %294 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %302
 

@@ -185,7 +185,7 @@ aa_table.exit.thread.i:                           ; preds = %93, %80, %67, %58
   br i1 %96, label %58, label %.critedge, !llvm.loop !31
 
 .critedge:                                        ; preds = %30, %14, %42, %aa_table.exit.thread.i, %78, %64, %90, %._crit_edge
-  %.2 = phi i32 [ 1, %._crit_edge ], [ 0, %42 ], [ 0, %90 ], [ 0, %64 ], [ 0, %78 ], [ 1, %aa_table.exit.thread.i ], [ 0, %14 ], [ 0, %30 ]
+  %.2 = phi i32 [ 0, %78 ], [ 0, %42 ], [ 1, %._crit_edge ], [ 0, %90 ], [ 1, %aa_table.exit.thread.i ], [ 0, %64 ], [ 0, %14 ], [ 0, %30 ]
   ret i32 %.2
 }
 
@@ -280,7 +280,7 @@ fwd_aload_reassoc.exit:                           ; preds = %51
   %.not8 = icmp eq i32 %57, 0
   br i1 %.not8, label %fwd_aload_reassoc.exit.thread, label %59
 
-fwd_aload_reassoc.exit.thread:                    ; preds = %55, %43, %23, %30, %34, %19, %6, %fwd_aload_reassoc.exit
+fwd_aload_reassoc.exit.thread:                    ; preds = %55, %43, %30, %34, %19, %23, %6, %fwd_aload_reassoc.exit
   %58 = tail call i32 @lj_ir_emit(ptr noundef %0) #6
   br label %59
 
@@ -614,8 +614,8 @@ fwd_aa_tab_clear.exit:                            ; preds = %aa_table.exit.threa
   br label %.thread131
 
 .thread131:                                       ; preds = %.lr.ph, %58, %68, %80, %.lr.ph188, %.lr.ph190, %184, %34, %42, %121
-  %.pre-phi = phi i64 [ %11, %121 ], [ %.pre212, %184 ], [ %11, %34 ], [ %11, %42 ], [ %11, %58 ], [ %11, %.lr.ph190 ], [ %11, %.lr.ph188 ], [ %11, %80 ], [ %11, %68 ], [ %11, %.lr.ph ]
-  %.2103 = phi i32 [ %1, %121 ], [ %1, %184 ], [ %1, %34 ], [ %1, %42 ], [ %1, %58 ], [ %1, %.lr.ph190 ], [ %1, %.lr.ph188 ], [ %1, %80 ], [ %1, %68 ], [ %.0104184, %.lr.ph ]
+  %.pre-phi = phi i64 [ %11, %.lr.ph188 ], [ %11, %.lr.ph190 ], [ %11, %58 ], [ %11, %80 ], [ %11, %121 ], [ %.pre212, %184 ], [ %11, %34 ], [ %11, %42 ], [ %11, %68 ], [ %11, %.lr.ph ]
+  %.2103 = phi i32 [ %1, %.lr.ph188 ], [ %1, %.lr.ph190 ], [ %1, %58 ], [ %1, %80 ], [ %1, %121 ], [ %1, %184 ], [ %1, %34 ], [ %1, %42 ], [ %1, %68 ], [ %.0104184, %.lr.ph ]
   %185 = getelementptr inbounds nuw i16, ptr %8, i64 %.pre-phi
   %.4108.in192 = load i16, ptr %185, align 2, !tbaa !4
   %.4108193 = zext i16 %.4108.in192 to i32
@@ -2938,12 +2938,12 @@ reassoc_xref.exit:                                ; preds = %231, %reassoc_trycs
   %247 = getelementptr inbounds nuw %union.IRIns, ptr %239, i64 %246
   br label %19
 
-reassoc_xref.exit.thread:                         ; preds = %199, %184, %217, %236, %95, %220, %reassoc_trycse.exit.i, %.split57.i, %.split.i, %147, %152, %140, %115, %._crit_edge, %88, %91, %13
+reassoc_xref.exit.thread:                         ; preds = %199, %184, %217, %236, %220, %reassoc_trycse.exit.i, %.split57.i, %.split.i, %147, %152, %140, %95, %115, %._crit_edge, %88, %91, %13
   %248 = tail call i32 @lj_ir_emit(ptr noundef %0) #6
   br label %.thread
 
 .thread:                                          ; preds = %76, %52, %59, %reassoc_xref.exit.thread
-  %.4 = phi i32 [ %248, %reassoc_xref.exit.thread ], [ 1, %52 ], [ %60, %59 ], [ %.380127, %76 ]
+  %.4 = phi i32 [ %60, %59 ], [ %248, %reassoc_xref.exit.thread ], [ 1, %52 ], [ %.380127, %76 ]
   ret i32 %.4
 }
 
@@ -3442,7 +3442,7 @@ define hidden range(i32 0, 2) i32 @lj_opt_fwd_wasnonnil(ptr noundef readonly cap
   br label %.thread59
 
 .thread59:                                        ; preds = %73, %77, %26, %90, %.thread59.sink.split, %.preheader
-  %.4.shrunk = phi i32 [ 0, %.preheader ], [ %97, %.thread59.sink.split ], [ 0, %26 ], [ 0, %90 ], [ 0, %77 ], [ 0, %73 ]
+  %.4.shrunk = phi i32 [ 0, %.preheader ], [ 0, %90 ], [ %97, %.thread59.sink.split ], [ 0, %26 ], [ 0, %77 ], [ 0, %73 ]
   ret i32 %.4.shrunk
 }
 

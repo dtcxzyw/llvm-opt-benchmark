@@ -6061,7 +6061,7 @@ DT_BAUHAUS_WIDGET.exit.i19:                       ; preds = %34, %32, %.split
   br i1 %46, label %.lr.ph27, label %.critedge
 
 .critedge:                                        ; preds = %41, %DT_BAUHAUS_WIDGET.exit.i, %.lr.ph, %40, %DT_BAUHAUS_WIDGET.exit.i19, %2
-  %.013 = phi i32 [ 0, %2 ], [ 1, %DT_BAUHAUS_WIDGET.exit.i19 ], [ 1, %40 ], [ 0, %.lr.ph ], [ 0, %DT_BAUHAUS_WIDGET.exit.i ], [ 0, %41 ]
+  %.013 = phi i32 [ 0, %2 ], [ 1, %DT_BAUHAUS_WIDGET.exit.i19 ], [ 1, %40 ], [ 0, %DT_BAUHAUS_WIDGET.exit.i ], [ 0, %.lr.ph ], [ 0, %41 ]
   ret i32 %.013
 }
 
@@ -12479,7 +12479,7 @@ dt_bauhaus_combobox_get.exit:                     ; preds = %160
   br label %176
 
 ._crit_edge:                                      ; preds = %176, %167, %DT_BAUHAUS_WIDGET.exit.i.i69, %dt_bauhaus_combobox_get.exit
-  %.043.lcssa = phi i32 [ %162, %dt_bauhaus_combobox_get.exit ], [ -1, %DT_BAUHAUS_WIDGET.exit.i.i69 ], [ -1, %167 ], [ %spec.select, %176 ]
+  %.043.lcssa = phi i32 [ %162, %dt_bauhaus_combobox_get.exit ], [ -1, %167 ], [ -1, %DT_BAUHAUS_WIDGET.exit.i.i69 ], [ %spec.select, %176 ]
   %170 = xor i32 %.043.lcssa, -1
   %171 = sitofp i32 %170 to float
   %172 = add nsw i32 %2, -7
@@ -12761,7 +12761,7 @@ tailrecurse:                                      ; preds = %.critedge102, %.cri
   br label %.loopexit
 
 .loopexit:                                        ; preds = %tailrecurse, %3, %30, %32, %35, %.critedge106
-  %.063 = phi i32 [ %38, %35 ], [ %.lobit, %.critedge106 ], [ 0, %32 ], [ 0, %30 ], [ 0, %3 ], [ 0, %tailrecurse ]
+  %.063 = phi i32 [ 0, %30 ], [ %38, %35 ], [ %.lobit, %.critedge106 ], [ 0, %32 ], [ 0, %3 ], [ 0, %tailrecurse ]
   ret i32 %.063
 }
 

@@ -199,7 +199,7 @@ define ptr @H5HF_create(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   br label %48
 
 48:                                               ; preds = %35, %42, %46
-  %.1 = phi ptr [ null, %35 ], [ null, %42 ], [ %19, %46 ]
+  %.1 = phi ptr [ %19, %46 ], [ null, %42 ], [ null, %35 ]
   %49 = tail call i32 @H5AC_unprotect(ptr noundef %0, ptr noundef nonnull @H5AC_FHEAP_HDR, i64 noundef %12, ptr noundef nonnull %26, i32 noundef 0) #5
   %50 = icmp slt i32 %49, 0
   br i1 %50, label %51, label %.thread33

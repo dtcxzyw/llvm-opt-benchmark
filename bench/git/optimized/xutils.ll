@@ -622,8 +622,8 @@ define dso_local range(i32 0, 2) i32 @xdl_recmatch(ptr noundef readonly captures
   br label %.critedge8
 
 .critedge8:                                       ; preds = %.critedge2, %.critedge, %.backedge, %.critedge8.loopexit242, %.critedge8.loopexit, %.preheader165, %.preheader163, %93
-  %.2110 = phi i32 [ 0, %93 ], [ 0, %.preheader165 ], [ 0, %.preheader163 ], [ %.2110.ph, %.critedge8.loopexit ], [ %.1109.lcssa, %.critedge8.loopexit242 ], [ %.3111.be, %.backedge ], [ %.1109.lcssa, %.critedge ], [ %.1109.lcssa, %.critedge2 ]
-  %.2 = phi i32 [ 0, %93 ], [ 0, %.preheader165 ], [ 0, %.preheader163 ], [ %.2110.ph, %.critedge8.loopexit ], [ %136, %.critedge8.loopexit242 ], [ %.3.be, %.backedge ], [ %37, %.critedge2 ], [ %.0, %.critedge ]
+  %.2110 = phi i32 [ %.2110.ph, %.critedge8.loopexit ], [ %.3111.be, %.backedge ], [ 0, %.preheader165 ], [ 0, %93 ], [ 0, %.preheader163 ], [ %.1109.lcssa, %.critedge8.loopexit242 ], [ %.1109.lcssa, %.critedge ], [ %.1109.lcssa, %.critedge2 ]
+  %.2 = phi i32 [ %.2110.ph, %.critedge8.loopexit ], [ %.3.be, %.backedge ], [ 0, %.preheader165 ], [ 0, %93 ], [ 0, %.preheader163 ], [ %136, %.critedge8.loopexit242 ], [ %.0, %.critedge ], [ %37, %.critedge2 ]
   %137 = sext i32 %.2110 to i64
   %138 = icmp sgt i64 %1, %137
   br i1 %138, label %.lr.ph232, label %147
@@ -677,7 +677,7 @@ define dso_local range(i32 0, 2) i32 @xdl_recmatch(ptr noundef readonly captures
   br label %ends_with_optional_cr.exit
 
 ends_with_optional_cr.exit:                       ; preds = %12, %.lr.ph212._crit_edge, %135, %131, %.thread.i154, %114, %111, %147, %.critedge12, %8, %7, %.critedge14
-  %.0116 = phi i32 [ 0, %8 ], [ 0, %114 ], [ %159, %.critedge14 ], [ 0, %.critedge12 ], [ 1, %7 ], [ 1, %147 ], [ 0, %111 ], [ 0, %135 ], [ 1, %.thread.i154 ], [ 1, %131 ], [ 0, %.lr.ph212._crit_edge ], [ 0, %12 ]
+  %.0116 = phi i32 [ 0, %8 ], [ 0, %114 ], [ %159, %.critedge14 ], [ 0, %.critedge12 ], [ 0, %.lr.ph212._crit_edge ], [ 1, %131 ], [ 1, %7 ], [ 1, %147 ], [ 0, %111 ], [ 0, %135 ], [ 1, %.thread.i154 ], [ 0, %12 ]
   ret i32 %.0116
 }
 
@@ -936,9 +936,9 @@ define dso_local i64 @xdl_hash_record(ptr noundef captures(none) %0, ptr noundef
   br i1 %110, label %90, label %xdl_hash_record_with_whitespace.exit, !llvm.loop !45
 
 xdl_hash_record_with_whitespace.exit:             ; preds = %90, %.critedge2.i, %65, %.loopexit.us.i, %41, %.critedge2.us.us.thread.i, %19, %33, %10, %.lr.ph76.split.us.i, %.lr.ph76.split.i
-  %.051.lcssa.i = phi ptr [ %5, %10 ], [ %5, %.lr.ph76.split.us.i ], [ %5, %.lr.ph76.split.i ], [ %88, %65 ], [ %34, %19 ], [ %58, %41 ], [ %scevgep.i, %33 ], [ %58, %.critedge2.us.us.thread.i ], [ %88, %.loopexit.us.i ], [ %109, %.critedge2.i ], [ %109, %90 ]
-  %.0.lcssa.i = phi i64 [ 5381, %10 ], [ 5381, %.lr.ph76.split.us.i ], [ 5381, %.lr.ph76.split.i ], [ %.1.us100.i, %65 ], [ %.1.us.i, %19 ], [ %.1.us100.us.i, %41 ], [ %.1.us.i, %33 ], [ %.1.us100.us.i, %.critedge2.us.us.thread.i ], [ %.1.us100.i, %.loopexit.us.i ], [ %.1.i, %.critedge2.i ], [ %.1.i, %90 ]
-  %.lcssa70.i = phi i64 [ 0, %10 ], [ 1, %.lr.ph76.split.us.i ], [ 1, %.lr.ph76.split.i ], [ 1, %65 ], [ 1, %19 ], [ 1, %41 ], [ 0, %33 ], [ 0, %.critedge2.us.us.thread.i ], [ 0, %.loopexit.us.i ], [ 1, %90 ], [ 0, %.critedge2.i ]
+  %.051.lcssa.i = phi ptr [ %5, %10 ], [ %58, %41 ], [ %5, %.lr.ph76.split.us.i ], [ %34, %19 ], [ %88, %65 ], [ %5, %.lr.ph76.split.i ], [ %scevgep.i, %33 ], [ %58, %.critedge2.us.us.thread.i ], [ %88, %.loopexit.us.i ], [ %109, %.critedge2.i ], [ %109, %90 ]
+  %.0.lcssa.i = phi i64 [ 5381, %10 ], [ %.1.us100.us.i, %41 ], [ 5381, %.lr.ph76.split.us.i ], [ %.1.us.i, %19 ], [ %.1.us100.i, %65 ], [ 5381, %.lr.ph76.split.i ], [ %.1.us.i, %33 ], [ %.1.us100.us.i, %.critedge2.us.us.thread.i ], [ %.1.us100.i, %.loopexit.us.i ], [ %.1.i, %.critedge2.i ], [ %.1.i, %90 ]
+  %.lcssa70.i = phi i64 [ 0, %10 ], [ 1, %41 ], [ 1, %.lr.ph76.split.us.i ], [ 1, %19 ], [ 1, %65 ], [ 1, %.lr.ph76.split.i ], [ 0, %33 ], [ 0, %.critedge2.us.us.thread.i ], [ 0, %.loopexit.us.i ], [ 1, %90 ], [ 0, %.critedge2.i ]
   %111 = getelementptr inbounds nuw i8, ptr %.051.lcssa.i, i64 %.lcssa70.i
   br label %119
 

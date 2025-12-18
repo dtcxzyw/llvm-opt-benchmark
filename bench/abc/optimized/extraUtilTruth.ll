@@ -1149,7 +1149,7 @@ define range(i32 0, 2) i32 @Extra_TruthVarInSupport(ptr noundef readonly capture
   br i1 %56, label %.preheader.us, label %.loopexit, !llvm.loop !42
 
 .loopexit:                                        ; preds = %.lr.ph, %37, %.lr.ph81, %31, %.lr.ph86, %25, %.lr.ph91, %19, %.lr.ph96, %13, %._crit_edge.us, %50, %.preheader.lr.ph, %.preheader74, %.preheader71, %.preheader68, %.preheader65, %.preheader63, %42
-  %.0 = phi i32 [ 0, %31 ], [ 0, %.preheader74 ], [ 0, %19 ], [ poison, %.preheader.lr.ph ], [ 0, %42 ], [ 0, %.preheader63 ], [ 0, %.preheader65 ], [ 0, %13 ], [ 0, %.preheader68 ], [ 0, %.preheader71 ], [ 0, %25 ], [ 1, %50 ], [ 0, %._crit_edge.us ], [ 1, %.lr.ph96 ], [ 1, %.lr.ph91 ], [ 1, %.lr.ph86 ], [ 1, %.lr.ph81 ], [ 0, %37 ], [ 1, %.lr.ph ]
+  %.0 = phi i32 [ 0, %42 ], [ 0, %.preheader71 ], [ 0, %._crit_edge.us ], [ 0, %.preheader68 ], [ 0, %31 ], [ 0, %.preheader74 ], [ poison, %.preheader.lr.ph ], [ 1, %50 ], [ 0, %13 ], [ 0, %.preheader63 ], [ 0, %19 ], [ 0, %.preheader65 ], [ 0, %25 ], [ 1, %.lr.ph96 ], [ 1, %.lr.ph91 ], [ 1, %.lr.ph86 ], [ 1, %.lr.ph81 ], [ 1, %.lr.ph ], [ 0, %37 ]
   ret i32 %.0
 }
 
@@ -2520,8 +2520,8 @@ Extra_TruthVarInSupport.exit:                     ; preds = %.preheader.lr.ph.i
   %61 = shl nuw nsw i32 1, %.0810.i
   br label %Extra_TruthVarInSupport.exit.thread
 
-Extra_TruthVarInSupport.exit.thread:              ; preds = %41, %35, %29, %23, %17, %._crit_edge.us.i, %.preheader74.i, %46, %.preheader63.i, %.preheader65.i, %.preheader68.i, %.preheader71.i, %Extra_TruthVarInSupport.exit, %Extra_TruthVarInSupport.exit.thread118
-  %62 = phi i32 [ %60, %Extra_TruthVarInSupport.exit.thread118 ], [ %61, %Extra_TruthVarInSupport.exit ], [ 0, %.preheader71.i ], [ 0, %.preheader68.i ], [ 0, %.preheader65.i ], [ 0, %.preheader63.i ], [ 0, %46 ], [ 0, %.preheader74.i ], [ 0, %35 ], [ 0, %._crit_edge.us.i ], [ 0, %17 ], [ 0, %23 ], [ 0, %29 ], [ 0, %41 ]
+Extra_TruthVarInSupport.exit.thread:              ; preds = %41, %35, %29, %23, %17, %._crit_edge.us.i, %46, %.preheader71.i, %.preheader68.i, %.preheader74.i, %.preheader63.i, %.preheader65.i, %Extra_TruthVarInSupport.exit, %Extra_TruthVarInSupport.exit.thread118
+  %62 = phi i32 [ %60, %Extra_TruthVarInSupport.exit.thread118 ], [ %61, %Extra_TruthVarInSupport.exit ], [ 0, %._crit_edge.us.i ], [ 0, %35 ], [ 0, %29 ], [ 0, %.preheader65.i ], [ 0, %.preheader63.i ], [ 0, %17 ], [ 0, %.preheader74.i ], [ 0, %23 ], [ 0, %.preheader68.i ], [ 0, %46 ], [ 0, %.preheader71.i ], [ 0, %41 ]
   %.1.i = or i32 %62, %.011.i
   %63 = add nuw nsw i32 %.0810.i, 1
   %exitcond.not.i = icmp eq i32 %63, %1
@@ -2714,8 +2714,8 @@ Extra_TruthVarInSupport.exit113:                  ; preds = %.preheader.lr.ph.i9
   %131 = shl nuw nsw i32 1, %.0810.i47
   br label %Extra_TruthVarInSupport.exit113.thread
 
-Extra_TruthVarInSupport.exit113.thread:           ; preds = %111, %105, %99, %93, %87, %._crit_edge.us.i112, %.preheader74.i57, %116, %.preheader63.i90, %.preheader65.i82, %.preheader68.i74, %.preheader71.i66, %Extra_TruthVarInSupport.exit113, %Extra_TruthVarInSupport.exit113.thread127
-  %132 = phi i32 [ %130, %Extra_TruthVarInSupport.exit113.thread127 ], [ %131, %Extra_TruthVarInSupport.exit113 ], [ 0, %.preheader71.i66 ], [ 0, %.preheader68.i74 ], [ 0, %.preheader65.i82 ], [ 0, %.preheader63.i90 ], [ 0, %116 ], [ 0, %.preheader74.i57 ], [ 0, %105 ], [ 0, %._crit_edge.us.i112 ], [ 0, %87 ], [ 0, %93 ], [ 0, %99 ], [ 0, %111 ]
+Extra_TruthVarInSupport.exit113.thread:           ; preds = %111, %105, %99, %93, %87, %._crit_edge.us.i112, %116, %.preheader71.i66, %.preheader68.i74, %.preheader74.i57, %.preheader63.i90, %.preheader65.i82, %Extra_TruthVarInSupport.exit113, %Extra_TruthVarInSupport.exit113.thread127
+  %132 = phi i32 [ %130, %Extra_TruthVarInSupport.exit113.thread127 ], [ %131, %Extra_TruthVarInSupport.exit113 ], [ 0, %._crit_edge.us.i112 ], [ 0, %105 ], [ 0, %99 ], [ 0, %.preheader65.i82 ], [ 0, %.preheader63.i90 ], [ 0, %87 ], [ 0, %.preheader74.i57 ], [ 0, %93 ], [ 0, %.preheader68.i74 ], [ 0, %116 ], [ 0, %.preheader71.i66 ], [ 0, %111 ]
   %.1.i49 = or i32 %132, %.011.i46
   %133 = add nuw nsw i32 %.0810.i47, 1
   %exitcond.not.i50 = icmp eq i32 %133, %1
@@ -3661,10 +3661,10 @@ Extra_TruthNot.exit:                              ; preds = %select.unfold.i109,
   br i1 %exitcond171.not.i.us, label %Extra_TruthSwapAdjacentVars.exit.us, label %121, !llvm.loop !14
 
 Extra_TruthSwapAdjacentVars.exit.us:              ; preds = %._crit_edge.us.i.us, %.lr.ph.i.us, %121, %112, %.preheader.i.us, %.preheader87.lr.ph.i.us, %70, %.lr.ph129.us
-  %.298.us = phi ptr [ %.197124.us, %.lr.ph129.us ], [ %.187128.us, %112 ], [ %.187128.us, %.preheader.i.us ], [ %.187128.us, %70 ], [ %.187128.us, %.preheader87.lr.ph.i.us ], [ %.187128.us, %.lr.ph.i.us ], [ %.187128.us, %121 ], [ %.187128.us, %._crit_edge.us.i.us ]
-  %.193.us = phi i32 [ %.092126.us, %.lr.ph129.us ], [ 1, %112 ], [ 1, %.preheader.i.us ], [ 1, %70 ], [ 1, %.preheader87.lr.ph.i.us ], [ 1, %.lr.ph.i.us ], [ 1, %121 ], [ 1, %._crit_edge.us.i.us ]
-  %.291.us = phi i32 [ %.190127.us, %.lr.ph129.us ], [ %57, %112 ], [ %57, %.preheader.i.us ], [ %57, %70 ], [ %57, %.preheader87.lr.ph.i.us ], [ %57, %.lr.ph.i.us ], [ %57, %121 ], [ %57, %._crit_edge.us.i.us ]
-  %.288.us = phi ptr [ %.187128.us, %.lr.ph129.us ], [ %.197124.us, %112 ], [ %.197124.us, %.preheader.i.us ], [ %.197124.us, %70 ], [ %.197124.us, %.preheader87.lr.ph.i.us ], [ %.197124.us, %.lr.ph.i.us ], [ %.197124.us, %121 ], [ %.197124.us, %._crit_edge.us.i.us ]
+  %.298.us = phi ptr [ %.197124.us, %.lr.ph129.us ], [ %.187128.us, %112 ], [ %.187128.us, %.lr.ph.i.us ], [ %.187128.us, %.preheader.i.us ], [ %.187128.us, %70 ], [ %.187128.us, %.preheader87.lr.ph.i.us ], [ %.187128.us, %121 ], [ %.187128.us, %._crit_edge.us.i.us ]
+  %.193.us = phi i32 [ %.092126.us, %.lr.ph129.us ], [ 1, %112 ], [ 1, %.lr.ph.i.us ], [ 1, %.preheader.i.us ], [ 1, %70 ], [ 1, %.preheader87.lr.ph.i.us ], [ 1, %121 ], [ 1, %._crit_edge.us.i.us ]
+  %.291.us = phi i32 [ %.190127.us, %.lr.ph129.us ], [ %57, %112 ], [ %57, %.lr.ph.i.us ], [ %57, %.preheader.i.us ], [ %57, %70 ], [ %57, %.preheader87.lr.ph.i.us ], [ %57, %121 ], [ %57, %._crit_edge.us.i.us ]
+  %.288.us = phi ptr [ %.187128.us, %.lr.ph129.us ], [ %.197124.us, %112 ], [ %.197124.us, %.lr.ph.i.us ], [ %.197124.us, %.preheader.i.us ], [ %.197124.us, %70 ], [ %.197124.us, %.preheader87.lr.ph.i.us ], [ %.197124.us, %121 ], [ %.197124.us, %._crit_edge.us.i.us ]
   %exitcond146.not = icmp eq i64 %indvars.iv.next143, %wide.trip.count145
   br i1 %exitcond146.not, label %._crit_edge.us, label %.lr.ph129.us.backedge
 
@@ -3720,7 +3720,7 @@ select.unfold.i116:                               ; preds = %.split.us, %select.
   br i1 %146, label %select.unfold.i116, label %Extra_TruthCopy.exit, !llvm.loop !33
 
 Extra_TruthCopy.exit:                             ; preds = %select.unfold.i116, %Extra_TruthNot.exit, %.preheader, %.split.us
-  %.1.lcssa157163 = phi i32 [ %.2, %.split.us ], [ %.2, %.preheader ], [ %.0, %Extra_TruthNot.exit ], [ %.2, %select.unfold.i116 ]
+  %.1.lcssa157163 = phi i32 [ %.0, %Extra_TruthNot.exit ], [ %.2, %.split.us ], [ %.2, %.preheader ], [ %.2, %select.unfold.i116 ]
   ret i32 %.1.lcssa157163
 }
 

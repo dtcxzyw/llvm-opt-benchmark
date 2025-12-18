@@ -1043,7 +1043,7 @@ is_octal.exit56.i:                                ; preds = %119, %is_octal.exit
   br label %is_afio_large.exit89.thread.i
 
 is_afio_large.exit89.thread.i:                    ; preds = %switch.early.test.i.i66.i, %switch.early.test.i20.i73.i, %switch.early.test.i28.i80.i, %switch.early.test.i36.i87.i, %132, %89, %86, %83, %80, %is_octal.exit56.thread.i, %65
-  %.sink.i = phi i64 [ 6, %132 ], [ 2, %is_octal.exit56.thread.i ], [ 2, %86 ], [ 2, %89 ], [ 2, %83 ], [ 2, %80 ], [ 1, %65 ], [ 2, %switch.early.test.i20.i73.i ], [ 2, %switch.early.test.i36.i87.i ], [ 2, %switch.early.test.i28.i80.i ], [ 2, %switch.early.test.i.i66.i ]
+  %.sink.i = phi i64 [ 6, %132 ], [ 2, %is_octal.exit56.thread.i ], [ 2, %switch.early.test.i20.i73.i ], [ 2, %switch.early.test.i28.i80.i ], [ 2, %switch.early.test.i36.i87.i ], [ 1, %65 ], [ 2, %86 ], [ 2, %89 ], [ 2, %83 ], [ 2, %80 ], [ 2, %switch.early.test.i.i66.i ]
   %133 = getelementptr inbounds nuw i8, ptr %.039124.i, i64 %.sink.i
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 76
   %.not45.i = icmp ugt ptr %134, %13
@@ -1983,7 +1983,7 @@ find_newc_header.exit:                            ; preds = %._crit_edge.i, %5
   br label %331
 
 .loopexit:                                        ; preds = %19, %is_hex.exit47.i, %35
-  %.031.i.ph = phi i32 [ -20, %35 ], [ 0, %is_hex.exit47.i ], [ 0, %19 ]
+  %.031.i.ph = phi i32 [ 0, %is_hex.exit47.i ], [ -20, %35 ], [ 0, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %47 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 110, ptr noundef null) #13
   %48 = icmp eq ptr %47, null

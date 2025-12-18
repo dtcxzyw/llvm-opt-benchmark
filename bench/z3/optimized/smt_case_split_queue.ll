@@ -3813,7 +3813,7 @@ define internal void @_ZN12_GLOBAL__N_121cact_case_split_queue9mk_var_ehEj(ptr n
   br i1 %.not27.old.i.i.i, label %_ZNK7obj_mapI4exprdE4findEPS0_Rd.exit.thread, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %44, %41
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %44 ], [ %43, %41 ]
+  %.137.i.i.i.be = phi ptr [ %43, %41 ], [ %.old.i.i.i, %44 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !653
 
 .loopexit:                                        ; preds = %25, %36
@@ -5764,7 +5764,7 @@ _ZNK6vectorIP4exprLb0EjE4sizeEv.exit35:           ; preds = %_ZNK6vectorIP4exprL
   br label %.loopexit
 
 .loopexit:                                        ; preds = %48, %13, %38, %.loopexit.sink.split, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit, %.critedge
-  %.not45 = phi i1 [ false, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit ], [ false, %.critedge ], [ false, %.loopexit.sink.split ], [ true, %13 ], [ true, %38 ], [ true, %48 ]
+  %.not45 = phi i1 [ false, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit ], [ false, %.critedge ], [ true, %38 ], [ true, %13 ], [ false, %.loopexit.sink.split ], [ true, %48 ]
   %.pr = load ptr, ptr %6, align 8, !tbaa !555
   %.not.i.i = icmp eq ptr %.pr, null
   br i1 %.not.i.i, label %_ZN6vectorIP4exprLb0EjED2Ev.exit, label %71
@@ -9757,8 +9757,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i: ; preds
   br label %.body
 
 .loopexit:                                        ; preds = %88, %.preheader, %28, %_ZNK3smt7context14e_internalizedEPK4expr.exit.thread
-  %101 = phi ptr [ %10, %28 ], [ %10, %_ZNK3smt7context14e_internalizedEPK4expr.exit.thread ], [ %10, %.preheader ], [ %89, %88 ]
-  %.2 = phi i32 [ %spec.select, %28 ], [ %.01852, %_ZNK3smt7context14e_internalizedEPK4expr.exit.thread ], [ %.01852, %.preheader ], [ %.01852, %88 ]
+  %101 = phi ptr [ %10, %_ZNK3smt7context14e_internalizedEPK4expr.exit.thread ], [ %10, %28 ], [ %10, %.preheader ], [ %89, %88 ]
+  %.2 = phi i32 [ %.01852, %_ZNK3smt7context14e_internalizedEPK4expr.exit.thread ], [ %spec.select, %28 ], [ %.01852, %.preheader ], [ %.01852, %88 ]
   %102 = icmp eq ptr %101, null
   br i1 %102, label %_ZN6vectorIP4exprLb0EjED2Ev.exit, label %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit, !llvm.loop !789
 
@@ -11338,7 +11338,7 @@ _ZN4heapIN12_GLOBAL__N_119theory_aware_act_ltEE9erase_minEv.exit: ; preds = %47,
   br i1 %.not27.old.i.i, label %_ZNK14core_hashtableI14int_hash_entryILin2147483648ELin2147483647EE8int_hash10default_eqIjEE8containsERKi.exit.thread, label %.lr.ph36.i.i.backedge
 
 .lr.ph36.i.i.backedge:                            ; preds = %128, %125
-  %.135.i.i.be = phi ptr [ %.old.i.i, %128 ], [ %127, %125 ]
+  %.135.i.i.be = phi ptr [ %127, %125 ], [ %.old.i.i, %128 ]
   br label %.lr.ph36.i.i, !llvm.loop !805
 
 _ZNK14core_hashtableI14int_hash_entryILin2147483648ELin2147483647EE8int_hash10default_eqIjEE8containsERKi.exit: ; preds = %111, %121
@@ -11418,7 +11418,7 @@ _ZNK9table2mapI17default_map_entryIj5lboolE8int_hash10default_eqIjEE4findERKjRS1
   br label %_ZNK14core_hashtableI14int_hash_entryILin2147483648ELin2147483647EE8int_hash10default_eqIjEE8containsERKi.exit.thread.sink.split
 
 _ZNK14core_hashtableI14int_hash_entryILin2147483648ELin2147483647EE8int_hash10default_eqIjEE8containsERKi.exit.thread.sink.split: ; preds = %.lr.ph.i.i.i, %.lr.ph34.i.i.i, %160, %.preheader.i.i.i, %_ZNK9table2mapI17default_map_entryIj5lboolE8int_hash10default_eqIjEE4findERKjRS1_.exit
-  %.sink = phi i32 [ %163, %_ZNK9table2mapI17default_map_entryIj5lboolE8int_hash10default_eqIjEE4findERKjRS1_.exit ], [ 0, %.preheader.i.i.i ], [ %152, %.lr.ph34.i.i.i ], [ 0, %160 ], [ %141, %.lr.ph.i.i.i ]
+  %.sink = phi i32 [ %163, %_ZNK9table2mapI17default_map_entryIj5lboolE8int_hash10default_eqIjEE4findERKjRS1_.exit ], [ %152, %.lr.ph34.i.i.i ], [ 0, %.preheader.i.i.i ], [ 0, %160 ], [ %141, %.lr.ph.i.i.i ]
   store i32 %.sink, ptr %2, align 4, !tbaa !639
   br label %_ZNK14core_hashtableI14int_hash_entryILin2147483648ELin2147483647EE8int_hash10default_eqIjEE8containsERKi.exit.thread
 

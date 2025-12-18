@@ -3527,13 +3527,13 @@ Pf_CutCompareArea.exit.i.i.us.us.us:              ; preds = %875, %873, %865, %8
   br i1 %879, label %.lr.ph.i8.i.us.us.us, label %Pf_SetSortByArea.exit.i.us.us.us, !llvm.loop !144
 
 Pf_SetSortByArea.exit.i.us.us.us:                 ; preds = %.lr.ph.i8.i.us.us.us, %859, %867, %875, %Pf_CutCompareArea.exit.i.i.us.us.us, %Pf_SetLastCutContainsArea.exit.i.us.us.us, %779
-  %.0.i10.i.us.us.us = phi i32 [ %.0.i.i335.us.us.us, %Pf_SetLastCutContainsArea.exit.i.us.us.us ], [ %.4587.us.us.us, %779 ], [ %.0.i.i335.us.us.us, %Pf_CutCompareArea.exit.i.i.us.us.us ], [ %.0.i.i335.us.us.us, %875 ], [ %.0.i.i335.us.us.us, %867 ], [ %.0.i.i335.us.us.us, %859 ], [ %.0.i.i335.us.us.us, %.lr.ph.i8.i.us.us.us ]
+  %.0.i10.i.us.us.us = phi i32 [ %.4587.us.us.us, %779 ], [ %.0.i.i335.us.us.us, %Pf_SetLastCutContainsArea.exit.i.us.us.us ], [ %.0.i.i335.us.us.us, %Pf_CutCompareArea.exit.i.i.us.us.us ], [ %.0.i.i335.us.us.us, %875 ], [ %.0.i.i335.us.us.us, %867 ], [ %.0.i.i335.us.us.us, %859 ], [ %.0.i.i335.us.us.us, %.lr.ph.i8.i.us.us.us ]
   %880 = add nsw i32 %.0.i10.i.us.us.us, 1
   %881 = call noundef i32 @llvm.smin.i32(i32 %880, i32 %402)
   br label %Pf_SetAddCut.exit.us.us.us
 
 Pf_SetAddCut.exit.us.us.us:                       ; preds = %457, %488, %515, %500, %510, %Pf_SetSortByArea.exit.i.us.us.us, %Pf_CutParams.exit327.us.us.us, %408
-  %.5.us.us.us = phi i32 [ %.4587.us.us.us, %408 ], [ 1, %Pf_CutParams.exit327.us.us.us ], [ %881, %Pf_SetSortByArea.exit.i.us.us.us ], [ %.4587.us.us.us, %488 ], [ %.4587.us.us.us, %510 ], [ %.4587.us.us.us, %500 ], [ %.4587.us.us.us, %515 ], [ %.4587.us.us.us, %457 ]
+  %.5.us.us.us = phi i32 [ %.4587.us.us.us, %408 ], [ %.4587.us.us.us, %515 ], [ 1, %Pf_CutParams.exit327.us.us.us ], [ %881, %Pf_SetSortByArea.exit.i.us.us.us ], [ %.4587.us.us.us, %488 ], [ %.4587.us.us.us, %500 ], [ %.4587.us.us.us, %510 ], [ %.4587.us.us.us, %457 ]
   %882 = getelementptr inbounds nuw i8, ptr %.0151588.us.us.us, i64 48
   %883 = icmp ult ptr %882, %384
   br i1 %883, label %408, label %._crit_edge590.us.us.us, !llvm.loop !145
@@ -3790,7 +3790,7 @@ Gia_ObjIsXor.exit:                                ; preds = %Gia_ObjIsMuxId.exit
   br i1 %exitcond159.not.i.us, label %.loopexit.us, label %.lr.ph134.i.us, !llvm.loop !148
 
 .loopexit.us:                                     ; preds = %1000, %.preheader.i.us, %.lr.ph130.preheader.i.us, %.preheader116.i.us, %.lr.ph127.preheader.i.us, %.preheader117.i.us
-  %.5.lcssa.sink.i.us = phi i32 [ %982, %.lr.ph127.preheader.i.us ], [ 0, %.preheader.i.us ], [ %.1.i341.us, %.preheader117.i.us ], [ %.091.i.us, %.preheader116.i.us ], [ %995, %.lr.ph130.preheader.i.us ], [ %21, %1000 ]
+  %.5.lcssa.sink.i.us = phi i32 [ %982, %.lr.ph127.preheader.i.us ], [ 0, %.preheader.i.us ], [ %995, %.lr.ph130.preheader.i.us ], [ %.1.i341.us, %.preheader117.i.us ], [ %.091.i.us, %.preheader116.i.us ], [ %21, %1000 ]
   %1002 = getelementptr inbounds nuw i8, ptr %941, i64 16
   %1003 = load i32, ptr %1002, align 8
   %.5.lcssa.sink.i.us.fr = freeze i32 %.5.lcssa.sink.i.us
@@ -4496,13 +4496,13 @@ Pf_CutCompareArea.exit.i.i457.us:                 ; preds = %1361, %1359, %1351,
   br i1 %1365, label %.lr.ph.i8.i455.us, label %Pf_SetSortByArea.exit.i431.us, !llvm.loop !144
 
 Pf_SetSortByArea.exit.i431.us:                    ; preds = %.lr.ph.i8.i455.us, %1345, %1353, %1361, %Pf_CutCompareArea.exit.i.i457.us, %Pf_SetLastCutContainsArea.exit.i453.us, %1265
-  %.0.i10.i432.us = phi i32 [ %.0.i.i454.us, %Pf_SetLastCutContainsArea.exit.i453.us ], [ %.8606.us, %1265 ], [ %.0.i.i454.us, %Pf_CutCompareArea.exit.i.i457.us ], [ %.0.i.i454.us, %1361 ], [ %.0.i.i454.us, %1353 ], [ %.0.i.i454.us, %1345 ], [ %.0.i.i454.us, %.lr.ph.i8.i455.us ]
+  %.0.i10.i432.us = phi i32 [ %.8606.us, %1265 ], [ %.0.i.i454.us, %Pf_SetLastCutContainsArea.exit.i453.us ], [ %.0.i.i454.us, %Pf_CutCompareArea.exit.i.i457.us ], [ %.0.i.i454.us, %1361 ], [ %.0.i.i454.us, %1353 ], [ %.0.i.i454.us, %1345 ], [ %.0.i.i454.us, %.lr.ph.i8.i455.us ]
   %1366 = add nsw i32 %.0.i10.i432.us, 1
   %1367 = call noundef i32 @llvm.smin.i32(i32 %1366, i32 %914)
   br label %Pf_SetAddCut.exit476.us
 
 Pf_SetAddCut.exit476.us:                          ; preds = %968, %.lr.ph134.i.us, %1025, %1052, %1037, %1047, %Pf_SetSortByArea.exit.i431.us, %Pf_CutParams.exit430.us, %.loopexit120.i.us, %.loopexit121.i.us, %.preheader118.i.us, %929
-  %.9.us = phi i32 [ %.8606.us, %929 ], [ 1, %Pf_CutParams.exit430.us ], [ %1367, %Pf_SetSortByArea.exit.i431.us ], [ %.8606.us, %.loopexit121.i.us ], [ %.8606.us, %.loopexit120.i.us ], [ %.8606.us, %.preheader118.i.us ], [ %.8606.us, %.lr.ph134.i.us ], [ %.8606.us, %1047 ], [ %.8606.us, %1037 ], [ %.8606.us, %1052 ], [ %.8606.us, %1025 ], [ %.8606.us, %968 ]
+  %.9.us = phi i32 [ %.8606.us, %929 ], [ %.8606.us, %.preheader118.i.us ], [ 1, %Pf_CutParams.exit430.us ], [ %1367, %Pf_SetSortByArea.exit.i431.us ], [ %.8606.us, %.loopexit120.i.us ], [ %.8606.us, %1047 ], [ %.8606.us, %.loopexit121.i.us ], [ %.8606.us, %.lr.ph134.i.us ], [ %.8606.us, %1037 ], [ %.8606.us, %1025 ], [ %.8606.us, %1052 ], [ %.8606.us, %968 ]
   %1368 = getelementptr inbounds nuw i8, ptr %.1150610.us, i64 48
   %1369 = icmp ult ptr %1368, %180
   %indvar.next705 = add i64 %indvar704, 1
@@ -5021,7 +5021,7 @@ Pf_CutCompareArea.exit.i:                         ; preds = %102, %100, %92, %84
   br i1 %107, label %.lr.ph.i8, label %Pf_SetSortByArea.exit, !llvm.loop !144
 
 Pf_SetSortByArea.exit:                            ; preds = %.lr.ph.i8, %86, %94, %102, %Pf_CutCompareArea.exit.i, %5, %Pf_SetLastCutContainsArea.exit
-  %.0.i10 = phi i32 [ %.0.i, %Pf_SetLastCutContainsArea.exit ], [ %1, %5 ], [ %.0.i, %Pf_CutCompareArea.exit.i ], [ %.0.i, %102 ], [ %.0.i, %94 ], [ %.0.i, %86 ], [ %.0.i, %.lr.ph.i8 ]
+  %.0.i10 = phi i32 [ %1, %5 ], [ %.0.i, %Pf_SetLastCutContainsArea.exit ], [ %.0.i, %Pf_CutCompareArea.exit.i ], [ %.0.i, %102 ], [ %.0.i, %94 ], [ %.0.i, %86 ], [ %.0.i, %.lr.ph.i8 ]
   %108 = add nsw i32 %.0.i10, 1
   %109 = add nsw i32 %2, -1
   %110 = tail call noundef i32 @llvm.smin.i32(i32 %108, i32 %109)

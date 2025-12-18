@@ -663,7 +663,7 @@ thread-pre-split:                                 ; preds = %42, %48
   unreachable
 
 .loopexit:                                        ; preds = %54, %37, %41, %50, %14, %18, %79, %61, %33
-  %.0 = phi ptr [ %17, %33 ], [ %62, %61 ], [ %17, %18 ], [ %0, %14 ], [ %.060, %50 ], [ %81, %79 ], [ %36, %41 ], [ %36, %37 ], [ %.060, %54 ]
+  %.0 = phi ptr [ %17, %33 ], [ %62, %61 ], [ %17, %18 ], [ %36, %37 ], [ %0, %14 ], [ %.060, %50 ], [ %81, %79 ], [ %36, %41 ], [ %.060, %54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -761,7 +761,7 @@ define dso_local ptr @skip_range_arg(ptr noundef %0, ptr noundef readnone captur
   br label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %28, %.preheader
-  %.060.i.pn.be = phi ptr [ %storemerge.i, %.preheader ], [ %29, %28 ]
+  %.060.i.pn.be = phi ptr [ %29, %28 ], [ %storemerge.i, %.preheader ]
   br label %.preheader, !llvm.loop !32
 
 30:                                               ; preds = %.preheader
@@ -769,7 +769,7 @@ define dso_local ptr @skip_range_arg(ptr noundef %0, ptr noundef readnone captur
   br label %parse_loc.exit
 
 parse_loc.exit:                                   ; preds = %.preheader, %18, %25, %30
-  %.0.i12 = phi ptr [ %.060.i, %25 ], [ %31, %30 ], [ %20, %18 ], [ %.060.i, %.preheader ]
+  %.0.i12 = phi ptr [ %20, %18 ], [ %31, %30 ], [ %.060.i, %25 ], [ %.060.i, %.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %32 = load i8, ptr %.0.i12, align 1, !tbaa !8
   %33 = icmp eq i8 %32, 44
@@ -817,7 +817,7 @@ parse_loc.exit:                                   ; preds = %.preheader, %18, %2
   br label %parse_loc.exit20
 
 parse_loc.exit20:                                 ; preds = %41, %34, %38, %47
-  %.0.i14 = phi ptr [ %35, %38 ], [ %48, %47 ], [ %37, %34 ], [ %35, %41 ]
+  %.0.i14 = phi ptr [ %37, %34 ], [ %48, %47 ], [ %35, %38 ], [ %35, %41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %parse_range_funcname.exit
 

@@ -6362,7 +6362,7 @@ _ZL10printNBitsRN4llvm11raw_ostreamENS_6object7Archive4KindEm.exit78: ; preds = 
   unreachable
 
 ._crit_edge:                                      ; preds = %_ZL10printNBitsRN4llvm11raw_ostreamENS_6object7Archive4KindEm.exit78.us16, %_ZL10printNBitsRN4llvm11raw_ostreamENS_6object7Archive4KindEm.exit78, %_ZL10printNBitsRN4llvm11raw_ostreamENS_6object7Archive4KindEm.exit86.us, %81, %_ZL19is64BitSymbolicFilePKN4llvm6object12SymbolicFileE.exit, %._ZL19is64BitSymbolicFilePKN4llvm6object12SymbolicFileE.exit_crit_edge
-  %.1.sink = phi i64 [ %73, %_ZL19is64BitSymbolicFilePKN4llvm6object12SymbolicFileE.exit ], [ %73, %._ZL19is64BitSymbolicFilePKN4llvm6object12SymbolicFileE.exit_crit_edge ], [ %.1, %81 ], [ %.1, %_ZL10printNBitsRN4llvm11raw_ostreamENS_6object7Archive4KindEm.exit78 ], [ %.1, %_ZL10printNBitsRN4llvm11raw_ostreamENS_6object7Archive4KindEm.exit86.us ], [ %.1, %_ZL10printNBitsRN4llvm11raw_ostreamENS_6object7Archive4KindEm.exit78.us16 ]
+  %.1.sink = phi i64 [ %73, %_ZL19is64BitSymbolicFilePKN4llvm6object12SymbolicFileE.exit ], [ %73, %._ZL19is64BitSymbolicFilePKN4llvm6object12SymbolicFileE.exit_crit_edge ], [ %.1, %_ZL10printNBitsRN4llvm11raw_ostreamENS_6object7Archive4KindEm.exit86.us ], [ %.1, %_ZL10printNBitsRN4llvm11raw_ostreamENS_6object7Archive4KindEm.exit78 ], [ %.1, %81 ], [ %.1, %_ZL10printNBitsRN4llvm11raw_ostreamENS_6object7Archive4KindEm.exit78.us16 ]
   %100 = getelementptr inbounds nuw i8, ptr %.05422, i64 32
   %101 = load i64, ptr %100, align 8, !tbaa !129
   %102 = getelementptr inbounds nuw i8, ptr %.05422, i64 64

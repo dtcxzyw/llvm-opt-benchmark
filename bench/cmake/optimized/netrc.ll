@@ -470,13 +470,13 @@ file2memory.exit:                                 ; preds = %20
   br i1 %110, label %.thread295, label %.lr.ph401.outer.outer.backedge
 
 .lr.ph401.outer.outer.backedge:                   ; preds = %58, %72, %62, %64, %107
-  %.1133399.ph.ph.be = phi i32 [ %.11, %107 ], [ %.5137., %72 ], [ %.1133399.ph, %62 ], [ %.1133399.ph, %64 ], [ %.1133399.ph, %58 ]
-  %.1149395.ph.ph.be = phi i8 [ %.6154, %107 ], [ %.1149395.ph.ph, %72 ], [ 0, %62 ], [ 0, %64 ], [ %.1149395.ph.ph, %58 ]
-  %.1158394.ph.ph.be = phi i8 [ %.5162, %107 ], [ %.1158394.ph.ph, %72 ], [ 0, %62 ], [ 0, %64 ], [ %.1158394.ph.ph, %58 ]
-  %.1165393.ph.ph.be = phi i32 [ %.5169, %107 ], [ %.1165393.ph.ph, %72 ], [ 0, %62 ], [ 0, %64 ], [ %.1165393.ph.ph, %58 ]
-  %.1172392.ph.ph.be = phi i32 [ %.6177, %107 ], [ %.242, %72 ], [ 1, %62 ], [ 1, %64 ], [ 3, %58 ]
-  %.1180389.ph.ph.be = phi ptr [ %.6185, %107 ], [ %.1180389.ph.ph, %72 ], [ %.1180389.ph.ph, %62 ], [ null, %64 ], [ %.1180389.ph.ph, %58 ]
-  %.1189386.ph.ph.be = phi ptr [ %.5193, %107 ], [ %.1189386.ph.ph, %72 ], [ null, %62 ], [ null, %64 ], [ %.1189386.ph.ph, %58 ]
+  %.1133399.ph.ph.be = phi i32 [ %.11, %107 ], [ %.1133399.ph, %64 ], [ %.5137., %72 ], [ %.1133399.ph, %62 ], [ %.1133399.ph, %58 ]
+  %.1149395.ph.ph.be = phi i8 [ %.6154, %107 ], [ 0, %64 ], [ %.1149395.ph.ph, %72 ], [ 0, %62 ], [ %.1149395.ph.ph, %58 ]
+  %.1158394.ph.ph.be = phi i8 [ %.5162, %107 ], [ 0, %64 ], [ %.1158394.ph.ph, %72 ], [ 0, %62 ], [ %.1158394.ph.ph, %58 ]
+  %.1165393.ph.ph.be = phi i32 [ %.5169, %107 ], [ 0, %64 ], [ %.1165393.ph.ph, %72 ], [ 0, %62 ], [ %.1165393.ph.ph, %58 ]
+  %.1172392.ph.ph.be = phi i32 [ %.6177, %107 ], [ 1, %64 ], [ %.242, %72 ], [ 1, %62 ], [ 3, %58 ]
+  %.1180389.ph.ph.be = phi ptr [ %.6185, %107 ], [ null, %64 ], [ %.1180389.ph.ph, %72 ], [ %.1180389.ph.ph, %62 ], [ %.1180389.ph.ph, %58 ]
+  %.1189386.ph.ph.be = phi ptr [ %.5193, %107 ], [ null, %64 ], [ %.1189386.ph.ph, %72 ], [ null, %62 ], [ %.1189386.ph.ph, %58 ]
   %.0122400.ph.ph.be = getelementptr inbounds nuw i8, ptr %.1119, i64 1
   br label %.lr.ph401.outer.outer
 
@@ -490,10 +490,10 @@ select.unfold294:                                 ; preds = %34, %34
   br i1 %.not231.not.not, label %.thread295, label %.preheader342
 
 .thread295:                                       ; preds = %select.unfold294, %.preheader342, %107, %79, %85, %.preheader341, %44, %.critedge238, %53, %.thread252
-  %.7195 = phi ptr [ %.1189386.ph.ph, %.thread252 ], [ %.1189386.ph.ph, %53 ], [ %.1189386.ph.ph, %.preheader341 ], [ %.1189386.ph.ph, %79 ], [ %.1189386.ph.ph, %.critedge238 ], [ %.1189386.ph.ph, %44 ], [ %.5193, %107 ], [ null, %85 ], [ %.1189386.ph.ph, %select.unfold294 ], [ %.0188.ph, %.preheader342 ]
-  %.8187 = phi ptr [ %.1180389.ph.ph, %.thread252 ], [ %.1180389.ph.ph, %53 ], [ %.1180389.ph.ph, %.preheader341 ], [ null, %79 ], [ %.1180389.ph.ph, %.critedge238 ], [ %.1180389.ph.ph, %44 ], [ %.6185, %107 ], [ %.1180389.ph.ph, %85 ], [ %.1180389.ph.ph, %select.unfold294 ], [ %.0179.ph, %.preheader342 ]
-  %.8156 = phi i8 [ %.1149395.ph.ph, %.thread252 ], [ %.1149395.ph.ph, %53 ], [ %.1149395.ph.ph, %.preheader341 ], [ 1, %79 ], [ %.1149395.ph.ph, %.critedge238 ], [ %.1149395.ph.ph, %44 ], [ %.6154, %107 ], [ %.1149395.ph.ph, %85 ], [ %.1149395.ph.ph, %select.unfold294 ], [ %.0148.ph, %.preheader342 ]
-  %.13 = phi i32 [ -1, %.thread252 ], [ -1, %53 ], [ -1, %.preheader341 ], [ -1, %79 ], [ -1, %.critedge238 ], [ -1, %44 ], [ %.11, %107 ], [ -1, %85 ], [ %.1133399.ph, %select.unfold294 ], [ %.0132.ph, %.preheader342 ]
+  %.7195 = phi ptr [ null, %85 ], [ %.1189386.ph.ph, %.thread252 ], [ %.1189386.ph.ph, %53 ], [ %.1189386.ph.ph, %.preheader341 ], [ %.1189386.ph.ph, %.critedge238 ], [ %.1189386.ph.ph, %44 ], [ %.1189386.ph.ph, %79 ], [ %.5193, %107 ], [ %.0188.ph, %.preheader342 ], [ %.1189386.ph.ph, %select.unfold294 ]
+  %.8187 = phi ptr [ %.1180389.ph.ph, %85 ], [ %.1180389.ph.ph, %.thread252 ], [ %.1180389.ph.ph, %53 ], [ %.1180389.ph.ph, %.preheader341 ], [ %.1180389.ph.ph, %.critedge238 ], [ %.1180389.ph.ph, %44 ], [ null, %79 ], [ %.6185, %107 ], [ %.0179.ph, %.preheader342 ], [ %.1180389.ph.ph, %select.unfold294 ]
+  %.8156 = phi i8 [ %.1149395.ph.ph, %85 ], [ %.1149395.ph.ph, %.thread252 ], [ %.1149395.ph.ph, %53 ], [ %.1149395.ph.ph, %.preheader341 ], [ %.1149395.ph.ph, %.critedge238 ], [ %.1149395.ph.ph, %44 ], [ 1, %79 ], [ %.6154, %107 ], [ %.0148.ph, %.preheader342 ], [ %.1149395.ph.ph, %select.unfold294 ]
+  %.13 = phi i32 [ -1, %85 ], [ -1, %.thread252 ], [ -1, %53 ], [ -1, %.preheader341 ], [ -1, %.critedge238 ], [ -1, %44 ], [ -1, %79 ], [ %.11, %107 ], [ %.0132.ph, %.preheader342 ], [ %.1133399.ph, %select.unfold294 ]
   call void @Curl_dyn_free(ptr noundef nonnull %7) #6
   %113 = icmp eq i32 %.13, 0
   %114 = icmp eq ptr %.7195, null

@@ -80,7 +80,7 @@ define i32 @ff_rle_count_pixels(ptr noundef readonly captures(none) %0, i32 noun
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !4
 
 .loopexit:                                        ; preds = %20, %.lr.ph.split, %9, %.lr.ph.split.us.split._crit_edge, %4, %.split.us
-  %.1 = phi i32 [ %19, %.split.us ], [ 1, %4 ], [ %6, %9 ], [ %6, %.lr.ph.split.us.split._crit_edge ], [ %6, %20 ], [ %.031, %.lr.ph.split ]
+  %.1 = phi i32 [ %19, %.split.us ], [ 1, %4 ], [ %6, %9 ], [ %6, %.lr.ph.split.us.split._crit_edge ], [ %.031, %.lr.ph.split ], [ %6, %20 ]
   ret i32 %.1
 }
 
@@ -121,7 +121,7 @@ define i32 @ff_rle_encode(ptr noundef %0, i32 noundef %1, ptr noundef readonly c
   br i1 %exitcond.not.i.us, label %ff_rle_count_pixels.exit.us, label %.lr.ph.split.i.us, !llvm.loop !4
 
 ff_rle_count_pixels.exit.us:                      ; preds = %18, %.lr.ph.split.i.us
-  %.1.i.us = phi i32 [ %.031.i.us, %.lr.ph.split.i.us ], [ %16, %18 ]
+  %.1.i.us = phi i32 [ %16, %18 ], [ %.031.i.us, %.lr.ph.split.i.us ]
   %20 = icmp sgt i32 %.1.i.us, 1
   br i1 %20, label %36, label %.lr.ph.split.us.split.i.us
 
@@ -222,7 +222,7 @@ ff_rle_count_pixels.exit56.us:                    ; preds = %.lr.ph.split.us.spl
   br i1 %exitcond.not.i, label %ff_rle_count_pixels.exit, label %.lr.ph.split.i, !llvm.loop !4
 
 ff_rle_count_pixels.exit:                         ; preds = %.lr.ph.split.i, %54
-  %.1.i = phi i32 [ %.031.i, %.lr.ph.split.i ], [ %52, %54 ]
+  %.1.i = phi i32 [ %52, %54 ], [ %.031.i, %.lr.ph.split.i ]
   %56 = icmp sgt i32 %.1.i, 1
   br i1 %56, label %57, label %.lr.ph.split.us.split.us.i
 

@@ -7662,9 +7662,9 @@ expand_2s_vec.exit:                               ; preds = %.lr.ph.split.i, %77
   unreachable
 
 expand_2s_vec.exit170:                            ; preds = %.lr.ph.split.i173, %.lr.ph.split.i168, %111, %98, %expand_2s_vec.exit
-  %.4144 = phi i32 [ %5, %expand_2s_vec.exit ], [ %.3143, %98 ], [ %5, %111 ], [ %.3143, %.lr.ph.split.i168 ], [ %5, %.lr.ph.split.i173 ]
-  %.4139 = phi i32 [ %4, %expand_2s_vec.exit ], [ 0, %98 ], [ 0, %111 ], [ %.3138, %.lr.ph.split.i168 ], [ %4, %.lr.ph.split.i173 ]
-  %.4 = phi i32 [ %1, %expand_2s_vec.exit ], [ %.3, %98 ], [ %1, %111 ], [ %.3, %.lr.ph.split.i168 ], [ %1, %.lr.ph.split.i173 ]
+  %.4144 = phi i32 [ %5, %expand_2s_vec.exit ], [ %.3143, %.lr.ph.split.i168 ], [ %.3143, %98 ], [ %5, %111 ], [ %5, %.lr.ph.split.i173 ]
+  %.4139 = phi i32 [ %4, %expand_2s_vec.exit ], [ %.3138, %.lr.ph.split.i168 ], [ 0, %98 ], [ 0, %111 ], [ %4, %.lr.ph.split.i173 ]
+  %.4 = phi i32 [ %1, %expand_2s_vec.exit ], [ %.3, %.lr.ph.split.i168 ], [ %.3, %98 ], [ %1, %111 ], [ %1, %.lr.ph.split.i173 ]
   tail call void @tcg_temp_free_vec(ptr noundef %72) #11
   br label %expand_2sh_vec.exit159
 
@@ -7784,9 +7784,9 @@ expand_2s_i64.exit:                               ; preds = %.lr.ph.split.i185
   br label %186
 
 expand_2sh_vec.exit159:                           ; preds = %.lr.ph.i161, %.lr.ph.i157, %expand_2sh_vec.exit, %41, %54, %expand_2s_vec.exit170, %expand_2s_i32.exit, %expand_2s_i64.exit
-  %.2142 = phi i32 [ %5, %expand_2s_i64.exit ], [ %.4144, %expand_2s_vec.exit170 ], [ %5, %expand_2s_i32.exit ], [ %5, %expand_2sh_vec.exit ], [ %.0140, %41 ], [ %5, %54 ], [ %.0140, %.lr.ph.i157 ], [ %5, %.lr.ph.i161 ]
-  %.2137 = phi i32 [ %4, %expand_2s_i64.exit ], [ %.4139, %expand_2s_vec.exit170 ], [ %4, %expand_2s_i32.exit ], [ %4, %expand_2sh_vec.exit ], [ 0, %41 ], [ 0, %54 ], [ %.0135, %.lr.ph.i157 ], [ %4, %.lr.ph.i161 ]
-  %.2 = phi i32 [ %1, %expand_2s_i64.exit ], [ %.4, %expand_2s_vec.exit170 ], [ %1, %expand_2s_i32.exit ], [ %1, %expand_2sh_vec.exit ], [ %.0, %41 ], [ %1, %54 ], [ %.0, %.lr.ph.i157 ], [ %1, %.lr.ph.i161 ]
+  %.2142 = phi i32 [ %5, %expand_2s_i64.exit ], [ %.4144, %expand_2s_vec.exit170 ], [ %5, %expand_2s_i32.exit ], [ %5, %expand_2sh_vec.exit ], [ %.0140, %.lr.ph.i157 ], [ %.0140, %41 ], [ %5, %54 ], [ %5, %.lr.ph.i161 ]
+  %.2137 = phi i32 [ %4, %expand_2s_i64.exit ], [ %.4139, %expand_2s_vec.exit170 ], [ %4, %expand_2s_i32.exit ], [ %4, %expand_2sh_vec.exit ], [ %.0135, %.lr.ph.i157 ], [ 0, %41 ], [ 0, %54 ], [ %4, %.lr.ph.i161 ]
+  %.2 = phi i32 [ %1, %expand_2s_i64.exit ], [ %.4, %expand_2s_vec.exit170 ], [ %1, %expand_2s_i32.exit ], [ %1, %expand_2sh_vec.exit ], [ %.0, %.lr.ph.i157 ], [ %.0, %41 ], [ %1, %54 ], [ %1, %.lr.ph.i161 ]
   %182 = icmp ult i32 %.2137, %.2142
   br i1 %182, label %183, label %186
 
@@ -9223,9 +9223,9 @@ expand_cmps_vec.exit:                             ; preds = %.lr.ph.i, %24
   unreachable
 
 expand_cmps_vec.exit130:                          ; preds = %.lr.ph.i132, %.lr.ph.i128, %54, %41
-  %.1116 = phi i32 [ %.0115, %41 ], [ %6, %54 ], [ %.0115, %.lr.ph.i128 ], [ %6, %.lr.ph.i132 ]
-  %.1113 = phi i32 [ %.0112, %41 ], [ %5, %54 ], [ %.0112, %.lr.ph.i128 ], [ %5, %.lr.ph.i132 ]
-  %.1 = phi i32 [ %.0109, %41 ], [ %2, %54 ], [ %.0109, %.lr.ph.i128 ], [ %2, %.lr.ph.i132 ]
+  %.1116 = phi i32 [ %.0115, %.lr.ph.i128 ], [ %.0115, %41 ], [ %6, %54 ], [ %6, %.lr.ph.i132 ]
+  %.1113 = phi i32 [ %.0112, %.lr.ph.i128 ], [ %.0112, %41 ], [ %5, %54 ], [ %5, %.lr.ph.i132 ]
+  %.1 = phi i32 [ %.0109, %.lr.ph.i128 ], [ %.0109, %41 ], [ %2, %54 ], [ %2, %.lr.ph.i132 ]
   tail call void @tcg_temp_free_vec(ptr noundef %23) #11
   br label %116
 

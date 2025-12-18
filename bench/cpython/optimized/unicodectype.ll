@@ -3311,7 +3311,7 @@ gettyperecord.exit.i:                             ; preds = %35, %34
   br label %_PyUnicode_ToLowerFull.exit
 
 _PyUnicode_ToLowerFull.exit:                      ; preds = %31, %.lr.ph.i, %61, %54
-  %.016 = phi i32 [ 1, %61 ], [ %55, %54 ], [ %55, %.lr.ph.i ], [ %25, %31 ]
+  %.016 = phi i32 [ %55, %.lr.ph.i ], [ 1, %61 ], [ %55, %54 ], [ %25, %31 ]
   ret i32 %.016
 }
 

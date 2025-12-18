@@ -2384,7 +2384,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm6legacy23FunctionPassManagerImpl3ru
   br i1 %19, label %9, label %.preheader, !llvm.loop !178
 
 ._crit_edge:                                      ; preds = %_ZN4llvm13FPPassManager7cleanupEv.exit, %2, %.preheader
-  %.011.lcssa27 = phi i1 [ %15, %.preheader ], [ false, %2 ], [ %15, %_ZN4llvm13FPPassManager7cleanupEv.exit ]
+  %.011.lcssa27 = phi i1 [ false, %2 ], [ %15, %.preheader ], [ %15, %_ZN4llvm13FPPassManager7cleanupEv.exit ]
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   store i8 1, ptr %20, align 8, !tbaa !123
   ret i1 %.011.lcssa27
@@ -2955,7 +2955,7 @@ _ZNK4llvm17PMTopLevelManager10dumpPassesEv.exit:  ; preds = %.lr.ph22.i, %2, %._
   br i1 %.not.i13.i.i, label %.sink.split.i.i, label %.lr.ph.i10.i.i
 
 .sink.split.i.i:                                  ; preds = %.lr.ph.i.i.i, %.lr.ph.i10.i.i, %50, %44
-  %.sink.i.i = phi i8 [ 1, %44 ], [ 0, %50 ], [ 0, %.lr.ph.i10.i.i ], [ 1, %.lr.ph.i.i.i ]
+  %.sink.i.i = phi i8 [ 1, %44 ], [ 0, %.lr.ph.i10.i.i ], [ 0, %50 ], [ 1, %.lr.ph.i.i.i ]
   store i8 %.sink.i.i, ptr %41, align 8, !tbaa !306
   br label %_ZN4llvm25ScopedDbgInfoFormatSetterINS_6ModuleEEC2ERS1_b.exit
 
@@ -3547,7 +3547,7 @@ _ZN4llvm13PMDataManager16findAnalysisPassEPKvb.exit.i: ; preds = %_ZN4llvm12Dens
   br i1 %.not17.i78, label %_ZN4llvm16AnalysisResolver20addAnalysisImplsPairEPKvPNS_4PassE.exit, label %_ZN4llvm13PMDataManager16findAnalysisPassEPKvb.exit.i.thread
 
 _ZN4llvm13PMDataManager16findAnalysisPassEPKvb.exit.i.thread: ; preds = %_ZN4llvm13PMDataManager16findAnalysisPassEPKvb.exit.i101, %_ZN4llvm13PMDataManager16findAnalysisPassEPKvb.exit69.i, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPKvPNS_13ImmutablePassELj8ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E6lookupES3_.exit.i, %_ZN4llvm13PMDataManager16findAnalysisPassEPKvb.exit.i
-  %.0.i.i109 = phi ptr [ %389, %_ZN4llvm13PMDataManager16findAnalysisPassEPKvb.exit.i ], [ %307, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPKvPNS_13ImmutablePassELj8ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E6lookupES3_.exit.i ], [ %386, %_ZN4llvm13PMDataManager16findAnalysisPassEPKvb.exit69.i ], [ %346, %_ZN4llvm13PMDataManager16findAnalysisPassEPKvb.exit.i101 ]
+  %.0.i.i109 = phi ptr [ %389, %_ZN4llvm13PMDataManager16findAnalysisPassEPKvb.exit.i ], [ %386, %_ZN4llvm13PMDataManager16findAnalysisPassEPKvb.exit69.i ], [ %307, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPKvPNS_13ImmutablePassELj8ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E6lookupES3_.exit.i ], [ %346, %_ZN4llvm13PMDataManager16findAnalysisPassEPKvb.exit.i101 ]
   %390 = load ptr, ptr %242, align 8, !tbaa !179
   %391 = load ptr, ptr %390, align 8, !tbaa !319
   %392 = getelementptr inbounds nuw i8, ptr %390, i64 8
@@ -4307,7 +4307,7 @@ _ZN12_GLOBAL__N_113MPPassManager11runOnModuleERN4llvm6ModuleE.exit: ; preds = %_
   br i1 %.not.i13.i.i51, label %.sink.split.i.i43, label %.lr.ph.i10.i.i48
 
 .sink.split.i.i43:                                ; preds = %.lr.ph.i.i.i39, %.lr.ph.i10.i.i48, %668, %662
-  %.sink.i.i44 = phi i8 [ 1, %662 ], [ 0, %668 ], [ 0, %.lr.ph.i10.i.i48 ], [ 1, %.lr.ph.i.i.i39 ]
+  %.sink.i.i44 = phi i8 [ 1, %662 ], [ 0, %.lr.ph.i10.i.i48 ], [ 0, %668 ], [ 1, %.lr.ph.i.i.i39 ]
   store i8 %.sink.i.i44, ptr %41, align 8, !tbaa !306
   br label %_ZN4llvm25ScopedDbgInfoFormatSetterINS_6ModuleEED2Ev.exit
 
@@ -6062,7 +6062,7 @@ _ZN4llvm13PMDataManager16findAnalysisPassEPKvb.exit69.thread: ; preds = %_ZN4llv
   br i1 %.not45, label %.loopexit, label %88
 
 .loopexit:                                        ; preds = %_ZN4llvm13PMDataManager16findAnalysisPassEPKvb.exit, %_ZN4llvm13PMDataManager16findAnalysisPassEPKvb.exit69.thread, %_ZN4llvm13PMDataManager16findAnalysisPassEPKvb.exit69, %._crit_edge, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPKvPNS_13ImmutablePassELj8ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E6lookupES3_.exit
-  %.1 = phi ptr [ %36, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPKvPNS_13ImmutablePassELj8ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E6lookupES3_.exit ], [ null, %._crit_edge ], [ %115, %_ZN4llvm13PMDataManager16findAnalysisPassEPKvb.exit69 ], [ null, %_ZN4llvm13PMDataManager16findAnalysisPassEPKvb.exit69.thread ], [ %75, %_ZN4llvm13PMDataManager16findAnalysisPassEPKvb.exit ]
+  %.1 = phi ptr [ %36, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPKvPNS_13ImmutablePassELj8ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E6lookupES3_.exit ], [ %115, %_ZN4llvm13PMDataManager16findAnalysisPassEPKvb.exit69 ], [ null, %._crit_edge ], [ null, %_ZN4llvm13PMDataManager16findAnalysisPassEPKvb.exit69.thread ], [ %75, %_ZN4llvm13PMDataManager16findAnalysisPassEPKvb.exit ]
   ret ptr %.1
 }
 
@@ -7274,7 +7274,7 @@ _ZN4llvm13PMDataManager16findAnalysisPassEPKvb.exit69.thread.i147: ; preds = %_Z
   br i1 %.not45.i148, label %_ZN4llvm17PMTopLevelManager16findAnalysisPassEPKv.exit151, label %464
 
 .loopexit:                                        ; preds = %_ZN4llvm13PMDataManager16findAnalysisPassEPKvb.exit.i128, %_ZN4llvm13PMDataManager16findAnalysisPassEPKvb.exit69.i145, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPKvPNS_13ImmutablePassELj8ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E6lookupES3_.exit.i111
-  %.1.i114.ph = phi ptr [ %416, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPKvPNS_13ImmutablePassELj8ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E6lookupES3_.exit.i111 ], [ %491, %_ZN4llvm13PMDataManager16findAnalysisPassEPKvb.exit69.i145 ], [ %453, %_ZN4llvm13PMDataManager16findAnalysisPassEPKvb.exit.i128 ]
+  %.1.i114.ph = phi ptr [ %491, %_ZN4llvm13PMDataManager16findAnalysisPassEPKvb.exit69.i145 ], [ %416, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPKvPNS_13ImmutablePassELj8ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E6lookupES3_.exit.i111 ], [ %453, %_ZN4llvm13PMDataManager16findAnalysisPassEPKvb.exit.i128 ]
   %493 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm4dbgsEv() #32
   %494 = getelementptr inbounds nuw i8, ptr %493, i64 24
   %495 = load ptr, ptr %494, align 8, !tbaa !96
@@ -7561,7 +7561,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit160:              ; preds = %528, %530, %636, %6
   br label %.lr.ph
 
 .critedge:                                        ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKvPKNS_8PassInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_EixERKS3_.exit, %_ZNK4llvm17PMTopLevelManager20findAnalysisPassInfoEPKv.exit85
-  %643 = phi ptr [ %277, %_ZNK4llvm17PMTopLevelManager20findAnalysisPassInfoEPKv.exit85 ], [ %275, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKvPKNS_8PassInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_EixERKS3_.exit ]
+  %643 = phi ptr [ %275, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKvPKNS_8PassInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_EixERKS3_.exit ], [ %277, %_ZNK4llvm17PMTopLevelManager20findAnalysisPassInfoEPKv.exit85 ]
   %644 = getelementptr inbounds nuw i8, ptr %643, i64 48
   %645 = load ptr, ptr %644, align 8, !tbaa !408
   %646 = call noundef ptr %645() #32

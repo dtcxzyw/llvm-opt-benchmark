@@ -1135,7 +1135,7 @@ dissect_zvt_tlv_len.exit:                         ; preds = %.dissect_zvt_tlv_le
   br i1 %77, label %.lr.ph, label %dissect_zvt_tlv_tag.exit.thread, !llvm.loop !12
 
 dissect_zvt_tlv_tag.exit.thread:                  ; preds = %dissect_zvt_tlv_tag.exit, %.backedge, %.preheader.i, %12
-  %78 = phi i32 [ 0, %12 ], [ %14, %.preheader.i ], [ %14, %dissect_zvt_tlv_tag.exit ], [ %76, %.backedge ]
+  %78 = phi i32 [ %14, %.preheader.i ], [ 0, %12 ], [ %14, %dissect_zvt_tlv_tag.exit ], [ %76, %.backedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %78
 }

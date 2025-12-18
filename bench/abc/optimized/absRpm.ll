@@ -3160,7 +3160,7 @@ Vec_IntRemove.exit108:                            ; preds = %130, %._crit_edge.i
   br i1 %exitcond.not, label %.critedge, label %.lr.ph.split, !llvm.loop !76
 
 .critedge:                                        ; preds = %.lr.ph, %.critedge54, %163, %3
-  %.val63.lcssa = phi i32 [ %.val63178, %3 ], [ %.pr, %163 ], [ %.val63, %.critedge54 ], [ %.pr, %.lr.ph ]
+  %.val63.lcssa = phi i32 [ %.val63178, %3 ], [ %.pr, %163 ], [ %.pr, %.lr.ph ], [ %.val63, %.critedge54 ]
   ret i32 %.val63.lcssa
 }
 
@@ -3341,14 +3341,14 @@ switch.early.test:                                ; preds = %.lr.ph
   br i1 %exitcond124.not, label %._crit_edge.us.us, label %29, !llvm.loop !83
 
 ._crit_edge84.loopexit110:                        ; preds = %._crit_edge79.us.us, %._crit_edge.us.us, %36
-  %.2.lcssa.ph.in = phi i64 [ %indvars.iv.next131, %36 ], [ %indvars.iv130, %._crit_edge.us.us ], [ %indvars.iv130, %._crit_edge79.us.us ]
+  %.2.lcssa.ph.in = phi i64 [ %indvars.iv130, %._crit_edge.us.us ], [ %indvars.iv130, %._crit_edge79.us.us ], [ %indvars.iv.next131, %36 ]
   %.2.lcssa.ph = trunc i64 %.2.lcssa.ph.in to i32
   %40 = icmp eq i32 %7, %.2.lcssa.ph
   %41 = zext i1 %40 to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %22, %switch.early.test, %switch.early.test, %.lr.ph, %.lr.ph68, %10, %23, %._crit_edge84.loopexit110, %.preheader58, %.preheader57
-  %.0 = phi i32 [ 1, %10 ], [ 1, %.preheader58 ], [ 1, %.preheader57 ], [ 0, %23 ], [ %41, %._crit_edge84.loopexit110 ], [ 0, %.lr.ph68 ], [ 1, %22 ], [ 0, %switch.early.test ], [ 0, %switch.early.test ], [ 0, %.lr.ph ]
+  %.0 = phi i32 [ 1, %10 ], [ 1, %.preheader58 ], [ %41, %._crit_edge84.loopexit110 ], [ 1, %.preheader57 ], [ 0, %23 ], [ 0, %.lr.ph68 ], [ 0, %switch.early.test ], [ 0, %switch.early.test ], [ 0, %.lr.ph ], [ 1, %22 ]
   ret i32 %.0
 }
 
@@ -3877,13 +3877,13 @@ switch.early.test.i:                              ; preds = %.lr.ph.i126
   br i1 %exitcond124.not.i, label %._crit_edge.us.us.i, label %214, !llvm.loop !83
 
 ._crit_edge84.loopexit110.i:                      ; preds = %221, %._crit_edge79.us.us.i, %._crit_edge.us.us.i
-  %.2.lcssa.ph.in.i = phi i64 [ %indvars.iv.next131.i, %221 ], [ %indvars.iv130.i, %._crit_edge.us.us.i ], [ %indvars.iv130.i, %._crit_edge79.us.us.i ]
+  %.2.lcssa.ph.in.i = phi i64 [ %indvars.iv130.i, %._crit_edge.us.us.i ], [ %indvars.iv130.i, %._crit_edge79.us.us.i ], [ %indvars.iv.next131.i, %221 ]
   %.2.lcssa.ph.i = trunc i64 %.2.lcssa.ph.in.i to i32
   %225 = icmp ne i32 %193, %.2.lcssa.ph.i
   br label %Abs_GiaCheckTruth.exit
 
 Abs_GiaCheckTruth.exit:                           ; preds = %.lr.ph.i126, %switch.early.test.i, %switch.early.test.i, %207, %.lr.ph68.i, %.preheader58.i, %.preheader57.i, %208, %._crit_edge84.loopexit110.i
-  %.0.i = phi i1 [ false, %.preheader58.i ], [ false, %.preheader57.i ], [ true, %208 ], [ %225, %._crit_edge84.loopexit110.i ], [ %.not54.i.not, %.lr.ph68.i ], [ true, %.lr.ph.i126 ], [ true, %switch.early.test.i ], [ true, %switch.early.test.i ], [ false, %207 ]
+  %.0.i = phi i1 [ %.not54.i.not, %.lr.ph68.i ], [ false, %.preheader58.i ], [ %225, %._crit_edge84.loopexit110.i ], [ false, %.preheader57.i ], [ true, %208 ], [ true, %.lr.ph.i126 ], [ true, %switch.early.test.i ], [ true, %switch.early.test.i ], [ false, %207 ]
   br i1 %.not96, label %248, label %226
 
 226:                                              ; preds = %Abs_GiaCheckTruth.exit

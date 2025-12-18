@@ -506,7 +506,7 @@ _ZN26GrowableArrayWithAllocatorIP14VTransformNode13GrowableArrayIS1_EE11at_put_g
   br i1 %193, label %_ZN13GrowableArrayIP14VTransformNodeED2Ev.exit, label %69, !llvm.loop !12
 
 _ZN13GrowableArrayIP14VTransformNodeED2Ev.exit:   ; preds = %192, %_ZNK9VectorSet4testEj.exit16, %1, %_ZNK15VTransformGraph39collect_nodes_without_req_or_dependencyER13GrowableArrayIP14VTransformNodeE.exit
-  %194 = phi i1 [ true, %_ZNK15VTransformGraph39collect_nodes_without_req_or_dependencyER13GrowableArrayIP14VTransformNodeE.exit ], [ true, %1 ], [ false, %_ZNK9VectorSet4testEj.exit16 ], [ true, %192 ]
+  %194 = phi i1 [ false, %_ZNK9VectorSet4testEj.exit16 ], [ true, %_ZNK15VTransformGraph39collect_nodes_without_req_or_dependencyER13GrowableArrayIP14VTransformNodeE.exit ], [ true, %1 ], [ true, %192 ]
   %195 = load ptr, ptr %9, align 8
   %.not.i.i.i.i = icmp eq ptr %195, null
   br i1 %.not.i.i.i.i, label %197, label %196

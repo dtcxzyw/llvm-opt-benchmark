@@ -259,20 +259,20 @@ _ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit.i: ; preds = %49
   %73 = and i32 %70, 4
   %74 = icmp ne i32 %73, 0
   %or.cond.i.i3.i = or i1 %72, %74
-  br i1 %or.cond.i.i3.i, label %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit, label %75
+  br i1 %or.cond.i.i3.i, label %75, label %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit
 
 75:                                               ; preds = %69
-  %76 = call noundef zeroext i1 @_ZNK4llvm12MachineInstr19hasPropertyInBundleEmNS0_9QueryTypeE(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.037.059, i64 noundef 1048576, i32 noundef 1) #10
-  br i1 %76, label %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit.thread, label %_ZL33isX87NonWaitingControlInstructionRN4llvm12MachineInstrE.exit
+  %76 = getelementptr inbounds nuw i8, ptr %.sroa.037.059, i64 16
+  %77 = load ptr, ptr %76, align 8, !tbaa !140
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 16
+  %79 = load i64, ptr %78, align 8, !tbaa !156
+  %80 = and i64 %79, 1048576
+  %.not51 = icmp eq i64 %80, 0
+  br i1 %.not51, label %_ZL33isX87NonWaitingControlInstructionRN4llvm12MachineInstrE.exit, label %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit.thread
 
 _ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit: ; preds = %69
-  %77 = getelementptr inbounds nuw i8, ptr %.sroa.037.059, i64 16
-  %78 = load ptr, ptr %77, align 8, !tbaa !140
-  %79 = getelementptr inbounds nuw i8, ptr %78, i64 16
-  %80 = load i64, ptr %79, align 8, !tbaa !156
-  %81 = and i64 %80, 1048576
-  %.not51 = icmp eq i64 %81, 0
-  br i1 %.not51, label %_ZL33isX87NonWaitingControlInstructionRN4llvm12MachineInstrE.exit, label %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit.thread
+  %81 = call noundef zeroext i1 @_ZNK4llvm12MachineInstr19hasPropertyInBundleEmNS0_9QueryTypeE(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.037.059, i64 noundef 1048576, i32 noundef 1) #10
+  br i1 %81, label %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit.thread, label %_ZL33isX87NonWaitingControlInstructionRN4llvm12MachineInstrE.exit
 
 _ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit.thread: ; preds = %43, %63, %55, %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit.i, %75, %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit, %_ZNK4llvm12MachineInstr19mayRaiseFPExceptionEv.exit
   %82 = getelementptr i8, ptr %.sroa.037.059, i64 68

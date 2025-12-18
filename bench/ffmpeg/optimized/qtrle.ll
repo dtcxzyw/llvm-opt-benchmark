@@ -914,7 +914,7 @@ bytestream2_get_byte.exit117:                     ; preds = %146, %147
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit150, %.loopexit.loopexit149, %.loopexit.loopexit, %bytestream2_get_byte.exit113
-  %.199 = phi i32 [ %74, %bytestream2_get_byte.exit113 ], [ %164, %.loopexit.loopexit ], [ %165, %.loopexit.loopexit149 ], [ %166, %.loopexit.loopexit150 ]
+  %.199 = phi i32 [ %74, %bytestream2_get_byte.exit113 ], [ %165, %.loopexit.loopexit149 ], [ %164, %.loopexit.loopexit ], [ %166, %.loopexit.loopexit150 ]
   %.pre174 = load ptr, ptr %18, align 8, !tbaa !40
   %.pre175 = load ptr, ptr %17, align 8, !tbaa !38
   %167 = ptrtoint ptr %.pre174 to i64
@@ -1766,7 +1766,7 @@ bytestream2_get_byte.exit94:                      ; preds = %145, %146
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %bytestream2_get_byte.exit90, %bytestream2_get_byte.exit94, %._crit_edge
-  %.1 = phi i32 [ %61, %bytestream2_get_byte.exit90 ], [ %152, %bytestream2_get_byte.exit94 ], [ %.3.lcssa, %._crit_edge ], [ %153, %.loopexit.loopexit ]
+  %.1 = phi i32 [ %61, %bytestream2_get_byte.exit90 ], [ %.3.lcssa, %._crit_edge ], [ %152, %bytestream2_get_byte.exit94 ], [ %153, %.loopexit.loopexit ]
   %.pre143 = load ptr, ptr %14, align 8, !tbaa !40
   %.pre144 = load ptr, ptr %13, align 8, !tbaa !38
   %154 = ptrtoint ptr %.pre143 to i64
@@ -2047,7 +2047,7 @@ bytestream2_get_le32.exit83:                      ; preds = %113, %114
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %bytestream2_get_byte.exit80, %bytestream2_get_le32.exit83, %._crit_edge
-  %.1 = phi i32 [ %62, %bytestream2_get_byte.exit80 ], [ %119, %bytestream2_get_le32.exit83 ], [ %.3.lcssa, %._crit_edge ], [ %120, %.loopexit.loopexit ]
+  %.1 = phi i32 [ %62, %bytestream2_get_byte.exit80 ], [ %.3.lcssa, %._crit_edge ], [ %119, %bytestream2_get_le32.exit83 ], [ %120, %.loopexit.loopexit ]
   %.pre132 = load ptr, ptr %14, align 8, !tbaa !40
   %.pre133 = load ptr, ptr %13, align 8, !tbaa !38
   %121 = ptrtoint ptr %.pre132 to i64

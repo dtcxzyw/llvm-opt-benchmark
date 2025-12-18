@@ -1124,7 +1124,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @vmap_range_noflush(i64 nou
   br i1 %235, label %.thread18, label %26, !llvm.loop !27
 
 .thread18:                                        ; preds = %42, %58, %231, %75, %78, %122, %125, %170, %173
-  %236 = phi i32 [ -12, %75 ], [ -12, %170 ], [ -12, %122 ], [ -12, %173 ], [ -12, %125 ], [ -12, %78 ], [ -12, %42 ], [ -12, %58 ], [ 0, %231 ]
+  %236 = phi i32 [ -12, %170 ], [ -12, %75 ], [ -12, %122 ], [ -12, %173 ], [ -12, %125 ], [ -12, %78 ], [ -12, %42 ], [ -12, %58 ], [ 0, %231 ]
   ret i32 %236
 }
 
@@ -1771,7 +1771,7 @@ define dso_local range(i32 -12, 1) i32 @__vmap_pages_range_noflush(i64 noundef %
   br label %239
 
 239:                                              ; preds = %236, %228
-  %240 = phi i32 [ %229, %228 ], [ %238, %236 ]
+  %240 = phi i32 [ %238, %236 ], [ %229, %228 ]
   %241 = icmp eq i32 %240, 0
   br i1 %241, label %.thread27, label %242, !prof !57
 
@@ -1852,7 +1852,7 @@ define dso_local range(i32 -12, 1) i32 @__vmap_pages_range_noflush(i64 noundef %
   br i1 %285, label %270, label %.thread35, !llvm.loop !69
 
 .thread35:                                        ; preds = %56, %72, %267, %89, %92, %115, %118, %145, %148, %283, %270, %170, %.thread27, %173, %14
-  %286 = phi i32 [ 0, %14 ], [ -12, %.thread27 ], [ %281, %270 ], [ -12, %170 ], [ -12, %173 ], [ -12, %145 ], [ -12, %115 ], [ -12, %89 ], [ 0, %283 ], [ -12, %148 ], [ -12, %118 ], [ -12, %92 ], [ -12, %56 ], [ -12, %72 ], [ 0, %267 ]
+  %286 = phi i32 [ 0, %14 ], [ -12, %.thread27 ], [ -12, %89 ], [ -12, %170 ], [ -12, %173 ], [ %281, %270 ], [ -12, %145 ], [ -12, %115 ], [ 0, %283 ], [ -12, %148 ], [ -12, %118 ], [ -12, %92 ], [ -12, %56 ], [ -12, %72 ], [ 0, %267 ]
   ret i32 %286
 }
 
@@ -2849,9 +2849,9 @@ define dso_local ptr @vm_map_ram(ptr noundef readonly captures(none) %0, i32 nou
   br label %156
 
 156:                                              ; preds = %.thread158, %152
-  %157 = phi ptr [ %154, %152 ], [ %145, %.thread158 ]
-  %158 = phi ptr [ %153, %152 ], [ %144, %.thread158 ]
-  %159 = phi ptr [ %155, %152 ], [ %145, %.thread158 ]
+  %157 = phi ptr [ %145, %.thread158 ], [ %154, %152 ]
+  %158 = phi ptr [ %144, %.thread158 ], [ %153, %152 ]
+  %159 = phi ptr [ %145, %.thread158 ], [ %155, %152 ]
   %160 = icmp eq ptr %159, null
   br i1 %160, label %.thread65, label %161, !prof !57
 
@@ -5098,7 +5098,7 @@ define internal noundef range(i32 -22, 1) i32 @vmap_pfn_apply(ptr noundef %0, i6
   br label %71
 
 71:                                               ; preds = %68, %60
-  %72 = phi i32 [ %61, %60 ], [ %70, %68 ]
+  %72 = phi i32 [ %70, %68 ], [ %61, %60 ]
   %73 = icmp eq i32 %72, 0
   br i1 %73, label %.thread, label %74, !prof !197
 
@@ -6565,7 +6565,7 @@ define dso_local i64 @vread_iter(ptr noundef %0, ptr noundef %1, i64 noundef %2)
   br label %.thread56
 
 .loopexit70:                                      ; preds = %335, %163, %404, %397, %.thread46
-  %.pn = phi i64 [ %349, %.thread46 ], [ %166, %163 ], [ %400, %397 ], [ %416, %404 ], [ %347, %335 ]
+  %.pn = phi i64 [ %400, %397 ], [ %416, %404 ], [ %166, %163 ], [ %349, %.thread46 ], [ %347, %335 ]
   %.pn.fr = freeze i64 %.pn
   %420 = sub i64 %117, %.pn.fr
   %421 = getelementptr i8, ptr %113, i64 %420
@@ -6739,7 +6739,7 @@ define dso_local i32 @remap_vmalloc_range_partial(ptr noundef %0, i64 noundef %1
   br label %.thread7
 
 .thread7:                                         ; preds = %57, %.thread6, %31, %69, %46, %43, %38, %34, %8, %5
-  %70 = phi i32 [ 0, %69 ], [ -22, %5 ], [ -22, %8 ], [ -22, %34 ], [ -22, %38 ], [ -22, %46 ], [ -22, %43 ], [ -22, %31 ], [ -22, %.thread6 ], [ %62, %57 ]
+  %70 = phi i32 [ 0, %69 ], [ -22, %5 ], [ -22, %8 ], [ -22, %34 ], [ -22, %38 ], [ -22, %46 ], [ -22, %43 ], [ -22, %.thread6 ], [ -22, %31 ], [ %62, %57 ]
   ret i32 %70
 }
 
@@ -7817,9 +7817,9 @@ default.unreachable384:                           ; preds = %select.unfold
   br label %605
 
 605:                                              ; preds = %.thread385, %601
-  %606 = phi ptr [ %603, %601 ], [ %594, %.thread385 ]
-  %607 = phi ptr [ %602, %601 ], [ %593, %.thread385 ]
-  %608 = phi ptr [ %604, %601 ], [ %594, %.thread385 ]
+  %606 = phi ptr [ %594, %.thread385 ], [ %603, %601 ]
+  %607 = phi ptr [ %593, %.thread385 ], [ %602, %601 ]
+  %608 = phi ptr [ %594, %.thread385 ], [ %604, %601 ]
   %609 = icmp eq ptr %608, null
   br i1 %609, label %.thread125, label %610, !prof !57
 
@@ -8309,8 +8309,8 @@ free_vmap_area_rb_augment_cb_propagate.exit:      ; preds = %730, %725, %691, %6
   br i1 %889, label %.thread86, label %.preheader447, !llvm.loop !248
 
 .thread86:                                        ; preds = %885, %71, %.loopexit149, %73
-  %890 = phi ptr [ %77, %73 ], [ %77, %.loopexit149 ], [ null, %71 ], [ %77, %885 ]
-  %891 = phi ptr [ %76, %73 ], [ %76, %.loopexit149 ], [ null, %71 ], [ %76, %885 ]
+  %890 = phi ptr [ %77, %73 ], [ null, %71 ], [ %77, %.loopexit149 ], [ %77, %885 ]
+  %891 = phi ptr [ %76, %73 ], [ null, %71 ], [ %76, %.loopexit149 ], [ %76, %885 ]
   tail call void @kfree(ptr noundef %890) #20
   tail call void @kfree(ptr noundef %891) #20
   br label %892
@@ -9159,7 +9159,7 @@ define internal fastcc zeroext i1 @__purge_vmap_area_lazy(i64 noundef %0, i64 no
   br i1 %47, label %59, label %.preheader69.backedge
 
 .preheader69.backedge:                            ; preds = %44, %.thread
-  %.be = phi ptr [ %46, %44 ], [ %49, %.thread ]
+  %.be = phi ptr [ %49, %.thread ], [ %46, %44 ]
   br label %.preheader69, !llvm.loop !116
 
 .thread:                                          ; preds = %.preheader69
@@ -9195,9 +9195,9 @@ define internal fastcc zeroext i1 @__purge_vmap_area_lazy(i64 noundef %0, i64 no
   br label %63
 
 63:                                               ; preds = %.thread123, %59
-  %64 = phi ptr [ %61, %59 ], [ %52, %.thread123 ]
-  %65 = phi ptr [ %60, %59 ], [ %51, %.thread123 ]
-  %66 = phi ptr [ %62, %59 ], [ %52, %.thread123 ]
+  %64 = phi ptr [ %52, %.thread123 ], [ %61, %59 ]
+  %65 = phi ptr [ %51, %.thread123 ], [ %60, %59 ]
+  %66 = phi ptr [ %52, %.thread123 ], [ %62, %59 ]
   %67 = icmp eq ptr %66, null
   br i1 %67, label %.thread56, label %68, !prof !57
 
@@ -9888,9 +9888,9 @@ define internal fastcc void @free_vmap_area_noflush(ptr noundef %0) unnamed_addr
   br label %52
 
 52:                                               ; preds = %.thread55, %48
-  %53 = phi ptr [ %50, %48 ], [ %40, %.thread55 ]
-  %54 = phi ptr [ %49, %48 ], [ %39, %.thread55 ]
-  %55 = phi ptr [ %51, %48 ], [ %40, %.thread55 ]
+  %53 = phi ptr [ %40, %.thread55 ], [ %50, %48 ]
+  %54 = phi ptr [ %39, %.thread55 ], [ %49, %48 ]
+  %55 = phi ptr [ %40, %.thread55 ], [ %51, %48 ]
   %56 = icmp eq ptr %55, null
   br i1 %56, label %.thread27, label %57, !prof !57
 

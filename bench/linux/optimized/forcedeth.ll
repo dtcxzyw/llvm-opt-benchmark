@@ -11531,10 +11531,10 @@ define internal void @nv_set_multicast(ptr noundef %0) #2 align 16 {
   br i1 %43, label %.loopexit, label %.preheader, !llvm.loop !77
 
 .loopexit:                                        ; preds = %.preheader, %22, %14
-  %44 = phi i32 [ 0, %14 ], [ -1, %22 ], [ %38, %.preheader ]
-  %45 = phi i32 [ 0, %14 ], [ -1, %22 ], [ %41, %.preheader ]
-  %46 = phi i32 [ 0, %14 ], [ -1, %22 ], [ %36, %.preheader ]
-  %47 = phi i32 [ 0, %14 ], [ -1, %22 ], [ %39, %.preheader ]
+  %44 = phi i32 [ -1, %22 ], [ 0, %14 ], [ %38, %.preheader ]
+  %45 = phi i32 [ -1, %22 ], [ 0, %14 ], [ %41, %.preheader ]
+  %46 = phi i32 [ -1, %22 ], [ 0, %14 ], [ %36, %.preheader ]
+  %47 = phi i32 [ -1, %22 ], [ 0, %14 ], [ %39, %.preheader ]
   %48 = or i32 %46, %44
   %49 = or i32 %47, %45
   %50 = or i32 %46, 1

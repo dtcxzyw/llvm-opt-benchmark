@@ -5240,7 +5240,7 @@ _ZNK3gmx17RangePartitioning5blockEi.exit50._crit_edge: ; preds = %_ZNK3gmx17Rang
   br i1 %.not83, label %.preheader, label %.critedge2, !llvm.loop !243
 
 .critedge2:                                       ; preds = %_ZNK3gmx17RangePartitioning5blockEi.exit38, %_ZNK3gmx17RangePartitioning5blockEi.exit50._crit_edge, %.critedge, %28, %45, %2
-  %51 = phi i1 [ true, %2 ], [ false, %45 ], [ false, %28 ], [ false, %_ZNK3gmx17RangePartitioning5blockEi.exit38 ], [ true, %_ZNK3gmx17RangePartitioning5blockEi.exit50._crit_edge ], [ false, %.critedge ]
+  %51 = phi i1 [ false, %28 ], [ true, %2 ], [ false, %45 ], [ false, %.critedge ], [ false, %_ZNK3gmx17RangePartitioning5blockEi.exit38 ], [ true, %_ZNK3gmx17RangePartitioning5blockEi.exit50._crit_edge ]
   ret i1 %51
 }
 
@@ -5350,7 +5350,7 @@ define noundef zeroext i1 @_Z30gmx_ana_index_has_full_ablocksP15gmx_ana_index_tP
   br i1 %exitcond66.not, label %.loopexit.loopexit, label %45, !llvm.loop !246
 
 .loopexit35:                                      ; preds = %28, %.critedge, %.loopexit, %25, %45, %2
-  %51 = phi i1 [ true, %2 ], [ false, %45 ], [ false, %25 ], [ false, %28 ], [ false, %.critedge ], [ true, %.loopexit ]
+  %51 = phi i1 [ false, %25 ], [ true, %2 ], [ false, %45 ], [ true, %.loopexit ], [ false, %28 ], [ false, %.critedge ]
   ret i1 %51
 }
 
@@ -6135,7 +6135,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %136, 
   resume { ptr, i32 } %.pn.pn76
 
 .loopexit:                                        ; preds = %_ZL16next_group_indexiPK10gmx_mtop_t9e_index_tPi.exit.backedge.us126, %_ZL16next_group_indexiPK10gmx_mtop_t9e_index_tPi.exit.backedge.us113, %_ZL16next_group_indexiPK10gmx_mtop_t9e_index_tPi.exit.backedge.us100, %_ZL16next_group_indexiPK10gmx_mtop_t9e_index_tPi.exit.backedge.us, %.lr.ph, %_ZL16next_group_indexiPK10gmx_mtop_t9e_index_tPi.exit.preheader
-  %.sink.i87.lcssa = phi i32 [ %.promoted, %_ZL16next_group_indexiPK10gmx_mtop_t9e_index_tPi.exit.preheader ], [ %.promoted, %.lr.ph ], [ %.promoted, %_ZL16next_group_indexiPK10gmx_mtop_t9e_index_tPi.exit.backedge.us113 ], [ %.promoted, %_ZL16next_group_indexiPK10gmx_mtop_t9e_index_tPi.exit.backedge.us ], [ %.promoted, %_ZL16next_group_indexiPK10gmx_mtop_t9e_index_tPi.exit.backedge.us100 ], [ 0, %_ZL16next_group_indexiPK10gmx_mtop_t9e_index_tPi.exit.backedge.us126 ]
+  %.sink.i87.lcssa = phi i32 [ %.promoted, %_ZL16next_group_indexiPK10gmx_mtop_t9e_index_tPi.exit.preheader ], [ %.promoted, %_ZL16next_group_indexiPK10gmx_mtop_t9e_index_tPi.exit.backedge.us113 ], [ %.promoted, %.lr.ph ], [ %.promoted, %_ZL16next_group_indexiPK10gmx_mtop_t9e_index_tPi.exit.backedge.us ], [ %.promoted, %_ZL16next_group_indexiPK10gmx_mtop_t9e_index_tPi.exit.backedge.us100 ], [ 0, %_ZL16next_group_indexiPK10gmx_mtop_t9e_index_tPi.exit.backedge.us126 ]
   store i32 %.sink.i87.lcssa, ptr %4, align 4
   br label %142
 

@@ -15725,7 +15725,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17he7ada0ba9ca6fad0E.exit.i.loopexit"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17he7ada0ba9ca6fad0E.exit.i.loopexit": ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h73cc54dd49d8b8edE.exit.i.us.i.i.i", %"_ZN4core3ptr97drop_in_place$LT$core..option..IntoIter$LT$uv_pep440..version_specifier..VersionSpecifier$GT$$GT$17h366fbc5fe59ccfb0E.exit2.i.us.i.i.i", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17he7ada0ba9ca6fad0E.exit.i.loopexit.loopexit25", %"_ZN4core3ptr97drop_in_place$LT$core..option..IntoIter$LT$uv_pep440..version_specifier..VersionSpecifier$GT$$GT$17h366fbc5fe59ccfb0E.exit2.i.us.preheader.i.lr.ph.i.i"
-  %68 = phi i64 [ %42, %"_ZN4core3ptr97drop_in_place$LT$core..option..IntoIter$LT$uv_pep440..version_specifier..VersionSpecifier$GT$$GT$17h366fbc5fe59ccfb0E.exit2.i.us.preheader.i.lr.ph.i.i" ], [ %.promoted, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17he7ada0ba9ca6fad0E.exit.i.loopexit.loopexit25" ], [ %46, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h73cc54dd49d8b8edE.exit.i.us.i.i.i" ], [ %42, %"_ZN4core3ptr97drop_in_place$LT$core..option..IntoIter$LT$uv_pep440..version_specifier..VersionSpecifier$GT$$GT$17h366fbc5fe59ccfb0E.exit2.i.us.i.i.i" ]
+  %68 = phi i64 [ %.promoted, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17he7ada0ba9ca6fad0E.exit.i.loopexit.loopexit25" ], [ %42, %"_ZN4core3ptr97drop_in_place$LT$core..option..IntoIter$LT$uv_pep440..version_specifier..VersionSpecifier$GT$$GT$17h366fbc5fe59ccfb0E.exit2.i.us.preheader.i.lr.ph.i.i" ], [ %46, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h73cc54dd49d8b8edE.exit.i.us.i.i.i" ], [ %42, %"_ZN4core3ptr97drop_in_place$LT$core..option..IntoIter$LT$uv_pep440..version_specifier..VersionSpecifier$GT$$GT$17h366fbc5fe59ccfb0E.exit2.i.us.i.i.i" ]
   store i64 %68, ptr %39, align 8
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17he7ada0ba9ca6fad0E.exit.i"
 
@@ -36172,7 +36172,7 @@ _ZN3log13__private_api3log17h44c5c005271c63c8E.exit: ; preds = %54
   br label %163
 
 .loopexit.split-lp:                               ; preds = %.invoke, %169, %191, %203, %176, %198
-  %.sroa.05.2.ph = phi i1 [ true, %.invoke ], [ true, %176 ], [ true, %191 ], [ true, %198 ], [ false, %203 ], [ true, %169 ]
+  %.sroa.05.2.ph = phi i1 [ true, %176 ], [ true, %191 ], [ true, %198 ], [ false, %203 ], [ true, %.invoke ], [ true, %169 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %163

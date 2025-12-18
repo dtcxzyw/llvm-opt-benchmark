@@ -2491,7 +2491,7 @@ Aig_ObjChild0Copy.exit137:                        ; preds = %165, %169
   br i1 %182, label %157, label %.critedge10, !llvm.loop !81
 
 .critedge10:                                      ; preds = %180, %154, %.preheader138, %.preheader
-  %.val116 = phi i32 [ %.val120163, %.preheader ], [ %.val120163, %.preheader138 ], [ %.val120, %154 ], [ %.val118, %180 ]
+  %.val116 = phi i32 [ %.val120, %154 ], [ %.val120163, %.preheader ], [ %.val120163, %.preheader138 ], [ %.val118, %180 ]
   %183 = sdiv i32 %.val116, 2
   tail call void @Aig_ManSetRegNum(ptr noundef nonnull %6, i32 noundef %183) #18
   %184 = tail call i32 @Aig_ManCleanup(ptr noundef nonnull %6) #18
@@ -3220,7 +3220,7 @@ define range(i32 0, 2) i32 @Saig_ManDemiterCheckPo(ptr noundef readonly captures
   br label %67
 
 67:                                               ; preds = %.sink.split, %29, %47, %27, %23, %13
-  %.0 = phi i32 [ 0, %13 ], [ 0, %27 ], [ 0, %23 ], [ 0, %47 ], [ 0, %29 ], [ 1, %.sink.split ]
+  %.0 = phi i32 [ 0, %29 ], [ 0, %13 ], [ 0, %27 ], [ 0, %47 ], [ 0, %23 ], [ 1, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0

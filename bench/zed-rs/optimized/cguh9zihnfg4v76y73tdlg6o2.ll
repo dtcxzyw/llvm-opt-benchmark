@@ -1009,9 +1009,9 @@ _ZN12aho_corasick4util10primitives9PatternID3new17hfbe7a56c108857afE.exit: ; pre
   br i1 %.not.i, label %139, label %141
 
 .invoke:                                          ; preds = %143, %111, %86, %130
-  %136 = phi i64 [ %131, %130 ], [ %112, %111 ], [ %87, %86 ], [ %149, %143 ]
-  %137 = phi i64 [ %128, %130 ], [ %113, %111 ], [ %88, %86 ], [ %150, %143 ]
-  %138 = phi ptr [ @anon.b5a700650521b6df98eec07c6c77d252.5, %130 ], [ @anon.b5a700650521b6df98eec07c6c77d252.1, %111 ], [ @anon.b5a700650521b6df98eec07c6c77d252.10, %86 ], [ @anon.b5a700650521b6df98eec07c6c77d252.4, %143 ]
+  %136 = phi i64 [ %131, %130 ], [ %149, %143 ], [ %87, %86 ], [ %112, %111 ]
+  %137 = phi i64 [ %128, %130 ], [ %150, %143 ], [ %88, %86 ], [ %113, %111 ]
+  %138 = phi ptr [ @anon.b5a700650521b6df98eec07c6c77d252.5, %130 ], [ @anon.b5a700650521b6df98eec07c6c77d252.4, %143 ], [ @anon.b5a700650521b6df98eec07c6c77d252.10, %86 ], [ @anon.b5a700650521b6df98eec07c6c77d252.1, %111 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %136, i64 noundef %137, ptr noalias noundef readonly align 8 dereferenceable(24) %138) #21
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp
 

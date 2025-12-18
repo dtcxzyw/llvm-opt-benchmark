@@ -5926,8 +5926,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   br label %134
 
 134:                                              ; preds = %127, %123
-  %135 = phi i8 [ %125, %123 ], [ %.pre.i.i.i.i.i.i.i.i.i, %127 ]
-  %.sroa.3.0.i.ph.i.i.i.i.i.i.i.i.i.i = phi i64 [ %.sroa.4.19.i.i.i.i.i.i.i.i.i.i.i, %123 ], [ %133, %127 ]
+  %135 = phi i8 [ %.pre.i.i.i.i.i.i.i.i.i, %127 ], [ %125, %123 ]
+  %.sroa.3.0.i.ph.i.i.i.i.i.i.i.i.i.i = phi i64 [ %133, %127 ], [ %.sroa.4.19.i.i.i.i.i.i.i.i.i.i.i, %123 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1287)
   %136 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i.i.i.i.i.i.i, i64 %.sroa.3.0.i.ph.i.i.i.i.i.i.i.i.i.i
   %137 = and i8 %135, 1
@@ -8856,8 +8856,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   br label %75
 
 75:                                               ; preds = %68, %64
-  %76 = phi i8 [ %66, %64 ], [ %.pre.i.i.i.i.i.i.i.i.i, %68 ]
-  %.sroa.3.0.i.i.ph.i.i.i.i.i.i.i.i.i = phi i64 [ %.sroa.4.19.i.i.i.i.i.i.i.i.i.i.i, %64 ], [ %74, %68 ]
+  %76 = phi i8 [ %.pre.i.i.i.i.i.i.i.i.i, %68 ], [ %66, %64 ]
+  %.sroa.3.0.i.i.ph.i.i.i.i.i.i.i.i.i = phi i64 [ %74, %68 ], [ %.sroa.4.19.i.i.i.i.i.i.i.i.i.i.i, %64 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1905)
   %77 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i.i.i.i.i.i.i, i64 %.sroa.3.0.i.i.ph.i.i.i.i.i.i.i.i.i
   %78 = and i8 %76, 1
@@ -11924,8 +11924,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   br label %122
 
 122:                                              ; preds = %115, %111
-  %123 = phi i8 [ %113, %111 ], [ %.pre.i.i.i.i.i.i.i.i, %115 ]
-  %.sroa.3.0.i.ph.i.i.i.i.i.i.i.i.i = phi i64 [ %.sroa.4.19.i.i.i.i.i.i.i.i.i.i, %111 ], [ %121, %115 ]
+  %123 = phi i8 [ %.pre.i.i.i.i.i.i.i.i, %115 ], [ %113, %111 ]
+  %.sroa.3.0.i.ph.i.i.i.i.i.i.i.i.i = phi i64 [ %121, %115 ], [ %.sroa.4.19.i.i.i.i.i.i.i.i.i.i, %111 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2545)
   %124 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i.i.i.i.i.i, i64 %.sroa.3.0.i.ph.i.i.i.i.i.i.i.i.i
   %125 = and i8 %123, 1
@@ -16469,8 +16469,8 @@ common.resume.i.i:                                ; preds = %134, %55
   br label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hd61e60069fc16252E.exit.thread.i.i.i.i"
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hd61e60069fc16252E.exit.thread.i.i.i.i": ; preds = %112, %108
-  %119 = phi i8 [ %110, %108 ], [ %.pre.i.i.i.i.i, %112 ]
-  %.sroa.3.0.i.i.ph.i.i.i.i.i = phi i64 [ %.sroa.4.19.i.i.i.i.i.i.i, %108 ], [ %118, %112 ]
+  %119 = phi i8 [ %.pre.i.i.i.i.i, %112 ], [ %110, %108 ]
+  %.sroa.3.0.i.i.ph.i.i.i.i.i = phi i64 [ %118, %112 ], [ %.sroa.4.19.i.i.i.i.i.i.i, %108 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !3347)
   %120 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i.i.i, i64 %.sroa.3.0.i.i.ph.i.i.i.i.i
   %121 = and i8 %119, 1
@@ -29489,7 +29489,7 @@ define internal fastcc void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenC
           to label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h448f4be792d1a571E.exit.i.i.i.i.i.i.i.i" unwind label %.loopexit.i.i.i.i.i.i, !noalias !5981
 
 133:                                              ; preds = %126, %122
-  %.sroa.3.0.i.i.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %.sroa.4.19.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %122 ], [ %132, %126 ]
+  %.sroa.3.0.i.i.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %132, %126 ], [ %.sroa.4.19.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %122 ]
   %134 = load ptr, ptr %.0.val, align 8, !alias.scope !6034, !noalias !6035, !nonnull !3
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !noalias !6052
@@ -38363,7 +38363,7 @@ _ZN9hashbrown3map9make_hash17h4055a030e823f62eE.exit: ; preds = %16, %20, %46
   br label %119
 
 119:                                              ; preds = %108, %112
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %108 ], [ %118, %112 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %118, %112 ], [ %.sroa.4.19.i.i, %108 ]
   %120 = load ptr, ptr %0, align 8, !alias.scope !7228, !noalias !7231, !nonnull !3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7239)
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 %.sroa.3.0.i.i.ph

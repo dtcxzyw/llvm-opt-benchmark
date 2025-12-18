@@ -906,7 +906,7 @@ define range(i32 -1, 1) i32 @H5C_set_slist_enabled(ptr noundef captures(address_
   br label %.loopexit
 
 .loopexit:                                        ; preds = %79, %38, %14, %23, %33, %56, %82, %92, %37, %96, %9
-  %.0 = phi i32 [ -1, %14 ], [ -1, %23 ], [ -1, %33 ], [ -1, %56 ], [ 0, %37 ], [ -1, %92 ], [ 0, %96 ], [ -1, %82 ], [ 0, %9 ], [ 0, %38 ], [ 0, %79 ]
+  %.0 = phi i32 [ -1, %14 ], [ -1, %23 ], [ -1, %33 ], [ -1, %56 ], [ 0, %9 ], [ 0, %37 ], [ -1, %92 ], [ 0, %96 ], [ -1, %82 ], [ 0, %38 ], [ 0, %79 ]
   ret i32 %.0
 }
 
@@ -1503,7 +1503,7 @@ H5C_validate_resize_config.exit:                  ; preds = %78, %61
   br label %181
 
 181:                                              ; preds = %.sink.split, %173, %149, %153, %133, %137
-  %182 = phi i8 [ 1, %173 ], [ 1, %149 ], [ 1, %153 ], [ 1, %133 ], [ 1, %137 ], [ 0, %.sink.split ]
+  %182 = phi i8 [ 1, %173 ], [ 1, %137 ], [ 1, %149 ], [ 1, %153 ], [ 1, %133 ], [ 0, %.sink.split ]
   %183 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %184 = load i64, ptr %183, align 8, !tbaa !161
   %185 = getelementptr inbounds nuw i8, ptr %1, i64 48

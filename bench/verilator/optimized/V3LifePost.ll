@@ -1803,7 +1803,7 @@ _ZNSt10_HashtableIPK11AstVarScopeSt4pairIKS2_16LifePostLocationESaIS6_ENSt8__det
   resume { ptr, i32 } %70
 
 _ZNSt13unordered_mapIPK11AstVarScope16LifePostLocationSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S3_EEEixERS9_.exit: ; preds = %58, %53, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %54, %53 ], [ %69, %.loopexit.i.i ], [ %60, %58 ]
+  %.pn.i.i = phi ptr [ %69, %.loopexit.i.i ], [ %54, %53 ], [ %60, %58 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   store ptr %47, ptr %.1.i.i, align 8, !tbaa !152
   %.sroa.4.0..1.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 24

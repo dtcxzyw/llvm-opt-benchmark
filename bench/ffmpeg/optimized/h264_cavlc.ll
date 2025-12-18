@@ -4346,7 +4346,7 @@ get_se_golomb.exit971:                            ; preds = %2497, %2507
   br i1 %exitcond1405.not, label %.thread1133, label %.preheader1207, !llvm.loop !162
 
 .thread1133:                                      ; preds = %1769, %2216, %2545, %.preheader1210, %.preheader1215, %.preheader1218, %._crit_edge1282, %873, %871, %1469
-  %.0563 = phi i32 [ %11, %873 ], [ %.2565, %._crit_edge1282 ], [ %1473, %1469 ], [ %11, %871 ], [ %11, %.preheader1215 ], [ %11, %.preheader1218 ], [ %11, %.preheader1210 ], [ %11, %2216 ], [ %11, %2545 ], [ %11, %1769 ]
+  %.0563 = phi i32 [ %11, %873 ], [ %.2565, %._crit_edge1282 ], [ %1473, %1469 ], [ %11, %871 ], [ %11, %.preheader1218 ], [ %11, %2216 ], [ %11, %2545 ], [ %11, %.preheader1215 ], [ %11, %.preheader1210 ], [ %11, %1769 ]
   %2546 = load i32, ptr %5, align 4, !tbaa !97
   %2547 = and i32 %2546, 120
   %.not685 = icmp eq i32 %2547, 0
@@ -5601,7 +5601,7 @@ decode_luma_residual.exit754.thread1153:          ; preds = %.loopexit1187, %311
   br label %write_back_non_zero_count.exit
 
 write_back_non_zero_count.exit:                   ; preds = %2875, %2913, %2943, %3200, %3242, %3000, %3041, %3068, %3107, %3143, %3170, %3096, %2989, %2865, %2843, %800, %844, %830, %3300, %decode_luma_residual.exit754.thread1153, %1531, %1831, %2265, %.thread1079, %.thread, %721, %724, %2744, %2724, %2706, %667, %decode_mb_skip.exit
-  %.3 = phi i32 [ 0, %decode_mb_skip.exit ], [ -1094995529, %.thread ], [ -1094995529, %2744 ], [ -1, %1831 ], [ -1, %830 ], [ -1, %2706 ], [ -1, %2724 ], [ 0, %3300 ], [ -1, %.thread1079 ], [ 0, %724 ], [ -1, %667 ], [ -1094995529, %721 ], [ -1, %1531 ], [ -1, %2265 ], [ 0, %decode_luma_residual.exit754.thread1153 ], [ -1, %800 ], [ -1, %844 ], [ -1, %2843 ], [ -1, %2865 ], [ -1, %2989 ], [ -1, %3096 ], [ -1, %2913 ], [ -1, %3170 ], [ -1, %3143 ], [ -1, %3107 ], [ -1, %3068 ], [ -1, %3041 ], [ -1, %3000 ], [ -1, %3242 ], [ -1, %3200 ], [ -1, %2943 ], [ -1, %2875 ]
+  %.3 = phi i32 [ 0, %decode_mb_skip.exit ], [ -1094995529, %.thread ], [ -1094995529, %2744 ], [ -1, %1831 ], [ -1, %830 ], [ -1, %2706 ], [ -1, %2724 ], [ 0, %3300 ], [ -1, %.thread1079 ], [ 0, %724 ], [ -1, %667 ], [ -1094995529, %721 ], [ -1, %1531 ], [ -1, %2265 ], [ 0, %decode_luma_residual.exit754.thread1153 ], [ -1, %800 ], [ -1, %844 ], [ -1, %3200 ], [ -1, %2913 ], [ -1, %2843 ], [ -1, %3096 ], [ -1, %3242 ], [ -1, %3143 ], [ -1, %3068 ], [ -1, %3041 ], [ -1, %3170 ], [ -1, %2865 ], [ -1, %2943 ], [ -1, %3000 ], [ -1, %2989 ], [ -1, %3107 ], [ -1, %2875 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.3
 }
@@ -8233,7 +8233,7 @@ get_vlc2.exit337:                                 ; preds = %735, %752
   br i1 %exitcond452.not, label %.loopexit, label %.lr.ph401, !llvm.loop !192
 
 .loopexit:                                        ; preds = %.lr.ph379, %.lr.ph389, %.lr.ph401, %.lr.ph413, %.preheader364, %.preheader362, %.preheader360, %.preheader
-  %.3273 = phi i32 [ %.1271.lcssa, %.preheader362 ], [ %.4274.lcssa, %.preheader ], [ %.5275.lcssa, %.preheader360 ], [ %.2272.lcssa, %.preheader364 ], [ %.1271.lcssa, %.lr.ph389 ], [ %.4274.lcssa, %.lr.ph413 ], [ %.5275.lcssa, %.lr.ph401 ], [ %.2272.lcssa, %.lr.ph379 ]
+  %.3273 = phi i32 [ %.4274.lcssa, %.preheader ], [ %.5275.lcssa, %.preheader360 ], [ %.1271.lcssa, %.preheader362 ], [ %.2272.lcssa, %.preheader364 ], [ %.1271.lcssa, %.lr.ph389 ], [ %.4274.lcssa, %.lr.ph413 ], [ %.5275.lcssa, %.lr.ph401 ], [ %.2272.lcssa, %.lr.ph379 ]
   %802 = icmp slt i32 %.3273, 0
   br i1 %802, label %803, label %.thread353
 

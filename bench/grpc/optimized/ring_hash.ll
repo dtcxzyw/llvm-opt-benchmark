@@ -3297,10 +3297,10 @@ _ZZN9grpc_core12_GLOBAL__N_18RingHash4RingC1EPS1_PNS0_16RingHashLbConfigEEN14End
   br label %722
 
 ._crit_edge314.i.i:                               ; preds = %.lr.ph313.i.i, %._crit_edge.i.i, %158
-  %.sroa.0.4.i = phi ptr [ %.sroa.0.3.i, %._crit_edge.i.i ], [ null, %158 ], [ %.sroa.0.3.i, %.lr.ph313.i.i ]
-  %.sroa.12.4.i = phi ptr [ %.sroa.0.3.i, %._crit_edge.i.i ], [ null, %158 ], [ %340, %.lr.ph313.i.i ]
-  %.sroa.27.4.i = phi ptr [ %.sroa.27.3.i, %._crit_edge.i.i ], [ null, %158 ], [ %.sroa.27.3.i, %.lr.ph313.i.i ]
-  %.0227.lcssa.i.i = phi double [ 1.000000e+00, %._crit_edge.i.i ], [ 1.000000e+00, %158 ], [ %.sroa.speculated213.i.i, %.lr.ph313.i.i ]
+  %.sroa.0.4.i = phi ptr [ null, %158 ], [ %.sroa.0.3.i, %._crit_edge.i.i ], [ %.sroa.0.3.i, %.lr.ph313.i.i ]
+  %.sroa.12.4.i = phi ptr [ null, %158 ], [ %.sroa.0.3.i, %._crit_edge.i.i ], [ %340, %.lr.ph313.i.i ]
+  %.sroa.27.4.i = phi ptr [ null, %158 ], [ %.sroa.27.3.i, %._crit_edge.i.i ], [ %.sroa.27.3.i, %.lr.ph313.i.i ]
+  %.0227.lcssa.i.i = phi double [ 1.000000e+00, %158 ], [ 1.000000e+00, %._crit_edge.i.i ], [ %.sroa.speculated213.i.i, %.lr.ph313.i.i ]
   %349 = invoke i64 @_ZNK9grpc_core11ChannelArgs6GetIntESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %122, i64 31, ptr nonnull @.str.36)
           to label %357 unwind label %431, !noalias !167
 

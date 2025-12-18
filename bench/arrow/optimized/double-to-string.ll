@@ -100,7 +100,7 @@ define noundef zeroext i1 @_ZNK14arrow_vendored17double_conversion23DoubleToStri
   br label %34
 
 34:                                               ; preds = %.sink.split, %19, %6
-  %.0 = phi i1 [ true, %.sink.split ], [ false, %6 ], [ false, %19 ]
+  %.0 = phi i1 [ true, %.sink.split ], [ false, %19 ], [ false, %6 ]
   ret i1 %.0
 }
 
@@ -629,7 +629,7 @@ define noundef zeroext i1 @_ZNK14arrow_vendored17double_conversion23DoubleToStri
   br label %_ZNK14arrow_vendored17double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE.exit
 
 _ZNK14arrow_vendored17double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE.exit: ; preds = %.sink.split.i, %26, %13, %67
-  %.0 = phi i1 [ true, %67 ], [ true, %.sink.split.i ], [ false, %13 ], [ false, %26 ]
+  %.0 = phi i1 [ true, %67 ], [ true, %.sink.split.i ], [ false, %26 ], [ false, %13 ]
   ret i1 %.0
 }
 
@@ -830,7 +830,7 @@ _ZN14arrow_vendored17double_conversion23DoubleToStringConverter13DoubleToAsciiEd
   br label %_ZNK14arrow_vendored17double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE.exit
 
 _ZNK14arrow_vendored17double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE.exit: ; preds = %.sink.split.i, %27, %14, %42, %66
-  %.0 = phi i1 [ false, %42 ], [ true, %66 ], [ true, %.sink.split.i ], [ false, %14 ], [ false, %27 ]
+  %.0 = phi i1 [ false, %42 ], [ true, %66 ], [ true, %.sink.split.i ], [ false, %27 ], [ false, %14 ]
   ret i1 %.0
 }
 
@@ -1014,7 +1014,7 @@ _ZN14arrow_vendored17double_conversion23DoubleToStringConverter13DoubleToAsciiEd
   br label %_ZNK14arrow_vendored17double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE.exit
 
 _ZNK14arrow_vendored17double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE.exit: ; preds = %.sink.split.i, %27, %14, %42, %83
-  %.0 = phi i1 [ false, %42 ], [ true, %83 ], [ true, %.sink.split.i ], [ false, %14 ], [ false, %27 ]
+  %.0 = phi i1 [ false, %42 ], [ true, %83 ], [ true, %.sink.split.i ], [ false, %27 ], [ false, %14 ]
   ret i1 %.0
 }
 
@@ -1257,7 +1257,7 @@ _ZN14arrow_vendored17double_conversion23DoubleToStringConverter13DoubleToAsciiEd
   br label %_ZNK14arrow_vendored17double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE.exit
 
 _ZNK14arrow_vendored17double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE.exit: ; preds = %.sink.split.i, %27, %14, %42, %111
-  %.021 = phi i1 [ false, %42 ], [ true, %111 ], [ true, %.sink.split.i ], [ false, %14 ], [ false, %27 ]
+  %.021 = phi i1 [ false, %42 ], [ true, %111 ], [ true, %.sink.split.i ], [ false, %27 ], [ false, %14 ]
   ret i1 %.021
 }
 

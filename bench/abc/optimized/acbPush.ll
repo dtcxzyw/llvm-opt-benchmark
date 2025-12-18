@@ -2343,8 +2343,8 @@ Acb_ObjRemoveDupFanins.exit:                      ; preds = %Acb_ObjRemoveDup.ex
   br i1 %263, label %.lr.ph.i, label %.critedge, !llvm.loop !38
 
 .critedge:                                        ; preds = %Acb_ObjRemoveDupFanins.exit, %.lr.ph141, %2, %.preheader
-  %.val1.i60 = phi i32 [ 1, %.preheader ], [ %.val16.i239, %2 ], [ %.val1.i.us, %.lr.ph141 ], [ %.val16.i, %Acb_ObjRemoveDupFanins.exit ]
-  %.val48 = phi ptr [ %.val15.i240, %.preheader ], [ %.val15.i238, %2 ], [ %.val49.us, %.lr.ph141 ], [ %.val15.i, %Acb_ObjRemoveDupFanins.exit ]
+  %.val1.i60 = phi i32 [ 1, %.preheader ], [ %.val1.i.us, %.lr.ph141 ], [ %.val16.i239, %2 ], [ %.val16.i, %Acb_ObjRemoveDupFanins.exit ]
+  %.val48 = phi ptr [ %.val15.i240, %.preheader ], [ %.val49.us, %.lr.ph141 ], [ %.val15.i238, %2 ], [ %.val15.i, %Acb_ObjRemoveDupFanins.exit ]
   %264 = icmp eq i32 %.val1.i60, 0
   br i1 %264, label %265, label %314
 
@@ -2944,7 +2944,7 @@ Acb_NtkNodeNum.exit:                              ; preds = %9, %3
   br i1 %36, label %23, label %.preheader92, !llvm.loop !46
 
 .preheader91:                                     ; preds = %53, %Acb_NtkNodeNum.exit, %.preheader92
-  %37 = phi i32 [ %.val75, %.preheader92 ], [ %.val7595, %Acb_NtkNodeNum.exit ], [ %.val76, %53 ]
+  %37 = phi i32 [ %.val7595, %Acb_NtkNodeNum.exit ], [ %.val75, %.preheader92 ], [ %.val76, %53 ]
   %.not104 = icmp slt i32 %1, 2
   br i1 %.not104, label %._crit_edge107, label %.preheader90.lr.ph
 

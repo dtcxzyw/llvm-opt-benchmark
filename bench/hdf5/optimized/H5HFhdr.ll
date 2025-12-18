@@ -1741,7 +1741,7 @@ define range(i32 -1, 1) i32 @H5HF__hdr_update_iter(ptr noundef %0, i64 noundef %
   br i1 %216, label %80, label %.thread, !llvm.loop !89
 
 .thread:                                          ; preds = %215, %158, %.thread118, %211, %68, %61, %118, %111, %104, %97, %42, %35
-  %.1 = phi i32 [ -1, %42 ], [ -1, %97 ], [ -1, %118 ], [ -1, %104 ], [ -1, %111 ], [ -1, %35 ], [ -1, %68 ], [ -1, %61 ], [ -1, %211 ], [ -1, %.thread118 ], [ -1, %158 ], [ 0, %215 ]
+  %.1 = phi i32 [ -1, %42 ], [ -1, %97 ], [ -1, %118 ], [ -1, %104 ], [ -1, %111 ], [ -1, %35 ], [ -1, %68 ], [ -1, %158 ], [ -1, %61 ], [ -1, %211 ], [ -1, %.thread118 ], [ 0, %215 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -2029,7 +2029,7 @@ define range(i32 -1, 1) i32 @H5HF__hdr_reverse_iter(ptr noundef %0, i64 noundef 
   br label %39
 
 .thread88:                                        ; preds = %.thread, %89, %85, %70, %73, %63, %56, %2, %27, %20
-  %.069 = phi i32 [ -1, %27 ], [ 0, %2 ], [ -1, %20 ], [ 0, %70 ], [ -1, %73 ], [ -1, %63 ], [ -1, %56 ], [ -1, %.thread ], [ 0, %89 ], [ -1, %85 ]
+  %.069 = phi i32 [ -1, %27 ], [ 0, %2 ], [ -1, %56 ], [ -1, %20 ], [ 0, %70 ], [ -1, %73 ], [ -1, %63 ], [ -1, %.thread ], [ 0, %89 ], [ -1, %85 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.069

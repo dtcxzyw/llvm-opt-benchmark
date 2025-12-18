@@ -887,7 +887,7 @@ define void @_Z17low_ana_dih_transbPKcbS0_iPPfN3gmx8ArrayRefI7t_dlistEEiiS0_PiS1
   br label %._crit_edge242
 
 ._crit_edge242:                                   ; preds = %164, %136, %._crit_edge242.loopexit
-  %.us-phi = phi i32 [ %144, %._crit_edge242.loopexit ], [ %.2146.us246, %136 ], [ %.2146, %164 ]
+  %.us-phi = phi i32 [ %.2146.us246, %136 ], [ %144, %._crit_edge242.loopexit ], [ %.2146, %164 ]
   %indvars.iv.next310 = add nuw nsw i64 %indvars.iv309, 1
   %exitcond314.not = icmp eq i64 %indvars.iv.next310, %wide.trip.count313
   br i1 %exitcond314.not, label %._crit_edge255, label %.lr.ph241, !llvm.loop !45

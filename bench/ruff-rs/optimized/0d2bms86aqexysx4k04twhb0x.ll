@@ -10194,9 +10194,9 @@ define hidden void @_ZN9ty_server6server6Server3new17hcb48e0ab6e7d826bE(ptr dead
   br label %.body.thread
 
 .body.thread232.loopexit.split-lp.loopexit.split-lp: ; preds = %499, %_ZN9ty_server6server6Server27find_best_position_encoding17ha3d5d9c9ce784c27E.exit
-  %.sroa.058.0.ph.ph.ph = phi i8 [ 1, %_ZN9ty_server6server6Server27find_best_position_encoding17ha3d5d9c9ce784c27E.exit ], [ %.sroa.058.3, %499 ]
-  %.sroa.060.2.ph.ph.ph = phi i8 [ 1, %_ZN9ty_server6server6Server27find_best_position_encoding17ha3d5d9c9ce784c27E.exit ], [ %.sroa.060.5, %499 ]
-  %.sroa.069.2.ph.ph.ph = phi i8 [ 1, %_ZN9ty_server6server6Server27find_best_position_encoding17ha3d5d9c9ce784c27E.exit ], [ 0, %499 ]
+  %.sroa.058.0.ph.ph.ph = phi i8 [ %.sroa.058.3, %499 ], [ 1, %_ZN9ty_server6server6Server27find_best_position_encoding17ha3d5d9c9ce784c27E.exit ]
+  %.sroa.060.2.ph.ph.ph = phi i8 [ %.sroa.060.5, %499 ], [ 1, %_ZN9ty_server6server6Server27find_best_position_encoding17ha3d5d9c9ce784c27E.exit ]
+  %.sroa.069.2.ph.ph.ph = phi i8 [ 0, %499 ], [ 1, %_ZN9ty_server6server6Server27find_best_position_encoding17ha3d5d9c9ce784c27E.exit ]
   %lpad.loopexit.split-lp287 = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread
@@ -10207,7 +10207,7 @@ define hidden void @_ZN9ty_server6server6Server3new17hcb48e0ab6e7d826bE(ptr dead
   br label %504
 
 _ZN9ty_server6server6Server27find_best_position_encoding17ha3d5d9c9ce784c27E.exit: ; preds = %89, %"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hb5c0a5804e72d9faE.exit.i.i.i.i", %"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h342b9be3d6c2c8dbE.exit.i.i", %76
-  %.sroa.0.0.i = phi i8 [ 0, %76 ], [ %93, %"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h342b9be3d6c2c8dbE.exit.i.i" ], [ %.sroa.0.0.i.i.i.i.i, %"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hb5c0a5804e72d9faE.exit.i.i.i.i" ], [ 0, %89 ]
+  %.sroa.0.0.i = phi i8 [ 0, %76 ], [ %.sroa.0.0.i.i.i.i.i, %"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hb5c0a5804e72d9faE.exit.i.i.i.i" ], [ %93, %"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h342b9be3d6c2c8dbE.exit.i.i" ], [ 0, %89 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %46)
   %110 = getelementptr inbounds nuw i8, ptr %50, i64 32
   %111 = load i8, ptr %110, align 8, !range !643, !noundef !3

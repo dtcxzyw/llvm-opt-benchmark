@@ -1465,7 +1465,7 @@ _ZNK17array_recognizers11is_as_arrayEP4expr.exit: ; preds = %_ZNK17array_recogni
   br i1 %.not27.old.i.i.i.i, label %_ZNK10model_core15get_func_interpEP9func_decl.exit, label %.lr.ph38.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.backedge:                        ; preds = %197, %194
-  %.137.i.i.i.i.be = phi ptr [ %.old.i.i.i.i, %197 ], [ %196, %194 ]
+  %.137.i.i.i.i.be = phi ptr [ %196, %194 ], [ %.old.i.i.i.i, %197 ]
   br label %.lr.ph38.i.i.i.i, !llvm.loop !84
 
 .loopexit.i:                                      ; preds = %178, %189

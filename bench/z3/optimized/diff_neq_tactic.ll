@@ -5523,7 +5523,7 @@ define linkonce_odr hidden noundef i32 @_ZN15diff_neq_tactic3imp6mk_varEP4expr(p
   br i1 %.not27.old.i.i.i, label %.loopexit, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %38, %35
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %38 ], [ %37, %35 ]
+  %.137.i.i.i.be = phi ptr [ %37, %35 ], [ %.old.i.i.i, %38 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !225
 
 _ZNK7obj_mapI4exprjE4findEPS0_Rj.exit:            ; preds = %19, %30
@@ -6858,8 +6858,8 @@ _ZNK6vectorIN15diff_neq_tactic3imp5diseqELb0EjE3endEv.exit.i: ; preds = %9
   br label %.loopexit59.i
 
 .loopexit59.i:                                    ; preds = %.lr.ph.i, %43, %25
-  %.142.ph.i = phi i32 [ %.04165.i, %25 ], [ %.04165.i, %43 ], [ %37, %.lr.ph.i ]
-  %.138.ph.i = phi i32 [ %.03767.i, %25 ], [ %spec.select.i, %43 ], [ %.03767.i, %.lr.ph.i ]
+  %.142.ph.i = phi i32 [ %.04165.i, %43 ], [ %.04165.i, %25 ], [ %37, %.lr.ph.i ]
+  %.138.ph.i = phi i32 [ %spec.select.i, %43 ], [ %.03767.i, %25 ], [ %.03767.i, %.lr.ph.i ]
   %46 = getelementptr inbounds nuw i8, ptr %.04066.i, i64 8
   %.not.i = icmp eq ptr %46, %19
   br i1 %.not.i, label %.preheader.i, label %25, !llvm.loop !238
@@ -7010,8 +7010,8 @@ _ZNK6vectorIN15diff_neq_tactic3imp5diseqELb0EjE3endEv.exit.i: ; preds = %23
   br label %.loopexit59.i
 
 .loopexit59.i:                                    ; preds = %.lr.ph.i, %51, %33
-  %.142.ph.i = phi i32 [ %.04165.i, %33 ], [ %.04165.i, %51 ], [ %45, %.lr.ph.i ]
-  %.138.ph.i = phi i32 [ %.03767.i, %33 ], [ %spec.select.i, %51 ], [ %.03767.i, %.lr.ph.i ]
+  %.142.ph.i = phi i32 [ %.04165.i, %51 ], [ %.04165.i, %33 ], [ %45, %.lr.ph.i ]
+  %.138.ph.i = phi i32 [ %spec.select.i, %51 ], [ %.03767.i, %33 ], [ %.03767.i, %.lr.ph.i ]
   %54 = getelementptr inbounds nuw i8, ptr %.04066.i, i64 8
   %.not.i = icmp eq ptr %54, %31
   br i1 %.not.i, label %.preheader.i, label %33, !llvm.loop !238
@@ -7026,7 +7026,7 @@ _ZNK6vectorIN15diff_neq_tactic3imp5diseqELb0EjE3endEv.exit.i: ; preds = %23
   br i1 %exitcond76.not.i, label %_ZN15diff_neq_tactic3imp12choose_valueEji.exit, label %.lr.ph72.i, !llvm.loop !239
 
 _ZN15diff_neq_tactic3imp12choose_valueEji.exit:   ; preds = %.lr.ph72.i, %23, %_ZNK6vectorIN15diff_neq_tactic3imp5diseqELb0EjE3endEv.exit.i, %.preheader.i
-  %.036.i = phi i32 [ %.142.ph.i, %.preheader.i ], [ %20, %_ZNK6vectorIN15diff_neq_tactic3imp5diseqELb0EjE3endEv.exit.i ], [ %20, %23 ], [ %.142.ph.i, %.lr.ph72.i ]
+  %.036.i = phi i32 [ %20, %_ZNK6vectorIN15diff_neq_tactic3imp5diseqELb0EjE3endEv.exit.i ], [ %.142.ph.i, %.preheader.i ], [ %20, %23 ], [ %.142.ph.i, %.lr.ph72.i ]
   %.not.not = icmp eq i32 %.036.i, -1
   br i1 %.not.not, label %_ZN15diff_neq_tactic3imp12choose_valueEji.exit.thread, label %57
 

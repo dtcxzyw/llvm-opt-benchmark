@@ -406,16 +406,16 @@ define internal fastcc i32 @Extra_TruthCanonN_rec(i32 noundef %0, ptr noundef %1
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %184, %159, %._crit_edge
-  %.sink = phi ptr [ %139, %._crit_edge ], [ %137, %159 ], [ %139, %184 ]
-  %.0172.ph = phi i32 [ %202, %._crit_edge ], [ %.2174, %159 ], [ %.4176, %184 ]
-  %.1163.ph = phi i32 [ %.10.lcssa, %._crit_edge ], [ %.6168, %159 ], [ %.8, %184 ]
+  %.sink = phi ptr [ %137, %159 ], [ %139, %._crit_edge ], [ %139, %184 ]
+  %.0172.ph = phi i32 [ %.2174, %159 ], [ %202, %._crit_edge ], [ %.4176, %184 ]
+  %.1163.ph = phi i32 [ %.6168, %159 ], [ %.10.lcssa, %._crit_edge ], [ %.8, %184 ]
   %.pre = load i32, ptr %.sink, align 4, !tbaa !8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %130, %117, %103, %90, %.loopexit.sink.split, %.preheader190, %.preheader, %124, %110, %96, %84
-  %.0172 = phi i32 [ -1, %110 ], [ %87, %84 ], [ %99, %96 ], [ -1, %124 ], [ -1, %.preheader ], [ -1, %.preheader190 ], [ %.0172.ph, %.loopexit.sink.split ], [ -1, %117 ], [ %87, %90 ], [ %99, %103 ], [ -1, %130 ]
-  %.0171 = phi i32 [ %113, %110 ], [ 0, %84 ], [ 0, %96 ], [ %127, %124 ], [ %138, %.preheader ], [ %140, %.preheader190 ], [ %.pre, %.loopexit.sink.split ], [ %113, %117 ], [ 0, %90 ], [ 0, %103 ], [ %127, %130 ]
-  %.1163 = phi i32 [ 0, %110 ], [ 0, %84 ], [ 0, %96 ], [ 0, %124 ], [ 0, %.preheader ], [ 0, %.preheader190 ], [ %.1163.ph, %.loopexit.sink.split ], [ %111, %117 ], [ %85, %90 ], [ %97, %103 ], [ %125, %130 ]
+  %.0172 = phi i32 [ -1, %.preheader ], [ -1, %110 ], [ %87, %84 ], [ %99, %96 ], [ %.0172.ph, %.loopexit.sink.split ], [ -1, %.preheader190 ], [ -1, %124 ], [ -1, %117 ], [ %87, %90 ], [ %99, %103 ], [ -1, %130 ]
+  %.0171 = phi i32 [ %138, %.preheader ], [ %113, %110 ], [ 0, %84 ], [ 0, %96 ], [ %.pre, %.loopexit.sink.split ], [ %140, %.preheader190 ], [ %127, %124 ], [ %113, %117 ], [ 0, %90 ], [ 0, %103 ], [ %127, %130 ]
+  %.1163 = phi i32 [ 0, %.preheader ], [ 0, %110 ], [ 0, %84 ], [ 0, %96 ], [ %.1163.ph, %.loopexit.sink.split ], [ 0, %.preheader190 ], [ 0, %124 ], [ %111, %117 ], [ %85, %90 ], [ %97, %103 ], [ %125, %130 ]
   br i1 %30, label %203, label %209
 
 203:                                              ; preds = %.loopexit

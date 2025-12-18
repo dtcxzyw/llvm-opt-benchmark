@@ -2261,7 +2261,7 @@ qemu_io_alloc.exit:                               ; preds = %._crit_edge, %38
   br i1 %exitcond87.not, label %.thread, label %.lr.ph74, !llvm.loop !19
 
 .thread:                                          ; preds = %.lr.ph74, %qemu_io_alloc.exit, %28, %23, %19
-  %.053 = phi ptr [ null, %19 ], [ null, %23 ], [ null, %28 ], [ %spec.select12.i, %qemu_io_alloc.exit ], [ %spec.select12.i, %.lr.ph74 ]
+  %.053 = phi ptr [ null, %28 ], [ null, %19 ], [ null, %23 ], [ %spec.select12.i, %qemu_io_alloc.exit ], [ %spec.select12.i, %.lr.ph74 ]
   call void @g_free(ptr noundef %9) #26
   ret ptr %.053
 }

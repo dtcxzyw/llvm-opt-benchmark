@@ -729,7 +729,7 @@ updateUB.exit:                                    ; preds = %.lr.ph.i291, %.thre
   br label %._crit_edge72.i
 
 ._crit_edge72.i:                                  ; preds = %._crit_edge72.loopexit.i, %.preheader.thread.i, %.preheader.i304
-  %.2.lcssa.i = phi i32 [ 0, %.preheader.i304 ], [ %359, %._crit_edge72.loopexit.i ], [ 0, %.preheader.thread.i ]
+  %.2.lcssa.i = phi i32 [ 0, %.preheader.i304 ], [ 0, %.preheader.thread.i ], [ %359, %._crit_edge72.loopexit.i ]
   %360 = icmp eq i32 %.2.lcssa.i, %.2233505
   br i1 %360, label %.lr.ph81.i, label %361
 
@@ -917,13 +917,13 @@ checkSymmInfo.exit:                               ; preds = %381, %.checkSymmInf
   br label %433
 
 ddShuffle.exit.thread355:                         ; preds = %.lr.ph.i.i, %.lr.ph.i.i322, %._crit_edge531, %132, %125, %147, %143, %138, %getMatrix.exit272, %getMatrix.exit
-  %.0210375 = phi ptr [ null, %132 ], [ %141, %147 ], [ %141, %143 ], [ null, %138 ], [ null, %getMatrix.exit272 ], [ null, %getMatrix.exit ], [ null, %125 ], [ %141, %._crit_edge531 ], [ %141, %.lr.ph.i.i322 ], [ %141, %.lr.ph.i.i ]
-  %.0213373 = phi ptr [ null, %132 ], [ %136, %147 ], [ %136, %143 ], [ %136, %138 ], [ null, %getMatrix.exit272 ], [ null, %getMatrix.exit ], [ null, %125 ], [ %.1.lcssa, %._crit_edge531 ], [ %.1528, %.lr.ph.i.i322 ], [ %.1528, %.lr.ph.i.i ]
-  %.0214371 = phi ptr [ %123, %132 ], [ %123, %147 ], [ %123, %143 ], [ %123, %138 ], [ %123, %getMatrix.exit272 ], [ null, %getMatrix.exit ], [ %123, %125 ], [ %.1215.lcssa, %._crit_edge531 ], [ %.1215527, %.lr.ph.i.i322 ], [ %.1215527, %.lr.ph.i.i ]
-  %.0216369 = phi ptr [ null, %132 ], [ %126, %147 ], [ %126, %143 ], [ %126, %138 ], [ %126, %getMatrix.exit272 ], [ null, %getMatrix.exit ], [ null, %125 ], [ %.1217.lcssa, %._crit_edge531 ], [ %.1217526, %.lr.ph.i.i322 ], [ %.1217526, %.lr.ph.i.i ]
-  %.0218368 = phi ptr [ %110, %132 ], [ %110, %147 ], [ %110, %143 ], [ %110, %138 ], [ %110, %getMatrix.exit272 ], [ %110, %getMatrix.exit ], [ %110, %125 ], [ %.1219.lcssa, %._crit_edge531 ], [ %.1219525, %.lr.ph.i.i322 ], [ %.1219525, %.lr.ph.i.i ]
-  %.0220366 = phi ptr [ null, %132 ], [ null, %147 ], [ null, %143 ], [ null, %138 ], [ null, %getMatrix.exit272 ], [ null, %getMatrix.exit ], [ null, %125 ], [ %148, %._crit_edge531 ], [ %148, %.lr.ph.i.i322 ], [ %148, %.lr.ph.i.i ]
-  %.0221364 = phi ptr [ null, %132 ], [ %145, %147 ], [ null, %143 ], [ null, %138 ], [ null, %getMatrix.exit272 ], [ null, %getMatrix.exit ], [ null, %125 ], [ %145, %._crit_edge531 ], [ %145, %.lr.ph.i.i322 ], [ %145, %.lr.ph.i.i ]
+  %.0210375 = phi ptr [ null, %132 ], [ %141, %147 ], [ %141, %143 ], [ null, %138 ], [ null, %getMatrix.exit272 ], [ null, %getMatrix.exit ], [ null, %125 ], [ %141, %.lr.ph.i.i322 ], [ %141, %._crit_edge531 ], [ %141, %.lr.ph.i.i ]
+  %.0213373 = phi ptr [ null, %132 ], [ %136, %147 ], [ %136, %143 ], [ %136, %138 ], [ null, %getMatrix.exit272 ], [ null, %getMatrix.exit ], [ null, %125 ], [ %.1528, %.lr.ph.i.i322 ], [ %.1.lcssa, %._crit_edge531 ], [ %.1528, %.lr.ph.i.i ]
+  %.0214371 = phi ptr [ %123, %132 ], [ %123, %147 ], [ %123, %143 ], [ %123, %138 ], [ %123, %getMatrix.exit272 ], [ null, %getMatrix.exit ], [ %123, %125 ], [ %.1215527, %.lr.ph.i.i322 ], [ %.1215.lcssa, %._crit_edge531 ], [ %.1215527, %.lr.ph.i.i ]
+  %.0216369 = phi ptr [ null, %132 ], [ %126, %147 ], [ %126, %143 ], [ %126, %138 ], [ %126, %getMatrix.exit272 ], [ null, %getMatrix.exit ], [ null, %125 ], [ %.1217526, %.lr.ph.i.i322 ], [ %.1217.lcssa, %._crit_edge531 ], [ %.1217526, %.lr.ph.i.i ]
+  %.0218368 = phi ptr [ %110, %132 ], [ %110, %147 ], [ %110, %143 ], [ %110, %138 ], [ %110, %getMatrix.exit272 ], [ %110, %getMatrix.exit ], [ %110, %125 ], [ %.1219525, %.lr.ph.i.i322 ], [ %.1219.lcssa, %._crit_edge531 ], [ %.1219525, %.lr.ph.i.i ]
+  %.0220366 = phi ptr [ null, %132 ], [ null, %147 ], [ null, %143 ], [ null, %138 ], [ null, %getMatrix.exit272 ], [ null, %getMatrix.exit ], [ null, %125 ], [ %148, %.lr.ph.i.i322 ], [ %148, %._crit_edge531 ], [ %148, %.lr.ph.i.i ]
+  %.0221364 = phi ptr [ null, %132 ], [ %145, %147 ], [ null, %143 ], [ null, %138 ], [ null, %getMatrix.exit272 ], [ null, %getMatrix.exit ], [ null, %125 ], [ %145, %.lr.ph.i.i322 ], [ %145, %._crit_edge531 ], [ %145, %.lr.ph.i.i ]
   %417 = load ptr, ptr %.0218368, align 8, !tbaa !36
   %.not.i341 = icmp eq ptr %417, null
   br i1 %.not.i341, label %419, label %418

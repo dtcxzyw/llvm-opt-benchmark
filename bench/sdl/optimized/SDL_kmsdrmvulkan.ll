@@ -536,10 +536,10 @@ thread-pre-split:                                 ; preds = %.thread180
   br label %172
 
 172:                                              ; preds = %.loopexit, %169, %.loopexit.thread, %123, %117, %113, %._crit_edge
-  %.0154 = phi i1 [ false, %123 ], [ false, %.loopexit.thread ], [ false, %169 ], [ false, %117 ], [ false, %113 ], [ false, %._crit_edge ], [ true, %.loopexit ]
-  %.0146 = phi ptr [ null, %123 ], [ %128, %.loopexit.thread ], [ %128, %169 ], [ null, %117 ], [ null, %113 ], [ null, %._crit_edge ], [ %128, %.loopexit ]
-  %.0145 = phi ptr [ %86, %123 ], [ %86, %.loopexit.thread ], [ %86, %169 ], [ %86, %117 ], [ %86, %113 ], [ null, %._crit_edge ], [ %86, %.loopexit ]
-  %.0144 = phi ptr [ %71, %123 ], [ %71, %.loopexit.thread ], [ %71, %169 ], [ %71, %117 ], [ %71, %113 ], [ null, %._crit_edge ], [ %71, %.loopexit ]
+  %.0154 = phi i1 [ true, %.loopexit ], [ false, %113 ], [ false, %117 ], [ false, %123 ], [ false, %.loopexit.thread ], [ false, %169 ], [ false, %._crit_edge ]
+  %.0146 = phi ptr [ %128, %.loopexit ], [ null, %113 ], [ null, %117 ], [ null, %123 ], [ %128, %.loopexit.thread ], [ %128, %169 ], [ null, %._crit_edge ]
+  %.0145 = phi ptr [ %86, %.loopexit ], [ %86, %113 ], [ %86, %117 ], [ %86, %123 ], [ %86, %.loopexit.thread ], [ %86, %169 ], [ null, %._crit_edge ]
+  %.0144 = phi ptr [ %71, %.loopexit ], [ %71, %113 ], [ %71, %117 ], [ %71, %123 ], [ %71, %.loopexit.thread ], [ %71, %169 ], [ null, %._crit_edge ]
   %.not172 = icmp eq ptr %44, null
   br i1 %.not172, label %173, label %.thread209
 

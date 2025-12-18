@@ -1925,7 +1925,7 @@ matchbracketclass.exit:                           ; preds = %169, %179, %181, %1
   br i1 %210, label %.lr.ph.i106, label %matchbracketclass.exit112, !llvm.loop !47
 
 matchbracketclass.exit112:                        ; preds = %195, %204, %206, %208
-  %.022.in.i103 = phi i1 [ %160, %208 ], [ %not..i, %204 ], [ %not..i, %206 ], [ %not..i, %195 ]
+  %.022.in.i103 = phi i1 [ %not..i, %195 ], [ %160, %208 ], [ %not..i, %204 ], [ %not..i, %206 ]
   br i1 %.022.in.i103, label %10, label %start_capture.exit
 
 211:                                              ; preds = %76
@@ -2510,7 +2510,7 @@ singlematch.exit186.thread:                       ; preds = %matchbracketclass.e
   br label %.outer.outer.backedge
 
 start_capture.exit:                               ; preds = %336, %478, %243, %check_capture.exit.i, %93, %90, %156, %matchbracketclass.exit, %matchbracketclass.exit112, %10, %107, %singlematch.exit186.thread, %singlematch.exit186, %437, %475, %444, %matchbracketclass.exit.i175.loopexit, %431, %433, %379, %381, %.preheader217, %385, %75, %capture_to_close.exit, %46, %39, %30, %23, %254
-  %.1 = phi ptr [ null, %matchbracketclass.exit112 ], [ %330, %.preheader217 ], [ null, %30 ], [ null, %46 ], [ %383, %381 ], [ %257, %254 ], [ null, %385 ], [ %28, %23 ], [ %44, %39 ], [ %73, %capture_to_close.exit ], [ null, %75 ], [ null, %matchbracketclass.exit.i175.loopexit ], [ null, %431 ], [ null, %107 ], [ null, %379 ], [ %435, %433 ], [ null, %444 ], [ null, %475 ], [ null, %437 ], [ null, %singlematch.exit186 ], [ %477, %singlematch.exit186.thread ], [ null, %matchbracketclass.exit ], [ %.075.ph.ph, %10 ], [ null, %156 ], [ %338, %336 ], [ null, %478 ], [ null, %243 ], [ null, %check_capture.exit.i ], [ null, %93 ], [ null, %90 ]
+  %.1 = phi ptr [ null, %107 ], [ null, %431 ], [ null, %30 ], [ null, %46 ], [ null, %matchbracketclass.exit112 ], [ %257, %254 ], [ %330, %.preheader217 ], [ null, %385 ], [ %28, %23 ], [ %44, %39 ], [ %73, %capture_to_close.exit ], [ null, %75 ], [ null, %matchbracketclass.exit.i175.loopexit ], [ %383, %381 ], [ null, %379 ], [ %435, %433 ], [ null, %444 ], [ null, %475 ], [ null, %437 ], [ null, %singlematch.exit186 ], [ %477, %singlematch.exit186.thread ], [ null, %matchbracketclass.exit ], [ %.075.ph.ph, %10 ], [ null, %156 ], [ %338, %336 ], [ null, %478 ], [ null, %243 ], [ null, %check_capture.exit.i ], [ null, %93 ], [ null, %90 ]
   ret ptr %.1
 }
 

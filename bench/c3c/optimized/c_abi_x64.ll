@@ -656,7 +656,7 @@ define internal fastcc ptr @x64_classify_argument_type(ptr noundef %0, i32 nound
   br label %.thread
 
 51:                                               ; preds = %45, %41
-  %.sroa.06.0 = phi ptr [ %44, %41 ], [ %48, %45 ]
+  %.sroa.06.0 = phi ptr [ %48, %45 ], [ %44, %41 ]
   %.not = icmp eq ptr %.sroa.06.0, null
   br i1 %.not, label %.thread, label %52
 
@@ -1945,7 +1945,7 @@ define dso_local ptr @x64_classify_return(ptr noundef %0) local_unnamed_addr #1 
   br label %.thread
 
 67:                                               ; preds = %63, %61
-  %.sroa.03.0 = phi ptr [ %64, %63 ], [ %62, %61 ]
+  %.sroa.03.0 = phi ptr [ %62, %61 ], [ %64, %63 ]
   %.not = icmp eq ptr %.sroa.03.0, null
   br i1 %.not, label %.thread, label %68
 

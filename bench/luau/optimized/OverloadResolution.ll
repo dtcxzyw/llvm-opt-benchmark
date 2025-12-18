@@ -2836,7 +2836,7 @@ _ZN4Luau12TypeIteratorINS_16IntersectionTypeEEdeEv.exit: ; preds = %.noexc37
   br label %_ZN4Luau19InsertionOrderedMapIPKNS_4TypeESt4pairINS_16OverloadResolver8AnalysisEmEE4findES3_.exit.thread, !llvm.loop !190
 
 _ZN4Luau19InsertionOrderedMapIPKNS_4TypeESt4pairINS_16OverloadResolver8AnalysisEmEE4findES3_.exit: ; preds = %124, %108, %119
-  %.sroa.06.1.i.i.i = phi ptr [ %120, %119 ], [ %.sroa.06.0.i.i.i, %108 ], [ %126, %124 ]
+  %.sroa.06.1.i.i.i = phi ptr [ %.sroa.06.0.i.i.i, %108 ], [ %120, %119 ], [ %126, %124 ]
   %132 = load ptr, ptr %51, align 8, !tbaa !191
   %133 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 16
   %134 = load i64, ptr %133, align 8, !tbaa !192
@@ -8377,7 +8377,7 @@ _ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_mESaIS6_ENSt8__detail10_Select1stESt
   resume { ptr, i32 } %94
 
 _ZNSt13unordered_mapIPKN4Luau4TypeEmSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_mEEEixERS9_.exit: ; preds = %82, %77, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %78, %77 ], [ %93, %.loopexit.i.i ], [ %84, %82 ]
+  %.pn.i.i = phi ptr [ %93, %.loopexit.i.i ], [ %78, %77 ], [ %84, %82 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   store i64 %69, ptr %.1.i.i, align 8, !tbaa !70
   br label %_ZNKSt13unordered_mapIPKN4Luau4TypeEmSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_mEEE5countERS9_.exit
@@ -14153,7 +14153,7 @@ _ZN4Luau8VecDequeISt4pairIPKNS_16IntersectionTypeEmESaIS5_EE9pop_frontEv.exit.i:
   br label %_ZN4Luau6detail14DenseHashTableIPKNS_16IntersectionTypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i
 
 _ZN4Luau6detail14DenseHashTableIPKNS_16IntersectionTypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i: ; preds = %87, %.thread19, %.thread, %.loopexit.i.i, %74
-  %96 = phi i64 [ %.pre.i7, %.loopexit.i.i ], [ %29, %74 ], [ %29, %.thread ], [ %77, %.thread19 ], [ %29, %87 ]
+  %96 = phi i64 [ %.pre.i7, %.loopexit.i.i ], [ %29, %74 ], [ %77, %.thread19 ], [ %29, %.thread ], [ %29, %87 ]
   %97 = add i64 %96, -1
   %98 = ptrtoint ptr %23 to i64
   %99 = lshr i64 %98, 4

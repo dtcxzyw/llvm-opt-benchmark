@@ -3381,7 +3381,7 @@ compress_block.exit:                              ; preds = %23, %compress_block
     i8 0, label %take_successor_1.exit
   ]
 
-take_successor_0.exit:                            ; preds = %527, %542, %499, %484, %.thread506, %223, %209, %134, %120, %67
+take_successor_0.exit:                            ; preds = %527, %542, %484, %499, %.thread506, %223, %209, %134, %120, %67
   %79 = load ptr, ptr %54, align 8, !tbaa !109
   %80 = load i32, ptr %79, align 4, !tbaa !38
   %81 = icmp eq i32 %80, %.0363.lcssa
@@ -4501,7 +4501,7 @@ take_successor_1.exit410:                         ; preds = %414, %432
   br label %take_successor_1.exit
 
 take_successor_1.exit:                            ; preds = %._crit_edge, %543, %561, %465, %483, %242, %224, %119, %101, %67, %take_successor_1.exit410, %302, %195, %82
-  %.3 = phi i32 [ %89, %82 ], [ %.0535, %67 ], [ %196, %195 ], [ %106, %119 ], [ %303, %302 ], [ %419, %take_successor_1.exit410 ], [ %229, %242 ], [ %470, %465 ], [ %594, %._crit_edge ], [ %106, %101 ], [ %229, %224 ], [ %470, %483 ], [ %548, %543 ], [ %548, %561 ]
+  %.3 = phi i32 [ %89, %82 ], [ %.0535, %67 ], [ %196, %195 ], [ %106, %119 ], [ %303, %302 ], [ %419, %take_successor_1.exit410 ], [ %229, %242 ], [ %470, %483 ], [ %594, %._crit_edge ], [ %106, %101 ], [ %229, %224 ], [ %470, %465 ], [ %548, %561 ], [ %548, %543 ]
   %.promoted.i463 = load i32, ptr %65, align 8, !tbaa !107
   %.not8.i464 = icmp eq i32 %.promoted.i463, 0
   br i1 %.not8.i464, label %compress_block.exit472, label %.lr.ph.i465
@@ -4559,8 +4559,8 @@ compress_block.exit472:                           ; preds = %690, %take_successo
   br label %.critedge387
 
 .critedge387:                                     ; preds = %683, %695, %.critedge387.loopexit.split.loop.exit605, %509, %513, %500, %447, %451, %438, %386, %373, %345, %332, %.critedge2, %67, %compress_block.exit472, %562, %407, %403, %366, %362, %325, %321, %247, %_ssa_op1_info.exit401.thread, %_ssa_op1_info.exit397.thread, %243, %_ssa_op1_info.exit.thread, %_ssa_op1_info.exit393.thread, %135, %take_successor_0.exit
-  %.3356 = phi i32 [ %.0363.lcssa, %386 ], [ %.0363.lcssa, %513 ], [ %.0363.lcssa, %509 ], [ %.0363.lcssa, %447 ], [ %.0363.lcssa, %take_successor_0.exit ], [ %.0363.lcssa, %135 ], [ %.0363.lcssa, %_ssa_op1_info.exit393.thread ], [ %.0363.lcssa, %_ssa_op1_info.exit.thread ], [ %.0363.lcssa, %243 ], [ %.0363.lcssa, %_ssa_op1_info.exit397.thread ], [ %.0363.lcssa, %_ssa_op1_info.exit401.thread ], [ %.0363.lcssa, %247 ], [ %.0363.lcssa, %321 ], [ %.0363.lcssa, %.critedge2 ], [ %.0363.lcssa, %325 ], [ %.0363.lcssa, %362 ], [ %.0363.lcssa, %345 ], [ %.0363.lcssa, %366 ], [ %.0363.lcssa, %403 ], [ %.0363.lcssa, %407 ], [ %.0363.lcssa, %562 ], [ %.0363.lcssa, %compress_block.exit472 ], [ %.0363.lcssa, %67 ], [ %.0363.lcssa, %332 ], [ %.0363.lcssa, %373 ], [ %.0363.lcssa, %438 ], [ %.0363.lcssa, %451 ], [ %.0363.lcssa, %500 ], [ %701, %.critedge387.loopexit.split.loop.exit605 ], [ %.0363.lcssa, %695 ], [ %.0363.lcssa, %683 ]
-  %.5 = phi i32 [ %.0535, %386 ], [ %.0535, %513 ], [ %.0535, %509 ], [ %.0535, %447 ], [ %.0535, %take_successor_0.exit ], [ %.0535, %135 ], [ %.0535, %_ssa_op1_info.exit393.thread ], [ %.0535, %_ssa_op1_info.exit.thread ], [ %.0535, %243 ], [ %.0535, %_ssa_op1_info.exit397.thread ], [ %.0535, %_ssa_op1_info.exit401.thread ], [ %.0535, %247 ], [ %.0535, %321 ], [ %.0535, %.critedge2 ], [ %.0535, %325 ], [ %.0535, %362 ], [ %.0535, %345 ], [ %.0535, %366 ], [ %.0535, %403 ], [ %.0535, %407 ], [ %.0535, %562 ], [ %.3, %compress_block.exit472 ], [ %.0535, %67 ], [ %.0535, %332 ], [ %.0535, %373 ], [ %.0535, %438 ], [ %.0535, %451 ], [ %.0535, %500 ], [ %.3, %.critedge387.loopexit.split.loop.exit605 ], [ %.3, %695 ], [ %.3, %683 ]
+  %.3356 = phi i32 [ %.0363.lcssa, %386 ], [ %.0363.lcssa, %513 ], [ %.0363.lcssa, %509 ], [ %.0363.lcssa, %447 ], [ %.0363.lcssa, %take_successor_0.exit ], [ %.0363.lcssa, %135 ], [ %.0363.lcssa, %_ssa_op1_info.exit393.thread ], [ %.0363.lcssa, %_ssa_op1_info.exit.thread ], [ %.0363.lcssa, %243 ], [ %.0363.lcssa, %_ssa_op1_info.exit397.thread ], [ %.0363.lcssa, %_ssa_op1_info.exit401.thread ], [ %.0363.lcssa, %247 ], [ %.0363.lcssa, %321 ], [ %.0363.lcssa, %.critedge2 ], [ %.0363.lcssa, %325 ], [ %.0363.lcssa, %362 ], [ %.0363.lcssa, %345 ], [ %.0363.lcssa, %366 ], [ %.0363.lcssa, %403 ], [ %.0363.lcssa, %407 ], [ %.0363.lcssa, %562 ], [ %.0363.lcssa, %compress_block.exit472 ], [ %.0363.lcssa, %67 ], [ %.0363.lcssa, %332 ], [ %.0363.lcssa, %373 ], [ %.0363.lcssa, %438 ], [ %.0363.lcssa, %451 ], [ %.0363.lcssa, %500 ], [ %.0363.lcssa, %695 ], [ %701, %.critedge387.loopexit.split.loop.exit605 ], [ %.0363.lcssa, %683 ]
+  %.5 = phi i32 [ %.0535, %386 ], [ %.0535, %513 ], [ %.0535, %509 ], [ %.0535, %447 ], [ %.0535, %take_successor_0.exit ], [ %.0535, %135 ], [ %.0535, %_ssa_op1_info.exit393.thread ], [ %.0535, %_ssa_op1_info.exit.thread ], [ %.0535, %243 ], [ %.0535, %_ssa_op1_info.exit397.thread ], [ %.0535, %_ssa_op1_info.exit401.thread ], [ %.0535, %247 ], [ %.0535, %321 ], [ %.0535, %.critedge2 ], [ %.0535, %325 ], [ %.0535, %362 ], [ %.0535, %345 ], [ %.0535, %366 ], [ %.0535, %403 ], [ %.0535, %407 ], [ %.0535, %562 ], [ %.3, %compress_block.exit472 ], [ %.0535, %67 ], [ %.0535, %332 ], [ %.0535, %373 ], [ %.0535, %438 ], [ %.0535, %451 ], [ %.0535, %500 ], [ %.3, %695 ], [ %.3, %.critedge387.loopexit.split.loop.exit605 ], [ %.3, %683 ]
   %702 = load i32, ptr %1, align 8, !tbaa !103
   %703 = icmp slt i32 %.3356, %702
   br i1 %703, label %50, label %._crit_edge537
@@ -5106,7 +5106,7 @@ zend_ssa_next_use.exit:                           ; preds = %49, %44
   br label %.thread
 
 .thread:                                          ; preds = %74, %66, %82, %112, %126, %122, %98, %4, %19, %25, %30, %36, %40, %zend_ssa_next_use.exit, %61, %55, %55, %55, %55, %55
-  %.2 = phi i1 [ false, %4 ], [ false, %55 ], [ false, %55 ], [ false, %55 ], [ false, %55 ], [ false, %55 ], [ false, %61 ], [ false, %zend_ssa_next_use.exit ], [ false, %40 ], [ false, %36 ], [ false, %30 ], [ false, %25 ], [ false, %19 ], [ true, %112 ], [ true, %126 ], [ true, %122 ], [ true, %98 ], [ false, %82 ], [ false, %66 ], [ false, %74 ]
+  %.2 = phi i1 [ false, %4 ], [ false, %55 ], [ false, %55 ], [ false, %55 ], [ false, %55 ], [ false, %55 ], [ false, %61 ], [ false, %zend_ssa_next_use.exit ], [ false, %40 ], [ false, %36 ], [ false, %30 ], [ false, %25 ], [ false, %19 ], [ true, %98 ], [ true, %122 ], [ true, %112 ], [ true, %126 ], [ false, %82 ], [ false, %66 ], [ false, %74 ]
   ret i1 %.2
 }
 
@@ -5702,7 +5702,7 @@ define hidden void @zend_optimize_dfa(ptr noundef %0, ptr noundef %1) local_unna
   br i1 %or.cond.i11, label %zend_arena_release.exit, label %.critedge.i12, !prof !131
 
 zend_arena_release.exit:                          ; preds = %.critedge.i12, %.critedge.i, %18, %8
-  %.0.i9.lcssa.sink = phi ptr [ %9, %8 ], [ %19, %18 ], [ %14, %.critedge.i ], [ %24, %.critedge.i12 ]
+  %.0.i9.lcssa.sink = phi ptr [ %14, %.critedge.i ], [ %9, %8 ], [ %19, %18 ], [ %24, %.critedge.i12 ]
   store ptr %5, ptr %.0.i9.lcssa.sink, align 8, !tbaa !124
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void

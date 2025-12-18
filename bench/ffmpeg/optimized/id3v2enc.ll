@@ -503,7 +503,7 @@ id3v2_check_write_tag.exit56.id3v2_check_write_tag.exit56.thread_crit_edge: ; pr
   br label %id3v2_check_write_tag.exit56.thread
 
 id3v2_check_write_tag.exit56.thread:              ; preds = %113, %72, %id3v2_check_write_tag.exit56.id3v2_check_write_tag.exit56.thread_crit_edge, %109, %105, %id3v2_check_write_tag.exit.thread
-  %123 = phi ptr [ %.pre72, %id3v2_check_write_tag.exit56.id3v2_check_write_tag.exit56.thread_crit_edge ], [ %107, %109 ], [ %107, %105 ], [ %101, %id3v2_check_write_tag.exit.thread ], [ %74, %72 ], [ %107, %113 ]
+  %123 = phi ptr [ %.pre72, %id3v2_check_write_tag.exit56.id3v2_check_write_tag.exit56.thread_crit_edge ], [ %74, %72 ], [ %107, %109 ], [ %107, %105 ], [ %101, %id3v2_check_write_tag.exit.thread ], [ %107, %113 ]
   %124 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %125 = load ptr, ptr %124, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(ptr nonnull %5)

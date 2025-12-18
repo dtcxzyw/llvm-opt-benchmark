@@ -869,8 +869,8 @@ _ZN4ncnn3MatD2Ev.exit881:                         ; preds = %247, %244, %253, %2
   br i1 %exitcond1633.not, label %.thread1395, label %.lr.ph1479.us, !llvm.loop !61
 
 .thread1395:                                      ; preds = %._crit_edge1480.us, %.preheader1422, %.lr.ph1467.split.preheader, %.loopexit1424..thread1395_crit_edge, %.lr.ph1483.split.preheader, %.preheader, %288, %.thread1397
-  %422 = phi i32 [ %.pre1666, %.loopexit1424..thread1395_crit_edge ], [ %337, %.thread1397 ], [ %290, %288 ], [ 4, %.preheader ], [ 4, %.lr.ph1483.split.preheader ], [ 8, %.lr.ph1467.split.preheader ], [ 8, %.preheader1422 ], [ 4, %._crit_edge1480.us ]
-  %.5715 = phi ptr [ %.17111779, %.loopexit1424..thread1395_crit_edge ], [ %.37131399, %.thread1397 ], [ %.07101489, %288 ], [ %.37131399, %.preheader ], [ %scevgep1627, %.lr.ph1483.split.preheader ], [ %scevgep1620, %.lr.ph1467.split.preheader ], [ %.1711, %.preheader1422 ], [ %421, %._crit_edge1480.us ]
+  %422 = phi i32 [ %.pre1666, %.loopexit1424..thread1395_crit_edge ], [ %337, %.thread1397 ], [ %290, %288 ], [ 4, %.preheader ], [ 8, %.preheader1422 ], [ 4, %.lr.ph1483.split.preheader ], [ 8, %.lr.ph1467.split.preheader ], [ 4, %._crit_edge1480.us ]
+  %.5715 = phi ptr [ %.17111779, %.loopexit1424..thread1395_crit_edge ], [ %.37131399, %.thread1397 ], [ %.07101489, %288 ], [ %.37131399, %.preheader ], [ %.1711, %.preheader1422 ], [ %scevgep1627, %.lr.ph1483.split.preheader ], [ %scevgep1620, %.lr.ph1467.split.preheader ], [ %421, %._crit_edge1480.us ]
   %423 = icmp eq i32 %.01392.lcssa, %422
   br i1 %423, label %424, label %438
 
@@ -2220,7 +2220,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %1142, %.critedge841
   br label %.critedge841
 
 .critedge841:                                     ; preds = %85, %_ZNK4ncnn3Mat5emptyEv.exit, %_ZNK4ncnn3Mat5emptyEv.exit871, %174, %592, %_ZNK4ncnn3Mat5emptyEv.exit874, %1056, %.critedge870, %_ZN4ncnn3MatD2Ev.exit, %_ZN4ncnn3MatD2Ev.exit879, %.critedge863, %.critedge859, %.critedge854, %.critedge845
-  %.4 = phi i32 [ -100, %.critedge845 ], [ -100, %.critedge854 ], [ -100, %.critedge859 ], [ -100, %_ZN4ncnn3MatD2Ev.exit ], [ -100, %_ZN4ncnn3MatD2Ev.exit879 ], [ 0, %1056 ], [ -100, %.critedge863 ], [ 0, %.critedge870 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit871 ], [ -100, %592 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit874 ], [ -100, %174 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ -100, %85 ]
+  %.4 = phi i32 [ -100, %.critedge845 ], [ -100, %592 ], [ -100, %.critedge854 ], [ -100, %.critedge859 ], [ -100, %_ZN4ncnn3MatD2Ev.exit ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit871 ], [ -100, %_ZN4ncnn3MatD2Ev.exit879 ], [ 0, %1056 ], [ -100, %.critedge863 ], [ 0, %.critedge870 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit874 ], [ -100, %174 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ -100, %85 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.4

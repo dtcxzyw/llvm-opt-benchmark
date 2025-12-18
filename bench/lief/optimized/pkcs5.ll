@@ -657,7 +657,7 @@ mbedtls_pkcs5_pbkdf2_hmac_ext.exit:               ; preds = %37
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not19, label %.critedge, label %.critedge36
 
-.critedge36:                                      ; preds = %mbedtls_pkcs5_pbkdf2_hmac_ext.exit, %40, %.loopexit
+.critedge36:                                      ; preds = %40, %mbedtls_pkcs5_pbkdf2_hmac_ext.exit, %.loopexit
   %puts22 = call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
   br label %.critedge
 

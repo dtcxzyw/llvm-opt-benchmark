@@ -6425,7 +6425,7 @@ _ZNK6vectorIP3appLb0EjE5emptyEv.exit:             ; preds = %_ZNK6vectorIP3appLb
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %72, %68
-  %.135 = phi i8 [ 1, %68 ], [ %spec.select, %72 ], [ %.03481.ph, %.lr.ph ]
+  %.135 = phi i8 [ %spec.select, %72 ], [ 1, %68 ], [ %.03481.ph, %.lr.ph ]
   %73 = getelementptr inbounds nuw i8, ptr %.03382, i64 8
   %.not40 = icmp eq ptr %73, %46
   br i1 %.not40, label %._crit_edge, label %.lr.ph.outer
@@ -12801,7 +12801,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3mbp20array_select_reducer6red
   br i1 %.not27.old.i.i.i, label %.loopexit147, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %47, %44
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %47 ], [ %46, %44 ]
+  %.137.i.i.i.be = phi ptr [ %46, %44 ], [ %.old.i.i.i, %47 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !324
 
 .loopexit146:                                     ; preds = %28, %39
@@ -13207,7 +13207,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0
   br i1 %.not27.old.i.i.i65, label %.loopexit142, label %.lr.ph38.i.i.i61.backedge
 
 .lr.ph38.i.i.i61.backedge:                        ; preds = %213, %210
-  %.137.i.i.i62.be = phi ptr [ %.old.i.i.i64, %213 ], [ %212, %210 ]
+  %.137.i.i.i62.be = phi ptr [ %212, %210 ], [ %.old.i.i.i64, %213 ]
   br label %.lr.ph38.i.i.i61, !llvm.loop !324
 
 .loopexit:                                        ; preds = %194, %205
@@ -14466,7 +14466,7 @@ _ZN6vectorIP4exprLb0EjED2Ev.exit:                 ; preds = %224, %232
   resume { ptr, i32 } %.pn28
 
 _ZNK17array_recognizers8is_storeEP4expr.exit.thread: ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit, %15, %2, %_ZN6vectorIP4exprLb0EjED2Ev.exit, %_ZNK17array_recognizers8is_storeEP4expr.exit
-  %.0 = phi ptr [ %209, %_ZN6vectorIP4exprLb0EjED2Ev.exit ], [ %1, %_ZNK17array_recognizers8is_storeEP4expr.exit ], [ %1, %2 ], [ %1, %15 ], [ %.2, %_ZN7obj_refI4expr11ast_managerED2Ev.exit ]
+  %.0 = phi ptr [ %209, %_ZN6vectorIP4exprLb0EjED2Ev.exit ], [ %1, %_ZNK17array_recognizers8is_storeEP4expr.exit ], [ %1, %15 ], [ %1, %2 ], [ %.2, %_ZN7obj_refI4expr11ast_managerED2Ev.exit ]
   ret ptr %.0
 }
 
@@ -20278,7 +20278,7 @@ _ZltRK8rationalS1_.exit.i:                        ; preds = %47
   br i1 %95, label %_ZN3mbp26array_project_selects_util11compare_idxclERKNS0_7idx_valES4_.exit, label %12
 
 _ZN3mbp26array_project_selects_util11compare_idxclERKNS0_7idx_valES4_.exit: ; preds = %98, %12, %_ZNK6vectorI8rationalLb1EjE4sizeEv.exit.i, %87, %90, %92, %6
-  %.124 = phi ptr [ %.0, %6 ], [ %.127, %12 ], [ %.127, %92 ], [ %.127, %90 ], [ %.127, %87 ], [ %.127, %_ZNK6vectorI8rationalLb1EjE4sizeEv.exit.i ], [ %99, %98 ]
+  %.124 = phi ptr [ %.127, %12 ], [ %.0, %6 ], [ %.127, %92 ], [ %.127, %90 ], [ %.127, %87 ], [ %.127, %_ZNK6vectorI8rationalLb1EjE4sizeEv.exit.i ], [ %99, %98 ]
   %.11428 = getelementptr inbounds i8, ptr %.013, i64 -40
   %96 = load ptr, ptr %5, align 8, !tbaa !346
   %97 = icmp eq ptr %96, null
@@ -20425,7 +20425,7 @@ _ZN3mbp26array_project_selects_util11compare_idxclERKNS0_7idx_valES4_.exit20: ; 
   br i1 %190, label %.loopexit, label %_ZNK6vectorI8rationalLb1EjE4sizeEv.exit.lr.ph.i15, !llvm.loop !430
 
 .loopexit:                                        ; preds = %_ZN3mbp26array_project_selects_util11compare_idxclERKNS0_7idx_valES4_.exit20, %180, %183, %185, %105, %_ZNK6vectorI8rationalLb1EjE4sizeEv.exit.i16, %_ZN3mbp26array_project_selects_util11compare_idxclERKNS0_7idx_valES4_.exit
-  %.11426 = phi ptr [ %.11428, %_ZN3mbp26array_project_selects_util11compare_idxclERKNS0_7idx_valES4_.exit ], [ %.11430, %180 ], [ %.11430, %_ZNK6vectorI8rationalLb1EjE4sizeEv.exit.i16 ], [ %.11430, %105 ], [ %.11430, %185 ], [ %.11430, %183 ], [ %.114, %_ZN3mbp26array_project_selects_util11compare_idxclERKNS0_7idx_valES4_.exit20 ]
+  %.11426 = phi ptr [ %.11430, %180 ], [ %.11428, %_ZN3mbp26array_project_selects_util11compare_idxclERKNS0_7idx_valES4_.exit ], [ %.11430, %_ZNK6vectorI8rationalLb1EjE4sizeEv.exit.i16 ], [ %.11430, %105 ], [ %.11430, %185 ], [ %.11430, %183 ], [ %.114, %_ZN3mbp26array_project_selects_util11compare_idxclERKNS0_7idx_valES4_.exit20 ]
   %191 = icmp ult ptr %.124, %.11426
   br i1 %191, label %193, label %192
 
@@ -24192,7 +24192,7 @@ define linkonce_odr hidden void @_ZN3mbp20array_project_plugin3imp9add_arrayEP3a
   br i1 %.not27.old.i.i.i, label %.loopexit, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %38, %35
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %38 ], [ %37, %35 ]
+  %.137.i.i.i.be = phi ptr [ %37, %35 ], [ %.old.i.i.i, %38 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !464
 
 _ZNK7obj_mapI4sortP10ref_vectorI3app11ast_managerEE4findEPS0_RS5_.exit: ; preds = %19, %30
@@ -24328,7 +24328,7 @@ define linkonce_odr hidden void @_ZN3mbp20array_project_plugin3imp14add_index_so
   br i1 %.not27.old.i.i.i, label %.loopexit, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %37, %34
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %37 ], [ %36, %34 ]
+  %.137.i.i.i.be = phi ptr [ %36, %34 ], [ %.old.i.i.i, %37 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !464
 
 .loopexit:                                        ; preds = %23, %34, %37, %.preheader.i.i.i
@@ -24919,7 +24919,7 @@ _ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i74: ; preds = %.noexc79, %.
   br i1 %.not27.old.i.i.i.i.i, label %_ZN3mbp20array_project_plugin3imp19for_each_index_procclEP3app.exit, label %.lr.ph38.i.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.i.backedge:                      ; preds = %142, %139
-  %.137.i.i.i.i.i.be = phi ptr [ %.old.i.i.i.i.i, %142 ], [ %141, %139 ]
+  %.137.i.i.i.i.i.be = phi ptr [ %141, %139 ], [ %.old.i.i.i.i.i, %142 ]
   br label %.lr.ph38.i.i.i.i.i, !llvm.loop !464
 
 _ZN3mbp20array_project_plugin3imp8is_indexEP4expr.exit.i: ; preds = %123, %134
@@ -25133,7 +25133,7 @@ _ZN3mbp20array_project_plugin3imp19for_each_index_procclEP3app.exit: ; preds = %
   br i1 %.not27.old.i.i.i.i.i116, label %thread-pre-splitthread-pre-split, label %.lr.ph38.i.i.i.i.i112.backedge
 
 .lr.ph38.i.i.i.i.i112.backedge:                   ; preds = %221, %218
-  %.137.i.i.i.i.i113.be = phi ptr [ %.old.i.i.i.i.i115, %221 ], [ %220, %218 ]
+  %.137.i.i.i.i.i113.be = phi ptr [ %220, %218 ], [ %.old.i.i.i.i.i115, %221 ]
   br label %.lr.ph38.i.i.i.i.i112, !llvm.loop !464
 
 _ZN3mbp20array_project_plugin3imp8is_indexEP4expr.exit.i119: ; preds = %202, %213

@@ -1628,7 +1628,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit185: ; preds = %36
   br label %.loopexit
 
 .loopexit:                                        ; preds = %115, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit140, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit185, %123, %164
-  %.3 = phi i64 [ %165, %164 ], [ %.0241, %123 ], [ %175, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit140 ], [ %.283, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit185 ], [ %spec.select, %115 ]
+  %.3 = phi i64 [ %165, %164 ], [ %.283, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit185 ], [ %.0241, %123 ], [ %175, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit140 ], [ %spec.select, %115 ]
   %372 = load i64, ptr %48, align 8, !tbaa !15
   %.not = icmp eq i64 %.3, %372
   br i1 %.not, label %._crit_edge, label %87

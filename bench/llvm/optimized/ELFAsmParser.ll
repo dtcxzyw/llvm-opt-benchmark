@@ -1477,8 +1477,8 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread.i:       ; preds = %_ZN4llvmeqENS_9Stri
   br i1 %.not.i173, label %_ZN12_GLOBAL__N_112ELFAsmParser25parseSunStyleSectionFlagsEv.exit, label %.lr.ph.split.split.split.i
 
 _ZN12_GLOBAL__N_112ELFAsmParser25parseSunStyleSectionFlagsEv.exit: ; preds = %342, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i, %508, %476, %451, %426, %381
-  %.1423 = phi i8 [ 0, %381 ], [ %.3, %508 ], [ %.9, %426 ], [ %.7, %451 ], [ %.5, %476 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i ], [ 0, %342 ]
-  %.1131 = phi i32 [ %382, %381 ], [ %.1.i172, %508 ], [ %.1.us.i, %426 ], [ %.1.us72.i, %451 ], [ %.1.us88.i, %476 ], [ %327, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i ], [ %327, %342 ]
+  %.1423 = phi i8 [ %.5, %476 ], [ 0, %381 ], [ %.7, %451 ], [ %.3, %508 ], [ %.9, %426 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i ], [ 0, %342 ]
+  %.1131 = phi i32 [ %.1.us88.i, %476 ], [ %382, %381 ], [ %.1.us72.i, %451 ], [ %.1.i172, %508 ], [ %.1.us.i, %426 ], [ %327, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i ], [ %327, %342 ]
   %510 = icmp eq i32 %.1131, -1
   br i1 %510, label %_ZN12_GLOBAL__N_112ELFAsmParser25parseSunStyleSectionFlagsEv.exit.thread, label %515
 

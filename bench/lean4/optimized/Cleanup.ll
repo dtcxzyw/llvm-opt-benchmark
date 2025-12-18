@@ -10780,8 +10780,8 @@ lean_alloc_ctor.exit508:                          ; preds = %755
   br label %764
 
 763:                                              ; preds = %lean_inc.exit245, %lean_alloc_ctor.exit495
-  %.1214 = phi ptr [ %284, %lean_inc.exit245 ], [ %610, %lean_alloc_ctor.exit495 ]
-  %.1209 = phi ptr [ %.0208615, %lean_inc.exit245 ], [ %649, %lean_alloc_ctor.exit495 ]
+  %.1214 = phi ptr [ %610, %lean_alloc_ctor.exit495 ], [ %284, %lean_inc.exit245 ]
+  %.1209 = phi ptr [ %649, %lean_alloc_ctor.exit495 ], [ %.0208615, %lean_inc.exit245 ]
   %.1202 = add nuw i64 %.0201616, 1
   %exitcond.not = icmp eq i64 %.1202, %6
   br i1 %exitcond.not, label %._crit_edge, label %87
@@ -14225,8 +14225,8 @@ lean_dec.exit221:                                 ; preds = %591, %590, %588, %l
   unreachable
 
 595:                                              ; preds = %lean_dec.exit242, %lean_dec.exit239, %lean_dec.exit246, %lean_alloc_ctor.exit344
-  %.3195 = phi ptr [ %.0172524, %lean_alloc_ctor.exit344 ], [ %250, %lean_dec.exit246 ], [ %331, %lean_dec.exit242 ], [ %396, %lean_dec.exit239 ]
-  %.3187 = phi ptr [ %141, %lean_alloc_ctor.exit344 ], [ %266, %lean_dec.exit246 ], [ %349, %lean_dec.exit242 ], [ %412, %lean_dec.exit239 ]
+  %.3195 = phi ptr [ %.0172524, %lean_alloc_ctor.exit344 ], [ %396, %lean_dec.exit239 ], [ %250, %lean_dec.exit246 ], [ %331, %lean_dec.exit242 ]
+  %.3187 = phi ptr [ %141, %lean_alloc_ctor.exit344 ], [ %412, %lean_dec.exit239 ], [ %266, %lean_dec.exit246 ], [ %349, %lean_dec.exit242 ]
   %596 = getelementptr inbounds nuw i8, ptr %.3187, i64 8
   %597 = load ptr, ptr %596, align 8, !tbaa !9
   %598 = ptrtoint ptr %597 to i64
@@ -15997,8 +15997,8 @@ lean_dec.exit221:                                 ; preds = %591, %590, %588, %l
   unreachable
 
 595:                                              ; preds = %lean_dec.exit242, %lean_dec.exit239, %lean_dec.exit246, %lean_alloc_ctor.exit344
-  %.3195 = phi ptr [ %.0172524, %lean_alloc_ctor.exit344 ], [ %250, %lean_dec.exit246 ], [ %331, %lean_dec.exit242 ], [ %396, %lean_dec.exit239 ]
-  %.3187 = phi ptr [ %141, %lean_alloc_ctor.exit344 ], [ %266, %lean_dec.exit246 ], [ %349, %lean_dec.exit242 ], [ %412, %lean_dec.exit239 ]
+  %.3195 = phi ptr [ %.0172524, %lean_alloc_ctor.exit344 ], [ %396, %lean_dec.exit239 ], [ %250, %lean_dec.exit246 ], [ %331, %lean_dec.exit242 ]
+  %.3187 = phi ptr [ %141, %lean_alloc_ctor.exit344 ], [ %412, %lean_dec.exit239 ], [ %266, %lean_dec.exit246 ], [ %349, %lean_dec.exit242 ]
   %596 = getelementptr inbounds nuw i8, ptr %.3187, i64 8
   %597 = load ptr, ptr %596, align 8, !tbaa !9
   %598 = ptrtoint ptr %597 to i64
@@ -20618,7 +20618,7 @@ lean_inc.exit183:                                 ; preds = %540, %539, %537, %5
   br i1 %.not429, label %543, label %lean_dec.exit226.backedge
 
 lean_dec.exit226.backedge:                        ; preds = %lean_inc.exit183, %546, %548, %549, %lean_inc.exit196, %251, %253, %254
-  %.0167.be = phi ptr [ %237, %lean_inc.exit196 ], [ %237, %254 ], [ %237, %253 ], [ %237, %251 ], [ %532, %549 ], [ %532, %548 ], [ %532, %546 ], [ %532, %lean_inc.exit183 ]
+  %.0167.be = phi ptr [ %532, %lean_inc.exit183 ], [ %532, %546 ], [ %237, %lean_inc.exit196 ], [ %532, %548 ], [ %532, %549 ], [ %237, %251 ], [ %237, %253 ], [ %237, %254 ]
   br label %lean_dec.exit226
 
 543:                                              ; preds = %lean_inc.exit183
@@ -24259,8 +24259,8 @@ lean_alloc_ctor.exit261:                          ; preds = %lean_inc.exit
   br label %371
 
 371:                                              ; preds = %lean_inc.exit155, %lean_alloc_ctor.exit261
-  %.1138 = phi ptr [ %156, %lean_inc.exit155 ], [ %324, %lean_alloc_ctor.exit261 ]
-  %.1134 = phi ptr [ %.0133315, %lean_inc.exit155 ], [ %365, %lean_alloc_ctor.exit261 ]
+  %.1138 = phi ptr [ %324, %lean_alloc_ctor.exit261 ], [ %156, %lean_inc.exit155 ]
+  %.1134 = phi ptr [ %365, %lean_alloc_ctor.exit261 ], [ %.0133315, %lean_inc.exit155 ]
   %.1129 = add nuw i64 %.0128316, 1
   %exitcond.not = icmp eq i64 %.1129, %7
   br i1 %exitcond.not, label %._crit_edge, label %32

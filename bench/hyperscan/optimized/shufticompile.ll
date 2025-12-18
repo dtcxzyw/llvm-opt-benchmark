@@ -804,9 +804,9 @@ _ZNSt6vectorISt5arrayItLm4EESaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNSt6vecto
   br label %355
 
 .preheader338:                                    ; preds = %20, %_ZNSt6vectorISt5arrayItLm4EESaIS1_EE9push_backEOS1_.exit82, %102, %_ZNK3ue29CharReach10find_firstEv.exit
-  %.sroa.33.1.lcssa = phi ptr [ %.sroa.33.0.lcssa, %_ZNK3ue29CharReach10find_firstEv.exit ], [ %.sroa.33.5, %_ZNSt6vectorISt5arrayItLm4EESaIS1_EE9push_backEOS1_.exit82 ], [ %.sroa.33.5, %102 ], [ %.sroa.33.0.lcssa, %20 ]
-  %.sroa.16.1.lcssa = phi ptr [ %.sroa.16.0.lcssa, %_ZNK3ue29CharReach10find_firstEv.exit ], [ %.sroa.16.5, %_ZNSt6vectorISt5arrayItLm4EESaIS1_EE9push_backEOS1_.exit82 ], [ %.sroa.16.5, %102 ], [ %.sroa.16.0.lcssa, %20 ]
-  %.sroa.0286.2.lcssa = phi ptr [ %.sroa.0286.0.lcssa, %_ZNK3ue29CharReach10find_firstEv.exit ], [ %.sroa.0286.7, %_ZNSt6vectorISt5arrayItLm4EESaIS1_EE9push_backEOS1_.exit82 ], [ %.sroa.0286.7, %102 ], [ %.sroa.0286.0.lcssa, %20 ]
+  %.sroa.33.1.lcssa = phi ptr [ %.sroa.33.0.lcssa, %_ZNK3ue29CharReach10find_firstEv.exit ], [ %.sroa.33.5, %102 ], [ %.sroa.33.5, %_ZNSt6vectorISt5arrayItLm4EESaIS1_EE9push_backEOS1_.exit82 ], [ %.sroa.33.0.lcssa, %20 ]
+  %.sroa.16.1.lcssa = phi ptr [ %.sroa.16.0.lcssa, %_ZNK3ue29CharReach10find_firstEv.exit ], [ %.sroa.16.5, %102 ], [ %.sroa.16.5, %_ZNSt6vectorISt5arrayItLm4EESaIS1_EE9push_backEOS1_.exit82 ], [ %.sroa.16.0.lcssa, %20 ]
+  %.sroa.0286.2.lcssa = phi ptr [ %.sroa.0286.0.lcssa, %_ZNK3ue29CharReach10find_firstEv.exit ], [ %.sroa.0286.7, %102 ], [ %.sroa.0286.7, %_ZNSt6vectorISt5arrayItLm4EESaIS1_EE9push_backEOS1_.exit82 ], [ %.sroa.0286.0.lcssa, %20 ]
   %59 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %60 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %61 = getelementptr inbounds nuw i8, ptr %11, i64 24
@@ -1172,7 +1172,7 @@ _ZNSt8_Rb_treeISt5arrayItLm4EESt4pairIKS1_S1_ESt10_Select1stIS4_ESt4lessIS1_ESaI
   br label %.loopexit
 
 .loopexit:                                        ; preds = %148, %171, %.thread.i
-  %.sroa.06.0.i = phi ptr [ %150, %.thread.i ], [ %156, %171 ], [ %.19.i.i.i.i99, %148 ]
+  %.sroa.06.0.i = phi ptr [ %156, %171 ], [ %150, %.thread.i ], [ %.19.i.i.i.i99, %148 ]
   %172 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i, i64 40
   %173 = load i64, ptr %.sroa.0236.0411, align 2
   store i64 %173, ptr %172, align 2
@@ -1301,7 +1301,7 @@ _ZNSt8_Rb_treeISt5arrayItLm4EESt4pairIKS1_S1_ESt10_Select1stIS4_ESt4lessIS1_ESaI
   br label %.loopexit335
 
 .loopexit335:                                     ; preds = %189, %212, %.thread.i205
-  %.sroa.06.0.i127 = phi ptr [ %191, %.thread.i205 ], [ %197, %212 ], [ %.19.i.i.i.i116, %189 ]
+  %.sroa.06.0.i127 = phi ptr [ %197, %212 ], [ %191, %.thread.i205 ], [ %.19.i.i.i.i116, %189 ]
   %213 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i127, i64 40
   %.sroa.0.0.copyload = load i64, ptr %213, align 2
   %.sroa.0.0.extract.trunc.i = trunc i64 %.sroa.0.0.copyload to i16
@@ -1455,7 +1455,7 @@ _ZNSt8_Rb_treeISt5arrayItLm4EESt4pairIKS1_S1_ESt10_Select1stIS4_ESt4lessIS1_ESaI
   br label %.loopexit333
 
 .loopexit333:                                     ; preds = %239, %262, %.thread.i222
-  %.sroa.06.0.i156 = phi ptr [ %241, %.thread.i222 ], [ %247, %262 ], [ %.19.i.i.i.i145, %239 ]
+  %.sroa.06.0.i156 = phi ptr [ %247, %262 ], [ %241, %.thread.i222 ], [ %.19.i.i.i.i145, %239 ]
   %263 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i156, i64 40
   store i64 %.sroa.0.0.insert.insert.i, ptr %263, align 2
   br label %266
@@ -1721,8 +1721,8 @@ _ZNSt6vectorISt5arrayItLm4EESaIS1_EED2Ev.exit:    ; preds = %353, %354
   ret i1 %115
 
 355:                                              ; preds = %.loopexit339, %.loopexit.split-lp340, %.loopexit345, %.loopexit.split-lp346, %295
-  %.sroa.0286.1 = phi ptr [ %.sroa.0286.4, %295 ], [ %.sroa.0286.0398, %.loopexit.split-lp346 ], [ %.sroa.0286.0398, %.loopexit345 ], [ %.sroa.0286.2404, %.loopexit339 ], [ %.sroa.0286.2404, %.loopexit.split-lp340 ]
-  %.pn67.pn.pn = phi { ptr, i32 } [ %.pn.pn, %295 ], [ %lpad.loopexit.split-lp348, %.loopexit.split-lp346 ], [ %lpad.loopexit347, %.loopexit345 ], [ %lpad.loopexit341, %.loopexit339 ], [ %lpad.loopexit.split-lp342, %.loopexit.split-lp340 ]
+  %.sroa.0286.1 = phi ptr [ %.sroa.0286.0398, %.loopexit.split-lp346 ], [ %.sroa.0286.4, %295 ], [ %.sroa.0286.0398, %.loopexit345 ], [ %.sroa.0286.2404, %.loopexit339 ], [ %.sroa.0286.2404, %.loopexit.split-lp340 ]
+  %.pn67.pn.pn = phi { ptr, i32 } [ %lpad.loopexit.split-lp348, %.loopexit.split-lp346 ], [ %.pn.pn, %295 ], [ %lpad.loopexit347, %.loopexit345 ], [ %lpad.loopexit341, %.loopexit339 ], [ %lpad.loopexit.split-lp342, %.loopexit.split-lp340 ]
   %.not.i.i.i181 = icmp eq ptr %.sroa.0286.1, null
   br i1 %.not.i.i.i181, label %_ZNSt6vectorISt5arrayItLm4EESaIS1_EED2Ev.exit182, label %.thread316
 
@@ -2201,7 +2201,7 @@ _ZNKSt4lessIN3ue29CharReachEEclERKS1_S4_.exit.i:  ; preds = %.lr.ph.i.i.i.i.i.i.
   br i1 %.not.i, label %._crit_edge.thread.i, label %.lr.ph.i.backedge
 
 .lr.ph.i.backedge:                                ; preds = %_ZNKSt4lessIN3ue29CharReachEEclERKS1_S4_.exit.i, %_ZNKSt4lessIN3ue29CharReachEEclERKS1_S4_.exit.i.thread
-  %.02832.i.be = phi ptr [ %.028.i, %_ZNKSt4lessIN3ue29CharReachEEclERKS1_S4_.exit.i ], [ %.028.i128, %_ZNKSt4lessIN3ue29CharReachEEclERKS1_S4_.exit.i.thread ]
+  %.02832.i.be = phi ptr [ %.028.i128, %_ZNKSt4lessIN3ue29CharReachEEclERKS1_S4_.exit.i.thread ], [ %.028.i, %_ZNKSt4lessIN3ue29CharReachEEclERKS1_S4_.exit.i ]
   br label %.lr.ph.i, !llvm.loop !37
 
 _ZNKSt4lessIN3ue29CharReachEEclERKS1_S4_.exit.i.thread: ; preds = %23
@@ -2332,7 +2332,7 @@ _ZNKSt4lessIN3ue29CharReachEEclERKS1_S4_.exit.i37: ; preds = %.lr.ph.i.i.i.i.i.i
   br i1 %.not.i40, label %._crit_edge.thread.i55, label %.lr.ph.i28.backedge
 
 .lr.ph.i28.backedge:                              ; preds = %_ZNKSt4lessIN3ue29CharReachEEclERKS1_S4_.exit.i37, %_ZNKSt4lessIN3ue29CharReachEEclERKS1_S4_.exit.i37.thread
-  %.02832.i29.be = phi ptr [ %.028.i39, %_ZNKSt4lessIN3ue29CharReachEEclERKS1_S4_.exit.i37 ], [ %.028.i39131, %_ZNKSt4lessIN3ue29CharReachEEclERKS1_S4_.exit.i37.thread ]
+  %.02832.i29.be = phi ptr [ %.028.i39131, %_ZNKSt4lessIN3ue29CharReachEEclERKS1_S4_.exit.i37.thread ], [ %.028.i39, %_ZNKSt4lessIN3ue29CharReachEEclERKS1_S4_.exit.i37 ]
   br label %.lr.ph.i28, !llvm.loop !37
 
 _ZNKSt4lessIN3ue29CharReachEEclERKS1_S4_.exit.i37.thread: ; preds = %66
@@ -2457,7 +2457,7 @@ _ZNKSt4lessIN3ue29CharReachEEclERKS1_S4_.exit.i85: ; preds = %.lr.ph.i.i.i.i.i.i
   br i1 %.not.i88, label %._crit_edge.thread.i103, label %.lr.ph.i76.backedge
 
 .lr.ph.i76.backedge:                              ; preds = %_ZNKSt4lessIN3ue29CharReachEEclERKS1_S4_.exit.i85, %_ZNKSt4lessIN3ue29CharReachEEclERKS1_S4_.exit.i85.thread
-  %.02832.i77.be = phi ptr [ %.028.i87, %_ZNKSt4lessIN3ue29CharReachEEclERKS1_S4_.exit.i85 ], [ %.028.i87134, %_ZNKSt4lessIN3ue29CharReachEEclERKS1_S4_.exit.i85.thread ]
+  %.02832.i77.be = phi ptr [ %.028.i87134, %_ZNKSt4lessIN3ue29CharReachEEclERKS1_S4_.exit.i85.thread ], [ %.028.i87, %_ZNKSt4lessIN3ue29CharReachEEclERKS1_S4_.exit.i85 ]
   br label %.lr.ph.i76, !llvm.loop !37
 
 _ZNKSt4lessIN3ue29CharReachEEclERKS1_S4_.exit.i85.thread: ; preds = %105
@@ -2500,8 +2500,8 @@ _ZNKSt4lessIN3ue29CharReachEEclERKS1_S4_.exit.i85.thread: ; preds = %105
   br i1 %or.cond.i.i.i.i11.i98, label %_ZNKSt4lessIN3ue29CharReachEEclERKS1_S4_.exit65, label %.lr.ph.i.i.i.i.i.i.i.i.i5.i92, !llvm.loop !8
 
 _ZNKSt4lessIN3ue29CharReachEEclERKS1_S4_.exit65:  ; preds = %82, %118, %.lr.ph.i.i.i.i.i.i.i.i.i5.i92, %77, %.lr.ph.i.i.i.i.i.i.i.i.i5.i44, %.lr.ph.i.i.i.i.i.i.i.i.i, %36, %.lr.ph.i.i.i.i.i.i.i.i.i5.i, %._crit_edge.thread.i103, %._crit_edge.thread.i55, %._crit_edge.thread.i, %96, %57, %84, %45
-  %.sroa.0126.0 = phi ptr [ null, %84 ], [ %spec.select, %57 ], [ %spec.select137, %96 ], [ null, %._crit_edge.thread.i103 ], [ %47, %45 ], [ null, %.lr.ph.i.i.i.i.i.i.i.i.i5.i ], [ null, %._crit_edge.thread.i ], [ null, %._crit_edge.thread.i55 ], [ null, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ null, %.lr.ph.i.i.i.i.i.i.i.i.i5.i92 ], [ null, %.lr.ph.i.i.i.i.i.i.i.i.i5.i44 ], [ %.sroa.013.0.i, %36 ], [ %.sroa.013.0.i43, %77 ], [ %.sroa.013.0.i91, %118 ], [ %1, %82 ]
-  %.sroa.12.0 = phi ptr [ %86, %84 ], [ %spec.select136, %57 ], [ %spec.select138, %96 ], [ %.027.lcssa43.i104, %._crit_edge.thread.i103 ], [ %47, %45 ], [ %.027.lcssa44.i, %.lr.ph.i.i.i.i.i.i.i.i.i5.i ], [ %.027.lcssa43.i, %._crit_edge.thread.i ], [ %.027.lcssa43.i56, %._crit_edge.thread.i55 ], [ %11, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %.027.lcssa44.i90, %.lr.ph.i.i.i.i.i.i.i.i.i5.i92 ], [ %.027.lcssa44.i42, %.lr.ph.i.i.i.i.i.i.i.i.i5.i44 ], [ null, %36 ], [ null, %77 ], [ null, %118 ], [ null, %82 ]
+  %.sroa.0126.0 = phi ptr [ null, %84 ], [ %spec.select, %57 ], [ null, %.lr.ph.i.i.i.i.i.i.i.i.i5.i ], [ %spec.select137, %96 ], [ null, %.lr.ph.i.i.i.i.i.i.i.i.i5.i92 ], [ %47, %45 ], [ null, %.lr.ph.i.i.i.i.i.i.i.i.i5.i44 ], [ null, %._crit_edge.thread.i103 ], [ null, %._crit_edge.thread.i ], [ null, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ null, %._crit_edge.thread.i55 ], [ %.sroa.013.0.i, %36 ], [ %.sroa.013.0.i43, %77 ], [ %.sroa.013.0.i91, %118 ], [ %1, %82 ]
+  %.sroa.12.0 = phi ptr [ %86, %84 ], [ %spec.select136, %57 ], [ %.027.lcssa44.i, %.lr.ph.i.i.i.i.i.i.i.i.i5.i ], [ %spec.select138, %96 ], [ %.027.lcssa44.i90, %.lr.ph.i.i.i.i.i.i.i.i.i5.i92 ], [ %47, %45 ], [ %.027.lcssa44.i42, %.lr.ph.i.i.i.i.i.i.i.i.i5.i44 ], [ %.027.lcssa43.i104, %._crit_edge.thread.i103 ], [ %.027.lcssa43.i, %._crit_edge.thread.i ], [ %11, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %.027.lcssa43.i56, %._crit_edge.thread.i55 ], [ null, %36 ], [ null, %77 ], [ null, %118 ], [ null, %82 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.0126.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -2581,7 +2581,7 @@ _ZNKSt4lessISt5arrayItLm4EEEclERKS1_S4_.exit.i:   ; preds = %.lr.ph.i.i.i.i.i.i.
   br i1 %.not.i, label %._crit_edge.thread.i, label %.lr.ph.i.backedge
 
 .lr.ph.i.backedge:                                ; preds = %_ZNKSt4lessISt5arrayItLm4EEEclERKS1_S4_.exit.i, %_ZNKSt4lessISt5arrayItLm4EEEclERKS1_S4_.exit.i.thread
-  %.02832.i.be = phi ptr [ %.028.i, %_ZNKSt4lessISt5arrayItLm4EEEclERKS1_S4_.exit.i ], [ %.028.i128, %_ZNKSt4lessISt5arrayItLm4EEEclERKS1_S4_.exit.i.thread ]
+  %.02832.i.be = phi ptr [ %.028.i128, %_ZNKSt4lessISt5arrayItLm4EEEclERKS1_S4_.exit.i.thread ], [ %.028.i, %_ZNKSt4lessISt5arrayItLm4EEEclERKS1_S4_.exit.i ]
   br label %.lr.ph.i, !llvm.loop !38
 
 _ZNKSt4lessISt5arrayItLm4EEEclERKS1_S4_.exit.i.thread: ; preds = %23
@@ -2712,7 +2712,7 @@ _ZNKSt4lessISt5arrayItLm4EEEclERKS1_S4_.exit.i37: ; preds = %.lr.ph.i.i.i.i.i.i.
   br i1 %.not.i40, label %._crit_edge.thread.i55, label %.lr.ph.i28.backedge
 
 .lr.ph.i28.backedge:                              ; preds = %_ZNKSt4lessISt5arrayItLm4EEEclERKS1_S4_.exit.i37, %_ZNKSt4lessISt5arrayItLm4EEEclERKS1_S4_.exit.i37.thread
-  %.02832.i29.be = phi ptr [ %.028.i39, %_ZNKSt4lessISt5arrayItLm4EEEclERKS1_S4_.exit.i37 ], [ %.028.i39131, %_ZNKSt4lessISt5arrayItLm4EEEclERKS1_S4_.exit.i37.thread ]
+  %.02832.i29.be = phi ptr [ %.028.i39131, %_ZNKSt4lessISt5arrayItLm4EEEclERKS1_S4_.exit.i37.thread ], [ %.028.i39, %_ZNKSt4lessISt5arrayItLm4EEEclERKS1_S4_.exit.i37 ]
   br label %.lr.ph.i28, !llvm.loop !38
 
 _ZNKSt4lessISt5arrayItLm4EEEclERKS1_S4_.exit.i37.thread: ; preds = %66
@@ -2837,7 +2837,7 @@ _ZNKSt4lessISt5arrayItLm4EEEclERKS1_S4_.exit.i85: ; preds = %.lr.ph.i.i.i.i.i.i.
   br i1 %.not.i88, label %._crit_edge.thread.i103, label %.lr.ph.i76.backedge
 
 .lr.ph.i76.backedge:                              ; preds = %_ZNKSt4lessISt5arrayItLm4EEEclERKS1_S4_.exit.i85, %_ZNKSt4lessISt5arrayItLm4EEEclERKS1_S4_.exit.i85.thread
-  %.02832.i77.be = phi ptr [ %.028.i87, %_ZNKSt4lessISt5arrayItLm4EEEclERKS1_S4_.exit.i85 ], [ %.028.i87134, %_ZNKSt4lessISt5arrayItLm4EEEclERKS1_S4_.exit.i85.thread ]
+  %.02832.i77.be = phi ptr [ %.028.i87134, %_ZNKSt4lessISt5arrayItLm4EEEclERKS1_S4_.exit.i85.thread ], [ %.028.i87, %_ZNKSt4lessISt5arrayItLm4EEEclERKS1_S4_.exit.i85 ]
   br label %.lr.ph.i76, !llvm.loop !38
 
 _ZNKSt4lessISt5arrayItLm4EEEclERKS1_S4_.exit.i85.thread: ; preds = %105
@@ -2880,8 +2880,8 @@ _ZNKSt4lessISt5arrayItLm4EEEclERKS1_S4_.exit.i85.thread: ; preds = %105
   br i1 %or.cond.i.i11.i98, label %_ZNKSt4lessISt5arrayItLm4EEEclERKS1_S4_.exit65, label %.lr.ph.i.i.i.i.i.i.i5.i92, !llvm.loop !27
 
 _ZNKSt4lessISt5arrayItLm4EEEclERKS1_S4_.exit65:   ; preds = %82, %118, %.lr.ph.i.i.i.i.i.i.i5.i92, %77, %.lr.ph.i.i.i.i.i.i.i5.i44, %.lr.ph.i.i.i.i.i.i.i, %36, %.lr.ph.i.i.i.i.i.i.i5.i, %._crit_edge.thread.i103, %._crit_edge.thread.i55, %._crit_edge.thread.i, %96, %57, %84, %45
-  %.sroa.0126.0 = phi ptr [ null, %84 ], [ %spec.select, %57 ], [ %spec.select137, %96 ], [ null, %._crit_edge.thread.i103 ], [ %47, %45 ], [ null, %.lr.ph.i.i.i.i.i.i.i5.i ], [ null, %._crit_edge.thread.i ], [ null, %._crit_edge.thread.i55 ], [ null, %.lr.ph.i.i.i.i.i.i.i ], [ null, %.lr.ph.i.i.i.i.i.i.i5.i92 ], [ null, %.lr.ph.i.i.i.i.i.i.i5.i44 ], [ %.sroa.013.0.i, %36 ], [ %.sroa.013.0.i43, %77 ], [ %.sroa.013.0.i91, %118 ], [ %1, %82 ]
-  %.sroa.12.0 = phi ptr [ %86, %84 ], [ %spec.select136, %57 ], [ %spec.select138, %96 ], [ %.027.lcssa43.i104, %._crit_edge.thread.i103 ], [ %47, %45 ], [ %.027.lcssa44.i, %.lr.ph.i.i.i.i.i.i.i5.i ], [ %.027.lcssa43.i, %._crit_edge.thread.i ], [ %.027.lcssa43.i56, %._crit_edge.thread.i55 ], [ %11, %.lr.ph.i.i.i.i.i.i.i ], [ %.027.lcssa44.i90, %.lr.ph.i.i.i.i.i.i.i5.i92 ], [ %.027.lcssa44.i42, %.lr.ph.i.i.i.i.i.i.i5.i44 ], [ null, %36 ], [ null, %77 ], [ null, %118 ], [ null, %82 ]
+  %.sroa.0126.0 = phi ptr [ null, %84 ], [ %spec.select, %57 ], [ null, %.lr.ph.i.i.i.i.i.i.i5.i ], [ %spec.select137, %96 ], [ null, %.lr.ph.i.i.i.i.i.i.i5.i92 ], [ %47, %45 ], [ null, %.lr.ph.i.i.i.i.i.i.i5.i44 ], [ null, %._crit_edge.thread.i103 ], [ null, %._crit_edge.thread.i ], [ null, %.lr.ph.i.i.i.i.i.i.i ], [ null, %._crit_edge.thread.i55 ], [ %.sroa.013.0.i, %36 ], [ %.sroa.013.0.i43, %77 ], [ %.sroa.013.0.i91, %118 ], [ %1, %82 ]
+  %.sroa.12.0 = phi ptr [ %86, %84 ], [ %spec.select136, %57 ], [ %.027.lcssa44.i, %.lr.ph.i.i.i.i.i.i.i5.i ], [ %spec.select138, %96 ], [ %.027.lcssa44.i90, %.lr.ph.i.i.i.i.i.i.i5.i92 ], [ %47, %45 ], [ %.027.lcssa44.i42, %.lr.ph.i.i.i.i.i.i.i5.i44 ], [ %.027.lcssa43.i104, %._crit_edge.thread.i103 ], [ %.027.lcssa43.i, %._crit_edge.thread.i ], [ %11, %.lr.ph.i.i.i.i.i.i.i ], [ %.027.lcssa43.i56, %._crit_edge.thread.i55 ], [ null, %36 ], [ null, %77 ], [ null, %118 ], [ null, %82 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.0126.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert

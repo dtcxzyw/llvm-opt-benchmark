@@ -5987,8 +5987,8 @@ _ZN11mpq_managerILb1EE5resetER3mpz.exit.backedge: ; preds = %_ZN11mpq_managerILb
   br label %.loopexit
 
 .critedge2:                                       ; preds = %_ZN11mpq_managerILb1EE5resetER3mpz.exit, %_ZN11mpq_managerILb1EE5resetER3mpz.exit, %_ZN11mpq_managerILb1EE5resetER3mpz.exit, %_ZN11mpq_managerILb1EE5resetER3mpz.exit.us, %_ZN11mpq_managerILb1EE5resetER3mpz.exit.us, %_ZN11mpq_managerILb1EE5resetER3mpz.exit.us, %49
-  %83 = phi i8 [ %.pr185, %49 ], [ %60, %_ZN11mpq_managerILb1EE5resetER3mpz.exit.us ], [ %60, %_ZN11mpq_managerILb1EE5resetER3mpz.exit.us ], [ %60, %_ZN11mpq_managerILb1EE5resetER3mpz.exit.us ], [ %71, %_ZN11mpq_managerILb1EE5resetER3mpz.exit ], [ %71, %_ZN11mpq_managerILb1EE5resetER3mpz.exit ], [ %71, %_ZN11mpq_managerILb1EE5resetER3mpz.exit ]
-  %.290 = phi ptr [ %.189, %49 ], [ %.391.us, %_ZN11mpq_managerILb1EE5resetER3mpz.exit.us ], [ %.391.us, %_ZN11mpq_managerILb1EE5resetER3mpz.exit.us ], [ %.391.us, %_ZN11mpq_managerILb1EE5resetER3mpz.exit.us ], [ %.391, %_ZN11mpq_managerILb1EE5resetER3mpz.exit ], [ %.391, %_ZN11mpq_managerILb1EE5resetER3mpz.exit ], [ %.391, %_ZN11mpq_managerILb1EE5resetER3mpz.exit ]
+  %83 = phi i8 [ %60, %_ZN11mpq_managerILb1EE5resetER3mpz.exit.us ], [ %.pr185, %49 ], [ %60, %_ZN11mpq_managerILb1EE5resetER3mpz.exit.us ], [ %60, %_ZN11mpq_managerILb1EE5resetER3mpz.exit.us ], [ %71, %_ZN11mpq_managerILb1EE5resetER3mpz.exit ], [ %71, %_ZN11mpq_managerILb1EE5resetER3mpz.exit ], [ %71, %_ZN11mpq_managerILb1EE5resetER3mpz.exit ]
+  %.290 = phi ptr [ %.391.us, %_ZN11mpq_managerILb1EE5resetER3mpz.exit.us ], [ %.189, %49 ], [ %.391.us, %_ZN11mpq_managerILb1EE5resetER3mpz.exit.us ], [ %.391.us, %_ZN11mpq_managerILb1EE5resetER3mpz.exit.us ], [ %.391, %_ZN11mpq_managerILb1EE5resetER3mpz.exit ], [ %.391, %_ZN11mpq_managerILb1EE5resetER3mpz.exit ], [ %.391, %_ZN11mpq_managerILb1EE5resetER3mpz.exit ]
   switch i8 %83, label %.thread [
     i8 101, label %84
     i8 69, label %84
@@ -12677,8 +12677,8 @@ _ZN11mpq_managerILb0EE5resetER3mpz.exit.backedge: ; preds = %_ZN11mpq_managerILb
   br label %.loopexit
 
 .critedge2:                                       ; preds = %_ZN11mpq_managerILb0EE5resetER3mpz.exit, %_ZN11mpq_managerILb0EE5resetER3mpz.exit, %_ZN11mpq_managerILb0EE5resetER3mpz.exit, %_ZN11mpq_managerILb0EE5resetER3mpz.exit.us, %_ZN11mpq_managerILb0EE5resetER3mpz.exit.us, %_ZN11mpq_managerILb0EE5resetER3mpz.exit.us, %48
-  %82 = phi i8 [ %.pr179, %48 ], [ %59, %_ZN11mpq_managerILb0EE5resetER3mpz.exit.us ], [ %59, %_ZN11mpq_managerILb0EE5resetER3mpz.exit.us ], [ %59, %_ZN11mpq_managerILb0EE5resetER3mpz.exit.us ], [ %70, %_ZN11mpq_managerILb0EE5resetER3mpz.exit ], [ %70, %_ZN11mpq_managerILb0EE5resetER3mpz.exit ], [ %70, %_ZN11mpq_managerILb0EE5resetER3mpz.exit ]
-  %.290 = phi ptr [ %.189, %48 ], [ %.391.us, %_ZN11mpq_managerILb0EE5resetER3mpz.exit.us ], [ %.391.us, %_ZN11mpq_managerILb0EE5resetER3mpz.exit.us ], [ %.391.us, %_ZN11mpq_managerILb0EE5resetER3mpz.exit.us ], [ %.391, %_ZN11mpq_managerILb0EE5resetER3mpz.exit ], [ %.391, %_ZN11mpq_managerILb0EE5resetER3mpz.exit ], [ %.391, %_ZN11mpq_managerILb0EE5resetER3mpz.exit ]
+  %82 = phi i8 [ %59, %_ZN11mpq_managerILb0EE5resetER3mpz.exit.us ], [ %.pr179, %48 ], [ %59, %_ZN11mpq_managerILb0EE5resetER3mpz.exit.us ], [ %59, %_ZN11mpq_managerILb0EE5resetER3mpz.exit.us ], [ %70, %_ZN11mpq_managerILb0EE5resetER3mpz.exit ], [ %70, %_ZN11mpq_managerILb0EE5resetER3mpz.exit ], [ %70, %_ZN11mpq_managerILb0EE5resetER3mpz.exit ]
+  %.290 = phi ptr [ %.391.us, %_ZN11mpq_managerILb0EE5resetER3mpz.exit.us ], [ %.189, %48 ], [ %.391.us, %_ZN11mpq_managerILb0EE5resetER3mpz.exit.us ], [ %.391.us, %_ZN11mpq_managerILb0EE5resetER3mpz.exit.us ], [ %.391, %_ZN11mpq_managerILb0EE5resetER3mpz.exit ], [ %.391, %_ZN11mpq_managerILb0EE5resetER3mpz.exit ], [ %.391, %_ZN11mpq_managerILb0EE5resetER3mpz.exit ]
   switch i8 %82, label %.thread [
     i8 101, label %83
     i8 69, label %83

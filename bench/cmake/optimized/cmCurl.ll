@@ -935,7 +935,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
   br label %116
 
 64:                                               ; preds = %12, %17
-  %.026 = phi i32 [ 2, %17 ], [ 1, %12 ]
+  %.026 = phi i32 [ 1, %12 ], [ 2, %17 ]
   %65 = invoke i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %1, i32 noundef 51, i32 noundef %.026)
           to label %66 unwind label %15
 

@@ -145,7 +145,7 @@ define hidden void @_Z37_hb_preprocess_text_vowel_constraintsPK18hb_ot_shape_pla
   br label %.critedge226
 
 62:                                               ; preds = %43, %38
-  %.0221 = phi i1 [ %42, %38 ], [ %switch, %43 ]
+  %.0221 = phi i1 [ %switch, %43 ], [ %42, %38 ]
   %63 = load i8, ptr %17, align 2
   %64 = trunc i8 %63 to i1
   br i1 %64, label %65, label %83
@@ -1449,7 +1449,7 @@ _ZN11hb_buffer_t10next_glyphEv.exit367:           ; preds = %684, %670, %663, %_
   br label %722
 
 722:                                              ; preds = %718, %713, %708
-  %.0213.shrunk = phi i1 [ %712, %708 ], [ %717, %713 ], [ %switch.selectcmp246, %718 ]
+  %.0213.shrunk = phi i1 [ %switch.selectcmp246, %718 ], [ %712, %708 ], [ %717, %713 ]
   %723 = load i8, ptr %695, align 2
   %724 = trunc i8 %723 to i1
   br i1 %724, label %725, label %743
@@ -1671,7 +1671,7 @@ _ZN11hb_buffer_t10next_glyphEv.exit377:           ; preds = %767, %753, %746, %_
   br label %_ZN11hb_buffer_t10next_glyphEv.exit382
 
 832:                                              ; preds = %791, %800, %795
-  %.0212.shrunk = phi i1 [ %switch250, %791 ], [ %799, %795 ], [ %804, %800 ]
+  %.0212.shrunk = phi i1 [ %799, %795 ], [ %switch250, %791 ], [ %804, %800 ]
   %833 = load i8, ptr %778, align 2
   %834 = trunc i8 %833 to i1
   br i1 %834, label %835, label %853
@@ -2036,7 +2036,7 @@ _ZN11hb_buffer_t10next_glyphEv.exit402:           ; preds = %951, %937, %930, %_
   br label %1017
 
 1017:                                             ; preds = %1007, %1012, %1002
-  %.0210.shrunk = phi i1 [ %1006, %1002 ], [ %switch259, %1007 ], [ %1016, %1012 ]
+  %.0210.shrunk = phi i1 [ %1006, %1002 ], [ %1016, %1012 ], [ %switch259, %1007 ]
   %1018 = load i8, ptr %962, align 2
   %1019 = trunc i8 %1018 to i1
   br i1 %1019, label %1020, label %1038
@@ -2341,7 +2341,7 @@ _ZN11hb_buffer_t10next_glyphEv.exit427:           ; preds = %1132, %1119, %_ZN11
   br label %1170
 
 1170:                                             ; preds = %1166, %1161, %1156
-  %.0208.shrunk = phi i1 [ %1160, %1156 ], [ %1165, %1161 ], [ %switch268, %1166 ]
+  %.0208.shrunk = phi i1 [ %switch268, %1166 ], [ %1160, %1156 ], [ %1165, %1161 ]
   %1171 = load i8, ptr %1143, align 2
   %1172 = trunc i8 %1171 to i1
   br i1 %1172, label %1173, label %1191

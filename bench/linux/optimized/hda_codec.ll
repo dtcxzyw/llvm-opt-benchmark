@@ -4633,7 +4633,7 @@ define dso_local range(i32 -2147483648, 1) i32 @__snd_hda_add_vmaster(ptr nounde
   br label %.thread19
 
 .thread19:                                        ; preds = %.loopexit28.split, %.loopexit28.split.us.us, %105, %98, %188, %187, %.split36.us, %.split30.us, %14
-  %189 = phi i32 [ -12, %.split30.us ], [ %.us-phi, %.split36.us ], [ 0, %188 ], [ 0, %187 ], [ 0, %14 ], [ -12, %105 ], [ %103, %98 ], [ 0, %.loopexit28.split.us.us ], [ 0, %.loopexit28.split ]
+  %189 = phi i32 [ -12, %.split30.us ], [ %103, %98 ], [ %.us-phi, %.split36.us ], [ 0, %188 ], [ 0, %187 ], [ 0, %14 ], [ -12, %105 ], [ 0, %.loopexit28.split.us.us ], [ 0, %.loopexit28.split ]
   ret i32 %189
 }
 
@@ -6676,8 +6676,8 @@ define dso_local i32 @snd_hda_codec_prepare(ptr noundef %0, ptr noundef %1, i32 
   br i1 %69, label %34, label %.loopexit.loopexit, !llvm.loop !60
 
 .thread:                                          ; preds = %.loopexit, %..thread_crit_edge, %15, %12
-  %70 = phi ptr [ %.pre6, %12 ], [ %.pre6, %15 ], [ %.pre5, %..thread_crit_edge ], [ %19, %.loopexit ]
-  %71 = phi i32 [ %13, %12 ], [ %13, %15 ], [ -19, %..thread_crit_edge ], [ %13, %.loopexit ]
+  %70 = phi ptr [ %.pre6, %12 ], [ %.pre5, %..thread_crit_edge ], [ %.pre6, %15 ], [ %19, %.loopexit ]
+  %71 = phi i32 [ %13, %12 ], [ -19, %..thread_crit_edge ], [ %13, %15 ], [ %13, %.loopexit ]
   %72 = getelementptr inbounds nuw i8, ptr %70, i64 1344
   tail call void @mutex_unlock(ptr noundef nonnull %72) #24
   ret i32 %71
@@ -7569,7 +7569,7 @@ define internal fastcc void @setup_dig_out_stream(ptr noundef %0, i16 noundef ze
   br i1 %60, label %.thread9, label %.preheader12, !llvm.loop !51
 
 .thread9:                                         ; preds = %.preheader12, %26, %49, %39, %32
-  %61 = phi i1 [ false, %32 ], [ true, %49 ], [ true, %39 ], [ false, %26 ], [ true, %.preheader12 ]
+  %61 = phi i1 [ false, %32 ], [ false, %26 ], [ true, %49 ], [ true, %39 ], [ true, %.preheader12 ]
   tail call void @snd_hda_codec_setup_stream(ptr noundef %0, i16 noundef zeroext %1, i32 noundef %2, i32 noundef 0, i32 noundef %3)
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 1312
   %63 = load ptr, ptr %62, align 8

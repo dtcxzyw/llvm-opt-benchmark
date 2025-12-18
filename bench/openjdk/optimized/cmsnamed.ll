@@ -2747,7 +2747,7 @@ cmsDictAlloc.exit:                                ; preds = %1
   br label %cmsDictAlloc.exit.thread
 
 cmsDictAlloc.exit.thread:                         ; preds = %7, %1, %18
-  %.014 = phi ptr [ null, %18 ], [ null, %1 ], [ %4, %7 ]
+  %.014 = phi ptr [ null, %1 ], [ null, %18 ], [ %4, %7 ]
   ret ptr %.014
 }
 

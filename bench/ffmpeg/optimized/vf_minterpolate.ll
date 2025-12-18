@@ -1288,7 +1288,7 @@ define internal range(i32 -22, 1) i32 @config_input(ptr noundef readonly capture
   br label %.loopexit91
 
 .loopexit91:                                      ; preds = %50, %109, %117, %98, %83, %93, %123, %66
-  %.2 = phi i32 [ -22, %66 ], [ -12, %98 ], [ 0, %123 ], [ -12, %83 ], [ -12, %93 ], [ -22, %117 ], [ -12, %109 ], [ -12, %50 ]
+  %.2 = phi i32 [ -12, %109 ], [ -22, %66 ], [ -12, %98 ], [ 0, %123 ], [ -22, %117 ], [ -12, %83 ], [ -12, %93 ], [ -12, %50 ]
   ret i32 %.2
 }
 
@@ -2041,10 +2041,10 @@ bilateral_me.exit:                                ; preds = %._crit_edge.i, %.pr
   br i1 %367, label %.lr.ph256.split.i, label %._crit_edge257.i, !llvm.loop !159
 
 ._crit_edge257.i:                                 ; preds = %._crit_edge.split.i, %.lr.ph256.i, %.lr.ph269.i.split
-  %368 = phi i32 [ %269, %.lr.ph256.i ], [ %269, %.lr.ph269.i.split ], [ %361, %._crit_edge.split.i ]
-  %369 = phi i32 [ %270, %.lr.ph256.i ], [ %270, %.lr.ph269.i.split ], [ %362, %._crit_edge.split.i ]
-  %370 = phi i32 [ %271, %.lr.ph256.i ], [ %271, %.lr.ph269.i.split ], [ %363, %._crit_edge.split.i ]
-  %371 = phi i32 [ %272, %.lr.ph256.i ], [ %272, %.lr.ph269.i.split ], [ %363, %._crit_edge.split.i ]
+  %368 = phi i32 [ %269, %.lr.ph269.i.split ], [ %269, %.lr.ph256.i ], [ %361, %._crit_edge.split.i ]
+  %369 = phi i32 [ %270, %.lr.ph269.i.split ], [ %270, %.lr.ph256.i ], [ %362, %._crit_edge.split.i ]
+  %370 = phi i32 [ %271, %.lr.ph269.i.split ], [ %271, %.lr.ph256.i ], [ %363, %._crit_edge.split.i ]
+  %371 = phi i32 [ %272, %.lr.ph269.i.split ], [ %272, %.lr.ph256.i ], [ %363, %._crit_edge.split.i ]
   %372 = add nuw nsw i32 %.1172266.i, 1
   %373 = icmp slt i32 %372, %369
   br i1 %373, label %.lr.ph269.i.split, label %._crit_edge.i120, !llvm.loop !160
@@ -2058,7 +2058,7 @@ bilateral_me.exit:                                ; preds = %._crit_edge.i, %.pr
   br i1 %378, label %.preheader.i119, label %cluster_mvs.exit, !llvm.loop !161
 
 cluster_mvs.exit:                                 ; preds = %._crit_edge.i120, %351, %315, %._crit_edge46, %._crit_edge32.thread134, %.split.us.i, %.loopexit, %1, %31, %28, %67
-  %.1 = phi i32 [ 0, %67 ], [ 0, %1 ], [ 0, %28 ], [ 0, %31 ], [ 0, %.loopexit ], [ 0, %.split.us.i ], [ 0, %._crit_edge32.thread134 ], [ %355, %351 ], [ 0, %._crit_edge46 ], [ %319, %315 ], [ 0, %._crit_edge.i120 ]
+  %.1 = phi i32 [ 0, %._crit_edge46 ], [ 0, %67 ], [ 0, %1 ], [ 0, %28 ], [ 0, %.split.us.i ], [ 0, %31 ], [ 0, %.loopexit ], [ %319, %315 ], [ %355, %351 ], [ 0, %._crit_edge32.thread134 ], [ 0, %._crit_edge.i120 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.1
 }

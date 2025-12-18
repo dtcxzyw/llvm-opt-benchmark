@@ -1466,9 +1466,9 @@ fetch_att.exit509.i:                              ; preds = %661, %656, %653, %6
   br i1 %.not.i181, label %.loopexit566.i, label %628, !llvm.loop !16
 
 .loopexit566.i:                                   ; preds = %683, %fetch_att.exit.i, %626, %.preheader565.i
-  %.1444.i = phi i32 [ 0, %.preheader565.i ], [ 0, %626 ], [ %561, %fetch_att.exit.i ], [ %.3446.i, %683 ]
-  %.1439.i = phi i32 [ 0, %.preheader565.i ], [ 0, %626 ], [ %561, %fetch_att.exit.i ], [ %.3441.i, %683 ]
-  %.1420.i = phi i32 [ 0, %.preheader565.i ], [ 0, %626 ], [ %619, %fetch_att.exit.i ], [ %.3422.i, %683 ]
+  %.1444.i = phi i32 [ %561, %fetch_att.exit.i ], [ 0, %.preheader565.i ], [ 0, %626 ], [ %.3446.i, %683 ]
+  %.1439.i = phi i32 [ %561, %fetch_att.exit.i ], [ 0, %.preheader565.i ], [ 0, %626 ], [ %.3441.i, %683 ]
+  %.1420.i = phi i32 [ %619, %fetch_att.exit.i ], [ 0, %.preheader565.i ], [ 0, %626 ], [ %.3422.i, %683 ]
   store i32 %.1444.i, ptr %8, align 8
   br i1 %24, label %fetch_att.exit512.i, label %687
 
@@ -1730,10 +1730,10 @@ checkAllTheSame.exit.i:                           ; preds = %.lr.ph49.i.i, %798,
   br label %checkAllTheSame.exit.thread.i
 
 checkAllTheSame.exit.thread.i:                    ; preds = %.lr.ph.i.i, %813, %checkAllTheSame.exit.i, %.loopexit563.i, %749, %721
-  %821 = phi i1 [ false, %813 ], [ true, %checkAllTheSame.exit.i ], [ true, %.loopexit563.i ], [ true, %749 ], [ true, %721 ], [ true, %.lr.ph.i.i ]
-  %.0.i513550.i = phi i32 [ 4, %813 ], [ 4, %checkAllTheSame.exit.i ], [ 0, %.loopexit563.i ], [ 0, %749 ], [ 0, %721 ], [ 0, %.lr.ph.i.i ]
-  %.0442.i = phi i32 [ %814, %813 ], [ %.pre.i, %checkAllTheSame.exit.i ], [ %772, %.loopexit563.i ], [ %720, %749 ], [ %726, %721 ], [ %772, %.lr.ph.i.i ]
-  %.3435.i = phi i32 [ %820, %813 ], [ %.1433.i, %checkAllTheSame.exit.i ], [ %.1433.i, %.loopexit563.i ], [ 0, %749 ], [ 0, %721 ], [ %.1433.i, %.lr.ph.i.i ]
+  %821 = phi i1 [ false, %813 ], [ true, %721 ], [ true, %checkAllTheSame.exit.i ], [ true, %.loopexit563.i ], [ true, %749 ], [ true, %.lr.ph.i.i ]
+  %.0.i513550.i = phi i32 [ 4, %813 ], [ 0, %721 ], [ 4, %checkAllTheSame.exit.i ], [ 0, %.loopexit563.i ], [ 0, %749 ], [ 0, %.lr.ph.i.i ]
+  %.0442.i = phi i32 [ %814, %813 ], [ %726, %721 ], [ %.pre.i, %checkAllTheSame.exit.i ], [ %772, %.loopexit563.i ], [ %720, %749 ], [ %772, %.lr.ph.i.i ]
+  %.3435.i = phi i32 [ %820, %813 ], [ 0, %721 ], [ %.1433.i, %checkAllTheSame.exit.i ], [ %.1433.i, %.loopexit563.i ], [ 0, %749 ], [ %.1433.i, %.lr.ph.i.i ]
   %822 = load i32, ptr %109, align 8
   %823 = sext i32 %822 to i64
   %824 = shl nsw i64 %823, 3
@@ -2123,9 +2123,9 @@ BufferGetPage.exit515.i:                          ; preds = %981, %975
   br i1 %exitcond708.not.i, label %.loopexit.i184, label %1014, !llvm.loop !27
 
 .loopexit.i184:                                   ; preds = %1014, %1012, %915, %.lr.ph628.preheader.i, %911
-  %.5448.i = phi i32 [ %.1444.i, %915 ], [ %.6449.i, %1012 ], [ %spec.select.i183, %911 ], [ %spec.select.i183, %.lr.ph628.preheader.i ], [ %.6449.i, %1014 ]
-  %.0416.i = phi i32 [ 0, %915 ], [ %921, %1012 ], [ 0, %911 ], [ 0, %.lr.ph628.preheader.i ], [ %921, %1014 ]
-  %.1.i185 = phi i1 [ false, %915 ], [ %.2.i, %1012 ], [ %821, %911 ], [ %821, %.lr.ph628.preheader.i ], [ %.2.i, %1014 ]
+  %.5448.i = phi i32 [ %.6449.i, %1012 ], [ %.1444.i, %915 ], [ %spec.select.i183, %911 ], [ %spec.select.i183, %.lr.ph628.preheader.i ], [ %.6449.i, %1014 ]
+  %.0416.i = phi i32 [ %921, %1012 ], [ 0, %915 ], [ 0, %911 ], [ 0, %.lr.ph628.preheader.i ], [ %921, %1014 ]
+  %.1.i185 = phi i1 [ %.2.i, %1012 ], [ false, %915 ], [ %821, %911 ], [ %821, %.lr.ph628.preheader.i ], [ %.2.i, %1014 ]
   store i16 0, ptr %116, align 2
   store i8 %553, ptr %117, align 2
   store i8 %23, ptr %118, align 1
@@ -3870,8 +3870,8 @@ spgSplitNodeAction.exit:                          ; preds = %.thread.i251, %1909
   unreachable
 
 .thread433:                                       ; preds = %1435, %1430, %1437
-  %.1130 = phi i32 [ %.01291032, %1437 ], [ %.01291032, %1430 ], [ %.2124, %1435 ]
-  %.1127 = phi i32 [ %1438, %1437 ], [ %.01261033, %1430 ], [ 0, %1435 ]
+  %.1130 = phi i32 [ %.01291032, %1430 ], [ %.01291032, %1437 ], [ %.2124, %1435 ]
+  %.1127 = phi i32 [ %.01261033, %1430 ], [ %1438, %1437 ], [ 0, %1435 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i8 0, ptr %18, align 1
@@ -3880,8 +3880,8 @@ spgSplitNodeAction.exit:                          ; preds = %.thread.i251, %1909
   br i1 %.not145, label %159, label %.thread475, !prof !34
 
 .thread426:                                       ; preds = %doPickSplit.exit, %.preheader, %spgAddNodeAction.exit, %spgSplitNodeAction.exit, %moveLeafs.exit, %addLeafTuple.exit
-  %.sroa.29.1.ph = phi i32 [ %.sroa.29.2, %addLeafTuple.exit ], [ %.sroa.29.2, %moveLeafs.exit ], [ %.sroa.29.6, %spgAddNodeAction.exit ], [ %.sroa.29.4.ph4901012, %spgSplitNodeAction.exit ], [ %.sroa.29.4.ph, %.preheader ], [ %.sroa.29.5, %doPickSplit.exit ]
-  %.1116.ph = phi i1 [ true, %addLeafTuple.exit ], [ true, %moveLeafs.exit ], [ false, %spgAddNodeAction.exit ], [ false, %spgSplitNodeAction.exit ], [ false, %.preheader ], [ true, %doPickSplit.exit ]
+  %.sroa.29.1.ph = phi i32 [ %.sroa.29.2, %moveLeafs.exit ], [ %.sroa.29.2, %addLeafTuple.exit ], [ %.sroa.29.4.ph4901012, %spgSplitNodeAction.exit ], [ %.sroa.29.6, %spgAddNodeAction.exit ], [ %.sroa.29.4.ph, %.preheader ], [ %.sroa.29.5, %doPickSplit.exit ]
+  %.1116.ph = phi i1 [ true, %moveLeafs.exit ], [ true, %addLeafTuple.exit ], [ false, %spgSplitNodeAction.exit ], [ false, %spgAddNodeAction.exit ], [ false, %.preheader ], [ true, %doPickSplit.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %.not155 = icmp eq i32 %.sroa.29.1.ph, 0
   br i1 %.not155, label %1920, label %1919

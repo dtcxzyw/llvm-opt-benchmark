@@ -2258,8 +2258,8 @@ ShouldAttemptSensorFusion.exit:                   ; preds = %236
   %337 = tail call zeroext i1 @SDL_GetStringBoolean(ptr noundef nonnull %233, i1 noundef zeroext false) #13
   br i1 %337, label %ShouldAttemptSensorFusion.exit.thread146, label %ShouldAttemptSensorFusion.exit.thread
 
-ShouldAttemptSensorFusion.exit.thread146:         ; preds = %._crit_edge.loopexit.i.i, %290, %SDL_FreeVIDPIDList.exit.i, %288, %ShouldAttemptSensorFusion.exit
-  %.0134149 = phi i1 [ false, %ShouldAttemptSensorFusion.exit ], [ false, %SDL_FreeVIDPIDList.exit.i ], [ false, %288 ], [ false, %290 ], [ true, %._crit_edge.loopexit.i.i ]
+ShouldAttemptSensorFusion.exit.thread146:         ; preds = %._crit_edge.loopexit.i.i, %288, %SDL_FreeVIDPIDList.exit.i, %290, %ShouldAttemptSensorFusion.exit
+  %.0134149 = phi i1 [ false, %ShouldAttemptSensorFusion.exit ], [ false, %290 ], [ false, %288 ], [ false, %SDL_FreeVIDPIDList.exit.i ], [ true, %._crit_edge.loopexit.i.i ]
   call fastcc void @AttemptSensorFusion(ptr noundef %47, i1 noundef zeroext %.0134149)
   br label %ShouldAttemptSensorFusion.exit.thread
 
@@ -5473,7 +5473,7 @@ SDL_GetDriverAndJoystickIndex.exit:               ; preds = %._crit_edge.i, %48
   br i1 %67, label %.lr.ph.i36, label %tailrecurse.backedge
 
 tailrecurse.backedge:                             ; preds = %73, %65, %._crit_edge.loopexit.split.loop.exit.i41
-  %.tr.be = phi i32 [ 0, %65 ], [ %74, %._crit_edge.loopexit.split.loop.exit.i41 ], [ %66, %73 ]
+  %.tr.be = phi i32 [ %74, %._crit_edge.loopexit.split.loop.exit.i41 ], [ 0, %65 ], [ %66, %73 ]
   br label %tailrecurse
 
 .lr.ph.i36:                                       ; preds = %65
@@ -8619,7 +8619,7 @@ SDL_VIDPIDInList.exit20.thread:                   ; preds = %34, %38, %.preheade
   br label %SDL_VIDPIDInList.exit
 
 SDL_VIDPIDInList.exit:                            ; preds = %21, %39, %SDL_VIDPIDInList.exit20.thread
-  %.0 = phi i1 [ %43, %SDL_VIDPIDInList.exit20.thread ], [ true, %39 ], [ true, %21 ]
+  %.0 = phi i1 [ true, %39 ], [ %43, %SDL_VIDPIDInList.exit20.thread ], [ true, %21 ]
   ret i1 %.0
 }
 
@@ -9231,7 +9231,7 @@ switch.lookup:                                    ; preds = %79
   br label %SDL_IsJoystickWheel.exit
 
 SDL_IsJoystickWheel.exit:                         ; preds = %26, %42, %58, %74, %79, %switch.lookup, %87, %85, %83, %81
-  %.0 = phi i32 [ %switch.load, %switch.lookup ], [ %., %87 ], [ %82, %81 ], [ 0, %79 ], [ %86, %85 ], [ %84, %83 ], [ 3, %42 ], [ 9, %74 ], [ 4, %58 ], [ 2, %26 ]
+  %.0 = phi i32 [ %switch.load, %switch.lookup ], [ %., %87 ], [ 3, %42 ], [ 4, %58 ], [ %82, %81 ], [ 0, %79 ], [ 9, %74 ], [ %86, %85 ], [ %84, %83 ], [ 2, %26 ]
   ret i32 %.0
 }
 

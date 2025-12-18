@@ -384,7 +384,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   %65 = icmp eq ptr %64, null
   br i1 %65, label %182, label %184
 
-66:                                               ; preds = %47, %50
+66:                                               ; preds = %50, %47
   %67 = load ptr, ptr %25, align 8, !nonnull !4, !align !39, !noundef !4
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 16
   %69 = load ptr, ptr %68, align 8, !nonnull !4, !noundef !4
@@ -801,7 +801,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   %66 = icmp eq ptr %65, null
   br i1 %66, label %172, label %174
 
-67:                                               ; preds = %48, %51
+67:                                               ; preds = %51, %48
   %68 = load ptr, ptr %26, align 8, !nonnull !4, !align !39, !noundef !4
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 16
   %70 = load ptr, ptr %69, align 8, !nonnull !4, !noundef !4
@@ -1523,8 +1523,8 @@ define hidden { i64, ptr } @"_ZN12futures_util6stream17futures_unordered18ready_
   br label %16
 
 16:                                               ; preds = %.sink.split, %22, %19, %9
-  %.sroa.6.0 = phi ptr [ undef, %9 ], [ undef, %19 ], [ undef, %22 ], [ %.sroa.09.0, %.sink.split ]
-  %.sroa.0.0 = phi i64 [ 1, %9 ], [ 2, %19 ], [ 2, %22 ], [ 0, %.sink.split ]
+  %.sroa.6.0 = phi ptr [ undef, %22 ], [ undef, %9 ], [ undef, %19 ], [ %.sroa.09.0, %.sink.split ]
+  %.sroa.0.0 = phi i64 [ 2, %22 ], [ 1, %9 ], [ 2, %19 ], [ 0, %.sink.split ]
   %17 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %18 = insertvalue { i64, ptr } %17, ptr %.sroa.6.0, 1
   ret { i64, ptr } %18
@@ -1582,8 +1582,8 @@ define hidden { i64, ptr } @"_ZN12futures_util6stream17futures_unordered18ready_
   br label %16
 
 16:                                               ; preds = %.sink.split, %22, %19, %9
-  %.sroa.6.0 = phi ptr [ undef, %9 ], [ undef, %19 ], [ undef, %22 ], [ %.sroa.09.0, %.sink.split ]
-  %.sroa.0.0 = phi i64 [ 1, %9 ], [ 2, %19 ], [ 2, %22 ], [ 0, %.sink.split ]
+  %.sroa.6.0 = phi ptr [ undef, %22 ], [ undef, %9 ], [ undef, %19 ], [ %.sroa.09.0, %.sink.split ]
+  %.sroa.0.0 = phi i64 [ 2, %22 ], [ 1, %9 ], [ 2, %19 ], [ 0, %.sink.split ]
   %17 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %18 = insertvalue { i64, ptr } %17, ptr %.sroa.6.0, 1
   ret { i64, ptr } %18

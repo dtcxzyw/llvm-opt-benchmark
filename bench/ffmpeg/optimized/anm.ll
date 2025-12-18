@@ -584,9 +584,9 @@ bytestream2_get_byte.exit87:                      ; preds = %146, %150, %144
   br i1 %228, label %.lr.ph.split.split.i124.cont, label %.loopexit
 
 .loopexit:                                        ; preds = %194, %186, %178, %170, %225, %209
-  %.lcssa304308 = phi ptr [ %.lcssa304306, %186 ], [ %210, %209 ], [ %226, %225 ], [ %.lcssa304306, %170 ], [ %.lcssa304306, %178 ], [ %.lcssa304306, %194 ]
-  %.14 = phi ptr [ %storemerge.us.us103.i161, %186 ], [ %storemerge.us77.i137, %209 ], [ %storemerge.i129, %225 ], [ %storemerge.us.us.us.i177, %170 ], [ %storemerge.us.us.i169, %178 ], [ %storemerge.us.i148, %194 ]
-  %.041.pn.i118 = phi i32 [ %.2.us.us104.i162, %186 ], [ %.2.us78.i138, %209 ], [ %.2.i130, %225 ], [ %.2.us.us.us.i178, %170 ], [ %.2.us.us.i170, %178 ], [ %.2.us.i149, %194 ]
+  %.lcssa304308 = phi ptr [ %.lcssa304306, %170 ], [ %210, %209 ], [ %.lcssa304306, %178 ], [ %.lcssa304306, %186 ], [ %226, %225 ], [ %.lcssa304306, %194 ]
+  %.14 = phi ptr [ %storemerge.us.us.us.i177, %170 ], [ %storemerge.us77.i137, %209 ], [ %storemerge.us.us.i169, %178 ], [ %storemerge.us.us103.i161, %186 ], [ %storemerge.i129, %225 ], [ %storemerge.us.i148, %194 ]
+  %.041.pn.i118 = phi i32 [ %.2.us.us.us.i178, %170 ], [ %.2.us78.i138, %209 ], [ %.2.us.us.i170, %178 ], [ %.2.us.us104.i162, %186 ], [ %.2.i130, %225 ], [ %.2.us.i149, %194 ]
   %storemerge55.i120 = sub nsw i32 %156, %.041.pn.i118
   br label %.thread236
 
@@ -600,7 +600,7 @@ bytestream2_get_byte.exit87:                      ; preds = %146, %150, %144
   %232 = icmp sgt i32 %231, 0
   br i1 %232, label %37, label %.thread245, !llvm.loop !43
 
-.thread245:                                       ; preds = %143, %.thread236, %135, %.lr.ph.split.us.split.split.i, %.lr.ph.split.us.split.split.us.i, %.lr.ph.split.split.i.cont, %90, %74, %.lr.ph.split.split.us.i.cont, %.lr.ph.split.us.split.split.i142, %.lr.ph.split.us.split.split.us.i155, %.lr.ph.split.us.split.us.split.i164, %.lr.ph.split.us.split.us.split.us.i172, %.lr.ph.split.split.i124.cont, %219, %.lr.ph.split.split.us.i132.cont, %203, %.lr.ph.split.us.split.us.split.i, %.lr.ph.split.us.split.us.split.us.i
+.thread245:                                       ; preds = %143, %.thread236, %135, %.lr.ph.split.us.split.split.i, %.lr.ph.split.us.split.split.us.i, %.lr.ph.split.split.i.cont, %90, %.lr.ph.split.split.us.i.cont, %74, %.lr.ph.split.us.split.split.i142, %.lr.ph.split.us.split.split.us.i155, %.lr.ph.split.us.split.us.split.i164, %.lr.ph.split.us.split.us.split.us.i172, %219, %.lr.ph.split.split.i124.cont, %.lr.ph.split.split.us.i132.cont, %203, %.lr.ph.split.us.split.us.split.i, %.lr.ph.split.us.split.us.split.us.i
   %233 = load ptr, ptr %6, align 8, !tbaa !29
   %234 = getelementptr inbounds nuw i8, ptr %233, i64 8
   %235 = load ptr, ptr %234, align 8, !tbaa !39

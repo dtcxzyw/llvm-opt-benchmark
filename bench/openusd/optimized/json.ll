@@ -1736,7 +1736,7 @@ _ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12Crt
   br label %_ZN3pxr9rapidjson12PrettyWriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE4BoolEb.exit
 
 _ZN3pxr9rapidjson12PrettyWriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE4BoolEb.exit: ; preds = %.lr.ph, %101, %_ZN3pxr9rapidjson12PrettyWriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE3KeyEPKcjb.exit, %189, %_ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE8WriteIntEi.exit.i, %145, %125, %53, %35, %31, %10, %105, %57, %203, %201, %195, %_ZN12_GLOBAL__N_110_WriterFixIN3pxr9rapidjson12PrettyWriterINS2_19BasicOStreamWrapperISoEENS2_4UTF8IcEES7_NS2_12CrtAllocatorELj0EEEE6DoubleEd.exit, %._crit_edge, %._crit_edge47, %8
-  %.021 = phi i1 [ true, %_ZN12_GLOBAL__N_110_WriterFixIN3pxr9rapidjson12PrettyWriterINS2_19BasicOStreamWrapperISoEENS2_4UTF8IcEES7_NS2_12CrtAllocatorELj0EEEE6DoubleEd.exit ], [ %139, %145 ], [ %197, %195 ], [ %202, %201 ], [ %204, %203 ], [ %9, %8 ], [ true, %31 ], [ true, %53 ], [ false, %57 ], [ %104, %._crit_edge47 ], [ false, %105 ], [ %124, %._crit_edge ], [ true, %10 ], [ true, %35 ], [ %139, %125 ], [ true, %_ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE8WriteIntEi.exit.i ], [ true, %189 ], [ false, %101 ], [ false, %_ZN3pxr9rapidjson12PrettyWriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE3KeyEPKcjb.exit ], [ false, %.lr.ph ]
+  %.021 = phi i1 [ true, %_ZN12_GLOBAL__N_110_WriterFixIN3pxr9rapidjson12PrettyWriterINS2_19BasicOStreamWrapperISoEENS2_4UTF8IcEES7_NS2_12CrtAllocatorELj0EEEE6DoubleEd.exit ], [ %139, %145 ], [ %197, %195 ], [ %202, %201 ], [ %204, %203 ], [ %9, %8 ], [ false, %101 ], [ true, %31 ], [ true, %53 ], [ false, %57 ], [ true, %189 ], [ %104, %._crit_edge47 ], [ true, %_ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE8WriteIntEi.exit.i ], [ false, %105 ], [ %124, %._crit_edge ], [ true, %10 ], [ true, %35 ], [ %139, %125 ], [ false, %_ZN3pxr9rapidjson12PrettyWriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE3KeyEPKcjb.exit ], [ false, %.lr.ph ]
   ret i1 %.021
 }
 
@@ -2269,7 +2269,7 @@ define internal fastcc noundef zeroext i1 @_ZNK3pxr9rapidjson12GenericValueINS0_
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %47, %.lr.ph45, %51, %13, %108, %106, %100, %95, %88, %71, %._crit_edge, %._crit_edge46, %11, %9, %7
-  %.021 = phi i1 [ %92, %88 ], [ %97, %95 ], [ %102, %100 ], [ %107, %106 ], [ %109, %108 ], [ %8, %7 ], [ %10, %9 ], [ %12, %11 ], [ %85, %71 ], [ false, %13 ], [ %50, %._crit_edge46 ], [ false, %51 ], [ %70, %._crit_edge ], [ false, %47 ], [ false, %.lr.ph45 ], [ false, %.lr.ph ]
+  %.021 = phi i1 [ %92, %88 ], [ %97, %95 ], [ %102, %100 ], [ %107, %106 ], [ %109, %108 ], [ %8, %7 ], [ %10, %9 ], [ %12, %11 ], [ %85, %71 ], [ false, %13 ], [ false, %47 ], [ %50, %._crit_edge46 ], [ %70, %._crit_edge ], [ false, %51 ], [ false, %.lr.ph45 ], [ false, %.lr.ph ]
   ret i1 %.021
 }
 
@@ -7629,16 +7629,16 @@ _ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit413.i: ; 
   br i1 %or.cond656.i, label %515, label %.critedge348.i, !llvm.loop !32
 
 .critedge348.i:                                   ; preds = %396, %346, %501, %452, %547, %.preheader679.i, %.preheader685.i, %251
-  %559 = phi i8 [ %.pre.i, %251 ], [ %300, %.preheader679.i ], [ %300, %.preheader685.i ], [ %356, %346 ], [ %557, %547 ], [ %463, %452 ], [ %512, %501 ], [ %406, %396 ]
-  %560 = phi i1 [ false, %251 ], [ false, %.preheader679.i ], [ false, %.preheader685.i ], [ false, %346 ], [ true, %547 ], [ false, %452 ], [ false, %501 ], [ false, %396 ]
-  %.0293646.i = phi i8 [ 0, %251 ], [ 0, %.preheader679.i ], [ 0, %.preheader685.i ], [ 0, %346 ], [ 1, %547 ], [ 0, %452 ], [ 0, %501 ], [ 0, %396 ]
-  %.3301645.i = phi i32 [ 0, %251 ], [ 0, %.preheader679.i ], [ 0, %.preheader685.i ], [ %355, %346 ], [ %.3301.i, %547 ], [ %462, %452 ], [ %511, %501 ], [ %405, %396 ]
-  %.1305644.i = phi i64 [ 0, %251 ], [ 0, %.preheader679.i ], [ 0, %.preheader685.i ], [ 0, %346 ], [ %.1305.i, %547 ], [ %461, %452 ], [ %510, %501 ], [ 0, %396 ]
-  %.0312632643.i = phi i32 [ 0, %251 ], [ %299, %.preheader679.i ], [ %299, %.preheader685.i ], [ %354, %346 ], [ %.0312.i, %547 ], [ %.0312.i, %452 ], [ %.0312.i, %501 ], [ %404, %396 ]
-  %.0303633642.i = phi i1 [ false, %251 ], [ false, %.preheader679.i ], [ false, %.preheader685.i ], [ false, %346 ], [ true, %547 ], [ true, %452 ], [ true, %501 ], [ false, %396 ]
-  %.sroa.0.9.i = phi ptr [ %254, %251 ], [ %296, %.preheader679.i ], [ %296, %.preheader685.i ], [ %350, %346 ], [ %551, %547 ], [ %456, %452 ], [ %505, %501 ], [ %400, %396 ]
-  %.sroa.85.6.i = phi i32 [ 1, %251 ], [ 1, %.preheader679.i ], [ 1, %.preheader685.i ], [ %349, %346 ], [ %550, %547 ], [ %455, %452 ], [ %504, %501 ], [ %399, %396 ]
-  %.1317.i = phi double [ 0.000000e+00, %251 ], [ 0.000000e+00, %.preheader679.i ], [ 0.000000e+00, %.preheader685.i ], [ 0.000000e+00, %346 ], [ %556, %547 ], [ 0.000000e+00, %452 ], [ 0.000000e+00, %501 ], [ 0.000000e+00, %396 ]
+  %559 = phi i8 [ %.pre.i, %251 ], [ %463, %452 ], [ %512, %501 ], [ %356, %346 ], [ %300, %.preheader679.i ], [ %300, %.preheader685.i ], [ %557, %547 ], [ %406, %396 ]
+  %560 = phi i1 [ false, %251 ], [ false, %452 ], [ false, %501 ], [ false, %346 ], [ false, %.preheader679.i ], [ false, %.preheader685.i ], [ true, %547 ], [ false, %396 ]
+  %.0293646.i = phi i8 [ 0, %251 ], [ 0, %452 ], [ 0, %501 ], [ 0, %346 ], [ 0, %.preheader679.i ], [ 0, %.preheader685.i ], [ 1, %547 ], [ 0, %396 ]
+  %.3301645.i = phi i32 [ 0, %251 ], [ %462, %452 ], [ %511, %501 ], [ %355, %346 ], [ 0, %.preheader679.i ], [ 0, %.preheader685.i ], [ %.3301.i, %547 ], [ %405, %396 ]
+  %.1305644.i = phi i64 [ 0, %251 ], [ %461, %452 ], [ %510, %501 ], [ 0, %346 ], [ 0, %.preheader679.i ], [ 0, %.preheader685.i ], [ %.1305.i, %547 ], [ 0, %396 ]
+  %.0312632643.i = phi i32 [ 0, %251 ], [ %.0312.i, %452 ], [ %.0312.i, %501 ], [ %354, %346 ], [ %299, %.preheader679.i ], [ %299, %.preheader685.i ], [ %.0312.i, %547 ], [ %404, %396 ]
+  %.0303633642.i = phi i1 [ false, %251 ], [ true, %452 ], [ true, %501 ], [ false, %346 ], [ false, %.preheader679.i ], [ false, %.preheader685.i ], [ true, %547 ], [ false, %396 ]
+  %.sroa.0.9.i = phi ptr [ %254, %251 ], [ %456, %452 ], [ %505, %501 ], [ %350, %346 ], [ %296, %.preheader679.i ], [ %296, %.preheader685.i ], [ %551, %547 ], [ %400, %396 ]
+  %.sroa.85.6.i = phi i32 [ 1, %251 ], [ %455, %452 ], [ %504, %501 ], [ %349, %346 ], [ 1, %.preheader679.i ], [ 1, %.preheader685.i ], [ %550, %547 ], [ %399, %396 ]
+  %.1317.i = phi double [ 0.000000e+00, %251 ], [ 0.000000e+00, %452 ], [ 0.000000e+00, %501 ], [ 0.000000e+00, %346 ], [ 0.000000e+00, %.preheader679.i ], [ 0.000000e+00, %.preheader685.i ], [ %556, %547 ], [ 0.000000e+00, %396 ]
   %561 = icmp eq i8 %559, 46
   br i1 %561, label %562, label %.critedge355.i
 
@@ -8100,8 +8100,8 @@ _ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit434.i: ; 
   br label %_ZN3pxr9rapidjson13GenericReaderINS0_4UTF8IcEES3_NS0_12CrtAllocatorEE11ParseNumberILj24ENS0_19GenericStringStreamIS3_EEN12_GLOBAL__N_113_InputHandlerEEEvRT0_RT1_.exit
 
 .loopexit:                                        ; preds = %.critedge368.i, %.preheader.i, %725
-  %.sroa.0.24.i.ph = phi ptr [ %726, %725 ], [ %.sroa.0.22.i, %.preheader.i ], [ %735, %.critedge368.i ]
-  %.3.i.ph = phi i32 [ %728, %725 ], [ %738, %.preheader.i ], [ %738, %.critedge368.i ]
+  %.sroa.0.24.i.ph = phi ptr [ %.sroa.0.22.i, %.preheader.i ], [ %726, %725 ], [ %735, %.critedge368.i ]
+  %.3.i.ph = phi i32 [ %738, %.preheader.i ], [ %728, %725 ], [ %738, %.critedge368.i ]
   %764 = sub nsw i32 0, %.3.i.ph
   br label %.critedge359.i
 
@@ -8981,7 +8981,7 @@ _ZN12_GLOBAL__N_113_InputHandler6StringEPKcjb.exit: ; preds = %.noexc.i, %258
   br label %.loopexit169.thread
 
 .loopexit169.thread:                              ; preds = %_ZN3pxr9rapidjson13GenericReaderINS0_4UTF8IcEES3_NS0_12CrtAllocatorEE9ParseHex4INS0_19GenericStringStreamIS3_EEEEjRT_m.exit, %_ZN3pxr9rapidjson13GenericReaderINS0_4UTF8IcEES3_NS0_12CrtAllocatorEE9ParseHex4INS0_19GenericStringStreamIS3_EEEEjRT_m.exit.thread, %129, %125, %.critedge, %118, %_ZN3pxr9rapidjson13GenericReaderINS0_4UTF8IcEES3_NS0_12CrtAllocatorEE9ParseHex4INS0_19GenericStringStreamIS3_EEEEjRT_m.exit119.thread, %178, %177, %_ZN12_GLOBAL__N_113_InputHandler6StringEPKcjb.exit, %_ZN12_GLOBAL__N_113_InputHandler3KeyEPKcjb.exit, %.loopexit169
-  %.sroa.0.6272 = phi ptr [ %134, %.loopexit169 ], [ %134, %_ZN12_GLOBAL__N_113_InputHandler6StringEPKcjb.exit ], [ %134, %_ZN12_GLOBAL__N_113_InputHandler3KeyEPKcjb.exit ], [ %.sroa.0.7, %_ZN3pxr9rapidjson13GenericReaderINS0_4UTF8IcEES3_NS0_12CrtAllocatorEE9ParseHex4INS0_19GenericStringStreamIS3_EEEEjRT_m.exit.thread ], [ %132, %129 ], [ %scevgep, %125 ], [ %.sroa.0.3, %.critedge ], [ %scevgep254, %118 ], [ %.sroa.0.9, %_ZN3pxr9rapidjson13GenericReaderINS0_4UTF8IcEES3_NS0_12CrtAllocatorEE9ParseHex4INS0_19GenericStringStreamIS3_EEEEjRT_m.exit119.thread ], [ %.sroa.0.1, %178 ], [ %.sroa.0.1, %177 ], [ %scevgep, %_ZN3pxr9rapidjson13GenericReaderINS0_4UTF8IcEES3_NS0_12CrtAllocatorEE9ParseHex4INS0_19GenericStringStreamIS3_EEEEjRT_m.exit ]
+  %.sroa.0.6272 = phi ptr [ %134, %.loopexit169 ], [ %134, %_ZN12_GLOBAL__N_113_InputHandler6StringEPKcjb.exit ], [ %134, %_ZN12_GLOBAL__N_113_InputHandler3KeyEPKcjb.exit ], [ %.sroa.0.1, %177 ], [ %.sroa.0.7, %_ZN3pxr9rapidjson13GenericReaderINS0_4UTF8IcEES3_NS0_12CrtAllocatorEE9ParseHex4INS0_19GenericStringStreamIS3_EEEEjRT_m.exit.thread ], [ %132, %129 ], [ %scevgep, %125 ], [ %.sroa.0.3, %.critedge ], [ %scevgep254, %118 ], [ %.sroa.0.9, %_ZN3pxr9rapidjson13GenericReaderINS0_4UTF8IcEES3_NS0_12CrtAllocatorEE9ParseHex4INS0_19GenericStringStreamIS3_EEEEjRT_m.exit119.thread ], [ %.sroa.0.1, %178 ], [ %scevgep, %_ZN3pxr9rapidjson13GenericReaderINS0_4UTF8IcEES3_NS0_12CrtAllocatorEE9ParseHex4INS0_19GenericStringStreamIS3_EEEEjRT_m.exit ]
   store ptr %.sroa.0.6272, ptr %1, align 8
   store ptr %.sroa.31.0.copyload, ptr %.sroa.31.0..sroa_idx, align 8
   ret void
@@ -12433,7 +12433,7 @@ _ZN3pxr9rapidjson8internal16StrtodBigIntegerIcEEddPKT_ii.exit: ; preds = %_ZN3px
   br label %.critedge2.thread77
 
 .critedge2.thread77:                              ; preds = %37, %46, %57, %.thread26.i, %25, %55, %.critedge2.thread, %.critedge2, %_ZN3pxr9rapidjson8internal16StrtodBigIntegerIcEEddPKT_ii.exit
-  %.0 = phi double [ %.0.i, %_ZN3pxr9rapidjson8internal16StrtodBigIntegerIcEEddPKT_ii.exit ], [ 0.000000e+00, %.critedge2 ], [ 0.000000e+00, %.critedge2.thread ], [ %24, %.thread26.i ], [ 0x7FF0000000000000, %55 ], [ %59, %57 ], [ %30, %25 ], [ 0.000000e+00, %46 ], [ 0.000000e+00, %37 ]
+  %.0 = phi double [ 0.000000e+00, %46 ], [ %.0.i, %_ZN3pxr9rapidjson8internal16StrtodBigIntegerIcEEddPKT_ii.exit ], [ 0.000000e+00, %.critedge2 ], [ 0.000000e+00, %.critedge2.thread ], [ %24, %.thread26.i ], [ 0x7FF0000000000000, %55 ], [ %59, %57 ], [ %30, %25 ], [ 0.000000e+00, %37 ]
   ret double %.0
 }
 

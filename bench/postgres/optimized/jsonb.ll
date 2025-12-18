@@ -1669,7 +1669,7 @@ checkStringLen.exit:                              ; preds = %256, %263, %265
   br label %270
 
 270:                                              ; preds = %checkStringLen.exit, %.loopexit, %226, %composite_to_jsonb.exit, %array_to_jsonb_internal.exit
-  %.092 = phi i1 [ false, %checkStringLen.exit ], [ false, %array_to_jsonb_internal.exit ], [ false, %composite_to_jsonb.exit ], [ false, %226 ], [ %.not, %.loopexit ]
+  %.092 = phi i1 [ %.not, %.loopexit ], [ false, %checkStringLen.exit ], [ false, %array_to_jsonb_internal.exit ], [ false, %composite_to_jsonb.exit ], [ false, %226 ]
   %271 = add i32 %3, -11
   %272 = icmp ult i32 %271, -5
   %273 = or i1 %272, %.092

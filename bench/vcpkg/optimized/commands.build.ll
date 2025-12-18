@@ -26489,7 +26489,7 @@ _ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail13width_checkerEE
   unreachable
 
 _ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail13width_checkerEEEDTclfp_Li0EEEOT_.exit: ; preds = %18, %12, %9, %16, %22
-  %.0.i = phi i64 [ %.sroa.011.0.extract.trunc.i, %18 ], [ %11, %9 ], [ %17, %16 ], [ %13, %12 ], [ %.sroa.05.0.extract.trunc.i, %22 ]
+  %.0.i = phi i64 [ %.sroa.05.0.extract.trunc.i, %22 ], [ %13, %12 ], [ %.sroa.011.0.extract.trunc.i, %18 ], [ %11, %9 ], [ %17, %16 ]
   %34 = icmp ugt i64 %.0.i, 2147483647
   br i1 %34, label %_ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail13width_checkerEEEDTclfp_Li0EEEOT_.exit.thread11, label %35
 
@@ -26714,7 +26714,7 @@ _ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail17precision_check
   unreachable
 
 _ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail17precision_checkerEEEDTclfp_Li0EEEOT_.exit: ; preds = %18, %12, %9, %16, %22
-  %.0.i = phi i64 [ %.sroa.011.0.extract.trunc.i, %18 ], [ %11, %9 ], [ %17, %16 ], [ %13, %12 ], [ %.sroa.05.0.extract.trunc.i, %22 ]
+  %.0.i = phi i64 [ %.sroa.05.0.extract.trunc.i, %22 ], [ %13, %12 ], [ %.sroa.011.0.extract.trunc.i, %18 ], [ %11, %9 ], [ %17, %16 ]
   %34 = icmp ugt i64 %.0.i, 2147483647
   br i1 %34, label %_ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail17precision_checkerEEEDTclfp_Li0EEEOT_.exit.thread11, label %35
 
@@ -35924,7 +35924,7 @@ _ZN5vcpkg9ExpectedTISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   br label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIZN5vcpkgL16do_build_packageERKNSF_17VcpkgCmdArgumentsERKNSF_10VcpkgPathsENSF_7TripletERKNSF_19BuildPackageOptionsERKNSF_17InstallPlanActionEbE3$_2EEET_SV_SV_T0_.exit.i.i.i"
 
 "_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIZN5vcpkgL16do_build_packageERKNSF_17VcpkgCmdArgumentsERKNSF_10VcpkgPathsENSF_7TripletERKNSF_19BuildPackageOptionsERKNSF_17InstallPlanActionEbE3$_2EEET_SV_SV_T0_.exit.i.i.i": ; preds = %.lr.ph.i.i.i.i.i348, %.loopexit.split.loop.exit45.i.i.i.i.i, %.loopexit.split.loop.exit43.i.i.i.i.i, %.loopexit.split.loop.exit41.i.i.i.i.i, %1340, %1335, %1330
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %.sroa.031.1.i.i.i.i.i, %1335 ], [ %spec.select.i.i.i.i.i, %1340 ], [ %.sroa.031.0.lcssa.i.i.i.i.i, %1330 ], [ %1344, %.loopexit.split.loop.exit43.i.i.i.i.i ], [ %1343, %.loopexit.split.loop.exit41.i.i.i.i.i ], [ %1345, %.loopexit.split.loop.exit45.i.i.i.i.i ], [ %.sroa.031.050.i.i.i.i.i, %.lr.ph.i.i.i.i.i348 ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %.sroa.031.1.i.i.i.i.i, %1335 ], [ %spec.select.i.i.i.i.i, %1340 ], [ %1345, %.loopexit.split.loop.exit45.i.i.i.i.i ], [ %.sroa.031.0.lcssa.i.i.i.i.i, %1330 ], [ %1344, %.loopexit.split.loop.exit43.i.i.i.i.i ], [ %1343, %.loopexit.split.loop.exit41.i.i.i.i.i ], [ %.sroa.031.050.i.i.i.i.i, %.lr.ph.i.i.i.i.i348 ]
   %1346 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i.i, %1307
   %.sroa.06.021.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i.i, i64 32
   %.not22.i.i.i = icmp eq ptr %.sroa.06.021.i.i.i, %1307
@@ -44510,7 +44510,7 @@ _ZNSt10_HashtableIN5vcpkg11BuildPolicyESt4pairIKS1_bESaIS4_ENSt8__detail10_Selec
   resume { ptr, i32 } %46
 
 _ZNKSt10_HashtableIN5vcpkg11BuildPolicyESt4pairIKS1_bESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit: ; preds = %35, %21, %30
-  %.sroa.043.0.ph = phi ptr [ %31, %30 ], [ %.sroa.035.0, %21 ], [ %37, %35 ]
+  %.sroa.043.0.ph = phi ptr [ %.sroa.035.0, %21 ], [ %31, %30 ], [ %37, %35 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 16) #29
   br label %_ZNSt10_HashtableIN5vcpkg11BuildPolicyESt4pairIKS1_bESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 

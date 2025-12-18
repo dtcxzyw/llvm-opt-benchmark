@@ -10162,7 +10162,7 @@ define linkonce_odr hidden void @_ZN2tb9selection12insert_scoreEP9func_declRK7sv
   br i1 %.not27.old.i.i, label %.loopexit, label %.lr.ph38.i.i.backedge
 
 .lr.ph38.i.i.backedge:                            ; preds = %37, %34
-  %.137.i.i.be = phi ptr [ %.old.i.i, %37 ], [ %36, %34 ]
+  %.137.i.i.be = phi ptr [ %36, %34 ], [ %.old.i.i, %37 ]
   br label %.lr.ph38.i.i, !llvm.loop !741
 
 _ZNK7obj_mapI9func_decl7svectorIdjEE9find_coreEPS0_.exit: ; preds = %18, %29
@@ -10402,7 +10402,7 @@ _ZN6vectorIP9func_declLb0EjED2Ev.exit:            ; preds = %_ZNK7obj_mapI9func_
   br i1 %.not27.old.i.i.i, label %_ZNK2tb5rules13get_num_rulesEP9func_decl.exit, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %85, %82
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %85 ], [ %84, %82 ]
+  %.137.i.i.i.be = phi ptr [ %84, %82 ], [ %.old.i.i.i, %85 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !746
 
 _ZNK7obj_mapI9func_decl7svectorIjjEE9find_coreEPS0_.exit.i: ; preds = %66, %77
@@ -15226,7 +15226,7 @@ _ZN3refIN2tb6clauseEED2Ev.exit:                   ; preds = %_ZNK6vectorI3refIN2
   br i1 %.not27.old.i.i.i, label %_ZNK2tb5rules13get_num_rulesEP9func_decl.exit.thread, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %67, %64
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %67 ], [ %66, %64 ]
+  %.137.i.i.i.be = phi ptr [ %66, %64 ], [ %.old.i.i.i, %67 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !746
 
 _ZNK7obj_mapI9func_decl7svectorIjjEE9find_coreEPS0_.exit.i: ; preds = %48, %59
@@ -16559,7 +16559,7 @@ define linkonce_odr hidden noundef double @_ZN2tb9selection15score_predicateEP3a
   br i1 %.not27.old.i.i.i.i, label %_ZN2tb9selection10find_scoreEP3appRd.exit, label %.lr.ph38.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.backedge:                        ; preds = %38, %35
-  %.137.i.i.i.i.be = phi ptr [ %.old.i.i.i.i, %38 ], [ %37, %35 ]
+  %.137.i.i.i.i.be = phi ptr [ %37, %35 ], [ %.old.i.i.i.i, %38 ]
   br label %.lr.ph38.i.i.i.i, !llvm.loop !836
 
 _ZN2tb9selection10find_scoreEP3appRd.exit.thread: ; preds = %19, %30
@@ -16970,7 +16970,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK7obj_mapI9func_decl7svectorId
   br i1 %.not27.old.i.i, label %_ZN7svectorIdjEaSERKS0_.exit, label %.lr.ph38.i.i.backedge
 
 .lr.ph38.i.i.backedge:                            ; preds = %36, %33
-  %.137.i.i.be = phi ptr [ %.old.i.i, %36 ], [ %35, %33 ]
+  %.137.i.i.be = phi ptr [ %35, %33 ], [ %.old.i.i, %36 ]
   br label %.lr.ph38.i.i, !llvm.loop !741
 
 _ZNK7obj_mapI9func_decl7svectorIdjEE9find_coreEPS0_.exit: ; preds = %17, %28
@@ -17112,7 +17112,7 @@ define linkonce_odr hidden void @_ZN2tb9selection15score_variablesEP3app(ptr nou
   br i1 %.not27.old.i.i, label %_ZNK7obj_mapI9func_decl7svectorIdjEE9find_coreEPS0_.exit.thread, label %.lr.ph38.i.i.backedge
 
 .lr.ph38.i.i.backedge:                            ; preds = %40, %37
-  %.137.i.i.be = phi ptr [ %.old.i.i, %40 ], [ %39, %37 ]
+  %.137.i.i.be = phi ptr [ %39, %37 ], [ %.old.i.i, %40 ]
   br label %.lr.ph38.i.i, !llvm.loop !741
 
 _ZNK7obj_mapI9func_decl7svectorIdjEE9find_coreEPS0_.exit: ; preds = %21, %32
@@ -19385,7 +19385,7 @@ _ZNK6vectorIP4sortLb0EjE4sizeEv.exit:             ; preds = %_ZNK6vectorIP4sortL
   br i1 %438, label %443, label %.critedge211
 
 .critedge211:                                     ; preds = %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit, %499
-  %.056.lcssa = phi i1 [ %.157, %499 ], [ %.056222, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit ]
+  %.056.lcssa = phi i1 [ %.056222, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit ], [ %.157, %499 ]
   br i1 %.056.lcssa, label %503, label %.critedge229
 
 439:                                              ; preds = %425
@@ -25583,7 +25583,7 @@ _ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit.sink.split.i: ; preds = %147, %1
   br i1 %.not27.old.i.i, label %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit, label %.lr.ph38.i.i.backedge
 
 .lr.ph38.i.i.backedge:                            ; preds = %213, %210
-  %.137.i.i.be = phi ptr [ %.old.i.i, %213 ], [ %212, %210 ]
+  %.137.i.i.be = phi ptr [ %212, %210 ], [ %.old.i.i, %213 ]
   br label %.lr.ph38.i.i, !llvm.loop !912
 
 _ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit: ; preds = %199, %194, %213, %210, %205, %.preheader.i.i

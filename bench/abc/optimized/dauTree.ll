@@ -622,8 +622,8 @@ define i32 @Dss_NtkCreate_rec(ptr noundef %0, ptr noundef captures(none) %1, ptr
   br label %49
 
 49:                                               ; preds = %34, %.fold.split, %46, %48, %47
-  %50 = phi i1 [ false, %46 ], [ false, %47 ], [ true, %48 ], [ false, %34 ], [ false, %.fold.split ]
-  %.065 = phi i32 [ 4, %46 ], [ 5, %47 ], [ 6, %48 ], [ 3, %34 ], [ 0, %.fold.split ]
+  %50 = phi i1 [ false, %34 ], [ false, %46 ], [ false, %47 ], [ true, %48 ], [ false, %.fold.split ]
+  %.065 = phi i32 [ 3, %34 ], [ 4, %46 ], [ 5, %47 ], [ 6, %48 ], [ 0, %.fold.split ]
   %storemerge113 = getelementptr inbounds nuw i8, ptr %.pn112, i64 1
   store ptr %storemerge113, ptr %1, align 8, !tbaa !40
   %51 = icmp ult ptr %storemerge113, %45
@@ -4339,7 +4339,7 @@ Abc_TtCopy.exit.i:                                ; preds = %.lr.ph18.i.i, %209
   br i1 %249, label %230, label %Dss_ObjFindOrAdd.exit, !llvm.loop !64
 
 Dss_ObjFindOrAdd.exit:                            ; preds = %181, %230, %204, %Abc_TtCopy.exit.i, %Dss_ObjHashLookup.exit.thread
-  %phi.call = phi ptr [ %195, %Dss_ObjHashLookup.exit.thread ], [ %208, %204 ], [ %212, %Abc_TtCopy.exit.i ], [ %212, %230 ], [ %174, %181 ]
+  %phi.call = phi ptr [ %195, %Dss_ObjHashLookup.exit.thread ], [ %212, %230 ], [ %208, %204 ], [ %212, %Abc_TtCopy.exit.i ], [ %174, %181 ]
   %250 = load i32, ptr %phi.call, align 4, !tbaa !16
   %251 = shl nsw i32 %250, 1
   %252 = add nuw nsw i32 %251, %.2
@@ -4651,7 +4651,7 @@ Dss_ObjSort.exit:                                 ; preds = %117, %._crit_edge27
   br i1 %exitcond355.not, label %._crit_edge282, label %.lr.ph281, !llvm.loop !125
 
 ._crit_edge282:                                   ; preds = %._crit_edge277, %11, %Dss_ObjSort.exit
-  %.0151.lcssa390392 = phi i32 [ %.2153, %Dss_ObjSort.exit ], [ 0, %11 ], [ %.2153, %._crit_edge277 ]
+  %.0151.lcssa390392 = phi i32 [ 0, %11 ], [ %.2153, %Dss_ObjSort.exit ], [ %.2153, %._crit_edge277 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %Dss_ObjSort.exit197
 
@@ -5048,7 +5048,7 @@ Dss_ObjSort.exit:                                 ; preds = %117, %._crit_edge27
   br i1 %exitcond.not, label %Dss_ObjSort.exit197.thread401, label %297, !llvm.loop !131
 
 Dss_ObjSort.exit197.thread:                       ; preds = %198, %279, %.preheader226, %.preheader221, %.preheader224
-  %.0148.ph = phi i32 [ 0, %198 ], [ 0, %.preheader221 ], [ 0, %.preheader226 ], [ %.2150, %279 ], [ 0, %.preheader224 ]
+  %.0148.ph = phi i32 [ 0, %198 ], [ 0, %.preheader226 ], [ %.2150, %279 ], [ 0, %.preheader221 ], [ 0, %.preheader224 ]
   %310 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %311 = load ptr, ptr %310, align 8, !tbaa !88
   %312 = getelementptr inbounds nuw i8, ptr %311, i64 4
@@ -5064,8 +5064,8 @@ Dss_ObjSort.exit197.thread401:                    ; preds = %297, %284
   br label %.lr.ph284.preheader
 
 Dss_ObjSort.exit197:                              ; preds = %252, %189, %._crit_edge, %._crit_edge255, %._crit_edge282
-  %.3 = phi i32 [ %.0151.lcssa390392, %._crit_edge282 ], [ %.6, %._crit_edge255 ], [ %.9, %._crit_edge ], [ %.6, %189 ], [ %.9, %252 ]
-  %.0148 = phi i32 [ 0, %._crit_edge282 ], [ 0, %._crit_edge255 ], [ %211, %._crit_edge ], [ 0, %189 ], [ %211, %252 ]
+  %.3 = phi i32 [ %.0151.lcssa390392, %._crit_edge282 ], [ %.9, %._crit_edge ], [ %.6, %._crit_edge255 ], [ %.6, %189 ], [ %.9, %252 ]
+  %.0148 = phi i32 [ 0, %._crit_edge282 ], [ %211, %._crit_edge ], [ 0, %._crit_edge255 ], [ 0, %189 ], [ %211, %252 ]
   %316 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %317 = load ptr, ptr %316, align 8, !tbaa !88
   %318 = getelementptr inbounds nuw i8, ptr %317, i64 4
@@ -6638,7 +6638,7 @@ tailrecurse:                                      ; preds = %31, %2
   br label %.critedge
 
 .critedge:                                        ; preds = %19, %11, %12, %21, %tailrecurse, %.critedge.loopexit59, %.preheader
-  %.020 = phi i32 [ 1, %.critedge.loopexit59 ], [ 0, %.preheader ], [ 0, %21 ], [ 0, %tailrecurse ], [ 0, %12 ], [ 0, %11 ], [ 1, %19 ]
+  %.020 = phi i32 [ 1, %.critedge.loopexit59 ], [ 0, %21 ], [ 0, %.preheader ], [ 0, %tailrecurse ], [ 0, %12 ], [ 0, %11 ], [ 1, %19 ]
   ret i32 %.020
 }
 

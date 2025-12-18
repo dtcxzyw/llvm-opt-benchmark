@@ -575,7 +575,7 @@ define void @ff_convert_matrix(ptr noundef readonly captures(none) %0, ptr nound
   br i1 %exitcond155.not, label %._crit_edge114, label %.lr.ph113.split.split, !llvm.loop !47
 
 ._crit_edge114:                                   ; preds = %._crit_edge, %._crit_edge.us128.us, %._crit_edge.us
-  %.088.lcssa = phi i32 [ %.2.us125.us.us, %._crit_edge.us128.us ], [ %.1.lcssa.us, %._crit_edge.us ], [ %.1.lcssa, %._crit_edge ]
+  %.088.lcssa = phi i32 [ %.1.lcssa.us, %._crit_edge.us ], [ %.2.us125.us.us, %._crit_edge.us128.us ], [ %.1.lcssa, %._crit_edge ]
   %.not97 = icmp eq i32 %.088.lcssa, 0
   br i1 %.not97, label %._crit_edge114.thread, label %189
 
@@ -1674,11 +1674,11 @@ define internal range(i32 -2147483648, 2147483647) i32 @dct_quantize_trellis_c(p
   br i1 %298, label %.lr.ph510, label %.loopexit487, !llvm.loop !104
 
 .loopexit487:                                     ; preds = %297, %273, %275, %236, %._crit_edge503, %._crit_edge519
-  %.4414 = phi i32 [ %.1411531, %._crit_edge519 ], [ %.1411531, %._crit_edge503 ], [ %.1411531, %275 ], [ %.1411531, %236 ], [ %.3413, %273 ], [ %.6416, %297 ]
-  %.4403 = phi i32 [ %.1400532, %._crit_edge519 ], [ %.1400532, %._crit_edge503 ], [ %.1400532, %275 ], [ %.1400532, %236 ], [ %.3402, %273 ], [ %.6405, %297 ]
-  %.4387 = phi i32 [ %.1384534, %._crit_edge519 ], [ %.1384534, %._crit_edge503 ], [ %.1384534, %275 ], [ %.1384534, %236 ], [ %.3386, %273 ], [ %.6389, %297 ]
-  %.3379 = phi i32 [ %.2378, %._crit_edge519 ], [ %.5381, %._crit_edge503 ], [ %.0376535, %275 ], [ %.0376535, %236 ], [ %.2378, %273 ], [ %.5381, %297 ]
-  %.4 = phi i32 [ %.1373536, %._crit_edge519 ], [ %.1373536, %._crit_edge503 ], [ %.1373536, %275 ], [ %.1373536, %236 ], [ %.3375, %273 ], [ %.6, %297 ]
+  %.4414 = phi i32 [ %.1411531, %._crit_edge503 ], [ %.1411531, %._crit_edge519 ], [ %.1411531, %236 ], [ %.1411531, %275 ], [ %.3413, %273 ], [ %.6416, %297 ]
+  %.4403 = phi i32 [ %.1400532, %._crit_edge503 ], [ %.1400532, %._crit_edge519 ], [ %.1400532, %236 ], [ %.1400532, %275 ], [ %.3402, %273 ], [ %.6405, %297 ]
+  %.4387 = phi i32 [ %.1384534, %._crit_edge503 ], [ %.1384534, %._crit_edge519 ], [ %.1384534, %236 ], [ %.1384534, %275 ], [ %.3386, %273 ], [ %.6389, %297 ]
+  %.3379 = phi i32 [ %.5381, %._crit_edge503 ], [ %.2378, %._crit_edge519 ], [ %.0376535, %236 ], [ %.0376535, %275 ], [ %.2378, %273 ], [ %.5381, %297 ]
+  %.4 = phi i32 [ %.1373536, %._crit_edge503 ], [ %.1373536, %._crit_edge519 ], [ %.1373536, %236 ], [ %.1373536, %275 ], [ %.3375, %273 ], [ %.6, %297 ]
   %indvars.iv.next604 = add nuw nsw i64 %indvars.iv603, 1
   %exitcond607.not = icmp eq i64 %indvars.iv.next604, %wide.trip.count606
   br i1 %exitcond607.not, label %._crit_edge539, label %205, !llvm.loop !105
@@ -1751,7 +1751,7 @@ define internal range(i32 -2147483648, 2147483647) i32 @dct_quantize_trellis_c(p
   br label %.loopexit491
 
 .loopexit491:                                     ; preds = %317, %309, %.loopexit491.loopexit649.split.loop.exit651, %.loopexit491.loopexit.split.loop.exit653, %.preheader492, %.preheader490
-  %.2 = phi i32 [ 0, %.preheader492 ], [ 0, %.preheader490 ], [ %318, %.loopexit491.loopexit.split.loop.exit653 ], [ %319, %.loopexit491.loopexit649.split.loop.exit651 ], [ 0, %309 ], [ 0, %317 ]
+  %.2 = phi i32 [ 0, %.preheader492 ], [ 0, %309 ], [ 0, %.preheader490 ], [ %318, %.loopexit491.loopexit.split.loop.exit653 ], [ %319, %.loopexit491.loopexit649.split.loop.exit651 ], [ 0, %317 ]
   %320 = add nsw i32 %.2, 1
   %321 = sext i32 %.2 to i64
   %322 = getelementptr inbounds i32, ptr %9, i64 %321
@@ -2297,7 +2297,7 @@ define range(i32 -2147483648, 1) i32 @ff_mpv_encode_init(ptr noundef %0) local_u
   br i1 %.not612, label %182, label %183
 
 .thread539:                                       ; preds = %171, %173
-  %178 = phi i64 [ %139, %171 ], [ %.pre, %173 ]
+  %178 = phi i64 [ %.pre, %173 ], [ %139, %171 ]
   %.not471 = icmp eq i64 %178, 0
   %179 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %180 = load i32, ptr %179, align 8, !tbaa !161
@@ -4980,7 +4980,7 @@ get_intra_count.exit.i.i:                         ; preds = %get_intra_count.exi
   br label %.lr.ph224.i.i
 
 ._crit_edge225.i.i:                               ; preds = %375, %475, %.critedge.i.i, %370, %.critedge180.i.i
-  %.2.lcssa.i.i = phi i32 [ %.1147.i.i, %.critedge.i.i ], [ 0, %.critedge180.i.i ], [ 0, %370 ], [ %.3.i.i, %475 ], [ 0, %375 ]
+  %.2.lcssa.i.i = phi i32 [ %.1147.i.i, %.critedge.i.i ], [ %.3.i.i, %475 ], [ 0, %370 ], [ 0, %.critedge180.i.i ], [ 0, %375 ]
   %461 = sext i32 %.2.lcssa.i.i to i64
   %462 = getelementptr inbounds ptr, ptr %195, i64 %461
   %463 = load ptr, ptr %462, align 8, !tbaa !281
@@ -6488,7 +6488,7 @@ merge_context_after_encode.exit.i:                ; preds = %1318, %.loopexit.i.
   br i1 %exitcond482.not.i, label %encode_picture.exit, label %1221, !llvm.loop !394
 
 encode_picture.exit:                              ; preds = %909, %merge_context_after_encode.exit.i, %853, %.loopexit.i295, %1098, %1178, %._crit_edge426.i
-  %.0.i = phi i1 [ true, %853 ], [ true, %.loopexit.i295 ], [ true, %1098 ], [ true, %1178 ], [ false, %._crit_edge426.i ], [ false, %merge_context_after_encode.exit.i ], [ true, %909 ]
+  %.0.i = phi i1 [ false, %._crit_edge426.i ], [ true, %853 ], [ true, %.loopexit.i295 ], [ true, %1098 ], [ true, %1178 ], [ false, %merge_context_after_encode.exit.i ], [ true, %909 ]
   br i1 %617, label %1327, label %1337
 
 1327:                                             ; preds = %encode_picture.exit
@@ -7196,7 +7196,7 @@ put_bits.exit320:                                 ; preds = %1558, %1566, %1548
   br label %1711
 
 .thread334:                                       ; preds = %1337, %628, %625, %641, %1517, %1692, %.thread330
-  %.1.ph = phi i32 [ %.3.ph, %.thread330 ], [ %1693, %1692 ], [ -1, %1517 ], [ -12, %641 ], [ %626, %625 ], [ %630, %628 ], [ -1, %1337 ]
+  %.1.ph = phi i32 [ %.3.ph, %.thread330 ], [ %1693, %1692 ], [ %630, %628 ], [ -1, %1517 ], [ -12, %641 ], [ %626, %625 ], [ -1, %1337 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %select_input_picture.exit.thread
 
@@ -9083,7 +9083,7 @@ ff_speedhq_mb_y_order_to_mb.exit:                 ; preds = %.lr.ph.i, %239
   br i1 %or.cond932, label %select.unfold, label %.thread929
 
 select.unfold:                                    ; preds = %393, %.thread, %381, %384, %375
-  %.1784 = phi i32 [ %spec.select, %375 ], [ %spec.select, %381 ], [ %spec.select, %384 ], [ %.2785924, %.thread ], [ %spec.select, %393 ]
+  %.1784 = phi i32 [ %spec.select, %375 ], [ %spec.select, %381 ], [ %.2785924, %.thread ], [ %spec.select, %384 ], [ %spec.select, %393 ]
   %.not805 = icmp eq i32 %.1784, 0
   br i1 %.not805, label %.thread926, label %.thread929
 
@@ -10547,8 +10547,8 @@ flush_put_bits.exit873:                           ; preds = %940, %flush_put_bit
   br label %.loopexit960
 
 .loopexit960:                                     ; preds = %1157, %1111, %1090, %1032, %1010, %1158, %1081, %1073, %1058, %1056, %1047, %1001, %998
-  %.0773 = phi i32 [ 0, %1158 ], [ 0, %998 ], [ %1005, %1001 ], [ %1051, %1047 ], [ 0, %1056 ], [ 0, %1058 ], [ %1077, %1073 ], [ %1085, %1081 ], [ 0, %1111 ], [ 0, %1010 ], [ 0, %1032 ], [ 0, %1090 ], [ 0, %1157 ]
-  %.0772 = phi i32 [ 0, %1158 ], [ 0, %998 ], [ %1008, %1001 ], [ %1054, %1047 ], [ 0, %1056 ], [ 0, %1058 ], [ %1080, %1073 ], [ %1088, %1081 ], [ 0, %1111 ], [ 0, %1010 ], [ 0, %1032 ], [ 0, %1090 ], [ 0, %1157 ]
+  %.0773 = phi i32 [ 0, %1158 ], [ 0, %998 ], [ %1005, %1001 ], [ 0, %1090 ], [ 0, %1111 ], [ %1051, %1047 ], [ 0, %1056 ], [ 0, %1058 ], [ %1077, %1073 ], [ %1085, %1081 ], [ 0, %1010 ], [ 0, %1032 ], [ 0, %1157 ]
+  %.0772 = phi i32 [ 0, %1158 ], [ 0, %998 ], [ %1008, %1001 ], [ 0, %1090 ], [ 0, %1111 ], [ %1054, %1047 ], [ 0, %1056 ], [ 0, %1058 ], [ %1080, %1073 ], [ %1088, %1081 ], [ 0, %1010 ], [ 0, %1032 ], [ 0, %1157 ]
   call fastcc void @encode_mb(ptr noundef nonnull %17, i32 noundef %.0773, i32 noundef %.0772)
   %1160 = load i32, ptr %165, align 8, !tbaa !478
   store i32 %1160, ptr %91, align 4, !tbaa !454

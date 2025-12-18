@@ -70,7 +70,7 @@ define range(i32 0, 3) i32 @is_tar(ptr noundef readonly captures(none) %0, i32 n
   br label %from_oct.exit
 
 from_oct.exit:                                    ; preds = %15, %21, %.preheader.i, %.critedge.i, %28
-  %.016.i = phi i32 [ %spec.select.i, %28 ], [ %.030.i, %.critedge.i ], [ 0, %.preheader.i ], [ %25, %21 ], [ -1, %15 ]
+  %.016.i = phi i32 [ %spec.select.i, %28 ], [ %25, %21 ], [ %.030.i, %.critedge.i ], [ 0, %.preheader.i ], [ -1, %15 ]
   br label %33
 
 33:                                               ; preds = %from_oct.exit, %33

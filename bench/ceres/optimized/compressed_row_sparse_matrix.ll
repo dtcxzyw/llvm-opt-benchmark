@@ -5927,7 +5927,7 @@ _ZNSt6vectorIdSaIdEE9push_backERKd.exit57.i:      ; preds = %_ZNSt6vectorIdSaIdE
   br i1 %exitcond.not.i204, label %413, label %415, !llvm.loop !226
 
 "_ZN5ceres8internal12_GLOBAL__N_114AddRandomBlockIRZNS0_25CompressedRowSparseMatrix18CreateRandomMatrixENS3_19RandomMatrixOptionsERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_0EEviiiiOT_PSt6vectorIiSaIiEESF_PSC_IdSaIdEE.exit": ; preds = %._crit_edge.us.i, %413, %322, %410, %328, %245
-  %560 = phi ptr [ %246, %245 ], [ %246, %322 ], [ %246, %328 ], [ %246, %410 ], [ %558, %413 ], [ %407, %._crit_edge.us.i ]
+  %560 = phi ptr [ %246, %245 ], [ %558, %413 ], [ %246, %410 ], [ %246, %322 ], [ %246, %328 ], [ %407, %._crit_edge.us.i ]
   %.pn410 = load ptr, ptr %15, align 8, !tbaa !41
   %.pn116.in = getelementptr inbounds nuw %"struct.ceres::internal::Block", ptr %.pn410, i64 %indvars.iv
   %.pn116 = load i32, ptr %.pn116.in, align 4, !tbaa !150

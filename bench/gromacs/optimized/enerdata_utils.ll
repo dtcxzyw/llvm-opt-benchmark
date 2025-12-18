@@ -405,7 +405,7 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %10
   br i1 %.not.i, label %_ZL11composeDhdliRKN3gmx16EnumerationArrayI34FreeEnergyPerturbationCouplingTypeSt6vectorIdSaIdEELS1_7EEERKNS0_IS1_dLS1_7EEE.exit, label %.split.split.i
 
 _ZL11composeDhdliRKN3gmx16EnumerationArrayI34FreeEnergyPerturbationCouplingTypeSt6vectorIdSaIdEELS1_7EEERKNS0_IS1_dLS1_7EEE.exit: ; preds = %.split.split.i, %.split.split.us.i, %.split.us.split.i, %.split.us.split.us.i
-  %.us-phi.i = phi double [ %71, %.split.split.us.i ], [ %48, %.split.us.split.us.i ], [ %59, %.split.us.split.i ], [ %89, %.split.split.i ]
+  %.us-phi.i = phi double [ %71, %.split.split.us.i ], [ %59, %.split.us.split.i ], [ %48, %.split.us.split.us.i ], [ %89, %.split.split.i ]
   %gep = getelementptr inbounds nuw double, ptr %invariant.gep, i64 %indvars.iv
   store double %.us-phi.i, ptr %gep, align 8, !tbaa !26
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

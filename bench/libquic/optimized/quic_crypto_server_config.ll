@@ -1344,7 +1344,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i77
   br label %.body
 
 .body:                                            ; preds = %.body49, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i77, %149, %66
-  %.pn.pn = phi { ptr, i32 } [ %150, %149 ], [ %67, %66 ], [ %.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i77 ], [ %.pn, %.body49 ]
+  %.pn.pn = phi { ptr, i32 } [ %67, %66 ], [ %150, %149 ], [ %.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i77 ], [ %.pn, %.body49 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %171
@@ -8450,9 +8450,9 @@ _ZNSt10unique_ptrIN3net33ValidateClientHelloResultCallback6ResultESt14default_de
   br label %_ZNKSt14default_deleteIN3net33ValidateClientHelloResultCallback6ResultEEclEPS2_.exit.i91.sink.split
 
 _ZN4base8AutoLockD2Ev.exit49:                     ; preds = %165, %160, %_ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEED2Ev.exit66, %_ZNSt10unique_ptrIN3net33ValidateClientHelloResultCallback6ResultESt14default_deleteIS2_EED2Ev.exit78, %108
-  %.sroa.0100.0 = phi ptr [ %58, %108 ], [ %58, %_ZNSt10unique_ptrIN3net33ValidateClientHelloResultCallback6ResultESt14default_deleteIS2_EED2Ev.exit78 ], [ null, %_ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEED2Ev.exit66 ], [ %58, %160 ], [ %58, %165 ]
-  %.sroa.0104.1 = phi ptr [ %23, %108 ], [ null, %_ZNSt10unique_ptrIN3net33ValidateClientHelloResultCallback6ResultESt14default_deleteIS2_EED2Ev.exit78 ], [ null, %_ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEED2Ev.exit66 ], [ null, %160 ], [ null, %165 ]
-  %.pn35.pn = phi { ptr, i32 } [ %109, %108 ], [ %182, %_ZNSt10unique_ptrIN3net33ValidateClientHelloResultCallback6ResultESt14default_deleteIS2_EED2Ev.exit78 ], [ %145, %_ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEED2Ev.exit66 ], [ %145, %160 ], [ %145, %165 ]
+  %.sroa.0100.0 = phi ptr [ %58, %165 ], [ %58, %108 ], [ %58, %_ZNSt10unique_ptrIN3net33ValidateClientHelloResultCallback6ResultESt14default_deleteIS2_EED2Ev.exit78 ], [ %58, %160 ], [ null, %_ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEED2Ev.exit66 ]
+  %.sroa.0104.1 = phi ptr [ null, %165 ], [ %23, %108 ], [ null, %_ZNSt10unique_ptrIN3net33ValidateClientHelloResultCallback6ResultESt14default_deleteIS2_EED2Ev.exit78 ], [ null, %160 ], [ null, %_ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEED2Ev.exit66 ]
+  %.pn35.pn = phi { ptr, i32 } [ %145, %165 ], [ %109, %108 ], [ %182, %_ZNSt10unique_ptrIN3net33ValidateClientHelloResultCallback6ResultESt14default_deleteIS2_EED2Ev.exit78 ], [ %145, %160 ], [ %145, %_ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEED2Ev.exit66 ]
   br i1 %.not.i.i41, label %_ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEED2Ev.exit87, label %206
 
 206:                                              ; preds = %_ZN4base8AutoLockD2Ev.exit49
@@ -8939,7 +8939,7 @@ _ZNK3net18SourceAddressToken25cached_network_parametersEv.exit.i: ; preds = %110
   br label %534
 
 _ZNK3net22QuicCryptoServerConfig27ValidateSourceAddressTokensERKNS_19SourceAddressTokensERKNS_9IPAddressENS_12QuicWallTimeEPNS_23CachedNetworkParametersE.exit: ; preds = %99, %103, %88, %_ZNK3net18SourceAddressToken25cached_network_parametersEv.exit.i, %86
-  %.077 = phi i32 [ %85, %86 ], [ 0, %103 ], [ 17, %88 ], [ 0, %_ZNK3net18SourceAddressToken25cached_network_parametersEv.exit.i ], [ %102, %99 ]
+  %.077 = phi i32 [ %85, %86 ], [ 0, %_ZNK3net18SourceAddressToken25cached_network_parametersEv.exit.i ], [ 0, %103 ], [ 17, %88 ], [ %102, %99 ]
   %117 = icmp eq i32 %.077, 0
   %118 = getelementptr inbounds nuw i8, ptr %34, i64 104
   %119 = zext i1 %117 to i8
@@ -13721,7 +13721,7 @@ _ZNK3net18SourceAddressToken25cached_network_parametersEv.exit: ; preds = %21, %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %13, %5, %_ZNK3net18SourceAddressToken25cached_network_parametersEv.exit, %17
-  %.1 = phi i32 [ 0, %17 ], [ 0, %_ZNK3net18SourceAddressToken25cached_network_parametersEv.exit ], [ 17, %5 ], [ %16, %13 ]
+  %.1 = phi i32 [ 0, %_ZNK3net18SourceAddressToken25cached_network_parametersEv.exit ], [ 0, %17 ], [ 17, %5 ], [ %16, %13 ]
   ret i32 %.1
 }
 

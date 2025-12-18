@@ -979,7 +979,7 @@ _ZNK10arith_util10is_numeralEPK4expr.exit3.thread: ; preds = %35, %_ZNK10arith_u
   br i1 %.not27.old.i.i.i, label %_ZNK12obj_pair_mapIN3smt5enodeES1_iE4findEPS1_S3_Ri.exit, label %.lr.ph37.i.i.i.backedge
 
 .lr.ph37.i.i.i.backedge:                          ; preds = %100, %97
-  %.136.i.i.i.be = phi ptr [ %.old.i.i.i, %100 ], [ %99, %97 ]
+  %.136.i.i.i.be = phi ptr [ %99, %97 ], [ %.old.i.i.i, %100 ]
   br label %.lr.ph37.i.i.i, !llvm.loop !140
 
 _ZNK12obj_pair_mapIN3smt5enodeES1_iE9find_coreEPS1_S3_.exit.i: ; preds = %75, %91
@@ -1095,7 +1095,7 @@ _ZNK10arith_util10is_numeralEPK4expr.exit.thread: ; preds = %10, %2, %_ZNK10arit
   br i1 %.not27.old.i.i, label %_ZNK14core_hashtableI14obj_hash_entryIN3smt5enodeEE12obj_ptr_hashIS2_E6ptr_eqIS2_EE8containsERKPS2_.exit, label %.lr.ph38.i.i.backedge
 
 .lr.ph38.i.i.backedge:                            ; preds = %55, %52
-  %.137.i.i.be = phi ptr [ %.old.i.i, %55 ], [ %54, %52 ]
+  %.137.i.i.be = phi ptr [ %54, %52 ], [ %.old.i.i, %55 ]
   br label %.lr.ph38.i.i, !llvm.loop !142
 
 _ZNK14core_hashtableI14obj_hash_entryIN3smt5enodeEE12obj_ptr_hashIS2_E6ptr_eqIS2_EE8containsERKPS2_.exit: ; preds = %40, %34, %55, %52, %46, %.preheader.i.i, %_ZNK10arith_util10is_numeralEPK4expr.exit

@@ -1889,7 +1889,7 @@ define void @_ZN6statrs8function11exponential8integral17h737c60d1f6205956E(ptr d
   br label %.split45.us
 
 .split45.us:                                      ; preds = %.split.us, %53, %68, %.split45.us.sink.split
-  %.sink = phi i64 [ 21, %.split45.us.sink.split ], [ 17, %53 ], [ 17, %68 ], [ 17, %.split.us ]
+  %.sink = phi i64 [ 21, %.split45.us.sink.split ], [ 17, %68 ], [ 17, %53 ], [ 17, %.split.us ]
   store i64 %.sink, ptr %0, align 8
   ret void
 

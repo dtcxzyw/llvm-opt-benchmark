@@ -725,7 +725,7 @@ _ZNSt6vectorIbSaIbEEaSERKS1_.exit:                ; preds = %_ZNSt6vectorIbSaIbE
   br i1 %exitcond72.not, label %.loopexit, label %94, !llvm.loop !76
 
 .loopexit:                                        ; preds = %90, %99, %.split65, %.split65.us.us, %92, %5
-  %.0 = phi i32 [ %6, %5 ], [ 0, %92 ], [ %.6, %99 ], [ %spec.select, %.split65.us.us ], [ %.2, %.split65 ], [ %.4, %90 ]
+  %.0 = phi i32 [ %6, %5 ], [ %.6, %99 ], [ %spec.select, %.split65.us.us ], [ 0, %92 ], [ %.2, %.split65 ], [ %.4, %90 ]
   ret i32 %.0
 }
 

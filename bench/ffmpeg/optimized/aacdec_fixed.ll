@@ -546,7 +546,7 @@ subband_scale.exit:                               ; preds = %.lr.ph.split, %subb
   br label %.loopexit
 
 .loopexit:                                        ; preds = %subband_scale.exit.loopexit57.us.us, %subband_scale.exit.loopexit.us.us, %.lr.ph.split.split.us, %.lr.ph.split.us, %.loopexit.loopexit79, %50, %32
-  %123 = phi i8 [ %.pre90, %.loopexit.loopexit79 ], [ %33, %.lr.ph.split.us ], [ %33, %32 ], [ %33, %.lr.ph.split.split.us ], [ %33, %50 ], [ %33, %subband_scale.exit.loopexit.us.us ], [ %33, %subband_scale.exit.loopexit57.us.us ]
+  %123 = phi i8 [ %.pre90, %.loopexit.loopexit79 ], [ %33, %.lr.ph.split.us ], [ %33, %subband_scale.exit.loopexit.us.us ], [ %33, %32 ], [ %33, %.lr.ph.split.split.us ], [ %33, %50 ], [ %33, %subband_scale.exit.loopexit57.us.us ]
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
   %124 = zext i8 %123 to i64
   %125 = icmp samesign ult i64 %indvars.iv.next85, %124
@@ -5190,7 +5190,7 @@ noise_scale.exit:                                 ; preds = %203, %194, %174, %.
   br i1 %exitcond728.not, label %.loopexit611, label %.preheader602, !llvm.loop !203
 
 .loopexit611:                                     ; preds = %481, %411, %360, %278, %580, %414, %.preheader616, %.preheader614, %.preheader612, %.preheader610
-  %.3488 = phi i32 [ %215, %.preheader610 ], [ %215, %.preheader612 ], [ %215, %.preheader614 ], [ %215, %.preheader616 ], [ %215, %414 ], [ %402, %411 ], [ %.16.ph, %580 ], [ %261, %278 ], [ %326, %360 ], [ %467, %481 ]
+  %.3488 = phi i32 [ %326, %360 ], [ %402, %411 ], [ %.16.ph, %580 ], [ %261, %278 ], [ %215, %.preheader610 ], [ %215, %.preheader612 ], [ %215, %.preheader614 ], [ %215, %.preheader616 ], [ %215, %414 ], [ %467, %481 ]
   store i32 %.3488, ptr %21, align 8, !tbaa !189
   br label %.critedge558
 

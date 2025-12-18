@@ -7719,9 +7719,9 @@ _ZN16wasmtime_environ12module_types18ModuleTypesBuilder23reserve_wasm_signatures
   br label %_ZN16wasmtime_environ14module_environ17ModuleEnvironment9push_type17h6d18329b72245267E.exit.i
 
 .invoke2872:                                      ; preds = %1065, %511, %468, %1379, %873
-  %543 = phi ptr [ @anon.e07f65af3071556b41103c062f362d7f.0, %1379 ], [ @anon.e07f65af3071556b41103c062f362d7f.0, %873 ], [ @anon.e07f65af3071556b41103c062f362d7f.0, %468 ], [ @anon.e07f65af3071556b41103c062f362d7f.783, %511 ], [ @anon.e07f65af3071556b41103c062f362d7f.0, %1065 ]
-  %544 = phi i64 [ 40, %1379 ], [ 40, %873 ], [ 40, %468 ], [ 15, %511 ], [ 40, %1065 ]
-  %545 = phi ptr [ @anon.e07f65af3071556b41103c062f362d7f.742, %1379 ], [ @anon.e07f65af3071556b41103c062f362d7f.728, %873 ], [ @anon.e07f65af3071556b41103c062f362d7f.720, %468 ], [ @anon.e07f65af3071556b41103c062f362d7f.784, %511 ], [ @anon.e07f65af3071556b41103c062f362d7f.733, %1065 ]
+  %543 = phi ptr [ @anon.e07f65af3071556b41103c062f362d7f.0, %1379 ], [ @anon.e07f65af3071556b41103c062f362d7f.0, %468 ], [ @anon.e07f65af3071556b41103c062f362d7f.0, %873 ], [ @anon.e07f65af3071556b41103c062f362d7f.783, %511 ], [ @anon.e07f65af3071556b41103c062f362d7f.0, %1065 ]
+  %544 = phi i64 [ 40, %1379 ], [ 40, %468 ], [ 40, %873 ], [ 15, %511 ], [ 40, %1065 ]
+  %545 = phi ptr [ @anon.e07f65af3071556b41103c062f362d7f.742, %1379 ], [ @anon.e07f65af3071556b41103c062f362d7f.720, %468 ], [ @anon.e07f65af3071556b41103c062f362d7f.728, %873 ], [ @anon.e07f65af3071556b41103c062f362d7f.784, %511 ], [ @anon.e07f65af3071556b41103c062f362d7f.733, %1065 ]
   invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 %543, i64 noundef %544, ptr noalias noundef readonly align 8 dereferenceable(24) %545) #28
           to label %.cont2873 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -9435,9 +9435,9 @@ _ZN16wasmtime_environ14module_environ17ModuleEnvironment17flag_func_escaped17h13
   br i1 %1102, label %"_ZN106_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17hf903b6fe8a429569E.exit.i1203", label %.invoke2870, !prof !310
 
 .invoke2870:                                      ; preds = %1072, %633, %476, %374, %1098
-  %1103 = phi i64 [ %1099, %1098 ], [ %634, %633 ], [ %376, %374 ], [ %478, %476 ], [ %1073, %1072 ]
-  %1104 = phi i64 [ %1101, %1098 ], [ %635, %633 ], [ %378, %374 ], [ %479, %476 ], [ %1074, %1072 ]
-  %1105 = phi ptr [ @anon.e07f65af3071556b41103c062f362d7f.785, %1098 ], [ @anon.e07f65af3071556b41103c062f362d7f.722, %633 ], [ @anon.d3bc062b7e92c7bfce2bb5fe22f60bc0.42.llvm.560786137135708080, %374 ], [ @anon.e07f65af3071556b41103c062f362d7f.719, %476 ], [ @anon.e07f65af3071556b41103c062f362d7f.785, %1072 ]
+  %1103 = phi i64 [ %634, %633 ], [ %478, %476 ], [ %376, %374 ], [ %1099, %1098 ], [ %1073, %1072 ]
+  %1104 = phi i64 [ %635, %633 ], [ %479, %476 ], [ %378, %374 ], [ %1101, %1098 ], [ %1074, %1072 ]
+  %1105 = phi ptr [ @anon.e07f65af3071556b41103c062f362d7f.722, %633 ], [ @anon.e07f65af3071556b41103c062f362d7f.719, %476 ], [ @anon.d3bc062b7e92c7bfce2bb5fe22f60bc0.42.llvm.560786137135708080, %374 ], [ @anon.e07f65af3071556b41103c062f362d7f.785, %1098 ], [ @anon.e07f65af3071556b41103c062f362d7f.785, %1072 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %1103, i64 noundef %1104, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1105) #28
           to label %.cont2871 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 

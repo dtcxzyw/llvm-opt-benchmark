@@ -838,7 +838,7 @@ tailrecurse.us:                                   ; preds = %tailrecurse.us.preh
   br i1 %.not.us, label %.loopexit, label %tailrecurse.us
 
 .loopexit:                                        ; preds = %._crit_edge.us, %13, %2
-  %.08 = phi i1 [ false, %2 ], [ true, %13 ], [ false, %._crit_edge.us ]
+  %.08 = phi i1 [ true, %13 ], [ false, %2 ], [ false, %._crit_edge.us ]
   ret i1 %.08
 }
 
@@ -2619,7 +2619,7 @@ tailrecurse.us.i:                                 ; preds = %._crit_edge.us.i, %
   br i1 %or.cond34, label %_ZNK6Effect10is_writtenEPK8Variable.exit, label %tailrecurse.us.preheader.i, !llvm.loop !117
 
 _ZNK6Effect10is_writtenEPK8Variable.exit:         ; preds = %.loopexit, %31, %.critedge.us, %.preheader, %2, %_ZNK8Variable12is_aggregateEv.exit
-  %.2 = phi i1 [ false, %2 ], [ false, %_ZNK8Variable12is_aggregateEv.exit ], [ false, %.preheader ], [ true, %31 ], [ %25, %.critedge.us ], [ %37, %.loopexit ]
+  %.2 = phi i1 [ false, %_ZNK8Variable12is_aggregateEv.exit ], [ false, %2 ], [ true, %31 ], [ %25, %.critedge.us ], [ false, %.preheader ], [ %37, %.loopexit ]
   ret i1 %.2
 }
 
@@ -2854,7 +2854,7 @@ tailrecurse.us.i:                                 ; preds = %._crit_edge.us.i, %
   br i1 %.not15.i, label %_ZNK6Effect10is_writtenEPK8Variable.exit, label %28
 
 _ZNK6Effect10is_writtenEPK8Variable.exit:         ; preds = %13, %.lr.ph.i, %28, %.preheader.i, %20, %.loopexit
-  %44 = phi i1 [ true, %.loopexit ], [ false, %20 ], [ false, %.preheader.i ], [ %.not15.i, %.lr.ph.i ], [ %.not15.i, %28 ], [ true, %13 ]
+  %44 = phi i1 [ true, %.loopexit ], [ %.not15.i, %.lr.ph.i ], [ false, %20 ], [ false, %.preheader.i ], [ %.not15.i, %28 ], [ true, %13 ]
   ret i1 %44
 }
 
@@ -3184,7 +3184,7 @@ _ZL22non_empty_intersectionRKSt6vectorIPK8VariableSaIS2_EES6_.exit13: ; preds = 
   br i1 %exitcond27.not.i22, label %_ZL22non_empty_intersectionRKSt6vectorIPK8VariableSaIS2_EES6_.exit23, label %.preheader.us.i17, !llvm.loop !123
 
 _ZL22non_empty_intersectionRKSt6vectorIPK8VariableSaIS2_EES6_.exit23: ; preds = %20, %28, %54, %62, %._crit_edge.us.i21, %89, %81, %_ZL22non_empty_intersectionRKSt6vectorIPK8VariableSaIS2_EES6_.exit13
-  %98 = phi i1 [ false, %_ZL22non_empty_intersectionRKSt6vectorIPK8VariableSaIS2_EES6_.exit13 ], [ true, %54 ], [ true, %89 ], [ false, %._crit_edge.us.i21 ], [ true, %81 ], [ true, %62 ], [ true, %28 ], [ true, %20 ]
+  %98 = phi i1 [ true, %54 ], [ true, %89 ], [ false, %_ZL22non_empty_intersectionRKSt6vectorIPK8VariableSaIS2_EES6_.exit13 ], [ false, %._crit_edge.us.i21 ], [ true, %81 ], [ true, %62 ], [ true, %28 ], [ true, %20 ]
   ret i1 %98
 }
 
@@ -3758,7 +3758,7 @@ _ZNK8Variable21is_inside_union_fieldEv.exit:      ; preds = %tailrecurse.i
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !158
 
 .loopexit:                                        ; preds = %_ZNK8Variable21is_inside_union_fieldEv.exit, %_ZNK8Variable14is_union_fieldEv.exit.i, %1
-  %18 = phi i1 [ false, %1 ], [ true, %_ZNK8Variable14is_union_fieldEv.exit.i ], [ false, %_ZNK8Variable21is_inside_union_fieldEv.exit ]
+  %18 = phi i1 [ true, %_ZNK8Variable14is_union_fieldEv.exit.i ], [ false, %1 ], [ false, %_ZNK8Variable21is_inside_union_fieldEv.exit ]
   ret i1 %18
 }
 

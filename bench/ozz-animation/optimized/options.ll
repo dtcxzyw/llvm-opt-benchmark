@@ -967,8 +967,8 @@ _ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit: ; preds = %50, %_ZSt9
   %55 = icmp eq i32 %52, %54
   br label %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.thread
 
-_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.thread: ; preds = %._crit_edge._crit_edge52.i.i.i.i, %._crit_edge.i.i.i.i, %51, %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit, %2
-  %.0 = phi i1 [ false, %2 ], [ %55, %51 ], [ false, %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit ], [ false, %._crit_edge.i.i.i.i ], [ false, %._crit_edge._crit_edge52.i.i.i.i ]
+_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit.thread: ; preds = %._crit_edge.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i, %51, %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit, %2
+  %.0 = phi i1 [ false, %2 ], [ %55, %51 ], [ false, %_ZSt6removeIPPN3ozz7options6OptionES3_ET_S5_S5_RKT0_.exit ], [ false, %._crit_edge._crit_edge52.i.i.i.i ], [ false, %._crit_edge.i.i.i.i ]
   ret i1 %.0
 }
 
@@ -2083,12 +2083,12 @@ _ZN3ozz7options12_GLOBAL__N_17StrICmpEPKcS3_.exit48.i: ; preds = %38
   br i1 %50, label %.critedge43.sink.split.i, label %.critedge.i
 
 .critedge43.sink.split.i:                         ; preds = %_ZN3ozz7options12_GLOBAL__N_17StrICmpEPKcS3_.exit.i, %_ZN3ozz7options12_GLOBAL__N_17StrICmpEPKcS3_.exit48.i, %12, %9
-  %.sink.i = phi i8 [ 1, %12 ], [ 0, %9 ], [ 0, %_ZN3ozz7options12_GLOBAL__N_17StrICmpEPKcS3_.exit48.i ], [ 1, %_ZN3ozz7options12_GLOBAL__N_17StrICmpEPKcS3_.exit.i ]
+  %.sink.i = phi i8 [ 0, %_ZN3ozz7options12_GLOBAL__N_17StrICmpEPKcS3_.exit48.i ], [ 1, %12 ], [ 0, %9 ], [ 1, %_ZN3ozz7options12_GLOBAL__N_17StrICmpEPKcS3_.exit.i ]
   store i8 %.sink.i, ptr %5, align 1, !tbaa !79
   br label %_ZN3ozz7options12_GLOBAL__N_15ParseEPKcS3_Pb.exit
 
 _ZN3ozz7options12_GLOBAL__N_15ParseEPKcS3_Pb.exit: ; preds = %.critedge.i, %7, %9, %12, %.critedge43.sink.split.i
-  %.032.i = phi i1 [ false, %9 ], [ false, %7 ], [ false, %12 ], [ true, %.critedge43.sink.split.i ], [ false, %.critedge.i ]
+  %.032.i = phi i1 [ true, %.critedge43.sink.split.i ], [ false, %12 ], [ false, %7 ], [ false, %9 ], [ false, %.critedge.i ]
   ret i1 %.032.i
 }
 
@@ -3647,7 +3647,7 @@ _ZN3ozz7options6Option8ValidateEi.exit75.thread:  ; preds = %_ZN3ozz7options6Opt
   br label %.thread107
 
 .thread107:                                       ; preds = %_ZN3ozz7options6Option8ValidateEi.exit75.thread, %.preheader119, %.thread115, %.thread111, %.thread113, %3
-  %.053 = phi i32 [ 2, %3 ], [ 2, %.thread113 ], [ 1, %.thread115 ], [ 1, %.thread111 ], [ 0, %.preheader119 ], [ 0, %_ZN3ozz7options6Option8ValidateEi.exit75.thread ]
+  %.053 = phi i32 [ 2, %3 ], [ 2, %.thread113 ], [ 1, %.thread111 ], [ 1, %.thread115 ], [ 0, %.preheader119 ], [ 0, %_ZN3ozz7options6Option8ValidateEi.exit75.thread ]
   ret i32 %.053
 }
 
@@ -6282,7 +6282,7 @@ _ZSt13move_backwardIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit: ; preds = %48, 
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !163
 
 _ZSt11swap_rangesIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit: ; preds = %._crit_edge, %._crit_edge111, %.lr.ph.i, %_ZSt13move_backwardIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit, %_ZSt4moveIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit, %5, %3
-  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %23, %_ZSt4moveIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit ], [ %23, %_ZSt13move_backwardIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit ], [ %1, %.lr.ph.i ], [ %23, %._crit_edge111 ], [ %23, %._crit_edge ]
+  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %1, %.lr.ph.i ], [ %23, %_ZSt4moveIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit ], [ %23, %_ZSt13move_backwardIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit ], [ %23, %._crit_edge111 ], [ %23, %._crit_edge ]
   ret ptr %.053
 }
 

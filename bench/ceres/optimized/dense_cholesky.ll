@@ -9148,7 +9148,7 @@ _ZN5Eigen6MatrixIfLin1ELin1ELi0ELin1ELin1EEaSERKS1_.exit: ; preds = %.lr.ph.i.i.
   br i1 %exitcond96.not.i.i.i.i.i, label %_ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEELin1ELi1ELb0EEEE6lpNormILi1EEEfv.exit, label %.lr.ph90.i.i.i.i.i, !llvm.loop !420
 
 _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEELin1ELi1ELb0EEEE6lpNormILi1EEEfv.exit: ; preds = %.lr.ph85.i.i.i.i.i, %.lr.ph90.i.i.i.i.i, %97, %107
-  %.0.i.i.i = phi float [ %109, %107 ], [ %100, %97 ], [ %114, %.lr.ph90.i.i.i.i.i ], [ %105, %.lr.ph85.i.i.i.i.i ]
+  %.0.i.i.i = phi float [ %114, %.lr.ph90.i.i.i.i.i ], [ %100, %97 ], [ %109, %107 ], [ %105, %.lr.ph85.i.i.i.i.i ]
   %116 = getelementptr inbounds nuw float, ptr %53, i64 %.054
   %117 = icmp eq i64 %.054, 0
   br i1 %117, label %_ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEELi1ELin1ELb0EEEE6lpNormILi1EEEfv.exit, label %118
@@ -14650,7 +14650,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal23triangular_solve_vectorIffl
   br i1 %exitcond96.not.i.i.i, label %_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIffEEKNS_9TransposeIKNS_5BlockIKNS6_IKNS_3MapIKNS_6MatrixIfLin1ELin1ELi1ELin1ELin1EEELi0ENS_11OuterStrideILin1EEEEELi1ELin1ELb1EEELi1ELin1ELb0EEEEEKNS7_IKNS8_IfLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEEE3sumEv.exit, label %.lr.ph90.i.i.i, !llvm.loop !549
 
 _ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIffEEKNS_9TransposeIKNS_5BlockIKNS6_IKNS_3MapIKNS_6MatrixIfLin1ELin1ELi1ELin1ELin1EEELi0ENS_11OuterStrideILin1EEEEELi1ELin1ELb1EEELi1ELin1ELb0EEEEEKNS7_IKNS8_IfLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEEE3sumEv.exit: ; preds = %.lr.ph85.i.i.i, %.lr.ph90.i.i.i, %30, %45
-  %.0.i = phi float [ %48, %45 ], [ %37, %30 ], [ %54, %.lr.ph90.i.i.i ], [ %43, %.lr.ph85.i.i.i ]
+  %.0.i = phi float [ %54, %.lr.ph90.i.i.i ], [ %37, %30 ], [ %48, %45 ], [ %43, %.lr.ph85.i.i.i ]
   %56 = getelementptr inbounds float, ptr %3, i64 %24
   %57 = load float, ptr %56, align 4, !tbaa !123
   %58 = fsub float %57, %.0.i

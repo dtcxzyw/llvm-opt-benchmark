@@ -8060,7 +8060,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.i:             ; preds = %93, %91, %89, %87
   br i1 %108, label %.lr.ph.i, label %_ZN10OpenSubdiv6v3_6_03Far16StencilTableRealIfE15generateOffsetsEv.exit, !llvm.loop !86
 
 _ZN10OpenSubdiv6v3_6_03Far16StencilTableRealIfE15generateOffsetsEv.exit: ; preds = %11, %.lr.ph.i, %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i, %34, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %34 ], [ %36, %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i ], [ %36, %.lr.ph.i ], [ null, %11 ]
+  %.0 = phi ptr [ null, %2 ], [ %36, %.lr.ph.i ], [ null, %34 ], [ %36, %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i ], [ null, %11 ]
   ret ptr %.0
 }
 
@@ -16842,7 +16842,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.i:             ; preds = %94, %92, %90, %88
   br i1 %109, label %.lr.ph.i, label %_ZN10OpenSubdiv6v3_6_03Far16StencilTableRealIdE15generateOffsetsEv.exit, !llvm.loop !174
 
 _ZN10OpenSubdiv6v3_6_03Far16StencilTableRealIdE15generateOffsetsEv.exit: ; preds = %11, %.lr.ph.i, %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i, %34, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %34 ], [ %36, %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i ], [ %36, %.lr.ph.i ], [ null, %11 ]
+  %.0 = phi ptr [ null, %2 ], [ %36, %.lr.ph.i ], [ null, %34 ], [ %36, %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i ], [ null, %11 ]
   ret ptr %.0
 }
 

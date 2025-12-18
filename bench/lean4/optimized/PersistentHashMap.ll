@@ -1480,7 +1480,7 @@ lean_dec.exit98:                                  ; preds = %142, %141, %139, %l
   br label %lean_dec.exit97.backedge
 
 lean_dec.exit97.backedge:                         ; preds = %146, %150, %156, %158, %159
-  %.085.be = phi ptr [ %153, %159 ], [ %153, %156 ], [ %153, %158 ], [ %151, %150 ], [ %149, %146 ]
+  %.085.be = phi ptr [ %153, %159 ], [ %153, %158 ], [ %153, %156 ], [ %151, %150 ], [ %149, %146 ]
   br label %lean_dec.exit97
 
 150:                                              ; preds = %143
@@ -5070,7 +5070,7 @@ lean_dec.exit40:                                  ; preds = %76, %75, %73, %lean
   br label %lean_dec.exit41.backedge
 
 lean_dec.exit41.backedge:                         ; preds = %83, %87, %93, %95, %96
-  %.032.be = phi ptr [ %90, %96 ], [ %90, %93 ], [ %90, %95 ], [ %88, %87 ], [ %86, %83 ]
+  %.032.be = phi ptr [ %90, %96 ], [ %90, %95 ], [ %90, %93 ], [ %88, %87 ], [ %86, %83 ]
   br label %lean_dec.exit41
 
 87:                                               ; preds = %80
@@ -6965,7 +6965,7 @@ lean_dec.exit46:                                  ; preds = %92, %91, %89, %85
   br label %lean_dec.exit48.backedge
 
 lean_dec.exit48.backedge:                         ; preds = %96, %100, %106, %108, %109
-  %.038.be = phi ptr [ %103, %109 ], [ %103, %106 ], [ %103, %108 ], [ %101, %100 ], [ %99, %96 ]
+  %.038.be = phi ptr [ %103, %109 ], [ %103, %108 ], [ %103, %106 ], [ %101, %100 ], [ %99, %96 ]
   br label %lean_dec.exit48
 
 100:                                              ; preds = %93
@@ -9915,7 +9915,7 @@ lean_dec.exit66:                                  ; preds = %164, %163, %161, %l
   br label %lean_dec.exit74.backedge
 
 lean_dec.exit74.backedge:                         ; preds = %176, %180, %186, %188, %189
-  %.049.be = phi ptr [ %183, %186 ], [ %181, %180 ], [ %179, %176 ], [ %183, %189 ], [ %183, %188 ]
+  %.049.be = phi ptr [ %179, %176 ], [ %181, %180 ], [ %183, %189 ], [ %183, %186 ], [ %183, %188 ]
   br label %lean_dec.exit74
 
 180:                                              ; preds = %173

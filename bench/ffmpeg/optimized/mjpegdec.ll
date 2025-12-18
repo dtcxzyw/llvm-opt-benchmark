@@ -2688,7 +2688,7 @@ thread-pre-split:                                 ; preds = %373, %376
   br label %.thread653
 
 .thread653:                                       ; preds = %961, %985, %893, %.critedge, %343, %315, %118, %108, %100, %991, %1002, %938, %888, %861, %838, %831, %819, %372, %356, %259, %225, %222, %158, %153, %145, %64, %37
-  %.0 = phi i32 [ -1094995529, %37 ], [ -1, %64 ], [ -1163346256, %153 ], [ -1094995529, %100 ], [ -1094995529, %108 ], [ -1094995529, %145 ], [ -1094995529, %158 ], [ -1094995529, %222 ], [ -1094995529, %225 ], [ -1163346256, %259 ], [ -1, %118 ], [ %317, %315 ], [ -1094995529, %356 ], [ -1094995529, %372 ], [ 0, %1002 ], [ %1000, %991 ], [ -1163346256, %938 ], [ -1163346256, %819 ], [ -1163346256, %831 ], [ 0, %888 ], [ -22, %.critedge ], [ -1, %893 ], [ -558323010, %861 ], [ -1163346256, %838 ], [ -1094995529, %343 ], [ -12, %985 ], [ -12, %961 ]
+  %.0 = phi i32 [ -1094995529, %37 ], [ -1, %64 ], [ -1163346256, %153 ], [ -1094995529, %100 ], [ -1094995529, %108 ], [ -1094995529, %145 ], [ -1094995529, %158 ], [ -1094995529, %222 ], [ -1094995529, %225 ], [ -1163346256, %259 ], [ -1, %118 ], [ %317, %315 ], [ -1094995529, %356 ], [ -1094995529, %372 ], [ 0, %1002 ], [ %1000, %991 ], [ -12, %985 ], [ -1163346256, %938 ], [ -1163346256, %819 ], [ -1163346256, %831 ], [ 0, %888 ], [ -22, %.critedge ], [ -1, %893 ], [ -558323010, %861 ], [ -1163346256, %838 ], [ -1094995529, %343 ], [ -12, %961 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
@@ -4235,7 +4235,7 @@ align_get_bits.exit:                              ; preds = %._crit_edge
   br i1 %419, label %84, label %.loopexit410, !llvm.loop !181
 
 .loopexit410:                                     ; preds = %.loopexit409, %377, %406, %310, %.preheader426, %.thread366, %112, %51, %34, %37, %24, %27, %30, %.thread, %20, %18
-  %.0 = phi i32 [ -1094995529, %18 ], [ -1094995529, %20 ], [ -1094995529, %.thread ], [ -1094995529, %24 ], [ -12, %51 ], [ -1094995529, %34 ], [ -1094995529, %30 ], [ -1094995529, %27 ], [ -1094995529, %37 ], [ -1094995529, %112 ], [ -1, %.thread366 ], [ 0, %.preheader426 ], [ -1163346256, %406 ], [ -1163346256, %310 ], [ 0, %.loopexit409 ], [ -1163346256, %377 ]
+  %.0 = phi i32 [ -1094995529, %18 ], [ -1094995529, %20 ], [ -1094995529, %.thread ], [ -1094995529, %24 ], [ -1163346256, %406 ], [ -12, %51 ], [ -1094995529, %34 ], [ -1094995529, %30 ], [ -1094995529, %27 ], [ -1094995529, %37 ], [ -1094995529, %112 ], [ 0, %.preheader426 ], [ -1, %.thread366 ], [ -1163346256, %310 ], [ 0, %.loopexit409 ], [ -1163346256, %377 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -5216,7 +5216,7 @@ align_get_bits.exit:                              ; preds = %603
   br i1 %620, label %.preheader428, label %.loopexit, !llvm.loop !187
 
 .loopexit:                                        ; preds = %._crit_edge, %.preheader428.lr.ph, %.preheader429, %599, %352, %44
-  %.2 = phi i32 [ -1094995529, %44 ], [ -1, %352 ], [ -1, %599 ], [ 0, %.preheader429 ], [ 0, %.preheader428.lr.ph ], [ 0, %._crit_edge ]
+  %.2 = phi i32 [ -1094995529, %44 ], [ -1, %352 ], [ -1, %599 ], [ 0, %.preheader428.lr.ph ], [ 0, %.preheader429 ], [ 0, %._crit_edge ]
   ret i32 %.2
 }
 
@@ -6000,7 +6000,7 @@ decode_block_refinement.exit.thread103:           ; preds = %decode_block_refine
   br i1 %447, label %.lr.ph181.split, label %.critedge, !llvm.loop !190
 
 .critedge:                                        ; preds = %._crit_edge.split, %._crit_edge.split.us.us, %16, %decode_block_refinement.exit.thread103, %.split.us182, %13
-  %.074 = phi i32 [ -1094995529, %13 ], [ -1094995529, %decode_block_refinement.exit.thread103 ], [ -1094995529, %.split.us182 ], [ 0, %16 ], [ 0, %._crit_edge.split.us.us ], [ 0, %._crit_edge.split ]
+  %.074 = phi i32 [ -1094995529, %13 ], [ -1094995529, %.split.us182 ], [ -1094995529, %decode_block_refinement.exit.thread103 ], [ 0, %16 ], [ 0, %._crit_edge.split.us.us ], [ 0, %._crit_edge.split ]
   ret i32 %.074
 }
 
@@ -6896,7 +6896,7 @@ mjpeg_copy_block.exit.us:                         ; preds = %458, %467, %.prehea
   br i1 %536, label %.lr.ph265.split.split, label %._crit_edge266, !llvm.loop !209
 
 .split.us:                                        ; preds = %530, %517, %136
-  %.us-phi = phi i32 [ %518, %517 ], [ %137, %136 ], [ %531, %530 ]
+  %.us-phi = phi i32 [ %137, %136 ], [ %518, %517 ], [ %531, %530 ]
   %537 = load ptr, ptr %32, align 8, !tbaa !41
   %538 = sub nsw i32 0, %.us-phi
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %537, i32 noundef 16, ptr noundef nonnull @.str.98, i32 noundef %538) #14
@@ -6929,15 +6929,15 @@ mjpeg_copy_block.exit.us:                         ; preds = %458, %467, %.prehea
   br label %.critedge204
 
 ._crit_edge266:                                   ; preds = %.preheader, %.preheader.us290, %._crit_edge.us, %.preheader228
-  %547 = phi i32 [ %117, %.preheader228 ], [ %522, %.preheader.us290 ], [ %511, %._crit_edge.us ], [ %535, %.preheader ]
-  %.sroa.6.2.lcssa = phi i32 [ %.sroa.6.1295, %.preheader228 ], [ %.sroa.6.1295, %.preheader.us290 ], [ %.sroa.6.3.us, %._crit_edge.us ], [ %spec.select.i, %.preheader ]
+  %547 = phi i32 [ %117, %.preheader228 ], [ %511, %._crit_edge.us ], [ %522, %.preheader.us290 ], [ %535, %.preheader ]
+  %.sroa.6.2.lcssa = phi i32 [ %.sroa.6.1295, %.preheader228 ], [ %.sroa.6.3.us, %._crit_edge.us ], [ %.sroa.6.1295, %.preheader.us290 ], [ %spec.select.i, %.preheader ]
   %548 = add nuw nsw i32 %.0175296, 1
   %549 = load i32, ptr %68, align 16, !tbaa !154
   %550 = icmp slt i32 %548, %549
   br i1 %550, label %.preheader228, label %.critedge204, !llvm.loop !210
 
 .critedge204:                                     ; preds = %._crit_edge266, %.preheader228.lr.ph, %.preheader229, %542, %.critedge, %.split.us, %24
-  %.0 = phi i32 [ -1094995529, %24 ], [ -1094995529, %.split.us ], [ -1094995529, %.critedge ], [ -1094995529, %542 ], [ 0, %.preheader229 ], [ 0, %.preheader228.lr.ph ], [ 0, %._crit_edge266 ]
+  %.0 = phi i32 [ -1094995529, %24 ], [ -1094995529, %542 ], [ -1094995529, %.split.us ], [ -1094995529, %.critedge ], [ 0, %.preheader228.lr.ph ], [ 0, %.preheader229 ], [ 0, %._crit_edge266 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -7358,7 +7358,7 @@ put_bits.exit188:                                 ; preds = %174, %181, %167
   br i1 %197, label %188, label %flush_put_bits.exit, !llvm.loop !215
 
 flush_put_bits.exit:                              ; preds = %191, %101, %.loopexit, %._crit_edge235
-  %.0138.lcssa296 = phi i32 [ %.1139, %._crit_edge235 ], [ %124, %.loopexit ], [ 0, %101 ], [ %.1139, %191 ]
+  %.0138.lcssa296 = phi i32 [ 0, %101 ], [ %.1139, %._crit_edge235 ], [ %124, %.loopexit ], [ %.1139, %191 ]
   store ptr %26, ptr %3, align 8, !tbaa !133
   %198 = add nsw i32 %.0138.lcssa296, 7
   %199 = ashr i32 %198, 3
@@ -8502,7 +8502,7 @@ mjpeg_decode_app.exit.thread:                     ; preds = %146, %..loopexit_cr
   br label %670
 
 670:                                              ; preds = %.sink.split, %152, %144
-  %.0.i = phi i32 [ -1094995529, %144 ], [ -1094995529, %152 ], [ -12, %.sink.split ]
+  %.0.i = phi i32 [ -1094995529, %152 ], [ -1094995529, %144 ], [ -12, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %16, i8 0, i64 64, i1 false)
   %671 = call i32 @av_strerror(i32 noundef range(i32 -2147483648, 0) %.0.i, ptr noundef nonnull %16, i64 noundef 64) #14

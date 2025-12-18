@@ -4471,20 +4471,20 @@ _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS
   br label %823
 
 _ZNSt6vectorIjSaIjEE9push_backEOj.exit352:        ; preds = %_ZNSt6vectorIjSaIjEE9push_backEOj.exit282, %.preheader, %713, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i349, %._crit_edge658
-  %.promoted675721 = phi ptr [ %.promoted675, %._crit_edge658 ], [ %731, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i349 ], [ %714, %713 ], [ %.promoted675, %.preheader ], [ %.promoted675718, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit282 ]
-  %734 = phi ptr [ %304, %._crit_edge658 ], [ %727, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i349 ], [ %304, %713 ], [ %304, %.preheader ], [ %536, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit282 ]
-  %735 = phi ptr [ %305, %._crit_edge658 ], [ %733, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i349 ], [ %305, %713 ], [ %305, %.preheader ], [ %530, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit282 ]
-  %736 = phi ptr [ %306, %._crit_edge658 ], [ %731, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i349 ], [ %714, %713 ], [ %306, %.preheader ], [ %531, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit282 ]
-  %737 = phi ptr [ %307, %._crit_edge658 ], [ %634, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i349 ], [ %634, %713 ], [ %307, %.preheader ], [ %537, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit282 ]
-  %738 = phi ptr [ %308, %._crit_edge658 ], [ %635, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i349 ], [ %635, %713 ], [ %308, %.preheader ], [ %532, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit282 ]
-  %739 = phi ptr [ %309, %._crit_edge658 ], [ %636, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i349 ], [ %636, %713 ], [ %309, %.preheader ], [ %533, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit282 ]
-  %740 = phi ptr [ %310, %._crit_edge658 ], [ %610, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i349 ], [ %610, %713 ], [ %310, %.preheader ], [ %538, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit282 ]
-  %741 = phi ptr [ %311, %._crit_edge658 ], [ %611, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i349 ], [ %611, %713 ], [ %311, %.preheader ], [ %534, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit282 ]
-  %742 = phi ptr [ %312, %._crit_edge658 ], [ %612, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i349 ], [ %612, %713 ], [ %312, %.preheader ], [ %535, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit282 ]
-  %743 = phi ptr [ %313, %._crit_edge658 ], [ %587, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i349 ], [ %587, %713 ], [ %313, %.preheader ], [ %540, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit282 ]
-  %744 = phi ptr [ %314, %._crit_edge658 ], [ %588, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i349 ], [ %588, %713 ], [ %314, %.preheader ], [ %541, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit282 ]
-  %.3153 = phi i32 [ %556, %._crit_edge658 ], [ %563, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i349 ], [ %563, %713 ], [ %.0150679, %.preheader ], [ %354, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit282 ]
-  %.3148 = phi i32 [ %.0145680, %._crit_edge658 ], [ %564, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i349 ], [ %564, %713 ], [ %.0145680, %.preheader ], [ %.2147, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit282 ]
+  %.promoted675721 = phi ptr [ %714, %713 ], [ %.promoted675, %._crit_edge658 ], [ %731, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i349 ], [ %.promoted675, %.preheader ], [ %.promoted675718, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit282 ]
+  %734 = phi ptr [ %304, %713 ], [ %304, %._crit_edge658 ], [ %727, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i349 ], [ %304, %.preheader ], [ %536, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit282 ]
+  %735 = phi ptr [ %305, %713 ], [ %305, %._crit_edge658 ], [ %733, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i349 ], [ %305, %.preheader ], [ %530, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit282 ]
+  %736 = phi ptr [ %714, %713 ], [ %306, %._crit_edge658 ], [ %731, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i349 ], [ %306, %.preheader ], [ %531, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit282 ]
+  %737 = phi ptr [ %634, %713 ], [ %307, %._crit_edge658 ], [ %634, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i349 ], [ %307, %.preheader ], [ %537, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit282 ]
+  %738 = phi ptr [ %635, %713 ], [ %308, %._crit_edge658 ], [ %635, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i349 ], [ %308, %.preheader ], [ %532, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit282 ]
+  %739 = phi ptr [ %636, %713 ], [ %309, %._crit_edge658 ], [ %636, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i349 ], [ %309, %.preheader ], [ %533, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit282 ]
+  %740 = phi ptr [ %610, %713 ], [ %310, %._crit_edge658 ], [ %610, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i349 ], [ %310, %.preheader ], [ %538, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit282 ]
+  %741 = phi ptr [ %611, %713 ], [ %311, %._crit_edge658 ], [ %611, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i349 ], [ %311, %.preheader ], [ %534, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit282 ]
+  %742 = phi ptr [ %612, %713 ], [ %312, %._crit_edge658 ], [ %612, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i349 ], [ %312, %.preheader ], [ %535, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit282 ]
+  %743 = phi ptr [ %587, %713 ], [ %313, %._crit_edge658 ], [ %587, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i349 ], [ %313, %.preheader ], [ %540, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit282 ]
+  %744 = phi ptr [ %588, %713 ], [ %314, %._crit_edge658 ], [ %588, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i349 ], [ %314, %.preheader ], [ %541, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit282 ]
+  %.3153 = phi i32 [ %563, %713 ], [ %556, %._crit_edge658 ], [ %563, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i349 ], [ %.0150679, %.preheader ], [ %354, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit282 ]
+  %.3148 = phi i32 [ %564, %713 ], [ %.0145680, %._crit_edge658 ], [ %564, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i349 ], [ %.0145680, %.preheader ], [ %.2147, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit282 ]
   %745 = getelementptr inbounds nuw i8, ptr %.sroa.0416.0678, i64 4
   %.not437 = icmp eq ptr %745, %261
   br i1 %.not437, label %._crit_edge682, label %303
@@ -6867,9 +6867,9 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit.us59:     ; preds = %.lr.ph.split.split.
   br label %.loopexit
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.us59, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.us, %.lr.ph.split.us
-  %.us-phi55 = phi ptr [ null, %.lr.ph.split.us ], [ %101, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.us59 ], [ %58, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.us ], [ %170, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
-  %.us-phi56 = phi ptr [ null, %.lr.ph.split.us ], [ %102, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.us59 ], [ %59, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.us ], [ %171, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
-  %.us-phi57 = phi ptr [ null, %.lr.ph.split.us ], [ %103, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.us59 ], [ %60, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.us ], [ %172, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
+  %.us-phi55 = phi ptr [ %101, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.us59 ], [ %58, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.us ], [ null, %.lr.ph.split.us ], [ %170, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
+  %.us-phi56 = phi ptr [ %102, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.us59 ], [ %59, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.us ], [ null, %.lr.ph.split.us ], [ %171, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
+  %.us-phi57 = phi ptr [ %103, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.us59 ], [ %60, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.us ], [ null, %.lr.ph.split.us ], [ %172, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
   store ptr %.us-phi56, ptr %21, align 8
   store ptr %.us-phi55, ptr %22, align 8
   br label %109

@@ -132,7 +132,7 @@ define internal range(i32 0, 2) i32 @aes_gcm_siv_initkey(ptr noundef %0) #1 {
   br label %54
 
 .loopexit:                                        ; preds = %28, %36, %._crit_edge, %18, %15, %1
-  %.1 = phi ptr [ null, %1 ], [ %12, %15 ], [ %12, %._crit_edge ], [ %12, %18 ], [ %12, %36 ], [ %12, %28 ]
+  %.1 = phi ptr [ null, %1 ], [ %12, %15 ], [ %12, %36 ], [ %12, %18 ], [ %12, %._crit_edge ], [ %12, %28 ]
   %53 = load ptr, ptr %0, align 8, !tbaa !16
   call void @EVP_CIPHER_CTX_free(ptr noundef %53) #7
   call void @EVP_CIPHER_free(ptr noundef %.1) #7

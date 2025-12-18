@@ -342,7 +342,7 @@ _ZN5Eigen9DenseBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE11setConstantERKi.exit:
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !31
 
 _ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE8maxCoeffEv.exit: ; preds = %.lr.ph80.i.i.i.i, %.lr.ph85.i.i.i.i, %100, %93
-  %.2.i.i.i.i = phi i32 [ %101, %100 ], [ %94, %93 ], [ %105, %.lr.ph85.i.i.i.i ], [ %98, %.lr.ph80.i.i.i.i ]
+  %.2.i.i.i.i = phi i32 [ %105, %.lr.ph85.i.i.i.i ], [ %101, %100 ], [ %94, %93 ], [ %98, %.lr.ph80.i.i.i.i ]
   %125 = add nsw i32 %.2.i.i.i.i, 1
   %126 = sext i32 %125 to i64
   %127 = icmp eq i64 %7, 0
@@ -1558,7 +1558,7 @@ _ZN5Eigen9DenseBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE11setConstantERKi.exit:
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !77
 
 _ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE8maxCoeffEv.exit: ; preds = %.lr.ph80.i.i.i.i, %.lr.ph85.i.i.i.i, %100, %93
-  %.2.i.i.i.i = phi i32 [ %101, %100 ], [ %94, %93 ], [ %105, %.lr.ph85.i.i.i.i ], [ %98, %.lr.ph80.i.i.i.i ]
+  %.2.i.i.i.i = phi i32 [ %105, %.lr.ph85.i.i.i.i ], [ %101, %100 ], [ %94, %93 ], [ %98, %.lr.ph80.i.i.i.i ]
   %125 = add nsw i32 %.2.i.i.i.i, 1
   %126 = sext i32 %125 to i64
   %127 = icmp eq i64 %7, 0

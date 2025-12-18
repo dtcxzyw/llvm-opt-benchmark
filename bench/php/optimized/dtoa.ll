@@ -440,7 +440,7 @@ default.unreachable.i.i:                          ; preds = %lexbor_dec_count.ex
   unreachable
 
 lexbor_grisu2.exit:                               ; preds = %193, %.critedge2.i.i.i, %241, %.critedge2.i124.i.i, %167, %176, %210, %.thread.i.i, %225
-  %.0.i.i = phi i64 [ %170, %167 ], [ %213, %210 ], [ %181, %176 ], [ %233, %225 ], [ %224, %.thread.i.i ], [ %233, %241 ], [ %233, %.critedge2.i124.i.i ], [ %181, %.critedge2.i.i.i ], [ %181, %193 ]
+  %.0.i.i = phi i64 [ %224, %.thread.i.i ], [ %170, %167 ], [ %233, %225 ], [ %213, %210 ], [ %181, %176 ], [ %233, %241 ], [ %233, %.critedge2.i124.i.i ], [ %181, %.critedge2.i.i.i ], [ %181, %193 ]
   %249 = load i32, ptr %6, align 4, !tbaa !7
   %250 = trunc i64 %.0.i.i to i32
   %251 = add nsw i32 %249, %250

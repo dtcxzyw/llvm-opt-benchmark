@@ -3377,7 +3377,7 @@ define internal fastcc i32 @do_timer_create(i32 noundef %0, ptr noundef readonly
   br i1 %121, label %.thread24, label %122
 
 122:                                              ; preds = %116, %99
-  %123 = phi ptr [ %102, %99 ], [ %117, %116 ]
+  %123 = phi ptr [ %117, %116 ], [ %102, %99 ]
   %124 = icmp eq ptr %123, null
   br i1 %124, label %.thread24, label %125
 

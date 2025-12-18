@@ -6734,7 +6734,7 @@ dissect_hid_variable.exit.i:                      ; preds = %496, %476, %474, %4
   br label %dissect_hid_field.exit
 
 dissect_hid_field.exit:                           ; preds = %145, %502, %._crit_edge.i, %95, %79, %86
-  %.2 = phi i32 [ %.157, %79 ], [ %89, %86 ], [ %508, %502 ], [ %.2.lcssa.i, %._crit_edge.i ], [ %.157, %95 ], [ %147, %145 ]
+  %.2 = phi i32 [ %.157, %79 ], [ %89, %86 ], [ %.2.lcssa.i, %._crit_edge.i ], [ %508, %502 ], [ %.157, %95 ], [ %147, %145 ]
   %509 = add nuw i32 %.04856, 1
   %510 = call i32 @wmem_array_get_count(ptr noundef %.049)
   %511 = icmp ult i32 %509, %510

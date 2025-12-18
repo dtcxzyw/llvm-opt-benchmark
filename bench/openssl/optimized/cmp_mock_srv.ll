@@ -1127,7 +1127,7 @@ define internal range(i32 0, 2) i32 @process_certConf(ptr noundef %0, ptr nounde
   br label %26
 
 26:                                               ; preds = %.sink.split, %24, %21
-  %.0 = phi i32 [ 0, %21 ], [ 1, %24 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 1, %24 ], [ 0, %21 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 
@@ -1448,7 +1448,7 @@ define internal fastcc ptr @process_genm_itav(ptr noundef nonnull readonly captu
   br label %34
 
 34:                                               ; preds = %24, %26
-  %.131 = phi ptr [ %25, %24 ], [ %33, %26 ]
+  %.131 = phi ptr [ %33, %26 ], [ %25, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %97
 
@@ -1556,7 +1556,7 @@ check_client_crl.exit.thread:                     ; preds = %check_client_crl.ex
   br label %70
 
 70:                                               ; preds = %check_client_crl.exit.thread, %67
-  %.333 = phi ptr [ %69, %67 ], [ null, %check_client_crl.exit.thread ]
+  %.333 = phi ptr [ null, %check_client_crl.exit.thread ], [ %69, %67 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %97
 

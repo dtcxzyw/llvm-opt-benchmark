@@ -1596,7 +1596,7 @@ define internal fastcc void @ieee80211_color_change_finalize(ptr noundef initial
   br i1 %61, label %.thread, label %.preheader, !llvm.loop !64
 
 .thread:                                          ; preds = %57, %7, %23, %41, %37, %26, %24
-  %62 = phi i32 [ 144, %24 ], [ 145, %26 ], [ 145, %37 ], [ 145, %41 ], [ 144, %23 ], [ 144, %7 ], [ 145, %57 ]
+  %62 = phi i32 [ 144, %24 ], [ 145, %26 ], [ 145, %37 ], [ 145, %41 ], [ 144, %7 ], [ 144, %23 ], [ 145, %57 ]
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 1248
   %64 = load ptr, ptr %63, align 8
   %65 = tail call i32 @cfg80211_bss_color_notify(ptr noundef %64, i32 noundef %62, i8 noundef zeroext 0, i64 noundef 0) #16
@@ -2354,7 +2354,7 @@ define internal noundef range(i32 -2, 1) i32 @ieee80211_get_key(ptr readnone cap
   br label %70
 
 70:                                               ; preds = %67, %58
-  %71 = phi ptr [ %61, %58 ], [ %69, %67 ]
+  %71 = phi ptr [ %69, %67 ], [ %61, %58 ]
   %72 = icmp eq ptr %71, null
   br i1 %72, label %.thread, label %73
 
@@ -2718,7 +2718,7 @@ define internal noundef range(i32 -2, 1) i32 @ieee80211_del_key(ptr readnone cap
   br label %65
 
 65:                                               ; preds = %62, %53
-  %66 = phi ptr [ %56, %53 ], [ %64, %62 ]
+  %66 = phi ptr [ %64, %62 ], [ %56, %53 ]
   %67 = icmp eq ptr %66, null
   br i1 %67, label %.thread, label %68
 
@@ -3374,7 +3374,7 @@ define internal i32 @ieee80211_start_ap(ptr readnone captures(none) %0, ptr noun
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %178, %189, %336, %327, %219, %137, %22, %16, %3
-  %338 = phi i32 [ %201, %219 ], [ %337, %336 ], [ -67, %3 ], [ -114, %16 ], [ -95, %22 ], [ -95, %137 ], [ 0, %327 ], [ -22, %178 ], [ -22, %189 ], [ 0, %.preheader ]
+  %338 = phi i32 [ %201, %219 ], [ %337, %336 ], [ -67, %3 ], [ -114, %16 ], [ -95, %22 ], [ -95, %137 ], [ -22, %189 ], [ 0, %327 ], [ -22, %178 ], [ 0, %.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %338
 }

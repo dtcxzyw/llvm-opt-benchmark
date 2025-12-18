@@ -4300,7 +4300,7 @@ _ZN5Eigen8internalL21first_default_alignedINS_5BlockIKNS_6MatrixIdLin1ELin1ELi0E
   br i1 %exitcond103.not.i.i.i.i, label %_ZNK5Eigen9DenseBaseINS_5BlockIKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEE8minCoeffEv.exit, label %.lr.ph96.i.i.i.i, !llvm.loop !211
 
 _ZNK5Eigen9DenseBaseINS_5BlockIKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEE8minCoeffEv.exit: ; preds = %.lr.ph91.i.i.i.i, %.lr.ph96.i.i.i.i, %.preheader.i.i.i.i, %107
-  %.2.i.i.i.i = phi double [ %108, %107 ], [ %.072.lcssa.i.i.i.i, %.preheader.i.i.i.i ], [ %113, %.lr.ph96.i.i.i.i ], [ %104, %.lr.ph91.i.i.i.i ]
+  %.2.i.i.i.i = phi double [ %113, %.lr.ph96.i.i.i.i ], [ %108, %107 ], [ %.072.lcssa.i.i.i.i, %.preheader.i.i.i.i ], [ %104, %.lr.ph91.i.i.i.i ]
   %115 = fcmp oeq double %.2.i.i.i.i, 0.000000e+00
   br i1 %115, label %116, label %.critedge
 
@@ -4424,7 +4424,7 @@ _ZN5Eigen8internalL21first_default_alignedINS_5BlockIKNS_6MatrixIdLin1ELin1ELi0E
   br i1 %exitcond103.not.i.i.i.i262, label %_ZNK5Eigen9DenseBaseINS_5BlockIKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEE8maxCoeffEv.exit, label %.lr.ph96.i.i.i.i259, !llvm.loop !216
 
 _ZNK5Eigen9DenseBaseINS_5BlockIKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEE8maxCoeffEv.exit: ; preds = %.lr.ph91.i.i.i.i241, %.lr.ph96.i.i.i.i259, %.preheader.i.i.i.i238, %166
-  %.2.i.i.i.i240 = phi double [ %167, %166 ], [ %.072.lcssa.i.i.i.i239, %.preheader.i.i.i.i238 ], [ %172, %.lr.ph96.i.i.i.i259 ], [ %163, %.lr.ph91.i.i.i.i241 ]
+  %.2.i.i.i.i240 = phi double [ %172, %.lr.ph96.i.i.i.i259 ], [ %167, %166 ], [ %.072.lcssa.i.i.i.i239, %.preheader.i.i.i.i238 ], [ %163, %.lr.ph91.i.i.i.i241 ]
   %174 = fcmp oeq double %.2.i.i.i.i240, 0.000000e+00
   br i1 %174, label %.critedge.sink.split, label %.critedge
 
@@ -10941,7 +10941,7 @@ _ZN5Eigen8internalL21first_default_alignedINS_5BlockIKNS_6MatrixIdLin1ELin1ELi0E
   br i1 %exitcond103.not.i.i.i.i, label %_ZNK5Eigen9DenseBaseINS_5BlockIKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEE8minCoeffEv.exit, label %.lr.ph96.i.i.i.i, !llvm.loop !211
 
 _ZNK5Eigen9DenseBaseINS_5BlockIKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEE8minCoeffEv.exit: ; preds = %.lr.ph91.i.i.i.i, %.lr.ph96.i.i.i.i, %.preheader.i.i.i.i, %107
-  %.2.i.i.i.i = phi double [ %108, %107 ], [ %.072.lcssa.i.i.i.i, %.preheader.i.i.i.i ], [ %113, %.lr.ph96.i.i.i.i ], [ %104, %.lr.ph91.i.i.i.i ]
+  %.2.i.i.i.i = phi double [ %113, %.lr.ph96.i.i.i.i ], [ %108, %107 ], [ %.072.lcssa.i.i.i.i, %.preheader.i.i.i.i ], [ %104, %.lr.ph91.i.i.i.i ]
   %115 = fcmp oeq double %.2.i.i.i.i, 0.000000e+00
   br i1 %115, label %116, label %.critedge
 
@@ -11065,7 +11065,7 @@ _ZN5Eigen8internalL21first_default_alignedINS_5BlockIKNS_6MatrixIdLin1ELin1ELi0E
   br i1 %exitcond103.not.i.i.i.i262, label %_ZNK5Eigen9DenseBaseINS_5BlockIKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEE8maxCoeffEv.exit, label %.lr.ph96.i.i.i.i259, !llvm.loop !216
 
 _ZNK5Eigen9DenseBaseINS_5BlockIKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEE8maxCoeffEv.exit: ; preds = %.lr.ph91.i.i.i.i241, %.lr.ph96.i.i.i.i259, %.preheader.i.i.i.i238, %166
-  %.2.i.i.i.i240 = phi double [ %167, %166 ], [ %.072.lcssa.i.i.i.i239, %.preheader.i.i.i.i238 ], [ %172, %.lr.ph96.i.i.i.i259 ], [ %163, %.lr.ph91.i.i.i.i241 ]
+  %.2.i.i.i.i240 = phi double [ %172, %.lr.ph96.i.i.i.i259 ], [ %167, %166 ], [ %.072.lcssa.i.i.i.i239, %.preheader.i.i.i.i238 ], [ %163, %.lr.ph91.i.i.i.i241 ]
   %174 = fcmp oeq double %.2.i.i.i.i240, 0.000000e+00
   br i1 %174, label %.critedge.sink.split, label %.critedge
 
@@ -22912,7 +22912,7 @@ _ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin
   br i1 %exitcond102.not.i.i.i.i.i, label %_ZNK5Eigen9DenseBaseINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEE3sumEv.exit.i.i, label %.lr.ph94.i.i.i.i.i, !llvm.loop !843
 
 _ZNK5Eigen9DenseBaseINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEE3sumEv.exit.i.i: ; preds = %.lr.ph89.i.i.i.i.i, %.lr.ph94.i.i.i.i.i, %118, %.preheader.i.i.i.i.i
-  %.0.i.i.i = phi i32 [ %119, %118 ], [ %.075.lcssa.i.i.i.i.i, %.preheader.i.i.i.i.i ], [ %123, %.lr.ph94.i.i.i.i.i ], [ %115, %.lr.ph89.i.i.i.i.i ]
+  %.0.i.i.i = phi i32 [ %123, %.lr.ph94.i.i.i.i.i ], [ %.075.lcssa.i.i.i.i.i, %.preheader.i.i.i.i.i ], [ %119, %118 ], [ %115, %.lr.ph89.i.i.i.i.i ]
   %125 = sext i32 %.0.i.i.i to i64
   br label %_ZNK5Eigen8internal9evaluatorINS_20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEEEE16nonZerosEstimateEv.exit
 
@@ -23064,7 +23064,7 @@ _ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin
   br i1 %exitcond102.not.i.i.i.i.i184, label %_ZNK5Eigen9DenseBaseINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEE3sumEv.exit.i.i161, label %.lr.ph94.i.i.i.i.i181, !llvm.loop !843
 
 _ZNK5Eigen9DenseBaseINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEE3sumEv.exit.i.i161: ; preds = %.lr.ph89.i.i.i.i.i164, %.lr.ph94.i.i.i.i.i181, %197, %.preheader.i.i.i.i.i159
-  %.0.i.i.i162 = phi i32 [ %198, %197 ], [ %.075.lcssa.i.i.i.i.i160, %.preheader.i.i.i.i.i159 ], [ %202, %.lr.ph94.i.i.i.i.i181 ], [ %194, %.lr.ph89.i.i.i.i.i164 ]
+  %.0.i.i.i162 = phi i32 [ %202, %.lr.ph94.i.i.i.i.i181 ], [ %.075.lcssa.i.i.i.i.i160, %.preheader.i.i.i.i.i159 ], [ %198, %197 ], [ %194, %.lr.ph89.i.i.i.i.i164 ]
   %204 = sext i32 %.0.i.i.i162 to i64
   br label %_ZNK5Eigen8internal9evaluatorINS_20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEEEE16nonZerosEstimateEv.exit185
 
@@ -33279,7 +33279,7 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal13gemm_pack_rhsIflNS0_22co
   br i1 %100, label %.preheader83.us96, label %.preheader, !llvm.loop !1192
 
 .preheader:                                       ; preds = %._crit_edge.us103, %._crit_edge.us, %.lr.ph94.split, %7
-  %.061.lcssa = phi i64 [ 0, %7 ], [ 0, %.lr.ph94.split ], [ %.2.lcssa.us, %._crit_edge.us ], [ %97, %._crit_edge.us103 ]
+  %.061.lcssa = phi i64 [ 0, %7 ], [ %.2.lcssa.us, %._crit_edge.us ], [ 0, %.lr.ph94.split ], [ %97, %._crit_edge.us103 ]
   %101 = icmp slt i64 %9, %4
   br i1 %101, label %.lr.ph111, label %._crit_edge112
 

@@ -147,7 +147,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %68
 
 68:                                               ; preds = %57, %61
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %57 ], [ %67, %61 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %67, %61 ], [ %.sroa.4.19.i.i, %57 ]
   %69 = tail call noundef i64 @"_ZN124_$LT$polars_arrow..array..binview..mutable..MutableBinaryViewArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h0d1a141eaf51eb7fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %1)
   %70 = icmp ugt i64 %69, 2147483647
   br i1 %70, label %79, label %89
@@ -367,7 +367,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %68
 
 68:                                               ; preds = %57, %61
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %57 ], [ %67, %61 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %67, %61 ], [ %.sroa.4.19.i.i, %57 ]
   %69 = call noundef i64 @"_ZN125_$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h58773ccdf5490adbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1)
   %70 = icmp ugt i64 %69, 127
   %71 = trunc nuw nsw i64 %69 to i8
@@ -644,7 +644,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %68
 
 68:                                               ; preds = %57, %61
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %57 ], [ %67, %61 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %67, %61 ], [ %.sroa.4.19.i.i, %57 ]
   %69 = call noundef i64 @"_ZN125_$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h0f62523c9a591410E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1)
   %70 = icmp ugt i64 %69, 2147483647
   %71 = trunc nuw nsw i64 %69 to i32
@@ -916,7 +916,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %64
 
 64:                                               ; preds = %57, %53
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %53 ], [ %63, %57 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %63, %57 ], [ %.sroa.4.19.i.i, %53 ]
   %65 = call noundef i64 @"_ZN125_$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17he16af5ba3a7e2059E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1)
   %66 = zext i64 %65 to i128
   call void @llvm.experimental.noalias.scope.decl(metadata !185)
@@ -1140,7 +1140,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %67
 
 67:                                               ; preds = %56, %60
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %56 ], [ %66, %60 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %66, %60 ], [ %.sroa.4.19.i.i, %56 ]
   %68 = call noundef i64 @"_ZN125_$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h0f62523c9a591410E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1)
   %69 = icmp ugt i64 %68, 4294967295
   %70 = trunc nuw i64 %68 to i32
@@ -1415,7 +1415,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %67
 
 67:                                               ; preds = %56, %60
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %56 ], [ %66, %60 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %66, %60 ], [ %.sroa.4.19.i.i, %56 ]
   %68 = call noundef i64 @"_ZN125_$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h58773ccdf5490adbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1)
   %69 = icmp ugt i64 %68, 4294967295
   %70 = trunc nuw i64 %68 to i32
@@ -1687,7 +1687,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %64
 
 64:                                               ; preds = %57, %53
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %53 ], [ %63, %57 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %63, %57 ], [ %.sroa.4.19.i.i, %53 ]
   %65 = call noundef i64 @"_ZN125_$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h1c5f61e2f580b588E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1)
   %66 = zext i64 %65 to i128
   call void @llvm.experimental.noalias.scope.decl(metadata !342)
@@ -1911,7 +1911,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %67
 
 67:                                               ; preds = %56, %60
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %56 ], [ %66, %60 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %66, %60 ], [ %.sroa.4.19.i.i, %56 ]
   %68 = call noundef i64 @"_ZN125_$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h1c5f61e2f580b588E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1)
   %69 = icmp ugt i64 %68, 255
   %70 = trunc nuw i64 %68 to i8
@@ -2207,7 +2207,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %103
 
 78:                                               ; preds = %60, %64
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %60 ], [ %70, %64 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %70, %64 ], [ %.sroa.4.19.i.i, %60 ]
   %79 = tail call noundef i64 @"_ZN119_$LT$polars_arrow..array..binary..mutable..MutableBinaryArray$LT$O$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h958252bfdd9e674cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %1)
   %80 = zext i64 %79 to i128
   tail call void @llvm.experimental.noalias.scope.decl(metadata !444)
@@ -2368,7 +2368,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %67
 
 67:                                               ; preds = %56, %60
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %56 ], [ %66, %60 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %66, %60 ], [ %.sroa.4.19.i.i, %56 ]
   %68 = tail call noundef i64 @"_ZN124_$LT$polars_arrow..array..binview..mutable..MutableBinaryViewArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h0d1a141eaf51eb7fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %1)
   %69 = icmp ugt i64 %68, 4294967295
   br i1 %69, label %78, label %88
@@ -2580,7 +2580,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %67
 
 67:                                               ; preds = %56, %60
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %56 ], [ %66, %60 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %66, %60 ], [ %.sroa.4.19.i.i, %56 ]
   %68 = tail call noundef i64 @"_ZN124_$LT$polars_arrow..array..binview..mutable..MutableBinaryViewArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h0d1a141eaf51eb7fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %1)
   %69 = icmp ugt i64 %68, 255
   br i1 %69, label %78, label %88
@@ -2798,7 +2798,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %67
 
 67:                                               ; preds = %56, %60
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %56 ], [ %66, %60 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %66, %60 ], [ %.sroa.4.19.i.i, %56 ]
   %68 = call noundef i64 @"_ZN125_$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h67e21ef8dff54fa6E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1)
   %69 = icmp ugt i64 %68, 65535
   %70 = trunc nuw i64 %68 to i16
@@ -3090,7 +3090,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %78
 
 78:                                               ; preds = %67, %71
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %67 ], [ %77, %71 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %77, %71 ], [ %.sroa.4.19.i.i, %67 ]
   %79 = tail call noundef i64 @"_ZN115_$LT$polars_arrow..array..utf8..mutable..MutableUtf8Array$LT$O$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h5ede66aa771419cdE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %1)
   %80 = icmp ugt i64 %79, 65535
   %81 = trunc nuw i64 %79 to i16
@@ -3385,7 +3385,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %91
 
 69:                                               ; preds = %53, %57
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %53 ], [ %63, %57 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %63, %57 ], [ %.sroa.4.19.i.i, %53 ]
   %70 = tail call noundef i64 @"_ZN124_$LT$polars_arrow..array..binview..mutable..MutableBinaryViewArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h0d1a141eaf51eb7fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %1)
   %71 = zext i64 %70 to i128
   tail call void @llvm.experimental.noalias.scope.decl(metadata !689)
@@ -3540,7 +3540,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %63
 
 63:                                               ; preds = %52, %56
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %52 ], [ %62, %56 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %62, %56 ], [ %.sroa.4.19.i.i, %52 ]
   %64 = call noundef i64 @"_ZN125_$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17he16af5ba3a7e2059E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1)
   call void @llvm.experimental.noalias.scope.decl(metadata !708)
   %65 = load ptr, ptr %7, align 8, !alias.scope !708, !nonnull !9, !noundef !9
@@ -3765,7 +3765,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %68
 
 68:                                               ; preds = %57, %61
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %57 ], [ %67, %61 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %67, %61 ], [ %.sroa.4.19.i.i, %57 ]
   %69 = call noundef i64 @"_ZN125_$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h487a699a946fc93cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1)
   %70 = icmp ugt i64 %69, 2147483647
   %71 = trunc nuw nsw i64 %69 to i32
@@ -4042,7 +4042,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %68
 
 68:                                               ; preds = %57, %61
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %57 ], [ %67, %61 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %67, %61 ], [ %.sroa.4.19.i.i, %57 ]
   %69 = call noundef i64 @"_ZN125_$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h67e21ef8dff54fa6E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1)
   %70 = icmp ugt i64 %69, 2147483647
   %71 = trunc nuw nsw i64 %69 to i32
@@ -4313,7 +4313,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %63
 
 63:                                               ; preds = %52, %56
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %52 ], [ %62, %56 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %62, %56 ], [ %.sroa.4.19.i.i, %52 ]
   %64 = call noundef i64 @"_ZN125_$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h67e21ef8dff54fa6E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1)
   call void @llvm.experimental.noalias.scope.decl(metadata !863)
   %65 = load ptr, ptr %7, align 8, !alias.scope !863, !nonnull !9, !noundef !9
@@ -4530,7 +4530,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %67
 
 67:                                               ; preds = %56, %60
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %56 ], [ %66, %60 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %66, %60 ], [ %.sroa.4.19.i.i, %56 ]
   %68 = tail call noundef i64 @"_ZN124_$LT$polars_arrow..array..binview..mutable..MutableBinaryViewArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17hfce4df223bdbf6c4E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %1)
   %69 = icmp ugt i64 %68, 255
   br i1 %69, label %78, label %88
@@ -4748,7 +4748,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %67
 
 67:                                               ; preds = %56, %60
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %56 ], [ %66, %60 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %66, %60 ], [ %.sroa.4.19.i.i, %56 ]
   %68 = call noundef i64 @"_ZN125_$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h0f62523c9a591410E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1)
   %69 = icmp ugt i64 %68, 65535
   %70 = trunc nuw i64 %68 to i16
@@ -5023,7 +5023,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %67
 
 67:                                               ; preds = %56, %60
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %56 ], [ %66, %60 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %66, %60 ], [ %.sroa.4.19.i.i, %56 ]
   %68 = call noundef i64 @"_ZN125_$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h1cd7c9bcb7c6721bE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1)
   %69 = icmp ugt i64 %68, 65535
   %70 = trunc nuw i64 %68 to i16
@@ -5298,7 +5298,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %67
 
 67:                                               ; preds = %56, %60
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %56 ], [ %66, %60 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %66, %60 ], [ %.sroa.4.19.i.i, %56 ]
   %68 = call noundef i64 @"_ZN125_$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h1cd7c9bcb7c6721bE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1)
   %69 = icmp ugt i64 %68, 4294967295
   %70 = trunc nuw i64 %68 to i32
@@ -5569,7 +5569,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %68
 
 68:                                               ; preds = %57, %61
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %57 ], [ %67, %61 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %67, %61 ], [ %.sroa.4.19.i.i, %57 ]
   %69 = tail call noundef i64 @"_ZN124_$LT$polars_arrow..array..binview..mutable..MutableBinaryViewArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h0d1a141eaf51eb7fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %1)
   %70 = icmp ugt i64 %69, 127
   br i1 %70, label %79, label %89
@@ -5784,7 +5784,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %64
 
 64:                                               ; preds = %57, %53
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %53 ], [ %63, %57 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %63, %57 ], [ %.sroa.4.19.i.i, %53 ]
   %65 = call noundef i64 @"_ZN125_$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h2b805b212edc7e06E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1)
   %66 = zext i64 %65 to i128
   call void @llvm.experimental.noalias.scope.decl(metadata !1166)
@@ -6025,7 +6025,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %78
 
 78:                                               ; preds = %67, %71
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %67 ], [ %77, %71 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %77, %71 ], [ %.sroa.4.19.i.i, %67 ]
   %79 = tail call noundef i64 @"_ZN115_$LT$polars_arrow..array..utf8..mutable..MutableUtf8Array$LT$O$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h5ede66aa771419cdE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %1)
   %80 = icmp ugt i64 %79, 255
   %81 = trunc nuw i64 %79 to i8
@@ -6320,7 +6320,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %67
 
 67:                                               ; preds = %56, %60
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %56 ], [ %66, %60 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %66, %60 ], [ %.sroa.4.19.i.i, %56 ]
   %68 = call noundef i64 @"_ZN125_$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h487a699a946fc93cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1)
   %69 = icmp slt i64 %68, 0
   br i1 %69, label %71, label %81
@@ -6590,7 +6590,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %68
 
 68:                                               ; preds = %57, %61
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %57 ], [ %67, %61 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %67, %61 ], [ %.sroa.4.19.i.i, %57 ]
   %69 = tail call noundef i64 @"_ZN124_$LT$polars_arrow..array..binview..mutable..MutableBinaryViewArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17hfce4df223bdbf6c4E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %1)
   %70 = icmp ugt i64 %69, 32767
   br i1 %70, label %79, label %89
@@ -6806,7 +6806,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %89
 
 68:                                               ; preds = %52, %56
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %52 ], [ %62, %56 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %62, %56 ], [ %.sroa.4.19.i.i, %52 ]
   %69 = tail call noundef i64 @"_ZN124_$LT$polars_arrow..array..binview..mutable..MutableBinaryViewArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h0d1a141eaf51eb7fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %1)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1386)
   %70 = load ptr, ptr %7, align 8, !alias.scope !1386, !nonnull !9, !noundef !9
@@ -6966,7 +6966,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %68
 
 68:                                               ; preds = %57, %61
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %57 ], [ %67, %61 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %67, %61 ], [ %.sroa.4.19.i.i, %57 ]
   %69 = call noundef i64 @"_ZN125_$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h1cd7c9bcb7c6721bE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1)
   %70 = icmp ugt i64 %69, 2147483647
   %71 = trunc nuw nsw i64 %69 to i32
@@ -7242,7 +7242,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %91
 
 69:                                               ; preds = %53, %57
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %53 ], [ %63, %57 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %63, %57 ], [ %.sroa.4.19.i.i, %53 ]
   %70 = tail call noundef i64 @"_ZN124_$LT$polars_arrow..array..binview..mutable..MutableBinaryViewArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17hfce4df223bdbf6c4E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %1)
   %71 = zext i64 %70 to i128
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1465)
@@ -7403,7 +7403,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %68
 
 68:                                               ; preds = %57, %61
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %57 ], [ %67, %61 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %67, %61 ], [ %.sroa.4.19.i.i, %57 ]
   %69 = call noundef i64 @"_ZN125_$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h487a699a946fc93cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1)
   %70 = icmp ugt i64 %69, 127
   %71 = trunc nuw nsw i64 %69 to i8
@@ -7680,7 +7680,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %68
 
 68:                                               ; preds = %57, %61
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %57 ], [ %67, %61 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %67, %61 ], [ %.sroa.4.19.i.i, %57 ]
   %69 = call noundef i64 @"_ZN125_$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h1c5f61e2f580b588E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1)
   %70 = icmp ugt i64 %69, 2147483647
   %71 = trunc nuw nsw i64 %69 to i32
@@ -7955,7 +7955,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %67
 
 67:                                               ; preds = %56, %60
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %56 ], [ %66, %60 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %66, %60 ], [ %.sroa.4.19.i.i, %56 ]
   %68 = call noundef i64 @"_ZN125_$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h487a699a946fc93cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1)
   %69 = icmp ugt i64 %68, 65535
   %70 = trunc nuw i64 %68 to i16
@@ -8239,7 +8239,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %75
 
 75:                                               ; preds = %64, %68
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %64 ], [ %74, %68 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %74, %68 ], [ %.sroa.4.19.i.i, %64 ]
   %76 = tail call noundef i64 @"_ZN119_$LT$polars_arrow..array..binary..mutable..MutableBinaryArray$LT$O$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h958252bfdd9e674cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %1)
   %77 = icmp ugt i64 %76, 32767
   %78 = trunc nuw nsw i64 %76 to i16
@@ -8476,7 +8476,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %74
 
 74:                                               ; preds = %63, %67
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %63 ], [ %73, %67 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %73, %67 ], [ %.sroa.4.19.i.i, %63 ]
   %75 = tail call noundef i64 @"_ZN119_$LT$polars_arrow..array..binary..mutable..MutableBinaryArray$LT$O$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h958252bfdd9e674cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %1)
   %76 = icmp ugt i64 %75, 65535
   %77 = trunc nuw i64 %75 to i16
@@ -8708,7 +8708,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %68
 
 68:                                               ; preds = %57, %61
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %57 ], [ %67, %61 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %67, %61 ], [ %.sroa.4.19.i.i, %57 ]
   %69 = call noundef i64 @"_ZN125_$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h58773ccdf5490adbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1)
   %70 = icmp ugt i64 %69, 32767
   %71 = trunc nuw nsw i64 %69 to i16
@@ -8983,7 +8983,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %67
 
 67:                                               ; preds = %56, %60
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %56 ], [ %66, %60 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %66, %60 ], [ %.sroa.4.19.i.i, %56 ]
   %68 = call noundef i64 @"_ZN125_$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h1c5f61e2f580b588E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1)
   %69 = icmp ugt i64 %68, 4294967295
   %70 = trunc nuw i64 %68 to i32
@@ -9252,7 +9252,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %67
 
 67:                                               ; preds = %56, %60
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %56 ], [ %66, %60 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %66, %60 ], [ %.sroa.4.19.i.i, %56 ]
   %68 = tail call noundef i64 @"_ZN124_$LT$polars_arrow..array..binview..mutable..MutableBinaryViewArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17hfce4df223bdbf6c4E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %1)
   %69 = icmp ugt i64 %68, 4294967295
   br i1 %69, label %78, label %88
@@ -9472,7 +9472,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %68
 
 68:                                               ; preds = %57, %61
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %57 ], [ %67, %61 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %67, %61 ], [ %.sroa.4.19.i.i, %57 ]
   %69 = call noundef i64 @"_ZN125_$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h2b805b212edc7e06E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1)
   %70 = icmp ugt i64 %69, 32767
   %71 = trunc nuw nsw i64 %69 to i16
@@ -9749,7 +9749,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %68
 
 68:                                               ; preds = %57, %61
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %57 ], [ %67, %61 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %67, %61 ], [ %.sroa.4.19.i.i, %57 ]
   %69 = call noundef i64 @"_ZN125_$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17he16af5ba3a7e2059E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1)
   %70 = icmp ugt i64 %69, 127
   %71 = trunc nuw nsw i64 %69 to i8
@@ -10024,7 +10024,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %67
 
 67:                                               ; preds = %56, %60
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %56 ], [ %66, %60 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %66, %60 ], [ %.sroa.4.19.i.i, %56 ]
   %68 = call noundef i64 @"_ZN125_$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h1cd7c9bcb7c6721bE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1)
   %69 = icmp ugt i64 %68, 255
   %70 = trunc nuw i64 %68 to i8
@@ -10300,7 +10300,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %67
 
 67:                                               ; preds = %56, %60
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %56 ], [ %66, %60 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %66, %60 ], [ %.sroa.4.19.i.i, %56 ]
   %68 = call noundef i64 @"_ZN125_$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h1cd7c9bcb7c6721bE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1)
   %69 = icmp slt i64 %68, 0
   br i1 %69, label %71, label %81
@@ -10583,7 +10583,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %75
 
 75:                                               ; preds = %64, %68
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %64 ], [ %74, %68 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %74, %68 ], [ %.sroa.4.19.i.i, %64 ]
   %76 = tail call noundef i64 @"_ZN119_$LT$polars_arrow..array..binary..mutable..MutableBinaryArray$LT$O$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h958252bfdd9e674cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %1)
   %77 = icmp ugt i64 %76, 127
   %78 = trunc nuw nsw i64 %76 to i8
@@ -10815,7 +10815,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %68
 
 68:                                               ; preds = %57, %61
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %57 ], [ %67, %61 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %67, %61 ], [ %.sroa.4.19.i.i, %57 ]
   %69 = call noundef i64 @"_ZN125_$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h58773ccdf5490adbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1)
   %70 = icmp ugt i64 %69, 2147483647
   %71 = trunc nuw nsw i64 %69 to i32
@@ -11092,7 +11092,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %68
 
 68:                                               ; preds = %57, %61
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %57 ], [ %67, %61 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %67, %61 ], [ %.sroa.4.19.i.i, %57 ]
   %69 = call noundef i64 @"_ZN125_$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17he16af5ba3a7e2059E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1)
   %70 = icmp ugt i64 %69, 32767
   %71 = trunc nuw nsw i64 %69 to i16
@@ -11369,7 +11369,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %68
 
 68:                                               ; preds = %57, %61
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %57 ], [ %67, %61 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %67, %61 ], [ %.sroa.4.19.i.i, %57 ]
   %69 = call noundef i64 @"_ZN125_$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h1cd7c9bcb7c6721bE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1)
   %70 = icmp ugt i64 %69, 32767
   %71 = trunc nuw nsw i64 %69 to i16
@@ -11646,7 +11646,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %68
 
 68:                                               ; preds = %57, %61
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %57 ], [ %67, %61 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %67, %61 ], [ %.sroa.4.19.i.i, %57 ]
   %69 = call noundef i64 @"_ZN125_$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h2b805b212edc7e06E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1)
   %70 = icmp ugt i64 %69, 127
   %71 = trunc nuw nsw i64 %69 to i8
@@ -11940,7 +11940,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %79
 
 79:                                               ; preds = %68, %72
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %68 ], [ %78, %72 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %78, %72 ], [ %.sroa.4.19.i.i, %68 ]
   %80 = tail call noundef i64 @"_ZN115_$LT$polars_arrow..array..utf8..mutable..MutableUtf8Array$LT$O$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h5ede66aa771419cdE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %1)
   %81 = icmp ugt i64 %80, 127
   %82 = trunc nuw nsw i64 %80 to i8
@@ -12236,7 +12236,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %68
 
 68:                                               ; preds = %57, %61
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %57 ], [ %67, %61 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %67, %61 ], [ %.sroa.4.19.i.i, %57 ]
   %69 = call noundef i64 @"_ZN125_$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h1c5f61e2f580b588E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1)
   %70 = icmp ugt i64 %69, 127
   %71 = trunc nuw nsw i64 %69 to i8
@@ -12507,7 +12507,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %68
 
 68:                                               ; preds = %57, %61
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %57 ], [ %67, %61 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %67, %61 ], [ %.sroa.4.19.i.i, %57 ]
   %69 = tail call noundef i64 @"_ZN124_$LT$polars_arrow..array..binview..mutable..MutableBinaryViewArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h0d1a141eaf51eb7fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %1)
   %70 = icmp ugt i64 %69, 32767
   br i1 %70, label %79, label %89
@@ -12720,7 +12720,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %67
 
 67:                                               ; preds = %56, %60
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %56 ], [ %66, %60 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %66, %60 ], [ %.sroa.4.19.i.i, %56 ]
   %68 = tail call noundef i64 @"_ZN124_$LT$polars_arrow..array..binview..mutable..MutableBinaryViewArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17hfce4df223bdbf6c4E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %1)
   %69 = icmp slt i64 %68, 0
   br i1 %69, label %78, label %88
@@ -12934,7 +12934,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %64
 
 64:                                               ; preds = %57, %53
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %53 ], [ %63, %57 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %63, %57 ], [ %.sroa.4.19.i.i, %53 ]
   %65 = call noundef i64 @"_ZN125_$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h1cd7c9bcb7c6721bE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1)
   %66 = zext i64 %65 to i128
   call void @llvm.experimental.noalias.scope.decl(metadata !2673)
@@ -13158,7 +13158,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %67
 
 67:                                               ; preds = %56, %60
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %56 ], [ %66, %60 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %66, %60 ], [ %.sroa.4.19.i.i, %56 ]
   %68 = call noundef i64 @"_ZN125_$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h487a699a946fc93cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1)
   %69 = icmp ugt i64 %68, 255
   %70 = trunc nuw i64 %68 to i8
@@ -13450,7 +13450,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %78
 
 78:                                               ; preds = %67, %71
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %67 ], [ %77, %71 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %77, %71 ], [ %.sroa.4.19.i.i, %67 ]
   %79 = tail call noundef i64 @"_ZN115_$LT$polars_arrow..array..utf8..mutable..MutableUtf8Array$LT$O$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h5ede66aa771419cdE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %1)
   %80 = icmp ugt i64 %79, 4294967295
   %81 = trunc nuw i64 %79 to i32
@@ -13744,7 +13744,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %67
 
 67:                                               ; preds = %56, %60
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %56 ], [ %66, %60 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %66, %60 ], [ %.sroa.4.19.i.i, %56 ]
   %68 = call noundef i64 @"_ZN125_$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h67e21ef8dff54fa6E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1)
   %69 = icmp ugt i64 %68, 255
   %70 = trunc nuw i64 %68 to i8
@@ -14019,7 +14019,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %67
 
 67:                                               ; preds = %56, %60
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %56 ], [ %66, %60 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %66, %60 ], [ %.sroa.4.19.i.i, %56 ]
   %68 = call noundef i64 @"_ZN125_$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h58773ccdf5490adbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1)
   %69 = icmp ugt i64 %68, 255
   %70 = trunc nuw i64 %68 to i8
@@ -14296,7 +14296,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %68
 
 68:                                               ; preds = %57, %61
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %57 ], [ %67, %61 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %67, %61 ], [ %.sroa.4.19.i.i, %57 ]
   %69 = call noundef i64 @"_ZN125_$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h2b805b212edc7e06E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1)
   %70 = icmp ugt i64 %69, 2147483647
   %71 = trunc nuw nsw i64 %69 to i32
@@ -14571,7 +14571,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %67
 
 67:                                               ; preds = %56, %60
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %56 ], [ %66, %60 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %66, %60 ], [ %.sroa.4.19.i.i, %56 ]
   %68 = call noundef i64 @"_ZN125_$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17he16af5ba3a7e2059E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1)
   %69 = icmp ugt i64 %68, 65535
   %70 = trunc nuw i64 %68 to i16
@@ -14846,7 +14846,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %67
 
 67:                                               ; preds = %56, %60
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %56 ], [ %66, %60 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %66, %60 ], [ %.sroa.4.19.i.i, %56 ]
   %68 = call noundef i64 @"_ZN125_$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h2b805b212edc7e06E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1)
   %69 = icmp ugt i64 %68, 65535
   %70 = trunc nuw i64 %68 to i16
@@ -15121,7 +15121,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %67
 
 67:                                               ; preds = %56, %60
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %56 ], [ %66, %60 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %66, %60 ], [ %.sroa.4.19.i.i, %56 ]
   %68 = call noundef i64 @"_ZN125_$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h58773ccdf5490adbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1)
   %69 = icmp ugt i64 %68, 65535
   %70 = trunc nuw i64 %68 to i16
@@ -15396,7 +15396,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %67
 
 67:                                               ; preds = %56, %60
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %56 ], [ %66, %60 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %66, %60 ], [ %.sroa.4.19.i.i, %56 ]
   %68 = call noundef i64 @"_ZN125_$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h0f62523c9a591410E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1)
   %69 = icmp ugt i64 %68, 255
   %70 = trunc nuw i64 %68 to i8
@@ -15667,7 +15667,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %63
 
 63:                                               ; preds = %52, %56
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %52 ], [ %62, %56 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %62, %56 ], [ %.sroa.4.19.i.i, %52 ]
   %64 = call noundef i64 @"_ZN125_$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h2b805b212edc7e06E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1)
   call void @llvm.experimental.noalias.scope.decl(metadata !3273)
   %65 = load ptr, ptr %7, align 8, !alias.scope !3273, !nonnull !9, !noundef !9
@@ -15887,7 +15887,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %64
 
 64:                                               ; preds = %57, %53
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %53 ], [ %63, %57 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %63, %57 ], [ %.sroa.4.19.i.i, %53 ]
   %65 = call noundef i64 @"_ZN125_$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h58773ccdf5490adbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1)
   %66 = zext i64 %65 to i128
   call void @llvm.experimental.noalias.scope.decl(metadata !3308)
@@ -16109,7 +16109,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %89
 
 68:                                               ; preds = %52, %56
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %52 ], [ %62, %56 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %62, %56 ], [ %.sroa.4.19.i.i, %52 ]
   %69 = tail call noundef i64 @"_ZN124_$LT$polars_arrow..array..binview..mutable..MutableBinaryViewArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17hfce4df223bdbf6c4E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %1)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3345)
   %70 = load ptr, ptr %7, align 8, !alias.scope !3345, !nonnull !9, !noundef !9
@@ -16285,7 +16285,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %78
 
 78:                                               ; preds = %67, %71
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %67 ], [ %77, %71 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %77, %71 ], [ %.sroa.4.19.i.i, %67 ]
   %79 = tail call noundef i64 @"_ZN115_$LT$polars_arrow..array..utf8..mutable..MutableUtf8Array$LT$O$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h5ede66aa771419cdE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %1)
   %80 = icmp slt i64 %79, 0
   br i1 %80, label %89, label %99
@@ -16581,7 +16581,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %70
 
 70:                                               ; preds = %59, %63
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %59 ], [ %69, %63 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %69, %63 ], [ %.sroa.4.19.i.i, %59 ]
   %71 = tail call noundef i64 @"_ZN119_$LT$polars_arrow..array..binary..mutable..MutableBinaryArray$LT$O$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h958252bfdd9e674cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %1)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3448)
   %72 = load ptr, ptr %8, align 8, !alias.scope !3448, !nonnull !9, !noundef !9
@@ -16758,7 +16758,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %63
 
 63:                                               ; preds = %52, %56
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %52 ], [ %62, %56 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %62, %56 ], [ %.sroa.4.19.i.i, %52 ]
   %64 = call noundef i64 @"_ZN125_$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h0f62523c9a591410E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1)
   call void @llvm.experimental.noalias.scope.decl(metadata !3462)
   %65 = load ptr, ptr %7, align 8, !alias.scope !3462, !nonnull !9, !noundef !9
@@ -16977,7 +16977,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %68
 
 68:                                               ; preds = %57, %61
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %57 ], [ %67, %61 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %67, %61 ], [ %.sroa.4.19.i.i, %57 ]
   %69 = tail call noundef i64 @"_ZN124_$LT$polars_arrow..array..binview..mutable..MutableBinaryViewArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17hfce4df223bdbf6c4E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %1)
   %70 = icmp ugt i64 %69, 2147483647
   br i1 %70, label %79, label %89
@@ -17195,7 +17195,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %67
 
 67:                                               ; preds = %56, %60
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %56 ], [ %66, %60 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %66, %60 ], [ %.sroa.4.19.i.i, %56 ]
   %68 = call noundef i64 @"_ZN125_$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17he16af5ba3a7e2059E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1)
   %69 = icmp ugt i64 %68, 4294967295
   %70 = trunc nuw i64 %68 to i32
@@ -17467,7 +17467,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %64
 
 64:                                               ; preds = %57, %53
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %53 ], [ %63, %57 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %63, %57 ], [ %.sroa.4.19.i.i, %53 ]
   %65 = call noundef i64 @"_ZN125_$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h67e21ef8dff54fa6E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1)
   %66 = zext i64 %65 to i128
   call void @llvm.experimental.noalias.scope.decl(metadata !3601)
@@ -17688,7 +17688,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %64
 
 64:                                               ; preds = %57, %53
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %53 ], [ %63, %57 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %63, %57 ], [ %.sroa.4.19.i.i, %53 ]
   %65 = call noundef i64 @"_ZN125_$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h0f62523c9a591410E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1)
   %66 = zext i64 %65 to i128
   call void @llvm.experimental.noalias.scope.decl(metadata !3636)
@@ -17914,7 +17914,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %68
 
 68:                                               ; preds = %57, %61
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %57 ], [ %67, %61 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %67, %61 ], [ %.sroa.4.19.i.i, %57 ]
   %69 = call noundef i64 @"_ZN125_$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h0f62523c9a591410E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1)
   %70 = icmp ugt i64 %69, 32767
   %71 = trunc nuw nsw i64 %69 to i16
@@ -18185,7 +18185,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %68
 
 68:                                               ; preds = %57, %61
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %57 ], [ %67, %61 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %67, %61 ], [ %.sroa.4.19.i.i, %57 ]
   %69 = tail call noundef i64 @"_ZN124_$LT$polars_arrow..array..binview..mutable..MutableBinaryViewArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17hfce4df223bdbf6c4E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %1)
   %70 = icmp ugt i64 %69, 127
   br i1 %70, label %79, label %89
@@ -18399,7 +18399,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %63
 
 63:                                               ; preds = %52, %56
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %52 ], [ %62, %56 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %62, %56 ], [ %.sroa.4.19.i.i, %52 ]
   %64 = call noundef i64 @"_ZN125_$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h1cd7c9bcb7c6721bE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1)
   call void @llvm.experimental.noalias.scope.decl(metadata !3775)
   %65 = load ptr, ptr %7, align 8, !alias.scope !3775, !nonnull !9, !noundef !9
@@ -18623,7 +18623,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %67
 
 67:                                               ; preds = %56, %60
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %56 ], [ %66, %60 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %66, %60 ], [ %.sroa.4.19.i.i, %56 ]
   %68 = call noundef i64 @"_ZN125_$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h2b805b212edc7e06E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1)
   %69 = icmp slt i64 %68, 0
   br i1 %69, label %71, label %81
@@ -18897,7 +18897,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %67
 
 67:                                               ; preds = %56, %60
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %56 ], [ %66, %60 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %66, %60 ], [ %.sroa.4.19.i.i, %56 ]
   %68 = call noundef i64 @"_ZN125_$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17he16af5ba3a7e2059E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1)
   %69 = icmp ugt i64 %68, 255
   %70 = trunc nuw i64 %68 to i8
@@ -19169,7 +19169,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %64
 
 64:                                               ; preds = %57, %53
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %53 ], [ %63, %57 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %63, %57 ], [ %.sroa.4.19.i.i, %53 ]
   %65 = call noundef i64 @"_ZN125_$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h487a699a946fc93cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1)
   %66 = zext i64 %65 to i128
   call void @llvm.experimental.noalias.scope.decl(metadata !3930)
@@ -19417,7 +19417,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %148
 
 80:                                               ; preds = %64, %68
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %64 ], [ %74, %68 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %74, %68 ], [ %.sroa.4.19.i.i, %64 ]
   %81 = tail call noundef i64 @"_ZN115_$LT$polars_arrow..array..utf8..mutable..MutableUtf8Array$LT$O$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h5ede66aa771419cdE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %1)
   %82 = zext i64 %81 to i128
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3970)
@@ -19654,7 +19654,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %68
 
 68:                                               ; preds = %57, %61
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %57 ], [ %67, %61 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %67, %61 ], [ %.sroa.4.19.i.i, %57 ]
   %69 = call noundef i64 @"_ZN125_$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h487a699a946fc93cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1)
   %70 = icmp ugt i64 %69, 32767
   %71 = trunc nuw nsw i64 %69 to i16
@@ -19923,7 +19923,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %67
 
 67:                                               ; preds = %56, %60
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %56 ], [ %66, %60 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %66, %60 ], [ %.sroa.4.19.i.i, %56 ]
   %68 = tail call noundef i64 @"_ZN124_$LT$polars_arrow..array..binview..mutable..MutableBinaryViewArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h0d1a141eaf51eb7fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %1)
   %69 = icmp ugt i64 %68, 65535
   br i1 %69, label %78, label %88
@@ -20137,7 +20137,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %63
 
 63:                                               ; preds = %52, %56
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %52 ], [ %62, %56 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %62, %56 ], [ %.sroa.4.19.i.i, %52 ]
   %64 = call noundef i64 @"_ZN125_$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h1c5f61e2f580b588E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1)
   call void @llvm.experimental.noalias.scope.decl(metadata !4125)
   %65 = load ptr, ptr %7, align 8, !alias.scope !4125, !nonnull !9, !noundef !9
@@ -20355,7 +20355,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %67
 
 67:                                               ; preds = %56, %60
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %56 ], [ %66, %60 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %66, %60 ], [ %.sroa.4.19.i.i, %56 ]
   %68 = tail call noundef i64 @"_ZN124_$LT$polars_arrow..array..binview..mutable..MutableBinaryViewArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h0d1a141eaf51eb7fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %1)
   %69 = icmp slt i64 %68, 0
   br i1 %69, label %78, label %88
@@ -20574,7 +20574,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %68
 
 68:                                               ; preds = %57, %61
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %57 ], [ %67, %61 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %67, %61 ], [ %.sroa.4.19.i.i, %57 ]
   %69 = call noundef i64 @"_ZN125_$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h67e21ef8dff54fa6E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1)
   %70 = icmp ugt i64 %69, 32767
   %71 = trunc nuw nsw i64 %69 to i16
@@ -20849,7 +20849,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %67
 
 67:                                               ; preds = %56, %60
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %56 ], [ %66, %60 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %66, %60 ], [ %.sroa.4.19.i.i, %56 ]
   %68 = call noundef i64 @"_ZN125_$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h67e21ef8dff54fa6E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1)
   %69 = icmp ugt i64 %68, 4294967295
   %70 = trunc nuw i64 %68 to i32
@@ -21126,7 +21126,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %68
 
 68:                                               ; preds = %57, %61
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %57 ], [ %67, %61 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %67, %61 ], [ %.sroa.4.19.i.i, %57 ]
   %69 = call noundef i64 @"_ZN125_$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h0f62523c9a591410E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1)
   %70 = icmp ugt i64 %69, 127
   %71 = trunc nuw nsw i64 %69 to i8
@@ -21401,7 +21401,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %67
 
 67:                                               ; preds = %56, %60
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %56 ], [ %66, %60 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %66, %60 ], [ %.sroa.4.19.i.i, %56 ]
   %68 = call noundef i64 @"_ZN125_$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h2b805b212edc7e06E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1)
   %69 = icmp ugt i64 %68, 255
   %70 = trunc nuw i64 %68 to i8
@@ -21670,7 +21670,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %67
 
 67:                                               ; preds = %56, %60
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %56 ], [ %66, %60 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %66, %60 ], [ %.sroa.4.19.i.i, %56 ]
   %68 = tail call noundef i64 @"_ZN124_$LT$polars_arrow..array..binview..mutable..MutableBinaryViewArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17hfce4df223bdbf6c4E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %1)
   %69 = icmp ugt i64 %68, 65535
   br i1 %69, label %78, label %88
@@ -21895,7 +21895,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %74
 
 74:                                               ; preds = %63, %67
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %63 ], [ %73, %67 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %73, %67 ], [ %.sroa.4.19.i.i, %63 ]
   %75 = tail call noundef i64 @"_ZN119_$LT$polars_arrow..array..binary..mutable..MutableBinaryArray$LT$O$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h958252bfdd9e674cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %1)
   %76 = icmp ugt i64 %75, 255
   %77 = trunc nuw i64 %75 to i8
@@ -22126,7 +22126,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %67
 
 67:                                               ; preds = %56, %60
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %56 ], [ %66, %60 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %66, %60 ], [ %.sroa.4.19.i.i, %56 ]
   %68 = call noundef i64 @"_ZN125_$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h0f62523c9a591410E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1)
   %69 = icmp slt i64 %68, 0
   br i1 %69, label %71, label %81
@@ -22401,7 +22401,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %67
 
 67:                                               ; preds = %56, %60
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %56 ], [ %66, %60 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %66, %60 ], [ %.sroa.4.19.i.i, %56 ]
   %68 = call noundef i64 @"_ZN125_$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h1c5f61e2f580b588E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1)
   %69 = icmp slt i64 %68, 0
   br i1 %69, label %71, label %81
@@ -22677,7 +22677,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %68
 
 68:                                               ; preds = %57, %61
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %57 ], [ %67, %61 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %67, %61 ], [ %.sroa.4.19.i.i, %57 ]
   %69 = call noundef i64 @"_ZN125_$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17he16af5ba3a7e2059E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1)
   %70 = icmp ugt i64 %69, 2147483647
   %71 = trunc nuw nsw i64 %69 to i32
@@ -22953,7 +22953,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %67
 
 67:                                               ; preds = %56, %60
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %56 ], [ %66, %60 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %66, %60 ], [ %.sroa.4.19.i.i, %56 ]
   %68 = call noundef i64 @"_ZN125_$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h58773ccdf5490adbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1)
   %69 = icmp slt i64 %68, 0
   br i1 %69, label %71, label %81
@@ -23228,7 +23228,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %67
 
 67:                                               ; preds = %56, %60
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %56 ], [ %66, %60 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %66, %60 ], [ %.sroa.4.19.i.i, %56 ]
   %68 = call noundef i64 @"_ZN125_$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17he16af5ba3a7e2059E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1)
   %69 = icmp slt i64 %68, 0
   br i1 %69, label %71, label %81
@@ -23504,7 +23504,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %68
 
 68:                                               ; preds = %57, %61
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %57 ], [ %67, %61 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %67, %61 ], [ %.sroa.4.19.i.i, %57 ]
   %69 = call noundef i64 @"_ZN125_$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h1c5f61e2f580b588E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1)
   %70 = icmp ugt i64 %69, 32767
   %71 = trunc nuw nsw i64 %69 to i16
@@ -23788,7 +23788,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %75
 
 75:                                               ; preds = %64, %68
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %64 ], [ %74, %68 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %74, %68 ], [ %.sroa.4.19.i.i, %64 ]
   %76 = tail call noundef i64 @"_ZN119_$LT$polars_arrow..array..binary..mutable..MutableBinaryArray$LT$O$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h958252bfdd9e674cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %1)
   %77 = icmp ugt i64 %76, 2147483647
   %78 = trunc nuw nsw i64 %76 to i32
@@ -24025,7 +24025,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %74
 
 74:                                               ; preds = %63, %67
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %63 ], [ %73, %67 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %73, %67 ], [ %.sroa.4.19.i.i, %63 ]
   %75 = tail call noundef i64 @"_ZN119_$LT$polars_arrow..array..binary..mutable..MutableBinaryArray$LT$O$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h958252bfdd9e674cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %1)
   %76 = icmp ugt i64 %75, 4294967295
   %77 = trunc nuw i64 %75 to i32
@@ -24255,7 +24255,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %67
 
 67:                                               ; preds = %56, %60
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %56 ], [ %66, %60 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %66, %60 ], [ %.sroa.4.19.i.i, %56 ]
   %68 = call noundef i64 @"_ZN125_$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h487a699a946fc93cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1)
   %69 = icmp ugt i64 %68, 4294967295
   %70 = trunc nuw i64 %68 to i32
@@ -24532,7 +24532,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %68
 
 68:                                               ; preds = %57, %61
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %57 ], [ %67, %61 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %67, %61 ], [ %.sroa.4.19.i.i, %57 ]
   %69 = call noundef i64 @"_ZN125_$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h67e21ef8dff54fa6E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1)
   %70 = icmp ugt i64 %69, 127
   %71 = trunc nuw nsw i64 %69 to i8
@@ -24815,7 +24815,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %74
 
 74:                                               ; preds = %63, %67
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %63 ], [ %73, %67 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %73, %67 ], [ %.sroa.4.19.i.i, %63 ]
   %75 = tail call noundef i64 @"_ZN119_$LT$polars_arrow..array..binary..mutable..MutableBinaryArray$LT$O$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h958252bfdd9e674cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %1)
   %76 = icmp slt i64 %75, 0
   br i1 %76, label %85, label %95
@@ -25057,7 +25057,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %74
 
 74:                                               ; preds = %63, %67
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %63 ], [ %73, %67 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %73, %67 ], [ %.sroa.4.19.i.i, %63 ]
   %75 = tail call noundef i64 @"_ZN115_$LT$polars_arrow..array..utf8..mutable..MutableUtf8Array$LT$O$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h5ede66aa771419cdE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %1)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5149)
   %76 = load ptr, ptr %7, align 8, !alias.scope !5149, !nonnull !9, !noundef !9
@@ -25318,7 +25318,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %79
 
 79:                                               ; preds = %68, %72
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %68 ], [ %78, %72 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %78, %72 ], [ %.sroa.4.19.i.i, %68 ]
   %80 = tail call noundef i64 @"_ZN115_$LT$polars_arrow..array..utf8..mutable..MutableUtf8Array$LT$O$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h5ede66aa771419cdE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %1)
   %81 = icmp ugt i64 %80, 32767
   %82 = trunc nuw nsw i64 %80 to i16
@@ -25613,7 +25613,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %67
 
 67:                                               ; preds = %56, %60
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %56 ], [ %66, %60 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %66, %60 ], [ %.sroa.4.19.i.i, %56 ]
   %68 = call noundef i64 @"_ZN125_$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h67e21ef8dff54fa6E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1)
   %69 = icmp slt i64 %68, 0
   br i1 %69, label %71, label %81
@@ -25887,7 +25887,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %67
 
 67:                                               ; preds = %56, %60
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %56 ], [ %66, %60 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %66, %60 ], [ %.sroa.4.19.i.i, %56 ]
   %68 = call noundef i64 @"_ZN125_$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h2b805b212edc7e06E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1)
   %69 = icmp ugt i64 %68, 4294967295
   %70 = trunc nuw i64 %68 to i32
@@ -26158,7 +26158,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %63
 
 63:                                               ; preds = %52, %56
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %52 ], [ %62, %56 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %62, %56 ], [ %.sroa.4.19.i.i, %52 ]
   %64 = call noundef i64 @"_ZN125_$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h487a699a946fc93cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1)
   call void @llvm.experimental.noalias.scope.decl(metadata !5401)
   %65 = load ptr, ptr %7, align 8, !alias.scope !5401, !nonnull !9, !noundef !9
@@ -26383,7 +26383,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %68
 
 68:                                               ; preds = %57, %61
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %57 ], [ %67, %61 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %67, %61 ], [ %.sroa.4.19.i.i, %57 ]
   %69 = call noundef i64 @"_ZN125_$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h1cd7c9bcb7c6721bE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1)
   %70 = icmp ugt i64 %69, 127
   %71 = trunc nuw nsw i64 %69 to i8
@@ -26677,7 +26677,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %79
 
 79:                                               ; preds = %68, %72
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %68 ], [ %78, %72 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %78, %72 ], [ %.sroa.4.19.i.i, %68 ]
   %80 = tail call noundef i64 @"_ZN115_$LT$polars_arrow..array..utf8..mutable..MutableUtf8Array$LT$O$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h5ede66aa771419cdE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %1)
   %81 = icmp ugt i64 %80, 2147483647
   %82 = trunc nuw nsw i64 %80 to i32
@@ -26967,7 +26967,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %63
 
 63:                                               ; preds = %52, %56
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %52 ], [ %62, %56 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %62, %56 ], [ %.sroa.4.19.i.i, %52 ]
   %64 = call noundef i64 @"_ZN125_$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h58773ccdf5490adbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1)
   call void @llvm.experimental.noalias.scope.decl(metadata !5577)
   %65 = load ptr, ptr %7, align 8, !alias.scope !5577, !nonnull !9, !noundef !9
@@ -27190,7 +27190,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br label %67
 
 67:                                               ; preds = %56, %60
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %56 ], [ %66, %60 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %66, %60 ], [ %.sroa.4.19.i.i, %56 ]
   %68 = call noundef i64 @"_ZN125_$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$T$GT$$u20$as$u20$polars_arrow..array..MutableArray$GT$3len17h1c5f61e2f580b588E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1)
   %69 = icmp ugt i64 %68, 65535
   %70 = trunc nuw i64 %68 to i16

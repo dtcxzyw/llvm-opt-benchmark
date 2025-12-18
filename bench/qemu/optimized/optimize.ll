@@ -3038,7 +3038,7 @@ find_mem_copy_for.exit.thread.i:                  ; preds = %1329, %find_mem_cop
   br i1 %.not.i.i261, label %find_mem_copy_for.exit.i262, label %.lr.ph.i.i259, !llvm.loop !19
 
 find_mem_copy_for.exit.i262:                      ; preds = %1387, %.lr.ph.i.i.i271, %.preheader.i.i.i265, %1371
-  %.012.i.i263 = phi ptr [ %1373, %1371 ], [ %1373, %.preheader.i.i.i265 ], [ %1386, %.lr.ph.i.i.i271 ], [ null, %1387 ]
+  %.012.i.i263 = phi ptr [ %1386, %.lr.ph.i.i.i271 ], [ %1373, %1371 ], [ %1373, %.preheader.i.i.i265 ], [ null, %1387 ]
   %.not26.i = icmp eq ptr %.012.i.i263, %1357
   br i1 %.not26.i, label %1389, label %.critedge.i
 
@@ -8098,7 +8098,7 @@ args_are_copies.exit:                             ; preds = %.lr.ph.i.i, %35, %5
   br label %72
 
 72:                                               ; preds = %.sink.split, %.loopexit, %62, %32, %25
-  %.0 = phi i32 [ %30, %25 ], [ -1, %32 ], [ -1, %62 ], [ -1, %.loopexit ], [ -1, %.sink.split ]
+  %.0 = phi i32 [ %30, %25 ], [ -1, %.loopexit ], [ -1, %62 ], [ -1, %32 ], [ -1, %.sink.split ]
   ret i32 %.0
 }
 
@@ -8681,7 +8681,7 @@ switch.lookup:                                    ; preds = %93
   br label %.thread
 
 .thread:                                          ; preds = %119, %133, %switch.lookup, %args_are_copies.exit83, %args_are_copies.exit83, %args_are_copies.exit83, %args_are_copies.exit83, %args_are_copies.exit83, %135, %128, %124, %115, %111, %do_constant_folding_cond_64.exit, %105, %98, %do_constant_folding_cond_eq.exit
-  %.3 = phi i32 [ -1, %98 ], [ -1, %do_constant_folding_cond_eq.exit ], [ 1, %135 ], [ %switch.load, %switch.lookup ], [ 0, %args_are_copies.exit83 ], [ %91, %do_constant_folding_cond_64.exit ], [ -1, %105 ], [ -1, %111 ], [ -1, %115 ], [ -1, %124 ], [ -1, %128 ], [ 0, %args_are_copies.exit83 ], [ 0, %args_are_copies.exit83 ], [ 0, %args_are_copies.exit83 ], [ 0, %args_are_copies.exit83 ], [ -1, %133 ], [ -1, %119 ]
+  %.3 = phi i32 [ -1, %98 ], [ -1, %do_constant_folding_cond_eq.exit ], [ 0, %args_are_copies.exit83 ], [ 1, %135 ], [ 0, %args_are_copies.exit83 ], [ %switch.load, %switch.lookup ], [ 0, %args_are_copies.exit83 ], [ %91, %do_constant_folding_cond_64.exit ], [ -1, %133 ], [ -1, %105 ], [ -1, %111 ], [ -1, %115 ], [ -1, %124 ], [ -1, %128 ], [ 0, %args_are_copies.exit83 ], [ 0, %args_are_copies.exit83 ], [ -1, %119 ]
   ret i32 %.3
 }
 
@@ -9133,7 +9133,7 @@ define internal fastcc noundef zeroext i1 @fold_sub_to_neg(ptr noundef nonnull %
   unreachable
 
 16:                                               ; preds = %14, %11
-  %.010 = phi i32 [ 114, %14 ], [ 54, %11 ]
+  %.010 = phi i32 [ 54, %11 ], [ 114, %14 ]
   %17 = load i32, ptr %1, align 8
   %18 = and i32 %17, -256
   %19 = or disjoint i32 %18, %.010

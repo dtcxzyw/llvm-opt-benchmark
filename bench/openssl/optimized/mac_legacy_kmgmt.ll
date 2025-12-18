@@ -780,7 +780,7 @@ mac_gen_set_params.exit.thread.sink.split:        ; preds = %24, %9
   br label %mac_gen_set_params.exit.thread
 
 mac_gen_set_params.exit.thread:                   ; preds = %mac_gen_set_params.exit.thread.sink.split, %2, %10, %mac_gen_set_params.exit
-  %.0 = phi i32 [ 1, %mac_gen_set_params.exit ], [ 0, %10 ], [ 0, %2 ], [ 0, %mac_gen_set_params.exit.thread.sink.split ]
+  %.0 = phi i32 [ 1, %mac_gen_set_params.exit ], [ 0, %2 ], [ 0, %10 ], [ 0, %mac_gen_set_params.exit.thread.sink.split ]
   ret i32 %.0
 }
 

@@ -1033,7 +1033,7 @@ aclitem_match.exit.thread:                        ; preds = %95, %aclitem_match.
   br i1 %exitcond142.not, label %recursive_revoke.exit, label %.lr.ph116, !llvm.loop !8
 
 recursive_revoke.exit:                            ; preds = %238, %253, %224, %208, %184, %181, %177
-  %.2 = phi ptr [ %.1, %177 ], [ %.1, %184 ], [ %.1, %181 ], [ %.1, %208 ], [ %.038.i, %253 ], [ %.1, %224 ], [ %.038.i, %238 ]
+  %.2 = phi ptr [ %.1, %177 ], [ %.1, %184 ], [ %.1, %181 ], [ %.1, %224 ], [ %.1, %208 ], [ %.038.i, %253 ], [ %.038.i, %238 ]
   ret ptr %.2
 }
 
@@ -2519,7 +2519,7 @@ has_privs_of_role.exit89.thread:                  ; preds = %93, %has_privs_of_r
   br i1 %exitcond137.not, label %.thread, label %.lr.ph113.split, !llvm.loop !18
 
 .thread:                                          ; preds = %56, %45, %100, %has_privs_of_role.exit89.thread, %84, %has_privs_of_role.exit89.thread.us, %36, %has_privs_of_role.exit.thread, %10
-  %.0 = phi i64 [ 0, %10 ], [ %13, %has_privs_of_role.exit.thread ], [ %.060, %36 ], [ %3, %45 ], [ %3, %has_privs_of_role.exit89.thread.us ], [ %.5.ph, %100 ], [ %.5.ph.us, %84 ], [ %99, %has_privs_of_role.exit89.thread ], [ %60, %56 ]
+  %.0 = phi i64 [ %.060, %36 ], [ 0, %10 ], [ %13, %has_privs_of_role.exit.thread ], [ %3, %has_privs_of_role.exit89.thread.us ], [ %.5.ph, %100 ], [ %3, %45 ], [ %.5.ph.us, %84 ], [ %99, %has_privs_of_role.exit89.thread ], [ %60, %56 ]
   ret i64 %.0
 }
 

@@ -4724,14 +4724,14 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_35SdrPropertyMetadata_St
   br label %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_S7_EEE4findERSC_.exit.thread, !llvm.loop !27
 
 _ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_S7_EEE4findERSC_.exit: ; preds = %55, %26, %44
-  %.sroa.06.1.i.i = phi ptr [ %45, %44 ], [ %.sroa.06.0.i.i, %26 ], [ %63, %55 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %26 ], [ %45, %44 ], [ %63, %55 ]
   %68 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %69 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %68, ptr noundef nonnull @.str.26) #18
   %70 = icmp eq i32 %69, 0
   br label %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_S7_EEE4findERSC_.exit.thread
 
 _ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_S7_EEE4findERSC_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %25, %32, %..loopexit_crit_edge21.i.i.i.i, %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_S7_EEE4findERSC_.exit
-  %71 = phi i1 [ %70, %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_S7_EEE4findERSC_.exit ], [ false, %..loopexit_crit_edge21.i.i.i.i ], [ false, %32 ], [ false, %25 ], [ false, %.lr.ph.i.i.i.i ]
+  %71 = phi i1 [ %70, %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_S7_EEE4findERSC_.exit ], [ false, %..loopexit_crit_edge21.i.i.i.i ], [ false, %25 ], [ false, %32 ], [ false, %.lr.ph.i.i.i.i ]
   ret i1 %71
 }
 
@@ -5269,7 +5269,7 @@ _ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenEPKNS0_17SdrShad
   br label %.body72
 
 _ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenEPKNS0_17SdrShaderPropertyENS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_S4_EEE4findERS9_.exit: ; preds = %70, %44, %59
-  %.sroa.06.1.i.i = phi ptr [ %60, %59 ], [ %.sroa.06.0.i.i, %44 ], [ %78, %70 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %44 ], [ %60, %59 ], [ %78, %70 ]
   %215 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %216 = load ptr, ptr %215, align 8
   %217 = load ptr, ptr %216, align 8
@@ -5676,7 +5676,7 @@ _ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__16SdfValueTypeNameENS0_7TfTokenEED
   br label %.body72
 
 _ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS1_SaIS1_EENS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_S4_EEE4findERS9_.exit: ; preds = %345, %319, %334
-  %.sroa.06.1.i.i49 = phi ptr [ %335, %334 ], [ %.sroa.06.0.i.i51, %319 ], [ %353, %345 ]
+  %.sroa.06.1.i.i49 = phi ptr [ %.sroa.06.0.i.i51, %319 ], [ %335, %334 ], [ %353, %345 ]
   %426 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i49, i64 24
   %427 = load ptr, ptr %426, align 8
   %428 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i49, i64 32
@@ -5774,7 +5774,7 @@ _ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenEPKNS0_17SdrShad
   ret void
 
 .body72:                                          ; preds = %422, %.body, %.loopexit114, %.loopexit.split-lp, %415, %_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__16SdfValueTypeNameENS0_7TfTokenEED2Ev.exit61, %.body76
-  %.pn25 = phi { ptr, i32 } [ %eh.lpad-body77, %.body76 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %.pn, %_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__16SdfValueTypeNameENS0_7TfTokenEED2Ev.exit61 ], [ %.pn, %415 ], [ %lpad.loopexit, %.loopexit114 ], [ %.pn23, %.body ], [ %.pn23, %422 ]
+  %.pn25 = phi { ptr, i32 } [ %eh.lpad-body77, %.body76 ], [ %.pn, %415 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %.pn, %_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__16SdfValueTypeNameENS0_7TfTokenEED2Ev.exit61 ], [ %lpad.loopexit, %.loopexit114 ], [ %.pn23, %.body ], [ %.pn23, %422 ]
   call void @_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_St6vectorIS1_SaIS1_EEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS1_ENS1_11HashFunctorENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb1ELb0ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #18
   call void @_ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenEPKNS0_17SdrShaderPropertyENS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_S4_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #18
   resume { ptr, i32 } %.pn25
@@ -7718,7 +7718,7 @@ _ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_St6ve
           to label %_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_St6vectorIS1_SaIS1_EEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS1_ENS1_11HashFunctorENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit unwind label %37
 
 _ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_St6vectorIS1_SaIS1_EEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS1_ENS1_11HashFunctorENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit: ; preds = %29, %62, %51
-  %.sroa.023.0.ph = phi ptr [ %52, %51 ], [ %70, %62 ], [ %.sroa.020.0, %29 ]
+  %.sroa.023.0.ph = phi ptr [ %70, %62 ], [ %52, %51 ], [ %.sroa.020.0, %29 ]
   %.not4.i.i.i.i.i.i.i.i.i = icmp eq ptr %17, %20
   br i1 %.not4.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i
 

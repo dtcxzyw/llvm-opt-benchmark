@@ -3016,7 +3016,7 @@ for.body9:                                        ; preds = %for.cond5.preheader
   br i1 %cmp7, label %for.body9, label %if.end, !llvm.loop !83
 
 if.end:                                           ; preds = %for.body, %for.body9, %for.cond.preheader, %for.cond5.preheader
-  %d.1 = phi double [ 1.000000e+00, %for.cond5.preheader ], [ 0.000000e+00, %for.cond.preheader ], [ %8, %for.body9 ], [ %4, %for.body ]
+  %d.1 = phi double [ %8, %for.body9 ], [ 1.000000e+00, %for.cond5.preheader ], [ 0.000000e+00, %for.cond.preheader ], [ %4, %for.body ]
   ret double %d.1
 }
 

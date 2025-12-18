@@ -1307,7 +1307,7 @@ parseTLVHeader.exit:                              ; preds = %.parseTLVHeader.exi
   br i1 %exitcond.not.i38, label %lwm2m_search_fields.exit46.thread, label %.lr.ph.i35, !llvm.loop !16
 
 lwm2m_search_fields.exit46:                       ; preds = %56, %45, %47
-  %.017.i39 = phi ptr [ %38, %45 ], [ %38, %47 ], [ %53, %56 ]
+  %.017.i39 = phi ptr [ %38, %47 ], [ %38, %45 ], [ %53, %56 ]
   %62 = icmp eq ptr %.017.i39, null
   br i1 %62, label %lwm2m_search_fields.exit46.thread, label %addTlvElement.exit.thread99
 
@@ -1379,7 +1379,7 @@ addTlvElement.exit.thread:                        ; preds = %87, %86, %parseTLVH
   br label %95
 
 addTlvElement.exit:                               ; preds = %82, %73, %71
-  %.0.i = phi ptr [ %64, %71 ], [ %64, %73 ], [ %79, %82 ]
+  %.0.i = phi ptr [ %64, %73 ], [ %64, %71 ], [ %79, %82 ]
   %.not.i31 = icmp eq ptr %.0.i, null
   %89 = load ptr, ptr %12, align 8
   br i1 %.not.i31, label %95, label %90

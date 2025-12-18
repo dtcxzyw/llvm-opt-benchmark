@@ -682,7 +682,7 @@ define dso_local noundef range(i32 0, 2) i32 @page_mapped_in_vma(ptr noundef %0,
   br label %47
 
 47:                                               ; preds = %45, %37
-  %48 = phi i64 [ %35, %37 ], [ %46, %45 ]
+  %48 = phi i64 [ %46, %45 ], [ %35, %37 ]
   store i64 %48, ptr %12, align 8
   %49 = icmp eq i64 %48, -14
   br i1 %49, label %.thread, label %50

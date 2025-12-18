@@ -658,7 +658,7 @@ _ZNK5boost10shared_ptrIN8QuantLib10InstrumentEEptEv.exit66: ; preds = %for.body4
   br i1 %exitcond.not, label %if.end57, label %for.body49, !llvm.loop !32
 
 if.end57:                                         ; preds = %_ZNK5boost10shared_ptrIN8QuantLib10InstrumentEEptEv.exit66, %_ZNK5boost10shared_ptrIN8QuantLib10InstrumentEEptEv.exit, %for.cond46.preheader, %if.then
-  %npv.1 = phi double [ 0.000000e+00, %if.then ], [ 0.000000e+00, %for.cond46.preheader ], [ %add, %_ZNK5boost10shared_ptrIN8QuantLib10InstrumentEEptEv.exit ], [ %32, %_ZNK5boost10shared_ptrIN8QuantLib10InstrumentEEptEv.exit66 ]
+  %npv.1 = phi double [ %add, %_ZNK5boost10shared_ptrIN8QuantLib10InstrumentEEptEv.exit ], [ 0.000000e+00, %if.then ], [ 0.000000e+00, %for.cond46.preheader ], [ %32, %_ZNK5boost10shared_ptrIN8QuantLib10InstrumentEEptEv.exit66 ]
   ret double %npv.1
 
 unreachable:                                      ; preds = %invoke.cont33

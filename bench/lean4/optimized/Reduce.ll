@@ -3118,10 +3118,10 @@ lean_dec.exit.backedge:                           ; preds = %793, %797, %lean_na
   br label %lean_dec.exit.backedge
 
 .sink.split:                                      ; preds = %lean_dec.exit304, %lean_dec.exit315, %lean_dec.exit325, %lean_dec.exit336
-  %.sink953 = phi ptr [ %87, %lean_dec.exit336 ], [ %523, %lean_dec.exit315 ], [ %309, %lean_dec.exit325 ], [ %761, %lean_dec.exit304 ]
-  %.sink = phi i32 [ 131096, %lean_dec.exit336 ], [ 16908312, %lean_dec.exit315 ], [ 16908312, %lean_dec.exit325 ], [ 16908312, %lean_dec.exit304 ]
-  %.0233.lcssa.sink = phi ptr [ %.0233, %lean_dec.exit336 ], [ %497, %lean_dec.exit315 ], [ %283, %lean_dec.exit325 ], [ %735, %lean_dec.exit304 ]
-  %.0239.lcssa.sink = phi ptr [ %.0239, %lean_dec.exit336 ], [ %499, %lean_dec.exit315 ], [ %285, %lean_dec.exit325 ], [ %737, %lean_dec.exit304 ]
+  %.sink953 = phi ptr [ %523, %lean_dec.exit315 ], [ %87, %lean_dec.exit336 ], [ %309, %lean_dec.exit325 ], [ %761, %lean_dec.exit304 ]
+  %.sink = phi i32 [ 16908312, %lean_dec.exit315 ], [ 131096, %lean_dec.exit336 ], [ 16908312, %lean_dec.exit325 ], [ 16908312, %lean_dec.exit304 ]
+  %.0233.lcssa.sink = phi ptr [ %497, %lean_dec.exit315 ], [ %.0233, %lean_dec.exit336 ], [ %283, %lean_dec.exit325 ], [ %735, %lean_dec.exit304 ]
+  %.0239.lcssa.sink = phi ptr [ %499, %lean_dec.exit315 ], [ %.0239, %lean_dec.exit336 ], [ %285, %lean_dec.exit325 ], [ %737, %lean_dec.exit304 ]
   %807 = getelementptr inbounds nuw i8, ptr %.sink953, i64 4
   store i32 1, ptr %.sink953, align 4, !tbaa !8
   store i32 %.sink, ptr %807, align 4
@@ -3131,8 +3131,8 @@ lean_dec.exit.backedge:                           ; preds = %793, %797, %lean_na
   store ptr %.0239.lcssa.sink, ptr %809, align 8, !tbaa !12
   br label %810
 
-810:                                              ; preds = %.sink.split, %lean_dec.exit326, %lean_dec.exit316, %lean_dec.exit305
-  %.1.ph = phi ptr [ %172, %lean_dec.exit326 ], [ %386, %lean_dec.exit316 ], [ %624, %lean_dec.exit305 ], [ %.sink953, %.sink.split ]
+810:                                              ; preds = %.sink.split, %lean_dec.exit305, %lean_dec.exit316, %lean_dec.exit326
+  %.1.ph = phi ptr [ %624, %lean_dec.exit305 ], [ %386, %lean_dec.exit316 ], [ %172, %lean_dec.exit326 ], [ %.sink953, %.sink.split ]
   ret ptr %.1.ph
 }
 

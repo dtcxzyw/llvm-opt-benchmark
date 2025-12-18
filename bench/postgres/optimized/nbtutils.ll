@@ -1342,12 +1342,12 @@ select.unfold.i:                                  ; preds = %87, %50
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.loopexit
 
-.thread101:                                       ; preds = %34, %137, %36, %138, %105, %93, %97, %95
+.thread101:                                       ; preds = %34, %137, %36, %95, %138, %97, %93, %105
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %159
 
 158:                                              ; preds = %123, %124
-  %.0 = phi i32 [ %.mux, %124 ], [ %.mux93, %123 ]
+  %.0 = phi i32 [ %.mux93, %123 ], [ %.mux, %124 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %cond = icmp eq i32 %.0, 4
   br i1 %cond, label %159, label %.loopexit

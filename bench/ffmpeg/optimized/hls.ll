@@ -1570,7 +1570,7 @@ add_metadata_from_renditions.exit357.thread:      ; preds = %617, %651, %532, %a
   br label %update_noheader_flag.exit
 
 update_noheader_flag.exit:                        ; preds = %55, %.lr.ph428, %.critedge.i, %669, %add_metadata_from_renditions.exit372.thread, %20, %1, %34
-  %.0257 = phi i32 [ %18, %1 ], [ -541478725, %34 ], [ %28, %20 ], [ 0, %.critedge.i ], [ %.7.ph, %add_metadata_from_renditions.exit372.thread ], [ 0, %669 ], [ -12, %.lr.ph428 ], [ %53, %55 ]
+  %.0257 = phi i32 [ -12, %.lr.ph428 ], [ %18, %1 ], [ -541478725, %34 ], [ %28, %20 ], [ 0, %.critedge.i ], [ %.7.ph, %add_metadata_from_renditions.exit372.thread ], [ 0, %669 ], [ %53, %55 ]
   ret i32 %.0257
 }
 
@@ -1704,7 +1704,7 @@ recheck_discard_flags.exit.thread:                ; preds = %2
   br i1 %exitcond57.not.i.i, label %playlist_needed.exit.i, label %47, !llvm.loop !169
 
 playlist_needed.exit.i:                           ; preds = %32, %.loopexit.i.i, %58, %39, %28, %25
-  %62 = phi i1 [ true, %25 ], [ false, %39 ], [ false, %28 ], [ false, %.loopexit.i.i ], [ true, %58 ], [ false, %32 ]
+  %62 = phi i1 [ false, %39 ], [ false, %28 ], [ true, %25 ], [ false, %.loopexit.i.i ], [ true, %58 ], [ false, %32 ]
   %63 = getelementptr inbounds nuw i8, ptr %17, i64 4532
   %64 = load i32, ptr %63, align 4, !tbaa !60
   %.not.i = icmp eq i32 %64, 0
@@ -2512,7 +2512,7 @@ set_stream_info_from_input_stream.exit:           ; preds = %488, %489
   br label %.critedge
 
 .critedge:                                        ; preds = %read_subtitle_packet.exit.thread, %recheck_discard_flags.exit.thread, %recheck_discard_flags.exit, %482, %473, %set_stream_info_from_input_stream.exit, %._crit_edge, %388, %449
-  %.5 = phi i32 [ -541478725, %._crit_edge ], [ 0, %473 ], [ %386, %388 ], [ -558323010, %449 ], [ 0, %set_stream_info_from_input_stream.exit ], [ %483, %482 ], [ -541478725, %recheck_discard_flags.exit ], [ -541478725, %recheck_discard_flags.exit.thread ], [ %.0123182, %read_subtitle_packet.exit.thread ]
+  %.5 = phi i32 [ -541478725, %._crit_edge ], [ 0, %473 ], [ %386, %388 ], [ -558323010, %449 ], [ %483, %482 ], [ 0, %set_stream_info_from_input_stream.exit ], [ -541478725, %recheck_discard_flags.exit.thread ], [ -541478725, %recheck_discard_flags.exit ], [ %.0123182, %read_subtitle_packet.exit.thread ]
   ret i32 %.5
 }
 
@@ -3159,8 +3159,8 @@ thread-pre-split.thread:                          ; preds = %25, %28, %.thread31
   br label %64
 
 64:                                               ; preds = %._crit_edge, %62, %60
-  %.pre = phi ptr [ %.pre.pre427, %62 ], [ %.pre.pre427, %60 ], [ %.pre.pre, %._crit_edge ]
-  %65 = phi i1 [ true, %62 ], [ false, %60 ], [ false, %._crit_edge ]
+  %.pre = phi ptr [ %.pre.pre, %._crit_edge ], [ %.pre.pre427, %62 ], [ %.pre.pre427, %60 ]
+  %65 = phi i1 [ false, %._crit_edge ], [ true, %62 ], [ false, %60 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %thread-pre-split.thread470
 
@@ -3993,7 +3993,7 @@ ensure_playlist.exit309:                          ; preds = %244, %238
   br i1 %.not241373375, label %.lr.ph.lr.ph, label %.outer347._crit_edge, !llvm.loop !234
 
 .outer347._crit_edge:                             ; preds = %.outer, %.outer347, %338, %83
-  %.3.ph348.lcssa362 = phi i32 [ %.1163, %83 ], [ 0, %.outer347 ], [ %.3.ph348376, %338 ], [ %.4, %.outer ]
+  %.3.ph348.lcssa362 = phi i32 [ 0, %.outer347 ], [ %.3.ph348376, %338 ], [ %.1163, %83 ], [ %.4, %.outer ]
   %424 = load ptr, ptr %15, align 8, !tbaa !224
   %.not242 = icmp eq ptr %424, null
   %.pre426 = load ptr, ptr %6, align 8, !tbaa !47
@@ -5409,7 +5409,7 @@ read_from_url.exit:                               ; preds = %220
   br i1 %478, label %update_init_section.exit, label %.lr.ph
 
 update_init_section.exit:                         ; preds = %.outer, %184, %137, %121, %read_from_url.exit.i, %20, %224, %228, %454, %457, %71, %17, %197
-  %.0 = phi i32 [ %222, %224 ], [ %18, %17 ], [ %222, %228 ], [ %.5, %454 ], [ %.5, %457 ], [ %., %197 ], [ %69, %71 ], [ %22, %20 ], [ %138, %137 ], [ -1414092869, %121 ], [ %99, %read_from_url.exit.i ], [ %477, %.outer ], [ -1414092869, %184 ]
+  %.0 = phi i32 [ %69, %71 ], [ %18, %17 ], [ %222, %224 ], [ %222, %228 ], [ %.5, %454 ], [ %., %197 ], [ %.5, %457 ], [ %138, %137 ], [ %22, %20 ], [ -1414092869, %121 ], [ %99, %read_from_url.exit.i ], [ -1414092869, %184 ], [ %477, %.outer ]
   ret i32 %.0
 }
 
@@ -6630,7 +6630,7 @@ default_reload_interval.exit:                     ; preds = %103, %110
   br i1 %188, label %.lr.ph, label %.loopexit, !llvm.loop !283
 
 .thread:                                          ; preds = %167, %161, %173, %.loopexit, %175, %.lr.ph, %default_reload_interval.exit, %138, %137, %.loopexit119, %playlist_needed.exit.thread, %51, %54
-  %.059 = phi i32 [ -541478725, %playlist_needed.exit.thread ], [ 0, %51 ], [ 0, %54 ], [ -1414092869, %137 ], [ -541478725, %.loopexit119 ], [ %135, %138 ], [ -541478725, %default_reload_interval.exit ], [ -1414092869, %.lr.ph ], [ %.3, %167 ], [ -541478725, %161 ], [ -541478725, %173 ], [ -541478725, %.loopexit ], [ -541478725, %175 ]
+  %.059 = phi i32 [ -541478725, %playlist_needed.exit.thread ], [ 0, %51 ], [ 0, %54 ], [ -1414092869, %137 ], [ -541478725, %.loopexit119 ], [ %135, %138 ], [ -1414092869, %.lr.ph ], [ -541478725, %default_reload_interval.exit ], [ %.3, %167 ], [ -541478725, %161 ], [ -541478725, %173 ], [ -541478725, %.loopexit ], [ -541478725, %175 ]
   ret i32 %.059
 }
 

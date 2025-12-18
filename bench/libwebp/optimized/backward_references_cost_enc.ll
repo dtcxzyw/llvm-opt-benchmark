@@ -1130,7 +1130,7 @@ UpdateCostAtIndex.exit144.i:                      ; preds = %UpdateCost.exit.i.i
   br label %520
 
 520:                                              ; preds = %._crit_edge.i, %CostManagerInit.exit.i, %CostModelBuild.exit.i
-  %.081.i = phi i32 [ %519, %._crit_edge.i ], [ 0, %CostManagerInit.exit.i ], [ 0, %CostModelBuild.exit.i ]
+  %.081.i = phi i32 [ 0, %CostModelBuild.exit.i ], [ %519, %._crit_edge.i ], [ 0, %CostManagerInit.exit.i ]
   br i1 %16, label %BackwardReferencesHashChainDistanceOnly.exit, label %521
 
 521:                                              ; preds = %520

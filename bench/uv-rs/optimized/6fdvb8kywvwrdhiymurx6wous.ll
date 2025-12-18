@@ -5874,8 +5874,8 @@ define void @_ZN9uv_client8linehaul8LineHaul3new17h550a742bf13e98eeE(ptr dead_on
   br label %.thread255
 
 .loopexit.split-lp:                               ; preds = %.invoke, %110, %.thread, %116, %125, %82, %86, %128, %132, %143
-  %.sroa.026.1.ph = phi i8 [ %.sroa.024.0, %143 ], [ %.sroa.024.0, %132 ], [ %.sroa.024.0, %82 ], [ %.sroa.024.0, %86 ], [ 0, %110 ], [ 0, %.thread ], [ 0, %116 ], [ 1, %125 ], [ %.sroa.024.0, %128 ], [ %.sroa.024.0, %.invoke ]
-  %.sroa.024.1.ph = phi i8 [ %.sroa.024.0, %143 ], [ %.sroa.024.0, %132 ], [ %.sroa.024.0, %82 ], [ %.sroa.024.0, %86 ], [ 0, %110 ], [ 0, %.thread ], [ 0, %116 ], [ 0, %125 ], [ %.sroa.024.0, %128 ], [ %.sroa.024.0, %.invoke ]
+  %.sroa.026.1.ph = phi i8 [ %.sroa.024.0, %82 ], [ %.sroa.024.0, %86 ], [ 0, %110 ], [ 0, %.thread ], [ 0, %116 ], [ 1, %125 ], [ %.sroa.024.0, %132 ], [ %.sroa.024.0, %128 ], [ %.sroa.024.0, %143 ], [ %.sroa.024.0, %.invoke ]
+  %.sroa.024.1.ph = phi i8 [ %.sroa.024.0, %82 ], [ %.sroa.024.0, %86 ], [ 0, %110 ], [ 0, %.thread ], [ 0, %116 ], [ 0, %125 ], [ %.sroa.024.0, %132 ], [ %.sroa.024.0, %128 ], [ %.sroa.024.0, %143 ], [ %.sroa.024.0, %.invoke ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.thread255

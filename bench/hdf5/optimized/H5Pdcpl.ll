@@ -295,7 +295,7 @@ define internal range(i32 -1, 1) i32 @H5P__dcrt_reg_prop(ptr noundef %0) #0 {
   br label %26
 
 26:                                               ; preds = %.sink.split, %20, %1
-  %.0 = phi i32 [ 0, %20 ], [ 0, %1 ], [ -1, %.sink.split ]
+  %.0 = phi i32 [ 0, %1 ], [ 0, %20 ], [ -1, %.sink.split ]
   ret i32 %.0
 }
 
@@ -1519,7 +1519,7 @@ define range(i32 -1, 1) i32 @H5Pset_virtual(i64 noundef %0, i64 noundef %1, ptr 
   %267 = call i32 @H5CX_pop(i1 noundef zeroext true) #12
   br label %270
 
-.thread170.thread:                                ; preds = %42, %47, %83, %76, %68, %61, %54
+.thread170.thread:                                ; preds = %47, %42, %83, %76, %68, %61, %54
   %268 = call i32 @H5CX_pop(i1 noundef zeroext true) #12
   br label %270
 
@@ -5856,7 +5856,7 @@ define internal range(i32 -1, 1) i32 @H5P__dcrt_layout_enc(ptr noundef readonly 
   br i1 %195, label %150, label %.loopexit, !llvm.loop !80
 
 .loopexit:                                        ; preds = %125, %31, %189, %68, %21, %145, %3, %138, %185, %172, %14, %121, %105, %134
-  %.0107 = phi i32 [ 0, %3 ], [ 0, %134 ], [ 0, %14 ], [ 0, %138 ], [ -1, %172 ], [ -1, %185 ], [ -1, %105 ], [ -1, %121 ], [ 0, %21 ], [ 0, %145 ], [ 0, %68 ], [ 0, %31 ], [ 0, %189 ], [ 0, %125 ]
+  %.0107 = phi i32 [ 0, %21 ], [ 0, %3 ], [ 0, %134 ], [ 0, %14 ], [ 0, %138 ], [ -1, %172 ], [ -1, %185 ], [ 0, %145 ], [ -1, %105 ], [ -1, %121 ], [ 0, %68 ], [ 0, %31 ], [ 0, %189 ], [ 0, %125 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0107
@@ -6220,7 +6220,7 @@ define internal range(i32 -1, 1) i32 @H5P__dcrt_layout_dec(ptr noundef %0, ptr n
   br label %236
 
 .thread126:                                       ; preds = %69, %23, %54, %15, %10, %14
-  %.0111 = phi ptr [ @H5D_def_layout_contig_g, %14 ], [ @H5D_def_layout_compact_g, %10 ], [ @H5D_def_layout_chunk_g, %15 ], [ @H5D_def_layout_virtual_g, %54 ], [ %3, %23 ], [ %3, %69 ]
+  %.0111 = phi ptr [ @H5D_def_layout_virtual_g, %54 ], [ @H5D_def_layout_contig_g, %14 ], [ @H5D_def_layout_compact_g, %10 ], [ @H5D_def_layout_chunk_g, %15 ], [ %3, %23 ], [ %3, %69 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(2256) %1, ptr noundef nonnull align 8 dereferenceable(2256) %.0111, i64 2256, i1 false)
   br label %236
 

@@ -1055,9 +1055,9 @@ _ZN5eastl9push_heapIPjEEvT_S2_.exit453:           ; preds = %land.rhs.i.i.i444, 
   br i1 %exitcond1181.not, label %for.end132, label %for.body116, !llvm.loop !19
 
 for.end132:                                       ; preds = %_ZN5eastl9push_heapIPjEEvT_S2_.exit453, %_ZN5eastl13is_heap_untilIPjEET_S2_S2_.exit, %for.cond52.preheader, %for.cond75.preheader, %for.cond111.preheader
-  %nArraySize.1.lcssa12451253 = phi i32 [ %add69, %for.cond111.preheader ], [ %add69, %for.cond75.preheader ], [ %sub, %for.cond52.preheader ], [ %add.i, %_ZN5eastl13is_heap_untilIPjEET_S2_S2_.exit ], [ %add69, %_ZN5eastl9push_heapIPjEEvT_S2_.exit453 ]
-  %rng.sroa.0.4.lcssa = phi i32 [ %conv4.i.i.i276, %for.cond111.preheader ], [ %conv4.i.i.i246, %for.cond75.preheader ], [ %rng.sroa.0.1, %for.cond52.preheader ], [ %rng.sroa.0.1, %_ZN5eastl13is_heap_untilIPjEET_S2_S2_.exit ], [ %conv4.i.i.i410, %_ZN5eastl9push_heapIPjEEvT_S2_.exit453 ]
-  %nArraySize.3.lcssa = phi i32 [ %sub.i284, %for.cond111.preheader ], [ %add69, %for.cond75.preheader ], [ %sub, %for.cond52.preheader ], [ %add.i, %_ZN5eastl13is_heap_untilIPjEET_S2_S2_.exit ], [ %inc131, %_ZN5eastl9push_heapIPjEEvT_S2_.exit453 ]
+  %nArraySize.1.lcssa12451253 = phi i32 [ %add69, %for.cond111.preheader ], [ %add.i, %_ZN5eastl13is_heap_untilIPjEET_S2_S2_.exit ], [ %add69, %for.cond75.preheader ], [ %sub, %for.cond52.preheader ], [ %add69, %_ZN5eastl9push_heapIPjEEvT_S2_.exit453 ]
+  %rng.sroa.0.4.lcssa = phi i32 [ %conv4.i.i.i276, %for.cond111.preheader ], [ %rng.sroa.0.1, %_ZN5eastl13is_heap_untilIPjEET_S2_S2_.exit ], [ %conv4.i.i.i246, %for.cond75.preheader ], [ %rng.sroa.0.1, %for.cond52.preheader ], [ %conv4.i.i.i410, %_ZN5eastl9push_heapIPjEEvT_S2_.exit453 ]
+  %nArraySize.3.lcssa = phi i32 [ %sub.i284, %for.cond111.preheader ], [ %add.i, %_ZN5eastl13is_heap_untilIPjEET_S2_S2_.exit ], [ %add69, %for.cond75.preheader ], [ %sub, %for.cond52.preheader ], [ %inc131, %_ZN5eastl9push_heapIPjEEvT_S2_.exit453 ]
   %cmp133 = icmp eq i32 %nArraySize.3.lcssa, %nArraySize.1.lcssa12451253
   %call134 = call noundef i32 (i1, ptr, ptr, i32, ptr, ...) @_ZN2EA8UnitTest12TestInternal19EATEST_VERIFY_F_IMPEbRiPKciS4_z(i1 noundef zeroext %cmp133, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 187, ptr noundef nonnull @.str.6, i32 noundef %nArraySize.3.lcssa, i32 noundef %nArraySize.1.lcssa12451253)
   %idx.ext136 = zext i32 %nArraySize.3.lcssa to i64

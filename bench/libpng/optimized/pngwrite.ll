@@ -3166,7 +3166,7 @@ png_unpremultiply.exit145.i:                      ; preds = %321, %320, %312
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.split.split.split.i, !llvm.loop !222
 
 ._crit_edge.i:                                    ; preds = %png_unpremultiply.exit145.i, %png_unpremultiply.exit140.us.i, %.lr.ph.split.split.us.split.i, %.lr.ph.split.split.us.split.us.i, %120, %55
-  %.0122.lcssa.i = phi i32 [ 0, %55 ], [ %spec.select128.us.i, %png_unpremultiply.exit140.us.i ], [ %.6.us.i, %120 ], [ 0, %.lr.ph.split.split.us.split.us.i ], [ 0, %.lr.ph.split.split.us.split.i ], [ %spec.select128.i, %png_unpremultiply.exit145.i ]
+  %.0122.lcssa.i = phi i32 [ 0, %55 ], [ 0, %.lr.ph.split.split.us.split.i ], [ %.6.us.i, %120 ], [ %spec.select128.us.i, %png_unpremultiply.exit140.us.i ], [ 0, %.lr.ph.split.split.us.split.us.i ], [ %spec.select128.i, %png_unpremultiply.exit145.i ]
   %344 = load ptr, ptr %.val, align 8, !tbaa !212
   %345 = load ptr, ptr %344, align 8, !tbaa !209
   %346 = getelementptr inbounds nuw i8, ptr %344, i64 8

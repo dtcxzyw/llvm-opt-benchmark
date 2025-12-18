@@ -545,7 +545,7 @@ digest_to_bn.exit.split.split:                    ; preds = %digest_to_bn.exit.s
   br i1 %.not72, label %.split87.us, label %94
 
 .split87.us:                                      ; preds = %.lr.ph, %.lr.ph100, %79, %55
-  %.pre108 = phi ptr [ %56, %55 ], [ null, %79 ], [ %67, %.lr.ph100 ], [ null, %.lr.ph ]
+  %.pre108 = phi ptr [ %67, %.lr.ph100 ], [ %56, %55 ], [ null, %79 ], [ null, %.lr.ph ]
   tail call void @ERR_put_error(i32 noundef 26, i32 noundef 0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 414) #5
   br label %100
 
@@ -555,7 +555,7 @@ digest_to_bn.exit.split.split:                    ; preds = %digest_to_bn.exit.s
   br i1 %.not73, label %.split89.us, label %96
 
 .split89.us:                                      ; preds = %94, %70, %82, %59
-  %.pre107 = phi ptr [ %56, %59 ], [ null, %82 ], [ %67, %70 ], [ null, %94 ]
+  %.pre107 = phi ptr [ %67, %70 ], [ %56, %59 ], [ null, %82 ], [ null, %94 ]
   tail call void @ERR_put_error(i32 noundef 26, i32 noundef 0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 418) #5
   br label %100
 
@@ -565,7 +565,7 @@ digest_to_bn.exit.split.split:                    ; preds = %digest_to_bn.exit.s
   br i1 %.not74, label %.split91.us, label %98
 
 .split91.us:                                      ; preds = %96, %72, %84, %61
-  %.pre106 = phi ptr [ %56, %61 ], [ null, %84 ], [ %67, %72 ], [ null, %96 ]
+  %.pre106 = phi ptr [ %67, %72 ], [ %56, %61 ], [ null, %84 ], [ null, %96 ]
   tail call void @ERR_put_error(i32 noundef 26, i32 noundef 0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 422) #5
   br label %100
 
@@ -587,10 +587,10 @@ digest_to_bn.exit.split.split:                    ; preds = %digest_to_bn.exit.s
   br label %.loopexit
 
 .loopexit:                                        ; preds = %98, %74, %63, %86, %100
-  %101 = phi ptr [ %.pre, %100 ], [ null, %86 ], [ %56, %63 ], [ %67, %74 ], [ null, %98 ]
-  %.184 = phi ptr [ %.1.ph, %100 ], [ %31, %86 ], [ %31, %63 ], [ %31, %74 ], [ %31, %98 ]
-  %.15682 = phi ptr [ %.156.ph, %100 ], [ %28, %86 ], [ %28, %63 ], [ %28, %74 ], [ %28, %98 ]
-  %.052 = phi ptr [ null, %100 ], [ %20, %86 ], [ %20, %63 ], [ %20, %74 ], [ %20, %98 ]
+  %101 = phi ptr [ %.pre, %100 ], [ null, %86 ], [ %67, %74 ], [ %56, %63 ], [ null, %98 ]
+  %.184 = phi ptr [ %.1.ph, %100 ], [ %31, %86 ], [ %31, %74 ], [ %31, %63 ], [ %31, %98 ]
+  %.15682 = phi ptr [ %.156.ph, %100 ], [ %28, %86 ], [ %28, %74 ], [ %28, %63 ], [ %28, %98 ]
+  %.052 = phi ptr [ null, %100 ], [ %20, %86 ], [ %20, %74 ], [ %20, %63 ], [ %20, %98 ]
   tail call void @BN_CTX_free(ptr noundef %25) #5
   tail call void @BN_clear_free(ptr noundef %.184) #5
   tail call void @BN_clear_free(ptr noundef %.15682) #5
@@ -654,7 +654,7 @@ define internal fastcc range(i32 0, 2) i32 @digest_to_bn(ptr noundef nonnull %0,
   br label %19
 
 19:                                               ; preds = %.sink.split, %12, %15
-  %.0 = phi i32 [ 1, %15 ], [ 1, %12 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 1, %12 ], [ 1, %15 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 
@@ -901,7 +901,7 @@ define internal fastcc range(i32 0, 2) i32 @ecdsa_sign_setup(ptr noundef %0, ptr
   br label %83
 
 .loopexit:                                        ; preds = %.split118, %57, %.split118.us.us, %35, %25, %29, %76, %72, %79, %.split125.us, %.split123.us, %.split121.us, %.split116.us
-  %.080.ph = phi ptr [ %27, %.split116.us ], [ %27, %.split121.us ], [ %27, %.split123.us ], [ %27, %.split125.us ], [ %27, %79 ], [ %27, %72 ], [ %27, %76 ], [ null, %29 ], [ null, %25 ], [ %27, %.split118.us.us ], [ %27, %35 ], [ %27, %57 ], [ %27, %.split118 ]
+  %.080.ph = phi ptr [ %27, %.split116.us ], [ null, %25 ], [ null, %29 ], [ %27, %.split121.us ], [ %27, %.split123.us ], [ %27, %.split125.us ], [ %27, %79 ], [ %27, %72 ], [ %27, %76 ], [ %27, %.split118.us.us ], [ %27, %35 ], [ %27, %57 ], [ %27, %.split118 ]
   tail call void @BN_clear_free(ptr noundef %19) #5
   tail call void @BN_clear_free(ptr noundef %20) #5
   br label %83

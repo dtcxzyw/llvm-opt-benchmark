@@ -7430,7 +7430,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   br label %_ZN5faiss9nndescent16insert_into_poolEPNS0_8NeighborEiS1_.exit
 
 _ZN5faiss9nndescent16insert_into_poolEPNS0_8NeighborEiS1_.exit: ; preds = %149, %._crit_edge.i, %158, %134, %163
-  %.0.i = phi i32 [ 0, %134 ], [ %34, %._crit_edge.i ], [ %.063.lcssa81.i, %163 ], [ %34, %158 ], [ %34, %149 ]
+  %.0.i = phi i32 [ 0, %134 ], [ %34, %158 ], [ %34, %._crit_edge.i ], [ %.063.lcssa81.i, %163 ], [ %34, %149 ]
   %spec.select = call i32 @llvm.smin.i32(i32 %.0.i, i32 %.168135)
   br label %168
 

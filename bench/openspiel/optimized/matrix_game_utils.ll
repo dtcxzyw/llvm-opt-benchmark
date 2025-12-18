@@ -1807,7 +1807,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit160:                 ; preds = %_ZNSt6vectorIdSaIdE
   br label %.loopexit233
 
 .loopexit233:                                     ; preds = %_ZNSt6vectorIlSaIlEED2Ev.exit64, %175, %172, %.thread, %_ZNSt6vectorIdSaIdEED2Ev.exit160
-  %.pn52.pn.pn.pn = phi { ptr, i32 } [ %.pn52.pn.pn205210, %_ZNSt6vectorIdSaIdEED2Ev.exit160 ], [ %48, %.thread ], [ %173, %175 ], [ %173, %172 ], [ %181, %_ZNSt6vectorIlSaIlEED2Ev.exit64 ]
+  %.pn52.pn.pn.pn = phi { ptr, i32 } [ %.pn52.pn.pn205210, %_ZNSt6vectorIdSaIdEED2Ev.exit160 ], [ %173, %175 ], [ %48, %.thread ], [ %173, %172 ], [ %181, %_ZNSt6vectorIlSaIlEED2Ev.exit64 ]
   %501 = load ptr, ptr %7, align 8
   %.not.i161 = icmp eq ptr %501, null
   br i1 %.not.i161, label %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit163, label %_ZNKSt14default_deleteIN10open_spiel5StateEEclEPS1_.exit.i162
@@ -3832,7 +3832,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit132:                 ; preds = %.loopexit149, %.loo
   br label %.loopexit157
 
 .loopexit157:                                     ; preds = %131, %.loopexit157.loopexit220, %.thread, %_ZNSt6vectorIdSaIdEED2Ev.exit132
-  %.pn34.pn = phi { ptr, i32 } [ %.pn34, %_ZNSt6vectorIdSaIdEED2Ev.exit132 ], [ %37, %.thread ], [ %129, %.loopexit157.loopexit220 ], [ %130, %131 ]
+  %.pn34.pn = phi { ptr, i32 } [ %.pn34, %_ZNSt6vectorIdSaIdEED2Ev.exit132 ], [ %129, %.loopexit157.loopexit220 ], [ %37, %.thread ], [ %130, %131 ]
   call void @_ZN10open_spiel8GameTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(146) %11) #22
   br label %394
 

@@ -1212,7 +1212,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN10async_task4task17Task$LT$T$C$M$GT
   br i1 %23, label %"_ZN10async_task6header15Header$LT$M$GT$6notify17hc19e21561b2f7766E.llvm.17877455885366092988.exit22", label %24
 
 "_ZN10async_task6header15Header$LT$M$GT$6notify17hc19e21561b2f7766E.llvm.17877455885366092988.exit22": ; preds = %21, %100, %94, %81, %76, %71, %"_ZN10async_task6header15Header$LT$M$GT$6notify17hc19e21561b2f7766E.llvm.17877455885366092988.exit"
-  %.sroa.0.0 = phi i8 [ 1, %"_ZN10async_task6header15Header$LT$M$GT$6notify17hc19e21561b2f7766E.llvm.17877455885366092988.exit" ], [ 2, %71 ], [ 0, %76 ], [ 0, %81 ], [ 0, %94 ], [ 0, %100 ], [ 2, %21 ]
+  %.sroa.0.0 = phi i8 [ 1, %"_ZN10async_task6header15Header$LT$M$GT$6notify17hc19e21561b2f7766E.llvm.17877455885366092988.exit" ], [ 0, %100 ], [ 2, %71 ], [ 0, %76 ], [ 0, %81 ], [ 0, %94 ], [ 2, %21 ]
   ret i8 %.sroa.0.0
 
 24:                                               ; preds = %21, %10
@@ -1430,8 +1430,8 @@ define hidden { i64, ptr } @"_ZN10async_task4task17Task$LT$T$C$M$GT$9poll_task17
   br i1 %23, label %"_ZN10async_task6header15Header$LT$M$GT$6notify17hc19e21561b2f7766E.llvm.17877455885366092988.exit25", label %26
 
 "_ZN10async_task6header15Header$LT$M$GT$6notify17hc19e21561b2f7766E.llvm.17877455885366092988.exit25": ; preds = %21, %100, %94, %81, %76, %71, %"_ZN10async_task6header15Header$LT$M$GT$6notify17hc19e21561b2f7766E.llvm.17877455885366092988.exit"
-  %.sroa.5.0 = phi ptr [ %.sroa.58.0.copyload, %"_ZN10async_task6header15Header$LT$M$GT$6notify17hc19e21561b2f7766E.llvm.17877455885366092988.exit" ], [ undef, %71 ], [ undef, %76 ], [ undef, %81 ], [ undef, %94 ], [ undef, %100 ], [ undef, %21 ]
-  %.sroa.0.0 = phi i64 [ 1, %"_ZN10async_task6header15Header$LT$M$GT$6notify17hc19e21561b2f7766E.llvm.17877455885366092988.exit" ], [ 2, %71 ], [ 0, %76 ], [ 0, %81 ], [ 0, %94 ], [ 0, %100 ], [ 2, %21 ]
+  %.sroa.5.0 = phi ptr [ %.sroa.58.0.copyload, %"_ZN10async_task6header15Header$LT$M$GT$6notify17hc19e21561b2f7766E.llvm.17877455885366092988.exit" ], [ undef, %100 ], [ undef, %71 ], [ undef, %76 ], [ undef, %81 ], [ undef, %94 ], [ undef, %21 ]
+  %.sroa.0.0 = phi i64 [ 1, %"_ZN10async_task6header15Header$LT$M$GT$6notify17hc19e21561b2f7766E.llvm.17877455885366092988.exit" ], [ 0, %100 ], [ 2, %71 ], [ 0, %76 ], [ 0, %81 ], [ 0, %94 ], [ 2, %21 ]
   %24 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %25 = insertvalue { i64, ptr } %24, ptr %.sroa.5.0, 1
   ret { i64, ptr } %25
@@ -6285,8 +6285,8 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17hdd33c6687bb5e
   br i1 %.not.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h4bf29fa173143516E.llvm.17877455885366092988.exit._crit_edge", label %7
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h15b7579401b49b8cE.llvm.17877455885366092988.exit": ; preds = %20, %16, %13, %2
-  %.sroa.7.2 = phi i64 [ 0, %2 ], [ %12, %13 ], [ %12, %20 ], [ %12, %16 ]
-  %.sroa.16.1 = phi i64 [ 0, %2 ], [ 1, %13 ], [ 1, %20 ], [ 1, %16 ]
+  %.sroa.7.2 = phi i64 [ 0, %2 ], [ %12, %16 ], [ %12, %13 ], [ %12, %20 ]
+  %.sroa.16.1 = phi i64 [ 0, %2 ], [ 1, %16 ], [ 1, %13 ], [ 1, %20 ]
   %.not1.i = icmp eq i64 %.sroa.7.2, %4
   br i1 %.not1.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h4bf29fa173143516E.llvm.17877455885366092988.exit", label %.lr.ph.i2.preheader
 
@@ -8377,7 +8377,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17h8b983e6ce7750ebbE.exit.i.i: ; preds = 
   br label %95
 
 .loopexit.split-lp.i.i:                           ; preds = %.invoke.i.i, %._crit_edge.i.i, %91
-  %.sroa.012.2.ph.i.i = phi i1 [ true, %.invoke.i.i ], [ true, %91 ], [ false, %._crit_edge.i.i ]
+  %.sroa.012.2.ph.i.i = phi i1 [ true, %91 ], [ true, %.invoke.i.i ], [ false, %._crit_edge.i.i ]
   %lpad.loopexit.split-lp.i.i = landingpad { ptr, i32 }
           cleanup
   br label %95

@@ -598,9 +598,9 @@ param_conversion_load_stanza.exit.thread:         ; preds = %32, %39, %119, %46,
   br label %319
 
 192:                                              ; preds = %189, %177, %165, %153, %141
-  %.sroa.4443.2 = phi ptr [ @param_conversion_load_stanza.ref_i32, %141 ], [ @param_conversion_load_stanza.ref_i64, %153 ], [ @param_conversion_load_stanza.ref_u32, %165 ], [ @param_conversion_load_stanza.ref_u64, %177 ], [ @param_conversion_load_stanza.ref_d, %189 ]
-  %.sroa.54.2 = phi ptr [ @param_conversion_load_stanza.datum_i32, %141 ], [ @param_conversion_load_stanza.datum_i64, %153 ], [ @param_conversion_load_stanza.datum_u32, %165 ], [ @param_conversion_load_stanza.datum_u64, %177 ], [ @param_conversion_load_stanza.datum_d, %189 ]
-  %.sroa.69.2 = phi i64 [ 4, %141 ], [ 8, %153 ], [ 4, %165 ], [ 8, %177 ], [ 8, %189 ]
+  %.sroa.4443.2 = phi ptr [ @param_conversion_load_stanza.ref_d, %189 ], [ @param_conversion_load_stanza.ref_u64, %177 ], [ @param_conversion_load_stanza.ref_u32, %165 ], [ @param_conversion_load_stanza.ref_i32, %141 ], [ @param_conversion_load_stanza.ref_i64, %153 ]
+  %.sroa.54.2 = phi ptr [ @param_conversion_load_stanza.datum_d, %189 ], [ @param_conversion_load_stanza.datum_u64, %177 ], [ @param_conversion_load_stanza.datum_u32, %165 ], [ @param_conversion_load_stanza.datum_i32, %141 ], [ @param_conversion_load_stanza.datum_i64, %153 ]
+  %.sroa.69.2 = phi i64 [ 8, %189 ], [ 8, %177 ], [ 4, %165 ], [ 4, %141 ], [ 8, %153 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %193 = load i32, ptr %20, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -848,7 +848,7 @@ param_conversion_load_stanza.exit.thread:         ; preds = %32, %39, %119, %46,
   %.not108.i21 = icmp eq i32 %318, 0
   br i1 %.not108.i21, label %param_conversion_test.exit, label %param_conversion_test.exit.thread
 
-param_conversion_test.exit.thread:                ; preds = %317, %295
+param_conversion_test.exit.thread:                ; preds = %295, %317
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

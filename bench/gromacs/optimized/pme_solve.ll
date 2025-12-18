@@ -3149,7 +3149,7 @@ _ZL20calc_exponentials_ljiiN3gmx8ArrayRefINS_9SimdFloatEEES2_S2_.exit: ; preds =
   br i1 %exitcond744.not, label %.lr.ph635, label %.preheader577.backedge
 
 .preheader577.backedge:                           ; preds = %._crit_edge632, %._crit_edge632.thread
-  %indvars.iv741.be = phi i64 [ %indvars.iv.next742, %._crit_edge632 ], [ %indvars.iv.next742759, %._crit_edge632.thread ]
+  %indvars.iv741.be = phi i64 [ %indvars.iv.next742759, %._crit_edge632.thread ], [ %indvars.iv.next742, %._crit_edge632 ]
   br label %.preheader577, !llvm.loop !207
 
 ._crit_edge632.thread:                            ; preds = %.preheader577
@@ -3512,13 +3512,13 @@ _ZL20calc_exponentials_ljiiN3gmx8ArrayRefINS_9SimdFloatEEES2_S2_.exit559: ; pred
   br i1 %660, label %644, label %.loopexit, !llvm.loop !215
 
 .loopexit:                                        ; preds = %._crit_edge600, %._crit_edge632.thread, %.lr.ph645, %._crit_edge614.thread
-  %.2538 = phi float [ %.0536653, %._crit_edge614.thread ], [ %.0536653, %._crit_edge632.thread ], [ %453, %.lr.ph645 ], [ %.0536653, %._crit_edge600 ]
-  %.2535 = phi float [ %.0533654, %._crit_edge614.thread ], [ %.0533654, %._crit_edge632.thread ], [ %450, %.lr.ph645 ], [ %.0533654, %._crit_edge600 ]
-  %.2532 = phi float [ %.0530655, %._crit_edge614.thread ], [ %.0530655, %._crit_edge632.thread ], [ %449, %.lr.ph645 ], [ %.0530655, %._crit_edge600 ]
-  %.2529 = phi float [ %.0527656, %._crit_edge614.thread ], [ %.0527656, %._crit_edge632.thread ], [ %446, %.lr.ph645 ], [ %.0527656, %._crit_edge600 ]
-  %.2526 = phi float [ %.0524657, %._crit_edge614.thread ], [ %.0524657, %._crit_edge632.thread ], [ %443, %.lr.ph645 ], [ %.0524657, %._crit_edge600 ]
-  %.2523 = phi float [ %.0521658, %._crit_edge614.thread ], [ %.0521658, %._crit_edge632.thread ], [ %440, %.lr.ph645 ], [ %.0521658, %._crit_edge600 ]
-  %.2520 = phi float [ %.0518659, %._crit_edge614.thread ], [ %.0518659, %._crit_edge632.thread ], [ %433, %.lr.ph645 ], [ %.0518659, %._crit_edge600 ]
+  %.2538 = phi float [ %.0536653, %._crit_edge614.thread ], [ %453, %.lr.ph645 ], [ %.0536653, %._crit_edge632.thread ], [ %.0536653, %._crit_edge600 ]
+  %.2535 = phi float [ %.0533654, %._crit_edge614.thread ], [ %450, %.lr.ph645 ], [ %.0533654, %._crit_edge632.thread ], [ %.0533654, %._crit_edge600 ]
+  %.2532 = phi float [ %.0530655, %._crit_edge614.thread ], [ %449, %.lr.ph645 ], [ %.0530655, %._crit_edge632.thread ], [ %.0530655, %._crit_edge600 ]
+  %.2529 = phi float [ %.0527656, %._crit_edge614.thread ], [ %446, %.lr.ph645 ], [ %.0527656, %._crit_edge632.thread ], [ %.0527656, %._crit_edge600 ]
+  %.2526 = phi float [ %.0524657, %._crit_edge614.thread ], [ %443, %.lr.ph645 ], [ %.0524657, %._crit_edge632.thread ], [ %.0524657, %._crit_edge600 ]
+  %.2523 = phi float [ %.0521658, %._crit_edge614.thread ], [ %440, %.lr.ph645 ], [ %.0521658, %._crit_edge632.thread ], [ %.0521658, %._crit_edge600 ]
+  %.2520 = phi float [ %.0518659, %._crit_edge614.thread ], [ %433, %.lr.ph645 ], [ %.0518659, %._crit_edge632.thread ], [ %.0518659, %._crit_edge600 ]
   %661 = add nsw i32 %.0510660, 1
   %exitcond751.not = icmp eq i32 %661, %77
   br i1 %exitcond751.not, label %._crit_edge663.loopexit, label %122, !llvm.loop !216

@@ -2700,8 +2700,8 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit37.i.i.i:  ; preds = %_ZNSt6vectorIiSaIiE
   br label %.loopexit.split-lp.i.i
 
 .loopexit.split-lp.loopexit.split-lp.i.i:         ; preds = %366, %322
-  %.sroa.23.6.ph.ph.i.i = phi ptr [ %.sroa.23.1.i.i, %322 ], [ %.sroa.23.3.i.i, %366 ]
-  %.sroa.02.6.ph.ph.i.i = phi ptr [ %.sroa.02.1.i.i, %322 ], [ %.sroa.02.3.i.i, %366 ]
+  %.sroa.23.6.ph.ph.i.i = phi ptr [ %.sroa.23.3.i.i, %366 ], [ %.sroa.23.1.i.i, %322 ]
+  %.sroa.02.6.ph.ph.i.i = phi ptr [ %.sroa.02.3.i.i, %366 ], [ %.sroa.02.1.i.i, %322 ]
   %lpad.loopexit.split-lp30.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp.i.i
@@ -5094,8 +5094,8 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit37.i.i.i:  ; preds = %_ZNSt6vectorIiSaIiE
   br label %.loopexit.split-lp.i.i
 
 .loopexit.split-lp.loopexit.split-lp.i.i:         ; preds = %391, %347
-  %.sroa.23.6.ph.ph.i.i = phi ptr [ %.sroa.23.1.i.i, %347 ], [ %.sroa.23.3.i.i, %391 ]
-  %.sroa.02.6.ph.ph.i.i = phi ptr [ %.sroa.02.1.i.i, %347 ], [ %.sroa.02.3.i.i, %391 ]
+  %.sroa.23.6.ph.ph.i.i = phi ptr [ %.sroa.23.3.i.i, %391 ], [ %.sroa.23.1.i.i, %347 ]
+  %.sroa.02.6.ph.ph.i.i = phi ptr [ %.sroa.02.3.i.i, %391 ], [ %.sroa.02.1.i.i, %347 ]
   %lpad.loopexit.split-lp30.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp.i.i
@@ -6675,8 +6675,8 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit37.i.i.i:  ; preds = %_ZNSt6vectorIiSaIiE
   br label %.loopexit.split-lp.i.i
 
 .loopexit.split-lp.loopexit.split-lp.i.i:         ; preds = %330, %286
-  %.sroa.23.6.ph.ph.i.i = phi ptr [ %.sroa.23.1.i.i, %286 ], [ %.sroa.23.3.i.i, %330 ]
-  %.sroa.02.6.ph.ph.i.i = phi ptr [ %.sroa.02.1.i.i, %286 ], [ %.sroa.02.3.i.i, %330 ]
+  %.sroa.23.6.ph.ph.i.i = phi ptr [ %.sroa.23.3.i.i, %330 ], [ %.sroa.23.1.i.i, %286 ]
+  %.sroa.02.6.ph.ph.i.i = phi ptr [ %.sroa.02.3.i.i, %330 ], [ %.sroa.02.1.i.i, %286 ]
   %lpad.loopexit.split-lp30.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp.i.i
@@ -11019,7 +11019,7 @@ _ZNKSt14default_deleteIN5ceres8internal27CompressedRowBlockStructureEEclEPS2_.ex
   call void @_ZdlPvm(ptr noundef nonnull %73, i64 noundef 48) #37
   br label %_ZNSt10unique_ptrIN5ceres8internal27CompressedRowBlockStructureESt14default_deleteIS2_EED2Ev.exit221
 
-_ZNSt10unique_ptrIN5ceres8internal27CompressedRowBlockStructureESt14default_deleteIS2_EED2Ev.exit221: ; preds = %402, %417, %_ZNKSt14default_deleteIN5ceres8internal27CompressedRowBlockStructureEEclEPS2_.exit.i220
+_ZNSt10unique_ptrIN5ceres8internal27CompressedRowBlockStructureESt14default_deleteIS2_EED2Ev.exit221: ; preds = %417, %402, %_ZNKSt14default_deleteIN5ceres8internal27CompressedRowBlockStructureEEclEPS2_.exit.i220
   %.pn147.pn273 = phi { ptr, i32 } [ %.pn147.pn272, %_ZNKSt14default_deleteIN5ceres8internal27CompressedRowBlockStructureEEclEPS2_.exit.i220 ], [ %418, %417 ], [ %403, %402 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)

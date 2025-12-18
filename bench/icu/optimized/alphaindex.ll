@@ -1965,7 +1965,7 @@ _ZN6icu_7712_GLOBAL__N_125hasMultiplePrimaryWeightsERKNS_17RuleBasedCollatorEjRK
   br label %.thread434
 
 .thread434:                                       ; preds = %_ZN6icu_7712_GLOBAL__N_19getBucketERKNS_7UVectorEi.exit, %359, %_ZNK6icu_7713UnicodeString6charAtEi.exit329.thread, %.critedge, %_ZNK6icu_7713UnicodeString6charAtEi.exit329
-  %.6198.ph = phi i8 [ %.0192562, %_ZNK6icu_7713UnicodeString6charAtEi.exit329.thread ], [ %.0192562, %_ZNK6icu_7713UnicodeString6charAtEi.exit329 ], [ %.0192562, %.critedge ], [ 1, %359 ], [ %.0192562, %_ZN6icu_7712_GLOBAL__N_19getBucketERKNS_7UVectorEi.exit ]
+  %.6198.ph = phi i8 [ 1, %359 ], [ %.0192562, %_ZNK6icu_7713UnicodeString6charAtEi.exit329.thread ], [ %.0192562, %_ZNK6icu_7713UnicodeString6charAtEi.exit329 ], [ %.0192562, %.critedge ], [ %.0192562, %_ZN6icu_7712_GLOBAL__N_19getBucketERKNS_7UVectorEi.exit ]
   %362 = add nuw nsw i32 %.0219558, 1
   %363 = load i32, ptr %75, align 8, !tbaa !18
   %.not268 = icmp slt i32 %362, %363
@@ -2255,8 +2255,8 @@ _ZN6icu_7712_GLOBAL__N_19getBucketERKNS_7UVectorEi.exit355: ; preds = %.lr.ph572
   br label %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit356
 
 _ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit:  ; preds = %359, %.critedge299, %129, %217, %441, %438, %348, %.critedge297, %461, %.thread653, %407, %374, %408, %389, %375, %.thread459
-  %.sroa.0371.2 = phi ptr [ null, %461 ], [ %37, %375 ], [ %37, %.thread459 ], [ %37, %408 ], [ %37, %389 ], [ null, %407 ], [ null, %374 ], [ %37, %.thread653 ], [ %37, %348 ], [ %37, %.critedge297 ], [ %37, %438 ], [ %37, %441 ], [ %37, %217 ], [ %37, %129 ], [ %37, %.critedge299 ], [ %37, %359 ]
-  %.12 = phi ptr [ %459, %461 ], [ null, %375 ], [ null, %.thread459 ], [ null, %408 ], [ null, %389 ], [ %405, %407 ], [ %372, %374 ], [ null, %.thread653 ], [ null, %348 ], [ null, %.critedge297 ], [ null, %438 ], [ null, %441 ], [ null, %217 ], [ null, %129 ], [ null, %.critedge299 ], [ null, %359 ]
+  %.sroa.0371.2 = phi ptr [ null, %461 ], [ %37, %375 ], [ %37, %.thread459 ], [ %37, %408 ], [ %37, %389 ], [ null, %407 ], [ null, %374 ], [ %37, %.thread653 ], [ %37, %.critedge297 ], [ %37, %348 ], [ %37, %441 ], [ %37, %438 ], [ %37, %217 ], [ %37, %129 ], [ %37, %.critedge299 ], [ %37, %359 ]
+  %.12 = phi ptr [ %459, %461 ], [ null, %375 ], [ null, %.thread459 ], [ null, %408 ], [ null, %389 ], [ %405, %407 ], [ %372, %374 ], [ null, %.thread653 ], [ null, %.critedge297 ], [ null, %348 ], [ null, %441 ], [ null, %438 ], [ null, %217 ], [ null, %129 ], [ null, %.critedge299 ], [ null, %359 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %13) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %_ZN6icu_7712LocalPointerINS_15AlphabeticIndex6BucketEEC2EPS2_R10UErrorCode.exit.thread
@@ -2829,13 +2829,13 @@ _ZN6icu_7712LocalPointerINS_13UnicodeStringEE12adoptInsteadEPS1_.exit: ; preds =
   br label %_ZN6icu_7712_GLOBAL__N_112binarySearchERKNS_7UVectorERKNS_13UnicodeStringERKNS_8CollatorE.exit
 
 125:                                              ; preds = %122, %119
-  %.126.i = phi i32 [ %109, %119 ], [ %.025.i, %122 ]
-  %.123.i = phi i32 [ %.022.i, %119 ], [ %109, %122 ]
+  %.126.i = phi i32 [ %.025.i, %122 ], [ %109, %119 ]
+  %.123.i = phi i32 [ %109, %122 ], [ %.022.i, %119 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.preheader.i, !llvm.loop !78
 
 _ZN6icu_7712_GLOBAL__N_112binarySearchERKNS_7UVectorERKNS_13UnicodeStringERKNS_8CollatorE.exit: ; preds = %.noexc107, %120, %123
-  %.2.ph.i = phi i32 [ %121, %120 ], [ %124, %123 ], [ %109, %.noexc107 ]
+  %.2.ph.i = phi i32 [ %124, %123 ], [ %121, %120 ], [ %109, %.noexc107 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %126 = icmp slt i32 %.2.ph.i, 0
   br i1 %126, label %_ZN6icu_7712_GLOBAL__N_112binarySearchERKNS_7UVectorERKNS_13UnicodeStringERKNS_8CollatorE.exit.thread, label %138

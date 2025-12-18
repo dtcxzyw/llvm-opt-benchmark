@@ -482,7 +482,7 @@ _ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit36.i.i: ; preds = %_ZSt6fill_
   br i1 %.not.i.i.i.i30.i, label %.body.i13, label %138
 
 ._crit_edge.i:                                    ; preds = %121, %95, %71
-  %136 = phi ptr [ %72, %71 ], [ %99, %95 ], [ %125, %121 ]
+  %136 = phi ptr [ %99, %95 ], [ %72, %71 ], [ %125, %121 ]
   %.not.i.i.i.i.i15 = icmp eq ptr %136, null
   br i1 %.not.i.i.i.i.i15, label %139, label %137
 
@@ -5892,7 +5892,7 @@ _ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread.us.i.i.i: ;
 36:                                               ; preds = %38
   %37 = add nuw i64 %.03872.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %37, %.sroa.speculated.i.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i.i, label %56, label %38, !llvm.loop !176
+  br i1 %exitcond.not.i.i.i.i.i, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.i.i.i, label %38, !llvm.loop !176
 
 38:                                               ; preds = %36, %34
   %.03872.i.i.i.i.i = phi i64 [ 0, %34 ], [ %37, %36 ]
@@ -5915,129 +5915,129 @@ _ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread.us.i.i.i: ;
   %53 = and i64 %50, %52
   %54 = icmp eq i64 %53, 0
   %55 = xor i1 %54, %47
-  br i1 %55, label %36, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.i.i.i
+  br i1 %55, label %36, label %.thread63.loopexit74.i.i.i.i.i
 
-56:                                               ; preds = %36
-  %57 = icmp ult i64 %14, %9
-  br i1 %57, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread12.i.i.i, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread.i.i.i
-
-_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.i.i.i: ; preds = %38
+.thread63.loopexit74.i.i.i.i.i:                   ; preds = %38
   %.not66.i.i.i.i.i = or i1 %54, %47
   br i1 %.not66.i.i.i.i.i, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread.i.i.i, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread12.i.i.i
 
-_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread12.i.i.i: ; preds = %26, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.i.i.i, %56, %.lr.ph.split.i.i.i
+_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.i.i.i: ; preds = %36
+  %56 = icmp ult i64 %14, %9
+  br i1 %56, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread12.i.i.i, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread.i.i.i
+
+_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread12.i.i.i: ; preds = %26, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.i.i.i, %.thread63.loopexit74.i.i.i.i.i, %.lr.ph.split.i.i.i
   br label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread.i.i.i
 
-_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread.i.i.i: ; preds = %33, %25, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread12.i.i.i, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.i.i.i, %56
-  %.sink.i.i.i = phi i64 [ 24, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread12.i.i.i ], [ 16, %56 ], [ 16, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.i.i.i ], [ 16, %25 ], [ 16, %33 ]
-  %.19.i.i.i = phi ptr [ %.0818.i.i.i, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread12.i.i.i ], [ %.019.i.i.i, %56 ], [ %.019.i.i.i, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.i.i.i ], [ %.019.i.i.i, %25 ], [ %.019.i.i.i, %33 ]
-  %58 = getelementptr inbounds nuw i8, ptr %.019.i.i.i, i64 %.sink.i.i.i
-  %.1.i.i.i = load ptr, ptr %58, align 8
+_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread.i.i.i: ; preds = %33, %25, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread12.i.i.i, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.i.i.i, %.thread63.loopexit74.i.i.i.i.i
+  %.sink.i.i.i = phi i64 [ 24, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread12.i.i.i ], [ 16, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.i.i.i ], [ 16, %.thread63.loopexit74.i.i.i.i.i ], [ 16, %25 ], [ 16, %33 ]
+  %.19.i.i.i = phi ptr [ %.0818.i.i.i, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread12.i.i.i ], [ %.019.i.i.i, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.i.i.i ], [ %.019.i.i.i, %.thread63.loopexit74.i.i.i.i.i ], [ %.019.i.i.i, %25 ], [ %.019.i.i.i, %33 ]
+  %57 = getelementptr inbounds nuw i8, ptr %.019.i.i.i, i64 %.sink.i.i.i
+  %.1.i.i.i = load ptr, ptr %57, align 8
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
   br i1 %.not.i.i.i, label %_ZNSt3mapIN5boost14dynamic_bitsetImSaImEEEjSt4lessIS3_ESaISt4pairIKS3_jEEE11lower_boundERS7_.exit, label %.lr.ph.split.i.i.i, !llvm.loop !174
 
 _ZNSt3mapIN5boost14dynamic_bitsetImSaImEEEjSt4lessIS3_ESaISt4pairIKS3_jEEE11lower_boundERS7_.exit: ; preds = %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread.i.i.i, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread.us.i.i.i
   %.08.lcssa.i.i.i = phi ptr [ %.019.us.i.i.i, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread.us.i.i.i ], [ %.19.i.i.i, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread.i.i.i ]
-  %59 = icmp eq ptr %.08.lcssa.i.i.i, %7
-  br i1 %59, label %.critedge, label %60
+  %58 = icmp eq ptr %.08.lcssa.i.i.i, %7
+  br i1 %58, label %.critedge, label %59
 
-60:                                               ; preds = %_ZNSt3mapIN5boost14dynamic_bitsetImSaImEEEjSt4lessIS3_ESaISt4pairIKS3_jEEE11lower_boundERS7_.exit
-  %61 = getelementptr inbounds nuw i8, ptr %.08.lcssa.i.i.i, i64 32
-  %62 = getelementptr inbounds nuw i8, ptr %.08.lcssa.i.i.i, i64 56
-  %63 = load i64, ptr %62, align 8
-  %.not.i.i = icmp eq i64 %63, 0
-  br i1 %.not.i.i, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread, label %64
+59:                                               ; preds = %_ZNSt3mapIN5boost14dynamic_bitsetImSaImEEEjSt4lessIS3_ESaISt4pairIKS3_jEEE11lower_boundERS7_.exit
+  %60 = getelementptr inbounds nuw i8, ptr %.08.lcssa.i.i.i, i64 32
+  %61 = getelementptr inbounds nuw i8, ptr %.08.lcssa.i.i.i, i64 56
+  %62 = load i64, ptr %61, align 8
+  %.not.i.i = icmp eq i64 %62, 0
+  br i1 %.not.i.i, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread, label %63
 
-64:                                               ; preds = %60
-  br i1 %.not.i.i.i.i.i, label %.critedge, label %65
+63:                                               ; preds = %59
+  br i1 %.not.i.i.i.i.i, label %.critedge, label %64
 
-65:                                               ; preds = %64
-  %66 = icmp eq i64 %9, %63
-  br i1 %66, label %67, label %84
+64:                                               ; preds = %63
+  %65 = icmp eq i64 %9, %62
+  br i1 %65, label %66, label %83
 
-67:                                               ; preds = %65
-  %68 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %69 = load ptr, ptr %68, align 8
-  %70 = ptrtoint ptr %69 to i64
-  %71 = ptrtoint ptr %10 to i64
-  %72 = sub i64 %70, %71
-  %73 = ashr exact i64 %72, 3
-  %74 = load ptr, ptr %61, align 8
-  br label %75
+66:                                               ; preds = %64
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %68 = load ptr, ptr %67, align 8
+  %69 = ptrtoint ptr %68 to i64
+  %70 = ptrtoint ptr %10 to i64
+  %71 = sub i64 %69, %70
+  %72 = ashr exact i64 %71, 3
+  %73 = load ptr, ptr %60, align 8
+  br label %74
 
-75:                                               ; preds = %83, %67
-  %.039.i.i = phi i64 [ %73, %67 ], [ %77, %83 ]
+74:                                               ; preds = %82, %66
+  %.039.i.i = phi i64 [ %72, %66 ], [ %76, %82 ]
   %.not44.not.i.i = icmp eq i64 %.039.i.i, 0
-  br i1 %.not44.not.i.i, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread, label %76
+  br i1 %.not44.not.i.i, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread, label %75
 
-76:                                               ; preds = %75
-  %77 = add i64 %.039.i.i, -1
-  %78 = getelementptr inbounds nuw i64, ptr %10, i64 %77
-  %79 = load i64, ptr %78, align 8
-  %80 = getelementptr inbounds nuw i64, ptr %74, i64 %77
-  %81 = load i64, ptr %80, align 8
-  %82 = icmp ult i64 %79, %81
-  br i1 %82, label %.critedge, label %83
+75:                                               ; preds = %74
+  %76 = add i64 %.039.i.i, -1
+  %77 = getelementptr inbounds nuw i64, ptr %10, i64 %76
+  %78 = load i64, ptr %77, align 8
+  %79 = getelementptr inbounds nuw i64, ptr %73, i64 %76
+  %80 = load i64, ptr %79, align 8
+  %81 = icmp ult i64 %78, %80
+  br i1 %81, label %.critedge, label %82
 
-83:                                               ; preds = %76
-  %.not81.i.i = icmp ugt i64 %79, %81
-  br i1 %.not81.i.i, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread, label %75, !llvm.loop !175
+82:                                               ; preds = %75
+  %.not81.i.i = icmp ugt i64 %78, %80
+  br i1 %.not81.i.i, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread, label %74, !llvm.loop !175
 
-84:                                               ; preds = %65
-  %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %63, i64 %9)
-  %85 = load ptr, ptr %61, align 8
-  br label %88
+83:                                               ; preds = %64
+  %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %62, i64 %9)
+  %84 = load ptr, ptr %60, align 8
+  br label %87
 
-86:                                               ; preds = %88
-  %87 = add nuw i64 %.03872.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %87, %.sroa.speculated.i.i
-  br i1 %exitcond.not.i.i, label %106, label %88, !llvm.loop !176
+85:                                               ; preds = %87
+  %86 = add nuw i64 %.03872.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %86, %.sroa.speculated.i.i
+  br i1 %exitcond.not.i.i, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit, label %87, !llvm.loop !176
 
-88:                                               ; preds = %86, %84
-  %.03872.i.i = phi i64 [ 0, %84 ], [ %87, %86 ]
-  %.05671.i.i = phi i64 [ %63, %84 ], [ %90, %86 ]
-  %.05770.i.i = phi i64 [ %9, %84 ], [ %89, %86 ]
-  %89 = add i64 %.05770.i.i, -1
-  %90 = add i64 %.05671.i.i, -1
-  %91 = lshr i64 %89, 6
-  %92 = getelementptr inbounds nuw i64, ptr %10, i64 %91
-  %93 = load i64, ptr %92, align 8
-  %94 = and i64 %89, 63
-  %95 = shl nuw i64 1, %94
-  %96 = and i64 %95, %93
-  %97 = icmp ne i64 %96, 0
-  %98 = lshr i64 %90, 6
-  %99 = getelementptr inbounds nuw i64, ptr %85, i64 %98
-  %100 = load i64, ptr %99, align 8
-  %101 = and i64 %90, 63
-  %102 = shl nuw i64 1, %101
-  %103 = and i64 %100, %102
-  %104 = icmp eq i64 %103, 0
-  %105 = xor i1 %104, %97
-  br i1 %105, label %86, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit
+87:                                               ; preds = %85, %83
+  %.03872.i.i = phi i64 [ 0, %83 ], [ %86, %85 ]
+  %.05671.i.i = phi i64 [ %62, %83 ], [ %89, %85 ]
+  %.05770.i.i = phi i64 [ %9, %83 ], [ %88, %85 ]
+  %88 = add i64 %.05770.i.i, -1
+  %89 = add i64 %.05671.i.i, -1
+  %90 = lshr i64 %88, 6
+  %91 = getelementptr inbounds nuw i64, ptr %10, i64 %90
+  %92 = load i64, ptr %91, align 8
+  %93 = and i64 %88, 63
+  %94 = shl nuw i64 1, %93
+  %95 = and i64 %94, %92
+  %96 = icmp ne i64 %95, 0
+  %97 = lshr i64 %89, 6
+  %98 = getelementptr inbounds nuw i64, ptr %84, i64 %97
+  %99 = load i64, ptr %98, align 8
+  %100 = and i64 %89, 63
+  %101 = shl nuw i64 1, %100
+  %102 = and i64 %99, %101
+  %103 = icmp eq i64 %102, 0
+  %104 = xor i1 %103, %96
+  br i1 %104, label %85, label %.thread63.loopexit74.i.i
 
-106:                                              ; preds = %86
-  %107 = icmp ult i64 %9, %63
-  br i1 %107, label %.critedge, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread
-
-_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit: ; preds = %88
-  %.not66.i.i = or i1 %104, %97
+.thread63.loopexit74.i.i:                         ; preds = %87
+  %.not66.i.i = or i1 %103, %96
   br i1 %.not66.i.i, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread, label %.critedge
 
-.critedge:                                        ; preds = %76, %64, %2, %_ZNSt3mapIN5boost14dynamic_bitsetImSaImEEEjSt4lessIS3_ESaISt4pairIKS3_jEEE11lower_boundERS7_.exit, %106, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit
-  %.08.lcssa.i.i.i11 = phi ptr [ %.08.lcssa.i.i.i, %106 ], [ %.08.lcssa.i.i.i, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit ], [ %7, %2 ], [ %.08.lcssa.i.i.i, %_ZNSt3mapIN5boost14dynamic_bitsetImSaImEEEjSt4lessIS3_ESaISt4pairIKS3_jEEE11lower_boundERS7_.exit ], [ %.08.lcssa.i.i.i, %64 ], [ %.08.lcssa.i.i.i, %76 ]
+_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit: ; preds = %85
+  %105 = icmp ult i64 %9, %62
+  br i1 %105, label %.critedge, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread
+
+.critedge:                                        ; preds = %75, %63, %2, %_ZNSt3mapIN5boost14dynamic_bitsetImSaImEEEjSt4lessIS3_ESaISt4pairIKS3_jEEE11lower_boundERS7_.exit, %.thread63.loopexit74.i.i, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit
+  %.08.lcssa.i.i.i11 = phi ptr [ %.08.lcssa.i.i.i, %.thread63.loopexit74.i.i ], [ %.08.lcssa.i.i.i, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit ], [ %7, %2 ], [ %.08.lcssa.i.i.i, %_ZNSt3mapIN5boost14dynamic_bitsetImSaImEEEjSt4lessIS3_ESaISt4pairIKS3_jEEE11lower_boundERS7_.exit ], [ %.08.lcssa.i.i.i, %63 ], [ %.08.lcssa.i.i.i, %75 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %1, ptr %3, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %108 = call ptr @_ZNSt8_Rb_treeIN5boost14dynamic_bitsetImSaImEEESt4pairIKS3_jESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS5_EESH_IJEEEEESt17_Rb_tree_iteratorIS6_ESt23_Rb_tree_const_iteratorIS6_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %.08.lcssa.i.i.i11, ptr noundef nonnull align 1 dereferenceable(1) @_ZStL19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  %106 = call ptr @_ZNSt8_Rb_treeIN5boost14dynamic_bitsetImSaImEEESt4pairIKS3_jESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS5_EESH_IJEEEEESt17_Rb_tree_iteratorIS6_ESt23_Rb_tree_const_iteratorIS6_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %.08.lcssa.i.i.i11, ptr noundef nonnull align 1 dereferenceable(1) @_ZStL19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 1 dereferenceable(1) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread
 
-_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread: ; preds = %83, %75, %60, %106, %.critedge, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit
-  %.sroa.06.0 = phi ptr [ %108, %.critedge ], [ %.08.lcssa.i.i.i, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit ], [ %.08.lcssa.i.i.i, %106 ], [ %.08.lcssa.i.i.i, %60 ], [ %.08.lcssa.i.i.i, %75 ], [ %.08.lcssa.i.i.i, %83 ]
-  %109 = getelementptr inbounds nuw i8, ptr %.sroa.06.0, i64 64
-  ret ptr %109
+_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread: ; preds = %82, %74, %59, %.thread63.loopexit74.i.i, %.critedge, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit
+  %.sroa.06.0 = phi ptr [ %106, %.critedge ], [ %.08.lcssa.i.i.i, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit ], [ %.08.lcssa.i.i.i, %.thread63.loopexit74.i.i ], [ %.08.lcssa.i.i.i, %59 ], [ %.08.lcssa.i.i.i, %74 ], [ %.08.lcssa.i.i.i, %82 ]
+  %107 = getelementptr inbounds nuw i8, ptr %.sroa.06.0, i64 64
+  ret ptr %107
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -6357,7 +6357,7 @@ _ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread.us.i: ; pre
 34:                                               ; preds = %36
   %35 = add nuw i64 %.03872.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %35, %.sroa.speculated.i.i.i
-  br i1 %exitcond.not.i.i.i, label %54, label %36, !llvm.loop !176
+  br i1 %exitcond.not.i.i.i, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.i, label %36, !llvm.loop !176
 
 36:                                               ; preds = %34, %32
   %.03872.i.i.i = phi i64 [ 0, %32 ], [ %35, %34 ]
@@ -6380,120 +6380,120 @@ _ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread.us.i: ; pre
   %51 = and i64 %48, %50
   %52 = icmp eq i64 %51, 0
   %53 = xor i1 %52, %45
-  br i1 %53, label %34, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.i
+  br i1 %53, label %34, label %.thread63.loopexit74.i.i.i
 
-54:                                               ; preds = %34
-  %55 = icmp ult i64 %12, %7
-  br i1 %55, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread12.i, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread.i
-
-_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.i: ; preds = %36
+.thread63.loopexit74.i.i.i:                       ; preds = %36
   %.not66.i.i.i = or i1 %52, %45
   br i1 %.not66.i.i.i, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread.i, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread12.i
 
-_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread12.i: ; preds = %24, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.i, %54, %.lr.ph.split.i
+_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.i: ; preds = %34
+  %54 = icmp ult i64 %12, %7
+  br i1 %54, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread12.i, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread.i
+
+_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread12.i: ; preds = %24, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.i, %.thread63.loopexit74.i.i.i, %.lr.ph.split.i
   br label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread.i
 
-_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread.i: ; preds = %31, %23, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread12.i, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.i, %54
-  %.sink.i = phi i64 [ 24, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread12.i ], [ 16, %54 ], [ 16, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.i ], [ 16, %23 ], [ 16, %31 ]
-  %.19.i = phi ptr [ %.0818.i, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread12.i ], [ %.019.i, %54 ], [ %.019.i, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.i ], [ %.019.i, %23 ], [ %.019.i, %31 ]
-  %56 = getelementptr inbounds nuw i8, ptr %.019.i, i64 %.sink.i
-  %.1.i = load ptr, ptr %56, align 8
+_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread.i: ; preds = %31, %23, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread12.i, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.i, %.thread63.loopexit74.i.i.i
+  %.sink.i = phi i64 [ 24, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread12.i ], [ 16, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.i ], [ 16, %.thread63.loopexit74.i.i.i ], [ 16, %23 ], [ 16, %31 ]
+  %.19.i = phi ptr [ %.0818.i, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread12.i ], [ %.019.i, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.i ], [ %.019.i, %.thread63.loopexit74.i.i.i ], [ %.019.i, %23 ], [ %.019.i, %31 ]
+  %55 = getelementptr inbounds nuw i8, ptr %.019.i, i64 %.sink.i
+  %.1.i = load ptr, ptr %55, align 8
   %.not.i = icmp eq ptr %.1.i, null
   br i1 %.not.i, label %_ZNKSt8_Rb_treeIN5boost14dynamic_bitsetImSaImEEESt4pairIKS3_jESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS5_.exit, label %.lr.ph.split.i, !llvm.loop !180
 
 _ZNKSt8_Rb_treeIN5boost14dynamic_bitsetImSaImEEESt4pairIKS3_jESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS5_.exit: ; preds = %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread.i, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread.us.i
   %.08.lcssa.i = phi ptr [ %.019.us.i, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread.us.i ], [ %.19.i, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread.i ]
-  %57 = icmp eq ptr %.08.lcssa.i, %5
-  br i1 %57, label %_ZNKSt8_Rb_treeIN5boost14dynamic_bitsetImSaImEEESt4pairIKS3_jESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS5_.exit.thread, label %58
+  %56 = icmp eq ptr %.08.lcssa.i, %5
+  br i1 %56, label %_ZNKSt8_Rb_treeIN5boost14dynamic_bitsetImSaImEEESt4pairIKS3_jESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS5_.exit.thread, label %57
 
-58:                                               ; preds = %_ZNKSt8_Rb_treeIN5boost14dynamic_bitsetImSaImEEESt4pairIKS3_jESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS5_.exit
-  %59 = getelementptr inbounds nuw i8, ptr %.08.lcssa.i, i64 32
-  %60 = getelementptr inbounds nuw i8, ptr %.08.lcssa.i, i64 56
-  %61 = load i64, ptr %60, align 8
-  %.not.i.i = icmp eq i64 %61, 0
-  br i1 %.not.i.i, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread, label %62
+57:                                               ; preds = %_ZNKSt8_Rb_treeIN5boost14dynamic_bitsetImSaImEEESt4pairIKS3_jESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS5_.exit
+  %58 = getelementptr inbounds nuw i8, ptr %.08.lcssa.i, i64 32
+  %59 = getelementptr inbounds nuw i8, ptr %.08.lcssa.i, i64 56
+  %60 = load i64, ptr %59, align 8
+  %.not.i.i = icmp eq i64 %60, 0
+  br i1 %.not.i.i, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread, label %61
 
-62:                                               ; preds = %58
-  br i1 %.not.i.i.i, label %_ZNKSt8_Rb_treeIN5boost14dynamic_bitsetImSaImEEESt4pairIKS3_jESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS5_.exit.thread, label %63
+61:                                               ; preds = %57
+  br i1 %.not.i.i.i, label %_ZNKSt8_Rb_treeIN5boost14dynamic_bitsetImSaImEEESt4pairIKS3_jESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS5_.exit.thread, label %62
 
-63:                                               ; preds = %62
-  %64 = icmp eq i64 %7, %61
-  br i1 %64, label %65, label %82
+62:                                               ; preds = %61
+  %63 = icmp eq i64 %7, %60
+  br i1 %63, label %64, label %81
 
-65:                                               ; preds = %63
-  %66 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %67 = load ptr, ptr %66, align 8
-  %68 = ptrtoint ptr %67 to i64
-  %69 = ptrtoint ptr %8 to i64
-  %70 = sub i64 %68, %69
-  %71 = ashr exact i64 %70, 3
-  %72 = load ptr, ptr %59, align 8
-  br label %73
+64:                                               ; preds = %62
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %66 = load ptr, ptr %65, align 8
+  %67 = ptrtoint ptr %66 to i64
+  %68 = ptrtoint ptr %8 to i64
+  %69 = sub i64 %67, %68
+  %70 = ashr exact i64 %69, 3
+  %71 = load ptr, ptr %58, align 8
+  br label %72
 
-73:                                               ; preds = %81, %65
-  %.039.i.i = phi i64 [ %71, %65 ], [ %75, %81 ]
+72:                                               ; preds = %80, %64
+  %.039.i.i = phi i64 [ %70, %64 ], [ %74, %80 ]
   %.not44.not.i.i = icmp eq i64 %.039.i.i, 0
-  br i1 %.not44.not.i.i, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread, label %74
+  br i1 %.not44.not.i.i, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread, label %73
 
-74:                                               ; preds = %73
-  %75 = add i64 %.039.i.i, -1
-  %76 = getelementptr inbounds nuw i64, ptr %8, i64 %75
-  %77 = load i64, ptr %76, align 8
-  %78 = getelementptr inbounds nuw i64, ptr %72, i64 %75
-  %79 = load i64, ptr %78, align 8
-  %80 = icmp ult i64 %77, %79
-  br i1 %80, label %_ZNKSt8_Rb_treeIN5boost14dynamic_bitsetImSaImEEESt4pairIKS3_jESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS5_.exit.thread, label %81
+73:                                               ; preds = %72
+  %74 = add i64 %.039.i.i, -1
+  %75 = getelementptr inbounds nuw i64, ptr %8, i64 %74
+  %76 = load i64, ptr %75, align 8
+  %77 = getelementptr inbounds nuw i64, ptr %71, i64 %74
+  %78 = load i64, ptr %77, align 8
+  %79 = icmp ult i64 %76, %78
+  br i1 %79, label %_ZNKSt8_Rb_treeIN5boost14dynamic_bitsetImSaImEEESt4pairIKS3_jESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS5_.exit.thread, label %80
 
-81:                                               ; preds = %74
-  %.not81.i.i = icmp ugt i64 %77, %79
-  br i1 %.not81.i.i, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread, label %73, !llvm.loop !175
+80:                                               ; preds = %73
+  %.not81.i.i = icmp ugt i64 %76, %78
+  br i1 %.not81.i.i, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread, label %72, !llvm.loop !175
 
-82:                                               ; preds = %63
-  %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %61, i64 %7)
-  %83 = load ptr, ptr %59, align 8
-  br label %86
+81:                                               ; preds = %62
+  %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %60, i64 %7)
+  %82 = load ptr, ptr %58, align 8
+  br label %85
 
-84:                                               ; preds = %86
-  %85 = add nuw i64 %.03872.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %85, %.sroa.speculated.i.i
-  br i1 %exitcond.not.i.i, label %104, label %86, !llvm.loop !176
+83:                                               ; preds = %85
+  %84 = add nuw i64 %.03872.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %84, %.sroa.speculated.i.i
+  br i1 %exitcond.not.i.i, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit, label %85, !llvm.loop !176
 
-86:                                               ; preds = %84, %82
-  %.03872.i.i = phi i64 [ 0, %82 ], [ %85, %84 ]
-  %.05671.i.i = phi i64 [ %61, %82 ], [ %88, %84 ]
-  %.05770.i.i = phi i64 [ %7, %82 ], [ %87, %84 ]
-  %87 = add i64 %.05770.i.i, -1
-  %88 = add i64 %.05671.i.i, -1
-  %89 = lshr i64 %87, 6
-  %90 = getelementptr inbounds nuw i64, ptr %8, i64 %89
-  %91 = load i64, ptr %90, align 8
-  %92 = and i64 %87, 63
-  %93 = shl nuw i64 1, %92
-  %94 = and i64 %93, %91
-  %95 = icmp ne i64 %94, 0
-  %96 = lshr i64 %88, 6
-  %97 = getelementptr inbounds nuw i64, ptr %83, i64 %96
-  %98 = load i64, ptr %97, align 8
-  %99 = and i64 %88, 63
-  %100 = shl nuw i64 1, %99
-  %101 = and i64 %98, %100
-  %102 = icmp eq i64 %101, 0
-  %103 = xor i1 %102, %95
-  br i1 %103, label %84, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit
+85:                                               ; preds = %83, %81
+  %.03872.i.i = phi i64 [ 0, %81 ], [ %84, %83 ]
+  %.05671.i.i = phi i64 [ %60, %81 ], [ %87, %83 ]
+  %.05770.i.i = phi i64 [ %7, %81 ], [ %86, %83 ]
+  %86 = add i64 %.05770.i.i, -1
+  %87 = add i64 %.05671.i.i, -1
+  %88 = lshr i64 %86, 6
+  %89 = getelementptr inbounds nuw i64, ptr %8, i64 %88
+  %90 = load i64, ptr %89, align 8
+  %91 = and i64 %86, 63
+  %92 = shl nuw i64 1, %91
+  %93 = and i64 %92, %90
+  %94 = icmp ne i64 %93, 0
+  %95 = lshr i64 %87, 6
+  %96 = getelementptr inbounds nuw i64, ptr %82, i64 %95
+  %97 = load i64, ptr %96, align 8
+  %98 = and i64 %87, 63
+  %99 = shl nuw i64 1, %98
+  %100 = and i64 %97, %99
+  %101 = icmp eq i64 %100, 0
+  %102 = xor i1 %101, %94
+  br i1 %102, label %83, label %.thread63.loopexit74.i.i
 
-104:                                              ; preds = %84
-  %105 = icmp ult i64 %7, %61
-  br i1 %105, label %_ZNKSt8_Rb_treeIN5boost14dynamic_bitsetImSaImEEESt4pairIKS3_jESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS5_.exit.thread, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread
-
-_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit: ; preds = %86
-  %.not66.i.i = or i1 %102, %95
+.thread63.loopexit74.i.i:                         ; preds = %85
+  %.not66.i.i = or i1 %101, %94
   br i1 %.not66.i.i, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread, label %_ZNKSt8_Rb_treeIN5boost14dynamic_bitsetImSaImEEESt4pairIKS3_jESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS5_.exit.thread
 
-_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread: ; preds = %81, %73, %58, %104, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit
+_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit: ; preds = %83
+  %103 = icmp ult i64 %7, %60
+  br i1 %103, label %_ZNKSt8_Rb_treeIN5boost14dynamic_bitsetImSaImEEESt4pairIKS3_jESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS5_.exit.thread, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread
+
+_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread: ; preds = %80, %72, %57, %.thread63.loopexit74.i.i, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit
   br label %_ZNKSt8_Rb_treeIN5boost14dynamic_bitsetImSaImEEESt4pairIKS3_jESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS5_.exit.thread
 
-_ZNKSt8_Rb_treeIN5boost14dynamic_bitsetImSaImEEESt4pairIKS3_jESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS5_.exit.thread: ; preds = %74, %62, %2, %_ZNKSt8_Rb_treeIN5boost14dynamic_bitsetImSaImEEESt4pairIKS3_jESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS5_.exit, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit, %104, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread
-  %.sroa.0.0 = phi ptr [ %.08.lcssa.i, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread ], [ %5, %104 ], [ %5, %2 ], [ %5, %_ZNKSt8_Rb_treeIN5boost14dynamic_bitsetImSaImEEESt4pairIKS3_jESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS5_.exit ], [ %5, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit ], [ %5, %62 ], [ %5, %74 ]
+_ZNKSt8_Rb_treeIN5boost14dynamic_bitsetImSaImEEESt4pairIKS3_jESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS5_.exit.thread: ; preds = %73, %61, %2, %_ZNKSt8_Rb_treeIN5boost14dynamic_bitsetImSaImEEESt4pairIKS3_jESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS5_.exit, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit, %.thread63.loopexit74.i.i, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread
+  %.sroa.0.0 = phi ptr [ %.08.lcssa.i, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread ], [ %5, %.thread63.loopexit74.i.i ], [ %5, %2 ], [ %5, %_ZNKSt8_Rb_treeIN5boost14dynamic_bitsetImSaImEEESt4pairIKS3_jESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS5_.exit ], [ %5, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit ], [ %5, %61 ], [ %5, %73 ]
   ret ptr %.sroa.0.0
 }
 
@@ -6550,7 +6550,7 @@ _ZNSt8_Rb_treeIN5boost14dynamic_bitsetImSaImEEESt4pairIKS3_jESt10_Select1stIS6_E
 define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIN5boost14dynamic_bitsetImSaImEEESt4pairIKS3_jESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS6_ERS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = icmp eq ptr %1, %4
-  br i1 %5, label %6, label %66
+  br i1 %5, label %6, label %65
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -6615,7 +6615,7 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIN5boost14dynamic_bitsetI
 41:                                               ; preds = %43
   %42 = add nuw i64 %.03872.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %42, %.sroa.speculated.i.i
-  br i1 %exitcond.not.i.i, label %61, label %43, !llvm.loop !176
+  br i1 %exitcond.not.i.i, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit, label %43, !llvm.loop !176
 
 43:                                               ; preds = %41, %38
   %.03872.i.i = phi i64 [ 0, %38 ], [ %42, %41 ]
@@ -6638,397 +6638,397 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIN5boost14dynamic_bitsetI
   %58 = and i64 %55, %57
   %59 = icmp eq i64 %58, 0
   %60 = xor i1 %59, %52
-  br i1 %60, label %41, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit
+  br i1 %60, label %41, label %.thread63.loopexit74.i.i
 
-61:                                               ; preds = %41
-  %62 = icmp ult i64 %14, %16
-  br i1 %62, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread93, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread
-
-_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit: ; preds = %43
+.thread63.loopexit74.i.i:                         ; preds = %43
   %.not66.i.i = or i1 %59, %52
   br i1 %.not66.i.i, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread93
 
-_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread: ; preds = %37, %29, %9, %61, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit, %6
-  %63 = tail call { ptr, ptr } @_ZNSt8_Rb_treeIN5boost14dynamic_bitsetImSaImEEESt4pairIKS3_jESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE24_M_get_insert_unique_posERS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %2)
-  %64 = extractvalue { ptr, ptr } %63, 0
-  %65 = extractvalue { ptr, ptr } %63, 1
+_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit: ; preds = %41
+  %61 = icmp ult i64 %14, %16
+  br i1 %61, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread93, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread
+
+_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread: ; preds = %37, %29, %9, %.thread63.loopexit74.i.i, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit, %6
+  %62 = tail call { ptr, ptr } @_ZNSt8_Rb_treeIN5boost14dynamic_bitsetImSaImEEESt4pairIKS3_jESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE24_M_get_insert_unique_posERS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %2)
+  %63 = extractvalue { ptr, ptr } %62, 0
+  %64 = extractvalue { ptr, ptr } %62, 1
   br label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread93
 
-66:                                               ; preds = %3
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %68 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %69 = load i64, ptr %68, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %71 = load i64, ptr %70, align 8
-  %.not.i.i10 = icmp eq i64 %71, 0
-  %.not.i.i40111 = icmp eq i64 %69, 0
-  br i1 %.not.i.i10, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit24.thread.thread, label %72
+65:                                               ; preds = %3
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %67 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %68 = load i64, ptr %67, align 8
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %70 = load i64, ptr %69, align 8
+  %.not.i.i10 = icmp eq i64 %70, 0
+  %.not.i.i40111 = icmp eq i64 %68, 0
+  br i1 %.not.i.i10, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit24.thread.thread, label %71
 
-72:                                               ; preds = %66
-  br i1 %.not.i.i40111, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit24.thread97, label %73
+71:                                               ; preds = %65
+  br i1 %.not.i.i40111, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit24.thread97, label %72
 
-73:                                               ; preds = %72
-  %74 = icmp eq i64 %69, %71
-  br i1 %74, label %75, label %93
+72:                                               ; preds = %71
+  %73 = icmp eq i64 %68, %70
+  br i1 %73, label %74, label %92
 
-75:                                               ; preds = %73
-  %76 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %77 = load ptr, ptr %76, align 8
-  %78 = load ptr, ptr %2, align 8
+74:                                               ; preds = %72
+  %75 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %76 = load ptr, ptr %75, align 8
+  %77 = load ptr, ptr %2, align 8
+  %78 = ptrtoint ptr %76 to i64
   %79 = ptrtoint ptr %77 to i64
-  %80 = ptrtoint ptr %78 to i64
-  %81 = sub i64 %79, %80
-  %82 = ashr exact i64 %81, 3
-  %83 = load ptr, ptr %67, align 8
-  br label %84
+  %80 = sub i64 %78, %79
+  %81 = ashr exact i64 %80, 3
+  %82 = load ptr, ptr %66, align 8
+  br label %83
 
-84:                                               ; preds = %92, %75
-  %.039.i.i21 = phi i64 [ %82, %75 ], [ %86, %92 ]
+83:                                               ; preds = %91, %74
+  %.039.i.i21 = phi i64 [ %81, %74 ], [ %85, %91 ]
   %.not44.not.i.i22 = icmp eq i64 %.039.i.i21, 0
-  br i1 %.not44.not.i.i22, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit24.thread, label %85
+  br i1 %.not44.not.i.i22, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit24.thread, label %84
 
-85:                                               ; preds = %84
-  %86 = add i64 %.039.i.i21, -1
-  %87 = getelementptr inbounds nuw i64, ptr %78, i64 %86
-  %88 = load i64, ptr %87, align 8
-  %89 = getelementptr inbounds nuw i64, ptr %83, i64 %86
-  %90 = load i64, ptr %89, align 8
-  %91 = icmp ult i64 %88, %90
-  br i1 %91, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit24.thread97, label %92
+84:                                               ; preds = %83
+  %85 = add i64 %.039.i.i21, -1
+  %86 = getelementptr inbounds nuw i64, ptr %77, i64 %85
+  %87 = load i64, ptr %86, align 8
+  %88 = getelementptr inbounds nuw i64, ptr %82, i64 %85
+  %89 = load i64, ptr %88, align 8
+  %90 = icmp ult i64 %87, %89
+  br i1 %90, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit24.thread97, label %91
 
-92:                                               ; preds = %85
-  %.not81.i.i23 = icmp ugt i64 %88, %90
-  br i1 %.not81.i.i23, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit24.thread, label %84, !llvm.loop !175
+91:                                               ; preds = %84
+  %.not81.i.i23 = icmp ugt i64 %87, %89
+  br i1 %.not81.i.i23, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit24.thread, label %83, !llvm.loop !175
 
-93:                                               ; preds = %73
-  %.sroa.speculated.i.i12 = tail call i64 @llvm.umin.i64(i64 %71, i64 %69)
-  %94 = load ptr, ptr %2, align 8
-  %95 = load ptr, ptr %67, align 8
-  br label %98
+92:                                               ; preds = %72
+  %.sroa.speculated.i.i12 = tail call i64 @llvm.umin.i64(i64 %70, i64 %68)
+  %93 = load ptr, ptr %2, align 8
+  %94 = load ptr, ptr %66, align 8
+  br label %97
 
-96:                                               ; preds = %98
-  %97 = add nuw i64 %.03872.i.i13, 1
-  %exitcond.not.i.i20 = icmp eq i64 %97, %.sroa.speculated.i.i12
-  br i1 %exitcond.not.i.i20, label %116, label %98, !llvm.loop !176
+95:                                               ; preds = %97
+  %96 = add nuw i64 %.03872.i.i13, 1
+  %exitcond.not.i.i20 = icmp eq i64 %96, %.sroa.speculated.i.i12
+  br i1 %exitcond.not.i.i20, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit24, label %97, !llvm.loop !176
 
-98:                                               ; preds = %96, %93
-  %.03872.i.i13 = phi i64 [ 0, %93 ], [ %97, %96 ]
-  %.05671.i.i14 = phi i64 [ %71, %93 ], [ %100, %96 ]
-  %.05770.i.i15 = phi i64 [ %69, %93 ], [ %99, %96 ]
-  %99 = add i64 %.05770.i.i15, -1
-  %100 = add i64 %.05671.i.i14, -1
-  %101 = lshr i64 %99, 6
-  %102 = getelementptr inbounds nuw i64, ptr %94, i64 %101
-  %103 = load i64, ptr %102, align 8
-  %104 = and i64 %99, 63
-  %105 = shl nuw i64 1, %104
-  %106 = and i64 %105, %103
-  %107 = icmp ne i64 %106, 0
-  %108 = lshr i64 %100, 6
-  %109 = getelementptr inbounds nuw i64, ptr %95, i64 %108
-  %110 = load i64, ptr %109, align 8
-  %111 = and i64 %100, 63
-  %112 = shl nuw i64 1, %111
-  %113 = and i64 %110, %112
-  %114 = icmp eq i64 %113, 0
-  %115 = xor i1 %114, %107
-  br i1 %115, label %96, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit24
+97:                                               ; preds = %95, %92
+  %.03872.i.i13 = phi i64 [ 0, %92 ], [ %96, %95 ]
+  %.05671.i.i14 = phi i64 [ %70, %92 ], [ %99, %95 ]
+  %.05770.i.i15 = phi i64 [ %68, %92 ], [ %98, %95 ]
+  %98 = add i64 %.05770.i.i15, -1
+  %99 = add i64 %.05671.i.i14, -1
+  %100 = lshr i64 %98, 6
+  %101 = getelementptr inbounds nuw i64, ptr %93, i64 %100
+  %102 = load i64, ptr %101, align 8
+  %103 = and i64 %98, 63
+  %104 = shl nuw i64 1, %103
+  %105 = and i64 %104, %102
+  %106 = icmp ne i64 %105, 0
+  %107 = lshr i64 %99, 6
+  %108 = getelementptr inbounds nuw i64, ptr %94, i64 %107
+  %109 = load i64, ptr %108, align 8
+  %110 = and i64 %99, 63
+  %111 = shl nuw i64 1, %110
+  %112 = and i64 %109, %111
+  %113 = icmp eq i64 %112, 0
+  %114 = xor i1 %113, %106
+  br i1 %114, label %95, label %.thread63.loopexit74.i.i16
 
-116:                                              ; preds = %96
-  %117 = icmp ult i64 %69, %71
-  br i1 %117, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit24.thread97, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit24.thread
-
-_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit24: ; preds = %98
-  %.not66.i.i17 = or i1 %114, %107
+.thread63.loopexit74.i.i16:                       ; preds = %97
+  %.not66.i.i17 = or i1 %113, %106
   br i1 %.not66.i.i17, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit24.thread, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit24.thread97
 
-_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit24.thread97: ; preds = %85, %72, %116, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit24
-  %118 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %119 = load ptr, ptr %118, align 8
-  %120 = icmp eq ptr %119, %1
-  br i1 %120, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread93, label %121
+_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit24: ; preds = %95
+  %115 = icmp ult i64 %68, %70
+  br i1 %115, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit24.thread97, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit24.thread
 
-121:                                              ; preds = %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit24.thread97
-  %122 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %1) #24
-  %123 = getelementptr inbounds nuw i8, ptr %122, i64 32
-  %124 = getelementptr inbounds nuw i8, ptr %122, i64 56
-  %125 = load i64, ptr %124, align 8
-  br i1 %.not.i.i40111, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit39.thread, label %126
+_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit24.thread97: ; preds = %84, %71, %.thread63.loopexit74.i.i16, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit24
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %117 = load ptr, ptr %116, align 8
+  %118 = icmp eq ptr %117, %1
+  br i1 %118, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread93, label %119
 
-126:                                              ; preds = %121
-  %.not42.i.i26 = icmp eq i64 %125, 0
-  br i1 %.not42.i.i26, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit39.thread101, label %127
+119:                                              ; preds = %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit24.thread97
+  %120 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %1) #24
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 32
+  %122 = getelementptr inbounds nuw i8, ptr %120, i64 56
+  %123 = load i64, ptr %122, align 8
+  br i1 %.not.i.i40111, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit39.thread, label %124
 
-127:                                              ; preds = %126
-  %128 = icmp eq i64 %125, %69
-  br i1 %128, label %129, label %147
+124:                                              ; preds = %119
+  %.not42.i.i26 = icmp eq i64 %123, 0
+  br i1 %.not42.i.i26, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit39.thread101, label %125
 
-129:                                              ; preds = %127
-  %130 = getelementptr inbounds nuw i8, ptr %122, i64 40
-  %131 = load ptr, ptr %130, align 8
-  %132 = load ptr, ptr %123, align 8
-  %133 = ptrtoint ptr %131 to i64
-  %134 = ptrtoint ptr %132 to i64
-  %135 = sub i64 %133, %134
-  %136 = ashr exact i64 %135, 3
-  %137 = load ptr, ptr %2, align 8
-  br label %138
+125:                                              ; preds = %124
+  %126 = icmp eq i64 %123, %68
+  br i1 %126, label %127, label %145
 
-138:                                              ; preds = %146, %129
-  %.039.i.i36 = phi i64 [ %136, %129 ], [ %140, %146 ]
+127:                                              ; preds = %125
+  %128 = getelementptr inbounds nuw i8, ptr %120, i64 40
+  %129 = load ptr, ptr %128, align 8
+  %130 = load ptr, ptr %121, align 8
+  %131 = ptrtoint ptr %129 to i64
+  %132 = ptrtoint ptr %130 to i64
+  %133 = sub i64 %131, %132
+  %134 = ashr exact i64 %133, 3
+  %135 = load ptr, ptr %2, align 8
+  br label %136
+
+136:                                              ; preds = %144, %127
+  %.039.i.i36 = phi i64 [ %134, %127 ], [ %138, %144 ]
   %.not44.not.i.i37 = icmp eq i64 %.039.i.i36, 0
-  br i1 %.not44.not.i.i37, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit39.thread, label %139
+  br i1 %.not44.not.i.i37, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit39.thread, label %137
 
-139:                                              ; preds = %138
-  %140 = add i64 %.039.i.i36, -1
-  %141 = getelementptr inbounds nuw i64, ptr %132, i64 %140
+137:                                              ; preds = %136
+  %138 = add i64 %.039.i.i36, -1
+  %139 = getelementptr inbounds nuw i64, ptr %130, i64 %138
+  %140 = load i64, ptr %139, align 8
+  %141 = getelementptr inbounds nuw i64, ptr %135, i64 %138
   %142 = load i64, ptr %141, align 8
-  %143 = getelementptr inbounds nuw i64, ptr %137, i64 %140
-  %144 = load i64, ptr %143, align 8
-  %145 = icmp ult i64 %142, %144
-  br i1 %145, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit39.thread101, label %146
+  %143 = icmp ult i64 %140, %142
+  br i1 %143, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit39.thread101, label %144
 
-146:                                              ; preds = %139
-  %.not81.i.i38 = icmp ugt i64 %142, %144
-  br i1 %.not81.i.i38, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit39.thread, label %138, !llvm.loop !175
+144:                                              ; preds = %137
+  %.not81.i.i38 = icmp ugt i64 %140, %142
+  br i1 %.not81.i.i38, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit39.thread, label %136, !llvm.loop !175
 
-147:                                              ; preds = %127
-  %.sroa.speculated.i.i27 = tail call i64 @llvm.umin.i64(i64 %69, i64 %125)
-  %148 = load ptr, ptr %123, align 8
-  %149 = load ptr, ptr %2, align 8
-  br label %152
+145:                                              ; preds = %125
+  %.sroa.speculated.i.i27 = tail call i64 @llvm.umin.i64(i64 %68, i64 %123)
+  %146 = load ptr, ptr %121, align 8
+  %147 = load ptr, ptr %2, align 8
+  br label %150
 
-150:                                              ; preds = %152
-  %151 = add nuw i64 %.03872.i.i28, 1
-  %exitcond.not.i.i35 = icmp eq i64 %151, %.sroa.speculated.i.i27
-  br i1 %exitcond.not.i.i35, label %170, label %152, !llvm.loop !176
+148:                                              ; preds = %150
+  %149 = add nuw i64 %.03872.i.i28, 1
+  %exitcond.not.i.i35 = icmp eq i64 %149, %.sroa.speculated.i.i27
+  br i1 %exitcond.not.i.i35, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit39, label %150, !llvm.loop !176
 
-152:                                              ; preds = %150, %147
-  %.03872.i.i28 = phi i64 [ 0, %147 ], [ %151, %150 ]
-  %.05671.i.i29 = phi i64 [ %69, %147 ], [ %154, %150 ]
-  %.05770.i.i30 = phi i64 [ %125, %147 ], [ %153, %150 ]
-  %153 = add i64 %.05770.i.i30, -1
-  %154 = add i64 %.05671.i.i29, -1
-  %155 = lshr i64 %153, 6
-  %156 = getelementptr inbounds nuw i64, ptr %148, i64 %155
-  %157 = load i64, ptr %156, align 8
-  %158 = and i64 %153, 63
-  %159 = shl nuw i64 1, %158
-  %160 = and i64 %159, %157
-  %161 = icmp ne i64 %160, 0
-  %162 = lshr i64 %154, 6
-  %163 = getelementptr inbounds nuw i64, ptr %149, i64 %162
-  %164 = load i64, ptr %163, align 8
-  %165 = and i64 %154, 63
-  %166 = shl nuw i64 1, %165
-  %167 = and i64 %164, %166
-  %168 = icmp eq i64 %167, 0
-  %169 = xor i1 %168, %161
-  br i1 %169, label %150, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit39
+150:                                              ; preds = %148, %145
+  %.03872.i.i28 = phi i64 [ 0, %145 ], [ %149, %148 ]
+  %.05671.i.i29 = phi i64 [ %68, %145 ], [ %152, %148 ]
+  %.05770.i.i30 = phi i64 [ %123, %145 ], [ %151, %148 ]
+  %151 = add i64 %.05770.i.i30, -1
+  %152 = add i64 %.05671.i.i29, -1
+  %153 = lshr i64 %151, 6
+  %154 = getelementptr inbounds nuw i64, ptr %146, i64 %153
+  %155 = load i64, ptr %154, align 8
+  %156 = and i64 %151, 63
+  %157 = shl nuw i64 1, %156
+  %158 = and i64 %157, %155
+  %159 = icmp ne i64 %158, 0
+  %160 = lshr i64 %152, 6
+  %161 = getelementptr inbounds nuw i64, ptr %147, i64 %160
+  %162 = load i64, ptr %161, align 8
+  %163 = and i64 %152, 63
+  %164 = shl nuw i64 1, %163
+  %165 = and i64 %162, %164
+  %166 = icmp eq i64 %165, 0
+  %167 = xor i1 %166, %159
+  br i1 %167, label %148, label %.thread63.loopexit74.i.i31
 
-170:                                              ; preds = %150
-  %171 = icmp ult i64 %125, %69
-  br i1 %171, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit39.thread101, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit39.thread
-
-_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit39: ; preds = %152
-  %.not66.i.i32 = or i1 %168, %161
+.thread63.loopexit74.i.i31:                       ; preds = %150
+  %.not66.i.i32 = or i1 %166, %159
   br i1 %.not66.i.i32, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit39.thread, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit39.thread101
 
-_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit39.thread101: ; preds = %139, %126, %170, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit39
-  %172 = getelementptr inbounds nuw i8, ptr %122, i64 24
-  %173 = load ptr, ptr %172, align 8
-  %174 = icmp eq ptr %173, null
-  %spec.select = select i1 %174, ptr null, ptr %1
-  %spec.select116 = select i1 %174, ptr %122, ptr %1
+_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit39: ; preds = %148
+  %168 = icmp ult i64 %123, %68
+  br i1 %168, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit39.thread101, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit39.thread
+
+_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit39.thread101: ; preds = %137, %124, %.thread63.loopexit74.i.i31, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit39
+  %169 = getelementptr inbounds nuw i8, ptr %120, i64 24
+  %170 = load ptr, ptr %169, align 8
+  %171 = icmp eq ptr %170, null
+  %spec.select = select i1 %171, ptr null, ptr %1
+  %spec.select116 = select i1 %171, ptr %120, ptr %1
   br label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread93
 
-_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit39.thread: ; preds = %146, %138, %121, %170, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit39
-  %175 = tail call { ptr, ptr } @_ZNSt8_Rb_treeIN5boost14dynamic_bitsetImSaImEEESt4pairIKS3_jESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE24_M_get_insert_unique_posERS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %2)
-  %176 = extractvalue { ptr, ptr } %175, 0
-  %177 = extractvalue { ptr, ptr } %175, 1
+_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit39.thread: ; preds = %144, %136, %119, %.thread63.loopexit74.i.i31, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit39
+  %172 = tail call { ptr, ptr } @_ZNSt8_Rb_treeIN5boost14dynamic_bitsetImSaImEEESt4pairIKS3_jESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE24_M_get_insert_unique_posERS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %2)
+  %173 = extractvalue { ptr, ptr } %172, 0
+  %174 = extractvalue { ptr, ptr } %172, 1
   br label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread93
 
-_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit24.thread.thread: ; preds = %66
+_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit24.thread.thread: ; preds = %65
   br i1 %.not.i.i40111, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread93, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit54.thread105
 
-_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit24.thread: ; preds = %92, %84, %116, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit24
-  %178 = phi ptr [ %94, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit24 ], [ %94, %116 ], [ %78, %84 ], [ %78, %92 ]
-  %179 = phi ptr [ %95, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit24 ], [ %95, %116 ], [ %83, %84 ], [ %83, %92 ]
-  br i1 %74, label %180, label %196
+_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit24.thread: ; preds = %91, %83, %.thread63.loopexit74.i.i16, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit24
+  %175 = phi ptr [ %93, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit24 ], [ %93, %.thread63.loopexit74.i.i16 ], [ %77, %83 ], [ %77, %91 ]
+  %176 = phi ptr [ %94, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit24 ], [ %94, %.thread63.loopexit74.i.i16 ], [ %82, %83 ], [ %82, %91 ]
+  br i1 %73, label %177, label %193
 
-180:                                              ; preds = %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit24.thread
-  %181 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %182 = load ptr, ptr %181, align 8
-  %183 = ptrtoint ptr %182 to i64
-  %184 = ptrtoint ptr %179 to i64
-  %185 = sub i64 %183, %184
-  %186 = ashr exact i64 %185, 3
-  br label %187
+177:                                              ; preds = %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit24.thread
+  %178 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %179 = load ptr, ptr %178, align 8
+  %180 = ptrtoint ptr %179 to i64
+  %181 = ptrtoint ptr %176 to i64
+  %182 = sub i64 %180, %181
+  %183 = ashr exact i64 %182, 3
+  br label %184
 
-187:                                              ; preds = %195, %180
-  %.039.i.i51 = phi i64 [ %186, %180 ], [ %189, %195 ]
+184:                                              ; preds = %192, %177
+  %.039.i.i51 = phi i64 [ %183, %177 ], [ %186, %192 ]
   %.not44.not.i.i52 = icmp eq i64 %.039.i.i51, 0
-  br i1 %.not44.not.i.i52, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread93, label %188
+  br i1 %.not44.not.i.i52, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread93, label %185
 
-188:                                              ; preds = %187
-  %189 = add i64 %.039.i.i51, -1
-  %190 = getelementptr inbounds nuw i64, ptr %179, i64 %189
-  %191 = load i64, ptr %190, align 8
-  %192 = getelementptr inbounds nuw i64, ptr %178, i64 %189
-  %193 = load i64, ptr %192, align 8
-  %194 = icmp ult i64 %191, %193
-  br i1 %194, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit54.thread105, label %195
+185:                                              ; preds = %184
+  %186 = add i64 %.039.i.i51, -1
+  %187 = getelementptr inbounds nuw i64, ptr %176, i64 %186
+  %188 = load i64, ptr %187, align 8
+  %189 = getelementptr inbounds nuw i64, ptr %175, i64 %186
+  %190 = load i64, ptr %189, align 8
+  %191 = icmp ult i64 %188, %190
+  br i1 %191, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit54.thread105, label %192
 
-195:                                              ; preds = %188
-  %.not81.i.i53 = icmp ugt i64 %191, %193
-  br i1 %.not81.i.i53, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread93, label %187, !llvm.loop !175
+192:                                              ; preds = %185
+  %.not81.i.i53 = icmp ugt i64 %188, %190
+  br i1 %.not81.i.i53, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread93, label %184, !llvm.loop !175
 
-196:                                              ; preds = %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit24.thread
-  %.sroa.speculated.i.i42 = tail call i64 @llvm.umin.i64(i64 %69, i64 %71)
-  br label %199
+193:                                              ; preds = %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit24.thread
+  %.sroa.speculated.i.i42 = tail call i64 @llvm.umin.i64(i64 %68, i64 %70)
+  br label %196
 
-197:                                              ; preds = %199
-  %198 = add nuw i64 %.03872.i.i43, 1
-  %exitcond.not.i.i50 = icmp eq i64 %198, %.sroa.speculated.i.i42
-  br i1 %exitcond.not.i.i50, label %217, label %199, !llvm.loop !176
+194:                                              ; preds = %196
+  %195 = add nuw i64 %.03872.i.i43, 1
+  %exitcond.not.i.i50 = icmp eq i64 %195, %.sroa.speculated.i.i42
+  br i1 %exitcond.not.i.i50, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit54, label %196, !llvm.loop !176
 
-199:                                              ; preds = %197, %196
-  %.03872.i.i43 = phi i64 [ 0, %196 ], [ %198, %197 ]
-  %.05671.i.i44 = phi i64 [ %69, %196 ], [ %201, %197 ]
-  %.05770.i.i45 = phi i64 [ %71, %196 ], [ %200, %197 ]
-  %200 = add i64 %.05770.i.i45, -1
-  %201 = add i64 %.05671.i.i44, -1
-  %202 = lshr i64 %200, 6
-  %203 = getelementptr inbounds nuw i64, ptr %179, i64 %202
-  %204 = load i64, ptr %203, align 8
-  %205 = and i64 %200, 63
-  %206 = shl nuw i64 1, %205
-  %207 = and i64 %206, %204
-  %208 = icmp ne i64 %207, 0
-  %209 = lshr i64 %201, 6
-  %210 = getelementptr inbounds nuw i64, ptr %178, i64 %209
-  %211 = load i64, ptr %210, align 8
-  %212 = and i64 %201, 63
-  %213 = shl nuw i64 1, %212
-  %214 = and i64 %211, %213
-  %215 = icmp eq i64 %214, 0
-  %216 = xor i1 %215, %208
-  br i1 %216, label %197, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit54
+196:                                              ; preds = %194, %193
+  %.03872.i.i43 = phi i64 [ 0, %193 ], [ %195, %194 ]
+  %.05671.i.i44 = phi i64 [ %68, %193 ], [ %198, %194 ]
+  %.05770.i.i45 = phi i64 [ %70, %193 ], [ %197, %194 ]
+  %197 = add i64 %.05770.i.i45, -1
+  %198 = add i64 %.05671.i.i44, -1
+  %199 = lshr i64 %197, 6
+  %200 = getelementptr inbounds nuw i64, ptr %176, i64 %199
+  %201 = load i64, ptr %200, align 8
+  %202 = and i64 %197, 63
+  %203 = shl nuw i64 1, %202
+  %204 = and i64 %203, %201
+  %205 = icmp ne i64 %204, 0
+  %206 = lshr i64 %198, 6
+  %207 = getelementptr inbounds nuw i64, ptr %175, i64 %206
+  %208 = load i64, ptr %207, align 8
+  %209 = and i64 %198, 63
+  %210 = shl nuw i64 1, %209
+  %211 = and i64 %208, %210
+  %212 = icmp eq i64 %211, 0
+  %213 = xor i1 %212, %205
+  br i1 %213, label %194, label %.thread63.loopexit74.i.i46
 
-217:                                              ; preds = %197
-  %218 = icmp ult i64 %71, %69
-  br i1 %218, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit54.thread105, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread93
-
-_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit54: ; preds = %199
-  %.not66.i.i47 = or i1 %215, %208
+.thread63.loopexit74.i.i46:                       ; preds = %196
+  %.not66.i.i47 = or i1 %212, %205
   br i1 %.not66.i.i47, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread93, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit54.thread105
 
-_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit54.thread105: ; preds = %188, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit24.thread.thread, %217, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit54
-  %219 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %220 = load ptr, ptr %219, align 8
-  %221 = icmp eq ptr %220, %1
-  br i1 %221, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread93, label %222
+_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit54: ; preds = %194
+  %214 = icmp ult i64 %70, %68
+  br i1 %214, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit54.thread105, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread93
 
-222:                                              ; preds = %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit54.thread105
-  %223 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %1) #24
-  %224 = getelementptr inbounds nuw i8, ptr %223, i64 32
-  %225 = getelementptr inbounds nuw i8, ptr %223, i64 56
-  %226 = load i64, ptr %225, align 8
-  %.not.i.i55 = icmp eq i64 %226, 0
-  br i1 %.not.i.i55, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit69.thread, label %227
+_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit54.thread105: ; preds = %185, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit24.thread.thread, %.thread63.loopexit74.i.i46, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit54
+  %215 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %216 = load ptr, ptr %215, align 8
+  %217 = icmp eq ptr %216, %1
+  br i1 %217, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread93, label %218
 
-227:                                              ; preds = %222
-  %228 = icmp eq i64 %69, %226
-  br i1 %228, label %229, label %247
+218:                                              ; preds = %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit54.thread105
+  %219 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %1) #24
+  %220 = getelementptr inbounds nuw i8, ptr %219, i64 32
+  %221 = getelementptr inbounds nuw i8, ptr %219, i64 56
+  %222 = load i64, ptr %221, align 8
+  %.not.i.i55 = icmp eq i64 %222, 0
+  br i1 %.not.i.i55, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit69.thread, label %223
 
-229:                                              ; preds = %227
-  %230 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %231 = load ptr, ptr %230, align 8
-  %232 = load ptr, ptr %2, align 8
-  %233 = ptrtoint ptr %231 to i64
-  %234 = ptrtoint ptr %232 to i64
-  %235 = sub i64 %233, %234
-  %236 = ashr exact i64 %235, 3
-  %237 = load ptr, ptr %224, align 8
-  br label %238
+223:                                              ; preds = %218
+  %224 = icmp eq i64 %68, %222
+  br i1 %224, label %225, label %243
 
-238:                                              ; preds = %246, %229
-  %.039.i.i66 = phi i64 [ %236, %229 ], [ %240, %246 ]
+225:                                              ; preds = %223
+  %226 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %227 = load ptr, ptr %226, align 8
+  %228 = load ptr, ptr %2, align 8
+  %229 = ptrtoint ptr %227 to i64
+  %230 = ptrtoint ptr %228 to i64
+  %231 = sub i64 %229, %230
+  %232 = ashr exact i64 %231, 3
+  %233 = load ptr, ptr %220, align 8
+  br label %234
+
+234:                                              ; preds = %242, %225
+  %.039.i.i66 = phi i64 [ %232, %225 ], [ %236, %242 ]
   %.not44.not.i.i67 = icmp eq i64 %.039.i.i66, 0
-  br i1 %.not44.not.i.i67, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit69.thread, label %239
+  br i1 %.not44.not.i.i67, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit69.thread, label %235
 
-239:                                              ; preds = %238
-  %240 = add i64 %.039.i.i66, -1
-  %241 = getelementptr inbounds nuw i64, ptr %232, i64 %240
-  %242 = load i64, ptr %241, align 8
-  %243 = getelementptr inbounds nuw i64, ptr %237, i64 %240
-  %244 = load i64, ptr %243, align 8
-  %245 = icmp ult i64 %242, %244
-  br i1 %245, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit69.thread109, label %246
+235:                                              ; preds = %234
+  %236 = add i64 %.039.i.i66, -1
+  %237 = getelementptr inbounds nuw i64, ptr %228, i64 %236
+  %238 = load i64, ptr %237, align 8
+  %239 = getelementptr inbounds nuw i64, ptr %233, i64 %236
+  %240 = load i64, ptr %239, align 8
+  %241 = icmp ult i64 %238, %240
+  br i1 %241, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit69.thread109, label %242
 
-246:                                              ; preds = %239
-  %.not81.i.i68 = icmp ugt i64 %242, %244
-  br i1 %.not81.i.i68, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit69.thread, label %238, !llvm.loop !175
+242:                                              ; preds = %235
+  %.not81.i.i68 = icmp ugt i64 %238, %240
+  br i1 %.not81.i.i68, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit69.thread, label %234, !llvm.loop !175
 
-247:                                              ; preds = %227
-  %.sroa.speculated.i.i57 = tail call i64 @llvm.umin.i64(i64 %226, i64 %69)
-  %248 = load ptr, ptr %2, align 8
-  %249 = load ptr, ptr %224, align 8
-  br label %252
+243:                                              ; preds = %223
+  %.sroa.speculated.i.i57 = tail call i64 @llvm.umin.i64(i64 %222, i64 %68)
+  %244 = load ptr, ptr %2, align 8
+  %245 = load ptr, ptr %220, align 8
+  br label %248
 
-250:                                              ; preds = %252
-  %251 = add nuw i64 %.03872.i.i58, 1
-  %exitcond.not.i.i65 = icmp eq i64 %251, %.sroa.speculated.i.i57
-  br i1 %exitcond.not.i.i65, label %270, label %252, !llvm.loop !176
+246:                                              ; preds = %248
+  %247 = add nuw i64 %.03872.i.i58, 1
+  %exitcond.not.i.i65 = icmp eq i64 %247, %.sroa.speculated.i.i57
+  br i1 %exitcond.not.i.i65, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit69, label %248, !llvm.loop !176
 
-252:                                              ; preds = %250, %247
-  %.03872.i.i58 = phi i64 [ 0, %247 ], [ %251, %250 ]
-  %.05671.i.i59 = phi i64 [ %226, %247 ], [ %254, %250 ]
-  %.05770.i.i60 = phi i64 [ %69, %247 ], [ %253, %250 ]
-  %253 = add i64 %.05770.i.i60, -1
-  %254 = add i64 %.05671.i.i59, -1
-  %255 = lshr i64 %253, 6
-  %256 = getelementptr inbounds nuw i64, ptr %248, i64 %255
-  %257 = load i64, ptr %256, align 8
-  %258 = and i64 %253, 63
-  %259 = shl nuw i64 1, %258
-  %260 = and i64 %259, %257
-  %261 = icmp ne i64 %260, 0
-  %262 = lshr i64 %254, 6
-  %263 = getelementptr inbounds nuw i64, ptr %249, i64 %262
-  %264 = load i64, ptr %263, align 8
-  %265 = and i64 %254, 63
-  %266 = shl nuw i64 1, %265
-  %267 = and i64 %264, %266
-  %268 = icmp eq i64 %267, 0
-  %269 = xor i1 %268, %261
-  br i1 %269, label %250, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit69
+248:                                              ; preds = %246, %243
+  %.03872.i.i58 = phi i64 [ 0, %243 ], [ %247, %246 ]
+  %.05671.i.i59 = phi i64 [ %222, %243 ], [ %250, %246 ]
+  %.05770.i.i60 = phi i64 [ %68, %243 ], [ %249, %246 ]
+  %249 = add i64 %.05770.i.i60, -1
+  %250 = add i64 %.05671.i.i59, -1
+  %251 = lshr i64 %249, 6
+  %252 = getelementptr inbounds nuw i64, ptr %244, i64 %251
+  %253 = load i64, ptr %252, align 8
+  %254 = and i64 %249, 63
+  %255 = shl nuw i64 1, %254
+  %256 = and i64 %255, %253
+  %257 = icmp ne i64 %256, 0
+  %258 = lshr i64 %250, 6
+  %259 = getelementptr inbounds nuw i64, ptr %245, i64 %258
+  %260 = load i64, ptr %259, align 8
+  %261 = and i64 %250, 63
+  %262 = shl nuw i64 1, %261
+  %263 = and i64 %260, %262
+  %264 = icmp eq i64 %263, 0
+  %265 = xor i1 %264, %257
+  br i1 %265, label %246, label %.thread63.loopexit74.i.i61
 
-270:                                              ; preds = %250
-  %271 = icmp ult i64 %69, %226
-  br i1 %271, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit69.thread109, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit69.thread
-
-_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit69: ; preds = %252
-  %.not66.i.i62 = or i1 %268, %261
+.thread63.loopexit74.i.i61:                       ; preds = %248
+  %.not66.i.i62 = or i1 %264, %257
   br i1 %.not66.i.i62, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit69.thread, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit69.thread109
 
-_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit69.thread109: ; preds = %239, %270, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit69
-  %272 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %273 = load ptr, ptr %272, align 8
-  %274 = icmp eq ptr %273, null
-  %spec.select117 = select i1 %274, ptr null, ptr %223
-  %spec.select118 = select i1 %274, ptr %1, ptr %223
+_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit69: ; preds = %246
+  %266 = icmp ult i64 %68, %222
+  br i1 %266, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit69.thread109, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit69.thread
+
+_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit69.thread109: ; preds = %235, %.thread63.loopexit74.i.i61, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit69
+  %267 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %268 = load ptr, ptr %267, align 8
+  %269 = icmp eq ptr %268, null
+  %spec.select117 = select i1 %269, ptr null, ptr %219
+  %spec.select118 = select i1 %269, ptr %1, ptr %219
   br label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread93
 
-_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit69.thread: ; preds = %246, %238, %222, %270, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit69
-  %275 = tail call { ptr, ptr } @_ZNSt8_Rb_treeIN5boost14dynamic_bitsetImSaImEEESt4pairIKS3_jESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE24_M_get_insert_unique_posERS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %2)
-  %276 = extractvalue { ptr, ptr } %275, 0
-  %277 = extractvalue { ptr, ptr } %275, 1
+_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit69.thread: ; preds = %242, %234, %218, %.thread63.loopexit74.i.i61, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit69
+  %270 = tail call { ptr, ptr } @_ZNSt8_Rb_treeIN5boost14dynamic_bitsetImSaImEEESt4pairIKS3_jESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE24_M_get_insert_unique_posERS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %2)
+  %271 = extractvalue { ptr, ptr } %270, 0
+  %272 = extractvalue { ptr, ptr } %270, 1
   br label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread93
 
-_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread93: ; preds = %195, %187, %30, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit69.thread109, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit39.thread101, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit24.thread.thread, %17, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit54, %217, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit69.thread, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit54.thread105, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit39.thread, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit24.thread97, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit, %61, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread
-  %.sroa.090.0 = phi ptr [ %64, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread ], [ null, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit ], [ %spec.select117, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit69.thread109 ], [ null, %61 ], [ %1, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit54 ], [ %176, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit39.thread ], [ %119, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit24.thread97 ], [ %1, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit24.thread.thread ], [ %276, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit69.thread ], [ null, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit54.thread105 ], [ %spec.select, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit39.thread101 ], [ %1, %217 ], [ null, %17 ], [ null, %30 ], [ %1, %187 ], [ %1, %195 ]
-  %.sroa.12.0 = phi ptr [ %65, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread ], [ %11, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit ], [ %spec.select118, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit69.thread109 ], [ %11, %61 ], [ null, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit54 ], [ %177, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit39.thread ], [ %119, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit24.thread97 ], [ null, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit24.thread.thread ], [ %277, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit69.thread ], [ %220, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit54.thread105 ], [ %spec.select116, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit39.thread101 ], [ null, %217 ], [ %11, %17 ], [ %11, %30 ], [ null, %187 ], [ null, %195 ]
+_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread93: ; preds = %192, %184, %30, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit69.thread109, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit39.thread101, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit24.thread.thread, %17, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit54, %.thread63.loopexit74.i.i46, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit69.thread, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit54.thread105, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit39.thread, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit24.thread97, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit, %.thread63.loopexit74.i.i, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread
+  %.sroa.090.0 = phi ptr [ %63, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread ], [ null, %30 ], [ null, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit ], [ %spec.select117, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit69.thread109 ], [ null, %.thread63.loopexit74.i.i ], [ %1, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit54 ], [ %173, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit39.thread ], [ %117, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit24.thread97 ], [ %1, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit24.thread.thread ], [ %271, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit69.thread ], [ null, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit54.thread105 ], [ %spec.select, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit39.thread101 ], [ %1, %.thread63.loopexit74.i.i46 ], [ null, %17 ], [ %1, %184 ], [ %1, %192 ]
+  %.sroa.12.0 = phi ptr [ %64, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread ], [ %11, %30 ], [ %11, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit ], [ %spec.select118, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit69.thread109 ], [ %11, %.thread63.loopexit74.i.i ], [ null, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit54 ], [ %174, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit39.thread ], [ %117, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit24.thread97 ], [ null, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit24.thread.thread ], [ %272, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit69.thread ], [ %216, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit54.thread105 ], [ %spec.select116, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit39.thread101 ], [ null, %.thread63.loopexit74.i.i46 ], [ %11, %17 ], [ null, %184 ], [ null, %192 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.090.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -7224,7 +7224,7 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIN5boost14dynamic_bitsetI
 34:                                               ; preds = %36
   %35 = add nuw i64 %.03872.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %35, %.sroa.speculated.i.i
-  br i1 %exitcond.not.i.i, label %54, label %36, !llvm.loop !176
+  br i1 %exitcond.not.i.i, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit, label %36, !llvm.loop !176
 
 36:                                               ; preds = %34, %32
   %.03872.i.i = phi i64 [ 0, %32 ], [ %35, %34 ]
@@ -7247,139 +7247,139 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIN5boost14dynamic_bitsetI
   %51 = and i64 %48, %50
   %52 = icmp eq i64 %51, 0
   %53 = xor i1 %52, %45
-  br i1 %53, label %34, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit
+  br i1 %53, label %34, label %.thread63.loopexit74.i.i
 
-54:                                               ; preds = %34
-  %55 = icmp ult i64 %.fr, %18
-  br i1 %55, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread40, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread
-
-_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit: ; preds = %36
+.thread63.loopexit74.i.i:                         ; preds = %36
   %.not66.i.i = or i1 %52, %45
   br i1 %.not66.i.i, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread40
 
-_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread: ; preds = %31, %23, %.lr.ph.split, %54, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit
+_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit: ; preds = %34
+  %54 = icmp ult i64 %.fr, %18
+  br i1 %54, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread40, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread
+
+_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread: ; preds = %31, %23, %.lr.ph.split, %.thread63.loopexit74.i.i, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit
   br label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread40
 
-_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread40: ; preds = %24, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit, %54, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread
-  %.sink = phi i64 [ 24, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread ], [ 16, %54 ], [ 16, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit ], [ 16, %24 ]
-  %.0.i.i37 = phi i1 [ false, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread ], [ true, %54 ], [ true, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit ], [ true, %24 ]
-  %56 = getelementptr inbounds nuw i8, ptr %.03556, i64 %.sink
-  %.035 = load ptr, ptr %56, align 8
+_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread40: ; preds = %24, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit, %.thread63.loopexit74.i.i, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread
+  %.sink = phi i64 [ 24, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread ], [ 16, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit ], [ 16, %.thread63.loopexit74.i.i ], [ 16, %24 ]
+  %.0.i.i37 = phi i1 [ false, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread ], [ true, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit ], [ true, %.thread63.loopexit74.i.i ], [ true, %24 ]
+  %55 = getelementptr inbounds nuw i8, ptr %.03556, i64 %.sink
+  %.035 = load ptr, ptr %55, align 8
   %.not = icmp eq ptr %.035, null
   br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !181
 
 ._crit_edge:                                      ; preds = %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread40, %.lr.ph.split.us
   %.034.lcssa = phi ptr [ %.03556.us, %.lr.ph.split.us ], [ %.03556, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread40 ]
   %.0.lcssa = phi i1 [ %.not.i.i.us, %.lr.ph.split.us ], [ %.0.i.i37, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit.thread40 ]
-  br i1 %.0.lcssa, label %._crit_edge.thread, label %62
+  br i1 %.0.lcssa, label %._crit_edge.thread, label %61
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge
   %.034.lcssa81 = phi ptr [ %.034.lcssa, %._crit_edge ], [ %4, %2 ]
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %58 = load ptr, ptr %57, align 8
-  %59 = icmp eq ptr %.034.lcssa81, %58
-  br i1 %59, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit19.thread45, label %60
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %57 = load ptr, ptr %56, align 8
+  %58 = icmp eq ptr %.034.lcssa81, %57
+  br i1 %58, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit19.thread45, label %59
 
-60:                                               ; preds = %._crit_edge.thread
-  %61 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.034.lcssa81) #24
-  br label %62
+59:                                               ; preds = %._crit_edge.thread
+  %60 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.034.lcssa81) #24
+  br label %61
 
-62:                                               ; preds = %60, %._crit_edge
-  %.034.lcssa80 = phi ptr [ %.034.lcssa81, %60 ], [ %.034.lcssa, %._crit_edge ]
-  %.sroa.020.0 = phi ptr [ %61, %60 ], [ %.034.lcssa, %._crit_edge ]
-  %63 = getelementptr inbounds nuw i8, ptr %.sroa.020.0, i64 32
-  %64 = getelementptr inbounds nuw i8, ptr %.sroa.020.0, i64 56
-  %65 = load i64, ptr %64, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %67 = load i64, ptr %66, align 8
-  %.not.i.i5 = icmp eq i64 %67, 0
-  br i1 %.not.i.i5, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit19.thread, label %68
+61:                                               ; preds = %59, %._crit_edge
+  %.034.lcssa80 = phi ptr [ %.034.lcssa81, %59 ], [ %.034.lcssa, %._crit_edge ]
+  %.sroa.020.0 = phi ptr [ %60, %59 ], [ %.034.lcssa, %._crit_edge ]
+  %62 = getelementptr inbounds nuw i8, ptr %.sroa.020.0, i64 32
+  %63 = getelementptr inbounds nuw i8, ptr %.sroa.020.0, i64 56
+  %64 = load i64, ptr %63, align 8
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %66 = load i64, ptr %65, align 8
+  %.not.i.i5 = icmp eq i64 %66, 0
+  br i1 %.not.i.i5, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit19.thread, label %67
 
-68:                                               ; preds = %62
-  %.not42.i.i6 = icmp eq i64 %65, 0
-  br i1 %.not42.i.i6, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit19.thread45, label %69
+67:                                               ; preds = %61
+  %.not42.i.i6 = icmp eq i64 %64, 0
+  br i1 %.not42.i.i6, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit19.thread45, label %68
 
-69:                                               ; preds = %68
-  %70 = icmp eq i64 %65, %67
-  br i1 %70, label %71, label %89
+68:                                               ; preds = %67
+  %69 = icmp eq i64 %64, %66
+  br i1 %69, label %70, label %88
 
-71:                                               ; preds = %69
-  %72 = getelementptr inbounds nuw i8, ptr %.sroa.020.0, i64 40
-  %73 = load ptr, ptr %72, align 8
-  %74 = load ptr, ptr %63, align 8
+70:                                               ; preds = %68
+  %71 = getelementptr inbounds nuw i8, ptr %.sroa.020.0, i64 40
+  %72 = load ptr, ptr %71, align 8
+  %73 = load ptr, ptr %62, align 8
+  %74 = ptrtoint ptr %72 to i64
   %75 = ptrtoint ptr %73 to i64
-  %76 = ptrtoint ptr %74 to i64
-  %77 = sub i64 %75, %76
-  %78 = ashr exact i64 %77, 3
-  %79 = load ptr, ptr %1, align 8
-  br label %80
+  %76 = sub i64 %74, %75
+  %77 = ashr exact i64 %76, 3
+  %78 = load ptr, ptr %1, align 8
+  br label %79
 
-80:                                               ; preds = %88, %71
-  %.039.i.i16 = phi i64 [ %78, %71 ], [ %82, %88 ]
+79:                                               ; preds = %87, %70
+  %.039.i.i16 = phi i64 [ %77, %70 ], [ %81, %87 ]
   %.not44.not.i.i17 = icmp eq i64 %.039.i.i16, 0
-  br i1 %.not44.not.i.i17, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit19.thread, label %81
+  br i1 %.not44.not.i.i17, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit19.thread, label %80
 
-81:                                               ; preds = %80
-  %82 = add i64 %.039.i.i16, -1
-  %83 = getelementptr inbounds nuw i64, ptr %74, i64 %82
-  %84 = load i64, ptr %83, align 8
-  %85 = getelementptr inbounds nuw i64, ptr %79, i64 %82
-  %86 = load i64, ptr %85, align 8
-  %87 = icmp ult i64 %84, %86
-  br i1 %87, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit19.thread45, label %88
+80:                                               ; preds = %79
+  %81 = add i64 %.039.i.i16, -1
+  %82 = getelementptr inbounds nuw i64, ptr %73, i64 %81
+  %83 = load i64, ptr %82, align 8
+  %84 = getelementptr inbounds nuw i64, ptr %78, i64 %81
+  %85 = load i64, ptr %84, align 8
+  %86 = icmp ult i64 %83, %85
+  br i1 %86, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit19.thread45, label %87
 
-88:                                               ; preds = %81
-  %.not81.i.i18 = icmp ugt i64 %84, %86
-  br i1 %.not81.i.i18, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit19.thread, label %80, !llvm.loop !175
+87:                                               ; preds = %80
+  %.not81.i.i18 = icmp ugt i64 %83, %85
+  br i1 %.not81.i.i18, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit19.thread, label %79, !llvm.loop !175
 
-89:                                               ; preds = %69
-  %.sroa.speculated.i.i7 = tail call i64 @llvm.umin.i64(i64 %67, i64 %65)
-  %90 = load ptr, ptr %63, align 8
-  %91 = load ptr, ptr %1, align 8
-  br label %94
+88:                                               ; preds = %68
+  %.sroa.speculated.i.i7 = tail call i64 @llvm.umin.i64(i64 %66, i64 %64)
+  %89 = load ptr, ptr %62, align 8
+  %90 = load ptr, ptr %1, align 8
+  br label %93
 
-92:                                               ; preds = %94
-  %93 = add nuw i64 %.03872.i.i8, 1
-  %exitcond.not.i.i15 = icmp eq i64 %93, %.sroa.speculated.i.i7
-  br i1 %exitcond.not.i.i15, label %112, label %94, !llvm.loop !176
+91:                                               ; preds = %93
+  %92 = add nuw i64 %.03872.i.i8, 1
+  %exitcond.not.i.i15 = icmp eq i64 %92, %.sroa.speculated.i.i7
+  br i1 %exitcond.not.i.i15, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit19, label %93, !llvm.loop !176
 
-94:                                               ; preds = %92, %89
-  %.03872.i.i8 = phi i64 [ 0, %89 ], [ %93, %92 ]
-  %.05671.i.i9 = phi i64 [ %67, %89 ], [ %96, %92 ]
-  %.05770.i.i10 = phi i64 [ %65, %89 ], [ %95, %92 ]
-  %95 = add i64 %.05770.i.i10, -1
-  %96 = add i64 %.05671.i.i9, -1
-  %97 = lshr i64 %95, 6
-  %98 = getelementptr inbounds nuw i64, ptr %90, i64 %97
-  %99 = load i64, ptr %98, align 8
-  %100 = and i64 %95, 63
-  %101 = shl nuw i64 1, %100
-  %102 = and i64 %101, %99
-  %103 = icmp ne i64 %102, 0
-  %104 = lshr i64 %96, 6
-  %105 = getelementptr inbounds nuw i64, ptr %91, i64 %104
-  %106 = load i64, ptr %105, align 8
-  %107 = and i64 %96, 63
-  %108 = shl nuw i64 1, %107
-  %109 = and i64 %106, %108
-  %110 = icmp eq i64 %109, 0
-  %111 = xor i1 %110, %103
-  br i1 %111, label %92, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit19
+93:                                               ; preds = %91, %88
+  %.03872.i.i8 = phi i64 [ 0, %88 ], [ %92, %91 ]
+  %.05671.i.i9 = phi i64 [ %66, %88 ], [ %95, %91 ]
+  %.05770.i.i10 = phi i64 [ %64, %88 ], [ %94, %91 ]
+  %94 = add i64 %.05770.i.i10, -1
+  %95 = add i64 %.05671.i.i9, -1
+  %96 = lshr i64 %94, 6
+  %97 = getelementptr inbounds nuw i64, ptr %89, i64 %96
+  %98 = load i64, ptr %97, align 8
+  %99 = and i64 %94, 63
+  %100 = shl nuw i64 1, %99
+  %101 = and i64 %100, %98
+  %102 = icmp ne i64 %101, 0
+  %103 = lshr i64 %95, 6
+  %104 = getelementptr inbounds nuw i64, ptr %90, i64 %103
+  %105 = load i64, ptr %104, align 8
+  %106 = and i64 %95, 63
+  %107 = shl nuw i64 1, %106
+  %108 = and i64 %105, %107
+  %109 = icmp eq i64 %108, 0
+  %110 = xor i1 %109, %102
+  br i1 %110, label %91, label %.thread63.loopexit74.i.i11
 
-112:                                              ; preds = %92
-  %113 = icmp ult i64 %65, %67
-  br i1 %113, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit19.thread45, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit19.thread
-
-_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit19: ; preds = %94
-  %.not66.i.i12 = or i1 %110, %103
+.thread63.loopexit74.i.i11:                       ; preds = %93
+  %.not66.i.i12 = or i1 %109, %102
   br i1 %.not66.i.i12, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit19.thread, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit19.thread45
 
-_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit19.thread: ; preds = %88, %80, %62, %112, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit19
+_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit19: ; preds = %91
+  %111 = icmp ult i64 %64, %66
+  br i1 %111, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit19.thread45, label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit19.thread
+
+_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit19.thread: ; preds = %87, %79, %61, %.thread63.loopexit74.i.i11, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit19
   br label %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit19.thread45
 
-_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit19.thread45: ; preds = %81, %68, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit19, %112, %._crit_edge.thread, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit19.thread
-  %.sroa.033.0 = phi ptr [ %.sroa.020.0, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit19.thread ], [ null, %._crit_edge.thread ], [ null, %112 ], [ null, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit19 ], [ null, %68 ], [ null, %81 ]
-  %.sroa.4.0 = phi ptr [ null, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit19.thread ], [ %.034.lcssa81, %._crit_edge.thread ], [ %.034.lcssa80, %112 ], [ %.034.lcssa80, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit19 ], [ %.034.lcssa80, %68 ], [ %.034.lcssa80, %81 ]
+_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit19.thread45: ; preds = %80, %67, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit19, %.thread63.loopexit74.i.i11, %._crit_edge.thread, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit19.thread
+  %.sroa.033.0 = phi ptr [ %.sroa.020.0, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit19.thread ], [ null, %._crit_edge.thread ], [ null, %.thread63.loopexit74.i.i11 ], [ null, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit19 ], [ null, %67 ], [ null, %80 ]
+  %.sroa.4.0 = phi ptr [ null, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit19.thread ], [ %.034.lcssa81, %._crit_edge.thread ], [ %.034.lcssa80, %.thread63.loopexit74.i.i11 ], [ %.034.lcssa80, %_ZNKSt4lessIN5boost14dynamic_bitsetImSaImEEEEclERKS3_S6_.exit19 ], [ %.034.lcssa80, %67 ], [ %.034.lcssa80, %80 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.033.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %.fca.1.insert

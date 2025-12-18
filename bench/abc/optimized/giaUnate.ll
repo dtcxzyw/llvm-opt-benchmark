@@ -1643,10 +1643,10 @@ Gia_ManCheckUnate.exit.us:                        ; preds = %56, %40
   br i1 %75, label %.preheader, label %._crit_edge73, !llvm.loop !65
 
 ._crit_edge73:                                    ; preds = %.preheader, %36, %.preheader.lr.ph.split, %25
-  %.val55.val98 = phi i32 [ %.val56.val69, %25 ], [ %.val56.val69, %.preheader.lr.ph.split ], [ %.val56.val.us, %36 ], [ %.val56.val, %.preheader ]
-  %.val56.lcssa = phi ptr [ %.val5668, %25 ], [ %.val5668, %.preheader.lr.ph.split ], [ %.val56.us, %36 ], [ %.val56, %.preheader ]
-  %.046.lcssa = phi i32 [ 0, %25 ], [ 0, %.preheader.lr.ph.split ], [ %.248.us, %36 ], [ 0, %.preheader ]
-  %.044.lcssa = phi i32 [ 0, %25 ], [ 0, %.preheader.lr.ph.split ], [ %.2.us, %36 ], [ 0, %.preheader ]
+  %.val55.val98 = phi i32 [ %.val56.val69, %25 ], [ %.val56.val.us, %36 ], [ %.val56.val69, %.preheader.lr.ph.split ], [ %.val56.val, %.preheader ]
+  %.val56.lcssa = phi ptr [ %.val5668, %25 ], [ %.val56.us, %36 ], [ %.val5668, %.preheader.lr.ph.split ], [ %.val56, %.preheader ]
+  %.046.lcssa = phi i32 [ 0, %25 ], [ %.248.us, %36 ], [ 0, %.preheader.lr.ph.split ], [ 0, %.preheader ]
+  %.044.lcssa = phi i32 [ 0, %25 ], [ %.2.us, %36 ], [ 0, %.preheader.lr.ph.split ], [ 0, %.preheader ]
   %.not53 = icmp eq ptr %18, null
   br i1 %.not53, label %78, label %76
 

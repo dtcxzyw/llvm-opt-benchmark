@@ -1002,9 +1002,9 @@ if.end27.i.i.sink.split:                          ; preds = %for.inc.i.i, %if.th
   br label %if.end27.i.i
 
 if.end27.i.i:                                     ; preds = %lor.lhs.false.i.i.i370.i, %if.end3.i.i.i368.i, %if.end27.i.i.sink.split, %if.then19.i.i
-  %40 = phi i64 [ %28, %if.then19.i.i ], [ %39, %if.end27.i.i.sink.split ], [ %28, %if.end3.i.i.i368.i ], [ %28, %lor.lhs.false.i.i.i370.i ]
-  %rem.i.i.i.i360603.i = phi i64 [ %rem.i.i.i.i360609.i, %if.then19.i.i ], [ %rem.i.i.i.i360.i, %if.end27.i.i.sink.split ], [ %rem.i.i.i.i360609.i, %if.end3.i.i.i368.i ], [ %rem.i.i.i.i360609.i, %lor.lhs.false.i.i.i370.i ]
-  %xor9.i.i.i358601.i = phi i64 [ %xor9.i.i.i358607.i, %if.then19.i.i ], [ %xor9.i.i.i358.i, %if.end27.i.i.sink.split ], [ %xor9.i.i.i358607.i, %if.end3.i.i.i368.i ], [ %xor9.i.i.i358607.i, %lor.lhs.false.i.i.i370.i ]
+  %40 = phi i64 [ %39, %if.end27.i.i.sink.split ], [ %28, %if.then19.i.i ], [ %28, %if.end3.i.i.i368.i ], [ %28, %lor.lhs.false.i.i.i370.i ]
+  %rem.i.i.i.i360603.i = phi i64 [ %rem.i.i.i.i360.i, %if.end27.i.i.sink.split ], [ %rem.i.i.i.i360609.i, %if.then19.i.i ], [ %rem.i.i.i.i360609.i, %if.end3.i.i.i368.i ], [ %rem.i.i.i.i360609.i, %lor.lhs.false.i.i.i370.i ]
+  %xor9.i.i.i358601.i = phi i64 [ %xor9.i.i.i358.i, %if.end27.i.i.sink.split ], [ %xor9.i.i.i358607.i, %if.then19.i.i ], [ %xor9.i.i.i358607.i, %if.end3.i.i.i368.i ], [ %xor9.i.i.i358607.i, %lor.lhs.false.i.i.i370.i ]
   %call5.i.i.i.i.i.i.i697 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #27
           to label %call5.i.i.i.i.i.i.i.noexc unwind label %lpad52.loopexit
 

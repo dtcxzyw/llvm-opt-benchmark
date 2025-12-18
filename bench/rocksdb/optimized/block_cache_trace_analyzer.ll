@@ -8126,8 +8126,8 @@ _ZN7rocksdb12_GLOBAL__N_116adjust_time_unitERKSt3mapImmSt4lessImESaISt4pairIKmmE
   br i1 %.not5831305, label %._crit_edge1310, label %.lr.ph1309
 
 ._crit_edge1310:                                  ; preds = %614, %439, %452, %_ZN7rocksdb12_GLOBAL__N_116adjust_time_unitERKSt3mapImmSt4lessImESaISt4pairIKmmEEEm.exit
-  %.3576.lcssa = phi i64 [ %.25751313, %_ZN7rocksdb12_GLOBAL__N_116adjust_time_unitERKSt3mapImmSt4lessImESaISt4pairIKmmEEEm.exit ], [ %.25751313, %452 ], [ %.25751313, %439 ], [ %.sroa.speculated, %614 ]
-  %.3.lcssa = phi i64 [ %.21314, %_ZN7rocksdb12_GLOBAL__N_116adjust_time_unitERKSt3mapImmSt4lessImESaISt4pairIKmmEEEm.exit ], [ %.21314, %452 ], [ %.21314, %439 ], [ %.sroa.speculated526, %614 ]
+  %.3576.lcssa = phi i64 [ %.25751313, %_ZN7rocksdb12_GLOBAL__N_116adjust_time_unitERKSt3mapImmSt4lessImESaISt4pairIKmmEEEm.exit ], [ %.25751313, %439 ], [ %.25751313, %452 ], [ %.sroa.speculated, %614 ]
+  %.3.lcssa = phi i64 [ %.21314, %_ZN7rocksdb12_GLOBAL__N_116adjust_time_unitERKSt3mapImmSt4lessImESaISt4pairIKmmEEEm.exit ], [ %.21314, %439 ], [ %.21314, %452 ], [ %.sroa.speculated526, %614 ]
   %496 = load ptr, ptr %76, align 8, !tbaa !16
   invoke void @_ZNSt8_Rb_treeImSt4pairIKmmESt10_Select1stIS2_ESt4lessImESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef %496)
           to label %_ZNSt3mapImmSt4lessImESaISt4pairIKmmEEED2Ev.exit unwind label %497

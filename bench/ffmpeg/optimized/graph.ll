@@ -2107,7 +2107,7 @@ pass_append.exit138:                              ; preds = %132, %129, %.loopex
   br label %.thread145
 
 .thread145:                                       ; preds = %26, %93, %97, %103, %132, %67, %isALPHA.exit.thread, %82, %pass_append.exit135, %35, %pass_append.exit138
-  %.4 = phi i32 [ -12, %132 ], [ 0, %pass_append.exit138 ], [ -12, %82 ], [ -12, %67 ], [ -12, %pass_append.exit135 ], [ -12, %isALPHA.exit.thread ], [ 0, %35 ], [ -12, %93 ], [ %101, %97 ], [ %104, %103 ], [ %32, %26 ]
+  %.4 = phi i32 [ -12, %132 ], [ 0, %pass_append.exit138 ], [ -12, %82 ], [ -12, %67 ], [ -12, %pass_append.exit135 ], [ -12, %isALPHA.exit.thread ], [ -12, %93 ], [ 0, %35 ], [ %101, %97 ], [ %104, %103 ], [ %32, %26 ]
   ret i32 %.4
 }
 

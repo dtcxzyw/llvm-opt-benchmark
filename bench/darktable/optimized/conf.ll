@@ -1881,7 +1881,7 @@ _sanitize_confgen.exit:                           ; preds = %27, %31, %dt_confge
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_sanitize_confgen.exit, %._crit_edge, %207, %.thread, %220
-  %.6 = phi ptr [ %219, %220 ], [ null, %.thread ], [ null, %207 ], [ null, %._crit_edge ], [ %204, %_sanitize_confgen.exit ]
+  %.6 = phi ptr [ null, %._crit_edge ], [ %219, %220 ], [ null, %.thread ], [ null, %207 ], [ %204, %_sanitize_confgen.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.6
 }

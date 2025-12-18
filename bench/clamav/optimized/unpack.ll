@@ -2051,7 +2051,7 @@ _ZN14RARPPM_CONTEXT15decodeBinSymbolEP8ModelPPM.exit: ; preds = %73, %83
   br label %.loopexit
 
 .loopexit:                                        ; preds = %153, %191, %.loopexit17, %16, %12, %1, %6
-  %.0 = phi i32 [ -1, %12 ], [ -1, %1 ], [ -1, %16 ], [ -1, %6 ], [ -1, %.loopexit17 ], [ %166, %191 ], [ -1, %153 ]
+  %.0 = phi i32 [ -1, %12 ], [ -1, %1 ], [ -1, %16 ], [ %166, %191 ], [ -1, %.loopexit17 ], [ -1, %6 ], [ -1, %153 ]
   ret i32 %.0
 }
 
@@ -2472,7 +2472,7 @@ _ZN14RARPPM_CONTEXT7update2EP8ModelPPMP12RARPPM_STATE.exit: ; preds = %_ZN19RARP
   br label %.loopexit
 
 .loopexit:                                        ; preds = %65, %127, %.lr.ph, %_ZN14RARPPM_CONTEXT7update2EP8ModelPPMP12RARPPM_STATE.exit, %134, %72
-  %.051 = phi i1 [ false, %72 ], [ true, %134 ], [ true, %_ZN14RARPPM_CONTEXT7update2EP8ModelPPMP12RARPPM_STATE.exit ], [ false, %127 ], [ false, %.lr.ph ], [ false, %65 ]
+  %.051 = phi i1 [ true, %_ZN14RARPPM_CONTEXT7update2EP8ModelPPMP12RARPPM_STATE.exit ], [ false, %.lr.ph ], [ false, %72 ], [ false, %127 ], [ true, %134 ], [ false, %65 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.051
 }
@@ -7094,8 +7094,8 @@ _ZN6Unpack12DecodeNumberER8BitInputP11DecodeTable.exit: ; preds = %181, %.prehea
   br label %.loopexit78
 
 .loopexit78:                                      ; preds = %.loopexit78.loopexit93, %.loopexit78.loopexit, %.preheader79, %256, %220
-  %277 = phi i32 [ %218, %220 ], [ %storemerge76, %256 ], [ %236, %.preheader79 ], [ %storemerge76, %.loopexit78.loopexit ], [ %236, %.loopexit78.loopexit93 ]
-  %.445 = phi i32 [ %228, %220 ], [ %.04189, %256 ], [ %.04189, %.preheader79 ], [ %275, %.loopexit78.loopexit ], [ %276, %.loopexit78.loopexit93 ]
+  %277 = phi i32 [ %storemerge76, %.loopexit78.loopexit ], [ %218, %220 ], [ %storemerge76, %256 ], [ %236, %.preheader79 ], [ %236, %.loopexit78.loopexit93 ]
+  %.445 = phi i32 [ %275, %.loopexit78.loopexit ], [ %228, %220 ], [ %.04189, %256 ], [ %.04189, %.preheader79 ], [ %276, %.loopexit78.loopexit93 ]
   %.not56.not = icmp ult i32 %.445, %.048
   br i1 %.not56.not, label %120, label %.critedge58, !llvm.loop !217
 
@@ -7148,7 +7148,7 @@ _ZN6Unpack12DecodeNumberER8BitInputP11DecodeTable.exit: ; preds = %181, %.prehea
   br label %.critedge
 
 .critedge:                                        ; preds = %126, %_ZN6Unpack10UnpReadBufEv.exit70, %233, %10, %.loopexit, %.critedge58, %_ZN6Unpack10UnpReadBufEv.exit
-  %.039 = phi i1 [ false, %_ZN6Unpack10UnpReadBufEv.exit ], [ true, %.critedge58 ], [ true, %.loopexit ], [ false, %10 ], [ false, %233 ], [ false, %_ZN6Unpack10UnpReadBufEv.exit70 ], [ false, %126 ]
+  %.039 = phi i1 [ false, %_ZN6Unpack10UnpReadBufEv.exit ], [ true, %.critedge58 ], [ false, %10 ], [ true, %.loopexit ], [ false, %233 ], [ false, %_ZN6Unpack10UnpReadBufEv.exit70 ], [ false, %126 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %.039
@@ -9371,7 +9371,7 @@ _ZN6Unpack12DecodeNumberER8BitInputP11DecodeTable.exit: ; preds = %146, %.prehea
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit92, %.loopexit.loopexit, %183
-  %.446 = phi i32 [ %191, %183 ], [ %220, %.loopexit.loopexit ], [ %221, %.loopexit.loopexit92 ]
+  %.446 = phi i32 [ %220, %.loopexit.loopexit ], [ %191, %183 ], [ %221, %.loopexit.loopexit92 ]
   %222 = icmp ugt i32 %.446, 403
   br i1 %222, label %.critedge63, label %101, !llvm.loop !251
 
@@ -9398,7 +9398,7 @@ _ZN6Unpack12DecodeNumberER8BitInputP11DecodeTable.exit: ; preds = %146, %.prehea
   br label %.critedge
 
 .critedge:                                        ; preds = %195, %106, %_ZN6Unpack12UnpReadBuf30Ev.exit68, %10, %46, %.critedge63, %227, %_ZN6Unpack12UnpReadBuf30Ev.exit
-  %.040 = phi i1 [ false, %_ZN6Unpack12UnpReadBuf30Ev.exit ], [ %49, %46 ], [ true, %227 ], [ false, %.critedge63 ], [ false, %10 ], [ false, %_ZN6Unpack12UnpReadBuf30Ev.exit68 ], [ false, %106 ], [ false, %195 ]
+  %.040 = phi i1 [ false, %_ZN6Unpack12UnpReadBuf30Ev.exit ], [ %49, %46 ], [ false, %10 ], [ true, %227 ], [ false, %.critedge63 ], [ false, %_ZN6Unpack12UnpReadBuf30Ev.exit68 ], [ false, %106 ], [ false, %195 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %.040
@@ -13053,7 +13053,7 @@ _ZN6Unpack12DecodeNumberER8BitInputP11DecodeTable.exit: ; preds = %168, %.prehea
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit117, %.loopexit.loopexit, %205
-  %.472 = phi i32 [ %209, %205 ], [ %238, %.loopexit.loopexit ], [ %239, %.loopexit.loopexit117 ]
+  %.472 = phi i32 [ %238, %.loopexit.loopexit ], [ %209, %205 ], [ %239, %.loopexit.loopexit117 ]
   %240 = icmp ugt i32 %.472, 429
   br i1 %240, label %.critedge84, label %110, !llvm.loop !307
 
@@ -14430,7 +14430,7 @@ _ZN5ArrayIhE5AllocEm.exit:                        ; preds = %._ZN5ArrayIhE5Alloc
   br i1 %104, label %.lr.ph, label %._crit_edge, !llvm.loop !325
 
 .loopexit:                                        ; preds = %._crit_edge, %65, %34, %_ZN5ArrayIhE5AllocEm.exit, %37, %6, %4
-  %.063 = phi ptr [ null, %4 ], [ %1, %37 ], [ %1, %6 ], [ %93, %_ZN5ArrayIhE5AllocEm.exit ], [ %1, %65 ], [ %1, %34 ], [ %93, %._crit_edge ]
+  %.063 = phi ptr [ %1, %6 ], [ %1, %37 ], [ null, %4 ], [ %93, %_ZN5ArrayIhE5AllocEm.exit ], [ %1, %65 ], [ %1, %34 ], [ %93, %._crit_edge ]
   ret ptr %.063
 }
 
@@ -15251,9 +15251,9 @@ define linkonce_odr noundef ptr @_ZN8ModelPPM16CreateSuccessorsEbP12RARPPM_STATE
   br label %.loopexit89
 
 .loopexit89:                                      ; preds = %.preheader88, %14, %24, %17
-  %.051 = phi ptr [ %2, %14 ], [ %19, %17 ], [ %25, %24 ], [ %22, %.preheader88 ]
-  %.249.idx = phi i64 [ %.047.idx, %14 ], [ %.350.idx, %17 ], [ %.350.idx, %24 ], [ %.350.idx, %.preheader88 ]
-  %.1 = phi ptr [ %.pre, %14 ], [ %15, %17 ], [ %15, %24 ], [ %15, %.preheader88 ]
+  %.051 = phi ptr [ %2, %14 ], [ %25, %24 ], [ %19, %17 ], [ %22, %.preheader88 ]
+  %.249.idx = phi i64 [ %.047.idx, %14 ], [ %.350.idx, %24 ], [ %.350.idx, %17 ], [ %.350.idx, %.preheader88 ]
+  %.1 = phi ptr [ %.pre, %14 ], [ %15, %24 ], [ %15, %17 ], [ %15, %.preheader88 ]
   %.249.ptr = getelementptr inbounds nuw i8, ptr %4, i64 %.249.idx
   %26 = getelementptr inbounds nuw i8, ptr %.051, i64 2
   %27 = load ptr, ptr %26, align 1, !tbaa !71

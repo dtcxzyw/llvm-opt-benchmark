@@ -900,9 +900,9 @@ yyerror.exit:                                     ; preds = %.lr.ph.i, %264
   br i1 %.not.i566, label %.thread614, label %.lr.ph.i563
 
 .thread614:                                       ; preds = %.thread589, %48, %.lr.ph.i563, %yyerror.exit, %.thread582
-  %.0487612 = phi i32 [ 2, %.thread582 ], [ 1, %yyerror.exit ], [ 2, %.lr.ph.i563 ], [ 0, %.thread589 ], [ 1, %48 ]
-  %.6517606 = phi ptr [ %.5516, %.thread582 ], [ %.1512, %yyerror.exit ], [ %.5516, %.lr.ph.i563 ], [ %.1512, %48 ], [ %.1512, %.thread589 ]
-  %.4575604 = phi ptr [ %.0572, %.thread582 ], [ %.2, %yyerror.exit ], [ %.0572, %.lr.ph.i563 ], [ %4, %48 ], [ %4, %.thread589 ]
+  %.0487612 = phi i32 [ 2, %.lr.ph.i563 ], [ 1, %yyerror.exit ], [ 2, %.thread582 ], [ 1, %48 ], [ 0, %.thread589 ]
+  %.6517606 = phi ptr [ %.5516, %.lr.ph.i563 ], [ %.1512, %yyerror.exit ], [ %.5516, %.thread582 ], [ %.1512, %48 ], [ %.1512, %.thread589 ]
+  %.4575604 = phi ptr [ %.0572, %.lr.ph.i563 ], [ %.2, %yyerror.exit ], [ %.0572, %.thread582 ], [ %4, %48 ], [ %4, %.thread589 ]
   %.not553 = icmp eq ptr %.6517606, %2
   br i1 %.not553, label %271, label %.thread614.thread
 
@@ -1203,7 +1203,7 @@ yytnamerr.exit68:                                 ; preds = %62, %.preheader, %.
   br label %.preheader
 
 yy_syntax_error_arguments.exit.thread8:           ; preds = %yytnamerr.exit, %.preheader, %.critedge.i.i, %59, %yy_syntax_error_arguments.exit
-  %.041 = phi i32 [ %.2.i.i, %.critedge.i.i ], [ -2, %yy_syntax_error_arguments.exit ], [ -1, %59 ], [ 0, %.preheader ], [ -2, %yytnamerr.exit ]
+  %.041 = phi i32 [ %.2.i.i, %.critedge.i.i ], [ -2, %yy_syntax_error_arguments.exit ], [ 0, %.preheader ], [ -1, %59 ], [ -2, %yytnamerr.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.041
 }

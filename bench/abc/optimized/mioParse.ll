@@ -1714,7 +1714,7 @@ Vec_PtrPush.exit230:                              ; preds = %.Vec_PtrGrow.exit11
   br label %.preheader302
 
 .preheader302:                                    ; preds = %355, %.preheader302.sink.split, %Vec_PtrPush.exit, %Vec_PtrPush.exit162
-  %.3109516 = phi ptr [ %.1107, %Vec_PtrPush.exit162 ], [ %.1107, %Vec_PtrPush.exit ], [ %.3109516.ph, %.preheader302.sink.split ], [ %.1107, %355 ]
+  %.3109516 = phi ptr [ %.3109516.ph, %.preheader302.sink.split ], [ %.1107, %Vec_PtrPush.exit162 ], [ %.1107, %Vec_PtrPush.exit ], [ %.1107, %355 ]
   %474 = load ptr, ptr %5, align 8, !tbaa !29
   %475 = getelementptr i8, ptr %474, i64 4
   %.val151377 = load i32, ptr %475, align 4, !tbaa !15
@@ -2042,8 +2042,8 @@ Vec_IntPush.exit279:                              ; preds = %Vec_IntPush.exit279
   br label %.loopexit
 
 .loopexit:                                        ; preds = %Vec_PtrPush.exit245, %.loopexit.sink.split, %466, %.preheader302, %31, %31, %31, %31
-  %.2108 = phi ptr [ %.1107, %466 ], [ %.1107, %31 ], [ %.3109516, %.preheader302 ], [ %.1107, %31 ], [ %.1107, %31 ], [ %.1107, %31 ], [ %.2108.ph, %.loopexit.sink.split ], [ %.3109516, %Vec_PtrPush.exit245 ]
-  %.2 = phi i32 [ 1, %466 ], [ %.0102, %31 ], [ 2, %.preheader302 ], [ %.0102, %31 ], [ %.0102, %31 ], [ %.0102, %31 ], [ %.2.ph, %.loopexit.sink.split ], [ 2, %Vec_PtrPush.exit245 ]
+  %.2108 = phi ptr [ %.1107, %466 ], [ %.1107, %31 ], [ %.1107, %31 ], [ %.3109516, %.preheader302 ], [ %.2108.ph, %.loopexit.sink.split ], [ %.1107, %31 ], [ %.1107, %31 ], [ %.3109516, %Vec_PtrPush.exit245 ]
+  %.2 = phi i32 [ 1, %466 ], [ %.0102, %31 ], [ %.0102, %31 ], [ 2, %.preheader302 ], [ %.2.ph, %.loopexit.sink.split ], [ %.0102, %31 ], [ %.0102, %31 ], [ 2, %Vec_PtrPush.exit245 ]
   %624 = getelementptr inbounds nuw i8, ptr %.2108, i64 1
   br label %31, !llvm.loop !35
 

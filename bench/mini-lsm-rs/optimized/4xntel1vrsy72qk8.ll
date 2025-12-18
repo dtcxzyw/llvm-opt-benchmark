@@ -3225,7 +3225,7 @@ _ZN4core3cmp10PartialOrd2lt17hd0d084e1871045c6E.exit: ; preds = %65, %45
   br label %_ZN4core3cmp10PartialOrd2lt17hd0d084e1871045c6E.exit.thread
 
 _ZN4core3cmp10PartialOrd2lt17hd0d084e1871045c6E.exit.thread: ; preds = %89, %69, %_ZN4core3cmp10PartialOrd2lt17hd0d084e1871045c6E.exit, %._crit_edge, %45, %65
-  %.0.in.in93.lcssa107.sink = phi i64 [ %.0.lcssa, %_ZN4core3cmp10PartialOrd2lt17hd0d084e1871045c6E.exit ], [ %.0.in.in.lcssa, %._crit_edge ], [ %.0.in.in.lcssa, %45 ], [ %.0.in.in.lcssa, %65 ], [ %.0.in.in93, %69 ], [ %.0.in.in93, %89 ]
+  %.0.in.in93.lcssa107.sink = phi i64 [ %.0.in.in.lcssa, %65 ], [ %.0.in.in.lcssa, %45 ], [ %.0.lcssa, %_ZN4core3cmp10PartialOrd2lt17hd0d084e1871045c6E.exit ], [ %.0.in.in.lcssa, %._crit_edge ], [ %.0.in.in93, %69 ], [ %.0.in.in93, %89 ]
   %68 = getelementptr inbounds { ptr, i64 }, ptr %5, i64 %.0.in.in93.lcssa107.sink
   store ptr %10, ptr %68, align 8
   %.sroa.22.16..sroa_idx72 = getelementptr inbounds nuw i8, ptr %68, i64 8
@@ -3419,7 +3419,7 @@ _ZN4core3cmp10PartialOrd2lt17h0569497f31ede755E.exit: ; preds = %65, %45
   br label %_ZN4core3cmp10PartialOrd2lt17h0569497f31ede755E.exit.thread
 
 _ZN4core3cmp10PartialOrd2lt17h0569497f31ede755E.exit.thread: ; preds = %89, %69, %_ZN4core3cmp10PartialOrd2lt17h0569497f31ede755E.exit, %._crit_edge, %45, %65
-  %.0.in.in93.lcssa107.sink = phi i64 [ %.0.lcssa, %_ZN4core3cmp10PartialOrd2lt17h0569497f31ede755E.exit ], [ %.0.in.in.lcssa, %._crit_edge ], [ %.0.in.in.lcssa, %45 ], [ %.0.in.in.lcssa, %65 ], [ %.0.in.in93, %69 ], [ %.0.in.in93, %89 ]
+  %.0.in.in93.lcssa107.sink = phi i64 [ %.0.in.in.lcssa, %65 ], [ %.0.in.in.lcssa, %45 ], [ %.0.lcssa, %_ZN4core3cmp10PartialOrd2lt17h0569497f31ede755E.exit ], [ %.0.in.in.lcssa, %._crit_edge ], [ %.0.in.in93, %69 ], [ %.0.in.in93, %89 ]
   %68 = getelementptr inbounds { ptr, i64 }, ptr %5, i64 %.0.in.in93.lcssa107.sink
   store ptr %10, ptr %68, align 8
   %.sroa.22.16..sroa_idx72 = getelementptr inbounds nuw i8, ptr %68, i64 8
@@ -3656,7 +3656,7 @@ _ZN4core3cmp10PartialOrd2lt17h9ef489819d899027E.exit: ; preds = %81, %"_ZN122_$L
   br label %_ZN4core3cmp10PartialOrd2lt17h9ef489819d899027E.exit.thread
 
 _ZN4core3cmp10PartialOrd2lt17h9ef489819d899027E.exit.thread: ; preds = %111, %"_ZN122_$LT$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$3key17h100fcc5ac322dcf1E.exit11.i.i56", %_ZN4core3cmp10PartialOrd2lt17h9ef489819d899027E.exit, %._crit_edge, %"_ZN122_$LT$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$3key17h100fcc5ac322dcf1E.exit11.i.i43", %81
-  %.0.in.in115.lcssa139.sink = phi i64 [ %.0.lcssa, %_ZN4core3cmp10PartialOrd2lt17h9ef489819d899027E.exit ], [ %.0.in.in.lcssa, %._crit_edge ], [ %.0.in.in.lcssa, %"_ZN122_$LT$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$3key17h100fcc5ac322dcf1E.exit11.i.i43" ], [ %.0.in.in.lcssa, %81 ], [ %.0.in.in115, %"_ZN122_$LT$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$3key17h100fcc5ac322dcf1E.exit11.i.i56" ], [ %.0.in.in115, %111 ]
+  %.0.in.in115.lcssa139.sink = phi i64 [ %.0.in.in.lcssa, %81 ], [ %.0.in.in.lcssa, %"_ZN122_$LT$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$3key17h100fcc5ac322dcf1E.exit11.i.i43" ], [ %.0.lcssa, %_ZN4core3cmp10PartialOrd2lt17h9ef489819d899027E.exit ], [ %.0.in.in.lcssa, %._crit_edge ], [ %.0.in.in115, %"_ZN122_$LT$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$3key17h100fcc5ac322dcf1E.exit11.i.i56" ], [ %.0.in.in115, %111 ]
   %83 = getelementptr inbounds { ptr, i64 }, ptr %5, i64 %.0.in.in115.lcssa139.sink
   store ptr %10, ptr %83, align 8
   %.sroa.22.16..sroa_idx81 = getelementptr inbounds nuw i8, ptr %83, i64 8

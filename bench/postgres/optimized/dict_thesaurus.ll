@@ -1663,7 +1663,7 @@ matchIdSubst.exit81.us:                           ; preds = %17, %.loopexit.us
   br label %.lr.ph112.us.preheader
 
 .lr.ph112.us.preheader:                           ; preds = %11, %.preheader.i77.us, %._crit_edge.us, %matchIdSubst.exit81.us
-  %.270.us = phi ptr [ %.1.us, %matchIdSubst.exit81.us ], [ %.068.us, %._crit_edge.us ], [ %.068.us, %.preheader.i77.us ], [ %.068.us, %11 ]
+  %.270.us = phi ptr [ %.1.us, %matchIdSubst.exit81.us ], [ %.068.us, %.preheader.i77.us ], [ %.068.us, %._crit_edge.us ], [ %.068.us, %11 ]
   br label %.lr.ph112.us
 
 .lr.ph112.us:                                     ; preds = %.lr.ph112.us.preheader, %.lr.ph112.us

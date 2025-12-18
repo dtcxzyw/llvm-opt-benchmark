@@ -994,7 +994,7 @@ _ZN16BCEscapeAnalyzer12is_arg_stackENS_11ArgumentMapE.exit.us: ; preds = %_ZNK9V
   br i1 %exitcond.not.i.us, label %_ZN16BCEscapeAnalyzer11is_argumentENS_11ArgumentMapE.exit.thread.us, label %.lr.ph.i.us, !llvm.loop !8
 
 _ZN16BCEscapeAnalyzer11is_argumentENS_11ArgumentMapE.exit.thread.us: ; preds = %108, %_ZNK9VectorSet4testEj.exit.thread.i.us, %103
-  %110 = phi i1 [ %107, %103 ], [ true, %_ZNK9VectorSet4testEj.exit.thread.i.us ], [ true, %108 ]
+  %110 = phi i1 [ true, %_ZNK9VectorSet4testEj.exit.thread.i.us ], [ %107, %103 ], [ true, %108 ]
   %111 = icmp sgt i64 %indvars.iv, %87
   %112 = select i1 %111, i1 %110, i1 false
   br i1 %112, label %.lr.ph.i.preheader.us, label %._crit_edge, !llvm.loop !16
@@ -1226,8 +1226,8 @@ _ZNK8ciMethod15is_final_methodEv.exit129:         ; preds = %204
   %.not101 = icmp eq ptr %211, null
   br i1 %.not101, label %.thread, label %.thread257
 
-.thread257:                                       ; preds = %204, %200, %_ZNK8ciMethod15is_final_methodEv.exit129, %210
-  %.095260 = phi ptr [ %211, %210 ], [ %3, %_ZNK8ciMethod15is_final_methodEv.exit129 ], [ %3, %200 ], [ %3, %204 ]
+.thread257:                                       ; preds = %204, %_ZNK8ciMethod15is_final_methodEv.exit129, %200, %210
+  %.095260 = phi ptr [ %211, %210 ], [ %3, %200 ], [ %3, %_ZNK8ciMethod15is_final_methodEv.exit129 ], [ %3, %204 ]
   br label %212
 
 212:                                              ; preds = %216, %.thread257
@@ -7381,7 +7381,7 @@ _ZN16BCEscapeAnalyzer12set_modifiedENS_11ArgumentMapEii.exit: ; preds = %1991, %
   br i1 %.not.i, label %70, label %.critedge, !llvm.loop !26
 
 .critedge:                                        ; preds = %_ZN16ciBytecodeStream4nextEv.exit.thread922, %_ZN16ciBytecodeStream4nextEv.exit, %_ZN16BCEscapeAnalyzer12set_modifiedENS_11ArgumentMapEii.exit
-  %.0.lcssa = phi i1 [ %.1, %_ZN16BCEscapeAnalyzer12set_modifiedENS_11ArgumentMapEii.exit ], [ %.01324, %_ZN16ciBytecodeStream4nextEv.exit ], [ %.01324, %_ZN16ciBytecodeStream4nextEv.exit.thread922 ]
+  %.0.lcssa = phi i1 [ %.01324, %_ZN16ciBytecodeStream4nextEv.exit.thread922 ], [ %.1, %_ZN16BCEscapeAnalyzer12set_modifiedENS_11ArgumentMapEii.exit ], [ %.01324, %_ZN16ciBytecodeStream4nextEv.exit ]
   br i1 %.0.lcssa, label %2369, label %.critedge1331
 
 2369:                                             ; preds = %.critedge

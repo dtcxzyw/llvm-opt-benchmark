@@ -191,7 +191,7 @@ define internal range(i32 0, 2) i32 @fake_get_params(ptr noundef %0) #0 {
   br label %9
 
 9:                                                ; preds = %.sink.split, %5, %7
-  %.0 = phi i32 [ 1, %7 ], [ 1, %5 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 1, %5 ], [ 1, %7 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 
@@ -224,7 +224,7 @@ define internal range(i32 0, 2) i32 @fake_get_ctx_params(ptr readnone captures(n
   br label %10
 
 10:                                               ; preds = %.sink.split, %6, %8
-  %.0 = phi i32 [ 1, %8 ], [ 1, %6 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 1, %6 ], [ 1, %8 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 

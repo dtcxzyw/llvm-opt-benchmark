@@ -4240,7 +4240,7 @@ _ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE11lower_boundERS3_.exit.i: ; preds = %.lr
   br i1 %.not531, label %.critedge108, label %1061
 
 .critedge108:                                     ; preds = %.critedge, %1116, %._crit_edge, %_ZNSt6vectorIiSaIiEE6resizeEm.exit
-  %1123 = phi i1 [ true, %_ZNSt6vectorIiSaIiEE6resizeEm.exit ], [ false, %._crit_edge ], [ true, %1116 ], [ false, %.critedge ]
+  %1123 = phi i1 [ true, %_ZNSt6vectorIiSaIiEE6resizeEm.exit ], [ true, %1116 ], [ false, %._crit_edge ], [ false, %.critedge ]
   call fastcc void @_ZNSt5queueIZN2cv3dnn8Subgraph5matchERKNS0_3PtrINS1_18ImportGraphWrapperEEEiRSt6vectorIiSaIiEEE5StateSt5dequeISC_SaISC_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %10) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %1124 = load ptr, ptr %8, align 8, !tbaa !72

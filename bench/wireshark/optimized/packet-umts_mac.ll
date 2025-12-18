@@ -1963,7 +1963,7 @@ mac_is_add_fragment.exit.thread:                  ; preds = %._crit_edge.i157.i,
   br label %call_rlc.exit
 
 mac_is_add_fragment.exit:                         ; preds = %211, %.thread217.i, %.thread219.i, %312, %322, %331, %342, %344
-  %.5.i = phi ptr [ %313, %312 ], [ %311, %.thread219.i ], [ %264, %.thread217.i ], [ %215, %211 ], [ %343, %342 ], [ %332, %331 ], [ %323, %322 ], [ %346, %344 ]
+  %.5.i = phi ptr [ %346, %344 ], [ %323, %322 ], [ %332, %331 ], [ %343, %342 ], [ %313, %312 ], [ %215, %211 ], [ %264, %.thread217.i ], [ %311, %.thread219.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.not = icmp eq ptr %.5.i, null
   br i1 %.not, label %call_rlc.exit, label %350

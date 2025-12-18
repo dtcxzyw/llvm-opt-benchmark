@@ -4880,7 +4880,7 @@ pmix_obj_run_destructors.exit453:                 ; preds = %.lr.ph.i450, %912
   br i1 %971, label %pmix_pointer_array_get_item.exit439, label %.loopexit471, !llvm.loop !200
 
 .loopexit471:                                     ; preds = %966, %.preheader470, %383, %385, %391, %pmix_pointer_array_get_item.exit421
-  %.1 = phi ptr [ %.0568, %pmix_pointer_array_get_item.exit421 ], [ %.0568, %391 ], [ %.0568, %385 ], [ %.0568, %383 ], [ %.0568, %.preheader470 ], [ %750, %966 ]
+  %.1 = phi ptr [ %.0568, %pmix_pointer_array_get_item.exit421 ], [ %.0568, %383 ], [ %.0568, %391 ], [ %.0568, %385 ], [ %.0568, %.preheader470 ], [ %750, %966 ]
   %indvars.iv.next673 = add nuw nsw i64 %indvars.iv672, 1
   %972 = load ptr, ptr %365, align 8, !tbaa !119
   %973 = getelementptr inbounds nuw i8, ptr %972, i64 128
@@ -5710,7 +5710,7 @@ pmix_pointer_array_get_item.exit45:               ; preds = %.preheader46, %61
   br label %.loopexit
 
 .loopexit:                                        ; preds = %42, %.loopexit.sink.split, %.preheader, %57, %57
-  %.034 = phi i32 [ 0, %.preheader ], [ %60, %57 ], [ %60, %57 ], [ %.sink62, %.loopexit.sink.split ], [ %.133, %42 ]
+  %.034 = phi i32 [ 0, %.preheader ], [ %.sink62, %.loopexit.sink.split ], [ %60, %57 ], [ %60, %57 ], [ %.133, %42 ]
   ret i32 %.034
 }
 

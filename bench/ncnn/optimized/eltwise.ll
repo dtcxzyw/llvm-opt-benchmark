@@ -642,7 +642,7 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %4
   br i1 %142, label %.lr.ph, label %_ZNK4ncnn3Mat5emptyEv.exit.thread, !llvm.loop !54
 
 _ZNK4ncnn3Mat5emptyEv.exit.thread:                ; preds = %.lr.ph, %.lr.ph79, %.lr.ph82, %119, %68, %37, %4, %._crit_edge, %34, %_ZNK4ncnn3Mat5emptyEv.exit
-  %.0 = phi i32 [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ 0, %34 ], [ 0, %._crit_edge ], [ -100, %4 ], [ 0, %68 ], [ 0, %37 ], [ 0, %119 ], [ 0, %.lr.ph79 ], [ 0, %.lr.ph82 ], [ 0, %.lr.ph ]
+  %.0 = phi i32 [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ 0, %37 ], [ 0, %34 ], [ 0, %68 ], [ -100, %4 ], [ 0, %._crit_edge ], [ 0, %119 ], [ 0, %.lr.ph79 ], [ 0, %.lr.ph82 ], [ 0, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0

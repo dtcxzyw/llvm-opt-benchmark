@@ -2432,8 +2432,8 @@ open_input_file.exit.thread:                      ; preds = %30, %.thread92.i, %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %open_input_file.exit.thread, %270, %269, %266, %262, %258, %254, %251
-  %272 = phi ptr [ %150, %open_input_file.exit.thread ], [ %.val83, %251 ], [ %.val83, %254 ], [ %.val83, %258 ], [ %.val83, %262 ], [ %.val83, %270 ], [ %.val83, %266 ], [ %.val83, %269 ], [ %.pre118, %.loopexit.loopexit ]
-  %.046 = phi i32 [ %.0.i.ph, %open_input_file.exit.thread ], [ %249, %251 ], [ %255, %254 ], [ %259, %258 ], [ %263, %262 ], [ %271, %270 ], [ %267, %266 ], [ %.6, %269 ], [ %213, %.loopexit.loopexit ]
+  %272 = phi ptr [ %150, %open_input_file.exit.thread ], [ %.pre118, %.loopexit.loopexit ], [ %.val83, %266 ], [ %.val83, %270 ], [ %.val83, %262 ], [ %.val83, %258 ], [ %.val83, %269 ], [ %.val83, %251 ], [ %.val83, %254 ]
+  %.046 = phi i32 [ %.0.i.ph, %open_input_file.exit.thread ], [ %213, %.loopexit.loopexit ], [ %267, %266 ], [ %271, %270 ], [ %263, %262 ], [ %259, %258 ], [ %.6, %269 ], [ %249, %251 ], [ %255, %254 ]
   %.not82 = icmp eq ptr %272, null
   br i1 %.not82, label %283, label %.loopexit.thread
 
@@ -3644,7 +3644,7 @@ show_tags.exit.thread.i:                          ; preds = %show_tags.exit.thre
   br i1 %62, label %44, label %show_program.exit, !llvm.loop !175
 
 show_program.exit:                                ; preds = %.lr.ph.i.i, %53, %58, %show_tags.exit.thread.i
-  %.1.i = phi i32 [ %.035.i, %show_tags.exit.thread.i ], [ %56, %53 ], [ %.4.i, %58 ], [ %40, %.lr.ph.i.i ]
+  %.1.i = phi i32 [ %56, %53 ], [ %.035.i, %show_tags.exit.thread.i ], [ %.4.i, %58 ], [ %40, %.lr.ph.i.i ]
   tail call void @avtext_print_section_footer(ptr noundef %0) #20
   tail call void @avtext_print_section_footer(ptr noundef %0) #20
   %63 = icmp slt i32 %.1.i, 0
@@ -4238,7 +4238,7 @@ show_tags.exit.thread.i:                          ; preds = %show_tags.exit.thre
   br i1 %282, label %262, label %show_stream_group.exit, !llvm.loop !252
 
 show_stream_group.exit:                           ; preds = %.lr.ph.i.i, %273, %278, %show_tags.exit.thread.i
-  %.1.i = phi i32 [ %.049.i, %show_tags.exit.thread.i ], [ %276, %273 ], [ %.4.i, %278 ], [ %258, %.lr.ph.i.i ]
+  %.1.i = phi i32 [ %276, %273 ], [ %.049.i, %show_tags.exit.thread.i ], [ %.4.i, %278 ], [ %258, %.lr.ph.i.i ]
   call void @avtext_print_section_footer(ptr noundef %0) #20
   %283 = call i32 @av_bprint_finalize(ptr noundef nonnull %5, ptr noundef null) #20
   call void @avtext_print_section_footer(ptr noundef %0) #20
@@ -5570,7 +5570,7 @@ process_frame.exit163.thread:                     ; preds = %400, %401, %394
   br i1 %447, label %.lr.ph307.splitthread-pre-split, label %.thread, !llvm.loop !309
 
 .thread:                                          ; preds = %265, %124, %111, %98, %85, %81, %444, %.thread231, %.lr.ph307.split.us, %47, %35, %53, %51
-  %.2 = phi i32 [ %.4, %.thread231 ], [ -12, %51 ], [ -12, %53 ], [ %45, %47 ], [ -22, %35 ], [ %.4, %.lr.ph307.split.us ], [ %.4, %444 ], [ -12, %265 ], [ %135, %124 ], [ %122, %111 ], [ %109, %98 ], [ %96, %85 ], [ %83, %81 ]
+  %.2 = phi i32 [ -22, %35 ], [ %.4, %.thread231 ], [ -12, %51 ], [ -12, %53 ], [ %45, %47 ], [ %.4, %.lr.ph307.split.us ], [ %.4, %444 ], [ -12, %265 ], [ %135, %124 ], [ %122, %111 ], [ %109, %98 ], [ %96, %85 ], [ %83, %81 ]
   call void @av_frame_free(ptr noundef nonnull %13) #20
   call void @av_packet_free(ptr noundef nonnull %12) #20
   %448 = icmp slt i32 %.2, 0

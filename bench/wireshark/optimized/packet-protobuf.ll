@@ -953,7 +953,7 @@ define internal i32 @dissect_protobuf(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %55
 
 55:                                               ; preds = %51, %53, %23
-  %.1 = phi ptr [ %25, %23 ], [ %52, %51 ], [ %54, %53 ]
+  %.1 = phi ptr [ %25, %23 ], [ %54, %53 ], [ %52, %51 ]
   %.not119 = icmp eq ptr %.1, null
   br i1 %.not119, label %find_message_type_by_udp_port.exit.thread, label %56
 
@@ -1087,8 +1087,8 @@ find_message_type_by_udp_port.exit.thread:        ; preds = %81, %26, %45, %44, 
   %110 = tail call ptr @pbw_DescriptorPool_FindMessageTypeByName(ptr noundef %109, ptr noundef %107)
   br label %.thread155
 
-.thread155:                                       ; preds = %56, %58, %find_message_type_by_udp_port.exit, %108, %104
-  %.9 = phi ptr [ %106, %104 ], [ %110, %108 ], [ %87, %find_message_type_by_udp_port.exit ], [ %.1, %58 ], [ %.1, %56 ]
+.thread155:                                       ; preds = %58, %56, %find_message_type_by_udp_port.exit, %108, %104
+  %.9 = phi ptr [ %106, %104 ], [ %110, %108 ], [ %87, %find_message_type_by_udp_port.exit ], [ %.1, %56 ], [ %.1, %58 ]
   %111 = load i8, ptr @display_json_mapping, align 1, !range !6, !noundef !7
   %112 = trunc nuw i8 %111 to i1
   %113 = icmp ne ptr %.9, null

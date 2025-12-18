@@ -112,7 +112,7 @@ define hidden range(i32 -1, 2) i32 @commview_ncf_open(ptr noundef captures(none)
   br label %53
 
 53:                                               ; preds = %7, %42, %10, %38, %46
-  %.0 = phi i32 [ 0, %10 ], [ 1, %46 ], [ %9, %7 ], [ -1, %42 ], [ 0, %38 ]
+  %.0 = phi i32 [ -1, %42 ], [ 0, %10 ], [ 1, %46 ], [ %9, %7 ], [ 0, %38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }

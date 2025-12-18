@@ -417,7 +417,7 @@ fmap_readn.exit.thread:                           ; preds = %15, %13, %fmap_read
   br i1 %143, label %.thread187, label %151
 
 .thread187:                                       ; preds = %138, %fmap_readn.exit.thread, %fmap_readn.exit160.thread, %48, %fmap_readn.exit155.thread, %25, %141
-  %.2190 = phi i64 [ %.2, %141 ], [ %.1.ph, %fmap_readn.exit.thread ], [ %.3171, %fmap_readn.exit160.thread ], [ %43, %48 ], [ %23, %fmap_readn.exit155.thread ], [ %23, %25 ], [ %140, %138 ]
+  %.2190 = phi i64 [ %.2, %141 ], [ %23, %25 ], [ %.1.ph, %fmap_readn.exit.thread ], [ %.3171, %fmap_readn.exit160.thread ], [ %43, %48 ], [ %23, %fmap_readn.exit155.thread ], [ %140, %138 ]
   %144 = load i64, ptr %10, align 8, !tbaa !24
   %145 = icmp ugt i64 %144, %.2190
   br i1 %145, label %146, label %151

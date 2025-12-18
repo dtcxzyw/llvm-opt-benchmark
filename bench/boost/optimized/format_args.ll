@@ -597,7 +597,7 @@ _ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_1
   br i1 %.not.i12, label %_ZN5boost4urls12encoded_sizeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_NS0_13encoding_optsE.exit, label %.lr.ph32.i, !llvm.loop !80
 
 _ZN5boost4urls12encoded_sizeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_NS0_13encoding_optsE.exit: ; preds = %.lr.ph.i, %.lr.ph32.i, %.preheader.i, %49
-  %.2.i = phi i64 [ 0, %.preheader.i ], [ 0, %49 ], [ %70, %.lr.ph32.i ], [ %.1.i, %.lr.ph.i ]
+  %.2.i = phi i64 [ %70, %.lr.ph32.i ], [ 0, %.preheader.i ], [ 0, %49 ], [ %.1.i, %.lr.ph.i ]
   %72 = add i64 %.2.i, %.0
   ret i64 %72
 }
@@ -661,7 +661,7 @@ _ZNK5boost4urls6detail11format_args3getEm.exit.sink.split: ; preds = %_ZN5boost4
   br label %_ZNK5boost4urls6detail11format_args3getEm.exit
 
 _ZNK5boost4urls6detail11format_args3getEm.exit:   ; preds = %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread10.i, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread10.i.us, %_ZNK5boost4urls6detail11format_args3getEm.exit.sink.split, %9, %7
-  %.sroa.14.0 = phi i64 [ 0, %7 ], [ 0, %9 ], [ %.sroa.7.sroa.5.0.copyload, %_ZNK5boost4urls6detail11format_args3getEm.exit.sink.split ], [ 0, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread10.i.us ], [ 0, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread10.i ]
+  %.sroa.14.0 = phi i64 [ 0, %7 ], [ %.sroa.7.sroa.5.0.copyload, %_ZNK5boost4urls6detail11format_args3getEm.exit.sink.split ], [ 0, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread10.i.us ], [ 0, %9 ], [ 0, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread10.i ]
   store i64 %.sroa.14.0, ptr %5, align 8, !tbaa !61
   ret void
 }
@@ -752,7 +752,7 @@ _ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_1
   br label %_ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_11format_argsERm.exit.thread
 
 _ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_11format_argsERm.exit.thread.thread: ; preds = %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread10.i.i, %_ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_11format_argsERm.exit, %24, %28, %13, %15
-  %.025.ph = phi i64 [ 0, %15 ], [ 0, %13 ], [ %25, %28 ], [ 0, %24 ], [ 0, %_ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_11format_argsERm.exit ], [ 0, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread10.i.i ]
+  %.025.ph = phi i64 [ 0, %_ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_11format_argsERm.exit ], [ 0, %15 ], [ 0, %13 ], [ %25, %28 ], [ 0, %24 ], [ 0, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread10.i.i ]
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %33 = load ptr, ptr %32, align 8, !tbaa !87
   br label %._crit_edge
@@ -1586,15 +1586,15 @@ _ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_1
   br label %_ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_11format_argsERm.exit.thread
 
 _ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_11format_argsERm.exit.thread.thread: ; preds = %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread10.i.i, %_ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_11format_argsERm.exit, %38, %41, %22, %24
-  %.056.ph = phi i64 [ 0, %24 ], [ 0, %22 ], [ %34, %41 ], [ 0, %38 ], [ 0, %_ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_11format_argsERm.exit ], [ 0, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread10.i.i ]
+  %.056.ph = phi i64 [ 0, %_ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_11format_argsERm.exit ], [ 0, %24 ], [ 0, %22 ], [ %34, %41 ], [ 0, %38 ], [ 0, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread10.i.i ]
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %46 = load ptr, ptr %45, align 8, !tbaa !87
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 3
   br label %.loopexit128
 
 _ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_11format_argsERm.exit.thread: ; preds = %38, %42, %33
-  %.058 = phi i64 [ %43, %42 ], [ %34, %33 ], [ %34, %38 ]
-  %.056 = phi i64 [ %44, %42 ], [ 0, %33 ], [ 0, %38 ]
+  %.058 = phi i64 [ %34, %33 ], [ %43, %42 ], [ %34, %38 ]
+  %.056 = phi i64 [ 0, %33 ], [ %44, %42 ], [ 0, %38 ]
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %49 = load ptr, ptr %48, align 8, !tbaa !87
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 3
@@ -1961,15 +1961,15 @@ _ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_1
   br label %_ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_11format_argsERm.exit.thread
 
 _ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_11format_argsERm.exit.thread.thread: ; preds = %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread10.i.i, %_ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_11format_argsERm.exit, %36, %39, %20, %22
-  %.048.ph = phi i64 [ 0, %22 ], [ 0, %20 ], [ %32, %39 ], [ 0, %36 ], [ 0, %_ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_11format_argsERm.exit ], [ 0, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread10.i.i ]
+  %.048.ph = phi i64 [ 0, %_ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_11format_argsERm.exit ], [ 0, %22 ], [ 0, %20 ], [ %32, %39 ], [ 0, %36 ], [ 0, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread10.i.i ]
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %44 = load ptr, ptr %43, align 8, !tbaa !87
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 3
   br label %.loopexit110
 
 _ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_11format_argsERm.exit.thread: ; preds = %36, %40, %31
-  %.050 = phi i64 [ %41, %40 ], [ %32, %31 ], [ %32, %36 ]
-  %.048 = phi i64 [ %42, %40 ], [ 0, %31 ], [ 0, %36 ]
+  %.050 = phi i64 [ %32, %31 ], [ %41, %40 ], [ %32, %36 ]
+  %.048 = phi i64 [ 0, %31 ], [ %42, %40 ], [ 0, %36 ]
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %47 = load ptr, ptr %46, align 8, !tbaa !87
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 3

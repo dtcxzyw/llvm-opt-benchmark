@@ -1786,7 +1786,7 @@ dt_tag_detach.exit:                               ; preds = %.lr.ph.split, %dt_t
   br i1 %87, label %dt_tag_detach.exit, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %dt_tag_detach.exit, %dt_tag_detach.exit.us29, %dt_tag_detach.exit.us, %dt_tag_detach.exit.us.us, %48
-  %.019.lcssa = phi i32 [ 0, %48 ], [ 1, %dt_tag_detach.exit.us29 ], [ 1, %dt_tag_detach.exit.us.us ], [ 1, %dt_tag_detach.exit.us ], [ 1, %dt_tag_detach.exit ]
+  %.019.lcssa = phi i32 [ 0, %48 ], [ 1, %dt_tag_detach.exit.us29 ], [ 1, %dt_tag_detach.exit.us ], [ 1, %dt_tag_detach.exit.us.us ], [ 1, %dt_tag_detach.exit ]
   %88 = load ptr, ptr %6, align 8, !tbaa !52
   %89 = call i32 @sqlite3_finalize(ptr noundef %88) #11
   call void @g_free(ptr noundef %24) #11

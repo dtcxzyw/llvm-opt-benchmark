@@ -577,7 +577,7 @@ _ZN17grpc_event_engine12experimental25ResolvedAddressIsV4MappedERKNS0_11EventEng
   br label %.loopexit
 
 .loopexit:                                        ; preds = %32, %.loopexit.sink.split, %25, %22
-  %.sroa.3.0 = phi i64 [ 0, %25 ], [ 0, %22 ], [ %38, %.loopexit.sink.split ], [ 0, %32 ]
+  %.sroa.3.0 = phi i64 [ %38, %.loopexit.sink.split ], [ 0, %25 ], [ 0, %22 ], [ 0, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %.sroa.3.0
 }

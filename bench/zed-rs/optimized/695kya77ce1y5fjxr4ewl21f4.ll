@@ -799,7 +799,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   %65 = icmp eq ptr %64, null
   br i1 %65, label %173, label %175
 
-66:                                               ; preds = %47, %50
+66:                                               ; preds = %50, %47
   %67 = load ptr, ptr %26, align 8, !nonnull !7, !align !42, !noundef !7
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 16
   %69 = load ptr, ptr %68, align 8, !nonnull !7, !noundef !7
@@ -1217,7 +1217,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   %66 = icmp eq ptr %65, null
   br i1 %66, label %172, label %174
 
-67:                                               ; preds = %48, %51
+67:                                               ; preds = %51, %48
   %68 = load ptr, ptr %26, align 8, !nonnull !7, !align !42, !noundef !7
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 16
   %70 = load ptr, ptr %69, align 8, !nonnull !7, !noundef !7
@@ -70057,7 +70057,7 @@ _ZN4core3ops8function6FnOnce9call_once17h4efcd98116dad6bfE.exit.thread7.i.i.i.i:
   %43 = load ptr, ptr %.sroa.30.0, align 8, !noalias !12354, !nonnull !7, !align !42, !noundef !7
   br label %_ZN4core4iter8adapters5chain17and_then_or_clear17hfb14dbf375dc63fdE.exit
 
-_ZN4core4iter8adapters5chain17and_then_or_clear17hfb14dbf375dc63fdE.exit: ; preds = %31, %41, %_ZN4core3ops8function6FnOnce9call_once17h7ada167288e6b4d5E.exit.i.i.i.i.i.i.i, %36, %_ZN4core3ops8function6FnOnce9call_once17h4efcd98116dad6bfE.exit.i.i.i.i
+_ZN4core4iter8adapters5chain17and_then_or_clear17hfb14dbf375dc63fdE.exit: ; preds = %31, %41, %36, %_ZN4core3ops8function6FnOnce9call_once17h7ada167288e6b4d5E.exit.i.i.i.i.i.i.i, %_ZN4core3ops8function6FnOnce9call_once17h4efcd98116dad6bfE.exit.i.i.i.i
   %.sroa.517.147.ph = phi i64 [ %.sroa.517.0, %41 ], [ %.sroa.517.0, %36 ], [ %.sroa.517.0, %_ZN4core3ops8function6FnOnce9call_once17h7ada167288e6b4d5E.exit.i.i.i.i.i.i.i ], [ %.sroa.517.0, %_ZN4core3ops8function6FnOnce9call_once17h4efcd98116dad6bfE.exit.i.i.i.i ], [ 1, %31 ]
   %.sroa.1220.2.ph = phi i64 [ 2, %41 ], [ 1, %36 ], [ 1, %_ZN4core3ops8function6FnOnce9call_once17h7ada167288e6b4d5E.exit.i.i.i.i.i.i.i ], [ 1, %_ZN4core3ops8function6FnOnce9call_once17h4efcd98116dad6bfE.exit.i.i.i.i ], [ %.sroa.1220.0, %31 ]
   %.sroa.15.3.ph = phi ptr [ %.sroa.15.2, %41 ], [ %.sroa.15.0, %36 ], [ %.sroa.15.0, %_ZN4core3ops8function6FnOnce9call_once17h7ada167288e6b4d5E.exit.i.i.i.i.i.i.i ], [ null, %_ZN4core3ops8function6FnOnce9call_once17h4efcd98116dad6bfE.exit.i.i.i.i ], [ %.sroa.15.0, %31 ]
@@ -72386,7 +72386,7 @@ define hidden void @_ZN4repl7outputs13ExecutionView12push_message17h535225cc67be
           to label %69 unwind label %76
 
 common.resume:                                    ; preds = %69, %122, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he3b0ca29c3088bb3E.exit", %.body, %152
-  %common.resume.op = phi { ptr, i32 } [ %153, %152 ], [ %165, %.body ], [ %123, %122 ], [ %.pn, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he3b0ca29c3088bb3E.exit" ], [ %72, %69 ]
+  %common.resume.op = phi { ptr, i32 } [ %153, %152 ], [ %.pn, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he3b0ca29c3088bb3E.exit" ], [ %165, %.body ], [ %123, %122 ], [ %72, %69 ]
   resume { ptr, i32 } %common.resume.op
 
 76:                                               ; preds = %73

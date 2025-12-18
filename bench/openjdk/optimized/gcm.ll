@@ -1706,7 +1706,7 @@ _ZN8PhaseCFG17map_node_to_blockEPK4NodeP5Block.exit: ; preds = %_ZL18find_deepes
   br label %.backedge92
 
 .loopexit56:                                      ; preds = %.loopexit, %_ZNK8PhaseCFG9has_blockEPK4Node.exit.thread, %_ZN9VectorSet3setEj.exit
-  %.not60 = phi i1 [ true, %_ZN9VectorSet3setEj.exit ], [ false, %_ZNK8PhaseCFG9has_blockEPK4Node.exit.thread ], [ true, %.loopexit ]
+  %.not60 = phi i1 [ false, %_ZNK8PhaseCFG9has_blockEPK4Node.exit.thread ], [ true, %_ZN9VectorSet3setEj.exit ], [ true, %.loopexit ]
   ret i1 %.not60
 }
 
@@ -2444,9 +2444,9 @@ _ZN9Node_List4pushEP4Node.exit147:                ; preds = %318, %323
   br label %.backedge
 
 .backedge:                                        ; preds = %313, %315, %316, %_ZN9Node_List4pushEP4Node.exit147, %327, %328, %287, %194, %..loopexit158_crit_edge, %240, %242, %261, %265, %273, %239, %239
-  %.0113.be = phi ptr [ %.0113175, %239 ], [ %.0113175, %240 ], [ %.0113175, %261 ], [ %.0113175, %265 ], [ %spec.store.select, %194 ], [ %.0113175, %273 ], [ %.0113175, %242 ], [ %.0113175, %239 ], [ %spec.store.select, %..loopexit158_crit_edge ], [ %.0113175, %287 ], [ %.0113175, %328 ], [ %.0113175, %327 ], [ %.0113175, %_ZN9Node_List4pushEP4Node.exit147 ], [ %.0113175, %316 ], [ %.0113175, %315 ], [ %.0113175, %313 ]
-  %.0108.be = phi i1 [ %.0108176, %239 ], [ %.0108176, %240 ], [ %.0108176, %261 ], [ %.0108176, %265 ], [ %.0108176, %194 ], [ %.0108176, %273 ], [ %.0108176, %242 ], [ %.0108176, %239 ], [ %.0108176, %..loopexit158_crit_edge ], [ %.0108176, %287 ], [ %.0108176, %328 ], [ %.0108176, %327 ], [ true, %_ZN9Node_List4pushEP4Node.exit147 ], [ %.0108176, %316 ], [ %.0108176, %315 ], [ %.2110, %313 ]
-  %.0106.be = phi ptr [ %.0106177, %239 ], [ %.0106177, %240 ], [ %.0106177, %261 ], [ %.0106177, %265 ], [ %.0106177, %194 ], [ %.0106177, %273 ], [ %.0106177, %242 ], [ %.0106177, %239 ], [ %.0106177, %..loopexit158_crit_edge ], [ %.0106177, %287 ], [ %.0107, %328 ], [ %.0107, %327 ], [ %.0106177, %_ZN9Node_List4pushEP4Node.exit147 ], [ %.0106177, %316 ], [ %.0106177, %315 ], [ %.2, %313 ]
+  %.0113.be = phi ptr [ %.0113175, %239 ], [ %.0113175, %239 ], [ %.0113175, %240 ], [ %.0113175, %261 ], [ %.0113175, %265 ], [ %spec.store.select, %194 ], [ %.0113175, %273 ], [ %.0113175, %242 ], [ %spec.store.select, %..loopexit158_crit_edge ], [ %.0113175, %287 ], [ %.0113175, %315 ], [ %.0113175, %328 ], [ %.0113175, %327 ], [ %.0113175, %_ZN9Node_List4pushEP4Node.exit147 ], [ %.0113175, %316 ], [ %.0113175, %313 ]
+  %.0108.be = phi i1 [ %.0108176, %239 ], [ %.0108176, %239 ], [ %.0108176, %240 ], [ %.0108176, %261 ], [ %.0108176, %265 ], [ %.0108176, %194 ], [ %.0108176, %273 ], [ %.0108176, %242 ], [ %.0108176, %..loopexit158_crit_edge ], [ %.0108176, %287 ], [ %.0108176, %315 ], [ %.0108176, %328 ], [ %.0108176, %327 ], [ true, %_ZN9Node_List4pushEP4Node.exit147 ], [ %.0108176, %316 ], [ %.2110, %313 ]
+  %.0106.be = phi ptr [ %.0106177, %239 ], [ %.0106177, %239 ], [ %.0106177, %240 ], [ %.0106177, %261 ], [ %.0106177, %265 ], [ %.0106177, %194 ], [ %.0106177, %273 ], [ %.0106177, %242 ], [ %.0106177, %..loopexit158_crit_edge ], [ %.0106177, %287 ], [ %.0106177, %315 ], [ %.0107, %328 ], [ %.0107, %327 ], [ %.0106177, %_ZN9Node_List4pushEP4Node.exit147 ], [ %.0106177, %316 ], [ %.2, %313 ]
   %329 = load i32, ptr %119, align 8
   %.not = icmp eq i32 %329, 0
   br i1 %.not, label %._crit_edge, label %176, !llvm.loop !26
@@ -2744,7 +2744,7 @@ _ZL21raise_LCA_above_marksP5BlockjS0_PK8PhaseCFG.exit: ; preds = %_ZN5Block7dom_
   br i1 %.not120, label %.loopexit, label %.lr.ph183.split, !llvm.loop !33
 
 .loopexit:                                        ; preds = %450, %.preheader, %._crit_edge.thread, %432, %.thread, %._crit_edge, %4
-  %.0 = phi ptr [ %1, %4 ], [ %.0106.be, %._crit_edge ], [ %.4, %.thread ], [ %.4, %432 ], [ %.4, %.preheader ], [ %1, %._crit_edge.thread ], [ %.4, %450 ]
+  %.0 = phi ptr [ %1, %4 ], [ %.0106.be, %._crit_edge ], [ %.4, %.thread ], [ %.4, %432 ], [ %1, %._crit_edge.thread ], [ %.4, %.preheader ], [ %.4, %450 ]
   ret ptr %.0
 }
 
@@ -3517,7 +3517,7 @@ _ZN8PhaseCFG20get_latency_for_nodeEP4Node.exit:   ; preds = %35, %._crit_edge.i.
   br i1 %86, label %.lr.ph53, label %.loopexit, !llvm.loop !41
 
 .loopexit:                                        ; preds = %75, %.lr.ph53, %_ZN8PhaseCFG20get_latency_for_nodeEP4Node.exit, %76, %32, %23, %4, %6
-  %.0 = phi i32 [ 0, %23 ], [ 0, %32 ], [ 0, %4 ], [ 0, %6 ], [ 0, %76 ], [ 0, %_ZN8PhaseCFG20get_latency_for_nodeEP4Node.exit ], [ %spec.select47, %.lr.ph53 ], [ %.1, %75 ]
+  %.0 = phi i32 [ 0, %23 ], [ 0, %32 ], [ 0, %4 ], [ 0, %6 ], [ %spec.select47, %.lr.ph53 ], [ 0, %76 ], [ 0, %_ZN8PhaseCFG20get_latency_for_nodeEP4Node.exit ], [ %.1, %75 ]
   ret i32 %.0
 }
 
@@ -4723,7 +4723,7 @@ _ZN5Block7dom_lcaEPS_.exit40.i:                   ; preds = %.lr.ph31.i31.i, %.p
   br i1 %exitcond.not.i, label %_ZL19raise_LCA_above_useP5BlockP4NodeS2_PK8PhaseCFG.exit, label %201, !llvm.loop !46
 
 _ZL19raise_LCA_above_useP5BlockP4NodeS2_PK8PhaseCFG.exit: ; preds = %.lr.ph31.i.i, %_ZN5Block7dom_lcaEPS_.exit40.i, %158, %171, %.preheader.i.i, %194
-  %.0.i = phi ptr [ %.06086, %158 ], [ %164, %171 ], [ %.016.lcssa.i.i, %.preheader.i.i ], [ %.06086, %194 ], [ %.1.i, %_ZN5Block7dom_lcaEPS_.exit40.i ], [ %191, %.lr.ph31.i.i ]
+  %.0.i = phi ptr [ %.1.i, %_ZN5Block7dom_lcaEPS_.exit40.i ], [ %.06086, %158 ], [ %164, %171 ], [ %.016.lcssa.i.i, %.preheader.i.i ], [ %.06086, %194 ], [ %191, %.lr.ph31.i.i ]
   %239 = getelementptr inbounds nuw i8, ptr %.06185, i64 8
   %240 = icmp ult ptr %239, %157
   br i1 %240, label %158, label %._crit_edge, !llvm.loop !47
@@ -4873,7 +4873,7 @@ _ZNK4Node16is_memory_writerEv.exit73:             ; preds = %305
   br i1 %329, label %.lr.ph88, label %_ZNK4Node16is_memory_writerEv.exit73.thread, !llvm.loop !48
 
 _ZNK4Node16is_memory_writerEv.exit73.thread:      ; preds = %.lr.ph88, %.preheader, %305, %_ZNK4Node16is_memory_writerEv.exit73
-  %.2 = phi ptr [ %.1, %_ZNK4Node16is_memory_writerEv.exit73 ], [ %.1, %305 ], [ %.1, %.preheader ], [ %324, %.lr.ph88 ]
+  %.2 = phi ptr [ %.1, %305 ], [ %.1, %_ZNK4Node16is_memory_writerEv.exit73 ], [ %.1, %.preheader ], [ %324, %.lr.ph88 ]
   %330 = load i8, ptr @StressGCM, align 1
   %331 = trunc i8 %330 to i1
   %332 = icmp ne ptr %.2, %30
@@ -6777,7 +6777,7 @@ _ZN7CFGLoop9push_predEP5BlockiR10Block_ListP8PhaseCFG.exit: ; preds = %.lr.ph.i,
   br i1 %.not59, label %.loopexit83, label %105, !llvm.loop !65
 
 .loopexit83:                                      ; preds = %.loopexit, %_ZN7CFGLoop10add_memberEP10CFGElement.exit, %_ZNK5Block4headEv.exit, %55
-  %.1 = phi i32 [ %.04994, %55 ], [ %.04994, %_ZNK5Block4headEv.exit ], [ %71, %_ZN7CFGLoop10add_memberEP10CFGElement.exit ], [ %71, %.loopexit ]
+  %.1 = phi i32 [ %.04994, %_ZNK5Block4headEv.exit ], [ %.04994, %55 ], [ %71, %_ZN7CFGLoop10add_memberEP10CFGElement.exit ], [ %71, %.loopexit ]
   %indvars.iv.next101 = add nsw i64 %indvars.iv100, -1
   %186 = and i64 %indvars.iv.next101, 4294967295
   %.not = icmp eq i64 %186, 0

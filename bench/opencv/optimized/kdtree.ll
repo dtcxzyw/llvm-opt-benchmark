@@ -1740,7 +1740,7 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit:            ; preds = %.noexc, %68
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph301, !llvm.loop !103
 
 .loopexit:                                        ; preds = %.lr.ph301, %.lr.ph305, %.preheader286, %.preheader
-  %.1175 = phi float [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %.preheader286 ], [ %165, %.lr.ph305 ], [ %172, %.lr.ph301 ]
+  %.1175 = phi float [ %165, %.lr.ph305 ], [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %.preheader286 ], [ %172, %.lr.ph301 ]
   store float %.1175, ptr %147, align 4, !tbaa !54
   %173 = getelementptr inbounds i32, ptr %76, i64 %146
   store i32 %155, ptr %173, align 4, !tbaa !44
@@ -1855,9 +1855,9 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit:            ; preds = %.noexc, %68
   br i1 %229, label %.loopexit288, label %149
 
 .loopexit288:                                     ; preds = %228, %143, %.thread274, %140
-  %.2 = phi i32 [ %189, %.thread274 ], [ %.sroa.speculated255, %140 ], [ %.0312, %143 ], [ %.0312, %228 ]
-  %.2158 = phi i32 [ %.3159297, %.thread274 ], [ %107, %140 ], [ %107, %143 ], [ %.5161, %228 ]
-  %.1152 = phi i32 [ %190, %.thread274 ], [ %.0151314, %140 ], [ %.0151314, %143 ], [ %.0151314, %228 ]
+  %.2 = phi i32 [ %.sroa.speculated255, %140 ], [ %189, %.thread274 ], [ %.0312, %143 ], [ %.0312, %228 ]
+  %.2158 = phi i32 [ %107, %140 ], [ %.3159297, %.thread274 ], [ %107, %143 ], [ %.5161, %228 ]
+  %.1152 = phi i32 [ %.0151314, %140 ], [ %190, %.thread274 ], [ %.0151314, %143 ], [ %.0151314, %228 ]
   %230 = icmp slt i32 %.1152, %.sroa.speculated
   br i1 %230, label %94, label %.thread280
 

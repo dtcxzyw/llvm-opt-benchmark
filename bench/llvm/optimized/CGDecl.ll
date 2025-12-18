@@ -1082,7 +1082,7 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction17EmitStaticVarDeclERKN
   br i1 %.not.i.i.i.i.i, label %_ZN5clangneENS_22specific_attr_iteratorINS_14CUDASharedAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !674
 
 _ZN5clangneENS_22specific_attr_iteratorINS_14CUDASharedAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i: ; preds = %56, %.lr.ph.i.i.i.i.i
-  %.sroa.07.0.i.i.ph.i.i = phi ptr [ %51, %56 ], [ %.sroa.07.1.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+  %.sroa.07.0.i.i.ph.i.i = phi ptr [ %.sroa.07.1.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %51, %56 ]
   %58 = icmp ne ptr %.sroa.07.0.i.i.ph.i.i, %51
   br label %_ZNK5clang4Decl7hasAttrINS_14CUDASharedAttrEEEbv.exit
 
@@ -1204,7 +1204,7 @@ _ZNK5clang4Decl7getAttrINS_25PragmaClangBSSSectionAttrEEEPT_v.exit: ; preds = %.
   store ptr %120, ptr %118, align 8, !tbaa !687
   br label %_ZNK5clang4Decl7getAttrINS_25PragmaClangBSSSectionAttrEEEPT_v.exit.thread
 
-_ZNK5clang4Decl7getAttrINS_25PragmaClangBSSSectionAttrEEEPT_v.exit.thread: ; preds = %99, %88, %_ZN5clangneENS_22specific_attr_iteratorINS_25PragmaClangBSSSectionAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, %_ZNK5clang4Decl7hasAttrINS_12AnnotateAttrEEEbv.exit.thread183, %_ZNK5clang4Decl7getAttrINS_25PragmaClangBSSSectionAttrEEEPT_v.exit
+_ZNK5clang4Decl7getAttrINS_25PragmaClangBSSSectionAttrEEEPT_v.exit.thread: ; preds = %99, %_ZN5clangneENS_22specific_attr_iteratorINS_25PragmaClangBSSSectionAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, %88, %_ZNK5clang4Decl7hasAttrINS_12AnnotateAttrEEEbv.exit.thread183, %_ZNK5clang4Decl7getAttrINS_25PragmaClangBSSSectionAttrEEEPT_v.exit
   %121 = load i32, ptr %68, align 4
   %122 = and i32 %121, 256
   %.not.i104 = icmp eq i32 %122, 0
@@ -1267,7 +1267,7 @@ _ZNK5clang4Decl7getAttrINS_26PragmaClangDataSectionAttrEEEPT_v.exit: ; preds = %
   store ptr %155, ptr %153, align 8, !tbaa !687
   br label %_ZNK5clang4Decl7getAttrINS_26PragmaClangDataSectionAttrEEEPT_v.exit.thread
 
-_ZNK5clang4Decl7getAttrINS_26PragmaClangDataSectionAttrEEEPT_v.exit.thread: ; preds = %134, %123, %_ZN5clangneENS_22specific_attr_iteratorINS_26PragmaClangDataSectionAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, %_ZNK5clang4Decl7getAttrINS_25PragmaClangBSSSectionAttrEEEPT_v.exit.thread, %_ZNK5clang4Decl7getAttrINS_26PragmaClangDataSectionAttrEEEPT_v.exit
+_ZNK5clang4Decl7getAttrINS_26PragmaClangDataSectionAttrEEEPT_v.exit.thread: ; preds = %134, %_ZN5clangneENS_22specific_attr_iteratorINS_26PragmaClangDataSectionAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, %123, %_ZNK5clang4Decl7getAttrINS_25PragmaClangBSSSectionAttrEEEPT_v.exit.thread, %_ZNK5clang4Decl7getAttrINS_26PragmaClangDataSectionAttrEEEPT_v.exit
   %156 = load i32, ptr %68, align 4
   %157 = and i32 %156, 256
   %.not.i114 = icmp eq i32 %157, 0
@@ -1330,7 +1330,7 @@ _ZNK5clang4Decl7getAttrINS_28PragmaClangRodataSectionAttrEEEPT_v.exit: ; preds =
   store ptr %190, ptr %188, align 8, !tbaa !687
   br label %_ZNK5clang4Decl7getAttrINS_28PragmaClangRodataSectionAttrEEEPT_v.exit.thread
 
-_ZNK5clang4Decl7getAttrINS_28PragmaClangRodataSectionAttrEEEPT_v.exit.thread: ; preds = %169, %158, %_ZN5clangneENS_22specific_attr_iteratorINS_28PragmaClangRodataSectionAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, %_ZNK5clang4Decl7getAttrINS_26PragmaClangDataSectionAttrEEEPT_v.exit.thread, %_ZNK5clang4Decl7getAttrINS_28PragmaClangRodataSectionAttrEEEPT_v.exit
+_ZNK5clang4Decl7getAttrINS_28PragmaClangRodataSectionAttrEEEPT_v.exit.thread: ; preds = %169, %_ZN5clangneENS_22specific_attr_iteratorINS_28PragmaClangRodataSectionAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, %158, %_ZNK5clang4Decl7getAttrINS_26PragmaClangDataSectionAttrEEEPT_v.exit.thread, %_ZNK5clang4Decl7getAttrINS_28PragmaClangRodataSectionAttrEEEPT_v.exit
   %191 = load i32, ptr %68, align 4
   %192 = and i32 %191, 256
   %.not.i124 = icmp eq i32 %192, 0
@@ -1393,7 +1393,7 @@ _ZNK5clang4Decl7getAttrINS_27PragmaClangRelroSectionAttrEEEPT_v.exit: ; preds = 
   store ptr %225, ptr %223, align 8, !tbaa !687
   br label %_ZNK5clang4Decl7getAttrINS_27PragmaClangRelroSectionAttrEEEPT_v.exit.thread
 
-_ZNK5clang4Decl7getAttrINS_27PragmaClangRelroSectionAttrEEEPT_v.exit.thread: ; preds = %204, %193, %_ZN5clangneENS_22specific_attr_iteratorINS_27PragmaClangRelroSectionAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, %_ZNK5clang4Decl7getAttrINS_28PragmaClangRodataSectionAttrEEEPT_v.exit.thread, %_ZNK5clang4Decl7getAttrINS_27PragmaClangRelroSectionAttrEEEPT_v.exit
+_ZNK5clang4Decl7getAttrINS_27PragmaClangRelroSectionAttrEEEPT_v.exit.thread: ; preds = %204, %_ZN5clangneENS_22specific_attr_iteratorINS_27PragmaClangRelroSectionAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, %193, %_ZNK5clang4Decl7getAttrINS_28PragmaClangRodataSectionAttrEEEPT_v.exit.thread, %_ZNK5clang4Decl7getAttrINS_27PragmaClangRelroSectionAttrEEEPT_v.exit
   %226 = load i32, ptr %68, align 4
   %227 = and i32 %226, 256
   %.not.i134 = icmp eq i32 %227, 0
@@ -1453,7 +1453,7 @@ _ZNK5clang4Decl7getAttrINS_11SectionAttrEEEPT_v.exit: ; preds = %.lr.ph.i.i.i.i1
   call void @_ZN4llvm12GlobalObject10setSectionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(56) %30, ptr %254, i64 %257) #20
   br label %_ZNK5clang4Decl7getAttrINS_11SectionAttrEEEPT_v.exit.thread
 
-_ZNK5clang4Decl7getAttrINS_11SectionAttrEEEPT_v.exit.thread: ; preds = %239, %228, %_ZN5clangneENS_22specific_attr_iteratorINS_11SectionAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, %_ZNK5clang4Decl7getAttrINS_27PragmaClangRelroSectionAttrEEEPT_v.exit.thread, %_ZNK5clang4Decl7getAttrINS_11SectionAttrEEEPT_v.exit
+_ZNK5clang4Decl7getAttrINS_11SectionAttrEEEPT_v.exit.thread: ; preds = %239, %_ZN5clangneENS_22specific_attr_iteratorINS_11SectionAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, %228, %_ZNK5clang4Decl7getAttrINS_27PragmaClangRelroSectionAttrEEEPT_v.exit.thread, %_ZNK5clang4Decl7getAttrINS_11SectionAttrEEEPT_v.exit
   %258 = load i32, ptr %68, align 4
   %259 = and i32 %258, 256
   %.not.i144 = icmp eq i32 %259, 0
@@ -3680,7 +3680,7 @@ _ZNK5clang8QualType15getObjCLifetimeEv.exit.i:    ; preds = %116
   %spec.select.i.i.i.i.i.i.i.i.i = icmp ult i16 %144, -10
   br i1 %spec.select.i.i.i.i.i.i.i.i.i, label %_ZL22tryEmitARCCopyWeakInitRN5clang7CodeGen15CodeGenFunctionERKNS0_6LValueEPKNS_4ExprE.exit.thread, label %.lr.ph.i
 
-_ZL22tryEmitARCCopyWeakInitRN5clang7CodeGen15CodeGenFunctionERKNS0_6LValueEPKNS_4ExprE.exit.thread: ; preds = %.lr.ph.i, %138, %_ZNK5clang8QualType15getObjCLifetimeEv.exit.i, %116, %107
+_ZL22tryEmitARCCopyWeakInitRN5clang7CodeGen15CodeGenFunctionERKNS0_6LValueEPKNS_4ExprE.exit.thread: ; preds = %.lr.ph.i, %138, %116, %_ZNK5clang8QualType15getObjCLifetimeEv.exit.i, %107
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %145
@@ -5927,7 +5927,7 @@ _ZN5clangneENS_22specific_attr_iteratorINS_17UninitializedAttrEN4llvm11SmallVect
   %.not5.i.i = icmp eq ptr %.sroa.07.1.i.i.i.i, %115
   br i1 %.not5.i.i, label %.loopexit, label %_ZNK5clang4Decl7getAttrINS_17UninitializedAttrEEEPT_v.exit
 
-.loopexit:                                        ; preds = %120, %107, %_ZN5clangneENS_22specific_attr_iteratorINS_17UninitializedAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, %109
+.loopexit:                                        ; preds = %120, %107, %109, %_ZN5clangneENS_22specific_attr_iteratorINS_17UninitializedAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i
   %.0.copyload.i.i.i.i.i74 = load i64, ptr %17, align 8
   %122 = and i64 %.0.copyload.i.i.i.i.i74, -16
   %123 = inttoptr i64 %122 to ptr
@@ -6688,7 +6688,7 @@ _ZN5clang10GlobalDeclC2EPKNS_12FunctionDeclEj.exit: ; preds = %_ZNK5clang4Decl7h
   store ptr %10, ptr %111, align 8, !tbaa !811
   br label %_ZNK5clang4Decl7getAttrINS_11CleanupAttrEEEPT_v.exit.thread
 
-_ZNK5clang4Decl7getAttrINS_11CleanupAttrEEEPT_v.exit.thread: ; preds = %59, %48, %_ZN5clangneENS_22specific_attr_iteratorINS_11CleanupAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, %_ZNK5clang4Decl7hasAttrINS_23ObjCPreciseLifetimeAttrEEEbv.exit.thread40, %_ZN5clang10GlobalDeclC2EPKNS_12FunctionDeclEj.exit
+_ZNK5clang4Decl7getAttrINS_11CleanupAttrEEEPT_v.exit.thread: ; preds = %59, %_ZN5clangneENS_22specific_attr_iteratorINS_11CleanupAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, %48, %_ZNK5clang4Decl7hasAttrINS_23ObjCPreciseLifetimeAttrEEEbv.exit.thread40, %_ZN5clang10GlobalDeclC2EPKNS_12FunctionDeclEj.exit
   %112 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %113 = load i8, ptr %112, align 8, !tbaa !859, !range !280, !noundef !281
   %114 = trunc nuw i8 %113 to i1
@@ -9262,7 +9262,7 @@ _ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit: ; pred
   br label %.thread147
 
 .thread147:                                       ; preds = %.loopexit, %34, %32, %60, %.lr.ph175, %.thread147.sink.split, %20, %8
-  %.5 = phi i1 [ false, %20 ], [ %.5.ph, %.thread147.sink.split ], [ false, %8 ], [ %.not97, %.lr.ph175 ], [ true, %60 ], [ true, %32 ], [ true, %34 ], [ false, %.loopexit ]
+  %.5 = phi i1 [ false, %20 ], [ %.not97, %.lr.ph175 ], [ true, %60 ], [ %.5.ph, %.thread147.sink.split ], [ false, %8 ], [ false, %.loopexit ], [ true, %34 ], [ true, %32 ]
   ret i1 %.5
 }
 
@@ -10326,8 +10326,8 @@ _ZNK5clang4Decl7hasAttrINS_23ObjCPreciseLifetimeAttrEEEbv.exit: ; preds = %.lr.p
   unreachable
 
 _ZN5clang7CodeGen15CodeGenFunction12getDestroyerENS_8QualType15DestructionKindE.exit: ; preds = %59, %_ZNK5clang4Decl7hasAttrINS_23ObjCPreciseLifetimeAttrEEEbv.exit, %17, %48, %37, %61, %72, %71, %70, %.thread38
-  %.036 = phi i32 [ 3, %17 ], [ %44, %_ZNK5clang4Decl7hasAttrINS_23ObjCPreciseLifetimeAttrEEEbv.exit ], [ %.042, %72 ], [ %.042, %.thread38 ], [ %.042, %70 ], [ %.042, %71 ], [ 3, %61 ], [ %44, %37 ], [ %44, %48 ], [ %44, %59 ]
-  %.1 = phi ptr [ @_ZN5clang7CodeGen15CodeGenFunction16destroyCXXObjectERS1_NS0_7AddressENS_8QualTypeE, %17 ], [ @_ZN5clang7CodeGen15CodeGenFunction25destroyARCStrongImpreciseERS1_NS0_7AddressENS_8QualTypeE, %_ZNK5clang4Decl7hasAttrINS_23ObjCPreciseLifetimeAttrEEEbv.exit ], [ @_ZN5clang7CodeGen15CodeGenFunction24destroyNonTrivialCStructERS1_NS0_7AddressENS_8QualTypeE, %72 ], [ @_ZN5clang7CodeGen15CodeGenFunction16destroyCXXObjectERS1_NS0_7AddressENS_8QualTypeE, %.thread38 ], [ @_ZN5clang7CodeGen15CodeGenFunction23destroyARCStrongPreciseERS1_NS0_7AddressENS_8QualTypeE, %70 ], [ @_ZN5clang7CodeGen15CodeGenFunction14destroyARCWeakERS1_NS0_7AddressENS_8QualTypeE, %71 ], [ @_ZN5clang7CodeGen15CodeGenFunction24destroyNonTrivialCStructERS1_NS0_7AddressENS_8QualTypeE, %61 ], [ @_ZN5clang7CodeGen15CodeGenFunction25destroyARCStrongImpreciseERS1_NS0_7AddressENS_8QualTypeE, %37 ], [ @_ZN5clang7CodeGen15CodeGenFunction25destroyARCStrongImpreciseERS1_NS0_7AddressENS_8QualTypeE, %48 ], [ @_ZN5clang7CodeGen15CodeGenFunction25destroyARCStrongImpreciseERS1_NS0_7AddressENS_8QualTypeE, %59 ]
+  %.036 = phi i32 [ 3, %17 ], [ %44, %_ZNK5clang4Decl7hasAttrINS_23ObjCPreciseLifetimeAttrEEEbv.exit ], [ %.042, %72 ], [ %.042, %.thread38 ], [ %.042, %70 ], [ %.042, %71 ], [ %44, %48 ], [ 3, %61 ], [ %44, %37 ], [ %44, %59 ]
+  %.1 = phi ptr [ @_ZN5clang7CodeGen15CodeGenFunction16destroyCXXObjectERS1_NS0_7AddressENS_8QualTypeE, %17 ], [ @_ZN5clang7CodeGen15CodeGenFunction25destroyARCStrongImpreciseERS1_NS0_7AddressENS_8QualTypeE, %_ZNK5clang4Decl7hasAttrINS_23ObjCPreciseLifetimeAttrEEEbv.exit ], [ @_ZN5clang7CodeGen15CodeGenFunction24destroyNonTrivialCStructERS1_NS0_7AddressENS_8QualTypeE, %72 ], [ @_ZN5clang7CodeGen15CodeGenFunction16destroyCXXObjectERS1_NS0_7AddressENS_8QualTypeE, %.thread38 ], [ @_ZN5clang7CodeGen15CodeGenFunction23destroyARCStrongPreciseERS1_NS0_7AddressENS_8QualTypeE, %70 ], [ @_ZN5clang7CodeGen15CodeGenFunction14destroyARCWeakERS1_NS0_7AddressENS_8QualTypeE, %71 ], [ @_ZN5clang7CodeGen15CodeGenFunction25destroyARCStrongImpreciseERS1_NS0_7AddressENS_8QualTypeE, %48 ], [ @_ZN5clang7CodeGen15CodeGenFunction24destroyNonTrivialCStructERS1_NS0_7AddressENS_8QualTypeE, %61 ], [ @_ZN5clang7CodeGen15CodeGenFunction25destroyARCStrongImpreciseERS1_NS0_7AddressENS_8QualTypeE, %37 ], [ @_ZN5clang7CodeGen15CodeGenFunction25destroyARCStrongImpreciseERS1_NS0_7AddressENS_8QualTypeE, %59 ]
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %7, i64 48, i1 false)
@@ -10503,15 +10503,12 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction11pushDestroyENS_8QualT
   %.fr4.i = freeze i64 %13
   %14 = and i64 %.fr4.i, 8796093022208
   %.not.i.i = icmp eq i64 %14, 0
-  br i1 %7, label %16, label %15
+  br i1 %7, label %15, label %_ZN5clang7CodeGen15CodeGenFunction14needsEHCleanupENS_8QualType15DestructionKindE.exit.i
 
 15:                                               ; preds = %4
-  br i1 %.not.i.i, label %_ZN5clang7CodeGen15CodeGenFunction14getCleanupKindENS_8QualType15DestructionKindE.exit, label %21
+  br i1 %.not.i.i, label %_ZN5clang7CodeGen15CodeGenFunction14getCleanupKindENS_8QualType15DestructionKindE.exit.thread, label %16
 
-16:                                               ; preds = %4
-  br i1 %.not.i.i, label %_ZN5clang7CodeGen15CodeGenFunction14getCleanupKindENS_8QualType15DestructionKindE.exit.thread, label %_ZN5clang7CodeGen15CodeGenFunction14needsEHCleanupENS_8QualType15DestructionKindE.exit.i
-
-_ZN5clang7CodeGen15CodeGenFunction14needsEHCleanupENS_8QualType15DestructionKindE.exit.i: ; preds = %16
+16:                                               ; preds = %15
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 184
   %18 = load ptr, ptr %17, align 8, !tbaa !711
   %19 = load i64, ptr %18, align 8
@@ -10520,15 +10517,18 @@ _ZN5clang7CodeGen15CodeGenFunction14needsEHCleanupENS_8QualType15DestructionKind
   %.not.i = icmp eq i64 %20, 0
   br i1 %.not.i, label %_ZN5clang7CodeGen15CodeGenFunction14getCleanupKindENS_8QualType15DestructionKindE.exit.thread, label %21
 
-21:                                               ; preds = %_ZN5clang7CodeGen15CodeGenFunction14needsEHCleanupENS_8QualType15DestructionKindE.exit.i, %15
+_ZN5clang7CodeGen15CodeGenFunction14needsEHCleanupENS_8QualType15DestructionKindE.exit.i: ; preds = %4
+  br i1 %.not.i.i, label %_ZN5clang7CodeGen15CodeGenFunction14getCleanupKindENS_8QualType15DestructionKindE.exit, label %21
+
+21:                                               ; preds = %_ZN5clang7CodeGen15CodeGenFunction14needsEHCleanupENS_8QualType15DestructionKindE.exit.i, %16
   br label %_ZN5clang7CodeGen15CodeGenFunction14getCleanupKindENS_8QualType15DestructionKindE.exit
 
-_ZN5clang7CodeGen15CodeGenFunction14getCleanupKindENS_8QualType15DestructionKindE.exit.thread: ; preds = %16, %_ZN5clang7CodeGen15CodeGenFunction14needsEHCleanupENS_8QualType15DestructionKindE.exit.i
+_ZN5clang7CodeGen15CodeGenFunction14getCleanupKindENS_8QualType15DestructionKindE.exit.thread: ; preds = %15, %16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 48, i1 false)
   br label %_ZN5clang7CodeGen15CodeGenFunction12getDestroyerENS_8QualType15DestructionKindE.exit
 
-_ZN5clang7CodeGen15CodeGenFunction14getCleanupKindENS_8QualType15DestructionKindE.exit: ; preds = %15, %21
-  %22 = phi i32 [ 3, %21 ], [ 2, %15 ]
+_ZN5clang7CodeGen15CodeGenFunction14getCleanupKindENS_8QualType15DestructionKindE.exit: ; preds = %_ZN5clang7CodeGen15CodeGenFunction14needsEHCleanupENS_8QualType15DestructionKindE.exit.i, %21
+  %22 = phi i32 [ 3, %21 ], [ 2, %_ZN5clang7CodeGen15CodeGenFunction14needsEHCleanupENS_8QualType15DestructionKindE.exit.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 48, i1 false)
   switch i32 %1, label %26 [
     i32 4, label %25
@@ -10613,15 +10613,12 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction31pushDestroyAndDeferDe
   %.fr4.i = freeze i64 %12
   %13 = and i64 %.fr4.i, 8796093022208
   %.not.i.i = icmp eq i64 %13, 0
-  br i1 %6, label %15, label %14
+  br i1 %6, label %14, label %_ZN5clang7CodeGen15CodeGenFunction14needsEHCleanupENS_8QualType15DestructionKindE.exit.i
 
 14:                                               ; preds = %4
-  br i1 %.not.i.i, label %_ZN5clang7CodeGen15CodeGenFunction14getCleanupKindENS_8QualType15DestructionKindE.exit, label %20
+  br i1 %.not.i.i, label %_ZN5clang7CodeGen15CodeGenFunction14getCleanupKindENS_8QualType15DestructionKindE.exit.thread, label %15
 
-15:                                               ; preds = %4
-  br i1 %.not.i.i, label %_ZN5clang7CodeGen15CodeGenFunction14getCleanupKindENS_8QualType15DestructionKindE.exit.thread, label %_ZN5clang7CodeGen15CodeGenFunction14needsEHCleanupENS_8QualType15DestructionKindE.exit.i
-
-_ZN5clang7CodeGen15CodeGenFunction14needsEHCleanupENS_8QualType15DestructionKindE.exit.i: ; preds = %15
+15:                                               ; preds = %14
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 184
   %17 = load ptr, ptr %16, align 8, !tbaa !711
   %18 = load i64, ptr %17, align 8
@@ -10630,15 +10627,18 @@ _ZN5clang7CodeGen15CodeGenFunction14needsEHCleanupENS_8QualType15DestructionKind
   %.not.i = icmp eq i64 %19, 0
   br i1 %.not.i, label %_ZN5clang7CodeGen15CodeGenFunction14getCleanupKindENS_8QualType15DestructionKindE.exit.thread, label %20
 
-20:                                               ; preds = %_ZN5clang7CodeGen15CodeGenFunction14needsEHCleanupENS_8QualType15DestructionKindE.exit.i, %14
+_ZN5clang7CodeGen15CodeGenFunction14needsEHCleanupENS_8QualType15DestructionKindE.exit.i: ; preds = %4
+  br i1 %.not.i.i, label %_ZN5clang7CodeGen15CodeGenFunction14getCleanupKindENS_8QualType15DestructionKindE.exit, label %20
+
+20:                                               ; preds = %_ZN5clang7CodeGen15CodeGenFunction14needsEHCleanupENS_8QualType15DestructionKindE.exit.i, %15
   br label %_ZN5clang7CodeGen15CodeGenFunction14getCleanupKindENS_8QualType15DestructionKindE.exit
 
-_ZN5clang7CodeGen15CodeGenFunction14getCleanupKindENS_8QualType15DestructionKindE.exit.thread: ; preds = %15, %_ZN5clang7CodeGen15CodeGenFunction14needsEHCleanupENS_8QualType15DestructionKindE.exit.i
+_ZN5clang7CodeGen15CodeGenFunction14getCleanupKindENS_8QualType15DestructionKindE.exit.thread: ; preds = %14, %15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 48, i1 false), !tbaa.struct !778
   br label %_ZN5clang7CodeGen15CodeGenFunction12getDestroyerENS_8QualType15DestructionKindE.exit
 
-_ZN5clang7CodeGen15CodeGenFunction14getCleanupKindENS_8QualType15DestructionKindE.exit: ; preds = %14, %20
-  %21 = phi i32 [ 3, %20 ], [ 2, %14 ]
+_ZN5clang7CodeGen15CodeGenFunction14getCleanupKindENS_8QualType15DestructionKindE.exit: ; preds = %_ZN5clang7CodeGen15CodeGenFunction14needsEHCleanupENS_8QualType15DestructionKindE.exit.i, %20
+  %21 = phi i32 [ 3, %20 ], [ 2, %_ZN5clang7CodeGen15CodeGenFunction14needsEHCleanupENS_8QualType15DestructionKindE.exit.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 48, i1 false), !tbaa.struct !778
   switch i32 %1, label %25 [
     i32 4, label %24
@@ -12393,7 +12393,7 @@ _ZNK5clang8QualType13getQualifiersEv.exit:        ; preds = %276
   br i1 %.not.i.i.i.i.i, label %_ZN5clangneENS_22specific_attr_iteratorINS_14NSConsumedAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !1559
 
 _ZN5clangneENS_22specific_attr_iteratorINS_14NSConsumedAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i: ; preds = %298, %.lr.ph.i.i.i.i.i
-  %.sroa.07.0.i.i.ph.i.i = phi ptr [ %293, %298 ], [ %.sroa.07.1.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+  %.sroa.07.0.i.i.ph.i.i = phi ptr [ %.sroa.07.1.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %293, %298 ]
   %300 = icmp ne ptr %.sroa.07.0.i.i.ph.i.i, %293
   br label %_ZNK5clang4Decl7hasAttrINS_14NSConsumedAttrEEEbv.exit
 
@@ -12507,7 +12507,7 @@ _ZNK5clang4Decl7hasAttrINS_14NSConsumedAttrEEEbv.exit: ; preds = %284, %287, %_Z
   br i1 %.not.i.i.i.i.i188, label %_ZN5clangneENS_22specific_attr_iteratorINS_23ObjCPreciseLifetimeAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i, label %.lr.ph.i.i.i.i.i186, !llvm.loop !1322
 
 _ZN5clangneENS_22specific_attr_iteratorINS_23ObjCPreciseLifetimeAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i: ; preds = %346, %.lr.ph.i.i.i.i.i186
-  %.sroa.07.0.i.i.ph.i.i189 = phi ptr [ %341, %346 ], [ %.sroa.07.1.i.i.i.i187, %.lr.ph.i.i.i.i.i186 ]
+  %.sroa.07.0.i.i.ph.i.i189 = phi ptr [ %.sroa.07.1.i.i.i.i187, %.lr.ph.i.i.i.i.i186 ], [ %341, %346 ]
   %348 = icmp ne ptr %.sroa.07.0.i.i.ph.i.i189, %341
   %349 = zext i1 %348 to i32
   br label %_ZNK5clang4Decl7hasAttrINS_23ObjCPreciseLifetimeAttrEEEbv.exit
@@ -13399,9 +13399,9 @@ _ZNK5clang13ReferenceType14getPointeeTypeEv.exit.i: ; preds = %_ZNK5clang4Type6c
   %96 = zext i32 %.sroa.speculated to i64
   br label %_ZNK5clang4Decl7getAttrINS_19OMPAllocateDeclAttrEEEPT_v.exit.thread
 
-_ZNK5clang4Decl7getAttrINS_19OMPAllocateDeclAttrEEEPT_v.exit.thread: ; preds = %18, %7, %_ZN5clangneENS_22specific_attr_iteratorINS_19OMPAllocateDeclAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, %2, %_ZNK5clang4Decl7getAttrINS_19OMPAllocateDeclAttrEEEPT_v.exit, %.critedge
-  %.sroa.020.025 = phi i64 [ %96, %.critedge ], [ undef, %_ZNK5clang4Decl7getAttrINS_19OMPAllocateDeclAttrEEEPT_v.exit ], [ undef, %2 ], [ undef, %_ZN5clangneENS_22specific_attr_iteratorINS_19OMPAllocateDeclAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i ], [ undef, %7 ], [ undef, %18 ]
-  %.sroa.2.1 = phi i8 [ 1, %.critedge ], [ 0, %_ZNK5clang4Decl7getAttrINS_19OMPAllocateDeclAttrEEEPT_v.exit ], [ 0, %2 ], [ 0, %_ZN5clangneENS_22specific_attr_iteratorINS_19OMPAllocateDeclAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i ], [ 0, %7 ], [ 0, %18 ]
+_ZNK5clang4Decl7getAttrINS_19OMPAllocateDeclAttrEEEPT_v.exit.thread: ; preds = %18, %_ZN5clangneENS_22specific_attr_iteratorINS_19OMPAllocateDeclAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, %7, %2, %_ZNK5clang4Decl7getAttrINS_19OMPAllocateDeclAttrEEEPT_v.exit, %.critedge
+  %.sroa.020.025 = phi i64 [ %96, %.critedge ], [ undef, %_ZNK5clang4Decl7getAttrINS_19OMPAllocateDeclAttrEEEPT_v.exit ], [ undef, %2 ], [ undef, %7 ], [ undef, %_ZN5clangneENS_22specific_attr_iteratorINS_19OMPAllocateDeclAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i ], [ undef, %18 ]
+  %.sroa.2.1 = phi i8 [ 1, %.critedge ], [ 0, %_ZNK5clang4Decl7getAttrINS_19OMPAllocateDeclAttrEEEPT_v.exit ], [ 0, %2 ], [ 0, %7 ], [ 0, %_ZN5clangneENS_22specific_attr_iteratorINS_19OMPAllocateDeclAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i ], [ 0, %18 ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.020.025, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.2.1, 1
   ret { i64, i8 } %.fca.1.insert
@@ -15584,7 +15584,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang4Decl7hasAttrINS_16Opti
   br i1 %.not.i.i.i.i, label %_ZN5clangneENS_22specific_attr_iteratorINS_16OptimizeNoneAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i, label %.lr.ph.i.i.i.i, !llvm.loop !1643
 
 _ZN5clangneENS_22specific_attr_iteratorINS_16OptimizeNoneAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i: ; preds = %16, %.lr.ph.i.i.i.i
-  %.sroa.07.0.i.i.ph.i = phi ptr [ %11, %16 ], [ %.sroa.07.1.i.i.i, %.lr.ph.i.i.i.i ]
+  %.sroa.07.0.i.i.ph.i = phi ptr [ %.sroa.07.1.i.i.i, %.lr.ph.i.i.i.i ], [ %11, %16 ]
   %18 = icmp ne ptr %.sroa.07.0.i.i.ph.i, %11
   br label %_ZN5clang15hasSpecificAttrINS_16OptimizeNoneAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEEbRKT0_.exit
 
@@ -18450,7 +18450,7 @@ _ZSt6fill_nIPPN4llvm5ValueEmS2_ET_S4_T0_RKT1_.exit.i.i: ; preds = %26
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN4llvm11SmallVectorIPNS_5ValueELj4EEC2EmRKS2_.exit, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !1705
 
 _ZN4llvm11SmallVectorIPNS_5ValueELj4EEC2EmRKS2_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i, %_ZSt6fill_nIPPN4llvm5ValueEmS2_ET_S4_T0_RKT1_.exit.i.i
-  %43 = phi ptr [ %32, %_ZSt6fill_nIPPN4llvm5ValueEmS2_ET_S4_T0_RKT1_.exit.i.i ], [ %37, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %32, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %43 = phi ptr [ %37, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %32, %_ZSt6fill_nIPPN4llvm5ValueEmS2_ET_S4_T0_RKT1_.exit.i.i ], [ %32, %.lr.ph.i.i.i.i.i.i.i.i ]
   store i32 %30, ptr %33, align 8, !tbaa !671
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 280
   call void @llvm.lifetime.start.p0(ptr nonnull %8)

@@ -2462,8 +2462,8 @@ dissect_lbmr_rctxinfo_rec.exit.i:                 ; preds = %432, %.lr.ph.i324
   br label %dissect_lbmr_pser.exit
 
 dissect_lbmr_pser.exit:                           ; preds = %dissect_lbmr_rctxinfo_rec.exit.i, %145, %.outer.i, %153, %306, %._crit_edge.loopexit.i, %286, %283, %279, %268, %264, %244, %dissect_lbmr_tnwg_interest.exit.loopexit.i, %204, %187, %._crit_edge.i, %98, %440, %192, %168
-  %.0301 = phi i32 [ 2, %440 ], [ %305, %._crit_edge.loopexit.i ], [ %169, %168 ], [ 4, %192 ], [ %189, %187 ], [ %243, %dissect_lbmr_tnwg_interest.exit.loopexit.i ], [ %100, %98 ], [ %.pre.i, %._crit_edge.i ], [ 8, %283 ], [ 10, %268 ], [ 20, %244 ], [ %267, %264 ], [ %282, %279 ], [ 12, %204 ], [ 16, %286 ], [ 8, %306 ], [ %.1101123.i, %145 ], [ %165, %153 ], [ %.1101.ph.i, %.outer.i ], [ %438, %dissect_lbmr_rctxinfo_rec.exit.i ]
-  %.0291 = phi i32 [ 0, %440 ], [ 0, %._crit_edge.loopexit.i ], [ 2, %168 ], [ 0, %192 ], [ 0, %187 ], [ 0, %dissect_lbmr_tnwg_interest.exit.loopexit.i ], [ 0, %98 ], [ 0, %._crit_edge.i ], [ 0, %283 ], [ 0, %268 ], [ 0, %244 ], [ 0, %264 ], [ 0, %279 ], [ 0, %204 ], [ 0, %286 ], [ 0, %306 ], [ 0, %145 ], [ 0, %153 ], [ 0, %.outer.i ], [ 0, %dissect_lbmr_rctxinfo_rec.exit.i ]
+  %.0301 = phi i32 [ 2, %440 ], [ %305, %._crit_edge.loopexit.i ], [ %169, %168 ], [ 8, %306 ], [ 4, %192 ], [ %189, %187 ], [ %243, %dissect_lbmr_tnwg_interest.exit.loopexit.i ], [ %100, %98 ], [ %165, %153 ], [ %.1101123.i, %145 ], [ %.pre.i, %._crit_edge.i ], [ 8, %283 ], [ 10, %268 ], [ 20, %244 ], [ %267, %264 ], [ %282, %279 ], [ 12, %204 ], [ 16, %286 ], [ %.1101.ph.i, %.outer.i ], [ %438, %dissect_lbmr_rctxinfo_rec.exit.i ]
+  %.0291 = phi i32 [ 0, %440 ], [ 0, %._crit_edge.loopexit.i ], [ 2, %168 ], [ 0, %306 ], [ 0, %192 ], [ 0, %187 ], [ 0, %dissect_lbmr_tnwg_interest.exit.loopexit.i ], [ 0, %98 ], [ 0, %153 ], [ 0, %145 ], [ 0, %._crit_edge.i ], [ 0, %283 ], [ 0, %268 ], [ 0, %244 ], [ 0, %264 ], [ 0, %279 ], [ 0, %204 ], [ 0, %286 ], [ 0, %.outer.i ], [ 0, %dissect_lbmr_rctxinfo_rec.exit.i ]
   %442 = add i32 %.0291, %.0301
   br label %dissect_lbmr_tmb.exit
 
@@ -5630,7 +5630,7 @@ define internal noundef zeroext i1 @lbmr_tag_mc_incoming_address_chk_cb(ptr read
   br label %17
 
 17:                                               ; preds = %.sink.split, %9, %14
-  %.0 = phi i1 [ true, %14 ], [ true, %9 ], [ false, %.sink.split ]
+  %.0 = phi i1 [ true, %9 ], [ true, %14 ], [ false, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i1 %.0
 }
@@ -5728,7 +5728,7 @@ define internal noundef zeroext i1 @lbmr_tag_mc_outgoing_address_chk_cb(ptr read
   br label %17
 
 17:                                               ; preds = %.sink.split, %9, %14
-  %.0 = phi i1 [ true, %14 ], [ true, %9 ], [ false, %.sink.split ]
+  %.0 = phi i1 [ true, %9 ], [ true, %14 ], [ false, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i1 %.0
 }

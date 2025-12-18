@@ -6677,7 +6677,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit111:       ; preds = %_ZSt8_DestroyIPN2cv
   br i1 %204, label %.loopexit156, label %201
 
 .loopexit156:                                     ; preds = %201, %.loopexit156.loopexit165, %.thread
-  %.pn50.pn.pn.pn = phi { ptr, i32 } [ %59, %.thread ], [ %198, %.loopexit156.loopexit165 ], [ %.pn50.pn.pn, %201 ]
+  %.pn50.pn.pn.pn = phi { ptr, i32 } [ %198, %.loopexit156.loopexit165 ], [ %59, %.thread ], [ %.pn50.pn.pn, %201 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -6713,7 +6713,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit111:       ; preds = %_ZSt8_DestroyIPN2cv
   br i1 %216, label %.loopexit154, label %213
 
 .loopexit154:                                     ; preds = %209, %213, %.thread149
-  %.pn55 = phi { ptr, i32 } [ %99, %.thread149 ], [ %eh.lpad-body126191, %213 ], [ %208, %209 ]
+  %.pn55 = phi { ptr, i32 } [ %eh.lpad-body126191, %213 ], [ %99, %.thread149 ], [ %208, %209 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %229
 
@@ -6749,7 +6749,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit111:       ; preds = %_ZSt8_DestroyIPN2cv
   br i1 %225, label %.loopexit, label %222
 
 .loopexit:                                        ; preds = %222, %.loopexit.loopexit163, %.thread151
-  %.pn60.pn.pn.pn = phi { ptr, i32 } [ %138, %.thread151 ], [ %219, %.loopexit.loopexit163 ], [ %.pn60.pn.pn, %222 ]
+  %.pn60.pn.pn.pn = phi { ptr, i32 } [ %219, %.loopexit.loopexit163 ], [ %138, %.thread151 ], [ %.pn60.pn.pn, %222 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
@@ -7614,7 +7614,7 @@ _ZN2cv4util7variantIJNS0_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDes
   br i1 %123, label %.loopexit, label %.body29
 
 .loopexit:                                        ; preds = %_ZN2cv4util7variantIJNS0_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEED2Ev.exit36, %106, %.thread
-  %.pn13 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread ], [ %lpad.thr_comm.split-lp, %106 ], [ %78, %_ZN2cv4util7variantIJNS0_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEED2Ev.exit36 ]
+  %.pn13 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %106 ], [ %lpad.thr_comm, %.thread ], [ %78, %_ZN2cv4util7variantIJNS0_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEED2Ev.exit36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @_ZNSt11_Tuple_implILm0EJN2cv8GMatDescES1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #24
   br label %_ZN2cv8GMatDescD2Ev.exit34
@@ -9440,7 +9440,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit148:       ; preds = %_ZSt8_DestroyIPN2cv
   br i1 %272, label %.loopexit197, label %269
 
 .loopexit197:                                     ; preds = %269, %.loopexit197.loopexit206, %.thread
-  %.pn63.pn.pn.pn = phi { ptr, i32 } [ %111, %.thread ], [ %266, %.loopexit197.loopexit206 ], [ %.pn63.pn.pn, %269 ]
+  %.pn63.pn.pn.pn = phi { ptr, i32 } [ %266, %.loopexit197.loopexit206 ], [ %111, %.thread ], [ %.pn63.pn.pn, %269 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
@@ -9513,7 +9513,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit148:       ; preds = %_ZSt8_DestroyIPN2cv
   br i1 %294, label %.loopexit195, label %291
 
 .loopexit195:                                     ; preds = %287, %291, %.thread190
-  %.pn72 = phi { ptr, i32 } [ %161, %.thread190 ], [ %eh.lpad-body164236, %291 ], [ %286, %287 ]
+  %.pn72 = phi { ptr, i32 } [ %eh.lpad-body164236, %291 ], [ %161, %.thread190 ], [ %286, %287 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %307
 
@@ -9549,7 +9549,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit148:       ; preds = %_ZSt8_DestroyIPN2cv
   br i1 %303, label %.loopexit, label %300
 
 .loopexit:                                        ; preds = %300, %.loopexit.loopexit204, %.thread192
-  %.pn77.pn.pn.pn = phi { ptr, i32 } [ %200, %.thread192 ], [ %297, %.loopexit.loopexit204 ], [ %.pn77.pn.pn, %300 ]
+  %.pn77.pn.pn.pn = phi { ptr, i32 } [ %297, %.loopexit.loopexit204 ], [ %200, %.thread192 ], [ %.pn77.pn.pn, %300 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   call void @llvm.lifetime.end.p0(ptr nonnull %29)

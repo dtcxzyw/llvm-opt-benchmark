@@ -916,7 +916,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %84, %8
   br label %.thread899
 
 .thread899:                                       ; preds = %.thread899.sink.split, %454, %456, %476
-  %.3665883905 = phi i8 [ 0, %476 ], [ 1, %456 ], [ 1, %454 ], [ 1, %.thread899.sink.split ]
+  %.3665883905 = phi i8 [ 0, %476 ], [ 1, %454 ], [ 1, %456 ], [ 1, %.thread899.sink.split ]
   %478 = load ptr, ptr %75, align 8, !tbaa !48
   %479 = getelementptr inbounds nuw i8, ptr %478, i64 136
   %480 = load i16, ptr %479, align 8, !tbaa !72
@@ -944,11 +944,11 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %84, %8
   store i16 %492, ptr %479, align 8, !tbaa !72
   br label %.thread910
 
-.thread910:                                       ; preds = %.thread892, %467, %474, %472, %488, %490, %.thread899, %476
-  %.not751908 = phi i1 [ false, %488 ], [ false, %490 ], [ false, %.thread899 ], [ true, %476 ], [ true, %472 ], [ true, %474 ], [ true, %467 ], [ true, %.thread892 ]
-  %.3665883906 = phi i8 [ %.3665883905, %488 ], [ %.3665883905, %490 ], [ %.3665883905, %.thread899 ], [ 0, %476 ], [ 1, %472 ], [ 1, %474 ], [ 1, %467 ], [ 1, %.thread892 ]
-  %.3661886904 = phi ptr [ %.1659, %488 ], [ %.1659, %490 ], [ %.1659, %.thread899 ], [ null, %476 ], [ null, %472 ], [ null, %474 ], [ null, %467 ], [ null, %.thread892 ]
-  %493 = phi i1 [ %.1663, %488 ], [ %.1663, %490 ], [ %.1663, %.thread899 ], [ false, %476 ], [ true, %472 ], [ true, %474 ], [ true, %467 ], [ true, %.thread892 ]
+.thread910:                                       ; preds = %472, %474, %467, %.thread892, %488, %490, %.thread899, %476
+  %.not751908 = phi i1 [ false, %488 ], [ false, %490 ], [ false, %.thread899 ], [ true, %476 ], [ true, %.thread892 ], [ true, %467 ], [ true, %474 ], [ true, %472 ]
+  %.3665883906 = phi i8 [ %.3665883905, %488 ], [ %.3665883905, %490 ], [ %.3665883905, %.thread899 ], [ 0, %476 ], [ 1, %.thread892 ], [ 1, %467 ], [ 1, %474 ], [ 1, %472 ]
+  %.3661886904 = phi ptr [ %.1659, %488 ], [ %.1659, %490 ], [ %.1659, %.thread899 ], [ null, %476 ], [ null, %.thread892 ], [ null, %467 ], [ null, %474 ], [ null, %472 ]
+  %493 = phi i1 [ %.1663, %488 ], [ %.1663, %490 ], [ %.1663, %.thread899 ], [ false, %476 ], [ true, %.thread892 ], [ true, %467 ], [ true, %474 ], [ true, %472 ]
   %494 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %495 = call zeroext i1 @prte_get_attribute(ptr noundef nonnull %101, i16 noundef zeroext 237, ptr noundef nonnull %494, i16 noundef zeroext 3) #15
   %496 = call zeroext i1 @prte_get_attribute(ptr noundef nonnull %101, i16 noundef zeroext 277, ptr noundef nonnull %8, i16 noundef zeroext 13) #15
@@ -4107,7 +4107,7 @@ pmix_obj_run_destructors.exit237:                 ; preds = %.lr.ph.i234, %370
   br i1 %.not200, label %.loopexit256, label %pmix_obj_run_destructors.exit253
 
 .loopexit256:                                     ; preds = %353, %184, %._crit_edge291, %325, %344, %._crit_edge310, %.split.us, %250, %114, %108, %64
-  %.0177 = phi i32 [ -5, %64 ], [ -5, %108 ], [ -5, %114 ], [ -43, %.split.us ], [ -43, %325 ], [ 0, %._crit_edge310 ], [ -43, %250 ], [ -43, %344 ], [ 0, %._crit_edge291 ], [ -2, %184 ], [ -2, %353 ]
+  %.0177 = phi i32 [ -5, %64 ], [ -5, %108 ], [ -5, %114 ], [ -43, %.split.us ], [ -2, %184 ], [ 0, %._crit_edge291 ], [ -43, %325 ], [ 0, %._crit_edge310 ], [ -43, %250 ], [ -43, %344 ], [ -2, %353 ]
   %392 = getelementptr inbounds nuw i8, ptr %29, i64 160
   %393 = load ptr, ptr %392, align 8, !tbaa !154
   %394 = getelementptr inbounds nuw i8, ptr %393, i64 128

@@ -389,7 +389,7 @@ define range(i32 0, 2) i32 @Cudd_DumpBlifBody(ptr noundef %0, i32 noundef %1, pt
   br i1 %48, label %.sink.split, label %34
 
 .sink.split:                                      ; preds = %.lr.ph, %.lr.ph51.split, %43, %34, %.lr.ph51.split.us, %21, %20, %.preheader47
-  %.038.ph = phi i32 [ 1, %.preheader47 ], [ 0, %43 ], [ 0, %.lr.ph51.split.us ], [ 1, %20 ], [ 0, %21 ], [ 1, %34 ], [ 0, %.lr.ph51.split ], [ 0, %.lr.ph ]
+  %.038.ph = phi i32 [ 1, %.preheader47 ], [ 0, %.lr.ph51.split ], [ 0, %.lr.ph51.split.us ], [ 1, %20 ], [ 0, %21 ], [ 1, %34 ], [ 0, %43 ], [ 0, %.lr.ph ]
   tail call void @st__free_table(ptr noundef nonnull %8) #10
   br label %49
 
@@ -1310,8 +1310,8 @@ define range(i32 0, 2) i32 @Cudd_DumpDaVinci(ptr noundef readnone captures(none)
   br label %.thread81.sink.split
 
 .thread81.sink.split:                             ; preds = %.lr.ph, %52, %62, %69, %54, %._crit_edge95, %37
-  %.06279.sink = phi ptr [ %35, %._crit_edge95 ], [ %35, %37 ], [ %35, %52 ], [ %35, %54 ], [ %35, %69 ], [ %35, %62 ], [ %8, %.lr.ph ]
-  %.061.ph = phi i32 [ %spec.select, %._crit_edge95 ], [ 0, %37 ], [ 0, %52 ], [ 0, %54 ], [ 0, %69 ], [ 0, %62 ], [ 0, %.lr.ph ]
+  %.06279.sink = phi ptr [ %35, %._crit_edge95 ], [ %35, %52 ], [ %35, %37 ], [ %35, %54 ], [ %35, %69 ], [ %35, %62 ], [ %8, %.lr.ph ]
+  %.061.ph = phi i32 [ %spec.select, %._crit_edge95 ], [ 0, %52 ], [ 0, %37 ], [ 0, %54 ], [ 0, %69 ], [ 0, %62 ], [ 0, %.lr.ph ]
   call void @st__free_table(ptr noundef nonnull %.06279.sink) #10
   br label %.thread81
 
@@ -1728,7 +1728,7 @@ define range(i32 0, 2) i32 @Cudd_DumpDDcal(ptr noundef %0, i32 noundef %1, ptr n
   br label %.thread159
 
 .thread163:                                       ; preds = %.lr.ph, %94, %110, %112, %.lr.ph200.split, %.lr.ph200.split.us, %._crit_edge198.thread, %._crit_edge201, %._crit_edge198
-  %.0123.ph166 = phi ptr [ %90, %._crit_edge198 ], [ %90, %._crit_edge201 ], [ %90, %._crit_edge198.thread ], [ %90, %94 ], [ %90, %.lr.ph200.split.us ], [ %90, %.lr.ph200.split ], [ %90, %112 ], [ %90, %110 ], [ %10, %.lr.ph ]
+  %.0123.ph166 = phi ptr [ %90, %._crit_edge198 ], [ %90, %.lr.ph200.split ], [ %90, %.lr.ph200.split.us ], [ %90, %._crit_edge201 ], [ %90, %._crit_edge198.thread ], [ %90, %94 ], [ %90, %112 ], [ %90, %110 ], [ %10, %.lr.ph ]
   call void @st__free_table(ptr noundef nonnull %.0123.ph166) #10
   br label %.thread159
 

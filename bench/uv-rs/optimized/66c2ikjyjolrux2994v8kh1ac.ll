@@ -1960,8 +1960,8 @@ default.unreachable1147:                          ; preds = %250
   br i1 %or.cond9, label %100, label %590
 
 .body:                                            ; preds = %.loopexit522, %.loopexit.split-lp523, %614, %533, %622, %547
-  %.sroa.0256.2 = phi i1 [ true, %622 ], [ true, %533 ], [ true, %614 ], [ true, %547 ], [ %.sroa.0256.1.ph, %.loopexit522 ], [ %.sroa.0256.1.ph524, %.loopexit.split-lp523 ]
-  %.pn = phi { ptr, i32 } [ %623, %622 ], [ %534, %533 ], [ %615, %614 ], [ %lpad.phi532, %547 ], [ %lpad.loopexit525, %.loopexit522 ], [ %lpad.loopexit.split-lp526, %.loopexit.split-lp523 ]
+  %.sroa.0256.2 = phi i1 [ true, %614 ], [ true, %622 ], [ true, %547 ], [ true, %533 ], [ %.sroa.0256.1.ph, %.loopexit522 ], [ %.sroa.0256.1.ph524, %.loopexit.split-lp523 ]
+  %.pn = phi { ptr, i32 } [ %615, %614 ], [ %623, %622 ], [ %lpad.phi532, %547 ], [ %534, %533 ], [ %lpad.loopexit525, %.loopexit522 ], [ %lpad.loopexit.split-lp526, %.loopexit.split-lp523 ]
   %118 = load i64, ptr %33, align 8, !range !24, !noundef !7
   %119 = icmp sgt i64 %118, -9223372036854775788
   %120 = icmp eq i64 %118, -9223372036854775807

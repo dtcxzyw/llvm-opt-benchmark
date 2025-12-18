@@ -2369,7 +2369,7 @@ define dso_local noundef range(i32 -122, 1) i32 @__dquot_alloc_space(ptr noundef
   br i1 %168, label %.loopexit12, label %153, !llvm.loop !57
 
 .loopexit12.sink.split:                           ; preds = %136, %105, %.split19.us, %.thread
-  %.ph = phi i32 [ 0, %.thread ], [ %.us-phi20, %.split19.us ], [ %.us-phi20, %105 ], [ %.us-phi20, %136 ]
+  %.ph = phi i32 [ 0, %.thread ], [ %.us-phi20, %105 ], [ %.us-phi20, %.split19.us ], [ %.us-phi20, %136 ]
   tail call void @_raw_spin_unlock(ptr noundef nonnull %48) #12
   br label %.loopexit12
 
@@ -5182,7 +5182,7 @@ define dso_local noundef range(i32 -22, 1) i32 @dquot_disable(ptr noundef %0, i3
   br i1 %182, label %.loopexit23, label %.preheader22.backedge
 
 .preheader22.backedge:                            ; preds = %181, %136
-  %.be = phi ptr [ %111, %181 ], [ %138, %136 ]
+  %.be = phi ptr [ %138, %136 ], [ %111, %181 ]
   br label %.preheader22, !llvm.loop !84
 
 .loopexit23:                                      ; preds = %181, %136, %105
@@ -7090,7 +7090,7 @@ define internal void @quota_release_workfn(ptr readnone captures(none) %0) #0 al
   br i1 %82, label %.loopexit, label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %77, %48
-  %.be = phi ptr [ %81, %77 ], [ %49, %48 ]
+  %.be = phi ptr [ %49, %48 ], [ %81, %77 ]
   br label %.preheader, !llvm.loop !110
 
 .loopexit:                                        ; preds = %77, %48, %1

@@ -1015,7 +1015,7 @@ _ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i.exit30: ; pre
   br label %_ZN20GIM_TRIANGLE_CONTACT9copy_fromERKS_.exit
 
 _ZN20GIM_TRIANGLE_CONTACT9copy_fromERKS_.exit:    ; preds = %.lr.ph.i35, %.lr.ph.i31, %_ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i.exit30.thread, %_ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i.exit30, %65
-  %.1 = phi i1 [ false, %_ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i.exit30 ], [ false, %65 ], [ false, %_ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i.exit30.thread ], [ true, %.lr.ph.i31 ], [ true, %.lr.ph.i35 ]
+  %.1 = phi i1 [ false, %_ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i.exit30 ], [ false, %65 ], [ true, %.lr.ph.i31 ], [ false, %_ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i.exit30.thread ], [ true, %.lr.ph.i35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %131
 

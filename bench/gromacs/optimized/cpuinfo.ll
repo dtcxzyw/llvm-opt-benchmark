@@ -3107,7 +3107,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEN9__gnu_cxx17__norma
   br label %_ZN3gmx12_GLOBAL__N_110trimStringEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i
 
 _ZN3gmx12_GLOBAL__N_110trimStringEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i: ; preds = %.lr.ph.i.i.i13.i.i, %1119, %1108, %1099, %._crit_edge.i.i.i12.i.i, %1090, %1083, %1076
-  %.sink.i.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %1119 ], [ %1110, %1108 ], [ %1096, %1099 ], [ %.cast23.i.i.i.i.i, %1090 ], [ %.cast22.i.i.i.i.i, %1083 ], [ %.cast.i.i.i.i.i, %1076 ], [ %1058, %._crit_edge.i.i.i12.i.i ], [ %1065, %.lr.ph.i.i.i13.i.i ]
+  %.sink.i.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %1119 ], [ %1110, %1108 ], [ %1096, %1099 ], [ %1058, %._crit_edge.i.i.i12.i.i ], [ %.cast23.i.i.i.i.i, %1090 ], [ %.cast22.i.i.i.i.i, %1083 ], [ %.cast.i.i.i.i.i, %1076 ], [ %1065, %.lr.ph.i.i.i13.i.i ]
   %1126 = sub i64 %.sink.i.i.i.i.i, %1058
   store i64 %1126, ptr %997, align 8, !tbaa !41
   %1127 = getelementptr inbounds nuw i8, ptr %1054, i64 %1126
@@ -4017,7 +4017,7 @@ _ZNKSt3setIN3gmx7CpuInfo7FeatureESt4lessIS2_ESaIS2_EE5countERKS2_.exit884.i: ; p
 
 1443:                                             ; preds = %_ZNKSt3setIN3gmx7CpuInfo7FeatureESt4lessIS2_ESaIS2_EE5countERKS2_.exit884.i
   %1444 = load i32, ptr %111, align 4, !tbaa !38
-  switch i32 %1444, label %_ZN3gmx12_GLOBAL__N_132detectProcCpuInfoSecondAvx512FMAERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit.i [
+  switch i32 %1444, label %1475 [
     i32 85, label %1445
     i32 102, label %_ZNKSt3setIN3gmx7CpuInfo7FeatureESt4lessIS2_ESaIS2_EE5countERKS2_.exit884.thread.i
   ]
@@ -4070,17 +4070,17 @@ _ZNKSt3setIN3gmx7CpuInfo7FeatureESt4lessIS2_ESaIS2_EE5countERKS2_.exit884.i: ; p
 1472:                                             ; preds = %1469
   %1473 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcmm(ptr noundef nonnull align 8 dereferenceable(32) %110, ptr noundef nonnull @.str.7, i64 noundef 0, i64 noundef 2) #19
   %1474 = icmp eq i64 %1473, 22
-  br i1 %1474, label %_ZN3gmx12_GLOBAL__N_132detectProcCpuInfoSecondAvx512FMAERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit.thread913.i, label %1475
+  br i1 %1474, label %_ZN3gmx12_GLOBAL__N_132detectProcCpuInfoSecondAvx512FMAERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit.thread913.i, label %_ZN3gmx12_GLOBAL__N_132detectProcCpuInfoSecondAvx512FMAERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit.i
 
-1475:                                             ; preds = %1472
-  %1476 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcmm(ptr noundef nonnull align 8 dereferenceable(32) %110, ptr noundef nonnull @.str.8, i64 noundef 0, i64 noundef 2) #19
-  %1477 = icmp eq i64 %1476, 24
-  br i1 %1477, label %_ZN3gmx12_GLOBAL__N_132detectProcCpuInfoSecondAvx512FMAERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit.thread913.i, label %_ZNKSt3setIN3gmx7CpuInfo7FeatureESt4lessIS2_ESaIS2_EE5countERKS2_.exit884.thread.i
-
-_ZN3gmx12_GLOBAL__N_132detectProcCpuInfoSecondAvx512FMAERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit.i: ; preds = %1443
-  %1478 = add i32 %1444, -127
-  %or.cond.i.i = icmp ult i32 %1478, -2
+1475:                                             ; preds = %1443
+  %1476 = add i32 %1444, -127
+  %or.cond.i.i = icmp ult i32 %1476, -2
   br i1 %or.cond.i.i, label %_ZN3gmx12_GLOBAL__N_132detectProcCpuInfoSecondAvx512FMAERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit.thread913.i, label %_ZNKSt3setIN3gmx7CpuInfo7FeatureESt4lessIS2_ESaIS2_EE5countERKS2_.exit884.thread.i
+
+_ZN3gmx12_GLOBAL__N_132detectProcCpuInfoSecondAvx512FMAERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit.i: ; preds = %1472
+  %1477 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcmm(ptr noundef nonnull align 8 dereferenceable(32) %110, ptr noundef nonnull @.str.8, i64 noundef 0, i64 noundef 2) #19
+  %1478 = icmp eq i64 %1477, 24
+  br i1 %1478, label %_ZN3gmx12_GLOBAL__N_132detectProcCpuInfoSecondAvx512FMAERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit.thread913.i, label %_ZNKSt3setIN3gmx7CpuInfo7FeatureESt4lessIS2_ESaIS2_EE5countERKS2_.exit884.thread.i
 
 _ZN3gmx12_GLOBAL__N_132detectProcCpuInfoSecondAvx512FMAERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit.thread913.i: ; preds = %_ZN3gmx12_GLOBAL__N_132detectProcCpuInfoSecondAvx512FMAERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit.i, %1475, %1472, %1469, %1466, %1445
   %.02022.i.i.i.i = load ptr, ptr %785, align 8, !tbaa !31
@@ -5005,8 +5005,8 @@ _ZNSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_
   br i1 %.not.i, label %_ZNSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE11equal_rangeERKS2_.exit, label %6, !llvm.loop !79
 
 _ZNSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE11equal_rangeERKS2_.exit: ; preds = %23, %.lr.ph.i25.i, %2, %_ZNSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i
-  %.sroa.037.0.i = phi ptr [ %.08.lcssa.i.i, %_ZNSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i ], [ %4, %2 ], [ %.08.lcssa.i.i, %.lr.ph.i25.i ], [ %.123.i, %23 ]
-  %.sroa.3.0.i = phi ptr [ %.02243.i, %_ZNSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i ], [ %4, %2 ], [ %.19.i28.i, %.lr.ph.i25.i ], [ %.123.i, %23 ]
+  %.sroa.037.0.i = phi ptr [ %.08.lcssa.i.i, %.lr.ph.i25.i ], [ %.08.lcssa.i.i, %_ZNSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i ], [ %4, %2 ], [ %.123.i, %23 ]
+  %.sroa.3.0.i = phi ptr [ %.19.i28.i, %.lr.ph.i25.i ], [ %.02243.i, %_ZNSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i ], [ %4, %2 ], [ %.123.i, %23 ]
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %26 = load i64, ptr %25, align 8, !tbaa !37
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 24

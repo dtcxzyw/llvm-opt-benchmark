@@ -1291,9 +1291,9 @@ check_suite_b.exit71.thread:                      ; preds = %X509_get0_pubkey.ex
   br label %103
 
 .thread131:                                       ; preds = %check_suite_b.exit71.thread, %check_suite_b.exit63.thread, %.thread140
-  %.1138 = phi i32 [ %.2.lcssa, %.thread140 ], [ 0, %check_suite_b.exit63.thread ], [ %.2161, %check_suite_b.exit71.thread ]
-  %.039137 = phi i32 [ %.0.i75.ph, %.thread140 ], [ %.0.i61.ph, %check_suite_b.exit63.thread ], [ %.0.i69.ph, %check_suite_b.exit71.thread ]
-  %.086136 = phi i64 [ %.187.lcssa, %.thread140 ], [ %3, %check_suite_b.exit63.thread ], [ %.187159, %check_suite_b.exit71.thread ]
+  %.1138 = phi i32 [ %.2.lcssa, %.thread140 ], [ %.2161, %check_suite_b.exit71.thread ], [ 0, %check_suite_b.exit63.thread ]
+  %.039137 = phi i32 [ %.0.i75.ph, %.thread140 ], [ %.0.i69.ph, %check_suite_b.exit71.thread ], [ %.0.i61.ph, %check_suite_b.exit63.thread ]
+  %.086136 = phi i64 [ %.187.lcssa, %.thread140 ], [ %.187159, %check_suite_b.exit71.thread ], [ %3, %check_suite_b.exit63.thread ]
   %96 = icmp eq i32 %.039137, 60
   %.not54 = icmp eq i64 %3, %.086136
   %spec.select56 = select i1 %.not54, i32 60, i32 61
@@ -1303,9 +1303,9 @@ check_suite_b.exit71.thread:                      ; preds = %X509_get0_pubkey.ex
   br label %.thread131.thread
 
 .thread131.thread:                                ; preds = %.lr.ph, %.thread131, %37, %.thread104
-  %.039137193 = phi i1 [ %98, %.thread131 ], [ false, %.thread104 ], [ false, %37 ], [ false, %.lr.ph ]
-  %.1138192 = phi i32 [ %.1138, %.thread131 ], [ 0, %.thread104 ], [ 0, %37 ], [ %.2161, %.lr.ph ]
-  %99 = phi i32 [ %spec.select209, %.thread131 ], [ 56, %.thread104 ], [ 56, %37 ], [ 56, %.lr.ph ]
+  %.039137193 = phi i1 [ false, %37 ], [ %98, %.thread131 ], [ false, %.thread104 ], [ false, %.lr.ph ]
+  %.1138192 = phi i32 [ 0, %37 ], [ %.1138, %.thread131 ], [ 0, %.thread104 ], [ %.2161, %.lr.ph ]
+  %99 = phi i32 [ 56, %37 ], [ %spec.select209, %.thread131 ], [ 56, %.thread104 ], [ 56, %.lr.ph ]
   %.not55 = icmp eq ptr %0, null
   br i1 %.not55, label %103, label %100
 

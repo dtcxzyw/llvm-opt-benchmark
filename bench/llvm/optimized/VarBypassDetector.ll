@@ -230,7 +230,7 @@ _ZNK5clang10SwitchStmt7getInitEv.exit.thread:     ; preds = %14, %18, %_ZNK5clan
   br label %25
 
 25:                                               ; preds = %23, %_ZNK5clang10SwitchStmt7getInitEv.exit.thread, %3
-  %.047 = phi i32 [ 0, %3 ], [ %24, %23 ], [ %.249, %_ZNK5clang10SwitchStmt7getInitEv.exit.thread ]
+  %.047 = phi i32 [ 0, %3 ], [ %.249, %_ZNK5clang10SwitchStmt7getInitEv.exit.thread ], [ %24, %23 ]
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 784
   %27 = load i32, ptr %5, align 4, !tbaa !30
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 792

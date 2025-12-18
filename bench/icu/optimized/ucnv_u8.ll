@@ -835,9 +835,9 @@ _ZN6icu_774UTF812isValidTrailEihii.exit:          ; preds = %121
   br label %.split.us
 
 .split.us:                                        ; preds = %.lr.ph.split.us.split.us, %.lr.ph.split.us.split, %.split.us.loopexit227, %.split.us.loopexit222, %.split.us.loopexit217
-  %.us-phi = phi ptr [ %.3117.us164, %.split.us.loopexit227 ], [ %.093, %.lr.ph.split.us.split ], [ %.3117.us136, %.split.us.loopexit217 ], [ %.3117, %.split.us.loopexit222 ], [ %.093, %.lr.ph.split.us.split.us ]
-  %.us-phi126 = phi i32 [ %.192118.us163, %.split.us.loopexit227 ], [ %.091, %.lr.ph.split.us.split ], [ %.192118.us135, %.split.us.loopexit217 ], [ %.192118, %.split.us.loopexit222 ], [ %.091, %.lr.ph.split.us.split.us ]
-  %.us-phi127 = phi i32 [ %150, %.split.us.loopexit227 ], [ %.090, %.lr.ph.split.us.split ], [ %148, %.split.us.loopexit217 ], [ %149, %.split.us.loopexit222 ], [ %.090, %.lr.ph.split.us.split.us ]
+  %.us-phi = phi ptr [ %.3117.us136, %.split.us.loopexit217 ], [ %.3117.us164, %.split.us.loopexit227 ], [ %.093, %.lr.ph.split.us.split ], [ %.3117, %.split.us.loopexit222 ], [ %.093, %.lr.ph.split.us.split.us ]
+  %.us-phi126 = phi i32 [ %.192118.us135, %.split.us.loopexit217 ], [ %.192118.us163, %.split.us.loopexit227 ], [ %.091, %.lr.ph.split.us.split ], [ %.192118, %.split.us.loopexit222 ], [ %.091, %.lr.ph.split.us.split.us ]
+  %.us-phi127 = phi i32 [ %148, %.split.us.loopexit217 ], [ %150, %.split.us.loopexit227 ], [ %.090, %.lr.ph.split.us.split ], [ %149, %.split.us.loopexit222 ], [ %.090, %.lr.ph.split.us.split.us ]
   %151 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store i32 %.us-phi126, ptr %151, align 8, !tbaa !44
   %152 = getelementptr inbounds nuw i8, ptr %4, i64 76
@@ -863,9 +863,9 @@ _ZN6icu_774UTF812isValidTrailEihii.exit:          ; preds = %121
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %114, %142, %91, %._crit_edge.loopexit279.split.loop.exit, %._crit_edge.loopexit279.split.loop.exit298, %._crit_edge.loopexit275.split.loop.exit, %._crit_edge.loopexit.split.loop.exit, %.thread272, %.thread, %_ZN6icu_774UTF812isValidTrailEihii.exit.us.us, %55, %63, %_ZN6icu_774UTF812isValidTrailEihii.exit.us, %47
-  %.3.lcssa = phi ptr [ %.093, %47 ], [ %.093, %_ZN6icu_774UTF812isValidTrailEihii.exit.us.us ], [ %.3117.us136, %.thread ], [ %.3117, %.thread272 ], [ %.093, %_ZN6icu_774UTF812isValidTrailEihii.exit.us ], [ %67, %63 ], [ %59, %55 ], [ %.3117.us136, %._crit_edge.loopexit.split.loop.exit ], [ %.3117, %._crit_edge.loopexit275.split.loop.exit ], [ %.3117.us164, %._crit_edge.loopexit279.split.loop.exit ], [ %.3117.us164, %._crit_edge.loopexit279.split.loop.exit298 ], [ %145, %142 ], [ %94, %91 ], [ %117, %114 ]
-  %.192.lcssa = phi i32 [ %.091, %47 ], [ %.091, %_ZN6icu_774UTF812isValidTrailEihii.exit.us.us ], [ %.192118.us135, %.thread ], [ %.192118, %.thread272 ], [ %.091, %_ZN6icu_774UTF812isValidTrailEihii.exit.us ], [ %66, %63 ], [ %58, %55 ], [ %.192118.us135, %._crit_edge.loopexit.split.loop.exit ], [ %.192118, %._crit_edge.loopexit275.split.loop.exit ], [ %.192118.us163, %._crit_edge.loopexit279.split.loop.exit ], [ %.192118.us163, %._crit_edge.loopexit279.split.loop.exit298 ], [ %144, %142 ], [ %93, %91 ], [ %116, %114 ]
-  %.1.lcssa = phi i32 [ %.090, %47 ], [ %.090, %_ZN6icu_774UTF812isValidTrailEihii.exit.us.us ], [ %78, %.thread ], [ %128, %.thread272 ], [ %.090, %_ZN6icu_774UTF812isValidTrailEihii.exit.us ], [ 2, %63 ], [ 2, %55 ], [ %154, %._crit_edge.loopexit.split.loop.exit ], [ %155, %._crit_edge.loopexit275.split.loop.exit ], [ %156, %._crit_edge.loopexit279.split.loop.exit ], [ %157, %._crit_edge.loopexit279.split.loop.exit298 ], [ %.0.fr, %142 ], [ 3, %91 ], [ %.0.fr, %114 ]
+  %.3.lcssa = phi ptr [ %.093, %47 ], [ %.093, %_ZN6icu_774UTF812isValidTrailEihii.exit.us.us ], [ %.3117.us136, %.thread ], [ %.3117, %.thread272 ], [ %.093, %_ZN6icu_774UTF812isValidTrailEihii.exit.us ], [ %67, %63 ], [ %59, %55 ], [ %94, %91 ], [ %145, %142 ], [ %.3117.us136, %._crit_edge.loopexit.split.loop.exit ], [ %.3117, %._crit_edge.loopexit275.split.loop.exit ], [ %.3117.us164, %._crit_edge.loopexit279.split.loop.exit ], [ %.3117.us164, %._crit_edge.loopexit279.split.loop.exit298 ], [ %117, %114 ]
+  %.192.lcssa = phi i32 [ %.091, %47 ], [ %.091, %_ZN6icu_774UTF812isValidTrailEihii.exit.us.us ], [ %.192118.us135, %.thread ], [ %.192118, %.thread272 ], [ %.091, %_ZN6icu_774UTF812isValidTrailEihii.exit.us ], [ %66, %63 ], [ %58, %55 ], [ %93, %91 ], [ %144, %142 ], [ %.192118.us135, %._crit_edge.loopexit.split.loop.exit ], [ %.192118, %._crit_edge.loopexit275.split.loop.exit ], [ %.192118.us163, %._crit_edge.loopexit279.split.loop.exit ], [ %.192118.us163, %._crit_edge.loopexit279.split.loop.exit298 ], [ %116, %114 ]
+  %.1.lcssa = phi i32 [ %.090, %47 ], [ %.090, %_ZN6icu_774UTF812isValidTrailEihii.exit.us.us ], [ %78, %.thread ], [ %128, %.thread272 ], [ %.090, %_ZN6icu_774UTF812isValidTrailEihii.exit.us ], [ 2, %63 ], [ 2, %55 ], [ 3, %91 ], [ %.0.fr, %142 ], [ %154, %._crit_edge.loopexit.split.loop.exit ], [ %155, %._crit_edge.loopexit275.split.loop.exit ], [ %156, %._crit_edge.loopexit279.split.loop.exit ], [ %157, %._crit_edge.loopexit279.split.loop.exit298 ], [ %.0.fr, %114 ]
   %158 = icmp ne i32 %.1.lcssa, %.0.fr
   %159 = icmp sgt i32 %.1.lcssa, 3
   %or.cond5.not = and i1 %15, %159
@@ -923,8 +923,8 @@ _ZN6icu_774UTF812isValidTrailEihii.exit:          ; preds = %121
   br label %.loopexit
 
 .loopexit:                                        ; preds = %26, %180, %183, %.split.us
-  %.398 = phi ptr [ %173, %180 ], [ %.095, %183 ], [ %.095, %.split.us ], [ %.196, %26 ]
-  %.4 = phi ptr [ %.3.lcssa, %180 ], [ %.3.lcssa, %183 ], [ %.us-phi, %.split.us ], [ %.194, %26 ]
+  %.398 = phi ptr [ %.095, %.split.us ], [ %173, %180 ], [ %.095, %183 ], [ %.196, %26 ]
+  %.4 = phi ptr [ %.us-phi, %.split.us ], [ %.3.lcssa, %180 ], [ %.3.lcssa, %183 ], [ %.194, %26 ]
   %185 = icmp uge ptr %.4, %10
   %.not107 = icmp ult ptr %.398, %12
   %or.cond111 = select i1 %185, i1 true, i1 %.not107
@@ -1241,9 +1241,9 @@ _ZN6icu_774UTF812isValidTrailEihii.exit:          ; preds = %125
   br label %.split.us
 
 .split.us:                                        ; preds = %.lr.ph.split.us.split.us, %.lr.ph.split.us.split, %.split.us.loopexit248, %.split.us.loopexit243, %.split.us.loopexit238
-  %.us-phi = phi ptr [ %.3138.us185, %.split.us.loopexit248 ], [ %.0106, %.lr.ph.split.us.split ], [ %.3138.us157, %.split.us.loopexit238 ], [ %.3138, %.split.us.loopexit243 ], [ %.0106, %.lr.ph.split.us.split.us ]
-  %.us-phi147 = phi i32 [ %.1105139.us184, %.split.us.loopexit248 ], [ %.0104, %.lr.ph.split.us.split ], [ %.1105139.us156, %.split.us.loopexit238 ], [ %.1105139, %.split.us.loopexit243 ], [ %.0104, %.lr.ph.split.us.split.us ]
-  %.us-phi148 = phi i32 [ %154, %.split.us.loopexit248 ], [ %.0103, %.lr.ph.split.us.split ], [ %152, %.split.us.loopexit238 ], [ %153, %.split.us.loopexit243 ], [ %.0103, %.lr.ph.split.us.split.us ]
+  %.us-phi = phi ptr [ %.3138.us157, %.split.us.loopexit238 ], [ %.3138.us185, %.split.us.loopexit248 ], [ %.0106, %.lr.ph.split.us.split ], [ %.3138, %.split.us.loopexit243 ], [ %.0106, %.lr.ph.split.us.split.us ]
+  %.us-phi147 = phi i32 [ %.1105139.us156, %.split.us.loopexit238 ], [ %.1105139.us184, %.split.us.loopexit248 ], [ %.0104, %.lr.ph.split.us.split ], [ %.1105139, %.split.us.loopexit243 ], [ %.0104, %.lr.ph.split.us.split.us ]
+  %.us-phi148 = phi i32 [ %152, %.split.us.loopexit238 ], [ %154, %.split.us.loopexit248 ], [ %.0103, %.lr.ph.split.us.split ], [ %153, %.split.us.loopexit243 ], [ %.0103, %.lr.ph.split.us.split.us ]
   %155 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store i32 %.us-phi147, ptr %155, align 8, !tbaa !44
   %156 = getelementptr inbounds nuw i8, ptr %4, i64 76
@@ -1269,9 +1269,9 @@ _ZN6icu_774UTF812isValidTrailEihii.exit:          ; preds = %125
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %118, %146, %95, %._crit_edge.loopexit300.split.loop.exit, %._crit_edge.loopexit300.split.loop.exit319, %._crit_edge.loopexit296.split.loop.exit, %._crit_edge.loopexit.split.loop.exit, %.thread293, %.thread, %_ZN6icu_774UTF812isValidTrailEihii.exit.us.us, %59, %67, %_ZN6icu_774UTF812isValidTrailEihii.exit.us, %51
-  %.3.lcssa = phi ptr [ %.0106, %51 ], [ %.0106, %_ZN6icu_774UTF812isValidTrailEihii.exit.us.us ], [ %.3138.us157, %.thread ], [ %.3138, %.thread293 ], [ %.0106, %_ZN6icu_774UTF812isValidTrailEihii.exit.us ], [ %71, %67 ], [ %63, %59 ], [ %.3138.us157, %._crit_edge.loopexit.split.loop.exit ], [ %.3138, %._crit_edge.loopexit296.split.loop.exit ], [ %.3138.us185, %._crit_edge.loopexit300.split.loop.exit ], [ %.3138.us185, %._crit_edge.loopexit300.split.loop.exit319 ], [ %149, %146 ], [ %98, %95 ], [ %121, %118 ]
-  %.1105.lcssa = phi i32 [ %.0104, %51 ], [ %.0104, %_ZN6icu_774UTF812isValidTrailEihii.exit.us.us ], [ %.1105139.us156, %.thread ], [ %.1105139, %.thread293 ], [ %.0104, %_ZN6icu_774UTF812isValidTrailEihii.exit.us ], [ %70, %67 ], [ %62, %59 ], [ %.1105139.us156, %._crit_edge.loopexit.split.loop.exit ], [ %.1105139, %._crit_edge.loopexit296.split.loop.exit ], [ %.1105139.us184, %._crit_edge.loopexit300.split.loop.exit ], [ %.1105139.us184, %._crit_edge.loopexit300.split.loop.exit319 ], [ %148, %146 ], [ %97, %95 ], [ %120, %118 ]
-  %.1.lcssa = phi i32 [ %.0103, %51 ], [ %.0103, %_ZN6icu_774UTF812isValidTrailEihii.exit.us.us ], [ %82, %.thread ], [ %132, %.thread293 ], [ %.0103, %_ZN6icu_774UTF812isValidTrailEihii.exit.us ], [ 2, %67 ], [ 2, %59 ], [ %158, %._crit_edge.loopexit.split.loop.exit ], [ %159, %._crit_edge.loopexit296.split.loop.exit ], [ %160, %._crit_edge.loopexit300.split.loop.exit ], [ %161, %._crit_edge.loopexit300.split.loop.exit319 ], [ %.0.fr, %146 ], [ 3, %95 ], [ %.0.fr, %118 ]
+  %.3.lcssa = phi ptr [ %.0106, %51 ], [ %.0106, %_ZN6icu_774UTF812isValidTrailEihii.exit.us.us ], [ %.3138.us157, %.thread ], [ %.3138, %.thread293 ], [ %.0106, %_ZN6icu_774UTF812isValidTrailEihii.exit.us ], [ %71, %67 ], [ %63, %59 ], [ %98, %95 ], [ %149, %146 ], [ %.3138.us157, %._crit_edge.loopexit.split.loop.exit ], [ %.3138, %._crit_edge.loopexit296.split.loop.exit ], [ %.3138.us185, %._crit_edge.loopexit300.split.loop.exit ], [ %.3138.us185, %._crit_edge.loopexit300.split.loop.exit319 ], [ %121, %118 ]
+  %.1105.lcssa = phi i32 [ %.0104, %51 ], [ %.0104, %_ZN6icu_774UTF812isValidTrailEihii.exit.us.us ], [ %.1105139.us156, %.thread ], [ %.1105139, %.thread293 ], [ %.0104, %_ZN6icu_774UTF812isValidTrailEihii.exit.us ], [ %70, %67 ], [ %62, %59 ], [ %97, %95 ], [ %148, %146 ], [ %.1105139.us156, %._crit_edge.loopexit.split.loop.exit ], [ %.1105139, %._crit_edge.loopexit296.split.loop.exit ], [ %.1105139.us184, %._crit_edge.loopexit300.split.loop.exit ], [ %.1105139.us184, %._crit_edge.loopexit300.split.loop.exit319 ], [ %120, %118 ]
+  %.1.lcssa = phi i32 [ %.0103, %51 ], [ %.0103, %_ZN6icu_774UTF812isValidTrailEihii.exit.us.us ], [ %82, %.thread ], [ %132, %.thread293 ], [ %.0103, %_ZN6icu_774UTF812isValidTrailEihii.exit.us ], [ 2, %67 ], [ 2, %59 ], [ 3, %95 ], [ %.0.fr, %146 ], [ %158, %._crit_edge.loopexit.split.loop.exit ], [ %159, %._crit_edge.loopexit296.split.loop.exit ], [ %160, %._crit_edge.loopexit300.split.loop.exit ], [ %161, %._crit_edge.loopexit300.split.loop.exit319 ], [ %.0.fr, %118 ]
   %162 = icmp ne i32 %.1.lcssa, %.0.fr
   %163 = icmp sgt i32 %.1.lcssa, 3
   %or.cond5.not = and i1 %17, %163
@@ -1343,9 +1343,9 @@ _ZN6icu_774UTF812isValidTrailEihii.exit:          ; preds = %125
   br label %.loopexit
 
 .loopexit:                                        ; preds = %28, %192, %.split.us
-  %.3116 = phi ptr [ %.0113, %192 ], [ %.0113, %.split.us ], [ %.1114, %28 ]
-  %.3111 = phi ptr [ %.0108, %192 ], [ %.0108, %.split.us ], [ %.1109, %28 ]
-  %.4 = phi ptr [ %.3.lcssa, %192 ], [ %.us-phi, %.split.us ], [ %.1107, %28 ]
+  %.3116 = phi ptr [ %.0113, %.split.us ], [ %.0113, %192 ], [ %.1114, %28 ]
+  %.3111 = phi ptr [ %.0108, %.split.us ], [ %.0108, %192 ], [ %.1109, %28 ]
+  %.4 = phi ptr [ %.us-phi, %.split.us ], [ %.3.lcssa, %192 ], [ %.1107, %28 ]
   %194 = icmp uge ptr %.4, %12
   %.not128 = icmp ult ptr %.3111, %14
   %or.cond132 = select i1 %194, i1 true, i1 %.not128
@@ -1508,8 +1508,8 @@ _ZN6icu_774UTF812isValidTrailEihii.exit:          ; preds = %.lr.ph.split.split
   br i1 %76, label %.thread108, label %77
 
 .thread108:                                       ; preds = %_ZN6icu_774UTF812isValidTrailEihii.exit, %69, %_ZN6icu_774UTF812isValidTrailEihii.exit.us137, %53, %_ZN6icu_774UTF812isValidTrailEihii.exit.us
-  %.us-phi = phi i8 [ %.095129.us136, %_ZN6icu_774UTF812isValidTrailEihii.exit.us137 ], [ %.095129.us, %_ZN6icu_774UTF812isValidTrailEihii.exit.us ], [ %.095129.us136, %53 ], [ %.095129, %69 ], [ %.095129, %_ZN6icu_774UTF812isValidTrailEihii.exit ]
-  %.us-phi132 = phi ptr [ %.090130.us135, %_ZN6icu_774UTF812isValidTrailEihii.exit.us137 ], [ %.090130.us, %_ZN6icu_774UTF812isValidTrailEihii.exit.us ], [ %.090130.us135, %53 ], [ %.090130, %69 ], [ %.090130, %_ZN6icu_774UTF812isValidTrailEihii.exit ]
+  %.us-phi = phi i8 [ %.095129.us, %_ZN6icu_774UTF812isValidTrailEihii.exit.us ], [ %.095129.us136, %_ZN6icu_774UTF812isValidTrailEihii.exit.us137 ], [ %.095129.us136, %53 ], [ %.095129, %69 ], [ %.095129, %_ZN6icu_774UTF812isValidTrailEihii.exit ]
+  %.us-phi132 = phi ptr [ %.090130.us, %_ZN6icu_774UTF812isValidTrailEihii.exit.us ], [ %.090130.us135, %_ZN6icu_774UTF812isValidTrailEihii.exit.us137 ], [ %.090130.us135, %53 ], [ %.090130, %69 ], [ %.090130, %_ZN6icu_774UTF812isValidTrailEihii.exit ]
   store i32 12, ptr %1, align 4, !tbaa !27
   br label %.loopexit
 
@@ -1524,8 +1524,8 @@ _ZN6icu_774UTF812isValidTrailEihii.exit:          ; preds = %.lr.ph.split.split
   br i1 %83, label %.lr.ph.split.split, label %.loopexit
 
 .loopexit:                                        ; preds = %77, %60, %43, %31, %.thread108
-  %.095126 = phi i8 [ %.us-phi, %.thread108 ], [ 1, %31 ], [ %61, %60 ], [ %44, %43 ], [ %78, %77 ]
-  %.090124 = phi ptr [ %.us-phi132, %.thread108 ], [ %11, %31 ], [ %64, %60 ], [ %47, %43 ], [ %81, %77 ]
+  %.095126 = phi i8 [ %.us-phi, %.thread108 ], [ 1, %31 ], [ %44, %43 ], [ %61, %60 ], [ %78, %77 ]
+  %.090124 = phi ptr [ %.us-phi132, %.thread108 ], [ %11, %31 ], [ %47, %43 ], [ %64, %60 ], [ %81, %77 ]
   %84 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store i8 %.095126, ptr %84, align 8, !tbaa !42
   store ptr %.090124, ptr %5, align 8, !tbaa !38

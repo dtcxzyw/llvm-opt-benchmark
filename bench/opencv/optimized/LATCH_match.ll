@@ -1587,9 +1587,9 @@ _ZNSt6vectorIN2cv6DMatchESaIS1_EE9push_backEOS1_.exit: ; preds = %525, %_ZNSt6ve
   br label %876
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIN2cv6DMatchESaIS1_EE9push_backEOS1_.exit, %178, %.preheader
-  %562 = phi i64 [ 0, %.preheader ], [ 0, %178 ], [ %185, %_ZNSt6vectorIN2cv6DMatchESaIS1_EE9push_backEOS1_.exit ]
-  %.sroa.0487.0.lcssa666 = phi ptr [ %.sroa.0487.1, %.preheader ], [ null, %178 ], [ %.sroa.0487.1, %_ZNSt6vectorIN2cv6DMatchESaIS1_EE9push_backEOS1_.exit ]
-  %.sroa.0480.0.lcssa662 = phi ptr [ %.sroa.0480.1, %.preheader ], [ null, %178 ], [ %.sroa.0480.1, %_ZNSt6vectorIN2cv6DMatchESaIS1_EE9push_backEOS1_.exit ]
+  %562 = phi i64 [ 0, %178 ], [ 0, %.preheader ], [ %185, %_ZNSt6vectorIN2cv6DMatchESaIS1_EE9push_backEOS1_.exit ]
+  %.sroa.0487.0.lcssa666 = phi ptr [ null, %178 ], [ %.sroa.0487.1, %.preheader ], [ %.sroa.0487.1, %_ZNSt6vectorIN2cv6DMatchESaIS1_EE9push_backEOS1_.exit ]
+  %.sroa.0480.0.lcssa662 = phi ptr [ null, %178 ], [ %.sroa.0480.1, %.preheader ], [ %.sroa.0480.1, %_ZNSt6vectorIN2cv6DMatchESaIS1_EE9push_backEOS1_.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %45)
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %45) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %46)

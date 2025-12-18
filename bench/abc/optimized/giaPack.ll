@@ -889,7 +889,7 @@ Vec_IntAlloc.exit:                                ; preds = %Vec_IntStart.exit13
   br i1 %exitcond45.not.i, label %Vec_IntSelectSortCost2Reverse.exit, label %.lr.ph.preheader.i, !llvm.loop !51
 
 Vec_IntSelectSortCost2Reverse.exit:               ; preds = %._crit_edge.i, %49, %.critedge2
-  %89 = phi i1 [ false, %.critedge2 ], [ false, %49 ], [ true, %._crit_edge.i ]
+  %89 = phi i1 [ false, %49 ], [ false, %.critedge2 ], [ true, %._crit_edge.i ]
   %90 = load i32, ptr %7, align 16, !tbaa !33
   %.val119 = load ptr, ptr %47, align 8, !tbaa !11
   %91 = sext i32 %90 to i64

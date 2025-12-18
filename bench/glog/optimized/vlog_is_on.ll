@@ -86,7 +86,7 @@ define hidden noundef zeroext i1 @_ZN6google24glog_internal_namespace_12SafeFNMa
   br i1 %or.cond, label %.loopexit, label %33, !llvm.loop !8
 
 .loopexit:                                        ; preds = %22, %33, %4, %26, %28, %8, %11
-  %.036 = phi i1 [ false, %8 ], [ false, %26 ], [ %14, %11 ], [ true, %28 ], [ %6, %4 ], [ %36, %33 ], [ %25, %22 ]
+  %.036 = phi i1 [ false, %8 ], [ %6, %4 ], [ false, %26 ], [ %14, %11 ], [ true, %28 ], [ %36, %33 ], [ %25, %22 ]
   ret i1 %.036
 }
 

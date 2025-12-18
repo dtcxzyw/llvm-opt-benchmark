@@ -9415,8 +9415,8 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
   %22 = icmp eq i64 %14, %21
   br i1 %22, label %23, label %_ZN4core3cmp9PartialEq2ne17h088403d36cfad069E.exit.thread
 
-_ZN4core3cmp9PartialEq2ne17h088403d36cfad069E.exit.thread: ; preds = %.preheader.split.backedge, %_ZN4core3cmp9PartialEq2ne17h088403d36cfad069E.exit, %.lr.ph, %90, %29, %59, %57, %39, %35, %25, %58, %45, %74, %84, %80, %69, %109, %119, %115, %104, %125, %67, %102, %137, %.preheader.split.preheader, %4
-  %.sroa.0.0 = phi i1 [ false, %4 ], [ true, %.preheader.split.preheader ], [ false, %137 ], [ false, %102 ], [ false, %67 ], [ false, %125 ], [ false, %104 ], [ false, %115 ], [ false, %119 ], [ false, %109 ], [ false, %69 ], [ false, %80 ], [ false, %84 ], [ false, %74 ], [ false, %45 ], [ false, %58 ], [ false, %25 ], [ false, %35 ], [ false, %39 ], [ false, %57 ], [ false, %59 ], [ false, %29 ], [ false, %90 ], [ false, %.lr.ph ], [ false, %_ZN4core3cmp9PartialEq2ne17h088403d36cfad069E.exit ], [ true, %.preheader.split.backedge ]
+_ZN4core3cmp9PartialEq2ne17h088403d36cfad069E.exit.thread: ; preds = %.preheader.split.backedge, %_ZN4core3cmp9PartialEq2ne17h088403d36cfad069E.exit, %.lr.ph, %90, %29, %59, %57, %39, %35, %25, %58, %45, %74, %84, %80, %69, %109, %119, %115, %104, %125, %137, %102, %67, %.preheader.split.preheader, %4
+  %.sroa.0.0 = phi i1 [ false, %4 ], [ true, %.preheader.split.preheader ], [ false, %67 ], [ false, %102 ], [ false, %137 ], [ false, %125 ], [ false, %104 ], [ false, %115 ], [ false, %119 ], [ false, %109 ], [ false, %69 ], [ false, %80 ], [ false, %84 ], [ false, %74 ], [ false, %45 ], [ false, %58 ], [ false, %25 ], [ false, %35 ], [ false, %39 ], [ false, %57 ], [ false, %59 ], [ false, %29 ], [ false, %90 ], [ false, %.lr.ph ], [ false, %_ZN4core3cmp9PartialEq2ne17h088403d36cfad069E.exit ], [ true, %.preheader.split.backedge ]
   ret i1 %.sroa.0.0
 
 23:                                               ; preds = %.lr.ph
@@ -9614,10 +9614,10 @@ _ZN4core3cmp9PartialEq2ne17h088403d36cfad069E.exit.thread: ; preds = %.preheader
   br i1 %138, label %.preheader.split.backedge, label %_ZN4core3cmp9PartialEq2ne17h088403d36cfad069E.exit.thread
 
 _ZN4core3cmp9PartialEq2ne17h088403d36cfad069E.exit: ; preds = %61, %96, %131
-  %.sroa.0.0.shrunk.i.i = phi i1 [ %.mux.i.i.i, %61 ], [ %.mux.i9.i.i, %131 ], [ %.mux.i5.i.i, %96 ]
+  %.sroa.0.0.shrunk.i.i = phi i1 [ %.mux.i9.i.i, %131 ], [ %.mux.i.i.i, %61 ], [ %.mux.i5.i.i, %96 ]
   br i1 %.sroa.0.0.shrunk.i.i, label %.preheader.split.backedge, label %_ZN4core3cmp9PartialEq2ne17h088403d36cfad069E.exit.thread
 
-.preheader.split.backedge:                        ; preds = %_ZN4core3cmp9PartialEq2ne17h088403d36cfad069E.exit, %67, %102, %137
+.preheader.split.backedge:                        ; preds = %_ZN4core3cmp9PartialEq2ne17h088403d36cfad069E.exit, %137, %102, %67
   %exitcond.not = icmp eq i64 %5, %1
   br i1 %exitcond.not, label %_ZN4core3cmp9PartialEq2ne17h088403d36cfad069E.exit.thread, label %.lr.ph
 }
@@ -11367,7 +11367,7 @@ define internal fastcc noundef zeroext i1 @"_ZN76_$LT$ruff_python_ast..generated
   br i1 %58, label %.preheader.split.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h54fe00ea2f63a359E.exit.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h54fe00ea2f63a359E.exit.thread": ; preds = %41, %54, %.preheader.split.i, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h54fe00ea2f63a359E.exit", %32, %8, %20, %26, %2, %14
-  %.sroa.0.0 = phi i1 [ false, %8 ], [ false, %14 ], [ false, %2 ], [ false, %26 ], [ false, %20 ], [ false, %32 ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h54fe00ea2f63a359E.exit" ], [ %exitcond.not.i, %54 ], [ %exitcond.not.i, %.preheader.split.i ], [ false, %41 ]
+  %.sroa.0.0 = phi i1 [ %exitcond.not.i, %54 ], [ false, %8 ], [ false, %14 ], [ false, %2 ], [ false, %26 ], [ false, %20 ], [ false, %32 ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h54fe00ea2f63a359E.exit" ], [ %exitcond.not.i, %.preheader.split.i ], [ false, %41 ]
   ret i1 %.sroa.0.0
 }
 
@@ -11606,7 +11606,7 @@ define internal fastcc noundef zeroext i1 @"_ZN76_$LT$ruff_python_ast..generated
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h54fe00ea2f63a359E.exit.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h54fe00ea2f63a359E.exit.thread": ; preds = %23, %86, %58, %44, %57, %68, %.lr.ph, %56, %64, %72, %76, %80, %95, %108, %121, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h54fe00ea2f63a359E.exit7", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6eb1cfb57667d577E.exit", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h54fe00ea2f63a359E.exit", %14, %8, %2, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h54fe00ea2f63a359E.exit11"
-  %.sroa.0.0 = phi i1 [ %130, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h54fe00ea2f63a359E.exit11" ], [ false, %8 ], [ false, %2 ], [ false, %14 ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h54fe00ea2f63a359E.exit" ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6eb1cfb57667d577E.exit" ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h54fe00ea2f63a359E.exit7" ], [ false, %86 ], [ false, %121 ], [ false, %108 ], [ false, %95 ], [ false, %80 ], [ false, %76 ], [ false, %72 ], [ false, %64 ], [ false, %56 ], [ false, %.lr.ph ], [ false, %68 ], [ false, %57 ], [ false, %44 ], [ false, %58 ], [ false, %23 ]
+  %.sroa.0.0 = phi i1 [ %130, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h54fe00ea2f63a359E.exit11" ], [ false, %86 ], [ false, %95 ], [ false, %121 ], [ false, %8 ], [ false, %2 ], [ false, %14 ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h54fe00ea2f63a359E.exit" ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6eb1cfb57667d577E.exit" ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h54fe00ea2f63a359E.exit7" ], [ false, %108 ], [ false, %80 ], [ false, %76 ], [ false, %72 ], [ false, %64 ], [ false, %56 ], [ false, %.lr.ph ], [ false, %68 ], [ false, %57 ], [ false, %44 ], [ false, %58 ], [ false, %23 ]
   ret i1 %.sroa.0.0
 }
 

@@ -2611,7 +2611,7 @@ define dso_local i32 @intel_engines_init(ptr noundef captures(none) initializes(
   br label %.thread57
 
 .thread57:                                        ; preds = %278, %322, %324, %325
-  %326 = phi i32 [ %284, %325 ], [ %284, %324 ], [ %284, %322 ], [ -12, %278 ]
+  %326 = phi i32 [ %284, %322 ], [ %284, %325 ], [ %284, %324 ], [ -12, %278 ]
   %327 = getelementptr inbounds nuw i8, ptr %33, i64 536
   %328 = load ptr, ptr %327, align 8
   %329 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %328, i32 -1, ptr elementtype(i32) %328) #18, !srcloc !60
@@ -2632,7 +2632,7 @@ define dso_local i32 @intel_engines_init(ptr noundef captures(none) initializes(
   br label %.thread59
 
 .thread59:                                        ; preds = %274, %331, %333, %334
-  %335 = phi i32 [ %326, %334 ], [ %326, %333 ], [ %326, %331 ], [ -12, %274 ]
+  %335 = phi i32 [ %326, %331 ], [ %326, %334 ], [ %326, %333 ], [ -12, %274 ]
   call fastcc void @cleanup_status_page(ptr noundef %33)
   br label %.thread62
 
@@ -2787,7 +2787,7 @@ define dso_local i32 @intel_engines_init(ptr noundef captures(none) initializes(
   br i1 %425, label %.thread62, label %30, !llvm.loop !83
 
 .thread62:                                        ; preds = %124, %267, %423, %419, %73, %90, %.thread54, %.thread59, %339
-  %426 = phi i32 [ %337, %339 ], [ %335, %.thread59 ], [ -19, %73 ], [ %258, %.thread54 ], [ -19, %90 ], [ %272, %267 ], [ -34, %124 ], [ %420, %419 ], [ 0, %423 ]
+  %426 = phi i32 [ %337, %339 ], [ -19, %90 ], [ -19, %73 ], [ %258, %.thread54 ], [ %335, %.thread59 ], [ %272, %267 ], [ -34, %124 ], [ %420, %419 ], [ 0, %423 ]
   ret i32 %426
 }
 
@@ -3180,8 +3180,8 @@ define internal fastcc i64 @intel_uncore_read64_2x32(ptr noundef %0, i32 %1, i32
   br i1 %91, label %79, label %.split6.us, !llvm.loop !85
 
 .split6.us:                                       ; preds = %79, %45, %.split.split.us, %.split.us.split.us
-  %.us-phi = phi i32 [ %56, %45 ], [ %39, %.split.us.split.us ], [ %72, %.split.split.us ], [ %87, %79 ]
-  %.us-phi7 = phi i32 [ %53, %45 ], [ %33, %.split.us.split.us ], [ %66, %.split.split.us ], [ %84, %79 ]
+  %.us-phi = phi i32 [ %72, %.split.split.us ], [ %56, %45 ], [ %39, %.split.us.split.us ], [ %87, %79 ]
+  %.us-phi7 = phi i32 [ %66, %.split.split.us ], [ %53, %45 ], [ %33, %.split.us.split.us ], [ %84, %79 ]
   tail call void @intel_uncore_forcewake_put__locked(ptr noundef %0, i32 noundef %6) #18
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %7, i64 noundef %8) #18
   %92 = zext i32 %.us-phi to i64
@@ -4021,7 +4021,7 @@ define dso_local zeroext i1 @intel_engine_is_idle(ptr noundef %0) local_unnamed_
   br label %.thread3
 
 .thread3:                                         ; preds = %48, %.lr.ph6, %38, %._crit_edge, %33, %7, %1
-  %97 = phi i1 [ true, %1 ], [ true, %7 ], [ false, %33 ], [ %84, %._crit_edge ], [ true, %38 ], [ %84, %.lr.ph6 ], [ true, %48 ]
+  %97 = phi i1 [ true, %1 ], [ true, %7 ], [ false, %33 ], [ true, %38 ], [ %84, %._crit_edge ], [ %84, %.lr.ph6 ], [ true, %48 ]
   ret i1 %97
 }
 

@@ -380,7 +380,7 @@ current_segment_finished.exit.thread:             ; preds = %current_segment_fin
   br i1 %181, label %172, label %.loopexit, !llvm.loop !62
 
 .loopexit:                                        ; preds = %.lr.ph116, %48, %160, %178, %157, %169, %.preheader, %150, %.critedge95, %143
-  %.3 = phi i32 [ -22, %143 ], [ -558323010, %.critedge95 ], [ %.178, %150 ], [ 0, %157 ], [ 0, %.preheader ], [ 0, %169 ], [ -22, %48 ], [ 0, %178 ], [ 0, %160 ], [ 0, %.lr.ph116 ]
+  %.3 = phi i32 [ 0, %169 ], [ -22, %143 ], [ -558323010, %.critedge95 ], [ %.178, %150 ], [ 0, %.preheader ], [ 0, %157 ], [ 0, %160 ], [ 0, %178 ], [ -22, %48 ], [ 0, %.lr.ph116 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)

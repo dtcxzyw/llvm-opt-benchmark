@@ -2217,7 +2217,7 @@ define internal fastcc void @_build_sinfo_data(ptr noundef %0, ptr noundef reado
   br label %119
 
 119:                                              ; preds = %115, %111, %.critedge.thread.i, %103, %102, %98, %97, %87
-  %.2.i = phi i8 [ 0, %102 ], [ %spec.select68.i, %111 ], [ %101, %98 ], [ 0, %97 ], [ %spec.select.i, %87 ], [ %106, %103 ], [ %spec.select67.i, %.critedge.thread.i ], [ %spec.select69.i, %115 ]
+  %.2.i = phi i8 [ 0, %102 ], [ %spec.select68.i, %111 ], [ %101, %98 ], [ %106, %103 ], [ 0, %97 ], [ %spec.select.i, %87 ], [ %spec.select69.i, %115 ], [ %spec.select67.i, %.critedge.thread.i ]
   %120 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 160), align 8, !range !8, !noundef !9
   %.not.i = icmp eq i8 %120, %.2.i
   br i1 %.not.i, label %81, label %._crit_edge.i, !llvm.loop !21

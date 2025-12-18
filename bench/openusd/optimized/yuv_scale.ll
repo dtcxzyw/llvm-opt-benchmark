@@ -287,7 +287,7 @@ ScalePlaneBox.exit:                               ; preds = %51, %._crit_edge.i
   br label %ScalePlaneUp2_Linear.exit
 
 ScalePlaneUp2_Linear.exit:                        ; preds = %109, %135, %._crit_edge.i145, %103, %97, %143, %141, %138, %ScalePlaneBox.exit, %46, %27
-  %.0119 = phi i32 [ 0, %27 ], [ 0, %46 ], [ %.038.i, %ScalePlaneBox.exit ], [ 0, %143 ], [ %139, %138 ], [ %142, %141 ], [ 0, %97 ], [ 0, %103 ], [ 0, %._crit_edge.i145 ], [ 0, %135 ], [ 0, %109 ]
+  %.0119 = phi i32 [ 0, %27 ], [ 0, %46 ], [ %.038.i, %ScalePlaneBox.exit ], [ 0, %143 ], [ 0, %135 ], [ %139, %138 ], [ %142, %141 ], [ 0, %97 ], [ 0, %103 ], [ 0, %._crit_edge.i145 ], [ 0, %109 ]
   ret i32 %.0119
 }
 
@@ -926,7 +926,7 @@ ScalePlaneBox_16.exit:                            ; preds = %51, %._crit_edge.i
   br label %ScalePlaneUp2_16_Linear.exit
 
 ScalePlaneUp2_16_Linear.exit:                     ; preds = %108, %134, %._crit_edge.i145, %102, %96, %142, %140, %137, %ScalePlaneBox_16.exit, %46, %27
-  %.0119 = phi i32 [ 0, %27 ], [ 0, %46 ], [ %.038.i, %ScalePlaneBox_16.exit ], [ 0, %142 ], [ %138, %137 ], [ %141, %140 ], [ 0, %96 ], [ 0, %102 ], [ 0, %._crit_edge.i145 ], [ 0, %134 ], [ 0, %108 ]
+  %.0119 = phi i32 [ 0, %27 ], [ 0, %46 ], [ %.038.i, %ScalePlaneBox_16.exit ], [ 0, %142 ], [ 0, %134 ], [ %138, %137 ], [ %141, %140 ], [ 0, %96 ], [ 0, %102 ], [ 0, %._crit_edge.i145 ], [ 0, %108 ]
   ret i32 %.0119
 }
 
@@ -1396,7 +1396,7 @@ define hidden range(i32 0, 2) i32 @ScalePlane_12(ptr noundef %0, i32 noundef %1,
   br label %ScalePlaneUp2_12_Linear.exit
 
 ScalePlaneUp2_12_Linear.exit:                     ; preds = %40, %66, %._crit_edge.i, %34, %28, %67
-  %.0 = phi i32 [ %68, %67 ], [ 0, %28 ], [ 0, %34 ], [ 0, %._crit_edge.i ], [ 0, %66 ], [ 0, %40 ]
+  %.0 = phi i32 [ %68, %67 ], [ 0, %66 ], [ 0, %28 ], [ 0, %34 ], [ 0, %._crit_edge.i ], [ 0, %40 ]
   ret i32 %.0
 }
 

@@ -26158,7 +26158,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit100: ; preds = %.b
   br i1 %199, label %.loopexit151, label %.body81
 
 .loopexit151:                                     ; preds = %193, %.body81, %.thread
-  %.pn46 = phi { ptr, i32 } [ %63, %.thread ], [ %83, %.body81 ], [ %192, %193 ]
+  %.pn46 = phi { ptr, i32 } [ %83, %.body81 ], [ %63, %.thread ], [ %192, %193 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %238
 
@@ -26226,7 +26226,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit100: ; preds = %.b
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader.preheader, %.thread146, %.thread140, %217
-  %.pn48.pn.pn.pn145 = phi { ptr, i32 } [ %200, %.thread140 ], [ %.pn48.pn, %217 ], [ %201, %.thread146 ], [ %.pn48.pn, %.preheader.preheader ]
+  %.pn48.pn.pn.pn145 = phi { ptr, i32 } [ %200, %.thread140 ], [ %201, %.thread146 ], [ %.pn48.pn, %217 ], [ %.pn48.pn, %.preheader.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %221
 
@@ -49686,7 +49686,7 @@ _ZN6duckdb13StrTimeFormatD2Ev.exit39:             ; preds = %_ZNSt6vectorIN6duck
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader.preheader, %.thread46, %.thread, %.loopexit73
-  %.pn.pn.pn.pn45 = phi { ptr, i32 } [ %82, %.thread ], [ %.pn, %.loopexit73 ], [ %83, %.thread46 ], [ %.pn.pn72, %.preheader.preheader ]
+  %.pn.pn.pn.pn45 = phi { ptr, i32 } [ %82, %.thread ], [ %83, %.thread46 ], [ %.pn, %.loopexit73 ], [ %.pn.pn72, %.preheader.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %97 = load ptr, ptr %7, align 8, !tbaa !40
   %98 = icmp eq ptr %97, %8
@@ -53372,7 +53372,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N6duckdb5ValueEENS_10_Select1stENS9_29CaseInsensitiveStringEqualityENS9_33CaseInsensitiveStringHashFunctionENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS8_mRKNS_16_Hash_node_valueISB_Lb1EEE.exit.thread.i, %35, %.lr.ph, %19, %5, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N6duckdb5ValueEESaISA_ENSt8__detail10_Select1stENS8_29CaseInsensitiveStringEqualityENS8_33CaseInsensitiveStringHashFunctionENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE8_M_eraseEmPNSC_15_Hash_node_baseEPNSC_10_Hash_nodeISA_Lb1EEE.exit
-  %.0 = phi i64 [ 1, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N6duckdb5ValueEESaISA_ENSt8__detail10_Select1stENS8_29CaseInsensitiveStringEqualityENS8_33CaseInsensitiveStringHashFunctionENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE8_M_eraseEmPNSC_15_Hash_node_baseEPNSC_10_Hash_nodeISA_Lb1EEE.exit ], [ 0, %5 ], [ 0, %19 ], [ 0, %.lr.ph ], [ 0, %35 ], [ 0, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N6duckdb5ValueEENS_10_Select1stENS9_29CaseInsensitiveStringEqualityENS9_33CaseInsensitiveStringHashFunctionENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS8_mRKNS_16_Hash_node_valueISB_Lb1EEE.exit.thread.i ]
+  %.0 = phi i64 [ 1, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N6duckdb5ValueEESaISA_ENSt8__detail10_Select1stENS8_29CaseInsensitiveStringEqualityENS8_33CaseInsensitiveStringHashFunctionENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE8_M_eraseEmPNSC_15_Hash_node_baseEPNSC_10_Hash_nodeISA_Lb1EEE.exit ], [ 0, %.lr.ph ], [ 0, %5 ], [ 0, %19 ], [ 0, %35 ], [ 0, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N6duckdb5ValueEENS_10_Select1stENS9_29CaseInsensitiveStringEqualityENS9_33CaseInsensitiveStringHashFunctionENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS8_mRKNS_16_Hash_node_valueISB_Lb1EEE.exit.thread.i ]
   ret i64 %.0
 }
 

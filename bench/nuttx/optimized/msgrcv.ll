@@ -249,7 +249,7 @@ define range(i64 -1, 65536) i64 @msgrcv(i32 noundef %0, ptr noundef writeonly ca
   br i1 %.not42.i, label %msgrcv_wait.exit.thread, label %msgrcv_wait.exit.thread50
 
 msgrcv_wait.exit.thread50:                        ; preds = %.lr.ph.split.split.i, %.lr.ph.us69.i, %.split.split.us.split.us.i, %._crit_edge56.split.us.us.us.i, %._crit_edge56.split.us.us.i, %.lr.ph.split.split.us.i
-  %.247.i = phi ptr [ %.3.us.us.i, %._crit_edge56.split.us.us.i ], [ %.03952.i, %.lr.ph.split.split.us.i ], [ %.03955.us.i, %.lr.ph.us69.i ], [ %.3.us.us.us.i, %._crit_edge56.split.us.us.us.i ], [ %.03952.us64.us.i, %.split.split.us.split.us.i ], [ %.03955.i, %.lr.ph.split.split.i ]
+  %.247.i = phi ptr [ %.03952.us64.us.i, %.split.split.us.split.us.i ], [ %.3.us.us.us.i, %._crit_edge56.split.us.us.us.i ], [ %.3.us.us.i, %._crit_edge56.split.us.us.i ], [ %.03952.i, %.lr.ph.split.split.us.i ], [ %.03955.us.i, %.lr.ph.us69.i ], [ %.03955.i, %.lr.ph.split.split.i ]
   %97 = load ptr, ptr %.247.i, align 8
   %98 = getelementptr inbounds nuw i8, ptr %.247.i, i64 8
   %99 = load ptr, ptr %98, align 8
@@ -285,7 +285,7 @@ msgrcv_wait.exit.thread50:                        ; preds = %.lr.ph.split.split.
   br i1 %117, label %121, label %msgrcv_wait.exit.thread
 
 msgrcv_wait.exit:                                 ; preds = %89, %71, %38
-  %.us-phi63.i = phi i16 [ %72, %71 ], [ %39, %38 ], [ %90, %89 ]
+  %.us-phi63.i = phi i16 [ %39, %38 ], [ %72, %71 ], [ %90, %89 ]
   %118 = zext nneg i16 %.us-phi63.i to i32
   %119 = sub nsw i32 0, %118
   %120 = icmp sgt i16 %.us-phi63.i, 0

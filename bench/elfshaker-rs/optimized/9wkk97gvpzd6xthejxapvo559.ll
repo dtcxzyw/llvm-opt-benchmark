@@ -523,7 +523,7 @@ define hidden noundef i64 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$G
   br i1 %35, label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h831b7d57e93dd5c4E.exit.i", label %27
 
 "_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h831b7d57e93dd5c4E.exit.i": ; preds = %27, %17, %14
-  %36 = phi i64 [ %22, %17 ], [ 0, %14 ], [ %.sroa.0.0.i.i.i.i.i.i.i.i.i, %27 ]
+  %36 = phi i64 [ 0, %14 ], [ %22, %17 ], [ %.sroa.0.0.i.i.i.i.i.i.i.i.i, %27 ]
   %spec.select.i.i.i = add i64 %36, %.sroa.07.0.i
   %37 = add nuw i64 %.sroa.09.0.i, 1
   %38 = icmp eq i64 %37, %13
@@ -1931,8 +1931,8 @@ define hidden { i64, ptr } @_ZN3std2io4copy17stack_buffer_copy17heaaa2a4f41047a5
   br i1 %.not, label %8, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2, %._crit_edge.loopexit
-  %.sroa.4.0 = phi ptr [ null, %2 ], [ %13, %._crit_edge.loopexit ], [ %16, %.lr.ph ]
-  %.sroa.0.0 = phi i64 [ 0, %2 ], [ 0, %._crit_edge.loopexit ], [ 1, %.lr.ph ]
+  %.sroa.4.0 = phi ptr [ %13, %._crit_edge.loopexit ], [ null, %2 ], [ %16, %.lr.ph ]
+  %.sroa.0.0 = phi i64 [ 0, %._crit_edge.loopexit ], [ 0, %2 ], [ 1, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %17 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %18 = insertvalue { i64, ptr } %17, ptr %.sroa.4.0, 1

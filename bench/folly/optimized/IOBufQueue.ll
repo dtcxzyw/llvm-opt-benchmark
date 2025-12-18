@@ -1188,7 +1188,7 @@ _ZN5folly10IOBufQueue11updateGuardEb.exit:        ; preds = %_ZNK5folly10IOBufQu
   br i1 %.not.i.i20, label %"_ZN12_GLOBAL__N_18packIntoIPKN5folly5IOBufEZNS1_10IOBufQueue6appendERS3_bbE3$_0EEvPS2_RT_T0_.exit.preheader", label %52, !prof !56
 
 "_ZN12_GLOBAL__N_18packIntoIPKN5folly5IOBufEZNS1_10IOBufQueue6appendERS3_bbE3$_0EEvPS2_RT_T0_.exit.preheader": ; preds = %64, %62, %_ZNK5folly5IOBuf11isSharedOneEv.exit.i, %52, %46
-  %.0.ph = phi ptr [ %1, %_ZNK5folly5IOBuf11isSharedOneEv.exit.i ], [ %1, %52 ], [ %1, %46 ], [ %.1, %62 ], [ %.1, %64 ]
+  %.0.ph = phi ptr [ %1, %46 ], [ %1, %52 ], [ %1, %_ZNK5folly5IOBuf11isSharedOneEv.exit.i ], [ %.1, %62 ], [ %.1, %64 ]
   br label %"_ZN12_GLOBAL__N_18packIntoIPKN5folly5IOBufEZNS1_10IOBufQueue6appendERS3_bbE3$_0EEvPS2_RT_T0_.exit"
 
 52:                                               ; preds = %46

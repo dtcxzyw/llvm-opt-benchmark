@@ -1592,7 +1592,7 @@ check_background_thread_creation.exit.thread33:   ; preds = %77, %25
   br label %check_background_thread_creation.exit.thread
 
 check_background_thread_creation.exit:            ; preds = %71, %73
-  %.129 = phi i32 [ %72, %71 ], [ %.028.ph, %73 ]
+  %.129 = phi i32 [ %.028.ph, %73 ], [ %72, %71 ]
   %84 = load ptr, ptr @je_background_thread_info, align 8, !tbaa !18
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 56
   tail call fastcc void @malloc_mutex_lock(ptr noundef nonnull %0, ptr noundef nonnull %85)

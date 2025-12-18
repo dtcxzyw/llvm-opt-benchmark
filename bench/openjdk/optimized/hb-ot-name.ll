@@ -1687,7 +1687,7 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %13, %22
   br i1 %26, label %28, label %33
 
 28:                                               ; preds = %25
-  br i1 %.not19, label %.critedge23, label %29
+  br i1 %.not19, label %.critedge25, label %29
 
 29:                                               ; preds = %28
   store i32 0, ptr %10, align 4
@@ -1705,7 +1705,7 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %13, %22
   %34 = load i8, ptr %5, align 8
   %35 = trunc i8 %34 to i1
   %or.cond = select i1 %.not19, i1 true, i1 %35
-  br i1 %or.cond, label %.critedge25, label %36
+  br i1 %or.cond, label %.critedge23, label %36
 
 36:                                               ; preds = %33
   %37 = tail call ptr @hb_blob_get_data_writable(ptr noundef %1, ptr noundef null)
@@ -1715,27 +1715,27 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %13, %22
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 %39
   store ptr %40, ptr %7, align 8
   %.not18 = icmp eq ptr %37, null
-  br i1 %.not18, label %.critedge25, label %13
+  br i1 %.not18, label %.critedge23, label %13
 
-.critedge23:                                      ; preds = %28
+.critedge25:                                      ; preds = %28
   %41 = load ptr, ptr %4, align 8
   tail call void @hb_blob_destroy(ptr noundef %41)
   store ptr null, ptr %4, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6, i8 0, i64 20, i1 false)
   br label %42
 
-42:                                               ; preds = %29, %.critedge23
+42:                                               ; preds = %29, %.critedge25
   tail call void @hb_blob_make_immutable(ptr noundef %1)
   br label %45
 
-.critedge25:                                      ; preds = %36, %33
+.critedge23:                                      ; preds = %36, %33
   %43 = load ptr, ptr %4, align 8
   tail call void @hb_blob_destroy(ptr noundef %43)
   store ptr null, ptr %4, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6, i8 0, i64 20, i1 false)
   br label %.critedge
 
-.critedge:                                        ; preds = %29, %.critedge25
+.critedge:                                        ; preds = %29, %.critedge23
   tail call void @hb_blob_destroy(ptr noundef %1)
   %44 = tail call ptr @hb_blob_get_empty()
   br label %45
@@ -2053,7 +2053,7 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %13, %22
   br i1 %26, label %28, label %33
 
 28:                                               ; preds = %25
-  br i1 %.not19, label %.critedge23, label %29
+  br i1 %.not19, label %.critedge25, label %29
 
 29:                                               ; preds = %28
   store i32 0, ptr %10, align 4
@@ -2071,7 +2071,7 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %13, %22
   %34 = load i8, ptr %5, align 8
   %35 = trunc i8 %34 to i1
   %or.cond = select i1 %.not19, i1 true, i1 %35
-  br i1 %or.cond, label %.critedge25, label %36
+  br i1 %or.cond, label %.critedge23, label %36
 
 36:                                               ; preds = %33
   %37 = tail call ptr @hb_blob_get_data_writable(ptr noundef %1, ptr noundef null)
@@ -2081,27 +2081,27 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %13, %22
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 %39
   store ptr %40, ptr %7, align 8
   %.not18 = icmp eq ptr %37, null
-  br i1 %.not18, label %.critedge25, label %13
+  br i1 %.not18, label %.critedge23, label %13
 
-.critedge23:                                      ; preds = %28
+.critedge25:                                      ; preds = %28
   %41 = load ptr, ptr %4, align 8
   tail call void @hb_blob_destroy(ptr noundef %41)
   store ptr null, ptr %4, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6, i8 0, i64 20, i1 false)
   br label %42
 
-42:                                               ; preds = %29, %.critedge23
+42:                                               ; preds = %29, %.critedge25
   tail call void @hb_blob_make_immutable(ptr noundef %1)
   br label %45
 
-.critedge25:                                      ; preds = %36, %33
+.critedge23:                                      ; preds = %36, %33
   %43 = load ptr, ptr %4, align 8
   tail call void @hb_blob_destroy(ptr noundef %43)
   store ptr null, ptr %4, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6, i8 0, i64 20, i1 false)
   br label %.critedge
 
-.critedge:                                        ; preds = %29, %.critedge25
+.critedge:                                        ; preds = %29, %.critedge23
   tail call void @hb_blob_destroy(ptr noundef %1)
   %44 = tail call ptr @hb_blob_get_empty()
   br label %45
@@ -2561,9 +2561,9 @@ _ZL11sort_r_swapPcS_m.exit151:                    ; preds = %.lr.ph.i148, %93, %
   br i1 %105, label %.preheader180, label %.thread, !llvm.loop !53
 
 .thread:                                          ; preds = %.loopexit, %79, %_ZL11sort_r_swapPcS_m.exit147.us
-  %.0123192 = phi ptr [ %.0123211, %79 ], [ %.0123211, %_ZL11sort_r_swapPcS_m.exit147.us ], [ %.2125, %.loopexit ]
-  %.0122190 = phi ptr [ %.0122212, %79 ], [ %.0122212, %_ZL11sort_r_swapPcS_m.exit147.us ], [ %.1187, %.loopexit ]
-  %.1127 = phi ptr [ %.3, %79 ], [ %.0126210, %_ZL11sort_r_swapPcS_m.exit147.us ], [ %.us-phi198, %.loopexit ]
+  %.0123192 = phi ptr [ %.0123211, %_ZL11sort_r_swapPcS_m.exit147.us ], [ %.0123211, %79 ], [ %.2125, %.loopexit ]
+  %.0122190 = phi ptr [ %.0122212, %_ZL11sort_r_swapPcS_m.exit147.us ], [ %.0122212, %79 ], [ %.1187, %.loopexit ]
+  %.1127 = phi ptr [ %.0126210, %_ZL11sort_r_swapPcS_m.exit147.us ], [ %.3, %79 ], [ %.us-phi198, %.loopexit ]
   %106 = ptrtoint ptr %.1127 to i64
   %107 = ptrtoint ptr %.tr216 to i64
   %108 = sub i64 %106, %107
@@ -2683,8 +2683,8 @@ _ZL18sort_r_swap_blocksPcmm.exit:                 ; preds = %.lr.ph.i13.i, %.lr.
   br i1 %156, label %.lr.ph.i13.i161, label %_ZL18sort_r_swap_blocksPcmm.exit168, !llvm.loop !28
 
 _ZL18sort_r_swap_blocksPcmm.exit168:              ; preds = %.lr.ph.i13.i161, %.lr.ph.i.i165, %_ZL11sort_r_swapPcS_m.exit, %40, %_ZL18sort_r_swap_blocksPcmm.exit, %140, %149
-  %157 = phi i64 [ %133, %149 ], [ %133, %_ZL18sort_r_swap_blocksPcmm.exit ], [ %133, %140 ], [ 0, %_ZL11sort_r_swapPcS_m.exit ], [ 0, %40 ], [ %133, %.lr.ph.i.i165 ], [ %133, %.lr.ph.i13.i161 ]
-  %158 = phi i64 [ %110, %149 ], [ %110, %_ZL18sort_r_swap_blocksPcmm.exit ], [ %110, %140 ], [ %25, %_ZL11sort_r_swapPcS_m.exit ], [ %25, %40 ], [ %110, %.lr.ph.i.i165 ], [ %110, %.lr.ph.i13.i161 ]
+  %157 = phi i64 [ %133, %.lr.ph.i.i165 ], [ 0, %_ZL11sort_r_swapPcS_m.exit ], [ %133, %149 ], [ %133, %_ZL18sort_r_swap_blocksPcmm.exit ], [ %133, %140 ], [ 0, %40 ], [ %133, %.lr.ph.i13.i161 ]
+  %158 = phi i64 [ %110, %.lr.ph.i.i165 ], [ %25, %_ZL11sort_r_swapPcS_m.exit ], [ %110, %149 ], [ %110, %_ZL18sort_r_swap_blocksPcmm.exit ], [ %110, %140 ], [ %25, %40 ], [ %110, %.lr.ph.i13.i161 ]
   %159 = udiv i64 %158, %2
   tail call fastcc void @_ZL13sort_r_simpleIJEEvPvmmPFiPKvS2_DpT_ES4_(ptr noundef %.tr216, i64 noundef %159, i64 noundef %2, ptr noundef %3)
   %160 = sub i64 0, %157
@@ -2871,7 +2871,7 @@ _ZN13hb_utf16_xe_tIN2OT7IntTypeItLj2EEEE4nextEPKS2_S5_Pjj.exit: ; preds = %27, %
   br label %_ZN9hb_utf8_t6encodeEPhPKhj.exit
 
 _ZN9hb_utf8_t6encodeEPhPKhj.exit:                 ; preds = %49, %58, %73, %89
-  %.033.i = phi ptr [ %51, %49 ], [ %66, %58 ], [ %86, %73 ], [ %107, %89 ]
+  %.033.i = phi ptr [ %51, %49 ], [ %66, %58 ], [ %107, %89 ], [ %86, %73 ]
   %108 = icmp ult ptr %.0.i, %6
   %109 = icmp ult ptr %.033.i, %12
   %110 = select i1 %108, i1 %109, i1 false
@@ -3177,12 +3177,12 @@ _ZN2OTL25_hb_ot_name_entry_cmp_keyEPKvS1_b.exit.thread.thread7.i: ; preds = %_ZN
   br i1 %.not.not.i, label %_ZL15hb_bsearch_implIK18hb_ot_name_entry_tS0_JbEEbPjRKT0_PT_mmPFiPKvS9_DpT1_ESB_.exit, label %.lr.ph.split.i, !llvm.loop !75
 
 .loopexit:                                        ; preds = %66, %71, %77, %14, %_ZN2OTL25_hb_ot_name_entry_cmp_keyEPKvS1_b.exit.thread.us.i, %44, %29
-  %.pre-phi22 = phi i64 [ %9, %14 ], [ %24, %29 ], [ %39, %_ZN2OTL25_hb_ot_name_entry_cmp_keyEPKvS1_b.exit.thread.us.i ], [ %39, %44 ], [ %61, %77 ], [ %61, %71 ], [ %61, %66 ]
+  %.pre-phi22 = phi i64 [ %9, %14 ], [ %39, %_ZN2OTL25_hb_ot_name_entry_cmp_keyEPKvS1_b.exit.thread.us.i ], [ %24, %29 ], [ %39, %44 ], [ %61, %77 ], [ %61, %71 ], [ %61, %66 ]
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 %.pre-phi22
   br label %_ZL15hb_bsearch_implIK18hb_ot_name_entry_tS0_JbEEbPjRKT0_PT_mmPFiPKvS9_DpT1_ESB_.exit
 
 _ZL15hb_bsearch_implIK18hb_ot_name_entry_tS0_JbEEbPjRKT0_PT_mmPFiPKvS9_DpT1_ESB_.exit: ; preds = %83, %20, %57, %35, %3, %.loopexit
-  %85 = phi ptr [ %84, %.loopexit ], [ null, %3 ], [ null, %20 ], [ null, %35 ], [ null, %57 ], [ null, %83 ]
+  %85 = phi ptr [ %84, %.loopexit ], [ null, %3 ], [ null, %35 ], [ null, %20 ], [ null, %57 ], [ null, %83 ]
   ret ptr %85
 }
 

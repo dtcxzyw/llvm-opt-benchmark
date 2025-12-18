@@ -1017,8 +1017,8 @@ hash.exit.i:                                      ; preds = %183, %157
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %326
 
-323:                                              ; preds = %234, %314
-  %.3112.ph = phi i64 [ 4, %234 ], [ %321, %314 ]
+323:                                              ; preds = %314, %234
+  %.3112.ph = phi i64 [ %321, %314 ], [ 4, %234 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %2, ptr %9, align 8, !tbaa !33
@@ -2466,8 +2466,8 @@ rbimpl_intern_const.exit506:                      ; preds = %.lr.ph.i504, %578
   br i1 %.not.i517, label %.lr.ph.i516, label %.sink.split, !llvm.loop !36
 
 .sink.split:                                      ; preds = %.lr.ph.i510, %.lr.ph.i516, %583, %581
-  %.lcssa.i515.sink = phi i64 [ %.pr.i507, %581 ], [ %.pr.i513, %583 ], [ %584, %.lr.ph.i516 ], [ %582, %.lr.ph.i510 ]
-  %.sink835 = phi i64 [ 3801, %581 ], [ 4001, %583 ], [ 4001, %.lr.ph.i516 ], [ 3801, %.lr.ph.i510 ]
+  %.lcssa.i515.sink = phi i64 [ %584, %.lr.ph.i516 ], [ %.pr.i507, %581 ], [ %.pr.i513, %583 ], [ %582, %.lr.ph.i510 ]
+  %.sink835 = phi i64 [ 4001, %.lr.ph.i516 ], [ 3801, %581 ], [ 4001, %583 ], [ 3801, %.lr.ph.i510 ]
   %585 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i515.sink) #13
   %586 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %570, i64 noundef 43, i32 noundef 1, i64 noundef %.sink835) #13
   %587 = tail call i64 @rb_hash_aset(i64 noundef %15, i64 noundef %585, i64 noundef %586) #13
@@ -2565,8 +2565,8 @@ rbimpl_intern_const.exit542:                      ; preds = %.lr.ph.i540, %599
   br i1 %.not.i553, label %.lr.ph.i552, label %.sink.split836, !llvm.loop !36
 
 .sink.split836:                                   ; preds = %.lr.ph.i546, %.lr.ph.i552, %604, %602
-  %.lcssa.i545.sink = phi i64 [ %.pr.i543, %602 ], [ %.pr.i549, %604 ], [ %605, %.lr.ph.i552 ], [ %603, %.lr.ph.i546 ]
-  %.sink838 = phi i64 [ 3801, %602 ], [ 4001, %604 ], [ 4001, %.lr.ph.i552 ], [ 3801, %.lr.ph.i546 ]
+  %.lcssa.i545.sink = phi i64 [ %605, %.lr.ph.i552 ], [ %.pr.i543, %602 ], [ %.pr.i549, %604 ], [ %603, %.lr.ph.i546 ]
+  %.sink838 = phi i64 [ 4001, %.lr.ph.i552 ], [ 3801, %602 ], [ 4001, %604 ], [ 3801, %.lr.ph.i546 ]
   %606 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i545.sink) #13
   %607 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %591, i64 noundef 43, i32 noundef 1, i64 noundef %.sink838) #13
   %608 = tail call i64 @rb_hash_aset(i64 noundef %15, i64 noundef %606, i64 noundef %607) #13
@@ -7128,9 +7128,9 @@ digit_span.exit:                                  ; preds = %64, %71, %57
   br label %.critedge
 
 .critedge:                                        ; preds = %53, %29, %RSTRING_PTR.exit, %RSTRING_END.exit, %23, %75, %digit_span.exit
-  %.1175324347 = phi i64 [ %.1175324346, %digit_span.exit ], [ %.1175324346, %75 ], [ %.0174, %23 ], [ %.1175324346, %RSTRING_END.exit ], [ %.1175.ph332, %RSTRING_PTR.exit ], [ %.1175.ph332, %29 ], [ %.1175324346, %53 ]
-  %.3181 = phi i64 [ %.1179348, %digit_span.exit ], [ %79, %75 ], [ 4, %23 ], [ %.1179348, %RSTRING_END.exit ], [ %.0178.ph331, %RSTRING_PTR.exit ], [ %.0178.ph331, %29 ], [ %.1179348, %53 ]
-  %.3 = phi i64 [ %.1349, %digit_span.exit ], [ %.1179348, %75 ], [ 4, %23 ], [ %.1349, %RSTRING_END.exit ], [ 4, %RSTRING_PTR.exit ], [ 4, %29 ], [ %.1349, %53 ]
+  %.1175324347 = phi i64 [ %.1175.ph332, %29 ], [ %.1175324346, %digit_span.exit ], [ %.1175324346, %75 ], [ %.0174, %23 ], [ %.1175324346, %RSTRING_END.exit ], [ %.1175.ph332, %RSTRING_PTR.exit ], [ %.1175324346, %53 ]
+  %.3181 = phi i64 [ %.0178.ph331, %29 ], [ %.1179348, %digit_span.exit ], [ %79, %75 ], [ 4, %23 ], [ %.1179348, %RSTRING_END.exit ], [ %.0178.ph331, %RSTRING_PTR.exit ], [ %.1179348, %53 ]
+  %.3 = phi i64 [ 4, %29 ], [ %.1349, %digit_span.exit ], [ %.1179348, %75 ], [ 4, %23 ], [ %.1349, %RSTRING_END.exit ], [ 4, %RSTRING_PTR.exit ], [ %.1349, %53 ]
   %80 = icmp eq i64 %.1175324347, 4
   br i1 %80, label %94, label %81
 

@@ -332,9 +332,9 @@ unescape.exit168.i:                               ; preds = %110
   br i1 %130, label %getStringToken.exit, label %.preheader.i
 
 isWhitespace.exit.thread.i:                       ; preds = %110, %110, %110, %110, %43, %112, %111
-  %.1151.i = phi i8 [ 0, %111 ], [ 0, %112 ], [ 1, %43 ], [ 0, %110 ], [ 0, %110 ], [ 0, %110 ], [ 0, %110 ]
-  %.4.i = phi i8 [ %.0131.i, %111 ], [ %.0131.i, %112 ], [ %.1132.i, %43 ], [ %.0131.i, %110 ], [ %.0131.i, %110 ], [ %.0131.i, %110 ], [ %.0131.i, %110 ]
-  %.2.i = phi i32 [ %.0.i, %111 ], [ %.0.i, %112 ], [ %.1.i, %43 ], [ %.0.i, %110 ], [ %.0.i, %110 ], [ %.0.i, %110 ], [ %.0.i, %110 ]
+  %.1151.i = phi i8 [ 1, %43 ], [ 0, %111 ], [ 0, %112 ], [ 0, %110 ], [ 0, %110 ], [ 0, %110 ], [ 0, %110 ]
+  %.4.i = phi i8 [ %.1132.i, %43 ], [ %.0131.i, %111 ], [ %.0131.i, %112 ], [ %.0131.i, %110 ], [ %.0131.i, %110 ], [ %.0131.i, %110 ], [ %.0131.i, %110 ]
+  %.2.i = phi i32 [ %.1.i, %43 ], [ %.0.i, %111 ], [ %.0.i, %112 ], [ %.0.i, %110 ], [ %.0.i, %110 ], [ %.0.i, %110 ], [ %.0.i, %110 ]
   %131 = call fastcc i32 @getNextChar(ptr noundef %0, i8 noundef signext 1, ptr noundef null, ptr noundef nonnull %4)
   %132 = load i32, ptr %4, align 4, !tbaa !4
   %133 = icmp sgt i32 %132, 0
@@ -354,7 +354,7 @@ unescape.exit165.thread.sink.split.i:             ; preds = %134, %134, %134, %1
   br label %getStringToken.exit
 
 getStringToken.exit:                              ; preds = %34, %74, %82, %86, %unescape.exit165.i, %102, %isWhitespace.exit.thread.i, %107, %unescape.exit168.i, %128, %37, %40, %unescape.exit.i, %68, %20, %23, %unescape.exit165.thread.sink.split.i
-  %.0152.i = phi i32 [ 6, %unescape.exit168.i ], [ 6, %20 ], [ 6, %23 ], [ 0, %unescape.exit165.thread.sink.split.i ], [ 5, %37 ], [ 6, %unescape.exit.i ], [ 6, %40 ], [ 6, %68 ], [ 0, %107 ], [ 6, %128 ], [ 6, %unescape.exit165.i ], [ 0, %isWhitespace.exit.thread.i ], [ 6, %74 ], [ 6, %86 ], [ 6, %34 ], [ 6, %102 ], [ 6, %82 ]
+  %.0152.i = phi i32 [ 0, %unescape.exit165.thread.sink.split.i ], [ 6, %20 ], [ 6, %unescape.exit168.i ], [ 6, %23 ], [ 5, %37 ], [ 6, %unescape.exit.i ], [ 6, %40 ], [ 6, %68 ], [ 0, %107 ], [ 6, %128 ], [ 6, %unescape.exit165.i ], [ 0, %isWhitespace.exit.thread.i ], [ 6, %82 ], [ 6, %102 ], [ 6, %34 ], [ 6, %86 ], [ 6, %74 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %135 = load i32, ptr @lineCount, align 4, !tbaa !4
   store i32 %135, ptr %2, align 4, !tbaa !4

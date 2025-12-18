@@ -615,7 +615,7 @@ get_next_fcip_header_offset.exit.thread.loopexit253: ; preds = %get_next_fcip_he
   br label %get_next_fcip_header_offset.exit.thread
 
 get_next_fcip_header_offset.exit.thread:          ; preds = %.backedge.i, %dissect_fcip_sf.exit, %20, %get_next_fcip_header_offset.exit, %get_next_fcip_header_offset.exit.thread.loopexit253, %16, %get_next_fcip_header_offset.exit.thread126, %13, %4, %87
-  %.0 = phi i1 [ true, %get_next_fcip_header_offset.exit.thread126 ], [ false, %4 ], [ false, %13 ], [ true, %87 ], [ false, %get_next_fcip_header_offset.exit.thread.loopexit253 ], [ true, %16 ], [ %.not115.i.not.not, %dissect_fcip_sf.exit ], [ %.not115.i.not.not, %get_next_fcip_header_offset.exit ], [ %.not115.i.not.not, %20 ], [ false, %.backedge.i ]
+  %.0 = phi i1 [ true, %get_next_fcip_header_offset.exit.thread126 ], [ false, %4 ], [ false, %13 ], [ false, %get_next_fcip_header_offset.exit.thread.loopexit253 ], [ true, %87 ], [ true, %16 ], [ %.not115.i.not.not, %dissect_fcip_sf.exit ], [ %.not115.i.not.not, %get_next_fcip_header_offset.exit ], [ %.not115.i.not.not, %20 ], [ false, %.backedge.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0
 }

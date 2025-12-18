@@ -444,7 +444,7 @@ define internal fastcc range(i32 0, 2) i32 @opj_jp2_apply_color_postprocessing(p
   br i1 %exitcond259.not.i, label %opj_jp2_check_color.exit.sink.split, label %121, !llvm.loop !50
 
 opj_jp2_check_color.exit.sink.split:              ; preds = %116, %121, %._crit_edge.thread.i, %113
-  %.sink = phi ptr [ %68, %113 ], [ %69, %._crit_edge.thread.i ], [ %68, %121 ], [ %68, %116 ]
+  %.sink = phi ptr [ %68, %113 ], [ %68, %121 ], [ %69, %._crit_edge.thread.i ], [ %68, %116 ]
   tail call void @opj_free(ptr noundef nonnull %.sink) #6
   br label %opj_jp2_check_color.exit
 
@@ -1959,7 +1959,7 @@ define hidden ptr @opj_jp2_create(i32 noundef %0) local_unnamed_addr #0 {
   br label %19
 
 19:                                               ; preds = %.sink.split, %1, %16
-  %.0 = phi ptr [ %2, %16 ], [ null, %1 ], [ null, %.sink.split ]
+  %.0 = phi ptr [ null, %1 ], [ %2, %16 ], [ null, %.sink.split ]
   ret ptr %.0
 }
 
@@ -3256,7 +3256,7 @@ define internal range(i32 0, 2) i32 @opj_jp2_read_pclr(ptr noundef captures(none
   br i1 %83, label %.preheader, label %.critedge, !llvm.loop !148
 
 .critedge:                                        ; preds = %81, %64, %27, %24, %4, %40, %37, %34, %22, %14
-  %.072 = phi i32 [ 0, %24 ], [ 0, %4 ], [ 0, %14 ], [ 0, %22 ], [ 0, %27 ], [ 0, %40 ], [ 0, %37 ], [ 0, %34 ], [ 0, %64 ], [ 1, %81 ]
+  %.072 = phi i32 [ 0, %24 ], [ 0, %4 ], [ 0, %14 ], [ 0, %22 ], [ 0, %34 ], [ 0, %27 ], [ 0, %64 ], [ 0, %40 ], [ 0, %37 ], [ 1, %81 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.072
 }

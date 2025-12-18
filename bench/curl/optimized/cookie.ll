@@ -2017,7 +2017,7 @@ define internal fastcc range(i32 0, 16) i32 @replace_existing(ptr noundef %0, pt
   br label %.critedge.thread139
 
 .critedge.thread139:                              ; preds = %100, %52, %53, %60, %64, %._crit_edge.thread
-  %.6 = phi i32 [ 0, %._crit_edge.thread ], [ 8, %53 ], [ 8, %60 ], [ 8, %64 ], [ 8, %52 ], [ 15, %100 ]
+  %.6 = phi i32 [ 0, %._crit_edge.thread ], [ 8, %52 ], [ 8, %64 ], [ 8, %60 ], [ 8, %53 ], [ 15, %100 ]
   ret i32 %.6
 }
 
@@ -2713,7 +2713,7 @@ get_netscape_format.exit.i:                       ; preds = %19, %15
   br label %cookie_list.exit
 
 cookie_list.exit:                                 ; preds = %._crit_edge.i, %1, %5, %.thread.sink.split.i
-  %.0.i = phi ptr [ null, %1 ], [ null, %5 ], [ null, %.thread.sink.split.i ], [ %.122.lcssa.i, %._crit_edge.i ]
+  %.0.i = phi ptr [ null, %1 ], [ null, %.thread.sink.split.i ], [ null, %5 ], [ %.122.lcssa.i, %._crit_edge.i ]
   %45 = tail call i32 @Curl_share_unlock(ptr noundef %0, i32 noundef 2) #12
   ret ptr %.0.i
 }

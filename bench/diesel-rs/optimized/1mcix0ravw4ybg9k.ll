@@ -1695,7 +1695,7 @@ _ZN4core5slice6memchr12memchr_naive17h481c51c45c886aadE.exit: ; preds = %.lr.ph.
   br label %.loopexit
 
 .loopexit:                                        ; preds = %63, %39, %2, %.split.us, %.split80.us
-  %storemerge31 = phi i64 [ 0, %.split.us ], [ 1, %.split80.us ], [ 0, %2 ], [ 0, %39 ], [ 0, %63 ]
+  %storemerge31 = phi i64 [ 1, %.split80.us ], [ 0, %.split.us ], [ 0, %2 ], [ 0, %39 ], [ 0, %63 ]
   store i64 %storemerge31, ptr %0, align 8
   ret void
 }

@@ -278,120 +278,120 @@ define internal noundef i32 @tap_lte_rlc_packet(ptr noundef captures(none) %0, p
 35:                                               ; preds = %.lr.ph.split.us
   %36 = load i8, ptr %20, align 1
   %.not57.us = icmp eq i8 %36, 0
-  br i1 %.not57.us, label %compare_rlc_headers.exit.us, label %compare_rlc_headers.exit.thread.us
+  br i1 %.not57.us, label %37, label %compare_rlc_headers.exit.thread.us
 
-compare_rlc_headers.exit.us:                      ; preds = %35
-  %37 = icmp eq i8 %34, %19
-  %38 = icmp eq i16 %26, %11
-  %or.cond26.i.us = and i1 %38, %37
-  %39 = icmp eq i16 %28, %13
-  %or.cond27.i.us = and i1 %39, %or.cond26.i.us
-  %40 = icmp eq i16 %30, %15
-  %or.cond28.i.us = and i1 %40, %or.cond27.i.us
-  %41 = icmp eq i8 %32, %.fr60
-  %spec.select.i.us = and i1 %41, %or.cond28.i.us
+37:                                               ; preds = %35
+  %38 = icmp eq i8 %34, %19
+  %39 = icmp eq i16 %26, %11
+  %or.cond26.i.us = and i1 %39, %38
+  %40 = icmp eq i16 %28, %13
+  %or.cond27.i.us = and i1 %40, %or.cond26.i.us
+  %41 = icmp eq i16 %30, %15
+  %or.cond28.i.us = and i1 %41, %or.cond27.i.us
+  %42 = icmp eq i8 %32, %.fr60
+  %spec.select.i.us = and i1 %42, %or.cond28.i.us
   br i1 %spec.select.i.us, label %.thread55, label %compare_rlc_headers.exit.thread.us
 
-compare_rlc_headers.exit.thread.us:               ; preds = %35, %compare_rlc_headers.exit.us, %.lr.ph.split.us
+compare_rlc_headers.exit.thread.us:               ; preds = %35, %37, %.lr.ph.split.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count67
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !6
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %compare_rlc_headers.exit.thread
   %indvars.iv64 = phi i64 [ %indvars.iv.next65, %compare_rlc_headers.exit.thread ], [ 0, %.lr.ph ]
-  %42 = getelementptr ptr, ptr %8, i64 %indvars.iv64
-  %43 = load ptr, ptr %42, align 8
-  %44 = load i8, ptr %43, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %43, i64 4
-  %46 = load i16, ptr %45, align 4
-  %47 = getelementptr inbounds nuw i8, ptr %43, i64 6
-  %48 = load i16, ptr %47, align 2
-  %49 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %50 = load i16, ptr %49, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %43, i64 1
-  %52 = load i8, ptr %51, align 1
-  %53 = getelementptr inbounds nuw i8, ptr %43, i64 2
-  %54 = load i8, ptr %53, align 2
-  %.not.i = icmp eq i8 %44, %9
-  br i1 %.not.i, label %55, label %compare_rlc_headers.exit.thread
+  %43 = getelementptr ptr, ptr %8, i64 %indvars.iv64
+  %44 = load ptr, ptr %43, align 8
+  %45 = load i8, ptr %44, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 4
+  %47 = load i16, ptr %46, align 4
+  %48 = getelementptr inbounds nuw i8, ptr %44, i64 6
+  %49 = load i16, ptr %48, align 2
+  %50 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  %51 = load i16, ptr %50, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %44, i64 1
+  %53 = load i8, ptr %52, align 1
+  %54 = getelementptr inbounds nuw i8, ptr %44, i64 2
+  %55 = load i8, ptr %54, align 2
+  %.not.i = icmp eq i8 %45, %9
+  br i1 %.not.i, label %56, label %compare_rlc_headers.exit.thread
 
-55:                                               ; preds = %.lr.ph.split
-  %56 = load i8, ptr %20, align 1
-  %.not57 = icmp eq i8 %56, 0
-  br i1 %.not57, label %compare_rlc_headers.exit, label %57
+56:                                               ; preds = %.lr.ph.split
+  %57 = load i8, ptr %20, align 1
+  %.not57 = icmp eq i8 %57, 0
+  br i1 %.not57, label %58, label %64
 
-57:                                               ; preds = %55
-  %58 = icmp eq i8 %52, 4
-  br i1 %58, label %59, label %compare_rlc_headers.exit.thread
-
-59:                                               ; preds = %57
-  %.not25.i = icmp ne i8 %54, %19
-  %60 = icmp eq i16 %46, %11
-  %or.cond29.i = and i1 %60, %.not25.i
-  %61 = icmp eq i16 %48, %13
-  %or.cond30.i = and i1 %61, %or.cond29.i
-  %62 = icmp eq i16 %50, %15
-  %spec.select31.i = and i1 %62, %or.cond30.i
-  br i1 %spec.select31.i, label %.thread55, label %compare_rlc_headers.exit.thread
-
-compare_rlc_headers.exit:                         ; preds = %55
-  %63 = icmp eq i8 %54, %19
-  %64 = icmp eq i16 %46, %11
-  %or.cond26.i = and i1 %64, %63
-  %65 = icmp eq i16 %48, %13
-  %or.cond27.i = and i1 %65, %or.cond26.i
-  %66 = icmp eq i16 %50, %15
-  %or.cond28.i = and i1 %66, %or.cond27.i
-  %67 = icmp eq i8 %52, 4
-  %spec.select.i = and i1 %67, %or.cond28.i
+58:                                               ; preds = %56
+  %59 = icmp eq i8 %55, %19
+  %60 = icmp eq i16 %47, %11
+  %or.cond26.i = and i1 %60, %59
+  %61 = icmp eq i16 %49, %13
+  %or.cond27.i = and i1 %61, %or.cond26.i
+  %62 = icmp eq i16 %51, %15
+  %or.cond28.i = and i1 %62, %or.cond27.i
+  %63 = icmp eq i8 %53, 4
+  %spec.select.i = and i1 %63, %or.cond28.i
   br i1 %spec.select.i, label %.thread55, label %compare_rlc_headers.exit.thread
 
-compare_rlc_headers.exit.thread:                  ; preds = %57, %.lr.ph.split, %compare_rlc_headers.exit, %59
+64:                                               ; preds = %56
+  %65 = icmp eq i8 %53, 4
+  br i1 %65, label %compare_rlc_headers.exit, label %compare_rlc_headers.exit.thread
+
+compare_rlc_headers.exit:                         ; preds = %64
+  %.not25.i = icmp ne i8 %55, %19
+  %66 = icmp eq i16 %47, %11
+  %or.cond29.i = and i1 %66, %.not25.i
+  %67 = icmp eq i16 %49, %13
+  %or.cond30.i = and i1 %67, %or.cond29.i
+  %68 = icmp eq i16 %51, %15
+  %spec.select31.i = and i1 %68, %or.cond30.i
+  br i1 %spec.select31.i, label %.thread55, label %compare_rlc_headers.exit.thread
+
+compare_rlc_headers.exit.thread:                  ; preds = %64, %.lr.ph.split, %compare_rlc_headers.exit, %58
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
   %exitcond68.not = icmp eq i64 %indvars.iv.next65, %wide.trip.count67
   br i1 %exitcond68.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %compare_rlc_headers.exit.thread.us, %compare_rlc_headers.exit.thread
-  %68 = icmp slt i32 %6, 8
-  br i1 %68, label %._crit_edge.thread, label %.thread55
+  %69 = icmp slt i32 %6, 8
+  br i1 %69, label %._crit_edge.thread, label %.thread55
 
 ._crit_edge.thread:                               ; preds = %5, %._crit_edge
-  %69 = tail call noalias dereferenceable_or_null(2104) ptr @g_malloc(i64 noundef 2104) #10
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %71 = load i32, ptr %0, align 8
-  %72 = sext i32 %71 to i64
-  %73 = getelementptr ptr, ptr %70, i64 %72
-  store ptr %69, ptr %73, align 8
-  %74 = load i32, ptr %0, align 8
-  %75 = sext i32 %74 to i64
-  %76 = getelementptr ptr, ptr %70, i64 %75
-  %77 = load ptr, ptr %76, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(2104) %77, ptr noundef align 8 dereferenceable(2104) %3, i64 2104, i1 false)
-  %78 = load i32, ptr %0, align 8
-  %79 = sext i32 %78 to i64
-  %80 = getelementptr ptr, ptr %70, i64 %79
-  %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds nuw i8, ptr %81, i64 41
-  %83 = load i8, ptr %82, align 1
-  %.not = icmp eq i8 %83, 0
-  br i1 %.not, label %88, label %84
+  %70 = tail call noalias dereferenceable_or_null(2104) ptr @g_malloc(i64 noundef 2104) #10
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %72 = load i32, ptr %0, align 8
+  %73 = sext i32 %72 to i64
+  %74 = getelementptr ptr, ptr %71, i64 %73
+  store ptr %70, ptr %74, align 8
+  %75 = load i32, ptr %0, align 8
+  %76 = sext i32 %75 to i64
+  %77 = getelementptr ptr, ptr %71, i64 %76
+  %78 = load ptr, ptr %77, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(2104) %78, ptr noundef align 8 dereferenceable(2104) %3, i64 2104, i1 false)
+  %79 = load i32, ptr %0, align 8
+  %80 = sext i32 %79 to i64
+  %81 = getelementptr ptr, ptr %71, i64 %80
+  %82 = load ptr, ptr %81, align 8
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 41
+  %84 = load i8, ptr %83, align 1
+  %.not = icmp eq i8 %84, 0
+  br i1 %.not, label %89, label %85
 
-84:                                               ; preds = %._crit_edge.thread
-  %85 = getelementptr inbounds nuw i8, ptr %81, i64 2
-  %86 = load i8, ptr %85, align 2
-  %.not49 = icmp eq i8 %86, 0
-  %87 = zext i1 %.not49 to i8
-  store i8 %87, ptr %85, align 2
+85:                                               ; preds = %._crit_edge.thread
+  %86 = getelementptr inbounds nuw i8, ptr %82, i64 2
+  %87 = load i8, ptr %86, align 2
+  %.not49 = icmp eq i8 %87, 0
+  %88 = zext i1 %.not49 to i8
+  store i8 %88, ptr %86, align 2
   %.pre = load i32, ptr %0, align 8
-  br label %88
+  br label %89
 
-88:                                               ; preds = %84, %._crit_edge.thread
-  %89 = phi i32 [ %.pre, %84 ], [ %78, %._crit_edge.thread ]
-  %90 = add i32 %89, 1
-  store i32 %90, ptr %0, align 8
+89:                                               ; preds = %85, %._crit_edge.thread
+  %90 = phi i32 [ %.pre, %85 ], [ %79, %._crit_edge.thread ]
+  %91 = add i32 %90, 1
+  store i32 %91, ptr %0, align 8
   br label %.thread55
 
-.thread55:                                        ; preds = %compare_rlc_headers.exit.us, %compare_rlc_headers.exit, %59, %88, %._crit_edge
+.thread55:                                        ; preds = %37, %compare_rlc_headers.exit, %58, %89, %._crit_edge
   ret i32 0
 }
 
@@ -535,37 +535,37 @@ define internal noundef i32 @rlc_lte_tap_for_graph_data(ptr noundef captures(non
 30:                                               ; preds = %5
   %31 = load i8, ptr %29, align 1
   %.not84 = icmp eq i8 %31, 0
-  br i1 %.not84, label %compare_rlc_headers.exit, label %32
+  br i1 %.not84, label %32, label %38
 
 32:                                               ; preds = %30
-  %33 = icmp eq i8 %16, 4
-  %34 = icmp eq i8 %26, 4
-  %or.cond.i = and i1 %33, %34
-  br i1 %or.cond.i, label %35, label %compare_rlc_headers.exit.thread
-
-35:                                               ; preds = %32
-  %.not25.i = icmp ne i8 %18, %28
-  %36 = icmp eq i16 %10, %20
-  %or.cond29.i = and i1 %36, %.not25.i
-  %37 = icmp eq i16 %12, %22
-  %or.cond30.i = and i1 %37, %or.cond29.i
-  %38 = icmp eq i16 %14, %24
-  %spec.select31.i = and i1 %38, %or.cond30.i
-  br i1 %spec.select31.i, label %44, label %compare_rlc_headers.exit.thread
-
-compare_rlc_headers.exit:                         ; preds = %30
-  %39 = icmp eq i8 %18, %28
-  %40 = icmp eq i16 %10, %20
-  %or.cond26.i = and i1 %40, %39
-  %41 = icmp eq i16 %12, %22
-  %or.cond27.i = and i1 %41, %or.cond26.i
-  %42 = icmp eq i16 %14, %24
-  %or.cond28.i = and i1 %42, %or.cond27.i
-  %43 = icmp eq i8 %16, %26
-  %spec.select.i = and i1 %43, %or.cond28.i
+  %33 = icmp eq i8 %18, %28
+  %34 = icmp eq i16 %10, %20
+  %or.cond26.i = and i1 %34, %33
+  %35 = icmp eq i16 %12, %22
+  %or.cond27.i = and i1 %35, %or.cond26.i
+  %36 = icmp eq i16 %14, %24
+  %or.cond28.i = and i1 %36, %or.cond27.i
+  %37 = icmp eq i8 %16, %26
+  %spec.select.i = and i1 %37, %or.cond28.i
   br i1 %spec.select.i, label %44, label %compare_rlc_headers.exit.thread
 
-44:                                               ; preds = %35, %compare_rlc_headers.exit
+38:                                               ; preds = %30
+  %39 = icmp eq i8 %16, 4
+  %40 = icmp eq i8 %26, 4
+  %or.cond.i = and i1 %39, %40
+  br i1 %or.cond.i, label %compare_rlc_headers.exit, label %compare_rlc_headers.exit.thread
+
+compare_rlc_headers.exit:                         ; preds = %38
+  %.not25.i = icmp ne i8 %18, %28
+  %41 = icmp eq i16 %10, %20
+  %or.cond29.i = and i1 %41, %.not25.i
+  %42 = icmp eq i16 %12, %22
+  %or.cond30.i = and i1 %42, %or.cond29.i
+  %43 = icmp eq i16 %14, %24
+  %spec.select31.i = and i1 %43, %or.cond30.i
+  br i1 %spec.select31.i, label %44, label %compare_rlc_headers.exit.thread
+
+44:                                               ; preds = %32, %compare_rlc_headers.exit
   %45 = tail call noalias dereferenceable_or_null(2112) ptr @g_malloc(i64 noundef 2112) #10
   store ptr null, ptr %45, align 8
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -680,7 +680,7 @@ compare_rlc_headers.exit:                         ; preds = %30
   store ptr %45, ptr %112, align 8
   br label %compare_rlc_headers.exit.thread
 
-compare_rlc_headers.exit.thread:                  ; preds = %32, %5, %35, %compare_rlc_headers.exit, %.critedge, %92
+compare_rlc_headers.exit.thread:                  ; preds = %38, %5, %32, %compare_rlc_headers.exit, %.critedge, %92
   ret i32 0
 }
 

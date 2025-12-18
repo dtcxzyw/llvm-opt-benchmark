@@ -1070,9 +1070,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i17
   br label %.body
 
 .sink.split:                                      ; preds = %209, %182, %.noexc150, %204, %.noexc139, %177
-  %.pn.i.i.i.i148.sink898 = phi ptr [ %178, %177 ], [ %193, %.noexc139 ], [ %205, %204 ], [ %220, %.noexc150 ], [ %184, %182 ], [ %211, %209 ]
-  %.sink897 = phi i32 [ %170, %177 ], [ %170, %.noexc139 ], [ %197, %204 ], [ %197, %.noexc150 ], [ %170, %182 ], [ %197, %209 ]
-  %.sink895 = phi i16 [ 1, %177 ], [ 1, %.noexc139 ], [ 4, %204 ], [ 4, %.noexc150 ], [ 1, %182 ], [ 4, %209 ]
+  %.pn.i.i.i.i148.sink898 = phi ptr [ %184, %182 ], [ %193, %.noexc139 ], [ %178, %177 ], [ %220, %.noexc150 ], [ %205, %204 ], [ %211, %209 ]
+  %.sink897 = phi i32 [ %170, %182 ], [ %170, %.noexc139 ], [ %170, %177 ], [ %197, %.noexc150 ], [ %197, %204 ], [ %197, %209 ]
+  %.sink895 = phi i16 [ 1, %182 ], [ 1, %.noexc139 ], [ 1, %177 ], [ 4, %.noexc150 ], [ 4, %204 ], [ 4, %209 ]
   %.1.i.i.i.i149 = getelementptr inbounds nuw i8, ptr %.pn.i.i.i.i148.sink898, i64 12
   store i32 %.sink897, ptr %.1.i.i.i.i149, align 4, !tbaa !130
   %323 = getelementptr inbounds nuw i8, ptr %.pn.i.i.i.i148.sink898, i64 16
@@ -1697,7 +1697,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit235: ; preds = %_ZSt
   br label %.thread422, !llvm.loop !106
 
 _ZNK5rabit5utils10PollHelper9CheckReadERKN7xgboost10collective9TCPSocketE.exit: ; preds = %549, %533, %544
-  %.sroa.06.1.i.i.i.i = phi ptr [ %545, %544 ], [ %.sroa.06.0.i.i.i.i, %533 ], [ %551, %549 ]
+  %.sroa.06.1.i.i.i.i = phi ptr [ %.sroa.06.0.i.i.i.i, %533 ], [ %545, %544 ], [ %551, %549 ]
   %557 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i, i64 16
   %558 = load i16, ptr %557, align 4, !tbaa !146
   %559 = and i16 %558, 1
@@ -1995,7 +1995,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i26
   br label %.thread422, !llvm.loop !106
 
 _ZNK5rabit5utils10PollHelper10CheckWriteERKN7xgboost10collective9TCPSocketE.exit: ; preds = %673, %657, %668
-  %.sroa.06.1.i.i.i.i280 = phi ptr [ %669, %668 ], [ %.sroa.06.0.i.i.i.i282, %657 ], [ %675, %673 ]
+  %.sroa.06.1.i.i.i.i280 = phi ptr [ %.sroa.06.0.i.i.i.i282, %657 ], [ %669, %668 ], [ %675, %673 ]
   %681 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i280, i64 16
   %682 = load i16, ptr %681, align 4, !tbaa !146
   %683 = and i16 %682, 4
@@ -2257,7 +2257,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i31
   br label %.body354
 
 786:                                              ; preds = %_ZN7xgboost10collective9TCPSocket4SendEPKvmi.exit, %_ZN7xgboost10collective9TCPSocket4RecvEPvmi.exit, %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1EEEEvRKNSt6chrono8durationIT_T0_EE.exit
-  %.0 = phi i32 [ %567, %_ZN7xgboost10collective9TCPSocket4RecvEPvmi.exit ], [ %691, %_ZN7xgboost10collective9TCPSocket4SendEPKvmi.exit ], [ %703, %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1EEEEvRKNSt6chrono8durationIT_T0_EE.exit ]
+  %.0 = phi i32 [ %567, %_ZN7xgboost10collective9TCPSocket4RecvEPvmi.exit ], [ %703, %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1EEEEvRKNSt6chrono8durationIT_T0_EE.exit ], [ %691, %_ZN7xgboost10collective9TCPSocket4SendEPKvmi.exit ]
   %787 = icmp eq i32 %.0, -1
   br i1 %787, label %788, label %.thread422
 
@@ -2410,7 +2410,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i33
   br label %.body354
 
 .thread422:                                       ; preds = %.lr.ph.i.i.i.i.i.i274, %.preheader435, %.lr.ph.i.i.i.i.i.i237, %.preheader, %788, %788, %661, %..loopexit_crit_edge21.i.i.i.i.i.i278, %537, %..loopexit_crit_edge21.i.i.i.i.i.i241, %_ZNK5rabit5utils10PollHelper10CheckWriteERKN7xgboost10collective9TCPSocketE.exit, %_ZNK5rabit5utils10PollHelper9CheckReadERKN7xgboost10collective9TCPSocketE.exit, %786
-  %.0424 = phi i32 [ %.0, %786 ], [ -1, %788 ], [ 0, %_ZNK5rabit5utils10PollHelper9CheckReadERKN7xgboost10collective9TCPSocketE.exit ], [ 0, %_ZNK5rabit5utils10PollHelper10CheckWriteERKN7xgboost10collective9TCPSocketE.exit ], [ 0, %..loopexit_crit_edge21.i.i.i.i.i.i241 ], [ 0, %537 ], [ 0, %..loopexit_crit_edge21.i.i.i.i.i.i278 ], [ 0, %661 ], [ -1, %788 ], [ 0, %.preheader435 ], [ 0, %.preheader ], [ 0, %.lr.ph.i.i.i.i.i.i237 ], [ 0, %.lr.ph.i.i.i.i.i.i274 ]
+  %.0424 = phi i32 [ %.0, %786 ], [ -1, %788 ], [ 0, %_ZNK5rabit5utils10PollHelper9CheckReadERKN7xgboost10collective9TCPSocketE.exit ], [ 0, %_ZNK5rabit5utils10PollHelper10CheckWriteERKN7xgboost10collective9TCPSocketE.exit ], [ 0, %..loopexit_crit_edge21.i.i.i.i.i.i241 ], [ -1, %788 ], [ 0, %537 ], [ 0, %.preheader ], [ 0, %..loopexit_crit_edge21.i.i.i.i.i.i278 ], [ 0, %.lr.ph.i.i.i.i.i.i237 ], [ 0, %661 ], [ 0, %.preheader435 ], [ 0, %.lr.ph.i.i.i.i.i.i274 ]
   %847 = sext i32 %.0424 to i64
   %848 = load i64, ptr %83, align 8, !tbaa !148
   %849 = add i64 %848, %847
@@ -4042,8 +4042,8 @@ _ZNSt10_HashtableIiSt4pairIKi6pollfdESaIS3_ENSt8__detail10_Select1stESt8equal_to
   br label %.body102
 
 .loopexit:                                        ; preds = %307, %.noexc101..loopexit_crit_edge, %302
-  %320 = phi ptr [ %288, %302 ], [ %.pre, %.noexc101..loopexit_crit_edge ], [ %288, %307 ]
-  %.pn.i.i = phi ptr [ %303, %302 ], [ %318, %.noexc101..loopexit_crit_edge ], [ %309, %307 ]
+  %320 = phi ptr [ %.pre, %.noexc101..loopexit_crit_edge ], [ %288, %302 ], [ %288, %307 ]
+  %.pn.i.i = phi ptr [ %318, %.noexc101..loopexit_crit_edge ], [ %303, %302 ], [ %309, %307 ]
   %321 = and i16 %294, %292
   %322 = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   store i16 %321, ptr %322, align 4, !tbaa !131

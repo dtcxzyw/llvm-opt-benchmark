@@ -293,7 +293,7 @@ define internal i32 @xfrm_send_state_notify(ptr noundef %0, ptr noundef readonly
   br label %96
 
 93:                                               ; preds = %81, %75
-  %94 = phi i32 [ %82, %81 ], [ %76, %75 ]
+  %94 = phi i32 [ %76, %75 ], [ %82, %81 ]
   %95 = icmp slt i32 %94, 0
   br i1 %95, label %.thread24, label %96
 
@@ -1535,7 +1535,7 @@ define internal i32 @xfrm_send_policy_notify(ptr noundef %0, i32 noundef %1, ptr
   br label %437
 
 .thread27:                                        ; preds = %126, %138, %26, %35, %144, %150, %61, %43
-  %189 = phi i32 [ -90, %43 ], [ -90, %61 ], [ -90, %26 ], [ %145, %144 ], [ -90, %150 ], [ -90, %35 ], [ %139, %138 ], [ %129, %126 ]
+  %189 = phi i32 [ -90, %43 ], [ -90, %61 ], [ -90, %150 ], [ %145, %144 ], [ -90, %26 ], [ -90, %35 ], [ %139, %138 ], [ %129, %126 ]
   call void @kfree_skb_reason(ptr noundef nonnull %24, i32 noundef 2) #16
   br label %437
 
@@ -2934,7 +2934,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @verify_newpolicy_info(ptr 
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %43, %52, %45, %37, %35, %25, %12, %6
-  %54 = phi i32 [ -22, %6 ], [ -22, %12 ], [ -22, %25 ], [ -22, %35 ], [ -22, %37 ], [ -22, %52 ], [ -22, %43 ], [ 0, %45 ], [ -22, %.thread.sink.split ]
+  %54 = phi i32 [ -22, %6 ], [ -22, %12 ], [ -22, %25 ], [ -22, %35 ], [ -22, %37 ], [ 0, %45 ], [ -22, %52 ], [ -22, %43 ], [ -22, %.thread.sink.split ]
   ret i32 %54
 }
 

@@ -4032,7 +4032,7 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_map17h66f4
   br label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h85bc304c491749b3E.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h85bc304c491749b3E.exit: ; preds = %"_ZN79_$LT$serde_json..ser..PrettyFormatter$u20$as$u20$serde_json..ser..Formatter$GT$18begin_object_value17h520d7490e46441f6E.llvm.5447533702519349336.exit.i.i.i.i.i.i", %65, %.loopexit
-  %.sroa.0.1 = phi ptr [ null, %.loopexit ], [ null, %65 ], [ %56, %"_ZN79_$LT$serde_json..ser..PrettyFormatter$u20$as$u20$serde_json..ser..Formatter$GT$18begin_object_value17h520d7490e46441f6E.llvm.5447533702519349336.exit.i.i.i.i.i.i" ]
+  %.sroa.0.1 = phi ptr [ null, %65 ], [ null, %.loopexit ], [ %56, %"_ZN79_$LT$serde_json..ser..PrettyFormatter$u20$as$u20$serde_json..ser..Formatter$GT$18begin_object_value17h520d7490e46441f6E.llvm.5447533702519349336.exit.i.i.i.i.i.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.sroa.0.1

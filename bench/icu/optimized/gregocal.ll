@@ -1299,7 +1299,7 @@ _ZNK6icu_7717GregorianCalendar10isLeapYearEi.exit.thread.i: ; preds = %_ZNK6icu_
   br label %.thread
 
 .thread:                                          ; preds = %10, %_ZNK6icu_7717GregorianCalendar11boundsCheckEi19UCalendarDateFields.exit, %64, %47, %.thread32, %62
-  %.1 = phi i8 [ 0, %47 ], [ 0, %62 ], [ 0, %.thread32 ], [ %spec.select, %64 ], [ 0, %_ZNK6icu_7717GregorianCalendar11boundsCheckEi19UCalendarDateFields.exit ], [ 0, %10 ]
+  %.1 = phi i8 [ %spec.select, %64 ], [ 0, %47 ], [ 0, %62 ], [ 0, %.thread32 ], [ 0, %_ZNK6icu_7717GregorianCalendar11boundsCheckEi19UCalendarDateFields.exit ], [ 0, %10 ]
   ret i8 %.1
 }
 
@@ -1901,7 +1901,7 @@ _ZNK6icu_778Calendar11internalGetE19UCalendarDateFieldsi.exit16.thread: ; preds 
   br label %_ZNK6icu_778Calendar11internalGetE19UCalendarDateFieldsi.exit
 
 _ZNK6icu_778Calendar11internalGetE19UCalendarDateFieldsi.exit: ; preds = %31, %_ZNK6icu_778Calendar11internalGetE19UCalendarDateFieldsi.exit16.thread, %12, %8, %34, %.critedge, %5, %_ZNK6icu_778Calendar11internalGetE19UCalendarDateFieldsi.exit17, %2
-  %.010 = phi i32 [ 0, %2 ], [ %spec.select, %34 ], [ 0, %.critedge ], [ 1970, %8 ], [ 1970, %5 ], [ %27, %_ZNK6icu_778Calendar11internalGetE19UCalendarDateFieldsi.exit17 ], [ %14, %12 ], [ %33, %31 ], [ 1970, %_ZNK6icu_778Calendar11internalGetE19UCalendarDateFieldsi.exit16.thread ]
+  %.010 = phi i32 [ 0, %2 ], [ %spec.select, %34 ], [ 0, %.critedge ], [ %27, %_ZNK6icu_778Calendar11internalGetE19UCalendarDateFieldsi.exit17 ], [ 1970, %5 ], [ 1970, %8 ], [ %14, %12 ], [ %33, %31 ], [ 1970, %_ZNK6icu_778Calendar11internalGetE19UCalendarDateFieldsi.exit16.thread ]
   ret i32 %.010
 }
 

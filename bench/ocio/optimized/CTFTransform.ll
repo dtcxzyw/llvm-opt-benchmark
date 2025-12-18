@@ -13337,9 +13337,12 @@ _ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv.exit: ; pred
           cleanup
   %39 = load ptr, ptr %3, align 8, !tbaa !9
   %40 = icmp eq ptr %39, %11
-  br i1 %40, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %.body
+  br i1 %40, label %.body, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %37
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %37
+  %41 = load i64, ptr %11, align 8, !tbaa !15
+  %42 = add i64 %41, 1
+  call void @_ZdlPvm(ptr noundef %39, i64 noundef %42) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.0, label %43, label %44
 
@@ -13348,19 +13351,16 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %43
 
 .body:                                            ; preds = %37
-  %41 = load i64, ptr %11, align 8, !tbaa !15
-  %42 = add i64 %41, 1
-  call void @_ZdlPvm(ptr noundef %39, i64 noundef %42) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.0, label %43, label %44
 
-43:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %.body.thread, %.body
-  %.pn12 = phi { ptr, i32 } [ %26, %.body.thread ], [ %38, %.body ], [ %38, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
+43:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %.body.thread, %.body
+  %.pn12 = phi { ptr, i32 } [ %26, %.body.thread ], [ %38, %.body ], [ %38, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ]
   call void @__cxa_free_exception(ptr %10) #29
   br label %44
 
-44:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %.body, %43, %35
-  %.pn.pn = phi { ptr, i32 } [ %.pn12, %43 ], [ %38, %.body ], [ %36, %35 ], [ %38, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
+44:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %.body, %43, %35
+  %.pn.pn = phi { ptr, i32 } [ %.pn12, %43 ], [ %38, %.body ], [ %36, %35 ], [ %38, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ]
   %45 = load ptr, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, align 8
   store ptr %45, ptr %2, align 8, !tbaa !42
   %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
@@ -18633,7 +18633,7 @@ _ZNK19OpenColorIO_v2_5dev10CTFVersionltERKS0_.exit: ; preds = %15
   %20 = icmp ult i32 %.fr, %.fr8
   br i1 %20, label %_ZNK19OpenColorIO_v2_5dev10CTFVersionltERKS0_.exit.thread5, label %_ZNK19OpenColorIO_v2_5dev10CTFVersionltERKS0_.exit.thread
 
-_ZNK19OpenColorIO_v2_5dev10CTFVersionltERKS0_.exit.thread5: ; preds = %10, %4, %_ZNK19OpenColorIO_v2_5dev10CTFVersionltERKS0_.exit
+_ZNK19OpenColorIO_v2_5dev10CTFVersionltERKS0_.exit.thread5: ; preds = %4, %10, %_ZNK19OpenColorIO_v2_5dev10CTFVersionltERKS0_.exit
   br label %_ZNK19OpenColorIO_v2_5dev10CTFVersionltERKS0_.exit.thread
 
 _ZNK19OpenColorIO_v2_5dev10CTFVersionltERKS0_.exit.thread: ; preds = %8, %1, %15, %_ZNK19OpenColorIO_v2_5dev10CTFVersionltERKS0_.exit, %_ZNK19OpenColorIO_v2_5dev10CTFVersionltERKS0_.exit.thread5
@@ -18900,7 +18900,7 @@ _ZNK19OpenColorIO_v2_5dev10CTFVersionltERKS0_.exit.thread: ; preds = %26, %1, %1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %32
 
-_ZNK19OpenColorIO_v2_5dev10CTFVersionltERKS0_.exit.thread140: ; preds = %15, %21
+_ZNK19OpenColorIO_v2_5dev10CTFVersionltERKS0_.exit.thread140: ; preds = %21, %15
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %32
 

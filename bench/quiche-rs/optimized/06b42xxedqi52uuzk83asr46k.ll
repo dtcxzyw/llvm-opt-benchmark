@@ -7074,7 +7074,7 @@ _ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit86: ; preds = %_ZN4core
   br i1 %46, label %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit86, label %.loopexit
 
 .loopexit145:                                     ; preds = %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit86, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit91, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit76, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit66, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit71, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit, %32, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit96, %48
-  %.sroa.0.0 = phi i1 [ false, %48 ], [ true, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit ], [ true, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit71 ], [ true, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit66 ], [ true, %32 ], [ true, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit76 ], [ %50, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit96 ], [ %47, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit91 ], [ true, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit86 ]
+  %.sroa.0.0 = phi i1 [ false, %48 ], [ true, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit ], [ true, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit71 ], [ true, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit66 ], [ true, %32 ], [ true, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit76 ], [ %47, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit91 ], [ %50, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit96 ], [ true, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit86 ]
   ret i1 %.sroa.0.0
 
 _ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit91: ; preds = %.loopexit
@@ -9681,7 +9681,7 @@ define void @_ZN6quiche6stream8recv_buf7RecvBuf5reset17h196cee79672d924bE(ptr de
   br label %16
 
 16:                                               ; preds = %.sink.split, %4, %21, %11
-  %.sink = phi i64 [ 14, %11 ], [ %27, %21 ], [ 14, %4 ], [ 20, %.sink.split ]
+  %.sink = phi i64 [ 14, %4 ], [ 14, %11 ], [ %27, %21 ], [ 20, %.sink.split ]
   store i64 %.sink, ptr %0, align 8
   ret void
 

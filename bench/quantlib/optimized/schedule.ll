@@ -6719,8 +6719,8 @@ lpad1580:                                         ; preds = %for.body1575
   br label %ehcleanup1785
 
 if.end1592:                                       ; preds = %invoke.cont1555, %invoke.cont1530, %invoke.cont1581, %for.cond1543.preheader, %for.cond1519.preheader, %if.else1567
-  %sub.ptr.lhs.cast.i1748.pre-phi = phi i64 [ %sub.ptr.lhs.cast.i17412298, %if.else1567 ], [ %sub.ptr.lhs.cast.i17112291, %for.cond1543.preheader ], [ %sub.ptr.lhs.cast.i17112291, %for.cond1519.preheader ], [ %sub.ptr.lhs.cast.i1711, %invoke.cont1530 ], [ %sub.ptr.lhs.cast.i1741, %invoke.cont1581 ], [ %sub.ptr.lhs.cast.i1725, %invoke.cont1555 ]
-  %657 = phi ptr [ %650, %if.else1567 ], [ %638, %for.cond1543.preheader ], [ %638, %for.cond1519.preheader ], [ %644, %invoke.cont1530 ], [ %655, %invoke.cont1581 ], [ %648, %invoke.cont1555 ]
+  %sub.ptr.lhs.cast.i1748.pre-phi = phi i64 [ %sub.ptr.lhs.cast.i1711, %invoke.cont1530 ], [ %sub.ptr.lhs.cast.i1741, %invoke.cont1581 ], [ %sub.ptr.lhs.cast.i17412298, %if.else1567 ], [ %sub.ptr.lhs.cast.i17112291, %for.cond1543.preheader ], [ %sub.ptr.lhs.cast.i17112291, %for.cond1519.preheader ], [ %sub.ptr.lhs.cast.i1725, %invoke.cont1555 ]
+  %657 = phi ptr [ %644, %invoke.cont1530 ], [ %655, %invoke.cont1581 ], [ %650, %if.else1567 ], [ %638, %for.cond1543.preheader ], [ %638, %for.cond1519.preheader ], [ %648, %invoke.cont1555 ]
   %_M_finish.i1747 = getelementptr inbounds nuw i8, ptr %this, i64 80
   %658 = load ptr, ptr %dates_, align 8, !tbaa !43
   %sub.ptr.rhs.cast.i1749 = ptrtoint ptr %658 to i64

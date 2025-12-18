@@ -787,7 +787,7 @@ netlbl_secattr_free.exit:                         ; preds = %.preheader.i, %.thr
   br label %59
 
 59:                                               ; preds = %7, %58
-  %60 = phi ptr [ %13, %58 ], [ %9, %7 ]
+  %60 = phi ptr [ %9, %7 ], [ %13, %58 ]
   %61 = tail call i32 @netlbl_sock_setattr(ptr noundef %0, i16 noundef zeroext %1, ptr noundef nonnull %60) #9
   switch i32 %61, label %.thread [
     i32 0, label %63
@@ -1186,7 +1186,7 @@ netlbl_secattr_free.exit:                         ; preds = %.preheader.i, %.thr
   br label %64
 
 64:                                               ; preds = %12, %63
-  %65 = phi ptr [ %18, %63 ], [ %14, %12 ]
+  %65 = phi ptr [ %14, %12 ], [ %18, %63 ]
   %66 = tail call i32 @netlbl_conn_setattr(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %65) #9
   %67 = icmp eq i32 %66, 0
   br i1 %67, label %68, label %.thread

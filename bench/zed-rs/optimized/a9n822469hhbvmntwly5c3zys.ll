@@ -3257,7 +3257,7 @@ define noundef align 8 dereferenceable_or_null(80) ptr @_ZN4text7History11transa
   br i1 %31, label %"_ZN4core6option15Option$LT$T$GT$7or_else17h7091e5d8c0bd0f06E.exit", label %.lr.ph.i.i.i
 
 "_ZN4core6option15Option$LT$T$GT$7or_else17h7091e5d8c0bd0f06E.exit": ; preds = %"_ZN4text7History11transaction28_$u7b$$u7b$closure$u7d$$u7d$17hbe2cb853e1903501E.exit.i.i", %"_ZN4text7History11transaction28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h9253ff206873ea13E.exit.i.i.i.i", %"_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfind5check28_$u7b$$u7b$closure$u7d$$u7d$17he15e841c071d35e5E.exit.i.i.i", %.loopexit
-  %.sroa.02.0.i = phi ptr [ null, %.loopexit ], [ null, %"_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfind5check28_$u7b$$u7b$closure$u7d$$u7d$17he15e841c071d35e5E.exit.i.i.i" ], [ %24, %"_ZN4text7History11transaction28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h9253ff206873ea13E.exit.i.i.i.i" ], [ %11, %"_ZN4text7History11transaction28_$u7b$$u7b$closure$u7d$$u7d$17hbe2cb853e1903501E.exit.i.i" ]
+  %.sroa.02.0.i = phi ptr [ null, %"_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfind5check28_$u7b$$u7b$closure$u7d$$u7d$17he15e841c071d35e5E.exit.i.i.i" ], [ null, %.loopexit ], [ %24, %"_ZN4text7History11transaction28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h9253ff206873ea13E.exit.i.i.i.i" ], [ %11, %"_ZN4text7History11transaction28_$u7b$$u7b$closure$u7d$$u7d$17hbe2cb853e1903501E.exit.i.i" ]
   ret ptr %.sroa.02.0.i
 }
 
@@ -3299,9 +3299,9 @@ define void @_ZN4text10LineIndent11from_chunks17ha2fe1c0d15d2ef0eE(ptr dead_on_u
   br i1 %10, label %._crit_edge, label %.lr.ph
 
 .loopexit:                                        ; preds = %._crit_edge, %52, %2, %60
-  %.sroa.03.1 = phi i32 [ %.sroa.03.224, %60 ], [ 0, %2 ], [ %.sroa.03.224, %52 ], [ %.sroa.03.2.lcssa, %._crit_edge ]
-  %.sroa.05.1 = phi i32 [ %.sroa.05.225, %60 ], [ 0, %2 ], [ %.sroa.05.225, %52 ], [ %.sroa.05.2.lcssa, %._crit_edge ]
-  %.sroa.07.0 = phi i8 [ 0, %60 ], [ 1, %2 ], [ 1, %52 ], [ 1, %._crit_edge ]
+  %.sroa.03.1 = phi i32 [ %.sroa.03.224, %52 ], [ %.sroa.03.224, %60 ], [ 0, %2 ], [ %.sroa.03.2.lcssa, %._crit_edge ]
+  %.sroa.05.1 = phi i32 [ %.sroa.05.225, %52 ], [ %.sroa.05.225, %60 ], [ 0, %2 ], [ %.sroa.05.2.lcssa, %._crit_edge ]
+  %.sroa.07.0 = phi i8 [ 1, %52 ], [ 0, %60 ], [ 1, %2 ], [ 1, %._crit_edge ]
   store i32 %.sroa.03.1, ptr %0, align 4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.05.1, ptr %11, align 4
@@ -4992,8 +4992,8 @@ define void @_ZN4text6Buffer8apply_op17h16c22230f4565105E(ptr noalias noundef al
   br label %.thread.i
 
 173:                                              ; preds = %520, %516, %491
-  %.sroa.078.8720729.i = phi i1 [ true, %516 ], [ true, %520 ], [ %.sroa.078.7.i, %491 ]
-  %.pn122722728.i = phi { ptr, i32 } [ %517, %516 ], [ %517, %520 ], [ %492, %491 ]
+  %.sroa.078.8720729.i = phi i1 [ %.sroa.078.7.i, %491 ], [ true, %520 ], [ true, %516 ]
+  %.pn122722728.i = phi { ptr, i32 } [ %492, %491 ], [ %517, %520 ], [ %517, %516 ]
   %.sroa.50.5695.i = extractvalue { ptr, i32 } %.pn122722728.i, 1
   %.sroa.096.5696.i = extractvalue { ptr, i32 } %.pn122722728.i, 0
   br label %1396
@@ -5543,7 +5543,7 @@ _ZN4text19VersionedFullOffset11full_offset17ha12ac85a8a204981E.exit210.i: ; pred
   br i1 %407, label %.invoke.i, label %409
 
 .invoke1415.i:                                    ; preds = %942, %851, %825, %753, %621, %712, %1087, %393
-  %408 = phi ptr [ @anon.5d443eac470b995ea7043842dd24c6a8.116, %393 ], [ @anon.5d443eac470b995ea7043842dd24c6a8.135, %1087 ], [ @anon.5d443eac470b995ea7043842dd24c6a8.129, %712 ], [ @anon.5d443eac470b995ea7043842dd24c6a8.129, %825 ], [ @anon.5d443eac470b995ea7043842dd24c6a8.131, %851 ], [ @anon.5d443eac470b995ea7043842dd24c6a8.126, %753 ], [ @anon.5d443eac470b995ea7043842dd24c6a8.121, %621 ], [ @anon.5d443eac470b995ea7043842dd24c6a8.133, %942 ]
+  %408 = phi ptr [ @anon.5d443eac470b995ea7043842dd24c6a8.135, %1087 ], [ @anon.5d443eac470b995ea7043842dd24c6a8.116, %393 ], [ @anon.5d443eac470b995ea7043842dd24c6a8.129, %712 ], [ @anon.5d443eac470b995ea7043842dd24c6a8.129, %825 ], [ @anon.5d443eac470b995ea7043842dd24c6a8.131, %851 ], [ @anon.5d443eac470b995ea7043842dd24c6a8.126, %753 ], [ @anon.5d443eac470b995ea7043842dd24c6a8.121, %621 ], [ @anon.5d443eac470b995ea7043842dd24c6a8.133, %942 ]
   invoke void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.54651faf5a9e2e08cf45392d07caa153.36.llvm.13982400825416426396, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %408) #26
           to label %.cont1416.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i, !noalias !746
 
@@ -5555,9 +5555,9 @@ _ZN4text19VersionedFullOffset11full_offset17ha12ac85a8a204981E.exit210.i: ; pred
   br i1 %410, label %415, label %.invoke1417.i
 
 .invoke1417.i:                                    ; preds = %957, %866, %833, %768, %636, %727, %1102, %409
-  %411 = phi i64 [ %403, %409 ], [ %1097, %1102 ], [ %722, %727 ], [ %952, %957 ], [ %861, %866 ], [ %835, %833 ], [ %763, %768 ], [ %631, %636 ]
-  %412 = phi i64 [ %406, %409 ], [ %1100, %1102 ], [ %725, %727 ], [ %955, %957 ], [ %864, %866 ], [ %838, %833 ], [ %766, %768 ], [ %634, %636 ]
-  %413 = phi ptr [ @anon.5d443eac470b995ea7043842dd24c6a8.116, %409 ], [ @anon.5d443eac470b995ea7043842dd24c6a8.135, %1102 ], [ @anon.5d443eac470b995ea7043842dd24c6a8.129, %727 ], [ @anon.5d443eac470b995ea7043842dd24c6a8.133, %957 ], [ @anon.5d443eac470b995ea7043842dd24c6a8.131, %866 ], [ @anon.5d443eac470b995ea7043842dd24c6a8.129, %833 ], [ @anon.5d443eac470b995ea7043842dd24c6a8.126, %768 ], [ @anon.5d443eac470b995ea7043842dd24c6a8.121, %636 ]
+  %411 = phi i64 [ %722, %727 ], [ %403, %409 ], [ %1097, %1102 ], [ %952, %957 ], [ %861, %866 ], [ %835, %833 ], [ %763, %768 ], [ %631, %636 ]
+  %412 = phi i64 [ %725, %727 ], [ %406, %409 ], [ %1100, %1102 ], [ %955, %957 ], [ %864, %866 ], [ %838, %833 ], [ %766, %768 ], [ %634, %636 ]
+  %413 = phi ptr [ @anon.5d443eac470b995ea7043842dd24c6a8.129, %727 ], [ @anon.5d443eac470b995ea7043842dd24c6a8.116, %409 ], [ @anon.5d443eac470b995ea7043842dd24c6a8.135, %1102 ], [ @anon.5d443eac470b995ea7043842dd24c6a8.133, %957 ], [ @anon.5d443eac470b995ea7043842dd24c6a8.131, %866 ], [ @anon.5d443eac470b995ea7043842dd24c6a8.129, %833 ], [ @anon.5d443eac470b995ea7043842dd24c6a8.126, %768 ], [ @anon.5d443eac470b995ea7043842dd24c6a8.121, %636 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %411, i64 noundef %412, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %413) #26
           to label %.cont1418.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i, !noalias !746
 
@@ -14097,7 +14097,7 @@ _ZN4text14BufferSnapshot8line_len17h06c207b3170c896bE.exit: ; preds = %14, %21
   br i1 %.not9.i, label %.loopexit, label %.lr.ph.i
 
 .loopexit:                                        ; preds = %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h79f95c14031b019bE.exit.i", %74, %76, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17ha2978b561387bb2bE.exit.i.i.i.i", %_ZN4text14BufferSnapshot8line_len17h06c207b3170c896bE.exit
-  %100 = phi i1 [ true, %_ZN4text14BufferSnapshot8line_len17h06c207b3170c896bE.exit ], [ false, %74 ], [ false, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17ha2978b561387bb2bE.exit.i.i.i.i" ], [ false, %76 ], [ true, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h79f95c14031b019bE.exit.i" ]
+  %100 = phi i1 [ false, %74 ], [ true, %_ZN4text14BufferSnapshot8line_len17h06c207b3170c896bE.exit ], [ false, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17ha2978b561387bb2bE.exit.i.i.i.i" ], [ false, %76 ], [ true, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h79f95c14031b019bE.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %100
 }

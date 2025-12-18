@@ -656,7 +656,7 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %4
   br label %_ZN4ncnnL10dequantizeEPKiPfffi.exit
 
 _ZN4ncnnL10dequantizeEPKiPfffi.exit:              ; preds = %.lr.ph.i, %4, %51, %41, %54, %28, %_ZNK4ncnn3Mat5emptyEv.exit
-  %.0 = phi i32 [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ 0, %28 ], [ 0, %54 ], [ 0, %51 ], [ 0, %41 ], [ -100, %4 ], [ 0, %.lr.ph.i ]
+  %.0 = phi i32 [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ 0, %28 ], [ -100, %4 ], [ 0, %54 ], [ 0, %51 ], [ 0, %41 ], [ 0, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

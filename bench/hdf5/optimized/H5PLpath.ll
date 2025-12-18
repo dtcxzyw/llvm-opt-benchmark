@@ -972,7 +972,7 @@ sub_1.i:                                          ; preds = %sub_0.i
   br i1 %81, label %.thread.i, label %.backedge.sink.split.i
 
 .thread.i:                                        ; preds = %79, %75, %59, %51
-  %82 = phi i1 [ true, %75 ], [ true, %59 ], [ true, %51 ], [ false, %79 ]
+  %82 = phi i1 [ true, %51 ], [ true, %75 ], [ true, %59 ], [ false, %79 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit.i
 

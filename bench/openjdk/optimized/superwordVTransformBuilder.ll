@@ -2943,7 +2943,7 @@ _ZN14VTransformNode7set_reqEjPS_.exit85:          ; preds = %336, %372
   unreachable
 
 _ZNK26SuperWordVTransformBuilder10get_vtnodeEP4Node.exit: ; preds = %30, %61, %90, %93, %70, %64, %41, %33, %10, %_ZN14VTransformNode7set_reqEjPS_.exit85, %_ZN14VTransformNode7set_reqEjPS_.exit77, %_ZN14VTransformNode7set_reqEjPS_.exit
-  %.0 = phi ptr [ %340, %_ZN14VTransformNode7set_reqEjPS_.exit85 ], [ %134, %_ZN14VTransformNode7set_reqEjPS_.exit ], [ %213, %_ZN14VTransformNode7set_reqEjPS_.exit77 ], [ %35, %33 ], [ null, %10 ], [ %66, %64 ], [ null, %41 ], [ %95, %93 ], [ null, %70 ], [ null, %61 ], [ null, %90 ], [ null, %30 ]
+  %.0 = phi ptr [ %340, %_ZN14VTransformNode7set_reqEjPS_.exit85 ], [ null, %90 ], [ null, %61 ], [ %134, %_ZN14VTransformNode7set_reqEjPS_.exit ], [ %213, %_ZN14VTransformNode7set_reqEjPS_.exit77 ], [ %35, %33 ], [ null, %10 ], [ %66, %64 ], [ null, %41 ], [ %95, %93 ], [ null, %70 ], [ null, %30 ]
   ret ptr %.0
 }
 

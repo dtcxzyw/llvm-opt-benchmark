@@ -1038,7 +1038,7 @@ _ZL15hacksearch_atomPiS_PKcN3gmx8ArrayRefIKSt6vectorI13MoleculePatchSaIS5_EEEEiP
   br label %361
 
 _ZL15hacksearch_atomPiS_PKcN3gmx8ArrayRefIKSt6vectorI13MoleculePatchSaIS5_EEEEiPK7t_atoms.exit.thread.i: ; preds = %_ZL15hacksearch_atomPiS_PKcN3gmx8ArrayRefIKSt6vectorI13MoleculePatchSaIS5_EEEEiPK7t_atoms.exit.i, %.critedge.i.i, %292
-  %.843.i = phi i32 [ %.23766.i, %292 ], [ %.8.i, %_ZL15hacksearch_atomPiS_PKcN3gmx8ArrayRefIKSt6vectorI13MoleculePatchSaIS5_EEEEiPK7t_atoms.exit.i ], [ %.23766.i, %.critedge.i.i ]
+  %.843.i = phi i32 [ %.23766.i, %292 ], [ %.23766.i, %.critedge.i.i ], [ %.8.i, %_ZL15hacksearch_atomPiS_PKcN3gmx8ArrayRefIKSt6vectorI13MoleculePatchSaIS5_EEEEiPK7t_atoms.exit.i ]
   br i1 %7, label %337, label %.loopexit.i164
 
 337:                                              ; preds = %_ZL15hacksearch_atomPiS_PKcN3gmx8ArrayRefIKSt6vectorI13MoleculePatchSaIS5_EEEEiPK7t_atoms.exit.thread.i
@@ -1163,7 +1163,7 @@ _ZNKRSt8optionalIiE5valueEv.exit.i:               ; preds = %.noexc176
   br i1 %exitcond112.not.i, label %.loopexit.i164, label %.lr.ph76.i, !llvm.loop !115
 
 .loopexit.i164:                                   ; preds = %.lr.ph76.i, %.noexc180, %_ZL15hacksearch_atomPiS_PKcN3gmx8ArrayRefIKSt6vectorI13MoleculePatchSaIS5_EEEEiPK7t_atoms.exit.thread.i, %256, %.noexc175
-  %.10.i = phi i32 [ %.13679.i, %256 ], [ %.13679.i, %.noexc175 ], [ %.237.lcssa132.i, %.noexc180 ], [ %.843.i, %_ZL15hacksearch_atomPiS_PKcN3gmx8ArrayRefIKSt6vectorI13MoleculePatchSaIS5_EEEEiPK7t_atoms.exit.thread.i ], [ %.237.lcssa132.i, %.lr.ph76.i ]
+  %.10.i = phi i32 [ %.13679.i, %.noexc175 ], [ %.843.i, %_ZL15hacksearch_atomPiS_PKcN3gmx8ArrayRefIKSt6vectorI13MoleculePatchSaIS5_EEEEiPK7t_atoms.exit.thread.i ], [ %.13679.i, %256 ], [ %.237.lcssa132.i, %.noexc180 ], [ %.237.lcssa132.i, %.lr.ph76.i ]
   %386 = load i32, ptr %.sroa.010.078.i, align 8, !tbaa !104
   %387 = sext i32 %386 to i64
   %388 = getelementptr inbounds %struct.MoleculePatch, ptr %.sroa.010.078.i, i64 %387

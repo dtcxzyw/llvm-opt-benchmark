@@ -1821,9 +1821,9 @@ define internal void @_ZL26_UTF32ToUnicodeWithOffsetsP23UConverterToUnicodeArgsP
   br label %.outer
 
 .outer:                                           ; preds = %.outer103.split.us.split, %26, %35, %29, %64, %60, %.loopexit102.split.us
-  %.192 = phi i32 [ %.091.ph177, %.loopexit102.split.us ], [ %34, %29 ], [ %40, %35 ], [ %.091.ph177, %26 ], [ %.091.ph177, %60 ], [ %.091.ph177, %64 ], [ %.091.ph177, %.outer103.split.us.split ]
-  %.2 = phi i32 [ %.190, %.loopexit102.split.us ], [ 8, %29 ], [ 9, %35 ], [ %27, %26 ], [ 8, %60 ], [ 9, %64 ], [ %.089.us, %.outer103.split.us.split ]
-  %.1 = phi ptr [ %25, %.loopexit102.split.us ], [ %28, %29 ], [ %28, %35 ], [ %28, %26 ], [ %61, %60 ], [ %65, %64 ], [ %.0.ph105171, %.outer103.split.us.split ]
+  %.192 = phi i32 [ %.091.ph177, %64 ], [ %.091.ph177, %.loopexit102.split.us ], [ %34, %29 ], [ %40, %35 ], [ %.091.ph177, %26 ], [ %.091.ph177, %60 ], [ %.091.ph177, %.outer103.split.us.split ]
+  %.2 = phi i32 [ 9, %64 ], [ %.190, %.loopexit102.split.us ], [ 8, %29 ], [ 9, %35 ], [ %27, %26 ], [ 8, %60 ], [ %.089.us, %.outer103.split.us.split ]
+  %.1 = phi ptr [ %65, %64 ], [ %25, %.loopexit102.split.us ], [ %28, %29 ], [ %28, %35 ], [ %28, %26 ], [ %61, %60 ], [ %.0.ph105171, %.outer103.split.us.split ]
   %66 = icmp ult ptr %.1, %8
   br i1 %66, label %.outer103.split.us.lr.ph, label %.critedge, !llvm.loop !58
 
@@ -1851,8 +1851,8 @@ define internal void @_ZL26_UTF32ToUnicodeWithOffsetsP23UConverterToUnicodeArgsP
   br i1 %75, label %.lr.ph, label %.loopexit, !llvm.loop !60
 
 .loopexit:                                        ; preds = %.lr.ph, %2, %69, %.critedge
-  %.us-phi120212 = phi i32 [ %.us-phi120, %.critedge ], [ %.us-phi120, %69 ], [ %12, %2 ], [ %.us-phi120, %.lr.ph ]
-  %.us-phi119211 = phi ptr [ %.us-phi119, %.critedge ], [ %.us-phi119, %69 ], [ %6, %2 ], [ %.us-phi119, %.lr.ph ]
+  %.us-phi120212 = phi i32 [ %12, %2 ], [ %.us-phi120, %.critedge ], [ %.us-phi120, %69 ], [ %.us-phi120, %.lr.ph ]
+  %.us-phi119211 = phi ptr [ %6, %2 ], [ %.us-phi119, %.critedge ], [ %.us-phi119, %69 ], [ %.us-phi119, %.lr.ph ]
   store ptr %.us-phi119211, ptr %5, align 8, !tbaa !3
   %76 = icmp eq ptr %.us-phi119211, %8
   br i1 %76, label %77, label %90
@@ -2038,7 +2038,7 @@ _ZL34T_UConverter_getNextUChar_UTF32_BEP23UConverterToUnicodeArgsP10UErrorCode.e
   br label %_ZL34T_UConverter_getNextUChar_UTF32_BEP23UConverterToUnicodeArgsP10UErrorCode.exit
 
 _ZL34T_UConverter_getNextUChar_UTF32_BEP23UConverterToUnicodeArgsP10UErrorCode.exit: ; preds = %_ZL34T_UConverter_getNextUChar_UTF32_BEP23UConverterToUnicodeArgsP10UErrorCode.exit.sink.split, %70, %25, %2
-  %.0 = phi i32 [ -9, %2 ], [ %42, %25 ], [ %82, %70 ], [ 65535, %_ZL34T_UConverter_getNextUChar_UTF32_BEP23UConverterToUnicodeArgsP10UErrorCode.exit.sink.split ]
+  %.0 = phi i32 [ %82, %70 ], [ -9, %2 ], [ %42, %25 ], [ 65535, %_ZL34T_UConverter_getNextUChar_UTF32_BEP23UConverterToUnicodeArgsP10UErrorCode.exit.sink.split ]
   ret i32 %.0
 }
 

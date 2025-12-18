@@ -292,7 +292,7 @@ Vec_IntGrow.exit.i:                               ; preds = %5, %36
   br label %._crit_edge136.i
 
 ._crit_edge136.i:                                 ; preds = %69, %.preheader117.i, %.lr.ph131.preheader.i, %.preheader118.i, %._crit_edge.loopexit.i, %.preheader.i
-  %.5.lcssa.sink.i = phi i32 [ %105, %._crit_edge.loopexit.i ], [ 0, %.preheader.i ], [ %.1.i, %.preheader118.i ], [ %.085.i, %.preheader117.i ], [ %118, %.lr.ph131.preheader.i ], [ %4, %69 ]
+  %.5.lcssa.sink.i = phi i32 [ %105, %._crit_edge.loopexit.i ], [ 0, %.preheader.i ], [ %118, %.lr.ph131.preheader.i ], [ %.1.i, %.preheader118.i ], [ %.085.i, %.preheader117.i ], [ %4, %69 ]
   %.sink.i = or i32 %.061.val, %.062.val
   %119 = and i32 %.sink.i, -16
   %120 = or i32 %.5.lcssa.sink.i, %119
@@ -534,10 +534,10 @@ Sle_SetAddCut.exit:                               ; preds = %Vec_IntPush.exit.i.
   %.pre199 = and i32 %.061.val78.pre, 15
   br label %Sle_CutMergeOrder.exit.thread
 
-Sle_CutMergeOrder.exit.thread:                    ; preds = %93, %.lr.ph135.i, %133, %.preheader.i.i, %142, %128, %.preheader119.i, %.loopexit121.i, %.loopexit122.i, %56, %Sle_SetAddCut.exit
-  %.pre-phi = phi i32 [ %.pre199, %Sle_SetAddCut.exit ], [ %53, %.preheader119.i ], [ %53, %.loopexit121.i ], [ %53, %.loopexit122.i ], [ %53, %56 ], [ %4, %.lr.ph135.i ], [ %53, %128 ], [ %53, %142 ], [ %53, %133 ], [ %53, %.preheader.i.i ], [ %53, %93 ]
-  %203 = phi i32 [ %.pre191, %Sle_SetAddCut.exit ], [ %51, %.preheader119.i ], [ %51, %.loopexit121.i ], [ %51, %.loopexit122.i ], [ %51, %56 ], [ %51, %.lr.ph135.i ], [ %51, %128 ], [ %51, %142 ], [ %51, %133 ], [ %51, %.preheader.i.i ], [ %51, %93 ]
-  %.val85186 = phi ptr [ %.val85187, %Sle_SetAddCut.exit ], [ %.val85, %.preheader119.i ], [ %.val85, %.loopexit121.i ], [ %.val85, %.loopexit122.i ], [ %.val85, %56 ], [ %.val85, %.lr.ph135.i ], [ %.val85, %128 ], [ %.val85, %142 ], [ %.val85, %133 ], [ %.val85, %.preheader.i.i ], [ %.val85, %93 ]
+Sle_CutMergeOrder.exit.thread:                    ; preds = %93, %.lr.ph135.i, %133, %.preheader.i.i, %142, %128, %.preheader119.i, %.loopexit122.i, %.loopexit121.i, %56, %Sle_SetAddCut.exit
+  %.pre-phi = phi i32 [ %53, %142 ], [ %53, %128 ], [ %4, %.lr.ph135.i ], [ %53, %133 ], [ %.pre199, %Sle_SetAddCut.exit ], [ %53, %.preheader119.i ], [ %53, %.loopexit122.i ], [ %53, %.loopexit121.i ], [ %53, %56 ], [ %53, %.preheader.i.i ], [ %53, %93 ]
+  %203 = phi i32 [ %51, %142 ], [ %51, %128 ], [ %51, %.lr.ph135.i ], [ %51, %133 ], [ %.pre191, %Sle_SetAddCut.exit ], [ %51, %.preheader119.i ], [ %51, %.loopexit122.i ], [ %51, %.loopexit121.i ], [ %51, %56 ], [ %51, %.preheader.i.i ], [ %51, %93 ]
+  %.val85186 = phi ptr [ %.val85, %142 ], [ %.val85, %128 ], [ %.val85, %.lr.ph135.i ], [ %.val85, %133 ], [ %.val85187, %Sle_SetAddCut.exit ], [ %.val85, %.preheader119.i ], [ %.val85, %.loopexit122.i ], [ %.val85, %.loopexit121.i ], [ %.val85, %56 ], [ %.val85, %.preheader.i.i ], [ %.val85, %93 ]
   %204 = add nuw nsw i32 %.058150, 1
   %205 = zext nneg i32 %.pre-phi to i64
   %206 = getelementptr inbounds nuw i32, ptr %.061151, i64 %205
@@ -872,9 +872,9 @@ Vec_IntGrow.exit.i:                               ; preds = %39, %Vec_IntAlloc.e
   br label %Vec_IntFill.exit
 
 Vec_IntFill.exit:                                 ; preds = %.lr.ph.i, %Vec_IntAlloc.exit.thread, %Vec_IntGrow.exit.i
-  %.val4695 = phi ptr [ %42, %Vec_IntGrow.exit.i ], [ null, %Vec_IntAlloc.exit.thread ], [ %42, %.lr.ph.i ]
-  %.val4581 = phi i32 [ %.val3.i, %Vec_IntGrow.exit.i ], [ %.val3.i, %Vec_IntAlloc.exit.thread ], [ %.val4581.pre, %.lr.ph.i ]
-  %46 = phi ptr [ %43, %Vec_IntGrow.exit.i ], [ %27, %Vec_IntAlloc.exit.thread ], [ %43, %.lr.ph.i ]
+  %.val4695 = phi ptr [ null, %Vec_IntAlloc.exit.thread ], [ %42, %Vec_IntGrow.exit.i ], [ %42, %.lr.ph.i ]
+  %.val4581 = phi i32 [ %.val3.i, %Vec_IntAlloc.exit.thread ], [ %.val3.i, %Vec_IntGrow.exit.i ], [ %.val4581.pre, %.lr.ph.i ]
+  %46 = phi ptr [ %27, %Vec_IntAlloc.exit.thread ], [ %43, %Vec_IntGrow.exit.i ], [ %43, %.lr.ph.i ]
   store i32 %9, ptr %22, align 4, !tbaa !31
   %47 = icmp sgt i32 %.val4581, 0
   br i1 %47, label %.lr.ph, label %.critedge
@@ -2864,9 +2864,9 @@ Sle_ManPrintCuts.exit:                            ; preds = %Sle_ManPrintCut.exi
   br label %Sle_ManCheckContained.exit.thread129
 
 Sle_ManCheckContained.exit.thread129:             ; preds = %.preheader18.i, %.lr.ph.split.us, %._crit_edge.us.i, %.lr.ph.split.us.preheader, %Sle_ManPrintCuts.exit
-  %.pn148 = phi ptr [ %.pn.lcssa, %Sle_ManPrintCuts.exit ], [ %74, %.lr.ph.split.us.preheader ], [ %84, %.lr.ph.split.us ], [ %.pn150, %._crit_edge.us.i ], [ %.pn150, %.preheader18.i ]
-  %.066143 = phi ptr [ %.066.lcssa, %Sle_ManPrintCuts.exit ], [ %.066149, %.lr.ph.split.us.preheader ], [ %.066.us, %.lr.ph.split.us ], [ %.066152, %._crit_edge.us.i ], [ %.066152, %.preheader18.i ]
-  %.0131 = phi i32 [ -1, %Sle_ManPrintCuts.exit ], [ 0, %.lr.ph.split.us.preheader ], [ %82, %.lr.ph.split.us ], [ %.065151, %._crit_edge.us.i ], [ %.065151, %.preheader18.i ]
+  %.pn148 = phi ptr [ %.pn.lcssa, %Sle_ManPrintCuts.exit ], [ %.pn150, %._crit_edge.us.i ], [ %84, %.lr.ph.split.us ], [ %74, %.lr.ph.split.us.preheader ], [ %.pn150, %.preheader18.i ]
+  %.066143 = phi ptr [ %.066.lcssa, %Sle_ManPrintCuts.exit ], [ %.066152, %._crit_edge.us.i ], [ %.066.us, %.lr.ph.split.us ], [ %.066149, %.lr.ph.split.us.preheader ], [ %.066152, %.preheader18.i ]
+  %.0131 = phi i32 [ -1, %Sle_ManPrintCuts.exit ], [ %.065151, %._crit_edge.us.i ], [ %82, %.lr.ph.split.us ], [ 0, %.lr.ph.split.us.preheader ], [ %.065151, %.preheader18.i ]
   %124 = load ptr, ptr %5, align 8, !tbaa !83
   %125 = load ptr, ptr %12, align 8, !tbaa !80
   %126 = getelementptr i8, ptr %125, i64 8

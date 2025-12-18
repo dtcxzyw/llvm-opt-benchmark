@@ -783,7 +783,7 @@ _ZN2cv3VecIfLi8EEC2ERKS1_.exit.sink.split:        ; preds = %194, %177
   br label %_ZN2cv3VecIfLi8EEC2ERKS1_.exit
 
 _ZN2cv3VecIfLi8EEC2ERKS1_.exit:                   ; preds = %_ZN2cv3VecIfLi8EEC2ERKS1_.exit.sink.split, %174, %191, %155, %_ZN2cv3VecIfLi8EEC2ERKS1_.exit.preheader
-  %.2138 = phi i8 [ %.1137182, %155 ], [ %.1137182, %_ZN2cv3VecIfLi8EEC2ERKS1_.exit.preheader ], [ %.1137182, %174 ], [ %.1137182, %191 ], [ 0, %_ZN2cv3VecIfLi8EEC2ERKS1_.exit.sink.split ]
+  %.2138 = phi i8 [ %.1137182, %155 ], [ %.1137182, %_ZN2cv3VecIfLi8EEC2ERKS1_.exit.preheader ], [ %.1137182, %191 ], [ %.1137182, %174 ], [ 0, %_ZN2cv3VecIfLi8EEC2ERKS1_.exit.sink.split ]
   %indvars.iv.next193 = add nuw nsw i64 %indvars.iv192, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next193, 8
   br i1 %exitcond.not, label %142, label %_ZN2cv3VecIfLi8EEC2ERKS1_.exit.preheader, !llvm.loop !59
@@ -1811,7 +1811,7 @@ _ZN2cv7optflow12Graph_helper15color_in_targetEii.exit183: ; preds = %.lr.ph.i178
   br label %437
 
 _ZN2cv7optflow12Graph_helper15color_in_targetEii.exit: ; preds = %.lr.ph.i, %_ZN2cv7optflow12Graph_helper15color_in_targetEii.exit183, %_ZN2cv3Mat2atINS_3VecIfLi8EEEEERT_i.exit
-  %381 = phi i64 [ %284, %_ZN2cv3Mat2atINS_3VecIfLi8EEEEERT_i.exit ], [ %378, %_ZN2cv7optflow12Graph_helper15color_in_targetEii.exit183 ], [ %284, %.lr.ph.i ]
+  %381 = phi i64 [ %378, %_ZN2cv7optflow12Graph_helper15color_in_targetEii.exit183 ], [ %284, %_ZN2cv3Mat2atINS_3VecIfLi8EEEEERT_i.exit ], [ %284, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %382 = icmp eq i64 %381, 0
   br i1 %382, label %._crit_edge291.loopexit, label %.critedge
@@ -2998,7 +2998,7 @@ _ZNKSt4lessISt4pairIffEEclERKS1_S4_.exit.thread.i: ; preds = %_ZNKSt4lessISt4pai
   br i1 %.not.i, label %._crit_edge.thread.i, label %.lr.ph.i.backedge
 
 .lr.ph.i.backedge:                                ; preds = %_ZNKSt4lessISt4pairIffEEclERKS1_S4_.exit.thread.i, %_ZNKSt4lessISt4pairIffEEclERKS1_S4_.exit.thread.i.thread
-  %.02126.i.be = phi ptr [ %.021.i, %_ZNKSt4lessISt4pairIffEEclERKS1_S4_.exit.thread.i ], [ %.021.i18, %_ZNKSt4lessISt4pairIffEEclERKS1_S4_.exit.thread.i.thread ]
+  %.02126.i.be = phi ptr [ %.021.i18, %_ZNKSt4lessISt4pairIffEEclERKS1_S4_.exit.thread.i.thread ], [ %.021.i, %_ZNKSt4lessISt4pairIffEEclERKS1_S4_.exit.thread.i ]
   br label %.lr.ph.i, !llvm.loop !127
 
 _ZNKSt4lessISt4pairIffEEclERKS1_S4_.exit.thread.i.thread: ; preds = %19, %_ZNKSt4lessISt4pairIffEEclERKS1_S4_.exit.i

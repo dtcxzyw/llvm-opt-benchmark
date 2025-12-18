@@ -253,7 +253,7 @@ define dso_local i32 @handle_pmi2_cmd(i32 noundef %0, i32 noundef %1) local_unna
   br label %.thread
 
 .split104.us:                                     ; preds = %.lr.ph141, %.lr.ph126.preheader, %.lr.ph141.preheader, %.lr.ph126.preheader.preheader
-  %.us-phi105 = phi i64 [ %20, %.lr.ph126.preheader.preheader ], [ %9, %.lr.ph141.preheader ], [ %38, %.lr.ph126.preheader ], [ %17, %.lr.ph141 ]
+  %.us-phi105 = phi i64 [ %38, %.lr.ph126.preheader ], [ %20, %.lr.ph126.preheader.preheader ], [ %9, %.lr.ph141.preheader ], [ %17, %.lr.ph141 ]
   %44 = and i64 %.us-phi105, 2147483647
   %45 = getelementptr inbounds nuw i8, ptr %.062.ph145, i64 %44
   %46 = sub i64 %.063.ph143, %44
@@ -394,7 +394,7 @@ define dso_local i32 @handle_pmi2_cmd(i32 noundef %0, i32 noundef %1) local_unna
   br label %.thread
 
 .split154.us:                                     ; preds = %.lr.ph192, %.lr.ph177.preheader, %.lr.ph192.preheader, %.lr.ph177.preheader.preheader
-  %.us-phi155 = phi i64 [ %70, %.lr.ph177.preheader.preheader ], [ %59, %.lr.ph192.preheader ], [ %88, %.lr.ph177.preheader ], [ %67, %.lr.ph192 ]
+  %.us-phi155 = phi i64 [ %88, %.lr.ph177.preheader ], [ %70, %.lr.ph177.preheader.preheader ], [ %59, %.lr.ph192.preheader ], [ %67, %.lr.ph192 ]
   %94 = and i64 %.us-phi155, 2147483647
   %95 = getelementptr inbounds nuw i8, ptr %.058.ph198, i64 %94
   %96 = sub i64 %.059.ph196, %94

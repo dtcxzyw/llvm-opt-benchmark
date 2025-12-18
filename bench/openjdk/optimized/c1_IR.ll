@@ -4523,7 +4523,7 @@ _ZN6BitMap5clearEv.exit.i50:                      ; preds = %.lr.ph.preheader.i.
   br i1 %.not9.i61, label %_ZN22ComputeLinearScanOrder16common_dominatorEP10BlockBeginS1_.exit62, label %114, !llvm.loop !36
 
 _ZN22ComputeLinearScanOrder16common_dominatorEP10BlockBeginS1_.exit62: ; preds = %_ZN22ComputeLinearScanOrder16common_dominatorEP10BlockBeginS1_.exit47, %124, %114, %_ZN22ComputeLinearScanOrder16common_dominatorEP10BlockBeginS1_.exit, %.preheader.i55
-  %.2 = phi ptr [ null, %.preheader.i55 ], [ %.0.lcssa.i, %_ZN22ComputeLinearScanOrder16common_dominatorEP10BlockBeginS1_.exit ], [ null, %124 ], [ %.014.i58, %114 ], [ %.0.lcssa.i45, %_ZN22ComputeLinearScanOrder16common_dominatorEP10BlockBeginS1_.exit47 ]
+  %.2 = phi ptr [ %.0.lcssa.i, %_ZN22ComputeLinearScanOrder16common_dominatorEP10BlockBeginS1_.exit ], [ null, %.preheader.i55 ], [ null, %124 ], [ %.014.i58, %114 ], [ %.0.lcssa.i45, %_ZN22ComputeLinearScanOrder16common_dominatorEP10BlockBeginS1_.exit47 ]
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %exitcond83.not = icmp eq i64 %indvars.iv.next80, %wide.trip.count82
   br i1 %exitcond83.not, label %._crit_edge, label %21, !llvm.loop !39

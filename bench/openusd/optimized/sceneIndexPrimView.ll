@@ -740,7 +740,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %_ZN32pxrInter
   br label %.body
 
 .body:                                            ; preds = %54, %.body12
-  %.pn = phi { ptr, i32 } [ %55, %54 ], [ %61, %.body12 ]
+  %.pn = phi { ptr, i32 } [ %61, %.body12 ], [ %55, %54 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev(ptr noundef nonnull align 4 dereferenceable(8) %5) #18
   call void @_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #18
   resume { ptr, i32 } %.pn

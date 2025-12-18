@@ -125,7 +125,7 @@ _ZN6icu_7712LocalPointerINS_13DecimalFormatEED2Ev.exit20.i: ; preds = %33, %_ZN6
   resume { ptr, i32 } %15
 
 _ZN6icu_7725ScientificNumberFormatter14createInstanceEPNS_13DecimalFormatEPNS0_5StyleER10UErrorCode.exit: ; preds = %20, %_ZN6icu_7712LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit19.i, %_ZN6icu_7712LocalPointerINS_13DecimalFormatEED2Ev.exit.sink.split.i
-  %.03336.i = phi ptr [ null, %_ZN6icu_7712LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit19.i ], [ %10, %20 ], [ null, %_ZN6icu_7712LocalPointerINS_13DecimalFormatEED2Ev.exit.sink.split.i ]
+  %.03336.i = phi ptr [ %10, %20 ], [ null, %_ZN6icu_7712LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit19.i ], [ null, %_ZN6icu_7712LocalPointerINS_13DecimalFormatEED2Ev.exit.sink.split.i ]
   ret ptr %.03336.i
 }
 
@@ -191,7 +191,7 @@ _ZN6icu_7712LocalPointerINS_13DecimalFormatEED2Ev.exit.sink.split: ; preds = %_Z
   br label %_ZN6icu_7712LocalPointerINS_13DecimalFormatEED2Ev.exit
 
 _ZN6icu_7712LocalPointerINS_13DecimalFormatEED2Ev.exit: ; preds = %_ZN6icu_7712LocalPointerINS_13DecimalFormatEED2Ev.exit.sink.split, %18, %_ZN6icu_7712LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit19
-  %.03336 = phi ptr [ null, %_ZN6icu_7712LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit19 ], [ %7, %18 ], [ null, %_ZN6icu_7712LocalPointerINS_13DecimalFormatEED2Ev.exit.sink.split ]
+  %.03336 = phi ptr [ %7, %18 ], [ null, %_ZN6icu_7712LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit19 ], [ null, %_ZN6icu_7712LocalPointerINS_13DecimalFormatEED2Ev.exit.sink.split ]
   ret ptr %.03336
 
 _ZN6icu_7712LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit: ; preds = %14, %11
@@ -299,7 +299,7 @@ _ZN6icu_7712LocalPointerINS_13DecimalFormatEED2Ev.exit20.i: ; preds = %34, %_ZN6
   resume { ptr, i32 } %16
 
 _ZN6icu_7725ScientificNumberFormatter14createInstanceEPNS_13DecimalFormatEPNS0_5StyleER10UErrorCode.exit: ; preds = %21, %_ZN6icu_7712LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit19.i, %_ZN6icu_7712LocalPointerINS_13DecimalFormatEED2Ev.exit.sink.split.i
-  %.03336.i = phi ptr [ null, %_ZN6icu_7712LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit19.i ], [ %11, %21 ], [ null, %_ZN6icu_7712LocalPointerINS_13DecimalFormatEED2Ev.exit.sink.split.i ]
+  %.03336.i = phi ptr [ %11, %21 ], [ null, %_ZN6icu_7712LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit19.i ], [ null, %_ZN6icu_7712LocalPointerINS_13DecimalFormatEED2Ev.exit.sink.split.i ]
   ret ptr %.03336.i
 }
 
@@ -413,7 +413,7 @@ common.resume:                                    ; preds = %_ZN6icu_7712LocalPo
   resume { ptr, i32 } %common.resume.op
 
 _ZN6icu_7725ScientificNumberFormatter14createInstanceEPNS_13DecimalFormatEPNS0_5StyleER10UErrorCode.exit: ; preds = %28, %_ZN6icu_7712LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit19.i, %_ZN6icu_7712LocalPointerINS_13DecimalFormatEED2Ev.exit.sink.split.i
-  %.03336.i = phi ptr [ null, %_ZN6icu_7712LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit19.i ], [ %18, %28 ], [ null, %_ZN6icu_7712LocalPointerINS_13DecimalFormatEED2Ev.exit.sink.split.i ]
+  %.03336.i = phi ptr [ %18, %28 ], [ null, %_ZN6icu_7712LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit19.i ], [ null, %_ZN6icu_7712LocalPointerINS_13DecimalFormatEED2Ev.exit.sink.split.i ]
   ret ptr %.03336.i
 }
 
@@ -531,7 +531,7 @@ common.resume:                                    ; preds = %_ZN6icu_7712LocalPo
   resume { ptr, i32 } %common.resume.op
 
 _ZN6icu_7725ScientificNumberFormatter14createInstanceEPNS_13DecimalFormatEPNS0_5StyleER10UErrorCode.exit: ; preds = %29, %_ZN6icu_7712LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit19.i, %_ZN6icu_7712LocalPointerINS_13DecimalFormatEED2Ev.exit.sink.split.i
-  %.03336.i = phi ptr [ null, %_ZN6icu_7712LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit19.i ], [ %19, %29 ], [ null, %_ZN6icu_7712LocalPointerINS_13DecimalFormatEED2Ev.exit.sink.split.i ]
+  %.03336.i = phi ptr [ %19, %29 ], [ null, %_ZN6icu_7712LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit19.i ], [ null, %_ZN6icu_7712LocalPointerINS_13DecimalFormatEED2Ev.exit.sink.split.i ]
   ret ptr %.03336.i
 }
 

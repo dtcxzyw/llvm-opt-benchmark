@@ -850,8 +850,8 @@ _ZN4core3str11validations15next_code_point17h2946b9a279b50c17E.exit.thread.i.i.i
   br label %203
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$4find17hc6926125bb80bb2aE.exit": ; preds = %_ZN4core3str11validations15next_code_point17h2946b9a279b50c17E.exit.thread.i.i.i, %.sink.split.i.i, %.preheader22.i, %203, %179, %.preheader.i.us.us, %.preheader.i, %.preheader.i.i, %.thread.i.i.i, %.thread20.i.i.i, %93, %148
-  %.sroa.6.1.i = phi i64 [ undef, %93 ], [ %69, %.thread.i.i.i ], [ undef, %.preheader.i.i ], [ undef, %.thread20.i.i.i ], [ undef, %148 ], [ %192, %.preheader.i ], [ undef, %.sink.split.i.i ], [ %156, %.preheader.i.us.us ], [ undef, %179 ], [ undef, %203 ], [ %102, %.preheader22.i ], [ %20, %_ZN4core3str11validations15next_code_point17h2946b9a279b50c17E.exit.thread.i.i.i ]
-  %not..i = phi i64 [ 0, %93 ], [ 1, %.thread.i.i.i ], [ 0, %.preheader.i.i ], [ 0, %.thread20.i.i.i ], [ 0, %148 ], [ 1, %.preheader.i ], [ 0, %.sink.split.i.i ], [ 1, %.preheader.i.us.us ], [ 0, %179 ], [ 0, %203 ], [ 1, %.preheader22.i ], [ 1, %_ZN4core3str11validations15next_code_point17h2946b9a279b50c17E.exit.thread.i.i.i ]
+  %.sroa.6.1.i = phi i64 [ undef, %93 ], [ %69, %.thread.i.i.i ], [ undef, %.preheader.i.i ], [ undef, %.thread20.i.i.i ], [ undef, %148 ], [ %156, %.preheader.i.us.us ], [ %192, %.preheader.i ], [ %102, %.preheader22.i ], [ undef, %179 ], [ undef, %203 ], [ undef, %.sink.split.i.i ], [ %20, %_ZN4core3str11validations15next_code_point17h2946b9a279b50c17E.exit.thread.i.i.i ]
+  %not..i = phi i64 [ 0, %93 ], [ 1, %.thread.i.i.i ], [ 0, %.preheader.i.i ], [ 0, %.thread20.i.i.i ], [ 0, %148 ], [ 1, %.preheader.i.us.us ], [ 1, %.preheader.i ], [ 1, %.preheader22.i ], [ 0, %179 ], [ 0, %203 ], [ 0, %.sink.split.i.i ], [ 1, %_ZN4core3str11validations15next_code_point17h2946b9a279b50c17E.exit.thread.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !68
   %221 = insertvalue { i64, i64 } poison, i64 %not..i, 0
   %222 = insertvalue { i64, i64 } %221, i64 %.sroa.6.1.i, 1

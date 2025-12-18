@@ -3749,7 +3749,7 @@ roleSpecsToIds.exit:                              ; preds = %.lr.ph19.i
   br i1 %28, label %20, label %.split
 
 .critedge:                                        ; preds = %20, %.lr.ph.i, %1, %.lr.ph, %roleSpecsToIds.exit
-  %.0.lcssa.i22 = phi ptr [ null, %roleSpecsToIds.exit ], [ %12, %.lr.ph ], [ null, %1 ], [ null, %.lr.ph.i ], [ %12, %20 ]
+  %.0.lcssa.i22 = phi ptr [ null, %.lr.ph.i ], [ null, %roleSpecsToIds.exit ], [ %12, %.lr.ph ], [ null, %1 ], [ %12, %20 ]
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load i32, ptr %29, align 8
   tail call void @shdepDropOwned(ptr noundef %.0.lcssa.i22, i32 noundef %30) #11
@@ -3827,7 +3827,7 @@ roleSpecsToIds.exit:                              ; preds = %.lr.ph19.i
   br i1 %28, label %20, label %.split
 
 .critedge:                                        ; preds = %20, %.lr.ph.i, %1, %.lr.ph, %roleSpecsToIds.exit
-  %.0.lcssa.i25 = phi ptr [ null, %roleSpecsToIds.exit ], [ %12, %.lr.ph ], [ null, %1 ], [ null, %.lr.ph.i ], [ %12, %20 ]
+  %.0.lcssa.i25 = phi ptr [ null, %.lr.ph.i ], [ null, %roleSpecsToIds.exit ], [ %12, %.lr.ph ], [ null, %1 ], [ %12, %20 ]
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
   %31 = tail call i32 @get_rolespec_oid(ptr noundef %30, i1 noundef zeroext false) #11

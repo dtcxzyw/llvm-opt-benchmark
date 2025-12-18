@@ -420,7 +420,7 @@ _ZNSt6vectorI9HuffTableSaIS0_EE6resizeEm.exit:    ; preds = %_ZNSt6vectorI9HuffT
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %.critedge.i.i, %_ZN24LibRaw_LjpegDecompressor11next_markerEb.exit26, %_ZN24LibRaw_LjpegDecompressor11next_markerEb.exit26, %.critedge.thread.loopexit70, %.preheader, %58, %_ZN24LibRaw_LjpegDecompressor11next_markerEb.exit, %_ZN12ByteStreamBE6get_u8Ev.exit.i, %101
-  %.sink = phi i32 [ 7, %58 ], [ 0, %101 ], [ 2, %_ZN12ByteStreamBE6get_u8Ev.exit.i ], [ 2, %_ZN24LibRaw_LjpegDecompressor11next_markerEb.exit ], [ 4, %.preheader ], [ 4, %_ZN24LibRaw_LjpegDecompressor11next_markerEb.exit26 ], [ %.sink.ph, %.critedge.thread.loopexit70 ], [ 4, %_ZN24LibRaw_LjpegDecompressor11next_markerEb.exit26 ], [ 4, %.critedge.i.i ]
+  %.sink = phi i32 [ %.sink.ph, %.critedge.thread.loopexit70 ], [ 7, %58 ], [ 0, %101 ], [ 2, %_ZN12ByteStreamBE6get_u8Ev.exit.i ], [ 2, %_ZN24LibRaw_LjpegDecompressor11next_markerEb.exit ], [ 4, %.preheader ], [ 4, %_ZN24LibRaw_LjpegDecompressor11next_markerEb.exit26 ], [ 4, %_ZN24LibRaw_LjpegDecompressor11next_markerEb.exit26 ], [ 4, %.critedge.i.i ]
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 %.sink, ptr %113, align 8, !tbaa !18
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1283,7 +1283,7 @@ _ZN12ByteStreamBE6get_u8Ev.exit48:                ; preds = %_ZN12ByteStreamBE6g
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZN12ByteStreamBE6get_u8Ev.exit42.us, %65, %_ZN12ByteStreamBE6get_u8Ev.exit42.us.us, %43, %_ZN12ByteStreamBE6get_u8Ev.exit40, %_ZN12ByteStreamBE6get_u8Ev.exit48, %_ZN12ByteStreamBE6get_u8Ev.exit, %2
-  %.0 = phi i32 [ 65536, %2 ], [ 65536, %_ZN12ByteStreamBE6get_u8Ev.exit ], [ %101, %_ZN12ByteStreamBE6get_u8Ev.exit48 ], [ 65536, %_ZN12ByteStreamBE6get_u8Ev.exit40 ], [ 65536, %65 ], [ 65536, %43 ], [ 65536, %_ZN12ByteStreamBE6get_u8Ev.exit42.us.us ], [ 65536, %_ZN12ByteStreamBE6get_u8Ev.exit42.us ]
+  %.0 = phi i32 [ 65536, %2 ], [ 65536, %_ZN12ByteStreamBE6get_u8Ev.exit ], [ %101, %_ZN12ByteStreamBE6get_u8Ev.exit48 ], [ 65536, %_ZN12ByteStreamBE6get_u8Ev.exit40 ], [ 65536, %43 ], [ 65536, %_ZN12ByteStreamBE6get_u8Ev.exit42.us.us ], [ 65536, %65 ], [ 65536, %_ZN12ByteStreamBE6get_u8Ev.exit42.us ]
   ret i32 %.0
 }
 

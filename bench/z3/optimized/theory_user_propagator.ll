@@ -4732,7 +4732,7 @@ _ZNK6vectorIPN3smt6theoryELb0EjE4sizeEv.exit.i.i.then.i52: ; preds = %_ZNK6vecto
   br label %_ZNK3smt7context10get_theoryEi.exit
 
 _ZNK3smt7context10get_theoryEi.exit:              ; preds = %_ZNK6vectorIPN3smt6theoryELb0EjE4sizeEv.exit.i.i.then.i52, %_ZNK6vectorIPN3smt6theoryELb0EjE4sizeEv.exit.i.i.then.i
-  %.037.in = phi ptr [ %44, %_ZNK6vectorIPN3smt6theoryELb0EjE4sizeEv.exit.i.i.then.i ], [ %76, %_ZNK6vectorIPN3smt6theoryELb0EjE4sizeEv.exit.i.i.then.i52 ]
+  %.037.in = phi ptr [ %76, %_ZNK6vectorIPN3smt6theoryELb0EjE4sizeEv.exit.i.i.then.i52 ], [ %44, %_ZNK6vectorIPN3smt6theoryELb0EjE4sizeEv.exit.i.i.then.i ]
   %.037 = load ptr, ptr %.037.in, align 8, !tbaa !641
   %.not71 = icmp eq ptr %.037, null
   br i1 %.not71, label %.critedge47, label %77

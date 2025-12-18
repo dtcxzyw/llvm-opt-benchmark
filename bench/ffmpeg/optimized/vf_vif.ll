@@ -268,7 +268,7 @@ define internal range(i32 -22, 1) i32 @config_input_ref(ptr noundef readonly cap
   br i1 %.not54, label %.loopexit, label %72
 
 .loopexit:                                        ; preds = %43, %.lr.ph, %72, %.preheader, %66, %58, %.critedge, %20
-  %.047 = phi i32 [ -22, %20 ], [ -12, %66 ], [ -12, %58 ], [ -12, %.critedge ], [ 0, %.preheader ], [ 0, %72 ], [ -12, %.lr.ph ], [ -12, %43 ]
+  %.047 = phi i32 [ -22, %20 ], [ -12, %66 ], [ 0, %.preheader ], [ -12, %58 ], [ -12, %.critedge ], [ 0, %72 ], [ -12, %.lr.ph ], [ -12, %43 ]
   ret i32 %.047
 }
 
@@ -1200,7 +1200,7 @@ define internal noundef i32 @vif_filter1d(ptr readnone captures(none) %0, ptr no
   br i1 %exitcond218.not, label %.loopexit, label %93, !llvm.loop !117
 
 .loopexit:                                        ; preds = %105, %84, %.preheader, %90
-  %.1120 = phi nsz float [ 0.000000e+00, %90 ], [ 0.000000e+00, %.preheader ], [ %89, %84 ], [ %110, %105 ]
+  %.1120 = phi nsz float [ %89, %84 ], [ 0.000000e+00, %90 ], [ 0.000000e+00, %.preheader ], [ %110, %105 ]
   %gep247 = getelementptr float, ptr %invariant.gep246, i64 %indvars.iv224
   store float %.1120, ptr %gep247, align 4, !tbaa !81
   %indvars.iv.next225 = add nuw nsw i64 %indvars.iv224, 1

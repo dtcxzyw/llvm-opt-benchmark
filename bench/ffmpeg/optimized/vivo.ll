@@ -337,9 +337,9 @@ define internal range(i32 -1094995529, 1) i32 @vivo_read_header(ptr noundef %0) 
   br i1 %.not123178, label %.outer154, label %.lr.ph180, !llvm.loop !42
 
 .outer154:                                        ; preds = %.thread146, %.backedge, %44, %30
-  %.1111.ph.lcssa = phi i64 [ %.0110.ph199, %30 ], [ %.1111.ph192, %.backedge ], [ %.1111.ph192, %44 ], [ %.2112, %.thread146 ]
-  %.sroa.9.1.ph.lcssa = phi i32 [ %.sroa.9.0.ph200, %30 ], [ %.sroa.9.1.ph194, %.backedge ], [ %.sroa.9.1.ph194, %44 ], [ %.sroa.9.3151, %.thread146 ]
-  %.sroa.074.1.ph.lcssa = phi i32 [ %.sroa.074.0.ph201, %30 ], [ %.sroa.074.1.ph195, %.backedge ], [ %.sroa.074.1.ph195, %44 ], [ %.sroa.074.3152, %.thread146 ]
+  %.1111.ph.lcssa = phi i64 [ %.1111.ph192, %.backedge ], [ %.0110.ph199, %30 ], [ %.1111.ph192, %44 ], [ %.2112, %.thread146 ]
+  %.sroa.9.1.ph.lcssa = phi i32 [ %.sroa.9.1.ph194, %.backedge ], [ %.sroa.9.0.ph200, %30 ], [ %.sroa.9.1.ph194, %44 ], [ %.sroa.9.3151, %.thread146 ]
+  %.sroa.074.1.ph.lcssa = phi i32 [ %.sroa.074.1.ph195, %.backedge ], [ %.sroa.074.0.ph201, %30 ], [ %.sroa.074.1.ph195, %44 ], [ %.sroa.074.3152, %.thread146 ]
   %111 = call fastcc i32 @vivo_get_packet_header(ptr noundef nonnull %0)
   %112 = icmp slt i32 %111, 0
   br i1 %112, label %.loopexit, label %.lr.ph
@@ -415,7 +415,7 @@ define internal range(i32 -1094995529, 1) i32 @vivo_read_header(ptr noundef %0) 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.outer154, %37, %94, %10, %106, %1, %142
-  %.0 = phi i32 [ -12, %1 ], [ 0, %142 ], [ -1094995529, %106 ], [ %14, %10 ], [ %42, %37 ], [ -1094995529, %94 ], [ %111, %.outer154 ]
+  %.0 = phi i32 [ -12, %1 ], [ 0, %142 ], [ -1094995529, %106 ], [ %42, %37 ], [ -1094995529, %94 ], [ %14, %10 ], [ %111, %.outer154 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }

@@ -20831,7 +20831,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -20872,7 +20872,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -20928,7 +20928,7 @@ if.else.i:                                        ; preds = %_ZN6hermes6ESTree11
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -20999,7 +20999,7 @@ if.else.i:                                        ; preds = %_ZN6hermes6ESTree11
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -21070,7 +21070,7 @@ if.else.i:                                        ; preds = %_ZN6hermes6ESTree11
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -21141,7 +21141,7 @@ if.else.i:                                        ; preds = %_ZN6hermes6ESTree11
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -21209,7 +21209,7 @@ if.else.i:                                        ; preds = %_ZN6hermes6ESTree11
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -21256,7 +21256,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -21303,7 +21303,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -21353,7 +21353,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -21403,7 +21403,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -21456,7 +21456,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -21497,7 +21497,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -21538,7 +21538,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -21594,7 +21594,7 @@ if.else.i:                                        ; preds = %_ZN6hermes6ESTree11
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -21638,7 +21638,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -21682,7 +21682,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -21726,7 +21726,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -21770,7 +21770,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -21817,7 +21817,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -21876,7 +21876,7 @@ if.else.i:                                        ; preds = %_ZN6hermes6ESTree11
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -21923,7 +21923,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -21967,7 +21967,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -22017,7 +22017,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -22067,7 +22067,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -22108,7 +22108,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -22149,7 +22149,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -22190,7 +22190,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -22231,7 +22231,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -22272,7 +22272,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -22313,7 +22313,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -22354,7 +22354,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -22395,7 +22395,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -22451,7 +22451,7 @@ if.else.i:                                        ; preds = %_ZN6hermes6ESTree11
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -22507,7 +22507,7 @@ if.else.i:                                        ; preds = %_ZN6hermes6ESTree11
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -22563,7 +22563,7 @@ if.else.i:                                        ; preds = %_ZN6hermes6ESTree11
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -22607,7 +22607,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -22669,7 +22669,7 @@ if.else.i:                                        ; preds = %_ZN6hermes6ESTree11
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -22713,7 +22713,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -22757,7 +22757,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -22804,7 +22804,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -22866,7 +22866,7 @@ if.else.i:                                        ; preds = %_ZN6hermes6ESTree11
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -22928,7 +22928,7 @@ if.else.i:                                        ; preds = %_ZN6hermes6ESTree11
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -22975,7 +22975,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -23019,7 +23019,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -23061,7 +23061,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_20UpdateExpressionNodeE.exit, label %while.body.i.i.i, !llvm.loop !9
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_20UpdateExpressionNodeE.exit: ; preds = %while.body.i.i.i, %cond.true.i, %cond.false.i, %cond.true.i.i
-  %agg.tmp.sroa.0.0.i = phi ptr [ %retval.sroa.0.0.copyload.i.i, %cond.true.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %cond.false.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %agg.tmp.sroa.0.0.i = phi ptr [ %retval.sroa.0.0.copyload.i.i, %cond.true.i ], [ null, %cond.false.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %agg.tmp.sroa.0.0.i, ptr %debugLoc_.i.i, align 8
   ret void
@@ -23108,7 +23108,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -23155,7 +23155,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -23202,7 +23202,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -23252,7 +23252,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -23299,7 +23299,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -23343,7 +23343,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -23384,7 +23384,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -23428,7 +23428,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -23472,7 +23472,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -23519,7 +23519,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -23578,7 +23578,7 @@ if.else.i:                                        ; preds = %_ZN6hermes6ESTree11
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -23625,7 +23625,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -23672,7 +23672,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -23728,7 +23728,7 @@ if.else.i:                                        ; preds = %_ZN6hermes6ESTree11
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -23799,7 +23799,7 @@ if.else.i:                                        ; preds = %_ZN6hermes6ESTree11
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -23846,7 +23846,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -23887,7 +23887,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -23934,7 +23934,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -24020,7 +24020,7 @@ if.else.i:                                        ; preds = %_ZN6hermes6ESTree11
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -24106,7 +24106,7 @@ if.else.i:                                        ; preds = %_ZN6hermes6ESTree11
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -24162,7 +24162,7 @@ if.else.i:                                        ; preds = %_ZN6hermes6ESTree11
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -24218,7 +24218,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -24274,7 +24274,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -24321,7 +24321,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -24395,7 +24395,7 @@ if.else.i:                                        ; preds = %_ZN6hermes6ESTree11
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -24442,7 +24442,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -24486,7 +24486,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -24530,7 +24530,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -24577,7 +24577,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -24639,7 +24639,7 @@ if.else.i:                                        ; preds = %_ZN6hermes6ESTree11
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -24686,7 +24686,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -24730,7 +24730,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -24774,7 +24774,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -24818,7 +24818,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -24877,7 +24877,7 @@ if.else.i:                                        ; preds = %_ZN6hermes6ESTree11
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -24936,7 +24936,7 @@ if.else.i:                                        ; preds = %_ZN6hermes6ESTree11
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -24980,7 +24980,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -25027,7 +25027,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -25068,7 +25068,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -25115,7 +25115,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -25162,7 +25162,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -25203,7 +25203,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -25247,7 +25247,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -25291,7 +25291,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -25353,7 +25353,7 @@ if.else.i:                                        ; preds = %_ZN6hermes6ESTree11
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -25397,7 +25397,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -25444,7 +25444,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -25488,7 +25488,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -25529,7 +25529,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -25570,7 +25570,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -25632,7 +25632,7 @@ if.else.i:                                        ; preds = %_ZN6hermes6ESTree11
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -25694,7 +25694,7 @@ if.else.i:                                        ; preds = %_ZN6hermes6ESTree11
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -25735,7 +25735,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -25776,7 +25776,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -25817,7 +25817,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -25858,7 +25858,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -25899,7 +25899,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -25940,7 +25940,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -25981,7 +25981,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -26022,7 +26022,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -26063,7 +26063,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -26104,7 +26104,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -26145,7 +26145,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -26186,7 +26186,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -26227,7 +26227,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -26268,7 +26268,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -26309,7 +26309,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -26350,7 +26350,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -26391,7 +26391,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -26459,7 +26459,7 @@ if.else.i:                                        ; preds = %_ZN6hermes6ESTree11
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -26506,7 +26506,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -26571,7 +26571,7 @@ if.else.i:                                        ; preds = %_ZN6hermes6ESTree11
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -26618,7 +26618,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -26662,7 +26662,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -26709,7 +26709,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -26753,7 +26753,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -26797,7 +26797,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -26841,7 +26841,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -26888,7 +26888,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -26944,7 +26944,7 @@ if.else.i:                                        ; preds = %_ZN6hermes6ESTree11
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -26991,7 +26991,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -27041,7 +27041,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -27085,7 +27085,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -27129,7 +27129,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -27185,7 +27185,7 @@ if.else.i:                                        ; preds = %_ZN6hermes6ESTree11
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -27241,7 +27241,7 @@ if.else.i:                                        ; preds = %_ZN6hermes6ESTree11
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -27288,7 +27288,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -27335,7 +27335,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -27382,7 +27382,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -27435,7 +27435,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -27482,7 +27482,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -27541,7 +27541,7 @@ if.else.i:                                        ; preds = %_ZN6hermes6ESTree11
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -27591,7 +27591,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -27644,7 +27644,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -27709,7 +27709,7 @@ if.else.i:                                        ; preds = %_ZN6hermes6ESTree11
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -27759,7 +27759,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -27812,7 +27812,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -27877,7 +27877,7 @@ if.else.i:                                        ; preds = %_ZN6hermes6ESTree11
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -27972,7 +27972,7 @@ if.else.i:                                        ; preds = %_ZN6hermes6ESTree11
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -28019,7 +28019,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -28087,7 +28087,7 @@ if.else.i:                                        ; preds = %_ZN6hermes6ESTree11
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -28131,7 +28131,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -28178,7 +28178,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -28240,7 +28240,7 @@ if.else.i:                                        ; preds = %_ZN6hermes6ESTree11
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -28284,7 +28284,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -28331,7 +28331,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -28375,7 +28375,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -28422,7 +28422,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -28469,7 +28469,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -28513,7 +28513,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -28614,7 +28614,7 @@ if.else.i:                                        ; preds = %_ZN6hermes6ESTree11
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -28664,7 +28664,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -28708,7 +28708,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -28755,7 +28755,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -28799,7 +28799,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -28852,7 +28852,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -28905,7 +28905,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -28946,7 +28946,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -29002,7 +29002,7 @@ if.else.i:                                        ; preds = %_ZN6hermes6ESTree11
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -29052,7 +29052,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -29108,7 +29108,7 @@ if.else.i:                                        ; preds = %_ZN6hermes6ESTree11
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -29155,7 +29155,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -29202,7 +29202,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -29243,7 +29243,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -29287,7 +29287,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -29334,7 +29334,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -29390,7 +29390,7 @@ if.else.i:                                        ; preds = %_ZN6hermes6ESTree11
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -29446,7 +29446,7 @@ if.else.i:                                        ; preds = %_ZN6hermes6ESTree11
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -29502,7 +29502,7 @@ if.else.i:                                        ; preds = %_ZN6hermes6ESTree11
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -29558,7 +29558,7 @@ if.else.i:                                        ; preds = %_ZN6hermes6ESTree11
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -29602,7 +29602,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -29649,7 +29649,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -29696,7 +29696,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -29743,7 +29743,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -29790,7 +29790,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -29834,7 +29834,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -29875,7 +29875,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -29916,7 +29916,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -29957,7 +29957,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -29998,7 +29998,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -30039,7 +30039,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -30080,7 +30080,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -30121,7 +30121,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -30162,7 +30162,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -30203,7 +30203,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -30244,7 +30244,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -30285,7 +30285,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -30329,7 +30329,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -30376,7 +30376,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -30420,7 +30420,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -30467,7 +30467,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -30514,7 +30514,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -30576,7 +30576,7 @@ if.else.i:                                        ; preds = %_ZN6hermes6ESTree11
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -30638,7 +30638,7 @@ if.else.i:                                        ; preds = %_ZN6hermes6ESTree11
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -30685,7 +30685,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -30741,7 +30741,7 @@ if.else.i:                                        ; preds = %_ZN6hermes6ESTree11
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -30788,7 +30788,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -30835,7 +30835,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -30879,7 +30879,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -30929,7 +30929,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -30994,7 +30994,7 @@ if.else.i:                                        ; preds = %_ZN6hermes6ESTree11
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -31041,7 +31041,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -31097,7 +31097,7 @@ if.else.i:                                        ; preds = %_ZN6hermes6ESTree11
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -31156,7 +31156,7 @@ if.else.i:                                        ; preds = %_ZN6hermes6ESTree11
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -31203,7 +31203,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -31250,7 +31250,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -31306,7 +31306,7 @@ if.else.i:                                        ; preds = %_ZN6hermes6ESTree11
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -31353,7 +31353,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -31409,7 +31409,7 @@ if.else.i:                                        ; preds = %_ZN6hermes6ESTree11
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -31459,7 +31459,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -31515,7 +31515,7 @@ if.else.i:                                        ; preds = %_ZN6hermes6ESTree11
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -31571,7 +31571,7 @@ if.else.i:                                        ; preds = %_ZN6hermes6ESTree11
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -31627,7 +31627,7 @@ if.else.i:                                        ; preds = %_ZN6hermes6ESTree11
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -31671,7 +31671,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -31724,7 +31724,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -31780,7 +31780,7 @@ if.else.i:                                        ; preds = %_ZN6hermes6ESTree11
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -31830,7 +31830,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -31892,7 +31892,7 @@ if.else.i:                                        ; preds = %_ZN6hermes6ESTree11
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -31951,7 +31951,7 @@ if.else.i:                                        ; preds = %_ZN6hermes6ESTree11
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -32010,7 +32010,7 @@ if.else.i:                                        ; preds = %_ZN6hermes6ESTree11
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -32051,7 +32051,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -32092,7 +32092,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -32133,7 +32133,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -32177,7 +32177,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -32221,7 +32221,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void
@@ -32268,7 +32268,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit: ; preds = %while.body.i.i.i, %if.then.i, %cond.true.i.i, %if.else.i
-  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %if.then.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.copyload.i6.sink.i = phi ptr [ %retval.sroa.0.0.copyload.i6.i, %if.else.i ], [ null, %if.then.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
   %debugLoc_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.sroa.0.0.copyload.i6.sink.i, ptr %debugLoc_.i7.i, align 8
   ret void

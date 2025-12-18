@@ -840,7 +840,7 @@ define dso_local noundef zeroext i1 @TransactionIdIsCurrentTransactionId(i32 nou
   br i1 %.not, label %.critedge, label %.lr.ph77, !llvm.loop !11
 
 .critedge:                                        ; preds = %.loopexit, %29, %36, %12, %19, %.preheader, %3, %1
-  %.0 = phi i1 [ false, %1 ], [ true, %3 ], [ false, %.preheader ], [ true, %36 ], [ %.not63, %12 ], [ %.not63, %19 ], [ false, %.loopexit ], [ true, %29 ]
+  %.0 = phi i1 [ false, %1 ], [ true, %3 ], [ %.not63, %12 ], [ false, %.preheader ], [ true, %36 ], [ %.not63, %19 ], [ false, %.loopexit ], [ true, %29 ]
   ret i1 %.0
 }
 

@@ -874,8 +874,8 @@ define internal fastcc ptr @dotrim(ptr noundef %0, i32 noundef %1, ptr noundef %
   br i1 %.old5.us, label %.lr.ph246.us, label %.thread165
 
 .thread165:                                       ; preds = %57, %81, %80, %.loopexit
-  %.1171 = phi ptr [ %.1, %.loopexit ], [ %.1, %81 ], [ %.1, %80 ], [ %58, %57 ]
-  %.3136 = phi i32 [ %.1134, %.loopexit ], [ %82, %81 ], [ %.4137.us, %80 ], [ %59, %57 ]
+  %.1171 = phi ptr [ %.1, %80 ], [ %.1, %81 ], [ %.1, %.loopexit ], [ %58, %57 ]
+  %.3136 = phi i32 [ %.4137.us, %80 ], [ %82, %81 ], [ %.1134, %.loopexit ], [ %59, %57 ]
   tail call void @pfree(ptr noundef %14) #7
   tail call void @pfree(ptr noundef %16) #7
   tail call void @pfree(ptr noundef %28) #7
@@ -955,8 +955,8 @@ define internal fastcc ptr @dotrim(ptr noundef %0, i32 noundef %1, ptr noundef %
   br label %.thread178
 
 .thread178:                                       ; preds = %91, %103, %.thread178.loopexit, %.thread165, %.loopexit190, %6
-  %.0133 = phi i32 [ %.3136, %.thread165 ], [ %.5138, %.loopexit190 ], [ %1, %6 ], [ %104, %.thread178.loopexit ], [ 0, %103 ], [ 0, %91 ]
-  %.0 = phi ptr [ %.1171, %.thread165 ], [ %.3, %.loopexit190 ], [ %0, %6 ], [ %.3, %.thread178.loopexit ], [ %.3, %103 ], [ %scevgep, %91 ]
+  %.0133 = phi i32 [ %.3136, %.thread165 ], [ %104, %.thread178.loopexit ], [ 0, %103 ], [ %.5138, %.loopexit190 ], [ %1, %6 ], [ 0, %91 ]
+  %.0 = phi ptr [ %.1171, %.thread165 ], [ %.3, %.thread178.loopexit ], [ %.3, %103 ], [ %.3, %.loopexit190 ], [ %0, %6 ], [ %scevgep, %91 ]
   %105 = tail call ptr @cstring_to_text_with_len(ptr noundef %.0, i32 noundef %.0133) #7
   ret ptr %105
 }
@@ -1174,8 +1174,8 @@ define internal fastcc noundef ptr @dobyteatrim(ptr noundef readonly captures(re
   br i1 %.old5, label %.lr.ph114, label %.thread93
 
 .thread93:                                        ; preds = %68, %78, %73, %.thread
-  %.06797 = phi ptr [ %.067, %.thread ], [ %.067, %78 ], [ %.067, %73 ], [ %61, %68 ]
-  %.2 = phi i32 [ %.068, %.thread ], [ 0, %78 ], [ %.3, %73 ], [ 0, %68 ]
+  %.06797 = phi ptr [ %.067, %73 ], [ %.067, %78 ], [ %.067, %.thread ], [ %61, %68 ]
+  %.2 = phi i32 [ %.3, %73 ], [ 0, %78 ], [ %.068, %.thread ], [ 0, %68 ]
   %80 = add nuw i32 %.2, 4
   %81 = sext i32 %80 to i64
   %82 = tail call ptr @palloc(i64 noundef %81) #7
@@ -1780,7 +1780,7 @@ define dso_local i64 @translate(ptr noundef readonly captures(none) %0) local_un
   br i1 %159, label %.critedge, label %.split135.us, !llvm.loop !20
 
 .split135.us:                                     ; preds = %.critedge, %.preheader.us.us, %140
-  %.us-phi = phi i32 [ %.2.us.us, %.preheader.us.us ], [ %.2.us, %140 ], [ %156, %.critedge ]
+  %.us-phi = phi i32 [ %.2.us, %140 ], [ %.2.us.us, %.preheader.us.us ], [ %156, %.critedge ]
   %160 = shl i32 %.us-phi, 2
   %161 = add i32 %160, 16
   store i32 %161, ptr %102, align 4

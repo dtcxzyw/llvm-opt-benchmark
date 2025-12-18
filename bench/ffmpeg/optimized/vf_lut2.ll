@@ -965,7 +965,7 @@ define internal range(i32 -22, 1) i32 @config_output(ptr noundef readonly captur
   br i1 %106, label %63, label %.critedge, !llvm.loop !101
 
 .critedge:                                        ; preds = %55, %._crit_edge160, %.thread128, %.preheader148, %72, %84
-  %.096 = phi i32 [ -22, %84 ], [ -22, %72 ], [ 0, %.preheader148 ], [ 0, %.thread128 ], [ 0, %._crit_edge160 ], [ -12, %55 ]
+  %.096 = phi i32 [ 0, %.preheader148 ], [ -22, %72 ], [ -22, %84 ], [ 0, %._crit_edge160 ], [ 0, %.thread128 ], [ -12, %55 ]
   ret i32 %.096
 }
 

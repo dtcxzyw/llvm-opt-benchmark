@@ -234,13 +234,13 @@ define hidden ptr @_cmsGetFormatter(ptr noundef %0, i32 noundef %1, i32 noundef 
   br i1 %47, label %_cmsGetStockInputFormatter.exit.sink.split, label %40
 
 _cmsGetStockInputFormatter.exit.sink.split:       ; preds = %.preheader17.i, %.preheader.i21, %.preheader16.i, %.preheader.i
-  %.lcssa33.sink.i.sink = phi ptr [ %33, %.preheader.i21 ], [ %15, %.preheader.i ], [ %23, %.preheader16.i ], [ %41, %.preheader17.i ]
+  %.lcssa33.sink.i.sink = phi ptr [ %15, %.preheader.i ], [ %33, %.preheader.i21 ], [ %23, %.preheader16.i ], [ %41, %.preheader17.i ]
   %48 = getelementptr inbounds nuw i8, ptr %.lcssa33.sink.i.sink, i64 8
   %49 = load ptr, ptr %48, align 8
   br label %_cmsGetStockInputFormatter.exit
 
 _cmsGetStockInputFormatter.exit:                  ; preds = %.lr.ph, %40, %32, %22, %14, %_cmsGetStockInputFormatter.exit.sink.split, %30, %13, %4
-  %.sroa.0.0 = phi ptr [ null, %4 ], [ null, %13 ], [ null, %30 ], [ %49, %_cmsGetStockInputFormatter.exit.sink.split ], [ null, %40 ], [ null, %14 ], [ null, %22 ], [ null, %32 ], [ %11, %.lr.ph ]
+  %.sroa.0.0 = phi ptr [ null, %30 ], [ null, %32 ], [ null, %4 ], [ null, %14 ], [ null, %40 ], [ null, %13 ], [ %49, %_cmsGetStockInputFormatter.exit.sink.split ], [ null, %22 ], [ %11, %.lr.ph ]
   ret ptr %.sroa.0.0
 }
 
@@ -1674,7 +1674,7 @@ define internal ptr @UnrollChunkyBytes(ptr noundef readonly captures(none) %0, p
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.us, %.lr.ph.split.split.us.split, %.lr.ph.split.split.us.split.us, %.lr.ph.split.us.split, %.lr.ph.split.us.split.us, %39
-  %.1.lcssa = phi ptr [ %.0, %39 ], [ %91, %.lr.ph.split.split.split.us ], [ %53, %.lr.ph.split.us.split.us ], [ %68, %.lr.ph.split.us.split ], [ %74, %.lr.ph.split.split.us.split.us ], [ %81, %.lr.ph.split.split.us.split ], [ %102, %.lr.ph.split.split.split ]
+  %.1.lcssa = phi ptr [ %.0, %39 ], [ %81, %.lr.ph.split.split.us.split ], [ %74, %.lr.ph.split.split.us.split.us ], [ %53, %.lr.ph.split.us.split.us ], [ %91, %.lr.ph.split.split.split.us ], [ %68, %.lr.ph.split.us.split ], [ %102, %.lr.ph.split.split.split ]
   %103 = icmp eq i32 %13, 0
   %104 = icmp ne i32 %11, 0
   %or.cond7 = and i1 %103, %104
@@ -2108,7 +2108,7 @@ define internal ptr @UnrollAnyWords(ptr noundef readonly captures(none) %0, ptr 
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.split, %.lr.ph.split.split.us, %.lr.ph.split.us.split, %.lr.ph.split.us.split.us, %4
-  %.1.lcssa = phi ptr [ %.0, %4 ], [ %31, %.lr.ph.split.split.us ], [ %21, %.lr.ph.split.us.split.us ], [ %24, %.lr.ph.split.us.split ], [ %38, %.lr.ph.split.split ]
+  %.1.lcssa = phi ptr [ %.0, %4 ], [ %31, %.lr.ph.split.split.us ], [ %24, %.lr.ph.split.us.split ], [ %21, %.lr.ph.split.us.split.us ], [ %38, %.lr.ph.split.split ]
   %39 = icmp eq i32 %13, 0
   %40 = icmp ne i32 %11, 0
   %or.cond = and i1 %39, %40
@@ -2527,7 +2527,7 @@ define internal ptr @UnrollAnyWordsPremul(ptr noundef readonly captures(none) %0
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.us, %.lr.ph.split.split.us.split, %.lr.ph.split.split.us.split.us, %.lr.ph.split.us.split.split, %.lr.ph.split.us.split.split.us, %.lr.ph.split.us.split.us.split, %.lr.ph.split.us.split.us.split.us, %4
-  %.139.lcssa = phi ptr [ %.038, %4 ], [ %71, %.lr.ph.split.split.split.us ], [ %26, %.lr.ph.split.us.split.us.split.us ], [ %30, %.lr.ph.split.us.split.us.split ], [ %38, %.lr.ph.split.us.split.split.us ], [ %46, %.lr.ph.split.us.split.split ], [ %53, %.lr.ph.split.split.us.split.us ], [ %60, %.lr.ph.split.split.us.split ], [ %82, %.lr.ph.split.split.split ]
+  %.139.lcssa = phi ptr [ %.038, %4 ], [ %38, %.lr.ph.split.us.split.split.us ], [ %26, %.lr.ph.split.us.split.us.split.us ], [ %71, %.lr.ph.split.split.split.us ], [ %30, %.lr.ph.split.us.split.us.split ], [ %53, %.lr.ph.split.split.us.split.us ], [ %46, %.lr.ph.split.us.split.split ], [ %60, %.lr.ph.split.split.us.split ], [ %82, %.lr.ph.split.split.split ]
   %spec.select.idx = select i1 %.not, i64 2, i64 0
   %spec.select = getelementptr inbounds nuw i8, ptr %.139.lcssa, i64 %spec.select.idx
   ret ptr %spec.select
@@ -4127,7 +4127,7 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.us, %.lr.ph.split.split.us.split, %.lr.ph.split.split.us.split.us, %.lr.ph.split.us.split.split, %.lr.ph.split.us.split.split.us, %.lr.ph.split.us.split.us.split, %.lr.ph.split.us.split.us.split.us, %IsInkSpace.exit
-  %.052.lcssa = phi double [ 0.000000e+00, %IsInkSpace.exit ], [ %78, %.lr.ph.split.split.split.us ], [ %29, %.lr.ph.split.us.split.us.split.us ], [ %34, %.lr.ph.split.us.split.us.split ], [ %42, %.lr.ph.split.us.split.split.us ], [ %51, %.lr.ph.split.us.split.split ], [ %55, %.lr.ph.split.split.us.split.us ], [ %65, %.lr.ph.split.split.us.split ], [ %92, %.lr.ph.split.split.split ]
+  %.052.lcssa = phi double [ 0.000000e+00, %IsInkSpace.exit ], [ %42, %.lr.ph.split.us.split.split.us ], [ %29, %.lr.ph.split.us.split.us.split.us ], [ %78, %.lr.ph.split.split.split.us ], [ %34, %.lr.ph.split.us.split.us.split ], [ %55, %.lr.ph.split.split.us.split.us ], [ %51, %.lr.ph.split.us.split.split ], [ %65, %.lr.ph.split.split.us.split ], [ %92, %.lr.ph.split.split.split ]
   %98 = icmp eq i32 %12, 0
   %99 = icmp ne i32 %14, 0
   %or.cond = and i1 %98, %99
@@ -4361,7 +4361,7 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.us, %.lr.ph.split.split.us.split, %.lr.ph.split.split.us.split.us, %.lr.ph.split.us.split.split, %.lr.ph.split.us.split.split.us, %.lr.ph.split.us.split.us.split, %.lr.ph.split.us.split.us.split.us, %IsInkSpace.exit
-  %.052.lcssa = phi double [ 0.000000e+00, %IsInkSpace.exit ], [ %84, %.lr.ph.split.split.split.us ], [ %29, %.lr.ph.split.us.split.us.split.us ], [ %35, %.lr.ph.split.us.split.us.split ], [ %44, %.lr.ph.split.us.split.split.us ], [ %54, %.lr.ph.split.us.split.split ], [ %59, %.lr.ph.split.split.us.split.us ], [ %70, %.lr.ph.split.split.us.split ], [ %99, %.lr.ph.split.split.split ]
+  %.052.lcssa = phi double [ 0.000000e+00, %IsInkSpace.exit ], [ %44, %.lr.ph.split.us.split.split.us ], [ %29, %.lr.ph.split.us.split.us.split.us ], [ %84, %.lr.ph.split.split.split.us ], [ %35, %.lr.ph.split.us.split.us.split ], [ %59, %.lr.ph.split.split.us.split.us ], [ %54, %.lr.ph.split.us.split.split ], [ %70, %.lr.ph.split.split.us.split ], [ %99, %.lr.ph.split.split.split ]
   %106 = icmp eq i32 %12, 0
   %107 = icmp ne i32 %14, 0
   %or.cond = and i1 %106, %107
@@ -5342,8 +5342,8 @@ define internal ptr @PackChunkyBytes(ptr noundef readonly captures(none) %0, ptr
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.split.us, %.lr.ph.split.us.split.us, %._crit_edge.loopexit84, %._crit_edge.loopexit82, %40
-  %.056.lcssa = phi i16 [ 0, %40 ], [ %90, %._crit_edge.loopexit84 ], [ %89, %._crit_edge.loopexit82 ], [ %.157.us.us, %.lr.ph.split.us.split.us ], [ %.157.us72, %.lr.ph.split.split.us ]
-  %.1.lcssa = phi ptr [ %.0, %40 ], [ %88, %._crit_edge.loopexit84 ], [ %61, %._crit_edge.loopexit82 ], [ %50, %.lr.ph.split.us.split.us ], [ %73, %.lr.ph.split.split.us ]
+  %.056.lcssa = phi i16 [ 0, %40 ], [ %90, %._crit_edge.loopexit84 ], [ %.157.us.us, %.lr.ph.split.us.split.us ], [ %89, %._crit_edge.loopexit82 ], [ %.157.us72, %.lr.ph.split.split.us ]
+  %.1.lcssa = phi ptr [ %.0, %40 ], [ %88, %._crit_edge.loopexit84 ], [ %50, %.lr.ph.split.us.split.us ], [ %61, %._crit_edge.loopexit82 ], [ %73, %.lr.ph.split.split.us ]
   %91 = icmp eq i32 %12, 0
   %92 = icmp ne i32 %14, 0
   %or.cond5 = and i1 %91, %92
@@ -6064,8 +6064,8 @@ define internal ptr @PackChunkyWords(ptr noundef readonly captures(none) %0, ptr
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.us, %.lr.ph.split.split.us.split, %.lr.ph.split.split.us.split.us, %.lr.ph.split.us.split.split, %.lr.ph.split.us.split.split.us, %.lr.ph.split.us.split.us.split, %.lr.ph.split.us.split.us.split.us, %37
-  %.058.lcssa = phi i16 [ 0, %37 ], [ %.260.us86, %.lr.ph.split.split.split.us ], [ %.260.us.us.us, %.lr.ph.split.us.split.us.split.us ], [ %50, %.lr.ph.split.us.split.us.split ], [ %.260.us.us102, %.lr.ph.split.us.split.split.us ], [ %61, %.lr.ph.split.us.split.split ], [ %.260.us77.us, %.lr.ph.split.split.us.split.us ], [ %80, %.lr.ph.split.split.us.split ], [ %99, %.lr.ph.split.split.split ]
-  %.1.lcssa = phi ptr [ %.0, %37 ], [ %88, %.lr.ph.split.split.split.us ], [ %43, %.lr.ph.split.us.split.us.split.us ], [ %51, %.lr.ph.split.us.split.us.split ], [ %54, %.lr.ph.split.us.split.split.us ], [ %62, %.lr.ph.split.us.split.split ], [ %69, %.lr.ph.split.split.us.split.us ], [ %81, %.lr.ph.split.split.us.split ], [ %100, %.lr.ph.split.split.split ]
+  %.058.lcssa = phi i16 [ 0, %37 ], [ %.260.us.us102, %.lr.ph.split.us.split.split.us ], [ %.260.us.us.us, %.lr.ph.split.us.split.us.split.us ], [ %.260.us86, %.lr.ph.split.split.split.us ], [ %50, %.lr.ph.split.us.split.us.split ], [ %.260.us77.us, %.lr.ph.split.split.us.split.us ], [ %61, %.lr.ph.split.us.split.split ], [ %80, %.lr.ph.split.split.us.split ], [ %99, %.lr.ph.split.split.split ]
+  %.1.lcssa = phi ptr [ %.0, %37 ], [ %54, %.lr.ph.split.us.split.split.us ], [ %43, %.lr.ph.split.us.split.us.split.us ], [ %88, %.lr.ph.split.split.split.us ], [ %51, %.lr.ph.split.us.split.us.split ], [ %69, %.lr.ph.split.split.us.split.us ], [ %62, %.lr.ph.split.us.split.split ], [ %81, %.lr.ph.split.split.us.split ], [ %100, %.lr.ph.split.split.split ]
   %101 = icmp eq i32 %12, 0
   %102 = icmp ne i32 %14, 0
   %or.cond5 = and i1 %101, %102
@@ -6942,7 +6942,7 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.us, %.lr.ph.split.split.us.split, %.lr.ph.split.split.us.split.us, %.lr.ph.split.us.split.split, %.lr.ph.split.us.split.split.us, %.lr.ph.split.us.split.us.split, %.lr.ph.split.us.split.us.split.us, %IsInkSpace.exit
-  %.052.lcssa = phi double [ 0.000000e+00, %IsInkSpace.exit ], [ %84, %.lr.ph.split.split.split.us ], [ %29, %.lr.ph.split.us.split.us.split.us ], [ %35, %.lr.ph.split.us.split.us.split ], [ %44, %.lr.ph.split.us.split.split.us ], [ %54, %.lr.ph.split.us.split.split ], [ %59, %.lr.ph.split.split.us.split.us ], [ %70, %.lr.ph.split.split.us.split ], [ %99, %.lr.ph.split.split.split ]
+  %.052.lcssa = phi double [ 0.000000e+00, %IsInkSpace.exit ], [ %44, %.lr.ph.split.us.split.split.us ], [ %29, %.lr.ph.split.us.split.us.split.us ], [ %84, %.lr.ph.split.split.split.us ], [ %35, %.lr.ph.split.us.split.us.split ], [ %59, %.lr.ph.split.split.us.split.us ], [ %54, %.lr.ph.split.us.split.split ], [ %70, %.lr.ph.split.split.us.split ], [ %99, %.lr.ph.split.split.split ]
   %106 = icmp eq i32 %12, 0
   %107 = icmp ne i32 %14, 0
   %or.cond = and i1 %106, %107
@@ -7169,7 +7169,7 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.us, %.lr.ph.split.split.us.split, %.lr.ph.split.split.us.split.us, %.lr.ph.split.us.split.split, %.lr.ph.split.us.split.split.us, %.lr.ph.split.us.split.us.split, %.lr.ph.split.us.split.us.split.us, %IsInkSpace.exit
-  %.052.lcssa = phi double [ 0.000000e+00, %IsInkSpace.exit ], [ %78, %.lr.ph.split.split.split.us ], [ %29, %.lr.ph.split.us.split.us.split.us ], [ %34, %.lr.ph.split.us.split.us.split ], [ %42, %.lr.ph.split.us.split.split.us ], [ %51, %.lr.ph.split.us.split.split ], [ %55, %.lr.ph.split.split.us.split.us ], [ %65, %.lr.ph.split.split.us.split ], [ %92, %.lr.ph.split.split.split ]
+  %.052.lcssa = phi double [ 0.000000e+00, %IsInkSpace.exit ], [ %42, %.lr.ph.split.us.split.split.us ], [ %29, %.lr.ph.split.us.split.us.split.us ], [ %78, %.lr.ph.split.split.split.us ], [ %34, %.lr.ph.split.us.split.us.split ], [ %55, %.lr.ph.split.split.us.split.us ], [ %51, %.lr.ph.split.us.split.split ], [ %65, %.lr.ph.split.split.us.split ], [ %92, %.lr.ph.split.split.split ]
   %98 = icmp eq i32 %12, 0
   %99 = icmp ne i32 %14, 0
   %or.cond = and i1 %98, %99
@@ -7386,7 +7386,7 @@ _cmsQuickSaturateWord.exit:                       ; preds = %.lr.ph.split.split.
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %_cmsQuickSaturateWord.exit, %_cmsQuickSaturateWord.exit.us63, %_cmsQuickSaturateWord.exit.us57, %_cmsQuickSaturateWord.exit.us, %4
-  %.048.lcssa = phi i16 [ 0, %4 ], [ %.0.i.us64, %_cmsQuickSaturateWord.exit.us63 ], [ %.0.i.us, %_cmsQuickSaturateWord.exit.us ], [ %.0.i.us58, %_cmsQuickSaturateWord.exit.us57 ], [ %.0.i, %_cmsQuickSaturateWord.exit ]
+  %.048.lcssa = phi i16 [ 0, %4 ], [ %.0.i.us58, %_cmsQuickSaturateWord.exit.us57 ], [ %.0.i.us64, %_cmsQuickSaturateWord.exit.us63 ], [ %.0.i.us, %_cmsQuickSaturateWord.exit.us ], [ %.0.i, %_cmsQuickSaturateWord.exit ]
   %105 = icmp eq i32 %12, 0
   %106 = icmp ne i32 %14, 0
   %or.cond = and i1 %105, %106
@@ -7619,7 +7619,7 @@ _cmsQuickSaturateWord.exit:                       ; preds = %.lr.ph.split.split.
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %_cmsQuickSaturateWord.exit, %_cmsQuickSaturateWord.exit.us63, %_cmsQuickSaturateWord.exit.us57, %_cmsQuickSaturateWord.exit.us, %4
-  %.048.lcssa = phi i8 [ 0, %4 ], [ %.0.i.us64, %_cmsQuickSaturateWord.exit.us63 ], [ %.0.i.us, %_cmsQuickSaturateWord.exit.us ], [ %.0.i.us58, %_cmsQuickSaturateWord.exit.us57 ], [ %.0.i, %_cmsQuickSaturateWord.exit ]
+  %.048.lcssa = phi i8 [ 0, %4 ], [ %.0.i.us58, %_cmsQuickSaturateWord.exit.us57 ], [ %.0.i.us64, %_cmsQuickSaturateWord.exit.us63 ], [ %.0.i.us, %_cmsQuickSaturateWord.exit.us ], [ %.0.i, %_cmsQuickSaturateWord.exit ]
   %121 = icmp eq i32 %12, 0
   %122 = icmp ne i32 %14, 0
   %or.cond = and i1 %121, %122

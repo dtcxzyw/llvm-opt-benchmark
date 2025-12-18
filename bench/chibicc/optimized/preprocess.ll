@@ -1305,7 +1305,7 @@ join_adjacent_string_literals.exit.preheader:     ; preds = %.preheader96.i
   br label %.preheader96.i.backedge
 
 .preheader96.i.backedge:                          ; preds = %._crit_edge132.i, %75, %.preheader96._crit_edge.i
-  %.070.i.be = phi ptr [ %80, %._crit_edge132.i ], [ %.pre143.i, %.preheader96._crit_edge.i ], [ %77, %75 ]
+  %.070.i.be = phi ptr [ %77, %75 ], [ %80, %._crit_edge132.i ], [ %.pre143.i, %.preheader96._crit_edge.i ]
   br label %.preheader96.i, !llvm.loop !83
 
 .lr.ph131.i:                                      ; preds = %._crit_edge125.i, %.lr.ph131.i
@@ -2338,7 +2338,7 @@ has_varargs.exit.i:                               ; preds = %.lr.ph.i122.i
   br i1 %.not74.i, label %has_varargs.exit.i.thread, label %.lr.ph300, !llvm.loop !120
 
 has_varargs.exit.i.thread:                        ; preds = %406, %.lr.ph300, %411, %398, %has_varargs.exit.i
-  %.12.i = phi ptr [ %.059.i310, %has_varargs.exit.i ], [ %.059.i310, %398 ], [ %.059.i310, %411 ], [ %.058.i298, %.lr.ph300 ], [ %.059.i310, %406 ]
+  %.12.i = phi ptr [ %.059.i310, %has_varargs.exit.i ], [ %.058.i298, %.lr.ph300 ], [ %.059.i310, %398 ], [ %.059.i310, %411 ], [ %.059.i310, %406 ]
   %417 = load ptr, ptr %6, align 8, !tbaa !71
   %418 = call ptr @skip(ptr noundef %417, ptr noundef nonnull @.str.88) #14
   br label %.backedge
@@ -3351,8 +3351,8 @@ skip_line.exit71:                                 ; preds = %.lr.ph.i69, %873, %
   br i1 %.not, label %.outer._crit_edge, label %25, !llvm.loop !124
 
 .outer._crit_edge:                                ; preds = %is_hash.exit.thread, %.backedge181, %1
-  %.0.ph.lcssa283 = phi ptr [ %14, %1 ], [ %.0.ph333, %.backedge181 ], [ %27, %is_hash.exit.thread ]
-  %.lcssa235 = phi ptr [ %0, %1 ], [ %908, %.backedge181 ], [ %498, %is_hash.exit.thread ]
+  %.0.ph.lcssa283 = phi ptr [ %.0.ph333, %.backedge181 ], [ %14, %1 ], [ %27, %is_hash.exit.thread ]
+  %.lcssa235 = phi ptr [ %908, %.backedge181 ], [ %0, %1 ], [ %498, %is_hash.exit.thread ]
   %910 = getelementptr inbounds nuw i8, ptr %.0.ph.lcssa283, i64 8
   store ptr %.lcssa235, ptr %910, align 8, !tbaa !60
   %911 = getelementptr inbounds nuw i8, ptr %14, i64 8

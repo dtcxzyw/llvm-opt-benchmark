@@ -1423,7 +1423,7 @@ _ZN4llvm11SmallVectorINS_11CCValAssignELj16EED2Ev.exit157.i: ; preds = %517, %.c
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %502, %.loopexit.sink.split.i, %494
-  %.6.i = phi i1 [ true, %494 ], [ false, %.loopexit.sink.split.i ], [ true, %502 ]
+  %.6.i = phi i1 [ false, %.loopexit.sink.split.i ], [ true, %494 ], [ true, %502 ]
   %520 = load ptr, ptr %67, align 8, !tbaa !240
   %521 = icmp eq ptr %520, %294
   br i1 %521, label %_ZN4llvm11SmallVectorIjLj4EED2Ev.exit.i, label %522
@@ -2422,7 +2422,7 @@ _ZNK4llvm5Value9hasOneUseEv.exit.thread.i:        ; preds = %954, %998, %_ZN12_G
   br label %_ZN12_GLOBAL__N_111X86FastISel15X86SelectBranchEPKN4llvm11InstructionE.exit
 
 _ZN12_GLOBAL__N_111X86FastISel15X86SelectBranchEPKN4llvm11InstructionE.exit: ; preds = %847, %849, %870, %910, %switch.lookup, %959, %1000, %1003, %_ZNK4llvm5Value9hasOneUseEv.exit.thread.i, %1056
-  %.11.i = phi i1 [ true, %1003 ], [ true, %910 ], [ true, %849 ], [ true, %847 ], [ false, %870 ], [ true, %959 ], [ false, %switch.lookup ], [ false, %1000 ], [ false, %_ZNK4llvm5Value9hasOneUseEv.exit.thread.i ], [ true, %1056 ]
+  %.11.i = phi i1 [ true, %1003 ], [ true, %910 ], [ true, %849 ], [ false, %870 ], [ true, %847 ], [ true, %959 ], [ false, %switch.lookup ], [ false, %1000 ], [ false, %_ZNK4llvm5Value9hasOneUseEv.exit.thread.i ], [ true, %1056 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %53)
   br label %_ZN12_GLOBAL__N_111X86FastISel13X86SelectLoadEPKN4llvm11InstructionE.exit
 
@@ -4742,7 +4742,7 @@ _ZNK4llvm4User10getOperandEj.exit163:             ; preds = %2382, %2385
   br label %_ZN12_GLOBAL__N_111X86FastISel13X86SelectLoadEPKN4llvm11InstructionE.exit
 
 _ZN12_GLOBAL__N_111X86FastISel13X86SelectLoadEPKN4llvm11InstructionE.exit: ; preds = %1096, %2212, %_ZNK4llvm4User10getOperandEj.exit.i119, %2185, %2179, %2167, %_ZNK4llvm4User10getOperandEj.exit.i116, %2140, %2134, %2124, %_ZNK4llvm4User10getOperandEj.exit48.i.i, %2055, %2041, %2034, %1992, %_ZN12_GLOBAL__N_111X86FastISel20X86FastEmitSSESelectEN4llvm3MVTEPKNS1_11InstructionE.exit.i, %_ZN12_GLOBAL__N_111X86FastISel22X86FastEmitCMoveSelectEN4llvm3MVTEPKNS1_11InstructionE.exit.i, %1551, %1549, %_ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit.i105, %1493, %1487, %1486, %1477, %1476, %_ZNK4llvm4User10getOperandEj.exit60.i, %_ZNK4llvm4User10getOperandEj.exit.i95, %1245, %1242, %_ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit.i93, %1231, %1225, %1224, %1215, %1199, %_ZNK4llvm4User10getOperandEj.exit30.i, %_ZNK4llvm4User10getOperandEj.exit.i87, %_ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit.i84, %1124, %1118, %1117, %switch.lookup245, %1105, %_ZNK4llvm3EVTneES0_.exit.i, %797, %754, %_ZNK4llvm4User10getOperandEj.exit.i68, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i, %704, %_ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit.thread.sink.split.i, %678, %616, %567, %_ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit.i60, %552, %546, %545, %_ZNK4llvm4User10getOperandEj.exit.i57, %_ZN4llvm11SmallVectorIjLj4EED2Ev.exit.i, %287, %281, %280, %280, %276, %270, %261, %258, %237, %236, %_ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit.i48, %206, %200, %199, %.critedge32.i, %184, %181, %156, %155, %_ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit.i, %122, %116, %115, %.critedge25.i, %104, %101, %77, %2, %2316, %.critedge, %2315, %2226, %2224, %2132, %_ZN12_GLOBAL__N_111X86FastISel15X86SelectBranchEPKN4llvm11InstructionE.exit, %702
-  %.0 = phi i1 [ false, %2316 ], [ false, %2 ], [ false, %.critedge25.i ], [ false, %.critedge32.i ], [ false, %287 ], [ %703, %702 ], [ true, %_ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit.thread.sink.split.i ], [ %.11.i, %_ZN12_GLOBAL__N_111X86FastISel15X86SelectBranchEPKN4llvm11InstructionE.exit ], [ false, %704 ], [ true, %1199 ], [ true, %1476 ], [ %2133, %2132 ], [ false, %1549 ], [ false, %2134 ], [ %2225, %2224 ], [ %2227, %2226 ], [ %.1, %2315 ], [ %.3, %.critedge ], [ false, %77 ], [ false, %104 ], [ false, %101 ], [ %.5.i, %155 ], [ false, %_ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit.i ], [ false, %115 ], [ false, %116 ], [ false, %122 ], [ false, %156 ], [ false, %184 ], [ false, %181 ], [ %.5.i46, %236 ], [ false, %_ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit.i48 ], [ false, %199 ], [ false, %200 ], [ false, %206 ], [ false, %237 ], [ false, %258 ], [ false, %261 ], [ false, %270 ], [ false, %276 ], [ false, %281 ], [ %.6.i, %_ZN4llvm11SmallVectorIjLj4EED2Ev.exit.i ], [ false, %280 ], [ false, %280 ], [ false, %_ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit.i60 ], [ false, %_ZNK4llvm4User10getOperandEj.exit.i57 ], [ false, %567 ], [ false, %616 ], [ false, %678 ], [ false, %545 ], [ false, %546 ], [ false, %552 ], [ false, %754 ], [ false, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i ], [ false, %_ZNK4llvm4User10getOperandEj.exit.i68 ], [ true, %_ZNK4llvm3EVTneES0_.exit.i ], [ false, %797 ], [ false, %1096 ], [ false, %1105 ], [ false, %_ZNK4llvm4User10getOperandEj.exit.i87 ], [ false, %_ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit.i84 ], [ false, %switch.lookup245 ], [ false, %1117 ], [ false, %1118 ], [ false, %1124 ], [ false, %_ZNK4llvm4User10getOperandEj.exit30.i ], [ false, %_ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit.i93 ], [ false, %1242 ], [ false, %_ZNK4llvm4User10getOperandEj.exit.i95 ], [ false, %1245 ], [ false, %1215 ], [ false, %1224 ], [ false, %1225 ], [ false, %1231 ], [ false, %_ZNK4llvm4User10getOperandEj.exit60.i ], [ false, %_ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit.i105 ], [ true, %_ZN12_GLOBAL__N_111X86FastISel22X86FastEmitCMoveSelectEN4llvm3MVTEPKNS1_11InstructionE.exit.i ], [ false, %2055 ], [ true, %_ZN12_GLOBAL__N_111X86FastISel20X86FastEmitSSESelectEN4llvm3MVTEPKNS1_11InstructionE.exit.i ], [ false, %1477 ], [ false, %1992 ], [ false, %_ZNK4llvm4User10getOperandEj.exit48.i.i ], [ false, %2041 ], [ false, %2034 ], [ true, %2124 ], [ false, %1486 ], [ false, %1487 ], [ false, %1493 ], [ true, %1551 ], [ %2178, %2167 ], [ false, %_ZNK4llvm4User10getOperandEj.exit.i116 ], [ false, %2140 ], [ %2223, %2212 ], [ false, %_ZNK4llvm4User10getOperandEj.exit.i119 ], [ false, %2185 ], [ false, %2179 ]
+  %.0 = phi i1 [ false, %2316 ], [ false, %2 ], [ false, %.critedge25.i ], [ false, %.critedge32.i ], [ false, %287 ], [ %703, %702 ], [ true, %_ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit.thread.sink.split.i ], [ %.11.i, %_ZN12_GLOBAL__N_111X86FastISel15X86SelectBranchEPKN4llvm11InstructionE.exit ], [ false, %704 ], [ true, %1199 ], [ true, %1476 ], [ %2133, %2132 ], [ false, %1549 ], [ false, %2134 ], [ %2225, %2224 ], [ %2227, %2226 ], [ %.1, %2315 ], [ %.3, %.critedge ], [ false, %77 ], [ false, %104 ], [ false, %101 ], [ %.5.i, %155 ], [ false, %_ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit.i ], [ false, %115 ], [ false, %116 ], [ false, %122 ], [ false, %156 ], [ false, %184 ], [ false, %181 ], [ %.5.i46, %236 ], [ false, %_ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit.i48 ], [ false, %199 ], [ false, %200 ], [ false, %206 ], [ false, %237 ], [ false, %258 ], [ false, %261 ], [ false, %270 ], [ false, %276 ], [ false, %281 ], [ %.6.i, %_ZN4llvm11SmallVectorIjLj4EED2Ev.exit.i ], [ false, %280 ], [ false, %280 ], [ false, %_ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit.i60 ], [ false, %_ZNK4llvm4User10getOperandEj.exit.i57 ], [ false, %552 ], [ false, %546 ], [ false, %567 ], [ false, %545 ], [ false, %616 ], [ false, %678 ], [ false, %754 ], [ false, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i ], [ false, %_ZNK4llvm4User10getOperandEj.exit.i68 ], [ true, %_ZNK4llvm3EVTneES0_.exit.i ], [ false, %797 ], [ false, %1096 ], [ false, %1105 ], [ false, %_ZNK4llvm4User10getOperandEj.exit.i87 ], [ false, %_ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit.i84 ], [ false, %switch.lookup245 ], [ false, %1117 ], [ false, %1118 ], [ false, %1124 ], [ false, %_ZNK4llvm4User10getOperandEj.exit30.i ], [ false, %_ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit.i93 ], [ false, %1242 ], [ false, %_ZNK4llvm4User10getOperandEj.exit.i95 ], [ false, %1245 ], [ false, %1215 ], [ false, %1224 ], [ false, %1225 ], [ false, %1231 ], [ false, %_ZNK4llvm4User10getOperandEj.exit60.i ], [ false, %_ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit.i105 ], [ true, %_ZN12_GLOBAL__N_111X86FastISel22X86FastEmitCMoveSelectEN4llvm3MVTEPKNS1_11InstructionE.exit.i ], [ false, %2055 ], [ true, %_ZN12_GLOBAL__N_111X86FastISel20X86FastEmitSSESelectEN4llvm3MVTEPKNS1_11InstructionE.exit.i ], [ false, %1477 ], [ false, %1992 ], [ false, %_ZNK4llvm4User10getOperandEj.exit48.i.i ], [ false, %2041 ], [ false, %2034 ], [ true, %2124 ], [ false, %1486 ], [ false, %1487 ], [ false, %1493 ], [ true, %1551 ], [ %2178, %2167 ], [ false, %_ZNK4llvm4User10getOperandEj.exit.i116 ], [ false, %2140 ], [ %2223, %2212 ], [ false, %_ZNK4llvm4User10getOperandEj.exit.i119 ], [ false, %2185 ], [ false, %2179 ]
   ret i1 %.0
 }
 
@@ -4970,7 +4970,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_111X86FastISel18fastLowerArg
   br i1 %.not81, label %.critedge, label %86
 
 .critedge:                                        ; preds = %53, %61, %41, %43, %45, %47, %49, %51, %39, %73, %66, %105, %.critedge82, %19, %8, %28, %15, %1
-  %.0 = phi i1 [ false, %1 ], [ false, %8 ], [ false, %19 ], [ false, %15 ], [ false, %28 ], [ true, %.critedge82 ], [ true, %105 ], [ false, %66 ], [ false, %73 ], [ false, %39 ], [ false, %51 ], [ false, %49 ], [ false, %47 ], [ false, %45 ], [ false, %43 ], [ false, %41 ], [ false, %61 ], [ false, %53 ]
+  %.0 = phi i1 [ false, %1 ], [ false, %8 ], [ false, %19 ], [ false, %15 ], [ true, %.critedge82 ], [ false, %28 ], [ true, %105 ], [ false, %66 ], [ false, %73 ], [ false, %39 ], [ false, %51 ], [ false, %49 ], [ false, %47 ], [ false, %45 ], [ false, %43 ], [ false, %41 ], [ false, %61 ], [ false, %53 ]
   ret i1 %.0
 }
 
@@ -6643,7 +6643,7 @@ _ZN4llvm11SmallVectorINS_3MVTELj16EED2Ev.exit:    ; preds = %_ZN4llvm11SmallVect
   br label %_ZNK4llvm8CallBase13doesNoCfCheckEv.exit.thread
 
 _ZNK4llvm8CallBase13doesNoCfCheckEv.exit.thread:  ; preds = %.critedge.i, %.critedge334, %77, %74, %67, %129, %126, %120, %119, %119, %116, %115, %.critedge, %_ZNK4llvm8CallBase9hasFnAttrENS_9StringRefE.exit355, %_ZNK4llvm8CallBase9hasFnAttrENS_9StringRefE.exit, %_ZNK4llvm8CallBase13doesNoCfCheckEv.exit, %_ZN4llvm11SmallVectorINS_3MVTELj16EED2Ev.exit
-  %.0 = phi i1 [ false, %_ZNK4llvm8CallBase13doesNoCfCheckEv.exit ], [ false, %_ZNK4llvm8CallBase9hasFnAttrENS_9StringRefE.exit ], [ false, %_ZNK4llvm8CallBase9hasFnAttrENS_9StringRefE.exit355 ], [ false, %77 ], [ false, %.critedge ], [ false, %115 ], [ false, %116 ], [ false, %120 ], [ false, %126 ], [ %.9, %_ZN4llvm11SmallVectorINS_3MVTELj16EED2Ev.exit ], [ false, %119 ], [ false, %119 ], [ false, %129 ], [ false, %74 ], [ false, %67 ], [ false, %.critedge334 ], [ false, %.critedge.i ]
+  %.0 = phi i1 [ false, %.critedge334 ], [ false, %_ZNK4llvm8CallBase13doesNoCfCheckEv.exit ], [ false, %_ZNK4llvm8CallBase9hasFnAttrENS_9StringRefE.exit ], [ false, %_ZNK4llvm8CallBase9hasFnAttrENS_9StringRefE.exit355 ], [ false, %77 ], [ false, %.critedge ], [ false, %115 ], [ false, %116 ], [ false, %120 ], [ false, %126 ], [ %.9, %_ZN4llvm11SmallVectorINS_3MVTELj16EED2Ev.exit ], [ false, %119 ], [ false, %119 ], [ false, %129 ], [ false, %74 ], [ false, %67 ], [ false, %.critedge.i ]
   ret i1 %.0
 }
 
@@ -12311,7 +12311,7 @@ _ZNK4llvm3EVTeqES0_.exit.thread274:               ; preds = %75, %147, %117, %_Z
   br label %.thread337
 
 .thread344:                                       ; preds = %371, %441, %442, %.thread323
-  %.11.ph = phi i1 [ true, %.thread323 ], [ %.not368.not.not, %441 ], [ %.not368.not.not, %442 ], [ false, %371 ]
+  %.11.ph = phi i1 [ %.not368.not.not, %441 ], [ true, %.thread323 ], [ %.not368.not.not, %442 ], [ false, %371 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread337
 
@@ -12321,7 +12321,7 @@ _ZNK4llvm3EVTeqES0_.exit.thread274:               ; preds = %75, %147, %117, %_Z
   br label %19
 
 .thread337:                                       ; preds = %67, %247, %.thread279, %_ZNK4llvm4User10getOperandEj.exit205, %_ZNK4llvm4User10getOperandEj.exit200, %_ZNK4llvm4User10getOperandEj.exit, %_ZNK4llvm3EVTeqES0_.exit.thread274, %.thread344
-  %.2342 = phi i1 [ %.11.ph, %.thread344 ], [ %250, %247 ], [ true, %.thread279 ], [ %164, %_ZNK4llvm4User10getOperandEj.exit205 ], [ %133, %_ZNK4llvm4User10getOperandEj.exit200 ], [ %90, %_ZNK4llvm4User10getOperandEj.exit ], [ %446, %_ZNK4llvm3EVTeqES0_.exit.thread274 ], [ false, %67 ]
+  %.2342 = phi i1 [ %.11.ph, %.thread344 ], [ %446, %_ZNK4llvm3EVTeqES0_.exit.thread274 ], [ %250, %247 ], [ true, %.thread279 ], [ %164, %_ZNK4llvm4User10getOperandEj.exit205 ], [ %133, %_ZNK4llvm4User10getOperandEj.exit200 ], [ %90, %_ZNK4llvm4User10getOperandEj.exit ], [ false, %67 ]
   %448 = load ptr, ptr %4, align 8, !tbaa !240
   %449 = icmp eq ptr %448, %8
   br i1 %449, label %_ZN4llvm11SmallVectorIPKNS_5ValueELj32EED2Ev.exit, label %450
@@ -14933,7 +14933,7 @@ _ZNK4llvm3EVTneES0_.exit13.thread.sink.split:     ; preds = %_ZNK4llvm3EVTeqES0_
   br label %_ZNK4llvm3EVTneES0_.exit13.thread
 
 _ZNK4llvm3EVTneES0_.exit13.thread:                ; preds = %_ZNK4llvm3EVTneES0_.exit13.thread.sink.split, %_ZNK4llvm4User10getOperandEj.exit, %_ZNK4llvm3EVTneES0_.exit, %_ZNK4llvm4User10getOperandEj.exit16, %_ZNK4llvm3EVTeqES0_.exit, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit
-  %.0 = phi i1 [ false, %_ZNK4llvm4User10getOperandEj.exit ], [ false, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit ], [ false, %_ZNK4llvm4User10getOperandEj.exit16 ], [ false, %_ZNK4llvm3EVTeqES0_.exit ], [ false, %_ZNK4llvm3EVTneES0_.exit ], [ true, %_ZNK4llvm3EVTneES0_.exit13.thread.sink.split ]
+  %.0 = phi i1 [ false, %_ZNK4llvm3EVTneES0_.exit ], [ false, %_ZNK4llvm4User10getOperandEj.exit ], [ false, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit ], [ false, %_ZNK4llvm3EVTeqES0_.exit ], [ false, %_ZNK4llvm4User10getOperandEj.exit16 ], [ true, %_ZNK4llvm3EVTneES0_.exit13.thread.sink.split ]
   ret i1 %.0
 }
 
@@ -15361,9 +15361,9 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111X86FastISel16X86Fa
   %40 = icmp ult i64 %39, -4294967296
   br i1 %40, label %81, label %.thread
 
-.thread:                                          ; preds = %19, %20, %22, %21, %38
-  %.01944.neg = phi i64 [ -2560, %38 ], [ -2579, %19 ], [ -2579, %20 ], [ -2542, %22 ], [ -2523, %21 ]
-  %.12342 = phi i1 [ true, %38 ], [ false, %19 ], [ true, %20 ], [ true, %22 ], [ true, %21 ]
+.thread:                                          ; preds = %19, %22, %21, %20, %38
+  %.01944.neg = phi i64 [ -2560, %38 ], [ -2579, %19 ], [ -2542, %22 ], [ -2523, %21 ], [ -2579, %20 ]
+  %.12342 = phi i1 [ true, %38 ], [ false, %19 ], [ true, %22 ], [ true, %21 ], [ true, %20 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %42 = load ptr, ptr %41, align 8, !tbaa !243
@@ -16496,7 +16496,7 @@ _ZNK4llvm4User8operandsEv.exit:                   ; preds = %87, %90
   br label %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.thread
 
 _ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.thread: ; preds = %73, %.lr.ph, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i, %46, %40, %39, %16, %13, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i, %8, %_ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit, %62, %.critedge, %_ZNK4llvm4User8operandsEv.exit, %_ZN4llvm10successorsEPKNS_11InstructionE.exit, %98, %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit, %4
-  %.0 = phi i1 [ false, %4 ], [ false, %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit ], [ false, %_ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit ], [ false, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i ], [ false, %16 ], [ false, %.critedge ], [ false, %62 ], [ false, %_ZNK4llvm4User8operandsEv.exit ], [ false, %_ZN4llvm10successorsEPKNS_11InstructionE.exit ], [ true, %98 ], [ false, %8 ], [ false, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i ], [ false, %13 ], [ false, %39 ], [ false, %40 ], [ false, %46 ], [ false, %.lr.ph ], [ false, %73 ]
+  %.0 = phi i1 [ false, %4 ], [ false, %46 ], [ false, %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit ], [ false, %_ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit ], [ false, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i ], [ false, %16 ], [ false, %.critedge ], [ false, %62 ], [ false, %_ZNK4llvm4User8operandsEv.exit ], [ false, %_ZN4llvm10successorsEPKNS_11InstructionE.exit ], [ true, %98 ], [ false, %40 ], [ false, %8 ], [ false, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i ], [ false, %13 ], [ false, %39 ], [ false, %.lr.ph ], [ false, %73 ]
   ret i1 %.0
 }
 
@@ -16602,7 +16602,7 @@ define internal fastcc noundef zeroext i1 @"_ZN4llvm6any_ofINS_14iterator_rangeI
   br label %"_ZSt6any_ofIN4llvm12SuccIteratorIKNS0_11InstructionEKNS0_10BasicBlockEEEZN12_GLOBAL__N_111X86FastISel20foldX86XALUIntrinsicERNS0_3X868CondCodeEPS3_PKNS0_5ValueEE3$_0EbT_SH_T0_.exit"
 
 "_ZSt6any_ofIN4llvm12SuccIteratorIKNS0_11InstructionEKNS0_10BasicBlockEEEZN12_GLOBAL__N_111X86FastISel20foldX86XALUIntrinsicERNS0_3X868CondCodeEPS3_PKNS0_5ValueEE3$_0EbT_SH_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i, %9, %15, %21, %32, %39, %46, %51
-  %.sroa.9.0.i.i.i.i.i = phi i32 [ %.sroa.15.1.i.i.i.i.i, %39 ], [ %.sroa.2.0.copyload.i.i.i.i12, %51 ], [ %.sroa.15.0.lcssa.i.i.i.i.i, %32 ], [ %.sroa.15.2.i.i.i.i.i, %46 ], [ %.sroa.15.095.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %10, %9 ], [ %16, %15 ], [ %22, %21 ]
+  %.sroa.9.0.i.i.i.i.i = phi i32 [ %.sroa.15.1.i.i.i.i.i, %39 ], [ %.sroa.15.2.i.i.i.i.i, %46 ], [ %.sroa.15.0.lcssa.i.i.i.i.i, %32 ], [ %.sroa.2.0.copyload.i.i.i.i12, %51 ], [ %.sroa.15.095.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %10, %9 ], [ %16, %15 ], [ %22, %21 ]
   %52 = icmp ne i32 %.sroa.2.0.copyload.i.i.i.i12, %.sroa.9.0.i.i.i.i.i
   ret i1 %52
 }

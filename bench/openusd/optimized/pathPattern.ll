@@ -901,7 +901,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__14SdfPathPattern18HasTrailingStretchEv.exi
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__14SdfPathPattern18HasTrailingStretchEv.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__14SdfPathPattern18HasTrailingStretchEv.exit.thread: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__14SdfPathPattern18HasTrailingStretchEv.exit.thread.sink.split, %35, %29, %20, %22, %_ZNK32pxrInternal_v0_24__pxrReserved__14SdfPathPattern18HasTrailingStretchEv.exit
-  %.08 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__14SdfPathPattern18HasTrailingStretchEv.exit ], [ true, %22 ], [ true, %20 ], [ true, %29 ], [ true, %35 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__14SdfPathPattern18HasTrailingStretchEv.exit.thread.sink.split ]
+  %.08 = phi i1 [ true, %35 ], [ true, %29 ], [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__14SdfPathPattern18HasTrailingStretchEv.exit ], [ true, %22 ], [ true, %20 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__14SdfPathPattern18HasTrailingStretchEv.exit.thread.sink.split ]
   ret i1 %.08
 
 48:                                               ; preds = %46, %18
@@ -2034,7 +2034,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__14SdfPathPatter
   br label %33
 
 33:                                               ; preds = %.sink.split, %20, %22
-  %.08 = phi i1 [ true, %22 ], [ true, %20 ], [ false, %.sink.split ]
+  %.08 = phi i1 [ true, %20 ], [ true, %22 ], [ false, %.sink.split ]
   ret i1 %.08
 
 34:                                               ; preds = %31, %18

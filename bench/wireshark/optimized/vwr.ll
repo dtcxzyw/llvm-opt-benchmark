@@ -338,7 +338,7 @@ vwr_get_fpga_version.exit.thread46:               ; preds = %decode_msg.exit.thr
   br label %155
 
 vwr_get_fpga_version.exit:                        ; preds = %.thread138.i, %45, %50, %152
-  %.0101.i = phi i32 [ %..i, %45 ], [ %.124.i, %152 ], [ %142, %.thread138.i ], [ %.117.i, %50 ]
+  %.0101.i = phi i32 [ %.117.i, %50 ], [ %.124.i, %152 ], [ %142, %.thread138.i ], [ %..i, %45 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   switch i32 %.0101.i, label %156 [
     i32 -1, label %323

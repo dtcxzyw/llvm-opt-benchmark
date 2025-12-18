@@ -124,7 +124,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT
   br label %45
 
 .loopexit:                                        ; preds = %15, %37, %41, %47
-  %.0 = phi ptr [ %44, %41 ], [ %50, %47 ], [ %40, %37 ], [ null, %15 ]
+  %.0 = phi ptr [ %40, %37 ], [ %44, %41 ], [ %50, %47 ], [ null, %15 ]
   ret ptr %.0
 
 37:                                               ; preds = %25
@@ -667,7 +667,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_d
   br label %"_ZN10serde_json2de21Deserializer$LT$R$GT$14f64_from_parts17h41ac2908db5b27e3E.exit"
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %125, %123
-  %.1.i = phi double [ %126, %125 ], [ %124, %123 ], [ %.01810.i, %.lr.ph.i ]
+  %.1.i = phi double [ %124, %123 ], [ %126, %125 ], [ %.01810.i, %.lr.ph.i ]
   %121 = fneg double %.1.i
   %.2.i = select i1 %2, double %.1.i, double %121
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2062,7 +2062,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$14parse_e
   br label %"_ZN10serde_json2de21Deserializer$LT$R$GT$14f64_from_parts17h41ac2908db5b27e3E.exit"
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %151, %149
-  %.1.i = phi double [ %152, %151 ], [ %150, %149 ], [ %.01810.i, %.lr.ph.i ]
+  %.1.i = phi double [ %150, %149 ], [ %152, %151 ], [ %.01810.i, %.lr.ph.i ]
   %147 = fneg double %.1.i
   %.2.i = select i1 %2, double %.1.i, double %147
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2861,7 +2861,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$18parse_l
   br label %"_ZN10serde_json2de21Deserializer$LT$R$GT$14f64_from_parts17h41ac2908db5b27e3E.exit"
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %66, %64
-  %.1.i = phi double [ %67, %66 ], [ %65, %64 ], [ %.01810.i, %.lr.ph.i ]
+  %.1.i = phi double [ %65, %64 ], [ %67, %66 ], [ %.01810.i, %.lr.ph.i ]
   %62 = fneg double %.1.i
   %.2.i = select i1 %2, double %.1.i, double %62
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3260,7 +3260,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$22parse_d
   br label %"_ZN10serde_json2de21Deserializer$LT$R$GT$14f64_from_parts17h41ac2908db5b27e3E.exit"
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %89, %87
-  %.1.i = phi double [ %90, %89 ], [ %88, %87 ], [ %.01810.i, %.lr.ph.i ]
+  %.1.i = phi double [ %88, %87 ], [ %90, %89 ], [ %.01810.i, %.lr.ph.i ]
   %85 = fneg double %.1.i
   %.2.i = select i1 %2, double %.1.i, double %85
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6672,7 +6672,7 @@ _ZN5serde2de9MapAccess10next_value17h59673e244d35211fE.exit68.i: ; preds = %516
   br i1 %520, label %"_ZN245_$LT$sparse..index..inverted_index..inverted_index_mmap.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$sparse..index..inverted_index..inverted_index_mmap..InvertedIndexFileHeader$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h0590ff1519ad0004E.exit", label %_ZN5serde2de9MapAccess10next_value17h4b784208c9c6c251E.exit.i
 
 .loopexit.i66:                                    ; preds = %.loopexit91.i, %462, %371, %365, %362, %359, %356, %353, %499, %495, %492, %488, %465, %460, %456, %414, %407, %369, %349, %345
-  %.0.i.i.ph.i = phi ptr [ %415, %414 ], [ %348, %345 ], [ %410, %407 ], [ %459, %456 ], [ %500, %499 ], [ %491, %488 ], [ %461, %460 ], [ %370, %369 ], [ %466, %465 ], [ %493, %492 ], [ %496, %495 ], [ %350, %349 ], [ %463, %462 ], [ %372, %371 ], [ %366, %365 ], [ %363, %362 ], [ %354, %353 ], [ %357, %356 ], [ %360, %359 ], [ %321, %.loopexit91.i ]
+  %.0.i.i.ph.i = phi ptr [ %410, %407 ], [ %459, %456 ], [ %500, %499 ], [ %491, %488 ], [ %350, %349 ], [ %461, %460 ], [ %463, %462 ], [ %370, %369 ], [ %466, %465 ], [ %493, %492 ], [ %496, %495 ], [ %415, %414 ], [ %348, %345 ], [ %372, %371 ], [ %366, %365 ], [ %363, %362 ], [ %354, %353 ], [ %357, %356 ], [ %360, %359 ], [ %321, %.loopexit91.i ]
   %521 = ptrtoint ptr %.0.i.i.ph.i to i64
   br label %"_ZN245_$LT$sparse..index..inverted_index..inverted_index_mmap.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$sparse..index..inverted_index..inverted_index_mmap..InvertedIndexFileHeader$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h0590ff1519ad0004E.exit"
 

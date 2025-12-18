@@ -900,7 +900,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   br i1 %exitcond.not.i.i.i, label %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h63dadab27f339413E.llvm.15565454694699926178.exit", label %.lr.ph.i.i.i
 
 "_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h63dadab27f339413E.llvm.15565454694699926178.exit": ; preds = %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha058c56977deebd9E.exit.i.i.i", %11, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$9size_hint17h563987331b6289d7E.exit.i.i.i"
-  %.val18.i.i.i = phi i64 [ %.sroa.54.0.copyload, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$9size_hint17h563987331b6289d7E.exit.i.i.i" ], [ %.sroa.54.0.copyload, %11 ], [ %33, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha058c56977deebd9E.exit.i.i.i" ]
+  %.val18.i.i.i = phi i64 [ %.sroa.54.0.copyload, %11 ], [ %.sroa.54.0.copyload, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$9size_hint17h563987331b6289d7E.exit.i.i.i" ], [ %33, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha058c56977deebd9E.exit.i.i.i" ]
   %34 = icmp ne ptr %.sroa.03.0.copyload, null
   tail call void @llvm.assume(i1 %34)
   store i64 %.val18.i.i.i, ptr %.sroa.03.0.copyload, align 8, !noalias !294
@@ -4502,7 +4502,7 @@ _ZN4core3str11validations15next_code_point17h88410b8e33f22cdfE.llvm.155654546946
   br label %.loopexit
 
 "_ZN4core3str4iter29MatchIndicesInternal$LT$P$GT$4next17h218c2cc70c1f0386E.exit.thread": ; preds = %210, %.thread.i.i.i.us, %184, %109, %26, %69, %.backedge.sink.split.i.us, %.backedge.i.us, %.lr.ph.split, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h78b00b8caf976411E.exit"
-  %.0165 = phi i64 [ 0, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h78b00b8caf976411E.exit" ], [ 0, %.lr.ph.split ], [ %.0184.us, %.backedge.sink.split.i.us ], [ %.0184.us217, %184 ], [ %.0184.us, %.backedge.i.us ], [ %.0184.us, %69 ], [ %.sroa.20.2.us, %109 ], [ %.0184.us, %26 ], [ %.sroa.4.2.us296, %210 ], [ %.0184.us217, %.thread.i.i.i.us ]
+  %.0165 = phi i64 [ %.0184.us217, %184 ], [ 0, %.lr.ph.split ], [ %.sroa.20.2.us, %109 ], [ 0, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h78b00b8caf976411E.exit" ], [ %.0184.us, %.backedge.sink.split.i.us ], [ %.0184.us, %.backedge.i.us ], [ %.0184.us, %26 ], [ %.0184.us, %69 ], [ %.0184.us217, %.thread.i.i.i.us ], [ %.sroa.4.2.us296, %210 ]
   %222 = sub i64 %2, %.0165
   %223 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !1547, !noalias !1554, !noundef !11
   %224 = load i64, ptr %10, align 8, !alias.scope !1547, !noalias !1554, !noundef !11

@@ -1753,7 +1753,7 @@ _ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1
   br i1 %exitcond.not, label %.loopexit, label %40, !llvm.loop !40
 
 .loopexit:                                        ; preds = %179, %.lr.ph162, %1, %86
-  %.044157 = phi i64 [ %.044159, %86 ], [ 0, %1 ], [ %.044159, %.lr.ph162 ], [ %.2, %179 ]
+  %.044157 = phi i64 [ %.044159, %86 ], [ %.044159, %.lr.ph162 ], [ 0, %1 ], [ %.2, %179 ]
   %200 = getelementptr inbounds nuw i8, ptr %0, i64 72
   call void @_ZN5Eigen12DenseStorageIiLin1ELin1ELi1ELi0EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(16) %200, i64 noundef %10, i64 noundef %10, i64 noundef 1)
   %201 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -2139,7 +2139,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockIKNS1_INS1_INS_6MatrixIdLin1ELin1ELi0ELin1ELin1E
   br label %56
 
 _ZNK5Eigen10MatrixBaseINS_5BlockIKNS1_INS1_INS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEELin1ELi1ELb0EEELin1ELi1ELb0EEEE11squaredNormEv.exit: ; preds = %.lr.ph83.i.i.i.i, %49, %41
-  %53 = phi double [ %51, %49 ], [ %42, %41 ], [ %47, %.lr.ph83.i.i.i.i ]
+  %53 = phi double [ %42, %41 ], [ %51, %49 ], [ %47, %.lr.ph83.i.i.i.i ]
   %54 = load double, ptr %8, align 8
   %55 = fcmp ugt double %53, 0x10000000000000
   br i1 %55, label %.critedge, label %56
@@ -2634,7 +2634,7 @@ _ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLi1ELin1ELi1ELi1ELin1EEELi0ENS_6StrideIL
   br label %_ZNK5Eigen10MatrixBaseINS_5BlockIKNS_9TransposeIKNS1_INS1_INS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEELin1ELi1ELb0EEEEELi1ELin1ELb1EEEE3dotINS1_IKNS1_INS1_IS4_Lin1ELin1ELb0EEELin1ELin1ELb0EEELin1ELi1ELb1EEEEENS_20ScalarBinaryOpTraitsIdNS_8internal6traitsIT_E6ScalarENSI_17scalar_product_opIdSM_EEE10ReturnTypeERKNS0_ISK_EE.exit.i.i
 
 _ZNK5Eigen10MatrixBaseINS_5BlockIKNS_9TransposeIKNS1_INS1_INS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEELin1ELi1ELb0EEEEELi1ELin1ELb1EEEE3dotINS1_IKNS1_INS1_IS4_Lin1ELin1ELb0EEELin1ELin1ELb0EEELin1ELi1ELb1EEEEENS_20ScalarBinaryOpTraitsIdNS_8internal6traitsIT_E6ScalarENSI_17scalar_product_opIdSM_EEE10ReturnTypeERKNS0_ISK_EE.exit.i.i: ; preds = %.lr.ph83.i.i.i.i.i.i.i, %96, %86, %40
-  %.0.i.i.i.i.i = phi double [ 0.000000e+00, %40 ], [ %99, %96 ], [ %87, %86 ], [ %94, %.lr.ph83.i.i.i.i.i.i.i ]
+  %.0.i.i.i.i.i = phi double [ 0.000000e+00, %40 ], [ %87, %86 ], [ %99, %96 ], [ %94, %.lr.ph83.i.i.i.i.i.i.i ]
   %100 = load ptr, ptr %0, align 8
   %101 = load double, ptr %100, align 8
   %102 = fadd double %.0.i.i.i.i.i, %101
@@ -7434,8 +7434,8 @@ _ZN5Eigen9DenseBaseINS_5BlockINS1_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1
   br i1 %exitcond.not.i.i.i.i.i324, label %_ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi1ELi2ELb0EEELi1ELin1ELb0EEEE3dotINS1_INS1_IS3_Li2ELi1ELb1EEELin1ELi1ELb0EEEEENS_20ScalarBinaryOpTraitsIdNS_8internal6traitsIT_E6ScalarENSB_17scalar_product_opIdSF_EEE10ReturnTypeERKNS0_ISD_EE.exit325, label %.lr.ph.i.i.i.i.i320, !llvm.loop !247
 
 _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi1ELi2ELb0EEELi1ELin1ELb0EEEE3dotINS1_INS1_IS3_Li2ELi1ELb1EEELin1ELi1ELb0EEEEENS_20ScalarBinaryOpTraitsIdNS_8internal6traitsIT_E6ScalarENSB_17scalar_product_opIdSF_EEE10ReturnTypeERKNS0_ISD_EE.exit325: ; preds = %.lr.ph.i.i.i.i.i320, %174, %.thread
-  %.0.i.i.i306568 = phi double [ %183, %.thread ], [ 0.000000e+00, %174 ], [ %193, %.lr.ph.i.i.i.i.i320 ]
-  %.0.i.i.i319 = phi double [ %187, %.thread ], [ 0.000000e+00, %174 ], [ %204, %.lr.ph.i.i.i.i.i320 ]
+  %.0.i.i.i306568 = phi double [ 0.000000e+00, %174 ], [ %183, %.thread ], [ %193, %.lr.ph.i.i.i.i.i320 ]
+  %.0.i.i.i319 = phi double [ 0.000000e+00, %174 ], [ %187, %.thread ], [ %204, %.lr.ph.i.i.i.i.i320 ]
   %.idx.i326 = shl i64 %.0264582, 4
   %206 = getelementptr i8, ptr %175, i64 %.idx.i326
   %207 = load double, ptr %206, align 8
@@ -7602,7 +7602,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi1ELi2E
   br i1 %300, label %174, label %.loopexit570, !llvm.loop !254
 
 .loopexit570:                                     ; preds = %298, %_ZN5Eigen9DenseBaseINS_5BlockINS1_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1EEELin1ELi1ELb0EEEEdVERKd.exit, %137
-  %.1 = phi i64 [ %.0253591, %137 ], [ %.0253591, %_ZN5Eigen9DenseBaseINS_5BlockINS1_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1EEELin1ELi1ELb0EEEEdVERKd.exit ], [ %141, %298 ]
+  %.1 = phi i64 [ %.0253591, %_ZN5Eigen9DenseBaseINS_5BlockINS1_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1EEELin1ELi1ELb0EEEEdVERKd.exit ], [ %.0253591, %137 ], [ %141, %298 ]
   %301 = add nsw i64 %.1, -1
   %302 = icmp sgt i64 %.1, 0
   br i1 %302, label %31, label %.preheader, !llvm.loop !255
@@ -8604,7 +8604,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockIKNS1_INS1_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi
   br label %56
 
 _ZNK5Eigen10MatrixBaseINS_5BlockIKNS1_INS1_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1EEELin1ELi1ELb0EEELin1ELi1ELb0EEEE11squaredNormEv.exit: ; preds = %.lr.ph83.i.i.i.i, %49, %41
-  %53 = phi double [ %51, %49 ], [ %42, %41 ], [ %47, %.lr.ph83.i.i.i.i ]
+  %53 = phi double [ %42, %41 ], [ %51, %49 ], [ %47, %.lr.ph83.i.i.i.i ]
   %54 = load double, ptr %8, align 8
   %55 = fcmp ugt double %53, 0x10000000000000
   br i1 %55, label %.critedge, label %56

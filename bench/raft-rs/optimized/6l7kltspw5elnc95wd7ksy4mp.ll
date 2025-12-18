@@ -1352,7 +1352,7 @@ define hidden noundef ptr @"_ZN66_$LT$slog_envlogger..EnvLogger$LT$T$GT$$u20$as$
   br i1 %.not, label %48, label %40
 
 "_ZN14slog_envlogger18EnvLogger$LT$T$GT$7enabled17hc73eb40641b77befE.exit.thread": ; preds = %23, %54, %"_ZN14slog_envlogger18EnvLogger$LT$T$GT$7enabled17hc73eb40641b77befE.exit", %48
-  %.sroa.0.0 = phi ptr [ %51, %48 ], [ null, %"_ZN14slog_envlogger18EnvLogger$LT$T$GT$7enabled17hc73eb40641b77befE.exit" ], [ null, %54 ], [ null, %23 ]
+  %.sroa.0.0 = phi ptr [ %51, %48 ], [ null, %54 ], [ null, %"_ZN14slog_envlogger18EnvLogger$LT$T$GT$7enabled17hc73eb40641b77befE.exit" ], [ null, %23 ]
   ret ptr %.sroa.0.0
 
 40:                                               ; preds = %37

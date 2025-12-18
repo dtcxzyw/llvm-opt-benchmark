@@ -5672,7 +5672,7 @@ _ZN5faiss12_GLOBAL__N_125Run_polysemous_inner_loop1fINS_22HammingComputerDefault
   br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_125Run_polysemous_inner_loopEJPKNS_7IndexPQEPKfPKhlPfPliEEENT_1TEiRSC_DpT0_.exit
 
 _ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_125Run_polysemous_inner_loopEJPKNS_7IndexPQEPKfPKhlPfPliEEENT_1TEiRSC_DpT0_.exit: ; preds = %634, %508, %414, %329, %253, %198, %176, %156, %102, %81, %_ZN5faiss12_GLOBAL__N_125Run_polysemous_inner_loop1fINS_22HammingComputerDefaultEJPKNS_7IndexPQEPKfPKhlPfPliEEEmDpT0_.exit.i, %511, %417, %332, %256, %159, %65
-  %.0.i = phi i64 [ %.037.lcssa.i.i252.i, %_ZN5faiss12_GLOBAL__N_125Run_polysemous_inner_loop1fINS_22HammingComputerDefaultEJPKNS_7IndexPQEPKfPKhlPfPliEEEmDpT0_.exit.i ], [ 0, %65 ], [ 0, %159 ], [ 0, %256 ], [ 0, %332 ], [ 0, %417 ], [ 0, %511 ], [ %.1.i.i185.i, %508 ], [ %.1.us.us.i.i.i, %81 ], [ %.1.us.i.i.i, %102 ], [ %.1.i.i.i, %156 ], [ %.1.us.us.i.i110.i, %176 ], [ %.1.us.i.i101.i, %198 ], [ %.1.i.i72.i, %253 ], [ %.1.i.i129.i, %329 ], [ %.1.i.i155.i, %414 ], [ %.1.i.i218.i, %634 ]
+  %.0.i = phi i64 [ %.037.lcssa.i.i252.i, %_ZN5faiss12_GLOBAL__N_125Run_polysemous_inner_loop1fINS_22HammingComputerDefaultEJPKNS_7IndexPQEPKfPKhlPfPliEEEmDpT0_.exit.i ], [ %.1.us.i.i.i, %102 ], [ %.1.us.i.i101.i, %198 ], [ %.1.i.i155.i, %414 ], [ %.1.i.i185.i, %508 ], [ %.1.us.us.i.i.i, %81 ], [ 0, %65 ], [ %.1.us.us.i.i110.i, %176 ], [ %.1.i.i.i, %156 ], [ 0, %159 ], [ %.1.i.i129.i, %329 ], [ %.1.i.i72.i, %253 ], [ 0, %256 ], [ 0, %332 ], [ 0, %417 ], [ 0, %511 ], [ %.1.i.i218.i, %634 ]
   %727 = load i64, ptr %19, align 8, !tbaa !41
   %728 = add i64 %727, %.0.i
   store i64 %728, ptr %19, align 8, !tbaa !41

@@ -1018,7 +1018,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %35, %
   br i1 %exitcond.not, label %.thread149, label %126, !llvm.loop !71
 
 .loopexit:                                        ; preds = %107, %101, %.loopexit155
-  %.0124 = phi ptr [ null, %.loopexit155 ], [ %103, %101 ], [ %103, %107 ]
+  %.0124 = phi ptr [ %103, %101 ], [ null, %.loopexit155 ], [ %103, %107 ]
   switch i32 %.093130, label %202 [
     i32 7, label %139
     i32 6, label %.thread149

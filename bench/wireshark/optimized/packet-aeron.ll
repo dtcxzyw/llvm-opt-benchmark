@@ -1978,7 +1978,7 @@ dissect_aeron_rtt.exit.thread164:                 ; preds = %754, %proto_item_se
   br i1 %842, label %100, label %.thread
 
 .thread:                                          ; preds = %dissect_aeron_rtt.exit.thread164, %100, %aeron_frame_info_add.exit, %aeron_format_transport_uri.exit, %dissect_aeron_rtt.exit.thread, %17, %4
-  %.0106 = phi i32 [ 0, %4 ], [ 0, %17 ], [ %838, %dissect_aeron_rtt.exit.thread ], [ 0, %aeron_format_transport_uri.exit ], [ %839, %dissect_aeron_rtt.exit.thread164 ], [ %.0108186, %100 ], [ %.0108186, %aeron_frame_info_add.exit ]
+  %.0106 = phi i32 [ 0, %4 ], [ %838, %dissect_aeron_rtt.exit.thread ], [ 0, %17 ], [ 0, %aeron_format_transport_uri.exit ], [ %839, %dissect_aeron_rtt.exit.thread164 ], [ %.0108186, %100 ], [ %.0108186, %aeron_frame_info_add.exit ]
   ret i32 %.0106
 }
 
@@ -2493,7 +2493,7 @@ copy_address_wmem.exit116:                        ; preds = %copy_address_wmem.e
   br label %221
 
 221:                                              ; preds = %.sink.split, %aeron_is_address_multicast.exit, %aeron_is_address_multicast.exit112, %2
-  %.0 = phi ptr [ null, %2 ], [ %8, %aeron_is_address_multicast.exit112 ], [ %8, %aeron_is_address_multicast.exit ], [ %8, %.sink.split ]
+  %.0 = phi ptr [ null, %2 ], [ %8, %aeron_is_address_multicast.exit ], [ %8, %aeron_is_address_multicast.exit112 ], [ %8, %.sink.split ]
   ret ptr %.0
 }
 
@@ -3495,7 +3495,7 @@ select.unfold.i:                                  ; preds = %350, %348
   br label %aeron_pos_add_length.exit149.thread211.i
 
 aeron_pos_add_length.exit149.thread211.i:         ; preds = %aeron_frame_nak_rx_add.exit.i.i, %select.unfold.i, %aeron_pos_compare.exit151.i, %346, %330, %328, %aeron_pos_compare.exit146.i, %317, %310
-  %.1122.i = phi i32 [ 0, %310 ], [ 0, %346 ], [ 1, %aeron_pos_compare.exit151.i ], [ 0, %select.unfold.i ], [ 1, %328 ], [ 1, %aeron_pos_compare.exit146.i ], [ 2, %317 ], [ 1, %330 ], [ 1, %aeron_frame_nak_rx_add.exit.i.i ]
+  %.1122.i = phi i32 [ 0, %310 ], [ 0, %346 ], [ 1, %aeron_pos_compare.exit151.i ], [ 0, %select.unfold.i ], [ 1, %330 ], [ 1, %328 ], [ 1, %aeron_pos_compare.exit146.i ], [ 2, %317 ], [ 1, %aeron_frame_nak_rx_add.exit.i.i ]
   br i1 %56, label %410, label %434
 
 410:                                              ; preds = %aeron_pos_add_length.exit149.thread211.i

@@ -1554,7 +1554,7 @@ define noundef range(i64 -9223372036854775808, 1152921504606846976) i64 @_ZN6duc
   br label %.loopexit
 
 .split94.us:                                      ; preds = %63, %43, %.split.us
-  %.us-phi95 = phi i64 [ %.061.us98, %43 ], [ %.061.us, %.split.us ], [ %.061, %63 ]
+  %.us-phi95 = phi i64 [ %.061.us, %.split.us ], [ %.061.us98, %43 ], [ %.061, %63 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.not83 = icmp eq i32 %10, 0
@@ -1880,7 +1880,7 @@ define noundef i64 @_ZN6duckdb24utf8proc_normalize_utf32EPilNS_17utf8proc_option
   br i1 %98, label %.lr.ph.split.split.split, label %.loopexit196, !llvm.loop !23
 
 .loopexit196:                                     ; preds = %95, %81, %68, %38, %3
-  %.0 = phi i64 [ %1, %3 ], [ %.1128.us220, %81 ], [ %.1128.us, %38 ], [ %.1128.us210, %68 ], [ %.1128, %95 ]
+  %.0 = phi i64 [ %1, %3 ], [ %.1128.us, %38 ], [ %.1128.us210, %68 ], [ %.1128.us220, %81 ], [ %.1128, %95 ]
   %99 = and i32 %2, 8
   %.not154 = icmp eq i32 %99, 0
   br i1 %.not154, label %.loopexit, label %.preheader
@@ -2294,7 +2294,7 @@ _ZN6duckdb20utf8proc_encode_charEiPh.exit:        ; preds = %.lr.ph39, %72, %76,
   br i1 %exitcond45.not, label %.loopexit, label %.lr.ph39, !llvm.loop !27
 
 .loopexit:                                        ; preds = %_ZN6duckdbL21charbound_encode_charEiPh.exit, %_ZN6duckdb20utf8proc_encode_charEiPh.exit, %.preheader33, %.preheader
-  %.1 = phi i64 [ 0, %.preheader ], [ 0, %.preheader33 ], [ %119, %_ZN6duckdb20utf8proc_encode_charEiPh.exit ], [ %64, %_ZN6duckdbL21charbound_encode_charEiPh.exit ]
+  %.1 = phi i64 [ %119, %_ZN6duckdb20utf8proc_encode_charEiPh.exit ], [ 0, %.preheader ], [ 0, %.preheader33 ], [ %64, %_ZN6duckdbL21charbound_encode_charEiPh.exit ]
   %121 = getelementptr inbounds i8, ptr %0, i64 %.1
   store i8 0, ptr %121, align 1, !tbaa !7
   br label %122

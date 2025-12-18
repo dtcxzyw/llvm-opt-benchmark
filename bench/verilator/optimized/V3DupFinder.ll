@@ -204,7 +204,7 @@ _ZNSt8multimapI6V3HashP7AstNodeSt4lessIS0_ESaISt4pairIKS0_S2_EEE11equal_rangeERS
   br i1 %.not.not, label %.loopexit, label %.lr.ph, !llvm.loop !34
 
 .loopexit:                                        ; preds = %24, %34, %2, %_ZNSt8multimapI6V3HashP7AstNodeSt4lessIS0_ESaISt4pairIKS0_S2_EEE11equal_rangeERS6_.exit, %29
-  %.not14 = phi i64 [ 1, %29 ], [ 0, %_ZNSt8multimapI6V3HashP7AstNodeSt4lessIS0_ESaISt4pairIKS0_S2_EEE11equal_rangeERS6_.exit ], [ 0, %2 ], [ 0, %34 ], [ 0, %24 ]
+  %.not14 = phi i64 [ 1, %29 ], [ 0, %_ZNSt8multimapI6V3HashP7AstNodeSt4lessIS0_ESaISt4pairIKS0_S2_EEE11equal_rangeERS6_.exit ], [ 0, %34 ], [ 0, %2 ], [ 0, %24 ]
   ret i64 %.not14
 }
 
@@ -331,7 +331,7 @@ _ZNSt8multimapI6V3HashP7AstNodeSt4lessIS0_ESaISt4pairIKS0_S2_EEE11equal_rangeERS
   br i1 %.not20, label %._crit_edge, label %.lr.ph.split, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %25, %40, %.critedge, %30, %.critedge.us, %3, %_ZNSt8multimapI6V3HashP7AstNodeSt4lessIS0_ESaISt4pairIKS0_S2_EEE11equal_rangeERS6_.exit
-  %.sroa.016.1 = phi ptr [ %8, %_ZNSt8multimapI6V3HashP7AstNodeSt4lessIS0_ESaISt4pairIKS0_S2_EEE11equal_rangeERS6_.exit ], [ %8, %3 ], [ %8, %.critedge ], [ %8, %.critedge.us ], [ %.sroa.016.025.us, %30 ], [ %.sroa.016.025, %40 ], [ %8, %25 ]
+  %.sroa.016.1 = phi ptr [ %8, %.critedge.us ], [ %8, %_ZNSt8multimapI6V3HashP7AstNodeSt4lessIS0_ESaISt4pairIKS0_S2_EEE11equal_rangeERS6_.exit ], [ %8, %3 ], [ %.sroa.016.025, %40 ], [ %.sroa.016.025.us, %30 ], [ %8, %.critedge ], [ %8, %25 ]
   ret ptr %.sroa.016.1
 }
 
@@ -564,7 +564,7 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   br label %.body
 
 .loopexit:                                        ; preds = %90, %.noexc, %85
-  %.pn.i.i = phi ptr [ %86, %85 ], [ %101, %.noexc ], [ %92, %90 ]
+  %.pn.i.i = phi ptr [ %101, %.noexc ], [ %86, %85 ], [ %92, %90 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 12
   %103 = load i32, ptr %.1.i.i, align 4, !tbaa !65
   %104 = add nsw i32 %103, 1

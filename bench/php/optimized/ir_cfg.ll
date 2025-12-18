@@ -239,7 +239,7 @@ ir_worklist_push.exit:                            ; preds = %.lr.ph, %34
   br i1 %.not541, label %.outer430.backedge, label %.lr.ph457.preheader
 
 .outer430.backedge:                               ; preds = %ir_worklist_push.exit18.i, %104, %127, %136, %92, %124
-  %.sroa.22365.1.ph.be = phi i32 [ %54, %124 ], [ %54, %92 ], [ %54, %127 ], [ %53, %136 ], [ %54, %104 ], [ %.sroa.22365.15, %ir_worklist_push.exit18.i ]
+  %.sroa.22365.1.ph.be = phi i32 [ %54, %124 ], [ %54, %92 ], [ %53, %136 ], [ %54, %127 ], [ %54, %104 ], [ %.sroa.22365.15, %ir_worklist_push.exit18.i ]
   br label %.outer430
 
 .lr.ph457.preheader:                              ; preds = %104
@@ -587,8 +587,8 @@ ir_worklist_push.exit.i348:                       ; preds = %286, %.lr.ph483
   br i1 %293, label %.lr.ph483, label %_ir_add_successors.exit
 
 _ir_add_successors.exit:                          ; preds = %ir_worklist_push.exit.i348, %228, %243, %230, %272, %ir_worklist_push.exit28.i, %ir_bitset_union.exit
-  %.sroa.22365.5 = phi i32 [ %171, %ir_bitset_union.exit ], [ %171, %228 ], [ %.sroa.22365.4, %243 ], [ %171, %230 ], [ %.sroa.22365.20, %ir_worklist_push.exit28.i ], [ %274, %272 ], [ %.sroa.22365.19, %ir_worklist_push.exit.i348 ]
-  %.3 = phi i32 [ %.2306, %ir_bitset_union.exit ], [ %214, %228 ], [ %214, %243 ], [ %214, %230 ], [ %214, %ir_worklist_push.exit28.i ], [ %214, %272 ], [ %214, %ir_worklist_push.exit.i348 ]
+  %.sroa.22365.5 = phi i32 [ %171, %ir_bitset_union.exit ], [ %274, %272 ], [ %171, %228 ], [ %.sroa.22365.4, %243 ], [ %171, %230 ], [ %.sroa.22365.20, %ir_worklist_push.exit28.i ], [ %.sroa.22365.19, %ir_worklist_push.exit.i348 ]
+  %.3 = phi i32 [ %.2306, %ir_bitset_union.exit ], [ %214, %272 ], [ %214, %228 ], [ %214, %243 ], [ %214, %230 ], [ %214, %ir_worklist_push.exit28.i ], [ %214, %ir_worklist_push.exit.i348 ]
   %.not325 = icmp eq i32 %.sroa.22365.5, 0
   br i1 %.not325, label %.loopexit426, label %ir_bitset_union.exit
 
@@ -742,10 +742,10 @@ _ir_add_successors.exit:                          ; preds = %ir_worklist_push.ex
   br i1 %.not331485, label %.outer._crit_edge, label %.lr.ph487
 
 .outer._crit_edge:                                ; preds = %.outer, %320, %305
-  %.1311.ph.lcssa = phi ptr [ %.0310507, %305 ], [ %.1311.ph498, %320 ], [ %365, %.outer ]
-  %.1308.ph.lcssa = phi i32 [ %.0307508, %305 ], [ %.1308.ph499, %320 ], [ %.2309, %.outer ]
-  %.1302.ph.lcssa = phi i32 [ %.0301509, %305 ], [ %.1302.ph500, %320 ], [ %.2303, %.outer ]
-  %.1298.ph.lcssa = phi i32 [ %.0297510, %305 ], [ %.1298.ph501, %320 ], [ %364, %.outer ]
+  %.1311.ph.lcssa = phi ptr [ %.1311.ph498, %320 ], [ %.0310507, %305 ], [ %365, %.outer ]
+  %.1308.ph.lcssa = phi i32 [ %.1308.ph499, %320 ], [ %.0307508, %305 ], [ %.2309, %.outer ]
+  %.1302.ph.lcssa = phi i32 [ %.1302.ph500, %320 ], [ %.0301509, %305 ], [ %.2303, %.outer ]
+  %.1298.ph.lcssa = phi i32 [ %.1298.ph501, %320 ], [ %.0297510, %305 ], [ %364, %.outer ]
   %366 = getelementptr inbounds nuw i8, ptr %.0295511, i64 8
   %367 = add nuw nsw i32 %.0294512, 1
   %exitcond584.not = icmp eq i32 %367, %4
@@ -974,7 +974,7 @@ ir_worklist_push.exit342:                         ; preds = %461, %471
   br label %ir_worklist_push.exit344
 
 ir_worklist_push.exit344:                         ; preds = %ir_worklist_push.exit342, %495, %481, %479
-  %.sroa.22365.8 = phi i32 [ %445, %479 ], [ %445, %481 ], [ %.sroa.22365.6535, %495 ], [ %.sroa.22365.12, %ir_worklist_push.exit342 ]
+  %.sroa.22365.8 = phi i32 [ %.sroa.22365.6535, %495 ], [ %445, %479 ], [ %445, %481 ], [ %.sroa.22365.12, %ir_worklist_push.exit342 ]
   %.not329 = icmp eq i32 %.sroa.22365.8, 0
   br i1 %.not329, label %._crit_edge538, label %.lr.ph537
 
@@ -3499,8 +3499,8 @@ ir_bitqueue_pop.exit.i67:                         ; preds = %347
   br i1 %.not570.i, label %.thread638.i, label %.lr.ph696.i
 
 .thread638.i:                                     ; preds = %395, %392, %.outer.i
-  %.1489677.i = phi i32 [ %.1489.ph.i, %.outer.i ], [ %.1489695.i, %392 ], [ %372, %395 ]
-  %405 = phi ptr [ %361, %.outer.i ], [ %365, %392 ], [ %402, %395 ]
+  %.1489677.i = phi i32 [ %.1489695.i, %392 ], [ %.1489.ph.i, %.outer.i ], [ %372, %395 ]
+  %405 = phi ptr [ %365, %392 ], [ %361, %.outer.i ], [ %402, %395 ]
   %406 = and i32 %.1489677.i, 63
   %407 = zext nneg i32 %406 to i64
   %408 = shl nuw i64 1, %407
@@ -3648,12 +3648,6 @@ _ir_skip_empty_blocks.exit.i:                     ; preds = %.lr.ph.i.i, %ir_bit
   store float %466, ptr %499, align 4, !tbaa !75
   %500 = add i32 %.0487.ph.i.ph, 1
   br label %.outer656.i.outer.backedge
-
-.outer656.i.outer.backedge:                       ; preds = %_ir_skip_empty_blocks.exit616.i, %_ir_skip_empty_blocks.exit.i, %634, %_ir_skip_empty_blocks.exit611.i, %649
-  %.sroa.4.0.ph.i.ph.be = phi i32 [ %.sroa.4.2.i, %_ir_skip_empty_blocks.exit.i ], [ %.sroa.4.5.i, %649 ], [ %.sroa.4.5.i, %_ir_skip_empty_blocks.exit611.i ], [ %.sroa.4.4.i, %634 ], [ %.sroa.4.7.i, %_ir_skip_empty_blocks.exit616.i ]
-  %.0505.ph.i.ph.be = phi ptr [ %.1506.ph.i, %_ir_skip_empty_blocks.exit.i ], [ %.4509.i, %649 ], [ %.4509.i, %_ir_skip_empty_blocks.exit611.i ], [ %636, %634 ], [ %.1506.ph.i, %_ir_skip_empty_blocks.exit616.i ]
-  %.0487.ph.i.ph.be = phi i32 [ %500, %_ir_skip_empty_blocks.exit.i ], [ %.3.i70, %649 ], [ %682, %_ir_skip_empty_blocks.exit611.i ], [ %.3.i70, %634 ], [ %751, %_ir_skip_empty_blocks.exit616.i ]
-  br label %.outer656.i.outer
 
 501:                                              ; preds = %456
   %502 = load ptr, ptr %0, align 8, !tbaa !32
@@ -3936,6 +3930,12 @@ ir_bitqueue_add.exit594.i:                        ; preds = %637, %618
   store i32 %655, ptr %658, align 4, !tbaa !33
   store i32 %652, ptr %653, align 4, !tbaa !65
   br label %.outer656.i.outer.backedge
+
+.outer656.i.outer.backedge:                       ; preds = %_ir_skip_empty_blocks.exit616.i, %649, %_ir_skip_empty_blocks.exit.i, %634, %_ir_skip_empty_blocks.exit611.i
+  %.sroa.4.0.ph.i.ph.be = phi i32 [ %.sroa.4.5.i, %649 ], [ %.sroa.4.5.i, %_ir_skip_empty_blocks.exit611.i ], [ %.sroa.4.4.i, %634 ], [ %.sroa.4.2.i, %_ir_skip_empty_blocks.exit.i ], [ %.sroa.4.7.i, %_ir_skip_empty_blocks.exit616.i ]
+  %.0505.ph.i.ph.be = phi ptr [ %.4509.i, %649 ], [ %.4509.i, %_ir_skip_empty_blocks.exit611.i ], [ %636, %634 ], [ %.1506.ph.i, %_ir_skip_empty_blocks.exit.i ], [ %.1506.ph.i, %_ir_skip_empty_blocks.exit616.i ]
+  %.0487.ph.i.ph.be = phi i32 [ %.3.i70, %649 ], [ %682, %_ir_skip_empty_blocks.exit611.i ], [ %.3.i70, %634 ], [ %500, %_ir_skip_empty_blocks.exit.i ], [ %751, %_ir_skip_empty_blocks.exit616.i ]
+  br label %.outer656.i.outer
 
 666:                                              ; preds = %ir_bitqueue_add.exit594.i
   br i1 %.not589.i, label %.lr.ph.i609.i.preheader, label %_ir_skip_empty_blocks.exit611.i

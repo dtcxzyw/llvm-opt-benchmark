@@ -5058,7 +5058,7 @@ _ZN6rustls5tls1312key_schedule11KeySchedule21derive_for_empty_hash17hbca0ec443c9
   br i1 %91, label %94, label %.lr.ph.i.i.i.i3.i
 
 .body:                                            ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i.i, %92
-  %.pn.pn = phi { ptr, i32 } [ %93, %92 ], [ %.pn.i, %.lr.ph.i.i.i.i.i ], [ %.pn, %.lr.ph.i.i.i.i ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn.i, %.lr.ph.i.i.i.i.i ], [ %93, %92 ], [ %.pn, %.lr.ph.i.i.i.i ]
   invoke void @"_ZN4core3ptr61drop_in_place$LT$rustls..tls13..key_schedule..KeySchedule$GT$17h2ea041ea81ebe203E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1) #38
           to label %118 unwind label %116
 
@@ -5744,7 +5744,7 @@ define hidden void @_ZN6rustls5tls1312key_schedule18KeyScheduleTraffic15extract_
   br i1 %80, label %"_ZN4core3ptr52drop_in_place$LT$rustls..crypto..cipher..AeadKey$GT$17h61f27da9a0c60915E.exit46", label %.lr.ph.i.i.i.i37
 
 "_ZN4core3ptr52drop_in_place$LT$rustls..crypto..cipher..AeadKey$GT$17h61f27da9a0c60915E.exit46": ; preds = %.lr.ph.i.i.i.i42, %.lr.ph.i.i.i.i37, %59
-  %.pn3352 = phi { ptr, i32 } [ %60, %59 ], [ %79, %.lr.ph.i.i.i.i37 ], [ %82, %.lr.ph.i.i.i.i42 ]
+  %.pn3352 = phi { ptr, i32 } [ %79, %.lr.ph.i.i.i.i37 ], [ %60, %59 ], [ %82, %.lr.ph.i.i.i.i42 ]
   resume { ptr, i32 } %.pn3352
 
 81:                                               ; preds = %41, %3
@@ -11058,8 +11058,8 @@ define hidden void @_ZN6rustls6server5tls1312client_hello27CompleteClientHelloHa
   br label %.body
 
 .loopexit.split-lp681:                            ; preds = %101, %181, %193, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17h381dd6d496f36450E.llvm.9964311202002838858.exit.i", %79, %84, %96, %110, %113, %142, %153, %166, %188, %204, %469, %728
-  %.0277.ph = phi i8 [ 1, %84 ], [ 1, %96 ], [ 1, %101 ], [ 1, %110 ], [ 1, %142 ], [ 0, %728 ], [ %.7284, %469 ], [ 1, %166 ], [ 1, %181 ], [ 1, %193 ], [ 1, %204 ], [ 1, %153 ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17h381dd6d496f36450E.llvm.9964311202002838858.exit.i" ], [ 1, %79 ], [ 1, %188 ], [ 1, %113 ]
-  %.0266.ph = phi i8 [ 1, %84 ], [ 1, %96 ], [ 1, %101 ], [ 1, %110 ], [ 1, %142 ], [ 0, %728 ], [ 1, %469 ], [ 1, %166 ], [ 1, %181 ], [ 1, %193 ], [ 1, %204 ], [ 1, %153 ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17h381dd6d496f36450E.llvm.9964311202002838858.exit.i" ], [ 1, %79 ], [ 1, %188 ], [ 1, %113 ]
+  %.0277.ph = phi i8 [ 1, %96 ], [ 1, %101 ], [ 1, %110 ], [ 1, %142 ], [ 1, %84 ], [ 0, %728 ], [ %.7284, %469 ], [ 1, %166 ], [ 1, %181 ], [ 1, %193 ], [ 1, %204 ], [ 1, %153 ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17h381dd6d496f36450E.llvm.9964311202002838858.exit.i" ], [ 1, %79 ], [ 1, %188 ], [ 1, %113 ]
+  %.0266.ph = phi i8 [ 1, %96 ], [ 1, %101 ], [ 1, %110 ], [ 1, %142 ], [ 1, %84 ], [ 0, %728 ], [ 1, %469 ], [ 1, %166 ], [ 1, %181 ], [ 1, %193 ], [ 1, %204 ], [ 1, %153 ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17h381dd6d496f36450E.llvm.9964311202002838858.exit.i" ], [ 1, %79 ], [ 1, %188 ], [ 1, %113 ]
   %lpad.loopexit.split-lp683 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -11482,7 +11482,7 @@ _ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit: ; preds
   br label %.body409
 
 .loopexit.split-lp:                               ; preds = %_ZN6rustls4msgs9handshake18ClientHelloPayload3psk17h3a60485165861284E.exit.thread, %257, %457, %479, %498, %738, %534, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17h91cc4e0d878466ecE.exit", %249, %_ZN6rustls4msgs9handshake18ClientHelloPayload21check_psk_ext_is_last17h554d9d9846e852adE.exit.thread, %266, %271, %299, %492, %518
-  %.4281.ph = phi i8 [ 1, %249 ], [ 1, %_ZN6rustls4msgs9handshake18ClientHelloPayload21check_psk_ext_is_last17h554d9d9846e852adE.exit.thread ], [ 1, %257 ], [ 1, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17h91cc4e0d878466ecE.exit" ], [ 1, %457 ], [ 1, %_ZN6rustls4msgs9handshake18ClientHelloPayload3psk17h3a60485165861284E.exit.thread ], [ 1, %479 ], [ 1, %492 ], [ 1, %518 ], [ 1, %498 ], [ 1, %534 ], [ 0, %738 ], [ 1, %299 ], [ 1, %271 ], [ 1, %266 ]
+  %.4281.ph = phi i8 [ 1, %457 ], [ 1, %_ZN6rustls4msgs9handshake18ClientHelloPayload3psk17h3a60485165861284E.exit.thread ], [ 1, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17h91cc4e0d878466ecE.exit" ], [ 1, %257 ], [ 1, %_ZN6rustls4msgs9handshake18ClientHelloPayload21check_psk_ext_is_last17h554d9d9846e852adE.exit.thread ], [ 1, %479 ], [ 1, %492 ], [ 1, %518 ], [ 1, %498 ], [ 1, %249 ], [ 1, %534 ], [ 0, %738 ], [ 1, %299 ], [ 1, %271 ], [ 1, %266 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body409
@@ -12823,8 +12823,8 @@ _ZN6rustls12common_state11CommonState22start_outgoing_traffic17hbb62ca2585324154
   br label %466
 
 740:                                              ; preds = %573, %575
-  %.10 = phi i8 [ %.9286, %573 ], [ 0, %575 ]
-  %.pn306 = phi { ptr, i32 } [ %574, %573 ], [ %576, %575 ]
+  %.10 = phi i8 [ 0, %575 ], [ %.9286, %573 ]
+  %.pn306 = phi { ptr, i32 } [ %576, %575 ], [ %574, %573 ]
   invoke void @"_ZN4core3ptr70drop_in_place$LT$rustls..tls13..key_schedule..KeyScheduleHandshake$GT$17h688a3408f5bb4a3fE"(ptr noalias noundef nonnull align 8 dereferenceable(168) %60) #38
           to label %.body409 unwind label %240
 
@@ -15647,8 +15647,8 @@ _ZN6rustls5tls1312key_schedule20KeyScheduleHandshake18sign_server_finish17h14d81
   unreachable
 
 .body:                                            ; preds = %.lr.ph.i.i.i.i22.i, %158, %.body33, %.body.i, %34
-  %.2 = phi i1 [ true, %.body33 ], [ true, %34 ], [ true, %.body.i ], [ true, %158 ], [ false, %.lr.ph.i.i.i.i22.i ]
-  %.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %.body33 ], [ %35, %34 ], [ %46, %.body.i ], [ %lpad.thr_comm, %158 ], [ %.pn.pn.i, %.lr.ph.i.i.i.i22.i ]
+  %.2 = phi i1 [ true, %158 ], [ true, %.body33 ], [ true, %34 ], [ true, %.body.i ], [ false, %.lr.ph.i.i.i.i22.i ]
+  %.pn = phi { ptr, i32 } [ %lpad.thr_comm, %158 ], [ %lpad.thr_comm.split-lp, %.body33 ], [ %35, %34 ], [ %46, %.body.i ], [ %.pn.pn.i, %.lr.ph.i.i.i.i22.i ]
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i, %.body

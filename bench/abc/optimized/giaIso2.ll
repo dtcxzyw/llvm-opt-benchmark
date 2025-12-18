@@ -1186,7 +1186,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br i1 %92, label %86, label %.critedge4, !llvm.loop !71
 
 .critedge4:                                       ; preds = %86, %.critedge, %.critedge2
-  %93 = phi ptr [ %82, %.critedge2 ], [ %9, %.critedge ], [ %82, %86 ]
+  %93 = phi ptr [ %9, %.critedge ], [ %82, %.critedge2 ], [ %82, %86 ]
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %95 = load ptr, ptr %94, align 8, !tbaa !59
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 4
@@ -1914,7 +1914,7 @@ Vec_WrdPush.exit.i.i:                             ; preds = %204, %Vec_WrdGrow.e
   br label %Hsh_IntManAdd.exit.i
 
 Hsh_IntManAdd.exit.i:                             ; preds = %Hsh_IntObj.exit.i.i.i, %Vec_WrdPush.exit.i.i, %Hsh_IntObj.exit.lr.ph.split.i.i.i, %Hsh_IntObj.exit.lr.ph.i.i.i
-  %.030.i.i = phi i32 [ %207, %Vec_WrdPush.exit.i.i ], [ %161, %Hsh_IntObj.exit.lr.ph.split.i.i.i ], [ %161, %Hsh_IntObj.exit.lr.ph.i.i.i ], [ %174, %Hsh_IntObj.exit.i.i.i ]
+  %.030.i.i = phi i32 [ %207, %Vec_WrdPush.exit.i.i ], [ %161, %Hsh_IntObj.exit.lr.ph.i.i.i ], [ %161, %Hsh_IntObj.exit.lr.ph.split.i.i.i ], [ %174, %Hsh_IntObj.exit.i.i.i ]
   %211 = load i32, ptr %52, align 4, !tbaa !28
   %212 = load i32, ptr %51, align 8, !tbaa !31
   %213 = icmp eq i32 %211, %212

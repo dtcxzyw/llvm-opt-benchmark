@@ -5226,7 +5226,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit171: ; preds = %24
   br label %.loopexit361
 
 .loopexit361.sink.split:                          ; preds = %.thread, %.thread353, %.thread480
-  %.pn135.pn.pn.pn.pn352.ph = phi { ptr, i32 } [ %.pn135.pn.pn, %.thread353 ], [ %117, %.thread480 ], [ %242, %.thread ]
+  %.pn135.pn.pn.pn.pn352.ph = phi { ptr, i32 } [ %117, %.thread480 ], [ %.pn135.pn.pn, %.thread353 ], [ %242, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   br label %.loopexit361
 

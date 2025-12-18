@@ -1236,7 +1236,7 @@ define range(i32 -1, 1) i32 @H5HF__huge_get_obj_len(ptr noundef captures(none) %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %56, %97, %3, %77, %105, %72, %36, %64, %26, %191
-  %.0102 = phi i32 [ 0, %26 ], [ 0, %36 ], [ 0, %3 ], [ 0, %64 ], [ 0, %72 ], [ 0, %77 ], [ 0, %105 ], [ %.1103, %191 ], [ 0, %97 ], [ 0, %56 ]
+  %.0102 = phi i32 [ 0, %26 ], [ 0, %36 ], [ 0, %3 ], [ 0, %64 ], [ 0, %72 ], [ 0, %77 ], [ 0, %97 ], [ 0, %105 ], [ %.1103, %191 ], [ 0, %56 ]
   ret i32 %.0102
 }
 
@@ -2038,7 +2038,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5HF__huge_op_real(ptr noundef %0, 
   br label %237
 
 185:                                              ; preds = %147, %181
-  %.3 = phi i64 [ %150, %147 ], [ %184, %181 ]
+  %.3 = phi i64 [ %184, %181 ], [ %150, %147 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %.pre = load i32, ptr %116, align 4, !tbaa !10
   %186 = icmp eq i32 %.pre, 0

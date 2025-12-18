@@ -1303,8 +1303,8 @@ celt_search_for_tf.exit.loopexit47:               ; preds = %.split.us.us.split.
   br label %celt_search_for_tf.exit
 
 celt_search_for_tf.exit:                          ; preds = %.split97.us.split.i, %.split97.i, %celt_search_for_tf.exit.loopexit47
-  %.sroa.5.0..sroa.5.0..sroa.5.4. = phi float [ %.sroa.5.0..sroa.5.0..sroa.5.0..sroa.5.4..pre, %celt_search_for_tf.exit.loopexit47 ], [ 0.000000e+00, %.split97.i ], [ 0.000000e+00, %.split97.us.split.i ]
-  %.sroa.034.0..sroa.034.0..sroa.034.0. = phi float [ %.sroa.034.0..sroa.034.0..sroa.034.0..sroa.034.0..pre, %celt_search_for_tf.exit.loopexit47 ], [ 0.000000e+00, %.split97.i ], [ 0.000000e+00, %.split97.us.split.i ]
+  %.sroa.5.0..sroa.5.0..sroa.5.4. = phi float [ 0.000000e+00, %.split97.i ], [ %.sroa.5.0..sroa.5.0..sroa.5.0..sroa.5.4..pre, %celt_search_for_tf.exit.loopexit47 ], [ 0.000000e+00, %.split97.us.split.i ]
+  %.sroa.034.0..sroa.034.0..sroa.034.0. = phi float [ 0.000000e+00, %.split97.i ], [ %.sroa.034.0..sroa.034.0..sroa.034.0..sroa.034.0..pre, %celt_search_for_tf.exit.loopexit47 ], [ 0.000000e+00, %.split97.us.split.i ]
   %175 = fcmp nsz olt float %.sroa.034.0..sroa.034.0..sroa.034.0., %.sroa.5.0..sroa.5.0..sroa.5.4.
   %176 = zext i1 %175 to i32
   %177 = getelementptr inbounds nuw i8, ptr %1, i64 33936

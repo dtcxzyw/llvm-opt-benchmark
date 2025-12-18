@@ -189,7 +189,7 @@ _ZNK6recfun4util10is_definedEP9func_decl.exit:    ; preds = %_ZNK4decl13get_fami
   br i1 %.not27.old.i.i.i.i.i, label %_ZNK6recfun4util10is_definedEP9func_decl.exit.thread, label %.lr.ph38.i.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.i.backedge:                      ; preds = %59, %56
-  %.137.i.i.i.i.i.be = phi ptr [ %.old.i.i.i.i.i, %59 ], [ %58, %56 ]
+  %.137.i.i.i.i.i.be = phi ptr [ %58, %56 ], [ %.old.i.i.i.i.i, %59 ]
   br label %.lr.ph38.i.i.i.i.i, !llvm.loop !36
 
 _ZNK6recfun4util7has_defEP9func_decl.exit:        ; preds = %40, %51
@@ -648,7 +648,7 @@ _ZNK8datatype4util13is_recognizerEPK4expr.exit.thread34.i: ; preds = %_ZNK8datat
   br label %270
 
 .critedge.i:                                      ; preds = %"_ZZZN15recfun_rewriter11mk_app_coreEP9func_decljPKP4exprR7obj_refIS2_11ast_managerEENK3$_0clEjENKUlS3_E_clES3_.exit.thread.i.i", %_ZNK8datatype4util13is_recognizerEPK4expr.exit.thread34.i, %_ZNK8datatype4util13is_recognizerEPK4expr.exit.i, %256, %.noexc31.i, %_ZNK8datatype4util5is_isEPK4expr.exit.thread.i, %_ZNK8datatype4util5is_isEPK4expr.exit.i, %_ZNK8datatype4util11is_accessorEPK4expr.exit.i, %187, %182
-  %.1.i = phi i1 [ %.0.i, %_ZNK8datatype4util11is_accessorEPK4expr.exit.i ], [ %.0.i, %_ZNK8datatype4util5is_isEPK4expr.exit.i ], [ %.0.i, %182 ], [ %.0.i, %_ZNK8datatype4util13is_recognizerEPK4expr.exit.thread34.i ], [ false, %_ZNK8datatype4util13is_recognizerEPK4expr.exit.i ], [ %.0.i, %187 ], [ false, %_ZNK8datatype4util5is_isEPK4expr.exit.thread.i ], [ false, %.noexc31.i ], [ false, %256 ], [ %.0.i, %"_ZZZN15recfun_rewriter11mk_app_coreEP9func_decljPKP4exprR7obj_refIS2_11ast_managerEENK3$_0clEjENKUlS3_E_clES3_.exit.thread.i.i" ]
+  %.1.i = phi i1 [ %.0.i, %_ZNK8datatype4util11is_accessorEPK4expr.exit.i ], [ %.0.i, %_ZNK8datatype4util5is_isEPK4expr.exit.i ], [ %.0.i, %182 ], [ false, %256 ], [ %.0.i, %_ZNK8datatype4util13is_recognizerEPK4expr.exit.thread34.i ], [ false, %_ZNK8datatype4util13is_recognizerEPK4expr.exit.i ], [ %.0.i, %187 ], [ false, %_ZNK8datatype4util5is_isEPK4expr.exit.thread.i ], [ false, %.noexc31.i ], [ %.0.i, %"_ZZZN15recfun_rewriter11mk_app_coreEP9func_decljPKP4exprR7obj_refIS2_11ast_managerEENK3$_0clEjENKUlS3_E_clES3_.exit.thread.i.i" ]
   %269 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN8subterms8iteratorppEv(ptr noundef nonnull align 8 dereferenceable(56) %8)
           to label %.preheader.i unwind label %178
 
@@ -751,7 +751,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %288, %281, %278
   br label %common.resume
 
 _ZNK6recfun4util10is_definedEP9func_decl.exit.thread: ; preds = %45, %59, %56, %273, %89, %92, %.preheader.i.i.i.i.i, %5, %_ZNK4decl13get_family_idEv.exit.thread.i.i, %_ZN7obj_refI4expr11ast_managerED2Ev.exit, %_ZNK6recfun4util10is_definedEP9func_decl.exit, %_ZN6recfun4util7get_defEP9func_decl.exit
-  %.0 = phi i32 [ 5, %5 ], [ 5, %_ZN6recfun4util7get_defEP9func_decl.exit ], [ 5, %_ZNK6recfun4util10is_definedEP9func_decl.exit ], [ 3, %_ZN7obj_refI4expr11ast_managerED2Ev.exit ], [ 5, %273 ], [ 5, %_ZNK4decl13get_family_idEv.exit.thread.i.i ], [ 5, %.preheader.i.i.i.i.i ], [ 5, %89 ], [ 5, %92 ], [ 5, %59 ], [ 5, %56 ], [ 5, %45 ]
+  %.0 = phi i32 [ 5, %5 ], [ 5, %_ZN6recfun4util7get_defEP9func_decl.exit ], [ 5, %59 ], [ 5, %_ZNK6recfun4util10is_definedEP9func_decl.exit ], [ 3, %_ZN7obj_refI4expr11ast_managerED2Ev.exit ], [ 5, %273 ], [ 5, %_ZNK4decl13get_family_idEv.exit.thread.i.i ], [ 5, %.preheader.i.i.i.i.i ], [ 5, %92 ], [ 5, %89 ], [ 5, %56 ], [ 5, %45 ]
   ret i32 %.0
 }
 

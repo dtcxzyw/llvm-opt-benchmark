@@ -778,7 +778,7 @@ define ptr @Java_sun_print_CUPSPrinter_getOutputBins(ptr noundef %0, ptr noundef
   br i1 %exitcond.not, label %.thread, label %55, !llvm.loop !11
 
 .thread:                                          ; preds = %89, %32, %35
-  %.0 = phi ptr [ null, %35 ], [ null, %32 ], [ %44, %89 ]
+  %.0 = phi ptr [ null, %32 ], [ null, %35 ], [ %44, %89 ]
   %98 = load ptr, ptr @j2d_ppdClose, align 8
   tail call void %98(ptr noundef nonnull %28) #5
   %99 = tail call i32 @unlink(ptr noundef nonnull %15) #5

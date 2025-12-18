@@ -1118,7 +1118,7 @@ define internal fastcc range(i32 0, 8) i32 @bsdf_init_distance_map(ptr noundef n
   br i1 %exitcond169.not, label %._crit_edge.us142, label %.lr.ph.split.us.us143, !llvm.loop !110
 
 .loopexit:                                        ; preds = %._crit_edge.us, %._crit_edge.us142, %.preheader.lr.ph, %.preheader128.lr.ph, %.preheader129, %.preheader127, %17, %13, %2, %8
-  %.099 = phi i32 [ 6, %2 ], [ 6, %13 ], [ 6, %8 ], [ 7, %17 ], [ 0, %.preheader127 ], [ 0, %.preheader129 ], [ 0, %.preheader.lr.ph ], [ 0, %.preheader128.lr.ph ], [ 0, %._crit_edge.us142 ], [ 0, %._crit_edge.us ]
+  %.099 = phi i32 [ 7, %17 ], [ 6, %2 ], [ 0, %.preheader127 ], [ 6, %13 ], [ 6, %8 ], [ 0, %.preheader129 ], [ 0, %.preheader.lr.ph ], [ 0, %.preheader128.lr.ph ], [ 0, %._crit_edge.us142 ], [ 0, %._crit_edge.us ]
   ret i32 %.099
 }
 
@@ -1539,7 +1539,7 @@ bsdf_is_edge.exit.thread46:                       ; preds = %88, %17
   br i1 %265, label %.preheader, label %.loopexit, !llvm.loop !116
 
 .loopexit:                                        ; preds = %._crit_edge, %.preheader.lr.ph, %.preheader59, %1
-  %.0 = phi i32 [ 6, %1 ], [ 0, %.preheader59 ], [ 0, %.preheader.lr.ph ], [ 0, %._crit_edge ]
+  %.0 = phi i32 [ 6, %1 ], [ 0, %.preheader.lr.ph ], [ 0, %.preheader59 ], [ 0, %._crit_edge ]
   ret i32 %.0
 }
 
@@ -2067,7 +2067,7 @@ compare_neighbor.exit35.us46.i13:                 ; preds = %246, %238, %232
   br i1 %249, label %.preheader.us43.i8, label %second_pass.exit, !llvm.loop !122
 
 second_pass.exit:                                 ; preds = %._crit_edge40.us48.i15, %._crit_edge40.us.i28.loopexit, %13, %.preheader.lr.ph.split.i6, %first_pass.exit, %1
-  %.0 = phi i32 [ 6, %1 ], [ 0, %first_pass.exit ], [ 0, %.preheader.lr.ph.split.i6 ], [ 0, %13 ], [ 0, %._crit_edge40.us.i28.loopexit ], [ 0, %._crit_edge40.us48.i15 ]
+  %.0 = phi i32 [ 6, %1 ], [ 0, %._crit_edge40.us.i28.loopexit ], [ 0, %first_pass.exit ], [ 0, %13 ], [ 0, %.preheader.lr.ph.split.i6 ], [ 0, %._crit_edge40.us48.i15 ]
   ret i32 %.0
 }
 
@@ -2156,7 +2156,7 @@ define internal fastcc range(i32 0, 7) i32 @finalize_sdf(ptr noundef nonnull rea
   br i1 %exitcond56.not, label %.loopexit, label %.preheader.us, !llvm.loop !128
 
 .loopexit:                                        ; preds = %._crit_edge.us, %.preheader.lr.ph, %13, %2, %10
-  %.037 = phi i32 [ 6, %10 ], [ 6, %2 ], [ 0, %13 ], [ 0, %.preheader.lr.ph ], [ 0, %._crit_edge.us ]
+  %.037 = phi i32 [ 6, %2 ], [ 6, %10 ], [ 0, %13 ], [ 0, %.preheader.lr.ph ], [ 0, %._crit_edge.us ]
   ret i32 %.037
 }
 
@@ -3885,15 +3885,15 @@ get_min_distance_line.exit.i.us.us.i:             ; preds = %711, %648
   br i1 %.not162.i, label %.preheader.i, label %172
 
 .loopexit.sink.split.i:                           ; preds = %224, %101, %90, %.loopexit
-  %.sink.i = phi i32 [ 6, %90 ], [ 6, %.loopexit ], [ 19, %101 ], [ 6, %224 ]
-  %.0140.ph.i = phi ptr [ null, %90 ], [ null, %.loopexit ], [ %99, %101 ], [ %99, %224 ]
-  %.0135.ph.i = phi ptr [ null, %90 ], [ null, %.loopexit ], [ %91, %101 ], [ %91, %224 ]
+  %.sink.i = phi i32 [ 6, %90 ], [ 19, %101 ], [ 6, %.loopexit ], [ 6, %224 ]
+  %.0140.ph.i = phi ptr [ null, %90 ], [ %99, %101 ], [ null, %.loopexit ], [ %99, %224 ]
+  %.0135.ph.i = phi ptr [ null, %90 ], [ %91, %101 ], [ null, %.loopexit ], [ %91, %224 ]
   store i32 %.sink.i, ptr %14, align 4, !tbaa !21
   br label %sdf_generate_bounding_box.exit
 
 sdf_generate_bounding_box.exit:                   ; preds = %._crit_edge247.split.us256.i, %._crit_edge247.split.us.us.us.i, %92, %.preheader.i, %.lr.ph249.i, %.loopexit.sink.split.i
-  %.0140.i = phi ptr [ %99, %92 ], [ %99, %.preheader.i ], [ %99, %.lr.ph249.i ], [ %.0140.ph.i, %.loopexit.sink.split.i ], [ %99, %._crit_edge247.split.us.us.us.i ], [ %99, %._crit_edge247.split.us256.i ]
-  %.0135.i = phi ptr [ %91, %92 ], [ %91, %.preheader.i ], [ %91, %.lr.ph249.i ], [ %.0135.ph.i, %.loopexit.sink.split.i ], [ %91, %._crit_edge247.split.us.us.us.i ], [ %91, %._crit_edge247.split.us256.i ]
+  %.0140.i = phi ptr [ %99, %._crit_edge247.split.us.us.us.i ], [ %99, %92 ], [ %99, %.lr.ph249.i ], [ %99, %.preheader.i ], [ %.0140.ph.i, %.loopexit.sink.split.i ], [ %99, %._crit_edge247.split.us256.i ]
+  %.0135.i = phi ptr [ %91, %._crit_edge247.split.us.us.us.i ], [ %91, %92 ], [ %91, %.lr.ph249.i ], [ %91, %.preheader.i ], [ %.0135.ph.i, %.loopexit.sink.split.i ], [ %91, %._crit_edge247.split.us256.i ]
   call void @ft_mem_free(ptr noundef %.0135.i, ptr noundef %.0140.i) #12
   %763 = load i32, ptr %14, align 4, !tbaa !21
   call void @llvm.lifetime.end.p0(ptr nonnull %14)

@@ -5300,8 +5300,8 @@ define internal fastcc i32 @snd_pcm_action_group(ptr noundef readonly captures(n
   br i1 %103, label %.loopexit, label %95, !llvm.loop !52
 
 .loopexit:                                        ; preds = %51, %22, %.preheader, %95, %79, %75, %.loopexit17
-  %104 = phi i32 [ %73, %75 ], [ %61, %.loopexit17 ], [ %73, %79 ], [ %24, %22 ], [ %61, %95 ], [ %73, %.preheader ], [ %53, %51 ]
-  %105 = phi ptr [ null, %75 ], [ %64, %.loopexit17 ], [ null, %79 ], [ %11, %22 ], [ %100, %95 ], [ null, %.preheader ], [ %45, %51 ]
+  %104 = phi i32 [ %73, %75 ], [ %61, %.loopexit17 ], [ %73, %79 ], [ %73, %.preheader ], [ %24, %22 ], [ %61, %95 ], [ %53, %51 ]
+  %105 = phi ptr [ null, %75 ], [ %64, %.loopexit17 ], [ null, %79 ], [ null, %.preheader ], [ %11, %22 ], [ %100, %95 ], [ %45, %51 ]
   %106 = load ptr, ptr %5, align 8
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 40
   br i1 %3, label %.split.us, label %.split
@@ -11111,7 +11111,7 @@ define internal fastcc i32 @snd_pcm_ioctl_xfern_compat(ptr noundef nonnull %0, i
   br label %.thread.sink.split
 
 .thread.sink.split:                               ; preds = %.preheader, %.loopexit, %69
-  %.ph = phi i32 [ %67, %.loopexit ], [ %77, %69 ], [ -14, %.preheader ]
+  %.ph = phi i32 [ %77, %69 ], [ %67, %.loopexit ], [ -14, %.preheader ]
   tail call void @kfree(ptr noundef nonnull %46) #18
   br label %.thread
 

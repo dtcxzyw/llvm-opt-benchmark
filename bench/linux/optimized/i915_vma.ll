@@ -1943,7 +1943,7 @@ define dso_local i32 @i915_vma_pin_ww(ptr noundef %0, ptr noundef %1, i64 nounde
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph47, %._crit_edge46, %103, %302, %._crit_edge48, %19
-  %305 = phi i32 [ 0, %19 ], [ %60, %._crit_edge46 ], [ %263, %._crit_edge48 ], [ %263, %302 ], [ %96, %103 ], [ %263, %.lr.ph47 ], [ 0, %.lr.ph ]
+  %305 = phi i32 [ 0, %19 ], [ %263, %.lr.ph47 ], [ %60, %._crit_edge46 ], [ %263, %._crit_edge48 ], [ %263, %302 ], [ %96, %103 ], [ 0, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %305
 }
@@ -4461,7 +4461,7 @@ define internal fastcc ptr @intel_rotate_pages(ptr noundef %0, ptr noundef %1) u
   br i1 %92, label %.loopexit5, label %.split, !llvm.loop !70
 
 .loopexit5:                                       ; preds = %89, %.split.us.split, %.split.us, %15
-  %93 = phi ptr [ %18, %15 ], [ %18, %.split.us ], [ %54, %.split.us.split ], [ %90, %89 ]
+  %93 = phi ptr [ %18, %15 ], [ %54, %.split.us.split ], [ %18, %.split.us ], [ %90, %89 ]
   br i1 %16, label %15, label %.loopexit6, !llvm.loop !72
 
 94:                                               ; preds = %9

@@ -1450,7 +1450,7 @@ define range(i32 0, 2) i32 @button_pressed(ptr noundef readonly captures(none) %
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %7, %62, %24, %20, %18
-  %.0 = phi i32 [ 0, %18 ], [ 0, %20 ], [ 0, %62 ], [ 0, %24 ], [ 0, %7 ], [ 1, %.critedge.sink.split ]
+  %.0 = phi i32 [ 0, %18 ], [ 0, %20 ], [ 0, %7 ], [ 0, %24 ], [ 0, %62 ], [ 1, %.critedge.sink.split ]
   ret i32 %.0
 }
 

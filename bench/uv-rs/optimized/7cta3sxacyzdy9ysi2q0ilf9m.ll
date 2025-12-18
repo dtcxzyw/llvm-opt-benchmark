@@ -2143,7 +2143,7 @@ define hidden noundef ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6inse
   ret ptr %.sroa.0.0
 
 120:                                              ; preds = %.split17.us.i, %108
-  %.sroa.3.0.i.ph.i = phi i64 [ %.us-phi18.i, %.split17.us.i ], [ %114, %108 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %114, %108 ], [ %.us-phi18.i, %.split17.us.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.014)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.014, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
   call void @llvm.experimental.noalias.scope.decl(metadata !359)
@@ -2451,8 +2451,8 @@ define hidden { i64, ptr } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_f
   %58 = zext nneg i16 %57 to i64
   br label %_ZN9hashbrown3raw13RawTableInner30find_or_find_insert_slot_inner17had99f58361dbddaaE.exit.thread
 
-_ZN9hashbrown3raw13RawTableInner30find_or_find_insert_slot_inner17had99f58361dbddaaE.exit.thread: ; preds = %52, %48
-  %.sroa.3.0.i.ph = phi i64 [ %.sroa.6.1.i, %48 ], [ %58, %52 ]
+_ZN9hashbrown3raw13RawTableInner30find_or_find_insert_slot_inner17had99f58361dbddaaE.exit.thread: ; preds = %48, %52
+  %.sroa.3.0.i.ph = phi i64 [ %58, %52 ], [ %.sroa.6.1.i, %48 ]
   %59 = inttoptr i64 %.sroa.3.0.i.ph to ptr
   br label %.loopexit
 

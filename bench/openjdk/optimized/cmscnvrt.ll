@@ -310,7 +310,7 @@ ColorSpaceIsCompatible.exit.thread:               ; preds = %41, %38, %35, %44, 
   br i1 %.not108, label %.thread122, label %97
 
 96:                                               ; preds = %56, %64, %73, %80, %82
-  %.1 = phi ptr [ %.2, %82 ], [ %53, %64 ], [ %53, %56 ], [ %71, %80 ], [ %71, %73 ]
+  %.1 = phi ptr [ %71, %73 ], [ %.2, %82 ], [ %53, %64 ], [ %53, %56 ], [ %71, %80 ]
   call void @cmsPipelineFree(ptr noundef nonnull %.1) #7
   br label %.thread122
 
@@ -612,7 +612,7 @@ define hidden i32 @cmsGetSupportedIntentsTHR(ptr noundef %0, i32 noundef %1, ptr
   br i1 %.not34, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %63, %42, %34, %.lr.ph.split.us.split.us, %.preheader.thread, %.preheader
-  %.1.lcssa = phi i32 [ %.us-phi, %.preheader ], [ %6, %.preheader.thread ], [ %43, %42 ], [ %27, %.lr.ph.split.us.split.us ], [ %35, %34 ], [ %64, %63 ]
+  %.1.lcssa = phi i32 [ %.us-phi, %.preheader ], [ %6, %.preheader.thread ], [ %35, %34 ], [ %27, %.lr.ph.split.us.split.us ], [ %43, %42 ], [ %64, %63 ]
   ret i32 %.1.lcssa
 }
 

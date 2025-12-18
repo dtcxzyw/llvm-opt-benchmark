@@ -593,9 +593,9 @@ define hidden noundef zeroext i1 @_ZN31G1ConcurrentRefineThreadControl22ensure_t
   br label %.thread.i, !llvm.loop !8
 
 .thread.i:                                        ; preds = %30, %.lr.ph14, %23, %.lr.ph30, %.lr.ph30.preheader, %..thread.i.loopexit_crit_edge, %.lr.ph.split, %.lr.ph.split.us
-  %.us-phi = phi i32 [ %6, %.lr.ph.split ], [ %6, %.lr.ph.split.us ], [ %6, %.lr.ph30.preheader ], [ %20, %..thread.i.loopexit_crit_edge ], [ %20, %.lr.ph30 ], [ %26, %.lr.ph14 ], [ %44, %23 ], [ %26, %30 ]
-  %.us-phi10 = phi i1 [ true, %.lr.ph.split ], [ true, %.lr.ph.split.us ], [ false, %.lr.ph30.preheader ], [ true, %..thread.i.loopexit_crit_edge ], [ false, %.lr.ph30 ], [ true, %.lr.ph14 ], [ true, %23 ], [ false, %30 ]
-  %.us-phi11 = phi ptr [ null, %.lr.ph.split ], [ null, %.lr.ph.split.us ], [ %8, %.lr.ph30.preheader ], [ null, %..thread.i.loopexit_crit_edge ], [ %14, %.lr.ph30 ], [ null, %.lr.ph14 ], [ null, %23 ], [ %28, %30 ]
+  %.us-phi = phi i32 [ %6, %.lr.ph.split ], [ %6, %.lr.ph.split.us ], [ %20, %.lr.ph30 ], [ %6, %.lr.ph30.preheader ], [ %20, %..thread.i.loopexit_crit_edge ], [ %44, %23 ], [ %26, %30 ], [ %26, %.lr.ph14 ]
+  %.us-phi10 = phi i1 [ true, %.lr.ph.split ], [ true, %.lr.ph.split.us ], [ false, %.lr.ph30 ], [ false, %.lr.ph30.preheader ], [ true, %..thread.i.loopexit_crit_edge ], [ true, %23 ], [ false, %30 ], [ true, %.lr.ph14 ]
+  %.us-phi11 = phi ptr [ null, %.lr.ph.split ], [ null, %.lr.ph.split.us ], [ %14, %.lr.ph30 ], [ %8, %.lr.ph30.preheader ], [ null, %..thread.i.loopexit_crit_edge ], [ null, %23 ], [ %28, %30 ], [ null, %.lr.ph14 ]
   %34 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
   %.not13.i = icmp eq ptr %34, null
   br i1 %.not13.i, label %37, label %35
@@ -623,7 +623,7 @@ define hidden noundef zeroext i1 @_ZN31G1ConcurrentRefineThreadControl22ensure_t
   br i1 %.not, label %.loopexit, label %23, !llvm.loop !8
 
 .loopexit:                                        ; preds = %42, %.lr.ph63, %37, %38, %3
-  %.not5 = phi i1 [ true, %3 ], [ false, %37 ], [ false, %38 ], [ true, %.lr.ph63 ], [ true, %42 ]
+  %.not5 = phi i1 [ true, %.lr.ph63 ], [ true, %3 ], [ false, %37 ], [ false, %38 ], [ true, %42 ]
   ret i1 %.not5
 }
 
@@ -695,7 +695,7 @@ _ZN31G1ConcurrentRefineThreadControl24create_refinement_threadEjb.exit: ; preds 
   br label %34
 
 34:                                               ; preds = %.sink.split, %2, %30, %27
-  %.0 = phi i32 [ 0, %27 ], [ 0, %30 ], [ 0, %2 ], [ -4, %.sink.split ]
+  %.0 = phi i32 [ 0, %2 ], [ 0, %30 ], [ 0, %27 ], [ -4, %.sink.split ]
   ret i32 %.0
 }
 

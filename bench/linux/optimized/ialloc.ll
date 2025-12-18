@@ -897,7 +897,7 @@ define internal fastcc ptr @ext4_read_inode_bitmap(ptr noundef %0, i32 noundef %
   br label %.thread19
 
 256:                                              ; preds = %190, %192, %246, %128
-  %257 = phi i64 [ -117, %128 ], [ -74, %246 ], [ -117, %192 ], [ -117, %190 ]
+  %257 = phi i64 [ -117, %128 ], [ -117, %190 ], [ -74, %246 ], [ -117, %192 ]
   %258 = getelementptr inbounds nuw i8, ptr %47, i64 96
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %258, ptr nonnull elementtype(i32) %258) #10, !srcloc !11
   %259 = inttoptr i64 %257 to ptr

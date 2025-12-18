@@ -4098,7 +4098,7 @@ _ZN3tbb6detail2r115task_dispatcher21steal_or_get_criticalERNS1_18execution_data_
   br i1 %.not, label %_ZNK3tbb6detail2r115external_waiter18continue_executionERNS1_10arena_slotERPNS0_2d14taskE.exit, label %46, !llvm.loop !283
 
 _ZNK3tbb6detail2r115external_waiter18continue_executionERNS1_10arena_slotERPNS0_2d14taskE.exit: ; preds = %217, %_ZN3tbb6detail2r110mail_inbox11set_is_idleEb.exit, %214, %.thread125
-  %.1 = phi ptr [ %.2128, %.thread125 ], [ %.2128, %214 ], [ null, %_ZN3tbb6detail2r110mail_inbox11set_is_idleEb.exit ], [ null, %217 ]
+  %.1 = phi ptr [ %.2128, %214 ], [ %.2128, %.thread125 ], [ null, %_ZN3tbb6detail2r110mail_inbox11set_is_idleEb.exit ], [ null, %217 ]
   %221 = load ptr, ptr %16, align 8, !tbaa !198
   %.not.i79 = icmp eq ptr %221, null
   br i1 %.not.i79, label %_ZN3tbb6detail2r110mail_inbox11set_is_idleEb.exit81, label %_ZNK3tbb6detail2r110mail_inbox13is_idle_stateEb.exit
@@ -4408,8 +4408,8 @@ _ZN3tbb6detail2r111task_streamILNS1_25task_stream_accessor_typeE1EE13look_specif
   br label %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE11try_acquireERS3_.exit.thread
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE11try_acquireERS3_.exit.thread: ; preds = %25, %_ZN3tbb6detail2r111task_streamILNS1_25task_stream_accessor_typeE1EE13look_specificERSt5dequeIPNS0_2d14taskENS6_23cache_aligned_allocatorIS8_EEEl.exit.thread
-  %.3 = phi ptr [ %.019, %25 ], [ %.2.i52, %_ZN3tbb6detail2r111task_streamILNS1_25task_stream_accessor_typeE1EE13look_specificERSt5dequeIPNS0_2d14taskENS6_23cache_aligned_allocatorIS8_EEEl.exit.thread ]
-  %.0 = phi i1 [ true, %25 ], [ %.not, %_ZN3tbb6detail2r111task_streamILNS1_25task_stream_accessor_typeE1EE13look_specificERSt5dequeIPNS0_2d14taskENS6_23cache_aligned_allocatorIS8_EEEl.exit.thread ]
+  %.3 = phi ptr [ %.2.i52, %_ZN3tbb6detail2r111task_streamILNS1_25task_stream_accessor_typeE1EE13look_specificERSt5dequeIPNS0_2d14taskENS6_23cache_aligned_allocatorIS8_EEEl.exit.thread ], [ %.019, %25 ]
+  %.0 = phi i1 [ %.not, %_ZN3tbb6detail2r111task_streamILNS1_25task_stream_accessor_typeE1EE13look_specificERSt5dequeIPNS0_2d14taskENS6_23cache_aligned_allocatorIS8_EEEl.exit.thread ], [ true, %25 ]
   %88 = atomicrmw xchg ptr %20, i8 0 seq_cst, align 1
   invoke void @_ZN3tbb6detail2r121notify_by_address_oneEPv(ptr noundef nonnull align 1 dereferenceable(1) %20)
           to label %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev.exit unwind label %89
@@ -5715,7 +5715,7 @@ _ZN3tbb6detail2r115task_dispatcher21steal_or_get_criticalERNS1_18execution_data_
   br i1 %.not, label %_ZNK3tbb6detail2r115external_waiter18continue_executionERNS1_10arena_slotERPNS0_2d14taskE.exit, label %46, !llvm.loop !306
 
 _ZNK3tbb6detail2r115external_waiter18continue_executionERNS1_10arena_slotERPNS0_2d14taskE.exit: ; preds = %217, %_ZN3tbb6detail2r110mail_inbox11set_is_idleEb.exit, %214, %.thread125
-  %.1 = phi ptr [ %.2128, %.thread125 ], [ %.2128, %214 ], [ null, %_ZN3tbb6detail2r110mail_inbox11set_is_idleEb.exit ], [ null, %217 ]
+  %.1 = phi ptr [ %.2128, %214 ], [ %.2128, %.thread125 ], [ null, %_ZN3tbb6detail2r110mail_inbox11set_is_idleEb.exit ], [ null, %217 ]
   %221 = load ptr, ptr %16, align 8, !tbaa !198
   %.not.i79 = icmp eq ptr %221, null
   br i1 %.not.i79, label %_ZN3tbb6detail2r110mail_inbox11set_is_idleEb.exit81, label %_ZNK3tbb6detail2r110mail_inbox13is_idle_stateEb.exit

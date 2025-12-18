@@ -1613,7 +1613,7 @@ _ZNK15combined_solver22use_solver1_when_undefEv.exit: ; preds = %67, %49, %52
           to label %_ZNK15combined_solver22use_solver1_when_undefEv.exit48.thread unwind label %.loopexit.split-lp
 
 _ZNK15combined_solver22use_solver1_when_undefEv.exit48.thread: ; preds = %126, %.noexc45, %.noexc46, %.thread51, %112
-  %.02756 = phi i32 [ %96, %112 ], [ %114, %.thread51 ], [ 0, %.noexc46 ], [ 0, %.noexc45 ], [ 0, %126 ]
+  %.02756 = phi i32 [ %96, %112 ], [ 0, %.noexc46 ], [ %114, %.thread51 ], [ 0, %.noexc45 ], [ 0, %126 ]
   %133 = load atomic i8, ptr %89 seq_cst, align 8
   %134 = trunc i8 %133 to i1
   br label %_ZNK15combined_solver22use_solver1_when_undefEv.exit48

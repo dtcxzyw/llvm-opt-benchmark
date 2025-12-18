@@ -963,7 +963,7 @@ init_muxer.exit.thread:                           ; preds = %.thread275.i, %330,
   br label %init_pts.exit
 
 init_pts.exit:                                    ; preds = %359, %377, %381, %379, %378, %init_muxer.exit.thread, %337
-  %.0 = phi i32 [ %.0.i.ph, %init_muxer.exit.thread ], [ 0, %337 ], [ 1, %378 ], [ 1, %379 ], [ 1, %381 ], [ 1, %377 ], [ -1094995529, %359 ]
+  %.0 = phi i32 [ %.0.i.ph, %init_muxer.exit.thread ], [ 0, %337 ], [ 1, %377 ], [ 1, %378 ], [ 1, %379 ], [ 1, %381 ], [ -1094995529, %359 ]
   ret i32 %.0
 }
 
@@ -1181,7 +1181,7 @@ flush_if_needed.exit:                             ; preds = %27, %53, %48, %47, 
   br label %init_pts.exit.thread
 
 init_pts.exit:                                    ; preds = %79, %30, %23
-  %.1 = phi i32 [ %25, %23 ], [ %32, %30 ], [ -1094995529, %79 ]
+  %.1 = phi i32 [ %32, %30 ], [ %25, %23 ], [ -1094995529, %79 ]
   %103 = load ptr, ptr %11, align 8, !tbaa !9
   %.not.i43 = icmp eq ptr %103, null
   br i1 %.not.i43, label %deinit_muxer.exit, label %104
@@ -1610,7 +1610,7 @@ define range(i32 -2147483648, 2) i32 @ff_interleave_packet_per_dts(ptr noundef %
   br label %78
 
 78:                                               ; preds = %77, %39, %36, %._crit_edge
-  %.1 = phi i32 [ %spec.select, %39 ], [ %spec.select, %._crit_edge ], [ %spec.select, %36 ], [ 1, %77 ]
+  %.1 = phi i32 [ %spec.select, %39 ], [ %spec.select, %._crit_edge ], [ 1, %77 ], [ %spec.select, %36 ]
   %79 = icmp ne i32 %.072.lcssa, 0
   %80 = icmp ne i32 %.1, 0
   %or.cond3 = and i1 %79, %80
@@ -2352,7 +2352,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @write_packets_from_bsfs(pt
   br label %.thread
 
 .split.us:                                        ; preds = %.preheader.split.us, %.preheader.split, %.preheader.split.preheader
-  %.us-phi = phi i32 [ %12, %.preheader.split.preheader ], [ %35, %.preheader.split ], [ %14, %.preheader.split.us ]
+  %.us-phi = phi i32 [ %35, %.preheader.split ], [ %12, %.preheader.split.preheader ], [ %14, %.preheader.split.us ]
   switch i32 %.us-phi, label %27 [
     i32 -11, label %.thread
     i32 -541478725, label %.thread

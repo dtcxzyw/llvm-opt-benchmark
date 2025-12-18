@@ -1447,8 +1447,8 @@ zend_string_release.exit:                         ; preds = %410, %409, %zend_st
   br i1 %550, label %.thread386, label %.loopexit449
 
 .loopexit449:                                     ; preds = %55, %548, %.thread405
-  %.1377 = phi ptr [ %9, %.thread405 ], [ %546, %548 ], [ %9, %55 ]
-  %.7 = phi i32 [ %.4, %.thread405 ], [ %.4, %548 ], [ 257, %55 ]
+  %.1377 = phi ptr [ %546, %548 ], [ %9, %.thread405 ], [ %9, %55 ]
+  %.7 = phi i32 [ %.4, %548 ], [ %.4, %.thread405 ], [ 257, %55 ]
   %551 = icmp eq ptr %.2262, %.1270
   br i1 %551, label %.loopexit, label %.lr.ph
 
@@ -1478,12 +1478,12 @@ zend_string_release.exit:                         ; preds = %410, %409, %zend_st
   br label %.loopexit
 
 .loopexit:                                        ; preds = %37, %.thread393, %.lr.ph, %.loopexit449, %.thread386
-  %.4379 = phi ptr [ %.0376, %.thread386 ], [ %.1377, %.loopexit449 ], [ %.1377, %.lr.ph ], [ %9, %.thread393 ], [ %9, %37 ]
-  %.6275 = phi ptr [ %.5274, %.thread386 ], [ %.1270, %.loopexit449 ], [ %.1270, %.lr.ph ], [ %30, %37 ], [ %.1270, %.thread393 ]
-  %.7267 = phi ptr [ %.5265, %.thread386 ], [ %.2262, %.loopexit449 ], [ %557, %.lr.ph ], [ %38, %37 ], [ %.2262, %.thread393 ]
-  %.7254 = phi ptr [ %.5252, %.thread386 ], [ %.2249, %.loopexit449 ], [ %556, %.lr.ph ], [ %40, %37 ], [ %.2249, %.thread393 ]
-  %.0245 = phi i32 [ 2, %.thread386 ], [ 1, %.loopexit449 ], [ 1, %.lr.ph ], [ 1, %37 ], [ 0, %.thread393 ]
-  %.9 = phi i32 [ %.3, %.thread386 ], [ %.7, %.loopexit449 ], [ %.7, %.lr.ph ], [ %.0225, %.thread393 ], [ %.0225, %37 ]
+  %.4379 = phi ptr [ %.1377, %.loopexit449 ], [ %.0376, %.thread386 ], [ %.1377, %.lr.ph ], [ %9, %.thread393 ], [ %9, %37 ]
+  %.6275 = phi ptr [ %.1270, %.loopexit449 ], [ %.5274, %.thread386 ], [ %.1270, %.lr.ph ], [ %.1270, %.thread393 ], [ %30, %37 ]
+  %.7267 = phi ptr [ %.2262, %.loopexit449 ], [ %.5265, %.thread386 ], [ %557, %.lr.ph ], [ %.2262, %.thread393 ], [ %38, %37 ]
+  %.7254 = phi ptr [ %.2249, %.loopexit449 ], [ %.5252, %.thread386 ], [ %556, %.lr.ph ], [ %.2249, %.thread393 ], [ %40, %37 ]
+  %.0245 = phi i32 [ 1, %.loopexit449 ], [ 2, %.thread386 ], [ 1, %.lr.ph ], [ 0, %.thread393 ], [ 1, %37 ]
+  %.9 = phi i32 [ %.7, %.loopexit449 ], [ %.3, %.thread386 ], [ %.7, %.lr.ph ], [ %.0225, %.thread393 ], [ %.0225, %37 ]
   %.not300 = icmp eq i32 %.9, -2
   br i1 %.not300, label %568, label %561
 
@@ -2426,7 +2426,7 @@ yytnamerr.exit68:                                 ; preds = %62, %.preheader, %.
   br label %.preheader
 
 yy_syntax_error_arguments.exit.thread8:           ; preds = %yytnamerr.exit, %.preheader, %.critedge.i.i, %59, %yy_syntax_error_arguments.exit
-  %.041 = phi i32 [ %.2.i.i, %.critedge.i.i ], [ -2, %yy_syntax_error_arguments.exit ], [ -1, %59 ], [ 0, %.preheader ], [ -2, %yytnamerr.exit ]
+  %.041 = phi i32 [ %.2.i.i, %.critedge.i.i ], [ -2, %yy_syntax_error_arguments.exit ], [ 0, %.preheader ], [ -1, %59 ], [ -2, %yytnamerr.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.041
 }

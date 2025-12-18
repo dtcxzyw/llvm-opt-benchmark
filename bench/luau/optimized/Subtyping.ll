@@ -24877,7 +24877,7 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_
   br i1 %260, label %._crit_edge.i61, label %.lr.ph.i56
 
 _ZN4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EE6insertERKS3_.exit: ; preds = %.lr.ph.i56, %.lr.ph.i, %138, %139, %14, %15, %._crit_edge.i61, %._crit_edge.i
-  %.012 = phi i1 [ false, %14 ], [ true, %._crit_edge.i61 ], [ true, %._crit_edge.i ], [ false, %15 ], [ false, %139 ], [ false, %138 ], [ true, %.lr.ph.i ], [ true, %.lr.ph.i56 ]
+  %.012 = phi i1 [ false, %14 ], [ true, %._crit_edge.i61 ], [ true, %._crit_edge.i ], [ false, %138 ], [ true, %.lr.ph.i ], [ false, %15 ], [ false, %139 ], [ true, %.lr.ph.i56 ]
   ret i1 %.012
 
 261:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -55507,7 +55507,7 @@ _ZN4Luau20SubtypingEnvironment13GenericBoundsD2Ev.exit.i.i.i: ; preds = %26, %_Z
   br i1 %exitcond.not.i.i.i, label %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeESt4pairIS4_NS_20SubtypingEnvironment13GenericBoundsEES5_IKS4_S7_ENS0_16ItemInterfaceMapIS4_S7_EENS_16DenseHashPointerESt8equal_toIS4_EE7destroyEv.exit.i, label %.lr.ph.i.i.i, !llvm.loop !207
 
 _ZN4Luau6detail14DenseHashTableIPKNS_4TypeESt4pairIS4_NS_20SubtypingEnvironment13GenericBoundsEES5_IKS4_S7_ENS0_16ItemInterfaceMapIS4_S7_EENS_16DenseHashPointerESt8equal_toIS4_EE7destroyEv.exit.i: ; preds = %_ZN4Luau20SubtypingEnvironment13GenericBoundsD2Ev.exit.i.i.i, %._crit_edge.thread, %19
-  %28 = phi ptr [ %17, %19 ], [ %18, %._crit_edge.thread ], [ %17, %_ZN4Luau20SubtypingEnvironment13GenericBoundsD2Ev.exit.i.i.i ]
+  %28 = phi ptr [ %18, %._crit_edge.thread ], [ %17, %19 ], [ %17, %_ZN4Luau20SubtypingEnvironment13GenericBoundsD2Ev.exit.i.i.i ]
   tail call void @_ZdlPv(ptr noundef nonnull %28) #29
   br label %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeESt4pairIS4_NS_20SubtypingEnvironment13GenericBoundsEES5_IKS4_S7_ENS0_16ItemInterfaceMapIS4_S7_EENS_16DenseHashPointerESt8equal_toIS4_EED2Ev.exit
 
@@ -57301,7 +57301,7 @@ _ZN4Luau8VecDequeISt4pairIPKNS_9UnionTypeEmESaIS5_EE9pop_frontEv.exit.i: ; preds
   br label %_ZN4Luau6detail14DenseHashTableIPKNS_9UnionTypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i
 
 _ZN4Luau6detail14DenseHashTableIPKNS_9UnionTypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i: ; preds = %87, %.thread19, %.thread, %.loopexit.i.i, %74
-  %96 = phi i64 [ %.pre.i7, %.loopexit.i.i ], [ %29, %74 ], [ %29, %.thread ], [ %77, %.thread19 ], [ %29, %87 ]
+  %96 = phi i64 [ %.pre.i7, %.loopexit.i.i ], [ %29, %74 ], [ %77, %.thread19 ], [ %29, %.thread ], [ %29, %87 ]
   %97 = add i64 %96, -1
   %98 = ptrtoint ptr %23 to i64
   %99 = lshr i64 %98, 4
@@ -57762,7 +57762,7 @@ _ZN4Luau8VecDequeISt4pairIPKNS_16IntersectionTypeEmESaIS5_EE9pop_frontEv.exit.i:
   br label %_ZN4Luau6detail14DenseHashTableIPKNS_16IntersectionTypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i
 
 _ZN4Luau6detail14DenseHashTableIPKNS_16IntersectionTypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i: ; preds = %87, %.thread19, %.thread, %.loopexit.i.i, %74
-  %96 = phi i64 [ %.pre.i7, %.loopexit.i.i ], [ %29, %74 ], [ %29, %.thread ], [ %77, %.thread19 ], [ %29, %87 ]
+  %96 = phi i64 [ %.pre.i7, %.loopexit.i.i ], [ %29, %74 ], [ %77, %.thread19 ], [ %29, %.thread ], [ %29, %87 ]
   %97 = add i64 %96, -1
   %98 = ptrtoint ptr %23 to i64
   %99 = lshr i64 %98, 4

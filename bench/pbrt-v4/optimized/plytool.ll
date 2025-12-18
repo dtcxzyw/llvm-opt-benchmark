@@ -21925,9 +21925,9 @@ _ZNK4pbrt7HashMapISt4pairIiiEiNS_11HashIntPairEN4pstd3pmr21polymorphic_allocator
   br label %_ZN4pstd8optionalISt4pairIS1_IiiEiEEaSEOS3_.exit
 
 _ZN4pstd8optionalISt4pairIS1_IiiEiEE5valueEv.exit.i.i: ; preds = %.lr.ph.i, %.lr.ph.i9, %.lr.ph.i.preheader, %.lr.ph.i9.preheader
-  %.ph = phi ptr [ %69, %.lr.ph.i9.preheader ], [ %19, %.lr.ph.i.preheader ], [ %69, %.lr.ph.i9 ], [ %19, %.lr.ph.i ]
-  %.ph25 = phi i64 [ %.sroa.0.0.copyload.i6, %.lr.ph.i9.preheader ], [ %.sroa.0.0.copyload.i, %.lr.ph.i.preheader ], [ %.sroa.0.0.copyload.i6, %.lr.ph.i9 ], [ %.sroa.0.0.copyload.i, %.lr.ph.i ]
-  %.0.ph = phi i64 [ %68, %.lr.ph.i9.preheader ], [ %17, %.lr.ph.i.preheader ], [ %90, %.lr.ph.i9 ], [ %40, %.lr.ph.i ]
+  %.ph = phi ptr [ %69, %.lr.ph.i9 ], [ %69, %.lr.ph.i9.preheader ], [ %19, %.lr.ph.i.preheader ], [ %19, %.lr.ph.i ]
+  %.ph25 = phi i64 [ %.sroa.0.0.copyload.i6, %.lr.ph.i9 ], [ %.sroa.0.0.copyload.i6, %.lr.ph.i9.preheader ], [ %.sroa.0.0.copyload.i, %.lr.ph.i.preheader ], [ %.sroa.0.0.copyload.i, %.lr.ph.i ]
+  %.0.ph = phi i64 [ %90, %.lr.ph.i9 ], [ %68, %.lr.ph.i9.preheader ], [ %17, %.lr.ph.i.preheader ], [ %40, %.lr.ph.i ]
   %105 = load i32, ptr %2, align 4, !tbaa !84
   %106 = getelementptr inbounds nuw %"class.pstd::optional.102", ptr %.ph, i64 %.0.ph
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 12

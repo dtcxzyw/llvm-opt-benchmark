@@ -502,7 +502,7 @@ define internal noundef ptr @_random_Random_setstate(ptr noundef writeonly captu
   br label %_random_Random_setstate_impl.exit
 
 _random_Random_setstate_impl.exit:                ; preds = %19, %7, %12, %29, %.thread.i, %.loopexit.loopexit.i
-  %.0.i = phi ptr [ null, %12 ], [ null, %7 ], [ null, %.thread.i ], [ null, %29 ], [ @_Py_NoneStruct, %.loopexit.loopexit.i ], [ null, %19 ]
+  %.0.i = phi ptr [ null, %12 ], [ null, %7 ], [ @_Py_NoneStruct, %.loopexit.loopexit.i ], [ null, %.thread.i ], [ null, %29 ], [ null, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0.i
 }

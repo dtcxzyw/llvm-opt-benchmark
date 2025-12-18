@@ -2093,7 +2093,7 @@ _ZNK11ast_manager6is_notEPK4expr.exit.thread:     ; preds = %_ZNK11ast_manager6i
   br i1 %.not27.old.i.i, label %_ZNK7obj_mapI4exprN11occf_tactic3imp9bvar_infoEE9find_coreEPS0_.exit.thread, label %.lr.ph38.i.i.backedge
 
 .lr.ph38.i.i.backedge:                            ; preds = %59, %56
-  %.137.i.i.be = phi ptr [ %.old.i.i, %59 ], [ %58, %56 ]
+  %.137.i.i.be = phi ptr [ %58, %56 ], [ %.old.i.i, %59 ]
   br label %.lr.ph38.i.i, !llvm.loop !113
 
 _ZNK7obj_mapI4exprN11occf_tactic3imp9bvar_infoEE9find_coreEPS0_.exit: ; preds = %40, %51

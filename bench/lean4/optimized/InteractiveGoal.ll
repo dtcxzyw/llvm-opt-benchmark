@@ -7182,7 +7182,7 @@ lean_array_uset.exit291:                          ; preds = %lean_ensure_exclusi
   br label %419
 
 419:                                              ; preds = %lean_array_uset.exit250, %lean_array_uset.exit227, %lean_array_uset.exit291, %lean_array_uset.exit267
-  %.1134 = phi ptr [ %.0.i.i247, %lean_array_uset.exit250 ], [ %.0.i.i224, %lean_array_uset.exit227 ], [ %.0.i.i264, %lean_array_uset.exit267 ], [ %.0.i.i288, %lean_array_uset.exit291 ]
+  %.1134 = phi ptr [ %.0.i.i288, %lean_array_uset.exit291 ], [ %.0.i.i247, %lean_array_uset.exit250 ], [ %.0.i.i264, %lean_array_uset.exit267 ], [ %.0.i.i224, %lean_array_uset.exit227 ]
   %.1125 = add nuw i64 %.0124339, 1
   %exitcond.not = icmp eq i64 %.1125, %0
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
@@ -45147,8 +45147,8 @@ lean_alloc_ctor.exit706:                          ; preds = %482
   br label %.thread
 
 490:                                              ; preds = %lean_dec.exit498, %lean_alloc_ctor.exit695, %lean_obj_tag.exit641
-  %.0400 = phi ptr [ %82, %lean_obj_tag.exit641 ], [ %158, %lean_dec.exit498 ], [ %341, %lean_alloc_ctor.exit695 ]
-  %.0396 = phi ptr [ inttoptr (i64 1 to ptr), %lean_obj_tag.exit641 ], [ %3, %lean_dec.exit498 ], [ %357, %lean_alloc_ctor.exit695 ]
+  %.0400 = phi ptr [ %82, %lean_obj_tag.exit641 ], [ %341, %lean_alloc_ctor.exit695 ], [ %158, %lean_dec.exit498 ]
+  %.0396 = phi ptr [ inttoptr (i64 1 to ptr), %lean_obj_tag.exit641 ], [ %357, %lean_alloc_ctor.exit695 ], [ %3, %lean_dec.exit498 ]
   br i1 %.not765, label %491, label %lean_inc.exit421
 
 491:                                              ; preds = %490
@@ -49941,8 +49941,8 @@ lean_alloc_ctor.exit576:                          ; preds = %861
   br label %870
 
 869:                                              ; preds = %lean_inc.exit269, %lean_alloc_ctor.exit563
-  %.1236 = phi ptr [ %336, %lean_inc.exit269 ], [ %702, %lean_alloc_ctor.exit563 ]
-  %.1231 = phi ptr [ %.0230695, %lean_inc.exit269 ], [ %741, %lean_alloc_ctor.exit563 ]
+  %.1236 = phi ptr [ %702, %lean_alloc_ctor.exit563 ], [ %336, %lean_inc.exit269 ]
+  %.1231 = phi ptr [ %741, %lean_alloc_ctor.exit563 ], [ %.0230695, %lean_inc.exit269 ]
   %.1224 = add nuw i64 %.0223696, 1
   %exitcond.not = icmp eq i64 %.1224, %11
   br i1 %exitcond.not, label %._crit_edge, label %113

@@ -2560,16 +2560,16 @@ define internal i64 @csum_and_copy_to_iter(ptr noundef %0, i64 noundef %1, ptr n
   br i1 %313, label %.loopexit19, label %285, !llvm.loop !72
 
 .loopexit:                                        ; preds = %285, %.preheader, %244
-  %.ph = phi i32 [ %242, %244 ], [ %242, %.preheader ], [ %286, %285 ]
-  %.ph16 = phi i64 [ %241, %244 ], [ %241, %.preheader ], [ %289, %285 ]
-  %.ph17 = phi i64 [ %239, %244 ], [ %239, %.preheader ], [ %290, %285 ]
+  %.ph = phi i32 [ %242, %.preheader ], [ %242, %244 ], [ %286, %285 ]
+  %.ph16 = phi i64 [ %241, %.preheader ], [ %241, %244 ], [ %289, %285 ]
+  %.ph17 = phi i64 [ %239, %.preheader ], [ %239, %244 ], [ %290, %285 ]
   %317 = call fastcc ptr @xas_next_entry(ptr noundef nonnull %5)
   %318 = icmp eq ptr %317, null
   br i1 %318, label %.loopexit19, label %.preheader, !llvm.loop !73
 
 .loopexit19:                                      ; preds = %.loopexit, %292, %248, %258, %224
-  %319 = phi i32 [ %31, %224 ], [ %242, %248 ], [ %242, %258 ], [ %310, %292 ], [ %.ph, %.loopexit ]
-  %320 = phi i64 [ 0, %224 ], [ %241, %248 ], [ %241, %258 ], [ %311, %292 ], [ %.ph16, %.loopexit ]
+  %319 = phi i32 [ %31, %224 ], [ %310, %292 ], [ %242, %248 ], [ %242, %258 ], [ %.ph, %.loopexit ]
+  %320 = phi i64 [ 0, %224 ], [ %311, %292 ], [ %241, %248 ], [ %241, %258 ], [ %.ph16, %.loopexit ]
   call void @__rcu_read_unlock() #10
   %321 = load i64, ptr %227, align 8
   %322 = add i64 %321, %320

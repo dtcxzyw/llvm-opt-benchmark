@@ -2516,10 +2516,10 @@ Py_DECREF.exit188:                                ; preds = %.lr.ph329, %33, %36
   br label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.loopexit.thread.sink.split, %21, %113, %112, %103, %.thread265, %98, %115, %.loopexit
-  %122 = phi i1 [ true, %113 ], [ true, %112 ], [ true, %103 ], [ true, %.thread265 ], [ true, %98 ], [ true, %115 ], [ false, %.loopexit ], [ false, %21 ], [ true, %.loopexit.thread.sink.split ]
-  %.0156427 = phi ptr [ %.0156, %113 ], [ %.0156, %112 ], [ %.0156, %103 ], [ %.0156, %.thread265 ], [ %.0156, %98 ], [ %.0156, %115 ], [ %.0156, %.loopexit ], [ %23, %21 ], [ %.0156, %.loopexit.thread.sink.split ]
-  %.sroa.0.0426 = phi ptr [ %.sroa.0.0, %113 ], [ %.sroa.0.0, %112 ], [ %.sroa.0.0, %103 ], [ %.sroa.0.0, %.thread265 ], [ %.sroa.0.0, %98 ], [ %.sroa.0.0, %115 ], [ %.sroa.0.0, %.loopexit ], [ %23, %21 ], [ %.sroa.0.0, %.loopexit.thread.sink.split ]
-  %.sroa.23.0425 = phi ptr [ %.sroa.23.0, %113 ], [ %.sroa.23.0, %112 ], [ %.sroa.23.0, %103 ], [ %.sroa.23.0, %.thread265 ], [ %.sroa.23.0, %98 ], [ %.sroa.23.0, %115 ], [ %.sroa.23.0, %.loopexit ], [ %8, %21 ], [ %.sroa.23.0, %.loopexit.thread.sink.split ]
+  %122 = phi i1 [ false, %21 ], [ false, %.loopexit ], [ true, %113 ], [ true, %112 ], [ true, %103 ], [ true, %.thread265 ], [ true, %98 ], [ true, %115 ], [ true, %.loopexit.thread.sink.split ]
+  %.0156427 = phi ptr [ %23, %21 ], [ %.0156, %.loopexit ], [ %.0156, %113 ], [ %.0156, %112 ], [ %.0156, %103 ], [ %.0156, %.thread265 ], [ %.0156, %98 ], [ %.0156, %115 ], [ %.0156, %.loopexit.thread.sink.split ]
+  %.sroa.0.0426 = phi ptr [ %23, %21 ], [ %.sroa.0.0, %.loopexit ], [ %.sroa.0.0, %113 ], [ %.sroa.0.0, %112 ], [ %.sroa.0.0, %103 ], [ %.sroa.0.0, %.thread265 ], [ %.sroa.0.0, %98 ], [ %.sroa.0.0, %115 ], [ %.sroa.0.0, %.loopexit.thread.sink.split ]
+  %.sroa.23.0425 = phi ptr [ %8, %21 ], [ %.sroa.23.0, %.loopexit ], [ %.sroa.23.0, %113 ], [ %.sroa.23.0, %112 ], [ %.sroa.23.0, %103 ], [ %.sroa.23.0, %.thread265 ], [ %.sroa.23.0, %98 ], [ %.sroa.23.0, %115 ], [ %.sroa.23.0, %.loopexit.thread.sink.split ]
   %123 = icmp ne ptr %.0156427, null
   br i1 %123, label %124, label %merge_init.exit
 
@@ -2700,7 +2700,7 @@ reverse_slice.exit.i.i:                           ; preds = %.lr.ph.i.i.i, %182
   br i1 %193, label %.lr.ph.i7.i.i, label %sortslice_reverse.exit.i, !llvm.loop !142
 
 sortslice_reverse.exit.i:                         ; preds = %.lr.ph.i7.i.i, %reverse_slice.exit.i.i, %._crit_edge.i, %._crit_edge.thread182.i
-  %.069.lcssa184186.i = phi i64 [ 1, %._crit_edge.i ], [ %.069141.i, %reverse_slice.exit.i.i ], [ 1, %._crit_edge.thread182.i ], [ %.069141.i, %.lr.ph.i7.i.i ]
+  %.069.lcssa184186.i = phi i64 [ 1, %._crit_edge.thread182.i ], [ %.069141.i, %._crit_edge.i ], [ %.069141.i, %reverse_slice.exit.i.i ], [ %.069141.i, %.lr.ph.i7.i.i ]
   %.170144.i = add nuw i64 %.069.lcssa184186.i, 1
   %194 = icmp slt i64 %.170144.i, %.0139
   br i1 %194, label %.lr.ph148.i, label %sortslice_reverse.exit113.i
@@ -2791,7 +2791,7 @@ reverse_slice.exit.i85.i:                         ; preds = %.lr.ph.i.i93.i, %so
 
 sortslice_reverse.exit97.i:                       ; preds = %.lr.ph.i7.i89.i, %228, %reverse_slice.exit.i85.i, %204
   %.1.i = phi i64 [ %229, %228 ], [ 0, %204 ], [ 0, %reverse_slice.exit.i85.i ], [ 0, %.lr.ph.i7.i89.i ]
-  %.170.i = add nuw nsw i64 %.170147.i, 1
+  %.170.i = add nsw i64 %.170147.i, 1
   %exitcond166.not.i = icmp eq i64 %.170.i, %.0139
   br i1 %exitcond166.not.i, label %._crit_edge149.i, label %195, !llvm.loop !145
 
@@ -2846,7 +2846,7 @@ reverse_slice.exit.i101.i:                        ; preds = %.lr.ph.i.i109.i, %s
   br i1 %245, label %.lr.ph.i7.i105.i, label %sortslice_reverse.exit113.i, !llvm.loop !142
 
 sortslice_reverse.exit113.i:                      ; preds = %.lr.ph.i7.i105.i, %reverse_slice.exit.i101.i, %._crit_edge149.i, %sortslice_reverse.exit.i
-  %.170.lcssa191.i = phi i64 [ %.170.lcssa.i, %._crit_edge149.i ], [ %.170.lcssa.i, %reverse_slice.exit.i101.i ], [ %.170144.i, %sortslice_reverse.exit.i ], [ %.170.lcssa.i, %.lr.ph.i7.i105.i ]
+  %.170.lcssa191.i = phi i64 [ %.170144.i, %sortslice_reverse.exit.i ], [ %.170.lcssa.i, %._crit_edge149.i ], [ %.170.lcssa.i, %reverse_slice.exit.i101.i ], [ %.170.lcssa.i, %.lr.ph.i7.i105.i ]
   %246 = getelementptr ptr, ptr %.sroa.0.1, i64 %.170.lcssa191.i
   %.01011.i.i114.i = getelementptr i8, ptr %246, i64 -8
   %247 = icmp ult ptr %.sroa.0.1, %.01011.i.i114.i
@@ -2909,12 +2909,12 @@ sortslice_reverse.exit127.i:                      ; preds = %.lr.ph.i7.i119.i, %
   br i1 %exitcond167.not.i, label %count_run.exit, label %.lr.ph158.i, !llvm.loop !146
 
 count_run.exit:                                   ; preds = %170, %266, %267, %sortslice_reverse.exit127.i
-  %.068.i = phi i64 [ %.170.lcssa191.i, %sortslice_reverse.exit127.i ], [ %.2157.i, %266 ], [ %.0139, %267 ], [ %.0139, %170 ]
+  %.068.i = phi i64 [ %.170.lcssa191.i, %sortslice_reverse.exit127.i ], [ %.0139, %267 ], [ %.2157.i, %266 ], [ %.0139, %170 ]
   %269 = icmp slt i64 %.068.i, 0
   br i1 %269, label %found_new_run.exit.thread285, label %count_run.exit.thread277
 
-count_run.exit.thread277:                         ; preds = %._crit_edge.thread182.i, %181, %count_run.exit
-  %.068.i279 = phi i64 [ %.068.i, %count_run.exit ], [ 1, %._crit_edge.thread182.i ], [ %.069141.i, %181 ]
+count_run.exit.thread277:                         ; preds = %181, %._crit_edge.thread182.i, %count_run.exit
+  %.068.i279 = phi i64 [ %.068.i, %count_run.exit ], [ %.069141.i, %181 ], [ 1, %._crit_edge.thread182.i ]
   %270 = icmp slt i64 %.068.i279, %157
   br i1 %270, label %271, label %binarysort.exit.thread
 
@@ -3122,8 +3122,8 @@ powerloop.exit.i:                                 ; preds = %350, %363
   store i32 %346, ptr %369, align 8, !tbaa !154
   br label %found_new_run.exit
 
-found_new_run.exit:                               ; preds = %.thread.i, %binarysort.exit.thread
-  %370 = phi i32 [ %354, %.thread.i ], [ 0, %binarysort.exit.thread ]
+found_new_run.exit:                               ; preds = %binarysort.exit.thread, %.thread.i
+  %370 = phi i32 [ 0, %binarysort.exit.thread ], [ %354, %.thread.i ]
   %371 = sext i32 %370 to i64
   %372 = getelementptr %struct.s_slice, ptr %159, i64 %371
   store ptr %.sroa.0.1, ptr %372, align 8, !tbaa !156
@@ -3170,8 +3170,8 @@ found_new_run.exit:                               ; preds = %.thread.i, %binarys
   br i1 %393, label %.preheader455, label %found_new_run.exit.thread285, !llvm.loop !158
 
 found_new_run.exit.thread285:                     ; preds = %175, %count_run.exit, %.lr.ph.i211, %221, %195, %.lr.ph158.i, %363, %297, %276, %.preheader455, %391, %merge_init.exit
-  %394 = phi i1 [ true, %merge_init.exit ], [ false, %.lr.ph.i211 ], [ %379, %.preheader455 ], [ false, %276 ], [ false, %297 ], [ false, %363 ], [ false, %.lr.ph158.i ], [ false, %221 ], [ %379, %391 ], [ false, %195 ], [ false, %count_run.exit ], [ false, %175 ]
-  %.1153 = phi ptr [ @_Py_NoneStruct, %merge_init.exit ], [ null, %.lr.ph.i211 ], [ @_Py_NoneStruct, %.preheader455 ], [ null, %276 ], [ null, %297 ], [ null, %363 ], [ null, %.lr.ph158.i ], [ null, %221 ], [ null, %391 ], [ null, %195 ], [ null, %count_run.exit ], [ null, %175 ]
+  %394 = phi i1 [ false, %.lr.ph.i211 ], [ false, %221 ], [ true, %merge_init.exit ], [ false, %.lr.ph158.i ], [ %379, %.preheader455 ], [ false, %363 ], [ false, %276 ], [ false, %297 ], [ %379, %391 ], [ false, %195 ], [ false, %count_run.exit ], [ false, %175 ]
+  %.1153 = phi ptr [ null, %.lr.ph.i211 ], [ null, %221 ], [ @_Py_NoneStruct, %merge_init.exit ], [ null, %.lr.ph158.i ], [ @_Py_NoneStruct, %.preheader455 ], [ null, %363 ], [ null, %276 ], [ null, %297 ], [ null, %391 ], [ null, %195 ], [ null, %count_run.exit ], [ null, %175 ]
   %395 = icmp sgt i64 %.val192, 0
   %or.cond453 = select i1 %123, i1 %395, i1 false
   br i1 %or.cond453, label %.lr.ph342, label %._crit_edge343.thread
@@ -3510,7 +3510,7 @@ _PyFreeList_Pop.exit.i:                           ; preds = %4
   br i1 %exitcond.not, label %PyList_New.exit, label %.lr.ph, !llvm.loop !161
 
 PyList_New.exit:                                  ; preds = %.lr.ph, %45, %18, %15, %42
-  %.012 = phi ptr [ null, %42 ], [ %.0.i, %18 ], [ null, %15 ], [ %43, %45 ], [ %43, %.lr.ph ]
+  %.012 = phi ptr [ null, %15 ], [ null, %42 ], [ %.0.i, %18 ], [ %43, %45 ], [ %43, %.lr.ph ]
   ret ptr %.012
 }
 
@@ -4082,7 +4082,7 @@ Py_DECREF.exit85.i:                               ; preds = %95, %92, %Py_INCREF
   br label %list_richcompare_impl.exit
 
 list_richcompare_impl.exit:                       ; preds = %Py_DECREF.exit87.i, %3, %7, %18, %55, %57, %58, %60, %62, %63, %65, %66, %Py_DECREF.exit85.i, %97, %100
-  %.0.i = phi ptr [ %_Py_FalseStruct._Py_TrueStruct.i, %18 ], [ @_Py_NotImplementedStruct, %3 ], [ %_Py_TrueStruct._Py_FalseStruct.i, %55 ], [ @_Py_NotImplementedStruct, %7 ], [ %_Py_FalseStruct._Py_TrueStruct79.i, %57 ], [ %90, %100 ], [ %_Py_TrueStruct._Py_FalseStruct80.i, %58 ], [ @_Py_TrueStruct, %66 ], [ %_Py_TrueStruct._Py_FalseStruct81.i, %60 ], [ %_Py_FalseStruct._Py_TrueStruct83.i, %63 ], [ %_Py_FalseStruct._Py_TrueStruct82.i, %62 ], [ @_Py_FalseStruct, %65 ], [ %90, %Py_DECREF.exit85.i ], [ %90, %97 ], [ null, %Py_DECREF.exit87.i ]
+  %.0.i = phi ptr [ %_Py_FalseStruct._Py_TrueStruct.i, %18 ], [ @_Py_NotImplementedStruct, %3 ], [ %90, %97 ], [ %_Py_TrueStruct._Py_FalseStruct.i, %55 ], [ @_Py_NotImplementedStruct, %7 ], [ %_Py_FalseStruct._Py_TrueStruct79.i, %57 ], [ %90, %100 ], [ %_Py_TrueStruct._Py_FalseStruct80.i, %58 ], [ @_Py_TrueStruct, %66 ], [ %_Py_TrueStruct._Py_FalseStruct81.i, %60 ], [ %_Py_FalseStruct._Py_TrueStruct83.i, %63 ], [ %_Py_FalseStruct._Py_TrueStruct82.i, %62 ], [ @_Py_FalseStruct, %65 ], [ %90, %Py_DECREF.exit85.i ], [ null, %Py_DECREF.exit87.i ]
   ret ptr %.0.i
 }
 
@@ -5423,7 +5423,7 @@ _Py_NewRef.exit.i:                                ; preds = %59, %.lr.ph.i
   br label %list_extend_fast.exit
 
 list_extend_fast.exit:                            ; preds = %_Py_NewRef.exit.i, %4, %51, %.loopexit.sink.split.i
-  %.0.i = phi i32 [ 0, %4 ], [ 0, %51 ], [ -1, %.loopexit.sink.split.i ], [ 0, %_Py_NewRef.exit.i ]
+  %.0.i = phi i32 [ 0, %4 ], [ -1, %.loopexit.sink.split.i ], [ 0, %51 ], [ 0, %_Py_NewRef.exit.i ]
   %64 = load i32, ptr %3, align 8, !tbaa !32
   %.not.i = icmp sgt i32 %64, -1
   br i1 %.not.i, label %65, label %Py_DECREF.exit
@@ -6779,12 +6779,12 @@ sortslice_copy_incr.exit149.i:                    ; preds = %245, %241
   br label %109
 
 .thread220.i:                                     ; preds = %sortslice_copy_incr.exit118.i, %116, %sortslice_advance.exit145.i, %230, %197, %sortslice_copy_incr.exit129.i, %177, %142, %.lr.ph113.i.i, %166, %.lr.ph.i.i, %219
-  %.sroa.16.8.i = phi ptr [ %.sroa.16.7.i, %sortslice_copy_incr.exit129.i ], [ %.sroa.16.7.i, %219 ], [ %.sroa.16.7.i, %.lr.ph.i.i ], [ %.sroa.16.6.i, %166 ], [ %.sroa.16.6.i, %.lr.ph113.i.i ], [ %.sroa.16.7.i, %sortslice_advance.exit145.i ], [ %.sroa.16.6.i, %142 ], [ %.sroa.16.7.i, %230 ], [ %.sroa.16.6.i, %177 ], [ %.sroa.16.7.i, %197 ], [ %.sroa.16.2.i.ph, %116 ], [ %.sroa.16.2.i.ph, %sortslice_copy_incr.exit118.i ]
-  %.sroa.0194.8.i = phi ptr [ %.sroa.0194.7.i, %sortslice_copy_incr.exit129.i ], [ %.sroa.0194.7.i, %219 ], [ %.sroa.0194.7.i, %.lr.ph.i.i ], [ %.sroa.0194.6.i, %166 ], [ %.sroa.0194.6.i, %.lr.ph113.i.i ], [ %.sroa.0194.7.i, %sortslice_advance.exit145.i ], [ %.sroa.0194.6.i, %142 ], [ %.sroa.0194.7.i, %230 ], [ %.sroa.0194.6.i, %177 ], [ %.sroa.0194.7.i, %197 ], [ %.sroa.0194.2.i.ph, %116 ], [ %.sroa.0194.2.i.ph, %sortslice_copy_incr.exit118.i ]
-  %.sroa.22.9.i = phi ptr [ %.sroa.22.14.i, %sortslice_copy_incr.exit129.i ], [ %.sroa.22.14.i, %219 ], [ %.sroa.22.14.i, %.lr.ph.i.i ], [ %.sroa.22.6.i, %166 ], [ %.sroa.22.6.i, %.lr.ph113.i.i ], [ %.sroa.22.15.i, %sortslice_advance.exit145.i ], [ %.sroa.22.6.i, %142 ], [ %.sroa.22.14.i, %230 ], [ %.sroa.22.6.i, %177 ], [ %.sroa.22.14.i, %197 ], [ %.sroa.22.11.i, %sortslice_copy_incr.exit118.i ], [ %.sroa.22.2.i, %116 ]
-  %.sroa.0.9.i = phi ptr [ %190, %sortslice_copy_incr.exit129.i ], [ %190, %219 ], [ %190, %.lr.ph.i.i ], [ %.sroa.0.6.i, %166 ], [ %.sroa.0.6.i, %.lr.ph113.i.i ], [ %236, %sortslice_advance.exit145.i ], [ %.sroa.0.6.i, %142 ], [ %190, %230 ], [ %.sroa.0.6.i, %177 ], [ %190, %197 ], [ %121, %sortslice_copy_incr.exit118.i ], [ %.sroa.0.2.i, %116 ]
-  %.8.i52 = phi i64 [ %.784.i, %sortslice_copy_incr.exit129.i ], [ %.784.i, %219 ], [ %.784.i, %.lr.ph.i.i ], [ %.683.i, %166 ], [ %.683.i, %.lr.ph113.i.i ], [ %.784.i, %sortslice_advance.exit145.i ], [ %.683.i, %142 ], [ %.784.i, %230 ], [ %.683.i, %177 ], [ %.784.i, %197 ], [ %.279.i.ph, %116 ], [ %.279.i.ph, %sortslice_copy_incr.exit118.i ]
-  %.073.i = phi i64 [ 0, %sortslice_copy_incr.exit129.i ], [ -1, %219 ], [ -1, %.lr.ph.i.i ], [ -1, %166 ], [ -1, %.lr.ph113.i.i ], [ 0, %sortslice_advance.exit145.i ], [ -1, %142 ], [ -1, %230 ], [ -1, %177 ], [ -1, %197 ], [ 0, %sortslice_copy_incr.exit118.i ], [ -1, %116 ]
+  %.sroa.16.8.i = phi ptr [ %.sroa.16.6.i, %.lr.ph113.i.i ], [ %.sroa.16.7.i, %.lr.ph.i.i ], [ %.sroa.16.7.i, %sortslice_copy_incr.exit129.i ], [ %.sroa.16.6.i, %166 ], [ %.sroa.16.7.i, %219 ], [ %.sroa.16.7.i, %sortslice_advance.exit145.i ], [ %.sroa.16.6.i, %142 ], [ %.sroa.16.7.i, %230 ], [ %.sroa.16.6.i, %177 ], [ %.sroa.16.7.i, %197 ], [ %.sroa.16.2.i.ph, %116 ], [ %.sroa.16.2.i.ph, %sortslice_copy_incr.exit118.i ]
+  %.sroa.0194.8.i = phi ptr [ %.sroa.0194.6.i, %.lr.ph113.i.i ], [ %.sroa.0194.7.i, %.lr.ph.i.i ], [ %.sroa.0194.7.i, %sortslice_copy_incr.exit129.i ], [ %.sroa.0194.6.i, %166 ], [ %.sroa.0194.7.i, %219 ], [ %.sroa.0194.7.i, %sortslice_advance.exit145.i ], [ %.sroa.0194.6.i, %142 ], [ %.sroa.0194.7.i, %230 ], [ %.sroa.0194.6.i, %177 ], [ %.sroa.0194.7.i, %197 ], [ %.sroa.0194.2.i.ph, %116 ], [ %.sroa.0194.2.i.ph, %sortslice_copy_incr.exit118.i ]
+  %.sroa.22.9.i = phi ptr [ %.sroa.22.6.i, %.lr.ph113.i.i ], [ %.sroa.22.14.i, %.lr.ph.i.i ], [ %.sroa.22.14.i, %sortslice_copy_incr.exit129.i ], [ %.sroa.22.6.i, %166 ], [ %.sroa.22.14.i, %219 ], [ %.sroa.22.15.i, %sortslice_advance.exit145.i ], [ %.sroa.22.6.i, %142 ], [ %.sroa.22.14.i, %230 ], [ %.sroa.22.6.i, %177 ], [ %.sroa.22.14.i, %197 ], [ %.sroa.22.11.i, %sortslice_copy_incr.exit118.i ], [ %.sroa.22.2.i, %116 ]
+  %.sroa.0.9.i = phi ptr [ %.sroa.0.6.i, %.lr.ph113.i.i ], [ %190, %.lr.ph.i.i ], [ %190, %sortslice_copy_incr.exit129.i ], [ %.sroa.0.6.i, %166 ], [ %190, %219 ], [ %236, %sortslice_advance.exit145.i ], [ %.sroa.0.6.i, %142 ], [ %190, %230 ], [ %.sroa.0.6.i, %177 ], [ %190, %197 ], [ %121, %sortslice_copy_incr.exit118.i ], [ %.sroa.0.2.i, %116 ]
+  %.8.i52 = phi i64 [ %.683.i, %.lr.ph113.i.i ], [ %.784.i, %.lr.ph.i.i ], [ %.784.i, %sortslice_copy_incr.exit129.i ], [ %.683.i, %166 ], [ %.784.i, %219 ], [ %.784.i, %sortslice_advance.exit145.i ], [ %.683.i, %142 ], [ %.784.i, %230 ], [ %.683.i, %177 ], [ %.784.i, %197 ], [ %.279.i.ph, %116 ], [ %.279.i.ph, %sortslice_copy_incr.exit118.i ]
+  %.073.i = phi i64 [ -1, %.lr.ph113.i.i ], [ -1, %.lr.ph.i.i ], [ 0, %sortslice_copy_incr.exit129.i ], [ -1, %166 ], [ -1, %219 ], [ 0, %sortslice_advance.exit145.i ], [ -1, %142 ], [ -1, %230 ], [ -1, %177 ], [ -1, %197 ], [ 0, %sortslice_copy_incr.exit118.i ], [ -1, %116 ]
   %.not111.i = icmp eq i64 %.8.i52, 0
   br i1 %.not111.i, label %merge_lo.exit, label %.thread220..thread277_crit_edge.i
 
@@ -7286,10 +7286,10 @@ sortslice_copy_decr.exit153.i:                    ; preds = %431, %427
   br label %312
 
 .thread245.i:                                     ; preds = %sortslice_copy_decr.exit136.i, %319, %345, %sortslice_copy_decr.exit153.i, %409, %sortslice_memmove.exit.i, %gallop_right.exit105, %.lr.ph.i, %373
-  %.397239.i = phi i64 [ %.6100.i, %373 ], [ %.6100.i, %sortslice_memmove.exit.i ], [ %.6100.i, %.lr.ph.i ], [ %.6100.i, %345 ], [ %.7101.i, %sortslice_copy_decr.exit153.i ], [ %407, %409 ], [ %.6100.i, %gallop_right.exit105 ], [ %.296.i.ph, %319 ], [ %.296.i.ph, %sortslice_copy_decr.exit136.i ]
-  %.sroa.0165.3237.i = phi ptr [ %.sroa.0165.6.i, %373 ], [ %388, %sortslice_memmove.exit.i ], [ %.sroa.0165.6.i, %.lr.ph.i ], [ %.sroa.0165.6.i, %345 ], [ %430, %sortslice_copy_decr.exit153.i ], [ %402, %409 ], [ %.sroa.0165.6.i, %gallop_right.exit105 ], [ %324, %sortslice_copy_decr.exit136.i ], [ %.sroa.0165.2.i, %319 ]
-  %.sroa.26.3235.i = phi ptr [ %.sroa.26.6.i, %373 ], [ %spec.select277.i, %sortslice_memmove.exit.i ], [ %.sroa.26.6.i, %.lr.ph.i ], [ %.sroa.26.6.i, %345 ], [ %.sroa.26.16.i, %sortslice_copy_decr.exit153.i ], [ %.sroa.26.14.i, %409 ], [ %.sroa.26.6.i, %gallop_right.exit105 ], [ %.sroa.26.11.i, %sortslice_copy_decr.exit136.i ], [ %.sroa.26.2.i, %319 ]
-  %.089.i = phi i64 [ -1, %373 ], [ 0, %sortslice_memmove.exit.i ], [ -1, %.lr.ph.i ], [ -1, %345 ], [ 0, %sortslice_copy_decr.exit153.i ], [ -1, %409 ], [ -1, %gallop_right.exit105 ], [ 0, %sortslice_copy_decr.exit136.i ], [ -1, %319 ]
+  %.397239.i = phi i64 [ %.6100.i, %sortslice_memmove.exit.i ], [ %.6100.i, %373 ], [ %.6100.i, %.lr.ph.i ], [ %.6100.i, %345 ], [ %.7101.i, %sortslice_copy_decr.exit153.i ], [ %407, %409 ], [ %.6100.i, %gallop_right.exit105 ], [ %.296.i.ph, %319 ], [ %.296.i.ph, %sortslice_copy_decr.exit136.i ]
+  %.sroa.0165.3237.i = phi ptr [ %388, %sortslice_memmove.exit.i ], [ %.sroa.0165.6.i, %373 ], [ %.sroa.0165.6.i, %.lr.ph.i ], [ %.sroa.0165.6.i, %345 ], [ %430, %sortslice_copy_decr.exit153.i ], [ %402, %409 ], [ %.sroa.0165.6.i, %gallop_right.exit105 ], [ %.sroa.0165.2.i, %319 ], [ %324, %sortslice_copy_decr.exit136.i ]
+  %.sroa.26.3235.i = phi ptr [ %spec.select277.i, %sortslice_memmove.exit.i ], [ %.sroa.26.6.i, %373 ], [ %.sroa.26.6.i, %.lr.ph.i ], [ %.sroa.26.6.i, %345 ], [ %.sroa.26.16.i, %sortslice_copy_decr.exit153.i ], [ %.sroa.26.14.i, %409 ], [ %.sroa.26.6.i, %gallop_right.exit105 ], [ %.sroa.26.2.i, %319 ], [ %.sroa.26.11.i, %sortslice_copy_decr.exit136.i ]
+  %.089.i = phi i64 [ 0, %sortslice_memmove.exit.i ], [ -1, %373 ], [ -1, %.lr.ph.i ], [ -1, %345 ], [ 0, %sortslice_copy_decr.exit153.i ], [ -1, %409 ], [ -1, %gallop_right.exit105 ], [ -1, %319 ], [ 0, %sortslice_copy_decr.exit136.i ]
   %.not126.i = icmp eq i64 %.397239.i, 0
   br i1 %.not126.i, label %merge_lo.exit, label %443
 
@@ -7347,7 +7347,7 @@ sortslice_advance.exit161.i:                      ; preds = %.thread259.i
   br label %merge_lo.exit
 
 merge_lo.exit:                                    ; preds = %.lr.ph113.i, %42, %sortslice_advance.exit.i, %sortslice_memcpy.exit151.i, %18, %460, %sortslice_advance.exit161.i, %sortslice_advance.exit161.thread.i, %447, %443, %.thread245.i, %284, %273, %260, %sortslice_memmove.exit153.thread.i, %257, %.thread277.i, %.thread220.i, %89, %78, %58, %sortslice_advance.exit, %gallop_right.exit
-  %.0 = phi i64 [ -1, %gallop_right.exit ], [ 0, %sortslice_advance.exit ], [ %63, %58 ], [ 0, %260 ], [ %.073290.i, %257 ], [ -1, %78 ], [ %.073.i, %.thread220.i ], [ %.073290.i, %.thread277.i ], [ 0, %sortslice_memmove.exit153.thread.i ], [ -1, %89 ], [ 0, %460 ], [ %.089.i, %447 ], [ -1, %273 ], [ %.089.i, %.thread245.i ], [ %.089.i, %443 ], [ 0, %sortslice_advance.exit161.i ], [ -1, %284 ], [ 0, %sortslice_advance.exit161.thread.i ], [ -1, %18 ], [ -1, %42 ], [ %412, %sortslice_memcpy.exit151.i ], [ %186, %sortslice_advance.exit.i ], [ -1, %.lr.ph113.i ]
+  %.0 = phi i64 [ %412, %sortslice_memcpy.exit151.i ], [ -1, %gallop_right.exit ], [ 0, %sortslice_advance.exit ], [ %186, %sortslice_advance.exit.i ], [ %63, %58 ], [ 0, %260 ], [ %.073290.i, %257 ], [ -1, %78 ], [ %.073.i, %.thread220.i ], [ %.073290.i, %.thread277.i ], [ 0, %sortslice_memmove.exit153.thread.i ], [ -1, %89 ], [ 0, %460 ], [ %.089.i, %447 ], [ -1, %273 ], [ %.089.i, %.thread245.i ], [ %.089.i, %443 ], [ 0, %sortslice_advance.exit161.i ], [ -1, %284 ], [ 0, %sortslice_advance.exit161.thread.i ], [ -1, %18 ], [ -1, %42 ], [ -1, %.lr.ph113.i ]
   ret i64 %.0
 }
 
@@ -9296,7 +9296,7 @@ Py_DECREF.exit.i:                                 ; preds = %19, %16, %Py_INCREF
   br label %list_remove_impl.exit
 
 list_remove_impl.exit:                            ; preds = %24, %.thread.i, %._crit_edge.i
-  %.2.i = phi ptr [ null, %._crit_edge.i ], [ %_Py_NoneStruct..i, %.thread.i ], [ null, %24 ]
+  %.2.i = phi ptr [ %_Py_NoneStruct..i, %.thread.i ], [ null, %._crit_edge.i ], [ null, %24 ]
   ret ptr %.2.i
 }
 

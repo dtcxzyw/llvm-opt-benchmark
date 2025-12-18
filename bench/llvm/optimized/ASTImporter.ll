@@ -19456,7 +19456,7 @@ _ZN4llvm5ErrorD2Ev.exit11.i94:                    ; preds = %210, %_ZN4llvm8Expe
   br i1 %.not152, label %_ZN4llvm5ErrorD2Ev.exit106, label %.lr.ph166.split
 
 _ZN4llvm5ErrorD2Ev.exit106:                       ; preds = %"_ZZN5clang15ASTNodeImporter17ImportDeclContextEPNS_11DeclContextEbENK3$_0clEPKNS_4DeclE.exit85.thread", %"_ZZN5clang15ASTNodeImporter17ImportDeclContextEPNS_11DeclContextEbENK3$_0clEPKNS_4DeclE.exit85.thread.us", %.loopexit153, %.thread
-  %storemerge229 = phi ptr [ %122, %.thread ], [ %.sroa.0127.0.lcssa, %.loopexit153 ], [ %.sroa.0127.0.lcssa, %"_ZZN5clang15ASTNodeImporter17ImportDeclContextEPNS_11DeclContextEbENK3$_0clEPKNS_4DeclE.exit85.thread.us" ], [ %.sroa.0127.5, %"_ZZN5clang15ASTNodeImporter17ImportDeclContextEPNS_11DeclContextEbENK3$_0clEPKNS_4DeclE.exit85.thread" ]
+  %storemerge229 = phi ptr [ %122, %.thread ], [ %.sroa.0127.0.lcssa, %"_ZZN5clang15ASTNodeImporter17ImportDeclContextEPNS_11DeclContextEbENK3$_0clEPKNS_4DeclE.exit85.thread.us" ], [ %.sroa.0127.0.lcssa, %.loopexit153 ], [ %.sroa.0127.5, %"_ZZN5clang15ASTNodeImporter17ImportDeclContextEPNS_11DeclContextEbENK3$_0clEPKNS_4DeclE.exit85.thread" ]
   store ptr %storemerge229, ptr %0, align 8, !tbaa !71
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   br label %217
@@ -23317,7 +23317,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang9NamedDeclELb1EE9push_backES3_.exit: ;
   store i32 %182, ptr %121, align 8, !tbaa !29
   br label %.thread145
 
-.thread145:                                       ; preds = %165, %.thread, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang9NamedDeclELb1EE9push_backES3_.exit, %130, %161, %139, %135
+.thread145:                                       ; preds = %165, %.thread, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang9NamedDeclELb1EE9push_backES3_.exit, %130, %139, %161, %135
   %183 = getelementptr inbounds nuw i8, ptr %.056187, i64 8
   %.not63 = icmp eq ptr %183, %128
   br i1 %.not63, label %._crit_edge, label %130
@@ -25299,8 +25299,8 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i5.i: 
   %239 = inttoptr i64 %.sroa.07.1.i to ptr
   br label %_ZN5clang15ASTNodeImporter13importCheckedINS_8QualTypeEEET_RN4llvm5ErrorERKS3_.exit.thread230
 
-_ZN5clang15ASTNodeImporter13importCheckedINS_8QualTypeEEET_RN4llvm5ErrorERKS3_.exit.thread230: ; preds = %_ZNK5clang8EnumDecl14getIntegerTypeEv.exit.thread, %_ZNK5clang8EnumDecl14getIntegerTypeEv.exit, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i5.i, %_ZN5clang15ASTNodeImporter13importCheckedINS_8QualTypeEEET_RN4llvm5ErrorERKS3_.exit
-  %.sroa.0179.6.ph = phi ptr [ %239, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i5.i ], [ %223, %_ZN5clang15ASTNodeImporter13importCheckedINS_8QualTypeEEET_RN4llvm5ErrorERKS3_.exit ], [ %.sroa.0179.4, %_ZNK5clang8EnumDecl14getIntegerTypeEv.exit ], [ %.sroa.0179.4, %_ZNK5clang8EnumDecl14getIntegerTypeEv.exit.thread ]
+_ZN5clang15ASTNodeImporter13importCheckedINS_8QualTypeEEET_RN4llvm5ErrorERKS3_.exit.thread230: ; preds = %_ZNK5clang8EnumDecl14getIntegerTypeEv.exit, %_ZNK5clang8EnumDecl14getIntegerTypeEv.exit.thread, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i5.i, %_ZN5clang15ASTNodeImporter13importCheckedINS_8QualTypeEEET_RN4llvm5ErrorERKS3_.exit
+  %.sroa.0179.6.ph = phi ptr [ %239, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i5.i ], [ %223, %_ZN5clang15ASTNodeImporter13importCheckedINS_8QualTypeEEET_RN4llvm5ErrorERKS3_.exit ], [ %.sroa.0179.4, %_ZNK5clang8EnumDecl14getIntegerTypeEv.exit.thread ], [ %.sroa.0179.4, %_ZNK5clang8EnumDecl14getIntegerTypeEv.exit ]
   %240 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %241 = load i8, ptr %240, align 8
   %242 = or i8 %241, 1
@@ -25309,7 +25309,7 @@ _ZN5clang15ASTNodeImporter13importCheckedINS_8QualTypeEEET_RN4llvm5ErrorERKS3_.e
   br label %_ZN4llvm5ErrorD2Ev.exit162
 
 _ZN5clang15ASTNodeImporter13importCheckedINS_11SourceRangeEEET_RN4llvm5ErrorERKS3_.exit: ; preds = %_ZN5clang11ASTImporter10importIntoINS_14SourceLocationEEEN4llvm5ErrorERT_RKS5_.exit13.i.i.i, %_ZN5clang11ASTImporter10importIntoINS_14SourceLocationEEEN4llvm5ErrorERT_RKS5_.exit13.thread.i.i.i
-  %.sroa.6.0.i141 = phi i64 [ %.sroa.027.031.i.i.i, %_ZN5clang11ASTImporter10importIntoINS_14SourceLocationEEEN4llvm5ErrorERT_RKS5_.exit13.i.i.i ], [ %237, %_ZN5clang11ASTImporter10importIntoINS_14SourceLocationEEEN4llvm5ErrorERT_RKS5_.exit13.thread.i.i.i ]
+  %.sroa.6.0.i141 = phi i64 [ %237, %_ZN5clang11ASTImporter10importIntoINS_14SourceLocationEEEN4llvm5ErrorERT_RKS5_.exit13.thread.i.i.i ], [ %.sroa.027.031.i.i.i, %_ZN5clang11ASTImporter10importIntoINS_14SourceLocationEEEN4llvm5ErrorERT_RKS5_.exit13.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %243 = load ptr, ptr %1, align 8, !tbaa !62
   %244 = getelementptr inbounds nuw i8, ptr %243, i64 280120
@@ -29282,7 +29282,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang9NamedDeclELb1EE9push_backES3_.exit: ;
   br label %424
 
 .thread821:                                       ; preds = %.critedge345, %145, %_ZN5clang15ASTNodeImporter20FindAndMapDefinitionEPNS_12FunctionDeclES2_.exit, %_ZN5clang15ASTNodeImporter20FindAndMapDefinitionEPNS_12FunctionDeclES2_.exit.thread
-  %.3826 = phi ptr [ %170, %_ZN5clang15ASTNodeImporter20FindAndMapDefinitionEPNS_12FunctionDeclES2_.exit.thread ], [ %170, %_ZN5clang15ASTNodeImporter20FindAndMapDefinitionEPNS_12FunctionDeclES2_.exit ], [ null, %145 ], [ null, %.critedge345 ]
+  %.3826 = phi ptr [ %170, %_ZN5clang15ASTNodeImporter20FindAndMapDefinitionEPNS_12FunctionDeclES2_.exit ], [ %170, %_ZN5clang15ASTNodeImporter20FindAndMapDefinitionEPNS_12FunctionDeclES2_.exit.thread ], [ null, %145 ], [ null, %.critedge345 ]
   %408 = load i32, ptr %147, align 8, !tbaa !29
   %.not.i = icmp eq i32 %408, 0
   br i1 %.not.i, label %424, label %409
@@ -37480,7 +37480,7 @@ _ZN5clang11ASTImporter6ImportENS_8QualTypeE.exit.thread15.i: ; preds = %60, %55
   br label %_ZN5clang15ASTNodeImporter13importCheckedINS_8QualTypeEEET_RN4llvm5ErrorERKS3_.exit.thread54
 
 _ZN5clang15ASTNodeImporter13importCheckedINS_8QualTypeEEET_RN4llvm5ErrorERKS3_.exit.thread54: ; preds = %36, %_ZN5clang11ASTImporter6ImportENS_8QualTypeE.exit.thread15.i
-  %.sroa.06.0.i13.ph = phi i64 [ 0, %36 ], [ %.sroa.05.0.i.sink.i.ph.i, %_ZN5clang11ASTImporter6ImportENS_8QualTypeE.exit.thread15.i ]
+  %.sroa.06.0.i13.ph = phi i64 [ %.sroa.05.0.i.sink.i.ph.i, %_ZN5clang11ASTImporter6ImportENS_8QualTypeE.exit.thread15.i ], [ 0, %36 ]
   store i64 %.sroa.06.0.i13.ph, ptr %9, align 8
   br label %66
 
@@ -55282,7 +55282,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang9NamedDeclELb1EE9push_backES3_.exit: ;
   br i1 %.not62, label %.thread115, label %39
 
 .thread115:                                       ; preds = %108, %27, %74, %84, %85
-  %.152119 = phi ptr [ %40, %85 ], [ %40, %84 ], [ %40, %74 ], [ null, %27 ], [ null, %108 ]
+  %.152119 = phi ptr [ %40, %74 ], [ %40, %85 ], [ %40, %84 ], [ null, %27 ], [ null, %108 ]
   %110 = load i32, ptr %29, align 8, !tbaa !29
   %.not.i74 = icmp eq i32 %110, 0
   br i1 %.not.i74, label %125, label %111
@@ -85350,10 +85350,10 @@ _ZN4llvm8ExpectedIPN5clang4ExprEED2Ev.exit.i.i1326: ; preds = %1142
   br i1 %.not.i.i1327, label %_ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEEC2ERNS1_15ASTNodeImporterERN4llvm5ErrorERKNS7_14iterator_rangeIPS3_EEj.exit1331, label %1142, !llvm.loop !6971
 
 _ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEEC2ERNS1_15ASTNodeImporterERN4llvm5ErrorERKNS7_14iterator_rangeIPS3_EEj.exit1331: ; preds = %_ZN4llvm8ExpectedIPN5clang4ExprEED2Ev.exit.i.i1326, %_ZN4llvm5ErrorD2Ev.exit.i1321, %1146, %_ZN5clang15ASTNodeImporter13importCheckedIPNS_4ExprEEET_RN4llvm5ErrorERKS4_.exit1319
-  %1152 = phi ptr [ %1128, %_ZN5clang15ASTNodeImporter13importCheckedIPNS_4ExprEEET_RN4llvm5ErrorERKS4_.exit1319 ], [ %1132, %1146 ], [ %1132, %_ZN4llvm5ErrorD2Ev.exit.i1321 ], [ %1132, %_ZN4llvm8ExpectedIPN5clang4ExprEED2Ev.exit.i.i1326 ]
-  %1153 = phi ptr [ %1124, %_ZN5clang15ASTNodeImporter13importCheckedIPNS_4ExprEEET_RN4llvm5ErrorERKS4_.exit1319 ], [ %1136, %1146 ], [ %1136, %_ZN4llvm5ErrorD2Ev.exit.i1321 ], [ %1136, %_ZN4llvm8ExpectedIPN5clang4ExprEED2Ev.exit.i.i1326 ]
-  %.0.i13161709 = phi ptr [ null, %_ZN5clang15ASTNodeImporter13importCheckedIPNS_4ExprEEET_RN4llvm5ErrorERKS4_.exit1319 ], [ %.0.i13161710, %1146 ], [ %.0.i13161710, %_ZN4llvm5ErrorD2Ev.exit.i1321 ], [ %.0.i13161710, %_ZN4llvm8ExpectedIPN5clang4ExprEED2Ev.exit.i.i1326 ]
-  %.sroa.01495.46 = phi ptr [ %1121, %_ZN5clang15ASTNodeImporter13importCheckedIPNS_4ExprEEET_RN4llvm5ErrorERKS4_.exit1319 ], [ %1148, %1146 ], [ null, %_ZN4llvm5ErrorD2Ev.exit.i1321 ], [ null, %_ZN4llvm8ExpectedIPN5clang4ExprEED2Ev.exit.i.i1326 ]
+  %1152 = phi ptr [ %1128, %_ZN5clang15ASTNodeImporter13importCheckedIPNS_4ExprEEET_RN4llvm5ErrorERKS4_.exit1319 ], [ %1132, %_ZN4llvm5ErrorD2Ev.exit.i1321 ], [ %1132, %1146 ], [ %1132, %_ZN4llvm8ExpectedIPN5clang4ExprEED2Ev.exit.i.i1326 ]
+  %1153 = phi ptr [ %1124, %_ZN5clang15ASTNodeImporter13importCheckedIPNS_4ExprEEET_RN4llvm5ErrorERKS4_.exit1319 ], [ %1136, %_ZN4llvm5ErrorD2Ev.exit.i1321 ], [ %1136, %1146 ], [ %1136, %_ZN4llvm8ExpectedIPN5clang4ExprEED2Ev.exit.i.i1326 ]
+  %.0.i13161709 = phi ptr [ null, %_ZN5clang15ASTNodeImporter13importCheckedIPNS_4ExprEEET_RN4llvm5ErrorERKS4_.exit1319 ], [ %.0.i13161710, %_ZN4llvm5ErrorD2Ev.exit.i1321 ], [ %.0.i13161710, %1146 ], [ %.0.i13161710, %_ZN4llvm8ExpectedIPN5clang4ExprEED2Ev.exit.i.i1326 ]
+  %.sroa.01495.46 = phi ptr [ %1121, %_ZN5clang15ASTNodeImporter13importCheckedIPNS_4ExprEEET_RN4llvm5ErrorERKS4_.exit1319 ], [ null, %_ZN4llvm5ErrorD2Ev.exit.i1321 ], [ %1148, %1146 ], [ null, %_ZN4llvm8ExpectedIPN5clang4ExprEED2Ev.exit.i.i1326 ]
   %.val105 = load ptr, ptr %110, align 8, !tbaa !26
   %1154 = load i32, ptr %1153, align 8, !tbaa !9542
   %1155 = load ptr, ptr %2, align 8, !tbaa !9342
@@ -88015,10 +88015,10 @@ _ZN4llvm8ExpectedIPN5clang4ExprEED2Ev.exit.i.i1425: ; preds = %2470
   br i1 %.not.i.i1426, label %_ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEEC2ERNS1_15ASTNodeImporterERN4llvm5ErrorERKNS7_14iterator_rangeIPS3_EEj.exit1430, label %2470, !llvm.loop !6971
 
 _ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEEC2ERNS1_15ASTNodeImporterERN4llvm5ErrorERKNS7_14iterator_rangeIPS3_EEj.exit1430: ; preds = %_ZN4llvm8ExpectedIPN5clang4ExprEED2Ev.exit.i.i1425, %_ZN4llvm5ErrorD2Ev.exit.i1420, %2474, %_ZN5clang15ASTNodeImporter13importCheckedIPNS_4ExprEEET_RN4llvm5ErrorERKS4_.exit1418
-  %2480 = phi ptr [ %2456, %_ZN5clang15ASTNodeImporter13importCheckedIPNS_4ExprEEET_RN4llvm5ErrorERKS4_.exit1418 ], [ %2460, %2474 ], [ %2460, %_ZN4llvm5ErrorD2Ev.exit.i1420 ], [ %2460, %_ZN4llvm8ExpectedIPN5clang4ExprEED2Ev.exit.i.i1425 ]
-  %2481 = phi ptr [ %2452, %_ZN5clang15ASTNodeImporter13importCheckedIPNS_4ExprEEET_RN4llvm5ErrorERKS4_.exit1418 ], [ %2464, %2474 ], [ %2464, %_ZN4llvm5ErrorD2Ev.exit.i1420 ], [ %2464, %_ZN4llvm8ExpectedIPN5clang4ExprEED2Ev.exit.i.i1425 ]
-  %.0.i14151768 = phi ptr [ null, %_ZN5clang15ASTNodeImporter13importCheckedIPNS_4ExprEEET_RN4llvm5ErrorERKS4_.exit1418 ], [ %.0.i14151769, %2474 ], [ %.0.i14151769, %_ZN4llvm5ErrorD2Ev.exit.i1420 ], [ %.0.i14151769, %_ZN4llvm8ExpectedIPN5clang4ExprEED2Ev.exit.i.i1425 ]
-  %.sroa.01495.56 = phi ptr [ %2449, %_ZN5clang15ASTNodeImporter13importCheckedIPNS_4ExprEEET_RN4llvm5ErrorERKS4_.exit1418 ], [ %2476, %2474 ], [ null, %_ZN4llvm5ErrorD2Ev.exit.i1420 ], [ null, %_ZN4llvm8ExpectedIPN5clang4ExprEED2Ev.exit.i.i1425 ]
+  %2480 = phi ptr [ %2456, %_ZN5clang15ASTNodeImporter13importCheckedIPNS_4ExprEEET_RN4llvm5ErrorERKS4_.exit1418 ], [ %2460, %_ZN4llvm5ErrorD2Ev.exit.i1420 ], [ %2460, %2474 ], [ %2460, %_ZN4llvm8ExpectedIPN5clang4ExprEED2Ev.exit.i.i1425 ]
+  %2481 = phi ptr [ %2452, %_ZN5clang15ASTNodeImporter13importCheckedIPNS_4ExprEEET_RN4llvm5ErrorERKS4_.exit1418 ], [ %2464, %_ZN4llvm5ErrorD2Ev.exit.i1420 ], [ %2464, %2474 ], [ %2464, %_ZN4llvm8ExpectedIPN5clang4ExprEED2Ev.exit.i.i1425 ]
+  %.0.i14151768 = phi ptr [ null, %_ZN5clang15ASTNodeImporter13importCheckedIPNS_4ExprEEET_RN4llvm5ErrorERKS4_.exit1418 ], [ %.0.i14151769, %_ZN4llvm5ErrorD2Ev.exit.i1420 ], [ %.0.i14151769, %2474 ], [ %.0.i14151769, %_ZN4llvm8ExpectedIPN5clang4ExprEED2Ev.exit.i.i1425 ]
+  %.sroa.01495.56 = phi ptr [ %2449, %_ZN5clang15ASTNodeImporter13importCheckedIPNS_4ExprEEET_RN4llvm5ErrorERKS4_.exit1418 ], [ null, %_ZN4llvm5ErrorD2Ev.exit.i1420 ], [ %2476, %2474 ], [ null, %_ZN4llvm8ExpectedIPN5clang4ExprEED2Ev.exit.i.i1425 ]
   %.val112 = load ptr, ptr %117, align 8, !tbaa !26
   %2482 = load i32, ptr %2481, align 8, !tbaa !9855
   %2483 = load ptr, ptr %2, align 8, !tbaa !9342
@@ -88364,10 +88364,10 @@ _ZN4llvm8ExpectedIPN5clang4ExprEED2Ev.exit.i.i1442: ; preds = %2646
   br i1 %.not.i.i1443, label %_ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEEC2ERNS1_15ASTNodeImporterERN4llvm5ErrorERKNS7_14iterator_rangeIPS3_EEj.exit1447, label %2646, !llvm.loop !6971
 
 _ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEEC2ERNS1_15ASTNodeImporterERN4llvm5ErrorERKNS7_14iterator_rangeIPS3_EEj.exit1447: ; preds = %_ZN4llvm8ExpectedIPN5clang4ExprEED2Ev.exit.i.i1442, %_ZN4llvm5ErrorD2Ev.exit.i1437, %2650, %_ZN5clang15ASTNodeImporter13importCheckedIPNS_4ExprEEET_RN4llvm5ErrorERKS4_.exit1435
-  %2656 = phi ptr [ %2632, %_ZN5clang15ASTNodeImporter13importCheckedIPNS_4ExprEEET_RN4llvm5ErrorERKS4_.exit1435 ], [ %2636, %2650 ], [ %2636, %_ZN4llvm5ErrorD2Ev.exit.i1437 ], [ %2636, %_ZN4llvm8ExpectedIPN5clang4ExprEED2Ev.exit.i.i1442 ]
-  %2657 = phi ptr [ %2628, %_ZN5clang15ASTNodeImporter13importCheckedIPNS_4ExprEEET_RN4llvm5ErrorERKS4_.exit1435 ], [ %2640, %2650 ], [ %2640, %_ZN4llvm5ErrorD2Ev.exit.i1437 ], [ %2640, %_ZN4llvm8ExpectedIPN5clang4ExprEED2Ev.exit.i.i1442 ]
-  %.0.i14321779 = phi ptr [ null, %_ZN5clang15ASTNodeImporter13importCheckedIPNS_4ExprEEET_RN4llvm5ErrorERKS4_.exit1435 ], [ %.0.i14321780, %2650 ], [ %.0.i14321780, %_ZN4llvm5ErrorD2Ev.exit.i1437 ], [ %.0.i14321780, %_ZN4llvm8ExpectedIPN5clang4ExprEED2Ev.exit.i.i1442 ]
-  %.sroa.01495.58 = phi ptr [ %2625, %_ZN5clang15ASTNodeImporter13importCheckedIPNS_4ExprEEET_RN4llvm5ErrorERKS4_.exit1435 ], [ %2652, %2650 ], [ null, %_ZN4llvm5ErrorD2Ev.exit.i1437 ], [ null, %_ZN4llvm8ExpectedIPN5clang4ExprEED2Ev.exit.i.i1442 ]
+  %2656 = phi ptr [ %2632, %_ZN5clang15ASTNodeImporter13importCheckedIPNS_4ExprEEET_RN4llvm5ErrorERKS4_.exit1435 ], [ %2636, %_ZN4llvm5ErrorD2Ev.exit.i1437 ], [ %2636, %2650 ], [ %2636, %_ZN4llvm8ExpectedIPN5clang4ExprEED2Ev.exit.i.i1442 ]
+  %2657 = phi ptr [ %2628, %_ZN5clang15ASTNodeImporter13importCheckedIPNS_4ExprEEET_RN4llvm5ErrorERKS4_.exit1435 ], [ %2640, %_ZN4llvm5ErrorD2Ev.exit.i1437 ], [ %2640, %2650 ], [ %2640, %_ZN4llvm8ExpectedIPN5clang4ExprEED2Ev.exit.i.i1442 ]
+  %.0.i14321779 = phi ptr [ null, %_ZN5clang15ASTNodeImporter13importCheckedIPNS_4ExprEEET_RN4llvm5ErrorERKS4_.exit1435 ], [ %.0.i14321780, %_ZN4llvm5ErrorD2Ev.exit.i1437 ], [ %.0.i14321780, %2650 ], [ %.0.i14321780, %_ZN4llvm8ExpectedIPN5clang4ExprEED2Ev.exit.i.i1442 ]
+  %.sroa.01495.58 = phi ptr [ %2625, %_ZN5clang15ASTNodeImporter13importCheckedIPNS_4ExprEEET_RN4llvm5ErrorERKS4_.exit1435 ], [ null, %_ZN4llvm5ErrorD2Ev.exit.i1437 ], [ %2652, %2650 ], [ null, %_ZN4llvm8ExpectedIPN5clang4ExprEED2Ev.exit.i.i1442 ]
   %.val113 = load ptr, ptr %118, align 8, !tbaa !26
   %2658 = load i32, ptr %2657, align 8, !tbaa !9900
   %2659 = load ptr, ptr %2, align 8, !tbaa !9342
@@ -89274,8 +89274,8 @@ _ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit.i956: ; preds = %3108,
   br label %_ZNO12_GLOBAL__N_112AttrImporter9getResultEv.exit
 
 _ZN12_GLOBAL__N_112AttrImporter10importAttrIN5clang11AlignedAttrEJbRKPNS2_14TypeSourceInfoEEEEvPKT_DpOT0_.exit: ; preds = %_ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEED2Ev.exit941, %_ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEED2Ev.exit854, %_ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEED2Ev.exit809, %_ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEED2Ev.exit764, %_ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEED2Ev.exit719, %_ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEED2Ev.exit674, %_ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEED2Ev.exit629, %_ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEED2Ev.exit500, %_ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEED2Ev.exit455, %_ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEED2Ev.exit410, %_ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEED2Ev.exit365, %_ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEED2Ev.exit
-  %.sroa.146.0 = phi ptr [ %.sroa.146.14, %_ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEED2Ev.exit764 ], [ %.sroa.146.18, %_ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEED2Ev.exit941 ], [ %.sroa.146.15, %_ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEED2Ev.exit809 ], [ %.sroa.146.16, %_ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEED2Ev.exit854 ], [ %.sroa.146.4, %_ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEED2Ev.exit ], [ %.sroa.146.5, %_ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEED2Ev.exit365 ], [ %.sroa.146.6, %_ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEED2Ev.exit410 ], [ %.sroa.146.7, %_ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEED2Ev.exit455 ], [ %.sroa.146.8, %_ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEED2Ev.exit500 ], [ %.sroa.146.11, %_ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEED2Ev.exit629 ], [ %.sroa.146.12, %_ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEED2Ev.exit674 ], [ %.sroa.146.13, %_ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEED2Ev.exit719 ]
-  %.sroa.01495.0 = phi ptr [ %.sroa.01495.30, %_ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEED2Ev.exit764 ], [ %.sroa.01495.38, %_ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEED2Ev.exit941 ], [ %.sroa.01495.32, %_ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEED2Ev.exit809 ], [ %.sroa.01495.34, %_ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEED2Ev.exit854 ], [ %.sroa.01495.10, %_ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEED2Ev.exit ], [ %.sroa.01495.12, %_ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEED2Ev.exit365 ], [ %.sroa.01495.14, %_ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEED2Ev.exit410 ], [ %.sroa.01495.16, %_ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEED2Ev.exit455 ], [ %.sroa.01495.18, %_ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEED2Ev.exit500 ], [ %.sroa.01495.24, %_ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEED2Ev.exit629 ], [ %.sroa.01495.26, %_ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEED2Ev.exit674 ], [ %.sroa.01495.28, %_ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEED2Ev.exit719 ]
+  %.sroa.146.0 = phi ptr [ %.sroa.146.8, %_ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEED2Ev.exit500 ], [ %.sroa.146.18, %_ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEED2Ev.exit941 ], [ %.sroa.146.15, %_ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEED2Ev.exit809 ], [ %.sroa.146.16, %_ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEED2Ev.exit854 ], [ %.sroa.146.11, %_ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEED2Ev.exit629 ], [ %.sroa.146.12, %_ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEED2Ev.exit674 ], [ %.sroa.146.13, %_ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEED2Ev.exit719 ], [ %.sroa.146.14, %_ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEED2Ev.exit764 ], [ %.sroa.146.4, %_ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEED2Ev.exit ], [ %.sroa.146.5, %_ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEED2Ev.exit365 ], [ %.sroa.146.6, %_ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEED2Ev.exit410 ], [ %.sroa.146.7, %_ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEED2Ev.exit455 ]
+  %.sroa.01495.0 = phi ptr [ %.sroa.01495.18, %_ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEED2Ev.exit500 ], [ %.sroa.01495.38, %_ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEED2Ev.exit941 ], [ %.sroa.01495.32, %_ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEED2Ev.exit809 ], [ %.sroa.01495.34, %_ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEED2Ev.exit854 ], [ %.sroa.01495.24, %_ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEED2Ev.exit629 ], [ %.sroa.01495.26, %_ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEED2Ev.exit674 ], [ %.sroa.01495.28, %_ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEED2Ev.exit719 ], [ %.sroa.01495.30, %_ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEED2Ev.exit764 ], [ %.sroa.01495.10, %_ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEED2Ev.exit ], [ %.sroa.01495.12, %_ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEED2Ev.exit365 ], [ %.sroa.01495.14, %_ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEED2Ev.exit410 ], [ %.sroa.01495.16, %_ZN12_GLOBAL__N_120AttrArgArrayImporterIPN5clang4ExprEED2Ev.exit455 ]
   %.not.i967 = icmp eq ptr %.sroa.01495.0, null
   br i1 %.not.i967, label %_ZNO12_GLOBAL__N_112AttrImporter9getResultEv.exit, label %_ZNO12_GLOBAL__N_112AttrImporter9getResultEv.exit.thread
 
@@ -89288,7 +89288,7 @@ _ZNO12_GLOBAL__N_112AttrImporter9getResultEv.exit.thread: ; preds = %_ZNSt10uniq
   br label %_ZN12_GLOBAL__N_112AttrImporterD2Ev.exit
 
 _ZNO12_GLOBAL__N_112AttrImporter9getResultEv.exit: ; preds = %2912, %511, %1835, %805, %671, %254, %1706, %382, %_ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit.i956, %_ZN12_GLOBAL__N_112AttrImporter10importAttrIN5clang11AlignedAttrEJbRKPNS2_14TypeSourceInfoEEEEvPKT_DpOT0_.exit
-  %.sroa.146.01808 = phi ptr [ %.sroa.146.0, %_ZN12_GLOBAL__N_112AttrImporter10importAttrIN5clang11AlignedAttrEJbRKPNS2_14TypeSourceInfoEEEEvPKT_DpOT0_.exit ], [ %2892, %2912 ], [ %1815, %1835 ], [ %1686, %1706 ], [ %785, %805 ], [ %491, %511 ], [ %234, %254 ], [ %651, %671 ], [ %362, %382 ], [ %3081, %_ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit.i956 ]
+  %.sroa.146.01808 = phi ptr [ %.sroa.146.0, %_ZN12_GLOBAL__N_112AttrImporter10importAttrIN5clang11AlignedAttrEJbRKPNS2_14TypeSourceInfoEEEEvPKT_DpOT0_.exit ], [ %234, %254 ], [ %491, %511 ], [ %785, %805 ], [ %1686, %1706 ], [ %651, %671 ], [ %1815, %1835 ], [ %2892, %2912 ], [ %362, %382 ], [ %3081, %_ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit.i956 ]
   %3119 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3120 = load i8, ptr %3119, align 8, !alias.scope !10015
   %3121 = and i8 %3120, -2

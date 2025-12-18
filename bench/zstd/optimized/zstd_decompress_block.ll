@@ -1266,7 +1266,7 @@ ZSTD_buildSeqTable.exit.thread.sink.split:        ; preds = %43, %61
   br label %ZSTD_buildSeqTable.exit.thread
 
 ZSTD_buildSeqTable.exit.thread:                   ; preds = %78, %ZSTD_buildSeqTable.exit.thread.sink.split, %73
-  %.0.i.ph = phi i64 [ 0, %73 ], [ %.0.i.ph.ph, %ZSTD_buildSeqTable.exit.thread.sink.split ], [ 0, %78 ]
+  %.0.i.ph = phi i64 [ %.0.i.ph.ph, %ZSTD_buildSeqTable.exit.thread.sink.split ], [ 0, %73 ], [ 0, %78 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %91
 
@@ -1380,7 +1380,7 @@ ZSTD_buildSeqTable.exit110.thread.sink.split:     ; preds = %91, %100
   br label %ZSTD_buildSeqTable.exit110.thread
 
 ZSTD_buildSeqTable.exit110.thread:                ; preds = %117, %ZSTD_buildSeqTable.exit110.thread.sink.split, %112
-  %.0.i104.ph = phi i64 [ 0, %112 ], [ %.0.i104.ph.ph, %ZSTD_buildSeqTable.exit110.thread.sink.split ], [ 0, %117 ]
+  %.0.i104.ph = phi i64 [ %.0.i104.ph.ph, %ZSTD_buildSeqTable.exit110.thread.sink.split ], [ 0, %112 ], [ 0, %117 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %130
 
@@ -3067,7 +3067,7 @@ ZSTD_overlapCopy8.exit198.i:                      ; preds = %793, %771
   br i1 %819, label %813, label %ZSTD_execSequence.exit.i, !llvm.loop !97
 
 ZSTD_execSequence.exit.i:                         ; preds = %813, %.preheader536.i, %762, %808, %ZSTD_overlapCopy8.exit198.i, %756, %751, %725
-  %.0.i15.i = phi i64 [ %726, %725 ], [ %716, %751 ], [ %716, %ZSTD_overlapCopy8.exit198.i ], [ %716, %756 ], [ %716, %808 ], [ %716, %.preheader536.i ], [ %716, %762 ], [ %716, %813 ]
+  %.0.i15.i = phi i64 [ %726, %725 ], [ %716, %762 ], [ %716, %751 ], [ %716, %ZSTD_overlapCopy8.exit198.i ], [ %716, %808 ], [ %716, %756 ], [ %716, %.preheader536.i ], [ %716, %813 ]
   %820 = icmp ult i64 %.0.i15.i, -119
   br i1 %820, label %821, label %.thread505.i
 
@@ -3497,7 +3497,7 @@ ZSTD_overlapCopy8.exit197.i:                      ; preds = %1023, %1001
   br i1 %1049, label %1043, label %ZSTD_execSequenceSplitLitBuffer.exit.i, !llvm.loop !97
 
 ZSTD_execSequenceSplitLitBuffer.exit.i:           ; preds = %1043, %.preheader543.i, %992, %931, %.preheader540.i, %880, %953, %981, %986, %ZSTD_overlapCopy8.exit197.i, %1038, %841, %869, %874, %ZSTD_overlapCopy8.exit194.i, %926
-  %1050 = phi i64 [ %842, %841 ], [ %833, %869 ], [ %833, %ZSTD_overlapCopy8.exit194.i ], [ %833, %874 ], [ %833, %926 ], [ %954, %953 ], [ %943, %981 ], [ %943, %ZSTD_overlapCopy8.exit197.i ], [ %943, %986 ], [ %943, %1038 ], [ %943, %.preheader543.i ], [ %833, %880 ], [ %833, %.preheader540.i ], [ %833, %931 ], [ %943, %992 ], [ %943, %1043 ]
+  %1050 = phi i64 [ %833, %931 ], [ %842, %841 ], [ %833, %880 ], [ %833, %869 ], [ %833, %ZSTD_overlapCopy8.exit194.i ], [ %943, %.preheader543.i ], [ %833, %874 ], [ %833, %.preheader540.i ], [ %833, %926 ], [ %954, %953 ], [ %943, %1038 ], [ %943, %981 ], [ %943, %ZSTD_overlapCopy8.exit197.i ], [ %943, %992 ], [ %943, %986 ], [ %943, %1043 ]
   %1051 = icmp ult i64 %1050, -119
   br i1 %1051, label %.thread468.i, label %.thread505.i
 
@@ -3885,7 +3885,7 @@ ZSTD_overlapCopy8.exit196.i:                      ; preds = %1211, %1189
   br i1 %1237, label %1231, label %.loopexit.i, !llvm.loop !97
 
 .loopexit.i:                                      ; preds = %1231, %.preheader526.i, %1180, %1226, %ZSTD_overlapCopy8.exit196.i, %1174, %1169, %1143
-  %.0.i25.i = phi i64 [ %1144, %1143 ], [ %1134, %1169 ], [ %1134, %ZSTD_overlapCopy8.exit196.i ], [ %1134, %1174 ], [ %1134, %1226 ], [ %1134, %.preheader526.i ], [ %1134, %1180 ], [ %1134, %1231 ]
+  %.0.i25.i = phi i64 [ %1144, %1143 ], [ %1134, %1180 ], [ %1134, %1169 ], [ %1134, %ZSTD_overlapCopy8.exit196.i ], [ %1134, %1226 ], [ %1134, %1174 ], [ %1134, %.preheader526.i ], [ %1134, %1231 ]
   %1238 = icmp ult i64 %.0.i25.i, -119
   %1239 = getelementptr inbounds nuw i8, ptr %.10217.i.i, i64 %.0.i25.i
   br i1 %1238, label %1460, label %.thread505.i
@@ -4297,7 +4297,7 @@ ZSTD_overlapCopy8.exit195.i:                      ; preds = %1430, %1408
   br i1 %1456, label %1450, label %ZSTD_execSequenceSplitLitBuffer.exit45.i, !llvm.loop !97
 
 ZSTD_execSequenceSplitLitBuffer.exit45.i:         ; preds = %1450, %.preheader533.i, %1399, %1341, %.preheader530.i, %1290, %1360, %1388, %1393, %ZSTD_overlapCopy8.exit195.i, %1445, %1251, %1279, %1284, %ZSTD_overlapCopy8.exit.i, %1336
-  %1457 = phi i64 [ %1252, %1251 ], [ %1243, %1279 ], [ %1243, %ZSTD_overlapCopy8.exit.i ], [ %1243, %1284 ], [ %1243, %1336 ], [ %1361, %1360 ], [ %1350, %1388 ], [ %1350, %ZSTD_overlapCopy8.exit195.i ], [ %1350, %1393 ], [ %1350, %1445 ], [ %1350, %.preheader533.i ], [ %1243, %1290 ], [ %1243, %.preheader530.i ], [ %1243, %1341 ], [ %1350, %1399 ], [ %1350, %1450 ]
+  %1457 = phi i64 [ %1243, %1341 ], [ %1252, %1251 ], [ %1243, %1290 ], [ %1243, %1279 ], [ %1243, %ZSTD_overlapCopy8.exit.i ], [ %1350, %.preheader533.i ], [ %1243, %1284 ], [ %1243, %.preheader530.i ], [ %1243, %1336 ], [ %1361, %1360 ], [ %1350, %1445 ], [ %1350, %1388 ], [ %1350, %ZSTD_overlapCopy8.exit195.i ], [ %1350, %1399 ], [ %1350, %1393 ], [ %1350, %1450 ]
   %1458 = icmp ult i64 %1457, -119
   %1459 = getelementptr inbounds nuw i8, ptr %.9216.i595.i, i64 %1457
   br i1 %1458, label %1460, label %.thread505.i
@@ -5339,7 +5339,7 @@ ZSTD_overlapCopy8.exit.i.i:                       ; preds = %530, %508
   br i1 %556, label %550, label %ZSTD_execSequenceSplitLitBuffer.exit.i.i, !llvm.loop !97
 
 ZSTD_execSequenceSplitLitBuffer.exit.i.i:         ; preds = %550, %.preheader240.i, %499, %545, %ZSTD_overlapCopy8.exit.i.i, %493, %487, %459
-  %.0.i199.i.i = phi i64 [ %460, %459 ], [ %451, %487 ], [ %451, %ZSTD_overlapCopy8.exit.i.i ], [ %451, %493 ], [ %451, %545 ], [ %451, %.preheader240.i ], [ %451, %499 ], [ %451, %550 ]
+  %.0.i199.i.i = phi i64 [ %460, %459 ], [ %451, %.preheader240.i ], [ %451, %487 ], [ %451, %ZSTD_overlapCopy8.exit.i.i ], [ %451, %493 ], [ %451, %545 ], [ %451, %499 ], [ %451, %550 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %557 = icmp ult i64 %.0.i199.i.i, -119
   br i1 %557, label %558, label %.thread211.i
@@ -5665,7 +5665,7 @@ ZSTD_overlapCopy8.exit287.i.i:                    ; preds = %692, %670
   br i1 %718, label %712, label %.loopexit.i, !llvm.loop !97
 
 .loopexit.i:                                      ; preds = %712, %.preheader236.i, %661, %707, %ZSTD_overlapCopy8.exit287.i.i, %655, %649, %622
-  %.0.i193.i.i = phi i64 [ %623, %622 ], [ %612, %649 ], [ %612, %ZSTD_overlapCopy8.exit287.i.i ], [ %612, %655 ], [ %612, %707 ], [ %612, %.preheader236.i ], [ %612, %661 ], [ %612, %712 ]
+  %.0.i193.i.i = phi i64 [ %623, %622 ], [ %612, %661 ], [ %612, %649 ], [ %612, %ZSTD_overlapCopy8.exit287.i.i ], [ %612, %655 ], [ %612, %.preheader236.i ], [ %612, %707 ], [ %612, %712 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %719 = icmp ult i64 %.0.i193.i.i, -119
   %720 = getelementptr inbounds nuw i8, ptr %.6138.i.i, i64 %.0.i193.i.i
@@ -6212,7 +6212,7 @@ ZSTD_overlapCopy8.exit288.i.i:                    ; preds = %1008, %986
   br i1 %1034, label %1028, label %ZSTD_execSequence.exit.i.i, !llvm.loop !97
 
 ZSTD_execSequence.exit.i.i:                       ; preds = %1028, %.preheader233.i, %977, %1023, %ZSTD_overlapCopy8.exit288.i.i, %971, %965, %937
-  %.0.i.i.i = phi i64 [ %938, %937 ], [ %927, %965 ], [ %927, %ZSTD_overlapCopy8.exit288.i.i ], [ %927, %971 ], [ %927, %1023 ], [ %927, %.preheader233.i ], [ %927, %977 ], [ %927, %1028 ]
+  %.0.i.i.i = phi i64 [ %938, %937 ], [ %927, %.preheader233.i ], [ %927, %965 ], [ %927, %ZSTD_overlapCopy8.exit288.i.i ], [ %927, %971 ], [ %927, %1023 ], [ %927, %977 ], [ %927, %1028 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %1035 = icmp ult i64 %.0.i.i.i, -119
   br i1 %1035, label %1036, label %.thread211.i
@@ -6224,8 +6224,8 @@ ZSTD_execSequence.exit.i.i:                       ; preds = %1028, %.preheader23
   br i1 %.not173.i.i, label %.thread207.i, label %724, !llvm.loop !119
 
 .thread207.i:                                     ; preds = %558, %1036, %722
-  %.11143.i205.i = phi ptr [ %720, %722 ], [ %1037, %1036 ], [ %559, %558 ]
-  %.2149.i180189204.i = phi ptr [ %609, %722 ], [ %609, %1036 ], [ %20, %558 ]
+  %.11143.i205.i = phi ptr [ %1037, %1036 ], [ %720, %722 ], [ %559, %558 ]
+  %.2149.i180189204.i = phi ptr [ %609, %1036 ], [ %609, %722 ], [ %20, %558 ]
   %1039 = load ptr, ptr %123, align 8, !tbaa !71
   %1040 = load ptr, ptr %39, align 8, !tbaa !68
   %1041 = icmp eq ptr %1039, %1040
@@ -6246,7 +6246,7 @@ ZSTD_execSequence.exit.i.i:                       ; preds = %1028, %.preheader23
   br i1 %exitcond303.not.i, label %1047, label %.preheader.i, !llvm.loop !120
 
 .thread211.i:                                     ; preds = %ZSTD_execSequenceSplitLitBuffer.exit.i.i, %ZSTD_execSequence.exit.i.i, %.thread207.i, %ZSTD_execSequence.exit.i.thread.i, %.loopexit.i, %.loopexit.thread.i, %568, %561, %ZSTD_execSequenceSplitLitBuffer.exit.i.thread.i, %BIT_initDStream.exit.i, %91, %43, %36
-  %.1.i.ph.i = phi i64 [ -20, %561 ], [ -20, %36 ], [ %.0.i193.i.i, %.loopexit.i ], [ -20, %ZSTD_execSequence.exit.i.thread.i ], [ -20, %.thread207.i ], [ -20, %BIT_initDStream.exit.i ], [ -20, %43 ], [ -70, %568 ], [ -20, %ZSTD_execSequenceSplitLitBuffer.exit.i.thread.i ], [ -20, %.loopexit.thread.i ], [ -20, %91 ], [ %.0.i.i.i, %ZSTD_execSequence.exit.i.i ], [ %.0.i199.i.i, %ZSTD_execSequenceSplitLitBuffer.exit.i.i ]
+  %.1.i.ph.i = phi i64 [ -20, %.loopexit.thread.i ], [ -20, %561 ], [ -20, %36 ], [ %.0.i193.i.i, %.loopexit.i ], [ -20, %ZSTD_execSequence.exit.i.thread.i ], [ -20, %.thread207.i ], [ -20, %BIT_initDStream.exit.i ], [ -20, %ZSTD_execSequenceSplitLitBuffer.exit.i.thread.i ], [ %.0.i.i.i, %ZSTD_execSequence.exit.i.i ], [ -20, %43 ], [ -70, %568 ], [ -20, %91 ], [ %.0.i199.i.i, %ZSTD_execSequenceSplitLitBuffer.exit.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %ZSTD_decompressSequencesSplitLitBuffer_default.exit
 
@@ -7267,7 +7267,7 @@ ZSTD_overlapCopy8.exit.i.i:                       ; preds = %529, %507
   br i1 %555, label %549, label %ZSTD_execSequence.exit.i.i, !llvm.loop !97
 
 ZSTD_execSequence.exit.i.i:                       ; preds = %549, %.preheader87.i, %498, %544, %ZSTD_overlapCopy8.exit.i.i, %492, %486, %458
-  %.0.i.i.i = phi i64 [ %459, %458 ], [ %448, %486 ], [ %448, %ZSTD_overlapCopy8.exit.i.i ], [ %448, %492 ], [ %448, %544 ], [ %448, %.preheader87.i ], [ %448, %498 ], [ %448, %549 ]
+  %.0.i.i.i = phi i64 [ %459, %458 ], [ %448, %.preheader87.i ], [ %448, %486 ], [ %448, %ZSTD_overlapCopy8.exit.i.i ], [ %448, %492 ], [ %448, %544 ], [ %448, %498 ], [ %448, %549 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %556 = icmp ult i64 %.0.i.i.i, -119
   br i1 %556, label %557, label %.thread75.i
@@ -7299,7 +7299,7 @@ ZSTD_execSequence.exit.i.i:                       ; preds = %549, %.preheader87.
   br i1 %exitcond105.not.i, label %569, label %.preheader.i, !llvm.loop !131
 
 .thread75.i:                                      ; preds = %ZSTD_execSequence.exit.i.i, %560, %ZSTD_execSequence.exit.i.thread.i, %BIT_initDStream.exit.i, %99, %51, %44
-  %.1.i.ph.i = phi i64 [ -20, %44 ], [ -20, %ZSTD_execSequence.exit.i.thread.i ], [ -20, %BIT_initDStream.exit.i ], [ -20, %560 ], [ -20, %99 ], [ -20, %51 ], [ %.0.i.i.i, %ZSTD_execSequence.exit.i.i ]
+  %.1.i.ph.i = phi i64 [ -20, %44 ], [ -20, %ZSTD_execSequence.exit.i.thread.i ], [ -20, %BIT_initDStream.exit.i ], [ -20, %560 ], [ -20, %51 ], [ -20, %99 ], [ %.0.i.i.i, %ZSTD_execSequence.exit.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %ZSTD_decompressSequences_default.exit
 
@@ -8860,7 +8860,7 @@ ZSTD_overlapCopy8.exit198:                        ; preds = %769, %791
   br i1 %817, label %811, label %ZSTD_execSequence.exit, !llvm.loop !97
 
 ZSTD_execSequence.exit:                           ; preds = %811, %.preheader536, %760, %806, %754, %722, %749, %ZSTD_overlapCopy8.exit198
-  %.0.i15 = phi i64 [ %723, %722 ], [ %713, %749 ], [ %713, %ZSTD_overlapCopy8.exit198 ], [ %713, %754 ], [ %713, %806 ], [ %713, %.preheader536 ], [ %713, %760 ], [ %713, %811 ]
+  %.0.i15 = phi i64 [ %723, %722 ], [ %713, %760 ], [ %713, %749 ], [ %713, %ZSTD_overlapCopy8.exit198 ], [ %713, %806 ], [ %713, %754 ], [ %713, %.preheader536 ], [ %713, %811 ]
   %818 = icmp ult i64 %.0.i15, -119
   br i1 %818, label %819, label %.thread505
 
@@ -9296,7 +9296,7 @@ ZSTD_overlapCopy8.exit197:                        ; preds = %1002, %1024
   br i1 %1050, label %1044, label %ZSTD_execSequenceSplitLitBuffer.exit, !llvm.loop !97
 
 ZSTD_execSequenceSplitLitBuffer.exit:             ; preds = %ZSTD_overlapCopy8.exit197, %982, %974, %953, %987, %1039, %993, %.preheader543, %1044, %ZSTD_overlapCopy8.exit194, %869, %861, %840, %874, %926, %880, %.preheader540, %931
-  %1051 = phi i64 [ %831, %931 ], [ %841, %840 ], [ -20, %861 ], [ %831, %869 ], [ %831, %ZSTD_overlapCopy8.exit194 ], [ %831, %874 ], [ %831, %926 ], [ %831, %.preheader540 ], [ %831, %880 ], [ %954, %953 ], [ -20, %974 ], [ %943, %982 ], [ %943, %ZSTD_overlapCopy8.exit197 ], [ %943, %987 ], [ %943, %1039 ], [ %943, %.preheader543 ], [ %943, %993 ], [ %943, %1044 ]
+  %1051 = phi i64 [ %831, %931 ], [ %841, %840 ], [ -20, %861 ], [ %831, %869 ], [ %831, %ZSTD_overlapCopy8.exit194 ], [ %831, %880 ], [ %831, %874 ], [ %831, %.preheader540 ], [ %831, %926 ], [ %954, %953 ], [ -20, %974 ], [ %943, %982 ], [ %943, %ZSTD_overlapCopy8.exit197 ], [ %943, %993 ], [ %943, %987 ], [ %943, %.preheader543 ], [ %943, %1039 ], [ %943, %1044 ]
   %1052 = icmp ult i64 %1051, -119
   br i1 %1052, label %.thread468, label %.thread505
 
@@ -9685,7 +9685,7 @@ ZSTD_overlapCopy8.exit196:                        ; preds = %1192, %1214
   br i1 %1240, label %1234, label %.loopexit, !llvm.loop !97
 
 .loopexit:                                        ; preds = %1234, %.preheader526, %1183, %ZSTD_overlapCopy8.exit196, %1172, %1145, %1177, %1229
-  %.0.i25 = phi i64 [ %1146, %1145 ], [ %1136, %1172 ], [ %1136, %ZSTD_overlapCopy8.exit196 ], [ %1136, %1177 ], [ %1136, %1229 ], [ %1136, %.preheader526 ], [ %1136, %1183 ], [ %1136, %1234 ]
+  %.0.i25 = phi i64 [ %1146, %1145 ], [ %1136, %1183 ], [ %1136, %1172 ], [ %1136, %ZSTD_overlapCopy8.exit196 ], [ %1136, %1229 ], [ %1136, %1177 ], [ %1136, %.preheader526 ], [ %1136, %1234 ]
   %1241 = icmp ult i64 %.0.i25, -119
   %1242 = getelementptr inbounds nuw i8, ptr %.10217.i, i64 %.0.i25
   br i1 %1241, label %1466, label %.thread505
@@ -10101,7 +10101,7 @@ ZSTD_overlapCopy8.exit195:                        ; preds = %1414, %1436
   br i1 %1462, label %1456, label %ZSTD_execSequenceSplitLitBuffer.exit45, !llvm.loop !97
 
 ZSTD_execSequenceSplitLitBuffer.exit45:           ; preds = %ZSTD_overlapCopy8.exit195, %1394, %1386, %1365, %1399, %1451, %1405, %.preheader533, %1456, %ZSTD_overlapCopy8.exit, %1284, %1276, %1255, %1289, %1341, %1295, %.preheader530, %1346
-  %1463 = phi i64 [ %1246, %1346 ], [ %1256, %1255 ], [ -20, %1276 ], [ %1246, %1284 ], [ %1246, %ZSTD_overlapCopy8.exit ], [ %1246, %1289 ], [ %1246, %1341 ], [ %1246, %.preheader530 ], [ %1246, %1295 ], [ %1366, %1365 ], [ -20, %1386 ], [ %1355, %1394 ], [ %1355, %ZSTD_overlapCopy8.exit195 ], [ %1355, %1399 ], [ %1355, %1451 ], [ %1355, %.preheader533 ], [ %1355, %1405 ], [ %1355, %1456 ]
+  %1463 = phi i64 [ %1246, %1346 ], [ %1256, %1255 ], [ -20, %1276 ], [ %1246, %1284 ], [ %1246, %ZSTD_overlapCopy8.exit ], [ %1246, %1295 ], [ %1246, %1289 ], [ %1246, %.preheader530 ], [ %1246, %1341 ], [ %1366, %1365 ], [ -20, %1386 ], [ %1355, %1394 ], [ %1355, %ZSTD_overlapCopy8.exit195 ], [ %1355, %1405 ], [ %1355, %1399 ], [ %1355, %.preheader533 ], [ %1355, %1451 ], [ %1355, %1456 ]
   %1464 = icmp ult i64 %1463, -119
   %1465 = getelementptr inbounds nuw i8, ptr %.9216.i595, i64 %1463
   br i1 %1464, label %1466, label %.thread505
@@ -11643,7 +11643,7 @@ ZSTD_overlapCopy8.exit.i:                         ; preds = %526, %504
   br i1 %552, label %546, label %ZSTD_execSequenceSplitLitBuffer.exit.i, !llvm.loop !97
 
 ZSTD_execSequenceSplitLitBuffer.exit.i:           ; preds = %546, %.preheader240, %495, %541, %489, %ZSTD_overlapCopy8.exit.i, %483, %455
-  %.0.i199.i = phi i64 [ %456, %455 ], [ %447, %483 ], [ %447, %ZSTD_overlapCopy8.exit.i ], [ %447, %489 ], [ %447, %541 ], [ %447, %.preheader240 ], [ %447, %495 ], [ %447, %546 ]
+  %.0.i199.i = phi i64 [ %456, %455 ], [ %447, %.preheader240 ], [ %447, %483 ], [ %447, %ZSTD_overlapCopy8.exit.i ], [ %447, %489 ], [ %447, %541 ], [ %447, %495 ], [ %447, %546 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %553 = icmp ult i64 %.0.i199.i, -119
   br i1 %553, label %554, label %.thread211
@@ -11969,7 +11969,7 @@ ZSTD_overlapCopy8.exit287.i:                      ; preds = %688, %666
   br i1 %714, label %708, label %.loopexit, !llvm.loop !97
 
 .loopexit:                                        ; preds = %708, %.preheader236, %657, %618, %645, %ZSTD_overlapCopy8.exit287.i, %651, %703
-  %.0.i193.i = phi i64 [ %619, %618 ], [ %608, %645 ], [ %608, %ZSTD_overlapCopy8.exit287.i ], [ %608, %651 ], [ %608, %703 ], [ %608, %.preheader236 ], [ %608, %657 ], [ %608, %708 ]
+  %.0.i193.i = phi i64 [ %619, %618 ], [ %608, %657 ], [ %608, %645 ], [ %608, %ZSTD_overlapCopy8.exit287.i ], [ %608, %651 ], [ %608, %.preheader236 ], [ %608, %703 ], [ %608, %708 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %715 = icmp ult i64 %.0.i193.i, -119
   %716 = getelementptr inbounds nuw i8, ptr %.6138.i, i64 %.0.i193.i
@@ -12516,7 +12516,7 @@ ZSTD_overlapCopy8.exit288.i:                      ; preds = %1004, %982
   br i1 %1030, label %1024, label %ZSTD_execSequence.exit.i, !llvm.loop !97
 
 ZSTD_execSequence.exit.i:                         ; preds = %1024, %.preheader233, %973, %1019, %967, %ZSTD_overlapCopy8.exit288.i, %961, %933
-  %.0.i.i = phi i64 [ %934, %933 ], [ %923, %961 ], [ %923, %ZSTD_overlapCopy8.exit288.i ], [ %923, %967 ], [ %923, %1019 ], [ %923, %.preheader233 ], [ %923, %973 ], [ %923, %1024 ]
+  %.0.i.i = phi i64 [ %934, %933 ], [ %923, %.preheader233 ], [ %923, %961 ], [ %923, %ZSTD_overlapCopy8.exit288.i ], [ %923, %967 ], [ %923, %1019 ], [ %923, %973 ], [ %923, %1024 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %1031 = icmp ult i64 %.0.i.i, -119
   br i1 %1031, label %1032, label %.thread211
@@ -12528,8 +12528,8 @@ ZSTD_execSequence.exit.i:                         ; preds = %1024, %.preheader23
   br i1 %.not173.i, label %.thread207, label %720, !llvm.loop !119
 
 .thread207:                                       ; preds = %554, %1032, %718
-  %.11143.i205 = phi ptr [ %716, %718 ], [ %1033, %1032 ], [ %555, %554 ]
-  %.2149.i180189204 = phi ptr [ %605, %718 ], [ %605, %1032 ], [ %16, %554 ]
+  %.11143.i205 = phi ptr [ %1033, %1032 ], [ %716, %718 ], [ %555, %554 ]
+  %.2149.i180189204 = phi ptr [ %605, %1032 ], [ %605, %718 ], [ %16, %554 ]
   %1035 = load ptr, ptr %119, align 8, !tbaa !71
   %1036 = load ptr, ptr %35, align 8, !tbaa !68
   %1037 = icmp eq ptr %1035, %1036
@@ -12550,7 +12550,7 @@ ZSTD_execSequence.exit.i:                         ; preds = %1024, %.preheader23
   br i1 %exitcond303.not, label %1043, label %.preheader, !llvm.loop !120
 
 .thread211:                                       ; preds = %ZSTD_execSequenceSplitLitBuffer.exit.i, %ZSTD_execSequence.exit.i, %87, %39, %32, %.loopexit.thread, %.loopexit, %BIT_initDStream.exit, %ZSTD_execSequence.exit.i.thread, %557, %ZSTD_execSequenceSplitLitBuffer.exit.i.thread, %564, %.thread207
-  %.1.i.ph = phi i64 [ -20, %557 ], [ -20, %32 ], [ %.0.i193.i, %.loopexit ], [ -20, %ZSTD_execSequence.exit.i.thread ], [ -20, %.thread207 ], [ -20, %BIT_initDStream.exit ], [ -20, %39 ], [ -70, %564 ], [ -20, %ZSTD_execSequenceSplitLitBuffer.exit.i.thread ], [ -20, %.loopexit.thread ], [ -20, %87 ], [ %.0.i.i, %ZSTD_execSequence.exit.i ], [ %.0.i199.i, %ZSTD_execSequenceSplitLitBuffer.exit.i ]
+  %.1.i.ph = phi i64 [ -20, %.loopexit.thread ], [ -20, %557 ], [ -20, %32 ], [ %.0.i193.i, %.loopexit ], [ -20, %ZSTD_execSequence.exit.i.thread ], [ -20, %.thread207 ], [ -20, %BIT_initDStream.exit ], [ -20, %ZSTD_execSequenceSplitLitBuffer.exit.i.thread ], [ %.0.i.i, %ZSTD_execSequence.exit.i ], [ -20, %39 ], [ -70, %564 ], [ -20, %87 ], [ %.0.i199.i, %ZSTD_execSequenceSplitLitBuffer.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %ZSTD_decompressSequences_bodySplitLitBuffer.exit
 
@@ -13557,7 +13557,7 @@ ZSTD_overlapCopy8.exit.i:                         ; preds = %525, %503
   br i1 %551, label %545, label %ZSTD_execSequence.exit.i, !llvm.loop !97
 
 ZSTD_execSequence.exit.i:                         ; preds = %545, %.preheader87, %494, %540, %488, %ZSTD_overlapCopy8.exit.i, %482, %454
-  %.0.i.i = phi i64 [ %455, %454 ], [ %444, %482 ], [ %444, %ZSTD_overlapCopy8.exit.i ], [ %444, %488 ], [ %444, %540 ], [ %444, %.preheader87 ], [ %444, %494 ], [ %444, %545 ]
+  %.0.i.i = phi i64 [ %455, %454 ], [ %444, %.preheader87 ], [ %444, %482 ], [ %444, %ZSTD_overlapCopy8.exit.i ], [ %444, %488 ], [ %444, %540 ], [ %444, %494 ], [ %444, %545 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %552 = icmp ult i64 %.0.i.i, -119
   br i1 %552, label %553, label %.thread75
@@ -13589,7 +13589,7 @@ ZSTD_execSequence.exit.i:                         ; preds = %545, %.preheader87,
   br i1 %exitcond105.not, label %565, label %.preheader, !llvm.loop !131
 
 .thread75:                                        ; preds = %ZSTD_execSequence.exit.i, %95, %47, %40, %BIT_initDStream.exit, %ZSTD_execSequence.exit.i.thread, %556
-  %.1.i.ph = phi i64 [ -20, %40 ], [ -20, %ZSTD_execSequence.exit.i.thread ], [ -20, %BIT_initDStream.exit ], [ -20, %556 ], [ -20, %95 ], [ -20, %47 ], [ %.0.i.i, %ZSTD_execSequence.exit.i ]
+  %.1.i.ph = phi i64 [ -20, %40 ], [ -20, %ZSTD_execSequence.exit.i.thread ], [ -20, %BIT_initDStream.exit ], [ -20, %556 ], [ -20, %47 ], [ -20, %95 ], [ %.0.i.i, %ZSTD_execSequence.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %ZSTD_decompressSequences_body.exit
 

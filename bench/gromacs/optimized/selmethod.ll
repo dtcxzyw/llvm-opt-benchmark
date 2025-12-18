@@ -241,8 +241,8 @@ _ZL14check_modifierP8_IO_FILEP19gmx_ana_selmethod_tRKN3gmx26SelectionParserSymbo
   br label %61
 
 61:                                               ; preds = %.sink.split.i, %.thread.i, %55
-  %62 = phi i32 [ %56, %55 ], [ %58, %.thread.i ], [ %.pre26, %.sink.split.i ]
-  %.2.i = phi i1 [ %.1.i20, %55 ], [ %.134.i, %.thread.i ], [ false, %.sink.split.i ]
+  %62 = phi i32 [ %58, %.thread.i ], [ %56, %55 ], [ %.pre26, %.sink.split.i ]
+  %.2.i = phi i1 [ %.134.i, %.thread.i ], [ %.1.i20, %55 ], [ false, %.sink.split.i ]
   %63 = and i32 %62, 64
   %.not29.i = icmp eq i32 %63, 0
   br i1 %.not29.i, label %_ZL12check_methodP8_IO_FILEP19gmx_ana_selmethod_tRKN3gmx26SelectionParserSymbolTableE.exit, label %64

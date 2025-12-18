@@ -48991,7 +48991,7 @@ define internal fastcc void @"_ZN14datafusion_sql5query60_$LT$impl$u20$datafusio
   br label %.thread
 
 .loopexit.split-lp1262:                           ; preds = %.loopexit1266, %220, %582, %585
-  %.2418.ph = phi i8 [ 1, %582 ], [ 0, %.loopexit1266 ], [ 1, %220 ], [ 1, %585 ]
+  %.2418.ph = phi i8 [ 0, %.loopexit1266 ], [ 1, %220 ], [ 1, %582 ], [ 1, %585 ]
   %lpad.loopexit.split-lp1264 = landingpad { ptr, i32 }
           cleanup
   br label %.thread
@@ -52790,7 +52790,7 @@ define internal fastcc void @"_ZN14datafusion_sql5query60_$LT$impl$u20$datafusio
   br label %.thread
 
 .loopexit.split-lp1263:                           ; preds = %.loopexit1267, %219, %581, %584
-  %.2418.ph = phi i8 [ 1, %581 ], [ 0, %.loopexit1267 ], [ 1, %219 ], [ 1, %584 ]
+  %.2418.ph = phi i8 [ 0, %.loopexit1267 ], [ 1, %219 ], [ 1, %581 ], [ 1, %584 ]
   %lpad.loopexit.split-lp1265 = landingpad { ptr, i32 }
           cleanup
   br label %.thread
@@ -73798,7 +73798,7 @@ define internal fastcc void @"_ZN14datafusion_sql6select60_$LT$impl$u20$datafusi
   br label %.body211
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %125, %._crit_edge, %219, %214
-  %.0175.ph.ph = phi i1 [ true, %219 ], [ false, %214 ], [ true, %125 ], [ true, %._crit_edge ]
+  %.0175.ph.ph = phi i1 [ true, %._crit_edge ], [ true, %125 ], [ false, %214 ], [ true, %219 ]
   %lpad.loopexit.split-lp63 = landingpad { ptr, i32 }
           cleanup
   br label %.body211
@@ -74666,7 +74666,7 @@ define internal fastcc void @"_ZN14datafusion_sql6select60_$LT$impl$u20$datafusi
   br label %.body211
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %125, %._crit_edge, %219, %214
-  %.0175.ph.ph = phi i1 [ true, %219 ], [ false, %214 ], [ true, %125 ], [ true, %._crit_edge ]
+  %.0175.ph.ph = phi i1 [ true, %._crit_edge ], [ true, %125 ], [ false, %214 ], [ true, %219 ]
   %lpad.loopexit.split-lp63 = landingpad { ptr, i32 }
           cleanup
   br label %.body211
@@ -80709,8 +80709,8 @@ default.unreachable:                              ; preds = %7
           to label %211 unwind label %.thread267
 
 .thread:                                          ; preds = %.body, %.body168
-  %.3121 = phi i1 [ %.4.lpad-body, %.body ], [ %.10, %.body168 ]
-  %.pn148 = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %.pn144, %.body168 ]
+  %.3121 = phi i1 [ %.10, %.body168 ], [ %.4.lpad-body, %.body ]
+  %.pn148 = phi { ptr, i32 } [ %.pn144, %.body168 ], [ %eh.lpad-body, %.body ]
   br i1 %.3121, label %.thread.thread, label %258
 
 .thread267:                                       ; preds = %106, %109, %56, %138, %54, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i.i.i
@@ -81511,8 +81511,8 @@ default.unreachable:                              ; preds = %7
           to label %211 unwind label %.thread267
 
 .thread:                                          ; preds = %.body, %.body168
-  %.3121 = phi i1 [ %.4.lpad-body, %.body ], [ %.10, %.body168 ]
-  %.pn148 = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %.pn144, %.body168 ]
+  %.3121 = phi i1 [ %.10, %.body168 ], [ %.4.lpad-body, %.body ]
+  %.pn148 = phi { ptr, i32 } [ %.pn144, %.body168 ], [ %eh.lpad-body, %.body ]
   br i1 %.3121, label %.thread.thread, label %258
 
 .thread267:                                       ; preds = %106, %109, %56, %138, %54, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i.i.i
@@ -94711,11 +94711,11 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit413: ; preds = %114
   store i64 27, ptr %0, align 16
   br label %"_ZN4core3ptr109drop_in_place$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$sqlparser..ast..Expr$GT$$GT$17h7d3e7bcd8b69a951E.exit"
 
-.thread469:                                       ; preds = %.thread521, %.body397, %398, %"_ZN4core3ptr82drop_in_place$LT$alloc..sync..Arc$LT$datafusion_common..dfschema..DFSchema$GT$$GT$17h6a25c9c3a6ba585dE.exit", %343, %396, %.thread521.thread551, %.thread475, %416, %247
-  %.16327 = phi i8 [ 1, %416 ], [ %.17328.ph, %.thread475 ], [ 1, %247 ], [ 0, %.thread521.thread551 ], [ %.20331, %.thread521 ], [ %.20331, %396 ], [ %.20331, %343 ], [ %.20331, %"_ZN4core3ptr82drop_in_place$LT$alloc..sync..Arc$LT$datafusion_common..dfschema..DFSchema$GT$$GT$17h6a25c9c3a6ba585dE.exit" ], [ 0, %398 ], [ 0, %.body397 ]
-  %.17309 = phi i8 [ 0, %416 ], [ 0, %.thread475 ], [ 1, %247 ], [ 0, %.thread521.thread551 ], [ 0, %.thread521 ], [ 0, %396 ], [ 0, %343 ], [ 0, %"_ZN4core3ptr82drop_in_place$LT$alloc..sync..Arc$LT$datafusion_common..dfschema..DFSchema$GT$$GT$17h6a25c9c3a6ba585dE.exit" ], [ 0, %398 ], [ 0, %.body397 ]
-  %.7 = phi i1 [ true, %416 ], [ true, %.thread475 ], [ true, %247 ], [ true, %.thread521.thread551 ], [ true, %.thread521 ], [ true, %396 ], [ true, %343 ], [ false, %"_ZN4core3ptr82drop_in_place$LT$alloc..sync..Arc$LT$datafusion_common..dfschema..DFSchema$GT$$GT$17h6a25c9c3a6ba585dE.exit" ], [ true, %398 ], [ true, %.body397 ]
-  %.pn376.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %416 ], [ %lpad.thr_comm, %.thread475 ], [ %248, %247 ], [ %.pn374558, %.thread521.thread551 ], [ %395, %.thread521 ], [ %397, %396 ], [ %344, %343 ], [ %370, %"_ZN4core3ptr82drop_in_place$LT$alloc..sync..Arc$LT$datafusion_common..dfschema..DFSchema$GT$$GT$17h6a25c9c3a6ba585dE.exit" ], [ %332, %398 ], [ %335, %.body397 ]
+.thread469:                                       ; preds = %.thread521, %398, %.body397, %"_ZN4core3ptr82drop_in_place$LT$alloc..sync..Arc$LT$datafusion_common..dfschema..DFSchema$GT$$GT$17h6a25c9c3a6ba585dE.exit", %343, %396, %.thread521.thread551, %.thread475, %416, %247
+  %.16327 = phi i8 [ 1, %416 ], [ %.17328.ph, %.thread475 ], [ 1, %247 ], [ 0, %.thread521.thread551 ], [ %.20331, %.thread521 ], [ %.20331, %396 ], [ %.20331, %343 ], [ %.20331, %"_ZN4core3ptr82drop_in_place$LT$alloc..sync..Arc$LT$datafusion_common..dfschema..DFSchema$GT$$GT$17h6a25c9c3a6ba585dE.exit" ], [ 0, %.body397 ], [ 0, %398 ]
+  %.17309 = phi i8 [ 0, %416 ], [ 0, %.thread475 ], [ 1, %247 ], [ 0, %.thread521.thread551 ], [ 0, %.thread521 ], [ 0, %396 ], [ 0, %343 ], [ 0, %"_ZN4core3ptr82drop_in_place$LT$alloc..sync..Arc$LT$datafusion_common..dfschema..DFSchema$GT$$GT$17h6a25c9c3a6ba585dE.exit" ], [ 0, %.body397 ], [ 0, %398 ]
+  %.7 = phi i1 [ true, %416 ], [ true, %.thread475 ], [ true, %247 ], [ true, %.thread521.thread551 ], [ true, %.thread521 ], [ true, %396 ], [ true, %343 ], [ false, %"_ZN4core3ptr82drop_in_place$LT$alloc..sync..Arc$LT$datafusion_common..dfschema..DFSchema$GT$$GT$17h6a25c9c3a6ba585dE.exit" ], [ true, %.body397 ], [ true, %398 ]
+  %.pn376.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %416 ], [ %lpad.thr_comm, %.thread475 ], [ %248, %247 ], [ %.pn374558, %.thread521.thread551 ], [ %395, %.thread521 ], [ %397, %396 ], [ %344, %343 ], [ %370, %"_ZN4core3ptr82drop_in_place$LT$alloc..sync..Arc$LT$datafusion_common..dfschema..DFSchema$GT$$GT$17h6a25c9c3a6ba585dE.exit" ], [ %335, %.body397 ], [ %332, %398 ]
   invoke void @"_ZN4core3ptr109drop_in_place$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$sqlparser..ast..Expr$GT$$GT$17h7d3e7bcd8b69a951E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %49) #20
           to label %233 unwind label %103
 
@@ -95323,8 +95323,8 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit413: ; preds = %114
   invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17hb7b4318488061518E"(ptr noalias noundef nonnull align 8 dereferenceable(176) %37) #20
           to label %.thread521.thread551 unwind label %103
 
-.thread521.thread551:                             ; preds = %298, %406, %.thread521.thread628, %399, %315, %302, %286, %414
-  %.pn374558 = phi { ptr, i32 } [ %405, %.thread521.thread628 ], [ %287, %286 ], [ %415, %414 ], [ %400, %399 ], [ %316, %315 ], [ %303, %302 ], [ %.pn368504, %298 ], [ %.pn370490, %406 ]
+.thread521.thread551:                             ; preds = %406, %298, %.thread521.thread628, %399, %315, %302, %414, %286
+  %.pn374558 = phi { ptr, i32 } [ %405, %.thread521.thread628 ], [ %287, %286 ], [ %415, %414 ], [ %400, %399 ], [ %316, %315 ], [ %303, %302 ], [ %.pn370490, %406 ], [ %.pn368504, %298 ]
   invoke fastcc void @"_ZN4core3ptr69drop_in_place$LT$datafusion_expr..logical_plan..plan..LogicalPlan$GT$17h2620ac68516cc299E"(ptr noalias noundef align 16 dereferenceable(352) %45) #20
           to label %.thread469 unwind label %103
 

@@ -1741,10 +1741,10 @@ calc_pe_3gpp.exit688.i:                           ; preds = %481, %calc_reduced_
   br i1 %490, label %.lr.ph762.i.backedge, label %.preheader720.i
 
 .lr.ph762.i.backedge:                             ; preds = %._crit_edge754.i, %._crit_edge754.i.thread
-  %indvars.iv861.i.be = phi i64 [ %indvars.iv.next862.i, %._crit_edge754.i ], [ %indvars.iv.next862.i87, %._crit_edge754.i.thread ]
-  %.2546760.i.be = phi float [ %488, %._crit_edge754.i ], [ 0.000000e+00, %._crit_edge754.i.thread ]
-  %.2556759.i.be = phi float [ %489, %._crit_edge754.i ], [ 0.000000e+00, %._crit_edge754.i.thread ]
-  %.2567758.i.be = phi float [ %487, %._crit_edge754.i ], [ 0.000000e+00, %._crit_edge754.i.thread ]
+  %indvars.iv861.i.be = phi i64 [ %indvars.iv.next862.i87, %._crit_edge754.i.thread ], [ %indvars.iv.next862.i, %._crit_edge754.i ]
+  %.2546760.i.be = phi float [ 0.000000e+00, %._crit_edge754.i.thread ], [ %488, %._crit_edge754.i ]
+  %.2556759.i.be = phi float [ 0.000000e+00, %._crit_edge754.i.thread ], [ %489, %._crit_edge754.i ]
+  %.2567758.i.be = phi float [ 0.000000e+00, %._crit_edge754.i.thread ], [ %487, %._crit_edge754.i ]
   br label %.lr.ph762.i, !llvm.loop !119
 
 ._crit_edge754.i.thread:                          ; preds = %calc_reduction_3gpp.exit.i
@@ -1753,9 +1753,9 @@ calc_pe_3gpp.exit688.i:                           ; preds = %481, %calc_reduced_
   br i1 %491, label %.lr.ph762.i.backedge, label %.split.us
 
 .split.us:                                        ; preds = %._crit_edge754.i.thread, %._crit_edge795.i.loopexit.us, %.preheader720.i, %.preheader721.i
-  %.us-phi = phi float [ 0.000000e+00, %.preheader721.i ], [ 0.000000e+00, %.preheader720.i ], [ %425, %._crit_edge795.i.loopexit.us ], [ 0.000000e+00, %._crit_edge754.i.thread ]
-  %.us-phi25 = phi float [ 0.000000e+00, %.preheader721.i ], [ 0.000000e+00, %.preheader720.i ], [ %429, %._crit_edge795.i.loopexit.us ], [ 0.000000e+00, %._crit_edge754.i.thread ]
-  %.us-phi26 = phi float [ %.1537.fr.i, %.preheader721.i ], [ %.1537.fr.i, %.preheader720.i ], [ %431, %._crit_edge795.i.loopexit.us ], [ %.1537.fr.i, %._crit_edge754.i.thread ]
+  %.us-phi = phi float [ %425, %._crit_edge795.i.loopexit.us ], [ 0.000000e+00, %.preheader721.i ], [ 0.000000e+00, %.preheader720.i ], [ 0.000000e+00, %._crit_edge754.i.thread ]
+  %.us-phi25 = phi float [ %429, %._crit_edge795.i.loopexit.us ], [ 0.000000e+00, %.preheader721.i ], [ 0.000000e+00, %.preheader720.i ], [ 0.000000e+00, %._crit_edge754.i.thread ]
+  %.us-phi26 = phi float [ %431, %._crit_edge795.i.loopexit.us ], [ %.1537.fr.i, %.preheader721.i ], [ %.1537.fr.i, %.preheader720.i ], [ %.1537.fr.i, %._crit_edge754.i.thread ]
   %492 = fmul nsz float %.1537.fr.i, 0x3FF2666660000000
   %493 = fcmp nsz olt float %.us-phi, %492
   br i1 %493, label %519, label %.preheader715.i

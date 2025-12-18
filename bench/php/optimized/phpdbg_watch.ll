@@ -4244,7 +4244,7 @@ zend_string_release.exit:                         ; preds = %28, %27, %20, %16, 
   br label %zend_string_copy.exit
 
 zend_string_copy.exit:                            ; preds = %30, %32, %4, %67, %63, %._crit_edge
-  %.0 = phi ptr [ null, %._crit_edge ], [ %.3, %63 ], [ %.3, %67 ], [ null, %4 ], [ null, %32 ], [ %.1, %30 ]
+  %.0 = phi ptr [ %.3, %67 ], [ null, %._crit_edge ], [ %.3, %63 ], [ null, %4 ], [ null, %32 ], [ %.1, %30 ]
   ret ptr %.0
 }
 

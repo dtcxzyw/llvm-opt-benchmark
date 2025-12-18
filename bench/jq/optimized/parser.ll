@@ -3580,12 +3580,12 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   br label %.loopexit
 
 .loopexit:                                        ; preds = %59, %.thread1479, %2079, %.thread1470
-  %.61461 = phi ptr [ %.2, %.thread1470 ], [ %.31458, %2079 ], [ %.01456, %.thread1479 ], [ %.01456, %59 ]
-  %.01204 = phi i32 [ 2, %.thread1470 ], [ 1, %2079 ], [ 1, %59 ], [ 0, %.thread1479 ]
-  %.71188 = phi ptr [ %.51186, %.thread1470 ], [ %.61187, %2079 ], [ %63, %59 ], [ %.21183, %.thread1479 ]
-  %.71175 = phi ptr [ %.51173, %.thread1470 ], [ %.61174, %2079 ], [ %61, %59 ], [ %.21170, %.thread1479 ]
-  %.61167 = phi ptr [ %.51166, %.thread1470 ], [ %.11162, %2079 ], [ %45, %59 ], [ %.11162, %.thread1479 ]
-  %.10 = phi i32 [ %.3, %.thread1470 ], [ %.7, %2079 ], [ %.01147, %.thread1479 ], [ %.01147, %59 ]
+  %.61461 = phi ptr [ %.31458, %2079 ], [ %.2, %.thread1470 ], [ %.01456, %.thread1479 ], [ %.01456, %59 ]
+  %.01204 = phi i32 [ 1, %2079 ], [ 2, %.thread1470 ], [ 0, %.thread1479 ], [ 1, %59 ]
+  %.71188 = phi ptr [ %.61187, %2079 ], [ %.51186, %.thread1470 ], [ %.21183, %.thread1479 ], [ %63, %59 ]
+  %.71175 = phi ptr [ %.61174, %2079 ], [ %.51173, %.thread1470 ], [ %.21170, %.thread1479 ], [ %61, %59 ]
+  %.61167 = phi ptr [ %.11162, %2079 ], [ %.51166, %.thread1470 ], [ %.11162, %.thread1479 ], [ %45, %59 ]
+  %.10 = phi i32 [ %.7, %2079 ], [ %.3, %.thread1470 ], [ %.01147, %.thread1479 ], [ %.01147, %59 ]
   %.not1248 = icmp eq i32 %.10, -2
   br i1 %.not1248, label %2105, label %2098
 
@@ -4462,7 +4462,7 @@ yytnamerr.exit68:                                 ; preds = %68, %.preheader, %.
   br label %.preheader, !llvm.loop !28
 
 yy_syntax_error_arguments.exit.thread8:           ; preds = %yytnamerr.exit, %.preheader, %.critedge.i.i, %65, %yy_syntax_error_arguments.exit
-  %.041 = phi i32 [ %.2.i.i, %.critedge.i.i ], [ -2, %yy_syntax_error_arguments.exit ], [ -1, %65 ], [ 0, %.preheader ], [ -2, %yytnamerr.exit ]
+  %.041 = phi i32 [ %.2.i.i, %.critedge.i.i ], [ -2, %yy_syntax_error_arguments.exit ], [ 0, %.preheader ], [ -1, %65 ], [ -2, %yytnamerr.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.041
 }

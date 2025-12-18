@@ -8735,8 +8735,8 @@ _ZN13CompileReplay9parse_intEPKc.exit:            ; preds = %33, %34, %.lr.ph.sp
   %42 = icmp slt i32 %39, 80
   br i1 %42, label %.lr.ph42, label %._crit_edge
 
-.lr.ph42:                                         ; preds = %_ZN13CompileReplay9parse_intEPKc.exit, %.lr.ph, %10, %17, %.loopexit
-  %.02555 = phi i32 [ %smax, %.loopexit ], [ 0, %17 ], [ 0, %10 ], [ 0, %.lr.ph ], [ 0, %_ZN13CompileReplay9parse_intEPKc.exit ]
+.lr.ph42:                                         ; preds = %_ZN13CompileReplay9parse_intEPKc.exit, %.lr.ph, %17, %10, %.loopexit
+  %.02555 = phi i32 [ %smax, %.loopexit ], [ 0, %10 ], [ 0, %17 ], [ 0, %.lr.ph ], [ 0, %_ZN13CompileReplay9parse_intEPKc.exit ]
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 136

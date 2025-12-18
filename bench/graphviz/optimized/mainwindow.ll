@@ -6368,8 +6368,8 @@ define internal fastcc noundef i32 @_ZL11LoadPluginsR9QComboBoxP5GVC_sPKcRK5QLis
   br i1 %exitcond.not.i, label %_ZL8freeListPPci.exit, label %.lr.ph.i, !llvm.loop !173
 
 _ZL8freeListPPci.exit:                            ; preds = %.lr.ph.i, %6, %._crit_edge
-  %.sroa.6.0.lcssa47 = phi i1 [ %16, %._crit_edge ], [ false, %6 ], [ %16, %.lr.ph.i ]
-  %.sroa.024.0.lcssa46 = phi i32 [ %.sroa.024.1, %._crit_edge ], [ undef, %6 ], [ %.sroa.024.1, %.lr.ph.i ]
+  %.sroa.6.0.lcssa47 = phi i1 [ false, %6 ], [ %16, %._crit_edge ], [ %16, %.lr.ph.i ]
+  %.sroa.024.0.lcssa46 = phi i32 [ undef, %6 ], [ %.sroa.024.1, %._crit_edge ], [ %.sroa.024.1, %.lr.ph.i ]
   call void @free(ptr noundef %11) #16
   %20 = call noundef i32 @_ZNK9QComboBox5countEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
   call void @_ZN9QComboBox11insertItemsEiRK5QListI7QStringE(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %20, ptr noundef nonnull align 8 dereferenceable(24) %3)

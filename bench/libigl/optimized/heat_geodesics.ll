@@ -769,7 +769,7 @@ _ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2INS_11IndexedViewIS1_NS0_IiLin1ELi1EL
   br label %.loopexit209
 
 .loopexit209:                                     ; preds = %.lr.ph82.i.i.i, %240, %247
-  %.2.i.i.i = phi double [ %248, %247 ], [ %241, %240 ], [ %245, %.lr.ph82.i.i.i ]
+  %.2.i.i.i = phi double [ %241, %240 ], [ %248, %247 ], [ %245, %.lr.ph82.i.i.i ]
   %249 = sitofp i64 %214 to double
   %250 = fdiv double %.2.i.i.i, %249
   %251 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -883,7 +883,7 @@ _ZN5Eigen9ArrayBaseINS_12ArrayWrapperINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEEEEmIE
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph82.i.i.i158, %303, %296
-  %.2.i.i.i157 = phi double [ %304, %303 ], [ %297, %296 ], [ %301, %.lr.ph82.i.i.i158 ]
+  %.2.i.i.i157 = phi double [ %297, %296 ], [ %304, %303 ], [ %301, %.lr.ph82.i.i.i158 ]
   %305 = sitofp i64 %270 to double
   %306 = fdiv double %.2.i.i.i157, %305
   %307 = fcmp olt double %306, 0.000000e+00

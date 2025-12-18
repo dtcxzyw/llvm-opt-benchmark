@@ -127,8 +127,8 @@ define noundef float @_ZNK10OpenSubdiv6v3_6_03Sdc6Crease31ComputeFractionalWeigh
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !8
 
 .loopexit:                                        ; preds = %30, %.lr.ph56, %.preheader47, %.preheader
-  %.339 = phi i32 [ %.036, %.preheader ], [ %.036, %.preheader47 ], [ %.238, %.lr.ph56 ], [ %.541, %30 ]
-  %.3 = phi float [ %.035, %.preheader ], [ %.035, %.preheader47 ], [ %.2, %.lr.ph56 ], [ %.5, %30 ]
+  %.339 = phi i32 [ %.238, %.lr.ph56 ], [ %.036, %.preheader ], [ %.036, %.preheader47 ], [ %.541, %30 ]
+  %.3 = phi float [ %.2, %.lr.ph56 ], [ %.035, %.preheader ], [ %.035, %.preheader47 ], [ %.5, %30 ]
   %31 = icmp eq i32 %.339, 0
   br i1 %31, label %37, label %32
 

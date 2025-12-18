@@ -448,7 +448,7 @@ _ZN4core4hash11BuildHasher8hash_one17h189c98ef8cec59c2E.exit: ; preds = %29, %33
   br label %133
 
 133:                                              ; preds = %122, %126
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.113.i.i, %122 ], [ %132, %126 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %132, %126 ], [ %.sroa.4.113.i.i, %122 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)

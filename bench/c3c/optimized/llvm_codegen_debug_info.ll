@@ -1625,7 +1625,7 @@ expand_.exit131:                                  ; preds = %153, %158
   br i1 %exitcond151.not, label %._crit_edge143, label %153, !llvm.loop !11
 
 ._crit_edge143:                                   ; preds = %186, %146, %149
-  %188 = phi ptr [ %147, %149 ], [ %147, %146 ], [ %180, %186 ]
+  %188 = phi ptr [ %147, %146 ], [ %147, %149 ], [ %180, %186 ]
   %189 = load i16, ptr %3, align 8
   %190 = and i16 %189, 16
   %.not106 = icmp eq i16 %190, 0

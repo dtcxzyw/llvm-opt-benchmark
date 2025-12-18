@@ -663,8 +663,8 @@ define dso_local ptr @skl_universal_plane_create(ptr noundef %0, i32 noundef %1,
   br label %188
 
 188:                                              ; preds = %184, %169
-  %189 = phi i16 [ %173, %184 ], [ %.pre24, %169 ]
-  %190 = phi i8 [ %187, %184 ], [ %150, %169 ]
+  %189 = phi i16 [ %.pre24, %169 ], [ %173, %184 ]
+  %190 = phi i8 [ %150, %169 ], [ %187, %184 ]
   %191 = icmp ult i16 %189, 12
   br i1 %191, label %.thread19, label %192
 

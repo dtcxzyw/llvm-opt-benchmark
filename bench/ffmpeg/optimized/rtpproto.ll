@@ -532,7 +532,7 @@ define internal range(i32 -5, 1) i32 @rtp_open(ptr noundef %0, ptr noundef %1, i
   br label %211
 
 .loopexit148:                                     ; preds = %151, %185, %175, %106, %133, %123, %120
-  %.0116 = phi ptr [ %119, %123 ], [ %119, %133 ], [ %.1117, %185 ], [ %.1117, %175 ], [ null, %120 ], [ null, %106 ], [ %.1117, %151 ]
+  %.0116 = phi ptr [ %119, %123 ], [ %119, %133 ], [ null, %106 ], [ %.1117, %185 ], [ %.1117, %175 ], [ null, %120 ], [ %.1117, %151 ]
   %204 = getelementptr inbounds nuw i8, ptr %13, i64 40
   call void @ff_ip_reset_filters(ptr noundef nonnull %204) #12
   %205 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -682,7 +682,7 @@ define internal range(i32 -110, -1414092868) i32 @rtp_read(ptr noundef %0, ptr n
   br i1 %70, label %35, label %.loopexit
 
 .thread:                                          ; preds = %58, %61, %64
-  %.1 = phi i32 [ %.0.ph, %61 ], [ %65, %64 ], [ %.0.ph, %58 ]
+  %.1 = phi i32 [ %65, %64 ], [ %.0.ph, %61 ], [ %.0.ph, %58 ]
   %71 = load i32, ptr %18, align 8, !tbaa !56
   %72 = and i32 %71, 8
   %.not37 = icmp eq i32 %72, 0

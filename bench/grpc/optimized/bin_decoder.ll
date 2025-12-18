@@ -455,7 +455,7 @@ define noundef zeroext i1 @_Z26grpc_base64_decode_partialP26grpc_base64_decode_c
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph83, %.loopexit.sink.split, %105, %78, %146, %141, %152, %107, %87, %1, %6
-  %.0 = phi i1 [ false, %107 ], [ false, %1 ], [ false, %152 ], [ false, %87 ], [ false, %6 ], [ true, %141 ], [ true, %146 ], [ true, %78 ], [ true, %105 ], [ true, %.loopexit.sink.split ], [ false, %.lr.ph83 ]
+  %.0 = phi i1 [ false, %107 ], [ false, %1 ], [ false, %152 ], [ true, %.loopexit.sink.split ], [ false, %87 ], [ false, %6 ], [ true, %141 ], [ true, %105 ], [ true, %146 ], [ true, %78 ], [ false, %.lr.ph83 ]
   ret i1 %.0
 }
 

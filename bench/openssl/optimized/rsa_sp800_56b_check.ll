@@ -800,7 +800,7 @@ ossl_rsa_check_public_exponent.exit.thread:       ; preds = %32, %ossl_rsa_check
   br label %79
 
 79:                                               ; preds = %.sink.split, %76, %51, %54
-  %.0 = phi i32 [ 0, %51 ], [ 1, %76 ], [ 0, %54 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 0, %51 ], [ 0, %54 ], [ 1, %76 ], [ 0, %.sink.split ]
   tail call void @BN_clear(ptr noundef %52) #3
   tail call void @BN_CTX_end(ptr noundef nonnull %49) #3
   tail call void @BN_CTX_free(ptr noundef nonnull %49) #3

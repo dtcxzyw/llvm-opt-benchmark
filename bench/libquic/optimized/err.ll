@@ -77,7 +77,7 @@ define hidden i32 @ERR_get_error() local_unnamed_addr #0 {
   br i1 %.not.i.i, label %get_error_values.exit, label %err_get_state.exit.i
 
 err_get_state.exit.i:                             ; preds = %5, %0
-  %.06.i.i = phi ptr [ %calloc.i.i, %5 ], [ %1, %0 ]
+  %.06.i.i = phi ptr [ %1, %0 ], [ %calloc.i.i, %5 ]
   %7 = getelementptr inbounds nuw i8, ptr %.06.i.i, i64 388
   %8 = load i32, ptr %7, align 4, !tbaa !6
   %9 = getelementptr inbounds nuw i8, ptr %.06.i.i, i64 384
@@ -131,7 +131,7 @@ define internal fastcc i32 @get_error_values(i32 noundef range(i32 0, 2) %0, i32
   br i1 %.not.i, label %err_get_state.exit.thread, label %err_get_state.exit
 
 err_get_state.exit:                               ; preds = %6, %11
-  %.06.i = phi ptr [ %calloc.i, %11 ], [ %7, %6 ]
+  %.06.i = phi ptr [ %7, %6 ], [ %calloc.i, %11 ]
   %13 = getelementptr inbounds nuw i8, ptr %.06.i, i64 388
   %14 = load i32, ptr %13, align 4, !tbaa !6
   %15 = getelementptr inbounds nuw i8, ptr %.06.i, i64 384
@@ -280,7 +280,7 @@ define hidden i32 @ERR_peek_error() local_unnamed_addr #0 {
   br i1 %.not.i.i, label %get_error_values.exit, label %err_get_state.exit.i
 
 err_get_state.exit.i:                             ; preds = %5, %0
-  %.06.i.i = phi ptr [ %calloc.i.i, %5 ], [ %1, %0 ]
+  %.06.i.i = phi ptr [ %1, %0 ], [ %calloc.i.i, %5 ]
   %7 = getelementptr inbounds nuw i8, ptr %.06.i.i, i64 388
   %8 = load i32, ptr %7, align 4, !tbaa !6
   %9 = getelementptr inbounds nuw i8, ptr %.06.i.i, i64 384
@@ -319,7 +319,7 @@ define hidden i32 @ERR_peek_error_line(ptr noundef writeonly captures(address_is
   br i1 %.not.i.i, label %get_error_values.exit, label %err_get_state.exit.i
 
 err_get_state.exit.i:                             ; preds = %7, %2
-  %.06.i.i = phi ptr [ %calloc.i.i, %7 ], [ %3, %2 ]
+  %.06.i.i = phi ptr [ %3, %2 ], [ %calloc.i.i, %7 ]
   %9 = getelementptr inbounds nuw i8, ptr %.06.i.i, i64 388
   %10 = load i32, ptr %9, align 4, !tbaa !6
   %11 = getelementptr inbounds nuw i8, ptr %.06.i.i, i64 384
@@ -385,7 +385,7 @@ define hidden i32 @ERR_peek_last_error() local_unnamed_addr #0 {
   br i1 %.not.i.i, label %get_error_values.exit, label %err_get_state.exit.i
 
 err_get_state.exit.i:                             ; preds = %5, %0
-  %.06.i.i = phi ptr [ %calloc.i.i, %5 ], [ %1, %0 ]
+  %.06.i.i = phi ptr [ %1, %0 ], [ %calloc.i.i, %5 ]
   %7 = getelementptr inbounds nuw i8, ptr %.06.i.i, i64 388
   %8 = load i32, ptr %7, align 4, !tbaa !6
   %9 = getelementptr inbounds nuw i8, ptr %.06.i.i, i64 384
@@ -422,7 +422,7 @@ define hidden i32 @ERR_peek_last_error_line(ptr noundef writeonly captures(addre
   br i1 %.not.i.i, label %get_error_values.exit, label %err_get_state.exit.i
 
 err_get_state.exit.i:                             ; preds = %7, %2
-  %.06.i.i = phi ptr [ %calloc.i.i, %7 ], [ %3, %2 ]
+  %.06.i.i = phi ptr [ %3, %2 ], [ %calloc.i.i, %7 ]
   %9 = getelementptr inbounds nuw i8, ptr %.06.i.i, i64 388
   %10 = load i32, ptr %9, align 4, !tbaa !6
   %11 = getelementptr inbounds nuw i8, ptr %.06.i.i, i64 384
@@ -486,7 +486,7 @@ define hidden void @ERR_clear_error() local_unnamed_addr #0 {
   br i1 %.not.i, label %err_get_state.exit.thread, label %err_get_state.exit
 
 err_get_state.exit:                               ; preds = %5, %0
-  %.06.i = phi ptr [ %calloc.i, %5 ], [ %1, %0 ]
+  %.06.i = phi ptr [ %1, %0 ], [ %calloc.i, %5 ]
   br label %7
 
 7:                                                ; preds = %err_get_state.exit, %err_clear.exit
@@ -974,7 +974,7 @@ define hidden void @ERR_put_error(i32 noundef %0, i32 noundef %1, i32 noundef %2
   br i1 %.not.i, label %err_get_state.exit.thread, label %err_get_state.exit
 
 err_get_state.exit:                               ; preds = %5, %10
-  %.06.i = phi ptr [ %calloc.i, %10 ], [ %6, %5 ]
+  %.06.i = phi ptr [ %6, %5 ], [ %calloc.i, %10 ]
   %12 = icmp eq i32 %0, 2
   %13 = icmp eq i32 %2, 0
   %or.cond = and i1 %12, %13
@@ -1143,7 +1143,7 @@ define hidden void @ERR_add_error_data(i32 noundef %0, ...) local_unnamed_addr #
   br i1 %.not.i.i.i, label %err_get_state.exit.thread.i.i, label %err_get_state.exit.i.i
 
 err_get_state.exit.i.i:                           ; preds = %44, %._crit_edge.i
-  %.06.i.i.i = phi ptr [ %calloc.i.i.i, %44 ], [ %40, %._crit_edge.i ]
+  %.06.i.i.i = phi ptr [ %40, %._crit_edge.i ], [ %calloc.i.i.i, %44 ]
   %46 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 384
   %47 = load i32, ptr %46, align 8, !tbaa !12
   %48 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 388
@@ -1217,7 +1217,7 @@ define hidden void @ERR_add_error_dataf(ptr noundef %0, ...) local_unnamed_addr 
   br i1 %.not.i.i, label %err_get_state.exit.thread.i, label %err_get_state.exit.i
 
 err_get_state.exit.i:                             ; preds = %12, %5
-  %.06.i.i = phi ptr [ %calloc.i.i, %12 ], [ %8, %5 ]
+  %.06.i.i = phi ptr [ %8, %5 ], [ %calloc.i.i, %12 ]
   %14 = getelementptr inbounds nuw i8, ptr %.06.i.i, i64 384
   %15 = load i32, ptr %14, align 8, !tbaa !12
   %16 = getelementptr inbounds nuw i8, ptr %.06.i.i, i64 388
@@ -1277,7 +1277,7 @@ define hidden range(i32 0, 2) i32 @ERR_set_mark() local_unnamed_addr #0 {
   br i1 %.not.i, label %err_get_state.exit.thread, label %err_get_state.exit
 
 err_get_state.exit:                               ; preds = %0, %5
-  %.06.i = phi ptr [ %calloc.i, %5 ], [ %1, %0 ]
+  %.06.i = phi ptr [ %1, %0 ], [ %calloc.i, %5 ]
   %7 = getelementptr inbounds nuw i8, ptr %.06.i, i64 388
   %8 = load i32, ptr %7, align 4, !tbaa !6
   %9 = getelementptr inbounds nuw i8, ptr %.06.i, i64 384
@@ -1316,7 +1316,7 @@ define hidden range(i32 0, 2) i32 @ERR_pop_to_mark() local_unnamed_addr #0 {
   br i1 %.not.i, label %err_get_state.exit.thread, label %err_get_state.exit
 
 err_get_state.exit:                               ; preds = %5, %0
-  %.06.i = phi ptr [ %calloc.i, %5 ], [ %1, %0 ]
+  %.06.i = phi ptr [ %1, %0 ], [ %calloc.i, %5 ]
   %7 = getelementptr inbounds nuw i8, ptr %.06.i, i64 388
   %8 = getelementptr inbounds nuw i8, ptr %.06.i, i64 384
   %9 = load i32, ptr %7, align 4, !tbaa !6
@@ -1363,7 +1363,7 @@ err_get_state.exit:                               ; preds = %5, %0
   br i1 %.not, label %err_get_state.exit.thread, label %.lr.ph, !llvm.loop !32
 
 err_get_state.exit.thread:                        ; preds = %24, %err_get_state.exit, %5, %3, %.thread
-  %.0 = phi i32 [ 1, %.thread ], [ 0, %3 ], [ 0, %5 ], [ 0, %err_get_state.exit ], [ 0, %24 ]
+  %.0 = phi i32 [ 0, %5 ], [ 1, %.thread ], [ 0, %3 ], [ 0, %err_get_state.exit ], [ 0, %24 ]
   ret i32 %.0
 }
 

@@ -492,7 +492,7 @@ FT_Bitmap_Done.exit:                              ; preds = %26
   br label %173
 
 ft_bitmap_assure_buffer.exit:                     ; preds = %48, %124
-  %.0.i133 = phi i32 [ 18, %48 ], [ %129, %124 ]
+  %.0.i133 = phi i32 [ %129, %124 ], [ 18, %48 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %285
 

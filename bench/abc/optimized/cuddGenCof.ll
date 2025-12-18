@@ -1764,7 +1764,7 @@ define noalias noundef ptr @Cudd_bddCharToVect(ptr noundef %0, ptr noundef %1) l
   br i1 %52, label %.backedge, label %.split.thread70
 
 .backedge:                                        ; preds = %.thread..backedge_crit_edge, %._crit_edge
-  %.pre = phi i32 [ %49, %._crit_edge ], [ %.pre.pre, %.thread..backedge_crit_edge ]
+  %.pre = phi i32 [ %.pre.pre, %.thread..backedge_crit_edge ], [ %49, %._crit_edge ]
   store i32 0, ptr %16, align 8, !tbaa !3
   %53 = icmp sgt i32 %.pre, 0
   br i1 %53, label %.lr.ph.preheader, label %.split, !llvm.loop !47

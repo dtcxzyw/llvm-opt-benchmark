@@ -478,7 +478,7 @@ ossl_param_is_empty.exit:                         ; preds = %2
   br label %ossl_param_is_empty.exit.thread
 
 ossl_param_is_empty.exit.thread:                  ; preds = %71, %2, %43, %.critedge71, %37, %.critedge, %ossl_param_is_empty.exit
-  %.0 = phi i32 [ 0, %.critedge ], [ 0, %37 ], [ 0, %.critedge71 ], [ 1, %ossl_param_is_empty.exit ], [ 1, %43 ], [ 1, %2 ], [ 1, %71 ]
+  %.0 = phi i32 [ 0, %.critedge ], [ 0, %37 ], [ 0, %.critedge71 ], [ 1, %ossl_param_is_empty.exit ], [ 1, %2 ], [ 1, %43 ], [ 1, %71 ]
   ret i32 %.0
 }
 

@@ -3291,7 +3291,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit251.thread: ; preds = %.lr.ph.prehe
   br i1 %242, label %.lr.ph364, label %._crit_edge365, !llvm.loop !137
 
 ._crit_edge365:                                   ; preds = %.lr.ph364, %.preheader337, %.preheader336
-  %.sroa.0273.1.lcssa452 = phi i64 [ %.us-phi, %.preheader336 ], [ %.sroa.0273.0373, %.preheader337 ], [ %.us-phi, %.lr.ph364 ]
+  %.sroa.0273.1.lcssa452 = phi i64 [ %.sroa.0273.0373, %.preheader337 ], [ %.us-phi, %.preheader336 ], [ %.us-phi, %.lr.ph364 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @llvm.lifetime.start.p0(ptr nonnull %24)

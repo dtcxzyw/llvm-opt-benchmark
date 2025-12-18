@@ -1568,7 +1568,7 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZNK14dtNavMeshQuery15get
   br label %.thread
 
 .thread:                                          ; preds = %17, %98, %56, %139, %9, %.preheader90, %100, %._crit_edge, %69, %27
-  %.0 = phi i32 [ 1073741824, %27 ], [ 1073741824, %100 ], [ 1073741824, %69 ], [ 1073741824, %139 ], [ 1073741824, %._crit_edge ], [ -2147483640, %.preheader90 ], [ -2147483640, %9 ], [ -2147483640, %98 ], [ -2147483640, %56 ], [ -2147483640, %17 ]
+  %.0 = phi i32 [ 1073741824, %27 ], [ 1073741824, %100 ], [ 1073741824, %69 ], [ -2147483640, %98 ], [ -2147483640, %.preheader90 ], [ 1073741824, %139 ], [ 1073741824, %._crit_edge ], [ -2147483640, %9 ], [ -2147483640, %56 ], [ -2147483640, %17 ]
   ret i32 %.0
 }
 
@@ -1748,7 +1748,7 @@ _Z11dtVisfinitePKf.exit.thread.sink.split:        ; preds = %._crit_edge53, %56
   br label %_Z11dtVisfinitePKf.exit.thread
 
 _Z11dtVisfinitePKf.exit.thread:                   ; preds = %_Z11dtVisfinitePKf.exit.thread.sink.split, %18, %22, %_Z11dtVisfinitePKf.exit, %14
-  %.0 = phi i32 [ -2147483640, %14 ], [ -2147483640, %_Z11dtVisfinitePKf.exit ], [ -2147483640, %22 ], [ -2147483640, %18 ], [ 1073741824, %_Z11dtVisfinitePKf.exit.thread.sink.split ]
+  %.0 = phi i32 [ -2147483640, %14 ], [ -2147483640, %18 ], [ -2147483640, %_Z11dtVisfinitePKf.exit ], [ -2147483640, %22 ], [ 1073741824, %_Z11dtVisfinitePKf.exit.thread.sink.split ]
   ret i32 %.0
 }
 
@@ -2169,7 +2169,7 @@ _Z11dtVisfinitePKf.exit42:                        ; preds = %36
   br i1 %.not39.not, label %.lr.ph55.split, label %_Z11dtVisfinitePKf.exit.thread, !llvm.loop !22
 
 _Z11dtVisfinitePKf.exit.thread:                   ; preds = %._crit_edge51, %.lr.ph55, %47, %32, %36, %18, %22, %17, %_Z11dtVisfinitePKf.exit, %_Z11dtVisfinitePKf.exit42
-  %.030 = phi i32 [ -2147483640, %17 ], [ -2147483640, %_Z11dtVisfinitePKf.exit42 ], [ -2147483640, %_Z11dtVisfinitePKf.exit ], [ -2147483640, %18 ], [ -2147483640, %22 ], [ -2147483640, %36 ], [ -2147483640, %32 ], [ 1073741824, %47 ], [ 1073741824, %.lr.ph55 ], [ 1073741824, %._crit_edge51 ]
+  %.030 = phi i32 [ -2147483640, %17 ], [ -2147483640, %_Z11dtVisfinitePKf.exit42 ], [ -2147483640, %_Z11dtVisfinitePKf.exit ], [ -2147483640, %32 ], [ -2147483640, %18 ], [ -2147483640, %22 ], [ -2147483640, %36 ], [ 1073741824, %47 ], [ 1073741824, %.lr.ph55 ], [ 1073741824, %._crit_edge51 ]
   ret i32 %.030
 }
 
@@ -2376,9 +2376,9 @@ _Z20dtOverlapQuantBoundsPKtS0_S0_S0_.exit:        ; preds = %117
   br label %.thread
 
 158:                                              ; preds = %_Z20dtOverlapQuantBoundsPKtS0_S0_S0_.exit.thread, %_Z20dtOverlapQuantBoundsPKtS0_S0_S0_.exit
-  %159 = phi i1 [ %130, %_Z20dtOverlapQuantBoundsPKtS0_S0_S0_.exit ], [ %124, %_Z20dtOverlapQuantBoundsPKtS0_S0_S0_.exit.thread ]
-  %160 = phi ptr [ %128, %_Z20dtOverlapQuantBoundsPKtS0_S0_S0_.exit ], [ %122, %_Z20dtOverlapQuantBoundsPKtS0_S0_S0_.exit.thread ]
-  %161 = phi i1 [ %spec.select16.i, %_Z20dtOverlapQuantBoundsPKtS0_S0_S0_.exit ], [ false, %_Z20dtOverlapQuantBoundsPKtS0_S0_S0_.exit.thread ]
+  %159 = phi i1 [ %124, %_Z20dtOverlapQuantBoundsPKtS0_S0_S0_.exit.thread ], [ %130, %_Z20dtOverlapQuantBoundsPKtS0_S0_S0_.exit ]
+  %160 = phi ptr [ %122, %_Z20dtOverlapQuantBoundsPKtS0_S0_S0_.exit.thread ], [ %128, %_Z20dtOverlapQuantBoundsPKtS0_S0_S0_.exit ]
+  %161 = phi i1 [ false, %_Z20dtOverlapQuantBoundsPKtS0_S0_S0_.exit.thread ], [ %spec.select16.i, %_Z20dtOverlapQuantBoundsPKtS0_S0_S0_.exit ]
   %or.cond3 = or i1 %159, %161
   br i1 %or.cond3, label %.thread, label %163
 
@@ -8690,8 +8690,8 @@ _ZL14insertIntervalP13dtSegIntervalRiissj.exit173: ; preds = %._crit_edge, %_ZL1
   br i1 %exitcond.not, label %.loopexit, label %209, !llvm.loop !64
 
 .loopexit:                                        ; preds = %313, %_ZL14insertIntervalP13dtSegIntervalRiissj.exit173, %151, %153, %95
-  %.1108 = phi i32 [ %.0107207, %151 ], [ %154, %153 ], [ %.0107207, %95 ], [ %.0107207, %_ZL14insertIntervalP13dtSegIntervalRiissj.exit173 ], [ %.4111, %313 ]
-  %.1 = phi i32 [ %152, %151 ], [ %.0106208, %153 ], [ %.0106208, %95 ], [ %.0106208, %_ZL14insertIntervalP13dtSegIntervalRiissj.exit173 ], [ %.4, %313 ]
+  %.1108 = phi i32 [ %.0107207, %95 ], [ %.0107207, %151 ], [ %154, %153 ], [ %.0107207, %_ZL14insertIntervalP13dtSegIntervalRiissj.exit173 ], [ %.4111, %313 ]
+  %.1 = phi i32 [ %.0106208, %95 ], [ %152, %151 ], [ %.0106208, %153 ], [ %.0106208, %_ZL14insertIntervalP13dtSegIntervalRiissj.exit173 ], [ %.4, %313 ]
   %indvars.iv.next220 = add nuw nsw i64 %indvars.iv219, 1
   %314 = load ptr, ptr %9, align 8
   %315 = getelementptr inbounds nuw i8, ptr %314, i64 30

@@ -3646,8 +3646,8 @@ define linkonce_odr hidden void @_ZNK2cv17Bayer2RGB_InvokerIhNS_26SIMDBayerStubI
   br i1 %.not347, label %.loopexit, label %.lr.ph, !llvm.loop !102
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph385, %.lr.ph391, %.lr.ph397, %.preheader376, %.preheader374, %.preheader372, %.preheader
-  %.3328 = phi ptr [ %.0325, %.preheader ], [ %.0325, %.preheader372 ], [ %.0325, %.preheader374 ], [ %.0325, %.preheader376 ], [ %258, %.lr.ph385 ], [ %137, %.lr.ph397 ], [ %197, %.lr.ph391 ], [ %321, %.lr.ph ]
-  %.3 = phi ptr [ %.0324, %.preheader ], [ %.0324, %.preheader372 ], [ %.0324, %.preheader374 ], [ %.0324, %.preheader376 ], [ %318, %.lr.ph385 ], [ %194, %.lr.ph397 ], [ %254, %.lr.ph391 ], [ %381, %.lr.ph ]
+  %.3328 = phi ptr [ %258, %.lr.ph385 ], [ %137, %.lr.ph397 ], [ %197, %.lr.ph391 ], [ %.0325, %.preheader ], [ %.0325, %.preheader372 ], [ %.0325, %.preheader374 ], [ %.0325, %.preheader376 ], [ %321, %.lr.ph ]
+  %.3 = phi ptr [ %318, %.lr.ph385 ], [ %194, %.lr.ph397 ], [ %254, %.lr.ph391 ], [ %.0324, %.preheader ], [ %.0324, %.preheader372 ], [ %.0324, %.preheader374 ], [ %.0324, %.preheader376 ], [ %381, %.lr.ph ]
   %382 = icmp ult ptr %.3328, %54
   br i1 %382, label %383, label %427
 
@@ -4920,8 +4920,8 @@ define linkonce_odr hidden void @_ZNK2cv17Bayer2RGB_InvokerItNS_26SIMDBayerStubI
   br i1 %.not347, label %.loopexit, label %.lr.ph, !llvm.loop !118
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph385, %.lr.ph391, %.lr.ph397, %.preheader376, %.preheader374, %.preheader372, %.preheader
-  %.3328 = phi ptr [ %.0325, %.preheader ], [ %.0325, %.preheader372 ], [ %.0325, %.preheader374 ], [ %.0325, %.preheader376 ], [ %242, %.lr.ph385 ], [ %121, %.lr.ph397 ], [ %181, %.lr.ph391 ], [ %305, %.lr.ph ]
-  %.3 = phi ptr [ %.0324, %.preheader ], [ %.0324, %.preheader372 ], [ %.0324, %.preheader374 ], [ %.0324, %.preheader376 ], [ %302, %.lr.ph385 ], [ %178, %.lr.ph397 ], [ %238, %.lr.ph391 ], [ %365, %.lr.ph ]
+  %.3328 = phi ptr [ %242, %.lr.ph385 ], [ %121, %.lr.ph397 ], [ %181, %.lr.ph391 ], [ %.0325, %.preheader ], [ %.0325, %.preheader372 ], [ %.0325, %.preheader374 ], [ %.0325, %.preheader376 ], [ %305, %.lr.ph ]
+  %.3 = phi ptr [ %302, %.lr.ph385 ], [ %178, %.lr.ph397 ], [ %238, %.lr.ph391 ], [ %.0324, %.preheader ], [ %.0324, %.preheader372 ], [ %.0324, %.preheader374 ], [ %.0324, %.preheader376 ], [ %365, %.lr.ph ]
   %366 = icmp ult ptr %.3328, %81
   br i1 %366, label %367, label %411
 
@@ -5380,10 +5380,10 @@ define linkonce_odr hidden void @_ZNK2cv29Bayer2RGB_EdgeAware_T_InvokerIhNS_26SI
   br i1 %236, label %.lr.ph222, label %.loopexit, !llvm.loop !123
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph222, %.preheader212, %.preheader
-  %237 = phi i32 [ %99, %.preheader ], [ %99, %.preheader212 ], [ %235, %.lr.ph222 ], [ %167, %.lr.ph ]
-  %.3181 = phi ptr [ %.1179, %.preheader ], [ %.1179, %.preheader212 ], [ %225, %.lr.ph222 ], [ %146, %.lr.ph ]
-  %.3177 = phi ptr [ %.1175, %.preheader ], [ %.1175, %.preheader212 ], [ %234, %.lr.ph222 ], [ %166, %.lr.ph ]
-  %.2 = phi i32 [ %.0171, %.preheader ], [ %.0171, %.preheader212 ], [ %233, %.lr.ph222 ], [ %165, %.lr.ph ]
+  %237 = phi i32 [ %235, %.lr.ph222 ], [ %99, %.preheader ], [ %99, %.preheader212 ], [ %167, %.lr.ph ]
+  %.3181 = phi ptr [ %225, %.lr.ph222 ], [ %.1179, %.preheader ], [ %.1179, %.preheader212 ], [ %146, %.lr.ph ]
+  %.3177 = phi ptr [ %234, %.lr.ph222 ], [ %.1175, %.preheader ], [ %.1175, %.preheader212 ], [ %166, %.lr.ph ]
+  %.2 = phi i32 [ %233, %.lr.ph222 ], [ %.0171, %.preheader ], [ %.0171, %.preheader212 ], [ %165, %.lr.ph ]
   %.not196 = icmp sgt i32 %.2, %237
   br i1 %.not196, label %288, label %238
 
@@ -5802,9 +5802,9 @@ define linkonce_odr hidden void @_ZNK2cv29Bayer2RGB_EdgeAware_T_InvokerItNS_26SI
   br i1 %235, label %.lr.ph222, label %.loopexit, !llvm.loop !128
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph222, %.preheader212, %.preheader
-  %.3181 = phi ptr [ %.1179, %.preheader ], [ %.1179, %.preheader212 ], [ %225, %.lr.ph222 ], [ %147, %.lr.ph ]
-  %.3177 = phi ptr [ %.1175, %.preheader ], [ %.1175, %.preheader212 ], [ %234, %.lr.ph222 ], [ %167, %.lr.ph ]
-  %.2 = phi i32 [ %.0171, %.preheader ], [ %.0171, %.preheader212 ], [ %233, %.lr.ph222 ], [ %166, %.lr.ph ]
+  %.3181 = phi ptr [ %225, %.lr.ph222 ], [ %.1179, %.preheader ], [ %.1179, %.preheader212 ], [ %147, %.lr.ph ]
+  %.3177 = phi ptr [ %234, %.lr.ph222 ], [ %.1175, %.preheader ], [ %.1175, %.preheader212 ], [ %167, %.lr.ph ]
+  %.2 = phi i32 [ %233, %.lr.ph222 ], [ %.0171, %.preheader ], [ %.0171, %.preheader212 ], [ %166, %.lr.ph ]
   %.not196 = icmp sgt i32 %.2, %57
   br i1 %.not196, label %286, label %236
 

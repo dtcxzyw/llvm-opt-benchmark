@@ -2333,139 +2333,139 @@ define hidden void @_ZNK12ErrorContext16stackmap_detailsEP12outputStreamPK6Metho
 
 32:                                               ; preds = %29
   %.not58.i = icmp eq i8 %30, -5
-  br i1 %.not58.i, label %33, label %35
+  br i1 %.not58.i, label %_ZNK15stack_map_frame6verifyEPhS0_.exit, label %33
 
 33:                                               ; preds = %32
-  %34 = getelementptr inbounds nuw i8, ptr %.02663, i64 3
-  %.not54 = icmp ugt ptr %34, %25
-  br i1 %.not54, label %_ZNK15stack_map_frame6verifyEPhS0_.exit.thread40, label %_ZNK15stack_map_frame6verifyEPhS0_.exit.thread
+  %34 = icmp slt i8 %30, 64
+  br i1 %34, label %43, label %35
 
-35:                                               ; preds = %32
-  %36 = icmp slt i8 %30, 64
-  br i1 %36, label %42, label %37
+35:                                               ; preds = %33
+  %36 = getelementptr inbounds nuw i8, ptr %.02663, i64 1
+  %37 = icmp ult ptr %36, %25
+  br i1 %37, label %38, label %_ZNK15stack_map_frame6verifyEPhS0_.exit.thread40
 
-37:                                               ; preds = %35
-  %38 = getelementptr inbounds nuw i8, ptr %.02663, i64 1
-  %39 = icmp ult ptr %38, %25
-  br i1 %39, label %40, label %_ZNK15stack_map_frame6verifyEPhS0_.exit.thread40
+38:                                               ; preds = %35
+  %39 = getelementptr inbounds nuw i8, ptr %.02663, i64 4
+  %.not.i.i.i = icmp ugt ptr %39, %25
+  br i1 %.not.i.i.i, label %40, label %_ZNK15stack_map_frame6verifyEPhS0_.exit.thread
 
-40:                                               ; preds = %37
-  %41 = getelementptr inbounds nuw i8, ptr %.02663, i64 4
-  %.not.i.i.i = icmp ugt ptr %41, %25
-  br i1 %.not.i.i.i, label %_ZNK15stack_map_frame6verifyEPhS0_.exit, label %_ZNK15stack_map_frame6verifyEPhS0_.exit.thread
+40:                                               ; preds = %38
+  %41 = load i8, ptr %36, align 1
+  %42 = add i8 %41, -9
+  %spec.select.i.i.i = icmp ult i8 %42, -2
+  br i1 %spec.select.i.i.i, label %_ZNK15stack_map_frame6verifyEPhS0_.exit.thread, label %_ZNK15stack_map_frame6verifyEPhS0_.exit.thread40
 
-42:                                               ; preds = %35
+43:                                               ; preds = %33
   %.not59.i = icmp eq i8 %30, -9
-  br i1 %.not59.i, label %43, label %51
+  br i1 %.not59.i, label %44, label %52
 
-43:                                               ; preds = %42
-  %44 = getelementptr inbounds nuw i8, ptr %.02663, i64 3
-  %45 = icmp ult ptr %44, %25
-  br i1 %45, label %46, label %_ZNK15stack_map_frame6verifyEPhS0_.exit.thread40
+44:                                               ; preds = %43
+  %45 = getelementptr inbounds nuw i8, ptr %.02663, i64 3
+  %46 = icmp ult ptr %45, %25
+  br i1 %46, label %47, label %_ZNK15stack_map_frame6verifyEPhS0_.exit.thread40
 
-46:                                               ; preds = %43
-  %47 = getelementptr inbounds nuw i8, ptr %.02663, i64 6
-  %.not.i.i51.i = icmp ugt ptr %47, %25
-  br i1 %.not.i.i51.i, label %48, label %_ZNK15stack_map_frame6verifyEPhS0_.exit.thread
+47:                                               ; preds = %44
+  %48 = getelementptr inbounds nuw i8, ptr %.02663, i64 6
+  %.not.i.i51.i = icmp ugt ptr %48, %25
+  br i1 %.not.i.i51.i, label %49, label %_ZNK15stack_map_frame6verifyEPhS0_.exit.thread
 
-48:                                               ; preds = %46
-  %49 = load i8, ptr %44, align 1
-  %50 = add i8 %49, -9
-  %spec.select.i.i52.i = icmp ult i8 %50, -2
+49:                                               ; preds = %47
+  %50 = load i8, ptr %45, align 1
+  %51 = add i8 %50, -9
+  %spec.select.i.i52.i = icmp ult i8 %51, -2
   br i1 %spec.select.i.i52.i, label %_ZNK15stack_map_frame6verifyEPhS0_.exit.thread, label %_ZNK15stack_map_frame6verifyEPhS0_.exit.thread40
 
-51:                                               ; preds = %42
-  %52 = add nsw i8 %30, 5
-  %spec.select.i.i53.i = icmp ult i8 %52, -3
-  br i1 %spec.select.i.i53.i, label %55, label %53
+52:                                               ; preds = %43
+  %53 = add nsw i8 %30, 5
+  %spec.select.i.i53.i = icmp ult i8 %53, -3
+  br i1 %spec.select.i.i53.i, label %56, label %54
 
-53:                                               ; preds = %51
-  %54 = getelementptr inbounds nuw i8, ptr %.02663, i64 3
-  %.not53 = icmp ugt ptr %54, %25
+54:                                               ; preds = %52
+  %55 = getelementptr inbounds nuw i8, ptr %.02663, i64 3
+  %.not53 = icmp ugt ptr %55, %25
   br i1 %.not53, label %_ZNK15stack_map_frame6verifyEPhS0_.exit.thread40, label %_ZNK15stack_map_frame6verifyEPhS0_.exit.thread
 
-55:                                               ; preds = %51
-  %56 = add nsw i8 %30, 1
-  %spec.select.i.i55.i = icmp ult i8 %56, -3
-  br i1 %spec.select.i.i55.i, label %80, label %57
+56:                                               ; preds = %52
+  %57 = add nsw i8 %30, 1
+  %spec.select.i.i55.i = icmp ult i8 %57, -3
+  br i1 %spec.select.i.i55.i, label %81, label %58
 
-57:                                               ; preds = %55
-  %58 = getelementptr inbounds nuw i8, ptr %.02663, i64 3
-  %59 = icmp ult ptr %58, %25
-  br i1 %59, label %60, label %_ZNK15stack_map_frame6verifyEPhS0_.exit.thread40
+58:                                               ; preds = %56
+  %59 = getelementptr inbounds nuw i8, ptr %.02663, i64 3
+  %60 = icmp ult ptr %59, %25
+  br i1 %60, label %61, label %_ZNK15stack_map_frame6verifyEPhS0_.exit.thread40
 
-60:                                               ; preds = %57
-  %61 = getelementptr inbounds nuw i8, ptr %.02663, i64 6
-  %.not.i.i32 = icmp ule ptr %61, %25
-  %.pre.i = load i8, ptr %58, align 1
-  %62 = add i8 %.pre.i, -9
-  %spec.select.i.i = icmp ult i8 %62, -2
+61:                                               ; preds = %58
+  %62 = getelementptr inbounds nuw i8, ptr %.02663, i64 6
+  %.not.i.i32 = icmp ule ptr %62, %25
+  %.pre.i = load i8, ptr %59, align 1
+  %63 = add i8 %.pre.i, -9
+  %spec.select.i.i = icmp ult i8 %63, -2
   %or.cond40.i = select i1 %.not.i.i32, i1 true, i1 %spec.select.i.i
   br i1 %or.cond40.i, label %_ZN22verification_type_info6verifyEPhS0_.exit.thread.i, label %_ZNK15stack_map_frame6verifyEPhS0_.exit.thread40
 
-_ZN22verification_type_info6verifyEPhS0_.exit.thread.i: ; preds = %60
-  %63 = add i8 %.pre.i, -7
-  %or.cond.i.i.i.i = icmp ult i8 %63, 2
+_ZN22verification_type_info6verifyEPhS0_.exit.thread.i: ; preds = %61
+  %64 = add i8 %.pre.i, -7
+  %or.cond.i.i.i.i = icmp ult i8 %64, 2
   %..i.i.i.i = select i1 %or.cond.i.i.i.i, i64 3, i64 1
-  %64 = getelementptr inbounds nuw i8, ptr %58, i64 %..i.i.i.i
-  %65 = icmp samesign ult i8 %30, -3
-  br i1 %65, label %_ZNK15stack_map_frame6verifyEPhS0_.exit.thread, label %66
+  %65 = getelementptr inbounds nuw i8, ptr %59, i64 %..i.i.i.i
+  %66 = icmp samesign ult i8 %30, -3
+  br i1 %66, label %_ZNK15stack_map_frame6verifyEPhS0_.exit.thread, label %67
 
-66:                                               ; preds = %_ZN22verification_type_info6verifyEPhS0_.exit.thread.i
-  %67 = icmp ult ptr %64, %25
-  br i1 %67, label %68, label %_ZNK15stack_map_frame6verifyEPhS0_.exit.thread40
+67:                                               ; preds = %_ZN22verification_type_info6verifyEPhS0_.exit.thread.i
+  %68 = icmp ult ptr %65, %25
+  br i1 %68, label %69, label %_ZNK15stack_map_frame6verifyEPhS0_.exit.thread40
 
-68:                                               ; preds = %66
-  %69 = getelementptr inbounds nuw i8, ptr %64, i64 3
-  %.not.i19.i = icmp ule ptr %69, %25
-  %.pre33.i = load i8, ptr %64, align 1
-  %70 = add i8 %.pre33.i, -9
-  %spec.select.i20.i = icmp ult i8 %70, -2
+69:                                               ; preds = %67
+  %70 = getelementptr inbounds nuw i8, ptr %65, i64 3
+  %.not.i19.i = icmp ule ptr %70, %25
+  %.pre33.i = load i8, ptr %65, align 1
+  %71 = add i8 %.pre33.i, -9
+  %spec.select.i20.i = icmp ult i8 %71, -2
   %or.cond41.i = select i1 %.not.i19.i, i1 true, i1 %spec.select.i20.i
   br i1 %or.cond41.i, label %_ZN22verification_type_info6verifyEPhS0_.exit21.thread.i, label %_ZNK15stack_map_frame6verifyEPhS0_.exit.thread40
 
-_ZN22verification_type_info6verifyEPhS0_.exit21.thread.i: ; preds = %68
-  %71 = add i8 %.pre33.i, -7
-  %or.cond.i.i.i22.i = icmp ult i8 %71, 2
+_ZN22verification_type_info6verifyEPhS0_.exit21.thread.i: ; preds = %69
+  %72 = add i8 %.pre33.i, -7
+  %or.cond.i.i.i22.i = icmp ult i8 %72, 2
   %..i.i.i23.i = select i1 %or.cond.i.i.i22.i, i64 3, i64 1
-  %72 = getelementptr inbounds nuw i8, ptr %64, i64 %..i.i.i23.i
-  %73 = icmp eq i8 %30, -3
-  br i1 %73, label %_ZNK15stack_map_frame6verifyEPhS0_.exit.thread, label %74
+  %73 = getelementptr inbounds nuw i8, ptr %65, i64 %..i.i.i23.i
+  %74 = icmp eq i8 %30, -3
+  br i1 %74, label %_ZNK15stack_map_frame6verifyEPhS0_.exit.thread, label %75
 
-74:                                               ; preds = %_ZN22verification_type_info6verifyEPhS0_.exit21.thread.i
-  %75 = icmp ult ptr %72, %25
-  br i1 %75, label %76, label %_ZNK15stack_map_frame6verifyEPhS0_.exit.thread40
+75:                                               ; preds = %_ZN22verification_type_info6verifyEPhS0_.exit21.thread.i
+  %76 = icmp ult ptr %73, %25
+  br i1 %76, label %77, label %_ZNK15stack_map_frame6verifyEPhS0_.exit.thread40
 
-76:                                               ; preds = %74
-  %77 = getelementptr inbounds nuw i8, ptr %72, i64 3
-  %.not.i25.i = icmp ugt ptr %77, %25
+77:                                               ; preds = %75
+  %78 = getelementptr inbounds nuw i8, ptr %73, i64 3
+  %.not.i25.i = icmp ugt ptr %78, %25
   br i1 %.not.i25.i, label %_ZN22verification_type_info6verifyEPhS0_.exit27.i, label %_ZNK15stack_map_frame6verifyEPhS0_.exit.thread
 
-_ZN22verification_type_info6verifyEPhS0_.exit27.i: ; preds = %76
-  %78 = load i8, ptr %72, align 1
-  %79 = add i8 %78, -9
-  %spec.select.i26.i = icmp ult i8 %79, -2
+_ZN22verification_type_info6verifyEPhS0_.exit27.i: ; preds = %77
+  %79 = load i8, ptr %73, align 1
+  %80 = add i8 %79, -9
+  %spec.select.i26.i = icmp ult i8 %80, -2
   br i1 %spec.select.i26.i, label %_ZNK15stack_map_frame6verifyEPhS0_.exit.thread, label %_ZNK15stack_map_frame6verifyEPhS0_.exit.thread40
 
-80:                                               ; preds = %55
+81:                                               ; preds = %56
   %.not60.i = icmp eq i8 %30, -1
-  br i1 %.not60.i, label %81, label %_ZNK15stack_map_frame6verifyEPhS0_.exit.thread40
+  br i1 %.not60.i, label %82, label %_ZNK15stack_map_frame6verifyEPhS0_.exit.thread40
 
-81:                                               ; preds = %80
-  %82 = tail call noundef zeroext i1 @_ZNK10full_frame14verify_subtypeEPhS0_(ptr noundef nonnull align 1 dereferenceable(1) %.02663, ptr noundef nonnull %.02663, ptr noundef nonnull %25)
-  br i1 %82, label %_ZNK15stack_map_frame6verifyEPhS0_.exit.thread, label %_ZNK15stack_map_frame6verifyEPhS0_.exit.thread40
+82:                                               ; preds = %81
+  %83 = tail call noundef zeroext i1 @_ZNK10full_frame14verify_subtypeEPhS0_(ptr noundef nonnull align 1 dereferenceable(1) %.02663, ptr noundef nonnull %.02663, ptr noundef nonnull %25)
+  br i1 %83, label %_ZNK15stack_map_frame6verifyEPhS0_.exit.thread, label %_ZNK15stack_map_frame6verifyEPhS0_.exit.thread40
 
-_ZNK15stack_map_frame6verifyEPhS0_.exit:          ; preds = %40
-  %83 = load i8, ptr %38, align 1
-  %84 = add i8 %83, -9
-  %spec.select.i.i.i = icmp ult i8 %84, -2
-  br i1 %spec.select.i.i.i, label %_ZNK15stack_map_frame6verifyEPhS0_.exit.thread, label %_ZNK15stack_map_frame6verifyEPhS0_.exit.thread40
+_ZNK15stack_map_frame6verifyEPhS0_.exit:          ; preds = %32
+  %84 = getelementptr inbounds nuw i8, ptr %.02663, i64 3
+  %.not54 = icmp ugt ptr %84, %25
+  br i1 %.not54, label %_ZNK15stack_map_frame6verifyEPhS0_.exit.thread40, label %_ZNK15stack_map_frame6verifyEPhS0_.exit.thread
 
-_ZNK15stack_map_frame6verifyEPhS0_.exit.thread40: ; preds = %57, %60, %66, %68, %74, %_ZN22verification_type_info6verifyEPhS0_.exit27.i, %43, %37, %80, %.lr.ph, %53, %48, %81, %33, %_ZNK15stack_map_frame6verifyEPhS0_.exit
+_ZNK15stack_map_frame6verifyEPhS0_.exit.thread40: ; preds = %58, %61, %67, %69, %75, %_ZN22verification_type_info6verifyEPhS0_.exit27.i, %35, %44, %81, %.lr.ph, %49, %40, %54, %82, %_ZNK15stack_map_frame6verifyEPhS0_.exit
   tail call void @_ZNK15stack_map_frame15print_truncatedEP12outputStreami(ptr noundef nonnull align 1 dereferenceable(1) %.02663, ptr noundef nonnull %1, i32 noundef %.02762)
   br label %.loopexit
 
-_ZNK15stack_map_frame6verifyEPhS0_.exit.thread:   ; preds = %76, %_ZN22verification_type_info6verifyEPhS0_.exit.thread.i, %_ZN22verification_type_info6verifyEPhS0_.exit21.thread.i, %_ZN22verification_type_info6verifyEPhS0_.exit27.i, %40, %46, %29, %53, %48, %81, %33, %_ZNK15stack_map_frame6verifyEPhS0_.exit
+_ZNK15stack_map_frame6verifyEPhS0_.exit.thread:   ; preds = %77, %_ZN22verification_type_info6verifyEPhS0_.exit.thread.i, %_ZN22verification_type_info6verifyEPhS0_.exit21.thread.i, %_ZN22verification_type_info6verifyEPhS0_.exit27.i, %38, %47, %29, %49, %40, %54, %82, %_ZNK15stack_map_frame6verifyEPhS0_.exit
   tail call void @_ZNK15stack_map_frame8print_onEP12outputStreami(ptr noundef nonnull align 1 dereferenceable(1) %.02663, ptr noundef nonnull %1, i32 noundef %.02762)
   tail call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #21
   %85 = load i8, ptr %.02663, align 1
@@ -2650,8 +2650,8 @@ _ZNK10full_frame13end_of_localsEv.exit.thread.i:  ; preds = %133
   br i1 %exitcond31.not.i.i, label %_ZNK15stack_map_frame4nextEv.exit, label %.lr.ph28.i.i, !llvm.loop !16
 
 _ZNK15stack_map_frame4nextEv.exit:                ; preds = %.lr.ph.i.i.i.i, %.lr.ph28.i.i, %.preheader.i.i, %.thread45, %_ZNK15stack_map_frame12offset_deltaEv.exit, %101, %112, %.thread48.thread, %132
-  %158 = phi i32 [ %120, %132 ], [ %100, %_ZNK15stack_map_frame12offset_deltaEv.exit ], [ %104, %101 ], [ %115, %112 ], [ %120, %.thread48.thread ], [ %92, %.thread45 ], [ %120, %.preheader.i.i ], [ %120, %.lr.ph28.i.i ], [ %120, %.lr.ph.i.i.i.i ]
-  %.0.i.i = phi i64 [ 0, %132 ], [ 1, %_ZNK15stack_map_frame12offset_deltaEv.exit ], [ %108, %101 ], [ %119, %112 ], [ 3, %.thread48.thread ], [ 3, %.thread45 ], [ %.016.lcssa.i.i, %.preheader.i.i ], [ %155, %.lr.ph28.i.i ], [ %129, %.lr.ph.i.i.i.i ]
+  %158 = phi i32 [ %120, %132 ], [ %100, %_ZNK15stack_map_frame12offset_deltaEv.exit ], [ %104, %101 ], [ %115, %112 ], [ %120, %.preheader.i.i ], [ %120, %.thread48.thread ], [ %92, %.thread45 ], [ %120, %.lr.ph28.i.i ], [ %120, %.lr.ph.i.i.i.i ]
+  %.0.i.i = phi i64 [ 0, %132 ], [ 1, %_ZNK15stack_map_frame12offset_deltaEv.exit ], [ %108, %101 ], [ %119, %112 ], [ %.016.lcssa.i.i, %.preheader.i.i ], [ 3, %.thread48.thread ], [ 3, %.thread45 ], [ %155, %.lr.ph28.i.i ], [ %129, %.lr.ph.i.i.i.i ]
   %159 = getelementptr inbounds i8, ptr %.02663, i64 %.0.i.i
   %160 = add nuw i16 %.065, 1
   %.0.i.i.i.i = load i16, ptr %17, align 1
@@ -13904,7 +13904,7 @@ _ZN26GrowableArrayWithAllocatorIj13GrowableArrayIjEE4pushERKj.exit110: ; preds =
   br label %.backedge
 
 .loopexit125:                                     ; preds = %396, %_ZN17RawBytecodeStream8raw_nextEv.exit, %._crit_edge, %340, %334, %.loopexit126, %267, %162, %134, %71, %360
-  %.0 = phi i1 [ false, %360 ], [ true, %396 ], [ false, %._crit_edge ], [ true, %340 ], [ true, %334 ], [ false, %.loopexit126 ], [ true, %267 ], [ false, %162 ], [ true, %134 ], [ false, %71 ], [ false, %_ZN17RawBytecodeStream8raw_nextEv.exit ]
+  %.0 = phi i1 [ false, %360 ], [ false, %._crit_edge ], [ true, %396 ], [ true, %340 ], [ true, %334 ], [ false, %.loopexit126 ], [ true, %267 ], [ false, %162 ], [ true, %134 ], [ false, %71 ], [ false, %_ZN17RawBytecodeStream8raw_nextEv.exit ]
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %25) #21
   %423 = load ptr, ptr %10, align 8
   %.not.i.i.i.i111 = icmp eq ptr %423, null
@@ -15381,7 +15381,7 @@ _ZN22verification_type_info6verifyEPhS0_.exit31.thread: ; preds = %24
   br i1 %exitcond52.not, label %_ZN22verification_type_info6verifyEPhS0_.exit.thread34, label %.lr.ph43, !llvm.loop !383
 
 _ZN22verification_type_info6verifyEPhS0_.exit.thread34: ; preds = %.lr.ph, %11, %_ZN22verification_type_info6verifyEPhS0_.exit31.thread, %.lr.ph43, %24, %19, %._crit_edge, %3
-  %.022 = phi i1 [ false, %3 ], [ false, %._crit_edge ], [ true, %19 ], [ false, %.lr.ph43 ], [ true, %_ZN22verification_type_info6verifyEPhS0_.exit31.thread ], [ false, %24 ], [ false, %11 ], [ false, %.lr.ph ]
+  %.022 = phi i1 [ true, %19 ], [ false, %3 ], [ false, %._crit_edge ], [ false, %.lr.ph43 ], [ true, %_ZN22verification_type_info6verifyEPhS0_.exit31.thread ], [ false, %24 ], [ false, %11 ], [ false, %.lr.ph ]
   ret i1 %.022
 }
 

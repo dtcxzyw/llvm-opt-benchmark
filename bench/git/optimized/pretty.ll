@@ -1700,7 +1700,7 @@ get_header.exit56:                                ; preds = %18, %20
   br label %replace_encoding_header.exit
 
 replace_encoding_header.exit:                     ; preds = %41, %43, %47, %64
-  %.024.i = phi ptr [ %65, %64 ], [ %.063, %47 ], [ %.063, %43 ], [ %.063, %41 ]
+  %.024.i = phi ptr [ %.063, %47 ], [ %65, %64 ], [ %.063, %43 ], [ %.063, %41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread
 
@@ -1872,8 +1872,8 @@ strbuf_addch.exit46:                              ; preds = %strbuf_avail.exit.i
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %47, %strbuf_addch.exit46
-  %.133 = phi i32 [ 0, %strbuf_addch.exit46 ], [ %48, %47 ], [ 0, %.loopexit.loopexit ]
-  %.2 = phi i32 [ %.050, %strbuf_addch.exit46 ], [ %.050, %47 ], [ %49, %.loopexit.loopexit ]
+  %.133 = phi i32 [ %48, %47 ], [ 0, %strbuf_addch.exit46 ], [ 0, %.loopexit.loopexit ]
+  %.2 = phi i32 [ %.050, %47 ], [ %.050, %strbuf_addch.exit46 ], [ %49, %.loopexit.loopexit ]
   %50 = add nsw i32 %.2, 1
   %51 = sext i32 %50 to i64
   %52 = icmp ugt i64 %2, %51
@@ -2013,7 +2013,7 @@ is_blank_line.exit:                               ; preds = %35, %32
   br label %.split
 
 .loopexit:                                        ; preds = %get_one_line.exit, %31, %get_one_line.exit.us, %17
-  %38 = phi ptr [ %23, %31 ], [ %9, %17 ], [ %9, %get_one_line.exit.us ], [ %23, %get_one_line.exit ]
+  %38 = phi ptr [ %9, %17 ], [ %9, %get_one_line.exit.us ], [ %23, %31 ], [ %23, %get_one_line.exit ]
   ret ptr %38
 }
 
@@ -2116,7 +2116,7 @@ define dso_local range(i32 -1, 1) i32 @format_set_trailers_options(ptr noundef w
   store i32 1, ptr %12, align 8, !tbaa !122
   br label %.critedge
 
-.loopexit166:                                     ; preds = %20, %25, %31
+.loopexit166:                                     ; preds = %20, %31, %25
   %scevgep185 = getelementptr i8, ptr %18, i64 9
   br label %47
 
@@ -2171,7 +2171,7 @@ define dso_local range(i32 -1, 1) i32 @format_set_trailers_options(ptr noundef w
   store ptr %2, ptr %13, align 8, !tbaa !123
   br label %.critedge
 
-.loopexit165:                                     ; preds = %48, %53, %59
+.loopexit165:                                     ; preds = %48, %59, %53
   %scevgep187 = getelementptr i8, ptr %18, i64 19
   br label %65
 
@@ -2226,7 +2226,7 @@ define dso_local range(i32 -1, 1) i32 @format_set_trailers_options(ptr noundef w
   store ptr %3, ptr %14, align 8, !tbaa !124
   br label %.critedge
 
-.loopexit164:                                     ; preds = %66, %71, %77
+.loopexit164:                                     ; preds = %66, %77, %71
   %scevgep189 = getelementptr i8, ptr %18, i64 4
   br label %83
 
@@ -2296,8 +2296,8 @@ match_placeholder_bool_arg.exit:                  ; preds = %99, %100
   store i32 %.sink.i, ptr %12, align 4, !tbaa !125
   br label %.critedge
 
-.loopexit163:                                     ; preds = %84, %..loopexit163_crit_edge, %89, %95
-  %104 = phi ptr [ %.pre, %..loopexit163_crit_edge ], [ %18, %95 ], [ %18, %89 ], [ %18, %84 ]
+.loopexit163:                                     ; preds = %84, %..loopexit163_crit_edge, %95, %89
+  %104 = phi ptr [ %.pre, %..loopexit163_crit_edge ], [ %18, %89 ], [ %18, %95 ], [ %18, %84 ]
   %scevgep191 = getelementptr i8, ptr %104, i64 6
   br label %105
 
@@ -2367,8 +2367,8 @@ match_placeholder_bool_arg.exit84:                ; preds = %121, %122
   store i32 %.sink.i82, ptr %15, align 4, !tbaa !125
   br label %.critedge
 
-.loopexit162:                                     ; preds = %106, %..loopexit162_crit_edge, %111, %117
-  %126 = phi ptr [ %.pre197, %..loopexit162_crit_edge ], [ %104, %117 ], [ %104, %111 ], [ %104, %106 ]
+.loopexit162:                                     ; preds = %106, %..loopexit162_crit_edge, %117, %111
+  %126 = phi ptr [ %.pre197, %..loopexit162_crit_edge ], [ %104, %111 ], [ %104, %117 ], [ %104, %106 ]
   %scevgep193 = getelementptr i8, ptr %126, i64 7
   br label %127
 
@@ -2438,8 +2438,8 @@ match_placeholder_bool_arg.exit97:                ; preds = %143, %144
   store i32 %.sink.i95, ptr %16, align 4, !tbaa !125
   br label %.critedge
 
-.loopexit161:                                     ; preds = %128, %..loopexit161_crit_edge, %133, %139
-  %148 = phi ptr [ %.pre198, %..loopexit161_crit_edge ], [ %126, %139 ], [ %126, %133 ], [ %126, %128 ]
+.loopexit161:                                     ; preds = %128, %..loopexit161_crit_edge, %139, %133
+  %148 = phi ptr [ %.pre198, %..loopexit161_crit_edge ], [ %126, %133 ], [ %126, %139 ], [ %126, %128 ]
   %scevgep195 = getelementptr i8, ptr %148, i64 9
   br label %149
 
@@ -2505,7 +2505,7 @@ match_placeholder_bool_arg.exit110:               ; preds = %165, %166
   store i32 %.sink.i108, ptr %17, align 4, !tbaa !125
   br label %.critedge
 
-.loopexit:                                        ; preds = %166, %155, %161, %150
+.loopexit:                                        ; preds = %166, %161, %155, %150
   %.not52 = icmp eq ptr %5, null
   br i1 %.not52, label %.critedge.thread, label %170
 
@@ -2782,7 +2782,7 @@ skip_prefix.exit.backedge.sink.split:             ; preds = %22, %18, %21, %20
   br label %skip_prefix.exit.backedge
 
 skip_prefix.exit.backedge:                        ; preds = %9, %skip_prefix.exit.backedge.sink.split, %18, %22
-  %.1.be = phi ptr [ %.2, %22 ], [ %.2, %18 ], [ %.2, %skip_prefix.exit.backedge.sink.split ], [ %scevgep, %9 ]
+  %.1.be = phi ptr [ %.2, %18 ], [ %.2, %22 ], [ %.2, %skip_prefix.exit.backedge.sink.split ], [ %scevgep, %9 ]
   %27 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.1.be, i32 noundef 37) #21
   %.not7 = icmp eq ptr %27, null
   br i1 %.not7, label %.loopexit, label %.lr.ph, !llvm.loop !130
@@ -4786,7 +4786,7 @@ skip_prefix.exit44:                               ; preds = %52
   br label %skip_prefix.exit.thread
 
 skip_prefix.exit.thread:                          ; preds = %8, %.lr.ph, %48, %62, %64, %57, %.loopexit
-  %.026 = phi i32 [ 0, %48 ], [ -1, %.loopexit ], [ 0, %57 ], [ 0, %64 ], [ 0, %62 ], [ 0, %.lr.ph ], [ 0, %8 ]
+  %.026 = phi i32 [ 0, %48 ], [ 0, %.lr.ph ], [ -1, %.loopexit ], [ 0, %57 ], [ 0, %64 ], [ 0, %62 ], [ 0, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.026
 }
@@ -5073,8 +5073,8 @@ skip_prefix.exit45.i:                             ; preds = %96, %101
   br i1 %105, label %skip_prefix.exit45.i, label %.thread70.i, !llvm.loop !60
 
 .thread.i:                                        ; preds = %.preheader78.i, %skip_prefix.exit37.i, %skip_prefix.exit41.i, %skip_prefix.exit45.i
-  %.02369.i = phi ptr [ @.str.63, %skip_prefix.exit37.i ], [ @.str.47, %skip_prefix.exit45.i ], [ @.str.65, %skip_prefix.exit41.i ], [ @.str.61, %.preheader78.i ]
-  %.05567.i = phi ptr [ %scevgep97.i, %skip_prefix.exit37.i ], [ %scevgep97.i, %skip_prefix.exit45.i ], [ %scevgep99.i, %skip_prefix.exit41.i ], [ %scevgep.i, %.preheader78.i ]
+  %.02369.i = phi ptr [ @.str.47, %skip_prefix.exit45.i ], [ @.str.65, %skip_prefix.exit41.i ], [ @.str.63, %skip_prefix.exit37.i ], [ @.str.61, %.preheader78.i ]
+  %.05567.i = phi ptr [ %scevgep97.i, %skip_prefix.exit45.i ], [ %scevgep99.i, %skip_prefix.exit41.i ], [ %scevgep97.i, %skip_prefix.exit37.i ], [ %scevgep.i, %.preheader78.i ]
   %106 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %107 = load ptr, ptr %106, align 8, !tbaa !138
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 96
@@ -6087,7 +6087,7 @@ skip_prefix.exit281:                              ; preds = %447
   br label %parse_padding_placeholder.exit
 
 parse_padding_placeholder.exit:                   ; preds = %325, %303, %544, %309, %288, %.thread.i265, %163, %155, %509, %512, %442, %411, %408, %418, %419, %420, %413, %425, %422, %430, %427, %435, %432, %440, %437, %405, %391, %355, %374, %379, %358, %363, %349, %351, %341, %346, %121, %27, %34, %37, %3, %567, %539, %531, %526, %514, %493, %477, %467, %396, %380, %353, %338, %335, %332, %282, %278, %265, %254, %245, %154, %119
-  %.0204 = phi i64 [ 0, %163 ], [ %.2, %245 ], [ 0, %391 ], [ 0, %405 ], [ %.0203, %467 ], [ %.0, %567 ], [ 1, %509 ], [ 1, %526 ], [ 1, %531 ], [ 1, %539 ], [ %492, %477 ], [ %508, %493 ], [ 2, %442 ], [ 1, %514 ], [ 1, %254 ], [ 1, %265 ], [ 1, %278 ], [ 1, %282 ], [ 0, %121 ], [ 1, %332 ], [ 1, %335 ], [ 1, %338 ], [ 1, %353 ], [ 0, %341 ], [ 2, %374 ], [ 0, %349 ], [ 2, %358 ], [ %390, %380 ], [ 1, %396 ], [ 0, %355 ], [ %21, %3 ], [ %120, %119 ], [ %.1, %154 ], [ 7, %27 ], [ 7, %37 ], [ 7, %34 ], [ 0, %346 ], [ 0, %351 ], [ 2, %363 ], [ 2, %379 ], [ 2, %437 ], [ 2, %440 ], [ 2, %432 ], [ 2, %435 ], [ 2, %427 ], [ 2, %430 ], [ 2, %422 ], [ 2, %425 ], [ 2, %413 ], [ 2, %420 ], [ 2, %419 ], [ 2, %418 ], [ 2, %408 ], [ 2, %411 ], [ 1, %512 ], [ 0, %155 ], [ %.154.i, %.thread.i265 ], [ 1, %288 ], [ 1, %309 ], [ 1, %303 ], [ 0, %544 ], [ 1, %325 ]
+  %.0204 = phi i64 [ 0, %163 ], [ %.2, %245 ], [ 0, %391 ], [ 0, %405 ], [ %.0203, %467 ], [ %.0, %567 ], [ 1, %509 ], [ 1, %526 ], [ 1, %531 ], [ 1, %539 ], [ %492, %477 ], [ %508, %493 ], [ 2, %442 ], [ 1, %514 ], [ 1, %254 ], [ 1, %265 ], [ 1, %278 ], [ 1, %282 ], [ 0, %121 ], [ 1, %288 ], [ 1, %332 ], [ 1, %335 ], [ 1, %338 ], [ 1, %353 ], [ 0, %341 ], [ 1, %309 ], [ 2, %374 ], [ 0, %349 ], [ 2, %358 ], [ %390, %380 ], [ 1, %396 ], [ 0, %355 ], [ %21, %3 ], [ %120, %119 ], [ %.1, %154 ], [ 7, %27 ], [ 7, %37 ], [ 7, %34 ], [ 0, %346 ], [ 0, %351 ], [ 2, %363 ], [ 2, %379 ], [ 2, %437 ], [ 2, %440 ], [ 2, %432 ], [ 2, %435 ], [ 2, %427 ], [ 2, %430 ], [ 2, %422 ], [ 2, %425 ], [ 2, %413 ], [ 2, %420 ], [ 2, %419 ], [ 2, %418 ], [ 2, %408 ], [ 2, %411 ], [ 1, %512 ], [ 0, %155 ], [ %.154.i, %.thread.i265 ], [ 1, %303 ], [ 0, %544 ], [ 1, %325 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i64 %.0204
 }
@@ -6312,8 +6312,8 @@ match_placeholder_arg_value.exit43:               ; preds = %77, %79
   %83 = tail call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef nonnull %1, ptr noundef nonnull @.str.76, ptr noundef %63, i32 noundef %82, ptr noundef %.6) #20
   br label %.backedge
 
-match_placeholder_bool_arg.exit.thread:           ; preds = %66, %38, %12, %28, %77, %71, %49, %43, %23, %17, %4
-  %.368 = phi ptr [ %.166115, %4 ], [ %.166115, %77 ], [ %.166115, %17 ], [ %.017.sink.i.i, %28 ], [ %.166115, %23 ], [ %.166115, %43 ], [ %.166115, %49 ], [ %.166115, %71 ], [ %.166115, %38 ], [ %.166115, %12 ], [ %.166115, %66 ]
+match_placeholder_bool_arg.exit.thread:           ; preds = %66, %38, %12, %28, %71, %77, %43, %49, %17, %23, %4
+  %.368 = phi ptr [ %.166115, %4 ], [ %.166115, %49 ], [ %.166115, %38 ], [ %.166115, %77 ], [ %.166115, %17 ], [ %.166115, %12 ], [ %.166115, %43 ], [ %.017.sink.i.i, %28 ], [ %.166115, %71 ], [ %.166115, %23 ], [ %.166115, %66 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %84 = icmp samesign ult i64 %indvars.iv, 3
   br i1 %84, label %.backedge, label %85

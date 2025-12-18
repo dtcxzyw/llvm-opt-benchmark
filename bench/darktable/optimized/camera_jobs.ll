@@ -283,7 +283,7 @@ define internal range(i32 0, 2) i32 @dt_camera_capture_job_run(ptr noundef %0) #
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %79, %67, %74, %.preheader, %55
-  %.2 = phi ptr [ %.1130, %55 ], [ %.1130, %.preheader ], [ %.1130, %74 ], [ %.4, %67 ], [ %.6, %79 ]
+  %.2 = phi ptr [ %.1130, %55 ], [ %.4, %67 ], [ %.1130, %.preheader ], [ %.1130, %74 ], [ %.6, %79 ]
   %81 = load i32, ptr %4, align 8, !tbaa !16
   %82 = icmp ne i32 %81, 0
   %83 = icmp ne ptr %.2, null

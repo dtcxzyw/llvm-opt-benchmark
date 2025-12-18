@@ -4197,8 +4197,8 @@ ctype_raw.exit:                                   ; preds = %234
   br label %271
 
 271:                                              ; preds = %209, %250, %263, %137, %149, %143, %189, %191, %186, %198, %269, %207
-  %.4156 = phi ptr [ %270, %269 ], [ %201, %198 ], [ %208, %207 ], [ %.3155, %186 ], [ %27, %209 ], [ %.0.i178, %137 ], [ %.0.i178, %143 ], [ %153, %149 ], [ %.0.i, %263 ], [ %.3155, %189 ], [ %.3155, %191 ], [ %259, %250 ]
-  %.3 = phi i32 [ 0, %269 ], [ %199, %198 ], [ %25, %207 ], [ %.0151, %186 ], [ %25, %209 ], [ %140, %137 ], [ %146, %143 ], [ %146, %149 ], [ %267, %263 ], [ 0, %189 ], [ %195, %191 ], [ %261, %250 ]
+  %.4156 = phi ptr [ %270, %269 ], [ %201, %198 ], [ %208, %207 ], [ %.3155, %186 ], [ %27, %209 ], [ %259, %250 ], [ %.0.i178, %137 ], [ %.0.i178, %143 ], [ %153, %149 ], [ %.0.i, %263 ], [ %.3155, %189 ], [ %.3155, %191 ]
+  %.3 = phi i32 [ 0, %269 ], [ %199, %198 ], [ %25, %207 ], [ %.0151, %186 ], [ %25, %209 ], [ %261, %250 ], [ %140, %137 ], [ %146, %143 ], [ %146, %149 ], [ %267, %263 ], [ 0, %189 ], [ %195, %191 ]
   store ptr %.4156, ptr %indvars.iv.sroa.phi, align 8, !tbaa !98
   store i32 %.3, ptr %indvars.iv.sroa.phi367, align 4, !tbaa !27
   br i1 %.not174, label %.backedge, label %.loopexit
@@ -4795,7 +4795,7 @@ crec_arith_meta.exit.thread.sink.split:           ; preds = %546, %crec_arith_in
   br label %crec_arith_meta.exit.thread
 
 crec_arith_meta.exit.thread:                      ; preds = %crec_arith_meta.exit.thread.sink.split, %545, %546, %crec_arith_ptr.exit, %crec_arith_int64.exit
-  %.0150 = phi i32 [ %388, %crec_arith_int64.exit ], [ %470, %crec_arith_ptr.exit ], [ 16809982, %545 ], [ 16809982, %546 ], [ 33587197, %crec_arith_meta.exit.thread.sink.split ]
+  %.0150 = phi i32 [ 16809982, %546 ], [ %388, %crec_arith_int64.exit ], [ %470, %crec_arith_ptr.exit ], [ 16809982, %545 ], [ 33587197, %crec_arith_meta.exit.thread.sink.split ]
   %562 = load ptr, ptr %17, align 8, !tbaa !4
   store i32 %.0150, ptr %562, align 4, !tbaa !27
   %563 = getelementptr inbounds nuw i8, ptr %0, i64 372

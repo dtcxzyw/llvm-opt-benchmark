@@ -1098,7 +1098,7 @@ Vec_PtrPush.exit87:                               ; preds = %.Vec_PtrGrow.exit11
   br label %195
 
 .critedge8.preheader:                             ; preds = %Vec_PtrPush.exit94, %.critedge4, %.preheader
-  %.0.lcssa186190 = phi i32 [ %185, %.preheader ], [ 0, %.critedge4 ], [ %185, %Vec_PtrPush.exit94 ]
+  %.0.lcssa186190 = phi i32 [ 0, %.critedge4 ], [ %185, %.preheader ], [ %185, %Vec_PtrPush.exit94 ]
   %191 = getelementptr i8, ptr %0, i64 44
   %.val67127 = load i32, ptr %191, align 4, !tbaa !53
   %192 = icmp sgt i32 %.val67127, 0

@@ -557,7 +557,7 @@ define void @_ZN10raft_proto10confchange17parse_conf_change17he894210fdd0eef47E(
   br i1 %.not42.i, label %"_ZN4core3num21_$LT$impl$u20$u64$GT$16from_ascii_radix17h94ae65e2f8b0b215E.exit", label %.lr.ph.i
 
 .loopexit:                                        ; preds = %115, %115, %111, %135, %133, %124, %.lr.ph.i
-  %.sroa.570.1.ph = phi i8 [ 2, %133 ], [ 1, %.lr.ph.i ], [ 2, %135 ], [ 1, %124 ], [ 1, %115 ], [ 0, %111 ], [ 1, %115 ]
+  %.sroa.570.1.ph = phi i8 [ 1, %.lr.ph.i ], [ 2, %133 ], [ 2, %135 ], [ 1, %124 ], [ 0, %111 ], [ 1, %115 ], [ 1, %115 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i8 %.sroa.570.1.ph, ptr %12, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %10)

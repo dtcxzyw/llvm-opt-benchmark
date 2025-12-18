@@ -889,7 +889,7 @@ define internal fastcc i32 @logger_thread_poll_watchers(i32 noundef range(i32 0,
   br i1 %exitcond.not, label %.split91.us, label %.split.split, !llvm.loop !73
 
 .split91.us:                                      ; preds = %51, %37, %22
-  %.us-phi = phi i32 [ %.160.us98, %37 ], [ %.160.us, %22 ], [ %.160, %51 ]
+  %.us-phi = phi i32 [ %.160.us, %22 ], [ %.160.us98, %37 ], [ %.160, %51 ]
   %52 = icmp eq i32 %.us-phi, 0
   br i1 %52, label %.loopexit, label %53
 

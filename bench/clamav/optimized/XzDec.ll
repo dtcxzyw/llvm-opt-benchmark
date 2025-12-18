@@ -341,7 +341,7 @@ define internal range(i32 0, 5) i32 @BraState_Code(ptr noundef %0, ptr noundef w
   br label %.lr.ph
 
 .loopexit124:                                     ; preds = %83, %32, %23, %8
-  %.1 = phi i64 [ %10, %8 ], [ %.0109.ph141, %23 ], [ %41, %32 ], [ %41, %83 ]
+  %.1 = phi i64 [ %.0109.ph141, %23 ], [ %10, %8 ], [ %41, %32 ], [ %41, %83 ]
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %87 = load i64, ptr %86, align 8, !tbaa !30
   %88 = load i64, ptr %0, align 8, !tbaa !28
@@ -357,7 +357,7 @@ define internal range(i32 0, 5) i32 @BraState_Code(ptr noundef %0, ptr noundef w
   br label %.loopexit
 
 .loopexit:                                        ; preds = %45, %.loopexit124, %92
-  %.0111 = phi i32 [ 0, %92 ], [ 0, %.loopexit124 ], [ 4, %45 ]
+  %.0111 = phi i32 [ 0, %.loopexit124 ], [ 0, %92 ], [ 4, %45 ]
   ret i32 %.0111
 }
 
@@ -1038,7 +1038,7 @@ Xz_ReadVarInt.exit109:                            ; preds = %.split.loop.exit18.
   br i1 %.not98, label %.preheader, label %.critedge
 
 .critedge:                                        ; preds = %20, %47, %.split.loop.exit18.i120, %.split.loop.exit18.i113, %107, %73, %94, %.preheader, %124, %.split.loop.exit18.i106, %.split.loop.exit18.i, %33, %2
-  %.0 = phi i32 [ 16, %.split.loop.exit18.i ], [ 16, %2 ], [ 16, %33 ], [ 16, %.split.loop.exit18.i106 ], [ 16, %47 ], [ 0, %.preheader ], [ 16, %94 ], [ 16, %73 ], [ 16, %.split.loop.exit18.i120 ], [ 16, %124 ], [ 16, %107 ], [ 16, %.split.loop.exit18.i113 ], [ 16, %20 ]
+  %.0 = phi i32 [ 16, %.split.loop.exit18.i ], [ 16, %94 ], [ 16, %2 ], [ 16, %47 ], [ 16, %33 ], [ 0, %.preheader ], [ 16, %73 ], [ 16, %.split.loop.exit18.i106 ], [ 16, %.split.loop.exit18.i120 ], [ 16, %124 ], [ 16, %107 ], [ 16, %.split.loop.exit18.i113 ], [ 16, %20 ]
   ret i32 %.0
 }
 
@@ -1217,8 +1217,8 @@ MixCoder_Free.exit:                               ; preds = %._crit_edge.i, %40
   br i1 %exitcond88.not, label %.loopexit, label %48
 
 .loopexit:                                        ; preds = %19, %80, %20
-  %wide.trip.count92.pre-phi = phi i64 [ %wide.trip.count, %20 ], [ %wide.trip.count87, %80 ], [ %wide.trip.count, %19 ]
-  %.pre-phi = phi i64 [ %12, %20 ], [ %47, %80 ], [ %12, %19 ]
+  %wide.trip.count92.pre-phi = phi i64 [ %wide.trip.count87, %80 ], [ %wide.trip.count, %20 ], [ %wide.trip.count, %19 ]
+  %.pre-phi = phi i64 [ %47, %80 ], [ %12, %20 ], [ %12, %19 ]
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 112
   br label %84
@@ -1291,7 +1291,7 @@ MixCoder_Free.exit:                               ; preds = %._crit_edge.i, %40
   br i1 %115, label %.lr.ph17.i, label %MixCoder_Init.exit
 
 MixCoder_Init.exit:                               ; preds = %68, %54, %65, %84, %.lr.ph17.i, %.preheader.i
-  %.3 = phi i32 [ 0, %.preheader.i ], [ 0, %.lr.ph17.i ], [ %96, %84 ], [ 4, %65 ], [ 2, %54 ], [ 2, %68 ]
+  %.3 = phi i32 [ 0, %.lr.ph17.i ], [ %96, %84 ], [ 0, %.preheader.i ], [ 2, %54 ], [ 2, %68 ], [ 4, %65 ]
   ret i32 %.3
 }
 

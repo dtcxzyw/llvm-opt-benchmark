@@ -4280,8 +4280,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i7:
   call void @_ZdlPvm(ptr noundef %.pre, i64 noundef %30) #27
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9: ; preds = %12, %_ZN6Assimp4D3MF12_GLOBAL__N_116getNodeAttributeERKN4pugi8xml_nodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSB_.exit.thread, %1, %5, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i7
-  %.0.i411 = phi i1 [ true, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i7 ], [ true, %_ZN6Assimp4D3MF12_GLOBAL__N_116getNodeAttributeERKN4pugi8xml_nodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSB_.exit.thread ], [ false, %1 ], [ false, %5 ], [ false, %12 ]
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9: ; preds = %12, %_ZN6Assimp4D3MF12_GLOBAL__N_116getNodeAttributeERKN4pugi8xml_nodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSB_.exit.thread, %5, %1, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i7
+  %.0.i411 = phi i1 [ true, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i7 ], [ true, %_ZN6Assimp4D3MF12_GLOBAL__N_116getNodeAttributeERKN4pugi8xml_nodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSB_.exit.thread ], [ false, %5 ], [ false, %1 ], [ false, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %.0.i411
 }
@@ -7763,8 +7763,8 @@ _ZNK4pugi8xml_node9attributeEPKc.exit.i:          ; preds = %.tail
   br label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getDoubleAttributeERS2_PKcRd.exit.thread59
 
 _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getDoubleAttributeERS2_PKcRd.exit.thread59: ; preds = %53, %_ZNK4pugi8xml_node9attributeEPKc.exit.i, %57
-  %.015.i.i23 = phi ptr [ %.015.i.i23.pre, %57 ], [ %.015.i.i, %_ZNK4pugi8xml_node9attributeEPKc.exit.i ], [ %.015.i.i, %53 ]
-  %.261 = phi double [ %58, %57 ], [ 0.000000e+00, %_ZNK4pugi8xml_node9attributeEPKc.exit.i ], [ %.074, %53 ]
+  %.015.i.i23 = phi ptr [ %.015.i.i, %_ZNK4pugi8xml_node9attributeEPKc.exit.i ], [ %.015.i.i23.pre, %57 ], [ %.015.i.i, %53 ]
+  %.261 = phi double [ 0.000000e+00, %_ZNK4pugi8xml_node9attributeEPKc.exit.i ], [ %58, %57 ], [ %.074, %53 ]
   %.not1216.i.i24 = icmp eq ptr %.015.i.i23, null
   br i1 %.not1216.i.i24, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getDoubleAttributeERS2_PKcRd.exit35, label %.lr.ph.i.i25
 

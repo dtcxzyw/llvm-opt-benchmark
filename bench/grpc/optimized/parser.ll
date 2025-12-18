@@ -23941,9 +23941,9 @@ define internal fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_119D
   br i1 %60, label %.lr.ph, label %.thread, !llvm.loop !687
 
 .thread:                                          ; preds = %50, %3, %38, %48, %46
-  %.04568 = phi ptr [ %.04570, %38 ], [ %.04570, %46 ], [ %.04570, %48 ], [ %1, %3 ], [ %58, %50 ]
-  %.066 = phi ptr [ %.071, %38 ], [ %.071, %46 ], [ %.071, %48 ], [ %1, %3 ], [ %59, %50 ]
-  %.150 = phi ptr [ %5, %38 ], [ %47, %46 ], [ %49, %48 ], [ %5, %3 ], [ %5, %50 ]
+  %.04568 = phi ptr [ %.04570, %48 ], [ %.04570, %38 ], [ %.04570, %46 ], [ %1, %3 ], [ %58, %50 ]
+  %.066 = phi ptr [ %.071, %48 ], [ %.071, %38 ], [ %.071, %46 ], [ %1, %3 ], [ %59, %50 ]
+  %.150 = phi ptr [ %49, %48 ], [ %5, %38 ], [ %47, %46 ], [ %5, %3 ], [ %5, %50 ]
   %61 = icmp ult ptr %.04568, %.150
   br i1 %61, label %62, label %.critedge
 
@@ -24503,7 +24503,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit20: ; preds = %_ZN4
   br label %_ZN4absl12lts_2024072210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.thread27
 
 _ZN4absl12lts_2024072210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.thread27: ; preds = %.lr.ph, %24, %_ZN4absl12lts_2024072210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit20
-  %.sroa.2.0 = phi i64 [ %.024.lcssa, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit20 ], [ 0, %_ZN4absl12lts_2024072210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit ], [ 0, %24 ], [ 0, %.lr.ph ]
+  %.sroa.2.0 = phi i64 [ %.024.lcssa, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit20 ], [ 0, %24 ], [ 0, %_ZN4absl12lts_2024072210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit ], [ 0, %.lr.ph ]
   ret i64 %.sroa.2.0
 }
 
@@ -24868,7 +24868,7 @@ _ZNK6google8protobuf15FieldDescriptor21real_containing_oneofEv.exit8: ; preds = 
   br label %103, !llvm.loop !710
 
 _ZNK4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIiEENS0_13hash_internal4HashIiEESt8equal_toIiESaIiEE8containsIiEEbRKi.exit: ; preds = %._crit_edge.i.i.i.i17, %._crit_edge.i.i.i.i, %.thread29.i.i.i.i20, %80, %77, %.thread29.i.i.i.i, %25, %22, %69
-  %.0 = phi i1 [ false, %69 ], [ %28, %25 ], [ false, %22 ], [ %60, %.thread29.i.i.i.i ], [ %83, %80 ], [ false, %77 ], [ %115, %.thread29.i.i.i.i20 ], [ false, %._crit_edge.i.i.i.i ], [ false, %._crit_edge.i.i.i.i17 ]
+  %.0 = phi i1 [ false, %69 ], [ false, %._crit_edge.i.i.i.i ], [ %28, %25 ], [ false, %22 ], [ %60, %.thread29.i.i.i.i ], [ %83, %80 ], [ false, %77 ], [ %115, %.thread29.i.i.i.i20 ], [ false, %._crit_edge.i.i.i.i17 ]
   ret i1 %.0
 }
 
@@ -38047,7 +38047,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN6google8protobuf13json_interna
   br label %94, !llvm.loop !710
 
 _ZNK4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIiEENS0_13hash_internal4HashIiEESt8equal_toIiESaIiEE8containsIiEEbRKi.exit: ; preds = %._crit_edge.i.i.i.i, %._crit_edge.i.i.i.i14, %.thread29.i.i.i.i17, %71, %68, %.thread29.i.i.i.i, %16, %13, %60
-  %.0 = phi i1 [ false, %60 ], [ %19, %16 ], [ false, %13 ], [ %51, %.thread29.i.i.i.i ], [ %74, %71 ], [ false, %68 ], [ %106, %.thread29.i.i.i.i17 ], [ false, %._crit_edge.i.i.i.i14 ], [ false, %._crit_edge.i.i.i.i ]
+  %.0 = phi i1 [ false, %60 ], [ false, %._crit_edge.i.i.i.i14 ], [ %19, %16 ], [ false, %13 ], [ %51, %.thread29.i.i.i.i ], [ %74, %71 ], [ false, %68 ], [ %106, %.thread29.i.i.i.i17 ], [ false, %._crit_edge.i.i.i.i ]
   ret i1 %.0
 }
 

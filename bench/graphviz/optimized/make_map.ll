@@ -2787,7 +2787,7 @@ gv_calloc.exit509:                                ; preds = %gv_calloc.exit509.s
   br i1 %exitcond827.not, label %.preheader544, label %433, !llvm.loop !67
 
 .preheader:                                       ; preds = %.lr.ph672, %414, %.preheader544
-  %.0403.lcssa961963 = phi i32 [ %.1, %.preheader544 ], [ 0, %414 ], [ %.1, %.lr.ph672 ]
+  %.0403.lcssa961963 = phi i32 [ 0, %414 ], [ %.1, %.preheader544 ], [ %.1, %.lr.ph672 ]
   %442 = icmp slt i32 %.0403.lcssa961963, %.1408
   br i1 %442, label %.lr.ph674.preheader, label %._crit_edge675
 
@@ -4337,9 +4337,9 @@ same_edge.exit440.thread.i.i:                     ; preds = %same_edge.exit440.i
   br i1 %.not414.i.i, label %same_edge.exit440.thread445.i.i, label %.lr.ph494.i.i, !llvm.loop !93
 
 same_edge.exit440.thread445.i.i:                  ; preds = %.thread284.i, %.thread.i520, %same_edge.exit440.thread.i.i, %same_edge.exit440.i.i, %1165, %._crit_edge477.thread.i.i
-  %.2395.i.i = phi i32 [ %.2384.lcssa.i.i, %same_edge.exit440.i.i ], [ %.2384.lcssa.i.i, %1165 ], [ %.2388.lcssa610.i.i, %._crit_edge477.thread.i.i ], [ %.2384.lcssa.i.i, %same_edge.exit440.thread.i.i ], [ %.2388.lcssa610.i.i, %.thread.i520 ], [ %.2384.lcssa.i.i, %.thread284.i ]
-  %.3389.i.i = phi i32 [ %.1391.i.i, %same_edge.exit440.i.i ], [ %.1391.i.i, %1165 ], [ %.2388.lcssa610.i.i, %._crit_edge477.thread.i.i ], [ %.1391.i.i, %same_edge.exit440.thread.i.i ], [ %.2388.lcssa610.i.i, %.thread.i520 ], [ %.1391.i.i, %.thread284.i ]
-  %.3.i128.i = phi i32 [ %.2370.lcssa.i.i, %same_edge.exit440.i.i ], [ %.2370.lcssa.i.i, %1165 ], [ %.1369503.i.i, %._crit_edge477.thread.i.i ], [ %.2370.lcssa.i.i, %same_edge.exit440.thread.i.i ], [ %.1369503.i.i, %.thread.i520 ], [ %.2370.lcssa.i.i, %.thread284.i ]
+  %.2395.i.i = phi i32 [ %.2388.lcssa610.i.i, %._crit_edge477.thread.i.i ], [ %.2384.lcssa.i.i, %1165 ], [ %.2384.lcssa.i.i, %same_edge.exit440.i.i ], [ %.2384.lcssa.i.i, %same_edge.exit440.thread.i.i ], [ %.2388.lcssa610.i.i, %.thread.i520 ], [ %.2384.lcssa.i.i, %.thread284.i ]
+  %.3389.i.i = phi i32 [ %.2388.lcssa610.i.i, %._crit_edge477.thread.i.i ], [ %.1391.i.i, %1165 ], [ %.1391.i.i, %same_edge.exit440.i.i ], [ %.1391.i.i, %same_edge.exit440.thread.i.i ], [ %.2388.lcssa610.i.i, %.thread.i520 ], [ %.1391.i.i, %.thread284.i ]
+  %.3.i128.i = phi i32 [ %.1369503.i.i, %._crit_edge477.thread.i.i ], [ %.2370.lcssa.i.i, %1165 ], [ %.2370.lcssa.i.i, %same_edge.exit440.i.i ], [ %.2370.lcssa.i.i, %same_edge.exit440.thread.i.i ], [ %.1369503.i.i, %.thread.i520 ], [ %.2370.lcssa.i.i, %.thread284.i ]
   %indvars.iv.next545.i.i = add nsw i64 %indvars.iv544.i.i, 1
   %exitcond548.not.i.i = icmp eq i64 %indvars.iv.next545.i.i, %wide.trip.count547.i.i
   br i1 %exitcond548.not.i.i, label %.preheader451.i.i, label %.lr.ph505.i.i, !llvm.loop !94

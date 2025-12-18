@@ -1144,8 +1144,8 @@ _ZN4llvm13MemCpyOptPass16eraseInstructionEPNS_11InstructionE.exit: ; preds = %.l
   br i1 %.not109, label %_ZNK12_GLOBAL__N_111MemsetRange23isProfitableToUseMemsetERKN4llvm10DataLayoutE.exit.thread183, label %.lr.ph243
 
 _ZNK12_GLOBAL__N_111MemsetRange23isProfitableToUseMemsetERKN4llvm10DataLayoutE.exit.thread183: ; preds = %_ZN4llvm13MemCpyOptPass16eraseInstructionEPNS_11InstructionE.exit, %305, %247, %._crit_edge.i, %_ZNK12_GLOBAL__N_111MemsetRange23isProfitableToUseMemsetERKN4llvm10DataLayoutE.exit, %235
-  %.197 = phi ptr [ %.096247, %235 ], [ %.096247, %_ZNK12_GLOBAL__N_111MemsetRange23isProfitableToUseMemsetERKN4llvm10DataLayoutE.exit ], [ %.096247, %._crit_edge.i ], [ %.096247, %247 ], [ %276, %305 ], [ %276, %_ZN4llvm13MemCpyOptPass16eraseInstructionEPNS_11InstructionE.exit ]
-  %.495 = phi ptr [ %.394248, %235 ], [ %.394248, %_ZNK12_GLOBAL__N_111MemsetRange23isProfitableToUseMemsetERKN4llvm10DataLayoutE.exit ], [ %.394248, %._crit_edge.i ], [ %.394248, %247 ], [ %306, %305 ], [ %306, %_ZN4llvm13MemCpyOptPass16eraseInstructionEPNS_11InstructionE.exit ]
+  %.197 = phi ptr [ %.096247, %235 ], [ %.096247, %247 ], [ %.096247, %_ZNK12_GLOBAL__N_111MemsetRange23isProfitableToUseMemsetERKN4llvm10DataLayoutE.exit ], [ %.096247, %._crit_edge.i ], [ %276, %305 ], [ %276, %_ZN4llvm13MemCpyOptPass16eraseInstructionEPNS_11InstructionE.exit ]
+  %.495 = phi ptr [ %.394248, %235 ], [ %.394248, %247 ], [ %.394248, %_ZNK12_GLOBAL__N_111MemsetRange23isProfitableToUseMemsetERKN4llvm10DataLayoutE.exit ], [ %.394248, %._crit_edge.i ], [ %306, %305 ], [ %306, %_ZN4llvm13MemCpyOptPass16eraseInstructionEPNS_11InstructionE.exit ]
   %348 = getelementptr inbounds nuw i8, ptr %.098245, i64 176
   %.not108 = icmp eq ptr %348, %225
   br i1 %.not108, label %._crit_edge, label %235
@@ -3826,7 +3826,7 @@ select.unfold298:                                 ; preds = %234, %.critedge
   br label %.loopexit
 
 .loopexit:                                        ; preds = %299, %.critedge192.preheader, %360, %361, %.critedge192._crit_edge, %.thread308, %265
-  %.24 = phi i1 [ false, %265 ], [ false, %.thread308 ], [ false, %.critedge192._crit_edge ], [ true, %361 ], [ true, %360 ], [ false, %.critedge192.preheader ], [ false, %299 ]
+  %.24 = phi i1 [ true, %360 ], [ false, %265 ], [ false, %.thread308 ], [ false, %.critedge192._crit_edge ], [ true, %361 ], [ false, %.critedge192.preheader ], [ false, %299 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %.critedge190
 
@@ -4682,7 +4682,7 @@ _ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit: ; preds = %
   br i1 %.not.not, label %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.thread, label %.lr.ph.split
 
 _ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.thread: ; preds = %45, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit, %48, %31, %25, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i, %28, %_ZN4llvm14CastIsPossibleINS_13IntrinsicInstEPNS_11InstructionEvE10isPossibleERKS3_.exit.i.i, %15, %.lr.ph62, %.lr.ph.split.us, %5
-  %.not.lcssa = phi i1 [ false, %5 ], [ %.not.us.not.not, %15 ], [ true, %.lr.ph.split.us ], [ %.not.us.not.not, %.lr.ph62 ], [ true, %45 ], [ true, %31 ], [ true, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit ], [ true, %28 ], [ true, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i ], [ true, %25 ], [ true, %_ZN4llvm14CastIsPossibleINS_13IntrinsicInstEPNS_11InstructionEvE10isPossibleERKS3_.exit.i.i ], [ false, %48 ]
+  %.not.lcssa = phi i1 [ false, %5 ], [ %.not.us.not.not, %15 ], [ true, %.lr.ph.split.us ], [ %.not.us.not.not, %.lr.ph62 ], [ true, %28 ], [ false, %48 ], [ true, %45 ], [ true, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i ], [ true, %25 ], [ true, %31 ], [ true, %_ZN4llvm14CastIsPossibleINS_13IntrinsicInstEPNS_11InstructionEvE10isPossibleERKS3_.exit.i.i ], [ true, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit ]
   ret i1 %.not.lcssa
 }
 
@@ -7349,7 +7349,7 @@ _ZN4llvm15SmallPtrSetImplIPNS_11InstructionEE6insertES2_.exit: ; preds = %.lr.ph
   br i1 %.not95, label %.loopexit.loopexit, label %.lr.ph
 
 .thread91:                                        ; preds = %.loopexit, %47, %66, %_ZN4llvm15SmallPtrSetImplIPNS_11InstructionEE6insertES2_.exit, %_ZN4llvm15SmallVectorImplIPNS_11InstructionEE7reserveEm.exit
-  %.not.i101 = phi i1 [ true, %_ZN4llvm15SmallVectorImplIPNS_11InstructionEE7reserveEm.exit ], [ false, %47 ], [ false, %_ZN4llvm15SmallPtrSetImplIPNS_11InstructionEE6insertES2_.exit ], [ false, %66 ], [ true, %.loopexit ]
+  %.not.i101 = phi i1 [ false, %47 ], [ true, %_ZN4llvm15SmallVectorImplIPNS_11InstructionEE7reserveEm.exit ], [ false, %_ZN4llvm15SmallPtrSetImplIPNS_11InstructionEE6insertES2_.exit ], [ false, %66 ], [ true, %.loopexit ]
   %163 = load i8, ptr %20, align 4, !tbaa !32, !range !48, !noundef !49
   %164 = trunc nuw i8 %163 to i1
   br i1 %164, label %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit, label %165
@@ -8088,7 +8088,7 @@ _ZN4llvm8dyn_castINS_10MemCpyInstENS_11InstructionEEEDcPT0_.exit: ; preds = %_ZN
   br label %.critedge166
 
 .critedge166:                                     ; preds = %.critedge166.sink.split, %275, %373, %392, %383, %.critedge165, %_ZN4llvm8dyn_castINS_10MemCpyInstENS_11InstructionEEEDcPT0_.exit
-  %.8 = phi i1 [ false, %392 ], [ false, %.critedge165 ], [ false, %373 ], [ false, %383 ], [ true, %_ZN4llvm8dyn_castINS_10MemCpyInstENS_11InstructionEEEDcPT0_.exit ], [ true, %275 ], [ true, %.critedge166.sink.split ]
+  %.8 = phi i1 [ true, %275 ], [ false, %392 ], [ false, %.critedge165 ], [ false, %373 ], [ false, %383 ], [ true, %_ZN4llvm8dyn_castINS_10MemCpyInstENS_11InstructionEEEDcPT0_.exit ], [ true, %.critedge166.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %402 = load i32, ptr %235, align 8
   %403 = and i32 %402, 1
@@ -9598,7 +9598,7 @@ _ZNK4llvm12MemIntrinsic10isVolatileEv.exit:       ; preds = %_ZN4llvm16dyn_cast_
   br label %_ZNK4llvm9MemorySSA15getMemoryAccessEPKNS_11InstructionE.exit.thread
 
 _ZNK4llvm9MemorySSA15getMemoryAccessEPKNS_11InstructionE.exit.thread: ; preds = %.lr.ph.i.i.i.i, %140, %115, %112, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %109, %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i.i, %_ZN4llvm14CastIsPossibleINS_10MemCpyInstEPNS_11InstructionEvE10isPossibleERKS3_.exit.i.i.i, %106, %96, %60, %145, %_ZNK4llvm12MemIntrinsic10isVolatileEv.exit, %148, %207, %182, %197, %202, %161, %170, %_ZNK4llvm9MemorySSA15getMemoryAccessEPKNS_11InstructionE.exit
-  %.3 = phi i1 [ false, %_ZNK4llvm9MemorySSA15getMemoryAccessEPKNS_11InstructionE.exit ], [ false, %148 ], [ false, %145 ], [ false, %_ZNK4llvm12MemIntrinsic10isVolatileEv.exit ], [ false, %161 ], [ false, %170 ], [ true, %207 ], [ false, %182 ], [ false, %197 ], [ false, %202 ], [ false, %60 ], [ false, %96 ], [ false, %106 ], [ false, %_ZN4llvm14CastIsPossibleINS_10MemCpyInstEPNS_11InstructionEvE10isPossibleERKS3_.exit.i.i.i ], [ false, %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i.i ], [ false, %109 ], [ false, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ false, %112 ], [ false, %115 ], [ false, %140 ], [ false, %.lr.ph.i.i.i.i ]
+  %.3 = phi i1 [ false, %_ZNK4llvm9MemorySSA15getMemoryAccessEPKNS_11InstructionE.exit ], [ false, %148 ], [ false, %115 ], [ false, %145 ], [ false, %_ZNK4llvm12MemIntrinsic10isVolatileEv.exit ], [ false, %161 ], [ false, %170 ], [ true, %207 ], [ false, %182 ], [ false, %197 ], [ false, %202 ], [ false, %60 ], [ false, %96 ], [ false, %106 ], [ false, %_ZN4llvm14CastIsPossibleINS_10MemCpyInstEPNS_11InstructionEvE10isPossibleERKS3_.exit.i.i.i ], [ false, %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i.i ], [ false, %109 ], [ false, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ false, %112 ], [ false, %140 ], [ false, %.lr.ph.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %216
 
@@ -12048,7 +12048,7 @@ _ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IR
   br i1 %.not.i.i.i.i, label %_ZN4llvm8erase_ifINS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS4_EUlRKS5_E_EEvRT_T0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !480
 
 _ZN4llvm8erase_ifINS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS4_EUlRKS5_E_EEvRT_T0_.exit: ; preds = %57, %._crit_edge.i.i.i.i.i.i, %43, %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i
-  %.016.i.i.i.i = phi ptr [ %.028.i.i.i.i.i.i, %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i ], [ %10, %._crit_edge.i.i.i.i.i.i ], [ %10, %43 ], [ %.1.i.i.i.i, %57 ]
+  %.016.i.i.i.i = phi ptr [ %.028.i.i.i.i.i.i, %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i ], [ %10, %43 ], [ %10, %._crit_edge.i.i.i.i.i.i ], [ %.1.i.i.i.i, %57 ]
   %58 = ptrtoint ptr %.016.i.i.i.i to i64
   %59 = ptrtoint ptr %6 to i64
   %60 = sub i64 %58, %59
@@ -12742,7 +12742,7 @@ _ZSt13move_backwardIPPN4llvm4UserES3_ET0_T_S5_S4_.exit: ; preds = %_ZN4llvm15Sma
   br i1 %.not41, label %._crit_edge, label %.lr.ph, !llvm.loop !495
 
 _ZSt4copyIN4llvm5Value18user_iterator_implINS0_4UserEEEPPS3_ET0_T_S8_S7_.exit: ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i, %._crit_edge, %_ZSt13move_backwardIPPN4llvm4UserES3_ET0_T_S5_S4_.exit, %_ZN4llvm15SmallVectorImplIPNS_4UserEE6appendINS_5Value18user_iterator_implIS1_EEvEEvT_S8_.exit
-  %.0 = phi ptr [ %34, %_ZN4llvm15SmallVectorImplIPNS_4UserEE6appendINS_5Value18user_iterator_implIS1_EEvEEvT_S8_.exit ], [ %48, %_ZSt13move_backwardIPPN4llvm4UserES3_ET0_T_S5_S4_.exit ], [ %48, %._crit_edge ], [ %48, %.lr.ph.i.i.i.i.i.i.i.i ], [ %48, %.lr.ph.i.i.i.i.i ]
+  %.0 = phi ptr [ %34, %_ZN4llvm15SmallVectorImplIPNS_4UserEE6appendINS_5Value18user_iterator_implIS1_EEvEEvT_S8_.exit ], [ %48, %.lr.ph.i.i.i.i.i.i.i.i ], [ %48, %_ZSt13move_backwardIPPN4llvm4UserES3_ET0_T_S5_S4_.exit ], [ %48, %._crit_edge ], [ %48, %.lr.ph.i.i.i.i.i ]
   ret ptr %.0
 }
 

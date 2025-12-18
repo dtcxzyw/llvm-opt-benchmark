@@ -1674,7 +1674,7 @@ _ZN10VM_Version13cores_per_cpuEv.exit:            ; preds = %231, %241, %.thread
   br label %_ZN10VM_Version23os_supports_avx_vectorsEv.exit
 
 _ZN10VM_Version23os_supports_avx_vectorsEv.exit:  ; preds = %.preheader23.i, %.preheader.i, %513, %.thread135, %521, %.loopexit, %504, %503
-  %.084 = phi i32 [ %spec.select, %521 ], [ 0, %503 ], [ 16, %504 ], [ 32, %.loopexit ], [ 0, %.thread135 ], [ 16, %513 ], [ 16, %.preheader.i ], [ 16, %.preheader23.i ]
+  %.084 = phi i32 [ %spec.select, %521 ], [ 0, %503 ], [ 16, %504 ], [ 32, %.loopexit ], [ 0, %.thread135 ], [ 16, %.preheader.i ], [ 16, %513 ], [ 16, %.preheader23.i ]
   %523 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 164) #14
   br i1 %523, label %536, label %524
 
@@ -3826,7 +3826,7 @@ define hidden noundef zeroext i1 @_ZN10VM_Version23os_supports_avx_vectorsEv() l
   br i1 %or.cond47.not, label %.preheader, label %.critedge, !llvm.loop !9
 
 .critedge:                                        ; preds = %.preheader23, %7, %.preheader, %5
-  %.016 = phi i1 [ false, %5 ], [ true, %7 ], [ %.not17, %.preheader ], [ %.not18, %.preheader23 ]
+  %.016 = phi i1 [ false, %5 ], [ %.not17, %.preheader ], [ true, %7 ], [ %.not18, %.preheader23 ]
   ret i1 %.016
 }
 
@@ -9060,7 +9060,7 @@ _ZN10VM_Version16cpu_brand_stringEv.exit:         ; preds = %3
   br i1 %exitcond.not, label %.critedge, label %.preheader, !llvm.loop !16
 
 44:                                               ; preds = %41, %42, %39
-  %.042 = phi i64 [ 1000000000, %41 ], [ 1000000000000, %42 ], [ 1000000, %39 ]
+  %.042 = phi i64 [ 1000000, %39 ], [ 1000000000, %41 ], [ 1000000000000, %42 ]
   %45 = getelementptr i8, ptr %31, i64 -3
   %46 = load i8, ptr %45, align 1
   %47 = icmp eq i8 %46, 46
@@ -9110,7 +9110,7 @@ _ZN10VM_Version16cpu_brand_stringEv.exit:         ; preds = %3
   br label %.critedge
 
 .critedge:                                        ; preds = %43, %3, %39, %68, %48, %_ZN10VM_Version16cpu_brand_stringEv.exit
-  %.043 = phi i64 [ 0, %_ZN10VM_Version16cpu_brand_stringEv.exit ], [ %67, %48 ], [ %86, %68 ], [ 0, %39 ], [ 0, %3 ], [ 0, %43 ]
+  %.043 = phi i64 [ 0, %_ZN10VM_Version16cpu_brand_stringEv.exit ], [ %67, %48 ], [ %86, %68 ], [ 0, %3 ], [ 0, %39 ], [ 0, %43 ]
   ret i64 %.043
 }
 

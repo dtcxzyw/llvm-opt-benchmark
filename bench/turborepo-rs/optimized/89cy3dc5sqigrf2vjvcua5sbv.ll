@@ -185,7 +185,7 @@ _RNvNtCsjIaN6dkKMFO_12turborepo_ci7vendors11get_vendors.exit: ; preds = %0, %9
   br i1 %19, label %31, label %20
 
 _RINvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB7_4IterReENtNtNtNtBb_4iter6traits8iterator8Iterator3allNCNvMCsjIaN6dkKMFO_12turborepo_ciNtNtB1H_7vendors6Vendor11infer_inner0EB1H_.exit.thread: ; preds = %_RINvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB7_4IterReENtNtNtNtBb_4iter6traits8iterator8Iterator3allNCNvMCsjIaN6dkKMFO_12turborepo_ciNtNtB1H_7vendors6Vendor11infer_inner0EB1H_.exit, %93, %69, %125
-  %.sroa.0.0 = phi ptr [ %.sroa.0.048.ptr79, %69 ], [ %.sroa.0.048.ptr79, %125 ], [ %.sroa.0.048.ptr79, %93 ], [ null, %_RINvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB7_4IterReENtNtNtNtBb_4iter6traits8iterator8Iterator3allNCNvMCsjIaN6dkKMFO_12turborepo_ciNtNtB1H_7vendors6Vendor11infer_inner0EB1H_.exit ]
+  %.sroa.0.0 = phi ptr [ %.sroa.0.048.ptr79, %93 ], [ %.sroa.0.048.ptr79, %69 ], [ %.sroa.0.048.ptr79, %125 ], [ null, %_RINvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB7_4IterReENtNtNtNtBb_4iter6traits8iterator8Iterator3allNCNvMCsjIaN6dkKMFO_12turborepo_ciNtNtB1H_7vendors6Vendor11infer_inner0EB1H_.exit ]
   ret ptr %.sroa.0.0
 
 20:                                               ; preds = %16

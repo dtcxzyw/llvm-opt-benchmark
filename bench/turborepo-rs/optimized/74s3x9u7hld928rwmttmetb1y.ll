@@ -838,7 +838,7 @@ _RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtNtNtCs68wO5
   br label %56
 
 .thread11:                                        ; preds = %23, %21, %17, %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtNtNtCs68wO5nsWeTG_5alloc11collections9vec_deque9into_iter8IntoIterNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentEBZ_ENtNtNtB8_6traits8iterator8Iterator9size_hintB2e_.exit19.i, %40
-  %spec.select8.sink.i15 = phi i64 [ %spec.select8.i, %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtNtNtCs68wO5nsWeTG_5alloc11collections9vec_deque9into_iter8IntoIterNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentEBZ_ENtNtNtB8_6traits8iterator8Iterator9size_hintB2e_.exit19.i ], [ %44, %40 ], [ %.val11.i.i, %23 ], [ %.val10.i.i, %21 ], [ %.val9.i, %17 ]
+  %spec.select8.sink.i15 = phi i64 [ %spec.select8.i, %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtNtNtCs68wO5nsWeTG_5alloc11collections9vec_deque9into_iter8IntoIterNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentEBZ_ENtNtNtB8_6traits8iterator8Iterator9size_hintB2e_.exit19.i ], [ %44, %40 ], [ %.val9.i, %17 ], [ %.val11.i.i, %23 ], [ %.val10.i.i, %21 ]
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %47 = load i64, ptr %46, align 8, !noundef !4
   %48 = load i64, ptr %0, align 8, !noundef !4

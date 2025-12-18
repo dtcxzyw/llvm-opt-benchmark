@@ -826,7 +826,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @acpt_state(ptr noundef %0,
   br label %16
 
 128:                                              ; preds = %113, %116, %118
-  %.0100 = phi ptr [ %105, %116 ], [ %105, %113 ], [ %.1101, %118 ]
+  %.0100 = phi ptr [ %.1101, %118 ], [ %105, %113 ], [ %105, %116 ]
   %129 = tail call i32 @BIO_free(ptr noundef nonnull %.0100) #7
   br label %.thread134
 

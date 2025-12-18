@@ -1204,7 +1204,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   br label %._crit_edge.i
 
 "_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hb4f73e1969fed65aE.llvm.1352433577611232762.exit": ; preds = %46, %8, %._crit_edge.i
-  %storemerge = phi i64 [ %.sroa.52.0.copyload, %._crit_edge.i ], [ %.sroa.52.0.copyload, %8 ], [ %49, %46 ]
+  %storemerge = phi i64 [ %.sroa.52.0.copyload, %8 ], [ %.sroa.52.0.copyload, %._crit_edge.i ], [ %49, %46 ]
   %59 = icmp ne ptr %.sroa.01.0.copyload, null
   tail call void @llvm.assume(i1 %59)
   store i64 %storemerge, ptr %.sroa.01.0.copyload, align 8, !noalias !440
@@ -1673,7 +1673,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   br label %._crit_edge.i
 
 "_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h9179f09c7007d573E.llvm.1352433577611232762.exit": ; preds = %46, %8, %._crit_edge.i
-  %storemerge = phi i64 [ %.sroa.52.0.copyload, %._crit_edge.i ], [ %.sroa.52.0.copyload, %8 ], [ %49, %46 ]
+  %storemerge = phi i64 [ %.sroa.52.0.copyload, %8 ], [ %.sroa.52.0.copyload, %._crit_edge.i ], [ %49, %46 ]
   %59 = icmp ne ptr %.sroa.01.0.copyload, null
   tail call void @llvm.assume(i1 %59)
   store i64 %storemerge, ptr %.sroa.01.0.copyload, align 8, !noalias !669

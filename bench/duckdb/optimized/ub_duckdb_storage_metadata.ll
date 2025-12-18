@@ -1479,10 +1479,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %45
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %.loopexit.loopexit, %..loopexit_crit_edge21.i.i.i.i
-  %51 = phi ptr [ %.pre30, %.loopexit.loopexit ], [ %26, %..loopexit_crit_edge21.i.i.i.i ], [ %26, %.lr.ph.i.i.i.i ]
-  %.pre-phi = phi i64 [ %.pre28, %.loopexit.loopexit ], [ %23, %..loopexit_crit_edge21.i.i.i.i ], [ %23, %.lr.ph.i.i.i.i ]
-  %52 = phi i64 [ %.pre, %.loopexit.loopexit ], [ %22, %..loopexit_crit_edge21.i.i.i.i ], [ %22, %.lr.ph.i.i.i.i ]
-  %53 = phi i64 [ %13, %.loopexit.loopexit ], [ %20, %..loopexit_crit_edge21.i.i.i.i ], [ %20, %.lr.ph.i.i.i.i ]
+  %51 = phi ptr [ %26, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre30, %.loopexit.loopexit ], [ %26, %.lr.ph.i.i.i.i ]
+  %.pre-phi = phi i64 [ %23, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre28, %.loopexit.loopexit ], [ %23, %.lr.ph.i.i.i.i ]
+  %52 = phi i64 [ %22, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre, %.loopexit.loopexit ], [ %22, %.lr.ph.i.i.i.i ]
+  %53 = phi i64 [ %20, %..loopexit_crit_edge21.i.i.i.i ], [ %13, %.loopexit.loopexit ], [ %20, %.lr.ph.i.i.i.i ]
   %.not.i.i.i.i7 = icmp eq ptr %51, null
   br i1 %.not.i.i.i.i7, label %.loopexit.i.i, label %54
 
@@ -1514,8 +1514,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %45
   br label %.loopexit.i.i, !llvm.loop !51
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i8, %19, %..loopexit_crit_edge21.i.i.i.i12, %.loopexit
-  %66 = phi i64 [ %53, %.loopexit ], [ %53, %..loopexit_crit_edge21.i.i.i.i12 ], [ %20, %19 ], [ %53, %.lr.ph.i.i.i.i8 ]
-  %.pre-phi43 = phi i64 [ %.pre-phi, %.loopexit ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i12 ], [ %23, %19 ], [ %.pre-phi, %.lr.ph.i.i.i.i8 ]
+  %66 = phi i64 [ %20, %19 ], [ %53, %.loopexit ], [ %53, %..loopexit_crit_edge21.i.i.i.i12 ], [ %53, %.lr.ph.i.i.i.i8 ]
+  %.pre-phi43 = phi i64 [ %23, %19 ], [ %.pre-phi, %.loopexit ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i12 ], [ %.pre-phi, %.lr.ph.i.i.i.i8 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %7, ptr %4, align 8, !tbaa !52
   %67 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -3327,7 +3327,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %122, %
   br label %common.resume
 
 _ZNSt13unordered_mapIlN6duckdb13MetadataBlockESt4hashIlESt8equal_toIlESaISt4pairIKlS1_EEE4findERS7_.exit: ; preds = %90, %75, %85
-  %.sroa.06.1.i.i = phi ptr [ %86, %85 ], [ %.sroa.06.0.i.i, %75 ], [ %92, %90 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %75 ], [ %86, %85 ], [ %92, %90 ]
   %128 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 40
   %129 = load ptr, ptr %128, align 8, !tbaa !102
   %130 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 48
@@ -4057,7 +4057,7 @@ _ZNSt10_HashtableIlSt4pairIKlmESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4
   br label %common.resume
 
 _ZNSt13unordered_mapIlmSt4hashIlESt8equal_toIlESaISt4pairIKlmEEEixERS5_.exit: ; preds = %133, %128, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %129, %128 ], [ %143, %.loopexit.i.i ], [ %135, %133 ]
+  %.pn.i.i = phi ptr [ %143, %.loopexit.i.i ], [ %129, %128 ], [ %135, %133 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   store i64 %.0.lcssa.i23, ptr %.1.i.i, align 8, !tbaa !50
   %.sroa.044.0 = load ptr, ptr %.sroa.044.075, align 8, !tbaa !24
@@ -4194,7 +4194,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %43
   resume { ptr, i32 } %.pn24
 
 _ZNSt13unordered_mapIlmSt4hashIlESt8equal_toIlESaISt4pairIKlmEEE4findERS5_.exit: ; preds = %32, %18, %27
-  %.sroa.06.1.i.i = phi ptr [ %28, %27 ], [ %.sroa.06.0.i.i, %18 ], [ %34, %32 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %18 ], [ %28, %27 ], [ %34, %32 ]
   %50 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %51 = shl nuw i64 1, %16
   %52 = xor i64 %51, -1

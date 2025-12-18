@@ -873,8 +873,8 @@ define internal fastcc i32 @Render_Single_Pass(ptr noundef nonnull initializes((
   br i1 %.not203.i.i, label %.backedge.i.i, label %.loopexit
 
 .backedge.i.i:                                    ; preds = %212, %173, %154, %105
-  %.1190.be.i.i = phi ptr [ %102, %105 ], [ %191, %212 ], [ %134, %154 ], [ %159, %173 ]
-  %.1183.be.i.i = phi ptr [ %101, %105 ], [ %190, %212 ], [ %133, %154 ], [ %158, %173 ]
+  %.1190.be.i.i = phi ptr [ %191, %212 ], [ %102, %105 ], [ %134, %154 ], [ %159, %173 ]
+  %.1183.be.i.i = phi ptr [ %190, %212 ], [ %101, %105 ], [ %133, %154 ], [ %158, %173 ]
   %118 = icmp ult ptr %.1183.be.i.i, %.0187.i.i
   br i1 %118, label %.lr.ph.i.i, label %._crit_edge.i.i
 

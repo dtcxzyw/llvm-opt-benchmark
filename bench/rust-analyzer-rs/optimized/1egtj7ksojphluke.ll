@@ -10812,7 +10812,7 @@ _ZN9itertools9Itertools10next_tuple17he78fe7eee8851c26E.llvm.1346477608347681016
   unreachable
 
 "_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$$LP$syntax..ast..generated..nodes..UseTree$C$$RP$$GT$$GT$17h2780c09e92c47f9bE.llvm.13464776083476810161.exit.thread": ; preds = %.noexc, %.noexc9, %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$syntax..ast..generated..nodes..UseTree$GT$$GT$17h9c0399c7ba4b2187E.llvm.13464776083476810161.exit", %31
-  %.041 = phi ptr [ null, %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$syntax..ast..generated..nodes..UseTree$GT$$GT$17h9c0399c7ba4b2187E.llvm.13464776083476810161.exit" ], [ null, %31 ], [ %6, %.noexc9 ], [ null, %.noexc ]
+  %.041 = phi ptr [ %6, %.noexc9 ], [ null, %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$syntax..ast..generated..nodes..UseTree$GT$$GT$17h9c0399c7ba4b2187E.llvm.13464776083476810161.exit" ], [ null, %31 ], [ null, %.noexc ]
   call void @llvm.experimental.noalias.scope.decl(metadata !2409)
   call void @llvm.experimental.noalias.scope.decl(metadata !2412)
   call void @llvm.experimental.noalias.scope.decl(metadata !2415)
@@ -13503,9 +13503,9 @@ _ZN3ide14file_structure14structure_node4decl17h30c3c7de6aea48a4E.exit: ; preds =
 .noexc304:                                        ; preds = %586
   unreachable
 
-.body302:                                         ; preds = %778, %.body.i312, %1321, %1326, %588, %.body377
-  %.1152 = phi i1 [ true, %.body377 ], [ %.not193, %588 ], [ true, %1326 ], [ true, %1321 ], [ true, %.body.i312 ], [ true, %778 ]
-  %.pn239 = phi { ptr, i32 } [ %.pn237, %.body377 ], [ %589, %588 ], [ %.pn237, %1326 ], [ %.pn237, %1321 ], [ %eh.lpad-body.i313, %.body.i312 ], [ %eh.lpad-body.i313, %778 ]
+.body302:                                         ; preds = %.body.i312, %778, %1321, %1326, %588, %.body377
+  %.1152 = phi i1 [ true, %.body377 ], [ %.not193, %588 ], [ true, %1321 ], [ true, %1326 ], [ true, %778 ], [ true, %.body.i312 ]
+  %.pn239 = phi { ptr, i32 } [ %.pn237, %.body377 ], [ %589, %588 ], [ %.pn237, %1321 ], [ %.pn237, %1326 ], [ %eh.lpad-body.i313, %778 ], [ %eh.lpad-body.i313, %.body.i312 ]
   %587 = icmp ne ptr %387, null
   %or.cond57 = and i1 %587, %.1152
   br i1 %or.cond57, label %1327, label %"_ZN4core3ptr54drop_in_place$LT$syntax..ast..generated..nodes..Fn$GT$17hdadb698a59c6a322E.exit"
@@ -14170,8 +14170,8 @@ _ZN3ide14file_structure14structure_node4decl17h24d3e1dc9dec24a2E.exit: ; preds =
   unreachable
 
 .body377:                                         ; preds = %.body.i387, %983, %997, %793
-  %.1155 = phi i1 [ %.not194, %793 ], [ true, %997 ], [ true, %983 ], [ true, %.body.i387 ]
-  %.pn237 = phi { ptr, i32 } [ %794, %793 ], [ %998, %997 ], [ %eh.lpad-body.i388, %983 ], [ %eh.lpad-body.i388, %.body.i387 ]
+  %.1155 = phi i1 [ true, %.body.i387 ], [ %.not194, %793 ], [ true, %983 ], [ true, %997 ]
+  %.pn237 = phi { ptr, i32 } [ %eh.lpad-body.i388, %.body.i387 ], [ %794, %793 ], [ %eh.lpad-body.i388, %983 ], [ %998, %997 ]
   %792 = icmp ne ptr %592, null
   %or.cond55 = and i1 %792, %.1155
   br i1 %or.cond55, label %1321, label %.body302
@@ -29106,10 +29106,10 @@ thread-pre-split:                                 ; preds = %348, %358, %397, %4
   br label %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..BlockExpr$GT$17h73ca6c2aff97eb9aE.exit273"
 
 .loopexit.split-lp475:                            ; preds = %375, %443, %511, %577
-  %.0125.ph = phi i1 [ true, %577 ], [ true, %511 ], [ true, %443 ], [ false, %375 ]
-  %.0122.ph = phi i1 [ false, %577 ], [ true, %511 ], [ true, %443 ], [ true, %375 ]
-  %.0120.ph = phi i1 [ true, %577 ], [ true, %511 ], [ false, %443 ], [ true, %375 ]
-  %.0118.ph = phi i1 [ true, %577 ], [ false, %511 ], [ true, %443 ], [ true, %375 ]
+  %.0125.ph = phi i1 [ true, %443 ], [ true, %511 ], [ true, %577 ], [ false, %375 ]
+  %.0122.ph = phi i1 [ true, %443 ], [ true, %511 ], [ false, %577 ], [ true, %375 ]
+  %.0120.ph = phi i1 [ false, %443 ], [ true, %511 ], [ true, %577 ], [ true, %375 ]
+  %.0118.ph = phi i1 [ true, %443 ], [ false, %511 ], [ true, %577 ], [ true, %375 ]
   %lpad.loopexit.split-lp477 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..BlockExpr$GT$17h73ca6c2aff97eb9aE.exit273"
@@ -38114,7 +38114,7 @@ define hidden void @_ZN3ide5hover6render12try_for_lint17hf923e2be6a58c9bbE(ptr n
   unreachable
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17h5b7514ec54fd4da3E.exit": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h203dd5ff83fa97b2E.exit.i.i.i.i", %"_ZN4core3ptr192drop_in_place$LT$rowan..utility_types..NodeOrToken$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$C$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$17h219bd789400bb45bE.exit.sink.split.i.i"
-  %.0.i146 = phi i1 [ %.0.i.i.i.i.i, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h203dd5ff83fa97b2E.exit.i.i.i.i" ], [ %.021.ph.i.i, %"_ZN4core3ptr192drop_in_place$LT$rowan..utility_types..NodeOrToken$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$C$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$17h219bd789400bb45bE.exit.sink.split.i.i" ]
+  %.0.i146 = phi i1 [ %.021.ph.i.i, %"_ZN4core3ptr192drop_in_place$LT$rowan..utility_types..NodeOrToken$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$C$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$17h219bd789400bb45bE.exit.sink.split.i.i" ], [ %.0.i.i.i.i.i, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h203dd5ff83fa97b2E.exit.i.i.i.i" ]
   %cond.fr = freeze i1 %.0.i146
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   br i1 %cond.fr, label %208, label %211
@@ -45142,7 +45142,7 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.exit.i.i.i.i.i: ; preds = %
   br label %.body
 
 .loopexit.split-lp959:                            ; preds = %2671, %2738
-  %.2.ph = phi i1 [ true, %2738 ], [ false, %2671 ]
+  %.2.ph = phi i1 [ false, %2671 ], [ true, %2738 ]
   %lpad.loopexit.split-lp961 = landingpad { ptr, i32 }
           cleanup
   br label %.body

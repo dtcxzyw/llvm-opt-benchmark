@@ -884,7 +884,7 @@ opj_mqc_byteout.exit.i4.i:                        ; preds = %117, %111, %102, %9
   br i1 %129, label %83, label %opj_mqc_encode.exit, !llvm.loop !31
 
 opj_mqc_encode.exit:                              ; preds = %124, %67, %73
-  %130 = phi i32 [ %16, %73 ], [ %68, %67 ], [ %125, %124 ]
+  %130 = phi i32 [ %68, %67 ], [ %16, %73 ], [ %125, %124 ]
   %131 = add nuw nsw i32 %.06, 1
   %exitcond.not = icmp eq i32 %131, 5
   br i1 %exitcond.not, label %132, label %7, !llvm.loop !32

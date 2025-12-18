@@ -117,7 +117,7 @@ define dso_local void @nlmsvc_traverse_blocks(ptr noundef %0, ptr noundef %1, pt
   br i1 %44, label %.loopexit, label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %43, %40
-  %.be = phi ptr [ %9, %43 ], [ %41, %40 ]
+  %.be = phi ptr [ %41, %40 ], [ %9, %43 ]
   br label %.preheader, !llvm.loop !8
 
 .loopexit:                                        ; preds = %43, %40, %3

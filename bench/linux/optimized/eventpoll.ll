@@ -660,7 +660,7 @@ define dso_local range(i32 -40, 1) i32 @do_epoll_ctl(i32 noundef %0, i32 noundef
   tail call void @mutex_unlock(ptr noundef %52) #11
   br i1 %91, label %.thread25, label %.thread28
 
-.thread28:                                        ; preds = %88, %81, %133
+.thread28:                                        ; preds = %81, %88, %133
   %135 = phi i32 [ %134, %133 ], [ -40, %81 ], [ -11, %88 ]
   tail call void @__rcu_read_lock() #11
   %136 = load ptr, ptr @tfile_check_list, align 8
@@ -3663,7 +3663,7 @@ define internal fastcc i32 @do_epoll_wait(i32 noundef %0, ptr noundef %1, i32 no
   br i1 %or.cond, label %.lr.ph, label %.thread26, !llvm.loop !55
 
 .thread26:                                        ; preds = %184, %168, %100
-  %189 = phi i32 [ 0, %100 ], [ %spec.select, %168 ], [ %185, %184 ]
+  %189 = phi i32 [ %spec.select, %168 ], [ 0, %100 ], [ %185, %184 ]
   call fastcc void @ep_done_scan(ptr noundef %30, ptr noundef nonnull %5)
   call void @mutex_unlock(ptr noundef %30) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

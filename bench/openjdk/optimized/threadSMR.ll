@@ -937,7 +937,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %30, %31
   br label %.loopexit23
 
 .loopexit23:                                      ; preds = %_ZN11MutexLockerD2Ev.exit, %36, %.loopexit
-  %.2 = phi ptr [ null, %.loopexit ], [ %3, %36 ], [ %.1, %_ZN11MutexLockerD2Ev.exit ]
+  %.2 = phi ptr [ %3, %36 ], [ null, %.loopexit ], [ %.1, %_ZN11MutexLockerD2Ev.exit ]
   ret ptr %.2
 }
 

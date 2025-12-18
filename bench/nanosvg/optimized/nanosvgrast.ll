@@ -330,8 +330,8 @@ define dso_local noundef i32 @nsvg__parseXML(ptr noundef %0, ptr noundef readonl
   br i1 %or.cond19.i, label %.preheader134.i.preheader, label %.critedge4.i
 
 .critedge4.i:                                     ; preds = %.lr.ph164.i, %.critedge6.i, %51, %.critedge8.i, %.lr.ph164.i.preheader
-  %indvars.iv.i46 = phi i64 [ 0, %.lr.ph164.i.preheader ], [ %indvars.iv.i48, %51 ], [ %indvars.iv.i48, %.critedge8.i ], [ %indvars.iv.next.i, %.lr.ph164.i ], [ %indvars.iv.i48, %.critedge6.i ]
-  %75 = phi i1 [ false, %.lr.ph164.i.preheader ], [ false, %51 ], [ false, %.critedge8.i ], [ %cond.i, %.critedge6.i ], [ %cond.i, %.lr.ph164.i ]
+  %indvars.iv.i46 = phi i64 [ %indvars.iv.i48, %51 ], [ %indvars.iv.i48, %.critedge8.i ], [ 0, %.lr.ph164.i.preheader ], [ %indvars.iv.next.i, %.lr.ph164.i ], [ %indvars.iv.i48, %.critedge6.i ]
+  %75 = phi i1 [ false, %51 ], [ false, %.critedge8.i ], [ false, %.lr.ph164.i.preheader ], [ %cond.i, %.critedge6.i ], [ %cond.i, %.lr.ph164.i ]
   %76 = and i64 %indvars.iv.i46, 4294967294
   %77 = getelementptr inbounds nuw ptr, ptr %6, i64 %76
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %77, i8 0, i64 16, i1 false)
@@ -355,9 +355,9 @@ nsvg__parseElement.exit:                          ; preds = %.critedge.i31, %.cr
   br label %nsvg__parseContent.exit
 
 nsvg__parseContent.exit:                          ; preds = %20, %24, %23, %.critedge.i, %13, %nsvg__parseElement.exit
-  %.124 = phi ptr [ %27, %24 ], [ %27, %nsvg__parseElement.exit ], [ %14, %13 ], [ %14, %.critedge.i ], [ %14, %23 ], [ %14, %20 ]
-  %.122 = phi ptr [ %.02155, %24 ], [ %27, %nsvg__parseElement.exit ], [ %14, %13 ], [ %14, %.critedge.i ], [ %14, %23 ], [ %14, %20 ]
-  %.1 = phi i32 [ %.056, %24 ], [ 2, %nsvg__parseElement.exit ], [ 1, %13 ], [ 1, %.critedge.i ], [ 1, %23 ], [ 1, %20 ]
+  %.124 = phi ptr [ %27, %24 ], [ %27, %nsvg__parseElement.exit ], [ %14, %13 ], [ %14, %23 ], [ %14, %.critedge.i ], [ %14, %20 ]
+  %.122 = phi ptr [ %.02155, %24 ], [ %27, %nsvg__parseElement.exit ], [ %14, %13 ], [ %14, %23 ], [ %14, %.critedge.i ], [ %14, %20 ]
+  %.1 = phi i32 [ %.056, %24 ], [ 2, %nsvg__parseElement.exit ], [ 1, %13 ], [ 1, %23 ], [ 1, %.critedge.i ], [ 1, %20 ]
   %82 = load i8, ptr %.124, align 1, !tbaa !4
   %.not = icmp eq i8 %82, 0
   br i1 %.not, label %._crit_edge, label %9, !llvm.loop !18
@@ -537,13 +537,13 @@ nsvg__createGradients.exit:                       ; preds = %50
   br i1 %.not.i.i, label %nsvg__imageBounds.exit.i, label %.lr.ph.i.i, !llvm.loop !48
 
 nsvg__imageBounds.exit.i:                         ; preds = %.lr.ph.i.i, %nsvg__createGradients.exit.thread, %53, %nsvg__createGradients.exit
-  %81 = phi i1 [ false, %53 ], [ true, %nsvg__createGradients.exit ], [ true, %nsvg__createGradients.exit.thread ], [ false, %.lr.ph.i.i ]
-  %82 = phi ptr [ %.val.i.pre, %53 ], [ %.val.i.pre, %nsvg__createGradients.exit ], [ %25, %nsvg__createGradients.exit.thread ], [ %.val.i.pre, %.lr.ph.i.i ]
-  %.val.val.i42 = phi ptr [ %.val.val.i.pre, %53 ], [ null, %nsvg__createGradients.exit ], [ null, %nsvg__createGradients.exit.thread ], [ %.val.val.i.pre, %.lr.ph.i.i ]
-  %.sroa.0.0.i = phi float [ %55, %53 ], [ 0.000000e+00, %nsvg__createGradients.exit ], [ 0.000000e+00, %nsvg__createGradients.exit.thread ], [ %68, %.lr.ph.i.i ]
-  %.sroa.6.0.i = phi float [ %57, %53 ], [ 0.000000e+00, %nsvg__createGradients.exit ], [ 0.000000e+00, %nsvg__createGradients.exit.thread ], [ %72, %.lr.ph.i.i ]
-  %.sroa.9.0.i = phi float [ %59, %53 ], [ 0.000000e+00, %nsvg__createGradients.exit ], [ 0.000000e+00, %nsvg__createGradients.exit.thread ], [ %76, %.lr.ph.i.i ]
-  %.sroa.12.0.i = phi float [ %61, %53 ], [ 0.000000e+00, %nsvg__createGradients.exit ], [ 0.000000e+00, %nsvg__createGradients.exit.thread ], [ %80, %.lr.ph.i.i ]
+  %81 = phi i1 [ true, %nsvg__createGradients.exit ], [ false, %53 ], [ true, %nsvg__createGradients.exit.thread ], [ false, %.lr.ph.i.i ]
+  %82 = phi ptr [ %.val.i.pre, %nsvg__createGradients.exit ], [ %.val.i.pre, %53 ], [ %25, %nsvg__createGradients.exit.thread ], [ %.val.i.pre, %.lr.ph.i.i ]
+  %.val.val.i42 = phi ptr [ null, %nsvg__createGradients.exit ], [ %.val.val.i.pre, %53 ], [ null, %nsvg__createGradients.exit.thread ], [ %.val.val.i.pre, %.lr.ph.i.i ]
+  %.sroa.0.0.i = phi float [ 0.000000e+00, %nsvg__createGradients.exit ], [ %55, %53 ], [ 0.000000e+00, %nsvg__createGradients.exit.thread ], [ %68, %.lr.ph.i.i ]
+  %.sroa.6.0.i = phi float [ 0.000000e+00, %nsvg__createGradients.exit ], [ %57, %53 ], [ 0.000000e+00, %nsvg__createGradients.exit.thread ], [ %72, %.lr.ph.i.i ]
+  %.sroa.9.0.i = phi float [ 0.000000e+00, %nsvg__createGradients.exit ], [ %59, %53 ], [ 0.000000e+00, %nsvg__createGradients.exit.thread ], [ %76, %.lr.ph.i.i ]
+  %.sroa.12.0.i = phi float [ 0.000000e+00, %nsvg__createGradients.exit ], [ %61, %53 ], [ 0.000000e+00, %nsvg__createGradients.exit.thread ], [ %80, %.lr.ph.i.i ]
   %83 = getelementptr inbounds nuw i8, ptr %calloc32.i, i64 40000
   %84 = load float, ptr %83, align 8, !tbaa !49
   %85 = fcmp oeq float %84, 0.000000e+00
@@ -1480,7 +1480,7 @@ sub_0.i:                                          ; preds = %64, %sub_0.lr.ph.i
   br i1 %switch.i.i, label %nsvg__getNextPathItem.exit.thread.sink.split.i, label %nsvg__getNextPathItemWhenArcFlag.exit.thread.i
 
 nsvg__getNextPathItemWhenArcFlag.exit.thread.i:   ; preds = %.critedge2.i.i, %.critedge.i.i, %82, %80, %79
-  %.399199.i = phi ptr [ %.298237.i, %79 ], [ %.298237.i, %82 ], [ %.01727.i.i, %.critedge.i.i ], [ %.298237.i, %80 ], [ %89, %.critedge2.i.i ]
+  %.399199.i = phi ptr [ %.298237.i, %79 ], [ %.298237.i, %82 ], [ %.298237.i, %80 ], [ %.01727.i.i, %.critedge.i.i ], [ %89, %.critedge2.i.i ]
   store i8 0, ptr %6, align 16, !tbaa !4
   %92 = load i8, ptr %.399199.i, align 1, !tbaa !4
   %.not29.i.i = icmp eq i8 %92, 0
@@ -6740,10 +6740,10 @@ nsvg__roundf.exit31.i:                            ; preds = %124, %121, %nsvg__r
   br i1 %221, label %.lr.ph.i.i, label %nsvg__fillScanline.exit.i, !llvm.loop !197
 
 nsvg__fillScanline.exit.i:                        ; preds = %.lr.ph.i.i, %214, %181, %173, %168, %164
-  %.7130 = phi i32 [ %.6129, %164 ], [ %spec.select, %181 ], [ %spec.select, %214 ], [ %spec.select, %173 ], [ %.6129, %168 ], [ %spec.select, %.lr.ph.i.i ]
-  %.7 = phi i32 [ %.6, %164 ], [ %.8, %181 ], [ %.8, %214 ], [ %.8, %173 ], [ %.6, %168 ], [ %.8, %.lr.ph.i.i ]
-  %.134.i = phi i32 [ %167, %164 ], [ 0, %181 ], [ 0, %214 ], [ 0, %173 ], [ %171, %168 ], [ 0, %.lr.ph.i.i ]
-  %.132.i = phi i32 [ %165, %164 ], [ %.03151.i, %181 ], [ %.03151.i, %214 ], [ %.03151.i, %173 ], [ %.03151.i, %168 ], [ %.03151.i, %.lr.ph.i.i ]
+  %.7130 = phi i32 [ %.6129, %164 ], [ %spec.select, %181 ], [ %.6129, %168 ], [ %spec.select, %214 ], [ %spec.select, %173 ], [ %spec.select, %.lr.ph.i.i ]
+  %.7 = phi i32 [ %.6, %164 ], [ %.8, %181 ], [ %.6, %168 ], [ %.8, %214 ], [ %.8, %173 ], [ %.8, %.lr.ph.i.i ]
+  %.134.i = phi i32 [ %167, %164 ], [ 0, %181 ], [ %171, %168 ], [ 0, %214 ], [ 0, %173 ], [ 0, %.lr.ph.i.i ]
+  %.132.i = phi i32 [ %165, %164 ], [ %.03151.i, %181 ], [ %.03151.i, %168 ], [ %.03151.i, %214 ], [ %.03151.i, %173 ], [ %.03151.i, %.lr.ph.i.i ]
   %222 = getelementptr inbounds nuw i8, ptr %.052.i, i64 16
   %223 = load ptr, ptr %222, align 8, !tbaa !188
   %.not.i112 = icmp eq ptr %223, null
@@ -6841,10 +6841,10 @@ nsvg__fillScanline.exit.i:                        ; preds = %.lr.ph.i.i, %214, %
   br i1 %273, label %.lr.ph.i44.i, label %nsvg__fillScanline.exit47.i, !llvm.loop !197
 
 nsvg__fillScanline.exit47.i:                      ; preds = %.lr.ph.i44.i, %266, %233, %226, %.preheader48.i
-  %.5128 = phi i32 [ %.3126, %.preheader48.i ], [ %spec.select133, %233 ], [ %spec.select133, %266 ], [ %spec.select133, %226 ], [ %spec.select133, %.lr.ph.i44.i ]
-  %.5 = phi i32 [ %.3, %.preheader48.i ], [ %.4, %233 ], [ %.4, %266 ], [ %.4, %226 ], [ %.4, %.lr.ph.i44.i ]
-  %.336.i = phi i32 [ 1, %.preheader48.i ], [ 0, %233 ], [ 0, %266 ], [ 0, %226 ], [ 0, %.lr.ph.i44.i ]
-  %.3.i = phi i32 [ %225, %.preheader48.i ], [ %.2.i, %233 ], [ %.2.i, %266 ], [ %.2.i, %226 ], [ %.2.i, %.lr.ph.i44.i ]
+  %.5128 = phi i32 [ %.3126, %.preheader48.i ], [ %spec.select133, %233 ], [ %spec.select133, %226 ], [ %spec.select133, %266 ], [ %spec.select133, %.lr.ph.i44.i ]
+  %.5 = phi i32 [ %.3, %.preheader48.i ], [ %.4, %233 ], [ %.4, %226 ], [ %.4, %266 ], [ %.4, %.lr.ph.i44.i ]
+  %.336.i = phi i32 [ 1, %.preheader48.i ], [ 0, %233 ], [ 0, %226 ], [ 0, %266 ], [ 0, %.lr.ph.i44.i ]
+  %.3.i = phi i32 [ %225, %.preheader48.i ], [ %.2.i, %233 ], [ %.2.i, %226 ], [ %.2.i, %266 ], [ %.2.i, %.lr.ph.i44.i ]
   %274 = getelementptr inbounds nuw i8, ptr %.1.i, i64 16
   %275 = load ptr, ptr %274, align 8, !tbaa !188
   %.old1.not.i = icmp eq ptr %275, null
@@ -9702,7 +9702,7 @@ sub_1:                                            ; preds = %sub_0
   br label %nsvg__parseStyle.exit
 
 nsvg__parseStyle.exit:                            ; preds = %nsvg__parseNameValue.exit, %sub_1, %sub_0, %.preheader124, %nsvg__parseUrl.exit, %108, %90, %123, %nsvg__parseCoordinate.exit, %217, %237, %249, %263, %279, %294, %303, %285, %274, %257, %243, %228, %210, %135, %153, %nsvg__parseUrl.exit106, %114, %79, %82, %.tail
-  %.0 = phi i32 [ 0, %.tail ], [ 1, %nsvg__parseUrl.exit ], [ 1, %82 ], [ 1, %79 ], [ 1, %114 ], [ 1, %nsvg__parseUrl.exit106 ], [ 1, %153 ], [ 1, %135 ], [ 1, %210 ], [ 1, %228 ], [ 1, %243 ], [ 1, %257 ], [ 1, %274 ], [ 1, %285 ], [ 1, %303 ], [ 1, %294 ], [ 1, %279 ], [ 1, %263 ], [ 1, %249 ], [ 1, %237 ], [ 1, %217 ], [ 1, %nsvg__parseCoordinate.exit ], [ 1, %123 ], [ 1, %90 ], [ 1, %108 ], [ 1, %.preheader124 ], [ 0, %sub_0 ], [ 0, %sub_1 ], [ 1, %nsvg__parseNameValue.exit ]
+  %.0 = phi i32 [ 0, %.tail ], [ 1, %nsvg__parseUrl.exit ], [ 1, %82 ], [ 1, %79 ], [ 1, %114 ], [ 1, %nsvg__parseUrl.exit106 ], [ 1, %153 ], [ 1, %135 ], [ 1, %210 ], [ 1, %228 ], [ 1, %243 ], [ 1, %257 ], [ 1, %274 ], [ 1, %285 ], [ 1, %303 ], [ 1, %294 ], [ 1, %279 ], [ 1, %263 ], [ 1, %249 ], [ 1, %237 ], [ 1, %217 ], [ 1, %nsvg__parseCoordinate.exit ], [ 1, %123 ], [ 1, %90 ], [ 1, %108 ], [ 1, %.preheader124 ], [ 0, %sub_1 ], [ 0, %sub_0 ], [ 1, %nsvg__parseNameValue.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -10357,8 +10357,8 @@ nsvg__parseRotate.exit:                           ; preds = %.thread.i, %194
   br label %nsvg__parseSkewX.exit
 
 nsvg__parseSkewX.exit:                            ; preds = %212, %.preheader37.i.i86, %225, %._crit_edge.i.i89
-  %.sroa.0.3.i = phi float [ %.sroa.0.0.i, %._crit_edge.i.i89 ], [ undef, %.preheader37.i.i86 ], [ %.sroa.0.1.i, %225 ], [ undef, %212 ]
-  %.028.i.i91 = phi i32 [ %239, %._crit_edge.i.i89 ], [ 1, %.preheader37.i.i86 ], [ 0, %225 ], [ 1, %212 ]
+  %.sroa.0.3.i = phi float [ undef, %.preheader37.i.i86 ], [ %.sroa.0.1.i, %225 ], [ %.sroa.0.0.i, %._crit_edge.i.i89 ], [ undef, %212 ]
+  %.028.i.i91 = phi i32 [ 1, %.preheader37.i.i86 ], [ 0, %225 ], [ %239, %._crit_edge.i.i89 ], [ 1, %212 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %240 = fdiv float %.sroa.0.3.i, 1.800000e+02
   %241 = fmul float %240, 0x400921FB60000000
@@ -10453,8 +10453,8 @@ nsvg__parseSkewX.exit:                            ; preds = %212, %.preheader37.
   br label %nsvg__parseSkewY.exit
 
 nsvg__parseSkewY.exit:                            ; preds = %247, %.preheader37.i.i106, %260, %._crit_edge.i.i109
-  %.sroa.0.3.i112 = phi float [ %.sroa.0.0.i110, %._crit_edge.i.i109 ], [ undef, %.preheader37.i.i106 ], [ %.sroa.0.1.i120, %260 ], [ undef, %247 ]
-  %.028.i.i113 = phi i32 [ %274, %._crit_edge.i.i109 ], [ 1, %.preheader37.i.i106 ], [ 0, %260 ], [ 1, %247 ]
+  %.sroa.0.3.i112 = phi float [ undef, %.preheader37.i.i106 ], [ %.sroa.0.1.i120, %260 ], [ %.sroa.0.0.i110, %._crit_edge.i.i109 ], [ undef, %247 ]
+  %.028.i.i113 = phi i32 [ 1, %.preheader37.i.i106 ], [ 0, %260 ], [ %274, %._crit_edge.i.i109 ], [ 1, %247 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %275 = fdiv float %.sroa.0.3.i112, 1.800000e+02
   %276 = fmul float %275, 0x400921FB60000000
@@ -10584,7 +10584,7 @@ define internal fastcc range(i64 0, 42949672960) i64 @nsvg__parseCoordinateRaw(p
   br label %nsvg__parseUnits.exit
 
 nsvg__parseUnits.exit:                            ; preds = %1, %5, %8, %12, %16, %20, %.thread25.i, %.fold.split.i, %.fold.split28.i
-  %.0.i = phi i64 [ 0, %.thread25.i ], [ 4294967296, %5 ], [ 17179869184, %8 ], [ 21474836480, %12 ], [ 25769803776, %16 ], [ 30064771072, %1 ], [ 8589934592, %.fold.split.i ], [ 12884901888, %.fold.split28.i ], [ %24, %20 ]
+  %.0.i = phi i64 [ 0, %.thread25.i ], [ 4294967296, %5 ], [ 12884901888, %.fold.split28.i ], [ 8589934592, %.fold.split.i ], [ 17179869184, %8 ], [ 21474836480, %12 ], [ 25769803776, %16 ], [ 30064771072, %1 ], [ %24, %20 ]
   %25 = call fastcc double @nsvg__atof(ptr noundef nonnull %2)
   %26 = fptrunc double %25 to float
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -11620,8 +11620,8 @@ define internal fastcc noundef ptr @nsvg__parseNumber(ptr noundef readonly captu
   br i1 %73, label %.critedge4, label %.lr.ph108, !llvm.loop !258
 
 .critedge4:                                       ; preds = %17, %38, %69, %6, %27, %59, %40, %40, %.critedge2
-  %.468 = phi ptr [ %.266.ph, %40 ], [ %.266.ph, %40 ], [ %.266.ph, %.critedge2 ], [ %.569, %59 ], [ %.36799, %27 ], [ %.064, %6 ], [ %.367, %38 ], [ %70, %69 ], [ %18, %17 ]
-  %.8 = phi i32 [ %.4.ph, %40 ], [ %.4.ph, %40 ], [ %.4.ph, %.critedge2 ], [ %.10, %59 ], [ %.5, %27 ], [ %.0, %6 ], [ %.7, %38 ], [ %.13, %69 ], [ %.3, %17 ]
+  %.468 = phi ptr [ %70, %69 ], [ %.367, %38 ], [ %.266.ph, %40 ], [ %.266.ph, %40 ], [ %.266.ph, %.critedge2 ], [ %.569, %59 ], [ %.36799, %27 ], [ %.064, %6 ], [ %18, %17 ]
+  %.8 = phi i32 [ %.13, %69 ], [ %.7, %38 ], [ %.4.ph, %40 ], [ %.4.ph, %40 ], [ %.4.ph, %.critedge2 ], [ %.10, %59 ], [ %.5, %27 ], [ %.0, %6 ], [ %.3, %17 ]
   %74 = sext i32 %.8 to i64
   %75 = getelementptr inbounds i8, ptr %1, i64 %74
   store i8 0, ptr %75, align 1, !tbaa !4
@@ -13737,7 +13737,7 @@ nsvg__convertToPixels.exit189:                    ; preds = %nsvg__convertToPixe
   br label %nsvg__findGradientData.exit.thread
 
 nsvg__findGradientData.exit.thread:               ; preds = %11, %nsvg__findGradientData.exit, %nsvg__findGradientData.exit148, %.preheader.i, %5, %.thread.thread, %429
-  %.0 = phi ptr [ %22, %429 ], [ null, %.thread.thread ], [ null, %5 ], [ null, %.preheader.i ], [ null, %nsvg__findGradientData.exit ], [ null, %nsvg__findGradientData.exit148 ], [ null, %11 ]
+  %.0 = phi ptr [ %22, %429 ], [ null, %.thread.thread ], [ null, %nsvg__findGradientData.exit ], [ null, %5 ], [ null, %.preheader.i ], [ null, %nsvg__findGradientData.exit148 ], [ null, %11 ]
   ret ptr %.0
 }
 
@@ -14213,18 +14213,18 @@ nsvg__addEdge.exit.i:                             ; preds = %.sink.split.i.i122,
   br i1 %exitcond.not.i, label %nsvg__buttCap.exit, label %131, !llvm.loop !274
 
 nsvg__buttCap.exit:                               ; preds = %168, %nsvg__normalize.exit, %57, %70, %.sink.split.i.i, %89, %104, %.sink.split.i.i109, %20
-  %.0331 = phi i32 [ %2, %20 ], [ %44, %.sink.split.i.i109 ], [ %44, %104 ], [ %44, %89 ], [ %44, %.sink.split.i.i ], [ %44, %70 ], [ %44, %57 ], [ %44, %nsvg__normalize.exit ], [ %44, %168 ]
-  %.078329 = phi i32 [ 0, %20 ], [ 1, %.sink.split.i.i109 ], [ 1, %104 ], [ 1, %89 ], [ 1, %.sink.split.i.i ], [ 1, %70 ], [ 1, %57 ], [ 1, %nsvg__normalize.exit ], [ 1, %168 ]
-  %.080327 = phi ptr [ %1, %20 ], [ %43, %.sink.split.i.i109 ], [ %43, %104 ], [ %43, %89 ], [ %43, %.sink.split.i.i ], [ %43, %70 ], [ %43, %57 ], [ %43, %nsvg__normalize.exit ], [ %43, %168 ]
-  %.081325 = phi ptr [ %23, %20 ], [ %1, %.sink.split.i.i109 ], [ %1, %104 ], [ %1, %89 ], [ %1, %.sink.split.i.i ], [ %1, %70 ], [ %1, %57 ], [ %1, %nsvg__normalize.exit ], [ %1, %168 ]
-  %.sroa.0297.0 = phi float [ %39, %20 ], [ %94, %.sink.split.i.i109 ], [ %94, %104 ], [ %94, %89 ], [ %60, %.sink.split.i.i ], [ %60, %70 ], [ %60, %57 ], [ 0.000000e+00, %nsvg__normalize.exit ], [ %.1.i, %168 ]
-  %.sroa.24306.0 = phi float [ %40, %20 ], [ %95, %.sink.split.i.i109 ], [ %95, %104 ], [ %95, %89 ], [ %61, %.sink.split.i.i ], [ %61, %70 ], [ %61, %57 ], [ 0.000000e+00, %nsvg__normalize.exit ], [ %.159.i, %168 ]
-  %.sroa.0.0320 = phi float [ %41, %20 ], [ %96, %.sink.split.i.i109 ], [ %96, %104 ], [ %96, %89 ], [ %62, %.sink.split.i.i ], [ %62, %70 ], [ %62, %57 ], [ 0.000000e+00, %nsvg__normalize.exit ], [ %.161.i, %168 ]
-  %.sroa.24.0 = phi float [ %42, %20 ], [ %97, %.sink.split.i.i109 ], [ %97, %104 ], [ %97, %89 ], [ %63, %.sink.split.i.i ], [ %63, %70 ], [ %63, %57 ], [ 0.000000e+00, %nsvg__normalize.exit ], [ %.163.i, %168 ]
-  %.sroa.029.0 = phi float [ %39, %20 ], [ 0.000000e+00, %.sink.split.i.i109 ], [ 0.000000e+00, %104 ], [ 0.000000e+00, %89 ], [ 0.000000e+00, %.sink.split.i.i ], [ 0.000000e+00, %70 ], [ 0.000000e+00, %57 ], [ 0.000000e+00, %nsvg__normalize.exit ], [ 0.000000e+00, %168 ]
-  %.sroa.530.0 = phi float [ %40, %20 ], [ 0.000000e+00, %.sink.split.i.i109 ], [ 0.000000e+00, %104 ], [ 0.000000e+00, %89 ], [ 0.000000e+00, %.sink.split.i.i ], [ 0.000000e+00, %70 ], [ 0.000000e+00, %57 ], [ 0.000000e+00, %nsvg__normalize.exit ], [ 0.000000e+00, %168 ]
-  %.sroa.0.0 = phi float [ %41, %20 ], [ 0.000000e+00, %.sink.split.i.i109 ], [ 0.000000e+00, %104 ], [ 0.000000e+00, %89 ], [ 0.000000e+00, %.sink.split.i.i ], [ 0.000000e+00, %70 ], [ 0.000000e+00, %57 ], [ 0.000000e+00, %nsvg__normalize.exit ], [ 0.000000e+00, %168 ]
-  %.sroa.5.0 = phi float [ %42, %20 ], [ 0.000000e+00, %.sink.split.i.i109 ], [ 0.000000e+00, %104 ], [ 0.000000e+00, %89 ], [ 0.000000e+00, %.sink.split.i.i ], [ 0.000000e+00, %70 ], [ 0.000000e+00, %57 ], [ 0.000000e+00, %nsvg__normalize.exit ], [ 0.000000e+00, %168 ]
+  %.0331 = phi i32 [ %2, %20 ], [ %44, %nsvg__normalize.exit ], [ %44, %.sink.split.i.i109 ], [ %44, %104 ], [ %44, %89 ], [ %44, %.sink.split.i.i ], [ %44, %70 ], [ %44, %57 ], [ %44, %168 ]
+  %.078329 = phi i32 [ 0, %20 ], [ 1, %nsvg__normalize.exit ], [ 1, %.sink.split.i.i109 ], [ 1, %104 ], [ 1, %89 ], [ 1, %.sink.split.i.i ], [ 1, %70 ], [ 1, %57 ], [ 1, %168 ]
+  %.080327 = phi ptr [ %1, %20 ], [ %43, %nsvg__normalize.exit ], [ %43, %.sink.split.i.i109 ], [ %43, %104 ], [ %43, %89 ], [ %43, %.sink.split.i.i ], [ %43, %70 ], [ %43, %57 ], [ %43, %168 ]
+  %.081325 = phi ptr [ %23, %20 ], [ %1, %nsvg__normalize.exit ], [ %1, %.sink.split.i.i109 ], [ %1, %104 ], [ %1, %89 ], [ %1, %.sink.split.i.i ], [ %1, %70 ], [ %1, %57 ], [ %1, %168 ]
+  %.sroa.0297.0 = phi float [ %39, %20 ], [ 0.000000e+00, %nsvg__normalize.exit ], [ %94, %.sink.split.i.i109 ], [ %94, %104 ], [ %94, %89 ], [ %60, %.sink.split.i.i ], [ %60, %70 ], [ %60, %57 ], [ %.1.i, %168 ]
+  %.sroa.24306.0 = phi float [ %40, %20 ], [ 0.000000e+00, %nsvg__normalize.exit ], [ %95, %.sink.split.i.i109 ], [ %95, %104 ], [ %95, %89 ], [ %61, %.sink.split.i.i ], [ %61, %70 ], [ %61, %57 ], [ %.159.i, %168 ]
+  %.sroa.0.0320 = phi float [ %41, %20 ], [ 0.000000e+00, %nsvg__normalize.exit ], [ %96, %.sink.split.i.i109 ], [ %96, %104 ], [ %96, %89 ], [ %62, %.sink.split.i.i ], [ %62, %70 ], [ %62, %57 ], [ %.161.i, %168 ]
+  %.sroa.24.0 = phi float [ %42, %20 ], [ 0.000000e+00, %nsvg__normalize.exit ], [ %97, %.sink.split.i.i109 ], [ %97, %104 ], [ %97, %89 ], [ %63, %.sink.split.i.i ], [ %63, %70 ], [ %63, %57 ], [ %.163.i, %168 ]
+  %.sroa.029.0 = phi float [ %39, %20 ], [ 0.000000e+00, %nsvg__normalize.exit ], [ 0.000000e+00, %.sink.split.i.i109 ], [ 0.000000e+00, %104 ], [ 0.000000e+00, %89 ], [ 0.000000e+00, %.sink.split.i.i ], [ 0.000000e+00, %70 ], [ 0.000000e+00, %57 ], [ 0.000000e+00, %168 ]
+  %.sroa.530.0 = phi float [ %40, %20 ], [ 0.000000e+00, %nsvg__normalize.exit ], [ 0.000000e+00, %.sink.split.i.i109 ], [ 0.000000e+00, %104 ], [ 0.000000e+00, %89 ], [ 0.000000e+00, %.sink.split.i.i ], [ 0.000000e+00, %70 ], [ 0.000000e+00, %57 ], [ 0.000000e+00, %168 ]
+  %.sroa.0.0 = phi float [ %41, %20 ], [ 0.000000e+00, %nsvg__normalize.exit ], [ 0.000000e+00, %.sink.split.i.i109 ], [ 0.000000e+00, %104 ], [ 0.000000e+00, %89 ], [ 0.000000e+00, %.sink.split.i.i ], [ 0.000000e+00, %70 ], [ 0.000000e+00, %57 ], [ 0.000000e+00, %168 ]
+  %.sroa.5.0 = phi float [ %42, %20 ], [ 0.000000e+00, %nsvg__normalize.exit ], [ 0.000000e+00, %.sink.split.i.i109 ], [ 0.000000e+00, %104 ], [ 0.000000e+00, %89 ], [ 0.000000e+00, %.sink.split.i.i ], [ 0.000000e+00, %70 ], [ 0.000000e+00, %57 ], [ 0.000000e+00, %168 ]
   %170 = icmp slt i32 %.078329, %.0331
   br i1 %170, label %.lr.ph, label %._crit_edge
 
@@ -15174,10 +15174,10 @@ nsvg__addEdge.exit.i185:                          ; preds = %.sink.split.i.i179,
   br label %nsvg__roundJoin.exit
 
 nsvg__roundJoin.exit:                             ; preds = %nsvg__addEdge.exit88.i, %.sink.split.i35.i, %596, %nsvg__addEdge.exit.i185, %.sink.split.i143.i, %538, %nsvg__addEdge.exit138.i, %.sink.split.i101.i, %454, %nsvg__addEdge.exit96.i, %.sink.split.i89.i, %360, %nsvg__addEdge.exit84.i
-  %.sroa.0297.3 = phi float [ %480, %.sink.split.i143.i ], [ %286, %.sink.split.i89.i ], [ %286, %nsvg__addEdge.exit84.i ], [ %286, %360 ], [ %393, %.sink.split.i101.i ], [ %393, %nsvg__addEdge.exit96.i ], [ %393, %454 ], [ %480, %nsvg__addEdge.exit138.i ], [ %480, %538 ], [ %561, %nsvg__addEdge.exit.i185 ], [ %561, %596 ], [ %561, %.sink.split.i35.i ], [ %216, %nsvg__addEdge.exit88.i ]
-  %.sroa.24306.3 = phi float [ %481, %.sink.split.i143.i ], [ %287, %.sink.split.i89.i ], [ %287, %nsvg__addEdge.exit84.i ], [ %287, %360 ], [ %399, %.sink.split.i101.i ], [ %399, %nsvg__addEdge.exit96.i ], [ %399, %454 ], [ %481, %nsvg__addEdge.exit138.i ], [ %481, %538 ], [ %567, %nsvg__addEdge.exit.i185 ], [ %567, %596 ], [ %567, %.sink.split.i35.i ], [ %218, %nsvg__addEdge.exit88.i ]
-  %.sroa.0.3 = phi float [ %529, %.sink.split.i143.i ], [ %288, %.sink.split.i89.i ], [ %288, %nsvg__addEdge.exit84.i ], [ %288, %360 ], [ %426, %.sink.split.i101.i ], [ %426, %nsvg__addEdge.exit96.i ], [ %426, %454 ], [ %529, %nsvg__addEdge.exit138.i ], [ %529, %538 ], [ %568, %nsvg__addEdge.exit.i185 ], [ %568, %596 ], [ %568, %.sink.split.i35.i ], [ %219, %nsvg__addEdge.exit88.i ]
-  %.sroa.24.3 = phi float [ %533, %.sink.split.i143.i ], [ %289, %.sink.split.i89.i ], [ %289, %nsvg__addEdge.exit84.i ], [ %289, %360 ], [ %427, %.sink.split.i101.i ], [ %427, %nsvg__addEdge.exit96.i ], [ %427, %454 ], [ %533, %nsvg__addEdge.exit138.i ], [ %533, %538 ], [ %569, %nsvg__addEdge.exit.i185 ], [ %569, %596 ], [ %569, %.sink.split.i35.i ], [ %220, %nsvg__addEdge.exit88.i ]
+  %.sroa.0297.3 = phi float [ %480, %.sink.split.i143.i ], [ %286, %.sink.split.i89.i ], [ %561, %.sink.split.i35.i ], [ %286, %nsvg__addEdge.exit84.i ], [ %286, %360 ], [ %393, %.sink.split.i101.i ], [ %393, %nsvg__addEdge.exit96.i ], [ %393, %454 ], [ %480, %nsvg__addEdge.exit138.i ], [ %480, %538 ], [ %561, %nsvg__addEdge.exit.i185 ], [ %561, %596 ], [ %216, %nsvg__addEdge.exit88.i ]
+  %.sroa.24306.3 = phi float [ %481, %.sink.split.i143.i ], [ %287, %.sink.split.i89.i ], [ %567, %.sink.split.i35.i ], [ %287, %nsvg__addEdge.exit84.i ], [ %287, %360 ], [ %399, %.sink.split.i101.i ], [ %399, %nsvg__addEdge.exit96.i ], [ %399, %454 ], [ %481, %nsvg__addEdge.exit138.i ], [ %481, %538 ], [ %567, %nsvg__addEdge.exit.i185 ], [ %567, %596 ], [ %218, %nsvg__addEdge.exit88.i ]
+  %.sroa.0.3 = phi float [ %529, %.sink.split.i143.i ], [ %288, %.sink.split.i89.i ], [ %568, %.sink.split.i35.i ], [ %288, %nsvg__addEdge.exit84.i ], [ %288, %360 ], [ %426, %.sink.split.i101.i ], [ %426, %nsvg__addEdge.exit96.i ], [ %426, %454 ], [ %529, %nsvg__addEdge.exit138.i ], [ %529, %538 ], [ %568, %nsvg__addEdge.exit.i185 ], [ %568, %596 ], [ %219, %nsvg__addEdge.exit88.i ]
+  %.sroa.24.3 = phi float [ %533, %.sink.split.i143.i ], [ %289, %.sink.split.i89.i ], [ %569, %.sink.split.i35.i ], [ %289, %nsvg__addEdge.exit84.i ], [ %289, %360 ], [ %427, %.sink.split.i101.i ], [ %427, %nsvg__addEdge.exit96.i ], [ %427, %454 ], [ %533, %nsvg__addEdge.exit138.i ], [ %533, %538 ], [ %569, %nsvg__addEdge.exit.i185 ], [ %569, %596 ], [ %220, %nsvg__addEdge.exit88.i ]
   %614 = getelementptr inbounds nuw i8, ptr %.1341, i64 32
   %615 = add nuw nsw i32 %.079342, 1
   %exitcond.not = icmp eq i32 %615, %.0331

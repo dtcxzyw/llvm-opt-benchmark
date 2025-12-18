@@ -6429,8 +6429,8 @@ flush_put_bits.exit:                              ; preds = %3260, %.lr.ph1020
   br i1 %3281, label %.lr.ph1020, label %._crit_edge1021, !llvm.loop !142
 
 ._crit_edge1021:                                  ; preds = %flush_put_bits.exit, %2875, %.preheader680, %.preheader
-  %.lcssa1018 = phi ptr [ %3240, %.preheader ], [ %2881, %.preheader680 ], [ %2876, %2875 ], [ %3276, %flush_put_bits.exit ]
-  %.lcssa705 = phi i32 [ %3242, %.preheader ], [ %2880, %.preheader680 ], [ %2878, %2875 ], [ %3278, %flush_put_bits.exit ]
+  %.lcssa1018 = phi ptr [ %3240, %.preheader ], [ %2876, %2875 ], [ %2881, %.preheader680 ], [ %3276, %flush_put_bits.exit ]
+  %.lcssa705 = phi i32 [ %3242, %.preheader ], [ %2878, %2875 ], [ %2880, %.preheader680 ], [ %3278, %flush_put_bits.exit ]
   %3282 = getelementptr inbounds nuw i8, ptr %.lcssa1018, i64 60
   %3283 = getelementptr inbounds nuw i8, ptr %.lcssa1018, i64 4
   %3284 = load i32, ptr %3283, align 4, !tbaa !65

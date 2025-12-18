@@ -4275,7 +4275,7 @@ define dso_local i32 @jbd2_journal_load(ptr noundef %0) #1 align 16 {
   br label %149
 
 149:                                              ; preds = %16, %34, %.thread12, %144, %45, %39
-  %150 = phi i32 [ %37, %39 ], [ -117, %45 ], [ %145, %144 ], [ 0, %.thread12 ], [ -12, %34 ], [ -22, %16 ]
+  %150 = phi i32 [ %37, %39 ], [ -117, %45 ], [ %145, %144 ], [ 0, %.thread12 ], [ -22, %16 ], [ -12, %34 ]
   ret i32 %150
 }
 
@@ -5287,10 +5287,10 @@ select.unfold.loopexit:                           ; preds = %101
   br label %select.unfold
 
 select.unfold:                                    ; preds = %select.unfold.loopexit, %.thread, %jbd2_free.exit.thread3
-  %204 = phi i32 [ %105, %jbd2_free.exit.thread3 ], [ %21, %.thread ], [ %105, %select.unfold.loopexit ]
-  %205 = phi i32 [ 1, %jbd2_free.exit.thread3 ], [ 1, %.thread ], [ 0, %select.unfold.loopexit ]
-  %206 = phi ptr [ %189, %jbd2_free.exit.thread3 ], [ %86, %.thread ], [ %86, %select.unfold.loopexit ]
-  %207 = phi i32 [ %201, %jbd2_free.exit.thread3 ], [ %99, %.thread ], [ %203, %select.unfold.loopexit ]
+  %204 = phi i32 [ %21, %.thread ], [ %105, %jbd2_free.exit.thread3 ], [ %105, %select.unfold.loopexit ]
+  %205 = phi i32 [ 1, %.thread ], [ 1, %jbd2_free.exit.thread3 ], [ 0, %select.unfold.loopexit ]
+  %206 = phi ptr [ %86, %.thread ], [ %189, %jbd2_free.exit.thread3 ], [ %86, %select.unfold.loopexit ]
+  %207 = phi i32 [ %99, %.thread ], [ %201, %jbd2_free.exit.thread3 ], [ %203, %select.unfold.loopexit ]
   %208 = icmp eq i32 %204, 0
   br i1 %208, label %select.unfold._crit_edge, label %select.unfold..thread4_crit_edge
 
@@ -7306,7 +7306,7 @@ define internal fastcc ptr @journal_init_common(ptr noundef %0, ptr noundef %1, 
   br label %346
 
 328:                                              ; preds = %.thread20, %43, %159, %268, %308, %304, %298, %270
-  %329 = phi i32 [ -12, %308 ], [ %289, %270 ], [ %306, %304 ], [ -12, %298 ], [ %155, %159 ], [ -5, %43 ], [ -5, %268 ], [ -12, %.thread20 ]
+  %329 = phi i32 [ -12, %308 ], [ %289, %270 ], [ %306, %304 ], [ -12, %298 ], [ %155, %159 ], [ -5, %268 ], [ -5, %43 ], [ -12, %.thread20 ]
   %330 = getelementptr inbounds nuw i8, ptr %9, i64 832
   call void @percpu_counter_destroy_many(ptr noundef nonnull %330, i32 noundef 1) #20
   %331 = getelementptr inbounds nuw i8, ptr %9, i64 1368

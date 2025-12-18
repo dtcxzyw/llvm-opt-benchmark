@@ -753,7 +753,7 @@ _ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h7df8419d9464d12fE.exit
   invoke void %87(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noundef align 1 %78, ptr noalias noundef nonnull align 8 dereferenceable(1400) %.sroa.01.0, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %2)
           to label %88 unwind label %104
 
-_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h7df8419d9464d12fE.exit.thread18: ; preds = %19, %26, %33, %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h7df8419d9464d12fE.exit
+_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h7df8419d9464d12fE.exit.thread18: ; preds = %26, %19, %33, %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h7df8419d9464d12fE.exit
   store i64 0, ptr %0, align 8
   br label %102
 
@@ -31176,7 +31176,7 @@ default.unreachable:                              ; preds = %5
   unreachable
 
 "_ZN4core3ptr59drop_in_place$LT$polars_io..cloud..options..CloudConfig$GT$17h753ad7e76bb74a8cE.exit.i": ; preds = %"_ZN4core3ptr74drop_in_place$LT$$LP$alloc..string..String$C$alloc..string..String$RP$$GT$17hc197f99bd4987434E.exit.i.i.i.i.i", %"_ZN4core3ptr96drop_in_place$LT$$LP$object_store..gcp..builder..GoogleConfigKey$C$alloc..string..String$RP$$GT$17h215f7c6188488b6dE.exit.i.i.i.i.i", %"_ZN4core3ptr97drop_in_place$LT$$LP$object_store..azure..builder..AzureConfigKey$C$alloc..string..String$RP$$GT$17hb71698ffdb05e78cE.exit.i.i.i.i.i", %"_ZN4core3ptr98drop_in_place$LT$$LP$object_store..aws..builder..AmazonS3ConfigKey$C$alloc..string..String$RP$$GT$17h6c47f29a55161d48E.exit.i.i.i.i.i"
-  %.sink.i.i = phi i64 [ 32, %"_ZN4core3ptr96drop_in_place$LT$$LP$object_store..gcp..builder..GoogleConfigKey$C$alloc..string..String$RP$$GT$17h215f7c6188488b6dE.exit.i.i.i.i.i" ], [ 32, %"_ZN4core3ptr98drop_in_place$LT$$LP$object_store..aws..builder..AmazonS3ConfigKey$C$alloc..string..String$RP$$GT$17h6c47f29a55161d48E.exit.i.i.i.i.i" ], [ 32, %"_ZN4core3ptr97drop_in_place$LT$$LP$object_store..azure..builder..AzureConfigKey$C$alloc..string..String$RP$$GT$17hb71698ffdb05e78cE.exit.i.i.i.i.i" ], [ 48, %"_ZN4core3ptr74drop_in_place$LT$$LP$alloc..string..String$C$alloc..string..String$RP$$GT$17hc197f99bd4987434E.exit.i.i.i.i.i" ]
+  %.sink.i.i = phi i64 [ 32, %"_ZN4core3ptr98drop_in_place$LT$$LP$object_store..aws..builder..AmazonS3ConfigKey$C$alloc..string..String$RP$$GT$17h6c47f29a55161d48E.exit.i.i.i.i.i" ], [ 32, %"_ZN4core3ptr97drop_in_place$LT$$LP$object_store..azure..builder..AzureConfigKey$C$alloc..string..String$RP$$GT$17hb71698ffdb05e78cE.exit.i.i.i.i.i" ], [ 32, %"_ZN4core3ptr96drop_in_place$LT$$LP$object_store..gcp..builder..GoogleConfigKey$C$alloc..string..String$RP$$GT$17h215f7c6188488b6dE.exit.i.i.i.i.i" ], [ 48, %"_ZN4core3ptr74drop_in_place$LT$$LP$alloc..string..String$C$alloc..string..String$RP$$GT$17hc197f99bd4987434E.exit.i.i.i.i.i" ]
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17hf4a68ddf744c208cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6, i64 noundef 8, i64 noundef %.sink.i.i)
           to label %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$polars_io..cloud..options..CloudConfig$GT$$GT$17ha8cbb65fe92df7e4E.exit" unwind label %82
 
@@ -52074,7 +52074,7 @@ define hidden void @_ZN10polars_sql5types26bitstring_to_bytes_literal17hc7933f43
   br i1 %.not44.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd6364c65f40e1f91E.exit", label %.lr.ph65.i
 
 .loopexit:                                        ; preds = %.lr.ph.i, %104, %.lr.ph65.i, %86, %86
-  %.sroa.8.0.i.ph = phi i8 [ 1, %86 ], [ 1, %86 ], [ 1, %.lr.ph65.i ], [ 1, %.lr.ph.i ], [ 2, %104 ]
+  %.sroa.8.0.i.ph = phi i8 [ 1, %86 ], [ 1, %.lr.ph65.i ], [ 1, %86 ], [ 1, %.lr.ph.i ], [ 2, %104 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 %.sroa.8.0.i.ph, ptr %9, align 1
   call void @_ZN4core6result13unwrap_failed17h730db56f15e0885aE(ptr noalias noundef nonnull readonly align 1 @anon.d086b249b9548acc4d6183de30049f9c.61, i64 noundef 43, ptr noundef nonnull align 1 %9, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.d086b249b9548acc4d6183de30049f9c.60, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d086b249b9548acc4d6183de30049f9c.210) #23
@@ -52146,8 +52146,8 @@ define hidden void @_ZN10polars_sql5types26bitstring_to_bytes_literal17hc7933f43
   %140 = icmp sgt i16 %.sroa.015.054.i, -1
   br i1 %140, label %129, label %"_ZN4core3num21_$LT$impl$u20$u16$GT$16from_ascii_radix17hda7581c4f792f8a7E.exit.thread"
 
-"_ZN4core3num21_$LT$impl$u20$u16$GT$16from_ascii_radix17hda7581c4f792f8a7E.exit.thread": ; preds = %139, %.lr.ph.i33
-  %.sroa.8.0.insert.insert.i81 = phi i8 [ 1, %.lr.ph.i33 ], [ 2, %139 ]
+"_ZN4core3num21_$LT$impl$u20$u16$GT$16from_ascii_radix17hda7581c4f792f8a7E.exit.thread": ; preds = %.lr.ph.i33, %139
+  %.sroa.8.0.insert.insert.i81 = phi i8 [ 2, %139 ], [ 1, %.lr.ph.i33 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 %.sroa.8.0.insert.insert.i81, ptr %10, align 1
   call void @_ZN4core6result13unwrap_failed17h730db56f15e0885aE(ptr noalias noundef nonnull readonly align 1 @anon.d086b249b9548acc4d6183de30049f9c.61, i64 noundef 43, ptr noundef nonnull align 1 %10, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.d086b249b9548acc4d6183de30049f9c.60, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d086b249b9548acc4d6183de30049f9c.209) #23

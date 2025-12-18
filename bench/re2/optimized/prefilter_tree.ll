@@ -898,7 +898,7 @@ lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loo
   br label %ehcleanup
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then.i.i.i.invoke, %if.then.i.i.i.i368, %if.then.i.i.i276, %sw.default, %if.then.i174, %if.then.i.i.i158, %if.then.i.i.i107
-  %v.sroa.0.1.ph.ph.ph.ph.ph.ph = phi ptr [ %v.sroa.0.4, %if.then.i174 ], [ %v.sroa.0.0899, %if.then.i.i.i.invoke ], [ %v.sroa.0.5910, %if.then.i.i.i107 ], [ %v.sroa.0.4, %if.then.i.i.i158 ], [ %v.sroa.0.3.lcssa109711171123, %sw.default ], [ %v.sroa.0.3.lcssa109711171123, %if.then.i.i.i276 ], [ %v.sroa.0.3.lcssa109711171122, %if.then.i.i.i.i368 ]
+  %v.sroa.0.1.ph.ph.ph.ph.ph.ph = phi ptr [ %v.sroa.0.5910, %if.then.i.i.i107 ], [ %v.sroa.0.3.lcssa109711171123, %if.then.i.i.i.i368 ], [ %v.sroa.0.4, %if.then.i.i.i158 ], [ %v.sroa.0.0899, %if.then.i.i.i.invoke ], [ %v.sroa.0.3.lcssa109711171122, %sw.default ], [ %v.sroa.0.3.lcssa109711171122, %if.then.i.i.i276 ], [ %v.sroa.0.4, %if.then.i174 ]
   %lpad.loopexit.split-lp829 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
@@ -1634,7 +1634,7 @@ invoke.cont73:                                    ; preds = %if.then5.i, %if.els
 
 for.body80.lr.ph:                                 ; preds = %invoke.cont.i.i173, %invoke.cont73
   %sub.ptr.div.i72.lcssa110011151124 = phi i64 [ %sub.ptr.div.i72.lcssa11001116, %invoke.cont.i.i173 ], [ %sub.ptr.div.i72.lcssa11001115, %invoke.cont73 ]
-  %v.sroa.0.3.lcssa109711171123 = phi ptr [ %v.sroa.0.3.lcssa10971118, %invoke.cont.i.i173 ], [ %v.sroa.0.3.lcssa10971117, %invoke.cont73 ]
+  %v.sroa.0.3.lcssa109711171122 = phi ptr [ %v.sroa.0.3.lcssa10971118, %invoke.cont.i.i173 ], [ %v.sroa.0.3.lcssa10971117, %invoke.cont73 ]
   %capacity_.i.i.i182 = getelementptr inbounds nuw i8, ptr %nodes, i64 24
   %slots_.i.i.i189 = getelementptr inbounds nuw i8, ptr %nodes, i64 8
   %100 = and i64 %sub.ptr.div.i72.lcssa110011151124, 2147483647
@@ -1643,7 +1643,7 @@ for.body80.lr.ph:                                 ; preds = %invoke.cont.i.i173,
 for.cond148.preheader:                            ; preds = %for.inc144, %invoke.cont.i.i173, %invoke.cont73
   %cmp42927110111131126 = phi i1 [ false, %invoke.cont.i.i173 ], [ false, %invoke.cont73 ], [ true, %for.inc144 ]
   %sub.ptr.div.i72.lcssa110011151125 = phi i64 [ %sub.ptr.div.i72.lcssa11001116, %invoke.cont.i.i173 ], [ %sub.ptr.div.i72.lcssa11001115, %invoke.cont73 ], [ %sub.ptr.div.i72.lcssa110011151124, %for.inc144 ]
-  %v.sroa.0.3.lcssa109711171122 = phi ptr [ %v.sroa.0.3.lcssa10971118, %invoke.cont.i.i173 ], [ %v.sroa.0.3.lcssa10971117, %invoke.cont73 ], [ %v.sroa.0.3.lcssa109711171123, %for.inc144 ]
+  %v.sroa.0.3.lcssa109711171123 = phi ptr [ %v.sroa.0.3.lcssa10971118, %invoke.cont.i.i173 ], [ %v.sroa.0.3.lcssa10971117, %invoke.cont73 ], [ %v.sroa.0.3.lcssa109711171122, %for.inc144 ]
   %101 = load ptr, ptr %_M_finish.i, align 8
   %102 = load ptr, ptr %prefilter_vec_, align 8
   %cmp151947.not = icmp eq ptr %101, %102
@@ -1657,7 +1657,7 @@ for.body152.lr.ph:                                ; preds = %for.cond148.prehead
 for.body80:                                       ; preds = %for.body80.lr.ph, %for.inc144
   %indvars.iv1020 = phi i64 [ %100, %for.body80.lr.ph ], [ %indvars.iv.next1021, %for.inc144 ]
   %indvars.iv.next1021 = add nsw i64 %indvars.iv1020, -1
-  %add.ptr.i181 = getelementptr inbounds nuw ptr, ptr %v.sroa.0.3.lcssa109711171123, i64 %indvars.iv.next1021
+  %add.ptr.i181 = getelementptr inbounds nuw ptr, ptr %v.sroa.0.3.lcssa109711171122, i64 %indvars.iv.next1021
   %103 = load ptr, ptr %add.ptr.i181, align 8
   %cmp83 = icmp eq ptr %103, null
   br i1 %cmp83, label %for.inc144, label %if.end85
@@ -2323,7 +2323,7 @@ for.body188:                                      ; preds = %for.body188.lr.ph, 
   %entries_by_num_edges.sroa.8.0978 = phi ptr [ null, %for.body188.lr.ph ], [ %entries_by_num_edges.sroa.8.1, %for.inc296 ]
   %entries_by_num_edges.sroa.16.0977 = phi ptr [ null, %for.body188.lr.ph ], [ %entries_by_num_edges.sroa.16.1, %for.inc296 ]
   %indvars.iv.next1024 = add nsw i64 %indvars.iv1023, -1
-  %add.ptr.i388 = getelementptr inbounds nuw ptr, ptr %v.sroa.0.3.lcssa109711171122, i64 %indvars.iv.next1024
+  %add.ptr.i388 = getelementptr inbounds nuw ptr, ptr %v.sroa.0.3.lcssa109711171123, i64 %indvars.iv.next1024
   %203 = load ptr, ptr %add.ptr.i388, align 8
   %cmp192 = icmp eq ptr %203, null
   br i1 %cmp192, label %for.inc296, label %lor.lhs.false193
@@ -2339,7 +2339,7 @@ lpad194.loopexit:                                 ; preds = %_ZNKSt6vectorISt4pa
   br label %lpad194
 
 lpad194.loopexit.split-lp.loopexit:               ; preds = %for.end232, %if.end199
-  %entries_by_num_edges.sroa.0.1.ph.ph = phi ptr [ %entries_by_num_edges.sroa.0.3.lcssa, %for.end232 ], [ %entries_by_num_edges.sroa.0.0979, %if.end199 ]
+  %entries_by_num_edges.sroa.0.1.ph.ph = phi ptr [ %entries_by_num_edges.sroa.0.0979, %if.end199 ], [ %entries_by_num_edges.sroa.0.3.lcssa, %for.end232 ]
   %lpad.loopexit805 = landingpad { ptr, i32 }
           cleanup
   br label %lpad194
@@ -2825,9 +2825,9 @@ for.inc293:                                       ; preds = %for.end.i.i.i508, %
   br i1 %cmp.i490.not, label %for.inc296, label %for.body246
 
 for.inc296:                                       ; preds = %for.inc293, %for.cond244.preheader, %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPN3re29PrefilterEEENS4_13PrefilterTree13PrefilterHashENS8_14PrefilterEqualESaIS6_EE4findIS6_EENSC_8iteratorERKS6_.exit.i421, %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPN3re29PrefilterEEENS4_13PrefilterTree13PrefilterHashENS8_14PrefilterEqualESaIS6_EE14const_iteratordeEv.exit.i427, %for.body188, %lor.lhs.false193
-  %entries_by_num_edges.sroa.16.1 = phi ptr [ %entries_by_num_edges.sroa.16.0977, %for.body188 ], [ %entries_by_num_edges.sroa.16.0977, %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPN3re29PrefilterEEENS4_13PrefilterTree13PrefilterHashENS8_14PrefilterEqualESaIS6_EE14const_iteratordeEv.exit.i427 ], [ %entries_by_num_edges.sroa.16.0977, %lor.lhs.false193 ], [ %entries_by_num_edges.sroa.16.0977, %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPN3re29PrefilterEEENS4_13PrefilterTree13PrefilterHashENS8_14PrefilterEqualESaIS6_EE4findIS6_EENSC_8iteratorERKS6_.exit.i421 ], [ %entries_by_num_edges.sroa.16.2.lcssa, %for.cond244.preheader ], [ %entries_by_num_edges.sroa.16.2.lcssa, %for.inc293 ]
-  %entries_by_num_edges.sroa.8.1 = phi ptr [ %entries_by_num_edges.sroa.8.0978, %for.body188 ], [ %entries_by_num_edges.sroa.8.0978, %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPN3re29PrefilterEEENS4_13PrefilterTree13PrefilterHashENS8_14PrefilterEqualESaIS6_EE14const_iteratordeEv.exit.i427 ], [ %entries_by_num_edges.sroa.8.0978, %lor.lhs.false193 ], [ %entries_by_num_edges.sroa.8.0978, %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPN3re29PrefilterEEENS4_13PrefilterTree13PrefilterHashENS8_14PrefilterEqualESaIS6_EE4findIS6_EENSC_8iteratorERKS6_.exit.i421 ], [ %entries_by_num_edges.sroa.8.2.lcssa, %for.cond244.preheader ], [ %entries_by_num_edges.sroa.8.2.lcssa, %for.inc293 ]
-  %entries_by_num_edges.sroa.0.2 = phi ptr [ %entries_by_num_edges.sroa.0.0979, %for.body188 ], [ %entries_by_num_edges.sroa.0.0979, %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPN3re29PrefilterEEENS4_13PrefilterTree13PrefilterHashENS8_14PrefilterEqualESaIS6_EE14const_iteratordeEv.exit.i427 ], [ %entries_by_num_edges.sroa.0.0979, %lor.lhs.false193 ], [ %entries_by_num_edges.sroa.0.0979, %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPN3re29PrefilterEEENS4_13PrefilterTree13PrefilterHashENS8_14PrefilterEqualESaIS6_EE4findIS6_EENSC_8iteratorERKS6_.exit.i421 ], [ %entries_by_num_edges.sroa.0.3.lcssa, %for.cond244.preheader ], [ %entries_by_num_edges.sroa.0.3.lcssa, %for.inc293 ]
+  %entries_by_num_edges.sroa.16.1 = phi ptr [ %entries_by_num_edges.sroa.16.0977, %for.body188 ], [ %entries_by_num_edges.sroa.16.0977, %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPN3re29PrefilterEEENS4_13PrefilterTree13PrefilterHashENS8_14PrefilterEqualESaIS6_EE4findIS6_EENSC_8iteratorERKS6_.exit.i421 ], [ %entries_by_num_edges.sroa.16.0977, %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPN3re29PrefilterEEENS4_13PrefilterTree13PrefilterHashENS8_14PrefilterEqualESaIS6_EE14const_iteratordeEv.exit.i427 ], [ %entries_by_num_edges.sroa.16.0977, %lor.lhs.false193 ], [ %entries_by_num_edges.sroa.16.2.lcssa, %for.cond244.preheader ], [ %entries_by_num_edges.sroa.16.2.lcssa, %for.inc293 ]
+  %entries_by_num_edges.sroa.8.1 = phi ptr [ %entries_by_num_edges.sroa.8.0978, %for.body188 ], [ %entries_by_num_edges.sroa.8.0978, %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPN3re29PrefilterEEENS4_13PrefilterTree13PrefilterHashENS8_14PrefilterEqualESaIS6_EE4findIS6_EENSC_8iteratorERKS6_.exit.i421 ], [ %entries_by_num_edges.sroa.8.0978, %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPN3re29PrefilterEEENS4_13PrefilterTree13PrefilterHashENS8_14PrefilterEqualESaIS6_EE14const_iteratordeEv.exit.i427 ], [ %entries_by_num_edges.sroa.8.0978, %lor.lhs.false193 ], [ %entries_by_num_edges.sroa.8.2.lcssa, %for.cond244.preheader ], [ %entries_by_num_edges.sroa.8.2.lcssa, %for.inc293 ]
+  %entries_by_num_edges.sroa.0.2 = phi ptr [ %entries_by_num_edges.sroa.0.0979, %for.body188 ], [ %entries_by_num_edges.sroa.0.0979, %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPN3re29PrefilterEEENS4_13PrefilterTree13PrefilterHashENS8_14PrefilterEqualESaIS6_EE4findIS6_EENSC_8iteratorERKS6_.exit.i421 ], [ %entries_by_num_edges.sroa.0.0979, %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPN3re29PrefilterEEENS4_13PrefilterTree13PrefilterHashENS8_14PrefilterEqualESaIS6_EE14const_iteratordeEv.exit.i427 ], [ %entries_by_num_edges.sroa.0.0979, %lor.lhs.false193 ], [ %entries_by_num_edges.sroa.0.3.lcssa, %for.cond244.preheader ], [ %entries_by_num_edges.sroa.0.3.lcssa, %for.inc293 ]
   %cmp187 = icmp sgt i64 %indvars.iv1023, 1
   br i1 %cmp187, label %for.body188, label %for.end298, !llvm.loop !39
 
@@ -2840,7 +2840,7 @@ if.then.i.i.i525:                                 ; preds = %for.end298
   br label %cleanup
 
 cleanup:                                          ; preds = %for.end174, %if.then.i.i.i525, %for.end298, %invoke.cont104
-  %v.sroa.0.3.lcssa1098 = phi ptr [ %v.sroa.0.3.lcssa109711171122, %if.then.i.i.i525 ], [ %v.sroa.0.3.lcssa109711171122, %for.end298 ], [ %v.sroa.0.3.lcssa109711171123, %invoke.cont104 ], [ %v.sroa.0.3.lcssa109711171122, %for.end174 ]
+  %v.sroa.0.3.lcssa1098 = phi ptr [ %v.sroa.0.3.lcssa109711171123, %if.then.i.i.i525 ], [ %v.sroa.0.3.lcssa109711171123, %for.end298 ], [ %v.sroa.0.3.lcssa109711171122, %invoke.cont104 ], [ %v.sroa.0.3.lcssa109711171123, %for.end174 ]
   %tobool.not.i.i.i527 = icmp eq ptr %v.sroa.0.3.lcssa1098, null
   br i1 %tobool.not.i.i.i527, label %_ZNSt6vectorIPN3re29PrefilterESaIS2_EED2Ev.exit, label %if.then.i.i.i528
 
@@ -2852,14 +2852,14 @@ _ZNSt6vectorIPN3re29PrefilterESaIS2_EED2Ev.exit:  ; preds = %cleanup, %if.then.i
   ret void
 
 ehcleanup:                                        ; preds = %lpad.loopexit809, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit, %if.then.i.i.i390, %lpad194, %lpad.i, %lpad97
-  %v.sroa.0.2 = phi ptr [ %v.sroa.0.3.lcssa109711171123, %lpad.i ], [ %v.sroa.0.3.lcssa109711171123, %lpad97 ], [ %v.sroa.0.3.lcssa109711171122, %if.then.i.i.i390 ], [ %v.sroa.0.3.lcssa109711171122, %lpad194 ], [ %v.sroa.0.3.lcssa109711171122, %lpad.loopexit809 ], [ %v.sroa.0.3.lcssa109711171123, %lpad.loopexit.split-lp.loopexit ], [ %v.sroa.0.1.ph.ph.ph.ph.ph.ph, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %v.sroa.0.4, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %v.sroa.0.5910, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %v.sroa.0.0899, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ]
+  %v.sroa.0.2 = phi ptr [ %v.sroa.0.3.lcssa109711171122, %lpad.i ], [ %v.sroa.0.3.lcssa109711171122, %lpad97 ], [ %v.sroa.0.3.lcssa109711171123, %if.then.i.i.i390 ], [ %v.sroa.0.3.lcssa109711171123, %lpad194 ], [ %v.sroa.0.3.lcssa109711171123, %lpad.loopexit809 ], [ %v.sroa.0.3.lcssa109711171122, %lpad.loopexit.split-lp.loopexit ], [ %v.sroa.0.1.ph.ph.ph.ph.ph.ph, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %v.sroa.0.4, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %v.sroa.0.5910, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %v.sroa.0.0899, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ]
   %.pn = phi { ptr, i32 } [ %137, %lpad.i ], [ %139, %lpad97 ], [ %lpad.phi, %if.then.i.i.i390 ], [ %lpad.phi, %lpad194 ], [ %lpad.loopexit810, %lpad.loopexit809 ], [ %lpad.loopexit814, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp829, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit822, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit825, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit828, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ]
   %tobool.not.i.i.i529 = icmp eq ptr %v.sroa.0.2, null
   br i1 %tobool.not.i.i.i529, label %_ZNSt6vectorIPN3re29PrefilterESaIS2_EED2Ev.exit531, label %if.then.i.i.i530
 
 if.then.i.i.i530:                                 ; preds = %ehcleanup.thread, %ehcleanup
   %.pn1134 = phi { ptr, i32 } [ %lpad.loopexit817, %ehcleanup.thread ], [ %.pn, %ehcleanup ]
-  %v.sroa.0.21133 = phi ptr [ %v.sroa.0.3.lcssa109711171123, %ehcleanup.thread ], [ %v.sroa.0.2, %ehcleanup ]
+  %v.sroa.0.21133 = phi ptr [ %v.sroa.0.3.lcssa109711171122, %ehcleanup.thread ], [ %v.sroa.0.2, %ehcleanup ]
   call void @_ZdlPv(ptr noundef nonnull %v.sroa.0.21133) #25
   br label %_ZNSt6vectorIPN3re29PrefilterESaIS2_EED2Ev.exit531
 
@@ -6244,7 +6244,7 @@ for.cond.backedge:                                ; preds = %for.end58, %if.end3
   br label %for.cond, !llvm.loop !75
 
 return:                                           ; preds = %for.end58, %for.end, %for.body.i, %if.else, %entry
-  %retval.sroa.0.0 = phi ptr [ %__last.coerce, %entry ], [ %__first.coerce, %if.else ], [ %__middle.coerce, %for.body.i ], [ %add.ptr.i, %for.end ], [ %add.ptr.i, %for.end58 ]
+  %retval.sroa.0.0 = phi ptr [ %__middle.coerce, %for.body.i ], [ %__last.coerce, %entry ], [ %__first.coerce, %if.else ], [ %add.ptr.i, %for.end ], [ %add.ptr.i, %for.end58 ]
   ret ptr %retval.sroa.0.0
 }
 

@@ -12941,7 +12941,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17h30b77a34a335f57bE.exit: ; preds = %.no
   br label %44
 
 .loopexit.split-lp:                               ; preds = %.invoke, %40, %._crit_edge
-  %.sroa.012.2.ph = phi i1 [ true, %.invoke ], [ true, %40 ], [ false, %._crit_edge ]
+  %.sroa.012.2.ph = phi i1 [ true, %40 ], [ true, %.invoke ], [ false, %._crit_edge ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %44
@@ -20829,7 +20829,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17h41b880a9343a32deE.exit: ; preds = %.no
   br label %.body.i
 
 .loopexit.split-lp.i:                             ; preds = %584, %579, %572, %571, %558, %553, %.invoke.i, %547, %542, %538, %536, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hcc8760ecec02e71cE.llvm.14456223534716380117.exit.i.i", %471, %"_ZN4core3ptr75drop_in_place$LT$gpui..app..entity_map..Model$LT$worktree..Worktree$GT$$GT$17hbd7b7c251d1570b9E.exit.i.i", %.noexc95.i, %400, %399, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h549dbfd8a3998dcbE.exit.thread.i", %336, %154, %119
-  %.sroa.010.0.ph.i = phi i1 [ true, %.noexc95.i ], [ true, %400 ], [ true, %336 ], [ true, %154 ], [ true, %399 ], [ true, %471 ], [ true, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hcc8760ecec02e71cE.llvm.14456223534716380117.exit.i.i" ], [ true, %536 ], [ true, %542 ], [ true, %547 ], [ true, %538 ], [ true, %.invoke.i ], [ false, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h549dbfd8a3998dcbE.exit.thread.i" ], [ true, %553 ], [ true, %558 ], [ true, %"_ZN4core3ptr75drop_in_place$LT$gpui..app..entity_map..Model$LT$worktree..Worktree$GT$$GT$17hbd7b7c251d1570b9E.exit.i.i" ], [ true, %119 ], [ true, %571 ], [ true, %572 ], [ true, %579 ], [ true, %584 ]
+  %.sroa.010.0.ph.i = phi i1 [ true, %400 ], [ true, %336 ], [ true, %154 ], [ true, %399 ], [ true, %471 ], [ true, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hcc8760ecec02e71cE.llvm.14456223534716380117.exit.i.i" ], [ true, %536 ], [ true, %542 ], [ true, %547 ], [ true, %538 ], [ true, %.invoke.i ], [ false, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h549dbfd8a3998dcbE.exit.thread.i" ], [ true, %553 ], [ true, %558 ], [ true, %.noexc95.i ], [ true, %"_ZN4core3ptr75drop_in_place$LT$gpui..app..entity_map..Model$LT$worktree..Worktree$GT$$GT$17hbd7b7c251d1570b9E.exit.i.i" ], [ true, %119 ], [ true, %571 ], [ true, %572 ], [ true, %579 ], [ true, %584 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
@@ -21792,10 +21792,10 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread19.i.i.i.i: ; preds 
   br label %.thread190.i
 
 "_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread.i.i.i": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6093fb69c8d259aE.exit.i.i.i.i", %468, %.noexc30.i.i, %.preheader.i.i.i.i.i, %459, %449
-  %.sroa.3.sroa.3.0.copyload55.ph.i.i = phi i64 [ %.sroa.3.sroa.3.0.copyload5693.i.i, %449 ], [ %396, %459 ], [ %466, %468 ], [ %396, %.noexc30.i.i ], [ %396, %.preheader.i.i.i.i.i ], [ %466, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6093fb69c8d259aE.exit.i.i.i.i" ]
-  %.ph.i.i = phi i1 [ true, %449 ], [ true, %459 ], [ true, %468 ], [ true, %.noexc30.i.i ], [ true, %.preheader.i.i.i.i.i ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6093fb69c8d259aE.exit.i.i.i.i" ]
-  %.ph58.i.i = phi i64 [ %450, %449 ], [ %450, %459 ], [ %450, %468 ], [ %450, %.noexc30.i.i ], [ %450, %.preheader.i.i.i.i.i ], [ %466, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6093fb69c8d259aE.exit.i.i.i.i" ]
-  %.pn65.i.i = phi i64 [ %396, %449 ], [ %396, %459 ], [ %396, %468 ], [ %396, %.noexc30.i.i ], [ %396, %.preheader.i.i.i.i.i ], [ %467, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6093fb69c8d259aE.exit.i.i.i.i" ]
+  %.sroa.3.sroa.3.0.copyload55.ph.i.i = phi i64 [ %.sroa.3.sroa.3.0.copyload5693.i.i, %449 ], [ %396, %459 ], [ %466, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6093fb69c8d259aE.exit.i.i.i.i" ], [ %396, %.noexc30.i.i ], [ %396, %.preheader.i.i.i.i.i ], [ %466, %468 ]
+  %.ph.i.i = phi i1 [ true, %449 ], [ true, %459 ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6093fb69c8d259aE.exit.i.i.i.i" ], [ true, %.noexc30.i.i ], [ true, %.preheader.i.i.i.i.i ], [ true, %468 ]
+  %.ph58.i.i = phi i64 [ %450, %449 ], [ %450, %459 ], [ %466, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6093fb69c8d259aE.exit.i.i.i.i" ], [ %450, %.noexc30.i.i ], [ %450, %.preheader.i.i.i.i.i ], [ %450, %468 ]
+  %.pn65.i.i = phi i64 [ %396, %449 ], [ %396, %459 ], [ %467, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6093fb69c8d259aE.exit.i.i.i.i" ], [ %396, %.noexc30.i.i ], [ %396, %.preheader.i.i.i.i.i ], [ %396, %468 ]
   %.sroa.0.0.i.ph.i.i = getelementptr inbounds i8, ptr %394, i64 %450
   %.sroa.4.0.i.ph.i.i = sub nuw i64 %.pn65.i.i, %450
   %481 = invoke noundef align 8 dereferenceable(96) ptr @"_ZN62_$LT$worktree..Worktree$u20$as$u20$core..ops..deref..Deref$GT$5deref17h0e302b4cf3cbec19E"(ptr noundef nonnull align 8 %428)

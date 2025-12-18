@@ -766,10 +766,10 @@ define internal noalias noundef ptr @item_crawler_thread(ptr readnone captures(n
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @active_crawler_mod, i64 48), align 8, !tbaa !48
   br label %item_crawl_hash.exit
 
-21:                                               ; preds = %55, %.lr.ph.i
+21:                                               ; preds = %54, %.lr.ph.i
   %22 = load ptr, ptr %2, align 8, !tbaa !54
   %23 = icmp eq ptr %22, null
-  br i1 %23, label %24, label %50
+  br i1 %23, label %24, label %49
 
 24:                                               ; preds = %21
   %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @active_crawler_mod, i64 8), align 8, !tbaa !51
@@ -816,67 +816,67 @@ define internal noalias noundef ptr @item_crawler_thread(ptr readnone captures(n
   %48 = call i32 @pthread_mutex_lock(ptr noundef nonnull @lru_crawler_lock) #18
   br label %.outer.backedge.i
 
-.outer.backedge.i:                                ; preds = %lru_crawler_expand_buf.exit.thread23.i, %46, %45, %39
-  %.013.ph.be.i = phi i32 [ %75, %lru_crawler_expand_buf.exit.thread23.i ], [ %.114.i, %45 ], [ %.114.i, %46 ], [ %.114.i, %39 ]
-  %.0.ph.be.i = phi i32 [ %74, %lru_crawler_expand_buf.exit.thread23.i ], [ %.0.ph27.i, %45 ], [ %.0.ph27.i, %46 ], [ %44, %39 ]
-  %49 = call zeroext i1 @assoc_iterate(ptr noundef nonnull %16, ptr noundef nonnull %2) #18
-  br i1 %49, label %.lr.ph.i, label %lru_crawler_expand_buf.exit.i, !llvm.loop !59
-
 .lr.ph.i:                                         ; preds = %.preheader.i, %.outer.backedge.i
   %.0.ph27.i = phi i32 [ %.0.ph.be.i, %.outer.backedge.i ], [ %17, %.preheader.i ]
   %.013.ph26.i = phi i32 [ %.013.ph.be.i, %.outer.backedge.i ], [ 0, %.preheader.i ]
   br label %21
 
-50:                                               ; preds = %21
-  %51 = getelementptr inbounds nuw i8, ptr %22, i64 36
-  %52 = load i16, ptr %51, align 4, !tbaa !23
-  %53 = add i16 %52, 1
-  store i16 %53, ptr %51, align 4, !tbaa !23
-  %54 = icmp ult i16 %53, 2
-  br i1 %54, label %55, label %57
+49:                                               ; preds = %21
+  %50 = getelementptr inbounds nuw i8, ptr %22, i64 36
+  %51 = load i16, ptr %50, align 4, !tbaa !23
+  %52 = add i16 %51, 1
+  store i16 %52, ptr %50, align 4, !tbaa !23
+  %53 = icmp ult i16 %52, 2
+  br i1 %53, label %54, label %56
 
-55:                                               ; preds = %50
-  store i16 %52, ptr %51, align 4, !tbaa !23
-  %56 = call zeroext i1 @assoc_iterate(ptr noundef nonnull %16, ptr noundef nonnull %2) #18
-  br i1 %56, label %21, label %lru_crawler_expand_buf.exit.i, !llvm.loop !59
+54:                                               ; preds = %49
+  store i16 %51, ptr %50, align 4, !tbaa !23
+  %55 = call zeroext i1 @assoc_iterate(ptr noundef nonnull %16, ptr noundef nonnull %2) #18
+  br i1 %55, label %21, label %lru_crawler_expand_buf.exit.i, !llvm.loop !59
 
-57:                                               ; preds = %50
-  %58 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @active_crawler_mod, i64 8), align 8, !tbaa !51
-  %.not.i = icmp eq ptr %58, null
-  br i1 %.not.i, label %lru_crawler_expand_buf.exit.thread23.i, label %59
+56:                                               ; preds = %49
+  %57 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @active_crawler_mod, i64 8), align 8, !tbaa !51
+  %.not.i = icmp eq ptr %57, null
+  br i1 %.not.i, label %lru_crawler_expand_buf.exit.thread23.i, label %58
 
-59:                                               ; preds = %57
-  %60 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_crawler_mod, i64 20), align 4, !tbaa !60
-  %61 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_crawler_mod, i64 24), align 8, !tbaa !61
-  %62 = sub nsw i32 %60, %61
-  %63 = icmp slt i32 %62, 8192
-  br i1 %63, label %64, label %lru_crawler_expand_buf.exit.thread23.i
+58:                                               ; preds = %56
+  %59 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_crawler_mod, i64 20), align 4, !tbaa !60
+  %60 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_crawler_mod, i64 24), align 8, !tbaa !61
+  %61 = sub nsw i32 %59, %60
+  %62 = icmp slt i32 %61, 8192
+  br i1 %62, label %63, label %lru_crawler_expand_buf.exit.thread23.i
 
-64:                                               ; preds = %59
-  %65 = shl nsw i32 %60, 1
-  store i32 %65, ptr getelementptr inbounds nuw (i8, ptr @active_crawler_mod, i64 20), align 4, !tbaa !60
-  %66 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @active_crawler_mod, i64 32), align 8, !tbaa !62
-  %67 = sext i32 %65 to i64
-  %68 = call ptr @realloc(ptr noundef %66, i64 noundef %67) #21
-  %69 = icmp eq ptr %68, null
-  br i1 %69, label %lru_crawler_expand_buf.exit.i, label %lru_crawler_expand_buf.exit.thread.i
+63:                                               ; preds = %58
+  %64 = shl nsw i32 %59, 1
+  store i32 %64, ptr getelementptr inbounds nuw (i8, ptr @active_crawler_mod, i64 20), align 4, !tbaa !60
+  %65 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @active_crawler_mod, i64 32), align 8, !tbaa !62
+  %66 = sext i32 %64 to i64
+  %67 = call ptr @realloc(ptr noundef %65, i64 noundef %66) #21
+  %68 = icmp eq ptr %67, null
+  br i1 %68, label %lru_crawler_expand_buf.exit.i, label %lru_crawler_expand_buf.exit.thread.i
 
-lru_crawler_expand_buf.exit.thread.i:             ; preds = %64
-  store ptr %68, ptr getelementptr inbounds nuw (i8, ptr @active_crawler_mod, i64 32), align 8, !tbaa !62
+lru_crawler_expand_buf.exit.thread.i:             ; preds = %63
+  store ptr %67, ptr getelementptr inbounds nuw (i8, ptr @active_crawler_mod, i64 32), align 8, !tbaa !62
   %.pre.i = load ptr, ptr %2, align 8, !tbaa !54
   br label %lru_crawler_expand_buf.exit.thread23.i
 
-lru_crawler_expand_buf.exit.thread23.i:           ; preds = %lru_crawler_expand_buf.exit.thread.i, %59, %57
-  %70 = phi ptr [ %22, %59 ], [ %.pre.i, %lru_crawler_expand_buf.exit.thread.i ], [ %22, %57 ]
-  %71 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @active_crawler_mod, i64 40), align 8, !tbaa !55
-  %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
-  %73 = load ptr, ptr %72, align 8, !tbaa !63
-  call void %73(ptr noundef nonnull @active_crawler_mod, ptr noundef %70, i32 noundef 0, i32 noundef 0) #18
-  %74 = add nsw i32 %.0.ph27.i, -1
-  %75 = add nsw i32 %.013.ph26.i, 1
+lru_crawler_expand_buf.exit.thread23.i:           ; preds = %lru_crawler_expand_buf.exit.thread.i, %58, %56
+  %69 = phi ptr [ %22, %58 ], [ %.pre.i, %lru_crawler_expand_buf.exit.thread.i ], [ %22, %56 ]
+  %70 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @active_crawler_mod, i64 40), align 8, !tbaa !55
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
+  %72 = load ptr, ptr %71, align 8, !tbaa !63
+  call void %72(ptr noundef nonnull @active_crawler_mod, ptr noundef %69, i32 noundef 0, i32 noundef 0) #18
+  %73 = add nsw i32 %.0.ph27.i, -1
+  %74 = add nsw i32 %.013.ph26.i, 1
   br label %.outer.backedge.i
 
-lru_crawler_expand_buf.exit.i:                    ; preds = %64, %.outer.backedge.i, %30, %28, %55, %.preheader.i
+.outer.backedge.i:                                ; preds = %lru_crawler_expand_buf.exit.thread23.i, %46, %45, %39
+  %.013.ph.be.i = phi i32 [ %74, %lru_crawler_expand_buf.exit.thread23.i ], [ %.114.i, %45 ], [ %.114.i, %46 ], [ %.114.i, %39 ]
+  %.0.ph.be.i = phi i32 [ %73, %lru_crawler_expand_buf.exit.thread23.i ], [ %.0.ph27.i, %45 ], [ %.0.ph27.i, %46 ], [ %44, %39 ]
+  %75 = call zeroext i1 @assoc_iterate(ptr noundef nonnull %16, ptr noundef nonnull %2) #18
+  br i1 %75, label %.lr.ph.i, label %lru_crawler_expand_buf.exit.i, !llvm.loop !59
+
+lru_crawler_expand_buf.exit.i:                    ; preds = %.outer.backedge.i, %63, %30, %28, %54, %.preheader.i
   call void @assoc_iterate_final(ptr noundef nonnull %16) #18
   br label %item_crawl_hash.exit
 
@@ -1812,7 +1812,7 @@ define internal fastcc range(i32 -1, 1) i32 @lru_crawler_write(ptr noundef captu
   br label %68
 
 68:                                               ; preds = %66, %44
-  %.134 = phi i32 [ %.03356, %44 ], [ %67, %66 ]
+  %.134 = phi i32 [ %67, %66 ], [ %.03356, %44 ]
   %69 = icmp ult i32 %.134, %5
   br i1 %69, label %15, label %70, !llvm.loop !107
 
@@ -1821,7 +1821,7 @@ define internal fastcc range(i32 -1, 1) i32 @lru_crawler_write(ptr noundef captu
   br label %.thread51
 
 .thread51:                                        ; preds = %21, %63, %60, %41, %35, %18, %11, %1, %70
-  %.0 = phi i32 [ 0, %70 ], [ -1, %1 ], [ 0, %11 ], [ -1, %63 ], [ -1, %60 ], [ -1, %41 ], [ -1, %35 ], [ -1, %18 ], [ 0, %21 ]
+  %.0 = phi i32 [ 0, %70 ], [ -1, %1 ], [ 0, %11 ], [ -1, %63 ], [ -1, %60 ], [ -1, %18 ], [ -1, %41 ], [ -1, %35 ], [ 0, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }

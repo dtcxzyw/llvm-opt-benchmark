@@ -1381,7 +1381,7 @@ _ZN10duckdb_re23NFA6DecrefEPNS0_6ThreadE.exit:    ; preds = %198, %6
   br label %_ZN10duckdb_re23NFA6DecrefEPNS0_6ThreadE.exit.thread104
 
 _ZN10duckdb_re23NFA6DecrefEPNS0_6ThreadE.exit.thread104: ; preds = %._crit_edge132, %._crit_edge, %_ZN10duckdb_re24Prog4Inst6greedyEPS0_.exit92.thread, %_ZN10duckdb_re24Prog4Inst6greedyEPS0_.exit92, %_ZN10duckdb_re23NFA6DecrefEPNS0_6ThreadE.exit
-  %.4 = phi i32 [ 0, %_ZN10duckdb_re23NFA6DecrefEPNS0_6ThreadE.exit ], [ 0, %._crit_edge ], [ %132, %_ZN10duckdb_re24Prog4Inst6greedyEPS0_.exit92.thread ], [ %118, %_ZN10duckdb_re24Prog4Inst6greedyEPS0_.exit92 ], [ %118, %._crit_edge132 ]
+  %.4 = phi i32 [ 0, %_ZN10duckdb_re23NFA6DecrefEPNS0_6ThreadE.exit ], [ %132, %_ZN10duckdb_re24Prog4Inst6greedyEPS0_.exit92.thread ], [ %118, %_ZN10duckdb_re24Prog4Inst6greedyEPS0_.exit92 ], [ 0, %._crit_edge ], [ %118, %._crit_edge132 ]
   ret i32 %.4
 }
 
@@ -2109,7 +2109,7 @@ _ZN10duckdb_re23NFA6DecrefEPNS0_6ThreadE.exit:    ; preds = %236, %231, %161, %1
   br label %.critedge88
 
 .critedge88:                                      ; preds = %155, %_ZN10LogMessageD2Ev.exit107, %151, %243
-  %.1127.ph = phi ptr [ %.0128, %_ZN10LogMessageD2Ev.exit107 ], [ %.0128, %151 ], [ %.0126, %243 ], [ %.0128, %155 ]
+  %.1127.ph = phi ptr [ %.0128, %_ZN10LogMessageD2Ev.exit107 ], [ %.0126, %243 ], [ %.0128, %151 ], [ %.0128, %155 ]
   %.pr = load i32, ptr %.1127.ph, align 8, !tbaa !3
   %245 = getelementptr inbounds nuw i8, ptr %.1127.ph, i64 32
   %.not83143 = icmp eq i32 %.pr, 0

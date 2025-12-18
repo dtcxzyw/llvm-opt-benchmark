@@ -6865,7 +6865,7 @@ define hidden noundef ptr @"_ZN6flate23zio19Writer$LT$W$C$D$GT$6finish17h353ff39
   br label %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h796279ecabcb19adE.exit.thread18"
 
 "_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h796279ecabcb19adE.exit.thread18": ; preds = %38, %26, %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h796279ecabcb19adE.exit.thread18.loopexit20.split.loop.exit", %40
-  %.0 = phi ptr [ %41, %40 ], [ %42, %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h796279ecabcb19adE.exit.thread18.loopexit20.split.loop.exit" ], [ inttoptr (i64 98784247811 to ptr), %26 ], [ null, %38 ]
+  %.0 = phi ptr [ inttoptr (i64 98784247811 to ptr), %26 ], [ %41, %40 ], [ %42, %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h796279ecabcb19adE.exit.thread18.loopexit20.split.loop.exit" ], [ null, %38 ]
   ret ptr %.0
 }
 
@@ -6980,7 +6980,7 @@ define hidden noundef ptr @"_ZN6flate23zio19Writer$LT$W$C$D$GT$6finish17h4ba0736
   br label %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h1696870748a75087E.exit.thread18"
 
 "_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h1696870748a75087E.exit.thread18": ; preds = %43, %29, %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h1696870748a75087E.exit.thread18.loopexit20.split.loop.exit", %45
-  %.0 = phi ptr [ %46, %45 ], [ %47, %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h1696870748a75087E.exit.thread18.loopexit20.split.loop.exit" ], [ inttoptr (i64 98784247811 to ptr), %29 ], [ null, %43 ]
+  %.0 = phi ptr [ inttoptr (i64 98784247811 to ptr), %29 ], [ %46, %45 ], [ %47, %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h1696870748a75087E.exit.thread18.loopexit20.split.loop.exit" ], [ null, %43 ]
   ret ptr %.0
 }
 

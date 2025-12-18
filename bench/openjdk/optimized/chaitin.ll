@@ -5639,7 +5639,7 @@ _ZN3LRG6InsertEi.exit:                            ; preds = %241, %243
   br label %_ZL12is_legal_regR3LRGii.exit.thread
 
 _ZL12is_legal_regR3LRGii.exit.thread:             ; preds = %89, %86, %144, %140, %_ZN7RegMask3ANDERKS_.exit, %249, %193
-  %.0 = phi i32 [ %196, %193 ], [ %250, %249 ], [ %185, %_ZN7RegMask3ANDERKS_.exit ], [ %126, %140 ], [ %126, %144 ], [ %74, %86 ], [ %74, %89 ]
+  %.0 = phi i32 [ %126, %144 ], [ %196, %193 ], [ %250, %249 ], [ %185, %_ZN7RegMask3ANDERKS_.exit ], [ %126, %140 ], [ %74, %86 ], [ %74, %89 ]
   ret i32 %.0
 }
 
@@ -6251,7 +6251,7 @@ _ZN8PhaseCFG17map_node_to_blockEPK4NodeP5Block.exit133: ; preds = %244, %253
   br label %.sink.split
 
 .sink.split:                                      ; preds = %._crit_edge156, %274, %271, %.sink.split.sink.split, %._crit_edge152, %._crit_edge, %124, %.loopexit137, %10, %20
-  %.0118.sink = phi ptr [ %134, %._crit_edge ], [ %132, %124 ], [ %32, %.loopexit137 ], [ %2, %10 ], [ %2, %20 ], [ %.sink, %.sink.split.sink.split ], [ %152, %._crit_edge152 ], [ %234, %271 ], [ %152, %274 ], [ %234, %._crit_edge156 ]
+  %.0118.sink = phi ptr [ %134, %._crit_edge ], [ %132, %124 ], [ %32, %.loopexit137 ], [ %2, %10 ], [ %2, %20 ], [ %.sink, %.sink.split.sink.split ], [ %234, %271 ], [ %152, %._crit_edge152 ], [ %234, %._crit_edge156 ], [ %152, %274 ]
   %293 = load i32, ptr %5, align 8
   %294 = zext i32 %293 to i64
   %295 = getelementptr inbounds nuw ptr, ptr %1, i64 %294

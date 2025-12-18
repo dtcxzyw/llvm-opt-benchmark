@@ -8617,7 +8617,7 @@ zend_ast_is_decl.exit:                            ; preds = %29
   br i1 %exitcond.not, label %.loopexit, label %42
 
 .loopexit:                                        ; preds = %25, %47, %10, %zend_ast_is_decl.exit, %31, %5
-  %.037 = phi ptr [ %6, %5 ], [ %32, %31 ], [ %40, %zend_ast_is_decl.exit ], [ %16, %10 ], [ %40, %47 ], [ %16, %25 ]
+  %.037 = phi ptr [ %6, %5 ], [ %40, %zend_ast_is_decl.exit ], [ %32, %31 ], [ %16, %10 ], [ %40, %47 ], [ %16, %25 ]
   ret ptr %.037
 }
 

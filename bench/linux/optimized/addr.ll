@@ -322,7 +322,7 @@ define dso_local noalias ptr @rpc_sockaddr2uaddr(ptr noundef %0, i32 noundef %1)
   br label %33
 
 33:                                               ; preds = %31, %28
-  %34 = phi i32 [ %30, %28 ], [ %32, %31 ]
+  %34 = phi i32 [ %32, %31 ], [ %30, %28 ]
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %49, label %.thread
 

@@ -381,7 +381,7 @@ find_same_and_apply_arg.exit:                     ; preds = %same_token.exit.thr
   tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.17, i32 noundef 333, ptr noundef nonnull @.str.18, i32 noundef %100) #18
   unreachable
 
-apply_arg_if_missing.exit:                        ; preds = %86, %85, %71, %70, %67, %60, %48, %137, %135, %101
+apply_arg_if_missing.exit:                        ; preds = %85, %71, %70, %67, %60, %48, %86, %137, %135, %101
   %.not = icmp eq ptr %.01225, %1
   br i1 %.not, label %._crit_edge, label %5, !llvm.loop !32
 
@@ -1837,7 +1837,7 @@ is_blank_line.exit.i:                             ; preds = %43
   br label %.loopexit161.i, !llvm.loop !80
 
 .loopexit161.i:                                   ; preds = %is_blank_line.exit.i, %.preheader160.i, %.preheader160.i, %..loopexit161.i.loopexit101_crit_edge
-  %.pre-phi = phi i64 [ %.pre120, %..loopexit161.i.loopexit101_crit_edge ], [ %38, %.preheader160.i ], [ %38, %.preheader160.i ], [ %38, %is_blank_line.exit.i ]
+  %.pre-phi = phi i64 [ %38, %.preheader160.i ], [ %.pre120, %..loopexit161.i.loopexit101_crit_edge ], [ %38, %.preheader160.i ], [ %38, %is_blank_line.exit.i ]
   %56 = ptrtoint ptr %1 to i64
   %57 = sub i64 %.pre-phi, %56
   %58 = add i64 %34, -2
@@ -2102,7 +2102,7 @@ last_line.exit118.i:                              ; preds = %147, %145, %139, %1
   br label %find_trailer_block_start.exit
 
 find_trailer_block_start.exit:                    ; preds = %last_line.exit118.i, %find_end_of_log_message.exit, %last_line.exit.i, %83, %.thread139.sink.split.i
-  %.2.i = phi i64 [ 0, %find_end_of_log_message.exit ], [ %34, %83 ], [ %34, %last_line.exit.i ], [ %156, %.thread139.sink.split.i ], [ %34, %last_line.exit118.i ]
+  %.2.i = phi i64 [ %34, %83 ], [ 0, %find_end_of_log_message.exit ], [ %156, %.thread139.sink.split.i ], [ %34, %last_line.exit.i ], [ %34, %last_line.exit118.i ]
   %157 = getelementptr inbounds nuw i8, ptr %1, i64 %.2.i
   %158 = sub i64 %34, %.2.i
   %159 = tail call ptr @strbuf_split_buf(ptr noundef nonnull %157, i64 noundef %158, i32 noundef 10, i32 noundef 0) #17
@@ -2228,10 +2228,10 @@ find_separator.exit:                              ; preds = %.lr.ph.i62
   br label %find_separator.exit.thread
 
 find_separator.exit.thread:                       ; preds = %203, %202, %204, %find_separator.exit, %186, %170
-  %.151 = phi ptr [ %.05096, %170 ], [ %.252, %find_separator.exit ], [ %.252, %186 ], [ %.252, %204 ], [ %.252, %202 ], [ %.252, %203 ]
-  %.149 = phi i64 [ %.04897, %170 ], [ %176, %find_separator.exit ], [ %176, %186 ], [ %176, %204 ], [ %176, %202 ], [ %176, %203 ]
-  %.147 = phi i64 [ %.04698, %170 ], [ %.3, %find_separator.exit ], [ %.3, %186 ], [ %.3, %204 ], [ %.3, %202 ], [ %.3, %203 ]
-  %.1 = phi ptr [ %.099, %170 ], [ %spec.select, %find_separator.exit ], [ null, %186 ], [ null, %204 ], [ null, %202 ], [ null, %203 ]
+  %.151 = phi ptr [ %.05096, %170 ], [ %.252, %186 ], [ %.252, %find_separator.exit ], [ %.252, %204 ], [ %.252, %202 ], [ %.252, %203 ]
+  %.149 = phi i64 [ %.04897, %170 ], [ %176, %186 ], [ %176, %find_separator.exit ], [ %176, %204 ], [ %176, %202 ], [ %176, %203 ]
+  %.147 = phi i64 [ %.04698, %170 ], [ %.3, %186 ], [ %.3, %find_separator.exit ], [ %.3, %204 ], [ %.3, %202 ], [ %.3, %203 ]
+  %.1 = phi ptr [ %.099, %170 ], [ null, %186 ], [ %spec.select, %find_separator.exit ], [ null, %204 ], [ null, %202 ], [ null, %203 ]
   %211 = getelementptr inbounds nuw i8, ptr %.05395, i64 8
   %212 = load ptr, ptr %211, align 8, !tbaa !84
   %.not = icmp eq ptr %212, null
@@ -2268,7 +2268,7 @@ find_separator.exit.thread:                       ; preds = %203, %202, %204, %f
   br i1 %223, label %.lr.ph.i.i71, label %.loopexit.i66, !llvm.loop !81
 
 .loopexit.i66:                                    ; preds = %221, %219, %213, %._crit_edge
-  %.08.i.ph.i = phi i64 [ 0, %213 ], [ %220, %219 ], [ 0, %._crit_edge ], [ 0, %221 ]
+  %.08.i.ph.i = phi i64 [ 0, %._crit_edge ], [ 0, %213 ], [ %220, %219 ], [ 0, %221 ]
   %224 = getelementptr inbounds nuw i8, ptr %1, i64 %.08.i.ph.i
   br label %225
 

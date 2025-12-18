@@ -745,8 +745,8 @@ lean_dec.exit123:                                 ; preds = %240, %239, %237, %l
   br label %258
 
 lean_dec.exit136:                                 ; preds = %lean_dec.exit140, %151
-  %.6116 = phi ptr [ %27, %lean_dec.exit140 ], [ %153, %151 ]
-  %.6109 = phi ptr [ %.0103258, %lean_dec.exit140 ], [ %97, %151 ]
+  %.6116 = phi ptr [ %153, %151 ], [ %27, %lean_dec.exit140 ]
+  %.6109 = phi ptr [ %97, %151 ], [ %.0103258, %lean_dec.exit140 ]
   %254 = getelementptr inbounds nuw i8, ptr %.6116, i64 24
   %255 = load ptr, ptr %254, align 8, !tbaa !10
   %256 = ptrtoint ptr %255 to i64

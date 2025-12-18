@@ -38689,8 +38689,8 @@ _ZN3std3sys4sync6rwlock5futex6RwLock4read17h71ab566576a387feE.exit: ; preds = %1
           to label %547 unwind label %399
 
 .thread510:                                       ; preds = %547, %422, %.thread513
-  %.sroa.0184.7 = phi i1 [ true, %.thread513 ], [ false, %422 ], [ false, %547 ]
-  %.pn398 = phi { ptr, i32 } [ %eh.lpad-body460517, %.thread513 ], [ %lpad.thr_comm.split-lp, %422 ], [ %.pn, %547 ]
+  %.sroa.0184.7 = phi i1 [ false, %547 ], [ false, %422 ], [ true, %.thread513 ]
+  %.pn398 = phi { ptr, i32 } [ %.pn, %547 ], [ %lpad.thr_comm.split-lp, %422 ], [ %eh.lpad-body460517, %.thread513 ]
   %554 = load i64, ptr %73, align 8, !range !42
   %.not401 = icmp eq i64 %554, -9223372036854775808
   br i1 %.not401, label %649, label %417
@@ -41873,7 +41873,7 @@ select.unfold:                                    ; preds = %._crit_edge.i.i, %3
           to label %40 unwind label %.loopexit.split-lp
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h0f0fff02546173e8E.exit": ; preds = %.noexc5, %49, %44
-  %.sink = phi i64 [ %spec.select, %49 ], [ 2, %44 ], [ 1, %.noexc5 ]
+  %.sink = phi i64 [ 2, %44 ], [ %spec.select, %49 ], [ 1, %.noexc5 ]
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %39, ptr noundef nonnull align 8 dereferenceable(88) %2, i64 88, i1 false)
   store i64 %.sink, ptr %0, align 8
@@ -42671,8 +42671,8 @@ define hidden noundef ptr @_ZN11ruff_server7session5index5Index24update_notebook
   br label %346
 
 .loopexit.split-lp383.i:                          ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2b7c5870aeedb5efE.exit.thread.i", %"_ZN131_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd016f039681643b0E.exit.thread287.i", %.thread281.i, %342
-  %.sroa.048.0.ph.i = phi i8 [ 1, %342 ], [ 1, %.thread281.i ], [ 1, %"_ZN131_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd016f039681643b0E.exit.thread287.i" ], [ 0, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2b7c5870aeedb5efE.exit.thread.i" ]
-  %347 = phi i1 [ false, %342 ], [ false, %.thread281.i ], [ true, %"_ZN131_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd016f039681643b0E.exit.thread287.i" ], [ true, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2b7c5870aeedb5efE.exit.thread.i" ]
+  %.sroa.048.0.ph.i = phi i8 [ 1, %"_ZN131_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd016f039681643b0E.exit.thread287.i" ], [ 0, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2b7c5870aeedb5efE.exit.thread.i" ], [ 1, %.thread281.i ], [ 1, %342 ]
+  %347 = phi i1 [ true, %"_ZN131_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd016f039681643b0E.exit.thread287.i" ], [ true, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2b7c5870aeedb5efE.exit.thread.i" ], [ false, %.thread281.i ], [ false, %342 ]
   %lpad.loopexit.split-lp385.i = landingpad { ptr, i32 }
           cleanup
   br label %346
@@ -44132,7 +44132,7 @@ _ZN11ruff_server4edit8notebook16NotebookDocument15cell_by_uri_mut17hbf6fafab99c8
   call void @llvm.lifetime.end.p0(ptr nonnull %51)
   br label %"_ZN4core3ptr117drop_in_place$LT$core..option..Option$LT$lsp_types..notebook..notification_params..NotebookDocumentCellChange$GT$$GT$17h46290bf666f37c1eE.exit"
 
-.thread111:                                       ; preds = %760, %.noexc225.i
+.thread111:                                       ; preds = %.noexc225.i, %760
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.444.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %27)

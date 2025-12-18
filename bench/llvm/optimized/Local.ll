@@ -356,10 +356,10 @@ _ZNK4llvm4Type13getScalarTypeEv.exit:             ; preds = %142, %146
   br label %"_ZZN4llvm13emitGEPOffsetEPNS_13IRBuilderBaseERKNS_10DataLayoutEPNS_4UserEbENK3$_0clEPNS_5ValueE.exit"
 
 "_ZZN4llvm13emitGEPOffsetEPNS_13IRBuilderBaseERKNS_10DataLayoutEPNS_4UserEbENK3$_0clEPNS_5ValueE.exit": ; preds = %"._ZZN4llvm13emitGEPOffsetEPNS_13IRBuilderBaseERKNS_10DataLayoutEPNS_4UserEbENK3$_0clEPNS_5ValueE.exit_crit_edge", %163, %162
-  %.pre-phi156 = phi ptr [ %.pre155, %"._ZZN4llvm13emitGEPOffsetEPNS_13IRBuilderBaseERKNS_10DataLayoutEPNS_4UserEbENK3$_0clEPNS_5ValueE.exit_crit_edge" ], [ %120, %163 ], [ %120, %162 ]
-  %.pre-phi154 = phi i64 [ %.pre153, %"._ZZN4llvm13emitGEPOffsetEPNS_13IRBuilderBaseERKNS_10DataLayoutEPNS_4UserEbENK3$_0clEPNS_5ValueE.exit_crit_edge" ], [ %119, %163 ], [ %119, %162 ]
-  %.pre-phi = phi i64 [ %.pre, %"._ZZN4llvm13emitGEPOffsetEPNS_13IRBuilderBaseERKNS_10DataLayoutEPNS_4UserEbENK3$_0clEPNS_5ValueE.exit_crit_edge" ], [ %117, %163 ], [ %117, %162 ]
-  %.4 = phi ptr [ %.0130148, %"._ZZN4llvm13emitGEPOffsetEPNS_13IRBuilderBaseERKNS_10DataLayoutEPNS_4UserEbENK3$_0clEPNS_5ValueE.exit_crit_edge" ], [ %167, %163 ], [ %.256, %162 ]
+  %.pre-phi156 = phi ptr [ %.pre155, %"._ZZN4llvm13emitGEPOffsetEPNS_13IRBuilderBaseERKNS_10DataLayoutEPNS_4UserEbENK3$_0clEPNS_5ValueE.exit_crit_edge" ], [ %120, %162 ], [ %120, %163 ]
+  %.pre-phi154 = phi i64 [ %.pre153, %"._ZZN4llvm13emitGEPOffsetEPNS_13IRBuilderBaseERKNS_10DataLayoutEPNS_4UserEbENK3$_0clEPNS_5ValueE.exit_crit_edge" ], [ %119, %162 ], [ %119, %163 ]
+  %.pre-phi = phi i64 [ %.pre, %"._ZZN4llvm13emitGEPOffsetEPNS_13IRBuilderBaseERKNS_10DataLayoutEPNS_4UserEbENK3$_0clEPNS_5ValueE.exit_crit_edge" ], [ %117, %162 ], [ %117, %163 ]
+  %.4 = phi ptr [ %.0130148, %"._ZZN4llvm13emitGEPOffsetEPNS_13IRBuilderBaseERKNS_10DataLayoutEPNS_4UserEbENK3$_0clEPNS_5ValueE.exit_crit_edge" ], [ %.256, %162 ], [ %167, %163 ]
   %168 = icmp ne i64 %.pre-phi, 4
   %.not.not14.i.i81 = icmp eq i64 %.pre-phi154, 0
   %.not.not.i.i82 = or i1 %168, %.not.not14.i.i81

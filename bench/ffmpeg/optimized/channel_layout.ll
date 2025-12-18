@@ -856,7 +856,7 @@ av_channel_layout_uninit.exit121:                 ; preds = %82, %85
   unreachable
 
 parse_channel_list.exit:                          ; preds = %146, %119, %.thread.i, %._crit_edge, %149
-  %.2.i = phi i32 [ -22, %._crit_edge ], [ 0, %149 ], [ %.1.ph.i, %.thread.i ], [ -22, %119 ], [ -12, %146 ]
+  %.2.i = phi i32 [ %.1.ph.i, %.thread.i ], [ -22, %._crit_edge ], [ 0, %149 ], [ -22, %119 ], [ -12, %146 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -1529,7 +1529,7 @@ has_channel_names.exit.thread61.loopexit:         ; preds = %7
   br label %has_channel_names.exit.thread61
 
 has_channel_names.exit.thread61:                  ; preds = %25, %34, %31, %.preheader.i, %has_channel_names.exit.thread61.loopexit, %.loopexit
-  %78 = phi i32 [ %.pre80, %has_channel_names.exit.thread61.loopexit ], [ %20, %.loopexit ], [ %20, %.preheader.i ], [ %20, %34 ], [ %20, %31 ], [ %20, %25 ]
+  %78 = phi i32 [ %20, %.preheader.i ], [ %20, %34 ], [ %.pre80, %has_channel_names.exit.thread61.loopexit ], [ %20, %.loopexit ], [ %20, %31 ], [ %20, %25 ]
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.not48 = icmp eq i32 %78, 0
   br i1 %.not48, label %81, label %80
@@ -1950,7 +1950,7 @@ define i32 @av_channel_layout_index_from_string(ptr noundef readonly captures(no
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit62, %.critedge.loopexit, %2, %.critedge.thread, %6, %41
-  %.2 = phi i32 [ -22, %.critedge.thread ], [ -22, %6 ], [ %42, %41 ], [ -22, %2 ], [ %44, %.critedge.loopexit62 ], [ %43, %.critedge.loopexit ]
+  %.2 = phi i32 [ -22, %.critedge.thread ], [ -22, %6 ], [ %42, %41 ], [ -22, %2 ], [ %43, %.critedge.loopexit ], [ %44, %.critedge.loopexit62 ]
   ret i32 %.2
 }
 
@@ -2462,7 +2462,7 @@ has_channel_names.exit.i:                         ; preds = %16, %has_channel_na
   br i1 %exitcond.not.i36.i, label %canonical_order.exit, label %39, !llvm.loop !41
 
 canonical_order.exit:                             ; preds = %17, %31, %46, %42, %39, %35, %.loopexit.i, %._crit_edge.i, %6
-  %.083.ph = phi i32 [ 0, %._crit_edge.i ], [ 2, %.loopexit.i ], [ %1, %6 ], [ 3, %35 ], [ 1, %31 ], [ 2, %39 ], [ 2, %42 ], [ 3, %46 ], [ 2, %17 ]
+  %.083.ph = phi i32 [ 0, %._crit_edge.i ], [ 2, %.loopexit.i ], [ 1, %31 ], [ %1, %6 ], [ 3, %35 ], [ 2, %39 ], [ 2, %42 ], [ 3, %46 ], [ 2, %17 ]
   %48 = icmp eq i32 %.pr.pre, %.083.ph
   br i1 %48, label %.thread150, label %49
 
@@ -2747,7 +2747,7 @@ av_channel_layout_uninit.exit138:                 ; preds = %145, %.preheader.i1
   br label %.thread150
 
 .thread150:                                       ; preds = %136, %133, %86, %83, %8, %av_channel_layout_uninit.exit138, %122, %104, %100, %av_channel_layout_uninit.exit109, %120, %has_channel_names.exit137, %av_channel_layout_uninit.exit116, %76, %has_channel_names.exit, %49, %av_channel_layout_uninit.exit, %.loopexit, %canonical_order.exit, %3
-  %.0 = phi i32 [ -22, %3 ], [ -38, %.loopexit ], [ 0, %canonical_order.exit ], [ -22, %49 ], [ -38, %76 ], [ -22, %100 ], [ %.185141, %av_channel_layout_uninit.exit ], [ -38, %has_channel_names.exit ], [ 0, %av_channel_layout_uninit.exit116 ], [ -38, %has_channel_names.exit137 ], [ -38, %120 ], [ %.08.i149, %av_channel_layout_uninit.exit109 ], [ -12, %104 ], [ %.08.i129161, %av_channel_layout_uninit.exit138 ], [ -38, %122 ], [ 0, %8 ], [ -38, %86 ], [ -38, %83 ], [ -38, %133 ], [ -38, %136 ]
+  %.0 = phi i32 [ -22, %3 ], [ -38, %.loopexit ], [ 0, %canonical_order.exit ], [ -22, %49 ], [ -38, %86 ], [ -38, %76 ], [ 0, %8 ], [ -22, %100 ], [ %.185141, %av_channel_layout_uninit.exit ], [ -38, %has_channel_names.exit ], [ 0, %av_channel_layout_uninit.exit116 ], [ -38, %has_channel_names.exit137 ], [ -38, %120 ], [ %.08.i149, %av_channel_layout_uninit.exit109 ], [ -38, %122 ], [ -12, %104 ], [ %.08.i129161, %av_channel_layout_uninit.exit138 ], [ -38, %83 ], [ -38, %133 ], [ -38, %136 ]
   ret i32 %.0
 }
 

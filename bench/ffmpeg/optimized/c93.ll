@@ -728,7 +728,7 @@ bytestream2_get_byte.exit179.thread:              ; preds = %62, %bytestream2_ge
   br label %320
 
 copy_block.exit.thread:                           ; preds = %.preheader346, %.split.us, %.split29.us.us.i, %.split406, %.split406.us.split.us420, %.split406.us.split.us.us.us, %100, %bytestream2_get_le16.exit.thread, %bytestream2_get_le16.exit, %bytestream2_get_byte.exit179
-  %.sroa.0.3 = phi ptr [ %.sroa.0.2, %bytestream2_get_byte.exit179 ], [ %75, %bytestream2_get_le16.exit ], [ %36, %bytestream2_get_le16.exit.thread ], [ %.us-phi, %.split.us ], [ %.sroa.0.17535540543, %100 ], [ %.sroa.0.18.us.us.us.us, %.split406.us.split.us.us.us ], [ %spec.select, %.split406.us.split.us420 ], [ %.sroa.0.18, %.split406 ], [ %.sroa.0.16, %.split29.us.us.i ], [ %279, %.preheader346 ]
+  %.sroa.0.3 = phi ptr [ %75, %bytestream2_get_le16.exit ], [ %.sroa.0.18, %.split406 ], [ %.sroa.0.16, %.split29.us.us.i ], [ %.sroa.0.18.us.us.us.us, %.split406.us.split.us.us.us ], [ %.sroa.0.2, %bytestream2_get_byte.exit179 ], [ %spec.select, %.split406.us.split.us420 ], [ %.sroa.0.17535540543, %100 ], [ %36, %bytestream2_get_le16.exit.thread ], [ %.us-phi, %.split.us ], [ %279, %.preheader346 ]
   %281 = lshr i32 %.2160, 4
   %282 = getelementptr inbounds nuw i8, ptr %.0144438, i64 8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

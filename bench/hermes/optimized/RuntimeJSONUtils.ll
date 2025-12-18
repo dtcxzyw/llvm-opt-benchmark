@@ -1105,7 +1105,7 @@ _ZN6hermes2vm12_GLOBAL__N_115JSONStringifyer18initializeReplacerENS0_6HandleINS0
   br label %if.end26.i
 
 _ZN6hermes2vm12_GLOBAL__N_115JSONStringifyer18initializeReplacerENS0_6HandleINS0_11HermesValueEEE.exit.i: ; preds = %cleanup.i.i, %if.then36.i.i
-  %retval.0.i.i = phi i32 [ %call38.i.i, %if.then36.i.i ], [ %retval.1.i.i, %cleanup.i.i ]
+  %retval.0.i.i = phi i32 [ %retval.1.i.i, %cleanup.i.i ], [ %call38.i.i, %if.then36.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %gcScope.i.i)
   %cmp.i = icmp eq i32 %retval.0.i.i, 0
@@ -2530,8 +2530,8 @@ if.end139:                                        ; preds = %if.end124
   br label %cleanup164
 
 cleanup164:                                       ; preds = %for.body, %_ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit, %if.then40, %if.end124, %if.then74, %_ZN6hermes2vm22getArrayLikeLength_RJSENS0_6HandleINS0_8JSObjectEEERNS0_7RuntimeE.exit, %_ZN6hermes2vm10dyn_vmcastINS0_8JSObjectEEEPT_NS0_11HermesValueE.exit, %if.end, %if.end139, %if.then
-  %retval.sroa.0.0 = phi i32 [ %call, %if.then ], [ 0, %if.end ], [ 0, %_ZN6hermes2vm10dyn_vmcastINS0_8JSObjectEEEPT_NS0_11HermesValueE.exit ], [ 0, %if.then40 ], [ 0, %if.then74 ], [ %69, %if.end139 ], [ 0, %_ZN6hermes2vm22getArrayLikeLength_RJSENS0_6HandleINS0_8JSObjectEEERNS0_7RuntimeE.exit ], [ 0, %if.end124 ], [ 0, %_ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit ], [ 0, %for.body ]
-  %retval.sroa.10.0 = phi i64 [ undef, %if.then ], [ undef, %if.end ], [ undef, %_ZN6hermes2vm10dyn_vmcastINS0_8JSObjectEEEPT_NS0_11HermesValueE.exit ], [ undef, %if.then40 ], [ undef, %if.then74 ], [ %70, %if.end139 ], [ undef, %_ZN6hermes2vm22getArrayLikeLength_RJSENS0_6HandleINS0_8JSObjectEEERNS0_7RuntimeE.exit ], [ undef, %if.end124 ], [ undef, %_ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit ], [ undef, %for.body ]
+  %retval.sroa.0.0 = phi i32 [ %call, %if.then ], [ 0, %_ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit ], [ 0, %if.end ], [ 0, %_ZN6hermes2vm10dyn_vmcastINS0_8JSObjectEEEPT_NS0_11HermesValueE.exit ], [ 0, %if.then40 ], [ 0, %if.then74 ], [ %69, %if.end139 ], [ 0, %_ZN6hermes2vm22getArrayLikeLength_RJSENS0_6HandleINS0_8JSObjectEEERNS0_7RuntimeE.exit ], [ 0, %if.end124 ], [ 0, %for.body ]
+  %retval.sroa.10.0 = phi i64 [ undef, %if.then ], [ undef, %_ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit ], [ undef, %if.end ], [ undef, %_ZN6hermes2vm10dyn_vmcastINS0_8JSObjectEEEPT_NS0_11HermesValueE.exit ], [ undef, %if.then40 ], [ undef, %if.then74 ], [ %70, %if.end139 ], [ undef, %_ZN6hermes2vm22getArrayLikeLength_RJSENS0_6HandleINS0_8JSObjectEEERNS0_7RuntimeE.exit ], [ undef, %if.end124 ], [ undef, %for.body ]
   store i32 %2, ptr %remainingDepth_, align 8
   call void @_ZN6hermes2vm7GCScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(212) %gcScope) #11
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
@@ -4383,7 +4383,7 @@ _ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit207: ; preds = %if.
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZN6hermes2vm16ArrayStorageBaseINS0_13HermesValue32EE8pop_backERNS0_7RuntimeE.exit, %if.end133, %if.else51, %if.then31, %_ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit207, %if.then
-  %retval.0 = phi i32 [ %call, %if.then ], [ 0, %if.else51 ], [ 1, %_ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit207 ], [ 0, %if.then31 ], [ 0, %if.end133 ], [ 0, %_ZN6hermes2vm16ArrayStorageBaseINS0_13HermesValue32EE8pop_backERNS0_7RuntimeE.exit ]
+  %retval.0 = phi i32 [ %call, %if.then ], [ 0, %if.else51 ], [ 0, %if.then31 ], [ 1, %_ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit207 ], [ 0, %if.end133 ], [ 0, %_ZN6hermes2vm16ArrayStorageBaseINS0_13HermesValue32EE8pop_backERNS0_7RuntimeE.exit ]
   %chunks_.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 144
   %conv.i.i.i = zext i32 %3 to i64
   %141 = load ptr, ptr %chunks_.i.i.i, align 8

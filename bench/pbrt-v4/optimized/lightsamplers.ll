@@ -1686,9 +1686,9 @@ _ZNK4pbrt7HashMapINS_5LightEmSt4hashIS1_EN4pstd3pmr21polymorphic_allocatorINS4_8
   br label %_ZNK4pbrt7HashMapINS_5LightEmSt4hashIS1_EN4pstd3pmr21polymorphic_allocatorINS4_8optionalISt4pairIS1_mEEEEEE10FindOffsetERKS1_.exit10, !llvm.loop !141
 
 _ZNK4pbrt7HashMapINS_5LightEmSt4hashIS1_EN4pstd3pmr21polymorphic_allocatorINS4_8optionalISt4pairIS1_mEEEEEE10FindOffsetERKS1_.exit10: ; preds = %.lr.ph.i, %.lr.ph.i7, %.lr.ph.i.preheader, %.lr.ph.i7.preheader, %._ZNK4pbrt7HashMapINS_5LightEmSt4hashIS1_EN4pstd3pmr21polymorphic_allocatorINS4_8optionalISt4pairIS1_mEEEEEE10FindOffsetERKS1_.exit10.loopexit_crit_edge, %47, %_ZNK4pbrt7HashMapINS_5LightEmSt4hashIS1_EN4pstd3pmr21polymorphic_allocatorINS4_8optionalISt4pairIS1_mEEEEEE10FindOffsetERKS1_.exit
-  %84 = phi ptr [ %22, %_ZNK4pbrt7HashMapINS_5LightEmSt4hashIS1_EN4pstd3pmr21polymorphic_allocatorINS4_8optionalISt4pairIS1_mEEEEEE10FindOffsetERKS1_.exit ], [ %64, %47 ], [ %64, %.lr.ph.i7.preheader ], [ %64, %._ZNK4pbrt7HashMapINS_5LightEmSt4hashIS1_EN4pstd3pmr21polymorphic_allocatorINS4_8optionalISt4pairIS1_mEEEEEE10FindOffsetERKS1_.exit10.loopexit_crit_edge ], [ %22, %.lr.ph.i.preheader ], [ %64, %.lr.ph.i7 ], [ %22, %.lr.ph.i ]
-  %85 = phi i64 [ %4, %_ZNK4pbrt7HashMapINS_5LightEmSt4hashIS1_EN4pstd3pmr21polymorphic_allocatorINS4_8optionalISt4pairIS1_mEEEEEE10FindOffsetERKS1_.exit ], [ %48, %47 ], [ %48, %.lr.ph.i7.preheader ], [ %48, %._ZNK4pbrt7HashMapINS_5LightEmSt4hashIS1_EN4pstd3pmr21polymorphic_allocatorINS4_8optionalISt4pairIS1_mEEEEEE10FindOffsetERKS1_.exit10.loopexit_crit_edge ], [ %4, %.lr.ph.i.preheader ], [ %48, %.lr.ph.i7 ], [ %4, %.lr.ph.i ]
-  %.0 = phi i64 [ %.118.i, %_ZNK4pbrt7HashMapINS_5LightEmSt4hashIS1_EN4pstd3pmr21polymorphic_allocatorINS4_8optionalISt4pairIS1_mEEEEEE10FindOffsetERKS1_.exit ], [ %63, %47 ], [ %63, %.lr.ph.i7.preheader ], [ %78, %._ZNK4pbrt7HashMapINS_5LightEmSt4hashIS1_EN4pstd3pmr21polymorphic_allocatorINS4_8optionalISt4pairIS1_mEEEEEE10FindOffsetERKS1_.exit10.loopexit_crit_edge ], [ %20, %.lr.ph.i.preheader ], [ %78, %.lr.ph.i7 ], [ %36, %.lr.ph.i ]
+  %84 = phi ptr [ %64, %.lr.ph.i7 ], [ %22, %_ZNK4pbrt7HashMapINS_5LightEmSt4hashIS1_EN4pstd3pmr21polymorphic_allocatorINS4_8optionalISt4pairIS1_mEEEEEE10FindOffsetERKS1_.exit ], [ %64, %47 ], [ %64, %.lr.ph.i7.preheader ], [ %64, %._ZNK4pbrt7HashMapINS_5LightEmSt4hashIS1_EN4pstd3pmr21polymorphic_allocatorINS4_8optionalISt4pairIS1_mEEEEEE10FindOffsetERKS1_.exit10.loopexit_crit_edge ], [ %22, %.lr.ph.i.preheader ], [ %22, %.lr.ph.i ]
+  %85 = phi i64 [ %48, %.lr.ph.i7 ], [ %4, %_ZNK4pbrt7HashMapINS_5LightEmSt4hashIS1_EN4pstd3pmr21polymorphic_allocatorINS4_8optionalISt4pairIS1_mEEEEEE10FindOffsetERKS1_.exit ], [ %48, %47 ], [ %48, %.lr.ph.i7.preheader ], [ %48, %._ZNK4pbrt7HashMapINS_5LightEmSt4hashIS1_EN4pstd3pmr21polymorphic_allocatorINS4_8optionalISt4pairIS1_mEEEEEE10FindOffsetERKS1_.exit10.loopexit_crit_edge ], [ %4, %.lr.ph.i.preheader ], [ %4, %.lr.ph.i ]
+  %.0 = phi i64 [ %78, %.lr.ph.i7 ], [ %.118.i, %_ZNK4pbrt7HashMapINS_5LightEmSt4hashIS1_EN4pstd3pmr21polymorphic_allocatorINS4_8optionalISt4pairIS1_mEEEEEE10FindOffsetERKS1_.exit ], [ %63, %47 ], [ %63, %.lr.ph.i7.preheader ], [ %78, %._ZNK4pbrt7HashMapINS_5LightEmSt4hashIS1_EN4pstd3pmr21polymorphic_allocatorINS4_8optionalISt4pairIS1_mEEEEEE10FindOffsetERKS1_.exit10.loopexit_crit_edge ], [ %20, %.lr.ph.i.preheader ], [ %36, %.lr.ph.i ]
   %86 = load i64, ptr %2, align 8, !tbaa !76, !noalias !142
   %87 = getelementptr inbounds nuw %"class.pstd::optional.39", ptr %84, i64 %.0
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 16
@@ -3746,7 +3746,7 @@ _ZN4pbrt5UnionERKNS_11LightBoundsES2_.exit290:    ; preds = %401, %400, %405
   br i1 %532, label %"_ZSt9partitionIPSt4pairIiN4pbrt11LightBoundsEEZNS1_15BVHLightSampler8buildBVHERSt6vectorIS3_SaIS3_EEiijiE3$_0ET_SB_SB_T0_.exit", label %.lr.ph.i.i291, !llvm.loop !234
 
 "_ZSt9partitionIPSt4pairIiN4pbrt11LightBoundsEEZNS1_15BVHLightSampler8buildBVHERSt6vectorIS3_SaIS3_EEiijiE3$_0ET_SB_SB_T0_.exit": ; preds = %527, %498, %.preheader.i.i, %466
-  %.11644.i.i = phi ptr [ %468, %466 ], [ %.058.i.i, %498 ], [ %.11654.i.i, %.preheader.i.i ], [ %531, %527 ]
+  %.11644.i.i = phi ptr [ %.058.i.i, %498 ], [ %.11654.i.i, %.preheader.i.i ], [ %468, %466 ], [ %531, %527 ]
   %533 = load ptr, ptr %2, align 8, !tbaa !177
   %534 = ptrtoint ptr %.11644.i.i to i64
   %535 = ptrtoint ptr %533 to i64
@@ -4541,9 +4541,9 @@ _ZNK4pbrt7HashMapINS_5LightEjSt4hashIS1_EN4pstd3pmr21polymorphic_allocatorINS4_8
   br label %_ZNK4pbrt7HashMapINS_5LightEjSt4hashIS1_EN4pstd3pmr21polymorphic_allocatorINS4_8optionalISt4pairIS1_jEEEEEE10FindOffsetERKS1_.exit10, !llvm.loop !247
 
 _ZNK4pbrt7HashMapINS_5LightEjSt4hashIS1_EN4pstd3pmr21polymorphic_allocatorINS4_8optionalISt4pairIS1_jEEEEEE10FindOffsetERKS1_.exit10: ; preds = %.lr.ph.i, %.lr.ph.i7, %.lr.ph.i.preheader, %.lr.ph.i7.preheader, %._ZNK4pbrt7HashMapINS_5LightEjSt4hashIS1_EN4pstd3pmr21polymorphic_allocatorINS4_8optionalISt4pairIS1_jEEEEEE10FindOffsetERKS1_.exit10.loopexit_crit_edge, %47, %_ZNK4pbrt7HashMapINS_5LightEjSt4hashIS1_EN4pstd3pmr21polymorphic_allocatorINS4_8optionalISt4pairIS1_jEEEEEE10FindOffsetERKS1_.exit
-  %84 = phi ptr [ %22, %_ZNK4pbrt7HashMapINS_5LightEjSt4hashIS1_EN4pstd3pmr21polymorphic_allocatorINS4_8optionalISt4pairIS1_jEEEEEE10FindOffsetERKS1_.exit ], [ %64, %47 ], [ %64, %.lr.ph.i7.preheader ], [ %64, %._ZNK4pbrt7HashMapINS_5LightEjSt4hashIS1_EN4pstd3pmr21polymorphic_allocatorINS4_8optionalISt4pairIS1_jEEEEEE10FindOffsetERKS1_.exit10.loopexit_crit_edge ], [ %22, %.lr.ph.i.preheader ], [ %64, %.lr.ph.i7 ], [ %22, %.lr.ph.i ]
-  %85 = phi i64 [ %4, %_ZNK4pbrt7HashMapINS_5LightEjSt4hashIS1_EN4pstd3pmr21polymorphic_allocatorINS4_8optionalISt4pairIS1_jEEEEEE10FindOffsetERKS1_.exit ], [ %48, %47 ], [ %48, %.lr.ph.i7.preheader ], [ %48, %._ZNK4pbrt7HashMapINS_5LightEjSt4hashIS1_EN4pstd3pmr21polymorphic_allocatorINS4_8optionalISt4pairIS1_jEEEEEE10FindOffsetERKS1_.exit10.loopexit_crit_edge ], [ %4, %.lr.ph.i.preheader ], [ %48, %.lr.ph.i7 ], [ %4, %.lr.ph.i ]
-  %.0 = phi i64 [ %.118.i, %_ZNK4pbrt7HashMapINS_5LightEjSt4hashIS1_EN4pstd3pmr21polymorphic_allocatorINS4_8optionalISt4pairIS1_jEEEEEE10FindOffsetERKS1_.exit ], [ %63, %47 ], [ %63, %.lr.ph.i7.preheader ], [ %78, %._ZNK4pbrt7HashMapINS_5LightEjSt4hashIS1_EN4pstd3pmr21polymorphic_allocatorINS4_8optionalISt4pairIS1_jEEEEEE10FindOffsetERKS1_.exit10.loopexit_crit_edge ], [ %20, %.lr.ph.i.preheader ], [ %78, %.lr.ph.i7 ], [ %36, %.lr.ph.i ]
+  %84 = phi ptr [ %64, %.lr.ph.i7 ], [ %22, %_ZNK4pbrt7HashMapINS_5LightEjSt4hashIS1_EN4pstd3pmr21polymorphic_allocatorINS4_8optionalISt4pairIS1_jEEEEEE10FindOffsetERKS1_.exit ], [ %64, %47 ], [ %64, %.lr.ph.i7.preheader ], [ %64, %._ZNK4pbrt7HashMapINS_5LightEjSt4hashIS1_EN4pstd3pmr21polymorphic_allocatorINS4_8optionalISt4pairIS1_jEEEEEE10FindOffsetERKS1_.exit10.loopexit_crit_edge ], [ %22, %.lr.ph.i.preheader ], [ %22, %.lr.ph.i ]
+  %85 = phi i64 [ %48, %.lr.ph.i7 ], [ %4, %_ZNK4pbrt7HashMapINS_5LightEjSt4hashIS1_EN4pstd3pmr21polymorphic_allocatorINS4_8optionalISt4pairIS1_jEEEEEE10FindOffsetERKS1_.exit ], [ %48, %47 ], [ %48, %.lr.ph.i7.preheader ], [ %48, %._ZNK4pbrt7HashMapINS_5LightEjSt4hashIS1_EN4pstd3pmr21polymorphic_allocatorINS4_8optionalISt4pairIS1_jEEEEEE10FindOffsetERKS1_.exit10.loopexit_crit_edge ], [ %4, %.lr.ph.i.preheader ], [ %4, %.lr.ph.i ]
+  %.0 = phi i64 [ %78, %.lr.ph.i7 ], [ %.118.i, %_ZNK4pbrt7HashMapINS_5LightEjSt4hashIS1_EN4pstd3pmr21polymorphic_allocatorINS4_8optionalISt4pairIS1_jEEEEEE10FindOffsetERKS1_.exit ], [ %63, %47 ], [ %63, %.lr.ph.i7.preheader ], [ %78, %._ZNK4pbrt7HashMapINS_5LightEjSt4hashIS1_EN4pstd3pmr21polymorphic_allocatorINS4_8optionalISt4pairIS1_jEEEEEE10FindOffsetERKS1_.exit10.loopexit_crit_edge ], [ %20, %.lr.ph.i.preheader ], [ %36, %.lr.ph.i ]
   %86 = load i32, ptr %2, align 4, !tbaa !25, !noalias !248
   %87 = getelementptr inbounds nuw %"class.pstd::optional.44", ptr %84, i64 %.0
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 16
@@ -5664,7 +5664,7 @@ _ZN4pstd3pmr21polymorphic_allocatorIN4pbrt10AliasTable3BinEE15allocate_objectIS4
   br label %45
 
 ._crit_edge.i:                                    ; preds = %45, %27, %_ZN4pstd3pmr21polymorphic_allocatorIN4pbrt10AliasTable3BinEE15allocate_objectIS4_EEPT_m.exit.i
-  %.0.i.i.i.i28 = phi ptr [ %33, %_ZN4pstd3pmr21polymorphic_allocatorIN4pbrt10AliasTable3BinEE15allocate_objectIS4_EEPT_m.exit.i ], [ null, %27 ], [ %33, %45 ]
+  %.0.i.i.i.i28 = phi ptr [ null, %27 ], [ %33, %_ZN4pstd3pmr21polymorphic_allocatorIN4pbrt10AliasTable3BinEE15allocate_objectIS4_EEPT_m.exit.i ], [ %33, %45 ]
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %37 = load ptr, ptr %36, align 8, !tbaa !137
   %.not.i.i.i.i = icmp eq ptr %37, null

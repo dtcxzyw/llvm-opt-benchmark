@@ -684,7 +684,7 @@ onas_bucket_remove.exit:                          ; preds = %72, %100
   br label %onas_ht_get.exit.thread
 
 onas_ht_get.exit.thread:                          ; preds = %64, %60, %57, %onas_hash.exit.i, %103, %onas_bucket_remove.exit, %onas_hash.exit, %4
-  %.0 = phi i32 [ 2, %4 ], [ 3, %onas_hash.exit ], [ %.1.i, %onas_bucket_remove.exit ], [ %.1.i, %103 ], [ 3, %onas_hash.exit.i ], [ 3, %57 ], [ 3, %60 ], [ 3, %64 ]
+  %.0 = phi i32 [ 2, %4 ], [ 3, %onas_hash.exit ], [ %.1.i, %onas_bucket_remove.exit ], [ %.1.i, %103 ], [ 3, %60 ], [ 3, %onas_hash.exit.i ], [ 3, %57 ], [ 3, %64 ]
   ret i32 %.0
 }
 
@@ -991,7 +991,7 @@ onas_ht_get.exit:                                 ; preds = %.lr.ph.i37
   br label %onas_ht_get.exit.thread
 
 onas_ht_get.exit.thread:                          ; preds = %61, %71, %77, %onas_ht_get.exit, %54, %onas_hash.exit.i, %57, %onas_get_dirname_idx.exit, %88, %5
-  %.0 = phi i32 [ 2, %5 ], [ 0, %onas_get_dirname_idx.exit ], [ 0, %88 ], [ 3, %57 ], [ 3, %onas_hash.exit.i ], [ 3, %54 ], [ 3, %onas_ht_get.exit ], [ 3, %77 ], [ 3, %71 ], [ 3, %61 ]
+  %.0 = phi i32 [ 2, %5 ], [ 3, %71 ], [ 0, %onas_get_dirname_idx.exit ], [ 0, %88 ], [ 3, %57 ], [ 3, %onas_hash.exit.i ], [ 3, %54 ], [ 3, %onas_ht_get.exit ], [ 3, %77 ], [ 3, %61 ]
   ret i32 %.0
 }
 
@@ -1648,7 +1648,7 @@ onas_get_parent.exit:                             ; preds = %.critedge.i59
   br label %.critedge
 
 .critedge:                                        ; preds = %42, %75, %onas_get_parent.exit, %63, %49, %35, %onas_hash.exit.i, %38, %._crit_edge, %4
-  %.0 = phi i32 [ 2, %4 ], [ 0, %._crit_edge ], [ 3, %38 ], [ 3, %onas_hash.exit.i ], [ 3, %35 ], [ 3, %49 ], [ 3, %63 ], [ 3, %onas_get_parent.exit ], [ 20, %75 ], [ 3, %42 ]
+  %.0 = phi i32 [ 2, %4 ], [ 3, %onas_get_parent.exit ], [ 20, %75 ], [ 3, %63 ], [ 0, %._crit_edge ], [ 3, %38 ], [ 3, %onas_hash.exit.i ], [ 3, %35 ], [ 3, %49 ], [ 3, %42 ]
   ret i32 %.0
 }
 

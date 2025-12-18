@@ -2015,7 +2015,7 @@ Vec_IntPush.exit.i:                               ; preds = %384, %Vec_IntGrow.e
   br i1 %391, label %.lr.ph.i284, label %Vec_IntAppend.exit, !llvm.loop !43
 
 Vec_IntAppend.exit:                               ; preds = %Vec_IntPush.exit.i, %226, %.critedge10
-  %.val6.i414 = phi ptr [ %.val6.i367, %.critedge10 ], [ %.val6.i369, %226 ], [ %.val6.i367, %Vec_IntPush.exit.i ]
+  %.val6.i414 = phi ptr [ %.val6.i369, %226 ], [ %.val6.i367, %.critedge10 ], [ %.val6.i367, %Vec_IntPush.exit.i ]
   %.val179 = load i32, ptr %38, align 4, !tbaa !15
   %392 = load i32, ptr %34, align 4, !tbaa !15
   %393 = load i32, ptr %33, align 8, !tbaa !31
@@ -5158,7 +5158,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   br i1 %98, label %51, label %.critedge2, !llvm.loop !98
 
 .critedge2:                                       ; preds = %Vec_IntPush.exit, %Acb_NtkIncTravId.exit, %.critedge.preheader
-  %.pre.i84121 = phi ptr [ %8, %.critedge.preheader ], [ %8, %Acb_NtkIncTravId.exit ], [ %.pre.i118, %Vec_IntPush.exit ]
+  %.pre.i84121 = phi ptr [ %8, %Acb_NtkIncTravId.exit ], [ %8, %.critedge.preheader ], [ %.pre.i118, %Vec_IntPush.exit ]
   %.val.i73 = load i32, ptr %10, align 4, !tbaa !15
   %99 = icmp slt i32 %.val.i73, 1
   br i1 %99, label %100, label %Acb_NtkIncTravId.exit81
@@ -7628,7 +7628,7 @@ Acb_ObjIsAreaCritical.exit311.thread:             ; preds = %.critedge22.Acb_Obj
   br i1 %441, label %237, label %.critedge12, !llvm.loop !128
 
 .critedge12:                                      ; preds = %.critedge10, %.critedge14, %.critedge22, %10, %.critedge, %9
-  %.0212 = phi i32 [ 0, %9 ], [ 0, %.critedge ], [ 0, %10 ], [ 0, %.critedge14 ], [ %.3, %.critedge22 ], [ %.1, %.critedge10 ]
+  %.0212 = phi i32 [ 0, %.critedge ], [ 0, %9 ], [ 0, %10 ], [ %.3, %.critedge22 ], [ 0, %.critedge14 ], [ %.1, %.critedge10 ]
   ret i32 %.0212
 }
 
@@ -8034,7 +8034,7 @@ define void @Acb_NtkOptNodeAnalyze(ptr noundef readnone captures(none) %0, i32 n
   br label %Vec_IntFind.exit.thread
 
 Vec_IntFind.exit.thread:                          ; preds = %105, %109, %._crit_edge.loopexit.split.loop.exit12.i121, %97
-  %112 = phi i32 [ 32, %97 ], [ %111, %._crit_edge.loopexit.split.loop.exit12.i121 ], [ 96, %109 ], [ 32, %105 ]
+  %112 = phi i32 [ 32, %97 ], [ 96, %109 ], [ %111, %._crit_edge.loopexit.split.loop.exit12.i121 ], [ 32, %105 ]
   %putchar109 = tail call i32 @putchar(i32 %112)
   %113 = add nuw nsw i32 %.6161, 1
   %exitcond209.not = icmp eq i32 %113, %15

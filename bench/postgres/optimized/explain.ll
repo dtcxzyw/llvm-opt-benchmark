@@ -4720,7 +4720,7 @@ switch.lookup1338:                                ; preds = %307
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %457, %438, %424, %472, %469, %.lr.ph.i, %449, %444, %.lr.ph81.i, %430, %.lr.ph93.i, %416
-  %.1.i764 = phi i32 [ %.4.i, %469 ], [ %448, %444 ], [ %475, %472 ], [ 0, %416 ], [ 0, %.lr.ph93.i ], [ 0, %430 ], [ 0, %.lr.ph81.i ], [ 0, %449 ], [ 0, %.lr.ph.i ], [ %443, %438 ], [ %429, %424 ], [ %462, %457 ]
+  %.1.i764 = phi i32 [ %.4.i, %469 ], [ %429, %424 ], [ %448, %444 ], [ %443, %438 ], [ %475, %472 ], [ 0, %416 ], [ 0, %.lr.ph93.i ], [ 0, %430 ], [ 0, %.lr.ph81.i ], [ 0, %449 ], [ 0, %.lr.ph.i ], [ %462, %457 ]
   %476 = icmp sgt i32 %412, %.1.i764
   br label %plan_is_disabled.exit
 
@@ -7671,7 +7671,7 @@ ExplainIndentText.exit.us.i:                      ; preds = %1947, %1940
   br i1 %2006, label %.lr.ph.split.i, label %._crit_edge.i, !llvm.loop !18
 
 ._crit_edge.i:                                    ; preds = %2003, %1981, %.thread136.i, %1916
-  %2007 = phi i1 [ true, %.thread136.i ], [ false, %1916 ], [ true, %1981 ], [ false, %2003 ]
+  %2007 = phi i1 [ false, %1916 ], [ true, %1981 ], [ true, %.thread136.i ], [ false, %2003 ]
   %2008 = getelementptr inbounds nuw i8, ptr %1906, i64 208
   %2009 = load ptr, ptr %2008, align 8
   %2010 = getelementptr inbounds nuw i8, ptr %2009, i64 4
@@ -8875,8 +8875,8 @@ ExplainMissingMembers.exit:                       ; preds = %2545, %2543, %2529,
   br i1 %.not.i934, label %2574, label %ExplainSubPlans.exit, !llvm.loop !24
 
 ExplainSubPlans.exit:                             ; preds = %2594, %2565, %.preheader978, %2568
-  %.01297 = phi ptr [ %2569, %2568 ], [ %2569, %.preheader978 ], [ %1, %2565 ], [ %2569, %2594 ]
-  %2597 = phi i1 [ true, %2568 ], [ true, %.preheader978 ], [ false, %2565 ], [ true, %2594 ]
+  %.01297 = phi ptr [ %1, %2565 ], [ %2569, %2568 ], [ %2569, %.preheader978 ], [ %2569, %2594 ]
+  %2597 = phi i1 [ false, %2565 ], [ true, %2568 ], [ true, %.preheader978 ], [ true, %2594 ]
   %2598 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %2599 = load ptr, ptr %2598, align 8
   %.not750 = icmp eq ptr %2599, null

@@ -1638,7 +1638,7 @@ Abc_Clock.exit454:                                ; preds = %.loopexit504, %577
   br label %762
 
 762:                                              ; preds = %734, %761, %299, %96, %Abc_Clock.exit
-  %.0235 = phi i32 [ %48, %Abc_Clock.exit ], [ %98, %96 ], [ %301, %299 ], [ %.9, %734 ], [ %752, %761 ]
+  %.0235 = phi i32 [ %48, %Abc_Clock.exit ], [ %98, %96 ], [ %752, %761 ], [ %301, %299 ], [ %.9, %734 ]
   switch i32 %.0235, label %.thread [
     i32 1, label %763
     i32 0, label %800

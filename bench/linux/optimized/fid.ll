@@ -109,7 +109,7 @@ define dso_local ptr @v9fs_fid_find_inode(ptr noundef %0, i1 noundef zeroext %1,
   br i1 %43, label %.split.us, label %53
 
 .split.us:                                        ; preds = %.preheader.split.split, %28, %.preheader.split.us.split.us, %.preheader.split
-  %.us-phi = phi ptr [ %9, %.preheader.split ], [ %24, %28 ], [ %12, %.preheader.split.us.split.us ], [ %40, %.preheader.split.split ]
+  %.us-phi = phi ptr [ %24, %28 ], [ %12, %.preheader.split.us.split.us ], [ %9, %.preheader.split ], [ %40, %.preheader.split.split ]
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_9p_fid_ref, i64 8), i32 2) #6
           to label %45 [label %44], !srcloc !8
 
@@ -144,7 +144,7 @@ define dso_local ptr @v9fs_fid_find_inode(ptr noundef %0, i1 noundef zeroext %1,
   br label %.loopexit
 
 .loopexit:                                        ; preds = %53, %33, %17, %60, %49, %4
-  %62 = phi ptr [ %.us-phi, %49 ], [ null, %4 ], [ %.us-phi, %60 ], [ null, %33 ], [ null, %17 ], [ null, %53 ]
+  %62 = phi ptr [ %.us-phi, %49 ], [ null, %4 ], [ %.us-phi, %60 ], [ null, %17 ], [ null, %33 ], [ null, %53 ]
   tail call void @_raw_spin_unlock(ptr noundef nonnull %5) #6
   ret ptr %62
 }
@@ -692,8 +692,8 @@ define internal fastcc ptr @v9fs_fid_find(ptr noundef %0, i32 %1, i32 noundef ra
   br label %.sink.split
 
 .sink.split:                                      ; preds = %29, %63, %70, %59, %42, %7, %25, %36
-  %.sink = phi ptr [ %8, %7 ], [ %8, %36 ], [ %8, %25 ], [ %43, %42 ], [ %43, %59 ], [ %43, %70 ], [ %43, %63 ], [ %8, %29 ]
-  %.ph = phi ptr [ null, %7 ], [ %.split6, %36 ], [ %.split6, %25 ], [ null, %42 ], [ %.us-phi.i, %59 ], [ %.us-phi.i, %70 ], [ null, %63 ], [ null, %29 ]
+  %.sink = phi ptr [ %8, %7 ], [ %43, %63 ], [ %8, %36 ], [ %8, %25 ], [ %43, %70 ], [ %43, %42 ], [ %43, %59 ], [ %8, %29 ]
+  %.ph = phi ptr [ null, %7 ], [ null, %63 ], [ %.split6, %36 ], [ %.split6, %25 ], [ %.us-phi.i, %70 ], [ null, %42 ], [ %.us-phi.i, %59 ], [ null, %29 ]
   tail call void @_raw_spin_unlock(ptr noundef nonnull %.sink) #6
   br label %72
 

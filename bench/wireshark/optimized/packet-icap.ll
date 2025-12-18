@@ -124,7 +124,7 @@ is_icap_message.exit:                             ; preds = %23, %20, %16, %11
   call void @col_add_str(ptr noundef %26, i32 noundef 25, ptr noundef %30)
   br label %33
 
-31:                                               ; preds = %19, %4, %14, %23
+31:                                               ; preds = %14, %23, %19, %4
   %32 = load ptr, ptr %6, align 8
   call void @col_set_str(ptr noundef %32, i32 noundef 25, ptr noundef nonnull @.str.17)
   br label %33
@@ -252,7 +252,7 @@ is_icap_message.exit84:                           ; preds = %42
   br i1 %.not159, label %.lr.ph, label %.thread, !llvm.loop !6
 
 is_icap_message.exit84.thread:                    ; preds = %78, %.thread15.sink.split.i82, %64, %58, %51, %69, %is_icap_message.exit84
-  %.2111 = phi i32 [ %.0103127, %is_icap_message.exit84 ], [ %.0103127, %69 ], [ %.0103127, %64 ], [ %.0103127, %58 ], [ %.0103127, %51 ], [ %.sink.i83, %.thread15.sink.split.i82 ], [ %.0103127, %78 ]
+  %.2111 = phi i32 [ %.0103127, %is_icap_message.exit84 ], [ %.sink.i83, %.thread15.sink.split.i82 ], [ %.0103127, %69 ], [ %.0103127, %64 ], [ %.0103127, %58 ], [ %.0103127, %51 ], [ %.0103127, %78 ]
   %80 = load i32, ptr %5, align 4
   %81 = sub i32 %80, %.072128
   %82 = call ptr @proto_tree_add_format_text(ptr noundef %.070, ptr noundef %0, i32 noundef %.072128, i32 noundef %81)

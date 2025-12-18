@@ -120,7 +120,7 @@ define hidden range(i32 -1, 2) i32 @ascend_open(ptr noundef initializes((96, 104
   br label %42
 
 42:                                               ; preds = %12, %26, %22, %20, %37
-  %.0 = phi i32 [ 1, %37 ], [ %14, %12 ], [ -1, %20 ], [ 0, %22 ], [ -1, %26 ]
+  %.0 = phi i32 [ 1, %37 ], [ %14, %12 ], [ -1, %26 ], [ -1, %20 ], [ 0, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

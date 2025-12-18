@@ -716,7 +716,7 @@ Abc_NodeRemoveDupFanins_int.exit:                 ; preds = %.lr.ph.i
   br i1 %45, label %.lr.ph48.i, label %Abc_NodeRemoveDupFanins.exit, !llvm.loop !61
 
 Abc_NodeRemoveDupFanins.exit:                     ; preds = %Abc_NodeRemoveDupFanins_int.exit, %.critedge2.i, %.preheader
-  %.0.i20 = phi i32 [ 0, %.preheader ], [ %.0.i22, %.critedge2.i ], [ %44, %Abc_NodeRemoveDupFanins_int.exit ]
+  %.0.i20 = phi i32 [ %.0.i22, %.critedge2.i ], [ 0, %.preheader ], [ %44, %Abc_NodeRemoveDupFanins_int.exit ]
   %46 = add nsw i32 %.0.i20, %.026
   %.pre = load ptr, ptr %2, align 8, !tbaa !3
   br label %47

@@ -5254,7 +5254,7 @@ lean_dec.exit95:                                  ; preds = %125, %124, %122, %l
   br label %lean_dec.exit94.backedge
 
 lean_dec.exit94.backedge:                         ; preds = %129, %133, %139, %141, %142
-  %.083.be = phi ptr [ %136, %142 ], [ %136, %139 ], [ %136, %141 ], [ %134, %133 ], [ %132, %129 ]
+  %.083.be = phi ptr [ %136, %142 ], [ %136, %141 ], [ %136, %139 ], [ %134, %133 ], [ %132, %129 ]
   br label %lean_dec.exit94
 
 133:                                              ; preds = %126
@@ -5967,7 +5967,7 @@ lean_dec.exit34:                                  ; preds = %40, %39, %37, %lean
   br label %lean_dec.exit35.backedge
 
 lean_dec.exit35.backedge:                         ; preds = %47, %51, %57, %59, %60
-  %.027.be = phi ptr [ %54, %60 ], [ %54, %57 ], [ %54, %59 ], [ %52, %51 ], [ %50, %47 ]
+  %.027.be = phi ptr [ %54, %60 ], [ %54, %59 ], [ %54, %57 ], [ %52, %51 ], [ %50, %47 ]
   br label %lean_dec.exit35
 
 51:                                               ; preds = %44
@@ -6836,7 +6836,7 @@ lean_dec.exit99:                                  ; preds = %274, %273, %271, %l
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %lean_obj_tag.exit184, %211, %213, %214, %lean_alloc_ctor.exit, %207, %98, %121, %lean_dec.exit109, %lean_dec.exit99, %278, %280, %281
-  %.6 = phi ptr [ %267, %lean_dec.exit99 ], [ %267, %281 ], [ %267, %280 ], [ %267, %278 ], [ inttoptr (i64 1 to ptr), %211 ], [ inttoptr (i64 1 to ptr), %213 ], [ inttoptr (i64 1 to ptr), %214 ], [ %216, %lean_alloc_ctor.exit ], [ inttoptr (i64 1 to ptr), %207 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit109 ], [ inttoptr (i64 1 to ptr), %121 ], [ %.086, %98 ], [ inttoptr (i64 1 to ptr), %lean_obj_tag.exit184 ]
+  %.6 = phi ptr [ %267, %lean_dec.exit99 ], [ %267, %281 ], [ %267, %280 ], [ %267, %278 ], [ %.086, %98 ], [ inttoptr (i64 1 to ptr), %211 ], [ inttoptr (i64 1 to ptr), %213 ], [ inttoptr (i64 1 to ptr), %214 ], [ %216, %lean_alloc_ctor.exit ], [ inttoptr (i64 1 to ptr), %207 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit109 ], [ inttoptr (i64 1 to ptr), %121 ], [ inttoptr (i64 1 to ptr), %lean_obj_tag.exit184 ]
   ret ptr %.6
 }
 

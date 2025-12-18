@@ -2183,7 +2183,7 @@ IsMatch.exit845.thread1080:                       ; preds = %1210, %.preheader11
   br label %IsMatch.exit834.thread
 
 IsMatch.exit834.thread:                           ; preds = %1207, %1209, %1170, %1167, %1157, %1023, %IsMatch.exit845, %IsMatch.exit845.thread1080, %1286, %1224, %1251, %1247, %1300, %1289, %1262, %1275, %1227, %FindMatchLengthWithLimit.exit955, %IsMatch.exit834.thread1065, %1133, %1088, %1078, %1101, %1089, %1146, %1136, %1111, %1123, %1087, %1069, %1156
-  %.10 = phi i32 [ 1, %1069 ], [ %.81275, %1156 ], [ 1, %1087 ], [ %.81275, %FindMatchLengthWithLimit.exit955 ], [ 1, %IsMatch.exit834.thread1065 ], [ 1, %1133 ], [ 1, %1088 ], [ 1, %1078 ], [ 1, %1101 ], [ 1, %1089 ], [ 1, %1146 ], [ 1, %1136 ], [ 1, %1111 ], [ 1, %1123 ], [ %.81275, %IsMatch.exit845 ], [ 1, %IsMatch.exit845.thread1080 ], [ 1, %1286 ], [ 1, %1224 ], [ 1, %1251 ], [ 1, %1247 ], [ 1, %1300 ], [ 1, %1289 ], [ 1, %1262 ], [ 1, %1275 ], [ 1, %1227 ], [ %.81275, %1170 ], [ %.81275, %1023 ], [ %.81275, %1167 ], [ %.81275, %1157 ], [ %.81275, %1209 ], [ %.81275, %1207 ]
+  %.10 = phi i32 [ 1, %1069 ], [ %.81275, %1156 ], [ 1, %1087 ], [ %.81275, %FindMatchLengthWithLimit.exit955 ], [ 1, %IsMatch.exit834.thread1065 ], [ 1, %1133 ], [ 1, %1088 ], [ 1, %1078 ], [ 1, %1101 ], [ 1, %1089 ], [ 1, %1146 ], [ 1, %1136 ], [ 1, %1111 ], [ 1, %1123 ], [ %.81275, %IsMatch.exit845 ], [ 1, %IsMatch.exit845.thread1080 ], [ 1, %1286 ], [ 1, %1224 ], [ 1, %1251 ], [ 1, %1247 ], [ 1, %1300 ], [ 1, %1289 ], [ 1, %1262 ], [ 1, %1275 ], [ 1, %1227 ], [ %.81275, %1170 ], [ %.81275, %1023 ], [ %.81275, %1157 ], [ %.81275, %1167 ], [ %.81275, %1209 ], [ %.81275, %1207 ]
   br i1 %1021, label %.loopexit, label %1012
 
 .loopexit:                                        ; preds = %IsMatch.exit834.thread, %993, %991
@@ -2370,11 +2370,11 @@ IsMatch.exit856.thread.sink.split:                ; preds = %IsMatch.exit856.thr
   br label %IsMatch.exit856.thread
 
 IsMatch.exit856.thread:                           ; preds = %IsMatch.exit856.thread.sink.split, %1383, %1380, %FindMatchLengthWithLimit.exit899, %1335
-  %.15 = phi i32 [ %.141296, %1383 ], [ %.141296, %1380 ], [ %.141296, %FindMatchLengthWithLimit.exit899 ], [ %.141296, %1335 ], [ 1, %IsMatch.exit856.thread.sink.split ]
+  %.15 = phi i32 [ %.141296, %1335 ], [ %.141296, %FindMatchLengthWithLimit.exit899 ], [ %.141296, %1383 ], [ %.141296, %1380 ], [ 1, %IsMatch.exit856.thread.sink.split ]
   br i1 %1344, label %.thread1086, label %1335, !llvm.loop !42
 
 .thread1086:                                      ; preds = %IsMatch.exit856.thread, %1320, %1316, %1317
-  %.13 = phi i32 [ %.7, %1316 ], [ %.7, %1317 ], [ %.7, %1320 ], [ %.15, %IsMatch.exit856.thread ]
+  %.13 = phi i32 [ %.7, %1317 ], [ %.7, %1316 ], [ %.7, %1320 ], [ %.15, %IsMatch.exit856.thread ]
   %1401 = icmp ugt i64 %3, 8
   br i1 %1401, label %1402, label %.thread1102
 
@@ -2656,7 +2656,7 @@ IsMatch.exit867.thread:                           ; preds = %1505, %1526, %1538,
   br i1 %1458, label %.thread1102, label %1449, !llvm.loop !43
 
 .thread1102:                                      ; preds = %IsMatch.exit867.thread, %1434, %1402, %1404, %1407, %1411, %1415, %._crit_edge1223, %.loopexit, %1419, %1422, %1426, %1430, %.thread1086
-  %.16 = phi i32 [ %.13, %.thread1086 ], [ %.13, %1430 ], [ %.13, %1426 ], [ %.13, %1422 ], [ %.13, %1419 ], [ %.13, %1402 ], [ %.0.lcssa, %._crit_edge1223 ], [ %.7, %.loopexit ], [ %.13, %1415 ], [ %.13, %1411 ], [ %.13, %1407 ], [ %.13, %1404 ], [ %.13, %1434 ], [ %.18, %IsMatch.exit867.thread ]
+  %.16 = phi i32 [ %.13, %.thread1086 ], [ %.13, %1430 ], [ %.13, %1426 ], [ %.13, %1422 ], [ %.13, %1419 ], [ %.13, %1402 ], [ %.13, %1404 ], [ %.0.lcssa, %._crit_edge1223 ], [ %.7, %.loopexit ], [ %.13, %1415 ], [ %.13, %1411 ], [ %.13, %1407 ], [ %.13, %1434 ], [ %.18, %IsMatch.exit867.thread ]
   ret i32 %.16
 }
 

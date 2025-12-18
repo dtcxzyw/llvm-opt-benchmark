@@ -3221,9 +3221,9 @@ _ZN2cv4Mat_IhEaSEOS1_.exit.i:                     ; preds = %504
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %..loopexit518_crit_edge.us, %.lr.ph568.split, %.lr.ph568.split.us, %._crit_edge.loopexit, %538
-  %601 = phi i32 [ %.sroa.speculated, %538 ], [ %.pre, %._crit_edge.loopexit ], [ %.sroa.speculated, %.lr.ph568.split.us ], [ %.sroa.speculated, %.lr.ph568.split ], [ %.sroa.speculated, %..loopexit518_crit_edge.us ]
-  %.0243.lcssa = phi double [ 0.000000e+00, %538 ], [ %.2245.us.us, %._crit_edge.loopexit ], [ 0.000000e+00, %.lr.ph568.split.us ], [ 0.000000e+00, %.lr.ph568.split ], [ %.4247.us, %..loopexit518_crit_edge.us ]
-  %.0237.lcssa = phi double [ 0.000000e+00, %538 ], [ %.2239.us.us, %._crit_edge.loopexit ], [ 0.000000e+00, %.lr.ph568.split.us ], [ 0.000000e+00, %.lr.ph568.split ], [ %.4241.us, %..loopexit518_crit_edge.us ]
+  %601 = phi i32 [ %.sroa.speculated, %538 ], [ %.pre, %._crit_edge.loopexit ], [ %.sroa.speculated, %.lr.ph568.split ], [ %.sroa.speculated, %.lr.ph568.split.us ], [ %.sroa.speculated, %..loopexit518_crit_edge.us ]
+  %.0243.lcssa = phi double [ 0.000000e+00, %538 ], [ %.2245.us.us, %._crit_edge.loopexit ], [ 0.000000e+00, %.lr.ph568.split ], [ 0.000000e+00, %.lr.ph568.split.us ], [ %.4247.us, %..loopexit518_crit_edge.us ]
+  %.0237.lcssa = phi double [ 0.000000e+00, %538 ], [ %.2239.us.us, %._crit_edge.loopexit ], [ 0.000000e+00, %.lr.ph568.split ], [ 0.000000e+00, %.lr.ph568.split.us ], [ %.4241.us, %..loopexit518_crit_edge.us ]
   %602 = sitofp i32 %601 to double
   %603 = fdiv double %.0237.lcssa, %602
   %604 = load ptr, ptr %251, align 8, !tbaa !150

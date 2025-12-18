@@ -525,7 +525,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapac
   br i1 %.not.i30, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByUInt32Ej.exit31, label %.lr.ph20.i27, !llvm.loop !15
 
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByUInt32Ej.exit31: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapacityEi.exit.i29, %77, %._crit_edge, %83
-  %106 = phi i16 [ %.pr, %83 ], [ %.pr, %._crit_edge ], [ %.pr, %77 ], [ %104, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapacityEi.exit.i29 ]
+  %106 = phi i16 [ %.pr, %77 ], [ %.pr, %83 ], [ %.pr, %._crit_edge ], [ %104, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapacityEi.exit.i29 ]
   %107 = icmp eq i16 %106, 0
   br i1 %107, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum9ShiftLeftEi.exit, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByUInt32Ej.exit31.thread76
 
@@ -2230,7 +2230,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZer
   br label %.preheader, !llvm.loop !35
 
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum5ClampEv.exit: ; preds = %104, %123, %.lr.ph.i32, %.critedge.thread3.i, %.critedge.i, %85, %2
-  %.0 = phi i16 [ %89, %85 ], [ %72, %.critedge.thread3.i ], [ 0, %2 ], [ %72, %.critedge.i ], [ %.1, %123 ], [ %72, %.lr.ph.i32 ], [ %.1, %104 ]
+  %.0 = phi i16 [ %89, %85 ], [ %72, %.critedge.thread3.i ], [ 0, %2 ], [ %.1, %123 ], [ %72, %.critedge.i ], [ %72, %.lr.ph.i32 ], [ %.1, %104 ]
   ret i16 %.0
 }
 

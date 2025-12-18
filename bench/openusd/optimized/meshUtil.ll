@@ -1864,9 +1864,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__L15_FanTriangulateIfEEbPT_PKS1_iiib.exit.th
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.loopexit.loopexit115.i, %.loopexit.loopexit114.i, %.loopexit.loopexit.i, %140, %128
-  %.171.i = phi i32 [ %.070.i, %128 ], [ %.070.i, %140 ], [ %226, %.loopexit.loopexit115.i ], [ %224, %.loopexit.loopexit.i ], [ %225, %.loopexit.loopexit114.i ]
-  %.367.i = phi i32 [ %.266.i, %128 ], [ %141, %140 ], [ %.266.i, %.loopexit.loopexit115.i ], [ %.266.i, %.loopexit.loopexit.i ], [ %.266.i, %.loopexit.loopexit114.i ]
-  %.4.i = phi i1 [ %.3.i, %128 ], [ %.3.i, %140 ], [ %spec.select78.i, %.loopexit.loopexit115.i ], [ %spec.select.us.i, %.loopexit.loopexit.i ], [ %spec.select.us106.i, %.loopexit.loopexit114.i ]
+  %.171.i = phi i32 [ %.070.i, %128 ], [ %.070.i, %140 ], [ %226, %.loopexit.loopexit115.i ], [ %225, %.loopexit.loopexit114.i ], [ %224, %.loopexit.loopexit.i ]
+  %.367.i = phi i32 [ %.266.i, %128 ], [ %141, %140 ], [ %.266.i, %.loopexit.loopexit115.i ], [ %.266.i, %.loopexit.loopexit114.i ], [ %.266.i, %.loopexit.loopexit.i ]
+  %.4.i = phi i1 [ %.3.i, %128 ], [ %.3.i, %140 ], [ %spec.select78.i, %.loopexit.loopexit115.i ], [ %spec.select.us106.i, %.loopexit.loopexit114.i ], [ %spec.select.us.i, %.loopexit.loopexit.i ]
   %227 = add nsw i32 %.fr.i, %.068.i
   %indvars.iv.next141.i = add nuw nsw i64 %indvars.iv140.i, 1
   br label %121, !llvm.loop !12
@@ -2284,9 +2284,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__L15_FanTriangulateINS_7GfVec2fEEEbPT_PKS2_i
   br label %.loopexit.i98
 
 .loopexit.i98:                                    ; preds = %.loopexit.loopexit115.i97, %.loopexit.loopexit114.i114, %.loopexit.loopexit.i128, %292, %280
-  %.171.i99 = phi i32 [ %.070.i71, %280 ], [ %.070.i71, %292 ], [ %375, %.loopexit.loopexit115.i97 ], [ %373, %.loopexit.loopexit.i128 ], [ %374, %.loopexit.loopexit114.i114 ]
-  %.367.i100 = phi i32 [ %.266.i73, %280 ], [ %293, %292 ], [ %.266.i73, %.loopexit.loopexit115.i97 ], [ %.266.i73, %.loopexit.loopexit.i128 ], [ %.266.i73, %.loopexit.loopexit114.i114 ]
-  %.4.i101 = phi i1 [ %.3.i74, %280 ], [ %.3.i74, %292 ], [ %spec.select78.i93, %.loopexit.loopexit115.i97 ], [ %spec.select.us.i124, %.loopexit.loopexit.i128 ], [ %spec.select.us106.i110, %.loopexit.loopexit114.i114 ]
+  %.171.i99 = phi i32 [ %.070.i71, %280 ], [ %.070.i71, %292 ], [ %375, %.loopexit.loopexit115.i97 ], [ %374, %.loopexit.loopexit114.i114 ], [ %373, %.loopexit.loopexit.i128 ]
+  %.367.i100 = phi i32 [ %.266.i73, %280 ], [ %293, %292 ], [ %.266.i73, %.loopexit.loopexit115.i97 ], [ %.266.i73, %.loopexit.loopexit114.i114 ], [ %.266.i73, %.loopexit.loopexit.i128 ]
+  %.4.i101 = phi i1 [ %.3.i74, %280 ], [ %.3.i74, %292 ], [ %spec.select78.i93, %.loopexit.loopexit115.i97 ], [ %spec.select.us106.i110, %.loopexit.loopexit114.i114 ], [ %spec.select.us.i124, %.loopexit.loopexit.i128 ]
   %376 = add nsw i32 %.fr.i81, %.068.i72
   %indvars.iv.next141.i102 = add nuw nsw i64 %indvars.iv140.i70, 1
   br label %273, !llvm.loop !15
@@ -2704,9 +2704,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__L15_FanTriangulateINS_7GfVec3fEEEbPT_PKS2_i
   br label %.loopexit.i164
 
 .loopexit.i164:                                   ; preds = %.loopexit.loopexit118.i, %.loopexit.loopexit117.i, %.loopexit.loopexit.i171, %441, %429
-  %.171.i165 = phi i32 [ %.070.i152, %429 ], [ %.070.i152, %441 ], [ %511, %.loopexit.loopexit118.i ], [ %509, %.loopexit.loopexit.i171 ], [ %510, %.loopexit.loopexit117.i ]
-  %.367.i166 = phi i32 [ %.266.i154, %429 ], [ %442, %441 ], [ %.266.i154, %.loopexit.loopexit118.i ], [ %.266.i154, %.loopexit.loopexit.i171 ], [ %.266.i154, %.loopexit.loopexit117.i ]
-  %.4.i167 = phi i1 [ %.3.i155, %429 ], [ %.3.i155, %441 ], [ %spec.select81.i, %.loopexit.loopexit118.i ], [ %spec.select.us.i170, %.loopexit.loopexit.i171 ], [ %spec.select.us109.i, %.loopexit.loopexit117.i ]
+  %.171.i165 = phi i32 [ %.070.i152, %429 ], [ %.070.i152, %441 ], [ %511, %.loopexit.loopexit118.i ], [ %510, %.loopexit.loopexit117.i ], [ %509, %.loopexit.loopexit.i171 ]
+  %.367.i166 = phi i32 [ %.266.i154, %429 ], [ %442, %441 ], [ %.266.i154, %.loopexit.loopexit118.i ], [ %.266.i154, %.loopexit.loopexit117.i ], [ %.266.i154, %.loopexit.loopexit.i171 ]
+  %.4.i167 = phi i1 [ %.3.i155, %429 ], [ %.3.i155, %441 ], [ %spec.select81.i, %.loopexit.loopexit118.i ], [ %spec.select.us109.i, %.loopexit.loopexit117.i ], [ %spec.select.us.i170, %.loopexit.loopexit.i171 ]
   %512 = add nsw i32 %.fr.i159, %.068.i153
   %indvars.iv.next144.i = add nuw nsw i64 %indvars.iv143.i, 1
   br label %422, !llvm.loop !18
@@ -3124,9 +3124,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__L15_FanTriangulateINS_7GfVec4fEEEbPT_PKS2_i
   br label %.loopexit.i226
 
 .loopexit.i226:                                   ; preds = %.loopexit.loopexit118.i225, %.loopexit.loopexit117.i242, %.loopexit.loopexit.i256, %577, %565
-  %.171.i227 = phi i32 [ %.070.i198, %565 ], [ %.070.i198, %577 ], [ %647, %.loopexit.loopexit118.i225 ], [ %645, %.loopexit.loopexit.i256 ], [ %646, %.loopexit.loopexit117.i242 ]
-  %.367.i228 = phi i32 [ %.266.i200, %565 ], [ %578, %577 ], [ %.266.i200, %.loopexit.loopexit118.i225 ], [ %.266.i200, %.loopexit.loopexit.i256 ], [ %.266.i200, %.loopexit.loopexit117.i242 ]
-  %.4.i229 = phi i1 [ %.3.i201, %565 ], [ %.3.i201, %577 ], [ %spec.select81.i221, %.loopexit.loopexit118.i225 ], [ %spec.select.us.i252, %.loopexit.loopexit.i256 ], [ %spec.select.us109.i238, %.loopexit.loopexit117.i242 ]
+  %.171.i227 = phi i32 [ %.070.i198, %565 ], [ %.070.i198, %577 ], [ %647, %.loopexit.loopexit118.i225 ], [ %646, %.loopexit.loopexit117.i242 ], [ %645, %.loopexit.loopexit.i256 ]
+  %.367.i228 = phi i32 [ %.266.i200, %565 ], [ %578, %577 ], [ %.266.i200, %.loopexit.loopexit118.i225 ], [ %.266.i200, %.loopexit.loopexit117.i242 ], [ %.266.i200, %.loopexit.loopexit.i256 ]
+  %.4.i229 = phi i1 [ %.3.i201, %565 ], [ %.3.i201, %577 ], [ %spec.select81.i221, %.loopexit.loopexit118.i225 ], [ %spec.select.us109.i238, %.loopexit.loopexit117.i242 ], [ %spec.select.us.i252, %.loopexit.loopexit.i256 ]
   %648 = add nsw i32 %.fr.i209, %.068.i199
   %indvars.iv.next144.i230 = add nuw nsw i64 %indvars.iv143.i197, 1
   br label %558, !llvm.loop !21
@@ -3544,9 +3544,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__L15_FanTriangulateIdEEbPT_PKS1_iiib.exit.th
   br label %.loopexit.i310
 
 .loopexit.i310:                                   ; preds = %.loopexit.loopexit115.i309, %.loopexit.loopexit114.i326, %.loopexit.loopexit.i340, %713, %701
-  %.171.i311 = phi i32 [ %.070.i282, %701 ], [ %.070.i282, %713 ], [ %796, %.loopexit.loopexit115.i309 ], [ %794, %.loopexit.loopexit.i340 ], [ %795, %.loopexit.loopexit114.i326 ]
-  %.367.i312 = phi i32 [ %.266.i284, %701 ], [ %714, %713 ], [ %.266.i284, %.loopexit.loopexit115.i309 ], [ %.266.i284, %.loopexit.loopexit.i340 ], [ %.266.i284, %.loopexit.loopexit114.i326 ]
-  %.4.i313 = phi i1 [ %.3.i285, %701 ], [ %.3.i285, %713 ], [ %spec.select78.i305, %.loopexit.loopexit115.i309 ], [ %spec.select.us.i336, %.loopexit.loopexit.i340 ], [ %spec.select.us106.i322, %.loopexit.loopexit114.i326 ]
+  %.171.i311 = phi i32 [ %.070.i282, %701 ], [ %.070.i282, %713 ], [ %796, %.loopexit.loopexit115.i309 ], [ %795, %.loopexit.loopexit114.i326 ], [ %794, %.loopexit.loopexit.i340 ]
+  %.367.i312 = phi i32 [ %.266.i284, %701 ], [ %714, %713 ], [ %.266.i284, %.loopexit.loopexit115.i309 ], [ %.266.i284, %.loopexit.loopexit114.i326 ], [ %.266.i284, %.loopexit.loopexit.i340 ]
+  %.4.i313 = phi i1 [ %.3.i285, %701 ], [ %.3.i285, %713 ], [ %spec.select78.i305, %.loopexit.loopexit115.i309 ], [ %spec.select.us106.i322, %.loopexit.loopexit114.i326 ], [ %spec.select.us.i336, %.loopexit.loopexit.i340 ]
   %797 = add nsw i32 %.fr.i293, %.068.i283
   %indvars.iv.next141.i314 = add nuw nsw i64 %indvars.iv140.i281, 1
   br label %694, !llvm.loop !24
@@ -3964,9 +3964,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__L15_FanTriangulateINS_7GfVec2dEEEbPT_PKS2_i
   br label %.loopexit.i401
 
 .loopexit.i401:                                   ; preds = %.loopexit.loopexit118.i400, %.loopexit.loopexit117.i417, %.loopexit.loopexit.i431, %862, %850
-  %.171.i402 = phi i32 [ %.070.i373, %850 ], [ %.070.i373, %862 ], [ %932, %.loopexit.loopexit118.i400 ], [ %930, %.loopexit.loopexit.i431 ], [ %931, %.loopexit.loopexit117.i417 ]
-  %.367.i403 = phi i32 [ %.266.i375, %850 ], [ %863, %862 ], [ %.266.i375, %.loopexit.loopexit118.i400 ], [ %.266.i375, %.loopexit.loopexit.i431 ], [ %.266.i375, %.loopexit.loopexit117.i417 ]
-  %.4.i404 = phi i1 [ %.3.i376, %850 ], [ %.3.i376, %862 ], [ %spec.select81.i396, %.loopexit.loopexit118.i400 ], [ %spec.select.us.i427, %.loopexit.loopexit.i431 ], [ %spec.select.us109.i413, %.loopexit.loopexit117.i417 ]
+  %.171.i402 = phi i32 [ %.070.i373, %850 ], [ %.070.i373, %862 ], [ %932, %.loopexit.loopexit118.i400 ], [ %931, %.loopexit.loopexit117.i417 ], [ %930, %.loopexit.loopexit.i431 ]
+  %.367.i403 = phi i32 [ %.266.i375, %850 ], [ %863, %862 ], [ %.266.i375, %.loopexit.loopexit118.i400 ], [ %.266.i375, %.loopexit.loopexit117.i417 ], [ %.266.i375, %.loopexit.loopexit.i431 ]
+  %.4.i404 = phi i1 [ %.3.i376, %850 ], [ %.3.i376, %862 ], [ %spec.select81.i396, %.loopexit.loopexit118.i400 ], [ %spec.select.us109.i413, %.loopexit.loopexit117.i417 ], [ %spec.select.us.i427, %.loopexit.loopexit.i431 ]
   %933 = add nsw i32 %.fr.i384, %.068.i374
   %indvars.iv.next144.i405 = add nuw nsw i64 %indvars.iv143.i372, 1
   br label %843, !llvm.loop !27
@@ -4384,9 +4384,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__L15_FanTriangulateINS_7GfVec3dEEEbPT_PKS2_i
   br label %.loopexit.i489
 
 .loopexit.i489:                                   ; preds = %.loopexit.loopexit118.i488, %.loopexit.loopexit117.i505, %.loopexit.loopexit.i519, %998, %986
-  %.171.i490 = phi i32 [ %.070.i461, %986 ], [ %.070.i461, %998 ], [ %1068, %.loopexit.loopexit118.i488 ], [ %1066, %.loopexit.loopexit.i519 ], [ %1067, %.loopexit.loopexit117.i505 ]
-  %.367.i491 = phi i32 [ %.266.i463, %986 ], [ %999, %998 ], [ %.266.i463, %.loopexit.loopexit118.i488 ], [ %.266.i463, %.loopexit.loopexit.i519 ], [ %.266.i463, %.loopexit.loopexit117.i505 ]
-  %.4.i492 = phi i1 [ %.3.i464, %986 ], [ %.3.i464, %998 ], [ %spec.select81.i484, %.loopexit.loopexit118.i488 ], [ %spec.select.us.i515, %.loopexit.loopexit.i519 ], [ %spec.select.us109.i501, %.loopexit.loopexit117.i505 ]
+  %.171.i490 = phi i32 [ %.070.i461, %986 ], [ %.070.i461, %998 ], [ %1068, %.loopexit.loopexit118.i488 ], [ %1067, %.loopexit.loopexit117.i505 ], [ %1066, %.loopexit.loopexit.i519 ]
+  %.367.i491 = phi i32 [ %.266.i463, %986 ], [ %999, %998 ], [ %.266.i463, %.loopexit.loopexit118.i488 ], [ %.266.i463, %.loopexit.loopexit117.i505 ], [ %.266.i463, %.loopexit.loopexit.i519 ]
+  %.4.i492 = phi i1 [ %.3.i464, %986 ], [ %.3.i464, %998 ], [ %spec.select81.i484, %.loopexit.loopexit118.i488 ], [ %spec.select.us109.i501, %.loopexit.loopexit117.i505 ], [ %spec.select.us.i515, %.loopexit.loopexit.i519 ]
   %1069 = add nsw i32 %.fr.i472, %.068.i462
   %indvars.iv.next144.i493 = add nuw nsw i64 %indvars.iv143.i460, 1
   br label %979, !llvm.loop !30
@@ -4804,9 +4804,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__L15_FanTriangulateINS_7GfVec4dEEEbPT_PKS2_i
   br label %.loopexit.i577
 
 .loopexit.i577:                                   ; preds = %.loopexit.loopexit118.i576, %.loopexit.loopexit117.i593, %.loopexit.loopexit.i607, %1134, %1122
-  %.171.i578 = phi i32 [ %.070.i549, %1122 ], [ %.070.i549, %1134 ], [ %1204, %.loopexit.loopexit118.i576 ], [ %1202, %.loopexit.loopexit.i607 ], [ %1203, %.loopexit.loopexit117.i593 ]
-  %.367.i579 = phi i32 [ %.266.i551, %1122 ], [ %1135, %1134 ], [ %.266.i551, %.loopexit.loopexit118.i576 ], [ %.266.i551, %.loopexit.loopexit.i607 ], [ %.266.i551, %.loopexit.loopexit117.i593 ]
-  %.4.i580 = phi i1 [ %.3.i552, %1122 ], [ %.3.i552, %1134 ], [ %spec.select81.i572, %.loopexit.loopexit118.i576 ], [ %spec.select.us.i603, %.loopexit.loopexit.i607 ], [ %spec.select.us109.i589, %.loopexit.loopexit117.i593 ]
+  %.171.i578 = phi i32 [ %.070.i549, %1122 ], [ %.070.i549, %1134 ], [ %1204, %.loopexit.loopexit118.i576 ], [ %1203, %.loopexit.loopexit117.i593 ], [ %1202, %.loopexit.loopexit.i607 ]
+  %.367.i579 = phi i32 [ %.266.i551, %1122 ], [ %1135, %1134 ], [ %.266.i551, %.loopexit.loopexit118.i576 ], [ %.266.i551, %.loopexit.loopexit117.i593 ], [ %.266.i551, %.loopexit.loopexit.i607 ]
+  %.4.i580 = phi i1 [ %.3.i552, %1122 ], [ %.3.i552, %1134 ], [ %spec.select81.i572, %.loopexit.loopexit118.i576 ], [ %spec.select.us109.i589, %.loopexit.loopexit117.i593 ], [ %spec.select.us.i603, %.loopexit.loopexit.i607 ]
   %1205 = add nsw i32 %.fr.i560, %.068.i550
   %indvars.iv.next144.i581 = add nuw nsw i64 %indvars.iv143.i548, 1
   br label %1115, !llvm.loop !33
@@ -6004,12 +6004,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__20HdMeshTriQuadBuilder12EmitQuadFaceERKNS_7
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph249.split.preheader, %.lr.ph249.split.us.preheader, %_ZN32pxrInternal_v0_24__pxrReserved__20HdMeshTriQuadBuilder12EmitQuadFaceERKNS_7GfVec4iE.exit, %181, %._crit_edge, %126, %116
-  %230 = phi i8 [ %112, %116 ], [ %112, %126 ], [ 1, %_ZN32pxrInternal_v0_24__pxrReserved__20HdMeshTriQuadBuilder12EmitQuadFaceERKNS_7GfVec4iE.exit ], [ %112, %181 ], [ %112, %._crit_edge ], [ 1, %.lr.ph249.split.preheader ], [ 1, %.lr.ph249.split.us.preheader ]
-  %.sroa.0193.1 = phi ptr [ %.sroa.0193.0253, %116 ], [ %.sroa.0193.0253, %126 ], [ %148, %_ZN32pxrInternal_v0_24__pxrReserved__20HdMeshTriQuadBuilder12EmitQuadFaceERKNS_7GfVec4iE.exit ], [ %168, %181 ], [ %195, %._crit_edge ], [ %scevgep281, %.lr.ph249.split.preheader ], [ %scevgep285, %.lr.ph249.split.us.preheader ]
-  %.1148 = phi i32 [ %.0147254, %116 ], [ %.0147254, %126 ], [ %.0147254, %_ZN32pxrInternal_v0_24__pxrReserved__20HdMeshTriQuadBuilder12EmitQuadFaceERKNS_7GfVec4iE.exit ], [ %.0147254, %181 ], [ %229, %._crit_edge ], [ %.0147254, %.lr.ph249.split.preheader ], [ %.0147254, %.lr.ph249.split.us.preheader ]
-  %.1145 = phi i32 [ %.0144257, %116 ], [ %.0144257, %126 ], [ %.0144257, %_ZN32pxrInternal_v0_24__pxrReserved__20HdMeshTriQuadBuilder12EmitQuadFaceERKNS_7GfVec4iE.exit ], [ %182, %181 ], [ %227, %._crit_edge ], [ %.0144257, %.lr.ph249.split.preheader ], [ %.0144257, %.lr.ph249.split.us.preheader ]
-  %.1143 = phi i32 [ %117, %116 ], [ %128, %126 ], [ %130, %_ZN32pxrInternal_v0_24__pxrReserved__20HdMeshTriQuadBuilder12EmitQuadFaceERKNS_7GfVec4iE.exit ], [ %130, %181 ], [ %130, %._crit_edge ], [ %130, %.lr.ph249.split.preheader ], [ %130, %.lr.ph249.split.us.preheader ]
-  %.1 = phi i32 [ %.0139260, %116 ], [ %127, %126 ], [ %.0139260, %_ZN32pxrInternal_v0_24__pxrReserved__20HdMeshTriQuadBuilder12EmitQuadFaceERKNS_7GfVec4iE.exit ], [ %.0139260, %181 ], [ %.0139260, %._crit_edge ], [ %.0139260, %.lr.ph249.split.preheader ], [ %.0139260, %.lr.ph249.split.us.preheader ]
+  %230 = phi i8 [ %112, %116 ], [ %112, %126 ], [ 1, %_ZN32pxrInternal_v0_24__pxrReserved__20HdMeshTriQuadBuilder12EmitQuadFaceERKNS_7GfVec4iE.exit ], [ %112, %._crit_edge ], [ %112, %181 ], [ 1, %.lr.ph249.split.preheader ], [ 1, %.lr.ph249.split.us.preheader ]
+  %.sroa.0193.1 = phi ptr [ %.sroa.0193.0253, %116 ], [ %.sroa.0193.0253, %126 ], [ %148, %_ZN32pxrInternal_v0_24__pxrReserved__20HdMeshTriQuadBuilder12EmitQuadFaceERKNS_7GfVec4iE.exit ], [ %195, %._crit_edge ], [ %168, %181 ], [ %scevgep281, %.lr.ph249.split.preheader ], [ %scevgep285, %.lr.ph249.split.us.preheader ]
+  %.1148 = phi i32 [ %.0147254, %116 ], [ %.0147254, %126 ], [ %.0147254, %_ZN32pxrInternal_v0_24__pxrReserved__20HdMeshTriQuadBuilder12EmitQuadFaceERKNS_7GfVec4iE.exit ], [ %229, %._crit_edge ], [ %.0147254, %181 ], [ %.0147254, %.lr.ph249.split.preheader ], [ %.0147254, %.lr.ph249.split.us.preheader ]
+  %.1145 = phi i32 [ %.0144257, %116 ], [ %.0144257, %126 ], [ %.0144257, %_ZN32pxrInternal_v0_24__pxrReserved__20HdMeshTriQuadBuilder12EmitQuadFaceERKNS_7GfVec4iE.exit ], [ %227, %._crit_edge ], [ %182, %181 ], [ %.0144257, %.lr.ph249.split.preheader ], [ %.0144257, %.lr.ph249.split.us.preheader ]
+  %.1143 = phi i32 [ %117, %116 ], [ %128, %126 ], [ %130, %_ZN32pxrInternal_v0_24__pxrReserved__20HdMeshTriQuadBuilder12EmitQuadFaceERKNS_7GfVec4iE.exit ], [ %130, %._crit_edge ], [ %130, %181 ], [ %130, %.lr.ph249.split.preheader ], [ %130, %.lr.ph249.split.us.preheader ]
+  %.1 = phi i32 [ %.0139260, %116 ], [ %127, %126 ], [ %.0139260, %_ZN32pxrInternal_v0_24__pxrReserved__20HdMeshTriQuadBuilder12EmitQuadFaceERKNS_7GfVec4iE.exit ], [ %.0139260, %._crit_edge ], [ %.0139260, %181 ], [ %.0139260, %.lr.ph249.split.preheader ], [ %.0139260, %.lr.ph249.split.us.preheader ]
   %.1141 = add nsw i32 %114, %.0140259
   %indvars.iv.next287 = add nuw nsw i64 %indvars.iv286, 1
   %exitcond289.not = icmp eq i64 %indvars.iv.next287, %wide.trip.count288
@@ -8758,9 +8758,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_24HdTokens
   br label %.loopexit195.i
 
 .loopexit195.i:                                   ; preds = %.loopexit195.loopexit241.i, %.loopexit195.loopexit.i, %208, %190, %163, %141, %129
-  %.1186.i = phi i32 [ %.0185.i, %129 ], [ %.0185.i, %141 ], [ %164, %163 ], [ %191, %190 ], [ %209, %208 ], [ %339, %.loopexit195.loopexit241.i ], [ %338, %.loopexit195.loopexit.i ]
-  %.3180.i = phi i32 [ %.2179.i, %129 ], [ %142, %141 ], [ %.2179.i, %163 ], [ %.2179.i, %190 ], [ %.2179.i, %208 ], [ %.2179.i, %.loopexit195.loopexit241.i ], [ %.2179.i, %.loopexit195.loopexit.i ]
-  %.4.i = phi i1 [ %.3.i, %129 ], [ %.3.i, %141 ], [ true, %163 ], [ %.3.i, %190 ], [ %.3.i, %208 ], [ %.3.i, %.loopexit195.loopexit241.i ], [ %.3.i, %.loopexit195.loopexit.i ]
+  %.1186.i = phi i32 [ %.0185.i, %129 ], [ %.0185.i, %141 ], [ %164, %163 ], [ %191, %190 ], [ %209, %208 ], [ %338, %.loopexit195.loopexit.i ], [ %339, %.loopexit195.loopexit241.i ]
+  %.3180.i = phi i32 [ %.2179.i, %129 ], [ %142, %141 ], [ %.2179.i, %163 ], [ %.2179.i, %190 ], [ %.2179.i, %208 ], [ %.2179.i, %.loopexit195.loopexit.i ], [ %.2179.i, %.loopexit195.loopexit241.i ]
+  %.4.i = phi i1 [ %.3.i, %129 ], [ %.3.i, %141 ], [ true, %163 ], [ %.3.i, %190 ], [ %.3.i, %208 ], [ %.3.i, %.loopexit195.loopexit.i ], [ %.3.i, %.loopexit195.loopexit241.i ]
   %340 = add nsw i32 %130, %.0182.i
   br label %.loopexit.i
 
@@ -9423,9 +9423,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__L25_QuadrangulateFaceVaryingIfEEvRKNS_7SdfP
   br label %.loopexit281.i
 
 .loopexit281.i:                                   ; preds = %.loopexit281.loopexit329.i, %.loopexit281.loopexit.i, %471, %453, %429, %407, %395
-  %.1180.i = phi i32 [ %.0179.i, %395 ], [ %.0179.i, %407 ], [ %430, %429 ], [ %454, %453 ], [ %472, %471 ], [ %638, %.loopexit281.loopexit329.i ], [ %637, %.loopexit281.loopexit.i ]
-  %.3173.i = phi i32 [ %.2172.i, %395 ], [ %408, %407 ], [ %.2172.i, %429 ], [ %.2172.i, %453 ], [ %.2172.i, %471 ], [ %.2172.i, %.loopexit281.loopexit329.i ], [ %.2172.i, %.loopexit281.loopexit.i ]
-  %.4.i80 = phi i1 [ %.3.i69, %395 ], [ %.3.i69, %407 ], [ true, %429 ], [ %.3.i69, %453 ], [ %.3.i69, %471 ], [ %.3.i69, %.loopexit281.loopexit329.i ], [ %.3.i69, %.loopexit281.loopexit.i ]
+  %.1180.i = phi i32 [ %.0179.i, %395 ], [ %.0179.i, %407 ], [ %430, %429 ], [ %454, %453 ], [ %472, %471 ], [ %637, %.loopexit281.loopexit.i ], [ %638, %.loopexit281.loopexit329.i ]
+  %.3173.i = phi i32 [ %.2172.i, %395 ], [ %408, %407 ], [ %.2172.i, %429 ], [ %.2172.i, %453 ], [ %.2172.i, %471 ], [ %.2172.i, %.loopexit281.loopexit.i ], [ %.2172.i, %.loopexit281.loopexit329.i ]
+  %.4.i80 = phi i1 [ %.3.i69, %395 ], [ %.3.i69, %407 ], [ true, %429 ], [ %.3.i69, %453 ], [ %.3.i69, %471 ], [ %.3.i69, %.loopexit281.loopexit.i ], [ %.3.i69, %.loopexit281.loopexit329.i ]
   %639 = add nsw i32 %396, %.0186.i
   br label %.loopexit.i81
 
@@ -10155,9 +10155,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__L25_QuadrangulateFaceVaryingINS_7GfVec2fEEE
   br label %.loopexit404.i
 
 .loopexit404.i:                                   ; preds = %.loopexit404.loopexit454.i, %.loopexit404.loopexit.i, %764, %749, %728, %706, %694
-  %.1238.i = phi i32 [ %.0237.i, %694 ], [ %.0237.i, %706 ], [ %729, %728 ], [ %750, %749 ], [ %765, %764 ], [ %953, %.loopexit404.loopexit454.i ], [ %952, %.loopexit404.loopexit.i ]
-  %.3234.i = phi i32 [ %.2233.i, %694 ], [ %707, %706 ], [ %.2233.i, %728 ], [ %.2233.i, %749 ], [ %.2233.i, %764 ], [ %.2233.i, %.loopexit404.loopexit454.i ], [ %.2233.i, %.loopexit404.loopexit.i ]
-  %.4.i116 = phi i1 [ %.3.i103, %694 ], [ %.3.i103, %706 ], [ true, %728 ], [ %.3.i103, %749 ], [ %.3.i103, %764 ], [ %.3.i103, %.loopexit404.loopexit454.i ], [ %.3.i103, %.loopexit404.loopexit.i ]
+  %.1238.i = phi i32 [ %.0237.i, %694 ], [ %.0237.i, %706 ], [ %729, %728 ], [ %750, %749 ], [ %765, %764 ], [ %952, %.loopexit404.loopexit.i ], [ %953, %.loopexit404.loopexit454.i ]
+  %.3234.i = phi i32 [ %.2233.i, %694 ], [ %707, %706 ], [ %.2233.i, %728 ], [ %.2233.i, %749 ], [ %.2233.i, %764 ], [ %.2233.i, %.loopexit404.loopexit.i ], [ %.2233.i, %.loopexit404.loopexit454.i ]
+  %.4.i116 = phi i1 [ %.3.i103, %694 ], [ %.3.i103, %706 ], [ true, %728 ], [ %.3.i103, %749 ], [ %.3.i103, %764 ], [ %.3.i103, %.loopexit404.loopexit.i ], [ %.3.i103, %.loopexit404.loopexit454.i ]
   %954 = add nsw i32 %695, %.0244.i
   br label %.loopexit.i117
 
@@ -10912,9 +10912,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__L25_QuadrangulateFaceVaryingINS_7GfVec3fEEE
   br label %.loopexit416.i
 
 .loopexit416.i:                                   ; preds = %.loopexit416.loopexit468.i, %.loopexit416.loopexit.i, %1079, %1064, %1043, %1021, %1009
-  %.1193.i = phi i32 [ %.0192.i, %1009 ], [ %.0192.i, %1021 ], [ %1044, %1043 ], [ %1065, %1064 ], [ %1080, %1079 ], [ %1296, %.loopexit416.loopexit468.i ], [ %1295, %.loopexit416.loopexit.i ]
-  %.3188.i162 = phi i32 [ %.2187.i, %1009 ], [ %1022, %1021 ], [ %.2187.i, %1043 ], [ %.2187.i, %1064 ], [ %.2187.i, %1079 ], [ %.2187.i, %.loopexit416.loopexit468.i ], [ %.2187.i, %.loopexit416.loopexit.i ]
-  %.4.i163 = phi i1 [ %.3.i139, %1009 ], [ %.3.i139, %1021 ], [ true, %1043 ], [ %.3.i139, %1064 ], [ %.3.i139, %1079 ], [ %.3.i139, %.loopexit416.loopexit468.i ], [ %.3.i139, %.loopexit416.loopexit.i ]
+  %.1193.i = phi i32 [ %.0192.i, %1009 ], [ %.0192.i, %1021 ], [ %1044, %1043 ], [ %1065, %1064 ], [ %1080, %1079 ], [ %1295, %.loopexit416.loopexit.i ], [ %1296, %.loopexit416.loopexit468.i ]
+  %.3188.i162 = phi i32 [ %.2187.i, %1009 ], [ %1022, %1021 ], [ %.2187.i, %1043 ], [ %.2187.i, %1064 ], [ %.2187.i, %1079 ], [ %.2187.i, %.loopexit416.loopexit.i ], [ %.2187.i, %.loopexit416.loopexit468.i ]
+  %.4.i163 = phi i1 [ %.3.i139, %1009 ], [ %.3.i139, %1021 ], [ true, %1043 ], [ %.3.i139, %1064 ], [ %.3.i139, %1079 ], [ %.3.i139, %.loopexit416.loopexit.i ], [ %.3.i139, %.loopexit416.loopexit468.i ]
   %1297 = add nsw i32 %1010, %.0199.i
   br label %.loopexit.i164
 
@@ -11499,9 +11499,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__L25_QuadrangulateFaceVaryingINS_7GfVec4fEEE
   br label %.loopexit195.i232
 
 .loopexit195.i232:                                ; preds = %.loopexit195.loopexit241.i231, %.loopexit195.loopexit.i253, %1431, %1413, %1386, %1364, %1352
-  %.1186.i233 = phi i32 [ %.0185.i193, %1352 ], [ %.0185.i193, %1364 ], [ %1387, %1386 ], [ %1414, %1413 ], [ %1432, %1431 ], [ %1562, %.loopexit195.loopexit241.i231 ], [ %1561, %.loopexit195.loopexit.i253 ]
-  %.3180.i234 = phi i32 [ %.2179.i195, %1352 ], [ %1365, %1364 ], [ %.2179.i195, %1386 ], [ %.2179.i195, %1413 ], [ %.2179.i195, %1431 ], [ %.2179.i195, %.loopexit195.loopexit241.i231 ], [ %.2179.i195, %.loopexit195.loopexit.i253 ]
-  %.4.i235 = phi i1 [ %.3.i196, %1352 ], [ %.3.i196, %1364 ], [ true, %1386 ], [ %.3.i196, %1413 ], [ %.3.i196, %1431 ], [ %.3.i196, %.loopexit195.loopexit241.i231 ], [ %.3.i196, %.loopexit195.loopexit.i253 ]
+  %.1186.i233 = phi i32 [ %.0185.i193, %1352 ], [ %.0185.i193, %1364 ], [ %1387, %1386 ], [ %1414, %1413 ], [ %1432, %1431 ], [ %1561, %.loopexit195.loopexit.i253 ], [ %1562, %.loopexit195.loopexit241.i231 ]
+  %.3180.i234 = phi i32 [ %.2179.i195, %1352 ], [ %1365, %1364 ], [ %.2179.i195, %1386 ], [ %.2179.i195, %1413 ], [ %.2179.i195, %1431 ], [ %.2179.i195, %.loopexit195.loopexit.i253 ], [ %.2179.i195, %.loopexit195.loopexit241.i231 ]
+  %.4.i235 = phi i1 [ %.3.i196, %1352 ], [ %.3.i196, %1364 ], [ true, %1386 ], [ %.3.i196, %1413 ], [ %.3.i196, %1431 ], [ %.3.i196, %.loopexit195.loopexit.i253 ], [ %.3.i196, %.loopexit195.loopexit241.i231 ]
   %1563 = add nsw i32 %1353, %.0182.i194
   br label %.loopexit.i236
 
@@ -12138,9 +12138,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__L25_QuadrangulateFaceVaryingIdEEvRKNS_7SdfP
   br label %.loopexit300.i
 
 .loopexit300.i:                                   ; preds = %.loopexit300.loopexit348.i, %.loopexit300.loopexit.i, %1688, %1673, %1652, %1630, %1618
-  %.1193.i303 = phi i32 [ %.0192.i286, %1618 ], [ %.0192.i286, %1630 ], [ %1653, %1652 ], [ %1674, %1673 ], [ %1689, %1688 ], [ %1845, %.loopexit300.loopexit348.i ], [ %1844, %.loopexit300.loopexit.i ]
-  %.3188.i304 = phi i32 [ %.2187.i287, %1618 ], [ %1631, %1630 ], [ %.2187.i287, %1652 ], [ %.2187.i287, %1673 ], [ %.2187.i287, %1688 ], [ %.2187.i287, %.loopexit300.loopexit348.i ], [ %.2187.i287, %.loopexit300.loopexit.i ]
-  %.4.i305 = phi i1 [ %.3.i288, %1618 ], [ %.3.i288, %1630 ], [ true, %1652 ], [ %.3.i288, %1673 ], [ %.3.i288, %1688 ], [ %.3.i288, %.loopexit300.loopexit348.i ], [ %.3.i288, %.loopexit300.loopexit.i ]
+  %.1193.i303 = phi i32 [ %.0192.i286, %1618 ], [ %.0192.i286, %1630 ], [ %1653, %1652 ], [ %1674, %1673 ], [ %1689, %1688 ], [ %1844, %.loopexit300.loopexit.i ], [ %1845, %.loopexit300.loopexit348.i ]
+  %.3188.i304 = phi i32 [ %.2187.i287, %1618 ], [ %1631, %1630 ], [ %.2187.i287, %1652 ], [ %.2187.i287, %1673 ], [ %.2187.i287, %1688 ], [ %.2187.i287, %.loopexit300.loopexit.i ], [ %.2187.i287, %.loopexit300.loopexit348.i ]
+  %.4.i305 = phi i1 [ %.3.i288, %1618 ], [ %.3.i288, %1630 ], [ true, %1652 ], [ %.3.i288, %1673 ], [ %.3.i288, %1688 ], [ %.3.i288, %.loopexit300.loopexit.i ], [ %.3.i288, %.loopexit300.loopexit348.i ]
   %1846 = add nsw i32 %1619, %.0199.i285
   br label %.loopexit.i306
 
@@ -12836,9 +12836,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__L25_QuadrangulateFaceVaryingINS_7GfVec2dEEE
   br label %.loopexit360.i
 
 .loopexit360.i:                                   ; preds = %.loopexit360.loopexit410.i, %.loopexit360.loopexit.i, %1971, %1956, %1935, %1913, %1901
-  %.1171.i354 = phi i32 [ %.0170.i, %1901 ], [ %.0170.i, %1913 ], [ %1936, %1935 ], [ %1957, %1956 ], [ %1972, %1971 ], [ %2154, %.loopexit360.loopexit410.i ], [ %2153, %.loopexit360.loopexit.i ]
-  %.3165.i = phi i32 [ %.2164.i, %1901 ], [ %1914, %1913 ], [ %.2164.i, %1935 ], [ %.2164.i, %1956 ], [ %.2164.i, %1971 ], [ %.2164.i, %.loopexit360.loopexit410.i ], [ %.2164.i, %.loopexit360.loopexit.i ]
-  %.4.i355 = phi i1 [ %.3.i338, %1901 ], [ %.3.i338, %1913 ], [ true, %1935 ], [ %.3.i338, %1956 ], [ %.3.i338, %1971 ], [ %.3.i338, %.loopexit360.loopexit410.i ], [ %.3.i338, %.loopexit360.loopexit.i ]
+  %.1171.i354 = phi i32 [ %.0170.i, %1901 ], [ %.0170.i, %1913 ], [ %1936, %1935 ], [ %1957, %1956 ], [ %1972, %1971 ], [ %2153, %.loopexit360.loopexit.i ], [ %2154, %.loopexit360.loopexit410.i ]
+  %.3165.i = phi i32 [ %.2164.i, %1901 ], [ %1914, %1913 ], [ %.2164.i, %1935 ], [ %.2164.i, %1956 ], [ %.2164.i, %1971 ], [ %.2164.i, %.loopexit360.loopexit.i ], [ %.2164.i, %.loopexit360.loopexit410.i ]
+  %.4.i355 = phi i1 [ %.3.i338, %1901 ], [ %.3.i338, %1913 ], [ true, %1935 ], [ %.3.i338, %1956 ], [ %.3.i338, %1971 ], [ %.3.i338, %.loopexit360.loopexit.i ], [ %.3.i338, %.loopexit360.loopexit410.i ]
   %2155 = add nsw i32 %1902, %.0167.i
   br label %.loopexit.i356
 
@@ -13593,9 +13593,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__L25_QuadrangulateFaceVaryingINS_7GfVec3dEEE
   br label %.loopexit431.i
 
 .loopexit431.i:                                   ; preds = %.loopexit431.loopexit483.i, %.loopexit431.loopexit.i, %2280, %2265, %2244, %2222, %2210
-  %.1171.i406 = phi i32 [ %.0170.i383, %2210 ], [ %.0170.i383, %2222 ], [ %2245, %2244 ], [ %2266, %2265 ], [ %2281, %2280 ], [ %2489, %.loopexit431.loopexit483.i ], [ %2488, %.loopexit431.loopexit.i ]
-  %.3165.i407 = phi i32 [ %.2164.i385, %2210 ], [ %2223, %2222 ], [ %.2164.i385, %2244 ], [ %.2164.i385, %2265 ], [ %.2164.i385, %2280 ], [ %.2164.i385, %.loopexit431.loopexit483.i ], [ %.2164.i385, %.loopexit431.loopexit.i ]
-  %.4.i408 = phi i1 [ %.3.i386, %2210 ], [ %.3.i386, %2222 ], [ true, %2244 ], [ %.3.i386, %2265 ], [ %.3.i386, %2280 ], [ %.3.i386, %.loopexit431.loopexit483.i ], [ %.3.i386, %.loopexit431.loopexit.i ]
+  %.1171.i406 = phi i32 [ %.0170.i383, %2210 ], [ %.0170.i383, %2222 ], [ %2245, %2244 ], [ %2266, %2265 ], [ %2281, %2280 ], [ %2488, %.loopexit431.loopexit.i ], [ %2489, %.loopexit431.loopexit483.i ]
+  %.3165.i407 = phi i32 [ %.2164.i385, %2210 ], [ %2223, %2222 ], [ %.2164.i385, %2244 ], [ %.2164.i385, %2265 ], [ %.2164.i385, %2280 ], [ %.2164.i385, %.loopexit431.loopexit.i ], [ %.2164.i385, %.loopexit431.loopexit483.i ]
+  %.4.i408 = phi i1 [ %.3.i386, %2210 ], [ %.3.i386, %2222 ], [ true, %2244 ], [ %.3.i386, %2265 ], [ %.3.i386, %2280 ], [ %.3.i386, %.loopexit431.loopexit.i ], [ %.3.i386, %.loopexit431.loopexit483.i ]
   %2490 = add nsw i32 %2211, %.0167.i384
   br label %.loopexit.i409
 
@@ -19652,8 +19652,8 @@ _ZSt4copyINSt8__detail14_Node_iteratorIN32pxrInternal_v0_24__pxrReserved__7GfVec
   br label %_ZSt4copyINSt8__detail14_Node_iteratorIN32pxrInternal_v0_24__pxrReserved__7GfVec2iELb1ELb1EEEPS3_ET0_T_S7_S6_.exit28
 
 _ZSt4copyINSt8__detail14_Node_iteratorIN32pxrInternal_v0_24__pxrReserved__7GfVec2iELb1ELb1EEEPS3_ET0_T_S7_S6_.exit28: ; preds = %_ZSt4copyINSt8__detail14_Node_iteratorIN32pxrInternal_v0_24__pxrReserved__7GfVec2iELb1ELb1EEEPS3_ET0_T_S7_S6_.exit28.loopexit, %40, %_ZSt7advanceINSt8__detail14_Node_iteratorIN32pxrInternal_v0_24__pxrReserved__7GfVec2iELb1ELb1EEEmEvRT_T0_.exit
-  %48 = phi ptr [ %29, %_ZSt7advanceINSt8__detail14_Node_iteratorIN32pxrInternal_v0_24__pxrReserved__7GfVec2iELb1ELb1EEEmEvRT_T0_.exit ], [ %29, %40 ], [ %.pre, %_ZSt4copyINSt8__detail14_Node_iteratorIN32pxrInternal_v0_24__pxrReserved__7GfVec2iELb1ELb1EEEPS3_ET0_T_S7_S6_.exit28.loopexit ]
-  %.sroa.0.036 = phi ptr [ %43, %_ZSt7advanceINSt8__detail14_Node_iteratorIN32pxrInternal_v0_24__pxrReserved__7GfVec2iELb1ELb1EEEmEvRT_T0_.exit ], [ %1, %40 ], [ %43, %_ZSt4copyINSt8__detail14_Node_iteratorIN32pxrInternal_v0_24__pxrReserved__7GfVec2iELb1ELb1EEEPS3_ET0_T_S7_S6_.exit28.loopexit ]
+  %48 = phi ptr [ %29, %40 ], [ %29, %_ZSt7advanceINSt8__detail14_Node_iteratorIN32pxrInternal_v0_24__pxrReserved__7GfVec2iELb1ELb1EEEmEvRT_T0_.exit ], [ %.pre, %_ZSt4copyINSt8__detail14_Node_iteratorIN32pxrInternal_v0_24__pxrReserved__7GfVec2iELb1ELb1EEEPS3_ET0_T_S7_S6_.exit28.loopexit ]
+  %.sroa.0.036 = phi ptr [ %1, %40 ], [ %43, %_ZSt7advanceINSt8__detail14_Node_iteratorIN32pxrInternal_v0_24__pxrReserved__7GfVec2iELb1ELb1EEEmEvRT_T0_.exit ], [ %43, %_ZSt4copyINSt8__detail14_Node_iteratorIN32pxrInternal_v0_24__pxrReserved__7GfVec2iELb1ELb1EEEPS3_ET0_T_S7_S6_.exit28.loopexit ]
   %.not6.i.i.i.i.i.i.i.i = icmp eq ptr %.sroa.0.036, %2
   br i1 %.not6.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aINSt8__detail14_Node_iteratorIN32pxrInternal_v0_24__pxrReserved__7GfVec2iELb1ELb1EEEPS3_S3_ET0_T_S7_S6_RSaIT1_E.exit, label %.lr.ph.i.i.i.i.i.i.i.i
 
@@ -19814,8 +19814,8 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__20HdMeshE
   br i1 %58, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__20HdMeshEdgeIndexTable5_EdgeESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__20HdMeshEdgeIndexTable5_EdgeESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Val_comp_iterINS3_20_CompareEdgeVerticesEEEET_SF_SF_RKT0_T1_.exit, !llvm.loop !233
 
 _ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__20HdMeshEdgeIndexTable5_EdgeESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Val_comp_iterINS3_20_CompareEdgeVerticesEEEET_SF_SF_RKT0_T1_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__20HdMeshEdgeIndexTable20_CompareEdgeVerticesEEclIKNS3_5_EdgeENS_17__normal_iteratorIPS8_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.thread, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__20HdMeshEdgeIndexTable20_CompareEdgeVerticesEEclIKNS3_5_EdgeENS_17__normal_iteratorIPS8_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.thread.i, %3, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__20HdMeshEdgeIndexTable5_EdgeESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Iter_comp_valINS3_20_CompareEdgeVerticesEEEET_SF_SF_RKT0_T1_.exit
-  %.sroa.041.0 = phi ptr [ %.sroa.011.0.lcssa.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__20HdMeshEdgeIndexTable5_EdgeESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Iter_comp_valINS3_20_CompareEdgeVerticesEEEET_SF_SF_RKT0_T1_.exit ], [ %0, %3 ], [ %.sroa.011.0.lcssa.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__20HdMeshEdgeIndexTable20_CompareEdgeVerticesEEclIKNS3_5_EdgeENS_17__normal_iteratorIPS8_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.thread.i ], [ %.sroa.036.1, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__20HdMeshEdgeIndexTable20_CompareEdgeVerticesEEclIKNS3_5_EdgeENS_17__normal_iteratorIPS8_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.thread ]
-  %.sroa.3.0 = phi ptr [ %41, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__20HdMeshEdgeIndexTable5_EdgeESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Iter_comp_valINS3_20_CompareEdgeVerticesEEEET_SF_SF_RKT0_T1_.exit ], [ %0, %3 ], [ %.sroa.011.1.i30, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__20HdMeshEdgeIndexTable20_CompareEdgeVerticesEEclIKNS3_5_EdgeENS_17__normal_iteratorIPS8_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.thread.i ], [ %.sroa.036.1, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__20HdMeshEdgeIndexTable20_CompareEdgeVerticesEEclIKNS3_5_EdgeENS_17__normal_iteratorIPS8_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.thread ]
+  %.sroa.041.0 = phi ptr [ %.sroa.011.0.lcssa.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__20HdMeshEdgeIndexTable20_CompareEdgeVerticesEEclIKNS3_5_EdgeENS_17__normal_iteratorIPS8_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.thread.i ], [ %.sroa.011.0.lcssa.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__20HdMeshEdgeIndexTable5_EdgeESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Iter_comp_valINS3_20_CompareEdgeVerticesEEEET_SF_SF_RKT0_T1_.exit ], [ %0, %3 ], [ %.sroa.036.1, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__20HdMeshEdgeIndexTable20_CompareEdgeVerticesEEclIKNS3_5_EdgeENS_17__normal_iteratorIPS8_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.thread ]
+  %.sroa.3.0 = phi ptr [ %.sroa.011.1.i30, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__20HdMeshEdgeIndexTable20_CompareEdgeVerticesEEclIKNS3_5_EdgeENS_17__normal_iteratorIPS8_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.thread.i ], [ %41, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__20HdMeshEdgeIndexTable5_EdgeESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Iter_comp_valINS3_20_CompareEdgeVerticesEEEET_SF_SF_RKT0_T1_.exit ], [ %0, %3 ], [ %.sroa.036.1, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__20HdMeshEdgeIndexTable20_CompareEdgeVerticesEEclIKNS3_5_EdgeENS_17__normal_iteratorIPS8_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.thread ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.041.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.3.0, 1
   ret { ptr, ptr } %.fca.1.insert

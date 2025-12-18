@@ -54557,7 +54557,7 @@ _ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.i1273: 
   br i1 %.not2527, label %.thread2490thread-pre-split, label %.lr.ph4032
 
 .thread2490thread-pre-split:                      ; preds = %._crit_edge.i.i1266, %3426, %.loopexit2541, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.i1273, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.us.i1277
-  %.2403.ph = phi i1 [ false, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.us.i1277 ], [ false, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.i1273 ], [ false, %._crit_edge.i.i1266 ], [ %2914, %.loopexit2541 ], [ false, %3426 ]
+  %.2403.ph = phi i1 [ false, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.us.i1277 ], [ false, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.i1273 ], [ %2914, %.loopexit2541 ], [ false, %3426 ], [ false, %._crit_edge.i.i1266 ]
   %.pr6086 = load ptr, ptr %2517, align 8, !tbaa !289
   br label %.thread2490
 
@@ -55741,10 +55741,10 @@ _ZNSt6vectorIN5Yosys5RTLIL8IdStringESaIS2_EE9push_backERKS2_.exit: ; preds = %.n
   br i1 %.not2524, label %.preheader, label %.lr.ph4044
 
 ._crit_edge4051:                                  ; preds = %4066, %2894, %.preheader
-  %.not252540486085 = phi i1 [ true, %.preheader ], [ true, %2894 ], [ false, %4066 ]
-  %.sroa.18.1.lcssa6075 = phi ptr [ %.sroa.18.2, %.preheader ], [ null, %2894 ], [ %.sroa.18.2, %4066 ]
-  %.sroa.112294.1.lcssa6070 = phi ptr [ %.sroa.112294.2, %.preheader ], [ null, %2894 ], [ %.sroa.112294.2, %4066 ]
-  %.sroa.02290.1.lcssa6060 = phi ptr [ %.sroa.02290.2, %.preheader ], [ null, %2894 ], [ %.sroa.02290.2, %4066 ]
+  %.not252540486085 = phi i1 [ true, %2894 ], [ true, %.preheader ], [ false, %4066 ]
+  %.sroa.18.1.lcssa6075 = phi ptr [ null, %2894 ], [ %.sroa.18.2, %.preheader ], [ %.sroa.18.2, %4066 ]
+  %.sroa.112294.1.lcssa6070 = phi ptr [ null, %2894 ], [ %.sroa.112294.2, %.preheader ], [ %.sroa.112294.2, %4066 ]
+  %.sroa.02290.1.lcssa6060 = phi ptr [ null, %2894 ], [ %.sroa.02290.2, %.preheader ], [ %.sroa.02290.2, %4066 ]
   %4065 = invoke noundef zeroext i1 @_ZNK5Yosys5RTLIL4Cell9has_memidEv(ptr noundef nonnull align 8 dereferenceable(192) %2696)
           to label %4070 unwind label %4130
 

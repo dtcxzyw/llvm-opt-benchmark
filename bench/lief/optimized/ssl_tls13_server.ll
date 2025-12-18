@@ -898,8 +898,8 @@ ssl_tls13_key_exchange_is_ephemeral_available.exit.thread.i: ; preds = %ssl_tls1
   call void @mbedtls_ssl_optimize_checksum(ptr noundef nonnull %0, ptr noundef %228) #9
   br label %ssl_tls13_parse_client_hello.exit.thread31
 
-ssl_tls13_parse_client_hello.exit.thread:         ; preds = %17, %24, %32, %39, %42, %53, %58, %65, %81, %90, %100, %110, %210, %162, %157, %154, %148, %138, %126, %121
-  %.0260.i.ph = phi i32 [ -26112, %121 ], [ -29440, %126 ], [ -29440, %138 ], [ %147, %148 ], [ %150, %154 ], [ %156, %157 ], [ -26112, %162 ], [ -26112, %210 ], [ -29440, %110 ], [ -26112, %100 ], [ -28160, %90 ], [ -29440, %81 ], [ %63, %65 ], [ %56, %58 ], [ -29440, %53 ], [ -29440, %42 ], [ -29440, %39 ], [ -29440, %32 ], [ -28288, %24 ], [ -29440, %17 ]
+ssl_tls13_parse_client_hello.exit.thread:         ; preds = %17, %24, %32, %39, %42, %53, %58, %65, %81, %90, %100, %110, %210, %162, %157, %154, %148, %121, %138, %126
+  %.0260.i.ph = phi i32 [ -29440, %126 ], [ -29440, %138 ], [ -26112, %121 ], [ %147, %148 ], [ %150, %154 ], [ %156, %157 ], [ -26112, %162 ], [ -26112, %210 ], [ -29440, %110 ], [ -26112, %100 ], [ -28160, %90 ], [ -29440, %81 ], [ %63, %65 ], [ %56, %58 ], [ -29440, %53 ], [ -29440, %42 ], [ -29440, %39 ], [ -29440, %32 ], [ -28288, %24 ], [ -29440, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -913,7 +913,7 @@ ssl_tls13_parse_client_hello.exit.thread31:       ; preds = %226, %59, %66
   br label %230
 
 ssl_tls13_parse_client_hello.exit:                ; preds = %139, %68, %145, %165, %168, %176, %186, %189, %192
-  %.0260.i = phi i32 [ %164, %165 ], [ %144, %145 ], [ %77, %68 ], [ %175, %176 ], [ %185, %186 ], [ %188, %189 ], [ %191, %192 ], [ %167, %168 ], [ %141, %139 ]
+  %.0260.i = phi i32 [ %164, %165 ], [ %167, %168 ], [ %144, %145 ], [ %77, %68 ], [ %175, %176 ], [ %185, %186 ], [ %188, %189 ], [ %191, %192 ], [ %141, %139 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -2316,7 +2316,7 @@ mbedtls_ssl_named_group_is_offered.exit.thread:   ; preds = %41, %mbedtls_ssl_tl
   br label %.loopexit
 
 .loopexit:                                        ; preds = %mbedtls_ssl_named_group_is_offered.exit.thread, %.loopexit.sink.split, %17
-  %.0 = phi i32 [ 0, %17 ], [ -29440, %.loopexit.sink.split ], [ 0, %mbedtls_ssl_named_group_is_offered.exit.thread ]
+  %.0 = phi i32 [ -29440, %.loopexit.sink.split ], [ 0, %17 ], [ 0, %mbedtls_ssl_named_group_is_offered.exit.thread ]
   ret i32 %.0
 }
 
@@ -2513,7 +2513,7 @@ mbedtls_ssl_named_group_is_offered.exit.thread:   ; preds = %53, %mbedtls_ssl_tl
   br label %.thread
 
 .thread:                                          ; preds = %mbedtls_ssl_tls13_named_group_is_ecdhe.exit.thread, %41, %29, %._crit_edge, %._crit_edge.thread, %18, %9
-  %.0 = phi i32 [ -29440, %9 ], [ -29440, %18 ], [ 0, %._crit_edge ], [ 1, %._crit_edge.thread ], [ -29440, %41 ], [ -29440, %29 ], [ %68, %mbedtls_ssl_tls13_named_group_is_ecdhe.exit.thread ]
+  %.0 = phi i32 [ -29440, %9 ], [ -29440, %18 ], [ 0, %._crit_edge ], [ 1, %._crit_edge.thread ], [ -29440, %29 ], [ -29440, %41 ], [ %68, %mbedtls_ssl_tls13_named_group_is_ecdhe.exit.thread ]
   ret i32 %.0
 }
 
@@ -2931,7 +2931,7 @@ ssl_tls13_session_copy_ticket.exit:               ; preds = %137
   br label %.thread218
 
 .thread218:                                       ; preds = %97, %64, %74, %83, %90, %ssl_tls13_session_copy_ticket.exit, %125, %133
-  %.2.ph = phi i32 [ %132, %133 ], [ -28160, %125 ], [ -27648, %ssl_tls13_session_copy_ticket.exit ], [ -29440, %90 ], [ -29440, %83 ], [ -29440, %74 ], [ -29440, %64 ], [ -27648, %97 ]
+  %.2.ph = phi i32 [ -29440, %64 ], [ %132, %133 ], [ -28160, %125 ], [ -27648, %ssl_tls13_session_copy_ticket.exit ], [ -29440, %90 ], [ -29440, %83 ], [ -29440, %74 ], [ -27648, %97 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %167
 

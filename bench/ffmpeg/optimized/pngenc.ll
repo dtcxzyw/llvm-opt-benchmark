@@ -302,7 +302,7 @@ define internal range(i32 -2147483648, 1) i32 @encode_png(ptr noundef %0, ptr no
   br label %add_icc_profile_size.exit
 
 add_icc_profile_size.exit:                        ; preds = %37, %33, %58, %44, %41, %61
-  %.0 = phi i32 [ 0, %61 ], [ %59, %58 ], [ %42, %41 ], [ %56, %44 ], [ -1094995529, %33 ], [ -1094995529, %37 ]
+  %.0 = phi i32 [ 0, %61 ], [ %59, %58 ], [ %42, %41 ], [ %56, %44 ], [ -1094995529, %37 ], [ -1094995529, %33 ]
   ret i32 %.0
 }
 
@@ -980,10 +980,10 @@ apng_encode_frame.exit.thread:                    ; preds = %134
   br i1 %exitcond224.not.i.i, label %.loopexit.i, label %.lr.ph.us.i.i, !llvm.loop !90
 
 .loopexit.i:                                      ; preds = %..critedge_crit_edge.us.i.i, %229, %.lr.ph209.i.i, %.loopexit175.i.i, %.preheader.i.i
-  %.3148247.i.i = phi i32 [ %.0145.lcssa.i.i, %.preheader.i.i ], [ %.3148248.i.i, %.lr.ph209.i.i ], [ %.3148248.i.i, %.loopexit175.i.i ], [ %.3148249254.i.i, %229 ], [ %.3148248.i.i, %..critedge_crit_edge.us.i.i ]
-  %.4244.i.i = phi i32 [ %.0149.lcssa.i.i, %.preheader.i.i ], [ %.4245.i.i, %.lr.ph209.i.i ], [ %.4245.i.i, %.loopexit175.i.i ], [ %.4246255.i.i, %229 ], [ %.4245.i.i, %..critedge_crit_edge.us.i.i ]
-  %.4157242.i.i = phi i32 [ %.0153.lcssa.i.i, %.preheader.i.i ], [ %.4157243.i.i, %.lr.ph209.i.i ], [ %.4157243.i.i, %.loopexit175.i.i ], [ %.4157241256.i.i, %229 ], [ %.4157243.i.i, %..critedge_crit_edge.us.i.i ]
-  %.4162239.i.i = phi i32 [ %.0158.lcssa.i.i, %.preheader.i.i ], [ %.4162240.i.i, %.lr.ph209.i.i ], [ %.4162240.i.i, %.loopexit175.i.i ], [ %.4162238257.i.i, %229 ], [ %.4162240.i.i, %..critedge_crit_edge.us.i.i ]
+  %.3148247.i.i = phi i32 [ %.0145.lcssa.i.i, %.preheader.i.i ], [ %.3148249254.i.i, %229 ], [ %.3148248.i.i, %.lr.ph209.i.i ], [ %.3148248.i.i, %.loopexit175.i.i ], [ %.3148248.i.i, %..critedge_crit_edge.us.i.i ]
+  %.4244.i.i = phi i32 [ %.0149.lcssa.i.i, %.preheader.i.i ], [ %.4246255.i.i, %229 ], [ %.4245.i.i, %.lr.ph209.i.i ], [ %.4245.i.i, %.loopexit175.i.i ], [ %.4245.i.i, %..critedge_crit_edge.us.i.i ]
+  %.4157242.i.i = phi i32 [ %.0153.lcssa.i.i, %.preheader.i.i ], [ %.4157241256.i.i, %229 ], [ %.4157243.i.i, %.lr.ph209.i.i ], [ %.4157243.i.i, %.loopexit175.i.i ], [ %.4157243.i.i, %..critedge_crit_edge.us.i.i ]
+  %.4162239.i.i = phi i32 [ %.0158.lcssa.i.i, %.preheader.i.i ], [ %.4162238257.i.i, %229 ], [ %.4162240.i.i, %.lr.ph209.i.i ], [ %.4162240.i.i, %.loopexit175.i.i ], [ %.4162240.i.i, %..critedge_crit_edge.us.i.i ]
   %320 = sub i32 %.4157242.i.i, %.4162239.i.i
   store i32 %320, ptr %142, align 8, !tbaa !77
   %321 = sub i32 %.3148247.i.i, %.4244.i.i
@@ -1342,7 +1342,7 @@ apng_encode_frame.exit:                           ; preds = %128, %.loopexit186.
   br label %add_icc_profile_size.exit
 
 add_icc_profile_size.exit:                        ; preds = %401, %apng_encode_frame.exit.thread, %58, %54, %468, %478, %.loopexit, %415, %413, %405, %apng_encode_frame.exit, %94, %89, %76, %73, %69, %68, %62, %.critedge
-  %.2 = phi i32 [ -1, %.critedge ], [ 0, %468 ], [ -12, %69 ], [ %107, %94 ], [ %425, %415 ], [ %466, %.loopexit ], [ -12, %413 ], [ -12, %405 ], [ %.0.i162, %apng_encode_frame.exit ], [ -12, %401 ], [ %74, %73 ], [ -22, %68 ], [ -12, %62 ], [ -12, %76 ], [ %92, %89 ], [ 0, %478 ], [ -1094995529, %54 ], [ -1094995529, %58 ], [ -12, %apng_encode_frame.exit.thread ]
+  %.2 = phi i32 [ -1, %.critedge ], [ 0, %468 ], [ -12, %69 ], [ %107, %94 ], [ %425, %415 ], [ %466, %.loopexit ], [ -12, %413 ], [ -12, %405 ], [ %.0.i162, %apng_encode_frame.exit ], [ -12, %401 ], [ %74, %73 ], [ -22, %68 ], [ -12, %62 ], [ -12, %76 ], [ %92, %89 ], [ 0, %478 ], [ -1094995529, %58 ], [ -1094995529, %54 ], [ -12, %apng_encode_frame.exit.thread ]
   ret i32 %.2
 }
 
@@ -3135,9 +3135,9 @@ png_write_row.exit130:                            ; preds = %349, %363, %png_cho
   br i1 %366, label %309, label %.loopexit190, !llvm.loop !143
 
 .loopexit190:                                     ; preds = %.loopexit194, %png_write_row.exit130, %.preheader
-  %367 = phi ptr [ %50, %.preheader ], [ %50, %png_write_row.exit130 ], [ %43, %.loopexit194 ]
-  %368 = phi ptr [ %51, %.preheader ], [ %51, %png_write_row.exit130 ], [ %42, %.loopexit194 ]
-  %369 = phi ptr [ %52, %.preheader ], [ %52, %png_write_row.exit130 ], [ %41, %.loopexit194 ]
+  %367 = phi ptr [ %50, %png_write_row.exit130 ], [ %50, %.preheader ], [ %43, %.loopexit194 ]
+  %368 = phi ptr [ %51, %png_write_row.exit130 ], [ %51, %.preheader ], [ %42, %.loopexit194 ]
+  %369 = phi ptr [ %52, %png_write_row.exit130 ], [ %52, %.preheader ], [ %41, %.loopexit194 ]
   %370 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %371 = getelementptr inbounds nuw i8, ptr %8, i64 32
   br label %372

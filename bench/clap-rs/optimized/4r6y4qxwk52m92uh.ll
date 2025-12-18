@@ -419,7 +419,7 @@ define noundef zeroext i1 @_ZN8clap_lex9ParsedArg18is_negative_number17he6231e86
   br i1 %or.cond.i.i, label %24, label %"_ZN8clap_lex9ParsedArg18is_negative_number28_$u7b$$u7b$closure$u7d$$u7d$17h413729e608f85e83E.exit"
 
 "_ZN8clap_lex9ParsedArg18is_negative_number28_$u7b$$u7b$closure$u7d$$u7d$17h413729e608f85e83E.exit": ; preds = %30, %27, %26, %23, %._crit_edge.i.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hd16f7bb69e6397e5E.exit.i.i", %1
-  %.05 = phi i1 [ false, %1 ], [ %.0.i.i, %._crit_edge.i.i ], [ false, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hd16f7bb69e6397e5E.exit.i.i" ], [ false, %23 ], [ false, %26 ], [ false, %27 ], [ false, %30 ]
+  %.05 = phi i1 [ false, %1 ], [ false, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hd16f7bb69e6397e5E.exit.i.i" ], [ %.0.i.i, %._crit_edge.i.i ], [ false, %23 ], [ false, %26 ], [ false, %27 ], [ false, %30 ]
   ret i1 %.05
 }
 
@@ -802,8 +802,8 @@ define { i64, i64 } @_ZN8clap_lex10ShortFlags10advance_by17hd7b5dc76a7f69860E(pt
   br i1 %.not8.i.i, label %.thread, label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h31f21a5a37aaecaaE.exit"
 
 .thread:                                          ; preds = %.thread53, %2, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe4b4302862dc0f7E.exit.thread.i.i", %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h31f21a5a37aaecaaE.exit"
-  %.sroa.02.072 = phi i64 [ %.sroa.02.074, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h31f21a5a37aaecaaE.exit" ], [ %.sroa.02.074, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe4b4302862dc0f7E.exit.thread.i.i" ], [ 0, %2 ], [ %1, %.thread53 ]
-  %.sroa.0.0 = phi i64 [ 1, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h31f21a5a37aaecaaE.exit" ], [ 1, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe4b4302862dc0f7E.exit.thread.i.i" ], [ 0, %2 ], [ 0, %.thread53 ]
+  %.sroa.02.072 = phi i64 [ %.sroa.02.074, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe4b4302862dc0f7E.exit.thread.i.i" ], [ %.sroa.02.074, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h31f21a5a37aaecaaE.exit" ], [ 0, %2 ], [ %1, %.thread53 ]
+  %.sroa.0.0 = phi i64 [ 1, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe4b4302862dc0f7E.exit.thread.i.i" ], [ 1, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h31f21a5a37aaecaaE.exit" ], [ 0, %2 ], [ 0, %.thread53 ]
   %49 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %50 = insertvalue { i64, i64 } %49, i64 %.sroa.02.072, 1
   ret { i64, i64 } %50

@@ -1087,7 +1087,7 @@ _ZNK13llama_kv_cell10has_seq_idERKi.exit.thread.us.us.us.us: ; preds = %239, %23
   br label %..loopexit792_crit_edge.us.us.us.us
 
 ..loopexit792_crit_edge.us.us.us.us:              ; preds = %308, %316, %313
-  %.0520.us.us.us.us = phi float [ %324, %316 ], [ 0.000000e+00, %313 ], [ 0xFFF0000000000000, %308 ]
+  %.0520.us.us.us.us = phi float [ 0.000000e+00, %313 ], [ %324, %316 ], [ 0xFFF0000000000000, %308 ]
   %325 = sext i32 %307 to i64
   %326 = getelementptr float, ptr %290, i64 %325
   store float %.0520.us.us.us.us, ptr %326, align 4, !tbaa !178
@@ -8323,7 +8323,7 @@ define linkonce_odr noundef zeroext i1 @_ZN15llama_data_read18read_kv_cache_data
   br i1 %.not155, label %151, label %.critedge161, !llvm.loop !430
 
 .critedge161:                                     ; preds = %148, %.thread170, %.preheader175, %.preheader173, %.preheader172, %.critedge163, %.critedge167, %.thread171, %.critedge159, %147, %.critedge, %.split.us, %65, %29, %24
-  %.0 = phi i1 [ false, %24 ], [ false, %29 ], [ false, %65 ], [ false, %.critedge159 ], [ false, %.critedge ], [ false, %.split.us ], [ false, %147 ], [ false, %.thread171 ], [ false, %.critedge167 ], [ false, %.critedge163 ], [ true, %.preheader172 ], [ true, %.preheader173 ], [ true, %.preheader175 ], [ true, %.thread170 ], [ true, %148 ]
+  %.0 = phi i1 [ false, %24 ], [ false, %29 ], [ false, %65 ], [ true, %.preheader172 ], [ false, %.critedge159 ], [ false, %.critedge ], [ false, %.split.us ], [ false, %147 ], [ false, %.thread171 ], [ false, %.critedge167 ], [ false, %.critedge163 ], [ true, %.preheader173 ], [ true, %.preheader175 ], [ true, %.thread170 ], [ true, %148 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0

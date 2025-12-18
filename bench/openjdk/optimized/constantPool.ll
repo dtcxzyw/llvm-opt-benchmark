@@ -1443,7 +1443,7 @@ _ZNK12ConstantPool13reference_mapEv.exit.thread:  ; preds = %17, %_ZNK12Constant
   br i1 %exitcond.not, label %_ZNK12ConstantPool19resolved_referencesEv.exit.thread, label %37, !llvm.loop !13
 
 _ZNK12ConstantPool19resolved_referencesEv.exit.thread: ; preds = %80, %_ZNK12ConstantPool13reference_mapEv.exit.thread, %5, %11, %_ZNK12ConstantPool19resolved_referencesEv.exit, %1
-  %.0 = phi ptr [ null, %1 ], [ null, %5 ], [ null, %_ZNK12ConstantPool19resolved_referencesEv.exit ], [ null, %11 ], [ %25, %_ZNK12ConstantPool13reference_mapEv.exit.thread ], [ %25, %80 ]
+  %.0 = phi ptr [ null, %1 ], [ null, %5 ], [ null, %11 ], [ null, %_ZNK12ConstantPool19resolved_referencesEv.exit ], [ %25, %_ZNK12ConstantPool13reference_mapEv.exit.thread ], [ %25, %80 ]
   ret ptr %.0
 }
 
@@ -8027,7 +8027,7 @@ _ZN5Bytes11put_Java_u2EPht.exit121:               ; preds = %294, %295
   br label %_ZN5Bytes11put_Java_u4EPhj.exit
 
 _ZN5Bytes11put_Java_u4EPhj.exit:                  ; preds = %.lr.ph, %_ZN5Bytes11put_Java_u2EPht.exit, %302, %301, %282, %281, %262, %261, %251, %250, %237, %236, %226, %225, %215, %214, %195, %194, %173, %172, %126, %125, %55, %54, %45, %44, %_ZN5Bytes11put_Java_u8EPhm.exit104, %_ZN5Bytes11put_Java_u8EPhm.exit, %10
-  %.1 = phi i32 [ %.0101128, %10 ], [ %.0101128, %282 ], [ %.0101128, %262 ], [ %.0101128, %45 ], [ %65, %_ZN5Bytes11put_Java_u8EPhm.exit ], [ %75, %_ZN5Bytes11put_Java_u8EPhm.exit104 ], [ %.0101128, %55 ], [ %.0101128, %126 ], [ %.0101128, %173 ], [ %.0101128, %195 ], [ %.0101128, %215 ], [ %.0101128, %226 ], [ %.0101128, %237 ], [ %.0101128, %251 ], [ %.0101128, %44 ], [ %.0101128, %54 ], [ %.0101128, %125 ], [ %.0101128, %172 ], [ %.0101128, %194 ], [ %.0101128, %214 ], [ %.0101128, %225 ], [ %.0101128, %236 ], [ %.0101128, %250 ], [ %.0101128, %261 ], [ %.0101128, %281 ], [ %.0101128, %301 ], [ %.0101128, %302 ], [ %.0101128, %_ZN5Bytes11put_Java_u2EPht.exit ], [ %.0101128, %.lr.ph ]
+  %.1 = phi i32 [ %.0101128, %10 ], [ %.0101128, %282 ], [ %.0101128, %302 ], [ %.0101128, %262 ], [ %.0101128, %45 ], [ %65, %_ZN5Bytes11put_Java_u8EPhm.exit ], [ %75, %_ZN5Bytes11put_Java_u8EPhm.exit104 ], [ %.0101128, %55 ], [ %.0101128, %126 ], [ %.0101128, %173 ], [ %.0101128, %195 ], [ %.0101128, %215 ], [ %.0101128, %226 ], [ %.0101128, %237 ], [ %.0101128, %251 ], [ %.0101128, %44 ], [ %.0101128, %54 ], [ %.0101128, %125 ], [ %.0101128, %172 ], [ %.0101128, %194 ], [ %.0101128, %214 ], [ %.0101128, %225 ], [ %.0101128, %236 ], [ %.0101128, %250 ], [ %.0101128, %261 ], [ %.0101128, %281 ], [ %.0101128, %301 ], [ %.0101128, %_ZN5Bytes11put_Java_u2EPht.exit ], [ %.0101128, %.lr.ph ]
   %303 = zext nneg i32 %16 to i64
   %304 = getelementptr inbounds nuw i8, ptr %.0129, i64 %303
   %305 = add nsw i32 %.1, 1

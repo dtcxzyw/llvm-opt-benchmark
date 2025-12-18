@@ -1529,7 +1529,7 @@ _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit.i:        ; preds = %_ZL13gmx_snew_implI
   br i1 %538, label %.lr.ph805.i, label %.preheader783.i, !llvm.loop !58
 
 .loopexit779.i:                                   ; preds = %.critedge.thread.i, %.critedge.thread.us.i, %.critedge.thread.us.us.i, %.lr.ph859.i
-  %539 = phi i32 [ %542, %.lr.ph859.i ], [ %542, %.critedge.thread.us.i ], [ %584, %.critedge.thread.us.us.i ], [ %731, %.critedge.thread.i ]
+  %539 = phi i32 [ %542, %.critedge.thread.us.i ], [ %584, %.critedge.thread.us.us.i ], [ %542, %.lr.ph859.i ], [ %731, %.critedge.thread.i ]
   %540 = sext i32 %539 to i64
   %541 = icmp slt i64 %indvars.iv.next1013.i, %540
   %indvars.iv.next980.i = add nuw nsw i64 %indvars.iv979.i, 1
@@ -1617,8 +1617,8 @@ _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit.i:        ; preds = %_ZL13gmx_snew_implI
   br label %.critedge.thread.us.us.i
 
 .critedge.thread.us.us.i:                         ; preds = %.critedge2.split.us.us.i.loopexit.us, %.critedge767.us.us.i, %.lr.ph.split, %.preheader777.split.us836.split.us.preheader.i, %.critedge767.preheader.loopexit.us.us.i, %.critedge.thread.us.us.loopexit940.i, %.lr.ph827.split.us.split.us.i
-  %584 = phi i32 [ %.pre1086.i, %.critedge.thread.us.us.loopexit940.i ], [ %558, %.lr.ph827.split.us.split.us.i ], [ %619, %.critedge767.preheader.loopexit.us.us.i ], [ %558, %.preheader777.split.us836.split.us.preheader.i ], [ %558, %.lr.ph.split ], [ %579, %.critedge767.us.us.i ], [ %558, %.critedge2.split.us.us.i.loopexit.us ]
-  %585 = phi i32 [ %.pre1086.i, %.critedge.thread.us.us.loopexit940.i ], [ %559, %.lr.ph827.split.us.split.us.i ], [ %620, %.critedge767.preheader.loopexit.us.us.i ], [ %559, %.preheader777.split.us836.split.us.preheader.i ], [ %559, %.lr.ph.split ], [ %580, %.critedge767.us.us.i ], [ %559, %.critedge2.split.us.us.i.loopexit.us ]
+  %584 = phi i32 [ %579, %.critedge767.us.us.i ], [ %.pre1086.i, %.critedge.thread.us.us.loopexit940.i ], [ %558, %.lr.ph827.split.us.split.us.i ], [ %619, %.critedge767.preheader.loopexit.us.us.i ], [ %558, %.preheader777.split.us836.split.us.preheader.i ], [ %558, %.lr.ph.split ], [ %558, %.critedge2.split.us.us.i.loopexit.us ]
+  %585 = phi i32 [ %580, %.critedge767.us.us.i ], [ %.pre1086.i, %.critedge.thread.us.us.loopexit940.i ], [ %559, %.lr.ph827.split.us.split.us.i ], [ %620, %.critedge767.preheader.loopexit.us.us.i ], [ %559, %.preheader777.split.us836.split.us.preheader.i ], [ %559, %.lr.ph.split ], [ %559, %.critedge2.split.us.us.i.loopexit.us ]
   %indvars.iv.next1010.i = add nuw nsw i64 %indvars.iv1009.i, 1
   %586 = trunc nuw i64 %indvars.iv.next1010.i to i32
   %587 = icmp sgt i32 %585, %586

@@ -4349,12 +4349,12 @@ dissect_RasMessage_PDU.exit:                      ; preds = %4, %40, %44
   br label %proto_item_set_hidden.exit.i
 
 proto_item_set_hidden.exit.i:                     ; preds = %108, %94
-  %.1.i = phi ptr [ %96, %94 ], [ %116, %108 ]
+  %.1.i = phi ptr [ %116, %108 ], [ %96, %94 ]
   %.not104.i = icmp eq ptr %.1.i, null
   br i1 %.not104.i, label %ras_call_matching.exit, label %proto_item_set_hidden.exit.thread.i
 
 proto_item_set_hidden.exit.thread.i:              ; preds = %66, %proto_item_set_hidden.exit.i, %104, %101, %.thread.i
-  %.1123.i = phi ptr [ %.1.i, %proto_item_set_hidden.exit.i ], [ %.0.i, %.thread.i ], [ %.0.i, %101 ], [ %.0.i, %104 ], [ %.0.i, %66 ]
+  %.1123.i = phi ptr [ %.1.i, %proto_item_set_hidden.exit.i ], [ %.0.i, %104 ], [ %.0.i, %.thread.i ], [ %.0.i, %101 ], [ %.0.i, %66 ]
   %129 = getelementptr inbounds nuw i8, ptr %.1123.i, i64 24
   %130 = load i32, ptr %129, align 8
   %.not105.i = icmp eq i32 %130, 0

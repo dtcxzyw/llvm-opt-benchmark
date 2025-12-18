@@ -303,7 +303,7 @@ define internal fastcc range(i32 0, 2) i32 @def_load_bio(ptr noundef readonly ca
   br label %.thread232
 
 .outer._crit_edge:                                ; preds = %.thread, %.backedge, %.preheader252
-  %.1134.lcssa = phi i64 [ 0, %.preheader252 ], [ %.2135, %.backedge ], [ %.2135, %.thread ]
+  %.1134.lcssa = phi i64 [ %.2135, %.backedge ], [ 0, %.preheader252 ], [ %.2135, %.thread ]
   call void @ERR_put_error(i32 noundef 13, i32 noundef 0, i32 noundef 7, ptr noundef nonnull @.str, i32 noundef 537) #12
   br label %.thread232
 
@@ -397,8 +397,8 @@ define internal fastcc range(i32 0, 2) i32 @def_load_bio(ptr noundef readonly ca
   br i1 %or.cond188, label %.backedge, label %64
 
 .backedge:                                        ; preds = %.thread382, %60, %eat_ws.exit, %add_string.exit
-  %.not169386 = phi i1 [ true, %60 ], [ false, %eat_ws.exit ], [ false, %add_string.exit ], [ true, %.thread382 ]
-  %.0142.be = phi i32 [ %46, %60 ], [ 0, %eat_ws.exit ], [ 0, %add_string.exit ], [ %59, %.thread382 ]
+  %.not169386 = phi i1 [ false, %add_string.exit ], [ true, %60 ], [ false, %eat_ws.exit ], [ true, %.thread382 ]
+  %.0142.be = phi i32 [ 0, %add_string.exit ], [ %46, %60 ], [ 0, %eat_ws.exit ], [ %59, %.thread382 ]
   %61 = sext i32 %.0142.be to i64
   %62 = add nsw i64 %61, 512
   %63 = call i64 @BUF_MEM_grow(ptr noundef nonnull %9, i64 noundef %62) #12
@@ -490,7 +490,7 @@ scan_dquote.exit.i:                               ; preds = %93, %89, %85
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %114, %134, %127, %.critedge.i.i, %scan_dquote.exit.i
-  %.1.be.i = phi ptr [ %spec.select.i.i, %scan_dquote.exit.i ], [ %135, %134 ], [ %131, %127 ], [ %spec.select.i28.i, %.critedge.i.i ], [ %115, %114 ]
+  %.1.be.i = phi ptr [ %135, %134 ], [ %spec.select.i.i, %scan_dquote.exit.i ], [ %131, %127 ], [ %spec.select.i28.i, %.critedge.i.i ], [ %115, %114 ]
   %97 = load i8, ptr %.1.be.i, align 1, !tbaa !21
   %98 = zext i8 %97 to i64
   %99 = getelementptr inbounds nuw i16, ptr @CONF_type_default, i64 %98
@@ -577,7 +577,7 @@ scan_dquote.exit.i:                               ; preds = %93, %89, %85
   br label %.backedge.i
 
 .loopexit.sink.split.i:                           ; preds = %.lr.ph299, %.backedge.i, %.preheader.i, %64
-  %.1.lcssa.sink.i = phi ptr [ %65, %64 ], [ %.04.i.lcssa, %.preheader.i ], [ %.1.be.i, %.backedge.i ], [ %75, %.lr.ph299 ]
+  %.1.lcssa.sink.i = phi ptr [ %.1.be.i, %.backedge.i ], [ %65, %64 ], [ %.04.i.lcssa, %.preheader.i ], [ %75, %.lr.ph299 ]
   store i8 0, ptr %.1.lcssa.sink.i, align 1, !tbaa !21
   br label %clear_comments.exit.preheader
 
@@ -995,8 +995,8 @@ add_string.exit:                                  ; preds = %266, %value_free.ex
   br i1 %.not164, label %300, label %.sink.split
 
 .thread232:                                       ; preds = %173, %247, %226, %246, %259, %284, %CONF_VALUE_new.exit.thread, %172, %182, %21, %.outer._crit_edge
-  %.0131237.ph = phi ptr [ null, %172 ], [ %calloc.i, %284 ], [ %calloc.i, %259 ], [ %calloc.i, %246 ], [ null, %226 ], [ null, %182 ], [ null, %CONF_VALUE_new.exit.thread ], [ null, %21 ], [ null, %.outer._crit_edge ], [ %calloc.i, %247 ], [ null, %173 ]
-  %.0133235.ph = phi i64 [ %.2135, %172 ], [ %.2135, %284 ], [ %.2135, %259 ], [ %.2135, %246 ], [ %.2135, %226 ], [ %.2135, %182 ], [ %.2135, %CONF_VALUE_new.exit.thread ], [ 0, %21 ], [ %.1134.lcssa, %.outer._crit_edge ], [ %.2135, %247 ], [ %.2135, %173 ]
+  %.0131237.ph = phi ptr [ %calloc.i, %247 ], [ null, %.outer._crit_edge ], [ null, %172 ], [ %calloc.i, %246 ], [ null, %226 ], [ %calloc.i, %259 ], [ null, %182 ], [ null, %CONF_VALUE_new.exit.thread ], [ %calloc.i, %284 ], [ null, %21 ], [ null, %173 ]
+  %.0133235.ph = phi i64 [ %.2135, %247 ], [ %.1134.lcssa, %.outer._crit_edge ], [ %.2135, %172 ], [ %.2135, %246 ], [ %.2135, %226 ], [ %.2135, %259 ], [ %.2135, %182 ], [ %.2135, %CONF_VALUE_new.exit.thread ], [ %.2135, %284 ], [ 0, %21 ], [ %.2135, %173 ]
   %.pr.pr = load ptr, ptr %8, align 8, !tbaa !17
   call void @BUF_MEM_free(ptr noundef nonnull %9) #12
   %.not183 = icmp eq ptr %.pr.pr, null
@@ -1626,12 +1626,12 @@ switch.edge:                                      ; preds = %70
   br i1 %.not145, label %.loopexit, label %107, !llvm.loop !40
 
 .loopexit:                                        ; preds = %107, %102, %100
-  %114 = phi i8 [ 58, %102 ], [ %94, %100 ], [ %108, %107 ]
-  %.2129 = phi i8 [ %.0127.ph, %102 ], [ %.0127.ph, %100 ], [ 58, %107 ]
-  %.1116 = phi ptr [ %.0115, %102 ], [ %.0115, %100 ], [ %.2117, %107 ]
-  %.0113 = phi ptr [ null, %102 ], [ null, %100 ], [ %.0115, %107 ]
-  %.0112 = phi ptr [ %92, %102 ], [ %92, %100 ], [ %106, %107 ]
-  %.0111 = phi ptr [ %1, %102 ], [ %1, %100 ], [ %92, %107 ]
+  %114 = phi i8 [ %94, %100 ], [ 58, %102 ], [ %108, %107 ]
+  %.2129 = phi i8 [ %.0127.ph, %100 ], [ %.0127.ph, %102 ], [ 58, %107 ]
+  %.1116 = phi ptr [ %.0115, %100 ], [ %.0115, %102 ], [ %.2117, %107 ]
+  %.0113 = phi ptr [ null, %100 ], [ null, %102 ], [ %.0115, %107 ]
+  %.0112 = phi ptr [ %92, %100 ], [ %92, %102 ], [ %106, %107 ]
+  %.0111 = phi ptr [ %1, %100 ], [ %1, %102 ], [ %92, %107 ]
   store i8 0, ptr %.1116, align 1, !tbaa !21
   br i1 %.not143161, label %120, label %115
 

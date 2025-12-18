@@ -951,7 +951,7 @@ _ZNSt14_Function_baseD2Ev.exit69:                 ; preds = %232, %234
   br i1 %243, label %.loopexit103, label %240
 
 .loopexit103:                                     ; preds = %240, %.loopexit103.loopexit111, %.thread
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %15, %.thread ], [ %222, %.loopexit103.loopexit111 ], [ %.pn.pn.pn.pn, %240 ]
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %222, %.loopexit103.loopexit111 ], [ %15, %.thread ], [ %.pn.pn.pn.pn, %240 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %270
 
@@ -1025,7 +1025,7 @@ _ZNSt14_Function_baseD2Ev.exit71:                 ; preds = %254, %256
   br i1 %265, label %.loopexit, label %262
 
 .loopexit:                                        ; preds = %262, %.loopexit.loopexit110, %.thread100
-  %.pn27.pn.pn.pn.pn = phi { ptr, i32 } [ %118, %.thread100 ], [ %244, %.loopexit.loopexit110 ], [ %.pn27.pn.pn.pn, %262 ]
+  %.pn27.pn.pn.pn.pn = phi { ptr, i32 } [ %244, %.loopexit.loopexit110 ], [ %118, %.thread100 ], [ %.pn27.pn.pn.pn, %262 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %270
 
@@ -1349,7 +1349,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i.i.i: ; preds 
   br i1 %exitcond95.not.i.i.i.i, label %.loopexit77.i.i.i.i, label %.lr.ph83.i.i.i.i, !llvm.loop !112
 
 .loopexit77.i.i.i.i:                              ; preds = %127, %110, %.preheader76.i.i.i.i, %.preheader78.i.i.i.i, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i.i.i
-  %.3.i.i.i.i = phi i64 [ %105, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i.i.i ], [ %.086.i.i.i.i, %.preheader76.i.i.i.i ], [ %.086.i.i.i.i, %.preheader78.i.i.i.i ], [ %106, %110 ], [ %105, %127 ]
+  %.3.i.i.i.i = phi i64 [ %105, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i.i.i ], [ %106, %110 ], [ %.086.i.i.i.i, %.preheader76.i.i.i.i ], [ %.086.i.i.i.i, %.preheader78.i.i.i.i ], [ %105, %127 ]
   %129 = add nuw nsw i64 %.07085.i.i.i.i, 1
   %exitcond96.not.i.i.i.i = icmp eq i64 %129, %98
   br i1 %exitcond96.not.i.i.i.i, label %_ZN6duckdb14BinaryExecutor7ExecuteINS_8string_tEiS2_ZNS_L17BitStringFunctionILb1EEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlS2_iE_EEvS9_S9_S9_mT2_.exit, label %.lr.ph87.i.i.i.i, !llvm.loop !113
@@ -1599,7 +1599,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i63.i.i: ; pred
   br i1 %exitcond95.not.i.i81.i.i, label %.loopexit77.i.i64.i.i, label %.lr.ph83.i.i75.i.i, !llvm.loop !127
 
 .loopexit77.i.i64.i.i:                            ; preds = %228, %210, %.preheader76.i.i74.i.i, %.preheader78.i.i67.i.i, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i63.i.i
-  %.3.i.i65.i.i = phi i64 [ %206, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i63.i.i ], [ %.086.i.i60.i.i, %.preheader76.i.i74.i.i ], [ %.086.i.i60.i.i, %.preheader78.i.i67.i.i ], [ %207, %210 ], [ %206, %228 ]
+  %.3.i.i65.i.i = phi i64 [ %206, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i63.i.i ], [ %207, %210 ], [ %.086.i.i60.i.i, %.preheader76.i.i74.i.i ], [ %.086.i.i60.i.i, %.preheader78.i.i67.i.i ], [ %206, %228 ]
   %230 = add nuw nsw i64 %.07085.i.i61.i.i, 1
   %exitcond96.not.i.i66.i.i = icmp eq i64 %230, %198
   br i1 %exitcond96.not.i.i66.i.i, label %_ZN6duckdb14BinaryExecutor7ExecuteINS_8string_tEiS2_ZNS_L17BitStringFunctionILb1EEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlS2_iE_EEvS9_S9_S9_mT2_.exit, label %199, !llvm.loop !128
@@ -1824,7 +1824,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i100.i.i: ; pre
   br i1 %exitcond104.not.i.i.i.i, label %.loopexit86.i.i.i.i, label %.lr.ph92.i.i.i.i, !llvm.loop !142
 
 .loopexit86.i.i.i.i:                              ; preds = %327, %.lr.ph.i.i102.i.i, %.preheader85.i.i.i.i, %.preheader87.i.i.i.i, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i100.i.i
-  %.3.i.i101.i.i = phi i64 [ %304, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i100.i.i ], [ %.095.i.i.i.i, %.preheader85.i.i.i.i ], [ %.095.i.i.i.i, %.preheader87.i.i.i.i ], [ %305, %.lr.ph.i.i102.i.i ], [ %304, %327 ]
+  %.3.i.i101.i.i = phi i64 [ %304, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i100.i.i ], [ %305, %.lr.ph.i.i102.i.i ], [ %.095.i.i.i.i, %.preheader85.i.i.i.i ], [ %.095.i.i.i.i, %.preheader87.i.i.i.i ], [ %304, %327 ]
   %329 = add nuw nsw i64 %.07994.i.i.i.i, 1
   %exitcond105.not.i.i.i.i = icmp eq i64 %329, %297
   br i1 %exitcond105.not.i.i.i.i, label %_ZN6duckdb14BinaryExecutor7ExecuteINS_8string_tEiS2_ZNS_L17BitStringFunctionILb1EEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlS2_iE_EEvS9_S9_S9_mT2_.exit, label %.lr.ph96.i.i.i.i, !llvm.loop !143
@@ -2781,7 +2781,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i.i.i: ; preds 
   br i1 %exitcond95.not.i.i.i.i, label %.loopexit77.i.i.i.i, label %.lr.ph83.i.i.i.i, !llvm.loop !187
 
 .loopexit77.i.i.i.i:                              ; preds = %127, %110, %.preheader76.i.i.i.i, %.preheader78.i.i.i.i, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i.i.i
-  %.3.i.i.i.i = phi i64 [ %105, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i.i.i ], [ %.086.i.i.i.i, %.preheader76.i.i.i.i ], [ %.086.i.i.i.i, %.preheader78.i.i.i.i ], [ %106, %110 ], [ %105, %127 ]
+  %.3.i.i.i.i = phi i64 [ %105, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i.i.i ], [ %106, %110 ], [ %.086.i.i.i.i, %.preheader76.i.i.i.i ], [ %.086.i.i.i.i, %.preheader78.i.i.i.i ], [ %105, %127 ]
   %129 = add nuw nsw i64 %.07085.i.i.i.i, 1
   %exitcond96.not.i.i.i.i = icmp eq i64 %129, %98
   br i1 %exitcond96.not.i.i.i.i, label %_ZN6duckdb14BinaryExecutor7ExecuteINS_8string_tEiS2_ZNS_L17BitStringFunctionILb0EEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlS2_iE_EEvS9_S9_S9_mT2_.exit, label %.lr.ph87.i.i.i.i, !llvm.loop !188
@@ -3031,7 +3031,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i63.i.i: ; pred
   br i1 %exitcond95.not.i.i81.i.i, label %.loopexit77.i.i64.i.i, label %.lr.ph83.i.i75.i.i, !llvm.loop !202
 
 .loopexit77.i.i64.i.i:                            ; preds = %228, %210, %.preheader76.i.i74.i.i, %.preheader78.i.i67.i.i, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i63.i.i
-  %.3.i.i65.i.i = phi i64 [ %206, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i63.i.i ], [ %.086.i.i60.i.i, %.preheader76.i.i74.i.i ], [ %.086.i.i60.i.i, %.preheader78.i.i67.i.i ], [ %207, %210 ], [ %206, %228 ]
+  %.3.i.i65.i.i = phi i64 [ %206, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i63.i.i ], [ %207, %210 ], [ %.086.i.i60.i.i, %.preheader76.i.i74.i.i ], [ %.086.i.i60.i.i, %.preheader78.i.i67.i.i ], [ %206, %228 ]
   %230 = add nuw nsw i64 %.07085.i.i61.i.i, 1
   %exitcond96.not.i.i66.i.i = icmp eq i64 %230, %198
   br i1 %exitcond96.not.i.i66.i.i, label %_ZN6duckdb14BinaryExecutor7ExecuteINS_8string_tEiS2_ZNS_L17BitStringFunctionILb0EEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlS2_iE_EEvS9_S9_S9_mT2_.exit, label %199, !llvm.loop !203
@@ -3256,7 +3256,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i100.i.i: ; pre
   br i1 %exitcond104.not.i.i.i.i, label %.loopexit86.i.i.i.i, label %.lr.ph92.i.i.i.i, !llvm.loop !217
 
 .loopexit86.i.i.i.i:                              ; preds = %327, %.lr.ph.i.i102.i.i, %.preheader85.i.i.i.i, %.preheader87.i.i.i.i, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i100.i.i
-  %.3.i.i101.i.i = phi i64 [ %304, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i100.i.i ], [ %.095.i.i.i.i, %.preheader85.i.i.i.i ], [ %.095.i.i.i.i, %.preheader87.i.i.i.i ], [ %305, %.lr.ph.i.i102.i.i ], [ %304, %327 ]
+  %.3.i.i101.i.i = phi i64 [ %304, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i100.i.i ], [ %305, %.lr.ph.i.i102.i.i ], [ %.095.i.i.i.i, %.preheader85.i.i.i.i ], [ %.095.i.i.i.i, %.preheader87.i.i.i.i ], [ %304, %327 ]
   %329 = add nuw nsw i64 %.07994.i.i.i.i, 1
   %exitcond105.not.i.i.i.i = icmp eq i64 %329, %297
   br i1 %exitcond105.not.i.i.i.i, label %_ZN6duckdb14BinaryExecutor7ExecuteINS_8string_tEiS2_ZNS_L17BitStringFunctionILb0EEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlS2_iE_EEvS9_S9_S9_mT2_.exit, label %.lr.ph96.i.i.i.i, !llvm.loop !218
@@ -4102,7 +4102,7 @@ _ZNSt14_Function_baseD2Ev.exit17:                 ; preds = %57, %59
   br i1 %69, label %.loopexit, label %66
 
 .loopexit:                                        ; preds = %66, %.loopexit.loopexit23, %.thread
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %8, %.thread ], [ %53, %.loopexit.loopexit23 ], [ %.pn.pn.pn, %66 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %53, %.loopexit.loopexit23 ], [ %8, %.thread ], [ %.pn.pn.pn, %66 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %72
 
@@ -4376,7 +4376,7 @@ _ZNSt14_Function_baseD2Ev.exit17:                 ; preds = %64, %66
   br i1 %76, label %.loopexit, label %73
 
 .loopexit:                                        ; preds = %57, %73, %.thread
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %8, %.thread ], [ %.pn.pn.pn, %73 ], [ %56, %57 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %73 ], [ %8, %.thread ], [ %56, %57 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %79
 
@@ -9694,7 +9694,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit: ; preds = %.lr.p
   br i1 %exitcond88.not, label %.loopexit70, label %.lr.ph76, !llvm.loop !316
 
 .loopexit70:                                      ; preds = %36, %23, %.preheader71, %.preheader69, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit
-  %.3 = phi i64 [ %18, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit ], [ %.079, %.preheader69 ], [ %.079, %.preheader71 ], [ %19, %23 ], [ %18, %36 ]
+  %.3 = phi i64 [ %18, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit ], [ %19, %23 ], [ %.079, %.preheader69 ], [ %.079, %.preheader71 ], [ %18, %36 ]
   %38 = add nuw nsw i64 %.06378, 1
   %exitcond89.not = icmp eq i64 %38, %11
   br i1 %exitcond89.not, label %.loopexit, label %.lr.ph80, !llvm.loop !317
@@ -9813,7 +9813,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit: ; preds = %11
   br i1 %exitcond88.not, label %.loopexit70, label %.lr.ph76, !llvm.loop !320
 
 .loopexit70:                                      ; preds = %36, %22, %.preheader71, %.preheader69, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit
-  %.3 = phi i64 [ %18, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit ], [ %.079, %.preheader69 ], [ %.079, %.preheader71 ], [ %19, %22 ], [ %18, %36 ]
+  %.3 = phi i64 [ %18, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit ], [ %19, %22 ], [ %.079, %.preheader69 ], [ %.079, %.preheader71 ], [ %18, %36 ]
   %38 = add nuw nsw i64 %.06378, 1
   %exitcond89.not = icmp eq i64 %38, %10
   br i1 %exitcond89.not, label %.loopexit, label %11, !llvm.loop !321
@@ -9921,7 +9921,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit: ; preds = %.lr.p
   br i1 %exitcond97.not, label %.loopexit79, label %.lr.ph85, !llvm.loop !324
 
 .loopexit79:                                      ; preds = %36, %.lr.ph, %.preheader80, %.preheader78, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit
-  %.3 = phi i64 [ %17, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit ], [ %.088, %.preheader78 ], [ %.088, %.preheader80 ], [ %18, %.lr.ph ], [ %17, %36 ]
+  %.3 = phi i64 [ %17, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit ], [ %18, %.lr.ph ], [ %.088, %.preheader78 ], [ %.088, %.preheader80 ], [ %17, %36 ]
   %38 = add nuw nsw i64 %.07287, 1
   %exitcond98.not = icmp eq i64 %38, %10
   br i1 %exitcond98.not, label %.loopexit, label %.lr.ph89, !llvm.loop !325
@@ -11007,7 +11007,7 @@ _ZN6duckdb29BinaryStandardOperatorWrapper9OperationIbNS_19BitPositionOperatorENS
   br i1 %exitcond101.not, label %.loopexit83, label %.lr.ph89, !llvm.loop !330
 
 .loopexit83:                                      ; preds = %45, %_ZN6duckdb29BinaryStandardOperatorWrapper9OperationIbNS_19BitPositionOperatorENS_8string_tES3_iEET3_T_T1_T2_RNS_12ValidityMaskEm.exit, %.preheader84, %.preheader82, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit
-  %.3 = phi i64 [ %19, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit ], [ %.092, %.preheader82 ], [ %.092, %.preheader84 ], [ %20, %_ZN6duckdb29BinaryStandardOperatorWrapper9OperationIbNS_19BitPositionOperatorENS_8string_tES3_iEET3_T_T1_T2_RNS_12ValidityMaskEm.exit ], [ %19, %45 ]
+  %.3 = phi i64 [ %19, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit ], [ %20, %_ZN6duckdb29BinaryStandardOperatorWrapper9OperationIbNS_19BitPositionOperatorENS_8string_tES3_iEET3_T_T1_T2_RNS_12ValidityMaskEm.exit ], [ %.092, %.preheader82 ], [ %.092, %.preheader84 ], [ %19, %45 ]
   %47 = add nuw nsw i64 %.07291, 1
   %exitcond102.not = icmp eq i64 %47, %11
   br i1 %exitcond102.not, label %.loopexit, label %12, !llvm.loop !331
@@ -11163,7 +11163,7 @@ _ZN6duckdb29BinaryStandardOperatorWrapper9OperationIbNS_19BitPositionOperatorENS
   br i1 %exitcond101.not, label %.loopexit83, label %.lr.ph89, !llvm.loop !334
 
 .loopexit83:                                      ; preds = %45, %_ZN6duckdb29BinaryStandardOperatorWrapper9OperationIbNS_19BitPositionOperatorENS_8string_tES3_iEET3_T_T1_T2_RNS_12ValidityMaskEm.exit, %.preheader84, %.preheader82, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit
-  %.3 = phi i64 [ %19, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit ], [ %.092, %.preheader82 ], [ %.092, %.preheader84 ], [ %20, %_ZN6duckdb29BinaryStandardOperatorWrapper9OperationIbNS_19BitPositionOperatorENS_8string_tES3_iEET3_T_T1_T2_RNS_12ValidityMaskEm.exit ], [ %19, %45 ]
+  %.3 = phi i64 [ %19, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit ], [ %20, %_ZN6duckdb29BinaryStandardOperatorWrapper9OperationIbNS_19BitPositionOperatorENS_8string_tES3_iEET3_T_T1_T2_RNS_12ValidityMaskEm.exit ], [ %.092, %.preheader82 ], [ %.092, %.preheader84 ], [ %19, %45 ]
   %47 = add nuw nsw i64 %.07291, 1
   %exitcond102.not = icmp eq i64 %47, %11
   br i1 %exitcond102.not, label %.loopexit, label %12, !llvm.loop !335
@@ -11310,7 +11310,7 @@ _ZN6duckdb29BinaryStandardOperatorWrapper9OperationIbNS_19BitPositionOperatorENS
   br i1 %exitcond110.not, label %.loopexit92, label %.lr.ph98, !llvm.loop !338
 
 .loopexit92:                                      ; preds = %44, %_ZN6duckdb29BinaryStandardOperatorWrapper9OperationIbNS_19BitPositionOperatorENS_8string_tES3_iEET3_T_T1_T2_RNS_12ValidityMaskEm.exit, %.preheader93, %.preheader91, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit
-  %.3 = phi i64 [ %17, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit ], [ %.0101, %.preheader91 ], [ %.0101, %.preheader93 ], [ %18, %_ZN6duckdb29BinaryStandardOperatorWrapper9OperationIbNS_19BitPositionOperatorENS_8string_tES3_iEET3_T_T1_T2_RNS_12ValidityMaskEm.exit ], [ %17, %44 ]
+  %.3 = phi i64 [ %17, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit ], [ %18, %_ZN6duckdb29BinaryStandardOperatorWrapper9OperationIbNS_19BitPositionOperatorENS_8string_tES3_iEET3_T_T1_T2_RNS_12ValidityMaskEm.exit ], [ %.0101, %.preheader91 ], [ %.0101, %.preheader93 ], [ %17, %44 ]
   %46 = add nuw nsw i64 %.081100, 1
   %exitcond111.not = icmp eq i64 %46, %10
   br i1 %exitcond111.not, label %.loopexit, label %.lr.ph102, !llvm.loop !339

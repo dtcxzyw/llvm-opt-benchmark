@@ -261,7 +261,7 @@ define hidden noundef zeroext i1 @writecap_flush(ptr noundef readonly captures(n
   br label %27
 
 27:                                               ; preds = %.sink.split, %6, %13, %20, %23, %16, %9
-  %.0 = phi i1 [ false, %16 ], [ false, %23 ], [ false, %9 ], [ true, %20 ], [ true, %13 ], [ true, %6 ], [ false, %.sink.split ]
+  %.0 = phi i1 [ false, %16 ], [ false, %23 ], [ false, %9 ], [ true, %6 ], [ true, %13 ], [ true, %20 ], [ false, %.sink.split ]
   ret i1 %.0
 }
 

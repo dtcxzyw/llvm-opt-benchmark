@@ -1760,7 +1760,7 @@ select.unfold:                                    ; preds = %11, %3, %8
   br label %.thread7
 
 .thread7:                                         ; preds = %52, %59, %61, %62, %22, %20, %select.unfold
-  %64 = phi ptr [ %19, %select.unfold ], [ null, %20 ], [ inttoptr (i64 -22 to ptr), %62 ], [ inttoptr (i64 -12 to ptr), %22 ], [ inttoptr (i64 -22 to ptr), %61 ], [ inttoptr (i64 -22 to ptr), %59 ], [ %26, %52 ]
+  %64 = phi ptr [ %19, %select.unfold ], [ null, %20 ], [ inttoptr (i64 -22 to ptr), %59 ], [ inttoptr (i64 -22 to ptr), %62 ], [ inttoptr (i64 -12 to ptr), %22 ], [ inttoptr (i64 -22 to ptr), %61 ], [ %26, %52 ]
   ret ptr %64
 }
 

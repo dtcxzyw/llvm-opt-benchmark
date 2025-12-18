@@ -227,7 +227,7 @@ define ptr @BN_bn2dec(ptr noundef %0) local_unnamed_addr #0 {
   br label %62
 
 .critedge:                                        ; preds = %36, %32, %52, %._crit_edge, %18, %1
-  %.052.ph = phi ptr [ %19, %._crit_edge ], [ null, %18 ], [ null, %1 ], [ %19, %52 ], [ %19, %32 ], [ %19, %36 ]
+  %.052.ph = phi ptr [ %19, %._crit_edge ], [ %19, %52 ], [ null, %18 ], [ null, %1 ], [ %19, %32 ], [ %19, %36 ]
   tail call void @CRYPTO_free(ptr noundef %13, ptr noundef nonnull @.str.1, i32 noundef 110) #3
   tail call void @BN_free(ptr noundef %.052.ph) #3
   tail call void @CRYPTO_free(ptr noundef %15, ptr noundef nonnull @.str.1, i32 noundef 114) #3

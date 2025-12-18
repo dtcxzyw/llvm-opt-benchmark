@@ -271,7 +271,7 @@ define noundef range(i32 -98, 2) i32 @_Z18ConvertPlayFromPBNRK12playTracePBNR12p
   br label %14
 
 14:                                               ; preds = %10, %.fold.split46, %.fold.split45, %.fold.split
-  %.040 = phi i32 [ 0, %10 ], [ 1, %.fold.split ], [ 2, %.fold.split45 ], [ 3, %.fold.split46 ]
+  %.040 = phi i32 [ 1, %.fold.split ], [ 0, %10 ], [ 2, %.fold.split45 ], [ 3, %.fold.split46 ]
   %15 = lshr exact i64 %indvars.iv, 1
   %16 = getelementptr inbounds nuw i32, ptr %7, i64 %15
   store i32 %.040, ptr %16, align 4

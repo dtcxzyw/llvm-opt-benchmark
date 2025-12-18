@@ -2712,7 +2712,7 @@ get_mv_projection.exit.us.us:                     ; preds = %115, %112
   br i1 %exitcond124.not, label %get_ref_frame_buf.exit.thread, label %.preheader.us.us, !llvm.loop !42
 
 get_ref_frame_buf.exit.thread:                    ; preds = %._crit_edge.split.us106.us, %.preheader.lr.ph, %.split.us, %get_ref_frame_map_idx.exit.i, %20, %25, %17, %17, %get_ref_frame_buf.exit
-  %.0 = phi i32 [ 0, %20 ], [ 0, %get_ref_frame_buf.exit ], [ 0, %17 ], [ 0, %17 ], [ 0, %25 ], [ 0, %get_ref_frame_map_idx.exit.i ], [ 1, %.split.us ], [ 1, %.preheader.lr.ph ], [ 1, %._crit_edge.split.us106.us ]
+  %.0 = phi i32 [ 0, %20 ], [ 0, %get_ref_frame_buf.exit ], [ 0, %17 ], [ 0, %17 ], [ 0, %25 ], [ 0, %get_ref_frame_map_idx.exit.i ], [ 1, %.preheader.lr.ph ], [ 1, %.split.us ], [ 1, %._crit_edge.split.us106.us ]
   ret i32 %.0
 }
 
@@ -3373,7 +3373,7 @@ is_inside.exit:                                   ; preds = %337
   br label %has_top_right.exit.thread
 
 has_top_right.exit.thread:                        ; preds = %92, %198, %325, %328, %332, %337, %280, %354, %279, %has_top_right.exit, %342, %350, %is_inside.exit, %251, %152
-  %.0 = phi i8 [ 8, %152 ], [ 8, %251 ], [ %spec.select176, %354 ], [ %.6152, %350 ], [ %.6152, %342 ], [ %.6152, %is_inside.exit ], [ %.6152, %has_top_right.exit ], [ %.6152, %279 ], [ %.6152, %280 ], [ %.6152, %337 ], [ %.6152, %332 ], [ %.6152, %328 ], [ %.6152, %325 ], [ 8, %198 ], [ 8, %92 ]
+  %.0 = phi i8 [ 8, %152 ], [ %.6152, %325 ], [ %.6152, %328 ], [ 8, %251 ], [ %spec.select176, %354 ], [ %.6152, %350 ], [ %.6152, %342 ], [ %.6152, %is_inside.exit ], [ %.6152, %has_top_right.exit ], [ %.6152, %279 ], [ %.6152, %280 ], [ %.6152, %337 ], [ %.6152, %332 ], [ 8, %198 ], [ 8, %92 ]
   ret i8 %.0
 }
 
@@ -4816,7 +4816,7 @@ is_inside.exit.thread.sink.split:                 ; preds = %340, %199
   br label %is_inside.exit.thread
 
 is_inside.exit.thread:                            ; preds = %is_inside.exit.thread.sink.split, %12, %18, %26, %.loopexit, %.loopexit181, %31, %is_inside.exit
-  %.0 = phi i32 [ 0, %is_inside.exit ], [ 0, %31 ], [ 1, %.loopexit181 ], [ 1, %.loopexit ], [ 0, %26 ], [ 0, %18 ], [ 0, %12 ], [ 1, %is_inside.exit.thread.sink.split ]
+  %.0 = phi i32 [ 0, %is_inside.exit ], [ 0, %31 ], [ 1, %.loopexit181 ], [ 0, %12 ], [ 1, %.loopexit ], [ 0, %18 ], [ 0, %26 ], [ 1, %is_inside.exit.thread.sink.split ]
   ret i32 %.0
 }
 

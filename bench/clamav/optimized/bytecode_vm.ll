@@ -18799,8 +18799,8 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br label %8631
 
 8631:                                             ; preds = %8626, %8612
-  %.sroa.0.24 = phi ptr [ %8624, %8626 ], [ %.sroa.0.0, %8612 ]
-  %.0.i12548 = phi ptr [ %8627, %8626 ], [ %8619, %8612 ]
+  %.sroa.0.24 = phi ptr [ %.sroa.0.0, %8612 ], [ %8624, %8626 ]
+  %.0.i12548 = phi ptr [ %8619, %8612 ], [ %8627, %8626 ]
   %.sroa.29.23.in = lshr i32 %8603, 3
   %.sroa.29.23 = trunc i32 %.sroa.29.23.in to i16
   store ptr %.05382, ptr %.0.i12548, align 8, !tbaa !82
@@ -22179,7 +22179,7 @@ tailrecurse:                                      ; preds = %6
 
 .loopexit:                                        ; preds = %6, %.lr.ph, %23, %18, %tailrecurse._crit_edge
   %accumulator.tr22 = phi i32 [ %accumulator.tr.lcssa, %tailrecurse._crit_edge ], [ %accumulator.tr23, %18 ], [ %accumulator.tr23, %23 ], [ %accumulator.tr23, %.lr.ph ], [ %accumulator.tr23, %6 ]
-  %.015 = phi i32 [ %4, %tailrecurse._crit_edge ], [ 0, %18 ], [ %27, %23 ], [ 0, %6 ], [ 8, %.lr.ph ]
+  %.015 = phi i32 [ %4, %tailrecurse._crit_edge ], [ 0, %18 ], [ %27, %23 ], [ 8, %.lr.ph ], [ 0, %6 ]
   %accumulator.ret.tr = mul i32 %.015, %accumulator.tr22
   ret i32 %accumulator.ret.tr
 }

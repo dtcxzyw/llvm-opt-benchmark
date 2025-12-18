@@ -10430,7 +10430,7 @@ define void @_ZN5ImGui22TableSortSpecsSanitizeEP10ImGuiTable(ptr noundef capture
   br i1 %exitcond140.not, label %.thread84, label %94, !llvm.loop !560
 
 .thread84:                                        ; preds = %110, %._crit_edge105.us, %86, %88, %1, %102, %.loopexit
-  %.6 = phi i32 [ 0, %88 ], [ %.1, %.loopexit ], [ 1, %102 ], [ 0, %1 ], [ %.1, %._crit_edge105.us ], [ 1, %86 ], [ 0, %110 ]
+  %.6 = phi i32 [ 0, %88 ], [ %.1, %.loopexit ], [ 1, %102 ], [ 1, %86 ], [ 0, %1 ], [ %.1, %._crit_edge105.us ], [ 0, %110 ]
   %111 = trunc i32 %.6 to i16
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 512
   store i16 %111, ptr %112, align 8, !tbaa !380
@@ -10812,7 +10812,7 @@ _ZN5ImGui19TableGetColumnCountEv.exit:            ; preds = %101
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %148, %101, %_ZN5ImGui19TableGetColumnCountEv.exit
-  %108 = phi i32 [ %106, %_ZN5ImGui19TableGetColumnCountEv.exit ], [ 0, %101 ], [ %106, %148 ]
+  %108 = phi i32 [ 0, %101 ], [ %106, %_ZN5ImGui19TableGetColumnCountEv.exit ], [ %106, %148 ]
   %109 = tail call <2 x float> @_ZN5ImGui11GetMousePosEv()
   %110 = tail call noundef zeroext i1 @_ZN5ImGui15IsMouseReleasedEi(i32 noundef 1)
   br i1 %110, label %149, label %_ZN5ImGui20TableOpenContextMenuEi.exit
@@ -14740,8 +14740,8 @@ tailrecurse:                                      ; preds = %.split
   br label %.split31.us
 
 .split31.us:                                      ; preds = %74, %tailrecurse, %118, %.thread.us35, %.split31.us.split.us.critedge
-  %.sink = phi float [ %116, %.thread.us35 ], [ %70, %.split31.us.split.us.critedge ], [ %1, %118 ], [ %1, %tailrecurse ], [ %.tr29.us, %74 ]
-  %.0.sink = phi i32 [ %.0.us36, %.thread.us35 ], [ %.0.us.us, %.split31.us.split.us.critedge ], [ %119, %118 ], [ %0, %tailrecurse ], [ %.0.us, %74 ]
+  %.sink = phi float [ %1, %tailrecurse ], [ %116, %.thread.us35 ], [ %70, %.split31.us.split.us.critedge ], [ %1, %118 ], [ %.tr29.us, %74 ]
+  %.0.sink = phi i32 [ %0, %tailrecurse ], [ %.0.us36, %.thread.us35 ], [ %.0.us.us, %.split31.us.split.us.critedge ], [ %119, %118 ], [ %.0.us, %74 ]
   %120 = fsub float %.sink, %13
   %121 = fdiv float %120, %16
   %122 = sext i32 %.0.sink to i64

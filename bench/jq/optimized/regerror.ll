@@ -897,8 +897,8 @@ define dso_local void @onig_snprintf_with_pattern(ptr noundef %0, i32 noundef %1
   br label %.loopexit65
 
 .loopexit65:                                      ; preds = %.loopexit, %.lr.ph81, %.lr.ph88, %.lr.ph94, %.preheader68, %.preheader, %55, %78, %90, %64
-  %.356 = phi ptr [ %66, %64 ], [ %91, %90 ], [ %79, %78 ], [ %56, %55 ], [ %.05396, %.preheader ], [ %.05396, %.preheader68 ], [ %36, %.lr.ph81 ], [ %79, %.lr.ph94 ], [ %61, %.lr.ph88 ], [ %42, %.loopexit ]
-  %.4 = phi ptr [ %68, %64 ], [ %93, %90 ], [ %.05197, %78 ], [ %.584, %55 ], [ %.05197, %.preheader ], [ %.05197, %.preheader68 ], [ %38, %.lr.ph81 ], [ %89, %.lr.ph94 ], [ %.5, %.lr.ph88 ], [ %.3.lcssa, %.loopexit ]
+  %.356 = phi ptr [ %79, %78 ], [ %36, %.lr.ph81 ], [ %79, %.lr.ph94 ], [ %66, %64 ], [ %91, %90 ], [ %61, %.lr.ph88 ], [ %56, %55 ], [ %.05396, %.preheader ], [ %.05396, %.preheader68 ], [ %42, %.loopexit ]
+  %.4 = phi ptr [ %.05197, %78 ], [ %38, %.lr.ph81 ], [ %89, %.lr.ph94 ], [ %68, %64 ], [ %93, %90 ], [ %.5, %.lr.ph88 ], [ %.584, %55 ], [ %.05197, %.preheader ], [ %.05197, %.preheader68 ], [ %.3.lcssa, %.loopexit ]
   %94 = icmp ult ptr %.356, %4
   br i1 %94, label %26, label %._crit_edge, !llvm.loop !29
 

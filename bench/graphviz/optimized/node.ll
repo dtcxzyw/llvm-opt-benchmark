@@ -357,7 +357,7 @@ agfindnode_by_id.exit22:                          ; preds = %63
   br label %agfindnode_by_id.exit.thread
 
 agfindnode_by_id.exit.thread:                     ; preds = %29, %58, %67, %43, %47, %51, %35, %agfindnode_by_id.exit22, %agfindnode_by_id.exit
-  %.0 = phi ptr [ %.val.i.i20, %agfindnode_by_id.exit22 ], [ null, %agfindnode_by_id.exit ], [ null, %35 ], [ null, %51 ], [ null, %47 ], [ null, %43 ], [ null, %58 ], [ null, %67 ], [ %.val.i.i, %29 ]
+  %.0 = phi ptr [ %.val.i.i20, %agfindnode_by_id.exit22 ], [ null, %agfindnode_by_id.exit ], [ null, %58 ], [ null, %35 ], [ null, %51 ], [ null, %47 ], [ null, %43 ], [ null, %67 ], [ %.val.i.i, %29 ]
   ret ptr %.0
 }
 

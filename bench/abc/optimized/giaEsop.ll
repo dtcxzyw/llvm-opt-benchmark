@@ -3254,7 +3254,7 @@ Eso_ManFindDistOneLitNotEqual.exit218.thread:     ; preds = %300
   br i1 %exitcond405.not, label %.critedge6, label %.lr.ph318.split, !llvm.loop !107
 
 .critedge6:                                       ; preds = %.critedge3, %.thread, %272, %Eso_ManFindDistOneLitNotEqual.exit218.thread, %Vec_IntDrop.exit202
-  %.3 = phi i32 [ %271, %Vec_IntDrop.exit202 ], [ %.tr251, %Eso_ManFindDistOneLitNotEqual.exit218.thread ], [ %.tr251, %272 ], [ %.tr251, %.thread ], [ %.tr251, %.critedge3 ]
+  %.3 = phi i32 [ %.tr251, %Eso_ManFindDistOneLitNotEqual.exit218.thread ], [ %271, %Vec_IntDrop.exit202 ], [ %.tr251, %272 ], [ %.tr251, %.thread ], [ %.tr251, %.critedge3 ]
   %360 = load i32, ptr %33, align 8, !tbaa !42
   %361 = icmp eq i32 %35, %360
   br i1 %361, label %362, label %.Vec_IntGrow.exit10_crit_edge.i231
@@ -3783,8 +3783,8 @@ Eso_ManComputeAnd.exit.thread:                    ; preds = %78, %Eso_ManCompute
   br i1 %108, label %31, label %.critedge2, !llvm.loop !114
 
 .critedge2:                                       ; preds = %Eso_ManComputeAnd.exit.thread, %.lr.ph68, %.preheader61, %.preheader
-  %.val466684 = phi i32 [ %.val4666, %.preheader ], [ %.val4666, %.preheader61 ], [ %.val46, %.lr.ph68 ], [ %.val, %Eso_ManComputeAnd.exit.thread ]
-  %.val6482 = phi i32 [ %.val4666, %.preheader ], [ %.val64, %.preheader61 ], [ %.val46, %.lr.ph68 ], [ %.val, %Eso_ManComputeAnd.exit.thread ]
+  %.val466684 = phi i32 [ %.val46, %.lr.ph68 ], [ %.val4666, %.preheader ], [ %.val4666, %.preheader61 ], [ %.val, %Eso_ManComputeAnd.exit.thread ]
+  %.val6482 = phi i32 [ %.val46, %.lr.ph68 ], [ %.val4666, %.preheader ], [ %.val64, %.preheader61 ], [ %.val, %Eso_ManComputeAnd.exit.thread ]
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %.val47 = load i32, ptr %6, align 4, !tbaa !31
   %109 = sext i32 %.val47 to i64

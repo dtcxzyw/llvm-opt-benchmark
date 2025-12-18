@@ -448,7 +448,7 @@ define internal fastcc ptr @search_plan_tree(ptr noundef readonly captures(addre
   br label %.thread
 
 .thread:                                          ; preds = %17, %.preheader, %10, %13, %5, %.loopexit, %.thread49, %32, %3
-  %.0 = phi ptr [ null, %3 ], [ %.13252, %32 ], [ %.13252, %.thread49 ], [ null, %.loopexit ], [ null, %5 ], [ null, %13 ], [ null, %10 ], [ null, %.preheader ], [ null, %17 ]
+  %.0 = phi ptr [ null, %10 ], [ null, %3 ], [ %.13252, %32 ], [ %.13252, %.thread49 ], [ null, %.loopexit ], [ null, %5 ], [ null, %13 ], [ null, %.preheader ], [ null, %17 ]
   ret ptr %.0
 }
 

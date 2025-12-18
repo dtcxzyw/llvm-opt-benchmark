@@ -583,10 +583,10 @@ define hidden void @IntRgbSrcMaskFill(ptr noundef %0, ptr noundef %1, i32 nounde
   br label %34
 
 34:                                               ; preds = %10, %.fold.split, %19
-  %.089 = phi i32 [ %6, %19 ], [ 0, %10 ], [ %6, %.fold.split ]
-  %.088 = phi i32 [ %25, %19 ], [ 0, %10 ], [ %17, %.fold.split ]
-  %.087 = phi i32 [ %29, %19 ], [ 0, %10 ], [ %15, %.fold.split ]
-  %.086 = phi i32 [ %33, %19 ], [ 0, %10 ], [ %13, %.fold.split ]
+  %.089 = phi i32 [ 0, %10 ], [ %6, %19 ], [ %6, %.fold.split ]
+  %.088 = phi i32 [ 0, %10 ], [ %25, %19 ], [ %17, %.fold.split ]
+  %.087 = phi i32 [ 0, %10 ], [ %29, %19 ], [ %15, %.fold.split ]
+  %.086 = phi i32 [ 0, %10 ], [ %33, %19 ], [ %13, %.fold.split ]
   %35 = shl nsw i32 %4, 2
   %36 = sub nsw i32 %12, %35
   %.not97 = icmp eq ptr %1, null

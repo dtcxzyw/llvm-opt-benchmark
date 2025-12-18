@@ -465,12 +465,12 @@ define internal range(i32 0, 2) i32 @test_tx_ack_case(i32 noundef %0) #0 {
   br i1 %.not75.i, label %.loopexit.sink.split.i, label %163
 
 .loopexit.sink.split.i:                           ; preds = %173, %170, %154, %150, %144, %141, %136
-  %.065.ph.i = phi i32 [ 0, %136 ], [ %spec.select.i, %170 ], [ 0, %154 ], [ 0, %150 ], [ 0, %144 ], [ 0, %141 ], [ 0, %173 ]
+  %.065.ph.i = phi i32 [ 0, %136 ], [ 0, %141 ], [ %spec.select.i, %170 ], [ 0, %154 ], [ 0, %150 ], [ 0, %144 ], [ 0, %173 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %38, %33, %125, %114, %103, %99, %79, %73, %.lr.ph111.i, %64, %.loopexit.sink.split.i, %.preheader94.i, %86, %85, %.preheader.i, %58, %18
-  %.065.i = phi i32 [ 0, %85 ], [ 0, %18 ], [ 0, %58 ], [ 0, %86 ], [ 1, %.preheader94.i ], [ 1, %.preheader.i ], [ %.065.ph.i, %.loopexit.sink.split.i ], [ 1, %99 ], [ 1, %64 ], [ 0, %73 ], [ 0, %.lr.ph111.i ], [ 0, %79 ], [ 0, %125 ], [ 0, %114 ], [ 0, %103 ], [ 0, %33 ], [ 0, %38 ]
+  %.065.i = phi i32 [ %.065.ph.i, %.loopexit.sink.split.i ], [ 1, %64 ], [ 0, %85 ], [ 1, %.preheader.i ], [ 1, %.preheader94.i ], [ 0, %18 ], [ 0, %58 ], [ 0, %86 ], [ 1, %99 ], [ 0, %73 ], [ 0, %.lr.ph111.i ], [ 0, %79 ], [ 0, %114 ], [ 0, %125 ], [ 0, %103 ], [ 0, %33 ], [ 0, %38 ]
   call fastcc void @helper_destroy(ptr noundef %2)
   br label %test_tx_ack_case_actual.exit
 
@@ -698,7 +698,7 @@ define internal range(i32 0, 2) i32 @test_tx_ack_time_script(i32 %0) #0 {
   br label %27, !llvm.loop !67
 
 .loopexit:                                        ; preds = %22, %27, %61, %94, %85, %75, %39, %13
-  %.0 = phi i32 [ 0, %61 ], [ 0, %13 ], [ 0, %39 ], [ 0, %94 ], [ 0, %75 ], [ 0, %85 ], [ 1, %27 ], [ 0, %22 ]
+  %.0 = phi i32 [ 1, %27 ], [ 0, %13 ], [ 0, %94 ], [ 0, %39 ], [ 0, %75 ], [ 0, %85 ], [ 0, %61 ], [ 0, %22 ]
   call fastcc void @helper_destroy(ptr noundef %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -1063,7 +1063,7 @@ define internal range(i32 0, 2) i32 @test_rx_ack(i32 noundef %0) #0 {
   br i1 %187, label %test_rx_ack_actual.exit, label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %129, %103, %69, %61, %183, %173, %171, %.preheader158.i, %65, %.preheader.i
-  %.1109.i = phi i64 [ %172, %171 ], [ %.0108179.i, %173 ], [ %.0108179.i, %183 ], [ %.0108179.i, %.preheader.i ], [ %.0108179.i, %65 ], [ %.0108179.i, %.preheader158.i ], [ %.0108179.i, %103 ], [ %.0108179.i, %61 ], [ %.0108179.i, %69 ], [ %.0108179.i, %129 ]
+  %.1109.i = phi i64 [ %.0108179.i, %183 ], [ %.0108179.i, %61 ], [ %.0108179.i, %.preheader.i ], [ %.0108179.i, %65 ], [ %172, %171 ], [ %.0108179.i, %173 ], [ %.0108179.i, %.preheader158.i ], [ %.0108179.i, %103 ], [ %.0108179.i, %69 ], [ %.0108179.i, %129 ]
   %188 = getelementptr inbounds nuw i8, ptr %.1180.i, i64 64
   %189 = add i64 %.1112177.i, 1
   %190 = load i32, ptr %188, align 8, !tbaa !70
@@ -1071,9 +1071,9 @@ define internal range(i32 0, 2) i32 @test_rx_ack(i32 noundef %0) #0 {
   br i1 %.not118.i, label %test_rx_ack_actual.exit, label %42, !llvm.loop !87
 
 .loopexit154.i:                                   ; preds = %173, %151, %121, %117, %97, %82, %42, %141, %133, %.preheader155._crit_edge.i, %105, %73, %.thread.i, %28, %24, %1
-  %.0113.ph.i = phi ptr [ %26, %24 ], [ %26, %28 ], [ null, %1 ], [ %26, %.thread.i ], [ %26, %141 ], [ %26, %73 ], [ %26, %.preheader155._crit_edge.i ], [ %26, %105 ], [ %26, %133 ], [ %26, %42 ], [ %26, %82 ], [ %26, %97 ], [ %26, %117 ], [ %26, %121 ], [ %26, %151 ], [ %26, %173 ]
-  %.0111.ph.i = phi i64 [ 0, %24 ], [ 0, %28 ], [ 0, %1 ], [ %.1112177.i, %.thread.i ], [ %.1112177.i, %141 ], [ %.1112177.i, %73 ], [ %.1112177.i, %.preheader155._crit_edge.i ], [ %.1112177.i, %105 ], [ %.1112177.i, %133 ], [ %.1112177.i, %42 ], [ %.1112177.i, %82 ], [ %.1112177.i, %97 ], [ %.1112177.i, %117 ], [ %.1112177.i, %121 ], [ %.1112177.i, %151 ], [ %.1112177.i, %173 ]
-  %.0110.ph.i = phi ptr [ null, %24 ], [ %30, %28 ], [ null, %1 ], [ %30, %.thread.i ], [ %30, %141 ], [ %30, %73 ], [ %30, %.preheader155._crit_edge.i ], [ %30, %105 ], [ %30, %133 ], [ %30, %42 ], [ %30, %82 ], [ %30, %97 ], [ %30, %117 ], [ %30, %121 ], [ %30, %151 ], [ %30, %173 ]
+  %.0113.ph.i = phi ptr [ %26, %24 ], [ %26, %28 ], [ null, %1 ], [ %26, %141 ], [ %26, %.thread.i ], [ %26, %73 ], [ %26, %.preheader155._crit_edge.i ], [ %26, %105 ], [ %26, %133 ], [ %26, %42 ], [ %26, %82 ], [ %26, %97 ], [ %26, %117 ], [ %26, %121 ], [ %26, %151 ], [ %26, %173 ]
+  %.0111.ph.i = phi i64 [ 0, %24 ], [ 0, %28 ], [ 0, %1 ], [ %.1112177.i, %141 ], [ %.1112177.i, %.thread.i ], [ %.1112177.i, %73 ], [ %.1112177.i, %.preheader155._crit_edge.i ], [ %.1112177.i, %105 ], [ %.1112177.i, %133 ], [ %.1112177.i, %42 ], [ %.1112177.i, %82 ], [ %.1112177.i, %97 ], [ %.1112177.i, %117 ], [ %.1112177.i, %121 ], [ %.1112177.i, %151 ], [ %.1112177.i, %173 ]
+  %.0110.ph.i = phi ptr [ null, %24 ], [ %30, %28 ], [ null, %1 ], [ %30, %141 ], [ %30, %.thread.i ], [ %30, %73 ], [ %30, %.preheader155._crit_edge.i ], [ %30, %105 ], [ %30, %133 ], [ %30, %42 ], [ %30, %82 ], [ %30, %97 ], [ %30, %117 ], [ %30, %121 ], [ %30, %151 ], [ %30, %173 ]
   %191 = add nuw nsw i32 %7, 1
   %192 = add i64 %.0111.ph.i, 1
   call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.3, i32 noundef 1074, ptr noundef nonnull @.str.73, i32 noundef %191, i64 noundef %192) #9

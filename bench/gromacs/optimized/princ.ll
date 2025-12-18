@@ -656,7 +656,7 @@ define noundef float @_Z8calc_xcmPA3_KfiPKiPK6t_atomPfb(ptr noundef readonly cap
   br i1 %exitcond70.not, label %63, label %65, !llvm.loop !39
 
 .preheader:                                       ; preds = %83, %63, %52, %36, %23, %11, %6
-  %.0.lcssa = phi float [ 0.000000e+00, %6 ], [ %64, %63 ], [ %12, %11 ], [ %24, %23 ], [ %37, %36 ], [ %53, %52 ], [ %84, %83 ]
+  %.0.lcssa = phi float [ 0.000000e+00, %6 ], [ %53, %52 ], [ %37, %36 ], [ %12, %11 ], [ %64, %63 ], [ %24, %23 ], [ %84, %83 ]
   br label %85
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %83

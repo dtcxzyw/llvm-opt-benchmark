@@ -3463,7 +3463,7 @@ proto_tree_add_data.exit226:                      ; preds = %.lr.ph.split.us.spl
   br i1 %.not158.i, label %.preheader204.i, label %.lr.ph250.i, !llvm.loop !12
 
 .preheader204.i:                                  ; preds = %151, %140, %.preheader210.i
-  %.3138.ph.ph.i = phi i8 [ 0, %.preheader210.i ], [ %.2137.i, %140 ], [ %.6141.i, %151 ]
+  %.3138.ph.ph.i = phi i8 [ %.2137.i, %140 ], [ 0, %.preheader210.i ], [ %.6141.i, %151 ]
   %.095260.pr.i = load ptr, ptr @knx_keyring_ia_keys, align 8
   %.not165261.i = icmp eq ptr %.095260.pr.i, null
   br i1 %.not165261.i, label %.loopexit203.i, label %.lr.ph265.i
@@ -3496,7 +3496,7 @@ proto_tree_add_data.exit226:                      ; preds = %.lr.ph.split.us.spl
   br i1 %.not165.i, label %.loopexit203.i, label %.lr.ph265.i, !llvm.loop !13
 
 .loopexit203.i:                                   ; preds = %162, %.preheader204.i, %.preheader207.i
-  %.7142.i = phi i8 [ %.3138.ph.ph.i, %.preheader204.i ], [ 0, %.preheader207.i ], [ %.10145.i, %162 ]
+  %.7142.i = phi i8 [ 0, %.preheader207.i ], [ %.3138.ph.ph.i, %.preheader204.i ], [ %.10145.i, %162 ]
   %163 = load i8, ptr @knx_decryption_key_count, align 1
   %.not.i = icmp eq i8 %163, 0
   br i1 %.not.i, label %.thread193.i, label %.lr.ph276.i
@@ -3530,11 +3530,11 @@ proto_tree_add_data.exit226:                      ; preds = %.lr.ph.split.us.spl
   br label %.thread181.i
 
 .thread181.i:                                     ; preds = %.lr.ph276.i, %.thread181.sink.split.i, %158, %147, %136
-  %.11192.i = phi ptr [ %134, %136 ], [ %145, %147 ], [ %156, %158 ], [ %.11192.ph.i, %.thread181.sink.split.i ], [ %168, %.lr.ph276.i ]
-  %.11132191.i = phi ptr [ %135, %136 ], [ %146, %147 ], [ %157, %158 ], [ %.11132191.ph.i, %.thread181.sink.split.i ], [ %169, %.lr.ph276.i ]
-  %176 = phi i64 [ %129, %136 ], [ %129, %147 ], [ %129, %158 ], [ %172, %.thread181.sink.split.i ], [ %129, %.lr.ph276.i ]
-  %.6105179189.i = phi ptr [ %.099.lcssa.i, %136 ], [ %.099.lcssa.i, %147 ], [ %.099.lcssa.i, %158 ], [ %scevgep322.i, %.thread181.sink.split.i ], [ %.099.lcssa.i, %.lr.ph276.i ]
-  %.6180188.i = phi i32 [ %.098.lcssa.i, %136 ], [ %.098.lcssa.i, %147 ], [ %.098.lcssa.i, %158 ], [ %175, %.thread181.sink.split.i ], [ %.098.lcssa.i, %.lr.ph276.i ]
+  %.11192.i = phi ptr [ %156, %158 ], [ %134, %136 ], [ %.11192.ph.i, %.thread181.sink.split.i ], [ %145, %147 ], [ %168, %.lr.ph276.i ]
+  %.11132191.i = phi ptr [ %157, %158 ], [ %135, %136 ], [ %.11132191.ph.i, %.thread181.sink.split.i ], [ %146, %147 ], [ %169, %.lr.ph276.i ]
+  %176 = phi i64 [ %129, %158 ], [ %129, %136 ], [ %172, %.thread181.sink.split.i ], [ %129, %147 ], [ %129, %.lr.ph276.i ]
+  %.6105179189.i = phi ptr [ %.099.lcssa.i, %158 ], [ %.099.lcssa.i, %136 ], [ %scevgep322.i, %.thread181.sink.split.i ], [ %.099.lcssa.i, %147 ], [ %.099.lcssa.i, %.lr.ph276.i ]
+  %.6180188.i = phi i32 [ %.098.lcssa.i, %158 ], [ %.098.lcssa.i, %136 ], [ %175, %.thread181.sink.split.i ], [ %.098.lcssa.i, %147 ], [ %.098.lcssa.i, %.lr.ph276.i ]
   %177 = sext i32 %.6180188.i to i64
   %178 = call i64 @llvm.usub.sat.i64(i64 144, i64 %176)
   %179 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %.6105179189.i, i64 noundef %177, i32 noundef 2, i64 noundef %178, ptr noundef nonnull @.str.657)

@@ -1619,9 +1619,9 @@ define dso_local i32 @policydb_read(ptr noundef initializes((0, 592)) %0, ptr no
   br i1 %354, label %.thread78, label %.critedge
 
 .critedge:                                        ; preds = %113, %154, %225, %210, %233, %247, %243, %240, %237, %206, %201, %269, %275, %284, %263, %347, %350, %.loopexit98, %182, %44, %2, %.thread85, %317, %314, %311, %306, %304, %297, %290, %.loopexit, %185, %179, %173, %171, %._crit_edge124, %.thread76, %84, %79, %68, %61, %42, %32, %27, %21, %17
-  %355 = phi i32 [ -22, %17 ], [ -22, %21 ], [ -22, %32 ], [ -22, %42 ], [ -22, %2 ], [ -22, %61 ], [ -22, %68 ], [ %80, %79 ], [ %86, %84 ], [ -22, %._crit_edge124 ], [ %174, %173 ], [ %180, %179 ], [ %191, %185 ], [ -22, %182 ], [ %288, %.loopexit ], [ %291, %290 ], [ %309, %306 ], [ %312, %311 ], [ %315, %314 ], [ %353, %.thread85 ], [ -12, %317 ], [ -22, %304 ], [ -22, %297 ], [ -22, %171 ], [ -22, %.thread76 ], [ -12, %27 ], [ -22, %44 ], [ -22, %.loopexit98 ], [ %156, %154 ], [ %351, %350 ], [ -22, %269 ], [ -12, %206 ], [ %348, %347 ], [ -22, %275 ], [ -12, %263 ], [ -22, %284 ], [ -22, %237 ], [ -22, %240 ], [ -22, %243 ], [ %248, %247 ], [ -22, %210 ], [ -12, %201 ], [ -22, %233 ], [ -22, %225 ], [ -22, %113 ]
-  %356 = phi ptr [ null, %17 ], [ null, %21 ], [ null, %32 ], [ null, %42 ], [ null, %2 ], [ null, %61 ], [ null, %68 ], [ null, %79 ], [ null, %84 ], [ null, %._crit_edge124 ], [ null, %173 ], [ null, %179 ], [ null, %185 ], [ null, %182 ], [ null, %.loopexit ], [ null, %290 ], [ null, %306 ], [ null, %311 ], [ null, %314 ], [ null, %.thread85 ], [ null, %317 ], [ null, %304 ], [ null, %297 ], [ null, %171 ], [ null, %.thread76 ], [ null, %27 ], [ null, %44 ], [ null, %.loopexit98 ], [ null, %154 ], [ null, %347 ], [ null, %269 ], [ null, %206 ], [ null, %350 ], [ null, %263 ], [ null, %284 ], [ null, %275 ], [ %208, %237 ], [ %208, %240 ], [ %208, %243 ], [ %208, %247 ], [ %208, %210 ], [ null, %201 ], [ %208, %233 ], [ %208, %225 ], [ null, %113 ]
-  %357 = phi ptr [ null, %17 ], [ null, %21 ], [ null, %32 ], [ null, %42 ], [ null, %2 ], [ null, %61 ], [ null, %68 ], [ null, %79 ], [ null, %84 ], [ null, %._crit_edge124 ], [ null, %173 ], [ null, %179 ], [ null, %185 ], [ null, %182 ], [ null, %.loopexit ], [ null, %290 ], [ null, %306 ], [ null, %311 ], [ null, %314 ], [ null, %.thread85 ], [ null, %317 ], [ null, %304 ], [ null, %297 ], [ null, %171 ], [ null, %.thread76 ], [ null, %27 ], [ null, %44 ], [ null, %.loopexit98 ], [ null, %154 ], [ null, %347 ], [ null, %269 ], [ %204, %206 ], [ null, %350 ], [ null, %263 ], [ null, %284 ], [ null, %275 ], [ %204, %237 ], [ %204, %240 ], [ %204, %243 ], [ %204, %247 ], [ %204, %210 ], [ null, %201 ], [ %204, %233 ], [ %204, %225 ], [ null, %113 ]
+  %355 = phi i32 [ -22, %210 ], [ -22, %17 ], [ -22, %21 ], [ -22, %32 ], [ -22, %42 ], [ -22, %2 ], [ -22, %61 ], [ -22, %68 ], [ %80, %79 ], [ %86, %84 ], [ -22, %._crit_edge124 ], [ %174, %173 ], [ %180, %179 ], [ -22, %269 ], [ %191, %185 ], [ -22, %182 ], [ %288, %.loopexit ], [ %291, %290 ], [ %309, %306 ], [ %312, %311 ], [ %315, %314 ], [ %353, %.thread85 ], [ -12, %317 ], [ -22, %304 ], [ -22, %297 ], [ -22, %171 ], [ -22, %.thread76 ], [ -12, %27 ], [ -22, %44 ], [ -22, %.loopexit98 ], [ %156, %154 ], [ %351, %350 ], [ %348, %347 ], [ -22, %275 ], [ -12, %263 ], [ -22, %284 ], [ -22, %237 ], [ -22, %240 ], [ -22, %243 ], [ %248, %247 ], [ -22, %233 ], [ -12, %201 ], [ -22, %225 ], [ -12, %206 ], [ -22, %113 ]
+  %356 = phi ptr [ %208, %210 ], [ null, %17 ], [ null, %21 ], [ null, %32 ], [ null, %42 ], [ null, %2 ], [ null, %61 ], [ null, %68 ], [ null, %79 ], [ null, %84 ], [ null, %._crit_edge124 ], [ null, %173 ], [ null, %179 ], [ null, %269 ], [ null, %185 ], [ null, %182 ], [ null, %.loopexit ], [ null, %290 ], [ null, %306 ], [ null, %311 ], [ null, %314 ], [ null, %.thread85 ], [ null, %317 ], [ null, %304 ], [ null, %297 ], [ null, %171 ], [ null, %.thread76 ], [ null, %27 ], [ null, %44 ], [ null, %.loopexit98 ], [ null, %154 ], [ null, %347 ], [ null, %350 ], [ null, %263 ], [ null, %284 ], [ null, %275 ], [ %208, %237 ], [ %208, %240 ], [ %208, %243 ], [ %208, %247 ], [ %208, %233 ], [ null, %201 ], [ %208, %225 ], [ null, %206 ], [ null, %113 ]
+  %357 = phi ptr [ %204, %210 ], [ null, %17 ], [ null, %21 ], [ null, %32 ], [ null, %42 ], [ null, %2 ], [ null, %61 ], [ null, %68 ], [ null, %79 ], [ null, %84 ], [ null, %._crit_edge124 ], [ null, %173 ], [ null, %179 ], [ null, %269 ], [ null, %185 ], [ null, %182 ], [ null, %.loopexit ], [ null, %290 ], [ null, %306 ], [ null, %311 ], [ null, %314 ], [ null, %.thread85 ], [ null, %317 ], [ null, %304 ], [ null, %297 ], [ null, %171 ], [ null, %.thread76 ], [ null, %27 ], [ null, %44 ], [ null, %.loopexit98 ], [ null, %154 ], [ null, %347 ], [ null, %350 ], [ null, %263 ], [ null, %284 ], [ null, %275 ], [ %204, %237 ], [ %204, %240 ], [ %204, %243 ], [ %204, %247 ], [ %204, %233 ], [ null, %201 ], [ %204, %225 ], [ %204, %206 ], [ null, %113 ]
   tail call void @kfree(ptr noundef %357) #22
   tail call void @kfree(ptr noundef %356) #22
   tail call void @policydb_destroy(ptr noundef %0)
@@ -1919,7 +1919,7 @@ policydb_filenametr_search.exit:                  ; preds = %99
   br i1 %127, label %policydb_filenametr_search.exit.thread, label %116, !llvm.loop !29
 
 policydb_filenametr_search.exit.thread:           ; preds = %106, %.thread.i, %124, %73, %60, %policydb_filenametr_search.exit
-  %128 = phi ptr [ null, %policydb_filenametr_search.exit ], [ null, %60 ], [ null, %73 ], [ %117, %124 ], [ null, %.thread.i ], [ null, %106 ]
+  %128 = phi ptr [ null, %policydb_filenametr_search.exit ], [ %117, %124 ], [ null, %60 ], [ null, %73 ], [ null, %.thread.i ], [ null, %106 ]
   %129 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %130 = call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %129, i32 noundef 3264, i64 noundef 32) #25
   %131 = icmp eq ptr %130, null
@@ -1966,9 +1966,9 @@ policydb_filenametr_search.exit.thread:           ; preds = %106, %.thread.i, %1
   br label %157
 
 .loopexit:                                        ; preds = %116, %54, %141, %138, %policydb_filenametr_search.exit.thread
-  %154 = phi ptr [ %139, %141 ], [ null, %138 ], [ null, %policydb_filenametr_search.exit.thread ], [ null, %54 ], [ null, %116 ]
-  %155 = phi ptr [ %130, %141 ], [ %130, %138 ], [ null, %policydb_filenametr_search.exit.thread ], [ null, %54 ], [ null, %116 ]
-  %156 = phi i32 [ %142, %141 ], [ -12, %138 ], [ -12, %policydb_filenametr_search.exit.thread ], [ -22, %54 ], [ 0, %116 ]
+  %154 = phi ptr [ null, %54 ], [ %139, %141 ], [ null, %138 ], [ null, %policydb_filenametr_search.exit.thread ], [ null, %116 ]
+  %155 = phi ptr [ null, %54 ], [ %130, %141 ], [ %130, %138 ], [ null, %policydb_filenametr_search.exit.thread ], [ null, %116 ]
+  %156 = phi i32 [ -22, %54 ], [ %142, %141 ], [ -12, %138 ], [ -12, %policydb_filenametr_search.exit.thread ], [ 0, %116 ]
   call void @kfree(ptr noundef %154) #22
   call void @kfree(ptr noundef nonnull %47) #22
   call void @kfree(ptr noundef %155) #22
@@ -2626,7 +2626,7 @@ define internal fastcc i32 @ocontext_read(ptr noundef %0, ptr noundef nonnull re
   br label %.thread44
 
 .thread44:                                        ; preds = %11, %.loopexit, %199, %190, %187, %207, %163, %160, %170, %144, %128, %125, %57, %50, %111, %100, %80, %47, %35, %214, %179, %147, %136, %114, %103, %83, %76, %72, %38, %25, %.thread44.sink.split, %3
-  %227 = phi i32 [ 0, %3 ], [ -22, %.thread44.sink.split ], [ %218, %214 ], [ -22, %190 ], [ -12, %199 ], [ -22, %207 ], [ -22, %187 ], [ -22, %160 ], [ -22, %170 ], [ -22, %125 ], [ -12, %128 ], [ -22, %50 ], [ -12, %57 ], [ -22, %144 ], [ -22, %111 ], [ -12, %25 ], [ %45, %38 ], [ %78, %76 ], [ %74, %72 ], [ -22, %163 ], [ -22, %35 ], [ %98, %83 ], [ -22, %47 ], [ %109, %103 ], [ -22, %80 ], [ %142, %136 ], [ -22, %114 ], [ -22, %100 ], [ %158, %147 ], [ %185, %179 ], [ -22, %11 ], [ 0, %.loopexit ]
+  %227 = phi i32 [ 0, %3 ], [ -22, %.thread44.sink.split ], [ %218, %214 ], [ %185, %179 ], [ -22, %190 ], [ -12, %199 ], [ -22, %207 ], [ -22, %187 ], [ -22, %160 ], [ -22, %170 ], [ -22, %125 ], [ -12, %128 ], [ -22, %50 ], [ -12, %57 ], [ -22, %144 ], [ -22, %111 ], [ -12, %25 ], [ %45, %38 ], [ %78, %76 ], [ %74, %72 ], [ -22, %163 ], [ -22, %35 ], [ %98, %83 ], [ -22, %47 ], [ %109, %103 ], [ -22, %80 ], [ %142, %136 ], [ -22, %114 ], [ -22, %100 ], [ %158, %147 ], [ 0, %.loopexit ], [ -22, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %227
 }
@@ -3170,9 +3170,9 @@ define internal fastcc i32 @range_read(ptr noundef %0, ptr noundef %1) unnamed_a
   br i1 %126, label %26, label %.critedge
 
 .critedge:                                        ; preds = %78, %82, %47, %34, %55, %.thread28, %70, %66, %64, %59, %29, %26, %115, %76, %18
-  %127 = phi ptr [ %32, %76 ], [ null, %18 ], [ %32, %115 ], [ %32, %47 ], [ %32, %55 ], [ null, %29 ], [ %32, %82 ], [ %32, %34 ], [ %32, %64 ], [ %32, %78 ], [ %32, %59 ], [ %32, %66 ], [ %32, %70 ], [ %32, %.thread28 ], [ null, %26 ]
-  %128 = phi ptr [ %68, %76 ], [ null, %18 ], [ %68, %115 ], [ null, %47 ], [ null, %55 ], [ null, %29 ], [ %68, %82 ], [ null, %34 ], [ null, %64 ], [ %68, %78 ], [ null, %59 ], [ null, %66 ], [ %68, %70 ], [ %68, %.thread28 ], [ null, %26 ]
-  %129 = phi i32 [ -22, %76 ], [ 0, %18 ], [ -17, %115 ], [ -22, %47 ], [ -22, %55 ], [ -12, %29 ], [ -22, %82 ], [ -22, %34 ], [ -22, %64 ], [ -22, %78 ], [ -22, %59 ], [ -12, %66 ], [ %71, %70 ], [ %125, %.thread28 ], [ 0, %26 ]
+  %127 = phi ptr [ %32, %76 ], [ null, %18 ], [ %32, %115 ], [ %32, %55 ], [ %32, %47 ], [ null, %29 ], [ %32, %82 ], [ %32, %34 ], [ %32, %64 ], [ %32, %78 ], [ %32, %59 ], [ %32, %66 ], [ %32, %70 ], [ %32, %.thread28 ], [ null, %26 ]
+  %128 = phi ptr [ %68, %76 ], [ null, %18 ], [ %68, %115 ], [ null, %55 ], [ null, %47 ], [ null, %29 ], [ %68, %82 ], [ null, %34 ], [ null, %64 ], [ %68, %78 ], [ null, %59 ], [ null, %66 ], [ %68, %70 ], [ %68, %.thread28 ], [ null, %26 ]
+  %129 = phi i32 [ -22, %76 ], [ 0, %18 ], [ -17, %115 ], [ -22, %55 ], [ -22, %47 ], [ -12, %29 ], [ -22, %82 ], [ -22, %34 ], [ -22, %64 ], [ -22, %78 ], [ -22, %59 ], [ -12, %66 ], [ %71, %70 ], [ %125, %.thread28 ], [ 0, %26 ]
   tail call void @kfree(ptr noundef %127) #22
   tail call void @kfree(ptr noundef %128) #22
   br label %130
@@ -3442,7 +3442,7 @@ define dso_local i32 @policydb_write(ptr noundef %0, ptr noundef %1) local_unnam
   br i1 %140, label %131, label %.loopexit
 
 .loopexit:                                        ; preds = %83, %.preheader, %131, %.thread21, %47, %22, %9, %126, %123, %120, %117, %114, %109, %106, %103, %99, %69, %63, %.thread17, %7
-  %141 = phi i32 [ -22, %7 ], [ -22, %.thread17 ], [ -22, %9 ], [ -22, %22 ], [ %65, %63 ], [ %71, %69 ], [ %101, %99 ], [ %104, %103 ], [ %107, %106 ], [ %112, %109 ], [ %115, %114 ], [ %118, %117 ], [ %121, %120 ], [ %124, %123 ], [ 0, %126 ], [ -22, %47 ], [ -22, %.thread21 ], [ 0, %131 ], [ %139, %.preheader ], [ %97, %83 ]
+  %141 = phi i32 [ -22, %7 ], [ -22, %.thread17 ], [ 0, %131 ], [ -22, %9 ], [ -22, %22 ], [ %65, %63 ], [ %71, %69 ], [ %101, %99 ], [ %104, %103 ], [ %107, %106 ], [ %112, %109 ], [ %115, %114 ], [ %118, %117 ], [ %121, %120 ], [ %124, %123 ], [ 0, %126 ], [ -22, %47 ], [ -22, %.thread21 ], [ %139, %.preheader ], [ %97, %83 ]
   ret i32 %141
 }
 
@@ -4776,7 +4776,7 @@ define internal fastcc i32 @ocontext_write(ptr noundef readonly captures(none) %
   br i1 %621, label %20, label %.thread115, !llvm.loop !48
 
 .thread115:                                       ; preds = %.loopexit168, %.loopexit, %561, %549, %485, %418, %365, %354, %295, %229, %176, %124, %116, %56, %544, %476, %473, %46, %349, %292, %226, %111, %53, %.thread167, %.thread160, %.thread153, %.thread147, %.thread140, %.thread134, %.thread128, %.thread123, %.thread116, %3
-  %622 = phi i32 [ 0, %3 ], [ %.ph, %.thread116 ], [ %.ph122, %.thread123 ], [ %.ph127, %.thread128 ], [ %.ph133, %.thread134 ], [ %.ph139, %.thread140 ], [ %.ph146, %.thread147 ], [ %.ph152, %.thread153 ], [ %.ph159, %.thread160 ], [ %.ph166, %.thread167 ], [ -22, %561 ], [ -22, %53 ], [ -22, %111 ], [ -22, %226 ], [ -22, %292 ], [ -22, %349 ], [ -22, %46 ], [ -22, %473 ], [ -22, %476 ], [ -22, %544 ], [ -22, %56 ], [ -22, %116 ], [ -22, %124 ], [ -22, %176 ], [ -22, %229 ], [ -22, %295 ], [ -22, %354 ], [ -22, %365 ], [ -22, %418 ], [ -22, %485 ], [ -22, %549 ], [ 0, %.loopexit ], [ -22, %.loopexit168 ]
+  %622 = phi i32 [ 0, %3 ], [ %.ph146, %.thread147 ], [ %.ph, %.thread116 ], [ -22, %561 ], [ %.ph166, %.thread167 ], [ %.ph122, %.thread123 ], [ %.ph127, %.thread128 ], [ %.ph159, %.thread160 ], [ %.ph133, %.thread134 ], [ %.ph152, %.thread153 ], [ %.ph139, %.thread140 ], [ -22, %53 ], [ -22, %111 ], [ -22, %226 ], [ -22, %292 ], [ -22, %349 ], [ -22, %46 ], [ -22, %473 ], [ -22, %476 ], [ -22, %544 ], [ -22, %56 ], [ -22, %116 ], [ -22, %124 ], [ -22, %176 ], [ -22, %229 ], [ -22, %295 ], [ -22, %354 ], [ -22, %365 ], [ -22, %418 ], [ -22, %485 ], [ -22, %549 ], [ 0, %.loopexit ], [ -22, %.loopexit168 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret i32 %622
 }
@@ -5053,7 +5053,7 @@ thread-pre-split15:                               ; preds = %67
   br label %.thread11, !llvm.loop !52
 
 .thread11:                                        ; preds = %thread-pre-split, %thread-pre-split12, %.lr.ph33, %.preheader, %thread-pre-split15, %83, %.lr.ph, %90, %.preheader24, %..thread11.loopexit25_crit_edge, %.thread22, %.loopexit28, %17
-  %146 = phi i32 [ -22, %.loopexit28 ], [ 0, %17 ], [ %.ph, %.thread22 ], [ -22, %.preheader24 ], [ 0, %..thread11.loopexit25_crit_edge ], [ -22, %thread-pre-split15 ], [ -22, %90 ], [ -22, %.lr.ph ], [ -22, %83 ], [ -22, %.preheader ], [ -22, %.lr.ph33 ], [ -22, %thread-pre-split12 ], [ -22, %thread-pre-split ]
+  %146 = phi i32 [ -22, %.loopexit28 ], [ 0, %17 ], [ -22, %thread-pre-split15 ], [ %.ph, %.thread22 ], [ 0, %..thread11.loopexit25_crit_edge ], [ -22, %.preheader24 ], [ -22, %90 ], [ -22, %.lr.ph ], [ -22, %83 ], [ -22, %.preheader ], [ -22, %.lr.ph33 ], [ -22, %thread-pre-split12 ], [ -22, %thread-pre-split ]
   ret i32 %146
 }
 
@@ -5537,8 +5537,8 @@ define internal i32 @common_read(ptr readnone captures(none) %0, ptr noundef %1,
   br i1 %51, label %56, label %.thread12
 
 .thread12:                                        ; preds = %.preheader, %37, %29, %25, %7, %.loopexit, %11
-  %52 = phi ptr [ %31, %.loopexit ], [ null, %7 ], [ null, %11 ], [ null, %25 ], [ null, %29 ], [ null, %37 ], [ %31, %.preheader ]
-  %53 = phi i32 [ %50, %.loopexit ], [ -22, %7 ], [ %23, %11 ], [ -22, %25 ], [ -12, %29 ], [ -22, %37 ], [ %48, %.preheader ]
+  %52 = phi ptr [ %31, %.loopexit ], [ null, %7 ], [ null, %11 ], [ null, %37 ], [ null, %25 ], [ null, %29 ], [ %31, %.preheader ]
+  %53 = phi i32 [ %50, %.loopexit ], [ -22, %7 ], [ %23, %11 ], [ -22, %37 ], [ -22, %25 ], [ -12, %29 ], [ %48, %.preheader ]
   tail call void @kfree(ptr noundef %52) #22
   %54 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %55 = tail call i32 @hashtab_map(ptr noundef nonnull %54, ptr noundef nonnull @perm_destroy, ptr noundef null) #22
@@ -5765,8 +5765,8 @@ define internal i32 @class_read(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   br i1 %129, label %133, label %.thread24
 
 .thread24:                                        ; preds = %.preheader, %52, %48, %60, %41, %33, %29, %120, %101, %88, %7, %.thread36, %91, %.loopexit, %70, %11
-  %130 = phi ptr [ %35, %.thread36 ], [ %35, %101 ], [ %35, %88 ], [ %35, %91 ], [ null, %7 ], [ %35, %.loopexit ], [ %35, %70 ], [ null, %41 ], [ %35, %120 ], [ null, %11 ], [ null, %29 ], [ null, %33 ], [ %35, %60 ], [ %35, %48 ], [ %35, %52 ], [ %35, %.preheader ]
-  %131 = phi i32 [ %128, %.thread36 ], [ -22, %101 ], [ -22, %88 ], [ %97, %91 ], [ -22, %7 ], [ %82, %.loopexit ], [ -22, %70 ], [ -22, %41 ], [ -22, %120 ], [ %27, %11 ], [ -22, %29 ], [ -12, %33 ], [ -22, %60 ], [ -22, %48 ], [ -12, %52 ], [ %79, %.preheader ]
+  %130 = phi ptr [ %35, %.thread36 ], [ %35, %101 ], [ %35, %88 ], [ %35, %91 ], [ null, %7 ], [ %35, %.loopexit ], [ %35, %70 ], [ null, %41 ], [ %35, %120 ], [ null, %11 ], [ %35, %52 ], [ null, %29 ], [ null, %33 ], [ %35, %60 ], [ %35, %48 ], [ %35, %.preheader ]
+  %131 = phi i32 [ %128, %.thread36 ], [ -22, %101 ], [ -22, %88 ], [ %97, %91 ], [ -22, %7 ], [ %82, %.loopexit ], [ -22, %70 ], [ -22, %41 ], [ -22, %120 ], [ %27, %11 ], [ -12, %52 ], [ -22, %29 ], [ -12, %33 ], [ -22, %60 ], [ -22, %48 ], [ %79, %.preheader ]
   %132 = tail call i32 @cls_destroy(ptr noundef %130, ptr noundef nonnull %5, ptr poison)
   br label %133
 
@@ -7179,7 +7179,7 @@ define internal noundef range(i32 -22, 1) i32 @user_bounds_sanity_check(ptr noun
   br i1 %100, label %.critedge, label %.lr.ph, !llvm.loop !65
 
 .critedge:                                        ; preds = %.loopexit, %3, %16, %48
-  %101 = phi i32 [ -22, %48 ], [ -22, %16 ], [ 0, %3 ], [ 0, %.loopexit ]
+  %101 = phi i32 [ -22, %16 ], [ -22, %48 ], [ 0, %3 ], [ 0, %.loopexit ]
   ret i32 %101
 }
 
@@ -7324,7 +7324,7 @@ define internal noundef range(i32 -22, 1) i32 @role_bounds_sanity_check(ptr noun
   br i1 %100, label %.critedge, label %.lr.ph, !llvm.loop !67
 
 .critedge:                                        ; preds = %.loopexit, %3, %16, %48
-  %101 = phi i32 [ -22, %48 ], [ -22, %16 ], [ 0, %3 ], [ 0, %.loopexit ]
+  %101 = phi i32 [ -22, %16 ], [ -22, %48 ], [ 0, %3 ], [ 0, %.loopexit ]
   ret i32 %101
 }
 

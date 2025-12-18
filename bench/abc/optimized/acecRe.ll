@@ -463,9 +463,9 @@ Vec_IntPush.exit138:                              ; preds = %Vec_IntPush.exit138
   store i32 %90, ptr %50, align 8, !tbaa !16
   br label %102
 
-102:                                              ; preds = %89, %101, %98
-  %103 = phi i32 [ %91, %89 ], [ %90, %101 ], [ %99, %98 ]
-  %104 = phi i32 [ %90, %89 ], [ %99, %101 ], [ %90, %98 ]
+102:                                              ; preds = %89, %98, %101
+  %103 = phi i32 [ %91, %89 ], [ %99, %98 ], [ %90, %101 ]
+  %104 = phi i32 [ %90, %89 ], [ %90, %98 ], [ %99, %101 ]
   %.val = load ptr, ptr %21, align 8, !tbaa !23
   %105 = load i32, ptr %.val, align 4, !tbaa !16
   %106 = icmp sgt i32 %105, 0
@@ -840,8 +840,8 @@ Ree_ManCutMergeOne.exit.sink.split:               ; preds = %270, %265
   br label %Ree_ManCutMergeOne.exit
 
 Ree_ManCutMergeOne.exit:                          ; preds = %._crit_edge.i, %.preheader.i143, %110, %Ree_ManCutMergeOne.exit.sink.split, %269
-  %.2104 = phi i32 [ %.3105, %269 ], [ %.3105, %Ree_ManCutMergeOne.exit.sink.split ], [ %.1103195, %.preheader.i143 ], [ %.1103195, %110 ], [ %.1103195, %._crit_edge.i ]
-  %.2 = phi i32 [ %.3, %269 ], [ %.3, %Ree_ManCutMergeOne.exit.sink.split ], [ %.1196, %.preheader.i143 ], [ %.1196, %110 ], [ %.1196, %._crit_edge.i ]
+  %.2104 = phi i32 [ %.3105, %Ree_ManCutMergeOne.exit.sink.split ], [ %.1103195, %110 ], [ %.3105, %269 ], [ %.1103195, %.preheader.i143 ], [ %.1103195, %._crit_edge.i ]
+  %.2 = phi i32 [ %.3, %Ree_ManCutMergeOne.exit.sink.split ], [ %.1196, %110 ], [ %.3, %269 ], [ %.1196, %.preheader.i143 ], [ %.1196, %._crit_edge.i ]
   %275 = add nuw nsw i32 %.0116192, 1
   %276 = load i32, ptr %.0109193, align 4, !tbaa !16
   %277 = sext i32 %276 to i64
@@ -2567,7 +2567,7 @@ Vec_IntGrow.exit.i:                               ; preds = %66, %Vec_IntAlloc.e
   br label %Vec_IntFill.exit
 
 Vec_IntFill.exit:                                 ; preds = %.lr.ph.i, %Vec_IntAlloc.exit.thread, %Vec_IntGrow.exit.i
-  %73 = phi ptr [ %70, %Vec_IntGrow.exit.i ], [ %54, %Vec_IntAlloc.exit.thread ], [ %70, %.lr.ph.i ]
+  %73 = phi ptr [ %54, %Vec_IntAlloc.exit.thread ], [ %70, %Vec_IntGrow.exit.i ], [ %70, %.lr.ph.i ]
   store i32 %36, ptr %49, align 4, !tbaa !25
   tail call void @Gia_ManCleanValue(ptr noundef nonnull %0) #25
   %74 = getelementptr i8, ptr %0, i64 32

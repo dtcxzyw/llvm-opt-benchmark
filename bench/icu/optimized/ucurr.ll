@@ -1760,7 +1760,7 @@ _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit69: ; preds = %
   br label %102
 
 75:                                               ; preds = %73, %70
-  %.145 = phi i32 [ 0, %73 ], [ %2, %70 ]
+  %.145 = phi i32 [ %2, %70 ], [ 0, %73 ]
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %11) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %76 = icmp eq ptr %69, null
@@ -4565,7 +4565,7 @@ define double @ucurr_getRoundingIncrement_77(ptr noundef %0, ptr noundef nonnull
   br label %ucurr_getRoundingIncrementForUsage_77.exit
 
 ucurr_getRoundingIncrementForUsage_77.exit:       ; preds = %2, %8, %9, %11
-  %.1.i = phi double [ 0.000000e+00, %9 ], [ 0.000000e+00, %2 ], [ 0.000000e+00, %8 ], [ %17, %11 ]
+  %.1.i = phi double [ %17, %11 ], [ 0.000000e+00, %2 ], [ 0.000000e+00, %9 ], [ 0.000000e+00, %8 ]
   ret double %.1.i
 }
 
@@ -4617,7 +4617,7 @@ define double @ucurr_getRoundingIncrementForUsage_77(ptr noundef %0, i32 noundef
   br label %22
 
 22:                                               ; preds = %3, %12, %15, %13, %.critedge
-  %.1 = phi double [ 0.000000e+00, %.critedge ], [ 0.000000e+00, %3 ], [ 0.000000e+00, %12 ], [ %21, %15 ], [ 0.000000e+00, %13 ]
+  %.1 = phi double [ 0.000000e+00, %.critedge ], [ 0.000000e+00, %3 ], [ 0.000000e+00, %13 ], [ 0.000000e+00, %12 ], [ %21, %15 ]
   ret double %.1
 }
 
@@ -7430,7 +7430,7 @@ _ZN6icu_7713EquivIterator4nextEv.exit135.i.i.i:   ; preds = %260
   br label %.lr.ph.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %_ZN6icu_7713EquivIterator4nextEv.exit135.i.i.i, %.noexc46.i.i, %257, %.noexc45.i.i, %.noexc40.i.i, %149, %.noexc39.i.i
-  %.0.i88198.i.i.i = phi ptr [ null, %149 ], [ null, %.noexc39.i.i ], [ null, %.noexc40.i.i ], [ %143, %.noexc45.i.i ], [ %143, %257 ], [ %143, %.noexc46.i.i ], [ %143, %_ZN6icu_7713EquivIterator4nextEv.exit135.i.i.i ]
+  %.0.i88198.i.i.i = phi ptr [ null, %149 ], [ null, %.noexc40.i.i ], [ null, %.noexc39.i.i ], [ %143, %.noexc45.i.i ], [ %143, %257 ], [ %143, %.noexc46.i.i ], [ %143, %_ZN6icu_7713EquivIterator4nextEv.exit135.i.i.i ]
   %279 = icmp eq ptr %.0.i88198.i.i.i, null
   %280 = icmp eq ptr %.0.i84.i.i.i, null
   %or.cond.i35.i.i = and i1 %280, %279

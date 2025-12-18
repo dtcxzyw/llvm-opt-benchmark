@@ -282,7 +282,7 @@ define hidden i32 @internal_exr_write_header(ptr noundef %0) local_unnamed_addr 
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %._crit_edge.thread.i, %.thread51.i, %.preheader.i, %1
-  %.060 = phi i32 [ %48, %.thread51.i ], [ %spec.store.select.i, %.preheader.i ], [ %spec.store.select.i, %1 ], [ %spec.store.select.i, %._crit_edge.thread.i ]
+  %.060 = phi i32 [ %48, %.thread51.i ], [ %spec.store.select.i, %1 ], [ %spec.store.select.i, %.preheader.i ], [ %spec.store.select.i, %._crit_edge.thread.i ]
   %.060.fr = freeze i32 %.060
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %50 = load i8, ptr %49, align 4, !tbaa !44
@@ -491,7 +491,7 @@ select.unfold:                                    ; preds = %122
   br label %.critedge57
 
 .critedge57:                                      ; preds = %.thread66, %122, %134, %.thread66.us, %103, %80, %.critedge, %143, %.critedge.i
-  %.042 = phi i32 [ %59, %.critedge.i ], [ %145, %143 ], [ 0, %.critedge ], [ %126, %122 ], [ %84, %80 ], [ %104, %103 ], [ %86, %.thread66.us ], [ %138, %134 ], [ %140, %.thread66 ]
+  %.042 = phi i32 [ %59, %.critedge.i ], [ %145, %143 ], [ 0, %.critedge ], [ %104, %103 ], [ %126, %122 ], [ %86, %.thread66.us ], [ %84, %80 ], [ %138, %134 ], [ %140, %.thread66 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.042

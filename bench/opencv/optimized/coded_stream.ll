@@ -1578,8 +1578,8 @@ define hidden { i64, i8 } @_ZN6google8protobuf2io16CodedInputStream20ReadVarint6
   br i1 %exitcond.not.i33, label %_ZN6google8protobuf2io12_GLOBAL__N_123DecodeVarint64KnownSizeILm3EEEPKhS5_Pm.exit, label %145, !llvm.loop !49
 
 _ZN6google8protobuf2io12_GLOBAL__N_123DecodeVarint64KnownSizeILm3EEEPKhS5_Pm.exit: ; preds = %145, %129, %113, %97, %81, %65, %49, %33, %19
-  %.sink = phi i64 [ 2, %19 ], [ 9, %129 ], [ 3, %33 ], [ 4, %49 ], [ 5, %65 ], [ 6, %81 ], [ 7, %97 ], [ 8, %113 ], [ 10, %145 ]
-  %.1.ph = phi i64 [ %25, %19 ], [ %135, %129 ], [ %40, %33 ], [ %55, %49 ], [ %71, %65 ], [ %87, %81 ], [ %103, %97 ], [ %119, %113 ], [ %151, %145 ]
+  %.sink = phi i64 [ 2, %19 ], [ 5, %65 ], [ 6, %81 ], [ 7, %97 ], [ 8, %113 ], [ 9, %129 ], [ 3, %33 ], [ 4, %49 ], [ 10, %145 ]
+  %.1.ph = phi i64 [ %25, %19 ], [ %71, %65 ], [ %87, %81 ], [ %103, %97 ], [ %119, %113 ], [ %135, %129 ], [ %40, %33 ], [ %55, %49 ], [ %151, %145 ]
   %154 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink
   store ptr %154, ptr %0, align 8, !tbaa !15
   br label %_ZN6google8protobuf2io16CodedInputStream16ReadVarint64SlowEPm.exit
@@ -1614,8 +1614,8 @@ _ZN6google8protobuf2io12_GLOBAL__N_123DecodeVarint64KnownSizeILm3EEEPKhS5_Pm.exi
   br i1 %.not.i, label %_ZN6google8protobuf2io16CodedInputStream16ReadVarint64SlowEPm.exit, label %155, !llvm.loop !51
 
 _ZN6google8protobuf2io16CodedInputStream16ReadVarint64SlowEPm.exit: ; preds = %162, %155, %160, %138, %_ZN6google8protobuf2io12_GLOBAL__N_123DecodeVarint64KnownSizeILm3EEEPKhS5_Pm.exit
-  %.sroa.045.1 = phi i64 [ %.1.ph, %_ZN6google8protobuf2io12_GLOBAL__N_123DecodeVarint64KnownSizeILm3EEEPKhS5_Pm.exit ], [ 0, %138 ], [ 0, %160 ], [ %168, %162 ], [ 0, %155 ]
-  %.sroa.4.1 = phi i8 [ 1, %_ZN6google8protobuf2io12_GLOBAL__N_123DecodeVarint64KnownSizeILm3EEEPKhS5_Pm.exit ], [ 0, %138 ], [ 0, %160 ], [ 1, %162 ], [ 0, %155 ]
+  %.sroa.045.1 = phi i64 [ 0, %160 ], [ %.1.ph, %_ZN6google8protobuf2io12_GLOBAL__N_123DecodeVarint64KnownSizeILm3EEEPKhS5_Pm.exit ], [ 0, %138 ], [ 0, %155 ], [ %168, %162 ]
+  %.sroa.4.1 = phi i8 [ 0, %160 ], [ 1, %_ZN6google8protobuf2io12_GLOBAL__N_123DecodeVarint64KnownSizeILm3EEEPKhS5_Pm.exit ], [ 0, %138 ], [ 0, %155 ], [ 1, %162 ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.045.1, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.4.1, 1
   ret { i64, i8 } %.fca.1.insert
@@ -1976,8 +1976,8 @@ define hidden noundef i32 @_ZN6google8protobuf2io16CodedInputStream27ReadVarintS
   br i1 %exitcond.not.i32, label %_ZN6google8protobuf2io12_GLOBAL__N_121ReadVarint64FromArrayEPKhPm.exit, label %145, !llvm.loop !49
 
 _ZN6google8protobuf2io12_GLOBAL__N_121ReadVarint64FromArrayEPKhPm.exit: ; preds = %145, %129, %113, %97, %81, %65, %49, %33, %19
-  %.sink = phi i64 [ 2, %19 ], [ 9, %129 ], [ 3, %33 ], [ 4, %49 ], [ 5, %65 ], [ 6, %81 ], [ 7, %97 ], [ 8, %113 ], [ 10, %145 ]
-  %.039 = phi i64 [ %25, %19 ], [ %135, %129 ], [ %40, %33 ], [ %55, %49 ], [ %71, %65 ], [ %87, %81 ], [ %103, %97 ], [ %119, %113 ], [ %151, %145 ]
+  %.sink = phi i64 [ 2, %19 ], [ 5, %65 ], [ 6, %81 ], [ 7, %97 ], [ 8, %113 ], [ 9, %129 ], [ 3, %33 ], [ 4, %49 ], [ 10, %145 ]
+  %.039 = phi i64 [ %25, %19 ], [ %71, %65 ], [ %87, %81 ], [ %103, %97 ], [ %119, %113 ], [ %135, %129 ], [ %40, %33 ], [ %55, %49 ], [ %151, %145 ]
   %154 = icmp ult i64 %.039, 2147483648
   br i1 %154, label %155, label %_ZN6google8protobuf2io12_GLOBAL__N_121ReadVarint64FromArrayEPKhPm.exit.thread
 
@@ -2163,8 +2163,8 @@ define hidden noundef i32 @_ZN6google8protobuf2io16CodedInputStream15ReadTagFall
   br i1 %.not27.i, label %.loopexit, label %49
 
 .loopexit:                                        ; preds = %.preheader, %42, %20, %28, %35
-  %.017.ph = phi i32 [ %41, %35 ], [ %34, %28 ], [ %27, %20 ], [ %48, %42 ], [ %48, %.preheader ]
-  %.2.pn.ph = phi ptr [ %37, %35 ], [ %30, %28 ], [ %23, %20 ], [ %44, %42 ], [ %51, %.preheader ]
+  %.017.ph = phi i32 [ %48, %42 ], [ %41, %35 ], [ %34, %28 ], [ %27, %20 ], [ %48, %.preheader ]
+  %.2.pn.ph = phi ptr [ %44, %42 ], [ %37, %35 ], [ %30, %28 ], [ %23, %20 ], [ %51, %.preheader ]
   store ptr %.2.pn.ph, ptr %0, align 8, !tbaa !15
   br label %_ZN6google8protobuf2io16CodedInputStream11ReadTagSlowEv.exit
 
@@ -3316,8 +3316,8 @@ _ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit: ; preds = %21
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit.thread
 
 _ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit.thread: ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.i, %_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit, %_ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.thread.i, %68, %77, %9
-  %.sink = phi ptr [ %10, %9 ], [ %.0.i16, %68 ], [ %.0.i19, %77 ], [ %15, %_ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.thread.i ], [ %15, %_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit ], [ %15, %_ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.i ]
-  %.0 = phi ptr [ null, %9 ], [ %67, %68 ], [ null, %77 ], [ null, %_ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.thread.i ], [ null, %_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit ], [ null, %_ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.i ]
+  %.sink = phi ptr [ %10, %9 ], [ %.0.i16, %68 ], [ %.0.i19, %77 ], [ %15, %_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit ], [ %15, %_ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.thread.i ], [ %15, %_ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.i ]
+  %.0 = phi ptr [ null, %9 ], [ %67, %68 ], [ null, %77 ], [ null, %_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit ], [ null, %_ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.thread.i ], [ null, %_ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.i ]
   store ptr %.sink, ptr %2, align 8, !tbaa !62
   ret ptr %.0
 }

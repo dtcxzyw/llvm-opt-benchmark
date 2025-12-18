@@ -2452,10 +2452,10 @@ define internal void @_ZNK5faiss11IndexFlat1D6searchElPKflPfPlPKNS_16SearchParam
   br i1 %128, label %.lr.ph151, label %.loopexit, !llvm.loop !102
 
 .loopexit:                                        ; preds = %90, %123, %105, %.lr.ph156, %.preheader134, %.thread127, %.thread, %.preheader
-  %129 = phi i64 [ %29, %.preheader ], [ %29, %.preheader134 ], [ %111, %.thread127 ], [ %93, %.thread ], [ %127, %123 ], [ %44, %.lr.ph156 ], [ %109, %105 ], [ %91, %90 ]
-  %130 = phi i64 [ %29, %.preheader ], [ %30, %.preheader134 ], [ %112, %.thread127 ], [ %94, %.thread ], [ %127, %123 ], [ %44, %.lr.ph156 ], [ %109, %105 ], [ %91, %90 ]
-  %131 = phi i64 [ %29, %.preheader ], [ %31, %.preheader134 ], [ %113, %.thread127 ], [ %94, %.thread ], [ %127, %123 ], [ %44, %.lr.ph156 ], [ %109, %105 ], [ %91, %90 ]
-  %132 = phi i64 [ %29, %.preheader ], [ %32, %.preheader134 ], [ %113, %.thread127 ], [ %94, %.thread ], [ %127, %123 ], [ %44, %.lr.ph156 ], [ %109, %105 ], [ %91, %90 ]
+  %129 = phi i64 [ %127, %123 ], [ %109, %105 ], [ %44, %.lr.ph156 ], [ %29, %.preheader ], [ %29, %.preheader134 ], [ %111, %.thread127 ], [ %93, %.thread ], [ %91, %90 ]
+  %130 = phi i64 [ %127, %123 ], [ %109, %105 ], [ %44, %.lr.ph156 ], [ %29, %.preheader ], [ %30, %.preheader134 ], [ %112, %.thread127 ], [ %94, %.thread ], [ %91, %90 ]
+  %131 = phi i64 [ %127, %123 ], [ %109, %105 ], [ %44, %.lr.ph156 ], [ %29, %.preheader ], [ %31, %.preheader134 ], [ %113, %.thread127 ], [ %94, %.thread ], [ %91, %90 ]
+  %132 = phi i64 [ %127, %123 ], [ %109, %105 ], [ %44, %.lr.ph156 ], [ %29, %.preheader ], [ %32, %.preheader134 ], [ %113, %.thread127 ], [ %94, %.thread ], [ %91, %90 ]
   %133 = add nsw i64 %.096158, 1
   %134 = load i64, ptr %11, align 8, !tbaa !93
   %.not.not = icmp slt i64 %.096158, %134

@@ -694,7 +694,7 @@ define hidden noundef i32 @_ZN4Node7latencyEj(ptr noundef nonnull align 8 derefe
   br label %.critedge
 
 .critedge:                                        ; preds = %95, %80, %118, %107, %103, %99
-  %.030 = phi i32 [ %102, %99 ], [ %spec.store.select.i, %118 ], [ 0, %103 ], [ 1, %107 ], [ 0, %80 ], [ 0, %95 ]
+  %.030 = phi i32 [ 1, %107 ], [ %102, %99 ], [ %spec.store.select.i, %118 ], [ 0, %103 ], [ 0, %80 ], [ 0, %95 ]
   %121 = getelementptr inbounds nuw i8, ptr %33, i64 44
   %122 = load i32, ptr %121, align 4
   %123 = getelementptr inbounds nuw i8, ptr %21, i64 44
@@ -785,7 +785,7 @@ define hidden noundef i32 @_ZN4Node7latencyEj(ptr noundef nonnull align 8 derefe
   br label %139
 
 _ZNK8Pipeline23functional_unit_latencyEjPKS_.exit: ; preds = %..loopexit29_crit_edge.us.i65, %..loopexit29_crit_edge.us.i, %.lr.ph41.i41, %.preheader30.i39, %.critedge, %.lr.ph41.i, %.preheader30.i, %44, %29, %2, %25
-  %.031 = phi i32 [ %28, %25 ], [ 0, %29 ], [ 0, %2 ], [ 0, %44 ], [ 0, %.preheader30.i ], [ 0, %.lr.ph41.i ], [ %.030, %.critedge ], [ %.030, %.preheader30.i39 ], [ %.030, %.lr.ph41.i41 ], [ %.1.us.i, %..loopexit29_crit_edge.us.i ], [ %.1.us.i66, %..loopexit29_crit_edge.us.i65 ]
+  %.031 = phi i32 [ %28, %25 ], [ 0, %29 ], [ %.1.us.i, %..loopexit29_crit_edge.us.i ], [ 0, %2 ], [ 0, %44 ], [ 0, %.preheader30.i ], [ 0, %.lr.ph41.i ], [ %.030, %.critedge ], [ %.030, %.preheader30.i39 ], [ %.030, %.lr.ph41.i41 ], [ %.1.us.i66, %..loopexit29_crit_edge.us.i65 ]
   ret i32 %.031
 }
 

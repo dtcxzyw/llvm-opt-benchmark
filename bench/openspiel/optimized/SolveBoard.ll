@@ -468,7 +468,7 @@ define i32 @SolveAllBoards(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3
   br label %_Z15SolveAllBoardsNR6boardsR12solvedBoards.exit
 
 _Z15SolveAllBoardsNR6boardsR12solvedBoards.exit:  ; preds = %46, %59, %57, %._crit_edge, %2
-  %.0 = phi i32 [ -101, %2 ], [ %58, %57 ], [ -101, %._crit_edge ], [ %..i, %59 ], [ -99, %46 ]
+  %.0 = phi i32 [ %..i, %59 ], [ -101, %2 ], [ %58, %57 ], [ -101, %._crit_edge ], [ -99, %46 ]
   ret i32 %.0
 }
 
@@ -923,7 +923,7 @@ define noundef zeroext i1 @_Z9SameBoardRK6boardsjj(ptr noundef nonnull readonly 
   br i1 %.not54, label %50, label %.loopexit
 
 .loopexit:                                        ; preds = %14, %50, %56, %51, %43, %38, %32, %26, %20
-  %.048 = phi i1 [ false, %43 ], [ false, %20 ], [ false, %26 ], [ false, %32 ], [ false, %38 ], [ false, %56 ], [ true, %50 ], [ false, %51 ], [ false, %14 ]
+  %.048 = phi i1 [ false, %43 ], [ false, %56 ], [ false, %20 ], [ false, %26 ], [ false, %32 ], [ false, %38 ], [ true, %50 ], [ false, %51 ], [ false, %14 ]
   ret i1 %.048
 }
 

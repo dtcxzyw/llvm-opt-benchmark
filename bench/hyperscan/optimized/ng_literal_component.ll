@@ -218,7 +218,7 @@ define hidden noundef zeroext i1 @_ZN3ue216splitOffLiteralsERNS_2NGERNS_8NGHolde
   br label %111
 
 .loopexit78:                                      ; preds = %64, %47, %56, %75, %37
-  %.135 = phi i1 [ %.03486, %37 ], [ %76, %75 ], [ %.03486, %56 ], [ %.03486, %47 ], [ %.03486, %64 ]
+  %.135 = phi i1 [ %.03486, %37 ], [ %76, %75 ], [ %.03486, %47 ], [ %.03486, %56 ], [ %.03486, %64 ]
   %.sroa.069.0 = load ptr, ptr %.sroa.069.087, align 8
   %.not = icmp eq ptr %.sroa.069.0, %33
   br i1 %.not, label %._crit_edge, label %37
@@ -666,7 +666,7 @@ _ZN3ue211ue2_literalD2Ev.exit:                    ; preds = %_ZN5boost14dynamic_
   br label %155
 
 _ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4lessIS8_ESaIS8_EE6insertERKS8_.exit: ; preds = %_ZN3ue2L11addToStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS7_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEE.exit74, %_ZN3ue2L13isLiteralCharERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERbSA_.exit66, %_ZN3ue2L13isLiteralCharERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERbSA_.exit66.thread, %70, %.noexc65, %.noexc64, %95, %.noexc62, %88, %.loopexit, %64, %_ZN3ue211ue2_literalD2Ev.exit
-  %.1 = phi i1 [ false, %64 ], [ true, %_ZN3ue211ue2_literalD2Ev.exit ], [ false, %.loopexit ], [ false, %88 ], [ false, %.noexc62 ], [ false, %95 ], [ false, %.noexc64 ], [ false, %.noexc65 ], [ false, %70 ], [ false, %_ZN3ue2L13isLiteralCharERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERbSA_.exit66.thread ], [ false, %_ZN3ue2L13isLiteralCharERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERbSA_.exit66 ], [ false, %_ZN3ue2L11addToStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS7_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEE.exit74 ]
+  %.1 = phi i1 [ false, %64 ], [ false, %.loopexit ], [ true, %_ZN3ue211ue2_literalD2Ev.exit ], [ false, %88 ], [ false, %.noexc62 ], [ false, %95 ], [ false, %.noexc64 ], [ false, %.noexc65 ], [ false, %70 ], [ false, %_ZN3ue2L13isLiteralCharERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERbSA_.exit66.thread ], [ false, %_ZN3ue2L13isLiteralCharERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERbSA_.exit66 ], [ false, %_ZN3ue2L11addToStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS7_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEE.exit74 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %153 = load ptr, ptr %7, align 8
   %154 = icmp eq ptr %153, %36
@@ -1081,8 +1081,8 @@ _ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGH
   resume { ptr, i32 } %52
 
 _ZNKSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEES8_SaIS8_ENSt8__detail9_IdentityESt8equal_toIS8_ESt4hashIS8_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS8_EEPNSA_10_Hash_nodeIS8_Lb1EEEmRKT_m.exit: ; preds = %37, %19, %.critedge, %28
-  %.sroa.031.1 = phi ptr [ %29, %28 ], [ %51, %.critedge ], [ %.sroa.028.0, %19 ], [ %42, %37 ]
-  %.sroa.432.1 = phi i8 [ 0, %28 ], [ 1, %.critedge ], [ 0, %19 ], [ 0, %37 ]
+  %.sroa.031.1 = phi ptr [ %.sroa.028.0, %19 ], [ %51, %.critedge ], [ %29, %28 ], [ %42, %37 ]
+  %.sroa.432.1 = phi i8 [ 0, %19 ], [ 1, %.critedge ], [ 0, %28 ], [ 0, %37 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.031.1, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.432.1, 1
   ret { ptr, i8 } %.fca.1.insert

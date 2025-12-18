@@ -122,7 +122,7 @@ is_opclause.exit:                                 ; preds = %25
   br label %.critedge
 
 .critedge:                                        ; preds = %is_opclause.exit, %25, %43, %29, %22, %20, %2
-  %.1 = phi ptr [ null, %22 ], [ null, %2 ], [ %0, %20 ], [ %42, %29 ], [ %56, %43 ], [ null, %is_opclause.exit ], [ null, %25 ]
+  %.1 = phi ptr [ null, %22 ], [ null, %2 ], [ %0, %20 ], [ null, %is_opclause.exit ], [ %42, %29 ], [ %56, %43 ], [ null, %25 ]
   ret ptr %.1
 }
 
@@ -2046,8 +2046,8 @@ string_to_const.exit:                             ; preds = %string_to_datum.exi
   br label %.thread134
 
 .thread134:                                       ; preds = %._crit_edge.split.us.us, %104, %.thread134.sink.split, %._crit_edge141, %select.unfold, %.split.us
-  %.097131156174179.sink = phi ptr [ %.198, %.split.us ], [ %.198, %._crit_edge141 ], [ %86, %select.unfold ], [ %.198, %.thread134.sink.split ], [ %86, %104 ], [ %86, %._crit_edge.split.us.us ]
-  %.4 = phi ptr [ %131, %.split.us ], [ null, %._crit_edge141 ], [ null, %select.unfold ], [ %.4.ph, %.thread134.sink.split ], [ %108, %104 ], [ null, %._crit_edge.split.us.us ]
+  %.097131156174179.sink = phi ptr [ %.198, %.thread134.sink.split ], [ %.198, %.split.us ], [ %86, %104 ], [ %.198, %._crit_edge141 ], [ %86, %select.unfold ], [ %86, %._crit_edge.split.us.us ]
+  %.4 = phi ptr [ %.4.ph, %.thread134.sink.split ], [ %131, %.split.us ], [ %108, %104 ], [ null, %._crit_edge141 ], [ null, %select.unfold ], [ null, %._crit_edge.split.us.us ]
   tail call void @pfree(ptr noundef %.097131156174179.sink) #10
   ret ptr %.4
 }

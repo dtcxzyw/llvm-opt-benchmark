@@ -20382,7 +20382,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit18: ; preds = %if.e
   br label %return
 
 return:                                           ; preds = %while.body3, %lor.rhs.i, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit18
-  %retval.sroa.2.0 = phi i64 [ %val.0.lcssa, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit18 ], [ 0, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit ], [ 0, %lor.rhs.i ], [ 0, %while.body3 ]
+  %retval.sroa.2.0 = phi i64 [ %val.0.lcssa, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit18 ], [ 0, %lor.rhs.i ], [ 0, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit ], [ 0, %while.body3 ]
   ret i64 %retval.sroa.2.0
 }
 
@@ -20754,7 +20754,7 @@ if.end34.i.i.i.i60:                               ; preds = %for.end.i.i.i.i56
   br label %while.body.i.i.i.i37, !llvm.loop !394
 
 return:                                           ; preds = %for.end.i.i.i.i, %for.end.i.i.i.i56, %if.then.i.i.i.i63, %if.then.i.i.i.i, %if.end
-  %retval.0 = phi i1 [ false, %if.end ], [ %19, %if.then.i.i.i.i ], [ %32, %if.then.i.i.i.i63 ], [ false, %for.end.i.i.i.i56 ], [ false, %for.end.i.i.i.i ]
+  %retval.0 = phi i1 [ false, %if.end ], [ false, %for.end.i.i.i.i56 ], [ %19, %if.then.i.i.i.i ], [ %32, %if.then.i.i.i.i63 ], [ false, %for.end.i.i.i.i ]
   ret i1 %retval.0
 }
 
@@ -31706,7 +31706,7 @@ if.end34.i.i.i.i45:                               ; preds = %for.end.i.i.i.i41
   br label %while.body.i.i.i.i22, !llvm.loop !394
 
 return:                                           ; preds = %for.end.i.i.i.i, %for.end.i.i.i.i41, %if.then.i.i.i.i48, %if.then.i.i.i.i, %if.end
-  %retval.0 = phi i1 [ false, %if.end ], [ %12, %if.then.i.i.i.i ], [ %25, %if.then.i.i.i.i48 ], [ false, %for.end.i.i.i.i41 ], [ false, %for.end.i.i.i.i ]
+  %retval.0 = phi i1 [ false, %if.end ], [ false, %for.end.i.i.i.i41 ], [ %12, %if.then.i.i.i.i ], [ %25, %if.then.i.i.i.i48 ], [ false, %for.end.i.i.i.i ]
   ret i1 %retval.0
 }
 

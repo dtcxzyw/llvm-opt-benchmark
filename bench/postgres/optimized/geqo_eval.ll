@@ -273,8 +273,8 @@ tailrecurse:                                      ; preds = %51, %.split105
   br i1 %cond, label %.loopexit, label %.lr.ph.split.split
 
 .split.us:                                        ; preds = %.lr.ph.split.split, %52, %.lr.ph.split.us.split.us187, %19
-  %.us-phi = phi ptr [ %.tr88177, %52 ], [ %.tr88177.us, %19 ], [ %.tr88177.us, %.lr.ph.split.us.split.us187 ], [ %.tr88177, %.lr.ph.split.split ]
-  %.us-phi103 = phi ptr [ %.tr89179, %52 ], [ %.tr89179.us, %19 ], [ %.tr89179.us, %.lr.ph.split.us.split.us187 ], [ %.tr89179, %.lr.ph.split.split ]
+  %.us-phi = phi ptr [ %.tr88177.us, %19 ], [ %.tr88177.us, %.lr.ph.split.us.split.us187 ], [ %.tr88177, %52 ], [ %.tr88177, %.lr.ph.split.split ]
+  %.us-phi103 = phi ptr [ %.tr89179.us, %19 ], [ %.tr89179.us, %.lr.ph.split.us.split.us187 ], [ %.tr89179, %52 ], [ %.tr89179, %.lr.ph.split.split ]
   %62 = getelementptr inbounds nuw i8, ptr %.us-phi103, i64 8
   %63 = load i32, ptr %62, align 8
   %64 = icmp eq i32 %63, 1
@@ -293,8 +293,8 @@ list_length.exit.preheader:                       ; preds = %.split.us
   br label %70
 
 .loopexit:                                        ; preds = %tailrecurse, %tailrecurse.us, %4, %.split.us
-  %.tr8898 = phi ptr [ %.us-phi, %.split.us ], [ null, %4 ], [ null, %tailrecurse.us ], [ null, %tailrecurse ]
-  %.tr8996 = phi ptr [ %.us-phi103, %.split.us ], [ %2, %4 ], [ %15, %tailrecurse.us ], [ %38, %tailrecurse ]
+  %.tr8898 = phi ptr [ %.us-phi, %.split.us ], [ null, %tailrecurse.us ], [ null, %4 ], [ null, %tailrecurse ]
+  %.tr8996 = phi ptr [ %.us-phi103, %.split.us ], [ %15, %tailrecurse.us ], [ %2, %4 ], [ %38, %tailrecurse ]
   %69 = tail call ptr @lappend(ptr noundef %.tr8898, ptr noundef %.tr8996) #2
   br label %78
 

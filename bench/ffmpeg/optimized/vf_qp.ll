@@ -295,7 +295,7 @@ av_video_enc_params_block.exit:                   ; preds = %.lr.ph.split
   br i1 %151, label %.lr.ph.split, label %._crit_edge, !llvm.loop !55
 
 ._crit_edge:                                      ; preds = %139, %116, %.preheader107
-  %152 = phi i32 [ %80, %.preheader107 ], [ %123, %116 ], [ %150, %139 ]
+  %152 = phi i32 [ %123, %116 ], [ %80, %.preheader107 ], [ %150, %139 ]
   %153 = add nuw nsw i32 %.081115, 1
   %154 = load i32, ptr %63, align 4, !tbaa !45
   %155 = icmp slt i32 %153, %154

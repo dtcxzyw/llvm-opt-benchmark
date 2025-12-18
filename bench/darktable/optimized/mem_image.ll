@@ -504,7 +504,7 @@ define noundef range(i32 -4, 1) i32 @_ZN6LibRaw14copy_mem_imageEPvii(ptr noundef
   br label %.loopexit.us
 
 .loopexit.us:                                     ; preds = %.preheader97.lr.ph.split.us156, %.loopexit.us.loopexit181, %.preheader.lr.ph.us.split.us, %.loopexit.us.loopexit, %.preheader99.us, %.preheader98.us
-  %.3.us = phi i32 [ %.065147.us, %.preheader98.us ], [ %.065147.us, %.preheader99.us ], [ %89, %.loopexit.us.loopexit ], [ %144, %.preheader.lr.ph.us.split.us ], [ %90, %.loopexit.us.loopexit181 ], [ %124, %.preheader97.lr.ph.split.us156 ]
+  %.3.us = phi i32 [ %.065147.us, %.preheader98.us ], [ %144, %.preheader.lr.ph.us.split.us ], [ %.065147.us, %.preheader99.us ], [ %90, %.loopexit.us.loopexit181 ], [ %89, %.loopexit.us.loopexit ], [ %124, %.preheader97.lr.ph.split.us156 ]
   %indvars.iv.next251 = add nuw nsw i64 %indvars.iv250, 1
   %91 = add nsw i32 %77, %.3.us
   %92 = load i16, ptr %63, align 4, !tbaa !89
@@ -852,7 +852,7 @@ define noundef range(i32 -4, 1) i32 @_ZN6LibRaw14copy_mem_imageEPvii(ptr noundef
   br label %.loopexit102
 
 .loopexit102:                                     ; preds = %.lr.ph116.split, %.loopexit102.loopexit184, %.lr.ph124.split.us, %.loopexit102.loopexit, %.preheader103, %.preheader101
-  %.3 = phi i32 [ %.065147, %.preheader101 ], [ %.065147, %.preheader103 ], [ %236, %.loopexit102.loopexit ], [ %215, %.lr.ph124.split.us ], [ %237, %.loopexit102.loopexit184 ], [ %207, %.lr.ph116.split ]
+  %.3 = phi i32 [ %237, %.loopexit102.loopexit184 ], [ %.065147, %.preheader101 ], [ %236, %.loopexit102.loopexit ], [ %.065147, %.preheader103 ], [ %215, %.lr.ph124.split.us ], [ %207, %.lr.ph116.split ]
   %indvars.iv.next232 = add nuw nsw i64 %indvars.iv231, 1
   %238 = load i16, ptr %63, align 4, !tbaa !89
   %239 = zext i16 %238 to i64

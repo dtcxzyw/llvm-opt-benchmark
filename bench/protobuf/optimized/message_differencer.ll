@@ -6332,8 +6332,8 @@ lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then.i.i.i319.invoke, %if.then.i.i.i.i204, %if.then.i.i.i.i, %invoke.cont43, %for.end35
-  %fields1.sroa.0.1535 = phi ptr [ %fields1.sroa.0.1549, %if.then.i.i.i.i ], [ %fields1.sroa.0.1.lcssa, %if.then.i.i.i.i204 ], [ %fields1.sroa.0.1.lcssa, %for.end35 ], [ %fields1.sroa.0.1.lcssa, %if.then.i.i.i319.invoke ], [ %fields1.sroa.0.1.lcssa, %invoke.cont43 ]
-  %fields2.sroa.0.0.ph.ph.ph.ph.ph.ph = phi ptr [ %fields2.sroa.19.1, %if.then.i.i.i.i ], [ %fields2.sroa.0.1560, %if.then.i.i.i.i204 ], [ %fields2.sroa.0.1.lcssa, %for.end35 ], [ %fields2.sroa.0.1.lcssa, %if.then.i.i.i319.invoke ], [ %fields2.sroa.0.1.lcssa, %invoke.cont43 ]
+  %fields1.sroa.0.1535 = phi ptr [ %fields1.sroa.0.1.lcssa, %if.then.i.i.i319.invoke ], [ %fields1.sroa.0.1549, %if.then.i.i.i.i ], [ %fields1.sroa.0.1.lcssa, %if.then.i.i.i.i204 ], [ %fields1.sroa.0.1.lcssa, %invoke.cont43 ], [ %fields1.sroa.0.1.lcssa, %for.end35 ]
+  %fields2.sroa.0.0.ph.ph.ph.ph.ph.ph = phi ptr [ %fields2.sroa.0.1.lcssa, %if.then.i.i.i319.invoke ], [ %fields2.sroa.19.1, %if.then.i.i.i.i ], [ %fields2.sroa.0.1560, %if.then.i.i.i.i204 ], [ %fields2.sroa.0.1.lcssa, %invoke.cont43 ], [ %fields2.sroa.0.1.lcssa, %for.end35 ]
   %lpad.loopexit.split-lp473 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
@@ -6618,7 +6618,7 @@ invoke.cont65:                                    ; preds = %if.end.i229
   br i1 %cmp15.i, label %if.then67, label %if.else
 
 if.then67:                                        ; preds = %while.body.us, %land.lhs.true62.us, %invoke.cont65.us, %while.body, %invoke.cont65, %land.lhs.true62
-  %.us-phi564 = phi i64 [ %index2.0.ph468, %land.lhs.true62 ], [ %sub.ptr.div.i215, %while.body ], [ %index2.0.ph468, %invoke.cont65 ], [ %index2.0.us, %invoke.cont65.us ], [ %index2.0.us, %land.lhs.true62.us ], [ %index2.0.us, %while.body.us ]
+  %.us-phi564 = phi i64 [ %sub.ptr.div.i215, %while.body ], [ %index2.0.ph468, %invoke.cont65 ], [ %index2.0.ph468, %land.lhs.true62 ], [ %index2.0.us, %invoke.cont65.us ], [ %index2.0.us, %land.lhs.true62.us ], [ %index2.0.us, %while.body.us ]
   %40 = load ptr, ptr %23, align 8
   br label %if.end136
 
@@ -6648,28 +6648,28 @@ invoke.cont74:                                    ; preds = %if.end.i239
   br i1 %cmp15.i244, label %if.end136, label %if.else83
 
 if.else83:                                        ; preds = %if.end.i239.us, %invoke.cont74.us, %invoke.cont74, %if.end.i239
-  %.us-phi565 = phi i64 [ %index2.0.ph468, %if.end.i239 ], [ %index2.0.ph468, %invoke.cont74 ], [ %index2.0.us, %invoke.cont74.us ], [ %index2.0.us, %if.end.i239.us ]
-  %.us-phi566 = phi ptr [ %.pre630, %if.end.i239 ], [ %.pre630, %invoke.cont74 ], [ %call72.val.us, %invoke.cont74.us ], [ %call72.val.us, %if.end.i239.us ]
-  %.us-phi567 = phi ptr [ %call73.val, %if.end.i239 ], [ %call73.val, %invoke.cont74 ], [ %call73.val.us, %invoke.cont74.us ], [ %call73.val.us, %if.end.i239.us ]
+  %.us-phi565 = phi i64 [ %index2.0.ph468, %invoke.cont74 ], [ %index2.0.ph468, %if.end.i239 ], [ %index2.0.us, %invoke.cont74.us ], [ %index2.0.us, %if.end.i239.us ]
+  %.us-phi566 = phi ptr [ %.pre630, %invoke.cont74 ], [ %.pre630, %if.end.i239 ], [ %call72.val.us, %invoke.cont74.us ], [ %call72.val.us, %if.end.i239.us ]
+  %.us-phi567 = phi ptr [ %call73.val, %invoke.cont74 ], [ %call73.val, %if.end.i239 ], [ %call73.val.us, %invoke.cont74.us ], [ %call73.val.us, %if.end.i239.us ]
   %type_.i = getelementptr inbounds nuw i8, ptr %.us-phi567, i64 4
   %45 = load i32, ptr %type_.i, align 4
   switch i32 %45, label %if.end136 [
-    i32 0, label %sw.bb
-    i32 1, label %sw.epilog
+    i32 0, label %sw.epilog
+    i32 1, label %sw.bb97
     i32 2, label %sw.bb108
     i32 3, label %sw.bb119
     i32 4, label %sw.bb130
   ]
 
-sw.bb:                                            ; preds = %if.else83
-  %data_.i = getelementptr inbounds nuw i8, ptr %.us-phi567, i64 8
-  %46 = load i64, ptr %data_.i, align 8
-  %data_.i251 = getelementptr inbounds nuw i8, ptr %.us-phi566, i64 8
-  %47 = load i64, ptr %data_.i251, align 8
-  %.fr451 = freeze i64 %46
-  %.fr452 = freeze i64 %47
-  %cmp96 = icmp eq i64 %.fr451, %.fr452
-  br i1 %cmp96, label %sw.epilog.thread425, label %if.end136
+sw.bb97:                                          ; preds = %if.else83
+  %data_.i253 = getelementptr inbounds nuw i8, ptr %.us-phi567, i64 8
+  %46 = load i32, ptr %data_.i253, align 8
+  %data_.i255 = getelementptr inbounds nuw i8, ptr %.us-phi566, i64 8
+  %47 = load i32, ptr %data_.i255, align 8
+  %.fr449 = freeze i32 %46
+  %.fr450 = freeze i32 %47
+  %cmp106 = icmp eq i32 %.fr449, %.fr450
+  br i1 %cmp106, label %sw.epilog.thread425, label %if.end136
 
 sw.bb108:                                         ; preds = %if.else83
   %data_.i257 = getelementptr inbounds nuw i8, ptr %.us-phi567, i64 8
@@ -6708,26 +6708,26 @@ sw.bb130:                                         ; preds = %if.else83
   br label %if.end136
 
 sw.epilog:                                        ; preds = %if.else83
-  %data_.i253 = getelementptr inbounds nuw i8, ptr %.us-phi567, i64 8
-  %53 = load i32, ptr %data_.i253, align 8
-  %data_.i255 = getelementptr inbounds nuw i8, ptr %.us-phi566, i64 8
-  %54 = load i32, ptr %data_.i255, align 8
-  %.fr449 = freeze i32 %53
-  %.fr450 = freeze i32 %54
-  %cmp106 = icmp eq i32 %.fr449, %.fr450
-  br i1 %cmp106, label %sw.epilog.thread425, label %if.end136
+  %data_.i = getelementptr inbounds nuw i8, ptr %.us-phi567, i64 8
+  %53 = load i64, ptr %data_.i, align 8
+  %data_.i251 = getelementptr inbounds nuw i8, ptr %.us-phi566, i64 8
+  %54 = load i64, ptr %data_.i251, align 8
+  %.fr451 = freeze i64 %53
+  %.fr452 = freeze i64 %54
+  %cmp96 = icmp eq i64 %.fr451, %.fr452
+  br i1 %cmp96, label %sw.epilog.thread425, label %if.end136
 
-sw.epilog.thread425:                              ; preds = %land.rhs.i, %sw.bb108, %if.end.i.i, %sw.bb, %sw.epilog
+sw.epilog.thread425:                              ; preds = %land.rhs.i, %sw.bb97, %sw.bb108, %if.end.i.i, %sw.epilog
   br label %if.end136
 
-if.end136:                                        ; preds = %if.else, %invoke.cont74, %lor.lhs.false71, %sw.bb119, %sw.bb130, %if.else83, %sw.epilog.thread425, %sw.epilog, %sw.bb, %if.end.i.i, %sw.bb108, %if.then67
-  %index2.0478 = phi i64 [ %.us-phi564, %if.then67 ], [ %.us-phi565, %if.else83 ], [ %.us-phi565, %sw.epilog.thread425 ], [ %.us-phi565, %sw.epilog ], [ %.us-phi565, %sw.bb108 ], [ %.us-phi565, %sw.bb ], [ %.us-phi565, %if.end.i.i ], [ %.us-phi565, %sw.bb119 ], [ %.us-phi565, %sw.bb130 ], [ %index2.0.ph468, %invoke.cont74 ], [ %index2.0.ph468, %lor.lhs.false71 ], [ %index2.0.ph468, %if.else ]
-  %cmp154 = phi i1 [ false, %if.then67 ], [ false, %if.else83 ], [ true, %sw.epilog.thread425 ], [ false, %sw.epilog ], [ false, %sw.bb108 ], [ false, %sw.bb ], [ false, %if.end.i.i ], [ false, %sw.bb119 ], [ false, %sw.bb130 ], [ false, %invoke.cont74 ], [ false, %lor.lhs.false71 ], [ false, %if.else ]
-  %cmp169.not = phi i1 [ false, %if.then67 ], [ false, %if.else83 ], [ false, %sw.epilog.thread425 ], [ false, %sw.epilog ], [ false, %sw.bb108 ], [ false, %sw.bb ], [ false, %if.end.i.i ], [ false, %sw.bb119 ], [ false, %sw.bb130 ], [ true, %invoke.cont74 ], [ true, %lor.lhs.false71 ], [ true, %if.else ]
-  %cmp173.not = phi i1 [ true, %if.then67 ], [ false, %if.else83 ], [ false, %sw.epilog.thread425 ], [ false, %sw.epilog ], [ false, %sw.bb108 ], [ false, %sw.bb ], [ false, %if.end.i.i ], [ false, %sw.bb119 ], [ false, %sw.bb130 ], [ false, %invoke.cont74 ], [ false, %lor.lhs.false71 ], [ false, %if.else ]
-  %or.cond2 = phi i1 [ true, %if.then67 ], [ true, %if.else83 ], [ false, %sw.epilog.thread425 ], [ true, %sw.epilog ], [ true, %sw.bb108 ], [ true, %sw.bb ], [ true, %if.end.i.i ], [ true, %sw.bb119 ], [ false, %sw.bb130 ], [ true, %invoke.cont74 ], [ true, %lor.lhs.false71 ], [ true, %if.else ]
-  %change_type.0 = phi i32 [ 1, %if.then67 ], [ 2, %if.else83 ], [ 4, %sw.epilog.thread425 ], [ 2, %sw.epilog ], [ 2, %sw.bb108 ], [ 2, %sw.bb ], [ 2, %if.end.i.i ], [ 2, %sw.bb119 ], [ 3, %sw.bb130 ], [ 0, %invoke.cont74 ], [ 0, %lor.lhs.false71 ], [ 0, %if.else ]
-  %focus_field.0 = phi ptr [ %40, %if.then67 ], [ %.us-phi567, %if.else83 ], [ %.us-phi567, %sw.epilog.thread425 ], [ %.us-phi567, %sw.epilog ], [ %.us-phi567, %sw.bb108 ], [ %.us-phi567, %sw.bb ], [ %.us-phi567, %if.end.i.i ], [ %.us-phi567, %sw.bb119 ], [ %.us-phi567, %sw.bb130 ], [ %.pre630, %invoke.cont74 ], [ %.pre630, %lor.lhs.false71 ], [ %.pre630, %if.else ]
+if.end136:                                        ; preds = %if.else, %invoke.cont74, %lor.lhs.false71, %sw.bb119, %sw.bb130, %if.else83, %sw.epilog.thread425, %sw.epilog, %if.end.i.i, %sw.bb108, %sw.bb97, %if.then67
+  %index2.0478 = phi i64 [ %.us-phi564, %if.then67 ], [ %.us-phi565, %if.else83 ], [ %.us-phi565, %sw.epilog.thread425 ], [ %.us-phi565, %sw.epilog ], [ %.us-phi565, %sw.bb97 ], [ %.us-phi565, %if.end.i.i ], [ %.us-phi565, %sw.bb108 ], [ %.us-phi565, %sw.bb119 ], [ %.us-phi565, %sw.bb130 ], [ %index2.0.ph468, %invoke.cont74 ], [ %index2.0.ph468, %lor.lhs.false71 ], [ %index2.0.ph468, %if.else ]
+  %cmp154 = phi i1 [ false, %if.then67 ], [ false, %if.else83 ], [ true, %sw.epilog.thread425 ], [ false, %sw.epilog ], [ false, %sw.bb97 ], [ false, %if.end.i.i ], [ false, %sw.bb108 ], [ false, %sw.bb119 ], [ false, %sw.bb130 ], [ false, %invoke.cont74 ], [ false, %lor.lhs.false71 ], [ false, %if.else ]
+  %cmp169.not = phi i1 [ false, %if.then67 ], [ false, %if.else83 ], [ false, %sw.epilog.thread425 ], [ false, %sw.epilog ], [ false, %sw.bb97 ], [ false, %if.end.i.i ], [ false, %sw.bb108 ], [ false, %sw.bb119 ], [ false, %sw.bb130 ], [ true, %invoke.cont74 ], [ true, %lor.lhs.false71 ], [ true, %if.else ]
+  %cmp173.not = phi i1 [ true, %if.then67 ], [ false, %if.else83 ], [ false, %sw.epilog.thread425 ], [ false, %sw.epilog ], [ false, %sw.bb97 ], [ false, %if.end.i.i ], [ false, %sw.bb108 ], [ false, %sw.bb119 ], [ false, %sw.bb130 ], [ false, %invoke.cont74 ], [ false, %lor.lhs.false71 ], [ false, %if.else ]
+  %or.cond2 = phi i1 [ true, %if.then67 ], [ true, %if.else83 ], [ false, %sw.epilog.thread425 ], [ true, %sw.epilog ], [ true, %sw.bb97 ], [ true, %if.end.i.i ], [ true, %sw.bb108 ], [ true, %sw.bb119 ], [ false, %sw.bb130 ], [ true, %invoke.cont74 ], [ true, %lor.lhs.false71 ], [ true, %if.else ]
+  %change_type.0 = phi i32 [ 1, %if.then67 ], [ 2, %if.else83 ], [ 4, %sw.epilog.thread425 ], [ 2, %sw.epilog ], [ 2, %sw.bb97 ], [ 2, %if.end.i.i ], [ 2, %sw.bb108 ], [ 2, %sw.bb119 ], [ 3, %sw.bb130 ], [ 0, %invoke.cont74 ], [ 0, %lor.lhs.false71 ], [ 0, %if.else ]
+  %focus_field.0 = phi ptr [ %40, %if.then67 ], [ %.us-phi567, %if.else83 ], [ %.us-phi567, %sw.epilog.thread425 ], [ %.us-phi567, %sw.epilog ], [ %.us-phi567, %sw.bb97 ], [ %.us-phi567, %if.end.i.i ], [ %.us-phi567, %sw.bb108 ], [ %.us-phi567, %sw.bb119 ], [ %.us-phi567, %sw.bb130 ], [ %.pre630, %invoke.cont74 ], [ %.pre630, %lor.lhs.false71 ], [ %.pre630, %if.else ]
   %cmp137 = icmp eq ptr %current_repeated.0.ph464, null
   br i1 %cmp137, label %if.then150, label %lor.lhs.false138
 
@@ -9169,7 +9169,7 @@ if.end199:                                        ; preds = %if.end189.thread, %
   br label %while.body.outer.backedge
 
 while.end:                                        ; preds = %while.body.outer.backedge, %for.end, %if.end20, %entry
-  %isDifferent.0.ph528.lcssa554 = phi i1 [ false, %entry ], [ true, %for.end ], [ %isDifferent.0.ph528576, %if.end20 ], [ %isDifferent.0.ph.be, %while.body.outer.backedge ]
+  %isDifferent.0.ph528.lcssa554 = phi i1 [ true, %for.end ], [ %isDifferent.0.ph528576, %if.end20 ], [ false, %entry ], [ %isDifferent.0.ph.be, %while.body.outer.backedge ]
   %lnot203 = xor i1 %isDifferent.0.ph528.lcssa554, true
   br label %return
 
@@ -9872,8 +9872,8 @@ _ZNSt6vectorIN6google8protobuf4util18MessageDifferencer13SpecificFieldESaIS4_EED
   resume { ptr, i32 } %lpad.phi
 
 cleanup:                                          ; preds = %call12.i.noexc, %call12.i.noexc105, %if.then.i.i.i104, %if.then.i.i.i44, %if.then29
-  %retval.0 = phi i1 [ %call31, %if.then29 ], [ undef, %if.then.i.i.i44 ], [ undef, %if.then.i.i.i104 ], [ undef, %call12.i.noexc105 ], [ undef, %call12.i.noexc ]
-  %64 = phi i1 [ false, %if.then29 ], [ true, %if.then.i.i.i44 ], [ true, %if.then.i.i.i104 ], [ true, %call12.i.noexc105 ], [ true, %call12.i.noexc ]
+  %retval.0 = phi i1 [ %call31, %if.then29 ], [ undef, %call12.i.noexc105 ], [ undef, %if.then.i.i.i44 ], [ undef, %if.then.i.i.i104 ], [ undef, %call12.i.noexc ]
+  %64 = phi i1 [ false, %if.then29 ], [ true, %call12.i.noexc105 ], [ true, %if.then.i.i.i44 ], [ true, %if.then.i.i.i104 ], [ true, %call12.i.noexc ]
   %65 = load ptr, ptr %current_parent_fields, align 8
   %tobool.not.i.i.i112 = icmp eq ptr %65, null
   br i1 %tobool.not.i.i.i112, label %_ZNSt6vectorIN6google8protobuf4util18MessageDifferencer13SpecificFieldESaIS4_EED2Ev.exit114, label %if.then.i.i.i113
@@ -13661,7 +13661,7 @@ for.end214:                                       ; preds = %for.inc212, %for.co
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then111, %if.then52, %while.end, %invoke.cont29, %for.end214
-  %retval.1 = phi i1 [ %lnot216, %for.end214 ], [ false, %invoke.cont29 ], [ false, %while.end ], [ false, %if.then52 ], [ false, %if.then111 ]
+  %retval.1 = phi i1 [ %lnot216, %for.end214 ], [ false, %while.end ], [ false, %invoke.cont29 ], [ false, %if.then52 ], [ false, %if.then111 ]
   %112 = load ptr, ptr %match_list2, align 8
   %tobool.not.i.i.i396 = icmp eq ptr %112, null
   br i1 %tobool.not.i.i.i396, label %_ZNSt6vectorIiSaIiEED2Ev.exit398, label %if.then.i.i.i397
@@ -19366,7 +19366,7 @@ return.sink.split:                                ; preds = %land.lhs.true, %lan
   br label %return
 
 return:                                           ; preds = %for.inc34, %return.sink.split, %entry, %for.cond11.preheader
-  %retval.0 = phi i1 [ false, %for.cond11.preheader ], [ false, %entry ], [ true, %return.sink.split ], [ false, %for.inc34 ]
+  %retval.0 = phi i1 [ true, %return.sink.split ], [ false, %entry ], [ false, %for.cond11.preheader ], [ false, %for.inc34 ]
   ret i1 %retval.0
 }
 
@@ -22551,7 +22551,7 @@ for.cond.backedge:                                ; preds = %for.end58, %if.end3
   br label %for.cond, !llvm.loop !389
 
 return:                                           ; preds = %for.end58, %for.end, %for.body.i, %if.else, %entry
-  %retval.sroa.0.0 = phi ptr [ %__last.coerce, %entry ], [ %__first.coerce, %if.else ], [ %__middle.coerce, %for.body.i ], [ %add.ptr.i, %for.end ], [ %add.ptr.i, %for.end58 ]
+  %retval.sroa.0.0 = phi ptr [ %__middle.coerce, %for.body.i ], [ %__last.coerce, %entry ], [ %__first.coerce, %if.else ], [ %add.ptr.i, %for.end ], [ %add.ptr.i, %for.end58 ]
   ret ptr %retval.sroa.0.0
 }
 

@@ -3106,7 +3106,7 @@ RB_FL_TEST.exit:                                  ; preds = %8
   br i1 %exitcond.not.i, label %gen_ivtbl_count.exit.thread, label %59, !llvm.loop !104
 
 gen_ivtbl_count.exit.thread:                      ; preds = %59, %56, %.preheader.i
-  %.1.ph = phi i64 [ 0, %.preheader.i ], [ %58, %56 ], [ %spec.select.i14, %59 ]
+  %.1.ph = phi i64 [ %58, %56 ], [ 0, %.preheader.i ], [ %spec.select.i14, %59 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %64
 
@@ -5405,7 +5405,7 @@ autoload_defined_p.exit.thread:                   ; preds = %.split, %rb_vm_lock
   br label %get_autoload_data.exit
 
 get_autoload_data.exit:                           ; preds = %autoload_defined_p.exit.thread, %.split.us, %rb_vm_lock_leave.exit.i.i.us, %16, %autoload_defined_p.exit.us, %41, %54, %.split23.us
-  %.0 = phi i64 [ 4, %.split23.us ], [ %55, %54 ], [ 4, %41 ], [ 4, %autoload_defined_p.exit.us ], [ 4, %16 ], [ 4, %rb_vm_lock_leave.exit.i.i.us ], [ 4, %.split.us ], [ 4, %autoload_defined_p.exit.thread ]
+  %.0 = phi i64 [ 4, %41 ], [ %55, %54 ], [ 4, %.split23.us ], [ 4, %.split.us ], [ 4, %autoload_defined_p.exit.us ], [ 4, %16 ], [ 4, %rb_vm_lock_leave.exit.i.i.us ], [ 4, %autoload_defined_p.exit.thread ]
   ret i64 %.0
 }
 
@@ -6508,8 +6508,8 @@ rb_vm_lock_leave.exit.i:                          ; preds = %56, %rb_vm_lock_ent
   br i1 %or.cond37, label %rb_const_lookup.exit.thread, label %.split.us
 
 .split.us:                                        ; preds = %rb_vm_lock_leave.exit.i.us, %rb_vm_lock_leave.exit.i, %rb_vm_lock_leave.exit.i.us.us, %rb_vm_lock_leave.exit.i.us.us.us
-  %.us-phi = phi i64 [ %17, %rb_vm_lock_leave.exit.i.us.us.us ], [ %57, %rb_vm_lock_leave.exit.i ], [ %34, %rb_vm_lock_leave.exit.i.us.us ], [ %44, %rb_vm_lock_leave.exit.i.us ]
-  %.us-phi42 = phi i64 [ %0, %rb_vm_lock_leave.exit.i.us.us.us ], [ %.141, %rb_vm_lock_leave.exit.i ], [ %.021.us, %rb_vm_lock_leave.exit.i.us.us ], [ %.141.us, %rb_vm_lock_leave.exit.i.us ]
+  %.us-phi = phi i64 [ %57, %rb_vm_lock_leave.exit.i ], [ %17, %rb_vm_lock_leave.exit.i.us.us.us ], [ %34, %rb_vm_lock_leave.exit.i.us.us ], [ %44, %rb_vm_lock_leave.exit.i.us ]
+  %.us-phi42 = phi i64 [ %.141, %rb_vm_lock_leave.exit.i ], [ %0, %rb_vm_lock_leave.exit.i.us.us.us ], [ %.021.us, %rb_vm_lock_leave.exit.i.us.us ], [ %.141.us, %rb_vm_lock_leave.exit.i.us ]
   %58 = inttoptr i64 %.us-phi to ptr
   %.not26 = icmp eq i32 %4, 0
   br i1 %.not26, label %63, label %59
@@ -6569,7 +6569,7 @@ rb_const_lookup.exit.thread:                      ; preds = %rb_vm_lock_leave.ex
   br label %.split43.split
 
 rb_autoloading_value.exit.thread:                 ; preds = %rb_const_lookup.exit.thread.us, %._crit_edge, %77, %rb_const_lookup.exit.thread.us.us, %19, %.split43.us.split.us, %rb_vm_lock_leave.exit.i.us.us.us, %.lr.ph.us.us, %.split43.split.us, %69, %71, %59, %74
-  %.0 = phi i32 [ 0, %71 ], [ 20, %74 ], [ 0, %59 ], [ 0, %69 ], [ 0, %.split43.split.us ], [ 0, %.lr.ph.us.us ], [ 0, %rb_vm_lock_leave.exit.i.us.us.us ], [ 0, %.split43.us.split.us ], [ 0, %._crit_edge ], [ 0, %rb_const_lookup.exit.thread.us.us ], [ 0, %19 ], [ 0, %77 ], [ 0, %rb_const_lookup.exit.thread.us ]
+  %.0 = phi i32 [ 0, %71 ], [ 0, %69 ], [ 20, %74 ], [ 0, %59 ], [ 0, %rb_const_lookup.exit.thread.us.us ], [ 0, %.split43.split.us ], [ 0, %._crit_edge ], [ 0, %.split43.us.split.us ], [ 0, %.lr.ph.us.us ], [ 0, %rb_vm_lock_leave.exit.i.us.us.us ], [ 0, %19 ], [ 0, %77 ], [ 0, %rb_const_lookup.exit.thread.us ]
   ret i32 %.0
 }
 
@@ -8903,7 +8903,7 @@ ROBJECT_IVPTR.exit:                               ; preds = %19, %16, %24, %21
   unreachable
 
 .loopexit:                                        ; preds = %tailrecurse, %tailrecurse, %35, %6, %42
-  %.0 = phi i1 [ true, %35 ], [ false, %42 ], [ true, %6 ], [ false, %tailrecurse ], [ false, %tailrecurse ]
+  %.0 = phi i1 [ true, %35 ], [ true, %6 ], [ false, %42 ], [ false, %tailrecurse ], [ false, %tailrecurse ]
   ret i1 %.0
 }
 
@@ -9646,7 +9646,7 @@ rb_const_warn_if_deprecated.exit:                 ; preds = %39, %41, %46, %rb_c
 rb_const_lookup.exit.thread:                      ; preds = %63, %rb_vm_lock_leave.exit.i, %58, %20
   br i1 %.not47, label %select.unfold, label %69
 
-69:                                               ; preds = %rb_const_lookup.exit.thread, %11
+69:                                               ; preds = %11, %rb_const_lookup.exit.thread
   %70 = getelementptr inbounds nuw i8, ptr %.pre89, i64 16
   %71 = load i64, ptr %70, align 8, !tbaa !194
   %72 = and i64 %71, -5
@@ -9894,7 +9894,7 @@ rb_const_lookup.exit.thread:                      ; preds = %rb_vm_lock_leave.ex
   br i1 %.not51, label %.thread41, label %.lr.ph.split
 
 .thread41:                                        ; preds = %rb_const_lookup.exit.thread, %4, %rb_vm_lock_leave.exit.i.us, %.lr.ph.split.us, %.split.us, %75, %89, %87
-  %.5 = phi i64 [ %88, %87 ], [ %83, %75 ], [ %95, %89 ], [ 4, %.split.us ], [ 4, %.lr.ph.split.us ], [ 4, %rb_vm_lock_leave.exit.i.us ], [ 4, %4 ], [ 4, %rb_const_lookup.exit.thread ]
+  %.5 = phi i64 [ 4, %.split.us ], [ %88, %87 ], [ %83, %75 ], [ %95, %89 ], [ 4, %.lr.ph.split.us ], [ 4, %rb_vm_lock_leave.exit.i.us ], [ 4, %4 ], [ 4, %rb_const_lookup.exit.thread ]
   ret i64 %.5
 }
 

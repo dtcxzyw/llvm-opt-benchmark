@@ -2968,7 +2968,7 @@ _ZN7testing8internal8EqHelper7CompareIN3nix9ParsedURLES4_TnPNSt9enable_ifIXoonts
   br i1 %87, label %.loopexit, label %84
 
 .loopexit:                                        ; preds = %84, %.loopexit.loopexit52, %.thread
-  %.pn26.pn = phi { ptr, i32 } [ %35, %.thread ], [ %81, %.loopexit.loopexit52 ], [ %.pn26, %84 ]
+  %.pn26.pn = phi { ptr, i32 } [ %81, %.loopexit.loopexit52 ], [ %35, %.thread ], [ %.pn26, %84 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %32) #24
   br label %88
 
@@ -4575,7 +4575,7 @@ _ZN7testing8internal8EqHelper7CompareIN3nix9ParsedURLES4_TnPNSt9enable_ifIXoonts
   br i1 %87, label %.loopexit, label %84
 
 .loopexit:                                        ; preds = %84, %.loopexit.loopexit52, %.thread
-  %.pn26.pn = phi { ptr, i32 } [ %35, %.thread ], [ %81, %.loopexit.loopexit52 ], [ %.pn26, %84 ]
+  %.pn26.pn = phi { ptr, i32 } [ %81, %.loopexit.loopexit52 ], [ %35, %.thread ], [ %.pn26, %84 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %32) #24
   br label %88
 
@@ -7552,7 +7552,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaI
   br label %.loopexit
 
 .loopexit:                                        ; preds = %58, %.loopexit.loopexit30, %.thread, %98
-  %.pn14.pn.pn = phi { ptr, i32 } [ %.pn14.pn, %98 ], [ %16, %.thread ], [ %55, %.loopexit.loopexit30 ], [ %.pn12, %58 ]
+  %.pn14.pn.pn = phi { ptr, i32 } [ %.pn14.pn, %98 ], [ %55, %.loopexit.loopexit30 ], [ %16, %.thread ], [ %.pn12, %58 ]
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %3) #24
   br label %99
 

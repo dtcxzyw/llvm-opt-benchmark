@@ -1484,9 +1484,9 @@ common.resume:                                    ; preds = %"_ZN4core3ptr34drop
   ret { ptr, ptr } %221
 
 .body135:                                         ; preds = %860, %634, %.body.i, %531, %"_ZN4core3ptr48drop_in_place$LT$memchr..memmem..FindRevIter$GT$17ha4221409b2a5b6afE.exit.i", %223
-  %.1104.lpad-body = phi i8 [ %.4107, %634 ], [ %.4107, %531 ], [ %.1104, %223 ], [ %.4107, %"_ZN4core3ptr48drop_in_place$LT$memchr..memmem..FindRevIter$GT$17ha4221409b2a5b6afE.exit.i" ], [ %.4107, %.body.i ], [ %.4107, %860 ]
-  %.1100.lpad-body = phi i8 [ %.5, %634 ], [ %.5, %531 ], [ %.1100, %223 ], [ %.5, %"_ZN4core3ptr48drop_in_place$LT$memchr..memmem..FindRevIter$GT$17ha4221409b2a5b6afE.exit.i" ], [ %.5, %.body.i ], [ %.5, %860 ]
-  %eh.lpad-body = phi { ptr, i32 } [ %635, %634 ], [ %532, %531 ], [ %224, %223 ], [ %.pn.i, %"_ZN4core3ptr48drop_in_place$LT$memchr..memmem..FindRevIter$GT$17ha4221409b2a5b6afE.exit.i" ], [ %eh.lpad-body.i, %.body.i ], [ %861, %860 ]
+  %.1104.lpad-body = phi i8 [ %.4107, %634 ], [ %.4107, %860 ], [ %.4107, %.body.i ], [ %.4107, %531 ], [ %.4107, %"_ZN4core3ptr48drop_in_place$LT$memchr..memmem..FindRevIter$GT$17ha4221409b2a5b6afE.exit.i" ], [ %.1104, %223 ]
+  %.1100.lpad-body = phi i8 [ %.5, %634 ], [ %.5, %860 ], [ %.5, %.body.i ], [ %.5, %531 ], [ %.5, %"_ZN4core3ptr48drop_in_place$LT$memchr..memmem..FindRevIter$GT$17ha4221409b2a5b6afE.exit.i" ], [ %.1100, %223 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %635, %634 ], [ %861, %860 ], [ %eh.lpad-body.i, %.body.i ], [ %532, %531 ], [ %.pn.i, %"_ZN4core3ptr48drop_in_place$LT$memchr..memmem..FindRevIter$GT$17ha4221409b2a5b6afE.exit.i" ], [ %224, %223 ]
   %222 = trunc nuw i8 %.1104.lpad-body to i1
   br i1 %222, label %906, label %877
 

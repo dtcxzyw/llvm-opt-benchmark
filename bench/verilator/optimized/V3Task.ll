@@ -23020,7 +23020,7 @@ _ZNSt10_HashtableIPK12AstNodeFTaskSt4pairIKS2_P8AstClassESaIS7_ENSt8__detail10_S
   br label %.body
 
 .loopexit:                                        ; preds = %99, %.noexc9, %94
-  %.pn.i.i = phi ptr [ %95, %94 ], [ %110, %.noexc9 ], [ %101, %99 ]
+  %.pn.i.i = phi ptr [ %110, %.noexc9 ], [ %95, %94 ], [ %101, %99 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   store ptr %77, ptr %.1.i.i, align 8, !tbaa !657
   br label %112
@@ -28783,7 +28783,7 @@ _ZNSt10_HashtableIPK12AstNodeFTaskSt4pairIKS2_P8AstClassESaIS7_ENSt8__detail10_S
   resume { ptr, i32 } %30
 
 _ZNSt13unordered_mapIPK12AstNodeFTaskP8AstClassSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEEixERSA_.exit: ; preds = %18, %13, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %14, %13 ], [ %29, %.loopexit.i.i ], [ %20, %18 ]
+  %.pn.i.i = phi ptr [ %29, %.loopexit.i.i ], [ %14, %13 ], [ %20, %18 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   store ptr %4, ptr %.1.i.i, align 8, !tbaa !657
   ret void
@@ -32988,7 +32988,7 @@ _ZNSt10_HashtableIPK12AstNodeFTaskSt4pairIKS2_P8AstClassESaIS7_ENSt8__detail10_S
   resume { ptr, i32 } %28
 
 _ZNSt13unordered_mapIPK12AstNodeFTaskP8AstClassSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEEixERSA_.exit: ; preds = %16, %11, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %12, %11 ], [ %27, %.loopexit.i.i ], [ %18, %16 ]
+  %.pn.i.i = phi ptr [ %27, %.loopexit.i.i ], [ %12, %11 ], [ %18, %16 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   %29 = load ptr, ptr %.1.i.i, align 8, !tbaa !657
   %.not = icmp eq ptr %29, null

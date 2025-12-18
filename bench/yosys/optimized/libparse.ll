@@ -3142,7 +3142,7 @@ tailrecurse:                                      ; preds = %20, %2
   br label %.loopexit
 
 .loopexit:                                        ; preds = %tailrecurse, %.lr.ph, %.lr.ph54, %.lr.ph59, %24, %12, %4, %32
-  %.0 = phi i1 [ %36, %32 ], [ true, %4 ], [ false, %12 ], [ false, %24 ], [ %30, %.lr.ph ], [ %10, %.lr.ph59 ], [ %18, %.lr.ph54 ], [ false, %tailrecurse ]
+  %.0 = phi i1 [ %36, %32 ], [ %30, %.lr.ph ], [ %10, %.lr.ph59 ], [ %18, %.lr.ph54 ], [ true, %4 ], [ false, %12 ], [ false, %24 ], [ false, %tailrecurse ]
   %accumulator.ret.tr = xor i1 %accumulator.tr, %.0
   ret i1 %accumulator.ret.tr
 }
@@ -3481,7 +3481,7 @@ tailrecurse.backedge.sink.split:                  ; preds = %.preheader103, %109
   br label %.loopexit
 
 .loopexit:                                        ; preds = %switch.early.test, %55, %43, %114, %111, %99, %46
-  %.089 = phi i32 [ %49, %46 ], [ 118, %43 ], [ 110, %114 ], [ 47, %99 ], [ 92, %111 ], [ 118, %55 ], [ %5, %switch.early.test ]
+  %.089 = phi i32 [ %49, %46 ], [ 118, %55 ], [ 118, %43 ], [ 92, %111 ], [ 110, %114 ], [ 47, %99 ], [ %5, %switch.early.test ]
   ret i32 %.089
 }
 

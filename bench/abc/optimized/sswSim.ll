@@ -437,7 +437,7 @@ define i32 @Ssw_SmlCountXorImplication(ptr noundef readonly captures(none) %0, p
   br i1 %exitcond46.not, label %.loopexit, label %.lr.ph37, !llvm.loop !24
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph37, %36, %66
-  %.1 = phi i32 [ 0, %66 ], [ 0, %36 ], [ %96, %.lr.ph37 ], [ %65, %.lr.ph ]
+  %.1 = phi i32 [ %96, %.lr.ph37 ], [ 0, %66 ], [ 0, %36 ], [ %65, %.lr.ph ]
   ret i32 %.1
 }
 
@@ -657,7 +657,7 @@ define i32 @Ssw_SmlNodeCountOnesReal(ptr noundef readonly captures(none) %0, ptr
   br i1 %exitcond33.not, label %.loopexit, label %.lr.ph24, !llvm.loop !28
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph24, %.preheader18, %.preheader
-  %.1 = phi i32 [ 0, %.preheader ], [ 0, %.preheader18 ], [ %66, %.lr.ph24 ], [ %44, %.lr.ph ]
+  %.1 = phi i32 [ %66, %.lr.ph24 ], [ 0, %.preheader ], [ 0, %.preheader18 ], [ %44, %.lr.ph ]
   ret i32 %.1
 }
 
@@ -2846,7 +2846,7 @@ define range(i32 0, 2) i32 @Ssw_SmlCheckNonConstOutputs(ptr noundef readonly cap
   br i1 %exitcond27.not, label %.critedge, label %.lr.ph.split, !llvm.loop !106
 
 .critedge:                                        ; preds = %.loopexit, %.lr.ph.split, %.lr.ph.i, %.loopexit.us.us, %.lr.ph.i.us.us, %.lr.ph.split.us, %1
-  %.011 = phi i32 [ 0, %1 ], [ 0, %.lr.ph.split.us ], [ 1, %.lr.ph.i ], [ 1, %.lr.ph.i.us.us ], [ 0, %.loopexit.us.us ], [ 0, %.lr.ph.split ], [ 0, %.loopexit ]
+  %.011 = phi i32 [ 0, %1 ], [ 1, %.lr.ph.i ], [ 0, %.loopexit.us.us ], [ 1, %.lr.ph.i.us.us ], [ 0, %.lr.ph.split.us ], [ 0, %.lr.ph.split ], [ 0, %.loopexit ]
   ret i32 %.011
 }
 
@@ -3033,7 +3033,7 @@ Aig_ObjPhaseReal.exit.i:                          ; preds = %53
   br i1 %98, label %.lr.ph.i, label %Ssw_SmlNodeCopyFanin.exit, !llvm.loop !91
 
 Ssw_SmlNodeCopyFanin.exit:                        ; preds = %.lr.ph.i, %.critedge.i, %.preheader.i, %.critedge.preheader.i
-  %99 = phi i32 [ %54, %.critedge.preheader.i ], [ %54, %.preheader.i ], [ %90, %.critedge.i ], [ %96, %.lr.ph.i ]
+  %99 = phi i32 [ %90, %.critedge.i ], [ %54, %.critedge.preheader.i ], [ %54, %.preheader.i ], [ %96, %.lr.ph.i ]
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
   %.val61 = load i32, ptr %24, align 8, !tbaa !103
   %100 = sext i32 %.val61 to i64
@@ -3116,7 +3116,7 @@ Aig_ObjPhaseReal.exit.i67:                        ; preds = %102
   br i1 %149, label %.lr.ph.i73, label %Ssw_SmlNodeCopyFanin.exit76, !llvm.loop !91
 
 Ssw_SmlNodeCopyFanin.exit76:                      ; preds = %.lr.ph.i73, %.critedge.i69, %.preheader.i72, %.critedge.preheader.i68
-  %150 = phi i32 [ %103, %.critedge.preheader.i68 ], [ %103, %.preheader.i72 ], [ %141, %.critedge.i69 ], [ %147, %.lr.ph.i73 ]
+  %150 = phi i32 [ %141, %.critedge.i69 ], [ %103, %.critedge.preheader.i68 ], [ %103, %.preheader.i72 ], [ %147, %.lr.ph.i73 ]
   %151 = add nuw nsw i32 %.295, 1
   %.val57 = load i32, ptr %48, align 8, !tbaa !53
   %152 = icmp slt i32 %151, %.val57
@@ -3658,7 +3658,7 @@ Aig_ObjPhaseReal.exit.i:                          ; preds = %55
   br i1 %98, label %.lr.ph.i, label %Ssw_SmlNodeCopyFanin.exit, !llvm.loop !91
 
 Ssw_SmlNodeCopyFanin.exit:                        ; preds = %.lr.ph.i, %.critedge.i, %.preheader.i, %.critedge.preheader.i
-  %99 = phi i32 [ %56, %.critedge.preheader.i ], [ %56, %.preheader.i ], [ %90, %.critedge.i ], [ %96, %.lr.ph.i ]
+  %99 = phi i32 [ %90, %.critedge.i ], [ %56, %.critedge.preheader.i ], [ %56, %.preheader.i ], [ %96, %.lr.ph.i ]
   %100 = add nuw nsw i32 %.156, 1
   %.val37 = load i32, ptr %15, align 8, !tbaa !53
   %101 = icmp slt i32 %100, %.val37
@@ -4123,7 +4123,7 @@ define noalias noundef ptr @Ssw_SmlSimulateSeq(ptr noundef %0, i32 noundef %1, i
   br i1 %exitcond27.not.i, label %Ssw_SmlCheckNonConstOutputs.exit, label %.lr.ph.split.i, !llvm.loop !106
 
 Ssw_SmlCheckNonConstOutputs.exit:                 ; preds = %.lr.ph.split.i, %.loopexit.i, %.lr.ph.i.i, %.loopexit.us.us.i, %.lr.ph.i.us.us.i, %4, %.lr.ph.split.us.i
-  %.011.i = phi i32 [ 0, %4 ], [ 0, %.lr.ph.split.us.i ], [ 1, %.lr.ph.i.i ], [ 1, %.lr.ph.i.us.us.i ], [ 0, %.loopexit.us.us.i ], [ 0, %.loopexit.i ], [ 0, %.lr.ph.split.i ]
+  %.011.i = phi i32 [ 0, %4 ], [ 1, %.lr.ph.i.i ], [ 0, %.loopexit.us.us.i ], [ 1, %.lr.ph.i.us.us.i ], [ 0, %.lr.ph.split.us.i ], [ 0, %.loopexit.i ], [ 0, %.lr.ph.split.i ]
   %65 = getelementptr inbounds nuw i8, ptr %15, i64 28
   store i32 %.011.i, ptr %65, align 4, !tbaa !128
   ret ptr %15
@@ -4244,7 +4244,7 @@ define void @Ssw_SmlResimulateSeq(ptr noundef captures(none) %0) local_unnamed_a
   br i1 %exitcond27.not.i, label %Ssw_SmlCheckNonConstOutputs.exit, label %.lr.ph.split.i, !llvm.loop !106
 
 Ssw_SmlCheckNonConstOutputs.exit:                 ; preds = %.lr.ph.split.i, %.loopexit.i, %.lr.ph.i.i, %.loopexit.us.us.i, %.lr.ph.i.us.us.i, %1, %.lr.ph.split.us.i
-  %.011.i = phi i32 [ 0, %1 ], [ 0, %.lr.ph.split.us.i ], [ 1, %.lr.ph.i.i ], [ 1, %.lr.ph.i.us.us.i ], [ 0, %.loopexit.us.us.i ], [ 0, %.loopexit.i ], [ 0, %.lr.ph.split.i ]
+  %.011.i = phi i32 [ 0, %1 ], [ 1, %.lr.ph.i.i ], [ 0, %.loopexit.us.us.i ], [ 1, %.lr.ph.i.us.us.i ], [ 0, %.lr.ph.split.us.i ], [ 0, %.loopexit.i ], [ 0, %.lr.ph.split.i ]
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %.011.i, ptr %45, align 4, !tbaa !128
   ret void
@@ -4376,9 +4376,9 @@ Ssw_SmlNodeIsZero.exit:                           ; preds = %.lr.ph111
   br i1 %exitcond135.not, label %.critedge, label %.lr.ph111, !llvm.loop !131
 
 .critedge:                                        ; preds = %.loopexit.us, %Ssw_SmlNodeIsZero.exit, %.lr.ph, %1, %Aig_WordFindFirstBit.exit
-  %.07198 = phi i32 [ %25, %Aig_WordFindFirstBit.exit ], [ 0, %1 ], [ %.val87, %.lr.ph ], [ %25, %Ssw_SmlNodeIsZero.exit ], [ %.val87, %.loopexit.us ]
-  %.070 = phi i32 [ %32, %Aig_WordFindFirstBit.exit ], [ -1, %1 ], [ -1, %.lr.ph ], [ -1, %Ssw_SmlNodeIsZero.exit ], [ -1, %.loopexit.us ]
-  %.069 = phi i32 [ %40, %Aig_WordFindFirstBit.exit ], [ -1, %1 ], [ -1, %.lr.ph ], [ -1, %Ssw_SmlNodeIsZero.exit ], [ -1, %.loopexit.us ]
+  %.07198 = phi i32 [ %25, %Aig_WordFindFirstBit.exit ], [ %.val87, %.lr.ph ], [ %25, %Ssw_SmlNodeIsZero.exit ], [ 0, %1 ], [ %.val87, %.loopexit.us ]
+  %.070 = phi i32 [ %32, %Aig_WordFindFirstBit.exit ], [ -1, %.lr.ph ], [ -1, %Ssw_SmlNodeIsZero.exit ], [ -1, %1 ], [ -1, %.loopexit.us ]
+  %.069 = phi i32 [ %40, %Aig_WordFindFirstBit.exit ], [ -1, %.lr.ph ], [ -1, %Ssw_SmlNodeIsZero.exit ], [ -1, %1 ], [ -1, %.loopexit.us ]
   %41 = getelementptr i8, ptr %2, i64 104
   %.val86 = load i32, ptr %41, align 8, !tbaa !53
   %42 = getelementptr i8, ptr %2, i64 136

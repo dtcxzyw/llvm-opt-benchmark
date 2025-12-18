@@ -8197,7 +8197,7 @@ _ZNK5arrow6Tensor4sizeEv.exit.i.i.i254.i:         ; preds = %.lr.ph.i.i.i.i.i250
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %343
 
 _ZN5arrow6StatusD2Ev.exit.sink.split:             ; preds = %.lr.ph.i.i4.i.i.i258.i, %.lr.ph.i.i4.i.i.i243.i, %.lr.ph.i.i4.i.i.i225.i, %.lr.ph.i.i4.i.i.i207.i, %.lr.ph.i.i4.i.i.i189.i, %.lr.ph.i.i4.i.i.i171.i, %.lr.ph.i.i4.i.i.i153.i, %.lr.ph.i.i4.i.i.i135.i, %.lr.ph.i.i4.i.i.i117.i, %.lr.ph.i.i4.i.i.i100.i, %.lr.ph.i.i4.i.i.i.i, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i254.i, %308, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i239.i, %281, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i221.i, %254, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i203.i, %228, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i185.i, %202, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i167.i, %176, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i149.i, %150, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i131.i, %124, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i114.i, %98, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i97.i, %72, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i.i, %46
-  %.sroa.15.0.ph = phi i64 [ %47, %46 ], [ 0, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i.i ], [ %73, %72 ], [ 0, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i97.i ], [ %99, %98 ], [ 0, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i114.i ], [ %125, %124 ], [ 0, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i131.i ], [ %151, %150 ], [ 0, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i149.i ], [ %177, %176 ], [ 0, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i167.i ], [ %203, %202 ], [ 0, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i185.i ], [ %229, %228 ], [ 0, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i203.i ], [ %255, %254 ], [ 0, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i221.i ], [ %282, %281 ], [ 0, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i239.i ], [ %309, %308 ], [ 0, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i254.i ], [ %spec.select.i.i.i.i.i245.i, %.lr.ph.i.i4.i.i.i243.i ], [ %spec.select.i.i.i.i.i.i, %.lr.ph.i.i4.i.i.i.i ], [ %spec.select.i.i.i.i.i105.i, %.lr.ph.i.i4.i.i.i100.i ], [ %spec.select.i.i.i.i.i122.i, %.lr.ph.i.i4.i.i.i117.i ], [ %spec.select.i.i.i.i.i140.i, %.lr.ph.i.i4.i.i.i135.i ], [ %spec.select.i.i.i.i.i158.i, %.lr.ph.i.i4.i.i.i153.i ], [ %spec.select.i.i.i.i.i176.i, %.lr.ph.i.i4.i.i.i171.i ], [ %spec.select.i.i.i.i.i194.i, %.lr.ph.i.i4.i.i.i189.i ], [ %spec.select.i.i.i.i.i212.i, %.lr.ph.i.i4.i.i.i207.i ], [ %spec.select.i.i.i.i.i230.i, %.lr.ph.i.i4.i.i.i225.i ], [ %spec.select.i.i.i.i.i262.i, %.lr.ph.i.i4.i.i.i258.i ]
+  %.sroa.15.0.ph = phi i64 [ %spec.select.i.i.i.i.i176.i, %.lr.ph.i.i4.i.i.i171.i ], [ %spec.select.i.i.i.i.i158.i, %.lr.ph.i.i4.i.i.i153.i ], [ %spec.select.i.i.i.i.i140.i, %.lr.ph.i.i4.i.i.i135.i ], [ %spec.select.i.i.i.i.i122.i, %.lr.ph.i.i4.i.i.i117.i ], [ %spec.select.i.i.i.i.i105.i, %.lr.ph.i.i4.i.i.i100.i ], [ %spec.select.i.i.i.i.i.i, %.lr.ph.i.i4.i.i.i.i ], [ %spec.select.i.i.i.i.i245.i, %.lr.ph.i.i4.i.i.i243.i ], [ %spec.select.i.i.i.i.i230.i, %.lr.ph.i.i4.i.i.i225.i ], [ %spec.select.i.i.i.i.i212.i, %.lr.ph.i.i4.i.i.i207.i ], [ %spec.select.i.i.i.i.i194.i, %.lr.ph.i.i4.i.i.i189.i ], [ %47, %46 ], [ 0, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i.i ], [ %73, %72 ], [ 0, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i97.i ], [ %99, %98 ], [ 0, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i114.i ], [ %125, %124 ], [ 0, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i131.i ], [ %151, %150 ], [ 0, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i149.i ], [ %177, %176 ], [ 0, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i167.i ], [ %203, %202 ], [ 0, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i185.i ], [ %229, %228 ], [ 0, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i203.i ], [ %255, %254 ], [ 0, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i221.i ], [ %282, %281 ], [ 0, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i239.i ], [ %309, %308 ], [ 0, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i254.i ], [ %spec.select.i.i.i.i.i262.i, %.lr.ph.i.i4.i.i.i258.i ]
   store ptr null, ptr %4, align 8, !tbaa !16, !alias.scope !277
   br label %_ZN5arrow6StatusD2Ev.exit
 
@@ -56334,7 +56334,7 @@ define internal fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountN
   br i1 %exitcond.not, label %.loopexit, label %39, !llvm.loop !1458
 
 .loopexit:                                        ; preds = %39, %33, %.preheader33, %.preheader
-  %.027 = phi i64 [ 0, %.preheader ], [ 0, %.preheader33 ], [ %spec.select, %33 ], [ %41, %39 ]
+  %.027 = phi i64 [ %spec.select, %33 ], [ 0, %.preheader ], [ 0, %.preheader33 ], [ %41, %39 ]
   ret i64 %.027
 }
 
@@ -56408,7 +56408,7 @@ define internal fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountN
   br i1 %exitcond.not, label %.loopexit, label %39, !llvm.loop !1460
 
 .loopexit:                                        ; preds = %39, %33, %.preheader33, %.preheader
-  %.027 = phi i64 [ 0, %.preheader ], [ 0, %.preheader33 ], [ %spec.select, %33 ], [ %41, %39 ]
+  %.027 = phi i64 [ %spec.select, %33 ], [ 0, %.preheader ], [ 0, %.preheader33 ], [ %41, %39 ]
   ret i64 %.027
 }
 
@@ -56482,7 +56482,7 @@ define internal fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountN
   br i1 %exitcond.not, label %.loopexit, label %39, !llvm.loop !1462
 
 .loopexit:                                        ; preds = %39, %33, %.preheader33, %.preheader
-  %.027 = phi i64 [ 0, %.preheader ], [ 0, %.preheader33 ], [ %spec.select, %33 ], [ %41, %39 ]
+  %.027 = phi i64 [ %spec.select, %33 ], [ 0, %.preheader ], [ 0, %.preheader33 ], [ %41, %39 ]
   ret i64 %.027
 }
 
@@ -56556,7 +56556,7 @@ define internal fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountN
   br i1 %exitcond.not, label %.loopexit, label %39, !llvm.loop !1464
 
 .loopexit:                                        ; preds = %39, %33, %.preheader33, %.preheader
-  %.027 = phi i64 [ 0, %.preheader ], [ 0, %.preheader33 ], [ %spec.select, %33 ], [ %41, %39 ]
+  %.027 = phi i64 [ %spec.select, %33 ], [ 0, %.preheader ], [ 0, %.preheader33 ], [ %41, %39 ]
   ret i64 %.027
 }
 
@@ -56630,7 +56630,7 @@ define internal fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountN
   br i1 %exitcond.not, label %.loopexit, label %39, !llvm.loop !1466
 
 .loopexit:                                        ; preds = %39, %33, %.preheader33, %.preheader
-  %.027 = phi i64 [ 0, %.preheader ], [ 0, %.preheader33 ], [ %spec.select, %33 ], [ %41, %39 ]
+  %.027 = phi i64 [ %spec.select, %33 ], [ 0, %.preheader ], [ 0, %.preheader33 ], [ %41, %39 ]
   ret i64 %.027
 }
 
@@ -56704,7 +56704,7 @@ define internal fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountN
   br i1 %exitcond.not, label %.loopexit, label %39, !llvm.loop !1468
 
 .loopexit:                                        ; preds = %39, %33, %.preheader33, %.preheader
-  %.027 = phi i64 [ 0, %.preheader ], [ 0, %.preheader33 ], [ %spec.select, %33 ], [ %41, %39 ]
+  %.027 = phi i64 [ %spec.select, %33 ], [ 0, %.preheader ], [ 0, %.preheader33 ], [ %41, %39 ]
   ret i64 %.027
 }
 
@@ -56778,7 +56778,7 @@ define internal fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountN
   br i1 %exitcond.not, label %.loopexit, label %39, !llvm.loop !1470
 
 .loopexit:                                        ; preds = %39, %33, %.preheader33, %.preheader
-  %.027 = phi i64 [ 0, %.preheader ], [ 0, %.preheader33 ], [ %spec.select, %33 ], [ %41, %39 ]
+  %.027 = phi i64 [ %spec.select, %33 ], [ 0, %.preheader ], [ 0, %.preheader33 ], [ %41, %39 ]
   ret i64 %.027
 }
 
@@ -56852,7 +56852,7 @@ define internal fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountN
   br i1 %exitcond.not, label %.loopexit, label %39, !llvm.loop !1472
 
 .loopexit:                                        ; preds = %39, %33, %.preheader33, %.preheader
-  %.027 = phi i64 [ 0, %.preheader ], [ 0, %.preheader33 ], [ %spec.select, %33 ], [ %41, %39 ]
+  %.027 = phi i64 [ %spec.select, %33 ], [ 0, %.preheader ], [ 0, %.preheader33 ], [ %41, %39 ]
   ret i64 %.027
 }
 
@@ -56926,7 +56926,7 @@ define internal fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountN
   br i1 %exitcond.not, label %.loopexit, label %39, !llvm.loop !1474
 
 .loopexit:                                        ; preds = %39, %33, %.preheader33, %.preheader
-  %.027 = phi i64 [ 0, %.preheader ], [ 0, %.preheader33 ], [ %spec.select, %33 ], [ %41, %39 ]
+  %.027 = phi i64 [ %spec.select, %33 ], [ 0, %.preheader ], [ 0, %.preheader33 ], [ %41, %39 ]
   ret i64 %.027
 }
 
@@ -57000,7 +57000,7 @@ define internal fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountN
   br i1 %exitcond.not, label %.loopexit, label %40, !llvm.loop !1476
 
 .loopexit:                                        ; preds = %40, %33, %.preheader33, %.preheader
-  %.027 = phi i64 [ 0, %.preheader ], [ 0, %.preheader33 ], [ %.1, %33 ], [ %42, %40 ]
+  %.027 = phi i64 [ %.1, %33 ], [ 0, %.preheader ], [ 0, %.preheader33 ], [ %42, %40 ]
   ret i64 %.027
 }
 
@@ -57074,7 +57074,7 @@ define internal fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountN
   br i1 %exitcond.not, label %.loopexit, label %40, !llvm.loop !1478
 
 .loopexit:                                        ; preds = %40, %33, %.preheader33, %.preheader
-  %.027 = phi i64 [ 0, %.preheader ], [ 0, %.preheader33 ], [ %.1, %33 ], [ %42, %40 ]
+  %.027 = phi i64 [ %.1, %33 ], [ 0, %.preheader ], [ 0, %.preheader33 ], [ %42, %40 ]
   ret i64 %.027
 }
 

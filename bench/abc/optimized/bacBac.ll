@@ -142,7 +142,7 @@ define range(i32 0, 2) i32 @BacManReadBacNameAndNums(ptr noundef captures(none) 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %6, %14, %22, %30, %34
-  %.0 = phi i32 [ 1, %34 ], [ 0, %14 ], [ 1, %30 ], [ 1, %22 ], [ 0, %6 ]
+  %.0 = phi i32 [ 1, %34 ], [ 1, %30 ], [ 1, %22 ], [ 0, %14 ], [ 0, %6 ]
   ret i32 %.0
 }
 
@@ -800,7 +800,7 @@ Bac_ManNtk.exit43:                                ; preds = %.critedge.preheader
   br label %.critedge2
 
 .critedge2:                                       ; preds = %BacManReadBacLine.exit, %Bac_ManNtk.exit43, %.critedge2.sink.split, %Bac_ManAlloc.exit, %.critedge.preheader, %._crit_edge
-  %.0 = phi ptr [ null, %._crit_edge ], [ %27, %Bac_ManAlloc.exit ], [ %27, %.critedge.preheader ], [ null, %.critedge2.sink.split ], [ %27, %Bac_ManNtk.exit43 ], [ null, %BacManReadBacLine.exit ]
+  %.0 = phi ptr [ %27, %Bac_ManAlloc.exit ], [ null, %.critedge2.sink.split ], [ %27, %Bac_ManNtk.exit43 ], [ null, %._crit_edge ], [ %27, %.critedge.preheader ], [ null, %BacManReadBacLine.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

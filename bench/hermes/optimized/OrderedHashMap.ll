@@ -439,7 +439,7 @@ if.then22:                                        ; preds = %if.else
   br label %if.end26
 
 if.end26:                                         ; preds = %if.then22, %if.then
-  %newCapacity.0 = phi i32 [ %mul8, %if.then ], [ %div27, %if.then22 ]
+  %newCapacity.0 = phi i32 [ %div27, %if.then22 ], [ %mul8, %if.then ]
   %cmp29 = icmp eq i32 %newCapacity.0, %1
   br i1 %cmp29, label %return, label %if.end31
 

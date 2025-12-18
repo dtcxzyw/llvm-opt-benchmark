@@ -596,7 +596,7 @@ define void @_ZN7rocksdb20FileChecksumListImpl21SearchOneFileChecksumEmPNSt7__cx
   br label %49
 
 _ZNSt13unordered_mapImSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESt4hashImESt8equal_toImESaIS0_IKmS7_EEE4findERSC_.exit: ; preds = %36, %19, %31
-  %.sroa.06.1.i.i = phi ptr [ %32, %31 ], [ %.sroa.06.0.i.i, %19 ], [ %38, %36 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %19 ], [ %32, %31 ], [ %38, %36 ]
   %46 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %46)
   %47 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 48
@@ -808,7 +808,7 @@ _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_ED2Ev.exit: ; 
   resume { ptr, i32 } %85
 
 _ZNSt13unordered_mapImSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESt4hashImESt8equal_toImESaIS0_IKmS7_EEE4findERSC_.exit: ; preds = %30, %14, %25
-  %.sroa.06.1.i.i = phi ptr [ %26, %25 ], [ %.sroa.06.0.i.i, %14 ], [ %32, %30 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %14 ], [ %26, %25 ], [ %32, %30 ]
   %86 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %86, ptr noundef nonnull align 8 dereferenceable(32) %3)
   %87 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 48
@@ -2854,7 +2854,7 @@ _ZNSt10_HashtableImSt4pairIKmS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   resume { ptr, i32 } %74
 
 _ZNKSt10_HashtableImSt4pairIKmS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EESaIS9_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS1_m.exit: ; preds = %64, %51, %59
-  %.sroa.036.0.ph = phi ptr [ %60, %59 ], [ %.sroa.032.0, %51 ], [ %66, %64 ]
+  %.sroa.036.0.ph = phi ptr [ %.sroa.032.0, %51 ], [ %60, %59 ], [ %66, %64 ]
   %75 = icmp eq ptr %35, %25
   br i1 %75, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i
 

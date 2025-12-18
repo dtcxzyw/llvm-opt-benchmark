@@ -7897,7 +7897,7 @@ switch.lookup:                                    ; preds = %1
   br label %4
 
 4:                                                ; preds = %1, %switch.lookup
-  %.15 = phi i32 [ 42, %1 ], [ %switch.load, %switch.lookup ]
+  %.15 = phi i32 [ %switch.load, %switch.lookup ], [ 42, %1 ]
   ret i32 %.15
 }
 
@@ -7939,7 +7939,7 @@ switch.lookup:                                    ; preds = %lean_dec.exit
   br label %l_Lake_hexEncodeByte.exit
 
 l_Lake_hexEncodeByte.exit:                        ; preds = %lean_dec.exit, %switch.lookup
-  %.15.i = phi i64 [ 85, %lean_dec.exit ], [ %switch.load, %switch.lookup ]
+  %.15.i = phi i64 [ %switch.load, %switch.lookup ], [ 85, %lean_dec.exit ]
   %15 = inttoptr i64 %.15.i to ptr
   ret ptr %15
 }

@@ -1398,7 +1398,7 @@ _ZL9strcmpMaxPKDsiS0_i.exit.thread:               ; preds = %33, %_ZL9strcmpMaxP
   br i1 %74, label %.preheader63.split, label %.critedge
 
 .critedge:                                        ; preds = %_ZL9strcmpMaxPKDsiS0_i.exit.thread, %_ZL9strcmpMaxPKDsiS0_i.exit.thread.us, %68, %50, %3
-  %.042 = phi i8 [ 0, %3 ], [ 0, %_ZL9strcmpMaxPKDsiS0_i.exit.thread.us ], [ 1, %68 ], [ 1, %50 ], [ 0, %_ZL9strcmpMaxPKDsiS0_i.exit.thread ]
+  %.042 = phi i8 [ 0, %_ZL9strcmpMaxPKDsiS0_i.exit.thread.us ], [ 0, %3 ], [ 1, %68 ], [ 1, %50 ], [ 0, %_ZL9strcmpMaxPKDsiS0_i.exit.thread ]
   ret i8 %.042
 }
 
@@ -2732,7 +2732,7 @@ _ZL14isPrecededBy_IPFiPvaES_.exit:                ; preds = %293, %296, %288, %4
   br label %_ZL14isPrecededBy_IPFiPvaES_.exit.thread167
 
 _ZL14isPrecededBy_IPFiPvaES_.exit.thread167:      ; preds = %129, %_ZL10getDotTypei.exit.i156, %.preheader.i150, %181, %241, %283, %236, %120, %_ZL21isFollowedByMoreAbovePFiPvaES_.exit, %119, %118, %117, %116, %115, %114, %257, %_ZL14isPrecededBy_IPFiPvaES_.exit
-  %.1 = phi i32 [ %306, %_ZL14isPrecededBy_IPFiPvaES_.exit ], [ %258, %257 ], [ 962, %241 ], [ %287, %283 ], [ 2, %236 ], [ 105, %120 ], [ 0, %_ZL21isFollowedByMoreAbovePFiPvaES_.exit ], [ 3, %119 ], [ 3, %118 ], [ 3, %117 ], [ 2, %116 ], [ 2, %115 ], [ 2, %114 ], [ 305, %181 ], [ 305, %_ZL10getDotTypei.exit.i156 ], [ 305, %.preheader.i150 ], [ 0, %129 ]
+  %.1 = phi i32 [ %306, %_ZL14isPrecededBy_IPFiPvaES_.exit ], [ 305, %_ZL10getDotTypei.exit.i156 ], [ %258, %257 ], [ 962, %241 ], [ %287, %283 ], [ 2, %236 ], [ 105, %120 ], [ 0, %_ZL21isFollowedByMoreAbovePFiPvaES_.exit ], [ 3, %119 ], [ 3, %118 ], [ 3, %117 ], [ 2, %116 ], [ 2, %115 ], [ 2, %114 ], [ 305, %181 ], [ 305, %.preheader.i150 ], [ 0, %129 ]
   ret i32 %.1
 }
 
@@ -3166,7 +3166,7 @@ _ZL22isPrecededBySoftDottedPFiPvaES_.exit:        ; preds = %196, %192, %45, %48
   br label %_ZL22isPrecededBySoftDottedPFiPvaES_.exit.thread131
 
 _ZL22isPrecededBySoftDottedPFiPvaES_.exit.thread131: ; preds = %_ZL10getDotTypei.exit.i, %181, %172, %120, %60, %137, %_ZL22isPrecededBySoftDottedPFiPvaES_.exit
-  %.1103 = phi i32 [ %207, %_ZL22isPrecededBySoftDottedPFiPvaES_.exit ], [ %182, %181 ], [ %176, %172 ], [ 2, %120 ], [ 304, %60 ], [ %.1, %137 ], [ 0, %_ZL10getDotTypei.exit.i ]
+  %.1103 = phi i32 [ %207, %_ZL22isPrecededBySoftDottedPFiPvaES_.exit ], [ %.1, %137 ], [ %182, %181 ], [ %176, %172 ], [ 2, %120 ], [ 304, %60 ], [ 0, %_ZL10getDotTypei.exit.i ]
   ret i32 %.1103
 }
 

@@ -488,7 +488,7 @@ _ZNK4llvm4Type13getScalarTypeEv.exit:             ; preds = %39, %43
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph, %_ZNK4llvm4Type17isFloatingPointTyEv.exit, %tailrecurse, %26, %3, %21, %_ZNK4llvm4Type13getScalarTypeEv.exit, %48
-  %.022 = phi i1 [ false, %48 ], [ true, %_ZNK4llvm4Type13getScalarTypeEv.exit ], [ true, %3 ], [ true, %21 ], [ %30, %26 ], [ true, %tailrecurse ], [ true, %_ZNK4llvm4Type17isFloatingPointTyEv.exit ], [ true, %.lr.ph ]
+  %.022 = phi i1 [ false, %48 ], [ %30, %26 ], [ true, %_ZNK4llvm4Type13getScalarTypeEv.exit ], [ true, %3 ], [ true, %21 ], [ true, %tailrecurse ], [ true, %_ZNK4llvm4Type17isFloatingPointTyEv.exit ], [ true, %.lr.ph ]
   ret i1 %.022
 }
 

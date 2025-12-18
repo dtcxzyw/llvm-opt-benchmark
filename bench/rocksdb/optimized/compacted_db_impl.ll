@@ -3830,7 +3830,7 @@ _ZN7rocksdb22ColumnFamilyDescriptorD2Ev.exit:     ; preds = %_ZNSt6vectorIN7rock
   br label %.body60
 
 .body60:                                          ; preds = %61, %.body62, %129, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i55
-  %.pn36.pn = phi { ptr, i32 } [ %130, %129 ], [ %62, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i55 ], [ %.pn36, %.body62 ], [ %62, %61 ]
+  %.pn36.pn = phi { ptr, i32 } [ %.pn36, %.body62 ], [ %130, %129 ], [ %62, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i55 ], [ %62, %61 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_ZN7rocksdb6StatusD2Ev.exit87

@@ -2008,7 +2008,7 @@ define internal fastcc ptr @map_sql_typecoll_to_xmlschema_types(ptr noundef read
   %.not47 = icmp eq i32 %42, %41
   br i1 %.not47, label %49, label %47
 
-.critedge49.thread:                               ; preds = %.critedge, %1, %.lr.ph57
+.critedge49.thread:                               ; preds = %.critedge, %.lr.ph57, %1
   call void @initStringInfo(ptr noundef nonnull %4) #11
   br label %.critedge51
 

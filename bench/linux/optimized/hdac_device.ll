@@ -1088,7 +1088,7 @@ define dso_local i32 @snd_hdac_get_connections(ptr noundef %0, i16 noundef zeroe
   br i1 %150, label %.thread18, label %76, !llvm.loop !17
 
 .thread18:                                        ; preds = %139, %113, %103, %.loopexit, %.preheader.split, %20, %4, %72, %70, %67, %29, %27
-  %151 = phi i32 [ 0, %27 ], [ %34, %29 ], [ %68, %67 ], [ 1, %72 ], [ 1, %70 ], [ 0, %20 ], [ 0, %4 ], [ -28, %.preheader.split ], [ -5, %103 ], [ 0, %113 ], [ -28, %139 ], [ %147, %.loopexit ]
+  %151 = phi i32 [ 0, %27 ], [ %34, %29 ], [ %68, %67 ], [ 1, %72 ], [ 1, %70 ], [ 0, %20 ], [ -28, %.preheader.split ], [ 0, %4 ], [ 0, %113 ], [ -28, %139 ], [ -5, %103 ], [ %147, %.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %151
 }

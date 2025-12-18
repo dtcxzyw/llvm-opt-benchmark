@@ -104,7 +104,7 @@ gmac_new.exit.thread.sink.split:                  ; preds = %9, %gmac_free.exit
   br label %gmac_new.exit.thread
 
 gmac_new.exit.thread:                             ; preds = %gmac_new.exit.thread.sink.split, %6, %3, %17, %1
-  %.0 = phi ptr [ null, %1 ], [ %7, %17 ], [ null, %3 ], [ null, %6 ], [ null, %gmac_new.exit.thread.sink.split ]
+  %.0 = phi ptr [ null, %1 ], [ %7, %17 ], [ null, %6 ], [ null, %3 ], [ null, %gmac_new.exit.thread.sink.split ]
   ret ptr %.0
 }
 

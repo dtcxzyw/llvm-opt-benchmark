@@ -511,8 +511,8 @@ GetSchemaPublications.exit:                       ; preds = %41, %33
   br label %56
 
 56:                                               ; preds = %.sink.split, %GetSchemaPublications.exit, %32
-  %.1 = phi i32 [ %10, %32 ], [ %.02441.mux, %GetSchemaPublications.exit ], [ %10, %.sink.split ]
-  %.0 = phi ptr [ null, %32 ], [ %.0.lcssa.i32, %GetSchemaPublications.exit ], [ %.0.ph, %.sink.split ]
+  %.1 = phi i32 [ %.02441.mux, %GetSchemaPublications.exit ], [ %10, %32 ], [ %10, %.sink.split ]
+  %.0 = phi ptr [ %.0.lcssa.i32, %GetSchemaPublications.exit ], [ null, %32 ], [ %.0.ph, %.sink.split ]
   tail call void @list_free(ptr noundef %.0.lcssa.i) #5
   tail call void @list_free(ptr noundef %.0) #5
   %57 = load i32, ptr %4, align 4
@@ -1920,15 +1920,15 @@ is_ancestor_member_tableinfos.exit.loopexit.us48.i: ; preds = %113
   br label %.critedge30.i
 
 .critedge30.i:                                    ; preds = %is_ancestor_member_tableinfos.exit.loopexit.us48.i, %.critedge30.thread.i, %.lr.ph.i.lr.ph.i, %.lr.ph.split.split.i, %.lr.ph.i110, %93, %85
-  %.sroa.010.1.i = phi ptr [ %115, %.critedge30.thread.i ], [ %.sroa.010.050.i, %93 ], [ %.sroa.010.050.i, %.lr.ph.i.lr.ph.i ], [ %.sroa.010.050.i, %.lr.ph.split.split.i ], [ %.sroa.010.050.i, %.lr.ph.i110 ], [ %.sroa.010.050.i, %85 ], [ %.sroa.010.050.i, %is_ancestor_member_tableinfos.exit.loopexit.us48.i ]
-  %.sroa.7.1.i = phi i32 [ %114, %.critedge30.thread.i ], [ %.sroa.7.051.i, %93 ], [ %.sroa.7.051.i, %.lr.ph.i.lr.ph.i ], [ %.sroa.7.051.i, %.lr.ph.split.split.i ], [ %.sroa.7.051.i, %.lr.ph.i110 ], [ %.sroa.7.051.i, %85 ], [ %.sroa.7.051.i, %is_ancestor_member_tableinfos.exit.loopexit.us48.i ]
-  %.1.i = phi ptr [ %115, %.critedge30.thread.i ], [ %.052.fr.i, %93 ], [ %.052.fr.i, %.lr.ph.i.lr.ph.i ], [ %.052.fr.i, %.lr.ph.split.split.i ], [ null, %.lr.ph.i110 ], [ %.052.fr.i, %85 ], [ %.052.fr.i, %is_ancestor_member_tableinfos.exit.loopexit.us48.i ]
+  %.sroa.010.1.i = phi ptr [ %115, %.critedge30.thread.i ], [ %.sroa.010.050.i, %93 ], [ %.sroa.010.050.i, %.lr.ph.i.lr.ph.i ], [ %.sroa.010.050.i, %85 ], [ %.sroa.010.050.i, %.lr.ph.i110 ], [ %.sroa.010.050.i, %.lr.ph.split.split.i ], [ %.sroa.010.050.i, %is_ancestor_member_tableinfos.exit.loopexit.us48.i ]
+  %.sroa.7.1.i = phi i32 [ %114, %.critedge30.thread.i ], [ %.sroa.7.051.i, %93 ], [ %.sroa.7.051.i, %.lr.ph.i.lr.ph.i ], [ %.sroa.7.051.i, %85 ], [ %.sroa.7.051.i, %.lr.ph.i110 ], [ %.sroa.7.051.i, %.lr.ph.split.split.i ], [ %.sroa.7.051.i, %is_ancestor_member_tableinfos.exit.loopexit.us48.i ]
+  %.1.i = phi ptr [ %115, %.critedge30.thread.i ], [ %.052.fr.i, %93 ], [ %.052.fr.i, %.lr.ph.i.lr.ph.i ], [ %.052.fr.i, %85 ], [ null, %.lr.ph.i110 ], [ %.052.fr.i, %.lr.ph.split.split.i ], [ %.052.fr.i, %is_ancestor_member_tableinfos.exit.loopexit.us48.i ]
   %116 = add i32 %.sroa.7.1.i, 1
   %.not.i109 = icmp eq ptr %.sroa.010.1.i, null
   br i1 %.not.i109, label %filter_partitions.exit, label %.lr.ph53.i, !llvm.loop !20
 
 filter_partitions.exit:                           ; preds = %.critedge30.i, %.lr.ph53.i, %10, %._crit_edge
-  %.090.lcssa160 = phi ptr [ %.1.lcssa, %._crit_edge ], [ null, %10 ], [ %.1.lcssa, %.lr.ph53.i ], [ %.1.lcssa, %.critedge30.i ]
+  %.090.lcssa160 = phi ptr [ null, %10 ], [ %.1.lcssa, %._crit_edge ], [ %.1.lcssa, %.lr.ph53.i ], [ %.1.lcssa, %.critedge30.i ]
   %117 = call ptr @CreateTemplateTupleDesc(i32 noundef 4) #5
   call void @TupleDescInitEntry(ptr noundef %117, i16 noundef signext 1, ptr noundef nonnull @.str.8, i32 noundef 26, i32 noundef -1, i32 noundef 0) #5
   call void @TupleDescInitEntry(ptr noundef %117, i16 noundef signext 2, ptr noundef nonnull @.str.9, i32 noundef 26, i32 noundef -1, i32 noundef 0) #5

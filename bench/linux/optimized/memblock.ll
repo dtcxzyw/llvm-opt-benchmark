@@ -506,7 +506,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @memblock_add_range(ptr nou
   br label %.thread11
 
 .thread11:                                        ; preds = %.thread10, %.thread, %108, %126, %.thread8, %.thread9, %24, %5
-  %133 = phi i32 [ 0, %24 ], [ 0, %.thread9 ], [ 0, %5 ], [ 0, %.thread8 ], [ -12, %126 ], [ 0, %108 ], [ 0, %.thread ], [ 0, %.thread10 ]
+  %133 = phi i32 [ 0, %24 ], [ 0, %.thread9 ], [ 0, %5 ], [ -12, %126 ], [ 0, %.thread8 ], [ 0, %108 ], [ 0, %.thread ], [ 0, %.thread10 ]
   ret i32 %133
 }
 
@@ -1169,9 +1169,9 @@ define dso_local void @__next_mem_range(ptr noundef captures(none) %0, i32 nound
   br label %.split70.us
 
 .split70.us:                                      ; preds = %111, %136, %97, %66, %.split.us.split.us.split.us.split.split.split, %52, %.split70.us.sink.split
-  %.us-phi72 = phi ptr [ %.sink336, %.split70.us.sink.split ], [ %132, %136 ], [ %42, %52 ], [ %78, %.split.us.split.us.split.us.split.split.split ], [ %61, %66 ], [ %88, %97 ], [ %106, %111 ]
-  %.us-phi74 = phi i32 [ %.us-phi74.ph, %.split70.us.sink.split ], [ %131, %136 ], [ %41, %52 ], [ %77, %.split.us.split.us.split.us.split.split.split ], [ %60, %66 ], [ %87, %97 ], [ %105, %111 ]
-  %.us-phi76 = phi i32 [ %147, %.split70.us.sink.split ], [ %18, %136 ], [ %44, %52 ], [ %18, %.split.us.split.us.split.us.split.split.split ], [ %63, %66 ], [ %90, %97 ], [ %108, %111 ]
+  %.us-phi72 = phi ptr [ %78, %.split.us.split.us.split.us.split.split.split ], [ %132, %136 ], [ %88, %97 ], [ %.sink336, %.split70.us.sink.split ], [ %61, %66 ], [ %42, %52 ], [ %106, %111 ]
+  %.us-phi74 = phi i32 [ %77, %.split.us.split.us.split.us.split.split.split ], [ %131, %136 ], [ %87, %97 ], [ %.us-phi74.ph, %.split70.us.sink.split ], [ %60, %66 ], [ %41, %52 ], [ %105, %111 ]
+  %.us-phi76 = phi i32 [ %18, %.split.us.split.us.split.us.split.split.split ], [ %18, %136 ], [ %90, %97 ], [ %147, %.split70.us.sink.split ], [ %63, %66 ], [ %44, %52 ], [ %108, %111 ]
   %148 = load i64, ptr %.us-phi72, align 8
   %149 = getelementptr inbounds nuw i8, ptr %.us-phi72, i64 8
   %150 = load i64, ptr %149, align 8
@@ -1425,7 +1425,7 @@ define dso_local void @__next_mem_range(ptr noundef captures(none) %0, i32 nound
   br i1 %286, label %218, label %.loopexit18, !llvm.loop !36
 
 .loopexit18:                                      ; preds = %.loopexit, %.loopexit.us, %115, %141, %126, %100, %71, %82, %55, %17, %235, %.thread
-  %.sink = phi i64 [ %239, %235 ], [ %279, %.thread ], [ -1, %17 ], [ -1, %.loopexit.us ], [ -1, %55 ], [ -1, %82 ], [ -1, %71 ], [ -1, %100 ], [ -1, %126 ], [ -1, %141 ], [ -1, %115 ], [ -1, %.loopexit ]
+  %.sink = phi i64 [ %239, %235 ], [ %279, %.thread ], [ -1, %126 ], [ -1, %100 ], [ -1, %82 ], [ -1, %55 ], [ -1, %71 ], [ -1, %.loopexit.us ], [ -1, %141 ], [ -1, %115 ], [ -1, %17 ], [ -1, %.loopexit ]
   store i64 %.sink, ptr %0, align 8
   ret void
 }

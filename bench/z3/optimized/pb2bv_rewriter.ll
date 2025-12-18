@@ -13827,7 +13827,7 @@ _ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit.i:   ; preds = %105, %99
   br i1 %exitcond.not.i, label %_ZN6vectorIP4exprLb0EjE6appendEjPKS1_.exit, label %.lr.ph.i, !llvm.loop !278
 
 .split142.us:                                     ; preds = %tailrecurse.us155, %tailrecurse, %tailrecurse.outer.split.us168
-  %.us-phi = phi i32 [ %2, %tailrecurse.outer.split.us168 ], [ %.us-phi171, %tailrecurse ], [ %.us-phi171, %tailrecurse.us155 ]
+  %.us-phi = phi i32 [ %.us-phi171, %tailrecurse ], [ %2, %tailrecurse.outer.split.us168 ], [ %.us-phi171, %tailrecurse.us155 ]
   %.not.i61 = icmp eq i32 %1, 0
   br i1 %.not.i61, label %_ZN6vectorIP4exprLb0EjE6appendEjPKS1_.exit, label %.lr.ph.preheader.i62
 
@@ -18659,7 +18659,7 @@ _ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE6mk_minEP4exprS5_.exit: ; 
   %123 = load ptr, ptr %122, align 8, !tbaa !248
   br label %_ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE6mk_minEP4exprS5_.exit.thread
 
-_ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE6mk_minEP4exprS5_.exit.thread: ; preds = %39, %56, %_ZN14pb2bv_rewriter3imp16card2bv_rewriter6mk_minEjPKP4expr.exit.i, %54, %_ZN14pb2bv_rewriter3imp16card2bv_rewriter6mk_minEjPKP4expr.exit, %_ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE6mk_minEP4exprS5_.exit
+_ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE6mk_minEP4exprS5_.exit.thread: ; preds = %39, %_ZN14pb2bv_rewriter3imp16card2bv_rewriter6mk_minEjPKP4expr.exit.i, %54, %_ZN14pb2bv_rewriter3imp16card2bv_rewriter6mk_minEjPKP4expr.exit, %56, %_ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE6mk_minEP4exprS5_.exit
   %.373 = phi ptr [ %123, %_ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE6mk_minEP4exprS5_.exit ], [ %57, %56 ], [ %70, %_ZN14pb2bv_rewriter3imp16card2bv_rewriter6mk_minEjPKP4expr.exit.i ], [ %55, %54 ], [ %97, %_ZN14pb2bv_rewriter3imp16card2bv_rewriter6mk_minEjPKP4expr.exit ], [ %40, %39 ]
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %19)
           to label %_ZN6vectorIP4exprLb0EjED2Ev.exit unwind label %124
@@ -21474,7 +21474,7 @@ _ZltRK8rationalS1_.exit:                          ; preds = %325
   br label %392
 
 .critedge:                                        ; preds = %130, %58, %.invoke150, %_ZN8rationalD2Ev.exit, %.preheader, %22, %_ZNK11ast_manager6is_iteEPK4expr.exit.i, %359, %_ZN8rationalD2Ev.exit92, %251, %254, %369, %48, %232, %218, %65, %_ZN8rationalD2Ev.exit86
-  %.2 = phi i1 [ false, %232 ], [ false, %254 ], [ false, %359 ], [ false, %65 ], [ false, %251 ], [ false, %22 ], [ %162, %_ZN8rationalD2Ev.exit86 ], [ true, %_ZN8rationalD2Ev.exit ], [ %212, %_ZN8rationalD2Ev.exit92 ], [ false, %218 ], [ %236, %.invoke150 ], [ false, %48 ], [ %377, %369 ], [ false, %_ZNK11ast_manager6is_iteEPK4expr.exit.i ], [ true, %.preheader ], [ %57, %58 ], [ %129, %130 ]
+  %.2 = phi i1 [ false, %232 ], [ false, %254 ], [ false, %359 ], [ false, %65 ], [ false, %251 ], [ false, %22 ], [ %162, %_ZN8rationalD2Ev.exit86 ], [ true, %_ZN8rationalD2Ev.exit ], [ %212, %_ZN8rationalD2Ev.exit92 ], [ false, %218 ], [ %57, %58 ], [ %236, %.invoke150 ], [ false, %48 ], [ %377, %369 ], [ false, %_ZNK11ast_manager6is_iteEPK4expr.exit.i ], [ true, %.preheader ], [ %129, %130 ]
   %380 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !125
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %380, ptr noundef nonnull align 8 dereferenceable(32) %11)
           to label %.noexc.i110 unwind label %381
@@ -37659,7 +37659,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK13rewriter_core10is_blockedEP
   br i1 %.not27.old.i.i, label %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit, label %.lr.ph38.i.i.backedge
 
 .lr.ph38.i.i.backedge:                            ; preds = %35, %32
-  %.137.i.i.be = phi ptr [ %.old.i.i, %35 ], [ %34, %32 ]
+  %.137.i.i.be = phi ptr [ %34, %32 ], [ %.old.i.i, %35 ]
   br label %.lr.ph38.i.i, !llvm.loop !469
 
 _ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit: ; preds = %16, %21, %27, %32, %35, %.preheader.i.i

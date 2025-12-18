@@ -741,7 +741,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL16RoundWeedCountedE
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %432
 
-.thread36:                                        ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL16RoundWeedCountedENS0_6VectorIcEEimmmPi.exit.sink.split.i.i, %._crit_edge.i.i.i, %350, %._crit_edge.i51.i.i
+.thread36:                                        ; preds = %._crit_edge.i51.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL16RoundWeedCountedENS0_6VectorIcEEimmmPi.exit.sink.split.i.i, %._crit_edge.i.i.i, %350
   %.5.i.ph = phi i32 [ %.3.i23, %350 ], [ %.3.i23, %._crit_edge.i.i.i ], [ %419, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL16RoundWeedCountedENS0_6VectorIcEEimmmPi.exit.sink.split.i.i ], [ %386, %._crit_edge.i51.i.i ]
   %421 = load i32, ptr %9, align 4
   %422 = sub nsw i32 %.5.i.ph, %421

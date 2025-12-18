@@ -205,7 +205,7 @@ define range(i32 -1, 2) i32 @unfsg_133(ptr noundef %0, ptr noundef %1, i32 nound
   br label %.critedge
 
 .critedge:                                        ; preds = %31, %._crit_edge, %73
-  %.2 = phi i32 [ 1, %._crit_edge ], [ 0, %73 ], [ -1, %31 ]
+  %.2 = phi i32 [ 0, %73 ], [ 1, %._crit_edge ], [ -1, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.2

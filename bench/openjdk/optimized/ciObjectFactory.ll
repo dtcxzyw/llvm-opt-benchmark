@@ -3449,7 +3449,7 @@ _ZN26GrowableArrayWithAllocatorIP7ciKlass13GrowableArrayIS1_EE6appendERKS1_.exit
   br label %.loopexit
 
 .loopexit:                                        ; preds = %39, %._crit_edge, %_ZN26GrowableArrayWithAllocatorIP7ciKlass13GrowableArrayIS1_EE6appendERKS1_.exit
-  %.036 = phi ptr [ %.047, %_ZN26GrowableArrayWithAllocatorIP7ciKlass13GrowableArrayIS1_EE6appendERKS1_.exit ], [ null, %._crit_edge ], [ %26, %39 ]
+  %.036 = phi ptr [ null, %._crit_edge ], [ %.047, %_ZN26GrowableArrayWithAllocatorIP7ciKlass13GrowableArrayIS1_EE6appendERKS1_.exit ], [ %26, %39 ]
   ret ptr %.036
 }
 

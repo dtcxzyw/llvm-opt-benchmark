@@ -1669,7 +1669,7 @@ Py_DECREF.exit.sink.split:                        ; preds = %31, %18
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %.critedge25, %Py_DECREF.exit.sink.split, %9, %31, %29, %18, %.critedge, %6, %3
-  %.0 = phi ptr [ null, %3 ], [ null, %6 ], [ null, %.critedge ], [ null, %18 ], [ null, %29 ], [ null, %31 ], [ %7, %9 ], [ null, %Py_DECREF.exit.sink.split ], [ %7, %.critedge25 ]
+  %.0 = phi ptr [ null, %3 ], [ null, %6 ], [ null, %Py_DECREF.exit.sink.split ], [ %7, %9 ], [ null, %.critedge ], [ null, %18 ], [ null, %29 ], [ null, %31 ], [ %7, %.critedge25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
@@ -2539,7 +2539,7 @@ Py_DECREF.exit.sink.split:                        ; preds = %45, %32
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %Py_DECREF.exit.sink.split, %45, %43, %32, %30, %Py_DECREF.exit40, %24, %21
-  %.029 = phi ptr [ null, %21 ], [ null, %24 ], [ %25, %Py_DECREF.exit40 ], [ null, %30 ], [ null, %32 ], [ null, %43 ], [ null, %45 ], [ null, %Py_DECREF.exit.sink.split ]
+  %.029 = phi ptr [ null, %21 ], [ null, %24 ], [ %25, %Py_DECREF.exit40 ], [ null, %45 ], [ null, %30 ], [ null, %32 ], [ null, %43 ], [ null, %Py_DECREF.exit.sink.split ]
   call void @_PyXI_ClearExcInfo(ptr noundef nonnull %5) #7
   %48 = load ptr, ptr %4, align 8, !tbaa !15
   %.not37 = icmp eq ptr %.024, %48
@@ -2964,9 +2964,9 @@ get_code_str.exit.thread:                         ; preds = %15, %21, %23
   br label %Py_XDECREF.exit
 
 29:                                               ; preds = %26, %18
-  %.04 = phi i64 [ %.val21.i, %26 ], [ %19, %18 ]
-  %.03 = phi ptr [ %24, %26 ], [ null, %18 ]
-  %.016.i = phi ptr [ %27, %26 ], [ %16, %18 ]
+  %.04 = phi i64 [ %19, %18 ], [ %.val21.i, %26 ]
+  %.03 = phi ptr [ null, %18 ], [ %24, %26 ]
+  %.016.i = phi ptr [ %16, %18 ], [ %27, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %5, i8 0, i64 120, i1 false)

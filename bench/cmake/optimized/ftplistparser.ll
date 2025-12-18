@@ -1398,7 +1398,7 @@ switch.early.test:                                ; preds = %317
   br label %524
 
 522:                                              ; preds = %520, %66
-  %.1 = phi i64 [ %521, %520 ], [ %.0466560, %66 ]
+  %.1 = phi i64 [ %.0466560, %66 ], [ %521, %520 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %523 = icmp ult i64 %.1, %10
   br i1 %523, label %38, label %.loopexit
@@ -1416,7 +1416,7 @@ switch.early.test:                                ; preds = %317
   br label %.loopexit
 
 .loopexit:                                        ; preds = %522, %26, %524, %527
-  %.0 = phi i64 [ %.0471, %527 ], [ %.0471, %524 ], [ 0, %26 ], [ %10, %522 ]
+  %.0 = phi i64 [ %.0471, %524 ], [ %.0471, %527 ], [ 0, %26 ], [ %10, %522 ]
   ret i64 %.0
 }
 

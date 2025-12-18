@@ -6795,7 +6795,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit.i.i: ; preds
   br label %_ZSt4findISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEcET_SD_SD_RKT0_.exit.i.i
 
 _ZSt4findISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEcET_SD_SD_RKT0_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i, %._crit_edge.i._crit_edge36.i.i.i.i, %._crit_edge.i._crit_edge.i.i.i.i, %346, %._crit_edge.i.i.i.i.i, %337, %331, %325
-  %.sink.i.i.i.i.i = phi i64 [ %spec.select.i.i55.i.i, %._crit_edge.i._crit_edge36.i.i.i.i ], [ %355, %._crit_edge.i._crit_edge.i.i.i.i ], [ %343, %346 ], [ %.cast18.i.i.i.i.i, %337 ], [ %.cast17.i.i.i.i.i, %331 ], [ %.cast.i.i.i.i.i, %325 ], [ %298, %._crit_edge.i.i.i.i.i ], [ %316, %.lr.ph.i.i.i.i.i ]
+  %.sink.i.i.i.i.i = phi i64 [ %spec.select.i.i55.i.i, %._crit_edge.i._crit_edge36.i.i.i.i ], [ %355, %._crit_edge.i._crit_edge.i.i.i.i ], [ %343, %346 ], [ %298, %._crit_edge.i.i.i.i.i ], [ %.cast18.i.i.i.i.i, %337 ], [ %.cast17.i.i.i.i.i, %331 ], [ %.cast.i.i.i.i.i, %325 ], [ %316, %.lr.ph.i.i.i.i.i ]
   %368 = inttoptr i64 %.sink.i.i.i.i.i to ptr
   %.not88.i.i = icmp eq ptr %.sroa.077.1.i.i, %368
   br i1 %.not88.i.i, label %.critedge2.i.i, label %369
@@ -8705,7 +8705,7 @@ _ZNK5boost14char_separatorIcSt11char_traitsIcEE7is_keptEc.exit67.thread: ; preds
   br label %.critedge2
 
 .critedge2:                                       ; preds = %_ZNK5boost14char_separatorIcSt11char_traitsIcEE7is_keptEc.exit52, %_ZNK5boost14char_separatorIcSt11char_traitsIcEE7is_keptEc.exit52.thread, %_ZNK5boost14char_separatorIcSt11char_traitsIcEE10is_droppedEc.exit49, %59, %69, %_ZNK5boost14char_separatorIcSt11char_traitsIcEE7is_keptEc.exit.preheader, %105, %104, %.critedge4, %124, %._crit_edge124
-  %.sroa.08.0 = phi ptr [ %.sroa.08.0.copyload146, %._crit_edge124 ], [ %.sroa.08.0.copyload74, %104 ], [ %.sroa.08.0.copyload74, %105 ], [ %.sroa.08.0.copyload74, %124 ], [ %.sroa.08.1, %.critedge4 ], [ %.sroa.08.0.copyload146, %_ZNK5boost14char_separatorIcSt11char_traitsIcEE7is_keptEc.exit.preheader ], [ %.sroa.08.0.copyload146, %69 ], [ %.sroa.08.0.copyload146, %59 ], [ %.sroa.08.0.copyload146, %_ZNK5boost14char_separatorIcSt11char_traitsIcEE10is_droppedEc.exit49 ], [ %.sroa.08.0.copyload146, %_ZNK5boost14char_separatorIcSt11char_traitsIcEE7is_keptEc.exit52.thread ], [ %.sroa.08.0.copyload146, %_ZNK5boost14char_separatorIcSt11char_traitsIcEE7is_keptEc.exit52 ]
+  %.sroa.08.0 = phi ptr [ %.sroa.08.0.copyload146, %._crit_edge124 ], [ %.sroa.08.1, %.critedge4 ], [ %.sroa.08.0.copyload74, %124 ], [ %.sroa.08.0.copyload74, %105 ], [ %.sroa.08.0.copyload74, %104 ], [ %.sroa.08.0.copyload146, %_ZNK5boost14char_separatorIcSt11char_traitsIcEE7is_keptEc.exit.preheader ], [ %.sroa.08.0.copyload146, %69 ], [ %.sroa.08.0.copyload146, %59 ], [ %.sroa.08.0.copyload146, %_ZNK5boost14char_separatorIcSt11char_traitsIcEE10is_droppedEc.exit49 ], [ %.sroa.08.0.copyload146, %_ZNK5boost14char_separatorIcSt11char_traitsIcEE7is_keptEc.exit52.thread ], [ %.sroa.08.0.copyload146, %_ZNK5boost14char_separatorIcSt11char_traitsIcEE7is_keptEc.exit52 ]
   %.sroa.0.0.copyload = load ptr, ptr %1, align 8, !tbaa !45
   %167 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %168 = load i64, ptr %167, align 8, !tbaa !10

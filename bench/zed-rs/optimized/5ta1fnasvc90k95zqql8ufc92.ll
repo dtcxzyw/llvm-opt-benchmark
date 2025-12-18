@@ -5605,7 +5605,7 @@ _ZN4core5slice4sort6shared17find_existing_run17h22c583fbea161112E.exit.i: ; pred
   br label %_ZN4core5slice4sort6stable5drift10create_run17h3abc6d03e9369fb5E.exit
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17hcc1ba32582254272E.exit.i": ; preds = %_ZN4core10intrinsics10typed_swap17hd3d6e1851751a297E.exit.i.i.i, %.preheader19.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h31a3b937a7d1b2a4E.exit.i", %47, %25
-  %.sroa.0.0.i1518.i = phi i64 [ %.sroa.0.0.i.i, %47 ], [ %.sroa.0.0.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h31a3b937a7d1b2a4E.exit.i" ], [ %22, %25 ], [ 2, %.preheader19.i ], [ %.sroa.0.0.i424952.i, %_ZN4core10intrinsics10typed_swap17hd3d6e1851751a297E.exit.i.i.i ]
+  %.sroa.0.0.i1518.i = phi i64 [ %22, %25 ], [ %.sroa.0.0.i.i, %47 ], [ %.sroa.0.0.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h31a3b937a7d1b2a4E.exit.i" ], [ 2, %.preheader19.i ], [ %.sroa.0.0.i424952.i, %_ZN4core10intrinsics10typed_swap17hd3d6e1851751a297E.exit.i.i.i ]
   %53 = shl i64 %.sroa.0.0.i1518.i, 1
   %54 = or disjoint i64 %53, 1
   br label %_ZN4core5slice4sort6stable5drift10create_run17h3abc6d03e9369fb5E.exit
@@ -8561,7 +8561,7 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread19: ; preds = %.lr.p
   br i1 %or.cond, label %49, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4630c902dd27abfdE.exit"
 
 _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread: ; preds = %.preheader.i, %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit, %41, %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.us, %.preheader.i.us, %28
-  %.sroa.0.0.i18 = phi i64 [ 0, %28 ], [ 0, %41 ], [ %22, %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.us ], [ 0, %.preheader.i.us ], [ %44, %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit ], [ 0, %.preheader.i ]
+  %.sroa.0.0.i18 = phi i64 [ 0, %41 ], [ 0, %28 ], [ %22, %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.us ], [ 0, %.preheader.i.us ], [ %44, %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit ], [ 0, %.preheader.i ]
   store i64 %6, ptr %4, align 8
   br label %.loopexit
 
@@ -8588,7 +8588,7 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread: ; preds = %.prehea
   br label %.loopexit
 
 .loopexit:                                        ; preds = %49, %32, %2, %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread, %.split.us65
-  %storemerge = phi i64 [ 1, %.split.us65 ], [ %.sroa.0.0.i18, %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread ], [ 0, %2 ], [ 0, %32 ], [ 0, %49 ]
+  %storemerge = phi i64 [ %.sroa.0.0.i18, %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread ], [ 1, %.split.us65 ], [ 0, %2 ], [ 0, %32 ], [ 0, %49 ]
   store i64 %storemerge, ptr %0, align 8
   ret void
 }
@@ -11039,8 +11039,8 @@ define hidden void @_ZN14semantic_index8chunking32chunk_text_with_syntactic_rang
   br i1 %103, label %106, label %.invoke
 
 .invoke:                                          ; preds = %98, %90, %.loopexit, %94, %102, %123, %131, %127, %135
-  %104 = phi i64 [ %.sroa.11.0, %135 ], [ %.sroa.11.0, %127 ], [ %.sroa.11.0, %131 ], [ %.sroa.11.0, %123 ], [ %.sroa.11.1, %102 ], [ %.sroa.11.1, %94 ], [ %.sroa.11.1, %.loopexit ], [ %.sroa.11.1, %90 ], [ %.sroa.11.1, %98 ]
-  %105 = phi ptr [ @anon.c4f4b5776c2869f4e7faa738b13f1ab9.176, %135 ], [ @anon.c4f4b5776c2869f4e7faa738b13f1ab9.176, %127 ], [ @anon.c4f4b5776c2869f4e7faa738b13f1ab9.176, %131 ], [ @anon.c4f4b5776c2869f4e7faa738b13f1ab9.176, %123 ], [ @anon.c4f4b5776c2869f4e7faa738b13f1ab9.175, %102 ], [ @anon.c4f4b5776c2869f4e7faa738b13f1ab9.175, %94 ], [ @anon.c4f4b5776c2869f4e7faa738b13f1ab9.175, %.loopexit ], [ @anon.c4f4b5776c2869f4e7faa738b13f1ab9.175, %90 ], [ @anon.c4f4b5776c2869f4e7faa738b13f1ab9.175, %98 ]
+  %104 = phi i64 [ %.sroa.11.0, %123 ], [ %.sroa.11.0, %131 ], [ %.sroa.11.0, %127 ], [ %.sroa.11.0, %135 ], [ %.sroa.11.1, %102 ], [ %.sroa.11.1, %94 ], [ %.sroa.11.1, %.loopexit ], [ %.sroa.11.1, %90 ], [ %.sroa.11.1, %98 ]
+  %105 = phi ptr [ @anon.c4f4b5776c2869f4e7faa738b13f1ab9.176, %123 ], [ @anon.c4f4b5776c2869f4e7faa738b13f1ab9.176, %131 ], [ @anon.c4f4b5776c2869f4e7faa738b13f1ab9.176, %127 ], [ @anon.c4f4b5776c2869f4e7faa738b13f1ab9.176, %135 ], [ @anon.c4f4b5776c2869f4e7faa738b13f1ab9.175, %102 ], [ @anon.c4f4b5776c2869f4e7faa738b13f1ab9.175, %94 ], [ @anon.c4f4b5776c2869f4e7faa738b13f1ab9.175, %.loopexit ], [ @anon.c4f4b5776c2869f4e7faa738b13f1ab9.175, %90 ], [ @anon.c4f4b5776c2869f4e7faa738b13f1ab9.175, %98 ]
   invoke void @_ZN4core3str16slice_error_fail17h402ef64b20c243efE(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %.sroa.11.0.ph, i64 noundef %104, ptr noalias noundef readonly align 8 dereferenceable(24) %105) #36
           to label %.cont unwind label %.loopexit.split-lp
 

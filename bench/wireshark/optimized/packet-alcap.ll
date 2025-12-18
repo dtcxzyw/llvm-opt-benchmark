@@ -1471,7 +1471,7 @@ define internal ptr @dissect_fields_cau(ptr noundef %0, ptr noundef %1, ptr noun
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %52, %38, %64, %40, %37, %8
-  %.062 = phi ptr [ null, %8 ], [ %.061, %37 ], [ %.061, %40 ], [ %.061, %64 ], [ %.061, %38 ], [ %.061, %52 ], [ %.061, %.lr.ph ]
+  %.062 = phi ptr [ null, %8 ], [ %.061, %37 ], [ %.061, %40 ], [ %.061, %38 ], [ %.061, %64 ], [ %.061, %52 ], [ %.061, %.lr.ph ]
   ret ptr %.062
 }
 

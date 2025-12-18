@@ -1956,7 +1956,7 @@ define noundef i32 @_Z21ir_optimal_nsttcouplePK10t_inputrec(ptr noundef readonly
   br i1 %.not22, label %.loopexit, label %33, !llvm.loop !246
 
 .loopexit:                                        ; preds = %33, %.loopexit26, %18
-  %.020 = phi i32 [ 100, %18 ], [ 100, %.loopexit26 ], [ %.1, %33 ]
+  %.020 = phi i32 [ 100, %.loopexit26 ], [ 100, %18 ], [ %.1, %33 ]
   ret i32 %.020
 }
 
@@ -7605,7 +7605,7 @@ define noundef zeroext i1 @_Z26fepLambdasChangeAtSameRateRKN3gmx16EnumerationArr
   br i1 %exitcond.not, label %.critedge41, label %.preheader, !llvm.loop !587
 
 .critedge41:                                      ; preds = %.critedge, %22, %1
-  %.not3947 = phi i1 [ true, %1 ], [ false, %22 ], [ true, %.critedge ]
+  %.not3947 = phi i1 [ false, %22 ], [ true, %1 ], [ true, %.critedge ]
   ret i1 %.not3947
 }
 

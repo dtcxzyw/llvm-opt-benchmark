@@ -775,7 +775,7 @@ define hidden { i64, i64 } @"_ZN10tokio_util4time5wheel14Wheel$LT$T$GT$4poll17h6
   %56 = extractvalue { i64, i64 } %32, 1
   br label %52
 
-.loopexit:                                        ; preds = %"_ZN10tokio_util4time5wheel14Wheel$LT$T$GT$9pop_entry17hc23595dd365f5490E.exit.us10.i", %"_ZN10tokio_util4time5wheel14Wheel$LT$T$GT$9pop_entry17hc23595dd365f5490E.exit.lr.ph.split.split.us.i", %"_ZN10tokio_util4time5wheel14Wheel$LT$T$GT$9pop_entry17hc23595dd365f5490E.exit.us.i"
+.loopexit:                                        ; preds = %"_ZN10tokio_util4time5wheel14Wheel$LT$T$GT$9pop_entry17hc23595dd365f5490E.exit.us10.i", %"_ZN10tokio_util4time5wheel14Wheel$LT$T$GT$9pop_entry17hc23595dd365f5490E.exit.us.i", %"_ZN10tokio_util4time5wheel14Wheel$LT$T$GT$9pop_entry17hc23595dd365f5490E.exit.lr.ph.split.split.us.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !62)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 %.sroa.1.0.copyload, ptr %6, align 8, !noalias !62

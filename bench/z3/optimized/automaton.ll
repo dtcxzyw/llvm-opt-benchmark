@@ -7127,8 +7127,8 @@ thread-pre-split.i.i.preheader:                   ; preds = %_ZNK6vectorIjLb0EjE
   br label %thread-pre-split.i.i
 
 thread-pre-split.i.i:                             ; preds = %thread-pre-split.i.i.backedge, %thread-pre-split.i.i.preheader
-  %44 = phi ptr [ %20, %thread-pre-split.i.i.preheader ], [ %.be354, %thread-pre-split.i.i.backedge ]
-  %45 = phi ptr [ %.ph352, %thread-pre-split.i.i.preheader ], [ %.be354, %thread-pre-split.i.i.backedge ]
+  %44 = phi ptr [ %20, %thread-pre-split.i.i.preheader ], [ %.be, %thread-pre-split.i.i.backedge ]
+  %45 = phi ptr [ %.ph352, %thread-pre-split.i.i.preheader ], [ %.be, %thread-pre-split.i.i.backedge ]
   %46 = icmp eq ptr %45, null
   br i1 %46, label %_ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i, label %_ZNK6vectorIjLb0EjE8capacityEv.exit.i.i
 
@@ -7155,7 +7155,7 @@ _ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i:   ; preds = %_ZNK6vectorIjLb0EjE
   br label %thread-pre-split.i.i.backedge
 
 thread-pre-split.i.i.backedge:                    ; preds = %.noexc97, %.noexc98
-  %.be354 = phi ptr [ %93, %.noexc98 ], [ %53, %.noexc97 ]
+  %.be = phi ptr [ %53, %.noexc97 ], [ %93, %.noexc98 ]
   br label %thread-pre-split.i.i, !llvm.loop !33
 
 54:                                               ; preds = %_ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i
@@ -7821,7 +7821,7 @@ _ZNK8uint_set8containsEj.exit.thread.i12.i:       ; preds = %_ZNK6vectorIjLb0EjE
   br i1 %309, label %_ZN8uint_set8iteratorppEv.exit, label %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i11.i, !llvm.loop !70
 
 _ZN8uint_set8iteratorppEv.exit:                   ; preds = %272, %307, %_ZNK8uint_set8containsEj.exit.thread.i12.i, %_ZNK8uint_set8containsEj.exit.i15.i, %294, %_ZNK8uint_set8containsEj.exit.thread.us.i18.i, %.thread44.i, %288, %_ZN8uint_set8iterator9scan_wordEv.exit.i, %_ZNK8uint_set8iterator8containsEv.exit.thread.i, %_ZNK8uint_set8iterator8containsEv.exit.i
-  %.sroa.5.11 = phi i64 [ %.sroa.5.4, %_ZNK8uint_set8iterator8containsEv.exit.thread.i ], [ %.sroa.5.6, %_ZN8uint_set8iterator9scan_wordEv.exit.i ], [ %.sroa.5.8.insert.insert141, %.thread44.i ], [ %.sroa.5.3, %_ZNK8uint_set8iterator8containsEv.exit.i ], [ %.sroa.5.8.insert.insert133, %288 ], [ %.sroa.5.8, %_ZNK8uint_set8containsEj.exit.thread.i12.i ], [ %.sroa.5.9, %_ZNK8uint_set8containsEj.exit.thread.us.i18.i ], [ %.sroa.5.8.insert.insert145, %294 ], [ %.sroa.5.8.insert.insert137, %307 ], [ %.sroa.5.8, %_ZNK8uint_set8containsEj.exit.i15.i ], [ %.sroa.5.8.insert.insert149, %272 ]
+  %.sroa.5.11 = phi i64 [ %.sroa.5.4, %_ZNK8uint_set8iterator8containsEv.exit.thread.i ], [ %.sroa.5.9, %_ZNK8uint_set8containsEj.exit.thread.us.i18.i ], [ %.sroa.5.6, %_ZN8uint_set8iterator9scan_wordEv.exit.i ], [ %.sroa.5.8.insert.insert141, %.thread44.i ], [ %.sroa.5.8, %_ZNK8uint_set8containsEj.exit.thread.i12.i ], [ %.sroa.5.3, %_ZNK8uint_set8iterator8containsEv.exit.i ], [ %.sroa.5.8.insert.insert133, %288 ], [ %.sroa.5.8.insert.insert145, %294 ], [ %.sroa.5.8.insert.insert137, %307 ], [ %.sroa.5.8, %_ZNK8uint_set8containsEj.exit.i15.i ], [ %.sroa.5.8.insert.insert149, %272 ]
   %.sroa.5.8.extract.trunc = trunc i64 %.sroa.5.11 to i32
   %.not179 = icmp eq i32 %.sroa.5.8.extract.trunc, %.sroa.4118.8.extract.trunc
   br i1 %.not179, label %._crit_edge, label %.lr.ph212
@@ -8275,7 +8275,7 @@ _ZNK9automatonIj21default_value_managerIjEE8is_emptyEv.exit.thread.fold.split: ;
   br label %_ZNK9automatonIj21default_value_managerIjEE8is_emptyEv.exit.thread
 
 _ZNK9automatonIj21default_value_managerIjEE8is_emptyEv.exit.thread: ; preds = %_ZNK9automatonIj21default_value_managerIjEE10out_degreeEj.exit23, %_ZNK9automatonIj21default_value_managerIjEE9in_degreeEj.exit25, %_ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit21.thread, %100, %_ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit21.thread.us, %_ZNK9automatonIj21default_value_managerIjEE10out_degreeEj.exit23.us, %71, %_ZNK9automatonIj21default_value_managerIjEE9in_degreeEj.exit25.us, %_ZNK9automatonIj21default_value_managerIjEE10out_degreeEj.exit27, %_ZNK9automatonIj21default_value_managerIjEE8is_emptyEv.exit.thread.fold.split, %.split.us, %110, %_ZNK9automatonIj21default_value_managerIjEE9in_degreeEj.exit.thread, %_ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit.thread, %117, %_ZNK9automatonIj21default_value_managerIjEE8is_emptyEv.exit, %_ZNK9automatonIj21default_value_managerIjEE9in_degreeEj.exit, %_ZNK9automatonIj21default_value_managerIjEE10out_degreeEj.exit19, %_ZNK9automatonIj21default_value_managerIjEE10out_degreeEj.exit.thread
-  %.011 = phi i1 [ true, %_ZNK9automatonIj21default_value_managerIjEE10out_degreeEj.exit.thread ], [ false, %_ZNK9automatonIj21default_value_managerIjEE8is_emptyEv.exit ], [ false, %_ZNK9automatonIj21default_value_managerIjEE10out_degreeEj.exit19 ], [ false, %_ZNK9automatonIj21default_value_managerIjEE9in_degreeEj.exit ], [ true, %_ZNK9automatonIj21default_value_managerIjEE10out_degreeEj.exit27 ], [ %118, %117 ], [ false, %_ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit.thread ], [ false, %_ZNK9automatonIj21default_value_managerIjEE9in_degreeEj.exit.thread ], [ true, %110 ], [ false, %.split.us ], [ false, %_ZNK9automatonIj21default_value_managerIjEE8is_emptyEv.exit.thread.fold.split ], [ false, %_ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit21.thread.us ], [ false, %_ZNK9automatonIj21default_value_managerIjEE9in_degreeEj.exit25.us ], [ false, %71 ], [ false, %_ZNK9automatonIj21default_value_managerIjEE10out_degreeEj.exit23.us ], [ false, %100 ], [ false, %_ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit21.thread ], [ false, %_ZNK9automatonIj21default_value_managerIjEE9in_degreeEj.exit25 ], [ false, %_ZNK9automatonIj21default_value_managerIjEE10out_degreeEj.exit23 ]
+  %.011 = phi i1 [ true, %_ZNK9automatonIj21default_value_managerIjEE10out_degreeEj.exit.thread ], [ false, %_ZNK9automatonIj21default_value_managerIjEE8is_emptyEv.exit ], [ false, %_ZNK9automatonIj21default_value_managerIjEE10out_degreeEj.exit19 ], [ false, %_ZNK9automatonIj21default_value_managerIjEE9in_degreeEj.exit ], [ true, %110 ], [ false, %_ZNK9automatonIj21default_value_managerIjEE9in_degreeEj.exit.thread ], [ true, %_ZNK9automatonIj21default_value_managerIjEE10out_degreeEj.exit27 ], [ false, %_ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit21.thread.us ], [ %118, %117 ], [ false, %_ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit.thread ], [ false, %_ZNK9automatonIj21default_value_managerIjEE8is_emptyEv.exit.thread.fold.split ], [ false, %.split.us ], [ false, %_ZNK9automatonIj21default_value_managerIjEE9in_degreeEj.exit25.us ], [ false, %71 ], [ false, %_ZNK9automatonIj21default_value_managerIjEE10out_degreeEj.exit23.us ], [ false, %100 ], [ false, %_ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit21.thread ], [ false, %_ZNK9automatonIj21default_value_managerIjEE9in_degreeEj.exit25 ], [ false, %_ZNK9automatonIj21default_value_managerIjEE10out_degreeEj.exit23 ]
   ret i1 %.011
 }
 
@@ -8549,7 +8549,7 @@ _ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE3endEv.exit: ; p
   br i1 %.not, label %.loopexit, label %.lr.ph38
 
 .loopexit:                                        ; preds = %._crit_edge, %.lr.ph, %1, %_ZNK6vectorIS_IN9automatonIj21default_value_managerIjEE4moveELb1EjELb1EjE3endEv.exit
-  %.not32 = phi i1 [ true, %_ZNK6vectorIS_IN9automatonIj21default_value_managerIjEE4moveELb1EjELb1EjE3endEv.exit ], [ true, %1 ], [ false, %.lr.ph ], [ true, %._crit_edge ]
+  %.not32 = phi i1 [ false, %.lr.ph ], [ true, %_ZNK6vectorIS_IN9automatonIj21default_value_managerIjEE4moveELb1EjELb1EjE3endEv.exit ], [ true, %1 ], [ true, %._crit_edge ]
   ret i1 %.not32
 }
 

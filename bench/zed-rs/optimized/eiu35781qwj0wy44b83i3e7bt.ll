@@ -119145,11 +119145,11 @@ default.unreachable149:                           ; preds = %1112, %920, %892, %
   br label %.body
 
 1223:                                             ; preds = %866, %529, %391, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h75b2fe32ed596710E.exit.i299.i", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10833762189268282141.exit.i.i1.i.i3.i.i", %249
-  %1224 = phi ptr [ %867, %866 ], [ %250, %249 ], [ %392, %391 ], [ %530, %529 ], [ %1204, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10833762189268282141.exit.i.i1.i.i3.i.i" ], [ %1204, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h75b2fe32ed596710E.exit.i299.i" ]
-  %.sroa.1356.sroa.0.0 = phi ptr [ %.sroa.10363.i.sroa.0.0, %866 ], [ %.sroa.10308.i.sroa.0.0, %249 ], [ %.sroa.10327.i.sroa.0.0, %391 ], [ %.sroa.10346.i.sroa.0.0, %529 ], [ %.sroa.10380.i.sroa.0.0, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10833762189268282141.exit.i.i1.i.i3.i.i" ], [ %.sroa.10380.i.sroa.0.0, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h75b2fe32ed596710E.exit.i299.i" ]
-  %.sroa.1356.sroa.6.0 = phi i64 [ %.sroa.10363.i.sroa.7.0, %866 ], [ %.sroa.10308.i.sroa.7.0, %249 ], [ %.sroa.10327.i.sroa.7.0, %391 ], [ %.sroa.10346.i.sroa.7.0, %529 ], [ %.sroa.10380.i.sroa.7.0, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10833762189268282141.exit.i.i1.i.i3.i.i" ], [ %.sroa.10380.i.sroa.7.0, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h75b2fe32ed596710E.exit.i299.i" ]
-  %.sroa.1255.0 = phi ptr [ %.sroa.4.0.i157425.i, %866 ], [ %.sroa.4.0.i392.i, %249 ], [ %.sroa.4.0.i58403.i, %391 ], [ %.sroa.4.0.i111414.i, %529 ], [ %.sroa.4.0.i200436.i, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10833762189268282141.exit.i.i1.i.i3.i.i" ], [ %.sroa.4.0.i200436.i, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h75b2fe32ed596710E.exit.i299.i" ]
-  %.sroa.054.0 = phi i64 [ %.sroa.069.0.i424.i, %866 ], [ %.sroa.053.0.i391.i, %249 ], [ %.sroa.053.0.i57402.i, %391 ], [ %.sroa.053.0.i110413.i, %529 ], [ %.sroa.069.0.i199435.i, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10833762189268282141.exit.i.i1.i.i3.i.i" ], [ %.sroa.069.0.i199435.i, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h75b2fe32ed596710E.exit.i299.i" ]
+  %1224 = phi ptr [ %867, %866 ], [ %1204, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h75b2fe32ed596710E.exit.i299.i" ], [ %250, %249 ], [ %392, %391 ], [ %530, %529 ], [ %1204, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10833762189268282141.exit.i.i1.i.i3.i.i" ]
+  %.sroa.1356.sroa.0.0 = phi ptr [ %.sroa.10363.i.sroa.0.0, %866 ], [ %.sroa.10380.i.sroa.0.0, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h75b2fe32ed596710E.exit.i299.i" ], [ %.sroa.10308.i.sroa.0.0, %249 ], [ %.sroa.10327.i.sroa.0.0, %391 ], [ %.sroa.10346.i.sroa.0.0, %529 ], [ %.sroa.10380.i.sroa.0.0, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10833762189268282141.exit.i.i1.i.i3.i.i" ]
+  %.sroa.1356.sroa.6.0 = phi i64 [ %.sroa.10363.i.sroa.7.0, %866 ], [ %.sroa.10380.i.sroa.7.0, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h75b2fe32ed596710E.exit.i299.i" ], [ %.sroa.10308.i.sroa.7.0, %249 ], [ %.sroa.10327.i.sroa.7.0, %391 ], [ %.sroa.10346.i.sroa.7.0, %529 ], [ %.sroa.10380.i.sroa.7.0, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10833762189268282141.exit.i.i1.i.i3.i.i" ]
+  %.sroa.1255.0 = phi ptr [ %.sroa.4.0.i157425.i, %866 ], [ %.sroa.4.0.i200436.i, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h75b2fe32ed596710E.exit.i299.i" ], [ %.sroa.4.0.i392.i, %249 ], [ %.sroa.4.0.i58403.i, %391 ], [ %.sroa.4.0.i111414.i, %529 ], [ %.sroa.4.0.i200436.i, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10833762189268282141.exit.i.i1.i.i3.i.i" ]
+  %.sroa.054.0 = phi i64 [ %.sroa.069.0.i424.i, %866 ], [ %.sroa.069.0.i199435.i, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h75b2fe32ed596710E.exit.i299.i" ], [ %.sroa.053.0.i391.i, %249 ], [ %.sroa.053.0.i57402.i, %391 ], [ %.sroa.053.0.i110413.i, %529 ], [ %.sroa.069.0.i199435.i, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10833762189268282141.exit.i.i1.i.i3.i.i" ]
   store i8 1, ptr %1224, align 8, !noalias !25429
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   invoke fastcc void @"_ZN4core3ptr131drop_in_place$LT$extension..wasm_host..wit..Extension..call_language_server_initialization_options..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7ce1a22a8a2d7719E"(ptr noundef nonnull align 8 %1)
@@ -121681,11 +121681,11 @@ common.ret:                                       ; preds = %"_ZN4core3ptr98drop
   br label %523
 
 503:                                              ; preds = %492, %354, %212
-  %504 = phi ptr [ %355, %354 ], [ %213, %212 ], [ %493, %492 ]
-  %.sroa.1155.sroa.0.0 = phi ptr [ %.sroa.10181.i.sroa.0.0, %354 ], [ %.sroa.10162.i.sroa.0.0, %212 ], [ %.sroa.10200.i.sroa.0.0, %492 ]
-  %.sroa.1155.sroa.6.0 = phi i64 [ %.sroa.10181.i.sroa.7.0, %354 ], [ %.sroa.10162.i.sroa.7.0, %212 ], [ %.sroa.10200.i.sroa.7.0, %492 ]
-  %.sroa.1054.0.in = phi ptr [ %.in229.i, %354 ], [ %.in230.i, %212 ], [ %.in.i, %492 ]
-  %.sroa.053.0 = phi i64 [ %.sroa.053.0.i58218.i, %354 ], [ %.sroa.053.0.i208.i, %212 ], [ %.sroa.053.0.i111228.i, %492 ]
+  %504 = phi ptr [ %213, %212 ], [ %355, %354 ], [ %493, %492 ]
+  %.sroa.1155.sroa.0.0 = phi ptr [ %.sroa.10162.i.sroa.0.0, %212 ], [ %.sroa.10181.i.sroa.0.0, %354 ], [ %.sroa.10200.i.sroa.0.0, %492 ]
+  %.sroa.1155.sroa.6.0 = phi i64 [ %.sroa.10162.i.sroa.7.0, %212 ], [ %.sroa.10181.i.sroa.7.0, %354 ], [ %.sroa.10200.i.sroa.7.0, %492 ]
+  %.sroa.1054.0.in = phi ptr [ %.in230.i, %212 ], [ %.in229.i, %354 ], [ %.in.i, %492 ]
+  %.sroa.053.0 = phi i64 [ %.sroa.053.0.i208.i, %212 ], [ %.sroa.053.0.i58218.i, %354 ], [ %.sroa.053.0.i111228.i, %492 ]
   store i8 1, ptr %504, align 8, !noalias !26013
   %505 = icmp eq i64 %.sroa.053.0, 2
   br i1 %505, label %532, label %506

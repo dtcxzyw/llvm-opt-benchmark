@@ -893,7 +893,7 @@ define internal ptr @H5FS__cache_hdr_deserialize(ptr noundef %0, i64 %1, ptr nou
   br label %.thread
 
 .thread:                                          ; preds = %415, %424, %391, %388, %22, %437, %434, %4
-  %.0126 = phi ptr [ null, %437 ], [ null, %434 ], [ null, %22 ], [ null, %4 ], [ %20, %388 ], [ %20, %391 ], [ %20, %424 ], [ %20, %415 ]
+  %.0126 = phi ptr [ null, %437 ], [ null, %434 ], [ null, %22 ], [ null, %4 ], [ %20, %424 ], [ %20, %388 ], [ %20, %391 ], [ %20, %415 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0126
 }

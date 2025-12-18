@@ -2512,7 +2512,7 @@ define dso_local range(i32 -1, 1) i32 @jobacctinfo_getinfo(ptr noundef %0, i32 n
   br label %.thread
 
 .split99.us:                                      ; preds = %.lr.ph136, %.lr.ph121.preheader, %.lr.ph136.preheader, %.lr.ph121.preheader.preheader
-  %.us-phi100 = phi i64 [ %33, %.lr.ph121.preheader.preheader ], [ %21, %.lr.ph136.preheader ], [ %52, %.lr.ph121.preheader ], [ %30, %.lr.ph136 ]
+  %.us-phi100 = phi i64 [ %52, %.lr.ph121.preheader ], [ %33, %.lr.ph121.preheader.preheader ], [ %21, %.lr.ph136.preheader ], [ %30, %.lr.ph136 ]
   %58 = and i64 %.us-phi100, 2147483647
   %59 = getelementptr inbounds nuw i8, ptr %.059.ph140, i64 %58
   %60 = sub i64 %.060.ph138, %58
@@ -2649,7 +2649,7 @@ define dso_local range(i32 -1, 1) i32 @jobacctinfo_getinfo(ptr noundef %0, i32 n
   br label %.thread
 
 .split149.us:                                     ; preds = %.lr.ph187, %.lr.ph172.preheader, %.lr.ph187.preheader, %.lr.ph172.preheader.preheader
-  %.us-phi150 = phi i64 [ %82, %.lr.ph172.preheader.preheader ], [ %70, %.lr.ph187.preheader ], [ %101, %.lr.ph172.preheader ], [ %79, %.lr.ph187 ]
+  %.us-phi150 = phi i64 [ %101, %.lr.ph172.preheader ], [ %82, %.lr.ph172.preheader.preheader ], [ %70, %.lr.ph187.preheader ], [ %79, %.lr.ph187 ]
   %107 = and i64 %.us-phi150, 2147483647
   %108 = getelementptr inbounds nuw i8, ptr %.056.ph193, i64 %107
   %109 = sub i64 %.057.ph191, %107

@@ -275,13 +275,13 @@ Vec_IntStartNatural.exit.sink.split.sink.split:   ; preds = %74, %56
   br label %Vec_IntStartNatural.exit.sink.split
 
 Vec_IntStartNatural.exit.sink.split:              ; preds = %Vec_IntStartNatural.exit.sink.split.sink.split, %74, %Vec_IntUniqify.exit.i, %56
-  %.sink72 = phi ptr [ %61, %Vec_IntUniqify.exit.i ], [ %7, %56 ], [ %7, %74 ], [ %7, %Vec_IntStartNatural.exit.sink.split.sink.split ]
-  %.0.ph = phi ptr [ %7, %Vec_IntUniqify.exit.i ], [ null, %56 ], [ null, %74 ], [ null, %Vec_IntStartNatural.exit.sink.split.sink.split ]
+  %.sink72 = phi ptr [ %7, %74 ], [ %61, %Vec_IntUniqify.exit.i ], [ %7, %56 ], [ %7, %Vec_IntStartNatural.exit.sink.split.sink.split ]
+  %.0.ph = phi ptr [ null, %74 ], [ %7, %Vec_IntUniqify.exit.i ], [ null, %56 ], [ null, %Vec_IntStartNatural.exit.sink.split.sink.split ]
   tail call void @free(ptr noundef nonnull %.sink72) #29
   br label %Vec_IntStartNatural.exit
 
 Vec_IntStartNatural.exit:                         ; preds = %.lr.ph.i, %Vec_IntStartNatural.exit.sink.split, %58, %Vec_IntUniqify.exit.i, %Vec_IntAlloc.exit.i, %Vec_IntCountDuplicates.exit
-  %.0 = phi ptr [ %7, %Vec_IntCountDuplicates.exit ], [ %7, %Vec_IntUniqify.exit.i ], [ %7, %58 ], [ %7, %Vec_IntAlloc.exit.i ], [ %.0.ph, %Vec_IntStartNatural.exit.sink.split ], [ %7, %.lr.ph.i ]
+  %.0 = phi ptr [ %7, %Vec_IntCountDuplicates.exit ], [ %.0.ph, %Vec_IntStartNatural.exit.sink.split ], [ %7, %Vec_IntUniqify.exit.i ], [ %7, %Vec_IntAlloc.exit.i ], [ %7, %58 ], [ %7, %.lr.ph.i ]
   ret ptr %.0
 }
 
@@ -1993,9 +1993,9 @@ Vec_IntPush.exit210.us:                           ; preds = %Vec_IntPush.exit210
   br label %._crit_edge254
 
 ._crit_edge254:                                   ; preds = %.lr.ph253.split, %._crit_edge245.thread, %._crit_edge254.loopexit
-  %349 = phi i32 [ %287, %._crit_edge254.loopexit ], [ %289, %._crit_edge245.thread ], [ %289, %.lr.ph253.split ]
-  %350 = phi ptr [ %.pre, %._crit_edge254.loopexit ], [ %251, %._crit_edge245.thread ], [ %251, %.lr.ph253.split ]
-  %.1116.lcssa = phi i32 [ %343, %._crit_edge254.loopexit ], [ %.0115255, %._crit_edge245.thread ], [ %347, %.lr.ph253.split ]
+  %349 = phi i32 [ %289, %._crit_edge245.thread ], [ %287, %._crit_edge254.loopexit ], [ %289, %.lr.ph253.split ]
+  %350 = phi ptr [ %251, %._crit_edge245.thread ], [ %.pre, %._crit_edge254.loopexit ], [ %251, %.lr.ph253.split ]
+  %.1116.lcssa = phi i32 [ %.0115255, %._crit_edge245.thread ], [ %343, %._crit_edge254.loopexit ], [ %347, %.lr.ph253.split ]
   %.not.i211 = icmp eq ptr %350, null
   br i1 %.not.i211, label %Vec_IntFree.exit, label %._crit_edge254.thread
 

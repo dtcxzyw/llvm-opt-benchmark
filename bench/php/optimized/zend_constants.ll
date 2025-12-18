@@ -1840,7 +1840,7 @@ zend_hash_str_find_ptr.exit:                      ; preds = %63, %70
   br label %zend_get_constant_str_impl.exit
 
 zend_get_constant_str_impl.exit:                  ; preds = %105, %97, %83
-  %.1 = phi ptr [ %106, %105 ], [ %98, %97 ], [ %84, %83 ]
+  %.1 = phi ptr [ %84, %83 ], [ %98, %97 ], [ %106, %105 ]
   %.not113 = icmp eq ptr %.1, null
   br i1 %.not113, label %zend_get_constant_str_impl.exit.thread134, label %zend_get_constant_str_impl.exit.thread
 

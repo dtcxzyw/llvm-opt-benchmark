@@ -683,7 +683,7 @@ r3d_read_redv.exit.thread:                        ; preds = %25, %92, %23
   br i1 %183, label %read_atom.exit.thread, label %read_atom.exit, !llvm.loop !74
 
 read_atom.exit.thread:                            ; preds = %87, %read_atom.exit, %r3d_read_redv.exit.thread, %2, %131, %105, %156, %132, %68, %56, %r3d_read_reda.exit, %r3d_read_redv.exit
-  %.013 = phi i32 [ 0, %r3d_read_reda.exit ], [ 0, %r3d_read_redv.exit ], [ -1094995529, %131 ], [ -12, %105 ], [ %154, %156 ], [ -1, %132 ], [ -1, %68 ], [ -1, %56 ], [ -1, %2 ], [ -1, %r3d_read_redv.exit.thread ], [ -1, %read_atom.exit ], [ -1, %87 ]
+  %.013 = phi i32 [ 0, %r3d_read_reda.exit ], [ 0, %r3d_read_redv.exit ], [ -1, %56 ], [ -1, %68 ], [ -1, %132 ], [ -1094995529, %131 ], [ -12, %105 ], [ %154, %156 ], [ -1, %2 ], [ -1, %r3d_read_redv.exit.thread ], [ -1, %read_atom.exit ], [ -1, %87 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.013
 }

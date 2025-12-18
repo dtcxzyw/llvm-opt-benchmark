@@ -5988,8 +5988,8 @@ proto_item_set_generated.exit.i:                  ; preds = %448, %445, %442
   br i1 %.not337.i, label %dissect_epl_sdo_command_write_multiple_by_index.exit, label %.lr.ph409.split.i, !llvm.loop !21
 
 dissect_epl_sdo_command_write_multiple_by_index.exit: ; preds = %321, %331, %475, %.lr.ph409.split.i, %520, %315, %479
-  %.4308.lcssa.sink.i = phi i32 [ 0, %479 ], [ 0, %315 ], [ %521, %520 ], [ 0, %.lr.ph409.split.i ], [ %.0304390.i, %321 ], [ %.0304390.i, %331 ], [ %.3307.i, %475 ]
-  %.3.i = phi i32 [ %.1163, %479 ], [ %.1163, %315 ], [ %522, %520 ], [ %527, %.lr.ph409.split.i ], [ %.0396.i, %321 ], [ %.0396.i, %331 ], [ %476, %475 ]
+  %.4308.lcssa.sink.i = phi i32 [ 0, %479 ], [ 0, %315 ], [ 0, %.lr.ph409.split.i ], [ %521, %520 ], [ %.0304390.i, %321 ], [ %.0304390.i, %331 ], [ %.3307.i, %475 ]
+  %.3.i = phi i32 [ %.1163, %479 ], [ %.1163, %315 ], [ %527, %.lr.ph409.split.i ], [ %522, %520 ], [ %.0396.i, %321 ], [ %.0396.i, %331 ], [ %476, %475 ]
   %529 = load ptr, ptr %30, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %529, i32 noundef 25, ptr noundef nonnull @.str.1110, i32 noundef %.4308.lcssa.sink.i)
   br label %.critedge
@@ -6874,7 +6874,7 @@ convo_read_req_get.exit.thread.i:                 ; preds = %932, %979, %975, %p
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph, %.preheader, %convo_read_req_get.exit.thread.i, %851, %845, %310, %308, %295, %100, %5, %94, %dissect_epl_sdo_command_write_multiple_by_index.exit, %dissect_epl_sdo_command_read_multiple_by_index.exit
-  %.1 = phi i32 [ %309, %308 ], [ %.1163, %94 ], [ %7, %5 ], [ 0, %100 ], [ %.3.i, %dissect_epl_sdo_command_write_multiple_by_index.exit ], [ %.3.i178, %dissect_epl_sdo_command_read_multiple_by_index.exit ], [ %.1163, %310 ], [ %299, %295 ], [ %980, %convo_read_req_get.exit.thread.i ], [ %828, %851 ], [ %828, %845 ], [ %.1163, %.preheader ], [ %92, %.lr.ph ]
+  %.1 = phi i32 [ %.3.i178, %dissect_epl_sdo_command_read_multiple_by_index.exit ], [ %828, %845 ], [ %.1163, %94 ], [ %7, %5 ], [ %309, %308 ], [ 0, %100 ], [ %.3.i, %dissect_epl_sdo_command_write_multiple_by_index.exit ], [ %.1163, %310 ], [ %299, %295 ], [ %980, %convo_read_req_get.exit.thread.i ], [ %828, %851 ], [ %.1163, %.preheader ], [ %92, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.1
 }

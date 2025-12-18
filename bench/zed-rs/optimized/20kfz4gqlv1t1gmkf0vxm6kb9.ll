@@ -2495,7 +2495,7 @@ define internal fastcc void @"_ZN4core3ptr66drop_in_place$LT$sum_tree..Node$LT$t
           to label %"_ZN4core3ptr69drop_in_place$LT$sum_tree..SumTree$LT$text..InsertionFragment$GT$$GT$17h377e109fda5b1dccE.exit7.i" unwind label %52
 
 common.resume:                                    ; preds = %"_ZN4core3ptr69drop_in_place$LT$sum_tree..SumTree$LT$text..InsertionFragment$GT$$GT$17h377e109fda5b1dccE.exit7.i", %.body, %56
-  %common.resume.op = phi { ptr, i32 } [ %19, %56 ], [ %19, %.body ], [ %48, %"_ZN4core3ptr69drop_in_place$LT$sum_tree..SumTree$LT$text..InsertionFragment$GT$$GT$17h377e109fda5b1dccE.exit7.i" ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %.body ], [ %19, %56 ], [ %48, %"_ZN4core3ptr69drop_in_place$LT$sum_tree..SumTree$LT$text..InsertionFragment$GT$$GT$17h377e109fda5b1dccE.exit7.i" ]
   resume { ptr, i32 } %common.resume.op
 
 52:                                               ; preds = %49
@@ -11607,7 +11607,7 @@ define hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h204fbc140c21f7
   br i1 %48, label %common.resume, label %.lr.ph
 
 common.resume:                                    ; preds = %"_ZN4core3ptr136drop_in_place$LT$alloc..sync..Arc$LT$sum_tree..Node$LT$language..diagnostic_set..DiagnosticEntry$LT$text..anchor..Anchor$GT$$GT$$GT$$GT$17h11c3d4b3f339ca37E.llvm.1265738202809708361.exit.i", %39, %.body, %53
-  %common.resume.op = phi { ptr, i32 } [ %20, %53 ], [ %20, %.body ], [ %40, %39 ], [ %40, %"_ZN4core3ptr136drop_in_place$LT$alloc..sync..Arc$LT$sum_tree..Node$LT$language..diagnostic_set..DiagnosticEntry$LT$text..anchor..Anchor$GT$$GT$$GT$$GT$17h11c3d4b3f339ca37E.llvm.1265738202809708361.exit.i" ]
+  %common.resume.op = phi { ptr, i32 } [ %20, %.body ], [ %20, %53 ], [ %40, %39 ], [ %40, %"_ZN4core3ptr136drop_in_place$LT$alloc..sync..Arc$LT$sum_tree..Node$LT$language..diagnostic_set..DiagnosticEntry$LT$text..anchor..Anchor$GT$$GT$$GT$$GT$17h11c3d4b3f339ca37E.llvm.1265738202809708361.exit.i" ]
   resume { ptr, i32 } %common.resume.op
 
 49:                                               ; preds = %47
@@ -12731,7 +12731,7 @@ define hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h5aa34c6ce97f88
   br i1 %50, label %common.resume, label %.lr.ph
 
 common.resume:                                    ; preds = %"_ZN4core3ptr97drop_in_place$LT$alloc..sync..Arc$LT$sum_tree..Node$LT$multi_buffer..ExcerptIdMapping$GT$$GT$$GT$17h9b077c544475feddE.llvm.1265738202809708361.exit.i", %41, %.body, %55
-  %common.resume.op = phi { ptr, i32 } [ %21, %55 ], [ %21, %.body ], [ %42, %41 ], [ %42, %"_ZN4core3ptr97drop_in_place$LT$alloc..sync..Arc$LT$sum_tree..Node$LT$multi_buffer..ExcerptIdMapping$GT$$GT$$GT$17h9b077c544475feddE.llvm.1265738202809708361.exit.i" ]
+  %common.resume.op = phi { ptr, i32 } [ %21, %.body ], [ %21, %55 ], [ %42, %41 ], [ %42, %"_ZN4core3ptr97drop_in_place$LT$alloc..sync..Arc$LT$sum_tree..Node$LT$multi_buffer..ExcerptIdMapping$GT$$GT$$GT$17h9b077c544475feddE.llvm.1265738202809708361.exit.i" ]
   resume { ptr, i32 } %common.resume.op
 
 51:                                               ; preds = %49
@@ -13089,7 +13089,7 @@ define hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h75321926dd6df4
   br i1 %50, label %common.resume, label %.lr.ph
 
 common.resume:                                    ; preds = %"_ZN4core3ptr105drop_in_place$LT$alloc..sync..Arc$LT$sum_tree..Node$LT$language..syntax_map..SyntaxLayerEntry$GT$$GT$$GT$17hc140e8096486bc2aE.llvm.1265738202809708361.exit.i", %41, %.body, %55
-  %common.resume.op = phi { ptr, i32 } [ %22, %55 ], [ %22, %.body ], [ %42, %41 ], [ %42, %"_ZN4core3ptr105drop_in_place$LT$alloc..sync..Arc$LT$sum_tree..Node$LT$language..syntax_map..SyntaxLayerEntry$GT$$GT$$GT$17hc140e8096486bc2aE.llvm.1265738202809708361.exit.i" ]
+  %common.resume.op = phi { ptr, i32 } [ %22, %.body ], [ %22, %55 ], [ %42, %41 ], [ %42, %"_ZN4core3ptr105drop_in_place$LT$alloc..sync..Arc$LT$sum_tree..Node$LT$language..syntax_map..SyntaxLayerEntry$GT$$GT$$GT$17hc140e8096486bc2aE.llvm.1265738202809708361.exit.i" ]
   resume { ptr, i32 } %common.resume.op
 
 51:                                               ; preds = %49
@@ -14395,7 +14395,7 @@ define hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc794a584946160
   br i1 %54, label %common.resume, label %.lr.ph
 
 common.resume:                                    ; preds = %"_ZN4core3ptr49drop_in_place$LT$multi_buffer..ExcerptSummary$GT$17h72a882f60ddfca9cE.exit7.i.i.i.i", %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$sum_tree..Node$LT$multi_buffer..Excerpt$GT$$GT$$GT$17h428dcea10fd85de8E.llvm.1265738202809708361.exit.i", %45, %"_ZN4core3ptr89drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$multi_buffer..Excerpt$C$12_usize$GT$$GT$17h665a0cf00315a248E.exit1", %.body
-  %common.resume.op = phi { ptr, i32 } [ %.pn2.i, %.body ], [ %.pn.i, %"_ZN4core3ptr89drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$multi_buffer..Excerpt$C$12_usize$GT$$GT$17h665a0cf00315a248E.exit1" ], [ %46, %45 ], [ %46, %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$sum_tree..Node$LT$multi_buffer..Excerpt$GT$$GT$$GT$17h428dcea10fd85de8E.llvm.1265738202809708361.exit.i" ], [ %78, %"_ZN4core3ptr49drop_in_place$LT$multi_buffer..ExcerptSummary$GT$17h72a882f60ddfca9cE.exit7.i.i.i.i" ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn2.i, %.body ], [ %46, %45 ], [ %.pn.i, %"_ZN4core3ptr89drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$multi_buffer..Excerpt$C$12_usize$GT$$GT$17h665a0cf00315a248E.exit1" ], [ %46, %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$sum_tree..Node$LT$multi_buffer..Excerpt$GT$$GT$$GT$17h428dcea10fd85de8E.llvm.1265738202809708361.exit.i" ], [ %78, %"_ZN4core3ptr49drop_in_place$LT$multi_buffer..ExcerptSummary$GT$17h72a882f60ddfca9cE.exit7.i.i.i.i" ]
   resume { ptr, i32 } %common.resume.op
 
 55:                                               ; preds = %53

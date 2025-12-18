@@ -593,7 +593,7 @@ X509_ATTRIBUTE_get0_type.exit.i:                  ; preds = %57, %54
   br label %X509_ATTRIBUTE_get0_data.exit
 
 X509_ATTRIBUTE_get0_data.exit:                    ; preds = %10, %26, %X509at_get_attr.exit.thread, %50, %40, %4, %62, %61, %X509_ATTRIBUTE_get0_type.exit.i, %X509_ATTRIBUTE_count.exit.i.i, %44, %X509_ATTRIBUTE_count.exit
-  %.0 = phi ptr [ null, %X509_ATTRIBUTE_count.exit.i.i ], [ null, %50 ], [ null, %4 ], [ null, %X509_ATTRIBUTE_count.exit ], [ null, %61 ], [ %64, %62 ], [ null, %X509_ATTRIBUTE_get0_type.exit.i ], [ null, %44 ], [ null, %40 ], [ null, %X509at_get_attr.exit.thread ], [ null, %26 ], [ null, %10 ]
+  %.0 = phi ptr [ null, %X509_ATTRIBUTE_count.exit.i.i ], [ null, %50 ], [ null, %4 ], [ null, %X509_ATTRIBUTE_count.exit ], [ null, %61 ], [ %64, %62 ], [ null, %X509_ATTRIBUTE_get0_type.exit.i ], [ null, %44 ], [ null, %X509at_get_attr.exit.thread ], [ null, %40 ], [ null, %26 ], [ null, %10 ]
   ret ptr %.0
 }
 

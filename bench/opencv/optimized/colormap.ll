@@ -1464,7 +1464,7 @@ define hidden void @_ZN2cv8colormap8ColorMap15linear_colormapERKNS_11_InputArray
   br i1 %44, label %.loopexit, label %41
 
 .loopexit:                                        ; preds = %26, %41, %.thread
-  %.pn18.pn.pn = phi { ptr, i32 } [ %11, %.thread ], [ %.pn18.pn, %41 ], [ %25, %26 ]
+  %.pn18.pn.pn = phi { ptr, i32 } [ %.pn18.pn, %41 ], [ %11, %.thread ], [ %25, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) #22
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #22

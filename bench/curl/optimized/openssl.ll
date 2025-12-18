@@ -1163,7 +1163,7 @@ ossl_strerror.exit:                               ; preds = %71, %73, %76
   br label %.thread.i
 
 .thread.i:                                        ; preds = %.thread.fold.split.i, %104, %103, %102, %97, %97
-  %.01016.i = phi i64 [ 772, %104 ], [ 771, %103 ], [ 770, %102 ], [ 769, %97 ], [ 769, %97 ], [ 0, %.thread.fold.split.i ]
+  %.01016.i = phi i64 [ 769, %97 ], [ 772, %104 ], [ 771, %103 ], [ 770, %102 ], [ 769, %97 ], [ 0, %.thread.fold.split.i ]
   %105 = tail call i64 @SSL_CTX_ctrl(ptr noundef %98, i32 noundef 123, i64 noundef %.01016.i, ptr noundef null) #13
   %.not12.i = icmp eq i64 %105, 0
   br i1 %.not12.i, label %ossl_set_ssl_version_min_max.exit.thread, label %106
@@ -3620,8 +3620,8 @@ ossl_certchain.exit:                              ; preds = %._crit_edge253.i.lo
   br label %405
 
 405:                                              ; preds = %.fold.split.us.i, %404, %.lr.ph.split.us.i
-  %.2111.us.i = phi i1 [ true, %404 ], [ %.111027.us.i, %.lr.ph.split.us.i ], [ %.111027.us.i, %.fold.split.us.i ]
-  %.2108.us.i = phi i1 [ %.110728.us.i, %404 ], [ true, %.lr.ph.split.us.i ], [ %.110728.us.i, %.fold.split.us.i ]
+  %.2111.us.i = phi i1 [ %.111027.us.i, %.lr.ph.split.us.i ], [ true, %404 ], [ %.111027.us.i, %.fold.split.us.i ]
+  %.2108.us.i = phi i1 [ true, %.lr.ph.split.us.i ], [ %.110728.us.i, %404 ], [ %.110728.us.i, %.fold.split.us.i ]
   %406 = icmp eq i32 %403, %.094.i
   br i1 %406, label %407, label %subj_alt_hostcheck.exit.us.i
 
@@ -3697,8 +3697,8 @@ subj_alt_hostcheck.exit.us.i:                     ; preds = %416, %407, %405
   br label %435
 
 435:                                              ; preds = %.fold.split.us39.i, %434, %.lr.ph.split.split.us.i
-  %.2111.us40.i = phi i1 [ true, %434 ], [ %.111027.us36.i, %.lr.ph.split.split.us.i ], [ %.111027.us36.i, %.fold.split.us39.i ]
-  %.2108.us41.i = phi i1 [ %.110728.us35.i, %434 ], [ true, %.lr.ph.split.split.us.i ], [ %.110728.us35.i, %.fold.split.us39.i ]
+  %.2111.us40.i = phi i1 [ %.111027.us36.i, %.lr.ph.split.split.us.i ], [ true, %434 ], [ %.111027.us36.i, %.fold.split.us39.i ]
+  %.2108.us41.i = phi i1 [ true, %.lr.ph.split.split.us.i ], [ %.110728.us35.i, %434 ], [ %.110728.us35.i, %.fold.split.us39.i ]
   %436 = icmp eq i32 %433, %.094.i
   br i1 %436, label %437, label %446
 
@@ -3743,8 +3743,8 @@ subj_alt_hostcheck.exit.us.i:                     ; preds = %416, %407, %405
   br label %451
 
 451:                                              ; preds = %.fold.split.i, %450, %.lr.ph.split.split.i
-  %.2111.i = phi i1 [ true, %450 ], [ %.111027.i, %.lr.ph.split.split.i ], [ %.111027.i, %.fold.split.i ]
-  %.2108.i = phi i1 [ %.110728.i, %450 ], [ true, %.lr.ph.split.split.i ], [ %.110728.i, %.fold.split.i ]
+  %.2111.i = phi i1 [ %.111027.i, %.lr.ph.split.split.i ], [ true, %450 ], [ %.111027.i, %.fold.split.i ]
+  %.2108.i = phi i1 [ true, %.lr.ph.split.split.i ], [ %.110728.i, %450 ], [ %.110728.i, %.fold.split.i ]
   %452 = icmp eq i32 %449, %.094.i
   br i1 %452, label %453, label %473
 
@@ -3792,9 +3792,9 @@ subj_alt_hostcheck.exit.us.i:                     ; preds = %416, %407, %405
   br i1 %exitcond.not.i, label %._crit_edge.i234, label %.lr.ph.split.split.i, !llvm.loop !190
 
 ._crit_edge.i234:                                 ; preds = %473, %446, %subj_alt_hostcheck.exit.us.i
-  %.0115.lcssa.i = phi i1 [ %.1113.us42.i, %446 ], [ %.1116.us.i, %subj_alt_hostcheck.exit.us.i ], [ %.1113.i, %473 ]
-  %.1110.lcssa.i = phi i1 [ %.2111.us40.i, %446 ], [ %.2111.us.i, %subj_alt_hostcheck.exit.us.i ], [ %.2111.i, %473 ]
-  %.1107.lcssa.i = phi i1 [ %.2108.us41.i, %446 ], [ %.2108.us.i, %subj_alt_hostcheck.exit.us.i ], [ %.2108.i, %473 ]
+  %.0115.lcssa.i = phi i1 [ %.1116.us.i, %subj_alt_hostcheck.exit.us.i ], [ %.1113.us42.i, %446 ], [ %.1113.i, %473 ]
+  %.1110.lcssa.i = phi i1 [ %.2111.us.i, %subj_alt_hostcheck.exit.us.i ], [ %.2111.us40.i, %446 ], [ %.2111.i, %473 ]
+  %.1107.lcssa.i = phi i1 [ %.2108.us.i, %subj_alt_hostcheck.exit.us.i ], [ %.2108.us41.i, %446 ], [ %.2108.i, %473 ]
   call void @GENERAL_NAMES_free(ptr noundef nonnull %395) #13
   br i1 %.0115.lcssa.i, label %.sink.split, label %475
 
@@ -4591,8 +4591,8 @@ infof_certstack.exit:                             ; preds = %733, %.lr.ph.split.
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %1, ptr noundef nonnull @.str.188) #13
   br label %verifystatus.exit
 
-verifystatus.exit.thread:                         ; preds = %745, %751, %756, %748
-  %.05414.i.ph = phi ptr [ null, %748 ], [ %747, %756 ], [ %747, %751 ], [ null, %745 ]
+verifystatus.exit.thread:                         ; preds = %756, %751, %745, %748
+  %.05414.i.ph = phi ptr [ null, %748 ], [ null, %745 ], [ %747, %751 ], [ %747, %756 ]
   call void @OCSP_RESPONSE_free(ptr noundef %.05414.i.ph) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)

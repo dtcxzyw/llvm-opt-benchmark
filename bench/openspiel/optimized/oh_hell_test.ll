@@ -327,7 +327,7 @@ define internal void @__cxx_global_var_init.1() #3 section ".text.startup" comda
   br i1 %51, label %.loopexit, label %47
 
 .loopexit:                                        ; preds = %39, %47, %.thread
-  %.pn = phi { ptr, i32 } [ %15, %.thread ], [ %45, %47 ], [ %38, %39 ]
+  %.pn = phi { ptr, i32 } [ %45, %47 ], [ %15, %.thread ], [ %38, %39 ]
   call void @__cxa_guard_abort(ptr nonnull @_ZGVN10open_spiel7oh_hell9kPhaseStrB5cxx11E) #21
   resume { ptr, i32 } %.pn
 }
@@ -5328,7 +5328,7 @@ _ZN10open_spiel7oh_hell5TrickaSEOS1_.exit.thread.i.i: ; preds = %1680, %_ZN10ope
   br i1 %exitcond560.not.i.i, label %_ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversionCharSetE131067EEEC2EUa9enable_ifIXclL_ZNS1_15ValidFormatImplIJLS3_131067EEEEbNS0_11string_viewEEfL0p_EEEPKc.exit.i.i, label %.preheader396.i.i, !llvm.loop !32
 
 _ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversionCharSetE131067EEEC2EUa9enable_ifIXclL_ZNS1_15ValidFormatImplIJLS3_131067EEEEbNS0_11string_viewEEfL0p_EEEPKc.exit.i.i: ; preds = %1704, %1685, %.preheader397.thread.i.i
-  %.1148.i.i = phi i32 [ 0, %.preheader397.thread.i.i ], [ %.0147468.i.i, %1685 ], [ %.5152.i.i, %1704 ]
+  %.1148.i.i = phi i32 [ %.0147468.i.i, %1685 ], [ 0, %.preheader397.thread.i.i ], [ %.5152.i.i, %1704 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %38), !noalias !17
   %.sroa.0.0.insert.ext.i.i.i.i.i.i = zext i32 %.0366.i.i to i64
   %1710 = inttoptr i64 %.sroa.0.0.insert.ext.i.i.i.i.i.i to ptr

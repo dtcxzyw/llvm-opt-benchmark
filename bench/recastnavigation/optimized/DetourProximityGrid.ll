@@ -429,7 +429,7 @@ define noundef i32 @_ZNK15dtProximityGrid10queryItemsEffffPti(ptr noundef nonnul
   br i1 %exitcond77.not, label %.loopexit, label %.preheader, !llvm.loop !11
 
 .loopexit:                                        ; preds = %._crit_edge68, %._crit_edge, %.preheader.lr.ph, %7
-  %.040 = phi i32 [ 0, %7 ], [ 0, %.preheader.lr.ph ], [ %.259, %._crit_edge ], [ %.2.lcssa, %._crit_edge68 ]
+  %.040 = phi i32 [ %.259, %._crit_edge ], [ 0, %7 ], [ 0, %.preheader.lr.ph ], [ %.2.lcssa, %._crit_edge68 ]
   ret i32 %.040
 }
 

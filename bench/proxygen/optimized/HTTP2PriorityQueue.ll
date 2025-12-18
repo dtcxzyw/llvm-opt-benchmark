@@ -5112,7 +5112,7 @@ if.end39.i:                                       ; preds = %call8.i.i.noexc, %i
   br label %if.end
 
 if.end:                                           ; preds = %while.end.i.i.i.i, %if.end20.i.i.i.i, %call8.i.i.noexc, %if.end39.i, %invoke.cont32
-  %stop.2 = phi i1 [ false, %invoke.cont32 ], [ false, %if.end39.i ], [ true, %call8.i.i.noexc ], [ false, %if.end20.i.i.i.i ], [ false, %while.end.i.i.i.i ]
+  %stop.2 = phi i1 [ true, %call8.i.i.noexc ], [ false, %invoke.cont32 ], [ false, %if.end39.i ], [ false, %if.end20.i.i.i.i ], [ false, %while.end.i.i.i.i ]
   %56 = load ptr, ptr %_M_start.i, align 8
   %57 = load ptr, ptr %_M_last.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %57, i64 -24

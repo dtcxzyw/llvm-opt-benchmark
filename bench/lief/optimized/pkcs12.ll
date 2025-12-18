@@ -469,7 +469,7 @@ pkcs12_fill_buffer.exit109:                       ; preds = %pkcs12_fill_buffer.
   br label %.loopexit119
 
 .loopexit119:                                     ; preds = %.loopexit118, %.loopexit119.sink.split, %pkcs12_fill_buffer.exit99
-  %.082 = phi i32 [ 0, %pkcs12_fill_buffer.exit99 ], [ -110, %.loopexit119.sink.split ], [ 0, %.loopexit118 ]
+  %.082 = phi i32 [ -110, %.loopexit119.sink.split ], [ 0, %pkcs12_fill_buffer.exit99 ], [ 0, %.loopexit118 ]
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %12, i64 noundef 128) #6
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %13, i64 noundef 128) #6
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %14, i64 noundef 128) #6

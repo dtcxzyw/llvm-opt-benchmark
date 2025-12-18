@@ -256,10 +256,10 @@ define internal fastcc range(i32 0, 4) i32 @prepend_path(ptr noundef readonly ca
   br label %110
 
 110:                                              ; preds = %63, %107
-  %111 = phi ptr [ %43, %63 ], [ %109, %107 ]
-  %112 = phi i32 [ %44, %63 ], [ %108, %107 ]
-  %113 = phi ptr [ %61, %63 ], [ %45, %107 ]
-  %114 = phi ptr [ %65, %63 ], [ %55, %107 ]
+  %111 = phi ptr [ %109, %107 ], [ %43, %63 ]
+  %112 = phi i32 [ %108, %107 ], [ %44, %63 ]
+  %113 = phi ptr [ %45, %107 ], [ %61, %63 ]
+  %114 = phi ptr [ %55, %107 ], [ %65, %63 ]
   br label %42, !llvm.loop !13
 
 .thread25:                                        ; preds = %77, %105, %79, %49, %72, %76, %87, %96, %104

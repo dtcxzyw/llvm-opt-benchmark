@@ -333,7 +333,7 @@ define ptr @Abc_FlowRetime_MinReg(ptr noundef %0, i32 noundef %1, i32 noundef %2
   br label %121
 
 121:                                              ; preds = %.sink.split.i, %118, %115, %99
-  %.0.i = phi i32 [ 1024, %118 ], [ 0, %115 ], [ 0, %99 ], [ 1024, %.sink.split.i ]
+  %.0.i = phi i32 [ 0, %99 ], [ 0, %115 ], [ 1024, %118 ], [ 1024, %.sink.split.i ]
   %122 = and i32 %.val159, 1024
   %123 = xor i32 %122, %.0.i
   %124 = getelementptr inbounds nuw i8, ptr %108, i64 20
@@ -1852,7 +1852,7 @@ define i32 @Abc_FlowRetime_PushFlows(ptr noundef %0, i32 noundef %1) local_unnam
   br i1 %107, label %.lr.ph101, label %.critedge6, !llvm.loop !99
 
 .critedge6:                                       ; preds = %103, %84, %.lr.ph105, %82
-  %.5 = phi i32 [ %.4103, %82 ], [ %.4103, %.lr.ph105 ], [ %85, %84 ], [ %85, %103 ]
+  %.5 = phi i32 [ %.4103, %.lr.ph105 ], [ %.4103, %82 ], [ %85, %84 ], [ %85, %103 ]
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
   %108 = load ptr, ptr %67, align 8, !tbaa !34
   %109 = getelementptr i8, ptr %108, i64 4

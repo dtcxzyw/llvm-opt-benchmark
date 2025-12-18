@@ -355,9 +355,9 @@ define hidden range(i32 0, 2) i32 @DH_generate_key(ptr noundef %0) local_unnamed
   br label %55
 
 .loopexit:                                        ; preds = %.critedge.backedge, %23, %45, %.loopexit77, %20, %13, %7, %6, %.critedge.preheader
-  %.042.ph = phi ptr [ %8, %23 ], [ %8, %45 ], [ %8, %.loopexit77 ], [ %8, %20 ], [ %8, %13 ], [ null, %7 ], [ null, %6 ], [ %8, %.critedge.preheader ], [ %8, %.critedge.backedge ]
-  %.040.ph = phi ptr [ %.141, %23 ], [ %.141, %45 ], [ %.141, %.loopexit77 ], [ null, %20 ], [ null, %13 ], [ null, %7 ], [ null, %6 ], [ %.141, %.critedge.preheader ], [ %.141, %.critedge.backedge ]
-  %.0.ph = phi ptr [ %.1, %23 ], [ %.1, %45 ], [ %.1, %.loopexit77 ], [ %.1, %20 ], [ null, %13 ], [ null, %7 ], [ null, %6 ], [ %.1, %.critedge.preheader ], [ %.1, %.critedge.backedge ]
+  %.042.ph = phi ptr [ %8, %23 ], [ %8, %45 ], [ null, %6 ], [ %8, %.loopexit77 ], [ %8, %20 ], [ %8, %13 ], [ null, %7 ], [ %8, %.critedge.preheader ], [ %8, %.critedge.backedge ]
+  %.040.ph = phi ptr [ %.141, %23 ], [ %.141, %45 ], [ null, %6 ], [ %.141, %.loopexit77 ], [ null, %20 ], [ null, %13 ], [ null, %7 ], [ %.141, %.critedge.preheader ], [ %.141, %.critedge.backedge ]
+  %.0.ph = phi ptr [ %.1, %23 ], [ %.1, %45 ], [ null, %6 ], [ %.1, %.loopexit77 ], [ %.1, %20 ], [ null, %13 ], [ null, %7 ], [ %.1, %.critedge.preheader ], [ %.1, %.critedge.backedge ]
   call void @ERR_put_error(i32 noundef 5, i32 noundef 0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 305) #5
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !24

@@ -6223,7 +6223,7 @@ _ZN5clangneENS_22specific_attr_iteratorINS_18RISCVInterruptAttrEN4llvm11SmallVec
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %12) #21
   br label %471
 
-.loopexit110:                                     ; preds = %34, %3, %_ZN5clangneENS_22specific_attr_iteratorINS_18RISCVInterruptAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, %23
+.loopexit110:                                     ; preds = %34, %3, %23, %_ZN5clangneENS_22specific_attr_iteratorINS_18RISCVInterruptAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i
   %50 = load ptr, ptr %0, align 8, !tbaa !730
   %51 = tail call noundef zeroext i1 @_ZNK5clang10ParsedAttr18checkAtMostNumArgsERNS_4SemaEj(ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(17504) %50, i32 noundef 1) #21
   br i1 %51, label %52, label %471

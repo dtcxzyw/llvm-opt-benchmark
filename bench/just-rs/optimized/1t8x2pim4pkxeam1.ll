@@ -5614,7 +5614,7 @@ define hidden void @"_ZN4core3ptr39drop_in_place$LT$just..thunk..Thunk$GT$17ha0d
           to label %11 unwind label %16
 
 common.resume:                                    ; preds = %11, %34, %.body.i2, %21
-  %common.resume.op = phi { ptr, i32 } [ %22, %21 ], [ %31, %.body.i2 ], [ %31, %34 ], [ %9, %11 ]
+  %common.resume.op = phi { ptr, i32 } [ %31, %34 ], [ %22, %21 ], [ %31, %.body.i2 ], [ %9, %11 ]
   resume { ptr, i32 } %common.resume.op
 
 16:                                               ; preds = %13
@@ -5869,7 +5869,7 @@ common.resume.sink.split:                         ; preds = %38, %86, %108, %127
   br label %common.resume
 
 common.resume:                                    ; preds = %28, %52, %48, %common.resume.sink.split, %.body, %.body24, %.body43, %.critedge
-  %common.resume.op = phi { ptr, i32 } [ %76, %.body ], [ %.pn2, %.body24 ], [ %93, %.body43 ], [ %62, %.critedge ], [ %common.resume.op.ph, %common.resume.sink.split ], [ %49, %48 ], [ %49, %52 ], [ %26, %28 ]
+  %common.resume.op = phi { ptr, i32 } [ %62, %.critedge ], [ %49, %52 ], [ %93, %.body43 ], [ %common.resume.op.ph, %common.resume.sink.split ], [ %76, %.body ], [ %.pn2, %.body24 ], [ %49, %48 ], [ %26, %28 ]
   resume { ptr, i32 } %common.resume.op
 
 33:                                               ; preds = %30
@@ -14466,7 +14466,7 @@ define internal fastcc noundef zeroext i1 @"_ZN69_$LT$just..expression..Expressi
   ]
 
 .critedge:                                        ; preds = %tailrecurse.backedge, %22, %114, %113, %112, %2, %14, %76, %73, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h03a4955529edbd10E.exit.i", %63, %52, %28, %88, %94, %100, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h8bf7786a08aee965E.exit", %106, %84, %80, %20
-  %.0 = phi i1 [ %87, %84 ], [ %21, %20 ], [ false, %63 ], [ false, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h8bf7786a08aee965E.exit" ], [ %111, %106 ], [ false, %14 ], [ false, %28 ], [ %83, %80 ], [ false, %100 ], [ false, %94 ], [ false, %88 ], [ %79, %76 ], [ false, %73 ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h03a4955529edbd10E.exit.i" ], [ false, %52 ], [ false, %2 ], [ false, %112 ], [ false, %113 ], [ false, %114 ], [ false, %22 ], [ false, %tailrecurse.backedge ]
+  %.0 = phi i1 [ %87, %84 ], [ false, %52 ], [ %21, %20 ], [ false, %63 ], [ false, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h8bf7786a08aee965E.exit" ], [ %111, %106 ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h03a4955529edbd10E.exit.i" ], [ false, %14 ], [ false, %28 ], [ false, %73 ], [ %83, %80 ], [ false, %100 ], [ false, %94 ], [ false, %88 ], [ %79, %76 ], [ false, %2 ], [ false, %112 ], [ false, %113 ], [ false, %114 ], [ false, %22 ], [ false, %tailrecurse.backedge ]
   ret i1 %.0
 
 13:                                               ; preds = %.lr.ph
@@ -15896,7 +15896,7 @@ define noundef zeroext i1 @"_ZN59_$LT$just..thunk..Thunk$u20$as$u20$core..cmp..P
   ]
 
 "_ZN70_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h31d226dffe226dc5E.exit": ; preds = %89, %90, %65, %77, %.preheader.split.i.i, %49, %50, %31, %72, %40, %82, %57, %42, %25, %21, %11, %2, %15, %7
-  %.0 = phi i1 [ %10, %7 ], [ %20, %15 ], [ false, %2 ], [ false, %21 ], [ false, %11 ], [ %.mux, %31 ], [ false, %25 ], [ false, %57 ], [ false, %42 ], [ %exitcond55.not, %49 ], [ false, %82 ], [ false, %65 ], [ %41, %40 ], [ false, %72 ], [ %exitcond.not.i.i, %77 ], [ %exitcond55.not, %50 ], [ %exitcond.not.i.i, %.preheader.split.i.i ], [ %exitcond.not, %90 ], [ %exitcond.not, %89 ]
+  %.0 = phi i1 [ %10, %7 ], [ %20, %15 ], [ false, %2 ], [ false, %21 ], [ false, %11 ], [ %.mux, %31 ], [ false, %25 ], [ false, %57 ], [ false, %42 ], [ %exitcond55.not, %49 ], [ false, %72 ], [ false, %82 ], [ %exitcond.not.i.i, %77 ], [ false, %65 ], [ %41, %40 ], [ %exitcond55.not, %50 ], [ %exitcond.not.i.i, %.preheader.split.i.i ], [ %exitcond.not, %90 ], [ %exitcond.not, %89 ]
   ret i1 %.0
 
 default.unreachable57:                            ; preds = %6

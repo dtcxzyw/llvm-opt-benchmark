@@ -3956,8 +3956,8 @@ define internal fastcc noundef zeroext i1 @get_full_ipv4_addr(ptr noundef %0, pt
   br label %.loopexit111
 
 .loopexit111:                                     ; preds = %.lr.ph, %.preheader113, %74, %91, %90
-  %.187 = phi i32 [ %94, %91 ], [ 1, %90 ], [ 0, %74 ], [ 0, %.preheader113 ], [ 0, %.lr.ph ]
-  %.4 = phi i32 [ %.083131193, %91 ], [ %.083131193, %90 ], [ %.083131193, %74 ], [ %70, %.preheader113 ], [ %84, %.lr.ph ]
+  %.187 = phi i32 [ %94, %91 ], [ 1, %90 ], [ 0, %.preheader113 ], [ 0, %74 ], [ 0, %.lr.ph ]
+  %.4 = phi i32 [ %.083131193, %91 ], [ %.083131193, %90 ], [ %70, %.preheader113 ], [ %.083131193, %74 ], [ %84, %.lr.ph ]
   %95 = add i32 %.088129195, 1
   %96 = zext i32 %95 to i64
   %97 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #21
@@ -3967,7 +3967,7 @@ define internal fastcc noundef zeroext i1 @get_full_ipv4_addr(ptr noundef %0, pt
   br i1 %or.cond9, label %25, label %.critedge
 
 .critedge:                                        ; preds = %.loopexit111, %.lr.ph125, %.preheader110, %42
-  %.083.lcssa = phi i32 [ %.083131193, %42 ], [ %52, %.lr.ph125 ], [ %38, %.preheader110 ], [ %.4, %.loopexit111 ]
+  %.083.lcssa = phi i32 [ %38, %.preheader110 ], [ %52, %.lr.ph125 ], [ %.083131193, %42 ], [ %.4, %.loopexit111 ]
   br label %100
 
 100:                                              ; preds = %.critedge, %125
@@ -4028,7 +4028,7 @@ define internal fastcc noundef zeroext i1 @get_full_ipv4_addr(ptr noundef %0, pt
   br label %.loopexit
 
 .loopexit:                                        ; preds = %71, %113, %.loopexit.sink.split, %39, %2, %8
-  %.096 = phi i1 [ false, %2 ], [ false, %8 ], [ false, %39 ], [ %.096.ph, %.loopexit.sink.split ], [ false, %113 ], [ false, %71 ]
+  %.096 = phi i1 [ %.096.ph, %.loopexit.sink.split ], [ false, %39 ], [ false, %2 ], [ false, %113 ], [ false, %8 ], [ false, %71 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

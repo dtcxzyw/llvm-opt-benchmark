@@ -5161,7 +5161,7 @@ _ZNSt3setImSt4lessImESaImEED2Ev.exit:             ; preds = %_ZNSt6vectorIPN7roc
   br i1 %.not73, label %.sink.split, label %111
 
 .sink.split:                                      ; preds = %.loopexit, %99, %105
-  %.065.lcssa.sink = phi i64 [ 0, %105 ], [ 0, %99 ], [ %.166, %.loopexit ]
+  %.065.lcssa.sink = phi i64 [ 0, %99 ], [ 0, %105 ], [ %.166, %.loopexit ]
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 4832
   store i64 %.065.lcssa.sink, ptr %124, align 16, !tbaa !522
   br label %125
@@ -6677,7 +6677,7 @@ _ZNKSt4lessISt4pairIimEEclERKS1_S4_.exit.thread.i.thread.i: ; preds = %_ZNKSt4le
   br i1 %.not.i20.i, label %._crit_edge.i.thread.i, label %.lr.ph.i.i.backedge
 
 .lr.ph.i.i.backedge:                              ; preds = %_ZNKSt4lessISt4pairIimEEclERKS1_S4_.exit.thread.i.thread.i, %_ZNKSt4lessISt4pairIimEEclERKS1_S4_.exit.thread.i.i
-  %.02126.i.i.be = phi ptr [ %.021.i.i, %_ZNKSt4lessISt4pairIimEEclERKS1_S4_.exit.thread.i.i ], [ %.021.i19.i, %_ZNKSt4lessISt4pairIimEEclERKS1_S4_.exit.thread.i.thread.i ]
+  %.02126.i.i.be = phi ptr [ %.021.i19.i, %_ZNKSt4lessISt4pairIimEEclERKS1_S4_.exit.thread.i.thread.i ], [ %.021.i.i, %_ZNKSt4lessISt4pairIimEEclERKS1_S4_.exit.thread.i.i ]
   br label %.lr.ph.i.i, !llvm.loop !632
 
 ._crit_edge.thread.i.i:                           ; preds = %_ZNKSt4lessISt4pairIimEEclERKS1_S4_.exit.thread.i.i, %.lr.ph

@@ -7921,8 +7921,8 @@ _ZNK4absl7debian24SpanIfEixEm.exit81:             ; preds = %.lr.ph347
   br i1 %.not69349, label %.lr.ph162._crit_edge, label %.lr.ph351
 
 .preheader._crit_edge.invoke:                     ; preds = %.preheader108, %_ZNK4absl7debian24SpanIfEixEm.exit81, %.preheader, %_ZNK4absl7debian24SpanIfEixEm.exit85
-  %245 = phi i64 [ %indvars.iv218, %_ZNK4absl7debian24SpanIfEixEm.exit81 ], [ %indvars.iv229, %_ZNK4absl7debian24SpanIfEixEm.exit85 ], [ %indvars.iv229, %.preheader ], [ %indvars.iv218, %.preheader108 ]
-  %246 = phi i64 [ %180, %_ZNK4absl7debian24SpanIfEixEm.exit81 ], [ %259, %_ZNK4absl7debian24SpanIfEixEm.exit85 ], [ %242, %.preheader ], [ %165, %.preheader108 ]
+  %245 = phi i64 [ %indvars.iv229, %_ZNK4absl7debian24SpanIfEixEm.exit85 ], [ %indvars.iv218, %_ZNK4absl7debian24SpanIfEixEm.exit81 ], [ %indvars.iv229, %.preheader ], [ %indvars.iv218, %.preheader108 ]
+  %246 = phi i64 [ %259, %_ZNK4absl7debian24SpanIfEixEm.exit85 ], [ %180, %_ZNK4absl7debian24SpanIfEixEm.exit81 ], [ %242, %.preheader ], [ %165, %.preheader108 ]
   invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.120, i64 noundef %245, i64 noundef %246) #28
           to label %.preheader._crit_edge.cont unwind label %181
 
@@ -9520,7 +9520,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i:                  ; preds = %88, %_ZNK10open_spi
   br label %_ZN10open_spiel14colored_trails5TradeD2Ev.exit
 
 _ZN10open_spiel14colored_trails5TradeD2Ev.exit:   ; preds = %20, %.lr.ph, %95, %_ZNSt6vectorIiSaIiEED2Ev.exit.i, %1, %7
-  %.0 = phi i1 [ true, %1 ], [ true, %7 ], [ %85, %_ZNSt6vectorIiSaIiEED2Ev.exit.i ], [ %85, %95 ], [ false, %.lr.ph ], [ false, %20 ]
+  %.0 = phi i1 [ %85, %95 ], [ true, %1 ], [ %85, %_ZNSt6vectorIiSaIiEED2Ev.exit.i ], [ true, %7 ], [ false, %.lr.ph ], [ false, %20 ]
   ret i1 %.0
 }
 
@@ -12290,7 +12290,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i:                  ; preds = %327, %_ZNSt6vectorI
   br label %.loopexit
 
 _ZNSt6vectorIN10open_spiel14colored_trails5TradeESaIS2_EE9push_backERKS2_.exit: ; preds = %333, %_ZNSt6vectorIiSaIiEED2Ev.exit.i, %.noexc107, %319, %322
-  %.151 = phi i32 [ %.050239, %322 ], [ %.050239, %319 ], [ %.050239, %.noexc107 ], [ %.015.i, %_ZNSt6vectorIiSaIiEED2Ev.exit.i ], [ %.015.i, %333 ]
+  %.151 = phi i32 [ %.050239, %322 ], [ %.050239, %.noexc107 ], [ %.050239, %319 ], [ %.015.i, %_ZNSt6vectorIiSaIiEED2Ev.exit.i ], [ %.015.i, %333 ]
   %341 = getelementptr inbounds nuw i8, ptr %.sroa.0120.0238, i64 8
   %.not = icmp eq ptr %341, %246
   br i1 %.not, label %._crit_edge242, label %255
@@ -12482,7 +12482,7 @@ _ZSt8_DestroyIPN10open_spiel14colored_trails5TradeES2_EvT_S4_RSaIT0_E.exit.i: ; 
   br label %_ZNSt6vectorIN10open_spiel14colored_trails5TradeESaIS2_EED2Ev.exit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %.loopexit150, %.loopexit.split-lp, %338, %376, %364, %362
-  %.pn = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %339, %338 ], [ %363, %362 ], [ %377, %376 ], [ %365, %364 ], [ %lpad.loopexit, %.loopexit150 ], [ %340, %.loopexit.loopexit ]
+  %.pn = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %365, %364 ], [ %339, %338 ], [ %363, %362 ], [ %377, %376 ], [ %lpad.loopexit, %.loopexit150 ], [ %340, %.loopexit.loopexit ]
   %426 = load ptr, ptr %15, align 8
   %.not.i.i.i118 = icmp eq ptr %426, null
   br i1 %.not.i.i.i118, label %_ZNSt6vectorIlSaIlEED2Ev.exit119, label %427

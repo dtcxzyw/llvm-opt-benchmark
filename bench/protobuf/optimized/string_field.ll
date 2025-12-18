@@ -2554,7 +2554,7 @@ lpad29:                                           ; preds = %invoke.cont25
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad29, %lpad22, %lpad.i13
-  %.pn = phi { ptr, i32 } [ %9, %lpad22 ], [ %7, %lpad.i13 ], [ %10, %lpad29 ]
+  %.pn = phi { ptr, i32 } [ %7, %lpad.i13 ], [ %9, %lpad22 ], [ %10, %lpad29 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp18) #30
   br label %ehcleanup38
 
@@ -4414,7 +4414,7 @@ arraydestroy.body211:                             ; preds = %ehcleanup207, %arra
   br i1 %arraydestroy.done214, label %ehcleanup217, label %arraydestroy.body211
 
 ehcleanup217:                                     ; preds = %arraydestroy.body211, %ehcleanup207.thread, %ehcleanup207, %lpad17
-  %.pn14.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn14.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup207 ], [ %66, %lpad17 ], [ %.pn14.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %ehcleanup207.thread ], [ %.pn14.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %arraydestroy.body211 ]
+  %.pn14.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn14.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup207 ], [ %.pn14.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %ehcleanup207.thread ], [ %66, %lpad17 ], [ %.pn14.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %arraydestroy.body211 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %lazy_var) #30
   br label %ehcleanup218
 

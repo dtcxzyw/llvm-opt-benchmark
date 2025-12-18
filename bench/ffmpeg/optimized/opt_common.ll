@@ -1979,10 +1979,10 @@ is_device.exit.thread.split.us:                   ; preds = %34, %.lr.ph, %38
   br i1 %.not71.us, label %.split.split.us, label %.lr.ph, !llvm.loop !87
 
 .split.split.us:                                  ; preds = %.outer32.us, %.outer32, %.backedge, %.outer32.us.preheader, %.split40
-  %.us-phi = phi i32 [ 0, %.split40 ], [ 0, %.outer32.us.preheader ], [ %.260, %.outer32 ], [ %.159.ph.us20, %.backedge ], [ %.260.us, %.outer32.us ]
-  %.us-phi35 = phi i32 [ 0, %.split40 ], [ 0, %.outer32.us.preheader ], [ %.254, %.outer32 ], [ %.153.ph.us21, %.backedge ], [ %.254.us, %.outer32.us ]
-  %.us-phi36 = phi ptr [ null, %.split40 ], [ null, %.outer32.us.preheader ], [ %.248, %.outer32 ], [ %.147.ph.us22, %.backedge ], [ %.248.us, %.outer32.us ]
-  %.us-phi37 = phi ptr [ null, %.split40 ], [ null, %.outer32.us.preheader ], [ %.2, %.outer32 ], [ %.1.ph.us23, %.backedge ], [ %.2.us, %.outer32.us ]
+  %.us-phi = phi i32 [ %.260, %.outer32 ], [ 0, %.split40 ], [ %.159.ph.us20, %.backedge ], [ 0, %.outer32.us.preheader ], [ %.260.us, %.outer32.us ]
+  %.us-phi35 = phi i32 [ %.254, %.outer32 ], [ 0, %.split40 ], [ %.153.ph.us21, %.backedge ], [ 0, %.outer32.us.preheader ], [ %.254.us, %.outer32.us ]
+  %.us-phi36 = phi ptr [ %.248, %.outer32 ], [ null, %.split40 ], [ %.147.ph.us22, %.backedge ], [ null, %.outer32.us.preheader ], [ %.248.us, %.outer32.us ]
+  %.us-phi37 = phi ptr [ %.2, %.outer32 ], [ null, %.split40 ], [ %.1.ph.us23, %.backedge ], [ null, %.outer32.us.preheader ], [ %.2.us, %.outer32.us ]
   br i1 %.not72, label %.loopexit, label %.thread
 
 .thread:                                          ; preds = %9, %.split.split.us
@@ -3126,7 +3126,7 @@ show_sinks_sources_parse_arg.exit:                ; preds = %9, %11, %14, %18
   br i1 %.not22, label %.critedge26, label %.lr.ph31, !llvm.loop !131
 
 .critedge26:                                      ; preds = %.critedge, %.critedge.preheader, %17, %7
-  %.1.i28 = phi i32 [ %15, %17 ], [ -12, %7 ], [ 0, %.critedge.preheader ], [ 0, %.critedge ]
+  %.1.i28 = phi i32 [ -12, %7 ], [ %15, %17 ], [ 0, %.critedge.preheader ], [ 0, %.critedge ]
   call void @av_dict_free(ptr noundef nonnull %5) #17
   %39 = load ptr, ptr %4, align 8, !tbaa !13
   call void @av_free(ptr noundef %39) #17
@@ -3295,7 +3295,7 @@ show_sinks_sources_parse_arg.exit:                ; preds = %9, %11, %14, %18
   br i1 %.not20, label %.critedge24, label %.lr.ph29, !llvm.loop !135
 
 .critedge24:                                      ; preds = %.critedge, %.critedge.preheader, %17, %7
-  %.1.i26 = phi i32 [ %15, %17 ], [ -12, %7 ], [ 0, %.critedge.preheader ], [ 0, %.critedge ]
+  %.1.i26 = phi i32 [ -12, %7 ], [ %15, %17 ], [ 0, %.critedge.preheader ], [ 0, %.critedge ]
   call void @av_dict_free(ptr noundef nonnull %5) #17
   %37 = load ptr, ptr %4, align 8, !tbaa !13
   call void @av_free(ptr noundef %37) #17

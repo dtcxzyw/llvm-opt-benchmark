@@ -1058,17 +1058,17 @@ define dso_local noundef zeroext i1 @_bt_parallel_seize(ptr noundef readonly cap
   tail call void @ConditionVariableSleep(ptr noundef nonnull %26, i32 noundef 134217735) #8
   br label %.split
 
-.split66.us.loopexit:                             ; preds = %46, %.loopexit.us, %.thread.us, %69
-  %.159.us.ph = phi i1 [ true, %69 ], [ false, %.thread.us ], [ false, %.loopexit.us ], [ false, %46 ]
-  %.257.us.ph = phi i1 [ false, %69 ], [ true, %.thread.us ], [ true, %.loopexit.us ], [ false, %46 ]
+.split66.us.loopexit:                             ; preds = %46, %69, %.loopexit.us, %.thread.us
+  %.159.us.ph = phi i1 [ false, %.thread.us ], [ false, %.loopexit.us ], [ true, %69 ], [ false, %46 ]
+  %.257.us.ph = phi i1 [ true, %.thread.us ], [ true, %.loopexit.us ], [ false, %69 ], [ false, %46 ]
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !13
   store i8 0, ptr %32, align 4
   %87 = tail call zeroext i1 @ConditionVariableCancelSleep() #8
   br i1 %.159.us.ph, label %89, label %_bt_parallel_done.exit
 
-.split66.us:                                      ; preds = %78, %80, %.thread, %83
-  %.159.ph = phi i1 [ true, %80 ], [ false, %.thread ], [ false, %83 ], [ false, %78 ]
-  %.257.ph = phi i1 [ false, %80 ], [ true, %.thread ], [ false, %83 ], [ false, %78 ]
+.split66.us:                                      ; preds = %78, %.thread, %83, %80
+  %.159.ph = phi i1 [ false, %.thread ], [ false, %83 ], [ true, %80 ], [ false, %78 ]
+  %.257.ph = phi i1 [ true, %.thread ], [ false, %83 ], [ false, %80 ], [ false, %78 ]
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !13
   store i8 0, ptr %20, align 4
   %88 = tail call zeroext i1 @ConditionVariableCancelSleep() #8

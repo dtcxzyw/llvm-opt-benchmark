@@ -241,7 +241,7 @@ define internal i32 @dissect_bmc(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %exitcond18.not.i, label %dissect_bmc_schedule_message.exit, label %.lr.ph13.i, !llvm.loop !9
 
 dissect_bmc_schedule_message.exit:                ; preds = %.lr.ph13.i, %._crit_edge8.i, %64, %70
-  %.3.i = phi i32 [ %68, %64 ], [ %.0.lcssa.i, %._crit_edge8.i ], [ %74, %70 ], [ %80, %.lr.ph13.i ]
+  %.3.i = phi i32 [ %.0.lcssa.i, %._crit_edge8.i ], [ %68, %64 ], [ %74, %70 ], [ %80, %.lr.ph13.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %89
 

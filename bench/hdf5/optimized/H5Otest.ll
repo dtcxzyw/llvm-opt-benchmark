@@ -701,8 +701,8 @@ define range(i32 -1, 1) i32 @H5O__attr_dense_info_test(i64 noundef %0, ptr nound
   br label %93
 
 93:                                               ; preds = %91, %85, %77, %65
-  %.139 = phi ptr [ null, %65 ], [ null, %77 ], [ %75, %85 ], [ %.240, %91 ]
-  %.2 = phi i32 [ -1, %65 ], [ -1, %77 ], [ -1, %85 ], [ 0, %91 ]
+  %.139 = phi ptr [ %.240, %91 ], [ %75, %85 ], [ null, %77 ], [ null, %65 ]
+  %.2 = phi i32 [ 0, %91 ], [ -1, %85 ], [ -1, %77 ], [ -1, %65 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %94 = call i32 @H5B2_close(ptr noundef nonnull %55) #4
   %95 = icmp slt i32 %94, 0
@@ -1093,7 +1093,7 @@ define range(i32 -1, 1) i32 @H5O__msg_get_chunkno_test(i64 noundef %0, i32 nound
   br label %50
 
 50:                                               ; preds = %.loopexit.thread, %.loopexit
-  %.1 = phi i32 [ -1, %.loopexit.thread ], [ 0, %.loopexit ]
+  %.1 = phi i32 [ 0, %.loopexit ], [ -1, %.loopexit.thread ]
   %51 = call i32 @H5O_unprotect(ptr noundef nonnull %12, ptr noundef nonnull %26, i32 noundef 0) #4
   %52 = icmp slt i32 %51, 0
   br i1 %52, label %53, label %.thread36
@@ -1281,9 +1281,9 @@ define range(i32 -1, 1) i32 @H5O__msg_move_to_new_chunk_test(i64 noundef %0, i32
   br i1 %96, label %.preheader.split, label %.loopexit, !llvm.loop !61
 
 .loopexit:                                        ; preds = %92, %70, %37, %.loopexit98
-  %.071 = phi i64 [ 0, %.loopexit98 ], [ %53, %37 ], [ 0, %70 ], [ 0, %92 ]
-  %.069 = phi i64 [ %91, %.loopexit98 ], [ 0, %37 ], [ 0, %70 ], [ 0, %92 ]
-  %.068 = phi i32 [ %.065102, %.loopexit98 ], [ 0, %37 ], [ 0, %70 ], [ 0, %92 ]
+  %.071 = phi i64 [ 0, %70 ], [ 0, %.loopexit98 ], [ %53, %37 ], [ 0, %92 ]
+  %.069 = phi i64 [ 0, %70 ], [ %91, %.loopexit98 ], [ 0, %37 ], [ 0, %92 ]
+  %.068 = phi i32 [ 0, %70 ], [ %.065102, %.loopexit98 ], [ 0, %37 ], [ 0, %92 ]
   %97 = add i64 %.071, %58
   %98 = add i64 %97, %.069
   store i32 %.074109, ptr %4, align 8, !tbaa !63

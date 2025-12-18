@@ -467,7 +467,7 @@ define internal { double, double } @_ZL17imoll_o_s_inverse5PJ_XYP8PJconsts(doubl
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %16 = load double, ptr %15, align 8, !tbaa !51
   %17 = fcmp ult double %0, %16
-  br i1 %17, label %select.unfold, label %26
+  br i1 %17, label %select.unfold78, label %26
 
 18:                                               ; preds = %8
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 64
@@ -479,16 +479,16 @@ define internal { double, double } @_ZL17imoll_o_s_inverse5PJ_XYP8PJconsts(doubl
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %24 = load double, ptr %23, align 8, !tbaa !53
   %25 = fcmp ult double %0, %24
-  br i1 %25, label %select.unfold78, label %26
+  br i1 %25, label %select.unfold, label %26
 
-select.unfold:                                    ; preds = %14
+select.unfold:                                    ; preds = %22
   br label %26
 
-select.unfold78:                                  ; preds = %22
+select.unfold78:                                  ; preds = %14
   br label %26
 
-26:                                               ; preds = %22, %14, %10, %select.unfold, %18, %select.unfold78
-  %.066 = phi i32 [ 4, %18 ], [ 3, %14 ], [ 1, %10 ], [ 6, %22 ], [ 2, %select.unfold ], [ 5, %select.unfold78 ]
+26:                                               ; preds = %14, %22, %10, %select.unfold78, %18, %select.unfold
+  %.066 = phi i32 [ 4, %18 ], [ 6, %22 ], [ 3, %14 ], [ 1, %10 ], [ 5, %select.unfold ], [ 2, %select.unfold78 ]
   %27 = zext nneg i32 %.066 to i64
   %28 = getelementptr ptr, ptr %5, i64 %27
   %29 = getelementptr i8, ptr %28, i64 -8

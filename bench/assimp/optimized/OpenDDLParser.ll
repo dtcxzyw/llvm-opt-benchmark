@@ -1193,8 +1193,8 @@ _ZN10ODDLParser9isCommentIcEEbPT_S2_.exit48:      ; preds = %39, %73
   br i1 %83, label %.critedge2, label %78, !llvm.loop !6
 
 .critedge2:                                       ; preds = %80, %78, %15, %15, %73, %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJRKcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i, %49, %.critedge
-  %84 = phi ptr [ %16, %.critedge ], [ %70, %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJRKcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i ], [ %51, %49 ], [ %16, %73 ], [ %16, %15 ], [ %16, %15 ], [ %16, %78 ], [ %16, %80 ]
-  %.2 = phi i64 [ %35, %.critedge ], [ %.03762, %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJRKcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i ], [ %.03762, %49 ], [ %.03762, %73 ], [ %.03762, %15 ], [ %.03762, %15 ], [ %.3, %80 ], [ %umax, %78 ]
+  %84 = phi ptr [ %16, %.critedge ], [ %16, %15 ], [ %16, %15 ], [ %70, %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJRKcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i ], [ %51, %49 ], [ %16, %73 ], [ %16, %78 ], [ %16, %80 ]
+  %.2 = phi i64 [ %35, %.critedge ], [ %.03762, %15 ], [ %.03762, %15 ], [ %.03762, %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJRKcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i ], [ %.03762, %49 ], [ %.03762, %73 ], [ %.3, %80 ], [ %umax, %78 ]
   %85 = add i64 %.2, 1
   %86 = icmp ult i64 %85, %9
   br i1 %86, label %15, label %._crit_edge, !llvm.loop !7
@@ -2470,7 +2470,7 @@ _ZN10ODDLParser13OpenDDLParser3topEv.exit.i:      ; preds = %98
   br label %_ZN10ODDLParser13OpenDDLParser7popNodeEv.exit
 
 _ZN10ODDLParser13OpenDDLParser7popNodeEv.exit:    ; preds = %.preheader, %_ZN10ODDLParser13OpenDDLParser3topEv.exit.i, %98, %_ZN10ODDLParser16lookForNextTokenIcEEPT_S2_S2_.exit66, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit49
-  %.130 = phi ptr [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit49 ], [ %.0.lcssa.i65, %_ZN10ODDLParser16lookForNextTokenIcEEPT_S2_S2_.exit66 ], [ %.0.lcssa.i65, %98 ], [ %.0.lcssa.i65, %_ZN10ODDLParser13OpenDDLParser3topEv.exit.i ], [ null, %.preheader ]
+  %.130 = phi ptr [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit49 ], [ %.0.lcssa.i65, %_ZN10ODDLParser13OpenDDLParser3topEv.exit.i ], [ %.0.lcssa.i65, %_ZN10ODDLParser16lookForNextTokenIcEEPT_S2_S2_.exit66 ], [ %.0.lcssa.i65, %98 ], [ null, %.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %105
 
@@ -3542,8 +3542,8 @@ _ZN10ODDLParser16lookForNextTokenIcEEPT_S2_S2_.exit: ; preds = %.lr.ph.i, %.crit
   br label %_ZN10ODDLParser13OpenDDLParser22parsePrimitiveDataTypeEPcS1_RNS_5Value9ValueTypeERm.exit
 
 _ZN10ODDLParser13OpenDDLParser22parsePrimitiveDataTypeEPcS1_RNS_5Value9ValueTypeERm.exit: ; preds = %49, %36
-  %.091 = phi i64 [ 1, %36 ], [ %51, %49 ]
-  %.0.i42 = phi ptr [ %38, %36 ], [ %52, %49 ]
+  %.091 = phi i64 [ %51, %49 ], [ 1, %36 ]
+  %.0.i42 = phi ptr [ %52, %49 ], [ %38, %36 ]
   %.not9.i44 = icmp eq ptr %.0.i42, %2
   br i1 %.not9.i44, label %_ZN10ODDLParser16lookForNextTokenIcEEPT_S2_S2_.exit52thread-pre-split, label %.lr.ph.preheader.i45
 
@@ -3930,7 +3930,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit85: ; preds = %_ZN
   resume { ptr, i32 } %.pn
 
 _ZN10ODDLParser13OpenDDLParser22parsePrimitiveDataTypeEPcS1_RNS_5Value9ValueTypeERm.exit.thread: ; preds = %.lr.ph.i.i, %.critedge2.i.i, %44, %_ZN10ODDLParser16lookForNextTokenIcEEPT_S2_S2_.exit
-  %.0.i4296 = phi ptr [ %.0.lcssa.i, %_ZN10ODDLParser16lookForNextTokenIcEEPT_S2_S2_.exit ], [ %scevgep.i43, %44 ], [ %scevgep.i.i, %.critedge2.i.i ], [ %.010.i.i, %.lr.ph.i.i ]
+  %.0.i4296 = phi ptr [ %.0.lcssa.i, %_ZN10ODDLParser16lookForNextTokenIcEEPT_S2_S2_.exit ], [ %scevgep.i43, %44 ], [ %.010.i.i, %.lr.ph.i.i ], [ %scevgep.i.i, %.critedge2.i.i ]
   %189 = tail call noundef ptr @_ZN10ODDLParser13OpenDDLParser11parseHeaderEPcS1_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %.0.i4296, ptr noundef %2)
   %190 = tail call noundef ptr @_ZN10ODDLParser13OpenDDLParser14parseStructureEPcS1_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %189, ptr noundef %2)
   br label %191

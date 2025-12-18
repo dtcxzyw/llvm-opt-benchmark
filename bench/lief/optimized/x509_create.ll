@@ -329,7 +329,7 @@ parse_attribute_value_hex_der_encoded.exit.thread.sink.split: ; preds = %hexpair
   br label %parse_attribute_value_hex_der_encoded.exit.thread
 
 parse_attribute_value_hex_der_encoded.exit.thread: ; preds = %58, %61, %51, %parse_attribute_value_hex_der_encoded.exit.thread.sink.split
-  %.039.i117 = phi i32 [ -9088, %parse_attribute_value_hex_der_encoded.exit.thread.sink.split ], [ -9088, %51 ], [ -10368, %61 ], [ -9088, %58 ]
+  %.039.i117 = phi i32 [ -9088, %parse_attribute_value_hex_der_encoded.exit.thread.sink.split ], [ -9088, %58 ], [ -10368, %61 ], [ -9088, %51 ]
   %122 = load ptr, ptr %9, align 8, !tbaa !19
   br label %.critedge85.sink.split
 

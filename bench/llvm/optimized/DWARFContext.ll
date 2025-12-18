@@ -1283,8 +1283,8 @@ define internal fastcc void @"_ZZN4llvm12DWARFContext17DWARFContextState19parseM
   br i1 %.not.i.i.i.i.i13, label %_ZN4llvm12DWARFContext13compile_unitsEv.exit, label %.lr.ph.i.i.i.i.i5, !llvm.loop !190
 
 _ZN4llvm12DWARFContext13compile_unitsEv.exit:     ; preds = %60, %.lr.ph.i.i.i.i.i5, %41, %.lr.ph.i.i.i.i.i, %43, %24
-  %.sroa.722.0 = phi ptr [ %36, %24 ], [ %55, %43 ], [ %36, %41 ], [ %36, %.lr.ph.i.i.i.i.i ], [ %55, %.lr.ph.i.i.i.i.i5 ], [ %55, %60 ]
-  %.sroa.019.0 = phi ptr [ %28, %24 ], [ %47, %43 ], [ %36, %41 ], [ %.sroa.010.0.i.i, %.lr.ph.i.i.i.i.i ], [ %55, %60 ], [ %.sroa.010.0.i.i6, %.lr.ph.i.i.i.i.i5 ]
+  %.sroa.722.0 = phi ptr [ %36, %41 ], [ %36, %24 ], [ %55, %43 ], [ %36, %.lr.ph.i.i.i.i.i ], [ %55, %.lr.ph.i.i.i.i.i5 ], [ %55, %60 ]
+  %.sroa.019.0 = phi ptr [ %36, %41 ], [ %28, %24 ], [ %47, %43 ], [ %.sroa.010.0.i.i, %.lr.ph.i.i.i.i.i ], [ %55, %60 ], [ %.sroa.010.0.i.i6, %.lr.ph.i.i.i.i.i5 ]
   %62 = load ptr, ptr %15, align 8, !tbaa !158
   %63 = load i32, ptr %62, align 4, !tbaa !132
   %64 = icmp eq i32 %63, 2
@@ -13242,7 +13242,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapImPNS_13DWARFTypeUnitENS_12DenseMapInfoImvEE
   br label %_ZNK4llvm12DenseMapBaseINS_8DenseMapImPNS_13DWARFTypeUnitENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS3_EEEEmS3_S5_S8_E6lookupERKm.exit
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapImPNS_13DWARFTypeUnitENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS3_EEEEmS3_S5_S8_E6lookupERKm.exit: ; preds = %.lr.ph.i.i.i, %21, %19, %17, %_ZNK4llvm12DenseMapBaseINS_8DenseMapImPNS_13DWARFTypeUnitENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS3_EEEEmS3_S5_S8_E6doFindImEEPKS8_RKT_.exit.i, %25
-  %.2 = phi ptr [ %59, %_ZNK4llvm12DenseMapBaseINS_8DenseMapImPNS_13DWARFTypeUnitENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS3_EEEEmS3_S5_S8_E6doFindImEEPKS8_RKT_.exit.i ], [ null, %25 ], [ null, %17 ], [ %spec.select.i.i.i, %21 ], [ null, %19 ], [ null, %.lr.ph.i.i.i ]
+  %.2 = phi ptr [ null, %19 ], [ %59, %_ZNK4llvm12DenseMapBaseINS_8DenseMapImPNS_13DWARFTypeUnitENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS3_EEEEmS3_S5_S8_E6doFindImEEPKS8_RKT_.exit.i ], [ null, %25 ], [ null, %17 ], [ %spec.select.i.i.i, %21 ], [ null, %.lr.ph.i.i.i ]
   ret ptr %.2
 }
 
@@ -13422,7 +13422,7 @@ _ZN4llvm20filter_iterator_baseIPSt10unique_ptrINS_9DWARFUnitESt14default_deleteI
   br label %.thread
 
 .thread:                                          ; preds = %41, %.thread56, %_ZN4llvm20filter_iterator_baseIPSt10unique_ptrINS_9DWARFUnitESt14default_deleteIS2_EEPFbRKS5_ESt26bidirectional_iterator_tagEppEv.exit, %77, %.thread.sink.split, %_ZN4llvm12DWARFContext17dwo_compile_unitsEv.exit, %20, %18
-  %.2 = phi ptr [ null, %20 ], [ null, %18 ], [ null, %_ZN4llvm12DWARFContext17dwo_compile_unitsEv.exit ], [ %spec.select.i.i, %.thread.sink.split ], [ null, %.thread56 ], [ null, %77 ], [ null, %_ZN4llvm20filter_iterator_baseIPSt10unique_ptrINS_9DWARFUnitESt14default_deleteIS2_EEPFbRKS5_ESt26bidirectional_iterator_tagEppEv.exit ], [ null, %41 ]
+  %.2 = phi ptr [ null, %20 ], [ null, %18 ], [ %spec.select.i.i, %.thread.sink.split ], [ null, %.thread56 ], [ null, %_ZN4llvm12DWARFContext17dwo_compile_unitsEv.exit ], [ null, %77 ], [ null, %_ZN4llvm20filter_iterator_baseIPSt10unique_ptrINS_9DWARFUnitESt14default_deleteIS2_EEPFbRKS5_ESt26bidirectional_iterator_tagEppEv.exit ], [ null, %41 ]
   ret ptr %.2
 }
 
@@ -17933,7 +17933,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i197.i.i:     ; preds = %496
   br i1 %500, label %select.unfold.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit169.thread115.i.i
 
 select.unfold.i.i:                                ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i197.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i188.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i179.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i.i
-  %.sroa.17.3.ph.i.i = phi ptr [ %101, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i188.i.i ], [ %110, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i179.i.i ], [ %94, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i.i ], [ %119, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i197.i.i ]
+  %.sroa.17.3.ph.i.i = phi ptr [ %101, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i188.i.i ], [ %94, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i.i ], [ %110, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i179.i.i ], [ %119, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i197.i.i ]
   %501 = call fastcc noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm9MapVectorINS_6object10SectionRefEN12_GLOBAL__N_115DWARFSectionMapESt3mapIS2_jSt4lessIS2_ESaISt4pairIKS2_jEEENS_11SmallVectorIS8_IS2_S4_ELj0EEEEixERS9_(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.17.3.ph.i.i, ptr noundef nonnull align 8 dereferenceable(16) %43), !noalias !697
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %501, ptr noundef nonnull align 8 dereferenceable(16) %46, i64 16, i1 false), !tbaa.struct !747, !noalias !697
   br label %_ZN4llvmeqENS_9StringRefES0_.exit169.thread115.i.i
@@ -28588,7 +28588,7 @@ _ZNSt8optionalIN4llvm8DenseMapImPNS0_13DWARFTypeUnitENS0_12DenseMapInfoImvEENS0_
   br i1 %.not.i10, label %_ZN12_GLOBAL__N_129ThreadUnsafeDWARFContextState17getDWOTypeUnitMapEv.exit, label %.lr.ph.i5
 
 _ZN12_GLOBAL__N_129ThreadUnsafeDWARFContextState17getDWOTypeUnitMapEv.exit: ; preds = %59, %31, %_ZNSt8optionalIN4llvm8DenseMapImPNS0_13DWARFTypeUnitENS0_12DenseMapInfoImvEENS0_6detail12DenseMapPairImS3_EEEEE7emplaceIJEEENSt9enable_ifIX18is_constructible_vIS9_DpT_EERS9_E4typeEDpOSD_.exit.i2, %33, %_ZNSt8optionalIN4llvm8DenseMapImPNS0_13DWARFTypeUnitENS0_12DenseMapInfoImvEENS0_6detail12DenseMapPairImS3_EEEEE7emplaceIJEEENSt9enable_ifIX18is_constructible_vIS9_DpT_EERS9_E4typeEDpOSD_.exit.i, %5
-  %.0 = phi ptr [ %6, %5 ], [ %6, %_ZNSt8optionalIN4llvm8DenseMapImPNS0_13DWARFTypeUnitENS0_12DenseMapInfoImvEENS0_6detail12DenseMapPairImS3_EEEEE7emplaceIJEEENSt9enable_ifIX18is_constructible_vIS9_DpT_EERS9_E4typeEDpOSD_.exit.i ], [ %34, %33 ], [ %34, %_ZNSt8optionalIN4llvm8DenseMapImPNS0_13DWARFTypeUnitENS0_12DenseMapInfoImvEENS0_6detail12DenseMapPairImS3_EEEEE7emplaceIJEEENSt9enable_ifIX18is_constructible_vIS9_DpT_EERS9_E4typeEDpOSD_.exit.i2 ], [ %6, %31 ], [ %34, %59 ]
+  %.0 = phi ptr [ %6, %31 ], [ %6, %5 ], [ %6, %_ZNSt8optionalIN4llvm8DenseMapImPNS0_13DWARFTypeUnitENS0_12DenseMapInfoImvEENS0_6detail12DenseMapPairImS3_EEEEE7emplaceIJEEENSt9enable_ifIX18is_constructible_vIS9_DpT_EERS9_E4typeEDpOSD_.exit.i ], [ %34, %33 ], [ %34, %_ZNSt8optionalIN4llvm8DenseMapImPNS0_13DWARFTypeUnitENS0_12DenseMapInfoImvEENS0_6detail12DenseMapPairImS3_EEEEE7emplaceIJEEENSt9enable_ifIX18is_constructible_vIS9_DpT_EERS9_E4typeEDpOSD_.exit.i2 ], [ %34, %59 ]
   ret ptr %.0
 }
 
@@ -29856,8 +29856,8 @@ _ZSt4copyIN4llvm8DWARFDie8iteratorEN9__gnu_cxx17__normal_iteratorIPS1_St6vectorI
   br i1 %.not.i.i, label %_ZSt7advanceIN4llvm8DWARFDie8iteratorEmEvRT_T0_.exit, label %.lr.ph.i.i55, !llvm.loop !1381
 
 _ZSt7advanceIN4llvm8DWARFDie8iteratorEmEvRT_T0_.exit: ; preds = %.lr.ph.i.i55, %.preheader.i.i, %.preheader8.i.i
-  %.sroa.225.0.copyload = phi ptr [ %3, %.preheader8.i.i ], [ %61, %.preheader.i.i ], [ %65, %.lr.ph.i.i55 ]
-  %.sroa.024.0.copyload = phi ptr [ %2, %.preheader8.i.i ], [ %60, %.preheader.i.i ], [ %64, %.lr.ph.i.i55 ]
+  %.sroa.225.0.copyload = phi ptr [ %61, %.preheader.i.i ], [ %3, %.preheader8.i.i ], [ %65, %.lr.ph.i.i55 ]
+  %.sroa.024.0.copyload = phi ptr [ %60, %.preheader.i.i ], [ %2, %.preheader8.i.i ], [ %64, %.lr.ph.i.i55 ]
   %66 = load ptr, ptr %25, align 8, !tbaa !537
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %.sroa.024.0.copyload, ptr %9, align 8

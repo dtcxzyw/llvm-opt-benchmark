@@ -295,7 +295,7 @@ lean_dec.exit25:                                  ; preds = %40, %39, %37, %.spl
   br label %lean_dec.exit24
 
 .split45.us:                                      ; preds = %lean_dec.exit24, %lean_inc.exit.us, %.split
-  %.us-phi = phi ptr [ %1, %.split ], [ %.017.us, %lean_inc.exit.us ], [ %49, %lean_dec.exit24 ]
+  %.us-phi = phi ptr [ %.017.us, %lean_inc.exit.us ], [ %1, %.split ], [ %49, %lean_dec.exit24 ]
   %59 = ptrtoint ptr %.us-phi to i64
   %60 = and i64 %59, 1
   %.not39 = icmp eq i64 %60, 0

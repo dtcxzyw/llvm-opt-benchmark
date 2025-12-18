@@ -1326,7 +1326,7 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i181: ; preds = %182
   br label %.body
 
 .loopexit233:                                     ; preds = %.lr.ph.i.i.i.i.i.i.i, %.lr.ph254, %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i
-  %.sroa.0.3335 = phi ptr [ null, %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i ], [ null, %.lr.ph254 ], [ %185, %.lr.ph.i.i.i.i.i.i.i ]
+  %.sroa.0.3335 = phi ptr [ null, %.lr.ph254 ], [ null, %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i ], [ %185, %.lr.ph.i.i.i.i.i.i.i ]
   %196 = sub nsw i64 %indvars.iv278, %166
   %197 = load ptr, ptr %15, align 8, !tbaa !70
   %198 = getelementptr inbounds double, ptr %197, i64 %196
@@ -1693,8 +1693,8 @@ _ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSINS_13Cwis
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.lr.ph85.i.i.i.i.i, %357, %350, %255
-  %.0.i122.i = phi double [ %362, %357 ], [ %.0.i.ph.ph.i, %350 ], [ 0.000000e+00, %255 ], [ %.0.i.ph.ph.i, %.lr.ph85.i.i.i.i.i ]
-  %.0.i.i.i146 = phi double [ %363, %357 ], [ %351, %350 ], [ 0.000000e+00, %255 ], [ %355, %.lr.ph85.i.i.i.i.i ]
+  %.0.i122.i = phi double [ 0.000000e+00, %255 ], [ %.0.i.ph.ph.i, %350 ], [ %362, %357 ], [ %.0.i.ph.ph.i, %.lr.ph85.i.i.i.i.i ]
+  %.0.i.i.i146 = phi double [ 0.000000e+00, %255 ], [ %351, %350 ], [ %363, %357 ], [ %355, %.lr.ph85.i.i.i.i.i ]
   %364 = load i64, ptr %165, align 8, !tbaa !28
   %365 = icmp eq i64 %364, 0
   %.pre152.i = load ptr, ptr %13, align 8, !tbaa !26
@@ -1835,7 +1835,7 @@ _ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSINS_13Cwis
   br label %.body151
 
 .loopexit:                                        ; preds = %.lr.ph85.i.i.i78.i, %.loopexit.i, %421, %434
-  %.0.i77.i = phi double [ 0.000000e+00, %.loopexit.i ], [ %439, %434 ], [ %422, %421 ], [ %432, %.lr.ph85.i.i.i78.i ]
+  %.0.i77.i = phi double [ 0.000000e+00, %.loopexit.i ], [ %422, %421 ], [ %439, %434 ], [ %432, %.lr.ph85.i.i.i78.i ]
   %444 = fadd double %.0.i.i.i146, %.0.i77.i
   %445 = fdiv double %.0.i122.i, %444
   %446 = fsub double %199, %445
@@ -2552,7 +2552,7 @@ _ZNSt6vectorIN5Eigen6MatrixIdLi1ELin1ELi1ELi1ELin1EEESaIS2_EEaSESt16initializer_
   br i1 %103, label %.loopexit327, label %99
 
 .loopexit327:                                     ; preds = %99, %.loopexit327.loopexit357, %.thread
-  %.pn137 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread ], [ %lpad.thr_comm.split-lp, %.loopexit327.loopexit357 ], [ %98, %99 ]
+  %.pn137 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %.loopexit327.loopexit357 ], [ %lpad.thr_comm, %.thread ], [ %98, %99 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %104 = load ptr, ptr %11, align 8, !tbaa !26
   call void @free(ptr noundef %104) #23
@@ -2712,7 +2712,7 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i.i.i: ; preds = %_ZN
   br label %_ZNK5Eigen10MatrixBaseINS_6MatrixIdLi1ELin1ELi1ELi1ELin1EEEE3dotIS2_EENS_20ScalarBinaryOpTraitsIdNS_8internal6traitsIT_E6ScalarENS6_17scalar_product_opIdSA_EEE10ReturnTypeERKNS0_IS8_EE.exit
 
 _ZNK5Eigen10MatrixBaseINS_6MatrixIdLi1ELin1ELi1ELi1ELin1EEEE3dotIS2_EENS_20ScalarBinaryOpTraitsIdNS_8internal6traitsIT_E6ScalarENS6_17scalar_product_opIdSA_EEE10ReturnTypeERKNS0_IS8_EE.exit: ; preds = %.lr.ph85.i.i.i.i.i, %123, %166, %174
-  %.0.i.i.i = phi double [ 0.000000e+00, %123 ], [ %176, %174 ], [ %167, %166 ], [ %172, %.lr.ph85.i.i.i.i.i ]
+  %.0.i.i.i = phi double [ 0.000000e+00, %123 ], [ %167, %166 ], [ %176, %174 ], [ %172, %.lr.ph85.i.i.i.i.i ]
   %177 = fadd double %.0.i.i.i, %128
   %178 = getelementptr inbounds nuw i8, ptr %130, i64 24
   %179 = load i64, ptr %178, align 8, !tbaa !28
@@ -2885,8 +2885,8 @@ _ZNK5Eigen10MatrixBaseINS_6MatrixIdLi1ELin1ELi1ELi1ELin1EEEE3dotIS2_EENS_20Scala
   br label %.loopexit325
 
 .loopexit325:                                     ; preds = %.lr.ph85.i.i.i.i.i180, %270, %262, %234
-  %276 = phi double [ %235, %234 ], [ %274, %270 ], [ %236, %262 ], [ %236, %.lr.ph85.i.i.i.i.i180 ]
-  %.0.i.i.i179 = phi double [ 0.000000e+00, %234 ], [ %275, %270 ], [ %263, %262 ], [ %268, %.lr.ph85.i.i.i.i.i180 ]
+  %276 = phi double [ %235, %234 ], [ %236, %262 ], [ %274, %270 ], [ %236, %.lr.ph85.i.i.i.i.i180 ]
+  %.0.i.i.i179 = phi double [ 0.000000e+00, %234 ], [ %263, %262 ], [ %275, %270 ], [ %268, %.lr.ph85.i.i.i.i.i180 ]
   %277 = fadd double %.0.i.i.i179, %127
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
@@ -3137,8 +3137,8 @@ _ZNK5Eigen10MatrixBaseINS_6MatrixIdLi1ELin1ELi1ELi1ELin1EEEE3dotIS2_EENS_20Scala
   br label %_ZNK5Eigen10MatrixBaseINS_6MatrixIdLi1ELin1ELi1ELi1ELin1EEEE3dotIS2_EENS_20ScalarBinaryOpTraitsIdNS_8internal6traitsIT_E6ScalarENS6_17scalar_product_opIdSA_EEE10ReturnTypeERKNS0_IS8_EE.exit230
 
 _ZNK5Eigen10MatrixBaseINS_6MatrixIdLi1ELin1ELi1ELi1ELin1EEEE3dotIS2_EENS_20ScalarBinaryOpTraitsIdNS_8internal6traitsIT_E6ScalarENS6_17scalar_product_opIdSA_EEE10ReturnTypeERKNS0_IS8_EE.exit230: ; preds = %.lr.ph85.i.i.i.i.i217, %_ZNK5Eigen10MatrixBaseINS_6MatrixIdLi1ELin1ELi1ELi1ELin1EEEE3dotIS2_EENS_20ScalarBinaryOpTraitsIdNS_8internal6traitsIT_E6ScalarENS6_17scalar_product_opIdSA_EEE10ReturnTypeERKNS0_IS8_EE.exit212, %388, %398
-  %407 = phi double [ %350, %_ZNK5Eigen10MatrixBaseINS_6MatrixIdLi1ELin1ELi1ELi1ELin1EEEE3dotIS2_EENS_20ScalarBinaryOpTraitsIdNS_8internal6traitsIT_E6ScalarENS6_17scalar_product_opIdSA_EEE10ReturnTypeERKNS0_IS8_EE.exit212 ], [ %402, %398 ], [ %351, %388 ], [ %351, %.lr.ph85.i.i.i.i.i217 ]
-  %.0.i.i.i216 = phi double [ 0.000000e+00, %_ZNK5Eigen10MatrixBaseINS_6MatrixIdLi1ELin1ELi1ELi1ELin1EEEE3dotIS2_EENS_20ScalarBinaryOpTraitsIdNS_8internal6traitsIT_E6ScalarENS6_17scalar_product_opIdSA_EEE10ReturnTypeERKNS0_IS8_EE.exit212 ], [ %406, %398 ], [ %389, %388 ], [ %396, %.lr.ph85.i.i.i.i.i217 ]
+  %407 = phi double [ %350, %_ZNK5Eigen10MatrixBaseINS_6MatrixIdLi1ELin1ELi1ELi1ELin1EEEE3dotIS2_EENS_20ScalarBinaryOpTraitsIdNS_8internal6traitsIT_E6ScalarENS6_17scalar_product_opIdSA_EEE10ReturnTypeERKNS0_IS8_EE.exit212 ], [ %351, %388 ], [ %402, %398 ], [ %351, %.lr.ph85.i.i.i.i.i217 ]
+  %.0.i.i.i216 = phi double [ 0.000000e+00, %_ZNK5Eigen10MatrixBaseINS_6MatrixIdLi1ELin1ELi1ELi1ELin1EEEE3dotIS2_EENS_20ScalarBinaryOpTraitsIdNS_8internal6traitsIT_E6ScalarENS6_17scalar_product_opIdSA_EEE10ReturnTypeERKNS0_IS8_EE.exit212 ], [ %389, %388 ], [ %406, %398 ], [ %396, %.lr.ph85.i.i.i.i.i217 ]
   %408 = fadd double %.0.i.i.i216, %124
   call void @free(ptr noundef %.pre) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %14)

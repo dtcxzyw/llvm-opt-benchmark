@@ -696,7 +696,7 @@ define internal range(i32 -2147483648, 1) i32 @config_props(ptr noundef %0) #1 {
   br i1 %exitcond189.not, label %.loopexit, label %87, !llvm.loop !68
 
 .loopexit:                                        ; preds = %87, %.preheader128, %84, %86, %69
-  %91 = phi i32 [ %70, %84 ], [ %.pre, %86 ], [ %70, %69 ], [ %70, %.preheader128 ], [ %70, %87 ]
+  %91 = phi i32 [ %70, %.preheader128 ], [ %70, %69 ], [ %70, %84 ], [ %.pre, %86 ], [ %70, %87 ]
   %indvars.iv.next191 = add nuw nsw i64 %indvars.iv190, 1
   %92 = sext i32 %91 to i64
   %93 = icmp slt i64 %indvars.iv.next191, %92

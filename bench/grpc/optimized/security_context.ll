@@ -1592,7 +1592,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi37EEERS2_RAT__Kc.exit: ; pr
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %49, %.critedge17, %12, %57, %37
-  %.012 = phi ptr [ %58, %57 ], [ null, %.critedge17 ], [ %40, %37 ], [ null, %12 ], [ %47, %49 ], [ null, %.lr.ph ]
+  %.012 = phi ptr [ %58, %57 ], [ null, %.critedge17 ], [ %40, %37 ], [ %47, %49 ], [ null, %12 ], [ null, %.lr.ph ]
   ret ptr %.012
 }
 

@@ -413,7 +413,7 @@ define hidden range(i32 -1, 1) i32 @phar_parse_tarfile(ptr noundef %0, ptr nound
   br i1 %exitcond24.not.i, label %phar_tar_number.exit, label %.lr.ph.i
 
 phar_tar_number.exit:                             ; preds = %.lr.ph.i, %93
-  %.017.lcssa.i = phi i32 [ %.01720.i, %.lr.ph.i ], [ %96, %93 ]
+  %.017.lcssa.i = phi i32 [ %96, %93 ], [ %.01720.i, %.lr.ph.i ]
   %98 = icmp eq i32 %.017.lcssa.i, 0
   br i1 %98, label %.lr.ph.i528.preheader, label %103
 
@@ -671,7 +671,7 @@ phar_tar_number.exit550:                          ; preds = %118, %.lr.ph.i543, 
   br i1 %exitcond24.not.i559, label %phar_tar_number.exit561, label %.lr.ph.i554
 
 phar_tar_number.exit561:                          ; preds = %.lr.ph.i554, %197
-  %.017.lcssa.i553 = phi i32 [ %.01720.i556, %.lr.ph.i554 ], [ %200, %197 ]
+  %.017.lcssa.i553 = phi i32 [ %200, %197 ], [ %.01720.i556, %.lr.ph.i554 ]
   %202 = icmp eq i32 %.017.lcssa.i553, 0
   br i1 %202, label %.lr.ph.i562.preheader, label %207
 
@@ -1928,7 +1928,7 @@ zend_hash_str_find_ptr.exit527.thread:            ; preds = %697, %699
   br label %.thread647
 
 .thread647:                                       ; preds = %.thread647.loopexit, %283, %269, %248, %218, %zend_string_release_ex.exit511, %589, %574, %546, %618, %608, %536, %zend_string_release_ex.exit, %737, %738, %.critedge498, %.critedge496, %628, %630, %670, %26
-  %.0 = phi i32 [ -1, %26 ], [ -1, %670 ], [ -1, %628 ], [ -1, %.critedge496 ], [ -1, %.critedge498 ], [ -1, %630 ], [ 0, %738 ], [ 0, %737 ], [ -1, %zend_string_release_ex.exit ], [ -1, %536 ], [ -1, %608 ], [ -1, %618 ], [ -1, %546 ], [ -1, %574 ], [ -1, %589 ], [ -1, %zend_string_release_ex.exit511 ], [ -1, %218 ], [ -1, %248 ], [ -1, %269 ], [ -1, %283 ], [ -1, %.thread647.loopexit ]
+  %.0 = phi i32 [ -1, %26 ], [ -1, %283 ], [ -1, %670 ], [ -1, %628 ], [ -1, %.critedge496 ], [ -1, %.critedge498 ], [ -1, %630 ], [ 0, %738 ], [ 0, %737 ], [ -1, %zend_string_release_ex.exit ], [ -1, %536 ], [ -1, %608 ], [ -1, %618 ], [ -1, %546 ], [ -1, %574 ], [ -1, %589 ], [ -1, %zend_string_release_ex.exit511 ], [ -1, %218 ], [ -1, %248 ], [ -1, %269 ], [ -1, %.thread647.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.12)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.31)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.41)

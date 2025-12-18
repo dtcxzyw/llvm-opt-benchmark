@@ -2663,7 +2663,7 @@ UpdateAudioStreamInputSpec.exit:                  ; preds = %123
   %or.cond.i.i = and i1 %164, %163
   %165 = icmp eq i64 %162, 0
   %166 = or i1 %165, %or.cond.i.i
-  br i1 %166, label %167, label %183
+  br i1 %166, label %167, label %181
 
 167:                                              ; preds = %135
   %.not116.i = icmp ne i32 %144, %146
@@ -2702,92 +2702,92 @@ EnsureAudioStreamWorkBufferSize.exit.i:           ; preds = %169
   %179 = load ptr, ptr %95, align 8
   %180 = call ptr @SDL_ReadFromAudioQueue(ptr noundef %179, ptr noundef nonnull %143, i32 noundef %146, i32 noundef %147, ptr noundef %148, i32 noundef 0, i32 noundef %141, i32 noundef 0, ptr noundef %.0106.i, float noundef %38) #11
   %.not118.i = icmp eq ptr %180, %143
-  br i1 %.not118.i, label %.thread126, label %181
+  br i1 %.not118.i, label %.thread126, label %GetAudioStreamDataInternal.exit
 
-181:                                              ; preds = %178
-  %182 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.24) #11
-  %cond.fr118 = freeze i1 %182
-  br i1 %cond.fr118, label %231, label %.thread123.loopexit.split.loop.exit137
-
-183:                                              ; preds = %135
+181:                                              ; preds = %135
   %sext = shl i64 %140, 32
-  %184 = ashr exact i64 %sext, 32
-  %185 = load i64, ptr %96, align 8
-  %186 = call i64 @SDL_GetResamplerInputFrames(i64 noundef %184, i64 noundef %162, i64 noundef %185) #11
-  %187 = trunc i64 %186 to i32
-  %188 = call i32 @SDL_GetResamplerPaddingFrames(i64 noundef %162) #11
-  %189 = call i32 @llvm.smin.i32(i32 %145, i32 %147)
-  %190 = shl i32 %189, 2
-  %191 = shl nsw i32 %188, 1
-  %192 = add nsw i32 %191, %187
-  %193 = mul nsw i32 %192, %156
+  %182 = ashr exact i64 %sext, 32
+  %183 = load i64, ptr %96, align 8
+  %184 = call i64 @SDL_GetResamplerInputFrames(i64 noundef %182, i64 noundef %162, i64 noundef %183) #11
+  %185 = trunc i64 %184 to i32
+  %186 = call i32 @SDL_GetResamplerPaddingFrames(i64 noundef %162) #11
+  %187 = call i32 @llvm.smin.i32(i32 %145, i32 %147)
+  %188 = shl i32 %187, 2
+  %189 = shl nsw i32 %186, 1
+  %190 = add nsw i32 %189, %185
+  %191 = mul nsw i32 %190, %156
   %.not.i99 = icmp ne i32 %146, 33056
-  %194 = icmp slt i32 %145, %147
-  %or.cond119.i = or i1 %.not.i99, %194
-  br i1 %or.cond119.i, label %195, label %206
+  %192 = icmp slt i32 %145, %147
+  %or.cond119.i = or i1 %.not.i99, %192
+  br i1 %or.cond119.i, label %193, label %204
 
-195:                                              ; preds = %183
-  %196 = mul nsw i32 %156, %141
-  %197 = call i32 @llvm.smax.i32(i32 %193, i32 %196)
-  %198 = call i64 @SDL_GetSIMDAlignment_REAL() #11
-  %199 = trunc i64 %198 to i32
-  %200 = add i32 %197, -1
-  %201 = add i32 %200, %199
-  %202 = srem i32 %201, %199
-  %203 = sub nsw i32 %201, %202
-  %204 = mul nsw i32 %190, %141
-  %205 = add nsw i32 %203, %204
-  br label %206
+193:                                              ; preds = %181
+  %194 = mul nsw i32 %156, %141
+  %195 = call i32 @llvm.smax.i32(i32 %191, i32 %194)
+  %196 = call i64 @SDL_GetSIMDAlignment_REAL() #11
+  %197 = trunc i64 %196 to i32
+  %198 = add i32 %195, -1
+  %199 = add i32 %198, %197
+  %200 = srem i32 %199, %197
+  %201 = sub nsw i32 %199, %200
+  %202 = mul nsw i32 %188, %141
+  %203 = add nsw i32 %201, %202
+  br label %204
 
-206:                                              ; preds = %195, %183
-  %.0108.i = phi i32 [ %203, %195 ], [ -1, %183 ]
-  %.0107.i = phi i32 [ %205, %195 ], [ %193, %183 ]
-  %207 = sext i32 %.0107.i to i64
-  %208 = load i64, ptr %106, align 8
-  %.not.i121.i = icmp ult i64 %208, %207
-  br i1 %.not.i121.i, label %209, label %EnsureAudioStreamWorkBufferSize.exit124.i
+204:                                              ; preds = %193, %181
+  %.0108.i = phi i32 [ %201, %193 ], [ -1, %181 ]
+  %.0107.i = phi i32 [ %203, %193 ], [ %191, %181 ]
+  %205 = sext i32 %.0107.i to i64
+  %206 = load i64, ptr %106, align 8
+  %.not.i121.i = icmp ult i64 %206, %205
+  br i1 %.not.i121.i, label %207, label %EnsureAudioStreamWorkBufferSize.exit124.i
 
-209:                                              ; preds = %206
-  %210 = call i64 @SDL_GetSIMDAlignment_REAL() #11
-  %211 = call noalias ptr @SDL_aligned_alloc_REAL(i64 noundef %210, i64 noundef range(i64 -2147483648, 2147483648) %207) #11
-  %.not13.i123.i = icmp eq ptr %211, null
+207:                                              ; preds = %204
+  %208 = call i64 @SDL_GetSIMDAlignment_REAL() #11
+  %209 = call noalias ptr @SDL_aligned_alloc_REAL(i64 noundef %208, i64 noundef range(i64 -2147483648, 2147483648) %205) #11
+  %.not13.i123.i = icmp eq ptr %209, null
   br i1 %.not13.i123.i, label %.thread, label %EnsureAudioStreamWorkBufferSize.exit124.thread132.i
 
-EnsureAudioStreamWorkBufferSize.exit124.thread132.i: ; preds = %209
-  %212 = load ptr, ptr %107, align 8
-  call void @SDL_aligned_free_REAL(ptr noundef %212) #11
-  store ptr %211, ptr %107, align 8
-  store i64 %207, ptr %106, align 8
-  br label %214
+EnsureAudioStreamWorkBufferSize.exit124.thread132.i: ; preds = %207
+  %210 = load ptr, ptr %107, align 8
+  call void @SDL_aligned_free_REAL(ptr noundef %210) #11
+  store ptr %209, ptr %107, align 8
+  store i64 %205, ptr %106, align 8
+  br label %212
 
-EnsureAudioStreamWorkBufferSize.exit124.i:        ; preds = %206
-  %213 = load ptr, ptr %107, align 8
-  %.not113.i = icmp eq ptr %213, null
-  br i1 %.not113.i, label %.thread, label %214
+EnsureAudioStreamWorkBufferSize.exit124.i:        ; preds = %204
+  %211 = load ptr, ptr %107, align 8
+  %.not113.i = icmp eq ptr %211, null
+  br i1 %.not113.i, label %.thread, label %212
 
-214:                                              ; preds = %EnsureAudioStreamWorkBufferSize.exit124.i, %EnsureAudioStreamWorkBufferSize.exit124.thread132.i
-  %.0.i122135.i = phi ptr [ %211, %EnsureAudioStreamWorkBufferSize.exit124.thread132.i ], [ %213, %EnsureAudioStreamWorkBufferSize.exit124.i ]
-  %215 = icmp slt i32 %141, %187
-  %216 = select i1 %215, float 1.000000e+00, float %38
-  %217 = load ptr, ptr %95, align 8
-  %218 = call ptr @SDL_ReadFromAudioQueue(ptr noundef %217, ptr noundef null, i32 noundef 33056, i32 noundef %189, ptr noundef null, i32 noundef %188, i32 noundef %187, i32 noundef %188, ptr noundef nonnull %.0.i122135.i, float noundef %216) #11
-  %.not114.i = icmp eq ptr %218, null
-  br i1 %.not114.i, label %GetAudioStreamDataInternal.exit, label %219
+212:                                              ; preds = %EnsureAudioStreamWorkBufferSize.exit124.i, %EnsureAudioStreamWorkBufferSize.exit124.thread132.i
+  %.0.i122135.i = phi ptr [ %209, %EnsureAudioStreamWorkBufferSize.exit124.thread132.i ], [ %211, %EnsureAudioStreamWorkBufferSize.exit124.i ]
+  %213 = icmp slt i32 %141, %185
+  %214 = select i1 %213, float 1.000000e+00, float %38
+  %215 = load ptr, ptr %95, align 8
+  %216 = call ptr @SDL_ReadFromAudioQueue(ptr noundef %215, ptr noundef null, i32 noundef 33056, i32 noundef %187, ptr noundef null, i32 noundef %186, i32 noundef %185, i32 noundef %186, ptr noundef nonnull %.0.i122135.i, float noundef %214) #11
+  %.not114.i = icmp eq ptr %216, null
+  br i1 %.not114.i, label %217, label %219
 
-219:                                              ; preds = %214
-  %220 = select i1 %215, float %38, float 1.000000e+00
-  %221 = mul nsw i32 %188, %190
+217:                                              ; preds = %212
+  %218 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.25) #11
+  %cond.fr118 = freeze i1 %218
+  br i1 %cond.fr118, label %231, label %.thread123.loopexit.split.loop.exit137
+
+219:                                              ; preds = %212
+  %220 = select i1 %213, float %38, float 1.000000e+00
+  %221 = mul nsw i32 %186, %188
   %222 = sext i32 %221 to i64
-  %223 = getelementptr inbounds i8, ptr %218, i64 %222
+  %223 = getelementptr inbounds i8, ptr %216, i64 %222
   %.not115.i = icmp eq i32 %.0108.i, -1
   %224 = sext i32 %.0108.i to i64
   %225 = getelementptr inbounds i8, ptr %.0.i122135.i, i64 %224
   %226 = select i1 %.not115.i, ptr %143, ptr %225
-  call void @SDL_ResampleAudio(i32 noundef %189, ptr noundef nonnull %223, i32 noundef %187, ptr noundef nonnull %226, i32 noundef %141, i64 noundef %162, ptr noundef nonnull %96) #11
-  call void @ConvertAudio(i32 noundef %141, ptr noundef nonnull %226, i32 noundef 33056, i32 noundef %189, ptr noundef null, ptr noundef nonnull %143, i32 noundef %146, i32 noundef %147, ptr noundef %148, ptr noundef nonnull %.0.i122135.i, float noundef %220)
+  call void @SDL_ResampleAudio(i32 noundef %187, ptr noundef nonnull %223, i32 noundef %185, ptr noundef nonnull %226, i32 noundef %141, i64 noundef %162, ptr noundef nonnull %96) #11
+  call void @ConvertAudio(i32 noundef %141, ptr noundef nonnull %226, i32 noundef 33056, i32 noundef %187, ptr noundef null, ptr noundef nonnull %143, i32 noundef %146, i32 noundef %147, ptr noundef %148, ptr noundef nonnull %.0.i122135.i, float noundef %220)
   br label %.thread126
 
-.thread:                                          ; preds = %209, %173, %EnsureAudioStreamWorkBufferSize.exit124.i, %EnsureAudioStreamWorkBufferSize.exit.i
+.thread:                                          ; preds = %207, %173, %EnsureAudioStreamWorkBufferSize.exit124.i, %EnsureAudioStreamWorkBufferSize.exit.i
   %.not93108 = icmp eq i32 %.078145, 0
   %227 = select i1 %.not93108, i32 -1, i32 %.078145
   br label %.thread123
@@ -2797,17 +2797,17 @@ EnsureAudioStreamWorkBufferSize.exit124.i:        ; preds = %206
   %229 = add nsw i32 %228, %.078145
   br label %235
 
-GetAudioStreamDataInternal.exit:                  ; preds = %214
-  %230 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.25) #11
+GetAudioStreamDataInternal.exit:                  ; preds = %178
+  %230 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.24) #11
   %cond.fr = freeze i1 %230
   br i1 %cond.fr, label %231, label %.thread123.loopexit.split.loop.exit139
 
-231:                                              ; preds = %181, %GetAudioStreamDataInternal.exit
+231:                                              ; preds = %217, %GetAudioStreamDataInternal.exit
   %.pn = mul nsw i32 %44, %141
   %232 = add nsw i32 %.pn, %.078145
   br label %235
 
-.thread123.loopexit.split.loop.exit137:           ; preds = %181
+.thread123.loopexit.split.loop.exit137:           ; preds = %217
   %.not93117.le = icmp eq i32 %.078145, 0
   %233 = select i1 %.not93117.le, i32 -1, i32 %.078145
   br label %.thread123

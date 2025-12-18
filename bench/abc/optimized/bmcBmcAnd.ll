@@ -4494,8 +4494,8 @@ Gia_ManBmcCheckOutputs.exit.thread.loopexit:      ; preds = %92
   br label %Gia_ManBmcCheckOutputs.exit.thread
 
 Gia_ManBmcCheckOutputs.exit.thread:               ; preds = %39, %Gia_ManBmcCheckOutputs.exit.thread.loopexit, %Gia_ManBmcCheckOutputs.exit, %27, %.loopexit133
-  %.175 = phi i32 [ %.276132138, %.loopexit133 ], [ %.074, %27 ], [ %60, %Gia_ManBmcCheckOutputs.exit ], [ %98, %Gia_ManBmcCheckOutputs.exit.thread.loopexit ], [ %.074, %39 ]
-  %.2 = phi i32 [ %spec.select84, %.loopexit133 ], [ -2, %27 ], [ -2, %Gia_ManBmcCheckOutputs.exit ], [ -2, %Gia_ManBmcCheckOutputs.exit.thread.loopexit ], [ -2, %39 ]
+  %.175 = phi i32 [ %98, %Gia_ManBmcCheckOutputs.exit.thread.loopexit ], [ %.276132138, %.loopexit133 ], [ %.074, %27 ], [ %60, %Gia_ManBmcCheckOutputs.exit ], [ %.074, %39 ]
+  %.2 = phi i32 [ -2, %Gia_ManBmcCheckOutputs.exit.thread.loopexit ], [ %spec.select84, %.loopexit133 ], [ -2, %27 ], [ -2, %Gia_ManBmcCheckOutputs.exit ], [ -2, %39 ]
   %99 = load i32, ptr %21, align 4, !tbaa !116
   %.not80 = icmp eq i32 %99, 0
   br i1 %.not80, label %140, label %100

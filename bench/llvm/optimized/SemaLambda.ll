@@ -2378,7 +2378,7 @@ _ZNK5clang10ASTContext15getTypeDeclTypeEPKNS_8TypeDeclES3_.exit: ; preds = %48, 
   %.not.i47 = icmp eq ptr %88, %57
   br i1 %.not.i47, label %_ZL24adjustBlockReturnsToEnumRN5clang4SemaEN4llvm8ArrayRefIPNS_10ReturnStmtEEENS_8QualTypeE.exit, label %62, !llvm.loop !1015
 
-.critedge:                                        ; preds = %35, %_ZL22findEnumForBlockReturnPN5clang10ReturnStmtE.exit18.i, %28, %_ZNK5clang7TagDecl17hasNameForLinkageEv.exit.i, %_ZL22findEnumForBlockReturnPN5clang10ReturnStmtE.exit.i, %23
+.critedge:                                        ; preds = %35, %_ZL22findEnumForBlockReturnPN5clang10ReturnStmtE.exit18.i, %_ZNK5clang7TagDecl17hasNameForLinkageEv.exit.i, %28, %_ZL22findEnumForBlockReturnPN5clang10ReturnStmtE.exit.i, %23
   %89 = load i32, ptr %10, align 8, !tbaa !818
   %90 = icmp eq i32 %89, 1
   br i1 %90, label %_ZL24adjustBlockReturnsToEnumRN5clang4SemaEN4llvm8ArrayRefIPNS_10ReturnStmtEEENS_8QualTypeE.exit, label %91
@@ -3942,7 +3942,7 @@ _ZN4llvm19SmallPtrSetIteratorIPN5clang4DeclEEppEv.exit.i.i.i.i.i.i: ; preds = %.
   br label %.critedge5
 
 .critedge5:                                       ; preds = %_ZN4llvm19SmallPtrSetIteratorIPN5clang4DeclEEppEv.exit.i.i.i.i.i.i, %"_ZN4llvm6any_ofINS_14iterator_rangeINS_19SmallPtrSetIteratorIPN5clang4DeclEEEEEZNS3_4Sema36ActOnLambdaExpressionAfterIntroducerERNS3_16LambdaIntroducerEPNS3_5ScopeEE3$_0EEbOT_T0_.exit", %_ZNK5clang5Scope5declsEv.exit, %.critedge, %69, %58
-  %.0 = phi i32 [ 1, %58 ], [ 0, %69 ], [ 0, %_ZNK5clang5Scope5declsEv.exit ], [ %spec.select, %"_ZN4llvm6any_ofINS_14iterator_rangeINS_19SmallPtrSetIteratorIPN5clang4DeclEEEEEZNS3_4Sema36ActOnLambdaExpressionAfterIntroducerERNS3_16LambdaIntroducerEPNS3_5ScopeEE3$_0EEbOT_T0_.exit" ], [ 0, %.critedge ], [ 0, %_ZN4llvm19SmallPtrSetIteratorIPN5clang4DeclEEppEv.exit.i.i.i.i.i.i ]
+  %.0 = phi i32 [ 1, %58 ], [ 0, %69 ], [ 0, %_ZNK5clang5Scope5declsEv.exit ], [ 0, %.critedge ], [ %spec.select, %"_ZN4llvm6any_ofINS_14iterator_rangeINS_19SmallPtrSetIteratorIPN5clang4DeclEEEEEZNS3_4Sema36ActOnLambdaExpressionAfterIntroducerERNS3_16LambdaIntroducerEPNS3_5ScopeEE3$_0EEbOT_T0_.exit" ], [ 0, %_ZN4llvm19SmallPtrSetIteratorIPN5clang4DeclEEppEv.exit.i.i.i.i.i.i ]
   %.sroa.0130.0.copyload = load i64, ptr %1, align 8
   %124 = load i32, ptr %55, align 4, !tbaa !1085
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 552
@@ -11330,7 +11330,7 @@ _ZN4llvm16dyn_cast_or_nullIN5clang7VarDeclENS1_9ValueDeclEEEDaPT0_.exit: ; preds
   br label %_ZNK5clang14DeclaratorDecl17getTypeSourceInfoEv.exit
 
 _ZNK5clang14DeclaratorDecl17getTypeSourceInfoEv.exit: ; preds = %33, %28
-  %.0 = phi ptr [ %35, %33 ], [ %32, %28 ]
+  %.0 = phi ptr [ %32, %28 ], [ %35, %33 ]
   %.not35 = icmp eq ptr %.0, null
   br i1 %.not35, label %_ZNK5clang14DeclaratorDecl17getTypeSourceInfoEv.exit.thread, label %39
 
@@ -12034,7 +12034,7 @@ _ZN5clang20isLambdaCallOperatorEPKNS_11DeclContextE.exit.thread: ; preds = %29, 
   br label %_ZL22getPatternFunctionDeclPN5clang12FunctionDeclE.exit
 
 _ZL22getPatternFunctionDeclPN5clang12FunctionDeclE.exit: ; preds = %.lr.ph24.i, %.preheader.i, %47, %._crit_edge.i
-  %58 = phi ptr [ %48, %47 ], [ %57, %._crit_edge.i ], [ %2, %.preheader.i ], [ %42, %.lr.ph24.i ]
+  %58 = phi ptr [ %2, %.preheader.i ], [ %48, %47 ], [ %57, %._crit_edge.i ], [ %42, %.lr.ph24.i ]
   store ptr %58, ptr %8, align 8, !tbaa !1615
   %.not = icmp ne ptr %58, null
   %brmerge.not = and i1 %5, %.not
@@ -12480,7 +12480,7 @@ _ZN5clang12CompoundStmt9body_backEv.exit:         ; preds = %38
   br label %.thread81
 
 .thread81:                                        ; preds = %38, %_ZN5clang12CompoundStmt9body_backEv.exit, %49, %26, %79, %67, %tailrecurse._crit_edge, %_ZN5clang4Decl14getDeclContextEv.exit, %57, %62
-  %.2 = phi ptr [ null, %tailrecurse._crit_edge ], [ null, %62 ], [ %56, %57 ], [ %22, %_ZN5clang4Decl14getDeclContextEv.exit ], [ %80, %79 ], [ null, %67 ], [ null, %26 ], [ null, %49 ], [ null, %_ZN5clang12CompoundStmt9body_backEv.exit ], [ null, %38 ]
+  %.2 = phi ptr [ null, %67 ], [ null, %tailrecurse._crit_edge ], [ %80, %79 ], [ %22, %_ZN5clang4Decl14getDeclContextEv.exit ], [ null, %62 ], [ %56, %57 ], [ null, %26 ], [ null, %49 ], [ null, %_ZN5clang12CompoundStmt9body_backEv.exit ], [ null, %38 ]
   ret ptr %.2
 }
 

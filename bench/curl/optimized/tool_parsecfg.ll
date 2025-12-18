@@ -194,7 +194,7 @@ my_get_line.exit:                                 ; preds = %21
   br label %.loopexit270.preheader
 
 .loopexit270.preheader:                           ; preds = %.split, %.split.us, %.critedge6.thread
-  %.3159.ph = phi ptr [ %46, %.critedge6.thread ], [ %.1157.us, %.split.us ], [ %.1157, %.split ]
+  %.3159.ph = phi ptr [ %.1157.us, %.split.us ], [ %46, %.critedge6.thread ], [ %.1157, %.split ]
   br label %.loopexit270
 
 .loopexit270:                                     ; preds = %.loopexit270.preheader, %.critedge10
@@ -279,7 +279,7 @@ my_get_line.exit:                                 ; preds = %21
   br label %.thread.i
 
 .thread.i:                                        ; preds = %60, %.thread.i.loopexit424, %.thread.i.loopexit390, %.thread.i.loopexit357, %.thread.i.loopexit309
-  %.012.i = phi i8 [ 11, %.thread.i.loopexit309 ], [ %62, %.thread.i.loopexit357 ], [ 9, %.thread.i.loopexit390 ], [ 10, %.thread.i.loopexit424 ], [ 13, %60 ]
+  %.012.i = phi i8 [ 10, %.thread.i.loopexit424 ], [ 11, %.thread.i.loopexit309 ], [ %62, %.thread.i.loopexit357 ], [ 9, %.thread.i.loopexit390 ], [ 13, %60 ]
   store i8 %.012.i, ptr %.013.ph.i, align 1, !tbaa !21
   %63 = getelementptr inbounds nuw i8, ptr %.014.i, i64 2
   br label %66
@@ -412,7 +412,7 @@ unslashquote.exit:                                ; preds = %58, %58
   br label %.thread248
 
 105:                                              ; preds = %.thread246, %90
-  %.1148 = phi i32 [ %82, %90 ], [ %spec.select222, %.thread246 ]
+  %.1148 = phi i32 [ %spec.select222, %.thread246 ], [ %82, %90 ]
   %106 = and i32 %.1148, -17
   %or.cond21.not = icmp eq i32 %106, 0
   br i1 %or.cond21.not, label %.thread248, label %sub_0266
@@ -454,9 +454,9 @@ sub_1267:                                         ; preds = %sub_0266
   br label %.critedge2.thread
 
 .critedge2.thread:                                ; preds = %.preheader271, %.thread248, %117, %.critedge2, %.critedge2, %.critedge2, %.critedge2
-  %.1174 = phi ptr [ %.0173303, %.critedge2 ], [ %.0173303, %.critedge2 ], [ %.0173303, %.critedge2 ], [ %.0173303, %.critedge2 ], [ %.2175252, %117 ], [ %.2175252, %.thread248 ], [ %.0173303, %.preheader271 ]
-  %.2166 = phi i32 [ 0, %.critedge2 ], [ 0, %.critedge2 ], [ 0, %.critedge2 ], [ 0, %.critedge2 ], [ %.3167, %117 ], [ %.3167, %.thread248 ], [ 0, %.preheader271 ]
-  %.4 = phi ptr [ %.3306, %.critedge2 ], [ %.3306, %.critedge2 ], [ %.3306, %.critedge2 ], [ %.3306, %.critedge2 ], [ %.5, %117 ], [ %.5, %.thread248 ], [ %.3306, %.preheader271 ]
+  %.1174 = phi ptr [ %.0173303, %.critedge2 ], [ %.2175252, %.thread248 ], [ %.0173303, %.critedge2 ], [ %.0173303, %.critedge2 ], [ %.0173303, %.critedge2 ], [ %.2175252, %117 ], [ %.0173303, %.preheader271 ]
+  %.2166 = phi i32 [ 0, %.critedge2 ], [ %.3167, %.thread248 ], [ 0, %.critedge2 ], [ 0, %.critedge2 ], [ 0, %.critedge2 ], [ %.3167, %117 ], [ 0, %.preheader271 ]
+  %.4 = phi ptr [ %.3306, %.critedge2 ], [ %.5, %.thread248 ], [ %.3306, %.critedge2 ], [ %.3306, %.critedge2 ], [ %.3306, %.critedge2 ], [ %.5, %117 ], [ %.3306, %.preheader271 ]
   call void @curlx_dyn_reset(ptr noundef nonnull %5) #7
   %.not196 = icmp eq i32 %.2166, 0
   br i1 %.not196, label %20, label %.critedge

@@ -446,7 +446,7 @@ define internal fastcc double @_parse_unary_expression(ptr noundef %0) unnamed_a
   ]
 
 common.ret82:                                     ; preds = %18, %38, %_parse_expression.exit, %14, %20, %1, %.lr.ph41, %36, %tailrecurse, %.lr.ph, %6, %9
-  %common.ret82.op = phi double [ %12, %9 ], [ 0x7FF8000000000000, %36 ], [ 0x7FF8000000000000, %18 ], [ %16, %14 ], [ %.022.i.i40, %38 ], [ 0x7FF8000000000000, %_parse_expression.exit ], [ 0x7FF8000000000000, %1 ], [ 0x7FF8000000000000, %20 ], [ 0x7FF8000000000000, %.lr.ph41 ], [ 0x7FF8000000000000, %tailrecurse ], [ 0x7FF8000000000000, %.lr.ph ], [ 0x7FF8000000000000, %6 ]
+  %common.ret82.op = phi double [ %12, %9 ], [ 0x7FF8000000000000, %36 ], [ 0x7FF8000000000000, %20 ], [ 0x7FF8000000000000, %18 ], [ 0x7FF8000000000000, %1 ], [ %16, %14 ], [ %.022.i.i40, %38 ], [ 0x7FF8000000000000, %_parse_expression.exit ], [ 0x7FF8000000000000, %.lr.ph41 ], [ 0x7FF8000000000000, %tailrecurse ], [ 0x7FF8000000000000, %.lr.ph ], [ 0x7FF8000000000000, %6 ]
   ret double %common.ret82.op
 
 9:                                                ; preds = %6

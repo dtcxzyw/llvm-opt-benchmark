@@ -4374,7 +4374,7 @@ return.fold.split:                                ; preds = %entry
   br label %return
 
 return:                                           ; preds = %entry, %return.fold.split, %"_ZN5eastl8internal20function_base_detailILi24EE21function_manager_baseIZ32TestFixedFunctionExistingClosurevE3$_0vE15DestructFunctorERNS0_15functor_storageILi24EEE.exit22.i", %sw.bb1.i, %"_ZN5eastl8internal20function_base_detailILi24EE21function_manager_baseIZ32TestFixedFunctionExistingClosurevE3$_0vE15DestructFunctorERNS0_15functor_storageILi24EEE.exit.i", %sw.bb1
-  %retval.0 = phi ptr [ @"_ZTIZ32TestFixedFunctionExistingClosurevE3$_0", %entry ], [ %to, %sw.bb1 ], [ null, %"_ZN5eastl8internal20function_base_detailILi24EE21function_manager_baseIZ32TestFixedFunctionExistingClosurevE3$_0vE15DestructFunctorERNS0_15functor_storageILi24EEE.exit.i" ], [ null, %sw.bb1.i ], [ null, %"_ZN5eastl8internal20function_base_detailILi24EE21function_manager_baseIZ32TestFixedFunctionExistingClosurevE3$_0vE15DestructFunctorERNS0_15functor_storageILi24EEE.exit22.i" ], [ null, %return.fold.split ]
+  %retval.0 = phi ptr [ @"_ZTIZ32TestFixedFunctionExistingClosurevE3$_0", %entry ], [ %to, %sw.bb1 ], [ null, %"_ZN5eastl8internal20function_base_detailILi24EE21function_manager_baseIZ32TestFixedFunctionExistingClosurevE3$_0vE15DestructFunctorERNS0_15functor_storageILi24EEE.exit22.i" ], [ null, %"_ZN5eastl8internal20function_base_detailILi24EE21function_manager_baseIZ32TestFixedFunctionExistingClosurevE3$_0vE15DestructFunctorERNS0_15functor_storageILi24EEE.exit.i" ], [ null, %sw.bb1.i ], [ null, %return.fold.split ]
   ret ptr %retval.0
 }
 

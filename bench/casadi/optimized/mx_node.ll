@@ -31429,7 +31429,7 @@ _ZNK6casadi13GenericMatrixINS_2MXEE5size2Ev.exit66: ; preds = %.noexc64
 
 .invoke:                                          ; preds = %119, %_ZNK6casadi6MXNode5size2Ev.exit, %.lr.ph
   %126 = phi i64 [ %.1106, %.lr.ph ], [ %spec.select, %_ZNK6casadi6MXNode5size2Ev.exit ], [ %spec.select, %119 ]
-  %127 = phi i64 [ %79, %.lr.ph ], [ %125, %119 ], [ %.pre-phi140, %_ZNK6casadi6MXNode5size2Ev.exit ]
+  %127 = phi i64 [ %79, %.lr.ph ], [ %.pre-phi140, %_ZNK6casadi6MXNode5size2Ev.exit ], [ %125, %119 ]
   invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.100, i64 noundef %126, i64 noundef %127) #37
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -32998,7 +32998,7 @@ _ZNK6casadi13GenericMatrixINS_2MXEE5size1Ev.exit66: ; preds = %.noexc64
 
 .invoke:                                          ; preds = %119, %_ZNK6casadi6MXNode5size1Ev.exit, %.lr.ph
   %126 = phi i64 [ %.1106, %.lr.ph ], [ %spec.select, %_ZNK6casadi6MXNode5size1Ev.exit ], [ %spec.select, %119 ]
-  %127 = phi i64 [ %79, %.lr.ph ], [ %125, %119 ], [ %.pre-phi140, %_ZNK6casadi6MXNode5size1Ev.exit ]
+  %127 = phi i64 [ %79, %.lr.ph ], [ %.pre-phi140, %_ZNK6casadi6MXNode5size1Ev.exit ], [ %125, %119 ]
   invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.100, i64 noundef %126, i64 noundef %127) #37
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -39557,7 +39557,7 @@ _ZN6casadi2MXaSERKS0_.exit48:                     ; preds = %_ZN6casadiplERKNS_2
   br i1 %105, label %.loopexit, label %102
 
 .loopexit:                                        ; preds = %.preheader49, %102, %35
-  %.pn33.pn.pn.pn = phi { ptr, i32 } [ %36, %35 ], [ %.pn33.pn.pn, %102 ], [ %36, %.preheader49 ]
+  %.pn33.pn.pn.pn = phi { ptr, i32 } [ %.pn33.pn.pn, %102 ], [ %36, %35 ], [ %36, %.preheader49 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn33.pn.pn.pn
 }
@@ -40156,7 +40156,7 @@ _ZN6casadi2MXaSERKS0_.exit109:                    ; preds = %_ZN6casadi3dotERKNS
   br i1 %193, label %.loopexit, label %190
 
 .loopexit:                                        ; preds = %.preheader137, %190, %39
-  %.pn55.pn.pn.pn.pn = phi { ptr, i32 } [ %40, %39 ], [ %.pn55.pn.pn.pn, %190 ], [ %40, %.preheader137 ]
+  %.pn55.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn55.pn.pn.pn, %190 ], [ %40, %39 ], [ %40, %.preheader137 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %.pn55.pn.pn.pn.pn
 }
@@ -53144,7 +53144,7 @@ _ZN6casadi2MXaSERKS0_.exit48:                     ; preds = %_ZN6casadiplERKNS_2
   br i1 %105, label %.loopexit, label %102
 
 .loopexit:                                        ; preds = %.preheader49, %102, %35
-  %.pn33.pn.pn.pn = phi { ptr, i32 } [ %36, %35 ], [ %.pn33.pn.pn, %102 ], [ %36, %.preheader49 ]
+  %.pn33.pn.pn.pn = phi { ptr, i32 } [ %.pn33.pn.pn, %102 ], [ %36, %35 ], [ %36, %.preheader49 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn33.pn.pn.pn
 }
@@ -53743,7 +53743,7 @@ _ZN6casadi2MXaSERKS0_.exit109:                    ; preds = %_ZN6casadi3dotERKNS
   br i1 %193, label %.loopexit, label %190
 
 .loopexit:                                        ; preds = %.preheader137, %190, %39
-  %.pn55.pn.pn.pn.pn = phi { ptr, i32 } [ %40, %39 ], [ %.pn55.pn.pn.pn, %190 ], [ %40, %.preheader137 ]
+  %.pn55.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn55.pn.pn.pn, %190 ], [ %40, %39 ], [ %40, %.preheader137 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %.pn55.pn.pn.pn.pn
 }
@@ -55871,7 +55871,7 @@ _ZN6casadi2MXaSERKS0_.exit48:                     ; preds = %_ZN6casadiplERKNS_2
   br i1 %105, label %.loopexit, label %102
 
 .loopexit:                                        ; preds = %.preheader49, %102, %35
-  %.pn33.pn.pn.pn = phi { ptr, i32 } [ %36, %35 ], [ %.pn33.pn.pn, %102 ], [ %36, %.preheader49 ]
+  %.pn33.pn.pn.pn = phi { ptr, i32 } [ %.pn33.pn.pn, %102 ], [ %36, %35 ], [ %36, %.preheader49 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn33.pn.pn.pn
 }
@@ -56470,7 +56470,7 @@ _ZN6casadi2MXaSERKS0_.exit109:                    ; preds = %_ZN6casadi3dotERKNS
   br i1 %193, label %.loopexit, label %190
 
 .loopexit:                                        ; preds = %.preheader137, %190, %39
-  %.pn55.pn.pn.pn.pn = phi { ptr, i32 } [ %40, %39 ], [ %.pn55.pn.pn.pn, %190 ], [ %40, %.preheader137 ]
+  %.pn55.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn55.pn.pn.pn, %190 ], [ %40, %39 ], [ %40, %.preheader137 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %.pn55.pn.pn.pn.pn
 }
@@ -61829,7 +61829,7 @@ _ZN6casadi2MXaSERKS0_.exit48:                     ; preds = %_ZN6casadiplERKNS_2
   br i1 %105, label %.loopexit, label %102
 
 .loopexit:                                        ; preds = %.preheader49, %102, %35
-  %.pn33.pn.pn.pn = phi { ptr, i32 } [ %36, %35 ], [ %.pn33.pn.pn, %102 ], [ %36, %.preheader49 ]
+  %.pn33.pn.pn.pn = phi { ptr, i32 } [ %.pn33.pn.pn, %102 ], [ %36, %35 ], [ %36, %.preheader49 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn33.pn.pn.pn
 }
@@ -62428,7 +62428,7 @@ _ZN6casadi2MXaSERKS0_.exit109:                    ; preds = %_ZN6casadi3dotERKNS
   br i1 %193, label %.loopexit, label %190
 
 .loopexit:                                        ; preds = %.preheader137, %190, %39
-  %.pn55.pn.pn.pn.pn = phi { ptr, i32 } [ %40, %39 ], [ %.pn55.pn.pn.pn, %190 ], [ %40, %.preheader137 ]
+  %.pn55.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn55.pn.pn.pn, %190 ], [ %40, %39 ], [ %40, %.preheader137 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %.pn55.pn.pn.pn.pn
 }
@@ -90523,7 +90523,7 @@ _ZNK6casadi5SliceneERKS0_.exit10.thread:          ; preds = %70, %76, %_ZNK6casa
   br label %_ZNK6casadi6MXNode13sameOpAndDepsEPKS0_x.exit.thread
 
 _ZNK6casadi6MXNode13sameOpAndDepsEPKS0_x.exit.thread: ; preds = %_ZNK6casadi6MXNode3depEx.exit14.i, %54, %60, %3, %12, %_ZNK6casadi5SliceneERKS0_.exit10.thread, %_ZNK6casadi5SliceneERKS0_.exit10, %.loopexit, %50, %_ZNK6casadi5SliceneERKS0_.exit
-  %.0 = phi i1 [ true, %_ZNK6casadi5SliceneERKS0_.exit10 ], [ false, %_ZNK6casadi5SliceneERKS0_.exit ], [ false, %.loopexit ], [ false, %50 ], [ false, %_ZNK6casadi5SliceneERKS0_.exit10.thread ], [ false, %12 ], [ false, %3 ], [ false, %60 ], [ false, %54 ], [ false, %_ZNK6casadi6MXNode3depEx.exit14.i ]
+  %.0 = phi i1 [ true, %_ZNK6casadi5SliceneERKS0_.exit10 ], [ false, %_ZNK6casadi5SliceneERKS0_.exit ], [ false, %.loopexit ], [ false, %50 ], [ false, %54 ], [ false, %_ZNK6casadi5SliceneERKS0_.exit10.thread ], [ false, %12 ], [ false, %3 ], [ false, %60 ], [ false, %_ZNK6casadi6MXNode3depEx.exit14.i ]
   ret i1 %.0
 }
 
@@ -100740,7 +100740,7 @@ _ZNK6casadi5SliceneERKS0_.exit10.thread:          ; preds = %70, %76, %_ZNK6casa
   br label %_ZNK6casadi6MXNode13sameOpAndDepsEPKS0_x.exit.thread
 
 _ZNK6casadi6MXNode13sameOpAndDepsEPKS0_x.exit.thread: ; preds = %_ZNK6casadi6MXNode3depEx.exit14.i, %54, %60, %3, %12, %_ZNK6casadi5SliceneERKS0_.exit10.thread, %_ZNK6casadi5SliceneERKS0_.exit10, %.loopexit, %50, %_ZNK6casadi5SliceneERKS0_.exit
-  %.0 = phi i1 [ true, %_ZNK6casadi5SliceneERKS0_.exit10 ], [ false, %_ZNK6casadi5SliceneERKS0_.exit ], [ false, %.loopexit ], [ false, %50 ], [ false, %_ZNK6casadi5SliceneERKS0_.exit10.thread ], [ false, %12 ], [ false, %3 ], [ false, %60 ], [ false, %54 ], [ false, %_ZNK6casadi6MXNode3depEx.exit14.i ]
+  %.0 = phi i1 [ true, %_ZNK6casadi5SliceneERKS0_.exit10 ], [ false, %_ZNK6casadi5SliceneERKS0_.exit ], [ false, %.loopexit ], [ false, %50 ], [ false, %54 ], [ false, %_ZNK6casadi5SliceneERKS0_.exit10.thread ], [ false, %12 ], [ false, %3 ], [ false, %60 ], [ false, %_ZNK6casadi6MXNode3depEx.exit14.i ]
   ret i1 %.0
 }
 
@@ -108658,7 +108658,7 @@ _ZNSt6vectorIN6casadi2MXESaIS1_EED2Ev.exit:       ; preds = %_ZNSt6vectorIN6casa
   br i1 %64, label %.loopexit, label %61
 
 .loopexit:                                        ; preds = %55, %61, %.thread
-  %.pn.pn = phi { ptr, i32 } [ %18, %.thread ], [ %.pn, %61 ], [ %54, %55 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %61 ], [ %18, %.thread ], [ %54, %55 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %65
@@ -116440,7 +116440,7 @@ _ZNSt6vectorIN6casadi2MXESaIS1_EED2Ev.exit:       ; preds = %_ZNSt6vectorIN6casa
   br i1 %64, label %.loopexit, label %61
 
 .loopexit:                                        ; preds = %55, %61, %.thread
-  %.pn.pn = phi { ptr, i32 } [ %18, %.thread ], [ %.pn, %61 ], [ %54, %55 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %61 ], [ %18, %.thread ], [ %54, %55 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %65

@@ -2302,7 +2302,7 @@ _ZN4llvm11SmallVectorINS_11AssertingVHINS_5ValueEEELj4EED2Ev.exit: ; preds = %_Z
   br label %.critedge225
 
 .critedge225:                                     ; preds = %_ZN4llvm12is_containedINS_14iterator_rangeIPNS_3UseEEEPNS_7PHINodeEEEbOT_RKT0_.exit, %_ZN4llvm10BasicBlock13getTerminatorEv.exit, %21, %_ZN4llvm11SmallVectorINS_11AssertingVHINS_5ValueEEELj4EED2Ev.exit, %.critedge223, %_ZN4llvm10BasicBlock13getTerminatorEv.exit232, %44, %37, %_ZNK4llvm11Instruction19isSpecialTerminatorEv.exit, %7
-  %.0 = phi i1 [ false, %7 ], [ false, %21 ], [ false, %44 ], [ false, %37 ], [ false, %_ZNK4llvm11Instruction19isSpecialTerminatorEv.exit ], [ true, %_ZN4llvm11SmallVectorINS_11AssertingVHINS_5ValueEEELj4EED2Ev.exit ], [ false, %_ZN4llvm10BasicBlock13getTerminatorEv.exit232 ], [ false, %.critedge223 ], [ false, %_ZN4llvm10BasicBlock13getTerminatorEv.exit ], [ false, %_ZN4llvm12is_containedINS_14iterator_rangeIPNS_3UseEEEPNS_7PHINodeEEEbOT_RKT0_.exit ]
+  %.0 = phi i1 [ false, %7 ], [ false, %21 ], [ false, %44 ], [ false, %_ZN4llvm10BasicBlock13getTerminatorEv.exit ], [ false, %37 ], [ false, %_ZNK4llvm11Instruction19isSpecialTerminatorEv.exit ], [ true, %_ZN4llvm11SmallVectorINS_11AssertingVHINS_5ValueEEELj4EED2Ev.exit ], [ false, %_ZN4llvm10BasicBlock13getTerminatorEv.exit232 ], [ false, %.critedge223 ], [ false, %_ZN4llvm12is_containedINS_14iterator_rangeIPNS_3UseEEEPNS_7PHINodeEEEbOT_RKT0_.exit ]
   ret i1 %.0
 }
 
@@ -2974,7 +2974,7 @@ _ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsEPKS1_.exit.thread: ; pred
   br label %_ZN4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5eraseES2_.exit
 
 _ZN4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5eraseES2_.exit: ; preds = %72, %52, %93, %102, %100, %95, %86, %81, %79, %74, %65, %61, %59, %54, %45
-  %.2 = phi i1 [ %.045, %81 ], [ true, %61 ], [ true, %45 ], [ true, %54 ], [ true, %59 ], [ %.045, %65 ], [ %.045, %74 ], [ %.045, %79 ], [ %.045, %86 ], [ %.045, %95 ], [ %.045, %100 ], [ %.045, %102 ], [ true, %52 ], [ %.045, %93 ], [ %.045, %72 ]
+  %.2 = phi i1 [ %.045, %81 ], [ true, %61 ], [ true, %45 ], [ true, %52 ], [ true, %54 ], [ true, %59 ], [ %.045, %65 ], [ %.045, %93 ], [ %.045, %74 ], [ %.045, %79 ], [ %.045, %86 ], [ %.045, %102 ], [ %.045, %95 ], [ %.045, %100 ], [ %.045, %72 ]
   %105 = load i32, ptr %5, align 4, !tbaa !30
   %106 = load i32, ptr %6, align 8, !tbaa !31
   %107 = icmp eq i32 %105, %106
@@ -8098,7 +8098,7 @@ _ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsEPKS2_.exit194: ; preds = 
   br i1 %.not140, label %_ZNK4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE10getLoopForEPKS1_.exit186.thread, label %_ZNK4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE10getLoopForEPKS1_.exit186.thread.sink.split
 
 _ZNK4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE10getLoopForEPKS1_.exit186.thread.sink.split: ; preds = %tailrecurse.i, %tailrecurse.i192, %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsEPKS2_.exit194, %412
-  %.sink = phi ptr [ %411, %412 ], [ %418, %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsEPKS2_.exit194 ], [ %411, %tailrecurse.i192 ], [ %389, %tailrecurse.i ]
+  %.sink = phi ptr [ %418, %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsEPKS2_.exit194 ], [ %411, %412 ], [ %411, %tailrecurse.i192 ], [ %389, %tailrecurse.i ]
   call void @_ZN4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE19addBasicBlockToLoopEPS1_RNS_12LoopInfoBaseIS1_S2_EE(ptr noundef nonnull align 8 dereferenceable(144) %.sink, ptr noundef nonnull %204, ptr noundef nonnull align 8 dereferenceable(144) %26) #22
   br label %_ZNK4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE10getLoopForEPKS1_.exit186.thread
 
@@ -8168,7 +8168,7 @@ _ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsEPKS1_.exit.thread: ; pred
   br label %_ZNK4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE10getLoopForEPKS1_.exit179.thread
 
 _ZNK4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE10getLoopForEPKS1_.exit179.thread: ; preds = %.lr.ph.i.i.i.i174, %.lr.ph.i.i.i, %360, %_ZNK4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE10getLoopForEPKS1_.exit179.thread228, %315, %_ZNK4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE10getLoopForEPKS1_.exit179, %438, %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsEPKS1_.exit, %448, %440, %359, %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_10BasicBlockELj4EEEZNS_16ehAwareSplitEdgeES3_S3_PNS_14LandingPadInstEPNS_7PHINodeERKNS_28CriticalEdgeSplittingOptionsERKNS_5TwineEE3$_0EEbOT_T0_.exit"
-  %.2 = phi ptr [ null, %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_10BasicBlockELj4EEEZNS_16ehAwareSplitEdgeES3_S3_PNS_14LandingPadInstEPNS_7PHINodeERKNS_28CriticalEdgeSplittingOptionsERKNS_5TwineEE3$_0EEbOT_T0_.exit" ], [ %204, %359 ], [ %204, %440 ], [ %204, %448 ], [ %204, %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsEPKS1_.exit ], [ %204, %438 ], [ %204, %_ZNK4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE10getLoopForEPKS1_.exit179 ], [ %204, %315 ], [ %204, %_ZNK4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE10getLoopForEPKS1_.exit179.thread228 ], [ %204, %360 ], [ %204, %.lr.ph.i.i.i ], [ %204, %.lr.ph.i.i.i.i174 ]
+  %.2 = phi ptr [ null, %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_10BasicBlockELj4EEEZNS_16ehAwareSplitEdgeES3_S3_PNS_14LandingPadInstEPNS_7PHINodeERKNS_28CriticalEdgeSplittingOptionsERKNS_5TwineEE3$_0EEbOT_T0_.exit" ], [ %204, %359 ], [ %204, %440 ], [ %204, %448 ], [ %204, %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsEPKS1_.exit ], [ %204, %438 ], [ %204, %_ZNK4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE10getLoopForEPKS1_.exit179 ], [ %204, %315 ], [ %204, %.lr.ph.i.i.i ], [ %204, %_ZNK4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE10getLoopForEPKS1_.exit179.thread228 ], [ %204, %360 ], [ %204, %.lr.ph.i.i.i.i174 ]
   %452 = load ptr, ptr %9, align 8, !tbaa !25
   %453 = icmp eq ptr %452, %27
   br i1 %453, label %_ZN4llvm11SmallVectorIPNS_10BasicBlockELj4EED2Ev.exit, label %454
@@ -13723,7 +13723,7 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit51:     ; preds = %112
   br label %.critedge
 
 .critedge:                                        ; preds = %32, %37, %.lr.ph.i.i.i41, %.critedge.sink.split, %_ZN4llvm10pred_beginEPNS_10BasicBlockE.exit, %21, %_ZN4llvm10BasicBlock13getTerminatorEv.exit47, %83, %93, %105, %103, %_ZN4llvm10BasicBlock13getTerminatorEv.exit51, %109, %112, %8
-  %.0 = phi ptr [ null, %_ZN4llvm10pred_beginEPNS_10BasicBlockE.exit ], [ null, %_ZN4llvm10BasicBlock13getTerminatorEv.exit51 ], [ null, %8 ], [ null, %_ZN4llvm10BasicBlock13getTerminatorEv.exit47 ], [ null, %93 ], [ null, %83 ], [ null, %103 ], [ null, %105 ], [ null, %109 ], [ null, %112 ], [ null, %21 ], [ %.0.ph, %.critedge.sink.split ], [ null, %37 ], [ null, %.lr.ph.i.i.i41 ], [ null, %32 ]
+  %.0 = phi ptr [ null, %_ZN4llvm10pred_beginEPNS_10BasicBlockE.exit ], [ null, %_ZN4llvm10BasicBlock13getTerminatorEv.exit51 ], [ null, %8 ], [ null, %_ZN4llvm10BasicBlock13getTerminatorEv.exit47 ], [ null, %37 ], [ null, %93 ], [ null, %83 ], [ null, %103 ], [ null, %105 ], [ null, %109 ], [ null, %112 ], [ null, %.lr.ph.i.i.i41 ], [ %.0.ph, %.critedge.sink.split ], [ null, %21 ], [ null, %32 ]
   ret ptr %.0
 }
 
@@ -17078,7 +17078,7 @@ _ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE12getLoopDepthEv.exit165: ; preds =
   br label %.critedge116
 
 .critedge116:                                     ; preds = %.lr.ph.i.i.i.i141, %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsEPKS1_.exit153.thread, %268, %.critedge.thread, %.lr.ph241.split, %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsEPKS1_.exit160, %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE12getLoopDepthEv.exit165, %276, %_ZNK4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE10getLoopForEPKS1_.exit146
-  %.191 = phi ptr [ %.0237, %276 ], [ %.090239, %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE12getLoopDepthEv.exit165 ], [ %.090239, %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsEPKS1_.exit160 ], [ %.090239, %_ZNK4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE10getLoopForEPKS1_.exit146 ], [ %.090239, %.lr.ph241.split ], [ %.090239, %.critedge.thread ], [ %.090239, %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsEPKS1_.exit153.thread ], [ %.090239, %268 ], [ %.090239, %.lr.ph.i.i.i.i141 ]
+  %.191 = phi ptr [ %.0237, %276 ], [ %.090239, %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE12getLoopDepthEv.exit165 ], [ %.090239, %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsEPKS1_.exit160 ], [ %.090239, %268 ], [ %.090239, %_ZNK4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE10getLoopForEPKS1_.exit146 ], [ %.090239, %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsEPKS1_.exit153.thread ], [ %.090239, %.lr.ph241.split ], [ %.090239, %.critedge.thread ], [ %.090239, %.lr.ph.i.i.i.i141 ]
   %277 = getelementptr inbounds nuw i8, ptr %.088240, i64 8
   %.not110 = icmp eq ptr %277, %138
   br i1 %.not110, label %._crit_edge242, label %.lr.ph241.splitthread-pre-split, !llvm.loop !666
@@ -17829,8 +17829,8 @@ _ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEE
   br i1 %69, label %_ZN4llvm15SmallVectorImplIPNS_10BasicBlockEE6appendINS_12PredIteratorIS1_NS_5Value18user_iterator_implINS_4UserEEEEEvEEvT_SB_.exit.loopexit.i, label %.lr.ph.i.i.i.i.i.i.i.i.preheader, !llvm.loop !686
 
 _ZN4llvm15SmallVectorImplIPNS_10BasicBlockEE6appendINS_12PredIteratorIS1_NS_5Value18user_iterator_implINS_4UserEEEEEvEEvT_SB_.exit.loopexit.i: ; preds = %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i.i.i.i.i.i, %60, %.lr.ph.i.i.i.i9.preheader.i.i.thread, %.lr.ph.i.i.i.i9.preheader.i.i
-  %70 = phi i32 [ 0, %.lr.ph.i.i.i.i9.preheader.i.i.thread ], [ %50, %.lr.ph.i.i.i.i9.preheader.i.i ], [ %50, %60 ], [ %50, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i.i.i.i.i.i ]
-  %71 = phi i64 [ 1, %.lr.ph.i.i.i.i9.preheader.i.i.thread ], [ %44, %.lr.ph.i.i.i.i9.preheader.i.i ], [ %44, %60 ], [ %44, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i.i.i.i.i.i ]
+  %70 = phi i32 [ 0, %.lr.ph.i.i.i.i9.preheader.i.i.thread ], [ %50, %60 ], [ %50, %.lr.ph.i.i.i.i9.preheader.i.i ], [ %50, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i.i.i.i.i.i ]
+  %71 = phi i64 [ 1, %.lr.ph.i.i.i.i9.preheader.i.i.thread ], [ %44, %60 ], [ %44, %.lr.ph.i.i.i.i9.preheader.i.i ], [ %44, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i.i.i.i.i.i ]
   %72 = trunc i64 %71 to i32
   %73 = add i32 %70, %72
   br label %_ZN4llvm11SmallVectorIPNS_10BasicBlockELj4EEC2INS_12PredIteratorIS1_NS_5Value18user_iterator_implINS_4UserEEEEEEERKNS_14iterator_rangeIT_EE.exit
@@ -18600,7 +18600,7 @@ _ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IR
   br i1 %.not.i.i.i.i, label %_ZN4llvm8erase_ifINS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS4_EUlRKS5_E_EEvRT_T0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !701
 
 _ZN4llvm8erase_ifINS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS4_EUlRKS5_E_EEvRT_T0_.exit: ; preds = %57, %._crit_edge.i.i.i.i.i.i, %43, %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i
-  %.016.i.i.i.i = phi ptr [ %.028.i.i.i.i.i.i, %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i ], [ %10, %._crit_edge.i.i.i.i.i.i ], [ %10, %43 ], [ %.1.i.i.i.i, %57 ]
+  %.016.i.i.i.i = phi ptr [ %.028.i.i.i.i.i.i, %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i ], [ %10, %43 ], [ %10, %._crit_edge.i.i.i.i.i.i ], [ %.1.i.i.i.i, %57 ]
   %58 = ptrtoint ptr %.016.i.i.i.i to i64
   %59 = ptrtoint ptr %6 to i64
   %60 = sub i64 %58, %59

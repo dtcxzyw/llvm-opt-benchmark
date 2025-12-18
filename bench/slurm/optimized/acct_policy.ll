@@ -2268,7 +2268,7 @@ _set_time_limit.exit141:                          ; preds = %191, %187
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.backedge, %acct_policy_set_qos_order.exit.thread167, %211, %215, %163, %167, %143, %147, %130, %134, %78, %82, %43, %41
-  %.1 = phi i1 [ false, %41 ], [ false, %78 ], [ false, %130 ], [ false, %143 ], [ false, %163 ], [ false, %43 ], [ false, %82 ], [ false, %134 ], [ false, %147 ], [ false, %167 ], [ false, %215 ], [ false, %211 ], [ true, %acct_policy_set_qos_order.exit.thread167 ], [ true, %.backedge ]
+  %.1 = phi i1 [ false, %41 ], [ false, %78 ], [ false, %130 ], [ false, %143 ], [ false, %163 ], [ false, %211 ], [ false, %43 ], [ false, %82 ], [ false, %134 ], [ false, %147 ], [ false, %167 ], [ false, %215 ], [ true, %acct_policy_set_qos_order.exit.thread167 ], [ true, %.backedge ]
   br i1 %1, label %218, label %217
 
 217:                                              ; preds = %.loopexit
@@ -3065,7 +3065,7 @@ switch.lookup:                                    ; preds = %179
   br label %_get_tres_state_reason.exit
 
 _get_tres_state_reason.exit:                      ; preds = %switch.lookup, %199, %192, %184
-  %.0.i = phi i32 [ %switch.load, %switch.lookup ], [ 100, %184 ], [ %spec.select306, %199 ], [ 106, %192 ]
+  %.0.i = phi i32 [ %spec.select306, %199 ], [ %switch.load, %switch.lookup ], [ 100, %184 ], [ 106, %192 ]
   store i32 %.0.i, ptr %23, align 8
   %207 = call i32 @get_log_level() #15
   %208 = icmp sgt i32 %207, 5
@@ -3139,7 +3139,7 @@ switch.lookup606:                                 ; preds = %227
   br label %_get_tres_state_reason.exit206
 
 _get_tres_state_reason.exit206:                   ; preds = %switch.lookup606, %247, %240, %232
-  %.0.i202 = phi i32 [ %switch.load608, %switch.lookup606 ], [ %spec.select307, %247 ], [ 100, %232 ], [ 106, %240 ]
+  %.0.i202 = phi i32 [ %switch.load608, %switch.lookup606 ], [ 100, %232 ], [ %spec.select307, %247 ], [ 106, %240 ]
   store i32 %.0.i202, ptr %23, align 8
   %255 = call i32 @get_log_level() #15
   %256 = icmp sgt i32 %255, 5
@@ -3213,7 +3213,7 @@ switch.lookup609:                                 ; preds = %275
   br label %_get_tres_state_reason.exit211
 
 _get_tres_state_reason.exit211:                   ; preds = %switch.lookup609, %295, %288, %280
-  %.0.i207 = phi i32 [ %spec.select308, %295 ], [ 100, %280 ], [ %switch.load611, %switch.lookup609 ], [ 106, %288 ]
+  %.0.i207 = phi i32 [ %spec.select308, %295 ], [ %switch.load611, %switch.lookup609 ], [ 100, %280 ], [ 106, %288 ]
   store i32 %.0.i207, ptr %23, align 8
   %303 = call i32 @get_log_level() #15
   %304 = icmp sgt i32 %303, 5
@@ -3786,7 +3786,7 @@ _validate_tres_limits_for_assoc.exit227:          ; preds = %606, %588
   br label %.backedge
 
 .loopexit314:                                     ; preds = %.backedge, %.thread289, %_validate_tres_limits_for_assoc.exit227, %614, %_validate_tres_limits_for_assoc.exit218, %558, %_validate_tres_limits_for_assoc.exit, %517, %463, %469, %_validate_tres_usage_limits.exit247, %444, %390, %396, %367, %373, %_get_tres_state_reason.exit211, %305, %_get_tres_state_reason.exit206, %257, %_get_tres_state_reason.exit, %209, %85, %83
-  %.1169 = phi i1 [ false, %_validate_tres_limits_for_assoc.exit218 ], [ false, %_validate_tres_limits_for_assoc.exit ], [ false, %463 ], [ false, %_validate_tres_usage_limits.exit247 ], [ false, %390 ], [ false, %367 ], [ false, %_get_tres_state_reason.exit211 ], [ false, %83 ], [ false, %_get_tres_state_reason.exit ], [ false, %_get_tres_state_reason.exit206 ], [ false, %85 ], [ false, %209 ], [ false, %257 ], [ false, %305 ], [ false, %373 ], [ false, %396 ], [ false, %444 ], [ false, %469 ], [ false, %517 ], [ false, %558 ], [ false, %614 ], [ false, %_validate_tres_limits_for_assoc.exit227 ], [ true, %.thread289 ], [ true, %.backedge ]
+  %.1169 = phi i1 [ false, %_validate_tres_limits_for_assoc.exit218 ], [ false, %_validate_tres_limits_for_assoc.exit ], [ false, %463 ], [ false, %_validate_tres_usage_limits.exit247 ], [ false, %390 ], [ false, %367 ], [ false, %_get_tres_state_reason.exit211 ], [ false, %83 ], [ false, %_get_tres_state_reason.exit ], [ false, %_get_tres_state_reason.exit206 ], [ false, %_validate_tres_limits_for_assoc.exit227 ], [ false, %85 ], [ false, %209 ], [ false, %257 ], [ false, %305 ], [ false, %373 ], [ false, %396 ], [ false, %444 ], [ false, %469 ], [ false, %517 ], [ false, %558 ], [ false, %614 ], [ true, %.thread289 ], [ true, %.backedge ]
   br i1 %2, label %634, label %633
 
 633:                                              ; preds = %.loopexit314
@@ -4050,7 +4050,7 @@ switch.lookup444:                                 ; preds = %128
   br label %_get_tres_state_reason.exit255
 
 _get_tres_state_reason.exit255:                   ; preds = %switch.lookup444, %147, %140, %132
-  %.0.i251 = phi i32 [ %spec.select323, %147 ], [ %switch.load446, %switch.lookup444 ], [ 153, %140 ], [ 145, %132 ]
+  %.0.i251 = phi i32 [ 153, %140 ], [ %switch.load446, %switch.lookup444 ], [ 145, %132 ], [ %spec.select323, %147 ]
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 928
   store i32 %.0.i251, ptr %155, align 8
   %156 = call i32 @get_log_level() #15
@@ -4287,7 +4287,7 @@ switch.lookup450:                                 ; preds = %261
   br label %_get_tres_state_reason.exit265
 
 _get_tres_state_reason.exit265:                   ; preds = %switch.lookup450, %279, %272, %264
-  %.0.i261 = phi i32 [ %spec.select325, %279 ], [ %switch.load452, %switch.lookup450 ], [ 144, %264 ], [ 152, %272 ]
+  %.0.i261 = phi i32 [ 144, %264 ], [ %switch.load452, %switch.lookup450 ], [ 152, %272 ], [ %spec.select325, %279 ]
   %286 = getelementptr inbounds nuw i8, ptr %0, i64 928
   store i32 %.0.i261, ptr %286, align 8
   %287 = call i32 @get_log_level() #15
@@ -4356,7 +4356,7 @@ switch.lookup453:                                 ; preds = %301
   br label %_get_tres_state_reason.exit270
 
 _get_tres_state_reason.exit270:                   ; preds = %switch.lookup453, %319, %312, %304
-  %.0.i266 = phi i32 [ 152, %312 ], [ %spec.select326, %319 ], [ %switch.load455, %switch.lookup453 ], [ 144, %304 ]
+  %.0.i266 = phi i32 [ 152, %312 ], [ %switch.load455, %switch.lookup453 ], [ %spec.select326, %319 ], [ 144, %304 ]
   %326 = getelementptr inbounds nuw i8, ptr %0, i64 928
   store i32 %.0.i266, ptr %326, align 8
   %327 = call i32 @get_log_level() #15
@@ -6298,7 +6298,7 @@ _apply_limit_factor.exit96.thread.us:             ; preds = %131, %_apply_limit_
   br label %_apply_limit_factor.exit
 
 _apply_limit_factor.exit:                         ; preds = %150, %151, %.lr.ph.split
-  %.0111 = phi i64 [ %144, %150 ], [ %140, %.lr.ph.split ], [ %144, %151 ]
+  %.0111 = phi i64 [ %144, %151 ], [ %140, %.lr.ph.split ], [ %144, %150 ]
   %152 = icmp ne i64 %.0111, -1
   %or.cond3 = select i1 %.not80122, i1 %152, i1 false
   %153 = icmp ult i64 %.0111, %.5150
@@ -6368,7 +6368,7 @@ _apply_limit_factor.exit96.thread:                ; preds = %164, %163, %169, %_
   br i1 %.not83, label %.thread141, label %.lr.ph.split
 
 .thread141:                                       ; preds = %_apply_limit_factor.exit.us.us.us, %_apply_limit_factor.exit96.thread.us.us, %_apply_limit_factor.exit96.us.us166, %132, %_apply_limit_factor.exit96.thread.us, %170, %_apply_limit_factor.exit96.thread, %_apply_limit_factor.exit96.us.us166.thread, %acct_policy_set_qos_order.exit
-  %.6 = phi i64 [ %.065, %acct_policy_set_qos_order.exit ], [ %112, %_apply_limit_factor.exit96.us.us166.thread ], [ %.8.us.us, %_apply_limit_factor.exit96.thread.us.us ], [ %.8, %170 ], [ %.8.us, %132 ], [ %.065, %_apply_limit_factor.exit96.us.us166 ], [ %.8, %_apply_limit_factor.exit96.thread ], [ %.8.us, %_apply_limit_factor.exit96.thread.us ], [ %.065, %_apply_limit_factor.exit.us.us.us ]
+  %.6 = phi i64 [ %.065, %_apply_limit_factor.exit96.us.us166 ], [ %.065, %acct_policy_set_qos_order.exit ], [ %.8.us, %132 ], [ %.8.us.us, %_apply_limit_factor.exit96.thread.us.us ], [ %.8, %170 ], [ %112, %_apply_limit_factor.exit96.us.us166.thread ], [ %.8, %_apply_limit_factor.exit96.thread ], [ %.8.us, %_apply_limit_factor.exit96.thread.us ], [ %.065, %_apply_limit_factor.exit.us.us.us ]
   call void @assoc_mgr_unlock(ptr noundef nonnull %3) #15
   %175 = trunc i64 %.6 to i32
   br label %176
@@ -7173,7 +7173,7 @@ _validate_tres_usage_limits.exit._crit_edge:      ; preds = %_validate_tres_usag
   br label %_validate_tres_usage_limits.exit68.thread
 
 .loopexit:                                        ; preds = %53, %40, %._crit_edge
-  %84 = phi i32 [ 0, %._crit_edge ], [ %30, %40 ], [ %54, %53 ]
+  %84 = phi i32 [ %30, %40 ], [ 0, %._crit_edge ], [ %54, %53 ]
   %85 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %86 = load i32, ptr %85, align 8
   %87 = icmp eq i32 %86, -1
@@ -13204,7 +13204,7 @@ define internal fastcc range(i32 0, 4) i32 @_validate_tres_usage_limits(ptr noun
   br i1 %137, label %.lr.ph.split.split.split.split.split, label %._crit_edge, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %131, %134, %112, %116, %88, %92, %.thread144, %33, %36, %43, %49, %.thread142, %9
-  %.045 = phi i32 [ 0, %9 ], [ 0, %.thread144 ], [ 1, %112 ], [ 1, %88 ], [ 2, %.thread142 ], [ 2, %36 ], [ 3, %43 ], [ 0, %49 ], [ 1, %33 ], [ 0, %92 ], [ 0, %116 ], [ 1, %131 ], [ 0, %134 ]
+  %.045 = phi i32 [ 0, %.thread144 ], [ 2, %.thread142 ], [ 1, %88 ], [ 0, %9 ], [ 1, %112 ], [ 2, %36 ], [ 3, %43 ], [ 0, %49 ], [ 1, %33 ], [ 0, %92 ], [ 0, %116 ], [ 0, %134 ], [ 1, %131 ]
   ret i32 %.045
 }
 

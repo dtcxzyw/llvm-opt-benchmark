@@ -2695,8 +2695,8 @@ put_bits.exit371:                                 ; preds = %1324, %1344
   br i1 %1354, label %1306, label %.loopexit405, !llvm.loop !92
 
 .loopexit405:                                     ; preds = %put_bits.exit367, %._crit_edge, %1264, %.preheader404
-  %1355 = phi i32 [ %1254, %.preheader404 ], [ %1254, %1264 ], [ %1350, %._crit_edge ], [ %.0.i.i366, %put_bits.exit367 ]
-  %1356 = phi i32 [ %1255, %.preheader404 ], [ %1255, %1264 ], [ %1351, %._crit_edge ], [ %.026.i.i365, %put_bits.exit367 ]
+  %1355 = phi i32 [ %1350, %._crit_edge ], [ %1254, %.preheader404 ], [ %1254, %1264 ], [ %.0.i.i366, %put_bits.exit367 ]
+  %1356 = phi i32 [ %1351, %._crit_edge ], [ %1255, %.preheader404 ], [ %1255, %1264 ], [ %.026.i.i365, %put_bits.exit367 ]
   %1357 = load i32, ptr %170, align 16, !tbaa !64
   %.not159 = icmp eq i32 %1357, 0
   %.pr400 = load i32, ptr %885, align 4, !tbaa !4

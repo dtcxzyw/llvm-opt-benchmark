@@ -2333,7 +2333,7 @@ _getrecord_ex.exit.i.i:                           ; preds = %PyUnicode_READ.exit
   br i1 %exitcond104.not.i.i, label %is_normalized_quickcheck.exit.i, label %PyUnicode_READ.exit.i.i, !llvm.loop !49
 
 is_normalized_quickcheck.exit.i:                  ; preds = %106, %78, %134
-  %.0.i.i = phi i32 [ %.335.us74.i.i, %78 ], [ %.335.i.i, %134 ], [ %.335.us90.i.i, %106 ]
+  %.0.i.i = phi i32 [ %.335.i.i, %134 ], [ %.335.us74.i.i, %78 ], [ %.335.us90.i.i, %106 ]
   %.0.i.fr.i = freeze i32 %.0.i.i
   switch i32 %.0.i.fr.i, label %is_normalized_quickcheck.exit.thread.thread.i [
     i32 1, label %is_normalized_quickcheck.exit.thread29.i
@@ -3277,7 +3277,7 @@ _dawg_decode_edge.exit.i:                         ; preds = %149
   br label %104
 
 .critedge:                                        ; preds = %140, %149, %_dawg_decode_varint_unsigned.exit.i.i, %99, %96, %15, %69, %65, %27, %25, %8, %5, %18, %67
-  %.0 = phi i32 [ 0, %5 ], [ 0, %69 ], [ 0, %25 ], [ 1, %67 ], [ 0, %65 ], [ 0, %15 ], [ 0, %18 ], [ 0, %8 ], [ 1, %27 ], [ 0, %96 ], [ 1, %99 ], [ 0, %149 ], [ 0, %_dawg_decode_varint_unsigned.exit.i.i ], [ 0, %140 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %69 ], [ 0, %25 ], [ 1, %67 ], [ 0, %65 ], [ 0, %15 ], [ 0, %18 ], [ 0, %8 ], [ 1, %27 ], [ 1, %99 ], [ 0, %149 ], [ 0, %96 ], [ 0, %_dawg_decode_varint_unsigned.exit.i.i ], [ 0, %140 ]
   ret i32 %.0
 }
 
@@ -3691,7 +3691,7 @@ _lookup_dawg_packed.exit.thread.sink.split:       ; preds = %._crit_edge, %169, 
   br label %_lookup_dawg_packed.exit.thread
 
 _lookup_dawg_packed.exit.thread:                  ; preds = %_dawg_match_edge.exit.i, %_dawg_match_edge.exit.thread106.i, %_dawg_decode_varint_unsigned.exit.i.i, %74, %_lookup_dawg_packed.exit.thread.sink.split, %_dawg_node_is_final.exit.i, %47, %find_syllable.exit67, %64, %._crit_edge
-  %.1 = phi i32 [ 0, %_dawg_node_is_final.exit.i ], [ 0, %._crit_edge ], [ 0, %64 ], [ 0, %47 ], [ 0, %find_syllable.exit67 ], [ 1, %_lookup_dawg_packed.exit.thread.sink.split ], [ 0, %74 ], [ 0, %_dawg_decode_varint_unsigned.exit.i.i ], [ 0, %_dawg_match_edge.exit.thread106.i ], [ 0, %_dawg_match_edge.exit.i ]
+  %.1 = phi i32 [ 0, %_dawg_node_is_final.exit.i ], [ 0, %._crit_edge ], [ 1, %_lookup_dawg_packed.exit.thread.sink.split ], [ 0, %64 ], [ 0, %74 ], [ 0, %find_syllable.exit67 ], [ 0, %47 ], [ 0, %_dawg_decode_varint_unsigned.exit.i.i ], [ 0, %_dawg_match_edge.exit.thread106.i ], [ 0, %_dawg_match_edge.exit.i ]
   ret i32 %.1
 }
 
@@ -4206,7 +4206,7 @@ find_nfc_index.exit177.thread..thread201.loopexit212_crit_edge: ; preds = %find_
   br label %.thread201, !llvm.loop !63
 
 .thread201:                                       ; preds = %232, %172, %210, %find_nfc_index.exit184, %214, %find_nfc_index.exit177.thread..thread201.loopexit212_crit_edge
-  %.3 = phi i32 [ %.2120240, %find_nfc_index.exit177.thread..thread201.loopexit212_crit_edge ], [ %211, %214 ], [ %.2120240, %172 ], [ %.4, %232 ], [ %211, %find_nfc_index.exit184 ], [ %211, %210 ]
+  %.3 = phi i32 [ %.2120240, %find_nfc_index.exit177.thread..thread201.loopexit212_crit_edge ], [ %211, %214 ], [ %.4, %232 ], [ %211, %210 ], [ %211, %find_nfc_index.exit184 ], [ %.2120240, %172 ]
   %233 = add i64 %.1125234, 1
   br label %.preheader.lr.ph.backedge
 
@@ -4217,7 +4217,7 @@ find_nfc_index.exit177.thread..thread201.loopexit212_crit_edge: ; preds = %find_
   br label %.preheader.lr.ph, !llvm.loop !57
 
 .outer._crit_edge:                                ; preds = %31, %.backedge, %.thread201.thread, %.preheader213
-  %.1125.lcssa = phi i64 [ 0, %.preheader213 ], [ %144, %.thread201.thread ], [ %.1125.be, %.backedge ], [ %.1125234, %31 ]
+  %.1125.lcssa = phi i64 [ %.1125.be, %.backedge ], [ %144, %.thread201.thread ], [ 0, %.preheader213 ], [ %.1125234, %31 ]
   %234 = icmp eq i64 %.1125.lcssa, %.val
   br i1 %234, label %235, label %236
 
@@ -4515,9 +4515,9 @@ get_decomp_record.exit:                           ; preds = %82, %.thread231, %P
   br i1 %124, label %.loopexit282, label %.preheader, !llvm.loop !67
 
 .loopexit282:                                     ; preds = %.preheader, %77, %54, %66, %112
-  %.2150 = phi i32 [ %42, %54 ], [ %42, %112 ], [ %.1149292, %77 ], [ %42, %66 ], [ %121, %.preheader ]
-  %.4144 = phi i64 [ %65, %54 ], [ %115, %112 ], [ %.3143, %77 ], [ %70, %66 ], [ %.3143, %.preheader ]
-  %.2129 = phi i64 [ %63, %54 ], [ %113, %112 ], [ %.1128295, %77 ], [ %68, %66 ], [ %.1128295, %.preheader ]
+  %.2150 = phi i32 [ %42, %66 ], [ %42, %54 ], [ %42, %112 ], [ %.1149292, %77 ], [ %121, %.preheader ]
+  %.4144 = phi i64 [ %70, %66 ], [ %65, %54 ], [ %115, %112 ], [ %.3143, %77 ], [ %.3143, %.preheader ]
+  %.2129 = phi i64 [ %68, %66 ], [ %63, %54 ], [ %113, %112 ], [ %.1128295, %77 ], [ %.1128295, %.preheader ]
   %.not171 = icmp eq i32 %.2150, 0
   br i1 %.not171, label %.loopexit283, label %41
 
@@ -4809,7 +4809,7 @@ _getrecord_ex.exit216:                            ; preds = %PyUnicode_READ.exit
   br label %.loopexit
 
 .loopexit:                                        ; preds = %261, %.loopexit.sink.split, %_getrecord_ex.exit, %._crit_edge
-  %.0 = phi ptr [ null, %._crit_edge ], [ %125, %_getrecord_ex.exit ], [ null, %.loopexit.sink.split ], [ %125, %261 ]
+  %.0 = phi ptr [ null, %.loopexit.sink.split ], [ null, %._crit_edge ], [ %125, %_getrecord_ex.exit ], [ %125, %261 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }

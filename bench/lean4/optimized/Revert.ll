@@ -2121,8 +2121,8 @@ lean_dec_ref.exit414:                             ; preds = %752, %751, %749, %l
   unreachable
 
 759:                                              ; preds = %lean_dec.exit261, %lean_dec.exit263, %lean_alloc_ctor.exit489, %lean_alloc_ctor.exit512
-  %.1238 = phi ptr [ %112, %lean_dec.exit261 ], [ %200, %lean_dec.exit263 ], [ %442, %lean_alloc_ctor.exit489 ], [ %536, %lean_alloc_ctor.exit512 ]
-  %.1232 = phi ptr [ %.0231670, %lean_dec.exit261 ], [ %.0231670, %lean_dec.exit263 ], [ %476, %lean_alloc_ctor.exit489 ], [ %552, %lean_alloc_ctor.exit512 ]
+  %.1238 = phi ptr [ %536, %lean_alloc_ctor.exit512 ], [ %442, %lean_alloc_ctor.exit489 ], [ %200, %lean_dec.exit263 ], [ %112, %lean_dec.exit261 ]
+  %.1232 = phi ptr [ %552, %lean_alloc_ctor.exit512 ], [ %476, %lean_alloc_ctor.exit489 ], [ %.0231670, %lean_dec.exit263 ], [ %.0231670, %lean_dec.exit261 ]
   %.1221 = add nuw i64 %.0220671, 1
   %exitcond.not = icmp eq i64 %.1221, %3
   br i1 %exitcond.not, label %._crit_edge, label %58
@@ -13949,7 +13949,7 @@ lean_dec.exit:                                    ; preds = %lean_usize_of_nat.e
   br label %lean_dec.exit79
 
 lean_dec.exit79:                                  ; preds = %129, %lean_nat_lt.exit113, %lean_nat_lt.exit, %149, %151, %152, %lean_dec.exit75, %94, %96, %97, %lean_dec.exit
-  %.2 = phi ptr [ %58, %94 ], [ %163, %lean_dec.exit ], [ %3, %149 ], [ %58, %lean_nat_lt.exit ], [ %58, %97 ], [ %58, %96 ], [ %58, %lean_dec.exit75 ], [ %3, %152 ], [ %3, %151 ], [ %3, %lean_nat_lt.exit113 ], [ %130, %129 ]
+  %.2 = phi ptr [ %58, %94 ], [ %163, %lean_dec.exit ], [ %3, %149 ], [ %3, %lean_nat_lt.exit113 ], [ %58, %lean_nat_lt.exit ], [ %58, %97 ], [ %58, %96 ], [ %58, %lean_dec.exit75 ], [ %3, %152 ], [ %3, %151 ], [ %130, %129 ]
   ret ptr %.2
 }
 

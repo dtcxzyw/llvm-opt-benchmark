@@ -694,7 +694,7 @@ if.then60.i:                                      ; preds = %if.else57.i
   br label %land.end14
 
 land.end14:                                       ; preds = %if.then.i, %if.then4.i, %if.then15.i, %if.then36.i, %if.then60.i
-  %pDest.addr.1 = phi ptr [ %incdec.ptr.i, %if.then.i ], [ %add.ptr.i, %if.then4.i ], [ %add.ptr13.i, %if.then15.i ], [ %add.ptr34.i, %if.then36.i ], [ %add.ptr58.i, %if.then60.i ]
+  %pDest.addr.1 = phi ptr [ %add.ptr58.i, %if.then60.i ], [ %incdec.ptr.i, %if.then.i ], [ %add.ptr.i, %if.then4.i ], [ %add.ptr34.i, %if.then36.i ], [ %add.ptr13.i, %if.then15.i ]
   %cmp6 = icmp ult ptr %incdec.ptr.i19, %spec.select
   %cmp7 = icmp ult ptr %pDest.addr.1, %add.ptr5
   %or.cond72 = select i1 %cmp6, i1 %cmp7, i1 false
@@ -4101,7 +4101,7 @@ for.cond.for.end_crit_edge:                       ; preds = %for.cond
   br i1 %tobool.not, label %return, label %for.cond.preheader, !llvm.loop !72
 
 return:                                           ; preds = %for.cond.for.end_crit_edge, %for.body, %entry, %for.cond.preheader.us.preheader
-  %pStringCurrent.0.lcssa.sink = phi ptr [ %pString1, %entry ], [ %scevgep16, %for.cond.preheader.us.preheader ], [ %pStringCurrent.013, %for.body ], [ %incdec.ptr3, %for.cond.for.end_crit_edge ]
+  %pStringCurrent.0.lcssa.sink = phi ptr [ %pStringCurrent.013, %for.body ], [ %pString1, %entry ], [ %scevgep16, %for.cond.preheader.us.preheader ], [ %incdec.ptr3, %for.cond.for.end_crit_edge ]
   %sub.ptr.lhs.cast4 = ptrtoint ptr %pStringCurrent.0.lcssa.sink to i64
   %sub.ptr.rhs.cast5 = ptrtoint ptr %pString1 to i64
   %sub.ptr.sub6 = sub i64 %sub.ptr.lhs.cast4, %sub.ptr.rhs.cast5
@@ -4151,7 +4151,7 @@ for.cond.for.end_crit_edge:                       ; preds = %for.cond
   br i1 %tobool.not, label %return, label %for.cond.preheader, !llvm.loop !73
 
 return:                                           ; preds = %for.cond.for.end_crit_edge, %for.body, %for.cond.preheader.us, %entry
-  %pStringCurrent.0.lcssa.sink = phi ptr [ %pString1, %entry ], [ %pStringCurrent.013, %for.body ], [ %incdec.ptr3.us, %for.cond.preheader.us ], [ %incdec.ptr3, %for.cond.for.end_crit_edge ]
+  %pStringCurrent.0.lcssa.sink = phi ptr [ %pStringCurrent.013, %for.body ], [ %pString1, %entry ], [ %incdec.ptr3.us, %for.cond.preheader.us ], [ %incdec.ptr3, %for.cond.for.end_crit_edge ]
   %sub.ptr.lhs.cast4 = ptrtoint ptr %pStringCurrent.0.lcssa.sink to i64
   %sub.ptr.rhs.cast5 = ptrtoint ptr %pString1 to i64
   %sub.ptr.sub6 = sub i64 %sub.ptr.lhs.cast4, %sub.ptr.rhs.cast5
@@ -4203,7 +4203,7 @@ for.cond.for.end_crit_edge:                       ; preds = %for.cond
   br i1 %tobool.not, label %return, label %for.cond.preheader, !llvm.loop !76
 
 return:                                           ; preds = %for.cond.for.end_crit_edge, %for.body, %entry, %for.cond.preheader.us.preheader
-  %pStringCurrent.0.lcssa.sink = phi ptr [ %pString1, %entry ], [ %scevgep16, %for.cond.preheader.us.preheader ], [ %pStringCurrent.013, %for.body ], [ %incdec.ptr2, %for.cond.for.end_crit_edge ]
+  %pStringCurrent.0.lcssa.sink = phi ptr [ %pStringCurrent.013, %for.body ], [ %pString1, %entry ], [ %scevgep16, %for.cond.preheader.us.preheader ], [ %incdec.ptr2, %for.cond.for.end_crit_edge ]
   %sub.ptr.lhs.cast3 = ptrtoint ptr %pStringCurrent.0.lcssa.sink to i64
   %sub.ptr.rhs.cast4 = ptrtoint ptr %pString1 to i64
   %sub.ptr.sub5 = sub i64 %sub.ptr.lhs.cast3, %sub.ptr.rhs.cast4
@@ -4247,7 +4247,7 @@ for.cond.for.end_crit_edge:                       ; preds = %for.cond
   br i1 %tobool.not, label %return, label %for.cond.preheader, !llvm.loop !78
 
 return:                                           ; preds = %for.cond.for.end_crit_edge, %for.body, %for.cond.preheader.lr.ph, %entry
-  %retval.0 = phi ptr [ null, %entry ], [ null, %for.cond.preheader.lr.ph ], [ %pString1.addr.011, %for.body ], [ null, %for.cond.for.end_crit_edge ]
+  %retval.0 = phi ptr [ %pString1.addr.011, %for.body ], [ null, %entry ], [ null, %for.cond.preheader.lr.ph ], [ null, %for.cond.for.end_crit_edge ]
   ret ptr %retval.0
 }
 
@@ -4287,7 +4287,7 @@ for.cond.for.end_crit_edge:                       ; preds = %for.cond
   br i1 %tobool.not, label %return, label %for.cond.preheader, !llvm.loop !80
 
 return:                                           ; preds = %for.cond.for.end_crit_edge, %for.body, %for.cond.preheader.lr.ph, %entry
-  %retval.0 = phi ptr [ null, %entry ], [ null, %for.cond.preheader.lr.ph ], [ %pString1.addr.011, %for.body ], [ null, %for.cond.for.end_crit_edge ]
+  %retval.0 = phi ptr [ %pString1.addr.011, %for.body ], [ null, %entry ], [ null, %for.cond.preheader.lr.ph ], [ null, %for.cond.for.end_crit_edge ]
   ret ptr %retval.0
 }
 
@@ -4327,7 +4327,7 @@ for.cond.for.end_crit_edge:                       ; preds = %for.cond
   br i1 %tobool.not, label %return, label %for.cond.preheader, !llvm.loop !82
 
 return:                                           ; preds = %for.cond.for.end_crit_edge, %for.body, %for.cond.preheader.lr.ph, %entry
-  %retval.0 = phi ptr [ null, %entry ], [ null, %for.cond.preheader.lr.ph ], [ %pString1.addr.011, %for.body ], [ null, %for.cond.for.end_crit_edge ]
+  %retval.0 = phi ptr [ %pString1.addr.011, %for.body ], [ null, %entry ], [ null, %for.cond.preheader.lr.ph ], [ null, %for.cond.for.end_crit_edge ]
   ret ptr %retval.0
 }
 
@@ -4452,7 +4452,7 @@ for.end:                                          ; preds = %for.cond, %for.cond
   br i1 %tobool.not, label %return, label %for.cond.preheader, !llvm.loop !87
 
 return:                                           ; preds = %for.end, %for.body, %entry
-  %pStringCurrent.0.lcssa.sink = phi ptr [ %pString, %entry ], [ %pStringCurrent.013, %for.body ], [ %incdec.ptr4, %for.end ]
+  %pStringCurrent.0.lcssa.sink = phi ptr [ %pStringCurrent.013, %for.body ], [ %pString, %entry ], [ %incdec.ptr4, %for.end ]
   %sub.ptr.lhs.cast5 = ptrtoint ptr %pStringCurrent.0.lcssa.sink to i64
   %sub.ptr.rhs.cast6 = ptrtoint ptr %pString to i64
   %sub.ptr.sub7 = sub i64 %sub.ptr.lhs.cast5, %sub.ptr.rhs.cast6
@@ -4495,7 +4495,7 @@ for.end:                                          ; preds = %for.cond, %for.cond
   br i1 %tobool.not, label %return, label %for.cond.preheader, !llvm.loop !89
 
 return:                                           ; preds = %for.end, %for.body, %entry
-  %pStringCurrent.0.lcssa.sink = phi ptr [ %pString, %entry ], [ %pStringCurrent.013, %for.body ], [ %incdec.ptr4, %for.end ]
+  %pStringCurrent.0.lcssa.sink = phi ptr [ %pStringCurrent.013, %for.body ], [ %pString, %entry ], [ %incdec.ptr4, %for.end ]
   %sub.ptr.lhs.cast5 = ptrtoint ptr %pStringCurrent.0.lcssa.sink to i64
   %sub.ptr.rhs.cast6 = ptrtoint ptr %pString to i64
   %sub.ptr.sub7 = sub i64 %sub.ptr.lhs.cast5, %sub.ptr.rhs.cast6
@@ -4539,7 +4539,7 @@ for.end:                                          ; preds = %for.cond, %for.cond
   br i1 %tobool.not, label %return, label %for.cond.preheader, !llvm.loop !91
 
 return:                                           ; preds = %for.end, %for.body, %entry
-  %pStringCurrent.0.lcssa.sink = phi ptr [ %pString, %entry ], [ %pStringCurrent.013, %for.body ], [ %incdec.ptr2, %for.end ]
+  %pStringCurrent.0.lcssa.sink = phi ptr [ %pStringCurrent.013, %for.body ], [ %pString, %entry ], [ %incdec.ptr2, %for.end ]
   %sub.ptr.lhs.cast3 = ptrtoint ptr %pStringCurrent.0.lcssa.sink to i64
   %sub.ptr.rhs.cast4 = ptrtoint ptr %pString to i64
   %sub.ptr.sub5 = sub i64 %sub.ptr.lhs.cast3, %sub.ptr.rhs.cast4
@@ -5045,7 +5045,7 @@ if.else:                                          ; preds = %for.cond
   br i1 %tobool6.not, label %return, label %for.cond, !llvm.loop !107
 
 return:                                           ; preds = %while.cond.loopexit, %if.else, %for.body.i.preheader, %_ZN2EA4StdC6StrlenEPKDs.exit, %entry
-  %retval.0 = phi ptr [ %s1, %entry ], [ null, %_ZN2EA4StdC6StrlenEPKDs.exit ], [ null, %for.body.i.preheader ], [ %incdec.ptr, %if.else ], [ null, %while.cond.loopexit ]
+  %retval.0 = phi ptr [ %s1, %entry ], [ null, %_ZN2EA4StdC6StrlenEPKDs.exit ], [ %incdec.ptr, %if.else ], [ null, %for.body.i.preheader ], [ null, %while.cond.loopexit ]
   ret ptr %retval.0
 }
 
@@ -5260,7 +5260,7 @@ if.else:                                          ; preds = %_ZN2EA4StdC7Tolower
   br i1 %tobool8.not, label %return, label %for.cond, !llvm.loop !113
 
 return:                                           ; preds = %while.cond.loopexit, %if.else, %for.body.i.preheader, %_ZN2EA4StdC6StrlenEPKDs.exit, %entry
-  %retval.0 = phi ptr [ %s1, %entry ], [ null, %_ZN2EA4StdC6StrlenEPKDs.exit ], [ null, %for.body.i.preheader ], [ %incdec.ptr, %if.else ], [ null, %while.cond.loopexit ]
+  %retval.0 = phi ptr [ %s1, %entry ], [ null, %_ZN2EA4StdC6StrlenEPKDs.exit ], [ %incdec.ptr, %if.else ], [ null, %for.body.i.preheader ], [ null, %while.cond.loopexit ]
   ret ptr %retval.0
 }
 
@@ -6261,8 +6261,8 @@ if.then46:                                        ; preds = %for.body40.us
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %still_delimiters.us, %if.end51.us, %for.cond.preheader.thread, %if.end8.lr.ph, %for.cond.preheader, %if.then46
-  %.sink = phi ptr [ null, %for.cond.preheader ], [ %add.ptr, %if.then46 ], [ null, %for.cond.preheader.thread ], [ null, %if.end8.lr.ph ], [ null, %if.end51.us ], [ null, %still_delimiters.us ]
-  %retval.0.ph = phi ptr [ null, %for.cond.preheader ], [ %s.146.us, %if.then46 ], [ %spec.select, %for.cond.preheader.thread ], [ %s.0, %if.end8.lr.ph ], [ %s.146.us, %if.end51.us ], [ null, %still_delimiters.us ]
+  %.sink = phi ptr [ null, %for.cond.preheader ], [ %add.ptr, %if.then46 ], [ null, %if.end51.us ], [ null, %for.cond.preheader.thread ], [ null, %if.end8.lr.ph ], [ null, %still_delimiters.us ]
+  %retval.0.ph = phi ptr [ null, %for.cond.preheader ], [ %s.146.us, %if.then46 ], [ %s.146.us, %if.end51.us ], [ %spec.select, %for.cond.preheader.thread ], [ %s.0, %if.end8.lr.ph ], [ null, %still_delimiters.us ]
   store ptr %.sink, ptr %pContext, align 8
   br label %return
 
@@ -6386,8 +6386,8 @@ if.then46:                                        ; preds = %for.body40.us
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %still_delimiters.us, %if.end51.us, %for.cond.preheader.thread, %if.end8.lr.ph, %for.cond.preheader, %if.then46
-  %.sink = phi ptr [ null, %for.cond.preheader ], [ %add.ptr, %if.then46 ], [ null, %for.cond.preheader.thread ], [ null, %if.end8.lr.ph ], [ null, %if.end51.us ], [ null, %still_delimiters.us ]
-  %retval.0.ph = phi ptr [ null, %for.cond.preheader ], [ %s.146.us, %if.then46 ], [ %spec.select, %for.cond.preheader.thread ], [ %s.0, %if.end8.lr.ph ], [ %s.146.us, %if.end51.us ], [ null, %still_delimiters.us ]
+  %.sink = phi ptr [ null, %for.cond.preheader ], [ %add.ptr, %if.then46 ], [ null, %if.end51.us ], [ null, %for.cond.preheader.thread ], [ null, %if.end8.lr.ph ], [ null, %still_delimiters.us ]
+  %retval.0.ph = phi ptr [ null, %for.cond.preheader ], [ %s.146.us, %if.then46 ], [ %s.146.us, %if.end51.us ], [ %spec.select, %for.cond.preheader.thread ], [ %s.0, %if.end8.lr.ph ], [ null, %still_delimiters.us ]
   store ptr %.sink, ptr %pContext, align 8
   br label %return
 
@@ -6508,8 +6508,8 @@ if.then39:                                        ; preds = %for.body35.us
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %still_delimiters.us, %if.end44.us, %for.cond.preheader.thread, %if.end8.lr.ph, %for.cond.preheader, %if.then39
-  %.sink = phi ptr [ null, %for.cond.preheader ], [ %add.ptr, %if.then39 ], [ null, %for.cond.preheader.thread ], [ null, %if.end8.lr.ph ], [ null, %if.end44.us ], [ null, %still_delimiters.us ]
-  %retval.0.ph = phi ptr [ null, %for.cond.preheader ], [ %s.146.us, %if.then39 ], [ %spec.select, %for.cond.preheader.thread ], [ %s.0, %if.end8.lr.ph ], [ %s.146.us, %if.end44.us ], [ null, %still_delimiters.us ]
+  %.sink = phi ptr [ null, %for.cond.preheader ], [ %add.ptr, %if.then39 ], [ null, %if.end44.us ], [ null, %for.cond.preheader.thread ], [ null, %if.end8.lr.ph ], [ null, %still_delimiters.us ]
+  %retval.0.ph = phi ptr [ null, %for.cond.preheader ], [ %s.146.us, %if.then39 ], [ %s.146.us, %if.end44.us ], [ %spec.select, %for.cond.preheader.thread ], [ %s.0, %if.end8.lr.ph ], [ null, %still_delimiters.us ]
   store ptr %.sink, ptr %pContext, align 8
   br label %return
 
@@ -6601,8 +6601,8 @@ while.body21:                                     ; preds = %do.cond.i32
   br i1 %tobool14.not, label %while.end23, label %do.body.i28.preheader, !llvm.loop !141
 
 while.end23:                                      ; preds = %while.body, %while.body10, %while.body21, %do.body.i28, %while.cond.preheader, %if.end
-  %pString.addr.24979 = phi ptr [ %pString.addr.0, %if.end ], [ %pString, %while.cond.preheader ], [ %incdec.ptr11, %while.body10 ], [ %pString.addr.254, %do.body.i28 ], [ %pString.addr.254, %while.body21 ], [ %incdec.ptr, %while.body ]
-  %pString.addr.347 = phi ptr [ %pString.addr.0, %if.end ], [ %pString, %while.cond.preheader ], [ %incdec.ptr11, %while.body10 ], [ %pString.addr.357, %do.body.i28 ], [ %incdec.ptr22, %while.body21 ], [ %incdec.ptr, %while.body ]
+  %pString.addr.24979 = phi ptr [ %pString.addr.254, %while.body21 ], [ %incdec.ptr11, %while.body10 ], [ %pString, %while.cond.preheader ], [ %pString.addr.254, %do.body.i28 ], [ %pString.addr.0, %if.end ], [ %incdec.ptr, %while.body ]
+  %pString.addr.347 = phi ptr [ %incdec.ptr22, %while.body21 ], [ %incdec.ptr11, %while.body10 ], [ %pString, %while.cond.preheader ], [ %pString.addr.357, %do.body.i28 ], [ %pString.addr.0, %if.end ], [ %incdec.ptr, %while.body ]
   %cmp.not = icmp eq ptr %pString.addr.24979, %pString.addr.347
   %sub.ptr.lhs.cast = ptrtoint ptr %pString.addr.347 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %pString.addr.24979 to i64
@@ -6696,8 +6696,8 @@ while.body19:                                     ; preds = %do.cond.i30
   br i1 %tobool13.not, label %while.end21, label %do.body.i27.preheader, !llvm.loop !144
 
 while.end21:                                      ; preds = %while.body, %while.body9, %while.body19, %do.body.i27, %while.cond.preheader, %if.end
-  %pString.addr.24777 = phi ptr [ %pString.addr.0, %if.end ], [ %pString, %while.cond.preheader ], [ %incdec.ptr10, %while.body9 ], [ %pString.addr.252, %do.body.i27 ], [ %pString.addr.252, %while.body19 ], [ %incdec.ptr, %while.body ]
-  %pString.addr.345 = phi ptr [ %pString.addr.0, %if.end ], [ %pString, %while.cond.preheader ], [ %incdec.ptr10, %while.body9 ], [ %pString.addr.355, %do.body.i27 ], [ %incdec.ptr20, %while.body19 ], [ %incdec.ptr, %while.body ]
+  %pString.addr.24777 = phi ptr [ %pString.addr.252, %while.body19 ], [ %incdec.ptr10, %while.body9 ], [ %pString, %while.cond.preheader ], [ %pString.addr.252, %do.body.i27 ], [ %pString.addr.0, %if.end ], [ %incdec.ptr, %while.body ]
+  %pString.addr.345 = phi ptr [ %incdec.ptr20, %while.body19 ], [ %incdec.ptr10, %while.body9 ], [ %pString, %while.cond.preheader ], [ %pString.addr.355, %do.body.i27 ], [ %pString.addr.0, %if.end ], [ %incdec.ptr, %while.body ]
   %cmp.not = icmp eq ptr %pString.addr.24777, %pString.addr.345
   %sub.ptr.lhs.cast = ptrtoint ptr %pString.addr.345 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %pString.addr.24777 to i64
@@ -6792,8 +6792,8 @@ while.body19:                                     ; preds = %do.cond.i30
   br i1 %tobool13.not, label %while.end21, label %do.body.i27.preheader, !llvm.loop !147
 
 while.end21:                                      ; preds = %while.body, %while.body9, %while.body19, %do.body.i27, %while.cond.preheader, %if.end
-  %pString.addr.24777 = phi ptr [ %pString.addr.0, %if.end ], [ %pString, %while.cond.preheader ], [ %incdec.ptr10, %while.body9 ], [ %pString.addr.252, %do.body.i27 ], [ %pString.addr.252, %while.body19 ], [ %incdec.ptr, %while.body ]
-  %pString.addr.345 = phi ptr [ %pString.addr.0, %if.end ], [ %pString, %while.cond.preheader ], [ %incdec.ptr10, %while.body9 ], [ %pString.addr.355, %do.body.i27 ], [ %incdec.ptr20, %while.body19 ], [ %incdec.ptr, %while.body ]
+  %pString.addr.24777 = phi ptr [ %pString.addr.252, %while.body19 ], [ %incdec.ptr10, %while.body9 ], [ %pString, %while.cond.preheader ], [ %pString.addr.252, %do.body.i27 ], [ %pString.addr.0, %if.end ], [ %incdec.ptr, %while.body ]
+  %pString.addr.345 = phi ptr [ %incdec.ptr20, %while.body19 ], [ %incdec.ptr10, %while.body9 ], [ %pString, %while.cond.preheader ], [ %pString.addr.355, %do.body.i27 ], [ %pString.addr.0, %if.end ], [ %incdec.ptr, %while.body ]
   %cmp.not = icmp eq ptr %pString.addr.24777, %pString.addr.345
   %sub.ptr.lhs.cast = ptrtoint ptr %pString.addr.345 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %pString.addr.24777 to i64
@@ -9471,14 +9471,14 @@ if.end113:                                        ; preds = %if.end104
   br i1 %cmp102.not, label %if.end104, label %if.end122.loopexit155, !llvm.loop !181
 
 if.end122.loopexit155:                            ; preds = %if.end113, %if.end104
-  %neg.1.ph = phi i32 [ %spec.select78, %if.end113 ], [ %neg.2138, %if.end104 ]
+  %neg.1.ph = phi i32 [ %neg.2138, %if.end104 ], [ %spec.select78, %if.end113 ]
   %22 = icmp ne i32 %neg.1.ph, 0
   br label %if.end122
 
 if.end122:                                        ; preds = %if.then62, %for.cond78, %if.end122.loopexit155, %for.cond101.preheader, %for.cond78.preheader, %if.then90, %if.else98, %while.end
-  %nDigitCountAfterDecimal.0.ph.lcssa173 = phi i32 [ %nDigitCountAfterDecimal.0.ph.lcssa, %if.then90 ], [ %nDigitCountAfterDecimal.0.ph.lcssa, %if.else98 ], [ %nDigitCountAfterDecimal.0.ph.lcssa, %while.end ], [ %nDigitCountAfterDecimal.0.ph.lcssa, %for.cond78.preheader ], [ %nDigitCountAfterDecimal.0.ph.lcssa, %for.cond101.preheader ], [ %nDigitCountAfterDecimal.0.ph.lcssa, %if.end122.loopexit155 ], [ %nDigitCountAfterDecimal.0.ph.lcssa, %for.cond78 ], [ %nDigitCountAfterDecimal.0.ph125, %if.then62 ]
-  %t.3.idx.ph.lcssa98172 = phi i64 [ %t.3.idx.ph.lcssa98, %if.then90 ], [ %t.3.idx.ph.lcssa98, %if.else98 ], [ %t.3.idx.ph.lcssa98, %while.end ], [ %t.3.idx.ph.lcssa98, %for.cond78.preheader ], [ %t.3.idx.ph.lcssa98, %for.cond101.preheader ], [ %t.3.idx.ph.lcssa98, %if.end122.loopexit155 ], [ %t.3.idx.ph.lcssa98, %for.cond78 ], [ %t.3.idx.ph128, %if.then62 ]
-  %neg.1 = phi i1 [ %cmp9, %if.then90 ], [ false, %if.else98 ], [ %cmp9, %while.end ], [ %cmp9, %for.cond78.preheader ], [ true, %for.cond101.preheader ], [ %22, %if.end122.loopexit155 ], [ %cmp9, %for.cond78 ], [ %cmp9, %if.then62 ]
+  %nDigitCountAfterDecimal.0.ph.lcssa173 = phi i32 [ %nDigitCountAfterDecimal.0.ph.lcssa, %while.end ], [ %nDigitCountAfterDecimal.0.ph.lcssa, %if.then90 ], [ %nDigitCountAfterDecimal.0.ph.lcssa, %for.cond78.preheader ], [ %nDigitCountAfterDecimal.0.ph.lcssa, %if.else98 ], [ %nDigitCountAfterDecimal.0.ph.lcssa, %for.cond78 ], [ %nDigitCountAfterDecimal.0.ph.lcssa, %for.cond101.preheader ], [ %nDigitCountAfterDecimal.0.ph.lcssa, %if.end122.loopexit155 ], [ %nDigitCountAfterDecimal.0.ph125, %if.then62 ]
+  %t.3.idx.ph.lcssa98172 = phi i64 [ %t.3.idx.ph.lcssa98, %while.end ], [ %t.3.idx.ph.lcssa98, %if.then90 ], [ %t.3.idx.ph.lcssa98, %for.cond78.preheader ], [ %t.3.idx.ph.lcssa98, %if.else98 ], [ %t.3.idx.ph.lcssa98, %for.cond78 ], [ %t.3.idx.ph.lcssa98, %for.cond101.preheader ], [ %t.3.idx.ph.lcssa98, %if.end122.loopexit155 ], [ %t.3.idx.ph128, %if.then62 ]
+  %neg.1 = phi i1 [ %cmp9, %while.end ], [ %cmp9, %if.then90 ], [ %cmp9, %for.cond78.preheader ], [ false, %if.else98 ], [ %cmp9, %for.cond78 ], [ true, %for.cond101.preheader ], [ %22, %if.end122.loopexit155 ], [ %cmp9, %if.then62 ]
   %t.3.ptr.le97174 = getelementptr i8, ptr %buffer, i64 %t.3.idx.ph.lcssa98172
   %tobool128.not151 = icmp slt i32 %nDigitCountAfterDecimal.0.ph.lcssa173, 1
   br i1 %tobool128.not151, label %while.end131, label %while.body129.preheader
@@ -9725,12 +9725,12 @@ if.end86:                                         ; preds = %if.end77
   br i1 %cmp75.not, label %if.end77, label %if.end95.loopexit103, !llvm.loop !185
 
 if.end95.loopexit103:                             ; preds = %if.end86, %if.end77
-  %neg.1.ph = phi i32 [ %spec.select62, %if.end86 ], [ %neg.286, %if.end77 ]
+  %neg.1.ph = phi i32 [ %neg.286, %if.end77 ], [ %spec.select62, %if.end86 ]
   %20 = icmp ne i32 %neg.1.ph, 0
   br label %if.end95
 
 if.end95:                                         ; preds = %for.cond51, %if.end95.loopexit103, %for.cond74.preheader, %for.cond51.preheader, %if.then63, %if.else71, %while.end
-  %neg.1 = phi i1 [ %cmp9, %if.then63 ], [ false, %if.else71 ], [ %cmp9, %while.end ], [ %cmp9, %for.cond51.preheader ], [ true, %for.cond74.preheader ], [ %20, %if.end95.loopexit103 ], [ %cmp9, %for.cond51 ]
+  %neg.1 = phi i1 [ %cmp9, %while.end ], [ %cmp9, %if.then63 ], [ %cmp9, %for.cond51.preheader ], [ false, %if.else71 ], [ %20, %if.end95.loopexit103 ], [ true, %for.cond74.preheader ], [ %cmp9, %for.cond51 ]
   %tobool98.not99 = icmp eq i32 %nDigitCountAfterDecimal.addr.0.lcssa, 0
   br i1 %tobool98.not99, label %while.end101, label %while.body99.preheader
 
@@ -12228,7 +12228,7 @@ if.end186.loopexit:                               ; preds = %land.rhs145, %if.en
   br label %if.end186
 
 if.end186:                                        ; preds = %if.end186.loopexit, %if.end140, %while.end98, %if.end81
-  %nPositionResult.4 = phi i32 [ %nPositionResult.2, %if.end81 ], [ %nPositionResult.2, %while.end98 ], [ %23, %if.end140 ], [ %30, %if.end186.loopexit ]
+  %nPositionResult.4 = phi i32 [ %nPositionResult.2, %while.end98 ], [ %nPositionResult.2, %if.end81 ], [ %23, %if.end140 ], [ %30, %if.end186.loopexit ]
   %cmp187.not = icmp slt i32 %nPositionResult.4, %nResultCapacity
   br i1 %cmp187.not, label %if.end198, label %if.then188
 
@@ -12648,7 +12648,7 @@ if.end188.loopexit:                               ; preds = %land.rhs146, %if.en
   br label %if.end188
 
 if.end188:                                        ; preds = %if.end188.loopexit, %if.end141, %while.end99, %if.end82
-  %nPositionResult.4 = phi i32 [ %nPositionResult.2, %if.end82 ], [ %nPositionResult.2, %while.end99 ], [ %35, %if.end141 ], [ %42, %if.end188.loopexit ]
+  %nPositionResult.4 = phi i32 [ %nPositionResult.2, %while.end99 ], [ %nPositionResult.2, %if.end82 ], [ %35, %if.end141 ], [ %42, %if.end188.loopexit ]
   %cmp189.not = icmp slt i32 %nPositionResult.4, %nResultCapacity
   br i1 %cmp189.not, label %if.end200, label %if.then190
 
@@ -12666,7 +12666,7 @@ if.end200:                                        ; preds = %if.end188
   br label %return
 
 return:                                           ; preds = %while.body172, %land.rhs166, %do.body12.i.i, %if.then153, %while.end, %entry, %if.end200, %if.then190, %if.then124, %if.then104, %if.then63, %if.then41
-  %retval.0 = phi ptr [ null, %if.then190 ], [ null, %entry ], [ %pResult, %if.end200 ], [ null, %if.then41 ], [ null, %if.then63 ], [ null, %if.then104 ], [ null, %if.then124 ], [ null, %while.end ], [ null, %if.then153 ], [ %pResult, %do.body12.i.i ], [ null, %land.rhs166 ], [ null, %while.body172 ]
+  %retval.0 = phi ptr [ null, %if.then190 ], [ null, %if.then153 ], [ null, %entry ], [ %pResult, %if.end200 ], [ null, %if.then41 ], [ null, %if.then63 ], [ null, %if.then104 ], [ null, %if.then124 ], [ null, %while.end ], [ %pResult, %do.body12.i.i ], [ null, %land.rhs166 ], [ null, %while.body172 ]
   ret ptr %retval.0
 }
 
@@ -13007,7 +13007,7 @@ if.end187.loopexit:                               ; preds = %land.rhs146, %if.en
   br label %if.end187
 
 if.end187:                                        ; preds = %if.end187.loopexit, %if.end141, %while.end99, %if.end82
-  %nPositionResult.4 = phi i32 [ %nPositionResult.2, %if.end82 ], [ %nPositionResult.2, %while.end99 ], [ %25, %if.end141 ], [ %32, %if.end187.loopexit ]
+  %nPositionResult.4 = phi i32 [ %nPositionResult.2, %while.end99 ], [ %nPositionResult.2, %if.end82 ], [ %25, %if.end141 ], [ %32, %if.end187.loopexit ]
   %cmp188.not = icmp slt i32 %nPositionResult.4, %nResultCapacity
   br i1 %cmp188.not, label %if.end199, label %if.then189
 
@@ -13025,7 +13025,7 @@ if.end199:                                        ; preds = %if.end187
   br label %return
 
 return:                                           ; preds = %while.body171, %land.rhs166, %do.body10.i.i, %if.then153, %while.end, %entry, %if.end199, %if.then189, %if.then124, %if.then104, %if.then63, %if.then41
-  %retval.0 = phi ptr [ null, %if.then189 ], [ null, %entry ], [ %pResult, %if.end199 ], [ null, %if.then41 ], [ null, %if.then63 ], [ null, %if.then104 ], [ null, %if.then124 ], [ null, %while.end ], [ null, %if.then153 ], [ %pResult, %do.body10.i.i ], [ null, %land.rhs166 ], [ null, %while.body171 ]
+  %retval.0 = phi ptr [ null, %if.then189 ], [ null, %if.then153 ], [ null, %entry ], [ %pResult, %if.end199 ], [ null, %if.then41 ], [ null, %if.then63 ], [ null, %if.then104 ], [ null, %if.then124 ], [ null, %while.end ], [ %pResult, %do.body10.i.i ], [ null, %land.rhs166 ], [ null, %while.body171 ]
   ret ptr %retval.0
 }
 

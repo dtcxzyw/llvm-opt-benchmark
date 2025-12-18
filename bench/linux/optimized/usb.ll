@@ -955,7 +955,7 @@ define dso_local noundef zeroext i1 @usb_check_bulk_endpoints(ptr noundef readon
   br i1 %37, label %14, label %.thread
 
 .thread:                                          ; preds = %14, %31, %33, %27, %5, %2
-  %38 = phi i1 [ true, %2 ], [ false, %5 ], [ false, %27 ], [ false, %33 ], [ true, %14 ], [ false, %31 ]
+  %38 = phi i1 [ true, %2 ], [ false, %27 ], [ false, %5 ], [ false, %33 ], [ true, %14 ], [ false, %31 ]
   ret i1 %38
 }
 
@@ -1016,7 +1016,7 @@ define dso_local noundef zeroext i1 @usb_check_int_endpoints(ptr noundef readonl
   br i1 %37, label %14, label %.thread
 
 .thread:                                          ; preds = %14, %31, %33, %27, %5, %2
-  %38 = phi i1 [ true, %2 ], [ false, %5 ], [ false, %27 ], [ false, %33 ], [ true, %14 ], [ false, %31 ]
+  %38 = phi i1 [ true, %2 ], [ false, %27 ], [ false, %5 ], [ false, %33 ], [ true, %14 ], [ false, %31 ]
   ret i1 %38
 }
 
@@ -1087,7 +1087,7 @@ define dso_local ptr @usb_find_alt_setting(ptr noundef readonly captures(address
   br label %.thread
 
 .thread:                                          ; preds = %12, %33, %5, %.loopexit, %23, %3
-  %45 = phi ptr [ null, %.loopexit ], [ null, %3 ], [ null, %23 ], [ null, %5 ], [ %36, %33 ], [ null, %12 ]
+  %45 = phi ptr [ null, %.loopexit ], [ null, %3 ], [ null, %23 ], [ %36, %33 ], [ null, %5 ], [ null, %12 ]
   ret ptr %45
 }
 

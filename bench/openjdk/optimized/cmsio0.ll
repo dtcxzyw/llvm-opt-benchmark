@@ -854,7 +854,7 @@ SearchOneTag.exit.thread.loopexit16.split.loop.exit18: ; preds = %SearchOneTag.e
   br label %SearchOneTag.exit.thread
 
 SearchOneTag.exit.thread:                         ; preds = %16, %12, %SearchOneTag.exit.thread.loopexit16.split.loop.exit, %SearchOneTag.exit.thread.loopexit16.split.loop.exit18, %3
-  %.0 = phi i32 [ %21, %SearchOneTag.exit.thread.loopexit16.split.loop.exit18 ], [ %20, %SearchOneTag.exit.thread.loopexit16.split.loop.exit ], [ -1, %3 ], [ -1, %12 ], [ -1, %16 ]
+  %.0 = phi i32 [ -1, %3 ], [ -1, %12 ], [ %20, %SearchOneTag.exit.thread.loopexit16.split.loop.exit ], [ %21, %SearchOneTag.exit.thread.loopexit16.split.loop.exit18 ], [ -1, %16 ]
   ret i32 %.0
 }
 
@@ -1240,7 +1240,7 @@ CompatibleTypes.exit.thread:                      ; preds = %162, %151, %141, %1
   br i1 %exitcond120.not, label %.loopexit, label %.preheader, !llvm.loop !14
 
 .loopexit:                                        ; preds = %114, %112, %110, %190, %100, %.preheader99, %validDeviceClass.exit, %1, %186, %97, %81, %76, %13
-  %.0 = phi i32 [ 0, %81 ], [ 0, %13 ], [ 0, %76 ], [ 0, %97 ], [ 0, %validDeviceClass.exit ], [ 0, %186 ], [ 0, %1 ], [ 1, %.preheader99 ], [ 1, %100 ], [ 1, %190 ], [ 0, %110 ], [ 0, %112 ], [ 0, %114 ]
+  %.0 = phi i32 [ 0, %81 ], [ 0, %13 ], [ 0, %76 ], [ 0, %97 ], [ 1, %.preheader99 ], [ 0, %1 ], [ 0, %validDeviceClass.exit ], [ 0, %186 ], [ 1, %190 ], [ 1, %100 ], [ 0, %110 ], [ 0, %112 ], [ 0, %114 ]
   ret i32 %.0
 }
 
@@ -3349,7 +3349,7 @@ IsTypeSupported.exit:                             ; preds = %.lr.ph.i
   br label %.sink.split
 
 .sink.split:                                      ; preds = %25, %90, %.loopexit, %128, %149, %_cmsNewTag.exit, %21, %130, %_cmsDeleteTagByPos.exit
-  %.0.ph = phi i32 [ 1, %_cmsDeleteTagByPos.exit ], [ 1, %130 ], [ 0, %21 ], [ 0, %_cmsNewTag.exit ], [ 0, %149 ], [ 0, %128 ], [ 0, %.loopexit ], [ 0, %90 ], [ 0, %25 ]
+  %.0.ph = phi i32 [ 1, %_cmsDeleteTagByPos.exit ], [ 1, %130 ], [ 0, %90 ], [ 0, %21 ], [ 0, %_cmsNewTag.exit ], [ 0, %149 ], [ 0, %128 ], [ 0, %.loopexit ], [ 0, %25 ]
   %151 = load ptr, ptr %10, align 8
   %152 = load ptr, ptr %12, align 8
   call void @_cmsUnlockMutex(ptr noundef %151, ptr noundef %152) #19

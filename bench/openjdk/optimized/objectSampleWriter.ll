@@ -3343,9 +3343,9 @@ _ZNK17RootResolutionSet16compare_to_rangeERK16RootCallbackInfo.exit: ; preds = %
   br i1 %125, label %118, label %_ZNK17RootResolutionSet20in_set_address_rangeERK16RootCallbackInfo.exit.thread.sink.split, !llvm.loop !31
 
 _ZNK17RootResolutionSet20in_set_address_rangeERK16RootCallbackInfo.exit.thread.sink.split: ; preds = %118, %66, %112, %60
-  %.lcssa.i.i.sink = phi i32 [ %62, %60 ], [ %114, %112 ], [ %71, %66 ], [ %123, %118 ]
-  %.sink63 = phi ptr [ %61, %60 ], [ %113, %112 ], [ %61, %66 ], [ %113, %118 ]
-  %.sink53.in = phi ptr [ %9, %60 ], [ %75, %112 ], [ %9, %66 ], [ %75, %118 ]
+  %.lcssa.i.i.sink = phi i32 [ %71, %66 ], [ %62, %60 ], [ %114, %112 ], [ %123, %118 ]
+  %.sink63 = phi ptr [ %61, %66 ], [ %61, %60 ], [ %113, %112 ], [ %113, %118 ]
+  %.sink53.in = phi ptr [ %9, %66 ], [ %9, %60 ], [ %75, %112 ], [ %75, %118 ]
   %126 = add nsw i32 %.lcssa.i.i.sink, -1
   store i32 %126, ptr %.sink63, align 8
   %.sink53 = load ptr, ptr %.sink53.in, align 8
@@ -3354,7 +3354,7 @@ _ZNK17RootResolutionSet20in_set_address_rangeERK16RootCallbackInfo.exit.thread.s
   br label %_ZNK17RootResolutionSet20in_set_address_rangeERK16RootCallbackInfo.exit.thread
 
 _ZNK17RootResolutionSet20in_set_address_rangeERK16RootCallbackInfo.exit.thread: ; preds = %91, %43, %_ZNK17RootResolutionSet20in_set_address_rangeERK16RootCallbackInfo.exit.thread.sink.split, %74, %6, %_ZNK17RootResolutionSet20in_set_address_rangeERK16RootCallbackInfo.exit
-  %.0 = phi i1 [ false, %_ZNK17RootResolutionSet20in_set_address_rangeERK16RootCallbackInfo.exit ], [ false, %6 ], [ false, %74 ], [ %128, %_ZNK17RootResolutionSet20in_set_address_rangeERK16RootCallbackInfo.exit.thread.sink.split ], [ false, %43 ], [ false, %91 ]
+  %.0 = phi i1 [ false, %_ZNK17RootResolutionSet20in_set_address_rangeERK16RootCallbackInfo.exit ], [ false, %6 ], [ false, %74 ], [ false, %43 ], [ %128, %_ZNK17RootResolutionSet20in_set_address_rangeERK16RootCallbackInfo.exit.thread.sink.split ], [ false, %91 ]
   ret i1 %.0
 }
 

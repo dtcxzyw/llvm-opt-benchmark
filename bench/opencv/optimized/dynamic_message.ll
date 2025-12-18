@@ -1262,7 +1262,7 @@ _ZNSt10_HashtableIPKN6google8protobuf10DescriptorESt4pairIKS4_PKNS1_21DynamicMes
   br label %common.resume
 
 _ZNSt13unordered_mapIPKN6google8protobuf10DescriptorEPKNS1_21DynamicMessageFactory8TypeInfoESt4hashIS4_ESt8equal_toIS4_ESaISt4pairIKS4_S8_EEEixERSE_.exit: ; preds = %45, %40, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %41, %40 ], [ %56, %.loopexit.i.i ], [ %47, %45 ]
+  %.pn.i.i = phi ptr [ %56, %.loopexit.i.i ], [ %41, %40 ], [ %47, %45 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   %58 = load ptr, ptr %.1.i.i, align 8, !tbaa !172
   %.not = icmp eq ptr %58, null

@@ -3901,7 +3901,7 @@ _ZN5boost7process2v213basic_processINS_4asio15any_io_executorEE7runningERNS_6sys
   br label %_ZN5boost7process2v26detail23basic_process_handle_fdINS_4asio15any_io_executorEE4waitERiRNS_6system10error_codeE.exit
 
 _ZN5boost7process2v26detail23basic_process_handle_fdINS_4asio15any_io_executorEE4waitERiRNS_6system10error_codeE.exit: ; preds = %.preheader.i, %13, %_ZNK5boost6system10error_codecvbEv.exit.i.thread, %_ZNK5boost6system10error_codecvbEv.exit.i.thread.thread, %33, %_ZN5boost7process2v213basic_processINS_4asio15any_io_executorEE7runningERNS_6system10error_codeE.exit.thread
-  %34 = phi ptr [ %10, %_ZNK5boost6system10error_codecvbEv.exit.i.thread ], [ %10, %13 ], [ %23, %_ZN5boost7process2v213basic_processINS_4asio15any_io_executorEE7runningERNS_6system10error_codeE.exit.thread ], [ %23, %33 ], [ %.ph, %_ZNK5boost6system10error_codecvbEv.exit.i.thread.thread ], [ %23, %.preheader.i ]
+  %34 = phi ptr [ %10, %_ZNK5boost6system10error_codecvbEv.exit.i.thread ], [ %10, %13 ], [ %23, %_ZN5boost7process2v213basic_processINS_4asio15any_io_executorEE7runningERNS_6system10error_codeE.exit.thread ], [ %.ph, %_ZNK5boost6system10error_codecvbEv.exit.i.thread.thread ], [ %23, %33 ], [ %23, %.preheader.i ]
   %35 = load i64, ptr %34, align 8, !tbaa !172
   %36 = and i64 %35, 1
   %.not.i.i = icmp eq i64 %36, 0

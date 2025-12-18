@@ -1360,8 +1360,8 @@ _ZNK4llvm7Matcher29isSimplePredicateOrRecordNodeEv.exit: ; preds = %189, %148, %
   br i1 %.not189, label %_ZNK4llvm7Matcher29isSimplePredicateOrRecordNodeEv.exit.thread337, label %.lr.ph369
 
 _ZNK4llvm7Matcher29isSimplePredicateOrRecordNodeEv.exit.thread337: ; preds = %173, %_ZL16FindNodeWithKindPN4llvm7MatcherENS0_6KindTyE.exit, %161, %_ZNK4llvm7Matcher15isContradictoryEPKS0_.exit236, %152, %_ZNK4llvm7Matcher29isSimplePredicateOrRecordNodeEv.exit, %157, %.critedge
-  %.0165358 = phi ptr [ %85, %.critedge ], [ %.0165367, %157 ], [ %.0165367, %173 ], [ %.0165367, %_ZL16FindNodeWithKindPN4llvm7MatcherENS0_6KindTyE.exit ], [ %.0165367, %161 ], [ %.0165367, %_ZNK4llvm7Matcher15isContradictoryEPKS0_.exit236 ], [ %.0165367, %152 ], [ %.2167, %_ZNK4llvm7Matcher29isSimplePredicateOrRecordNodeEv.exit ]
-  %.1161356 = phi ptr [ %.0160.lcssa, %.critedge ], [ %.1161368, %157 ], [ %.1161368, %173 ], [ %.1161368, %_ZL16FindNodeWithKindPN4llvm7MatcherENS0_6KindTyE.exit ], [ %.1161368, %161 ], [ %.1161368, %_ZNK4llvm7Matcher15isContradictoryEPKS0_.exit236 ], [ %.1161368, %152 ], [ %.3163, %_ZNK4llvm7Matcher29isSimplePredicateOrRecordNodeEv.exit ]
+  %.0165358 = phi ptr [ %.0165367, %157 ], [ %85, %.critedge ], [ %.0165367, %173 ], [ %.0165367, %_ZL16FindNodeWithKindPN4llvm7MatcherENS0_6KindTyE.exit ], [ %.0165367, %161 ], [ %.0165367, %_ZNK4llvm7Matcher15isContradictoryEPKS0_.exit236 ], [ %.0165367, %152 ], [ %.2167, %_ZNK4llvm7Matcher29isSimplePredicateOrRecordNodeEv.exit ]
+  %.1161356 = phi ptr [ %.1161368, %157 ], [ %.0160.lcssa, %.critedge ], [ %.1161368, %173 ], [ %.1161368, %_ZL16FindNodeWithKindPN4llvm7MatcherENS0_6KindTyE.exit ], [ %.1161368, %161 ], [ %.1161368, %_ZNK4llvm7Matcher15isContradictoryEPKS0_.exit236 ], [ %.1161368, %152 ], [ %.3163, %_ZNK4llvm7Matcher29isSimplePredicateOrRecordNodeEv.exit ]
   %.not193 = icmp eq ptr %.1161356, %.0165358
   br i1 %.not193, label %.loopexit, label %.preheader350
 

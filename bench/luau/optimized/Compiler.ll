@@ -12083,7 +12083,7 @@ tailrecurse.backedge.i.i63:                       ; preds = %.lr.ph.i.i60
   br label %_ZN4Luau8Compiler15getExprLocalRegEPNS_7AstExprE.exit68
 
 _ZN4Luau8Compiler15getExprLocalRegEPNS_7AstExprE.exit68: ; preds = %.lr.ph.i.i60, %89, %87, %96, %92, %.loopexit.i53
-  %.0.i59 = phi i32 [ %99, %96 ], [ -1, %92 ], [ -1, %.loopexit.i53 ], [ -1, %89 ], [ -1, %87 ], [ -1, %.lr.ph.i.i60 ]
+  %.0.i59 = phi i32 [ -1, %89 ], [ %99, %96 ], [ -1, %92 ], [ -1, %.loopexit.i53 ], [ -1, %87 ], [ -1, %.lr.ph.i.i60 ]
   %100 = trunc i64 %.033102 to i32
   %101 = add i32 %100, %58
   %.not47 = icmp eq i32 %.0.i59, %101
@@ -12806,8 +12806,8 @@ _ZN4Luau8Compiler11getConstantEPNS_7AstExprE.exit229: ; preds = %260
   %292 = icmp eq i64 %.pre457, 3
   br i1 %292, label %.preheader409, label %_ZN4Luau8Compiler15getExprLocalRegEPNS_7AstExprE.exit
 
-.preheader409:                                    ; preds = %221, %219, %239, %241, %266, %264, %_ZN4Luau8Compiler10isConstantEPNS_7AstExprE.exit, %_ZN4Luau8Compiler10isConstantEPNS_7AstExprE.exit219, %272, %226, %_ZN4Luau8Compiler11getConstantEPNS_7AstExprE.exit229, %202, %193, %.thread389
-  %.2149360392506 = phi i32 [ %143, %.thread389 ], [ 34, %193 ], [ 34, %202 ], [ 34, %_ZN4Luau8Compiler11getConstantEPNS_7AstExprE.exit229 ], [ 34, %226 ], [ 34, %272 ], [ 34, %_ZN4Luau8Compiler10isConstantEPNS_7AstExprE.exit219 ], [ 34, %_ZN4Luau8Compiler10isConstantEPNS_7AstExprE.exit ], [ 34, %239 ], [ 34, %266 ], [ 34, %264 ], [ 34, %241 ], [ 34, %219 ], [ 34, %221 ]
+.preheader409:                                    ; preds = %221, %219, %239, %241, %266, %264, %272, %226, %_ZN4Luau8Compiler10isConstantEPNS_7AstExprE.exit219, %_ZN4Luau8Compiler10isConstantEPNS_7AstExprE.exit, %_ZN4Luau8Compiler11getConstantEPNS_7AstExprE.exit229, %202, %193, %.thread389
+  %.2149360392506 = phi i32 [ %143, %.thread389 ], [ 34, %193 ], [ 34, %202 ], [ 34, %_ZN4Luau8Compiler11getConstantEPNS_7AstExprE.exit229 ], [ 34, %_ZN4Luau8Compiler10isConstantEPNS_7AstExprE.exit ], [ 34, %_ZN4Luau8Compiler10isConstantEPNS_7AstExprE.exit219 ], [ 34, %226 ], [ 34, %272 ], [ 34, %239 ], [ 34, %266 ], [ 34, %264 ], [ 34, %241 ], [ 34, %219 ], [ 34, %221 ]
   %293 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %294 = load ptr, ptr %293, align 8, !tbaa !569
   %295 = load i32, ptr @_ZN4Luau7AstRttiINS_12AstExprLocalEE5valueE, align 4, !tbaa !4
@@ -12961,8 +12961,8 @@ _ZN4Luau8Compiler15getExprLocalRegEPNS_7AstExprE.exit: ; preds = %_ZN4Luau8Compi
   br label %.body255
 
 .critedge202:                                     ; preds = %136, %134, %187, %141, %107, %117, %112, %361, %356, %_ZN4Luau8Compiler15getExprLocalRegEPNS_7AstExprE.exit
-  %369 = phi i1 [ false, %187 ], [ true, %361 ], [ true, %356 ], [ true, %_ZN4Luau8Compiler15getExprLocalRegEPNS_7AstExprE.exit ], [ false, %112 ], [ false, %117 ], [ false, %107 ], [ false, %141 ], [ false, %134 ], [ false, %136 ]
-  %.2149360391 = phi i32 [ -1, %187 ], [ %.2149360392505, %361 ], [ %.2149360392505, %356 ], [ %.2149360392505, %_ZN4Luau8Compiler15getExprLocalRegEPNS_7AstExprE.exit ], [ -1, %112 ], [ -1, %117 ], [ -1, %107 ], [ %143, %141 ], [ -1, %134 ], [ -1, %136 ]
+  %369 = phi i1 [ false, %187 ], [ true, %361 ], [ true, %356 ], [ true, %_ZN4Luau8Compiler15getExprLocalRegEPNS_7AstExprE.exit ], [ false, %141 ], [ false, %107 ], [ false, %112 ], [ false, %117 ], [ false, %134 ], [ false, %136 ]
+  %.2149360391 = phi i32 [ -1, %187 ], [ %.2149360392505, %361 ], [ %.2149360392505, %356 ], [ %.2149360392505, %_ZN4Luau8Compiler15getExprLocalRegEPNS_7AstExprE.exit ], [ %143, %141 ], [ -1, %107 ], [ -1, %112 ], [ -1, %117 ], [ -1, %134 ], [ -1, %136 ]
   %370 = load i8, ptr %80, align 8, !tbaa !505, !range !63, !noundef !64
   %371 = trunc nuw i8 %370 to i1
   br i1 %371, label %372, label %429
@@ -13880,7 +13880,7 @@ _ZN4Luau8Compiler12getExprLocalEPNS_7AstExprE.exit: ; preds = %165, %166
   br label %_ZN4Luau8Compiler18areLocalsRedundantEPNS_12AstStatLocalE.exit
 
 _ZN4Luau8Compiler12getExprLocalEPNS_7AstExprE.exit.thread71: ; preds = %67, %152, %150, %_ZN4Luau8Compiler18areLocalsRedundantEPNS_12AstStatLocalE.exit.thread, %.loopexit.i, %131, %155, %161, %166, %53, %_ZN4Luau8Compiler18areLocalsRedundantEPNS_12AstStatLocalE.exit.thread.thread
-  %171 = phi i64 [ %50, %_ZN4Luau8Compiler18areLocalsRedundantEPNS_12AstStatLocalE.exit.thread.thread ], [ 1, %53 ], [ 1, %.loopexit.i ], [ 1, %131 ], [ 1, %155 ], [ 1, %161 ], [ 1, %166 ], [ %.pre, %_ZN4Luau8Compiler18areLocalsRedundantEPNS_12AstStatLocalE.exit.thread ], [ 1, %152 ], [ 1, %150 ], [ 1, %67 ]
+  %171 = phi i64 [ 1, %152 ], [ %.pre, %_ZN4Luau8Compiler18areLocalsRedundantEPNS_12AstStatLocalE.exit.thread ], [ %50, %_ZN4Luau8Compiler18areLocalsRedundantEPNS_12AstStatLocalE.exit.thread.thread ], [ 1, %53 ], [ 1, %.loopexit.i ], [ 1, %131 ], [ 1, %155 ], [ 1, %161 ], [ 1, %166 ], [ 1, %150 ], [ 1, %67 ]
   %172 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %173 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %174 = trunc i64 %171 to i32
@@ -18059,9 +18059,9 @@ _ZN4Luau8Compiler16isConstantVectorEPNS_7AstExprE.exit: ; preds = %75
   br label %.thread82
 
 .thread82:                                        ; preds = %60, %62, %79, %81, %_ZN4Luau8Compiler16isConstantVectorEPNS_7AstExprE.exit, %3, %.thread, %_ZN4Luau8Compiler10isConstantEPNS_7AstExprE.exit.thread, %_ZN4Luau8Compiler10isConstantEPNS_7AstExprE.exit61, %67
-  %.07487 = phi ptr [ %14, %67 ], [ %14, %3 ], [ %.07493, %_ZN4Luau8Compiler16isConstantVectorEPNS_7AstExprE.exit ], [ %14, %_ZN4Luau8Compiler10isConstantEPNS_7AstExprE.exit61 ], [ %14, %_ZN4Luau8Compiler10isConstantEPNS_7AstExprE.exit.thread ], [ %14, %.thread ], [ %.07493, %79 ], [ %.07493, %81 ], [ %14, %62 ], [ %14, %60 ]
-  %.07586 = phi ptr [ %12, %67 ], [ %12, %3 ], [ %.07592, %_ZN4Luau8Compiler16isConstantVectorEPNS_7AstExprE.exit ], [ %12, %_ZN4Luau8Compiler10isConstantEPNS_7AstExprE.exit61 ], [ %12, %_ZN4Luau8Compiler10isConstantEPNS_7AstExprE.exit.thread ], [ %12, %.thread ], [ %.07592, %79 ], [ %.07592, %81 ], [ %12, %62 ], [ %12, %60 ]
-  %.1.shrunk = phi i1 [ false, %67 ], [ false, %3 ], [ %86, %_ZN4Luau8Compiler16isConstantVectorEPNS_7AstExprE.exit ], [ false, %_ZN4Luau8Compiler10isConstantEPNS_7AstExprE.exit61 ], [ false, %_ZN4Luau8Compiler10isConstantEPNS_7AstExprE.exit.thread ], [ false, %.thread ], [ true, %79 ], [ true, %81 ], [ false, %62 ], [ false, %60 ]
+  %.07487 = phi ptr [ %14, %67 ], [ %14, %3 ], [ %14, %.thread ], [ %.07493, %_ZN4Luau8Compiler16isConstantVectorEPNS_7AstExprE.exit ], [ %14, %_ZN4Luau8Compiler10isConstantEPNS_7AstExprE.exit61 ], [ %14, %_ZN4Luau8Compiler10isConstantEPNS_7AstExprE.exit.thread ], [ %.07493, %79 ], [ %.07493, %81 ], [ %14, %62 ], [ %14, %60 ]
+  %.07586 = phi ptr [ %12, %67 ], [ %12, %3 ], [ %12, %.thread ], [ %.07592, %_ZN4Luau8Compiler16isConstantVectorEPNS_7AstExprE.exit ], [ %12, %_ZN4Luau8Compiler10isConstantEPNS_7AstExprE.exit61 ], [ %12, %_ZN4Luau8Compiler10isConstantEPNS_7AstExprE.exit.thread ], [ %.07592, %79 ], [ %.07592, %81 ], [ %12, %62 ], [ %12, %60 ]
+  %.1.shrunk = phi i1 [ false, %67 ], [ false, %3 ], [ false, %.thread ], [ %86, %_ZN4Luau8Compiler16isConstantVectorEPNS_7AstExprE.exit ], [ false, %_ZN4Luau8Compiler10isConstantEPNS_7AstExprE.exit61 ], [ false, %_ZN4Luau8Compiler10isConstantEPNS_7AstExprE.exit.thread ], [ true, %79 ], [ true, %81 ], [ false, %62 ], [ false, %60 ]
   %87 = invoke noundef zeroext i8 @_ZN4Luau8Compiler15compileExprAutoEPNS_7AstExprERNS0_8RegScopeE(ptr noundef nonnull align 8 dereferenceable(1344) %0, ptr noundef %.07586, ptr noundef nonnull align 8 dereferenceable(12) %4)
           to label %88 unwind label %120
 
@@ -23355,7 +23355,7 @@ tailrecurse.backedge.sink.split:                  ; preds = %53
   br label %tailrecurse.backedge
 
 tailrecurse.backedge:                             ; preds = %tailrecurse.backedge.sink.split, %50
-  %.tr33.be = phi ptr [ %52, %50 ], [ %58, %tailrecurse.backedge.sink.split ]
+  %.tr33.be = phi ptr [ %58, %tailrecurse.backedge.sink.split ], [ %52, %50 ]
   br label %tailrecurse
 
 .split42.us:                                      ; preds = %53, %.lr.ph
@@ -23367,7 +23367,7 @@ tailrecurse.backedge:                             ; preds = %tailrecurse.backedg
   br label %_ZN4Luau12DenseHashMapIPNS_8AstLocalENS_7Compile8VariableENS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit.thread
 
 _ZN4Luau12DenseHashMapIPNS_8AstLocalENS_7Compile8VariableENS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit.thread: ; preds = %46, %50, %28, %41, %43, %tailrecurse.backedge.us, %.split.us, %.split42.us
-  %.1 = phi ptr [ %..i27, %.split42.us ], [ null, %.split.us ], [ null, %41 ], [ null, %tailrecurse.backedge.us ], [ null, %43 ], [ null, %28 ], [ null, %50 ], [ null, %46 ]
+  %.1 = phi ptr [ %..i27, %.split42.us ], [ null, %41 ], [ null, %.split.us ], [ null, %tailrecurse.backedge.us ], [ null, %43 ], [ null, %28 ], [ null, %50 ], [ null, %46 ]
   ret ptr %.1
 }
 
@@ -25842,7 +25842,7 @@ _ZN4Luau8Compiler10isConstantEPNS_7AstExprE.exit: ; preds = %39
   br label %_ZN4Luau8Compiler10isConstantEPNS_7AstExprE.exit.thread
 
 _ZN4Luau8Compiler10isConstantEPNS_7AstExprE.exit.thread.thread: ; preds = %26, %18, %9
-  %.067.ph = phi i32 [ 74, %26 ], [ 74, %18 ], [ 73, %9 ]
+  %.067.ph = phi i32 [ 74, %18 ], [ 74, %26 ], [ 73, %9 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %10, i8 0, i64 12, i1 false)
   br label %.lr.ph
@@ -26986,7 +26986,7 @@ tailrecurse.backedge.i:                           ; preds = %280
   br i1 %.not.i.i248, label %_ZN4Luau8Compiler12getExprLocalEPNS_7AstExprE.exit, label %300, !llvm.loop !586
 
 _ZN4Luau8Compiler12getExprLocalEPNS_7AstExprE.exit: ; preds = %306, %304, %300
-  %.0.i.i249 = phi ptr [ null, %306 ], [ null, %304 ], [ %301, %300 ]
+  %.0.i.i249 = phi ptr [ %301, %300 ], [ null, %304 ], [ null, %306 ]
   %.not.i250 = icmp eq ptr %.0.i.i249, null
   %309 = getelementptr inbounds nuw i8, ptr %.0.i.i249, i64 8
   %310 = select i1 %.not.i250, ptr null, ptr %309
@@ -27283,10 +27283,10 @@ _ZNSt6vectorIN4Luau8Compiler9InlineArgESaIS2_EE9push_backEOS2_.exit289: ; preds 
   br i1 %403, label %43, label %.critedge, !llvm.loop !806
 
 .critedge:                                        ; preds = %401, %_ZNSt6vectorIN4Luau8Compiler9InlineArgESaIS2_EE9push_backEOS2_.exit, %22, %_ZN4Luau8Compiler18compileExprVarargsEPNS_14AstExprVarargsEhhb.exit
-  %404 = phi i64 [ %111, %_ZN4Luau8Compiler18compileExprVarargsEPNS_14AstExprVarargsEhhb.exit ], [ 0, %22 ], [ %139, %_ZNSt6vectorIN4Luau8Compiler9InlineArgESaIS2_EE9push_backEOS2_.exit ], [ %402, %401 ]
-  %.sroa.48.2 = phi ptr [ %.sroa.48.1719, %_ZN4Luau8Compiler18compileExprVarargsEPNS_14AstExprVarargsEhhb.exit ], [ null, %22 ], [ %.sroa.48.8, %_ZNSt6vectorIN4Luau8Compiler9InlineArgESaIS2_EE9push_backEOS2_.exit ], [ %.sroa.48.6, %401 ]
-  %.sroa.21.1 = phi ptr [ %.sroa.21.0720, %_ZN4Luau8Compiler18compileExprVarargsEPNS_14AstExprVarargsEhhb.exit ], [ null, %22 ], [ %.sroa.21.5, %_ZNSt6vectorIN4Luau8Compiler9InlineArgESaIS2_EE9push_backEOS2_.exit ], [ %.sroa.21.3, %401 ]
-  %.sroa.0464.2 = phi ptr [ %.sroa.0464.1721, %_ZN4Luau8Compiler18compileExprVarargsEPNS_14AstExprVarargsEhhb.exit ], [ null, %22 ], [ %.sroa.0464.8, %_ZNSt6vectorIN4Luau8Compiler9InlineArgESaIS2_EE9push_backEOS2_.exit ], [ %.sroa.0464.6, %401 ]
+  %404 = phi i64 [ 0, %22 ], [ %111, %_ZN4Luau8Compiler18compileExprVarargsEPNS_14AstExprVarargsEhhb.exit ], [ %139, %_ZNSt6vectorIN4Luau8Compiler9InlineArgESaIS2_EE9push_backEOS2_.exit ], [ %402, %401 ]
+  %.sroa.48.2 = phi ptr [ null, %22 ], [ %.sroa.48.1719, %_ZN4Luau8Compiler18compileExprVarargsEPNS_14AstExprVarargsEhhb.exit ], [ %.sroa.48.8, %_ZNSt6vectorIN4Luau8Compiler9InlineArgESaIS2_EE9push_backEOS2_.exit ], [ %.sroa.48.6, %401 ]
+  %.sroa.21.1 = phi ptr [ null, %22 ], [ %.sroa.21.0720, %_ZN4Luau8Compiler18compileExprVarargsEPNS_14AstExprVarargsEhhb.exit ], [ %.sroa.21.5, %_ZNSt6vectorIN4Luau8Compiler9InlineArgESaIS2_EE9push_backEOS2_.exit ], [ %.sroa.21.3, %401 ]
+  %.sroa.0464.2 = phi ptr [ null, %22 ], [ %.sroa.0464.1721, %_ZN4Luau8Compiler18compileExprVarargsEPNS_14AstExprVarargsEhhb.exit ], [ %.sroa.0464.8, %_ZNSt6vectorIN4Luau8Compiler9InlineArgESaIS2_EE9push_backEOS2_.exit ], [ %.sroa.0464.6, %401 ]
   %405 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %406 = load i64, ptr %405, align 8, !tbaa !512
   %407 = icmp ult i64 %404, %406
@@ -27777,9 +27777,9 @@ _ZNSt6vectorIN4Luau8Compiler9InlineArgESaIS2_EED2Ev.exit: ; preds = %617, %618
   ret void
 
 622:                                              ; preds = %.loopexit, %.loopexit.split-lp, %.loopexit545, %.loopexit.split-lp546, %.loopexit575, %.loopexit.split-lp576, %.loopexit570, %.loopexit.split-lp571, %.loopexit580, %.loopexit.split-lp581, %.loopexit560, %.loopexit.split-lp561, %.loopexit551, %.loopexit.split-lp552, %86, %90, %109, %92, %88, %274, %397, %399, %182, %184, %547, %554, %_ZN4Luau8Compiler11InlineFrameD2Ev.exit294, %450, %418, %41
-  %.sroa.48.3 = phi ptr [ %.sroa.48.0, %41 ], [ %.sroa.48.2, %418 ], [ %.sroa.48.2, %450 ], [ %.sroa.48.2, %.loopexit545 ], [ %.sroa.48.2, %547 ], [ %.sroa.48.2, %554 ], [ %.sroa.21.0720, %.loopexit.split-lp576 ], [ %.sroa.48.2, %_ZN4Luau8Compiler11InlineFrameD2Ev.exit294 ], [ %.sroa.48.1719, %88 ], [ %.sroa.48.1719, %86 ], [ %.sroa.48.1719, %109 ], [ %.sroa.48.1719, %92 ], [ %.sroa.48.1719, %90 ], [ %.sroa.21.0720, %.loopexit.split-lp561 ], [ %.sroa.21.0720, %.loopexit.split-lp581 ], [ %.sroa.48.1719, %397 ], [ %.sroa.21.0720, %.loopexit.split-lp571 ], [ %.sroa.48.1719, %399 ], [ %.sroa.21.0720, %274 ], [ %.sroa.48.1719, %182 ], [ %.sroa.21.2726, %.loopexit.split-lp552 ], [ %.sroa.48.1719, %184 ], [ %.sroa.21.2726, %.loopexit551 ], [ %.sroa.21.0720, %.loopexit560 ], [ %.sroa.21.0720, %.loopexit580 ], [ %.sroa.21.0720, %.loopexit570 ], [ %.sroa.21.0720, %.loopexit575 ], [ %.sroa.48.2, %.loopexit.split-lp546 ], [ %.sroa.48.2, %.loopexit.split-lp ], [ %.sroa.48.2, %.loopexit ]
-  %.sroa.0464.3 = phi ptr [ %.sroa.0464.0, %41 ], [ %.sroa.0464.2, %418 ], [ %.sroa.0464.2, %450 ], [ %.sroa.0464.2, %.loopexit545 ], [ %.sroa.0464.2, %547 ], [ %.sroa.0464.2, %554 ], [ %.sroa.0464.1721, %.loopexit.split-lp576 ], [ %.sroa.0464.2, %_ZN4Luau8Compiler11InlineFrameD2Ev.exit294 ], [ %.sroa.0464.1721, %88 ], [ %.sroa.0464.1721, %86 ], [ %.sroa.0464.1721, %109 ], [ %.sroa.0464.1721, %92 ], [ %.sroa.0464.1721, %90 ], [ %.sroa.0464.1721, %.loopexit.split-lp561 ], [ %.sroa.0464.1721, %.loopexit.split-lp581 ], [ %.sroa.0464.1721, %397 ], [ %.sroa.0464.1721, %.loopexit.split-lp571 ], [ %.sroa.0464.1721, %399 ], [ %.sroa.0464.1721, %274 ], [ %.sroa.0464.1721, %182 ], [ %.sroa.0464.5727, %.loopexit.split-lp552 ], [ %.sroa.0464.1721, %184 ], [ %.sroa.0464.5727, %.loopexit551 ], [ %.sroa.0464.1721, %.loopexit560 ], [ %.sroa.0464.1721, %.loopexit580 ], [ %.sroa.0464.1721, %.loopexit570 ], [ %.sroa.0464.1721, %.loopexit575 ], [ %.sroa.0464.2, %.loopexit.split-lp546 ], [ %.sroa.0464.2, %.loopexit.split-lp ], [ %.sroa.0464.2, %.loopexit ]
-  %.pn173.pn.pn.pn = phi { ptr, i32 } [ %42, %41 ], [ %419, %418 ], [ %451, %450 ], [ %lpad.loopexit547, %.loopexit545 ], [ %548, %547 ], [ %555, %554 ], [ %lpad.loopexit.split-lp578, %.loopexit.split-lp576 ], [ %479, %_ZN4Luau8Compiler11InlineFrameD2Ev.exit294 ], [ %89, %88 ], [ %87, %86 ], [ %110, %109 ], [ %93, %92 ], [ %91, %90 ], [ %lpad.loopexit.split-lp563, %.loopexit.split-lp561 ], [ %lpad.loopexit.split-lp583, %.loopexit.split-lp581 ], [ %398, %397 ], [ %lpad.loopexit.split-lp573, %.loopexit.split-lp571 ], [ %400, %399 ], [ %lpad.phi569, %274 ], [ %183, %182 ], [ %lpad.loopexit.split-lp554, %.loopexit.split-lp552 ], [ %185, %184 ], [ %lpad.loopexit553, %.loopexit551 ], [ %lpad.loopexit562, %.loopexit560 ], [ %lpad.loopexit582, %.loopexit580 ], [ %lpad.loopexit572, %.loopexit570 ], [ %lpad.loopexit577, %.loopexit575 ], [ %lpad.loopexit.split-lp548, %.loopexit.split-lp546 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ]
+  %.sroa.48.3 = phi ptr [ %.sroa.48.0, %41 ], [ %.sroa.48.1719, %86 ], [ %.sroa.48.2, %418 ], [ %.sroa.48.2, %450 ], [ %.sroa.48.2, %.loopexit545 ], [ %.sroa.48.2, %547 ], [ %.sroa.48.2, %554 ], [ %.sroa.21.0720, %.loopexit.split-lp576 ], [ %.sroa.48.2, %_ZN4Luau8Compiler11InlineFrameD2Ev.exit294 ], [ %.sroa.48.1719, %88 ], [ %.sroa.48.1719, %184 ], [ %.sroa.48.1719, %109 ], [ %.sroa.48.1719, %92 ], [ %.sroa.48.1719, %90 ], [ %.sroa.21.0720, %.loopexit.split-lp561 ], [ %.sroa.21.0720, %.loopexit.split-lp581 ], [ %.sroa.48.1719, %397 ], [ %.sroa.21.0720, %.loopexit.split-lp571 ], [ %.sroa.48.1719, %399 ], [ %.sroa.21.0720, %274 ], [ %.sroa.48.1719, %182 ], [ %.sroa.21.2726, %.loopexit.split-lp552 ], [ %.sroa.21.2726, %.loopexit551 ], [ %.sroa.21.0720, %.loopexit560 ], [ %.sroa.21.0720, %.loopexit580 ], [ %.sroa.21.0720, %.loopexit570 ], [ %.sroa.21.0720, %.loopexit575 ], [ %.sroa.48.2, %.loopexit.split-lp546 ], [ %.sroa.48.2, %.loopexit.split-lp ], [ %.sroa.48.2, %.loopexit ]
+  %.sroa.0464.3 = phi ptr [ %.sroa.0464.0, %41 ], [ %.sroa.0464.1721, %86 ], [ %.sroa.0464.2, %418 ], [ %.sroa.0464.2, %450 ], [ %.sroa.0464.2, %.loopexit545 ], [ %.sroa.0464.2, %547 ], [ %.sroa.0464.2, %554 ], [ %.sroa.0464.1721, %.loopexit.split-lp576 ], [ %.sroa.0464.2, %_ZN4Luau8Compiler11InlineFrameD2Ev.exit294 ], [ %.sroa.0464.1721, %88 ], [ %.sroa.0464.1721, %184 ], [ %.sroa.0464.1721, %109 ], [ %.sroa.0464.1721, %92 ], [ %.sroa.0464.1721, %90 ], [ %.sroa.0464.1721, %.loopexit.split-lp561 ], [ %.sroa.0464.1721, %.loopexit.split-lp581 ], [ %.sroa.0464.1721, %397 ], [ %.sroa.0464.1721, %.loopexit.split-lp571 ], [ %.sroa.0464.1721, %399 ], [ %.sroa.0464.1721, %274 ], [ %.sroa.0464.1721, %182 ], [ %.sroa.0464.5727, %.loopexit.split-lp552 ], [ %.sroa.0464.5727, %.loopexit551 ], [ %.sroa.0464.1721, %.loopexit560 ], [ %.sroa.0464.1721, %.loopexit580 ], [ %.sroa.0464.1721, %.loopexit570 ], [ %.sroa.0464.1721, %.loopexit575 ], [ %.sroa.0464.2, %.loopexit.split-lp546 ], [ %.sroa.0464.2, %.loopexit.split-lp ], [ %.sroa.0464.2, %.loopexit ]
+  %.pn173.pn.pn.pn = phi { ptr, i32 } [ %42, %41 ], [ %87, %86 ], [ %419, %418 ], [ %451, %450 ], [ %lpad.loopexit547, %.loopexit545 ], [ %548, %547 ], [ %555, %554 ], [ %lpad.loopexit.split-lp578, %.loopexit.split-lp576 ], [ %479, %_ZN4Luau8Compiler11InlineFrameD2Ev.exit294 ], [ %89, %88 ], [ %185, %184 ], [ %110, %109 ], [ %93, %92 ], [ %91, %90 ], [ %lpad.loopexit.split-lp563, %.loopexit.split-lp561 ], [ %lpad.loopexit.split-lp583, %.loopexit.split-lp581 ], [ %398, %397 ], [ %lpad.loopexit.split-lp573, %.loopexit.split-lp571 ], [ %400, %399 ], [ %lpad.phi569, %274 ], [ %183, %182 ], [ %lpad.loopexit.split-lp554, %.loopexit.split-lp552 ], [ %lpad.loopexit553, %.loopexit551 ], [ %lpad.loopexit562, %.loopexit560 ], [ %lpad.loopexit582, %.loopexit580 ], [ %lpad.loopexit572, %.loopexit570 ], [ %lpad.loopexit577, %.loopexit575 ], [ %lpad.loopexit.split-lp548, %.loopexit.split-lp546 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ]
   %.not.i.i.i311 = icmp eq ptr %.sroa.0464.3, null
   br i1 %.not.i.i.i311, label %_ZNSt6vectorIN4Luau8Compiler9InlineArgESaIS2_EED2Ev.exit312, label %.thread529
 
@@ -29635,7 +29635,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau8Compiler18shouldShare
   br i1 %.not, label %_ZN4Luau12DenseHashMapIPNS_15AstExprFunctionENS_8Compiler8FunctionENS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit.thread, label %38
 
 _ZN4Luau12DenseHashMapIPNS_15AstExprFunctionENS_8Compiler8FunctionENS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit.thread: ; preds = %24, %26, %73, %75, %38, %42, %62, %81, %.critedge, %59, %57, %29, %2, %7
-  %.0 = phi i1 [ false, %7 ], [ false, %2 ], [ true, %.critedge ], [ true, %29 ], [ false, %59 ], [ false, %57 ], [ false, %73 ], [ false, %75 ], [ false, %38 ], [ false, %42 ], [ false, %62 ], [ false, %81 ], [ false, %26 ], [ false, %24 ]
+  %.0 = phi i1 [ false, %59 ], [ false, %7 ], [ false, %2 ], [ true, %.critedge ], [ true, %29 ], [ false, %57 ], [ false, %73 ], [ false, %75 ], [ false, %38 ], [ false, %42 ], [ false, %62 ], [ false, %81 ], [ false, %26 ], [ false, %24 ]
   ret i1 %.0
 }
 
@@ -30001,7 +30001,7 @@ _ZN4Luau8Compiler8FunctionD2Ev.exit.i.i.i:        ; preds = %23, %.lr.ph.i.i.i
   br i1 %exitcond.not.i.i.i, label %_ZN4Luau6detail14DenseHashTableIPNS_15AstExprFunctionESt4pairIS3_NS_8Compiler8FunctionEES4_IKS3_S6_ENS0_16ItemInterfaceMapIS3_S6_EENS_16DenseHashPointerESt8equal_toIS3_EE7destroyEv.exit.i, label %.lr.ph.i.i.i, !llvm.loop !298
 
 _ZN4Luau6detail14DenseHashTableIPNS_15AstExprFunctionESt4pairIS3_NS_8Compiler8FunctionEES4_IKS3_S6_ENS0_16ItemInterfaceMapIS3_S6_EENS_16DenseHashPointerESt8equal_toIS3_EE7destroyEv.exit.i: ; preds = %_ZN4Luau8Compiler8FunctionD2Ev.exit.i.i.i, %._crit_edge.thread, %19
-  %30 = phi ptr [ %17, %19 ], [ %18, %._crit_edge.thread ], [ %17, %_ZN4Luau8Compiler8FunctionD2Ev.exit.i.i.i ]
+  %30 = phi ptr [ %18, %._crit_edge.thread ], [ %17, %19 ], [ %17, %_ZN4Luau8Compiler8FunctionD2Ev.exit.i.i.i ]
   tail call void @_ZdlPv(ptr noundef nonnull %30) #27
   br label %_ZN4Luau6detail14DenseHashTableIPNS_15AstExprFunctionESt4pairIS3_NS_8Compiler8FunctionEES4_IKS3_S6_ENS0_16ItemInterfaceMapIS3_S6_EENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit
 

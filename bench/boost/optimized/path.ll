@@ -3371,7 +3371,7 @@ _ZN12_GLOBAL__N_118find_filename_sizeERKNSt7__cxx1112basic_stringIcSt11char_trai
   br label %_ZN5boost10filesystem4path39remove_filename_and_trailing_separatorsEv.exit
 
 _ZN5boost10filesystem4path39remove_filename_and_trailing_separatorsEv.exit: ; preds = %37, %35, %44
-  %.1.i.i = phi i64 [ %spec.select.i.i, %35 ], [ %47, %44 ], [ %.0.i.i, %37 ]
+  %.1.i.i = phi i64 [ %47, %44 ], [ %spec.select.i.i, %35 ], [ %.0.i.i, %37 ]
   %48 = getelementptr inbounds i8, ptr %4, i64 %.1.i.i
   store i64 %.1.i.i, ptr %2, align 8, !tbaa !10
   store i8 0, ptr %48, align 1, !tbaa !11
@@ -3473,7 +3473,7 @@ _ZN12_GLOBAL__N_118find_filename_sizeERKNSt7__cxx1112basic_stringIcSt11char_trai
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEN9__gnu_cxx17__normal_iteratorIPKcS4_EES9_.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEN9__gnu_cxx17__normal_iteratorIPKcS4_EES9_.exit: ; preds = %37, %35, %44
-  %.1.i = phi i64 [ %spec.select.i, %35 ], [ %47, %44 ], [ %.0.i, %37 ]
+  %.1.i = phi i64 [ %47, %44 ], [ %spec.select.i, %35 ], [ %.0.i, %37 ]
   %48 = getelementptr inbounds i8, ptr %4, i64 %.1.i
   store i64 %.1.i, ptr %2, align 8, !tbaa !10
   store i8 0, ptr %48, align 1, !tbaa !11
@@ -4363,7 +4363,7 @@ _ZN12_GLOBAL__N_118find_filename_sizeERKNSt7__cxx1112basic_stringIcSt11char_trai
   br label %.loopexit
 
 .loopexit:                                        ; preds = %37, %35, %44
-  %.1 = phi i64 [ %spec.select, %35 ], [ %47, %44 ], [ %.0, %37 ]
+  %.1 = phi i64 [ %47, %44 ], [ %spec.select, %35 ], [ %.0, %37 ]
   ret i64 %.1
 }
 
@@ -4541,8 +4541,8 @@ _ZN5boost10filesystem4pathC2ERKS1_.exit:          ; preds = %._crit_edge.i.i.i, 
   br label %99
 
 _ZN12_GLOBAL__N_117is_root_separatorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmm.exit.thread55: ; preds = %.preheader, %_ZN12_GLOBAL__N_117is_root_separatorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmm.exit44, %54, %52
-  %.027.ph = phi i64 [ %.0.lcssa.i40, %52 ], [ %.0.lcssa.i40, %54 ], [ %.0.lcssa.i40, %_ZN12_GLOBAL__N_117is_root_separatorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmm.exit44 ], [ %.048, %.preheader ]
-  %.0.ph = phi i64 [ 0, %52 ], [ 0, %54 ], [ 0, %_ZN12_GLOBAL__N_117is_root_separatorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmm.exit44 ], [ 1, %.preheader ]
+  %.027.ph = phi i64 [ %.0.lcssa.i40, %_ZN12_GLOBAL__N_117is_root_separatorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmm.exit44 ], [ %.0.lcssa.i40, %52 ], [ %.0.lcssa.i40, %54 ], [ %.048, %.preheader ]
+  %.0.ph = phi i64 [ 0, %_ZN12_GLOBAL__N_117is_root_separatorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmm.exit44 ], [ 0, %52 ], [ 0, %54 ], [ 1, %.preheader ]
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %83, ptr %0, align 8, !tbaa !12
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 8

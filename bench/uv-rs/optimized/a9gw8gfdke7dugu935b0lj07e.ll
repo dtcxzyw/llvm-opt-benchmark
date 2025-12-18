@@ -1621,7 +1621,7 @@ _ZN3std2io5Write14write_vectored17h53e76441a02da727E.exit: ; preds = %26, %33
   br i1 %38, label %40, label %42
 
 .loopexit:                                        ; preds = %89, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hded98c987b9c381aE.exit.thread.i13", %_ZN3std2io5error5Error14is_interrupted17h7eca20d7cd17b577E.llvm.18114576096980994613.exit, %44, %50, %46, %40, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hded98c987b9c381aE.exit.i", %3
-  %.sroa.0.0 = phi ptr [ null, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hded98c987b9c381aE.exit.i" ], [ null, %3 ], [ %37, %_ZN3std2io5error5Error14is_interrupted17h7eca20d7cd17b577E.llvm.18114576096980994613.exit ], [ null, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hded98c987b9c381aE.exit.thread.i13" ], [ @anon.a36afcc231f82cf69f483f7961fbb938.15.llvm.18114576096980994613, %40 ], [ %37, %46 ], [ %37, %50 ], [ %37, %44 ], [ null, %89 ]
+  %.sroa.0.0 = phi ptr [ null, %3 ], [ %37, %_ZN3std2io5error5Error14is_interrupted17h7eca20d7cd17b577E.llvm.18114576096980994613.exit ], [ null, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hded98c987b9c381aE.exit.i" ], [ null, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hded98c987b9c381aE.exit.thread.i13" ], [ @anon.a36afcc231f82cf69f483f7961fbb938.15.llvm.18114576096980994613, %40 ], [ %37, %46 ], [ %37, %50 ], [ %37, %44 ], [ null, %89 ]
   ret ptr %.sroa.0.0
 
 40:                                               ; preds = %_ZN3std2io5Write14write_vectored17h53e76441a02da727E.exit
@@ -1907,7 +1907,7 @@ _ZN3std2io5Write14write_vectored17h52f6c3949d90e0d8E.llvm.18114576096980994613.e
   br i1 %59, label %61, label %63
 
 .loopexit:                                        ; preds = %110, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hded98c987b9c381aE.exit.thread.i13", %_ZN3std2io5error5Error14is_interrupted17h7eca20d7cd17b577E.llvm.18114576096980994613.exit, %65, %71, %67, %61, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hded98c987b9c381aE.exit.i", %3
-  %.sroa.0.0 = phi ptr [ null, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hded98c987b9c381aE.exit.i" ], [ null, %3 ], [ %58, %_ZN3std2io5error5Error14is_interrupted17h7eca20d7cd17b577E.llvm.18114576096980994613.exit ], [ null, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hded98c987b9c381aE.exit.thread.i13" ], [ @anon.a36afcc231f82cf69f483f7961fbb938.15.llvm.18114576096980994613, %61 ], [ %58, %67 ], [ %58, %71 ], [ %58, %65 ], [ null, %110 ]
+  %.sroa.0.0 = phi ptr [ null, %3 ], [ %58, %_ZN3std2io5error5Error14is_interrupted17h7eca20d7cd17b577E.llvm.18114576096980994613.exit ], [ null, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hded98c987b9c381aE.exit.i" ], [ null, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hded98c987b9c381aE.exit.thread.i13" ], [ @anon.a36afcc231f82cf69f483f7961fbb938.15.llvm.18114576096980994613, %61 ], [ %58, %67 ], [ %58, %71 ], [ %58, %65 ], [ null, %110 ]
   ret ptr %.sroa.0.0
 
 61:                                               ; preds = %_ZN3std2io5Write14write_vectored17h52f6c3949d90e0d8E.llvm.18114576096980994613.exit
@@ -4745,7 +4745,7 @@ _ZN4core5slice5ascii8is_ascii17hb022378719fa8ba5E.exit.loopexit.i.i: ; preds = %
   br label %_ZN4core5slice5ascii8is_ascii17hb022378719fa8ba5E.exit.i.i
 
 _ZN4core5slice5ascii8is_ascii17hb022378719fa8ba5E.exit.i.i: ; preds = %._crit_edge.i.i.i, %_ZN4core5slice5ascii8is_ascii17hb022378719fa8ba5E.exit.loopexit.i.i, %.preheader.i.i.i
-  %.sroa.0.0.i.i.i = phi i8 [ 0, %.preheader.i.i.i ], [ %252, %_ZN4core5slice5ascii8is_ascii17hb022378719fa8ba5E.exit.loopexit.i.i ], [ 1, %._crit_edge.i.i.i ]
+  %.sroa.0.0.i.i.i = phi i8 [ %252, %_ZN4core5slice5ascii8is_ascii17hb022378719fa8ba5E.exit.loopexit.i.i ], [ 0, %.preheader.i.i.i ], [ 1, %._crit_edge.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %29), !noalias !806
   call void @llvm.lifetime.start.p0(ptr nonnull %23), !noalias !828
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$15try_allocate_in17h3a7e6da58a906ba1E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %23, i64 noundef %195, i1 noundef zeroext false, i64 noundef 1, i64 noundef 1)
@@ -6709,7 +6709,7 @@ _ZN4core5slice5ascii8is_ascii17hb022378719fa8ba5E.exit.loopexit.i.i: ; preds = %
   br label %_ZN4core5slice5ascii8is_ascii17hb022378719fa8ba5E.exit.i.i
 
 _ZN4core5slice5ascii8is_ascii17hb022378719fa8ba5E.exit.i.i: ; preds = %._crit_edge.i.i.i, %_ZN4core5slice5ascii8is_ascii17hb022378719fa8ba5E.exit.loopexit.i.i, %.preheader.i.i.i
-  %.sroa.0.0.i.i.i = phi i8 [ 0, %.preheader.i.i.i ], [ %270, %_ZN4core5slice5ascii8is_ascii17hb022378719fa8ba5E.exit.loopexit.i.i ], [ 1, %._crit_edge.i.i.i ]
+  %.sroa.0.0.i.i.i = phi i8 [ %270, %_ZN4core5slice5ascii8is_ascii17hb022378719fa8ba5E.exit.loopexit.i.i ], [ 0, %.preheader.i.i.i ], [ 1, %._crit_edge.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %29), !noalias !1026
   call void @llvm.lifetime.start.p0(ptr nonnull %24), !noalias !1059
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$15try_allocate_in17h3a7e6da58a906ba1E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %24, i64 noundef %215, i1 noundef zeroext false, i64 noundef 1, i64 noundef 1)
@@ -10503,7 +10503,7 @@ define hidden noundef ptr @"_ZN67_$LT$flate2..zio..Writer$LT$W$C$D$GT$$u20$as$u2
   unreachable
 
 .loopexit:                                        ; preds = %14, %29, %23, %8
-  %.sroa.0.0 = phi ptr [ %28, %23 ], [ %13, %8 ], [ null, %29 ], [ %15, %14 ]
+  %.sroa.0.0 = phi ptr [ null, %29 ], [ %28, %23 ], [ %13, %8 ], [ %15, %14 ]
   ret ptr %.sroa.0.0
 }
 
@@ -11282,7 +11282,7 @@ define hidden noundef ptr @"_ZN6flate23zio19Writer$LT$W$C$D$GT$6finish17h05e23e6
   br label %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17had6a883a1e3b4c90E.llvm.18114576096980994613.exit.thread14"
 
 "_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17had6a883a1e3b4c90E.llvm.18114576096980994613.exit.thread14": ; preds = %45, %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17had6a883a1e3b4c90E.llvm.18114576096980994613.exit", %29, %48
-  %.sroa.0.0 = phi ptr [ %53, %48 ], [ inttoptr (i64 98784247811 to ptr), %29 ], [ null, %45 ], [ %25, %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17had6a883a1e3b4c90E.llvm.18114576096980994613.exit" ]
+  %.sroa.0.0 = phi ptr [ inttoptr (i64 98784247811 to ptr), %29 ], [ %53, %48 ], [ null, %45 ], [ %25, %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17had6a883a1e3b4c90E.llvm.18114576096980994613.exit" ]
   ret ptr %.sroa.0.0
 }
 
@@ -11454,7 +11454,7 @@ define hidden void @_ZN6zopfli4lz779Lz77Store11follow_path17hf0d1fea4eac36b31E(p
   br label %.body
 
 .loopexit.split-lp70:                             ; preds = %41, %44, %37, %"_ZN4core3ptr63drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$u16$GT$$GT$17h551bd729c1022869E.llvm.9417612539669657177.exit.i"
-  %.sroa.018.2.ph = phi i1 [ true, %37 ], [ true, %41 ], [ true, %44 ], [ false, %"_ZN4core3ptr63drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$u16$GT$$GT$17h551bd729c1022869E.llvm.9417612539669657177.exit.i" ]
+  %.sroa.018.2.ph = phi i1 [ true, %41 ], [ true, %37 ], [ true, %44 ], [ false, %"_ZN4core3ptr63drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$u16$GT$$GT$17h551bd729c1022869E.llvm.9417612539669657177.exit.i" ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body

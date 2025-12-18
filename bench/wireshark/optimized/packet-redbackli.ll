@@ -280,7 +280,7 @@ define internal noundef zeroext i1 @redbackli_dissect_heur(ptr noundef %0, ptr n
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %11, %15, %.thread, %4, %25
-  %.026 = phi i1 [ false, %4 ], [ true, %25 ], [ false, %.thread ], [ false, %15 ], [ false, %11 ], [ false, %.preheader ]
+  %.026 = phi i1 [ false, %.thread ], [ true, %25 ], [ false, %4 ], [ false, %15 ], [ false, %11 ], [ false, %.preheader ]
   ret i1 %.026
 }
 

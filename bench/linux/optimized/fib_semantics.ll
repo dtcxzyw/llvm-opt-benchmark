@@ -756,9 +756,9 @@ define dso_local range(i64 -9223372036854775604, -9223372036854775808) i64 @fib_
   br label %.thread.split.split, !llvm.loop !21
 
 .split.us:                                        ; preds = %54, %.thread4.us, %.thread.split.split.us.split.us, %.thread.split.us
-  %81 = phi i64 [ 204, %.thread.split.us ], [ 212, %.thread.split.split.us.split.us ], [ 204, %.thread4.us ], [ 212, %54 ]
-  %82 = phi i32 [ %17, %.thread.split.us ], [ %35, %.thread.split.split.us.split.us ], [ %17, %.thread4.us ], [ %35, %54 ]
-  %.us-phi = phi i64 [ 0, %.thread.split.us ], [ %44, %.thread.split.split.us.split.us ], [ %33, %.thread4.us ], [ %45, %54 ]
+  %81 = phi i64 [ 204, %.thread4.us ], [ 204, %.thread.split.us ], [ 212, %.thread.split.split.us.split.us ], [ 212, %54 ]
+  %82 = phi i32 [ %17, %.thread4.us ], [ %17, %.thread.split.us ], [ %35, %.thread.split.split.us.split.us ], [ %35, %54 ]
+  %.us-phi = phi i64 [ %33, %.thread4.us ], [ 0, %.thread.split.us ], [ %44, %.thread.split.split.us.split.us ], [ %45, %54 ]
   %83 = zext i32 %82 to i64
   %84 = mul nuw nsw i64 %83, 28
   %85 = add i64 %.us-phi, %84
@@ -3167,7 +3167,7 @@ define dso_local ptr @fib_create_info(ptr noundef readonly captures(none) %0, pt
   br label %.thread58
 
 .thread58:                                        ; preds = %336, %.thread58.sink.split, %259, %276, %279, %284, %290, %361, %306, %298, %304, %216
-  %505 = phi i32 [ -22, %216 ], [ -22, %279 ], [ %260, %259 ], [ %291, %290 ], [ -19, %306 ], [ -22, %284 ], [ -22, %361 ], [ -22, %304 ], [ -22, %298 ], [ -22, %276 ], [ -22, %.thread58.sink.split ], [ %340, %336 ]
+  %505 = phi i32 [ -22, %.thread58.sink.split ], [ -22, %216 ], [ -22, %279 ], [ %260, %259 ], [ %291, %290 ], [ -22, %298 ], [ -19, %306 ], [ -22, %304 ], [ -22, %284 ], [ -22, %276 ], [ -22, %361 ], [ %340, %336 ]
   %506 = getelementptr inbounds nuw i8, ptr %176, i64 68
   store i8 1, ptr %506, align 4
   %507 = getelementptr inbounds nuw i8, ptr %176, i64 112
@@ -3736,7 +3736,7 @@ define internal fastcc i32 @fib_get_nhs(ptr noundef nonnull captures(none) %0, p
   br label %.thread
 
 .thread:                                          ; preds = %107, %86, %.thread.sink.split, %73, %96, %.critedge, %57, %79, %159, %170, %165, %158, %150, %149
-  %171 = phi i32 [ -22, %.critedge ], [ -22, %149 ], [ -22, %170 ], [ -22, %73 ], [ 0, %165 ], [ 0, %150 ], [ 0, %159 ], [ 0, %158 ], [ -22, %79 ], [ -22, %57 ], [ -22, %96 ], [ -22, %.thread.sink.split ], [ %87, %86 ], [ %115, %107 ]
+  %171 = phi i32 [ -22, %.critedge ], [ -22, %57 ], [ -22, %149 ], [ -22, %.thread.sink.split ], [ -22, %170 ], [ -22, %73 ], [ 0, %165 ], [ 0, %150 ], [ 0, %159 ], [ 0, %158 ], [ -22, %79 ], [ -22, %96 ], [ %115, %107 ], [ %87, %86 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %171
 }
@@ -3961,9 +3961,9 @@ define internal fastcc void @fib_rebalance(ptr noundef %0) unnamed_addr #3 align
   br i1 %114, label %120, label %.split7.us
 
 .split7.us:                                       ; preds = %112, %60, %.split.split.us.preheader, %88, %91, %98, %.split.us
-  %115 = phi ptr [ %23, %.split.us ], [ %66, %.split.split.us.preheader ], [ %66, %98 ], [ %66, %91 ], [ %66, %88 ], [ %23, %60 ], [ %66, %112 ]
-  %116 = phi ptr [ %22, %.split.us ], [ %64, %.split.split.us.preheader ], [ %64, %98 ], [ %64, %91 ], [ %64, %88 ], [ %22, %60 ], [ %64, %112 ]
-  %.us-phi = phi i32 [ 0, %.split.us ], [ 0, %.split.split.us.preheader ], [ %100, %98 ], [ 0, %91 ], [ 0, %88 ], [ %61, %60 ], [ %103, %112 ]
+  %115 = phi ptr [ %23, %60 ], [ %23, %.split.us ], [ %66, %.split.split.us.preheader ], [ %66, %98 ], [ %66, %91 ], [ %66, %88 ], [ %66, %112 ]
+  %116 = phi ptr [ %22, %60 ], [ %22, %.split.us ], [ %64, %.split.split.us.preheader ], [ %64, %98 ], [ %64, %91 ], [ %64, %88 ], [ %64, %112 ]
+  %.us-phi = phi i32 [ %61, %60 ], [ 0, %.split.us ], [ 0, %.split.split.us.preheader ], [ %100, %98 ], [ 0, %91 ], [ 0, %88 ], [ %103, %112 ]
   %117 = sdiv i32 %.us-phi, 2
   %118 = sext i32 %117 to i64
   %119 = zext i32 %.us-phi to i64

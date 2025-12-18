@@ -905,7 +905,7 @@ compile_filter.exit:                              ; preds = %31, %putloc.exit.i
   br i1 %99, label %.lr.ph26.i, label %.loopexit.i, !llvm.loop !14
 
 .loopexit.i:                                      ; preds = %.lr.ph26.i, %89, %._crit_edge.i
-  %.1.i18 = phi i32 [ %.016.lcssa.i, %89 ], [ %.016.lcssa.i, %._crit_edge.i ], [ %96, %.lr.ph26.i ]
+  %.1.i18 = phi i32 [ %.016.lcssa.i, %._crit_edge.i ], [ %.016.lcssa.i, %89 ], [ %96, %.lr.ph26.i ]
   %.not20.i = icmp eq i32 %.1.i18, 0
   br i1 %.not20.i, label %print_warnings.exit, label %100
 

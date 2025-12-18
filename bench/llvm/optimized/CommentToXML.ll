@@ -6598,7 +6598,7 @@ _ZSt13move_backwardIPPKN5clang8comments19ParamCommandCommentES5_ET0_T_S7_S6_.exi
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !552
 
 _ZSt11swap_rangesIPPKN5clang8comments19ParamCommandCommentES5_ET0_T_S7_S6_.exit: ; preds = %._crit_edge, %._crit_edge111, %.lr.ph.i, %_ZSt13move_backwardIPPKN5clang8comments19ParamCommandCommentES5_ET0_T_S7_S6_.exit, %_ZSt4moveIPPKN5clang8comments19ParamCommandCommentES5_ET0_T_S7_S6_.exit, %5, %3
-  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %23, %_ZSt4moveIPPKN5clang8comments19ParamCommandCommentES5_ET0_T_S7_S6_.exit ], [ %23, %_ZSt13move_backwardIPPKN5clang8comments19ParamCommandCommentES5_ET0_T_S7_S6_.exit ], [ %1, %.lr.ph.i ], [ %23, %._crit_edge111 ], [ %23, %._crit_edge ]
+  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %1, %.lr.ph.i ], [ %23, %_ZSt4moveIPPKN5clang8comments19ParamCommandCommentES5_ET0_T_S7_S6_.exit ], [ %23, %_ZSt13move_backwardIPPKN5clang8comments19ParamCommandCommentES5_ET0_T_S7_S6_.exit ], [ %23, %._crit_edge111 ], [ %23, %._crit_edge ]
   ret ptr %.053
 }
 
@@ -7363,7 +7363,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135TParamCommandCommentCompare
   br label %.lr.ph.split.split.split.i.i
 
 _ZSt25__unguarded_linear_insertIPPKN5clang8comments20TParamCommandCommentEN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEEvT_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIPKN5clang8comments20TParamCommandCommentEPSA_EEbRT_T0_.exit.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIPKN5clang8comments20TParamCommandCommentEPSA_EEbRT_T0_.exit.thread.us.i.i, %.lr.ph.split.us.split.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIPPKN5clang8comments20TParamCommandCommentESB_EEbT_T0_.exit.thread.i, %.lr.ph.i
-  %.sink.i = phi ptr [ %0, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIPPKN5clang8comments20TParamCommandCommentESB_EEbT_T0_.exit.thread.i ], [ %.031.i, %.lr.ph.i ], [ %.031.i, %.lr.ph.split.us.split.i.i ], [ %.017.us48.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIPKN5clang8comments20TParamCommandCommentEPSA_EEbRT_T0_.exit.thread.us.i.i ], [ %.0916.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIPKN5clang8comments20TParamCommandCommentEPSA_EEbRT_T0_.exit.i.i ]
+  %.sink.i = phi ptr [ %0, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIPPKN5clang8comments20TParamCommandCommentESB_EEbT_T0_.exit.thread.i ], [ %.031.i, %.lr.ph.i ], [ %.017.us48.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIPKN5clang8comments20TParamCommandCommentEPSA_EEbRT_T0_.exit.thread.us.i.i ], [ %.031.i, %.lr.ph.split.us.split.i.i ], [ %.0916.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIPKN5clang8comments20TParamCommandCommentEPSA_EEbRT_T0_.exit.i.i ]
   store ptr %.0.val.i, ptr %.sink.i, align 8, !tbaa !83
   %.0.i = getelementptr inbounds nuw i8, ptr %.031.i, i64 8
   %.not.i = icmp eq ptr %.0.i, %1
@@ -7545,8 +7545,8 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_135TParamCommandCommentCompare
   br label %.thread15.i
 
 .thread15.i:                                      ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIPPKN5clang8comments20TParamCommandCommentEKSA_EEbT_RT0_.exit.i, %.thread.i, %48, %_ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit.i
-  %67 = phi i64 [ %42, %_ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit.i ], [ %spec.select.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIPPKN5clang8comments20TParamCommandCommentEKSA_EEbT_RT0_.exit.i ], [ %42, %48 ], [ %57, %.thread.i ]
-  %68 = phi ptr [ %.022.i, %_ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit.i ], [ %spec.select20.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIPPKN5clang8comments20TParamCommandCommentEKSA_EEbT_RT0_.exit.i ], [ %.022.i, %48 ], [ %55, %.thread.i ]
+  %67 = phi i64 [ %42, %48 ], [ %spec.select.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIPPKN5clang8comments20TParamCommandCommentEKSA_EEbT_RT0_.exit.i ], [ %42, %_ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit.i ], [ %57, %.thread.i ]
+  %68 = phi ptr [ %.022.i, %48 ], [ %spec.select20.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIPPKN5clang8comments20TParamCommandCommentEKSA_EEbT_RT0_.exit.i ], [ %.022.i, %_ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit.i ], [ %55, %.thread.i ]
   %69 = icmp sgt i64 %67, 0
   br i1 %69, label %_ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIPPKN5clang8comments20TParamCommandCommentES4_N9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEET_SC_SC_RKT0_T1_.exit.loopexit, !llvm.loop !560
 
@@ -7658,7 +7658,7 @@ tailrecurse:                                      ; preds = %_ZSt13__upper_bound
   %or.cond = or i1 %114, %115
   br i1 %or.cond, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIPPKN5clang8comments20TParamCommandCommentESB_EEbT_T0_.exit.thread71, label %9
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIPPKN5clang8comments20TParamCommandCommentESB_EEbT_T0_.exit.thread71: ; preds = %tailrecurse, %5, %12, %18, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIPPKN5clang8comments20TParamCommandCommentESB_EEbT_T0_.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIPPKN5clang8comments20TParamCommandCommentESB_EEbT_T0_.exit.thread
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIPPKN5clang8comments20TParamCommandCommentESB_EEbT_T0_.exit.thread71: ; preds = %tailrecurse, %5, %18, %12, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIPPKN5clang8comments20TParamCommandCommentESB_EEbT_T0_.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIPPKN5clang8comments20TParamCommandCommentESB_EEbT_T0_.exit.thread
   ret void
 }
 
@@ -7820,7 +7820,7 @@ _ZSt13move_backwardIPPKN5clang8comments20TParamCommandCommentES5_ET0_T_S7_S6_.ex
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !565
 
 _ZSt11swap_rangesIPPKN5clang8comments20TParamCommandCommentES5_ET0_T_S7_S6_.exit: ; preds = %._crit_edge, %._crit_edge111, %.lr.ph.i, %_ZSt13move_backwardIPPKN5clang8comments20TParamCommandCommentES5_ET0_T_S7_S6_.exit, %_ZSt4moveIPPKN5clang8comments20TParamCommandCommentES5_ET0_T_S7_S6_.exit, %5, %3
-  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %23, %_ZSt4moveIPPKN5clang8comments20TParamCommandCommentES5_ET0_T_S7_S6_.exit ], [ %23, %_ZSt13move_backwardIPPKN5clang8comments20TParamCommandCommentES5_ET0_T_S7_S6_.exit ], [ %1, %.lr.ph.i ], [ %23, %._crit_edge111 ], [ %23, %._crit_edge ]
+  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %1, %.lr.ph.i ], [ %23, %_ZSt4moveIPPKN5clang8comments20TParamCommandCommentES5_ET0_T_S7_S6_.exit ], [ %23, %_ZSt13move_backwardIPPKN5clang8comments20TParamCommandCommentES5_ET0_T_S7_S6_.exit ], [ %23, %._crit_edge111 ], [ %23, %._crit_edge ]
   ret ptr %.053
 }
 
@@ -7931,7 +7931,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135TParamCommandCommentCompare
   br label %.lr.ph.split.split.split.i.i.i
 
 _ZSt25__unguarded_linear_insertIPPKN5clang8comments20TParamCommandCommentEN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEEvT_T0_.exit.i.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIPKN5clang8comments20TParamCommandCommentEPSA_EEbRT_T0_.exit.i.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIPKN5clang8comments20TParamCommandCommentEPSA_EEbRT_T0_.exit.thread.us.i.i.i, %.lr.ph.split.us.split.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIPPKN5clang8comments20TParamCommandCommentESB_EEbT_T0_.exit.thread.i.i, %11
-  %.sink.i.i = phi ptr [ %.049.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIPPKN5clang8comments20TParamCommandCommentESB_EEbT_T0_.exit.thread.i.i ], [ %.031.i.ptr.i, %11 ], [ %.031.i.ptr.i, %.lr.ph.split.us.split.i.i.i ], [ %.017.us48.i.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIPKN5clang8comments20TParamCommandCommentEPSA_EEbRT_T0_.exit.thread.us.i.i.i ], [ %.0916.i.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIPKN5clang8comments20TParamCommandCommentEPSA_EEbRT_T0_.exit.i.i.i ]
+  %.sink.i.i = phi ptr [ %.049.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIPPKN5clang8comments20TParamCommandCommentESB_EEbT_T0_.exit.thread.i.i ], [ %.031.i.ptr.i, %11 ], [ %.017.us48.i.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIPKN5clang8comments20TParamCommandCommentEPSA_EEbRT_T0_.exit.thread.us.i.i.i ], [ %.031.i.ptr.i, %.lr.ph.split.us.split.i.i.i ], [ %.0916.i.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIPKN5clang8comments20TParamCommandCommentEPSA_EEbRT_T0_.exit.i.i.i ]
   store ptr %.0.val.i.i, ptr %.sink.i.i, align 8, !tbaa !83
   %.031.i.add.i = add nuw nsw i64 %.031.i.idx.i, 8
   %.not.i.i = icmp eq i64 %.031.i.add.i, 56
@@ -8044,7 +8044,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135TParamCommandCommentCompare
   br label %.lr.ph.split.split.split.i.i29.i
 
 _ZSt25__unguarded_linear_insertIPPKN5clang8comments20TParamCommandCommentEN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEEvT_T0_.exit.i23.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIPKN5clang8comments20TParamCommandCommentEPSA_EEbRT_T0_.exit.i.i35.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIPKN5clang8comments20TParamCommandCommentEPSA_EEbRT_T0_.exit.thread.us.i.i39.i, %.lr.ph.split.us.split.i.i36.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIPPKN5clang8comments20TParamCommandCommentESB_EEbT_T0_.exit.thread.i22.i, %.lr.ph.i.i
-  %.sink.i24.i = phi ptr [ %.0.lcssa.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIPPKN5clang8comments20TParamCommandCommentESB_EEbT_T0_.exit.thread.i22.i ], [ %.031.i14.i, %.lr.ph.i.i ], [ %.031.i14.i, %.lr.ph.split.us.split.i.i36.i ], [ %.017.us48.i.i41.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIPKN5clang8comments20TParamCommandCommentEPSA_EEbRT_T0_.exit.thread.us.i.i39.i ], [ %.0916.i.i31.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIPKN5clang8comments20TParamCommandCommentEPSA_EEbRT_T0_.exit.i.i35.i ]
+  %.sink.i24.i = phi ptr [ %.0.lcssa.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIPPKN5clang8comments20TParamCommandCommentESB_EEbT_T0_.exit.thread.i22.i ], [ %.031.i14.i, %.lr.ph.i.i ], [ %.017.us48.i.i41.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIPKN5clang8comments20TParamCommandCommentEPSA_EEbRT_T0_.exit.thread.us.i.i39.i ], [ %.031.i14.i, %.lr.ph.split.us.split.i.i36.i ], [ %.0916.i.i31.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIPKN5clang8comments20TParamCommandCommentEPSA_EEbRT_T0_.exit.i.i35.i ]
   store ptr %.0.val.i16.i, ptr %.sink.i24.i, align 8, !tbaa !83
   %.0.i25.i = getelementptr inbounds nuw i8, ptr %.031.i14.i, i64 8
   %.not.i26.i = icmp eq ptr %.0.i25.i, %1
@@ -8341,8 +8341,8 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_135TParamCommandCommentCompare
   br label %.thread15.i
 
 .thread15.i:                                      ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIPPKN5clang8comments20TParamCommandCommentEKSA_EEbT_RT0_.exit.i, %.thread.i, %103, %_ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit.i
-  %122 = phi i64 [ %97, %_ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit.i ], [ %spec.select.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIPPKN5clang8comments20TParamCommandCommentEKSA_EEbT_RT0_.exit.i ], [ %97, %103 ], [ %112, %.thread.i ]
-  %123 = phi ptr [ %.022.i, %_ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit.i ], [ %spec.select20.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIPPKN5clang8comments20TParamCommandCommentEKSA_EEbT_RT0_.exit.i ], [ %.022.i, %103 ], [ %110, %.thread.i ]
+  %122 = phi i64 [ %97, %103 ], [ %spec.select.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIPPKN5clang8comments20TParamCommandCommentEKSA_EEbT_RT0_.exit.i ], [ %97, %_ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit.i ], [ %112, %.thread.i ]
+  %123 = phi ptr [ %.022.i, %103 ], [ %spec.select20.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIPPKN5clang8comments20TParamCommandCommentEKSA_EEbT_RT0_.exit.i ], [ %.022.i, %_ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit.i ], [ %110, %.thread.i ]
   %124 = icmp sgt i64 %122, 0
   br i1 %124, label %_ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIPPKN5clang8comments20TParamCommandCommentES4_N9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEET_SC_SC_RKT0_T1_.exit.loopexit, !llvm.loop !560
 

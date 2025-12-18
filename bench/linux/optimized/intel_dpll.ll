@@ -4165,8 +4165,8 @@ intel_pll_is_valid.exit.thread:                   ; preds = %121, %150, %144, %1
   store i32 %209, ptr %210, align 4
   br label %.thread
 
-.thread:                                          ; preds = %.split49.split, %.split49, %60, %51, %204, %.split51.us
-  %211 = phi i32 [ 0, %204 ], [ -22, %.split51.us ], [ -22, %51 ], [ -22, %60 ], [ -22, %.split49 ], [ -22, %.split49.split ]
+.thread:                                          ; preds = %.split49.split, %60, %.split49, %51, %204, %.split51.us
+  %211 = phi i32 [ 0, %204 ], [ -22, %.split51.us ], [ -22, %51 ], [ -22, %.split49 ], [ -22, %60 ], [ -22, %.split49.split ]
   ret i32 %211
 }
 

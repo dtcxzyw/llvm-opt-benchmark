@@ -851,8 +851,8 @@ select.unfold:                                    ; preds = %66, %68
   br label %.loopexit89
 
 .loopexit89:                                      ; preds = %.loopexit, %.lr.ph105, %.lr.ph112, %.lr.ph118, %.thread, %.preheader92, %.preheader, %select.unfold, %95, %107, %76
-  %.376 = phi ptr [ %78, %76 ], [ %108, %107 ], [ %96, %95 ], [ %62, %select.unfold ], [ %.073120, %.preheader ], [ %.073120, %.preheader92 ], [ %62, %.thread ], [ %42, %.lr.ph105 ], [ %96, %.lr.ph118 ], [ %73, %.lr.ph112 ], [ %48, %.loopexit ]
-  %.4 = phi ptr [ %80, %76 ], [ %110, %107 ], [ %.071121, %95 ], [ %.5108, %select.unfold ], [ %.071121, %.preheader ], [ %.071121, %.preheader92 ], [ %.5108141, %.thread ], [ %44, %.lr.ph105 ], [ %106, %.lr.ph118 ], [ %.5, %.lr.ph112 ], [ %.3.lcssa, %.loopexit ]
+  %.376 = phi ptr [ %96, %95 ], [ %62, %.thread ], [ %96, %.lr.ph118 ], [ %78, %76 ], [ %108, %107 ], [ %73, %.lr.ph112 ], [ %62, %select.unfold ], [ %.073120, %.preheader ], [ %.073120, %.preheader92 ], [ %42, %.lr.ph105 ], [ %48, %.loopexit ]
+  %.4 = phi ptr [ %.071121, %95 ], [ %.5108141, %.thread ], [ %106, %.lr.ph118 ], [ %80, %76 ], [ %110, %107 ], [ %.5, %.lr.ph112 ], [ %.5108, %select.unfold ], [ %.071121, %.preheader ], [ %.071121, %.preheader92 ], [ %44, %.lr.ph105 ], [ %.3.lcssa, %.loopexit ]
   %111 = icmp ult ptr %.376, %4
   br i1 %111, label %28, label %._crit_edge, !llvm.loop !36
 

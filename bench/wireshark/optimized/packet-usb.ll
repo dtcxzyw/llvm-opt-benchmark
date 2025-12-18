@@ -7486,7 +7486,7 @@ dissect_usb_endpoint_companion_descriptor.exit.i: ; preds = %477, %468
   br label %505
 
 505:                                              ; preds = %491, %489, %dissect_usb_endpoint_companion_descriptor.exit.i, %408, %406, %dissect_usb_interface_descriptor.exit.i
-  %.2.i = phi i32 [ %490, %489 ], [ %503, %491 ], [ %spec.select.i.i, %dissect_usb_interface_descriptor.exit.i ], [ %407, %406 ], [ %436, %408 ], [ %.0.i.i, %dissect_usb_endpoint_companion_descriptor.exit.i ]
+  %.2.i = phi i32 [ %.0.i.i, %dissect_usb_endpoint_companion_descriptor.exit.i ], [ %436, %408 ], [ %407, %406 ], [ %490, %489 ], [ %503, %491 ], [ %spec.select.i.i, %dissect_usb_interface_descriptor.exit.i ]
   %506 = sub i32 %.2.i, %3
   %507 = icmp slt i32 %506, %244
   br i1 %507, label %252, label %dissect_usb_configuration_descriptor.exit
@@ -7861,8 +7861,8 @@ dissect_usb_device_qualifier_descriptor.exit:     ; preds = %sanitize_usb_max_pa
   br label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %694, %706, %700, %685, %676
-  %.058.i.i = phi i32 [ 5, %685 ], [ %703, %700 ], [ 8, %706 ], [ 1, %676 ], [ 18, %694 ]
-  %.057.i.i = phi ptr [ %684, %685 ], [ %705, %700 ], [ %684, %706 ], [ %684, %676 ], [ %684, %694 ]
+  %.058.i.i = phi i32 [ 5, %685 ], [ %703, %700 ], [ 1, %676 ], [ 8, %706 ], [ 18, %694 ]
+  %.057.i.i = phi ptr [ %684, %685 ], [ %705, %700 ], [ %684, %676 ], [ %684, %706 ], [ %684, %694 ]
   %.not.i.i67 = icmp eq ptr %.057.i.i, null
   br i1 %.not.i.i67, label %723, label %719
 

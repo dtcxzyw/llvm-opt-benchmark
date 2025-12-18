@@ -202,8 +202,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %52
   br label %.outer.outer
 
 .thread:                                          ; preds = %.outer83.split, %.outer83.split.us.split, %.outer83.split.us.split.us, %..thread_crit_edge
-  %62 = phi i32 [ %.pre, %..thread_crit_edge ], [ %28, %.outer83.split.us.split ], [ %18, %.outer83.split.us.split.us ], [ %31, %.outer83.split ]
-  %.1 = phi i8 [ %.0.ph84.mux, %..thread_crit_edge ], [ %.0.ph84.fr, %.outer83.split.us.split ], [ %.0.ph84.fr, %.outer83.split.us.split.us ], [ %.0.ph84.fr, %.outer83.split ]
+  %62 = phi i32 [ %.pre, %..thread_crit_edge ], [ %18, %.outer83.split.us.split.us ], [ %28, %.outer83.split.us.split ], [ %31, %.outer83.split ]
+  %.1 = phi i8 [ %.0.ph84.mux, %..thread_crit_edge ], [ %.0.ph84.fr, %.outer83.split.us.split.us ], [ %.0.ph84.fr, %.outer83.split.us.split ], [ %.0.ph84.fr, %.outer83.split ]
   %63 = icmp eq i32 %62, 1
   br i1 %63, label %64, label %117
 

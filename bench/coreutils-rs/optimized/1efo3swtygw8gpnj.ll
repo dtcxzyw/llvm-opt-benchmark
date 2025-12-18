@@ -247,7 +247,7 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h2e77d2a23c2c49a3E.exit: ; p
   br label %22
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h2e77d2a23c2c49a3E.exit22: ; preds = %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$4next17hd92b90c048bd8d66E.exit.i", %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$4next17hd92b90c048bd8d66E.exit.i19", %22, %4, %42, %26, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h2e77d2a23c2c49a3E.exit
-  %.08 = phi i64 [ 0, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h2e77d2a23c2c49a3E.exit ], [ %43, %42 ], [ 0, %26 ], [ 0, %4 ], [ %.0, %22 ], [ 0, %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$4next17hd92b90c048bd8d66E.exit.i19" ], [ 0, %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$4next17hd92b90c048bd8d66E.exit.i" ]
+  %.08 = phi i64 [ 0, %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$4next17hd92b90c048bd8d66E.exit.i19" ], [ %.0, %22 ], [ 0, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h2e77d2a23c2c49a3E.exit ], [ %43, %42 ], [ 0, %26 ], [ 0, %4 ], [ 0, %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$4next17hd92b90c048bd8d66E.exit.i" ]
   ret i64 %.08
 
 26:                                               ; preds = %22
@@ -358,7 +358,7 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h2e77d2a23c2c49a3E.exit: ; p
   br label %22
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h7a2a7ea2edb26538E.exit: ; preds = %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$4next17hd92b90c048bd8d66E.exit.i", %28, %22, %4, %32, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h2e77d2a23c2c49a3E.exit
-  %.08 = phi i64 [ 0, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h2e77d2a23c2c49a3E.exit ], [ %33, %32 ], [ 0, %4 ], [ %.0, %22 ], [ 0, %28 ], [ 0, %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$4next17hd92b90c048bd8d66E.exit.i" ]
+  %.08 = phi i64 [ 0, %28 ], [ %.0, %22 ], [ 0, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h2e77d2a23c2c49a3E.exit ], [ %33, %32 ], [ 0, %4 ], [ 0, %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$4next17hd92b90c048bd8d66E.exit.i" ]
   ret i64 %.08
 
 26:                                               ; preds = %22
@@ -506,7 +506,7 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h2e77d2a23c2c49a3E.exit.i: ;
   br label %46
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h2e77d2a23c2c49a3E.exit: ; preds = %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$4next17hd92b90c048bd8d66E.exit.i.i", %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$4next17hd92b90c048bd8d66E.exit.i19.i", %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$4next17hd92b90c048bd8d66E.exit.i", %46, %5, %27, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h2e77d2a23c2c49a3E.exit.i, %65, %49, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$10advance_by17h5bf2d4bd8025f989E.exit"
-  %.08 = phi i64 [ 0, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$10advance_by17h5bf2d4bd8025f989E.exit" ], [ %66, %65 ], [ 0, %49 ], [ 0, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h2e77d2a23c2c49a3E.exit.i ], [ 0, %27 ], [ 0, %5 ], [ %.0, %46 ], [ 0, %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$4next17hd92b90c048bd8d66E.exit.i19.i" ], [ 0, %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$4next17hd92b90c048bd8d66E.exit.i" ], [ 0, %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$4next17hd92b90c048bd8d66E.exit.i.i" ]
+  %.08 = phi i64 [ 0, %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$4next17hd92b90c048bd8d66E.exit.i" ], [ %.0, %46 ], [ 0, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$10advance_by17h5bf2d4bd8025f989E.exit" ], [ %66, %65 ], [ 0, %49 ], [ 0, %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$4next17hd92b90c048bd8d66E.exit.i19.i" ], [ 0, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h2e77d2a23c2c49a3E.exit.i ], [ 0, %27 ], [ 0, %5 ], [ 0, %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$4next17hd92b90c048bd8d66E.exit.i.i" ]
   ret i64 %.08
 
 49:                                               ; preds = %46
@@ -743,7 +743,7 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h2e77d2a23c2c49a3E.exit.i.i:
   br label %70
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h2e77d2a23c2c49a3E.exit: ; preds = %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$4next17hd92b90c048bd8d66E.exit.i.i.i", %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$4next17hd92b90c048bd8d66E.exit.i19.i.i", %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$4next17hd92b90c048bd8d66E.exit.i.i", %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$4next17hd92b90c048bd8d66E.exit.i", %70, %8, %30, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h2e77d2a23c2c49a3E.exit.i.i, %51, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$10advance_by17h5bf2d4bd8025f989E.exit.i", %89, %73, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$10advance_by17h7253623c0752d853E.exit"
-  %.08 = phi i64 [ 0, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$10advance_by17h7253623c0752d853E.exit" ], [ %90, %89 ], [ 0, %73 ], [ 0, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$10advance_by17h5bf2d4bd8025f989E.exit.i" ], [ 0, %51 ], [ 0, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h2e77d2a23c2c49a3E.exit.i.i ], [ 0, %30 ], [ 0, %8 ], [ %.0, %70 ], [ 0, %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$4next17hd92b90c048bd8d66E.exit.i19.i.i" ], [ 0, %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$4next17hd92b90c048bd8d66E.exit.i" ], [ 0, %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$4next17hd92b90c048bd8d66E.exit.i.i" ], [ 0, %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$4next17hd92b90c048bd8d66E.exit.i.i.i" ]
+  %.08 = phi i64 [ 0, %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$4next17hd92b90c048bd8d66E.exit.i19.i.i" ], [ %.0, %70 ], [ 0, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$10advance_by17h7253623c0752d853E.exit" ], [ %90, %89 ], [ 0, %73 ], [ 0, %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$4next17hd92b90c048bd8d66E.exit.i" ], [ 0, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$10advance_by17h5bf2d4bd8025f989E.exit.i" ], [ 0, %51 ], [ 0, %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$4next17hd92b90c048bd8d66E.exit.i.i" ], [ 0, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h2e77d2a23c2c49a3E.exit.i.i ], [ 0, %30 ], [ 0, %8 ], [ 0, %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$4next17hd92b90c048bd8d66E.exit.i.i.i" ]
   ret i64 %.08
 
 73:                                               ; preds = %70
@@ -871,7 +871,7 @@ define internal noundef i64 @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A
   br label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$10advance_by17h35660fcadc2c3897E.exit.i"
 
 "_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$10advance_by17h35660fcadc2c3897E.exit.i": ; preds = %33, %14
-  %.08.i.i = phi i64 [ %34, %33 ], [ %.0.i.i, %14 ]
+  %.08.i.i = phi i64 [ %.0.i.i, %14 ], [ %34, %33 ]
   %35 = icmp eq i64 %.08.i.i, 0
   br i1 %35, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h2e77d2a23c2c49a3E.exit, label %38
 
@@ -946,7 +946,7 @@ define internal noundef i64 @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A
   br label %58
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h2e77d2a23c2c49a3E.exit: ; preds = %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$4next17hd92b90c048bd8d66E.exit.i.i.i", %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$4next17hd92b90c048bd8d66E.exit.i.i", %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$4next17hd92b90c048bd8d66E.exit.i", %58, %17, %11, %39, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$10advance_by17h35660fcadc2c3897E.exit.i", %77, %61, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$10advance_by17h1fd5ab786aeb56e3E.exit"
-  %.08 = phi i64 [ 0, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$10advance_by17h1fd5ab786aeb56e3E.exit" ], [ %78, %77 ], [ 0, %61 ], [ 0, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$10advance_by17h35660fcadc2c3897E.exit.i" ], [ 0, %39 ], [ 0, %11 ], [ 0, %17 ], [ %.0, %58 ], [ 0, %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$4next17hd92b90c048bd8d66E.exit.i.i" ], [ 0, %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$4next17hd92b90c048bd8d66E.exit.i" ], [ 0, %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$4next17hd92b90c048bd8d66E.exit.i.i.i" ]
+  %.08 = phi i64 [ 0, %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$4next17hd92b90c048bd8d66E.exit.i" ], [ %.0, %58 ], [ 0, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$10advance_by17h1fd5ab786aeb56e3E.exit" ], [ %78, %77 ], [ 0, %61 ], [ 0, %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$4next17hd92b90c048bd8d66E.exit.i.i" ], [ 0, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$10advance_by17h35660fcadc2c3897E.exit.i" ], [ 0, %39 ], [ 0, %11 ], [ 0, %17 ], [ 0, %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$4next17hd92b90c048bd8d66E.exit.i.i.i" ]
   ret i64 %.08
 
 61:                                               ; preds = %58
@@ -1017,7 +1017,7 @@ define internal noundef i64 @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A
   br label %8
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h7a2a7ea2edb26538E.exit: ; preds = %13, %8, %17, %5
-  %.08 = phi i64 [ 0, %5 ], [ %18, %17 ], [ %.0, %8 ], [ 0, %13 ]
+  %.08 = phi i64 [ %.0, %8 ], [ 0, %5 ], [ %18, %17 ], [ 0, %13 ]
   ret i64 %.08
 
 11:                                               ; preds = %8
@@ -1352,8 +1352,8 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h1e22e6f4c6aebe02E.exit.i: ; pr
   br label %8
 
 _ZN4core4iter6traits8iterator8Iterator3nth17h0e5219d2b6486c44E.exit: ; preds = %38, %29, %30, %_ZN4core4iter8adapters5chain17and_then_or_clear17h1e22e6f4c6aebe02E.exit.i, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h7a2a7ea2edb26538E.exit.thread.i, %8
-  %.sroa.4.0 = phi i8 [ undef, %8 ], [ %41, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h7a2a7ea2edb26538E.exit.thread.i ], [ %25, %29 ], [ %25, %30 ], [ %19, %_ZN4core4iter8adapters5chain17and_then_or_clear17h1e22e6f4c6aebe02E.exit.i ], [ undef, %38 ]
-  %.sroa.0.0 = phi i1 [ false, %8 ], [ %37, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h7a2a7ea2edb26538E.exit.thread.i ], [ true, %29 ], [ true, %30 ], [ true, %_ZN4core4iter8adapters5chain17and_then_or_clear17h1e22e6f4c6aebe02E.exit.i ], [ false, %38 ]
+  %.sroa.4.0 = phi i8 [ undef, %8 ], [ %19, %_ZN4core4iter8adapters5chain17and_then_or_clear17h1e22e6f4c6aebe02E.exit.i ], [ %41, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h7a2a7ea2edb26538E.exit.thread.i ], [ %25, %29 ], [ %25, %30 ], [ undef, %38 ]
+  %.sroa.0.0 = phi i1 [ false, %8 ], [ true, %_ZN4core4iter8adapters5chain17and_then_or_clear17h1e22e6f4c6aebe02E.exit.i ], [ %37, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h7a2a7ea2edb26538E.exit.thread.i ], [ true, %29 ], [ true, %30 ], [ false, %38 ]
   %32 = insertvalue { i1, i8 } poison, i1 %.sroa.0.0, 0
   %33 = insertvalue { i1, i8 } %32, i8 %.sroa.4.0, 1
   ret { i1, i8 } %33
@@ -2073,7 +2073,7 @@ define internal { i1, i8 } @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$
   br label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$10advance_by17h35660fcadc2c3897E.exit.i"
 
 "_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$10advance_by17h35660fcadc2c3897E.exit.i": ; preds = %33, %14
-  %.08.i.i = phi i64 [ %34, %33 ], [ %.0.i.i, %14 ]
+  %.08.i.i = phi i64 [ %.0.i.i, %14 ], [ %34, %33 ]
   %35 = icmp eq i64 %.08.i.i, 0
   br i1 %35, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$10advance_by17h1fd5ab786aeb56e3E.exit.thread", label %38
 

@@ -1821,8 +1821,8 @@ _ZN7AstNode9privateAsI21AstNodeUOrStructDTypeP12AstNodeDTypeEEPT_PS_.exit.us: ; 
   br i1 %.not177.us, label %._crit_edge227, label %.lr.ph226.split.us
 
 ._crit_edge227:                                   ; preds = %_ZNKSt3setIP21AstNodeUOrStructDTypeSt4lessIS1_ESaIS1_EE5countERKS1_.exit.thread, %_ZN7AstNode9privateAsI21AstNodeUOrStructDTypeP12AstNodeDTypeEEPT_PS_.exit.us, %._crit_edge221
-  %238 = phi ptr [ %219, %._crit_edge221 ], [ %227, %_ZN7AstNode9privateAsI21AstNodeUOrStructDTypeP12AstNodeDTypeEEPT_PS_.exit.us ], [ %219, %_ZNKSt3setIP21AstNodeUOrStructDTypeSt4lessIS1_ESaIS1_EE5countERKS1_.exit.thread ]
-  %.pre.pre291 = phi ptr [ %218, %._crit_edge221 ], [ null, %_ZN7AstNode9privateAsI21AstNodeUOrStructDTypeP12AstNodeDTypeEEPT_PS_.exit.us ], [ %218, %_ZNKSt3setIP21AstNodeUOrStructDTypeSt4lessIS1_ESaIS1_EE5countERKS1_.exit.thread ]
+  %238 = phi ptr [ %227, %_ZN7AstNode9privateAsI21AstNodeUOrStructDTypeP12AstNodeDTypeEEPT_PS_.exit.us ], [ %219, %._crit_edge221 ], [ %219, %_ZNKSt3setIP21AstNodeUOrStructDTypeSt4lessIS1_ESaIS1_EE5countERKS1_.exit.thread ]
+  %.pre.pre291 = phi ptr [ null, %_ZN7AstNode9privateAsI21AstNodeUOrStructDTypeP12AstNodeDTypeEEPT_PS_.exit.us ], [ %218, %._crit_edge221 ], [ %218, %_ZNKSt3setIP21AstNodeUOrStructDTypeSt4lessIS1_ESaIS1_EE5countERKS1_.exit.thread ]
   %239 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %240 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %241 = load ptr, ptr %240, align 8, !tbaa !61
@@ -1948,9 +1948,9 @@ _ZNKSt3setIP21AstNodeUOrStructDTypeSt4lessIS1_ESaIS1_EE5countERKS1_.exit.thread:
   br i1 %.not177, label %._crit_edge227, label %.lr.ph226.split
 
 ._crit_edge233:                                   ; preds = %366, %_ZNKSt3setIP21AstNodeUOrStructDTypeSt4lessIS1_ESaIS1_EE5countERKS1_.exit127.thread.us, %._crit_edge227.thread, %._crit_edge227
-  %281 = phi ptr [ %243, %._crit_edge227.thread ], [ %239, %._crit_edge227 ], [ %248, %_ZNKSt3setIP21AstNodeUOrStructDTypeSt4lessIS1_ESaIS1_EE5countERKS1_.exit127.thread.us ], [ %239, %366 ]
-  %.pre.pre291298 = phi ptr [ null, %._crit_edge227.thread ], [ %.pre.pre291, %._crit_edge227 ], [ null, %_ZNKSt3setIP21AstNodeUOrStructDTypeSt4lessIS1_ESaIS1_EE5countERKS1_.exit127.thread.us ], [ %.pre.pre291, %366 ]
-  %282 = phi ptr [ %223, %._crit_edge227.thread ], [ %238, %._crit_edge227 ], [ %247, %_ZNKSt3setIP21AstNodeUOrStructDTypeSt4lessIS1_ESaIS1_EE5countERKS1_.exit127.thread.us ], [ %238, %366 ]
+  %281 = phi ptr [ %243, %._crit_edge227.thread ], [ %248, %_ZNKSt3setIP21AstNodeUOrStructDTypeSt4lessIS1_ESaIS1_EE5countERKS1_.exit127.thread.us ], [ %239, %._crit_edge227 ], [ %239, %366 ]
+  %.pre.pre291298 = phi ptr [ null, %._crit_edge227.thread ], [ null, %_ZNKSt3setIP21AstNodeUOrStructDTypeSt4lessIS1_ESaIS1_EE5countERKS1_.exit127.thread.us ], [ %.pre.pre291, %._crit_edge227 ], [ %.pre.pre291, %366 ]
+  %282 = phi ptr [ %223, %._crit_edge227.thread ], [ %247, %_ZNKSt3setIP21AstNodeUOrStructDTypeSt4lessIS1_ESaIS1_EE5countERKS1_.exit127.thread.us ], [ %238, %._crit_edge227 ], [ %238, %366 ]
   invoke void @_ZNSt8_Rb_treeIP21AstNodeUOrStructDTypeS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef %.pre.pre291298)
           to label %_ZNSt3setIP21AstNodeUOrStructDTypeSt4lessIS1_ESaIS1_EED2Ev.exit unwind label %283
 

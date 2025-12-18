@@ -1392,7 +1392,7 @@ define dso_local i32 @usb_hcd_submit_urb(ptr noundef %0, i32 noundef %1) local_u
   br i1 %137, label %.thread22, label %139
 
 .thread36:                                        ; preds = %89, %96, %101, %107
-  %138 = phi i32 [ -1, %89 ], [ -2, %96 ], [ -113, %101 ], [ -108, %107 ]
+  %138 = phi i32 [ -108, %107 ], [ -1, %89 ], [ -2, %96 ], [ -113, %101 ]
   tail call void @_raw_spin_unlock(ptr noundef nonnull @hcd_urb_list_lock) #18
   tail call void @_raw_spin_unlock_irq(ptr noundef nonnull @hcd_root_hub_lock) #18
   br label %.thread25
@@ -1605,12 +1605,12 @@ define dso_local i32 @usb_hcd_submit_urb(ptr noundef %0, i32 noundef %1) local_u
   br label %.thread15
 
 .thread15:                                        ; preds = %238, %204, %191, %158, %180, %219, %220
-  %242 = phi i1 [ false, %204 ], [ %239, %238 ], [ false, %220 ], [ false, %219 ], [ false, %180 ], [ false, %158 ], [ false, %191 ]
-  %243 = phi ptr [ %206, %204 ], [ %142, %238 ], [ %142, %220 ], [ %142, %219 ], [ %142, %180 ], [ %142, %158 ], [ %192, %191 ]
-  %244 = phi i1 [ false, %204 ], [ false, %238 ], [ false, %220 ], [ false, %219 ], [ false, %180 ], [ false, %158 ], [ %196, %191 ]
-  %245 = phi i1 [ %212, %204 ], [ false, %238 ], [ false, %220 ], [ false, %219 ], [ false, %180 ], [ false, %158 ], [ false, %191 ]
-  %246 = phi i32 [ 0, %204 ], [ %241, %238 ], [ 0, %220 ], [ 0, %219 ], [ 0, %180 ], [ 0, %158 ], [ 0, %191 ]
-  %247 = phi i32 [ %205, %204 ], [ %spec.select, %238 ], [ 2, %220 ], [ 1, %219 ], [ 1, %180 ], [ 2, %158 ], [ 18, %191 ]
+  %242 = phi i1 [ false, %180 ], [ %239, %238 ], [ false, %220 ], [ false, %219 ], [ false, %204 ], [ false, %191 ], [ false, %158 ]
+  %243 = phi ptr [ %142, %180 ], [ %142, %238 ], [ %142, %220 ], [ %142, %219 ], [ %206, %204 ], [ %192, %191 ], [ %142, %158 ]
+  %244 = phi i1 [ false, %180 ], [ false, %238 ], [ false, %220 ], [ false, %219 ], [ false, %204 ], [ %196, %191 ], [ false, %158 ]
+  %245 = phi i1 [ false, %180 ], [ false, %238 ], [ false, %220 ], [ false, %219 ], [ %212, %204 ], [ false, %191 ], [ false, %158 ]
+  %246 = phi i32 [ 0, %180 ], [ %241, %238 ], [ 0, %220 ], [ 0, %219 ], [ 0, %204 ], [ 0, %191 ], [ 0, %158 ]
+  %247 = phi i32 [ 1, %180 ], [ %spec.select, %238 ], [ 2, %220 ], [ 1, %219 ], [ %205, %204 ], [ 18, %191 ], [ 2, %158 ]
   %248 = icmp eq i32 %247, 0
   %249 = select i1 %242, i1 true, i1 %248
   br i1 %249, label %.thread22, label %250
@@ -1642,9 +1642,9 @@ define dso_local i32 @usb_hcd_submit_urb(ptr noundef %0, i32 noundef %1) local_u
   store i8 1, ptr %264, align 1
   br label %.thread22
 
-.thread22:                                        ; preds = %216, %144, %144, %144, %144, %144, %177, %163, %181, %213, %197, %183, %168, %161, %.critedge, %263, %260, %.thread15
-  %265 = phi i32 [ %246, %.thread15 ], [ %246, %263 ], [ %246, %260 ], [ -32, %.critedge ], [ -32, %161 ], [ -32, %168 ], [ -32, %183 ], [ -32, %197 ], [ -32, %213 ], [ -32, %181 ], [ 0, %163 ], [ 0, %177 ], [ 0, %144 ], [ 0, %144 ], [ 0, %144 ], [ 0, %144 ], [ 0, %144 ], [ 0, %216 ]
-  %266 = phi ptr [ %142, %.thread15 ], [ %142, %263 ], [ %142, %260 ], [ null, %.critedge ], [ %142, %161 ], [ %142, %168 ], [ %142, %183 ], [ %142, %197 ], [ %142, %213 ], [ %142, %181 ], [ %142, %163 ], [ %142, %177 ], [ %142, %144 ], [ %142, %144 ], [ %142, %144 ], [ %142, %144 ], [ %142, %144 ], [ %142, %216 ]
+.thread22:                                        ; preds = %216, %144, %144, %144, %144, %144, %177, %163, %.critedge, %161, %168, %183, %197, %213, %181, %263, %260, %.thread15
+  %265 = phi i32 [ %246, %.thread15 ], [ %246, %263 ], [ %246, %260 ], [ -32, %181 ], [ -32, %213 ], [ -32, %197 ], [ -32, %183 ], [ -32, %168 ], [ -32, %161 ], [ -32, %.critedge ], [ 0, %163 ], [ 0, %177 ], [ 0, %144 ], [ 0, %144 ], [ 0, %144 ], [ 0, %144 ], [ 0, %144 ], [ 0, %216 ]
+  %266 = phi ptr [ %142, %.thread15 ], [ %142, %263 ], [ %142, %260 ], [ %142, %181 ], [ %142, %213 ], [ %142, %197 ], [ %142, %183 ], [ %142, %168 ], [ %142, %161 ], [ null, %.critedge ], [ %142, %163 ], [ %142, %177 ], [ %142, %144 ], [ %142, %144 ], [ %142, %144 ], [ %142, %144 ], [ %142, %144 ], [ %142, %216 ]
   tail call void @kfree(ptr noundef %266) #18
   br label %267
 
@@ -2025,7 +2025,7 @@ define dso_local void @usb_hcd_flush_endpoint(ptr noundef readonly captures(none
   br i1 %25, label %.loopexit6, label %.preheader5.backedge
 
 .preheader5.backedge:                             ; preds = %22, %16
-  %.be = phi ptr [ %24, %22 ], [ %20, %16 ]
+  %.be = phi ptr [ %20, %16 ], [ %24, %22 ]
   br label %.preheader5, !llvm.loop !44
 
 .loopexit6:                                       ; preds = %22, %16, %4
@@ -2327,7 +2327,7 @@ define dso_local i32 @usb_hcd_alloc_bandwidth(ptr noundef %0, ptr noundef %1, pt
   br i1 %179, label %.thread39, label %184
 
 .thread39:                                        ; preds = %72, %62, %96, %109, %152, %166, %.thread33
-  %180 = phi i32 [ %178, %.thread33 ], [ %159, %152 ], [ %115, %109 ], [ %102, %96 ], [ %173, %166 ], [ %66, %62 ], [ %76, %72 ]
+  %180 = phi i32 [ %178, %.thread33 ], [ %102, %96 ], [ %115, %109 ], [ %159, %152 ], [ %173, %166 ], [ %66, %62 ], [ %76, %72 ]
   %181 = load ptr, ptr %7, align 8
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 280
   %183 = load ptr, ptr %182, align 8

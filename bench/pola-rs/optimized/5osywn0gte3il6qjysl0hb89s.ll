@@ -1504,8 +1504,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   br label %78
 
 78:                                               ; preds = %71, %67
-  %79 = phi i8 [ %69, %67 ], [ %.pre.i.i.i.i.i.i.i, %71 ]
-  %.sroa.3.0.i.i.ph.i.i.i.i.i.i.i = phi i64 [ %.sroa.4.19.i.i.i.i.i.i.i.i.i, %67 ], [ %77, %71 ]
+  %79 = phi i8 [ %.pre.i.i.i.i.i.i.i, %71 ], [ %69, %67 ]
+  %.sroa.3.0.i.i.ph.i.i.i.i.i.i.i = phi i64 [ %77, %71 ], [ %.sroa.4.19.i.i.i.i.i.i.i.i.i, %67 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !414)
   %80 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i.i.i.i.i, i64 %.sroa.3.0.i.i.ph.i.i.i.i.i.i.i
   %81 = and i8 %79, 1
@@ -4443,8 +4443,8 @@ default.unreachable:                              ; preds = %"_ZN4core6result19R
   br label %.body.i.i.i
 
 .loopexit.split-lp.i.i.i:                         ; preds = %82, %.invoke.i.i.i, %11
-  %.sroa.012.1.ph.i.i.i = phi i8 [ 0, %11 ], [ %.sroa.012.0.i.i.i, %82 ], [ %.sroa.012.0.i.i.i, %.invoke.i.i.i ]
-  %.sroa.0.0.ph.i.i.i = phi i1 [ true, %11 ], [ false, %82 ], [ true, %.invoke.i.i.i ]
+  %.sroa.012.1.ph.i.i.i = phi i8 [ %.sroa.012.0.i.i.i, %.invoke.i.i.i ], [ %.sroa.012.0.i.i.i, %82 ], [ 0, %11 ]
+  %.sroa.0.0.ph.i.i.i = phi i1 [ true, %.invoke.i.i.i ], [ false, %82 ], [ true, %11 ]
   %lpad.loopexit.split-lp.i.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i.i.i
@@ -11132,8 +11132,8 @@ define internal fastcc void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenC
   br label %75
 
 75:                                               ; preds = %68, %64
-  %76 = phi i8 [ %66, %64 ], [ %.pre.i.i.i.i.i.i, %68 ]
-  %.sroa.3.0.i.i.ph.i.i.i.i.i.i = phi i64 [ %.sroa.4.19.i.i.i.i.i.i.i.i, %64 ], [ %74, %68 ]
+  %76 = phi i8 [ %.pre.i.i.i.i.i.i, %68 ], [ %66, %64 ]
+  %.sroa.3.0.i.i.ph.i.i.i.i.i.i = phi i64 [ %74, %68 ], [ %.sroa.4.19.i.i.i.i.i.i.i.i, %64 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3164)
   %77 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i.i.i.i, i64 %.sroa.3.0.i.i.ph.i.i.i.i.i.i
   %78 = and i8 %76, 1
@@ -36368,8 +36368,8 @@ define internal fastcc void @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$11inser
   unreachable
 
 166:                                              ; preds = %147, %143
-  %167 = phi i8 [ %145, %143 ], [ %.pre.i, %147 ]
-  %.sroa.3.0.i.ph.i.i = phi i64 [ %.sroa.4.19.i.i.i, %143 ], [ %153, %147 ]
+  %167 = phi i8 [ %.pre.i, %147 ], [ %145, %143 ]
+  %.sroa.3.0.i.ph.i.i = phi i64 [ %153, %147 ], [ %.sroa.4.19.i.i.i, %143 ]
   %168 = load i64, ptr %84, align 8, !alias.scope !9093, !noalias !9097, !noundef !3
   %169 = icmp ult i64 %168, 88686269585142076
   tail call void @llvm.assume(i1 %169)
@@ -38192,8 +38192,8 @@ _ZN9hashbrown3map9make_hash17h4bb2d79dbd302989E.exit.i: ; preds = %106, %102, %1
   br label %199
 
 199:                                              ; preds = %192, %188
-  %200 = phi i8 [ %190, %188 ], [ %.pre.i, %192 ]
-  %.sroa.3.0.i.ph.i.i = phi i64 [ %.sroa.4.19.i.i.i, %188 ], [ %198, %192 ]
+  %200 = phi i8 [ %.pre.i, %192 ], [ %190, %188 ]
+  %.sroa.3.0.i.ph.i.i = phi i64 [ %198, %192 ], [ %.sroa.4.19.i.i.i, %188 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !9502)
   %201 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 %.sroa.3.0.i.ph.i.i
   %202 = and i8 %200, 1
@@ -42150,7 +42150,7 @@ define internal fastcc noundef zeroext i1 @"_ZN106_$LT$polars_parquet..parquet..
   br i1 %4, label %9, label %49
 
 "_ZN108_$LT$polars_parquet..parquet..schema..types..parquet_type..PrimitiveType$u20$as$u20$core..cmp..PartialEq$GT$2eq17hff65ee7adcaeaeb6E.exit": ; preds = %199, %.preheader.split.i, %190, %9, %42, %31, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2ba2155480ce7832E.exit.i", %167, %165, %"_ZN119_$LT$polars_parquet..parquet..schema..types..converted_type..PrimitiveConvertedType$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdfdacf5c43cdf33fE.exit.thread12.i", %"_ZN119_$LT$polars_parquet..parquet..schema..types..converted_type..PrimitiveConvertedType$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdfdacf5c43cdf33fE.exit.i", %153, %149, %148, %147, %"_ZN102_$LT$polars_parquet..parquet..parquet_bridge..PrimitiveLogicalType$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdb40483490ecb5d8E.exit.i", %131, %125, %119, %113, %107, %101, %98, %97, %96, %"_ZN102_$LT$polars_parquet..parquet..schema..types..basic_type..FieldInfo$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3a960ce2fceefabeE.exit.i", %84, %83, %72, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2ba2155480ce7832E.exit.i.i", %49, %43, %186, %178, %188, %179, %"_ZN102_$LT$polars_parquet..parquet..schema..types..basic_type..FieldInfo$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3a960ce2fceefabeE.exit", %2
-  %.sroa.0.0 = phi i1 [ false, %2 ], [ false, %43 ], [ false, %31 ], [ false, %186 ], [ false, %178 ], [ false, %188 ], [ false, %179 ], [ false, %"_ZN102_$LT$polars_parquet..parquet..schema..types..basic_type..FieldInfo$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3a960ce2fceefabeE.exit" ], [ false, %42 ], [ %172, %167 ], [ false, %"_ZN119_$LT$polars_parquet..parquet..schema..types..converted_type..PrimitiveConvertedType$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdfdacf5c43cdf33fE.exit.thread12.i" ], [ false, %97 ], [ false, %147 ], [ false, %96 ], [ false, %"_ZN102_$LT$polars_parquet..parquet..schema..types..basic_type..FieldInfo$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3a960ce2fceefabeE.exit.i" ], [ false, %148 ], [ true, %165 ], [ false, %113 ], [ false, %84 ], [ false, %"_ZN102_$LT$polars_parquet..parquet..parquet_bridge..PrimitiveLogicalType$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdb40483490ecb5d8E.exit.i" ], [ false, %49 ], [ false, %119 ], [ false, %131 ], [ false, %125 ], [ false, %"_ZN119_$LT$polars_parquet..parquet..schema..types..converted_type..PrimitiveConvertedType$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdfdacf5c43cdf33fE.exit.i" ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2ba2155480ce7832E.exit.i.i" ], [ false, %72 ], [ false, %83 ], [ false, %98 ], [ false, %101 ], [ false, %107 ], [ false, %149 ], [ false, %153 ], [ false, %9 ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2ba2155480ce7832E.exit.i" ], [ false, %190 ], [ %exitcond.not.i, %.preheader.split.i ], [ %exitcond.not.i, %199 ]
+  %.sroa.0.0 = phi i1 [ false, %2 ], [ false, %43 ], [ false, %31 ], [ false, %186 ], [ false, %178 ], [ false, %188 ], [ false, %179 ], [ false, %"_ZN102_$LT$polars_parquet..parquet..schema..types..basic_type..FieldInfo$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3a960ce2fceefabeE.exit" ], [ false, %42 ], [ %172, %167 ], [ false, %"_ZN119_$LT$polars_parquet..parquet..schema..types..converted_type..PrimitiveConvertedType$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdfdacf5c43cdf33fE.exit.thread12.i" ], [ false, %97 ], [ false, %147 ], [ false, %96 ], [ false, %"_ZN102_$LT$polars_parquet..parquet..schema..types..basic_type..FieldInfo$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3a960ce2fceefabeE.exit.i" ], [ false, %148 ], [ true, %165 ], [ false, %113 ], [ false, %84 ], [ false, %"_ZN102_$LT$polars_parquet..parquet..parquet_bridge..PrimitiveLogicalType$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdb40483490ecb5d8E.exit.i" ], [ false, %49 ], [ false, %119 ], [ false, %125 ], [ false, %131 ], [ false, %"_ZN119_$LT$polars_parquet..parquet..schema..types..converted_type..PrimitiveConvertedType$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdfdacf5c43cdf33fE.exit.i" ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2ba2155480ce7832E.exit.i.i" ], [ false, %72 ], [ false, %83 ], [ false, %98 ], [ false, %101 ], [ false, %107 ], [ false, %149 ], [ false, %153 ], [ false, %9 ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2ba2155480ce7832E.exit.i" ], [ false, %190 ], [ %exitcond.not.i, %.preheader.split.i ], [ %exitcond.not.i, %199 ]
   ret i1 %.sroa.0.0
 
 9:                                                ; preds = %8
@@ -42316,7 +42316,7 @@ define internal fastcc noundef zeroext i1 @"_ZN106_$LT$polars_parquet..parquet..
     i8 2, label %101
     i8 4, label %107
     i8 5, label %113
-    i8 6, label %"_ZN102_$LT$polars_parquet..parquet..parquet_bridge..PrimitiveLogicalType$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdb40483490ecb5d8E.exit.i"
+    i8 6, label %119
   ]
 
 101:                                              ; preds = %100
@@ -42325,7 +42325,7 @@ define internal fastcc noundef zeroext i1 @"_ZN106_$LT$polars_parquet..parquet..
   %104 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %105 = load i64, ptr %104, align 8, !alias.scope !10127, !noalias !10126, !noundef !3
   %106 = icmp eq i64 %103, %105
-  br i1 %106, label %119, label %"_ZN108_$LT$polars_parquet..parquet..schema..types..parquet_type..PrimitiveType$u20$as$u20$core..cmp..PartialEq$GT$2eq17hff65ee7adcaeaeb6E.exit"
+  br i1 %106, label %"_ZN102_$LT$polars_parquet..parquet..parquet_bridge..PrimitiveLogicalType$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdb40483490ecb5d8E.exit.i", label %"_ZN108_$LT$polars_parquet..parquet..schema..types..parquet_type..PrimitiveType$u20$as$u20$core..cmp..PartialEq$GT$2eq17hff65ee7adcaeaeb6E.exit"
 
 107:                                              ; preds = %100
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 81
@@ -42343,12 +42343,12 @@ define internal fastcc noundef zeroext i1 @"_ZN106_$LT$polars_parquet..parquet..
   %118 = icmp eq i8 %115, %117
   br i1 %118, label %131, label %"_ZN108_$LT$polars_parquet..parquet..schema..types..parquet_type..PrimitiveType$u20$as$u20$core..cmp..PartialEq$GT$2eq17hff65ee7adcaeaeb6E.exit"
 
-119:                                              ; preds = %101
-  %120 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %121 = load i64, ptr %120, align 8, !alias.scope !10126, !noalias !10127, !noundef !3
-  %122 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %123 = load i64, ptr %122, align 8, !alias.scope !10127, !noalias !10126, !noundef !3
-  %124 = icmp eq i64 %121, %123
+119:                                              ; preds = %100
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 81
+  %121 = load i8, ptr %120, align 1, !range !384, !alias.scope !10126, !noalias !10127, !noundef !3
+  %122 = getelementptr inbounds nuw i8, ptr %1, i64 81
+  %123 = load i8, ptr %122, align 1, !range !384, !alias.scope !10127, !noalias !10126, !noundef !3
+  %124 = icmp eq i8 %121, %123
   br i1 %124, label %"_ZN102_$LT$polars_parquet..parquet..parquet_bridge..PrimitiveLogicalType$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdb40483490ecb5d8E.exit.thread9.i", label %"_ZN108_$LT$polars_parquet..parquet..schema..types..parquet_type..PrimitiveType$u20$as$u20$core..cmp..PartialEq$GT$2eq17hff65ee7adcaeaeb6E.exit"
 
 125:                                              ; preds = %107
@@ -42367,12 +42367,12 @@ define internal fastcc noundef zeroext i1 @"_ZN106_$LT$polars_parquet..parquet..
   %136 = icmp eq i8 %133, %135
   br i1 %136, label %"_ZN102_$LT$polars_parquet..parquet..parquet_bridge..PrimitiveLogicalType$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdb40483490ecb5d8E.exit.thread9.i", label %"_ZN108_$LT$polars_parquet..parquet..schema..types..parquet_type..PrimitiveType$u20$as$u20$core..cmp..PartialEq$GT$2eq17hff65ee7adcaeaeb6E.exit"
 
-"_ZN102_$LT$polars_parquet..parquet..parquet_bridge..PrimitiveLogicalType$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdb40483490ecb5d8E.exit.i": ; preds = %100
-  %137 = getelementptr inbounds nuw i8, ptr %0, i64 81
-  %138 = load i8, ptr %137, align 1, !range !384, !alias.scope !10126, !noalias !10127, !noundef !3
-  %139 = getelementptr inbounds nuw i8, ptr %1, i64 81
-  %140 = load i8, ptr %139, align 1, !range !384, !alias.scope !10127, !noalias !10126, !noundef !3
-  %141 = icmp eq i8 %138, %140
+"_ZN102_$LT$polars_parquet..parquet..parquet_bridge..PrimitiveLogicalType$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdb40483490ecb5d8E.exit.i": ; preds = %101
+  %137 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %138 = load i64, ptr %137, align 8, !alias.scope !10126, !noalias !10127, !noundef !3
+  %139 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %140 = load i64, ptr %139, align 8, !alias.scope !10127, !noalias !10126, !noundef !3
+  %141 = icmp eq i64 %138, %140
   br i1 %141, label %"_ZN102_$LT$polars_parquet..parquet..parquet_bridge..PrimitiveLogicalType$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdb40483490ecb5d8E.exit.thread9.i", label %"_ZN108_$LT$polars_parquet..parquet..schema..types..parquet_type..PrimitiveType$u20$as$u20$core..cmp..PartialEq$GT$2eq17hff65ee7adcaeaeb6E.exit"
 
 "_ZN102_$LT$polars_parquet..parquet..parquet_bridge..PrimitiveLogicalType$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdb40483490ecb5d8E.exit.thread9.i": ; preds = %"_ZN102_$LT$polars_parquet..parquet..parquet_bridge..PrimitiveLogicalType$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdb40483490ecb5d8E.exit.i", %131, %125, %119, %100, %97

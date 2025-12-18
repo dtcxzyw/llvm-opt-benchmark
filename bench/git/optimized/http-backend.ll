@@ -1576,7 +1576,7 @@ thread-pre-split.i:                               ; preds = %write_to_child.exit
   br i1 %or.cond5.i, label %.split50.us.i, label %100
 
 .split50.us.i:                                    ; preds = %98, %75, %86
-  %.us-phi.i = phi i32 [ %76, %75 ], [ %87, %86 ], [ %99, %98 ]
+  %.us-phi.i = phi i32 [ %87, %86 ], [ %76, %75 ], [ %99, %98 ]
   call void (ptr, ...) @die(ptr noundef nonnull @.str.81, i32 noundef %.us-phi.i) #20
   unreachable
 

@@ -1763,7 +1763,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %712, %.body13.i, %719, %.thread.i
-  %.pn8.i = phi { ptr, i32 } [ %720, %719 ], [ %606, %.thread.i ], [ %620, %.body13.i ], [ %711, %712 ]
+  %.pn8.i = phi { ptr, i32 } [ %720, %719 ], [ %620, %.body13.i ], [ %606, %.thread.i ], [ %711, %712 ]
   call void @_ZN10open_spiel13TabularPolicyD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %344) #22
   br label %721
 
@@ -2127,7 +2127,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %.loopexit.i64
 
 .loopexit.i64:                                    ; preds = %839, %.body13.i68, %846, %.thread.i63
-  %.pn8.i65 = phi { ptr, i32 } [ %847, %846 ], [ %733, %.thread.i63 ], [ %747, %.body13.i68 ], [ %838, %839 ]
+  %.pn8.i65 = phi { ptr, i32 } [ %847, %846 ], [ %747, %.body13.i68 ], [ %733, %.thread.i63 ], [ %838, %839 ]
   call void @_ZN10open_spiel13TabularPolicyD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %332) #22
   br label %848
 
@@ -2759,7 +2759,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %.loopexit.i132
 
 .loopexit.i132:                                   ; preds = %1063, %.body13.i136, %1070, %.thread.i131
-  %.pn8.i133 = phi { ptr, i32 } [ %1071, %1070 ], [ %957, %.thread.i131 ], [ %971, %.body13.i136 ], [ %1062, %1063 ]
+  %.pn8.i133 = phi { ptr, i32 } [ %1071, %1070 ], [ %971, %.body13.i136 ], [ %957, %.thread.i131 ], [ %1062, %1063 ]
   call void @_ZN10open_spiel13TabularPolicyD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %315) #22
   br label %1072
 
@@ -3124,7 +3124,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %.loopexit.i169
 
 .loopexit.i169:                                   ; preds = %1191, %.body13.i173, %1198, %.thread.i168
-  %.pn8.i170 = phi { ptr, i32 } [ %1199, %1198 ], [ %1085, %.thread.i168 ], [ %1099, %.body13.i173 ], [ %1190, %1191 ]
+  %.pn8.i170 = phi { ptr, i32 } [ %1199, %1198 ], [ %1099, %.body13.i173 ], [ %1085, %.thread.i168 ], [ %1190, %1191 ]
   call void @_ZN10open_spiel13TabularPolicyD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %303) #22
   br label %1200
 
@@ -4449,8 +4449,8 @@ _ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS_IldE
   br i1 %1551, label %_ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit502.i.i, label %1548
 
 _ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit502.i.i: ; preds = %1548, %1541, %1449
-  %.pn.pn.i.i = phi { ptr, i32 } [ %1542, %1541 ], [ %1450, %1449 ], [ %.pn.i.i, %1548 ]
-  %1552 = phi i1 [ false, %1541 ], [ false, %1449 ], [ true, %1548 ]
+  %.pn.pn.i.i = phi { ptr, i32 } [ %1450, %1449 ], [ %1542, %1541 ], [ %.pn.i.i, %1548 ]
+  %1552 = phi i1 [ false, %1449 ], [ false, %1541 ], [ true, %1548 ]
   call void @_ZdlPvm(ptr noundef nonnull %1440, i64 noundef 32) #24
   br label %.body445.i.i
 
@@ -5358,7 +5358,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %.body31.i
 
 .body31.i:                                        ; preds = %.preheader.i.i, %1771, %.body.i.i202, %.body.thread.i.i
-  %.pn22.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn22.pn.pn.pn.pn.i, %1771 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph.i.i, %.body.thread.i.i ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i, %.body.i.i202 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i, %.preheader.i.i ]
+  %.pn22.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn22.pn.pn.pn.pn.i, %1771 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i, %.body.i.i202 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph.i.i, %.body.thread.i.i ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i, %.preheader.i.i ]
   call void @_ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %276) #22
   br label %common.resume
 
@@ -12406,7 +12406,7 @@ _ZNSt10_HashtableIlSt4pairIKldESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4
   br label %.body
 
 .loopexit:                                        ; preds = %39, %.noexc, %34
-  %.0.i.pn.i.i = phi ptr [ %35, %34 ], [ %49, %.noexc ], [ %41, %39 ]
+  %.0.i.pn.i.i = phi ptr [ %49, %.noexc ], [ %35, %34 ], [ %41, %39 ]
   %.0.i.i = getelementptr inbounds nuw i8, ptr %.0.i.pn.i.i, i64 16
   store double %27, ptr %.0.i.i, align 8
   %51 = getelementptr inbounds nuw i8, ptr %.sroa.012.018, i64 16
@@ -12551,7 +12551,7 @@ _ZNSt10_HashtableIlSt4pairIKldESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4
   br label %.body
 
 .loopexit:                                        ; preds = %39, %.noexc, %34
-  %.0.i.pn.i.i = phi ptr [ %35, %34 ], [ %49, %.noexc ], [ %41, %39 ]
+  %.0.i.pn.i.i = phi ptr [ %49, %.noexc ], [ %35, %34 ], [ %41, %39 ]
   %.0.i.i = getelementptr inbounds nuw i8, ptr %.0.i.pn.i.i, i64 16
   store double %27, ptr %.0.i.i, align 8
   %51 = getelementptr inbounds nuw i8, ptr %.sroa.012.018, i64 16
@@ -14919,8 +14919,8 @@ _ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit499:     ; preds = %_ZNSt4pairIKNSt7__c
   br i1 %300, label %_ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit502, label %297
 
 _ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit502:     ; preds = %297, %290, %198
-  %.pn.pn = phi { ptr, i32 } [ %291, %290 ], [ %199, %198 ], [ %.pn, %297 ]
-  %301 = phi i1 [ false, %290 ], [ false, %198 ], [ true, %297 ]
+  %.pn.pn = phi { ptr, i32 } [ %199, %198 ], [ %291, %290 ], [ %.pn, %297 ]
+  %301 = phi i1 [ false, %198 ], [ false, %290 ], [ true, %297 ]
   call void @_ZdlPvm(ptr noundef nonnull %189, i64 noundef 32) #24
   br label %.body445
 

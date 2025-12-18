@@ -3347,9 +3347,9 @@ smart_str_alloc.exit1255:                         ; preds = %1251, %1257
   br label %.loopexit
 
 1433:                                             ; preds = %.critedge1057, %.thread100
-  %.7821 = phi ptr [ %.3817, %.thread100 ], [ %1421, %.critedge1057 ]
-  %.5810 = phi i8 [ %.3808, %.thread100 ], [ %.0805170, %.critedge1057 ]
-  %.7 = phi i64 [ %.3782, %.thread100 ], [ %.1780171, %.critedge1057 ]
+  %.7821 = phi ptr [ %1421, %.critedge1057 ], [ %.3817, %.thread100 ]
+  %.5810 = phi i8 [ %.0805170, %.critedge1057 ], [ %.3808, %.thread100 ]
+  %.7 = phi i64 [ %.1780171, %.critedge1057 ], [ %.3782, %.thread100 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   %1434 = call zeroext i1 @_php_stream_eof(ptr noundef nonnull %.0750) #18
   br i1 %1434, label %.loopexit, label %1357

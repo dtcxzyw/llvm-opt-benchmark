@@ -806,7 +806,7 @@ switch.lookup:                                    ; preds = %.split
   br label %_ZL16isSuitableForBSSPKN4llvm14GlobalVariableE.exit.thread
 
 _ZL16isSuitableForBSSPKN4llvm14GlobalVariableE.exit.thread: ; preds = %105, %96, %.split, %switch.lookup, %108, %93, %45, %23, %2, %2, %13, %9, %.thread, %71, %_ZNK4llvm6MDNode14getNumOperandsEv.exit, %42, %26, %_ZL16isSuitableForBSSPKN4llvm14GlobalVariableE.exit, %19
-  %.sroa.044.0 = phi i32 [ 1, %_ZNK4llvm6MDNode14getNumOperandsEv.exit ], [ 2, %2 ], [ 13, %9 ], [ 2, %2 ], [ 13, %13 ], [ 13, %_ZL16isSuitableForBSSPKN4llvm14GlobalVariableE.exit ], [ %spec.select, %23 ], [ %switch.offset, %switch.lookup ], [ %spec.select73, %45 ], [ 18, %26 ], [ 16, %42 ], [ %switch.select76, %93 ], [ 13, %19 ], [ 4, %96 ], [ 4, %.split ], [ %110, %108 ], [ 4, %71 ], [ 19, %.thread ], [ 4, %105 ]
+  %.sroa.044.0 = phi i32 [ 1, %_ZNK4llvm6MDNode14getNumOperandsEv.exit ], [ 2, %2 ], [ %spec.select73, %45 ], [ 2, %2 ], [ 13, %13 ], [ 13, %_ZL16isSuitableForBSSPKN4llvm14GlobalVariableE.exit ], [ %spec.select, %23 ], [ %switch.offset, %switch.lookup ], [ 13, %9 ], [ 18, %26 ], [ 16, %42 ], [ 13, %19 ], [ 19, %.thread ], [ %switch.select76, %93 ], [ 4, %96 ], [ 4, %.split ], [ %110, %108 ], [ 4, %71 ], [ 4, %105 ]
   ret i32 %.sroa.044.0
 }
 

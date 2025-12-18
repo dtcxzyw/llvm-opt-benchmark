@@ -241,9 +241,9 @@ define internal i64 @bzip2_filter_read(ptr noundef readonly captures(none) %0, p
   br label %.loopexit
 
 .loopexit:                                        ; preds = %50, %.loopexit.loopexit, %.loopexit60, %.loopexit59
-  %52 = phi ptr [ @.str.10, %.loopexit60 ], [ @.str.9, %.loopexit.loopexit ], [ @.str.10, %.loopexit59 ], [ @.str.10, %50 ]
-  %.049 = phi ptr [ @.str.7, %.loopexit60 ], [ null, %.loopexit.loopexit ], [ @.str.6, %.loopexit59 ], [ @.str.5, %50 ]
-  %.0 = phi i32 [ -1, %.loopexit60 ], [ -1, %.loopexit.loopexit ], [ 12, %.loopexit59 ], [ -1, %50 ]
+  %52 = phi ptr [ @.str.10, %.loopexit59 ], [ @.str.10, %.loopexit60 ], [ @.str.9, %.loopexit.loopexit ], [ @.str.10, %50 ]
+  %.049 = phi ptr [ @.str.6, %.loopexit59 ], [ @.str.7, %.loopexit60 ], [ null, %.loopexit.loopexit ], [ @.str.5, %50 ]
+  %.0 = phi i32 [ 12, %.loopexit59 ], [ -1, %.loopexit60 ], [ -1, %.loopexit.loopexit ], [ -1, %50 ]
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %54 = load ptr, ptr %53, align 8, !tbaa !18
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %54, i32 noundef %.0, ptr noundef nonnull @.str.8, ptr noundef nonnull %52, ptr noundef %.049) #7

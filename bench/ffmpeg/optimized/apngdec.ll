@@ -195,7 +195,7 @@ bytestream2_get_be32.exit26:                      ; preds = %49
   br label %.preheader
 
 bytestream2_get_be64.exit.thread:                 ; preds = %bytestream2_get_le32.exit.thread, %bytestream2_get_be32.exit, %49, %bytestream2_get_be32.exit26, %bytestream2_get_be32.exit24, %30, %bytestream2_init.exit, %60, %bytestream2_get_be64.exit
-  %.0 = phi i32 [ 0, %bytestream2_get_be64.exit ], [ %., %60 ], [ 0, %bytestream2_init.exit ], [ 0, %30 ], [ 0, %bytestream2_get_be32.exit24 ], [ 0, %bytestream2_get_be32.exit26 ], [ 0, %49 ], [ 0, %bytestream2_get_be32.exit ], [ 0, %bytestream2_get_le32.exit.thread ]
+  %.0 = phi i32 [ 0, %bytestream2_init.exit ], [ 0, %bytestream2_get_be64.exit ], [ %., %60 ], [ 0, %30 ], [ 0, %bytestream2_get_be32.exit24 ], [ 0, %bytestream2_get_be32.exit26 ], [ 0, %49 ], [ 0, %bytestream2_get_be32.exit ], [ 0, %bytestream2_get_le32.exit.thread ]
   ret i32 %.0
 }
 

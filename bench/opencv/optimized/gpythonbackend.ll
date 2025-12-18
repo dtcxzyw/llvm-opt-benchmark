@@ -6151,7 +6151,7 @@ _ZNSt10_HashtableIN3ade7details10MetadataIdESt4pairIKS2_St10unique_ptrINS1_8Meta
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZNKSt8__detail15_Hashtable_baseIN3ade7details10MetadataIdESt4pairIKS3_St10unique_ptrINS2_8Metadata18MetadataHolderBaseESt14default_deleteIS8_EEENS_10_Select1stESt8equal_toIS3_ENS7_6IdHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS5_mRKNS_16_Hash_node_valueISC_Lb1EEE.exit.thread.i, %36, %.lr.ph, %19, %5, %_ZNSt10_HashtableIN3ade7details10MetadataIdESt4pairIKS2_St10unique_ptrINS1_8Metadata18MetadataHolderBaseESt14default_deleteIS7_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIS2_ENS6_6IdHashENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE8_M_eraseEmPNSD_15_Hash_node_baseEPNSD_10_Hash_nodeISB_Lb1EEE.exit
-  %.0 = phi i64 [ 1, %_ZNSt10_HashtableIN3ade7details10MetadataIdESt4pairIKS2_St10unique_ptrINS1_8Metadata18MetadataHolderBaseESt14default_deleteIS7_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIS2_ENS6_6IdHashENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE8_M_eraseEmPNSD_15_Hash_node_baseEPNSD_10_Hash_nodeISB_Lb1EEE.exit ], [ 0, %5 ], [ 0, %19 ], [ 0, %.lr.ph ], [ 0, %36 ], [ 0, %_ZNKSt8__detail15_Hashtable_baseIN3ade7details10MetadataIdESt4pairIKS3_St10unique_ptrINS2_8Metadata18MetadataHolderBaseESt14default_deleteIS8_EEENS_10_Select1stESt8equal_toIS3_ENS7_6IdHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS5_mRKNS_16_Hash_node_valueISC_Lb1EEE.exit.thread.i ]
+  %.0 = phi i64 [ 1, %_ZNSt10_HashtableIN3ade7details10MetadataIdESt4pairIKS2_St10unique_ptrINS1_8Metadata18MetadataHolderBaseESt14default_deleteIS7_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIS2_ENS6_6IdHashENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE8_M_eraseEmPNSD_15_Hash_node_baseEPNSD_10_Hash_nodeISB_Lb1EEE.exit ], [ 0, %.lr.ph ], [ 0, %5 ], [ 0, %19 ], [ 0, %36 ], [ 0, %_ZNKSt8__detail15_Hashtable_baseIN3ade7details10MetadataIdESt4pairIKS3_St10unique_ptrINS2_8Metadata18MetadataHolderBaseESt14default_deleteIS8_EEENS_10_Select1stESt8equal_toIS3_ENS7_6IdHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS5_mRKNS_16_Hash_node_valueISC_Lb1EEE.exit.thread.i ]
   ret i64 %.0
 }
 
@@ -7973,7 +7973,7 @@ _ZNSt10_HashtableIiSt4pairIKiN2cv7Scalar_IdEEESaIS5_ENSt8__detail10_Select1stESt
   br label %.body
 
 _ZNSt13unordered_mapIiN2cv7Scalar_IdEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit.i: ; preds = %197, %.noexc131, %192
-  %.pn.i.i.i = phi ptr [ %193, %192 ], [ %208, %.noexc131 ], [ %199, %197 ]
+  %.pn.i.i.i = phi ptr [ %208, %.noexc131 ], [ %193, %192 ], [ %199, %197 ]
   %.1.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i, i64 16
   store i32 0, ptr %25, align 8, !tbaa !323, !alias.scope !320
   store i32 13, ptr %130, align 4, !tbaa !326, !alias.scope !320
@@ -8064,7 +8064,7 @@ _ZNSt13unordered_mapIiN2cv7Scalar_IdEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EE
   unreachable
 
 _ZNSt13unordered_mapIiN2cv6detail9VectorRefESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEE2atERS8_.exit.i: ; preds = %234, %218, %229
-  %.sroa.06.1.i.i.i.i115 = phi ptr [ %230, %229 ], [ %.sroa.06.0.i.i.i.i119, %218 ], [ %236, %234 ]
+  %.sroa.06.1.i.i.i.i115 = phi ptr [ %.sroa.06.0.i.i.i.i119, %218 ], [ %230, %229 ], [ %236, %234 ]
   %242 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i115, i64 16
   store i32 0, ptr %25, align 8, !tbaa !323, !alias.scope !320
   store i32 0, ptr %130, align 4, !tbaa !326, !alias.scope !320
@@ -8179,7 +8179,7 @@ _ZN2cv4GArgC2IRNS_6detail9VectorRefETnNSt9enable_ifIXntsr6detail7is_gargIT_EE5va
   br label %.loopexit.i.i33.i.invoke, !llvm.loop !350
 
 _ZNSt13unordered_mapIiN2cv6detail9OpaqueRefESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEE2atERS8_.exit.i: ; preds = %283, %267, %278
-  %.sroa.06.1.i.i.i43.i = phi ptr [ %279, %278 ], [ %.sroa.06.0.i.i.i45.i, %267 ], [ %285, %283 ]
+  %.sroa.06.1.i.i.i43.i = phi ptr [ %.sroa.06.0.i.i.i45.i, %267 ], [ %279, %278 ], [ %285, %283 ]
   %291 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i43.i, i64 16
   store i32 0, ptr %25, align 8, !tbaa !323, !alias.scope !320
   store i32 0, ptr %130, align 4, !tbaa !326, !alias.scope !320
@@ -8294,7 +8294,7 @@ _ZN2cv4GArgC2IRNS_6detail9OpaqueRefETnNSt9enable_ifIXntsr6detail7is_gargIT_EE5va
   br label %.loopexit.i.i33.i.invoke, !llvm.loop !363
 
 _ZNSt13unordered_mapIiN2cv10MediaFrameESt4hashIiESt8equal_toIiESaISt4pairIKiS1_EEE2atERS7_.exit.i: ; preds = %332, %316, %327
-  %.sroa.06.1.i.i.i57.i = phi ptr [ %328, %327 ], [ %.sroa.06.0.i.i.i59.i, %316 ], [ %334, %332 ]
+  %.sroa.06.1.i.i.i57.i = phi ptr [ %.sroa.06.0.i.i.i59.i, %316 ], [ %328, %327 ], [ %334, %332 ]
   %340 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i57.i, i64 16
   store i32 0, ptr %25, align 8, !tbaa !323, !alias.scope !320
   store i32 0, ptr %130, align 4, !tbaa !326, !alias.scope !320

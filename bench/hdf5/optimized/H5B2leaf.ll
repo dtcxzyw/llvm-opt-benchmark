@@ -904,7 +904,7 @@ define range(i32 -1, 1) i32 @H5B2__insert_leaf(ptr noundef %0, ptr noundef captu
   br label %171
 
 151:                                              ; preds = %88, %._crit_edge97, %121, %136, %110
-  %.1.ph = phi i32 [ 0, %88 ], [ 0, %121 ], [ 0, %._crit_edge97 ], [ -1, %136 ], [ -1, %110 ]
+  %.1.ph = phi i32 [ -1, %110 ], [ 0, %88 ], [ 0, %121 ], [ -1, %136 ], [ 0, %._crit_edge97 ]
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %153 = load i8, ptr %152, align 8, !tbaa !61, !range !7, !noundef !8
   %154 = trunc nuw i8 %153 to i1

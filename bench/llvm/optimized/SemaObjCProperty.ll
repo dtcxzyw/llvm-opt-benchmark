@@ -473,7 +473,7 @@ _ZL31deducePropertyOwnershipFromTypeRN5clang4SemaENS_8QualTypeE.exit: ; preds = 
   %.not138 = icmp eq ptr %77, null
   br i1 %.not138, label %.critedge, label %86
 
-78:                                               ; preds = %64, %51
+78:                                               ; preds = %51, %64
   %79 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %.sroa.0.0.copyload.i154 = load i32, ptr %79, align 8, !tbaa !3
   %80 = getelementptr inbounds nuw i8, ptr %5, i64 28
@@ -11602,7 +11602,7 @@ _ZNK5clang4Decl7getAttrINS_11SectionAttrEEEPT_v.exit: ; preds = %.lr.ph.i.i.i.i,
   call void @_ZN5clang4Decl7addAttrEPNS_4AttrE(ptr noundef nonnull align 8 dereferenceable(33) %1022, ptr noundef %1118) #16
   br label %_ZNK5clang4Decl7getAttrINS_11SectionAttrEEEPT_v.exit.thread
 
-_ZNK5clang4Decl7getAttrINS_11SectionAttrEEEPT_v.exit.thread: ; preds = %1099, %1088, %_ZN5clangneENS_22specific_attr_iteratorINS_11SectionAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, %_ZNK5clang4Decl7hasAttrINS_27ObjCReturnsInnerPointerAttrEEEbv.exit.thread635, %_ZNK5clang4Decl7getAttrINS_11SectionAttrEEEPT_v.exit
+_ZNK5clang4Decl7getAttrINS_11SectionAttrEEEPT_v.exit.thread: ; preds = %1099, %_ZN5clangneENS_22specific_attr_iteratorINS_11SectionAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, %1088, %_ZNK5clang4Decl7hasAttrINS_27ObjCReturnsInnerPointerAttrEEEbv.exit.thread635, %_ZNK5clang4Decl7getAttrINS_11SectionAttrEEEPT_v.exit
   %1119 = load ptr, ptr %0, align 8, !tbaa !7
   call void @_ZN5clang4Sema15ProcessAPINotesEPNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(17504) %1119, ptr noundef %1022) #16
   %1120 = call noundef nonnull align 8 dereferenceable(849) ptr @_ZNK5clang8SemaBase11getLangOptsEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #16
@@ -11843,7 +11843,7 @@ _ZNK5clang4Decl7getAttrINS_11SectionAttrEEEPT_v.exit409: ; preds = %.lr.ph.i.i.i
   call void @_ZN5clang4Decl7addAttrEPNS_4AttrE(ptr noundef nonnull align 8 dereferenceable(33) %1143, ptr noundef %1233) #16
   br label %_ZNK5clang4Decl7getAttrINS_11SectionAttrEEEPT_v.exit409.thread
 
-_ZNK5clang4Decl7getAttrINS_11SectionAttrEEEPT_v.exit409.thread: ; preds = %1214, %1203, %_ZN5clangneENS_22specific_attr_iteratorINS_11SectionAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i406, %1200, %_ZNK5clang4Decl7getAttrINS_11SectionAttrEEEPT_v.exit409
+_ZNK5clang4Decl7getAttrINS_11SectionAttrEEEPT_v.exit409.thread: ; preds = %1214, %_ZN5clangneENS_22specific_attr_iteratorINS_11SectionAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i406, %1203, %1200, %_ZNK5clang4Decl7getAttrINS_11SectionAttrEEEPT_v.exit409
   %1234 = load ptr, ptr %0, align 8, !tbaa !7
   call void @_ZN5clang4Sema15ProcessAPINotesEPNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(17504) %1234, ptr noundef nonnull %1143) #16
   %1235 = call noundef nonnull align 8 dereferenceable(849) ptr @_ZNK5clang8SemaBase11getLangOptsEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #16
@@ -18249,7 +18249,7 @@ _ZNK5clang11ObjCRuntime12isNonFragileEv.exit689:  ; preds = %2411, %2411, %.crit
   br label %2510
 
 2510:                                             ; preds = %.sink.split1071, %_ZNK5clang11ObjCRuntime12isNonFragileEv.exit689, %2502, %2505
-  %.6 = phi ptr [ %2098, %2505 ], [ %2098, %2502 ], [ %2098, %_ZNK5clang11ObjCRuntime12isNonFragileEv.exit689 ], [ null, %.sink.split1071 ]
+  %.6 = phi ptr [ %2098, %_ZNK5clang11ObjCRuntime12isNonFragileEv.exit689 ], [ %2098, %2502 ], [ %2098, %2505 ], [ null, %.sink.split1071 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %77)
   br label %.critedge474
 
@@ -18997,7 +18997,7 @@ _ZN5clang12DeclListNode8iteratorppEv.exit:        ; preds = %_ZNK5clang12DeclLis
   br i1 %.not48, label %48, label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %_ZNK5clang12DeclListNode8iteratordeEv.exit.thread, %.lr.ph79, %_ZNK5clang12DeclListNode8iteratordeEv.exit
-  %.lcssa.sink = phi ptr [ %34, %_ZNK5clang12DeclListNode8iteratordeEv.exit ], [ %56, %.lr.ph79 ], [ %39, %_ZNK5clang12DeclListNode8iteratordeEv.exit.thread ]
+  %.lcssa.sink = phi ptr [ %56, %.lr.ph79 ], [ %34, %_ZNK5clang12DeclListNode8iteratordeEv.exit ], [ %39, %_ZNK5clang12DeclListNode8iteratordeEv.exit.thread ]
   %57 = getelementptr inbounds nuw i8, ptr %.lcssa.sink, i64 72
   %58 = load i64, ptr %57, align 8
   %59 = and i64 %58, 238288896
@@ -21000,7 +21000,7 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_8SelectorEvEERKS1_OT_.exit102: ;
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %434, %_ZNK5clang8QualType19getNonReferenceTypeEv.exit63, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit69.thread233, %443, %4
-  %.0 = phi i1 [ false, %4 ], [ false, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit69.thread233 ], [ false, %443 ], [ false, %_ZNK5clang8QualType19getNonReferenceTypeEv.exit63 ], [ false, %434 ], [ true, %.thread.sink.split ]
+  %.0 = phi i1 [ false, %4 ], [ false, %434 ], [ false, %_ZNK5clang8QualType19getNonReferenceTypeEv.exit63 ], [ false, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit69.thread233 ], [ false, %443 ], [ true, %.thread.sink.split ]
   ret i1 %.0
 }
 
@@ -21309,7 +21309,7 @@ _ZN5clang17ObjCInterfaceDecl16isKnownExtensionEPNS_16ObjCCategoryDeclE.exit.thre
   br i1 %.not.i.i110, label %.loopexit, label %.lr.ph.i.i108, !llvm.loop !1187
 
 .loopexit:                                        ; preds = %40, %_ZN5clang17ObjCInterfaceDecl16isKnownExtensionEPNS_16ObjCCategoryDeclE.exit.thread.i.i.i.i, %.critedge60, %105, %_ZN5clang17ObjCInterfaceDecl16isKnownExtensionEPNS_16ObjCCategoryDeclE.exit.thread.i.i, %_ZNK5clang17ObjCInterfaceDecl13hasDefinitionEv.exit.i.i.i, %_ZNK5clang17ObjCInterfaceDecl18getCategoryListRawEv.exit.i.i, %15, %8, %4
-  %.0 = phi i1 [ false, %4 ], [ false, %8 ], [ false, %15 ], [ false, %_ZNK5clang17ObjCInterfaceDecl18getCategoryListRawEv.exit.i.i ], [ false, %_ZNK5clang17ObjCInterfaceDecl13hasDefinitionEv.exit.i.i.i ], [ false, %_ZN5clang17ObjCInterfaceDecl16isKnownExtensionEPNS_16ObjCCategoryDeclE.exit.thread.i.i.i.i ], [ false, %_ZN5clang17ObjCInterfaceDecl16isKnownExtensionEPNS_16ObjCCategoryDeclE.exit.thread.i.i ], [ true, %105 ], [ false, %.critedge60 ], [ true, %40 ]
+  %.0 = phi i1 [ false, %4 ], [ false, %8 ], [ false, %_ZN5clang17ObjCInterfaceDecl16isKnownExtensionEPNS_16ObjCCategoryDeclE.exit.thread.i.i.i.i ], [ false, %15 ], [ false, %.critedge60 ], [ true, %105 ], [ false, %_ZN5clang17ObjCInterfaceDecl16isKnownExtensionEPNS_16ObjCCategoryDeclE.exit.thread.i.i ], [ false, %_ZNK5clang17ObjCInterfaceDecl18getCategoryListRawEv.exit.i.i ], [ false, %_ZNK5clang17ObjCInterfaceDecl13hasDefinitionEv.exit.i.i.i ], [ true, %40 ]
   ret i1 %.0
 }
 
@@ -23459,7 +23459,7 @@ _ZN5clang11DeclContext22specific_decl_iteratorINS_16ObjCPropertyDeclEEppEv.exit:
   br i1 %.not356, label %_ZNK5clang4Decl7hasAttrINS_28ObjCExplicitProtocolImplAttrEEEbv.exit.thread339, label %117
 
 _ZNK5clang4Decl7hasAttrINS_28ObjCExplicitProtocolImplAttrEEEbv.exit.thread339: ; preds = %84, %106, %_ZN5clang11DeclContext22specific_decl_iteratorINS_16ObjCPropertyDeclEEppEv.exit, %99, %73, %68, %_ZNK5clang4Decl7hasAttrINS_28ObjCExplicitProtocolImplAttrEEEbv.exit
-  %.sroa.0310.1 = phi ptr [ %.sroa.0310.0386, %_ZNK5clang4Decl7hasAttrINS_28ObjCExplicitProtocolImplAttrEEEbv.exit ], [ %.sroa.0310.0386, %68 ], [ %.sroa.0310.0386, %73 ], [ %.sroa.0310.2, %99 ], [ %.sroa.0310.2, %106 ], [ %.sroa.0310.2, %_ZN5clang11DeclContext22specific_decl_iteratorINS_16ObjCPropertyDeclEEppEv.exit ], [ %.sroa.0310.0386, %84 ]
+  %.sroa.0310.1 = phi ptr [ %.sroa.0310.0386, %73 ], [ %.sroa.0310.0386, %_ZNK5clang4Decl7hasAttrINS_28ObjCExplicitProtocolImplAttrEEEbv.exit ], [ %.sroa.0310.2, %_ZN5clang11DeclContext22specific_decl_iteratorINS_16ObjCPropertyDeclEEppEv.exit ], [ %.sroa.0310.0386, %68 ], [ %.sroa.0310.2, %106 ], [ %.sroa.0310.2, %99 ], [ %.sroa.0310.0386, %84 ]
   %464 = getelementptr inbounds nuw i8, ptr %.073387, i64 8
   %.not88 = icmp eq ptr %464, %44
   br i1 %.not88, label %._crit_edge, label %68
@@ -23774,7 +23774,7 @@ _ZN5clang11DeclContext22specific_decl_iteratorINS_14ObjCMethodDeclEEppEv.exit207
   br i1 %.not359, label %.loopexit363, label %.lr.ph399
 
 .loopexit363:                                     ; preds = %552, %_ZN5clang11DeclContext22specific_decl_iteratorINS_14ObjCMethodDeclEEppEv.exit207, %545, %543, %540, %533, %._crit_edge396
-  %.074 = phi ptr [ null, %533 ], [ null, %._crit_edge396 ], [ null, %540 ], [ %542, %543 ], [ %542, %545 ], [ %542, %_ZN5clang11DeclContext22specific_decl_iteratorINS_14ObjCMethodDeclEEppEv.exit207 ], [ %542, %552 ]
+  %.074 = phi ptr [ null, %533 ], [ null, %._crit_edge396 ], [ null, %540 ], [ %542, %543 ], [ %542, %_ZN5clang11DeclContext22specific_decl_iteratorINS_14ObjCMethodDeclEEppEv.exit207 ], [ %542, %545 ], [ %542, %552 ]
   %582 = load ptr, ptr %16, align 8, !tbaa !710
   %583 = load i32, ptr %18, align 8, !tbaa !711
   %584 = zext i32 %583 to i64

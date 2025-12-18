@@ -317,7 +317,7 @@ define dso_local range(i32 -1, 1) i32 @slurm_set_debugflags(i64 noundef %0, i64 
   br label %20
 
 20:                                               ; preds = %.sink.split, %15, %2
-  %.0 = phi i32 [ -1, %2 ], [ 0, %15 ], [ -1, %.sink.split ]
+  %.0 = phi i32 [ 0, %15 ], [ -1, %2 ], [ -1, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -491,7 +491,7 @@ define dso_local range(i32 -1, 1) i32 @slurm_set_debug_level(i32 noundef %0) loc
   br label %18
 
 18:                                               ; preds = %.sink.split, %13, %1
-  %.0 = phi i32 [ -1, %1 ], [ 0, %13 ], [ -1, %.sink.split ]
+  %.0 = phi i32 [ 0, %13 ], [ -1, %1 ], [ -1, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -539,7 +539,7 @@ define dso_local range(i32 -1, 1) i32 @slurm_set_schedlog_level(i32 noundef %0) 
   br label %18
 
 18:                                               ; preds = %.sink.split, %13, %1
-  %.0 = phi i32 [ -1, %1 ], [ 0, %13 ], [ -1, %.sink.split ]
+  %.0 = phi i32 [ 0, %13 ], [ -1, %1 ], [ -1, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -587,7 +587,7 @@ define dso_local range(i32 -1, 1) i32 @slurm_set_fs_dampeningfactor(i16 noundef 
   br label %18
 
 18:                                               ; preds = %.sink.split, %13, %1
-  %.0 = phi i32 [ -1, %1 ], [ 0, %13 ], [ -1, %.sink.split ]
+  %.0 = phi i32 [ 0, %13 ], [ -1, %1 ], [ -1, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)

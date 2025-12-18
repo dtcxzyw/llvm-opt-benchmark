@@ -7104,7 +7104,7 @@ _ZSt13move_backwardIPPKN5clang7VarDeclES4_ET0_T_S6_S5_.exit: ; preds = %_ZN4llvm
   br i1 %.not44, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !1260
 
 _ZSt4copyIPPN5clang17ImplicitParamDeclEPPKNS0_7VarDeclEET0_T_S9_S8_.exit: ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i, %._crit_edge, %_ZSt13move_backwardIPPKN5clang7VarDeclES4_ET0_T_S6_S5_.exit, %_ZN4llvm15SmallVectorImplIPKN5clang7VarDeclEE6appendIPPNS1_17ImplicitParamDeclEvEEvT_SA_.exit
-  %.041 = phi ptr [ %36, %_ZN4llvm15SmallVectorImplIPKN5clang7VarDeclEE6appendIPPNS1_17ImplicitParamDeclEvEEvT_SA_.exit ], [ %48, %_ZSt13move_backwardIPPKN5clang7VarDeclES4_ET0_T_S6_S5_.exit ], [ %48, %._crit_edge ], [ %48, %.lr.ph.i.i.i.i.i.i.i.i ], [ %48, %.lr.ph.i.i.i.i.i ]
+  %.041 = phi ptr [ %36, %_ZN4llvm15SmallVectorImplIPKN5clang7VarDeclEE6appendIPPNS1_17ImplicitParamDeclEvEEvT_SA_.exit ], [ %48, %.lr.ph.i.i.i.i.i.i.i.i ], [ %48, %_ZSt13move_backwardIPPKN5clang7VarDeclES4_ET0_T_S6_S5_.exit ], [ %48, %._crit_edge ], [ %48, %.lr.ph.i.i.i.i.i ]
   ret ptr %.041
 }
 

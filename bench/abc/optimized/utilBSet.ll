@@ -1213,7 +1213,7 @@ Abc_TtGetCM2.exit:                                ; preds = %.preheader.i37
   br i1 %93, label %87, label %Abc_TtGetCM5.exit, !llvm.loop !39
 
 Abc_TtGetCM5.exit:                                ; preds = %87, %69, %.preheader.i54, %76, %.preheader.i49, %58, %7, %55, %52, %Abc_TtGetCM2.exit, %Abc_TtGetCM1.exit
-  %.0 = phi i32 [ %30, %Abc_TtGetCM1.exit ], [ %51, %Abc_TtGetCM2.exit ], [ %54, %52 ], [ %57, %55 ], [ 0, %7 ], [ %.val1923.pre.i, %.preheader.i49 ], [ 0, %58 ], [ %.val2226.pre.i, %.preheader.i54 ], [ 0, %76 ], [ %.val19.i, %69 ], [ %.val22.i, %87 ]
+  %.0 = phi i32 [ %30, %Abc_TtGetCM1.exit ], [ %51, %Abc_TtGetCM2.exit ], [ %54, %52 ], [ %57, %55 ], [ 0, %7 ], [ %.val19.i, %69 ], [ %.val1923.pre.i, %.preheader.i49 ], [ 0, %58 ], [ %.val2226.pre.i, %.preheader.i54 ], [ 0, %76 ], [ %.val22.i, %87 ]
   ret i32 %.0
 }
 
@@ -1785,7 +1785,7 @@ define i32 @Abc_TtGetCM5Pat(ptr noundef readonly captures(none) %0, i32 noundef 
   br i1 %39, label %33, label %.critedge, !llvm.loop !48
 
 .critedge:                                        ; preds = %33, %.preheader, %.preheader36, %.loopexit
-  %.val33.lcssa = phi i32 [ %.val3341.pr, %.loopexit ], [ 0, %.preheader36 ], [ 0, %.preheader ], [ %.val33, %33 ]
+  %.val33.lcssa = phi i32 [ %.val3341.pr, %.loopexit ], [ 0, %.preheader ], [ 0, %.preheader36 ], [ %.val33, %33 ]
   ret i32 %.val33.lcssa
 }
 
@@ -1877,7 +1877,7 @@ define i32 @Abc_TtGetCM6Pat(ptr noundef readonly captures(none) %0, i32 noundef 
   br i1 %47, label %41, label %.critedge, !llvm.loop !51
 
 .critedge:                                        ; preds = %41, %.preheader, %.preheader42, %.loopexit
-  %.val39.lcssa = phi i32 [ %.val3947.pr, %.loopexit ], [ 0, %.preheader42 ], [ 0, %.preheader ], [ %.val39, %41 ]
+  %.val39.lcssa = phi i32 [ %.val3947.pr, %.loopexit ], [ 0, %.preheader ], [ 0, %.preheader42 ], [ %.val39, %41 ]
   ret i32 %.val39.lcssa
 }
 
@@ -1992,7 +1992,7 @@ define i32 @Abc_TtCheck1Shared(ptr noundef readonly captures(none) %0, i32 nound
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.loopexit40.split.us.us, %._crit_edge.sink.split, %4
-  %.3 = phi i32 [ %.09.i, %4 ], [ %9, %._crit_edge.sink.split ], [ %.09.i, %.loopexit40.split.us.us ]
+  %.3 = phi i32 [ %9, %._crit_edge.sink.split ], [ %.09.i, %4 ], [ %.09.i, %.loopexit40.split.us.us ]
   ret i32 %.3
 }
 
@@ -2345,8 +2345,8 @@ Abc_TtGetCM5Pat.exit:                             ; preds = %144, %113, %Abc_TtG
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
   br label %Abc_TtCheck1Shared.exit
 
-Abc_TtCheck1Shared.exit:                          ; preds = %.loopexit40.split.us.us.i, %120, %.loopexit.i56, %89, %.loopexit.i, %7, %._crit_edge.sink.split.i, %152, %Abc_TtGetCM5Pat.exit
-  %.0 = phi i32 [ %156, %._crit_edge.sink.split.i ], [ 1, %Abc_TtGetCM5Pat.exit ], [ %155, %152 ], [ 1, %7 ], [ 1, %.loopexit.i ], [ 1, %89 ], [ 1, %.loopexit.i56 ], [ 1, %120 ], [ %155, %.loopexit40.split.us.us.i ]
+Abc_TtCheck1Shared.exit:                          ; preds = %.loopexit40.split.us.us.i, %120, %.loopexit.i56, %.loopexit.i, %89, %7, %._crit_edge.sink.split.i, %152, %Abc_TtGetCM5Pat.exit
+  %.0 = phi i32 [ 1, %120 ], [ 1, %Abc_TtGetCM5Pat.exit ], [ %156, %._crit_edge.sink.split.i ], [ %155, %152 ], [ 1, %7 ], [ 1, %89 ], [ 1, %.loopexit.i ], [ 1, %.loopexit.i56 ], [ %155, %.loopexit40.split.us.us.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.0
 }
@@ -2555,7 +2555,7 @@ define void @Abc_GenChaseNext(ptr noundef captures(none) %0, ptr noundef capture
   br label %34
 
 34:                                               ; preds = %27, %32
-  %.1 = phi i32 [ %.05379, %27 ], [ 1, %32 ]
+  %.1 = phi i32 [ 1, %32 ], [ %.05379, %27 ]
   %35 = load i32, ptr %14, align 4, !tbaa !7
   %.not = icmp eq i32 %35, 0
   br i1 %.not, label %.lr.ph, label %._crit_edge.loopexit

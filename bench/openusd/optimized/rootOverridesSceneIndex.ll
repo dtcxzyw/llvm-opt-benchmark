@@ -2042,7 +2042,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver16
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %33, %35
-  %.pn.pn.pn = phi { ptr, i32 } [ %36, %35 ], [ %34, %33 ], [ %.pn.pn, %.loopexit.loopexit ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %34, %33 ], [ %36, %35 ], [ %.pn.pn, %.loopexit.loopexit ]
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN32pxrInternal_v0_24__pxrReserved__33UsdImagingRootOverridesSceneIndex16SetRootTransformERKNS_10GfMatrix4dEE7entries) #22
   resume { ptr, i32 } %.pn.pn.pn
 }
@@ -2528,7 +2528,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver16
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %35, %37
-  %.pn.pn.pn = phi { ptr, i32 } [ %38, %37 ], [ %36, %35 ], [ %.pn.pn, %.loopexit.loopexit ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %36, %35 ], [ %38, %37 ], [ %.pn.pn, %.loopexit.loopexit ]
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN32pxrInternal_v0_24__pxrReserved__33UsdImagingRootOverridesSceneIndex17SetRootVisibilityEbE7entries) #22
   resume { ptr, i32 } %.pn.pn.pn
 }

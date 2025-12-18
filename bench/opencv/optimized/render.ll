@@ -7427,7 +7427,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit68:        ; preds = %_ZSt8_DestroyIPN2cv
   br i1 %136, label %.loopexit, label %133
 
 .loopexit:                                        ; preds = %133, %.loopexit.loopexit80, %.thread
-  %.pn33.pn.pn.pn = phi { ptr, i32 } [ %66, %.thread ], [ %130, %.loopexit.loopexit80 ], [ %.pn33.pn.pn, %133 ]
+  %.pn33.pn.pn.pn = phi { ptr, i32 } [ %130, %.loopexit.loopexit80 ], [ %66, %.thread ], [ %.pn33.pn.pn, %133 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -7730,7 +7730,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZNSt6vectorIN2cv3M
   br i1 %70, label %.loopexit, label %67
 
 .loopexit:                                        ; preds = %67, %.loopexit.loopexit32, %.thread
-  %.pn17.pn.pn.pn = phi { ptr, i32 } [ %24, %.thread ], [ %64, %.loopexit.loopexit32 ], [ %.pn17.pn.pn, %67 ]
+  %.pn17.pn.pn.pn = phi { ptr, i32 } [ %64, %.loopexit.loopexit32 ], [ %24, %.thread ], [ %.pn17.pn.pn, %67 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -13751,7 +13751,7 @@ _ZN2cv4GArgD2Ev.exit23:                           ; preds = %102, %_ZNKSt14defau
   br i1 %110, label %.loopexit, label %102
 
 .loopexit:                                        ; preds = %_ZN2cv4GArgD2Ev.exit23, %_ZNKSt14default_deleteIN2cv4util3any6holderEEclEPS3_.exit.i.i.i19, %.body, %.body.thread
-  %.pn.pn = phi { ptr, i32 } [ %22, %.body.thread ], [ %58, %_ZNKSt14default_deleteIN2cv4util3any6holderEEclEPS3_.exit.i.i.i19 ], [ %58, %.body ], [ %.pn, %_ZN2cv4GArgD2Ev.exit23 ]
+  %.pn.pn = phi { ptr, i32 } [ %58, %_ZNKSt14default_deleteIN2cv4util3any6holderEEclEPS3_.exit.i.i.i19 ], [ %22, %.body.thread ], [ %58, %.body ], [ %.pn, %_ZN2cv4GArgD2Ev.exit23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %.pn.pn
@@ -15507,7 +15507,7 @@ _ZN2cv4GArgD2Ev.exit31:                           ; preds = %132, %_ZNKSt14defau
   br i1 %140, label %.loopexit, label %132
 
 .loopexit:                                        ; preds = %_ZN2cv4GArgD2Ev.exit28, %_ZN2cv4GArgD2Ev.exit31, %.body.thread
-  %.pn.pn = phi { ptr, i32 } [ %24, %.body.thread ], [ %.pn, %_ZN2cv4GArgD2Ev.exit31 ], [ %eh.lpad-body, %_ZN2cv4GArgD2Ev.exit28 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN2cv4GArgD2Ev.exit31 ], [ %24, %.body.thread ], [ %eh.lpad-body, %_ZN2cv4GArgD2Ev.exit28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   resume { ptr, i32 } %.pn.pn
@@ -15836,7 +15836,7 @@ _ZN2cv4util7variantIJNS0_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDes
   br i1 %123, label %.loopexit, label %.body29
 
 .loopexit:                                        ; preds = %_ZN2cv4util7variantIJNS0_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEED2Ev.exit36, %106, %.thread
-  %.pn13 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread ], [ %lpad.thr_comm.split-lp, %106 ], [ %78, %_ZN2cv4util7variantIJNS0_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEED2Ev.exit36 ]
+  %.pn13 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %106 ], [ %lpad.thr_comm, %.thread ], [ %78, %_ZN2cv4util7variantIJNS0_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEED2Ev.exit36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @_ZNSt11_Tuple_implILm0EJN2cv8GMatDescES1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #21
   br label %_ZN2cv8GMatDescD2Ev.exit34
@@ -16275,7 +16275,7 @@ _ZN2cv4GArgD2Ev.exit23:                           ; preds = %102, %_ZNKSt14defau
   br i1 %110, label %.loopexit, label %102
 
 .loopexit:                                        ; preds = %_ZN2cv4GArgD2Ev.exit23, %_ZNKSt14default_deleteIN2cv4util3any6holderEEclEPS3_.exit.i.i.i19, %.body, %.body.thread
-  %.pn.pn = phi { ptr, i32 } [ %22, %.body.thread ], [ %58, %_ZNKSt14default_deleteIN2cv4util3any6holderEEclEPS3_.exit.i.i.i19 ], [ %58, %.body ], [ %.pn, %_ZN2cv4GArgD2Ev.exit23 ]
+  %.pn.pn = phi { ptr, i32 } [ %58, %_ZNKSt14default_deleteIN2cv4util3any6holderEEclEPS3_.exit.i.i.i19 ], [ %22, %.body.thread ], [ %58, %.body ], [ %.pn, %_ZN2cv4GArgD2Ev.exit23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %.pn.pn

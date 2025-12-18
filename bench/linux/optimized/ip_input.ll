@@ -102,7 +102,7 @@ define dso_local noundef zeroext i1 @ip_call_ra_chain(ptr noundef %0) local_unna
   br label %54
 
 54:                                               ; preds = %52, %49, %47, %32, %24, %.lr.ph
-  %55 = phi ptr [ %20, %32 ], [ %20, %24 ], [ %20, %.lr.ph ], [ %22, %49 ], [ %22, %52 ], [ %22, %47 ]
+  %55 = phi ptr [ %22, %47 ], [ %20, %32 ], [ %20, %24 ], [ %20, %.lr.ph ], [ %22, %49 ], [ %22, %52 ]
   %56 = load volatile ptr, ptr %19, align 8
   %57 = icmp eq ptr %56, null
   br i1 %57, label %._crit_edge, label %.lr.ph, !llvm.loop !5
@@ -170,7 +170,7 @@ define dso_local void @ip_protocol_deliver_rcu(ptr noundef readonly captures(non
   %32 = load i8, ptr %11, align 1
   %33 = and i8 %32, 1
   %.not32 = icmp eq i8 %33, 0
-  br i1 %.not32, label %73, label %34
+  br i1 %.not32, label %68, label %34
 
 34:                                               ; preds = %28
   %35 = load ptr, ptr %12, align 8
@@ -216,43 +216,43 @@ define dso_local void @ip_protocol_deliver_rcu(ptr noundef readonly captures(non
   %65 = load i32, ptr %64, align 4
   %66 = and i32 %65, 2
   %67 = icmp eq i32 %66, 0
-  br i1 %67, label %.critedge, label %68
+  br i1 %67, label %.critedge, label %80
 
-68:                                               ; preds = %63
-  %69 = getelementptr inbounds nuw i8, ptr %53, i64 12
+68:                                               ; preds = %28
+  %69 = getelementptr inbounds nuw i8, ptr %31, i64 2816
   %70 = load i32, ptr %69, align 4
-  %71 = and i32 %70, 1
-  %72 = icmp eq i32 %71, 0
-  br i1 %72, label %.critedge, label %.critedge13
+  %.not33 = icmp eq i32 %70, 0
+  br i1 %.not33, label %71, label %.thread20
 
-73:                                               ; preds = %28
-  %74 = getelementptr inbounds nuw i8, ptr %31, i64 2816
-  %75 = load i32, ptr %74, align 4
-  %.not33 = icmp eq i32 %75, 0
-  br i1 %.not33, label %76, label %.thread20
+71:                                               ; preds = %68
+  %72 = getelementptr inbounds nuw i8, ptr %31, i64 2968
+  %73 = load i8, ptr %72, align 1
+  %74 = icmp eq i8 %73, 2
+  br i1 %74, label %.critedge13, label %.thread20
 
-76:                                               ; preds = %73
-  %77 = getelementptr inbounds nuw i8, ptr %31, i64 2968
-  %78 = load i8, ptr %77, align 1
-  %79 = icmp eq i8 %78, 2
-  br i1 %79, label %.critedge13, label %.thread20
+.thread20:                                        ; preds = %34, %42, %46, %49, %55, %71, %68
+  %75 = load i16, ptr %13, align 4
+  %76 = and i16 %75, 256
+  %77 = icmp eq i16 %76, 0
+  br i1 %77, label %78, label %.critedge13
 
-.thread20:                                        ; preds = %34, %42, %46, %49, %55, %76, %73
-  %80 = load i16, ptr %13, align 4
-  %81 = and i16 %80, 256
-  %82 = icmp eq i16 %81, 0
-  br i1 %82, label %83, label %.critedge13
-
-83:                                               ; preds = %.thread20
-  %84 = tail call i32 @__xfrm_policy_check(ptr noundef null, i32 noundef 0, ptr noundef %1, i16 noundef zeroext 2) #6
-  %.not = icmp eq i32 %84, 0
+78:                                               ; preds = %.thread20
+  %79 = tail call i32 @__xfrm_policy_check(ptr noundef null, i32 noundef 0, ptr noundef %1, i16 noundef zeroext 2) #6
+  %.not = icmp eq i32 %79, 0
   br i1 %.not, label %.critedge, label %.critedge13
 
-.critedge:                                        ; preds = %68, %63, %83
+80:                                               ; preds = %63
+  %81 = getelementptr inbounds nuw i8, ptr %53, i64 12
+  %82 = load i32, ptr %81, align 4
+  %83 = and i32 %82, 1
+  %84 = icmp eq i32 %83, 0
+  br i1 %84, label %.critedge, label %.critedge13
+
+.critedge:                                        ; preds = %78, %63, %80
   tail call void @kfree_skb_reason(ptr noundef %1, i32 noundef 14) #6
   br label %185
 
-.critedge13:                                      ; preds = %68, %.thread20, %76, %83
+.critedge13:                                      ; preds = %78, %.thread20, %71, %80
   %85 = load i64, ptr %14, align 8
   %86 = and i64 %85, -8
   %87 = inttoptr i64 %86 to ptr
@@ -328,7 +328,7 @@ define dso_local void @ip_protocol_deliver_rcu(ptr noundef readonly captures(non
   %122 = load i8, ptr %121, align 1
   %123 = and i8 %122, 1
   %.not34 = icmp eq i8 %123, 0
-  br i1 %.not34, label %164, label %124
+  br i1 %.not34, label %159, label %124
 
 124:                                              ; preds = %116
   %125 = getelementptr inbounds nuw i8, ptr %1, i64 216
@@ -375,40 +375,40 @@ define dso_local void @ip_protocol_deliver_rcu(ptr noundef readonly captures(non
   %156 = load i32, ptr %155, align 4
   %157 = and i32 %156, 2
   %158 = icmp eq i32 %157, 0
-  br i1 %158, label %.critedge15, label %159
+  br i1 %158, label %.critedge15, label %172
 
-159:                                              ; preds = %154
-  %160 = getelementptr inbounds nuw i8, ptr %144, i64 12
+159:                                              ; preds = %116
+  %160 = getelementptr inbounds nuw i8, ptr %120, i64 2816
   %161 = load i32, ptr %160, align 4
-  %162 = and i32 %161, 1
-  %163 = icmp eq i32 %162, 0
-  br i1 %163, label %.critedge15, label %.critedge17
+  %.not35 = icmp eq i32 %161, 0
+  br i1 %.not35, label %162, label %.thread29
 
-164:                                              ; preds = %116
-  %165 = getelementptr inbounds nuw i8, ptr %120, i64 2816
-  %166 = load i32, ptr %165, align 4
-  %.not35 = icmp eq i32 %166, 0
-  br i1 %.not35, label %167, label %.thread29
+162:                                              ; preds = %159
+  %163 = getelementptr inbounds nuw i8, ptr %120, i64 2968
+  %164 = load i8, ptr %163, align 1
+  %165 = icmp eq i8 %164, 2
+  br i1 %165, label %.critedge17, label %.thread29
 
-167:                                              ; preds = %164
-  %168 = getelementptr inbounds nuw i8, ptr %120, i64 2968
-  %169 = load i8, ptr %168, align 1
-  %170 = icmp eq i8 %169, 2
-  br i1 %170, label %.critedge17, label %.thread29
+.thread29:                                        ; preds = %124, %133, %137, %140, %146, %162, %159
+  %166 = getelementptr inbounds nuw i8, ptr %1, i64 60
+  %167 = load i16, ptr %166, align 4
+  %168 = and i16 %167, 256
+  %169 = icmp eq i16 %168, 0
+  br i1 %169, label %170, label %.critedge17
 
-.thread29:                                        ; preds = %124, %133, %137, %140, %146, %167, %164
-  %171 = getelementptr inbounds nuw i8, ptr %1, i64 60
-  %172 = load i16, ptr %171, align 4
-  %173 = and i16 %172, 256
-  %174 = icmp eq i16 %173, 0
-  br i1 %174, label %175, label %.critedge17
-
-175:                                              ; preds = %.thread29
-  %176 = tail call i32 @__xfrm_policy_check(ptr noundef null, i32 noundef 0, ptr noundef %1, i16 noundef zeroext 2) #6
-  %.not11 = icmp eq i32 %176, 0
+170:                                              ; preds = %.thread29
+  %171 = tail call i32 @__xfrm_policy_check(ptr noundef null, i32 noundef 0, ptr noundef %1, i16 noundef zeroext 2) #6
+  %.not11 = icmp eq i32 %171, 0
   br i1 %.not11, label %.critedge15, label %.critedge17
 
-.critedge17:                                      ; preds = %159, %.thread29, %167, %175
+172:                                              ; preds = %154
+  %173 = getelementptr inbounds nuw i8, ptr %144, i64 12
+  %174 = load i32, ptr %173, align 4
+  %175 = and i32 %174, 1
+  %176 = icmp eq i32 %175, 0
+  br i1 %176, label %.critedge15, label %.critedge17
+
+.critedge17:                                      ; preds = %170, %.thread29, %162, %172
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %178 = load ptr, ptr %177, align 8
   %179 = getelementptr i8, ptr %178, i64 88
@@ -417,7 +417,7 @@ define dso_local void @ip_protocol_deliver_rcu(ptr noundef readonly captures(non
   tail call void @__icmp_send(ptr noundef %1, i32 noundef 3, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %180) #6
   br label %.critedge15
 
-.critedge15:                                      ; preds = %159, %154, %.critedge17, %175
+.critedge15:                                      ; preds = %170, %154, %.critedge17, %172
   tail call void @kfree_skb_reason(ptr noundef %1, i32 noundef 15) #6
   br label %185
 

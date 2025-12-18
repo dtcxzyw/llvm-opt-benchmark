@@ -115,7 +115,7 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %1, %4, %5
-  %.03 = phi i32 [ 1, %5 ], [ 1, %4 ], [ 0, %1 ]
+  %.03 = phi i32 [ 1, %4 ], [ 1, %5 ], [ 0, %1 ]
   ret i32 %.03
 }
 

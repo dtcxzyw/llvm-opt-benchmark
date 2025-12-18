@@ -1937,7 +1937,7 @@ define noundef range(i32 -2147483647, -2147483648) i32 @_ZNK10SearchMenu17nextEn
   br i1 %.not28, label %.loopexit, label %.preheader.split, !llvm.loop !21
 
 .loopexit:                                        ; preds = %61, %42, %14, %5, %7, %.split.us
-  %.0 = phi i32 [ -1, %5 ], [ -1, %14 ], [ %.us-phi, %.split.us ], [ -1, %7 ], [ -1, %42 ], [ -1, %61 ]
+  %.0 = phi i32 [ -1, %7 ], [ -1, %5 ], [ -1, %14 ], [ %.us-phi, %.split.us ], [ -1, %42 ], [ -1, %61 ]
   ret i32 %.0
 }
 

@@ -1420,7 +1420,7 @@ socket_set_nonblocking.exit:                      ; preds = %12
   br label %.loopexit
 
 .loopexit:                                        ; preds = %31, %35, %33, %40, %38
-  %.1.ph = phi i32 [ -1, %38 ], [ 0, %40 ], [ -1, %33 ], [ -1, %35 ], [ -1, %31 ]
+  %.1.ph = phi i32 [ -1, %38 ], [ 0, %40 ], [ -1, %35 ], [ -1, %33 ], [ -1, %31 ]
   ret i32 %.1.ph
 }
 
@@ -2529,7 +2529,7 @@ define dso_local noundef zeroext i1 @pq_check_connection() local_unnamed_addr #0
   br i1 %19, label %.thread, label %.lr.ph
 
 .thread:                                          ; preds = %15, %7, %8, %0
-  %.lcssa = phi i1 [ true, %0 ], [ %.not, %7 ], [ %.not, %8 ], [ true, %15 ]
+  %.lcssa = phi i1 [ %.not, %7 ], [ true, %0 ], [ %.not, %8 ], [ true, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i1 %.lcssa
 }

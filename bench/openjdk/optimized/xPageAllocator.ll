@@ -537,7 +537,7 @@ _ZN14XPageAllocator19alloc_page_or_stallEP15XPageAllocation.exit: ; preds = %29
   br label %24
 
 .loopexit:                                        ; preds = %31, %55, %_ZN14XPageAllocator19alloc_page_or_stallEP15XPageAllocation.exit
-  %.1.ph = phi ptr [ null, %_ZN14XPageAllocator19alloc_page_or_stallEP15XPageAllocation.exit ], [ %42, %55 ], [ null, %31 ]
+  %.1.ph = phi ptr [ %42, %55 ], [ null, %_ZN14XPageAllocator19alloc_page_or_stallEP15XPageAllocation.exit ], [ null, %31 ]
   call void @_ZN14PosixSemaphoreD1Ev(ptr noundef nonnull align 8 dereferenceable(36) %20) #15
   ret ptr %.1.ph
 }

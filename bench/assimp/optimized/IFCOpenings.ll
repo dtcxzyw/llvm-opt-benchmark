@@ -788,8 +788,8 @@ _ZNSt6vectorI10aiVector2tIdESaIS1_EE12emplace_backIJRdRKdEEERS1_DpOT_.exit120: ;
   br i1 %.not236, label %._crit_edge257, label %171, !llvm.loop !22
 
 ._crit_edge257:                                   ; preds = %195, %171, %178
-  %.078.lcssa = phi double [ %.078254, %178 ], [ %.078254, %171 ], [ %.280.ph, %195 ]
-  %.3.lcssa = phi i1 [ %.3255, %178 ], [ %.3255, %171 ], [ %.5.ph, %195 ]
+  %.078.lcssa = phi double [ %.280.ph, %195 ], [ %.078254, %178 ], [ %.078254, %171 ]
+  %.3.lcssa = phi i1 [ %.5.ph, %195 ], [ %.3255, %178 ], [ %.3255, %171 ]
   br i1 %.3.lcssa, label %315, label %.critedge
 
 .critedge:                                        ; preds = %_ZNSt6vectorI10aiVector2tIdESaIS1_EE12emplace_backIJRdRKdEEERS1_DpOT_.exit120, %._crit_edge257
@@ -10410,8 +10410,8 @@ _ZNSt16allocator_traitsISaIN6Assimp3IFC22ProjectedWindowContourEEE9constructIS2_
   br label %579
 
 _ZNSt6vectorIN6Assimp3IFC22ProjectedWindowContourESaIS2_EE12emplace_backIJRS_I10aiVector2tIdESaIS7_EERSt4pairIS7_S7_ERbEEERS2_DpOT_.exit: ; preds = %523, %566, %_ZNSt16allocator_traitsISaIN6Assimp3IFC22ProjectedWindowContourEEE9constructIS2_JRSt6vectorI10aiVector2tIdESaIS8_EERSt4pairIS8_S8_ERbEEEvRS3_PT_DpOT0_.exit.i, %.thread435
-  %.8439 = phi i1 [ %.8440, %.thread435 ], [ %.8440, %_ZNSt16allocator_traitsISaIN6Assimp3IFC22ProjectedWindowContourEEE9constructIS2_JRSt6vectorI10aiVector2tIdESaIS8_EERSt4pairIS8_S8_ERbEEEvRS3_PT_DpOT0_.exit.i ], [ %.8440, %566 ], [ %.9, %523 ]
-  %.10142 = phi i32 [ 0, %.thread435 ], [ 0, %_ZNSt16allocator_traitsISaIN6Assimp3IFC22ProjectedWindowContourEEE9constructIS2_JRSt6vectorI10aiVector2tIdESaIS8_EERSt4pairIS8_S8_ERbEEEvRS3_PT_DpOT0_.exit.i ], [ 0, %566 ], [ %.8140, %523 ]
+  %.8439 = phi i1 [ %.8440, %566 ], [ %.8440, %.thread435 ], [ %.8440, %_ZNSt16allocator_traitsISaIN6Assimp3IFC22ProjectedWindowContourEEE9constructIS2_JRSt6vectorI10aiVector2tIdESaIS8_EERSt4pairIS8_S8_ERbEEEvRS3_PT_DpOT0_.exit.i ], [ %.9, %523 ]
+  %.10142 = phi i32 [ 0, %566 ], [ 0, %.thread435 ], [ 0, %_ZNSt16allocator_traitsISaIN6Assimp3IFC22ProjectedWindowContourEEE9constructIS2_JRSt6vectorI10aiVector2tIdESaIS8_EERSt4pairIS8_S8_ERbEEEvRS3_PT_DpOT0_.exit.i ], [ %.8140, %523 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %567 = load ptr, ptr %18, align 8
   %.not.i.i.i246 = icmp eq ptr %567, null
@@ -10600,7 +10600,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit252:                 ; preds = %.loopexit456, %.loo
           to label %.loopexit466 unwind label %56
 
 .loopexit466:                                     ; preds = %_ZNSt6vectorI10aiVector3tIdESaIS1_EED2Ev.exit, %._crit_edge635, %641, %.thread441
-  %.11 = phi i1 [ false, %.thread441 ], [ true, %641 ], [ true, %._crit_edge635 ], [ %.3, %_ZNSt6vectorI10aiVector3tIdESaIS1_EED2Ev.exit ]
+  %.11 = phi i1 [ true, %._crit_edge635 ], [ false, %.thread441 ], [ true, %641 ], [ %.3, %_ZNSt6vectorI10aiVector3tIdESaIS1_EED2Ev.exit ]
   %.not.i.i.i255 = icmp eq ptr %.sroa.0414.0..sroa.0414.0..sroa.0414.0.415732, null
   br i1 %.not.i.i.i255, label %_ZNSt6vectorI10aiVector2tIdESaIS1_EED2Ev.exit, label %643
 
@@ -24690,10 +24690,10 @@ _ZNSt15_Deque_iteratorISt4pairI10aiVector2tIdES2_ERS3_PS3_EmIEl.exit.i77: ; pred
   br i1 %251, label %.lr.ph.i68, label %_ZSt23__copy_move_backward_a1ILb1EPSt4pairI10aiVector2tIdES2_ES3_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS9_PS9_EE6__typeES7_S7_SC_.exit34, !llvm.loop !586
 
 _ZSt23__copy_move_backward_a1ILb1EPSt4pairI10aiVector2tIdES2_ES3_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS9_PS9_EE6__typeES7_S7_SC_.exit34: ; preds = %_ZNSt15_Deque_iteratorISt4pairI10aiVector2tIdES2_ERS3_PS3_EmIEl.exit.i17, %_ZNSt15_Deque_iteratorISt4pairI10aiVector2tIdES2_ERS3_PS3_EmIEl.exit.i77, %190, %._crit_edge
-  %.sink154 = phi ptr [ %79, %._crit_edge ], [ %193, %190 ], [ %storemerge.i.i.i78, %_ZNSt15_Deque_iteratorISt4pairI10aiVector2tIdES2_ERS3_PS3_EmIEl.exit.i77 ], [ %storemerge.i.i.i18, %_ZNSt15_Deque_iteratorISt4pairI10aiVector2tIdES2_ERS3_PS3_EmIEl.exit.i17 ]
-  %.sink = phi ptr [ %78, %._crit_edge ], [ %195, %190 ], [ %249, %_ZNSt15_Deque_iteratorISt4pairI10aiVector2tIdES2_ERS3_PS3_EmIEl.exit.i77 ], [ %132, %_ZNSt15_Deque_iteratorISt4pairI10aiVector2tIdES2_ERS3_PS3_EmIEl.exit.i17 ]
-  %.sroa.9.2.sink = phi ptr [ %77, %._crit_edge ], [ %197, %190 ], [ %.sroa.9.1, %_ZNSt15_Deque_iteratorISt4pairI10aiVector2tIdES2_ERS3_PS3_EmIEl.exit.i77 ], [ %.sroa.999.1, %_ZNSt15_Deque_iteratorISt4pairI10aiVector2tIdES2_ERS3_PS3_EmIEl.exit.i17 ]
-  %.sroa.12.2.sink = phi ptr [ %76, %._crit_edge ], [ %199, %190 ], [ %.sroa.12.1, %_ZNSt15_Deque_iteratorISt4pairI10aiVector2tIdES2_ERS3_PS3_EmIEl.exit.i77 ], [ %.sroa.12100.1, %_ZNSt15_Deque_iteratorISt4pairI10aiVector2tIdES2_ERS3_PS3_EmIEl.exit.i17 ]
+  %.sink154 = phi ptr [ %storemerge.i.i.i78, %_ZNSt15_Deque_iteratorISt4pairI10aiVector2tIdES2_ERS3_PS3_EmIEl.exit.i77 ], [ %79, %._crit_edge ], [ %193, %190 ], [ %storemerge.i.i.i18, %_ZNSt15_Deque_iteratorISt4pairI10aiVector2tIdES2_ERS3_PS3_EmIEl.exit.i17 ]
+  %.sink = phi ptr [ %249, %_ZNSt15_Deque_iteratorISt4pairI10aiVector2tIdES2_ERS3_PS3_EmIEl.exit.i77 ], [ %78, %._crit_edge ], [ %195, %190 ], [ %132, %_ZNSt15_Deque_iteratorISt4pairI10aiVector2tIdES2_ERS3_PS3_EmIEl.exit.i17 ]
+  %.sroa.9.2.sink = phi ptr [ %.sroa.9.1, %_ZNSt15_Deque_iteratorISt4pairI10aiVector2tIdES2_ERS3_PS3_EmIEl.exit.i77 ], [ %77, %._crit_edge ], [ %197, %190 ], [ %.sroa.999.1, %_ZNSt15_Deque_iteratorISt4pairI10aiVector2tIdES2_ERS3_PS3_EmIEl.exit.i17 ]
+  %.sroa.12.2.sink = phi ptr [ %.sroa.12.1, %_ZNSt15_Deque_iteratorISt4pairI10aiVector2tIdES2_ERS3_PS3_EmIEl.exit.i77 ], [ %76, %._crit_edge ], [ %199, %190 ], [ %.sroa.12100.1, %_ZNSt15_Deque_iteratorISt4pairI10aiVector2tIdES2_ERS3_PS3_EmIEl.exit.i17 ]
   store ptr %.sink154, ptr %0, align 8
   %252 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %252, align 8
@@ -25088,10 +25088,10 @@ _ZNSt15_Deque_iteratorISt4pairI10aiVector2tIdES2_ERS3_PS3_EpLEl.exit.i55: ; pred
   br i1 %200, label %.lr.ph.i49, label %_ZSt14__copy_move_a1ILb1EPSt4pairI10aiVector2tIdES2_ES3_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS9_PS9_EE6__typeES7_S7_SC_.exit24, !llvm.loop !601
 
 _ZSt14__copy_move_a1ILb1EPSt4pairI10aiVector2tIdES2_ES3_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS9_PS9_EE6__typeES7_S7_SC_.exit24: ; preds = %_ZNSt15_Deque_iteratorISt4pairI10aiVector2tIdES2_ERS3_PS3_EpLEl.exit.i15, %_ZNSt15_Deque_iteratorISt4pairI10aiVector2tIdES2_ERS3_PS3_EpLEl.exit.i55, %153, %._crit_edge
-  %.sink107 = phi ptr [ %67, %._crit_edge ], [ %155, %153 ], [ %storemerge.i.i56, %_ZNSt15_Deque_iteratorISt4pairI10aiVector2tIdES2_ERS3_PS3_EpLEl.exit.i55 ], [ %storemerge.i.i16, %_ZNSt15_Deque_iteratorISt4pairI10aiVector2tIdES2_ERS3_PS3_EpLEl.exit.i15 ]
-  %.sink = phi ptr [ %66, %._crit_edge ], [ %157, %153 ], [ %.sroa.4.1, %_ZNSt15_Deque_iteratorISt4pairI10aiVector2tIdES2_ERS3_PS3_EpLEl.exit.i55 ], [ %.sroa.468.1, %_ZNSt15_Deque_iteratorISt4pairI10aiVector2tIdES2_ERS3_PS3_EpLEl.exit.i15 ]
-  %.sroa.8.2.sink = phi ptr [ %65, %._crit_edge ], [ %159, %153 ], [ %.sroa.8.1, %_ZNSt15_Deque_iteratorISt4pairI10aiVector2tIdES2_ERS3_PS3_EpLEl.exit.i55 ], [ %.sroa.869.1, %_ZNSt15_Deque_iteratorISt4pairI10aiVector2tIdES2_ERS3_PS3_EpLEl.exit.i15 ]
-  %.sroa.12.2.sink = phi ptr [ %64, %._crit_edge ], [ %161, %153 ], [ %.sroa.12.1, %_ZNSt15_Deque_iteratorISt4pairI10aiVector2tIdES2_ERS3_PS3_EpLEl.exit.i55 ], [ %.sroa.1271.1, %_ZNSt15_Deque_iteratorISt4pairI10aiVector2tIdES2_ERS3_PS3_EpLEl.exit.i15 ]
+  %.sink107 = phi ptr [ %storemerge.i.i56, %_ZNSt15_Deque_iteratorISt4pairI10aiVector2tIdES2_ERS3_PS3_EpLEl.exit.i55 ], [ %67, %._crit_edge ], [ %155, %153 ], [ %storemerge.i.i16, %_ZNSt15_Deque_iteratorISt4pairI10aiVector2tIdES2_ERS3_PS3_EpLEl.exit.i15 ]
+  %.sink = phi ptr [ %.sroa.4.1, %_ZNSt15_Deque_iteratorISt4pairI10aiVector2tIdES2_ERS3_PS3_EpLEl.exit.i55 ], [ %66, %._crit_edge ], [ %157, %153 ], [ %.sroa.468.1, %_ZNSt15_Deque_iteratorISt4pairI10aiVector2tIdES2_ERS3_PS3_EpLEl.exit.i15 ]
+  %.sroa.8.2.sink = phi ptr [ %.sroa.8.1, %_ZNSt15_Deque_iteratorISt4pairI10aiVector2tIdES2_ERS3_PS3_EpLEl.exit.i55 ], [ %65, %._crit_edge ], [ %159, %153 ], [ %.sroa.869.1, %_ZNSt15_Deque_iteratorISt4pairI10aiVector2tIdES2_ERS3_PS3_EpLEl.exit.i15 ]
+  %.sroa.12.2.sink = phi ptr [ %.sroa.12.1, %_ZNSt15_Deque_iteratorISt4pairI10aiVector2tIdES2_ERS3_PS3_EpLEl.exit.i55 ], [ %64, %._crit_edge ], [ %161, %153 ], [ %.sroa.1271.1, %_ZNSt15_Deque_iteratorISt4pairI10aiVector2tIdES2_ERS3_PS3_EpLEl.exit.i15 ]
   store ptr %.sink107, ptr %0, align 8
   %201 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %201, align 8

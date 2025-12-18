@@ -2941,8 +2941,8 @@ Vec_IntFree.exit:                                 ; preds = %Vec_BitFree.exit, %
   br i1 %exitcond103.not, label %Acec_TreeFilterTrees2.exit, label %.lr.ph.i81, !llvm.loop !52
 
 Acec_TreeFilterTrees2.exit:                       ; preds = %.lr.ph.i, %.lr.ph.i81, %.Acec_TreeFilterTrees2.exit_crit_edge, %128, %123
-  %.val77 = phi ptr [ %.val77.pre, %.Acec_TreeFilterTrees2.exit_crit_edge ], [ %.val77.pre105, %128 ], [ %.val77.pre106, %123 ], [ %.val77.pre105, %.lr.ph.i81 ], [ %.val77.pre106, %.lr.ph.i ]
-  %.val76 = phi i32 [ %.val76.pre, %.Acec_TreeFilterTrees2.exit_crit_edge ], [ %.val76.pre, %128 ], [ %.val8.i79, %123 ], [ %.val76.pre, %.lr.ph.i81 ], [ %.val8.i79, %.lr.ph.i ]
+  %.val77 = phi ptr [ %.val77.pre105, %.lr.ph.i81 ], [ %.val77.pre, %.Acec_TreeFilterTrees2.exit_crit_edge ], [ %.val77.pre105, %128 ], [ %.val77.pre106, %123 ], [ %.val77.pre106, %.lr.ph.i ]
+  %.val76 = phi i32 [ %.val76.pre, %.lr.ph.i81 ], [ %.val76.pre, %.Acec_TreeFilterTrees2.exit_crit_edge ], [ %.val76.pre, %128 ], [ %.val8.i79, %123 ], [ %.val8.i79, %.lr.ph.i ]
   %132 = sext i32 %.val76 to i64
   tail call void @qsort(ptr noundef %.val77, i64 noundef %132, i64 noundef 16, ptr noundef nonnull @Vec_WecSortCompare2) #24
   ret ptr %6

@@ -1102,8 +1102,8 @@ _ZN8smallvec10infallible17hb1f645598f494231E.exit:
   ret void
 
 .loopexit66:                                      ; preds = %.preheader.i.i.i, %15, %.critedge.i.i.i, %9
-  %.sroa.5.1 = phi ptr [ null, %9 ], [ null, %.critedge.i.i.i ], [ %16, %15 ], [ %.sroa.08.0.i.i.i, %.preheader.i.i.i ]
-  %.sroa.8.1 = phi ptr [ null, %9 ], [ %.sroa.8.072, %15 ], [ %.sroa.8.072, %.critedge.i.i.i ], [ %.sroa.8.072, %.preheader.i.i.i ]
+  %.sroa.5.1 = phi ptr [ null, %.critedge.i.i.i ], [ null, %9 ], [ %16, %15 ], [ %.sroa.08.0.i.i.i, %.preheader.i.i.i ]
+  %.sroa.8.1 = phi ptr [ %.sroa.8.072, %15 ], [ null, %9 ], [ %.sroa.8.072, %.critedge.i.i.i ], [ %.sroa.8.072, %.preheader.i.i.i ]
   %38 = getelementptr inbounds i8, ptr %.sroa.5.071, i64 -8
   %.val.i11 = load i64, ptr %38, align 8, !noalias !136, !noundef !8
   %39 = getelementptr inbounds nuw i64, ptr %.sink10.i, i64 %storemerge73
@@ -3100,7 +3100,7 @@ _ZN8smallvec10deallocate17hcdc7befb03240f67E.exit.i: ; preds = %39
   tail call void @_ZN5alloc5alloc18handle_alloc_error17haa66aaa8cfcf3614E(i64 noundef range(i64 0, -9223372036854775806) 8, i64 noundef %19) #22
   unreachable
 
-44:                                               ; preds = %21, %18, %23, %26
+44:                                               ; preds = %26, %23, %21, %18
   tail call void @_ZN4core9panicking5panic17h13ee8adf815f0d87E(ptr noalias noundef nonnull readonly align 1 @anon.cb9a47d224065187d655132fdc3d24e1.35, i64 noundef 17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.cb9a47d224065187d655132fdc3d24e1.36) #22
   unreachable
 
@@ -3270,7 +3270,7 @@ _ZN8smallvec10deallocate17h1d1d153aef0f64fcE.exit.i: ; preds = %39
   tail call void @_ZN5alloc5alloc18handle_alloc_error17haa66aaa8cfcf3614E(i64 noundef range(i64 0, -9223372036854775806) 8, i64 noundef %19) #22
   unreachable
 
-44:                                               ; preds = %21, %18, %23, %26
+44:                                               ; preds = %26, %23, %21, %18
   tail call void @_ZN4core9panicking5panic17h13ee8adf815f0d87E(ptr noalias noundef nonnull readonly align 1 @anon.cb9a47d224065187d655132fdc3d24e1.35, i64 noundef 17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.cb9a47d224065187d655132fdc3d24e1.36) #22
   unreachable
 
@@ -6376,8 +6376,8 @@ _ZN6quiche6ranges14range_overlaps17h5d249c85c5cab58cE.exit.thread: ; preds = %15
   br label %32
 
 _ZN6quiche6ranges13BTreeRangeSet7next_to17h26f781beb1e282ccE.exit: ; preds = %_ZN6quiche6ranges14range_overlaps17h5d249c85c5cab58cE.exit28.thread, %53, %24
-  %.sroa.05.2.ph.lcssa56 = phi i64 [ %.sroa.05.0, %24 ], [ %.sroa.05.2.ph63, %53 ], [ %.sroa.0.0.sroa.speculated.i30, %_ZN6quiche6ranges14range_overlaps17h5d249c85c5cab58cE.exit28.thread ]
-  %.sroa.0.2.ph.lcssa54 = phi i64 [ %.sroa.0.0, %24 ], [ %.sroa.0.2.ph64, %53 ], [ %.sroa.0.0.sroa.speculated.i29, %_ZN6quiche6ranges14range_overlaps17h5d249c85c5cab58cE.exit28.thread ]
+  %.sroa.05.2.ph.lcssa56 = phi i64 [ %.sroa.05.2.ph63, %53 ], [ %.sroa.05.0, %24 ], [ %.sroa.0.0.sroa.speculated.i30, %_ZN6quiche6ranges14range_overlaps17h5d249c85c5cab58cE.exit28.thread ]
+  %.sroa.0.2.ph.lcssa54 = phi i64 [ %.sroa.0.2.ph64, %53 ], [ %.sroa.0.0, %24 ], [ %.sroa.0.0.sroa.speculated.i29, %_ZN6quiche6ranges14range_overlaps17h5d249c85c5cab58cE.exit28.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !754
   br label %42
 

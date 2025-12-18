@@ -5899,7 +5899,7 @@ _ZNK11ast_manager11is_uninterpEPK4sort.exit.thread: ; preds = %_ZNK11ast_manager
   br i1 %.not27.old.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i, label %.lr.ph38.i.i.backedge
 
 .lr.ph38.i.i.backedge:                            ; preds = %48, %45
-  %.137.i.i.be = phi ptr [ %.old.i.i, %48 ], [ %47, %45 ]
+  %.137.i.i.be = phi ptr [ %47, %45 ], [ %.old.i.i, %48 ]
   br label %.lr.ph38.i.i, !llvm.loop !315
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i: ; preds = %34, %48, %45, %.preheader.i.i
@@ -7726,7 +7726,7 @@ _ZNK4decl13get_family_idEv.exit.thread:           ; preds = %._crit_edge, %_ZNK4
   br i1 %.not27.old.i.i, label %.loopexit, label %.lr.ph38.i.i.backedge
 
 .lr.ph38.i.i.backedge:                            ; preds = %62, %59
-  %.137.i.i.be = phi ptr [ %.old.i.i, %62 ], [ %61, %59 ]
+  %.137.i.i.be = phi ptr [ %61, %59 ], [ %.old.i.i, %62 ]
   br label %.lr.ph38.i.i, !llvm.loop !351
 
 .loopexit:                                        ; preds = %48, %62, %59, %.preheader.i.i

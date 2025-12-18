@@ -5407,7 +5407,7 @@ define dso_local ptr @__filemap_get_folio(ptr noundef %0, i64 noundef %1, i32 no
   br label %.thread8
 
 .thread8:                                         ; preds = %.loopexit, %162, %145, %142, %80, %77
-  %163 = phi ptr [ %.split23, %77 ], [ %.split23, %80 ], [ %111, %142 ], [ %111, %162 ], [ %111, %145 ], [ null, %.loopexit ]
+  %163 = phi ptr [ %.split23, %77 ], [ %.split23, %80 ], [ %111, %145 ], [ %111, %142 ], [ %111, %162 ], [ null, %.loopexit ]
   %164 = icmp eq ptr %163, null
   %165 = select i1 %164, ptr inttoptr (i64 -2 to ptr), ptr %163
   br label %166

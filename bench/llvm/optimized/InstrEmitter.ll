@@ -3768,7 +3768,7 @@ _ZN4llvm8DebugLocC2ERKS0_.exit:                   ; preds = %3, %20
   br i1 %.not.i.i.i.i.i.i, label %_ZNK4llvm19MachineRegisterInfo9hasOneDefENS_8RegisterE.exit.thread, label %.lr.ph.i.i.i.preheader.i.i
 
 .lr.ph.i.i.i.preheader.i.i:                       ; preds = %157, %151
-  %.sroa.0.0.i.i.i = phi ptr [ %.0.i.i.i.i, %151 ], [ %156, %157 ]
+  %.sroa.0.0.i.i.i = phi ptr [ %156, %157 ], [ %.0.i.i.i.i, %151 ]
   %160 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i, i64 24
   %161 = load ptr, ptr %160, align 8, !tbaa !98
   %.not.i.i.i.i.i.i.i = icmp eq ptr %161, null
@@ -3933,7 +3933,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_7SDValueENS_8RegisterELj16ENS_12Den
   br i1 %.not.i.i.i.i.i.i107, label %_ZNK4llvm19MachineRegisterInfo9hasOneDefENS_8RegisterE.exit108.thread, label %.lr.ph.i.i.i.preheader.i.i102
 
 .lr.ph.i.i.i.preheader.i.i102:                    ; preds = %247, %241
-  %.sroa.0.0.i.i.i103 = phi ptr [ %.0.i.i.i.i99, %241 ], [ %246, %247 ]
+  %.sroa.0.0.i.i.i103 = phi ptr [ %246, %247 ], [ %.0.i.i.i.i99, %241 ]
   %250 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i103, i64 24
   %251 = load ptr, ptr %250, align 8, !tbaa !98
   %.not.i.i.i.i.i.i.i104 = icmp eq ptr %251, null
@@ -7204,7 +7204,7 @@ default.unreachable:                              ; preds = %_ZN4llvm23SmallVect
   unreachable
 
 _ZNK4llvm9InlineAsm4Flag21isUseOperandTiedToDefERj.exit: ; preds = %_ZN4llvm8dyn_castINS_19GlobalAddressSDNodeENS_7SDValueEEEDcRT0_.exit.thread, %.lr.ph292, %_ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit, %.lr.ph302, %.preheader279, %368, %336, %.preheader, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit, %._crit_edge
-  %.1 = phi i32 [ %321, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit ], [ %.4.lcssa, %._crit_edge ], [ %.4.lcssa, %368 ], [ %321, %.preheader ], [ %321, %336 ], [ %321, %.preheader279 ], [ %.4.lcssa, %.lr.ph292 ], [ %335, %.lr.ph302 ], [ %358, %_ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit ], [ %414, %_ZN4llvm8dyn_castINS_19GlobalAddressSDNodeENS_7SDValueEEEDcRT0_.exit.thread ]
+  %.1 = phi i32 [ %321, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit ], [ %.4.lcssa, %368 ], [ %358, %_ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit ], [ %.4.lcssa, %.lr.ph292 ], [ %.4.lcssa, %._crit_edge ], [ %321, %.preheader ], [ %321, %336 ], [ %335, %.lr.ph302 ], [ %321, %.preheader279 ], [ %414, %_ZN4llvm8dyn_castINS_19GlobalAddressSDNodeENS_7SDValueEEEDcRT0_.exit.thread ]
   %.not = icmp eq i32 %.1, %spec.select
   br i1 %.not, label %._crit_edge307, label %288, !llvm.loop !647
 
@@ -8208,7 +8208,7 @@ _ZSt13move_backwardIPN4llvm8RegisterES2_ET0_T_S4_S3_.exit: ; preds = %_ZN4llvm15
   br i1 %.not44, label %._crit_edge, label %.lr.ph, !llvm.loop !670
 
 _ZSt4copyIPKtPN4llvm8RegisterEET0_T_S6_S5_.exit:  ; preds = %.lr.ph.i.i.i.i.i52, %.lr.ph.i.i.i.i, %._crit_edge, %_ZSt13move_backwardIPN4llvm8RegisterES2_ET0_T_S4_S3_.exit, %_ZN4llvm15SmallVectorImplINS_8RegisterEE6appendIPKtvEEvT_S6_.exit
-  %.041 = phi ptr [ %34, %_ZN4llvm15SmallVectorImplINS_8RegisterEE6appendIPKtvEEvT_S6_.exit ], [ %40, %_ZSt13move_backwardIPN4llvm8RegisterES2_ET0_T_S4_S3_.exit ], [ %40, %._crit_edge ], [ %40, %.lr.ph.i.i.i.i ], [ %40, %.lr.ph.i.i.i.i.i52 ]
+  %.041 = phi ptr [ %34, %_ZN4llvm15SmallVectorImplINS_8RegisterEE6appendIPKtvEEvT_S6_.exit ], [ %40, %.lr.ph.i.i.i.i ], [ %40, %_ZSt13move_backwardIPN4llvm8RegisterES2_ET0_T_S4_S3_.exit ], [ %40, %._crit_edge ], [ %40, %.lr.ph.i.i.i.i.i52 ]
   ret ptr %.041
 }
 

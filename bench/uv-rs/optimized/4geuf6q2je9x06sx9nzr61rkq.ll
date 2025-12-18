@@ -270,7 +270,7 @@ select.unfold.us.i.i:                             ; preds = %.sink.split.i.us.i.
   br label %29
 
 .loopexit:                                        ; preds = %.sink.split.i.us.i.i, %.sink.split.i7.i.i, %.sink.split.i.i.i
-  %.sroa.0.0.i.i.ph = phi ptr [ %.promoted.i.i, %.sink.split.i.i.i ], [ %23, %.sink.split.i7.i.i ], [ %spec.select.i15.us.i.i, %.sink.split.i.us.i.i ]
+  %.sroa.0.0.i.i.ph = phi ptr [ %23, %.sink.split.i7.i.i ], [ %.promoted.i.i, %.sink.split.i.i.i ], [ %spec.select.i15.us.i.i, %.sink.split.i.us.i.i ]
   tail call void @"_ZN70_$LT$uv_pep508..Requirement$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hef8f7c1e75fc0cbbE.llvm.4228390610739757595"(ptr noalias noundef nonnull sret([168 x i8]) align 8 captures(none) dereferenceable(168) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(168) %.sroa.0.0.i.i.ph)
   br label %29
 
@@ -453,7 +453,7 @@ select.unfold.us.i:                               ; preds = %.sink.split.i.us.i,
   br label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1d91ee101ee40aaeE.llvm.4228390610739757595.exit"
 
 "_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1d91ee101ee40aaeE.llvm.4228390610739757595.exit": ; preds = %.sink.split.i.us.i, %.sink.split.i.i, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17hf85e68e63d3b9a6aE.exit.thread.i", %.sink.split.i7.i
-  %.sroa.0.0.i = phi ptr [ null, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17hf85e68e63d3b9a6aE.exit.thread.i" ], [ %spec.select9.i9.i, %.sink.split.i7.i ], [ %.promoted.i, %.sink.split.i.i ], [ %spec.select.i15.us.i, %.sink.split.i.us.i ]
+  %.sroa.0.0.i = phi ptr [ %spec.select9.i9.i, %.sink.split.i7.i ], [ null, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17hf85e68e63d3b9a6aE.exit.thread.i" ], [ %.promoted.i, %.sink.split.i.i ], [ %spec.select.i15.us.i, %.sink.split.i.us.i ]
   ret ptr %.sroa.0.0.i
 }
 
@@ -1917,7 +1917,7 @@ select.unfold.us:                                 ; preds = %.sink.split.i.us, %
   br i1 %19, label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17hf85e68e63d3b9a6aE.exit.thread", label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h221fb7d78a8185d5E.exit
 
 _ZN4core4iter8adapters7flatten17and_then_or_clear17h221fb7d78a8185d5E.exit: ; preds = %.sink.split.i.us, %.sink.split.i, %.sink.split.i7, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17hf85e68e63d3b9a6aE.exit.thread"
-  %.sroa.0.0 = phi ptr [ null, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17hf85e68e63d3b9a6aE.exit.thread" ], [ %spec.select9.i9, %.sink.split.i7 ], [ %.promoted, %.sink.split.i ], [ %spec.select.i15.us, %.sink.split.i.us ]
+  %.sroa.0.0 = phi ptr [ %spec.select9.i9, %.sink.split.i7 ], [ null, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17hf85e68e63d3b9a6aE.exit.thread" ], [ %.promoted, %.sink.split.i ], [ %spec.select.i15.us, %.sink.split.i.us ]
   ret ptr %.sroa.0.0
 
 "_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17hf85e68e63d3b9a6aE.exit.thread": ; preds = %select.unfold.us, %.sink.split.i, %.split
@@ -14689,7 +14689,7 @@ thread-pre-split.i.i.i:                           ; preds = %.loopexit.i.i.i.loo
   br label %thread-pre-split.i.i.i
 
 .loopexit.split-lp.i.i.i:                         ; preds = %337, %333, %314, %286, %267, %248, %.invoke.i.i.i
-  %.sroa.075.1.ph.i.i.i = phi i8 [ %.sroa.075.6.i.i.i, %333 ], [ 1, %248 ], [ 1, %314 ], [ %.sroa.075.6.i.i.i, %337 ], [ 1, %.invoke.i.i.i ], [ 1, %286 ], [ 1, %267 ]
+  %.sroa.075.1.ph.i.i.i = phi i8 [ %.sroa.075.6.i.i.i, %337 ], [ 1, %.invoke.i.i.i ], [ 1, %314 ], [ 1, %286 ], [ 1, %248 ], [ 1, %267 ], [ %.sroa.075.6.i.i.i, %333 ]
   %lpad.loopexit.split-lp.i.i.i = landingpad { ptr, i32 }
           cleanup
   br label %thread-pre-split.i.i.i
@@ -16024,7 +16024,7 @@ thread-pre-split.i.i.i75:                         ; preds = %.loopexit.i.i.i73.l
   br label %thread-pre-split.i.i.i75
 
 .loopexit.split-lp.i.i.i169:                      ; preds = %632, %628, %609, %581, %562, %543, %.invoke.i.i.i168
-  %.sroa.075.1.ph.i.i.i170 = phi i8 [ %.sroa.075.6.i.i.i336, %628 ], [ 1, %543 ], [ 1, %609 ], [ %.sroa.075.6.i.i.i336, %632 ], [ 1, %.invoke.i.i.i168 ], [ 1, %581 ], [ 1, %562 ]
+  %.sroa.075.1.ph.i.i.i170 = phi i8 [ %.sroa.075.6.i.i.i336, %632 ], [ 1, %.invoke.i.i.i168 ], [ 1, %609 ], [ 1, %581 ], [ 1, %543 ], [ 1, %562 ], [ %.sroa.075.6.i.i.i336, %628 ]
   %lpad.loopexit.split-lp.i.i.i171 = landingpad { ptr, i32 }
           cleanup
   br label %thread-pre-split.i.i.i75
@@ -19645,7 +19645,7 @@ default.unreachable:                              ; preds = %"_ZN4core3ptr107dro
   br label %220
 
 .loopexit.split-lp.i.i.i:                         ; preds = %296, %292, %272, %253, %.invoke.i.i.i, %234
-  %.sroa.046.1.ph.i.i.i = phi i8 [ %.sroa.046.6.i.i.i, %292 ], [ %.sroa.046.6.i.i.i, %296 ], [ 1, %.invoke.i.i.i ], [ 1, %253 ], [ 1, %234 ], [ 1, %272 ]
+  %.sroa.046.1.ph.i.i.i = phi i8 [ 1, %.invoke.i.i.i ], [ %.sroa.046.6.i.i.i, %296 ], [ 1, %253 ], [ %.sroa.046.6.i.i.i, %292 ], [ 1, %234 ], [ 1, %272 ]
   %lpad.loopexit.split-lp.i.i.i = landingpad { ptr, i32 }
           cleanup
   br label %220

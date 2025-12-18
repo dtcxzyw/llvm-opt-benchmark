@@ -6968,7 +6968,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo8Matching9Median1x9IhEclERKNS_5Ra
   ret void
 
 ._crit_edge58:                                    ; preds = %73, %.lr.ph57.split.us, %.preheader50
-  %30 = phi i32 [ %15, %.preheader50 ], [ %28, %.lr.ph57.split.us ], [ %75, %73 ]
+  %30 = phi i32 [ %28, %.lr.ph57.split.us ], [ %15, %.preheader50 ], [ %75, %73 ]
   %31 = add nsw i32 %.059, 1
   %32 = load i32, ptr %5, align 4, !tbaa !116
   %33 = icmp slt i32 %31, %32
@@ -7127,7 +7127,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo8Matching9Median9x1IhEclERKNS_5Ra
   ret void
 
 ._crit_edge54:                                    ; preds = %74, %.lr.ph53.split.us, %.preheader46
-  %32 = phi i32 [ %16, %.preheader46 ], [ %29, %.lr.ph53.split.us ], [ %76, %74 ]
+  %32 = phi i32 [ %29, %.lr.ph53.split.us ], [ %16, %.preheader46 ], [ %76, %74 ]
   %indvars.iv.next78 = add nsw i64 %indvars.iv77, 1
   %33 = load i32, ptr %5, align 4, !tbaa !116
   %34 = sext i32 %33 to i64

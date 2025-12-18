@@ -706,7 +706,7 @@ define i32 @OSSL_STORE_find(ptr noundef readonly captures(none) %0, ptr noundef 
     i32 1, label %22
     i32 2, label %31
     i32 3, label %46
-    i32 4, label %57
+    i32 4, label %51
   ]
 
 22:                                               ; preds = %20
@@ -755,28 +755,28 @@ define i32 @OSSL_STORE_find(ptr noundef readonly captures(none) %0, ptr noundef 
   %49 = tail call ptr @EVP_MD_get0_name(ptr noundef %48) #9
   %50 = tail call i32 @OSSL_PARAM_BLD_push_utf8_string(ptr noundef nonnull %18, ptr noundef nonnull @.str.8, ptr noundef %49, i64 noundef 0) #9
   %.not48 = icmp eq i32 %50, 0
-  br i1 %.not48, label %.thread, label %51
+  br i1 %.not48, label %.thread, label %57
 
-51:                                               ; preds = %46
+51:                                               ; preds = %20
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %53 = load ptr, ptr %52, align 8, !tbaa !55
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %55 = load i64, ptr %54, align 8, !tbaa !56
-  %56 = tail call i32 @OSSL_PARAM_BLD_push_octet_string(ptr noundef nonnull %18, ptr noundef nonnull @.str.9, ptr noundef %53, i64 noundef %55) #9
-  %.not49 = icmp eq i32 %56, 0
-  br i1 %.not49, label %.thread, label %63
+  %56 = tail call i32 @OSSL_PARAM_BLD_push_utf8_string(ptr noundef nonnull %18, ptr noundef nonnull @.str.10, ptr noundef %53, i64 noundef %55) #9
+  %.not47 = icmp eq i32 %56, 0
+  br i1 %.not47, label %.thread, label %63
 
-57:                                               ; preds = %20
+57:                                               ; preds = %46
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %59 = load ptr, ptr %58, align 8, !tbaa !55
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %61 = load i64, ptr %60, align 8, !tbaa !56
-  %62 = tail call i32 @OSSL_PARAM_BLD_push_utf8_string(ptr noundef nonnull %18, ptr noundef nonnull @.str.10, ptr noundef %59, i64 noundef %61) #9
-  %.not47 = icmp eq i32 %62, 0
-  br i1 %.not47, label %.thread, label %63
+  %62 = tail call i32 @OSSL_PARAM_BLD_push_octet_string(ptr noundef nonnull %18, ptr noundef nonnull @.str.9, ptr noundef %59, i64 noundef %61) #9
+  %.not49 = icmp eq i32 %62, 0
+  br i1 %.not49, label %.thread, label %63
 
-63:                                               ; preds = %27, %44, %51, %57
-  %.061 = phi ptr [ null, %51 ], [ null, %57 ], [ %39, %44 ], [ null, %27 ]
+63:                                               ; preds = %51, %27, %44, %57
+  %.061 = phi ptr [ %39, %44 ], [ null, %57 ], [ null, %27 ], [ null, %51 ]
   %64 = call ptr @OSSL_PARAM_BLD_to_param(ptr noundef nonnull %18) #9
   %65 = load ptr, ptr %11, align 8, !tbaa !33
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 160
@@ -787,9 +787,9 @@ define i32 @OSSL_STORE_find(ptr noundef readonly captures(none) %0, ptr noundef 
   call void @OSSL_PARAM_free(ptr noundef %64) #9
   br label %.thread
 
-.thread:                                          ; preds = %31, %36, %40, %46, %22, %20, %27, %44, %51, %63, %57
-  %.060 = phi ptr [ %.061, %63 ], [ null, %57 ], [ null, %27 ], [ null, %51 ], [ %39, %44 ], [ null, %31 ], [ null, %36 ], [ %39, %40 ], [ null, %46 ], [ null, %22 ], [ null, %20 ]
-  %.2 = phi i32 [ %70, %63 ], [ 0, %57 ], [ 0, %27 ], [ 0, %51 ], [ 0, %44 ], [ 0, %31 ], [ 0, %36 ], [ 0, %40 ], [ 0, %46 ], [ 0, %22 ], [ 0, %20 ]
+.thread:                                          ; preds = %31, %36, %40, %46, %22, %20, %51, %27, %44, %63, %57
+  %.060 = phi ptr [ %.061, %63 ], [ null, %57 ], [ null, %51 ], [ %39, %44 ], [ null, %27 ], [ null, %31 ], [ null, %36 ], [ %39, %40 ], [ null, %46 ], [ null, %22 ], [ null, %20 ]
+  %.2 = phi i32 [ %70, %63 ], [ 0, %57 ], [ 0, %51 ], [ 0, %44 ], [ 0, %27 ], [ 0, %31 ], [ 0, %36 ], [ 0, %40 ], [ 0, %46 ], [ 0, %22 ], [ 0, %20 ]
   call void @OSSL_PARAM_BLD_free(ptr noundef nonnull %18) #9
   %71 = load ptr, ptr %3, align 8, !tbaa !21
   call void @CRYPTO_free(ptr noundef %71, ptr noundef nonnull @.str.2, i32 noundef 403) #9

@@ -24562,7 +24562,7 @@ _ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImpl10Eval
   ret void
 
 .body11:                                          ; preds = %.body, %38, %36, %30
-  %.pn7 = phi { ptr, i32 } [ %31, %30 ], [ %39, %38 ], [ %37, %36 ], [ %eh.lpad-body1730, %.body ]
+  %.pn7 = phi { ptr, i32 } [ %31, %30 ], [ %37, %36 ], [ %39, %38 ], [ %eh.lpad-body1730, %.body ]
   call void @_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImpl10EvalResultEbED2Ev(ptr noundef nonnull align 8 dereferenceable(41) %4) #23
   resume { ptr, i32 } %.pn7
 }
@@ -115504,7 +115504,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE6resiz
   br i1 %80, label %.lr.ph.i.i.i.i.i.i.i.i50, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE6assignIPKiEENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES6_S6_ENK7_CopierclEPlSA_.exit, !llvm.loop !6489
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE6assignIPKiEENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES6_S6_ENK7_CopierclEPlSA_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i50, %.lr.ph.i.i.i.i.i.i.i.i45, %.lr.ph.i.i.i.i.i.i.i.i, %33, %63, %41, %13, %59
-  %.0 = phi ptr [ %62, %59 ], [ %14, %13 ], [ %.1, %41 ], [ %62, %63 ], [ %12, %33 ], [ %.1, %.lr.ph.i.i.i.i.i.i.i.i45 ], [ %14, %.lr.ph.i.i.i.i.i.i.i.i ], [ %62, %.lr.ph.i.i.i.i.i.i.i.i50 ]
+  %.0 = phi ptr [ %12, %33 ], [ %.1, %.lr.ph.i.i.i.i.i.i.i.i45 ], [ %14, %.lr.ph.i.i.i.i.i.i.i.i ], [ %62, %59 ], [ %14, %13 ], [ %.1, %41 ], [ %62, %63 ], [ %62, %.lr.ph.i.i.i.i.i.i.i.i50 ]
   %81 = load ptr, ptr %11, align 8
   %.not44 = icmp eq ptr %.0, %81
   br i1 %.not44, label %83, label %82

@@ -312,10 +312,10 @@ define void @_Z16PR_NormalizeTimeP14PRExplodedTimePF16PRTimeParametersPKS_E(ptr 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit175, %.loopexit.loopexit, %100
-  %.pre-phi132 = phi i64 [ %106, %100 ], [ %92, %.loopexit.loopexit ], [ %127, %.loopexit.loopexit175 ]
-  %.pre-phi = phi i64 [ %108, %100 ], [ %94, %.loopexit.loopexit ], [ %129, %.loopexit.loopexit175 ]
-  %132 = phi i16 [ %.promoted124, %100 ], [ %85, %.loopexit.loopexit ], [ %120, %.loopexit.loopexit175 ]
-  %133 = phi i32 [ %74, %100 ], [ %98, %.loopexit.loopexit ], [ %114, %.loopexit.loopexit175 ]
+  %.pre-phi132 = phi i64 [ %92, %.loopexit.loopexit ], [ %106, %100 ], [ %127, %.loopexit.loopexit175 ]
+  %.pre-phi = phi i64 [ %94, %.loopexit.loopexit ], [ %108, %100 ], [ %129, %.loopexit.loopexit175 ]
+  %132 = phi i16 [ %85, %.loopexit.loopexit ], [ %.promoted124, %100 ], [ %120, %.loopexit.loopexit175 ]
+  %133 = phi i32 [ %98, %.loopexit.loopexit ], [ %74, %100 ], [ %114, %.loopexit.loopexit175 ]
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %135 = getelementptr inbounds nuw [13 x i32], ptr @_ZL14lastDayOfMonth, i64 %.pre-phi132
   %136 = getelementptr inbounds i32, ptr %135, i64 %.pre-phi
@@ -2346,7 +2346,7 @@ define noundef range(i32 -1, 1) i32 @_Z18PR_ParseTimeStringPKciPl(ptr noundef %0
   br label %.loopexit861
 
 .loopexit861:                                     ; preds = %.lr.ph912, %715, %._crit_edge.thread, %3, %720
-  %.0 = phi i32 [ -1, %3 ], [ 0, %720 ], [ 0, %715 ], [ -1, %._crit_edge.thread ], [ -1, %.lr.ph912 ]
+  %.0 = phi i32 [ -1, %3 ], [ -1, %._crit_edge.thread ], [ 0, %720 ], [ 0, %715 ], [ -1, %.lr.ph912 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }

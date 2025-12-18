@@ -3213,7 +3213,7 @@ define internal void @acpi_video_device_notify(ptr readnone captures(none) %0, i
   br label %43
 
 43:                                               ; preds = %22, %25, %28, %31, %34, %37
-  %44 = phi i32 [ 243, %22 ], [ 225, %25 ], [ 224, %28 ], [ 244, %31 ], [ 245, %34 ], [ %38, %37 ]
+  %44 = phi i32 [ %38, %37 ], [ 243, %22 ], [ 225, %25 ], [ 224, %28 ], [ 244, %31 ], [ 245, %34 ]
   store i1 true, ptr @may_report_brightness_keys, align 1
   %45 = tail call i32 @acpi_notifier_call_chain(ptr noundef %7, i32 noundef %1, i32 noundef 0) #19
   %46 = load i32, ptr @report_key_events, align 4

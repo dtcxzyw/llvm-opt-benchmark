@@ -276,10 +276,10 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit104:   ; preds = %113, %118, %120
   br label %129
 
 129:                                              ; preds = %112, %90, %_ZNK6icu_7713UnicodeString9getBufferEv.exit104, %26
-  %.069 = phi ptr [ %2, %26 ], [ %.271, %90 ], [ %2, %112 ], [ %.0.i102, %_ZNK6icu_7713UnicodeString9getBufferEv.exit104 ]
-  %.065 = phi i32 [ %3, %26 ], [ %.267, %90 ], [ %3, %112 ], [ %128, %_ZNK6icu_7713UnicodeString9getBufferEv.exit104 ]
-  %.060 = phi i32 [ %1, %26 ], [ %.262, %90 ], [ %.464, %112 ], [ %.464, %_ZNK6icu_7713UnicodeString9getBufferEv.exit104 ]
-  %.049 = phi ptr [ %0, %26 ], [ %.251, %90 ], [ %.4, %112 ], [ %.4, %_ZNK6icu_7713UnicodeString9getBufferEv.exit104 ]
+  %.069 = phi ptr [ %2, %26 ], [ %.0.i102, %_ZNK6icu_7713UnicodeString9getBufferEv.exit104 ], [ %.271, %90 ], [ %2, %112 ]
+  %.065 = phi i32 [ %3, %26 ], [ %128, %_ZNK6icu_7713UnicodeString9getBufferEv.exit104 ], [ %.267, %90 ], [ %3, %112 ]
+  %.060 = phi i32 [ %1, %26 ], [ %.464, %_ZNK6icu_7713UnicodeString9getBufferEv.exit104 ], [ %.262, %90 ], [ %.464, %112 ]
+  %.049 = phi ptr [ %0, %26 ], [ %.4, %_ZNK6icu_7713UnicodeString9getBufferEv.exit104 ], [ %.251, %90 ], [ %.4, %112 ]
   %130 = load i32, ptr %5, align 4, !tbaa !3
   %131 = icmp sgt i32 %130, 0
   br i1 %131, label %.critedge, label %132

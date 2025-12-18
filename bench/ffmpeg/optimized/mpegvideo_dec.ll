@@ -896,7 +896,7 @@ av_video_enc_params_block.exit.us:                ; preds = %31
   unreachable
 
 .loopexit:                                        ; preds = %._crit_edge.us, %.preheader.lr.ph, %.preheader36, %13, %4
-  %.0 = phi i32 [ -12, %13 ], [ 0, %4 ], [ 0, %.preheader36 ], [ 0, %.preheader.lr.ph ], [ 0, %._crit_edge.us ]
+  %.0 = phi i32 [ -12, %13 ], [ 0, %4 ], [ 0, %.preheader.lr.ph ], [ 0, %.preheader36 ], [ 0, %._crit_edge.us ]
   ret i32 %.0
 }
 

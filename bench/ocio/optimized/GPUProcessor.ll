@@ -2137,8 +2137,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit37: ; preds = %_ZN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %._crit_edge.i.i.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIZNK19OpenColorIO_v2_5dev12GPUProcessor20extractGpuShaderInfoERSt10shared_ptrINSC_16GpuShaderCreatorEEE3$_0EEET_SK_SK_T0_.exit.i.i"
-  %192 = phi ptr [ %135, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIZNK19OpenColorIO_v2_5dev12GPUProcessor20extractGpuShaderInfoERSt10shared_ptrINSC_16GpuShaderCreatorEEE3$_0EEET_SK_SK_T0_.exit.i.i" ], [ %135, %._crit_edge.i.i.i.i ], [ %.pre67, %.loopexit.loopexit ]
-  %.sroa.013.0.i.i = phi ptr [ %.sroa.08.0.in.sroa.speculated.i.i.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIZNK19OpenColorIO_v2_5dev12GPUProcessor20extractGpuShaderInfoERSt10shared_ptrINSC_16GpuShaderCreatorEEE3$_0EEET_SK_SK_T0_.exit.i.i" ], [ %138, %._crit_edge.i.i.i.i ], [ %.sroa.013.2.i.i, %.loopexit.loopexit ]
+  %192 = phi ptr [ %135, %._crit_edge.i.i.i.i ], [ %135, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIZNK19OpenColorIO_v2_5dev12GPUProcessor20extractGpuShaderInfoERSt10shared_ptrINSC_16GpuShaderCreatorEEE3$_0EEET_SK_SK_T0_.exit.i.i" ], [ %.pre67, %.loopexit.loopexit ]
+  %.sroa.013.0.i.i = phi ptr [ %138, %._crit_edge.i.i.i.i ], [ %.sroa.08.0.in.sroa.speculated.i.i.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIZNK19OpenColorIO_v2_5dev12GPUProcessor20extractGpuShaderInfoERSt10shared_ptrINSC_16GpuShaderCreatorEEE3$_0EEET_SK_SK_T0_.exit.i.i" ], [ %.sroa.013.2.i.i, %.loopexit.loopexit ]
   %193 = ptrtoint ptr %.sroa.013.0.i.i to i64
   %194 = ptrtoint ptr %192 to i64
   %195 = sub i64 %193, %194

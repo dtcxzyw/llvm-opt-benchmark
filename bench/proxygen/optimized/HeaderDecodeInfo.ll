@@ -2035,8 +2035,8 @@ if.end4.us37.unreachabledefault:                  ; preds = %if.end4.us37
   unreachable
 
 for.end:                                          ; preds = %for.inc.us, %for.inc.us59, %for.inc.us.us
-  %escape.0.lcssa = phi i8 [ %escape.2.us60, %for.inc.us59 ], [ %escape.2.us.us, %for.inc.us.us ], [ %escape.2.us, %for.inc.us ]
-  %state.0.lcssa = phi i32 [ %state.1.us62, %for.inc.us59 ], [ %state.1.us.us, %for.inc.us.us ], [ %state.1.us, %for.inc.us ]
+  %escape.0.lcssa = phi i8 [ %escape.2.us.us, %for.inc.us.us ], [ %escape.2.us60, %for.inc.us59 ], [ %escape.2.us, %for.inc.us ]
+  %state.0.lcssa = phi i32 [ %state.1.us.us, %for.inc.us.us ], [ %state.1.us62, %for.inc.us59 ], [ %state.1.us, %for.inc.us ]
   %tobool48 = trunc nuw i8 %escape.0.lcssa to i1
   br i1 %tobool48, label %return, label %land.rhs
 
@@ -2048,7 +2048,7 @@ land.rhs:                                         ; preds = %entry, %for.end
   br label %return
 
 return:                                           ; preds = %sw.bb30.us, %sw.bb25.us, %sw.default.us, %sw.bb30.us41, %sw.bb25.us42, %sw.default.us50, %sw.bb30.us.us, %sw.bb25.us.us, %sw.default.us.us, %for.end, %land.rhs
-  %retval.0 = phi i1 [ %4, %land.rhs ], [ false, %for.end ], [ false, %sw.bb30.us41 ], [ false, %sw.bb30.us.us ], [ false, %sw.default.us.us ], [ false, %sw.bb25.us.us ], [ false, %sw.default.us50 ], [ false, %sw.bb25.us42 ], [ false, %sw.default.us ], [ false, %sw.bb25.us ], [ false, %sw.bb30.us ]
+  %retval.0 = phi i1 [ false, %for.end ], [ %4, %land.rhs ], [ false, %sw.bb30.us41 ], [ false, %sw.bb30.us.us ], [ false, %sw.default.us.us ], [ false, %sw.bb25.us.us ], [ false, %sw.default.us50 ], [ false, %sw.bb25.us42 ], [ false, %sw.default.us ], [ false, %sw.bb25.us ], [ false, %sw.bb30.us ]
   ret i1 %retval.0
 }
 

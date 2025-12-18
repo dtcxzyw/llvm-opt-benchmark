@@ -4939,7 +4939,7 @@ ruby_nonempty_memcpy.exit.i.i:                    ; preds = %37, %30
   br i1 %48, label %.lr.ph.i, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %escape_UTF8_char.exit, %46, %1
-  %.lcssa.i = phi ptr [ %.promoted.i13, %1 ], [ %47, %46 ], [ %248, %escape_UTF8_char.exit ]
+  %.lcssa.i = phi ptr [ %47, %46 ], [ %.promoted.i13, %1 ], [ %248, %escape_UTF8_char.exit ]
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %50 = load ptr, ptr %49, align 8, !tbaa !69
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 16

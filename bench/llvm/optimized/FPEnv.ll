@@ -33,8 +33,8 @@ define dso_local range(i16 0, 264) i16 @_ZN4llvm24convertStrToRoundingModeENS_9S
     i64 15, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i8
     i64 19, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i16
     i64 14, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i24
-    i64 12, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i32
-    i64 16, label %_ZN4llvm12StringSwitchISt8optionalINS_12RoundingModeEES3_E4CaseENS_13StringLiteralES3_.exit43
+    i64 12, label %_ZN4llvm12StringSwitchISt8optionalINS_12RoundingModeEES3_E4CaseENS_13StringLiteralES3_.exit43
+    i64 16, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i40
   ]
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i.i:            ; preds = %2
@@ -57,26 +57,26 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i24:          ; preds = %2
   %6 = icmp eq i32 %bcmp.i.i.i25, 0
   br i1 %6, label %_ZN4llvm12StringSwitchISt8optionalINS_12RoundingModeEES3_E4CaseENS_13StringLiteralES3_.exit43.thread, label %_ZN4llvm12StringSwitchISt8optionalINS_12RoundingModeEES3_E4CaseENS_13StringLiteralES3_.exit43.thread136
 
-_ZN4llvmeqENS_9StringRefES0_.exit.i.i32:          ; preds = %2
-  %bcmp.i.i.i33 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %0, ptr noundef nonnull dereferenceable(12) @.str.4, i64 12)
-  %bcmp.i.i.i33.fr = freeze i32 %bcmp.i.i.i33
-  %7 = icmp eq i32 %bcmp.i.i.i33.fr, 0
-  %spec.select = select i1 %7, i16 258, i16 263
+_ZN4llvmeqENS_9StringRefES0_.exit.i.i40:          ; preds = %2
+  %bcmp.i.i.i41 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %0, ptr noundef nonnull dereferenceable(16) @.str.5, i64 16)
+  %bcmp.i.i.i41.fr = freeze i32 %bcmp.i.i.i41
+  %7 = icmp eq i32 %bcmp.i.i.i41.fr, 0
+  %spec.select129 = select i1 %7, i16 256, i16 263
   br i1 %7, label %_ZN4llvm12StringSwitchISt8optionalINS_12RoundingModeEES3_E4CaseENS_13StringLiteralES3_.exit43.thread, label %_ZN4llvm12StringSwitchISt8optionalINS_12RoundingModeEES3_E4CaseENS_13StringLiteralES3_.exit43.thread136
 
 _ZN4llvm12StringSwitchISt8optionalINS_12RoundingModeEES3_E4CaseENS_13StringLiteralES3_.exit43: ; preds = %2
-  %bcmp.i.i.i41 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %0, ptr noundef nonnull dereferenceable(16) @.str.5, i64 16)
-  %bcmp.i.i.i41.fr = freeze i32 %bcmp.i.i.i41
-  %8 = icmp eq i32 %bcmp.i.i.i41.fr, 0
-  %spec.select129 = select i1 %8, i16 256, i16 263
+  %bcmp.i.i.i33 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %0, ptr noundef nonnull dereferenceable(12) @.str.4, i64 12)
+  %bcmp.i.i.i33.fr = freeze i32 %bcmp.i.i.i33
+  %8 = icmp eq i32 %bcmp.i.i.i33.fr, 0
+  %spec.select = select i1 %8, i16 258, i16 263
   br i1 %8, label %_ZN4llvm12StringSwitchISt8optionalINS_12RoundingModeEES3_E4CaseENS_13StringLiteralES3_.exit43.thread, label %_ZN4llvm12StringSwitchISt8optionalINS_12RoundingModeEES3_E4CaseENS_13StringLiteralES3_.exit43.thread136
 
-_ZN4llvm12StringSwitchISt8optionalINS_12RoundingModeEES3_E4CaseENS_13StringLiteralES3_.exit43.thread: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i8, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i24, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i16, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i32, %_ZN4llvm12StringSwitchISt8optionalINS_12RoundingModeEES3_E4CaseENS_13StringLiteralES3_.exit43
-  %.sroa.16.5134 = phi i16 [ %spec.select, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i32 ], [ %spec.select129, %_ZN4llvm12StringSwitchISt8optionalINS_12RoundingModeEES3_E4CaseENS_13StringLiteralES3_.exit43 ], [ 257, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i8 ], [ 263, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ], [ 259, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i24 ], [ 260, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i16 ]
+_ZN4llvm12StringSwitchISt8optionalINS_12RoundingModeEES3_E4CaseENS_13StringLiteralES3_.exit43.thread: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i8, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i24, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i16, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i40, %_ZN4llvm12StringSwitchISt8optionalINS_12RoundingModeEES3_E4CaseENS_13StringLiteralES3_.exit43
+  %.sroa.16.5134 = phi i16 [ %spec.select129, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i40 ], [ %spec.select, %_ZN4llvm12StringSwitchISt8optionalINS_12RoundingModeEES3_E4CaseENS_13StringLiteralES3_.exit43 ], [ 263, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ], [ 257, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i8 ], [ 259, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i24 ], [ 260, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i16 ]
   br label %_ZN4llvm12StringSwitchISt8optionalINS_12RoundingModeEES3_E4CaseENS_13StringLiteralES3_.exit43.thread136
 
-_ZN4llvm12StringSwitchISt8optionalINS_12RoundingModeEES3_E4CaseENS_13StringLiteralES3_.exit43.thread136: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i8, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i24, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i16, %2, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i32, %_ZN4llvm12StringSwitchISt8optionalINS_12RoundingModeEES3_E4CaseENS_13StringLiteralES3_.exit43, %_ZN4llvm12StringSwitchISt8optionalINS_12RoundingModeEES3_E4CaseENS_13StringLiteralES3_.exit43.thread
-  %9 = phi i16 [ %.sroa.16.5134, %_ZN4llvm12StringSwitchISt8optionalINS_12RoundingModeEES3_E4CaseENS_13StringLiteralES3_.exit43.thread ], [ 0, %_ZN4llvm12StringSwitchISt8optionalINS_12RoundingModeEES3_E4CaseENS_13StringLiteralES3_.exit43 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i32 ], [ 0, %2 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i16 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i24 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i8 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ]
+_ZN4llvm12StringSwitchISt8optionalINS_12RoundingModeEES3_E4CaseENS_13StringLiteralES3_.exit43.thread136: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i8, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i24, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i16, %2, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i40, %_ZN4llvm12StringSwitchISt8optionalINS_12RoundingModeEES3_E4CaseENS_13StringLiteralES3_.exit43, %_ZN4llvm12StringSwitchISt8optionalINS_12RoundingModeEES3_E4CaseENS_13StringLiteralES3_.exit43.thread
+  %9 = phi i16 [ %.sroa.16.5134, %_ZN4llvm12StringSwitchISt8optionalINS_12RoundingModeEES3_E4CaseENS_13StringLiteralES3_.exit43.thread ], [ 0, %_ZN4llvm12StringSwitchISt8optionalINS_12RoundingModeEES3_E4CaseENS_13StringLiteralES3_.exit43 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i40 ], [ 0, %2 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i16 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i24 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i8 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ]
   ret i16 %9
 }
 

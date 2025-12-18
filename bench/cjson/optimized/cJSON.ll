@@ -1202,7 +1202,7 @@ define internal fastcc range(i32 0, 2) i32 @print_value(ptr noundef readonly cap
   br label %ensure.exit
 
 ensure.exit:                                      ; preds = %60, %24
-  %.044.i = phi ptr [ %25, %24 ], [ %62, %60 ]
+  %.044.i = phi ptr [ %62, %60 ], [ %25, %24 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %.044.i, ptr noundef nonnull align 1 dereferenceable(5) @.str.2, i64 5, i1 false) #33
   br label %print_array.exit
 
@@ -1304,7 +1304,7 @@ ensure.exit:                                      ; preds = %60, %24
   br label %ensure.exit47
 
 ensure.exit47:                                    ; preds = %110, %74
-  %.044.i39 = phi ptr [ %75, %74 ], [ %112, %110 ]
+  %.044.i39 = phi ptr [ %112, %110 ], [ %75, %74 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %.044.i39, ptr noundef nonnull align 1 dereferenceable(6) @.str.3, i64 6, i1 false) #33
   br label %print_array.exit
 
@@ -1406,7 +1406,7 @@ ensure.exit47:                                    ; preds = %110, %74
   br label %ensure.exit59
 
 ensure.exit59:                                    ; preds = %160, %124
-  %.044.i51 = phi ptr [ %125, %124 ], [ %162, %160 ]
+  %.044.i51 = phi ptr [ %162, %160 ], [ %125, %124 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %.044.i51, ptr noundef nonnull align 1 dereferenceable(5) @.str.4, i64 5, i1 false) #33
   br label %print_array.exit
 
@@ -1629,7 +1629,7 @@ print_number.exit:                                ; preds = %191, %192, %._crit_
   br label %ensure.exit79
 
 ensure.exit79:                                    ; preds = %269, %233
-  %.044.i70 = phi ptr [ %234, %233 ], [ %271, %269 ]
+  %.044.i70 = phi ptr [ %271, %269 ], [ %234, %233 ]
   store i8 91, ptr %.044.i70, align 1, !tbaa !34
   %272 = load i64, ptr %231, align 8, !tbaa !45
   %273 = add i64 %272, 1
@@ -1938,7 +1938,7 @@ default.unreachable155:                           ; preds = %.split
   unreachable
 
 print_array.exit:                                 ; preds = %update_offset.exit80, %360, %update_offset.exit81, %340, %330, %289, %278, %225, %116, %66, %16, %258, %250, %240, %220, %235, %149, %141, %131, %113, %126, %99, %91, %81, %63, %76, %49, %41, %31, %13, %26, %.loopexit, %396, %309, %305, %._crit_edge102, %6, %215, %206, %210, %2, %217, %print_number.exit, %ensure.exit59, %ensure.exit47, %ensure.exit
-  %.0 = phi i32 [ 0, %149 ], [ 0, %210 ], [ 0, %2 ], [ 1, %ensure.exit ], [ 0, %220 ], [ 1, %ensure.exit47 ], [ 0, %225 ], [ 1, %ensure.exit59 ], [ %.0.i61, %print_number.exit ], [ 0, %240 ], [ %219, %217 ], [ 0, %99 ], [ 1, %215 ], [ 0, %206 ], [ 0, %6 ], [ 0, %49 ], [ 1, %305 ], [ 0, %250 ], [ 0, %._crit_edge102 ], [ 1, %.loopexit ], [ 0, %396 ], [ 0, %258 ], [ 0, %309 ], [ 0, %26 ], [ 0, %13 ], [ 0, %16 ], [ 0, %31 ], [ 0, %41 ], [ 0, %76 ], [ 0, %63 ], [ 0, %66 ], [ 0, %81 ], [ 0, %91 ], [ 0, %126 ], [ 0, %113 ], [ 0, %116 ], [ 0, %131 ], [ 0, %141 ], [ 0, %235 ], [ 0, %289 ], [ 0, %278 ], [ 0, %330 ], [ 0, %340 ], [ 0, %update_offset.exit81 ], [ 0, %360 ], [ 0, %update_offset.exit80 ]
+  %.0 = phi i32 [ 0, %149 ], [ 0, %210 ], [ 0, %2 ], [ 1, %ensure.exit ], [ 0, %220 ], [ 1, %ensure.exit47 ], [ 0, %225 ], [ 1, %ensure.exit59 ], [ %.0.i61, %print_number.exit ], [ 0, %240 ], [ %219, %217 ], [ 0, %99 ], [ 1, %215 ], [ 0, %206 ], [ 0, %6 ], [ 0, %289 ], [ 0, %49 ], [ 1, %305 ], [ 0, %235 ], [ 0, %141 ], [ 0, %250 ], [ 0, %._crit_edge102 ], [ 1, %.loopexit ], [ 0, %131 ], [ 0, %116 ], [ 0, %113 ], [ 0, %126 ], [ 0, %396 ], [ 0, %258 ], [ 0, %309 ], [ 0, %26 ], [ 0, %13 ], [ 0, %16 ], [ 0, %31 ], [ 0, %41 ], [ 0, %76 ], [ 0, %63 ], [ 0, %66 ], [ 0, %81 ], [ 0, %91 ], [ 0, %278 ], [ 0, %330 ], [ 0, %340 ], [ 0, %update_offset.exit81 ], [ 0, %360 ], [ 0, %update_offset.exit80 ]
   ret i32 %.0
 }
 
@@ -2089,7 +2089,7 @@ case_insensitive_strcmp.exit.thread30.i:          ; preds = %26, %.preheader.i.i
   br i1 %.not23.i, label %get_object_item.exit, label %.lr.ph51.i
 
 get_object_item.exit:                             ; preds = %case_insensitive_strcmp.exit.thread30.i, %11, %.lr.ph.i.i, %2, %5
-  %.019.i = phi ptr [ null, %2 ], [ null, %5 ], [ %.250.i, %.lr.ph.i.i ], [ null, %case_insensitive_strcmp.exit.thread30.i ], [ %.250.i, %11 ]
+  %.019.i = phi ptr [ null, %5 ], [ null, %2 ], [ %.250.i, %.lr.ph.i.i ], [ %.250.i, %11 ], [ null, %case_insensitive_strcmp.exit.thread30.i ]
   ret ptr %.019.i
 }
 
@@ -2124,7 +2124,7 @@ define ptr @cJSON_GetObjectItemCaseSensitive(ptr noundef readonly captures(addre
   br i1 %.not25.i, label %get_object_item.exit, label %.lr.ph.i
 
 get_object_item.exit:                             ; preds = %12, %.lr.ph.i, %10, %2, %5
-  %.019.i = phi ptr [ null, %2 ], [ null, %5 ], [ null, %12 ], [ %.048.i, %10 ], [ null, %.lr.ph.i ]
+  %.019.i = phi ptr [ null, %5 ], [ null, %2 ], [ null, %12 ], [ %.048.i, %10 ], [ null, %.lr.ph.i ]
   ret ptr %.019.i
 }
 
@@ -2193,7 +2193,7 @@ case_insensitive_strcmp.exit.thread30.i.i:        ; preds = %26, %.preheader.i.i
   br i1 %.not23.i.i, label %cJSON_GetObjectItem.exit, label %.lr.ph51.i.i
 
 cJSON_GetObjectItem.exit:                         ; preds = %11, %case_insensitive_strcmp.exit.thread30.i.i, %.lr.ph.i.i.i, %2, %5
-  %.019.i.i = phi i32 [ 0, %2 ], [ 0, %5 ], [ 1, %.lr.ph.i.i.i ], [ 1, %11 ], [ 0, %case_insensitive_strcmp.exit.thread30.i.i ]
+  %.019.i.i = phi i32 [ 0, %5 ], [ 0, %2 ], [ 1, %.lr.ph.i.i.i ], [ 1, %11 ], [ 0, %case_insensitive_strcmp.exit.thread30.i.i ]
   ret i32 %.019.i.i
 }
 
@@ -3879,8 +3879,8 @@ cJSON_GetObjectItem.exit:                         ; preds = %11, %.lr.ph.i.i.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.250.i.i, i8 0, i64 16, i1 false)
   br label %cJSON_DetachItemViaPointer.exit
 
-cJSON_DetachItemViaPointer.exit:                  ; preds = %case_insensitive_strcmp.exit.thread30.i.i, %5, %2, %39, %52
-  %.0.i = phi ptr [ %.250.i.i, %52 ], [ null, %39 ], [ null, %5 ], [ null, %2 ], [ null, %case_insensitive_strcmp.exit.thread30.i.i ]
+cJSON_DetachItemViaPointer.exit:                  ; preds = %case_insensitive_strcmp.exit.thread30.i.i, %2, %5, %39, %52
+  %.0.i = phi ptr [ %.250.i.i, %52 ], [ null, %39 ], [ null, %2 ], [ null, %5 ], [ null, %case_insensitive_strcmp.exit.thread30.i.i ]
   ret ptr %.0.i
 }
 
@@ -3960,8 +3960,8 @@ cJSON_GetObjectItemCaseSensitive.exit:            ; preds = %10
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.048.i.i, i8 0, i64 16, i1 false)
   br label %cJSON_DetachItemViaPointer.exit
 
-cJSON_DetachItemViaPointer.exit:                  ; preds = %.lr.ph.i.i, %12, %5, %2, %14, %27
-  %.0.i = phi ptr [ %.048.i.i, %27 ], [ null, %14 ], [ null, %5 ], [ null, %2 ], [ null, %12 ], [ null, %.lr.ph.i.i ]
+cJSON_DetachItemViaPointer.exit:                  ; preds = %.lr.ph.i.i, %12, %2, %5, %14, %27
+  %.0.i = phi ptr [ %.048.i.i, %27 ], [ null, %14 ], [ null, %2 ], [ null, %5 ], [ null, %12 ], [ null, %.lr.ph.i.i ]
   ret ptr %.0.i
 }
 
@@ -4076,7 +4076,7 @@ cJSON_GetObjectItem.exit.i:                       ; preds = %11, %.lr.ph.i.i.i.i
   br label %cJSON_DetachItemFromObject.exit
 
 cJSON_DetachItemFromObject.exit:                  ; preds = %case_insensitive_strcmp.exit.thread30.i.i.i, %2, %5, %39, %52
-  %.0.i.i = phi ptr [ %.250.i.i.i, %52 ], [ null, %39 ], [ null, %5 ], [ null, %2 ], [ null, %case_insensitive_strcmp.exit.thread30.i.i.i ]
+  %.0.i.i = phi ptr [ %.250.i.i.i, %52 ], [ null, %39 ], [ null, %2 ], [ null, %5 ], [ null, %case_insensitive_strcmp.exit.thread30.i.i.i ]
   tail call void @cJSON_Delete(ptr noundef %.0.i.i)
   ret void
 }
@@ -4158,7 +4158,7 @@ cJSON_GetObjectItemCaseSensitive.exit.i:          ; preds = %10
   br label %cJSON_DetachItemFromObjectCaseSensitive.exit
 
 cJSON_DetachItemFromObjectCaseSensitive.exit:     ; preds = %.lr.ph.i.i.i, %12, %2, %5, %14, %27
-  %.0.i.i = phi ptr [ %.048.i.i.i, %27 ], [ null, %14 ], [ null, %5 ], [ null, %2 ], [ null, %12 ], [ null, %.lr.ph.i.i.i ]
+  %.0.i.i = phi ptr [ %.048.i.i.i, %27 ], [ null, %14 ], [ null, %2 ], [ null, %5 ], [ null, %12 ], [ null, %.lr.ph.i.i.i ]
   tail call void @cJSON_Delete(ptr noundef %.0.i.i)
   ret void
 }
@@ -4571,7 +4571,7 @@ case_insensitive_strcmp.exit.thread30.i:          ; preds = %55, %.preheader.i.i
   br i1 %.not23.i, label %cJSON_ReplaceItemViaPointer.exit, label %.lr.ph51.i
 
 get_object_item.exit:                             ; preds = %33, %40, %.lr.ph.i.i
-  %.019.i = phi ptr [ %.250.i, %40 ], [ %.250.i, %.lr.ph.i.i ], [ %.048.i, %33 ]
+  %.019.i = phi ptr [ %.250.i, %.lr.ph.i.i ], [ %.250.i, %40 ], [ %.048.i, %33 ]
   br i1 %.not2349.i, label %cJSON_ReplaceItemViaPointer.exit, label %68
 
 68:                                               ; preds = %get_object_item.exit
@@ -5334,8 +5334,8 @@ define void @cJSON_Minify(ptr noundef captures(address_is_null) %0) local_unname
   br label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %42, %19, %11, %33, %29, %6, %25, %13, %44, %4
-  %.022.be = phi ptr [ %45, %44 ], [ %5, %4 ], [ %26, %25 ], [ %7, %6 ], [ %14, %13 ], [ %storemerge1922.i, %29 ], [ %34, %33 ], [ %storemerge.i2, %19 ], [ %storemerge.i, %11 ], [ %storemerge19.i, %42 ]
-  %.0.be = phi ptr [ %46, %44 ], [ %.0, %4 ], [ %.0, %25 ], [ %.0, %6 ], [ %.0, %13 ], [ %storemerge24.i, %29 ], [ %35, %33 ], [ %.0, %19 ], [ %.0, %11 ], [ %storemerge.i3, %42 ]
+  %.022.be = phi ptr [ %storemerge.i2, %19 ], [ %45, %44 ], [ %5, %4 ], [ %26, %25 ], [ %7, %6 ], [ %14, %13 ], [ %34, %33 ], [ %storemerge.i, %11 ], [ %storemerge1922.i, %29 ], [ %storemerge19.i, %42 ]
+  %.0.be = phi ptr [ %.0, %19 ], [ %46, %44 ], [ %.0, %4 ], [ %.0, %25 ], [ %.0, %6 ], [ %.0, %13 ], [ %35, %33 ], [ %.0, %11 ], [ %storemerge24.i, %29 ], [ %storemerge.i3, %42 ]
   br label %.preheader
 
 36:                                               ; preds = %.lr.ph.i
@@ -5846,7 +5846,7 @@ default.unreachable169:                           ; preds = %.split2
   unreachable
 
 get_object_item.exit.thread:                      ; preds = %get_object_item.exit.loopexit111, %90, %.preheader41.i, %.lr.ph.i, %99, %get_object_item.exit.us, %.preheader.i.us, %53, %case_insensitive_strcmp.exit.thread30.i.us, %.split124, %get_object_item.exit93.loopexit106, %139, %.preheader41.i74, %.lr.ph.i75, %148, %get_object_item.exit93.us, %.preheader.i84.us, %102, %.split124.us, %case_insensitive_strcmp.exit.thread30.i88.us, %47, %49, %37, %29, %33, %17, %.split2, %.split2, %.split2, %.split, %3, %6
-  %.052.shrunk = phi i1 [ %.not64, %49 ], [ false, %3 ], [ true, %.split ], [ %28, %17 ], [ true, %.split2 ], [ true, %.split2 ], [ %39, %37 ], [ false, %29 ], [ false, %33 ], [ false, %6 ], [ true, %.split2 ], [ false, %.lr.ph.i ], [ false, %47 ], [ false, %case_insensitive_strcmp.exit.thread30.i88.us ], [ %.not61.us, %get_object_item.exit93.us ], [ false, %.lr.ph.i75 ], [ %.not61, %.split124 ], [ false, %case_insensitive_strcmp.exit.thread30.i.us ], [ false, %get_object_item.exit.us ], [ %.not61.us, %.split124.us ], [ %.not61.us, %102 ], [ %.not61.us, %.preheader.i84.us ], [ false, %148 ], [ %.not61, %.preheader41.i74 ], [ %.not61, %139 ], [ %.not61, %get_object_item.exit93.loopexit106 ], [ false, %53 ], [ false, %.preheader.i.us ], [ false, %99 ], [ false, %.preheader41.i ], [ false, %90 ], [ false, %get_object_item.exit.loopexit111 ]
+  %.052.shrunk = phi i1 [ %.not64, %49 ], [ false, %3 ], [ %.not61, %.split124 ], [ false, %case_insensitive_strcmp.exit.thread30.i88.us ], [ true, %.split ], [ %28, %17 ], [ true, %.split2 ], [ true, %.split2 ], [ %39, %37 ], [ false, %29 ], [ false, %33 ], [ false, %6 ], [ true, %.split2 ], [ false, %.lr.ph.i ], [ %.not61.us, %get_object_item.exit93.us ], [ false, %case_insensitive_strcmp.exit.thread30.i.us ], [ false, %.lr.ph.i75 ], [ false, %get_object_item.exit.us ], [ false, %47 ], [ %.not61.us, %.split124.us ], [ %.not61.us, %102 ], [ %.not61.us, %.preheader.i84.us ], [ false, %148 ], [ %.not61, %.preheader41.i74 ], [ %.not61, %139 ], [ %.not61, %get_object_item.exit93.loopexit106 ], [ false, %53 ], [ false, %.preheader.i.us ], [ false, %99 ], [ false, %.preheader41.i ], [ false, %90 ], [ false, %get_object_item.exit.loopexit111 ]
   %.052 = zext i1 %.052.shrunk to i32
   ret i32 %.052
 }
@@ -6744,7 +6744,7 @@ define internal fastcc range(i32 0, 2) i32 @print_string_ptr(ptr noundef %0, ptr
   br label %ensure.exit
 
 ensure.exit:                                      ; preds = %51, %15
-  %.044.i = phi ptr [ %16, %15 ], [ %53, %51 ]
+  %.044.i = phi ptr [ %53, %51 ], [ %16, %15 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.044.i, ptr noundef nonnull align 1 dereferenceable(3) @.str.9, i64 3, i1 false) #33
   br label %ensure.exit.thread
 

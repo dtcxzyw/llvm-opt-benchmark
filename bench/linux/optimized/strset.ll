@@ -154,7 +154,7 @@ define internal range(i32 -2147483648, 1) i32 @strset_parse_request(ptr noundef 
   br label %.thread10
 
 .thread10:                                        ; preds = %54, %64, %65, %53, %52
-  %.ph = phi i32 [ -22, %65 ], [ -22, %64 ], [ -22, %53 ], [ -22, %52 ], [ %59, %54 ]
+  %.ph = phi i32 [ -22, %52 ], [ -22, %65 ], [ -22, %64 ], [ -22, %53 ], [ %59, %54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.critedge
 

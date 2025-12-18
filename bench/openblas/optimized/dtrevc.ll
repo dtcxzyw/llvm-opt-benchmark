@@ -1267,7 +1267,7 @@ thread-pre-split1188:                             ; preds = %520, %529
   br label %.loopexit1252
 
 .loopexit1252:                                    ; preds = %.lr.ph1291, %.lr.ph1303.preheader, %617, %339, %684, %384
-  %spec.select1160.v = phi i32 [ -2, %684 ], [ -1, %384 ], [ -1, %339 ], [ -2, %617 ], [ -1, %.lr.ph1303.preheader ], [ -2, %.lr.ph1291 ]
+  %spec.select1160.v = phi i32 [ -2, %684 ], [ -1, %339 ], [ -1, %384 ], [ -2, %617 ], [ -1, %.lr.ph1303.preheader ], [ -2, %.lr.ph1291 ]
   %not..not1146 = xor i1 %.not11461559, true
   %spec.select1159 = zext i1 %not..not1146 to i32
   %spec.select1160 = add nsw i32 %spec.select1160.v, %.01306
@@ -2497,7 +2497,7 @@ thread-pre-split1188:                             ; preds = %520, %529
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph1360, %.lr.ph1327.preheader, %940, %1378, %1472, %999
-  %spec.select1221.v = phi i32 [ 2, %1472 ], [ 1, %999 ], [ 2, %1378 ], [ 1, %940 ], [ 1, %.lr.ph1327.preheader ], [ 2, %.lr.ph1360 ]
+  %spec.select1221.v = phi i32 [ 2, %1472 ], [ 2, %1378 ], [ 1, %999 ], [ 1, %940 ], [ 1, %.lr.ph1327.preheader ], [ 2, %.lr.ph1360 ]
   %spec.select1221 = add nsw i32 %spec.select1221.v, %.21364
   %spec.select1222 = sext i1 %.not1132 to i32
   %.pre1494 = load i32, ptr %27, align 4, !tbaa !3

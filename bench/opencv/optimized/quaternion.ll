@@ -1932,7 +1932,7 @@ _ZSt8_DestroyIPN2cv3MatEEvT_S3_.exit.i.i.i.i.i238: ; preds = %.lr.ph.i.i.i.i.i.i
   br i1 %346, label %.loopexit252, label %343
 
 .loopexit252:                                     ; preds = %343, %.loopexit252.loopexit259, %.thread
-  %.pn109 = phi { ptr, i32 } [ %215, %.thread ], [ %342, %.loopexit252.loopexit259 ], [ %eh.lpad-body230286, %343 ]
+  %.pn109 = phi { ptr, i32 } [ %342, %.loopexit252.loopexit259 ], [ %215, %.thread ], [ %eh.lpad-body230286, %343 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   br label %609
 
@@ -1954,7 +1954,7 @@ _ZSt8_DestroyIPN2cv3MatEEvT_S3_.exit.i.i.i.i.i238: ; preds = %.lr.ph.i.i.i.i.i.i
   br i1 %351, label %.loopexit, label %348
 
 .loopexit:                                        ; preds = %348, %.loopexit.loopexit258, %.thread249
-  %.pn111 = phi { ptr, i32 } [ %244, %.thread249 ], [ %347, %.loopexit.loopexit258 ], [ %eh.lpad-body243289, %348 ]
+  %.pn111 = phi { ptr, i32 } [ %347, %.loopexit.loopexit258 ], [ %244, %.thread249 ], [ %eh.lpad-body243289, %348 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   br label %608
 

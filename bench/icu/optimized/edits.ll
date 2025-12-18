@@ -2563,7 +2563,7 @@ _ZN6icu_775Edits8Iterator10readLengthEi.exit65:   ; preds = %225, %220, %_ZN6icu
   br i1 %242, label %164, label %.critedge2, !llvm.loop !49
 
 .critedge2:                                       ; preds = %164, %_ZN6icu_775Edits8Iterator10readLengthEi.exit65, %160, %97, %94, %79, %.critedge, %_ZN6icu_775Edits8Iterator10readLengthEi.exit61, %3, %48, %40, %30
-  %.0 = phi i8 [ 1, %30 ], [ 1, %40 ], [ 0, %48 ], [ 0, %3 ], [ 0, %79 ], [ 1, %_ZN6icu_775Edits8Iterator10readLengthEi.exit61 ], [ 1, %.critedge ], [ 1, %94 ], [ 1, %97 ], [ 1, %160 ], [ 1, %_ZN6icu_775Edits8Iterator10readLengthEi.exit65 ], [ 1, %164 ]
+  %.0 = phi i8 [ 1, %30 ], [ 1, %40 ], [ 0, %48 ], [ 0, %3 ], [ 0, %79 ], [ 1, %_ZN6icu_775Edits8Iterator10readLengthEi.exit61 ], [ 1, %97 ], [ 1, %.critedge ], [ 1, %94 ], [ 1, %160 ], [ 1, %_ZN6icu_775Edits8Iterator10readLengthEi.exit65 ], [ 1, %164 ]
   ret i8 %.0
 }
 
@@ -3234,7 +3234,7 @@ define noundef range(i32 -1, 2) i32 @_ZN6icu_775Edits8Iterator9findIndexEiaR10UE
   br i1 %.not65, label %.critedge, label %76, !llvm.loop !54
 
 .critedge:                                        ; preds = %63, %104, %76, %.preheader, %73, %.thread72, %47, %70, %4
-  %.0 = phi i32 [ -1, %4 ], [ 0, %70 ], [ 0, %.thread72 ], [ 0, %47 ], [ 0, %.preheader ], [ 1, %73 ], [ 0, %76 ], [ 1, %104 ], [ 0, %63 ]
+  %.0 = phi i32 [ -1, %4 ], [ 0, %76 ], [ 0, %70 ], [ 0, %.thread72 ], [ 0, %47 ], [ 0, %.preheader ], [ 1, %73 ], [ 1, %104 ], [ 0, %63 ]
   ret i32 %.0
 }
 

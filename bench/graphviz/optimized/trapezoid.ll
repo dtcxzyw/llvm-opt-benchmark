@@ -1047,7 +1047,7 @@ _greater_than_equal_to.exit.thread:               ; preds = %207, %_greater_than
   br label %is_left_of.exit
 
 is_left_of.exit:                                  ; preds = %341, %368
-  %.0.i600 = phi double [ %378, %368 ], [ %350, %341 ]
+  %.0.i600 = phi double [ %350, %341 ], [ %378, %368 ]
   %379 = fcmp ogt double %.0.i600, 0.000000e+00
   br i1 %379, label %is_left_of.exit.thread, label %is_left_of.exit.thread630
 
@@ -1246,7 +1246,7 @@ is_left_of.exit.thread630:                        ; preds = %356, %364, %338, %3
   br label %is_left_of.exit606
 
 is_left_of.exit606:                               ; preds = %470, %497
-  %.0.i602 = phi double [ %507, %497 ], [ %479, %470 ]
+  %.0.i602 = phi double [ %479, %470 ], [ %507, %497 ]
   %508 = fcmp ogt double %.0.i602, 0.000000e+00
   br i1 %508, label %is_left_of.exit606.thread, label %is_left_of.exit606.thread639
 
@@ -1840,7 +1840,7 @@ tailrecurse.backedge:                             ; preds = %26, %16, %is_left_o
   br label %is_left_of.exit
 
 is_left_of.exit:                                  ; preds = %118, %144
-  %.0.i = phi double [ %154, %144 ], [ %127, %118 ]
+  %.0.i = phi double [ %127, %118 ], [ %154, %144 ]
   %155 = fcmp ogt double %.0.i, 0.000000e+00
   br i1 %155, label %tailrecurse.backedge, label %is_left_of.exit.thread105
 
@@ -1936,7 +1936,7 @@ is_left_of.exit.thread105:                        ; preds = %132, %140, %115, %1
   br label %is_left_of.exit99
 
 is_left_of.exit99:                                ; preds = %183, %208
-  %.0.i95 = phi double [ %217, %208 ], [ %191, %183 ]
+  %.0.i95 = phi double [ %191, %183 ], [ %217, %208 ]
   %218 = fcmp ogt double %.0.i95, 0.000000e+00
   br i1 %218, label %tailrecurse.backedge, label %is_left_of.exit99.thread113
 
@@ -2158,7 +2158,7 @@ define internal fastcc void @update_trapezoid(double %.16.val, double %.24.val, 
   br label %is_left_of.exit
 
 is_left_of.exit:                                  ; preds = %107, %130
-  %.0.i = phi double [ %138, %130 ], [ %115, %107 ]
+  %.0.i = phi double [ %115, %107 ], [ %138, %130 ]
   %139 = fcmp ogt double %.0.i, 0.000000e+00
   br i1 %139, label %is_left_of.exit.thread, label %is_left_of.exit.thread6
 
@@ -2255,7 +2255,7 @@ _greater_than_equal_to.exit.thread:               ; preds = %.thread115, %_great
   %29 = getelementptr inbounds nuw i8, ptr %19, i64 48
   %30 = load i32, ptr %29, align 8, !tbaa !34
   %31 = icmp sgt i32 %30, 0
-  br i1 %10, label %32, label %49
+  br i1 %10, label %32, label %43
 
 32:                                               ; preds = %_greater_than_equal_to.exit.thread
   br i1 %31, label %33, label %39
@@ -2272,46 +2272,46 @@ _greater_than_equal_to.exit.thread:               ; preds = %.thread115, %_great
   %40 = getelementptr inbounds nuw i8, ptr %19, i64 52
   %41 = load i32, ptr %40, align 4, !tbaa !35
   %42 = icmp sgt i32 %41, 0
-  br i1 %42, label %43, label %.critedge
+  br i1 %42, label %58, label %.critedge
 
-43:                                               ; preds = %39
-  %44 = zext nneg i32 %41 to i64
-  %45 = getelementptr inbounds nuw %struct.trap_t, ptr %.ph, i64 %44
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 4
-  %47 = load i32, ptr %46, align 4, !tbaa !31
+43:                                               ; preds = %_greater_than_equal_to.exit.thread
+  br i1 %31, label %44, label %49
+
+44:                                               ; preds = %43
+  %45 = zext nneg i32 %30 to i64
+  %46 = getelementptr inbounds nuw %struct.trap_t, ptr %.ph, i64 %45
+  %47 = load i32, ptr %46, align 8, !tbaa !32
   %48 = icmp eq i32 %47, %0
-  br i1 %48, label %.thread, label %.thread115.backedge
+  br i1 %48, label %.thread, label %49
 
-.thread115.backedge:                              ; preds = %43, %59, %.thread, %68
-  %.098118.be = phi i32 [ %57, %59 ], [ %41, %43 ], [ %.1100112, %.thread ], [ %.1100112, %68 ]
+49:                                               ; preds = %44, %43
+  %50 = getelementptr inbounds nuw i8, ptr %19, i64 52
+  %51 = load i32, ptr %50, align 4, !tbaa !35
+  %52 = icmp sgt i32 %51, 0
+  br i1 %52, label %53, label %.critedge
+
+53:                                               ; preds = %49
+  %54 = zext nneg i32 %51 to i64
+  %55 = getelementptr inbounds nuw %struct.trap_t, ptr %.ph, i64 %54
+  %56 = load i32, ptr %55, align 8, !tbaa !32
+  %57 = icmp eq i32 %56, %0
+  br i1 %57, label %.thread, label %.thread115.backedge
+
+.thread115.backedge:                              ; preds = %53, %58, %.thread, %68
+  %.098118.be = phi i32 [ %41, %58 ], [ %51, %53 ], [ %.1100112, %.thread ], [ %.1100112, %68 ]
   br label %.thread115, !llvm.loop !65
 
-49:                                               ; preds = %_greater_than_equal_to.exit.thread
-  br i1 %31, label %50, label %55
-
-50:                                               ; preds = %49
-  %51 = zext nneg i32 %30 to i64
-  %52 = getelementptr inbounds nuw %struct.trap_t, ptr %.ph, i64 %51
-  %53 = load i32, ptr %52, align 8, !tbaa !32
-  %54 = icmp eq i32 %53, %0
-  br i1 %54, label %.thread, label %55
-
-55:                                               ; preds = %50, %49
-  %56 = getelementptr inbounds nuw i8, ptr %19, i64 52
-  %57 = load i32, ptr %56, align 4, !tbaa !35
-  %58 = icmp sgt i32 %57, 0
-  br i1 %58, label %59, label %.critedge
-
-59:                                               ; preds = %55
-  %60 = zext nneg i32 %57 to i64
-  %61 = getelementptr inbounds nuw %struct.trap_t, ptr %.ph, i64 %60
-  %62 = load i32, ptr %61, align 8, !tbaa !32
+58:                                               ; preds = %39
+  %59 = zext nneg i32 %41 to i64
+  %60 = getelementptr inbounds nuw %struct.trap_t, ptr %.ph, i64 %59
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 4
+  %62 = load i32, ptr %61, align 4, !tbaa !31
   %63 = icmp eq i32 %62, %0
   br i1 %63, label %.thread, label %.thread115.backedge
 
-.thread:                                          ; preds = %50, %33, %43, %59
-  %.pre-phi = phi i64 [ %51, %50 ], [ %34, %33 ], [ %44, %43 ], [ %60, %59 ]
-  %.1100112 = phi i32 [ %30, %50 ], [ %30, %33 ], [ %41, %43 ], [ %57, %59 ]
+.thread:                                          ; preds = %44, %33, %53, %58
+  %.pre-phi = phi i64 [ %45, %44 ], [ %34, %33 ], [ %54, %53 ], [ %59, %58 ]
+  %.1100112 = phi i32 [ %30, %44 ], [ %30, %33 ], [ %51, %53 ], [ %41, %58 ]
   %64 = load i32, ptr %19, align 8, !tbaa !32
   %65 = getelementptr inbounds nuw %struct.trap_t, ptr %.ph, i64 %.pre-phi
   %66 = load i32, ptr %65, align 8, !tbaa !32
@@ -2421,7 +2421,7 @@ _greater_than_equal_to.exit.thread:               ; preds = %.thread115, %_great
   store i32 2, ptr %130, align 4, !tbaa !38
   br label %.thread115.outer, !llvm.loop !65
 
-.critedge:                                        ; preds = %39, %55, %_greater_than_equal_to.exit, %24, %6
+.critedge:                                        ; preds = %39, %49, %_greater_than_equal_to.exit, %24, %6
   ret void
 }
 

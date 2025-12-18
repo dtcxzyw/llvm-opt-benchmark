@@ -2951,7 +2951,7 @@ _ZNK10chashtableIPN3euf5enodeENS0_6etable7cg_hashENS3_5cg_eqEE6equalsERKS2_S8_.e
   br i1 %.not.i16, label %_ZNK10chashtableIPN3euf5enodeENS0_6etable13cg_unary_hashENS3_11cg_unary_eqEE8containsERKS2_.exit, label %.preheader.i13.split, !llvm.loop !182
 
 _ZNK10chashtableIPN3euf5enodeENS0_6etable13cg_unary_hashENS3_11cg_unary_eqEE8containsERKS2_.exit: ; preds = %_ZNK10chashtableIPN3euf5enodeENS0_6etable14cg_binary_hashENS3_12cg_binary_eqEE6equalsERKS2_S8_.exit.thread.i, %_ZNK10chashtableIPN3euf5enodeENS0_6etable14cg_binary_hashENS3_12cg_binary_eqEE6equalsERKS2_S8_.exit.i, %47, %38, %_ZNK10chashtableIPN3euf5enodeENS0_6etable7cg_hashENS3_5cg_eqEE6equalsERKS2_S8_.exit.i, %132, %_ZNK10chashtableIPN3euf5enodeENS0_6etable7cg_hashENS3_5cg_eqEE6equalsERKS2_S8_.exit.i.us, %.preheader.i13.split.us, %102, %50, %19, %100
-  %.0 = phi i1 [ false, %102 ], [ %101, %100 ], [ %46, %47 ], [ false, %19 ], [ false, %50 ], [ %.not.i.i.i.us, %_ZNK10chashtableIPN3euf5enodeENS0_6etable7cg_hashENS3_5cg_eqEE6equalsERKS2_S8_.exit.i.us ], [ false, %_ZNK10chashtableIPN3euf5enodeENS0_6etable7cg_hashENS3_5cg_eqEE6equalsERKS2_S8_.exit.i ], [ true, %132 ], [ %.not.i.i.i.us, %.preheader.i13.split.us ], [ %46, %38 ], [ false, %_ZNK10chashtableIPN3euf5enodeENS0_6etable14cg_binary_hashENS3_12cg_binary_eqEE6equalsERKS2_S8_.exit.thread.i ], [ true, %_ZNK10chashtableIPN3euf5enodeENS0_6etable14cg_binary_hashENS3_12cg_binary_eqEE6equalsERKS2_S8_.exit.i ]
+  %.0 = phi i1 [ %46, %47 ], [ %101, %100 ], [ false, %102 ], [ false, %19 ], [ true, %132 ], [ false, %50 ], [ false, %_ZNK10chashtableIPN3euf5enodeENS0_6etable7cg_hashENS3_5cg_eqEE6equalsERKS2_S8_.exit.i ], [ %.not.i.i.i.us, %_ZNK10chashtableIPN3euf5enodeENS0_6etable7cg_hashENS3_5cg_eqEE6equalsERKS2_S8_.exit.i.us ], [ %.not.i.i.i.us, %.preheader.i13.split.us ], [ %46, %38 ], [ false, %_ZNK10chashtableIPN3euf5enodeENS0_6etable14cg_binary_hashENS3_12cg_binary_eqEE6equalsERKS2_S8_.exit.thread.i ], [ true, %_ZNK10chashtableIPN3euf5enodeENS0_6etable14cg_binary_hashENS3_12cg_binary_eqEE6equalsERKS2_S8_.exit.i ]
   ret i1 %.0
 }
 
@@ -3318,7 +3318,7 @@ _ZNK10chashtableIPN3euf5enodeENS0_6etable7cg_hashENS3_5cg_eqEE6equalsERKS2_S8_.e
   br i1 %.not.i16, label %_ZN10chashtableIPN3euf5enodeENS0_6etable13cg_unary_hashENS3_11cg_unary_eqEE4findERKS2_RS2_.exit.thread, label %.preheader.i13.split, !llvm.loop !186
 
 _ZN10chashtableIPN3euf5enodeENS0_6etable13cg_unary_hashENS3_11cg_unary_eqEE4findERKS2_RS2_.exit.thread: ; preds = %_ZNK10chashtableIPN3euf5enodeENS0_6etable14cg_binary_hashENS3_12cg_binary_eqEE6equalsERKS2_S8_.exit.thread.i, %_ZNK10chashtableIPN3euf5enodeENS0_6etable14cg_binary_hashENS3_12cg_binary_eqEE6equalsERKS2_S8_.exit.i, %48, %39, %_ZNK10chashtableIPN3euf5enodeENS0_6etable7cg_hashENS3_5cg_eqEE6equalsERKS2_S8_.exit.i, %135, %_ZNK10chashtableIPN3euf5enodeENS0_6etable7cg_hashENS3_5cg_eqEE6equalsERKS2_S8_.exit.i.us, %.preheader.i13.split.us, %105, %51, %20, %101
-  %.0 = phi ptr [ %104, %101 ], [ null, %48 ], [ null, %_ZNK10chashtableIPN3euf5enodeENS0_6etable7cg_hashENS3_5cg_eqEE6equalsERKS2_S8_.exit.i.us ], [ null, %20 ], [ null, %51 ], [ null, %105 ], [ null, %_ZNK10chashtableIPN3euf5enodeENS0_6etable7cg_hashENS3_5cg_eqEE6equalsERKS2_S8_.exit.i ], [ %131, %135 ], [ %124, %.preheader.i13.split.us ], [ %42, %39 ], [ %88, %_ZNK10chashtableIPN3euf5enodeENS0_6etable14cg_binary_hashENS3_12cg_binary_eqEE6equalsERKS2_S8_.exit.i ], [ null, %_ZNK10chashtableIPN3euf5enodeENS0_6etable14cg_binary_hashENS3_12cg_binary_eqEE6equalsERKS2_S8_.exit.thread.i ]
+  %.0 = phi ptr [ null, %_ZNK10chashtableIPN3euf5enodeENS0_6etable7cg_hashENS3_5cg_eqEE6equalsERKS2_S8_.exit.i ], [ %104, %101 ], [ %131, %135 ], [ null, %105 ], [ null, %48 ], [ null, %_ZNK10chashtableIPN3euf5enodeENS0_6etable7cg_hashENS3_5cg_eqEE6equalsERKS2_S8_.exit.i.us ], [ null, %20 ], [ null, %51 ], [ %124, %.preheader.i13.split.us ], [ %42, %39 ], [ null, %_ZNK10chashtableIPN3euf5enodeENS0_6etable14cg_binary_hashENS3_12cg_binary_eqEE6equalsERKS2_S8_.exit.thread.i ], [ %88, %_ZNK10chashtableIPN3euf5enodeENS0_6etable14cg_binary_hashENS3_12cg_binary_eqEE6equalsERKS2_S8_.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
@@ -5262,7 +5262,7 @@ define linkonce_odr hidden noundef ptr @_ZN10chashtableIPN3euf5enodeENS0_6etable
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !211
 
 .critedge:                                        ; preds = %.loopexit, %66, %8
-  %spec.select = phi ptr [ %13, %8 ], [ null, %66 ], [ %.547, %.loopexit ]
+  %spec.select = phi ptr [ null, %66 ], [ %13, %8 ], [ %.547, %.loopexit ]
   ret ptr %spec.select
 }
 

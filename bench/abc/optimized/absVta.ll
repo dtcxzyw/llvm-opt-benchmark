@@ -6726,7 +6726,7 @@ Vga_ManRollBack.exit:                             ; preds = %859
   br i1 %or.cond266, label %.critedge, label %Vga_ManRollBack.exit.thread.loopexit597, !llvm.loop !198
 
 Vga_ManRollBack.exit.thread.loopexit597:          ; preds = %Abc_Clock.exit437, %Vga_ManRollBack.exit
-  %.0219563.ph = phi i32 [ %165, %Abc_Clock.exit437 ], [ %indvars, %Vga_ManRollBack.exit ]
+  %.0219563.ph = phi i32 [ %indvars, %Vga_ManRollBack.exit ], [ %165, %Abc_Clock.exit437 ]
   %877 = icmp eq i32 %677, -1
   br label %.loopexit701
 
@@ -6737,9 +6737,9 @@ Vga_ManRollBack.exit.thread:                      ; preds = %Gia_ObjIsRo.exit.th
   %879 = icmp eq ptr %878, null
   br i1 %879, label %.thread, label %Vga_ManRollBack.exit.thread.thread
 
-.loopexit701:                                     ; preds = %425, %._crit_edge.i, %873, %Vga_ManRollBack.exit.thread.loopexit597
-  %.ph = phi i1 [ true, %873 ], [ %877, %Vga_ManRollBack.exit.thread.loopexit597 ], [ true, %._crit_edge.i ], [ true, %425 ]
-  %.0219563.ph685 = phi i32 [ %165, %873 ], [ %.0219563.ph, %Vga_ManRollBack.exit.thread.loopexit597 ], [ %165, %._crit_edge.i ], [ %165, %425 ]
+.loopexit701:                                     ; preds = %425, %Vga_ManRollBack.exit.thread.loopexit597, %._crit_edge.i, %873
+  %.ph = phi i1 [ true, %._crit_edge.i ], [ %877, %Vga_ManRollBack.exit.thread.loopexit597 ], [ true, %873 ], [ true, %425 ]
+  %.0219563.ph685 = phi i32 [ %165, %._crit_edge.i ], [ %.0219563.ph, %Vga_ManRollBack.exit.thread.loopexit597 ], [ %165, %873 ], [ %165, %425 ]
   %.pre636689 = load ptr, ptr %85, align 8, !tbaa !55
   %880 = getelementptr inbounds nuw i8, ptr %.pre636689, i64 112
   %881 = load i32, ptr %880, align 8, !tbaa !149

@@ -921,7 +921,7 @@ _ZNSt12__shared_ptrIN2cv6legacy8tracking7TrackerELN9__gnu_cxx12_Lock_policyE2EED
   br label %484
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %285, %315, %.preheader304, %227, %296
-  %.386 = phi i1 [ true, %296 ], [ false, %227 ], [ true, %.preheader304 ], [ true, %315 ], [ true, %285 ]
+  %.386 = phi i1 [ true, %315 ], [ false, %227 ], [ true, %296 ], [ true, %.preheader304 ], [ true, %285 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store ptr %197, ptr %25, align 8, !tbaa !10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %197, ptr noundef nonnull align 1 dereferenceable(12) @.str, i64 12, i1 false)

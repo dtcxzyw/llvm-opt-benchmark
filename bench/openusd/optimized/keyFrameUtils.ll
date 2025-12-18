@@ -677,7 +677,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit.thread.threa
   br label %48
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit.thread: ; preds = %28, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit
-  %43 = phi ptr [ %.pr71, %28 ], [ %.pre50, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit ]
+  %43 = phi ptr [ %.pre50, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit ], [ %.pr71, %28 ]
   %44 = icmp eq ptr %43, null
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %46 = load ptr, ptr %45, align 8
@@ -809,7 +809,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit30.thread.thr
   br label %108
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit30.thread: ; preds = %90, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit30
-  %104 = phi ptr [ %.pr4277, %90 ], [ %.pre49, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit30 ]
+  %104 = phi ptr [ %.pre49, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit30 ], [ %.pr4277, %90 ]
   %105 = load ptr, ptr %3, align 8
   %106 = icmp eq ptr %105, null
   %107 = icmp eq ptr %104, null

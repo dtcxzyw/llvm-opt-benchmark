@@ -1275,8 +1275,8 @@ fetch_att.exit:                                   ; preds = %274, %276, %278, %2
   br i1 %349, label %337, label %.loopexit, !llvm.loop !24
 
 .loopexit:                                        ; preds = %337, %320, %296, %fetch_att.exit, %.preheader333, %.preheader331, %.preheader329, %.preheader328, %313
-  %.2278 = phi ptr [ %.0276367, %313 ], [ %.0276367, %.preheader328 ], [ %.0276367, %.preheader329 ], [ %.0276367, %.preheader331 ], [ %.0276367, %.preheader333 ], [ %326, %320 ], [ %270, %fetch_att.exit ], [ %301, %296 ], [ %340, %337 ]
-  %.1271 = phi ptr [ %.0270368, %313 ], [ %.0270368, %.preheader328 ], [ %.0270368, %.preheader329 ], [ %.0270368, %.preheader331 ], [ %.0270368, %.preheader333 ], [ %333, %320 ], [ %.0270368, %fetch_att.exit ], [ %309, %296 ], [ %346, %337 ]
+  %.2278 = phi ptr [ %.0276367, %313 ], [ %270, %fetch_att.exit ], [ %301, %296 ], [ %326, %320 ], [ %.0276367, %.preheader328 ], [ %.0276367, %.preheader329 ], [ %.0276367, %.preheader331 ], [ %.0276367, %.preheader333 ], [ %340, %337 ]
+  %.1271 = phi ptr [ %.0270368, %313 ], [ %.0270368, %fetch_att.exit ], [ %309, %296 ], [ %333, %320 ], [ %.0270368, %.preheader328 ], [ %.0270368, %.preheader329 ], [ %.0270368, %.preheader331 ], [ %.0270368, %.preheader333 ], [ %346, %337 ]
   %indvars.iv.next423 = add nuw nsw i64 %indvars.iv422, 1
   %exitcond427.not = icmp eq i64 %indvars.iv.next423, %wide.trip.count426
   br i1 %exitcond427.not, label %.lr.ph376.us.preheader, label %.lr.ph371, !llvm.loop !25

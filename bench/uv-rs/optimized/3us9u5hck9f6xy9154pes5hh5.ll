@@ -2897,8 +2897,8 @@ _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread19.i.i: ; preds = %.
   br label %"_ZN4core3str21_$LT$impl$u20$str$GT$10split_once17h3d07b3c9233a5405E.llvm.16446591400338671976.exit"
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$10split_once17h3d07b3c9233a5405E.llvm.16446591400338671976.exit": ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$10split_once17h3d07b3c9233a5405E.llvm.16446591400338671976.exit.loopexit13.split.loop.exit", %22, %_ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.i.i, %.preheader.i.i.i, %13
-  %.sroa.5.0 = phi i64 [ undef, %13 ], [ %21, %"_ZN4core3str21_$LT$impl$u20$str$GT$10split_once17h3d07b3c9233a5405E.llvm.16446591400338671976.exit.loopexit13.split.loop.exit" ], [ undef, %22 ], [ undef, %_ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.i.i ], [ undef, %.preheader.i.i.i ]
-  %.sroa.0.0 = phi ptr [ null, %13 ], [ %.mux10.le, %"_ZN4core3str21_$LT$impl$u20$str$GT$10split_once17h3d07b3c9233a5405E.llvm.16446591400338671976.exit.loopexit13.split.loop.exit" ], [ null, %22 ], [ null, %_ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.i.i ], [ null, %.preheader.i.i.i ]
+  %.sroa.5.0 = phi i64 [ undef, %13 ], [ undef, %22 ], [ undef, %_ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.i.i ], [ %21, %"_ZN4core3str21_$LT$impl$u20$str$GT$10split_once17h3d07b3c9233a5405E.llvm.16446591400338671976.exit.loopexit13.split.loop.exit" ], [ undef, %.preheader.i.i.i ]
+  %.sroa.0.0 = phi ptr [ null, %13 ], [ null, %22 ], [ null, %_ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.i.i ], [ %.mux10.le, %"_ZN4core3str21_$LT$impl$u20$str$GT$10split_once17h3d07b3c9233a5405E.llvm.16446591400338671976.exit.loopexit13.split.loop.exit" ], [ null, %.preheader.i.i.i ]
   %25 = icmp eq ptr %.sroa.0.0, null
   %.pn6.i = select i1 %25, ptr %3, ptr %.sroa.0.0
   %.pn4.i = select i1 %25, i64 %5, i64 %.sroa.5.0

@@ -1885,7 +1885,7 @@ uv__writev.exit:                                  ; preds = %.preheader, %53
   br label %63
 
 .critedge2.thread:                                ; preds = %53, %16, %.critedge2..critedge2.thread_crit_edge
-  %60 = phi i32 [ %.pr, %.critedge2..critedge2.thread_crit_edge ], [ %18, %16 ], [ %55, %53 ]
+  %60 = phi i32 [ %18, %16 ], [ %.pr, %.critedge2..critedge2.thread_crit_edge ], [ %55, %53 ]
   switch i32 %60, label %61 [
     i32 11, label %63
     i32 105, label %63

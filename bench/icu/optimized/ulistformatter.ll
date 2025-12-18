@@ -1071,7 +1071,7 @@ _ZN6icu_7710LocalArrayINS_13UnicodeStringEE29adoptInsteadAndCheckErrorCodeEPS1_R
   br label %.loopexit
 
 .loopexit:                                        ; preds = %70, %58, %.loopexit.sink.split, %.thread, %.preheader62, %.preheader, %_ZN6icu_7710LocalArrayINS_13UnicodeStringEE29adoptInsteadAndCheckErrorCodeEPS1_R10UErrorCode.exit
-  %.042 = phi ptr [ null, %_ZN6icu_7710LocalArrayINS_13UnicodeStringEE29adoptInsteadAndCheckErrorCodeEPS1_R10UErrorCode.exit ], [ %.043, %.preheader ], [ %.043, %.preheader62 ], [ null, %.thread ], [ null, %.loopexit.sink.split ], [ %.043, %58 ], [ %.043, %70 ]
+  %.042 = phi ptr [ %.043, %58 ], [ null, %_ZN6icu_7710LocalArrayINS_13UnicodeStringEE29adoptInsteadAndCheckErrorCodeEPS1_R10UErrorCode.exit ], [ %.043, %.preheader ], [ %.043, %.preheader62 ], [ null, %.loopexit.sink.split ], [ null, %.thread ], [ %.043, %70 ]
   ret ptr %.042
 }
 

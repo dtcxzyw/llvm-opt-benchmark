@@ -2235,7 +2235,7 @@ dissect_ndr_nt_SID.exit._crit_edge:               ; preds = %dissect_ndr_nt_SID.
   br i1 %56, label %.lr.ph, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.lr.ph, %47, %dissect_ndr_nt_SID.exit.thread, %40, %43, %45, %30, %dissect_ndr_nt_SID.exit
-  %.018.i62 = phi i32 [ %25, %dissect_ndr_nt_SID.exit.thread ], [ %.018.i66, %40 ], [ %.018.i66, %43 ], [ %.018.i66, %45 ], [ %.018.i66, %30 ], [ %1, %dissect_ndr_nt_SID.exit ], [ %.018.i66, %47 ], [ %.018.i66, %.lr.ph ]
+  %.018.i62 = phi i32 [ %25, %dissect_ndr_nt_SID.exit.thread ], [ %.018.i66, %40 ], [ %.018.i66, %43 ], [ %1, %dissect_ndr_nt_SID.exit ], [ %.018.i66, %45 ], [ %.018.i66, %30 ], [ %.018.i66, %47 ], [ %.018.i66, %.lr.ph ]
   ret i32 %.018.i62
 }
 

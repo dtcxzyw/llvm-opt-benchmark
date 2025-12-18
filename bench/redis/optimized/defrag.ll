@@ -1945,7 +1945,7 @@ activeDefragAlloc.exit:                           ; preds = %38
   br label %66
 
 64:                                               ; preds = %49, %54
-  %.217 = phi i64 [ %52, %49 ], [ 0, %54 ]
+  %.217 = phi i64 [ 0, %54 ], [ %52, %49 ]
   %65 = call i32 @raxNext(ptr noundef nonnull %4) #10
   %.not25 = icmp eq i32 %65, 0
   br i1 %.not25, label %._crit_edge, label %38, !llvm.loop !114

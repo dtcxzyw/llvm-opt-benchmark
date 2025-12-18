@@ -1425,7 +1425,7 @@ create_tcaphash_cont.exit.i:                      ; preds = %389, %379
   br i1 %.0.i34, label %tcaphash_cont_matching.exit, label %find_tcaphash_begin.exit.i
 
 create_tcaphash_end.exit.i:                       ; preds = %290, %456, %446
-  %.066.i = phi ptr [ %368, %456 ], [ %368, %446 ], [ %285, %290 ]
+  %.066.i = phi ptr [ %368, %446 ], [ %368, %456 ], [ %285, %290 ]
   %476 = load i8, ptr @gtcap_DisplaySRT, align 1, !range !6, !noundef !7
   %477 = trunc nuw i8 %476 to i1
   %478 = icmp ne ptr %2, null
@@ -2007,10 +2007,10 @@ proto_item_set_generated.exit170.i:               ; preds = %759, %756, %proto_i
   br label %proto_item_set_generated.exit157.i
 
 proto_item_set_generated.exit157.i:               ; preds = %546, %541, %764, %proto_item_set_generated.exit170.i, %append_tcaphash_ansicall.exit158.i, %append_tcaphash_ansicall.exit.i, %604, %601, %proto_item_set_generated.exit154.i, %553
-  %.0131.i = phi ptr [ %763, %proto_item_set_generated.exit170.i ], [ %560, %553 ], [ %770, %764 ], [ %643, %append_tcaphash_ansicall.exit.i ], [ %684, %append_tcaphash_ansicall.exit158.i ], [ %560, %proto_item_set_generated.exit154.i ], [ %560, %601 ], [ %560, %604 ], [ %543, %541 ], [ %543, %546 ]
-  %.1130.i = phi ptr [ %.0129.i, %proto_item_set_generated.exit170.i ], [ %.0129.i, %553 ], [ %787, %764 ], [ %650, %append_tcaphash_ansicall.exit.i ], [ %691, %append_tcaphash_ansicall.exit158.i ], [ %.0129.i, %proto_item_set_generated.exit154.i ], [ %.0129.i, %601 ], [ %.0129.i, %604 ], [ %.0129.i, %541 ], [ %.0129.i, %546 ]
-  %.0128.i = phi i1 [ false, %proto_item_set_generated.exit170.i ], [ true, %553 ], [ false, %764 ], [ false, %append_tcaphash_ansicall.exit.i ], [ false, %append_tcaphash_ansicall.exit158.i ], [ true, %proto_item_set_generated.exit154.i ], [ true, %601 ], [ true, %604 ], [ %.not102.i.not.not, %541 ], [ %.not102.i.not.not, %546 ]
-  %.1.i = phi ptr [ %.0.i42, %proto_item_set_generated.exit170.i ], [ null, %553 ], [ null, %764 ], [ null, %append_tcaphash_ansicall.exit.i ], [ null, %append_tcaphash_ansicall.exit158.i ], [ %566, %proto_item_set_generated.exit154.i ], [ %566, %601 ], [ %566, %604 ], [ null, %541 ], [ null, %546 ]
+  %.0131.i = phi ptr [ %763, %proto_item_set_generated.exit170.i ], [ %560, %604 ], [ %560, %601 ], [ %560, %553 ], [ %770, %764 ], [ %643, %append_tcaphash_ansicall.exit.i ], [ %684, %append_tcaphash_ansicall.exit158.i ], [ %560, %proto_item_set_generated.exit154.i ], [ %543, %541 ], [ %543, %546 ]
+  %.1130.i = phi ptr [ %.0129.i, %proto_item_set_generated.exit170.i ], [ %.0129.i, %604 ], [ %.0129.i, %601 ], [ %.0129.i, %553 ], [ %787, %764 ], [ %650, %append_tcaphash_ansicall.exit.i ], [ %691, %append_tcaphash_ansicall.exit158.i ], [ %.0129.i, %proto_item_set_generated.exit154.i ], [ %.0129.i, %541 ], [ %.0129.i, %546 ]
+  %.0128.i = phi i1 [ false, %proto_item_set_generated.exit170.i ], [ true, %604 ], [ true, %601 ], [ true, %553 ], [ false, %764 ], [ false, %append_tcaphash_ansicall.exit.i ], [ false, %append_tcaphash_ansicall.exit158.i ], [ true, %proto_item_set_generated.exit154.i ], [ %.not102.i.not.not, %541 ], [ %.not102.i.not.not, %546 ]
+  %.1.i = phi ptr [ %.0.i42, %proto_item_set_generated.exit170.i ], [ %566, %604 ], [ %566, %601 ], [ null, %553 ], [ null, %764 ], [ null, %append_tcaphash_ansicall.exit.i ], [ null, %append_tcaphash_ansicall.exit158.i ], [ %566, %proto_item_set_generated.exit154.i ], [ null, %541 ], [ null, %546 ]
   %804 = load i8, ptr @gtcap_DisplaySRT, align 1, !range !6, !noundef !7
   %805 = trunc nuw i8 %804 to i1
   %806 = icmp ne ptr %2, null

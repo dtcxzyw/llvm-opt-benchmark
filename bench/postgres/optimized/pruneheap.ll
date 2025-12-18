@@ -453,7 +453,7 @@ heap_prune_satisfies_vacuum.exit:                 ; preds = %132, %141, %146
   br label %184
 
 ._crit_edge194:                                   ; preds = %364, %70, %._crit_edge
-  %.not155230 = phi i1 [ %165, %._crit_edge ], [ false, %70 ], [ %165, %364 ]
+  %.not155230 = phi i1 [ false, %70 ], [ %165, %._crit_edge ], [ %165, %364 ]
   %176 = load i32, ptr %44, align 8
   %.0150195 = add i32 %176, -1
   %177 = icmp sgt i32 %.0150195, -1
@@ -601,10 +601,10 @@ HeapTupleHeaderGetXmin.exit.i:                    ; preds = %220, %216
   br label %HeapTupleHeaderGetUpdateXid.exit.i
 
 HeapTupleHeaderGetUpdateXid.exit.i:               ; preds = %249, %247, %205
-  %.183.i = phi i32 [ %.2.i, %249 ], [ %.082115.i, %205 ], [ %.2.i, %247 ]
-  %.181.i = phi i32 [ %224, %249 ], [ %206, %205 ], [ %224, %247 ]
-  %.179.i = phi i16 [ %.val86.i, %249 ], [ %211, %205 ], [ %.val86.i, %247 ]
-  %.177.i = phi i32 [ %.val.i87.i, %249 ], [ %.076118.i, %205 ], [ %248, %247 ]
+  %.183.i = phi i32 [ %.2.i, %249 ], [ %.2.i, %247 ], [ %.082115.i, %205 ]
+  %.181.i = phi i32 [ %224, %249 ], [ %224, %247 ], [ %206, %205 ]
+  %.179.i = phi i16 [ %.val86.i, %249 ], [ %.val86.i, %247 ], [ %211, %205 ]
+  %.177.i = phi i32 [ %.val.i87.i, %249 ], [ %248, %247 ], [ %.076118.i, %205 ]
   %251 = add i16 %.179.i, -1
   %or.cond85.not.i = icmp ult i16 %251, %85
   br i1 %or.cond85.not.i, label %.lr.ph.i, label %._crit_edge.i165

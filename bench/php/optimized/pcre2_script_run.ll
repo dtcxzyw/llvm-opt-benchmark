@@ -335,7 +335,7 @@ switch.lookup250:                                 ; preds = %switch.hole_check24
   br label %.critedge
 
 .critedge:                                        ; preds = %.preheader, %switch.lookup250, %switch.lookup, %144, %.fold.split, %151, %160, %156, %152, %143, %142, %127, %127
-  %.2150 = phi i32 [ %.0148216, %127 ], [ %.0148216, %127 ], [ %switch.load, %switch.lookup ], [ 1, %142 ], [ 2, %.fold.split ], [ %switch.load255, %switch.lookup250 ], [ 3, %151 ], [ 4, %144 ], [ 2, %143 ], [ 3, %152 ], [ 4, %156 ], [ 5, %160 ], [ 1, %.preheader ]
+  %.2150 = phi i32 [ %.0148216, %127 ], [ %.0148216, %127 ], [ %switch.load255, %switch.lookup250 ], [ 1, %142 ], [ %switch.load, %switch.lookup ], [ 5, %160 ], [ 3, %151 ], [ 2, %.fold.split ], [ 4, %144 ], [ 2, %143 ], [ 3, %152 ], [ 4, %156 ], [ 1, %.preheader ]
   %179 = getelementptr inbounds nuw i8, ptr %122, i64 1
   %180 = load i8, ptr %179, align 1, !tbaa !14
   %181 = icmp eq i8 %180, 13
@@ -497,8 +497,8 @@ switch.lookup250:                                 ; preds = %switch.hole_check24
   br label %290
 
 290:                                              ; preds = %194, %216, %262, %273, %230, %202
-  %.2162 = phi i32 [ %209, %202 ], [ %225, %216 ], [ %245, %230 ], [ %271, %262 ], [ %288, %273 ], [ %197, %194 ]
-  %.2146 = phi ptr [ %205, %202 ], [ %226, %216 ], [ %246, %230 ], [ %272, %262 ], [ %289, %273 ], [ %195, %194 ]
+  %.2162 = phi i32 [ %197, %194 ], [ %288, %273 ], [ %271, %262 ], [ %245, %230 ], [ %209, %202 ], [ %225, %216 ]
+  %.2146 = phi ptr [ %195, %194 ], [ %289, %273 ], [ %272, %262 ], [ %246, %230 ], [ %205, %202 ], [ %226, %216 ]
   %291 = lshr i32 %.2162, 7
   %292 = zext nneg i32 %291 to i64
   %293 = getelementptr inbounds nuw i16, ptr @_pcre2_ucd_stage1_8, i64 %292
@@ -517,7 +517,7 @@ switch.lookup250:                                 ; preds = %switch.hole_check24
   br i1 %305, label %.thread197, label %120
 
 .thread197:                                       ; preds = %290, %193, %.loopexit, %160, %152, %156, %144, %164, %.preheader207.preheader, %103, %3
-  %.0134 = phi i32 [ 1, %103 ], [ 1, %3 ], [ 0, %.preheader207.preheader ], [ 0, %164 ], [ 0, %156 ], [ 0, %152 ], [ 0, %160 ], [ 0, %.loopexit ], [ 0, %290 ], [ 1, %193 ], [ %.3142, %144 ]
+  %.0134 = phi i32 [ 1, %103 ], [ 1, %3 ], [ 0, %164 ], [ 0, %.preheader207.preheader ], [ 0, %152 ], [ 0, %160 ], [ 0, %.loopexit ], [ 0, %156 ], [ 0, %290 ], [ 1, %193 ], [ %.3142, %144 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0134

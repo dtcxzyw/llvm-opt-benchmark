@@ -2791,7 +2791,7 @@ proto_item_set_generated.exit551:                 ; preds = %468, %465, %proto_i
   br i1 %exitcond595.not, label %dissect_rtp_hext_rfc5285_onebyte.exit, label %568, !llvm.loop !17
 
 dissect_rtp_hext_rfc5285_onebyte.exit:            ; preds = %568, %555, %531, %526, %517, %492, %511, %564, %561
-  %.pre-phi = phi i32 [ %505, %561 ], [ 0, %492 ], [ %505, %511 ], [ %505, %564 ], [ %505, %555 ], [ %505, %517 ], [ %505, %526 ], [ %505, %531 ], [ %505, %568 ]
+  %.pre-phi = phi i32 [ %505, %561 ], [ %505, %555 ], [ %505, %517 ], [ 0, %492 ], [ %505, %511 ], [ %505, %564 ], [ %505, %526 ], [ %505, %531 ], [ %505, %568 ]
   %.0..0..0..0.219 = load volatile i32, ptr %6, align 4
   %573 = add i32 %.0..0..0..0.219, %.pre-phi
   store volatile i32 %573, ptr %6, align 4
@@ -4286,8 +4286,8 @@ define internal fastcc void @dissect_rtp_data(ptr noundef %0, ptr noundef %1, pt
   %.not116.not = icmp eq i32 %50, 0
   br i1 %.not116.not, label %.critedge, label %.thread125
 
-.thread125:                                       ; preds = %45, %42, %48
-  %.0128 = phi ptr [ %49, %48 ], [ %39, %42 ], [ %39, %45 ]
+.thread125:                                       ; preds = %42, %45, %48
+  %.0128 = phi ptr [ %49, %48 ], [ %39, %45 ], [ %39, %42 ]
   %51 = load i32, ptr %25, align 4
   %52 = tail call i32 @tvb_reported_length_remaining(ptr noundef %.0128, i32 noundef %51)
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 80

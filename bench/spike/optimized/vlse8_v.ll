@@ -401,7 +401,7 @@ _ZN5mmu_t4loadIaEET_m13xlate_flags_t.exit:        ; preds = %155, %158, %_ZNSt6v
   br i1 %exitcond.not, label %.loopexit, label %136, !llvm.loop !185
 
 .loopexit:                                        ; preds = %_ZN5mmu_t4loadIaEET_m13xlate_flags_t.exit, %126, %118
-  %.sroa.01.1 = phi i8 [ %.sroa.01.0126, %118 ], [ %.sroa.01.0126, %126 ], [ %135, %_ZN5mmu_t4loadIaEET_m13xlate_flags_t.exit ]
+  %.sroa.01.1 = phi i8 [ %.sroa.01.0126, %126 ], [ %.sroa.01.0126, %118 ], [ %135, %_ZN5mmu_t4loadIaEET_m13xlate_flags_t.exit ]
   %180 = add nuw i64 %.084125, 1
   %exitcond128.not = icmp eq i64 %180, %100
   br i1 %exitcond128.not, label %._crit_edge, label %118, !llvm.loop !187
@@ -837,7 +837,7 @@ _ZN5mmu_t4loadIaEET_m13xlate_flags_t.exit:        ; preds = %153, %156, %_ZNSt6v
   br i1 %exitcond.not, label %.loopexit, label %134, !llvm.loop !195
 
 .loopexit:                                        ; preds = %_ZN5mmu_t4loadIaEET_m13xlate_flags_t.exit, %124, %116
-  %.sroa.01.1 = phi i8 [ %.sroa.01.0126, %116 ], [ %.sroa.01.0126, %124 ], [ %133, %_ZN5mmu_t4loadIaEET_m13xlate_flags_t.exit ]
+  %.sroa.01.1 = phi i8 [ %.sroa.01.0126, %124 ], [ %.sroa.01.0126, %116 ], [ %133, %_ZN5mmu_t4loadIaEET_m13xlate_flags_t.exit ]
   %178 = add nuw i64 %.084125, 1
   %exitcond128.not = icmp eq i64 %178, %100
   br i1 %exitcond128.not, label %._crit_edge, label %116, !llvm.loop !196
@@ -1163,7 +1163,7 @@ _ZN5mmu_t4loadIaEET_m13xlate_flags_t.exit:        ; preds = %155, %158, %_ZNSt6v
   br i1 %exitcond.not, label %.loopexit, label %136, !llvm.loop !197
 
 .loopexit:                                        ; preds = %_ZN5mmu_t4loadIaEET_m13xlate_flags_t.exit, %126, %118
-  %.sroa.01.1 = phi i8 [ %.sroa.01.0126, %118 ], [ %.sroa.01.0126, %126 ], [ %135, %_ZN5mmu_t4loadIaEET_m13xlate_flags_t.exit ]
+  %.sroa.01.1 = phi i8 [ %.sroa.01.0126, %126 ], [ %.sroa.01.0126, %118 ], [ %135, %_ZN5mmu_t4loadIaEET_m13xlate_flags_t.exit ]
   %180 = add nuw i64 %.084125, 1
   %exitcond128.not = icmp eq i64 %180, %100
   br i1 %exitcond128.not, label %._crit_edge, label %118, !llvm.loop !198
@@ -1487,7 +1487,7 @@ _ZN5mmu_t4loadIaEET_m13xlate_flags_t.exit:        ; preds = %153, %156, %_ZNSt6v
   br i1 %exitcond.not, label %.loopexit, label %134, !llvm.loop !199
 
 .loopexit:                                        ; preds = %_ZN5mmu_t4loadIaEET_m13xlate_flags_t.exit, %124, %116
-  %.sroa.01.1 = phi i8 [ %.sroa.01.0126, %116 ], [ %.sroa.01.0126, %124 ], [ %133, %_ZN5mmu_t4loadIaEET_m13xlate_flags_t.exit ]
+  %.sroa.01.1 = phi i8 [ %.sroa.01.0126, %124 ], [ %.sroa.01.0126, %116 ], [ %133, %_ZN5mmu_t4loadIaEET_m13xlate_flags_t.exit ]
   %178 = add nuw i64 %.084125, 1
   %exitcond128.not = icmp eq i64 %178, %100
   br i1 %exitcond128.not, label %._crit_edge, label %116, !llvm.loop !200
@@ -1890,7 +1890,7 @@ _ZN5mmu_t4loadIaEET_m13xlate_flags_t.exit:        ; preds = %191, %194, %_ZNSt6v
   br i1 %exitcond.not, label %.loopexit, label %172, !llvm.loop !202
 
 .loopexit:                                        ; preds = %_ZN5mmu_t4loadIaEET_m13xlate_flags_t.exit, %162, %.lr.ph.split
-  %.sroa.01.1 = phi i8 [ %.sroa.01.0138, %.lr.ph.split ], [ %.sroa.01.0138, %162 ], [ %171, %_ZN5mmu_t4loadIaEET_m13xlate_flags_t.exit ]
+  %.sroa.01.1 = phi i8 [ %.sroa.01.0138, %162 ], [ %.sroa.01.0138, %.lr.ph.split ], [ %171, %_ZN5mmu_t4loadIaEET_m13xlate_flags_t.exit ]
   %216 = add nuw i64 %.089137, 1
   %exitcond151.not = icmp eq i64 %216, %100
   br i1 %exitcond151.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !201
@@ -2291,7 +2291,7 @@ _ZN5mmu_t4loadIaEET_m13xlate_flags_t.exit:        ; preds = %189, %192, %_ZNSt6v
   br i1 %exitcond.not, label %.loopexit, label %170, !llvm.loop !204
 
 .loopexit:                                        ; preds = %_ZN5mmu_t4loadIaEET_m13xlate_flags_t.exit, %160, %.lr.ph.split
-  %.sroa.01.1 = phi i8 [ %.sroa.01.0138, %.lr.ph.split ], [ %.sroa.01.0138, %160 ], [ %169, %_ZN5mmu_t4loadIaEET_m13xlate_flags_t.exit ]
+  %.sroa.01.1 = phi i8 [ %.sroa.01.0138, %160 ], [ %.sroa.01.0138, %.lr.ph.split ], [ %169, %_ZN5mmu_t4loadIaEET_m13xlate_flags_t.exit ]
   %214 = add nuw i64 %.089137, 1
   %exitcond151.not = icmp eq i64 %214, %100
   br i1 %exitcond151.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !203
@@ -2694,7 +2694,7 @@ _ZN5mmu_t4loadIaEET_m13xlate_flags_t.exit:        ; preds = %191, %194, %_ZNSt6v
   br i1 %exitcond.not, label %.loopexit, label %172, !llvm.loop !206
 
 .loopexit:                                        ; preds = %_ZN5mmu_t4loadIaEET_m13xlate_flags_t.exit, %162, %.lr.ph.split
-  %.sroa.01.1 = phi i8 [ %.sroa.01.0138, %.lr.ph.split ], [ %.sroa.01.0138, %162 ], [ %171, %_ZN5mmu_t4loadIaEET_m13xlate_flags_t.exit ]
+  %.sroa.01.1 = phi i8 [ %.sroa.01.0138, %162 ], [ %.sroa.01.0138, %.lr.ph.split ], [ %171, %_ZN5mmu_t4loadIaEET_m13xlate_flags_t.exit ]
   %216 = add nuw i64 %.089137, 1
   %exitcond151.not = icmp eq i64 %216, %100
   br i1 %exitcond151.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !205
@@ -3095,7 +3095,7 @@ _ZN5mmu_t4loadIaEET_m13xlate_flags_t.exit:        ; preds = %189, %192, %_ZNSt6v
   br i1 %exitcond.not, label %.loopexit, label %170, !llvm.loop !208
 
 .loopexit:                                        ; preds = %_ZN5mmu_t4loadIaEET_m13xlate_flags_t.exit, %160, %.lr.ph.split
-  %.sroa.01.1 = phi i8 [ %.sroa.01.0138, %.lr.ph.split ], [ %.sroa.01.0138, %160 ], [ %169, %_ZN5mmu_t4loadIaEET_m13xlate_flags_t.exit ]
+  %.sroa.01.1 = phi i8 [ %.sroa.01.0138, %160 ], [ %.sroa.01.0138, %.lr.ph.split ], [ %169, %_ZN5mmu_t4loadIaEET_m13xlate_flags_t.exit ]
   %214 = add nuw i64 %.089137, 1
   %exitcond151.not = icmp eq i64 %214, %100
   br i1 %exitcond151.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !207

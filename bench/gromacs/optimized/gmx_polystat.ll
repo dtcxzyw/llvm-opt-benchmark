@@ -2037,8 +2037,8 @@ _ZL10gyro_eigenPPdS_S0_Pi.exit:                   ; preds = %652
   br i1 %819, label %.lr.ph727.backedge, label %._crit_edge728
 
 .lr.ph727.backedge:                               ; preds = %818, %.thread
-  %indvars.iv859.be = phi i64 [ %indvars.iv.next860, %818 ], [ %indvars.iv.next860983, %.thread ]
-  %.5307726.be = phi i32 [ %.6308, %818 ], [ -1, %.thread ]
+  %indvars.iv859.be = phi i64 [ %indvars.iv.next860983, %.thread ], [ %indvars.iv.next860, %818 ]
+  %.5307726.be = phi i32 [ -1, %.thread ], [ %.6308, %818 ]
   br label %.lr.ph727, !llvm.loop !102
 
 .thread:                                          ; preds = %814

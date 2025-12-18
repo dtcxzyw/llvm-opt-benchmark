@@ -6457,7 +6457,7 @@ _ZN5boost25simple_segregated_storageImE12try_malloc_nERPvmm.exit.thread.i: ; pre
   br label %_ZN5boost25simple_segregated_storageImE8malloc_nEmm.exit
 
 _ZN5boost25simple_segregated_storageImE8malloc_nEmm.exit: ; preds = %.lr.ph, %.preheader.split.i, %8, %.preheader.split.us.i, %_ZN5boost25simple_segregated_storageImE12try_malloc_nERPvmm.exit.thread.i
-  %.0.i36 = phi ptr [ null, %8 ], [ %32, %_ZN5boost25simple_segregated_storageImE12try_malloc_nERPvmm.exit.thread.i ], [ null, %.preheader.split.us.i ], [ null, %.preheader.split.i ], [ null, %.lr.ph ]
+  %.0.i36 = phi ptr [ null, %8 ], [ %32, %_ZN5boost25simple_segregated_storageImE12try_malloc_nERPvmm.exit.thread.i ], [ null, %.preheader.split.i ], [ null, %.preheader.split.us.i ], [ null, %.lr.ph ]
   %33 = icmp ne ptr %.0.i36, null
   %34 = icmp eq i64 %1, 0
   %or.cond = or i1 %34, %33
@@ -6567,8 +6567,8 @@ _ZN5boost25simple_segregated_storageImE9find_prevEPv.exit.i: ; preds = %.prehead
   br i1 %.not.i.i40, label %_ZN5boost25simple_segregated_storageImE9add_blockEPvmm.exit.sink.split.i, label %.lr.ph.i.i, !llvm.loop !197
 
 _ZN5boost25simple_segregated_storageImE9add_blockEPvmm.exit.sink.split.i: ; preds = %.lr.ph.i.i, %.lr.ph.i.i.i, %76, %69
-  %.022.lcssa.i.sink.i = phi ptr [ %67, %69 ], [ %74, %76 ], [ %.029.i.i.i, %.lr.ph.i.i.i ], [ %.029.i.i, %.lr.ph.i.i ]
-  %.0.i.lcssa.sink.ph.i = phi ptr [ %0, %69 ], [ %.0.i.i39, %76 ], [ %0, %.lr.ph.i.i.i ], [ %.0.i.i39, %.lr.ph.i.i ]
+  %.022.lcssa.i.sink.i = phi ptr [ %.029.i.i.i, %.lr.ph.i.i.i ], [ %67, %69 ], [ %74, %76 ], [ %.029.i.i, %.lr.ph.i.i ]
+  %.0.i.lcssa.sink.ph.i = phi ptr [ %0, %.lr.ph.i.i.i ], [ %0, %69 ], [ %.0.i.i39, %76 ], [ %.0.i.i39, %.lr.ph.i.i ]
   store ptr %.022.lcssa.i.sink.i, ptr %55, align 8, !tbaa !17
   br label %_ZN5boost25simple_segregated_storageImE17add_ordered_blockEPvmm.exit
 
@@ -8911,7 +8911,7 @@ _ZNK5boost6spirit7classic4impl9rule_baseINS1_4ruleINS1_7scannerINS_4wave4util20u
   br label %_ZNSt7__cxx114listIN5boost4wave8cpplexer9lex_tokenINS2_4util13file_positionINS5_11flex_stringIcSt11char_traitsIcESaIcENS5_9CowStringINS5_22AllocatorStringStorageIcSA_EEPcEEEEEEEENS1_19fast_pool_allocatorISI_NS1_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEaSERKSN_.exit.i
 
 _ZNSt7__cxx114listIN5boost4wave8cpplexer9lex_tokenINS2_4util13file_positionINS5_11flex_stringIcSt11char_traitsIcESaIcENS5_9CowStringINS5_22AllocatorStringStorageIcSA_EEPcEEEEEEEENS1_19fast_pool_allocatorISI_NS1_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEaSERKSN_.exit.i: ; preds = %.lr.ph.i.i.i.i, %2, %24, %22, %_ZNK5boost6spirit7classic4impl9rule_baseINS1_4ruleINS1_7scannerINS_4wave4util20unput_queue_iteratorISt14_List_iteratorINS6_8cpplexer9lex_tokenINS7_13file_positionINS7_11flex_stringIcSt11char_traitsIcESaIcENS7_9CowStringINS7_22AllocatorStringStorageIcSG_EEPcEEEEEEEEESO_NSt7__cxx114listISO_NS_19fast_pool_allocatorISO_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINS1_5chlitINS6_8token_idEEES13_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_5nil_tES1B_EERKS1C_S1A_S1B_S1B_E5parseIS1A_EENS1_13parser_resultIS1C_T_E4typeERKS1I_.exit.thread
-  %26 = phi ptr [ %.pre, %_ZNK5boost6spirit7classic4impl9rule_baseINS1_4ruleINS1_7scannerINS_4wave4util20unput_queue_iteratorISt14_List_iteratorINS6_8cpplexer9lex_tokenINS7_13file_positionINS7_11flex_stringIcSt11char_traitsIcESaIcENS7_9CowStringINS7_22AllocatorStringStorageIcSG_EEPcEEEEEEEEESO_NSt7__cxx114listISO_NS_19fast_pool_allocatorISO_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINS1_5chlitINS6_8token_idEEES13_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_5nil_tES1B_EERKS1C_S1A_S1B_S1B_E5parseIS1A_EENS1_13parser_resultIS1C_T_E4typeERKS1I_.exit.thread ], [ %.pre, %24 ], [ %.pre, %22 ], [ %4, %2 ], [ %.pre, %.lr.ph.i.i.i.i ]
+  %26 = phi ptr [ %4, %2 ], [ %.pre, %_ZNK5boost6spirit7classic4impl9rule_baseINS1_4ruleINS1_7scannerINS_4wave4util20unput_queue_iteratorISt14_List_iteratorINS6_8cpplexer9lex_tokenINS7_13file_positionINS7_11flex_stringIcSt11char_traitsIcESaIcENS7_9CowStringINS7_22AllocatorStringStorageIcSG_EEPcEEEEEEEEESO_NSt7__cxx114listISO_NS_19fast_pool_allocatorISO_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINS1_5chlitINS6_8token_idEEES13_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_5nil_tES1B_EERKS1C_S1A_S1B_S1B_E5parseIS1A_EENS1_13parser_resultIS1C_T_E4typeERKS1I_.exit.thread ], [ %.pre, %24 ], [ %.pre, %22 ], [ %.pre, %.lr.ph.i.i.i.i ]
   store i64 %.sroa.0.0.copyload, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = load ptr, ptr %27, align 8, !tbaa !245

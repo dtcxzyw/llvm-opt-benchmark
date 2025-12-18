@@ -1076,8 +1076,8 @@ PaAlsa_StrDup.exit:                               ; preds = %39
   br i1 %90, label %._crit_edge.i, label %.preheader46.i, !llvm.loop !98
 
 ._crit_edge.i:                                    ; preds = %.critedge2.i, %86, %67
-  %91 = phi i8 [ %.pre62.i, %67 ], [ %85, %86 ], [ %85, %.critedge2.i ]
-  %.0.lcssa.i = phi ptr [ %68, %67 ], [ %.1.lcssa.i, %86 ], [ %.1.lcssa.i, %.critedge2.i ]
+  %91 = phi i8 [ %85, %86 ], [ %.pre62.i, %67 ], [ %85, %.critedge2.i ]
+  %.0.lcssa.i = phi ptr [ %.1.lcssa.i, %86 ], [ %68, %67 ], [ %.1.lcssa.i, %.critedge2.i ]
   %92 = icmp eq i8 %91, 0
   br i1 %92, label %SkipCardDetailsInName.exit, label %.preheader.i
 
@@ -1433,9 +1433,9 @@ IgnorePlugin.exit.thread.sink.split:              ; preds = %233, %.loopexit
   br label %IgnorePlugin.exit.thread
 
 IgnorePlugin.exit.thread:                         ; preds = %196, %IgnorePlugin.exit.thread.sink.split, %192
-  %.6170 = phi ptr [ %.5169356, %192 ], [ %.7171, %IgnorePlugin.exit.thread.sink.split ], [ %.5169356, %196 ]
-  %.6160 = phi i64 [ %.5159357, %192 ], [ %.7161, %IgnorePlugin.exit.thread.sink.split ], [ %.5159357, %196 ]
-  %.5151 = phi i64 [ %.4150358, %192 ], [ %218, %IgnorePlugin.exit.thread.sink.split ], [ %.4150358, %196 ]
+  %.6170 = phi ptr [ %.7171, %IgnorePlugin.exit.thread.sink.split ], [ %.5169356, %192 ], [ %.5169356, %196 ]
+  %.6160 = phi i64 [ %.7161, %IgnorePlugin.exit.thread.sink.split ], [ %.5159357, %192 ], [ %.5159357, %196 ]
+  %.5151 = phi i64 [ %218, %IgnorePlugin.exit.thread.sink.split ], [ %.4150358, %192 ], [ %.4150358, %196 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -1919,7 +1919,7 @@ define internal i32 @ReadStream(ptr noundef %0, ptr noundef %1, i64 noundef %2) 
   br label %.loopexit
 
 61:                                               ; preds = %53, %59
-  %.130 = phi i64 [ %60, %59 ], [ %.02950, %53 ]
+  %.130 = phi i64 [ %.02950, %53 ], [ %60, %59 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not37 = icmp eq i64 %.130, 0
   br i1 %.not37, label %.loopexit, label %45
@@ -3981,7 +3981,7 @@ define internal fastcc i32 @PaAlsaStream_Configure(ptr noundef nonnull %0, ptr n
   br label %PaAlsaStream_DetermineFramesPerBuffer.exit.thread72
 
 209:                                              ; preds = %206, %179
-  %.0207.i = phi i64 [ %spec.select283.i, %179 ], [ %.285.i, %206 ]
+  %.0207.i = phi i64 [ %.285.i, %206 ], [ %spec.select283.i, %179 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -4085,7 +4085,7 @@ define internal fastcc i32 @PaAlsaStream_Configure(ptr noundef nonnull %0, ptr n
   br label %PaAlsaStream_DetermineFramesPerBuffer.exit
 
 252:                                              ; preds = %251, %245
-  %.2209.i = phi i64 [ %.287.i, %251 ], [ %247, %245 ]
+  %.2209.i = phi i64 [ %247, %245 ], [ %.287.i, %251 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %271
 
@@ -4183,7 +4183,7 @@ PaAlsaStream_DetermineFramesPerBuffer.exit.thread72: ; preds = %272, %.thread336
   br label %287
 
 PaAlsaStream_DetermineFramesPerBuffer.exit:       ; preds = %.thread349.i, %257, %266
-  %.13.i = phi i32 [ %258, %257 ], [ %267, %266 ], [ %.15.ph.i, %.thread349.i ]
+  %.13.i = phi i32 [ %.15.ph.i, %.thread349.i ], [ %267, %266 ], [ %258, %257 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   store i32 %.13.i, ptr @paUtilErr_, align 4, !tbaa !3
@@ -6264,7 +6264,7 @@ define internal fastcc i32 @PaAlsaStream_WaitForFrames(ptr noundef %0, ptr nound
   br label %.preheader
 
 134:                                              ; preds = %.thread163, %114, %126, %129, %121, %88
-  %.181 = phi i32 [ %.080214, %88 ], [ %.282, %114 ], [ %.282, %.thread163 ], [ %.282, %121 ], [ %.282, %129 ], [ %.282, %126 ]
+  %.181 = phi i32 [ %.080214, %88 ], [ %.282, %126 ], [ %.282, %129 ], [ %.282, %121 ], [ %.282, %114 ], [ %.282, %.thread163 ]
   %135 = load i32, ptr %4, align 4, !tbaa !3
   %136 = icmp ne i32 %135, 0
   %137 = load i32, ptr %5, align 4
@@ -6340,7 +6340,7 @@ define internal fastcc i32 @PaAlsaStream_WaitForFrames(ptr noundef %0, ptr nound
   br label %.preheader
 
 .preheader:                                       ; preds = %109, %103, %124, %132, %89, %37, %35, %155, %153, %157, %159, %162, %25, %167
-  %.079.ph.ph = phi i32 [ %26, %25 ], [ 0, %157 ], [ 0, %153 ], [ 0, %155 ], [ 0, %35 ], [ 0, %37 ], [ 0, %162 ], [ 0, %159 ], [ %168, %167 ], [ %110, %109 ], [ %104, %103 ], [ %125, %124 ], [ %133, %132 ], [ %90, %89 ]
+  %.079.ph.ph = phi i32 [ %26, %25 ], [ 0, %153 ], [ 0, %155 ], [ 0, %159 ], [ 0, %35 ], [ 0, %37 ], [ 0, %162 ], [ %168, %167 ], [ 0, %157 ], [ %110, %109 ], [ %104, %103 ], [ %125, %124 ], [ %133, %132 ], [ %90, %89 ]
   %.pr208 = load i32, ptr %7, align 4, !tbaa !3
   %.not121 = icmp eq i32 %.pr208, 0
   %169 = getelementptr inbounds nuw i8, ptr %0, i64 736
@@ -6375,8 +6375,8 @@ define internal fastcc i32 @PaAlsaStream_WaitForFrames(ptr noundef %0, ptr nound
   br i1 %.not122.us, label %.critedge, label %.lr.ph
 
 .preheader.split:                                 ; preds = %111, %61, %52, %98, %._crit_edge217, %27, %.preheader
-  %.079.ph212 = phi i32 [ %.079.ph.ph, %.preheader ], [ 0, %98 ], [ 0, %._crit_edge217 ], [ 0, %27 ], [ 0, %52 ], [ 0, %61 ], [ 0, %111 ]
-  %176 = phi i32 [ %.pr208, %.preheader ], [ 1, %98 ], [ %.pr, %._crit_edge217 ], [ %28, %27 ], [ %112, %111 ], [ 1, %61 ], [ 1, %52 ]
+  %.079.ph212 = phi i32 [ %.079.ph.ph, %.preheader ], [ 0, %27 ], [ 0, %98 ], [ 0, %._crit_edge217 ], [ 0, %52 ], [ 0, %61 ], [ 0, %111 ]
+  %176 = phi i32 [ %.pr208, %.preheader ], [ %28, %27 ], [ 1, %98 ], [ %.pr, %._crit_edge217 ], [ %112, %111 ], [ 1, %61 ], [ 1, %52 ]
   %177 = tail call fastcc i32 @PaAlsaStream_HandleXrun(ptr noundef nonnull %0)
   store i32 %177, ptr @paUtilErr_, align 4, !tbaa !3
   %178 = icmp slt i32 %177, 0
@@ -6974,7 +6974,7 @@ define internal fastcc range(i32 -9999, 1) i32 @AlsaStop(ptr noundef readonly ca
   br label %23
 
 23:                                               ; preds = %.sink.split, %.thread, %12, %15
-  %.5 = phi i32 [ 0, %12 ], [ 0, %.thread ], [ 0, %15 ], [ -9999, %.sink.split ]
+  %.5 = phi i32 [ 0, %12 ], [ 0, %15 ], [ 0, %.thread ], [ -9999, %.sink.split ]
   ret i32 %.5
 }
 

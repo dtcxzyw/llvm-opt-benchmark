@@ -3155,7 +3155,7 @@ define noundef zeroext i1 @pmix_notify_check_affected(ptr noundef %0, i64 nounde
   br i1 %exitcond23.not, label %.loopexit, label %.preheader.us, !llvm.loop !166
 
 .loopexit:                                        ; preds = %._crit_edge.us, %10, %.preheader16, %4
-  %.013 = phi i1 [ true, %4 ], [ false, %.preheader16 ], [ true, %10 ], [ false, %._crit_edge.us ]
+  %.013 = phi i1 [ false, %.preheader16 ], [ true, %4 ], [ true, %10 ], [ false, %._crit_edge.us ]
   ret i1 %.013
 }
 
@@ -3471,7 +3471,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %66, %6
   br i1 %147, label %.lr.ph634, label %.thread591, !llvm.loop !199
 
 .thread591:                                       ; preds = %144, %138, %.preheader621, %136, %112
-  %.1381 = phi i64 [ 0, %112 ], [ -1, %136 ], [ -1, %.preheader621 ], [ %.2, %144 ], [ -1, %138 ]
+  %.1381 = phi i64 [ -1, %136 ], [ 0, %112 ], [ -1, %138 ], [ %.2, %144 ], [ -1, %.preheader621 ]
   %148 = getelementptr inbounds nuw i8, ptr %2, i64 768
   store i64 %.1381, ptr %148, align 8, !tbaa !200
   br label %149
@@ -6223,7 +6223,7 @@ define internal void @cycle_events(i32 %0, i16 signext %1, ptr noundef %2) #0 {
   br i1 %exitcond410, label %pmix_strncpy.exit, label %60
 
 pmix_strncpy.exit:                                ; preds = %54, %51, %60
-  %.0811.i338.lcssa.sink = phi ptr [ %63, %60 ], [ %57, %54 ], [ %.0811.i, %51 ]
+  %.0811.i338.lcssa.sink = phi ptr [ %63, %60 ], [ %.0811.i, %51 ], [ %57, %54 ]
   store i8 0, ptr %.0811.i338.lcssa.sink, align 1, !tbaa !85
   %65 = getelementptr inbounds nuw %struct.pmix_info, ptr %29, i64 %.0278.lcssa
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 520

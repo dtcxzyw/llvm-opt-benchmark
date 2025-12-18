@@ -1868,7 +1868,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN10async_task4task17Task$LT$T$C$M$GT
   br i1 %23, label %"_ZN10async_task6header15Header$LT$M$GT$6notify17hb48a502ec46bafe9E.llvm.18335949784920153493.exit22", label %24
 
 "_ZN10async_task6header15Header$LT$M$GT$6notify17hb48a502ec46bafe9E.llvm.18335949784920153493.exit22": ; preds = %21, %100, %94, %81, %76, %71, %"_ZN10async_task6header15Header$LT$M$GT$6notify17hb48a502ec46bafe9E.llvm.18335949784920153493.exit"
-  %.sroa.0.0 = phi i8 [ 1, %"_ZN10async_task6header15Header$LT$M$GT$6notify17hb48a502ec46bafe9E.llvm.18335949784920153493.exit" ], [ 2, %71 ], [ 0, %76 ], [ 0, %81 ], [ 0, %94 ], [ 0, %100 ], [ 2, %21 ]
+  %.sroa.0.0 = phi i8 [ 1, %"_ZN10async_task6header15Header$LT$M$GT$6notify17hb48a502ec46bafe9E.llvm.18335949784920153493.exit" ], [ 0, %100 ], [ 2, %71 ], [ 0, %76 ], [ 0, %81 ], [ 0, %94 ], [ 2, %21 ]
   ret i8 %.sroa.0.0
 
 24:                                               ; preds = %21, %10
@@ -2572,8 +2572,8 @@ define hidden { i64, ptr } @"_ZN10async_task4task17Task$LT$T$C$M$GT$9poll_task17
   br i1 %23, label %"_ZN10async_task6header15Header$LT$M$GT$6notify17hb48a502ec46bafe9E.llvm.18335949784920153493.exit25", label %26
 
 "_ZN10async_task6header15Header$LT$M$GT$6notify17hb48a502ec46bafe9E.llvm.18335949784920153493.exit25": ; preds = %21, %100, %94, %81, %76, %71, %"_ZN10async_task6header15Header$LT$M$GT$6notify17hb48a502ec46bafe9E.llvm.18335949784920153493.exit"
-  %.sroa.5.0 = phi ptr [ %.sroa.58.0.copyload, %"_ZN10async_task6header15Header$LT$M$GT$6notify17hb48a502ec46bafe9E.llvm.18335949784920153493.exit" ], [ undef, %71 ], [ undef, %76 ], [ undef, %81 ], [ undef, %94 ], [ undef, %100 ], [ undef, %21 ]
-  %.sroa.0.0 = phi i64 [ 1, %"_ZN10async_task6header15Header$LT$M$GT$6notify17hb48a502ec46bafe9E.llvm.18335949784920153493.exit" ], [ 2, %71 ], [ 0, %76 ], [ 0, %81 ], [ 0, %94 ], [ 0, %100 ], [ 2, %21 ]
+  %.sroa.5.0 = phi ptr [ %.sroa.58.0.copyload, %"_ZN10async_task6header15Header$LT$M$GT$6notify17hb48a502ec46bafe9E.llvm.18335949784920153493.exit" ], [ undef, %100 ], [ undef, %71 ], [ undef, %76 ], [ undef, %81 ], [ undef, %94 ], [ undef, %21 ]
+  %.sroa.0.0 = phi i64 [ 1, %"_ZN10async_task6header15Header$LT$M$GT$6notify17hb48a502ec46bafe9E.llvm.18335949784920153493.exit" ], [ 0, %100 ], [ 2, %71 ], [ 0, %76 ], [ 0, %81 ], [ 0, %94 ], [ 2, %21 ]
   %24 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %25 = insertvalue { i64, ptr } %24, ptr %.sroa.5.0, 1
   ret { i64, ptr } %25
@@ -5768,7 +5768,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN16concurrent_queue9unbounded18Unbou
   br i1 %27, label %28, label %30
 
 "_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17ha1ecb1a6c27c57e5E.exit": ; preds = %83, %71, %._crit_edge.i50, %._crit_edge.i, %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17hd081351cae75d43aE.exit", %24
-  %.sroa.0.0 = phi i8 [ %., %24 ], [ 2, %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17hd081351cae75d43aE.exit" ], [ 2, %._crit_edge.i ], [ 2, %._crit_edge.i50 ], [ 2, %71 ], [ 2, %83 ]
+  %.sroa.0.0 = phi i8 [ %., %24 ], [ 2, %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17hd081351cae75d43aE.exit" ], [ 2, %71 ], [ 2, %._crit_edge.i ], [ 2, %._crit_edge.i50 ], [ 2, %83 ]
   ret i8 %.sroa.0.0
 
 28:                                               ; preds = %26
@@ -5934,7 +5934,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17h
   br i1 %19, label %.lr.ph158, label %._crit_edge
 
 .critedge:                                        ; preds = %.outer.backedge, %73, %3
-  %.sroa.0.0.ph.lcssa84 = phi ptr [ null, %3 ], [ %.sroa.0.0.ph88, %73 ], [ %.sroa.0.0.ph.be, %.outer.backedge ]
+  %.sroa.0.0.ph.lcssa84 = phi ptr [ %.sroa.0.0.ph88, %73 ], [ null, %3 ], [ %.sroa.0.0.ph.be, %.outer.backedge ]
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(56) %2, i64 56, i1 false)
   br label %85

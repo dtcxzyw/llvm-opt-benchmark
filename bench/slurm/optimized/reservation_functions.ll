@@ -382,7 +382,7 @@ _set_cond.exit:                                   ; preds = %187, %65, %89
   br i1 %189, label %.lr.ph.split, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %_set_cond.exit, %_set_cond.exit.us, %.thread163, %23
-  %190 = phi ptr [ %22, %.thread163 ], [ %24, %23 ], [ %24, %_set_cond.exit.us ], [ %24, %_set_cond.exit ]
+  %190 = phi ptr [ %22, %.thread163 ], [ %24, %_set_cond.exit.us ], [ %24, %23 ], [ %24, %_set_cond.exit ]
   %191 = getelementptr inbounds nuw i8, ptr %.fr, i64 40
   %192 = load ptr, ptr %191, align 8
   %.not = icmp eq ptr %192, null

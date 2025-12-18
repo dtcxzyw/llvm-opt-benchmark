@@ -348,7 +348,7 @@ _ZL8parseIntRN4llvm9StringRefERj.exit.sink.split: ; preds = %.thread, %.thread42
   br label %_ZL8parseIntRN4llvm9StringRefERj.exit
 
 _ZL8parseIntRN4llvm9StringRefERj.exit:            ; preds = %_ZL8parseIntRN4llvm9StringRefERj.exit.sink.split, %_ZNK4llvm9StringRef11starts_withES0_.exit.i10, %_ZNK4llvm9StringRef11starts_withES0_.exit.i, %38, %34, %9, %3, %86, %68, %.loopexit
-  %.0 = phi i1 [ true, %9 ], [ true, %_ZNK4llvm9StringRef11starts_withES0_.exit.i ], [ true, %.loopexit ], [ true, %38 ], [ true, %_ZNK4llvm9StringRef11starts_withES0_.exit.i10 ], [ true, %86 ], [ true, %68 ], [ true, %3 ], [ true, %34 ], [ false, %_ZL8parseIntRN4llvm9StringRefERj.exit.sink.split ]
+  %.0 = phi i1 [ true, %9 ], [ true, %34 ], [ true, %_ZNK4llvm9StringRef11starts_withES0_.exit.i ], [ true, %.loopexit ], [ true, %3 ], [ true, %38 ], [ true, %68 ], [ true, %_ZNK4llvm9StringRef11starts_withES0_.exit.i10 ], [ true, %86 ], [ false, %_ZL8parseIntRN4llvm9StringRefERj.exit.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0

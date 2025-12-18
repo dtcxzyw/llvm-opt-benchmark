@@ -574,24 +574,24 @@ define dso_local range(i32 0, 2) i32 @ecparam_main(i32 noundef %0, ptr noundef %
   br i1 %.not138.not, label %.thread151, label %.thread181
 
 .thread151:                                       ; preds = %44, %42, %108, %115, %102, %91, %122, %145, %171, %195, %185, %157, %134, %125, %51, %54, %.loopexit, %198
-  %.089170 = phi ptr [ null, %198 ], [ null, %.loopexit ], [ null, %54 ], [ null, %51 ], [ %.291, %125 ], [ %.291, %134 ], [ %.291, %157 ], [ %.291, %185 ], [ %.291, %195 ], [ %.291, %171 ], [ %.291, %145 ], [ %.291, %122 ], [ %80, %91 ], [ null, %102 ], [ null, %115 ], [ null, %108 ], [ null, %42 ], [ null, %44 ]
-  %.0103168 = phi ptr [ %56, %198 ], [ null, %.loopexit ], [ null, %54 ], [ null, %51 ], [ null, %125 ], [ %127, %134 ], [ %127, %157 ], [ %127, %185 ], [ %127, %195 ], [ %127, %171 ], [ %127, %145 ], [ null, %122 ], [ null, %91 ], [ null, %102 ], [ null, %115 ], [ null, %108 ], [ null, %42 ], [ null, %44 ]
-  %.0106166 = phi ptr [ null, %198 ], [ null, %.loopexit ], [ null, %54 ], [ null, %51 ], [ null, %125 ], [ null, %134 ], [ null, %157 ], [ %179, %185 ], [ %179, %195 ], [ null, %171 ], [ null, %145 ], [ null, %122 ], [ null, %91 ], [ null, %102 ], [ null, %115 ], [ null, %108 ], [ null, %42 ], [ null, %44 ]
-  %.0108164 = phi ptr [ null, %198 ], [ null, %.loopexit ], [ null, %54 ], [ null, %51 ], [ null, %125 ], [ null, %134 ], [ null, %157 ], [ %.1109, %185 ], [ %.1109, %195 ], [ %169, %171 ], [ null, %145 ], [ null, %122 ], [ null, %91 ], [ null, %102 ], [ null, %115 ], [ null, %108 ], [ null, %42 ], [ null, %44 ]
-  %.0110162 = phi ptr [ null, %198 ], [ null, %.loopexit ], [ null, %54 ], [ null, %51 ], [ null, %125 ], [ null, %134 ], [ null, %157 ], [ null, %185 ], [ %193, %195 ], [ null, %171 ], [ null, %145 ], [ null, %122 ], [ null, %91 ], [ null, %102 ], [ null, %115 ], [ null, %108 ], [ null, %42 ], [ null, %44 ]
-  %.0112160 = phi ptr [ null, %198 ], [ null, %.loopexit ], [ null, %54 ], [ null, %51 ], [ null, %125 ], [ null, %134 ], [ %152, %157 ], [ %.1113, %185 ], [ %.1113, %195 ], [ %.1113, %171 ], [ null, %145 ], [ null, %122 ], [ null, %91 ], [ null, %102 ], [ null, %115 ], [ null, %108 ], [ null, %42 ], [ null, %44 ]
+  %.089170 = phi ptr [ null, %198 ], [ null, %.loopexit ], [ null, %108 ], [ null, %115 ], [ null, %54 ], [ null, %51 ], [ %.291, %125 ], [ %.291, %134 ], [ %.291, %157 ], [ %.291, %185 ], [ %.291, %195 ], [ %.291, %171 ], [ %.291, %145 ], [ %.291, %122 ], [ %80, %91 ], [ null, %102 ], [ null, %42 ], [ null, %44 ]
+  %.0103168 = phi ptr [ %56, %198 ], [ null, %.loopexit ], [ null, %108 ], [ null, %115 ], [ null, %54 ], [ null, %51 ], [ null, %125 ], [ %127, %134 ], [ %127, %157 ], [ %127, %185 ], [ %127, %195 ], [ %127, %171 ], [ %127, %145 ], [ null, %122 ], [ null, %91 ], [ null, %102 ], [ null, %42 ], [ null, %44 ]
+  %.0106166 = phi ptr [ null, %198 ], [ null, %.loopexit ], [ null, %108 ], [ null, %115 ], [ null, %54 ], [ null, %51 ], [ null, %125 ], [ null, %134 ], [ null, %157 ], [ %179, %185 ], [ %179, %195 ], [ null, %171 ], [ null, %145 ], [ null, %122 ], [ null, %91 ], [ null, %102 ], [ null, %42 ], [ null, %44 ]
+  %.0108164 = phi ptr [ null, %198 ], [ null, %.loopexit ], [ null, %108 ], [ null, %115 ], [ null, %54 ], [ null, %51 ], [ null, %125 ], [ null, %134 ], [ null, %157 ], [ %.1109, %185 ], [ %.1109, %195 ], [ %169, %171 ], [ null, %145 ], [ null, %122 ], [ null, %91 ], [ null, %102 ], [ null, %42 ], [ null, %44 ]
+  %.0110162 = phi ptr [ null, %198 ], [ null, %.loopexit ], [ null, %108 ], [ null, %115 ], [ null, %54 ], [ null, %51 ], [ null, %125 ], [ null, %134 ], [ null, %157 ], [ null, %185 ], [ %193, %195 ], [ null, %171 ], [ null, %145 ], [ null, %122 ], [ null, %91 ], [ null, %102 ], [ null, %42 ], [ null, %44 ]
+  %.0112160 = phi ptr [ null, %198 ], [ null, %.loopexit ], [ null, %108 ], [ null, %115 ], [ null, %54 ], [ null, %51 ], [ null, %125 ], [ null, %134 ], [ %152, %157 ], [ %.1113, %185 ], [ %.1113, %195 ], [ %.1113, %171 ], [ null, %145 ], [ null, %122 ], [ null, %91 ], [ null, %102 ], [ null, %42 ], [ null, %44 ]
   %200 = load ptr, ptr @bio_err, align 8, !tbaa !13
   call void @ERR_print_errors(ptr noundef %200) #5
   br label %.thread181
 
-.thread181:                                       ; preds = %188, %174, %16, %.thread151, %198
-  %.085173 = phi i32 [ 1, %.thread151 ], [ %spec.select146, %198 ], [ 0, %16 ], [ 0, %174 ], [ 0, %188 ]
-  %.089171 = phi ptr [ %.089170, %.thread151 ], [ null, %198 ], [ null, %16 ], [ %.291, %174 ], [ %.291, %188 ]
-  %.0103169 = phi ptr [ %.0103168, %.thread151 ], [ %56, %198 ], [ null, %16 ], [ %127, %174 ], [ %127, %188 ]
-  %.0106167 = phi ptr [ %.0106166, %.thread151 ], [ null, %198 ], [ null, %16 ], [ null, %174 ], [ %179, %188 ]
-  %.0108165 = phi ptr [ %.0108164, %.thread151 ], [ null, %198 ], [ null, %16 ], [ %.1109, %174 ], [ %.1109, %188 ]
-  %.0110163 = phi ptr [ %.0110162, %.thread151 ], [ null, %198 ], [ null, %16 ], [ null, %174 ], [ %193, %188 ]
-  %.0112161 = phi ptr [ %.0112160, %.thread151 ], [ null, %198 ], [ null, %16 ], [ %.1113, %174 ], [ %.1113, %188 ]
+.thread181:                                       ; preds = %174, %16, %188, %.thread151, %198
+  %.085173 = phi i32 [ 1, %.thread151 ], [ %spec.select146, %198 ], [ 0, %188 ], [ 0, %16 ], [ 0, %174 ]
+  %.089171 = phi ptr [ %.089170, %.thread151 ], [ null, %198 ], [ %.291, %188 ], [ null, %16 ], [ %.291, %174 ]
+  %.0103169 = phi ptr [ %.0103168, %.thread151 ], [ %56, %198 ], [ %127, %188 ], [ null, %16 ], [ %127, %174 ]
+  %.0106167 = phi ptr [ %.0106166, %.thread151 ], [ null, %198 ], [ %179, %188 ], [ null, %16 ], [ null, %174 ]
+  %.0108165 = phi ptr [ %.0108164, %.thread151 ], [ null, %198 ], [ %.1109, %188 ], [ null, %16 ], [ %.1109, %174 ]
+  %.0110163 = phi ptr [ %.0110162, %.thread151 ], [ null, %198 ], [ %193, %188 ], [ null, %16 ], [ null, %174 ]
+  %.0112161 = phi ptr [ %.0112160, %.thread151 ], [ null, %198 ], [ %.1113, %188 ], [ null, %16 ], [ %.1113, %174 ]
   call void @release_engine(ptr noundef %.0104) #5
   %201 = load ptr, ptr %3, align 8, !tbaa !4
   call void @EVP_PKEY_free(ptr noundef %201) #5

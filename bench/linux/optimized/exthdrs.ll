@@ -839,7 +839,7 @@ default.unreachable:                              ; preds = %352
   br i1 %374, label %.split.split, label %.split70.us, !llvm.loop !9
 
 .split70.us:                                      ; preds = %369, %300, %246
-  %.us-phi71 = phi i32 [ %301, %300 ], [ %247, %246 ], [ %370, %369 ]
+  %.us-phi71 = phi i32 [ %247, %246 ], [ %301, %300 ], [ %370, %369 ]
   %375 = icmp eq i32 %.us-phi71, 0
   br i1 %375, label %.thread20, label %.thread24
 

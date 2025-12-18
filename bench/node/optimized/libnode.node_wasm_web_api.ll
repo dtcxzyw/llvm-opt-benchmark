@@ -1466,7 +1466,7 @@ if.end5.i:                                        ; preds = %if.end.i146
   %cmp7.i.not = icmp eq i64 %shr.i.mask, 21474836480
   br i1 %cmp7.i.not, label %cleanup, label %do.body83
 
-do.body83:                                        ; preds = %lor.rhs, %if.end.i146, %if.end5.i
+do.body83:                                        ; preds = %if.end.i146, %lor.rhs, %if.end5.i
   call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node12wasm_web_api25StartStreamingCompilationERKN2v820FunctionCallbackInfoINS1_5ValueEEEE4args_1) #16
   call void @abort() #17
   unreachable

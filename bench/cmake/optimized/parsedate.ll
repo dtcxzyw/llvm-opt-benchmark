@@ -222,9 +222,9 @@ checktz.exit:                                     ; preds = %54
   br label %.thread303
 
 .thread303:                                       ; preds = %40, %.preheader.i, %checktz.exit
-  %.1125310 = phi i32 [ %.2126, %checktz.exit ], [ %.2126, %.preheader.i ], [ %.01725.i, %40 ]
-  %.1130309 = phi i32 [ %.2131, %checktz.exit ], [ %.0710.i, %.preheader.i ], [ %.0129381, %40 ]
-  %.1171308 = phi i32 [ %61, %checktz.exit ], [ %.0170377, %.preheader.i ], [ %.0170377, %40 ]
+  %.1125310 = phi i32 [ %.2126, %.preheader.i ], [ %.2126, %checktz.exit ], [ %.01725.i, %40 ]
+  %.1130309 = phi i32 [ %.0710.i, %.preheader.i ], [ %.2131, %checktz.exit ], [ %.0129381, %40 ]
+  %.1171308 = phi i32 [ %.0170377, %.preheader.i ], [ %61, %checktz.exit ], [ %.0170377, %40 ]
   %62 = getelementptr inbounds nuw i8, ptr %.4277, i64 %.0142
   br label %.critedge223
 

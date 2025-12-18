@@ -953,9 +953,9 @@ _ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit112: ; preds = %22
   br label %"_ZZN5clang6format32LeftRightQualifierAlignmentFixer12analyzeRightERKNS_13SourceManagerERKNS0_18AdditionalKeywordsERNS_7tooling12ReplacementsEPKNS0_11FormatTokenERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_3tok9TokenKindEENK3$_0clEv.exit"
 
 "_ZZN5clang6format32LeftRightQualifierAlignmentFixer12analyzeRightERKNS_13SourceManagerERKNS0_18AdditionalKeywordsERNS_7tooling12ReplacementsEPKNS0_11FormatTokenERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_3tok9TokenKindEENK3$_0clEv.exit": ; preds = %.preheader245, %.lr.ph, %.lr.ph, %_ZN5clang6formatL11isQualifierEPKNS0_11FormatTokenE.exit, %37, %32, %29, %26
-  %.084282 = phi ptr [ %.084284, %37 ], [ %.084284, %32 ], [ %.084284, %29 ], [ %.084284, %26 ], [ %.084284, %.lr.ph ], [ null, %_ZN5clang6formatL11isQualifierEPKNS0_11FormatTokenE.exit ], [ %.084284, %.lr.ph ], [ null, %.preheader245 ]
-  %.not.i106280 = phi i1 [ false, %37 ], [ false, %32 ], [ false, %29 ], [ false, %26 ], [ false, %.lr.ph ], [ true, %_ZN5clang6formatL11isQualifierEPKNS0_11FormatTokenE.exit ], [ false, %.lr.ph ], [ true, %.preheader245 ]
-  %40 = phi i1 [ %spec.select.i.i.i, %37 ], [ %36, %32 ], [ false, %29 ], [ true, %26 ], [ true, %.lr.ph ], [ false, %_ZN5clang6formatL11isQualifierEPKNS0_11FormatTokenE.exit ], [ true, %.lr.ph ], [ false, %.preheader245 ]
+  %.084282 = phi ptr [ %.084284, %37 ], [ %.084284, %32 ], [ %.084284, %.lr.ph ], [ null, %_ZN5clang6formatL11isQualifierEPKNS0_11FormatTokenE.exit ], [ %.084284, %29 ], [ %.084284, %26 ], [ %.084284, %.lr.ph ], [ null, %.preheader245 ]
+  %.not.i106280 = phi i1 [ false, %37 ], [ false, %32 ], [ false, %.lr.ph ], [ true, %_ZN5clang6formatL11isQualifierEPKNS0_11FormatTokenE.exit ], [ false, %29 ], [ false, %26 ], [ false, %.lr.ph ], [ true, %.preheader245 ]
+  %40 = phi i1 [ %spec.select.i.i.i, %37 ], [ %36, %32 ], [ true, %.lr.ph ], [ false, %_ZN5clang6formatL11isQualifierEPKNS0_11FormatTokenE.exit ], [ false, %29 ], [ true, %26 ], [ true, %.lr.ph ], [ false, %.preheader245 ]
   br label %41
 
 41:                                               ; preds = %_ZNK5clang6format11FormatToken17getNextNonCommentEv.exit126, %"_ZZN5clang6format32LeftRightQualifierAlignmentFixer12analyzeRightERKNS_13SourceManagerERKNS0_18AdditionalKeywordsERNS_7tooling12ReplacementsEPKNS0_11FormatTokenERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_3tok9TokenKindEENK3$_0clEv.exit"
@@ -1372,7 +1372,7 @@ _ZNK5clang6format11FormatToken17getNextNonCommentEv.exit193: ; preds = %149, %.p
   %.3 = phi ptr [ %136, %.critedge2.thread ], [ null, %_ZNK5clang6format11FormatToken17getNextNonCommentEv.exit198 ], [ %.0.i201, %157 ], [ null, %.preheader230 ], [ %.0.i191, %149 ]
   br label %.preheader238, !llvm.loop !91
 
-.critedge:                                        ; preds = %split.i.i.i, %split.i.i166, %121, %128, %tailrecurse.i.i.i.i, %132
+.critedge:                                        ; preds = %split.i.i166, %split.i.i.i, %121, %128, %tailrecurse.i.i.i.i, %132
   %161 = icmp eq i16 %99, 76
   %spec.select = select i1 %161, ptr %.0.i161, ptr %.289
   br label %.critedge103.preheader
@@ -1463,7 +1463,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNK5
   br label %_ZNK5clang6format11FormatToken17getNextNonCommentEv.exit131.thread
 
 _ZNK5clang6format11FormatToken17getNextNonCommentEv.exit131.thread: ; preds = %.preheader243, %_ZNK5clang6format11FormatToken17getNextNonCommentEv.exit157, %61, %61, %61, %51, %50, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %80, %81, %_ZNK5clang6format11FormatToken17getNextNonCommentEv.exit131, %_ZN5clang6format17isQualifierOrTypeEPKNS0_11FormatTokenERKNS_11LangOptionsE.exit, %13, %7
-  %.0 = phi ptr [ %4, %7 ], [ %4, %13 ], [ %4, %50 ], [ %4, %51 ], [ %4, %_ZNK5clang6format11FormatToken17getNextNonCommentEv.exit131 ], [ %.086, %_ZN5clang6format17isQualifierOrTypeEPKNS0_11FormatTokenERKNS_11LangOptionsE.exit ], [ %4, %61 ], [ %4, %80 ], [ %4, %61 ], [ %4, %81 ], [ %4, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %4, %_ZNK5clang6format11FormatToken17getNextNonCommentEv.exit157 ], [ %4, %61 ], [ %4, %.preheader243 ]
+  %.0 = phi ptr [ %4, %7 ], [ %4, %13 ], [ %4, %50 ], [ %4, %51 ], [ %4, %61 ], [ %4, %_ZNK5clang6format11FormatToken17getNextNonCommentEv.exit131 ], [ %.086, %_ZN5clang6format17isQualifierOrTypeEPKNS0_11FormatTokenERKNS_11LangOptionsE.exit ], [ %4, %61 ], [ %4, %80 ], [ %4, %61 ], [ %4, %81 ], [ %4, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %4, %_ZNK5clang6format11FormatToken17getNextNonCommentEv.exit157 ], [ %4, %.preheader243 ]
   ret ptr %.0
 }
 
@@ -2763,7 +2763,7 @@ tailrecurse.i.i.i.i:                              ; preds = %split.i.i.i, %198
   ]
 
 .preheader183:                                    ; preds = %split.i.i.i, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit119, %.preheader.i, %186, %198, %tailrecurse.i.i.i.i, %203
-  %.164212 = phi ptr [ %.164217, %198 ], [ %.164217, %186 ], [ %.164217, %.preheader.i ], [ null, %203 ], [ %.164217, %tailrecurse.i.i.i.i ], [ %.164217, %split.i.i.i ], [ null, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit119 ]
+  %.164212 = phi ptr [ null, %203 ], [ %.164217, %.preheader.i ], [ %.164217, %198 ], [ %.164217, %186 ], [ %.164217, %tailrecurse.i.i.i.i ], [ %.164217, %split.i.i.i ], [ null, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit119 ]
   %190 = getelementptr inbounds nuw i8, ptr %0, i64 4456
   %.val77 = load ptr, ptr %190, align 8
   %191 = getelementptr inbounds nuw i8, ptr %0, i64 4464

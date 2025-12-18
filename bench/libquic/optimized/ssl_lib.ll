@@ -1506,7 +1506,7 @@ switch.lookup:                                    ; preds = %46
   br label %50
 
 50:                                               ; preds = %46, %switch.lookup, %20, %.fold.split, %44, %31, %40, %36, %27, %23, %14, %6, %2, %19
-  %.0 = phi i32 [ %., %6 ], [ 0, %2 ], [ 5, %46 ], [ 5, %19 ], [ 6, %14 ], [ 11, %20 ], [ 2, %23 ], [ 3, %27 ], [ %switch.select41, %31 ], [ %switch.load, %switch.lookup ], [ 3, %36 ], [ 2, %40 ], [ %switch.select45, %44 ], [ 12, %.fold.split ]
+  %.0 = phi i32 [ 12, %.fold.split ], [ %., %6 ], [ 0, %2 ], [ 5, %46 ], [ 5, %19 ], [ 6, %14 ], [ 11, %20 ], [ 2, %40 ], [ 2, %23 ], [ 3, %27 ], [ %switch.select41, %31 ], [ %switch.select45, %44 ], [ %switch.load, %switch.lookup ], [ 3, %36 ]
   ret i32 %.0
 }
 
@@ -3398,8 +3398,8 @@ define hidden range(i32 1, 3) i32 @SSL_select_next_proto(ptr noundef writeonly c
   br label %.loopexit32
 
 .loopexit32:                                      ; preds = %._crit_edge.us, %.loopexit32.loopexit, %6
-  %.029 = phi ptr [ %30, %.loopexit32.loopexit ], [ %4, %6 ], [ %4, %._crit_edge.us ]
-  %.0 = phi i32 [ 1, %.loopexit32.loopexit ], [ 2, %6 ], [ 2, %._crit_edge.us ]
+  %.029 = phi ptr [ %4, %6 ], [ %30, %.loopexit32.loopexit ], [ %4, %._crit_edge.us ]
+  %.0 = phi i32 [ 2, %6 ], [ 1, %.loopexit32.loopexit ], [ 2, %._crit_edge.us ]
   %31 = getelementptr inbounds nuw i8, ptr %.029, i64 1
   store ptr %31, ptr %0, align 8, !tbaa !186
   %32 = load i8, ptr %.029, align 1, !tbaa !157

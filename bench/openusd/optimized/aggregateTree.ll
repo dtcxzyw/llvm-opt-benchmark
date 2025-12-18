@@ -742,13 +742,13 @@ define noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__18TraceAggregateTree15
   br label %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenEiNS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_iEEE4findERS6_.exit.thread, !llvm.loop !18
 
 _ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenEiNS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_iEEE4findERS6_.exit: ; preds = %38, %10, %27
-  %.sroa.06.1.i.i = phi ptr [ %28, %27 ], [ %.sroa.06.0.i.i, %10 ], [ %46, %38 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %10 ], [ %28, %27 ], [ %46, %38 ]
   %51 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %52 = load i32, ptr %51, align 8
   br label %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenEiNS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_iEEE4findERS6_.exit.thread
 
 _ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenEiNS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_iEEE4findERS6_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %9, %16, %..loopexit_crit_edge21.i.i.i.i, %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenEiNS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_iEEE4findERS6_.exit
-  %53 = phi i32 [ %52, %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenEiNS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_iEEE4findERS6_.exit ], [ -1, %..loopexit_crit_edge21.i.i.i.i ], [ -1, %16 ], [ -1, %9 ], [ -1, %.lr.ph.i.i.i.i ]
+  %53 = phi i32 [ %52, %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenEiNS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_iEEE4findERS6_.exit ], [ -1, %..loopexit_crit_edge21.i.i.i.i ], [ -1, %9 ], [ -1, %16 ], [ -1, %.lr.ph.i.i.i.i ]
   ret i32 %53
 }
 

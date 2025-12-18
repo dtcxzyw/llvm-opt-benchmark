@@ -2609,8 +2609,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit: ; preds
   br i1 %.not12.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__14TfDenseHashSetINS_32HdDependencyForwardingSceneIndex12_VisitedNodeENS2_11HashFunctorESt8equal_toIS2_ELj128EE4findERKS2_.exit.thread, label %90, !llvm.loop !67
 
 _ZNK32pxrInternal_v0_24__pxrReserved__14TfDenseHashSetINS_32HdDependencyForwardingSceneIndex12_VisitedNodeENS2_11HashFunctorESt8equal_toIS2_ELj128EE4findERKS2_.exit: ; preds = %96, %109, %76
-  %113 = phi ptr [ %.pre, %76 ], [ %83, %109 ], [ %83, %96 ]
-  %.sroa.08.0.i = phi ptr [ %80, %76 ], [ %.sroa.08.116.i, %109 ], [ %.sroa.08.116.i, %96 ]
+  %113 = phi ptr [ %83, %109 ], [ %.pre, %76 ], [ %83, %96 ]
+  %.sroa.08.0.i = phi ptr [ %.sroa.08.116.i, %109 ], [ %80, %76 ], [ %.sroa.08.116.i, %96 ]
   %.not126 = icmp eq ptr %.sroa.08.0.i, %113
   br i1 %.not126, label %_ZNK32pxrInternal_v0_24__pxrReserved__14TfDenseHashSetINS_32HdDependencyForwardingSceneIndex12_VisitedNodeENS2_11HashFunctorESt8equal_toIS2_ELj128EE4findERKS2_.exit.thread, label %117
 
@@ -2899,8 +2899,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit57: ; pre
   br i1 %.not12.i69, label %_ZNK32pxrInternal_v0_24__pxrReserved__14TfDenseHashSetINS_32HdDependencyForwardingSceneIndex12_VisitedNodeENS2_11HashFunctorESt8equal_toIS2_ELj128EE4findERKS2_.exit76.thread, label %229, !llvm.loop !67
 
 _ZNK32pxrInternal_v0_24__pxrReserved__14TfDenseHashSetINS_32HdDependencyForwardingSceneIndex12_VisitedNodeENS2_11HashFunctorESt8equal_toIS2_ELj128EE4findERKS2_.exit76: ; preds = %235, %248, %215
-  %252 = phi ptr [ %.pre147, %215 ], [ %222, %248 ], [ %222, %235 ]
-  %.sroa.08.0.i59 = phi ptr [ %219, %215 ], [ %.sroa.08.116.i66, %248 ], [ %.sroa.08.116.i66, %235 ]
+  %252 = phi ptr [ %222, %248 ], [ %.pre147, %215 ], [ %222, %235 ]
+  %.sroa.08.0.i59 = phi ptr [ %.sroa.08.116.i66, %248 ], [ %219, %215 ], [ %.sroa.08.116.i66, %235 ]
   %253 = icmp eq ptr %.sroa.08.0.i59, %252
   br i1 %253, label %_ZNK32pxrInternal_v0_24__pxrReserved__14TfDenseHashSetINS_32HdDependencyForwardingSceneIndex12_VisitedNodeENS2_11HashFunctorESt8equal_toIS2_ELj128EE4findERKS2_.exit76.thread, label %259
 
@@ -12062,9 +12062,9 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_set_trai
   br label %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorIS5_EELb0EEEE17adjust_table_sizeEmm.exit
 
 _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorIS5_EELb0EEEE17adjust_table_sizeEmm.exit: ; preds = %40, %72, %88, %._crit_edge
-  %.sink80 = phi ptr [ null, %._crit_edge ], [ null, %88 ], [ %45, %72 ], [ null, %40 ]
-  %.sink78 = phi ptr [ %45, %._crit_edge ], [ %45, %88 ], [ %.025.i36, %72 ], [ %.025.i, %40 ]
-  %.sink = phi i8 [ 1, %._crit_edge ], [ 1, %88 ], [ 0, %72 ], [ 0, %40 ]
+  %.sink80 = phi ptr [ null, %88 ], [ %45, %72 ], [ null, %._crit_edge ], [ null, %40 ]
+  %.sink78 = phi ptr [ %45, %88 ], [ %.025.i36, %72 ], [ %45, %._crit_edge ], [ %.025.i, %40 ]
+  %.sink = phi i8 [ 1, %88 ], [ 0, %72 ], [ 1, %._crit_edge ], [ 0, %40 ]
   store ptr %.sink80, ptr %0, align 8
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink78, ptr %91, align 8
@@ -13679,7 +13679,7 @@ _ZNKSt8__detail15_Hash_code_baseIN32pxrInternal_v0_24__pxrReserved__32HdDependen
   br i1 %.not17.i.i, label %.split.i.i, label %_ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__32HdDependencyForwardingSceneIndex12_VisitedNodeESt4pairIKS3_mENS_10_Select1stESt8equal_toIS3_ENS3_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS5_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit, !llvm.loop !195
 
 _ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__32HdDependencyForwardingSceneIndex12_VisitedNodeESt4pairIKS3_mENS_10_Select1stESt8equal_toIS3_ENS3_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS5_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit: ; preds = %129, %.loopexit.i.i, %125, %101, %99, %95, %.loopexit, %40, %18, %22, %5, %_ZNKSt8__detail15_Hash_code_baseIN32pxrInternal_v0_24__pxrReserved__32HdDependencyForwardingSceneIndex12_VisitedNodeESt4pairIKS3_mENS_10_Select1stENS3_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS5_.exit
-  %.sroa.06.1 = phi ptr [ null, %_ZNKSt8__detail15_Hash_code_baseIN32pxrInternal_v0_24__pxrReserved__32HdDependencyForwardingSceneIndex12_VisitedNodeESt4pairIKS3_mENS_10_Select1stENS3_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS5_.exit ], [ null, %5 ], [ %.0.i.i, %125 ], [ %.sroa.06.019.us, %18 ], [ %.sroa.06.019, %40 ], [ null, %.loopexit ], [ null, %101 ], [ null, %22 ], [ %.0.us.i.i, %95 ], [ null, %99 ], [ null, %.loopexit.i.i ], [ null, %129 ]
+  %.sroa.06.1 = phi ptr [ %.sroa.06.019.us, %18 ], [ null, %_ZNKSt8__detail15_Hash_code_baseIN32pxrInternal_v0_24__pxrReserved__32HdDependencyForwardingSceneIndex12_VisitedNodeESt4pairIKS3_mENS_10_Select1stENS3_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS5_.exit ], [ %.sroa.06.019, %40 ], [ null, %101 ], [ %.0.i.i, %125 ], [ null, %5 ], [ null, %.loopexit ], [ null, %22 ], [ %.0.us.i.i, %95 ], [ null, %99 ], [ null, %.loopexit.i.i ], [ null, %129 ]
   ret ptr %.sroa.06.1
 }
 
@@ -14154,8 +14154,8 @@ _ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__32HdDependencyForwardingSc
   resume { ptr, i32 } %142
 
 _ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__32HdDependencyForwardingSceneIndex12_VisitedNodeESt4pairIKS3_mENS_10_Select1stESt8equal_toIS3_ENS3_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE16_M_key_equals_trIS3_EEbRKT_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit: ; preds = %43, %21, %98, %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__32HdDependencyForwardingSceneIndex12_VisitedNodeESt4pairIKS2_mESaIS5_ENSt8__detail10_Select1stESt8equal_toIS2_ENS2_11HashFunctorENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE15_M_find_node_trIS2_EEPNS7_10_Hash_nodeIS5_Lb1EEEmRKT_m.exit.thread, %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__32HdDependencyForwardingSceneIndex12_VisitedNodeESt4pairIKS2_mESaIS5_ENSt8__detail10_Select1stESt8equal_toIS2_ENS2_11HashFunctorENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE15_M_find_node_trIS2_EEPNS7_10_Hash_nodeIS5_Lb1EEEmRKT_m.exit
-  %.sroa.023.0 = phi ptr [ %.0.i.i, %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__32HdDependencyForwardingSceneIndex12_VisitedNodeESt4pairIKS2_mESaIS5_ENSt8__detail10_Select1stESt8equal_toIS2_ENS2_11HashFunctorENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE15_M_find_node_trIS2_EEPNS7_10_Hash_nodeIS5_Lb1EEEmRKT_m.exit ], [ %140, %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__32HdDependencyForwardingSceneIndex12_VisitedNodeESt4pairIKS2_mESaIS5_ENSt8__detail10_Select1stESt8equal_toIS2_ENS2_11HashFunctorENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE15_M_find_node_trIS2_EEPNS7_10_Hash_nodeIS5_Lb1EEEmRKT_m.exit.thread ], [ %.sroa.020.040.us, %21 ], [ %.0.us.i.i, %98 ], [ %.sroa.020.040, %43 ]
-  %.sroa.4.0 = phi i8 [ 0, %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__32HdDependencyForwardingSceneIndex12_VisitedNodeESt4pairIKS2_mESaIS5_ENSt8__detail10_Select1stESt8equal_toIS2_ENS2_11HashFunctorENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE15_M_find_node_trIS2_EEPNS7_10_Hash_nodeIS5_Lb1EEEmRKT_m.exit ], [ 1, %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__32HdDependencyForwardingSceneIndex12_VisitedNodeESt4pairIKS2_mESaIS5_ENSt8__detail10_Select1stESt8equal_toIS2_ENS2_11HashFunctorENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE15_M_find_node_trIS2_EEPNS7_10_Hash_nodeIS5_Lb1EEEmRKT_m.exit.thread ], [ 0, %21 ], [ 0, %98 ], [ 0, %43 ]
+  %.sroa.023.0 = phi ptr [ %.sroa.020.040.us, %21 ], [ %140, %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__32HdDependencyForwardingSceneIndex12_VisitedNodeESt4pairIKS2_mESaIS5_ENSt8__detail10_Select1stESt8equal_toIS2_ENS2_11HashFunctorENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE15_M_find_node_trIS2_EEPNS7_10_Hash_nodeIS5_Lb1EEEmRKT_m.exit.thread ], [ %.0.us.i.i, %98 ], [ %.0.i.i, %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__32HdDependencyForwardingSceneIndex12_VisitedNodeESt4pairIKS2_mESaIS5_ENSt8__detail10_Select1stESt8equal_toIS2_ENS2_11HashFunctorENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE15_M_find_node_trIS2_EEPNS7_10_Hash_nodeIS5_Lb1EEEmRKT_m.exit ], [ %.sroa.020.040, %43 ]
+  %.sroa.4.0 = phi i8 [ 0, %21 ], [ 1, %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__32HdDependencyForwardingSceneIndex12_VisitedNodeESt4pairIKS2_mESaIS5_ENSt8__detail10_Select1stESt8equal_toIS2_ENS2_11HashFunctorENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE15_M_find_node_trIS2_EEPNS7_10_Hash_nodeIS5_Lb1EEEmRKT_m.exit.thread ], [ 0, %98 ], [ 0, %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__32HdDependencyForwardingSceneIndex12_VisitedNodeESt4pairIKS2_mESaIS5_ENSt8__detail10_Select1stESt8equal_toIS2_ENS2_11HashFunctorENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE15_M_find_node_trIS2_EEPNS7_10_Hash_nodeIS5_Lb1EEEmRKT_m.exit ], [ 0, %43 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.023.0, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.4.0, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -16114,9 +16114,9 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_trai
   br label %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_32HdDependencyForwardingSceneIndex34_AffectedPrimToDependsOnPathsEntryENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S7_EEELb0EEEE17adjust_table_sizeEmm.exit
 
 _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_32HdDependencyForwardingSceneIndex34_AffectedPrimToDependsOnPathsEntryENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S7_EEELb0EEEE17adjust_table_sizeEmm.exit: ; preds = %39, %56, %72, %._crit_edge
-  %.sink79 = phi ptr [ null, %._crit_edge ], [ null, %72 ], [ %46, %56 ], [ null, %39 ]
-  %.sink77 = phi ptr [ %46, %._crit_edge ], [ %46, %72 ], [ %.025.i36, %56 ], [ %.025.i, %39 ]
-  %.sink = phi i8 [ 1, %._crit_edge ], [ 1, %72 ], [ 0, %56 ], [ 0, %39 ]
+  %.sink79 = phi ptr [ null, %72 ], [ %46, %56 ], [ null, %._crit_edge ], [ null, %39 ]
+  %.sink77 = phi ptr [ %46, %72 ], [ %.025.i36, %56 ], [ %46, %._crit_edge ], [ %.025.i, %39 ]
+  %.sink = phi i8 [ 1, %72 ], [ 0, %56 ], [ 1, %._crit_edge ], [ 0, %39 ]
   store ptr %.sink79, ptr %0, align 8
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink77, ptr %75, align 8
@@ -16432,9 +16432,9 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_trai
   br label %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS1_24concurrent_unordered_mapIS5_NS4_32HdDependencyForwardingSceneIndex28_AffectedPrimDependencyEntryENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S8_EEEEES9_SB_NSC_ISD_ISE_SH_EEELb0EEEE17adjust_table_sizeEmm.exit
 
 _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS1_24concurrent_unordered_mapIS5_NS4_32HdDependencyForwardingSceneIndex28_AffectedPrimDependencyEntryENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S8_EEEEES9_SB_NSC_ISD_ISE_SH_EEELb0EEEE17adjust_table_sizeEmm.exit: ; preds = %39, %56, %72, %._crit_edge
-  %.sink79 = phi ptr [ null, %._crit_edge ], [ null, %72 ], [ %46, %56 ], [ null, %39 ]
-  %.sink77 = phi ptr [ %46, %._crit_edge ], [ %46, %72 ], [ %.025.i36, %56 ], [ %.025.i, %39 ]
-  %.sink = phi i8 [ 1, %._crit_edge ], [ 1, %72 ], [ 0, %56 ], [ 0, %39 ]
+  %.sink79 = phi ptr [ null, %72 ], [ %46, %56 ], [ null, %._crit_edge ], [ null, %39 ]
+  %.sink77 = phi ptr [ %46, %72 ], [ %.025.i36, %56 ], [ %46, %._crit_edge ], [ %.025.i, %39 ]
+  %.sink = phi i8 [ 1, %72 ], [ 0, %56 ], [ 1, %._crit_edge ], [ 0, %39 ]
   store ptr %.sink79, ptr %0, align 8
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink77, ptr %75, align 8
@@ -16752,9 +16752,9 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_trai
   br label %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_32HdDependencyForwardingSceneIndex28_AffectedPrimDependencyEntryENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S7_EEELb0EEEE17adjust_table_sizeEmm.exit
 
 _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_32HdDependencyForwardingSceneIndex28_AffectedPrimDependencyEntryENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S7_EEELb0EEEE17adjust_table_sizeEmm.exit: ; preds = %39, %56, %72, %._crit_edge
-  %.sink79 = phi ptr [ null, %._crit_edge ], [ null, %72 ], [ %46, %56 ], [ null, %39 ]
-  %.sink77 = phi ptr [ %46, %._crit_edge ], [ %46, %72 ], [ %.025.i36, %56 ], [ %.025.i, %39 ]
-  %.sink = phi i8 [ 1, %._crit_edge ], [ 1, %72 ], [ 0, %56 ], [ 0, %39 ]
+  %.sink79 = phi ptr [ null, %72 ], [ %46, %56 ], [ null, %._crit_edge ], [ null, %39 ]
+  %.sink77 = phi ptr [ %46, %72 ], [ %.025.i36, %56 ], [ %46, %._crit_edge ], [ %.025.i, %39 ]
+  %.sink = phi i8 [ 1, %72 ], [ 0, %56 ], [ 1, %._crit_edge ], [ 0, %39 ]
   store ptr %.sink79, ptr %0, align 8
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink77, ptr %75, align 8
@@ -17444,9 +17444,9 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_trai
   br label %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS4_32HdDependencyForwardingSceneIndex14_LocatorsEntryENS5_11HashFunctorESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S7_EEELb0EEEE17adjust_table_sizeEmm.exit
 
 _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS4_32HdDependencyForwardingSceneIndex14_LocatorsEntryENS5_11HashFunctorESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S7_EEELb0EEEE17adjust_table_sizeEmm.exit: ; preds = %32, %54, %75, %._crit_edge
-  %.sink77 = phi ptr [ null, %._crit_edge ], [ null, %75 ], [ %44, %54 ], [ null, %32 ]
-  %.sink75 = phi ptr [ %44, %._crit_edge ], [ %44, %75 ], [ %.025.i36, %54 ], [ %.025.i, %32 ]
-  %.sink = phi i8 [ 1, %._crit_edge ], [ 1, %75 ], [ 0, %54 ], [ 0, %32 ]
+  %.sink77 = phi ptr [ null, %75 ], [ %44, %54 ], [ null, %._crit_edge ], [ null, %32 ]
+  %.sink75 = phi ptr [ %44, %75 ], [ %.025.i36, %54 ], [ %44, %._crit_edge ], [ %.025.i, %32 ]
+  %.sink = phi i8 [ 1, %75 ], [ 0, %54 ], [ 1, %._crit_edge ], [ 0, %32 ]
   store ptr %.sink77, ptr %0, align 8
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink75, ptr %78, align 8
@@ -17693,8 +17693,8 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_trai
   br i1 %.not, label %_ZNK3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_32HdDependencyForwardingSceneIndex34_AffectedPrimToDependsOnPathsEntryENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S7_EEELb0EEEE16first_value_nodeEPNS1_9list_nodeImEE.exit, label %.lr.ph, !llvm.loop !224
 
 _ZNK3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_32HdDependencyForwardingSceneIndex34_AffectedPrimToDependsOnPathsEntryENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S7_EEELb0EEEE16first_value_nodeEPNS1_9list_nodeImEE.exit: ; preds = %47, %.lr.ph, %45, %.lr.ph.i, %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_32HdDependencyForwardingSceneIndex34_AffectedPrimToDependsOnPathsEntryENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S7_EEELb0EEEE23split_order_key_regularEm.exit, %39
-  %.sroa.4.0 = phi ptr [ null, %39 ], [ null, %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_32HdDependencyForwardingSceneIndex34_AffectedPrimToDependsOnPathsEntryENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S7_EEELb0EEEE23split_order_key_regularEm.exit ], [ %.0.i.i.i, %45 ], [ %.05.i, %.lr.ph.i ], [ null, %.lr.ph ], [ null, %47 ]
-  %.sroa.0.0 = phi ptr [ %.022, %39 ], [ null, %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_32HdDependencyForwardingSceneIndex34_AffectedPrimToDependsOnPathsEntryENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S7_EEELb0EEEE23split_order_key_regularEm.exit ], [ %.022, %45 ], [ %.022, %.lr.ph.i ], [ null, %.lr.ph ], [ null, %47 ]
+  %.sroa.4.0 = phi ptr [ %.0.i.i.i, %45 ], [ null, %39 ], [ null, %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_32HdDependencyForwardingSceneIndex34_AffectedPrimToDependsOnPathsEntryENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S7_EEELb0EEEE23split_order_key_regularEm.exit ], [ %.05.i, %.lr.ph.i ], [ null, %.lr.ph ], [ null, %47 ]
+  %.sroa.0.0 = phi ptr [ %.022, %45 ], [ %.022, %39 ], [ null, %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_32HdDependencyForwardingSceneIndex34_AffectedPrimToDependsOnPathsEntryENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S7_EEELb0EEEE23split_order_key_regularEm.exit ], [ %.022, %.lr.ph.i ], [ null, %.lr.ph ], [ null, %47 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -17795,8 +17795,8 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_set_trai
   br i1 %.not, label %_ZNK3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorIS5_EELb0EEEE16first_value_nodeEPNS1_9list_nodeImEE.exit, label %.lr.ph, !llvm.loop !225
 
 _ZNK3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorIS5_EELb0EEEE16first_value_nodeEPNS1_9list_nodeImEE.exit: ; preds = %47, %.lr.ph, %45, %.lr.ph.i, %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorIS5_EELb0EEEE23split_order_key_regularEm.exit, %39
-  %.sroa.4.0 = phi ptr [ null, %39 ], [ null, %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorIS5_EELb0EEEE23split_order_key_regularEm.exit ], [ %.0.i.i.i, %45 ], [ %.05.i, %.lr.ph.i ], [ null, %.lr.ph ], [ null, %47 ]
-  %.sroa.0.0 = phi ptr [ %.022, %39 ], [ null, %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorIS5_EELb0EEEE23split_order_key_regularEm.exit ], [ %.022, %45 ], [ %.022, %.lr.ph.i ], [ null, %.lr.ph ], [ null, %47 ]
+  %.sroa.4.0 = phi ptr [ %.0.i.i.i, %45 ], [ null, %39 ], [ null, %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorIS5_EELb0EEEE23split_order_key_regularEm.exit ], [ %.05.i, %.lr.ph.i ], [ null, %.lr.ph ], [ null, %47 ]
+  %.sroa.0.0 = phi ptr [ %.022, %45 ], [ %.022, %39 ], [ null, %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorIS5_EELb0EEEE23split_order_key_regularEm.exit ], [ %.022, %.lr.ph.i ], [ null, %.lr.ph ], [ null, %47 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -17897,8 +17897,8 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_trai
   br i1 %.not, label %_ZNK3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS1_24concurrent_unordered_mapIS5_NS4_32HdDependencyForwardingSceneIndex28_AffectedPrimDependencyEntryENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S8_EEEEES9_SB_NSC_ISD_ISE_SH_EEELb0EEEE16first_value_nodeEPNS1_9list_nodeImEE.exit, label %.lr.ph, !llvm.loop !226
 
 _ZNK3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS1_24concurrent_unordered_mapIS5_NS4_32HdDependencyForwardingSceneIndex28_AffectedPrimDependencyEntryENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S8_EEEEES9_SB_NSC_ISD_ISE_SH_EEELb0EEEE16first_value_nodeEPNS1_9list_nodeImEE.exit: ; preds = %47, %.lr.ph, %45, %.lr.ph.i, %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS1_24concurrent_unordered_mapIS5_NS4_32HdDependencyForwardingSceneIndex28_AffectedPrimDependencyEntryENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S8_EEEEES9_SB_NSC_ISD_ISE_SH_EEELb0EEEE23split_order_key_regularEm.exit, %39
-  %.sroa.4.0 = phi ptr [ null, %39 ], [ null, %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS1_24concurrent_unordered_mapIS5_NS4_32HdDependencyForwardingSceneIndex28_AffectedPrimDependencyEntryENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S8_EEEEES9_SB_NSC_ISD_ISE_SH_EEELb0EEEE23split_order_key_regularEm.exit ], [ %.0.i.i.i, %45 ], [ %.05.i, %.lr.ph.i ], [ null, %.lr.ph ], [ null, %47 ]
-  %.sroa.0.0 = phi ptr [ %.022, %39 ], [ null, %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS1_24concurrent_unordered_mapIS5_NS4_32HdDependencyForwardingSceneIndex28_AffectedPrimDependencyEntryENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S8_EEEEES9_SB_NSC_ISD_ISE_SH_EEELb0EEEE23split_order_key_regularEm.exit ], [ %.022, %45 ], [ %.022, %.lr.ph.i ], [ null, %.lr.ph ], [ null, %47 ]
+  %.sroa.4.0 = phi ptr [ %.0.i.i.i, %45 ], [ null, %39 ], [ null, %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS1_24concurrent_unordered_mapIS5_NS4_32HdDependencyForwardingSceneIndex28_AffectedPrimDependencyEntryENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S8_EEEEES9_SB_NSC_ISD_ISE_SH_EEELb0EEEE23split_order_key_regularEm.exit ], [ %.05.i, %.lr.ph.i ], [ null, %.lr.ph ], [ null, %47 ]
+  %.sroa.0.0 = phi ptr [ %.022, %45 ], [ %.022, %39 ], [ null, %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS1_24concurrent_unordered_mapIS5_NS4_32HdDependencyForwardingSceneIndex28_AffectedPrimDependencyEntryENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S8_EEEEES9_SB_NSC_ISD_ISE_SH_EEELb0EEEE23split_order_key_regularEm.exit ], [ %.022, %.lr.ph.i ], [ null, %.lr.ph ], [ null, %47 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %.fca.1.insert

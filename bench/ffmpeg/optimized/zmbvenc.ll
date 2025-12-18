@@ -929,8 +929,8 @@ block_cmp.exit137.us.us.i.us364:                  ; preds = %.preheader.i118.us.
   br i1 %exitcond504.not, label %._crit_edge.split.us.us.i.loopexit, label %.lr.ph.us.i.split.split.us, !llvm.loop !64
 
 zmbv_me.exit:                                     ; preds = %258, %block_cmp.exit137.thread.us.us.i.us, %block_cmp.exit115.thread.i, %block_cmp.exit.thread.i
-  %.11254 = phi i32 [ %.1244425, %block_cmp.exit115.thread.i ], [ 0, %block_cmp.exit.thread.i ], [ %271, %block_cmp.exit137.thread.us.us.i.us ], [ %.081165.i.us302.us, %258 ]
-  %.11 = phi i32 [ %.1234426, %block_cmp.exit115.thread.i ], [ 0, %block_cmp.exit.thread.i ], [ %268, %block_cmp.exit137.thread.us.us.i.us ], [ %.082171.i.us332, %258 ]
+  %.11254 = phi i32 [ 0, %block_cmp.exit.thread.i ], [ %.1244425, %block_cmp.exit115.thread.i ], [ %271, %block_cmp.exit137.thread.us.us.i.us ], [ %.081165.i.us302.us, %258 ]
+  %.11 = phi i32 [ 0, %block_cmp.exit.thread.i ], [ %.1234426, %block_cmp.exit115.thread.i ], [ %268, %block_cmp.exit137.thread.us.us.i.us ], [ %.082171.i.us332, %258 ]
   %.11254.tr = trunc i32 %.11254 to i8
   %309 = shl i8 %.11254.tr, 1
   store i8 %309, ptr %.1429, align 1, !tbaa !55
@@ -941,8 +941,8 @@ zmbv_me.exit:                                     ; preds = %258, %block_cmp.exi
   br label %.loopexit
 
 .loopexit593:                                     ; preds = %._crit_edge.split.i.loopexit.split.split.us.us, %._crit_edge.split.i.loopexit.split.us.us, %._crit_edge.split.us.us.i.loopexit, %253, %307, %297, %.lr.ph174.split.i.preheader.split, %block_cmp.exit.i, %234, %235
-  %.11254.ph = phi i32 [ %.2245, %235 ], [ %.1244425, %234 ], [ 0, %block_cmp.exit.i ], [ %.2245, %.lr.ph174.split.i.preheader.split ], [ %.5248.us.us, %._crit_edge.split.i.loopexit.split.us.us ], [ %271, %297 ], [ %.081165.us.us.i.us353, %307 ], [ %.081165.i.us.us, %253 ], [ %.us-phi346, %._crit_edge.split.us.us.i.loopexit ], [ %.2245, %._crit_edge.split.i.loopexit.split.split.us.us ]
-  %.11.ph = phi i32 [ %.2235, %235 ], [ %.1234426, %234 ], [ 0, %block_cmp.exit.i ], [ %.2235, %.lr.ph174.split.i.preheader.split ], [ %.5238.us.us, %._crit_edge.split.i.loopexit.split.us.us ], [ %268, %297 ], [ %268, %307 ], [ %.082171.i.us, %253 ], [ %.us-phi347, %._crit_edge.split.us.us.i.loopexit ], [ %.2235, %._crit_edge.split.i.loopexit.split.split.us.us ]
+  %.11254.ph = phi i32 [ %271, %297 ], [ %.5248.us.us, %._crit_edge.split.i.loopexit.split.us.us ], [ %.us-phi346, %._crit_edge.split.us.us.i.loopexit ], [ %.2245, %.lr.ph174.split.i.preheader.split ], [ %.081165.us.us.i.us353, %307 ], [ 0, %block_cmp.exit.i ], [ %.081165.i.us.us, %253 ], [ %.2245, %235 ], [ %.1244425, %234 ], [ %.2245, %._crit_edge.split.i.loopexit.split.split.us.us ]
+  %.11.ph = phi i32 [ %268, %297 ], [ %.5238.us.us, %._crit_edge.split.i.loopexit.split.us.us ], [ %.us-phi347, %._crit_edge.split.us.us.i.loopexit ], [ %.2235, %.lr.ph174.split.i.preheader.split ], [ %268, %307 ], [ 0, %block_cmp.exit.i ], [ %.082171.i.us, %253 ], [ %.2235, %235 ], [ %.1234426, %234 ], [ %.2235, %._crit_edge.split.i.loopexit.split.split.us.us ]
   %.11254.ph.tr = trunc i32 %.11254.ph to i8
   %312 = shl i8 %.11254.ph.tr, 1
   %313 = or disjoint i8 %312, 1

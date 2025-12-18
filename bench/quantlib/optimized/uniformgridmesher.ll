@@ -536,7 +536,7 @@ invoke.cont89:                                    ; preds = %.noexc129, %for.con
   br i1 %cmp94, label %for.body96, label %for.cond.cleanup95
 
 for.cond.cleanup95:                               ; preds = %invoke.cont89, %for.body96.us, %_ZNSt6vectorIdSaIdEED2Ev.exit.split.us
-  %68 = phi ptr [ %54, %_ZNSt6vectorIdSaIdEED2Ev.exit.split.us ], [ %54, %for.body96.us ], [ %65, %invoke.cont89 ]
+  %68 = phi ptr [ %54, %for.body96.us ], [ %54, %_ZNSt6vectorIdSaIdEED2Ev.exit.split.us ], [ %65, %invoke.cont89 ]
   %inc108 = add nuw i64 %i.0200, 1
   %dim_.i93 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %_M_finish.i94 = getelementptr inbounds nuw i8, ptr %68, i64 16

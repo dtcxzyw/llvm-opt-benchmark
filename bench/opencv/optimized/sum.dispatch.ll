@@ -424,7 +424,7 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL5sum8uEPKhS2_Piii(ptr noundef 
   br i1 %exitcond296.not.i, label %_ZN2cv12cpu_baselineL4sum_IhiEEiPKT_PKhPT0_ii.exit, label %.lr.ph221.split.i, !llvm.loop !17
 
 _ZN2cv12cpu_baselineL4sum_IhiEEiPKT_PKhPT0_ii.exit: ; preds = %.lr.ph221.split.i, %105, %._crit_edge261.i, %._crit_edge.i, %._crit_edge212.i, %.preheader196.i, %57
-  %.0187.i = phi i32 [ %.0159.lcssa.i, %._crit_edge212.i ], [ %.3.lcssa.i, %._crit_edge.i ], [ %3, %57 ], [ 0, %.preheader196.i ], [ %.6.us.i, %105 ], [ %3, %._crit_edge261.i ], [ %spec.select.i, %.lr.ph221.split.i ]
+  %.0187.i = phi i32 [ %3, %57 ], [ %.0159.lcssa.i, %._crit_edge212.i ], [ %.3.lcssa.i, %._crit_edge.i ], [ %3, %._crit_edge261.i ], [ 0, %.preheader196.i ], [ %.6.us.i, %105 ], [ %spec.select.i, %.lr.ph221.split.i ]
   %147 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %148 = load i32, ptr %147, align 8, !tbaa !20
   %.not.i6 = icmp eq i32 %148, 0
@@ -807,7 +807,7 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL5sum8sEPKaPKhPiii(ptr noundef 
   br i1 %exitcond296.not.i, label %_ZN2cv12cpu_baselineL4sum_IaiEEiPKT_PKhPT0_ii.exit, label %.lr.ph221.split.i, !llvm.loop !29
 
 _ZN2cv12cpu_baselineL4sum_IaiEEiPKT_PKhPT0_ii.exit: ; preds = %.lr.ph221.split.i, %105, %._crit_edge261.i, %._crit_edge.i, %._crit_edge212.i, %.preheader196.i, %57
-  %.0187.i = phi i32 [ %.0159.lcssa.i, %._crit_edge212.i ], [ %.3.lcssa.i, %._crit_edge.i ], [ %3, %57 ], [ 0, %.preheader196.i ], [ %.6.us.i, %105 ], [ %3, %._crit_edge261.i ], [ %spec.select.i, %.lr.ph221.split.i ]
+  %.0187.i = phi i32 [ %3, %57 ], [ %.0159.lcssa.i, %._crit_edge212.i ], [ %.3.lcssa.i, %._crit_edge.i ], [ %3, %._crit_edge261.i ], [ 0, %.preheader196.i ], [ %.6.us.i, %105 ], [ %spec.select.i, %.lr.ph221.split.i ]
   %147 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %148 = load i32, ptr %147, align 8, !tbaa !20
   %.not.i6 = icmp eq i32 %148, 0
@@ -1190,7 +1190,7 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL6sum16uEPKtPKhPiii(ptr noundef
   br i1 %exitcond296.not.i, label %_ZN2cv12cpu_baselineL4sum_ItiEEiPKT_PKhPT0_ii.exit, label %.lr.ph221.split.i, !llvm.loop !40
 
 _ZN2cv12cpu_baselineL4sum_ItiEEiPKT_PKhPT0_ii.exit: ; preds = %.lr.ph221.split.i, %105, %._crit_edge261.i, %._crit_edge.i, %._crit_edge212.i, %.preheader196.i, %57
-  %.0187.i = phi i32 [ %.0159.lcssa.i, %._crit_edge212.i ], [ %.3.lcssa.i, %._crit_edge.i ], [ %3, %57 ], [ 0, %.preheader196.i ], [ %.6.us.i, %105 ], [ %3, %._crit_edge261.i ], [ %spec.select.i, %.lr.ph221.split.i ]
+  %.0187.i = phi i32 [ %3, %57 ], [ %.0159.lcssa.i, %._crit_edge212.i ], [ %.3.lcssa.i, %._crit_edge.i ], [ %3, %._crit_edge261.i ], [ 0, %.preheader196.i ], [ %.6.us.i, %105 ], [ %spec.select.i, %.lr.ph221.split.i ]
   %147 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %148 = load i32, ptr %147, align 8, !tbaa !20
   %.not.i6 = icmp eq i32 %148, 0
@@ -1573,7 +1573,7 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL6sum16sEPKsPKhPiii(ptr noundef
   br i1 %exitcond296.not.i, label %_ZN2cv12cpu_baselineL4sum_IsiEEiPKT_PKhPT0_ii.exit, label %.lr.ph221.split.i, !llvm.loop !49
 
 _ZN2cv12cpu_baselineL4sum_IsiEEiPKT_PKhPT0_ii.exit: ; preds = %.lr.ph221.split.i, %105, %._crit_edge261.i, %._crit_edge.i, %._crit_edge212.i, %.preheader196.i, %57
-  %.0187.i = phi i32 [ %.0159.lcssa.i, %._crit_edge212.i ], [ %.3.lcssa.i, %._crit_edge.i ], [ %3, %57 ], [ 0, %.preheader196.i ], [ %.6.us.i, %105 ], [ %3, %._crit_edge261.i ], [ %spec.select.i, %.lr.ph221.split.i ]
+  %.0187.i = phi i32 [ %3, %57 ], [ %.0159.lcssa.i, %._crit_edge212.i ], [ %.3.lcssa.i, %._crit_edge.i ], [ %3, %._crit_edge261.i ], [ 0, %.preheader196.i ], [ %.6.us.i, %105 ], [ %spec.select.i, %.lr.ph221.split.i ]
   %147 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %148 = load i32, ptr %147, align 8, !tbaa !20
   %.not.i6 = icmp eq i32 %148, 0
@@ -1956,7 +1956,7 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL6sum32sEPKiPKhPdii(ptr noundef
   br i1 %exitcond296.not.i, label %_ZN2cv12cpu_baselineL4sum_IidEEiPKT_PKhPT0_ii.exit, label %.lr.ph221.split.i, !llvm.loop !60
 
 _ZN2cv12cpu_baselineL4sum_IidEEiPKT_PKhPT0_ii.exit: ; preds = %.lr.ph221.split.i, %105, %._crit_edge261.i, %._crit_edge.i, %._crit_edge212.i, %.preheader196.i, %57
-  %.0187.i = phi i32 [ %.0159.lcssa.i, %._crit_edge212.i ], [ %.3.lcssa.i, %._crit_edge.i ], [ %3, %57 ], [ 0, %.preheader196.i ], [ %.6.us.i, %105 ], [ %3, %._crit_edge261.i ], [ %spec.select.i, %.lr.ph221.split.i ]
+  %.0187.i = phi i32 [ %3, %57 ], [ %.0159.lcssa.i, %._crit_edge212.i ], [ %.3.lcssa.i, %._crit_edge.i ], [ %3, %._crit_edge261.i ], [ 0, %.preheader196.i ], [ %.6.us.i, %105 ], [ %spec.select.i, %.lr.ph221.split.i ]
   %147 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %148 = load i32, ptr %147, align 8, !tbaa !20
   %.not.i6 = icmp eq i32 %148, 0
@@ -2339,7 +2339,7 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL6sum32fEPKfPKhPdii(ptr noundef
   br i1 %exitcond296.not.i, label %_ZN2cv12cpu_baselineL4sum_IfdEEiPKT_PKhPT0_ii.exit, label %.lr.ph221.split.i, !llvm.loop !71
 
 _ZN2cv12cpu_baselineL4sum_IfdEEiPKT_PKhPT0_ii.exit: ; preds = %.lr.ph221.split.i, %105, %._crit_edge261.i, %._crit_edge.i, %._crit_edge212.i, %.preheader196.i, %57
-  %.0187.i = phi i32 [ %.0159.lcssa.i, %._crit_edge212.i ], [ %.3.lcssa.i, %._crit_edge.i ], [ %3, %57 ], [ 0, %.preheader196.i ], [ %.6.us.i, %105 ], [ %3, %._crit_edge261.i ], [ %spec.select.i, %.lr.ph221.split.i ]
+  %.0187.i = phi i32 [ %3, %57 ], [ %.0159.lcssa.i, %._crit_edge212.i ], [ %.3.lcssa.i, %._crit_edge.i ], [ %3, %._crit_edge261.i ], [ 0, %.preheader196.i ], [ %.6.us.i, %105 ], [ %spec.select.i, %.lr.ph221.split.i ]
   %147 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %148 = load i32, ptr %147, align 8, !tbaa !20
   %.not.i6 = icmp eq i32 %148, 0
@@ -2707,7 +2707,7 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL6sum64fEPKdPKhPdii(ptr noundef
   br i1 %exitcond296.not.i, label %_ZN2cv12cpu_baselineL4sum_IddEEiPKT_PKhPT0_ii.exit, label %.lr.ph221.split.i, !llvm.loop !80
 
 _ZN2cv12cpu_baselineL4sum_IddEEiPKT_PKhPT0_ii.exit: ; preds = %.lr.ph221.split.i, %94, %._crit_edge261.i, %._crit_edge.i, %._crit_edge212.i, %.preheader196.i, %51
-  %.0187.i = phi i32 [ %.0159.lcssa.i, %._crit_edge212.i ], [ %.3.lcssa.i, %._crit_edge.i ], [ %3, %51 ], [ 0, %.preheader196.i ], [ %.6.us.i, %94 ], [ %3, %._crit_edge261.i ], [ %spec.select.i, %.lr.ph221.split.i ]
+  %.0187.i = phi i32 [ %3, %51 ], [ %.0159.lcssa.i, %._crit_edge212.i ], [ %.3.lcssa.i, %._crit_edge.i ], [ %3, %._crit_edge261.i ], [ 0, %.preheader196.i ], [ %.6.us.i, %94 ], [ %spec.select.i, %.lr.ph221.split.i ]
   %132 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %133 = load i32, ptr %132, align 8, !tbaa !20
   %.not.i6 = icmp eq i32 %133, 0

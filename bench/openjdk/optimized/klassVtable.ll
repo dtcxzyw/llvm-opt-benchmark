@@ -518,7 +518,7 @@ _ZL17can_be_overriddenP6Method6HandleP6Symbol.exit: ; preds = %104, %105
   br label %_ZL17can_be_overriddenP6Method6HandleP6Symbol.exit.thread
 
 _ZL17can_be_overriddenP6Method6HandleP6Symbol.exit.thread: ; preds = %81, %_ZL17can_be_overriddenP6Method6HandleP6Symbol.exit.us, %61, %_ZL17can_be_overriddenP6Method6HandleP6Symbol.exit.us.us, %_ZL17can_be_overriddenP6Method6HandleP6Symbol.exit, %102, %28, %112, %.split58.us, %35, %8, %10, %13, %6, %114
-  %.0 = phi i1 [ false, %8 ], [ false, %6 ], [ false, %28 ], [ true, %35 ], [ true, %.split58.us ], [ true, %114 ], [ false, %112 ], [ false, %13 ], [ false, %10 ], [ false, %102 ], [ %not., %_ZL17can_be_overriddenP6Method6HandleP6Symbol.exit ], [ false, %61 ], [ false, %_ZL17can_be_overriddenP6Method6HandleP6Symbol.exit.us.us ], [ false, %_ZL17can_be_overriddenP6Method6HandleP6Symbol.exit.us ], [ false, %81 ]
+  %.0 = phi i1 [ false, %8 ], [ false, %6 ], [ false, %28 ], [ true, %35 ], [ false, %10 ], [ true, %.split58.us ], [ true, %114 ], [ false, %112 ], [ false, %13 ], [ false, %61 ], [ false, %102 ], [ %not., %_ZL17can_be_overriddenP6Method6HandleP6Symbol.exit ], [ false, %_ZL17can_be_overriddenP6Method6HandleP6Symbol.exit.us.us ], [ false, %_ZL17can_be_overriddenP6Method6HandleP6Symbol.exit.us ], [ false, %81 ]
   ret i1 %.0
 }
 

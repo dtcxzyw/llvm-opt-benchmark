@@ -1560,7 +1560,7 @@ define dso_local range(i32 -901, 1) i32 @nghttp2_frame_unpack_origin_payload(ptr
   br label %.outer, !llvm.loop !94
 
 .loopexit:                                        ; preds = %18, %10, %39, %31, %30
-  %.056 = phi i32 [ -901, %31 ], [ 0, %30 ], [ -522, %10 ], [ 0, %39 ], [ -522, %18 ]
+  %.056 = phi i32 [ -901, %31 ], [ -522, %10 ], [ 0, %30 ], [ 0, %39 ], [ -522, %18 ]
   ret i32 %.056
 }
 

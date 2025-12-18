@@ -7158,7 +7158,7 @@ _ZN6vectorIN15parallel_tactic8cube_varELb1EjE9push_backERKS1_.exit.i.i: ; preds 
   br i1 %624, label %_ZN15parallel_tactic12solver_state9set_cubesER6vectorINS_8cube_varELb1EjE.exit, label %_ZNK6vectorIN15parallel_tactic8cube_varELb1EjE4sizeEv.exit.i.i307, !llvm.loop !274
 
 _ZN15parallel_tactic12solver_state9set_cubesER6vectorINS_8cube_varELb1EjE.exit: ; preds = %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit, %.noexc312, %_ZNK6vectorIN15parallel_tactic8cube_varELb1EjE4sizeEv.exit.i.i307, %_ZN6vectorIN15parallel_tactic8cube_varELb1EjE5resetEv.exit.i, %_ZN15parallel_tactic10dec_branchEv.exit, %574
-  %.267 = phi i32 [ 0, %574 ], [ 0, %_ZN15parallel_tactic10dec_branchEv.exit ], [ 2, %_ZN6vectorIN15parallel_tactic8cube_varELb1EjE5resetEv.exit.i ], [ 2, %.noexc312 ], [ 2, %_ZNK6vectorIN15parallel_tactic8cube_varELb1EjE4sizeEv.exit.i.i307 ], [ %.065, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit ]
+  %.267 = phi i32 [ 2, %.noexc312 ], [ 0, %574 ], [ 0, %_ZN15parallel_tactic10dec_branchEv.exit ], [ 2, %_ZN6vectorIN15parallel_tactic8cube_varELb1EjE5resetEv.exit.i ], [ 2, %_ZNK6vectorIN15parallel_tactic8cube_varELb1EjE4sizeEv.exit.i.i307 ], [ %.065, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit ]
   %625 = load ptr, ptr %10, align 8, !tbaa !11
   %.not.i.i313 = icmp eq ptr %625, null
   br i1 %.not.i.i313, label %_ZN3refI6solverED2Ev.exit, label %626

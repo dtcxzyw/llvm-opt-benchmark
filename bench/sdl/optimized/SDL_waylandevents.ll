@@ -691,7 +691,7 @@ keyboard_repeat_handle.exit84:                    ; preds = %150, %116
   br label %.critedge
 
 .critedge:                                        ; preds = %72, %keyboard_repeat_handle.exit84, %.preheader, %93, %105, %158, %162
-  %.2 = phi i32 [ %., %158 ], [ %166, %162 ], [ %100, %93 ], [ 0, %105 ], [ 0, %.preheader ], [ %spec.select, %keyboard_repeat_handle.exit84 ], [ 1, %72 ]
+  %.2 = phi i32 [ %., %158 ], [ %spec.select, %keyboard_repeat_handle.exit84 ], [ %166, %162 ], [ %100, %93 ], [ 0, %105 ], [ 0, %.preheader ], [ 1, %72 ]
   ret i32 %.2
 }
 
@@ -7271,7 +7271,7 @@ keyboard_input_get_text.exit.thread:              ; preds = %keyboard_repeat_get
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %keyboard_repeat_set_text.exit
 
-keyboard_input_get_text.exit.thread26:            ; preds = %35, %46
+keyboard_input_get_text.exit.thread26:            ; preds = %46, %35
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %58
 

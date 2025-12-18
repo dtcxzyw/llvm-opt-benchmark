@@ -239,7 +239,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %110
 
 110:                                              ; preds = %106, %102
-  %.1186 = phi i32 [ %109, %106 ], [ %.0185247, %102 ]
+  %.1186 = phi i32 [ %.0185247, %102 ], [ %109, %106 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %111 = load i16, ptr %30, align 8, !tbaa !38
   %112 = zext i16 %111 to i64
@@ -422,7 +422,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br i1 %204, label %.split.us, label %.critedge
 
 .split.us:                                        ; preds = %.lr.ph250.split.us.split, %.lr.ph250.split.us.split.us.split, %202
-  %.us-phi = phi i64 [ %203, %202 ], [ %148, %.lr.ph250.split.us.split.us.split ], [ %175, %.lr.ph250.split.us.split ]
+  %.us-phi = phi i64 [ %148, %.lr.ph250.split.us.split.us.split ], [ %203, %202 ], [ %175, %.lr.ph250.split.us.split ]
   %205 = trunc i64 %.us-phi to i32
   br label %.critedge
 
@@ -510,7 +510,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph, %75, %switch.hole_check, %.lr.ph250.split.us.split.us, %177, %193, %166, %150, %.lr.ph250.split, %202, %.split.us, %213, %240, %236, %232, %224, %230, %211, %.thread240, %118, %65, %60, %56, %53, %50, %37, %47, %1, %251, %116
-  %.0 = phi i32 [ -1094995529, %53 ], [ -1094995529, %1 ], [ -1094995529, %37 ], [ -1094995529, %213 ], [ %117, %116 ], [ -12, %65 ], [ -1094995529, %240 ], [ -12, %211 ], [ -1094995529, %224 ], [ -1094995529, %232 ], [ 0, %251 ], [ %238, %236 ], [ -1094995529, %.thread240 ], [ %122, %118 ], [ -1094995529, %230 ], [ -12, %60 ], [ -12, %56 ], [ -1094995529, %47 ], [ -1094995529, %50 ], [ %205, %.split.us ], [ -1094995529, %.lr.ph250.split ], [ -1094995529, %202 ], [ -1094995529, %.lr.ph250.split.us.split.us ], [ -1094995529, %166 ], [ -1094995529, %177 ], [ -1094995529, %150 ], [ -1094995529, %193 ], [ -1094995529, %switch.hole_check ], [ -1094995529, %75 ], [ -1094995529, %.lr.ph ]
+  %.0 = phi i32 [ -1094995529, %53 ], [ -1094995529, %1 ], [ -1094995529, %37 ], [ -1094995529, %213 ], [ %117, %116 ], [ -12, %65 ], [ -1094995529, %240 ], [ -12, %211 ], [ -1094995529, %224 ], [ -1094995529, %232 ], [ 0, %251 ], [ %238, %236 ], [ -1094995529, %.thread240 ], [ %122, %118 ], [ -1094995529, %.lr.ph250.split.us.split.us ], [ -1094995529, %230 ], [ -12, %60 ], [ -12, %56 ], [ -1094995529, %47 ], [ %205, %.split.us ], [ -1094995529, %50 ], [ -1094995529, %.lr.ph250.split ], [ -1094995529, %202 ], [ -1094995529, %177 ], [ -1094995529, %166 ], [ -1094995529, %150 ], [ -1094995529, %193 ], [ -1094995529, %switch.hole_check ], [ -1094995529, %75 ], [ -1094995529, %.lr.ph ]
   ret i32 %.0
 }
 
@@ -581,7 +581,7 @@ define internal i32 @aax_read_packet(ptr noundef readonly captures(none) %0, ptr
   br i1 %exitcond.not, label %.thread, label %21, !llvm.loop !80
 
 .thread:                                          ; preds = %36, %16, %32, %26
-  %.1 = phi i64 [ %35, %32 ], [ 0, %26 ], [ 0, %16 ], [ 0, %36 ]
+  %.1 = phi i64 [ 0, %26 ], [ %35, %32 ], [ 0, %16 ], [ 0, %36 ]
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %38 = load i32, ptr %37, align 8, !tbaa !79
   %39 = zext i32 %38 to i64

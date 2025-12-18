@@ -2059,7 +2059,7 @@ define dso_local noundef ptr @ziplistMerge(ptr noundef captures(address_is_null)
   br label %53
 
 53:                                               ; preds = %.sink.split, %2, %4, %8
-  %.0 = phi ptr [ null, %2 ], [ null, %8 ], [ null, %4 ], [ %51, %.sink.split ]
+  %.0 = phi ptr [ null, %4 ], [ null, %2 ], [ null, %8 ], [ %51, %.sink.split ]
   ret ptr %.0
 }
 

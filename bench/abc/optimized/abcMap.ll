@@ -521,7 +521,7 @@ Scl_ConHasInArrs.exit:                            ; preds = %32, %25
   br label %Abc_NtkMapCopyCiArrivalCon.exit
 
 Abc_NtkMapCopyCiArrivalCon.exit:                  ; preds = %.lr.ph.i, %._crit_edge.thread.i, %._crit_edge.i, %38
-  %.sink = phi ptr [ %42, %38 ], [ %61, %._crit_edge.i ], [ %61, %._crit_edge.thread.i ], [ %42, %.lr.ph.i ]
+  %.sink = phi ptr [ %42, %38 ], [ %61, %._crit_edge.thread.i ], [ %61, %._crit_edge.i ], [ %42, %.lr.ph.i ]
   tail call void @Map_ManSetInputArrivals(ptr noundef nonnull %17, ptr noundef %.sink) #16
   %72 = tail call ptr (...) @Scl_ConReadMan() #16
   %.not181 = icmp eq ptr %72, null
@@ -632,7 +632,7 @@ Scl_ConHasOutReqs.exit:                           ; preds = %80, %73
   br label %Abc_NtkMapCopyCoRequiredCon.exit
 
 Abc_NtkMapCopyCoRequiredCon.exit:                 ; preds = %.lr.ph.i159, %._crit_edge.thread.i169, %._crit_edge.i167, %86
-  %.sink221 = phi ptr [ %90, %86 ], [ %109, %._crit_edge.i167 ], [ %109, %._crit_edge.thread.i169 ], [ %90, %.lr.ph.i159 ]
+  %.sink221 = phi ptr [ %90, %86 ], [ %109, %._crit_edge.thread.i169 ], [ %109, %._crit_edge.i167 ], [ %90, %.lr.ph.i159 ]
   tail call void @Map_ManSetOutputRequireds(ptr noundef nonnull %17, ptr noundef %.sink221) #16
   tail call void @Abc_NtkCleanCopy(ptr noundef nonnull %0) #16
   %120 = tail call ptr @Map_ManReadConst1(ptr noundef nonnull %17) #16

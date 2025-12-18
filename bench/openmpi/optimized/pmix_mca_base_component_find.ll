@@ -620,7 +620,7 @@ use_component.exit.thread:                        ; preds = %use_component.exit.
   br i1 %.not34, label %._crit_edge, label %.preheader.i, !llvm.loop !62
 
 ._crit_edge:                                      ; preds = %use_component.exit.thread, %.lr.ph, %15
-  %.050.ph87 = phi ptr [ null, %.lr.ph ], [ %17, %15 ], [ %17, %use_component.exit.thread ]
+  %.050.ph87 = phi ptr [ %17, %15 ], [ null, %.lr.ph ], [ %17, %use_component.exit.thread ]
   %62 = icmp eq ptr %.050.ph87, null
   br i1 %.not, label %component_find_check.exit, label %63
 

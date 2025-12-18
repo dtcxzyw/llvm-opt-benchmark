@@ -2818,7 +2818,7 @@ forward_status_change.exit.i:                     ; preds = %198, %.preheader97.
   br i1 %exitcond151.not.i, label %filter_activate_default.exit.thread10, label %229, !llvm.loop !179
 
 filter_activate_default.exit:                     ; preds = %213, %237, %191, %10
-  %240 = phi i32 [ %11, %10 ], [ %.0.i.i, %191 ], [ %238, %237 ], [ %214, %213 ]
+  %240 = phi i32 [ %11, %10 ], [ %238, %237 ], [ %.0.i.i, %191 ], [ %214, %213 ]
   %.fr = freeze i32 %240
   %241 = icmp eq i32 %.fr, -1497649742
   br i1 %241, label %filter_activate_default.exit.thread10, label %filter_activate_default.exit.thread
@@ -2826,8 +2826,8 @@ filter_activate_default.exit:                     ; preds = %213, %237, %191, %1
 filter_activate_default.exit.thread10:            ; preds = %239, %.preheader95.i, %filter_activate_default.exit
   br label %filter_activate_default.exit.thread
 
-filter_activate_default.exit.thread:              ; preds = %ff_inlink_set_status.exit.i, %.preheader.i, %._crit_edge.i75.i, %222, %201, %filter_activate_default.exit, %filter_activate_default.exit.thread10
-  %242 = phi i32 [ 0, %filter_activate_default.exit.thread10 ], [ %.fr, %filter_activate_default.exit ], [ 0, %201 ], [ 0, %222 ], [ 0, %._crit_edge.i75.i ], [ 0, %.preheader.i ], [ 0, %ff_inlink_set_status.exit.i ]
+filter_activate_default.exit.thread:              ; preds = %ff_inlink_set_status.exit.i, %._crit_edge.i75.i, %222, %.preheader.i, %201, %filter_activate_default.exit, %filter_activate_default.exit.thread10
+  %242 = phi i32 [ 0, %filter_activate_default.exit.thread10 ], [ %.fr, %filter_activate_default.exit ], [ 0, %201 ], [ 0, %.preheader.i ], [ 0, %222 ], [ 0, %._crit_edge.i75.i ], [ 0, %ff_inlink_set_status.exit.i ]
   ret i32 %242
 }
 
@@ -3771,7 +3771,7 @@ define internal fastcc i32 @request_frame_to_filter(ptr noundef initializes((368
   br label %ff_request_frame.exit.thread
 
 ff_request_frame.exit:                            ; preds = %22, %14, %7
-  %.0 = phi i32 [ %8, %7 ], [ %25, %22 ], [ %16, %14 ]
+  %.0 = phi i32 [ %8, %7 ], [ %16, %14 ], [ %25, %22 ]
   %31 = icmp slt i32 %.0, 0
   br i1 %31, label %32, label %ff_request_frame.exit.thread
 

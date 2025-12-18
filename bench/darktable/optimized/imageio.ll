@@ -288,7 +288,7 @@ define range(i32 0, 129) i32 @dt_imageio_get_type_from_extension(ptr noundef %0)
   br i1 %.not34, label %.thread, label %14
 
 .thread:                                          ; preds = %7, %.critedge.preheader, %14, %.preheader
-  %.124 = phi i32 [ 128, %.critedge.preheader ], [ 0, %14 ], [ 32, %.preheader ], [ 64, %7 ]
+  %.124 = phi i32 [ 0, %14 ], [ 128, %.critedge.preheader ], [ 32, %.preheader ], [ 64, %7 ]
   ret i32 %.124
 }
 
@@ -951,7 +951,7 @@ _memfind.exit.thread:                             ; preds = %63, %_memfind.exit.
   br label %.thread57
 
 .thread57:                                        ; preds = %22, %34, %_memfind.exit.thread56, %61, %.thread52, %7
-  %.2 = phi ptr [ %_windows_BMP_signature., %.thread52 ], [ null, %7 ], [ %12, %34 ], [ %39, %61 ], [ %39, %_memfind.exit.thread56 ], [ %12, %22 ]
+  %.2 = phi ptr [ %39, %61 ], [ %_windows_BMP_signature., %.thread52 ], [ null, %7 ], [ %12, %34 ], [ %39, %_memfind.exit.thread56 ], [ %12, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %74
 
@@ -1445,7 +1445,7 @@ dt_get_perf_times.exit:                           ; preds = %65, %72
   br label %.loopexit473
 
 .loopexit473:                                     ; preds = %229, %211, %225, %221, %204, %232
-  %.0363 = phi i32 [ %13, %204 ], [ 0, %232 ], [ 1, %221 ], [ %228, %225 ], [ 1, %211 ], [ 1, %229 ]
+  %.0363 = phi i32 [ %13, %204 ], [ 0, %232 ], [ %228, %225 ], [ 1, %221 ], [ 1, %211 ], [ 1, %229 ]
   %233 = load i32, ptr %3, align 4, !tbaa !188
   %spec.select = call i32 @llvm.smax.i32(i32 %233, i32 0)
   %234 = getelementptr inbounds nuw i8, ptr %3, i64 4

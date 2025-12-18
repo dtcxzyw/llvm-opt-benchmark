@@ -9722,7 +9722,7 @@ define hidden noundef ptr @"_ZN109_$LT$tokio..util..linked_list..DrainFilter$LT$
   br label %36
 
 "_ZN5tokio4util11linked_list81LinkedList$LT$L$C$$LT$L$u20$as$u20$tokio..util..linked_list..Link$GT$..Target$GT$6remove17h7a8b6a963c7edb81E.exit": ; preds = %5, %36, %32, %25
-  %.0 = phi ptr [ %6, %36 ], [ null, %25 ], [ null, %32 ], [ null, %5 ]
+  %.0 = phi ptr [ null, %32 ], [ %6, %36 ], [ null, %25 ], [ null, %5 ]
   ret ptr %.0
 }
 

@@ -871,7 +871,7 @@ _ZNK9table2mapI17default_map_entryI6symbolP10tactic_cmdE16symbol_hash_proc14symb
   br label %_ZNK9table2mapI17default_map_entryI6symbolP10tactic_cmdE16symbol_hash_proc14symbol_eq_procE4findERKS1_RS3_.exit
 
 _ZNK9table2mapI17default_map_entryI6symbolP10tactic_cmdE16symbol_hash_proc14symbol_eq_procE4findERKS1_RS3_.exit: ; preds = %.lr.ph.i.i.i, %.lr.ph34.i.i.i, %45, %.preheader.i.i.i, %_ZNK9table2mapI17default_map_entryI6symbolP10tactic_cmdE16symbol_hash_proc14symbol_eq_procE9find_coreERKS1_.exit.i
-  %.0 = phi ptr [ null, %.preheader.i.i.i ], [ %48, %_ZNK9table2mapI17default_map_entryI6symbolP10tactic_cmdE16symbol_hash_proc14symbol_eq_procE9find_coreERKS1_.exit.i ], [ null, %.lr.ph34.i.i.i ], [ null, %45 ], [ null, %.lr.ph.i.i.i ]
+  %.0 = phi ptr [ null, %.preheader.i.i.i ], [ null, %.lr.ph34.i.i.i ], [ %48, %_ZNK9table2mapI17default_map_entryI6symbolP10tactic_cmdE16symbol_hash_proc14symbol_eq_procE9find_coreERKS1_.exit.i ], [ null, %45 ], [ null, %.lr.ph.i.i.i ]
   ret ptr %.0
 }
 
@@ -975,7 +975,7 @@ _ZNK9table2mapI17default_map_entryI6symbolP14simplifier_cmdE16symbol_hash_proc14
   br label %_ZNK9table2mapI17default_map_entryI6symbolP14simplifier_cmdE16symbol_hash_proc14symbol_eq_procE4findERKS1_RS3_.exit
 
 _ZNK9table2mapI17default_map_entryI6symbolP14simplifier_cmdE16symbol_hash_proc14symbol_eq_procE4findERKS1_RS3_.exit: ; preds = %.lr.ph.i.i.i, %.lr.ph34.i.i.i, %46, %.preheader.i.i.i, %_ZNK9table2mapI17default_map_entryI6symbolP14simplifier_cmdE16symbol_hash_proc14symbol_eq_procE9find_coreERKS1_.exit.i
-  %.0 = phi ptr [ null, %.preheader.i.i.i ], [ %49, %_ZNK9table2mapI17default_map_entryI6symbolP14simplifier_cmdE16symbol_hash_proc14symbol_eq_procE9find_coreERKS1_.exit.i ], [ null, %.lr.ph34.i.i.i ], [ null, %46 ], [ null, %.lr.ph.i.i.i ]
+  %.0 = phi ptr [ null, %.preheader.i.i.i ], [ null, %.lr.ph34.i.i.i ], [ %49, %_ZNK9table2mapI17default_map_entryI6symbolP14simplifier_cmdE16symbol_hash_proc14symbol_eq_procE9find_coreERKS1_.exit.i ], [ null, %46 ], [ null, %.lr.ph.i.i.i ]
   ret ptr %.0
 }
 
@@ -1079,7 +1079,7 @@ _ZNK9table2mapI17default_map_entryI6symbolP10probe_infoE16symbol_hash_proc14symb
   br label %_ZNK9table2mapI17default_map_entryI6symbolP10probe_infoE16symbol_hash_proc14symbol_eq_procE4findERKS1_RS3_.exit
 
 _ZNK9table2mapI17default_map_entryI6symbolP10probe_infoE16symbol_hash_proc14symbol_eq_procE4findERKS1_RS3_.exit: ; preds = %.lr.ph.i.i.i, %.lr.ph34.i.i.i, %46, %.preheader.i.i.i, %_ZNK9table2mapI17default_map_entryI6symbolP10probe_infoE16symbol_hash_proc14symbol_eq_procE9find_coreERKS1_.exit.i
-  %.0 = phi ptr [ null, %.preheader.i.i.i ], [ %49, %_ZNK9table2mapI17default_map_entryI6symbolP10probe_infoE16symbol_hash_proc14symbol_eq_procE9find_coreERKS1_.exit.i ], [ null, %.lr.ph34.i.i.i ], [ null, %46 ], [ null, %.lr.ph.i.i.i ]
+  %.0 = phi ptr [ null, %.preheader.i.i.i ], [ null, %.lr.ph34.i.i.i ], [ %49, %_ZNK9table2mapI17default_map_entryI6symbolP10probe_infoE16symbol_hash_proc14symbol_eq_procE9find_coreERKS1_.exit.i ], [ null, %46 ], [ null, %.lr.ph.i.i.i ]
   ret ptr %.0
 }
 

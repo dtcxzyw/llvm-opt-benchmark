@@ -1260,7 +1260,7 @@ switch.lookup:                                    ; preds = %16
   br label %19
 
 19:                                               ; preds = %switch.lookup, %Abc_Clock.exit
-  %.0109 = phi ptr [ @.str.12, %Abc_Clock.exit ], [ %switch.load, %switch.lookup ]
+  %.0109 = phi ptr [ %switch.load, %switch.lookup ], [ @.str.12, %Abc_Clock.exit ]
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load i32, ptr %20, align 8, !tbaa !17
   %22 = icmp eq i32 %21, 1
@@ -1673,13 +1673,13 @@ Abc_TtHasVar.exit.thread13.i:                     ; preds = %175, %189
   br label %Abc_TtHasVar.exit.thread.i
 
 Abc_TtHasVar.exit.thread.i:                       ; preds = %._crit_edge.us.i.i, %174, %Abc_TtHasVar.exit.thread13.i, %.preheader.lr.ph.i.i
-  %196 = phi i32 [ %195, %Abc_TtHasVar.exit.thread13.i ], [ %.024.i, %.preheader.lr.ph.i.i ], [ %.024.i, %174 ], [ %.024.i, %._crit_edge.us.i.i ]
+  %196 = phi i32 [ %195, %Abc_TtHasVar.exit.thread13.i ], [ %.024.i, %174 ], [ %.024.i, %.preheader.lr.ph.i.i ], [ %.024.i, %._crit_edge.us.i.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %Abc_TtSupportSize.exit, label %.lr.ph.split.split.split.i, !llvm.loop !70
 
 Abc_TtSupportSize.exit:                           ; preds = %Abc_TtHasVar.exit.thread.i, %Abc_TtHasVar.exit.us.i, %147, %.lr.ph.split.i
-  %.0.lcssa.i = phi i32 [ 0, %147 ], [ 0, %.lr.ph.split.i ], [ %spec.select.i, %Abc_TtHasVar.exit.us.i ], [ %196, %Abc_TtHasVar.exit.thread.i ]
+  %.0.lcssa.i = phi i32 [ 0, %147 ], [ %spec.select.i, %Abc_TtHasVar.exit.us.i ], [ 0, %.lr.ph.split.i ], [ %196, %Abc_TtHasVar.exit.thread.i ]
   br i1 %.not112, label %.critedge118, label %197
 
 197:                                              ; preds = %Abc_TtSupportSize.exit
@@ -1761,7 +1761,7 @@ Abc_TtSupportSize.exit:                           ; preds = %Abc_TtHasVar.exit.t
   br label %.loopexit
 
 .loopexit:                                        ; preds = %203, %114, %.preheader131, %.preheader, %69, %._crit_edge152, %._crit_edge141, %._crit_edge, %Vec_StrFree.exit
-  %.1104 = phi i32 [ %.0103.lcssa, %Vec_StrFree.exit ], [ %.2105.lcssa, %._crit_edge152 ], [ 0, %69 ], [ %.4107.lcssa, %._crit_edge141 ], [ %.5108.lcssa, %._crit_edge ], [ 0, %.preheader ], [ 0, %.preheader131 ], [ %116, %114 ], [ 0, %203 ]
+  %.1104 = phi i32 [ %.0103.lcssa, %Vec_StrFree.exit ], [ %.2105.lcssa, %._crit_edge152 ], [ 0, %69 ], [ %.4107.lcssa, %._crit_edge141 ], [ 0, %.preheader131 ], [ %.5108.lcssa, %._crit_edge ], [ 0, %.preheader ], [ %116, %114 ], [ 0, %203 ]
   %238 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.25, i32 noundef %.1104)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %239 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #21

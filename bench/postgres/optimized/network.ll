@@ -1098,7 +1098,7 @@ define internal fastcc i32 @network_cmp_internal(ptr noundef readonly captures(n
   br label %bitncmp.exit
 
 bitncmp.exit:                                     ; preds = %41, %32, %12, %.loopexit, %45
-  %.1 = phi i32 [ %48, %45 ], [ %21, %12 ], [ %40, %.loopexit ], [ %..i, %32 ], [ %44, %41 ]
+  %.1 = phi i32 [ %48, %45 ], [ %..i, %32 ], [ %40, %.loopexit ], [ %21, %12 ], [ %44, %41 ]
   ret i32 %.1
 }
 

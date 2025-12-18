@@ -3145,7 +3145,7 @@ _ZNK5Ipopt16RegisteredOption24string_equal_insensitiveERKNSt7__cxx1112basic_stri
   br i1 %.not.not, label %.thread, label %8, !llvm.loop !54
 
 .thread:                                          ; preds = %_ZNK5Ipopt16RegisteredOption24string_equal_insensitiveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit, %8, %15, %25, %2
-  %.not12 = phi i1 [ false, %2 ], [ true, %25 ], [ false, %_ZNK5Ipopt16RegisteredOption24string_equal_insensitiveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit ], [ true, %8 ], [ true, %15 ]
+  %.not12 = phi i1 [ true, %25 ], [ false, %2 ], [ false, %_ZNK5Ipopt16RegisteredOption24string_equal_insensitiveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit ], [ true, %8 ], [ true, %15 ]
   ret i1 %.not12
 }
 

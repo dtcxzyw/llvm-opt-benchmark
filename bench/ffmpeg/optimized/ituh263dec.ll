@@ -458,7 +458,7 @@ align_get_bits.exit61:                            ; preds = %76, %80
   br i1 %112, label %86, label %.critedge, !llvm.loop !86
 
 .critedge:                                        ; preds = %37, %108, %align_get_bits.exit, %align_get_bits.exit61, %41, %107, %74
-  %.038 = phi i32 [ %.val50, %74 ], [ %.val52, %107 ], [ %spec.select, %41 ], [ -1, %align_get_bits.exit61 ], [ -1, %align_get_bits.exit ], [ -1, %108 ], [ -1, %37 ]
+  %.038 = phi i32 [ -1, %align_get_bits.exit61 ], [ %.val50, %74 ], [ %spec.select, %41 ], [ %.val52, %107 ], [ -1, %align_get_bits.exit ], [ -1, %108 ], [ -1, %37 ]
   ret i32 %.038
 }
 
@@ -1397,8 +1397,8 @@ get_vlc2.exit.i:                                  ; preds = %326, %312
   br label %h263p_decode_umotion.exit
 
 h263p_decode_umotion.exit:                        ; preds = %364, %get_vlc2.exit.i, %307
-  %371 = phi i32 [ %356, %364 ], [ %287, %307 ], [ %345, %get_vlc2.exit.i ]
-  %.1325 = phi i32 [ %spec.select38.i, %364 ], [ %311, %307 ], [ %254, %get_vlc2.exit.i ]
+  %371 = phi i32 [ %345, %get_vlc2.exit.i ], [ %287, %307 ], [ %356, %364 ]
+  %.1325 = phi i32 [ %254, %get_vlc2.exit.i ], [ %311, %307 ], [ %spec.select38.i, %364 ]
   %372 = icmp sgt i32 %.1325, 65534
   br i1 %372, label %h263p_decode_umotion.exit.thread, label %374
 
@@ -1583,9 +1583,9 @@ h263p_decode_umotion.exit416.thread485:           ; preds = %473
   br label %h263p_decode_umotion.exit416
 
 h263p_decode_umotion.exit416:                     ; preds = %488, %get_vlc2.exit.i417, %426, %.thread570
-  %.1325483566 = phi i32 [ %.1325483572, %.thread570 ], [ %.1325483572, %426 ], [ %.1325483567, %get_vlc2.exit.i417 ], [ %.1325483567, %488 ]
-  %495 = phi i32 [ %376, %.thread570 ], [ %376, %426 ], [ %433, %get_vlc2.exit.i417 ], [ %433, %488 ]
-  %.1329 = phi i32 [ %376, %.thread570 ], [ %430, %426 ], [ %433, %get_vlc2.exit.i417 ], [ %spec.select38.i427, %488 ]
+  %.1325483566 = phi i32 [ %.1325483572, %.thread570 ], [ %.1325483572, %426 ], [ %.1325483567, %488 ], [ %.1325483567, %get_vlc2.exit.i417 ]
+  %495 = phi i32 [ %376, %.thread570 ], [ %376, %426 ], [ %433, %488 ], [ %433, %get_vlc2.exit.i417 ]
+  %.1329 = phi i32 [ %376, %.thread570 ], [ %430, %426 ], [ %spec.select38.i427, %488 ], [ %433, %get_vlc2.exit.i417 ]
   %496 = icmp sgt i32 %.1329, 65534
   br i1 %496, label %h263p_decode_umotion.exit.thread, label %497
 
@@ -2981,7 +2981,7 @@ h263_skip_b_part.exit:                            ; preds = %1335
   br label %h263p_decode_umotion.exit.thread
 
 h263p_decode_umotion.exit.thread:                 ; preds = %471, %347, %h263p_decode_umotion.exit416, %h263p_decode_umotion.exit, %h263p_decode_umotion.exit.thread568, %1316, %946, %955, %907, %898, %639, %590, %423, %304, %h263_skip_b_part.exit.thread, %1362, %1357, %229, %220, %1166, %1026, %186, %89
-  %.1 = phi i32 [ -1, %h263_skip_b_part.exit.thread ], [ -1094995529, %1357 ], [ %spec.select, %1362 ], [ -1, %89 ], [ -1, %1166 ], [ -1, %186 ], [ -1, %1026 ], [ -1, %220 ], [ -1, %229 ], [ -1, %304 ], [ -1, %423 ], [ -1, %590 ], [ -1, %639 ], [ -1, %898 ], [ -1, %907 ], [ -1, %955 ], [ -1, %946 ], [ -1, %1316 ], [ -1, %h263p_decode_umotion.exit.thread568 ], [ -1, %h263p_decode_umotion.exit ], [ -1, %h263p_decode_umotion.exit416 ], [ -1, %347 ], [ -1, %471 ]
+  %.1 = phi i32 [ -1, %h263_skip_b_part.exit.thread ], [ -1094995529, %1357 ], [ %spec.select, %1362 ], [ -1, %89 ], [ -1, %1166 ], [ -1, %1316 ], [ -1, %946 ], [ -1, %186 ], [ -1, %1026 ], [ -1, %220 ], [ -1, %229 ], [ -1, %955 ], [ -1, %907 ], [ -1, %898 ], [ -1, %304 ], [ -1, %423 ], [ -1, %590 ], [ -1, %639 ], [ -1, %h263p_decode_umotion.exit.thread568 ], [ -1, %h263p_decode_umotion.exit ], [ -1, %h263p_decode_umotion.exit416 ], [ -1, %347 ], [ -1, %471 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.1
@@ -3719,7 +3719,7 @@ define internal fastcc range(i32 -1, 1) i32 @h263_decode_block(ptr noundef %0, p
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %313, %330, %346, %343, %323, %309
-  %.0101.i = phi i32 [ 1024, %309 ], [ 1024, %323 ], [ %345, %343 ], [ %.0103..0102.i, %346 ], [ %.0102.i, %330 ], [ %.0103.i, %313 ]
+  %.0101.i = phi i32 [ %.0103..0102.i, %346 ], [ 1024, %309 ], [ %.0102.i, %330 ], [ 1024, %323 ], [ %345, %343 ], [ %.0103.i, %313 ]
   %347 = load i16, ptr %1, align 2, !tbaa !70
   %348 = zext i16 %347 to i32
   %349 = mul i32 %.0100.i, %348
@@ -5916,7 +5916,7 @@ check_marker.exit:                                ; preds = %.thread
   br i1 %exitcond326.not, label %.critedge, label %.preheader, !llvm.loop !167
 
 .critedge:                                        ; preds = %.preheader, %.thread311, %check_marker.exit.thread, %340, %341, %449, %641, %648, %652, %632, %629, %623, %580, %568, %107, %147, %93, %53
-  %.0 = phi i32 [ -1, %53 ], [ 0, %641 ], [ -1, %93 ], [ -1, %147 ], [ -1, %107 ], [ -1094995529, %580 ], [ -1094995529, %623 ], [ -1, %629 ], [ -1, %632 ], [ %573, %568 ], [ -1, %check_marker.exit.thread ], [ 0, %652 ], [ 0, %648 ], [ -1, %449 ], [ -1, %.thread311 ], [ -1, %341 ], [ -1, %340 ], [ 0, %.preheader ]
+  %.0 = phi i32 [ -1, %53 ], [ 0, %641 ], [ -1, %93 ], [ -1, %147 ], [ -1, %107 ], [ -1094995529, %580 ], [ -1094995529, %623 ], [ -1, %629 ], [ -1, %632 ], [ %573, %568 ], [ -1, %check_marker.exit.thread ], [ -1, %340 ], [ 0, %652 ], [ 0, %648 ], [ -1, %449 ], [ -1, %.thread311 ], [ -1, %341 ], [ 0, %.preheader ]
   ret i32 %.0
 }
 

@@ -506,7 +506,7 @@ st_add.exit95:                                    ; preds = %st_add.exit
   br label %107
 
 .loopexit:                                        ; preds = %.lr.ph, %96, %attr_name_valid.exit.thread, %_.exit94
-  %.070 = phi ptr [ null, %attr_name_valid.exit.thread ], [ %81, %96 ], [ null, %_.exit94 ], [ null, %.lr.ph ]
+  %.070 = phi ptr [ null, %attr_name_valid.exit.thread ], [ null, %_.exit94 ], [ %81, %96 ], [ null, %.lr.ph ]
   call void @strbuf_release(ptr noundef nonnull %6) #22
   call void @free(ptr noundef %.070) #22
   br label %107

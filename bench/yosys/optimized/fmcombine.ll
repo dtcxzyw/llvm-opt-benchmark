@@ -9655,7 +9655,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit990: ; preds = %_Z
   br i1 %2574, label %.loopexit2406, label %2571
 
 .loopexit2406:                                    ; preds = %2571, %.loopexit2406.loopexit4455, %.thread2355
-  %.pn302.pn = phi { ptr, i32 } [ %2457, %.thread2355 ], [ %2565, %.loopexit2406.loopexit4455 ], [ %.pn302, %2571 ]
+  %.pn302.pn = phi { ptr, i32 } [ %2565, %.loopexit2406.loopexit4455 ], [ %2457, %.thread2355 ], [ %.pn302, %2571 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %110)
   br label %2808
 
@@ -11403,7 +11403,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1199: ; preds = %3
   br i1 %3360, label %.loopexit, label %3357
 
 .loopexit:                                        ; preds = %3357, %.loopexit.loopexit4441, %.thread2357
-  %.pn232.pn = phi { ptr, i32 } [ %3220, %.thread2357 ], [ %3351, %.loopexit.loopexit4441 ], [ %.pn232, %3357 ]
+  %.pn232.pn = phi { ptr, i32 } [ %3351, %.loopexit.loopexit4441 ], [ %3220, %.thread2357 ], [ %.pn232, %3357 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %122)
   br label %3857
 

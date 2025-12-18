@@ -641,7 +641,7 @@ _ZN4core4hash6Hasher11write_isize17h4e05725b1c5b1d04E.exit6.i.i: ; preds = %.lr.
   br label %"_ZN64_$LT$http..header..name..HdrName$u20$as$u20$core..hash..Hash$GT$4hash17hb7b5524a83d30a6dE.exit"
 
 "_ZN64_$LT$http..header..name..HdrName$u20$as$u20$core..hash..Hash$GT$4hash17hb7b5524a83d30a6dE.exit": ; preds = %.lr.ph.i.i.i21, %.lr.ph.i.i.i.i, %_ZN4core4hash6Hasher11write_isize17h4e05725b1c5b1d04E.exit6.i.i, %121, %122, %"_ZN64_$LT$http..header..name..HdrName$u20$as$u20$core..hash..Hash$GT$4hash17h52b2b7c4cf001a38E.exit"
-  %.sroa.0.0 = phi i64 [ %103, %"_ZN64_$LT$http..header..name..HdrName$u20$as$u20$core..hash..Hash$GT$4hash17h52b2b7c4cf001a38E.exit" ], [ %144, %_ZN4core4hash6Hasher11write_isize17h4e05725b1c5b1d04E.exit6.i.i ], [ %112, %121 ], [ %112, %122 ], [ %127, %.lr.ph.i.i.i.i ], [ %135, %.lr.ph.i.i.i21 ]
+  %.sroa.0.0 = phi i64 [ %103, %"_ZN64_$LT$http..header..name..HdrName$u20$as$u20$core..hash..Hash$GT$4hash17h52b2b7c4cf001a38E.exit" ], [ %144, %_ZN4core4hash6Hasher11write_isize17h4e05725b1c5b1d04E.exit6.i.i ], [ %112, %121 ], [ %127, %.lr.ph.i.i.i.i ], [ %112, %122 ], [ %135, %.lr.ph.i.i.i21 ]
   %146 = trunc i64 %.sroa.0.0 to i16
   %147 = and i16 %146, 32767
   ret i16 %147

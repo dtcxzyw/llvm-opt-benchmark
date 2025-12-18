@@ -1222,7 +1222,7 @@ define hidden range(i32 301991168, 570426567) i32 @SDL_GetDefaultColorspaceForFo
   br label %7
 
 7:                                                ; preds = %5, %3, %2
-  %.0 = phi i32 [ %switch.select27, %2 ], [ %spec.select, %5 ], [ 301991168, %3 ]
+  %.0 = phi i32 [ %spec.select, %5 ], [ %switch.select27, %2 ], [ 301991168, %3 ]
   ret i32 %.0
 }
 

@@ -22601,7 +22601,7 @@ lean_dec.exit19:                                  ; preds = %47, %46, %44, %lean
   br label %lean_dec.exit.thread
 
 lean_dec.exit.thread:                             ; preds = %lean_obj_tag.exit, %48, %52, %54, %55
-  %.1 = phi i8 [ 1, %55 ], [ 1, %54 ], [ 1, %52 ], [ 1, %48 ], [ 0, %lean_obj_tag.exit ]
+  %.1 = phi i8 [ 1, %48 ], [ 1, %55 ], [ 1, %54 ], [ 1, %52 ], [ 0, %lean_obj_tag.exit ]
   ret i8 %.1
 }
 
@@ -25381,7 +25381,7 @@ lean_dec.exit238:                                 ; preds = %516, %515, %513, %l
   br i1 %.not527, label %517, label %lean_inc.exit286.backedge
 
 lean_inc.exit286.backedge:                        ; preds = %lean_dec.exit238, %519, %521, %522, %lean_dec.exit260, %197, %199, %200
-  %.0210.be = phi ptr [ %179, %lean_dec.exit260 ], [ %179, %200 ], [ %179, %199 ], [ %179, %197 ], [ %501, %522 ], [ %501, %521 ], [ %501, %519 ], [ %501, %lean_dec.exit238 ]
+  %.0210.be = phi ptr [ %501, %lean_dec.exit238 ], [ %501, %519 ], [ %501, %521 ], [ %501, %522 ], [ %179, %197 ], [ %179, %199 ], [ %179, %lean_dec.exit260 ], [ %179, %200 ]
   br label %lean_inc.exit286
 
 517:                                              ; preds = %lean_dec.exit238

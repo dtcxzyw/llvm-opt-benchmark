@@ -2313,8 +2313,8 @@ define hidden void @_ZN18tracing_subscriber6filter3env7builder7Builder5parse17h6
   br label %.critedge.thread235.i
 
 .loopexit.split-lp248.i:                          ; preds = %227, %212, %211, %203, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2d3af1b246aec2dbE.exit.thread.i", %._crit_edge.thread.i, %171, %164
-  %.sroa.010.0.ph.i = phi i1 [ true, %164 ], [ true, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2d3af1b246aec2dbE.exit.thread.i" ], [ true, %203 ], [ true, %211 ], [ true, %212 ], [ true, %227 ], [ false, %._crit_edge.thread.i ], [ true, %171 ]
-  %.sroa.04.1.ph.i = phi i8 [ 1, %164 ], [ 0, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2d3af1b246aec2dbE.exit.thread.i" ], [ 0, %203 ], [ 0, %211 ], [ 0, %212 ], [ 0, %227 ], [ %.sroa.04.0.i, %._crit_edge.thread.i ], [ 1, %171 ]
+  %.sroa.010.0.ph.i = phi i1 [ true, %203 ], [ true, %211 ], [ true, %212 ], [ true, %227 ], [ false, %._crit_edge.thread.i ], [ true, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2d3af1b246aec2dbE.exit.thread.i" ], [ true, %171 ], [ true, %164 ]
+  %.sroa.04.1.ph.i = phi i8 [ 0, %203 ], [ 0, %211 ], [ 0, %212 ], [ 0, %227 ], [ %.sroa.04.0.i, %._crit_edge.thread.i ], [ 0, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2d3af1b246aec2dbE.exit.thread.i" ], [ 1, %171 ], [ 1, %164 ]
   %lpad.loopexit.split-lp250.i = landingpad { ptr, i32 }
           cleanup
   br label %.critedge.i
@@ -3573,8 +3573,8 @@ define hidden void @_ZN18tracing_subscriber6filter3env7builder7Builder5parse17h6
   br label %.critedge.thread244.i
 
 .loopexit.split-lp257.i:                          ; preds = %477, %462, %461, %453, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2d3af1b246aec2dbE.exit.thread.i95", %._crit_edge.thread.i105, %421, %414
-  %.sroa.010.0.ph.i65 = phi i1 [ true, %414 ], [ true, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2d3af1b246aec2dbE.exit.thread.i95" ], [ true, %453 ], [ true, %461 ], [ true, %462 ], [ true, %477 ], [ false, %._crit_edge.thread.i105 ], [ true, %421 ]
-  %.sroa.04.1.ph.i66 = phi i8 [ 1, %414 ], [ 0, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2d3af1b246aec2dbE.exit.thread.i95" ], [ 0, %453 ], [ 0, %461 ], [ 0, %462 ], [ 0, %477 ], [ %.sroa.04.0.i106, %._crit_edge.thread.i105 ], [ 1, %421 ]
+  %.sroa.010.0.ph.i65 = phi i1 [ true, %453 ], [ true, %461 ], [ true, %462 ], [ true, %477 ], [ false, %._crit_edge.thread.i105 ], [ true, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2d3af1b246aec2dbE.exit.thread.i95" ], [ true, %421 ], [ true, %414 ]
+  %.sroa.04.1.ph.i66 = phi i8 [ 0, %453 ], [ 0, %461 ], [ 0, %462 ], [ 0, %477 ], [ %.sroa.04.0.i106, %._crit_edge.thread.i105 ], [ 0, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2d3af1b246aec2dbE.exit.thread.i95" ], [ 1, %421 ], [ 1, %414 ]
   %lpad.loopexit.split-lp259.i = landingpad { ptr, i32 }
           cleanup
   br label %.critedge.i67
@@ -4950,7 +4950,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17hb71cc9e05c3a25ecE.exit.thread.
           to label %.body.i.i10 unwind label %140, !noalias !528
 
 "_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6c261f5c4b66f334E.exit.i.i.i": ; preds = %100, %92
-  %.sroa.0.0.i.i.i = phi i64 [ %88, %92 ], [ %99, %100 ]
+  %.sroa.0.0.i.i.i = phi i64 [ %99, %100 ], [ %88, %92 ]
   store i64 %.sroa.0.0.i.i.i, ptr %13, align 8, !noalias !487
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.9.0..sroa_idx.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.9.i.i.i, i64 48, i1 false), !noalias !487
   call void @llvm.experimental.noalias.scope.decl(metadata !558)

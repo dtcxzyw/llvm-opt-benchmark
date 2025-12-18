@@ -2589,7 +2589,7 @@ define noundef ptr @MRIStepCoupling_MIStoMRI(ptr noundef readonly captures(addre
   br i1 %exitcond288.not, label %.loopexit, label %177
 
 .loopexit:                                        ; preds = %.lr.ph177, %177, %.loopexit162, %._crit_edge198, %._crit_edge186, %27, %._crit_edge, %6, %3
-  %.0 = phi ptr [ null, %3 ], [ null, %6 ], [ null, %._crit_edge ], [ null, %27 ], [ null, %._crit_edge198 ], [ null, %._crit_edge186 ], [ %100, %.loopexit162 ], [ %100, %177 ], [ null, %.lr.ph177 ]
+  %.0 = phi ptr [ null, %3 ], [ null, %6 ], [ null, %._crit_edge ], [ null, %27 ], [ %100, %177 ], [ null, %._crit_edge198 ], [ null, %._crit_edge186 ], [ %100, %.loopexit162 ], [ null, %.lr.ph177 ]
   ret ptr %.0
 }
 
@@ -2795,7 +2795,7 @@ define noundef ptr @MRIStepCoupling_Alloc(i32 noundef %0, i32 noundef %1, i32 no
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader.us.preheader, %.loopexit.sink.split, %22, %._crit_edge174, %._crit_edge166, %6, %3
-  %.0134 = phi ptr [ null, %3 ], [ null, %6 ], [ %7, %._crit_edge166 ], [ %7, %._crit_edge174 ], [ %7, %22 ], [ null, %.loopexit.sink.split ], [ %7, %.preheader.us.preheader ]
+  %.0134 = phi ptr [ null, %3 ], [ null, %.loopexit.sink.split ], [ %7, %._crit_edge174 ], [ %7, %22 ], [ %7, %._crit_edge166 ], [ null, %6 ], [ %7, %.preheader.us.preheader ]
   ret ptr %.0134
 }
 
@@ -5634,7 +5634,7 @@ define noundef ptr @MRIStepCoupling_Create(i32 noundef %0, i32 noundef %1, i32 n
   br i1 %exitcond265.not, label %.loopexit, label %.preheader121.us.us190
 
 .loopexit:                                        ; preds = %._crit_edge134.split.us.split.split.us.us.us, %._crit_edge134.split.us.split.us.split.us157.us, %._crit_edge134.split.us.split.us.split.us.us.us.us, %._crit_edge168.split.us.split.split.us.us.us, %._crit_edge168.split.us.split.us.split.us186.us, %._crit_edge168.split.us.split.us.split.us.us.us.us, %.preheader121.lr.ph.split.us.split, %.preheader124.lr.ph.split.split.us.split, %17, %16, %7
-  %.0114 = phi ptr [ null, %17 ], [ null, %16 ], [ null, %7 ], [ %18, %.preheader121.lr.ph.split.us.split ], [ %18, %.preheader124.lr.ph.split.split.us.split ], [ %18, %._crit_edge134.split.us.split.us.split.us157.us ], [ %18, %._crit_edge168.split.us.split.us.split.us.us.us.us ], [ %18, %._crit_edge168.split.us.split.us.split.us186.us ], [ %18, %._crit_edge168.split.us.split.split.us.us.us ], [ %18, %._crit_edge134.split.us.split.us.split.us.us.us.us ], [ %18, %._crit_edge134.split.us.split.split.us.us.us ]
+  %.0114 = phi ptr [ null, %17 ], [ null, %16 ], [ null, %7 ], [ %18, %._crit_edge168.split.us.split.split.us.us.us ], [ %18, %._crit_edge134.split.us.split.us.split.us157.us ], [ %18, %._crit_edge168.split.us.split.us.split.us.us.us.us ], [ %18, %._crit_edge134.split.us.split.us.split.us.us.us.us ], [ %18, %.preheader121.lr.ph.split.us.split ], [ %18, %.preheader124.lr.ph.split.split.us.split ], [ %18, %._crit_edge168.split.us.split.us.split.us186.us ], [ %18, %._crit_edge134.split.us.split.split.us.us.us ]
   ret ptr %.0114
 }
 
@@ -6982,7 +6982,7 @@ define range(i32 -22, 1) i32 @mriStepCoupling_GetStageMap(ptr noundef readonly c
   br i1 %105, label %.preheader82, label %._crit_edge104
 
 ._crit_edge104:                                   ; preds = %.loopexit81, %.loopexit83.us.thread, %.loopexit81.us.thread
-  %.061.lcssa = phi i32 [ %.162.us115, %.loopexit83.us.thread ], [ %.162.us, %.loopexit81.us.thread ], [ %spec.select226, %.loopexit81 ]
+  %.061.lcssa = phi i32 [ %.162.us, %.loopexit81.us.thread ], [ %.162.us115, %.loopexit83.us.thread ], [ %spec.select226, %.loopexit81 ]
   %106 = icmp slt i32 %.061.lcssa, 1
   br i1 %106, label %.loopexit, label %107
 
@@ -6991,7 +6991,7 @@ define range(i32 -22, 1) i32 @mriStepCoupling_GetStageMap(ptr noundef readonly c
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.split.us.split.us, %.lr.ph125, %24, %15, %._crit_edge104, %10, %7, %3, %107
-  %.0 = phi i32 [ -22, %10 ], [ 0, %107 ], [ -22, %7 ], [ -22, %3 ], [ -22, %._crit_edge104 ], [ 0, %15 ], [ -22, %24 ], [ 0, %.lr.ph125 ], [ -22, %.lr.ph.split.us.split.us ]
+  %.0 = phi i32 [ -22, %10 ], [ -22, %._crit_edge104 ], [ 0, %107 ], [ -22, %7 ], [ -22, %3 ], [ 0, %15 ], [ 0, %.lr.ph125 ], [ -22, %24 ], [ -22, %.lr.ph.split.us.split.us ]
   ret i32 %.0
 }
 

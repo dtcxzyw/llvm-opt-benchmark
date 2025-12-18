@@ -365,8 +365,8 @@ define range(i32 -2147483648, 1) i32 @ff_h264_handle_aggregated_packet(ptr nound
   br i1 %83, label %.lr.ph.split.us.us, label %._crit_edge.us
 
 .thread:                                          ; preds = %.lr.ph.split.us108, %.lr.ph.split.us.us, %.lr.ph.split.us108.us, %.lr.ph.split.us.us.us
-  %.us-phi = phi i32 [ %73, %.lr.ph.split.us.us ], [ %19, %.lr.ph.split.us.us.us ], [ %32, %.lr.ph.split.us108.us ], [ %52, %.lr.ph.split.us108 ]
-  %.us-phi86 = phi i32 [ %74, %.lr.ph.split.us.us ], [ %20, %.lr.ph.split.us.us.us ], [ %33, %.lr.ph.split.us108.us ], [ %53, %.lr.ph.split.us108 ]
+  %.us-phi = phi i32 [ %19, %.lr.ph.split.us.us.us ], [ %32, %.lr.ph.split.us108.us ], [ %73, %.lr.ph.split.us.us ], [ %52, %.lr.ph.split.us108 ]
+  %.us-phi86 = phi i32 [ %20, %.lr.ph.split.us.us.us ], [ %33, %.lr.ph.split.us108.us ], [ %74, %.lr.ph.split.us.us ], [ %53, %.lr.ph.split.us108 ]
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.1, i32 noundef %.us-phi86, i32 noundef %.us-phi) #10
   br label %.loopexit
 

@@ -705,8 +705,8 @@ initialiseTables.exit.i:                          ; preds = %46, %.loopexit2.i.i
   br i1 %exitcond.not.i.i, label %getline_from_mbox.exit.i, label %.preheader.i116.i
 
 getline_from_mbox.exit.i:                         ; preds = %148, %147, %135
-  %.148.i.i = phi ptr [ %.350.i.i, %147 ], [ %.04786.i.i, %135 ], [ %138, %148 ]
-  %.145.i.i = phi ptr [ %.3.i.i, %147 ], [ %.04487.i.i, %135 ], [ %.246.ph65.i.i, %148 ]
+  %.148.i.i = phi ptr [ %.04786.i.i, %135 ], [ %.350.i.i, %147 ], [ %138, %148 ]
+  %.145.i.i = phi ptr [ %.04487.i.i, %135 ], [ %.3.i.i, %147 ], [ %.246.ph65.i.i, %148 ]
   %150 = ptrtoint ptr %.148.i.i to i64
   %151 = ptrtoint ptr %132 to i64
   %152 = sub i64 %150, %151
@@ -1436,8 +1436,8 @@ doContinueMultipleEmptyOptions.exit.thread407.i.i: ; preds = %doContinueMultiple
   br i1 %exitcond.not.i271.i.i, label %getline_from_mbox.exit.i.i, label %.preheader.i268.i.i
 
 getline_from_mbox.exit.i.i:                       ; preds = %433, %432, %420
-  %.148.i.i.i = phi ptr [ %.350.i.i.i, %432 ], [ %.04786.i.i.i, %420 ], [ %423, %433 ]
-  %.145.i.i.i = phi ptr [ %.3.i.i.i, %432 ], [ %.04487.i.i.i, %420 ], [ %.246.ph65.i.i.i, %433 ]
+  %.148.i.i.i = phi ptr [ %.04786.i.i.i, %420 ], [ %.350.i.i.i, %432 ], [ %423, %433 ]
+  %.145.i.i.i = phi ptr [ %.04487.i.i.i, %420 ], [ %.3.i.i.i, %432 ], [ %.246.ph65.i.i.i, %433 ]
   %435 = ptrtoint ptr %.148.i.i.i to i64
   %436 = ptrtoint ptr %417 to i64
   %437 = sub i64 %435, %436
@@ -1979,24 +1979,24 @@ newline_in_header.exit:                           ; preds = %138
   %141 = call i32 @messageMoveText(ptr noundef %7, ptr noundef nonnull %.0116299, ptr noundef nonnull %0) #21
   br label %doContinueMultipleEmptyOptions.exit.thread203
 
-doContinueMultipleEmptyOptions.exit.thread215:    ; preds = %.thread183, %133, %haveTooManyEmailHeaders.exit, %count_quotes.exit, %haveTooManyHeaderBytes.exit, %87, %80, %138, %135, %134, %.critedge.i, %47
-  %.188234 = phi i64 [ %.087304, %138 ], [ %.087304, %47 ], [ %.087304, %.critedge.i ], [ %.087304, %134 ], [ %.087304, %135 ], [ %.087304, %.thread183 ], [ %117, %133 ], [ %117, %haveTooManyEmailHeaders.exit ], [ %.087304, %count_quotes.exit ], [ %.087304, %haveTooManyHeaderBytes.exit ], [ %.087304, %87 ], [ %.087304, %80 ]
-  %.191233 = phi i64 [ %.090303, %138 ], [ %.090303, %47 ], [ %.090303, %.critedge.i ], [ %.090303, %134 ], [ %.090303, %135 ], [ %.090303, %.thread183 ], [ %.4198, %133 ], [ %.4198, %haveTooManyEmailHeaders.exit ], [ %.4198, %count_quotes.exit ], [ %.4198, %haveTooManyHeaderBytes.exit ], [ %90, %87 ], [ %83, %80 ]
-  %.296232 = phi ptr [ %.094302, %138 ], [ %.094302, %47 ], [ %.094302, %.critedge.i ], [ %.094302, %134 ], [ %.094302, %135 ], [ null, %.thread183 ], [ null, %133 ], [ %.6, %haveTooManyEmailHeaders.exit ], [ %.599197, %count_quotes.exit ], [ %.599197, %haveTooManyHeaderBytes.exit ], [ null, %87 ], [ %.094302, %80 ]
-  %.2102231 = phi i32 [ %.0100301, %138 ], [ %.0100301, %47 ], [ %.0100301, %.critedge.i ], [ %.0100301, %134 ], [ %.0100301, %135 ], [ %.3103.ph, %.thread183 ], [ %.5105196, %133 ], [ %.5105196, %haveTooManyEmailHeaders.exit ], [ %.5105196, %count_quotes.exit ], [ %.5105196, %haveTooManyHeaderBytes.exit ], [ %72, %87 ], [ %.0100301, %80 ]
-  %.2109230 = phi i8 [ %.0107300, %138 ], [ 1, %47 ], [ %.0107300, %.critedge.i ], [ %.0107300, %134 ], [ %.0107300, %135 ], [ %.3110.ph, %.thread183 ], [ %.7114195, %133 ], [ %.7114195, %haveTooManyEmailHeaders.exit ], [ %.7114195, %count_quotes.exit ], [ %.7114195, %haveTooManyHeaderBytes.exit ], [ 1, %87 ], [ %.0107300, %80 ]
-  %.1122228 = phi i1 [ false, %138 ], [ false, %47 ], [ %.0121298, %.critedge.i ], [ false, %134 ], [ false, %135 ], [ true, %.thread183 ], [ true, %133 ], [ true, %haveTooManyEmailHeaders.exit ], [ true, %count_quotes.exit ], [ true, %haveTooManyHeaderBytes.exit ], [ true, %87 ], [ true, %80 ]
-  %.1147227 = phi i64 [ %.2148.ph, %138 ], [ %.2148.ph, %47 ], [ %.0297, %.critedge.i ], [ %.2148.ph, %134 ], [ %.2148.ph, %135 ], [ %.2148.ph, %.thread183 ], [ %.2148.ph, %133 ], [ %.2148.ph, %haveTooManyEmailHeaders.exit ], [ %.2148.ph, %count_quotes.exit ], [ %.2148.ph, %haveTooManyHeaderBytes.exit ], [ %.2148.ph, %87 ], [ %.2148.ph, %80 ]
-  %.1150162226 = phi i1 [ %.1150.ph169.ph, %138 ], [ %.1150.ph169.ph, %47 ], [ true, %.critedge.i ], [ %.1150.ph169.ph, %134 ], [ %.1150.ph169.ph, %135 ], [ %.1150.ph169.ph, %.thread183 ], [ %.1150.ph169.ph, %133 ], [ %.1150.ph169.ph, %haveTooManyEmailHeaders.exit ], [ %.1150.ph169.ph, %count_quotes.exit ], [ %.1150.ph169.ph, %haveTooManyHeaderBytes.exit ], [ %.1150.ph169.ph, %87 ], [ %.1150.ph169.ph, %80 ]
+doContinueMultipleEmptyOptions.exit.thread215:    ; preds = %.thread183, %133, %haveTooManyEmailHeaders.exit, %count_quotes.exit, %haveTooManyHeaderBytes.exit, %87, %80, %138, %135, %.critedge.i, %47, %134
+  %.188234 = phi i64 [ %.087304, %138 ], [ %.087304, %134 ], [ %.087304, %47 ], [ %.087304, %.critedge.i ], [ %.087304, %135 ], [ %.087304, %.thread183 ], [ %117, %133 ], [ %117, %haveTooManyEmailHeaders.exit ], [ %.087304, %count_quotes.exit ], [ %.087304, %haveTooManyHeaderBytes.exit ], [ %.087304, %87 ], [ %.087304, %80 ]
+  %.191233 = phi i64 [ %.090303, %138 ], [ %.090303, %134 ], [ %.090303, %47 ], [ %.090303, %.critedge.i ], [ %.090303, %135 ], [ %.090303, %.thread183 ], [ %.4198, %133 ], [ %.4198, %haveTooManyEmailHeaders.exit ], [ %.4198, %count_quotes.exit ], [ %.4198, %haveTooManyHeaderBytes.exit ], [ %90, %87 ], [ %83, %80 ]
+  %.296232 = phi ptr [ %.094302, %138 ], [ %.094302, %134 ], [ %.094302, %47 ], [ %.094302, %.critedge.i ], [ %.094302, %135 ], [ null, %.thread183 ], [ null, %133 ], [ %.6, %haveTooManyEmailHeaders.exit ], [ %.599197, %count_quotes.exit ], [ %.599197, %haveTooManyHeaderBytes.exit ], [ null, %87 ], [ %.094302, %80 ]
+  %.2102231 = phi i32 [ %.0100301, %138 ], [ %.0100301, %134 ], [ %.0100301, %47 ], [ %.0100301, %.critedge.i ], [ %.0100301, %135 ], [ %.3103.ph, %.thread183 ], [ %.5105196, %133 ], [ %.5105196, %haveTooManyEmailHeaders.exit ], [ %.5105196, %count_quotes.exit ], [ %.5105196, %haveTooManyHeaderBytes.exit ], [ %72, %87 ], [ %.0100301, %80 ]
+  %.2109230 = phi i8 [ %.0107300, %138 ], [ %.0107300, %134 ], [ 1, %47 ], [ %.0107300, %.critedge.i ], [ %.0107300, %135 ], [ %.3110.ph, %.thread183 ], [ %.7114195, %133 ], [ %.7114195, %haveTooManyEmailHeaders.exit ], [ %.7114195, %count_quotes.exit ], [ %.7114195, %haveTooManyHeaderBytes.exit ], [ 1, %87 ], [ %.0107300, %80 ]
+  %.1122228 = phi i1 [ false, %138 ], [ false, %134 ], [ false, %47 ], [ %.0121298, %.critedge.i ], [ false, %135 ], [ true, %.thread183 ], [ true, %133 ], [ true, %haveTooManyEmailHeaders.exit ], [ true, %count_quotes.exit ], [ true, %haveTooManyHeaderBytes.exit ], [ true, %87 ], [ true, %80 ]
+  %.1147227 = phi i64 [ %.2148.ph, %138 ], [ %.2148.ph, %134 ], [ %.2148.ph, %47 ], [ %.0297, %.critedge.i ], [ %.2148.ph, %135 ], [ %.2148.ph, %.thread183 ], [ %.2148.ph, %133 ], [ %.2148.ph, %haveTooManyEmailHeaders.exit ], [ %.2148.ph, %count_quotes.exit ], [ %.2148.ph, %haveTooManyHeaderBytes.exit ], [ %.2148.ph, %87 ], [ %.2148.ph, %80 ]
+  %.1150162226 = phi i1 [ %.1150.ph169.ph, %138 ], [ %.1150.ph169.ph, %134 ], [ %.1150.ph169.ph, %47 ], [ true, %.critedge.i ], [ %.1150.ph169.ph, %135 ], [ %.1150.ph169.ph, %.thread183 ], [ %.1150.ph169.ph, %133 ], [ %.1150.ph169.ph, %haveTooManyEmailHeaders.exit ], [ %.1150.ph169.ph, %count_quotes.exit ], [ %.1150.ph169.ph, %haveTooManyHeaderBytes.exit ], [ %.1150.ph169.ph, %87 ], [ %.1150.ph169.ph, %80 ]
   %142 = getelementptr inbounds nuw i8, ptr %.0116299, i64 8
   %143 = load ptr, ptr %142, align 8, !tbaa !63
   %.not = icmp eq ptr %143, null
   br i1 %.not, label %doContinueMultipleEmptyOptions.exit.thread203, label %10
 
 doContinueMultipleEmptyOptions.exit.thread203:    ; preds = %doContinueMultipleEmptyOptions.exit.thread215, %43, %37, %49, %newline_in_header.exit
-  %.0100278 = phi i32 [ %.0100301, %newline_in_header.exit ], [ %.0100301, %49 ], [ %.0100301, %37 ], [ %.0100301, %43 ], [ %.2102231, %doContinueMultipleEmptyOptions.exit.thread215 ]
-  %.094271 = phi ptr [ %.094302, %newline_in_header.exit ], [ %.094302, %49 ], [ %.094302, %37 ], [ %.094302, %43 ], [ %.296232, %doContinueMultipleEmptyOptions.exit.thread215 ]
-  %.1108 = phi i8 [ %.0107300, %newline_in_header.exit ], [ 0, %49 ], [ %.0107300, %37 ], [ %.0107300, %43 ], [ %.2109230, %doContinueMultipleEmptyOptions.exit.thread215 ]
+  %.0100278 = phi i32 [ %.0100301, %43 ], [ %.0100301, %newline_in_header.exit ], [ %.0100301, %49 ], [ %.0100301, %37 ], [ %.2102231, %doContinueMultipleEmptyOptions.exit.thread215 ]
+  %.094271 = phi ptr [ %.094302, %43 ], [ %.094302, %newline_in_header.exit ], [ %.094302, %49 ], [ %.094302, %37 ], [ %.296232, %doContinueMultipleEmptyOptions.exit.thread215 ]
+  %.1108 = phi i8 [ %.0107300, %43 ], [ %.0107300, %newline_in_header.exit ], [ 0, %49 ], [ %.0107300, %37 ], [ %.2109230, %doContinueMultipleEmptyOptions.exit.thread215 ]
   %.not135 = icmp eq ptr %.094271, null
   br i1 %.not135, label %147, label %.thread244
 
@@ -2006,9 +2006,9 @@ doContinueMultipleEmptyOptions.exit.thread203:    ; preds = %doContinueMultipleE
   br label %.thread244
 
 .thread244:                                       ; preds = %130, %.thread244.sink.split, %120, %95, %doContinueMultipleEmptyOptions.exit.thread203
-  %.195252 = phi ptr [ %.094271, %doContinueMultipleEmptyOptions.exit.thread203 ], [ %.599197, %95 ], [ %.6, %120 ], [ %.195252.ph, %.thread244.sink.split ], [ %.6, %130 ]
-  %.1101251 = phi i32 [ %.0100278, %doContinueMultipleEmptyOptions.exit.thread203 ], [ %.5105196, %95 ], [ %.5105196, %120 ], [ %.5105196, %.thread244.sink.split ], [ %.5105196, %130 ]
-  %.1108249 = phi i8 [ %.1108, %doContinueMultipleEmptyOptions.exit.thread203 ], [ %.7114195, %95 ], [ %.7114195, %120 ], [ %.7114195, %.thread244.sink.split ], [ %.7114195, %130 ]
+  %.195252 = phi ptr [ %.094271, %doContinueMultipleEmptyOptions.exit.thread203 ], [ %.6, %120 ], [ %.195252.ph, %.thread244.sink.split ], [ %.599197, %95 ], [ %.6, %130 ]
+  %.1101251 = phi i32 [ %.0100278, %doContinueMultipleEmptyOptions.exit.thread203 ], [ %.5105196, %120 ], [ %.5105196, %.thread244.sink.split ], [ %.5105196, %95 ], [ %.5105196, %130 ]
+  %.1108249 = phi i8 [ %.1108, %doContinueMultipleEmptyOptions.exit.thread203 ], [ %.7114195, %120 ], [ %.7114195, %.thread244.sink.split ], [ %.7114195, %95 ], [ %.7114195, %130 ]
   %144 = load i8, ptr %.195252, align 1, !tbaa !43
   %.not136 = icmp ne i8 %144, 0
   %.1101.off = add i32 %.1101251, -1
@@ -3020,8 +3020,8 @@ haveTooManyMIMEPartsPerMessage.exit:              ; preds = %.loopexit825
   br label %.thread782
 
 .thread782:                                       ; preds = %.thread782.loopexit, %364, %369, %._crit_edge896
-  %.0548784 = phi i32 [ %361, %._crit_edge896 ], [ %361, %364 ], [ %361, %369 ], [ %379, %.thread782.loopexit ]
-  %380 = phi ptr [ %1, %._crit_edge896 ], [ %1, %364 ], [ %371, %369 ], [ %1, %.thread782.loopexit ]
+  %.0548784 = phi i32 [ %361, %._crit_edge896 ], [ %361, %369 ], [ %361, %364 ], [ %379, %.thread782.loopexit ]
+  %380 = phi ptr [ %1, %._crit_edge896 ], [ %371, %369 ], [ %1, %364 ], [ %1, %.thread782.loopexit ]
   %381 = load ptr, ptr %9, align 8, !tbaa !36
   %382 = getelementptr inbounds nuw i8, ptr %381, i64 160
   %383 = load ptr, ptr %382, align 8, !tbaa !38
@@ -3132,10 +3132,10 @@ haveTooManyMIMEPartsPerMessage.exit:              ; preds = %.loopexit825
   br label %.fold.split
 
 .fold.split:                                      ; preds = %407, %403, %.fold.split.loopexit1210, %401, %.thread782._crit_edge, %410, %411, %419
-  %420 = phi i32 [ 26, %419 ], [ %390, %.thread782._crit_edge ], [ %323, %410 ], [ %418, %411 ], [ %397, %401 ], [ %405, %403 ], [ %408, %407 ], [ %405, %.fold.split.loopexit1210 ]
-  %421 = phi ptr [ %1, %419 ], [ %380, %.thread782._crit_edge ], [ %1, %410 ], [ %1, %411 ], [ %398, %401 ], [ %398, %403 ], [ %398, %407 ], [ %398, %.fold.split.loopexit1210 ]
-  %.8520 = phi i8 [ 0, %419 ], [ 1, %.thread782._crit_edge ], [ 0, %410 ], [ 0, %411 ], [ %.3515851, %401 ], [ %.3515851, %403 ], [ %.3515851, %407 ], [ 1, %.fold.split.loopexit1210 ]
-  %.8 = phi ptr [ %.6, %419 ], [ %.6, %.thread782._crit_edge ], [ %.6, %410 ], [ %.6, %411 ], [ %.9, %401 ], [ %404, %403 ], [ %404, %407 ], [ %404, %.fold.split.loopexit1210 ]
+  %420 = phi i32 [ 26, %419 ], [ %390, %.thread782._crit_edge ], [ %405, %403 ], [ %418, %411 ], [ %323, %410 ], [ %397, %401 ], [ %408, %407 ], [ %405, %.fold.split.loopexit1210 ]
+  %421 = phi ptr [ %1, %419 ], [ %380, %.thread782._crit_edge ], [ %398, %403 ], [ %1, %411 ], [ %1, %410 ], [ %398, %401 ], [ %398, %407 ], [ %398, %.fold.split.loopexit1210 ]
+  %.8520 = phi i8 [ 0, %419 ], [ 1, %.thread782._crit_edge ], [ %.3515851, %403 ], [ 0, %411 ], [ 0, %410 ], [ %.3515851, %401 ], [ %.3515851, %407 ], [ 1, %.fold.split.loopexit1210 ]
+  %.8 = phi ptr [ %.6, %419 ], [ %.6, %.thread782._crit_edge ], [ %404, %403 ], [ %.6, %411 ], [ %.6, %410 ], [ %.9, %401 ], [ %404, %407 ], [ %404, %.fold.split.loopexit1210 ]
   %.not681 = icmp eq ptr %.8, null
   %.not682 = icmp eq ptr %.8, %0
   %or.cond713 = or i1 %.not681, %.not682
@@ -3739,7 +3739,7 @@ exportBounceMessage.exit:                         ; preds = %635
   store i32 %673, ptr %27, align 8, !tbaa !37
   br label %.critedge722
 
-.critedge724:                                     ; preds = %656, %653, %651
+.critedge724:                                     ; preds = %653, %656, %651
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.158, i32 noundef %594) #21
   tail call void @messageAddArgument(ptr noundef nonnull %.0507, ptr noundef nonnull @.str.307) #21
   %674 = load ptr, ptr %2, align 8, !tbaa !31
@@ -3797,7 +3797,7 @@ saveTextPart.exit.thread:                         ; preds = %.critedge724, %680,
   br label %688
 
 688:                                              ; preds = %356, %441, %486, %.critedge722.thread1092, %38, %32
-  %.0505 = phi i32 [ 4, %32 ], [ 5, %38 ], [ %spec.store.select815, %.critedge722.thread1092 ], [ %420, %441 ], [ %487, %486 ], [ %switch.select813, %356 ]
+  %.0505 = phi i32 [ 4, %32 ], [ 5, %38 ], [ %spec.store.select815, %.critedge722.thread1092 ], [ %420, %441 ], [ %switch.select813, %356 ], [ %487, %486 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -4081,7 +4081,7 @@ define internal fastcc noundef zeroext i1 @next_is_folded_header(ptr noundef non
   br label %.loopexit
 
 .loopexit:                                        ; preds = %28, %.lr.ph, %.loopexit.loopexit, %20, %17, %8, %5, %1
-  %.012 = phi i1 [ false, %17 ], [ false, %1 ], [ false, %5 ], [ true, %8 ], [ false, %20 ], [ true, %.loopexit.loopexit ], [ false, %.lr.ph ], [ false, %28 ]
+  %.012 = phi i1 [ false, %17 ], [ false, %1 ], [ false, %5 ], [ true, %8 ], [ true, %.loopexit.loopexit ], [ false, %20 ], [ false, %.lr.ph ], [ false, %28 ]
   ret i1 %.012
 }
 
@@ -4308,13 +4308,13 @@ define internal fastcc range(i32 -1, 1) i32 @parseEmailHeader(ptr noundef %0, pt
   br label %96
 
 96:                                               ; preds = %94, %89
-  %.381.i = phi ptr [ %95, %94 ], [ %91, %89 ]
+  %.381.i = phi ptr [ %91, %89 ], [ %95, %94 ]
   %97 = load i8, ptr %69, align 1, !tbaa !43
   %.not.i = icmp eq i8 %97, 0
   br i1 %.not.i, label %rfc2047.exit.thread47, label %.preheader.i.backedge
 
 rfc2047.exit.thread47:                            ; preds = %53, %56, %96, %.loopexit.i, %.preheader106.i, %67, %72, %76, %83
-  %.179.i = phi ptr [ %.280.i, %76 ], [ %.280.i, %83 ], [ %.280.i, %67 ], [ %.280.i, %72 ], [ %24, %.preheader106.i ], [ %.280.i, %.loopexit.i ], [ %.381.i, %96 ], [ %.280.i, %56 ], [ %.280.i, %53 ]
+  %.179.i = phi ptr [ %.280.i, %76 ], [ %.280.i, %67 ], [ %.280.i, %83 ], [ %.280.i, %72 ], [ %.280.i, %.loopexit.i ], [ %24, %.preheader106.i ], [ %.280.i, %56 ], [ %.280.i, %53 ], [ %.381.i, %96 ]
   store i8 0, ptr %.179.i, align 1, !tbaa !43
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.67, ptr noundef nonnull %24) #21
   br label %102
@@ -4717,7 +4717,7 @@ haveTooManyMIMEArguments.exit.i:                  ; preds = %.lr.ph159.i
   br label %haveTooManyMIMEArguments.exit.thread.i
 
 haveTooManyMIMEArguments.exit.thread.i:           ; preds = %haveTooManyMIMEArguments.exit.i, %254, %252, %236, %231, %225, %222, %138, %133
-  %.0116.i = phi ptr [ null, %133 ], [ %240, %254 ], [ null, %138 ], [ %240, %252 ], [ null, %236 ], [ %142, %225 ], [ %142, %231 ], [ %142, %222 ], [ %142, %haveTooManyMIMEArguments.exit.i ]
+  %.0116.i = phi ptr [ null, %133 ], [ %240, %254 ], [ null, %138 ], [ %240, %252 ], [ null, %236 ], [ %142, %231 ], [ %142, %225 ], [ %142, %222 ], [ %142, %haveTooManyMIMEArguments.exit.i ]
   br i1 %.not126.i, label %256, label %255
 
 255:                                              ; preds = %haveTooManyMIMEArguments.exit.thread.i
@@ -4733,12 +4733,12 @@ haveTooManyMIMEArguments.exit.thread.i:           ; preds = %haveTooManyMIMEArgu
   br label %parseMimeHeader.exit.thread
 
 parseMimeHeader.exit.thread:                      ; preds = %115, %strstrip.exit, %144, %147, %.thread149.i, %242, %245, %256, %257, %105, %102
-  %.12657 = phi i32 [ -1, %105 ], [ -1, %102 ], [ -1, %.thread149.i ], [ -1, %144 ], [ -1, %strstrip.exit ], [ -1, %242 ], [ 0, %256 ], [ -1, %245 ], [ 0, %257 ], [ -1, %147 ], [ -1, %115 ]
+  %.12657 = phi i32 [ -1, %105 ], [ -1, %102 ], [ -1, %147 ], [ -1, %.thread149.i ], [ -1, %245 ], [ 0, %257 ], [ -1, %strstrip.exit ], [ -1, %144 ], [ -1, %242 ], [ 0, %256 ], [ -1, %115 ]
   call void @free(ptr noundef nonnull %.024) #21
   br label %.thread
 
 .thread:                                          ; preds = %9, %rfc2047.exit.thread, %parseMimeHeader.exit.thread
-  %.0 = phi i32 [ %.12657, %parseMimeHeader.exit.thread ], [ -1, %rfc2047.exit.thread ], [ -1, %9 ]
+  %.0 = phi i32 [ -1, %rfc2047.exit.thread ], [ %.12657, %parseMimeHeader.exit.thread ], [ -1, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
@@ -5175,7 +5175,7 @@ define internal fastcc range(i32 0, 2) i32 @boundaryStart(ptr noundef %0, ptr no
   br label %.critedge93
 
 .critedge93:                                      ; preds = %49, %61, %57, %64, %65
-  %.2 = phi i32 [ %68, %65 ], [ 0, %64 ], [ 1, %57 ], [ 0, %61 ], [ 1, %49 ]
+  %.2 = phi i32 [ %68, %65 ], [ 1, %57 ], [ 0, %64 ], [ 0, %61 ], [ 1, %49 ]
   %.not88 = icmp eq ptr %.068, null
   br i1 %.not88, label %70, label %69
 
@@ -6273,7 +6273,7 @@ sub_2:                                            ; preds = %sub_1186
   %180 = call i32 @closedir(ptr noundef nonnull %78)
   br label %.critedge
 
-.thread182:                                       ; preds = %175, %._crit_edge
+.thread182:                                       ; preds = %._crit_edge, %175
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)

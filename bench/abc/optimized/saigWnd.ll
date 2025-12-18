@@ -2091,7 +2091,7 @@ define ptr @Saig_ManFindPivot(ptr noundef readonly captures(none) %0) local_unna
   br label %.critedge
 
 .critedge:                                        ; preds = %27, %32, %.critedge.sink.split, %.lr.ph53, %.preheader40
-  %.026 = phi ptr [ null, %.preheader40 ], [ %38, %.critedge.sink.split ], [ null, %.lr.ph53 ], [ %20, %27 ], [ null, %32 ]
+  %.026 = phi ptr [ null, %.lr.ph53 ], [ null, %.preheader40 ], [ %38, %.critedge.sink.split ], [ null, %32 ], [ %20, %27 ]
   ret ptr %.026
 }
 
@@ -2273,7 +2273,7 @@ define ptr @Saig_ManWindowTest(ptr noundef %0) local_unnamed_addr #2 {
   br label %Saig_ManFindPivot.exit
 
 Saig_ManFindPivot.exit:                           ; preds = %27, %32, %.preheader40.i, %.lr.ph53.i, %.critedge.sink.split.i
-  %.026.i = phi ptr [ null, %.preheader40.i ], [ %38, %.critedge.sink.split.i ], [ null, %.lr.ph53.i ], [ null, %32 ], [ %20, %27 ]
+  %.026.i = phi ptr [ null, %.lr.ph53.i ], [ null, %.preheader40.i ], [ %38, %.critedge.sink.split.i ], [ %20, %27 ], [ null, %32 ]
   tail call void @Aig_ManFanoutStart(ptr noundef %0) #17
   %39 = tail call ptr @Saig_ManWindowOutline(ptr noundef %0, ptr noundef %.026.i, i32 noundef 3)
   %40 = tail call ptr @Saig_ManWindowExtractNodes(ptr noundef %0, ptr noundef %39)

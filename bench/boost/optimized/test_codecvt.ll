@@ -7778,7 +7778,7 @@ _ZN5boost6nowide3utf10utf_traitsIDsLi2EE6encodeIPtEET_jS6_.exit: ; preds = %.lr.
   br i1 %30, label %.lr.ph, label %_ZN5boost6nowide3utf10utf_traitsIDsLi2EE6encodeIPtEET_jS6_.exit.thread
 
 _ZN5boost6nowide3utf10utf_traitsIDsLi2EE6encodeIPtEET_jS6_.exit.thread: ; preds = %_ZN5boost6nowide3utf10utf_traitsIDsLi2EE6encodeIPtEET_jS6_.exit, %5, %19, %21, %16
-  %.223 = phi i16 [ %24, %21 ], [ %spec.select, %16 ], [ 0, %19 ], [ %spec.select, %5 ], [ %spec.select, %_ZN5boost6nowide3utf10utf_traitsIDsLi2EE6encodeIPtEET_jS6_.exit ]
+  %.223 = phi i16 [ 0, %19 ], [ %24, %21 ], [ %spec.select, %16 ], [ %spec.select, %5 ], [ %spec.select, %_ZN5boost6nowide3utf10utf_traitsIDsLi2EE6encodeIPtEET_jS6_.exit ]
   store i16 %.223, ptr %1, align 4
   %31 = load ptr, ptr %6, align 8, !tbaa !55
   %32 = ptrtoint ptr %31 to i64

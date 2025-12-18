@@ -1044,8 +1044,8 @@ TS_RESP_CTX_add_failure_info.exit.sink.split.i:   ; preds = %152, %125
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 47, i32 noundef %.sink.i, ptr noundef null) #9
   br label %.critedge
 
-.loopexit:                                        ; preds = %135, %129, %126
-  %.0.i33.ph = phi ptr [ %123, %126 ], [ %.pre.i, %129 ], [ %137, %135 ]
+.loopexit:                                        ; preds = %135, %126, %129
+  %.0.i33.ph = phi ptr [ %.pre.i, %129 ], [ %123, %126 ], [ %137, %135 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %153 = call ptr @TS_TST_INFO_new() #9

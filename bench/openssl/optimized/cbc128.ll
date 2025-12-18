@@ -170,9 +170,9 @@ define void @CRYPTO_cbc128_decrypt(ptr noundef %0, ptr noundef %1, i64 noundef %
   br i1 %39, label %.lr.ph114, label %.loopexit100, !llvm.loop !13
 
 .loopexit100:                                     ; preds = %.lr.ph114, %25, %._crit_edge
-  %.181 = phi i64 [ %21, %25 ], [ %21, %._crit_edge ], [ %36, %.lr.ph114 ]
-  %.176 = phi ptr [ %23, %25 ], [ %23, %._crit_edge ], [ %38, %.lr.ph114 ]
-  %.1 = phi ptr [ %22, %25 ], [ %22, %._crit_edge ], [ %37, %.lr.ph114 ]
+  %.181 = phi i64 [ %21, %._crit_edge ], [ %21, %25 ], [ %36, %.lr.ph114 ]
+  %.176 = phi ptr [ %23, %._crit_edge ], [ %23, %25 ], [ %38, %.lr.ph114 ]
+  %.1 = phi ptr [ %22, %._crit_edge ], [ %22, %25 ], [ %37, %.lr.ph114 ]
   %.not98 = icmp eq i64 %.181, 0
   br i1 %.not98, label %.loopexit, label %.loopexit100.thread
 

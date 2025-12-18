@@ -676,8 +676,8 @@ ASN1_tag2bit.exit:                                ; preds = %57, %59
   %222 = sub i64 %.neg253, %220
   br label %223
 
-223:                                              ; preds = %217, %218
-  %224 = phi i64 [ %183, %217 ], [ %222, %218 ]
+223:                                              ; preds = %218, %217
+  %224 = phi i64 [ %222, %218 ], [ %183, %217 ]
   %indvars.iv.next401 = add nuw nsw i64 %indvars.iv400, 1
   %225 = getelementptr inbounds nuw i8, ptr %.2351, i64 40
   %226 = load i64, ptr %167, align 8, !tbaa !28
@@ -942,8 +942,8 @@ asn1_check_eoc.exit:                              ; preds = %42
   %49 = tail call fastcc i32 @asn1_template_noexp_d2i(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %2, ptr noundef nonnull %3, i8 noundef signext %4, ptr noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef %8)
   br label %53
 
-50:                                               ; preds = %47, %asn1_check_eoc.exit
-  %51 = phi ptr [ %32, %47 ], [ %46, %asn1_check_eoc.exit ]
+50:                                               ; preds = %asn1_check_eoc.exit, %47
+  %51 = phi ptr [ %46, %asn1_check_eoc.exit ], [ %32, %47 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   store ptr %51, ptr %1, align 8, !tbaa !13
   br label %53
@@ -1533,7 +1533,7 @@ asn1_find_end.exit.thread:                        ; preds = %82, %78, %57, %._cr
   store ptr null, ptr %.075.i, align 8, !tbaa !7
   br label %asn1_ex_c2i.exit.thread83
 
-asn1_ex_c2i.exit.thread:                          ; preds = %207, %204, %200, %201, %165, %154, %162
+asn1_ex_c2i.exit.thread:                          ; preds = %204, %207, %200, %201, %165, %154, %162
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %212
 

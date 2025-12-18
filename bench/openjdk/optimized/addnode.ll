@@ -5882,7 +5882,7 @@ _ZL20as_add_with_constantP4Node.exit73:           ; preds = %_ZL20as_add_with_co
   br label %_ZL20as_add_with_constantP4Node.exit.thread
 
 _ZL20as_add_with_constantP4Node.exit.thread:      ; preds = %33, %_ZL20as_add_with_constantP4Node.exit, %64, %_ZL20as_add_with_constantP4Node.exit59, %130, %_ZL20as_add_with_constantP4Node.exit73, %142, %76
-  %.0 = phi ptr [ %143, %142 ], [ %85, %76 ], [ null, %_ZL20as_add_with_constantP4Node.exit73 ], [ null, %130 ], [ null, %64 ], [ null, %_ZL20as_add_with_constantP4Node.exit59 ], [ null, %_ZL20as_add_with_constantP4Node.exit ], [ null, %33 ]
+  %.0 = phi ptr [ %143, %142 ], [ null, %64 ], [ %85, %76 ], [ null, %130 ], [ null, %_ZL20as_add_with_constantP4Node.exit73 ], [ null, %_ZL20as_add_with_constantP4Node.exit59 ], [ null, %_ZL20as_add_with_constantP4Node.exit ], [ null, %33 ]
   ret ptr %.0
 }
 

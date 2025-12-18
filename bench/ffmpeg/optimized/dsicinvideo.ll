@@ -141,8 +141,8 @@ define internal i32 @cinvideo_decode_frame(ptr noundef %0, ptr noundef %1, ptr n
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit304, %.loopexit.loopexit, %.preheader280, %.preheader
-  %.1263 = phi ptr [ %20, %.preheader ], [ %20, %.preheader280 ], [ %31, %.loopexit.loopexit ], [ %54, %.loopexit.loopexit304 ]
-  %.1 = phi i32 [ %21, %.preheader ], [ %21, %.preheader280 ], [ %56, %.loopexit.loopexit ], [ %58, %.loopexit.loopexit304 ]
+  %.1263 = phi ptr [ %31, %.loopexit.loopexit ], [ %20, %.preheader ], [ %20, %.preheader280 ], [ %54, %.loopexit.loopexit304 ]
+  %.1 = phi i32 [ %56, %.loopexit.loopexit ], [ %21, %.preheader ], [ %21, %.preheader280 ], [ %58, %.loopexit.loopexit304 ]
   switch i8 %19, label %cin_decode_rle.exit [
     i8 9, label %59
     i8 34, label %109

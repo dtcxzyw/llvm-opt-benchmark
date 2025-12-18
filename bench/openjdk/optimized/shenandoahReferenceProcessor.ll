@@ -2688,7 +2688,7 @@ _ZNK28ShenandoahReferenceProcessor14is_softly_liveEP7oopDesc13ReferenceType.exit
   br label %_ZNK28ShenandoahReferenceProcessor14is_softly_liveEP7oopDesc13ReferenceType.exit.thread
 
 _ZNK28ShenandoahReferenceProcessor14is_softly_liveEP7oopDesc13ReferenceType.exit.thread: ; preds = %_ZNK28ShenandoahReferenceProcessor14is_softly_liveEP7oopDesc13ReferenceType.exit.thread.sink.split, %92, %_ZNK28ShenandoahReferenceProcessor14is_softly_liveEP7oopDesc13ReferenceType.exit, %99, %_ZNK28ShenandoahReferenceProcessor16is_strongly_liveEP7oopDesc.exit.thread, %62
-  %.0 = phi i1 [ false, %62 ], [ false, %_ZNK28ShenandoahReferenceProcessor16is_strongly_liveEP7oopDesc.exit.thread ], [ false, %99 ], [ true, %_ZNK28ShenandoahReferenceProcessor14is_softly_liveEP7oopDesc13ReferenceType.exit ], [ true, %92 ], [ false, %_ZNK28ShenandoahReferenceProcessor14is_softly_liveEP7oopDesc13ReferenceType.exit.thread.sink.split ]
+  %.0 = phi i1 [ true, %92 ], [ true, %_ZNK28ShenandoahReferenceProcessor14is_softly_liveEP7oopDesc13ReferenceType.exit ], [ false, %99 ], [ false, %62 ], [ false, %_ZNK28ShenandoahReferenceProcessor16is_strongly_liveEP7oopDesc.exit.thread ], [ false, %_ZNK28ShenandoahReferenceProcessor14is_softly_liveEP7oopDesc13ReferenceType.exit.thread.sink.split ]
   ret i1 %.0
 }
 
@@ -2945,7 +2945,7 @@ _ZNK28ShenandoahReferenceProcessor14is_softly_liveEP7oopDesc13ReferenceType.exit
   br label %_ZNK28ShenandoahReferenceProcessor14is_softly_liveEP7oopDesc13ReferenceType.exit.thread
 
 _ZNK28ShenandoahReferenceProcessor14is_softly_liveEP7oopDesc13ReferenceType.exit.thread: ; preds = %_ZNK28ShenandoahReferenceProcessor14is_softly_liveEP7oopDesc13ReferenceType.exit.thread.sink.split, %78, %_ZNK28ShenandoahReferenceProcessor14is_softly_liveEP7oopDesc13ReferenceType.exit, %85, %_ZNK28ShenandoahReferenceProcessor16is_strongly_liveEP7oopDesc.exit.thread, %_ZNK28ShenandoahReferenceProcessor11is_inactiveIP7oopDescEEbS2_S2_13ReferenceType.exit.thread
-  %.0 = phi i1 [ false, %_ZNK28ShenandoahReferenceProcessor11is_inactiveIP7oopDescEEbS2_S2_13ReferenceType.exit.thread ], [ false, %_ZNK28ShenandoahReferenceProcessor16is_strongly_liveEP7oopDesc.exit.thread ], [ false, %85 ], [ true, %_ZNK28ShenandoahReferenceProcessor14is_softly_liveEP7oopDesc13ReferenceType.exit ], [ true, %78 ], [ false, %_ZNK28ShenandoahReferenceProcessor14is_softly_liveEP7oopDesc13ReferenceType.exit.thread.sink.split ]
+  %.0 = phi i1 [ true, %78 ], [ true, %_ZNK28ShenandoahReferenceProcessor14is_softly_liveEP7oopDesc13ReferenceType.exit ], [ false, %85 ], [ false, %_ZNK28ShenandoahReferenceProcessor11is_inactiveIP7oopDescEEbS2_S2_13ReferenceType.exit.thread ], [ false, %_ZNK28ShenandoahReferenceProcessor16is_strongly_liveEP7oopDesc.exit.thread ], [ false, %_ZNK28ShenandoahReferenceProcessor14is_softly_liveEP7oopDesc13ReferenceType.exit.thread.sink.split ]
   ret i1 %.0
 }
 

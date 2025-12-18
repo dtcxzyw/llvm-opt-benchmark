@@ -7080,7 +7080,7 @@ define void @_ZN5arrow2io8internal18CoalesceReadRangesESt6vectorINS0_9ReadRangeE
   br label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN5arrow2io9ReadRangeESt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIZNS3_8internal12_GLOBAL__N_117ReadRangeCombiner8CoalesceES8_EUlRKS4_E_EEET_SJ_SJ_T0_.exit.i.i.i
 
 _ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN5arrow2io9ReadRangeESt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIZNS3_8internal12_GLOBAL__N_117ReadRangeCombiner8CoalesceES8_EUlRKS4_E_EEET_SJ_SJ_T0_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i, %.loopexit.split.loop.exit45.i.i.i.i.i, %.loopexit.split.loop.exit43.i.i.i.i.i, %.loopexit.split.loop.exit41.i.i.i.i.i, %53, %48, %43
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %.sroa.031.1.i.i.i.i.i, %48 ], [ %spec.select.i.i.i.i.i, %53 ], [ %.sroa.031.0.lcssa.i.i.i.i.i, %43 ], [ %57, %.loopexit.split.loop.exit43.i.i.i.i.i ], [ %56, %.loopexit.split.loop.exit41.i.i.i.i.i ], [ %58, %.loopexit.split.loop.exit45.i.i.i.i.i ], [ %.sroa.031.050.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %.sroa.031.1.i.i.i.i.i, %48 ], [ %spec.select.i.i.i.i.i, %53 ], [ %58, %.loopexit.split.loop.exit45.i.i.i.i.i ], [ %.sroa.031.0.lcssa.i.i.i.i.i, %43 ], [ %57, %.loopexit.split.loop.exit43.i.i.i.i.i ], [ %56, %.loopexit.split.loop.exit41.i.i.i.i.i ], [ %.sroa.031.050.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %59 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i.i, %11
   %.sroa.06.021.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i.i, i64 16
   %.not22.i.i.i = icmp eq ptr %.sroa.06.021.i.i.i, %11
@@ -7108,7 +7108,7 @@ _ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN5arrow2io9ReadRangeESt6vectorIS4
   br i1 %.not.i.i.i, label %_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPN5arrow2io9ReadRangeESt6vectorIS4_SaIS4_EEEEZNS3_8internal12_GLOBAL__N_117ReadRangeCombiner8CoalesceES8_EUlRKS4_E_ET_SG_SG_T0_.exit.i, label %.lr.ph.i.i.i, !llvm.loop !320
 
 _ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPN5arrow2io9ReadRangeESt6vectorIS4_SaIS4_EEEEZNS3_8internal12_GLOBAL__N_117ReadRangeCombiner8CoalesceES8_EUlRKS4_E_ET_SG_SG_T0_.exit.i: ; preds = %64, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN5arrow2io9ReadRangeESt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIZNS3_8internal12_GLOBAL__N_117ReadRangeCombiner8CoalesceES8_EUlRKS4_E_EEET_SJ_SJ_T0_.exit.i.i.i, %._crit_edge.i.i.i.i.i
-  %.sroa.012.0.i.i.i = phi ptr [ %.sroa.08.0.in.sroa.speculated.i.i.i.i.i, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN5arrow2io9ReadRangeESt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIZNS3_8internal12_GLOBAL__N_117ReadRangeCombiner8CoalesceES8_EUlRKS4_E_EEET_SJ_SJ_T0_.exit.i.i.i ], [ %11, %._crit_edge.i.i.i.i.i ], [ %.sroa.012.2.i.i.i, %64 ]
+  %.sroa.012.0.i.i.i = phi ptr [ %11, %._crit_edge.i.i.i.i.i ], [ %.sroa.08.0.in.sroa.speculated.i.i.i.i.i, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN5arrow2io9ReadRangeESt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIZNS3_8internal12_GLOBAL__N_117ReadRangeCombiner8CoalesceES8_EUlRKS4_E_EEET_SJ_SJ_T0_.exit.i.i.i ], [ %.sroa.012.2.i.i.i, %64 ]
   %.not.i.i30.i = icmp eq ptr %8, %.sroa.012.0.i.i.i
   br i1 %.not.i.i30.i, label %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPN5arrow2io9ReadRangeESt6vectorIS4_SaIS4_EEEEZNS3_8internal12_GLOBAL__N_117ReadRangeCombiner8CoalesceES8_EUlRKS4_SE_E0_ET_SG_SG_T0_.exit.i, label %65
 

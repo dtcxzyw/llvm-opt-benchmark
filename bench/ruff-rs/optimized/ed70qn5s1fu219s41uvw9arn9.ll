@@ -576,7 +576,7 @@ define hidden noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$11p
   br label %.loopexit
 
 .loopexit:                                        ; preds = %12, %22, %27, %31
-  %.sroa.0.0 = phi ptr [ %25, %22 ], [ %34, %31 ], [ %30, %27 ], [ null, %12 ]
+  %.sroa.0.0 = phi ptr [ %30, %27 ], [ %25, %22 ], [ %34, %31 ], [ null, %12 ]
   ret ptr %.sroa.0.0
 }
 
@@ -659,7 +659,7 @@ define hidden noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$11p
   br label %.loopexit
 
 .loopexit:                                        ; preds = %12, %22, %27, %31
-  %.sroa.0.0 = phi ptr [ %25, %22 ], [ %34, %31 ], [ %30, %27 ], [ null, %12 ]
+  %.sroa.0.0 = phi ptr [ %30, %27 ], [ %25, %22 ], [ %34, %31 ], [ null, %12 ]
   ret ptr %.sroa.0.0
 }
 
@@ -11388,7 +11388,7 @@ _ZN5serde2de9MapAccess8next_key17h02107271338a7ee3E.exit.thread126.i.thread: ; p
   br label %.body.i
 
 .loopexit.split-lp.i:                             ; preds = %145, %.loopexit135.i, %92
-  %.sroa.069.1.ph.i = phi i8 [ %.sroa.069.6.i, %145 ], [ 1, %92 ], [ 1, %.loopexit135.i ]
+  %.sroa.069.1.ph.i = phi i8 [ 1, %92 ], [ %.sroa.069.6.i, %145 ], [ 1, %.loopexit135.i ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
@@ -11402,7 +11402,7 @@ _ZN5serde2de9MapAccess8next_key17h02107271338a7ee3E.exit.i: ; preds = %"_ZN81_$L
   br i1 %86, label %.loopexit134.i, label %_ZN5serde2de9MapAccess8next_key17h02107271338a7ee3E.exit.thread126.i
 
 .loopexit134.i:                                   ; preds = %_ZN5serde2de9MapAccess8next_key17h02107271338a7ee3E.exit.i, %63, %84
-  %.sroa.9122.1125.i = phi ptr [ %85, %84 ], [ %65, %63 ], [ %.sroa.9122.0.copyload.i, %_ZN5serde2de9MapAccess8next_key17h02107271338a7ee3E.exit.i ]
+  %.sroa.9122.1125.i = phi ptr [ %65, %63 ], [ %85, %84 ], [ %.sroa.9122.0.copyload.i, %_ZN5serde2de9MapAccess8next_key17h02107271338a7ee3E.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.13.i)
   br label %154
@@ -12099,11 +12099,11 @@ _ZN5serde2de9MapAccess8next_key17h4be3ed1afd345563E.exit.thread390.i.thread: ; p
   br label %.body.i
 
 .loopexit.split-lp.i:                             ; preds = %.invoke, %206, %204, %202, %.loopexit427.i
-  %.sroa.0225.1.ph.i = phi i8 [ %.sroa.0225.12.i, %202 ], [ %.sroa.0225.12.i, %204 ], [ %.sroa.0225.12.i, %206 ], [ 1, %.loopexit427.i ], [ 1, %.invoke ]
-  %.sroa.0227.1.ph.i = phi i8 [ %.sroa.0227.13.i, %202 ], [ %.sroa.0227.13.i, %204 ], [ %.sroa.0227.13.i, %206 ], [ 1, %.loopexit427.i ], [ 1, %.invoke ]
-  %.sroa.0229.1.ph.i = phi i8 [ %.sroa.0229.8.i, %202 ], [ %.sroa.0229.8.i, %204 ], [ %.sroa.0229.8.i, %206 ], [ 1, %.loopexit427.i ], [ 1, %.invoke ]
-  %.sroa.0231.1.ph.i = phi i8 [ %.sroa.0231.7.i, %202 ], [ %.sroa.0231.7.i, %204 ], [ %.sroa.0231.7.i, %206 ], [ 1, %.loopexit427.i ], [ 1, %.invoke ]
-  %.sroa.0233.1.ph.i = phi i8 [ %.sroa.0233.6.i, %202 ], [ %.sroa.0233.6.i, %204 ], [ %.sroa.0233.6.i, %206 ], [ 1, %.loopexit427.i ], [ 1, %.invoke ]
+  %.sroa.0225.1.ph.i = phi i8 [ 1, %.invoke ], [ 1, %.loopexit427.i ], [ %.sroa.0225.12.i, %204 ], [ %.sroa.0225.12.i, %206 ], [ %.sroa.0225.12.i, %202 ]
+  %.sroa.0227.1.ph.i = phi i8 [ 1, %.invoke ], [ 1, %.loopexit427.i ], [ %.sroa.0227.13.i, %204 ], [ %.sroa.0227.13.i, %206 ], [ %.sroa.0227.13.i, %202 ]
+  %.sroa.0229.1.ph.i = phi i8 [ 1, %.invoke ], [ 1, %.loopexit427.i ], [ %.sroa.0229.8.i, %204 ], [ %.sroa.0229.8.i, %206 ], [ %.sroa.0229.8.i, %202 ]
+  %.sroa.0231.1.ph.i = phi i8 [ 1, %.invoke ], [ 1, %.loopexit427.i ], [ %.sroa.0231.7.i, %204 ], [ %.sroa.0231.7.i, %206 ], [ %.sroa.0231.7.i, %202 ]
+  %.sroa.0233.1.ph.i = phi i8 [ 1, %.invoke ], [ 1, %.loopexit427.i ], [ %.sroa.0233.6.i, %204 ], [ %.sroa.0233.6.i, %206 ], [ %.sroa.0233.6.i, %202 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
@@ -12117,7 +12117,7 @@ _ZN5serde2de9MapAccess8next_key17h4be3ed1afd345563E.exit.i: ; preds = %"_ZN81_$L
   br i1 %103, label %.loopexit421.i, label %_ZN5serde2de9MapAccess8next_key17h4be3ed1afd345563E.exit.thread390.i
 
 .loopexit421.i:                                   ; preds = %_ZN5serde2de9MapAccess8next_key17h4be3ed1afd345563E.exit.i, %80, %101
-  %.sroa.9386.1389.i = phi ptr [ %102, %101 ], [ %82, %80 ], [ %.sroa.9386.0.copyload.i, %_ZN5serde2de9MapAccess8next_key17h4be3ed1afd345563E.exit.i ]
+  %.sroa.9386.1389.i = phi ptr [ %82, %80 ], [ %102, %101 ], [ %.sroa.9386.0.copyload.i, %_ZN5serde2de9MapAccess8next_key17h4be3ed1afd345563E.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8385.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.13.i)
   br label %.loopexit424.i
@@ -13390,7 +13390,7 @@ _ZN5serde2de9MapAccess8next_key17he7bd4cab0f5da16aE.exit.thread126.i.thread: ; p
   br label %.body.i
 
 .loopexit.split-lp.i:                             ; preds = %145, %.loopexit135.i, %92
-  %.sroa.069.1.ph.i = phi i8 [ %.sroa.069.6.i, %145 ], [ 1, %92 ], [ 1, %.loopexit135.i ]
+  %.sroa.069.1.ph.i = phi i8 [ 1, %92 ], [ %.sroa.069.6.i, %145 ], [ 1, %.loopexit135.i ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
@@ -13404,7 +13404,7 @@ _ZN5serde2de9MapAccess8next_key17he7bd4cab0f5da16aE.exit.i: ; preds = %"_ZN81_$L
   br i1 %86, label %.loopexit134.i, label %_ZN5serde2de9MapAccess8next_key17he7bd4cab0f5da16aE.exit.thread126.i
 
 .loopexit134.i:                                   ; preds = %_ZN5serde2de9MapAccess8next_key17he7bd4cab0f5da16aE.exit.i, %63, %84
-  %.sroa.9122.1125.i = phi ptr [ %85, %84 ], [ %65, %63 ], [ %.sroa.9122.0.copyload.i, %_ZN5serde2de9MapAccess8next_key17he7bd4cab0f5da16aE.exit.i ]
+  %.sroa.9122.1125.i = phi ptr [ %65, %63 ], [ %85, %84 ], [ %.sroa.9122.0.copyload.i, %_ZN5serde2de9MapAccess8next_key17he7bd4cab0f5da16aE.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.13.i)
   br label %154
@@ -14104,10 +14104,10 @@ _ZN5serde2de9MapAccess8next_key17hed59aec5bbc0da3fE.exit.thread345.i.thread: ; p
   br label %.body.i
 
 .loopexit.split-lp.i:                             ; preds = %.invoke, %196, %194, %192, %.loopexit382.i
-  %.sroa.0202.1.ph.i = phi i8 [ %.sroa.0202.10.i, %192 ], [ %.sroa.0202.10.i, %194 ], [ %.sroa.0202.10.i, %196 ], [ 1, %.loopexit382.i ], [ 1, %.invoke ]
-  %.sroa.0204.1.ph.i = phi i8 [ %.sroa.0204.8.i, %192 ], [ %.sroa.0204.8.i, %194 ], [ %.sroa.0204.8.i, %196 ], [ 1, %.loopexit382.i ], [ 1, %.invoke ]
-  %.sroa.0206.1.ph.i = phi i8 [ %.sroa.0206.7.i, %192 ], [ %.sroa.0206.7.i, %194 ], [ %.sroa.0206.7.i, %196 ], [ 1, %.loopexit382.i ], [ 1, %.invoke ]
-  %.sroa.0208.1.ph.i = phi i8 [ %.sroa.0208.6.i, %192 ], [ %.sroa.0208.6.i, %194 ], [ %.sroa.0208.6.i, %196 ], [ 1, %.loopexit382.i ], [ 1, %.invoke ]
+  %.sroa.0202.1.ph.i = phi i8 [ 1, %.invoke ], [ 1, %.loopexit382.i ], [ %.sroa.0202.10.i, %194 ], [ %.sroa.0202.10.i, %196 ], [ %.sroa.0202.10.i, %192 ]
+  %.sroa.0204.1.ph.i = phi i8 [ 1, %.invoke ], [ 1, %.loopexit382.i ], [ %.sroa.0204.8.i, %194 ], [ %.sroa.0204.8.i, %196 ], [ %.sroa.0204.8.i, %192 ]
+  %.sroa.0206.1.ph.i = phi i8 [ 1, %.invoke ], [ 1, %.loopexit382.i ], [ %.sroa.0206.7.i, %194 ], [ %.sroa.0206.7.i, %196 ], [ %.sroa.0206.7.i, %192 ]
+  %.sroa.0208.1.ph.i = phi i8 [ 1, %.invoke ], [ 1, %.loopexit382.i ], [ %.sroa.0208.6.i, %194 ], [ %.sroa.0208.6.i, %196 ], [ %.sroa.0208.6.i, %192 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
@@ -14121,7 +14121,7 @@ _ZN5serde2de9MapAccess8next_key17hed59aec5bbc0da3fE.exit.i: ; preds = %"_ZN81_$L
   br i1 %99, label %.loopexit376.i, label %_ZN5serde2de9MapAccess8next_key17hed59aec5bbc0da3fE.exit.thread345.i
 
 .loopexit376.i:                                   ; preds = %_ZN5serde2de9MapAccess8next_key17hed59aec5bbc0da3fE.exit.i, %76, %97
-  %.sroa.9341.1344.i = phi ptr [ %98, %97 ], [ %78, %76 ], [ %.sroa.9341.0.copyload.i, %_ZN5serde2de9MapAccess8next_key17hed59aec5bbc0da3fE.exit.i ]
+  %.sroa.9341.1344.i = phi ptr [ %78, %76 ], [ %98, %97 ], [ %.sroa.9341.0.copyload.i, %_ZN5serde2de9MapAccess8next_key17hed59aec5bbc0da3fE.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8340.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.13.i)
   br label %.loopexit378.i
@@ -15331,10 +15331,10 @@ _ZN5serde2de9MapAccess8next_key17h8f5e4caf875dd7a6E.exit.thread345.i.thread: ; p
   br label %.body.i
 
 .loopexit.split-lp.i:                             ; preds = %.invoke, %196, %194, %192, %.loopexit382.i
-  %.sroa.0202.1.ph.i = phi i8 [ %.sroa.0202.10.i, %192 ], [ %.sroa.0202.10.i, %194 ], [ %.sroa.0202.10.i, %196 ], [ 1, %.loopexit382.i ], [ 1, %.invoke ]
-  %.sroa.0204.1.ph.i = phi i8 [ %.sroa.0204.8.i, %192 ], [ %.sroa.0204.8.i, %194 ], [ %.sroa.0204.8.i, %196 ], [ 1, %.loopexit382.i ], [ 1, %.invoke ]
-  %.sroa.0206.1.ph.i = phi i8 [ %.sroa.0206.7.i, %192 ], [ %.sroa.0206.7.i, %194 ], [ %.sroa.0206.7.i, %196 ], [ 1, %.loopexit382.i ], [ 1, %.invoke ]
-  %.sroa.0208.1.ph.i = phi i8 [ %.sroa.0208.6.i, %192 ], [ %.sroa.0208.6.i, %194 ], [ %.sroa.0208.6.i, %196 ], [ 1, %.loopexit382.i ], [ 1, %.invoke ]
+  %.sroa.0202.1.ph.i = phi i8 [ 1, %.invoke ], [ 1, %.loopexit382.i ], [ %.sroa.0202.10.i, %194 ], [ %.sroa.0202.10.i, %196 ], [ %.sroa.0202.10.i, %192 ]
+  %.sroa.0204.1.ph.i = phi i8 [ 1, %.invoke ], [ 1, %.loopexit382.i ], [ %.sroa.0204.8.i, %194 ], [ %.sroa.0204.8.i, %196 ], [ %.sroa.0204.8.i, %192 ]
+  %.sroa.0206.1.ph.i = phi i8 [ 1, %.invoke ], [ 1, %.loopexit382.i ], [ %.sroa.0206.7.i, %194 ], [ %.sroa.0206.7.i, %196 ], [ %.sroa.0206.7.i, %192 ]
+  %.sroa.0208.1.ph.i = phi i8 [ 1, %.invoke ], [ 1, %.loopexit382.i ], [ %.sroa.0208.6.i, %194 ], [ %.sroa.0208.6.i, %196 ], [ %.sroa.0208.6.i, %192 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
@@ -15348,7 +15348,7 @@ _ZN5serde2de9MapAccess8next_key17h8f5e4caf875dd7a6E.exit.i: ; preds = %"_ZN81_$L
   br i1 %99, label %.loopexit376.i, label %_ZN5serde2de9MapAccess8next_key17h8f5e4caf875dd7a6E.exit.thread345.i
 
 .loopexit376.i:                                   ; preds = %_ZN5serde2de9MapAccess8next_key17h8f5e4caf875dd7a6E.exit.i, %76, %97
-  %.sroa.9341.1344.i = phi ptr [ %98, %97 ], [ %78, %76 ], [ %.sroa.9341.0.copyload.i, %_ZN5serde2de9MapAccess8next_key17h8f5e4caf875dd7a6E.exit.i ]
+  %.sroa.9341.1344.i = phi ptr [ %78, %76 ], [ %98, %97 ], [ %.sroa.9341.0.copyload.i, %_ZN5serde2de9MapAccess8next_key17h8f5e4caf875dd7a6E.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8340.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.13.i)
   br label %.loopexit378.i
@@ -16555,11 +16555,11 @@ _ZN5serde2de9MapAccess8next_key17h68e5c3ae8114b1e7E.exit.thread390.i.thread: ; p
   br label %.body.i
 
 .loopexit.split-lp.i:                             ; preds = %.invoke, %206, %204, %202, %.loopexit427.i
-  %.sroa.0225.1.ph.i = phi i8 [ %.sroa.0225.12.i, %202 ], [ %.sroa.0225.12.i, %204 ], [ %.sroa.0225.12.i, %206 ], [ 1, %.loopexit427.i ], [ 1, %.invoke ]
-  %.sroa.0227.1.ph.i = phi i8 [ %.sroa.0227.13.i, %202 ], [ %.sroa.0227.13.i, %204 ], [ %.sroa.0227.13.i, %206 ], [ 1, %.loopexit427.i ], [ 1, %.invoke ]
-  %.sroa.0229.1.ph.i = phi i8 [ %.sroa.0229.8.i, %202 ], [ %.sroa.0229.8.i, %204 ], [ %.sroa.0229.8.i, %206 ], [ 1, %.loopexit427.i ], [ 1, %.invoke ]
-  %.sroa.0231.1.ph.i = phi i8 [ %.sroa.0231.7.i, %202 ], [ %.sroa.0231.7.i, %204 ], [ %.sroa.0231.7.i, %206 ], [ 1, %.loopexit427.i ], [ 1, %.invoke ]
-  %.sroa.0233.1.ph.i = phi i8 [ %.sroa.0233.6.i, %202 ], [ %.sroa.0233.6.i, %204 ], [ %.sroa.0233.6.i, %206 ], [ 1, %.loopexit427.i ], [ 1, %.invoke ]
+  %.sroa.0225.1.ph.i = phi i8 [ 1, %.invoke ], [ 1, %.loopexit427.i ], [ %.sroa.0225.12.i, %204 ], [ %.sroa.0225.12.i, %206 ], [ %.sroa.0225.12.i, %202 ]
+  %.sroa.0227.1.ph.i = phi i8 [ 1, %.invoke ], [ 1, %.loopexit427.i ], [ %.sroa.0227.13.i, %204 ], [ %.sroa.0227.13.i, %206 ], [ %.sroa.0227.13.i, %202 ]
+  %.sroa.0229.1.ph.i = phi i8 [ 1, %.invoke ], [ 1, %.loopexit427.i ], [ %.sroa.0229.8.i, %204 ], [ %.sroa.0229.8.i, %206 ], [ %.sroa.0229.8.i, %202 ]
+  %.sroa.0231.1.ph.i = phi i8 [ 1, %.invoke ], [ 1, %.loopexit427.i ], [ %.sroa.0231.7.i, %204 ], [ %.sroa.0231.7.i, %206 ], [ %.sroa.0231.7.i, %202 ]
+  %.sroa.0233.1.ph.i = phi i8 [ 1, %.invoke ], [ 1, %.loopexit427.i ], [ %.sroa.0233.6.i, %204 ], [ %.sroa.0233.6.i, %206 ], [ %.sroa.0233.6.i, %202 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
@@ -16573,7 +16573,7 @@ _ZN5serde2de9MapAccess8next_key17h68e5c3ae8114b1e7E.exit.i: ; preds = %"_ZN81_$L
   br i1 %103, label %.loopexit421.i, label %_ZN5serde2de9MapAccess8next_key17h68e5c3ae8114b1e7E.exit.thread390.i
 
 .loopexit421.i:                                   ; preds = %_ZN5serde2de9MapAccess8next_key17h68e5c3ae8114b1e7E.exit.i, %80, %101
-  %.sroa.9386.1389.i = phi ptr [ %102, %101 ], [ %82, %80 ], [ %.sroa.9386.0.copyload.i, %_ZN5serde2de9MapAccess8next_key17h68e5c3ae8114b1e7E.exit.i ]
+  %.sroa.9386.1389.i = phi ptr [ %82, %80 ], [ %102, %101 ], [ %.sroa.9386.0.copyload.i, %_ZN5serde2de9MapAccess8next_key17h68e5c3ae8114b1e7E.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8385.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.13.i)
   br label %.loopexit424.i
@@ -18883,8 +18883,8 @@ _ZN5serde2de9SeqAccess12next_element17hb96efebc9765093dE.exit57.invoke.i: ; pred
   br label %.loopexit.i50
 
 .loopexit.split-lp.i:                             ; preds = %.invoke, %293, %268
-  %.sroa.098.1.ph.i = phi i8 [ 1, %268 ], [ %.sroa.098.9.i, %293 ], [ 1, %.invoke ]
-  %.sroa.0100.1.ph.i = phi i8 [ 1, %268 ], [ %.sroa.0100.6.i, %293 ], [ 1, %.invoke ]
+  %.sroa.098.1.ph.i = phi i8 [ 1, %.invoke ], [ 1, %268 ], [ %.sroa.098.9.i, %293 ]
+  %.sroa.0100.1.ph.i = phi i8 [ 1, %.invoke ], [ 1, %268 ], [ %.sroa.0100.6.i, %293 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.i50
@@ -19997,8 +19997,8 @@ _ZN5serde2de9SeqAccess12next_element17h97389f878fbde99cE.exit57.invoke.i: ; pred
   br label %.loopexit.i50
 
 .loopexit.split-lp.i:                             ; preds = %.invoke, %293, %268
-  %.sroa.098.1.ph.i = phi i8 [ 1, %268 ], [ %.sroa.098.9.i, %293 ], [ 1, %.invoke ]
-  %.sroa.0100.1.ph.i = phi i8 [ 1, %268 ], [ %.sroa.0100.6.i, %293 ], [ 1, %.invoke ]
+  %.sroa.098.1.ph.i = phi i8 [ 1, %.invoke ], [ 1, %268 ], [ %.sroa.098.9.i, %293 ]
+  %.sroa.0100.1.ph.i = phi i8 [ 1, %.invoke ], [ 1, %268 ], [ %.sroa.0100.6.i, %293 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.i50

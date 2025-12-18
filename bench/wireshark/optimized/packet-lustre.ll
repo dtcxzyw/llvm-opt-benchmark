@@ -4505,7 +4505,7 @@ default.unreachable:                              ; preds = %343
   br label %add_extra_padding.exit.i.i.i
 
 add_extra_padding.exit.i.i.i:                     ; preds = %.lr.ph.i.i.i, %755, %752, %.preheader.i.i.i
-  %.1.i.i.i = phi i32 [ %758, %755 ], [ %726, %752 ], [ %726, %.preheader.i.i.i ], [ %745, %.lr.ph.i.i.i ]
+  %.1.i.i.i = phi i32 [ %726, %752 ], [ %758, %755 ], [ %726, %.preheader.i.i.i ], [ %745, %.lr.ph.i.i.i ]
   %759 = sub i32 %.1.i.i.i, %682
   %.not77.i.i.i = icmp eq i32 %759, %693
   br i1 %.not77.i.i.i, label %762, label %760
@@ -5527,7 +5527,7 @@ add_extra_padding.exit._crit_edge.i.i:            ; preds = %add_extra_padding.e
   br i1 %366, label %.lr.ph84.i.i, label %dissect_struct_lustre_cfg.exit.i, !llvm.loop !15
 
 dissect_struct_lustre_cfg.exit.i:                 ; preds = %.lr.ph84.i.i, %352, %305, %273
-  %.178.i.i = phi i32 [ %301, %273 ], [ %351, %305 ], [ %.0.i.i.i, %352 ], [ %363, %.lr.ph84.i.i ]
+  %.178.i.i = phi i32 [ %351, %305 ], [ %301, %273 ], [ %.0.i.i.i, %352 ], [ %363, %.lr.ph84.i.i ]
   %367 = sub i32 %.178.i.i, %232
   call void @proto_item_set_len(ptr noundef %234, i32 noundef %367)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)

@@ -324,7 +324,7 @@ _ZNK10model_core17get_num_constantsEv.exit:       ; preds = %_ZNK10model_core17g
   br i1 %.not27.old.i.i.i.i, label %_ZNK9ackr_info9find_termEP9func_decl.exit, label %.lr.ph38.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.backedge:                        ; preds = %86, %83
-  %.137.i.i.i.i.be = phi ptr [ %.old.i.i.i.i, %86 ], [ %85, %83 ]
+  %.137.i.i.i.i.be = phi ptr [ %85, %83 ], [ %.old.i.i.i.i, %86 ]
   br label %.lr.ph38.i.i.i.i, !llvm.loop !58
 
 _ZNK7obj_mapI9func_declP3appE9find_coreEPS0_.exit.i.i: ; preds = %67, %78
@@ -334,7 +334,7 @@ _ZNK7obj_mapI9func_declP3appE9find_coreEPS0_.exit.i.i: ; preds = %67, %78
   br label %_ZNK9ackr_info9find_termEP9func_decl.exit
 
 _ZNK9ackr_info9find_termEP9func_decl.exit:        ; preds = %72, %86, %83, %_ZNK7obj_mapI9func_declP3appE9find_coreEPS0_.exit.i.i, %.preheader.i.i.i.i
-  %.0.i = phi ptr [ null, %.preheader.i.i.i.i ], [ %88, %_ZNK7obj_mapI9func_declP3appE9find_coreEPS0_.exit.i.i ], [ null, %86 ], [ null, %83 ], [ null, %72 ]
+  %.0.i = phi ptr [ null, %.preheader.i.i.i.i ], [ null, %86 ], [ %88, %_ZNK7obj_mapI9func_declP3appE9find_coreEPS0_.exit.i.i ], [ null, %83 ], [ null, %72 ]
   %89 = load i32, ptr %27, align 8, !tbaa !60
   %90 = add i32 %89, -1
   %91 = and i32 %90, %55
@@ -401,7 +401,7 @@ _ZNK9ackr_info9find_termEP9func_decl.exit:        ; preds = %72, %86, %83, %_ZNK
   br i1 %.not27.old.i.i.i.i74, label %_ZNK10model_core16get_const_interpEP9func_decl.exit, label %.lr.ph38.i.i.i.i70.backedge
 
 .lr.ph38.i.i.i.i70.backedge:                      ; preds = %118, %115
-  %.137.i.i.i.i71.be = phi ptr [ %.old.i.i.i.i73, %118 ], [ %117, %115 ]
+  %.137.i.i.i.i71.be = phi ptr [ %117, %115 ], [ %.old.i.i.i.i73, %118 ]
   br label %.lr.ph38.i.i.i.i70, !llvm.loop !70
 
 .loopexit.i:                                      ; preds = %99, %110
@@ -743,7 +743,7 @@ define hidden void @_ZN20ackr_model_converter9add_entryER15model_evaluatorP3appP
   br i1 %.not27.old.i.i.i, label %.loopexit47, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %50, %47
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %50 ], [ %49, %47 ]
+  %.137.i.i.i.be = phi ptr [ %49, %47 ], [ %.old.i.i.i, %50 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !101
 
 .loopexit47:                                      ; preds = %36, %47, %50, %.preheader.i.i.i
@@ -1200,7 +1200,7 @@ define hidden void @_ZN20ackr_model_converter9add_entryER15model_evaluatorP3appP
   br i1 %.not27.old.i.i.i, label %.loopexit, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %46, %43
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %46 ], [ %45, %43 ]
+  %.137.i.i.i.be = phi ptr [ %45, %43 ], [ %.old.i.i.i, %46 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !145
 
 _ZNK7obj_mapI9func_declP11func_interpE4findEPS0_RS2_.exit: ; preds = %27, %38

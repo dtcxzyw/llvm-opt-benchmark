@@ -171,8 +171,8 @@ define ptr @Cudd_PrioritySelect(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph145, %.thread.sink.split, %._crit_edge
-  %.191140 = phi ptr [ %.191.lcssa, %._crit_edge ], [ %.191.lcssa, %.thread.sink.split ], [ %.191143, %.lr.ph145 ]
-  %.092 = phi ptr [ null, %._crit_edge ], [ %.092.ph, %.thread.sink.split ], [ null, %.lr.ph145 ]
+  %.191140 = phi ptr [ %.191.lcssa, %.thread.sink.split ], [ %.191.lcssa, %._crit_edge ], [ %.191143, %.lr.ph145 ]
+  %.092 = phi ptr [ %.092.ph, %.thread.sink.split ], [ null, %._crit_edge ], [ null, %.lr.ph145 ]
   %.not105 = icmp eq ptr %.191140, null
   br i1 %.not105, label %.thread112, label %94
 

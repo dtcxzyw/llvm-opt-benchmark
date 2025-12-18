@@ -2094,7 +2094,7 @@ mriStepInnerStepper_Reset.exit.thread375:         ; preds = %73, %mriStepInnerSt
   br label %.loopexit
 
 199:                                              ; preds = %192, %196, %193
-  %.5 = phi i32 [ %191, %192 ], [ %195, %193 ], [ %198, %196 ]
+  %.5 = phi i32 [ %195, %193 ], [ %191, %192 ], [ %198, %196 ]
   %.not279 = icmp eq i32 %.5, 0
   br i1 %.not279, label %.thread379, label %.loopexit
 
@@ -2462,7 +2462,7 @@ mriStep_ApplyForcing.exit309:                     ; preds = %.lr.ph.i305, %312
   br label %.loopexit
 
 392:                                              ; preds = %387, %390, %388
-  %.11 = phi i32 [ %386, %387 ], [ %389, %388 ], [ %391, %390 ]
+  %.11 = phi i32 [ %389, %388 ], [ %386, %387 ], [ %391, %390 ]
   %.not265 = icmp eq i32 %.11, 0
   br i1 %.not265, label %.thread394, label %.loopexit
 
@@ -2559,7 +2559,7 @@ mriStepInnerStepper_Reset.exit312.thread402:      ; preds = %402, %mriStepInnerS
   br label %.loopexit
 
 440:                                              ; preds = %435, %438, %436
-  %.12 = phi i32 [ %434, %435 ], [ %437, %436 ], [ %439, %438 ]
+  %.12 = phi i32 [ %437, %436 ], [ %434, %435 ], [ %439, %438 ]
   %.not269 = icmp eq i32 %.12, 0
   br i1 %.not269, label %.thread406, label %.loopexit
 
@@ -4014,7 +4014,7 @@ switch.lookup58:                                  ; preds = %38
   br label %46
 
 46:                                               ; preds = %switch.lookup58, %switch.lookup54, %switch.lookup50, %switch.lookup48, %switch.lookup46, %switch.lookup
-  %.0 = phi i32 [ %switch.load60, %switch.lookup58 ], [ %switch.offset47, %switch.lookup46 ], [ %switch.load52, %switch.lookup50 ], [ %switch.offset, %switch.lookup ], [ %switch.load, %switch.lookup48 ], [ %switch.load56, %switch.lookup54 ]
+  %.0 = phi i32 [ %switch.load, %switch.lookup48 ], [ %switch.offset, %switch.lookup ], [ %switch.load60, %switch.lookup58 ], [ %switch.load56, %switch.lookup54 ], [ %switch.offset47, %switch.lookup46 ], [ %switch.load52, %switch.lookup50 ]
   %47 = tail call ptr @MRIStepCoupling_LoadTable(i32 noundef %.0) #14
   store ptr %47, ptr %9, align 8, !tbaa !125
   %48 = icmp eq ptr %47, null
@@ -4610,7 +4610,7 @@ thread-pre-split:                                 ; preds = %34, %37
   br i1 %exitcond363.not, label %._crit_edge271, label %.preheader.us
 
 ._crit_edge271:                                   ; preds = %._crit_edge260.split.split.us275, %._crit_edge260.split.split.us.us.us, %._crit_edge260.split.us.split.us279.us, %.preheader.lr.ph.split.us.split.us, %._crit_edge255.thread
-  %.3156.lcssa = phi double [ %149, %._crit_edge255.thread ], [ %149, %.preheader.lr.ph.split.us.split.us ], [ %173, %._crit_edge260.split.split.us.us.us ], [ %165, %._crit_edge260.split.us.split.us279.us ], [ %188, %._crit_edge260.split.split.us275 ]
+  %.3156.lcssa = phi double [ %149, %._crit_edge255.thread ], [ %165, %._crit_edge260.split.us.split.us279.us ], [ %173, %._crit_edge260.split.split.us.us.us ], [ %149, %.preheader.lr.ph.split.us.split.us ], [ %188, %._crit_edge260.split.split.us275 ]
   %189 = fcmp ogt double %.3156.lcssa, 0x3D19000000000000
   br i1 %189, label %190, label %191
 
@@ -5154,7 +5154,7 @@ mriStep_ApplyForcing.exit:                        ; preds = %.lr.ph.i, %232
   br label %.loopexit
 
 .loopexit:                                        ; preds = %118, %229, %216, %198, %mriStep_AccessStepMem.exit, %270, %273, %89, %.thread, %mriStepInnerStepper_Reset.exit177.thread, %195, %mriStepInnerStepper_Reset.exit174.thread, %mriStepInnerStepper_Reset.exit.thread, %mriStepInnerStepper_SetRTol.exit.thread, %mriStepInnerStepper_ResetAccumulatedError.exit.thread
-  %.0 = phi i32 [ -34, %mriStepInnerStepper_Reset.exit.thread ], [ -34, %mriStepInnerStepper_ResetAccumulatedError.exit.thread ], [ -34, %mriStepInnerStepper_SetRTol.exit.thread ], [ -21, %mriStep_AccessStepMem.exit ], [ -8, %89 ], [ -34, %mriStepInnerStepper_Reset.exit174.thread ], [ %194, %195 ], [ -34, %mriStepInnerStepper_Reset.exit177.thread ], [ -8, %.thread ], [ 0, %273 ], [ 0, %270 ], [ -38, %198 ], [ -11, %229 ], [ -8, %216 ], [ %128, %118 ]
+  %.0 = phi i32 [ -34, %mriStepInnerStepper_Reset.exit.thread ], [ -34, %mriStepInnerStepper_ResetAccumulatedError.exit.thread ], [ -34, %mriStepInnerStepper_SetRTol.exit.thread ], [ -21, %mriStep_AccessStepMem.exit ], [ -8, %89 ], [ -34, %mriStepInnerStepper_Reset.exit174.thread ], [ %194, %195 ], [ -38, %198 ], [ -34, %mriStepInnerStepper_Reset.exit177.thread ], [ -8, %.thread ], [ 0, %273 ], [ 0, %270 ], [ -11, %229 ], [ -8, %216 ], [ %128, %118 ]
   ret i32 %.0
 }
 
@@ -7610,7 +7610,7 @@ define range(i32 -41, 1) i32 @mriStep_StageERKNoFast(ptr noundef readonly captur
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split
 
 ._crit_edge:                                      ; preds = %99, %68, %49, %.lr.ph.split.us, %13
-  %.0.lcssa = phi i32 [ 1, %13 ], [ 1, %.lr.ph.split.us ], [ %.1.us66, %68 ], [ %.2.us, %49 ], [ %.2, %99 ]
+  %.0.lcssa = phi i32 [ 1, %13 ], [ %.1.us66, %68 ], [ %.2.us, %49 ], [ 1, %.lr.ph.split.us ], [ %.2, %99 ]
   %100 = load ptr, ptr %16, align 8, !tbaa !186
   %101 = tail call i32 @N_VLinearCombination(i32 noundef %.0.lcssa, ptr noundef nonnull %15, ptr noundef nonnull %19, ptr noundef %100) #14
   %.not58 = icmp eq i32 %101, 0
@@ -8229,7 +8229,7 @@ define range(i32 -41, 1) i32 @mriStep_RKCoeffs(ptr noundef readonly captures(non
   br i1 %exitcond116.not, label %.loopexit72, label %.preheader69
 
 .loopexit72:                                      ; preds = %..loopexit_crit_edge, %.loopexit.us89, %..loopexit70_crit_edge.us.us, %..loopexit_crit_edge.us, %.lr.ph82.split.split.us, %.lr.ph82.split.us, %.preheader71, %5, %7
-  %.0 = phi i32 [ -41, %5 ], [ -41, %7 ], [ 0, %.preheader71 ], [ 0, %.lr.ph82.split.split.us ], [ 0, %.lr.ph82.split.us ], [ 0, %.loopexit.us89 ], [ 0, %..loopexit_crit_edge.us ], [ 0, %..loopexit70_crit_edge.us.us ], [ 0, %..loopexit_crit_edge ]
+  %.0 = phi i32 [ -41, %5 ], [ -41, %7 ], [ 0, %.lr.ph82.split.split.us ], [ 0, %.loopexit.us89 ], [ 0, %.preheader71 ], [ 0, %.lr.ph82.split.us ], [ 0, %..loopexit_crit_edge.us ], [ 0, %..loopexit70_crit_edge.us.us ], [ 0, %..loopexit_crit_edge ]
   ret i32 %.0
 }
 
@@ -8431,7 +8431,7 @@ define range(i32 -28, 1) i32 @mriStep_StageSetup(ptr noundef readonly captures(n
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split
 
 ._crit_edge:                                      ; preds = %115, %85, %67, %.lr.ph.split.us, %34
-  %.062.lcssa = phi i32 [ 2, %34 ], [ 2, %.lr.ph.split.us ], [ %.1.us74, %85 ], [ %.2.us, %67 ], [ %.2, %115 ]
+  %.062.lcssa = phi i32 [ 2, %34 ], [ %.1.us74, %85 ], [ %.2.us, %67 ], [ 2, %.lr.ph.split.us ], [ %.2, %115 ]
   %116 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %117 = load ptr, ptr %116, align 8, !tbaa !171
   %118 = tail call i32 @N_VLinearCombination(i32 noundef %.062.lcssa, ptr noundef nonnull %10, ptr noundef nonnull %12, ptr noundef %117) #14

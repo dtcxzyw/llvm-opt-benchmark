@@ -8330,7 +8330,7 @@ _ZL27findLastNonVersionCharacterN4llvm9StringRefE.exit.loopexit.split.loop.exit6
   br label %_ZL27findLastNonVersionCharacterN4llvm9StringRefE.exit
 
 _ZL27findLastNonVersionCharacterN4llvm9StringRefE.exit: ; preds = %396, %419, %_ZL27findLastNonVersionCharacterN4llvm9StringRefE.exit.loopexit.split.loop.exit607, %.critedge.i236, %405, %.preheader.i
-  %.1.i = phi i32 [ %indvars.i, %.critedge.i236 ], [ %indvars.i, %405 ], [ 0, %.preheader.i ], [ %421, %_ZL27findLastNonVersionCharacterN4llvm9StringRefE.exit.loopexit.split.loop.exit607 ], [ 0, %419 ], [ %smin.i, %396 ]
+  %.1.i = phi i32 [ %indvars.i, %.critedge.i236 ], [ 0, %419 ], [ %indvars.i, %405 ], [ 0, %.preheader.i ], [ %421, %_ZL27findLastNonVersionCharacterN4llvm9StringRefE.exit.loopexit.split.loop.exit607 ], [ %smin.i, %396 ]
   %422 = sext i32 %.1.i to i64
   %423 = add nsw i64 %422, 1
   %.sroa.speculated.i238 = call i64 @llvm.umin.i64(i64 %.sroa.21.0, i64 %423)
@@ -13017,7 +13017,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %"_ZSt6all_ofIPK16ImpliedExtsEntryZN4llvm12RISCVISAInfo17updateCombinationEvE3$_0EbT_S6_T0_.exit"
 
 "_ZSt6all_ofIPK16ImpliedExtsEntryZN4llvm12RISCVISAInfo17updateCombinationEvE3$_0EbT_S6_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm12RISCVISAInfo17updateCombinationEvE3$_0EclIPK16ImpliedExtsEntryEEbT_.exit110", %193, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm12RISCVISAInfo17updateCombinationEvE3$_0EclIPK16ImpliedExtsEntryEEbT_.exit42", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm12RISCVISAInfo17updateCombinationEvE3$_0EclIPK16ImpliedExtsEntryEEbT_.exit", %.loopexit.split.loop.exit41.i.i.i.i, %.loopexit.split.loop.exit43.i.i.i.i, %.loopexit.split.loop.exit45.i.i.i.i
-  %.028.i.i.i.i = phi ptr [ %.1.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm12RISCVISAInfo17updateCombinationEvE3$_0EclIPK16ImpliedExtsEntryEEbT_.exit42" ], [ %.2.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm12RISCVISAInfo17updateCombinationEvE3$_0EclIPK16ImpliedExtsEntryEEbT_.exit" ], [ %.029.lcssa.i.i.i.i, %193 ], [ %257, %.loopexit.split.loop.exit43.i.i.i.i ], [ %256, %.loopexit.split.loop.exit41.i.i.i.i ], [ %258, %.loopexit.split.loop.exit45.i.i.i.i ], [ %.02950.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm12RISCVISAInfo17updateCombinationEvE3$_0EclIPK16ImpliedExtsEntryEEbT_.exit110" ]
+  %.028.i.i.i.i = phi ptr [ %.1.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm12RISCVISAInfo17updateCombinationEvE3$_0EclIPK16ImpliedExtsEntryEEbT_.exit42" ], [ %258, %.loopexit.split.loop.exit45.i.i.i.i ], [ %.2.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm12RISCVISAInfo17updateCombinationEvE3$_0EclIPK16ImpliedExtsEntryEEbT_.exit" ], [ %.029.lcssa.i.i.i.i, %193 ], [ %257, %.loopexit.split.loop.exit43.i.i.i.i ], [ %256, %.loopexit.split.loop.exit41.i.i.i.i ], [ %.02950.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm12RISCVISAInfo17updateCombinationEvE3$_0EclIPK16ImpliedExtsEntryEEbT_.exit110" ]
   %259 = icmp eq ptr %70, %.028.i.i.i.i
   br i1 %259, label %"_ZSt6all_ofIPK16ImpliedExtsEntryZN4llvm12RISCVISAInfo17updateCombinationEvE3$_0EbT_S6_T0_.exit.thread", label %341
 
@@ -13712,7 +13712,7 @@ _ZL27findLastNonVersionCharacterN4llvm9StringRefE.exit.loopexit.split.loop.exit4
   br label %_ZL27findLastNonVersionCharacterN4llvm9StringRefE.exit
 
 _ZL27findLastNonVersionCharacterN4llvm9StringRefE.exit: ; preds = %15, %38, %_ZL27findLastNonVersionCharacterN4llvm9StringRefE.exit.loopexit.split.loop.exit43, %.critedge.i, %24, %.preheader.i
-  %.1.i = phi i32 [ %indvars.i, %.critedge.i ], [ %indvars.i, %24 ], [ 0, %.preheader.i ], [ %40, %_ZL27findLastNonVersionCharacterN4llvm9StringRefE.exit.loopexit.split.loop.exit43 ], [ 0, %38 ], [ %smin.i, %15 ]
+  %.1.i = phi i32 [ %indvars.i, %.critedge.i ], [ 0, %38 ], [ %indvars.i, %24 ], [ 0, %.preheader.i ], [ %40, %_ZL27findLastNonVersionCharacterN4llvm9StringRefE.exit.loopexit.split.loop.exit43 ], [ %smin.i, %15 ]
   %41 = sext i32 %.1.i to i64
   %42 = add nsw i64 %41, 1
   %.not = icmp ugt i64 %1, %42
@@ -13855,7 +13855,7 @@ _ZL27findLastNonVersionCharacterN4llvm9StringRefE.exit.loopexit.split.loop.exit4
   br label %_ZL27findLastNonVersionCharacterN4llvm9StringRefE.exit
 
 _ZL27findLastNonVersionCharacterN4llvm9StringRefE.exit: ; preds = %15, %38, %_ZL27findLastNonVersionCharacterN4llvm9StringRefE.exit.loopexit.split.loop.exit47, %.critedge.i, %24, %.preheader.i
-  %.1.i = phi i32 [ %indvars.i, %.critedge.i ], [ %indvars.i, %24 ], [ 0, %.preheader.i ], [ %40, %_ZL27findLastNonVersionCharacterN4llvm9StringRefE.exit.loopexit.split.loop.exit47 ], [ 0, %38 ], [ %smin.i, %15 ]
+  %.1.i = phi i32 [ %indvars.i, %.critedge.i ], [ 0, %38 ], [ %indvars.i, %24 ], [ 0, %.preheader.i ], [ %40, %_ZL27findLastNonVersionCharacterN4llvm9StringRefE.exit.loopexit.split.loop.exit47 ], [ %smin.i, %15 ]
   %41 = sext i32 %.1.i to i64
   %42 = add nsw i64 %41, 1
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %2, i64 %42)
@@ -15685,8 +15685,8 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
   br i1 %.not, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4llvm13RISCVISAUtils16ExtensionVersionEESt10_Select1stISB_ENS9_19ExtensionComparatorESaISB_EE14_M_upper_boundEPSt13_Rb_tree_nodeISB_EPSt18_Rb_tree_node_baseRS7_.exit, label %.lr.ph, !llvm.loop !807
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4llvm13RISCVISAUtils16ExtensionVersionEESt10_Select1stISB_ENS9_19ExtensionComparatorESaISB_EE14_M_upper_boundEPSt13_Rb_tree_nodeISB_EPSt18_Rb_tree_node_baseRS7_.exit: ; preds = %18, %.lr.ph.i25, %2, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4llvm13RISCVISAUtils16ExtensionVersionEESt10_Select1stISB_ENS9_19ExtensionComparatorESaISB_EE14_M_lower_boundEPSt13_Rb_tree_nodeISB_EPSt18_Rb_tree_node_baseRS7_.exit
-  %.sroa.037.0 = phi ptr [ %.08.lcssa.i, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4llvm13RISCVISAUtils16ExtensionVersionEESt10_Select1stISB_ENS9_19ExtensionComparatorESaISB_EE14_M_lower_boundEPSt13_Rb_tree_nodeISB_EPSt18_Rb_tree_node_baseRS7_.exit ], [ %4, %2 ], [ %.08.lcssa.i, %.lr.ph.i25 ], [ %.123, %18 ]
-  %.sroa.3.0 = phi ptr [ %.02243, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4llvm13RISCVISAUtils16ExtensionVersionEESt10_Select1stISB_ENS9_19ExtensionComparatorESaISB_EE14_M_lower_boundEPSt13_Rb_tree_nodeISB_EPSt18_Rb_tree_node_baseRS7_.exit ], [ %4, %2 ], [ %.19.i28, %.lr.ph.i25 ], [ %.123, %18 ]
+  %.sroa.037.0 = phi ptr [ %.08.lcssa.i, %.lr.ph.i25 ], [ %.08.lcssa.i, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4llvm13RISCVISAUtils16ExtensionVersionEESt10_Select1stISB_ENS9_19ExtensionComparatorESaISB_EE14_M_lower_boundEPSt13_Rb_tree_nodeISB_EPSt18_Rb_tree_node_baseRS7_.exit ], [ %4, %2 ], [ %.123, %18 ]
+  %.sroa.3.0 = phi ptr [ %.19.i28, %.lr.ph.i25 ], [ %.02243, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4llvm13RISCVISAUtils16ExtensionVersionEESt10_Select1stISB_ENS9_19ExtensionComparatorESaISB_EE14_M_lower_boundEPSt13_Rb_tree_nodeISB_EPSt18_Rb_tree_node_baseRS7_.exit ], [ %4, %2 ], [ %.123, %18 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.037.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.3.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -16022,8 +16022,8 @@ _ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN4llvm9StringRefEPK16ImpliedExtsEntryEEb
   br i1 %55, label %_ZSt7advanceIPK16ImpliedExtsEntrylEvRT_T0_.exit, label %_ZSt13__upper_boundIPK16ImpliedExtsEntryN4llvm9StringRefEN9__gnu_cxx5__ops14_Val_less_iterEET_S8_S8_RKT0_T1_.exit, !llvm.loop !811
 
 _ZSt13__upper_boundIPK16ImpliedExtsEntryN4llvm9StringRefEN9__gnu_cxx5__ops14_Val_less_iterEET_S8_S8_RKT0_T1_.exit: ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN4llvm9StringRefEPK16ImpliedExtsEntryEEbRT_T0_.exit.thread71, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN4llvm9StringRefEPK16ImpliedExtsEntryEEbRT_T0_.exit.i, %3, %_ZSt13__lower_boundIPK16ImpliedExtsEntryN4llvm9StringRefEN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit
-  %.sroa.0.0 = phi ptr [ %.0.lcssa.i, %_ZSt13__lower_boundIPK16ImpliedExtsEntryN4llvm9StringRefEN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit ], [ %0, %3 ], [ %.0.lcssa.i, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN4llvm9StringRefEPK16ImpliedExtsEntryEEbRT_T0_.exit.i ], [ %.1, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN4llvm9StringRefEPK16ImpliedExtsEntryEEbRT_T0_.exit.thread71 ]
-  %.sroa.3.0 = phi ptr [ %37, %_ZSt13__lower_boundIPK16ImpliedExtsEntryN4llvm9StringRefEN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit ], [ %0, %3 ], [ %.1.i49, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN4llvm9StringRefEPK16ImpliedExtsEntryEEbRT_T0_.exit.i ], [ %.1, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN4llvm9StringRefEPK16ImpliedExtsEntryEEbRT_T0_.exit.thread71 ]
+  %.sroa.0.0 = phi ptr [ %.0.lcssa.i, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN4llvm9StringRefEPK16ImpliedExtsEntryEEbRT_T0_.exit.i ], [ %.0.lcssa.i, %_ZSt13__lower_boundIPK16ImpliedExtsEntryN4llvm9StringRefEN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit ], [ %0, %3 ], [ %.1, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN4llvm9StringRefEPK16ImpliedExtsEntryEEbRT_T0_.exit.thread71 ]
+  %.sroa.3.0 = phi ptr [ %.1.i49, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN4llvm9StringRefEPK16ImpliedExtsEntryEEbRT_T0_.exit.i ], [ %37, %_ZSt13__lower_boundIPK16ImpliedExtsEntryN4llvm9StringRefEN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit ], [ %0, %3 ], [ %.1, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN4llvm9StringRefEPK16ImpliedExtsEntryEEbRT_T0_.exit.thread71 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.3.0, 1
   ret { ptr, ptr } %.fca.1.insert

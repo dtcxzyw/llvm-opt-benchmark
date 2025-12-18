@@ -2438,9 +2438,9 @@ _ZNK4goal3depEj.exit:                             ; preds = %_ZNK11ast_manager3g
   br label %_ZN9qe_tactic3imp10checkpointEv.exit._crit_edge, !llvm.loop !363
 
 _ZN9qe_tactic3imp10checkpointEv.exit._crit_edge:  ; preds = %_ZN9qe_tactic3imp10checkpointEv.exit, %3, %._ZN9qe_tactic3imp10checkpointEv.exit._crit_edge.loopexit_crit_edge, %_ZNK4goal4sizeEv.exit
-  %203 = phi ptr [ null, %_ZNK4goal4sizeEv.exit ], [ %202, %._ZN9qe_tactic3imp10checkpointEv.exit._crit_edge.loopexit_crit_edge ], [ null, %3 ], [ %43, %_ZN9qe_tactic3imp10checkpointEv.exit ]
-  %204 = phi i32 [ %18, %_ZNK4goal4sizeEv.exit ], [ %.pre107.pre, %._ZN9qe_tactic3imp10checkpointEv.exit._crit_edge.loopexit_crit_edge ], [ %18, %3 ], [ %47, %_ZN9qe_tactic3imp10checkpointEv.exit ]
-  %205 = phi ptr [ %8, %_ZNK4goal4sizeEv.exit ], [ %.pre.pre, %._ZN9qe_tactic3imp10checkpointEv.exit._crit_edge.loopexit_crit_edge ], [ %8, %3 ], [ %45, %_ZN9qe_tactic3imp10checkpointEv.exit ]
+  %203 = phi ptr [ null, %3 ], [ null, %_ZNK4goal4sizeEv.exit ], [ %202, %._ZN9qe_tactic3imp10checkpointEv.exit._crit_edge.loopexit_crit_edge ], [ %43, %_ZN9qe_tactic3imp10checkpointEv.exit ]
+  %204 = phi i32 [ %18, %3 ], [ %18, %_ZNK4goal4sizeEv.exit ], [ %.pre107.pre, %._ZN9qe_tactic3imp10checkpointEv.exit._crit_edge.loopexit_crit_edge ], [ %47, %_ZN9qe_tactic3imp10checkpointEv.exit ]
+  %205 = phi ptr [ %8, %3 ], [ %8, %_ZNK4goal4sizeEv.exit ], [ %.pre.pre, %._ZN9qe_tactic3imp10checkpointEv.exit._crit_edge.loopexit_crit_edge ], [ %45, %_ZN9qe_tactic3imp10checkpointEv.exit ]
   %206 = getelementptr inbounds nuw i8, ptr %205, i64 120
   %207 = add i32 %204, 1
   %208 = and i32 %207, 67108863

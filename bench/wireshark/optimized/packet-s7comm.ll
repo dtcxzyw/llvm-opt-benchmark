@@ -4170,10 +4170,10 @@ s7comm_decode_ud_cpu_ar_send_pre_reass.exit.i:    ; preds = %279, %277
   br label %319
 
 319:                                              ; preds = %.sink.split.i, %314, %313, %302, %298, %s7comm_decode_ud_pbc_bsend_pre_reass.exit.i
-  %320 = phi i8 [ %307, %313 ], [ %307, %314 ], [ %305, %302 ], [ %301, %298 ], [ %274, %s7comm_decode_ud_pbc_bsend_pre_reass.exit.i ], [ %307, %.sink.split.i ]
-  %321 = phi ptr [ %308, %313 ], [ %308, %314 ], [ %304, %302 ], [ %300, %298 ], [ %273, %s7comm_decode_ud_pbc_bsend_pre_reass.exit.i ], [ %308, %.sink.split.i ]
-  %.0172.i = phi ptr [ %312, %313 ], [ %312, %314 ], [ %0, %302 ], [ %0, %298 ], [ %0, %s7comm_decode_ud_pbc_bsend_pre_reass.exit.i ], [ %.0172.ph.i, %.sink.split.i ]
-  %.3.i = phi i32 [ 0, %313 ], [ 0, %314 ], [ %.2.i, %302 ], [ %235, %298 ], [ %.0.i181.i, %s7comm_decode_ud_pbc_bsend_pre_reass.exit.i ], [ 0, %.sink.split.i ]
+  %320 = phi i8 [ %307, %313 ], [ %274, %s7comm_decode_ud_pbc_bsend_pre_reass.exit.i ], [ %301, %298 ], [ %307, %314 ], [ %305, %302 ], [ %307, %.sink.split.i ]
+  %321 = phi ptr [ %308, %313 ], [ %273, %s7comm_decode_ud_pbc_bsend_pre_reass.exit.i ], [ %300, %298 ], [ %308, %314 ], [ %304, %302 ], [ %308, %.sink.split.i ]
+  %.0172.i = phi ptr [ %312, %313 ], [ %0, %s7comm_decode_ud_pbc_bsend_pre_reass.exit.i ], [ %0, %298 ], [ %312, %314 ], [ %0, %302 ], [ %.0172.ph.i, %.sink.split.i ]
+  %.3.i = phi i32 [ 0, %313 ], [ %.0.i181.i, %s7comm_decode_ud_pbc_bsend_pre_reass.exit.i ], [ %235, %298 ], [ 0, %314 ], [ %.2.i, %302 ], [ 0, %.sink.split.i ]
   store i8 %320, ptr %321, align 8
   %322 = call i32 @tvb_reported_length_remaining(ptr noundef %.0172.i, i32 noundef %.3.i)
   %323 = icmp eq i8 %.0200, 0
@@ -4800,7 +4800,7 @@ define internal fastcc i32 @s7comm_decode_response_read_data(ptr noundef %0, ptr
   br i1 %exitcond.not, label %.loopexit, label %19, !llvm.loop !16
 
 .loopexit:                                        ; preds = %60, %.lr.ph120, %.preheader, %10
-  %.198 = phi i32 [ %16, %10 ], [ %3, %.preheader ], [ %17, %.lr.ph120 ], [ %.3, %60 ]
+  %.198 = phi i32 [ %17, %.lr.ph120 ], [ %16, %10 ], [ %3, %.preheader ], [ %.3, %60 ]
   ret i32 %.198
 }
 
@@ -6346,7 +6346,7 @@ s7comm_decode_ud_readrec.exit:                    ; preds = %64, %65, %74, %76, 
   br label %.thread
 
 .thread:                                          ; preds = %34, %26, %41, %43, %49, %s7comm_decode_ud_readrec.exit, %120
-  %.4 = phi i32 [ %123, %120 ], [ %24, %41 ], [ %47, %43 ], [ %59, %49 ], [ %.0.i, %s7comm_decode_ud_readrec.exit ], [ %32, %26 ], [ %.2, %34 ]
+  %.4 = phi i32 [ %123, %120 ], [ %24, %41 ], [ %47, %43 ], [ %.0.i, %s7comm_decode_ud_readrec.exit ], [ %59, %49 ], [ %32, %26 ], [ %.2, %34 ]
   ret i32 %.4
 }
 
@@ -6628,7 +6628,7 @@ define internal fastcc i32 @s7comm_decode_ud_block_subfunc(ptr noundef %0, ptr n
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph, %.lr.ph250, %47, %16, %98, %100, %91, %35, %66, %46, %34, %195
-  %.7 = phi i32 [ %198, %195 ], [ %8, %98 ], [ %194, %100 ], [ %97, %91 ], [ %45, %35 ], [ %8, %66 ], [ %8, %46 ], [ %8, %34 ], [ %8, %16 ], [ %8, %47 ], [ %32, %.lr.ph250 ], [ %64, %.lr.ph ]
+  %.7 = phi i32 [ %198, %195 ], [ %8, %98 ], [ %194, %100 ], [ %97, %91 ], [ %32, %.lr.ph250 ], [ %45, %35 ], [ %8, %66 ], [ %8, %46 ], [ %8, %34 ], [ %8, %16 ], [ %8, %47 ], [ %64, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -6945,7 +6945,7 @@ define internal fastcc i32 @s7comm_decode_ud_cpu_alarm_main(ptr noundef %0, ptr 
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.split, %.lr.ph.split.split.us, %158, %29
-  %.1.lcssa = phi i32 [ %37, %29 ], [ %171, %.lr.ph.split.split.us ], [ %.5.us, %158 ], [ %37, %.lr.ph.split.split ]
+  %.1.lcssa = phi i32 [ %37, %29 ], [ %.5.us, %158 ], [ %171, %.lr.ph.split.split.us ], [ %37, %.lr.ph.split.split ]
   %177 = sub i32 %.1.lcssa, %5
   tail call void @proto_item_set_len(ptr noundef %10, i32 noundef %177)
   ret i32 %.1.lcssa
@@ -8468,7 +8468,7 @@ make_registerflag_string.exit.i:                  ; preds = %554, %551
   br label %s7comm_decode_ud_tis_blockstat.exit
 
 s7comm_decode_ud_tis_blockstat.exit:              ; preds = %make_registerflag_string.exit.i, %505, %561, %569
-  %.3.i = phi i32 [ %568, %561 ], [ %572, %569 ], [ %.175.i, %505 ], [ %.1.i68, %make_registerflag_string.exit.i ]
+  %.3.i = phi i32 [ %572, %569 ], [ %568, %561 ], [ %.175.i, %505 ], [ %.1.i68, %make_registerflag_string.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %s7comm_decode_ud_tis_istack.exit
 
@@ -8798,7 +8798,7 @@ default.unreachable:                              ; preds = %592
   unreachable
 
 s7comm_decode_ud_tis_istack.exit:                 ; preds = %631, %tailrecurse, %.lr.ph68.i94, %.lr.ph68.i, %.lr.ph, %.lr.ph.i70, %.lr.ph36.i, %388, %.preheader, %730, %._crit_edge.i86, %712, %702, %701, %697, %._crit_edge.i, %679, %669, %668, %659, %658, %632, %603, %.loopexit, %582, %574, %573, %478, %477, %.sink.split.i, %427, %399, %392, %383, %330, %326, %324, %312, %15, %14, %s7comm_decode_ud_tis_blockstat.exit, %734
-  %.0 = phi i32 [ %737, %734 ], [ %323, %312 ], [ %426, %399 ], [ %476, %.sink.split.i ], [ %.3.i, %s7comm_decode_ud_tis_blockstat.exit ], [ %.tr102, %477 ], [ %.4.i, %658 ], [ %.tr102, %14 ], [ %18, %15 ], [ %.tr102, %324 ], [ %329, %326 ], [ %387, %383 ], [ %.tr102, %330 ], [ %398, %392 ], [ %.tr102, %427 ], [ %484, %478 ], [ %.tr102, %573 ], [ %579, %574 ], [ %587, %582 ], [ %602, %.loopexit ], [ %609, %603 ], [ %717, %712 ], [ %.tr102, %632 ], [ %667, %659 ], [ %.tr102, %668 ], [ %700, %697 ], [ %695, %._crit_edge.i ], [ %674, %669 ], [ %684, %679 ], [ %.tr102, %701 ], [ %733, %730 ], [ %728, %._crit_edge.i86 ], [ %707, %702 ], [ %.tr102, %.preheader ], [ %646, %.lr.ph ], [ %677, %.lr.ph68.i ], [ %710, %.lr.ph68.i94 ], [ %.2.i, %388 ], [ %580, %.lr.ph36.i ], [ %588, %.lr.ph.i70 ], [ %.1.i75, %631 ], [ %.tr102, %tailrecurse ]
+  %.0 = phi i32 [ %737, %734 ], [ %733, %730 ], [ %323, %312 ], [ %717, %712 ], [ %426, %399 ], [ %476, %.sink.split.i ], [ %.3.i, %s7comm_decode_ud_tis_blockstat.exit ], [ %.tr102, %477 ], [ %677, %.lr.ph68.i ], [ %.4.i, %658 ], [ %.2.i, %388 ], [ %.tr102, %14 ], [ %18, %15 ], [ %.tr102, %324 ], [ %329, %326 ], [ %387, %383 ], [ %.tr102, %330 ], [ %398, %392 ], [ %.tr102, %427 ], [ %484, %478 ], [ %.tr102, %573 ], [ %646, %.lr.ph ], [ %579, %574 ], [ %587, %582 ], [ %580, %.lr.ph36.i ], [ %602, %.loopexit ], [ %609, %603 ], [ %707, %702 ], [ %588, %.lr.ph.i70 ], [ %.tr102, %632 ], [ %710, %.lr.ph68.i94 ], [ %667, %659 ], [ %.tr102, %668 ], [ %695, %._crit_edge.i ], [ %700, %697 ], [ %684, %679 ], [ %674, %669 ], [ %.tr102, %701 ], [ %728, %._crit_edge.i86 ], [ %.tr102, %.preheader ], [ %.1.i75, %631 ], [ %.tr102, %tailrecurse ]
   ret i32 %.0
 }
 

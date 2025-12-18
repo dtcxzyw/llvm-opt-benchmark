@@ -399,7 +399,7 @@ define internal fastcc range(i32 0, 11) i32 @narrow_conv_backprop(ptr noundef no
   br i1 %.not121, label %106, label %.critedge127
 
 .critedge127:                                     ; preds = %99, %76, %.lr.ph.split.us
-  %.us-phi = phi i32 [ %.0102148, %.lr.ph.split.us ], [ %.0102.us, %76 ], [ %.0102150, %99 ]
+  %.us-phi = phi i32 [ %.0102.us, %76 ], [ %.0102148, %.lr.ph.split.us ], [ %.0102150, %99 ]
   %105 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store ptr %105, ptr %9, align 8, !tbaa !30
   store i32 %.us-phi, ptr %10, align 4, !tbaa !35
@@ -1399,7 +1399,7 @@ narrow_bpc_get.exit:                              ; preds = %23
   br label %62
 
 62:                                               ; preds = %61, %33, %36, %narrow_bpc_get.exit, %3, %11
-  %.034 = phi i32 [ %1, %3 ], [ %1, %11 ], [ %32, %narrow_bpc_get.exit ], [ %1, %61 ], [ %1, %36 ], [ %1, %33 ]
+  %.034 = phi i32 [ %1, %3 ], [ %1, %11 ], [ %1, %33 ], [ %32, %narrow_bpc_get.exit ], [ %1, %61 ], [ %1, %36 ]
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %64 = load ptr, ptr %63, align 8, !tbaa !30
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 4

@@ -8436,7 +8436,7 @@ return.sink.split:                                ; preds = %if.then.i, %_ZZN8fa
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.then27, %if.then3, %for.end, %entry
-  %retval.0 = phi i1 [ true, %entry ], [ true, %for.end ], [ true, %if.then3 ], [ true, %if.then27 ], [ false, %return.sink.split ]
+  %retval.0 = phi i1 [ true, %entry ], [ true, %for.end ], [ true, %if.then27 ], [ true, %if.then3 ], [ false, %return.sink.split ]
   ret i1 %retval.0
 }
 
@@ -10542,7 +10542,7 @@ call4.i.noexc.i:                                  ; preds = %call.i.noexc.i
   br label %if.end39.i
 
 if.else34.invoke.i:                               ; preds = %invoke.cont14.i, %if.else30.i, %if.else
-  %95 = phi i1 [ true, %if.else ], [ true, %if.else30.i ], [ false, %invoke.cont14.i ]
+  %95 = phi i1 [ true, %if.else30.i ], [ true, %if.else ], [ false, %invoke.cont14.i ]
   invoke void @_ZN8facebook5velox10FlatVectorIbE3setEib(ptr noundef nonnull align 8 dereferenceable(184) %5, i32 noundef %row, i1 noundef zeroext %95)
           to label %if.end39.i unwind label %lpad.i
 
@@ -12881,7 +12881,7 @@ call4.i.noexc.i:                                  ; preds = %call.i.noexc.i
   br label %if.end37.i
 
 if.else32.invoke.i:                               ; preds = %invoke.cont12.i, %if.else28.i, %if.else
-  %95 = phi i1 [ false, %if.else ], [ false, %if.else28.i ], [ true, %invoke.cont12.i ]
+  %95 = phi i1 [ false, %if.else28.i ], [ false, %if.else ], [ true, %invoke.cont12.i ]
   invoke void @_ZN8facebook5velox10FlatVectorIbE3setEib(ptr noundef nonnull align 8 dereferenceable(184) %5, i32 noundef %row, i1 noundef zeroext %95)
           to label %if.end37.i unwind label %lpad.i
 
@@ -15116,7 +15116,7 @@ call4.i.noexc.i:                                  ; preds = %call.i.noexc.i
   br label %if.end37.i
 
 if.else32.invoke.i:                               ; preds = %invoke.cont12.i, %if.else28.i, %if.else
-  %95 = phi i1 [ true, %if.else ], [ true, %if.else28.i ], [ false, %invoke.cont12.i ]
+  %95 = phi i1 [ true, %if.else28.i ], [ true, %if.else ], [ false, %invoke.cont12.i ]
   invoke void @_ZN8facebook5velox10FlatVectorIbE3setEib(ptr noundef nonnull align 8 dereferenceable(184) %5, i32 noundef %row, i1 noundef zeroext %95)
           to label %if.end37.i unwind label %lpad.i
 
@@ -19026,7 +19026,7 @@ call4.i.noexc.i:                                  ; preds = %call.i.noexc.i
   br label %if.end37.i
 
 if.else32.invoke.i:                               ; preds = %invoke.cont12.i, %if.else28.i, %if.else
-  %95 = phi i1 [ true, %if.else ], [ true, %if.else28.i ], [ false, %invoke.cont12.i ]
+  %95 = phi i1 [ true, %if.else28.i ], [ true, %if.else ], [ false, %invoke.cont12.i ]
   invoke void @_ZN8facebook5velox10FlatVectorIbE3setEib(ptr noundef nonnull align 8 dereferenceable(184) %5, i32 noundef %row, i1 noundef zeroext %95)
           to label %if.end37.i unwind label %lpad.i
 
@@ -21263,7 +21263,7 @@ call4.i.noexc.i:                                  ; preds = %call.i.noexc.i
   br label %if.end37.i
 
 if.else32.invoke.i:                               ; preds = %invoke.cont12.i, %if.else28.i, %if.else
-  %95 = phi i1 [ false, %if.else ], [ false, %if.else28.i ], [ true, %invoke.cont12.i ]
+  %95 = phi i1 [ false, %if.else28.i ], [ false, %if.else ], [ true, %invoke.cont12.i ]
   invoke void @_ZN8facebook5velox10FlatVectorIbE3setEib(ptr noundef nonnull align 8 dereferenceable(184) %5, i32 noundef %row, i1 noundef zeroext %95)
           to label %if.end37.i unwind label %lpad.i
 
@@ -23498,7 +23498,7 @@ call4.i.noexc.i:                                  ; preds = %call.i.noexc.i
   br label %if.end37.i
 
 if.else32.invoke.i:                               ; preds = %invoke.cont12.i, %if.else28.i, %if.else
-  %95 = phi i1 [ true, %if.else ], [ true, %if.else28.i ], [ false, %invoke.cont12.i ]
+  %95 = phi i1 [ true, %if.else28.i ], [ true, %if.else ], [ false, %invoke.cont12.i ]
   invoke void @_ZN8facebook5velox10FlatVectorIbE3setEib(ptr noundef nonnull align 8 dereferenceable(184) %5, i32 noundef %row, i1 noundef zeroext %95)
           to label %if.end37.i unwind label %lpad.i
 

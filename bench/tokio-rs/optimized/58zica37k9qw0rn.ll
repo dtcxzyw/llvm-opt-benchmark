@@ -928,8 +928,8 @@ _ZN4core5slice4sort25insertion_sort_shift_left17h06a930aea3ef0241E.exit: ; preds
   br i1 %49, label %83, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h6dd46498fcf08fdbE.exit"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h6dd46498fcf08fdbE.exit": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h3107105c5b82f78dE.exit10.i.i", %41, %88, %.thread78, %.loopexit85
-  %63 = phi i64 [ %50, %.thread78 ], [ %62, %.loopexit85 ], [ %84, %88 ], [ %1, %41 ], [ %84, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h3107105c5b82f78dE.exit10.i.i" ]
-  %.sroa.0.0.i74 = phi i64 [ 2, %.thread78 ], [ %.sroa.0.1.i, %.loopexit85 ], [ %.sroa.0.1.i77, %88 ], [ %44, %41 ], [ %.sroa.0.1.i77, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h3107105c5b82f78dE.exit10.i.i" ]
+  %63 = phi i64 [ %1, %41 ], [ %50, %.thread78 ], [ %62, %.loopexit85 ], [ %84, %88 ], [ %84, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h3107105c5b82f78dE.exit10.i.i" ]
+  %.sroa.0.0.i74 = phi i64 [ %44, %41 ], [ 2, %.thread78 ], [ %.sroa.0.1.i, %.loopexit85 ], [ %.sroa.0.1.i77, %88 ], [ %.sroa.0.1.i77, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h3107105c5b82f78dE.exit10.i.i" ]
   %64 = icmp uge i64 %63, %.0116
   %65 = icmp ule i64 %63, %1
   %or.cond.i = and i1 %64, %65
@@ -1305,9 +1305,9 @@ _ZN4core5slice4sort20provide_sorted_batch17he7eaec10aa60e2f8E.exit: ; preds = %.
   br i1 %or.cond4.i, label %.lr.ph.i63, label %"_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$6remove17h3f45ac3817da3c03E.exit"
 
 "_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$6remove17h3f45ac3817da3c03E.exit": ; preds = %.lr.ph.i63, %.lr.ph24.i, %179, %184
-  %.sroa.18.1.i = phi ptr [ %176, %179 ], [ %175, %184 ], [ %191, %.lr.ph24.i ], [ %198, %.lr.ph.i63 ]
-  %.sroa.10.1.i = phi ptr [ %181, %179 ], [ %185, %184 ], [ %193, %.lr.ph24.i ], [ %185, %.lr.ph.i63 ]
-  %.sroa.0.0.i62 = phi ptr [ %15, %179 ], [ %15, %184 ], [ %15, %.lr.ph24.i ], [ %203, %.lr.ph.i63 ]
+  %.sroa.18.1.i = phi ptr [ %191, %.lr.ph24.i ], [ %176, %179 ], [ %175, %184 ], [ %198, %.lr.ph.i63 ]
+  %.sroa.10.1.i = phi ptr [ %193, %.lr.ph24.i ], [ %181, %179 ], [ %185, %184 ], [ %185, %.lr.ph.i63 ]
+  %.sroa.0.0.i62 = phi ptr [ %15, %.lr.ph24.i ], [ %15, %179 ], [ %15, %184 ], [ %203, %.lr.ph.i63 ]
   %206 = ptrtoint ptr %.sroa.10.1.i to i64
   %207 = ptrtoint ptr %.sroa.0.0.i62 to i64
   %208 = sub nuw i64 %206, %207
@@ -5568,7 +5568,7 @@ define hidden void @_ZN5tokio7runtime7process6Driver3new17hc5770c2a5337b47aE(ptr
           to label %.noexc.backedge unwind label %.loopexit
 
 .noexc.backedge:                                  ; preds = %10, %17
-  %.0.i.i.be = phi i64 [ %.fca.1.extract.i.i, %17 ], [ %11, %10 ]
+  %.0.i.i.be = phi i64 [ %11, %10 ], [ %.fca.1.extract.i.i, %17 ]
   br label %.noexc
 
 12:                                               ; preds = %8

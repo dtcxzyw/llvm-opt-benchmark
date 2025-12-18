@@ -1117,10 +1117,10 @@ thread-pre-split:                                 ; preds = %380
   br label %.thread603
 
 .thread603:                                       ; preds = %._crit_edge662, %._crit_edge670, %._crit_edge678, %.thread603.sink.split, %205
-  %.0407613 = phi ptr [ %56, %205 ], [ %309, %.thread603.sink.split ], [ %56, %._crit_edge670 ], [ %56, %._crit_edge678 ], [ %56, %._crit_edge662 ]
-  %.0410612 = phi ptr [ null, %205 ], [ %.0410612.ph, %.thread603.sink.split ], [ %233, %._crit_edge670 ], [ %233, %._crit_edge678 ], [ %233, %._crit_edge662 ]
-  %.0412611 = phi ptr [ null, %205 ], [ %.0412611.ph, %.thread603.sink.split ], [ null, %._crit_edge670 ], [ null, %._crit_edge678 ], [ null, %._crit_edge662 ]
-  %.0420610 = phi i32 [ 1, %205 ], [ %.0420610.ph, %.thread603.sink.split ], [ 1, %._crit_edge670 ], [ 1, %._crit_edge678 ], [ 1, %._crit_edge662 ]
+  %.0407613 = phi ptr [ %56, %._crit_edge670 ], [ %56, %205 ], [ %56, %._crit_edge678 ], [ %309, %.thread603.sink.split ], [ %56, %._crit_edge662 ]
+  %.0410612 = phi ptr [ %233, %._crit_edge670 ], [ null, %205 ], [ %233, %._crit_edge678 ], [ %.0410612.ph, %.thread603.sink.split ], [ %233, %._crit_edge662 ]
+  %.0412611 = phi ptr [ null, %._crit_edge670 ], [ null, %205 ], [ null, %._crit_edge678 ], [ %.0412611.ph, %.thread603.sink.split ], [ null, %._crit_edge662 ]
+  %.0420610 = phi i32 [ 1, %._crit_edge670 ], [ 1, %205 ], [ 1, %._crit_edge678 ], [ %.0420610.ph, %.thread603.sink.split ], [ 1, %._crit_edge662 ]
   call void @TIFFClose(ptr noundef nonnull %.0407613) #15
   br label %.thread591
 

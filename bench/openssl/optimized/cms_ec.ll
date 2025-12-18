@@ -207,7 +207,7 @@ pkey_type2param.exit.thread.i.i:                  ; preds = %86, %85
   br label %ecdh_cms_set_peerkey.exit.thread.i
 
 pkey_type2param.exit.i.i:                         ; preds = %83, %65
-  %.1.i.i.i = phi ptr [ %66, %65 ], [ %84, %83 ]
+  %.1.i.i.i = phi ptr [ %84, %83 ], [ %66, %65 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %88 = icmp eq ptr %.1.i.i.i, null
   br i1 %88, label %ecdh_cms_set_peerkey.exit.thread.i, label %89

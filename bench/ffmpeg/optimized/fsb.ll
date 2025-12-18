@@ -279,7 +279,7 @@ define internal range(i32 -2147483648, 1) i32 @fsb_read_header(ptr noundef %0) #
   br label %.loopexit
 
 .loopexit:                                        ; preds = %64, %.loopexit.sink.split, %60, %92
-  %.0104.in = phi i32 [ %76, %92 ], [ %20, %60 ], [ %.0104.in.ph, %.loopexit.sink.split ], [ %20, %64 ]
+  %.0104.in = phi i32 [ %20, %60 ], [ %76, %92 ], [ %.0104.in.ph, %.loopexit.sink.split ], [ %20, %64 ]
   %.0104 = zext i32 %.0104.in to i64
   %123 = tail call i64 @avio_seek(ptr noundef %3, i64 noundef 0, i32 noundef 1) #5
   %124 = sub nsw i64 %.0104, %123

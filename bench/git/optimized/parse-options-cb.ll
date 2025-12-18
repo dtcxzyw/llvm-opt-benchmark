@@ -819,7 +819,7 @@ strbuf_addch.exit42:                              ; preds = %strbuf_avail.exit.i
   br label %50
 
 50:                                               ; preds = %.sink.split, %11, %strbuf_addch.exit42, %25
-  %.0 = phi i32 [ -1, %25 ], [ 0, %strbuf_addch.exit42 ], [ 0, %11 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ -1, %25 ], [ 0, %11 ], [ 0, %strbuf_addch.exit42 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 

@@ -135,7 +135,7 @@ _ZNSt11unique_lockIN5boost6fibers6detail13spinlock_ttasEED2Ev.exit: ; preds = %1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.backedge, %_ZNSt11unique_lockIN5boost6fibers6detail13spinlock_ttasEED2Ev.exit, %19, %2, %.loopexit.sink.split
-  %.1 = phi i1 [ true, %.loopexit.sink.split ], [ false, %2 ], [ %.06., %19 ], [ %.06., %_ZNSt11unique_lockIN5boost6fibers6detail13spinlock_ttasEED2Ev.exit ], [ false, %.backedge ]
+  %.1 = phi i1 [ true, %.loopexit.sink.split ], [ false, %2 ], [ %.06., %19 ], [ false, %.backedge ], [ %.06., %_ZNSt11unique_lockIN5boost6fibers6detail13spinlock_ttasEED2Ev.exit ]
   ret i1 %.1
 
 22:                                               ; preds = %12

@@ -1513,7 +1513,7 @@ _ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit: ; preds = %99, %.noexc31
   br label %119
 
 _ZNK14core_hashtableI18default_hash_entryIjE6u_hash4u_eqE8containsERKj.exit: ; preds = %79, %90, %_ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit
-  %116 = phi ptr [ %.pre, %_ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit ], [ %52, %90 ], [ %52, %79 ]
+  %116 = phi ptr [ %52, %90 ], [ %.pre, %_ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit ], [ %52, %79 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %117 = icmp eq ptr %116, null
   br i1 %117, label %.critedge, label %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit26, !llvm.loop !225

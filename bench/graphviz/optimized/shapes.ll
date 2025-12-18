@@ -4744,7 +4744,7 @@ find_user_shape.exit.sink.split.i:                ; preds = %62, %59, %gv_alloc.
   br label %user_shape.exit
 
 user_shape.exit:                                  ; preds = %.lr.ph, %.lr.ph.i.i, %find_user_shape.exit.sink.split.i
-  %.1 = phi ptr [ %50, %find_user_shape.exit.sink.split.i ], [ %22, %.lr.ph.i.i ], [ %.01323, %.lr.ph ]
+  %.1 = phi ptr [ %22, %.lr.ph.i.i ], [ %50, %find_user_shape.exit.sink.split.i ], [ %.01323, %.lr.ph ]
   ret ptr %.1
 }
 
@@ -5926,10 +5926,10 @@ ISCTRL.exit.thread:                               ; preds = %156, %156, %156, %1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge, %156, %ISCTRL.exit.thread, %70, %64
-  %164 = phi ptr [ %.lcssa304, %64 ], [ %.lcssa304, %70 ], [ %157, %ISCTRL.exit.thread ], [ %.lcssa304, %156 ], [ %.lcssa304, %._crit_edge ]
-  %.1163.idx = phi i64 [ %.0162.idx.ph245.ph, %64 ], [ %.0162.idx.ph245.ph, %70 ], [ %.6.idx, %ISCTRL.exit.thread ], [ %.0162.idx.ph245.ph, %156 ], [ %.0162.idx.ph245.ph, %._crit_edge ]
-  %.1138 = phi i32 [ %.0137.ph250, %64 ], [ %.0137.ph250, %70 ], [ %.4, %ISCTRL.exit.thread ], [ %.0137.ph250, %156 ], [ %.0137.ph250, %._crit_edge ]
-  %.1 = phi i8 [ %.0.ph254.ph, %64 ], [ %.0.ph254.ph, %70 ], [ %.3, %ISCTRL.exit.thread ], [ %.0.ph254.ph, %156 ], [ %.0.ph254.ph, %._crit_edge ]
+  %164 = phi ptr [ %.lcssa304, %156 ], [ %.lcssa304, %64 ], [ %.lcssa304, %70 ], [ %157, %ISCTRL.exit.thread ], [ %.lcssa304, %._crit_edge ]
+  %.1163.idx = phi i64 [ %.0162.idx.ph245.ph, %156 ], [ %.0162.idx.ph245.ph, %64 ], [ %.0162.idx.ph245.ph, %70 ], [ %.6.idx, %ISCTRL.exit.thread ], [ %.0162.idx.ph245.ph, %._crit_edge ]
+  %.1138 = phi i32 [ %.0137.ph250, %156 ], [ %.0137.ph250, %64 ], [ %.0137.ph250, %70 ], [ %.4, %ISCTRL.exit.thread ], [ %.0137.ph250, %._crit_edge ]
+  %.1 = phi i8 [ %.0.ph254.ph, %156 ], [ %.0.ph254.ph, %64 ], [ %.0.ph254.ph, %70 ], [ %.3, %ISCTRL.exit.thread ], [ %.0.ph254.ph, %._crit_edge ]
   %.1163.ptr = getelementptr inbounds i8, ptr %3, i64 %.1163.idx
   %165 = and i32 %.1138, 4
   %.not194 = icmp eq i32 %165, 0
@@ -6180,8 +6180,8 @@ define internal fastcc { double, double } @size_reclbl(ptr noundef %0, ptr nound
   br i1 %54, label %37, label %.loopexit, !llvm.loop !165
 
 .loopexit:                                        ; preds = %51, %.preheader, %12, %31, %29, %25, %34
-  %.sroa.029.0 = phi double [ %24, %25 ], [ %24, %29 ], [ %32, %31 ], [ %35, %34 ], [ %.sroa.03.0.copyload, %12 ], [ 0.000000e+00, %.preheader ], [ %.sroa.029.2, %51 ]
-  %.sroa.8.0 = phi double [ %28, %25 ], [ %30, %29 ], [ %33, %31 ], [ %36, %34 ], [ %.sroa.11.0.copyload, %12 ], [ 0.000000e+00, %.preheader ], [ %.sroa.8.2, %51 ]
+  %.sroa.029.0 = phi double [ %.sroa.03.0.copyload, %12 ], [ %24, %25 ], [ %24, %29 ], [ %32, %31 ], [ %35, %34 ], [ 0.000000e+00, %.preheader ], [ %.sroa.029.2, %51 ]
+  %.sroa.8.0 = phi double [ %.sroa.11.0.copyload, %12 ], [ %28, %25 ], [ %30, %29 ], [ %33, %31 ], [ %36, %34 ], [ 0.000000e+00, %.preheader ], [ %.sroa.8.2, %51 ]
   store double %.sroa.029.0, ptr %1, align 8, !tbaa !4
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   store double %.sroa.8.0, ptr %.sroa.8.0..sroa_idx, align 8, !tbaa !4
@@ -7463,8 +7463,8 @@ findFill.exit:                                    ; preds = %101, %105
   br i1 %233, label %217, label %223
 
 ._crit_edge272:                                   ; preds = %223, %199, %180, %143
-  %.not305339 = phi i1 [ true, %143 ], [ false, %199 ], [ false, %180 ], [ false, %223 ]
-  %.3.lcssa = phi i32 [ %.0218, %143 ], [ 0, %199 ], [ 0, %180 ], [ 0, %223 ]
+  %.not305339 = phi i1 [ true, %143 ], [ false, %180 ], [ false, %199 ], [ false, %223 ]
+  %.3.lcssa = phi i32 [ %.0218, %143 ], [ 0, %180 ], [ 0, %199 ], [ 0, %223 ]
   %234 = load ptr, ptr %28, align 8, !tbaa !21
   %235 = getelementptr inbounds nuw i8, ptr %234, i64 16
   %236 = load ptr, ptr %235, align 8, !tbaa !26
@@ -7499,8 +7499,8 @@ findFill.exit:                                    ; preds = %101, %105
   %.not245.not = icmp eq i8 %251, 0
   br i1 %.not245.not, label %.critedge, label %.preheader
 
-.preheader:                                       ; preds = %250, %246, %240
-  %.0222263.ph = phi ptr [ %241, %240 ], [ %249, %250 ], [ %245, %246 ]
+.preheader:                                       ; preds = %246, %250, %240
+  %.0222263.ph = phi ptr [ %241, %240 ], [ %245, %246 ], [ %249, %250 ]
   %.not307 = icmp eq i64 %35, 0
   br i1 %.not307, label %._crit_edge.thread, label %.lr.ph
 
@@ -7645,7 +7645,7 @@ findFill.exit:                                    ; preds = %101, %105
   call void @gvrender_usershape(ptr noundef %0, ptr noundef nonnull %.0222263.ph, ptr noundef %51, i64 noundef %35, i1 noundef zeroext %313, ptr noundef %315, ptr noundef %317) #28
   br label %.critedge
 
-.critedge:                                        ; preds = %246, %250, %248, %244, %312
+.critedge:                                        ; preds = %250, %246, %248, %244, %312
   call void @free(ptr noundef %51) #28
   %318 = load ptr, ptr %6, align 16, !tbaa !103
   call void @free(ptr noundef %318) #28
@@ -7917,8 +7917,8 @@ isEllipse.exit.thread:                            ; preds = %63, %isEllipse.exit
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit82, %.loopexit.loopexit81, %.loopexit.loopexit80, %.loopexit.loopexit79, %.loopexit.loopexit, %30, %isEllipse.exit.thread, %14
-  %.156 = phi ptr [ %16, %14 ], [ %32, %30 ], [ %71, %isEllipse.exit.thread ], [ %.05577, %.loopexit.loopexit ], [ %.05577, %.loopexit.loopexit79 ], [ %.05577, %.loopexit.loopexit80 ], [ %.05577, %.loopexit.loopexit81 ], [ %.05577, %.loopexit.loopexit82 ]
-  %.sroa.037.2 = phi i32 [ %15, %14 ], [ %31, %30 ], [ %.sroa.037.178, %isEllipse.exit.thread ], [ %72, %.loopexit.loopexit ], [ %73, %.loopexit.loopexit79 ], [ %74, %.loopexit.loopexit80 ], [ %75, %.loopexit.loopexit81 ], [ %76, %.loopexit.loopexit82 ]
+  %.156 = phi ptr [ %16, %14 ], [ %71, %isEllipse.exit.thread ], [ %.05577, %.loopexit.loopexit80 ], [ %32, %30 ], [ %.05577, %.loopexit.loopexit81 ], [ %.05577, %.loopexit.loopexit79 ], [ %.05577, %.loopexit.loopexit ], [ %.05577, %.loopexit.loopexit82 ]
+  %.sroa.037.2 = phi i32 [ %15, %14 ], [ %.sroa.037.178, %isEllipse.exit.thread ], [ %74, %.loopexit.loopexit80 ], [ %31, %30 ], [ %75, %.loopexit.loopexit81 ], [ %73, %.loopexit.loopexit79 ], [ %72, %.loopexit.loopexit ], [ %76, %.loopexit.loopexit82 ]
   %77 = load ptr, ptr %.156, align 8, !tbaa !103
   %.not59 = icmp eq ptr %77, null
   br i1 %.not59, label %.loopexit75, label %10, !llvm.loop !210

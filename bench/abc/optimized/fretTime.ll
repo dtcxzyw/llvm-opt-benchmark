@@ -4446,7 +4446,7 @@ define range(i32 0, 2) i32 @Abc_FlowRetime_RefineConstraints() local_unnamed_add
   br i1 %175, label %.lr.ph113, label %.critedge4, !llvm.loop !115
 
 .critedge4:                                       ; preds = %140, %171, %.preheader96, %.preheader
-  %.3 = phi i32 [ 0, %.preheader ], [ 0, %.preheader96 ], [ %.6, %171 ], [ %.2, %140 ]
+  %.3 = phi i32 [ %.6, %171 ], [ 0, %.preheader ], [ 0, %.preheader96 ], [ %.2, %140 ]
   %176 = load ptr, ptr @pManMR, align 8, !tbaa !35
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 40
   %178 = load i32, ptr %177, align 8, !tbaa !106

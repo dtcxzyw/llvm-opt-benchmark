@@ -537,7 +537,7 @@ define internal fastcc zeroext i1 @ValidateStoragePath(ptr noundef %0) unnamed_a
   br i1 %17, label %.sink.split, label %19
 
 .sink.split:                                      ; preds = %.lr.ph, %10, %._crit_edge, %15, %1
-  %.str.17.sink = phi ptr [ @.str.14, %1 ], [ @.str.17, %15 ], [ @.str.17, %._crit_edge ], [ @.str.17, %10 ], [ @.str.17, %.lr.ph ]
+  %.str.17.sink = phi ptr [ @.str.14, %1 ], [ @.str.17, %._crit_edge ], [ @.str.17, %15 ], [ @.str.17, %10 ], [ @.str.17, %.lr.ph ]
   %18 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull %.str.17.sink) #6
   br label %19
 

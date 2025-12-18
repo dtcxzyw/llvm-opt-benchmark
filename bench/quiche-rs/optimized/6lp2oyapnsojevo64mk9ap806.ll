@@ -1086,13 +1086,13 @@ thread-pre-split:                                 ; preds = %520, %516, %490, %3
   switch i64 %165, label %521 [
     i64 0, label %.critedge321
     i64 1, label %.critedge321
-    i64 2, label %532
-    i64 5, label %523
-    i64 7, label %525
-    i64 19, label %527
-    i64 21, label %528
-    i64 22, label %529
-    i64 24, label %531
+    i64 2, label %523
+    i64 5, label %527
+    i64 7, label %529
+    i64 19, label %531
+    i64 21, label %532
+    i64 22, label %534
+    i64 24, label %533
   ]
 
 166:                                              ; preds = %.lr.ph
@@ -1949,60 +1949,60 @@ thread-pre-split:                                 ; preds = %520, %516, %490, %3
   br i1 %switch.selectcmp, label %.critedge321, label %537
 
 523:                                              ; preds = %thread-pre-split
-  %.not407 = icmp eq i8 %2, 3
-  br i1 %.not407, label %.thread403, label %.critedge321
-
-.thread403:                                       ; preds = %523
-  %524 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 4, ptr %524, align 8
-  store i64 29, ptr %0, align 8
-  br label %541
-
-525:                                              ; preds = %thread-pre-split
-  %switch.selectcmp305 = icmp eq i8 %2, 5
-  br i1 %switch.selectcmp305, label %.critedge321, label %.thread404
-
-.thread404:                                       ; preds = %525
-  %526 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 4, ptr %526, align 8
-  store i64 29, ptr %0, align 8
-  br label %543
-
-527:                                              ; preds = %thread-pre-split
-  %switch.selectcmp308 = icmp eq i8 %2, 5
-  br i1 %switch.selectcmp308, label %.critedge321, label %.thread401
-
-528:                                              ; preds = %thread-pre-split
-  %switch.selectcmp312 = icmp eq i8 %2, 5
-  br i1 %switch.selectcmp312, label %.critedge321, label %.thread401
-
-529:                                              ; preds = %thread-pre-split
-  %.not = icmp eq i8 %2, 3
-  br i1 %.not, label %.thread405, label %.critedge321
-
-.thread405:                                       ; preds = %529
-  %530 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 4, ptr %530, align 8
-  store i64 29, ptr %0, align 8
-  br label %549
-
-531:                                              ; preds = %thread-pre-split
-  %switch.selectcmp316 = icmp eq i8 %2, 5
-  br i1 %switch.selectcmp316, label %.critedge321, label %.thread401
-
-532:                                              ; preds = %thread-pre-split
   %.not408 = icmp eq i8 %2, 3
   br i1 %.not408, label %.thread402, label %.critedge321
 
-.thread402:                                       ; preds = %532
-  %533 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 4, ptr %533, align 8
+.thread402:                                       ; preds = %523
+  %524 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 4, ptr %524, align 8
   store i64 29, ptr %0, align 8
-  %534 = icmp eq i64 %161, 0
-  %535 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  br i1 %534, label %539, label %540
+  %525 = icmp eq i64 %161, 0
+  %526 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  br i1 %525, label %539, label %540
 
-.thread401:                                       ; preds = %527, %528, %531
+527:                                              ; preds = %thread-pre-split
+  %.not407 = icmp eq i8 %2, 3
+  br i1 %.not407, label %.thread403, label %.critedge321
+
+.thread403:                                       ; preds = %527
+  %528 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 4, ptr %528, align 8
+  store i64 29, ptr %0, align 8
+  br label %541
+
+529:                                              ; preds = %thread-pre-split
+  %switch.selectcmp305 = icmp eq i8 %2, 5
+  br i1 %switch.selectcmp305, label %.critedge321, label %.thread404
+
+.thread404:                                       ; preds = %529
+  %530 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 4, ptr %530, align 8
+  store i64 29, ptr %0, align 8
+  br label %543
+
+531:                                              ; preds = %thread-pre-split
+  %switch.selectcmp308 = icmp eq i8 %2, 5
+  br i1 %switch.selectcmp308, label %.critedge321, label %.thread401
+
+532:                                              ; preds = %thread-pre-split
+  %switch.selectcmp312 = icmp eq i8 %2, 5
+  br i1 %switch.selectcmp312, label %.critedge321, label %.thread401
+
+533:                                              ; preds = %thread-pre-split
+  %switch.selectcmp316 = icmp eq i8 %2, 5
+  br i1 %switch.selectcmp316, label %.critedge321, label %.thread401
+
+534:                                              ; preds = %thread-pre-split
+  %.not = icmp eq i8 %2, 3
+  br i1 %.not, label %.thread405, label %.critedge321
+
+.thread405:                                       ; preds = %534
+  %535 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 4, ptr %535, align 8
+  store i64 29, ptr %0, align 8
+  br label %549
+
+.thread401:                                       ; preds = %532, %531, %533
   %536 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 4, ptr %536, align 8
   store i64 29, ptr %0, align 8
@@ -2023,11 +2023,11 @@ thread-pre-split:                                 ; preds = %520, %516, %490, %3
   ]
 
 539:                                              ; preds = %.thread402
-  call void @"_ZN4core3ptr51drop_in_place$LT$quiche..ranges..InlineRangeSet$GT$17hdec940a9881feb91E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %535)
+  call void @"_ZN4core3ptr51drop_in_place$LT$quiche..ranges..InlineRangeSet$GT$17hdec940a9881feb91E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %526)
   br label %"_ZN4core3ptr41drop_in_place$LT$quiche..frame..Frame$GT$17h3a613914d17b4c33E.exit"
 
 540:                                              ; preds = %.thread402
-  call void @"_ZN4core3ptr50drop_in_place$LT$quiche..ranges..BTreeRangeSet$GT$17h0dad9f62c982fbc2E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %535)
+  call void @"_ZN4core3ptr50drop_in_place$LT$quiche..ranges..BTreeRangeSet$GT$17h0dad9f62c982fbc2E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %526)
   br label %"_ZN4core3ptr41drop_in_place$LT$quiche..frame..Frame$GT$17h3a613914d17b4c33E.exit"
 
 541:                                              ; preds = %.thread403, %537
@@ -2065,7 +2065,7 @@ thread-pre-split:                                 ; preds = %520, %516, %490, %3
   call void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h29f03b3dfa9a0695E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %554)
   br label %"_ZN4core3ptr41drop_in_place$LT$quiche..frame..Frame$GT$17h3a613914d17b4c33E.exit"
 
-.critedge321:                                     ; preds = %523, %529, %525, %527, %528, %531, %521, %thread-pre-split, %thread-pre-split, %532
+.critedge321:                                     ; preds = %529, %521, %523, %527, %532, %531, %533, %thread-pre-split, %thread-pre-split, %534
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(128) %30, i64 128, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   br label %555

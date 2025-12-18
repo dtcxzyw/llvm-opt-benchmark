@@ -163,7 +163,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.i: ; preds = %_ZStl
   br i1 %.not27.old.i.i.i.i.i, label %_ZNK10model_core16get_const_interpEP9func_decl.exit.i, label %.lr.ph38.i.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.i.backedge:                      ; preds = %62, %59
-  %.137.i.i.i.i.i.be = phi ptr [ %.old.i.i.i.i.i, %62 ], [ %61, %59 ]
+  %.137.i.i.i.i.i.be = phi ptr [ %61, %59 ], [ %.old.i.i.i.i.i, %62 ]
   br label %.lr.ph38.i.i.i.i.i, !llvm.loop !41
 
 .loopexit.i.i:                                    ; preds = %43, %54
@@ -342,7 +342,7 @@ _ZNK10model_core17get_num_functionsEv.exit.i:     ; preds = %_ZL17display_consta
   br i1 %.not27.old.i.i.i.i.i.i, label %_ZNK10model_core15get_func_interpEP9func_decl.exit.i.i, label %.lr.ph38.i.i.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.i.i.backedge:                    ; preds = %133, %130
-  %.137.i.i.i.i.i.i.be = phi ptr [ %.old.i.i.i.i.i.i, %133 ], [ %132, %130 ]
+  %.137.i.i.i.i.i.i.be = phi ptr [ %132, %130 ], [ %.old.i.i.i.i.i.i, %133 ]
   br label %.lr.ph38.i.i.i.i.i.i, !llvm.loop !52
 
 .loopexit.i.i.i:                                  ; preds = %114, %125
@@ -463,9 +463,9 @@ _ZNK11func_interp11num_entriesEv.exit.i.i:        ; preds = %_ZlsRSo6symbol.exit
   br label %common.resume
 
 ._crit_edge61.i.i:                                ; preds = %167, %192, %_ZNK11func_interp11num_entriesEv.exit.i.i, %_ZlsRSo6symbol.exit.i.i
-  %181 = phi i32 [ 2, %_ZNK11func_interp11num_entriesEv.exit.i.i ], [ 2, %_ZlsRSo6symbol.exit.i.i ], [ %161, %192 ], [ %161, %167 ]
-  %182 = phi ptr [ @.str.3, %_ZNK11func_interp11num_entriesEv.exit.i.i ], [ @.str.3, %_ZlsRSo6symbol.exit.i.i ], [ %160, %192 ], [ %160, %167 ]
-  %183 = phi i64 [ 2, %_ZNK11func_interp11num_entriesEv.exit.i.i ], [ 2, %_ZlsRSo6symbol.exit.i.i ], [ 10, %192 ], [ 10, %167 ]
+  %181 = phi i32 [ %161, %192 ], [ 2, %_ZlsRSo6symbol.exit.i.i ], [ 2, %_ZNK11func_interp11num_entriesEv.exit.i.i ], [ %161, %167 ]
+  %182 = phi ptr [ %160, %192 ], [ @.str.3, %_ZlsRSo6symbol.exit.i.i ], [ @.str.3, %_ZNK11func_interp11num_entriesEv.exit.i.i ], [ %160, %167 ]
+  %183 = phi i64 [ 10, %192 ], [ 2, %_ZlsRSo6symbol.exit.i.i ], [ 2, %_ZNK11func_interp11num_entriesEv.exit.i.i ], [ 10, %167 ]
   br i1 %2, label %196, label %199
 
 .lr.ph60.split.i.i:                               ; preds = %.lr.ph60.i.i, %192

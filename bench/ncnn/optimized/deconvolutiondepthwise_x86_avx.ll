@@ -4746,7 +4746,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %._crit_edge263, %.p
   br i1 %exitcond.not, label %.loopexit, label %274, !llvm.loop !118
 
 .loopexit:                                        ; preds = %295, %.preheader, %260, %263
-  %.2 = phi nsz <8 x float> [ %.1243254, %260 ], [ %.1243254, %.preheader ], [ %.1243254, %263 ], [ %.4, %295 ]
+  %.2 = phi nsz <8 x float> [ %.1243254, %260 ], [ %.1243254, %263 ], [ %.1243254, %.preheader ], [ %.4, %295 ]
   %296 = add nuw nsw i32 %.058255, 1
   %exitcond273.not = icmp eq i32 %296, %87
   br i1 %exitcond273.not, label %._crit_edge, label %260, !llvm.loop !119
@@ -5209,7 +5209,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %._crit_edge229, %.p
   br i1 %exitcond.not, label %.loopexit, label %278, !llvm.loop !131
 
 .loopexit:                                        ; preds = %299, %.preheader, %264, %267
-  %.2 = phi nsz <4 x float> [ %.1209220, %264 ], [ %.1209220, %.preheader ], [ %.1209220, %267 ], [ %.4, %299 ]
+  %.2 = phi nsz <4 x float> [ %.1209220, %264 ], [ %.1209220, %267 ], [ %.1209220, %.preheader ], [ %.4, %299 ]
   %300 = add nuw nsw i32 %.058221, 1
   %exitcond239.not = icmp eq i32 %300, %87
   br i1 %exitcond239.not, label %._crit_edge, label %264, !llvm.loop !132

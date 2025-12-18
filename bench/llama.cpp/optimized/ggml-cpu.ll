@@ -1178,7 +1178,7 @@ switch.lookup105:                                 ; preds = %42
   br label %switch.edge
 
 switch.edge:                                      ; preds = %26, %37, %2, %42, %switch.lookup105, %.critedge83, %72, %74, %80, %86, %89, %63, %66, %54, %57, %45, %48, %60
-  %.0 = phi i1 [ %switch.masked, %switch.lookup105 ], [ %91, %89 ], [ true, %.critedge83 ], [ %53, %48 ], [ %62, %60 ], [ false, %54 ], [ %68, %66 ], [ true, %42 ], [ false, %72 ], [ false, %74 ], [ false, %80 ], [ false, %86 ], [ false, %63 ], [ false, %57 ], [ true, %45 ], [ true, %2 ], [ false, %37 ], [ true, %26 ]
+  %.0 = phi i1 [ %switch.masked, %switch.lookup105 ], [ %91, %89 ], [ false, %37 ], [ true, %.critedge83 ], [ %53, %48 ], [ %62, %60 ], [ false, %54 ], [ %68, %66 ], [ true, %42 ], [ true, %2 ], [ false, %72 ], [ false, %74 ], [ false, %80 ], [ false, %86 ], [ false, %63 ], [ false, %57 ], [ true, %45 ], [ true, %26 ]
   ret i1 %.0
 }
 

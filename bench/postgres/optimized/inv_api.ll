@@ -985,7 +985,7 @@ getdatafield.exit:                                ; preds = %97
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.sink.split, %156, %165
-  %.pre-phi = phi i64 [ 0, %165 ], [ %.pre175, %156 ], [ %.pre175, %.loopexit.sink.split ]
+  %.pre-phi = phi i64 [ %.pre175, %156 ], [ 0, %165 ], [ %.pre175, %.loopexit.sink.split ]
   %170 = sub nuw nsw i32 2048, %159
   %171 = sub i32 %2, %.0115168
   %172 = call i32 @llvm.smin.i32(i32 %170, i32 %171)

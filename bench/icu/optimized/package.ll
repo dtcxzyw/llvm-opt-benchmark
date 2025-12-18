@@ -141,7 +141,7 @@ define ptr @getDataInfo(ptr noundef readonly captures(address_is_null, ret: addr
   br label %39
 
 39:                                               ; preds = %.sink.split, %36, %5, %7
-  %.0 = phi ptr [ null, %5 ], [ null, %7 ], [ %13, %36 ], [ null, %.sink.split ]
+  %.0 = phi ptr [ null, %5 ], [ %13, %36 ], [ null, %7 ], [ null, %.sink.split ]
   ret ptr %.0
 }
 
@@ -2435,7 +2435,7 @@ define noundef range(i32 -2147483648, 2147483647) i32 @_ZN6icu_777Package12findN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit115, %.loopexit.loopexit114, %.loopexit.loopexit112, %.loopexit.loopexit51, %.loopexit.loopexit, %55, %57, %1, %._crit_edge
-  %.0 = phi i32 [ -1, %1 ], [ -1, %._crit_edge ], [ %56, %57 ], [ %56, %55 ], [ %113, %.loopexit.loopexit ], [ %114, %.loopexit.loopexit51 ], [ %115, %.loopexit.loopexit112 ], [ %116, %.loopexit.loopexit114 ], [ %117, %.loopexit.loopexit115 ]
+  %.0 = phi i32 [ -1, %1 ], [ -1, %._crit_edge ], [ %56, %57 ], [ %113, %.loopexit.loopexit ], [ %116, %.loopexit.loopexit114 ], [ %56, %55 ], [ %114, %.loopexit.loopexit51 ], [ %115, %.loopexit.loopexit112 ], [ %117, %.loopexit.loopexit115 ]
   ret i32 %.0
 }
 

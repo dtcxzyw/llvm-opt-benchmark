@@ -20032,7 +20032,7 @@ lpad155.loopexit.split-lp.loopexit:               ; preds = %for.body.i.i.i.i.i
   br label %ehcleanup234
 
 lpad155.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %if.then.i, %if.then.i.i.i, %_ZN5eastl34uninitialized_move_ptr_if_noexceptIPNS_15fixed_substringIcEES3_S3_EET1_T_T0_S4_.exit.i.i
-  %v.sroa.11.1.ph.ph.ph = phi ptr [ %v.sroa.11.0562, %if.then.i.i.i ], [ %v.sroa.11.0562, %_ZN5eastl34uninitialized_move_ptr_if_noexceptIPNS_15fixed_substringIcEES3_S3_EET1_T_T0_S4_.exit.i.i ], [ %incdec.ptr.i, %if.then.i ]
+  %v.sroa.11.1.ph.ph.ph = phi ptr [ %v.sroa.11.0562, %if.then.i.i.i ], [ %incdec.ptr.i, %if.then.i ], [ %v.sroa.11.0562, %_ZN5eastl34uninitialized_move_ptr_if_noexceptIPNS_15fixed_substringIcEES3_S3_EET1_T_T0_S4_.exit.i.i ]
   %lpad.loopexit547 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup234

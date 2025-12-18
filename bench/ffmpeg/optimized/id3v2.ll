@@ -748,7 +748,7 @@ check_tag.exit:                                   ; preds = %.preheader.i57, %17
   br i1 %.not.i54, label %get_extra_meta_func.exit, label %.split.split.i, !llvm.loop !22
 
 get_extra_meta_func.exit.thread:                  ; preds = %.split.split.i, %237, %.split.split.us.i, %233, %232, %229
-  %.2178.i = phi ptr [ %.0176301.i, %229 ], [ %.0176301.i, %232 ], [ %.0176301.i, %233 ], [ @id3v2_extra_meta_funcs, %.split.split.us.i ], [ %238, %237 ], [ %240, %.split.split.i ]
+  %.2178.i = phi ptr [ %.0176301.i, %229 ], [ %.0176301.i, %232 ], [ %.0176301.i, %233 ], [ %238, %237 ], [ @id3v2_extra_meta_funcs, %.split.split.us.i ], [ %240, %.split.split.i ]
   %or.cond.i = select i1 %121, i1 true, i1 %.0168.i
   %244 = icmp ne i32 %224, 0
   %or.cond3.i = select i1 %or.cond.i, i1 true, i1 %244

@@ -312,7 +312,7 @@ define hidden ptr @lj_debug_uvnamev(ptr noundef readonly captures(none) %0, i32 
   br label %lj_debug_uvname.exit.thread
 
 lj_debug_uvname.exit.thread:                      ; preds = %35, %4, %13, %37, %20, %31, %42
-  %.3 = phi ptr [ @.str, %42 ], [ %32, %31 ], [ @.str, %20 ], [ null, %37 ], [ null, %13 ], [ null, %4 ], [ %33, %35 ]
+  %.3 = phi ptr [ null, %4 ], [ @.str, %42 ], [ %32, %31 ], [ @.str, %20 ], [ null, %37 ], [ null, %13 ], [ %33, %35 ]
   ret ptr %.3
 }
 
@@ -481,7 +481,7 @@ debug_varname.exit.us.loopexit:                   ; preds = %29
   br i1 %.not38.i, label %.loopexit, label %.preheader.i.outer, !llvm.loop !38
 
 69:                                               ; preds = %58, %54
-  %.120.i = phi i32 [ %59, %58 ], [ %.019.i, %54 ]
+  %.120.i = phi i32 [ %.019.i, %54 ], [ %59, %58 ]
   %.pre.i = load ptr, ptr %5, align 8, !tbaa !35
   br label %.preheader19.i
 
@@ -492,7 +492,7 @@ debug_varname.exit:                               ; preds = %44, %.loopexit.i, %
   br i1 %71, label %.lr.ph, label %.thread67
 
 .loopexit:                                        ; preds = %67, %61, %62
-  %.2.i.ph = phi ptr [ @.str.34, %62 ], [ %.promoted.i, %61 ], [ %65, %67 ]
+  %.2.i.ph = phi ptr [ %.promoted.i, %61 ], [ @.str.34, %62 ], [ %65, %67 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store ptr %.2.i.ph, ptr %3, align 8, !tbaa !35
   br label %.thread67
@@ -638,7 +638,7 @@ lj_debug_uvname.exit:                             ; preds = %131, %.split105.us,
   br label %.lr.ph, !llvm.loop !33
 
 .thread67:                                        ; preds = %88, %debug_varname.exit, %82, %133, %29, %debug_varname.exit.us.loopexit, %35, %31, %debug_varname.exit.us.preheader, %123, %119, %.split98.us, %lj_debug_uvname.exit, %.loopexit
-  %.1 = phi ptr [ @.str.1, %.loopexit ], [ @.str.5, %lj_debug_uvname.exit ], [ @.str.3, %119 ], [ @.str.4, %123 ], [ @.str.2, %.split98.us ], [ null, %debug_varname.exit.us.preheader ], [ null, %82 ], [ null, %35 ], [ null, %29 ], [ null, %31 ], [ null, %debug_varname.exit.us.loopexit ], [ null, %133 ], [ null, %debug_varname.exit ], [ null, %88 ]
+  %.1 = phi ptr [ @.str.1, %.loopexit ], [ @.str.5, %lj_debug_uvname.exit ], [ @.str.2, %.split98.us ], [ @.str.3, %119 ], [ @.str.4, %123 ], [ null, %82 ], [ null, %29 ], [ null, %35 ], [ null, %debug_varname.exit.us.preheader ], [ null, %31 ], [ null, %debug_varname.exit.us.loopexit ], [ null, %133 ], [ null, %debug_varname.exit ], [ null, %88 ]
   ret ptr %.1
 }
 
@@ -1398,12 +1398,12 @@ define dso_local ptr @lua_getlocal(ptr noundef %0, ptr noundef readonly captures
   br i1 %.not38.i, label %debug_varname.exit, label %.preheader.i.outer, !llvm.loop !38
 
 62:                                               ; preds = %51, %49
-  %.120.i = phi i32 [ %52, %51 ], [ %.019.i, %49 ]
+  %.120.i = phi i32 [ %.019.i, %49 ], [ %52, %51 ]
   %.pre.i = load ptr, ptr %4, align 8, !tbaa !35
   br label %.preheader19.i
 
 debug_varname.exit:                               ; preds = %41, %.loopexit.i, %60, %32, %54, %55
-  %.2.i = phi ptr [ %.promoted.i, %54 ], [ @.str.34, %55 ], [ null, %32 ], [ %58, %60 ], [ null, %.loopexit.i ], [ null, %41 ]
+  %.2.i = phi ptr [ %.promoted.i, %54 ], [ @.str.34, %55 ], [ %58, %60 ], [ null, %32 ], [ null, %.loopexit.i ], [ null, %41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %63
 
@@ -1569,12 +1569,12 @@ define internal fastcc ptr @debug_localname(ptr noundef readonly captures(none) 
   br i1 %.not38.i, label %debug_varname.exit.thread, label %.preheader.i.outer, !llvm.loop !38
 
 84:                                               ; preds = %73, %69
-  %.120.i = phi i32 [ %74, %73 ], [ %.019.i, %69 ]
+  %.120.i = phi i32 [ %.019.i, %69 ], [ %74, %73 ]
   %.pre.i = load ptr, ptr %4, align 8, !tbaa !35
   br label %.preheader19.i
 
 debug_varname.exit.thread:                        ; preds = %82, %76, %77
-  %.2.i.ph = phi ptr [ @.str.34, %77 ], [ %.promoted.i, %76 ], [ %80, %82 ]
+  %.2.i.ph = phi ptr [ %.promoted.i, %76 ], [ @.str.34, %77 ], [ %80, %82 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.sink.split
 
@@ -2071,7 +2071,7 @@ debug_frameline.exit:                             ; preds = %109, %104, %95, %88
   br label %.critedge
 
 .critedge:                                        ; preds = %47, %7, %149, %232, %225
-  %.1 = phi i32 [ 1, %149 ], [ 0, %7 ], [ 1, %225 ], [ 1, %232 ], [ 0, %47 ]
+  %.1 = phi i32 [ 1, %149 ], [ 1, %232 ], [ 0, %7 ], [ 1, %225 ], [ 0, %47 ]
   ret i32 %.1
 }
 
@@ -2503,7 +2503,7 @@ define hidden void @lj_debug_dumpstack(ptr noundef readonly captures(address) %0
   br label %debug_framepc.exit
 
 debug_framepc.exit:                               ; preds = %174, %191
-  %.0.i106 = phi i32 [ %196, %191 ], [ %182, %174 ]
+  %.0.i106 = phi i32 [ %182, %174 ], [ %196, %191 ]
   %.not38.i = icmp eq i32 %.0.i106, -1
   br i1 %.not38.i, label %.thread122, label %197
 
@@ -3400,8 +3400,8 @@ lua_getstack.exit87:                              ; preds = %.loopexit, %.loopex
   br i1 %240, label %.lr.ph.i.preheader.i, label %.loopexit94
 
 .loopexit94:                                      ; preds = %234, %73, %17
-  %.0107 = phi i32 [ %3, %17 ], [ %.0109, %73 ], [ %.2, %234 ]
-  %storemerge.i.ph.i = phi i32 [ %3, %17 ], [ %.2.i.i, %73 ], [ %.2, %234 ]
+  %.0107 = phi i32 [ %.0109, %73 ], [ %3, %17 ], [ %.2, %234 ]
+  %storemerge.i.ph.i = phi i32 [ %.2.i.i, %73 ], [ %3, %17 ], [ %.2, %234 ]
   %241 = sub nsw i32 %.0107, %storemerge.i.ph.i
   %242 = getelementptr inbounds nuw i8, ptr %5, i64 116
   store i32 %241, ptr %242, align 4, !tbaa !56

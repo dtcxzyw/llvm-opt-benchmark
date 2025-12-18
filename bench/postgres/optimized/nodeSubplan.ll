@@ -1004,8 +1004,8 @@ slot_getattr.exit159.i:                           ; preds = %slot_getsomeattrs.e
   br label %ExecHashSubPlan.exit
 
 .loopexit.i22:                                    ; preds = %.lr.ph204.i, %535, %534, %533, %529, %528, %slot_getattr.exit.i, %.lr.ph200.i, %444, %429
-  %.3127.ph.i = phi ptr [ %.1125212.i, %528 ], [ %.1125212.i, %533 ], [ %.1125212.i, %534 ], [ %.1125212.i, %535 ], [ %482, %slot_getattr.exit.i ], [ %.1125212.i, %529 ], [ %.1125212.i, %429 ], [ %.1125212.i, %.lr.ph200.i ], [ %.1125212.i, %444 ], [ %.1125212.i, %.lr.ph204.i ]
-  %.2.ph.i = phi i64 [ %.0118214.i, %528 ], [ %.0118214.i, %533 ], [ %.0118214.i, %534 ], [ %524, %535 ], [ %.0118214.i, %slot_getattr.exit.i ], [ %.0118214.i, %529 ], [ %435, %429 ], [ %.0118214.i, %.lr.ph200.i ], [ %.0118214.i, %444 ], [ %.0118214.i, %.lr.ph204.i ]
+  %.3127.ph.i = phi ptr [ %.1125212.i, %429 ], [ %.1125212.i, %528 ], [ %.1125212.i, %533 ], [ %.1125212.i, %534 ], [ %.1125212.i, %535 ], [ %482, %slot_getattr.exit.i ], [ %.1125212.i, %529 ], [ %.1125212.i, %444 ], [ %.1125212.i, %.lr.ph200.i ], [ %.1125212.i, %.lr.ph204.i ]
+  %.2.ph.i = phi i64 [ %435, %429 ], [ %.0118214.i, %528 ], [ %.0118214.i, %533 ], [ %.0118214.i, %534 ], [ %524, %535 ], [ %.0118214.i, %slot_getattr.exit.i ], [ %.0118214.i, %529 ], [ %.0118214.i, %444 ], [ %.0118214.i, %.lr.ph200.i ], [ %.0118214.i, %.lr.ph204.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %536 = load ptr, ptr %397, align 8
   %.not.i160.i = icmp eq ptr %536, null
@@ -1088,7 +1088,7 @@ ExecProcNode.exit161.i:                           ; preds = %537, %.loopexit.i22
   br i1 %566, label %.lr.ph227.i, label %ExecHashSubPlan.exit
 
 ExecHashSubPlan.exit:                             ; preds = %.lr.ph227.i, %.critedge151.i.thread, %.lr.ph224.i, %548, %546, %545, %543, %541, %.thread.i, %363, %359, %347, %.loopexit.i, %317, %309, %305, %291, %237
-  %.0 = phi i64 [ 0, %237 ], [ 1, %291 ], [ 0, %305 ], [ 0, %309 ], [ 0, %317 ], [ 0, %.loopexit.i ], [ 0, %347 ], [ 0, %359 ], [ 0, %363 ], [ %542, %541 ], [ %.0118214.i, %543 ], [ 0, %545 ], [ %.0118.lcssa255259.i, %546 ], [ %.2.i, %.thread.i ], [ %.0118.lcssa255259.i, %.lr.ph224.i ], [ %.0118.lcssa255259.i, %548 ], [ %.2.ph.i, %.critedge151.i.thread ], [ %.0118.lcssa255259.i, %.lr.ph227.i ]
+  %.0 = phi i64 [ 0, %237 ], [ 1, %291 ], [ 0, %305 ], [ 0, %309 ], [ 0, %317 ], [ 0, %.loopexit.i ], [ 0, %347 ], [ 0, %359 ], [ 0, %363 ], [ %542, %541 ], [ %.0118214.i, %543 ], [ 0, %545 ], [ %.0118.lcssa255259.i, %546 ], [ %.2.i, %.thread.i ], [ %.0118.lcssa255259.i, %548 ], [ %.0118.lcssa255259.i, %.lr.ph224.i ], [ %.2.ph.i, %.critedge151.i.thread ], [ %.0118.lcssa255259.i, %.lr.ph227.i ]
   store i32 %15, ptr %14, align 4
   ret i64 %.0
 }
@@ -1703,7 +1703,7 @@ ExecProcNode.exit125:                             ; preds = %.loopexit, %133
 
 .critedge:                                        ; preds = %.lr.ph146.split.split, %ExecProcNode.exit125, %71, %ExecProcNode.exit125.us, %ExecProcNode.exit
   %.1102.lcssa = phi ptr [ %.0101, %ExecProcNode.exit ], [ %87, %71 ], [ %87, %ExecProcNode.exit125.us ], [ %.0101, %ExecProcNode.exit125 ], [ %.0101, %.lr.ph146.split.split ]
-  %.099.lcssa = phi i1 [ false, %ExecProcNode.exit ], [ true, %71 ], [ true, %ExecProcNode.exit125.us ], [ %.099144, %.lr.ph146.split.split ], [ true, %ExecProcNode.exit125 ]
+  %.099.lcssa = phi i1 [ false, %ExecProcNode.exit ], [ true, %71 ], [ true, %ExecProcNode.exit125.us ], [ true, %ExecProcNode.exit125 ], [ %.099144, %.lr.ph146.split.split ]
   br i1 %32, label %.critedge.thread, label %155
 
 .critedge.thread:                                 ; preds = %.lr.ph146.split.split.us, %.critedge

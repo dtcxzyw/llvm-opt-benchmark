@@ -986,7 +986,7 @@ _ZN4llvm8dyn_castIN5clang9NamedDeclEKNS1_11DeclContextEEEDcPT0_.exit.thread: ; p
   br label %_ZN5clang8TypeNameL25createNestedNameSpecifierERKNS_10ASTContextEPKNS_13NamespaceDeclEb.exit
 
 _ZN5clang8TypeNameL25createNestedNameSpecifierERKNS_10ASTContextEPKNS_13NamespaceDeclEb.exit: ; preds = %_ZNK5clang4Decl14getDeclContextEv.exit46, %20, %.thread, %.critedge.i, %_ZN4llvm8dyn_castIN5clang9NamedDeclEKNS1_11DeclContextEEEDcPT0_.exit.thread, %_ZN5clang8TypeNameL25createNestedNameSpecifierERKNS_10ASTContextEPKNS_8TypeDeclEbb.exit, %94
-  %.0 = phi ptr [ %95, %94 ], [ null, %.thread ], [ %91, %_ZN5clang8TypeNameL25createNestedNameSpecifierERKNS_10ASTContextEPKNS_8TypeDeclEbb.exit ], [ null, %_ZN4llvm8dyn_castIN5clang9NamedDeclEKNS1_11DeclContextEEEDcPT0_.exit.thread ], [ %76, %.critedge.i ], [ null, %20 ], [ null, %_ZNK5clang4Decl14getDeclContextEv.exit46 ]
+  %.0 = phi ptr [ %95, %94 ], [ %76, %.critedge.i ], [ null, %.thread ], [ %91, %_ZN5clang8TypeNameL25createNestedNameSpecifierERKNS_10ASTContextEPKNS_8TypeDeclEbb.exit ], [ null, %_ZN4llvm8dyn_castIN5clang9NamedDeclEKNS1_11DeclContextEEEDcPT0_.exit.thread ], [ null, %20 ], [ null, %_ZNK5clang4Decl14getDeclContextEv.exit46 ]
   ret ptr %.0
 }
 
@@ -1301,7 +1301,7 @@ _ZNK5clang4Decl14getDeclContextEv.exit.i:         ; preds = %38, %33
   br i1 %.not27, label %select.unfold10.preheader, label %common.ret11
 
 common.ret11:                                     ; preds = %76, %.critedge, %72, %_ZN4llvm8dyn_castIN5clang15TypedefNameDeclEKNS1_11DeclContextEEEDcPT0_.exit.thread, %_ZNK5clang4Decl14getDeclContextEv.exit.i, %_ZNK5clang4Decl14getDeclContextEv.exit46, %_ZN5clang8TypeNameL25createNestedNameSpecifierERKNS_10ASTContextEPKNS_8TypeDeclEbb.exit50, %_ZN5clang8TypeNameL25createNestedNameSpecifierERKNS_10ASTContextEPKNS_8TypeDeclEbb.exit, %.critedge.i
-  %common.ret11.op = phi ptr [ %71, %_ZN5clang8TypeNameL25createNestedNameSpecifierERKNS_10ASTContextEPKNS_8TypeDeclEbb.exit50 ], [ %45, %.critedge.i ], [ %57, %_ZN5clang8TypeNameL25createNestedNameSpecifierERKNS_10ASTContextEPKNS_8TypeDeclEbb.exit ], [ null, %_ZNK5clang4Decl14getDeclContextEv.exit.i ], [ null, %.critedge ], [ %77, %76 ], [ null, %72 ], [ null, %_ZN4llvm8dyn_castIN5clang15TypedefNameDeclEKNS1_11DeclContextEEEDcPT0_.exit.thread ], [ null, %_ZNK5clang4Decl14getDeclContextEv.exit46 ]
+  %common.ret11.op = phi ptr [ %71, %_ZN5clang8TypeNameL25createNestedNameSpecifierERKNS_10ASTContextEPKNS_8TypeDeclEbb.exit50 ], [ %45, %.critedge.i ], [ %57, %_ZN5clang8TypeNameL25createNestedNameSpecifierERKNS_10ASTContextEPKNS_8TypeDeclEbb.exit ], [ null, %_ZNK5clang4Decl14getDeclContextEv.exit.i ], [ %77, %76 ], [ null, %.critedge ], [ null, %72 ], [ null, %_ZN4llvm8dyn_castIN5clang15TypedefNameDeclEKNS1_11DeclContextEEEDcPT0_.exit.thread ], [ null, %_ZNK5clang4Decl14getDeclContextEv.exit46 ]
   ret ptr %common.ret11.op
 
 .critedge.i:                                      ; preds = %select.unfold10.preheader
@@ -1637,7 +1637,7 @@ _ZN5clang8TypeNameL25createNestedNameSpecifierERKNS_10ASTContextEPKNS_8TypeDeclE
   unreachable
 
 _ZN5clang8TypeNameL36getFullyQualifiedNestedNameSpecifierERKNS_10ASTContextEPNS_19NestedNameSpecifierEb.exit: ; preds = %tailrecurse.i, %_ZNK5clang4Decl14getDeclContextEv.exit.i38.i, %_ZNK5clang4Decl14getDeclContextEv.exit.i.i, %23, %.critedge.i.i, %_ZN5clang18NamespaceAliasDecl12getNamespaceEv.exit.i, %.critedge.i35.i, %_ZN5clang8TypeNameL25createNestedNameSpecifierERKNS_10ASTContextEPKNS_8TypeDeclEbb.exit.i, %105, %_ZN5clang8TypeNameL25createNestedNameSpecifierERKNS_10ASTContextEPKNS_8TypeDeclEbb.exit44.i
-  %.0.i = phi ptr [ %70, %.critedge.i35.i ], [ %104, %_ZN5clang8TypeNameL25createNestedNameSpecifierERKNS_10ASTContextEPKNS_8TypeDeclEbb.exit.i ], [ %41, %.critedge.i.i ], [ %118, %_ZN5clang8TypeNameL25createNestedNameSpecifierERKNS_10ASTContextEPKNS_8TypeDeclEbb.exit44.i ], [ %.tr68.i, %105 ], [ null, %_ZN5clang18NamespaceAliasDecl12getNamespaceEv.exit.i ], [ null, %23 ], [ null, %_ZNK5clang4Decl14getDeclContextEv.exit.i38.i ], [ null, %_ZNK5clang4Decl14getDeclContextEv.exit.i.i ], [ %.tr68.i, %tailrecurse.i ]
+  %.0.i = phi ptr [ null, %23 ], [ %70, %.critedge.i35.i ], [ %.tr68.i, %105 ], [ null, %_ZN5clang18NamespaceAliasDecl12getNamespaceEv.exit.i ], [ %104, %_ZN5clang8TypeNameL25createNestedNameSpecifierERKNS_10ASTContextEPKNS_8TypeDeclEbb.exit.i ], [ %41, %.critedge.i.i ], [ %118, %_ZN5clang8TypeNameL25createNestedNameSpecifierERKNS_10ASTContextEPKNS_8TypeDeclEbb.exit44.i ], [ null, %_ZNK5clang4Decl14getDeclContextEv.exit.i.i ], [ null, %_ZNK5clang4Decl14getDeclContextEv.exit.i38.i ], [ %.tr68.i, %tailrecurse.i ]
   %.not30.i.not = icmp eq ptr %.0.i, %21
   br i1 %.not30.i.not, label %_ZN5clang8TypeNameL29getFullyQualifiedTemplateNameERKNS_10ASTContextERNS_12TemplateNameEb.exit.thread24, label %select.unfold
 

@@ -11610,8 +11610,8 @@ define hidden void @_ZN8language6buffer6Buffer4edit17h2377264a26c9d1e0E.llvm.838
   br label %.body97
 
 .body97:                                          ; preds = %70, %120, %122, %48
-  %.sroa.046.0.lpad-body = phi i1 [ true, %48 ], [ false, %122 ], [ false, %120 ], [ true, %70 ]
-  %eh.lpad-body98 = phi { ptr, i32 } [ %49, %48 ], [ %121, %122 ], [ %121, %120 ], [ %73, %70 ]
+  %.sroa.046.0.lpad-body = phi i1 [ false, %120 ], [ true, %48 ], [ false, %122 ], [ true, %70 ]
+  %eh.lpad-body98 = phi { ptr, i32 } [ %121, %120 ], [ %49, %48 ], [ %121, %122 ], [ %73, %70 ]
   %50 = extractvalue { ptr, i32 } %eh.lpad-body98, 0
   %51 = extractvalue { ptr, i32 } %eh.lpad-body98, 1
   br label %.thread

@@ -422,8 +422,8 @@ _ZN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEC2ImiEERKT_RKT0_.exit: ; preds = %_ZN5E
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.critedge, %184, %186
-  %.sroa.0303.2 = phi <2 x double> [ %189, %186 ], [ %.sroa.0303.8.vec.insert316, %184 ], [ %.sroa.0303.8.vec.insert316, %.critedge ]
-  %.sroa.20317.1 = phi double [ %190, %186 ], [ %178, %184 ], [ %178, %.critedge ]
+  %.sroa.0303.2 = phi <2 x double> [ %.sroa.0303.8.vec.insert316, %184 ], [ %189, %186 ], [ %.sroa.0303.8.vec.insert316, %.critedge ]
+  %.sroa.20317.1 = phi double [ %178, %184 ], [ %190, %186 ], [ %178, %.critedge ]
   %191 = sext i32 %97 to i64
   %192 = load ptr, ptr %0, align 8, !tbaa !34, !noalias !61
   %193 = getelementptr inbounds double, ptr %192, i64 %191

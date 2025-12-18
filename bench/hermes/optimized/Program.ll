@@ -605,7 +605,7 @@ sw.epilog:                                        ; preds = %if.end94
   br label %cleanup155
 
 cleanup155:                                       ; preds = %arraydestroy.body, %if.else132, %if.end106, %if.then101, %sw.epilog, %if.then127, %sw.bb
-  %retval.2 = phi i1 [ true, %sw.epilog ], [ false, %sw.bb ], [ false, %if.end106 ], [ false, %if.then101 ], [ false, %if.then127 ], [ false, %if.else132 ], [ %retval.1, %arraydestroy.body ]
+  %retval.2 = phi i1 [ false, %if.else132 ], [ true, %sw.epilog ], [ false, %sw.bb ], [ false, %if.end106 ], [ false, %if.then101 ], [ false, %if.then127 ], [ %retval.1, %arraydestroy.body ]
   %tobool.not.i.i.i117 = icmp eq ptr %EnvVector.sroa.0.0, null
   br i1 %tobool.not.i.i.i117, label %_ZNSt6vectorIPKcSaIS1_EED2Ev.exit119, label %if.then.i.i.i118
 

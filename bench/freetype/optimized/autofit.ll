@@ -712,7 +712,7 @@ af_shaper_get_elem.exit.i:                        ; preds = %46
   br i1 %exitcond268.not.i, label %._crit_edge.i, label %.lr.ph231.split.split.i, !llvm.loop !55
 
 ._crit_edge.i:                                    ; preds = %.loopexit198.i, %..loopexit196_crit_edge.us.i, %..loopexit194_crit_edge.us.i, %..loopexit_crit_edge.us.us.i, %.preheader199.i
-  %.0143.lcssa.i = phi i64 [ 0, %.preheader199.i ], [ %.1144.us238.i, %..loopexit196_crit_edge.us.i ], [ %.1144.us.us.i, %..loopexit_crit_edge.us.us.i ], [ %.1144.us.i, %..loopexit194_crit_edge.us.i ], [ %.1144.i, %.loopexit198.i ]
+  %.0143.lcssa.i = phi i64 [ 0, %.preheader199.i ], [ %.1144.us238.i, %..loopexit196_crit_edge.us.i ], [ %.1144.us.i, %..loopexit194_crit_edge.us.i ], [ %.1144.us.us.i, %..loopexit_crit_edge.us.us.i ], [ %.1144.i, %.loopexit198.i ]
   %.not168.i = icmp eq i8 %.0130245.i, 0
   br i1 %.not168.i, label %98, label %94
 
@@ -1253,7 +1253,7 @@ define internal i32 @af_cjk_hints_apply(i32 %0, ptr noundef initializes((44, 48)
   br i1 %113, label %.preheader.i, label %.sink.split, !llvm.loop !104
 
 .sink.split:                                      ; preds = %.loopexit57.split.i, %.loopexit.split.us67.i, %.loopexit57.split.us.us.i, %.loopexit.split.us.us.us.i, %.thread.i50, %.split33, %.thread.i, %.split
-  %.sink81 = phi i32 [ 0, %.thread.i ], [ 0, %.split ], [ 1, %.split33 ], [ 1, %.thread.i50 ], [ 1, %.loopexit.split.us67.i ], [ 0, %.loopexit.split.us.us.us.i ], [ 0, %.loopexit57.split.us.us.i ], [ 1, %.loopexit57.split.i ]
+  %.sink81 = phi i32 [ 0, %.thread.i ], [ 0, %.loopexit.split.us.us.us.i ], [ 1, %.thread.i50 ], [ 0, %.split ], [ 1, %.loopexit.split.us67.i ], [ 0, %.loopexit57.split.us.us.i ], [ 1, %.split33 ], [ 1, %.loopexit57.split.i ]
   tail call fastcc void @af_glyph_hints_align_strong_points(ptr noundef nonnull %1, i32 noundef %.sink81)
   tail call fastcc void @af_glyph_hints_align_weak_points(ptr noundef nonnull %1, i32 noundef %.sink81)
   br label %114
@@ -2271,11 +2271,11 @@ af_shaper_get_elem.exit.i18:                      ; preds = %169
   br i1 %.not657.i, label %.thread729.i, label %290, !llvm.loop !167
 
 .thread729.i:                                     ; preds = %346, %340, %337, %278, %265, %264
-  %.8577.i = phi i64 [ %.1570.i, %278 ], [ %.1570.i, %264 ], [ %.1570.i, %265 ], [ %302, %337 ], [ %302, %340 ], [ %.1570.i, %346 ]
-  %.2544.i = phi i32 [ %.1543.i, %278 ], [ %.1543.i, %264 ], [ %.1543.i, %265 ], [ %.1500.i, %337 ], [ %.1500.i, %340 ], [ %.1543.i, %346 ]
-  %.2536.i = phi i32 [ %.1535.i, %278 ], [ %.1535.i, %264 ], [ %.1535.i, %265 ], [ %spec.select682.i, %337 ], [ %.1543.i, %340 ], [ %.1535.i, %346 ]
-  %.7528.i = phi i32 [ %.5526.i, %278 ], [ %.5526.i, %264 ], [ %.5526.i, %265 ], [ %.5487.i, %337 ], [ %.7489.i, %340 ], [ %.5526.i, %346 ]
-  %.7517.i = phi i32 [ %.5515.i, %278 ], [ %.5515.i, %264 ], [ %.5515.i, %265 ], [ %.5479.i, %337 ], [ %.1543.i, %340 ], [ %.5515.i, %346 ]
+  %.8577.i = phi i64 [ %.1570.i, %278 ], [ %.1570.i, %264 ], [ %.1570.i, %265 ], [ %302, %340 ], [ %302, %337 ], [ %.1570.i, %346 ]
+  %.2544.i = phi i32 [ %.1543.i, %278 ], [ %.1543.i, %264 ], [ %.1543.i, %265 ], [ %.1500.i, %340 ], [ %.1500.i, %337 ], [ %.1543.i, %346 ]
+  %.2536.i = phi i32 [ %.1535.i, %278 ], [ %.1535.i, %264 ], [ %.1535.i, %265 ], [ %.1543.i, %340 ], [ %spec.select682.i, %337 ], [ %.1535.i, %346 ]
+  %.7528.i = phi i32 [ %.5526.i, %278 ], [ %.5526.i, %264 ], [ %.5526.i, %265 ], [ %.7489.i, %340 ], [ %.5487.i, %337 ], [ %.5526.i, %346 ]
+  %.7517.i = phi i32 [ %.5515.i, %278 ], [ %.5515.i, %264 ], [ %.5515.i, %265 ], [ %.1543.i, %340 ], [ %.5479.i, %337 ], [ %.5515.i, %346 ]
   %347 = add nsw i64 %.8577.i, %177
   %348 = icmp sgt i32 %.7528.i, -1
   %349 = icmp sgt i32 %.7517.i, -1
@@ -3198,7 +3198,7 @@ af_latin_hints_compute_blue_edges.exit:           ; preds = %65, %.lr.ph110.i, %
   br i1 %167, label %.lr.ph.i, label %.sink.split, !llvm.loop !212
 
 .sink.split:                                      ; preds = %.loopexit44.i, %.loopexit.i, %150, %.split37, %129, %.split
-  %.sink76 = phi i32 [ 0, %129 ], [ 0, %.split ], [ 1, %.split37 ], [ 1, %150 ], [ 0, %.loopexit.i ], [ 1, %.loopexit44.i ]
+  %.sink76 = phi i32 [ 0, %129 ], [ 1, %150 ], [ 0, %.split ], [ 0, %.loopexit.i ], [ 1, %.split37 ], [ 1, %.loopexit44.i ]
   tail call fastcc void @af_glyph_hints_align_strong_points(ptr noundef nonnull %1, i32 noundef %.sink76)
   tail call fastcc void @af_glyph_hints_align_weak_points(ptr noundef nonnull %1, i32 noundef %.sink76)
   br label %168
@@ -3445,7 +3445,7 @@ define internal i32 @af_autofitter_load_glyph(ptr noundef %0, ptr noundef readon
   br i1 %.not45.i.i, label %.lr.ph.i.i, label %af_face_globals_get_metrics.exit.thread.i
 
 af_face_globals_get_metrics.exit.thread.i:        ; preds = %98, %96, %62
-  %.037.i.ph.i = phi ptr [ %71, %62 ], [ %80, %96 ], [ %104, %98 ]
+  %.037.i.ph.i = phi ptr [ %80, %96 ], [ %71, %62 ], [ %104, %98 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %105
 
@@ -4241,10 +4241,10 @@ define hidden range(i32 0, 7) i32 @af_shaper_get_coverage(ptr noundef readonly c
   br i1 %.not95, label %.loopexit, label %107, !llvm.loop !303
 
 .loopexit:                                        ; preds = %.backedge, %62, %.thread, %._crit_edge123, %48, %46
-  %.076 = phi ptr [ null, %48 ], [ %56, %._crit_edge123 ], [ null, %46 ], [ %56, %.thread ], [ %56, %62 ], [ %56, %.backedge ]
-  %.075 = phi ptr [ null, %48 ], [ %57, %._crit_edge123 ], [ null, %46 ], [ %57, %.thread ], [ %57, %62 ], [ %57, %.backedge ]
-  %.074 = phi ptr [ null, %48 ], [ %52, %._crit_edge123 ], [ null, %46 ], [ %52, %.thread ], [ %52, %62 ], [ %52, %.backedge ]
-  %.073 = phi ptr [ %49, %48 ], [ %49, %._crit_edge123 ], [ null, %46 ], [ %49, %.thread ], [ %49, %62 ], [ %49, %.backedge ]
+  %.076 = phi ptr [ null, %48 ], [ null, %46 ], [ %56, %._crit_edge123 ], [ %56, %.thread ], [ %56, %62 ], [ %56, %.backedge ]
+  %.075 = phi ptr [ null, %48 ], [ null, %46 ], [ %57, %._crit_edge123 ], [ %57, %.thread ], [ %57, %62 ], [ %57, %.backedge ]
+  %.074 = phi ptr [ null, %48 ], [ null, %46 ], [ %52, %._crit_edge123 ], [ %52, %.thread ], [ %52, %62 ], [ %52, %.backedge ]
+  %.073 = phi ptr [ %49, %48 ], [ null, %46 ], [ %49, %._crit_edge123 ], [ %49, %.thread ], [ %49, %62 ], [ %49, %.backedge ]
   call void @hb_set_destroy(ptr noundef %.073) #21
   call void @hb_set_destroy(ptr noundef %.074) #21
   call void @hb_set_destroy(ptr noundef %.076) #21
@@ -5628,7 +5628,7 @@ define internal fastcc i32 @af_latin_hints_compute_segments(ptr noundef %0, i32 
   br i1 %82, label %.loopexit545, label %.preheader
 
 .loopexit545:                                     ; preds = %81, %78, %66, %57
-  %.0403 = phi ptr [ %80, %78 ], [ %58, %66 ], [ %58, %57 ], [ %73, %81 ]
+  %.0403 = phi ptr [ %80, %78 ], [ %58, %57 ], [ %58, %66 ], [ %73, %81 ]
   br label %83
 
 83:                                               ; preds = %264, %.loopexit545
@@ -7568,7 +7568,7 @@ select.unfold242.i:                               ; preds = %._crit_edge.thread.
   br i1 %371, label %.lr.ph271.i, label %af_cjk_hints_compute_edges.exit, !llvm.loop !403
 
 af_cjk_hints_compute_edges.exit:                  ; preds = %369, %9, %295, %._crit_edge266.i, %290, %af_cjk_hints_compute_segments.exit
-  %.0 = phi i32 [ %33, %af_cjk_hints_compute_segments.exit ], [ 0, %._crit_edge266.i ], [ %266, %290 ], [ 0, %295 ], [ %13, %9 ], [ 0, %369 ]
+  %.0 = phi i32 [ %33, %af_cjk_hints_compute_segments.exit ], [ 0, %295 ], [ %266, %290 ], [ %13, %9 ], [ 0, %._crit_edge266.i ], [ 0, %369 ]
   ret i32 %.0
 }
 
@@ -8493,7 +8493,7 @@ define internal fastcc void @af_glyph_hints_align_weak_points(ptr noundef readon
   br i1 %.not83, label %.critedge, label %.preheader135.backedge
 
 .preheader135.backedge:                           ; preds = %104, %.lr.ph85.i, %44, %55
-  %.4.be = phi ptr [ %45, %44 ], [ %.5.ptr151, %55 ], [ %.5.ptr151, %.lr.ph85.i ], [ %.5.ptr151, %104 ]
+  %.4.be = phi ptr [ %45, %44 ], [ %.5.ptr151, %.lr.ph85.i ], [ %.5.ptr151, %55 ], [ %.5.ptr151, %104 ]
   br label %.preheader135, !llvm.loop !419
 
 .critedge:                                        ; preds = %.preheader135, %44
@@ -12341,7 +12341,7 @@ af_property_get_face_globals.exit:                ; preds = %35, %40
   br label %.loopexit
 
 .loopexit:                                        ; preds = %20, %34, %45, %af_property_get_face_globals.exit, %23, %103, %111, %110, %109, %29, %28, %9, %102
-  %.1 = phi i32 [ 0, %111 ], [ 6, %28 ], [ %.5, %102 ], [ 0, %110 ], [ 0, %23 ], [ 6, %9 ], [ 12, %103 ], [ 0, %29 ], [ 0, %109 ], [ 6, %34 ], [ 0, %45 ], [ %.010.i, %af_property_get_face_globals.exit ], [ 6, %20 ]
+  %.1 = phi i32 [ 0, %111 ], [ 6, %28 ], [ %.5, %102 ], [ 0, %110 ], [ 0, %23 ], [ 6, %9 ], [ 12, %103 ], [ %.010.i, %af_property_get_face_globals.exit ], [ 0, %29 ], [ 0, %109 ], [ 6, %34 ], [ 0, %45 ], [ 6, %20 ]
   ret i32 %.1
 }
 

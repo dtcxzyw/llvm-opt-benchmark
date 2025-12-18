@@ -1358,7 +1358,7 @@ sw.bb308:                                         ; preds = %while.body, %while.
   br label %cleanup
 
 sw.epilog.sink.split:                             ; preds = %invoke.cont62, %if.then238, %if.then241, %if.then65
-  %.sink = phi i32 [ 4, %if.then65 ], [ 1, %if.then241 ], [ 1, %if.then238 ], [ 5, %invoke.cont62 ]
+  %.sink = phi i32 [ 4, %if.then65 ], [ 1, %if.then238 ], [ 1, %if.then241 ], [ 5, %invoke.cont62 ]
   store i32 %.sink, ptr %state_, align 8
   br label %sw.epilog
 

@@ -1542,7 +1542,7 @@ _ZNK9ArgOption15invoke_callbackEiPPKc.exit:       ; preds = %62, %._crit_edge, %
   br i1 %90, label %9, label %.thread54, !llvm.loop !73
 
 .thread54:                                        ; preds = %_ZNK9ArgOption15invoke_callbackEiPPKc.exit, %3, %.thread, %_ZN8ArgParse11find_optionEPKc.exit, %87
-  %91 = phi i32 [ -1, %87 ], [ -1, %_ZN8ArgParse11find_optionEPKc.exit ], [ -1, %.thread ], [ 0, %3 ], [ 0, %_ZNK9ArgOption15invoke_callbackEiPPKc.exit ]
+  %91 = phi i32 [ -1, %.thread ], [ -1, %87 ], [ -1, %_ZN8ArgParse11find_optionEPKc.exit ], [ 0, %3 ], [ 0, %_ZNK9ArgOption15invoke_callbackEiPPKc.exit ]
   ret i32 %91
 }
 

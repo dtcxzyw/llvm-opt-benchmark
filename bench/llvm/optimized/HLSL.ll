@@ -1155,69 +1155,69 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit84.i: ; preds = %_
   %174 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %175 = load i32, ptr %174, align 8, !tbaa !100, !noalias !75
   switch i32 %175, label %_ZN12_GLOBAL__N_118isLegalShaderModelERN4llvm6TripleE.exit.thread245.i [
-    i32 34, label %_ZN12_GLOBAL__N_118isLegalShaderModelERN4llvm6TripleE.exit.i
-    i32 36, label %_ZN12_GLOBAL__N_118isLegalShaderModelERN4llvm6TripleE.exit.i
-    i32 37, label %_ZN12_GLOBAL__N_118isLegalShaderModelERN4llvm6TripleE.exit.i
-    i32 35, label %_ZN12_GLOBAL__N_118isLegalShaderModelERN4llvm6TripleE.exit.i
-    i32 33, label %_ZN12_GLOBAL__N_118isLegalShaderModelERN4llvm6TripleE.exit.i
-    i32 38, label %_ZN12_GLOBAL__N_118isLegalShaderModelERN4llvm6TripleE.exit.i
-    i32 39, label %176
-    i32 47, label %185
-    i32 46, label %185
+    i32 34, label %176
+    i32 36, label %176
+    i32 37, label %176
+    i32 35, label %176
+    i32 33, label %176
+    i32 38, label %176
+    i32 39, label %178
+    i32 47, label %187
+    i32 46, label %187
   ]
 
-176:                                              ; preds = %173
-  %177 = and i64 %169, 4294967295
-  %178 = icmp eq i64 %177, 6
-  br i1 %178, label %179, label %_ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread.i.i
-
-179:                                              ; preds = %176
-  %180 = and i64 %169, 9223372032559808512
-  %181 = icmp eq i64 %180, 64424509440
-  %182 = icmp eq i64 %171, 0
-  %or.cond20.i.i = and i1 %182, %181
-  br i1 %or.cond20.i.i, label %_ZN12_GLOBAL__N_118isLegalShaderModelERN4llvm6TripleE.exit.thread248.i, label %_ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread.i.i
-
-_ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread.i.i: ; preds = %179, %176
-  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !75
-  store i64 -9223372023969873914, ptr %6, align 8, !noalias !75
-  %183 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 0, ptr %183, align 8, !noalias !75
-  %184 = call noundef zeroext i1 @_ZN4llvmleERKNS_12VersionTupleES2_(ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %5), !noalias !75
-  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !75
-  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !75
-  br i1 %184, label %193, label %_ZN12_GLOBAL__N_118isLegalShaderModelERN4llvm6TripleE.exit.thread.i
-
-185:                                              ; preds = %173, %173
-  %186 = trunc i64 %169 to i32
-  %187 = icmp ult i32 %186, 6
-  br i1 %187, label %_ZN12_GLOBAL__N_118isLegalShaderModelERN4llvm6TripleE.exit.thread245.i, label %188
-
-188:                                              ; preds = %185
-  %.not22.i.i = icmp eq i32 %186, 6
-  br i1 %.not22.i.i, label %189, label %_ZN12_GLOBAL__N_118isLegalShaderModelERN4llvm6TripleE.exit.thread248.i
-
-189:                                              ; preds = %188
-  %190 = and i64 %169, 9223372032559808512
-  %191 = icmp samesign ugt i64 %190, 21474836479
-  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !75
-  br i1 %191, label %193, label %_ZN12_GLOBAL__N_118isLegalShaderModelERN4llvm6TripleE.exit.thread.i
-
-_ZN12_GLOBAL__N_118isLegalShaderModelERN4llvm6TripleE.exit.thread245.i: ; preds = %185, %173, %167
-  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !75
-  br label %_ZN12_GLOBAL__N_118isLegalShaderModelERN4llvm6TripleE.exit.thread.i
-
-_ZN12_GLOBAL__N_118isLegalShaderModelERN4llvm6TripleE.exit.thread248.i: ; preds = %188, %179
-  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !75
-  br label %193
-
-_ZN12_GLOBAL__N_118isLegalShaderModelERN4llvm6TripleE.exit.i: ; preds = %173, %173, %173, %173, %173, %173
-  %192 = and i64 %169, 4294967292
-  %.not292.i = icmp eq i64 %192, 0
+176:                                              ; preds = %173, %173, %173, %173, %173, %173
+  %177 = and i64 %169, 4294967292
+  %.not292.i = icmp eq i64 %177, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !75
   br i1 %.not292.i, label %_ZN12_GLOBAL__N_118isLegalShaderModelERN4llvm6TripleE.exit.thread.i, label %193
 
-193:                                              ; preds = %_ZN12_GLOBAL__N_118isLegalShaderModelERN4llvm6TripleE.exit.i, %_ZN12_GLOBAL__N_118isLegalShaderModelERN4llvm6TripleE.exit.thread248.i, %189, %_ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread.i.i
+178:                                              ; preds = %173
+  %179 = and i64 %169, 4294967295
+  %180 = icmp eq i64 %179, 6
+  br i1 %180, label %181, label %_ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread.i.i
+
+181:                                              ; preds = %178
+  %182 = and i64 %169, 9223372032559808512
+  %183 = icmp eq i64 %182, 64424509440
+  %184 = icmp eq i64 %171, 0
+  %or.cond20.i.i = and i1 %184, %183
+  br i1 %or.cond20.i.i, label %_ZN12_GLOBAL__N_118isLegalShaderModelERN4llvm6TripleE.exit.thread248.i, label %_ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread.i.i
+
+_ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread.i.i: ; preds = %181, %178
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !75
+  store i64 -9223372023969873914, ptr %6, align 8, !noalias !75
+  %185 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 0, ptr %185, align 8, !noalias !75
+  %186 = call noundef zeroext i1 @_ZN4llvmleERKNS_12VersionTupleES2_(ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %5), !noalias !75
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !75
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !75
+  br i1 %186, label %193, label %_ZN12_GLOBAL__N_118isLegalShaderModelERN4llvm6TripleE.exit.thread.i
+
+187:                                              ; preds = %173, %173
+  %188 = trunc i64 %169 to i32
+  %189 = icmp ult i32 %188, 6
+  br i1 %189, label %_ZN12_GLOBAL__N_118isLegalShaderModelERN4llvm6TripleE.exit.thread245.i, label %190
+
+190:                                              ; preds = %187
+  %.not22.i.i = icmp eq i32 %188, 6
+  br i1 %.not22.i.i, label %_ZN12_GLOBAL__N_118isLegalShaderModelERN4llvm6TripleE.exit.i, label %_ZN12_GLOBAL__N_118isLegalShaderModelERN4llvm6TripleE.exit.thread248.i
+
+_ZN12_GLOBAL__N_118isLegalShaderModelERN4llvm6TripleE.exit.thread245.i: ; preds = %187, %173, %167
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !75
+  br label %_ZN12_GLOBAL__N_118isLegalShaderModelERN4llvm6TripleE.exit.thread.i
+
+_ZN12_GLOBAL__N_118isLegalShaderModelERN4llvm6TripleE.exit.thread248.i: ; preds = %190, %181
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !75
+  br label %193
+
+_ZN12_GLOBAL__N_118isLegalShaderModelERN4llvm6TripleE.exit.i: ; preds = %190
+  %191 = and i64 %169, 9223372032559808512
+  %192 = icmp samesign ugt i64 %191, 21474836479
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !75
+  br i1 %192, label %193, label %_ZN12_GLOBAL__N_118isLegalShaderModelERN4llvm6TripleE.exit.thread.i
+
+193:                                              ; preds = %_ZN12_GLOBAL__N_118isLegalShaderModelERN4llvm6TripleE.exit.i, %_ZN12_GLOBAL__N_118isLegalShaderModelERN4llvm6TripleE.exit.thread248.i, %_ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread.i.i, %176
   %194 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %194, ptr %0, align 8, !tbaa !72, !alias.scope !75
   %195 = load ptr, ptr %12, align 8, !tbaa !34, !noalias !75
@@ -1260,9 +1260,9 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2IRKS5_TnNS
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !75
   br label %_ZN12_GLOBAL__N_118isLegalShaderModelERN4llvm6TripleE.exit.thread.i
 
-_ZN12_GLOBAL__N_118isLegalShaderModelERN4llvm6TripleE.exit.thread.i: ; preds = %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2IRKS5_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS6_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESB_ISC_ISt10in_place_tSJ_EESt16is_constructibleIS5_JSF_EESt14is_convertibleISF_S5_EEEbE4typeELb1EEEOSF_.exit.i, %_ZN12_GLOBAL__N_118isLegalShaderModelERN4llvm6TripleE.exit.i, %_ZN12_GLOBAL__N_118isLegalShaderModelERN4llvm6TripleE.exit.thread245.i, %189, %_ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit84.i, %54
-  %.sink.i = phi i8 [ 0, %54 ], [ 1, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2IRKS5_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS6_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESB_ISC_ISt10in_place_tSJ_EESt16is_constructibleIS5_JSF_EESt14is_convertibleISF_S5_EEEbE4typeELb1EEEOSF_.exit.i ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit84.i ], [ 0, %189 ], [ 0, %_ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread.i.i ], [ 0, %_ZN12_GLOBAL__N_118isLegalShaderModelERN4llvm6TripleE.exit.thread245.i ], [ 0, %_ZN12_GLOBAL__N_118isLegalShaderModelERN4llvm6TripleE.exit.i ]
-  %209 = phi ptr [ %55, %54 ], [ %68, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2IRKS5_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS6_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESB_ISC_ISt10in_place_tSJ_EESt16is_constructibleIS5_JSF_EESt14is_convertibleISF_S5_EEEbE4typeELb1EEEOSF_.exit.i ], [ %68, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit84.i ], [ %68, %189 ], [ %68, %_ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread.i.i ], [ %68, %_ZN12_GLOBAL__N_118isLegalShaderModelERN4llvm6TripleE.exit.thread245.i ], [ %68, %_ZN12_GLOBAL__N_118isLegalShaderModelERN4llvm6TripleE.exit.i ]
+_ZN12_GLOBAL__N_118isLegalShaderModelERN4llvm6TripleE.exit.thread.i: ; preds = %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2IRKS5_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS6_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESB_ISC_ISt10in_place_tSJ_EESt16is_constructibleIS5_JSF_EESt14is_convertibleISF_S5_EEEbE4typeELb1EEEOSF_.exit.i, %_ZN12_GLOBAL__N_118isLegalShaderModelERN4llvm6TripleE.exit.i, %_ZN12_GLOBAL__N_118isLegalShaderModelERN4llvm6TripleE.exit.thread245.i, %_ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread.i.i, %176, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit84.i, %54
+  %.sink.i = phi i8 [ 0, %54 ], [ 1, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2IRKS5_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS6_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESB_ISC_ISt10in_place_tSJ_EESt16is_constructibleIS5_JSF_EESt14is_convertibleISF_S5_EEEbE4typeELb1EEEOSF_.exit.i ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit84.i ], [ 0, %176 ], [ 0, %_ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread.i.i ], [ 0, %_ZN12_GLOBAL__N_118isLegalShaderModelERN4llvm6TripleE.exit.thread245.i ], [ 0, %_ZN12_GLOBAL__N_118isLegalShaderModelERN4llvm6TripleE.exit.i ]
+  %209 = phi ptr [ %55, %54 ], [ %68, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2IRKS5_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS6_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESB_ISC_ISt10in_place_tSJ_EESt16is_constructibleIS5_JSF_EESt14is_convertibleISF_S5_EEEbE4typeELb1EEEOSF_.exit.i ], [ %68, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit84.i ], [ %68, %176 ], [ %68, %_ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread.i.i ], [ %68, %_ZN12_GLOBAL__N_118isLegalShaderModelERN4llvm6TripleE.exit.thread245.i ], [ %68, %_ZN12_GLOBAL__N_118isLegalShaderModelERN4llvm6TripleE.exit.i ]
   %210 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 %.sink.i, ptr %210, align 8, !tbaa !78, !alias.scope !75
   %211 = load ptr, ptr %12, align 8, !tbaa !34, !noalias !75

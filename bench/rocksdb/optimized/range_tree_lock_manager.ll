@@ -1917,7 +1917,7 @@ define void @_ZN7rocksdb20RangeTreeLockManager16GetLockTreeForCFEj(ptr dead_on_u
   br label %.loopexit44, !llvm.loop !189
 
 _ZNSt13unordered_mapIjSt10shared_ptrIN4toku8locktreeEESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE4findERS9_.exit: ; preds = %43, %26, %38
-  %.sroa.06.1.i.i = phi ptr [ %39, %38 ], [ %.sroa.06.0.i.i, %26 ], [ %45, %43 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %26 ], [ %39, %38 ], [ %45, %43 ]
   %51 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %52 = load ptr, ptr %51, align 8, !tbaa !46
   store ptr %52, ptr %0, align 8, !tbaa !46
@@ -2013,7 +2013,7 @@ _ZNSt13unordered_mapIjSt10shared_ptrIN4toku8locktreeEESt4hashIjESt8equal_toIjESa
   br label %_ZNSt10shared_ptrIN4toku8locktreeEEC2ERKS2_.exit26
 
 _ZNSt13unordered_mapIjSt10shared_ptrIN4toku8locktreeEESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE4findERS9_.exit20: ; preds = %88, %70, %83
-  %.sroa.06.1.i.i16 = phi ptr [ %84, %83 ], [ %.sroa.06.0.i.i18, %70 ], [ %90, %88 ]
+  %.sroa.06.1.i.i16 = phi ptr [ %.sroa.06.0.i.i18, %70 ], [ %84, %83 ], [ %90, %88 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %96 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i16, i64 16
   store i32 %2, ptr %4, align 8, !tbaa !190
@@ -7878,7 +7878,7 @@ _ZNSt10_HashtableIjSt4pairIKjN7rocksdb13RangeLockInfoEESaIS4_ENSt8__detail10_Sel
   br i1 %70, label %.loopexit, label %66, !llvm.loop !351
 
 .loopexit:                                        ; preds = %.preheader.i, %67, %66, %_ZNSt10_HashtableIjSt4pairIKjN7rocksdb13RangeLockInfoEESaIS4_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb0EEEE12_Scoped_nodeC2IJS4_EEEPNS6_16_Hashtable_allocISaINS6_10_Hash_nodeIS4_Lb0EEEEEEDpOT_.exit
-  %.sroa.020.2.i = phi ptr [ %1, %_ZNSt10_HashtableIjSt4pairIKjN7rocksdb13RangeLockInfoEESaIS4_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb0EEEE12_Scoped_nodeC2IJS4_EEEPNS6_16_Hashtable_allocISaINS6_10_Hash_nodeIS4_Lb0EEEEEEDpOT_.exit ], [ %.sroa.0.0.i, %67 ], [ %1, %66 ], [ %.sroa.012.033.i, %.preheader.i ]
+  %.sroa.020.2.i = phi ptr [ %.sroa.0.0.i, %67 ], [ %1, %_ZNSt10_HashtableIjSt4pairIKjN7rocksdb13RangeLockInfoEESaIS4_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb0EEEE12_Scoped_nodeC2IJS4_EEEPNS6_16_Hashtable_allocISaINS6_10_Hash_nodeIS4_Lb0EEEEEEDpOT_.exit ], [ %1, %66 ], [ %.sroa.012.033.i, %.preheader.i ]
   %.sroa.4.2.i = zext i32 %7 to i64
   %71 = invoke ptr @_ZNSt10_HashtableIjSt4pairIKjN7rocksdb13RangeLockInfoEESaIS4_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb0EEEE20_M_insert_multi_nodeEPNS6_10_Hash_nodeIS4_Lb0EEEmSK_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %.sroa.020.2.i, i64 noundef %.sroa.4.2.i, ptr noundef nonnull %5)
           to label %_ZNSt10_HashtableIjSt4pairIKjN7rocksdb13RangeLockInfoEESaIS4_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb0EEEE12_Scoped_nodeD2Ev.exit unwind label %72
@@ -11380,7 +11380,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIjSt4pairIKjSt10shared_ptrIN4t
   resume { ptr, i32 } %52
 
 _ZNKSt10_HashtableIjSt4pairIKjSt10shared_ptrIN4toku8locktreeEEESaIS6_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS1_m.exit: ; preds = %40, %26, %35
-  %.sroa.036.0.ph = phi ptr [ %36, %35 ], [ %.sroa.032.0, %26 ], [ %42, %40 ]
+  %.sroa.036.0.ph = phi ptr [ %.sroa.032.0, %26 ], [ %36, %35 ], [ %42, %40 ]
   %.not.i.i.i.i.i.i.i = icmp eq ptr %13, null
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKjSt10shared_ptrIN4toku8locktreeEEELb0EEEEE18_M_deallocate_nodeEPS9_.exit.i, label %53
 

@@ -245,7 +245,7 @@ define hidden noundef zeroext i1 @"_ZN12sharded_slab4page4slot17Slot$LT$T$C$C$GT
   br i1 %.sroa.18.0.in.i, label %15, label %_ZN12sharded_slab4page4slot19exponential_backoff17h706b616e4d895a53E.exit
 
 "_ZN107_$LT$sharded_slab..page..stack..TransferStack$LT$C$GT$$u20$as$u20$sharded_slab..page..FreeList$LT$C$GT$$GT$4push17h8cd59a3a2ad2cce9E.exit": ; preds = %_ZN12sharded_slab4page4slot19exponential_backoff17h706b616e4d895a53E.exit, %.lr.ph.i.i, %4, %18
-  %or.cond.not25 = phi i1 [ true, %18 ], [ false, %4 ], [ true, %.lr.ph.i.i ], [ false, %_ZN12sharded_slab4page4slot19exponential_backoff17h706b616e4d895a53E.exit ]
+  %or.cond.not25 = phi i1 [ true, %.lr.ph.i.i ], [ true, %18 ], [ false, %4 ], [ false, %_ZN12sharded_slab4page4slot19exponential_backoff17h706b616e4d895a53E.exit ]
   ret i1 %or.cond.not25
 
 15:                                               ; preds = %11
@@ -512,7 +512,7 @@ _ZN12sharded_slab4page4slot19exponential_backoff17h706b616e4d895a53E.exit.i.i.i:
   unreachable
 
 "_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$5clear17hce45450e6713bcb5E.exit": ; preds = %_ZN12sharded_slab4page4slot19exponential_backoff17h706b616e4d895a53E.exit.i.i.i, %45, %31, %26, %15, %2
-  %.0 = phi i1 [ false, %2 ], [ true, %45 ], [ false, %31 ], [ false, %26 ], [ false, %15 ], [ false, %_ZN12sharded_slab4page4slot19exponential_backoff17h706b616e4d895a53E.exit.i.i.i ]
+  %.0 = phi i1 [ false, %2 ], [ false, %15 ], [ true, %45 ], [ false, %31 ], [ false, %26 ], [ false, %_ZN12sharded_slab4page4slot19exponential_backoff17h706b616e4d895a53E.exit.i.i.i ]
   ret i1 %.0
 }
 
@@ -2922,7 +2922,7 @@ common.resume:                                    ; preds = %34, %13
   br label %.thread
 
 .thread:                                          ; preds = %31, %.noexc22, %.noexc24, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h5ba7c40c04e59ddeE.exit"
-  %.016 = phi i1 [ false, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h5ba7c40c04e59ddeE.exit" ], [ false, %.noexc24 ], [ true, %.noexc22 ], [ false, %31 ]
+  %.016 = phi i1 [ true, %.noexc22 ], [ false, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h5ba7c40c04e59ddeE.exit" ], [ false, %.noexc24 ], [ false, %31 ]
   %53 = trunc nuw i8 %21 to i1
   br i1 %53, label %_ZN3std9panicking9panicking17hfd7edc4736053a04E.exit.thread.i.i, label %54
 
@@ -5072,9 +5072,9 @@ default.unreachable19:                            ; preds = %3
   unreachable
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8contains17h4c28611bd3c17b15E.exit": ; preds = %40, %.backedge.i.i.i, %16, %12
-  %.sroa.613.0 = phi ptr [ %13, %12 ], [ undef, %16 ], [ undef, %.backedge.i.i.i ], [ undef, %40 ]
-  %.sroa.4.0 = phi i8 [ undef, %12 ], [ 0, %16 ], [ 1, %40 ], [ 0, %.backedge.i.i.i ]
-  %.sroa.0.0 = phi i8 [ 1, %12 ], [ 0, %16 ], [ 0, %.backedge.i.i.i ], [ 0, %40 ]
+  %.sroa.613.0 = phi ptr [ undef, %16 ], [ %13, %12 ], [ undef, %.backedge.i.i.i ], [ undef, %40 ]
+  %.sroa.4.0 = phi i8 [ 0, %16 ], [ undef, %12 ], [ 1, %40 ], [ 0, %.backedge.i.i.i ]
+  %.sroa.0.0 = phi i8 [ 0, %16 ], [ 1, %12 ], [ 0, %.backedge.i.i.i ], [ 0, %40 ]
   store i8 %.sroa.0.0, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sroa.4.0, ptr %.sroa.4.0..sroa_idx, align 1

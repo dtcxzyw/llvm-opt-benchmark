@@ -995,7 +995,7 @@ X509_OBJECT_up_ref_count.exit.thread:             ; preds = %X509_OBJECT_up_ref_
   br label %.loopexit
 
 .loopexit:                                        ; preds = %53, %.thread, %X509_OBJECT_up_ref_count.exit.thread, %X509_OBJECT_up_ref_count.exit, %._crit_edge, %19, %11, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %19 ], [ -1, %X509_OBJECT_up_ref_count.exit ], [ 0, %._crit_edge ], [ 0, %11 ], [ 1, %X509_OBJECT_up_ref_count.exit.thread ], [ 1, %.thread ], [ -1, %53 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %19 ], [ 1, %.thread ], [ -1, %X509_OBJECT_up_ref_count.exit ], [ 0, %._crit_edge ], [ 0, %11 ], [ 1, %X509_OBJECT_up_ref_count.exit.thread ], [ -1, %53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }

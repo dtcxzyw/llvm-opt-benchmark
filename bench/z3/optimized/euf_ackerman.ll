@@ -749,7 +749,7 @@ define hidden noundef zeroext i1 @_ZN3euf8ackerman9enable_ccEP3appS2_(ptr nounde
   br i1 %or.cond.not, label %.lr.ph40, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph40, %._crit_edge, %6, %3
-  %.0 = phi i1 [ false, %6 ], [ false, %3 ], [ true, %._crit_edge ], [ %27, %.lr.ph40 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ false, %6 ], [ %27, %.lr.ph40 ], [ false, %3 ], [ true, %._crit_edge ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 

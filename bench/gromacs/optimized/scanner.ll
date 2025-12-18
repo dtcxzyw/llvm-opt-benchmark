@@ -736,9 +736,9 @@ _ZL16yy_try_NUL_transiPv.exit:                    ; preds = %.lr.ph.i258, %341
   br label %.loopexit300.backedge
 
 .loopexit300.backedge:                            ; preds = %._crit_edge.i276, %362, %534
-  %.0234.be = phi ptr [ %533, %534 ], [ %290, %362 ], [ %533, %._crit_edge.i276 ]
-  %.0228.be = phi ptr [ %541, %534 ], [ %364, %362 ], [ %541, %._crit_edge.i276 ]
-  %.0223.be = phi i32 [ %542, %534 ], [ %363, %362 ], [ %583, %._crit_edge.i276 ]
+  %.0234.be = phi ptr [ %290, %362 ], [ %533, %534 ], [ %533, %._crit_edge.i276 ]
+  %.0228.be = phi ptr [ %364, %362 ], [ %541, %534 ], [ %541, %._crit_edge.i276 ]
+  %.0223.be = phi i32 [ %363, %362 ], [ %542, %534 ], [ %583, %._crit_edge.i276 ]
   br label %.loopexit300
 
 365:                                              ; preds = %278

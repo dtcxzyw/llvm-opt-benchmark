@@ -479,9 +479,9 @@ skip_spaces.exit.i86.i:                           ; preds = %select.unfold39
   br i1 %184, label %.lr.ph.i88.i, label %parse_boolean.exit.i, !llvm.loop !36
 
 parse_boolean.exit.i:                             ; preds = %171, %141, %.parse_boolean.exit_crit_edge.i, %._crit_edge.i.i
-  %.pr.i93.i = phi i32 [ %.pr.i93.pre.i, %.parse_boolean.exit_crit_edge.i ], [ %116, %._crit_edge.i.i ], [ %152, %141 ], [ %182, %171 ]
-  %.1109.i = phi i64 [ %.0108176.i, %.parse_boolean.exit_crit_edge.i ], [ %.0108176.i, %._crit_edge.i.i ], [ %145, %141 ], [ %.0108176.i, %171 ]
-  %.1.i = phi i64 [ %.0107177.i, %.parse_boolean.exit_crit_edge.i ], [ %.0107177.i, %._crit_edge.i.i ], [ %.0107177.i, %141 ], [ %175, %171 ]
+  %.pr.i93.i = phi i32 [ %152, %141 ], [ %.pr.i93.pre.i, %.parse_boolean.exit_crit_edge.i ], [ %116, %._crit_edge.i.i ], [ %182, %171 ]
+  %.1109.i = phi i64 [ %145, %141 ], [ %.0108176.i, %.parse_boolean.exit_crit_edge.i ], [ %.0108176.i, %._crit_edge.i.i ], [ %.0108176.i, %171 ]
+  %.1.i = phi i64 [ %.0107177.i, %141 ], [ %.0107177.i, %.parse_boolean.exit_crit_edge.i ], [ %.0107177.i, %._crit_edge.i.i ], [ %175, %171 ]
   br label %select.unfold40
 
 select.unfold40:                                  ; preds = %.critedge.i.i, %parse_boolean.exit.i
@@ -646,12 +646,12 @@ skip_spaces.exit103.i:                            ; preds = %select.unfold42
   %253 = icmp slt i32 %251, 0
   br i1 %253, label %select.unfold45, label %.thread53
 
-.thread53:                                        ; preds = %210, %._crit_edge.i.i, %skip_spaces.exit.i81.i, %155, %skip_spaces.exit.i86.i, %.lr.ph.i88.i, %.lr.ph.i82.i, %skip_spaces.exit.i78.i, %.lr.ph.i.i, %252, %79, %208
+.thread53:                                        ; preds = %210, %._crit_edge.i.i, %skip_spaces.exit.i81.i, %155, %skip_spaces.exit.i86.i, %.lr.ph.i88.i, %.lr.ph.i82.i, %skip_spaces.exit.i78.i, %.lr.ph.i.i, %252, %208, %79
   %254 = call i32 @av_bprint_finalize(ptr noundef nonnull %23, ptr noundef null) #7
   br label %.sink.split
 
-select.unfold45:                                  ; preds = %81, %191, %122, %252, %79, %208, %244, %247
-  %.041.i.ph = phi i32 [ %72, %79 ], [ %201, %208 ], [ %248, %247 ], [ %245, %244 ], [ %251, %252 ], [ %123, %122 ], [ %199, %191 ], [ %91, %81 ]
+select.unfold45:                                  ; preds = %81, %191, %122, %252, %208, %79, %244, %247
+  %.041.i.ph = phi i32 [ %201, %208 ], [ %72, %79 ], [ %248, %247 ], [ %199, %191 ], [ %245, %244 ], [ %251, %252 ], [ %123, %122 ], [ %91, %81 ]
   %255 = call i32 @av_bprint_finalize(ptr noundef nonnull %23, ptr noundef null) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
@@ -1141,7 +1141,7 @@ av_bprint_utf8.exit.thread:                       ; preds = %.lr.ph.i, %av_bprin
   br label %expect_byte.exit.thread
 
 expect_byte.exit.thread:                          ; preds = %33, %107, %21, %av_bprint_utf8.exit, %117, %120
-  %.040 = phi i32 [ %spec.select63, %21 ], [ -12, %117 ], [ %spec.select, %av_bprint_utf8.exit ], [ 0, %120 ], [ %spec.select64, %107 ], [ -1094995529, %33 ]
+  %.040 = phi i32 [ %spec.select63, %21 ], [ -12, %117 ], [ %spec.select, %av_bprint_utf8.exit ], [ %spec.select64, %107 ], [ 0, %120 ], [ -1094995529, %33 ]
   ret i32 %.040
 }
 

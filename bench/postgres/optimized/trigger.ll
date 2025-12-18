@@ -1069,7 +1069,7 @@ define dso_local { i64, i32 } @CreateTriggerFiringOn(ptr noundef %0, ptr noundef
   unreachable
 
 .split653:                                        ; preds = %.lr.ph677.split.us.split.split.split, %419, %.lr.ph677.split.split
-  %.us-phi675 = phi ptr [ %432, %.lr.ph677.split.split ], [ %386, %419 ], [ %425, %.lr.ph677.split.us.split.split.split ]
+  %.us-phi675 = phi ptr [ %386, %419 ], [ %432, %.lr.ph677.split.split ], [ %425, %.lr.ph677.split.us.split.split.split ]
   %444 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
   %445 = tail call i32 @errcode(i32 noundef 117833860) #16
   %446 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.36) #16
@@ -1588,8 +1588,8 @@ list_length.exit555:                              ; preds = %689
   br i1 %733, label %.lr.ph741, label %.critedge551
 
 .critedge551:                                     ; preds = %729, %697, %.lr.ph731, %689, %list_length.exit555
-  %734 = phi i32 [ 0, %list_length.exit555 ], [ 0, %689 ], [ %695, %.lr.ph731 ], [ %695, %697 ], [ %695, %729 ]
-  %.0399 = phi ptr [ null, %list_length.exit555 ], [ null, %689 ], [ %700, %.lr.ph731 ], [ %700, %697 ], [ %700, %729 ]
+  %734 = phi i32 [ 0, %list_length.exit555 ], [ 0, %689 ], [ %695, %697 ], [ %695, %.lr.ph731 ], [ %695, %729 ]
+  %.0399 = phi ptr [ null, %list_length.exit555 ], [ null, %689 ], [ %700, %697 ], [ %700, %.lr.ph731 ], [ %700, %729 ]
   %735 = call ptr @buildint2vector(ptr noundef %.0399, i32 noundef %734) #16
   %736 = ptrtoint ptr %735 to i64
   %737 = getelementptr inbounds nuw i8, ptr %14, i64 112
@@ -2925,7 +2925,7 @@ define dso_local void @EnableDisableTrigger(ptr noundef %0, ptr noundef %1, i32 
   br i1 %149, label %154, label %.split.us
 
 .split.us:                                        ; preds = %148, %86, %34
-  %.us-phi = phi ptr [ %81, %86 ], [ %25, %34 ], [ %141, %148 ]
+  %.us-phi = phi ptr [ %25, %34 ], [ %81, %86 ], [ %141, %148 ]
   %150 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
   %151 = call i32 @errcode(i32 noundef 16797828) #16
   %152 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 12
@@ -2973,8 +2973,8 @@ define dso_local void @EnableDisableTrigger(ptr noundef %0, ptr noundef %1, i32 
   br i1 %.not58, label %._crit_edge, label %.lr.ph71.split.split.split
 
 ._crit_edge:                                      ; preds = %170, %134, %104, %73, %16
-  %.051.lcssa = phi i1 [ false, %16 ], [ %.152.us99, %134 ], [ %.152.us, %73 ], [ %.152.us82, %104 ], [ %.152, %170 ]
-  %.050.lcssa = phi i1 [ false, %16 ], [ %.1.us100, %134 ], [ %.1.us, %73 ], [ %.1.us83, %104 ], [ %.1, %170 ]
+  %.051.lcssa = phi i1 [ false, %16 ], [ %.152.us82, %104 ], [ %.152.us99, %134 ], [ %.152.us, %73 ], [ %.152, %170 ]
+  %.050.lcssa = phi i1 [ false, %16 ], [ %.1.us83, %104 ], [ %.1.us100, %134 ], [ %.1.us, %73 ], [ %.1, %170 ]
   call void @systable_endscan(ptr noundef %17) #16
   call void @table_close(ptr noundef %9, i32 noundef 3) #16
   %or.cond = select i1 %.not, i1 true, i1 %.050.lcssa
@@ -7563,7 +7563,7 @@ switch.edge:                                      ; preds = %.thread
   unreachable
 
 ._crit_edge.thread:                               ; preds = %.loopexit, %.loopexit.us.us, %3, %118, %._crit_edge
-  %.025.lcssa83 = phi i1 [ %.1.lcssa.us, %._crit_edge ], [ %.1.lcssa.us, %118 ], [ false, %3 ], [ %.1.lcssa.us.us, %.loopexit.us.us ], [ %.1.lcssa, %.loopexit ]
+  %.025.lcssa83 = phi i1 [ %.1.lcssa.us, %._crit_edge ], [ %.1.lcssa.us, %118 ], [ %.1.lcssa.us.us, %.loopexit.us.us ], [ false, %3 ], [ %.1.lcssa, %.loopexit ]
   ret i1 %.025.lcssa83
 }
 
@@ -8424,8 +8424,8 @@ define dso_local void @AfterTriggerFireDeferred() local_unnamed_addr #0 {
   br i1 %.not.i, label %afterTriggerMarkEvents.exit, label %.lr.ph54.split.i.backedge
 
 .lr.ph54.split.i.backedge:                        ; preds = %.loopexit.i, %23
-  %.02653.i.be = phi ptr [ %.026.i, %.loopexit.i ], [ %.02649.i, %23 ]
-  %.02552.i.be = phi i1 [ %.1.lcssa.i, %.loopexit.i ], [ false, %23 ]
+  %.02653.i.be = phi ptr [ %.02649.i, %23 ], [ %.026.i, %.loopexit.i ]
+  %.02552.i.be = phi i1 [ false, %23 ], [ %.1.lcssa.i, %.loopexit.i ]
   br label %.lr.ph54.split.i, !llvm.loop !43
 
 .lr.ph54.split.i:                                 ; preds = %2, %.lr.ph54.split.i.backedge
@@ -9121,7 +9121,7 @@ define dso_local void @AfterTriggerSetState(ptr noundef readonly captures(none) 
   %.not141225 = icmp eq ptr %170, null
   br i1 %.not141225, label %._crit_edge229, label %.lr.ph228
 
-.critedge154.thread:                              ; preds = %.critedge152, %.lr.ph233
+.critedge154.thread:                              ; preds = %.lr.ph233, %.critedge152
   call void @table_close(ptr noundef %148, i32 noundef 1) #16
   br label %.critedge156
 
@@ -9569,7 +9569,7 @@ switch.edge48:                                    ; preds = %43
   br i1 %52, label %29, label %.loopexit54, !llvm.loop !63
 
 .loopexit54:                                      ; preds = %15, %._crit_edge, %36, %.preheader
-  %.3 = phi i1 [ false, %.preheader ], [ false, %._crit_edge ], [ true, %36 ], [ true, %15 ]
+  %.3 = phi i1 [ false, %.preheader ], [ true, %36 ], [ false, %._crit_edge ], [ true, %15 ]
   ret i1 %.3
 }
 

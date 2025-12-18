@@ -1740,7 +1740,7 @@ Hsh_IntObj.exit.i:                                ; preds = %.lr.ph.i
   br i1 %.not16.i, label %Hsh_IntManLookup.exit, label %.lr.ph.i, !llvm.loop !44
 
 Hsh_IntManLookup.exit:                            ; preds = %Hsh_IntObj.exit.i, %Hsh_IntObj.exit.lr.ph.split.i, %Hsh_IntObj.exit.lr.ph.i
-  %.pr = phi i32 [ %29, %Hsh_IntObj.exit.lr.ph.split.i ], [ %29, %Hsh_IntObj.exit.lr.ph.i ], [ %47, %Hsh_IntObj.exit.i ]
+  %.pr = phi i32 [ %29, %Hsh_IntObj.exit.lr.ph.i ], [ %29, %Hsh_IntObj.exit.lr.ph.split.i ], [ %47, %Hsh_IntObj.exit.i ]
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %56 = load ptr, ptr %55, align 8, !tbaa !65
   %57 = getelementptr i8, ptr %56, i64 8

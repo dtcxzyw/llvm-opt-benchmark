@@ -3129,9 +3129,9 @@ _ZNSt3__114basic_ifstreamIcNS_11char_traitsIcEEEC1B8ne210000INS_4__fs10filesyste
           to label %.backedge.i.i unwind label %.loopexit.split-lp39.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .backedge.i.i:                                    ; preds = %.noexc12.i, %.noexc12.i, %938, %.noexc23.i, %913, %897
-  %.sroa.0.1.i = phi ptr [ %.sroa.0.0.i, %897 ], [ %.sroa.0.0.i, %913 ], [ %937, %.noexc23.i ], [ %937, %938 ], [ %.sroa.0.0.i, %.noexc12.i ], [ %.sroa.0.0.i, %.noexc12.i ]
-  %.sroa.10.1.i = phi ptr [ %.sroa.10.0.i, %897 ], [ %915, %913 ], [ %935, %.noexc23.i ], [ %935, %938 ], [ %.sroa.10.0.i, %.noexc12.i ], [ %.sroa.10.0.i, %.noexc12.i ]
-  %.sroa.17.1.i = phi ptr [ %.sroa.17.0.i, %897 ], [ %.sroa.17.0.i, %913 ], [ %933, %.noexc23.i ], [ %933, %938 ], [ %.sroa.17.0.i, %.noexc12.i ], [ %.sroa.17.0.i, %.noexc12.i ]
+  %.sroa.0.1.i = phi ptr [ %.sroa.0.0.i, %897 ], [ %937, %938 ], [ %937, %.noexc23.i ], [ %.sroa.0.0.i, %913 ], [ %.sroa.0.0.i, %.noexc12.i ], [ %.sroa.0.0.i, %.noexc12.i ]
+  %.sroa.10.1.i = phi ptr [ %.sroa.10.0.i, %897 ], [ %935, %938 ], [ %935, %.noexc23.i ], [ %915, %913 ], [ %.sroa.10.0.i, %.noexc12.i ], [ %.sroa.10.0.i, %.noexc12.i ]
+  %.sroa.17.1.i = phi ptr [ %.sroa.17.0.i, %897 ], [ %933, %938 ], [ %933, %.noexc23.i ], [ %.sroa.17.0.i, %913 ], [ %.sroa.17.0.i, %.noexc12.i ], [ %.sroa.17.0.i, %.noexc12.i ]
   br label %_ZNSt3__114basic_ifstreamIcNS_11char_traitsIcEEEC1B8ne210000INS_4__fs10filesystem4pathEvEERKT_j.exit85, !llvm.loop !119
 
 .preheader.i86:                                   ; preds = %.noexc.i, %.noexc12.i
@@ -6918,7 +6918,7 @@ _ZNSt3__16chronoL6__skipB8ne210000ERNS_13basic_istreamIcNS_11char_traitsIcEEEENS
   br label %_ZNSt3__16chronoL6__skipB8ne210000ERNS_13basic_istreamIcNS_11char_traitsIcEEEENS_17basic_string_viewIcS3_EE.exit
 
 _ZNSt3__16chronoL6__skipB8ne210000ERNS_13basic_istreamIcNS_11char_traitsIcEEEENS_17basic_string_viewIcS3_EE.exit: ; preds = %210, %195, %180, %165, %105, %80, %65, %50, %35, %_ZNSt3__16chronoL6__skipB8ne210000ERNS_13basic_istreamIcNS_11char_traitsIcEEEENS_17basic_string_viewIcS3_EE.exit.sink.split, %125, %116, %tolower.exit.i65, %tolower.exit.i63, %tolower.exit70
-  %.sroa.0.0 = phi i8 [ 5, %tolower.exit70 ], [ 6, %tolower.exit.i63 ], [ 6, %116 ], [ 7, %tolower.exit.i65 ], [ 7, %125 ], [ %.sroa.0.0.ph, %_ZNSt3__16chronoL6__skipB8ne210000ERNS_13basic_istreamIcNS_11char_traitsIcEEEENS_17basic_string_viewIcS3_EE.exit.sink.split ], [ 10, %195 ], [ 4, %35 ], [ 8, %50 ], [ 12, %65 ], [ 2, %80 ], [ 1, %105 ], [ 3, %165 ], [ 11, %180 ], [ 9, %210 ]
+  %.sroa.0.0 = phi i8 [ 5, %tolower.exit70 ], [ 7, %125 ], [ 10, %195 ], [ 4, %35 ], [ 8, %50 ], [ 12, %65 ], [ 7, %tolower.exit.i65 ], [ 3, %165 ], [ 1, %105 ], [ 2, %80 ], [ %.sroa.0.0.ph, %_ZNSt3__16chronoL6__skipB8ne210000ERNS_13basic_istreamIcNS_11char_traitsIcEEEENS_17basic_string_viewIcS3_EE.exit.sink.split ], [ 11, %180 ], [ 6, %tolower.exit.i63 ], [ 6, %116 ], [ 9, %210 ]
   ret i8 %.sroa.0.0
 }
 
@@ -7852,7 +7852,7 @@ tolower.exit.i59:                                 ; preds = %124, %.lr.ph.i56
   unreachable
 
 _ZNSt3__16chronoL6__skipB8ne210000ERNS_13basic_istreamIcNS_11char_traitsIcEEEENS_17basic_string_viewIcS3_EE.exit: ; preds = %135, %120, %105, %80, %65, %40, %25
-  %.sroa.0.0 = phi i8 [ 2, %120 ], [ 5, %25 ], [ 1, %40 ], [ 6, %65 ], [ 0, %80 ], [ 4, %105 ], [ 3, %135 ]
+  %.sroa.0.0 = phi i8 [ 1, %40 ], [ 6, %65 ], [ 0, %80 ], [ 4, %105 ], [ 2, %120 ], [ 5, %25 ], [ 3, %135 ]
   ret i8 %.sroa.0.0
 }
 

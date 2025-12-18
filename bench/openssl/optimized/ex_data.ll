@@ -349,7 +349,7 @@ define range(i32 0, 2) i32 @ossl_crypto_new_ex_data_ex(ptr noundef %0, i32 nound
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !29
 
 .loopexit:                                        ; preds = %.lr.ph, %25, %15
-  %.046 = phi ptr [ null, %25 ], [ null, %15 ], [ %.14775, %.lr.ph ]
+  %.046 = phi ptr [ null, %15 ], [ null, %25 ], [ %.14775, %.lr.ph ]
   %33 = load ptr, ptr %6, align 8, !tbaa !3
   %34 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %33) #9
   %35 = icmp eq ptr %.046, null
@@ -679,8 +679,8 @@ define range(i32 0, 2) i32 @CRYPTO_set_ex_data(ptr noundef captures(none) %0, i3
   br i1 %.not13, label %19, label %.sink.split
 
 .sink.split:                                      ; preds = %.lr.ph, %._crit_edge, %7
-  %.sink21 = phi i32 [ 475, %7 ], [ 488, %._crit_edge ], [ 482, %.lr.ph ]
-  %.sink = phi i32 [ 524303, %7 ], [ 524550, %._crit_edge ], [ 524303, %.lr.ph ]
+  %.sink21 = phi i32 [ 488, %._crit_edge ], [ 475, %7 ], [ 482, %.lr.ph ]
+  %.sink = phi i32 [ 524550, %._crit_edge ], [ 524303, %7 ], [ 524303, %.lr.ph ]
   tail call void @ERR_new() #9
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink21, ptr noundef nonnull @__func__.CRYPTO_set_ex_data) #9
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef %.sink, ptr noundef null) #9

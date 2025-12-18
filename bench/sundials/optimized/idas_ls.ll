@@ -1245,7 +1245,7 @@ idaLs_AccessLMem.exit:                            ; preds = %13
   br label %idaLs_AccessLMem.exit.thread
 
 idaLs_AccessLMem.exit.thread:                     ; preds = %47, %49, %17, %12, %.thread
-  %.0 = phi i32 [ -1, %12 ], [ 0, %.thread ], [ -2, %17 ], [ 1, %49 ], [ -1, %47 ]
+  %.0 = phi i32 [ -2, %17 ], [ -1, %12 ], [ 0, %.thread ], [ 1, %49 ], [ -1, %47 ]
   ret i32 %.0
 }
 

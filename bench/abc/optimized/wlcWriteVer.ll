@@ -789,7 +789,7 @@ Wlc_WriteVerIntVec.exit:                          ; preds = %31, %14
   br i1 %77, label %56, label %Wlc_WriteVerIntVec.exit916, !llvm.loop !40
 
 Wlc_WriteVerIntVec.exit916:                       ; preds = %68, %.thread, %50, %48, %47
-  %78 = phi ptr [ %43, %48 ], [ %43, %47 ], [ %51, %50 ], [ %45, %.thread ], [ %51, %68 ]
+  %78 = phi ptr [ %45, %.thread ], [ %43, %48 ], [ %43, %47 ], [ %51, %50 ], [ %51, %68 ]
   %79 = tail call i64 @fwrite(ptr nonnull @.str.18, i64 5, i64 1, ptr %0)
   %80 = getelementptr i8, ptr %1, i64 648
   %.val7911114 = load i32, ptr %80, align 8, !tbaa !24

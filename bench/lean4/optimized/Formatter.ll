@@ -39647,7 +39647,7 @@ lean_nat_lt.exit.thread33:                        ; preds = %.split
   br label %.thread
 
 .thread:                                          ; preds = %lean_nat_lt.exit.thread, %lean_nat_lt.exit.us, %29, %28, %26, %47, %46, %44, %.split45.us
-  %.1.ph = phi i8 [ 1, %.split45.us ], [ 1, %44 ], [ 1, %46 ], [ 1, %47 ], [ 0, %26 ], [ 0, %28 ], [ 0, %29 ], [ 0, %lean_nat_lt.exit.us ], [ 0, %lean_nat_lt.exit.thread ]
+  %.1.ph = phi i8 [ 1, %.split45.us ], [ 1, %44 ], [ 1, %46 ], [ 1, %47 ], [ 0, %29 ], [ 0, %26 ], [ 0, %28 ], [ 0, %lean_nat_lt.exit.us ], [ 0, %lean_nat_lt.exit.thread ]
   ret i8 %.1.ph
 }
 
@@ -39794,7 +39794,7 @@ lean_nat_lt.exit.thread33:                        ; preds = %.split
   br label %.thread
 
 .thread:                                          ; preds = %lean_nat_lt.exit.thread, %lean_nat_lt.exit.us, %29, %28, %26, %47, %46, %44, %.split45.us
-  %.1.ph = phi i8 [ 1, %.split45.us ], [ 1, %44 ], [ 1, %46 ], [ 1, %47 ], [ 0, %26 ], [ 0, %28 ], [ 0, %29 ], [ 0, %lean_nat_lt.exit.us ], [ 0, %lean_nat_lt.exit.thread ]
+  %.1.ph = phi i8 [ 1, %.split45.us ], [ 1, %44 ], [ 1, %46 ], [ 1, %47 ], [ 0, %29 ], [ 0, %26 ], [ 0, %28 ], [ 0, %lean_nat_lt.exit.us ], [ 0, %lean_nat_lt.exit.thread ]
   ret i8 %.1.ph
 }
 
@@ -60992,7 +60992,7 @@ lean_inc.exit116:                                 ; preds = %248, %247, %245, %2
   br i1 %.not.i256, label %249, label %lean_dec.exit153.backedge
 
 lean_dec.exit153.backedge:                        ; preds = %lean_inc.exit116, %252, %254, %255, %lean_inc.exit124, %111, %113, %114
-  %.0104.be = phi ptr [ %99, %lean_inc.exit124 ], [ %99, %114 ], [ %99, %113 ], [ %99, %111 ], [ %240, %255 ], [ %240, %254 ], [ %240, %252 ], [ %240, %lean_inc.exit116 ]
+  %.0104.be = phi ptr [ %240, %lean_inc.exit116 ], [ %240, %252 ], [ %240, %254 ], [ %240, %255 ], [ %99, %lean_inc.exit124 ], [ %99, %111 ], [ %99, %114 ], [ %99, %113 ]
   br label %lean_dec.exit153
 
 249:                                              ; preds = %lean_inc.exit116

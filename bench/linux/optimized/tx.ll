@@ -4822,7 +4822,7 @@ define internal fastcc noundef zeroext i1 @ieee80211_tx_frags(ptr noundef %0, pt
   br i1 %116, label %.thread4, label %.lr.ph.split, !llvm.loop !105
 
 .thread4:                                         ; preds = %.thread5, %.thread5.us, %5, %104, %.split13.us
-  %117 = phi i1 [ false, %104 ], [ true, %.split13.us ], [ true, %5 ], [ true, %.thread5.us ], [ true, %.thread5 ]
+  %117 = phi i1 [ true, %.split13.us ], [ false, %104 ], [ true, %5 ], [ true, %.thread5.us ], [ true, %.thread5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %117
 }
@@ -7807,13 +7807,13 @@ define internal fastcc noundef range(i32 -1, 1) i32 @invoke_tx_handlers_late(ptr
   br i1 %449, label %ieee80211_tx_h_calculate_duration.exit.thread, label %285, !llvm.loop !145
 
 ieee80211_tx_h_calculate_duration.exit:           ; preds = %269, %26
-  %450 = phi i32 [ %27, %26 ], [ %270, %269 ]
+  %450 = phi i32 [ %270, %269 ], [ %27, %26 ]
   switch i32 %450, label %ieee80211_tx_h_calculate_duration.exit.thread [
     i32 1, label %ieee80211_tx_h_calculate_duration.exit.thread18
     i32 2, label %457
   ], !prof !146
 
-ieee80211_tx_h_calculate_duration.exit.thread18:  ; preds = %.lr.ph, %172, %158, %150, %10, %ieee80211_tx_h_calculate_duration.exit
+ieee80211_tx_h_calculate_duration.exit.thread18:  ; preds = %.lr.ph, %158, %172, %10, %150, %ieee80211_tx_h_calculate_duration.exit
   %451 = load ptr, ptr %0, align 8
   %452 = icmp eq ptr %451, null
   %453 = load ptr, ptr %4, align 8
@@ -10423,8 +10423,8 @@ define dso_local void @ieee80211_tx_pending(ptr noundef %0) local_unnamed_addr #
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 16
   br label %31
 
-thread-pre-split:                                 ; preds = %90, %70, %.thread5, %.thread, %99
-  %29 = phi i64 [ %32, %.thread ], [ %102, %99 ], [ %98, %.thread5 ], [ %72, %70 ], [ %97, %90 ]
+thread-pre-split:                                 ; preds = %70, %90, %.thread5, %.thread, %99
+  %29 = phi i64 [ %32, %.thread ], [ %102, %99 ], [ %98, %.thread5 ], [ %97, %90 ], [ %72, %70 ]
   %.pr = load ptr, ptr %24, align 8
   %30 = icmp eq ptr %.pr, %24
   br i1 %30, label %.loopexit.loopexit, label %31
@@ -10565,8 +10565,8 @@ thread-pre-split:                                 ; preds = %90, %70, %.thread5,
   %102 = call i64 @_raw_spin_lock_irqsave(ptr noundef %5) #20
   br i1 %101, label %thread-pre-split, label %.loopexit.loopexit
 
-.loopexit.loopexit:                               ; preds = %90, %70, %thread-pre-split, %99
-  %.ph = phi i64 [ %102, %99 ], [ %29, %thread-pre-split ], [ %72, %70 ], [ %97, %90 ]
+.loopexit.loopexit:                               ; preds = %70, %90, %thread-pre-split, %99
+  %.ph = phi i64 [ %102, %99 ], [ %29, %thread-pre-split ], [ %97, %90 ], [ %72, %70 ]
   %.pre = load i16, ptr %7, align 8
   br label %.loopexit
 
@@ -11881,7 +11881,7 @@ define dso_local ptr @ieee80211_get_buffered_bc(ptr noundef %0, ptr noundef %1) 
   br label %.thread
 
 .thread:                                          ; preds = %60, %15, %11, %63, %26, %22, %18, %8, %2
-  %77 = phi ptr [ null, %18 ], [ null, %22 ], [ null, %2 ], [ %76, %63 ], [ null, %8 ], [ null, %26 ], [ null, %11 ], [ null, %15 ], [ null, %60 ]
+  %77 = phi ptr [ null, %15 ], [ null, %18 ], [ null, %22 ], [ null, %2 ], [ %76, %63 ], [ null, %8 ], [ null, %26 ], [ null, %11 ], [ null, %60 ]
   call void @__rcu_read_unlock() #20
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %77
@@ -13245,9 +13245,9 @@ define internal fastcc noundef range(i32 -1, 1) i32 @invoke_tx_handlers_early(pt
   %.pre16 = load ptr, ptr %2, align 8
   br label %.thread10
 
-.thread10:                                        ; preds = %..thread10_crit_edge, %135, %.thread5, %95
-  %328 = phi ptr [ %.pre16, %..thread10_crit_edge ], [ %85, %135 ], [ %85, %.thread5 ], [ %85, %95 ]
-  %329 = phi ptr [ %.pre15, %..thread10_crit_edge ], [ %77, %135 ], [ %77, %.thread5 ], [ %77, %95 ]
+.thread10:                                        ; preds = %..thread10_crit_edge, %135, %95, %.thread5
+  %328 = phi ptr [ %.pre16, %..thread10_crit_edge ], [ %85, %135 ], [ %85, %95 ], [ %85, %.thread5 ]
+  %329 = phi ptr [ %.pre15, %..thread10_crit_edge ], [ %77, %135 ], [ %77, %95 ], [ %77, %.thread5 ]
   %330 = icmp eq ptr %329, null
   br i1 %330, label %332, label %331
 
@@ -14346,7 +14346,7 @@ define internal fastcc zeroext i1 @ieee80211_tx_8023(ptr noundef readonly captur
   br i1 %125, label %.critedge4, label %.split.split, !llvm.loop !248
 
 .critedge4:                                       ; preds = %123, %92, %64, %36
-  %.us-phi = phi i8 [ %93, %92 ], [ %37, %36 ], [ %65, %64 ], [ %124, %123 ]
+  %.us-phi = phi i8 [ %93, %92 ], [ %65, %64 ], [ %37, %36 ], [ %124, %123 ]
   %126 = icmp ne i8 %.us-phi, 0
   br label %.critedge
 

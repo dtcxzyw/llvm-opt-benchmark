@@ -3898,7 +3898,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit.thre
   br label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit.thread135
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit.thread135: ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit, %.fold.split, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit.thread
-  %.023 = phi i64 [ %.sroa.090.0174, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit.thread ], [ 1, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit ], [ %.0710.i.i, %.fold.split ]
+  %.023 = phi i64 [ 1, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit ], [ %.sroa.090.0174, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit.thread ], [ %.0710.i.i, %.fold.split ]
   %.sroa.speculated.i61 = tail call i64 @llvm.umin.i64(i64 %.sroa.090.0174, i64 %.023)
   %107 = load ptr, ptr %14, align 8, !tbaa !31
   %108 = load ptr, ptr %15, align 8, !tbaa !408
@@ -4676,7 +4676,7 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i33, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit32, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i29, %28, %2, %26
-  %.0 = phi i1 [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i29 ], [ false, %2 ], [ false, %26 ], [ false, %28 ], [ false, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit32 ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i33 ], [ true, %.thread.sink.split ]
+  %.0 = phi i1 [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i33 ], [ false, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit32 ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i29 ], [ false, %2 ], [ false, %26 ], [ false, %28 ], [ true, %.thread.sink.split ]
   ret i1 %.0
 }
 

@@ -396,10 +396,10 @@ define hidden i64 @je_malloc_vsnprintf(ptr noundef writeonly captures(none) %0, 
   br label %40
 
 40:                                               ; preds = %.loopexit558, %32, %.loopexit559
-  %41 = phi ptr [ %.pre, %.loopexit559 ], [ %35, %32 ], [ %storemerge, %.loopexit558 ]
-  %.1404 = phi i8 [ %.0403, %.loopexit559 ], [ 32, %32 ], [ 32, %.loopexit558 ]
-  %.0399 = phi i32 [ %39, %.loopexit559 ], [ %spec.select, %32 ], [ -1, %.loopexit558 ]
-  %.2389 = phi i8 [ %.0387.ph905, %.loopexit559 ], [ %spec.select481, %32 ], [ %.0387.ph905, %.loopexit558 ]
+  %41 = phi ptr [ %35, %32 ], [ %.pre, %.loopexit559 ], [ %storemerge, %.loopexit558 ]
+  %.1404 = phi i8 [ 32, %32 ], [ %.0403, %.loopexit559 ], [ 32, %.loopexit558 ]
+  %.0399 = phi i32 [ %spec.select, %32 ], [ %39, %.loopexit559 ], [ -1, %.loopexit558 ]
+  %.2389 = phi i8 [ %spec.select481, %32 ], [ %.0387.ph905, %.loopexit559 ], [ %.0387.ph905, %.loopexit558 ]
   %42 = load i8, ptr %41, align 1, !tbaa !10
   %43 = icmp eq i8 %42, 46
   br i1 %43, label %44, label %66

@@ -719,7 +719,7 @@ _ZN4llvmneENS_9StringRefES0_.exit.thread71:       ; preds = %44, %_ZNK5clang8Sem
   store i32 %313, ptr %11, align 4
   br label %_ZN5clang4Decl8dropAttrINS_13SwiftNameAttrEEEvv.exit
 
-_ZN5clang4Decl8dropAttrINS_13SwiftNameAttrEEEvv.exit: ; preds = %25, %14, %_ZN5clangneENS_22specific_attr_iteratorINS_13SwiftNameAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, %5, %311, %301, %_ZN4llvmneENS_9StringRefES0_.exit.thread71
+_ZN5clang4Decl8dropAttrINS_13SwiftNameAttrEEEvv.exit: ; preds = %25, %_ZN5clangneENS_22specific_attr_iteratorINS_13SwiftNameAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, %14, %5, %311, %301, %_ZN4llvmneENS_9StringRefES0_.exit.thread71
   %314 = call noundef nonnull align 8 dereferenceable(23216) ptr @_ZNK5clang8SemaBase13getASTContextEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #18
   %315 = getelementptr inbounds nuw i8, ptr %314, i64 2192
   %316 = getelementptr inbounds nuw i8, ptr %314, i64 2272
@@ -1098,7 +1098,7 @@ _ZN5clanglsINS_10ParsedAttrEEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN4llvmneENS_9StringRefES0_.exit.thread22
 
-.critedge:                                        ; preds = %24, %9, %_ZN5clangneENS_22specific_attr_iteratorINS_15SwiftBridgeAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, %13
+.critedge:                                        ; preds = %24, %9, %13, %_ZN5clangneENS_22specific_attr_iteratorINS_15SwiftBridgeAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i
   %128 = call noundef nonnull align 8 dereferenceable(23216) ptr @_ZNK5clang8SemaBase13getASTContextEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #18
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 2192
   %130 = getelementptr inbounds nuw i8, ptr %128, i64 2272
@@ -3862,7 +3862,7 @@ _ZNK5clang4Decl7getAttrINS_14SwiftAsyncAttrEEEPT_v.exit: ; preds = %.lr.ph.i.i.i
   call fastcc void @_ZN5clangL25checkSwiftAsyncErrorBlockERNS_4SemaEPNS_4DeclEPKNS_19SwiftAsyncErrorAttrEPKNS_14SwiftAsyncAttrE(ptr noundef nonnull align 8 dereferenceable(17504) %251, ptr noundef nonnull %1, ptr noundef nonnull %.0.i.i.i.i, ptr noundef nonnull %250)
   br label %_ZNK5clang4Decl7getAttrINS_14SwiftAsyncAttrEEEPT_v.exit.thread
 
-_ZNK5clang4Decl7getAttrINS_14SwiftAsyncAttrEEEPT_v.exit.thread: ; preds = %237, %226, %_ZN5clangneENS_22specific_attr_iteratorINS_14SwiftAsyncAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, %_ZnwmRKN5clang10ASTContextEm.exit, %_ZNK5clang4Decl7getAttrINS_14SwiftAsyncAttrEEEPT_v.exit, %196, %187, %190
+_ZNK5clang4Decl7getAttrINS_14SwiftAsyncAttrEEEPT_v.exit.thread: ; preds = %237, %_ZN5clangneENS_22specific_attr_iteratorINS_14SwiftAsyncAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, %226, %_ZnwmRKN5clang10ASTContextEm.exit, %_ZNK5clang4Decl7getAttrINS_14SwiftAsyncAttrEEEPT_v.exit, %196, %187, %190
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %252
 
@@ -11198,7 +11198,7 @@ _ZN5clanglsINS_10ParsedAttrEEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit
   br label %.critedge61
 
 .critedge61:                                      ; preds = %1564, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit116, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit, %_ZN5clangL25validateSwiftFunctionNameERNS_4SemaERKNS_10ParsedAttrENS_14SourceLocationEN4llvm9StringRefERjRb.exit.thread, %_ZN5clanglsIjEERKNS_8SemaBase21SemaDiagnosticBuilderES4_RKT_.exit91, %_ZN5clangL25validateSwiftFunctionNameERNS_4SemaERKNS_10ParsedAttrENS_14SourceLocationEN4llvm9StringRefERjRb.exit.thread380, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_17AttributeDeclKindEvEERKS1_OT_.exit, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIbvEERKS1_OT_.exit77, %1149, %1119, %"_ZN4llvm8count_ifIRNS_8ArrayRefIPN5clang11ParmVarDeclEEEZNS2_9SemaSwift12DiagnoseNameEPNS2_4DeclENS_9StringRefENS2_14SourceLocationERKNS2_10ParsedAttrEbE3$_0EEDaOT_T0_.exit", %_ZN5clanglsINS_10ParsedAttrEEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit119
-  %.6 = phi i1 [ false, %_ZN5clangL25validateSwiftFunctionNameERNS_4SemaERKNS_10ParsedAttrENS_14SourceLocationEN4llvm9StringRefERjRb.exit.thread ], [ true, %1149 ], [ false, %_ZN5clanglsINS_10ParsedAttrEEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit119 ], [ true, %"_ZN4llvm8count_ifIRNS_8ArrayRefIPN5clang11ParmVarDeclEEEZNS2_9SemaSwift12DiagnoseNameEPNS2_4DeclENS_9StringRefENS2_14SourceLocationERKNS2_10ParsedAttrEbE3$_0EEDaOT_T0_.exit" ], [ true, %1119 ], [ false, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIbvEERKS1_OT_.exit77 ], [ false, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_17AttributeDeclKindEvEERKS1_OT_.exit ], [ false, %_ZN5clangL25validateSwiftFunctionNameERNS_4SemaERKNS_10ParsedAttrENS_14SourceLocationEN4llvm9StringRefERjRb.exit.thread380 ], [ false, %_ZN5clanglsIjEERKNS_8SemaBase21SemaDiagnosticBuilderES4_RKT_.exit91 ], [ false, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit ], [ false, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit116 ], [ true, %1564 ]
+  %.6 = phi i1 [ false, %_ZN5clangL25validateSwiftFunctionNameERNS_4SemaERKNS_10ParsedAttrENS_14SourceLocationEN4llvm9StringRefERjRb.exit.thread ], [ true, %1149 ], [ false, %_ZN5clanglsINS_10ParsedAttrEEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit119 ], [ false, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit116 ], [ true, %"_ZN4llvm8count_ifIRNS_8ArrayRefIPN5clang11ParmVarDeclEEEZNS2_9SemaSwift12DiagnoseNameEPNS2_4DeclENS_9StringRefENS2_14SourceLocationERKNS2_10ParsedAttrEbE3$_0EEDaOT_T0_.exit" ], [ true, %1119 ], [ false, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIbvEERKS1_OT_.exit77 ], [ false, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_17AttributeDeclKindEvEERKS1_OT_.exit ], [ false, %_ZN5clangL25validateSwiftFunctionNameERNS_4SemaERKNS_10ParsedAttrENS_14SourceLocationEN4llvm9StringRefERjRb.exit.thread380 ], [ false, %_ZN5clanglsIjEERKNS_8SemaBase21SemaDiagnosticBuilderES4_RKT_.exit91 ], [ false, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit ], [ true, %1564 ]
   ret i1 %.6
 }
 
@@ -13746,7 +13746,7 @@ _ZNK5clang4Decl7getAttrINS_19SwiftAsyncErrorAttrEEEPT_v.exit: ; preds = %.lr.ph.
   call fastcc void @_ZN5clangL25checkSwiftAsyncErrorBlockERNS_4SemaEPNS_4DeclEPKNS_19SwiftAsyncErrorAttrEPKNS_14SwiftAsyncAttrE(ptr noundef nonnull align 8 dereferenceable(17504) %562, ptr noundef nonnull %1, ptr noundef nonnull %561, ptr noundef nonnull %.0.i.i.i.i)
   br label %.critedge
 
-.critedge:                                        ; preds = %548, %537, %_ZN5clangneENS_22specific_attr_iteratorINS_19SwiftAsyncErrorAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, %_ZnwmRKN5clang10ASTContextEm.exit, %_ZNK5clang4Type10isVoidTypeEv.exit.thread, %.critedge.critedge, %441, %_ZNK5clang4Decl7getAttrINS_19SwiftAsyncErrorAttrEEEPT_v.exit, %439, %437
+.critedge:                                        ; preds = %548, %_ZN5clangneENS_22specific_attr_iteratorINS_19SwiftAsyncErrorAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, %537, %_ZnwmRKN5clang10ASTContextEm.exit, %_ZNK5clang4Type10isVoidTypeEv.exit.thread, %.critedge.critedge, %441, %_ZNK5clang4Decl7getAttrINS_19SwiftAsyncErrorAttrEEEPT_v.exit, %439, %437
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %563
 
@@ -15831,7 +15831,7 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIbvEERKS1_OT_.exit: ; preds = %_ZNK5
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %21) #18
   br label %1276
 
-_ZNK5clang4Decl7getAttrINS_16ParameterABIAttrEEEPT_v.exit.thread: ; preds = %42, %31, %_ZN5clangneENS_22specific_attr_iteratorINS_16ParameterABIAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, %4, %_ZNK5clang16ParameterABIAttr6getABIEv.exit
+_ZNK5clang4Decl7getAttrINS_16ParameterABIAttrEEEPT_v.exit.thread: ; preds = %42, %_ZN5clangneENS_22specific_attr_iteratorINS_16ParameterABIAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, %31, %4, %_ZNK5clang16ParameterABIAttr6getABIEv.exit
   %280 = and i64 %.sroa.0.0.copyload.i, -16
   %281 = inttoptr i64 %280 to ptr
   %282 = load ptr, ptr %281, align 16, !tbaa !114
@@ -18862,7 +18862,7 @@ _ZSt9__find_ifIPPN5clang4AttrEN9__gnu_cxx5__ops10_Iter_predIZNS0_4Decl9dropAttrs
   br i1 %.not.i.i, label %_ZSt9remove_ifIPPN5clang4AttrEZNS0_4Decl9dropAttrsIJNS0_13SwiftNameAttrEEEEvvEUlS2_E_ET_S8_S8_T0_.exit, label %.lr.ph.i.i, !llvm.loop !904
 
 _ZSt9remove_ifIPPN5clang4AttrEZNS0_4Decl9dropAttrsIJNS0_13SwiftNameAttrEEEEvvEUlS2_E_ET_S8_S8_T0_.exit: ; preds = %65, %._crit_edge.i.i.i.i, %50, %_ZSt9__find_ifIPPN5clang4AttrEN9__gnu_cxx5__ops10_Iter_predIZNS0_4Decl9dropAttrsIJNS0_13SwiftNameAttrEEEEvvEUlS2_E_EEET_SC_SC_T0_.exit.i.i
-  %.016.i.i = phi ptr [ %.028.i.i.i.i, %_ZSt9__find_ifIPPN5clang4AttrEN9__gnu_cxx5__ops10_Iter_predIZNS0_4Decl9dropAttrsIJNS0_13SwiftNameAttrEEEEvvEUlS2_E_EEET_SC_SC_T0_.exit.i.i ], [ %6, %._crit_edge.i.i.i.i ], [ %6, %50 ], [ %.1.i.i, %65 ]
+  %.016.i.i = phi ptr [ %.028.i.i.i.i, %_ZSt9__find_ifIPPN5clang4AttrEN9__gnu_cxx5__ops10_Iter_predIZNS0_4Decl9dropAttrsIJNS0_13SwiftNameAttrEEEEvvEUlS2_E_EEET_SC_SC_T0_.exit.i.i ], [ %6, %50 ], [ %6, %._crit_edge.i.i.i.i ], [ %.1.i.i, %65 ]
   ret ptr %.016.i.i
 }
 

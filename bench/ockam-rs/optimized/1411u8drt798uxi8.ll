@@ -14671,7 +14671,7 @@ define hidden void @"_ZN167_$LT$$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$
   br label %22
 
 20:                                               ; preds = %17, %12
-  %.sroa.4.0 = phi i8 [ 1, %17 ], [ 0, %12 ]
+  %.sroa.4.0 = phi i8 [ 0, %12 ], [ 1, %17 ]
   store i8 %.sroa.4.0, ptr %0, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %21, align 8
@@ -14793,7 +14793,7 @@ define hidden void @"_ZN167_$LT$$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$
   br label %22
 
 20:                                               ; preds = %17, %12
-  %.sroa.4.0 = phi i8 [ 1, %17 ], [ 0, %12 ]
+  %.sroa.4.0 = phi i8 [ 0, %12 ], [ 1, %17 ]
   store i8 %.sroa.4.0, ptr %0, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %21, align 8
@@ -70577,7 +70577,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17hadcdc284f2479f2cE(ptr noa
   br i1 %46, label %.loopexit, label %.lr.ph310
 
 .loopexit:                                        ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h996b21eedf7d33e2E.exit155", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h996b21eedf7d33e2E.exit138", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h996b21eedf7d33e2E.exit121", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h996b21eedf7d33e2E.exit104", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h996b21eedf7d33e2E.exit87", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h996b21eedf7d33e2E.exit172", %.preheader271, %.preheader269, %.preheader267, %.preheader265, %.preheader263, %.preheader
-  %.sroa.27.6 = phi i64 [ %45, %.preheader ], [ %45, %.preheader263 ], [ %45, %.preheader265 ], [ %45, %.preheader267 ], [ %45, %.preheader269 ], [ %45, %.preheader271 ], [ %77, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h996b21eedf7d33e2E.exit138" ], [ %94, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h996b21eedf7d33e2E.exit172" ], [ %51, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h996b21eedf7d33e2E.exit87" ], [ %60, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h996b21eedf7d33e2E.exit104" ], [ %69, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h996b21eedf7d33e2E.exit121" ], [ %86, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h996b21eedf7d33e2E.exit155" ]
+  %.sroa.27.6 = phi i64 [ %94, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h996b21eedf7d33e2E.exit172" ], [ %77, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h996b21eedf7d33e2E.exit138" ], [ %51, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h996b21eedf7d33e2E.exit87" ], [ %60, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h996b21eedf7d33e2E.exit104" ], [ %69, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h996b21eedf7d33e2E.exit121" ], [ %45, %.preheader ], [ %45, %.preheader263 ], [ %45, %.preheader265 ], [ %45, %.preheader267 ], [ %45, %.preheader269 ], [ %45, %.preheader271 ], [ %86, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h996b21eedf7d33e2E.exit155" ]
   %47 = sub i64 %.fca.1.extract, %.sroa.27.6
   store i64 %47, ptr %31, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
@@ -70861,7 +70861,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17he1e05baa98b42b42E(ptr noa
   br i1 %46, label %.loopexit, label %.lr.ph310
 
 .loopexit:                                        ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h996b21eedf7d33e2E.exit155", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h996b21eedf7d33e2E.exit138", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h996b21eedf7d33e2E.exit121", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h996b21eedf7d33e2E.exit104", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h996b21eedf7d33e2E.exit87", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h996b21eedf7d33e2E.exit172", %.preheader271, %.preheader269, %.preheader267, %.preheader265, %.preheader263, %.preheader
-  %.sroa.27.6 = phi i64 [ %45, %.preheader ], [ %45, %.preheader263 ], [ %45, %.preheader265 ], [ %45, %.preheader267 ], [ %45, %.preheader269 ], [ %45, %.preheader271 ], [ %77, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h996b21eedf7d33e2E.exit138" ], [ %94, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h996b21eedf7d33e2E.exit172" ], [ %51, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h996b21eedf7d33e2E.exit87" ], [ %60, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h996b21eedf7d33e2E.exit104" ], [ %69, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h996b21eedf7d33e2E.exit121" ], [ %86, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h996b21eedf7d33e2E.exit155" ]
+  %.sroa.27.6 = phi i64 [ %94, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h996b21eedf7d33e2E.exit172" ], [ %77, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h996b21eedf7d33e2E.exit138" ], [ %51, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h996b21eedf7d33e2E.exit87" ], [ %60, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h996b21eedf7d33e2E.exit104" ], [ %69, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h996b21eedf7d33e2E.exit121" ], [ %45, %.preheader ], [ %45, %.preheader263 ], [ %45, %.preheader265 ], [ %45, %.preheader267 ], [ %45, %.preheader269 ], [ %45, %.preheader271 ], [ %86, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h996b21eedf7d33e2E.exit155" ]
   %47 = sub i64 %.fca.1.extract, %.sroa.27.6
   store i64 %47, ptr %31, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
@@ -125753,18 +125753,18 @@ define hidden void @"_ZN103_$LT$ockam_api..cloud..project..models..ProjectModel$
   br label %.thread1858
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %1198, %1163, %899, %3
-  %.01367.ph.ph = phi i8 [ %.461413, %1163 ], [ 1, %1198 ], [ 1, %3 ], [ 1, %899 ]
-  %.01317.ph.ph = phi i8 [ %.451362, %1163 ], [ 1, %1198 ], [ 1, %3 ], [ 1, %899 ]
-  %.01268.ph.ph = phi i8 [ %.441312, %1163 ], [ 1, %1198 ], [ 1, %3 ], [ 1, %899 ]
-  %.01220.ph.ph = phi i8 [ %.431263, %1163 ], [ 1, %1198 ], [ 1, %3 ], [ 1, %899 ]
-  %.01173.ph.ph = phi i8 [ %.421215, %1163 ], [ 1, %1198 ], [ 1, %3 ], [ 1, %899 ]
-  %.01127.ph.ph = phi i8 [ %.411168, %1163 ], [ 1, %1198 ], [ 1, %3 ], [ 1, %899 ]
-  %.01082.ph.ph = phi i8 [ %.401122, %1163 ], [ 1, %1198 ], [ 1, %3 ], [ 1, %899 ]
-  %.01038.ph.ph = phi i8 [ %.391077, %1163 ], [ 1, %1198 ], [ 1, %3 ], [ 1, %899 ]
-  %.0995.ph.ph = phi i8 [ %.381033, %1163 ], [ 1, %1198 ], [ 1, %3 ], [ 1, %899 ]
-  %.0953.ph.ph = phi i8 [ %.37990, %1163 ], [ 1, %1198 ], [ 1, %3 ], [ 1, %899 ]
-  %.0912.ph.ph = phi i8 [ %.36948, %1163 ], [ 1, %1198 ], [ 1, %3 ], [ 1, %899 ]
-  %.0910.ph.ph = phi i8 [ 0, %1163 ], [ 1, %1198 ], [ 1, %3 ], [ 1, %899 ]
+  %.01367.ph.ph = phi i8 [ 1, %1198 ], [ %.461413, %1163 ], [ 1, %3 ], [ 1, %899 ]
+  %.01317.ph.ph = phi i8 [ 1, %1198 ], [ %.451362, %1163 ], [ 1, %3 ], [ 1, %899 ]
+  %.01268.ph.ph = phi i8 [ 1, %1198 ], [ %.441312, %1163 ], [ 1, %3 ], [ 1, %899 ]
+  %.01220.ph.ph = phi i8 [ 1, %1198 ], [ %.431263, %1163 ], [ 1, %3 ], [ 1, %899 ]
+  %.01173.ph.ph = phi i8 [ 1, %1198 ], [ %.421215, %1163 ], [ 1, %3 ], [ 1, %899 ]
+  %.01127.ph.ph = phi i8 [ 1, %1198 ], [ %.411168, %1163 ], [ 1, %3 ], [ 1, %899 ]
+  %.01082.ph.ph = phi i8 [ 1, %1198 ], [ %.401122, %1163 ], [ 1, %3 ], [ 1, %899 ]
+  %.01038.ph.ph = phi i8 [ 1, %1198 ], [ %.391077, %1163 ], [ 1, %3 ], [ 1, %899 ]
+  %.0995.ph.ph = phi i8 [ 1, %1198 ], [ %.381033, %1163 ], [ 1, %3 ], [ 1, %899 ]
+  %.0953.ph.ph = phi i8 [ 1, %1198 ], [ %.37990, %1163 ], [ 1, %3 ], [ 1, %899 ]
+  %.0912.ph.ph = phi i8 [ 1, %1198 ], [ %.36948, %1163 ], [ 1, %3 ], [ 1, %899 ]
+  %.0910.ph.ph = phi i8 [ 1, %1198 ], [ 0, %1163 ], [ 1, %3 ], [ 1, %899 ]
   %lpad.loopexit.split-lp2160 = landingpad { ptr, i32 }
           cleanup
   br label %.thread1858
@@ -133168,9 +133168,9 @@ define hidden void @"_ZN101_$LT$ockam_api..cloud..project..models..OktaConfig$u2
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %376, %340, %266, %3
-  %.0328.ph.ph = phi i8 [ %.17345, %340 ], [ 1, %376 ], [ 1, %3 ], [ 1, %266 ]
-  %.0307.ph.ph = phi i8 [ %.16323, %340 ], [ 1, %376 ], [ 1, %3 ], [ 1, %266 ]
-  %.0305.ph.ph = phi i8 [ 0, %340 ], [ 1, %376 ], [ 1, %3 ], [ 1, %266 ]
+  %.0328.ph.ph = phi i8 [ 1, %376 ], [ %.17345, %340 ], [ 1, %3 ], [ 1, %266 ]
+  %.0307.ph.ph = phi i8 [ 1, %376 ], [ %.16323, %340 ], [ 1, %3 ], [ 1, %266 ]
+  %.0305.ph.ph = phi i8 [ 1, %376 ], [ 0, %340 ], [ 1, %3 ], [ 1, %266 ]
   %lpad.loopexit.split-lp503 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -136087,7 +136087,7 @@ define hidden void @"_ZN106_$LT$ockam_api..cloud..project..models..ProjectUserRo
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %234, %211, %189, %3
-  %.0295.ph.ph = phi i1 [ false, %211 ], [ true, %234 ], [ true, %3 ], [ true, %189 ]
+  %.0295.ph.ph = phi i1 [ true, %3 ], [ true, %234 ], [ true, %189 ], [ false, %211 ]
   %lpad.loopexit.split-lp446 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp

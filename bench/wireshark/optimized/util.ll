@@ -445,7 +445,7 @@ sanitize_filter_ip.exit106:                       ; preds = %57, %59, %61
   br label %.thread
 
 .thread:                                          ; preds = %.preheader, %63, %90, %92, %84, %69, %73, %49, %52, %55, %121, %118, %114, %110
-  %.0 = phi ptr [ %123, %121 ], [ @.str, %63 ], [ @.str, %49 ], [ @.str, %69 ], [ @.str, %84 ], [ @.str, %90 ], [ @.str, %110 ], [ @.str, %114 ], [ @.str, %118 ], [ @.str, %55 ], [ @.str, %52 ], [ @.str, %73 ], [ @.str, %92 ], [ @.str, %.preheader ]
+  %.0 = phi ptr [ %123, %121 ], [ @.str, %63 ], [ @.str, %49 ], [ @.str, %92 ], [ @.str, %69 ], [ @.str, %84 ], [ @.str, %90 ], [ @.str, %110 ], [ @.str, %114 ], [ @.str, %118 ], [ @.str, %55 ], [ @.str, %52 ], [ @.str, %73 ], [ @.str, %.preheader ]
   ret ptr %.0
 }
 

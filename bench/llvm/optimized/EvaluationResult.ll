@@ -1273,7 +1273,7 @@ _ZN5clang6interpL30DiagnoseUninitializedSubobjectERNS0_11InterpStateENS_14Source
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph70, %.loopexit.loopexit72, %.preheader57, %.preheader, %_ZNK5clang6interp7Pointer13getElemRecordEv.exit
-  %.1 = phi i1 [ true, %_ZNK5clang6interp7Pointer13getElemRecordEv.exit ], [ true, %.preheader ], [ true, %.preheader57 ], [ %105, %.loopexit.loopexit72 ], [ %59, %.lr.ph70 ], [ %68, %.lr.ph ]
+  %.1 = phi i1 [ %59, %.lr.ph70 ], [ %105, %.loopexit.loopexit72 ], [ true, %_ZNK5clang6interp7Pointer13getElemRecordEv.exit ], [ true, %.preheader ], [ true, %.preheader57 ], [ %68, %.lr.ph ]
   ret i1 %.1
 }
 

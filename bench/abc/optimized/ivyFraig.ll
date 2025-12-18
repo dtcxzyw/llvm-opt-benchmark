@@ -3410,8 +3410,8 @@ Ivy_FraigNodeIsConst.exit:                        ; preds = %174, %177
   br label %.critedge.sink.split
 
 .critedge.sink.split:                             ; preds = %229, %.critedge.sink.split.sink.split, %.loopexit
-  %.lcssa.sink = phi ptr [ %214, %.loopexit ], [ %49, %.critedge.sink.split.sink.split ], [ %214, %229 ]
-  %calloc.sink = phi ptr [ %221, %.loopexit ], [ %calloc88, %.critedge.sink.split.sink.split ], [ %221, %229 ]
+  %.lcssa.sink = phi ptr [ %49, %.critedge.sink.split.sink.split ], [ %214, %.loopexit ], [ %214, %229 ]
+  %calloc.sink = phi ptr [ %calloc88, %.critedge.sink.split.sink.split ], [ %221, %.loopexit ], [ %221, %229 ]
   %250 = getelementptr inbounds nuw i8, ptr %.lcssa.sink, i64 200
   store ptr %calloc.sink, ptr %250, align 8, !tbaa !39
   br label %.critedge
@@ -5214,8 +5214,8 @@ tailrecurse:                                      ; preds = %98
   br i1 %120, label %.lr.ph.i.us.preheader, label %.loopexit91
 
 .loopexit91:                                      ; preds = %tailrecurse, %.loopexit90.us, %.lr.ph.lr.ph, %2, %Ivy_FraigRemoveClass.exit84
-  %accumulator.tr97 = phi i32 [ %accumulator.tr133176, %Ivy_FraigRemoveClass.exit84 ], [ 0, %2 ], [ 0, %.lr.ph.lr.ph ], [ %accumulator.tr133176, %.loopexit90.us ], [ %118, %tailrecurse ]
-  %.048 = phi i32 [ 1, %Ivy_FraigRemoveClass.exit84 ], [ 0, %2 ], [ 0, %.lr.ph.lr.ph ], [ 0, %.loopexit90.us ], [ 0, %tailrecurse ]
+  %accumulator.tr97 = phi i32 [ %accumulator.tr133176, %Ivy_FraigRemoveClass.exit84 ], [ %accumulator.tr133176, %.loopexit90.us ], [ 0, %2 ], [ 0, %.lr.ph.lr.ph ], [ %118, %tailrecurse ]
+  %.048 = phi i32 [ 1, %Ivy_FraigRemoveClass.exit84 ], [ 0, %.loopexit90.us ], [ 0, %2 ], [ 0, %.lr.ph.lr.ph ], [ 0, %tailrecurse ]
   %accumulator.ret.tr = add nuw nsw i32 %.048, %accumulator.tr97
   ret i32 %accumulator.ret.tr
 }
@@ -6001,7 +6001,7 @@ define range(i32 0, -2147483648) i32 @Ivy_FraigSelectBestPat(ptr noundef readonl
   br i1 %51, label %31, label %.critedge, !llvm.loop !204
 
 .critedge:                                        ; preds = %49, %1, %14, %._crit_edge
-  %.024.lcssa49 = phi i32 [ 0, %._crit_edge ], [ %spec.select, %14 ], [ 0, %1 ], [ %spec.select, %49 ]
+  %.024.lcssa49 = phi i32 [ 0, %1 ], [ 0, %._crit_edge ], [ %spec.select, %14 ], [ %spec.select, %49 ]
   ret i32 %.024.lcssa49
 }
 
@@ -6252,7 +6252,7 @@ Ivy_FraigCleanPatScores.exit:                     ; preds = %.lr.ph.i20, %58, %I
   br i1 %125, label %105, label %Ivy_FraigSelectBestPat.exit, !llvm.loop !204
 
 Ivy_FraigSelectBestPat.exit:                      ; preds = %123, %80, %._crit_edge.i, %91
-  %.024.lcssa49.i = phi i32 [ 0, %._crit_edge.i ], [ %spec.select.i26, %91 ], [ 0, %80 ], [ %spec.select.i26, %123 ]
+  %.024.lcssa49.i = phi i32 [ 0, %80 ], [ 0, %._crit_edge.i ], [ %spec.select.i26, %91 ], [ %spec.select.i26, %123 ]
   %126 = load ptr, ptr %0, align 8, !tbaa !85
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 20
   %128 = load i32, ptr %127, align 4, !tbaa !10

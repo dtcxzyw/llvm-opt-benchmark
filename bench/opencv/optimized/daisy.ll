@@ -10005,9 +10005,9 @@ _ZN2cv3Mat2atIfEERT_i.exit100:                    ; preds = %296, %301, %305
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %_ZN2cv11xfeatures2dL16smooth_histogramEPNS_3MatEi.exit.thread, %._crit_edge, %.preheader
-  %320 = phi i32 [ %318, %._crit_edge ], [ -1, %.preheader ], [ -1, %_ZN2cv11xfeatures2dL16smooth_histogramEPNS_3MatEi.exit.thread ]
-  %.073.lcssa215 = phi i32 [ %.174, %._crit_edge ], [ 0, %.preheader ], [ 0, %_ZN2cv11xfeatures2dL16smooth_histogramEPNS_3MatEi.exit.thread ]
-  %321 = phi i32 [ %spec.select226, %._crit_edge ], [ %96, %.preheader ], [ %96, %_ZN2cv11xfeatures2dL16smooth_histogramEPNS_3MatEi.exit.thread ]
+  %320 = phi i32 [ -1, %.preheader ], [ %318, %._crit_edge ], [ -1, %_ZN2cv11xfeatures2dL16smooth_histogramEPNS_3MatEi.exit.thread ]
+  %.073.lcssa215 = phi i32 [ 0, %.preheader ], [ %.174, %._crit_edge ], [ 0, %_ZN2cv11xfeatures2dL16smooth_histogramEPNS_3MatEi.exit.thread ]
+  %321 = phi i32 [ %96, %.preheader ], [ %spec.select226, %._crit_edge ], [ %96, %_ZN2cv11xfeatures2dL16smooth_histogramEPNS_3MatEi.exit.thread ]
   %spec.select = add nsw i32 %320, %321
   %322 = add nuw nsw i32 %.073.lcssa215, 1
   %.not = icmp slt i32 %322, %96

@@ -2048,7 +2048,7 @@ define { ptr, i64 } @"_ZN46_$LT$str$u20$as$u20$uu_dircolors..StrUtils$GT$6purify
   br label %.critedge49
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17haec29e3895b40ef2E.exit.thread: ; preds = %12, %59, %.critedge49, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i52", %90, %.critedge.thread
-  %.sroa.11.0 = phi i64 [ 0, %.critedge.thread ], [ %87, %90 ], [ %1, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i52" ], [ 0, %12 ], [ 0, %59 ], [ %1, %.critedge49 ]
+  %.sroa.11.0 = phi i64 [ %1, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i52" ], [ 0, %.critedge.thread ], [ %87, %90 ], [ 0, %12 ], [ 0, %59 ], [ %1, %.critedge49 ]
   %11 = tail call { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17h7cb16393929cc408E"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %.sroa.11.0)
   ret { ptr, i64 } %11
 
@@ -2537,10 +2537,10 @@ define void @"_ZN46_$LT$str$u20$as$u20$uu_dircolors..StrUtils$GT$9split_two17h57
   br label %.loopexit
 
 .loopexit:                                        ; preds = %71, %34, %158, %121, %88, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i", %3, %171
-  %.sink48 = phi ptr [ @anon.0e465fe6be52864fcdae16bb4d6a5c56.6, %3 ], [ %1, %171 ], [ %1, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i" ], [ %1, %88 ], [ %1, %158 ], [ %1, %121 ], [ @anon.0e465fe6be52864fcdae16bb4d6a5c56.6, %34 ], [ @anon.0e465fe6be52864fcdae16bb4d6a5c56.6, %71 ]
-  %.sink46 = phi i64 [ 0, %3 ], [ %6, %171 ], [ %6, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i" ], [ %6, %88 ], [ %6, %158 ], [ %6, %121 ], [ 0, %34 ], [ 0, %71 ]
-  %anon.0e465fe6be52864fcdae16bb4d6a5c56.6.sink = phi ptr [ @anon.0e465fe6be52864fcdae16bb4d6a5c56.6, %3 ], [ %173, %171 ], [ @anon.0e465fe6be52864fcdae16bb4d6a5c56.6, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i" ], [ @anon.0e465fe6be52864fcdae16bb4d6a5c56.6, %88 ], [ @anon.0e465fe6be52864fcdae16bb4d6a5c56.6, %158 ], [ @anon.0e465fe6be52864fcdae16bb4d6a5c56.6, %121 ], [ @anon.0e465fe6be52864fcdae16bb4d6a5c56.6, %34 ], [ @anon.0e465fe6be52864fcdae16bb4d6a5c56.6, %71 ]
-  %.sink = phi i64 [ 0, %3 ], [ %172, %171 ], [ 0, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i" ], [ 0, %88 ], [ 0, %158 ], [ 0, %121 ], [ 0, %34 ], [ 0, %71 ]
+  %.sink48 = phi ptr [ @anon.0e465fe6be52864fcdae16bb4d6a5c56.6, %3 ], [ %1, %171 ], [ %1, %158 ], [ %1, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i" ], [ %1, %88 ], [ %1, %121 ], [ @anon.0e465fe6be52864fcdae16bb4d6a5c56.6, %34 ], [ @anon.0e465fe6be52864fcdae16bb4d6a5c56.6, %71 ]
+  %.sink46 = phi i64 [ 0, %3 ], [ %6, %171 ], [ %6, %158 ], [ %6, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i" ], [ %6, %88 ], [ %6, %121 ], [ 0, %34 ], [ 0, %71 ]
+  %anon.0e465fe6be52864fcdae16bb4d6a5c56.6.sink = phi ptr [ @anon.0e465fe6be52864fcdae16bb4d6a5c56.6, %3 ], [ %173, %171 ], [ @anon.0e465fe6be52864fcdae16bb4d6a5c56.6, %158 ], [ @anon.0e465fe6be52864fcdae16bb4d6a5c56.6, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i" ], [ @anon.0e465fe6be52864fcdae16bb4d6a5c56.6, %88 ], [ @anon.0e465fe6be52864fcdae16bb4d6a5c56.6, %121 ], [ @anon.0e465fe6be52864fcdae16bb4d6a5c56.6, %34 ], [ @anon.0e465fe6be52864fcdae16bb4d6a5c56.6, %71 ]
+  %.sink = phi i64 [ 0, %3 ], [ %172, %171 ], [ 0, %158 ], [ 0, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i" ], [ 0, %88 ], [ 0, %121 ], [ 0, %34 ], [ 0, %71 ]
   store ptr %.sink48, ptr %0, align 8
   %174 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sink46, ptr %174, align 8

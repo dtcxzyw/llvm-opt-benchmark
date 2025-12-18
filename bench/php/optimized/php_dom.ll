@@ -21811,7 +21811,7 @@ dom_match_qualified_name_for_tag_name_equality.exit.thread.us: ; preds = %59, %.
   br i1 %75, label %.preheader.us, label %php_dom_next_in_tree_order.exit.us
 
 php_dom_next_in_tree_order.exit.us:               ; preds = %72, %.thread47.us, %62
-  %.0.i.us = phi ptr [ %64, %62 ], [ %66, %.thread47.us ], [ %74, %72 ]
+  %.0.i.us = phi ptr [ %66, %.thread47.us ], [ %64, %62 ], [ %74, %72 ]
   %76 = load i64, ptr %5, align 8, !tbaa !151
   %.not.us = icmp sgt i64 %76, %6
   br i1 %.not.us, label %php_dom_next_in_tree_order.exit.thread, label %.lr.ph.split.us
@@ -21948,7 +21948,7 @@ dom_match_qualified_name_for_tag_name_equality.exit.thread.us63: ; preds = %122,
   br i1 %138, label %.preheader.us72, label %php_dom_next_in_tree_order.exit.us69
 
 php_dom_next_in_tree_order.exit.us69:             ; preds = %135, %.thread47.us66, %125
-  %.0.i.us70 = phi ptr [ %127, %125 ], [ %129, %.thread47.us66 ], [ %137, %135 ]
+  %.0.i.us70 = phi ptr [ %129, %.thread47.us66 ], [ %127, %125 ], [ %137, %135 ]
   %139 = load i64, ptr %5, align 8, !tbaa !151
   %.not.us71 = icmp sgt i64 %139, %6
   br i1 %.not.us71, label %php_dom_next_in_tree_order.exit.thread, label %.lr.ph.split.split.us
@@ -22015,7 +22015,7 @@ dom_match_qualified_name_for_tag_name_equality.exit.thread.us81: ; preds = %150,
   br i1 %166, label %.preheader.us90, label %php_dom_next_in_tree_order.exit.us87
 
 php_dom_next_in_tree_order.exit.us87:             ; preds = %163, %.thread47.us84, %153
-  %.0.i.us88 = phi ptr [ %155, %153 ], [ %157, %.thread47.us84 ], [ %165, %163 ]
+  %.0.i.us88 = phi ptr [ %157, %.thread47.us84 ], [ %155, %153 ], [ %165, %163 ]
   %167 = load i64, ptr %5, align 8, !tbaa !151
   %.not.us89 = icmp sgt i64 %167, %6
   br i1 %.not.us89, label %php_dom_next_in_tree_order.exit.thread, label %.lr.ph.split.split.split.us
@@ -22104,13 +22104,13 @@ dom_match_qualified_name_for_tag_name_equality.exit.thread: ; preds = %171, %189
   br i1 %205, label %.preheader, label %php_dom_next_in_tree_order.exit
 
 php_dom_next_in_tree_order.exit:                  ; preds = %202, %192, %.thread47
-  %.0.i = phi ptr [ %194, %192 ], [ %196, %.thread47 ], [ %204, %202 ]
+  %.0.i = phi ptr [ %196, %.thread47 ], [ %194, %192 ], [ %204, %202 ]
   %206 = load i64, ptr %5, align 8, !tbaa !151
   %.not = icmp sgt i64 %206, %6
   br i1 %.not, label %php_dom_next_in_tree_order.exit.thread, label %.lr.ph.split.split.split
 
 php_dom_next_in_tree_order.exit.thread:           ; preds = %php_dom_next_in_tree_order.exit, %186, %.preheader, %php_dom_next_in_tree_order.exit.us87, %147, %.preheader.us90, %php_dom_next_in_tree_order.exit.us69, %119, %.preheader.us72, %php_dom_next_in_tree_order.exit.us, %56, %.preheader.us, %php_dom_follow_spec_node.exit, %.split.us, %7
-  %.0 = phi ptr [ null, %7 ], [ null, %.split.us ], [ null, %php_dom_follow_spec_node.exit ], [ null, %.preheader.us90 ], [ null, %.preheader.us ], [ null, %.preheader.us72 ], [ null, %.preheader ], [ null, %php_dom_next_in_tree_order.exit.us ], [ null, %php_dom_next_in_tree_order.exit.us69 ], [ null, %php_dom_next_in_tree_order.exit.us87 ], [ %.03055.us, %56 ], [ %.03055.us60, %119 ], [ %.03055.us80, %147 ], [ %.03055, %186 ], [ null, %php_dom_next_in_tree_order.exit ]
+  %.0 = phi ptr [ null, %7 ], [ null, %.split.us ], [ null, %.preheader.us90 ], [ null, %.preheader.us72 ], [ null, %.preheader ], [ null, %php_dom_next_in_tree_order.exit.us ], [ null, %php_dom_follow_spec_node.exit ], [ %.03055.us80, %147 ], [ null, %.preheader.us ], [ null, %php_dom_next_in_tree_order.exit.us69 ], [ %.03055.us, %56 ], [ %.03055.us60, %119 ], [ null, %php_dom_next_in_tree_order.exit.us87 ], [ %.03055, %186 ], [ null, %php_dom_next_in_tree_order.exit ]
   ret ptr %.0
 }
 
@@ -23271,7 +23271,7 @@ dom_clone_helper.exit:                            ; preds = %.preheader.i, %11, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %78, %dom_clone_helper.exit.thread, %dom_clone_helper.exit, %70, %81, %82, %8
-  %.031 = phi ptr [ %9, %8 ], [ %85, %82 ], [ %12, %81 ], [ %12, %70 ], [ null, %dom_clone_helper.exit ], [ null, %dom_clone_helper.exit.thread ], [ %12, %78 ], [ %12, %.lr.ph ]
+  %.031 = phi ptr [ %9, %8 ], [ %85, %82 ], [ null, %dom_clone_helper.exit.thread ], [ %12, %81 ], [ %12, %70 ], [ null, %dom_clone_helper.exit ], [ %12, %78 ], [ %12, %.lr.ph ]
   ret ptr %.031
 }
 
@@ -24066,7 +24066,7 @@ define internal fastcc ptr @dom_clone_container_helper(ptr noundef nonnull %0, p
   br label %.critedge
 
 .critedge:                                        ; preds = %33, %.loopexit, %3, %5, %39
-  %.3 = phi ptr [ null, %39 ], [ %4, %5 ], [ null, %3 ], [ %4, %.loopexit ], [ %4, %33 ]
+  %.3 = phi ptr [ null, %39 ], [ null, %3 ], [ %4, %5 ], [ %4, %.loopexit ], [ %4, %33 ]
   ret ptr %.3
 }
 

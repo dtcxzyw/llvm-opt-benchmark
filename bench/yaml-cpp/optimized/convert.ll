@@ -998,7 +998,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit88: ; preds = %_ZS
   br label %.critedge
 
 .critedge:                                        ; preds = %265, %.critedge.sink.split, %25, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %_ZNK4YAML4Node8IsScalarEv.exit
-  %.0 = phi i1 [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ false, %_ZNK4YAML4Node8IsScalarEv.exit ], [ false, %25 ], [ true, %.critedge.sink.split ], [ false, %265 ]
+  %.0 = phi i1 [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ true, %.critedge.sink.split ], [ false, %_ZNK4YAML4Node8IsScalarEv.exit ], [ false, %25 ], [ false, %265 ]
   ret i1 %.0
 }
 

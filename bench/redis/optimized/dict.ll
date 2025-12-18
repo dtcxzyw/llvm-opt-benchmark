@@ -455,7 +455,7 @@ define dso_local range(i32 0, 2) i32 @dictRehash(ptr noundef %0, i32 noundef %1)
   br label %dictCheckRehashingCompleted.exit
 
 dictCheckRehashingCompleted.exit:                 ; preds = %53, %67, %.critedge, %25, %29, %2, %20
-  %.0 = phi i32 [ 0, %2 ], [ 0, %25 ], [ 0, %20 ], [ 0, %29 ], [ 0, %67 ], [ 1, %.critedge ], [ 1, %53 ]
+  %.0 = phi i32 [ 1, %.critedge ], [ 0, %2 ], [ 0, %25 ], [ 0, %20 ], [ 0, %29 ], [ 0, %67 ], [ 1, %53 ]
   ret i32 %.0
 }
 
@@ -2044,7 +2044,7 @@ _dictShrinkIfNeeded.exit:                         ; preds = %160
   br i1 %51, label %50, label %_dictShrinkIfNeeded.exit.thread, !llvm.loop !58
 
 _dictShrinkIfNeeded.exit.thread:                  ; preds = %._crit_edge, %168, %dictFreeUnlinkedEntry.exit, %158, %3
-  %.0 = phi ptr [ null, %3 ], [ %.059102, %158 ], [ %.059102, %dictFreeUnlinkedEntry.exit ], [ null, %168 ], [ null, %._crit_edge ]
+  %.0 = phi ptr [ null, %3 ], [ %.059102, %dictFreeUnlinkedEntry.exit ], [ %.059102, %158 ], [ null, %168 ], [ null, %._crit_edge ]
   ret ptr %.0
 }
 
@@ -4064,12 +4064,12 @@ dictGetNext.exit:                                 ; preds = %80
   br i1 %93, label %43, label %.critedge.loopexit148, !llvm.loop !83
 
 .critedge.loopexit148:                            ; preds = %43, %91
-  %.6.ph = phi i64 [ %.086138, %43 ], [ %.288, %91 ]
+  %.6.ph = phi i64 [ %.288, %91 ], [ %.086138, %43 ]
   %94 = tail call i64 @llvm.umin.i64(i64 %.6.ph, i64 %spec.select122)
   br label %.critedge
 
 .critedge:                                        ; preds = %.loopexit, %.critedge.loopexit148, %39
-  %.6 = phi i64 [ 0, %39 ], [ %94, %.critedge.loopexit148 ], [ %spec.select122, %.loopexit ]
+  %.6 = phi i64 [ %94, %.critedge.loopexit148 ], [ 0, %39 ], [ %spec.select122, %.loopexit ]
   %95 = trunc nuw i64 %.6 to i32
   ret i32 %95
 }
@@ -4741,7 +4741,7 @@ dictExpand.exit.sink.split:                       ; preds = %48, %8
   br label %dictExpand.exit
 
 dictExpand.exit:                                  ; preds = %dictExpand.exit.sink.split, %12, %48, %dictTypeResizeAllowed.exit.thread, %8, %.thread, %dictTypeResizeAllowed.exit, %1
-  %.0 = phi i32 [ 0, %dictTypeResizeAllowed.exit ], [ 1, %12 ], [ 0, %1 ], [ 1, %.thread ], [ 0, %8 ], [ 0, %dictTypeResizeAllowed.exit.thread ], [ 0, %48 ], [ 0, %dictExpand.exit.sink.split ]
+  %.0 = phi i32 [ 0, %dictTypeResizeAllowed.exit ], [ 1, %12 ], [ 0, %1 ], [ 0, %48 ], [ 1, %.thread ], [ 0, %8 ], [ 0, %dictTypeResizeAllowed.exit.thread ], [ 0, %dictExpand.exit.sink.split ]
   ret i32 %.0
 }
 
@@ -5018,7 +5018,7 @@ dictGetNext.exit:                                 ; preds = %46
   br i1 %or.cond, label %.backedge.backedge, label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge, %dictGetKey.exit, %3
-  %.023 = phi ptr [ null, %3 ], [ %.02432, %dictGetKey.exit ], [ null, %._crit_edge ]
+  %.023 = phi ptr [ %.02432, %dictGetKey.exit ], [ null, %3 ], [ null, %._crit_edge ]
   ret ptr %.023
 }
 

@@ -5167,7 +5167,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %._ZN5Yosys5RTLIL8Id
   unreachable
 
 _ZN5Yosys5RTLIL8IdStringD2Ev.exit74:              ; preds = %108, %221, %214, %210
-  %225 = phi i1 [ %spec.select174, %221 ], [ true, %108 ], [ %spec.select174, %210 ], [ %spec.select174, %214 ]
+  %225 = phi i1 [ true, %108 ], [ %spec.select174, %221 ], [ %spec.select174, %210 ], [ %spec.select174, %214 ]
   %226 = load i32, ptr %6, align 4, !tbaa !11
   %227 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1, !tbaa !17, !range !19, !noundef !20
   %228 = trunc nuw i8 %227 to i1

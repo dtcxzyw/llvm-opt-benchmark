@@ -1686,7 +1686,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDat
   br label %85
 
 _ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_16HioRankedTypeMap7_MappedENS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_S3_EEE4findERS8_.exit.i: ; preds = %69, %40, %58
-  %.sroa.06.1.i.i.i = phi ptr [ %59, %58 ], [ %.sroa.06.0.i.i.i, %40 ], [ %77, %69 ]
+  %.sroa.06.1.i.i.i = phi ptr [ %.sroa.06.0.i.i.i, %40 ], [ %59, %58 ], [ %77, %69 ]
   %82 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 16
   %83 = load i64, ptr %82, align 8
   %84 = inttoptr i64 %83 to ptr
@@ -2625,7 +2625,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__16HioRankedTypeMa
   br label %.critedge, !llvm.loop !15
 
 _ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_16HioRankedTypeMap7_MappedENS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_S3_EEE4findERS8_.exit: ; preds = %46, %17, %35
-  %.sroa.06.1.i.i = phi ptr [ %36, %35 ], [ %.sroa.06.0.i.i, %17 ], [ %54, %46 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %17 ], [ %36, %35 ], [ %54, %46 ]
   %59 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 24
   %60 = load i32, ptr %59, align 8
   %61 = icmp slt i32 %60, %3

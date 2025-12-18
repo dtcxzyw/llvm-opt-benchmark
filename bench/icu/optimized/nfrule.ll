@@ -1116,7 +1116,7 @@ _ZN6icu_7713UnicodeString6appendERKS0_ii.exit120: ; preds = %131, %122
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN6icu_7712LocalPointerINS_6NFRuleEED2Ev.exit122.thread
 
-.thread211:                                       ; preds = %88, %97, %111, %_ZN6icu_7713UnicodeString6appendERKS0_ii.exit117
+.thread211:                                       ; preds = %111, %_ZN6icu_7713UnicodeString6appendERKS0_ii.exit117, %97, %88
   %lpad.thr_comm209 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #9

@@ -971,7 +971,7 @@ xsettings_setting_free.exit.i.i:                  ; preds = %209, %207
   br i1 %.not.i118.i, label %parse_settings.exit, label %.lr.ph.i.i, !llvm.loop !3
 
 parse_settings.exit:                              ; preds = %fetch_card8.exit97.i, %xsettings_setting_free.exit.i.i, %.thread, %fetch_card32.exit95.i, %197
-  %210 = phi ptr [ null, %.thread ], [ null, %fetch_card32.exit95.i ], [ null, %197 ], [ null, %xsettings_setting_free.exit.i.i ], [ %.6, %fetch_card8.exit97.i ]
+  %210 = phi ptr [ null, %.thread ], [ null, %fetch_card32.exit95.i ], [ null, %xsettings_setting_free.exit.i.i ], [ null, %197 ], [ %.6, %fetch_card8.exit97.i ]
   store ptr %210, ptr %7, align 8
   br label %211
 
@@ -1042,42 +1042,42 @@ parse_settings.exit:                              ; preds = %fetch_card8.exit97.
 
 241:                                              ; preds = %236
   switch i32 %238, label %xsettings_setting_equal.exit.thread.i [
-    i32 0, label %242
-    i32 2, label %248
+    i32 0, label %xsettings_setting_equal.exit.i
+    i32 2, label %242
     i32 1, label %266
   ]
 
 242:                                              ; preds = %241
   %243 = getelementptr inbounds nuw i8, ptr %228, i64 16
-  %244 = load i32, ptr %243, align 8
+  %244 = load i16, ptr %243, align 8
   %245 = getelementptr inbounds nuw i8, ptr %230, i64 16
-  %246 = load i32, ptr %245, align 8
-  %247 = icmp eq i32 %244, %246
-  br i1 %247, label %.thread49.i, label %xsettings_setting_equal.exit.thread.i
+  %246 = load i16, ptr %245, align 8
+  %247 = icmp eq i16 %244, %246
+  br i1 %247, label %248, label %xsettings_setting_equal.exit.thread.i
 
-248:                                              ; preds = %241
-  %249 = getelementptr inbounds nuw i8, ptr %228, i64 16
-  %250 = load i16, ptr %249, align 8
-  %251 = getelementptr inbounds nuw i8, ptr %230, i64 16
-  %252 = load i16, ptr %251, align 8
+248:                                              ; preds = %242
+  %249 = getelementptr inbounds nuw i8, ptr %228, i64 18
+  %250 = load i16, ptr %249, align 2
+  %251 = getelementptr inbounds nuw i8, ptr %230, i64 18
+  %252 = load i16, ptr %251, align 2
   %253 = icmp eq i16 %250, %252
   br i1 %253, label %254, label %xsettings_setting_equal.exit.thread.i
 
 254:                                              ; preds = %248
-  %255 = getelementptr inbounds nuw i8, ptr %228, i64 18
-  %256 = load i16, ptr %255, align 2
-  %257 = getelementptr inbounds nuw i8, ptr %230, i64 18
-  %258 = load i16, ptr %257, align 2
+  %255 = getelementptr inbounds nuw i8, ptr %228, i64 20
+  %256 = load i16, ptr %255, align 4
+  %257 = getelementptr inbounds nuw i8, ptr %230, i64 20
+  %258 = load i16, ptr %257, align 4
   %259 = icmp eq i16 %256, %258
   br i1 %259, label %260, label %xsettings_setting_equal.exit.thread.i
 
 260:                                              ; preds = %254
-  %261 = getelementptr inbounds nuw i8, ptr %228, i64 20
-  %262 = load i16, ptr %261, align 4
-  %263 = getelementptr inbounds nuw i8, ptr %230, i64 20
-  %264 = load i16, ptr %263, align 4
+  %261 = getelementptr inbounds nuw i8, ptr %228, i64 22
+  %262 = load i16, ptr %261, align 2
+  %263 = getelementptr inbounds nuw i8, ptr %230, i64 22
+  %264 = load i16, ptr %263, align 2
   %265 = icmp eq i16 %262, %264
-  br i1 %265, label %xsettings_setting_equal.exit.i, label %xsettings_setting_equal.exit.thread.i
+  br i1 %265, label %.thread49.i, label %xsettings_setting_equal.exit.thread.i
 
 266:                                              ; preds = %241
   %267 = getelementptr inbounds nuw i8, ptr %228, i64 16
@@ -1088,12 +1088,12 @@ parse_settings.exit:                              ; preds = %fetch_card8.exit97.
   %272 = icmp eq i32 %271, 0
   br i1 %272, label %.thread49.i, label %xsettings_setting_equal.exit.thread.i
 
-xsettings_setting_equal.exit.i:                   ; preds = %260
-  %273 = getelementptr inbounds nuw i8, ptr %228, i64 22
-  %274 = load i16, ptr %273, align 2
-  %275 = getelementptr inbounds nuw i8, ptr %230, i64 22
-  %276 = load i16, ptr %275, align 2
-  %277 = icmp eq i16 %274, %276
+xsettings_setting_equal.exit.i:                   ; preds = %241
+  %273 = getelementptr inbounds nuw i8, ptr %228, i64 16
+  %274 = load i32, ptr %273, align 8
+  %275 = getelementptr inbounds nuw i8, ptr %230, i64 16
+  %276 = load i32, ptr %275, align 8
+  %277 = icmp eq i32 %274, %276
   br i1 %277, label %.thread49.i, label %xsettings_setting_equal.exit.thread.i
 
 xsettings_setting_equal.exit.thread.i:            ; preds = %xsettings_setting_equal.exit.i, %266, %260, %254, %248, %242, %241, %236
@@ -1110,7 +1110,7 @@ xsettings_setting_equal.exit.thread.i:            ; preds = %xsettings_setting_e
   %283 = load ptr, ptr %282, align 8
   br label %.thread43.i
 
-.thread49.i:                                      ; preds = %xsettings_setting_equal.exit.thread.i, %xsettings_setting_equal.exit.i, %266, %242
+.thread49.i:                                      ; preds = %xsettings_setting_equal.exit.thread.i, %xsettings_setting_equal.exit.i, %266, %260
   %284 = getelementptr inbounds nuw i8, ptr %.03050.i, i64 8
   %285 = load ptr, ptr %284, align 8
   br label %.thread43.i
@@ -1267,7 +1267,7 @@ xsettings_setting_free.exit.i:                    ; preds = %22, %20
   br i1 %.not.i, label %xsettings_list_free.exit, label %.lr.ph.i, !llvm.loop !3
 
 xsettings_list_free.exit:                         ; preds = %7, %xsettings_setting_free.exit.i, %1, %.loopexit
-  %.017 = phi ptr [ null, %.loopexit ], [ null, %1 ], [ null, %xsettings_setting_free.exit.i ], [ %..02139, %7 ]
+  %.017 = phi ptr [ null, %xsettings_setting_free.exit.i ], [ null, %.loopexit ], [ null, %1 ], [ %..02139, %7 ]
   ret ptr %.017
 }
 

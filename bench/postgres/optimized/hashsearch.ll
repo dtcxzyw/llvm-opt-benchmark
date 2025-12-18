@@ -24,7 +24,7 @@ define dso_local noundef zeroext i1 @_hash_next(ptr noundef %0, i32 noundef %1) 
   %7 = icmp eq i32 %1, 1
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 52
   %9 = load i32, ptr %8, align 4
-  br i1 %7, label %10, label %26
+  br i1 %7, label %10, label %23
 
 10:                                               ; preds = %2
   %11 = add i32 %9, 1
@@ -48,59 +48,59 @@ define dso_local noundef zeroext i1 @_hash_next(ptr noundef %0, i32 noundef %1) 
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 36
   %22 = load i32, ptr %21, align 4
   %.not54 = icmp eq i32 %22, -1
-  br i1 %.not54, label %.thread, label %23
+  br i1 %.not54, label %.thread, label %48
 
-23:                                               ; preds = %20
-  %24 = tail call i32 @_hash_getbuf(ptr noundef %4, i32 noundef %22, i32 noundef 1, i32 noundef 1) #5
-  %25 = tail call fastcc zeroext i1 @_hash_readpage(ptr noundef nonnull %0, i32 %24, i32 noundef 1)
-  br i1 %25, label %.thread51, label %.thread
+23:                                               ; preds = %2
+  %24 = add i32 %9, -1
+  store i32 %24, ptr %8, align 4
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 44
+  %26 = load i32, ptr %25, align 4
+  %27 = icmp slt i32 %24, %26
+  br i1 %27, label %28, label %.thread51
 
-26:                                               ; preds = %2
-  %27 = add i32 %9, -1
-  store i32 %27, ptr %8, align 4
-  %28 = getelementptr inbounds nuw i8, ptr %6, i64 44
-  %29 = load i32, ptr %28, align 4
-  %30 = icmp slt i32 %27, %29
-  br i1 %30, label %31, label %.thread51
+28:                                               ; preds = %23
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %30 = load i32, ptr %29, align 8
+  %31 = icmp sgt i32 %30, 0
+  br i1 %31, label %32, label %33
 
-31:                                               ; preds = %26
-  %32 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %33 = load i32, ptr %32, align 8
-  %34 = icmp sgt i32 %33, 0
-  br i1 %34, label %35, label %36
-
-35:                                               ; preds = %31
+32:                                               ; preds = %28
   tail call void @_hash_kill_items(ptr noundef nonnull %0) #5
-  br label %36
+  br label %33
 
-36:                                               ; preds = %35, %31
-  %37 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %38 = load i32, ptr %37, align 4
-  %.not = icmp eq i32 %38, -1
-  br i1 %.not, label %.thread, label %39
+33:                                               ; preds = %32, %28
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %35 = load i32, ptr %34, align 4
+  %.not = icmp eq i32 %35, -1
+  br i1 %.not, label %.thread, label %36
 
-39:                                               ; preds = %36
-  %40 = tail call i32 @_hash_getbuf(ptr noundef %4, i32 noundef %38, i32 noundef 1, i32 noundef 3) #5
-  %41 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %42 = load i32, ptr %41, align 4
-  %43 = icmp eq i32 %40, %42
-  br i1 %43, label %48, label %44
+36:                                               ; preds = %33
+  %37 = tail call i32 @_hash_getbuf(ptr noundef %4, i32 noundef %35, i32 noundef 1, i32 noundef 3) #5
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %39 = load i32, ptr %38, align 4
+  %40 = icmp eq i32 %37, %39
+  br i1 %40, label %45, label %41
 
-44:                                               ; preds = %39
-  %45 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %46 = load i32, ptr %45, align 8
-  %47 = icmp eq i32 %40, %46
-  br i1 %47, label %48, label %49
+41:                                               ; preds = %36
+  %42 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %43 = load i32, ptr %42, align 8
+  %44 = icmp eq i32 %37, %43
+  br i1 %44, label %45, label %46
 
-48:                                               ; preds = %44, %39
-  tail call void @_hash_dropbuf(ptr noundef %4, i32 noundef %40) #5
-  br label %49
+45:                                               ; preds = %41, %36
+  tail call void @_hash_dropbuf(ptr noundef %4, i32 noundef %37) #5
+  br label %46
 
-49:                                               ; preds = %44, %48
-  %50 = tail call fastcc zeroext i1 @_hash_readpage(ptr noundef nonnull %0, i32 %40, i32 noundef %1)
+46:                                               ; preds = %45, %41
+  %47 = tail call fastcc zeroext i1 @_hash_readpage(ptr noundef nonnull %0, i32 %37, i32 noundef %1)
+  br i1 %47, label %.thread51, label %.thread
+
+48:                                               ; preds = %20
+  %49 = tail call i32 @_hash_getbuf(ptr noundef %4, i32 noundef %22, i32 noundef 1, i32 noundef 1) #5
+  %50 = tail call fastcc zeroext i1 @_hash_readpage(ptr noundef nonnull %0, i32 %49, i32 noundef 1)
   br i1 %50, label %.thread51, label %.thread
 
-.thread:                                          ; preds = %20, %36, %23, %49
+.thread:                                          ; preds = %20, %33, %46, %48
   tail call void @_hash_dropscanbuf(ptr noundef %4, ptr noundef nonnull %6) #5
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 28
   store i32 0, ptr %51, align 4
@@ -118,7 +118,7 @@ define dso_local noundef zeroext i1 @_hash_next(ptr noundef %0, i32 noundef %1) 
   store i32 0, ptr %57, align 4
   br label %64
 
-.thread51:                                        ; preds = %10, %26, %23, %49
+.thread51:                                        ; preds = %10, %23, %46, %48
   %58 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %59 = getelementptr inbounds nuw i8, ptr %6, i64 52
   %60 = load i32, ptr %59, align 4
@@ -1215,7 +1215,7 @@ define internal fastcc i32 @_hash_load_qualified_items(ptr noundef %0, ptr nound
   br label %.split
 
 .loopexit:                                        ; preds = %.outer64, %91, %.split.us, %83, %128, %110, %.outer, %72, %.split106.us, %64, %54, %36, %.preheader62, %.preheader
-  %.0 = phi i32 [ 0, %.preheader ], [ 408, %.preheader62 ], [ %.1.ph96, %83 ], [ %.048.ph127, %36 ], [ %.048.ph127, %54 ], [ %.048.ph127, %.split106.us ], [ %.1.ph96, %110 ], [ %.1.ph96, %128 ], [ %.048.ph127, %64 ], [ %77, %.outer ], [ %.048.ph127, %72 ], [ %93, %.outer64 ], [ %.1.ph96, %91 ], [ %.1.ph96, %.split.us ]
+  %.0 = phi i32 [ %.048.ph127, %.split106.us ], [ %.1.ph96, %128 ], [ 408, %.preheader62 ], [ 0, %.preheader ], [ %.048.ph127, %36 ], [ %.1.ph96, %110 ], [ %.048.ph127, %64 ], [ %.048.ph127, %54 ], [ %.1.ph96, %83 ], [ %77, %.outer ], [ %.048.ph127, %72 ], [ %.1.ph96, %.split.us ], [ %.1.ph96, %91 ], [ %93, %.outer64 ]
   ret i32 %.0
 }
 

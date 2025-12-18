@@ -6460,7 +6460,7 @@ _ZN2h25proto7streams5state5State14is_local_error17h1411022f523d270dE.exit: ; pre
   %.not451 = icmp eq i8 %.02.i, 2
   br i1 %.not451, label %_ZN2h25proto7streams5state5State14is_local_error17h1411022f523d270dE.exit.thread442, label %_ZN2h25proto7streams5state5State14is_local_error17h1411022f523d270dE.exit.thread
 
-_ZN2h25proto7streams5state5State14is_local_error17h1411022f523d270dE.exit.thread442: ; preds = %113, %109, %_ZN2h25proto7streams5state5State14is_local_error17h1411022f523d270dE.exit
+_ZN2h25proto7streams5state5State14is_local_error17h1411022f523d270dE.exit.thread442: ; preds = %109, %113, %_ZN2h25proto7streams5state5State14is_local_error17h1411022f523d270dE.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store ptr %65, ptr %17, align 8
   %118 = cmpxchg ptr %3, i32 0, i32 1 acquire monotonic, align 4

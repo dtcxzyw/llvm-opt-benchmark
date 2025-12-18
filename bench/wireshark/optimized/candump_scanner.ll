@@ -676,9 +676,9 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i191, %353
   br label %.loopexit235.backedge
 
 .loopexit235.backedge:                            ; preds = %._crit_edge.i211, %375, %536
-  %.0170.be = phi ptr [ %534, %536 ], [ %299, %375 ], [ %534, %._crit_edge.i211 ]
-  %.0162.be = phi ptr [ %542, %536 ], [ %379, %375 ], [ %542, %._crit_edge.i211 ]
-  %.0156.be = phi i32 [ %543, %536 ], [ %378, %375 ], [ %587, %._crit_edge.i211 ]
+  %.0170.be = phi ptr [ %299, %375 ], [ %534, %536 ], [ %534, %._crit_edge.i211 ]
+  %.0162.be = phi ptr [ %379, %375 ], [ %542, %536 ], [ %542, %._crit_edge.i211 ]
+  %.0156.be = phi i32 [ %378, %375 ], [ %543, %536 ], [ %587, %._crit_edge.i211 ]
   br label %.loopexit235
 
 380:                                              ; preds = %284
@@ -2211,7 +2211,7 @@ candump__delete_buffer.exit.i:                    ; preds = %32, %.critedge.i.i
   br label %candump_pop_buffer_state.exit
 
 candump_pop_buffer_state.exit:                    ; preds = %26, %44, %47
-  %56 = phi ptr [ %25, %26 ], [ %43, %44 ], [ %43, %47 ]
+  %56 = phi ptr [ %43, %47 ], [ %25, %26 ], [ %43, %44 ]
   %57 = load i64, ptr %2, align 8
   %58 = getelementptr ptr, ptr %56, i64 %57
   %59 = load ptr, ptr %58, align 8

@@ -2662,7 +2662,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %.critedge
   br label %146
 
 .split510.us:                                     ; preds = %.split474.split, %.split474.split.us.us, %.split474.us.split.us506, %.split474.us.split.us.us.us
-  %.us-phi511 = phi i32 [ %138, %.split474.split.us.us ], [ %101, %.split474.us.split.us.us.us ], [ %117, %.split474.us.split.us506 ], [ %145, %.split474.split ]
+  %.us-phi511 = phi i32 [ %138, %.split474.split.us.us ], [ %117, %.split474.us.split.us506 ], [ %101, %.split474.us.split.us.us.us ], [ %145, %.split474.split ]
   br i1 %86, label %.critedge, label %163
 
 .split474.split:                                  ; preds = %148

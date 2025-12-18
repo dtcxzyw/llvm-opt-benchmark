@@ -1621,7 +1621,7 @@ define internal fastcc ptr @fl_intern(ptr noundef readnone captures(address) %0,
   br label %56
 
 .thread:                                          ; preds = %43, %11, %25, %28
-  %.pre-phi13 = phi i64 [ %31, %28 ], [ %13, %11 ], [ %13, %25 ], [ %31, %43 ]
+  %.pre-phi13 = phi i64 [ %13, %11 ], [ %13, %25 ], [ %31, %28 ], [ %31, %43 ]
   %48 = load volatile i64, ptr @jiffies, align 64
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store i64 %48, ptr %49, align 8
@@ -1908,7 +1908,7 @@ define internal ptr @ip6fl_seq_start(ptr noundef readonly captures(none) %0, ptr
   br i1 %75, label %.thread11, label %.preheader
 
 .thread11:                                        ; preds = %33, %.loopexit, %46, %57, %37, %2
-  %76 = phi ptr [ inttoptr (i64 1 to ptr), %2 ], [ %27, %37 ], [ null, %46 ], [ null, %57 ], [ %73, %.loopexit ], [ null, %33 ]
+  %76 = phi ptr [ inttoptr (i64 1 to ptr), %2 ], [ null, %57 ], [ %27, %37 ], [ %73, %.loopexit ], [ null, %46 ], [ null, %33 ]
   ret ptr %76
 }
 
@@ -2005,7 +2005,7 @@ define internal ptr @ip6fl_seq_next(ptr noundef readonly captures(none) %0, ptr 
   br i1 %54, label %.loopexit, label %47, !llvm.loop !37
 
 .loopexit:                                        ; preds = %35, %39, %51, %21, %17, %28
-  %55 = phi ptr [ null, %28 ], [ null, %39 ], [ %15, %17 ], [ null, %21 ], [ %49, %51 ], [ %26, %35 ]
+  %55 = phi ptr [ null, %28 ], [ %49, %51 ], [ null, %39 ], [ %15, %17 ], [ null, %21 ], [ %26, %35 ]
   %56 = load i64, ptr %2, align 8
   %57 = add i64 %56, 1
   store i64 %57, ptr %2, align 8
@@ -2191,7 +2191,7 @@ define internal void @ip6_fl_gc(ptr readnone captures(none) %0) #1 align 16 {
   br i1 %55, label %._crit_edge, label %15, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %.loopexit, %52, %3
-  %.lcssa = phi i64 [ %5, %3 ], [ %14, %52 ], [ %9, %.loopexit ]
+  %.lcssa = phi i64 [ %14, %52 ], [ %5, %3 ], [ %9, %.loopexit ]
   %56 = add nuw nsw i64 %4, 1
   %57 = icmp eq i64 %56, 256
   br i1 %57, label %58, label %3, !llvm.loop !39

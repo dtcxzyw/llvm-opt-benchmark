@@ -596,7 +596,7 @@ Inf_ManOpenSymb.exit32:                           ; preds = %39
   br label %.loopexit
 
 .loopexit:                                        ; preds = %40, %._crit_edge, %68, %Inf_ManOpenSymb.exit32, %.loopexit36
-  %.0 = phi i32 [ 0, %.loopexit36 ], [ 0, %Inf_ManOpenSymb.exit32 ], [ 0, %68 ], [ 1, %._crit_edge ], [ 0, %40 ]
+  %.0 = phi i32 [ 0, %.loopexit36 ], [ 1, %._crit_edge ], [ 0, %Inf_ManOpenSymb.exit32 ], [ 0, %68 ], [ 0, %40 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -1093,7 +1093,7 @@ define range(i32 0, 2) i32 @Ifn_NtkParseInt2(ptr noundef %0, ptr noundef capture
   br i1 %exitcond130.not, label %.critedge, label %.preheader88, !llvm.loop !39
 
 .critedge:                                        ; preds = %._crit_edge103, %.preheader89, %.preheader88._crit_edge, %54, %66, %76, %38, %2, %12
-  %.071 = phi i32 [ 0, %12 ], [ 0, %2 ], [ 0, %38 ], [ 0, %76 ], [ 0, %66 ], [ 0, %54 ], [ 0, %.preheader88._crit_edge ], [ 1, %.preheader89 ], [ 1, %._crit_edge103 ]
+  %.071 = phi i32 [ 0, %12 ], [ 0, %.preheader88._crit_edge ], [ 0, %2 ], [ 0, %38 ], [ 0, %76 ], [ 0, %66 ], [ 0, %54 ], [ 1, %.preheader89 ], [ 1, %._crit_edge103 ]
   ret i32 %.071
 }
 
@@ -1360,7 +1360,7 @@ Abc_TtElemInit2.exit.sink.split:                  ; preds = %11, %8
   br label %Abc_TtElemInit2.exit
 
 Abc_TtElemInit2.exit:                             ; preds = %..loopexit22_crit_edge.us.us.i, %Abc_TtElemInit2.exit.sink.split, %12, %.lr.ph28.i, %Ifn_NtkParseConstraints.exit, %11, %8
-  %.0 = phi ptr [ null, %8 ], [ null, %11 ], [ %2, %Ifn_NtkParseConstraints.exit ], [ %2, %.lr.ph28.i ], [ %2, %12 ], [ null, %Abc_TtElemInit2.exit.sink.split ], [ %2, %..loopexit22_crit_edge.us.us.i ]
+  %.0 = phi ptr [ null, %Abc_TtElemInit2.exit.sink.split ], [ %2, %.lr.ph28.i ], [ null, %8 ], [ null, %11 ], [ %2, %12 ], [ %2, %Ifn_NtkParseConstraints.exit ], [ %2, %..loopexit22_crit_edge.us.us.i ]
   ret ptr %.0
 }
 
@@ -5471,7 +5471,7 @@ define range(i32 0, 2) i32 @Ifn_NtkAddClauses(ptr noundef captures(none) %0, ptr
   br label %.critedge228
 
 .critedge228:                                     ; preds = %._crit_edge258, %169, %152, %135, %._crit_edge289, %187, %240, %.thread, %._crit_edge282, %.lr.ph288, %._crit_edge293
-  %.2 = phi i32 [ %.229, %._crit_edge293 ], [ 0, %169 ], [ 0, %.lr.ph288 ], [ 0, %._crit_edge282 ], [ 0, %240 ], [ 0, %.thread ], [ 0, %187 ], [ 0, %._crit_edge289 ], [ 0, %135 ], [ 0, %152 ], [ 0, %._crit_edge258 ]
+  %.2 = phi i32 [ 0, %169 ], [ %.229, %._crit_edge293 ], [ 0, %._crit_edge282 ], [ 0, %.lr.ph288 ], [ 0, %240 ], [ 0, %.thread ], [ 0, %187 ], [ 0, %._crit_edge289 ], [ 0, %135 ], [ 0, %152 ], [ 0, %._crit_edge258 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.2
@@ -6215,9 +6215,9 @@ Abc_TtFindFirstBit.exit.thread:                   ; preds = %Abc_TtXor.exit, %Ab
   br i1 %exitcond137.not, label %Ifn_NtkMatchCollectConfig.exit, label %.preheader, !llvm.loop !193
 
 Ifn_NtkMatchCollectConfig.exit:                   ; preds = %226, %._crit_edge, %123, %225, %77, %._crit_edge34.i, %Abc_TtFindFirstBit.exit.thread
-  %.075110 = phi i32 [ %.075118, %Abc_TtFindFirstBit.exit.thread ], [ %.075118, %._crit_edge34.i ], [ 0, %77 ], [ %.075118, %225 ], [ %smax, %226 ], [ %.075118, %._crit_edge ], [ %.075118, %123 ]
-  %.not84 = phi i1 [ false, %Abc_TtFindFirstBit.exit.thread ], [ false, %._crit_edge34.i ], [ true, %77 ], [ false, %225 ], [ true, %123 ], [ true, %._crit_edge ], [ true, %226 ]
-  %.073 = phi i32 [ 1, %Abc_TtFindFirstBit.exit.thread ], [ 1, %._crit_edge34.i ], [ 0, %77 ], [ 1, %225 ], [ 0, %123 ], [ 0, %._crit_edge ], [ 0, %226 ]
+  %.075110 = phi i32 [ %.075118, %225 ], [ %.075118, %._crit_edge34.i ], [ %.075118, %Abc_TtFindFirstBit.exit.thread ], [ 0, %77 ], [ %smax, %226 ], [ %.075118, %._crit_edge ], [ %.075118, %123 ]
+  %.not84 = phi i1 [ false, %225 ], [ false, %._crit_edge34.i ], [ false, %Abc_TtFindFirstBit.exit.thread ], [ true, %77 ], [ true, %123 ], [ true, %._crit_edge ], [ true, %226 ]
+  %.073 = phi i32 [ 1, %225 ], [ 1, %._crit_edge34.i ], [ 1, %Abc_TtFindFirstBit.exit.thread ], [ 0, %77 ], [ 0, %123 ], [ 0, %._crit_edge ], [ 0, %226 ]
   %.not83 = icmp eq i32 %4, 0
   br i1 %.not83, label %234, label %228
 

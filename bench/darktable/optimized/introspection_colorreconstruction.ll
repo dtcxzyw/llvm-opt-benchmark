@@ -773,10 +773,10 @@ image_to_grid.exit.us.i:                          ; preds = %335, %331
   br label %dt_iop_colorreconstruct_bilateral_thaw.exit
 
 dt_iop_colorreconstruct_bilateral_thaw.exit:      ; preds = %204, %.loopexit
-  %371 = phi i64 [ %170, %204 ], [ %228, %.loopexit ]
-  %372 = phi i64 [ %168, %204 ], [ %224, %.loopexit ]
-  %373 = phi float [ %188, %204 ], [ %243, %.loopexit ]
-  %.0 = phi ptr [ %165, %204 ], [ %206, %.loopexit ]
+  %371 = phi i64 [ %228, %.loopexit ], [ %170, %204 ]
+  %372 = phi i64 [ %224, %.loopexit ], [ %168, %204 ]
+  %373 = phi float [ %243, %.loopexit ], [ %188, %204 ]
+  %.0 = phi ptr [ %206, %.loopexit ], [ %165, %204 ]
   %374 = load float, ptr %13, align 4, !tbaa !130
   %375 = load float, ptr %16, align 8, !tbaa !55
   %376 = load float, ptr %18, align 4, !tbaa !56

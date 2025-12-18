@@ -10578,7 +10578,7 @@ _ZNSt6vectorIN4absl7debian211string_viewESaIS2_EED2Ev.exit129: ; preds = %235, %
   br i1 %245, label %_ZNSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm4EED2Ev.exit130, label %242
 
 _ZNSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm4EED2Ev.exit130: ; preds = %72, %242, %.body.thread
-  %.pn64.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.ph, %.body.thread ], [ %.pn64.pn, %242 ], [ %.pn.pn, %72 ]
+  %.pn64.pn.pn = phi { ptr, i32 } [ %.pn64.pn, %242 ], [ %.pn.pn.pn.ph, %.body.thread ], [ %.pn.pn, %72 ]
   resume { ptr, i32 } %.pn64.pn.pn
 }
 
@@ -12353,7 +12353,7 @@ _ZNSt10_HashtableIlSt4pairIKldESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4
   br label %.body
 
 .loopexit:                                        ; preds = %39, %.noexc, %34
-  %.0.i.pn.i.i = phi ptr [ %35, %34 ], [ %49, %.noexc ], [ %41, %39 ]
+  %.0.i.pn.i.i = phi ptr [ %49, %.noexc ], [ %35, %34 ], [ %41, %39 ]
   %.0.i.i = getelementptr inbounds nuw i8, ptr %.0.i.pn.i.i, i64 16
   store double %27, ptr %.0.i.i, align 8
   %51 = getelementptr inbounds nuw i8, ptr %.sroa.012.018, i64 16
@@ -12498,7 +12498,7 @@ _ZNSt10_HashtableIlSt4pairIKldESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4
   br label %.body
 
 .loopexit:                                        ; preds = %39, %.noexc, %34
-  %.0.i.pn.i.i = phi ptr [ %35, %34 ], [ %49, %.noexc ], [ %41, %39 ]
+  %.0.i.pn.i.i = phi ptr [ %49, %.noexc ], [ %35, %34 ], [ %41, %39 ]
   %.0.i.i = getelementptr inbounds nuw i8, ptr %.0.i.pn.i.i, i64 16
   store double %27, ptr %.0.i.i, align 8
   %51 = getelementptr inbounds nuw i8, ptr %.sroa.012.018, i64 16

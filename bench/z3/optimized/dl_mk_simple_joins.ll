@@ -840,7 +840,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i: ; preds
   br label %.preheader.i.i.backedge
 
 .preheader.i.i.backedge:                          ; preds = %.noexc92, %.noexc91
-  %.be = phi ptr [ %164, %.noexc92 ], [ %129, %.noexc91 ]
+  %.be = phi ptr [ %129, %.noexc91 ], [ %164, %.noexc92 ]
   br label %.preheader.i.i
 
 165:                                              ; preds = %_ZN17default_exceptionC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i
@@ -3828,7 +3828,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit: ; p
   br i1 %.not27.old.i.i, label %.loopexit, label %.lr.ph40.i.i.backedge
 
 .lr.ph40.i.i.backedge:                            ; preds = %488, %485
-  %.139.i.i.be = phi ptr [ %.old.i.i, %488 ], [ %487, %485 ]
+  %.139.i.i.be = phi ptr [ %487, %485 ], [ %.old.i.i, %488 ]
   br label %.lr.ph40.i.i, !llvm.loop !368
 
 .loopexit:                                        ; preds = %474, %488, %485, %.preheader.i.i
@@ -8506,7 +8506,7 @@ define linkonce_odr hidden noundef float @_ZNK7datalog12join_planner13estimate_s
   br i1 %.not27.old.i.i.i, label %_ZNK7datalog16relation_manager12is_saturatedEP9func_decl.exit.thread, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %52, %49
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %52 ], [ %51, %49 ]
+  %.137.i.i.i.be = phi ptr [ %51, %49 ], [ %.old.i.i.i, %52 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !422
 
 _ZNK7datalog16relation_manager12is_saturatedEP9func_decl.exit: ; preds = %33, %44, %17
@@ -8591,7 +8591,7 @@ _ZNK7datalog16relation_manager12is_saturatedEP9func_decl.exit.thread: ; preds = 
   br i1 %.not47, label %.loopexit, label %.lr.ph59
 
 .loopexit:                                        ; preds = %79, %97, %61, %_ZNK7datalog16relation_manager12is_saturatedEP9func_decl.exit.thread, %2
-  %.0 = phi float [ 1.000000e+00, %2 ], [ 1.000000e+00, %_ZNK7datalog16relation_manager12is_saturatedEP9func_decl.exit.thread ], [ %62, %61 ], [ %.140, %97 ], [ %.138, %79 ]
+  %.0 = phi float [ 1.000000e+00, %2 ], [ %.140, %97 ], [ 1.000000e+00, %_ZNK7datalog16relation_manager12is_saturatedEP9func_decl.exit.thread ], [ %62, %61 ], [ %.138, %79 ]
   ret float %.0
 }
 
@@ -11934,8 +11934,8 @@ _ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit10
   br label %.preheader155
 
 .preheader155:                                    ; preds = %.preheader155.loopexit, %_ZN10ref_vectorI3app11ast_managerEC2ERKS2_.exit, %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit109
-  %.not261 = phi i1 [ true, %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit109 ], [ true, %_ZN10ref_vectorI3app11ast_managerEC2ERKS2_.exit ], [ false, %.preheader155.loopexit ]
-  %.0.i.i108260 = phi i64 [ 0, %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit109 ], [ 0, %_ZN10ref_vectorI3app11ast_managerEC2ERKS2_.exit ], [ %75, %.preheader155.loopexit ]
+  %.not261 = phi i1 [ true, %_ZN10ref_vectorI3app11ast_managerEC2ERKS2_.exit ], [ true, %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit109 ], [ false, %.preheader155.loopexit ]
+  %.0.i.i108260 = phi i64 [ 0, %_ZN10ref_vectorI3app11ast_managerEC2ERKS2_.exit ], [ 0, %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit109 ], [ %75, %.preheader155.loopexit ]
   %.not172 = icmp eq i32 %.0.i, 0
   br i1 %.not172, label %._crit_edge.thread, label %.lr.ph163
 

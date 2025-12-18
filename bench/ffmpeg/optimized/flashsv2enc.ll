@@ -1475,7 +1475,7 @@ write_all_blocks.exit.i:                          ; preds = %._crit_edge.i41.i
   br i1 %.not415863, label %write_bitstream.exit.thread, label %762
 
 write_bitstream.exit:                             ; preds = %591, %597, %encode_zlibprime.exit.i.i.i, %.lr.ph.i51.i.i.i, %write_block.exit.i.i, %encode_all_blocks.exit.i, %put_bits.exit26.i.i, %write_header.exit.i, %.preheader.lr.ph.i39.i
-  %.0.i47 = phi i32 [ 5, %.preheader.lr.ph.i39.i ], [ -1, %encode_all_blocks.exit.i ], [ -1, %put_bits.exit26.i.i ], [ 5, %write_header.exit.i ], [ %746, %write_block.exit.i.i ], [ -1, %.lr.ph.i51.i.i.i ], [ -542398533, %597 ], [ -1, %encode_zlibprime.exit.i.i.i ], [ -542398533, %591 ]
+  %.0.i47 = phi i32 [ 5, %write_header.exit.i ], [ -1, %.lr.ph.i51.i.i.i ], [ 5, %.preheader.lr.ph.i39.i ], [ %746, %write_block.exit.i.i ], [ -1, %put_bits.exit26.i.i ], [ -1, %encode_all_blocks.exit.i ], [ -1, %encode_zlibprime.exit.i.i.i ], [ -542398533, %591 ], [ -542398533, %597 ]
   br i1 %.not415863, label %write_bitstream.exit.thread, label %762
 
 762:                                              ; preds = %write_all_blocks.exit.i, %write_block.exit.thread.i.i, %write_bitstream.exit

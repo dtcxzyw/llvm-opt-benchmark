@@ -865,11 +865,11 @@ zend_parse_arg_long_ex.exit88..critedge_crit_edge: ; preds = %zend_parse_arg_lon
   %.pre140 = load i64, ptr %6, align 8, !tbaa !47
   br label %.critedge
 
-.thread:                                          ; preds = %zend_parse_arg_long_ex.exit88, %zend_parse_arg_string.exit, %zend_parse_arg_bool_ex.exit, %zend_parse_arg_long_ex.exit, %10
-  %.075127 = phi i32 [ 9, %zend_parse_arg_long_ex.exit88 ], [ 1, %10 ], [ 9, %zend_parse_arg_string.exit ], [ 9, %zend_parse_arg_bool_ex.exit ], [ 9, %zend_parse_arg_long_ex.exit ]
-  %.076126 = phi i32 [ 4, %zend_parse_arg_long_ex.exit88 ], [ 0, %10 ], [ 1, %zend_parse_arg_string.exit ], [ 2, %zend_parse_arg_bool_ex.exit ], [ 3, %zend_parse_arg_long_ex.exit ]
-  %.077125 = phi i32 [ 0, %zend_parse_arg_long_ex.exit88 ], [ 0, %10 ], [ 4, %zend_parse_arg_string.exit ], [ 3, %zend_parse_arg_bool_ex.exit ], [ 0, %zend_parse_arg_long_ex.exit ]
-  %.078124 = phi ptr [ %39, %zend_parse_arg_long_ex.exit88 ], [ null, %10 ], [ %12, %zend_parse_arg_string.exit ], [ %26, %zend_parse_arg_bool_ex.exit ], [ %31, %zend_parse_arg_long_ex.exit ]
+.thread:                                          ; preds = %zend_parse_arg_long_ex.exit88, %zend_parse_arg_bool_ex.exit, %zend_parse_arg_string.exit, %zend_parse_arg_long_ex.exit, %10
+  %.075127 = phi i32 [ 9, %zend_parse_arg_long_ex.exit88 ], [ 1, %10 ], [ 9, %zend_parse_arg_bool_ex.exit ], [ 9, %zend_parse_arg_string.exit ], [ 9, %zend_parse_arg_long_ex.exit ]
+  %.076126 = phi i32 [ 4, %zend_parse_arg_long_ex.exit88 ], [ 0, %10 ], [ 2, %zend_parse_arg_bool_ex.exit ], [ 1, %zend_parse_arg_string.exit ], [ 3, %zend_parse_arg_long_ex.exit ]
+  %.077125 = phi i32 [ 0, %zend_parse_arg_long_ex.exit88 ], [ 0, %10 ], [ 3, %zend_parse_arg_bool_ex.exit ], [ 4, %zend_parse_arg_string.exit ], [ 0, %zend_parse_arg_long_ex.exit ]
+  %.078124 = phi ptr [ %39, %zend_parse_arg_long_ex.exit88 ], [ null, %10 ], [ %26, %zend_parse_arg_bool_ex.exit ], [ %12, %zend_parse_arg_string.exit ], [ %31, %zend_parse_arg_long_ex.exit ]
   call void @zend_wrong_parameter_error(i32 noundef %.075127, i32 noundef %.076126, ptr noundef null, i32 noundef %.077125, ptr noundef %.078124) #13
   br label %69
 

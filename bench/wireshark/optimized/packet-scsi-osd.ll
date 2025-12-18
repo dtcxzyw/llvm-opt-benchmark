@@ -5004,7 +5004,7 @@ osd_lookup_attribute.exit.thread:                 ; preds = %.lr.ph, %69, %.preh
   br label %.loopexit
 
 86:                                               ; preds = %43, %83, %74, %osd_lookup_attribute.exit.thread
-  %.2 = phi i32 [ %.1107, %43 ], [ %54, %74 ], [ %54, %osd_lookup_attribute.exit.thread ], [ %85, %83 ]
+  %.2 = phi i32 [ %85, %83 ], [ %54, %osd_lookup_attribute.exit.thread ], [ %.1107, %43 ], [ %54, %74 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %87 = sub i32 %.2, %2
   %88 = icmp ult i32 %87, %29

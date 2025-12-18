@@ -191,7 +191,7 @@ define internal fastcc void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F
   %or.cond.i.i = select i1 %22, i1 true, i1 %23
   br i1 %or.cond.i.i, label %.loopexit, label %.lr.ph.i.i.i.i
 
-.loopexit:                                        ; preds = %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h97290aec6bfde4a2E.exit.thread.i.i.i.i.i", %2, %12
+.loopexit:                                        ; preds = %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h97290aec6bfde4a2E.exit.thread.i.i.i.i.i", %12, %2
   store ptr null, ptr %0, align 8
   br label %45
 

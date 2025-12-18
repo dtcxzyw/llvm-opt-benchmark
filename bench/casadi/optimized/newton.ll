@@ -3490,7 +3490,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit344: ; preds = %_Z
   br i1 %exitcond.not.i351, label %_ZN6casadi11casadi_axpyIdEEvxT_PKS1_PS1_.exit352, label %.lr.ph.i347, !llvm.loop !186
 
 _ZN6casadi11casadi_axpyIdEEvxT_PKS1_PS1_.exit352: ; preds = %.lr.ph.i347, %432, %_ZSt8__copy_nIPdxS0_ET1_T_T0_S1_St26random_access_iterator_tag.exit.i293, %541
-  %.272 = phi double [ 1.000000e+00, %541 ], [ %.070, %_ZSt8__copy_nIPdxS0_ET1_T_T0_S1_St26random_access_iterator_tag.exit.i293 ], [ %.070, %432 ], [ 1.000000e+00, %.lr.ph.i347 ]
+  %.272 = phi double [ %.070, %432 ], [ 1.000000e+00, %541 ], [ %.070, %_ZSt8__copy_nIPdxS0_ET1_T_T0_S1_St26random_access_iterator_tag.exit.i293 ], [ 1.000000e+00, %.lr.ph.i347 ]
   %554 = load i8, ptr %72, align 8, !tbaa !124, !range !168, !noundef !169
   %555 = trunc nuw i8 %554 to i1
   br i1 %555, label %556, label %568

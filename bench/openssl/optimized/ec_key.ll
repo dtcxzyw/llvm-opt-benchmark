@@ -63,7 +63,7 @@ define ptr @EC_KEY_new_by_curve_name_ex(ptr noundef %0, ptr noundef %1, i32 noun
   br label %17
 
 17:                                               ; preds = %.sink.split, %10, %14, %3
-  %.0 = phi ptr [ null, %3 ], [ %4, %14 ], [ %4, %10 ], [ null, %.sink.split ]
+  %.0 = phi ptr [ null, %3 ], [ %4, %10 ], [ %4, %14 ], [ null, %.sink.split ]
   ret ptr %.0
 }
 
@@ -174,7 +174,7 @@ define ptr @EC_KEY_new_by_curve_name(i32 noundef %0) local_unnamed_addr #0 {
   br label %EC_KEY_new_by_curve_name_ex.exit
 
 EC_KEY_new_by_curve_name_ex.exit:                 ; preds = %1, %8, %12, %.sink.split.i
-  %.0.i = phi ptr [ null, %1 ], [ %2, %12 ], [ %2, %8 ], [ null, %.sink.split.i ]
+  %.0.i = phi ptr [ null, %1 ], [ %2, %8 ], [ %2, %12 ], [ null, %.sink.split.i ]
   ret ptr %.0.i
 }
 
@@ -744,9 +744,9 @@ define range(i32 0, 2) i32 @ossl_ec_key_simple_generate_key(ptr noundef captures
   br label %ec_generate_key.exit
 
 .loopexit.i:                                      ; preds = %32, %43, %40, %28, %25, %22, %18, %15, %1
-  %.049.ph.i = phi ptr [ %23, %25 ], [ %.150.i, %43 ], [ null, %28 ], [ %.150.i, %40 ], [ null, %22 ], [ null, %18 ], [ null, %15 ], [ null, %1 ], [ %.150.i, %32 ]
-  %.047.ph.i = phi ptr [ null, %25 ], [ %.148.i, %43 ], [ null, %28 ], [ null, %40 ], [ null, %22 ], [ null, %18 ], [ null, %15 ], [ null, %1 ], [ null, %32 ]
-  %.046.ph.i = phi ptr [ %.1.i, %25 ], [ %.1.i, %43 ], [ %.1.i, %28 ], [ %.1.i, %40 ], [ %.1.i, %22 ], [ %.1.i, %18 ], [ null, %15 ], [ null, %1 ], [ %.1.i, %32 ]
+  %.049.ph.i = phi ptr [ %23, %25 ], [ null, %1 ], [ %.150.i, %43 ], [ null, %28 ], [ %.150.i, %40 ], [ null, %22 ], [ null, %18 ], [ null, %15 ], [ %.150.i, %32 ]
+  %.047.ph.i = phi ptr [ null, %25 ], [ null, %1 ], [ %.148.i, %43 ], [ null, %28 ], [ null, %40 ], [ null, %22 ], [ null, %18 ], [ null, %15 ], [ null, %32 ]
+  %.046.ph.i = phi ptr [ %.1.i, %25 ], [ null, %1 ], [ %.1.i, %43 ], [ %.1.i, %28 ], [ %.1.i, %40 ], [ %.1.i, %22 ], [ %.1.i, %18 ], [ null, %15 ], [ %.1.i, %32 ]
   tail call void @ossl_set_error_state(ptr noundef nonnull @.str.1) #7
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %50 = load ptr, ptr %49, align 8, !tbaa !32

@@ -23614,8 +23614,8 @@ thread-pre-split.backedge:                        ; preds = %.backedge, %.backed
   ]
 
 .backedge.backedge:                               ; preds = %"_ZN122_$LT$cranelift_codegen..ir..dfg..Insts$u20$as$u20$core..ops..index..Index$LT$cranelift_codegen..ir..entities..Inst$GT$$GT$5index17h3099bfddb000823eE.exit", %157, %160, %164, %168, %172, %176, %180, %_ZN17cranelift_codegen2ir7builder11InstBuilder5store17h0287ce68be1a402eE.exit
-  %.be = phi i32 [ %.sroa.019.2, %_ZN17cranelift_codegen2ir7builder11InstBuilder5store17h0287ce68be1a402eE.exit ], [ 1, %180 ], [ 1, %176 ], [ 1, %172 ], [ 1, %168 ], [ 1, %164 ], [ 1, %160 ], [ 1, %157 ], [ 1, %"_ZN122_$LT$cranelift_codegen..ir..dfg..Insts$u20$as$u20$core..ops..index..Index$LT$cranelift_codegen..ir..entities..Inst$GT$$GT$5index17h3099bfddb000823eE.exit" ]
-  %.be1071 = phi i32 [ %.sroa.520.2, %_ZN17cranelift_codegen2ir7builder11InstBuilder5store17h0287ce68be1a402eE.exit ], [ %131, %180 ], [ %131, %176 ], [ %131, %172 ], [ %131, %168 ], [ %131, %164 ], [ %131, %160 ], [ %131, %157 ], [ %131, %"_ZN122_$LT$cranelift_codegen..ir..dfg..Insts$u20$as$u20$core..ops..index..Index$LT$cranelift_codegen..ir..entities..Inst$GT$$GT$5index17h3099bfddb000823eE.exit" ]
+  %.be = phi i32 [ 1, %"_ZN122_$LT$cranelift_codegen..ir..dfg..Insts$u20$as$u20$core..ops..index..Index$LT$cranelift_codegen..ir..entities..Inst$GT$$GT$5index17h3099bfddb000823eE.exit" ], [ 1, %157 ], [ %.sroa.019.2, %_ZN17cranelift_codegen2ir7builder11InstBuilder5store17h0287ce68be1a402eE.exit ], [ 1, %180 ], [ 1, %176 ], [ 1, %172 ], [ 1, %168 ], [ 1, %164 ], [ 1, %160 ]
+  %.be1071 = phi i32 [ %131, %"_ZN122_$LT$cranelift_codegen..ir..dfg..Insts$u20$as$u20$core..ops..index..Index$LT$cranelift_codegen..ir..entities..Inst$GT$$GT$5index17h3099bfddb000823eE.exit" ], [ %131, %157 ], [ %.sroa.520.2, %_ZN17cranelift_codegen2ir7builder11InstBuilder5store17h0287ce68be1a402eE.exit ], [ %131, %180 ], [ %131, %176 ], [ %131, %172 ], [ %131, %168 ], [ %131, %164 ], [ %131, %160 ]
   br label %.backedge
 
 141:                                              ; preds = %"_ZN122_$LT$cranelift_codegen..ir..dfg..Insts$u20$as$u20$core..ops..index..Index$LT$cranelift_codegen..ir..entities..Inst$GT$$GT$5index17h3099bfddb000823eE.exit"
@@ -25381,10 +25381,10 @@ thread-pre-split.backedge:                        ; preds = %.preheader, %.prehe
 
 92:                                               ; preds = %76, %65
   %93 = phi ptr [ %66, %65 ], [ %77, %76 ]
-  %storemerge = phi i32 [ %75, %65 ], [ %86, %76 ]
+  %.sroa.6.0.i = phi i32 [ %75, %65 ], [ %86, %76 ]
   store i32 1, ptr %5, align 8, !alias.scope !3164
-  store i32 %storemerge, ptr %16, align 4, !alias.scope !3164
-  %94 = zext i32 %storemerge to i64
+  store i32 %.sroa.6.0.i, ptr %16, align 4, !alias.scope !3164
+  %94 = zext i32 %.sroa.6.0.i to i64
   %95 = getelementptr inbounds nuw i8, ptr %93, i64 48
   %96 = load i64, ptr %95, align 8, !alias.scope !3189, !noalias !3194, !noundef !4
   %97 = icmp ugt i64 %96, %94
@@ -25442,7 +25442,7 @@ _ZN17cranelift_codegen20nan_canonicalization11is_fp_arith17hc76b4575843e19ffE.ll
   br i1 %111, label %_ZN17cranelift_codegen20nan_canonicalization11is_fp_arith17hc76b4575843e19ffE.llvm.5781664634918412060.exit.thread14, label %.preheader.backedge
 
 _ZN17cranelift_codegen20nan_canonicalization11is_fp_arith17hc76b4575843e19ffE.llvm.5781664634918412060.exit.thread14: ; preds = %106, %106, %106, %106, %106, %106, %106, %106, %106, %103, %103, %103, %103, %103, %103, %_ZN17cranelift_codegen20nan_canonicalization11is_fp_arith17hc76b4575843e19ffE.llvm.5781664634918412060.exit
-  invoke void @_ZN17cranelift_codegen20nan_canonicalization17add_nan_canon_seq17ha37e3be66de152bfE.llvm.5781664634918412060(ptr noalias noundef nonnull align 8 dereferenceable(24) %5, i32 noundef %storemerge, i1 noundef zeroext %1)
+  invoke void @_ZN17cranelift_codegen20nan_canonicalization17add_nan_canon_seq17ha37e3be66de152bfE.llvm.5781664634918412060(ptr noalias noundef nonnull align 8 dereferenceable(24) %5, i32 noundef %.sroa.6.0.i, i1 noundef zeroext %1)
           to label %_ZN17cranelift_codegen20nan_canonicalization11is_fp_arith17hc76b4575843e19ffE.llvm.5781664634918412060.exit.thread14._ZN17cranelift_codegen20nan_canonicalization11is_fp_arith17hc76b4575843e19ffE.llvm.5781664634918412060.exit.thread_crit_edge unwind label %.loopexit
 
 _ZN17cranelift_codegen20nan_canonicalization11is_fp_arith17hc76b4575843e19ffE.llvm.5781664634918412060.exit.thread14._ZN17cranelift_codegen20nan_canonicalization11is_fp_arith17hc76b4575843e19ffE.llvm.5781664634918412060.exit.thread_crit_edge: ; preds = %_ZN17cranelift_codegen20nan_canonicalization11is_fp_arith17hc76b4575843e19ffE.llvm.5781664634918412060.exit.thread14
@@ -25451,7 +25451,7 @@ _ZN17cranelift_codegen20nan_canonicalization11is_fp_arith17hc76b4575843e19ffE.ll
   br label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %_ZN17cranelift_codegen20nan_canonicalization11is_fp_arith17hc76b4575843e19ffE.llvm.5781664634918412060.exit.thread14._ZN17cranelift_codegen20nan_canonicalization11is_fp_arith17hc76b4575843e19ffE.llvm.5781664634918412060.exit.thread_crit_edge, %106, %103, %"_ZN122_$LT$cranelift_codegen..ir..dfg..Insts$u20$as$u20$core..ops..index..Index$LT$cranelift_codegen..ir..entities..Inst$GT$$GT$5index17h3099bfddb000823eE.exit.i", %_ZN17cranelift_codegen20nan_canonicalization11is_fp_arith17hc76b4575843e19ffE.llvm.5781664634918412060.exit
-  %.be = phi i32 [ %storemerge, %"_ZN122_$LT$cranelift_codegen..ir..dfg..Insts$u20$as$u20$core..ops..index..Index$LT$cranelift_codegen..ir..entities..Inst$GT$$GT$5index17h3099bfddb000823eE.exit.i" ], [ %storemerge, %_ZN17cranelift_codegen20nan_canonicalization11is_fp_arith17hc76b4575843e19ffE.llvm.5781664634918412060.exit ], [ %.pre.pre, %_ZN17cranelift_codegen20nan_canonicalization11is_fp_arith17hc76b4575843e19ffE.llvm.5781664634918412060.exit.thread14._ZN17cranelift_codegen20nan_canonicalization11is_fp_arith17hc76b4575843e19ffE.llvm.5781664634918412060.exit.thread_crit_edge ], [ %storemerge, %106 ], [ %storemerge, %103 ]
+  %.be = phi i32 [ %.sroa.6.0.i, %"_ZN122_$LT$cranelift_codegen..ir..dfg..Insts$u20$as$u20$core..ops..index..Index$LT$cranelift_codegen..ir..entities..Inst$GT$$GT$5index17h3099bfddb000823eE.exit.i" ], [ %.sroa.6.0.i, %_ZN17cranelift_codegen20nan_canonicalization11is_fp_arith17hc76b4575843e19ffE.llvm.5781664634918412060.exit ], [ %.pre.pre, %_ZN17cranelift_codegen20nan_canonicalization11is_fp_arith17hc76b4575843e19ffE.llvm.5781664634918412060.exit.thread14._ZN17cranelift_codegen20nan_canonicalization11is_fp_arith17hc76b4575843e19ffE.llvm.5781664634918412060.exit.thread_crit_edge ], [ %.sroa.6.0.i, %106 ], [ %.sroa.6.0.i, %103 ]
   %.be66 = phi i32 [ 1, %"_ZN122_$LT$cranelift_codegen..ir..dfg..Insts$u20$as$u20$core..ops..index..Index$LT$cranelift_codegen..ir..entities..Inst$GT$$GT$5index17h3099bfddb000823eE.exit.i" ], [ 1, %_ZN17cranelift_codegen20nan_canonicalization11is_fp_arith17hc76b4575843e19ffE.llvm.5781664634918412060.exit ], [ %.pr9.pre, %_ZN17cranelift_codegen20nan_canonicalization11is_fp_arith17hc76b4575843e19ffE.llvm.5781664634918412060.exit.thread14._ZN17cranelift_codegen20nan_canonicalization11is_fp_arith17hc76b4575843e19ffE.llvm.5781664634918412060.exit.thread_crit_edge ], [ 1, %106 ], [ 1, %103 ]
   br label %.preheader
 
@@ -27538,9 +27538,9 @@ _ZN17cranelift_codegen2ir6layout6Layout11remove_inst17ha518a64ce21b86a8E.exit: ;
   br i1 %215, label %219, label %.invoke, !prof !1354
 
 .invoke:                                          ; preds = %236, %212, %268
-  %216 = phi i64 [ %269, %268 ], [ %238, %236 ], [ %213, %212 ]
-  %217 = phi i64 [ %270, %268 ], [ %237, %236 ], [ %214, %212 ]
-  %218 = phi ptr [ @anon.b5a8f862ed486d2c5aaf296739ee8a16.8.llvm.17595789031839490487, %268 ], [ @anon.b5a8f862ed486d2c5aaf296739ee8a16.8.llvm.17595789031839490487, %236 ], [ @anon.a0b7298307f3a1649f818ae4a5b23c61.403, %212 ]
+  %216 = phi i64 [ %269, %268 ], [ %213, %212 ], [ %238, %236 ]
+  %217 = phi i64 [ %270, %268 ], [ %214, %212 ], [ %237, %236 ]
+  %218 = phi ptr [ @anon.b5a8f862ed486d2c5aaf296739ee8a16.8.llvm.17595789031839490487, %268 ], [ @anon.a0b7298307f3a1649f818ae4a5b23c61.403, %212 ], [ @anon.b5a8f862ed486d2c5aaf296739ee8a16.8.llvm.17595789031839490487, %236 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %216, i64 noundef %217, ptr noalias noundef readonly align 8 dereferenceable(24) %218) #40
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 

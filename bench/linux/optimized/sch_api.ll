@@ -310,7 +310,7 @@ define dso_local range(i32 -22, 1) i32 @register_qdisc(ptr noundef %0) #0 align 
   br label %.thread
 
 .thread:                                          ; preds = %7, %50, %54, %34, %38, %42, %58, %24
-  %59 = phi i32 [ 0, %58 ], [ -22, %24 ], [ -22, %42 ], [ -22, %38 ], [ -22, %34 ], [ -22, %54 ], [ -22, %50 ], [ -17, %7 ]
+  %59 = phi i32 [ 0, %58 ], [ -22, %24 ], [ -22, %50 ], [ -22, %42 ], [ -22, %38 ], [ -22, %34 ], [ -22, %54 ], [ -17, %7 ]
   tail call void @_raw_write_unlock(ptr noundef nonnull @qdisc_mod_lock) #19
   ret i32 %59
 }
@@ -726,7 +726,7 @@ select.unfold:                                    ; preds = %21
   br i1 %92, label %.thread9, label %.preheader, !llvm.loop !28
 
 .thread9:                                         ; preds = %.preheader10, %86, %.preheader, %11, %71, %67, %57, %.thread, %select.unfold, %2
-  %93 = phi ptr [ null, %2 ], [ %6, %select.unfold ], [ null, %.thread ], [ %61, %57 ], [ %52, %67 ], [ null, %71 ], [ %6, %11 ], [ null, %86 ], [ %82, %.preheader ], [ %36, %.preheader10 ]
+  %93 = phi ptr [ null, %2 ], [ %6, %select.unfold ], [ null, %.thread ], [ %61, %57 ], [ %52, %67 ], [ null, %71 ], [ null, %86 ], [ %6, %11 ], [ %82, %.preheader ], [ %36, %.preheader10 ]
   ret ptr %93
 }
 
@@ -863,7 +863,7 @@ select.unfold:                                    ; preds = %21
   br i1 %92, label %.thread9, label %.preheader, !llvm.loop !28
 
 .thread9:                                         ; preds = %.preheader10, %86, %.preheader, %11, %71, %67, %57, %.thread, %select.unfold, %2
-  %93 = phi ptr [ null, %2 ], [ %6, %select.unfold ], [ null, %.thread ], [ %61, %57 ], [ %52, %67 ], [ null, %71 ], [ %6, %11 ], [ null, %86 ], [ %82, %.preheader ], [ %36, %.preheader10 ]
+  %93 = phi ptr [ null, %2 ], [ %6, %select.unfold ], [ null, %.thread ], [ %61, %57 ], [ %52, %67 ], [ null, %71 ], [ null, %86 ], [ %6, %11 ], [ %82, %.preheader ], [ %36, %.preheader10 ]
   ret ptr %93
 }
 
@@ -2036,8 +2036,8 @@ define internal i32 @tc_modify_qdisc(ptr noundef readonly captures(address_is_nu
   br label %66
 
 66:                                               ; preds = %63, %58, %51
-  %67 = phi ptr [ %62, %58 ], [ %65, %63 ], [ %54, %51 ]
-  %68 = phi ptr [ null, %58 ], [ null, %63 ], [ %36, %51 ]
+  %67 = phi ptr [ %62, %58 ], [ %54, %51 ], [ %65, %63 ]
+  %68 = phi ptr [ null, %58 ], [ %36, %51 ], [ null, %63 ]
   %69 = icmp eq ptr %67, null
   br i1 %69, label %.thread39, label %70
 
@@ -2647,8 +2647,8 @@ define internal i32 @tc_get_qdisc(ptr noundef readonly captures(address_is_null)
   br label %64
 
 64:                                               ; preds = %61, %58, %50
-  %65 = phi ptr [ %60, %58 ], [ %63, %61 ], [ %53, %50 ]
-  %66 = phi ptr [ null, %58 ], [ null, %61 ], [ %34, %50 ]
+  %65 = phi ptr [ %60, %58 ], [ %53, %50 ], [ %63, %61 ]
+  %66 = phi ptr [ null, %58 ], [ %34, %50 ], [ null, %61 ]
   %67 = icmp eq ptr %65, null
   br i1 %67, label %.thread18, label %70
 
@@ -2994,7 +2994,7 @@ define internal i32 @tc_dump_qdisc(ptr noundef %0, ptr noundef captures(none) %1
   br i1 %121, label %.loopexit, label %.preheader, !llvm.loop !57
 
 .loopexit:                                        ; preds = %.loopexit6.i, %43, %73
-  %.4.ph = phi i32 [ 1, %73 ], [ 0, %43 ], [ %119, %.loopexit6.i ]
+  %.4.ph = phi i32 [ 0, %43 ], [ 1, %73 ], [ %119, %.loopexit6.i ]
   %122 = getelementptr i8, ptr %39, i64 624
   %123 = load ptr, ptr %122, align 8
   %124 = icmp eq ptr %123, null
@@ -3049,8 +3049,8 @@ tc_dump_qdisc_root.exit:                          ; preds = %.lr.ph, %.loopexit,
   br i1 %157, label %tc_dump_qdisc_root.exit.thread17, label %.lr.ph
 
 tc_dump_qdisc_root.exit.thread17:                 ; preds = %tc_dump_qdisc_root.exit, %62, %142, %100, %34
-  %158 = phi i32 [ 0, %34 ], [ %40, %100 ], [ %155, %tc_dump_qdisc_root.exit ], [ %40, %62 ], [ %40, %142 ]
-  %.2 = phi i32 [ %15, %34 ], [ %88, %100 ], [ %.3, %tc_dump_qdisc_root.exit ], [ 0, %62 ], [ %.4.ph, %142 ]
+  %158 = phi i32 [ %40, %100 ], [ 0, %34 ], [ %155, %tc_dump_qdisc_root.exit ], [ %40, %62 ], [ %40, %142 ]
+  %.2 = phi i32 [ %88, %100 ], [ %15, %34 ], [ %.3, %tc_dump_qdisc_root.exit ], [ 0, %62 ], [ %.4.ph, %142 ]
   %159 = sext i32 %158 to i64
   store i64 %159, ptr %10, align 8
   %160 = sext i32 %.2 to i64
@@ -3795,8 +3795,8 @@ define internal i32 @tc_dump_tclass(ptr noundef %0, ptr noundef %1) #0 align 16 
   %209 = icmp eq i64 %208, 16
   br i1 %209, label %.loopexit, label %150, !llvm.loop !59
 
-.loopexit:                                        ; preds = %109, %.loopexit.i, %21, %._crit_edge21.i, %._crit_edge31.i, %116, %94, %90
-  %.4.ph = phi i32 [ 2, %._crit_edge31.i ], [ 1, %116 ], [ 1, %94 ], [ 1, %90 ], [ 1, %._crit_edge21.i ], [ 0, %21 ], [ %.3, %.loopexit.i ], [ 1, %109 ]
+.loopexit:                                        ; preds = %109, %.loopexit.i, %21, %._crit_edge21.i, %._crit_edge31.i, %116, %90, %94
+  %.4.ph = phi i32 [ %.3, %.loopexit.i ], [ 2, %._crit_edge31.i ], [ 1, %116 ], [ 1, %94 ], [ 1, %90 ], [ 0, %21 ], [ 1, %._crit_edge21.i ], [ 1, %109 ]
   %210 = getelementptr inbounds nuw i8, ptr %19, i64 984
   %211 = load ptr, ptr %210, align 8
   %212 = icmp eq ptr %211, null

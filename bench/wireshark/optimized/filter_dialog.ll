@@ -1419,8 +1419,8 @@ _ZN7QStringD2Ev.exit215:                          ; preds = %449, %_ZN17QArrayDa
   br label %_ZN7QStringD2Ev.exit166
 
 _ZN7QStringD2Ev.exit166:                          ; preds = %_ZN7QStringD2Ev.exit215, %315, %274, %237, %200, %198
-  %.sroa.0225.2 = phi ptr [ %.sroa.0225.0, %198 ], [ %.sroa.0225.1, %_ZN7QStringD2Ev.exit215 ], [ %.sroa.0225.1, %315 ], [ %175, %200 ], [ %251, %274 ], [ %214, %237 ]
-  %.pn50 = phi { ptr, i32 } [ %199, %198 ], [ %.pn47.pn, %_ZN7QStringD2Ev.exit215 ], [ %316, %315 ], [ %201, %200 ], [ %275, %274 ], [ %238, %237 ]
+  %.sroa.0225.2 = phi ptr [ %.sroa.0225.0, %198 ], [ %.sroa.0225.1, %_ZN7QStringD2Ev.exit215 ], [ %214, %237 ], [ %.sroa.0225.1, %315 ], [ %175, %200 ], [ %251, %274 ]
+  %.pn50 = phi { ptr, i32 } [ %199, %198 ], [ %.pn47.pn, %_ZN7QStringD2Ev.exit215 ], [ %238, %237 ], [ %316, %315 ], [ %201, %200 ], [ %275, %274 ]
   %.not.i.i.i216 = icmp eq ptr %.sroa.0225.2, null
   br i1 %.not.i.i.i216, label %_ZN7QStringD2Ev.exit74, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i217
 

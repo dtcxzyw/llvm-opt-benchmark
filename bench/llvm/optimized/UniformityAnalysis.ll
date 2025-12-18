@@ -1077,7 +1077,7 @@ _ZNK4llvm15SmallPtrSetImplIPKNS_12GenericCycleINS_17GenericSSAContextINS_8Functi
   br i1 %.not.i11, label %_ZNK4llvm29GenericUniformityAnalysisImplINS_17GenericSSAContextINS_8FunctionEEEE19isTemporalDivergentERKNS_10BasicBlockERKNS_11InstructionE.exit, label %44, !llvm.loop !169
 
 _ZNK4llvm29GenericUniformityAnalysisImplINS_17GenericSSAContextINS_8FunctionEEEE19isTemporalDivergentERKNS_10BasicBlockERKNS_11InstructionE.exit: ; preds = %_ZNK4llvm15SmallPtrSetImplIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEEE8containsES7_.exit.thread.i, %_ZNK4llvm15SmallPtrSetImplIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEEE8containsES7_.exit.i, %44, %.lr.ph.i.i.i, %31, %_ZNK4llvm29GenericUniformityAnalysisImplINS_17GenericSSAContextINS_8FunctionEEEE11isDivergentEPKNS_5ValueE.exit
-  %.1 = phi i1 [ undef, %_ZNK4llvm29GenericUniformityAnalysisImplINS_17GenericSSAContextINS_8FunctionEEEE11isDivergentEPKNS_5ValueE.exit ], [ false, %31 ], [ true, %.lr.ph.i.i.i ], [ true, %_ZNK4llvm15SmallPtrSetImplIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEEE8containsES7_.exit.i ], [ false, %_ZNK4llvm15SmallPtrSetImplIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEEE8containsES7_.exit.thread.i ], [ false, %44 ]
+  %.1 = phi i1 [ undef, %_ZNK4llvm29GenericUniformityAnalysisImplINS_17GenericSSAContextINS_8FunctionEEEE11isDivergentEPKNS_5ValueE.exit ], [ false, %31 ], [ true, %.lr.ph.i.i.i ], [ false, %_ZNK4llvm15SmallPtrSetImplIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEEE8containsES7_.exit.thread.i ], [ false, %44 ], [ true, %_ZNK4llvm15SmallPtrSetImplIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEEE8containsES7_.exit.i ]
   %spec.select = and i1 %30, %.1
   br label %_ZNK4llvm29GenericUniformityAnalysisImplINS_17GenericSSAContextINS_8FunctionEEEE11isDivergentEPKNS_5ValueE.exit.thread
 
@@ -1550,7 +1550,7 @@ define weak_odr noundef zeroext i1 @_ZNK4llvm21GenericUniformityInfoINS_17Generi
   br i1 %49, label %_ZNK4llvm21GenericUniformityInfoINS_17GenericSSAContextINS_8FunctionEEEE11isDivergentEPKNS_11InstructionE.exit, label %.lr.ph.i.i.i.i.i.i.i.i.i, !prof !15, !llvm.loop !16
 
 _ZNK4llvm21GenericUniformityInfoINS_17GenericSSAContextINS_8FunctionEEEE11isDivergentEPKNS_11InstructionE.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %43, %.lr.ph.i.i.i.i, %14, %22, %25, %31
-  %.0.i.i = phi i1 [ false, %31 ], [ %24, %22 ], [ true, %14 ], [ true, %25 ], [ %.not, %.lr.ph.i.i.i.i ], [ %.not.i.not.i.not.i.not.i, %43 ], [ %.not.i.not.i.not.i.not.i, %.lr.ph.i.i.i.i.i.i.i.i.i ]
+  %.0.i.i = phi i1 [ false, %31 ], [ %24, %22 ], [ true, %14 ], [ %.not, %.lr.ph.i.i.i.i ], [ true, %25 ], [ %.not.i.not.i.not.i.not.i, %43 ], [ %.not.i.not.i.not.i.not.i, %.lr.ph.i.i.i.i.i.i.i.i.i ]
   ret i1 %.0.i.i
 }
 
@@ -1635,7 +1635,7 @@ define weak_odr noundef zeroext i1 @_ZNK4llvm21GenericUniformityInfoINS_17Generi
   br i1 %50, label %_ZNK4llvm29GenericUniformityAnalysisImplINS_17GenericSSAContextINS_8FunctionEEEE11isDivergentERKNS_11InstructionE.exit, label %.lr.ph.i.i.i.i.i.i.i.i, !prof !15, !llvm.loop !16
 
 _ZNK4llvm29GenericUniformityAnalysisImplINS_17GenericSSAContextINS_8FunctionEEEE11isDivergentERKNS_11InstructionE.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %44, %.lr.ph.i.i.i, %14, %23, %26, %32
-  %.0.i = phi i1 [ true, %32 ], [ %25, %23 ], [ false, %14 ], [ false, %26 ], [ %21, %.lr.ph.i.i.i ], [ %.not.i.not.i.not.i.not.not, %44 ], [ %.not.i.not.i.not.i.not.not, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.0.i = phi i1 [ true, %32 ], [ %25, %23 ], [ false, %14 ], [ %21, %.lr.ph.i.i.i ], [ false, %26 ], [ %.not.i.not.i.not.i.not.not, %44 ], [ %.not.i.not.i.not.i.not.not, %.lr.ph.i.i.i.i.i.i.i.i ]
   ret i1 %.0.i
 }
 
@@ -6652,7 +6652,7 @@ _ZN4llvm10successorsEPKNS_10BasicBlockE.exit:     ; preds = %54
   br label %71
 
 .preheader:                                       ; preds = %_ZN4llvm20DivergencePropagatorINS_17GenericSSAContextINS_8FunctionEEEE9visitEdgeERKNS_10BasicBlockES7_.exit, %_ZNK4llvm17ModifiedPostOrderINS_17GenericSSAContextINS_8FunctionEEEE8getIndexEPKNS_10BasicBlockE.exit, %54, %_ZN4llvm10successorsEPKNS_10BasicBlockE.exit
-  %.0277.lcssa = phi i32 [ %14, %_ZN4llvm10successorsEPKNS_10BasicBlockE.exit ], [ %14, %54 ], [ %14, %_ZNK4llvm17ModifiedPostOrderINS_17GenericSSAContextINS_8FunctionEEEE8getIndexEPKNS_10BasicBlockE.exit ], [ %.sroa.speculated249, %_ZN4llvm20DivergencePropagatorINS_17GenericSSAContextINS_8FunctionEEEE9visitEdgeERKNS_10BasicBlockES7_.exit ]
+  %.0277.lcssa = phi i32 [ %14, %_ZN4llvm10successorsEPKNS_10BasicBlockE.exit ], [ %14, %_ZNK4llvm17ModifiedPostOrderINS_17GenericSSAContextINS_8FunctionEEEE8getIndexEPKNS_10BasicBlockE.exit ], [ %14, %54 ], [ %.sroa.speculated249, %_ZN4llvm20DivergencePropagatorINS_17GenericSSAContextINS_8FunctionEEEE9visitEdgeERKNS_10BasicBlockES7_.exit ]
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %63 = load ptr, ptr %62, align 8, !tbaa !338
   %64 = icmp eq ptr %63, %62
@@ -7240,7 +7240,7 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i97: ; preds = %._crit_edge
   br label %_ZN4llvm20DivergencePropagatorINS_17GenericSSAContextINS_8FunctionEEEE18visitCycleExitEdgeERKNS_10BasicBlockES7_.exit
 
 _ZN4llvm20DivergencePropagatorINS_17GenericSSAContextINS_8FunctionEEEE18visitCycleExitEdgeERKNS_10BasicBlockES7_.exit: ; preds = %.lr.ph.i.i.i100, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockES4_NS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_EixEOS4_.exit, %328, %348, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i97
-  %.0.i184288 = phi i1 [ true, %348 ], [ true, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i97 ], [ false, %328 ], [ false, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockES4_NS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_EixEOS4_.exit ], [ true, %.lr.ph.i.i.i100 ]
+  %.0.i184288 = phi i1 [ true, %348 ], [ true, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i97 ], [ false, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockES4_NS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_EixEOS4_.exit ], [ false, %328 ], [ true, %.lr.ph.i.i.i100 ]
   %351 = or i1 %.065328, %.0.i184288
   %352 = load ptr, ptr %1, align 8, !tbaa !349
   %353 = getelementptr inbounds nuw i8, ptr %352, i64 64
@@ -7442,8 +7442,8 @@ _ZNK4llvm17ModifiedPostOrderINS_17GenericSSAContextINS_8FunctionEEEE8getIndexEPK
   br label %451
 
 451:                                              ; preds = %169, %449
-  %.2279 = phi i32 [ %.1278339, %169 ], [ %450, %449 ]
-  %.1 = phi ptr [ %.0341, %169 ], [ %.2, %449 ]
+  %.2279 = phi i32 [ %450, %449 ], [ %.1278339, %169 ]
+  %.1 = phi ptr [ %.2, %449 ], [ %.0341, %169 ]
   %452 = load ptr, ptr %62, align 8, !tbaa !338
   %453 = icmp eq ptr %452, %62
   br i1 %453, label %_ZNK4llvm15SparseBitVectorILj128EE9find_lastEv.exit.thread, label %147

@@ -560,8 +560,8 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
   %12 = icmp eq i64 %11, -9223372036854775808
   br i1 %.not.i.i, label %14, label %13
 
-_ZN4core3cmp9PartialEq2ne17hfe1ddc7664ea222fE.exit.thread: ; preds = %.preheader.backedge, %_ZN4core3cmp9PartialEq2ne17hfe1ddc7664ea222fE.exit, %14, %29, %27, %13, %28, %15, %35, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h37c075f7415561f9E.exit.i.i", %67, %40, %53, %.preheader.preheader, %4
-  %.sroa.0.0 = phi i1 [ false, %4 ], [ true, %.preheader.preheader ], [ false, %53 ], [ false, %40 ], [ false, %67 ], [ false, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h37c075f7415561f9E.exit.i.i" ], [ false, %35 ], [ false, %15 ], [ false, %28 ], [ false, %13 ], [ false, %27 ], [ false, %29 ], [ false, %14 ], [ false, %_ZN4core3cmp9PartialEq2ne17hfe1ddc7664ea222fE.exit ], [ true, %.preheader.backedge ]
+_ZN4core3cmp9PartialEq2ne17hfe1ddc7664ea222fE.exit.thread: ; preds = %.preheader.backedge, %_ZN4core3cmp9PartialEq2ne17hfe1ddc7664ea222fE.exit, %14, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h37c075f7415561f9E.exit.i.i", %29, %27, %13, %28, %15, %35, %67, %40, %53, %.preheader.preheader, %4
+  %.sroa.0.0 = phi i1 [ false, %4 ], [ false, %53 ], [ false, %40 ], [ true, %.preheader.preheader ], [ false, %35 ], [ false, %15 ], [ false, %28 ], [ false, %13 ], [ false, %27 ], [ false, %29 ], [ false, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h37c075f7415561f9E.exit.i.i" ], [ false, %14 ], [ false, %_ZN4core3cmp9PartialEq2ne17hfe1ddc7664ea222fE.exit ], [ true, %.preheader.backedge ], [ false, %67 ]
   ret i1 %.sroa.0.0
 
 13:                                               ; preds = %.lr.ph

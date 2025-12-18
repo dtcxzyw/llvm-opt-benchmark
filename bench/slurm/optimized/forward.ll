@@ -1931,7 +1931,7 @@ split:                                            ; preds = %163, %._crit_edge44
   br i1 %249, label %.thread269, label %.thread272
 
 .thread269:                                       ; preds = %177, %124, %.lr.ph, %146, %.loopexit
-  %.1182271 = phi i32 [ %.1182, %.loopexit ], [ %50, %146 ], [ %50, %.lr.ph ], [ %50, %124 ], [ %50, %177 ]
+  %.1182271 = phi i32 [ %.1182, %.loopexit ], [ %50, %.lr.ph ], [ %50, %146 ], [ %50, %124 ], [ %50, %177 ]
   %250 = call i32 @close(i32 noundef %.1182271) #10
   %251 = icmp slt i32 %250, 0
   br i1 %251, label %252, label %.thread272

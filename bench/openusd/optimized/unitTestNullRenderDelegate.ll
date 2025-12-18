@@ -1977,7 +1977,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22HdCommandArgDescriptorD2Ev.exit40: ; pred
   br label %.body21
 
 .body21:                                          ; preds = %.body23, %68, %63, %183
-  %.pn11.pn.pn = phi { ptr, i32 } [ %.pn11.pn, %183 ], [ %64, %63 ], [ %64, %68 ], [ %78, %.body23 ]
+  %.pn11.pn.pn = phi { ptr, i32 } [ %.pn11.pn, %183 ], [ %64, %68 ], [ %64, %63 ], [ %78, %.body23 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__22HdCommandArgDescriptorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #22
   br label %184
 
@@ -5847,7 +5847,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit32.i: ; preds = %115, %109
   br i1 %119, label %common.resume, label %109
 
 common.resume:                                    ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit30.i, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit32.i, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit40.i, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit42.i, %.body.thread.i40, %.body.thread.i
-  %common.resume.op = phi { ptr, i32 } [ %7, %.body.thread.i ], [ %124, %.body.thread.i40 ], [ %108, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit32.i ], [ %248, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit42.i ], [ %eh.lpad-body54.i, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit40.i ], [ %eh.lpad-body44.i, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit30.i ]
+  %common.resume.op = phi { ptr, i32 } [ %108, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit32.i ], [ %7, %.body.thread.i ], [ %248, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit42.i ], [ %eh.lpad-body54.i, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit40.i ], [ %124, %.body.thread.i40 ], [ %eh.lpad-body44.i, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit30.i ]
   resume { ptr, i32 } %common.resume.op
 
 __cxx_global_var_init.1.exit:                     ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i

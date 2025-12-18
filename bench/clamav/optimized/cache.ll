@@ -1176,7 +1176,7 @@ cmp.exit:                                         ; preds = %19
   %.not11 = icmp samesign ugt i64 %0, %8
   br i1 %.not11, label %cmp.exit.thread4, label %82
 
-cmp.exit.thread4:                                 ; preds = %17, %12, %cmp.exit
+cmp.exit.thread4:                                 ; preds = %12, %17, %cmp.exit
   %51 = getelementptr inbounds nuw i8, ptr %.073, i64 24
   %52 = load ptr, ptr %51, align 8, !tbaa !69
   %.not89 = icmp eq ptr %52, null
@@ -1210,7 +1210,7 @@ cmp.exit.thread4:                                 ; preds = %17, %12, %cmp.exit
   %or.cond = select i1 %68, i1 %69, i1 false
   br i1 %or.cond, label %cmp.exit104.thread9, label %cmp.exit104.thread
 
-cmp.exit104.thread9:                              ; preds = %67, %65, %60
+cmp.exit104.thread9:                              ; preds = %67, %60, %65
   %70 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %71 = load ptr, ptr %70, align 8, !tbaa !70
   store ptr %71, ptr %51, align 8, !tbaa !69

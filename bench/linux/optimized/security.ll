@@ -2320,7 +2320,7 @@ define dso_local i32 @security_inode_rename(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %41, label %.thread, label %.loopexit, !llvm.loop !84
 
 .loopexit:                                        ; preds = %29, %37, %.thread, %16, %5
-  %42 = phi i32 [ 0, %16 ], [ 0, %5 ], [ 0, %.thread ], [ %40, %37 ], [ %32, %29 ]
+  %42 = phi i32 [ 0, %.thread ], [ 0, %16 ], [ 0, %5 ], [ %40, %37 ], [ %32, %29 ]
   ret i32 %42
 }
 
@@ -4891,9 +4891,9 @@ define dso_local i32 @security_getselfattr(i32 noundef %0, ptr noundef %1, ptr n
   br i1 %110, label %.split8.us, label %.split.split, !llvm.loop !180
 
 .split8.us:                                       ; preds = %108, %85, %57, %.loopexit25
-  %.us-phi9 = phi i32 [ %105, %.loopexit25 ], [ %86, %85 ], [ %58, %57 ], [ 0, %108 ]
-  %.us-phi10 = phi i8 [ %106, %.loopexit25 ], [ %87, %85 ], [ %59, %57 ], [ 0, %108 ]
-  %.us-phi11 = phi i64 [ %107, %.loopexit25 ], [ %89, %85 ], [ %61, %57 ], [ 0, %108 ]
+  %.us-phi9 = phi i32 [ %58, %57 ], [ %105, %.loopexit25 ], [ %86, %85 ], [ 0, %108 ]
+  %.us-phi10 = phi i8 [ %59, %57 ], [ %106, %.loopexit25 ], [ %87, %85 ], [ 0, %108 ]
+  %.us-phi11 = phi i64 [ %61, %57 ], [ %107, %.loopexit25 ], [ %89, %85 ], [ 0, %108 ]
   %111 = icmp ne i8 %.us-phi10, 0
   br label %112
 
@@ -4919,7 +4919,7 @@ define dso_local i32 @security_getselfattr(i32 noundef %0, ptr noundef %1, ptr n
   br label %.loopexit
 
 .loopexit:                                        ; preds = %73, %45, %103, %125, %112, %28, %25, %21, %10, %4
-  %128 = phi i32 [ -22, %4 ], [ -14, %10 ], [ -22, %21 ], [ -14, %25 ], [ -22, %28 ], [ %124, %112 ], [ %127, %125 ], [ %102, %103 ], [ %44, %45 ], [ %72, %73 ]
+  %128 = phi i32 [ -22, %4 ], [ -14, %10 ], [ -22, %21 ], [ -14, %25 ], [ -22, %28 ], [ %124, %112 ], [ %127, %125 ], [ %44, %45 ], [ %102, %103 ], [ %72, %73 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %128

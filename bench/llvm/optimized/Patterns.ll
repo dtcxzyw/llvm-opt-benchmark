@@ -4623,51 +4623,51 @@ _ZNKSt8functionIFbRKN4llvm2gi11PatternTypeEEEclES4_.exit: ; preds = %47
 
 73:                                               ; preds = %71
   %74 = getelementptr inbounds nuw i8, ptr %59, i64 16
-  switch i8 %61, label %89 [
-    i8 3, label %80
-    i8 1, label %_ZNK4llvm2gi11PatternTypeneERKS1_.exit
-    i8 2, label %75
+  switch i8 %61, label %91 [
+    i8 3, label %82
+    i8 1, label %75
+    i8 2, label %79
   ]
 
 75:                                               ; preds = %73
+  %76 = load ptr, ptr %74, align 8, !tbaa !7
+  %77 = load ptr, ptr %39, align 8, !tbaa !7
+  %78 = icmp eq ptr %76, %77
+  br i1 %78, label %_ZNK4llvm2gi11PatternTypeneERKS1_.exit.thread111, label %_ZN4llvmplERKNS_5TwineES2_.exit101
+
+79:                                               ; preds = %73
   %.sroa.01.0.copyload.i.i = load ptr, ptr %74, align 8, !tbaa !140
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %59, i64 24
   %.sroa.22.0.copyload.i.i = load i64, ptr %.sroa.22.0..sroa_idx.i.i, align 8, !tbaa !43
   %.sroa.0.0.copyload.i.i = load ptr, ptr %39, align 8, !tbaa !140
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !43
   %.not.i.i.i = icmp eq i64 %.sroa.22.0.copyload.i.i, %.sroa.2.0.copyload.i.i
-  br i1 %.not.i.i.i, label %76, label %_ZN4llvmplERKNS_5TwineES2_.exit101
+  br i1 %.not.i.i.i, label %80, label %_ZN4llvmplERKNS_5TwineES2_.exit101
 
-76:                                               ; preds = %75
-  %77 = icmp eq i64 %.sroa.22.0.copyload.i.i, 0
-  br i1 %77, label %_ZNK4llvm2gi11PatternTypeneERKS1_.exit.thread111, label %78
+80:                                               ; preds = %79
+  %81 = icmp eq i64 %.sroa.22.0.copyload.i.i, 0
+  br i1 %81, label %_ZNK4llvm2gi11PatternTypeneERKS1_.exit.thread111, label %_ZNK4llvm2gi11PatternTypeneERKS1_.exit
 
-78:                                               ; preds = %76
-  %bcmp.i.i.i = call i32 @bcmp(ptr %.sroa.01.0.copyload.i.i, ptr %.sroa.0.0.copyload.i.i, i64 %.sroa.22.0.copyload.i.i)
-  %79 = icmp eq i32 %bcmp.i.i.i, 0
-  br i1 %79, label %_ZNK4llvm2gi11PatternTypeneERKS1_.exit.thread111, label %_ZN4llvmplERKNS_5TwineES2_.exit101
+82:                                               ; preds = %73
+  %83 = load i32, ptr %74, align 4, !tbaa !169
+  %84 = load i32, ptr %39, align 8, !tbaa !169
+  %85 = icmp eq i32 %83, %84
+  %86 = getelementptr inbounds nuw i8, ptr %59, i64 20
+  %87 = load i32, ptr %86, align 4
+  %88 = load i32, ptr %40, align 4
+  %89 = icmp eq i32 %87, %88
+  %90 = select i1 %85, i1 %89, i1 false
+  br i1 %90, label %_ZNK4llvm2gi11PatternTypeneERKS1_.exit.thread111, label %_ZN4llvmplERKNS_5TwineES2_.exit101
 
-80:                                               ; preds = %73
-  %81 = load i32, ptr %74, align 4, !tbaa !169
-  %82 = load i32, ptr %39, align 8, !tbaa !169
-  %83 = icmp eq i32 %81, %82
-  %84 = getelementptr inbounds nuw i8, ptr %59, i64 20
-  %85 = load i32, ptr %84, align 4
-  %86 = load i32, ptr %40, align 4
-  %87 = icmp eq i32 %85, %86
-  %88 = select i1 %83, i1 %87, i1 false
-  br i1 %88, label %_ZNK4llvm2gi11PatternTypeneERKS1_.exit.thread111, label %_ZN4llvmplERKNS_5TwineES2_.exit101
-
-89:                                               ; preds = %73
+91:                                               ; preds = %73
   unreachable
 
-_ZNK4llvm2gi11PatternTypeneERKS1_.exit:           ; preds = %73
-  %90 = load ptr, ptr %74, align 8, !tbaa !7
-  %91 = load ptr, ptr %39, align 8, !tbaa !7
-  %92 = icmp eq ptr %90, %91
+_ZNK4llvm2gi11PatternTypeneERKS1_.exit:           ; preds = %80
+  %bcmp.i.i.i = call i32 @bcmp(ptr %.sroa.01.0.copyload.i.i, ptr %.sroa.0.0.copyload.i.i, i64 %.sroa.22.0.copyload.i.i)
+  %92 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %92, label %_ZNK4llvm2gi11PatternTypeneERKS1_.exit.thread111, label %_ZN4llvmplERKNS_5TwineES2_.exit101
 
-_ZN4llvmplERKNS_5TwineES2_.exit101:               ; preds = %78, %80, %75, %71, %_ZNK4llvm2gi11PatternTypeneERKS1_.exit
+_ZN4llvmplERKNS_5TwineES2_.exit101:               ; preds = %75, %82, %79, %71, %_ZNK4llvm2gi11PatternTypeneERKS1_.exit
   %93 = getelementptr inbounds nuw i8, ptr %.030135, i64 24
   %94 = getelementptr inbounds nuw i8, ptr %.030135, i64 16
   %.sroa.01.0.copyload = load ptr, ptr %0, align 8, !tbaa !241
@@ -4783,7 +4783,7 @@ _ZNKSt8functionIFvvEEclEv.exit:                   ; preds = %_ZNSt7__cxx1112basi
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit
 
-_ZNK4llvm2gi11PatternTypeneERKS1_.exit.thread111: ; preds = %78, %80, %44, %76, %52, %"_ZNSt8functionIFvvEEaSIZN4llvm2gi18OperandTypeChecker5checkERNS4_18InstructionPatternES_IFbRKNS4_11PatternTypeEEEE3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSF_.exit", %_ZNK4llvm2gi11PatternTypeneERKS1_.exit
+_ZNK4llvm2gi11PatternTypeneERKS1_.exit.thread111: ; preds = %75, %82, %44, %80, %52, %"_ZNSt8functionIFvvEEaSIZN4llvm2gi18OperandTypeChecker5checkERNS4_18InstructionPatternES_IFbRKNS4_11PatternTypeEEEE3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSF_.exit", %_ZNK4llvm2gi11PatternTypeneERKS1_.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %130 = getelementptr inbounds nuw i8, ptr %.030135, i64 64
   %.not = icmp eq ptr %130, %35

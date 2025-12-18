@@ -10156,10 +10156,10 @@ _ZN8smallvec10infallible17h9a6aafa93e9c626dE.exit.i.i.i.i.i: ; preds = %.noexc.i
   %.not.i = icmp ult i64 %138, %141
   br i1 %.not.i, label %.invoke, label %145
 
-.invoke:                                          ; preds = %152, %149, %"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17hc662aa133ede94f5E.llvm.17320615007082653151.exit.i"
-  %142 = phi ptr [ @anon.56b80ba41f60f168ea36658d6e9a4b12.55, %"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17hc662aa133ede94f5E.llvm.17320615007082653151.exit.i" ], [ @anon.56b80ba41f60f168ea36658d6e9a4b12.49, %149 ], [ @anon.56b80ba41f60f168ea36658d6e9a4b12.49, %152 ]
-  %143 = phi i64 [ 32, %"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17hc662aa133ede94f5E.llvm.17320615007082653151.exit.i" ], [ 17, %149 ], [ 17, %152 ]
-  %144 = phi ptr [ @anon.56b80ba41f60f168ea36658d6e9a4b12.56, %"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17hc662aa133ede94f5E.llvm.17320615007082653151.exit.i" ], [ @anon.56b80ba41f60f168ea36658d6e9a4b12.50, %149 ], [ @anon.56b80ba41f60f168ea36658d6e9a4b12.50, %152 ]
+.invoke:                                          ; preds = %149, %152, %"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17hc662aa133ede94f5E.llvm.17320615007082653151.exit.i"
+  %142 = phi ptr [ @anon.56b80ba41f60f168ea36658d6e9a4b12.55, %"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17hc662aa133ede94f5E.llvm.17320615007082653151.exit.i" ], [ @anon.56b80ba41f60f168ea36658d6e9a4b12.49, %152 ], [ @anon.56b80ba41f60f168ea36658d6e9a4b12.49, %149 ]
+  %143 = phi i64 [ 32, %"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17hc662aa133ede94f5E.llvm.17320615007082653151.exit.i" ], [ 17, %152 ], [ 17, %149 ]
+  %144 = phi ptr [ @anon.56b80ba41f60f168ea36658d6e9a4b12.56, %"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17hc662aa133ede94f5E.llvm.17320615007082653151.exit.i" ], [ @anon.56b80ba41f60f168ea36658d6e9a4b12.50, %152 ], [ @anon.56b80ba41f60f168ea36658d6e9a4b12.50, %149 ]
   invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 %142, i64 noundef %143, ptr noalias noundef readonly align 8 dereferenceable(24) %144) #55
           to label %.cont unwind label %113
 

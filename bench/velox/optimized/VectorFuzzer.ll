@@ -32991,8 +32991,8 @@ if.end36:                                         ; preds = %while.body
   br i1 %cmp27.not, label %while.cond.while.end_crit_edge, label %while.body.backedge
 
 while.body.backedge:                              ; preds = %if.end36, %while.cond.while.end_crit_edge, %if.end45
-  %mult.068.be = phi i64 [ %mul38, %if.end36 ], [ 1, %while.cond.while.end_crit_edge ], [ 1, %if.end45 ]
-  %result.067.be = phi i64 [ %add31, %if.end36 ], [ 0, %while.cond.while.end_crit_edge ], [ 0, %if.end45 ]
+  %mult.068.be = phi i64 [ %mul38, %if.end36 ], [ 1, %if.end45 ], [ 1, %while.cond.while.end_crit_edge ]
+  %result.067.be = phi i64 [ %add31, %if.end36 ], [ 0, %if.end45 ], [ 0, %while.cond.while.end_crit_edge ]
   br label %while.body, !llvm.loop !423
 
 while.cond.while.end_crit_edge:                   ; preds = %if.end36
@@ -58646,7 +58646,7 @@ return.sink.split:                                ; preds = %if.then.i, %_ZZN8fa
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.then27, %if.then3, %for.end, %entry
-  %retval.0 = phi i1 [ true, %entry ], [ true, %for.end ], [ true, %if.then3 ], [ true, %if.then27 ], [ false, %return.sink.split ]
+  %retval.0 = phi i1 [ true, %entry ], [ true, %for.end ], [ true, %if.then27 ], [ true, %if.then3 ], [ false, %return.sink.split ]
   ret i1 %retval.0
 }
 

@@ -334,7 +334,7 @@ _ZNK16char_decl_plugin13is_const_charEPK4exprRj.exit12.thread.sink.split: ; pred
   br label %_ZNK16char_decl_plugin13is_const_charEPK4exprRj.exit12.thread
 
 _ZNK16char_decl_plugin13is_const_charEPK4exprRj.exit12.thread: ; preds = %_ZNK16char_decl_plugin13is_const_charEPK4exprRj.exit12.thread.sink.split, %56, %_ZNK16char_decl_plugin13is_const_charEPK4exprRj.exit.thread, %_Z9is_app_ofPK4exprii.exit.i9, %93
-  %.0 = phi i32 [ 5, %93 ], [ 5, %_Z9is_app_ofPK4exprii.exit.i9 ], [ 5, %_ZNK16char_decl_plugin13is_const_charEPK4exprRj.exit.thread ], [ 5, %56 ], [ 4, %_ZNK16char_decl_plugin13is_const_charEPK4exprRj.exit12.thread.sink.split ]
+  %.0 = phi i32 [ 5, %56 ], [ 5, %_ZNK16char_decl_plugin13is_const_charEPK4exprRj.exit.thread ], [ 5, %_Z9is_app_ofPK4exprii.exit.i9 ], [ 5, %93 ], [ 4, %_ZNK16char_decl_plugin13is_const_charEPK4exprRj.exit12.thread.sink.split ]
   ret i32 %.0
 }
 

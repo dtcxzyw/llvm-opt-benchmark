@@ -1050,8 +1050,8 @@ decode_subframe_length.exit.i:                    ; preds = %135, %128
   br label %191
 
 191:                                              ; preds = %187, %183, %171
-  %.398.i = phi i32 [ %.297128.i, %171 ], [ %186, %187 ], [ %.297128.i, %183 ]
-  %.388.i = phi i32 [ %.287130.i, %171 ], [ %190, %187 ], [ %.287130.i, %183 ]
+  %.398.i = phi i32 [ %.297128.i, %183 ], [ %186, %187 ], [ %.297128.i, %171 ]
+  %.388.i = phi i32 [ %.287130.i, %183 ], [ %190, %187 ], [ %.287130.i, %171 ]
   %indvars.iv.next167.i = add nuw nsw i64 %indvars.iv166.i, 1
   %exitcond170.not.i = icmp eq i64 %indvars.iv.next167.i, %wide.trip.count.i
   br i1 %exitcond170.not.i, label %._crit_edge133.i, label %161, !llvm.loop !102
@@ -1091,7 +1091,7 @@ decode_subframe_length.exit.i:                    ; preds = %135, %128
   %exitcond179.not.i = icmp eq i64 %indvars.iv.next176.i, %wide.trip.count.i
   br i1 %exitcond179.not.i, label %205, label %.preheader.i, !llvm.loop !105
 
-.loopexit144:                                     ; preds = %decode_subframe_length.exit.i, %._crit_edge127.thread.i.split, %180, %169, %decode_subframe_length.exit.thread.i
+.loopexit144:                                     ; preds = %decode_subframe_length.exit.i, %decode_subframe_length.exit.thread.i, %._crit_edge127.thread.i.split, %180, %169
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %203 = getelementptr inbounds nuw i8, ptr %0, i64 164
@@ -1592,7 +1592,7 @@ get_bitsz.exit.i.i:                               ; preds = %465, %get_bitsz.exi
   br i1 %exitcond.not.i248.i, label %decode_ac_filter.exit.i, label %get_bitsz.exit.i.i, !llvm.loop !124
 
 decode_ac_filter.exit.i:                          ; preds = %get_bitsz.exit.i.i, %get_bitsz.exit.us.i.i, %431
-  %505 = phi i32 [ %spec.select.i245.i, %431 ], [ %487, %get_bitsz.exit.us.i.i ], [ %501, %get_bitsz.exit.i.i ]
+  %505 = phi i32 [ %487, %get_bitsz.exit.us.i.i ], [ %spec.select.i245.i, %431 ], [ %501, %get_bitsz.exit.i.i ]
   %.not227.i = icmp sgt i8 %463, -1
   br i1 %.not227.i, label %decode_mclms.exit.i, label %506
 
@@ -3077,7 +3077,7 @@ decode_channel_residues.exit.i:                   ; preds = %1270, %1169, %.thre
   br i1 %1335, label %.preheader31.i326.i, label %use_high_update_speed.exit.i, !llvm.loop !163
 
 use_high_update_speed.exit.i:                     ; preds = %.loopexit32.i.i, %.loopexit.us.i.i, %.loopexit32.i328.i, %.loopexit.us.i339.i, %.lr.ph38.i323.i, %1309, %.lr.ph38.i.i, %1282
-  %.sink.i = phi i32 [ 16, %.lr.ph38.i.i ], [ 16, %1282 ], [ 8, %1309 ], [ 8, %.lr.ph38.i323.i ], [ 16, %.loopexit.us.i.i ], [ 8, %.loopexit.us.i339.i ], [ 8, %.loopexit32.i328.i ], [ 16, %.loopexit32.i.i ]
+  %.sink.i = phi i32 [ 16, %.lr.ph38.i.i ], [ 16, %.loopexit.us.i.i ], [ 8, %.loopexit32.i328.i ], [ 16, %1282 ], [ 8, %.loopexit.us.i339.i ], [ 8, %.lr.ph38.i323.i ], [ 8, %1309 ], [ 16, %.loopexit32.i.i ]
   %1336 = getelementptr inbounds nuw i32, ptr %328, i64 %indvars.iv569.i
   store i32 %.sink.i, ptr %1336, align 4, !tbaa !41
   %1337 = load i8, ptr %314, align 4, !tbaa !39

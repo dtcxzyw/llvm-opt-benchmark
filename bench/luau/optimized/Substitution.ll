@@ -5535,7 +5535,7 @@ _ZN4Luau12DenseHashMapIPKNS_4TypeES3_NS_16DenseHashPointerESt8equal_toIS3_EE4fin
   br label %_ZN4Luau12Substitution7replaceIPKNS_4TypeEEESt8optionalIT_ES7_.exit
 
 _ZN4Luau12Substitution7replaceIPKNS_4TypeEEESt8optionalIT_ES7_.exit: ; preds = %197, %199, %177, %182, %_ZN4Luau12DenseHashMapIPKNS_4TypeES3_NS_16DenseHashPointerESt8equal_toIS3_EE4findERKS3_.exit.else.i.i
-  %.sroa.01.0.i = phi ptr [ %.0.else.val.i.i, %_ZN4Luau12DenseHashMapIPKNS_4TypeES3_NS_16DenseHashPointerESt8equal_toIS3_EE4findERKS3_.exit.else.i.i ], [ %179, %182 ], [ %179, %177 ], [ %179, %199 ], [ %179, %197 ]
+  %.sroa.01.0.i = phi ptr [ %179, %177 ], [ %.0.else.val.i.i, %_ZN4Luau12DenseHashMapIPKNS_4TypeES3_NS_16DenseHashPointerESt8equal_toIS3_EE4findERKS3_.exit.else.i.i ], [ %179, %182 ], [ %179, %199 ], [ %179, %197 ]
   store ptr %.sroa.01.0.i, ptr %173, align 8
   store i8 1, ptr %174, align 8
   br label %203
@@ -5595,7 +5595,7 @@ _ZN4Luau12DenseHashMapIPKNS_4TypeES3_NS_16DenseHashPointerESt8equal_toIS3_EE4fin
   br label %_ZN4Luau12Substitution7replaceIPKNS_4TypeEEESt8optionalIT_ES7_.exit174
 
 _ZN4Luau12Substitution7replaceIPKNS_4TypeEEESt8optionalIT_ES7_.exit174: ; preds = %228, %230, %208, %213, %_ZN4Luau12DenseHashMapIPKNS_4TypeES3_NS_16DenseHashPointerESt8equal_toIS3_EE4findERKS3_.exit.else.i.i172
-  %.sroa.01.0.i164 = phi ptr [ %.0.else.val.i.i173, %_ZN4Luau12DenseHashMapIPKNS_4TypeES3_NS_16DenseHashPointerESt8equal_toIS3_EE4findERKS3_.exit.else.i.i172 ], [ %210, %213 ], [ %210, %208 ], [ %210, %230 ], [ %210, %228 ]
+  %.sroa.01.0.i164 = phi ptr [ %210, %208 ], [ %.0.else.val.i.i173, %_ZN4Luau12DenseHashMapIPKNS_4TypeES3_NS_16DenseHashPointerESt8equal_toIS3_EE4findERKS3_.exit.else.i.i172 ], [ %210, %213 ], [ %210, %230 ], [ %210, %228 ]
   store ptr %.sroa.01.0.i164, ptr %204, align 8
   store i8 1, ptr %205, align 8
   br label %261

@@ -27369,7 +27369,7 @@ default.unreachable:                              ; preds = %82
   br label %135
 
 .loopexit35.i:                                    ; preds = %.noexc9.i, %128, %117, %109, %98, %.invoke.i14, %._crit_edge.i.i
-  %.sroa.7.0.ph.i13 = phi ptr [ %111, %109 ], [ %94, %.invoke.i14 ], [ %100, %98 ], [ %119, %117 ], [ %130, %128 ], [ %81, %._crit_edge.i.i ], [ %91, %.noexc9.i ]
+  %.sroa.7.0.ph.i13 = phi ptr [ %81, %._crit_edge.i.i ], [ %111, %109 ], [ %94, %.invoke.i14 ], [ %100, %98 ], [ %130, %128 ], [ %119, %117 ], [ %91, %.noexc9.i ]
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.7.0.ph.i13, ptr %134, align 8, !alias.scope !2184, !noalias !2194
   store i32 1, ptr %0, align 8, !alias.scope !2184, !noalias !2194
@@ -34718,7 +34718,7 @@ default.unreachable:                              ; preds = %73
   br label %90
 
 .loopexit35.i:                                    ; preds = %.noexc9.i, %96, %85, %.invoke.i13, %._crit_edge.i.i
-  %.sroa.917.0.ph.i = phi ptr [ %81, %.invoke.i13 ], [ %98, %96 ], [ %87, %85 ], [ %72, %._crit_edge.i.i ], [ %78, %.noexc9.i ]
+  %.sroa.917.0.ph.i = phi ptr [ %72, %._crit_edge.i.i ], [ %81, %.invoke.i13 ], [ %98, %96 ], [ %87, %85 ], [ %78, %.noexc9.i ]
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.917.0.ph.i, ptr %101, align 8, !alias.scope !2408, !noalias !2417
   store i8 1, ptr %0, align 8, !alias.scope !2408, !noalias !2417
@@ -62522,7 +62522,7 @@ default.unreachable:                              ; preds = %73
   br label %90
 
 .loopexit35.i:                                    ; preds = %.noexc9.i, %96, %85, %.invoke.i13, %._crit_edge.i.i
-  %.sroa.917.0.ph.i = phi ptr [ %81, %.invoke.i13 ], [ %98, %96 ], [ %87, %85 ], [ %72, %._crit_edge.i.i ], [ %78, %.noexc9.i ]
+  %.sroa.917.0.ph.i = phi ptr [ %72, %._crit_edge.i.i ], [ %81, %.invoke.i13 ], [ %98, %96 ], [ %87, %85 ], [ %78, %.noexc9.i ]
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.917.0.ph.i, ptr %101, align 8, !alias.scope !3424, !noalias !3433
   store i8 1, ptr %0, align 8, !alias.scope !3424, !noalias !3433
@@ -66102,7 +66102,7 @@ default.unreachable:                              ; preds = %88
   br label %82
 
 .loopexit.i:                                      ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h390096e664e7e11dE.exit.i.i", %122, %.invoke.i.i, %110, %102, %85
-  %.sink.i.i = phi ptr [ %87, %85 ], [ %117, %.invoke.i.i ], [ %121, %122 ], [ %112, %110 ], [ %104, %102 ], [ %98, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h390096e664e7e11dE.exit.i.i" ]
+  %.sink.i.i = phi ptr [ %87, %85 ], [ %117, %.invoke.i.i ], [ %121, %122 ], [ %104, %102 ], [ %112, %110 ], [ %98, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h390096e664e7e11dE.exit.i.i" ]
   %127 = load i64, ptr %12, align 8, !range !957, !noalias !3584, !noundef !21
   %switch.i.i = icmp slt i64 %127, -9223372036854775806
   br i1 %switch.i.i, label %136, label %128
@@ -73867,7 +73867,7 @@ _ZN5serde9__private2de7content17visit_content_seq17h4e5cef39c3f9b5b6E.exit: ; pr
   br label %.loopexit.i.i
 
 .loopexit.split-lp.i.i:                           ; preds = %196, %176, %.invoke.i
-  %.sroa.0134.1.ph.i.i = phi i8 [ 1, %176 ], [ %.sroa.0134.6.i.i, %196 ], [ 1, %.invoke.i ]
+  %.sroa.0134.1.ph.i.i = phi i8 [ 1, %.invoke.i ], [ 1, %176 ], [ %.sroa.0134.6.i.i, %196 ]
   %lpad.loopexit.split-lp.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.i.i
@@ -86091,7 +86091,7 @@ default.unreachable:                              ; preds = %78
   br label %135
 
 .loopexit45.i:                                    ; preds = %.noexc9.i13, %126, %113, %105, %94, %.invoke.i14, %._crit_edge.i.i
-  %.sroa.7.0.ph.i = phi ptr [ %106, %105 ], [ %90, %.invoke.i14 ], [ %95, %94 ], [ %115, %113 ], [ %128, %126 ], [ %77, %._crit_edge.i.i ], [ %87, %.noexc9.i13 ]
+  %.sroa.7.0.ph.i = phi ptr [ %77, %._crit_edge.i.i ], [ %106, %105 ], [ %90, %.invoke.i14 ], [ %95, %94 ], [ %128, %126 ], [ %115, %113 ], [ %87, %.noexc9.i13 ]
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.7.0.ph.i, ptr %134, align 8, !alias.scope !4391, !noalias !4400
   store i32 1, ptr %0, align 8, !alias.scope !4391, !noalias !4400
@@ -99448,7 +99448,7 @@ _ZN5serde9__private2de7content21visit_content_seq_ref17hc84d1a3aaf4d700aE.exit: 
   br label %175
 
 .loopexit.split-lp.i.i:                           ; preds = %236, %216, %.invoke.i
-  %.sroa.077.1.ph.i.i = phi i8 [ 1, %216 ], [ %.sroa.077.6.i.i, %236 ], [ 1, %.invoke.i ]
+  %.sroa.077.1.ph.i.i = phi i8 [ %.sroa.077.6.i.i, %236 ], [ 1, %.invoke.i ], [ 1, %216 ]
   %lpad.loopexit.split-lp.i.i = landingpad { ptr, i32 }
           cleanup
   br label %175
@@ -100220,7 +100220,7 @@ _ZN5serde9__private2de7content21visit_content_seq_ref17hb5c0e39a64b2f25dE.exit: 
   br label %_ZN5serde9__private2de7content21visit_content_map_ref17h6a5a2c0ff894f475E.exit
 
 .loopexit.i:                                      ; preds = %163, %179, %171, %166, %._crit_edge.i.i
-  %.sink23.i = phi ptr [ %173, %171 ], [ %167, %166 ], [ %160, %._crit_edge.i.i ], [ %180, %179 ], [ %164, %163 ]
+  %.sink23.i = phi ptr [ %180, %179 ], [ %160, %._crit_edge.i.i ], [ %173, %171 ], [ %167, %166 ], [ %164, %163 ]
   %184 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink23.i, ptr %184, align 8, !alias.scope !5346, !noalias !5356
   br label %_ZN5serde9__private2de7content21visit_content_map_ref17h6a5a2c0ff894f475E.exit
@@ -100321,7 +100321,7 @@ define hidden void @"_ZN106_$LT$serde..__private..de..content..ContentRefDeseria
   br label %.body.i.i
 
 .loopexit.split-lp.i.i:                           ; preds = %93, %76, %55, %38
-  %.sroa.081.1.ph.i.i = phi i8 [ 1, %76 ], [ %.sroa.081.6.i.i, %93 ], [ 1, %38 ], [ 1, %55 ]
+  %.sroa.081.1.ph.i.i = phi i8 [ %.sroa.081.6.i.i, %93 ], [ 1, %38 ], [ 1, %76 ], [ 1, %55 ]
   %lpad.loopexit.split-lp.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i.i
@@ -100809,9 +100809,9 @@ define hidden void @"_ZN106_$LT$serde..__private..de..content..ContentRefDeseria
   br label %.body.i.i
 
 .loopexit.split-lp.i.i:                           ; preds = %188, %187, %154, %.invoke.i
-  %.sroa.0251.1.ph.i.i = phi i8 [ %.sroa.0251.10.i.i, %187 ], [ %.sroa.0251.10.i.i, %188 ], [ 1, %154 ], [ 1, %.invoke.i ]
-  %.sroa.0253.1.ph.i.i = phi i8 [ %.sroa.0253.8.i.i, %187 ], [ %.sroa.0253.8.i.i, %188 ], [ 1, %154 ], [ 1, %.invoke.i ]
-  %.sroa.0255.1.ph.i.i = phi i8 [ %.sroa.0255.6.i.i, %187 ], [ %.sroa.0255.6.i.i, %188 ], [ 1, %154 ], [ 1, %.invoke.i ]
+  %.sroa.0251.1.ph.i.i = phi i8 [ 1, %.invoke.i ], [ %.sroa.0251.10.i.i, %187 ], [ %.sroa.0251.10.i.i, %188 ], [ 1, %154 ]
+  %.sroa.0253.1.ph.i.i = phi i8 [ 1, %.invoke.i ], [ %.sroa.0253.8.i.i, %187 ], [ %.sroa.0253.8.i.i, %188 ], [ 1, %154 ]
+  %.sroa.0255.1.ph.i.i = phi i8 [ 1, %.invoke.i ], [ %.sroa.0255.6.i.i, %187 ], [ %.sroa.0255.6.i.i, %188 ], [ 1, %154 ]
   %lpad.loopexit.split-lp.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i.i
@@ -101898,7 +101898,7 @@ define hidden void @"_ZN106_$LT$serde..__private..de..content..ContentRefDeseria
   br label %.body.i.i
 
 .loopexit.split-lp.i.i:                           ; preds = %331, %98, %77, %60
-  %.sroa.078.1.ph.i.i = phi i8 [ 1, %98 ], [ %.sroa.078.6.i.i, %331 ], [ 1, %60 ], [ 1, %77 ]
+  %.sroa.078.1.ph.i.i = phi i8 [ %.sroa.078.6.i.i, %331 ], [ 1, %60 ], [ 1, %98 ], [ 1, %77 ]
   %lpad.loopexit.split-lp.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i.i
@@ -102189,9 +102189,9 @@ define hidden void @"_ZN106_$LT$serde..__private..de..content..ContentRefDeseria
   br label %.body.i.i.i
 
 .loopexit.split-lp.i.i.i:                         ; preds = %261, %260, %227, %.invoke.i.i
-  %.sroa.0251.1.ph.i.i.i = phi i8 [ %.sroa.0251.10.i.i.i, %260 ], [ %.sroa.0251.10.i.i.i, %261 ], [ 1, %227 ], [ 1, %.invoke.i.i ]
-  %.sroa.0253.1.ph.i.i.i = phi i8 [ %.sroa.0253.8.i.i.i, %260 ], [ %.sroa.0253.8.i.i.i, %261 ], [ 1, %227 ], [ 1, %.invoke.i.i ]
-  %.sroa.0255.1.ph.i.i.i = phi i8 [ %.sroa.0255.6.i.i.i, %260 ], [ %.sroa.0255.6.i.i.i, %261 ], [ 1, %227 ], [ 1, %.invoke.i.i ]
+  %.sroa.0251.1.ph.i.i.i = phi i8 [ 1, %.invoke.i.i ], [ %.sroa.0251.10.i.i.i, %260 ], [ %.sroa.0251.10.i.i.i, %261 ], [ 1, %227 ]
+  %.sroa.0253.1.ph.i.i.i = phi i8 [ 1, %.invoke.i.i ], [ %.sroa.0253.8.i.i.i, %260 ], [ %.sroa.0253.8.i.i.i, %261 ], [ 1, %227 ]
+  %.sroa.0255.1.ph.i.i.i = phi i8 [ 1, %.invoke.i.i ], [ %.sroa.0255.6.i.i.i, %260 ], [ %.sroa.0255.6.i.i.i, %261 ], [ 1, %227 ]
   %lpad.loopexit.split-lp.i.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i.i.i
@@ -105761,7 +105761,7 @@ default.unreachable:                              ; preds = %71
   br label %_ZN5serde9__private2de7content21visit_content_map_ref17h3ca1f307249b3587E.exit
 
 .loopexit.i:                                      ; preds = %75, %100, %95, %90, %82, %77, %._crit_edge.i.i
-  %.sink54.i = phi ptr [ %91, %90 ], [ %97, %95 ], [ %78, %77 ], [ %84, %82 ], [ %70, %._crit_edge.i.i ], [ %101, %100 ], [ %76, %75 ]
+  %.sink54.i = phi ptr [ %101, %100 ], [ %70, %._crit_edge.i.i ], [ %91, %90 ], [ %97, %95 ], [ %78, %77 ], [ %84, %82 ], [ %76, %75 ]
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink54.i, ptr %105, align 8, !alias.scope !5788, !noalias !5798
   br label %_ZN5serde9__private2de7content21visit_content_map_ref17h3ca1f307249b3587E.exit
@@ -106876,7 +106876,7 @@ default.unreachable:                              ; preds = %80
   br label %_ZN5serde9__private2de7content21visit_content_map_ref17hc3f90dc2269fe982E.exit
 
 .loopexit.i:                                      ; preds = %88, %133, %127, %116, %108, %103, %95, %90, %._crit_edge.i.i
-  %.sink94.i = phi ptr [ %110, %108 ], [ %104, %103 ], [ %97, %95 ], [ %91, %90 ], [ %118, %116 ], [ %129, %127 ], [ %79, %._crit_edge.i.i ], [ %134, %133 ], [ %89, %88 ]
+  %.sink94.i = phi ptr [ %134, %133 ], [ %79, %._crit_edge.i.i ], [ %110, %108 ], [ %104, %103 ], [ %97, %95 ], [ %91, %90 ], [ %118, %116 ], [ %129, %127 ], [ %89, %88 ]
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink94.i, ptr %138, align 8, !alias.scope !5854, !noalias !5864
   br label %_ZN5serde9__private2de7content21visit_content_map_ref17hc3f90dc2269fe982E.exit
@@ -107256,7 +107256,7 @@ default.unreachable:                              ; preds = %81
   br i1 %.not88.i.i, label %121, label %120
 
 .loopexit.i:                                      ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17hd9cfceceaa5046d2E.exit.i.i", %127, %112, %102, %.invoke.i.i, %92, %78
-  %.sink.i.i = phi ptr [ %80, %78 ], [ %97, %.invoke.i.i ], [ %101, %102 ], [ %93, %92 ], [ %114, %112 ], [ %126, %127 ], [ %88, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17hd9cfceceaa5046d2E.exit.i.i" ]
+  %.sink.i.i = phi ptr [ %80, %78 ], [ %97, %.invoke.i.i ], [ %101, %102 ], [ %126, %127 ], [ %93, %92 ], [ %114, %112 ], [ %88, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17hd9cfceceaa5046d2E.exit.i.i" ]
   %119 = load i64, ptr %13, align 8, !range !69, !noalias !5881, !noundef !21
   %.not93.i.i = icmp eq i64 %119, -9223372036854775808
   br i1 %.not93.i.i, label %133, label %129
@@ -107313,9 +107313,9 @@ default.unreachable:                              ; preds = %81
   br label %_ZN5serde9__private2de7content21visit_content_map_ref17h8c8153bda3cb37f2E.exit
 
 136:                                              ; preds = %128, %120
-  %.sroa.10.0.i = phi i64 [ %.sroa.466.0.copyload.i.i, %120 ], [ %.sroa.684.0.copyload.i.i, %128 ]
-  %.sroa.7.0.i = phi ptr [ %.sroa.364.0.copyload.i.i, %120 ], [ %126, %128 ]
-  %.sroa.0.0.i = phi i64 [ %118, %120 ], [ %123, %128 ]
+  %.sroa.10.0.i = phi i64 [ %.sroa.684.0.copyload.i.i, %128 ], [ %.sroa.466.0.copyload.i.i, %120 ]
+  %.sroa.7.0.i = phi ptr [ %126, %128 ], [ %.sroa.364.0.copyload.i.i, %120 ]
+  %.sroa.0.0.i = phi i64 [ %123, %128 ], [ %118, %120 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !5881
   store i64 %.sroa.0.0.i, ptr %15, align 8, !noalias !5879
   %.sroa.4.0..sroa_idx.i2 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -107694,7 +107694,7 @@ default.unreachable:                              ; preds = %79
   br label %_ZN5serde9__private2de7content21visit_content_map_ref17h7f554ee495113b22E.exit
 
 .loopexit.i:                                      ; preds = %87, %136, %128, %115, %107, %102, %94, %89, %._crit_edge.i.i
-  %.sink144.i = phi ptr [ %108, %107 ], [ %103, %102 ], [ %95, %94 ], [ %90, %89 ], [ %117, %115 ], [ %130, %128 ], [ %78, %._crit_edge.i.i ], [ %137, %136 ], [ %88, %87 ]
+  %.sink144.i = phi ptr [ %137, %136 ], [ %78, %._crit_edge.i.i ], [ %108, %107 ], [ %103, %102 ], [ %95, %94 ], [ %90, %89 ], [ %117, %115 ], [ %130, %128 ], [ %88, %87 ]
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink144.i, ptr %141, align 8, !alias.scope !5901, !noalias !5911
   br label %_ZN5serde9__private2de7content21visit_content_map_ref17h7f554ee495113b22E.exit
@@ -107948,7 +107948,7 @@ _ZN5serde9__private2de7content21visit_content_seq_ref17h2f19802c847f039eE.exit: 
   br label %82
 
 .loopexit.split-lp.i.i:                           ; preds = %143, %123, %.invoke.i
-  %.sroa.077.1.ph.i.i = phi i8 [ 1, %123 ], [ %.sroa.077.6.i.i, %143 ], [ 1, %.invoke.i ]
+  %.sroa.077.1.ph.i.i = phi i8 [ %.sroa.077.6.i.i, %143 ], [ 1, %.invoke.i ], [ 1, %123 ]
   %lpad.loopexit.split-lp.i.i = landingpad { ptr, i32 }
           cleanup
   br label %82
@@ -108484,7 +108484,7 @@ _ZN5serde9__private2de7content21visit_content_seq_ref17h7dcdc75238349688E.exit: 
   br label %_ZN5serde9__private2de7content21visit_content_map_ref17hdb910bed277139f5E.exit
 
 .loopexit.i:                                      ; preds = %58, %74, %66, %61, %._crit_edge.i.i
-  %.sink23.i = phi ptr [ %68, %66 ], [ %62, %61 ], [ %55, %._crit_edge.i.i ], [ %75, %74 ], [ %59, %58 ]
+  %.sink23.i = phi ptr [ %75, %74 ], [ %55, %._crit_edge.i.i ], [ %68, %66 ], [ %62, %61 ], [ %59, %58 ]
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink23.i, ptr %78, align 8, !alias.scope !5952, !noalias !5962
   br label %_ZN5serde9__private2de7content21visit_content_map_ref17hdb910bed277139f5E.exit
@@ -108677,7 +108677,7 @@ _ZN5serde9__private2de7content21visit_content_seq_ref17h78c96ed7c70a5361E.exit: 
   br label %_ZN5serde9__private2de7content21visit_content_map_ref17h5e5389a3adcafdd3E.exit
 
 .loopexit.i:                                      ; preds = %58, %74, %66, %61, %._crit_edge.i.i
-  %.sink23.i = phi ptr [ %68, %66 ], [ %62, %61 ], [ %55, %._crit_edge.i.i ], [ %75, %74 ], [ %59, %58 ]
+  %.sink23.i = phi ptr [ %75, %74 ], [ %55, %._crit_edge.i.i ], [ %68, %66 ], [ %62, %61 ], [ %59, %58 ]
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink23.i, ptr %78, align 8, !alias.scope !5974, !noalias !5984
   br label %_ZN5serde9__private2de7content21visit_content_map_ref17h5e5389a3adcafdd3E.exit

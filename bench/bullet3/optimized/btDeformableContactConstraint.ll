@@ -1689,7 +1689,7 @@ _ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff.exit139: ; preds = %_ZN11btMultiBo
   br i1 %exitcond.not.i145, label %_ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff.exit146, label %388, !llvm.loop !64
 
 _ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff.exit146: ; preds = %388, %300, %310, %_ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff.exit, %_ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff.exit139, %120
-  %.0 = phi float [ 0.000000e+00, %120 ], [ %143, %_ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff.exit139 ], [ %143, %_ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff.exit ], [ %143, %310 ], [ %143, %300 ], [ %143, %388 ]
+  %.0 = phi float [ 0.000000e+00, %120 ], [ %143, %300 ], [ %143, %_ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff.exit139 ], [ %143, %_ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff.exit ], [ %143, %310 ], [ %143, %388 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret float %.0
 }

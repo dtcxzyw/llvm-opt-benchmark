@@ -1244,7 +1244,7 @@ define internal range(i32 -2147483648, 1) i32 @asink_query_formats(ptr noundef %
   br i1 %82, label %.thread77, label %83
 
 .thread77:                                        ; preds = %43, %72, %._crit_edge, %56, %._crit_edge86
-  %.157.ph = phi i32 [ %81, %._crit_edge86 ], [ %59, %56 ], [ %52, %._crit_edge ], [ %78, %72 ], [ %49, %43 ]
+  %.157.ph = phi i32 [ %81, %._crit_edge86 ], [ %78, %72 ], [ %59, %56 ], [ %52, %._crit_edge ], [ %49, %43 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %85
 

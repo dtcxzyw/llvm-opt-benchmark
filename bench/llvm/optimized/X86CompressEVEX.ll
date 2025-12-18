@@ -341,7 +341,7 @@ switch.early.test36.i:                            ; preds = %41
   br label %"_ZZL16CompressEVEXImplRN4llvm12MachineInstrERKNS_12X86SubtargetEENK3$_0clERj.exit.i"
 
 "_ZZL16CompressEVEXImplRN4llvm12MachineInstrERKNS_12X86SubtargetEENK3$_0clERj.exit.i": ; preds = %82, %61
-  %.047.i = phi i32 [ %44, %61 ], [ %85, %82 ]
+  %.047.i = phi i32 [ %85, %82 ], [ %44, %61 ]
   %86 = tail call noundef i32 @_ZN4llvm3X8615getNonNDVariantEj(i32 noundef %.047.i) #12
   br label %"_ZZL16CompressEVEXImplRN4llvm12MachineInstrERKNS_12X86SubtargetEENK3$_1clEj.exit.i"
 
@@ -654,7 +654,7 @@ _ZN12_GLOBAL__N_114checkPredicateEjPKN4llvm12X86SubtargetE.exit.thread.i.i: ; pr
   br label %_ZL16CompressEVEXImplRN4llvm12MachineInstrERKNS_12X86SubtargetE.exit
 
 _ZL16CompressEVEXImplRN4llvm12MachineInstrERKNS_12X86SubtargetE.exit: ; preds = %114, %.lr.ph, %36, %_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_113X86TableEntryEEERjEEDaOT_OT0_.exit.i.i, %103, %123, %126, %129, %132, %_ZN12_GLOBAL__N_114checkPredicateEjPKN4llvm12X86SubtargetE.exit.i.i, %164, %"_ZZL16CompressEVEXImplRN4llvm12MachineInstrERKNS_12X86SubtargetEENK3$_1clEj.exit.i", %187, %191
-  %.030.i = phi i1 [ false, %.lr.ph ], [ false, %36 ], [ false, %"_ZZL16CompressEVEXImplRN4llvm12MachineInstrERKNS_12X86SubtargetEENK3$_1clEj.exit.i" ], [ true, %187 ], [ true, %191 ], [ false, %_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_113X86TableEntryEEERjEEDaOT_OT0_.exit.i.i ], [ false, %103 ], [ false, %123 ], [ false, %_ZN12_GLOBAL__N_114checkPredicateEjPKN4llvm12X86SubtargetE.exit.i.i ], [ false, %132 ], [ false, %129 ], [ false, %126 ], [ false, %164 ], [ false, %114 ]
+  %.030.i = phi i1 [ false, %.lr.ph ], [ false, %36 ], [ false, %"_ZZL16CompressEVEXImplRN4llvm12MachineInstrERKNS_12X86SubtargetEENK3$_1clEj.exit.i" ], [ true, %187 ], [ true, %191 ], [ false, %_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_113X86TableEntryEEERjEEDaOT_OT0_.exit.i.i ], [ false, %103 ], [ false, %123 ], [ false, %_ZN12_GLOBAL__N_114checkPredicateEjPKN4llvm12X86SubtargetE.exit.i.i ], [ false, %164 ], [ false, %132 ], [ false, %129 ], [ false, %126 ], [ false, %114 ]
   %192 = or i1 %.127, %.030.i
   %193 = icmp ne ptr %.sroa.016.028, null
   tail call void @llvm.assume(i1 %193)

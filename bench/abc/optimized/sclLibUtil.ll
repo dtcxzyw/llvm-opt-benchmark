@@ -459,8 +459,8 @@ define void @Abc_SclShortFormula(ptr noundef readonly captures(none) %0, ptr nou
   br label %.backedge
 
 .backedge:                                        ; preds = %Abc_SclFindLimit.exit, %.backedge.sink.split, %Abc_SclFindLimit.exit.preheader
-  %.017.be = phi ptr [ %.0.i, %Abc_SclFindLimit.exit.preheader ], [ %.017.be.ph, %.backedge.sink.split ], [ %.0.i, %Abc_SclFindLimit.exit ]
-  %.0.be = phi ptr [ %.027, %Abc_SclFindLimit.exit.preheader ], [ %14, %.backedge.sink.split ], [ %.027, %Abc_SclFindLimit.exit ]
+  %.017.be = phi ptr [ %.017.be.ph, %.backedge.sink.split ], [ %.0.i, %Abc_SclFindLimit.exit.preheader ], [ %.0.i, %Abc_SclFindLimit.exit ]
+  %.0.be = phi ptr [ %14, %.backedge.sink.split ], [ %.027, %Abc_SclFindLimit.exit.preheader ], [ %.027, %Abc_SclFindLimit.exit ]
   %15 = load i8, ptr %.017.be, align 1, !tbaa !13
   %.not = icmp eq i8 %15, 0
   br i1 %.not, label %._crit_edge, label %7, !llvm.loop !30
@@ -791,7 +791,7 @@ Abc_SclTimingsUpdate.exit.i:                      ; preds = %Abc_SclTimingUpdate
   br i1 %107, label %.lr.ph.split.i, label %.critedge2.i, !llvm.loop !50
 
 .critedge2.i:                                     ; preds = %103, %.lr.ph.i102, %Abc_SclTimingsUpdate.exit.i, %.lr.ph.i.i
-  %.pre56.i = phi i32 [ %.pre59.i, %.lr.ph.i102 ], [ %.pre59.i, %Abc_SclTimingsUpdate.exit.i ], [ %.pre.i, %.lr.ph.i.i ], [ %.pre57.i, %103 ]
+  %.pre56.i = phi i32 [ %.pre59.i, %.lr.ph.i102 ], [ %.pre.i, %.lr.ph.i.i ], [ %.pre59.i, %Abc_SclTimingsUpdate.exit.i ], [ %.pre57.i, %103 ]
   %indvars.iv.next52.i = add nuw nsw i64 %indvars.iv51.i, 1
   %.val38.i = load i32, ptr %47, align 4, !tbaa !24
   %108 = sext i32 %.val38.i to i64
@@ -829,9 +829,9 @@ Abc_SclTimingsUpdate.exit.i:                      ; preds = %Abc_SclTimingUpdate
   br label %.backedge.i.i
 
 .backedge.i.i:                                    ; preds = %Abc_SclFindLimit.exit.i.i, %Abc_SclFindLimit.exit.preheader.i.i, %.backedge.sink.split.i.i
-  %120 = phi i8 [ %121, %Abc_SclFindLimit.exit.preheader.i.i ], [ %.pre55.i, %.backedge.sink.split.i.i ], [ %121, %Abc_SclFindLimit.exit.i.i ]
-  %.017.be.i.i = phi ptr [ %.0.i.i.i, %Abc_SclFindLimit.exit.preheader.i.i ], [ %.017.be.ph.i.i, %.backedge.sink.split.i.i ], [ %.0.i.i.i, %Abc_SclFindLimit.exit.i.i ]
-  %.0.be.i.i = phi ptr [ %.027.i.i, %Abc_SclFindLimit.exit.preheader.i.i ], [ %119, %.backedge.sink.split.i.i ], [ %.027.i.i, %Abc_SclFindLimit.exit.i.i ]
+  %120 = phi i8 [ %.pre55.i, %.backedge.sink.split.i.i ], [ %121, %Abc_SclFindLimit.exit.preheader.i.i ], [ %121, %Abc_SclFindLimit.exit.i.i ]
+  %.017.be.i.i = phi ptr [ %.017.be.ph.i.i, %.backedge.sink.split.i.i ], [ %.0.i.i.i, %Abc_SclFindLimit.exit.preheader.i.i ], [ %.0.i.i.i, %Abc_SclFindLimit.exit.i.i ]
+  %.0.be.i.i = phi ptr [ %119, %.backedge.sink.split.i.i ], [ %.027.i.i, %Abc_SclFindLimit.exit.preheader.i.i ], [ %.027.i.i, %Abc_SclFindLimit.exit.i.i ]
   %.not.i.i = icmp eq i8 %120, 0
   br i1 %.not.i.i, label %Abc_SclShortFormula.exit.i, label %.lr.ph28.i.i, !llvm.loop !30
 
@@ -1152,8 +1152,8 @@ Vec_WrdEqual.exit.thread:                         ; preds = %44, %28, %17, %23
   br label %.critedge2
 
 .critedge2:                                       ; preds = %.critedge2.loopexit202, %.critedge2.loopexit, %8
-  %.0139 = phi i32 [ 0, %8 ], [ %49, %.critedge2.loopexit ], [ %50, %.critedge2.loopexit202 ]
-  %.296 = phi ptr [ %.094148, %8 ], [ %19, %.critedge2.loopexit ], [ %19, %.critedge2.loopexit202 ]
+  %.0139 = phi i32 [ %49, %.critedge2.loopexit ], [ 0, %8 ], [ %50, %.critedge2.loopexit202 ]
+  %.296 = phi ptr [ %19, %.critedge2.loopexit ], [ %.094148, %8 ], [ %19, %.critedge2.loopexit202 ]
   %51 = icmp eq i32 %.0139, %.val113
   br i1 %51, label %.critedge2.thread, label %81
 
@@ -2265,7 +2265,7 @@ Scl_CellPinTime.exit.thread.sink.split:           ; preds = %27, %32
   br label %Scl_CellPinTime.exit.thread
 
 Scl_CellPinTime.exit.thread:                      ; preds = %Scl_CellPinTime.exit.thread.sink.split, %6, %Scl_CellPinTime.exit
-  %.0 = phi i32 [ 0, %Scl_CellPinTime.exit ], [ 0, %6 ], [ 1, %Scl_CellPinTime.exit.thread.sink.split ]
+  %.0 = phi i32 [ 0, %6 ], [ 0, %Scl_CellPinTime.exit ], [ 1, %Scl_CellPinTime.exit.thread.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -3580,7 +3580,7 @@ Scl_CellPinTime.exit.i:                           ; preds = %.lr.ph.i
   %.pre53 = sext i32 %.pre to i64
   br label %80
 
-Abc_SclComputeParametersPin.exit.thread:          ; preds = %Scl_CellPinTime.exit.i, %.lr.ph.i
+Abc_SclComputeParametersPin.exit.thread:          ; preds = %.lr.ph.i, %Scl_CellPinTime.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -3834,7 +3834,7 @@ define void @Abc_SclMarkSkippedCells(ptr noundef readonly captures(none) %0) loc
   br i1 %.not17, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !111
 
 .outer._crit_edge:                                ; preds = %.outer, %.backedge, %.preheader
-  %.0.ph.lcssa = phi i32 [ 0, %.preheader ], [ %.0.ph20, %.backedge ], [ %24, %.outer ]
+  %.0.ph.lcssa = phi i32 [ %.0.ph20, %.backedge ], [ 0, %.preheader ], [ %24, %.outer ]
   %26 = call i32 @fclose(ptr noundef nonnull %6)
   %27 = load ptr, ptr %0, align 8, !tbaa !58
   %28 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef %.0.ph.lcssa, ptr noundef %27)
@@ -8806,7 +8806,7 @@ Vec_StrPrintStr.exit511:                          ; preds = %Vec_StrPush.exit.i5
   br i1 %1098, label %603, label %.lr.ph.i512, !llvm.loop !150
 
 .lr.ph.i512:                                      ; preds = %.critedge4, %1096, %.preheader553, %.preheader551
-  %.3 = phi i32 [ 2, %.preheader551 ], [ 2, %.preheader553 ], [ %.5, %1096 ], [ %.1127, %.critedge4 ]
+  %.3 = phi i32 [ %.5, %1096 ], [ 2, %.preheader551 ], [ 2, %.preheader553 ], [ %.1127, %.critedge4 ]
   br label %1099
 
 1099:                                             ; preds = %Vec_StrPush.exit.i518, %.lr.ph.i512

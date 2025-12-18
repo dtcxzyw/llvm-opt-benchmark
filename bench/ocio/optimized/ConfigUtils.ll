@@ -4365,9 +4365,9 @@ _ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev9ProcessorELN9__gnu_cxx12_Lock_policy
   br label %.loopexit
 
 .loopexit:                                        ; preds = %207, %256, %.loopexit.loopexit.split.loop.exit170
-  %259 = phi ptr [ %218, %.loopexit.loopexit.split.loop.exit170 ], [ %218, %256 ], [ %169, %207 ]
-  %260 = phi ptr [ %216, %.loopexit.loopexit.split.loop.exit170 ], [ %216, %256 ], [ %167, %207 ]
-  %.3 = phi i32 [ %258, %.loopexit.loopexit.split.loop.exit170 ], [ -1, %256 ], [ -1, %207 ]
+  %259 = phi ptr [ %218, %256 ], [ %218, %.loopexit.loopexit.split.loop.exit170 ], [ %169, %207 ]
+  %260 = phi ptr [ %216, %256 ], [ %216, %.loopexit.loopexit.split.loop.exit170 ], [ %167, %207 ]
+  %.3 = phi i32 [ -1, %256 ], [ %258, %.loopexit.loopexit.split.loop.exit170 ], [ -1, %207 ]
   %261 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %262 = load ptr, ptr %261, align 8, !tbaa !23
   %.not.i.i84 = icmp eq ptr %262, null

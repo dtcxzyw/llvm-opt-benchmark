@@ -699,7 +699,7 @@ select.unfold:                                    ; preds = %81, %77
   br i1 %298, label %146, label %.thread44, !llvm.loop !16
 
 .thread44:                                        ; preds = %.loopexit, %.thread56, %267, %135, %57, %.thread45, %.thread40, %53, %49, %40
-  %299 = phi i32 [ %47, %40 ], [ -2, %49 ], [ -2, %53 ], [ %138, %.thread40 ], [ -2, %.thread45 ], [ -2, %135 ], [ -12, %57 ], [ 0, %267 ], [ 0, %.loopexit ], [ %294, %.thread56 ]
+  %299 = phi i32 [ %47, %40 ], [ -2, %49 ], [ -2, %53 ], [ %138, %.thread40 ], [ -2, %.thread45 ], [ -2, %135 ], [ 0, %267 ], [ -12, %57 ], [ 0, %.loopexit ], [ %294, %.thread56 ]
   %300 = load ptr, ptr %35, align 4096
   call void @kfree(ptr noundef %300) #9
   br label %301

@@ -606,7 +606,7 @@ _ZNSt10_HashtableIP18llama_adapter_loraSt4pairIKS1_fESaIS4_ENSt8__detail10_Selec
   resume { ptr, i32 } %29
 
 _ZNSt13unordered_mapIP18llama_adapter_lorafSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_fEEEixERS7_.exit: ; preds = %17, %12, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %13, %12 ], [ %28, %.loopexit.i.i ], [ %19, %17 ]
+  %.pn.i.i = phi ptr [ %28, %.loopexit.i.i ], [ %13, %12 ], [ %19, %17 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   store float %2, ptr %.1.i.i, align 4, !tbaa !25
   ret i32 0
@@ -759,7 +759,7 @@ _ZNSt13unordered_mapIP18llama_adapter_lorafSt4hashIS1_ESt8equal_toIS1_ESaISt4pai
   br label %_ZNSt13unordered_mapIP18llama_adapter_lorafSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_fEEE4findERS7_.exit.thread
 
 _ZNSt13unordered_mapIP18llama_adapter_lorafSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_fEEE4findERS7_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %8, %13, %..loopexit_crit_edge21.i.i.i.i, %_ZNSt13unordered_mapIP18llama_adapter_lorafSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_fEEE5eraseENSt8__detail14_Node_iteratorIS8_Lb0ELb0EEE.exit
-  %.0 = phi i32 [ 0, %_ZNSt13unordered_mapIP18llama_adapter_lorafSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_fEEE5eraseENSt8__detail14_Node_iteratorIS8_Lb0ELb0EEE.exit ], [ -1, %..loopexit_crit_edge21.i.i.i.i ], [ -1, %13 ], [ -1, %8 ], [ -1, %.lr.ph.i.i.i.i ]
+  %.0 = phi i32 [ 0, %_ZNSt13unordered_mapIP18llama_adapter_lorafSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_fEEE5eraseENSt8__detail14_Node_iteratorIS8_Lb0ELb0EEE.exit ], [ -1, %..loopexit_crit_edge21.i.i.i.i ], [ -1, %8 ], [ -1, %13 ], [ -1, %.lr.ph.i.i.i.i ]
   ret i32 %.0
 }
 
@@ -2536,7 +2536,7 @@ define noundef ptr @llama_init_from_model(ptr noundef %0, ptr noundef byval(%str
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %24, %32
-  %37 = phi i8 [ 1, %32 ], [ 0, %24 ], [ 0, %.thread.sink.split ]
+  %37 = phi i8 [ 0, %24 ], [ 1, %32 ], [ 0, %.thread.sink.split ]
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 92
   %39 = load i32, ptr %38, align 4, !tbaa !237
   %40 = tail call zeroext i1 @ggml_is_quantized(i32 noundef %39)
@@ -7348,8 +7348,8 @@ _ZN22llama_kv_slot_restorer4saveERK24llama_kv_cache_slot_info.exit.i.i: ; preds 
   br i1 %275, label %278, label %.invoke
 
 .invoke:                                          ; preds = %272, %271, %.preheader429.i
-  %276 = phi i32 [ 8663, %.preheader429.i ], [ 8666, %272 ], [ 8663, %271 ]
-  %277 = phi ptr [ @.str.237, %.preheader429.i ], [ @.str.238, %272 ], [ @.str.237, %271 ]
+  %276 = phi i32 [ 8663, %.preheader429.i ], [ 8663, %271 ], [ 8666, %272 ]
+  %277 = phi ptr [ @.str.237, %.preheader429.i ], [ @.str.237, %271 ], [ @.str.238, %272 ]
   invoke void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str.1, i32 noundef %276, ptr noundef nonnull @.str.2, ptr noundef nonnull %277) #32
           to label %.cont unwind label %.loopexit.split-lp446.i
 
@@ -8221,9 +8221,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i.i:                ; preds = %573, %_ZNSt6vectorI
   br label %_ZL17llama_decode_implR13llama_context11llama_batch.exit
 
 587:                                              ; preds = %548, %543, %541, %503, %.loopexit.split-lp.i
-  %.sroa.18.0.i = phi ptr [ %.sroa.18.3.lcssa.i, %548 ], [ %.sroa.18.3.lcssa.i, %543 ], [ %.sroa.18.3.lcssa.i, %541 ], [ %.sroa.18.3.lcssa.i, %503 ], [ %.sroa.18.5.i, %.loopexit.split-lp.i ]
-  %.sroa.8.0.i = phi ptr [ %.sroa.8.3.lcssa.i, %548 ], [ %.sroa.8.3.lcssa.i, %543 ], [ %.sroa.8.3.lcssa.i, %541 ], [ %.sroa.8.3.lcssa.i, %503 ], [ %.sroa.8.5.i, %.loopexit.split-lp.i ]
-  %.pn235.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %549, %548 ], [ %544, %543 ], [ %542, %541 ], [ %504, %503 ], [ %.pn235.pn.pn.pn.pn.pn.i, %.loopexit.split-lp.i ]
+  %.sroa.18.0.i = phi ptr [ %.sroa.18.5.i, %.loopexit.split-lp.i ], [ %.sroa.18.3.lcssa.i, %503 ], [ %.sroa.18.3.lcssa.i, %548 ], [ %.sroa.18.3.lcssa.i, %543 ], [ %.sroa.18.3.lcssa.i, %541 ]
+  %.sroa.8.0.i = phi ptr [ %.sroa.8.5.i, %.loopexit.split-lp.i ], [ %.sroa.8.3.lcssa.i, %503 ], [ %.sroa.8.3.lcssa.i, %548 ], [ %.sroa.8.3.lcssa.i, %543 ], [ %.sroa.8.3.lcssa.i, %541 ]
+  %.pn235.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn235.pn.pn.pn.pn.pn.i, %.loopexit.split-lp.i ], [ %504, %503 ], [ %549, %548 ], [ %544, %543 ], [ %542, %541 ]
   %.not.i.i.i.i350.i = icmp eq ptr %.sroa.8.0.i, null
   br i1 %.not.i.i.i.i350.i, label %_ZN22llama_kv_slot_restorerD2Ev.exit351.i, label %588
 

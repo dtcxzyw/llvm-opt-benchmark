@@ -3464,8 +3464,8 @@ _ZN6icu_7710CharString6appendERKS0_R10UErrorCode.exit231: ; preds = %214
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %254
 
-.thread262:                                       ; preds = %208, %219
-  %.4157.ph = phi i8 [ 1, %219 ], [ %.6159, %208 ]
+.thread262:                                       ; preds = %219, %208
+  %.4157.ph = phi i8 [ %.6159, %208 ], [ 1, %219 ]
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %13) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %228 = trunc nuw i8 %.4157.ph to i1
@@ -4774,7 +4774,7 @@ define internal fastcc noundef range(i64 0, 5) i64 @_ZN12_GLOBAL__N_110_getScrip
   br i1 %exitcond42.not, label %24, label %28, !llvm.loop !80
 
 .loopexit:                                        ; preds = %10, %3, %15, %.critedge, %24
-  %.019 = phi i64 [ 0, %.critedge ], [ 4, %24 ], [ 4, %15 ], [ 0, %3 ], [ 0, %10 ]
+  %.019 = phi i64 [ 4, %15 ], [ 0, %.critedge ], [ 4, %24 ], [ 0, %3 ], [ 0, %10 ]
   ret i64 %.019
 }
 
@@ -4895,7 +4895,7 @@ _ZN12_GLOBAL__N_110_findIndexEPKPKcS1_.exit:      ; preds = %.lr.ph.i
   br label %.loopexit
 
 .loopexit:                                        ; preds = %8, %3, %13, %.critedge, %.critedge32
-  %.0 = phi i64 [ 0, %.critedge ], [ %.028.lcssa, %.critedge32 ], [ %.028.lcssa, %13 ], [ 0, %3 ], [ 0, %8 ]
+  %.0 = phi i64 [ %.028.lcssa, %13 ], [ 0, %.critedge ], [ %.028.lcssa, %.critedge32 ], [ 0, %3 ], [ 0, %8 ]
   ret i64 %.0
 }
 
@@ -4953,9 +4953,9 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEPKcm.exit.us: ; pr
   br i1 %exitcond.not.i.i.us, label %.thread.us, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.us, !llvm.loop !83
 
 .thread.us:                                       ; preds = %23, %20, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEPKcm.exit.us, %.split.us
-  %25 = phi i1 [ %22, %20 ], [ true, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEPKcm.exit.us ], [ true, %.split.us ], [ true, %23 ]
-  %.2.i.i103105.us = phi i64 [ %.01116.i.i.us, %20 ], [ -1, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEPKcm.exit.us ], [ -1, %.split.us ], [ -1, %23 ]
-  %26 = phi i64 [ %spec.select125.us, %20 ], [ %.sroa.0.0.us, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEPKcm.exit.us ], [ 0, %.split.us ], [ %.sroa.0.0.us, %23 ]
+  %25 = phi i1 [ %22, %20 ], [ true, %.split.us ], [ true, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEPKcm.exit.us ], [ true, %23 ]
+  %.2.i.i103105.us = phi i64 [ %.01116.i.i.us, %20 ], [ -1, %.split.us ], [ -1, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEPKcm.exit.us ], [ -1, %23 ]
+  %26 = phi i64 [ %spec.select125.us, %20 ], [ 0, %.split.us ], [ %.sroa.0.0.us, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEPKcm.exit.us ], [ %.sroa.0.0.us, %23 ]
   %27 = add i64 %26, %.062.us
   %28 = icmp ugt i64 %27, 179
   br i1 %28, label %.split133.us, label %29
@@ -5035,9 +5035,9 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEPKcm.exit: ; preds
   br label %.thread
 
 .thread:                                          ; preds = %50, %53, %.split, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEPKcm.exit
-  %56 = phi i1 [ %55, %53 ], [ true, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEPKcm.exit ], [ true, %.split ], [ true, %50 ]
-  %.2.i.i103105 = phi i64 [ %.01116.i.i, %53 ], [ -1, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEPKcm.exit ], [ -1, %.split ], [ -1, %50 ]
-  %57 = phi i64 [ %spec.select125, %53 ], [ %.sroa.0.0, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEPKcm.exit ], [ 0, %.split ], [ %.sroa.0.0, %50 ]
+  %56 = phi i1 [ %55, %53 ], [ true, %.split ], [ true, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEPKcm.exit ], [ true, %50 ]
+  %.2.i.i103105 = phi i64 [ %.01116.i.i, %53 ], [ -1, %.split ], [ -1, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEPKcm.exit ], [ -1, %50 ]
+  %57 = phi i64 [ %spec.select125, %53 ], [ 0, %.split ], [ %.sroa.0.0, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEPKcm.exit ], [ %.sroa.0.0, %50 ]
   %58 = add i64 %57, %.062
   %59 = icmp ugt i64 %58, 179
   br i1 %59, label %.split133.us, label %60
@@ -6932,10 +6932,10 @@ _ZNK6icu_7710CharStringeqENS_11StringPieceE.exit.thread307: ; preds = %242, %_ZN
   br i1 %exitcond.not, label %_ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit194.thread, label %239, !llvm.loop !110
 
 _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit194.thread: ; preds = %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit.thread307, %154, %195, %196, %_ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit200
-  %.0116319 = phi i64 [ %.0116, %_ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit200 ], [ -1, %196 ], [ %.0116, %195 ], [ -1, %154 ], [ %.0116, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit.thread307 ]
-  %.0117317 = phi i64 [ %.0117, %_ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit200 ], [ %.0117, %196 ], [ %.0117, %195 ], [ -1, %154 ], [ %.0117, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit.thread307 ]
-  %.sroa.0212.6306 = phi i64 [ %.sroa.0212.5, %_ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit200 ], [ 0, %196 ], [ %.sroa.0212.5, %195 ], [ 0, %154 ], [ %.sroa.0212.5, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit.thread307 ]
-  %.sroa.33.6305 = phi ptr [ %.sroa.33.5, %_ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit200 ], [ null, %196 ], [ %.sroa.33.5, %195 ], [ null, %154 ], [ %.sroa.33.5, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit.thread307 ]
+  %.0116319 = phi i64 [ -1, %154 ], [ %.0116, %_ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit200 ], [ -1, %196 ], [ %.0116, %195 ], [ %.0116, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit.thread307 ]
+  %.0117317 = phi i64 [ -1, %154 ], [ %.0117, %_ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit200 ], [ %.0117, %196 ], [ %.0117, %195 ], [ %.0117, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit.thread307 ]
+  %.sroa.0212.6306 = phi i64 [ 0, %154 ], [ %.sroa.0212.5, %_ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit200 ], [ 0, %196 ], [ %.sroa.0212.5, %195 ], [ %.sroa.0212.5, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit.thread307 ]
+  %.sroa.33.6305 = phi ptr [ null, %154 ], [ %.sroa.33.5, %_ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit200 ], [ null, %196 ], [ %.sroa.33.5, %195 ], [ %.sroa.33.5, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit.thread307 ]
   %260 = load ptr, ptr %10, align 8, !tbaa !3
   %261 = load i32, ptr %83, align 8, !tbaa !18
   %262 = load ptr, ptr %2, align 8, !tbaa !32
@@ -8154,8 +8154,8 @@ define ptr @uloc_toLegacyType_77(ptr noundef %0, ptr noundef %1) local_unnamed_a
   br i1 %.not.i.i, label %_ZN12_GLOBAL__N_122isWellFormedLegacyTypeESt17basic_string_viewIcSt11char_traitsIcEE.exit.i, label %.lr.ph.i.i.backedge
 
 .lr.ph.i.i.backedge:                              ; preds = %28, %21
-  %.02335.i.i.be = phi i32 [ %29, %28 ], [ 0, %21 ]
-  %.02734.i.i.be = phi ptr [ %30, %28 ], [ %22, %21 ]
+  %.02335.i.i.be = phi i32 [ 0, %21 ], [ %29, %28 ]
+  %.02734.i.i.be = phi ptr [ %22, %21 ], [ %30, %28 ]
   br label %.lr.ph.i.i
 
 _ZN12_GLOBAL__N_122isWellFormedLegacyTypeESt17basic_string_viewIcSt11char_traitsIcEE.exit.i: ; preds = %28
@@ -8213,8 +8213,8 @@ define void @_Z35ulocimp_toLegacyTypeWithFallback_77St17basic_string_viewIcSt11c
   br i1 %or.cond, label %_ZN12_GLOBAL__N_122isWellFormedLegacyTypeESt17basic_string_viewIcSt11char_traitsIcEE.exit.thread, label %.lr.ph.i.backedge
 
 .lr.ph.i.backedge:                                ; preds = %13, %20
-  %.02335.i.be = phi i32 [ %21, %20 ], [ 0, %13 ]
-  %.02734.i.be = phi ptr [ %22, %20 ], [ %14, %13 ]
+  %.02335.i.be = phi i32 [ 0, %13 ], [ %21, %20 ]
+  %.02734.i.be = phi ptr [ %14, %13 ], [ %22, %20 ]
   br label %.lr.ph.i
 
 15:                                               ; preds = %.lr.ph.i

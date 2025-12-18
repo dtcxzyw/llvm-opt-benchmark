@@ -1298,7 +1298,7 @@ define void @_ZNK6icu_7713BasicTimeZone18getSimpleRulesNearEdRPNS_19InitialTimeZ
   br label %.thread153
 
 351:                                              ; preds = %335, %239
-  %.484 = phi ptr [ %315, %335 ], [ %200, %239 ]
+  %.484 = phi ptr [ %200, %239 ], [ %315, %335 ]
   %352 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7712TimeZoneRule7getNameERNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(80) %105, ptr noundef nonnull align 8 dereferenceable(64) %9)
           to label %353 unwind label %175
 
@@ -1398,8 +1398,8 @@ define void @_ZNK6icu_7713BasicTimeZone18getSimpleRulesNearEdRPNS_19InitialTimeZ
   br i1 %385, label %386, label %.critedge
 
 386:                                              ; preds = %.thread153, %67, %63, %58, %378, %383
-  %.6 = phi ptr [ null, %383 ], [ null, %378 ], [ null, %67 ], [ null, %63 ], [ null, %58 ], [ %.181.ph, %.thread153 ]
-  %.5 = phi ptr [ null, %383 ], [ null, %378 ], [ null, %67 ], [ null, %63 ], [ null, %58 ], [ %.1.ph, %.thread153 ]
+  %.6 = phi ptr [ null, %383 ], [ null, %378 ], [ null, %58 ], [ null, %67 ], [ null, %63 ], [ %.181.ph, %.thread153 ]
+  %.5 = phi ptr [ null, %383 ], [ null, %378 ], [ null, %58 ], [ null, %67 ], [ null, %63 ], [ %.1.ph, %.thread153 ]
   %387 = call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 80) #12
   %388 = icmp eq ptr %387, null
   br i1 %388, label %392, label %389
@@ -2470,8 +2470,8 @@ _ZN6icu_7712LocalPointerINS_18AnnualTimeZoneRuleEED2Ev.exit285: ; preds = %_ZN6i
   br label %.critedge266
 
 .critedge266:                                     ; preds = %187, %.thread351
-  %.1177 = phi i8 [ %.0176422, %187 ], [ %.4180, %.thread351 ]
-  %.1172 = phi i8 [ %.0171423, %187 ], [ %.4175, %.thread351 ]
+  %.1177 = phi i8 [ %.4180, %.thread351 ], [ %.0176422, %187 ]
+  %.1172 = phi i8 [ %.4175, %.thread351 ], [ %.0171423, %187 ]
   %.not214 = icmp eq i8 %.1172, 0
   %.not215 = icmp eq i8 %.1177, 0
   %398 = select i1 %.not214, i1 true, i1 %.not215
@@ -2508,7 +2508,7 @@ _ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit:  ; preds = %108, %105, %_ZN6icu
   unreachable
 
 _ZN6icu_7711LocalMemoryIbED2Ev.exit:              ; preds = %_ZN6icu_7712LocalPointerINS_12TimeZoneRuleEED2Ev.exit, %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit, %53, %92, %91, %45
-  %.sroa.0335.1 = phi ptr [ %28, %91 ], [ null, %92 ], [ %28, %45 ], [ %28, %53 ], [ %28, %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit ], [ %28, %_ZN6icu_7712LocalPointerINS_12TimeZoneRuleEED2Ev.exit ]
+  %.sroa.0335.1 = phi ptr [ %28, %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit ], [ %28, %91 ], [ null, %92 ], [ %28, %45 ], [ %28, %53 ], [ %28, %_ZN6icu_7712LocalPointerINS_12TimeZoneRuleEED2Ev.exit ]
   invoke void @uprv_free_77(ptr noundef %43)
           to label %_ZN6icu_7711LocalMemoryIPKNS_12TimeZoneRuleEED2Ev.exit unwind label %408
 

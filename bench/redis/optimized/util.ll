@@ -398,7 +398,7 @@ thread-pre-split:                                 ; preds = %58
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit248, %118, %116, %29, %27, %.lr.ph, %134, %.preheader, %.critedge15.loopexit282, %.critedge, %7, %34
-  %.0 = phi i32 [ 0, %34 ], [ 0, %7 ], [ 1, %.critedge ], [ 1, %.preheader ], [ %139, %.critedge15.loopexit282 ], [ 0, %29 ], [ 0, %.lr.ph ], [ 1, %134 ], [ 1, %27 ], [ 0, %116 ], [ 0, %118 ], [ 0, %.loopexit248 ]
+  %.0 = phi i32 [ 0, %.lr.ph ], [ 1, %.critedge ], [ 0, %29 ], [ 0, %7 ], [ 0, %34 ], [ 1, %.preheader ], [ %139, %.critedge15.loopexit282 ], [ 1, %134 ], [ 1, %27 ], [ 0, %116 ], [ 0, %118 ], [ 0, %.loopexit248 ]
   ret i32 %.0
 }
 
@@ -703,7 +703,7 @@ define dso_local ptr @mempbrk(ptr noundef readonly captures(ret: address, proven
   br label %.loopexit23
 
 .loopexit23:                                      ; preds = %._crit_edge.us, %.loopexit23.loopexit, %4
-  %15 = phi ptr [ %14, %.loopexit23.loopexit ], [ null, %4 ], [ null, %._crit_edge.us ]
+  %15 = phi ptr [ null, %4 ], [ %14, %.loopexit23.loopexit ], [ null, %._crit_edge.us ]
   ret ptr %15
 }
 
@@ -1327,7 +1327,7 @@ define dso_local range(i32 0, 2) i32 @string2ll(ptr noundef readonly captures(no
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph, %22, %.critedge.sink.split, %.thread74, %8, %32, %37, %35, %30, %11, %9, %3
-  %.046 = phi i32 [ 1, %32 ], [ 0, %3 ], [ 1, %9 ], [ 0, %11 ], [ 0, %35 ], [ 0, %30 ], [ 1, %37 ], [ 0, %8 ], [ 0, %.thread74 ], [ 1, %.critedge.sink.split ], [ 0, %22 ], [ 0, %.lr.ph ]
+  %.046 = phi i32 [ 1, %32 ], [ 0, %3 ], [ 1, %9 ], [ 0, %11 ], [ 0, %8 ], [ 1, %.critedge.sink.split ], [ 1, %37 ], [ 0, %35 ], [ 0, %30 ], [ 0, %.thread74 ], [ 0, %22 ], [ 0, %.lr.ph ]
   ret i32 %.046
 }
 
@@ -1430,7 +1430,7 @@ string2ll.exit.thread14:                          ; preds = %32, %.thread91.i, %
   store i64 %.sink.i16, ptr %1, align 8, !tbaa !35
   br label %44
 
-.loopexit:                                        ; preds = %.lr.ph.i, %22, %2, %11, %32, %30, %9, %.thread74.i
+.loopexit:                                        ; preds = %.lr.ph.i, %22, %.thread74.i, %2, %11, %9, %32, %30
   %34 = tail call ptr @__errno_location() #30
   store i32 0, ptr %34, align 4, !tbaa !5
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -1562,8 +1562,8 @@ string2ll.exit:                                   ; preds = %.thread91.i, %33, %
   store i64 %.sink.i, ptr %2, align 8, !tbaa !37
   br label %string2ll.exit.thread
 
-string2ll.exit.thread:                            ; preds = %21, %.lr.ph.i, %.thread74.i, %8, %29, %33, %10, %3, %string2ll.exit
-  %.0 = phi i32 [ 1, %string2ll.exit ], [ 0, %3 ], [ 0, %10 ], [ 0, %33 ], [ 0, %29 ], [ 0, %8 ], [ 0, %.thread74.i ], [ 0, %.lr.ph.i ], [ 0, %21 ]
+string2ll.exit.thread:                            ; preds = %21, %.lr.ph.i, %29, %33, %8, %10, %3, %.thread74.i, %string2ll.exit
+  %.0 = phi i32 [ 1, %string2ll.exit ], [ 0, %.thread74.i ], [ 0, %3 ], [ 0, %10 ], [ 0, %8 ], [ 0, %29 ], [ 0, %33 ], [ 0, %.lr.ph.i ], [ 0, %21 ]
   ret i32 %.0
 }
 

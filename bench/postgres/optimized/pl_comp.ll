@@ -3599,8 +3599,8 @@ define hidden i32 @plpgsql_add_initdatums(ptr noundef captures(address_is_null) 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %36, %._crit_edge.thread, %16, %.thread, %._crit_edge
-  %41 = phi i32 [ %3, %.thread ], [ %3, %._crit_edge ], [ %21, %16 ], [ %3, %._crit_edge.thread ], [ %37, %36 ]
-  %.2 = phi i32 [ %.0.lcssa3840, %.thread ], [ %.1, %._crit_edge ], [ 0, %16 ], [ 0, %._crit_edge.thread ], [ %.4, %36 ]
+  %41 = phi i32 [ %3, %._crit_edge ], [ %3, %.thread ], [ %21, %16 ], [ %3, %._crit_edge.thread ], [ %37, %36 ]
+  %.2 = phi i32 [ %.1, %._crit_edge ], [ %.0.lcssa3840, %.thread ], [ 0, %16 ], [ 0, %._crit_edge.thread ], [ %.4, %36 ]
   store i32 %41, ptr @datums_last, align 4
   ret i32 %.2
 }

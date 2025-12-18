@@ -5041,7 +5041,7 @@ define internal fastcc void @_ZN9uv_pep4407version7Version12with_release17ha2416
   %91 = add nuw nsw i8 %74, 1
   br label %_ZN9uv_pep4407version12VersionSmall12push_release17h02d96fd89e4e4274E.exit
 
-_ZN9uv_pep4407version12VersionSmall12push_release17h02d96fd89e4e4274E.exit.thread: ; preds = %78, %76, %70
+_ZN9uv_pep4407version12VersionSmall12push_release17h02d96fd89e4e4274E.exit.thread: ; preds = %76, %78, %70
   %92 = invoke noundef align 8 dereferenceable(136) ptr @_ZN9uv_pep4407version7Version9make_full17h80bac72c41a6d3c1E(ptr noalias noundef nonnull align 8 dereferenceable(16) %1)
           to label %93 unwind label %68
 
@@ -5325,7 +5325,7 @@ define internal fastcc void @_ZN9uv_pep4407version7Version12with_release17hf25c6
   %96 = add nuw nsw i8 %79, 1
   br label %_ZN9uv_pep4407version12VersionSmall12push_release17h02d96fd89e4e4274E.exit
 
-_ZN9uv_pep4407version12VersionSmall12push_release17h02d96fd89e4e4274E.exit.thread: ; preds = %83, %81, %71
+_ZN9uv_pep4407version12VersionSmall12push_release17h02d96fd89e4e4274E.exit.thread: ; preds = %81, %83, %71
   %97 = invoke noundef align 8 dereferenceable(136) ptr @_ZN9uv_pep4407version7Version9make_full17h80bac72c41a6d3c1E(ptr noalias noundef nonnull align 8 dereferenceable(16) %1)
           to label %98 unwind label %69
 

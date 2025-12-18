@@ -65,7 +65,7 @@ define internal range(i32 0, 101) i32 @probe(ptr noundef readonly captures(none)
   br i1 %.not17, label %21, label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader19, %21, %.preheader, %18, %11, %1, %5, %8
-  %.013 = phi i32 [ 0, %5 ], [ 0, %1 ], [ 0, %11 ], [ 0, %18 ], [ 0, %8 ], [ 0, %.preheader ], [ 100, %21 ], [ 0, %.preheader19 ]
+  %.013 = phi i32 [ 0, %5 ], [ 0, %1 ], [ 0, %11 ], [ 0, %.preheader ], [ 0, %18 ], [ 0, %8 ], [ 100, %21 ], [ 0, %.preheader19 ]
   ret i32 %.013
 }
 

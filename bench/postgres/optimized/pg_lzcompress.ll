@@ -234,7 +234,7 @@ define dso_local i32 @pglz_compress(ptr noundef %0, i32 noundef %1, ptr noundef 
   br i1 %or.cond.us.i, label %130, label %.critedge.us.i
 
 .critedge.us.i:                                   ; preds = %105, %.preheader.us.i, %130, %.lr.ph15.us.i, %112, %109
-  %.1.us.i = phi i32 [ 0, %109 ], [ %.07222.us.i232, %112 ], [ %91, %130 ], [ %.06314.us.i, %.lr.ph15.us.i ], [ %.29.us.i, %.preheader.us.i ], [ %91, %105 ]
+  %.1.us.i = phi i32 [ %.07222.us.i232, %112 ], [ 0, %109 ], [ %91, %130 ], [ %.06314.us.i, %.lr.ph15.us.i ], [ %.29.us.i, %.preheader.us.i ], [ %91, %105 ]
   %120 = icmp sgt i32 %.1.us.i, %.07222.us.i232
   %spec.select.us.i = tail call i32 @llvm.smax.i32(i32 %.1.us.i, i32 %.07222.us.i232)
   %spec.select85.us.i = select i1 %120, i32 %98, i32 %.06924.us.i231
@@ -543,7 +543,7 @@ pglz_find_match.exit:                             ; preds = %.thread.i
   br label %.loopexit227
 
 .loopexit227:                                     ; preds = %57, %53, %._crit_edge, %4, %12, %15
-  %.0 = phi i32 [ -1, %4 ], [ %.196, %._crit_edge ], [ -1, %15 ], [ -1, %12 ], [ -1, %53 ], [ -1, %57 ]
+  %.0 = phi i32 [ -1, %12 ], [ -1, %4 ], [ -1, %15 ], [ %.196, %._crit_edge ], [ -1, %53 ], [ -1, %57 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }

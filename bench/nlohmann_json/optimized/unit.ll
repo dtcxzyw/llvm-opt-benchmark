@@ -4638,7 +4638,7 @@ _ZN7doctest12_GLOBAL__N_17wildcmpEPKcS2_b.exit.thread: ; preds = %51, %.preheade
   br i1 %.not11, label %.thread, label %.lr.ph.i
 
 .thread:                                          ; preds = %_ZN7doctest12_GLOBAL__N_17wildcmpEPKcS2_b.exit.thread, %63, %.preheader.i, %_ZN7doctest12_GLOBAL__N_17wildcmpEPKcS2_b.exit.thread.us43, %35, %.preheader.i.us40, %_ZN7doctest12_GLOBAL__N_17wildcmpEPKcS2_b.exit.thread.loopexit.us, %10, %3
-  %.0 = phi i1 [ %or.cond, %3 ], [ true, %63 ], [ true, %10 ], [ false, %_ZN7doctest12_GLOBAL__N_17wildcmpEPKcS2_b.exit.thread.loopexit.us ], [ true, %.preheader.i.us40 ], [ true, %35 ], [ false, %_ZN7doctest12_GLOBAL__N_17wildcmpEPKcS2_b.exit.thread.us43 ], [ true, %.preheader.i ], [ false, %_ZN7doctest12_GLOBAL__N_17wildcmpEPKcS2_b.exit.thread ]
+  %.0 = phi i1 [ %or.cond, %3 ], [ true, %35 ], [ true, %.preheader.i ], [ true, %.preheader.i.us40 ], [ false, %_ZN7doctest12_GLOBAL__N_17wildcmpEPKcS2_b.exit.thread.loopexit.us ], [ false, %_ZN7doctest12_GLOBAL__N_17wildcmpEPKcS2_b.exit.thread.us43 ], [ true, %10 ], [ true, %63 ], [ false, %_ZN7doctest12_GLOBAL__N_17wildcmpEPKcS2_b.exit.thread ]
   ret i1 %.0
 }
 
@@ -6831,8 +6831,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %37, %
   br label %.loopexit14
 
 .loopexit14:                                      ; preds = %.loopexit14.loopexit, %46, %49
-  %53 = phi ptr [ %.pre15, %46 ], [ %.pre15, %49 ], [ %.pre, %.loopexit14.loopexit ]
-  %spec.select = phi i1 [ false, %46 ], [ %52, %49 ], [ false, %.loopexit14.loopexit ]
+  %53 = phi ptr [ %.pre15, %49 ], [ %.pre15, %46 ], [ %.pre, %.loopexit14.loopexit ]
+  %spec.select = phi i1 [ %52, %49 ], [ false, %46 ], [ false, %.loopexit14.loopexit ]
   %54 = icmp eq ptr %53, %6
   br i1 %54, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit12, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i10
 
@@ -12161,7 +12161,7 @@ define internal fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEi
   br i1 %34, label %.lr.ph.split.us.i, label %_ZN7doctest6StringD2Ev.exit, !llvm.loop !358
 
 _ZN7doctest6StringD2Ev.exit:                      ; preds = %.critedge.us.i.i, %.critedge.us.i, %.critedge46.us.i, %3
-  %.0.i = phi i1 [ false, %3 ], [ true, %.critedge.us.i ], [ false, %.critedge46.us.i ], [ true, %.critedge.us.i.i ]
+  %.0.i = phi i1 [ true, %.critedge.us.i ], [ false, %3 ], [ false, %.critedge46.us.i ], [ true, %.critedge.us.i.i ]
   ret i1 %.0.i
 }
 
@@ -17760,8 +17760,8 @@ _ZNSt10_HashtableIyySaIyENSt8__detail9_IdentityESt8equal_toIyESt4hashIyENS1_18_M
   resume { ptr, i32 } %43
 
 _ZNKSt10_HashtableIyySaIyENSt8__detail9_IdentityESt8equal_toIyESt4hashIyENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE15_M_find_node_trIyEEPNS1_10_Hash_nodeIyLb0EEEmRKT_m.exit: ; preds = %31, %18, %.critedge, %26
-  %.sroa.031.1 = phi ptr [ %27, %26 ], [ %42, %.critedge ], [ %.sroa.028.0, %18 ], [ %33, %31 ]
-  %.sroa.432.1 = phi i8 [ 0, %26 ], [ 1, %.critedge ], [ 0, %18 ], [ 0, %31 ]
+  %.sroa.031.1 = phi ptr [ %.sroa.028.0, %18 ], [ %42, %.critedge ], [ %27, %26 ], [ %33, %31 ]
+  %.sroa.432.1 = phi i8 [ 0, %18 ], [ 1, %.critedge ], [ 0, %26 ], [ 0, %31 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.031.1, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.432.1, 1
   ret { ptr, i8 } %.fca.1.insert

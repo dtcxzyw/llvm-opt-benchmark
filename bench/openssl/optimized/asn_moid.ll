@@ -109,16 +109,16 @@ do_create.exit:                                   ; preds = %.lr.ph, %19, %45
   %.not14 = icmp eq i32 %47, 0
   br i1 %.not14, label %.loopexit.sink.split, label %8
 
-.loopexit.sink.split:                             ; preds = %do_create.exit, %22, %38, %36, %2
-  %.sink27 = phi i32 [ 32, %2 ], [ 38, %36 ], [ 38, %38 ], [ 38, %22 ], [ 38, %do_create.exit ]
-  %.sink = phi i32 [ 172, %2 ], [ 171, %36 ], [ 171, %38 ], [ 171, %22 ], [ 171, %do_create.exit ]
+.loopexit.sink.split:                             ; preds = %do_create.exit, %38, %22, %36, %2
+  %.sink27 = phi i32 [ 32, %2 ], [ 38, %36 ], [ 38, %22 ], [ 38, %38 ], [ 38, %do_create.exit ]
+  %.sink = phi i32 [ 172, %2 ], [ 171, %36 ], [ 171, %22 ], [ 171, %38 ], [ 171, %do_create.exit ]
   tail call void @ERR_new() #5
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef %.sink27, ptr noundef nonnull @__func__.oid_module_init) #5
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef %.sink, ptr noundef null) #5
   br label %.loopexit
 
 .loopexit:                                        ; preds = %8, %.loopexit.sink.split, %.preheader
-  %.0 = phi i32 [ 1, %.preheader ], [ 0, %.loopexit.sink.split ], [ 1, %8 ]
+  %.0 = phi i32 [ 0, %.loopexit.sink.split ], [ 1, %.preheader ], [ 1, %8 ]
   ret i32 %.0
 }
 

@@ -685,7 +685,7 @@ bytestream2_get_byte.exit117:                     ; preds = %278, %279
   unreachable
 
 .loopexit133:                                     ; preds = %bytestream2_get_byte.exit117, %296, %293, %290, %288, %rescale.exit
-  %.096 = phi i32 [ %289, %288 ], [ %37, %rescale.exit ], [ %292, %290 ], [ %295, %293 ], [ %298, %296 ], [ %37, %bytestream2_get_byte.exit117 ]
+  %.096 = phi i32 [ %298, %296 ], [ %289, %288 ], [ %37, %rescale.exit ], [ %292, %290 ], [ %295, %293 ], [ %37, %bytestream2_get_byte.exit117 ]
   %300 = icmp slt i32 %.096, 0
   br i1 %300, label %387, label %301
 
@@ -2412,8 +2412,8 @@ bytestream2_get_byte.exit:                        ; preds = %453, %454
   br label %bytestream2_put_byte.exit.thread21
 
 bytestream2_put_byte.exit.thread21:               ; preds = %bytestream2_put_byte.exit179, %bytestream2_put_byte.exit175, %297, %350, %118, %115, %bytestream2_put_byte.exit, %460, %234, %243
-  %.sroa.30.16 = phi i8 [ %.sroa.30.15, %460 ], [ %.sroa.30.4, %bytestream2_put_byte.exit ], [ %.sroa.30.2, %118 ], [ %.sroa.30.9, %350 ], [ %.sroa.30.8, %234 ], [ %.sroa.30.8, %243 ], [ %.sroa.30.2, %115 ], [ %.sroa.30.10, %297 ], [ %.sroa.30.4, %bytestream2_put_byte.exit175 ], [ %.sroa.30.10, %bytestream2_put_byte.exit179 ]
-  %.sroa.0.16 = phi i32 [ %.sroa.0.15, %460 ], [ %.sroa.0.4, %bytestream2_put_byte.exit ], [ %.sroa.0.2, %118 ], [ %.sroa.0.9, %350 ], [ %.sroa.0.8, %234 ], [ %.sroa.0.8, %243 ], [ %.sroa.0.2, %115 ], [ %.sroa.0.10, %297 ], [ %.sroa.0.4, %bytestream2_put_byte.exit175 ], [ %.sroa.0.10, %bytestream2_put_byte.exit179 ]
+  %.sroa.30.16 = phi i8 [ %.sroa.30.15, %460 ], [ %.sroa.30.4, %bytestream2_put_byte.exit ], [ %.sroa.30.2, %118 ], [ %.sroa.30.9, %350 ], [ %.sroa.30.4, %bytestream2_put_byte.exit175 ], [ %.sroa.30.8, %234 ], [ %.sroa.30.8, %243 ], [ %.sroa.30.2, %115 ], [ %.sroa.30.10, %297 ], [ %.sroa.30.10, %bytestream2_put_byte.exit179 ]
+  %.sroa.0.16 = phi i32 [ %.sroa.0.15, %460 ], [ %.sroa.0.4, %bytestream2_put_byte.exit ], [ %.sroa.0.2, %118 ], [ %.sroa.0.9, %350 ], [ %.sroa.0.4, %bytestream2_put_byte.exit175 ], [ %.sroa.0.8, %234 ], [ %.sroa.0.8, %243 ], [ %.sroa.0.2, %115 ], [ %.sroa.0.10, %297 ], [ %.sroa.0.10, %bytestream2_put_byte.exit179 ]
   %461 = load ptr, ptr %44, align 8, !tbaa !49
   %462 = load ptr, ptr %5, align 8, !tbaa !47
   %463 = ptrtoint ptr %461 to i64

@@ -780,7 +780,7 @@ define internal fastcc zeroext i1 @riscv_detect_fpcc_struct_internal(ptr noundef
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph105, %45, %37, %35, %.thread93, %32, %29, %23, %19, %._crit_edge, %34, %.thread92
-  %.083 = phi i1 [ false, %19 ], [ false, %23 ], [ false, %29 ], [ true, %34 ], [ true, %.thread92 ], [ false, %32 ], [ %71, %._crit_edge ], [ false, %35 ], [ false, %.thread93 ], [ true, %37 ], [ %44, %.lr.ph105 ], [ %44, %45 ], [ false, %.lr.ph ]
+  %.083 = phi i1 [ true, %37 ], [ false, %19 ], [ false, %23 ], [ false, %29 ], [ true, %34 ], [ true, %.thread92 ], [ false, %32 ], [ %71, %._crit_edge ], [ false, %35 ], [ false, %.thread93 ], [ %44, %.lr.ph105 ], [ %44, %45 ], [ false, %.lr.ph ]
   ret i1 %.083
 }
 

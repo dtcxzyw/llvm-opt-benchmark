@@ -514,7 +514,7 @@ _ZL14aes_gen_tablesv.exit:                        ; preds = %.thread97.i
   unreachable
 
 .loopexit:                                        ; preds = %.preheader104, %.preheader102, %.preheader, %3
-  %.0101 = phi i32 [ -32, %3 ], [ 0, %.preheader102 ], [ 0, %.preheader ], [ 0, %.preheader104 ]
+  %.0101 = phi i32 [ -32, %3 ], [ 0, %.preheader ], [ 0, %.preheader102 ], [ 0, %.preheader104 ]
   ret i32 %.0101
 }
 

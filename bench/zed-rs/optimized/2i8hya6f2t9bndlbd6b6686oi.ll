@@ -15281,10 +15281,10 @@ _ZN8wasmtime7runtime9component4func5typed11lift_option17hd4247a8eb3b56954E.exit.
   br label %85
 
 "_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4lift17hf8b04ed0aa4c8ed9E.exit": ; preds = %82, %80
-  %.sroa.14.0 = phi ptr [ %70, %80 ], [ %79, %82 ]
-  %.sroa.820.0 = phi i64 [ %67, %80 ], [ %76, %82 ]
-  %.sroa.019.0 = phi i64 [ 0, %80 ], [ 1, %82 ]
-  %.sroa.16.0 = phi i64 [ %.sroa.627.0.copyload.i, %80 ], [ %.sroa.631.0.copyload.i, %82 ]
+  %.sroa.14.0 = phi ptr [ %79, %82 ], [ %70, %80 ]
+  %.sroa.820.0 = phi i64 [ %76, %82 ], [ %67, %80 ]
+  %.sroa.019.0 = phi i64 [ 1, %82 ], [ 0, %80 ]
+  %.sroa.16.0 = phi i64 [ %.sroa.631.0.copyload.i, %82 ], [ %.sroa.627.0.copyload.i, %80 ]
   %84 = inttoptr i64 %.sroa.820.0 to ptr
   store i64 %.sroa.019.0, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -15475,10 +15475,10 @@ _ZN8wasmtime7runtime9component4func5typed11lift_option17h9abcf08759b442ceE.exit.
   br label %85
 
 "_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4lift17h06f20295d2ad3431E.exit": ; preds = %82, %80
-  %.sroa.14.0 = phi ptr [ %70, %80 ], [ %79, %82 ]
-  %.sroa.820.0 = phi i64 [ %67, %80 ], [ %76, %82 ]
-  %.sroa.019.0 = phi i64 [ 0, %80 ], [ 1, %82 ]
-  %.sroa.16.0 = phi i64 [ %.sroa.627.0.copyload.i, %80 ], [ %.sroa.631.0.copyload.i, %82 ]
+  %.sroa.14.0 = phi ptr [ %79, %82 ], [ %70, %80 ]
+  %.sroa.820.0 = phi i64 [ %76, %82 ], [ %67, %80 ]
+  %.sroa.019.0 = phi i64 [ 1, %82 ], [ 0, %80 ]
+  %.sroa.16.0 = phi i64 [ %.sroa.631.0.copyload.i, %82 ], [ %.sroa.627.0.copyload.i, %80 ]
   %84 = inttoptr i64 %.sroa.820.0 to ptr
   store i64 %.sroa.019.0, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -16850,10 +16850,10 @@ _ZN8wasmtime7runtime9component4func5typed11lift_option17h3a9d5c98ff250357E.exit.
   br label %85
 
 "_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4lift17h2cd046e7d9859ff3E.exit": ; preds = %82, %80
-  %.sroa.14.0 = phi ptr [ %70, %80 ], [ %79, %82 ]
-  %.sroa.820.0 = phi i64 [ %67, %80 ], [ %76, %82 ]
-  %.sroa.019.0 = phi i64 [ 0, %80 ], [ 1, %82 ]
-  %.sroa.16.0 = phi i64 [ %.sroa.627.0.copyload.i, %80 ], [ %.sroa.631.0.copyload.i, %82 ]
+  %.sroa.14.0 = phi ptr [ %79, %82 ], [ %70, %80 ]
+  %.sroa.820.0 = phi i64 [ %76, %82 ], [ %67, %80 ]
+  %.sroa.019.0 = phi i64 [ 1, %82 ], [ 0, %80 ]
+  %.sroa.16.0 = phi i64 [ %.sroa.631.0.copyload.i, %82 ], [ %.sroa.627.0.copyload.i, %80 ]
   %84 = inttoptr i64 %.sroa.820.0 to ptr
   store i64 %.sroa.019.0, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -17044,10 +17044,10 @@ _ZN8wasmtime7runtime9component4func5typed11lift_option17h1b3ce1bca4eeb191E.exit.
   br label %85
 
 "_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4lift17hef903ce4500c12aeE.exit": ; preds = %82, %80
-  %.sroa.14.0 = phi ptr [ %70, %80 ], [ %79, %82 ]
-  %.sroa.820.0 = phi i64 [ %67, %80 ], [ %76, %82 ]
-  %.sroa.019.0 = phi i64 [ 0, %80 ], [ 1, %82 ]
-  %.sroa.16.0 = phi i64 [ %.sroa.627.0.copyload.i, %80 ], [ %.sroa.631.0.copyload.i, %82 ]
+  %.sroa.14.0 = phi ptr [ %79, %82 ], [ %70, %80 ]
+  %.sroa.820.0 = phi i64 [ %76, %82 ], [ %67, %80 ]
+  %.sroa.019.0 = phi i64 [ 1, %82 ], [ 0, %80 ]
+  %.sroa.16.0 = phi i64 [ %.sroa.631.0.copyload.i, %82 ], [ %.sroa.627.0.copyload.i, %80 ]
   %84 = inttoptr i64 %.sroa.820.0 to ptr
   store i64 %.sroa.019.0, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -17616,10 +17616,10 @@ _ZN8wasmtime7runtime9component4func5typed11lift_option17he5336114fdaed29dE.exit.
   br label %85
 
 "_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4lift17hfb6a383770f74b5cE.exit": ; preds = %82, %80
-  %.sroa.14.0 = phi ptr [ %70, %80 ], [ %79, %82 ]
-  %.sroa.820.0 = phi i64 [ %67, %80 ], [ %76, %82 ]
-  %.sroa.019.0 = phi i64 [ 0, %80 ], [ 1, %82 ]
-  %.sroa.16.0 = phi i64 [ %.sroa.627.0.copyload.i, %80 ], [ %.sroa.631.0.copyload.i, %82 ]
+  %.sroa.14.0 = phi ptr [ %79, %82 ], [ %70, %80 ]
+  %.sroa.820.0 = phi i64 [ %76, %82 ], [ %67, %80 ]
+  %.sroa.019.0 = phi i64 [ 1, %82 ], [ 0, %80 ]
+  %.sroa.16.0 = phi i64 [ %.sroa.631.0.copyload.i, %82 ], [ %.sroa.627.0.copyload.i, %80 ]
   %84 = inttoptr i64 %.sroa.820.0 to ptr
   store i64 %.sroa.019.0, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -18304,10 +18304,10 @@ _ZN8wasmtime7runtime9component4func5typed11lift_option17hf53fa3a76bdaa32eE.exit.
   br label %85
 
 "_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4lift17hd804a9a1308eabf6E.exit": ; preds = %82, %80
-  %.sroa.14.0 = phi ptr [ %70, %80 ], [ %79, %82 ]
-  %.sroa.820.0 = phi i64 [ %67, %80 ], [ %76, %82 ]
-  %.sroa.019.0 = phi i64 [ 0, %80 ], [ 1, %82 ]
-  %.sroa.16.0 = phi i64 [ %.sroa.627.0.copyload.i, %80 ], [ %.sroa.631.0.copyload.i, %82 ]
+  %.sroa.14.0 = phi ptr [ %79, %82 ], [ %70, %80 ]
+  %.sroa.820.0 = phi i64 [ %76, %82 ], [ %67, %80 ]
+  %.sroa.019.0 = phi i64 [ 1, %82 ], [ 0, %80 ]
+  %.sroa.16.0 = phi i64 [ %.sroa.631.0.copyload.i, %82 ], [ %.sroa.627.0.copyload.i, %80 ]
   %84 = inttoptr i64 %.sroa.820.0 to ptr
   store i64 %.sroa.019.0, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -19579,10 +19579,10 @@ _ZN8wasmtime7runtime9component4func5typed11load_option17h178839dfe8d249d5E.exit.
   unreachable
 
 "_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4load17he55444841b4e9973E.exit": ; preds = %111, %109
-  %.sroa.16.0 = phi ptr [ %84, %109 ], [ %108, %111 ]
-  %.sroa.9.0 = phi i64 [ %81, %109 ], [ %.pr, %111 ]
-  %.sroa.022.0 = phi i64 [ 0, %109 ], [ 1, %111 ]
-  %.sroa.19.0 = phi i64 [ %.sroa.632.0.copyload.i, %109 ], [ %.sroa.636.0.copyload.i, %111 ]
+  %.sroa.16.0 = phi ptr [ %108, %111 ], [ %84, %109 ]
+  %.sroa.9.0 = phi i64 [ %.pr, %111 ], [ %81, %109 ]
+  %.sroa.022.0 = phi i64 [ 1, %111 ], [ 0, %109 ]
+  %.sroa.19.0 = phi i64 [ %.sroa.636.0.copyload.i, %111 ], [ %.sroa.632.0.copyload.i, %109 ]
   %115 = inttoptr i64 %.sroa.9.0 to ptr
   store i64 %.sroa.022.0, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -19867,10 +19867,10 @@ _ZN8wasmtime7runtime9component4func5typed11load_option17h178839dfe8d249d5E.exit.
   unreachable
 
 "_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4load17h29adc47c796c7613E.exit": ; preds = %111, %109
-  %.sroa.16.0 = phi ptr [ %84, %109 ], [ %108, %111 ]
-  %.sroa.9.0 = phi i64 [ %81, %109 ], [ %.pr, %111 ]
-  %.sroa.022.0 = phi i64 [ 0, %109 ], [ 1, %111 ]
-  %.sroa.19.0 = phi i64 [ %.sroa.632.0.copyload.i, %109 ], [ %.sroa.636.0.copyload.i, %111 ]
+  %.sroa.16.0 = phi ptr [ %108, %111 ], [ %84, %109 ]
+  %.sroa.9.0 = phi i64 [ %.pr, %111 ], [ %81, %109 ]
+  %.sroa.022.0 = phi i64 [ 1, %111 ], [ 0, %109 ]
+  %.sroa.19.0 = phi i64 [ %.sroa.636.0.copyload.i, %111 ], [ %.sroa.632.0.copyload.i, %109 ]
   %115 = inttoptr i64 %.sroa.9.0 to ptr
   store i64 %.sroa.022.0, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -20155,10 +20155,10 @@ _ZN8wasmtime7runtime9component4func5typed11load_option17h178839dfe8d249d5E.exit.
   unreachable
 
 "_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4load17h33b352c88da8ae53E.exit": ; preds = %111, %109
-  %.sroa.16.0 = phi ptr [ %84, %109 ], [ %108, %111 ]
-  %.sroa.9.0 = phi i64 [ %81, %109 ], [ %.pr, %111 ]
-  %.sroa.022.0 = phi i64 [ 0, %109 ], [ 1, %111 ]
-  %.sroa.19.0 = phi i64 [ %.sroa.632.0.copyload.i, %109 ], [ %.sroa.636.0.copyload.i, %111 ]
+  %.sroa.16.0 = phi ptr [ %108, %111 ], [ %84, %109 ]
+  %.sroa.9.0 = phi i64 [ %.pr, %111 ], [ %81, %109 ]
+  %.sroa.022.0 = phi i64 [ 1, %111 ], [ 0, %109 ]
+  %.sroa.19.0 = phi i64 [ %.sroa.636.0.copyload.i, %111 ], [ %.sroa.632.0.copyload.i, %109 ]
   %115 = inttoptr i64 %.sroa.9.0 to ptr
   store i64 %.sroa.022.0, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -20443,10 +20443,10 @@ _ZN8wasmtime7runtime9component4func5typed11load_option17h178839dfe8d249d5E.exit.
   unreachable
 
 "_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4load17h5777f289a9325e69E.exit": ; preds = %111, %109
-  %.sroa.16.0 = phi ptr [ %84, %109 ], [ %108, %111 ]
-  %.sroa.9.0 = phi i64 [ %81, %109 ], [ %.pr, %111 ]
-  %.sroa.022.0 = phi i64 [ 0, %109 ], [ 1, %111 ]
-  %.sroa.19.0 = phi i64 [ %.sroa.632.0.copyload.i, %109 ], [ %.sroa.636.0.copyload.i, %111 ]
+  %.sroa.16.0 = phi ptr [ %108, %111 ], [ %84, %109 ]
+  %.sroa.9.0 = phi i64 [ %.pr, %111 ], [ %81, %109 ]
+  %.sroa.022.0 = phi i64 [ 1, %111 ], [ 0, %109 ]
+  %.sroa.19.0 = phi i64 [ %.sroa.636.0.copyload.i, %111 ], [ %.sroa.632.0.copyload.i, %109 ]
   %115 = inttoptr i64 %.sroa.9.0 to ptr
   store i64 %.sroa.022.0, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -28730,7 +28730,7 @@ define hidden noundef ptr @_ZN8wasmtime7runtime9component4func5typed13lower_payl
   unreachable
 
 "_ZN102_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5lower28_$u7b$$u7b$closure$u7d$$u7d$17he256c3610102997aE.exit": ; preds = %2, %70, %75, %31
-  %.sroa.0.0 = phi ptr [ %76, %75 ], [ %41, %31 ], [ null, %70 ], [ null, %2 ]
+  %.sroa.0.0 = phi ptr [ %41, %31 ], [ %76, %75 ], [ null, %70 ], [ null, %2 ]
   ret ptr %.sroa.0.0
 }
 
@@ -29504,7 +29504,7 @@ define hidden noundef ptr @_ZN8wasmtime7runtime9component4func5typed13lower_payl
   br label %"_ZN102_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5lower28_$u7b$$u7b$closure$u7d$$u7d$17h7c55e485e8c1bc44E.exit.thread"
 
 "_ZN102_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5lower28_$u7b$$u7b$closure$u7d$$u7d$17h7c55e485e8c1bc44E.exit.thread": ; preds = %"_ZN102_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5lower28_$u7b$$u7b$closure$u7d$$u7d$17h7c55e485e8c1bc44E.exit.thread.loopexit", %62, %74, %"_ZN102_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5lower28_$u7b$$u7b$closure$u7d$$u7d$17h7c55e485e8c1bc44E.exit"
-  %.sroa.0.0 = phi ptr [ %96, %"_ZN102_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5lower28_$u7b$$u7b$closure$u7d$$u7d$17h7c55e485e8c1bc44E.exit" ], [ %68, %62 ], [ %82, %74 ], [ null, %"_ZN102_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5lower28_$u7b$$u7b$closure$u7d$$u7d$17h7c55e485e8c1bc44E.exit.thread.loopexit" ]
+  %.sroa.0.0 = phi ptr [ %82, %74 ], [ %96, %"_ZN102_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5lower28_$u7b$$u7b$closure$u7d$$u7d$17h7c55e485e8c1bc44E.exit" ], [ %68, %62 ], [ null, %"_ZN102_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5lower28_$u7b$$u7b$closure$u7d$$u7d$17h7c55e485e8c1bc44E.exit.thread.loopexit" ]
   ret ptr %.sroa.0.0
 }
 
@@ -31300,7 +31300,7 @@ define hidden noundef ptr @_ZN8wasmtime7runtime9component4func5typed13lower_payl
   br label %"_ZN102_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5lower28_$u7b$$u7b$closure$u7d$$u7d$17ha0a8062565e6903bE.exit"
 
 "_ZN102_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5lower28_$u7b$$u7b$closure$u7d$$u7d$17ha0a8062565e6903bE.exit": ; preds = %2, %61, %"_ZN127_$LT$wasmtime..runtime..component..resources..Resource$LT$T$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5lower17hdfb2f3bb51daa5d0E.exit.i.i", %"_ZN127_$LT$wasmtime..runtime..component..resources..Resource$LT$T$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5lower17hd7af37144f869c60E.exit.i.i"
-  %.sroa.0.0 = phi ptr [ %60, %"_ZN127_$LT$wasmtime..runtime..component..resources..Resource$LT$T$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5lower17hdfb2f3bb51daa5d0E.exit.i.i" ], [ %44, %"_ZN127_$LT$wasmtime..runtime..component..resources..Resource$LT$T$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5lower17hd7af37144f869c60E.exit.i.i" ], [ null, %61 ], [ null, %2 ]
+  %.sroa.0.0 = phi ptr [ %44, %"_ZN127_$LT$wasmtime..runtime..component..resources..Resource$LT$T$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5lower17hd7af37144f869c60E.exit.i.i" ], [ %60, %"_ZN127_$LT$wasmtime..runtime..component..resources..Resource$LT$T$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5lower17hdfb2f3bb51daa5d0E.exit.i.i" ], [ null, %61 ], [ null, %2 ]
   ret ptr %.sroa.0.0
 }
 
@@ -32032,7 +32032,7 @@ define hidden noundef ptr @_ZN8wasmtime7runtime9component4func5typed13lower_payl
   unreachable
 
 "_ZN102_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5lower28_$u7b$$u7b$closure$u7d$$u7d$17ha4e77efa55493e3eE.exit": ; preds = %2, %70, %75, %31
-  %.sroa.0.0 = phi ptr [ %76, %75 ], [ %41, %31 ], [ null, %70 ], [ null, %2 ]
+  %.sroa.0.0 = phi ptr [ %41, %31 ], [ %76, %75 ], [ null, %70 ], [ null, %2 ]
   ret ptr %.sroa.0.0
 }
 
@@ -32774,7 +32774,7 @@ define hidden noundef ptr @_ZN8wasmtime7runtime9component4func5typed13lower_payl
   br label %"_ZN102_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5lower28_$u7b$$u7b$closure$u7d$$u7d$17h2e054d236a1f766dE.exit"
 
 "_ZN102_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5lower28_$u7b$$u7b$closure$u7d$$u7d$17h2e054d236a1f766dE.exit": ; preds = %2, %60, %"_ZN127_$LT$wasmtime..runtime..component..resources..Resource$LT$T$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5lower17h1f7ead8ec368bf92E.llvm.15006262148341195119.exit.i.i", %"_ZN127_$LT$wasmtime..runtime..component..resources..Resource$LT$T$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5lower17h854128b461afbe02E.llvm.15006262148341195119.exit.i.i"
-  %.sroa.0.0 = phi ptr [ %59, %"_ZN127_$LT$wasmtime..runtime..component..resources..Resource$LT$T$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5lower17h1f7ead8ec368bf92E.llvm.15006262148341195119.exit.i.i" ], [ %43, %"_ZN127_$LT$wasmtime..runtime..component..resources..Resource$LT$T$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5lower17h854128b461afbe02E.llvm.15006262148341195119.exit.i.i" ], [ null, %60 ], [ null, %2 ]
+  %.sroa.0.0 = phi ptr [ %43, %"_ZN127_$LT$wasmtime..runtime..component..resources..Resource$LT$T$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5lower17h854128b461afbe02E.llvm.15006262148341195119.exit.i.i" ], [ %59, %"_ZN127_$LT$wasmtime..runtime..component..resources..Resource$LT$T$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5lower17h1f7ead8ec368bf92E.llvm.15006262148341195119.exit.i.i" ], [ null, %60 ], [ null, %2 ]
   ret ptr %.sroa.0.0
 }
 
@@ -33052,7 +33052,7 @@ define hidden noundef ptr @_ZN8wasmtime7runtime9component4func5typed13lower_payl
   br label %"_ZN102_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5lower28_$u7b$$u7b$closure$u7d$$u7d$17h34cdd709ca6cccbcE.exit.thread"
 
 "_ZN102_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5lower28_$u7b$$u7b$closure$u7d$$u7d$17h34cdd709ca6cccbcE.exit.thread": ; preds = %80, %2, %"_ZN127_$LT$wasmtime..runtime..component..resources..Resource$LT$T$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5lower17h1f7ead8ec368bf92E.llvm.15006262148341195119.exit.i.i", %"_ZN127_$LT$wasmtime..runtime..component..resources..Resource$LT$T$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5lower17h7263b91b5002ee98E.exit.i.i", %"_ZN127_$LT$wasmtime..runtime..component..resources..Resource$LT$T$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5lower17h854128b461afbe02E.llvm.15006262148341195119.exit.i.i"
-  %.sroa.0.0 = phi ptr [ %79, %"_ZN127_$LT$wasmtime..runtime..component..resources..Resource$LT$T$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5lower17h1f7ead8ec368bf92E.llvm.15006262148341195119.exit.i.i" ], [ %45, %"_ZN127_$LT$wasmtime..runtime..component..resources..Resource$LT$T$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5lower17h7263b91b5002ee98E.exit.i.i" ], [ %62, %"_ZN127_$LT$wasmtime..runtime..component..resources..Resource$LT$T$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5lower17h854128b461afbe02E.llvm.15006262148341195119.exit.i.i" ], [ null, %2 ], [ null, %80 ]
+  %.sroa.0.0 = phi ptr [ %62, %"_ZN127_$LT$wasmtime..runtime..component..resources..Resource$LT$T$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5lower17h854128b461afbe02E.llvm.15006262148341195119.exit.i.i" ], [ %79, %"_ZN127_$LT$wasmtime..runtime..component..resources..Resource$LT$T$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5lower17h1f7ead8ec368bf92E.llvm.15006262148341195119.exit.i.i" ], [ %45, %"_ZN127_$LT$wasmtime..runtime..component..resources..Resource$LT$T$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5lower17h7263b91b5002ee98E.exit.i.i" ], [ null, %2 ], [ null, %80 ]
   ret ptr %.sroa.0.0
 }
 
@@ -38652,10 +38652,10 @@ _ZN8wasmtime7runtime9component4func5typed11load_option17h178839dfe8d249d5E.exit.
   unreachable
 
 "_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4load17hc844d141afb405c4E.exit.i": ; preds = %133, %131
-  %.sroa.16.0.i = phi ptr [ %106, %131 ], [ %130, %133 ]
-  %.sroa.9.0.i = phi i64 [ %103, %131 ], [ %.pr.i, %133 ]
-  %.sroa.022.0.i = phi i64 [ 0, %131 ], [ 1, %133 ]
-  %.sroa.19.0.i = phi i64 [ %.sroa.632.0.copyload.i.i, %131 ], [ %.sroa.636.0.copyload.i.i, %133 ]
+  %.sroa.16.0.i = phi ptr [ %130, %133 ], [ %106, %131 ]
+  %.sroa.9.0.i = phi i64 [ %.pr.i, %133 ], [ %103, %131 ]
+  %.sroa.022.0.i = phi i64 [ 1, %133 ], [ 0, %131 ]
+  %.sroa.19.0.i = phi i64 [ %.sroa.636.0.copyload.i.i, %133 ], [ %.sroa.632.0.copyload.i.i, %131 ]
   %137 = inttoptr i64 %.sroa.9.0.i to ptr
   store i64 %.sroa.022.0.i, ptr %0, align 8, !alias.scope !5570, !noalias !5630
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -39074,10 +39074,10 @@ _ZN8wasmtime7runtime9component4func5typed11load_option17h178839dfe8d249d5E.exit.
   unreachable
 
 "_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4load17hcb242276c0cb3831E.exit.i": ; preds = %133, %131
-  %.sroa.16.0.i = phi ptr [ %106, %131 ], [ %130, %133 ]
-  %.sroa.9.0.i = phi i64 [ %103, %131 ], [ %.pr.i, %133 ]
-  %.sroa.022.0.i = phi i64 [ 0, %131 ], [ 1, %133 ]
-  %.sroa.19.0.i = phi i64 [ %.sroa.632.0.copyload.i.i, %131 ], [ %.sroa.636.0.copyload.i.i, %133 ]
+  %.sroa.16.0.i = phi ptr [ %130, %133 ], [ %106, %131 ]
+  %.sroa.9.0.i = phi i64 [ %.pr.i, %133 ], [ %103, %131 ]
+  %.sroa.022.0.i = phi i64 [ 1, %133 ], [ 0, %131 ]
+  %.sroa.19.0.i = phi i64 [ %.sroa.636.0.copyload.i.i, %133 ], [ %.sroa.632.0.copyload.i.i, %131 ]
   %137 = inttoptr i64 %.sroa.9.0.i to ptr
   store i64 %.sroa.022.0.i, ptr %0, align 8, !alias.scope !5631, !noalias !5691
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -40227,9 +40227,9 @@ _ZN8wasmtime7runtime9component4func5typed11load_option17h178839dfe8d249d5E.exit.
   unreachable
 
 "_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4load17hf75cd56d0d62ef9cE.exit.thread32.i": ; preds = %"_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4load17hf75cd56d0d62ef9cE.exit.i", %103, %101
-  %.sroa.13.038.i = phi i64 [ %.sroa.623.0.copyload.i.i, %"_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4load17hf75cd56d0d62ef9cE.exit.i" ], [ undef, %103 ], [ undef, %101 ]
-  %.sroa.024.037.i = phi i64 [ %.pr.i, %"_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4load17hf75cd56d0d62ef9cE.exit.i" ], [ -9223372036854775808, %103 ], [ -9223372036854775808, %101 ]
-  %.sroa.8.036.i = phi ptr [ %137, %"_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4load17hf75cd56d0d62ef9cE.exit.i" ], [ undef, %103 ], [ undef, %101 ]
+  %.sroa.13.038.i = phi i64 [ %.sroa.623.0.copyload.i.i, %"_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4load17hf75cd56d0d62ef9cE.exit.i" ], [ undef, %101 ], [ undef, %103 ]
+  %.sroa.024.037.i = phi i64 [ %.pr.i, %"_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4load17hf75cd56d0d62ef9cE.exit.i" ], [ -9223372036854775808, %101 ], [ -9223372036854775808, %103 ]
+  %.sroa.8.036.i = phi ptr [ %137, %"_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4load17hf75cd56d0d62ef9cE.exit.i" ], [ undef, %101 ], [ undef, %103 ]
   store i64 %.sroa.024.037.i, ptr %0, align 8, !alias.scope !5840, !noalias !5905
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.8.036.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !5840, !noalias !5905

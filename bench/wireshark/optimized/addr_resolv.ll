@@ -963,7 +963,7 @@ fgetline.exit:                                    ; preds = %fgetline.exit.lr.ph
   br i1 %.not.i18, label %fgetline.exit.thread, label %fgetline.exit.lr.ph, !llvm.loop !15
 
 fgetline.exit.thread:                             ; preds = %.outer, %fgetline.exit, %.backedge, %.outer.us, %fgetline.exit.us, %.backedge.us, %.preheader
-  %.0.ph.lcssa = phi i1 [ false, %.preheader ], [ %.0.ph22, %fgetline.exit ], [ %.0.ph22.us, %fgetline.exit.us ], [ true, %.outer.us ], [ %.0.ph22.us, %.backedge.us ], [ %.0.ph22, %.backedge ], [ true, %.outer ]
+  %.0.ph.lcssa = phi i1 [ true, %.outer.us ], [ %.0.ph22.us, %fgetline.exit.us ], [ false, %.preheader ], [ %.0.ph22, %fgetline.exit ], [ %.0.ph22.us, %.backedge.us ], [ %.0.ph22, %.backedge ], [ true, %.outer ]
   %53 = call i32 @fclose(ptr noundef nonnull %5)
   br label %54
 
@@ -4678,8 +4678,8 @@ define hidden noundef zeroext i1 @str_to_eth(ptr noundef %0, ptr noundef %1) loc
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
   br i1 %exitcond.not.i, label %parse_ether_address.exit.thread, label %6, !llvm.loop !53
 
-parse_ether_address.exit.thread:                  ; preds = %6, %27, %26, %17, %12, %28, %21, %23
-  %.054.i.ph = phi i1 [ true, %23 ], [ false, %21 ], [ false, %6 ], [ false, %27 ], [ false, %26 ], [ true, %28 ], [ false, %17 ], [ false, %12 ]
+parse_ether_address.exit.thread:                  ; preds = %17, %12, %6, %27, %26, %28, %21, %23
+  %.054.i.ph = phi i1 [ false, %21 ], [ true, %23 ], [ false, %17 ], [ false, %12 ], [ false, %6 ], [ false, %27 ], [ false, %26 ], [ true, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %30
 
@@ -4856,7 +4856,7 @@ define internal fastcc noundef zeroext i1 @parse_ether_address(ptr noundef %0, p
   br i1 %exitcond.not, label %.loopexit, label %7, !llvm.loop !53
 
 .loopexit:                                        ; preds = %74, %73, %72, %13, %7, %.lr.ph89.preheader, %._crit_edge, %62, %68, %69, %66, %67, %64, %42, %36, %30, %23, %22, %65
-  %.054 = phi i1 [ true, %69 ], [ true, %._crit_edge ], [ false, %23 ], [ false, %36 ], [ false, %42 ], [ false, %30 ], [ false, %22 ], [ true, %67 ], [ true, %65 ], [ false, %64 ], [ true, %66 ], [ true, %68 ], [ false, %62 ], [ true, %.lr.ph89.preheader ], [ false, %73 ], [ false, %72 ], [ true, %74 ], [ false, %13 ], [ false, %7 ]
+  %.054 = phi i1 [ false, %62 ], [ true, %67 ], [ false, %23 ], [ false, %36 ], [ false, %42 ], [ false, %30 ], [ false, %22 ], [ true, %._crit_edge ], [ true, %65 ], [ true, %69 ], [ false, %64 ], [ true, %66 ], [ true, %68 ], [ true, %.lr.ph89.preheader ], [ false, %7 ], [ false, %73 ], [ false, %72 ], [ true, %74 ], [ false, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.054
 }

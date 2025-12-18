@@ -1382,7 +1382,7 @@ _ZSt7advanceIPKimEvRT_T0_.exit.i:                 ; preds = %589
   br i1 %598, label %.invoke, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i
 
 .invoke:                                          ; preds = %_ZNSt6vectorIiSaIiEE7reserveEm.exit197, %336, %595, %548, %684, %629, %381, %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit157, %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchArrayESaIS3_EE7reserveEm.exit, %._crit_edge
-  %599 = phi ptr [ @.str.2, %548 ], [ @.str, %381 ], [ @.str, %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit157 ], [ @.str, %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchArrayESaIS3_EE7reserveEm.exit ], [ @.str, %._crit_edge ], [ @.str.2, %629 ], [ @.str.2, %684 ], [ @.str.3, %595 ], [ @.str, %336 ], [ @.str, %_ZNSt6vectorIiSaIiEE7reserveEm.exit197 ]
+  %599 = phi ptr [ @.str, %._crit_edge ], [ @.str, %381 ], [ @.str.2, %684 ], [ @.str.2, %629 ], [ @.str.2, %548 ], [ @.str, %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchArrayESaIS3_EE7reserveEm.exit ], [ @.str, %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit157 ], [ @.str.3, %595 ], [ @.str, %336 ], [ @.str, %_ZNSt6vectorIiSaIiEE7reserveEm.exit197 ]
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull %599) #15
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 

@@ -1042,9 +1042,9 @@ define range(i32 -1, -2147483648) i32 @H5FD_read_vector(ptr noundef %0, i32 noun
   br label %.critedge
 
 .critedge:                                        ; preds = %.preheader191, %.critedge.loopexit358, %.critedge.loopexit
-  %.3134 = phi i64 [ 0, %.critedge.loopexit358 ], [ %.1132, %.critedge.loopexit ], [ 0, %.preheader191 ]
-  %.3128 = phi i32 [ 0, %.critedge.loopexit358 ], [ %.1126, %.critedge.loopexit ], [ 0, %.preheader191 ]
-  %.3124 = phi i1 [ false, %.critedge.loopexit358 ], [ %95, %.critedge.loopexit ], [ true, %.preheader191 ]
+  %.3134 = phi i64 [ %.1132, %.critedge.loopexit ], [ 0, %.critedge.loopexit358 ], [ 0, %.preheader191 ]
+  %.3128 = phi i32 [ %.1126, %.critedge.loopexit ], [ 0, %.critedge.loopexit358 ], [ 0, %.preheader191 ]
+  %.3124 = phi i1 [ %95, %.critedge.loopexit ], [ false, %.critedge.loopexit358 ], [ true, %.preheader191 ]
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %97 = load ptr, ptr %96, align 8, !tbaa !15
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 224
@@ -1216,8 +1216,8 @@ define range(i32 -1, -2147483648) i32 @H5FD_read_vector(ptr noundef %0, i32 noun
 178:                                              ; preds = %119
   br i1 %.not.not, label %.thread186, label %.preheader
 
-.preheader:                                       ; preds = %178, %.thread171, %177, %.thread178, %115, %120
-  %.0116189.ph = phi i32 [ %107, %120 ], [ -1, %115 ], [ -1, %.thread178 ], [ %.9, %177 ], [ -1, %.thread171 ], [ %107, %178 ]
+.preheader:                                       ; preds = %178, %177, %.thread178, %.thread171, %120, %115
+  %.0116189.ph = phi i32 [ -1, %115 ], [ %107, %120 ], [ -1, %.thread171 ], [ -1, %.thread178 ], [ %.9, %177 ], [ %107, %178 ]
   %wide.trip.count277 = zext i32 %1 to i64
   br label %179
 
@@ -1232,8 +1232,8 @@ define range(i32 -1, -2147483648) i32 @H5FD_read_vector(ptr noundef %0, i32 noun
   %exitcond278.not = icmp eq i64 %indvars.iv.next274, %wide.trip.count277
   br i1 %exitcond278.not, label %.thread186, label %179, !llvm.loop !37
 
-.thread186:                                       ; preds = %179, %28, %21, %120, %115, %.thread178, %177, %.thread171, %25, %178
-  %.1117 = phi i32 [ %107, %178 ], [ 0, %25 ], [ %107, %120 ], [ -1, %.thread171 ], [ %.9, %177 ], [ -1, %.thread178 ], [ -1, %115 ], [ 0, %28 ], [ -1, %21 ], [ %.0116189.ph, %179 ]
+.thread186:                                       ; preds = %179, %28, %21, %115, %120, %.thread171, %.thread178, %177, %25, %178
+  %.1117 = phi i32 [ -1, %21 ], [ %107, %178 ], [ 0, %25 ], [ -1, %115 ], [ %.9, %177 ], [ -1, %.thread178 ], [ -1, %.thread171 ], [ %107, %120 ], [ 0, %28 ], [ %.0116189.ph, %179 ]
   ret i32 %.1117
 }
 
@@ -1584,8 +1584,8 @@ define range(i32 -1, -2147483648) i32 @H5FD_write_vector(ptr noundef %0, i32 nou
 172:                                              ; preds = %111
   br i1 %.not.not, label %.thread156, label %.preheader
 
-.preheader:                                       ; preds = %172, %82, %171, %.thread148, %73, %113, %107, %.thread
-  %.0102159.ph = phi i32 [ -1, %.thread ], [ -1, %107 ], [ %99, %113 ], [ -1, %73 ], [ -1, %.thread148 ], [ %.7, %171 ], [ -1, %82 ], [ %99, %172 ]
+.preheader:                                       ; preds = %172, %171, %.thread148, %113, %107, %.thread, %73, %82
+  %.0102159.ph = phi i32 [ -1, %82 ], [ -1, %73 ], [ -1, %.thread ], [ -1, %107 ], [ %99, %113 ], [ -1, %.thread148 ], [ %.7, %171 ], [ %99, %172 ]
   br label %173
 
 173:                                              ; preds = %.preheader, %173
@@ -1599,8 +1599,8 @@ define range(i32 -1, -2147483648) i32 @H5FD_write_vector(ptr noundef %0, i32 nou
   %exitcond235.not = icmp eq i64 %indvars.iv.next232, %.pre240
   br i1 %exitcond235.not, label %.thread156, label %173, !llvm.loop !42
 
-.thread156:                                       ; preds = %173, %28, %21, %.thread, %107, %113, %73, %.thread148, %171, %82, %25, %172
-  %.1103 = phi i32 [ %99, %172 ], [ 0, %25 ], [ -1, %.thread ], [ -1, %82 ], [ %.7, %171 ], [ -1, %.thread148 ], [ -1, %73 ], [ %99, %113 ], [ -1, %107 ], [ 0, %28 ], [ -1, %21 ], [ %.0102159.ph, %173 ]
+.thread156:                                       ; preds = %173, %28, %21, %82, %73, %.thread, %107, %113, %.thread148, %171, %25, %172
+  %.1103 = phi i32 [ -1, %21 ], [ %99, %172 ], [ 0, %25 ], [ -1, %82 ], [ %.7, %171 ], [ -1, %.thread148 ], [ %99, %113 ], [ -1, %107 ], [ -1, %.thread ], [ -1, %73 ], [ 0, %28 ], [ %.0102159.ph, %173 ]
   ret i32 %.1103
 }
 
@@ -1987,8 +1987,8 @@ define range(i32 -1, -2147483648) i32 @H5FD_read_selection(ptr noundef %0, i32 n
   %186 = call ptr @H5MM_xfree(ptr noundef %.0113156) #12
   br label %.thread231
 
-.thread231:                                       ; preds = %22, %29, %.thread141, %158, %154, %26, %185, %184
-  %.1103 = phi i32 [ %.7.lcssa, %185 ], [ %.7.lcssa, %184 ], [ 0, %26 ], [ -1, %22 ], [ 0, %29 ], [ -1, %.thread141 ], [ 0, %158 ], [ -1, %154 ]
+.thread231:                                       ; preds = %29, %.thread141, %158, %22, %154, %26, %185, %184
+  %.1103 = phi i32 [ %.7.lcssa, %185 ], [ %.7.lcssa, %184 ], [ 0, %26 ], [ 0, %29 ], [ -1, %.thread141 ], [ 0, %158 ], [ -1, %22 ], [ -1, %154 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.1103
@@ -2972,10 +2972,10 @@ define range(i32 -1, -2147483648) i32 @H5FD_read_selection_id(i32 noundef %0, pt
 151:                                              ; preds = %144
   br i1 %.not.not, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %151, %.thread129, %104, %112, %147, %140, %130, %119
-  %.094147.ph = phi i32 [ -1, %119 ], [ -1, %130 ], [ -1, %140 ], [ -1, %147 ], [ -1, %112 ], [ %.6, %104 ], [ -1, %.thread129 ], [ 0, %151 ]
-  %.0105146.ph = phi ptr [ null, %119 ], [ %.1106, %130 ], [ %.1106, %140 ], [ %.1106, %147 ], [ %11, %112 ], [ %11, %104 ], [ %11, %.thread129 ], [ %.1106, %151 ]
-  %.0107145.ph = phi ptr [ %110, %119 ], [ %.1108, %130 ], [ %.1108, %140 ], [ %.1108, %147 ], [ null, %112 ], [ %10, %104 ], [ %10, %.thread129 ], [ %.1108, %151 ]
+.preheader:                                       ; preds = %151, %104, %.thread129, %147, %140, %130, %119, %112
+  %.094147.ph = phi i32 [ -1, %112 ], [ -1, %119 ], [ -1, %130 ], [ -1, %140 ], [ -1, %147 ], [ -1, %.thread129 ], [ %.6, %104 ], [ 0, %151 ]
+  %.0105146.ph = phi ptr [ %11, %112 ], [ null, %119 ], [ %.1106, %130 ], [ %.1106, %140 ], [ %.1106, %147 ], [ %11, %.thread129 ], [ %11, %104 ], [ %.1106, %151 ]
+  %.0107145.ph = phi ptr [ null, %112 ], [ %110, %119 ], [ %.1108, %130 ], [ %.1108, %140 ], [ %.1108, %147 ], [ %10, %.thread129 ], [ %10, %104 ], [ %.1108, %151 ]
   %wide.trip.count196 = zext i32 %3 to i64
   br label %152
 
@@ -2991,9 +2991,9 @@ define range(i32 -1, -2147483648) i32 @H5FD_read_selection_id(i32 noundef %0, pt
   br i1 %exitcond197.not, label %.loopexit, label %152, !llvm.loop !56
 
 .loopexit:                                        ; preds = %152, %130, %140, %147, %151
-  %.094144 = phi i32 [ -1, %140 ], [ 0, %151 ], [ -1, %130 ], [ -1, %147 ], [ %.094147.ph, %152 ]
-  %.0105143 = phi ptr [ %.1106, %140 ], [ %.1106, %151 ], [ %.1106, %130 ], [ %.1106, %147 ], [ %.0105146.ph, %152 ]
-  %.0107142 = phi ptr [ %.1108, %140 ], [ %.1108, %151 ], [ %.1108, %130 ], [ %.1108, %147 ], [ %.0107145.ph, %152 ]
+  %.094144 = phi i32 [ -1, %130 ], [ -1, %147 ], [ 0, %151 ], [ -1, %140 ], [ %.094147.ph, %152 ]
+  %.0105143 = phi ptr [ %.1106, %130 ], [ %.1106, %147 ], [ %.1106, %151 ], [ %.1106, %140 ], [ %.0105146.ph, %152 ]
+  %.0107142 = phi ptr [ %.1108, %130 ], [ %.1108, %147 ], [ %.1108, %151 ], [ %.1108, %140 ], [ %.0107145.ph, %152 ]
   %.not120 = icmp eq ptr %.0107142, %10
   br i1 %.not120, label %158, label %.thread157
 
@@ -3014,8 +3014,8 @@ define range(i32 -1, -2147483648) i32 @H5FD_read_selection_id(i32 noundef %0, pt
   %160 = call ptr @H5MM_xfree(ptr noundef %.0105143155) #12
   br label %.thread165
 
-.thread165:                                       ; preds = %.thread129, %104, %23, %30, %27, %159, %158
-  %.195 = phi i32 [ %.094144154, %159 ], [ %.094144154, %158 ], [ 0, %27 ], [ %.6, %104 ], [ -1, %.thread129 ], [ 0, %30 ], [ -1, %23 ]
+.thread165:                                       ; preds = %104, %.thread129, %23, %30, %27, %159, %158
+  %.195 = phi i32 [ %.094144154, %159 ], [ %.094144154, %158 ], [ 0, %27 ], [ -1, %.thread129 ], [ %.6, %104 ], [ 0, %30 ], [ -1, %23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.195
@@ -3311,11 +3311,11 @@ define range(i32 -1, -2147483648) i32 @H5FD_write_selection(ptr noundef %0, i32 
 153:                                              ; preds = %146
   br i1 %.not.not, label %.thread219, label %.preheader
 
-.preheader:                                       ; preds = %153, %.thread, %53, %60, %149, %145
-  %.098152.ph = phi i32 [ %.3, %145 ], [ -1, %149 ], [ -1, %60 ], [ -1, %53 ], [ -1, %.thread ], [ 0, %153 ]
-  %.0105151.ph = phi i32 [ %.1106, %145 ], [ 0, %149 ], [ 0, %60 ], [ 0, %53 ], [ 0, %.thread ], [ 0, %153 ]
-  %.0109150.ph = phi ptr [ %.2111, %145 ], [ %10, %149 ], [ %10, %60 ], [ %10, %53 ], [ %10, %.thread ], [ %10, %153 ]
-  %.0112149.ph = phi ptr [ %.2114, %145 ], [ %9, %149 ], [ %9, %60 ], [ %9, %53 ], [ %9, %.thread ], [ %9, %153 ]
+.preheader:                                       ; preds = %153, %53, %149, %145, %.thread, %60
+  %.098152.ph = phi i32 [ -1, %60 ], [ -1, %.thread ], [ %.3, %145 ], [ -1, %149 ], [ -1, %53 ], [ 0, %153 ]
+  %.0105151.ph = phi i32 [ 0, %60 ], [ 0, %.thread ], [ %.1106, %145 ], [ 0, %149 ], [ 0, %53 ], [ 0, %153 ]
+  %.0109150.ph = phi ptr [ %10, %60 ], [ %10, %.thread ], [ %.2111, %145 ], [ %10, %149 ], [ %10, %53 ], [ %10, %153 ]
+  %.0112149.ph = phi ptr [ %9, %60 ], [ %9, %.thread ], [ %.2114, %145 ], [ %9, %149 ], [ %9, %53 ], [ %9, %153 ]
   %wide.trip.count189 = zext i32 %2 to i64
   br label %154
 
@@ -3394,8 +3394,8 @@ define range(i32 -1, -2147483648) i32 @H5FD_write_selection(ptr noundef %0, i32 
   %181 = call ptr @H5MM_xfree(ptr noundef %.0109146) #12
   br label %.thread219
 
-.thread219:                                       ; preds = %22, %29, %149, %60, %53, %.thread, %153, %26, %180, %179
-  %.199 = phi i32 [ %.5.lcssa, %180 ], [ %.5.lcssa, %179 ], [ 0, %26 ], [ -1, %22 ], [ 0, %29 ], [ -1, %149 ], [ -1, %60 ], [ -1, %53 ], [ -1, %.thread ], [ 0, %153 ]
+.thread219:                                       ; preds = %29, %.thread, %149, %53, %153, %22, %60, %26, %180, %179
+  %.199 = phi i32 [ %.5.lcssa, %180 ], [ %.5.lcssa, %179 ], [ 0, %26 ], [ 0, %29 ], [ -1, %.thread ], [ -1, %149 ], [ -1, %53 ], [ 0, %153 ], [ -1, %22 ], [ -1, %60 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.199
@@ -4357,10 +4357,10 @@ define range(i32 -1, -2147483648) i32 @H5FD_write_selection_id(i32 noundef %0, p
 146:                                              ; preds = %139
   br i1 %.not.not, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %146, %.thread, %56, %99, %63, %142, %135, %125, %113, %106
-  %.090137.ph = phi i32 [ -1, %106 ], [ -1, %113 ], [ -1, %125 ], [ -1, %135 ], [ -1, %142 ], [ -1, %63 ], [ %.4, %99 ], [ -1, %56 ], [ -1, %.thread ], [ 0, %146 ]
-  %.0101136.ph = phi ptr [ %11, %106 ], [ null, %113 ], [ %.1102, %125 ], [ %.1102, %135 ], [ %.1102, %142 ], [ %11, %63 ], [ %11, %99 ], [ %11, %56 ], [ %11, %.thread ], [ %.1102, %146 ]
-  %.0103135.ph = phi ptr [ null, %106 ], [ %104, %113 ], [ %.1104, %125 ], [ %.1104, %135 ], [ %.1104, %142 ], [ %10, %63 ], [ %10, %99 ], [ %10, %56 ], [ %10, %.thread ], [ %.1104, %146 ]
+.preheader:                                       ; preds = %146, %56, %99, %.thread, %142, %135, %125, %113, %106, %63
+  %.090137.ph = phi i32 [ -1, %63 ], [ -1, %106 ], [ -1, %113 ], [ -1, %125 ], [ -1, %135 ], [ -1, %142 ], [ -1, %.thread ], [ %.4, %99 ], [ -1, %56 ], [ 0, %146 ]
+  %.0101136.ph = phi ptr [ %11, %63 ], [ %11, %106 ], [ null, %113 ], [ %.1102, %125 ], [ %.1102, %135 ], [ %.1102, %142 ], [ %11, %.thread ], [ %11, %99 ], [ %11, %56 ], [ %.1102, %146 ]
+  %.0103135.ph = phi ptr [ %10, %63 ], [ null, %106 ], [ %104, %113 ], [ %.1104, %125 ], [ %.1104, %135 ], [ %.1104, %142 ], [ %10, %.thread ], [ %10, %99 ], [ %10, %56 ], [ %.1104, %146 ]
   %wide.trip.count185 = zext i32 %3 to i64
   br label %147
 
@@ -4376,16 +4376,16 @@ define range(i32 -1, -2147483648) i32 @H5FD_write_selection_id(i32 noundef %0, p
   br i1 %exitcond186.not, label %.loopexit, label %147, !llvm.loop !68
 
 .loopexit:                                        ; preds = %147, %125, %135, %142, %146
-  %.090134 = phi i32 [ -1, %142 ], [ 0, %146 ], [ -1, %135 ], [ -1, %125 ], [ %.090137.ph, %147 ]
-  %.0101133 = phi ptr [ %.1102, %142 ], [ %.1102, %146 ], [ %.1102, %135 ], [ %.1102, %125 ], [ %.0101136.ph, %147 ]
-  %.0103132 = phi ptr [ %.1104, %142 ], [ %.1104, %146 ], [ %.1104, %135 ], [ %.1104, %125 ], [ %.0103135.ph, %147 ]
+  %.090134 = phi i32 [ -1, %135 ], [ -1, %142 ], [ 0, %146 ], [ -1, %125 ], [ %.090137.ph, %147 ]
+  %.0101133 = phi ptr [ %.1102, %135 ], [ %.1102, %142 ], [ %.1102, %146 ], [ %.1102, %125 ], [ %.0101136.ph, %147 ]
+  %.0103132 = phi ptr [ %.1104, %135 ], [ %.1104, %142 ], [ %.1104, %146 ], [ %.1104, %125 ], [ %.0103135.ph, %147 ]
   %.not115 = icmp eq ptr %.0103132, %10
   br i1 %.not115, label %153, label %.thread147
 
-.thread147:                                       ; preds = %106, %113, %.loopexit
-  %.0103132154 = phi ptr [ %.0103132, %.loopexit ], [ null, %106 ], [ %104, %113 ]
-  %.0101133153 = phi ptr [ %.0101133, %.loopexit ], [ %11, %106 ], [ null, %113 ]
-  %.090134152 = phi i32 [ %.090134, %.loopexit ], [ -1, %106 ], [ -1, %113 ]
+.thread147:                                       ; preds = %113, %106, %.loopexit
+  %.0103132154 = phi ptr [ %.0103132, %.loopexit ], [ %104, %113 ], [ null, %106 ]
+  %.0101133153 = phi ptr [ %.0101133, %.loopexit ], [ null, %113 ], [ %11, %106 ]
+  %.090134152 = phi i32 [ %.090134, %.loopexit ], [ -1, %113 ], [ -1, %106 ]
   %152 = call ptr @H5MM_xfree(ptr noundef %.0103132154) #12
   br label %153
 
@@ -4399,8 +4399,8 @@ define range(i32 -1, -2147483648) i32 @H5FD_write_selection_id(i32 noundef %0, p
   %155 = call ptr @H5MM_xfree(ptr noundef %.0101133145) #12
   br label %.thread155
 
-.thread155:                                       ; preds = %.thread, %56, %99, %63, %23, %30, %27, %154, %153
-  %.191 = phi i32 [ %.090134144, %154 ], [ %.090134144, %153 ], [ 0, %27 ], [ -1, %63 ], [ %.4, %99 ], [ -1, %56 ], [ -1, %.thread ], [ 0, %30 ], [ -1, %23 ]
+.thread155:                                       ; preds = %56, %99, %.thread, %63, %23, %30, %27, %154, %153
+  %.191 = phi i32 [ %.090134144, %154 ], [ %.090134144, %153 ], [ 0, %27 ], [ -1, %63 ], [ -1, %.thread ], [ %.4, %99 ], [ -1, %56 ], [ 0, %30 ], [ -1, %23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.191
@@ -5887,7 +5887,7 @@ define internal range(i32 0, 2) i32 @H5FD__get_driver_cb(ptr noundef readonly ca
   br label %26
 
 26:                                               ; preds = %.sink.split, %14, %20, %3
-  %.0 = phi i32 [ 0, %14 ], [ 0, %20 ], [ 0, %3 ], [ 1, %.sink.split ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %14 ], [ 0, %20 ], [ 1, %.sink.split ]
   ret i32 %.0
 }
 

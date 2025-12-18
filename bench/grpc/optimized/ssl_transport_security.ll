@@ -582,8 +582,8 @@ _ZL24ssl_get_x509_common_nameP7x509_stPPhPm.exit.i: ; preds = %86
   store ptr null, ptr %10, align 8, !tbaa !23
   br label %_ZL35peer_property_from_x509_common_nameP7x509_stP17tsi_peer_property.exit
 
-_ZL35peer_property_from_x509_common_nameP7x509_stP17tsi_peer_property.exit.thread: ; preds = %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi41EEERS2_RAT__Kc.exit.i.i, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi55EEERS2_RAT__Kc.exit44.i.i, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi50EEERS2_RAT__Kc.exit.i.i
-  %.0.i.ph = phi i32 [ 7, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi50EEERS2_RAT__Kc.exit.i.i ], [ 7, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi55EEERS2_RAT__Kc.exit44.i.i ], [ 12, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi41EEERS2_RAT__Kc.exit.i.i ]
+_ZL35peer_property_from_x509_common_nameP7x509_stP17tsi_peer_property.exit.thread: ; preds = %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi55EEERS2_RAT__Kc.exit44.i.i, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi50EEERS2_RAT__Kc.exit.i.i, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi41EEERS2_RAT__Kc.exit.i.i
+  %.0.i.ph = phi i32 [ 12, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi41EEERS2_RAT__Kc.exit.i.i ], [ 7, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi50EEERS2_RAT__Kc.exit.i.i ], [ 7, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi55EEERS2_RAT__Kc.exit44.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %119
 
@@ -945,9 +945,9 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi42EEERS2_RAT__Kc.exit: ; pr
   br i1 %57, label %.loopexit.thread, label %.lr.ph.split, !llvm.loop !31
 
 .loopexit:                                        ; preds = %42, %54, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi42EEERS2_RAT__Kc.exit
-  %.04388 = phi i64 [ %.04389, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi42EEERS2_RAT__Kc.exit ], [ %.us-phi, %54 ], [ %.04389, %42 ]
-  %58 = phi ptr [ %36, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi42EEERS2_RAT__Kc.exit ], [ %.us-phi92, %54 ], [ %36, %42 ]
-  %.1 = phi i32 [ 2, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi42EEERS2_RAT__Kc.exit ], [ 7, %54 ], [ 12, %42 ]
+  %.04388 = phi i64 [ %.us-phi, %54 ], [ %.04389, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi42EEERS2_RAT__Kc.exit ], [ %.04389, %42 ]
+  %58 = phi ptr [ %.us-phi92, %54 ], [ %36, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi42EEERS2_RAT__Kc.exit ], [ %36, %42 ]
+  %.1 = phi i32 [ 7, %54 ], [ 2, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi42EEERS2_RAT__Kc.exit ], [ 12, %42 ]
   %59 = icmp eq i64 %.04388, 0
   br i1 %59, label %61, label %.thread129
 
@@ -2810,7 +2810,7 @@ define internal noundef range(i32 0, 4) i32 @_ZL38client_handshaker_factory_npn_
   br label %_ZL20select_protocol_listPPKhPhS0_mS0_m.exit
 
 _ZL20select_protocol_listPPKhPhS0_mS0_m.exit:     ; preds = %..critedge_crit_edge.us.i, %6, %.lr.ph45.i, %.critedge40.critedge.i
-  %.4.i = phi i32 [ 0, %.critedge40.critedge.i ], [ 3, %6 ], [ 3, %.lr.ph45.i ], [ 3, %..critedge_crit_edge.us.i ]
+  %.4.i = phi i32 [ 0, %.critedge40.critedge.i ], [ 3, %.lr.ph45.i ], [ 3, %6 ], [ 3, %..critedge_crit_edge.us.i ]
   ret i32 %.4.i
 }
 
@@ -4636,7 +4636,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi40EEERS2_RAT__Kc.exit: ; pr
   br label %_ZL32tsi_ssl_handshaker_factory_unrefP26tsi_ssl_handshaker_factory.exit
 
 _ZL32tsi_ssl_handshaker_factory_unrefP26tsi_ssl_handshaker_factory.exit: ; preds = %102, %255, %253, %251, %.loopexit, %61, %59, %57, %55, %43, %41, %39, %37, %11, %15, %2, %._crit_edge
-  %.0 = phi i32 [ 0, %._crit_edge ], [ 2, %2 ], [ 12, %43 ], [ %54, %61 ], [ 2, %11 ], [ 2, %15 ], [ 12, %37 ], [ 12, %39 ], [ 12, %41 ], [ %54, %55 ], [ %54, %57 ], [ %54, %59 ], [ %.0127.ph, %.loopexit ], [ %.0127.ph, %251 ], [ %.0127.ph, %253 ], [ %.0127.ph, %255 ], [ %105, %102 ]
+  %.0 = phi i32 [ 0, %._crit_edge ], [ 2, %2 ], [ %.0127.ph, %255 ], [ 12, %43 ], [ %54, %61 ], [ 2, %11 ], [ 2, %15 ], [ 12, %37 ], [ 12, %39 ], [ 12, %41 ], [ %54, %55 ], [ %54, %57 ], [ %54, %59 ], [ %.0127.ph, %.loopexit ], [ %.0127.ph, %251 ], [ %.0127.ph, %253 ], [ %105, %102 ]
   ret i32 %.0
 
 260:                                              ; preds = %121, %133, %148, %212, %100
@@ -4847,7 +4847,7 @@ define internal noundef range(i32 0, 4) i32 @_ZL39server_handshaker_factory_alpn
   br label %_ZL20select_protocol_listPPKhPhS0_mS0_m.exit
 
 _ZL20select_protocol_listPPKhPhS0_mS0_m.exit:     ; preds = %..critedge_crit_edge.us.i, %6, %.lr.ph45.i, %.critedge40.critedge.i
-  %.4.i = phi i32 [ 0, %.critedge40.critedge.i ], [ 3, %6 ], [ 3, %.lr.ph45.i ], [ 3, %..critedge_crit_edge.us.i ]
+  %.4.i = phi i32 [ 0, %.critedge40.critedge.i ], [ 3, %.lr.ph45.i ], [ 3, %6 ], [ 3, %..critedge_crit_edge.us.i ]
   ret i32 %.4.i
 }
 
@@ -5715,7 +5715,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi41EEERS2_RAT__Kc.exit: ; pr
   br i1 %.not, label %103, label %.thread
 
 .thread:                                          ; preds = %96, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi36EEERS2_RAT__Kc.exit, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi41EEERS2_RAT__Kc.exit
-  %.5.ph = phi i32 [ 7, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi41EEERS2_RAT__Kc.exit ], [ 7, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi36EEERS2_RAT__Kc.exit ], [ %102, %96 ]
+  %.5.ph = phi i32 [ 7, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi36EEERS2_RAT__Kc.exit ], [ 7, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi41EEERS2_RAT__Kc.exit ], [ %102, %96 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread82
 
@@ -6212,8 +6212,8 @@ _ZL38ssl_handshaker_process_bytes_from_peerP18tsi_ssl_handshakerPKhPmPNSt7__cxx1
   br i1 %.not125, label %.lr.ph, label %._crit_edge, !llvm.loop !203
 
 ._crit_edge:                                      ; preds = %56, %52, %39, %38, %_ZL38ssl_handshaker_process_bytes_from_peerP18tsi_ssl_handshakerPKhPmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %.0219 = phi i64 [ %53, %_ZL38ssl_handshaker_process_bytes_from_peerP18tsi_ssl_handshakerPKhPmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %.0107194, %38 ], [ %.0107194, %39 ], [ %.0107194, %52 ], [ %53, %56 ]
-  %.290.lcssa = phi i32 [ %54, %_ZL38ssl_handshaker_process_bytes_from_peerP18tsi_ssl_handshakerPKhPmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ 2, %38 ], [ 2, %39 ], [ 7, %52 ], [ %57, %56 ]
+  %.0219 = phi i64 [ %53, %_ZL38ssl_handshaker_process_bytes_from_peerP18tsi_ssl_handshakerPKhPmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %.0107194, %52 ], [ %.0107194, %38 ], [ %.0107194, %39 ], [ %53, %56 ]
+  %.290.lcssa = phi i32 [ %54, %_ZL38ssl_handshaker_process_bytes_from_peerP18tsi_ssl_handshakerPKhPmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ 7, %52 ], [ 2, %38 ], [ 2, %39 ], [ %57, %56 ]
   %58 = sub i64 %.0107194, %.0219
   %59 = getelementptr inbounds nuw i8, ptr %.0109193, i64 %.0219
   %.not = icmp eq i64 %58, 0
@@ -6443,7 +6443,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit147: ; preds = %13
   br label %common.resume
 
 .critedge:                                        ; preds = %.lr.ph, %90, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi61EEERS2_RAT__Kc.exit.i, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi39EEERS2_RAT__Kc.exit, %99, %.thread177, %109, %105, %114, %.critedge141, %75, %.thread166, %60
-  %.5 = phi i32 [ 0, %75 ], [ %.189.lcssa, %60 ], [ %61, %.thread166 ], [ 7, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi61EEERS2_RAT__Kc.exit.i ], [ 7, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi39EEERS2_RAT__Kc.exit ], [ 7, %99 ], [ 7, %90 ], [ %103, %.thread177 ], [ 0, %109 ], [ 0, %105 ], [ 0, %114 ], [ 0, %.critedge141 ], [ %55, %.lr.ph ]
+  %.5 = phi i32 [ 0, %75 ], [ %.189.lcssa, %60 ], [ %61, %.thread166 ], [ 0, %.critedge141 ], [ 7, %90 ], [ 7, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi39EEERS2_RAT__Kc.exit ], [ 7, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi61EEERS2_RAT__Kc.exit.i ], [ 7, %99 ], [ %103, %.thread177 ], [ 0, %109 ], [ 0, %105 ], [ 0, %114 ], [ %55, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %144
 

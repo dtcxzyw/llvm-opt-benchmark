@@ -8610,7 +8610,7 @@ _ZNK4llvm5SUnit9getHeightEv.exit84:               ; preds = %268, %271
   br i1 %285, label %_ZNK4llvm14SparseMultiSetINS_10VReg2SUnitENS_20VirtReg2IndexFunctorEhE13iterator_baseIPS3_EneERKS6_.exit, label %.lr.ph
 
 _ZNK4llvm14SparseMultiSetINS_10VReg2SUnitENS_20VirtReg2IndexFunctorEhE13iterator_baseIPS3_EneERKS6_.exit: ; preds = %.lr.ph.i.i.i.i, %280, %..critedge.loopexit.i_crit_edge.i, %_ZNK4llvm5SUnit8getDepthEv.exit, %_ZN4llvm14SparseMultiSetINS_10VReg2SUnitENS_20VirtReg2IndexFunctorEhE4findERKNS_8RegisterE.exit, %107, %_ZNK4llvm9SlotIndex11getPrevSlotEv.exit.i, %88, %_ZNK4llvm9LiveRange15getVNInfoBeforeENS_9SlotIndexE.exit, %_ZNK4llvm17ScheduleDAGInstrs8getSUnitEPNS_12MachineInstrE.exit, %21
-  %.151 = phi i32 [ %.050114, %21 ], [ %.050114, %_ZNK4llvm9LiveRange15getVNInfoBeforeENS_9SlotIndexE.exit ], [ %.050114, %_ZNK4llvm9SlotIndex11getPrevSlotEv.exit.i ], [ %.050114, %_ZNK4llvm17ScheduleDAGInstrs8getSUnitEPNS_12MachineInstrE.exit ], [ %.050114, %88 ], [ %.050114, %107 ], [ %.050114, %_ZN4llvm14SparseMultiSetINS_10VReg2SUnitENS_20VirtReg2IndexFunctorEhE4findERKNS_8RegisterE.exit ], [ %.050114, %_ZNK4llvm5SUnit8getDepthEv.exit ], [ %.050114, %..critedge.loopexit.i_crit_edge.i ], [ %.5, %280 ], [ %.050114, %.lr.ph.i.i.i.i ]
+  %.151 = phi i32 [ %.050114, %21 ], [ %.050114, %_ZNK4llvm9LiveRange15getVNInfoBeforeENS_9SlotIndexE.exit ], [ %.050114, %_ZNK4llvm9SlotIndex11getPrevSlotEv.exit.i ], [ %.050114, %_ZNK4llvm17ScheduleDAGInstrs8getSUnitEPNS_12MachineInstrE.exit ], [ %.5, %280 ], [ %.050114, %88 ], [ %.050114, %107 ], [ %.050114, %_ZN4llvm14SparseMultiSetINS_10VReg2SUnitENS_20VirtReg2IndexFunctorEhE4findERKNS_8RegisterE.exit ], [ %.050114, %..critedge.loopexit.i_crit_edge.i ], [ %.050114, %_ZNK4llvm5SUnit8getDepthEv.exit ], [ %.050114, %.lr.ph.i.i.i.i ]
   %286 = getelementptr inbounds nuw i8, ptr %.052113, i64 16
   %.not = icmp eq ptr %286, %13
   br i1 %.not, label %.loopexit, label %21
@@ -22701,7 +22701,7 @@ _ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit.thread.i39: ; preds = %_ZN
   br i1 %.not27.i, label %.loopexit.i, label %.lr.ph.i34
 
 .loopexit.i:                                      ; preds = %227, %.critedge.i, %178, %170
-  %.040.i = phi i32 [ %226, %.critedge.i ], [ 0, %170 ], [ %177, %178 ], [ %177, %227 ]
+  %.040.i = phi i32 [ 0, %170 ], [ %226, %.critedge.i ], [ %177, %178 ], [ %177, %227 ]
   %.val.i.i22 = load ptr, ptr %17, align 8, !tbaa !1070
   %.val4.i.i = load i32, ptr %167, align 8, !tbaa !1073
   %229 = icmp eq i32 %.val4.i.i, 0
@@ -25592,7 +25592,7 @@ _ZSt23lexicographical_compareIPKPKN4llvm14MachineOperandES5_PFbRS4_S6_EEbT_S9_T0
   %.not38 = icmp eq ptr %.019.lcssa.i.i, %14
   br i1 %.not38, label %_ZSt23lexicographical_compareIPKPKN4llvm14MachineOperandES5_PFbRS4_S6_EEbT_S9_T0_SA_T1_.exit.thread31, label %_ZSt23lexicographical_compareIPKPKN4llvm14MachineOperandES5_PFbRS4_S6_EEbT_S9_T0_SA_T1_.exit.thread
 
-_ZSt23lexicographical_compareIPKPKN4llvm14MachineOperandES5_PFbRS4_S6_EEbT_S9_T0_SA_T1_.exit.thread31: ; preds = %96, %98, %68, %_ZN12_GLOBAL__N_124BaseMemOpClusterMutation9MemOpInfo7CompareERKPKN4llvm14MachineOperandES7_.exit, %_ZSt23lexicographical_compareIPKPKN4llvm14MachineOperandES5_PFbRS4_S6_EEbT_S9_T0_SA_T1_.exit
+_ZSt23lexicographical_compareIPKPKN4llvm14MachineOperandES5_PFbRS4_S6_EEbT_S9_T0_SA_T1_.exit.thread31: ; preds = %68, %98, %_ZN12_GLOBAL__N_124BaseMemOpClusterMutation9MemOpInfo7CompareERKPKN4llvm14MachineOperandES7_.exit, %96, %_ZSt23lexicographical_compareIPKPKN4llvm14MachineOperandES5_PFbRS4_S6_EEbT_S9_T0_SA_T1_.exit
   %108 = load ptr, ptr %9, align 8, !tbaa !25
   %109 = load i32, ptr %11, align 8, !tbaa !26
   %110 = zext i32 %109 to i64
@@ -25743,7 +25743,7 @@ _ZSt23lexicographical_compareIPKPKN4llvm14MachineOperandES5_PFbRS4_S6_EEbT_S9_T0
   %.not40 = icmp eq ptr %.019.lcssa.i.i17, %115
   br i1 %.not40, label %_ZSt23lexicographical_compareIPKPKN4llvm14MachineOperandES5_PFbRS4_S6_EEbT_S9_T0_SA_T1_.exit19.thread35, label %_ZSt23lexicographical_compareIPKPKN4llvm14MachineOperandES5_PFbRS4_S6_EEbT_S9_T0_SA_T1_.exit.thread
 
-_ZSt23lexicographical_compareIPKPKN4llvm14MachineOperandES5_PFbRS4_S6_EEbT_S9_T0_SA_T1_.exit19.thread35: ; preds = %197, %199, %169, %_ZN12_GLOBAL__N_124BaseMemOpClusterMutation9MemOpInfo7CompareERKPKN4llvm14MachineOperandES7_.exit25, %_ZSt23lexicographical_compareIPKPKN4llvm14MachineOperandES5_PFbRS4_S6_EEbT_S9_T0_SA_T1_.exit19
+_ZSt23lexicographical_compareIPKPKN4llvm14MachineOperandES5_PFbRS4_S6_EEbT_S9_T0_SA_T1_.exit19.thread35: ; preds = %169, %199, %_ZN12_GLOBAL__N_124BaseMemOpClusterMutation9MemOpInfo7CompareERKPKN4llvm14MachineOperandES7_.exit25, %197, %_ZSt23lexicographical_compareIPKPKN4llvm14MachineOperandES5_PFbRS4_S6_EEbT_S9_T0_SA_T1_.exit19
   %209 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %210 = load i64, ptr %209, align 8, !tbaa !1068
   %211 = getelementptr inbounds nuw i8, ptr %1, i64 56

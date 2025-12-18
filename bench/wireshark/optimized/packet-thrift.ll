@@ -1792,7 +1792,7 @@ thrift_get_varint_enc.exit.thread113:             ; preds = %87
   br label %thrift_get_varint_enc.exit.thread
 
 thrift_get_varint_enc.exit.thread:                ; preds = %.lr.ph, %84, %81, %87, %34, %32, %117, %93, %thrift_get_varint_enc.exit.thread113, %69, %40
-  %.0 = phi i32 [ -2, %thrift_get_varint_enc.exit.thread113 ], [ %.096, %32 ], [ -2, %40 ], [ -2, %69 ], [ -2, %93 ], [ %86, %84 ], [ %.2.lcssa, %117 ], [ -1, %34 ], [ -1, %87 ], [ -1, %81 ], [ %112, %.lr.ph ]
+  %.0 = phi i32 [ -2, %thrift_get_varint_enc.exit.thread113 ], [ %.096, %32 ], [ -2, %40 ], [ -2, %69 ], [ -2, %93 ], [ %86, %84 ], [ %.2.lcssa, %117 ], [ -1, %34 ], [ -1, %81 ], [ -1, %87 ], [ %112, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i32 %.0
 }
@@ -2243,7 +2243,7 @@ thrift_get_varint_enc.exit.thread145:             ; preds = %41
   br label %116
 
 .thread:                                          ; preds = %.lr.ph, %38, %thrift_get_varint_enc.exit.thread145, %47, %56, %65, %67, %93, %104, %32, %95, %106, %41, %35
-  %.0.ph = phi i32 [ -2, %thrift_get_varint_enc.exit.thread145 ], [ -2, %106 ], [ -2, %95 ], [ -1, %32 ], [ -2, %104 ], [ -2, %93 ], [ -1, %67 ], [ %40, %38 ], [ %53, %65 ], [ -2, %56 ], [ -2, %47 ], [ -1, %41 ], [ -1, %35 ], [ %111, %.lr.ph ]
+  %.0.ph = phi i32 [ -2, %thrift_get_varint_enc.exit.thread145 ], [ -1, %35 ], [ -2, %106 ], [ -2, %95 ], [ -1, %32 ], [ -2, %104 ], [ -2, %93 ], [ -1, %67 ], [ %40, %38 ], [ %53, %65 ], [ -2, %56 ], [ -2, %47 ], [ -1, %41 ], [ %111, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %122
 
@@ -3157,7 +3157,7 @@ is_thrift_strict_version.exit.sink.split:         ; preds = %40, %37
   %61 = call fastcc i32 @dissect_thrift_loop(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %5)
   br label %is_thrift_strict_version.exit.thread49
 
-.thread:                                          ; preds = %31, %19, %10, %14
+.thread:                                          ; preds = %19, %31, %10, %14
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 0, ptr %62, align 4
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 336
@@ -5339,11 +5339,11 @@ define internal fastcc i32 @thrift_binary_utf8_isprint(ptr noundef %0, i32 nound
   br i1 %.not63.us, label %select.unfold.us, label %.thread
 
 select.unfold.us:                                 ; preds = %49, %47, %18, %15
-  %.154.us = phi i32 [ 0, %18 ], [ %.356.us, %47 ], [ %16, %15 ], [ %.05372.us, %49 ]
-  %.150.us = phi i8 [ %.04973.us, %18 ], [ %.352.us, %47 ], [ -128, %15 ], [ %.04973.us, %49 ]
-  %.147.us = phi i8 [ %.04674.us, %18 ], [ %.4.us, %47 ], [ -65, %15 ], [ %.04674.us, %49 ]
-  %.145.us = phi i1 [ true, %18 ], [ false, %47 ], [ false, %15 ], [ true, %49 ]
-  %.142.us = phi i32 [ %.04176.us, %18 ], [ %48, %47 ], [ %17, %15 ], [ %.04176.us, %49 ]
+  %.154.us = phi i32 [ 0, %18 ], [ %16, %15 ], [ %.356.us, %47 ], [ %.05372.us, %49 ]
+  %.150.us = phi i8 [ %.04973.us, %18 ], [ -128, %15 ], [ %.352.us, %47 ], [ %.04973.us, %49 ]
+  %.147.us = phi i8 [ %.04674.us, %18 ], [ -65, %15 ], [ %.4.us, %47 ], [ %.04674.us, %49 ]
+  %.145.us = phi i1 [ true, %18 ], [ false, %15 ], [ false, %47 ], [ true, %49 ]
+  %.142.us = phi i32 [ %.04176.us, %18 ], [ %17, %15 ], [ %48, %47 ], [ %.04176.us, %49 ]
   %50 = add i32 %.05771.us, 1
   %exitcond99.not = icmp eq i32 %50, %6
   br i1 %exitcond99.not, label %.thread, label %.lr.ph.split.us, !llvm.loop !14
@@ -5441,11 +5441,11 @@ select.unfold.us:                                 ; preds = %49, %47, %18, %15
   br label %select.unfold
 
 select.unfold:                                    ; preds = %52, %55, %83, %88
-  %.154 = phi i32 [ 0, %55 ], [ %.356, %83 ], [ %89, %88 ], [ %.05372, %52 ]
-  %.150 = phi i8 [ %.04973, %55 ], [ %.352, %83 ], [ -128, %88 ], [ %.04973, %52 ]
-  %.147 = phi i8 [ %.04674, %55 ], [ %.4, %83 ], [ -65, %88 ], [ %.04674, %52 ]
-  %.145 = phi i1 [ true, %55 ], [ false, %83 ], [ false, %88 ], [ true, %52 ]
-  %.142 = phi i32 [ %.04176, %55 ], [ %84, %83 ], [ %90, %88 ], [ %.04176, %52 ]
+  %.154 = phi i32 [ 0, %55 ], [ %89, %88 ], [ %.356, %83 ], [ %.05372, %52 ]
+  %.150 = phi i8 [ %.04973, %55 ], [ -128, %88 ], [ %.352, %83 ], [ %.04973, %52 ]
+  %.147 = phi i8 [ %.04674, %55 ], [ -65, %88 ], [ %.4, %83 ], [ %.04674, %52 ]
+  %.145 = phi i1 [ true, %55 ], [ false, %88 ], [ false, %83 ], [ true, %52 ]
+  %.142 = phi i32 [ %.04176, %55 ], [ %90, %88 ], [ %84, %83 ], [ %.04176, %52 ]
   %91 = add i32 %.05771, 1
   %exitcond.not = icmp eq i32 %91, %6
   br i1 %exitcond.not, label %.thread, label %.lr.ph.split, !llvm.loop !14

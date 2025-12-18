@@ -338,7 +338,7 @@ define internal fastcc noundef ptr @CreateTheCodes_rec(ptr noundef %0, ptr nound
   br label %.outer._crit_edge
 
 .outer._crit_edge:                                ; preds = %.outer._crit_edge.loopexit97, %.outer._crit_edge.loopexit, %9
-  %.085.ph.lcssa = phi i32 [ 0, %9 ], [ %15, %.outer._crit_edge.loopexit ], [ %16, %.outer._crit_edge.loopexit97 ]
+  %.085.ph.lcssa = phi i32 [ %15, %.outer._crit_edge.loopexit ], [ 0, %9 ], [ %16, %.outer._crit_edge.loopexit97 ]
   call void @st__free_gen(ptr noundef %12) #11
   call void @st__free_table(ptr noundef %11) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

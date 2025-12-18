@@ -10567,7 +10567,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentatio
   br i1 %231, label %.loopexit, label %228
 
 .loopexit:                                        ; preds = %224, %228, %.thread
-  %.pn67 = phi { ptr, i32 } [ %153, %.thread ], [ %eh.lpad-body321398, %228 ], [ %223, %224 ]
+  %.pn67 = phi { ptr, i32 } [ %eh.lpad-body321398, %228 ], [ %153, %.thread ], [ %223, %224 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %1084
 

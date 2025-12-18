@@ -4159,7 +4159,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h5635ebef46
   br label %.body.i.i.i
 
 .loopexit.split-lp225.i.i.i:                      ; preds = %.noexc149.i.i.i, %256, %._crit_edge250.i.i.i, %115, %111
-  %.299.ph.i.i.i = phi i8 [ 1, %256 ], [ 1, %.noexc149.i.i.i ], [ 1, %111 ], [ 1, %115 ], [ 0, %._crit_edge250.i.i.i ]
+  %.299.ph.i.i.i = phi i8 [ 1, %.noexc149.i.i.i ], [ 1, %111 ], [ 1, %115 ], [ 1, %256 ], [ 0, %._crit_edge250.i.i.i ]
   %lpad.loopexit.split-lp227.i.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i.i.i

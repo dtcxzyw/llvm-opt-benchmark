@@ -13167,7 +13167,7 @@ _ZNSt10_HashtableIiSt4pairIKibESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   br label %.body
 
 .loopexit:                                        ; preds = %270, %.noexc120, %265
-  %.pn.i.i = phi ptr [ %266, %265 ], [ %281, %.noexc120 ], [ %272, %270 ]
+  %.pn.i.i = phi ptr [ %281, %.noexc120 ], [ %266, %265 ], [ %272, %270 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 12
   store i8 %28, ptr %.1.i.i, align 1, !tbaa !422
   invoke void @_ZN9EmitCSyms10closeSplitEv(ptr noundef nonnull align 8 dereferenceable(496) %0)
@@ -17975,8 +17975,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmPKc.exit: ; pred
   br i1 %24, label %.invoke, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmPKcm.exit.i
 
 .invoke:                                          ; preds = %22, %69, %75
-  %25 = phi i64 [ %68, %69 ], [ %74, %75 ], [ %21, %22 ]
-  %26 = phi i64 [ %70, %69 ], [ %76, %75 ], [ %23, %22 ]
+  %25 = phi i64 [ %74, %75 ], [ %68, %69 ], [ %21, %22 ]
+  %26 = phi i64 [ %76, %75 ], [ %70, %69 ], [ %23, %22 ]
   invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.251, ptr noundef nonnull @.str.250, i64 noundef %25, i64 noundef %26) #25
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -73456,7 +73456,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPP8AstCFuncSt6vectorIS3_SaIS3
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !1302
 
 _ZSt11swap_rangesIN9__gnu_cxx17__normal_iteratorIPP8AstCFuncSt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit: ; preds = %._crit_edge, %._crit_edge101, %.lr.ph.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPP8AstCFuncSt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPP8AstCFuncSt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit, %5, %3
-  %.sroa.024.0 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %23, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPP8AstCFuncSt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit ], [ %23, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPP8AstCFuncSt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit ], [ %1, %.lr.ph.i ], [ %23, %._crit_edge101 ], [ %23, %._crit_edge ]
+  %.sroa.024.0 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %23, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPP8AstCFuncSt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit ], [ %1, %.lr.ph.i ], [ %23, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPP8AstCFuncSt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit ], [ %23, %._crit_edge101 ], [ %23, %._crit_edge ]
   ret ptr %.sroa.024.0
 }
 

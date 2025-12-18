@@ -3904,7 +3904,7 @@ _ZN4llvm4sortIRNS_11SmallVectorISt5tupleIJijijEELj3EEEEEvOT_.exit: ; preds = %_Z
   br label %.thread
 
 .thread:                                          ; preds = %121, %.critedge, %_ZN4llvm4sortIRNS_11SmallVectorISt5tupleIJijijEELj3EEEEEvOT_.exit, %._crit_edge116.loopexit, %._crit_edge
-  %.sink = phi i32 [ 0, %_ZN4llvm4sortIRNS_11SmallVectorISt5tupleIJijijEELj3EEEEEvOT_.exit ], [ %217, %._crit_edge116.loopexit ], [ 0, %._crit_edge ], [ 2147483647, %.critedge ], [ 2147483647, %121 ]
+  %.sink = phi i32 [ 2147483647, %.critedge ], [ 0, %._crit_edge ], [ 0, %_ZN4llvm4sortIRNS_11SmallVectorISt5tupleIJijijEELj3EEEEEvOT_.exit ], [ %217, %._crit_edge116.loopexit ], [ 2147483647, %121 ]
   %218 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 %.sink, ptr %218, align 8, !tbaa !199
   %219 = load ptr, ptr %7, align 8, !tbaa !50
@@ -4269,7 +4269,7 @@ _ZN4llvm9BitVectorC2Ejb.exit12.loopexit15.i.i.i:  ; preds = %_ZSt6fill_nIPmmmET_
   br label %_ZN4llvm8coverage10MCDCRecord10TestVectorC2Ej.exit.i.i
 
 _ZN4llvm8coverage10MCDCRecord10TestVectorC2Ej.exit.i.i: ; preds = %_ZN4llvm9BitVectorC2Ejb.exit12.loopexit15.i.i.i, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i2.thread.i.i.i, %_ZN4llvm9BitVectorC2Ejb.exit12.loopexit.i.i.i
-  %140 = phi ptr [ %133, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i2.thread.i.i.i ], [ %127, %_ZN4llvm9BitVectorC2Ejb.exit12.loopexit.i.i.i ], [ %139, %_ZN4llvm9BitVectorC2Ejb.exit12.loopexit15.i.i.i ]
+  %140 = phi ptr [ %127, %_ZN4llvm9BitVectorC2Ejb.exit12.loopexit.i.i.i ], [ %133, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i2.thread.i.i.i ], [ %139, %_ZN4llvm9BitVectorC2Ejb.exit12.loopexit15.i.i.i ]
   store i32 %117, ptr %140, align 8, !tbaa !47, !noalias !233
   %141 = getelementptr inbounds nuw i8, ptr %7, i64 136
   store i32 %115, ptr %141, align 8, !tbaa !160, !noalias !233
@@ -8098,7 +8098,7 @@ _ZNSt14_Optional_baseISt4pairIPKN4llvm8coverage20CounterMappingRegionENS1_11Smal
   br label %_ZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionE.exit
 
 _ZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionE.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i143.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEEUlRT_E_EclIPNS3_14DecisionRecordEEEbS9_.exit161.i.i.i.i.i.i.i, %_ZNK12_GLOBAL__N_120MCDCDecisionRecorder14DecisionRecord9dominatesERKN4llvm8coverage20CounterMappingRegionE.exit.i.i.i147.i.i.i.i.i.i.i, %.critedge.i.i.i.i141.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEEUlRT_E_EclIPNS3_14DecisionRecordEEEbS9_.exit140.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEEUlRT_E_EclIPNS3_14DecisionRecordEEEbS9_.exit119.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEEUlRT_E_EclIPNS3_14DecisionRecordEEEbS9_.exit98.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEEUlRT_E_EclIPNS3_14DecisionRecordEEEbS9_.exit77.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEEUlRT_E_EclIPNS3_14DecisionRecordEEEbS9_.exit56.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEEUlRT_E_EclIPNS3_14DecisionRecordEEEbS9_.exit.i.i.i.i.i.i.i, %_ZN4llvm5ErrorD2Ev.exit162, %_ZN4llvm8coverage14FunctionRecord10pushRegionENS0_20CounterMappingRegionEmm.exit, %_ZNSt14_Optional_baseISt4pairIPKN4llvm8coverage20CounterMappingRegionENS1_11SmallVectorIS5_Lj6EEEELb0ELb0EED2Ev.exit
-  %.9 = phi i32 [ 3, %_ZN4llvm8coverage14FunctionRecord10pushRegionENS0_20CounterMappingRegionEmm.exit ], [ 1, %_ZN4llvm5ErrorD2Ev.exit162 ], [ %.10573, %_ZNSt14_Optional_baseISt4pairIPKN4llvm8coverage20CounterMappingRegionENS1_11SmallVectorIS5_Lj6EEEELb0ELb0EED2Ev.exit ], [ 3, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEEUlRT_E_EclIPNS3_14DecisionRecordEEEbS9_.exit.i.i.i.i.i.i.i ], [ 3, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEEUlRT_E_EclIPNS3_14DecisionRecordEEEbS9_.exit56.i.i.i.i.i.i.i ], [ 3, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEEUlRT_E_EclIPNS3_14DecisionRecordEEEbS9_.exit77.i.i.i.i.i.i.i ], [ 3, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEEUlRT_E_EclIPNS3_14DecisionRecordEEEbS9_.exit98.i.i.i.i.i.i.i ], [ 3, %._crit_edge.i.i.i.i.i.i.i ], [ 3, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEEUlRT_E_EclIPNS3_14DecisionRecordEEEbS9_.exit119.i.i.i.i.i.i.i ], [ 3, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEEUlRT_E_EclIPNS3_14DecisionRecordEEEbS9_.exit140.i.i.i.i.i.i.i ], [ 3, %.critedge.i.i.i.i141.i.i.i.i.i.i.i ], [ 3, %_ZNK12_GLOBAL__N_120MCDCDecisionRecorder14DecisionRecord9dominatesERKN4llvm8coverage20CounterMappingRegionE.exit.i.i.i147.i.i.i.i.i.i.i ], [ 3, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEEUlRT_E_EclIPNS3_14DecisionRecordEEEbS9_.exit161.i.i.i.i.i.i.i ], [ 3, %.lr.ph.i.i.i.i.i.i.i.i143.i.i.i.i.i.i.i ]
+  %.9 = phi i32 [ 3, %_ZN4llvm8coverage14FunctionRecord10pushRegionENS0_20CounterMappingRegionEmm.exit ], [ 1, %_ZN4llvm5ErrorD2Ev.exit162 ], [ %.10573, %_ZNSt14_Optional_baseISt4pairIPKN4llvm8coverage20CounterMappingRegionENS1_11SmallVectorIS5_Lj6EEEELb0ELb0EED2Ev.exit ], [ 3, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEEUlRT_E_EclIPNS3_14DecisionRecordEEEbS9_.exit.i.i.i.i.i.i.i ], [ 3, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEEUlRT_E_EclIPNS3_14DecisionRecordEEEbS9_.exit56.i.i.i.i.i.i.i ], [ 3, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEEUlRT_E_EclIPNS3_14DecisionRecordEEEbS9_.exit77.i.i.i.i.i.i.i ], [ 3, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEEUlRT_E_EclIPNS3_14DecisionRecordEEEbS9_.exit98.i.i.i.i.i.i.i ], [ 3, %._crit_edge.i.i.i.i.i.i.i ], [ 3, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEEUlRT_E_EclIPNS3_14DecisionRecordEEEbS9_.exit119.i.i.i.i.i.i.i ], [ 3, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEEUlRT_E_EclIPNS3_14DecisionRecordEEEbS9_.exit140.i.i.i.i.i.i.i ], [ 3, %.critedge.i.i.i.i141.i.i.i.i.i.i.i ], [ 3, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEEUlRT_E_EclIPNS3_14DecisionRecordEEEbS9_.exit161.i.i.i.i.i.i.i ], [ 3, %_ZNK12_GLOBAL__N_120MCDCDecisionRecorder14DecisionRecord9dominatesERKN4llvm8coverage20CounterMappingRegionE.exit.i.i.i147.i.i.i.i.i.i.i ], [ 3, %.lr.ph.i.i.i.i.i.i.i.i143.i.i.i.i.i.i.i ]
   %1217 = load i8, ptr %436, align 8
   %1218 = trunc i8 %1217 to i1
   br i1 %1218, label %1219, label %_ZN4llvm8ExpectedIlED2Ev.exit
@@ -21665,7 +21665,7 @@ _ZSt13move_backwardIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit: ; pr
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !1015
 
 _ZSt11swap_rangesIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit: ; preds = %._crit_edge, %._crit_edge111, %.lr.ph.i, %_ZSt13move_backwardIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit, %_ZSt4moveIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit, %5, %3
-  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %23, %_ZSt4moveIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit ], [ %23, %_ZSt13move_backwardIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit ], [ %1, %.lr.ph.i ], [ %23, %._crit_edge111 ], [ %23, %._crit_edge ]
+  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %1, %.lr.ph.i ], [ %23, %_ZSt4moveIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit ], [ %23, %_ZSt13move_backwardIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit ], [ %23, %._crit_edge111 ], [ %23, %._crit_edge ]
   ret ptr %.053
 }
 
@@ -24118,7 +24118,7 @@ _ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit:       ; preds = %47, %50
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !1043
 
 _ZSt11swap_rangesIPcS0_ET0_T_S2_S1_.exit:         ; preds = %._crit_edge, %._crit_edge110, %.lr.ph.i, %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit, %_ZSt4moveIPcS0_ET0_T_S2_S1_.exit, %5, %3
-  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %21, %_ZSt4moveIPcS0_ET0_T_S2_S1_.exit ], [ %21, %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit ], [ %1, %.lr.ph.i ], [ %21, %._crit_edge110 ], [ %21, %._crit_edge ]
+  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %1, %.lr.ph.i ], [ %21, %_ZSt4moveIPcS0_ET0_T_S2_S1_.exit ], [ %21, %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit ], [ %21, %._crit_edge110 ], [ %21, %._crit_edge ]
   ret ptr %.053
 }
 
@@ -24858,8 +24858,8 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit: ; pre
   %spec.select = select i1 %39, i64 %40, i64 %9
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit.thread35
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit.thread35: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit, %34, %26, %18, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit.thread
-  %41 = phi i64 [ %9, %34 ], [ %spec.select, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit ], [ %36, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit.thread ], [ %9, %18 ], [ %9, %26 ]
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit.thread35: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit, %26, %34, %18, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit.thread
+  %41 = phi i64 [ %9, %26 ], [ %spec.select, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit ], [ %36, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit.thread ], [ %9, %18 ], [ %9, %34 ]
   %42 = getelementptr inbounds %"class.std::tuple", ptr %0, i64 %41
   %43 = getelementptr inbounds %"class.std::tuple", ptr %0, i64 %.038
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 12
@@ -24985,7 +24985,7 @@ _ZNK9__gnu_cxx5__ops14_Iter_less_valclIPSt5tupleIJijijEES4_EEbT_RT0_.exit.thread
   br i1 %113, label %.lr.ph.i, label %_ZSt11__push_heapIPSt5tupleIJijijEElS1_N9__gnu_cxx5__ops14_Iter_less_valEEvT_T0_S7_T1_RT2_.exit, !llvm.loop !1058
 
 _ZSt11__push_heapIPSt5tupleIJijijEElS1_N9__gnu_cxx5__ops14_Iter_less_valEEvT_T0_S7_T1_RT2_.exit: ; preds = %89, %95, %101, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPSt5tupleIJijijEES4_EEbT_RT0_.exit.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPSt5tupleIJijijEES4_EEbT_RT0_.exit.thread.i, %76
-  %.013.lcssa.i = phi i64 [ %.127, %76 ], [ %.01318.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPSt5tupleIJijijEES4_EEbT_RT0_.exit.i ], [ %.019.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPSt5tupleIJijijEES4_EEbT_RT0_.exit.thread.i ], [ %.01318.i, %89 ], [ %.01318.i, %95 ], [ %.01318.i, %101 ]
+  %.013.lcssa.i = phi i64 [ %.127, %76 ], [ %.01318.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPSt5tupleIJijijEES4_EEbT_RT0_.exit.i ], [ %.019.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPSt5tupleIJijijEES4_EEbT_RT0_.exit.thread.i ], [ %.01318.i, %89 ], [ %.01318.i, %101 ], [ %.01318.i, %95 ]
   %114 = getelementptr inbounds %"class.std::tuple", ptr %0, i64 %.013.lcssa.i
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 12
   store i32 %83, ptr %115, align 4, !tbaa !22
@@ -25087,7 +25087,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit22.thre
   store i32 %56, ptr %7, align 4, !tbaa !22
   br label %135
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit22.thread29: ; preds = %50, %42, %34, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit22
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit22.thread29: ; preds = %42, %50, %34, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit22
   %57 = icmp slt i32 %6, %32
   br i1 %57, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit23.thread, label %58
 
@@ -25132,14 +25132,14 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit23.thre
   store i32 %80, ptr %31, align 4, !tbaa !22
   br label %135
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit23.thread31: ; preds = %74, %66, %58, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit23
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit23.thread31: ; preds = %66, %74, %58, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit23
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %82 = load i32, ptr %81, align 4, !tbaa !22
   store i32 %6, ptr %81, align 4, !tbaa !22
   store i32 %82, ptr %5, align 4, !tbaa !22
   br label %135
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit.thread27: ; preds = %26, %18, %10, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit.thread27: ; preds = %18, %26, %10, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit
   %83 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %84 = load i32, ptr %83, align 4, !tbaa !22
   %85 = icmp slt i32 %6, %84
@@ -25186,7 +25186,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit24.thre
   store i32 %108, ptr %5, align 4, !tbaa !22
   br label %135
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit24.thread33: ; preds = %102, %94, %86, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit24
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit24.thread33: ; preds = %94, %102, %86, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit24
   %109 = icmp slt i32 %8, %84
   br i1 %109, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit25.thread, label %110
 
@@ -25231,7 +25231,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit25.thre
   store i32 %132, ptr %83, align 4, !tbaa !22
   br label %135
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit25.thread35: ; preds = %126, %118, %110, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit25
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit25.thread35: ; preds = %118, %126, %110, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit25
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %134 = load i32, ptr %133, align 4, !tbaa !22
   store i32 %8, ptr %133, align 4, !tbaa !22
@@ -25502,7 +25502,7 @@ _ZSt13move_backwardIPSt5tupleIJijijEES2_ET0_T_S4_S3_.exit: ; preds = %.lr.ph.i.i
   store i32 %31, ptr %0, align 4, !tbaa !22
   br label %86
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit.thread17: ; preds = %13, %25, %18, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit.thread17: ; preds = %13, %18, %25, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt5tupleIJijijEES5_EEbT_T0_.exit
   %53 = load i32, ptr %.021, align 4, !tbaa !22
   %54 = getelementptr inbounds nuw i8, ptr %.pn20, i64 20
   %55 = load i32, ptr %54, align 4, !tbaa !22

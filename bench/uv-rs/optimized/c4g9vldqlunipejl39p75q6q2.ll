@@ -2693,7 +2693,7 @@ define noundef zeroext i1 @_ZN16uv_configuration6extras24ExtrasSpecificationInne
   br i1 %26, label %_ZN16uv_configuration6extras13IncludeExtras8contains17hdc28d66ed75cb467E.exit, label %22
 
 _ZN16uv_configuration6extras13IncludeExtras8contains17hdc28d66ed75cb467E.exit: ; preds = %10, %24, %22, %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h59c4f19a6a0c5b84E.exit"
-  %.sroa.0.0 = phi i1 [ true, %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h59c4f19a6a0c5b84E.exit" ], [ %.not.not.not.i.not.not.not.i.not.not.i.not.not, %24 ], [ %.not.not.not.i.not.not.not.i.not.not.i.not.not, %22 ], [ false, %10 ]
+  %.sroa.0.0 = phi i1 [ %.not.not.not.i.not.not.not.i.not.not.i.not.not, %24 ], [ true, %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h59c4f19a6a0c5b84E.exit" ], [ %.not.not.not.i.not.not.not.i.not.not.i.not.not, %22 ], [ false, %10 ]
   ret i1 %.sroa.0.0
 }
 
@@ -3329,7 +3329,7 @@ define noundef zeroext i1 @_ZN16uv_configuration6extras31ExtrasSpecificationWith
   br i1 %53, label %_ZN16uv_configuration6extras24ExtrasSpecificationInner8contains17h01e90826b6c63745E.exit, label %49
 
 _ZN16uv_configuration6extras24ExtrasSpecificationInner8contains17h01e90826b6c63745E.exit: ; preds = %11, %23, %37, %51, %49, %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h59c4f19a6a0c5b84E.exit.i3"
-  %.sroa.0.0 = phi i1 [ false, %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h59c4f19a6a0c5b84E.exit.i3" ], [ false, %23 ], [ %.not.not.not.i.not.not.not.i.not.not.i.not.i4, %51 ], [ true, %37 ], [ %.not.not.not.i.not.not.not.i.not.not.i.not.i4, %49 ], [ false, %11 ]
+  %.sroa.0.0 = phi i1 [ true, %37 ], [ false, %23 ], [ %.not.not.not.i.not.not.not.i.not.not.i.not.i4, %51 ], [ false, %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h59c4f19a6a0c5b84E.exit.i3" ], [ %.not.not.not.i.not.not.not.i.not.not.i.not.i4, %49 ], [ false, %11 ]
   ret i1 %.sroa.0.0
 }
 

@@ -672,12 +672,12 @@ auth_peer.exit:                                   ; preds = %161, %162, %165, %1
   br label %.thread50.sink.split.i
 
 .thread50.sink.split.i:                           ; preds = %298, %290, %277, %260, %248
-  %.sink.i = phi i32 [ 1802, %298 ], [ 1775, %277 ], [ 1792, %290 ], [ 1753, %260 ], [ 1741, %248 ]
+  %.sink.i = phi i32 [ 1802, %298 ], [ 1775, %277 ], [ 1792, %290 ], [ 1741, %248 ], [ 1753, %260 ]
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef %.sink.i, ptr noundef nonnull @__func__.ident_inet) #15
   br label %.thread50.i
 
 .thread50.i:                                      ; preds = %.thread50.sink.split.i, %296, %.critedge44.i, %.critedge5.i, %.critedge.i, %258, %246
-  %.030.shrunk54.i = phi i1 [ false, %246 ], [ false, %258 ], [ false, %.critedge.i ], [ true, %.critedge44.i ], [ false, %296 ], [ false, %.critedge5.i ], [ false, %.thread50.sink.split.i ]
+  %.030.shrunk54.i = phi i1 [ true, %.critedge44.i ], [ false, %246 ], [ false, %258 ], [ false, %.critedge.i ], [ false, %.critedge5.i ], [ false, %296 ], [ false, %.thread50.sink.split.i ]
   %300 = call i32 @close(i32 noundef %232) #15
   br label %.threadthread-pre-split.i
 

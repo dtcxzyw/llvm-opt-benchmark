@@ -1656,8 +1656,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit22: ; preds = %87, %93
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit20, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit22, %.thread, %98
-  %_ZGVZN32pxrInternal_v0_24__pxrReserved__17UsdSkelBlendShape23GetSchemaAttributeNamesEbE8allNames.sink = phi ptr [ @_ZGVZN32pxrInternal_v0_24__pxrReserved__17UsdSkelBlendShape23GetSchemaAttributeNamesEbE8allNames, %98 ], [ @_ZGVZN32pxrInternal_v0_24__pxrReserved__17UsdSkelBlendShape23GetSchemaAttributeNamesEbE10localNames, %.thread ], [ @_ZGVZN32pxrInternal_v0_24__pxrReserved__17UsdSkelBlendShape23GetSchemaAttributeNamesEbE10localNames, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit22 ], [ @_ZGVZN32pxrInternal_v0_24__pxrReserved__17UsdSkelBlendShape23GetSchemaAttributeNamesEbE10localNames, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit20 ]
-  %.pn10 = phi { ptr, i32 } [ %99, %98 ], [ %10, %.thread ], [ %85, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit22 ], [ %72, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit20 ]
+  %_ZGVZN32pxrInternal_v0_24__pxrReserved__17UsdSkelBlendShape23GetSchemaAttributeNamesEbE8allNames.sink = phi ptr [ @_ZGVZN32pxrInternal_v0_24__pxrReserved__17UsdSkelBlendShape23GetSchemaAttributeNamesEbE8allNames, %98 ], [ @_ZGVZN32pxrInternal_v0_24__pxrReserved__17UsdSkelBlendShape23GetSchemaAttributeNamesEbE10localNames, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit22 ], [ @_ZGVZN32pxrInternal_v0_24__pxrReserved__17UsdSkelBlendShape23GetSchemaAttributeNamesEbE10localNames, %.thread ], [ @_ZGVZN32pxrInternal_v0_24__pxrReserved__17UsdSkelBlendShape23GetSchemaAttributeNamesEbE10localNames, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit20 ]
+  %.pn10 = phi { ptr, i32 } [ %99, %98 ], [ %85, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit22 ], [ %10, %.thread ], [ %72, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit20 ]
   call void @__cxa_guard_abort(ptr nonnull %_ZGVZN32pxrInternal_v0_24__pxrReserved__17UsdSkelBlendShape23GetSchemaAttributeNamesEbE8allNames.sink) #17
   resume { ptr, i32 } %.pn10
 }
@@ -3363,7 +3363,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__17UsdSkelBlendSh
   br label %.loopexit
 
 .loopexit:                                        ; preds = %17, %.loopexit.sink.split, %4, %15, %13
-  %20 = phi i1 [ false, %15 ], [ false, %13 ], [ true, %4 ], [ false, %.loopexit.sink.split ], [ true, %17 ]
+  %20 = phi i1 [ false, %.loopexit.sink.split ], [ false, %15 ], [ true, %4 ], [ false, %13 ], [ true, %17 ]
   ret i1 %20
 }
 

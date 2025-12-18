@@ -368,7 +368,7 @@ define internal range(i32 -2, 2) i32 @tls1_set_crypto_state(ptr noundef %0, i32 
   br label %119
 
 119:                                              ; preds = %110, %110, %.fold.split, %116
-  %.0 = phi i64 [ %118, %116 ], [ 0, %.fold.split ], [ 8, %110 ], [ 8, %110 ]
+  %.0 = phi i64 [ %118, %116 ], [ 8, %110 ], [ 0, %.fold.split ], [ 8, %110 ]
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 4144
   store i64 %.0, ptr %120, align 8, !tbaa !39
   br label %121
@@ -1044,7 +1044,7 @@ define internal range(i32 0, 2) i32 @tls1_cipher(ptr noundef %0, ptr noundef %1,
   br label %.critedge305
 
 .critedge305:                                     ; preds = %93, %.thread318.thread, %143, %250, %299, %283, %117, %244, %246, %184, %23, %48, %53, %232, %.critedge311, %171, %159, %127, %69, %62, %54, %26, %14
-  %.0.shrunk = phi i1 [ false, %14 ], [ false, %62 ], [ false, %69 ], [ false, %23 ], [ false, %53 ], [ false, %127 ], [ false, %159 ], [ false, %171 ], [ false, %48 ], [ false, %.critedge311 ], [ %245, %244 ], [ false, %184 ], [ false, %54 ], [ false, %117 ], [ false, %26 ], [ %247, %246 ], [ true, %232 ], [ false, %299 ], [ true, %250 ], [ false, %283 ], [ false, %143 ], [ false, %.thread318.thread ], [ false, %93 ]
+  %.0.shrunk = phi i1 [ false, %14 ], [ false, %62 ], [ false, %69 ], [ false, %23 ], [ false, %53 ], [ false, %127 ], [ false, %159 ], [ false, %171 ], [ false, %48 ], [ false, %.critedge311 ], [ false, %299 ], [ true, %232 ], [ %245, %244 ], [ false, %184 ], [ false, %54 ], [ false, %117 ], [ false, %26 ], [ %247, %246 ], [ true, %250 ], [ false, %283 ], [ false, %143 ], [ false, %.thread318.thread ], [ false, %93 ]
   %.0 = zext i1 %.0.shrunk to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

@@ -864,7 +864,7 @@ define internal fastcc noundef i32 @acpi_processor_get_power_info(ptr noundef %0
   br i1 %415, label %.thread19, label %404, !llvm.loop !16
 
 .thread19:                                        ; preds = %413, %223, %.thread16, %227, %.loopexit
-  %416 = phi i32 [ -14, %227 ], [ 0, %.loopexit ], [ -19, %.thread16 ], [ %226, %223 ], [ 0, %413 ]
+  %416 = phi i32 [ -14, %227 ], [ 0, %.loopexit ], [ %226, %223 ], [ -19, %.thread16 ], [ 0, %413 ]
   ret i32 %416
 }
 

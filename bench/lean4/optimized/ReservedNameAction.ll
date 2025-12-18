@@ -5614,7 +5614,7 @@ lean_dec.exit470.backedge:                        ; preds = %lean_dec.exit412, %
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %52) #3
   br label %lean_dec.exit470.backedge
 
-lean_dec.exit470.thread.thread781:                ; preds = %lean_inc.exit388.thread, %lean_dec.exit470.thread, %1073, %1072, %1070, %650, %649, %647, %643
+lean_dec.exit470.thread.thread781:                ; preds = %lean_inc.exit388.thread, %lean_dec.exit470.thread, %1070, %1072, %1073, %650, %649, %647, %643
   %.9359784 = phi ptr [ %114, %649 ], [ %114, %643 ], [ %114, %647 ], [ %114, %1073 ], [ %114, %1072 ], [ %114, %1070 ], [ %114, %650 ], [ %114, %lean_inc.exit388.thread ], [ %.9359, %lean_dec.exit470.thread ]
   %1091 = ptrtoint ptr %.0335 to i64
   %1092 = and i64 %1091, 1
@@ -5645,8 +5645,8 @@ lean_alloc_ctor.exit756:                          ; preds = %1093
   store ptr %.0331.ph, ptr %1100, align 8, !tbaa !4
   br label %lean_dec.exit470.outer
 
-lean_dec.exit470.thread768:                       ; preds = %1000, %431, %432, %375, %377, %378, %lean_dec.exit455, %lean_alloc_ctor.exit691, %lean_dec.exit462, %lean_alloc_ctor.exit690, %429, %1064, %lean_alloc_ctor.exit
-  %.1 = phi ptr [ %44, %lean_alloc_ctor.exit ], [ %.0327, %1000 ], [ %162, %431 ], [ %162, %432 ], [ %162, %375 ], [ %162, %377 ], [ %162, %378 ], [ %162, %lean_dec.exit455 ], [ %637, %lean_alloc_ctor.exit691 ], [ %162, %lean_dec.exit462 ], [ %577, %lean_alloc_ctor.exit690 ], [ %162, %429 ], [ %.0326, %1064 ]
+lean_dec.exit470.thread768:                       ; preds = %1064, %377, %375, %lean_dec.exit455, %lean_alloc_ctor.exit691, %432, %lean_dec.exit462, %431, %lean_alloc_ctor.exit690, %429, %378, %1000, %lean_alloc_ctor.exit
+  %.1 = phi ptr [ %44, %lean_alloc_ctor.exit ], [ %.0326, %1064 ], [ %162, %377 ], [ %162, %375 ], [ %162, %lean_dec.exit455 ], [ %637, %lean_alloc_ctor.exit691 ], [ %162, %432 ], [ %162, %lean_dec.exit462 ], [ %162, %431 ], [ %577, %lean_alloc_ctor.exit690 ], [ %162, %429 ], [ %162, %378 ], [ %.0327, %1000 ]
   ret ptr %.1
 }
 

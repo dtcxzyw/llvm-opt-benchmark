@@ -174,7 +174,7 @@ _ZSt11nth_elementIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaI
   br i1 %48, label %_ZSt9partitionIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS2_45KeypointResponseGreaterThanOrEqualToThresholdEET_SA_SA_T0_.exit, label %.lr.ph.i.i, !llvm.loop !22
 
 _ZSt9partitionIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS2_45KeypointResponseGreaterThanOrEqualToThresholdEET_SA_SA_T0_.exit: ; preds = %46, %38, %.preheader.i.i, %_ZSt11nth_elementIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS2_23KeypointResponseGreaterEEvT_SA_SA_T0_.exit
-  %.sroa.010.117.i.i = phi ptr [ %28, %_ZSt11nth_elementIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS2_23KeypointResponseGreaterEEvT_SA_SA_T0_.exit ], [ %.sroa.05.022.i.i, %38 ], [ %.sroa.010.119.i.i, %.preheader.i.i ], [ %47, %46 ]
+  %.sroa.010.117.i.i = phi ptr [ %.sroa.05.022.i.i, %38 ], [ %.sroa.010.119.i.i, %.preheader.i.i ], [ %28, %_ZSt11nth_elementIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS2_23KeypointResponseGreaterEEvT_SA_SA_T0_.exit ], [ %47, %46 ]
   %49 = load ptr, ptr %0, align 8, !tbaa !10
   %50 = ptrtoint ptr %.sroa.010.117.i.i to i64
   %51 = ptrtoint ptr %49 to i64
@@ -2157,7 +2157,7 @@ define linkonce_odr hidden ptr @_ZSt11__remove_ifIN9__gnu_cxx17__normal_iterator
   br label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predINS2_13SizePredicateEEEET_SD_SD_T0_.exit
 
 _ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predINS2_13SizePredicateEEEET_SD_SD_T0_.exit: ; preds = %11, %40, %48, %56, %.loopexit.split.loop.exit60.i.i, %.loopexit.split.loop.exit62.i.i, %.loopexit.split.loop.exit64.i.i
-  %.sroa.08.0.in.sroa.speculated.i.i = phi ptr [ %.sroa.050.1.i.i, %48 ], [ %spec.select.i.i, %56 ], [ %.sroa.050.0.lcssa.i.i, %40 ], [ %63, %.loopexit.split.loop.exit62.i.i ], [ %62, %.loopexit.split.loop.exit60.i.i ], [ %64, %.loopexit.split.loop.exit64.i.i ], [ %.sroa.050.069.i.i, %11 ]
+  %.sroa.08.0.in.sroa.speculated.i.i = phi ptr [ %.sroa.050.1.i.i, %48 ], [ %spec.select.i.i, %56 ], [ %64, %.loopexit.split.loop.exit64.i.i ], [ %.sroa.050.0.lcssa.i.i, %40 ], [ %63, %.loopexit.split.loop.exit62.i.i ], [ %62, %.loopexit.split.loop.exit60.i.i ], [ %.sroa.050.069.i.i, %11 ]
   %65 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i, %1
   br i1 %65, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predINS2_13SizePredicateEEEET_SD_SD_T0_.exit.thread, label %.preheader
 
@@ -2194,7 +2194,7 @@ _ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_
   br i1 %.not, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predINS2_13SizePredicateEEEET_SD_SD_T0_.exit.thread, label %66, !llvm.loop !85
 
 _ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predINS2_13SizePredicateEEEET_SD_SD_T0_.exit.thread: ; preds = %74, %.preheader, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predINS2_13SizePredicateEEEET_SD_SD_T0_.exit, %._crit_edge.i.i
-  %.sroa.013.0 = phi ptr [ %.sroa.08.0.in.sroa.speculated.i.i, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predINS2_13SizePredicateEEEET_SD_SD_T0_.exit ], [ %1, %._crit_edge.i.i ], [ %.sroa.08.0.in.sroa.speculated.i.i, %.preheader ], [ %.sroa.013.2, %74 ]
+  %.sroa.013.0 = phi ptr [ %1, %._crit_edge.i.i ], [ %.sroa.08.0.in.sroa.speculated.i.i, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predINS2_13SizePredicateEEEET_SD_SD_T0_.exit ], [ %.sroa.08.0.in.sroa.speculated.i.i, %.preheader ], [ %.sroa.013.2, %74 ]
   ret ptr %.sroa.013.0
 }
 

@@ -998,7 +998,7 @@ tree_calculate_authority_set.exit.thread71:       ; preds = %._crit_edge57.i.tre
   br i1 %448, label %.lr.ph53.split.i, label %tree_calculate_user_set.exit, !llvm.loop !63
 
 tree_calculate_user_set.exit:                     ; preds = %413, %445, %400, %tree_calculate_authority_set.exit.thread71, %.preheader.i, %407, %427, %.split.us.i, %433, %436, %.split57.us.i, %441, %444
-  %.not23 = phi i1 [ true, %441 ], [ false, %407 ], [ true, %436 ], [ true, %444 ], [ false, %tree_calculate_authority_set.exit.thread71 ], [ true, %427 ], [ true, %.split.us.i ], [ true, %433 ], [ true, %.split57.us.i ], [ false, %.preheader.i ], [ false, %400 ], [ false, %445 ], [ true, %413 ]
+  %.not23 = phi i1 [ true, %441 ], [ false, %407 ], [ true, %436 ], [ true, %444 ], [ false, %tree_calculate_authority_set.exit.thread71 ], [ true, %427 ], [ true, %.split.us.i ], [ true, %433 ], [ true, %.split57.us.i ], [ false, %400 ], [ false, %.preheader.i ], [ false, %445 ], [ true, %413 ]
   br i1 %369, label %449, label %451
 
 449:                                              ; preds = %tree_calculate_user_set.exit
@@ -1027,7 +1027,7 @@ tree_evaluate.exit.thread:                        ; preds = %248, %165, %193, %1
   br label %tree_init.exit.thread
 
 tree_init.exit.thread:                            ; preds = %.lr.ph.i, %28, %123, %66, %56, %5, %453, %tree_evaluate.exit, %128, %tree_evaluate.exit.thread, %457, %.thread57
-  %.0 = phi i32 [ 1, %.thread57 ], [ 0, %tree_evaluate.exit.thread ], [ %., %tree_evaluate.exit ], [ -2, %128 ], [ 1, %457 ], [ -2, %453 ], [ 0, %123 ], [ 0, %66 ], [ 0, %56 ], [ 0, %5 ], [ -1, %28 ], [ 0, %.lr.ph.i ]
+  %.0 = phi i32 [ -1, %28 ], [ 1, %.thread57 ], [ 0, %tree_evaluate.exit.thread ], [ %., %tree_evaluate.exit ], [ -2, %128 ], [ 1, %457 ], [ -2, %453 ], [ 0, %123 ], [ 0, %66 ], [ 0, %56 ], [ 0, %5 ], [ 0, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }

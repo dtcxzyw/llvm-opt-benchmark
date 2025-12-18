@@ -506,7 +506,7 @@ SDL_GetFingerIndex.exit.i:                        ; preds = %67
   br label %SDL_GetFinger.exit
 
 SDL_GetFinger.exit:                               ; preds = %72, %.thread125, %SDL_GetFingerIndex.exit.i, %74
-  %.0.i = phi ptr [ %77, %74 ], [ null, %SDL_GetFingerIndex.exit.i ], [ null, %.thread125 ], [ null, %72 ]
+  %.0.i = phi ptr [ %77, %74 ], [ null, %.thread125 ], [ null, %SDL_GetFingerIndex.exit.i ], [ null, %72 ]
   %.not103 = icmp eq ptr %.0.i, null
   br i1 %11, label %78, label %130
 
@@ -816,7 +816,7 @@ SDL_GetFinger.exit:                               ; preds = %SDL_GetFingerIndex.
   %.not80 = icmp eq ptr %58, null
   br i1 %.not80, label %SDL_GetFinger.exit.thread, label %59
 
-SDL_GetFinger.exit.thread:                        ; preds = %54, %.thread, %SDL_GetFingerIndex.exit.i, %SDL_GetFinger.exit
+SDL_GetFinger.exit.thread:                        ; preds = %54, %SDL_GetFingerIndex.exit.i, %.thread, %SDL_GetFinger.exit
   tail call void @SDL_SendTouch(i64 noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, i32 noundef 1792, float noundef %4, float noundef %5, float noundef %6)
   br label %89
 

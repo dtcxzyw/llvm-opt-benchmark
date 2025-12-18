@@ -1275,7 +1275,7 @@ sha256_update.exit:                               ; preds = %41, %.thread45
   br label %56
 
 56:                                               ; preds = %.sink.split, %29, %3
-  %.038 = phi i32 [ -1, %3 ], [ 0, %29 ], [ 1, %.sink.split ]
+  %.038 = phi i32 [ 0, %29 ], [ -1, %3 ], [ 1, %.sink.split ]
   ret i32 %.038
 }
 

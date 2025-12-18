@@ -243,7 +243,7 @@ define internal range(i32 0, 3) i32 @lj_ffh_bit_band(ptr noundef %0) #0 {
   br i1 %46, label %.split.split, label %.split31.us, !llvm.loop !46
 
 .split31.us:                                      ; preds = %.split.split, %.split.split.us, %.split.us
-  %.us-phi = phi i64 [ %40, %.split.split.us ], [ %35, %.split.us ], [ %44, %.split.split ]
+  %.us-phi = phi i64 [ %35, %.split.us ], [ %40, %.split.split.us ], [ %44, %.split.split ]
   %47 = load i32, ptr %2, align 4, !tbaa !4
   %48 = call ptr @lj_mem_newgco(ptr noundef nonnull %0, i64 noundef 24) #6
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 9

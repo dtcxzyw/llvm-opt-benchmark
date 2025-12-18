@@ -525,7 +525,7 @@ define internal range(i32 0, 2) i32 @test_GENERAL_NAME_cmp() #0 {
   br i1 %.not54, label %.split.split.us, label %.split.split.preheader
 
 .split.split.preheader:                           ; preds = %38, %27, %31, %.thread, %.split
-  %.0428385 = phi i32 [ 0, %.split ], [ 0, %.thread ], [ 0, %27 ], [ 0, %31 ], [ 1, %38 ]
+  %.0428385 = phi i32 [ 0, %.split ], [ 0, %27 ], [ 0, %.thread ], [ 0, %31 ], [ 1, %38 ]
   br label %.split.split
 
 .split.split.us:                                  ; preds = %.split, %.split.split.us
@@ -550,7 +550,7 @@ define internal range(i32 0, 2) i32 @test_GENERAL_NAME_cmp() #0 {
   br i1 %exitcond73.not, label %.split65.us, label %.split.split, !llvm.loop !25
 
 .split65.us:                                      ; preds = %.split.split, %.split.split.us, %.split.us.split, %.split.us
-  %.04282 = phi i32 [ 0, %.split.us ], [ 0, %.split.split.us ], [ 0, %.split.us.split ], [ %.0428385, %.split.split ]
+  %.04282 = phi i32 [ 0, %.split.split.us ], [ 0, %.split.us.split ], [ 0, %.split.us ], [ %.0428385, %.split.split ]
   call void @CRYPTO_free(ptr noundef %2, ptr noundef nonnull @.str.2, i32 noundef 706) #7
   call void @CRYPTO_free(ptr noundef %.fr, ptr noundef nonnull @.str.2, i32 noundef 707) #7
   ret i32 %.04282

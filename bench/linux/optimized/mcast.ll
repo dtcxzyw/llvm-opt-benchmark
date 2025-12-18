@@ -354,8 +354,8 @@ define dso_local noundef range(i32 -99, 1) i32 @ipv6_sock_mc_drop(ptr noundef %0
   br label %.split10.us
 
 .split10.us:                                      ; preds = %57, %.split10.us.loopexit, %.split.us
-  %.us-phi = phi ptr [ %28, %.split.us ], [ %50, %.split10.us.loopexit ], [ %52, %57 ]
-  %.us-phi11 = phi ptr [ %27, %.split.us ], [ %66, %.split10.us.loopexit ], [ %53, %57 ]
+  %.us-phi = phi ptr [ %50, %.split10.us.loopexit ], [ %28, %.split.us ], [ %52, %57 ]
+  %.us-phi11 = phi ptr [ %66, %.split10.us.loopexit ], [ %27, %.split.us ], [ %53, %57 ]
   %67 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 24
   %68 = load ptr, ptr %67, align 8
   store ptr %68, ptr %.us-phi11, align 8
@@ -1109,7 +1109,7 @@ define dso_local range(i32 -105, 1) i32 @ip6_mc_source(i32 noundef %0, i32 nound
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %80, %63, %194, %119, %100, %.loopexit29, %.loopexit, %99, %90, %142, %44, %.thread25
-  %.ph = phi i32 [ -105, %.thread25 ], [ -22, %44 ], [ -105, %142 ], [ -22, %90 ], [ -99, %99 ], [ 0, %.loopexit ], [ -99, %100 ], [ 0, %.loopexit29 ], [ -22, %63 ], [ -99, %119 ], [ -99, %194 ], [ -22, %80 ]
+  %.ph = phi i32 [ -105, %.thread25 ], [ -99, %119 ], [ -22, %63 ], [ -22, %44 ], [ -105, %142 ], [ -22, %90 ], [ -99, %99 ], [ 0, %.loopexit ], [ -99, %100 ], [ 0, %.loopexit29 ], [ -99, %194 ], [ -22, %80 ]
   tail call void @mutex_unlock(ptr noundef nonnull %45) #13
   br label %.thread23
 
@@ -1408,7 +1408,7 @@ thread-pre-split:                                 ; preds = %47
   br label %mld_ifc_event.exit
 
 mld_ifc_event.exit:                               ; preds = %8, %112, %177, %173, %162, %158, %.loopexit, %140, %108
-  %179 = phi i32 [ 0, %140 ], [ -105, %108 ], [ 0, %.loopexit ], [ 0, %158 ], [ 0, %162 ], [ 0, %173 ], [ 0, %177 ], [ -105, %112 ], [ -3, %8 ]
+  %179 = phi i32 [ 0, %140 ], [ -105, %108 ], [ -105, %112 ], [ 0, %177 ], [ 0, %.loopexit ], [ 0, %158 ], [ 0, %162 ], [ 0, %173 ], [ -3, %8 ]
   ret i32 %179
 }
 
@@ -1875,7 +1875,7 @@ define dso_local noundef range(i32 -105, 1) i32 @ip6_mc_msfilter(ptr noundef %0,
   br label %.thread11
 
 .thread11:                                        ; preds = %74, %53, %82, %137, %109, %28, %42, %38, %35, %139, %21, %13
-  %142 = phi i32 [ -22, %13 ], [ -22, %21 ], [ -19, %28 ], [ %141, %139 ], [ -19, %35 ], [ -19, %38 ], [ -19, %42 ], [ -22, %53 ], [ -105, %82 ], [ 0, %137 ], [ %107, %109 ], [ -22, %74 ]
+  %142 = phi i32 [ -22, %13 ], [ -22, %21 ], [ -19, %28 ], [ %141, %139 ], [ -19, %35 ], [ -19, %38 ], [ -19, %42 ], [ %107, %109 ], [ -22, %53 ], [ -105, %82 ], [ 0, %137 ], [ -22, %74 ]
   ret i32 %142
 }
 

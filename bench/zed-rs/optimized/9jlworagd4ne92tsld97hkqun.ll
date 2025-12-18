@@ -1462,7 +1462,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17hd9cafa8bd5663125E(pt
   br i1 %.sroa.18.0.in.i.us, label %.split17.us, label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %16, %13, %11
-  %.sroa.0.0.us.be = phi i32 [ %15, %13 ], [ %.sroa.08.0.i.us, %16 ], [ %.sroa.08.0.i13.us, %11 ]
+  %.sroa.0.0.us.be = phi i32 [ %.sroa.08.0.i13.us, %11 ], [ %15, %13 ], [ %.sroa.08.0.i.us, %16 ]
   br label %.split.us
 
 .split:                                           ; preds = %4, %.split.backedge
@@ -1571,7 +1571,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17hd9cafa8bd5663125E(pt
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %42, %22, %40
-  %.sroa.0.0.be = phi i32 [ %44, %42 ], [ %.sroa.08.0.i, %22 ], [ %.sroa.08.0.i13, %40 ]
+  %.sroa.0.0.be = phi i32 [ %.sroa.08.0.i13, %40 ], [ %44, %42 ], [ %.sroa.08.0.i, %22 ]
   br label %.split
 }
 
@@ -4780,8 +4780,8 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17hb43ae4d48aae9
   br i1 %.not.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17ha91ffd58456cb978E.exit._crit_edge", label %7
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h7921d517f7232369E.exit": ; preds = %21, %17, %12, %2
-  %.sroa.7.2 = phi i64 [ 0, %2 ], [ %14, %12 ], [ %14, %21 ], [ %14, %17 ]
-  %.sroa.16.1 = phi i64 [ 0, %2 ], [ 1, %12 ], [ 1, %21 ], [ 1, %17 ]
+  %.sroa.7.2 = phi i64 [ 0, %2 ], [ %14, %17 ], [ %14, %12 ], [ %14, %21 ]
+  %.sroa.16.1 = phi i64 [ 0, %2 ], [ 1, %17 ], [ 1, %12 ], [ 1, %21 ]
   %.not1.i = icmp eq i64 %.sroa.7.2, %4
   br i1 %.not1.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17ha91ffd58456cb978E.exit", label %.lr.ph.i3.preheader
 

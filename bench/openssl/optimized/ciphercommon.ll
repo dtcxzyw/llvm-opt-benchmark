@@ -168,7 +168,7 @@ define range(i32 0, 2) i32 @ossl_cipher_generic_get_params(ptr noundef %0, i32 n
   br label %59
 
 59:                                               ; preds = %.sink.split, %54, %56
-  %.0 = phi i32 [ 1, %56 ], [ 1, %54 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 1, %54 ], [ 1, %56 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 
@@ -692,7 +692,7 @@ define range(i32 0, 2) i32 @ossl_cipher_generic_block_update(ptr noundef %0, ptr
   br i1 %49, label %.lr.ph, label %.loopexit, !llvm.loop !33
 
 .loopexit:                                        ; preds = %.lr.ph, %43, %.preheader, %23
-  %50 = phi i64 [ %5, %23 ], [ %28, %.preheader ], [ %28, %43 ], [ %28, %.lr.ph ]
+  %50 = phi i64 [ %5, %23 ], [ %28, %43 ], [ %28, %.preheader ], [ %28, %.lr.ph ]
   %51 = urem i64 %50, %10
   %.not123 = icmp eq i64 %51, 0
   br i1 %.not123, label %53, label %52
@@ -1419,7 +1419,7 @@ define range(i32 0, 2) i32 @ossl_cipher_generic_get_ctx_params(ptr noundef %0, p
   br label %55
 
 55:                                               ; preds = %.sink.split, %47, %49
-  %.0 = phi i32 [ 1, %49 ], [ 1, %47 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 1, %47 ], [ 1, %49 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 

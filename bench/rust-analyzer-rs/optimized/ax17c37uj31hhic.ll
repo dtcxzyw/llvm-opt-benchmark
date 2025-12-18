@@ -3338,8 +3338,8 @@ define hidden void @"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$
   br i1 %43, label %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17h77c103c5c0f4a5a8E.exit.thread", label %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17h77c103c5c0f4a5a8E.exit"
 
 "_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17h77c103c5c0f4a5a8E.exit": ; preds = %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17he836d197c28c8457E.exit.i", %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17he836d197c28c8457E.exit.thread18.i"
-  %.sroa.8.0 = phi i64 [ %.sroa.6.8.insert.insert.i, %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17he836d197c28c8457E.exit.thread18.i" ], [ %.sroa.6.0.i, %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17he836d197c28c8457E.exit.i" ]
-  %.sroa.4.0 = phi i32 [ 1, %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17he836d197c28c8457E.exit.thread18.i" ], [ %.sroa.0.011.i, %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17he836d197c28c8457E.exit.i" ]
+  %.sroa.8.0 = phi i64 [ %.sroa.6.0.i, %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17he836d197c28c8457E.exit.i" ], [ %.sroa.6.8.insert.insert.i, %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17he836d197c28c8457E.exit.thread18.i" ]
+  %.sroa.4.0 = phi i32 [ %.sroa.0.011.i, %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17he836d197c28c8457E.exit.i" ], [ 1, %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17he836d197c28c8457E.exit.thread18.i" ]
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val4 = load ptr, ptr %44, align 8, !nonnull !4, !align !5, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !1287
@@ -9671,8 +9671,8 @@ define hidden void @"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core
   br i1 %45, label %"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h7a29555b5c726892E.llvm.17704032041304388331.exit", label %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17h77c103c5c0f4a5a8E.exit.i"
 
 "_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17h77c103c5c0f4a5a8E.exit.i": ; preds = %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17he836d197c28c8457E.exit.i.i", %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17he836d197c28c8457E.exit.thread18.i.i"
-  %.sroa.8.0.i = phi i64 [ %.sroa.6.8.insert.insert.i.i, %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17he836d197c28c8457E.exit.thread18.i.i" ], [ %.sroa.6.0.i.i, %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17he836d197c28c8457E.exit.i.i" ]
-  %.sroa.4.0.i = phi i32 [ 1, %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17he836d197c28c8457E.exit.thread18.i.i" ], [ %.sroa.0.011.i.i, %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17he836d197c28c8457E.exit.i.i" ]
+  %.sroa.8.0.i = phi i64 [ %.sroa.6.0.i.i, %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17he836d197c28c8457E.exit.i.i" ], [ %.sroa.6.8.insert.insert.i.i, %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17he836d197c28c8457E.exit.thread18.i.i" ]
+  %.sroa.4.0.i = phi i32 [ %.sroa.0.011.i.i, %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17he836d197c28c8457E.exit.i.i" ], [ 1, %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17he836d197c28c8457E.exit.thread18.i.i" ]
   %46 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.val4.i = load ptr, ptr %46, align 8, !alias.scope !2456, !noalias !2463, !nonnull !4, !align !5, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !2502
@@ -26741,8 +26741,8 @@ define hidden void @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9fold_impl17h446796
   br i1 %57, label %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17h4f93e566d727b78fE.llvm.17704032041304388331.exit", label %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17h77c103c5c0f4a5a8E.exit.i.i"
 
 "_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17h77c103c5c0f4a5a8E.exit.i.i": ; preds = %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17he836d197c28c8457E.exit.i.i.i", %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17he836d197c28c8457E.exit.thread18.i.i.i"
-  %.sroa.8.0.i.i = phi i64 [ %.sroa.6.8.insert.insert.i.i.i, %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17he836d197c28c8457E.exit.thread18.i.i.i" ], [ %.sroa.6.0.i.i.i, %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17he836d197c28c8457E.exit.i.i.i" ]
-  %.sroa.4.0.i.i = phi i32 [ 1, %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17he836d197c28c8457E.exit.thread18.i.i.i" ], [ %.sroa.0.011.i.i.i, %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17he836d197c28c8457E.exit.i.i.i" ]
+  %.sroa.8.0.i.i = phi i64 [ %.sroa.6.0.i.i.i, %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17he836d197c28c8457E.exit.i.i.i" ], [ %.sroa.6.8.insert.insert.i.i.i, %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17he836d197c28c8457E.exit.thread18.i.i.i" ]
+  %.sroa.4.0.i.i = phi i32 [ %.sroa.0.011.i.i.i, %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17he836d197c28c8457E.exit.i.i.i" ], [ 1, %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17he836d197c28c8457E.exit.thread18.i.i.i" ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !6641
   store i32 %.sroa.4.0.i.i, ptr %5, align 8, !noalias !6644
   store i64 %.sroa.8.0.i.i, ptr %.sroa.6.4..sroa_idx.i.i, align 4, !noalias !6644

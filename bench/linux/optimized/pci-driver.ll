@@ -993,7 +993,7 @@ define internal noundef i64 @new_id_store(ptr noundef %0, ptr noundef readonly c
   br label %.thread
 
 .thread:                                          ; preds = %50, %68, %.thread4, %20, %24, %3
-  %84 = phi i64 [ -17, %24 ], [ -22, %3 ], [ -12, %20 ], [ -12, %.thread4 ], [ %spec.select, %68 ], [ -22, %50 ]
+  %84 = phi i64 [ -17, %24 ], [ -22, %3 ], [ -12, %20 ], [ %spec.select, %68 ], [ -12, %.thread4 ], [ -22, %50 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -1406,8 +1406,8 @@ define internal noundef i64 @remove_id_store(ptr noundef %0, ptr noundef readonl
   br i1 %113, label %.thread, label %117
 
 .thread:                                          ; preds = %108, %82, %60, %38
-  %.us-phi = phi ptr [ %70, %82 ], [ %30, %38 ], [ %48, %60 ], [ %92, %108 ]
-  %.us-phi6 = phi ptr [ %69, %82 ], [ %29, %38 ], [ %47, %60 ], [ %91, %108 ]
+  %.us-phi = phi ptr [ %70, %82 ], [ %48, %60 ], [ %30, %38 ], [ %92, %108 ]
+  %.us-phi6 = phi ptr [ %69, %82 ], [ %47, %60 ], [ %29, %38 ], [ %91, %108 ]
   %114 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 8
   %115 = load ptr, ptr %114, align 8
   %116 = getelementptr inbounds nuw i8, ptr %.us-phi6, i64 8
@@ -1424,7 +1424,7 @@ define internal noundef i64 @remove_id_store(ptr noundef %0, ptr noundef readonl
   br i1 %119, label %.loopexit, label %.lr.ph.split.split, !llvm.loop !23
 
 .loopexit:                                        ; preds = %117, %88, %66, %44, %12, %.thread
-  %120 = phi i64 [ %2, %.thread ], [ -19, %12 ], [ -19, %88 ], [ -19, %44 ], [ -19, %66 ], [ -19, %117 ]
+  %120 = phi i64 [ %2, %.thread ], [ -19, %88 ], [ -19, %12 ], [ -19, %66 ], [ -19, %44 ], [ -19, %117 ]
   call void @_raw_spin_unlock(ptr noundef nonnull %16) #14
   br label %121
 

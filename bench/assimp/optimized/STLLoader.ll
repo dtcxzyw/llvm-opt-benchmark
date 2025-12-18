@@ -509,7 +509,7 @@ _ZN6Assimp12_GLOBAL__N_110IsAsciiSTLEPKcm.exit:   ; preds = %75
   invoke void @_ZN6Assimp11STLImporter13LoadASCIIFileEP6aiNode(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef %82)
           to label %87 unwind label %66
 
-_ZN6Assimp12_GLOBAL__N_110IsAsciiSTLEPKcm.exit.thread: ; preds = %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %75, %_ZN6Assimp12_GLOBAL__N_110IsAsciiSTLEPKcm.exit
+_ZN6Assimp12_GLOBAL__N_110IsAsciiSTLEPKcm.exit.thread: ; preds = %75, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %_ZN6Assimp12_GLOBAL__N_110IsAsciiSTLEPKcm.exit
   %83 = call ptr @__cxa_allocate_exception(i64 16) #21
   invoke void @_ZN17DeadlyImportErrorC2IJRA52_KcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERA2_S1_EEEDpOT_(ptr noundef nonnull align 8 dereferenceable(16) %83, ptr noundef nonnull align 1 dereferenceable(52) @.str.5, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 1 dereferenceable(2) @.str.4)
           to label %84 unwind label %85
@@ -2725,7 +2725,7 @@ _ZN6Assimp14addFacesToMeshEP6aiMesh.exit:         ; preds = %487, %.loopexit.thr
   call void @_ZdlPvm(ptr noundef nonnull %56, i64 noundef 4) #22
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit236
 
-_ZN6Assimp12_GLOBAL__N_110IsAsciiSTLEPKcm.exit.thread: ; preds = %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %40, %_ZN6Assimp12_GLOBAL__N_111IsBinarySTLEPKcm.exit.i, %_ZN6Assimp12_GLOBAL__N_110IsAsciiSTLEPKcm.exit
+_ZN6Assimp12_GLOBAL__N_110IsAsciiSTLEPKcm.exit.thread: ; preds = %40, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %_ZN6Assimp12_GLOBAL__N_111IsBinarySTLEPKcm.exit.i, %_ZN6Assimp12_GLOBAL__N_110IsAsciiSTLEPKcm.exit
   %500 = ptrtoint ptr %.sroa.12400.0 to i64
   %501 = ptrtoint ptr %.sroa.0393.1 to i64
   %502 = sub i64 %500, %501

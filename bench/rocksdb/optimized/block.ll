@@ -2189,7 +2189,7 @@ _ZN7rocksdb9DecodeKeyclEPKcS2_PjS3_.exit.thread:  ; preds = %_ZN7rocksdb14GetVar
   br label %.noexc.i
 
 _ZN7rocksdb9DecodeKeyclEPKcS2_PjS3_.exit:         ; preds = %56, %80, %.thread.i28.i.i
-  %.0.i.i = phi ptr [ %57, %56 ], [ %82, %.thread.i28.i.i ], [ %81, %80 ]
+  %.0.i.i = phi ptr [ %57, %56 ], [ %81, %80 ], [ %82, %.thread.i28.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %83 = icmp ne ptr %.0.i.i, null
   %84 = load i32, ptr %7, align 4
@@ -2855,7 +2855,7 @@ switch.hole_check:                                ; preds = %80
   br i1 %switch.lobit, label %switch.lookup, label %.sink.split
 
 switch.lookup:                                    ; preds = %switch.hole_check, %.sink.split, %.loopexit, %64
-  %.0 = phi i1 [ false, %64 ], [ true, %.loopexit ], [ true, %.sink.split ], [ true, %switch.hole_check ]
+  %.0 = phi i1 [ true, %.sink.split ], [ false, %64 ], [ true, %.loopexit ], [ true, %switch.hole_check ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
@@ -3605,7 +3605,7 @@ _ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i:      ; preds = %57, %55
   br label %_ZN7rocksdb11DecodeKeyV4clEPKcS2_PjS3_.exit
 
 _ZN7rocksdb11DecodeKeyV4clEPKcS2_PjS3_.exit:      ; preds = %53, %68, %.thread.i20.i
-  %.0.i = phi ptr [ %54, %53 ], [ %71, %.thread.i20.i ], [ %70, %68 ]
+  %.0.i = phi ptr [ %70, %68 ], [ %54, %53 ], [ %71, %.thread.i20.i ]
   %72 = icmp ne ptr %.0.i, null
   %73 = load i32, ptr %6, align 4
   %74 = icmp eq i32 %73, 0
@@ -3932,7 +3932,7 @@ _ZN7rocksdb9DecodeKeyclEPKcS2_PjS3_.exit.thread:  ; preds = %_ZN7rocksdb14GetVar
   br label %.noexc.i
 
 _ZN7rocksdb9DecodeKeyclEPKcS2_PjS3_.exit:         ; preds = %56, %80, %.thread.i28.i.i
-  %.0.i.i = phi ptr [ %57, %56 ], [ %82, %.thread.i28.i.i ], [ %81, %80 ]
+  %.0.i.i = phi ptr [ %57, %56 ], [ %81, %80 ], [ %82, %.thread.i28.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %83 = icmp ne ptr %.0.i.i, null
   %84 = load i32, ptr %7, align 4
@@ -5600,7 +5600,7 @@ _ZN7rocksdb9DecodeKeyclEPKcS2_PjS3_.exit:         ; preds = %60, %_ZN7rocksdb14G
   br label %_ZN7rocksdb11DecodeKeyV4clEPKcS2_PjS3_.exit
 
 _ZN7rocksdb11DecodeKeyV4clEPKcS2_PjS3_.exit:      ; preds = %.thread.i20.i, %44, %33, %_ZN7rocksdb9DecodeKeyclEPKcS2_PjS3_.exit
-  %83 = phi ptr [ %.0.i.i, %_ZN7rocksdb9DecodeKeyclEPKcS2_PjS3_.exit ], [ %34, %33 ], [ %47, %.thread.i20.i ], [ %46, %44 ]
+  %83 = phi ptr [ %.0.i.i, %_ZN7rocksdb9DecodeKeyclEPKcS2_PjS3_.exit ], [ %46, %44 ], [ %34, %33 ], [ %47, %.thread.i20.i ]
   %84 = icmp eq ptr %83, null
   %85 = load i32, ptr %6, align 4
   %86 = icmp ne i32 %85, 0
@@ -11354,8 +11354,8 @@ _ZN7rocksdb13DecodeEntryV4clEPKcS2_PjS3_S3_.exit: ; preds = %_ZN7rocksdb14GetVar
   %54 = icmp eq ptr %53, null
   br i1 %54, label %_ZN7rocksdb13DecodeEntryV4clEPKcS2_PjS3_S3_.exit.thread, label %_ZN7rocksdb13DecodeEntryV4clEPKcS2_PjS3_S3_.exit.thread34
 
-_ZN7rocksdb13DecodeEntryV4clEPKcS2_PjS3_S3_.exit.thread34: ; preds = %50, %39, %_ZN7rocksdb13DecodeEntryV4clEPKcS2_PjS3_S3_.exit
-  %.0.i.i36 = phi ptr [ %53, %_ZN7rocksdb13DecodeEntryV4clEPKcS2_PjS3_S3_.exit ], [ %52, %50 ], [ %40, %39 ]
+_ZN7rocksdb13DecodeEntryV4clEPKcS2_PjS3_S3_.exit.thread34: ; preds = %39, %50, %_ZN7rocksdb13DecodeEntryV4clEPKcS2_PjS3_S3_.exit
+  %.0.i.i36 = phi ptr [ %53, %_ZN7rocksdb13DecodeEntryV4clEPKcS2_PjS3_S3_.exit ], [ %40, %39 ], [ %52, %50 ]
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %57 = load i64, ptr %56, align 8, !tbaa !57

@@ -11977,7 +11977,7 @@ _ZN15uv_distribution6source20LocalRevisionPointer13into_revision17h01ad7d868e612
   br label %61
 
 .loopexit.split-lp:                               ; preds = %_ZN15uv_distribution6source20LocalRevisionPointer13into_revision17h01ad7d868e612152E.exit, %144, %64, %78, %.loopexit
-  %.sroa.032.2.ph = phi i1 [ true, %64 ], [ true, %_ZN15uv_distribution6source20LocalRevisionPointer13into_revision17h01ad7d868e612152E.exit ], [ true, %78 ], [ true, %.loopexit ], [ false, %144 ]
+  %.sroa.032.2.ph = phi i1 [ true, %_ZN15uv_distribution6source20LocalRevisionPointer13into_revision17h01ad7d868e612152E.exit ], [ true, %64 ], [ true, %78 ], [ true, %.loopexit ], [ false, %144 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %61
@@ -12559,7 +12559,7 @@ _ZN15uv_distribution6source20LocalRevisionPointer13into_revision17h01ad7d868e612
   br label %72
 
 .loopexit.split-lp:                               ; preds = %_ZN15uv_distribution6source20LocalRevisionPointer13into_revision17h01ad7d868e612152E.exit, %155, %75, %89, %.loopexit
-  %.sroa.030.2.ph = phi i1 [ true, %75 ], [ true, %_ZN15uv_distribution6source20LocalRevisionPointer13into_revision17h01ad7d868e612152E.exit ], [ true, %89 ], [ true, %.loopexit ], [ false, %155 ]
+  %.sroa.030.2.ph = phi i1 [ true, %_ZN15uv_distribution6source20LocalRevisionPointer13into_revision17h01ad7d868e612152E.exit ], [ true, %75 ], [ true, %89 ], [ true, %.loopexit ], [ false, %155 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %72

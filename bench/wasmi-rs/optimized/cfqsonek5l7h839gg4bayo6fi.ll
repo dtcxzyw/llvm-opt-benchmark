@@ -1695,7 +1695,7 @@ _ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.e
   br label %"_ZN10wasmparser9validator4func22FuncValidator$LT$T$GT$11read_locals17hfada639f206bac17E.exit.thread"
 
 "_ZN10wasmparser9validator4func22FuncValidator$LT$T$GT$11read_locals17hfada639f206bac17E.exit.thread": ; preds = %48, %.loopexit, %45, %22, %38, %._crit_edge
-  %.sroa.0.1 = phi ptr [ %65, %._crit_edge ], [ %61, %.loopexit ], [ %40, %38 ], [ %23, %22 ], [ %47, %45 ], [ %49, %48 ]
+  %.sroa.0.1 = phi ptr [ %65, %._crit_edge ], [ %61, %.loopexit ], [ %47, %45 ], [ %40, %38 ], [ %23, %22 ], [ %49, %48 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.sroa.0.1
 }
@@ -4444,9 +4444,9 @@ define hidden void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$
   br label %33
 
 31:                                               ; preds = %25, %5
-  %.sroa.16.0 = phi i64 [ %.sroa.16.24.copyload, %25 ], [ undef, %5 ]
-  %.sroa.15.0 = phi ptr [ %.sroa.15.24.copyload, %25 ], [ undef, %5 ]
-  %.sroa.13.0 = phi ptr [ %.sroa.13.24.copyload, %25 ], [ null, %5 ]
+  %.sroa.16.0 = phi i64 [ undef, %5 ], [ %.sroa.16.24.copyload, %25 ]
+  %.sroa.15.0 = phi ptr [ undef, %5 ], [ %.sroa.15.24.copyload, %25 ]
+  %.sroa.13.0 = phi ptr [ null, %5 ], [ %.sroa.13.24.copyload, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store ptr %2, ptr %10, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -10388,7 +10388,7 @@ _ZN8smallvec10deallocate17ha4aac86e26339f4fE.exit.i: ; preds = %45
   tail call void @_ZN5alloc5alloc18handle_alloc_error17haa66aaa8cfcf3614E(i64 noundef range(i64 0, -9223372036854775806) 8, i64 noundef %23) #25
   unreachable
 
-50:                                               ; preds = %25, %21, %27, %31
+50:                                               ; preds = %31, %27, %25, %21
   tail call void @_ZN4core9panicking5panic17h13ee8adf815f0d87E(ptr noalias noundef nonnull readonly align 1 @anon.c691e9fd82882113baa42aab06760c9e.773, i64 noundef 17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c691e9fd82882113baa42aab06760c9e.774) #25
   unreachable
 

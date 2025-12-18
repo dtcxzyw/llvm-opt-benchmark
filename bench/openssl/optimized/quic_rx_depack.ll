@@ -658,7 +658,7 @@ depack_do_frame_crypto.exit.thread.i:             ; preds = %227, %247, %241, %2
   br label %.critedge.i
 
 depack_do_frame_crypto.exit.i:                    ; preds = %248, %224
-  %.1.i = phi i64 [ 0, %224 ], [ %251, %248 ]
+  %.1.i = phi i64 [ %251, %248 ], [ 0, %224 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %459
 
@@ -892,7 +892,7 @@ depack_do_frame_stream.exit.thread.i:             ; preds = %275, %336, %327, %2
   br label %.critedge.i
 
 depack_do_frame_stream.exit.i:                    ; preds = %.thread.i.i, %312, %300, %278
-  %.2.i = phi i64 [ 0, %278 ], [ %341, %.thread.i.i ], [ 0, %312 ], [ 0, %300 ]
+  %.2.i = phi i64 [ 0, %300 ], [ 0, %312 ], [ 0, %278 ], [ %341, %.thread.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)

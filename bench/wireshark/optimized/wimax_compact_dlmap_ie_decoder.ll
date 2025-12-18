@@ -845,7 +845,7 @@ wimax_compact_dlmap_rcid_ie_decoder.exit671:      ; preds = %150, %.sink.split.i
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !6
 
 .loopexit:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us, %.preheader, %258, %263
-  %.12 = phi i32 [ %.11, %258 ], [ %266, %263 ], [ %.11, %.preheader ], [ %261, %.lr.ph.split.us ], [ %269, %.lr.ph.split ]
+  %.12 = phi i32 [ %266, %263 ], [ %.11, %258 ], [ %.11, %.preheader ], [ %261, %.lr.ph.split.us ], [ %269, %.lr.ph.split ]
   %271 = tail call fastcc i32 @wimax_compact_dlmap_harq_control_ie_decoder(ptr noundef %0, ptr noundef %2, i32 noundef %.12, i32 noundef %.5600)
   %272 = add nuw nsw i32 %.5590752, %271
   %273 = add nuw nsw i32 %271, %.5600

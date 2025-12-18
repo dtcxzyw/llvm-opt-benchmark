@@ -709,7 +709,7 @@ _ZN6vectorIPN3sat6clauseELb0EjE3endEv.exit58:     ; preds = %_ZN6vectorIPN3sat6c
   br i1 %.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !190
 
 .loopexit:                                        ; preds = %87, %51, %.lr.ph91, %_ZN6vectorIPN3sat6clauseELb0EjE3endEv.exit58, %.preheader
-  %.144.ph = phi ptr [ %23, %_ZN6vectorIPN3sat6clauseELb0EjE3endEv.exit58 ], [ %.us-phi, %.preheader ], [ %.3.us, %51 ], [ %60, %.lr.ph91 ], [ %.3, %87 ]
+  %.144.ph = phi ptr [ %.3.us, %51 ], [ %60, %.lr.ph91 ], [ %23, %_ZN6vectorIPN3sat6clauseELb0EjE3endEv.exit58 ], [ %.us-phi, %.preheader ], [ %.3, %87 ]
   %.pr = load ptr, ptr %2, align 8, !tbaa !186
   %.not.i = icmp eq ptr %.pr, null
   br i1 %.not.i, label %_ZN6vectorIPN3sat6clauseELb0EjE7set_endEPS2_.exit, label %89
@@ -3278,7 +3278,7 @@ _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit25:   ; preds = %32, %40, %43
   br label %.outer, !llvm.loop !205
 
 .critedge2:                                       ; preds = %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit23, %43, %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit25, %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit
-  %.0 = phi i1 [ false, %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit ], [ true, %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit23 ], [ true, %43 ], [ false, %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit25 ]
+  %.0 = phi i1 [ false, %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit ], [ true, %43 ], [ true, %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit23 ], [ false, %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit25 ]
   ret i1 %.0
 }
 
@@ -3562,7 +3562,7 @@ _ZNK6vectorIN3sat7literalELb0EjE3endEv.exit.i:    ; preds = %.lr.ph.split
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i, %.lr.ph.split, %43
-  %.327.ph = phi i32 [ %44, %43 ], [ %.02439, %.lr.ph.split ], [ %.02439, %.lr.ph.i ]
+  %.327.ph = phi i32 [ %.02439, %.lr.ph.split ], [ %44, %43 ], [ %.02439, %.lr.ph.i ]
   %45 = add nuw i32 %.02340, 1
   %exitcond.not = icmp eq i32 %45, %12
   br i1 %exitcond.not, label %_ZN3sat13scoped_detach10del_clauseEv.exit, label %.lr.ph.split, !llvm.loop !260
@@ -5679,7 +5679,7 @@ _ZSt13move_backwardIPPN3sat6clauseES3_ET0_T_S5_S4_.exit: ; preds = %48, %52
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !289
 
 _ZSt11swap_rangesIPPN3sat6clauseES3_ET0_T_S5_S4_.exit: ; preds = %._crit_edge, %._crit_edge111, %.lr.ph.i, %_ZSt13move_backwardIPPN3sat6clauseES3_ET0_T_S5_S4_.exit, %_ZSt4moveIPPN3sat6clauseES3_ET0_T_S5_S4_.exit, %5, %3
-  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %23, %_ZSt4moveIPPN3sat6clauseES3_ET0_T_S5_S4_.exit ], [ %23, %_ZSt13move_backwardIPPN3sat6clauseES3_ET0_T_S5_S4_.exit ], [ %1, %.lr.ph.i ], [ %23, %._crit_edge111 ], [ %23, %._crit_edge ]
+  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %1, %.lr.ph.i ], [ %23, %_ZSt4moveIPPN3sat6clauseES3_ET0_T_S5_S4_.exit ], [ %23, %_ZSt13move_backwardIPPN3sat6clauseES3_ET0_T_S5_S4_.exit ], [ %23, %._crit_edge111 ], [ %23, %._crit_edge ]
   ret ptr %.053
 }
 

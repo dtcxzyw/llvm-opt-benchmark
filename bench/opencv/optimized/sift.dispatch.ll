@@ -510,7 +510,7 @@ define hidden void @_ZN2cv12cpu_baseline21findScaleSpaceExtremaEiiiiiiidddRKSt6v
   %118 = getelementptr i8, ptr %114, i64 4
   %119 = load float, ptr %118, align 4, !tbaa !28
   %120 = fcmp ogt float %93, 0.000000e+00
-  br i1 %120, label %121, label %202
+  br i1 %120, label %121, label %195
 
 121:                                              ; preds = %96
   %122 = fcmp olt float %101, %104
@@ -596,115 +596,115 @@ define hidden void @_ZN2cv12cpu_baseline21findScaleSpaceExtremaEiiiiiiidddRKSt6v
   %192 = fcmp olt float %190, %191
   %193 = select i1 %192, float %191, float %190
   %194 = fcmp ult float %93, %193
-  br i1 %194, label %.critedge.i, label %195
+  br i1 %194, label %.critedge.i, label %276
 
-195:                                              ; preds = %165
-  %196 = getelementptr inbounds nuw float, ptr %85, i64 %indvars.iv378.i
-  %197 = load float, ptr %196, align 4, !tbaa !28
-  %198 = getelementptr inbounds nuw float, ptr %90, i64 %indvars.iv378.i
-  %199 = load float, ptr %198, align 4, !tbaa !28
-  %200 = fcmp olt float %197, %199
-  %.sroa.speculated261.i = select i1 %200, float %199, float %197
-  %201 = fcmp ult float %93, %.sroa.speculated261.i
-  br i1 %201, label %.critedge.i, label %283
+195:                                              ; preds = %96
+  %196 = fcmp olt float %104, %101
+  %197 = fcmp olt float %109, %106
+  %.sroa.speculated391.i = select i1 %197, float %109, float %106
+  %.sroa.speculated407.i = select i1 %196, float %104, float %101
+  %198 = fcmp olt float %.sroa.speculated391.i, %.sroa.speculated407.i
+  %199 = fcmp olt float %116, %112
+  %200 = fcmp olt float %119, %117
+  %201 = select i1 %200, float %119, float %117
+  %202 = select i1 %199, float %116, float %112
+  %203 = fcmp olt float %201, %202
+  %204 = select i1 %203, float %201, float %202
+  %205 = select i1 %198, float %.sroa.speculated391.i, float %.sroa.speculated407.i
+  %206 = fcmp olt float %204, %205
+  %207 = select i1 %206, float %204, float %205
+  %208 = fcmp ugt float %93, %207
+  br i1 %208, label %.critedge.i, label %209
 
-202:                                              ; preds = %96
-  %203 = fcmp olt float %104, %101
-  %204 = fcmp olt float %109, %106
-  %.sroa.speculated391.i = select i1 %204, float %109, float %106
-  %.sroa.speculated407.i = select i1 %203, float %104, float %101
-  %205 = fcmp olt float %.sroa.speculated391.i, %.sroa.speculated407.i
-  %206 = fcmp olt float %116, %112
-  %207 = fcmp olt float %119, %117
-  %208 = select i1 %207, float %119, float %117
-  %209 = select i1 %206, float %116, float %112
-  %210 = fcmp olt float %208, %209
-  %211 = select i1 %210, float %208, float %209
-  %212 = select i1 %205, float %.sroa.speculated391.i, float %.sroa.speculated407.i
-  %213 = fcmp olt float %211, %212
-  %214 = select i1 %213, float %211, float %212
-  %215 = fcmp ugt float %93, %214
-  br i1 %215, label %.critedge.i, label %216
-
-216:                                              ; preds = %202
-  %217 = getelementptr inbounds float, ptr %85, i64 %99
-  %218 = load float, ptr %217, align 4, !tbaa !28
-  %219 = getelementptr inbounds float, ptr %85, i64 %102
-  %220 = load float, ptr %219, align 4, !tbaa !28
-  %221 = getelementptr i8, ptr %219, i64 4
+209:                                              ; preds = %195
+  %210 = getelementptr inbounds float, ptr %85, i64 %99
+  %211 = load float, ptr %210, align 4, !tbaa !28
+  %212 = getelementptr inbounds float, ptr %85, i64 %102
+  %213 = load float, ptr %212, align 4, !tbaa !28
+  %214 = getelementptr i8, ptr %212, i64 4
+  %215 = load float, ptr %214, align 4, !tbaa !28
+  %216 = getelementptr inbounds float, ptr %85, i64 %107
+  %217 = load float, ptr %216, align 4, !tbaa !28
+  %218 = getelementptr inbounds nuw float, ptr %85, i64 %110
+  %219 = load float, ptr %218, align 4, !tbaa !28
+  %220 = getelementptr float, ptr %85, i64 %113
+  %221 = getelementptr i8, ptr %220, i64 -4
   %222 = load float, ptr %221, align 4, !tbaa !28
-  %223 = getelementptr inbounds float, ptr %85, i64 %107
-  %224 = load float, ptr %223, align 4, !tbaa !28
-  %225 = getelementptr inbounds nuw float, ptr %85, i64 %110
-  %226 = load float, ptr %225, align 4, !tbaa !28
-  %227 = getelementptr float, ptr %85, i64 %113
-  %228 = getelementptr i8, ptr %227, i64 -4
-  %229 = load float, ptr %228, align 4, !tbaa !28
-  %230 = load float, ptr %227, align 4, !tbaa !28
-  %231 = getelementptr i8, ptr %227, i64 4
-  %232 = load float, ptr %231, align 4, !tbaa !28
-  %233 = fcmp olt float %220, %218
-  %234 = fcmp olt float %224, %222
-  %.sroa.speculated388.i = select i1 %234, float %224, float %222
-  %.sroa.speculated404.i = select i1 %233, float %220, float %218
-  %235 = fcmp olt float %.sroa.speculated388.i, %.sroa.speculated404.i
-  %236 = fcmp olt float %229, %226
-  %237 = fcmp olt float %232, %230
-  %238 = select i1 %237, float %232, float %230
-  %239 = select i1 %236, float %229, float %226
-  %240 = fcmp olt float %238, %239
-  %241 = select i1 %240, float %238, float %239
-  %242 = select i1 %235, float %.sroa.speculated388.i, float %.sroa.speculated404.i
-  %243 = fcmp olt float %241, %242
-  %244 = select i1 %243, float %241, float %242
-  %245 = fcmp ugt float %93, %244
-  br i1 %245, label %.critedge.i, label %246
+  %223 = load float, ptr %220, align 4, !tbaa !28
+  %224 = getelementptr i8, ptr %220, i64 4
+  %225 = load float, ptr %224, align 4, !tbaa !28
+  %226 = fcmp olt float %213, %211
+  %227 = fcmp olt float %217, %215
+  %.sroa.speculated388.i = select i1 %227, float %217, float %215
+  %.sroa.speculated404.i = select i1 %226, float %213, float %211
+  %228 = fcmp olt float %.sroa.speculated388.i, %.sroa.speculated404.i
+  %229 = fcmp olt float %222, %219
+  %230 = fcmp olt float %225, %223
+  %231 = select i1 %230, float %225, float %223
+  %232 = select i1 %229, float %222, float %219
+  %233 = fcmp olt float %231, %232
+  %234 = select i1 %233, float %231, float %232
+  %235 = select i1 %228, float %.sroa.speculated388.i, float %.sroa.speculated404.i
+  %236 = fcmp olt float %234, %235
+  %237 = select i1 %236, float %234, float %235
+  %238 = fcmp ugt float %93, %237
+  br i1 %238, label %.critedge.i, label %239
 
-246:                                              ; preds = %216
-  %247 = getelementptr inbounds float, ptr %90, i64 %99
-  %248 = load float, ptr %247, align 4, !tbaa !28
-  %249 = getelementptr inbounds float, ptr %90, i64 %102
-  %250 = load float, ptr %249, align 4, !tbaa !28
-  %251 = getelementptr i8, ptr %249, i64 4
+239:                                              ; preds = %209
+  %240 = getelementptr inbounds float, ptr %90, i64 %99
+  %241 = load float, ptr %240, align 4, !tbaa !28
+  %242 = getelementptr inbounds float, ptr %90, i64 %102
+  %243 = load float, ptr %242, align 4, !tbaa !28
+  %244 = getelementptr i8, ptr %242, i64 4
+  %245 = load float, ptr %244, align 4, !tbaa !28
+  %246 = getelementptr inbounds float, ptr %90, i64 %107
+  %247 = load float, ptr %246, align 4, !tbaa !28
+  %248 = getelementptr inbounds nuw float, ptr %90, i64 %110
+  %249 = load float, ptr %248, align 4, !tbaa !28
+  %250 = getelementptr float, ptr %90, i64 %113
+  %251 = getelementptr i8, ptr %250, i64 -4
   %252 = load float, ptr %251, align 4, !tbaa !28
-  %253 = getelementptr inbounds float, ptr %90, i64 %107
-  %254 = load float, ptr %253, align 4, !tbaa !28
-  %255 = getelementptr inbounds nuw float, ptr %90, i64 %110
-  %256 = load float, ptr %255, align 4, !tbaa !28
-  %257 = getelementptr float, ptr %90, i64 %113
-  %258 = getelementptr i8, ptr %257, i64 -4
-  %259 = load float, ptr %258, align 4, !tbaa !28
-  %260 = load float, ptr %257, align 4, !tbaa !28
-  %261 = getelementptr i8, ptr %257, i64 4
-  %262 = load float, ptr %261, align 4, !tbaa !28
-  %263 = fcmp olt float %250, %248
-  %264 = fcmp olt float %254, %252
-  %.sroa.speculated385.i = select i1 %264, float %254, float %252
-  %.sroa.speculated401.i = select i1 %263, float %250, float %248
-  %265 = fcmp olt float %.sroa.speculated385.i, %.sroa.speculated401.i
-  %266 = fcmp olt float %259, %256
-  %267 = fcmp olt float %262, %260
-  %268 = select i1 %267, float %262, float %260
-  %269 = select i1 %266, float %259, float %256
-  %270 = fcmp olt float %268, %269
-  %271 = select i1 %270, float %268, float %269
-  %272 = select i1 %265, float %.sroa.speculated385.i, float %.sroa.speculated401.i
-  %273 = fcmp olt float %271, %272
-  %274 = select i1 %273, float %271, float %272
-  %275 = fcmp ugt float %93, %274
-  br i1 %275, label %.critedge.i, label %276
+  %253 = load float, ptr %250, align 4, !tbaa !28
+  %254 = getelementptr i8, ptr %250, i64 4
+  %255 = load float, ptr %254, align 4, !tbaa !28
+  %256 = fcmp olt float %243, %241
+  %257 = fcmp olt float %247, %245
+  %.sroa.speculated385.i = select i1 %257, float %247, float %245
+  %.sroa.speculated401.i = select i1 %256, float %243, float %241
+  %258 = fcmp olt float %.sroa.speculated385.i, %.sroa.speculated401.i
+  %259 = fcmp olt float %252, %249
+  %260 = fcmp olt float %255, %253
+  %261 = select i1 %260, float %255, float %253
+  %262 = select i1 %259, float %252, float %249
+  %263 = fcmp olt float %261, %262
+  %264 = select i1 %263, float %261, float %262
+  %265 = select i1 %258, float %.sroa.speculated385.i, float %.sroa.speculated401.i
+  %266 = fcmp olt float %264, %265
+  %267 = select i1 %266, float %264, float %265
+  %268 = fcmp ugt float %93, %267
+  br i1 %268, label %.critedge.i, label %269
 
-276:                                              ; preds = %246
+269:                                              ; preds = %239
+  %270 = getelementptr inbounds nuw float, ptr %85, i64 %indvars.iv378.i
+  %271 = load float, ptr %270, align 4, !tbaa !28
+  %272 = getelementptr inbounds nuw float, ptr %90, i64 %indvars.iv378.i
+  %273 = load float, ptr %272, align 4, !tbaa !28
+  %274 = fcmp olt float %273, %271
+  %.sroa.speculated.i = select i1 %274, float %273, float %271
+  %275 = fcmp ugt float %93, %.sroa.speculated.i
+  br i1 %275, label %.critedge.i, label %283
+
+276:                                              ; preds = %165
   %277 = getelementptr inbounds nuw float, ptr %85, i64 %indvars.iv378.i
   %278 = load float, ptr %277, align 4, !tbaa !28
   %279 = getelementptr inbounds nuw float, ptr %90, i64 %indvars.iv378.i
   %280 = load float, ptr %279, align 4, !tbaa !28
-  %281 = fcmp olt float %280, %278
-  %.sroa.speculated.i = select i1 %281, float %280, float %278
-  %282 = fcmp ugt float %93, %.sroa.speculated.i
+  %281 = fcmp olt float %278, %280
+  %.sroa.speculated261.i = select i1 %281, float %280, float %278
+  %282 = fcmp ult float %93, %.sroa.speculated261.i
   br i1 %282, label %.critedge.i, label %283
 
-283:                                              ; preds = %276, %195
+283:                                              ; preds = %276, %269
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
   invoke void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %27, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv12cpu_baseline12_GLOBAL__N_122findScaleSpaceExtremaT7processERKNS_5RangeEE29__cv_trace_location_region632)
           to label %284 unwind label %551
@@ -1628,8 +1628,8 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE9push_backERKS1_.exit.i: ; preds = %_ZNSt6vec
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %.critedge.i
 
-.critedge.i:                                      ; preds = %121, %135, %165, %195, %202, %216, %246, %276, %.critedge.sink.split.i, %.lr.ph._crit_edge.i
-  %indvars.iv.next379.pre-phi.i = phi i64 [ %.pre419.i, %.lr.ph._crit_edge.i ], [ %110, %.critedge.sink.split.i ], [ %110, %276 ], [ %110, %246 ], [ %110, %216 ], [ %110, %202 ], [ %110, %195 ], [ %110, %165 ], [ %110, %135 ], [ %110, %121 ]
+.critedge.i:                                      ; preds = %121, %135, %165, %195, %209, %239, %269, %276, %.critedge.sink.split.i, %.lr.ph._crit_edge.i
+  %indvars.iv.next379.pre-phi.i = phi i64 [ %.pre419.i, %.lr.ph._crit_edge.i ], [ %110, %.critedge.sink.split.i ], [ %110, %276 ], [ %110, %269 ], [ %110, %239 ], [ %110, %209 ], [ %110, %195 ], [ %110, %165 ], [ %110, %135 ], [ %110, %121 ]
   %791 = icmp slt i64 %indvars.iv.next379.pre-phi.i, %69
   br i1 %791, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !55
 

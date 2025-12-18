@@ -2374,7 +2374,7 @@ _ZN10Node_Array3mapEjP4Node.exit.i:               ; preds = %262, %_ZN5Arena12Am
   br label %_ZN18XBarrierSetC2State4liveEPK4Node.exit
 
 _ZN18XBarrierSetC2State4liveEPK4Node.exit:        ; preds = %_ZN10Node_Array3mapEjP4Node.exit.i, %_ZNK10Node_ArrayixEj.exit.i
-  %.010.i = phi ptr [ %.0.i.i.i, %_ZN10Node_Array3mapEjP4Node.exit.i ], [ %244, %_ZNK10Node_ArrayixEj.exit.i ]
+  %.010.i = phi ptr [ %244, %_ZNK10Node_ArrayixEj.exit.i ], [ %.0.i.i.i, %_ZN10Node_Array3mapEjP4Node.exit.i ]
   %267 = getelementptr inbounds nuw i8, ptr %.010.i, i64 88
   %268 = load i32, ptr %267, align 8
   %269 = load i32, ptr %58, align 8

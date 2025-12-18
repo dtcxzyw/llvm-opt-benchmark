@@ -222,7 +222,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i64 noundef %2
   br i1 %.not215, label %57, label %.critedge239.preheader
 
 .critedge239.preheader:                           ; preds = %109, %74, %89, %67, %57, %42, %.critedge235, %45
-  %.2202.ph = phi i32 [ %.0200270, %74 ], [ %.0200270, %89 ], [ %.0200270, %.critedge235 ], [ %.0200270, %67 ], [ %.0200270, %57 ], [ %.0200270, %45 ], [ %.0200270, %42 ], [ %97, %109 ]
+  %.2202.ph = phi i32 [ %.0200270, %42 ], [ %.0200270, %89 ], [ %.0200270, %.critedge235 ], [ %.0200270, %74 ], [ %.0200270, %67 ], [ %.0200270, %57 ], [ %.0200270, %45 ], [ %97, %109 ]
   br label %.critedge239
 
 .critedge239:                                     ; preds = %.critedge239.preheader, %54
@@ -441,8 +441,8 @@ print_sep.exit.thread:                            ; preds = %83, %print_sep.exit
   store i32 0, ptr %152, align 4, !tbaa !44
   br label %.outer.backedge
 
-.outer.backedge:                                  ; preds = %148, %163, %194, %128, %139
-  %.2199.ph.be = phi i32 [ %107, %148 ], [ %107, %163 ], [ %199, %194 ], [ %107, %128 ], [ %107, %139 ]
+.outer.backedge:                                  ; preds = %148, %163, %194, %139, %128
+  %.2199.ph.be = phi i32 [ %107, %128 ], [ %107, %148 ], [ %107, %163 ], [ %199, %194 ], [ %107, %139 ]
   br label %.outer
 
 .critedge241.thread:                              ; preds = %139, %.critedge241
@@ -597,7 +597,7 @@ print_sep.exit250.thread:                         ; preds = %178, %print_sep.exi
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %60, %93, %print_sep.exit.thread, %print_sep.exit, %74, %194, %135, %.critedge241, %190, %187, %print_sep.exit250, %210, %168, %78, %15, %._crit_edge
-  %.0195 = phi i32 [ %214, %._crit_edge ], [ -1, %15 ], [ %211, %210 ], [ %167, %168 ], [ %77, %78 ], [ -1, %194 ], [ %138, %135 ], [ %147, %.critedge241 ], [ -1, %190 ], [ -1, %187 ], [ -1, %print_sep.exit250 ], [ -1, %93 ], [ -1, %print_sep.exit.thread ], [ -1, %print_sep.exit ], [ %75, %74 ], [ %66, %60 ]
+  %.0195 = phi i32 [ %214, %._crit_edge ], [ -1, %15 ], [ -1, %194 ], [ %77, %78 ], [ %211, %210 ], [ %167, %168 ], [ %138, %135 ], [ %147, %.critedge241 ], [ -1, %190 ], [ -1, %187 ], [ -1, %print_sep.exit250 ], [ -1, %93 ], [ -1, %print_sep.exit.thread ], [ -1, %print_sep.exit ], [ %75, %74 ], [ %66, %60 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
@@ -1195,7 +1195,7 @@ cvt_flip.exit.thread.fold.split:                  ; preds = %79, %cvt_flip.exit
   br label %cvt_flip.exit.thread
 
 cvt_flip.exit.thread:                             ; preds = %79, %cvt_flip.exit.thread.fold.split, %91, %90, %89, %88, %87, %86, %85, %84, %83, %82, %81, %80, %92
-  %.0.i599 = phi i32 [ 38, %91 ], [ 34, %90 ], [ 35, %89 ], [ 44, %88 ], [ 32, %87 ], [ 29, %86 ], [ 15, %85 ], [ 9, %84 ], [ 43, %83 ], [ 31, %82 ], [ 28, %81 ], [ 16, %80 ], [ 37, %92 ], [ 12, %79 ], [ %77, %cvt_flip.exit.thread.fold.split ]
+  %.0.i599 = phi i32 [ 12, %79 ], [ 38, %91 ], [ 34, %90 ], [ 35, %89 ], [ 44, %88 ], [ 32, %87 ], [ 29, %86 ], [ 15, %85 ], [ 9, %84 ], [ 43, %83 ], [ 31, %82 ], [ 28, %81 ], [ 16, %80 ], [ 37, %92 ], [ %77, %cvt_flip.exit.thread.fold.split ]
   %291 = load i32, ptr %47, align 4, !tbaa !19
   %292 = and i32 %291, 1
   %.not493 = icmp eq i32 %292, 0
@@ -1640,7 +1640,7 @@ cvt_flip.exit589.thread.fold.split:               ; preds = %307, %cvt_flip.exit
   br label %cvt_flip.exit589.thread
 
 cvt_flip.exit589.thread:                          ; preds = %307, %cvt_flip.exit589.thread.fold.split, %319, %318, %317, %316, %315, %314, %313, %312, %311, %310, %309, %308, %320
-  %.0.i588620 = phi i32 [ 38, %319 ], [ 34, %318 ], [ 35, %317 ], [ 44, %316 ], [ 32, %315 ], [ 29, %314 ], [ 15, %313 ], [ 9, %312 ], [ 43, %311 ], [ 31, %310 ], [ 28, %309 ], [ 16, %308 ], [ 37, %320 ], [ 12, %307 ], [ %305, %cvt_flip.exit589.thread.fold.split ]
+  %.0.i588620 = phi i32 [ 12, %307 ], [ 38, %319 ], [ 34, %318 ], [ 35, %317 ], [ 44, %316 ], [ 32, %315 ], [ 29, %314 ], [ 15, %313 ], [ 9, %312 ], [ 43, %311 ], [ 31, %310 ], [ 28, %309 ], [ 16, %308 ], [ 37, %320 ], [ %305, %cvt_flip.exit589.thread.fold.split ]
   %531 = load i32, ptr %47, align 4, !tbaa !19
   %532 = and i32 %531, 1
   %.not522 = icmp eq i32 %532, 0
@@ -3738,8 +3738,8 @@ zend_string_release.exit282:                      ; preds = %281, %285, %292, %2
   br label %.critedge269
 
 file_strncmp16.exit:                              ; preds = %119, %129, %172, %.critedge, %.critedge.us, %68, %.preheader.i.i, %108, %.critedge.lr.ph.split.us, %102, %zend_memnstr.exit, %zend_memnstr.exit.thread285, %.split.us, %zend_string_release.exit282, %2, %2, %308, %55, %23, %20, %17, %14
-  %.0208 = phi i64 [ %16, %14 ], [ %19, %17 ], [ %22, %20 ], [ %24, %23 ], [ %310, %308 ], [ %61, %55 ], [ 0, %2 ], [ %.10, %zend_string_release.exit282 ], [ 0, %2 ], [ 1, %zend_memnstr.exit ], [ 0, %zend_memnstr.exit.thread285 ], [ 1, %102 ], [ 0, %.split.us ], [ 1, %108 ], [ 1, %.critedge ], [ 1, %.critedge.lr.ph.split.us ], [ %75, %68 ], [ 1, %.critedge.us ], [ 0, %.preheader.i.i ], [ %166, %172 ], [ 1, %129 ], [ 1, %119 ]
-  %.0206 = phi i64 [ %6, %14 ], [ %6, %17 ], [ %6, %20 ], [ %6, %23 ], [ 0, %308 ], [ 0, %55 ], [ 0, %2 ], [ 0, %zend_string_release.exit282 ], [ 0, %2 ], [ 0, %zend_memnstr.exit ], [ 0, %zend_memnstr.exit.thread285 ], [ 0, %102 ], [ 0, %.split.us ], [ 0, %108 ], [ 0, %172 ], [ 0, %.critedge.lr.ph.split.us ], [ 0, %68 ], [ 0, %.critedge.us ], [ 0, %.preheader.i.i ], [ 0, %.critedge ], [ 0, %129 ], [ 0, %119 ]
+  %.0208 = phi i64 [ %16, %14 ], [ %19, %17 ], [ %22, %20 ], [ %24, %23 ], [ %310, %308 ], [ %61, %55 ], [ 0, %2 ], [ 1, %.critedge.us ], [ %.10, %zend_string_release.exit282 ], [ 0, %2 ], [ 0, %.split.us ], [ 1, %zend_memnstr.exit ], [ 1, %102 ], [ 0, %zend_memnstr.exit.thread285 ], [ 1, %.critedge.lr.ph.split.us ], [ 1, %108 ], [ 1, %.critedge ], [ %75, %68 ], [ 0, %.preheader.i.i ], [ %166, %172 ], [ 1, %129 ], [ 1, %119 ]
+  %.0206 = phi i64 [ %6, %14 ], [ %6, %17 ], [ %6, %20 ], [ %6, %23 ], [ 0, %308 ], [ 0, %55 ], [ 0, %2 ], [ 0, %.critedge.us ], [ 0, %zend_string_release.exit282 ], [ 0, %2 ], [ 0, %.split.us ], [ 0, %zend_memnstr.exit ], [ 0, %102 ], [ 0, %zend_memnstr.exit.thread285 ], [ 0, %.critedge.lr.ph.split.us ], [ 0, %108 ], [ 0, %172 ], [ 0, %68 ], [ 0, %.preheader.i.i ], [ 0, %.critedge ], [ 0, %129 ], [ 0, %119 ]
   %313 = call i64 @file_signextend(ptr noundef %0, ptr noundef %1, i64 noundef %.0208) #21
   %314 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %315 = load i8, ptr %314, align 4, !tbaa !38
@@ -5930,7 +5930,7 @@ define internal fastcc range(i32 -1, 1) i32 @varexpand(ptr noundef readonly capt
   br label %.loopexit
 
 .loopexit:                                        ; preds = %33, %32, %12, %17, %7, %22, %28, %._crit_edge, %48
-  %.056 = phi i32 [ 0, %48 ], [ -1, %._crit_edge ], [ -1, %22 ], [ -1, %28 ], [ -1, %7 ], [ -1, %17 ], [ -1, %12 ], [ -1, %32 ], [ -1, %33 ]
+  %.056 = phi i32 [ 0, %48 ], [ -1, %28 ], [ -1, %._crit_edge ], [ -1, %22 ], [ -1, %7 ], [ -1, %17 ], [ -1, %12 ], [ -1, %32 ], [ -1, %33 ]
   ret i32 %.056
 }
 

@@ -222,7 +222,7 @@ define internal range(i32 1, 4) i32 @obj_trust(i32 noundef %0, ptr noundef %1, i
   br label %trust_compat.exit
 
 trust_compat.exit:                                ; preds = %.lr.ph.split, %.lr.ph.split.us, %42, %.lr.ph53.split, %37, %.lr.ph53.split.us, %.preheader, %62, %58, %53, %.critedge44
-  %.3 = phi i32 [ 1, %58 ], [ 3, %62 ], [ 3, %53 ], [ 3, %.critedge44 ], [ 2, %.preheader ], [ 2, %.lr.ph.split.us ], [ 2, %37 ], [ 2, %42 ], [ 1, %.lr.ph53.split.us ], [ 1, %.lr.ph53.split ], [ 2, %.lr.ph.split ]
+  %.3 = phi i32 [ 1, %58 ], [ 3, %62 ], [ 2, %42 ], [ 3, %53 ], [ 3, %.critedge44 ], [ 2, %.lr.ph.split.us ], [ 2, %37 ], [ 2, %.preheader ], [ 1, %.lr.ph53.split.us ], [ 1, %.lr.ph53.split ], [ 2, %.lr.ph.split ]
   ret i32 %.3
 }
 

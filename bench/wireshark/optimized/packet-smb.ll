@@ -6919,7 +6919,7 @@ proto_item_set_generated.exit.thread420:          ; preds = %88, %93
   br label %proto_item_set_generated.exit393
 
 proto_item_set_generated.exit:                    ; preds = %224, %243, %239, %.critedge, %142, %.thread
-  %.0347 = phi ptr [ %.3, %.critedge ], [ %.1348405, %.thread ], [ %207, %224 ], [ %.1348405, %142 ], [ %249, %243 ], [ %207, %239 ]
+  %.0347 = phi ptr [ %249, %243 ], [ %.1348405, %142 ], [ %207, %224 ], [ %.3, %.critedge ], [ %207, %239 ], [ %.1348405, %.thread ]
   %252 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store ptr %.0347, ptr %252, align 8
   %.not382 = icmp eq ptr %.0347, null
@@ -12136,8 +12136,8 @@ define internal i32 @dissect_locking_andx_request(ptr noundef %0, ptr noundef %1
   br label %.thread402
 
 .thread402:                                       ; preds = %135, %.split, %123, %129, %107, %102, %.split.us, %215, %.split434, %203, %209, %187, %182, %.split434.us, %251, %259, %64
-  %.0346 = phi i32 [ %3, %64 ], [ %.2348, %251 ], [ %.2348, %259 ], [ %69, %107 ], [ %.2, %187 ], [ %.2, %215 ], [ %.2, %.split434.us ], [ %.2, %182 ], [ %.2, %209 ], [ %.2, %203 ], [ %.2, %.split434 ], [ %69, %.split.us ], [ %69, %102 ], [ %69, %129 ], [ %69, %123 ], [ %69, %.split ], [ %69, %135 ]
-  %.1 = phi i32 [ %69, %64 ], [ %.7, %251 ], [ %260, %259 ], [ %110, %107 ], [ %190, %187 ], [ %225, %215 ], [ %185, %182 ], [ %.8433.us, %.split434.us ], [ %.8433, %.split434 ], [ %207, %203 ], [ %212, %209 ], [ %105, %102 ], [ %.3427.us, %.split.us ], [ %145, %135 ], [ %.3427, %.split ], [ %127, %123 ], [ %132, %129 ]
+  %.0346 = phi i32 [ %3, %64 ], [ %.2348, %251 ], [ %.2, %187 ], [ %.2348, %259 ], [ %69, %107 ], [ %.2, %215 ], [ %.2, %.split434.us ], [ %.2, %182 ], [ %.2, %209 ], [ %.2, %203 ], [ %.2, %.split434 ], [ %69, %.split.us ], [ %69, %102 ], [ %69, %129 ], [ %69, %123 ], [ %69, %.split ], [ %69, %135 ]
+  %.1 = phi i32 [ %69, %64 ], [ %.7, %251 ], [ %190, %187 ], [ %260, %259 ], [ %110, %107 ], [ %225, %215 ], [ %185, %182 ], [ %.8433.us, %.split434.us ], [ %.8433, %.split434 ], [ %207, %203 ], [ %212, %209 ], [ %105, %102 ], [ %.3427.us, %.split.us ], [ %145, %135 ], [ %.3427, %.split ], [ %127, %123 ], [ %132, %129 ]
   %261 = load ptr, ptr %7, align 8
   %.not388 = icmp eq ptr %261, null
   br i1 %.not388, label %264, label %262
@@ -15392,8 +15392,8 @@ dissect_transaction2_response_parameters.exit:    ; preds = %371, %373, %491, %4
   br label %get_unicode_or_ascii_string.exit.i.i
 
 get_unicode_or_ascii_string.exit.i.i:             ; preds = %662, %657
-  %664 = phi i32 [ %660, %657 ], [ %645, %662 ]
-  %.0.i.i.i = phi ptr [ %661, %657 ], [ %663, %662 ]
+  %664 = phi i32 [ %645, %662 ], [ %660, %657 ]
+  %.0.i.i.i = phi ptr [ %663, %662 ], [ %661, %657 ]
   %665 = icmp eq ptr %.0.i.i.i, null
   br i1 %665, label %dissect_qfsi_vals.exit.i, label %666
 
@@ -15768,7 +15768,7 @@ get_unicode_or_ascii_string.exit.i.i:             ; preds = %662, %657
   br label %dissect_qfsi_vals.exit.i
 
 dissect_qfsi_vals.exit.i:                         ; preds = %.lr.ph.i.i, %815, %.lr.ph256.i.i, %901, %899, %897, %895, %889, %883, %877, %871, %865, %856, %850, %844, %838, %833, %827, %821, %819, %._crit_edge.i.i, %781, %774, %767, %761, %755, %749, %743, %741, %716, %704, %698, %696, %694, %688, %682, %680, %678, %673, %666, %get_unicode_or_ascii_string.exit.i.i, %644, %642, %632, %630, %612, %610, %605, %599, %593, %587, %581, %579, %576, %574
-  %.0.i.i = phi i32 [ 16, %833 ], [ 0, %574 ], [ 0, %579 ], [ 4, %581 ], [ 8, %587 ], [ 12, %593 ], [ 16, %599 ], [ 0, %610 ], [ %631, %630 ], [ 4, %612 ], [ 76, %883 ], [ 0, %696 ], [ 0, %642 ], [ 0, %819 ], [ 8, %821 ], [ 72, %877 ], [ 16, %827 ], [ 20, %838 ], [ 24, %844 ], [ 28, %850 ], [ 60, %856 ], [ 64, %865 ], [ 68, %871 ], [ 4, %704 ], [ 2, %698 ], [ 36, %781 ], [ 4, %get_unicode_or_ascii_string.exit.i.i ], [ 32, %774 ], [ 28, %767 ], [ 24, %761 ], [ 16, %755 ], [ 8, %749 ], [ 4, %743 ], [ 0, %741 ], [ 4, %644 ], [ %806, %._crit_edge.i.i ], [ 0, %899 ], [ 12, %716 ], [ 4, %682 ], [ %898, %897 ], [ %896, %895 ], [ 80, %889 ], [ %695, %694 ], [ %679, %678 ], [ %677, %673 ], [ %669, %666 ], [ %638, %632 ], [ 18, %605 ], [ 0, %576 ], [ 8, %688 ], [ 0, %680 ], [ 64, %901 ], [ %810, %815 ], [ %810, %.lr.ph256.i.i ], [ %797, %.lr.ph.i.i ]
+  %.0.i.i = phi i32 [ 16, %833 ], [ 0, %574 ], [ 0, %579 ], [ 4, %581 ], [ 8, %587 ], [ 12, %593 ], [ 16, %599 ], [ 0, %610 ], [ %631, %630 ], [ 4, %612 ], [ %810, %815 ], [ 76, %883 ], [ 0, %696 ], [ 0, %642 ], [ 0, %819 ], [ 8, %821 ], [ 0, %576 ], [ 72, %877 ], [ 16, %827 ], [ 20, %838 ], [ 24, %844 ], [ 28, %850 ], [ 60, %856 ], [ 64, %865 ], [ 68, %871 ], [ 4, %704 ], [ 2, %698 ], [ 36, %781 ], [ 0, %741 ], [ 4, %get_unicode_or_ascii_string.exit.i.i ], [ 32, %774 ], [ 28, %767 ], [ 24, %761 ], [ 16, %755 ], [ 8, %749 ], [ 4, %743 ], [ 4, %644 ], [ %806, %._crit_edge.i.i ], [ 0, %899 ], [ 12, %716 ], [ 4, %682 ], [ %898, %897 ], [ %896, %895 ], [ 80, %889 ], [ %695, %694 ], [ 64, %901 ], [ %679, %678 ], [ %677, %673 ], [ %669, %666 ], [ %638, %632 ], [ 18, %605 ], [ 8, %688 ], [ 0, %680 ], [ %810, %.lr.ph256.i.i ], [ %797, %.lr.ph.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %dissect_sfsi_response.exit.i
@@ -15861,31 +15861,31 @@ dissect_transaction2_response_data.exit:          ; preds = %543, %541, %905, %9
   %949 = load i32, ptr %947, align 8
   switch i32 %949, label %.critedge [
     i32 0, label %950
-    i32 1, label %954
+    i32 1, label %951
   ]
 
 950:                                              ; preds = %948
   %.not499 = icmp eq ptr %.1429, null
-  br i1 %.not499, label %.critedge, label %951
+  br i1 %.not499, label %.critedge, label %955
 
-951:                                              ; preds = %950
-  %952 = load ptr, ptr @top_tree_global, align 8
-  %953 = call zeroext i1 @dissect_pipe_smb(ptr noundef %.0418, ptr noundef %.0420, ptr noundef nonnull %.1429, ptr noundef %.1424, ptr noundef %.0426, ptr noundef null, ptr noundef %1, ptr noundef %952, ptr noundef nonnull %5)
-  br i1 %953, label %958, label %.critedge
+951:                                              ; preds = %948
+  br i1 %516, label %952, label %.critedge
 
-954:                                              ; preds = %948
-  br i1 %516, label %955, label %.critedge
+952:                                              ; preds = %951
+  %953 = load ptr, ptr @top_tree_global, align 8
+  %954 = call zeroext i1 @dissect_mailslot_smb(ptr noundef %.0418, ptr noundef %.0420, ptr noundef nonnull %.0426, ptr noundef null, ptr noundef %1, ptr noundef %953, ptr noundef nonnull %5)
+  br i1 %954, label %958, label %.critedge
 
-955:                                              ; preds = %954
+955:                                              ; preds = %950
   %956 = load ptr, ptr @top_tree_global, align 8
-  %957 = call zeroext i1 @dissect_mailslot_smb(ptr noundef %.0418, ptr noundef %.0420, ptr noundef nonnull %.0426, ptr noundef null, ptr noundef %1, ptr noundef %956, ptr noundef nonnull %5)
+  %957 = call zeroext i1 @dissect_pipe_smb(ptr noundef %.0418, ptr noundef %.0420, ptr noundef nonnull %.1429, ptr noundef %.1424, ptr noundef %.0426, ptr noundef null, ptr noundef %1, ptr noundef %956, ptr noundef nonnull %5)
   br i1 %957, label %958, label %.critedge
 
-.critedge:                                        ; preds = %938, %941, %951, %948, %950, %954, %945, %955
+.critedge:                                        ; preds = %938, %941, %952, %948, %950, %951, %945, %955
   call fastcc void @dissect_trans_data(ptr noundef %.0420, ptr noundef %.1424, ptr noundef %.0426, ptr noundef %2)
   br label %958
 
-958:                                              ; preds = %951, %955, %.critedge, %935
+958:                                              ; preds = %952, %955, %.critedge, %935
   store i8 %263, ptr %262, align 8
   %.not500.not = icmp ugt i16 %.1437, %.0411
   br i1 %.not500.not, label %959, label %968
@@ -21492,10 +21492,10 @@ define internal i32 @dissect_nt_create_andx_response(ptr noundef %0, ptr noundef
   br label %.thread
 
 .thread:                                          ; preds = %108, %.thread.sink.split, %110, %6
-  %.0167 = phi i16 [ 0, %6 ], [ %35, %110 ], [ %35, %108 ], [ %35, %.thread.sink.split ]
-  %.0165 = phi i16 [ 0, %6 ], [ %27, %110 ], [ %27, %108 ], [ %27, %.thread.sink.split ]
-  %.0164 = phi i8 [ -1, %6 ], [ %14, %110 ], [ %14, %108 ], [ %14, %.thread.sink.split ]
-  %.0 = phi i32 [ %11, %6 ], [ %.1, %110 ], [ %.1, %108 ], [ %.1, %.thread.sink.split ]
+  %.0167 = phi i16 [ 0, %6 ], [ %35, %.thread.sink.split ], [ %35, %110 ], [ %35, %108 ]
+  %.0165 = phi i16 [ 0, %6 ], [ %27, %.thread.sink.split ], [ %27, %110 ], [ %27, %108 ]
+  %.0164 = phi i8 [ -1, %6 ], [ %14, %.thread.sink.split ], [ %14, %110 ], [ %14, %108 ]
+  %.0 = phi i32 [ %11, %6 ], [ %.1, %.thread.sink.split ], [ %.1, %110 ], [ %.1, %108 ]
   %113 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %.0)
   %114 = load i32, ptr @hf_smb_byte_count, align 4
   %115 = zext i16 %113 to i32
@@ -28260,7 +28260,7 @@ thread-pre-split.thread:                          ; preds = %73, %thread-pre-spl
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %get_unicode_or_ascii_string.exit.i, %61, %45, %48, %54, %.split4.us, %._crit_edge, %28, %21
-  %.1 = phi i32 [ %26, %21 ], [ %31, %28 ], [ %82, %._crit_edge ], [ %.us-phi, %.split4.us ], [ %58, %54 ], [ %64, %get_unicode_or_ascii_string.exit.i ], [ %64, %61 ], [ %42, %45 ], [ %52, %48 ], [ %42, %.lr.ph ]
+  %.1 = phi i32 [ %26, %21 ], [ %31, %28 ], [ %.us-phi, %.split4.us ], [ %82, %._crit_edge ], [ %58, %54 ], [ %64, %get_unicode_or_ascii_string.exit.i ], [ %64, %61 ], [ %42, %45 ], [ %52, %48 ], [ %42, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.1
@@ -28529,7 +28529,7 @@ define internal fastcc void @dissect_nt_trans_data_request(ptr noundef %0, ptr n
   br label %41
 
 41:                                               ; preds = %38, %37
-  %.077 = phi ptr [ %switch.select91, %38 ], [ null, %37 ]
+  %.077 = phi ptr [ null, %37 ], [ %switch.select91, %38 ]
   %42 = tail call i32 @dissect_nt_sec_desc(ptr noundef %0, i32 noundef %2, ptr noundef %1, ptr noundef %14, ptr noundef null, i1 noundef zeroext true, i32 noundef %4, ptr noundef %.077)
   %43 = add i32 %4, %2
   %spec.select = tail call i32 @llvm.smax.i32(i32 %42, i32 %43)

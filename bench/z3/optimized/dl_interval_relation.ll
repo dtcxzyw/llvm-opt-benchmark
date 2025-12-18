@@ -8304,8 +8304,8 @@ _ZN8rationalpLERKS_.exit.sink.split:              ; preds = %107, %102
   br label %_ZN8rationalpLERKS_.exit
 
 _ZN8rationalpLERKS_.exit:                         ; preds = %_ZN8rationalpLERKS_.exit.sink.split, %115, %113, %117, %107
-  %121 = phi ptr [ %110, %113 ], [ %68, %107 ], [ %110, %117 ], [ %110, %115 ], [ %68, %_ZN8rationalpLERKS_.exit.sink.split ]
-  %.3 = phi i1 [ false, %113 ], [ false, %107 ], [ true, %117 ], [ true, %115 ], [ true, %_ZN8rationalpLERKS_.exit.sink.split ]
+  %121 = phi ptr [ %110, %115 ], [ %110, %113 ], [ %110, %117 ], [ %68, %107 ], [ %68, %_ZN8rationalpLERKS_.exit.sink.split ]
+  %.3 = phi i1 [ true, %115 ], [ false, %113 ], [ true, %117 ], [ false, %107 ], [ true, %_ZN8rationalpLERKS_.exit.sink.split ]
   %122 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !28
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %122, ptr noundef nonnull align 8 dereferenceable(32) %9)
           to label %.noexc.i unwind label %123
@@ -8326,7 +8326,7 @@ _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
   br label %.loopexit
 
 .loopexit:                                        ; preds = %tailrecurse, %57, %47, %44, %.preheader, %_ZN8rationalD2Ev.exit, %18, %21, %15
-  %.0 = phi i1 [ true, %15 ], [ false, %18 ], [ true, %21 ], [ %.3, %_ZN8rationalD2Ev.exit ], [ true, %.preheader ], [ %50, %47 ], [ %50, %44 ], [ false, %57 ], [ false, %tailrecurse ]
+  %.0 = phi i1 [ true, %15 ], [ false, %18 ], [ true, %21 ], [ %50, %47 ], [ %.3, %_ZN8rationalD2Ev.exit ], [ true, %.preheader ], [ %50, %44 ], [ false, %57 ], [ false, %tailrecurse ]
   ret i1 %.0
 }
 
@@ -9226,7 +9226,7 @@ _ZNK6vectorIP4sortLb0EjE4sizeEv.exit:             ; preds = %_ZN6vectorIP4sortLb
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN6vectorIP4sortLb0EjE9push_backERKS1_.exit, %_ZN6vectorIP4sortLb0EjE5resetEv.exit, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit
-  %14 = phi ptr [ %7, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit ], [ %7, %_ZN6vectorIP4sortLb0EjE5resetEv.exit ], [ %30, %_ZN6vectorIP4sortLb0EjE9push_backERKS1_.exit ]
+  %14 = phi ptr [ %7, %_ZN6vectorIP4sortLb0EjE5resetEv.exit ], [ %7, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit ], [ %30, %_ZN6vectorIP4sortLb0EjE9push_backERKS1_.exit ]
   %15 = load ptr, ptr %1, align 8, !tbaa !30
   %16 = icmp eq ptr %15, null
   br i1 %16, label %._crit_edge24, label %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit16
@@ -10747,8 +10747,8 @@ _ZN6vectorIjLb0EjE6resizeIjEEvjT_z.exit:          ; preds = %_ZNK6vectorIjLb0EjE
   br label %34
 
 .preheader103:                                    ; preds = %96, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit
-  %.not157 = phi i1 [ true, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit ], [ true, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i ], [ false, %96 ]
-  %.0.i66100156 = phi i32 [ 0, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit ], [ 0, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i ], [ %18, %96 ]
+  %.not157 = phi i1 [ true, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i ], [ true, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit ], [ false, %96 ]
+  %.0.i66100156 = phi i32 [ 0, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i ], [ 0, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit ], [ %18, %96 ]
   %.not124 = icmp eq i32 %.0.i, 0
   br i1 %.not124, label %._crit_edge, label %.lr.ph114
 

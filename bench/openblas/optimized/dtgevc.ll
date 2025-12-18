@@ -2536,9 +2536,9 @@ thread-pre-split1659:                             ; preds = %1040, %1044
   br i1 %exitcond2199.not, label %.loopexit1672, label %.lr.ph1887.split, !llvm.loop !39
 
 .loopexit1672:                                    ; preds = %.loopexit1668, %.loopexit.us, %1305, %1202
-  %1371 = phi i32 [ %1199, %1202 ], [ %.pre2317, %1305 ], [ %.pre2317, %.loopexit.us ], [ %.pre2317, %.loopexit1668 ]
-  %.121447 = phi double [ %.914441888, %1202 ], [ %.111446, %1305 ], [ %.111446, %.loopexit.us ], [ %.111446, %.loopexit1668 ]
-  %.41421 = phi i32 [ 1, %1202 ], [ 0, %1305 ], [ 0, %.loopexit.us ], [ 0, %.loopexit1668 ]
+  %1371 = phi i32 [ %1199, %1202 ], [ %.pre2317, %.loopexit.us ], [ %.pre2317, %1305 ], [ %.pre2317, %.loopexit1668 ]
+  %.121447 = phi double [ %.914441888, %1202 ], [ %.111446, %.loopexit.us ], [ %.111446, %1305 ], [ %.111446, %.loopexit1668 ]
+  %.41421 = phi i32 [ 1, %1202 ], [ 0, %.loopexit.us ], [ 0, %1305 ], [ 0, %.loopexit1668 ]
   %indvars.iv.next2211 = add nsw i64 %indvars.iv2210, -1
   %1372 = icmp sgt i64 %indvars.iv2210, 1
   br i1 %1372, label %1198, label %._crit_edge1896, !llvm.loop !41
@@ -2719,7 +2719,7 @@ thread-pre-split1659:                             ; preds = %1040, %1044
   br i1 %exitcond2268.not, label %.loopexit1677, label %1414, !llvm.loop !49
 
 .loopexit1677:                                    ; preds = %._crit_edge1919, %._crit_edge1929, %1375, %._crit_edge1914, %1410
-  %.11452 = phi i32 [ %.pre2318.pre, %._crit_edge1914 ], [ %indvars2304, %1410 ], [ %.pre2318.pre, %1375 ], [ %indvars2304, %._crit_edge1929 ], [ %.pre2318.pre, %._crit_edge1919 ]
+  %.11452 = phi i32 [ %.pre2318.pre, %._crit_edge1914 ], [ %indvars2304, %1410 ], [ %indvars2304, %._crit_edge1929 ], [ %.pre2318.pre, %1375 ], [ %.pre2318.pre, %._crit_edge1919 ]
   store i32 %.11452, ptr %17, align 4, !tbaa !3
   %.not15251941 = icmp slt i32 %.11452, 1
   br i1 %.not1512163716521653, label %1442, label %1423
@@ -2838,9 +2838,9 @@ thread-pre-split1659:                             ; preds = %1040, %1044
   br i1 %exitcond2292.not, label %.loopexit1674, label %.preheader1670, !llvm.loop !53
 
 .loopexit1674:                                    ; preds = %._crit_edge1951, %.thread2429, %1455, %833, %._crit_edge1834, %848, %.loopexit1675
-  %1466 = phi double [ %834, %848 ], [ %1453, %.loopexit1675 ], [ %834, %._crit_edge1834 ], [ %834, %833 ], [ %1453, %1455 ], [ %834, %.thread2429 ], [ %1453, %._crit_edge1951 ]
-  %.31456 = phi i32 [ %.214551954, %848 ], [ %1374, %.loopexit1675 ], [ %865, %._crit_edge1834 ], [ %.214551954, %833 ], [ %1374, %1455 ], [ %.214551954, %.thread2429 ], [ %1374, %._crit_edge1951 ]
-  %.8 = phi i32 [ 0, %848 ], [ %.7163816511655, %.loopexit1675 ], [ 0, %._crit_edge1834 ], [ 0, %833 ], [ %.7163816511655, %1455 ], [ 1, %.thread2429 ], [ %.7163816511655, %._crit_edge1951 ]
+  %1466 = phi double [ %834, %848 ], [ %834, %833 ], [ %1453, %.loopexit1675 ], [ %834, %._crit_edge1834 ], [ %1453, %1455 ], [ %834, %.thread2429 ], [ %1453, %._crit_edge1951 ]
+  %.31456 = phi i32 [ %.214551954, %848 ], [ %.214551954, %833 ], [ %1374, %.loopexit1675 ], [ %865, %._crit_edge1834 ], [ %1374, %1455 ], [ %.214551954, %.thread2429 ], [ %1374, %._crit_edge1951 ]
+  %.8 = phi i32 [ 0, %848 ], [ 0, %833 ], [ %.7163816511655, %.loopexit1675 ], [ 0, %._crit_edge1834 ], [ %.7163816511655, %1455 ], [ 1, %.thread2429 ], [ %.7163816511655, %._crit_edge1951 ]
   %indvars.iv.next2298 = add nsw i64 %indvars.iv2297, -1
   %1467 = icmp sgt i64 %indvars.iv2297, 1
   %indvars.iv.next2296 = add nsw i64 %indvars.iv2295, -1

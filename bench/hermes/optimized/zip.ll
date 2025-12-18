@@ -3013,8 +3013,8 @@ for.end849:                                       ; preds = %for.inc847, %if.end
   br label %for.inc859
 
 for.inc859:                                       ; preds = %while.body794, %if.then787, %for.body763, %for.end849
-  %64 = phi i32 [ %.pre952, %for.end849 ], [ %51, %for.body763 ], [ %51, %if.then787 ], [ %51, %while.body794 ]
-  %tree_next.1 = phi i32 [ %tree_next.3.lcssa, %for.end849 ], [ %tree_next.0902, %for.body763 ], [ %tree_next.0902, %if.then787 ], [ %tree_next.0902, %while.body794 ]
+  %64 = phi i32 [ %51, %for.body763 ], [ %.pre952, %for.end849 ], [ %51, %if.then787 ], [ %51, %while.body794 ]
+  %tree_next.1 = phi i32 [ %tree_next.0902, %for.body763 ], [ %tree_next.3.lcssa, %for.end849 ], [ %tree_next.0902, %if.then787 ], [ %tree_next.0902, %while.body794 ]
   %indvars.iv.next945 = add nuw nsw i64 %indvars.iv944, 1
   %idxprom759 = zext i32 %64 to i64
   %arrayidx760 = getelementptr inbounds nuw i32, ptr %m_table_sizes706, i64 %idxprom759
@@ -5733,10 +5733,10 @@ if.end128.thread:                                 ; preds = %land.rhs60, %while.
   br label %if.end147
 
 if.end128:                                        ; preds = %if.end126, %if.end, %if.then
-  %18 = phi i32 [ %6, %if.then ], [ %6, %if.end ], [ %5, %if.end126 ]
-  %19 = phi i32 [ %add28, %if.then ], [ %add28, %if.end ], [ %inc85, %if.end126 ]
-  %pSrc.3 = phi ptr [ %pSrc.0, %if.then ], [ %add.ptr, %if.end ], [ %incdec.ptr67, %if.end126 ]
-  %src_buf_left.2 = phi i64 [ %sub26, %if.then ], [ %sub26, %if.end ], [ 0, %if.end126 ]
+  %18 = phi i32 [ %6, %if.end ], [ %6, %if.then ], [ %5, %if.end126 ]
+  %19 = phi i32 [ %add28, %if.end ], [ %add28, %if.then ], [ %inc85, %if.end126 ]
+  %pSrc.3 = phi ptr [ %add.ptr, %if.end ], [ %pSrc.0, %if.then ], [ %incdec.ptr67, %if.end126 ]
+  %src_buf_left.2 = phi i64 [ %sub26, %if.end ], [ %sub26, %if.then ], [ 0, %if.end126 ]
   %sub130 = sub i32 32768, %19
   %sub130. = tail call i32 @llvm.umin.i32(i32 %sub130, i32 %18)
   store i32 %sub130., ptr %m_dict_size, align 4
@@ -5989,9 +5989,9 @@ if.else.i.split.loop.exit475:                     ; preds = %do.body.i
   br label %if.else.i
 
 if.else.i:                                        ; preds = %land.lhs.true154.i, %if.else.i.split.loop.exit475, %if.else.i.split.loop.exit471, %if.else.i.split.loop.exit467
-  %.in = phi i16 [ %45, %if.else.i.split.loop.exit467 ], [ %43, %if.else.i.split.loop.exit471 ], [ %41, %if.else.i.split.loop.exit475 ], [ %47, %land.lhs.true154.i ]
-  %.in433 = phi i16 [ %44, %if.else.i.split.loop.exit467 ], [ %42, %if.else.i.split.loop.exit471 ], [ %40, %if.else.i.split.loop.exit475 ], [ %46, %land.lhs.true154.i ]
-  %p.i.1 = phi ptr [ %incdec.ptr148.i.le, %if.else.i.split.loop.exit467 ], [ %incdec.ptr141.i.le, %if.else.i.split.loop.exit471 ], [ %incdec.ptr.i.le, %if.else.i.split.loop.exit475 ], [ %incdec.ptr155.i, %land.lhs.true154.i ]
+  %.in = phi i16 [ %41, %if.else.i.split.loop.exit475 ], [ %45, %if.else.i.split.loop.exit467 ], [ %43, %if.else.i.split.loop.exit471 ], [ %47, %land.lhs.true154.i ]
+  %.in433 = phi i16 [ %40, %if.else.i.split.loop.exit475 ], [ %44, %if.else.i.split.loop.exit467 ], [ %42, %if.else.i.split.loop.exit471 ], [ %46, %land.lhs.true154.i ]
+  %p.i.1 = phi ptr [ %incdec.ptr.i.le, %if.else.i.split.loop.exit475 ], [ %incdec.ptr148.i.le, %if.else.i.split.loop.exit467 ], [ %incdec.ptr141.i.le, %if.else.i.split.loop.exit471 ], [ %incdec.ptr155.i, %land.lhs.true154.i ]
   %48 = trunc i16 %.in433 to i8
   %49 = trunc i16 %.in to i8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %p.i.1 to i64
@@ -6010,8 +6010,8 @@ if.then176.i:                                     ; preds = %if.else.i
   br i1 %cmp183.i.not, label %for.cond.i.outer.outer, label %if.end199
 
 if.end199:                                        ; preds = %if.then176.i, %for.end.i, %for.cond16.i, %lor.lhs.false.i, %if.end20.i, %lor.lhs.false58.i, %if.end52.i, %lor.lhs.false93.i, %if.end87.i, %while.end188, %if.then165.i.critedge, %if.else195, %if.then158
-  %cur_match_len.1 = phi i32 [ %.cur_match_len.0, %while.end188 ], [ %spec.select, %if.then158 ], [ %spec.select, %if.else195 ], [ %cond.i, %if.then165.i.critedge ], [ %match_len.i.0.ph.ph, %for.end.i ], [ %match_len.i.0.ph.ph, %if.end87.i ], [ %match_len.i.0.ph.ph, %lor.lhs.false93.i ], [ %match_len.i.0.ph.ph, %if.end52.i ], [ %match_len.i.0.ph.ph, %lor.lhs.false58.i ], [ %match_len.i.0.ph.ph, %if.end20.i ], [ %match_len.i.0.ph.ph, %lor.lhs.false.i ], [ %match_len.i.0.ph.ph, %for.cond16.i ], [ %cond182.i, %if.then176.i ]
-  %cur_match_dist.0 = phi i32 [ %., %while.end188 ], [ 0, %if.then158 ], [ 0, %if.else195 ], [ %dist.i.0, %if.then165.i.critedge ], [ %cur_match_dist.1.ph.ph, %for.end.i ], [ %cur_match_dist.1.ph.ph, %if.end87.i ], [ %cur_match_dist.1.ph.ph, %lor.lhs.false93.i ], [ %cur_match_dist.1.ph.ph, %if.end52.i ], [ %cur_match_dist.1.ph.ph, %lor.lhs.false58.i ], [ %cur_match_dist.1.ph.ph, %if.end20.i ], [ %cur_match_dist.1.ph.ph, %lor.lhs.false.i ], [ %cur_match_dist.1.ph.ph, %for.cond16.i ], [ %dist.i.0, %if.then176.i ]
+  %cur_match_len.1 = phi i32 [ %match_len.i.0.ph.ph, %for.end.i ], [ %.cur_match_len.0, %while.end188 ], [ %cond.i, %if.then165.i.critedge ], [ %spec.select, %if.then158 ], [ %spec.select, %if.else195 ], [ %match_len.i.0.ph.ph, %if.end87.i ], [ %match_len.i.0.ph.ph, %lor.lhs.false93.i ], [ %match_len.i.0.ph.ph, %if.end52.i ], [ %match_len.i.0.ph.ph, %lor.lhs.false58.i ], [ %match_len.i.0.ph.ph, %if.end20.i ], [ %match_len.i.0.ph.ph, %lor.lhs.false.i ], [ %match_len.i.0.ph.ph, %for.cond16.i ], [ %cond182.i, %if.then176.i ]
+  %cur_match_dist.0 = phi i32 [ %cur_match_dist.1.ph.ph, %for.end.i ], [ %., %while.end188 ], [ %dist.i.0, %if.then165.i.critedge ], [ 0, %if.then158 ], [ 0, %if.else195 ], [ %cur_match_dist.1.ph.ph, %if.end87.i ], [ %cur_match_dist.1.ph.ph, %lor.lhs.false93.i ], [ %cur_match_dist.1.ph.ph, %if.end52.i ], [ %cur_match_dist.1.ph.ph, %lor.lhs.false58.i ], [ %cur_match_dist.1.ph.ph, %if.end20.i ], [ %cur_match_dist.1.ph.ph, %lor.lhs.false.i ], [ %cur_match_dist.1.ph.ph, %for.cond16.i ], [ %dist.i.0, %if.then176.i ]
   %cmp200 = icmp eq i32 %cur_match_len.1, 3
   %cmp203 = icmp ugt i32 %cur_match_dist.0, 8191
   %or.cond = select i1 %cmp200, i1 %cmp203, i1 false
@@ -8196,7 +8196,7 @@ lor.lhs.false.i:                                  ; preds = %if.end45.i
   %cmp50.i = icmp ugt i64 %sub47.i, 65556
   br i1 %cmp50.i, label %if.then.i618, label %for.cond.i
 
-if.then.i618:                                     ; preds = %for.cond.i, %lor.lhs.false.i, %if.end45.i, %if.end.i
+if.then.i618:                                     ; preds = %lor.lhs.false.i, %for.cond.i, %if.end45.i, %if.end.i
   call void @llvm.lifetime.end.p0(ptr nonnull %buf_u32.i)
   %m_last_error.i619 = getelementptr inbounds nuw i8, ptr %pZip, i64 28
   store i32 7, ptr %m_last_error.i619, align 4
@@ -10147,7 +10147,7 @@ return.loopexit209.split.loop.exit218:            ; preds = %if.then.i
   br label %return
 
 return:                                           ; preds = %if.else.i, %while.end.i.i, %for.inc, %for.inc.us.us139, %for.inc.us, %for.inc.us.us, %return.loopexit209.split.loop.exit, %return.loopexit209.split.loop.exit218, %return.loopexit205.split.loop.exit222, %return.loopexit203.split.loop.exit226, %return.loopexit202.split.loop.exit, %return.loopexit207, %return.loopexit, %for.cond.preheader, %if.then10, %cond.end, %if.end11, %entry, %lor.lhs.false, %lor.lhs.false4
-  %retval.0 = phi i32 [ -1, %entry ], [ -1, %if.end11 ], [ -1, %cond.end ], [ -1, %lor.lhs.false4 ], [ -1, %lor.lhs.false ], [ %54, %return.loopexit207 ], [ -1, %if.then10 ], [ -1, %for.cond.preheader ], [ %50, %return.loopexit ], [ %51, %return.loopexit202.split.loop.exit ], [ %52, %return.loopexit203.split.loop.exit226 ], [ %53, %return.loopexit205.split.loop.exit222 ], [ %56, %return.loopexit209.split.loop.exit218 ], [ %55, %return.loopexit209.split.loop.exit ], [ -1, %for.inc.us ], [ -1, %for.inc.us.us139 ], [ -1, %for.inc ], [ -1, %for.inc.us.us ], [ %7, %while.end.i.i ], [ -1, %if.else.i ]
+  %retval.0 = phi i32 [ -1, %if.then10 ], [ -1, %entry ], [ -1, %if.end11 ], [ -1, %cond.end ], [ -1, %for.inc ], [ -1, %lor.lhs.false4 ], [ -1, %lor.lhs.false ], [ %50, %return.loopexit ], [ -1, %for.inc.us.us139 ], [ -1, %for.inc.us.us ], [ -1, %for.inc.us ], [ %54, %return.loopexit207 ], [ -1, %for.cond.preheader ], [ %51, %return.loopexit202.split.loop.exit ], [ %52, %return.loopexit203.split.loop.exit226 ], [ %53, %return.loopexit205.split.loop.exit222 ], [ %56, %return.loopexit209.split.loop.exit218 ], [ %55, %return.loopexit209.split.loop.exit ], [ -1, %if.else.i ], [ %7, %while.end.i.i ]
   ret i32 %retval.0
 }
 
@@ -11004,8 +11004,8 @@ if.then186:                                       ; preds = %land.lhs.true183.th
   br label %if.end195
 
 if.end195:                                        ; preds = %if.end101, %while.body, %if.end101.us, %while.body.us, %if.end164, %if.then159, %if.then135, %if.then68, %do.body, %if.then186, %land.lhs.true183, %if.end180
-  %pWrite_buf.0109 = phi ptr [ %pWrite_buf.0119, %land.lhs.true183 ], [ %call120, %if.end180 ], [ %pWrite_buf.0119123, %if.then186 ], [ null, %if.then68 ], [ null, %do.body ], [ null, %if.end101.us ], [ %call120, %if.end164 ], [ %call120, %if.then135 ], [ %call120, %if.then159 ], [ null, %while.body.us ], [ null, %while.body ], [ null, %if.end101 ]
-  %status.2.shrunk = phi i1 [ true, %land.lhs.true183 ], [ false, %if.end180 ], [ %or.cond, %if.then186 ], [ %cmp72.not, %if.then68 ], [ false, %do.body ], [ false, %if.end101.us ], [ false, %if.end164 ], [ false, %if.then135 ], [ false, %if.then159 ], [ false, %while.body.us ], [ false, %while.body ], [ false, %if.end101 ]
+  %pWrite_buf.0109 = phi ptr [ %pWrite_buf.0119, %land.lhs.true183 ], [ %call120, %if.end180 ], [ %pWrite_buf.0119123, %if.then186 ], [ null, %if.then68 ], [ null, %if.end101.us ], [ null, %do.body ], [ %call120, %if.end164 ], [ %call120, %if.then135 ], [ %call120, %if.then159 ], [ null, %while.body.us ], [ null, %while.body ], [ null, %if.end101 ]
+  %status.2.shrunk = phi i1 [ true, %land.lhs.true183 ], [ false, %if.end180 ], [ %or.cond, %if.then186 ], [ %cmp72.not, %if.then68 ], [ false, %if.end101.us ], [ false, %do.body ], [ false, %if.end164 ], [ false, %if.then135 ], [ false, %if.then159 ], [ false, %while.body.us ], [ false, %while.body ], [ false, %if.end101 ]
   %46 = load ptr, ptr %m_pState, align 8
   %m_pMem197 = getelementptr inbounds nuw i8, ptr %46, i64 128
   %47 = load ptr, ptr %m_pMem197, align 8
@@ -11634,7 +11634,7 @@ if.end14:                                         ; preds = %do.body
   br i1 %tobool15.not, label %return, label %do.body, !llvm.loop !101
 
 return:                                           ; preds = %if.end14, %lor.lhs.false.i, %lor.lhs.false4.i, %if.end.i, %if.end24.i, %if.end4, %if.then12, %if.then2
-  %retval.0 = phi i32 [ 0, %if.then2 ], [ 0, %if.then12 ], [ 1, %if.end4 ], [ 0, %if.end24.i ], [ 0, %if.end.i ], [ 0, %lor.lhs.false4.i ], [ 0, %lor.lhs.false.i ], [ 1, %if.end14 ]
+  %retval.0 = phi i32 [ 0, %if.then2 ], [ 0, %if.then12 ], [ 1, %if.end4 ], [ 0, %lor.lhs.false.i ], [ 0, %if.end24.i ], [ 0, %if.end.i ], [ 0, %lor.lhs.false4.i ], [ 1, %if.end14 ]
   ret i32 %retval.0
 }
 
@@ -17510,7 +17510,7 @@ if.else419.i:                                     ; preds = %if.else398.i
   br label %if.end440.i
 
 if.end440.i:                                      ; preds = %while.body350.i, %while.body393.i, %if.else419.i, %if.then401.i, %if.else375.i, %if.else355.i, %for.end17.i
-  %num_packed_code_sizes.17.i = phi i32 [ %inc370.i, %if.else355.i ], [ %num_packed_code_sizes.6.i, %if.else375.i ], [ %inc416.i, %if.then401.i ], [ %inc416.i, %if.else419.i ], [ 0, %for.end17.i ], [ %inc394.i, %while.body393.i ], [ %inc351.i, %while.body350.i ]
+  %num_packed_code_sizes.17.i = phi i32 [ %inc370.i, %if.else355.i ], [ %num_packed_code_sizes.6.i, %if.else375.i ], [ %inc394.i, %while.body393.i ], [ %inc416.i, %if.else419.i ], [ %inc416.i, %if.then401.i ], [ 0, %for.end17.i ], [ %inc351.i, %while.body350.i ]
   tail call fastcc void @tdefl_optimize_huffman_table(ptr noundef nonnull %d, i32 noundef 2, i32 noundef 19, i32 noundef 7, i32 noundef 0)
   %m_bits_in.i5 = getelementptr inbounds nuw i8, ptr %d, i64 92
   %52 = load i32, ptr %m_bits_in.i5, align 4
@@ -18793,7 +18793,7 @@ for.end37.i:                                      ; preds = %for.cond20.i, %if.t
   br i1 %cmp14.not.i, label %tdefl_huffman_enforce_max_code_size.exit, label %while.body.i, !llvm.loop !175
 
 tdefl_huffman_enforce_max_code_size.exit:         ; preds = %for.end37.i, %tdefl_radix_sort_syms.exit, %tdefl_radix_sort_syms.exit.thread, %tdefl_calculate_minimum_redundancy.exit, %for.end39, %while.cond.preheader.i69
-  %.us-phi37.i139142149 = phi ptr [ %pNew_syms.033.us.i, %while.cond.preheader.i69 ], [ %pNew_syms.033.us.i, %for.end39 ], [ %pNew_syms.033.us.i, %tdefl_calculate_minimum_redundancy.exit ], [ %pNew_syms.033.us.i, %tdefl_radix_sort_syms.exit ], [ %syms1, %tdefl_radix_sort_syms.exit.thread ], [ %pNew_syms.033.us.i, %for.end37.i ]
+  %.us-phi37.i139142149 = phi ptr [ %syms1, %tdefl_radix_sort_syms.exit.thread ], [ %pNew_syms.033.us.i, %while.cond.preheader.i69 ], [ %pNew_syms.033.us.i, %for.end39 ], [ %pNew_syms.033.us.i, %tdefl_calculate_minimum_redundancy.exit ], [ %pNew_syms.033.us.i, %tdefl_radix_sort_syms.exit ], [ %pNew_syms.033.us.i, %for.end37.i ]
   %m_huff_code_sizes41 = getelementptr inbounds nuw i8, ptr %d, i64 36682
   %arrayidx43 = getelementptr inbounds nuw [288 x i8], ptr %m_huff_code_sizes41, i64 %idxprom6
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(288) %arrayidx43, i8 0, i64 288, i1 false)

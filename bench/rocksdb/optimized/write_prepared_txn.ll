@@ -4895,7 +4895,7 @@ _ZNKSt3setImSt4lessImESaImEE4findERKm.exit:       ; preds = %_ZNKSt8_Rb_treeImmS
           to label %_ZN7rocksdb8ReadLockD2Ev.exit56 unwind label %114
 
 _ZNKSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEE4findERS5_.exit: ; preds = %90, %75, %85
-  %.sroa.06.1.i.i = phi ptr [ %86, %85 ], [ %.sroa.06.0.i.i, %75 ], [ %92, %90 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %75 ], [ %86, %85 ], [ %92, %90 ]
   %99 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %100 = load i64, ptr %99, align 8, !tbaa !442
   %101 = icmp ule i64 %100, %2
@@ -4921,9 +4921,9 @@ _ZNKSt3setImSt4lessImESaImEE4findERKm.exit.thread: ; preds = %_ZNKSt8_Rb_treeImm
   br label %_ZNKSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEE4findERS5_.exit.thread
 
 _ZNKSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEE4findERS5_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %.preheader, %79, %..loopexit_crit_edge21.i.i.i.i, %_ZNKSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEE4findERS5_.exit, %109, %106
-  %cond = phi i1 [ true, %109 ], [ false, %106 ], [ false, %_ZNKSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEE4findERS5_.exit ], [ false, %..loopexit_crit_edge21.i.i.i.i ], [ false, %79 ], [ false, %.preheader ], [ false, %.lr.ph.i.i.i.i ]
-  %.331 = phi i64 [ %110, %109 ], [ %39, %106 ], [ %39, %_ZNKSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEE4findERS5_.exit ], [ %39, %..loopexit_crit_edge21.i.i.i.i ], [ %39, %79 ], [ %39, %.preheader ], [ %39, %.lr.ph.i.i.i.i ]
-  %.5 = phi i1 [ %.1, %109 ], [ %108, %106 ], [ %101, %_ZNKSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEE4findERS5_.exit ], [ false, %..loopexit_crit_edge21.i.i.i.i ], [ false, %79 ], [ false, %.preheader ], [ false, %.lr.ph.i.i.i.i ]
+  %cond = phi i1 [ true, %109 ], [ false, %106 ], [ false, %_ZNKSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEE4findERS5_.exit ], [ false, %..loopexit_crit_edge21.i.i.i.i ], [ false, %.preheader ], [ false, %79 ], [ false, %.lr.ph.i.i.i.i ]
+  %.331 = phi i64 [ %110, %109 ], [ %39, %106 ], [ %39, %_ZNKSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEE4findERS5_.exit ], [ %39, %..loopexit_crit_edge21.i.i.i.i ], [ %39, %.preheader ], [ %39, %79 ], [ %39, %.lr.ph.i.i.i.i ]
+  %.5 = phi i1 [ %.1, %109 ], [ %108, %106 ], [ %101, %_ZNKSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEE4findERS5_.exit ], [ false, %..loopexit_crit_edge21.i.i.i.i ], [ false, %.preheader ], [ false, %79 ], [ false, %.lr.ph.i.i.i.i ]
   invoke void @_ZN7rocksdb4port7RWMutex10ReadUnlockEv(ptr noundef nonnull align 8 dereferenceable(56) %21)
           to label %_ZN7rocksdb8ReadLockD2Ev.exit unwind label %111
 
@@ -5066,7 +5066,7 @@ _ZNKSt3mapImSt6vectorImSaImEESt4lessImESaISt4pairIKmS2_EEE4findERS6_.exit.thread
   unreachable
 
 _ZN7rocksdb8ReadLockD2Ev.exit70:                  ; preds = %117, %154, %.thread, %.thread130, %125
-  %.6 = phi i1 [ %.2.ph, %.thread ], [ true, %125 ], [ true, %.thread130 ], [ %cond1, %154 ], [ false, %117 ]
+  %.6 = phi i1 [ %cond1, %154 ], [ %.2.ph, %.thread ], [ true, %125 ], [ true, %.thread130 ], [ false, %117 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %161
 

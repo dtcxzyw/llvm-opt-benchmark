@@ -2978,9 +2978,9 @@ ruby_nonempty_memcpy.exit47.i:                    ; preds = %81, %78
   br i1 %.not.i, label %join_path_from_pattern.exit, label %.lr.ph.i.backedge
 
 .lr.ph.i.backedge:                                ; preds = %85, %.thread
-  %.053.i.be = phi ptr [ %.0.i, %85 ], [ %.0.i654, %.thread ]
-  %.03152.i.be = phi ptr [ %.1.i, %85 ], [ null, %.thread ]
-  %.03351.i.be = phi i64 [ %.134.i, %85 ], [ %66, %.thread ]
+  %.053.i.be = phi ptr [ %.0.i654, %.thread ], [ %.0.i, %85 ]
+  %.03152.i.be = phi ptr [ null, %.thread ], [ %.1.i, %85 ]
+  %.03351.i.be = phi i64 [ %66, %.thread ], [ %.134.i, %85 ]
   br label %.lr.ph.i, !llvm.loop !126
 
 .thread:                                          ; preds = %glob_alloc_n.exit.i
@@ -4234,7 +4234,7 @@ ruby_nonempty_memcpy.exit.i417:                   ; preds = %527, %526
   br label %.thread493
 
 .thread493:                                       ; preds = %540, %534, %glob_alloc_n.exit403, %.thread493.sink.split, %.preheader505, %.preheader504
-  %.12 = phi i32 [ 0, %.preheader504 ], [ 0, %.preheader505 ], [ -1, %.thread493.sink.split ], [ %539, %534 ], [ -1, %glob_alloc_n.exit403 ], [ 0, %540 ]
+  %.12 = phi i32 [ 0, %.preheader505 ], [ -1, %.thread493.sink.split ], [ 0, %.preheader504 ], [ 0, %540 ], [ -1, %glob_alloc_n.exit403 ], [ %539, %534 ]
   call void @free(ptr noundef %462) #22
   br label %.thread451
 
@@ -4343,7 +4343,7 @@ define internal fastcc noundef ptr @find_dirsep(ptr noundef %0, ptr noundef %1, 
   br label %.backedge
 
 .loopexit:                                        ; preds = %.split34, %15, %.split34.us.us, %.backedge.us.us, %8
-  %.013 = phi ptr [ %.014, %15 ], [ %.014.us.us, %.backedge.us.us ], [ %.014.us.us, %.split34.us.us ], [ %6, %8 ], [ %.014, %.split34 ]
+  %.013 = phi ptr [ %.014.us.us, %.backedge.us.us ], [ %.014, %15 ], [ %.014.us.us, %.split34.us.us ], [ %6, %8 ], [ %.014, %.split34 ]
   ret ptr %.013
 }
 
@@ -4439,8 +4439,8 @@ define internal fastcc range(i32 0, 4) i32 @has_magic(ptr noundef %0, ptr nounde
   br i1 %31, label %.lr.ph, label %.critedge, !llvm.loop !175
 
 .critedge:                                        ; preds = %.lr.ph, %.outer, %14, %12
-  %.us-phi = phi i32 [ %.016.ph.us, %14 ], [ %.016.ph.us, %12 ], [ %.117, %.outer ], [ %.016.ph46, %.lr.ph ]
-  %.us-phi36 = phi i32 [ %.015.ph.us, %14 ], [ %.015.ph.us, %12 ], [ %.1, %.outer ], [ %.015.ph47, %.lr.ph ]
+  %.us-phi = phi i32 [ %.016.ph.us, %14 ], [ %.016.ph.us, %12 ], [ %.016.ph46, %.lr.ph ], [ %.117, %.outer ]
+  %.us-phi36 = phi i32 [ %.015.ph.us, %14 ], [ %.015.ph.us, %12 ], [ %.015.ph47, %.lr.ph ], [ %.1, %.outer ]
   %.us-phi36.fr = freeze i32 %.us-phi36
   %.not23 = icmp eq i32 %.us-phi36.fr, 0
   %.not24 = icmp ne i32 %.us-phi, 0
@@ -4687,7 +4687,7 @@ define internal fastcc range(i32 0, 2) i32 @fnmatch(ptr noundef %0, ptr noundef 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %52, %56, %51, %59, %67
-  %.033 = phi i32 [ %68, %67 ], [ 1, %59 ], [ 1, %52 ], [ 1, %56 ], [ 0, %51 ]
+  %.033 = phi i32 [ 1, %59 ], [ %68, %67 ], [ 1, %56 ], [ 1, %52 ], [ 0, %51 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.033
@@ -5042,17 +5042,17 @@ define internal fastcc range(i32 0, 2) i32 @fnmatch_helper(ptr noundef nonnull c
   br i1 %.not168, label %.sink.split, label %.outer.split.split
 
 .split247.us:                                     ; preds = %31, %31, %48, %.split247.split.us
-  %.us-phi249 = phi i1 [ false, %.split247.split.us ], [ %49, %48 ], [ %32, %31 ], [ %32, %31 ]
-  %.us-phi250 = phi ptr [ %43, %.split247.split.us ], [ %50, %48 ], [ %33, %31 ], [ %33, %31 ]
-  %.us-phi251 = phi ptr [ %39, %.split247.split.us ], [ %45, %48 ], [ %28, %31 ], [ %28, %31 ]
+  %.us-phi249 = phi i1 [ %49, %48 ], [ false, %.split247.split.us ], [ %32, %31 ], [ %32, %31 ]
+  %.us-phi250 = phi ptr [ %50, %48 ], [ %43, %.split247.split.us ], [ %33, %31 ], [ %33, %31 ]
+  %.us-phi251 = phi ptr [ %45, %48 ], [ %39, %.split247.split.us ], [ %28, %31 ], [ %28, %31 ]
   %54 = and i1 %.not159, %.us-phi249
   %spec.select197 = select i1 %54, ptr %.us-phi250, ptr %.us-phi251
   br label %.sink.split
 
 .split237.us:                                     ; preds = %.outer.split.us, %.outer.split.split.us, %.outer.split.split
-  %.us-phi238 = phi ptr [ %.0145.us269, %.outer.split.split.us ], [ %.0145, %.outer.split.split ], [ %.0145.us, %.outer.split.us ]
-  %.us-phi239 = phi ptr [ %.0141.us270, %.outer.split.split.us ], [ %.0141, %.outer.split.split ], [ %.0141.us, %.outer.split.us ]
-  %.us-phi240 = phi ptr [ %.0140.us271, %.outer.split.split.us ], [ %.0140, %.outer.split.split ], [ %.0140.us, %.outer.split.us ]
+  %.us-phi238 = phi ptr [ %.0145, %.outer.split.split ], [ %.0145.us269, %.outer.split.split.us ], [ %.0145.us, %.outer.split.us ]
+  %.us-phi239 = phi ptr [ %.0141, %.outer.split.split ], [ %.0141.us270, %.outer.split.split.us ], [ %.0141.us, %.outer.split.us ]
+  %.us-phi240 = phi ptr [ %.0140, %.outer.split.split ], [ %.0140.us271, %.outer.split.split.us ], [ %.0140.us, %.outer.split.us ]
   %55 = load i8, ptr %.0142.ph, align 1, !tbaa !19
   %.not164 = icmp eq i8 %55, 0
   %56 = icmp eq i8 %55, 47
@@ -5068,9 +5068,9 @@ define internal fastcc range(i32 0, 2) i32 @fnmatch_helper(ptr noundef nonnull c
   br label %.outer.backedge
 
 .split242.us:                                     ; preds = %.outer.split.us, %.outer.split.split.us, %.outer.split.split
-  %.us-phi243 = phi ptr [ %.0145.us269, %.outer.split.split.us ], [ %.0145, %.outer.split.split ], [ %.0145.us, %.outer.split.us ]
-  %.us-phi244 = phi ptr [ %.0141.us270, %.outer.split.split.us ], [ %.0141, %.outer.split.split ], [ %.0141.us, %.outer.split.us ]
-  %.us-phi245 = phi ptr [ %.0140.us271, %.outer.split.split.us ], [ %.0140, %.outer.split.split ], [ %.0140.us, %.outer.split.us ]
+  %.us-phi243 = phi ptr [ %.0145, %.outer.split.split ], [ %.0145.us269, %.outer.split.split.us ], [ %.0145.us, %.outer.split.us ]
+  %.us-phi244 = phi ptr [ %.0141, %.outer.split.split ], [ %.0141.us270, %.outer.split.split.us ], [ %.0141.us, %.outer.split.us ]
+  %.us-phi245 = phi ptr [ %.0140, %.outer.split.split ], [ %.0140.us271, %.outer.split.split.us ], [ %.0140.us, %.outer.split.us ]
   %62 = load i8, ptr %.0142.ph, align 1, !tbaa !19
   %.not161 = icmp eq i8 %62, 0
   %63 = icmp eq i8 %62, 47
@@ -5255,10 +5255,10 @@ define internal fastcc range(i32 0, 2) i32 @fnmatch_helper(ptr noundef nonnull c
   br label %.outer.backedge
 
 .split.us:                                        ; preds = %.outer.split.us, %.outer.split.split.us, %.outer.split.split
-  %.us-phi = phi ptr [ %.0145.us269, %.outer.split.split.us ], [ %.0145, %.outer.split.split ], [ %.0145.us, %.outer.split.us ]
-  %.us-phi233 = phi ptr [ %.0141.us270, %.outer.split.split.us ], [ %.0141, %.outer.split.split ], [ %.0141.us, %.outer.split.us ]
-  %.us-phi234 = phi ptr [ %.0140.us271, %.outer.split.split.us ], [ %.0140, %.outer.split.split ], [ %.0140.us, %.outer.split.us ]
-  %.us-phi235 = phi i8 [ %38, %.outer.split.split.us ], [ %44, %.outer.split.split ], [ %27, %.outer.split.us ]
+  %.us-phi = phi ptr [ %.0145, %.outer.split.split ], [ %.0145.us269, %.outer.split.split.us ], [ %.0145.us, %.outer.split.us ]
+  %.us-phi233 = phi ptr [ %.0141, %.outer.split.split ], [ %.0141.us270, %.outer.split.split.us ], [ %.0141.us, %.outer.split.us ]
+  %.us-phi234 = phi ptr [ %.0140, %.outer.split.split ], [ %.0140.us271, %.outer.split.split.us ], [ %.0140.us, %.outer.split.us ]
+  %.us-phi235 = phi i8 [ %44, %.outer.split.split ], [ %38, %.outer.split.split.us ], [ %27, %.outer.split.us ]
   %135 = icmp eq i8 %.us-phi235, 92
   %or.cond181 = and i1 %.not159, %135
   %.idx = zext i1 %or.cond181 to i64
@@ -5330,9 +5330,9 @@ define internal fastcc range(i32 0, 2) i32 @fnmatch_helper(ptr noundef nonnull c
   br label %.outer.backedge
 
 .thread:                                          ; preds = %88, %78, %74, %._crit_edge.i, %64, %158, %157, %145, %142
-  %.0141218 = phi ptr [ %.us-phi233, %158 ], [ %.us-phi233, %157 ], [ %.us-phi233, %145 ], [ %.us-phi233, %142 ], [ %.us-phi244, %._crit_edge.i ], [ %.us-phi244, %64 ], [ %.us-phi244, %74 ], [ %.us-phi244, %78 ], [ %.us-phi244, %88 ]
-  %.0140213 = phi ptr [ %.us-phi234, %158 ], [ %.us-phi234, %157 ], [ %.us-phi234, %145 ], [ %.us-phi234, %142 ], [ %.us-phi245, %._crit_edge.i ], [ %.us-phi245, %64 ], [ %.us-phi245, %74 ], [ %.us-phi245, %78 ], [ %.us-phi245, %88 ]
-  %.3148 = phi ptr [ %136, %158 ], [ %136, %157 ], [ %136, %145 ], [ %136, %142 ], [ %.us-phi243, %._crit_edge.i ], [ %.us-phi243, %64 ], [ %.us-phi243, %74 ], [ %.us-phi243, %78 ], [ %.us-phi243, %88 ]
+  %.0141218 = phi ptr [ %.us-phi244, %64 ], [ %.us-phi233, %158 ], [ %.us-phi233, %157 ], [ %.us-phi233, %145 ], [ %.us-phi233, %142 ], [ %.us-phi244, %._crit_edge.i ], [ %.us-phi244, %74 ], [ %.us-phi244, %78 ], [ %.us-phi244, %88 ]
+  %.0140213 = phi ptr [ %.us-phi245, %64 ], [ %.us-phi234, %158 ], [ %.us-phi234, %157 ], [ %.us-phi234, %145 ], [ %.us-phi234, %142 ], [ %.us-phi245, %._crit_edge.i ], [ %.us-phi245, %74 ], [ %.us-phi245, %78 ], [ %.us-phi245, %88 ]
+  %.3148 = phi ptr [ %.us-phi243, %64 ], [ %136, %158 ], [ %136, %157 ], [ %136, %145 ], [ %136, %142 ], [ %.us-phi243, %._crit_edge.i ], [ %.us-phi243, %74 ], [ %.us-phi243, %78 ], [ %.us-phi243, %88 ]
   %168 = icmp ne ptr %.0140213, null
   %169 = icmp ne ptr %.0141218, null
   %or.cond = select i1 %168, i1 %169, i1 false
@@ -5352,8 +5352,8 @@ define internal fastcc range(i32 0, 2) i32 @fnmatch_helper(ptr noundef nonnull c
   br label %.outer
 
 .sink.split:                                      ; preds = %.thread, %.split242.us, %.split237.us, %36, %36, %41, %52, %.split247.us
-  %.us-phi243.sink = phi ptr [ %28, %36 ], [ %45, %52 ], [ %spec.select197, %.split247.us ], [ %39, %41 ], [ %28, %36 ], [ %.3148, %.thread ], [ %.us-phi243, %.split242.us ], [ %.us-phi238, %.split237.us ]
-  %.0.shrunk.ph = phi i1 [ true, %36 ], [ true, %52 ], [ false, %.split247.us ], [ true, %41 ], [ true, %36 ], [ true, %.split237.us ], [ true, %.split242.us ], [ true, %.thread ]
+  %.us-phi243.sink = phi ptr [ %39, %41 ], [ %28, %36 ], [ %45, %52 ], [ %spec.select197, %.split247.us ], [ %28, %36 ], [ %.3148, %.thread ], [ %.us-phi243, %.split242.us ], [ %.us-phi238, %.split237.us ]
+  %.0.shrunk.ph = phi i1 [ true, %41 ], [ true, %36 ], [ true, %52 ], [ false, %.split247.us ], [ true, %36 ], [ true, %.split237.us ], [ true, %.split242.us ], [ true, %.thread ]
   store ptr %.us-phi243.sink, ptr %0, align 8, !tbaa !176
   store ptr %.0142.ph, ptr %1, align 8, !tbaa !176
   br label %174

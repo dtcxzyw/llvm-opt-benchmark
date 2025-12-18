@@ -1333,8 +1333,8 @@ define noundef i16 @"_ZN9softposit5p16e14math3exp41_$LT$impl$u20$softposit..p16e
   br i1 %22, label %.lr.ph104, label %.loopexit96
 
 .loopexit96:                                      ; preds = %.lr.ph, %.lr.ph104, %.preheader97, %.preheader95
-  %.287 = phi i64 [ %2, %.preheader95 ], [ %2, %.preheader97 ], [ %19, %.lr.ph104 ], [ %28, %.lr.ph ]
-  %.283 = phi i32 [ 9, %.preheader95 ], [ 7, %.preheader97 ], [ %20, %.lr.ph104 ], [ %29, %.lr.ph ]
+  %.287 = phi i64 [ %19, %.lr.ph104 ], [ %2, %.preheader95 ], [ %2, %.preheader97 ], [ %28, %.lr.ph ]
+  %.283 = phi i32 [ %20, %.lr.ph104 ], [ 9, %.preheader95 ], [ 7, %.preheader97 ], [ %29, %.lr.ph ]
   %23 = shl i64 %.287, 51
   %sext = ashr i64 %23, 63
   %24 = trunc nsw i64 %sext to i32
@@ -1621,8 +1621,8 @@ define noundef i16 @"_ZN9softposit5p16e14math4exp241_$LT$impl$u20$softposit..p16
   br i1 %22, label %.lr.ph98, label %.loopexit90
 
 .loopexit90:                                      ; preds = %.lr.ph, %.lr.ph98, %.preheader91, %.preheader89
-  %.282 = phi i64 [ %2, %.preheader89 ], [ %2, %.preheader91 ], [ %19, %.lr.ph98 ], [ %28, %.lr.ph ]
-  %.278 = phi i32 [ 9, %.preheader89 ], [ 7, %.preheader91 ], [ %20, %.lr.ph98 ], [ %29, %.lr.ph ]
+  %.282 = phi i64 [ %19, %.lr.ph98 ], [ %2, %.preheader89 ], [ %2, %.preheader91 ], [ %28, %.lr.ph ]
+  %.278 = phi i32 [ %20, %.lr.ph98 ], [ 9, %.preheader89 ], [ 7, %.preheader91 ], [ %29, %.lr.ph ]
   %23 = shl i64 %.282, 51
   %sext = ashr i64 %23, 63
   %24 = trunc nsw i64 %sext to i32
@@ -1970,8 +1970,8 @@ define noundef i16 @"_ZN9softposit5p16e14math2ln41_$LT$impl$u20$softposit..p16e1
   br i1 %11, label %.lr.ph83, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph83, %.preheader76, %.preheader75
-  %.264 = phi i64 [ %3, %.preheader75 ], [ %3, %.preheader76 ], [ %8, %.lr.ph83 ], [ %17, %.lr.ph ]
-  %.2 = phi i32 [ -2, %.preheader75 ], [ 0, %.preheader76 ], [ %9, %.lr.ph83 ], [ %18, %.lr.ph ]
+  %.264 = phi i64 [ %8, %.lr.ph83 ], [ %3, %.preheader75 ], [ %3, %.preheader76 ], [ %17, %.lr.ph ]
+  %.2 = phi i32 [ %9, %.lr.ph83 ], [ -2, %.preheader75 ], [ 0, %.preheader76 ], [ %18, %.lr.ph ]
   %12 = trunc i64 %.264 to i32
   %13 = lshr i32 %12, 12
   %14 = and i32 %13, 1
@@ -2199,8 +2199,8 @@ define noundef i16 @"_ZN9softposit5p16e14math4log241_$LT$impl$u20$softposit..p16
   br i1 %11, label %.lr.ph79, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph79, %.preheader72, %.preheader71
-  %.259 = phi i64 [ %3, %.preheader71 ], [ %3, %.preheader72 ], [ %8, %.lr.ph79 ], [ %17, %.lr.ph ]
-  %.2 = phi i32 [ -2, %.preheader71 ], [ 0, %.preheader72 ], [ %9, %.lr.ph79 ], [ %18, %.lr.ph ]
+  %.259 = phi i64 [ %8, %.lr.ph79 ], [ %3, %.preheader71 ], [ %3, %.preheader72 ], [ %17, %.lr.ph ]
+  %.2 = phi i32 [ %9, %.lr.ph79 ], [ -2, %.preheader71 ], [ 0, %.preheader72 ], [ %18, %.lr.ph ]
   %12 = trunc i64 %.259 to i32
   %13 = lshr i32 %12, 12
   %14 = and i32 %13, 1
@@ -5938,7 +5938,7 @@ define noundef i16 @"_ZN68_$LT$softposit..p16e1..P16E1$u20$as$u20$num_traits..fl
   br label %"_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P16E1$GT$3add17hb8ac77547fcc1596E.exit.i"
 
 "_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P16E1$GT$3add17hb8ac77547fcc1596E.exit.i": ; preds = %"_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P16E1$GT$3add17hb8ac77547fcc1596E.exit.fold.split.i", %18, %16, %"_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P16E1$GT$3sub17hcac3eddc80ee93ffE.exit.i"
-  %.0.i4.i = phi i16 [ %19, %18 ], [ %17, %16 ], [ %0, %"_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P16E1$GT$3sub17hcac3eddc80ee93ffE.exit.i" ], [ -32768, %"_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P16E1$GT$3add17hb8ac77547fcc1596E.exit.fold.split.i" ]
+  %.0.i4.i = phi i16 [ %0, %"_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P16E1$GT$3sub17hcac3eddc80ee93ffE.exit.i" ], [ %19, %18 ], [ %17, %16 ], [ -32768, %"_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P16E1$GT$3add17hb8ac77547fcc1596E.exit.fold.split.i" ]
   %20 = tail call noundef i16 @"_ZN9softposit5p16e14math2ln41_$LT$impl$u20$softposit..p16e1..P16E1$GT$2ln17h4e6b6bc5b4bdc5a8E"(i16 noundef %.0.i4.i)
   br label %"_ZN9softposit5p16e14math41_$LT$impl$u20$softposit..p16e1..P16E1$GT$5acosh17hfd3f17f7ce2d7d7dE.exit"
 

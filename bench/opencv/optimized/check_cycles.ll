@@ -497,7 +497,7 @@ _ZNSt10_HashtableIPN3ade4NodeESt4pairIKS2_NS0_6passes13TraverseStateEESaIS7_ENSt
   br label %common.resume
 
 _ZNSt13unordered_mapIPN3ade4NodeENS0_6passes13TraverseStateESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEEixEOS2_.exit: ; preds = %53, %48, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %49, %48 ], [ %64, %.loopexit.i.i ], [ %55, %53 ]
+  %.pn.i.i = phi ptr [ %64, %.loopexit.i.i ], [ %49, %48 ], [ %55, %53 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   store i32 0, ptr %.1.i.i, align 4, !tbaa !69
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -716,7 +716,7 @@ _ZNSt10_HashtableIPN3ade4NodeESt4pairIKS2_NS0_6passes13TraverseStateEESaIS7_ENSt
   br label %common.resume
 
 _ZNSt13unordered_mapIPN3ade4NodeENS0_6passes13TraverseStateESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEEixEOS2_.exit36: ; preds = %146, %141, %.loopexit.i.i32
-  %.pn.i.i34 = phi ptr [ %142, %141 ], [ %157, %.loopexit.i.i32 ], [ %148, %146 ]
+  %.pn.i.i34 = phi ptr [ %157, %.loopexit.i.i32 ], [ %142, %141 ], [ %148, %146 ]
   %.1.i.i35 = getelementptr inbounds nuw i8, ptr %.pn.i.i34, i64 16
   store i32 1, ptr %.1.i.i35, align 4, !tbaa !69
   ret void
@@ -1002,7 +1002,7 @@ _ZNSt13unordered_mapIPN3ade4NodeENS0_6passes13TraverseStateESt4hashIS2_ESt8equal
   br label %304
 
 _ZNSt13unordered_mapIPN3ade4NodeENS0_6passes13TraverseStateESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERSA_.exit: ; preds = %269, %253, %264
-  %.sroa.06.1.i.i = phi ptr [ %265, %264 ], [ %.sroa.06.0.i.i, %253 ], [ %271, %269 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %253 ], [ %265, %264 ], [ %271, %269 ]
   %279 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %280 = load i32, ptr %279, align 8, !tbaa !68
   %281 = icmp eq i32 %280, 0

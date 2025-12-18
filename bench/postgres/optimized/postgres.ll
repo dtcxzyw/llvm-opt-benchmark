@@ -2048,7 +2048,7 @@ define dso_local ptr @get_stats_option_name(ptr noundef readonly captures(none) 
   br label %8
 
 8:                                                ; preds = %3, %1, %7
-  %.0 = phi ptr [ null, %7 ], [ %switch.select4, %3 ], [ @.str.63, %1 ]
+  %.0 = phi ptr [ null, %7 ], [ @.str.63, %1 ], [ %switch.select4, %3 ]
   ret ptr %.0
 }
 
@@ -2308,7 +2308,7 @@ get_stats_option_name.exit.thread.fold.split:     ; preds = %87
   br label %get_stats_option_name.exit.thread
 
 get_stats_option_name.exit.thread:                ; preds = %87, %get_stats_option_name.exit.thread.fold.split, %84
-  %.0.i91 = phi ptr [ @.str.63, %84 ], [ @.str.61, %87 ], [ @.str.62, %get_stats_option_name.exit.thread.fold.split ]
+  %.0.i91 = phi ptr [ @.str.61, %87 ], [ @.str.63, %84 ], [ @.str.62, %get_stats_option_name.exit.thread.fold.split ]
   call void @SetConfigOption(ptr noundef nonnull %.0.i91, ptr noundef nonnull @.str.45, i32 noundef %2, i32 noundef %.070) #21
   br label %.backedge.backedge
 
@@ -6573,7 +6573,7 @@ finish_xact_command.exit:                         ; preds = %87, %disable_statem
   br i1 %219, label %.lr.ph32.i102, label %.sink.split
 
 .sink.split:                                      ; preds = %.critedge25.i104, %.split.i107, %.lr.ph.i101, %193, %188
-  %.sink = phi i32 [ 1362, %188 ], [ 1369, %193 ], [ 1369, %.lr.ph.i101 ], [ 1369, %.split.i107 ], [ 1369, %.critedge25.i104 ]
+  %.sink = phi i32 [ 1362, %188 ], [ 1369, %.split.i107 ], [ 1369, %193 ], [ 1369, %.lr.ph.i101 ], [ 1369, %.critedge25.i104 ]
   call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef %.sink, ptr noundef nonnull @__func__.exec_simple_query) #21
   br label %220
 

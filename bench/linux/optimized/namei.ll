@@ -698,8 +698,8 @@ define dso_local i32 @ext4_htree_fill_tree(ptr noundef %0, i32 noundef %1, i32 n
   br i1 %172, label %.thread23, label %.preheader, !llvm.loop !22
 
 .thread23:                                        ; preds = %.preheader25, %166, %148, %.thread21
-  %.ph = phi i32 [ %131, %.thread21 ], [ %149, %148 ], [ %149, %166 ], [ -1, %.preheader25 ]
-  %.ph22 = phi i32 [ 1, %.thread21 ], [ 1, %148 ], [ 1, %166 ], [ 0, %.preheader25 ]
+  %.ph = phi i32 [ %131, %.thread21 ], [ %149, %166 ], [ %149, %148 ], [ -1, %.preheader25 ]
+  %.ph22 = phi i32 [ 1, %.thread21 ], [ 1, %166 ], [ 1, %148 ], [ 0, %.preheader25 ]
   store i32 %.ph, ptr %3, align 4
   br label %177
 
@@ -1429,8 +1429,8 @@ define internal fastcc ptr @dx_probe(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %254
 
 254:                                              ; preds = %250, %240, %228, %189
-  %255 = phi ptr [ %184, %189 ], [ %184, %228 ], [ %237, %240 ], [ %237, %250 ]
-  %256 = phi ptr [ %80, %189 ], [ %80, %228 ], [ %238, %240 ], [ %80, %250 ]
+  %255 = phi ptr [ %237, %250 ], [ %237, %240 ], [ %184, %228 ], [ %184, %189 ]
+  %256 = phi ptr [ %80, %250 ], [ %238, %240 ], [ %80, %228 ], [ %80, %189 ]
   %257 = icmp ult ptr %255, %3
   br i1 %257, label %.loopexit, label %.preheader.preheader
 
@@ -7506,7 +7506,7 @@ thread-pre-split:                                 ; preds = %25, %28
   br i1 %118, label %.loopexit53, label %85, !llvm.loop !32
 
 .loopexit53:                                      ; preds = %109, %69, %106
-  %119 = phi i1 [ true, %106 ], [ false, %69 ], [ %112, %109 ]
+  %119 = phi i1 [ false, %69 ], [ true, %106 ], [ %112, %109 ]
   %120 = icmp eq ptr %67, null
   br i1 %120, label %122, label %121
 
@@ -7622,7 +7622,7 @@ thread-pre-split:                                 ; preds = %25, %28
   br i1 %190, label %62, label %.thread.thread, !llvm.loop !61
 
 .thread.thread:                                   ; preds = %.loopexit52, %.thread, %122, %62, %.preheader51, %.critedge, %186
-  %191 = phi ptr [ %188, %186 ], [ %67, %.critedge ], [ null, %.preheader51 ], [ null, %.loopexit52 ], [ inttoptr (i64 -4094 to ptr), %122 ], [ null, %.thread ], [ %67, %62 ]
+  %191 = phi ptr [ %188, %186 ], [ null, %.preheader51 ], [ %67, %.critedge ], [ null, %.loopexit52 ], [ inttoptr (i64 -4094 to ptr), %122 ], [ null, %.thread ], [ %67, %62 ]
   %192 = load ptr, ptr %5, align 16
   %193 = icmp eq ptr %192, null
   br i1 %193, label %.loopexit49, label %194
@@ -7915,7 +7915,7 @@ thread-pre-split:                                 ; preds = %25, %28
   br label %.loopexit
 
 .loopexit:                                        ; preds = %375, %369, %.critedge4, %.critedge2, %310, %273
-  %382 = phi ptr [ %228, %.critedge4 ], [ %261, %.critedge2 ], [ inttoptr (i64 -74 to ptr), %310 ], [ inttoptr (i64 -5 to ptr), %273 ], [ %228, %369 ], [ %228, %375 ]
+  %382 = phi ptr [ %228, %.critedge4 ], [ %228, %369 ], [ %261, %.critedge2 ], [ inttoptr (i64 -74 to ptr), %310 ], [ inttoptr (i64 -5 to ptr), %273 ], [ %228, %375 ]
   %383 = icmp ult i64 %259, %258
   br i1 %383, label %.preheader, label %.thread47
 
@@ -7936,7 +7936,7 @@ thread-pre-split:                                 ; preds = %25, %28
   br i1 %391, label %.thread47, label %.preheader, !llvm.loop !64
 
 .thread47:                                        ; preds = %389, %210, %.loopexit49, %253, %thread-pre-split, %.loopexit, %4
-  %392 = phi ptr [ null, %4 ], [ %382, %.loopexit ], [ null, %210 ], [ %208, %.loopexit49 ], [ %255, %253 ], [ %26, %thread-pre-split ], [ %382, %389 ]
+  %392 = phi ptr [ null, %4 ], [ %382, %.loopexit ], [ %26, %thread-pre-split ], [ null, %210 ], [ %208, %.loopexit49 ], [ %255, %253 ], [ %382, %389 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %392
 }

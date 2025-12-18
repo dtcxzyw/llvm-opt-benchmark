@@ -111,7 +111,7 @@ define internal fastcc noundef zeroext i1 @_ZN13logos_codegen6parser12ignore_fla
   br label %47
 
 47:                                               ; preds = %.sink.split, %.invoke, %45
-  %.sroa.0.0 = phi i1 [ false, %.invoke ], [ false, %45 ], [ true, %.sink.split ]
+  %.sroa.0.0 = phi i1 [ false, %45 ], [ false, %.invoke ], [ true, %.sink.split ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6babfb2ad2ffb03eE"(ptr nonnull align 8 %8)
           to label %65 unwind label %10
 

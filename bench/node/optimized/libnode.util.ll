@@ -738,7 +738,7 @@ for.cond1.for.inc6_crit_edge.i:                   ; preds = %for.cond1.i
   br i1 %cmp.not.i, label %_ZSt13find_first_ofIPKcS1_ET_S2_S2_T0_S3_.exit, label %for.cond1.preheader.i, !llvm.loop !8
 
 _ZSt13find_first_ofIPKcS1_ET_S2_S2_T0_S3_.exit:   ; preds = %for.cond1.for.inc6_crit_edge.i, %for.body3.i, %for.body
-  %retval.0.i = phi ptr [ %add.ptr, %for.body ], [ %__first1.addr.012.i, %for.body3.i ], [ %add.ptr, %for.cond1.for.inc6_crit_edge.i ]
+  %retval.0.i = phi ptr [ %__first1.addr.012.i, %for.body3.i ], [ %add.ptr, %for.body ], [ %add.ptr, %for.cond1.for.inc6_crit_edge.i ]
   %cmp7.not = icmp eq ptr %first.025, %retval.0.i
   br i1 %cmp7.not, label %for.inc, label %if.then
 

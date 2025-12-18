@@ -970,7 +970,7 @@ _ZNSolsEPFRSoS_E.exit:                            ; preds = %.noexc136
   br label %.thread
 
 ._crit_edge179:                                   ; preds = %_ZNSolsEPFRSoS_E.exit, %46, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i
-  %.sroa.0153.0217 = phi ptr [ null, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ], [ null, %46 ], [ %56, %_ZNSolsEPFRSoS_E.exit ]
+  %.sroa.0153.0217 = phi ptr [ null, %46 ], [ null, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ], [ %56, %_ZNSolsEPFRSoS_E.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %133 = getelementptr inbounds nuw i8, ptr %3, i64 64

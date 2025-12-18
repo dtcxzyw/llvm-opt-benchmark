@@ -312,8 +312,8 @@ define dso_local void @ConnectDatabase(ptr noundef %0, ptr noundef readonly capt
   br label %.split, !llvm.loop !4
 
 .split78:                                         ; preds = %130, %133, %108, %111
-  %141 = phi ptr [ %91, %111 ], [ %91, %108 ], [ %29, %133 ], [ %29, %130 ]
-  %.us-phi = phi ptr [ %.06094, %111 ], [ %.06094, %108 ], [ %.1, %133 ], [ %.1, %130 ]
+  %141 = phi ptr [ %91, %108 ], [ %91, %111 ], [ %29, %133 ], [ %29, %130 ]
+  %.us-phi = phi ptr [ %.06094, %108 ], [ %.06094, %111 ], [ %.1, %133 ], [ %.1, %130 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %142 = load ptr, ptr %6, align 8

@@ -269,7 +269,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit96
   br label %.loopexit180
 
 .loopexit180:                                     ; preds = %.lr.ph82.i.i.i, %60, %91, %98
-  %.0.i = phi double [ 0.000000e+00, %60 ], [ %99, %98 ], [ %92, %91 ], [ %96, %.lr.ph82.i.i.i ]
+  %.0.i = phi double [ 0.000000e+00, %60 ], [ %92, %91 ], [ %99, %98 ], [ %96, %.lr.ph82.i.i.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !28)
   %100 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %101 = load i64, ptr %100, align 8, !tbaa !31, !noalias !28
@@ -963,7 +963,7 @@ _ZN5Eigen9DenseBaseINS_6MatrixIdLi1ELin1ELi1ELi1ELin1EEEE7setZeroEv.exit.i.i.i.i
   br label %_ZNK5Eigen10MatrixBaseINS_5BlockIKNS_9TransposeINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEEELi1ELin1ELb1EEEE3dotINS1_IKNS3_IdLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS_20ScalarBinaryOpTraitsIdNS_8internal6traitsIT_E6ScalarENSE_17scalar_product_opIdSI_EEE10ReturnTypeERKNS0_ISG_EE.exit.i.i.i.i.i.i
 
 _ZNK5Eigen10MatrixBaseINS_5BlockIKNS_9TransposeINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEEELi1ELin1ELb1EEEE3dotINS1_IKNS3_IdLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS_20ScalarBinaryOpTraitsIdNS_8internal6traitsIT_E6ScalarENSE_17scalar_product_opIdSI_EEE10ReturnTypeERKNS0_ISG_EE.exit.i.i.i.i.i.i: ; preds = %.lr.ph85.i.i.i.i.i.i.i.i.i.i.i, %82, %72, %25
-  %.0.i.i.i.i.i.i.i.i.i = phi double [ 0.000000e+00, %25 ], [ %85, %82 ], [ %73, %72 ], [ %80, %.lr.ph85.i.i.i.i.i.i.i.i.i.i.i ]
+  %.0.i.i.i.i.i.i.i.i.i = phi double [ 0.000000e+00, %25 ], [ %73, %72 ], [ %85, %82 ], [ %80, %.lr.ph85.i.i.i.i.i.i.i.i.i.i.i ]
   %86 = load double, ptr %17, align 8, !tbaa !25
   %87 = fadd double %.0.i.i.i.i.i.i.i.i.i, %86
   store double %87, ptr %17, align 8, !tbaa !25

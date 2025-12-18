@@ -379,7 +379,7 @@ Abc_TtStretch6.exit.sink.split:                   ; preds = %6, %.preheader
   br label %Abc_TtStretch6.exit
 
 Abc_TtStretch6.exit:                              ; preds = %._crit_edge.us.i74, %.preheader.us.i58, %Abc_TtStretch6.exit.sink.split, %.split, %.split, %43, %.split36
-  %.034 = phi i64 [ %37, %.split ], [ %41, %.split36 ], [ %41, %43 ], [ %37, %.split ], [ %58, %Abc_TtStretch6.exit.sink.split ], [ %37, %.preheader.us.i58 ], [ %41, %._crit_edge.us.i74 ]
+  %.034 = phi i64 [ %58, %Abc_TtStretch6.exit.sink.split ], [ %37, %.split ], [ %37, %.preheader.us.i58 ], [ %37, %.split ], [ %41, %.split36 ], [ %41, %43 ], [ %41, %._crit_edge.us.i74 ]
   ret i64 %.034
 }
 
@@ -2687,7 +2687,7 @@ Abc_TtSharp.exit:                                 ; preds = %.lr.ph.i282
   br label %.loopexit318
 
 .loopexit318:                                     ; preds = %.loopexit318.loopexit, %28
-  %394 = phi i64 [ 0, %28 ], [ %393, %.loopexit318.loopexit ]
+  %394 = phi i64 [ %393, %.loopexit318.loopexit ], [ 0, %28 ]
   %395 = load i64, ptr %2, align 8, !tbaa !3
   %396 = icmp eq i32 %3, 0
   %397 = trunc i64 %395 to i1

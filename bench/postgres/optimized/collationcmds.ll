@@ -1169,7 +1169,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @pg_import_system_collat
   br label %create_collation_from_locale.exit
 
 create_collation_from_locale.exit:                ; preds = %67, %62
-  %.6 = phi i32 [ %.088100, %62 ], [ %68, %67 ]
+  %.6 = phi i32 [ %68, %67 ], [ %.088100, %62 ]
   br label %69
 
 69:                                               ; preds = %.loopexit.i, %create_collation_from_locale.exit

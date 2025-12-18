@@ -339,7 +339,7 @@ zend_string_alloc.exit:                           ; preds = %2
   br i1 %90, label %.lr.ph.split.split.split, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %88, %78, %69, %59, %50, %40, %31, %.lr.ph.split.us.split.us.split.us, %zend_string_alloc.exit
-  %.029.lcssa = phi i64 [ 0, %zend_string_alloc.exit ], [ %.1.us47, %78 ], [ %24, %.lr.ph.split.us.split.us.split.us ], [ %.1.us.us, %31 ], [ %.1.us.us55, %40 ], [ %.1.us, %50 ], [ %.1.us41.us, %59 ], [ %.1.us41, %69 ], [ %.1, %88 ]
+  %.029.lcssa = phi i64 [ 0, %zend_string_alloc.exit ], [ %.1.us.us55, %40 ], [ %24, %.lr.ph.split.us.split.us.split.us ], [ %.1.us47, %78 ], [ %.1.us.us, %31 ], [ %.1.us41.us, %59 ], [ %.1.us, %50 ], [ %.1.us41, %69 ], [ %.1, %88 ]
   %91 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 %.029.lcssa
   store i8 0, ptr %92, align 1, !tbaa !4

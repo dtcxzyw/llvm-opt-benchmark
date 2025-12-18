@@ -957,7 +957,7 @@ _ZN3ue2L18isPseudoNoCaseCharERKNS_9CharReachE.exit.thread.thread.i: ; preds = %.
   br label %.backedge.i, !llvm.loop !19
 
 _ZNK3ue29CharReach10find_firstEv.exit80.i:        ; preds = %439, %359, %441, %361
-  %.sink317.i = phi i8 [ %365, %361 ], [ %446, %441 ], [ 0, %359 ], [ 0, %439 ]
+  %.sink317.i = phi i8 [ 0, %359 ], [ %365, %361 ], [ %446, %441 ], [ 0, %439 ]
   %.sink.i = trunc i64 %indvars.iv.i28 to i8
   %447 = getelementptr inbounds nuw i8, ptr %0, i64 13
   store i8 %.sink317.i, ptr %447, align 1
@@ -1184,8 +1184,8 @@ _ZN3ue2L18isPseudoNoCaseCharERKNS_9CharReachE.exit116.thread.i: ; preds = %_ZN3u
   br i1 %exitcond239.i, label %.thread130.i, label %.critedge75.i, !llvm.loop !24
 
 .sink.split.i:                                    ; preds = %546, %509, %548, %511
-  %.sink322.i = phi i8 [ %515, %511 ], [ %552, %548 ], [ 0, %509 ], [ 0, %546 ]
-  %.sink321.in.i = phi i64 [ %indvars.iv240.i, %511 ], [ %indvars.iv236.i, %548 ], [ %indvars.iv240.i, %509 ], [ %indvars.iv236.i, %546 ]
+  %.sink322.i = phi i8 [ 0, %509 ], [ %515, %511 ], [ %552, %548 ], [ 0, %546 ]
+  %.sink321.in.i = phi i64 [ %indvars.iv240.i, %509 ], [ %indvars.iv240.i, %511 ], [ %indvars.iv236.i, %548 ], [ %indvars.iv236.i, %546 ]
   %.sink321.i = trunc i64 %.sink321.in.i to i8
   %553 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i8 %.sink322.i, ptr %553, align 4
@@ -1507,7 +1507,7 @@ _ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS
   br i1 %.not.i.i, label %._crit_edge.thread.i.i, label %.lr.ph.split.i.i.backedge
 
 .lr.ph.split.i.i.backedge:                        ; preds = %114, %.thread
-  %.02632.i.i.be = phi ptr [ %.026.i.i, %114 ], [ %.026.i.i124, %.thread ]
+  %.02632.i.i.be = phi ptr [ %.026.i.i124, %.thread ], [ %.026.i.i, %114 ]
   br label %.lr.ph.split.i.i, !llvm.loop !27
 
 .thread:                                          ; preds = %.lr.ph.split.i.i, %112

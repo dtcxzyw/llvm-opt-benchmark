@@ -466,7 +466,7 @@ define range(i32 0, 16) i32 @load_freshclam_dat() local_unnamed_addr #0 {
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.thread89
 
-.thread95:                                        ; preds = %29, %35, %39, %77
+.thread95:                                        ; preds = %77, %29, %35, %39
   %98 = call i32 @close(i32 noundef %17) #24
   br label %.thread89
 
@@ -2182,9 +2182,9 @@ sub_1128:                                         ; preds = %.tail
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.backedge, %.preheader, %105, %82, %76, %69, %62, %57
-  %107 = phi i1 [ true, %57 ], [ true, %62 ], [ true, %69 ], [ true, %76 ], [ true, %82 ], [ true, %105 ], [ false, %.preheader ], [ false, %.backedge ]
-  %.060 = phi i32 [ 14, %57 ], [ 14, %62 ], [ 14, %69 ], [ 14, %76 ], [ 3, %82 ], [ 14, %105 ], [ 0, %.preheader ], [ 0, %.backedge ]
-  %.059 = phi ptr [ null, %57 ], [ null, %62 ], [ null, %69 ], [ null, %76 ], [ null, %82 ], [ %79, %105 ], [ %79, %.preheader ], [ %79, %.backedge ]
+  %107 = phi i1 [ true, %62 ], [ true, %105 ], [ true, %82 ], [ true, %57 ], [ true, %76 ], [ true, %69 ], [ false, %.preheader ], [ false, %.backedge ]
+  %.060 = phi i32 [ 14, %62 ], [ 14, %105 ], [ 3, %82 ], [ 14, %57 ], [ 14, %76 ], [ 14, %69 ], [ 0, %.preheader ], [ 0, %.backedge ]
+  %.059 = phi ptr [ null, %62 ], [ %79, %105 ], [ null, %82 ], [ null, %57 ], [ null, %76 ], [ null, %69 ], [ %79, %.preheader ], [ %79, %.backedge ]
   %.not86 = icmp eq i32 %.1, -1
   br i1 %.not86, label %113, label %.thread100
 

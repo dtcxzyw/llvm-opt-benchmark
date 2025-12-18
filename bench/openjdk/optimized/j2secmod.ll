@@ -338,7 +338,7 @@ define ptr @Java_sun_security_pkcs11_Secmod_nssGetModuleList(ptr noundef %0, ptr
   br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !8
 
 .loopexit:                                        ; preds = %._crit_edge, %59, %.preheader, %83, %.lr.ph.split.us, %104, %111, %40, %34, %28, %22, %16, %10, %7, %4
-  %.0 = phi ptr [ null, %4 ], [ null, %7 ], [ null, %10 ], [ null, %16 ], [ null, %22 ], [ null, %28 ], [ null, %34 ], [ null, %40 ], [ null, %104 ], [ null, %83 ], [ null, %111 ], [ null, %.lr.ph.split.us ], [ %32, %._crit_edge ], [ null, %.preheader ], [ null, %59 ]
+  %.0 = phi ptr [ null, %83 ], [ null, %4 ], [ null, %7 ], [ null, %10 ], [ null, %16 ], [ null, %22 ], [ null, %28 ], [ null, %34 ], [ null, %40 ], [ null, %104 ], [ null, %111 ], [ null, %.lr.ph.split.us ], [ null, %.preheader ], [ null, %59 ], [ %32, %._crit_edge ]
   ret ptr %.0
 }
 

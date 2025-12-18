@@ -1156,7 +1156,7 @@ name_eq.exit.thread.i.i.i:                        ; preds = %.lr.ph.split.split.
   br i1 %.not.i.i.i, label %hd_map_find.exit.i.i, label %.lr.ph.split.split.i.i.i, !llvm.loop !91
 
 hd_map_find.exit.i.i:                             ; preds = %name_eq.exit.thread.us51.i.i.i, %name_eq.exit.thread.i.i.i, %.lr.ph.split.split.i.i.i, %name_eq.exit.thread.us.us.i.i.i, %name_eq.exit.thread.us.i.i.i, %name_eq.exit.us.i.i.i, %hd_deflate_decide_indexing.exit.i
-  %.1.i.i.i = phi ptr [ null, %name_eq.exit.thread.i.i.i ], [ null, %hd_deflate_decide_indexing.exit.i ], [ null, %name_eq.exit.thread.us.i.i.i ], [ %.2.us.us.i.i.i, %name_eq.exit.thread.us.us.i.i.i ], [ %.01937.us.i.i.i, %name_eq.exit.us.i.i.i ], [ %.01937.i.i.i, %.lr.ph.split.split.i.i.i ], [ %.2.us52.i.i.i, %name_eq.exit.thread.us51.i.i.i ]
+  %.1.i.i.i = phi ptr [ %.01937.i.i.i, %.lr.ph.split.split.i.i.i ], [ null, %hd_deflate_decide_indexing.exit.i ], [ %.2.us.us.i.i.i, %name_eq.exit.thread.us.us.i.i.i ], [ null, %name_eq.exit.thread.us.i.i.i ], [ %.01937.us.i.i.i, %name_eq.exit.us.i.i.i ], [ null, %name_eq.exit.thread.i.i.i ], [ %.2.us52.i.i.i, %name_eq.exit.thread.us51.i.i.i ]
   %167 = icmp ult i32 %80, 61
   br i1 %167, label %168, label %188
 
@@ -2918,7 +2918,7 @@ hd_inflate_read_len.exit.thread.loopexit363.split.loop.exit418: ; preds = %263
   br label %hd_inflate_read_len.exit.thread
 
 hd_inflate_read_len.exit.thread:                  ; preds = %hd_inflate_read_len.exit323, %295, %hd_inflate_read_len.exit301, %hd_inflate_read_len.exit, %42, %49, %decode_length.exit.i, %decode_length.exit.thread18.i, %hd_inflate_read_len.exit280, %184, %decode_length.exit.i271, %decode_length.exit.thread18.i275, %decode_length.exit.i292, %271, %280, %decode_length.exit.i314, %.lr.ph.i.i306, %336, %332, %.lr.ph.i.i284, %234, %230, %.lr.ph.i.i263, %164, %160, %.lr.ph.i.i, %87, %83, %hd_inflate_read_len.exit.thread.loopexit363.split.loop.exit, %hd_inflate_read_len.exit.thread.loopexit363.split.loop.exit418, %442, %.loopexit, %373, %396, %403, %431
-  %.5 = phi i64 [ %.3217, %396 ], [ %407, %403 ], [ %.4218, %431 ], [ -523, %442 ], [ -523, %.loopexit ], [ %374, %373 ], [ %.2216.le, %hd_inflate_read_len.exit.thread.loopexit363.split.loop.exit ], [ %.1215.le, %hd_inflate_read_len.exit.thread.loopexit363.split.loop.exit418 ], [ -523, %.lr.ph.i.i306 ], [ -523, %.lr.ph.i.i ], [ -523, %.lr.ph.i.i263 ], [ -523, %.lr.ph.i.i284 ], [ -523, %83 ], [ -523, %87 ], [ -523, %160 ], [ -523, %164 ], [ -523, %230 ], [ -523, %234 ], [ -523, %332 ], [ -523, %336 ], [ -523, %280 ], [ %278, %271 ], [ %247, %hd_inflate_read_len.exit301 ], [ -523, %decode_length.exit.thread18.i275 ], [ -523, %decode_length.exit.i271 ], [ -523, %184 ], [ %.049.i22.i276, %hd_inflate_read_len.exit280 ], [ -523, %decode_length.exit.thread18.i ], [ -523, %decode_length.exit.i ], [ -523, %49 ], [ -523, %42 ], [ -523, %decode_length.exit.i292 ], [ %.049.i22.i, %hd_inflate_read_len.exit ], [ -523, %decode_length.exit.i314 ], [ %349, %hd_inflate_read_len.exit323 ], [ %299, %295 ]
+  %.5 = phi i64 [ -523, %.lr.ph.i.i306 ], [ %374, %373 ], [ %.3217, %396 ], [ -523, %442 ], [ -523, %.lr.ph.i.i263 ], [ %407, %403 ], [ %.4218, %431 ], [ %.1215.le, %hd_inflate_read_len.exit.thread.loopexit363.split.loop.exit418 ], [ -523, %.loopexit ], [ -523, %.lr.ph.i.i284 ], [ %.2216.le, %hd_inflate_read_len.exit.thread.loopexit363.split.loop.exit ], [ -523, %.lr.ph.i.i ], [ -523, %83 ], [ -523, %87 ], [ -523, %160 ], [ -523, %164 ], [ -523, %230 ], [ -523, %234 ], [ -523, %332 ], [ -523, %336 ], [ -523, %280 ], [ -523, %184 ], [ %.049.i22.i276, %hd_inflate_read_len.exit280 ], [ -523, %decode_length.exit.thread18.i ], [ -523, %decode_length.exit.i ], [ -523, %decode_length.exit.thread18.i275 ], [ %247, %hd_inflate_read_len.exit301 ], [ -523, %49 ], [ -523, %42 ], [ %278, %271 ], [ -523, %decode_length.exit.i271 ], [ -523, %decode_length.exit.i292 ], [ %.049.i22.i, %hd_inflate_read_len.exit ], [ -523, %decode_length.exit.i314 ], [ %349, %hd_inflate_read_len.exit323 ], [ %299, %295 ]
   store i8 1, ptr %10, align 4, !tbaa !103
   br label %456
 
@@ -4323,7 +4323,7 @@ hd_map_remove.exit:                               ; preds = %.lr.ph, %.lr.ph.i._
   br i1 %89, label %52, label %.critedge, !llvm.loop !124
 
 .critedge:                                        ; preds = %52, %hd_map_remove.exit, %26, %hd_ringbuf_pop_back.exit.us, %.lr.ph60.split.us, %.lr.ph60.split, %4
-  %.lcssa = phi i64 [ %21, %4 ], [ %21, %.lr.ph60.split.us ], [ %21, %.lr.ph60.split ], [ %50, %26 ], [ %50, %hd_ringbuf_pop_back.exit.us ], [ %88, %hd_map_remove.exit ], [ %88, %52 ]
+  %.lcssa = phi i64 [ %21, %4 ], [ %50, %26 ], [ %21, %.lr.ph60.split.us ], [ %21, %.lr.ph60.split ], [ %50, %hd_ringbuf_pop_back.exit.us ], [ %88, %hd_map_remove.exit ], [ %88, %52 ]
   %90 = icmp ugt i64 %15, %.lcssa
   br i1 %90, label %163, label %91
 

@@ -898,7 +898,7 @@ pmix_obj_run_destructors.exit177:                 ; preds = %.lr.ph.i174, %402
   br label %pmix_obj_run_destructors.exit
 
 pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i151, %.lr.ph.i169, %.lr.ph.i131, %378, %pmix_obj_run_destructors.exit149, %transports_print.exit.thread, %22, %pmix_obj_run_destructors.exit177
-  %.0 = phi i32 [ 0, %pmix_obj_run_destructors.exit177 ], [ -1366, %22 ], [ -29, %transports_print.exit.thread ], [ %229, %pmix_obj_run_destructors.exit149 ], [ -32, %378 ], [ -32, %.lr.ph.i169 ], [ -29, %.lr.ph.i131 ], [ %229, %.lr.ph.i151 ]
+  %.0 = phi i32 [ 0, %pmix_obj_run_destructors.exit177 ], [ -1366, %22 ], [ -32, %.lr.ph.i169 ], [ -29, %.lr.ph.i131 ], [ -29, %transports_print.exit.thread ], [ %229, %pmix_obj_run_destructors.exit149 ], [ -32, %378 ], [ %229, %.lr.ph.i151 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

@@ -2859,7 +2859,7 @@ _ZN4llvm16dyn_cast_or_nullIN5clang7VarDeclENS1_9ValueDeclEEEDaPT0_.exit.i45: ; p
   br i1 %216, label %select.unfold53, label %_ZZNK12_GLOBAL__N_130UncountedLambdaCapturesChecker12checkASTDeclEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterEEN12LocalVisitor15findLambdaInArgEPNS1_4ExprE.exit.thread
 
 select.unfold53:                                  ; preds = %193, %213, %181, %_ZN4llvm16dyn_cast_or_nullIN5clang10LambdaExprENS1_4ExprEEEDaPT0_.exit.i
-  %.1.i = phi ptr [ %175, %_ZN4llvm16dyn_cast_or_nullIN5clang10LambdaExprENS1_4ExprEEEDaPT0_.exit.i ], [ %180, %181 ], [ %192, %193 ], [ %212, %213 ]
+  %.1.i = phi ptr [ %175, %_ZN4llvm16dyn_cast_or_nullIN5clang10LambdaExprENS1_4ExprEEEDaPT0_.exit.i ], [ %192, %193 ], [ %180, %181 ], [ %212, %213 ]
   store ptr %.1.i, ptr %17, align 8, !tbaa !88
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !189
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !189
@@ -2897,7 +2897,7 @@ select.unfold53:                                  ; preds = %193, %213, %181, %_
   br i1 %.not.i.i.i.i.i, label %_ZN5clangneENS_22specific_attr_iteratorINS_12NoEscapeAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !197
 
 _ZN5clangneENS_22specific_attr_iteratorINS_12NoEscapeAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i: ; preds = %231, %.lr.ph.i.i.i.i.i
-  %.sroa.07.0.i.i.ph.i.i = phi ptr [ %226, %231 ], [ %.sroa.07.1.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+  %.sroa.07.0.i.i.ph.i.i = phi ptr [ %.sroa.07.1.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %226, %231 ]
   %233 = icmp ne ptr %.sroa.07.0.i.i.ph.i.i, %226
   %234 = or i1 %.06.i, %233
   br i1 %234, label %_ZZNK12_GLOBAL__N_130UncountedLambdaCapturesChecker12checkASTDeclEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterEEN12LocalVisitor15findLambdaInArgEPNS1_4ExprE.exit.thread, label %235
@@ -2923,7 +2923,7 @@ _ZZNK12_GLOBAL__N_130UncountedLambdaCapturesChecker12checkASTDeclEPKN5clang19Tra
   call fastcc void @_ZNK12_GLOBAL__N_130UncountedLambdaCapturesChecker15visitLambdaExprEPN5clang10LambdaExprEbb(ptr noundef nonnull align 8 dereferenceable(168) %236, ptr noundef %237, i1 noundef zeroext %241, i1 noundef zeroext false)
   br label %_ZZNK12_GLOBAL__N_130UncountedLambdaCapturesChecker12checkASTDeclEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterEEN12LocalVisitor15findLambdaInArgEPNS1_4ExprE.exit.thread
 
-_ZZNK12_GLOBAL__N_130UncountedLambdaCapturesChecker12checkASTDeclEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterEEN12LocalVisitor15findLambdaInArgEPNS1_4ExprE.exit.thread: ; preds = %_ZN4llvm16dyn_cast_or_nullIN5clang10LambdaExprENS1_4ExprEEEDaPT0_.exit.i, %196, %199, %213, %_ZN4llvm16dyn_cast_or_nullIN5clang7VarDeclENS1_9ValueDeclEEEDaPT0_.exit.i45, %206, %163, %188, %185, %_ZN4llvm16dyn_cast_or_nullIN5clang16CXXConstructExprENS1_4ExprEEEDaPT0_.exit.i, %210, %_ZN4llvm16dyn_cast_or_nullIN5clang20CXXBindTemporaryExprENS1_4ExprEEEDaPT0_.exit.i, %193, %_ZN5clangneENS_22specific_attr_iteratorINS_12NoEscapeAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i, %_ZZNK12_GLOBAL__N_130UncountedLambdaCapturesChecker12checkASTDeclEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterEEN12LocalVisitor15shouldCheckThisEv.exit, %_ZNK5clang4Decl7hasAttrINS_12NoEscapeAttrEEEbv.exit
+_ZZNK12_GLOBAL__N_130UncountedLambdaCapturesChecker12checkASTDeclEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterEEN12LocalVisitor15findLambdaInArgEPNS1_4ExprE.exit.thread: ; preds = %_ZN4llvm16dyn_cast_or_nullIN5clang10LambdaExprENS1_4ExprEEEDaPT0_.exit.i, %199, %196, %213, %_ZN4llvm16dyn_cast_or_nullIN5clang7VarDeclENS1_9ValueDeclEEEDaPT0_.exit.i45, %206, %163, %188, %185, %_ZN4llvm16dyn_cast_or_nullIN5clang16CXXConstructExprENS1_4ExprEEEDaPT0_.exit.i, %210, %_ZN4llvm16dyn_cast_or_nullIN5clang20CXXBindTemporaryExprENS1_4ExprEEEDaPT0_.exit.i, %193, %_ZN5clangneENS_22specific_attr_iteratorINS_12NoEscapeAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i, %_ZZNK12_GLOBAL__N_130UncountedLambdaCapturesChecker12checkASTDeclEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterEEN12LocalVisitor15shouldCheckThisEv.exit, %_ZNK5clang4Decl7hasAttrINS_12NoEscapeAttrEEEbv.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %242 = getelementptr inbounds nuw i8, ptr %.03258, i64 8

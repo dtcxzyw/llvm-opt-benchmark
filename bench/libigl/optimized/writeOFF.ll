@@ -6695,7 +6695,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl8writeOFFIN5Eigen6MatrixIdL
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph82.i.i.i.i, %68, %77, %.lr.ph87.i.preheader.i.i.i
-  %.2.i.i.i.i = phi double [ %78, %77 ], [ %70, %68 ], [ %83, %.lr.ph87.i.preheader.i.i.i ], [ %75, %.lr.ph82.i.i.i.i ]
+  %.2.i.i.i.i = phi double [ %83, %.lr.ph87.i.preheader.i.i.i ], [ %78, %77 ], [ %70, %68 ], [ %75, %.lr.ph82.i.i.i.i ]
   %84 = fcmp ole double %.2.i.i.i.i, 1.000000e+00
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -7551,7 +7551,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl8writeOFFIN5Eigen6MatrixIdL
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph82.i.i.i.i, %68, %77, %.lr.ph87.i.preheader.i.i.i
-  %.2.i.i.i.i = phi double [ %78, %77 ], [ %70, %68 ], [ %83, %.lr.ph87.i.preheader.i.i.i ], [ %75, %.lr.ph82.i.i.i.i ]
+  %.2.i.i.i.i = phi double [ %83, %.lr.ph87.i.preheader.i.i.i ], [ %78, %77 ], [ %70, %68 ], [ %75, %.lr.ph82.i.i.i.i ]
   %84 = fcmp ole double %.2.i.i.i.i, 1.000000e+00
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)

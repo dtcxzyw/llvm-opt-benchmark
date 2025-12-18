@@ -472,7 +472,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit: ; preds = %175, %181, %183
   br label %2413
 
 _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit194: ; preds = %214, %193, %205
-  %227 = phi ptr [ %.pre1821, %205 ], [ %191, %193 ], [ %.pre1821, %214 ]
+  %227 = phi ptr [ %191, %193 ], [ %.pre1821, %205 ], [ %.pre1821, %214 ]
   %228 = load ptr, ptr %140, align 8, !tbaa !19
   %.not10.i.i.i = icmp eq ptr %228, null
   br i1 %.not10.i.i.i, label %_ZNSt13unordered_setIN4cvc58internal12NodeTemplateILb1EEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EE4findERKS3_.exit.thread, label %.lr.ph.i.i.i
@@ -5696,7 +5696,7 @@ _ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEES_IS3_bSt4lessIS3_ESaISt4pairIKS3_
   br label %2413
 
 _ZNSt13unordered_setIN4cvc58internal12NodeTemplateILb1EEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EE4findERKS3_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %192, %_ZNKSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_St6vectorIS3_SaIS3_EEESt10_Select1stIS9_ESt4lessIS3_ESaIS9_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS9_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit194, %.noexc, %..loopexit_crit_edge21.i.i.i.i, %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEES_IS3_bSt4lessIS3_ESaISt4pairIKS3_bEEES5_SaIS6_IS7_SA_EEED2Ev.exit, %_ZNKSt3mapIN4cvc58internal12NodeTemplateILb1EEESt6vectorIS3_SaIS3_EESt4lessIS3_ESaISt4pairIKS3_S6_EEE4findERSA_.exit
-  %2388 = phi ptr [ %227, %_ZNKSt3mapIN4cvc58internal12NodeTemplateILb1EEESt6vectorIS3_SaIS3_EESt4lessIS3_ESaISt4pairIKS3_S6_EEE4findERSA_.exit ], [ %227, %_ZNKSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_St6vectorIS3_SaIS3_EEESt10_Select1stIS9_ESt4lessIS3_ESaIS9_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS9_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i ], [ %227, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit194 ], [ %.pre1821, %.noexc ], [ %.pre1821, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre1820, %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEES_IS3_bSt4lessIS3_ESaISt4pairIKS3_bEEES5_SaIS6_IS7_SA_EEED2Ev.exit ], [ %191, %192 ], [ %.pre1821, %.lr.ph.i.i.i.i ]
+  %2388 = phi ptr [ %191, %192 ], [ %227, %_ZNKSt3mapIN4cvc58internal12NodeTemplateILb1EEESt6vectorIS3_SaIS3_EESt4lessIS3_ESaISt4pairIKS3_S6_EEE4findERSA_.exit ], [ %227, %_ZNKSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_St6vectorIS3_SaIS3_EEESt10_Select1stIS9_ESt4lessIS3_ESaIS9_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS9_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i ], [ %227, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit194 ], [ %.pre1821, %.noexc ], [ %.pre1821, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre1820, %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEES_IS3_bSt4lessIS3_ESaISt4pairIKS3_bEEES5_SaIS6_IS7_SA_EEED2Ev.exit ], [ %.pre1821, %.lr.ph.i.i.i.i ]
   %2389 = load i64, ptr %2388, align 8
   %2390 = and i64 %2389, 1152920405095219200
   %.not.i.i802 = icmp eq i64 %2390, 1152920405095219200

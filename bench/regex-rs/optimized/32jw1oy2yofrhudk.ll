@@ -1987,9 +1987,9 @@ define hidden void @_ZN14regex_automata3dfa8remapper8Remapper5remap17hfc7c57eb38
   br i1 %94, label %98, label %.invoke, !prof !81
 
 .invoke:                                          ; preds = %92, %.lr.ph, %.preheader, %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h61991ac3d4195e44E.exit.us.i.i", %35, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hfc3b7093a43cfe7fE.exit.i.i"
-  %95 = phi i64 [ %86, %.preheader ], [ %57, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hfc3b7093a43cfe7fE.exit.i.i" ], [ %42, %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h61991ac3d4195e44E.exit.us.i.i" ], [ %37, %35 ], [ %.sroa.01.047, %.lr.ph ], [ %.sroa.01.047, %92 ]
-  %96 = phi i64 [ %.val18, %.preheader ], [ %.val2090, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hfc3b7093a43cfe7fE.exit.i.i" ], [ %.val20, %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h61991ac3d4195e44E.exit.us.i.i" ], [ %20, %35 ], [ %.val18, %.lr.ph ], [ %93, %92 ]
-  %97 = phi ptr [ @anon.15285cd795f513bdaa4bdcfb2bbacd31.38, %.preheader ], [ @anon.15285cd795f513bdaa4bdcfb2bbacd31.40, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hfc3b7093a43cfe7fE.exit.i.i" ], [ @anon.15285cd795f513bdaa4bdcfb2bbacd31.40, %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h61991ac3d4195e44E.exit.us.i.i" ], [ @anon.15285cd795f513bdaa4bdcfb2bbacd31.33, %35 ], [ @anon.15285cd795f513bdaa4bdcfb2bbacd31.37, %.lr.ph ], [ @anon.15285cd795f513bdaa4bdcfb2bbacd31.39, %92 ]
+  %95 = phi i64 [ %42, %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h61991ac3d4195e44E.exit.us.i.i" ], [ %86, %.preheader ], [ %57, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hfc3b7093a43cfe7fE.exit.i.i" ], [ %37, %35 ], [ %.sroa.01.047, %.lr.ph ], [ %.sroa.01.047, %92 ]
+  %96 = phi i64 [ %.val20, %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h61991ac3d4195e44E.exit.us.i.i" ], [ %.val18, %.preheader ], [ %.val2090, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hfc3b7093a43cfe7fE.exit.i.i" ], [ %20, %35 ], [ %.val18, %.lr.ph ], [ %93, %92 ]
+  %97 = phi ptr [ @anon.15285cd795f513bdaa4bdcfb2bbacd31.40, %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h61991ac3d4195e44E.exit.us.i.i" ], [ @anon.15285cd795f513bdaa4bdcfb2bbacd31.38, %.preheader ], [ @anon.15285cd795f513bdaa4bdcfb2bbacd31.40, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hfc3b7093a43cfe7fE.exit.i.i" ], [ @anon.15285cd795f513bdaa4bdcfb2bbacd31.33, %35 ], [ @anon.15285cd795f513bdaa4bdcfb2bbacd31.37, %.lr.ph ], [ @anon.15285cd795f513bdaa4bdcfb2bbacd31.39, %92 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %95, i64 noundef %96, ptr noalias noundef readonly align 8 dereferenceable(24) %97) #23
           to label %.cont unwind label %26
 
@@ -3225,7 +3225,7 @@ define hidden void @"_ZN105_$LT$regex_automata..meta..strategy..Pre$LT$P$GT$$u20
   br label %56
 
 56:                                               ; preds = %.sink.split, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h364e2176bd393ad4E.llvm.12769474248840661535.exit.i", %4, %31, %30
-  %.sink = phi i64 [ 0, %31 ], [ 0, %4 ], [ 0, %30 ], [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h364e2176bd393ad4E.llvm.12769474248840661535.exit.i" ], [ 1, %.sink.split ]
+  %.sink = phi i64 [ 0, %31 ], [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h364e2176bd393ad4E.llvm.12769474248840661535.exit.i" ], [ 0, %4 ], [ 0, %30 ], [ 1, %.sink.split ]
   store i64 %.sink, ptr %0, align 8
   ret void
 }
@@ -3326,7 +3326,7 @@ define hidden void @"_ZN105_$LT$regex_automata..meta..strategy..Pre$LT$P$GT$$u20
   br label %51
 
 51:                                               ; preds = %.sink.split, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h364e2176bd393ad4E.llvm.12769474248840661535.exit.i", %4, %29, %28
-  %.sink = phi i64 [ 0, %29 ], [ 0, %4 ], [ 0, %28 ], [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h364e2176bd393ad4E.llvm.12769474248840661535.exit.i" ], [ 1, %.sink.split ]
+  %.sink = phi i64 [ 0, %29 ], [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h364e2176bd393ad4E.llvm.12769474248840661535.exit.i" ], [ 0, %4 ], [ 0, %28 ], [ 1, %.sink.split ]
   store i64 %.sink, ptr %0, align 8
   ret void
 }
@@ -3917,7 +3917,7 @@ define hidden void @"_ZN105_$LT$regex_automata..meta..strategy..Pre$LT$P$GT$$u20
   br label %46
 
 46:                                               ; preds = %.sink.split, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h364e2176bd393ad4E.llvm.12769474248840661535.exit.i", %4, %27, %26
-  %.sink = phi i64 [ 0, %27 ], [ 0, %4 ], [ 0, %26 ], [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h364e2176bd393ad4E.llvm.12769474248840661535.exit.i" ], [ 1, %.sink.split ]
+  %.sink = phi i64 [ 0, %27 ], [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h364e2176bd393ad4E.llvm.12769474248840661535.exit.i" ], [ 0, %4 ], [ 0, %26 ], [ 1, %.sink.split ]
   store i64 %.sink, ptr %0, align 8
   ret void
 }
@@ -4378,7 +4378,7 @@ _ZN6memchr6memmem6Finder4find17hbb320fa699992287E.llvm.17849184579231348327.exit
   unreachable
 
 50:                                               ; preds = %"_ZN111_$LT$regex_automata..util..prefilter..memmem..Memmem$u20$as$u20$regex_automata..util..prefilter..PrefilterI$GT$4find17hdbb72a71a1b00f43E.exit", %43
-  %.sroa.10.2 = phi i64 [ %31, %"_ZN111_$LT$regex_automata..util..prefilter..memmem..Memmem$u20$as$u20$regex_automata..util..prefilter..PrefilterI$GT$4find17hdbb72a71a1b00f43E.exit" ], [ %44, %43 ]
+  %.sroa.10.2 = phi i64 [ %44, %43 ], [ %31, %"_ZN111_$LT$regex_automata..util..prefilter..memmem..Memmem$u20$as$u20$regex_automata..util..prefilter..PrefilterI$GT$4find17hdbb72a71a1b00f43E.exit" ]
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.10.2, ptr %51, align 8
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -5450,19 +5450,19 @@ define hidden { i32, i32 } @"_ZN105_$LT$regex_automata..meta..strategy..Pre$LT$P
   unreachable
 
 _ZN14regex_automata4util6search5Match3new17hf74dc18bc550bf59E.exit21: ; preds = %30, %39
-  %.sroa.11.2.in = phi i64 [ %44, %39 ], [ %8, %30 ]
+  %.sroa.8.2 = phi i64 [ %44, %39 ], [ %8, %30 ]
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %"_ZN105_$LT$regex_automata..meta..strategy..Pre$LT$P$GT$$u20$as$u20$regex_automata..meta..strategy..Strategy$GT$6search17h4c23fb0fb15dd410E.llvm.9705991524997079221.exit.thread", label %50
 
 50:                                               ; preds = %_ZN14regex_automata4util6search5Match3new17hf74dc18bc550bf59E.exit21
-  %51 = add nuw i64 %.sroa.11.2.in, 1
+  %51 = add nuw i64 %.sroa.8.2, 1
   store i64 %51, ptr %3, align 8
   %52 = icmp eq i64 %4, 1
   br i1 %52, label %"_ZN105_$LT$regex_automata..meta..strategy..Pre$LT$P$GT$$u20$as$u20$regex_automata..meta..strategy..Strategy$GT$6search17h4c23fb0fb15dd410E.llvm.9705991524997079221.exit.thread", label %53
 
 53:                                               ; preds = %50
   %54 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %55 = add i64 %.sroa.11.2.in, 2
+  %55 = add i64 %.sroa.8.2, 2
   store i64 %55, ptr %54, align 8
   br label %"_ZN105_$LT$regex_automata..meta..strategy..Pre$LT$P$GT$$u20$as$u20$regex_automata..meta..strategy..Strategy$GT$6search17h4c23fb0fb15dd410E.llvm.9705991524997079221.exit.thread"
 
@@ -5597,8 +5597,8 @@ _ZN6memchr6memmem6Finder4find17hbb320fa699992287E.llvm.17849184579231348327.exit
   unreachable
 
 51:                                               ; preds = %"_ZN111_$LT$regex_automata..util..prefilter..memmem..Memmem$u20$as$u20$regex_automata..util..prefilter..PrefilterI$GT$4find17hdbb72a71a1b00f43E.exit", %44
-  %.sroa.11.2 = phi i64 [ %32, %"_ZN111_$LT$regex_automata..util..prefilter..memmem..Memmem$u20$as$u20$regex_automata..util..prefilter..PrefilterI$GT$4find17hdbb72a71a1b00f43E.exit" ], [ %45, %44 ]
-  %.sroa.8.2 = phi i64 [ %31, %"_ZN111_$LT$regex_automata..util..prefilter..memmem..Memmem$u20$as$u20$regex_automata..util..prefilter..PrefilterI$GT$4find17hdbb72a71a1b00f43E.exit" ], [ %10, %44 ]
+  %.sroa.11.2 = phi i64 [ %45, %44 ], [ %32, %"_ZN111_$LT$regex_automata..util..prefilter..memmem..Memmem$u20$as$u20$regex_automata..util..prefilter..PrefilterI$GT$4find17hdbb72a71a1b00f43E.exit" ]
+  %.sroa.8.2 = phi i64 [ %10, %44 ], [ %31, %"_ZN111_$LT$regex_automata..util..prefilter..memmem..Memmem$u20$as$u20$regex_automata..util..prefilter..PrefilterI$GT$4find17hdbb72a71a1b00f43E.exit" ]
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %"_ZN105_$LT$regex_automata..meta..strategy..Pre$LT$P$GT$$u20$as$u20$regex_automata..meta..strategy..Strategy$GT$6search17ha67692877d1c7e63E.llvm.9705991524997079221.exit.thread", label %52
 
@@ -5703,19 +5703,19 @@ define hidden { i32, i32 } @"_ZN105_$LT$regex_automata..meta..strategy..Pre$LT$P
   unreachable
 
 _ZN14regex_automata4util6search5Match3new17hf74dc18bc550bf59E.exit20: ; preds = %29, %"_ZN113_$LT$regex_automata..util..prefilter..byteset..ByteSet$u20$as$u20$regex_automata..util..prefilter..PrefilterI$GT$4find17hda9d299ba5e11ccbE.exit"
-  %.sroa.11.2.in = phi i64 [ %27, %"_ZN113_$LT$regex_automata..util..prefilter..byteset..ByteSet$u20$as$u20$regex_automata..util..prefilter..PrefilterI$GT$4find17hda9d299ba5e11ccbE.exit" ], [ %9, %29 ]
+  %.sroa.8.2 = phi i64 [ %27, %"_ZN113_$LT$regex_automata..util..prefilter..byteset..ByteSet$u20$as$u20$regex_automata..util..prefilter..PrefilterI$GT$4find17hda9d299ba5e11ccbE.exit" ], [ %9, %29 ]
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %"_ZN105_$LT$regex_automata..meta..strategy..Pre$LT$P$GT$$u20$as$u20$regex_automata..meta..strategy..Strategy$GT$6search17h55c43b39b8a4a6efE.llvm.9705991524997079221.exit.thread", label %41
 
 41:                                               ; preds = %_ZN14regex_automata4util6search5Match3new17hf74dc18bc550bf59E.exit20
-  %42 = add nuw i64 %.sroa.11.2.in, 1
+  %42 = add nuw i64 %.sroa.8.2, 1
   store i64 %42, ptr %3, align 8
   %43 = icmp eq i64 %4, 1
   br i1 %43, label %"_ZN105_$LT$regex_automata..meta..strategy..Pre$LT$P$GT$$u20$as$u20$regex_automata..meta..strategy..Strategy$GT$6search17h55c43b39b8a4a6efE.llvm.9705991524997079221.exit.thread", label %44
 
 44:                                               ; preds = %41
   %45 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %46 = add i64 %.sroa.11.2.in, 2
+  %46 = add i64 %.sroa.8.2, 2
   store i64 %46, ptr %45, align 8
   br label %"_ZN105_$LT$regex_automata..meta..strategy..Pre$LT$P$GT$$u20$as$u20$regex_automata..meta..strategy..Strategy$GT$6search17h55c43b39b8a4a6efE.llvm.9705991524997079221.exit.thread"
 
@@ -5818,19 +5818,19 @@ define hidden { i32, i32 } @"_ZN105_$LT$regex_automata..meta..strategy..Pre$LT$P
   unreachable
 
 _ZN14regex_automata4util6search5Match3new17hf74dc18bc550bf59E.exit21: ; preds = %32, %44
-  %.sroa.11.2.in = phi i64 [ %49, %44 ], [ %8, %32 ]
+  %.sroa.8.2 = phi i64 [ %49, %44 ], [ %8, %32 ]
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %"_ZN105_$LT$regex_automata..meta..strategy..Pre$LT$P$GT$$u20$as$u20$regex_automata..meta..strategy..Strategy$GT$6search17h195ac9efc196c801E.llvm.9705991524997079221.exit.thread", label %55
 
 55:                                               ; preds = %_ZN14regex_automata4util6search5Match3new17hf74dc18bc550bf59E.exit21
-  %56 = add nuw i64 %.sroa.11.2.in, 1
+  %56 = add nuw i64 %.sroa.8.2, 1
   store i64 %56, ptr %3, align 8
   %57 = icmp eq i64 %4, 1
   br i1 %57, label %"_ZN105_$LT$regex_automata..meta..strategy..Pre$LT$P$GT$$u20$as$u20$regex_automata..meta..strategy..Strategy$GT$6search17h195ac9efc196c801E.llvm.9705991524997079221.exit.thread", label %58
 
 58:                                               ; preds = %55
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %60 = add i64 %.sroa.11.2.in, 2
+  %60 = add i64 %.sroa.8.2, 2
   store i64 %60, ptr %59, align 8
   br label %"_ZN105_$LT$regex_automata..meta..strategy..Pre$LT$P$GT$$u20$as$u20$regex_automata..meta..strategy..Strategy$GT$6search17h195ac9efc196c801E.llvm.9705991524997079221.exit.thread"
 
@@ -5921,19 +5921,19 @@ define hidden { i32, i32 } @"_ZN105_$LT$regex_automata..meta..strategy..Pre$LT$P
   unreachable
 
 _ZN14regex_automata4util6search5Match3new17hf74dc18bc550bf59E.exit21: ; preds = %28, %34
-  %.sroa.11.2.in = phi i64 [ %39, %34 ], [ %8, %28 ]
+  %.sroa.8.2 = phi i64 [ %39, %34 ], [ %8, %28 ]
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %"_ZN105_$LT$regex_automata..meta..strategy..Pre$LT$P$GT$$u20$as$u20$regex_automata..meta..strategy..Strategy$GT$6search17hbf7d4800ed1f6f74E.llvm.9705991524997079221.exit.thread", label %45
 
 45:                                               ; preds = %_ZN14regex_automata4util6search5Match3new17hf74dc18bc550bf59E.exit21
-  %46 = add nuw i64 %.sroa.11.2.in, 1
+  %46 = add nuw i64 %.sroa.8.2, 1
   store i64 %46, ptr %3, align 8
   %47 = icmp eq i64 %4, 1
   br i1 %47, label %"_ZN105_$LT$regex_automata..meta..strategy..Pre$LT$P$GT$$u20$as$u20$regex_automata..meta..strategy..Strategy$GT$6search17hbf7d4800ed1f6f74E.llvm.9705991524997079221.exit.thread", label %48
 
 48:                                               ; preds = %45
   %49 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %50 = add i64 %.sroa.11.2.in, 2
+  %50 = add i64 %.sroa.8.2, 2
   store i64 %50, ptr %49, align 8
   br label %"_ZN105_$LT$regex_automata..meta..strategy..Pre$LT$P$GT$$u20$as$u20$regex_automata..meta..strategy..Strategy$GT$6search17hbf7d4800ed1f6f74E.llvm.9705991524997079221.exit.thread"
 
@@ -7458,7 +7458,7 @@ common.resume:                                    ; preds = %79, %627, %78
   br label %.body
 
 .loopexit.split-lp:                               ; preds = %.invoke779, %.invoke777, %.invoke, %105, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17ha595d3efd23d31c7E.exit", %124, %141, %.critedge.i, %._crit_edge, %208, %212
-  %.2.ph = phi i1 [ true, %.invoke ], [ true, %.invoke779 ], [ false, %208 ], [ false, %212 ], [ true, %141 ], [ true, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17ha595d3efd23d31c7E.exit" ], [ true, %.critedge.i ], [ true, %._crit_edge ], [ true, %.invoke777 ], [ true, %105 ], [ true, %124 ]
+  %.2.ph = phi i1 [ true, %._crit_edge ], [ true, %.invoke779 ], [ true, %105 ], [ true, %.invoke ], [ false, %212 ], [ true, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17ha595d3efd23d31c7E.exit" ], [ true, %141 ], [ true, %.critedge.i ], [ true, %124 ], [ true, %.invoke777 ], [ false, %208 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -7937,9 +7937,9 @@ default.unreachable683:                           ; preds = %182
   br i1 %292, label %296, label %.invoke781, !prof !81
 
 .invoke781:                                       ; preds = %263, %261, %259, %.preheader, %199, %256, %288, %286, %284, %296
-  %293 = phi i64 [ %269, %286 ], [ %257, %256 ], [ %241, %284 ], [ %298, %296 ], [ %269, %288 ], [ %241, %259 ], [ %239, %.preheader ], [ %204, %199 ], [ %204, %263 ], [ %204, %261 ]
-  %294 = phi i64 [ %.val154, %286 ], [ %.val162, %256 ], [ %.val154, %284 ], [ %.val162, %296 ], [ %.val164, %288 ], [ %.val156, %259 ], [ %.val162, %.preheader ], [ %.val158, %199 ], [ %.val166, %263 ], [ %.val156, %261 ]
-  %295 = phi ptr [ @anon.15285cd795f513bdaa4bdcfb2bbacd31.70, %286 ], [ @anon.15285cd795f513bdaa4bdcfb2bbacd31.64, %256 ], [ @anon.15285cd795f513bdaa4bdcfb2bbacd31.69, %284 ], [ @anon.15285cd795f513bdaa4bdcfb2bbacd31.68, %296 ], [ @anon.15285cd795f513bdaa4bdcfb2bbacd31.71, %288 ], [ @anon.15285cd795f513bdaa4bdcfb2bbacd31.65, %259 ], [ @anon.15285cd795f513bdaa4bdcfb2bbacd31.64, %.preheader ], [ @anon.15285cd795f513bdaa4bdcfb2bbacd31.63, %199 ], [ @anon.15285cd795f513bdaa4bdcfb2bbacd31.67, %263 ], [ @anon.15285cd795f513bdaa4bdcfb2bbacd31.66, %261 ]
+  %293 = phi i64 [ %257, %256 ], [ %269, %286 ], [ %241, %284 ], [ %298, %296 ], [ %269, %288 ], [ %241, %259 ], [ %239, %.preheader ], [ %204, %199 ], [ %204, %263 ], [ %204, %261 ]
+  %294 = phi i64 [ %.val162, %256 ], [ %.val154, %286 ], [ %.val154, %284 ], [ %.val162, %296 ], [ %.val164, %288 ], [ %.val156, %259 ], [ %.val162, %.preheader ], [ %.val158, %199 ], [ %.val166, %263 ], [ %.val156, %261 ]
+  %295 = phi ptr [ @anon.15285cd795f513bdaa4bdcfb2bbacd31.64, %256 ], [ @anon.15285cd795f513bdaa4bdcfb2bbacd31.70, %286 ], [ @anon.15285cd795f513bdaa4bdcfb2bbacd31.69, %284 ], [ @anon.15285cd795f513bdaa4bdcfb2bbacd31.68, %296 ], [ @anon.15285cd795f513bdaa4bdcfb2bbacd31.71, %288 ], [ @anon.15285cd795f513bdaa4bdcfb2bbacd31.65, %259 ], [ @anon.15285cd795f513bdaa4bdcfb2bbacd31.64, %.preheader ], [ @anon.15285cd795f513bdaa4bdcfb2bbacd31.63, %199 ], [ @anon.15285cd795f513bdaa4bdcfb2bbacd31.67, %263 ], [ @anon.15285cd795f513bdaa4bdcfb2bbacd31.66, %261 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %293, i64 noundef %294, ptr noalias noundef readonly align 8 dereferenceable(24) %295) #23
           to label %.cont782 unwind label %195
 
@@ -9867,7 +9867,7 @@ define hidden void @_ZN14regex_automata3nfa8thompson10range_trie9RangeTrie4iter1
   br i1 %.not43, label %75, label %.lr.ph._crit_edge
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %63, %.lr.ph.preheader
-  %.lcssa227 = phi i64 [ %41, %.lr.ph.preheader ], [ %114, %63 ], [ %126, %.lr.ph ]
+  %.lcssa227 = phi i64 [ %114, %63 ], [ %41, %.lr.ph.preheader ], [ %126, %.lr.ph ]
   %69 = load i64, ptr %22, align 8, !alias.scope !1860, !noundef !4
   %70 = icmp eq i64 %69, 0
   br i1 %70, label %128, label %71

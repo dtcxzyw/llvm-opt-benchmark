@@ -1030,7 +1030,7 @@ xrun_recovery.exit.thread.loopexit:               ; preds = %16
   br label %xrun_recovery.exit.thread
 
 xrun_recovery.exit.thread:                        ; preds = %27, %18, %xrun_recovery.exit, %16, %xrun_recovery.exit.thread.loopexit, %25, %3, %5, %35
-  %.0 = phi i32 [ %38, %35 ], [ -1, %3 ], [ -1, %5 ], [ %.12.i, %25 ], [ 0, %xrun_recovery.exit.thread.loopexit ], [ -1, %16 ], [ -1, %xrun_recovery.exit ], [ -1, %18 ], [ -1, %27 ]
+  %.0 = phi i32 [ %38, %35 ], [ -1, %3 ], [ 0, %xrun_recovery.exit.thread.loopexit ], [ -1, %5 ], [ %.12.i, %25 ], [ -1, %16 ], [ -1, %xrun_recovery.exit ], [ -1, %18 ], [ -1, %27 ]
   ret i32 %.0
 }
 
@@ -1117,7 +1117,7 @@ xrun_recovery.exit.thread.loopexit:               ; preds = %22
   br label %xrun_recovery.exit.thread
 
 xrun_recovery.exit.thread:                        ; preds = %33, %24, %xrun_recovery.exit, %22, %xrun_recovery.exit.thread.loopexit, %31, %12, %3, %5, %38
-  %.0 = phi i32 [ -1, %3 ], [ 0, %12 ], [ %41, %38 ], [ -1, %5 ], [ %.12.i, %31 ], [ 0, %xrun_recovery.exit.thread.loopexit ], [ -1, %22 ], [ -1, %xrun_recovery.exit ], [ -1, %24 ], [ -1, %33 ]
+  %.0 = phi i32 [ -1, %3 ], [ 0, %12 ], [ 0, %xrun_recovery.exit.thread.loopexit ], [ %41, %38 ], [ -1, %5 ], [ %.12.i, %31 ], [ -1, %22 ], [ -1, %xrun_recovery.exit ], [ -1, %24 ], [ -1, %33 ]
   ret i32 %.0
 }
 

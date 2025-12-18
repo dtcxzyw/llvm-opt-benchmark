@@ -401,8 +401,8 @@ define dso_local i32 @blk_mq_get_tag(ptr noundef captures(none) %0) local_unname
   br label %122
 
 122:                                              ; preds = %111, %108
-  %123 = phi ptr [ null, %108 ], [ %.pre17, %111 ]
-  %124 = phi ptr [ %110, %108 ], [ %117, %111 ]
+  %123 = phi ptr [ %.pre17, %111 ], [ null, %108 ]
+  %124 = phi ptr [ %117, %111 ], [ %110, %108 ]
   call void @blk_mq_run_hw_queue(ptr noundef %123, i1 noundef zeroext false) #9
   %125 = call fastcc i32 @__blk_mq_get_tag(ptr noundef %0, ptr noundef nonnull %102)
   %126 = icmp eq i32 %125, -1

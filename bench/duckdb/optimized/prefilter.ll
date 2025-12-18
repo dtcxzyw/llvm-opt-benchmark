@@ -3170,7 +3170,7 @@ _ZNK10duckdb_re29Prefilter13LengthThenLexclERKNSt7__cxx1112basic_stringIcSt11cha
   br i1 %.not.i49.us.us, label %._crit_edge.thread.i.us.us, label %.lr.ph.split.i.us.us.backedge
 
 .lr.ph.split.i.us.us.backedge:                    ; preds = %_ZNK10duckdb_re29Prefilter13LengthThenLexclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.thread.i.us.us, %_ZNK10duckdb_re29Prefilter13LengthThenLexclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.thread.i.thread.us.us
-  %.02638.i.us.us.be = phi ptr [ %.026.i.us.us, %_ZNK10duckdb_re29Prefilter13LengthThenLexclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.thread.i.us.us ], [ %.026.i100.us.us, %_ZNK10duckdb_re29Prefilter13LengthThenLexclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.thread.i.thread.us.us ]
+  %.02638.i.us.us.be = phi ptr [ %.026.i100.us.us, %_ZNK10duckdb_re29Prefilter13LengthThenLexclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.thread.i.thread.us.us ], [ %.026.i.us.us, %_ZNK10duckdb_re29Prefilter13LengthThenLexclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.thread.i.us.us ]
   br label %.lr.ph.split.i.us.us, !llvm.loop !75
 
 ._crit_edge.thread.i.us.us:                       ; preds = %_ZNK10duckdb_re29Prefilter13LengthThenLexclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.thread.i.us.us, %.lr.ph.us
@@ -4121,7 +4121,7 @@ _ZN10duckdb_re29Prefilter4Info4PlusEPS1_.exit:    ; preds = %139
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph74, %.lr.ph79, %112, %83, %71, %54, %56, %168, %161, %147, %_ZN10duckdb_re29Prefilter4Info4PlusEPS1_.exit, %121, %118, %._crit_edge, %62, %46, %32, %_ZN10LogMessageD2Ev.exit
-  %.051 = phi ptr [ %11, %_ZN10LogMessageD2Ev.exit ], [ %169, %168 ], [ %33, %32 ], [ %47, %46 ], [ %55, %54 ], [ %57, %56 ], [ %63, %62 ], [ %167, %161 ], [ %95, %._crit_edge ], [ %120, %118 ], [ %123, %121 ], [ %126, %_ZN10duckdb_re29Prefilter4Info4PlusEPS1_.exit ], [ %148, %147 ], [ %72, %71 ], [ %84, %83 ], [ %113, %112 ], [ %91, %.lr.ph74 ], [ %79, %.lr.ph79 ], [ %117, %.lr.ph ]
+  %.051 = phi ptr [ %11, %_ZN10LogMessageD2Ev.exit ], [ %169, %168 ], [ %33, %32 ], [ %47, %46 ], [ %55, %54 ], [ %57, %56 ], [ %63, %62 ], [ %167, %161 ], [ %79, %.lr.ph79 ], [ %95, %._crit_edge ], [ %91, %.lr.ph74 ], [ %120, %118 ], [ %123, %121 ], [ %126, %_ZN10duckdb_re29Prefilter4Info4PlusEPS1_.exit ], [ %148, %147 ], [ %72, %71 ], [ %84, %83 ], [ %113, %112 ], [ %117, %.lr.ph ]
   ret ptr %.051
 }
 

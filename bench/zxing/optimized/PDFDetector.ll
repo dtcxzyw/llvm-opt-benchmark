@@ -2291,11 +2291,11 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.ex
   br label %.critedge
 
 .critedge:                                        ; preds = %127, %72
-  %133 = phi ptr [ %56, %72 ], [ %128, %127 ]
-  %134 = phi ptr [ %56, %72 ], [ %129, %127 ]
-  %.271 = phi i32 [ %.069132, %72 ], [ %.372, %127 ]
-  %.3 = phi i32 [ %.164136, %72 ], [ %.4, %127 ]
-  %.262 = phi i1 [ %.060137, %72 ], [ %132, %127 ]
+  %133 = phi ptr [ %128, %127 ], [ %56, %72 ]
+  %134 = phi ptr [ %129, %127 ], [ %56, %72 ]
+  %.271 = phi i32 [ %.372, %127 ], [ %.069132, %72 ]
+  %.3 = phi i32 [ %.4, %127 ], [ %.164136, %72 ]
+  %.262 = phi i1 [ %132, %127 ], [ %.060137, %72 ]
   %135 = add i32 %.068133, 1
   %exitcond.not = icmp eq i32 %135, %3
   br i1 %exitcond.not, label %.critedge._crit_edge, label %55, !llvm.loop !109
@@ -2382,7 +2382,7 @@ _ZN5ZXing6Pdf417L20PatternMatchVarianceERKSt6vectorIiSaIiEES5_f.exit101.thread.s
   br label %_ZN5ZXing6Pdf417L20PatternMatchVarianceERKSt6vectorIiSaIiEES5_f.exit101.thread
 
 _ZN5ZXing6Pdf417L20PatternMatchVarianceERKSt6vectorIiSaIiEES5_f.exit101.thread: ; preds = %.lr.ph17.i93, %_ZN5ZXing6Pdf417L20PatternMatchVarianceERKSt6vectorIiSaIiEES5_f.exit101.thread.sink.split, %137, %._crit_edge.i91, %.critedge._crit_edge, %_ZN5ZXing6Pdf417L20PatternMatchVarianceERKSt6vectorIiSaIiEES5_f.exit101
-  %.2 = phi i1 [ false, %_ZN5ZXing6Pdf417L20PatternMatchVarianceERKSt6vectorIiSaIiEES5_f.exit101 ], [ false, %.critedge._crit_edge ], [ false, %._crit_edge.i91 ], [ false, %137 ], [ true, %_ZN5ZXing6Pdf417L20PatternMatchVarianceERKSt6vectorIiSaIiEES5_f.exit101.thread.sink.split ], [ false, %.lr.ph17.i93 ]
+  %.2 = phi i1 [ true, %_ZN5ZXing6Pdf417L20PatternMatchVarianceERKSt6vectorIiSaIiEES5_f.exit101.thread.sink.split ], [ false, %137 ], [ false, %_ZN5ZXing6Pdf417L20PatternMatchVarianceERKSt6vectorIiSaIiEES5_f.exit101 ], [ false, %.critedge._crit_edge ], [ false, %._crit_edge.i91 ], [ false, %.lr.ph17.i93 ]
   ret i1 %.2
 }
 

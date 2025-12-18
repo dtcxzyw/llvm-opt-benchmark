@@ -1237,7 +1237,7 @@ define noalias noundef ptr @dt_update_cameras_thread(ptr noundef readnone captur
   br label %_have_camera_on_port.exit.i
 
 _have_camera_on_port.exit.i:                      ; preds = %103, %117, %135, %.loopexit.i, %93
-  %.1.i = phi i32 [ %.0146220.i, %93 ], [ 1, %.loopexit.i ], [ 1, %135 ], [ %.0146220.i, %117 ], [ %.0146220.i, %103 ]
+  %.1.i = phi i32 [ %.0146220.i, %93 ], [ 1, %.loopexit.i ], [ %.0146220.i, %117 ], [ 1, %135 ], [ %.0146220.i, %103 ]
   call void @g_free(ptr noundef nonnull %82) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %138 = add nuw nsw i32 %.0150219.i, 1

@@ -1380,7 +1380,7 @@ define hidden void @_ZN7datalog21mk_unbound_compressor12detect_tasksERKNS_8rule_
   br i1 %.not27.old.i.i.i, label %.loopexit, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %48, %45
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %48 ], [ %47, %45 ]
+  %.137.i.i.i.be = phi ptr [ %47, %45 ], [ %.old.i.i.i, %48 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !330
 
 .loopexit:                                        ; preds = %34, %45, %48, %.preheader.i.i.i
@@ -1822,7 +1822,7 @@ _ZNK14core_hashtableI18default_hash_entryISt4pairIP9func_decljEE9pair_hashI8ptr_
   br i1 %exitcond.not, label %_ZNK14core_hashtableI18default_hash_entryISt4pairIP9func_decljEE9pair_hashI8ptr_hashIS2_E13unsigned_hashE10default_eqIS4_EE8containsERKS4_.exit.thread155, label %74, !llvm.loop !345
 
 _ZNK14core_hashtableI18default_hash_entryISt4pairIP9func_decljEE9pair_hashI8ptr_hashIS2_E13unsigned_hashE10default_eqIS4_EE8containsERKS4_.exit: ; preds = %124, %140, %_ZN7counter5resetEv.exit
-  %storemerge113 = phi i32 [ 0, %_ZN7counter5resetEv.exit ], [ %102, %140 ], [ %102, %124 ]
+  %storemerge113 = phi i32 [ %102, %140 ], [ 0, %_ZN7counter5resetEv.exit ], [ %102, %124 ]
   %151 = icmp eq i32 %storemerge113, %28
   br i1 %151, label %_ZNK14core_hashtableI18default_hash_entryISt4pairIP9func_decljEE9pair_hashI8ptr_hashIS2_E13unsigned_hashE10default_eqIS4_EE8containsERKS4_.exit.thread155, label %152
 
@@ -3539,8 +3539,8 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit:            ; preds = %66, %72
   br label %_ZNK14core_hashtableI18default_hash_entryISt4pairIP9func_decljEE9pair_hashI8ptr_hashIS2_E13unsigned_hashE10default_eqIS4_EE8containsERKS4_.exit.thread
 
 _ZNK14core_hashtableI18default_hash_entryISt4pairIP9func_decljEE9pair_hashI8ptr_hashIS2_E13unsigned_hashE10default_eqIS4_EE8containsERKS4_.exit.thread: ; preds = %.lr.ph.i.i, %63, %.lr.ph34.i.i, %.preheader.i.i, %_ZN6vectorIjLb0EjE9push_backERKj.exit
-  %79 = phi i32 [ %.pre, %_ZN6vectorIjLb0EjE9push_backERKj.exit ], [ %13, %.preheader.i.i ], [ %13, %63 ], [ %13, %.lr.ph34.i.i ], [ %13, %.lr.ph.i.i ]
-  %80 = phi ptr [ %73, %_ZN6vectorIjLb0EjE9push_backERKj.exit ], [ %14, %.preheader.i.i ], [ %14, %63 ], [ %14, %.lr.ph34.i.i ], [ %14, %.lr.ph.i.i ]
+  %79 = phi i32 [ %13, %63 ], [ %.pre, %_ZN6vectorIjLb0EjE9push_backERKj.exit ], [ %13, %.preheader.i.i ], [ %13, %.lr.ph34.i.i ], [ %13, %.lr.ph.i.i ]
+  %80 = phi ptr [ %14, %63 ], [ %73, %_ZN6vectorIjLb0EjE9push_backERKj.exit ], [ %14, %.preheader.i.i ], [ %14, %.lr.ph34.i.i ], [ %14, %.lr.ph.i.i ]
   %81 = add nuw i32 %storemerge10, 1
   %82 = icmp ult i32 %81, %79
   br i1 %82, label %12, label %._crit_edge, !llvm.loop !366
@@ -3658,7 +3658,7 @@ _ZNK6vectorIjLb0EjE5emptyEv.exit:                 ; preds = %_ZNK6vectorIjLb0EjE
   br i1 %.not27.old.i.i, label %.loopexit, label %.lr.ph38.i.i.backedge
 
 .lr.ph38.i.i.backedge:                            ; preds = %64, %61
-  %.137.i.i.be = phi ptr [ %.old.i.i, %64 ], [ %63, %61 ]
+  %.137.i.i.be = phi ptr [ %63, %61 ], [ %.old.i.i, %64 ]
   br label %.lr.ph38.i.i, !llvm.loop !330
 
 .loopexit:                                        ; preds = %50, %64, %61, %.preheader.i.i

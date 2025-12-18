@@ -3071,7 +3071,7 @@ Res_SimDeriveInfoComplement.exit.sink.split:      ; preds = %26, %17
   br label %Res_SimDeriveInfoComplement.exit
 
 Res_SimDeriveInfoComplement.exit:                 ; preds = %._crit_edge.i124, %Res_SimDeriveInfoComplement.exit.sink.split, %.lr.ph35.i, %Res_SimSetGiven.exit119, %26, %17
-  %.053.shrunk = phi i32 [ 1, %.lr.ph35.i ], [ 1, %17 ], [ 1, %26 ], [ 1, %Res_SimSetGiven.exit119 ], [ %280, %Res_SimDeriveInfoComplement.exit.sink.split ], [ 1, %._crit_edge.i124 ]
+  %.053.shrunk = phi i32 [ 1, %.lr.ph35.i ], [ %280, %Res_SimDeriveInfoComplement.exit.sink.split ], [ 1, %17 ], [ 1, %26 ], [ 1, %Res_SimSetGiven.exit119 ], [ 1, %._crit_edge.i124 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

@@ -6742,7 +6742,7 @@ _ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h76147083c2b91f2fE.exit
   br label %3009
 
 .loopexit.split-lp4145:                           ; preds = %3012, %3019, %3022, %3025, %3026, %3029, %3031, %3034, %3036, %3038, %3052, %3058, %3083
-  %.2.ph = phi i1 [ true, %3083 ], [ true, %3012 ], [ true, %3019 ], [ true, %3025 ], [ true, %3026 ], [ true, %3022 ], [ true, %3029 ], [ true, %3031 ], [ true, %3034 ], [ true, %3036 ], [ true, %3038 ], [ false, %3052 ], [ false, %3058 ]
+  %.2.ph = phi i1 [ true, %3012 ], [ true, %3019 ], [ true, %3025 ], [ true, %3026 ], [ true, %3022 ], [ true, %3029 ], [ true, %3031 ], [ true, %3034 ], [ true, %3036 ], [ true, %3038 ], [ true, %3083 ], [ false, %3052 ], [ false, %3058 ]
   %lpad.loopexit.split-lp4147 = landingpad { ptr, i32 }
           cleanup
   br label %3009
@@ -19096,7 +19096,7 @@ _ZN18wasmtime_cranelift5debug9transform4refs11UnitRefsMap6insert17h5638f96c2c934
   br label %.body468
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.invoke, %285, %288, %421, %593
-  %.4338.ph.ph.ph = phi i8 [ 1, %593 ], [ 1, %.invoke ], [ 1, %285 ], [ 0, %288 ], [ 1, %421 ]
+  %.4338.ph.ph.ph = phi i8 [ 1, %285 ], [ 1, %.invoke ], [ 1, %593 ], [ 1, %421 ], [ 0, %288 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body468

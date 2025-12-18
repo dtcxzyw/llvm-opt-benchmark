@@ -4473,7 +4473,7 @@ _ZL10print_epotP8_IO_FILEliffif.exit498:          ; preds = %889, %894
   br i1 %.not.i500, label %_ZL18decrease_step_sizeN3gmx8ArrayRefI7t_shellEE.exit, label %.lr.ph.i499
 
 _ZL18decrease_step_sizeN3gmx8ArrayRefI7t_shellEE.exit: ; preds = %.lr.ph.i499, %920, %904, %921, %903
-  %.1331 = phi i32 [ %.pre-phi772, %903 ], [ %.0330715, %921 ], [ %.pre-phi772, %904 ], [ %.pre-phi772, %920 ], [ %.0330715, %.lr.ph.i499 ]
+  %.1331 = phi i32 [ %.pre-phi772, %903 ], [ %.pre-phi772, %904 ], [ %.0330715, %921 ], [ %.pre-phi772, %920 ], [ %.0330715, %.lr.ph.i499 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %60)
   %932 = add nuw nsw i32 %.0332714, 1
   %.0347.in = fcmp olt float %838, %83

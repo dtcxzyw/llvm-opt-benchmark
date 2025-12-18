@@ -1216,7 +1216,7 @@ define internal fastcc i64 @hwloc_utils_parse_restrict_flags(ptr noundef %0) unn
   br label %hwloc_utils_parse_flags.exit
 
 hwloc_utils_parse_flags.exit:                     ; preds = %.preheader.i, %26, %8, %._crit_edge.i, %.split19.us.i, %64
-  %.061.i = phi i64 [ %9, %8 ], [ 0, %._crit_edge.i ], [ -1, %.split19.us.i ], [ -1, %64 ], [ %.069.i, %26 ], [ %.069.i, %.preheader.i ]
+  %.061.i = phi i64 [ %9, %8 ], [ 0, %._crit_edge.i ], [ -1, %64 ], [ -1, %.split19.us.i ], [ %.069.i, %26 ], [ %.069.i, %.preheader.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.061.i
 }

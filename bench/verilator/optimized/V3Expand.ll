@@ -9869,7 +9869,7 @@ _ZN8AstConstC2EP8FileLineNS_10SizedEDataEm.exit:  ; preds = %82, %.noexc.i
   br label %96
 
 _ZN13ExpandVisitor12doExpandWideEP7AstNode.exit.thread: ; preds = %_ZNK7AstNode10widthWordsEv.exit, %_ZN8AstConstC2EP8FileLineNS_10SizedEDataEm.exit, %60, %29, %45
-  %.0.i26 = phi i1 [ false, %45 ], [ false, %29 ], [ true, %60 ], [ true, %_ZN8AstConstC2EP8FileLineNS_10SizedEDataEm.exit ], [ true, %_ZNK7AstNode10widthWordsEv.exit ]
+  %.0.i26 = phi i1 [ false, %29 ], [ false, %45 ], [ true, %60 ], [ true, %_ZN8AstConstC2EP8FileLineNS_10SizedEDataEm.exit ], [ true, %_ZNK7AstNode10widthWordsEv.exit ]
   ret i1 %.0.i26
 
 96:                                               ; preds = %.body, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22
@@ -10830,7 +10830,7 @@ _ZN8V3NumberD2Ev.exit:                            ; preds = %256, %_ZNKSt7__cxx1
   br label %306
 
 _ZN13ExpandVisitor12doExpandWideEP7AstNode.exit.thread: ; preds = %_ZNK7AstNode10widthWordsEv.exit, %90, %_ZNK7AstNode10widthWordsEv.exit100, %_ZN8V3NumberD2Ev.exit, %79, %125, %21, %36
-  %.0.i146 = phi i1 [ false, %36 ], [ false, %21 ], [ true, %125 ], [ true, %79 ], [ true, %_ZNK7AstNode10widthWordsEv.exit100 ], [ true, %_ZN8V3NumberD2Ev.exit ], [ true, %90 ], [ true, %_ZNK7AstNode10widthWordsEv.exit ]
+  %.0.i146 = phi i1 [ true, %125 ], [ false, %21 ], [ false, %36 ], [ true, %79 ], [ true, %_ZNK7AstNode10widthWordsEv.exit100 ], [ true, %_ZN8V3NumberD2Ev.exit ], [ true, %90 ], [ true, %_ZNK7AstNode10widthWordsEv.exit ]
   ret i1 %.0.i146
 
 306:                                              ; preds = %274, %305, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit98, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit88
@@ -11246,7 +11246,7 @@ _ZN5AstOrC2EP8FileLineP11AstNodeExprS3_.exit:     ; preds = %89, %84, %.noexc31
   br label %101
 
 _ZN13ExpandVisitor12doExpandWideEP7AstNode.exit.thread: ; preds = %_ZNK7AstNode10widthWordsEv.exit, %_ZN5AstOrC2EP8FileLineP11AstNodeExprS3_.exit, %_ZNK7AstNode8widthMinEv.exit, %29, %45
-  %.0.i33 = phi i1 [ false, %45 ], [ false, %29 ], [ true, %_ZNK7AstNode8widthMinEv.exit ], [ true, %_ZN5AstOrC2EP8FileLineP11AstNodeExprS3_.exit ], [ true, %_ZNK7AstNode10widthWordsEv.exit ]
+  %.0.i33 = phi i1 [ false, %29 ], [ false, %45 ], [ true, %_ZNK7AstNode8widthMinEv.exit ], [ true, %_ZN5AstOrC2EP8FileLineP11AstNodeExprS3_.exit ], [ true, %_ZNK7AstNode10widthWordsEv.exit ]
   ret i1 %.0.i33
 
 101:                                              ; preds = %99, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25
@@ -11501,7 +11501,7 @@ _ZN8AstConstC2EP8FileLineNS_10SizedEDataEm.exit:  ; preds = %95, %.noexc.i
   br label %108
 
 _ZN13ExpandVisitor12doExpandWideEP7AstNode.exit.thread: ; preds = %_ZNK7AstNode10widthWordsEv.exit31, %29, %45
-  %.0.i35 = phi i1 [ false, %45 ], [ false, %29 ], [ true, %_ZNK7AstNode10widthWordsEv.exit31 ]
+  %.0.i35 = phi i1 [ false, %29 ], [ false, %45 ], [ true, %_ZNK7AstNode10widthWordsEv.exit31 ]
   ret i1 %.0.i35
 
 108:                                              ; preds = %.body, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27
@@ -11914,7 +11914,7 @@ _ZN7AstNode18dtypeSetLogicSizedEi8VSigning.exit.loopexit: ; preds = %_ZNK7AstNod
   br i1 %.not.i.i50, label %_ZN13ExpandVisitor12doExpandWideEP7AstNode.exit.thread, label %_ZNK7AstNode10widthWordsEv.exit, !llvm.loop !167
 
 _ZN13ExpandVisitor12doExpandWideEP7AstNode.exit.thread: ; preds = %_ZNK7AstNode10widthWordsEv.exit, %_ZN7AstNode18dtypeSetLogicSizedEi8VSigning.exit.loopexit, %_ZNK7AstNode10widthWordsEv.exit.us70, %._ZN7AstNode18dtypeSetLogicSizedEi8VSigning.exit.loopexit_crit_edge.us, %_ZNK7AstNode10widthWordsEv.exit.us, %_ZN7AstNode18dtypeSetLogicSizedEi8VSigning.exit.us, %_ZN7AstNode9privateAsI8AstConstP11AstNodeExprEEPT_PS_.exit, %29, %45
-  %.0.i62 = phi i1 [ false, %45 ], [ false, %29 ], [ true, %_ZN7AstNode9privateAsI8AstConstP11AstNodeExprEEPT_PS_.exit ], [ true, %_ZNK7AstNode10widthWordsEv.exit.us70 ], [ true, %_ZNK7AstNode10widthWordsEv.exit.us ], [ true, %_ZN7AstNode18dtypeSetLogicSizedEi8VSigning.exit.us ], [ true, %._ZN7AstNode18dtypeSetLogicSizedEi8VSigning.exit.loopexit_crit_edge.us ], [ true, %_ZN7AstNode18dtypeSetLogicSizedEi8VSigning.exit.loopexit ], [ true, %_ZNK7AstNode10widthWordsEv.exit ]
+  %.0.i62 = phi i1 [ false, %29 ], [ false, %45 ], [ true, %_ZN7AstNode9privateAsI8AstConstP11AstNodeExprEEPT_PS_.exit ], [ true, %_ZNK7AstNode10widthWordsEv.exit.us ], [ true, %_ZNK7AstNode10widthWordsEv.exit.us70 ], [ true, %_ZN7AstNode18dtypeSetLogicSizedEi8VSigning.exit.us ], [ true, %._ZN7AstNode18dtypeSetLogicSizedEi8VSigning.exit.loopexit_crit_edge.us ], [ true, %_ZN7AstNode18dtypeSetLogicSizedEi8VSigning.exit.loopexit ], [ true, %_ZNK7AstNode10widthWordsEv.exit ]
   ret i1 %.0.i62
 
 173:                                              ; preds = %.split.us, %.split.us73, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47

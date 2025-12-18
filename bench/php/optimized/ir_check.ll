@@ -551,7 +551,7 @@ ir_check_domination.exit.thread:                  ; preds = %.preheader.i, %151,
   br label %ir_check_use_list.exit
 
 ir_check_use_list.exit:                           ; preds = %.lr.ph.i345, %47, %52, %50, %216, %227, %219, %214, %211, %.thread349, %.loopexit363
-  %.9 = phi i1 [ false, %.loopexit363 ], [ %.8, %.thread349 ], [ %.2268371, %219 ], [ false, %227 ], [ %.2268371, %216 ], [ %.2268371, %214 ], [ %.2268371, %211 ], [ %.2268371, %50 ], [ false, %52 ], [ false, %47 ], [ %.8, %.lr.ph.i345 ]
+  %.9 = phi i1 [ false, %47 ], [ false, %.loopexit363 ], [ %.8, %.thread349 ], [ %.2268371, %219 ], [ false, %227 ], [ %.2268371, %216 ], [ %.2268371, %214 ], [ %.2268371, %211 ], [ %.2268371, %50 ], [ false, %52 ], [ %.8, %.lr.ph.i345 ]
   %246 = add nuw nsw i32 %.0263372, 1
   %247 = getelementptr inbounds nuw i8, ptr %.0271370, i64 4
   %exitcond.not = icmp eq i32 %.0263372, %.0.i

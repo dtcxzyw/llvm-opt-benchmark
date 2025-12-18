@@ -3503,9 +3503,9 @@ define void @_ZN10uv_publish20files_for_publishing17h43351fed1361c64fE(ptr dead_
   br label %.invoke
 
 .invoke:                                          ; preds = %.preheader.i.preheader.split, %336, %333, %381, %352, %401
-  %403 = phi i64 [ %umax.i.i, %401 ], [ %umax.i23.i, %352 ], [ %337, %336 ], [ %383, %381 ], [ %334, %333 ], [ %363, %.preheader.i.preheader.split ]
-  %404 = phi i64 [ %298, %401 ], [ %298, %352 ], [ %298, %336 ], [ %298, %381 ], [ %300, %333 ], [ %300, %.preheader.i.preheader.split ]
-  %405 = phi ptr [ @anon.417ee57c2b5c22351b856cf25504d5b4.27, %401 ], [ @anon.417ee57c2b5c22351b856cf25504d5b4.27, %352 ], [ @anon.417ee57c2b5c22351b856cf25504d5b4.25, %336 ], [ @anon.417ee57c2b5c22351b856cf25504d5b4.25, %381 ], [ @anon.417ee57c2b5c22351b856cf25504d5b4.24, %333 ], [ @anon.417ee57c2b5c22351b856cf25504d5b4.24, %.preheader.i.preheader.split ]
+  %403 = phi i64 [ %umax.i.i, %401 ], [ %383, %381 ], [ %337, %336 ], [ %umax.i23.i, %352 ], [ %334, %333 ], [ %363, %.preheader.i.preheader.split ]
+  %404 = phi i64 [ %298, %401 ], [ %298, %381 ], [ %298, %336 ], [ %298, %352 ], [ %300, %333 ], [ %300, %.preheader.i.preheader.split ]
+  %405 = phi ptr [ @anon.417ee57c2b5c22351b856cf25504d5b4.27, %401 ], [ @anon.417ee57c2b5c22351b856cf25504d5b4.25, %381 ], [ @anon.417ee57c2b5c22351b856cf25504d5b4.25, %336 ], [ @anon.417ee57c2b5c22351b856cf25504d5b4.27, %352 ], [ @anon.417ee57c2b5c22351b856cf25504d5b4.24, %333 ], [ @anon.417ee57c2b5c22351b856cf25504d5b4.24, %.preheader.i.preheader.split ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h0328ca7e7f0749c4E(i64 noundef %403, i64 noundef %404, ptr noalias noundef readonly align 8 dereferenceable(24) %405) #21
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp
 

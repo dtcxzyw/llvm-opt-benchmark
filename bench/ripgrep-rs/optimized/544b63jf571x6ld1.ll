@@ -950,7 +950,7 @@ define internal noundef i32 @"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$a
   br i1 %118, label %119, label %.split210, !prof !18
 
 .loopexit:                                        ; preds = %114, %39, %.loopexit.split.loop.exit153.split.us, %19, %110, %99
-  %.1 = phi i32 [ %112, %110 ], [ %.068, %99 ], [ 0, %19 ], [ %28, %.loopexit.split.loop.exit153.split.us ], [ 0, %39 ], [ %116, %114 ]
+  %.1 = phi i32 [ %112, %110 ], [ %.068, %99 ], [ 0, %39 ], [ 0, %19 ], [ %28, %.loopexit.split.loop.exit153.split.us ], [ %116, %114 ]
   ret i32 %.1
 
 119:                                              ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9c10b3a9556de695E.exit.thread"

@@ -4259,7 +4259,7 @@ switch.early.test:                                ; preds = %106
   br label %110
 
 110:                                              ; preds = %switch.early.test, %switch.early.test, %.fold.split, %106, %109
-  %.0 = phi i32 [ %.069108, %109 ], [ 41, %switch.early.test ], [ 41, %switch.early.test ], [ 41, %106 ], [ %107, %.fold.split ]
+  %.0 = phi i32 [ 41, %106 ], [ %.069108, %109 ], [ 41, %switch.early.test ], [ 41, %switch.early.test ], [ %107, %.fold.split ]
   %111 = load i8, ptr %50, align 2, !tbaa !172, !range !42, !noundef !43
   %112 = trunc nuw i8 %111 to i1
   br i1 %112, label %118, label %113
@@ -7903,8 +7903,8 @@ _ZNSt10_HashtableIjSt4pairIKjS0_IblEESaIS3_ENSt8__detail10_Select1stESt8equal_to
   br label %.body979
 
 .loopexit1271:                                    ; preds = %1351, %.noexc978..loopexit1271_crit_edge, %1346
-  %1365 = phi i64 [ %1339, %1346 ], [ %.pre1489, %.noexc978..loopexit1271_crit_edge ], [ %1339, %1351 ]
-  %.pn.i.i = phi ptr [ %1347, %1346 ], [ %1363, %.noexc978..loopexit1271_crit_edge ], [ %1353, %1351 ]
+  %1365 = phi i64 [ %.pre1489, %.noexc978..loopexit1271_crit_edge ], [ %1339, %1346 ], [ %1339, %1351 ]
+  %.pn.i.i = phi ptr [ %1363, %.noexc978..loopexit1271_crit_edge ], [ %1347, %1346 ], [ %1353, %1351 ]
   %1366 = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 24
   %1367 = load i64, ptr %1366, align 8, !tbaa !274
   %1368 = add nsw i64 %1367, %1339
@@ -10270,7 +10270,7 @@ define internal fastcc ptr @"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPSt4p
   br label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESt6vectorIS9_SaIS9_EEEENS0_5__ops10_Iter_predIZN13sentencepiece16TrainerInterface13LoadSentencesEvE3$_2EEET_SL_SL_T0_.exit.i"
 
 "_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESt6vectorIS9_SaIS9_EEEENS0_5__ops10_Iter_predIZN13sentencepiece16TrainerInterface13LoadSentencesEvE3$_2EEET_SL_SL_T0_.exit.i": ; preds = %.lr.ph.i.i.i, %.loopexit.split.loop.exit45.i.i.i, %.loopexit.split.loop.exit43.i.i.i, %.loopexit.split.loop.exit41.i.i.i, %36, %31, %26
-  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.031.1.i.i.i, %31 ], [ %spec.select.i.i.i, %36 ], [ %.sroa.031.0.lcssa.i.i.i, %26 ], [ %40, %.loopexit.split.loop.exit43.i.i.i ], [ %39, %.loopexit.split.loop.exit41.i.i.i ], [ %41, %.loopexit.split.loop.exit45.i.i.i ], [ %.sroa.031.050.i.i.i, %.lr.ph.i.i.i ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.031.1.i.i.i, %31 ], [ %spec.select.i.i.i, %36 ], [ %41, %.loopexit.split.loop.exit45.i.i.i ], [ %.sroa.031.0.lcssa.i.i.i, %26 ], [ %40, %.loopexit.split.loop.exit43.i.i.i ], [ %39, %.loopexit.split.loop.exit41.i.i.i ], [ %.sroa.031.050.i.i.i, %.lr.ph.i.i.i ]
   %42 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i, %1
   %.sroa.07.022.i = getelementptr inbounds nuw i8, ptr %.sroa.08.0.in.sroa.speculated.i.i.i, i64 40
   %.not23.i = icmp eq ptr %.sroa.07.022.i, %1
@@ -10383,7 +10383,7 @@ _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElEaSEOS6_.exit.i:
   br i1 %.not.i, label %"_ZSt11__remove_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESt6vectorIS9_SaIS9_EEEENS0_5__ops10_Iter_predIZN13sentencepiece16TrainerInterface13LoadSentencesEvE3$_2EEET_SL_SL_T0_.exit", label %.lr.ph.i, !llvm.loop !316
 
 "_ZSt11__remove_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESt6vectorIS9_SaIS9_EEEENS0_5__ops10_Iter_predIZN13sentencepiece16TrainerInterface13LoadSentencesEvE3$_2EEET_SL_SL_T0_.exit": ; preds = %80, %._crit_edge.i.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESt6vectorIS9_SaIS9_EEEENS0_5__ops10_Iter_predIZN13sentencepiece16TrainerInterface13LoadSentencesEvE3$_2EEET_SL_SL_T0_.exit.i"
-  %.sroa.013.0.i = phi ptr [ %.sroa.08.0.in.sroa.speculated.i.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESt6vectorIS9_SaIS9_EEEENS0_5__ops10_Iter_predIZN13sentencepiece16TrainerInterface13LoadSentencesEvE3$_2EEET_SL_SL_T0_.exit.i" ], [ %1, %._crit_edge.i.i.i ], [ %.sroa.013.2.i, %80 ]
+  %.sroa.013.0.i = phi ptr [ %1, %._crit_edge.i.i.i ], [ %.sroa.08.0.in.sroa.speculated.i.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESt6vectorIS9_SaIS9_EEEENS0_5__ops10_Iter_predIZN13sentencepiece16TrainerInterface13LoadSentencesEvE3$_2EEET_SL_SL_T0_.exit.i" ], [ %.sroa.013.2.i, %80 ]
   ret ptr %.sroa.013.0.i
 }
 
@@ -10452,7 +10452,7 @@ _ZNSt10_HashtableIjSt4pairIKjS0_IblEESaIS3_ENSt8__detail10_Select1stESt8equal_to
   resume { ptr, i32 } %29
 
 _ZNSt8__detail9_Map_baseIjSt4pairIKjS1_IblEESaIS4_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS2_.exit: ; preds = %16, %11, %.loopexit.i
-  %.pn.i = phi ptr [ %12, %11 ], [ %28, %.loopexit.i ], [ %18, %16 ]
+  %.pn.i = phi ptr [ %28, %.loopexit.i ], [ %12, %11 ], [ %18, %16 ]
   %.1.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 16
   ret ptr %.1.i
 }
@@ -19378,7 +19378,7 @@ _ZSt8_DestroyISt6threadEvPT_.exit.i.i.i.i:        ; preds = %._crit_edge, %6
   unreachable
 
 _ZSt8_DestroyIPSt6threadS0_EvT_S2_RSaIT0_E.exit.i: ; preds = %6, %1, %._crit_edge
-  %9 = phi ptr [ %.pre, %._crit_edge ], [ %3, %1 ], [ %.pre, %6 ]
+  %9 = phi ptr [ %3, %1 ], [ %.pre, %._crit_edge ], [ %.pre, %6 ]
   %.not.i.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorISt6threadSaIS0_EED2Ev.exit, label %10
 
@@ -19444,7 +19444,7 @@ _ZSt8_DestroyISt6threadEvPT_.exit.i.i.i.i.i:      ; preds = %._crit_edge.i, %6
   unreachable
 
 _ZSt8_DestroyIPSt6threadS0_EvT_S2_RSaIT0_E.exit.i.i: ; preds = %6, %._crit_edge.i, %1
-  %9 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %3, %1 ], [ %.pre.i, %6 ]
+  %9 = phi ptr [ %3, %1 ], [ %.pre.i, %._crit_edge.i ], [ %.pre.i, %6 ]
   %.not.i.i.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i.i.i, label %_ZN13sentencepiece10ThreadPoolD2Ev.exit, label %10
 
@@ -21676,7 +21676,7 @@ _ZNSt10_HashtableIjSt4pairIKjlESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4
   resume { ptr, i32 } %46
 
 _ZNKSt10_HashtableIjSt4pairIKjlESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS1_m.exit: ; preds = %35, %21, %30
-  %.sroa.043.0.ph = phi ptr [ %31, %30 ], [ %.sroa.035.0, %21 ], [ %37, %35 ]
+  %.sroa.043.0.ph = phi ptr [ %.sroa.035.0, %21 ], [ %31, %30 ], [ %37, %35 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 24) #30
   br label %_ZNSt10_HashtableIjSt4pairIKjlESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 

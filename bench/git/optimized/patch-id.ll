@@ -305,7 +305,7 @@ skip_prefix.exit93.i.i:                           ; preds = %102
   br label %scan_hunk_header.exit.i.i, !llvm.loop !57
 
 skip_prefix.exit.thread.i.i:                      ; preds = %96, %skip_prefix.exit.i.i, %108, %skip_prefix.exit93.i.i
-  %.0111.i.i = phi ptr [ %95, %108 ], [ %95, %skip_prefix.exit93.i.i ], [ %scevgep167.i.i, %skip_prefix.exit.i.i ], [ %scevgep.i.i, %96 ]
+  %.0111.i.i = phi ptr [ %95, %108 ], [ %scevgep167.i.i, %skip_prefix.exit.i.i ], [ %95, %skip_prefix.exit93.i.i ], [ %scevgep.i.i, %96 ]
   %118 = call i32 @get_oid_hex(ptr noundef %.0111.i.i, ptr noundef nonnull %9) #9
   %.not73.i.i = icmp eq i32 %118, 0
   br i1 %.not73.i.i, label %get_one_patchid.exit.i, label %119

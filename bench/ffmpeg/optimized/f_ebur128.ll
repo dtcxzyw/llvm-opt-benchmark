@@ -1715,7 +1715,7 @@ get_graph_color.exit548.i:                        ; preds = %581, %.lr.ph620.i
   br label %filter_frame.exit
 
 filter_frame.exit:                                ; preds = %625, %64, %.thread552.i, %633, %._crit_edge651.i
-  %.2.i = phi i32 [ %753, %._crit_edge651.i ], [ %636, %633 ], [ %69, %64 ], [ %503, %.thread552.i ], [ -12, %625 ]
+  %.2.i = phi i32 [ %503, %.thread552.i ], [ %753, %._crit_edge651.i ], [ %636, %633 ], [ %69, %64 ], [ -12, %625 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -2681,7 +2681,7 @@ define internal range(i32 -2147483648, 1) i32 @config_audio_output(ptr noundef %
   br label %.thread
 
 .thread:                                          ; preds = %56, %89, %91, %79, %117, %24, %34, %36, %1, %18, %20, %22, %93, %120
-  %.0 = phi i32 [ -12, %89 ], [ 0, %120 ], [ -12, %24 ], [ %112, %93 ], [ -12, %1 ], [ -12, %22 ], [ -12, %20 ], [ -12, %18 ], [ -12, %36 ], [ -12, %34 ], [ -12, %117 ], [ -12, %79 ], [ -12, %91 ], [ -12, %56 ]
+  %.0 = phi i32 [ -12, %89 ], [ 0, %120 ], [ -12, %24 ], [ %112, %93 ], [ -12, %1 ], [ -12, %22 ], [ -12, %20 ], [ -12, %18 ], [ -12, %36 ], [ -12, %34 ], [ -12, %117 ], [ -12, %91 ], [ -12, %79 ], [ -12, %56 ]
   ret i32 %.0
 }
 

@@ -2144,8 +2144,8 @@ Vec_IntFree.exit:                                 ; preds = %._crit_edge1381, %7
   br label %709
 
 .preheader1272:                                   ; preds = %709, %.preheader1273, %.loopexit1274
-  %.012201710 = phi ptr [ %.01220, %.loopexit1274 ], [ %495, %.preheader1273 ], [ %.01220, %709 ]
-  %707 = phi ptr [ %704, %.loopexit1274 ], [ %.pre.i8791562, %.preheader1273 ], [ %704, %709 ]
+  %.012201710 = phi ptr [ %495, %.preheader1273 ], [ %.01220, %.loopexit1274 ], [ %.01220, %709 ]
+  %707 = phi ptr [ %.pre.i8791562, %.preheader1273 ], [ %704, %.loopexit1274 ], [ %704, %709 ]
   %708 = icmp sgt i32 %28, 0
   br i1 %708, label %.lr.ph1402, label %._crit_edge1403
 
@@ -2670,9 +2670,9 @@ Vec_PtrGrow.exit.i929:                            ; preds = %887, %885
   br i1 %922, label %thread-pre-split, label %.critedge19.thread
 
 .critedge19:                                      ; preds = %.loopexit, %721, %790, %909, %907
-  %.3582.ph = phi ptr [ %.15801410, %909 ], [ %.5584, %907 ], [ %.15801410, %790 ], [ %.15801410, %721 ], [ %.15801410, %.loopexit ]
-  %.3572.ph = phi ptr [ %.15701411, %909 ], [ %.5574, %907 ], [ %.15701411, %790 ], [ %.15701411, %721 ], [ %.15701411, %.loopexit ]
-  %.3562.ph = phi ptr [ %.15601412, %909 ], [ %.15601412, %907 ], [ %.15601412, %.loopexit ], [ %.15601412, %721 ], [ %.5564, %790 ]
+  %.3582.ph = phi ptr [ %.5584, %907 ], [ %.15801410, %909 ], [ %.15801410, %790 ], [ %.15801410, %721 ], [ %.15801410, %.loopexit ]
+  %.3572.ph = phi ptr [ %.5574, %907 ], [ %.15701411, %909 ], [ %.15701411, %790 ], [ %.15701411, %721 ], [ %.15701411, %.loopexit ]
+  %.3562.ph = phi ptr [ %.15601412, %907 ], [ %.15601412, %909 ], [ %.15601412, %.loopexit ], [ %.15601412, %721 ], [ %.5564, %790 ]
   %puts709 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
   %.not710 = icmp eq ptr %.15561413, null
   br i1 %.not710, label %924, label %923
@@ -4063,7 +4063,7 @@ Vec_IntFree.exit1157:                             ; preds = %1503, %1505
   br label %Vec_StrFree.exit
 
 Vec_StrFree.exit:                                 ; preds = %Gia_AigerReadInt.exit1101, %Vec_IntPush.exit1081, %Vec_IntPush.exit1059, %Vec_IntPush.exit1033, %Gia_AigerReadInt.exit1091, %Vec_IntAlloc.exit1069, %Vec_IntAlloc.exit1047, %Vec_IntAlloc.exit1021, %979, %Vec_StrStart.exit, %Vec_IntStart.exit1129, %Vec_StrFree.exit1117, %Vec_StrFree.exit985, %Vec_IntStart.exit974, %Vec_IntStart.exit, %Gia_AigerReadInt.exit963, %Vec_FltStart.exit958, %Vec_FltStart.exit, %Gia_AigerReadInt.exit941, %Gia_AigerReadInt.exit936, %Gia_AigerReadInt.exit990, %1147, %Abc_UtilStrsav.exit997, %Gia_AigerReadInt.exit1106, %Vec_IntFree.exit1157, %Gia_AigerReadInt.exit1007, %Gia_AigerReadInt.exit995
-  %.2601 = phi i32 [ %.16001438, %Vec_IntFree.exit1157 ], [ %.16001438, %Vec_IntStart.exit1129 ], [ %.16001438, %Gia_AigerReadInt.exit936 ], [ %.16001438, %Gia_AigerReadInt.exit1007 ], [ %.16001438, %Gia_AigerReadInt.exit941 ], [ %.16001438, %Vec_StrFree.exit1117 ], [ %.16001438, %Vec_FltStart.exit ], [ %.16001438, %1147 ], [ %.16001438, %Vec_FltStart.exit958 ], [ %.16001438, %Gia_AigerReadInt.exit1106 ], [ %.16001438, %Gia_AigerReadInt.exit963 ], [ %.16001438, %Vec_IntStart.exit ], [ %.16001438, %Vec_IntStart.exit974 ], [ 1, %Vec_StrFree.exit985 ], [ %.16001438, %Gia_AigerReadInt.exit990 ], [ %.16001438, %Gia_AigerReadInt.exit995 ], [ %.16001438, %Abc_UtilStrsav.exit997 ], [ %.16001438, %Vec_StrStart.exit ], [ %.16001438, %979 ], [ %.16001438, %Vec_IntAlloc.exit1069 ], [ %.16001438, %Vec_IntAlloc.exit1021 ], [ %.16001438, %Vec_IntAlloc.exit1047 ], [ %.16001438, %Gia_AigerReadInt.exit1091 ], [ %.16001438, %Vec_IntPush.exit1081 ], [ %.16001438, %Vec_IntPush.exit1033 ], [ %.16001438, %Vec_IntPush.exit1059 ], [ %.16001438, %Gia_AigerReadInt.exit1101 ]
+  %.2601 = phi i32 [ %.16001438, %Vec_IntFree.exit1157 ], [ %.16001438, %Vec_IntAlloc.exit1047 ], [ %.16001438, %Vec_IntStart.exit1129 ], [ %.16001438, %Gia_AigerReadInt.exit936 ], [ %.16001438, %Gia_AigerReadInt.exit1007 ], [ %.16001438, %Gia_AigerReadInt.exit941 ], [ %.16001438, %Vec_StrFree.exit1117 ], [ %.16001438, %Vec_FltStart.exit ], [ %.16001438, %1147 ], [ %.16001438, %Vec_FltStart.exit958 ], [ %.16001438, %Gia_AigerReadInt.exit1106 ], [ %.16001438, %Gia_AigerReadInt.exit963 ], [ %.16001438, %Vec_IntAlloc.exit1021 ], [ %.16001438, %Vec_IntStart.exit ], [ %.16001438, %Vec_IntAlloc.exit1069 ], [ %.16001438, %Vec_IntStart.exit974 ], [ %.16001438, %979 ], [ 1, %Vec_StrFree.exit985 ], [ %.16001438, %Gia_AigerReadInt.exit990 ], [ %.16001438, %Gia_AigerReadInt.exit995 ], [ %.16001438, %Abc_UtilStrsav.exit997 ], [ %.16001438, %Vec_StrStart.exit ], [ %.16001438, %Gia_AigerReadInt.exit1091 ], [ %.16001438, %Vec_IntPush.exit1081 ], [ %.16001438, %Vec_IntPush.exit1033 ], [ %.16001438, %Vec_IntPush.exit1059 ], [ %.16001438, %Gia_AigerReadInt.exit1101 ]
   %1506 = load ptr, ptr %6, align 8, !tbaa !40
   %1507 = icmp ult ptr %1506, %715
   br i1 %1507, label %958, label %._crit_edge1441, !llvm.loop !120

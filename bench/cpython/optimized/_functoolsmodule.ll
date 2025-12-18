@@ -1524,7 +1524,7 @@ Py_DECREF.exit52.i:                               ; preds = %107, %104, %102
   br label %Py_XDECREF.exit69.i
 
 Py_XDECREF.exit69.i:                              ; preds = %Py_DECREF.exit.i, %120, %117, %.loopexit.i, %41
-  %.03314.i = phi ptr [ %.2.ph.ph.i, %120 ], [ %.2.ph.ph.i, %.loopexit.i ], [ %.2.ph.ph.i, %117 ], [ %.038, %41 ], [ %.1.i, %Py_DECREF.exit.i ]
+  %.03314.i = phi ptr [ %.038, %41 ], [ %.2.ph.ph.i, %120 ], [ %.2.ph.ph.i, %.loopexit.i ], [ %.2.ph.ph.i, %117 ], [ %.1.i, %Py_DECREF.exit.i ]
   %.not.i70.i = icmp eq ptr %.03314.i, null
   br i1 %.not.i70.i, label %Py_XDECREF.exit72.i, label %121
 
@@ -2195,7 +2195,7 @@ Py_DECREF.exit49:                                 ; preds = %Py_DECREF.exit51, %
   br label %Py_DECREF.exit47
 
 Py_DECREF.exit47:                                 ; preds = %Py_DECREF.exit59, %Py_DECREF.exit55, %89, %86, %Py_DECREF.exit49, %10
-  %.027 = phi ptr [ null, %10 ], [ %74, %Py_DECREF.exit49 ], [ %74, %86 ], [ %74, %89 ], [ null, %Py_DECREF.exit55 ], [ null, %Py_DECREF.exit59 ]
+  %.027 = phi ptr [ null, %10 ], [ null, %Py_DECREF.exit55 ], [ %74, %89 ], [ %74, %Py_DECREF.exit49 ], [ %74, %86 ], [ null, %Py_DECREF.exit59 ]
   call void @Py_ReprLeave(ptr noundef %0) #10
   br label %95
 
@@ -5307,7 +5307,7 @@ _Py_NewRef.exit.sink.split:                       ; preds = %24, %21
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %_Py_NewRef.exit73, %_Py_NewRef.exit.sink.split, %88, %24, %21, %.loopexit, %._crit_edge91, %27
-  %.0 = phi ptr [ %33, %88 ], [ null, %27 ], [ %33, %.loopexit ], [ %33, %._crit_edge91 ], [ %19, %21 ], [ %1, %24 ], [ %.sink115, %_Py_NewRef.exit.sink.split ], [ %33, %_Py_NewRef.exit73 ]
+  %.0 = phi ptr [ %33, %88 ], [ null, %27 ], [ %33, %.loopexit ], [ %33, %._crit_edge91 ], [ %.sink115, %_Py_NewRef.exit.sink.split ], [ %19, %21 ], [ %1, %24 ], [ %33, %_Py_NewRef.exit73 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

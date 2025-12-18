@@ -1564,7 +1564,7 @@ _ZN4core5slice4sort6shared17find_existing_run17h54258589463b33daE.exit.i: ; pred
   br label %_ZN4core5slice4sort6stable5drift10create_run17h3db7bdccf6f2b066E.exit
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17hdb07b2d4f00dba7eE.exit.i": ; preds = %_ZN4core10intrinsics25typed_swap_nonoverlapping17heeed44aec9cb3ce3E.exit.i.i.i, %.preheader28.i, %58, %25
-  %.sroa.0.0.i2427.i = phi i64 [ %.sroa.0.0.i.i, %58 ], [ %22, %25 ], [ 2, %.preheader28.i ], [ %.sroa.0.0.i606770.i, %_ZN4core10intrinsics25typed_swap_nonoverlapping17heeed44aec9cb3ce3E.exit.i.i.i ]
+  %.sroa.0.0.i2427.i = phi i64 [ %22, %25 ], [ %.sroa.0.0.i.i, %58 ], [ 2, %.preheader28.i ], [ %.sroa.0.0.i606770.i, %_ZN4core10intrinsics25typed_swap_nonoverlapping17heeed44aec9cb3ce3E.exit.i.i.i ]
   %65 = shl i64 %.sroa.0.0.i2427.i, 1
   %66 = or disjoint i64 %65, 1
   br label %_ZN4core5slice4sort6stable5drift10create_run17h3db7bdccf6f2b066E.exit
@@ -1867,7 +1867,7 @@ _ZN4core5slice4sort6shared17find_existing_run17h8119a4cfc0abc40dE.exit.i: ; pred
   br label %_ZN4core5slice4sort6stable5drift10create_run17h59ae8ef005b1e981E.exit
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17had2bff8ebc1ba293E.exit.i": ; preds = %_ZN4core10intrinsics25typed_swap_nonoverlapping17h56c5abd64664affeE.exit.i.i.i, %.preheader28.i, %58, %25
-  %.sroa.0.0.i2427.i = phi i64 [ %.sroa.0.0.i.i, %58 ], [ %22, %25 ], [ 2, %.preheader28.i ], [ %.sroa.0.0.i606770.i, %_ZN4core10intrinsics25typed_swap_nonoverlapping17h56c5abd64664affeE.exit.i.i.i ]
+  %.sroa.0.0.i2427.i = phi i64 [ %22, %25 ], [ %.sroa.0.0.i.i, %58 ], [ 2, %.preheader28.i ], [ %.sroa.0.0.i606770.i, %_ZN4core10intrinsics25typed_swap_nonoverlapping17h56c5abd64664affeE.exit.i.i.i ]
   %65 = shl i64 %.sroa.0.0.i2427.i, 1
   %66 = or disjoint i64 %65, 1
   br label %_ZN4core5slice4sort6stable5drift10create_run17h59ae8ef005b1e981E.exit
@@ -2170,7 +2170,7 @@ _ZN4core5slice4sort6shared17find_existing_run17hefe0c4dbbdcaee50E.exit.i: ; pred
   br label %_ZN4core5slice4sort6stable5drift10create_run17h7919003b3a7e1274E.exit
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17hdb07b2d4f00dba7eE.exit.i": ; preds = %_ZN4core10intrinsics25typed_swap_nonoverlapping17heeed44aec9cb3ce3E.exit.i.i.i, %.preheader28.i, %58, %25
-  %.sroa.0.0.i2427.i = phi i64 [ %.sroa.0.0.i.i, %58 ], [ %22, %25 ], [ 2, %.preheader28.i ], [ %.sroa.0.0.i606770.i, %_ZN4core10intrinsics25typed_swap_nonoverlapping17heeed44aec9cb3ce3E.exit.i.i.i ]
+  %.sroa.0.0.i2427.i = phi i64 [ %22, %25 ], [ %.sroa.0.0.i.i, %58 ], [ 2, %.preheader28.i ], [ %.sroa.0.0.i606770.i, %_ZN4core10intrinsics25typed_swap_nonoverlapping17heeed44aec9cb3ce3E.exit.i.i.i ]
   %65 = shl i64 %.sroa.0.0.i2427.i, 1
   %66 = or disjoint i64 %65, 1
   br label %_ZN4core5slice4sort6stable5drift10create_run17h7919003b3a7e1274E.exit

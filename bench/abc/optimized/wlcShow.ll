@@ -908,7 +908,7 @@ Wlc_ObjCo2PoFo.exit518:                           ; preds = %395, %399
   br i1 %409, label %387, label %.critedge8.preheader, !llvm.loop !42
 
 .critedge10.preheader:                            ; preds = %.critedge8, %.critedge6, %.critedge8.preheader
-  %.val432580646 = phi i32 [ %.val430, %.critedge8.preheader ], [ %.val430568, %.critedge6 ], [ %.val431, %.critedge8 ]
+  %.val432580646 = phi i32 [ %.val430568, %.critedge6 ], [ %.val430, %.critedge8.preheader ], [ %.val431, %.critedge8 ]
   %.val428576 = load i32, ptr %89, align 4, !tbaa !3
   %410 = icmp sgt i32 %.val428576, 0
   br i1 %410, label %.lr.ph579, label %.critedge12.preheader

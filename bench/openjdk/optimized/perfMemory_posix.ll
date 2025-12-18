@@ -1864,8 +1864,8 @@ _ZL15filename_to_pidPKc.exit:                     ; preds = %67, %72, %78, %80
   br i1 %.not6578, label %.outer71, label %.lr.ph79, !llvm.loop !27
 
 .outer71:                                         ; preds = %.outer, %.backedge, %64
-  %.154.ph.lcssa = phi i64 [ %.053.ph91, %64 ], [ %.154.ph86, %.backedge ], [ %.255, %.outer ]
-  %.1.ph.lcssa = phi ptr [ %.052.ph92, %64 ], [ %.1.ph87, %.backedge ], [ %.2, %.outer ]
+  %.154.ph.lcssa = phi i64 [ %.154.ph86, %.backedge ], [ %.053.ph91, %64 ], [ %.255, %.outer ]
+  %.1.ph.lcssa = phi ptr [ %.1.ph87, %.backedge ], [ %.052.ph92, %64 ], [ %.2, %.outer ]
   %115 = call noundef i32 @_ZN2os8closedirEP11__dirstream(ptr noundef nonnull %49) #13
   call void @_Z8FreeHeapPv(ptr noundef nonnull %46) #13
   %116 = call noundef ptr @_ZN2os7readdirEP11__dirstream(ptr noundef nonnull %25) #13
@@ -1873,7 +1873,7 @@ _ZL15filename_to_pidPKc.exit:                     ; preds = %67, %72, %78, %80
   br i1 %.not76, label %.outer71._crit_edge, label %.lr.ph, !llvm.loop !25
 
 .outer71._crit_edge:                              ; preds = %.outer71, %.backedge72, %27
-  %.052.ph.lcssa = phi ptr [ null, %27 ], [ %.052.ph92, %.backedge72 ], [ %.1.ph.lcssa, %.outer71 ]
+  %.052.ph.lcssa = phi ptr [ %.052.ph92, %.backedge72 ], [ null, %27 ], [ %.1.ph.lcssa, %.outer71 ]
   %117 = call noundef i32 @_ZN2os8closedirEP11__dirstream(ptr noundef nonnull %25) #13
   br label %118
 

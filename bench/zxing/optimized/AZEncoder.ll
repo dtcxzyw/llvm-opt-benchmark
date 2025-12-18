@@ -562,12 +562,12 @@ _ZN5ZXing5AztecL19GenerateModeMessageEbiiRNS_8BitArrayE.exit.thread: ; preds = %
   br label %.body
 
 .loopexit392:                                     ; preds = %102, %74, %75
-  %193 = phi ptr [ %61, %75 ], [ %61, %74 ], [ %.pre783, %102 ]
-  %194 = phi ptr [ %60, %75 ], [ %60, %74 ], [ %.pre, %102 ]
-  %.0176.ph = phi i32 [ %55, %75 ], [ %55, %74 ], [ %.3, %102 ]
-  %.0175.ph = phi i32 [ %52, %75 ], [ %52, %74 ], [ %95, %102 ]
-  %.0172.ph = phi i32 [ %26, %75 ], [ %26, %74 ], [ %91, %102 ]
-  %.0170.ph = phi i1 [ true, %75 ], [ false, %74 ], [ %89, %102 ]
+  %193 = phi ptr [ %61, %74 ], [ %61, %75 ], [ %.pre783, %102 ]
+  %194 = phi ptr [ %60, %74 ], [ %60, %75 ], [ %.pre, %102 ]
+  %.0176.ph = phi i32 [ %55, %74 ], [ %55, %75 ], [ %.3, %102 ]
+  %.0175.ph = phi i32 [ %52, %74 ], [ %52, %75 ], [ %95, %102 ]
+  %.0172.ph = phi i32 [ %26, %74 ], [ %26, %75 ], [ %91, %102 ]
+  %.0170.ph = phi i1 [ false, %74 ], [ true, %75 ], [ %89, %102 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)

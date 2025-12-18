@@ -902,7 +902,7 @@ Vec_IntFind.exit:                                 ; preds = %136, %Vec_IntPush.e
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.critedge4, %22, %.loopexit.loopexit192, %.critedge4.preheader
-  %.073 = phi i64 [ 1311768465173141112, %.loopexit.loopexit192 ], [ -8690466094656961759, %.critedge4.preheader ], [ %.075, %22 ], [ -8690466094656961759, %.critedge4 ]
+  %.073 = phi i64 [ %.075, %22 ], [ 1311768465173141112, %.loopexit.loopexit192 ], [ -8690466094656961759, %.critedge4.preheader ], [ -8690466094656961759, %.critedge4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i64 %.073
 }
@@ -1848,7 +1848,7 @@ sat_solver_random_polarity.exit:                  ; preds = %.critedge.i, %.lr.p
   br label %.thread
 
 .thread:                                          ; preds = %sat_solver_random_polarity.exit, %sat_solver_random_polarity.exit.us, %.thread.loopexit94, %.thread.loopexit
-  %.1.ph = phi i32 [ %17, %sat_solver_random_polarity.exit.us ], [ -2, %.thread.loopexit94 ], [ -2, %.thread.loopexit ], [ %45, %sat_solver_random_polarity.exit ]
+  %.1.ph = phi i32 [ -2, %.thread.loopexit94 ], [ -2, %.thread.loopexit ], [ %17, %sat_solver_random_polarity.exit.us ], [ %45, %sat_solver_random_polarity.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.critedge
 

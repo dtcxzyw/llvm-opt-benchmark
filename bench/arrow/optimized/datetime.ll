@@ -2036,7 +2036,7 @@ _ZNSt6vectorIN14arrow_vendored4date6detail10transitionESaIS3_EE7emplaceIJRKNSt6c
   br label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN14arrow_vendored4date6detail15expanded_ttinfoESt6vectorIS5_SaIS5_EEEEZNS3_9time_zone9load_dataIiEEvRSiiiiiEUlRKS5_E_ET_SH_SH_T0_.exit
 
 _ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN14arrow_vendored4date6detail15expanded_ttinfoESt6vectorIS5_SaIS5_EEEEZNS3_9time_zone9load_dataIiEEvRSiiiiiEUlRKS5_E_ET_SH_SH_T0_.exit: ; preds = %.lr.ph.i.i.i, %.loopexit.split.loop.exit39.i.i.i, %.loopexit.split.loop.exit37.i.i.i, %.loopexit.split.loop.exit35.i.i.i, %239, %233, %227
-  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.025.1.i.i.i, %233 ], [ %spec.select.i.i.i, %239 ], [ %.sroa.025.0.lcssa.i.i.i, %227 ], [ %244, %.loopexit.split.loop.exit37.i.i.i ], [ %243, %.loopexit.split.loop.exit35.i.i.i ], [ %245, %.loopexit.split.loop.exit39.i.i.i ], [ %.sroa.025.044.i.i.i, %.lr.ph.i.i.i ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.025.1.i.i.i, %233 ], [ %spec.select.i.i.i, %239 ], [ %245, %.loopexit.split.loop.exit39.i.i.i ], [ %.sroa.025.0.lcssa.i.i.i, %227 ], [ %244, %.loopexit.split.loop.exit37.i.i.i ], [ %243, %.loopexit.split.loop.exit35.i.i.i ], [ %.sroa.025.044.i.i.i, %.lr.ph.i.i.i ]
   %246 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i, %199
   br i1 %246, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN14arrow_vendored4date6detail15expanded_ttinfoESt6vectorIS5_SaIS5_EEEEZNS3_9time_zone9load_dataIiEEvRSiiiiiEUlRKS5_E_ET_SH_SH_T0_.exit.thread, label %249
 
@@ -2786,7 +2786,7 @@ _ZNSt6vectorIN14arrow_vendored4date6detail10transitionESaIS3_EE7emplaceIJRKNSt6c
   br label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN14arrow_vendored4date6detail15expanded_ttinfoESt6vectorIS5_SaIS5_EEEEZNS3_9time_zone9load_dataIlEEvRSiiiiiEUlRKS5_E_ET_SH_SH_T0_.exit
 
 _ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN14arrow_vendored4date6detail15expanded_ttinfoESt6vectorIS5_SaIS5_EEEEZNS3_9time_zone9load_dataIlEEvRSiiiiiEUlRKS5_E_ET_SH_SH_T0_.exit: ; preds = %.lr.ph.i.i.i, %.loopexit.split.loop.exit39.i.i.i, %.loopexit.split.loop.exit37.i.i.i, %.loopexit.split.loop.exit35.i.i.i, %240, %234, %228
-  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.025.1.i.i.i, %234 ], [ %spec.select.i.i.i, %240 ], [ %.sroa.025.0.lcssa.i.i.i, %228 ], [ %245, %.loopexit.split.loop.exit37.i.i.i ], [ %244, %.loopexit.split.loop.exit35.i.i.i ], [ %246, %.loopexit.split.loop.exit39.i.i.i ], [ %.sroa.025.044.i.i.i, %.lr.ph.i.i.i ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.025.1.i.i.i, %234 ], [ %spec.select.i.i.i, %240 ], [ %246, %.loopexit.split.loop.exit39.i.i.i ], [ %.sroa.025.0.lcssa.i.i.i, %228 ], [ %245, %.loopexit.split.loop.exit37.i.i.i ], [ %244, %.loopexit.split.loop.exit35.i.i.i ], [ %.sroa.025.044.i.i.i, %.lr.ph.i.i.i ]
   %247 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i, %200
   br i1 %247, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN14arrow_vendored4date6detail15expanded_ttinfoESt6vectorIS5_SaIS5_EEEEZNS3_9time_zone9load_dataIlEEvRSiiiiiEUlRKS5_E_ET_SH_SH_T0_.exit.thread, label %250
 

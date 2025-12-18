@@ -4868,7 +4868,7 @@ _ZN7rocksdb10autovectorIPNS_16ColumnFamilyDataELm8EED2Ev.exit: ; preds = %_ZN7ro
   unreachable
 
 .body:                                            ; preds = %156, %.body22, %37, %34
-  %.pn.pn = phi { ptr, i32 } [ %35, %34 ], [ %35, %37 ], [ %.pn, %.body22 ], [ %.pn, %156 ]
+  %.pn.pn = phi { ptr, i32 } [ %35, %37 ], [ %35, %34 ], [ %.pn, %.body22 ], [ %.pn, %156 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %161
@@ -5798,7 +5798,7 @@ _ZNKSt13unordered_setIPN7rocksdb16ReadOnlyMemTableESt4hashIS2_ESt8equal_toIS2_ES
   br label %_ZNKSt13unordered_setIPN7rocksdb16ReadOnlyMemTableESt4hashIS2_ESt8equal_toIS2_ESaIS2_EE5countERKS2_.exit
 
 _ZNKSt13unordered_setIPN7rocksdb16ReadOnlyMemTableESt4hashIS2_ESt8equal_toIS2_ESaIS2_EE5countERKS2_.exit: ; preds = %35, %19, %30, %47, %_ZNKSt13unordered_setIPN7rocksdb16ReadOnlyMemTableESt4hashIS2_ESt8equal_toIS2_ESaIS2_EE5countERKS2_.exit.thread
-  %.1 = phi i64 [ %spec.select, %47 ], [ %.028, %_ZNKSt13unordered_setIPN7rocksdb16ReadOnlyMemTableESt4hashIS2_ESt8equal_toIS2_ESaIS2_EE5countERKS2_.exit.thread ], [ %.028, %30 ], [ %.028, %19 ], [ %.028, %35 ]
+  %.1 = phi i64 [ %spec.select, %47 ], [ %.028, %_ZNKSt13unordered_setIPN7rocksdb16ReadOnlyMemTableESt4hashIS2_ESt8equal_toIS2_ESaIS2_EE5countERKS2_.exit.thread ], [ %.028, %19 ], [ %.028, %30 ], [ %.028, %35 ]
   %.sroa.016.0 = load ptr, ptr %.sroa.016.029, align 8, !tbaa !17
   %.not23 = icmp eq ptr %.sroa.016.0, %4
   br i1 %.not23, label %._crit_edge, label %.lr.ph.split
@@ -10308,7 +10308,7 @@ _ZNSt7__cxx114listIPN7rocksdb16ReadOnlyMemTableESaIS3_EE6spliceESt20_List_const_
   br i1 %.not.i.i8, label %_ZNSt7__cxx1110_List_baseIPN7rocksdb16ReadOnlyMemTableESaIS3_EED2Ev.exit, label %.lr.ph.i.i7, !llvm.loop !106
 
 _ZNSt7__cxx1110_List_baseIPN7rocksdb16ReadOnlyMemTableESaIS3_EED2Ev.exit: ; preds = %.lr.ph.i.i7, %4, %24
-  %.sroa.06.020 = phi ptr [ %.sroa.06.0, %24 ], [ %1, %4 ], [ %.sroa.06.0, %.lr.ph.i.i7 ]
+  %.sroa.06.020 = phi ptr [ %1, %4 ], [ %.sroa.06.0, %24 ], [ %.sroa.06.0, %.lr.ph.i.i7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.sroa.06.020
 }

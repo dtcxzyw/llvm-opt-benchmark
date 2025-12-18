@@ -751,7 +751,7 @@ define dso_local noundef range(i32 -22, 1) i32 @netlbl_unlhsh_remove(ptr noundef
   br label %.thread
 
 .thread:                                          ; preds = %38, %46, %16, %160, %121, %.loopexit26, %13
-  %161 = phi i32 [ 0, %160 ], [ %122, %121 ], [ -19, %13 ], [ -2, %.loopexit26 ], [ -2, %16 ], [ -22, %46 ], [ -2, %38 ]
+  %161 = phi i32 [ 0, %160 ], [ %122, %121 ], [ -19, %13 ], [ -2, %.loopexit26 ], [ -22, %46 ], [ -2, %16 ], [ -2, %38 ]
   call void @__rcu_read_unlock() #10
   br label %162
 
@@ -2072,8 +2072,8 @@ define internal i32 @netlbl_unlabel_staticlistdef(ptr noundef %0, ptr noundef %1
   br label %.loopexit28, !llvm.loop !28
 
 .loopexit28:                                      ; preds = %39, %77, %.loopexit._crit_edge, %.loopexit23, %13, %2
-  %93 = phi i64 [ 0, %2 ], [ 0, %13 ], [ 0, %.loopexit23 ], [ %.pre, %.loopexit._crit_edge ], [ %74, %77 ], [ 0, %39 ]
-  %94 = phi i32 [ 0, %2 ], [ 0, %13 ], [ %55, %.loopexit23 ], [ %55, %.loopexit._crit_edge ], [ %55, %77 ], [ %33, %39 ]
+  %93 = phi i64 [ 0, %2 ], [ 0, %13 ], [ 0, %.loopexit23 ], [ %74, %77 ], [ %.pre, %.loopexit._crit_edge ], [ 0, %39 ]
+  %94 = phi i32 [ 0, %2 ], [ 0, %13 ], [ %55, %.loopexit23 ], [ %55, %77 ], [ %55, %.loopexit._crit_edge ], [ %33, %39 ]
   tail call void @__rcu_read_unlock() #10
   %95 = zext i32 %94 to i64
   %96 = getelementptr inbounds nuw i8, ptr %1, i64 80

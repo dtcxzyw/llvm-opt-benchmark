@@ -37236,8 +37236,8 @@ define internal i32 @dissect_nbap_PICH_Mode(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %exitcond.not.i22, label %.sink.split, label %90, !llvm.loop !9
 
 .sink.split:                                      ; preds = %90, %69, %48, %27, %72, %51, %30, %9
-  %.0.i19.sink = phi ptr [ %15, %9 ], [ %36, %30 ], [ %57, %51 ], [ %78, %72 ], [ %61, %69 ], [ %19, %27 ], [ %40, %48 ], [ %82, %90 ]
-  %.sink = phi i32 [ 18, %9 ], [ 36, %30 ], [ 72, %51 ], [ 144, %72 ], [ 72, %69 ], [ 18, %27 ], [ 36, %48 ], [ 144, %90 ]
+  %.0.i19.sink = phi ptr [ %40, %48 ], [ %19, %27 ], [ %61, %69 ], [ %15, %9 ], [ %36, %30 ], [ %57, %51 ], [ %78, %72 ], [ %82, %90 ]
+  %.sink = phi i32 [ 36, %48 ], [ 18, %27 ], [ 72, %69 ], [ 18, %9 ], [ 36, %30 ], [ 72, %51 ], [ 144, %72 ], [ 144, %90 ]
   %93 = getelementptr inbounds nuw i8, ptr %.0.i19.sink, i64 96
   store i32 %.sink, ptr %93, align 8
   br label %94
@@ -39837,8 +39837,8 @@ define internal i32 @dissect_nbap_PayloadCRC_PresenceIndicator(ptr noundef %0, i
   br i1 %exitcond.not.i10, label %nbap_get_private_data.exit, label %42, !llvm.loop !9
 
 nbap_get_private_data.exit:                       ; preds = %42, %28, %31, %17
-  %.0.i7.sink = phi ptr [ %15, %17 ], [ %15, %31 ], [ %20, %28 ], [ %34, %42 ]
-  %.sink = phi i8 [ 1, %17 ], [ 0, %31 ], [ 1, %28 ], [ 0, %42 ]
+  %.0.i7.sink = phi ptr [ %20, %28 ], [ %15, %17 ], [ %15, %31 ], [ %34, %42 ]
+  %.sink = phi i8 [ 1, %28 ], [ 1, %17 ], [ 0, %31 ], [ 0, %42 ]
   %45 = getelementptr inbounds nuw i8, ptr %.0.i7.sink, i64 109
   store i8 %.sink, ptr %45, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

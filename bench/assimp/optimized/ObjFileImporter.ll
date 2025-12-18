@@ -3270,8 +3270,8 @@ _ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; 
   br label %211
 
 .loopexit:                                        ; preds = %171, %152, %.preheader88, %.preheader, %185, %205
-  %.268 = phi i32 [ %189, %205 ], [ %189, %185 ], [ %.066112, %.preheader ], [ %.066112, %.preheader88 ], [ %154, %152 ], [ %173, %171 ]
-  %.3 = phi i32 [ %201, %205 ], [ %201, %185 ], [ %.165113, %.preheader ], [ %.165113, %.preheader88 ], [ %153, %152 ], [ %172, %171 ]
+  %.268 = phi i32 [ %154, %152 ], [ %189, %185 ], [ %189, %205 ], [ %.066112, %.preheader ], [ %.066112, %.preheader88 ], [ %173, %171 ]
+  %.3 = phi i32 [ %153, %152 ], [ %201, %185 ], [ %201, %205 ], [ %.165113, %.preheader ], [ %.165113, %.preheader88 ], [ %172, %171 ]
   %209 = getelementptr inbounds nuw i8, ptr %.sroa.083.0111, i64 8
   %.not86 = icmp eq ptr %209, %132
   br i1 %.not86, label %.loopexit90, label %.lr.ph115
@@ -5311,8 +5311,8 @@ _ZNSt10_HashtableIPK6aiBoneS2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4h
   resume { ptr, i32 } %47
 
 _ZNKSt10_HashtableIPK6aiBoneS2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE15_M_find_node_trIS2_EEPNS4_10_Hash_nodeIS2_Lb0EEEmRKT_m.exit: ; preds = %33, %19, %.critedge, %28
-  %.sroa.031.1 = phi ptr [ %29, %28 ], [ %46, %.critedge ], [ %.sroa.028.0, %19 ], [ %35, %33 ]
-  %.sroa.432.1 = phi i8 [ 0, %28 ], [ 1, %.critedge ], [ 0, %19 ], [ 0, %33 ]
+  %.sroa.031.1 = phi ptr [ %.sroa.028.0, %19 ], [ %46, %.critedge ], [ %29, %28 ], [ %35, %33 ]
+  %.sroa.432.1 = phi i8 [ 0, %19 ], [ 1, %.critedge ], [ 0, %28 ], [ 0, %33 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.031.1, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.432.1, 1
   ret { ptr, i8 } %.fca.1.insert

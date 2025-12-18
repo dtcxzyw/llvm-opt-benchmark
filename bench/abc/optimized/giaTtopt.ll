@@ -3537,7 +3537,7 @@ define linkonce_odr noundef i32 @_ZN5Ttopt13TruthTableReo8BDDBuildEv(ptr noundef
   br i1 %.not.not, label %.lr.ph, label %._crit_edge, !llvm.loop !144
 
 _ZN5Ttopt10TruthTable12BDDNodeCountEv.exit:       ; preds = %44, %13, %33, %._crit_edge, %5
-  %.04 = phi i32 [ 1, %5 ], [ 1, %._crit_edge ], [ 1, %33 ], [ %32, %13 ], [ %63, %44 ]
+  %.04 = phi i32 [ %32, %13 ], [ 1, %5 ], [ 1, %._crit_edge ], [ 1, %33 ], [ %63, %44 ]
   ret i32 %.04
 }
 
@@ -6850,7 +6850,7 @@ define linkonce_odr noundef i32 @_ZN5Ttopt10TruthTable7BDDFindEii(ptr noundef no
   br label %.thread
 
 .thread:                                          ; preds = %106, %39, %8, %.critedge, %.preheader123, %.thread.loopexit.split.loop.exit141, %.preheader, %103, %99, %58, %75
-  %.4 = phi i32 [ %105, %103 ], [ %100, %99 ], [ -1, %75 ], [ -2, %58 ], [ %111, %.thread.loopexit.split.loop.exit141 ], [ -3, %.preheader ], [ -3, %.preheader123 ], [ %17, %.critedge ], [ -1, %8 ], [ -3, %39 ], [ -3, %106 ]
+  %.4 = phi i32 [ -1, %8 ], [ %105, %103 ], [ -3, %.preheader123 ], [ %100, %99 ], [ -1, %75 ], [ -2, %58 ], [ %111, %.thread.loopexit.split.loop.exit141 ], [ -3, %.preheader ], [ %17, %.critedge ], [ -3, %39 ], [ -3, %106 ]
   ret i32 %.4
 }
 
@@ -10911,7 +10911,7 @@ define linkonce_odr noundef i32 @_ZN5Ttopt18TruthTableLevelTSM10BDDFindTSMEii(pt
   br label %.thread
 
 .thread:                                          ; preds = %117, %43, %8, %.critedge, %.preheader142, %.thread.loopexit.split.loop.exit160, %.preheader, %141, %136, %79, %102
-  %.4 = phi i32 [ %143, %141 ], [ %137, %136 ], [ -1, %102 ], [ -2, %79 ], [ %147, %.thread.loopexit.split.loop.exit160 ], [ -3, %.preheader ], [ -3, %.preheader142 ], [ %19, %.critedge ], [ -1, %8 ], [ -3, %43 ], [ -3, %117 ]
+  %.4 = phi i32 [ -1, %8 ], [ %143, %141 ], [ -3, %.preheader142 ], [ %137, %136 ], [ -1, %102 ], [ -2, %79 ], [ %147, %.thread.loopexit.split.loop.exit160 ], [ -3, %.preheader ], [ %19, %.critedge ], [ -3, %43 ], [ -3, %117 ]
   ret i32 %.4
 }
 

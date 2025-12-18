@@ -4671,8 +4671,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit193: ; preds = %.b
   br i1 %287, label %.body154, label %284
 
 .body154:                                         ; preds = %284, %138, %135
-  %.359 = phi i1 [ true, %135 ], [ true, %138 ], [ false, %284 ]
-  %.pn71.pn = phi { ptr, i32 } [ %136, %135 ], [ %136, %138 ], [ %.pn71, %284 ]
+  %.359 = phi i1 [ true, %138 ], [ true, %135 ], [ false, %284 ]
+  %.pn71.pn = phi { ptr, i32 } [ %136, %138 ], [ %136, %135 ], [ %.pn71, %284 ]
   br label %288
 
 288:                                              ; preds = %288, %.body154
@@ -4683,8 +4683,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit193: ; preds = %.b
   br i1 %291, label %.loopexit253, label %288
 
 .loopexit253:                                     ; preds = %288, %.loopexit253.loopexit257, %.thread239
-  %.258 = phi i1 [ true, %.thread239 ], [ true, %.loopexit253.loopexit257 ], [ %.359, %288 ]
-  %.pn71.pn.pn = phi { ptr, i32 } [ %130, %.thread239 ], [ %281, %.loopexit253.loopexit257 ], [ %.pn71.pn, %288 ]
+  %.258 = phi i1 [ true, %.loopexit253.loopexit257 ], [ true, %.thread239 ], [ %.359, %288 ]
+  %.pn71.pn.pn = phi { ptr, i32 } [ %281, %.loopexit253.loopexit257 ], [ %130, %.thread239 ], [ %.pn71.pn, %288 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br label %.body148
 
@@ -5026,7 +5026,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit217: ; preds = %_Z
   br i1 %390, label %.loopexit, label %387
 
 .loopexit:                                        ; preds = %379, %387, %.thread247
-  %.pn86.pn = phi { ptr, i32 } [ %317, %.thread247 ], [ %.pn86, %387 ], [ %378, %379 ]
+  %.pn86.pn = phi { ptr, i32 } [ %.pn86, %387 ], [ %317, %.thread247 ], [ %378, %379 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   br label %412
 
@@ -6200,8 +6200,8 @@ _ZN6casadi6MatrixIdED2Ev.exit:                    ; preds = %_ZNSt6vectorIdSaIdE
   br i1 %299, label %.body166, label %296
 
 .body166:                                         ; preds = %296, %186, %183
-  %.364 = phi i1 [ true, %183 ], [ true, %186 ], [ false, %296 ]
-  %.pn76.pn = phi { ptr, i32 } [ %184, %183 ], [ %184, %186 ], [ %.pn76, %296 ]
+  %.364 = phi i1 [ true, %186 ], [ true, %183 ], [ false, %296 ]
+  %.pn76.pn = phi { ptr, i32 } [ %184, %186 ], [ %184, %183 ], [ %.pn76, %296 ]
   br label %300
 
 300:                                              ; preds = %300, %.body166
@@ -6212,8 +6212,8 @@ _ZN6casadi6MatrixIdED2Ev.exit:                    ; preds = %_ZNSt6vectorIdSaIdE
   br i1 %303, label %.loopexit251, label %300
 
 .loopexit251:                                     ; preds = %300, %.loopexit251.loopexit256, %.thread234
-  %.263 = phi i1 [ true, %.thread234 ], [ true, %.loopexit251.loopexit256 ], [ %.364, %300 ]
-  %.pn76.pn.pn = phi { ptr, i32 } [ %178, %.thread234 ], [ %293, %.loopexit251.loopexit256 ], [ %.pn76.pn, %300 ]
+  %.263 = phi i1 [ true, %.loopexit251.loopexit256 ], [ true, %.thread234 ], [ %.364, %300 ]
+  %.pn76.pn.pn = phi { ptr, i32 } [ %293, %.loopexit251.loopexit256 ], [ %178, %.thread234 ], [ %.pn76.pn, %300 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br label %.body160
 
@@ -6567,7 +6567,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit213: ; preds = %_Z
   br i1 %410, label %.loopexit246, label %407
 
 .loopexit246:                                     ; preds = %407, %.loopexit246.loopexit254, %.thread244
-  %.pn95 = phi { ptr, i32 } [ %338, %.thread244 ], [ %403, %.loopexit246.loopexit254 ], [ %405, %407 ]
+  %.pn95 = phi { ptr, i32 } [ %403, %.loopexit246.loopexit254 ], [ %338, %.thread244 ], [ %405, %407 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
   %411 = getelementptr inbounds nuw i8, ptr %39, i64 32
   br label %412
@@ -6580,7 +6580,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit213: ; preds = %_Z
   br i1 %415, label %.loopexit, label %412
 
 .loopexit:                                        ; preds = %399, %412, %.thread242
-  %.pn95.pn = phi { ptr, i32 } [ %330, %.thread242 ], [ %.pn95, %412 ], [ %398, %399 ]
+  %.pn95.pn = phi { ptr, i32 } [ %.pn95, %412 ], [ %330, %.thread242 ], [ %398, %399 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
   br label %437
 

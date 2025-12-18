@@ -1849,15 +1849,15 @@ check_sign_bytes.exit.i.i25:                      ; preds = %.lr.ph.i.i.i22
   br label %.loopexit.i.i28
 
 .loopexit.i.i28:                                  ; preds = %30, %.loopexit.i.i28.sink.split, %27, %.loopexit.i.i
-  %.sink = phi i64 [ %12, %.loopexit.i.i ], [ %25, %27 ], [ %2, %.loopexit.i.i28.sink.split ], [ %25, %30 ]
+  %.sink = phi i64 [ %25, %27 ], [ %2, %.loopexit.i.i28.sink.split ], [ %12, %.loopexit.i.i ], [ %25, %30 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %5, ptr nonnull readonly align 1 %1, i64 %.sink, i1 false)
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %38 = load i64, ptr %37, align 8, !tbaa !17
   br label %signed_from_unsigned.exit
 
 signed_from_unsigned.exit:                        ; preds = %.loopexit.i.i28, %check_sign_bytes.exit.i.i25, %check_sign_bytes.exit.i.i, %34, %3
-  %.sink40 = phi i64 [ %2, %3 ], [ %38, %.loopexit.i.i28 ], [ %2, %34 ], [ %2, %check_sign_bytes.exit.i.i ], [ %2, %check_sign_bytes.exit.i.i25 ]
-  %.018 = phi i32 [ 1, %3 ], [ 1, %.loopexit.i.i28 ], [ 0, %34 ], [ 0, %check_sign_bytes.exit.i.i ], [ 0, %check_sign_bytes.exit.i.i25 ]
+  %.sink40 = phi i64 [ %2, %3 ], [ %38, %.loopexit.i.i28 ], [ %2, %34 ], [ %2, %check_sign_bytes.exit.i.i25 ], [ %2, %check_sign_bytes.exit.i.i ]
+  %.018 = phi i32 [ 1, %3 ], [ 1, %.loopexit.i.i28 ], [ 0, %34 ], [ 0, %check_sign_bytes.exit.i.i25 ], [ 0, %check_sign_bytes.exit.i.i ]
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %.sink40, ptr %39, align 8, !tbaa !13
   ret i32 %.018
@@ -3303,7 +3303,7 @@ define internal fastcc range(i32 0, 2) i32 @setbuf_fromparams(ptr noundef nonnul
   br label %.loopexit
 
 .loopexit:                                        ; preds = %30, %.split.loopexit, %.split.preheader, %21, %.split.us, %41, %.split29.us
-  %.0 = phi i32 [ 0, %.split29.us ], [ %spec.select, %41 ], [ 0, %.split.us ], [ 0, %21 ], [ 0, %.split.preheader ], [ 0, %.split.loopexit ], [ 0, %30 ]
+  %.0 = phi i32 [ %spec.select, %41 ], [ 0, %.split29.us ], [ 0, %21 ], [ 0, %.split.us ], [ 0, %.split.preheader ], [ 0, %.split.loopexit ], [ 0, %30 ]
   call void @WPACKET_cleanup(ptr noundef nonnull %5) #14
   br label %43
 

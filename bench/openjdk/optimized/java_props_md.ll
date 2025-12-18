@@ -479,8 +479,8 @@ mapLookup.exit.thread.sink.split:                 ; preds = %57, %55
   br label %mapLookup.exit.thread
 
 mapLookup.exit.thread:                            ; preds = %34, %mapLookup.exit.thread.sink.split, %57
-  %.082 = phi ptr [ %52, %57 ], [ %52, %mapLookup.exit.thread.sink.split ], [ %26, %34 ]
-  %.081 = phi ptr [ %45, %57 ], [ %45, %mapLookup.exit.thread.sink.split ], [ %19, %34 ]
+  %.082 = phi ptr [ %52, %mapLookup.exit.thread.sink.split ], [ %52, %57 ], [ %26, %34 ]
+  %.081 = phi ptr [ %45, %mapLookup.exit.thread.sink.split ], [ %45, %57 ], [ %19, %34 ]
   %60 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.081, i32 noundef 95) #14
   %.not111 = icmp eq ptr %60, null
   br i1 %.not111, label %63, label %61

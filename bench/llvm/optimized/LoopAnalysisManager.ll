@@ -3430,7 +3430,7 @@ _ZNK4llvm15SmallPtrSetImplIPvE5countEPKv.exit.thread.thread.i.i: ; preds = %_ZNK
   br label %_ZNK4llvm17PreservedAnalyses25allAnalysesInSetPreservedINS_13AllAnalysesOnINS_4LoopEEEEEbv.exit
 
 _ZNK4llvm17PreservedAnalyses25allAnalysesInSetPreservedINS_13AllAnalysesOnINS_4LoopEEEEEbv.exit: ; preds = %.lr.ph.i.i.i.i78, %.lr.ph.i.i5.i.i, %94, %103, %_ZNK4llvm15SmallPtrSetImplIPvE5countEPKv.exit.i.i, %_ZNK4llvm15SmallPtrSetImplIPvE5countEPKv.exit.thread.thread.i.i, %123
-  %126 = phi i1 [ false, %94 ], [ true, %_ZNK4llvm15SmallPtrSetImplIPvE5countEPKv.exit.i.i ], [ %125, %123 ], [ false, %_ZNK4llvm15SmallPtrSetImplIPvE5countEPKv.exit.thread.thread.i.i ], [ false, %103 ], [ %121, %.lr.ph.i.i5.i.i ], [ true, %.lr.ph.i.i.i.i78 ]
+  %126 = phi i1 [ false, %94 ], [ true, %_ZNK4llvm15SmallPtrSetImplIPvE5countEPKv.exit.i.i ], [ %121, %.lr.ph.i.i5.i.i ], [ %125, %123 ], [ false, %_ZNK4llvm15SmallPtrSetImplIPvE5countEPKv.exit.thread.thread.i.i ], [ false, %103 ], [ true, %.lr.ph.i.i.i.i78 ]
   %127 = load ptr, ptr %5, align 8, !tbaa !66, !noalias !168
   %128 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %129 = load i32, ptr %128, align 8, !tbaa !68, !noalias !168

@@ -1630,9 +1630,9 @@ addClusterNode.exit.i:                            ; preds = %261
   br i1 %.not187.i, label %createClusterNode.exit.thread.i, label %.lr.ph245.i
 
 createClusterNode.exit.thread.i:                  ; preds = %.critedge.i, %261, %144, %127, %117, %101, %97, %91, %72, %68
-  %.0140.i = phi ptr [ null, %68 ], [ %84, %91 ], [ %84, %97 ], [ null, %72 ], [ %84, %117 ], [ %84, %127 ], [ %84, %101 ], [ %84, %144 ], [ %84, %261 ], [ %84, %.critedge.i ]
-  %272 = phi i1 [ true, %68 ], [ true, %91 ], [ true, %97 ], [ true, %72 ], [ true, %117 ], [ true, %127 ], [ false, %101 ], [ false, %.critedge.i ], [ true, %261 ], [ true, %144 ]
-  %273 = phi i1 [ false, %68 ], [ false, %91 ], [ false, %97 ], [ false, %72 ], [ false, %117 ], [ false, %127 ], [ true, %101 ], [ true, %.critedge.i ], [ false, %261 ], [ false, %144 ]
+  %.0140.i = phi ptr [ null, %68 ], [ %84, %127 ], [ %84, %91 ], [ %84, %97 ], [ null, %72 ], [ %84, %117 ], [ %84, %101 ], [ %84, %144 ], [ %84, %261 ], [ %84, %.critedge.i ]
+  %272 = phi i1 [ true, %68 ], [ true, %127 ], [ true, %91 ], [ true, %97 ], [ true, %72 ], [ true, %117 ], [ false, %101 ], [ false, %.critedge.i ], [ true, %261 ], [ true, %144 ]
+  %273 = phi i1 [ false, %68 ], [ false, %127 ], [ false, %91 ], [ false, %97 ], [ false, %72 ], [ false, %117 ], [ true, %101 ], [ true, %.critedge.i ], [ false, %261 ], [ false, %144 ]
   tail call void @redisFree(ptr noundef nonnull %65) #20
   %274 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @config, i64 280), align 8
   %275 = icmp ne ptr %274, null
@@ -5590,9 +5590,9 @@ updateClusterSlotsConfiguration.exit:             ; preds = %185, %._crit_edge11
   store atomic i32 0, ptr getelementptr inbounds nuw (i8, ptr @config, i64 312) monotonic, align 8
   br label %fetchClusterSlotsConfiguration.exit.thread
 
-.critedge:                                        ; preds = %._crit_edge.i, %91, %150, %147, %116
-  %.375.i.ph = phi ptr [ %.072.lcssa.i, %150 ], [ %.072.lcssa.i, %147 ], [ %.072.lcssa.i, %116 ], [ null, %91 ], [ %.072.lcssa.i, %._crit_edge.i ]
-  %.071.i.ph = phi ptr [ %109, %150 ], [ %109, %147 ], [ %109, %116 ], [ null, %91 ], [ null, %._crit_edge.i ]
+.critedge:                                        ; preds = %._crit_edge.i, %91, %147, %150, %116
+  %.375.i.ph = phi ptr [ null, %91 ], [ %.072.lcssa.i, %147 ], [ %.072.lcssa.i, %150 ], [ %.072.lcssa.i, %116 ], [ %.072.lcssa.i, %._crit_edge.i ]
+  %.071.i.ph = phi ptr [ null, %91 ], [ %109, %147 ], [ %109, %150 ], [ %109, %116 ], [ null, %._crit_edge.i ]
   call void @freeReplyObject(ptr noundef %.071.i.ph) #20
   call void @redisFree(ptr noundef %.375.i.ph) #20
   call void @dictRelease(ptr noundef %85) #20

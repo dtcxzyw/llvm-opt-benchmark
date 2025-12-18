@@ -4869,10 +4869,10 @@ _ZSt8_DestroyIN8QuantLib6MatrixEEvPT_.exit.i.i.i.i763: ; preds = %_ZNKSt14defaul
   br i1 %cmp.not.i.i.i.i765, label %invoke.cont.i768, label %for.body.i.i.i.i759, !llvm.loop !89
 
 invoke.cont.i768:                                 ; preds = %_ZSt8_DestroyIN8QuantLib6MatrixEEvPT_.exit.i.i.i.i763, %_ZN8QuantLib6MatrixD2Ev.exit756, %ehcleanup495
-  %.pn1651093 = phi { ptr, i32 } [ %.pn152.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN8QuantLib6MatrixD2Ev.exit756 ], [ %279, %ehcleanup495 ], [ %.pn1651092, %_ZSt8_DestroyIN8QuantLib6MatrixEEvPT_.exit.i.i.i.i763 ]
-  %corrPseudo.sroa.0.010351091 = phi ptr [ %corrPseudo.sroa.0.01034, %_ZN8QuantLib6MatrixD2Ev.exit756 ], [ %corrPseudo.sroa.0.01034, %ehcleanup495 ], [ %corrPseudo.sroa.0.010351090, %_ZSt8_DestroyIN8QuantLib6MatrixEEvPT_.exit.i.i.i.i763 ]
-  %add.ptr.i.i.sink.i10461089 = phi i64 [ %add.ptr.i.i.sink.i1047, %_ZN8QuantLib6MatrixD2Ev.exit756 ], [ %add.ptr.i.i.sink.i1047, %ehcleanup495 ], [ %add.ptr.i.i.sink.i10461088, %_ZSt8_DestroyIN8QuantLib6MatrixEEvPT_.exit.i.i.i.i763 ]
-  %sub.ptr.rhs.cast.i25610611086 = phi i64 [ %sub.ptr.rhs.cast.i2561060, %_ZN8QuantLib6MatrixD2Ev.exit756 ], [ %sub.ptr.rhs.cast.i2561060, %ehcleanup495 ], [ %sub.ptr.rhs.cast.i25610611085, %_ZSt8_DestroyIN8QuantLib6MatrixEEvPT_.exit.i.i.i.i763 ]
+  %.pn1651093 = phi { ptr, i32 } [ %279, %ehcleanup495 ], [ %.pn152.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN8QuantLib6MatrixD2Ev.exit756 ], [ %.pn1651092, %_ZSt8_DestroyIN8QuantLib6MatrixEEvPT_.exit.i.i.i.i763 ]
+  %corrPseudo.sroa.0.010351091 = phi ptr [ %corrPseudo.sroa.0.01034, %ehcleanup495 ], [ %corrPseudo.sroa.0.01034, %_ZN8QuantLib6MatrixD2Ev.exit756 ], [ %corrPseudo.sroa.0.010351090, %_ZSt8_DestroyIN8QuantLib6MatrixEEvPT_.exit.i.i.i.i763 ]
+  %add.ptr.i.i.sink.i10461089 = phi i64 [ %add.ptr.i.i.sink.i1047, %ehcleanup495 ], [ %add.ptr.i.i.sink.i1047, %_ZN8QuantLib6MatrixD2Ev.exit756 ], [ %add.ptr.i.i.sink.i10461088, %_ZSt8_DestroyIN8QuantLib6MatrixEEvPT_.exit.i.i.i.i763 ]
+  %sub.ptr.rhs.cast.i25610611086 = phi i64 [ %sub.ptr.rhs.cast.i2561060, %ehcleanup495 ], [ %sub.ptr.rhs.cast.i2561060, %_ZN8QuantLib6MatrixD2Ev.exit756 ], [ %sub.ptr.rhs.cast.i25610611085, %_ZSt8_DestroyIN8QuantLib6MatrixEEvPT_.exit.i.i.i.i763 ]
   %tobool.not.i.i.i769 = icmp eq ptr %corrPseudo.sroa.0.010351091, null
   br i1 %tobool.not.i.i.i769, label %ehcleanup498, label %if.then.i.i.i770
 

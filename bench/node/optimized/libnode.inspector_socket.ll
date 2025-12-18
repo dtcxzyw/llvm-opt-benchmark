@@ -1364,28 +1364,15 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_
   store i8 0, ptr %arrayidx.i.i, align 1
   %call33.i.i = call i32 @uv_inet_pton(i32 noundef 10, ptr noundef nonnull %ipv6_str.i.i, ptr noundef nonnull %ipv6.i.i) #20
   %cmp34.not.i.i = icmp eq i32 %call33.i.i, 0
-  br i1 %cmp34.not.i.i, label %if.end36.i.i, label %_ZN4node9inspector12_GLOBAL__N_111IsIPAddressERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread.i
-
-if.end36.i.i:                                     ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPcET0_T_SD_SC_.exit.i.i
-  %call40.i.i = call fastcc noundef zeroext i1 @"_ZSt6all_ofIPhZN4node9inspector12_GLOBAL__N_111IsIPAddressERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EbT_SD_T0_"(ptr noundef %ipv6.i.i, ptr noundef %add.ptr.i.i)
-  call void @llvm.lifetime.end.p0(ptr nonnull %ipv6_str.i.i)
-  call void @llvm.lifetime.end.p0(ptr nonnull %ipv6.i.i)
-  call void @llvm.lifetime.end.p0(ptr nonnull %ipv4.i.i)
-  br i1 %call40.i.i, label %lor.rhs.i, label %lor.lhs.false
+  br i1 %cmp34.not.i.i, label %_ZN4node9inspector12_GLOBAL__N_111IsIPAddressERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i, label %_ZN4node9inspector12_GLOBAL__N_111IsIPAddressERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread.i
 
 if.end43.i.i:                                     ; preds = %land.lhs.true5.i.i, %land.lhs.true.i.i, %if.end.i2.i
   %call44.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %host.i) #20
   %call46.i.i = call i32 @uv_inet_pton(i32 noundef 2, ptr noundef %call44.i.i, ptr noundef nonnull %ipv4.i.i) #20
   %cmp47.not.i.i = icmp eq i32 %call46.i.i, 0
-  br i1 %cmp47.not.i.i, label %_ZN4node9inspector12_GLOBAL__N_111IsIPAddressERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i, label %_ZN4node9inspector12_GLOBAL__N_111IsIPAddressERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread.i
+  br i1 %cmp47.not.i.i, label %if.end49.i.i, label %_ZN4node9inspector12_GLOBAL__N_111IsIPAddressERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread.i
 
-_ZN4node9inspector12_GLOBAL__N_111IsIPAddressERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread.i: ; preds = %if.end43.i.i, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPcET0_T_SD_SC_.exit.i.i, %if.end13.i.i, %if.then9.i.i, %lor.lhs.false.i
-  call void @llvm.lifetime.end.p0(ptr nonnull %ipv6_str.i.i)
-  call void @llvm.lifetime.end.p0(ptr nonnull %ipv6.i.i)
-  call void @llvm.lifetime.end.p0(ptr nonnull %ipv4.i.i)
-  br label %lor.rhs.i
-
-_ZN4node9inspector12_GLOBAL__N_111IsIPAddressERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i: ; preds = %if.end43.i.i
+if.end49.i.i:                                     ; preds = %if.end43.i.i
   %10 = load i8, ptr %ipv4.i.i, align 1
   %cmp52.i.not.i = icmp eq i8 %10, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %ipv6_str.i.i)
@@ -1393,7 +1380,20 @@ _ZN4node9inspector12_GLOBAL__N_111IsIPAddressERKNSt7__cxx1112basic_stringIcSt11c
   call void @llvm.lifetime.end.p0(ptr nonnull %ipv4.i.i)
   br i1 %cmp52.i.not.i, label %lor.rhs.i, label %lor.lhs.false
 
-lor.rhs.i:                                        ; preds = %_ZN4node9inspector12_GLOBAL__N_111IsIPAddressERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i, %_ZN4node9inspector12_GLOBAL__N_111IsIPAddressERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread.i, %if.end36.i.i
+_ZN4node9inspector12_GLOBAL__N_111IsIPAddressERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread.i: ; preds = %if.end43.i.i, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPcET0_T_SD_SC_.exit.i.i, %if.end13.i.i, %if.then9.i.i, %lor.lhs.false.i
+  call void @llvm.lifetime.end.p0(ptr nonnull %ipv6_str.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ipv6.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ipv4.i.i)
+  br label %lor.rhs.i
+
+_ZN4node9inspector12_GLOBAL__N_111IsIPAddressERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i: ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPcET0_T_SD_SC_.exit.i.i
+  %call40.i.i = call fastcc noundef zeroext i1 @"_ZSt6all_ofIPhZN4node9inspector12_GLOBAL__N_111IsIPAddressERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EbT_SD_T0_"(ptr noundef %ipv6.i.i, ptr noundef %add.ptr.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ipv6_str.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ipv6.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ipv4.i.i)
+  br i1 %call40.i.i, label %lor.rhs.i, label %lor.lhs.false
+
+lor.rhs.i:                                        ; preds = %_ZN4node9inspector12_GLOBAL__N_111IsIPAddressERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i, %_ZN4node9inspector12_GLOBAL__N_111IsIPAddressERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread.i, %if.end49.i.i
   %call3.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %host.i) #20
   br label %while.cond.i.i
 
@@ -1429,7 +1429,7 @@ _ZNK4node9inspector12_GLOBAL__N_111HttpHandler13IsAllowedHostERKNSt7__cxx1112bas
   call void @llvm.lifetime.end.p0(ptr nonnull %host.i)
   br label %cleanup.sink.split
 
-lor.lhs.false:                                    ; preds = %while.body.i.i, %_ZN4node9inspector12_GLOBAL__N_111IsIPAddressERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i, %_ZN4node9inspector12_GLOBAL__N_18TrimPortERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i, %if.end36.i.i
+lor.lhs.false:                                    ; preds = %while.body.i.i, %_ZN4node9inspector12_GLOBAL__N_111IsIPAddressERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i, %_ZN4node9inspector12_GLOBAL__N_18TrimPortERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i, %if.end49.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %host.i) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %host.i)
   %isGET = getelementptr inbounds nuw i8, ptr %__begin3.sroa.0.022, i64 33
@@ -2466,8 +2466,8 @@ for.end98.i.i:                                    ; preds = %for.end98.loopexit.
   br label %_ZN4node9inspector12_GLOBAL__N_119decode_frame_hybi17ERKSt6vectorIcSaIcEEbPiPS4_Pb.exit.i
 
 _ZN4node9inspector12_GLOBAL__N_119decode_frame_hybi17ERKSt6vectorIcSaIcEEbPiPS4_Pb.exit.i: ; preds = %for.end98.i.i, %if.end73.i.i, %if.then46.i.i
-  %bytes_consumed.1.i = phi i32 [ %conv109.i.i, %for.end98.i.i ], [ 0, %if.then46.i.i ], [ 0, %if.end73.i.i ]
-  %retval.0.i.i = phi i32 [ %closed.0.i.i, %for.end98.i.i ], [ 1, %if.then46.i.i ], [ 1, %if.end73.i.i ]
+  %bytes_consumed.1.i = phi i32 [ 0, %if.then46.i.i ], [ %conv109.i.i, %for.end98.i.i ], [ 0, %if.end73.i.i ]
+  %retval.0.i.i = phi i32 [ 1, %if.then46.i.i ], [ %closed.0.i.i, %for.end98.i.i ], [ 1, %if.end73.i.i ]
   %17 = and i8 %2, 64
   %tobool.not.i = icmp eq i8 %17, 0
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i

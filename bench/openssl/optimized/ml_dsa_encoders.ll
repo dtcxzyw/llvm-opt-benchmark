@@ -261,7 +261,7 @@ poly_decode_10_bits.exit:                         ; preds = %33
   br label %PACKET_buf_init.exit.thread
 
 PACKET_buf_init.exit.thread:                      ; preds = %30, %._crit_edge, %16, %54
-  %.026 = phi i32 [ 0, %16 ], [ %57, %54 ], [ 0, %._crit_edge ], [ 0, %30 ]
+  %.026 = phi i32 [ 0, %16 ], [ 0, %._crit_edge ], [ %57, %54 ], [ 0, %30 ]
   tail call void @EVP_MD_CTX_free(ptr noundef %17) #9
   br label %58
 
@@ -1499,7 +1499,7 @@ define range(i32 0, 2) i32 @ossl_ml_dsa_sig_encode(ptr noundef readonly captures
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.loopexit.sink.split, %7, %14
-  %.016 = phi i32 [ 0, %7 ], [ 0, %14 ], [ %.016.ph, %.loopexit.sink.split ], [ 0, %.lr.ph ]
+  %.016 = phi i32 [ %.016.ph, %.loopexit.sink.split ], [ 0, %7 ], [ 0, %14 ], [ 0, %.lr.ph ]
   %57 = call i32 @WPACKET_finish(ptr noundef nonnull %5) #9
   br label %58
 
@@ -1847,7 +1847,7 @@ hint_bits_decode.exit:                            ; preds = %63, %.preheader.i
   br label %PACKET_buf_init.exit.thread
 
 PACKET_buf_init.exit.thread:                      ; preds = %.lr.ph, %vector_zero.exit.i, %.lr.ph.i, %.lr.ph18.i, %._crit_edge, %35, %10, %4, %hint_bits_decode.exit
-  %.014 = phi i32 [ %spec.select, %hint_bits_decode.exit ], [ 0, %4 ], [ 0, %10 ], [ 0, %35 ], [ 0, %._crit_edge ], [ 0, %vector_zero.exit.i ], [ 0, %.lr.ph18.i ], [ 0, %.lr.ph.i ], [ 0, %.lr.ph ]
+  %.014 = phi i32 [ 0, %vector_zero.exit.i ], [ %spec.select, %hint_bits_decode.exit ], [ 0, %4 ], [ 0, %10 ], [ 0, %.lr.ph18.i ], [ 0, %35 ], [ 0, %._crit_edge ], [ 0, %.lr.ph.i ], [ 0, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.014
 }

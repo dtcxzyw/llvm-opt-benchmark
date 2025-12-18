@@ -950,9 +950,9 @@ Vec_PtrPush.exit.i:                               ; preds = %478, %Vec_PtrGrow.e
   br i1 %488, label %.lr.ph216.i, label %.critedge4.i, !llvm.loop !90
 
 .critedge4.i:                                     ; preds = %Vec_PtrPush.exit.i, %441, %Abc_Clock.exit180.i, %147, %131
-  %.1186.i = phi i32 [ %.2187.i, %Abc_Clock.exit180.i ], [ %.0185217.i, %131 ], [ %.0185217.i, %147 ], [ %.2187.i, %441 ], [ %.2187.i, %Vec_PtrPush.exit.i ]
-  %.1140.i = phi i32 [ %.0139218.i, %Abc_Clock.exit180.i ], [ %.0139218.i, %131 ], [ %.0139218.i, %147 ], [ %160, %441 ], [ %160, %Vec_PtrPush.exit.i ]
-  %.1.i = phi i32 [ %.0220.i, %Abc_Clock.exit180.i ], [ %.0220.i, %131 ], [ %.0220.i, %147 ], [ %.2187.i, %441 ], [ %.2187.i, %Vec_PtrPush.exit.i ]
+  %.1186.i = phi i32 [ %.2187.i, %Abc_Clock.exit180.i ], [ %.0185217.i, %147 ], [ %.0185217.i, %131 ], [ %.2187.i, %441 ], [ %.2187.i, %Vec_PtrPush.exit.i ]
+  %.1140.i = phi i32 [ %.0139218.i, %Abc_Clock.exit180.i ], [ %.0139218.i, %147 ], [ %.0139218.i, %131 ], [ %160, %441 ], [ %160, %Vec_PtrPush.exit.i ]
+  %.1.i = phi i32 [ %.0220.i, %Abc_Clock.exit180.i ], [ %.0220.i, %147 ], [ %.0220.i, %131 ], [ %.2187.i, %441 ], [ %.2187.i, %Vec_PtrPush.exit.i ]
   %indvars.iv.next247.i = add nuw nsw i64 %indvars.iv246.i, 1
   %489 = load i32, ptr %111, align 4, !tbaa !39
   %490 = sext i32 %489 to i64

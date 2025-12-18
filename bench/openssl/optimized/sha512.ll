@@ -394,7 +394,7 @@ define range(i32 0, 2) i32 @SHA512_Final(ptr noundef writeonly captures(address_
   br i1 %exitcond.not, label %.loopexit, label %.preheader150, !llvm.loop !18
 
 .loopexit:                                        ; preds = %.preheader150, %.preheader148, %.preheader147, %98, %67, %13
-  %.0 = phi i32 [ 0, %67 ], [ 0, %13 ], [ 1, %98 ], [ 1, %.preheader148 ], [ 1, %.preheader147 ], [ 1, %.preheader150 ]
+  %.0 = phi i32 [ 0, %67 ], [ 0, %13 ], [ 1, %.preheader147 ], [ 1, %.preheader148 ], [ 1, %98 ], [ 1, %.preheader150 ]
   ret i32 %.0
 }
 

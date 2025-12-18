@@ -1950,7 +1950,7 @@ _ZNK6aiMesh15HasVertexColorsEj.exit179:           ; preds = %.split267.us, %163
   br i1 %exitcond336.not, label %._crit_edge270, label %_ZNK6aiMesh15HasVertexColorsEj.exit179, !llvm.loop !18
 
 ._crit_edge270:                                   ; preds = %156, %163, %.split267.us, %149, %.thread375
-  %.fr287378384 = phi i32 [ %.fr287, %.split267.us ], [ 0, %.thread375 ], [ 0, %149 ], [ %.fr287, %163 ], [ %.fr287, %156 ]
+  %.fr287378384 = phi i32 [ %.fr287, %163 ], [ 0, %149 ], [ %.fr287, %.split267.us ], [ 0, %.thread375 ], [ %.fr287, %156 ]
   %164 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %165 = load i32, ptr %164, align 8
   %.not155 = icmp eq i32 %165, 0
@@ -3269,9 +3269,9 @@ _ZNK6aiMesh16HasTextureCoordsEj.exit.thread:      ; preds = %110, %_ZNK6aiMesh16
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %89, %63, %78, %74, %39
-  %122 = phi i32 [ %40, %63 ], [ %40, %74 ], [ %40, %78 ], [ %40, %39 ], [ %40, %89 ], [ %.pre212, %.loopexit.loopexit ]
-  %.3 = phi i32 [ %.2161, %63 ], [ %.2161, %74 ], [ %.2161, %78 ], [ %.2161, %39 ], [ %92, %89 ], [ %92, %.loopexit.loopexit ]
-  %.178 = phi i1 [ %.077162, %63 ], [ %.077162, %74 ], [ %.077162, %78 ], [ %.077162, %39 ], [ false, %89 ], [ false, %.loopexit.loopexit ]
+  %122 = phi i32 [ %40, %63 ], [ %40, %74 ], [ %40, %39 ], [ %40, %78 ], [ %40, %89 ], [ %.pre212, %.loopexit.loopexit ]
+  %.3 = phi i32 [ %.2161, %63 ], [ %.2161, %74 ], [ %.2161, %39 ], [ %.2161, %78 ], [ %92, %89 ], [ %92, %.loopexit.loopexit ]
+  %.178 = phi i1 [ %.077162, %63 ], [ %.077162, %74 ], [ %.077162, %39 ], [ %.077162, %78 ], [ false, %89 ], [ false, %.loopexit.loopexit ]
   %indvars.iv.next201 = add nuw nsw i64 %indvars.iv200, 1
   %123 = zext i32 %122 to i64
   %124 = icmp samesign ult i64 %indvars.iv.next201, %123

@@ -25723,7 +25723,7 @@ _ZN8ImVectorIjE9push_backERKj.exit285:            ; preds = %._ZN8ImVectorIjE7re
   br i1 %338, label %333, label %_ZN28ExampleSelectionWithDeletion20ApplyDeletionPreLoopEP18ImGuiMultiSelectIOi.exit, !llvm.loop !435
 
 _ZN28ExampleSelectionWithDeletion20ApplyDeletionPreLoopEP18ImGuiMultiSelectIOi.exit: ; preds = %328, %335, %333, %326, %310
-  %339 = phi i32 [ -1, %310 ], [ %322, %326 ], [ -1, %333 ], [ %.0.i, %335 ], [ %.022.i, %328 ]
+  %339 = phi i32 [ -1, %310 ], [ -1, %333 ], [ %322, %326 ], [ %.0.i, %335 ], [ %.022.i, %328 ]
   %340 = load i32, ptr @_ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataE5items, align 8, !tbaa !424
   %341 = icmp sgt i32 %340, 0
   br i1 %341, label %.lr.ph58, label %._crit_edge
@@ -28805,7 +28805,7 @@ define internal fastcc void @_ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDa
   br label %_ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataEN16ExampleTreeFuncs29TreeGetNextNodeInVisibleOrderEP15ExampleTreeNodeS3_.exit
 
 _ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataEN16ExampleTreeFuncs29TreeGetNextNodeInVisibleOrderEP15ExampleTreeNodeS3_.exit: ; preds = %33, %47
-  %.0.i.in = phi ptr [ %35, %33 ], [ %51, %47 ]
+  %.0.i.in = phi ptr [ %51, %47 ], [ %35, %33 ]
   %.0.i = load ptr, ptr %.0.i.in, align 8, !tbaa !405
   %.not25 = icmp eq ptr %.0.i, null
   br i1 %.not25, label %.loopexit, label %19, !llvm.loop !488

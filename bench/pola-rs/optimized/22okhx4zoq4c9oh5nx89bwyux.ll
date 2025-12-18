@@ -8880,7 +8880,7 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   br label %.body.i
 
 .loopexit.split-lp.i:                             ; preds = %141, %123, %78, %76, %67, %46, %44, %40, %37
-  %.sroa.020.2.ph.i = phi i1 [ true, %46 ], [ true, %37 ], [ true, %76 ], [ true, %67 ], [ true, %78 ], [ true, %40 ], [ true, %123 ], [ false, %141 ], [ true, %44 ]
+  %.sroa.020.2.ph.i = phi i1 [ true, %76 ], [ true, %67 ], [ true, %78 ], [ true, %40 ], [ true, %37 ], [ true, %123 ], [ false, %141 ], [ true, %44 ], [ true, %46 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
@@ -9334,7 +9334,7 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   br label %.body
 
 .loopexit.split-lp:                               ; preds = %216, %219, %223, %226, %354, %358, %395, %381, %436, %"_ZN4core3ptr58drop_in_place$LT$$u5b$polars_core..series..Series$u5d$$GT$17h0bd44f87b253f4c0E.exit", %300
-  %.sroa.022.2.ph = phi i1 [ true, %226 ], [ true, %354 ], [ true, %358 ], [ true, %216 ], [ true, %395 ], [ true, %381 ], [ true, %219 ], [ true, %436 ], [ true, %223 ], [ true, %"_ZN4core3ptr58drop_in_place$LT$$u5b$polars_core..series..Series$u5d$$GT$17h0bd44f87b253f4c0E.exit" ], [ false, %300 ]
+  %.sroa.022.2.ph = phi i1 [ true, %216 ], [ true, %395 ], [ true, %381 ], [ true, %219 ], [ true, %358 ], [ true, %436 ], [ true, %223 ], [ true, %"_ZN4core3ptr58drop_in_place$LT$$u5b$polars_core..series..Series$u5d$$GT$17h0bd44f87b253f4c0E.exit" ], [ true, %354 ], [ true, %226 ], [ false, %300 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -10082,7 +10082,7 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   br label %.body.i
 
 .loopexit.split-lp.i:                             ; preds = %141, %123, %78, %76, %67, %46, %44, %40, %37
-  %.sroa.020.2.ph.i = phi i1 [ true, %46 ], [ true, %37 ], [ true, %76 ], [ true, %67 ], [ true, %78 ], [ true, %40 ], [ true, %123 ], [ false, %141 ], [ true, %44 ]
+  %.sroa.020.2.ph.i = phi i1 [ true, %76 ], [ true, %67 ], [ true, %78 ], [ true, %40 ], [ true, %37 ], [ true, %123 ], [ false, %141 ], [ true, %44 ], [ true, %46 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
@@ -10536,7 +10536,7 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   br label %.body
 
 .loopexit.split-lp:                               ; preds = %216, %219, %223, %226, %354, %358, %395, %381, %436, %"_ZN4core3ptr58drop_in_place$LT$$u5b$polars_core..series..Series$u5d$$GT$17h0bd44f87b253f4c0E.exit", %300
-  %.sroa.022.2.ph = phi i1 [ true, %226 ], [ true, %354 ], [ true, %358 ], [ true, %216 ], [ true, %395 ], [ true, %381 ], [ true, %219 ], [ true, %436 ], [ true, %223 ], [ true, %"_ZN4core3ptr58drop_in_place$LT$$u5b$polars_core..series..Series$u5d$$GT$17h0bd44f87b253f4c0E.exit" ], [ false, %300 ]
+  %.sroa.022.2.ph = phi i1 [ true, %216 ], [ true, %395 ], [ true, %381 ], [ true, %219 ], [ true, %358 ], [ true, %436 ], [ true, %223 ], [ true, %"_ZN4core3ptr58drop_in_place$LT$$u5b$polars_core..series..Series$u5d$$GT$17h0bd44f87b253f4c0E.exit" ], [ true, %354 ], [ true, %226 ], [ false, %300 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -11285,7 +11285,7 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   br label %.body.i
 
 .loopexit.split-lp.i:                             ; preds = %141, %123, %78, %76, %67, %46, %44, %40, %37
-  %.sroa.020.2.ph.i = phi i1 [ true, %46 ], [ true, %37 ], [ true, %76 ], [ true, %67 ], [ true, %78 ], [ true, %40 ], [ true, %123 ], [ false, %141 ], [ true, %44 ]
+  %.sroa.020.2.ph.i = phi i1 [ true, %76 ], [ true, %67 ], [ true, %78 ], [ true, %40 ], [ true, %37 ], [ true, %123 ], [ false, %141 ], [ true, %44 ], [ true, %46 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
@@ -11739,7 +11739,7 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   br label %.body
 
 .loopexit.split-lp:                               ; preds = %216, %219, %223, %226, %354, %358, %395, %381, %436, %"_ZN4core3ptr58drop_in_place$LT$$u5b$polars_core..series..Series$u5d$$GT$17h0bd44f87b253f4c0E.exit", %300
-  %.sroa.022.2.ph = phi i1 [ true, %226 ], [ true, %354 ], [ true, %358 ], [ true, %216 ], [ true, %395 ], [ true, %381 ], [ true, %219 ], [ true, %436 ], [ true, %223 ], [ true, %"_ZN4core3ptr58drop_in_place$LT$$u5b$polars_core..series..Series$u5d$$GT$17h0bd44f87b253f4c0E.exit" ], [ false, %300 ]
+  %.sroa.022.2.ph = phi i1 [ true, %216 ], [ true, %395 ], [ true, %381 ], [ true, %219 ], [ true, %358 ], [ true, %436 ], [ true, %223 ], [ true, %"_ZN4core3ptr58drop_in_place$LT$$u5b$polars_core..series..Series$u5d$$GT$17h0bd44f87b253f4c0E.exit" ], [ true, %354 ], [ true, %226 ], [ false, %300 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -12488,7 +12488,7 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   br label %.body.i
 
 .loopexit.split-lp.i:                             ; preds = %141, %123, %78, %76, %67, %46, %44, %40, %37
-  %.sroa.020.2.ph.i = phi i1 [ true, %46 ], [ true, %37 ], [ true, %76 ], [ true, %67 ], [ true, %78 ], [ true, %40 ], [ true, %123 ], [ false, %141 ], [ true, %44 ]
+  %.sroa.020.2.ph.i = phi i1 [ true, %76 ], [ true, %67 ], [ true, %78 ], [ true, %40 ], [ true, %37 ], [ true, %123 ], [ false, %141 ], [ true, %44 ], [ true, %46 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
@@ -12942,7 +12942,7 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   br label %.body
 
 .loopexit.split-lp:                               ; preds = %216, %219, %223, %226, %354, %358, %395, %381, %436, %"_ZN4core3ptr58drop_in_place$LT$$u5b$polars_core..series..Series$u5d$$GT$17h0bd44f87b253f4c0E.exit", %300
-  %.sroa.022.2.ph = phi i1 [ true, %226 ], [ true, %354 ], [ true, %358 ], [ true, %216 ], [ true, %395 ], [ true, %381 ], [ true, %219 ], [ true, %436 ], [ true, %223 ], [ true, %"_ZN4core3ptr58drop_in_place$LT$$u5b$polars_core..series..Series$u5d$$GT$17h0bd44f87b253f4c0E.exit" ], [ false, %300 ]
+  %.sroa.022.2.ph = phi i1 [ true, %216 ], [ true, %395 ], [ true, %381 ], [ true, %219 ], [ true, %358 ], [ true, %436 ], [ true, %223 ], [ true, %"_ZN4core3ptr58drop_in_place$LT$$u5b$polars_core..series..Series$u5d$$GT$17h0bd44f87b253f4c0E.exit" ], [ true, %354 ], [ true, %226 ], [ false, %300 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -13691,7 +13691,7 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   br label %.body.i
 
 .loopexit.split-lp.i:                             ; preds = %141, %123, %78, %76, %67, %46, %44, %40, %37
-  %.sroa.020.2.ph.i = phi i1 [ true, %46 ], [ true, %37 ], [ true, %76 ], [ true, %67 ], [ true, %78 ], [ true, %40 ], [ true, %123 ], [ false, %141 ], [ true, %44 ]
+  %.sroa.020.2.ph.i = phi i1 [ true, %76 ], [ true, %67 ], [ true, %78 ], [ true, %40 ], [ true, %37 ], [ true, %123 ], [ false, %141 ], [ true, %44 ], [ true, %46 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
@@ -14145,7 +14145,7 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   br label %.body
 
 .loopexit.split-lp:                               ; preds = %216, %219, %223, %226, %354, %358, %395, %381, %436, %"_ZN4core3ptr58drop_in_place$LT$$u5b$polars_core..series..Series$u5d$$GT$17h0bd44f87b253f4c0E.exit", %300
-  %.sroa.022.2.ph = phi i1 [ true, %226 ], [ true, %354 ], [ true, %358 ], [ true, %216 ], [ true, %395 ], [ true, %381 ], [ true, %219 ], [ true, %436 ], [ true, %223 ], [ true, %"_ZN4core3ptr58drop_in_place$LT$$u5b$polars_core..series..Series$u5d$$GT$17h0bd44f87b253f4c0E.exit" ], [ false, %300 ]
+  %.sroa.022.2.ph = phi i1 [ true, %216 ], [ true, %395 ], [ true, %381 ], [ true, %219 ], [ true, %358 ], [ true, %436 ], [ true, %223 ], [ true, %"_ZN4core3ptr58drop_in_place$LT$$u5b$polars_core..series..Series$u5d$$GT$17h0bd44f87b253f4c0E.exit" ], [ true, %354 ], [ true, %226 ], [ false, %300 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -14894,7 +14894,7 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   br label %.body.i
 
 .loopexit.split-lp.i:                             ; preds = %141, %123, %78, %76, %67, %46, %44, %40, %37
-  %.sroa.020.2.ph.i = phi i1 [ true, %46 ], [ true, %37 ], [ true, %76 ], [ true, %67 ], [ true, %78 ], [ true, %40 ], [ true, %123 ], [ false, %141 ], [ true, %44 ]
+  %.sroa.020.2.ph.i = phi i1 [ true, %76 ], [ true, %67 ], [ true, %78 ], [ true, %40 ], [ true, %37 ], [ true, %123 ], [ false, %141 ], [ true, %44 ], [ true, %46 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
@@ -15348,7 +15348,7 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   br label %.body
 
 .loopexit.split-lp:                               ; preds = %216, %219, %223, %226, %354, %358, %395, %381, %436, %"_ZN4core3ptr58drop_in_place$LT$$u5b$polars_core..series..Series$u5d$$GT$17h0bd44f87b253f4c0E.exit", %300
-  %.sroa.022.2.ph = phi i1 [ true, %226 ], [ true, %354 ], [ true, %358 ], [ true, %216 ], [ true, %395 ], [ true, %381 ], [ true, %219 ], [ true, %436 ], [ true, %223 ], [ true, %"_ZN4core3ptr58drop_in_place$LT$$u5b$polars_core..series..Series$u5d$$GT$17h0bd44f87b253f4c0E.exit" ], [ false, %300 ]
+  %.sroa.022.2.ph = phi i1 [ true, %216 ], [ true, %395 ], [ true, %381 ], [ true, %219 ], [ true, %358 ], [ true, %436 ], [ true, %223 ], [ true, %"_ZN4core3ptr58drop_in_place$LT$$u5b$polars_core..series..Series$u5d$$GT$17h0bd44f87b253f4c0E.exit" ], [ true, %354 ], [ true, %226 ], [ false, %300 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -16096,7 +16096,7 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   br label %.body.i
 
 .loopexit.split-lp.i:                             ; preds = %141, %123, %78, %76, %67, %46, %44, %40, %37
-  %.sroa.020.2.ph.i = phi i1 [ true, %46 ], [ true, %37 ], [ true, %76 ], [ true, %67 ], [ true, %78 ], [ true, %40 ], [ true, %123 ], [ false, %141 ], [ true, %44 ]
+  %.sroa.020.2.ph.i = phi i1 [ true, %76 ], [ true, %67 ], [ true, %78 ], [ true, %40 ], [ true, %37 ], [ true, %123 ], [ false, %141 ], [ true, %44 ], [ true, %46 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
@@ -16550,7 +16550,7 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   br label %.body
 
 .loopexit.split-lp:                               ; preds = %216, %219, %223, %226, %354, %358, %395, %381, %436, %"_ZN4core3ptr58drop_in_place$LT$$u5b$polars_core..series..Series$u5d$$GT$17h0bd44f87b253f4c0E.exit", %300
-  %.sroa.022.2.ph = phi i1 [ true, %226 ], [ true, %354 ], [ true, %358 ], [ true, %216 ], [ true, %395 ], [ true, %381 ], [ true, %219 ], [ true, %436 ], [ true, %223 ], [ true, %"_ZN4core3ptr58drop_in_place$LT$$u5b$polars_core..series..Series$u5d$$GT$17h0bd44f87b253f4c0E.exit" ], [ false, %300 ]
+  %.sroa.022.2.ph = phi i1 [ true, %216 ], [ true, %395 ], [ true, %381 ], [ true, %219 ], [ true, %358 ], [ true, %436 ], [ true, %223 ], [ true, %"_ZN4core3ptr58drop_in_place$LT$$u5b$polars_core..series..Series$u5d$$GT$17h0bd44f87b253f4c0E.exit" ], [ true, %354 ], [ true, %226 ], [ false, %300 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -17299,7 +17299,7 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   br label %.body.i
 
 .loopexit.split-lp.i:                             ; preds = %141, %123, %78, %76, %67, %46, %44, %40, %37
-  %.sroa.020.2.ph.i = phi i1 [ true, %46 ], [ true, %37 ], [ true, %76 ], [ true, %67 ], [ true, %78 ], [ true, %40 ], [ true, %123 ], [ false, %141 ], [ true, %44 ]
+  %.sroa.020.2.ph.i = phi i1 [ true, %76 ], [ true, %67 ], [ true, %78 ], [ true, %40 ], [ true, %37 ], [ true, %123 ], [ false, %141 ], [ true, %44 ], [ true, %46 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
@@ -17753,7 +17753,7 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   br label %.body
 
 .loopexit.split-lp:                               ; preds = %216, %219, %223, %226, %354, %358, %395, %381, %436, %"_ZN4core3ptr58drop_in_place$LT$$u5b$polars_core..series..Series$u5d$$GT$17h0bd44f87b253f4c0E.exit", %300
-  %.sroa.022.2.ph = phi i1 [ true, %226 ], [ true, %354 ], [ true, %358 ], [ true, %216 ], [ true, %395 ], [ true, %381 ], [ true, %219 ], [ true, %436 ], [ true, %223 ], [ true, %"_ZN4core3ptr58drop_in_place$LT$$u5b$polars_core..series..Series$u5d$$GT$17h0bd44f87b253f4c0E.exit" ], [ false, %300 ]
+  %.sroa.022.2.ph = phi i1 [ true, %216 ], [ true, %395 ], [ true, %381 ], [ true, %219 ], [ true, %358 ], [ true, %436 ], [ true, %223 ], [ true, %"_ZN4core3ptr58drop_in_place$LT$$u5b$polars_core..series..Series$u5d$$GT$17h0bd44f87b253f4c0E.exit" ], [ true, %354 ], [ true, %226 ], [ false, %300 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -18502,7 +18502,7 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   br label %.body.i
 
 .loopexit.split-lp.i:                             ; preds = %141, %123, %78, %76, %67, %46, %44, %40, %37
-  %.sroa.020.2.ph.i = phi i1 [ true, %46 ], [ true, %37 ], [ true, %76 ], [ true, %67 ], [ true, %78 ], [ true, %40 ], [ true, %123 ], [ false, %141 ], [ true, %44 ]
+  %.sroa.020.2.ph.i = phi i1 [ true, %76 ], [ true, %67 ], [ true, %78 ], [ true, %40 ], [ true, %37 ], [ true, %123 ], [ false, %141 ], [ true, %44 ], [ true, %46 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
@@ -18956,7 +18956,7 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   br label %.body
 
 .loopexit.split-lp:                               ; preds = %216, %219, %223, %226, %354, %358, %395, %381, %436, %"_ZN4core3ptr58drop_in_place$LT$$u5b$polars_core..series..Series$u5d$$GT$17h0bd44f87b253f4c0E.exit", %300
-  %.sroa.022.2.ph = phi i1 [ true, %226 ], [ true, %354 ], [ true, %358 ], [ true, %216 ], [ true, %395 ], [ true, %381 ], [ true, %219 ], [ true, %436 ], [ true, %223 ], [ true, %"_ZN4core3ptr58drop_in_place$LT$$u5b$polars_core..series..Series$u5d$$GT$17h0bd44f87b253f4c0E.exit" ], [ false, %300 ]
+  %.sroa.022.2.ph = phi i1 [ true, %216 ], [ true, %395 ], [ true, %381 ], [ true, %219 ], [ true, %358 ], [ true, %436 ], [ true, %223 ], [ true, %"_ZN4core3ptr58drop_in_place$LT$$u5b$polars_core..series..Series$u5d$$GT$17h0bd44f87b253f4c0E.exit" ], [ true, %354 ], [ true, %226 ], [ false, %300 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -21416,7 +21416,7 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   br i1 %151, label %161, label %166, !prof !463
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.us.i.i.i.i, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hcdd1ca490b5052b8E.exit.i.i.i.i.i", %100
-  %.pre50.i.pn.i.i.i.i = phi i64 [ %91, %.lr.ph.i.us.i.i.i.i ], [ %107, %100 ], [ %138, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hcdd1ca490b5052b8E.exit.i.i.i.i.i" ], [ %126, %.lr.ph.i.i.i.i.i ]
+  %.pre50.i.pn.i.i.i.i = phi i64 [ %91, %.lr.ph.i.us.i.i.i.i ], [ %138, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hcdd1ca490b5052b8E.exit.i.i.i.i.i" ], [ %107, %100 ], [ %126, %.lr.ph.i.i.i.i.i ]
   %.ph.i.i.i.i = getelementptr inbounds { { { i32, [1 x i32] }, i64 }, i32, [1 x i32] }, ptr %81, i64 %.pre50.i.pn.i.i.i.i
   %153 = getelementptr inbounds i8, ptr %.ph.i.i.i.i, i64 -8
   %154 = load i32, ptr %153, align 8, !noalias !2142, !noundef !3
@@ -21974,7 +21974,7 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   br i1 %151, label %161, label %166, !prof !463
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.us.i.i.i.i, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h6e803e36d77e97f9E.exit.i.i.i.i.i", %100
-  %.pre50.i.pn.i.i.i.i = phi i64 [ %91, %.lr.ph.i.us.i.i.i.i ], [ %107, %100 ], [ %138, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h6e803e36d77e97f9E.exit.i.i.i.i.i" ], [ %126, %.lr.ph.i.i.i.i.i ]
+  %.pre50.i.pn.i.i.i.i = phi i64 [ %91, %.lr.ph.i.us.i.i.i.i ], [ %138, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h6e803e36d77e97f9E.exit.i.i.i.i.i" ], [ %107, %100 ], [ %126, %.lr.ph.i.i.i.i.i ]
   %.ph.i.i.i.i = getelementptr inbounds { { i64, { i8, [1 x i8] }, [6 x i8] }, i32, [1 x i32] }, ptr %80, i64 %.pre50.i.pn.i.i.i.i
   %153 = getelementptr inbounds i8, ptr %.ph.i.i.i.i, i64 -8
   %154 = load i32, ptr %153, align 8, !noalias !2221, !noundef !3
@@ -22532,7 +22532,7 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   br i1 %151, label %161, label %166, !prof !463
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.us.i.i.i.i, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h6d78c535f2db1b1fE.exit.i.i.i.i.i", %100
-  %.pre50.i.pn.i.i.i.i = phi i64 [ %91, %.lr.ph.i.us.i.i.i.i ], [ %107, %100 ], [ %138, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h6d78c535f2db1b1fE.exit.i.i.i.i.i" ], [ %126, %.lr.ph.i.i.i.i.i ]
+  %.pre50.i.pn.i.i.i.i = phi i64 [ %91, %.lr.ph.i.us.i.i.i.i ], [ %138, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h6d78c535f2db1b1fE.exit.i.i.i.i.i" ], [ %107, %100 ], [ %126, %.lr.ph.i.i.i.i.i ]
   %.ph.i.i.i.i = getelementptr inbounds { { { i128, [2 x i64] }, i64, [1 x i64] }, i32, [3 x i32] }, ptr %81, i64 %.pre50.i.pn.i.i.i.i
   %153 = getelementptr inbounds i8, ptr %.ph.i.i.i.i, i64 -16
   %154 = load i32, ptr %153, align 16, !noalias !2299, !noundef !3
@@ -23090,7 +23090,7 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   br i1 %151, label %161, label %166, !prof !463
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.us.i.i.i.i, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hdd4392a2080cbc93E.exit.i.i.i.i.i", %100
-  %.pre50.i.pn.i.i.i.i = phi i64 [ %91, %.lr.ph.i.us.i.i.i.i ], [ %107, %100 ], [ %138, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hdd4392a2080cbc93E.exit.i.i.i.i.i" ], [ %126, %.lr.ph.i.i.i.i.i ]
+  %.pre50.i.pn.i.i.i.i = phi i64 [ %91, %.lr.ph.i.us.i.i.i.i ], [ %138, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hdd4392a2080cbc93E.exit.i.i.i.i.i" ], [ %107, %100 ], [ %126, %.lr.ph.i.i.i.i.i ]
   %.ph.i.i.i.i = getelementptr inbounds { { { i32, [1 x i32] }, i64 }, i32, [1 x i32] }, ptr %81, i64 %.pre50.i.pn.i.i.i.i
   %153 = getelementptr inbounds i8, ptr %.ph.i.i.i.i, i64 -8
   %154 = load i32, ptr %153, align 8, !noalias !2377, !noundef !3
@@ -23648,7 +23648,7 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   br i1 %151, label %161, label %166, !prof !463
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.us.i.i.i.i, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5043d816e0539fafE.exit.i.i.i.i.i", %100
-  %.pre50.i.pn.i.i.i.i = phi i64 [ %91, %.lr.ph.i.us.i.i.i.i ], [ %107, %100 ], [ %138, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5043d816e0539fafE.exit.i.i.i.i.i" ], [ %126, %.lr.ph.i.i.i.i.i ]
+  %.pre50.i.pn.i.i.i.i = phi i64 [ %91, %.lr.ph.i.us.i.i.i.i ], [ %138, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5043d816e0539fafE.exit.i.i.i.i.i" ], [ %107, %100 ], [ %126, %.lr.ph.i.i.i.i.i ]
   %.ph.i.i.i.i = getelementptr inbounds { { { i64, [1 x i64] }, i64 }, i32, [1 x i32] }, ptr %81, i64 %.pre50.i.pn.i.i.i.i
   %153 = getelementptr inbounds i8, ptr %.ph.i.i.i.i, i64 -8
   %154 = load i32, ptr %153, align 8, !noalias !2455, !noundef !3
@@ -24206,7 +24206,7 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   br i1 %151, label %161, label %166, !prof !463
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.us.i.i.i.i, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hcaf9c090be2fe775E.exit.i.i.i.i.i", %100
-  %.pre50.i.pn.i.i.i.i = phi i64 [ %91, %.lr.ph.i.us.i.i.i.i ], [ %107, %100 ], [ %138, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hcaf9c090be2fe775E.exit.i.i.i.i.i" ], [ %126, %.lr.ph.i.i.i.i.i ]
+  %.pre50.i.pn.i.i.i.i = phi i64 [ %91, %.lr.ph.i.us.i.i.i.i ], [ %138, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hcaf9c090be2fe775E.exit.i.i.i.i.i" ], [ %107, %100 ], [ %126, %.lr.ph.i.i.i.i.i ]
   %.ph.i.i.i.i = getelementptr inbounds { { i64, { i8, [1 x i8] }, [6 x i8] }, i32, [1 x i32] }, ptr %80, i64 %.pre50.i.pn.i.i.i.i
   %153 = getelementptr inbounds i8, ptr %.ph.i.i.i.i, i64 -8
   %154 = load i32, ptr %153, align 8, !noalias !2533, !noundef !3
@@ -24764,7 +24764,7 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   br i1 %151, label %161, label %166, !prof !463
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.us.i.i.i.i, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h7e93b380601bd9e5E.exit.i.i.i.i.i", %100
-  %.pre50.i.pn.i.i.i.i = phi i64 [ %91, %.lr.ph.i.us.i.i.i.i ], [ %107, %100 ], [ %138, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h7e93b380601bd9e5E.exit.i.i.i.i.i" ], [ %126, %.lr.ph.i.i.i.i.i ]
+  %.pre50.i.pn.i.i.i.i = phi i64 [ %91, %.lr.ph.i.us.i.i.i.i ], [ %138, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h7e93b380601bd9e5E.exit.i.i.i.i.i" ], [ %107, %100 ], [ %126, %.lr.ph.i.i.i.i.i ]
   %.ph.i.i.i.i = getelementptr inbounds { { i64, { i16, [1 x i16] }, [2 x i16] }, i32, [1 x i32] }, ptr %80, i64 %.pre50.i.pn.i.i.i.i
   %153 = getelementptr inbounds i8, ptr %.ph.i.i.i.i, i64 -8
   %154 = load i32, ptr %153, align 8, !noalias !2611, !noundef !3
@@ -25322,7 +25322,7 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   br i1 %151, label %161, label %166, !prof !463
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.us.i.i.i.i, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hbb26118dbced8698E.exit.i.i.i.i.i", %100
-  %.pre50.i.pn.i.i.i.i = phi i64 [ %91, %.lr.ph.i.us.i.i.i.i ], [ %107, %100 ], [ %138, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hbb26118dbced8698E.exit.i.i.i.i.i" ], [ %126, %.lr.ph.i.i.i.i.i ]
+  %.pre50.i.pn.i.i.i.i = phi i64 [ %91, %.lr.ph.i.us.i.i.i.i ], [ %138, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hbb26118dbced8698E.exit.i.i.i.i.i" ], [ %107, %100 ], [ %126, %.lr.ph.i.i.i.i.i ]
   %.ph.i.i.i.i = getelementptr inbounds { { { i64, [1 x i64] }, i64 }, i32, [1 x i32] }, ptr %81, i64 %.pre50.i.pn.i.i.i.i
   %153 = getelementptr inbounds i8, ptr %.ph.i.i.i.i, i64 -8
   %154 = load i32, ptr %153, align 8, !noalias !2689, !noundef !3
@@ -25880,7 +25880,7 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   br i1 %151, label %161, label %166, !prof !463
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.us.i.i.i.i, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hb4de578ce9ff7ee0E.exit.i.i.i.i.i", %100
-  %.pre50.i.pn.i.i.i.i = phi i64 [ %91, %.lr.ph.i.us.i.i.i.i ], [ %107, %100 ], [ %138, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hb4de578ce9ff7ee0E.exit.i.i.i.i.i" ], [ %126, %.lr.ph.i.i.i.i.i ]
+  %.pre50.i.pn.i.i.i.i = phi i64 [ %91, %.lr.ph.i.us.i.i.i.i ], [ %138, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hb4de578ce9ff7ee0E.exit.i.i.i.i.i" ], [ %107, %100 ], [ %126, %.lr.ph.i.i.i.i.i ]
   %.ph.i.i.i.i = getelementptr inbounds { { i64, { i16, [1 x i16] }, [2 x i16] }, i32, [1 x i32] }, ptr %80, i64 %.pre50.i.pn.i.i.i.i
   %153 = getelementptr inbounds i8, ptr %.ph.i.i.i.i, i64 -8
   %154 = load i32, ptr %153, align 8, !noalias !2767, !noundef !3

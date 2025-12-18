@@ -159,7 +159,7 @@ start_kwallet.exit.thread:                        ; preds = %check_error.exit.i,
   br label %39
 
 39:                                               ; preds = %.sink.split, %13, %35
-  %.0 = phi ptr [ %3, %35 ], [ %3, %13 ], [ null, %.sink.split ]
+  %.0 = phi ptr [ %3, %13 ], [ %3, %35 ], [ null, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
 }

@@ -1468,8 +1468,8 @@ switch.early.test:                                ; preds = %484
   br label %491
 
 491:                                              ; preds = %488, %484, %.fold.split, %switch.early.test, %switch.early.test
-  %.265 = phi i32 [ %.063, %switch.early.test ], [ %490, %488 ], [ %.063, %484 ], [ %.063, %switch.early.test ], [ %.063, %.fold.split ]
-  %492 = phi i1 [ false, %switch.early.test ], [ true, %488 ], [ false, %484 ], [ false, %switch.early.test ], [ true, %.fold.split ]
+  %.265 = phi i32 [ %.063, %switch.early.test ], [ %490, %488 ], [ %.063, %switch.early.test ], [ %.063, %484 ], [ %.063, %.fold.split ]
+  %492 = phi i1 [ false, %switch.early.test ], [ true, %488 ], [ false, %switch.early.test ], [ false, %484 ], [ true, %.fold.split ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %45) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %45)
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %41) #15

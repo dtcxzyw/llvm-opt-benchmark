@@ -4159,8 +4159,8 @@ _ZNSt6vectorIPKfSaIS1_EED2Ev.exit80.thread.i:     ; preds = %31
   br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !209
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %74, %81, %.preheader132.i
-  %.pre-phi150.i = phi i64 [ 0, %.preheader132.i ], [ %91, %81 ], [ %70, %74 ], [ %91, %.lr.ph.i ]
-  %100 = phi ptr [ %67, %.preheader132.i ], [ %88, %81 ], [ %67, %74 ], [ %88, %.lr.ph.i ]
+  %.pre-phi150.i = phi i64 [ %70, %74 ], [ 0, %.preheader132.i ], [ %91, %81 ], [ %91, %.lr.ph.i ]
+  %100 = phi ptr [ %67, %74 ], [ %67, %.preheader132.i ], [ %88, %81 ], [ %88, %.lr.ph.i ]
   %101 = lshr exact i64 %.pre-phi150.i, 3
   %102 = trunc i64 %101 to i32
   %103 = load ptr, ptr %14, align 8, !tbaa !115

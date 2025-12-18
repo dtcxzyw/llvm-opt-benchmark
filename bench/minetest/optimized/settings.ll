@@ -1754,8 +1754,8 @@ if.end.loopexit.split.loop.exit20:                ; preds = %if.end.i.i.i
   br label %if.end
 
 if.end:                                           ; preds = %for.body.i.i.i, %if.end.loopexit.split.loop.exit, %if.end.loopexit.split.loop.exit18, %if.end.loopexit.split.loop.exit20, %sw.bb25.i.i.i, %sw.bb20.i.i.i, %sw.bb.i.i.i
-  %add.ptr.i72 = phi ptr [ %add.ptr.i73, %sw.bb.i.i.i ], [ %add.ptr.i73, %sw.bb20.i.i.i ], [ %add.ptr.i73, %sw.bb25.i.i.i ], [ %add.ptr.i, %if.end.loopexit.split.loop.exit20 ], [ %add.ptr.i, %if.end.loopexit.split.loop.exit18 ], [ %add.ptr.i, %if.end.loopexit.split.loop.exit ], [ %add.ptr.i, %for.body.i.i.i ]
-  %retval.0.i.i.i = phi ptr [ %__first.addr.0.lcssa.i.i.i, %sw.bb.i.i.i ], [ %__first.addr.1.i.i.i, %sw.bb20.i.i.i ], [ %__first.addr.2.i.i.i, %sw.bb25.i.i.i ], [ %incdec.ptr.i.i.i.le, %if.end.loopexit.split.loop.exit20 ], [ %incdec.ptr4.i.i.i.le, %if.end.loopexit.split.loop.exit18 ], [ %incdec.ptr8.i.i.i.le, %if.end.loopexit.split.loop.exit ], [ %__first.addr.091.i.i.i, %for.body.i.i.i ]
+  %add.ptr.i72 = phi ptr [ %add.ptr.i73, %sw.bb.i.i.i ], [ %add.ptr.i73, %sw.bb20.i.i.i ], [ %add.ptr.i73, %sw.bb25.i.i.i ], [ %add.ptr.i, %if.end.loopexit.split.loop.exit ], [ %add.ptr.i, %if.end.loopexit.split.loop.exit20 ], [ %add.ptr.i, %if.end.loopexit.split.loop.exit18 ], [ %add.ptr.i, %for.body.i.i.i ]
+  %retval.0.i.i.i = phi ptr [ %__first.addr.0.lcssa.i.i.i, %sw.bb.i.i.i ], [ %__first.addr.1.i.i.i, %sw.bb20.i.i.i ], [ %__first.addr.2.i.i.i, %sw.bb25.i.i.i ], [ %incdec.ptr8.i.i.i.le, %if.end.loopexit.split.loop.exit ], [ %incdec.ptr.i.i.i.le, %if.end.loopexit.split.loop.exit20 ], [ %incdec.ptr4.i.i.i.le, %if.end.loopexit.split.loop.exit18 ], [ %__first.addr.091.i.i.i, %for.body.i.i.i ]
   %cmp5 = icmp eq ptr %retval.0.i.i.i, %add.ptr.i72
   br i1 %cmp5, label %cleanup, label %if.then8
 
@@ -6820,7 +6820,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i
   br i1 %tobool.not.i.i, label %for.cond.i.i, label %tailrecurse.loopexit, !llvm.loop !32
 
 return:                                           ; preds = %if.end, %lor.lhs.false, %tailrecurse.loopexit, %for.cond.i.i, %entry
-  %retval.1 = phi i1 [ true, %entry ], [ false, %for.cond.i.i ], [ false, %if.end ], [ true, %tailrecurse.loopexit ], [ true, %lor.lhs.false ]
+  %retval.1 = phi i1 [ true, %entry ], [ false, %for.cond.i.i ], [ true, %tailrecurse.loopexit ], [ true, %lor.lhs.false ], [ false, %if.end ]
   ret i1 %retval.1
 }
 

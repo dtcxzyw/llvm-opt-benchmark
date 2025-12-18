@@ -4177,7 +4177,7 @@ ssl_version_cmp.exit44:                           ; preds = %ssl_has_cert.exit.t
   br i1 %.not, label %.critedge, label %.lr.ph.split, !llvm.loop !214
 
 .critedge:                                        ; preds = %ssl_version_cmp.exit44.us, %32, %36, %ssl_version_cmp.exit44, %56, %54, %12, %is_tls13_capable.exit.thread, %120, %ssl_version_cmp.exit
-  %.0 = phi i32 [ %10, %ssl_version_cmp.exit ], [ 1, %is_tls13_capable.exit.thread ], [ 1, %120 ], [ 0, %12 ], [ 0, %ssl_version_cmp.exit44 ], [ 0, %54 ], [ 0, %56 ], [ 0, %36 ], [ 0, %32 ], [ 0, %ssl_version_cmp.exit44.us ]
+  %.0 = phi i32 [ %10, %ssl_version_cmp.exit ], [ 1, %is_tls13_capable.exit.thread ], [ 1, %120 ], [ 0, %ssl_version_cmp.exit44 ], [ 0, %12 ], [ 0, %54 ], [ 0, %56 ], [ 0, %36 ], [ 0, %32 ], [ 0, %ssl_version_cmp.exit44.us ]
   ret i32 %.0
 }
 
@@ -4392,7 +4392,7 @@ define range(i32 0, 2) i32 @ssl_set_version_bound(i32 noundef %0, i32 noundef %1
   br label %14
 
 14:                                               ; preds = %.sink.split, %9, %.thread, %12, %13
-  %.0 = phi i32 [ 0, %9 ], [ 1, %13 ], [ 1, %12 ], [ 1, %.thread ], [ 1, %.sink.split ]
+  %.0 = phi i32 [ 1, %.thread ], [ 0, %9 ], [ 1, %13 ], [ 1, %12 ], [ 1, %.sink.split ]
   ret i32 %.0
 }
 
@@ -5291,7 +5291,7 @@ define range(i32 0, 2) i32 @check_in_list(ptr noundef %0, i16 noundef zeroext %1
   br i1 %exitcond.not, label %.critedge, label %.preheader.split, !llvm.loop !244
 
 .critedge:                                        ; preds = %20, %12, %.split.us, %19, %6
-  %.0 = phi i32 [ 0, %6 ], [ 1, %19 ], [ 1, %.split.us ], [ 0, %12 ], [ 0, %20 ]
+  %.0 = phi i32 [ 0, %6 ], [ 1, %.split.us ], [ 1, %19 ], [ 0, %12 ], [ 0, %20 ]
   ret i32 %.0
 }
 

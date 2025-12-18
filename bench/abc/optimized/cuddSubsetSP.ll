@@ -2071,7 +2071,7 @@ define internal fastcc range(i32 0, 2) i32 @CreateBotDist(ptr noundef %0, ptr no
   br label %.loopexit
 
 .loopexit:                                        ; preds = %71, %135, %143, %4, %73, %60, %14
-  %.061 = phi i32 [ 0, %14 ], [ 1, %4 ], [ 0, %73 ], [ 0, %60 ], [ 1, %135 ], [ 1, %143 ], [ 0, %71 ]
+  %.061 = phi i32 [ 0, %14 ], [ 1, %4 ], [ 0, %73 ], [ 0, %60 ], [ 1, %143 ], [ 1, %135 ], [ 0, %71 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.061

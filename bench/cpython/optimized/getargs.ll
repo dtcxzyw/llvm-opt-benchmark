@@ -1761,7 +1761,7 @@ PyTuple_SET_ITEM.exit:                            ; preds = %Py_SIZE.exit.i
   br label %_Py_NewRef.exit87
 
 _Py_NewRef.exit87:                                ; preds = %51, %PyTuple_SET_ITEM.exit, %.preheader, %120, %117, %59, %.critedge, %._crit_edge, %32, %2, %13
-  %.0 = phi ptr [ null, %2 ], [ null, %13 ], [ null, %32 ], [ null, %._crit_edge ], [ null, %.critedge ], [ null, %59 ], [ @_Py_NoneStruct, %117 ], [ @_Py_NoneStruct, %120 ], [ %91, %.preheader ], [ %91, %PyTuple_SET_ITEM.exit ], [ null, %51 ]
+  %.0 = phi ptr [ null, %2 ], [ null, %13 ], [ @_Py_NoneStruct, %120 ], [ null, %32 ], [ %91, %.preheader ], [ null, %._crit_edge ], [ null, %.critedge ], [ null, %59 ], [ @_Py_NoneStruct, %117 ], [ %91, %PyTuple_SET_ITEM.exit ], [ null, %51 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

@@ -479,7 +479,7 @@ define hidden noundef zeroext i1 @KMSDRM_WaitPageflip(ptr noundef readonly captu
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.backedge, %.loopexit.sink.split, %2
-  %.0 = phi i1 [ true, %2 ], [ false, %.loopexit.sink.split ], [ true, %.backedge ]
+  %.0 = phi i1 [ false, %.loopexit.sink.split ], [ true, %2 ], [ true, %.backedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
@@ -3110,7 +3110,7 @@ define internal fastcc i32 @get_driindex() unnamed_addr #0 {
   br i1 %99, label %72, label %.loopexit, !llvm.loop !29
 
 .loopexit:                                        ; preds = %94, %68, %65, %56
-  %.4 = phi i32 [ %.04267, %68 ], [ %.04267, %65 ], [ %.04267, %56 ], [ %.6, %94 ]
+  %.4 = phi i32 [ %.04267, %56 ], [ %.04267, %68 ], [ %.04267, %65 ], [ %.6, %94 ]
   %100 = load ptr, ptr @KMSDRM_drmModeFreeResources, align 8
   call void %100(ptr noundef nonnull %55) #13
   br label %101

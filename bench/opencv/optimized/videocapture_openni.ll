@@ -2940,7 +2940,7 @@ _ZNSolsEPFRSoS_E.exit159.loopexit:                ; preds = %_ZNSolsEPFRSoS_E.ex
   br label %_ZNSolsEPFRSoS_E.exit159
 
 _ZNSolsEPFRSoS_E.exit159:                         ; preds = %_ZNSolsEPFRSoS_E.exit209, %_ZNSolsEPFRSoS_E.exit159.loopexit, %.noexc320
-  %.049 = phi i32 [ %.2, %_ZNSolsEPFRSoS_E.exit159.loopexit ], [ -1, %.noexc320 ], [ 0, %_ZNSolsEPFRSoS_E.exit209 ]
+  %.049 = phi i32 [ -1, %.noexc320 ], [ %.2, %_ZNSolsEPFRSoS_E.exit159.loopexit ], [ 0, %_ZNSolsEPFRSoS_E.exit209 ]
   call void @_ZN2cv12VideoCaptureD1Ev(ptr noundef nonnull align 8 dereferenceable(41) %35) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
   %1010 = load ptr, ptr %34, align 8, !tbaa !12

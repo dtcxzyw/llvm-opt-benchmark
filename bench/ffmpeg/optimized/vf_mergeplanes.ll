@@ -727,7 +727,7 @@ define internal i32 @process_frame(ptr noundef readonly captures(none) %0) #1 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %._crit_edge, %._crit_edge49
-  %.0 = phi i32 [ %78, %._crit_edge49 ], [ -12, %._crit_edge ], [ %21, %18 ]
+  %.0 = phi i32 [ -12, %._crit_edge ], [ %78, %._crit_edge49 ], [ %21, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }

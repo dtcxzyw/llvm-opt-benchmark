@@ -438,7 +438,7 @@ define hidden range(i32 0, 2) i32 @CRYPTO_gcm128_aad(ptr noundef %0, ptr noundef
   br label %57
 
 57:                                               ; preds = %.sink.split, %11, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %11 ], [ 1, %.sink.split ]
+  %.0 = phi i32 [ 0, %11 ], [ 0, %3 ], [ 1, %.sink.split ]
   ret i32 %.0
 }
 

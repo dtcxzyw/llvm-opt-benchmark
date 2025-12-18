@@ -1204,7 +1204,7 @@ define internal noundef i64 @archive_write_shar_data_uuencode(ptr noundef %0, pt
   br label %.loopexit
 
 .loopexit:                                        ; preds = %34, %27, %.loopexit.sink.split, %._crit_edge, %3, %18
-  %.0 = phi i64 [ 0, %3 ], [ -30, %18 ], [ %2, %._crit_edge ], [ %2, %.loopexit.sink.split ], [ -30, %27 ], [ -30, %34 ]
+  %.0 = phi i64 [ %2, %.loopexit.sink.split ], [ 0, %3 ], [ %2, %._crit_edge ], [ -30, %18 ], [ -30, %27 ], [ -30, %34 ]
   ret i64 %.0
 }
 

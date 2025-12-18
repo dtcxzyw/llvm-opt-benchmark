@@ -4939,7 +4939,7 @@ _ZNK3app13get_family_idEv.exit.thread.i:          ; preds = %_ZNK3app13get_famil
   br i1 %.not27.old.i.i.i, label %.loopexit.i, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %149, %146
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %149 ], [ %148, %146 ]
+  %.137.i.i.i.be = phi ptr [ %148, %146 ], [ %.old.i.i.i, %149 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !247
 
 .loopexit.i:                                      ; preds = %135, %149, %146, %.preheader.i.i.i
@@ -5245,7 +5245,7 @@ _ZNK3app13get_family_idEv.exit.thread.i105:       ; preds = %_ZNK3app13get_famil
   br i1 %.not27.old.i.i.i119, label %.loopexit.i122, label %.lr.ph38.i.i.i115.backedge
 
 .lr.ph38.i.i.i115.backedge:                       ; preds = %269, %266
-  %.137.i.i.i116.be = phi ptr [ %.old.i.i.i118, %269 ], [ %268, %266 ]
+  %.137.i.i.i116.be = phi ptr [ %268, %266 ], [ %.old.i.i.i118, %269 ]
   br label %.lr.ph38.i.i.i115, !llvm.loop !247
 
 .loopexit.i122:                                   ; preds = %255, %269, %266, %.preheader.i.i.i113

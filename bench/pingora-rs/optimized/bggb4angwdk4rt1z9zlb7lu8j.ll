@@ -261,7 +261,7 @@ define void @_ZN14pingora_ketama9Continuum3new17h4c06efabe3c73940E(ptr dead_on_u
   br label %189
 
 .loopexit.split-lp66:                             ; preds = %92, %93, %94, %95, %118
-  %.sroa.06.1.ph = phi i1 [ true, %92 ], [ true, %93 ], [ true, %94 ], [ false, %95 ], [ true, %118 ]
+  %.sroa.06.1.ph = phi i1 [ true, %94 ], [ false, %95 ], [ true, %93 ], [ true, %118 ], [ true, %92 ]
   %lpad.loopexit.split-lp68 = landingpad { ptr, i32 }
           cleanup
   br label %189

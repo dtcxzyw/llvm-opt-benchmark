@@ -3542,7 +3542,7 @@ _ZN10VM_Version16is_intel_skylakeEv.exit.i:       ; preds = %_ZN10VM_Version20is
   %545 = icmp eq i32 %544, 85
   br i1 %545, label %_ZN10VM_Version21supports_fast_3op_leaEv.exit.thread, label %_ZN10VM_Version21supports_fast_3op_leaEv.exit
 
-_ZN10VM_Version21supports_fast_3op_leaEv.exit:    ; preds = %_ZN10VM_Version20is_intel_family_coreEv.exit.i.i, %_ZN10VM_Version16is_intel_skylakeEv.exit.i, %_ZN10VM_Version21supports_fast_2op_leaEv.exit.i
+_ZN10VM_Version21supports_fast_3op_leaEv.exit:    ; preds = %_ZN10VM_Version16is_intel_skylakeEv.exit.i, %_ZN10VM_Version20is_intel_family_coreEv.exit.i.i, %_ZN10VM_Version21supports_fast_2op_leaEv.exit.i
   %546 = getelementptr inbounds nuw i8, ptr %4, i64 728
   %547 = load i32, ptr %546, align 8
   %548 = getelementptr inbounds nuw i8, ptr %521, i64 32
@@ -3791,7 +3791,7 @@ _ZN10VM_Version16is_intel_skylakeEv.exit.i835:    ; preds = %_ZN10VM_Version20is
   %683 = icmp eq i32 %682, 85
   br i1 %683, label %_ZN10VM_Version21supports_fast_3op_leaEv.exit836.thread, label %_ZN10VM_Version21supports_fast_3op_leaEv.exit836
 
-_ZN10VM_Version21supports_fast_3op_leaEv.exit836: ; preds = %_ZN10VM_Version20is_intel_family_coreEv.exit.i.i834, %_ZN10VM_Version16is_intel_skylakeEv.exit.i835, %_ZN10VM_Version21supports_fast_2op_leaEv.exit.i830
+_ZN10VM_Version21supports_fast_3op_leaEv.exit836: ; preds = %_ZN10VM_Version16is_intel_skylakeEv.exit.i835, %_ZN10VM_Version20is_intel_family_coreEv.exit.i.i834, %_ZN10VM_Version21supports_fast_2op_leaEv.exit.i830
   %684 = getelementptr inbounds nuw i8, ptr %4, i64 724
   %685 = load i32, ptr %684, align 4
   %686 = getelementptr inbounds nuw i8, ptr %659, i64 32
@@ -4434,7 +4434,7 @@ _ZN10VM_Version16is_intel_skylakeEv.exit.i843:    ; preds = %_ZN10VM_Version20is
   %1033 = icmp eq i32 %1032, 85
   br i1 %1033, label %_ZN10VM_Version21supports_fast_3op_leaEv.exit844.thread, label %_ZN10VM_Version21supports_fast_3op_leaEv.exit844
 
-_ZN10VM_Version21supports_fast_3op_leaEv.exit844: ; preds = %_ZN10VM_Version20is_intel_family_coreEv.exit.i.i842, %_ZN10VM_Version16is_intel_skylakeEv.exit.i843, %_ZN10VM_Version21supports_fast_2op_leaEv.exit.i838
+_ZN10VM_Version21supports_fast_3op_leaEv.exit844: ; preds = %_ZN10VM_Version16is_intel_skylakeEv.exit.i843, %_ZN10VM_Version20is_intel_family_coreEv.exit.i.i842, %_ZN10VM_Version21supports_fast_2op_leaEv.exit.i838
   %1034 = getelementptr inbounds nuw i8, ptr %4, i64 720
   %1035 = load i32, ptr %1034, align 8
   %1036 = getelementptr inbounds nuw i8, ptr %1009, i64 32
@@ -6156,7 +6156,7 @@ _ZN10VM_Version16is_intel_skylakeEv.exit.i:       ; preds = %_ZN10VM_Version20is
   %54 = icmp eq i32 %53, 85
   br i1 %54, label %_ZN10VM_Version21supports_fast_3op_leaEv.exit.thread, label %_ZN10VM_Version21supports_fast_3op_leaEv.exit
 
-_ZN10VM_Version21supports_fast_3op_leaEv.exit:    ; preds = %_ZN10VM_Version20is_intel_family_coreEv.exit.i.i, %_ZN10VM_Version16is_intel_skylakeEv.exit.i, %_ZN10VM_Version21supports_fast_2op_leaEv.exit.i
+_ZN10VM_Version21supports_fast_3op_leaEv.exit:    ; preds = %_ZN10VM_Version16is_intel_skylakeEv.exit.i, %_ZN10VM_Version20is_intel_family_coreEv.exit.i.i, %_ZN10VM_Version21supports_fast_2op_leaEv.exit.i
   %55 = getelementptr inbounds nuw i8, ptr %4, i64 760
   %56 = load i32, ptr %55, align 8
   %57 = getelementptr inbounds nuw i8, ptr %30, i64 120
@@ -6389,7 +6389,7 @@ _ZN10VM_Version16is_intel_skylakeEv.exit.i562:    ; preds = %_ZN10VM_Version20is
   %183 = icmp eq i32 %182, 85
   br i1 %183, label %_ZN10VM_Version21supports_fast_3op_leaEv.exit563.thread, label %_ZN10VM_Version21supports_fast_3op_leaEv.exit563
 
-_ZN10VM_Version21supports_fast_3op_leaEv.exit563: ; preds = %_ZN10VM_Version20is_intel_family_coreEv.exit.i.i561, %_ZN10VM_Version16is_intel_skylakeEv.exit.i562, %_ZN10VM_Version21supports_fast_2op_leaEv.exit.i557
+_ZN10VM_Version21supports_fast_3op_leaEv.exit563: ; preds = %_ZN10VM_Version16is_intel_skylakeEv.exit.i562, %_ZN10VM_Version20is_intel_family_coreEv.exit.i.i561, %_ZN10VM_Version21supports_fast_2op_leaEv.exit.i557
   %184 = getelementptr inbounds nuw i8, ptr %4, i64 756
   %185 = load i32, ptr %184, align 4
   %186 = getelementptr inbounds nuw i8, ptr %159, i64 120
@@ -6984,7 +6984,7 @@ _ZN10VM_Version16is_intel_skylakeEv.exit.i570:    ; preds = %_ZN10VM_Version20is
   %506 = icmp eq i32 %505, 85
   br i1 %506, label %_ZN10VM_Version21supports_fast_3op_leaEv.exit571.thread, label %_ZN10VM_Version21supports_fast_3op_leaEv.exit571
 
-_ZN10VM_Version21supports_fast_3op_leaEv.exit571: ; preds = %_ZN10VM_Version20is_intel_family_coreEv.exit.i.i569, %_ZN10VM_Version16is_intel_skylakeEv.exit.i570, %_ZN10VM_Version21supports_fast_2op_leaEv.exit.i565
+_ZN10VM_Version21supports_fast_3op_leaEv.exit571: ; preds = %_ZN10VM_Version16is_intel_skylakeEv.exit.i570, %_ZN10VM_Version20is_intel_family_coreEv.exit.i.i569, %_ZN10VM_Version21supports_fast_2op_leaEv.exit.i565
   %507 = getelementptr inbounds nuw i8, ptr %4, i64 752
   %508 = load i32, ptr %507, align 8
   %509 = getelementptr inbounds nuw i8, ptr %482, i64 120
@@ -68623,8 +68623,8 @@ define hidden void @_ZN5State26_sub_Op_PrefetchAllocationEPK4Node(ptr noundef no
   br label %47
 
 47:                                               ; preds = %46, %32
-  %.pre-phi39 = phi i16 [ %.pre38, %46 ], [ %.pre-phi37, %32 ]
-  %48 = phi i64 [ %.pre34, %46 ], [ %33, %32 ]
+  %.pre-phi39 = phi i16 [ %.pre-phi37, %32 ], [ %.pre38, %46 ]
+  %48 = phi i64 [ %33, %32 ], [ %.pre34, %46 ]
   %49 = icmp ne i16 %.pre-phi39, 0
   %50 = icmp eq i64 %48, 3
   %or.cond7 = select i1 %49, i1 %50, i1 false

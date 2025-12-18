@@ -3742,7 +3742,7 @@ _ZN5clang6Parser15TryConsumeTokenENS_3tok9TokenKindE.exit: ; preds = %124
   br label %_ZNK5clang6Parser40ConditionDeclarationOrInitStatementState6resultEv.exit11
 
 _ZNK5clang6Parser40ConditionDeclarationOrInitStatementState6resultEv.exit11: ; preds = %103, %132, %116, %110, %128, %114, %108, %100, %97, %94, %_ZNK5clang5Token7isOneOfIJNS_3tok9TokenKindES3_EEEbS3_DpT_.exit.thread, %81, %79, %77, %75, %63, %61, %59, %57
-  %.1 = phi i32 [ %spec.select48, %132 ], [ %..i9, %63 ], [ %..i16, %81 ], [ %spec.select43, %116 ], [ %..i19, %100 ], [ 0, %114 ], [ 1, %128 ], [ 2, %61 ], [ 0, %57 ], [ 1, %59 ], [ 2, %79 ], [ 0, %75 ], [ 1, %77 ], [ 2, %97 ], [ 0, %_ZNK5clang5Token7isOneOfIJNS_3tok9TokenKindES3_EEEbS3_DpT_.exit.thread ], [ 1, %94 ], [ %spec.select, %110 ], [ 0, %108 ], [ 3, %103 ]
+  %.1 = phi i32 [ %spec.select48, %132 ], [ %..i9, %63 ], [ %..i16, %81 ], [ %spec.select43, %116 ], [ %..i19, %100 ], [ 0, %114 ], [ 0, %108 ], [ 1, %128 ], [ 2, %61 ], [ 0, %57 ], [ 1, %59 ], [ 2, %79 ], [ 0, %75 ], [ 1, %77 ], [ 2, %97 ], [ 0, %_ZNK5clang5Token7isOneOfIJNS_3tok9TokenKindES3_EEEbS3_DpT_.exit.thread ], [ 1, %94 ], [ %spec.select, %110 ], [ 3, %103 ]
   %136 = load ptr, ptr %45, align 8, !tbaa !99
   call void @_ZN5clang12Preprocessor9BacktrackEv(ptr noundef nonnull align 8 dereferenceable(3288) %136) #10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.8, i64 32, i1 false), !tbaa.struct !11
@@ -4097,7 +4097,7 @@ _ZNK5clang5Token7isOneOfIJNS_3tok9TokenKindES3_S3_EEEbS3_DpT_.exit: ; preds = %_
   br label %61
 
 61:                                               ; preds = %.sink.split, %_ZNK5clang5Token7isOneOfIJNS_3tok9TokenKindES3_S3_EEEbS3_DpT_.exit, %43, %37, %32, %29, %28, %7
-  %.016 = phi i32 [ %spec.store.select, %7 ], [ 1, %28 ], [ 1, %32 ], [ 1, %29 ], [ 1, %_ZNK5clang5Token7isOneOfIJNS_3tok9TokenKindES3_S3_EEEbS3_DpT_.exit ], [ 1, %43 ], [ 1, %37 ], [ 0, %.sink.split ]
+  %.016 = phi i32 [ 1, %37 ], [ 1, %43 ], [ 1, %_ZNK5clang5Token7isOneOfIJNS_3tok9TokenKindES3_S3_EEEbS3_DpT_.exit ], [ 1, %29 ], [ %spec.store.select, %7 ], [ 1, %28 ], [ 1, %32 ], [ 0, %.sink.split ]
   %62 = icmp eq i32 %.016, 0
   %63 = load ptr, ptr %19, align 8, !tbaa !99
   tail call void @_ZN5clang12Preprocessor9BacktrackEv(ptr noundef nonnull align 8 dereferenceable(3288) %63) #10
@@ -4551,7 +4551,7 @@ _ZN5clang6Parser15TryConsumeTokenENS_3tok9TokenKindE.exit: ; preds = %_ZN5clang6
   br label %.loopexit66
 
 .loopexit66:                                      ; preds = %154, %.loopexit.thread85, %.loopexit, %.loopexit.thread, %_ZN5clang16LambdaIntroducerD2Ev.exit, %117
-  %.1 = phi i32 [ %123, %117 ], [ %.2, %_ZN5clang16LambdaIntroducerD2Ev.exit ], [ %183, %.loopexit.thread ], [ 0, %.loopexit ], [ 0, %.loopexit.thread85 ], [ 1, %154 ]
+  %.1 = phi i32 [ %123, %117 ], [ %.2, %_ZN5clang16LambdaIntroducerD2Ev.exit ], [ 0, %.loopexit ], [ %183, %.loopexit.thread ], [ 0, %.loopexit.thread85 ], [ 1, %154 ]
   %184 = load ptr, ptr %25, align 8, !tbaa !99
   call void @_ZN5clang12Preprocessor9BacktrackEv(ptr noundef nonnull align 8 dereferenceable(3288) %184) #10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %70, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.8, i64 32, i1 false), !tbaa.struct !11
@@ -6418,8 +6418,8 @@ thread-pre-split40:                               ; preds = %67
   br label %_ZN5clang6Parser15TryConsumeTokenENS_3tok9TokenKindE.exit
 
 _ZN5clang6Parser15TryConsumeTokenENS_3tok9TokenKindE.exit: ; preds = %55, %55, %.split, %52, %46, %43, %.split.us, %69, %76, %62, %.split46.us, %58, %67, %71, %33
-  %.027 = phi i32 [ 1, %33 ], [ 1, %.split46.us ], [ 1, %62 ], [ 1, %71 ], [ 1, %67 ], [ 1, %58 ], [ 3, %69 ], [ 0, %76 ], [ 1, %46 ], [ 1, %.split.us ], [ 1, %43 ], [ 1, %52 ], [ 1, %.split ], [ 1, %55 ], [ 1, %55 ]
-  %.2 = phi i32 [ %34, %33 ], [ %57, %.split46.us ], [ %64, %62 ], [ %.37, %71 ], [ 3, %67 ], [ 0, %58 ], [ %.147, %69 ], [ %.147, %76 ], [ %47, %46 ], [ 0, %43 ], [ 3, %.split.us ], [ %56, %55 ], [ 3, %.split ], [ %56, %55 ], [ 0, %52 ]
+  %.027 = phi i32 [ 1, %33 ], [ 0, %76 ], [ 3, %69 ], [ 1, %58 ], [ 1, %67 ], [ 1, %.split46.us ], [ 1, %62 ], [ 1, %71 ], [ 1, %46 ], [ 1, %.split.us ], [ 1, %43 ], [ 1, %52 ], [ 1, %.split ], [ 1, %55 ], [ 1, %55 ]
+  %.2 = phi i32 [ %34, %33 ], [ %.147, %76 ], [ %.147, %69 ], [ 0, %58 ], [ 3, %67 ], [ %57, %.split46.us ], [ %64, %62 ], [ %.37, %71 ], [ %47, %46 ], [ 0, %43 ], [ 3, %.split.us ], [ %56, %55 ], [ 3, %.split ], [ 0, %52 ], [ %56, %55 ]
   %79 = load ptr, ptr %16, align 8, !tbaa !1006
   call void @_ZN5clang16AttributeFactory11reclaimPoolERNS_13AttributePoolE(ptr noundef nonnull align 8 dereferenceable(1312) %79, ptr noundef nonnull align 8 dereferenceable(72) %16) #10
   %80 = load ptr, ptr %17, align 8, !tbaa !948
@@ -7151,7 +7151,7 @@ _ZNK5clang12CXXScopeSpec7isEmptyEv.exit:          ; preds = %130, %136
   br label %143
 
 143:                                              ; preds = %96, %.fold.split, %_ZNK5clang12CXXScopeSpec7isEmptyEv.exit, %106, %142
-  %.1 = phi i32 [ 2, %96 ], [ 2, %142 ], [ 0, %106 ], [ 0, %_ZNK5clang12CXXScopeSpec7isEmptyEv.exit ], [ 0, %.fold.split ]
+  %.1 = phi i32 [ 0, %_ZNK5clang12CXXScopeSpec7isEmptyEv.exit ], [ 2, %96 ], [ 2, %142 ], [ 0, %106 ], [ 0, %.fold.split ]
   %144 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %145 = load i32, ptr %144, align 4, !tbaa !949
   %.not.i.i29 = icmp eq i32 %145, 0

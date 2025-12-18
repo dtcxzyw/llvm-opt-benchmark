@@ -147,7 +147,7 @@ define internal range(i32 0, 2) i32 @rc4_hmac_md5_get_ctx_params(ptr noundef rea
   br label %20
 
 20:                                               ; preds = %.sink.split, %14, %16
-  %.0 = phi i32 [ 1, %16 ], [ 1, %14 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 1, %14 ], [ 1, %16 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 
@@ -276,7 +276,7 @@ ossl_param_is_empty.exit.thread.sink.split:       ; preds = %57, %43, %27, %24, 
   br label %ossl_param_is_empty.exit.thread
 
 ossl_param_is_empty.exit.thread:                  ; preds = %ossl_param_is_empty.exit.thread.sink.split, %2, %55, %57, %ossl_param_is_empty.exit
-  %.0 = phi i32 [ 1, %ossl_param_is_empty.exit ], [ 1, %57 ], [ 1, %55 ], [ 1, %2 ], [ 0, %ossl_param_is_empty.exit.thread.sink.split ]
+  %.0 = phi i32 [ 1, %2 ], [ 1, %55 ], [ 1, %57 ], [ 1, %ossl_param_is_empty.exit ], [ 0, %ossl_param_is_empty.exit.thread.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

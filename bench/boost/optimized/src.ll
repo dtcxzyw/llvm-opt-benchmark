@@ -6872,8 +6872,8 @@ _ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit25.thread34: ; preds = %.lr.
   br i1 %.not, label %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread, label %.lr.ph.split
 
 _ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread: ; preds = %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit25.thread34, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit25, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit25.thread34.us, %.lr.ph.split.us, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread33, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread33.us, %.lr.ph50.split.us, %_ZN5boost4json6detail6digestIPKcEEmT_S5_m.exit.thread, %_ZN5boost4json6detail6digestIPKcEEmT_S5_m.exit, %9
-  %.sroa.6.1 = phi i64 [ 0, %9 ], [ %31, %_ZN5boost4json6detail6digestIPKcEEmT_S5_m.exit ], [ %35, %_ZN5boost4json6detail6digestIPKcEEmT_S5_m.exit.thread ], [ %31, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit25.thread34.us ], [ 0, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread33.us ], [ 0, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread33 ], [ 0, %.lr.ph50.split.us ], [ 0, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit ], [ %31, %.lr.ph.split.us ], [ %35, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit25 ], [ %35, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit25.thread34 ]
-  %.sroa.032.1 = phi ptr [ null, %9 ], [ null, %_ZN5boost4json6detail6digestIPKcEEmT_S5_m.exit ], [ null, %_ZN5boost4json6detail6digestIPKcEEmT_S5_m.exit.thread ], [ null, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit25.thread34.us ], [ null, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread33.us ], [ null, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread33 ], [ %.049.us, %.lr.ph50.split.us ], [ %.049, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit ], [ %48, %.lr.ph.split.us ], [ null, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit25.thread34 ], [ %54, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit25 ]
+  %.sroa.6.1 = phi i64 [ 0, %9 ], [ %31, %_ZN5boost4json6detail6digestIPKcEEmT_S5_m.exit ], [ %35, %_ZN5boost4json6detail6digestIPKcEEmT_S5_m.exit.thread ], [ 0, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread33 ], [ 0, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread33.us ], [ %31, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit25.thread34.us ], [ 0, %.lr.ph50.split.us ], [ 0, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit ], [ %31, %.lr.ph.split.us ], [ %35, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit25 ], [ %35, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit25.thread34 ]
+  %.sroa.032.1 = phi ptr [ null, %9 ], [ null, %_ZN5boost4json6detail6digestIPKcEEmT_S5_m.exit ], [ null, %_ZN5boost4json6detail6digestIPKcEEmT_S5_m.exit.thread ], [ null, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread33 ], [ null, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit.thread33.us ], [ null, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit25.thread34.us ], [ %.049.us, %.lr.ph50.split.us ], [ %.049, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit ], [ %48, %.lr.ph.split.us ], [ null, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit25.thread34 ], [ %54, %_ZN5boost4coreeqENS0_17basic_string_viewIcEES2_.exit25 ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.032.1, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.6.1, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -11269,7 +11269,7 @@ _ZN5boost4json6object5table6bucketENS_4core17basic_string_viewIcEE.exit: ; preds
   br i1 %.not, label %.loopexit, label %55, !llvm.loop !151
 
 .loopexit:                                        ; preds = %_ZN5boost4json6object5table6bucketENS_4core17basic_string_viewIcEE.exit, %.thread, %50, %43
-  %76 = phi ptr [ %40, %.thread ], [ %.pre, %50 ], [ %.pre, %43 ], [ %.pre, %_ZN5boost4json6object5table6bucketENS_4core17basic_string_viewIcEE.exit ]
+  %76 = phi ptr [ %40, %.thread ], [ %.pre, %43 ], [ %.pre, %50 ], [ %.pre, %_ZN5boost4json6object5table6bucketENS_4core17basic_string_viewIcEE.exit ]
   ret ptr %76
 }
 
@@ -18706,7 +18706,7 @@ _ZN5boost4json6detail6writer7suspendENS2_5stateE.exit: ; preds = %18
   br label %_ZN5boost4json6detail15count_unescapedEPKcm.exit
 
 _ZN5boost4json6detail15count_unescapedEPKcm.exit: ; preds = %.preheader135, %.preheader, %.split.loop.exit.i52, %.split.loop.exit.i
-  %.pn134.in = phi ptr [ %43, %.split.loop.exit.i ], [ %57, %.split.loop.exit.i52 ], [ %.024.i, %.preheader ], [ %.024.i49, %.preheader135 ]
+  %.pn134.in = phi ptr [ %.024.i, %.preheader ], [ %43, %.split.loop.exit.i ], [ %57, %.split.loop.exit.i52 ], [ %.024.i49, %.preheader135 ]
   %.not44 = icmp eq ptr %.pn134.in, %.sroa.0.0.copyload
   br i1 %.not44, label %67, label %58
 
@@ -19117,7 +19117,7 @@ _ZN5boost4json6detail6writer7suspendENS2_5stateE.exit: ; preds = %28
   br label %_ZN5boost4json6detail15count_unescapedEPKcm.exit
 
 _ZN5boost4json6detail15count_unescapedEPKcm.exit: ; preds = %.preheader159, %.preheader, %.split.loop.exit.i58, %.split.loop.exit.i
-  %.pn158.in = phi ptr [ %54, %.split.loop.exit.i ], [ %68, %.split.loop.exit.i58 ], [ %.024.i, %.preheader ], [ %.024.i55, %.preheader159 ]
+  %.pn158.in = phi ptr [ %.024.i, %.preheader ], [ %54, %.split.loop.exit.i ], [ %68, %.split.loop.exit.i58 ], [ %.024.i55, %.preheader159 ]
   %.not50 = icmp eq ptr %.pn158.in, %.sroa.0.0.copyload
   br i1 %.not50, label %79, label %69
 
@@ -20248,8 +20248,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost4json6detail11write_arra
   resume { ptr, i32 } %lpad.phi
 
 .invoke:                                          ; preds = %34, %.loopexit4, %2
-  %26 = phi i8 [ 10, %2 ], [ 13, %.loopexit4 ], [ 12, %34 ]
-  %27 = phi ptr [ %12, %2 ], [ %.025.i, %.loopexit4 ], [ %32, %34 ]
+  %26 = phi i8 [ 13, %.loopexit4 ], [ 10, %2 ], [ 12, %34 ]
+  %27 = phi ptr [ %.025.i, %.loopexit4 ], [ %12, %2 ], [ %32, %34 ]
   %28 = invoke noundef zeroext i1 @_ZN5boost4json6detail6writer7suspendIPKNS0_5valueENS0_5arrayEEEbNS2_5stateET_PKT0_(ptr noundef nonnull align 8 dereferenceable(108) %0, i8 noundef signext %26, ptr noundef nonnull %27, ptr noundef nonnull %9)
           to label %_ZN5boost4json6detail10write_implINS0_5arrayELb1EEEbNS1_23sequence_conversion_tagERNS1_6writerERNS1_6streamE.exit unwind label %.loopexit.split-lp
 
@@ -41728,7 +41728,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %61,
   br label %273
 
 273:                                              ; preds = %.sink.split, %.critedge._crit_edge, %._crit_edge, %263, %254, %101, %117, %188
-  %.6325 = phi ptr [ %.15387, %254 ], [ %.15387, %263 ], [ %96, %101 ], [ %.8327.lcssa, %.critedge._crit_edge ], [ %.11409, %188 ], [ %.11.lcssa, %._crit_edge ], [ %.8327412, %117 ], [ %.15387, %.sink.split ]
+  %.6325 = phi ptr [ %.8327412, %117 ], [ %.15387, %254 ], [ %.11.lcssa, %._crit_edge ], [ %.15387, %263 ], [ %96, %101 ], [ %.8327.lcssa, %.critedge._crit_edge ], [ %.11409, %188 ], [ %.15387, %.sink.split ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %274 = ptrtoint ptr %.6325 to i64
   %275 = sub i64 %274, %13
@@ -44043,7 +44043,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit195: ; preds = %._crit_edge.i185
   br label %462
 
 462:                                              ; preds = %.sink.split, %._crit_edge637, %._crit_edge648, %._crit_edge644, %448, %439, %190, %266, %303, %367
-  %.7483 = phi ptr [ %.24601, %439 ], [ %.24601, %448 ], [ %.13489633, %266 ], [ %.17493.lcssa, %._crit_edge648 ], [ %186, %190 ], [ %.13489.lcssa, %._crit_edge637 ], [ %.17493646, %303 ], [ %.20.lcssa, %._crit_edge644 ], [ %.20642, %367 ], [ %.24601, %.sink.split ]
+  %.7483 = phi ptr [ %.20642, %367 ], [ %.24601, %439 ], [ %.20.lcssa, %._crit_edge644 ], [ %.24601, %448 ], [ %.13489633, %266 ], [ %.17493.lcssa, %._crit_edge648 ], [ %186, %190 ], [ %.13489.lcssa, %._crit_edge637 ], [ %.17493646, %303 ], [ %.24601, %.sink.split ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %463 = ptrtoint ptr %.7483 to i64
   %464 = ptrtoint ptr %1 to i64
@@ -45989,7 +45989,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit180: ; preds = %._crit_edge.i170
   br label %399
 
 399:                                              ; preds = %.sink.split, %._crit_edge590, %._crit_edge595, %._crit_edge580, %384, %375, %169, %221, %256, %306
-  %.7440 = phi ptr [ %.22547, %375 ], [ %.22547, %384 ], [ %.11444586, %221 ], [ %.15448.lcssa, %._crit_edge595 ], [ %165, %169 ], [ %.11444.lcssa, %._crit_edge590 ], [ %.15448593, %256 ], [ %.18.lcssa, %._crit_edge580 ], [ %.18578, %306 ], [ %.22547, %.sink.split ]
+  %.7440 = phi ptr [ %.18578, %306 ], [ %.22547, %375 ], [ %.18.lcssa, %._crit_edge580 ], [ %.22547, %384 ], [ %.11444586, %221 ], [ %.15448.lcssa, %._crit_edge595 ], [ %165, %169 ], [ %.11444.lcssa, %._crit_edge590 ], [ %.15448593, %256 ], [ %.22547, %.sink.split ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %400 = ptrtoint ptr %.7440 to i64
   %401 = sub i64 %400, %13
@@ -47601,7 +47601,7 @@ _ZN5boost4json6detail6bufferILm4096EE11append_utf8Em.exit222: ; preds = %523, %5
   store i64 %568, ptr %8, align 8, !tbaa !694
   br label %.thread471
 
-.thread471:                                       ; preds = %313, %311, %223, %208, %_ZN5boost4json6detail6bufferILm4096EE11append_utf8Em.exit, %_ZN5boost4json6detail6bufferILm4096EE11append_utf8Em.exit222, %512, %416, %409, %402, %82, %77, %72, %67, %62, %57, %52, %47
+.thread471:                                       ; preds = %311, %223, %208, %_ZN5boost4json6detail6bufferILm4096EE11append_utf8Em.exit, %313, %_ZN5boost4json6detail6bufferILm4096EE11append_utf8Em.exit222, %512, %416, %409, %402, %82, %77, %72, %67, %62, %57, %52, %47
   %.2448 = phi ptr [ %51, %47 ], [ %56, %52 ], [ %61, %57 ], [ %66, %62 ], [ %71, %67 ], [ %76, %72 ], [ %81, %77 ], [ %86, %82 ], [ %220, %223 ], [ %499, %512 ], [ %499, %_ZN5boost4json6detail6bufferILm4096EE11append_utf8Em.exit222 ], [ %.10454793, %416 ], [ %399, %402 ], [ %399, %409 ], [ %303, %311 ], [ %314, %313 ], [ %209, %208 ], [ %153, %_ZN5boost4json6detail6bufferILm4096EE11append_utf8Em.exit ]
   %.sroa.110.3 = phi ptr [ %.sroa.110.2, %47 ], [ %.sroa.110.2, %52 ], [ %.sroa.110.2, %57 ], [ %.sroa.110.2, %62 ], [ %.sroa.110.2, %67 ], [ %.sroa.110.2, %72 ], [ %.sroa.110.2, %77 ], [ %.sroa.110.2, %82 ], [ %.sroa.110.2, %223 ], [ %.sroa.110.4.ph, %512 ], [ %.sroa.110.4.ph, %_ZN5boost4json6detail6bufferILm4096EE11append_utf8Em.exit222 ], [ %.sroa.110.4.ph, %416 ], [ %.sroa.110.5, %402 ], [ %.sroa.110.5, %409 ], [ %.sroa.110.2, %311 ], [ %.sroa.110.2, %313 ], [ %.sroa.110.2, %208 ], [ %.sroa.110.2, %_ZN5boost4json6detail6bufferILm4096EE11append_utf8Em.exit ]
   %569 = icmp ult ptr %.2448, %.sroa.110.3
@@ -48493,8 +48493,8 @@ _ZN5boost4json6detail16count_whitespaceEPKcS3_.exit43: ; preds = %.lr.ph.i37, %1
   br label %137
 
 .loopexit:                                        ; preds = %47, %124, %91
-  %.1116 = phi ptr [ %.035.i40, %124 ], [ %.035.i27, %91 ], [ %.035.i, %47 ]
-  %.1 = phi i64 [ %53, %124 ], [ %53, %91 ], [ %.0, %47 ]
+  %.1116 = phi ptr [ %.035.i27, %91 ], [ %.035.i40, %124 ], [ %.035.i, %47 ]
+  %.1 = phi i64 [ %53, %91 ], [ %53, %124 ], [ %.0, %47 ]
   tail call void @_ZN5boost4json11value_stack10push_arrayEm(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %.1)
   %134 = load i64, ptr %8, align 8, !tbaa !171
   %135 = add i64 %134, 1
@@ -52457,9 +52457,9 @@ _ZN5boost4json6detail6bufferILm4096EE11append_utf8Em.exit204: ; preds = %421, %4
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %19, %467, %597
-  %477 = phi i64 [ %593, %597 ], [ 0, %467 ], [ 0, %19 ], [ %316, %.critedge.loopexit ]
-  %.5455 = phi ptr [ %580, %597 ], [ %414, %467 ], [ %1, %19 ], [ %310, %.critedge.loopexit ]
-  %.sroa.110.5 = phi ptr [ %.sroa.110.10, %597 ], [ %.sroa.110.4, %467 ], [ %spec.select.i, %19 ], [ %.sroa.110.12, %.critedge.loopexit ]
+  %477 = phi i64 [ 0, %19 ], [ %593, %597 ], [ 0, %467 ], [ %316, %.critedge.loopexit ]
+  %.5455 = phi ptr [ %1, %19 ], [ %580, %597 ], [ %414, %467 ], [ %310, %.critedge.loopexit ]
+  %.sroa.110.5 = phi ptr [ %spec.select.i, %19 ], [ %.sroa.110.10, %597 ], [ %.sroa.110.4, %467 ], [ %.sroa.110.12, %.critedge.loopexit ]
   %478 = icmp ult ptr %.5455, %.sroa.110.5
   br i1 %478, label %481, label %479, !prof !244
 
@@ -52807,7 +52807,7 @@ _ZN5boost4json6detail6bufferILm4096EE11append_utf8Em.exit226: ; preds = %607, %6
   store i64 %652, ptr %8, align 8, !tbaa !694
   br label %.thread502
 
-.thread502:                                       ; preds = %320, %318, %231, %216, %_ZN5boost4json6detail6bufferILm4096EE11append_utf8Em.exit, %_ZN5boost4json6detail6bufferILm4096EE11append_utf8Em.exit226, %595, %486, %472, %_ZN5boost4json6detail6bufferILm4096EE11append_utf8Em.exit204, %90, %85, %80, %75, %70, %65, %60, %55
+.thread502:                                       ; preds = %318, %231, %216, %_ZN5boost4json6detail6bufferILm4096EE11append_utf8Em.exit, %320, %_ZN5boost4json6detail6bufferILm4096EE11append_utf8Em.exit226, %595, %486, %472, %_ZN5boost4json6detail6bufferILm4096EE11append_utf8Em.exit204, %90, %85, %80, %75, %70, %65, %60, %55
   %.12462 = phi ptr [ %59, %55 ], [ %64, %60 ], [ %69, %65 ], [ %74, %70 ], [ %79, %75 ], [ %84, %80 ], [ %89, %85 ], [ %94, %90 ], [ %228, %231 ], [ %580, %595 ], [ %580, %_ZN5boost4json6detail6bufferILm4096EE11append_utf8Em.exit226 ], [ %.5455, %486 ], [ %414, %_ZN5boost4json6detail6bufferILm4096EE11append_utf8Em.exit204 ], [ %414, %472 ], [ %310, %318 ], [ %321, %320 ], [ %217, %216 ], [ %161, %_ZN5boost4json6detail6bufferILm4096EE11append_utf8Em.exit ]
   %.sroa.110.13 = phi ptr [ %.sroa.110.12, %55 ], [ %.sroa.110.12, %60 ], [ %.sroa.110.12, %65 ], [ %.sroa.110.12, %70 ], [ %.sroa.110.12, %75 ], [ %.sroa.110.12, %80 ], [ %.sroa.110.12, %85 ], [ %.sroa.110.12, %90 ], [ %.sroa.110.12, %231 ], [ %.sroa.110.10, %595 ], [ %.sroa.110.10, %_ZN5boost4json6detail6bufferILm4096EE11append_utf8Em.exit226 ], [ %.sroa.110.5, %486 ], [ %.sroa.110.4, %_ZN5boost4json6detail6bufferILm4096EE11append_utf8Em.exit204 ], [ %.sroa.110.4, %472 ], [ %.sroa.110.12, %318 ], [ %.sroa.110.12, %320 ], [ %.sroa.110.12, %216 ], [ %.sroa.110.12, %_ZN5boost4json6detail6bufferILm4096EE11append_utf8Em.exit ]
   %653 = icmp ult ptr %.12462, %.sroa.110.13
@@ -53842,8 +53842,8 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %63,
   br i1 %exitcond691.not, label %._crit_edge629, label %.lr.ph628, !prof !686
 
 .thread487.sink.split:                            ; preds = %.lr.ph, %.lr.ph612, %137
-  %.sink = phi i64 [ 0, %137 ], [ %152, %.lr.ph612 ], [ %171, %.lr.ph ]
-  %.11447.ph = phi ptr [ %138, %137 ], [ %.15451611, %.lr.ph612 ], [ %.19455605, %.lr.ph ]
+  %.sink = phi i64 [ %152, %.lr.ph612 ], [ 0, %137 ], [ %171, %.lr.ph ]
+  %.11447.ph = phi ptr [ %.15451611, %.lr.ph612 ], [ %138, %137 ], [ %.19455605, %.lr.ph ]
   store i64 %.sink, ptr %3, align 8
   br label %.thread487
 
@@ -54167,7 +54167,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %63,
   br label %.thread470
 
 .thread470:                                       ; preds = %.thread470.sink.split, %291, %236, %209, %103, %360, %370, %._crit_edge624, %._crit_edge629, %._crit_edge618
-  %.6442 = phi ptr [ %.30579, %360 ], [ %.30579, %370 ], [ %.21616, %209 ], [ %.24.lcssa, %._crit_edge629 ], [ %.24627, %236 ], [ %.27.lcssa, %._crit_edge624 ], [ %.21.lcssa, %._crit_edge618 ], [ %98, %103 ], [ %.27622, %291 ], [ %.30579, %.thread470.sink.split ]
+  %.6442 = phi ptr [ %.27622, %291 ], [ %.30579, %360 ], [ %98, %103 ], [ %.30579, %370 ], [ %.21616, %209 ], [ %.24.lcssa, %._crit_edge629 ], [ %.24627, %236 ], [ %.27.lcssa, %._crit_edge624 ], [ %.21.lcssa, %._crit_edge618 ], [ %.30579, %.thread470.sink.split ]
   %392 = load i64, ptr %3, align 8, !tbaa !683
   %393 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %394 = load i32, ptr %393, align 8, !tbaa !685
@@ -54756,8 +54756,8 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %64,
   br i1 %exitcond748.not, label %._crit_edge686, label %.lr.ph685, !prof !686
 
 .thread544.sink.split:                            ; preds = %.lr.ph, %.lr.ph669, %138
-  %.sink = phi i64 [ 0, %138 ], [ %160, %.lr.ph669 ], [ %184, %.lr.ph ]
-  %.11503.ph = phi ptr [ %139, %138 ], [ %.15507668, %.lr.ph669 ], [ %.19511662, %.lr.ph ]
+  %.sink = phi i64 [ %160, %.lr.ph669 ], [ 0, %138 ], [ %184, %.lr.ph ]
+  %.11503.ph = phi ptr [ %.15507668, %.lr.ph669 ], [ %139, %138 ], [ %.19511662, %.lr.ph ]
   store i64 %.sink, ptr %3, align 8
   br label %.thread544
 
@@ -55111,7 +55111,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %64,
   br label %.thread527
 
 .thread527:                                       ; preds = %.thread527.sink.split, %334, %264, %227, %104, %418, %428, %._crit_edge681, %._crit_edge686, %._crit_edge675
-  %.6498 = phi ptr [ %.30636, %418 ], [ %.30636, %428 ], [ %.21673, %227 ], [ %.24.lcssa, %._crit_edge686 ], [ %.24684, %264 ], [ %.27.lcssa, %._crit_edge681 ], [ %.21.lcssa, %._crit_edge675 ], [ %99, %104 ], [ %.27679, %334 ], [ %.30636, %.thread527.sink.split ]
+  %.6498 = phi ptr [ %.27679, %334 ], [ %.30636, %418 ], [ %99, %104 ], [ %.30636, %428 ], [ %.21673, %227 ], [ %.24.lcssa, %._crit_edge686 ], [ %.24684, %264 ], [ %.27.lcssa, %._crit_edge681 ], [ %.21.lcssa, %._crit_edge675 ], [ %.30636, %.thread527.sink.split ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %450 = ptrtoint ptr %.6498 to i64
   %451 = ptrtoint ptr %1 to i64
@@ -55402,7 +55402,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
   br i1 %115, label %121, label %.split579.us, !prof !244
 
 .split579.us:                                     ; preds = %113, %.preheader.split.split, %.preheader.split.split.us, %.preheader.split.us
-  %.us-phi580 = phi ptr [ %.6430, %.preheader.split.us ], [ %.6430, %.preheader.split.split.us ], [ %.14438, %.preheader.split.split ], [ %scevgep635, %113 ]
+  %.us-phi580 = phi ptr [ %.6430, %.preheader.split.us ], [ %.14438, %.preheader.split.split ], [ %.6430, %.preheader.split.split.us ], [ %scevgep635, %113 ]
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %117 = load i8, ptr %116, align 8, !tbaa !176, !range !181, !noundef !182
   %118 = trunc nuw i8 %117 to i1
@@ -55429,7 +55429,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
   br i1 %128, label %134, label %.split.us, !prof !244
 
 .split.us:                                        ; preds = %98, %.preheader553.split.split, %.preheader553.split.split.us, %.preheader553.split.us
-  %.us-phi = phi ptr [ %.6430, %.preheader553.split.us ], [ %.6430, %.preheader553.split.split.us ], [ %.18, %.preheader553.split.split ], [ %scevgep, %98 ]
+  %.us-phi = phi ptr [ %.6430, %.preheader553.split.us ], [ %.18, %.preheader553.split.split ], [ %.6430, %.preheader553.split.split.us ], [ %scevgep, %98 ]
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %130 = load i8, ptr %129, align 8, !tbaa !176, !range !181, !noundef !182
   %131 = trunc nuw i8 %130 to i1
@@ -55451,7 +55451,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
   br i1 %140, label %.thread494, label %.preheader553.split.split
 
 .thread494:                                       ; preds = %138, %125, %.thread494.loopexit555.split.us, %.thread494.loopexit.split.us
-  %.17441 = phi ptr [ %106, %.thread494.loopexit.split.us ], [ %91, %.thread494.loopexit555.split.us ], [ %126, %125 ], [ %139, %138 ]
+  %.17441 = phi ptr [ %126, %125 ], [ %106, %.thread494.loopexit.split.us ], [ %91, %.thread494.loopexit555.split.us ], [ %139, %138 ]
   %141 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %142 = load i32, ptr %141, align 8, !tbaa !685
   %143 = add nsw i32 %142, 1
@@ -55592,7 +55592,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
   br i1 %exitcond643.not, label %._crit_edge598, label %.lr.ph597, !prof !686
 
 .thread473:                                       ; preds = %.lr.ph, %134, %.lr.ph591, %121, %87, %102, %45, %77
-  %.10434 = phi ptr [ %1, %45 ], [ %78, %77 ], [ %.6430, %102 ], [ %.6430, %87 ], [ %.18, %134 ], [ %.14438, %121 ], [ %.14438.us584590, %.lr.ph591 ], [ %.18.us571577, %.lr.ph ]
+  %.10434 = phi ptr [ %1, %45 ], [ %.14438, %121 ], [ %78, %77 ], [ %.6430, %102 ], [ %.18, %134 ], [ %.6430, %87 ], [ %.14438.us584590, %.lr.ph591 ], [ %.18.us571577, %.lr.ph ]
   %198 = icmp ult ptr %.10434, %6
   br i1 %198, label %205, label %199, !prof !244
 
@@ -59562,8 +59562,8 @@ _ZN5boost4json6detail8charconv6detail10fast_float21fastfloat_strncasecmpIcEEbPKT
   br label %.loopexit
 
 .loopexit:                                        ; preds = %36, %32, %3, %_ZN5boost4json6detail8charconv6detail10fast_float21fastfloat_strncasecmpIcEEbPKT_S8_m.exit47, %19, %22, %.lr.ph._crit_edge, %62
-  %.sroa.7.0 = phi i32 [ 0, %19 ], [ 0, %62 ], [ 0, %.lr.ph._crit_edge ], [ 0, %22 ], [ 22, %_ZN5boost4json6detail8charconv6detail10fast_float21fastfloat_strncasecmpIcEEbPKT_S8_m.exit47 ], [ 22, %3 ], [ 0, %32 ], [ 0, %36 ]
-  %.sroa.0.2 = phi ptr [ %20, %19 ], [ %63, %62 ], [ %28, %.lr.ph._crit_edge ], [ %20, %22 ], [ %0, %_ZN5boost4json6detail8charconv6detail10fast_float21fastfloat_strncasecmpIcEEbPKT_S8_m.exit47 ], [ %0, %3 ], [ %20, %32 ], [ %20, %36 ]
+  %.sroa.7.0 = phi i32 [ 0, %19 ], [ 0, %62 ], [ 0, %.lr.ph._crit_edge ], [ 22, %3 ], [ 22, %_ZN5boost4json6detail8charconv6detail10fast_float21fastfloat_strncasecmpIcEEbPKT_S8_m.exit47 ], [ 0, %22 ], [ 0, %32 ], [ 0, %36 ]
+  %.sroa.0.2 = phi ptr [ %20, %19 ], [ %63, %62 ], [ %28, %.lr.ph._crit_edge ], [ %0, %3 ], [ %0, %_ZN5boost4json6detail8charconv6detail10fast_float21fastfloat_strncasecmpIcEEbPKT_S8_m.exit47 ], [ %20, %22 ], [ %20, %32 ], [ %20, %36 ]
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %.sroa.0.2, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %.sroa.7.0, 1
   ret { ptr, i32 } %.fca.1.insert
@@ -61025,7 +61025,7 @@ _ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exi
   br label %_ZN5boost4json6detail8charconv6detail10fast_float9large_mulILt62EEEbRNS4_8stackvecIXT_EEENS4_4spanImEE.exit
 
 _ZN5boost4json6detail8charconv6detail10fast_float9large_mulILt62EEEbRNS4_8stackvecIXT_EEENS4_4spanImEE.exit: ; preds = %.lr.ph, %23, %31, %._crit_edge.i14, %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i17, %._crit_edge, %50
-  %.0 = phi i1 [ false, %50 ], [ true, %._crit_edge ], [ true, %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i17 ], [ true, %._crit_edge.i14 ], [ true, %31 ], [ false, %23 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ true, %31 ], [ false, %23 ], [ false, %50 ], [ true, %._crit_edge ], [ true, %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i17 ], [ true, %._crit_edge.i14 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -61331,7 +61331,7 @@ _ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE10try_extendENS
   br i1 %.not.i51, label %.critedge32, label %109, !llvm.loop !762
 
 .critedge32:                                      ; preds = %115, %109, %27, %.critedge34, %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE10try_extendENS4_4spanImEE.exit
-  %.6 = phi i1 [ false, %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE10try_extendENS4_4spanImEE.exit ], [ true, %.critedge34 ], [ false, %27 ], [ true, %109 ], [ true, %115 ]
+  %.6 = phi i1 [ false, %27 ], [ false, %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE10try_extendENS4_4spanImEE.exit ], [ true, %.critedge34 ], [ true, %109 ], [ true, %115 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.6
 }
@@ -61874,8 +61874,8 @@ _ZN5boost4json6detail8charconv6detail12is_delimiterEcNS2_12chars_formatE.exit.th
   br label %_ZN5boost4json6detail8charconv6detail10from_charsImEENS2_19from_chars_result_tIcEEPKcS8_RT_i.exit.thread
 
 _ZN5boost4json6detail8charconv6detail10from_charsImEENS2_19from_chars_result_tIcEEPKcS8_RT_i.exit.thread: ; preds = %._crit_edge106.i.i, %.thread, %107, %107, %154, %158, %_ZN5boost4json6detail8charconv6detail12is_delimiterEcNS2_12chars_formatE.exit.thread, %146, %144, %140, %101, %._crit_edge, %46, %47, %42, %40, %214
-  %.sroa.0210.3 = phi ptr [ %0, %146 ], [ %0, %40 ], [ %0, %42 ], [ %1, %._crit_edge ], [ %0, %101 ], [ %147, %158 ], [ %.7, %144 ], [ %.sroa.0210.9, %214 ], [ %0, %_ZN5boost4json6detail8charconv6detail12is_delimiterEcNS2_12chars_formatE.exit.thread ], [ %.2.lcssa, %47 ], [ %.2.lcssa, %46 ], [ %.7, %140 ], [ %0, %107 ], [ %0, %154 ], [ %0, %.thread ], [ %0, %107 ], [ %.7, %._crit_edge106.i.i ]
-  %.sroa.23.3 = phi i32 [ 22, %146 ], [ 22, %40 ], [ %45, %42 ], [ 0, %._crit_edge ], [ 22, %101 ], [ %157, %158 ], [ 22, %144 ], [ %.sroa.23.9, %214 ], [ 22, %_ZN5boost4json6detail8charconv6detail12is_delimiterEcNS2_12chars_formatE.exit.thread ], [ 0, %47 ], [ %45, %46 ], [ 0, %140 ], [ 22, %107 ], [ %157, %154 ], [ 22, %.thread ], [ 22, %107 ], [ 34, %._crit_edge106.i.i ]
+  %.sroa.0210.3 = phi ptr [ %0, %146 ], [ %0, %40 ], [ %0, %42 ], [ %1, %._crit_edge ], [ %0, %101 ], [ %0, %154 ], [ %.7, %144 ], [ %.sroa.0210.9, %214 ], [ %0, %_ZN5boost4json6detail8charconv6detail12is_delimiterEcNS2_12chars_formatE.exit.thread ], [ %.2.lcssa, %47 ], [ %.2.lcssa, %46 ], [ %.7, %140 ], [ %0, %107 ], [ %147, %158 ], [ %0, %.thread ], [ %0, %107 ], [ %.7, %._crit_edge106.i.i ]
+  %.sroa.23.3 = phi i32 [ 22, %146 ], [ 22, %40 ], [ %45, %42 ], [ 0, %._crit_edge ], [ 22, %101 ], [ %157, %154 ], [ 22, %144 ], [ %.sroa.23.9, %214 ], [ 22, %_ZN5boost4json6detail8charconv6detail12is_delimiterEcNS2_12chars_formatE.exit.thread ], [ 0, %47 ], [ %45, %46 ], [ 0, %140 ], [ 22, %107 ], [ %157, %158 ], [ 22, %.thread ], [ 22, %107 ], [ 34, %._crit_edge106.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %215
 

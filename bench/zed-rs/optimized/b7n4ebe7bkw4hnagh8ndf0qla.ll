@@ -2293,7 +2293,7 @@ _ZN4core5slice4sort6shared17find_existing_run17h6f13e9b23cd02b4bE.exit.i: ; pred
   br label %_ZN4core5slice4sort6stable5drift10create_run17h46034f4f0ec08647E.exit
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h884bf52bfa9373bcE.exit.i": ; preds = %_ZN4core10intrinsics10typed_swap17h1208a2d5d8f1d5bdE.exit.i.i.i, %.preheader24.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17he74142695f56edfeE.exit.i", %56, %31
-  %.sroa.0.0.i2023.i = phi i64 [ %.sroa.0.0.i.i, %56 ], [ %.sroa.0.0.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17he74142695f56edfeE.exit.i" ], [ %28, %31 ], [ 2, %.preheader24.i ], [ %.sroa.0.0.i566366.i, %_ZN4core10intrinsics10typed_swap17h1208a2d5d8f1d5bdE.exit.i.i.i ]
+  %.sroa.0.0.i2023.i = phi i64 [ %28, %31 ], [ %.sroa.0.0.i.i, %56 ], [ %.sroa.0.0.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17he74142695f56edfeE.exit.i" ], [ 2, %.preheader24.i ], [ %.sroa.0.0.i566366.i, %_ZN4core10intrinsics10typed_swap17h1208a2d5d8f1d5bdE.exit.i.i.i ]
   %62 = shl i64 %.sroa.0.0.i2023.i, 1
   %63 = or disjoint i64 %62, 1
   br label %_ZN4core5slice4sort6stable5drift10create_run17h46034f4f0ec08647E.exit
@@ -16891,8 +16891,8 @@ _ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17h5ac2ae42596d
   %70 = zext nneg i16 %69 to i64
   br label %_ZN9hashbrown3raw5inner13RawTableInner30find_or_find_insert_slot_inner17h905c416281a1f195E.exit.thread
 
-_ZN9hashbrown3raw5inner13RawTableInner30find_or_find_insert_slot_inner17h905c416281a1f195E.exit.thread: ; preds = %64, %60
-  %.sroa.3.0.i.ph = phi i64 [ %.sroa.4.1.i, %60 ], [ %70, %64 ]
+_ZN9hashbrown3raw5inner13RawTableInner30find_or_find_insert_slot_inner17h905c416281a1f195E.exit.thread: ; preds = %60, %64
+  %.sroa.3.0.i.ph = phi i64 [ %70, %64 ], [ %.sroa.4.1.i, %60 ]
   %71 = inttoptr i64 %.sroa.3.0.i.ph to ptr
   br label %.loopexit
 

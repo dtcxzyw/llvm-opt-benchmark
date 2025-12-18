@@ -1963,7 +1963,7 @@ define internal fastcc void @"_ZN4core3ptr193drop_in_place$LT$$LT$alloc..collect
   br i1 %41, label %common.resume.i, label %.lr.ph12.i.i
 
 common.resume.i:                                  ; preds = %"_ZN4core3ptr48drop_in_place$LT$quiche..range_buf..RangeBuf$GT$17h84ce7b844a8a7548E.exit8.i.i", %"_ZN4core3ptr48drop_in_place$LT$quiche..range_buf..RangeBuf$GT$17h84ce7b844a8a7548E.exit8.i12.i", %52, %32
-  %common.resume.op.i = phi { ptr, i32 } [ %33, %32 ], [ %53, %52 ], [ %53, %"_ZN4core3ptr48drop_in_place$LT$quiche..range_buf..RangeBuf$GT$17h84ce7b844a8a7548E.exit8.i12.i" ], [ %33, %"_ZN4core3ptr48drop_in_place$LT$quiche..range_buf..RangeBuf$GT$17h84ce7b844a8a7548E.exit8.i.i" ]
+  %common.resume.op.i = phi { ptr, i32 } [ %33, %32 ], [ %53, %"_ZN4core3ptr48drop_in_place$LT$quiche..range_buf..RangeBuf$GT$17h84ce7b844a8a7548E.exit8.i12.i" ], [ %53, %52 ], [ %33, %"_ZN4core3ptr48drop_in_place$LT$quiche..range_buf..RangeBuf$GT$17h84ce7b844a8a7548E.exit8.i.i" ]
   resume { ptr, i32 } %common.resume.op.i
 
 42:                                               ; preds = %40
@@ -13226,7 +13226,7 @@ define hidden void @"_ZN4core3ptr99drop_in_place$LT$alloc..collections..vec_dequ
   br label %.body.i
 
 .body.i:                                          ; preds = %"_ZN4core3ptr48drop_in_place$LT$quiche..range_buf..RangeBuf$GT$17h84ce7b844a8a7548E.exit8.i.i", %"_ZN4core3ptr48drop_in_place$LT$quiche..range_buf..RangeBuf$GT$17h84ce7b844a8a7548E.exit8.i8.i", %50, %30, %7
-  %eh.lpad-body.i = phi { ptr, i32 } [ %31, %30 ], [ %8, %7 ], [ %51, %50 ], [ %51, %"_ZN4core3ptr48drop_in_place$LT$quiche..range_buf..RangeBuf$GT$17h84ce7b844a8a7548E.exit8.i8.i" ], [ %31, %"_ZN4core3ptr48drop_in_place$LT$quiche..range_buf..RangeBuf$GT$17h84ce7b844a8a7548E.exit8.i.i" ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %31, %30 ], [ %8, %7 ], [ %51, %"_ZN4core3ptr48drop_in_place$LT$quiche..range_buf..RangeBuf$GT$17h84ce7b844a8a7548E.exit8.i8.i" ], [ %51, %50 ], [ %31, %"_ZN4core3ptr48drop_in_place$LT$quiche..range_buf..RangeBuf$GT$17h84ce7b844a8a7548E.exit8.i.i" ]
   invoke fastcc void @"_ZN4core3ptr193drop_in_place$LT$$LT$alloc..collections..vec_deque..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$quiche..range_buf..RangeBuf$C$alloc..alloc..Global$GT$$GT$17hb53e44adde517779E"(ptr nonnull align 8 dereferenceable(40) %0) #17
           to label %64 unwind label %62
 

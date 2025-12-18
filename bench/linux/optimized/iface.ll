@@ -4990,7 +4990,7 @@ define internal i32 @ieee80211_change_mac(ptr noundef %0, ptr noundef %1) #0 ali
   br label %.thread
 
 .thread:                                          ; preds = %34, %128, %49, %19, %180, %177, %176, %53
-  %181 = phi i32 [ %50, %53 ], [ %167, %177 ], [ %167, %180 ], [ %167, %176 ], [ -16, %19 ], [ -95, %49 ], [ -22, %128 ], [ -16, %34 ]
+  %181 = phi i32 [ %50, %53 ], [ -95, %49 ], [ %167, %177 ], [ %167, %180 ], [ %167, %176 ], [ -22, %128 ], [ -16, %19 ], [ -16, %34 ]
   %182 = load ptr, ptr %12, align 8
   tail call void @mutex_unlock(ptr noundef %182) #15
   br label %183

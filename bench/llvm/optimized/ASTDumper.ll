@@ -15041,9 +15041,9 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang15DeclarationNameENS2_15StoredD
   br label %_ZNK5clang11DeclContext7lookupsEv.exit
 
 _ZNK5clang11DeclContext7lookupsEv.exit:           ; preds = %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang15DeclarationNameENS2_15StoredDeclsListELj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S6_S9_E5beginEv.exit.i19, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang15DeclarationNameENS2_15StoredDeclsListELj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S6_S9_E5beginEv.exit.i
-  %.sroa.16.0 = phi ptr [ %96, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang15DeclarationNameENS2_15StoredDeclsListELj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S6_S9_E5beginEv.exit.i ], [ %122, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang15DeclarationNameENS2_15StoredDeclsListELj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S6_S9_E5beginEv.exit.i19 ]
-  %.sroa.7.0 = phi ptr [ %.pn15.i.i, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang15DeclarationNameENS2_15StoredDeclsListELj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S6_S9_E5beginEv.exit.i ], [ %.pn15.i.i22, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang15DeclarationNameENS2_15StoredDeclsListELj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S6_S9_E5beginEv.exit.i19 ]
-  %.sroa.075.0 = phi ptr [ %.pn17.i.i, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang15DeclarationNameENS2_15StoredDeclsListELj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S6_S9_E5beginEv.exit.i ], [ %.pn17.i.i21, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang15DeclarationNameENS2_15StoredDeclsListELj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S6_S9_E5beginEv.exit.i19 ]
+  %.sroa.16.0 = phi ptr [ %122, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang15DeclarationNameENS2_15StoredDeclsListELj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S6_S9_E5beginEv.exit.i19 ], [ %96, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang15DeclarationNameENS2_15StoredDeclsListELj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S6_S9_E5beginEv.exit.i ]
+  %.sroa.7.0 = phi ptr [ %.pn15.i.i22, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang15DeclarationNameENS2_15StoredDeclsListELj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S6_S9_E5beginEv.exit.i19 ], [ %.pn15.i.i, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang15DeclarationNameENS2_15StoredDeclsListELj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S6_S9_E5beginEv.exit.i ]
+  %.sroa.075.0 = phi ptr [ %.pn17.i.i21, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang15DeclarationNameENS2_15StoredDeclsListELj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S6_S9_E5beginEv.exit.i19 ], [ %.pn17.i.i, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang15DeclarationNameENS2_15StoredDeclsListELj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S6_S9_E5beginEv.exit.i ]
   %.not101102 = icmp eq ptr %.sroa.075.0, %.sroa.16.0
   br i1 %.not101102, label %._crit_edge, label %.lr.ph
 
@@ -18040,7 +18040,7 @@ _ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us49: ; pr
   br i1 %.not.us52, label %._crit_edge, label %.lr.ph.split.split.us
 
 ._crit_edge:                                      ; preds = %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us49, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us.us
-  %.0.lcssa = phi i1 [ %.1.us42, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us49 ], [ %.1.us.us, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us.us ], [ %.1.us, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us ], [ %.1, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit ]
+  %.0.lcssa = phi i1 [ %.1.us, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us ], [ %.1.us42, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us49 ], [ %.1.us.us, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us.us ], [ %.1, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit ]
   br i1 %.0.lcssa, label %47, label %.critedge
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit
@@ -18463,7 +18463,7 @@ _ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us49: ; preds = 
   br i1 %.not.us52, label %._crit_edge, label %.lr.ph.split.split.us
 
 ._crit_edge:                                      ; preds = %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us49, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us.us
-  %.0.lcssa = phi i1 [ %.1.us42, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us49 ], [ %.1.us.us, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us.us ], [ %.1.us, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us ], [ %.1, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit ]
+  %.0.lcssa = phi i1 [ %.1.us, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us ], [ %.1.us42, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us49 ], [ %.1.us.us, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us.us ], [ %.1, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit ]
   br i1 %.0.lcssa, label %47, label %.critedge
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit
@@ -18790,7 +18790,7 @@ _ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us49: ; preds = 
   br i1 %.not.us52, label %._crit_edge, label %.lr.ph.split.split.us
 
 ._crit_edge:                                      ; preds = %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us49, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us.us
-  %.0.lcssa = phi i1 [ %.1.us42, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us49 ], [ %.1.us.us, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us.us ], [ %.1.us, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us ], [ %.1, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit ]
+  %.0.lcssa = phi i1 [ %.1.us, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us ], [ %.1.us42, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us49 ], [ %.1.us.us, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us.us ], [ %.1, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit ]
   br i1 %.0.lcssa, label %47, label %.critedge
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit
@@ -35634,7 +35634,7 @@ _ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us49: ; preds = 
   br i1 %.not32.us52, label %._crit_edge, label %.lr.ph.split.split.us
 
 ._crit_edge:                                      ; preds = %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us49, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us.us
-  %.0.lcssa = phi i1 [ %.1.us42, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us49 ], [ %.1.us.us, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us.us ], [ %.1.us, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us ], [ %.1, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit ]
+  %.0.lcssa = phi i1 [ %.1.us, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us ], [ %.1.us42, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us49 ], [ %.1.us.us, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us.us ], [ %.1, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit ]
   br i1 %.0.lcssa, label %69, label %.critedge
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit
@@ -37280,7 +37280,7 @@ _ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us48: ; pr
   br i1 %.not.us51, label %._crit_edge, label %.lr.ph.split.split.us
 
 ._crit_edge:                                      ; preds = %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us48, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us.us
-  %.0.lcssa = phi i1 [ %.1.us41, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us48 ], [ %.1.us.us, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us.us ], [ %.1.us, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us ], [ %.1, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit ]
+  %.0.lcssa = phi i1 [ %.1.us, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us ], [ %.1.us41, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us48 ], [ %.1.us.us, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us.us ], [ %.1, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit ]
   br i1 %.0.lcssa, label %47, label %.critedge
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit
@@ -38951,7 +38951,7 @@ _ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us51: ; preds = 
   br i1 %.not32.us54, label %._crit_edge, label %.lr.ph.split.split.us
 
 ._crit_edge:                                      ; preds = %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us51, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us.us
-  %.0.lcssa = phi i1 [ %.1.us44, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us51 ], [ %.1.us.us, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us.us ], [ %.1.us, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us ], [ %.1, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit ]
+  %.0.lcssa = phi i1 [ %.1.us, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us ], [ %.1.us44, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us51 ], [ %.1.us.us, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us.us ], [ %.1, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit ]
   br i1 %.0.lcssa, label %61, label %.critedge
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit

@@ -1957,7 +1957,7 @@ _ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit: ; preds = %71, %76
   br label %.loopexit, !llvm.loop !325
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %.preheader290, %..loopexit_crit_edge21.i.i.i.i, %.noexc53
-  %110 = phi ptr [ %.pre207, %.noexc53 ], [ %.pre207, %..loopexit_crit_edge21.i.i.i.i ], [ %77, %.preheader290 ], [ %.pre207, %.lr.ph.i.i.i.i ]
+  %110 = phi ptr [ %77, %.preheader290 ], [ %.pre207, %.noexc53 ], [ %.pre207, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre207, %.lr.ph.i.i.i.i ]
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
   %112 = load i64, ptr %111, align 8
   %113 = trunc i64 %112 to i32
@@ -2533,7 +2533,7 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE9push_backERKS3_.exit: 
   br label %.body
 
 _ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb0EEENS2_ILb1EEESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S4_EEE4findERSA_.exit: ; preds = %99, %79, %90
-  %.sroa.06.1.i.i = phi ptr [ %91, %90 ], [ %.sroa.06.0.i.i, %79 ], [ %105, %99 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %79 ], [ %91, %90 ], [ %105, %99 ]
   %385 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %386 = load ptr, ptr %385, align 8, !tbaa !11
   %387 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8

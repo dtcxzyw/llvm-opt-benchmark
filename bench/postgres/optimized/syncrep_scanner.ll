@@ -593,9 +593,9 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i160, %258
   br label %.loopexit204.backedge
 
 .loopexit204.backedge:                            ; preds = %._crit_edge.i180, %278, %496
-  %.0139.be = phi ptr [ %494, %496 ], [ %209, %278 ], [ %494, %._crit_edge.i180 ]
-  %.0131.be = phi ptr [ %503, %496 ], [ %282, %278 ], [ %503, %._crit_edge.i180 ]
-  %.0126.be = phi i32 [ %504, %496 ], [ %281, %278 ], [ %545, %._crit_edge.i180 ]
+  %.0139.be = phi ptr [ %209, %278 ], [ %494, %496 ], [ %494, %._crit_edge.i180 ]
+  %.0131.be = phi ptr [ %282, %278 ], [ %503, %496 ], [ %503, %._crit_edge.i180 ]
+  %.0126.be = phi i32 [ %281, %278 ], [ %504, %496 ], [ %545, %._crit_edge.i180 ]
   br label %.loopexit204
 
 283:                                              ; preds = %193
@@ -1228,7 +1228,7 @@ syncrep_yyerror.exit.loopexit646:                 ; preds = %137
   br label %syncrep_yyerror.exit
 
 syncrep_yyerror.exit:                             ; preds = %137, %syncrep_yyerror.exit.loopexit646, %syncrep_yyerror.exit.loopexit549, %syncrep_yyerror.exit.loopexit468, %syncrep_yyerror.exit.loopexit334, %syncrep_yyerror.exit.loopexit, %159, %157, %152, %172, %169, %165, %161, %147
-  %.0 = phi i32 [ 0, %172 ], [ 261, %syncrep_yyerror.exit.loopexit ], [ 258, %147 ], [ 258, %161 ], [ 259, %165 ], [ 258, %169 ], [ 262, %syncrep_yyerror.exit.loopexit334 ], [ 44, %syncrep_yyerror.exit.loopexit468 ], [ 40, %syncrep_yyerror.exit.loopexit549 ], [ 41, %syncrep_yyerror.exit.loopexit646 ], [ 260, %152 ], [ 260, %157 ], [ 260, %159 ], [ 260, %137 ]
+  %.0 = phi i32 [ 0, %172 ], [ 261, %syncrep_yyerror.exit.loopexit ], [ 258, %147 ], [ 260, %159 ], [ 258, %161 ], [ 259, %165 ], [ 258, %169 ], [ 262, %syncrep_yyerror.exit.loopexit334 ], [ 44, %syncrep_yyerror.exit.loopexit468 ], [ 40, %syncrep_yyerror.exit.loopexit549 ], [ 41, %syncrep_yyerror.exit.loopexit646 ], [ 260, %152 ], [ 260, %157 ], [ 260, %137 ]
   ret i32 %.0
 }
 
@@ -2614,7 +2614,7 @@ syncrep_yy_delete_buffer.exit.i:                  ; preds = %36, %33, %.critedge
   br label %syncrep_yypop_buffer_state.exit
 
 syncrep_yypop_buffer_state.exit:                  ; preds = %27, %46, %49
-  %58 = phi ptr [ %26, %27 ], [ %45, %46 ], [ %45, %49 ]
+  %58 = phi ptr [ %45, %49 ], [ %26, %27 ], [ %45, %46 ]
   %59 = load i64, ptr %4, align 8
   %60 = getelementptr inbounds nuw ptr, ptr %58, i64 %59
   %61 = load ptr, ptr %60, align 8

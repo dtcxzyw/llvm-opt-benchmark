@@ -8658,8 +8658,8 @@ _ZNSt6vectorIP9cmFileSetSaIS1_EED2Ev.exit543:     ; preds = %.thread2666, %.thre
   br label %_ZNSt6vectorIP9cmFileSetSaIS1_EED2Ev.exit545
 
 1520:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit494, %_ZNSt6vectorIP9cmFileSetSaIS1_EED2Ev.exit543, %.loopexit.split-lp590, %.loopexit589
-  %.pr586 = phi ptr [ %.pr586.pre, %_ZNSt6vectorIP9cmFileSetSaIS1_EED2Ev.exit543 ], [ %.lcssa2376, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit494 ], [ %1289, %.loopexit589 ], [ %1289, %.loopexit.split-lp590 ]
-  %.pn179 = phi { ptr, i32 } [ %.pn176.pn2665, %_ZNSt6vectorIP9cmFileSetSaIS1_EED2Ev.exit543 ], [ %.pn170, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit494 ], [ %lpad.loopexit591, %.loopexit589 ], [ %lpad.loopexit.split-lp592, %.loopexit.split-lp590 ]
+  %.pr586 = phi ptr [ %1289, %.loopexit.split-lp590 ], [ %.pr586.pre, %_ZNSt6vectorIP9cmFileSetSaIS1_EED2Ev.exit543 ], [ %.lcssa2376, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit494 ], [ %1289, %.loopexit589 ]
+  %.pn179 = phi { ptr, i32 } [ %lpad.loopexit.split-lp592, %.loopexit.split-lp590 ], [ %.pn176.pn2665, %_ZNSt6vectorIP9cmFileSetSaIS1_EED2Ev.exit543 ], [ %.pn170, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit494 ], [ %lpad.loopexit591, %.loopexit589 ]
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %74) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %74)
   %.not.i.i.i544 = icmp eq ptr %.pr586, null

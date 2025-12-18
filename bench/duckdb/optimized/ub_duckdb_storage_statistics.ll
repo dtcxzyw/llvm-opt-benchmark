@@ -8563,7 +8563,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit.us95: ; preds = %.lr.ph75.split.sp
   br i1 %exitcond140.not, label %._crit_edge, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.us95, !llvm.loop !186
 
 ._crit_edge:                                      ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.us95, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.us79, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.us79.us, %_ZNK6duckdb15SelectionVector9get_indexEm.exit58.us, %9
-  %.041.lcssa = phi i64 [ 0, %9 ], [ %spec.select169, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.us95 ], [ %28, %_ZNK6duckdb15SelectionVector9get_indexEm.exit58.us ], [ %spec.select167, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.us79.us ], [ %spec.select168, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.us79 ], [ %spec.select170, %_ZNK6duckdb15SelectionVector9get_indexEm.exit ]
+  %.041.lcssa = phi i64 [ 0, %9 ], [ %28, %_ZNK6duckdb15SelectionVector9get_indexEm.exit58.us ], [ %spec.select168, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.us79 ], [ %spec.select167, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.us79.us ], [ %spec.select169, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.us95 ], [ %spec.select170, %_ZNK6duckdb15SelectionVector9get_indexEm.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %63 = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %63, i8 0, i64 16, i1 false)
@@ -8997,7 +8997,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit.us78: ; preds = %.lr.ph.split.spli
   br i1 %exitcond124.not, label %._crit_edge, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.us78, !llvm.loop !189
 
 ._crit_edge:                                      ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.us78, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.us74, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.us74.us, %.lr.ph, %.preheader
-  %.040.lcssa = phi i64 [ 0, %.preheader ], [ %3, %.lr.ph ], [ %47, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.us78 ], [ %23, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.us74.us ], [ %35, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.us74 ], [ %74, %_ZNK6duckdb15SelectionVector9get_indexEm.exit ]
+  %.040.lcssa = phi i64 [ 0, %.preheader ], [ %35, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.us74 ], [ %23, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.us74.us ], [ %3, %.lr.ph ], [ %47, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.us78 ], [ %74, %_ZNK6duckdb15SelectionVector9get_indexEm.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %49 = mul i64 %.040.lcssa, %10
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 8

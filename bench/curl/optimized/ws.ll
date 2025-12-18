@@ -1907,7 +1907,7 @@ ws_enc_write_payload.exit:                        ; preds = %132, %146, %.loopex
   br label %.thread175
 
 .thread175:                                       ; preds = %.thread175.sink.split, %112, %109, %45, %34, %.loopexit
-  %.1177 = phi i64 [ %.0128224, %.loopexit ], [ %2, %34 ], [ %2, %45 ], [ %2, %109 ], [ %2, %112 ], [ %2, %.thread175.sink.split ]
+  %.1177 = phi i64 [ %.0128224, %.loopexit ], [ %2, %112 ], [ %2, %109 ], [ %2, %45 ], [ %2, %34 ], [ %2, %.thread175.sink.split ]
   %229 = getelementptr inbounds nuw i8, ptr %0, i64 2658
   %230 = load i64, ptr %229, align 2
   %231 = and i64 %230, 2147483648
@@ -2151,7 +2151,7 @@ define internal fastcc noundef i32 @ws_flush(ptr noundef %0, ptr noundef nonnull
   br label %.sink.split
 
 .split.us:                                        ; preds = %76, %55, %.lr.ph.split.us.split, %.lr.ph.split.us.split.us
-  %.us-phi = phi i32 [ %.035.us60, %55 ], [ %15, %.lr.ph.split.us.split.us ], [ %22, %.lr.ph.split.us.split ], [ %.035, %76 ]
+  %.us-phi = phi i32 [ %.035.us60, %55 ], [ %22, %.lr.ph.split.us.split ], [ %15, %.lr.ph.split.us.split.us ], [ %.035, %76 ]
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull @.str.57, i32 noundef %.us-phi) #7
   br label %.sink.split
 
@@ -2184,7 +2184,7 @@ define internal fastcc noundef i32 @ws_flush(ptr noundef %0, ptr noundef nonnull
   br i1 %103, label %.lr.ph.split.split, label %.sink.split, !llvm.loop !140
 
 .sink.split:                                      ; preds = %101, %56, %35, %18, %.lr.ph.split.us.split.us, %9, %.split.us, %88, %87, %81, %.thread53
-  %.1.ph = phi i32 [ 81, %.thread53 ], [ 81, %81 ], [ 81, %87 ], [ 81, %88 ], [ %.us-phi, %.split.us ], [ 0, %9 ], [ 0, %56 ], [ %15, %.lr.ph.split.us.split.us ], [ 0, %35 ], [ 0, %18 ], [ 0, %101 ]
+  %.1.ph = phi i32 [ 0, %18 ], [ 81, %.thread53 ], [ 81, %81 ], [ 81, %87 ], [ 81, %88 ], [ %.us-phi, %.split.us ], [ 0, %56 ], [ 0, %9 ], [ 0, %35 ], [ %15, %.lr.ph.split.us.split.us ], [ 0, %101 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -2416,7 +2416,7 @@ ws_enc_info.exit:                                 ; preds = %71, %72, %79, %ws_f
   br label %103
 
 103:                                              ; preds = %.sink.split94, %102, %ws_enc_info.exit
-  %.0 = phi i64 [ -1, %ws_enc_info.exit ], [ %.055, %102 ], [ -1, %.sink.split94 ]
+  %.0 = phi i64 [ %.055, %102 ], [ -1, %ws_enc_info.exit ], [ -1, %.sink.split94 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i64 %.0
 }
@@ -2917,7 +2917,7 @@ define internal fastcc i32 @ws_send_raw_blocking(ptr noundef %0, ptr noundef %1,
   br label %.critedge
 
 .critedge:                                        ; preds = %10, %8, %33, %.critedge.sink.split, %3
-  %.1 = phi i32 [ 0, %3 ], [ 55, %.critedge.sink.split ], [ 55, %33 ], [ %9, %8 ], [ 0, %10 ]
+  %.1 = phi i32 [ 0, %3 ], [ 55, %.critedge.sink.split ], [ 0, %10 ], [ %9, %8 ], [ 55, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.1
 }

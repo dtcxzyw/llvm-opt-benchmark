@@ -6357,7 +6357,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br i1 %2015, label %.body39.i, label %2012
 
 .body39.i:                                        ; preds = %2012, %.body43.i, %1894, %1770
-  %.pn15.i = phi { ptr, i32 } [ %eh.lpad-body44.i, %.body43.i ], [ %1895, %1894 ], [ %1771, %1770 ], [ %1899, %2012 ]
+  %.pn15.i = phi { ptr, i32 } [ %1771, %1770 ], [ %eh.lpad-body44.i, %.body43.i ], [ %1895, %1894 ], [ %1899, %2012 ]
   call void @_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %102) #25, !noalias !49
   br label %.body30.i
 
@@ -7964,7 +7964,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br i1 %2703, label %.body28.i, label %2700
 
 .body28.i:                                        ; preds = %2700, %2584, %2512, %2499, %2486
-  %.pn.i284 = phi { ptr, i32 } [ %2487, %2486 ], [ %2500, %2499 ], [ %2585, %2584 ], [ %2513, %2512 ], [ %2587, %2700 ]
+  %.pn.i284 = phi { ptr, i32 } [ %2513, %2512 ], [ %2487, %2486 ], [ %2500, %2499 ], [ %2585, %2584 ], [ %2587, %2700 ]
   call void @_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %85) #25, !noalias !58
   br label %.body.i266
 
@@ -9200,7 +9200,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br i1 %3235, label %.body39.i378, label %3232
 
 .body39.i378:                                     ; preds = %3232, %.body43.i376, %3114, %2990
-  %.pn15.i379 = phi { ptr, i32 } [ %eh.lpad-body44.i377, %.body43.i376 ], [ %3115, %3114 ], [ %2991, %2990 ], [ %3119, %3232 ]
+  %.pn15.i379 = phi { ptr, i32 } [ %2991, %2990 ], [ %eh.lpad-body44.i377, %.body43.i376 ], [ %3115, %3114 ], [ %3119, %3232 ]
   call void @_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %62) #25, !noalias !73
   br label %.body30.i354
 
@@ -10837,7 +10837,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br i1 %3934, label %.body28.i509, label %3931
 
 .body28.i509:                                     ; preds = %3931, %3815, %3743, %3730, %3717, %3704
-  %.pn.i510 = phi { ptr, i32 } [ %3705, %3704 ], [ %3718, %3717 ], [ %3731, %3730 ], [ %3816, %3815 ], [ %3744, %3743 ], [ %3818, %3931 ]
+  %.pn.i510 = phi { ptr, i32 } [ %3744, %3743 ], [ %3705, %3704 ], [ %3718, %3717 ], [ %3731, %3730 ], [ %3816, %3815 ], [ %3818, %3931 ]
   call void @_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %45) #25, !noalias !82
   br label %.body.i485
 
@@ -12451,7 +12451,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br i1 %4623, label %.body28.i614, label %4620
 
 .body28.i614:                                     ; preds = %4620, %4504, %4432, %4419, %4406
-  %.pn.i615 = phi { ptr, i32 } [ %4407, %4406 ], [ %4420, %4419 ], [ %4505, %4504 ], [ %4433, %4432 ], [ %4507, %4620 ]
+  %.pn.i615 = phi { ptr, i32 } [ %4433, %4432 ], [ %4407, %4406 ], [ %4420, %4419 ], [ %4505, %4504 ], [ %4507, %4620 ]
   call void @_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %23) #25, !noalias !97
   br label %.body.i596
 

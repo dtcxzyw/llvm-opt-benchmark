@@ -25439,7 +25439,7 @@ define hidden void @"_ZN102_$LT$ockam_identity..models..change_history..Change$u
   br label %.thread346
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %213, %192, %173, %3
-  %.0208.ph.ph = phi i1 [ false, %192 ], [ true, %213 ], [ true, %3 ], [ true, %173 ]
+  %.0208.ph.ph = phi i1 [ true, %3 ], [ true, %213 ], [ false, %192 ], [ true, %173 ]
   %lpad.loopexit.split-lp394 = landingpad { ptr, i32 }
           cleanup
   br label %.thread346

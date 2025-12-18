@@ -407,7 +407,7 @@ _ZNK7datalog8rule_set3endEv.exit:                 ; preds = %51
   br i1 %.not27.old.i.i, label %.loopexit257, label %.lr.ph38.i.i.backedge
 
 .lr.ph38.i.i.backedge:                            ; preds = %106, %103
-  %.137.i.i.be = phi ptr [ %.old.i.i, %106 ], [ %105, %103 ]
+  %.137.i.i.be = phi ptr [ %105, %103 ], [ %.old.i.i, %106 ]
   br label %.lr.ph38.i.i, !llvm.loop !66
 
 107:                                              ; preds = %._crit_edge269, %.loopexit257
@@ -2347,7 +2347,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i189: ; pr
   br label %.body
 
 select.unfold:                                    ; preds = %247, %120, %129, %288, %258
-  %.294.ph = phi i8 [ 1, %288 ], [ 1, %129 ], [ 0, %258 ], [ %.092268, %120 ], [ 1, %247 ]
+  %.294.ph = phi i8 [ 1, %288 ], [ %.092268, %120 ], [ 1, %129 ], [ 0, %258 ], [ 1, %247 ]
   %indvars.iv.next295 = add nuw nsw i64 %indvars.iv294, 1
   %299 = load i32, ptr %63, align 4, !tbaa !85
   %300 = zext i32 %299 to i64
@@ -2935,7 +2935,7 @@ _ZN3mapIP9func_declN7datalog17reachability_infoE12obj_ptr_hashIS0_E6ptr_eqIS0_EE
   br i1 %39, label %.loopexit, label %38
 
 .loopexit:                                        ; preds = %.preheader, %38, %32
-  %.pn = phi { ptr, i32 } [ %33, %32 ], [ %37, %38 ], [ %33, %.preheader ]
+  %.pn = phi { ptr, i32 } [ %37, %38 ], [ %33, %32 ], [ %33, %.preheader ]
   tail call void @_ZN9table2mapI17default_map_entryIP9func_declN7datalog17reachability_infoEE12obj_ptr_hashIS1_E6ptr_eqIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #19
   resume { ptr, i32 } %.pn
 }
@@ -4440,7 +4440,7 @@ _ZN14core_hashtableIN7obj_mapI9func_declP10ptr_vectorIN7datalog4ruleEEE13obj_map
   br label %_ZN14core_hashtableIN7obj_mapI9func_declP10ptr_vectorIN7datalog4ruleEEE13obj_map_entryE8obj_hashINS7_8key_dataEE10default_eqISA_EE24insert_if_not_there_coreEOSA_RPS8_.exit
 
 _ZN14core_hashtableIN7obj_mapI9func_declP10ptr_vectorIN7datalog4ruleEEE13obj_map_entryE8obj_hashINS7_8key_dataEE10default_eqISA_EE24insert_if_not_there_coreEOSA_RPS8_.exit: ; preds = %93, %109, %102, %118, %._crit_edge.i
-  %.035 = phi ptr [ null, %._crit_edge.i ], [ %.0.i17, %118 ], [ %.048.i, %102 ], [ %.15172.i, %109 ], [ %.05069.i, %93 ]
+  %.035 = phi ptr [ null, %._crit_edge.i ], [ %.0.i17, %118 ], [ %.15172.i, %109 ], [ %.048.i, %102 ], [ %.05069.i, %93 ]
   %123 = getelementptr inbounds nuw i8, ptr %.035, i64 8
   %124 = load ptr, ptr %123, align 8, !tbaa !245
   %.not15 = icmp eq ptr %124, null
@@ -4855,7 +4855,7 @@ _ZN14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqI
   br i1 %.not27.old.i.i.i, label %_ZNK7obj_mapI9func_declP10ptr_vectorIN7datalog4ruleEEE4findEPS0_RS5_.exit.thread, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %97, %94
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %97 ], [ %96, %94 ]
+  %.137.i.i.i.be = phi ptr [ %96, %94 ], [ %.old.i.i.i, %97 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !256
 
 .loopexit94:                                      ; preds = %78, %89
@@ -5136,7 +5136,7 @@ _ZN14core_hashtableI17default_map_entryIP9func_declN7datalog17reachability_infoE
   br label %_ZN14core_hashtableI17default_map_entryIP9func_declN7datalog17reachability_infoEEN9table2mapIS5_12obj_ptr_hashIS1_E6ptr_eqIS1_EE15entry_hash_procENSB_13entry_eq_procEE24insert_if_not_there_coreEO9_key_dataIS2_S4_ERPS5_.exit
 
 _ZN14core_hashtableI17default_map_entryIP9func_declN7datalog17reachability_infoEEN9table2mapIS5_12obj_ptr_hashIS1_E6ptr_eqIS1_EE15entry_hash_procENSB_13entry_eq_procEE24insert_if_not_there_coreEO9_key_dataIS2_S4_ERPS5_.exit: ; preds = %175, %193, %181, %199, %._crit_edge.i30
-  %.0 = phi ptr [ null, %._crit_edge.i30 ], [ %.0.i, %199 ], [ %.048.i, %181 ], [ %.15168.i, %193 ], [ %.05065.i, %175 ]
+  %.0 = phi ptr [ null, %._crit_edge.i30 ], [ %.15168.i, %193 ], [ %.0.i, %199 ], [ %.048.i, %181 ], [ %.05065.i, %175 ]
   %206 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %207 = load i8, ptr %206, align 1, !tbaa !79, !range !80, !noundef !81
   %208 = trunc nuw i8 %207 to i1
@@ -6655,7 +6655,7 @@ _ZN14core_hashtableI17default_map_entryIP9func_declN7datalog17reachability_infoE
   br label %_ZN14core_hashtableI17default_map_entryIP9func_declN7datalog17reachability_infoEEN9table2mapIS5_12obj_ptr_hashIS1_E6ptr_eqIS1_EE15entry_hash_procENSB_13entry_eq_procEE24insert_if_not_there_coreEO9_key_dataIS2_S4_ERPS5_.exit
 
 _ZN14core_hashtableI17default_map_entryIP9func_declN7datalog17reachability_infoEEN9table2mapIS5_12obj_ptr_hashIS1_E6ptr_eqIS1_EE15entry_hash_procENSB_13entry_eq_procEE24insert_if_not_there_coreEO9_key_dataIS2_S4_ERPS5_.exit: ; preds = %100, %112, %_ZN14core_hashtableI17default_map_entryIP9func_declN7datalog17reachability_infoEEN9table2mapIS5_12obj_ptr_hashIS1_E6ptr_eqIS1_EE15entry_hash_procENSB_13entry_eq_procEE24insert_if_not_there_coreEO9_key_dataIS2_S4_ERPS5_.exit.sink.split
-  %.058 = phi ptr [ %.048.i.sink181, %_ZN14core_hashtableI17default_map_entryIP9func_declN7datalog17reachability_infoEEN9table2mapIS5_12obj_ptr_hashIS1_E6ptr_eqIS1_EE15entry_hash_procENSB_13entry_eq_procEE24insert_if_not_there_coreEO9_key_dataIS2_S4_ERPS5_.exit.sink.split ], [ %.15168.i, %112 ], [ %.05065.i, %100 ]
+  %.058 = phi ptr [ %.15168.i, %112 ], [ %.048.i.sink181, %_ZN14core_hashtableI17default_map_entryIP9func_declN7datalog17reachability_infoEEN9table2mapIS5_12obj_ptr_hashIS1_E6ptr_eqIS1_EE15entry_hash_procENSB_13entry_eq_procEE24insert_if_not_there_coreEO9_key_dataIS2_S4_ERPS5_.exit.sink.split ], [ %.05065.i, %100 ]
   %123 = getelementptr inbounds nuw i8, ptr %.058, i64 16
   store i8 1, ptr %123, align 1, !tbaa !79
   %124 = load i32, ptr %19, align 8, !tbaa !19
@@ -7398,7 +7398,7 @@ _ZN14core_hashtableI17default_map_entryIP9func_declN7datalog17reachability_infoE
   br label %_ZN14core_hashtableI17default_map_entryIP9func_declN7datalog17reachability_infoEEN9table2mapIS5_12obj_ptr_hashIS1_E6ptr_eqIS1_EE15entry_hash_procENSB_13entry_eq_procEE24insert_if_not_there_coreEO9_key_dataIS2_S4_ERPS5_.exit
 
 _ZN14core_hashtableI17default_map_entryIP9func_declN7datalog17reachability_infoEEN9table2mapIS5_12obj_ptr_hashIS1_E6ptr_eqIS1_EE15entry_hash_procENSB_13entry_eq_procEE24insert_if_not_there_coreEO9_key_dataIS2_S4_ERPS5_.exit: ; preds = %158, %176, %164, %182, %._crit_edge.i38
-  %.084 = phi ptr [ null, %._crit_edge.i38 ], [ %.0.i36, %182 ], [ %.048.i, %164 ], [ %.15168.i, %176 ], [ %.05065.i, %158 ]
+  %.084 = phi ptr [ null, %._crit_edge.i38 ], [ %.15168.i, %176 ], [ %.0.i36, %182 ], [ %.048.i, %164 ], [ %.05065.i, %158 ]
   %189 = getelementptr inbounds nuw i8, ptr %.084, i64 16
   %190 = load i8, ptr %189, align 1, !tbaa !79, !range !80, !noundef !81
   %191 = trunc nuw i8 %190 to i1

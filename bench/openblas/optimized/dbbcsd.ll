@@ -550,8 +550,8 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %306, label %.thread.sink.split, label %307
 
 307:                                              ; preds = %302, %297
-  %308 = phi double [ %295, %302 ], [ %300, %297 ]
-  %309 = phi double [ %305, %302 ], [ %294, %297 ]
+  %308 = phi double [ %300, %297 ], [ %295, %302 ]
+  %309 = phi double [ %294, %297 ], [ %305, %302 ]
   %310 = fcmp ugt double %309, %308
   br i1 %310, label %.thread, label %.thread2154
 

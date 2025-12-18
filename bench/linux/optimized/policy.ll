@@ -165,7 +165,7 @@ define dso_local noundef i32 @netlink_policy_dump_add_policy(ptr noundef capture
   br label %.loopexit26
 
 .loopexit26:                                      ; preds = %36, %16, %.loopexit27
-  %.ph = phi ptr [ %58, %.loopexit27 ], [ %17, %16 ], [ %17, %36 ]
+  %.ph = phi ptr [ %17, %16 ], [ %58, %.loopexit27 ], [ %17, %36 ]
   %60 = getelementptr inbounds nuw i8, ptr %.ph, i64 8
   %61 = load i32, ptr %60, align 8
   %62 = icmp eq i32 %61, 0
@@ -277,7 +277,7 @@ define dso_local noundef i32 @netlink_policy_dump_add_policy(ptr noundef capture
   br label %.thread19
 
 .thread19:                                        ; preds = %105, %.loopexit, %81, %73
-  %129 = phi ptr [ %75, %73 ], [ %127, %.loopexit ], [ %75, %81 ], [ %75, %105 ]
+  %129 = phi ptr [ %75, %73 ], [ %75, %81 ], [ %127, %.loopexit ], [ %75, %105 ]
   %130 = add i32 %74, 1
   %131 = getelementptr i8, ptr %129, i64 24
   %132 = getelementptr i8, ptr %131, i64 %.idx

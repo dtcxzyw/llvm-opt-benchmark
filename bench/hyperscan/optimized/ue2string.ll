@@ -195,7 +195,7 @@ _ZN3ue23cmpEPKcS1_mb.exit37.thread45:             ; preds = %_ZN3ue23cmpEPKcS1_m
   br i1 %.not, label %.critedge, label %_ZN3ue23cmpEPKcS1_mb.exit37, !llvm.loop !8
 
 .critedge:                                        ; preds = %_ZN3ue23cmpEPKcS1_mb.exit, %21, %_ZN3ue23cmpEPKcS1_mb.exit37.thread45, %_ZN3ue23cmpEPKcS1_mb.exit37, %_ZN3ue23cmpEPKcS1_mb.exit37.thread45.loopexit.us, %37, %.lr.ph.split.us, %.preheader
-  %.025 = phi i64 [ %7, %.lr.ph.split.us ], [ 0, %.preheader ], [ %.055.us, %21 ], [ %.161.us, %37 ], [ 0, %_ZN3ue23cmpEPKcS1_mb.exit37.thread45.loopexit.us ], [ %.161, %_ZN3ue23cmpEPKcS1_mb.exit37 ], [ 0, %_ZN3ue23cmpEPKcS1_mb.exit37.thread45 ], [ %.055, %_ZN3ue23cmpEPKcS1_mb.exit ]
+  %.025 = phi i64 [ 0, %_ZN3ue23cmpEPKcS1_mb.exit37.thread45.loopexit.us ], [ %.161.us, %37 ], [ %.055.us, %21 ], [ %.161, %_ZN3ue23cmpEPKcS1_mb.exit37 ], [ 0, %.preheader ], [ %7, %.lr.ph.split.us ], [ 0, %_ZN3ue23cmpEPKcS1_mb.exit37.thread45 ], [ %.055, %_ZN3ue23cmpEPKcS1_mb.exit ]
   ret i64 %.025
 }
 
@@ -293,7 +293,7 @@ define hidden noundef i64 @_ZN3ue216maxStringOverlapERKNS_11ue2_literalES2_(ptr 
   br i1 %or.cond, label %_ZNK3ue211ue2_literal10any_nocaseEv.exit, label %.lr.ph.i.i6, !llvm.loop !9
 
 _ZNK3ue211ue2_literal10any_nocaseEv.exit:         ; preds = %.lr.ph.i.i, %.lr.ph.i.i6, %.loopexit
-  %26 = phi i1 [ false, %.loopexit ], [ %.not.not.i.not.i8.not, %.lr.ph.i.i6 ], [ true, %.lr.ph.i.i ]
+  %26 = phi i1 [ %.not.not.i.not.i8.not, %.lr.ph.i.i6 ], [ false, %.loopexit ], [ true, %.lr.ph.i.i ]
   %27 = tail call noundef i64 @_ZN3ue216maxStringOverlapERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_b(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i1 noundef zeroext %26)
   ret i64 %27
 }
@@ -391,7 +391,7 @@ _ZN3ue23cmpEPKcS1_mb.exit:                        ; preds = %.lr.ph, %.critedge1
   br i1 %.not, label %.critedge, label %_ZN3ue23cmpEPKcS1_mb.exit, !llvm.loop !10
 
 .critedge:                                        ; preds = %_ZN3ue23cmpEPKcS1_mb.exit, %.critedge16.backedge, %.critedge16.loopexit.us, %17, %2
-  %.019 = phi i64 [ 0, %2 ], [ 0, %.critedge16.loopexit.us ], [ %.023.us, %17 ], [ %.023, %_ZN3ue23cmpEPKcS1_mb.exit ], [ 0, %.critedge16.backedge ]
+  %.019 = phi i64 [ 0, %.critedge16.loopexit.us ], [ 0, %2 ], [ %.023.us, %17 ], [ %.023, %_ZN3ue23cmpEPKcS1_mb.exit ], [ 0, %.critedge16.backedge ]
   ret i64 %.019
 }
 
@@ -2515,7 +2515,7 @@ _ZN3ue23cmpEPKcS1_mb.exit.i:                      ; preds = %_ZN3ue23cmpEPKcS1_m
   br i1 %.not.i, label %_ZN3ue220maxStringSelfOverlapERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb.exit, label %_ZN3ue23cmpEPKcS1_mb.exit.i, !llvm.loop !10
 
 _ZN3ue220maxStringSelfOverlapERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb.exit: ; preds = %.critedge16.loopexit.us.i, %34, %_ZN3ue23cmpEPKcS1_mb.exit.i, %.critedge16.backedge.i, %_ZNK3ue211ue2_literal10any_nocaseEv.exit.thread, %_ZNK3ue211ue2_literal10any_nocaseEv.exit
-  %.019.i = phi i64 [ 0, %_ZNK3ue211ue2_literal10any_nocaseEv.exit ], [ 0, %_ZNK3ue211ue2_literal10any_nocaseEv.exit.thread ], [ %.023.us.i, %34 ], [ %.023.i, %_ZN3ue23cmpEPKcS1_mb.exit.i ], [ 0, %.critedge16.backedge.i ], [ 0, %.critedge16.loopexit.us.i ]
+  %.019.i = phi i64 [ 0, %_ZNK3ue211ue2_literal10any_nocaseEv.exit.thread ], [ 0, %_ZNK3ue211ue2_literal10any_nocaseEv.exit ], [ %.023.us.i, %34 ], [ %.023.i, %_ZN3ue23cmpEPKcS1_mb.exit.i ], [ 0, %.critedge16.backedge.i ], [ 0, %.critedge16.loopexit.us.i ]
   ret i64 %.019.i
 }
 
@@ -2618,7 +2618,7 @@ _ZN3ue23cmpEPKcS1_mb.exit.i.i:                    ; preds = %.critedge16.backedg
   br i1 %.not.i.i, label %_ZN3ue220maxStringSelfOverlapERKNS_11ue2_literalE.exit, label %_ZN3ue23cmpEPKcS1_mb.exit.i.i, !llvm.loop !10
 
 _ZN3ue220maxStringSelfOverlapERKNS_11ue2_literalE.exit: ; preds = %.critedge16.loopexit.us.i.i, %30, %_ZN3ue23cmpEPKcS1_mb.exit.i.i, %.critedge16.backedge.i.i, %_ZNK3ue211ue2_literal10any_nocaseEv.exit.i, %_ZNK3ue211ue2_literal10any_nocaseEv.exit.thread.i
-  %.019.i.i = phi i64 [ 0, %_ZNK3ue211ue2_literal10any_nocaseEv.exit.i ], [ 0, %_ZNK3ue211ue2_literal10any_nocaseEv.exit.thread.i ], [ %.023.us.i.i, %30 ], [ %.023.i.i, %_ZN3ue23cmpEPKcS1_mb.exit.i.i ], [ 0, %.critedge16.backedge.i.i ], [ 0, %.critedge16.loopexit.us.i.i ]
+  %.019.i.i = phi i64 [ 0, %_ZNK3ue211ue2_literal10any_nocaseEv.exit.thread.i ], [ 0, %_ZNK3ue211ue2_literal10any_nocaseEv.exit.i ], [ %.023.us.i.i, %30 ], [ %.023.i.i, %_ZN3ue23cmpEPKcS1_mb.exit.i.i ], [ 0, %.critedge16.backedge.i.i ], [ 0, %.critedge16.loopexit.us.i.i ]
   %37 = sub i64 %3, %.019.i.i
   ret i64 %37
 }

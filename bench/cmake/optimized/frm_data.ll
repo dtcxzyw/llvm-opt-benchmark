@@ -190,8 +190,8 @@ After_Last_Non_Pad_Position.exit68..loopexit69_crit_edge: ; preds = %After_Last_
   br label %.loopexit, !llvm.loop !33
 
 .loopexit:                                        ; preds = %67, %After_Last_Non_Pad_Position.exit, %52, %58, %After_Last_Non_Pad_Position.exit68..loopexit69_crit_edge, %23
-  %.257 = phi i1 [ false, %58 ], [ false, %23 ], [ true, %After_Last_Non_Pad_Position.exit68..loopexit69_crit_edge ], [ %.not92.not, %After_Last_Non_Pad_Position.exit ], [ %.not92.not, %52 ], [ false, %67 ]
-  %.2 = phi i1 [ false, %58 ], [ false, %23 ], [ true, %After_Last_Non_Pad_Position.exit68..loopexit69_crit_edge ], [ true, %After_Last_Non_Pad_Position.exit ], [ true, %52 ], [ true, %67 ]
+  %.257 = phi i1 [ false, %58 ], [ false, %23 ], [ %.not92.not, %After_Last_Non_Pad_Position.exit ], [ true, %After_Last_Non_Pad_Position.exit68..loopexit69_crit_edge ], [ %.not92.not, %52 ], [ false, %67 ]
+  %.2 = phi i1 [ false, %58 ], [ false, %23 ], [ true, %After_Last_Non_Pad_Position.exit ], [ true, %After_Last_Non_Pad_Position.exit68..loopexit69_crit_edge ], [ true, %52 ], [ true, %67 ]
   br i1 %11, label %89, label %90
 
 89:                                               ; preds = %.loopexit

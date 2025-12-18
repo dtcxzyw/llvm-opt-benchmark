@@ -2525,12 +2525,12 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %.critedg
   br i1 %.not.i155, label %Abc_Base10Log.exit157, label %.lr.ph.i152, !llvm.loop !84
 
 Abc_Base10Log.exit157:                            ; preds = %.lr.ph.i152, %1, %.lr.ph, %Abc_Base10Log.exit
-  %35 = phi i32 [ %30, %Abc_Base10Log.exit ], [ 10, %.lr.ph ], [ 10, %1 ], [ %30, %.lr.ph.i152 ]
-  %.0114.lcssa254266 = phi i32 [ %.1115, %Abc_Base10Log.exit ], [ 0, %.lr.ph ], [ 0, %1 ], [ %.1115, %.lr.ph.i152 ]
-  %.0112.lcssa255265 = phi i32 [ %.1113, %Abc_Base10Log.exit ], [ 0, %.lr.ph ], [ 0, %1 ], [ %.1113, %.lr.ph.i152 ]
-  %.0110.lcssa256264 = phi double [ %23, %Abc_Base10Log.exit ], [ 0.000000e+00, %.lr.ph ], [ 0.000000e+00, %1 ], [ %23, %.lr.ph.i152 ]
-  %.0108.lcssa257263 = phi double [ %24, %Abc_Base10Log.exit ], [ 0.000000e+00, %.lr.ph ], [ 0.000000e+00, %1 ], [ %24, %.lr.ph.i152 ]
-  %.09.i156 = phi i32 [ %.1113, %Abc_Base10Log.exit ], [ 0, %.lr.ph ], [ 0, %1 ], [ %34, %.lr.ph.i152 ]
+  %35 = phi i32 [ %30, %Abc_Base10Log.exit ], [ 10, %1 ], [ 10, %.lr.ph ], [ %30, %.lr.ph.i152 ]
+  %.0114.lcssa254266 = phi i32 [ %.1115, %Abc_Base10Log.exit ], [ 0, %1 ], [ 0, %.lr.ph ], [ %.1115, %.lr.ph.i152 ]
+  %.0112.lcssa255265 = phi i32 [ %.1113, %Abc_Base10Log.exit ], [ 0, %1 ], [ 0, %.lr.ph ], [ %.1113, %.lr.ph.i152 ]
+  %.0110.lcssa256264 = phi double [ %23, %Abc_Base10Log.exit ], [ 0.000000e+00, %1 ], [ 0.000000e+00, %.lr.ph ], [ %23, %.lr.ph.i152 ]
+  %.0108.lcssa257263 = phi double [ %24, %Abc_Base10Log.exit ], [ 0.000000e+00, %1 ], [ 0.000000e+00, %.lr.ph ], [ %24, %.lr.ph.i152 ]
+  %.09.i156 = phi i32 [ %.1113, %Abc_Base10Log.exit ], [ 0, %1 ], [ 0, %.lr.ph ], [ %34, %.lr.ph.i152 ]
   %36 = mul i32 %.09.i156, 10
   %37 = add i32 %36, 10
   %38 = tail call noundef i32 @llvm.smax.i32(i32 %35, i32 %37)

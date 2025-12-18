@@ -2371,7 +2371,7 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @uv__udp_sendmsgv
   br i1 %43, label %uv__udp_prep_pkt.exit.thread64, label %uv__udp_prep_pkt.exit
 
 uv__udp_prep_pkt.exit.thread64:                   ; preds = %.critedge, %26, %39
-  %.1.ph = phi i32 [ -22, %26 ], [ -1, %39 ], [ %37, %.critedge ]
+  %.1.ph = phi i32 [ -1, %39 ], [ -22, %26 ], [ %37, %.critedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit
 

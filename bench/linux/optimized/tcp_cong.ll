@@ -1447,7 +1447,7 @@ define dso_local noundef range(i32 -16, 1) i32 @tcp_set_congestion_control(ptr n
   br label %.thread5
 
 .thread5:                                         ; preds = %.thread5.sink.split, %.thread, %101, %36, %30, %28
-  %165 = phi i32 [ -2, %28 ], [ -1, %30 ], [ -16, %36 ], [ 0, %101 ], [ -2, %.thread ], [ 0, %.thread5.sink.split ]
+  %165 = phi i32 [ -2, %.thread ], [ -2, %28 ], [ -1, %30 ], [ -16, %36 ], [ 0, %101 ], [ 0, %.thread5.sink.split ]
   tail call void @__rcu_read_unlock() #15
   br label %166
 

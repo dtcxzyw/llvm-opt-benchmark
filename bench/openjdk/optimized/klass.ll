@@ -1307,7 +1307,7 @@ define hidden noundef ptr @_ZNK5Klass13external_nameEv(ptr noundef nonnull reado
   br label %_ZL27convert_hidden_name_to_javaP6Symbol.exit
 
 _ZL27convert_hidden_name_to_javaP6Symbol.exit:    ; preds = %46, %19, %53, %35, %26, %8, %55, %59
-  %.0 = phi ptr [ @.str.18, %55 ], [ %16, %26 ], [ %60, %59 ], [ %16, %8 ], [ %43, %35 ], [ %43, %53 ], [ %16, %19 ], [ %43, %46 ]
+  %.0 = phi ptr [ @.str.18, %55 ], [ %16, %26 ], [ %60, %59 ], [ %16, %8 ], [ %43, %53 ], [ %43, %35 ], [ %16, %19 ], [ %43, %46 ]
   ret ptr %.0
 }
 

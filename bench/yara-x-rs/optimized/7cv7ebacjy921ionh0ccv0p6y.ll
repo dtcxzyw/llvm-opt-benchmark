@@ -1570,7 +1570,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hcc85a6fb60236ea3E.exit: ; pred
   br label %15
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17hfa31dacdbf9fe466E.exit: ; preds = %11, %22, %24, %15
-  %.sroa.0.0 = phi i1 [ false, %15 ], [ %.not.not.not.not.i7.not.not.not, %22 ], [ %.not.not.not.not.i7.not.not.not, %24 ], [ true, %11 ]
+  %.sroa.0.0 = phi i1 [ %.not.not.not.not.i7.not.not.not, %22 ], [ false, %15 ], [ %.not.not.not.not.i7.not.not.not, %24 ], [ true, %11 ]
   ret i1 %.sroa.0.0
 
 19:                                               ; preds = %15
@@ -1634,7 +1634,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h5ca7660a6eda6390E.exit: ; pred
   br label %15
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h6e4eba599bc715ceE.exit: ; preds = %11, %22, %24, %15
-  %.sroa.0.0 = phi i1 [ false, %15 ], [ %.not.not.not.not.i7.not.not.not, %22 ], [ %.not.not.not.not.i7.not.not.not, %24 ], [ true, %11 ]
+  %.sroa.0.0 = phi i1 [ %.not.not.not.not.i7.not.not.not, %22 ], [ false, %15 ], [ %.not.not.not.not.i7.not.not.not, %24 ], [ true, %11 ]
   ret i1 %.sroa.0.0
 
 19:                                               ; preds = %15
@@ -7891,7 +7891,7 @@ _ZN4core3str7pattern15ReverseSearcher16next_reject_back17h5d826ac6cc8a36ddE.exit
   br label %_ZN4core3str7pattern15ReverseSearcher16next_reject_back17h5d826ac6cc8a36ddE.exit
 
 _ZN4core3str7pattern15ReverseSearcher16next_reject_back17h5d826ac6cc8a36ddE.exit: ; preds = %67, %37, %41, %82, %_ZN4core3str7pattern15ReverseSearcher16next_reject_back17h5d826ac6cc8a36ddE.exit.sink.split, %.lr.ph.split.split.i.preheader.split.split.us.split.split, %.lr.ph.split.split.i.preheader.split.split.us.split.split.us.split, %.lr.ph.split.split.i.preheader.split.split.us.split.split.us.split.us, %.lr.ph.split.split.i.us47.us.preheader, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split.us.split, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split.us.split.us, %.lr.ph.split.split.i.us.us.us.preheader, %.lr.ph.split.us.split.i, %.split.us.i, %.split.i
-  %.sroa.0.0 = phi i64 [ 0, %.lr.ph.split.us.split.i ], [ %.fr.i.i, %.lr.ph.split.split.i.preheader.split.split.us.split.split.us.split ], [ 0, %.split.i ], [ 0, %.split.us.i ], [ %.fr.i.i, %.lr.ph.split.split.i.preheader.split.split.us.split.split ], [ %.sroa.0.0.ph, %_ZN4core3str7pattern15ReverseSearcher16next_reject_back17h5d826ac6cc8a36ddE.exit.sink.split ], [ %.fr.i.i, %.lr.ph.split.split.i.preheader.split.split.us.split.split.us.split.us ], [ %.lcssa7083, %41 ], [ %.fr.i.i, %.lr.ph.split.split.i.us.us.us.preheader ], [ %.fr.i.i, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split.us.split.us ], [ %.fr.i.i, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split.us.split ], [ %.fr.i.i, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split ], [ %.fr.i.i, %.lr.ph.split.split.i.us47.us.preheader ], [ %.lcssa7083, %82 ], [ 0, %67 ], [ %.lcssa7083, %37 ]
+  %.sroa.0.0 = phi i64 [ 0, %.lr.ph.split.us.split.i ], [ %.fr.i.i, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split.us.split.us ], [ 0, %.split.us.i ], [ %.fr.i.i, %.lr.ph.split.split.i.preheader.split.split.us.split.split.us.split.us ], [ 0, %.split.i ], [ %.fr.i.i, %.lr.ph.split.split.i.preheader.split.split.us.split.split ], [ %.fr.i.i, %.lr.ph.split.split.i.us47.us.preheader ], [ %.fr.i.i, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split ], [ %.fr.i.i, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split.us.split ], [ %.sroa.0.0.ph, %_ZN4core3str7pattern15ReverseSearcher16next_reject_back17h5d826ac6cc8a36ddE.exit.sink.split ], [ %.fr.i.i, %.lr.ph.split.split.i.preheader.split.split.us.split.split.us.split ], [ %.lcssa7083, %41 ], [ %.fr.i.i, %.lr.ph.split.split.i.us.us.us.preheader ], [ %.lcssa7083, %82 ], [ %.lcssa7083, %37 ], [ 0, %67 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %115 = insertvalue { ptr, i64 } poison, ptr %0, 0
   %116 = insertvalue { ptr, i64 } %115, i64 %.sroa.0.0, 1
@@ -33293,7 +33293,7 @@ define noundef zeroext i1 @"_ZN78_$LT$yara_x..modules..protos..pe..PE$u20$as$u20
   br i1 %.not1.i125.not, label %"_ZN83_$LT$yara_x..modules..protos..pe..Version$u20$as$u20$protobuf..message..Message$GT$14is_initialized17h319681f861d6b006E.exit.thread", label %214
 
 "_ZN83_$LT$yara_x..modules..protos..pe..Version$u20$as$u20$protobuf..message..Message$GT$14is_initialized17h319681f861d6b006E.exit.thread": ; preds = %8, %"_ZN83_$LT$yara_x..modules..protos..pe..Version$u20$as$u20$protobuf..message..Message$GT$14is_initialized17h319681f861d6b006E.exit", %16, %"_ZN83_$LT$yara_x..modules..protos..pe..Version$u20$as$u20$protobuf..message..Message$GT$14is_initialized17h319681f861d6b006E.exit77", %24, %"_ZN83_$LT$yara_x..modules..protos..pe..Version$u20$as$u20$protobuf..message..Message$GT$14is_initialized17h319681f861d6b006E.exit81", %32, %"_ZN83_$LT$yara_x..modules..protos..pe..Version$u20$as$u20$protobuf..message..Message$GT$14is_initialized17h319681f861d6b006E.exit85", %44, %"_ZN84_$LT$yara_x..modules..protos..pe..KeyValue$u20$as$u20$protobuf..message..Message$GT$14is_initialized17h6bd7c5413fed849cE.exit", %"_ZN84_$LT$yara_x..modules..protos..pe..RichTool$u20$as$u20$protobuf..message..Message$GT$14is_initialized17he527807c6f6514d1E.exit.i.us", %73, %.lr.ph.i.us, %111, %108, %105, %102, %99, %96, %93, %90, %88, %114, %"_ZN83_$LT$yara_x..modules..protos..pe..Section$u20$as$u20$protobuf..message..Message$GT$14is_initialized17h8cebb25b4d59c700E.exit", %127, %"_ZN84_$LT$yara_x..modules..protos..pe..DirEntry$u20$as$u20$protobuf..message..Message$GT$14is_initialized17h424df949edb090a1E.exit", %135, %"_ZN83_$LT$yara_x..modules..protos..pe..Version$u20$as$u20$protobuf..message..Message$GT$14is_initialized17h319681f861d6b006E.exit104", %147, %"_ZN84_$LT$yara_x..modules..protos..pe..Resource$u20$as$u20$protobuf..message..Message$GT$14is_initialized17hceab991d3a754e4eE.exit", %.lr.ph179, %161, %.lr.ph.i111, %.lr.ph186, %184, %.lr.ph.i116, %206, %"_ZN82_$LT$yara_x..modules..protos..pe..Export$u20$as$u20$protobuf..message..Message$GT$14is_initialized17ha152d3494541bd27E.exit", %215, %"_ZN83_$LT$yara_x..modules..protos..pe..Overlay$u20$as$u20$protobuf..message..Message$GT$14is_initialized17h79fa6e6dadaaa6baE.exit", %214, %62, %59, %56, %53, %.lr.ph.split.us, %1
-  %.sroa.0.0 = phi i1 [ false, %1 ], [ false, %62 ], [ false, %.lr.ph.split.us ], [ false, %53 ], [ false, %56 ], [ false, %59 ], [ false, %16 ], [ %.not67, %215 ], [ false, %206 ], [ false, %.lr.ph.i116 ], [ false, %.lr.ph186 ], [ false, %.lr.ph.i111 ], [ false, %.lr.ph179 ], [ false, %147 ], [ false, %135 ], [ false, %127 ], [ false, %111 ], [ false, %"_ZN84_$LT$yara_x..modules..protos..pe..RichTool$u20$as$u20$protobuf..message..Message$GT$14is_initialized17he527807c6f6514d1E.exit.i.us" ], [ false, %44 ], [ false, %32 ], [ false, %24 ], [ %.not67, %214 ], [ %.not67, %"_ZN83_$LT$yara_x..modules..protos..pe..Overlay$u20$as$u20$protobuf..message..Message$GT$14is_initialized17h79fa6e6dadaaa6baE.exit" ], [ false, %"_ZN82_$LT$yara_x..modules..protos..pe..Export$u20$as$u20$protobuf..message..Message$GT$14is_initialized17ha152d3494541bd27E.exit" ], [ false, %184 ], [ false, %161 ], [ false, %"_ZN84_$LT$yara_x..modules..protos..pe..Resource$u20$as$u20$protobuf..message..Message$GT$14is_initialized17hceab991d3a754e4eE.exit" ], [ false, %"_ZN83_$LT$yara_x..modules..protos..pe..Version$u20$as$u20$protobuf..message..Message$GT$14is_initialized17h319681f861d6b006E.exit104" ], [ false, %"_ZN84_$LT$yara_x..modules..protos..pe..DirEntry$u20$as$u20$protobuf..message..Message$GT$14is_initialized17h424df949edb090a1E.exit" ], [ false, %"_ZN83_$LT$yara_x..modules..protos..pe..Section$u20$as$u20$protobuf..message..Message$GT$14is_initialized17h8cebb25b4d59c700E.exit" ], [ false, %114 ], [ false, %88 ], [ false, %90 ], [ false, %93 ], [ false, %96 ], [ false, %99 ], [ false, %102 ], [ false, %105 ], [ false, %108 ], [ false, %.lr.ph.i.us ], [ false, %73 ], [ false, %"_ZN84_$LT$yara_x..modules..protos..pe..KeyValue$u20$as$u20$protobuf..message..Message$GT$14is_initialized17h6bd7c5413fed849cE.exit" ], [ false, %"_ZN83_$LT$yara_x..modules..protos..pe..Version$u20$as$u20$protobuf..message..Message$GT$14is_initialized17h319681f861d6b006E.exit85" ], [ false, %"_ZN83_$LT$yara_x..modules..protos..pe..Version$u20$as$u20$protobuf..message..Message$GT$14is_initialized17h319681f861d6b006E.exit81" ], [ false, %"_ZN83_$LT$yara_x..modules..protos..pe..Version$u20$as$u20$protobuf..message..Message$GT$14is_initialized17h319681f861d6b006E.exit77" ], [ false, %"_ZN83_$LT$yara_x..modules..protos..pe..Version$u20$as$u20$protobuf..message..Message$GT$14is_initialized17h319681f861d6b006E.exit" ], [ false, %8 ]
+  %.sroa.0.0 = phi i1 [ false, %127 ], [ false, %.lr.ph.i111 ], [ false, %59 ], [ false, %62 ], [ false, %.lr.ph.i116 ], [ false, %147 ], [ false, %16 ], [ false, %32 ], [ false, %24 ], [ false, %"_ZN84_$LT$yara_x..modules..protos..pe..RichTool$u20$as$u20$protobuf..message..Message$GT$14is_initialized17he527807c6f6514d1E.exit.i.us" ], [ %.not67, %215 ], [ false, %111 ], [ false, %.lr.ph.split.us ], [ false, %44 ], [ false, %1 ], [ false, %.lr.ph179 ], [ false, %206 ], [ false, %135 ], [ false, %53 ], [ false, %56 ], [ false, %.lr.ph186 ], [ %.not67, %214 ], [ %.not67, %"_ZN83_$LT$yara_x..modules..protos..pe..Overlay$u20$as$u20$protobuf..message..Message$GT$14is_initialized17h79fa6e6dadaaa6baE.exit" ], [ false, %"_ZN82_$LT$yara_x..modules..protos..pe..Export$u20$as$u20$protobuf..message..Message$GT$14is_initialized17ha152d3494541bd27E.exit" ], [ false, %184 ], [ false, %161 ], [ false, %"_ZN84_$LT$yara_x..modules..protos..pe..Resource$u20$as$u20$protobuf..message..Message$GT$14is_initialized17hceab991d3a754e4eE.exit" ], [ false, %"_ZN83_$LT$yara_x..modules..protos..pe..Version$u20$as$u20$protobuf..message..Message$GT$14is_initialized17h319681f861d6b006E.exit104" ], [ false, %"_ZN84_$LT$yara_x..modules..protos..pe..DirEntry$u20$as$u20$protobuf..message..Message$GT$14is_initialized17h424df949edb090a1E.exit" ], [ false, %"_ZN83_$LT$yara_x..modules..protos..pe..Section$u20$as$u20$protobuf..message..Message$GT$14is_initialized17h8cebb25b4d59c700E.exit" ], [ false, %114 ], [ false, %88 ], [ false, %90 ], [ false, %93 ], [ false, %96 ], [ false, %99 ], [ false, %102 ], [ false, %105 ], [ false, %108 ], [ false, %.lr.ph.i.us ], [ false, %73 ], [ false, %"_ZN84_$LT$yara_x..modules..protos..pe..KeyValue$u20$as$u20$protobuf..message..Message$GT$14is_initialized17h6bd7c5413fed849cE.exit" ], [ false, %"_ZN83_$LT$yara_x..modules..protos..pe..Version$u20$as$u20$protobuf..message..Message$GT$14is_initialized17h319681f861d6b006E.exit85" ], [ false, %"_ZN83_$LT$yara_x..modules..protos..pe..Version$u20$as$u20$protobuf..message..Message$GT$14is_initialized17h319681f861d6b006E.exit81" ], [ false, %"_ZN83_$LT$yara_x..modules..protos..pe..Version$u20$as$u20$protobuf..message..Message$GT$14is_initialized17h319681f861d6b006E.exit77" ], [ false, %"_ZN83_$LT$yara_x..modules..protos..pe..Version$u20$as$u20$protobuf..message..Message$GT$14is_initialized17h319681f861d6b006E.exit" ], [ false, %8 ]
   ret i1 %.sroa.0.0
 }
 
@@ -36575,7 +36575,7 @@ define noundef align 8 ptr @"_ZN78_$LT$yara_x..modules..protos..pe..PE$u20$as$u2
   br i1 %13, label %14, label %18
 
 .loopexit:                                        ; preds = %377, %401, %411, %434, %444, %454, %464, %480, %487, %485, %469, %424, %417, %387, %382, %346, %338, %330, %322, %314, %306, %298, %290, %282, %274, %266, %258, %250, %242, %234, %226, %218, %210, %202, %194, %186, %178, %170, %162, %154, %146, %138, %128, %121, %113, %105, %97, %89, %81, %74, %66, %58, %50, %44, %39, %34, %29, %22, %14, %7, %503
-  %.sroa.0.0 = phi ptr [ %9, %7 ], [ %17, %14 ], [ %25, %22 ], [ %30, %29 ], [ %35, %34 ], [ %40, %39 ], [ %45, %44 ], [ %53, %50 ], [ %61, %58 ], [ %69, %66 ], [ %77, %74 ], [ %84, %81 ], [ %92, %89 ], [ %100, %97 ], [ %108, %105 ], [ %116, %113 ], [ %124, %121 ], [ %133, %128 ], [ %141, %138 ], [ %149, %146 ], [ %157, %154 ], [ %165, %162 ], [ %173, %170 ], [ %181, %178 ], [ %189, %186 ], [ %197, %194 ], [ %205, %202 ], [ %213, %210 ], [ %221, %218 ], [ %229, %226 ], [ %237, %234 ], [ %245, %242 ], [ %253, %250 ], [ %261, %258 ], [ %269, %266 ], [ %277, %274 ], [ %285, %282 ], [ %293, %290 ], [ %301, %298 ], [ %309, %306 ], [ %317, %314 ], [ %325, %322 ], [ %333, %330 ], [ %341, %338 ], [ %.sroa.0.1, %503 ], [ %349, %346 ], [ %383, %382 ], [ %392, %387 ], [ %420, %417 ], [ %425, %424 ], [ %489, %487 ], [ %471, %469 ], [ %486, %485 ], [ %402, %401 ], [ %481, %480 ], [ %465, %464 ], [ %455, %454 ], [ %445, %444 ], [ %435, %434 ], [ %412, %411 ], [ %378, %377 ]
+  %.sroa.0.0 = phi ptr [ %435, %434 ], [ %9, %7 ], [ %17, %14 ], [ %25, %22 ], [ %30, %29 ], [ %35, %34 ], [ %40, %39 ], [ %45, %44 ], [ %53, %50 ], [ %61, %58 ], [ %69, %66 ], [ %77, %74 ], [ %84, %81 ], [ %92, %89 ], [ %100, %97 ], [ %108, %105 ], [ %116, %113 ], [ %124, %121 ], [ %133, %128 ], [ %141, %138 ], [ %149, %146 ], [ %157, %154 ], [ %165, %162 ], [ %173, %170 ], [ %181, %178 ], [ %189, %186 ], [ %197, %194 ], [ %205, %202 ], [ %213, %210 ], [ %221, %218 ], [ %229, %226 ], [ %237, %234 ], [ %245, %242 ], [ %253, %250 ], [ %261, %258 ], [ %269, %266 ], [ %277, %274 ], [ %285, %282 ], [ %293, %290 ], [ %301, %298 ], [ %309, %306 ], [ %317, %314 ], [ %325, %322 ], [ %333, %330 ], [ %341, %338 ], [ %.sroa.0.1, %503 ], [ %445, %444 ], [ %349, %346 ], [ %383, %382 ], [ %455, %454 ], [ %465, %464 ], [ %392, %387 ], [ %420, %417 ], [ %481, %480 ], [ %402, %401 ], [ %412, %411 ], [ %486, %485 ], [ %425, %424 ], [ %489, %487 ], [ %471, %469 ], [ %378, %377 ]
   ret ptr %.sroa.0.0
 
 14:                                               ; preds = %10
@@ -37477,7 +37477,7 @@ define void @"_ZN78_$LT$yara_x..modules..protos..pe..PE$u20$as$u20$protobuf..mes
   br label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$yara_x..modules..protos..pe..Version$GT$$GT$$GT$17hb4d817ef5e835717E.exit"
 
 common.resume65:                                  ; preds = %73, %101, %119, %142, %160, %178, %196, %215, %.body, %.body30, %.body34, %.body38, %.body41, %.body49, %.body63, %90, %34
-  %common.resume65.op = phi { ptr, i32 } [ %35, %34 ], [ %8, %.body ], [ %12, %.body30 ], [ %16, %.body34 ], [ %20, %.body38 ], [ %85, %.body41 ], [ %132, %.body49 ], [ %227, %.body63 ], [ %91, %90 ], [ %104, %101 ], [ %218, %215 ], [ %199, %196 ], [ %181, %178 ], [ %163, %160 ], [ %145, %142 ], [ %122, %119 ], [ %76, %73 ]
+  %common.resume65.op = phi { ptr, i32 } [ %122, %119 ], [ %35, %34 ], [ %145, %142 ], [ %163, %160 ], [ %181, %178 ], [ %199, %196 ], [ %218, %215 ], [ %104, %101 ], [ %8, %.body ], [ %12, %.body30 ], [ %16, %.body34 ], [ %20, %.body38 ], [ %85, %.body41 ], [ %132, %.body49 ], [ %227, %.body63 ], [ %91, %90 ], [ %76, %73 ]
   resume { ptr, i32 } %common.resume65.op
 
 "_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$yara_x..modules..protos..pe..Version$GT$$GT$$GT$17hb4d817ef5e835717E.exit": ; preds = %"_ZN4core3ptr82drop_in_place$LT$alloc..boxed..Box$LT$yara_x..modules..protos..pe..Version$GT$$GT$17h0ca3791dbe0e3256E.exit.i", %1
@@ -42725,7 +42725,7 @@ define noundef align 8 ptr @"_ZN82_$LT$yara_x..modules..protos..pe..Import$u20$a
   br label %24
 
 .loopexit:                                        ; preds = %26, %28, %14, %5
-  %.sroa.0.0 = phi ptr [ %10, %5 ], [ %30, %28 ], [ %17, %14 ], [ %27, %26 ]
+  %.sroa.0.0 = phi ptr [ %17, %14 ], [ %10, %5 ], [ %30, %28 ], [ %27, %26 ]
   ret ptr %.sroa.0.0
 
 24:                                               ; preds = %26, %18
@@ -48306,7 +48306,7 @@ define noundef align 8 ptr @"_ZN85_$LT$yara_x..modules..protos..pe..Signature$u2
   br i1 %.not144, label %20, label %14
 
 .loopexit:                                        ; preds = %141, %151, %153, %131, %124, %116, %106, %97, %88, %82, %75, %67, %57, %48, %39, %32, %23, %14, %5
-  %.sroa.0.0 = phi ptr [ %10, %5 ], [ %19, %14 ], [ %28, %23 ], [ %35, %32 ], [ %44, %39 ], [ %53, %48 ], [ %62, %57 ], [ %70, %67 ], [ %78, %75 ], [ %84, %82 ], [ %93, %88 ], [ %102, %97 ], [ %111, %106 ], [ %119, %116 ], [ %127, %124 ], [ %155, %153 ], [ %132, %131 ], [ %152, %151 ], [ %142, %141 ]
+  %.sroa.0.0 = phi ptr [ %152, %151 ], [ %10, %5 ], [ %19, %14 ], [ %28, %23 ], [ %35, %32 ], [ %44, %39 ], [ %53, %48 ], [ %62, %57 ], [ %70, %67 ], [ %78, %75 ], [ %84, %82 ], [ %93, %88 ], [ %102, %97 ], [ %111, %106 ], [ %119, %116 ], [ %127, %124 ], [ %132, %131 ], [ %155, %153 ], [ %142, %141 ]
   ret ptr %.sroa.0.0
 
 14:                                               ; preds = %11
@@ -48801,7 +48801,7 @@ define void @"_ZN85_$LT$yara_x..modules..protos..pe..Signature$u20$as$u20$protob
   br label %"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$yara_x..modules..protos..pe..SignerInfo$GT$$GT$$GT$17h1667231fd050a4d6E.exit"
 
 common.resume57:                                  ; preds = %74, %92, %.body, %57, %51, %45, %36, %30, %24, %18, %12, %6
-  %common.resume57.op = phi { ptr, i32 } [ %7, %6 ], [ %64, %.body ], [ %58, %57 ], [ %52, %51 ], [ %46, %45 ], [ %37, %36 ], [ %31, %30 ], [ %25, %24 ], [ %19, %18 ], [ %13, %12 ], [ %95, %92 ], [ %77, %74 ]
+  %common.resume57.op = phi { ptr, i32 } [ %95, %92 ], [ %7, %6 ], [ %64, %.body ], [ %58, %57 ], [ %52, %51 ], [ %46, %45 ], [ %37, %36 ], [ %31, %30 ], [ %25, %24 ], [ %19, %18 ], [ %13, %12 ], [ %77, %74 ]
   resume { ptr, i32 } %common.resume57.op
 
 "_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$yara_x..modules..protos..pe..SignerInfo$GT$$GT$$GT$17h1667231fd050a4d6E.exit": ; preds = %"_ZN4core3ptr85drop_in_place$LT$alloc..boxed..Box$LT$yara_x..modules..protos..pe..SignerInfo$GT$$GT$17h18935acc0be8762aE.exit.i", %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h3849f175fa58b270E.exit54"
@@ -50206,7 +50206,7 @@ define noundef align 8 ptr @"_ZN86_$LT$yara_x..modules..protos..pe..SignerInfo$u
   br i1 %.not51, label %20, label %14
 
 .loopexit:                                        ; preds = %46, %48, %32, %23, %14, %5
-  %.sroa.0.0 = phi ptr [ %10, %5 ], [ %19, %14 ], [ %28, %23 ], [ %50, %48 ], [ %37, %32 ], [ %47, %46 ]
+  %.sroa.0.0 = phi ptr [ %37, %32 ], [ %10, %5 ], [ %19, %14 ], [ %28, %23 ], [ %50, %48 ], [ %47, %46 ]
   ret ptr %.sroa.0.0
 
 14:                                               ; preds = %11
@@ -50410,7 +50410,7 @@ define void @"_ZN86_$LT$yara_x..modules..protos..pe..SignerInfo$u20$as$u20$proto
           to label %35 unwind label %42
 
 common.resume:                                    ; preds = %35, %6, %12, %18, %24
-  %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %19, %18 ], [ %13, %12 ], [ %7, %6 ], [ %38, %35 ]
+  %common.resume.op = phi { ptr, i32 } [ %7, %6 ], [ %25, %24 ], [ %19, %18 ], [ %13, %12 ], [ %38, %35 ]
   resume { ptr, i32 } %common.resume.op
 
 42:                                               ; preds = %39
@@ -53783,7 +53783,7 @@ define noundef align 8 ptr @"_ZN92_$LT$yara_x..modules..protos..pe..CounterSigna
   br i1 %10, label %11, label %15
 
 .loopexit:                                        ; preds = %41, %43, %27, %18, %11, %5
-  %.sroa.0.0 = phi ptr [ %7, %5 ], [ %14, %11 ], [ %23, %18 ], [ %45, %43 ], [ %32, %27 ], [ %42, %41 ]
+  %.sroa.0.0 = phi ptr [ %32, %27 ], [ %7, %5 ], [ %14, %11 ], [ %23, %18 ], [ %45, %43 ], [ %42, %41 ]
   ret ptr %.sroa.0.0
 
 11:                                               ; preds = %8
@@ -53954,7 +53954,7 @@ define void @"_ZN92_$LT$yara_x..modules..protos..pe..CounterSignature$u20$as$u20
           to label %24 unwind label %31
 
 common.resume:                                    ; preds = %24, %7, %13
-  %common.resume.op = phi { ptr, i32 } [ %14, %13 ], [ %8, %7 ], [ %27, %24 ]
+  %common.resume.op = phi { ptr, i32 } [ %8, %7 ], [ %14, %13 ], [ %27, %24 ]
   resume { ptr, i32 } %common.resume.op
 
 31:                                               ; preds = %28
@@ -57498,7 +57498,7 @@ define noundef align 8 ptr @"_ZN89_$LT$yara_x..modules..protos..pe..RichSignatur
   br i1 %13, label %14, label %18
 
 .loopexit:                                        ; preds = %52, %54, %38, %29, %22, %14, %6
-  %.sroa.0.0 = phi ptr [ %9, %6 ], [ %17, %14 ], [ %25, %22 ], [ %34, %29 ], [ %56, %54 ], [ %43, %38 ], [ %53, %52 ]
+  %.sroa.0.0 = phi ptr [ %43, %38 ], [ %9, %6 ], [ %17, %14 ], [ %25, %22 ], [ %34, %29 ], [ %56, %54 ], [ %53, %52 ]
   ret ptr %.sroa.0.0
 
 14:                                               ; preds = %10
@@ -57687,7 +57687,7 @@ define void @"_ZN89_$LT$yara_x..modules..protos..pe..RichSignature$u20$as$u20$pr
           to label %26 unwind label %33
 
 common.resume:                                    ; preds = %26, %9, %15
-  %common.resume.op = phi { ptr, i32 } [ %16, %15 ], [ %10, %9 ], [ %29, %26 ]
+  %common.resume.op = phi { ptr, i32 } [ %10, %9 ], [ %16, %15 ], [ %29, %26 ]
   resume { ptr, i32 } %common.resume.op
 
 33:                                               ; preds = %30
@@ -73920,7 +73920,7 @@ define noundef align 8 ptr @"_ZN95_$LT$yara_x..modules..protos..test_proto2..Tes
   br i1 %37, label %38, label %42
 
 .loopexit:                                        ; preds = %398, %409, %419, %431, %445, %639, %633, %626, %618, %611, %605, %598, %388, %381, %371, %362, %353, %344, %335, %326, %317, %310, %302, %294, %286, %278, %270, %262, %254, %246, %238, %230, %222, %214, %206, %198, %190, %182, %174, %166, %158, %150, %142, %134, %126, %118, %110, %102, %94, %86, %78, %70, %62, %54, %46, %38, %31, %766, %753, %740, %726, %713, %701, %689, %677, %664, %652
-  %.sroa.0.0 = phi ptr [ %34, %31 ], [ %41, %38 ], [ %49, %46 ], [ %57, %54 ], [ %65, %62 ], [ %73, %70 ], [ %81, %78 ], [ %89, %86 ], [ %97, %94 ], [ %105, %102 ], [ %113, %110 ], [ %121, %118 ], [ %129, %126 ], [ %137, %134 ], [ %145, %142 ], [ %153, %150 ], [ %161, %158 ], [ %169, %166 ], [ %177, %174 ], [ %185, %182 ], [ %193, %190 ], [ %201, %198 ], [ %209, %206 ], [ %217, %214 ], [ %225, %222 ], [ %233, %230 ], [ %241, %238 ], [ %249, %246 ], [ %257, %254 ], [ %265, %262 ], [ %273, %270 ], [ %281, %278 ], [ %289, %286 ], [ %297, %294 ], [ %305, %302 ], [ %313, %310 ], [ %322, %317 ], [ %331, %326 ], [ %340, %335 ], [ %349, %344 ], [ %358, %353 ], [ %367, %362 ], [ %376, %371 ], [ %384, %381 ], [ %641, %639 ], [ %.sroa.0.10, %766 ], [ %.sroa.0.9, %753 ], [ %.sroa.0.8, %740 ], [ %.sroa.0.7, %726 ], [ %.sroa.0.6, %713 ], [ %.sroa.0.5, %701 ], [ %.sroa.0.4, %689 ], [ %.sroa.0.3, %677 ], [ %.sroa.0.2, %664 ], [ %.sroa.0.1, %652 ], [ %389, %388 ], [ %601, %598 ], [ %607, %605 ], [ %613, %611 ], [ %621, %618 ], [ %629, %626 ], [ %638, %633 ], [ %411, %409 ], [ %446, %445 ], [ %436, %431 ], [ %422, %419 ], [ %400, %398 ]
+  %.sroa.0.0 = phi ptr [ %422, %419 ], [ %34, %31 ], [ %41, %38 ], [ %49, %46 ], [ %57, %54 ], [ %65, %62 ], [ %73, %70 ], [ %81, %78 ], [ %89, %86 ], [ %97, %94 ], [ %105, %102 ], [ %113, %110 ], [ %121, %118 ], [ %129, %126 ], [ %137, %134 ], [ %145, %142 ], [ %153, %150 ], [ %161, %158 ], [ %169, %166 ], [ %177, %174 ], [ %185, %182 ], [ %193, %190 ], [ %201, %198 ], [ %209, %206 ], [ %217, %214 ], [ %225, %222 ], [ %233, %230 ], [ %241, %238 ], [ %249, %246 ], [ %257, %254 ], [ %265, %262 ], [ %273, %270 ], [ %281, %278 ], [ %289, %286 ], [ %297, %294 ], [ %305, %302 ], [ %313, %310 ], [ %322, %317 ], [ %331, %326 ], [ %340, %335 ], [ %349, %344 ], [ %358, %353 ], [ %367, %362 ], [ %376, %371 ], [ %384, %381 ], [ %436, %431 ], [ %446, %445 ], [ %411, %409 ], [ %638, %633 ], [ %641, %639 ], [ %.sroa.0.10, %766 ], [ %.sroa.0.9, %753 ], [ %.sroa.0.8, %740 ], [ %.sroa.0.7, %726 ], [ %.sroa.0.6, %713 ], [ %.sroa.0.5, %701 ], [ %.sroa.0.4, %689 ], [ %.sroa.0.3, %677 ], [ %.sroa.0.2, %664 ], [ %.sroa.0.1, %652 ], [ %389, %388 ], [ %601, %598 ], [ %607, %605 ], [ %613, %611 ], [ %621, %618 ], [ %629, %626 ], [ %400, %398 ]
   ret ptr %.sroa.0.0
 
 38:                                               ; preds = %35
@@ -75496,7 +75496,7 @@ define void @"_ZN95_$LT$yara_x..modules..protos..test_proto2..TestProto2$u20$as$
   br label %"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$yara_x..modules..protos..test_proto2..NestedProto2$GT$$GT$$GT$17h9b785d27df3d5897E.exit"
 
 common.resume50:                                  ; preds = %96, %114, %.body, %142, %77, %71, %65, %59, %53, %47, %41
-  %common.resume50.op = phi { ptr, i32 } [ %42, %41 ], [ %83, %.body ], [ %143, %142 ], [ %78, %77 ], [ %72, %71 ], [ %66, %65 ], [ %60, %59 ], [ %54, %53 ], [ %48, %47 ], [ %117, %114 ], [ %99, %96 ]
+  %common.resume50.op = phi { ptr, i32 } [ %117, %114 ], [ %42, %41 ], [ %83, %.body ], [ %143, %142 ], [ %78, %77 ], [ %72, %71 ], [ %66, %65 ], [ %60, %59 ], [ %54, %53 ], [ %48, %47 ], [ %99, %96 ]
   resume { ptr, i32 } %common.resume50.op
 
 "_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$yara_x..modules..protos..test_proto2..NestedProto2$GT$$GT$$GT$17h9b785d27df3d5897E.exit": ; preds = %"_ZN4core3ptr96drop_in_place$LT$alloc..boxed..Box$LT$yara_x..modules..protos..test_proto2..NestedProto2$GT$$GT$17he3b94cf0cf6277f5E.exit.i", %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h5f456ff7ea0b41d6E.exit45"
@@ -76865,7 +76865,7 @@ define noundef align 8 ptr @"_ZN97_$LT$yara_x..modules..protos..test_proto2..Nes
   br i1 %12, label %13, label %17
 
 .loopexit:                                        ; preds = %56, %59, %42, %36, %29, %21, %13, %6
-  %.sroa.0.0 = phi ptr [ %9, %6 ], [ %16, %13 ], [ %24, %21 ], [ %32, %29 ], [ %38, %36 ], [ %61, %59 ], [ %47, %42 ], [ %58, %56 ]
+  %.sroa.0.0 = phi ptr [ %47, %42 ], [ %9, %6 ], [ %16, %13 ], [ %24, %21 ], [ %32, %29 ], [ %38, %36 ], [ %61, %59 ], [ %58, %56 ]
   ret ptr %.sroa.0.0
 
 13:                                               ; preds = %10
@@ -81051,7 +81051,7 @@ define noundef align 8 ptr @"_ZN90_$LT$yara_x..modules..protos..yara..FieldOptio
   br i1 %.not55, label %17, label %14
 
 .loopexit:                                        ; preds = %25, %51, %45, %36, %30, %14, %5
-  %.sroa.0.0 = phi ptr [ %10, %5 ], [ %53, %51 ], [ %16, %14 ], [ %32, %30 ], [ %41, %36 ], [ %50, %45 ], [ %26, %25 ]
+  %.sroa.0.0 = phi ptr [ %50, %45 ], [ %10, %5 ], [ %53, %51 ], [ %16, %14 ], [ %32, %30 ], [ %41, %36 ], [ %26, %25 ]
   ret ptr %.sroa.0.0
 
 14:                                               ; preds = %11
@@ -81217,7 +81217,7 @@ define void @"_ZN90_$LT$yara_x..modules..protos..yara..FieldOptions$u20$as$u20$p
           to label %18 unwind label %25
 
 common.resume:                                    ; preds = %18, %6, %32, %38
-  %common.resume.op = phi { ptr, i32 } [ %39, %38 ], [ %33, %32 ], [ %7, %6 ], [ %21, %18 ]
+  %common.resume.op = phi { ptr, i32 } [ %7, %6 ], [ %39, %38 ], [ %33, %32 ], [ %21, %18 ]
   resume { ptr, i32 } %common.resume.op
 
 25:                                               ; preds = %22
@@ -82257,7 +82257,7 @@ define noundef align 8 ptr @"_ZN86_$LT$yara_x..modules..protos..yara..AclEntry$u
   br i1 %.not44, label %20, label %14
 
 .loopexit:                                        ; preds = %28, %42, %48, %14, %5
-  %.sroa.0.0 = phi ptr [ %10, %5 ], [ %50, %48 ], [ %19, %14 ], [ %47, %42 ], [ %33, %28 ]
+  %.sroa.0.0 = phi ptr [ %47, %42 ], [ %10, %5 ], [ %19, %14 ], [ %50, %48 ], [ %33, %28 ]
   ret ptr %.sroa.0.0
 
 14:                                               ; preds = %11
@@ -82424,7 +82424,7 @@ define void @"_ZN86_$LT$yara_x..modules..protos..yara..AclEntry$u20$as$u20$proto
           to label %23 unwind label %30
 
 common.resume:                                    ; preds = %23, %41, %6, %12
-  %common.resume.op = phi { ptr, i32 } [ %13, %12 ], [ %7, %6 ], [ %44, %41 ], [ %26, %23 ]
+  %common.resume.op = phi { ptr, i32 } [ %7, %6 ], [ %44, %41 ], [ %13, %12 ], [ %26, %23 ]
   resume { ptr, i32 } %common.resume.op
 
 30:                                               ; preds = %27
@@ -86233,7 +86233,7 @@ define hidden void @"_ZN87_$LT$yara_x..modules..cuckoo..schema..NetworkJson$u20$
   br label %.body.i.i
 
 .loopexit.split-lp.i.i:                           ; preds = %385, %383, %382, %270, %.loopexit.i, %221
-  %.sroa.0163.1.ph.i.i = phi i8 [ 0, %383 ], [ 0, %382 ], [ 1, %221 ], [ 1, %.loopexit.i ], [ 0, %385 ], [ 1, %270 ]
+  %.sroa.0163.1.ph.i.i = phi i8 [ 1, %221 ], [ 1, %.loopexit.i ], [ 0, %385 ], [ 1, %270 ], [ 0, %382 ], [ 0, %383 ]
   %lpad.loopexit.split-lp.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i.i
@@ -88101,7 +88101,7 @@ select.unfold.us.i:                               ; preds = %.split.us.preheader
   br label %.body396
 
 .loopexit.split-lp581.loopexit.split-lp:          ; preds = %259, %370
-  %.sroa.089.0.ph.ph = phi i1 [ false, %370 ], [ true, %259 ]
+  %.sroa.089.0.ph.ph = phi i1 [ true, %259 ], [ false, %370 ]
   %lpad.loopexit.split-lp586 = landingpad { ptr, i32 }
           cleanup
   br label %.body396
@@ -88246,8 +88246,8 @@ select.unfold.us.i:                               ; preds = %.split.us.preheader
   br label %.loopexit578
 
 .loopexit578:                                     ; preds = %300, %298, %279, %277, %310, %290, %272
-  %.sroa.8.2.i = phi i64 [ %spec.select.i, %290 ], [ %spec.select16.i, %310 ], [ undef, %272 ], [ undef, %279 ], [ undef, %277 ], [ undef, %298 ], [ undef, %300 ]
-  %.sroa.0.2.shrunk.i = phi i1 [ %not.46.i, %290 ], [ %not..i, %310 ], [ false, %272 ], [ false, %279 ], [ false, %277 ], [ false, %298 ], [ false, %300 ]
+  %.sroa.8.2.i = phi i64 [ %spec.select.i, %290 ], [ undef, %272 ], [ %spec.select16.i, %310 ], [ undef, %279 ], [ undef, %277 ], [ undef, %298 ], [ undef, %300 ]
+  %.sroa.0.2.shrunk.i = phi i1 [ %not.46.i, %290 ], [ false, %272 ], [ %not..i, %310 ], [ false, %279 ], [ false, %277 ], [ false, %298 ], [ false, %300 ]
   %.sroa.0.2.i = zext i1 %.sroa.0.2.shrunk.i to i64
   store i64 %.sroa.0.2.i, ptr %1, align 8
   %317 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -91612,7 +91612,7 @@ define hidden noundef zeroext i1 @_ZN6yara_x7modules2vt12bitsquatting12bitsquatt
   br label %_ZN4core3str11validations15next_code_point17h388521807b0a0dd3E.exit23
 
 _ZN4core3str11validations15next_code_point17h388521807b0a0dd3E.exit23: ; preds = %45, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7c39fbd8269e3d9bE.exit14.i27", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7c39fbd8269e3d9bE.exit16.i28", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7c39fbd8269e3d9bE.exit12.i24", %86, %84, %101, %99, %106
-  %.sroa.0.0 = phi i1 [ %107, %106 ], [ false, %99 ], [ false, %101 ], [ false, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7c39fbd8269e3d9bE.exit14.i27" ], [ false, %84 ], [ false, %86 ], [ false, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7c39fbd8269e3d9bE.exit12.i24" ], [ false, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7c39fbd8269e3d9bE.exit16.i28" ], [ false, %45 ]
+  %.sroa.0.0 = phi i1 [ %107, %106 ], [ false, %99 ], [ false, %101 ], [ false, %84 ], [ false, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7c39fbd8269e3d9bE.exit14.i27" ], [ false, %86 ], [ false, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7c39fbd8269e3d9bE.exit12.i24" ], [ false, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7c39fbd8269e3d9bE.exit16.i28" ], [ false, %45 ]
   ret i1 %.sroa.0.0
 }
 
@@ -91945,7 +91945,7 @@ define hidden noundef zeroext i1 @_ZN6yara_x7modules2vt11interleaved11interleave
   br label %.critedge
 
 .critedge:                                        ; preds = %44, %137, %98, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7c39fbd8269e3d9bE.exit16.i36", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7c39fbd8269e3d9bE.exit14.i35", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7c39fbd8269e3d9bE.exit12.i32", %._crit_edge, %83
-  %.sroa.0.1 = phi i1 [ false, %83 ], [ %.sroa.0.0.lcssa, %._crit_edge ], [ false, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7c39fbd8269e3d9bE.exit12.i32" ], [ false, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7c39fbd8269e3d9bE.exit16.i36" ], [ false, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7c39fbd8269e3d9bE.exit14.i35" ], [ false, %98 ], [ false, %137 ], [ false, %44 ]
+  %.sroa.0.1 = phi i1 [ false, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7c39fbd8269e3d9bE.exit14.i35" ], [ false, %83 ], [ false, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7c39fbd8269e3d9bE.exit16.i36" ], [ false, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7c39fbd8269e3d9bE.exit12.i32" ], [ %.sroa.0.0.lcssa, %._crit_edge ], [ false, %98 ], [ false, %137 ], [ false, %44 ]
   ret i1 %.sroa.0.1
 
 94:                                               ; preds = %61, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7c39fbd8269e3d9bE.exit12.i26", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7c39fbd8269e3d9bE.exit16.i30", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7c39fbd8269e3d9bE.exit14.i29"
@@ -92734,7 +92734,7 @@ define hidden noundef zeroext i1 @_ZN6yara_x7modules2vt5typos11replacement17hc55
   br label %_ZN4core3str11validations15next_code_point17h388521807b0a0dd3E.exit22
 
 _ZN4core3str11validations15next_code_point17h388521807b0a0dd3E.exit22: ; preds = %45, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7c39fbd8269e3d9bE.exit14.i26", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7c39fbd8269e3d9bE.exit16.i27", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7c39fbd8269e3d9bE.exit12.i23", %86, %84, %99, %101
-  %.sroa.0.0 = phi i1 [ %102, %101 ], [ false, %99 ], [ false, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7c39fbd8269e3d9bE.exit14.i26" ], [ false, %84 ], [ false, %86 ], [ false, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7c39fbd8269e3d9bE.exit12.i23" ], [ false, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7c39fbd8269e3d9bE.exit16.i27" ], [ false, %45 ]
+  %.sroa.0.0 = phi i1 [ %102, %101 ], [ false, %99 ], [ false, %84 ], [ false, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7c39fbd8269e3d9bE.exit14.i26" ], [ false, %86 ], [ false, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7c39fbd8269e3d9bE.exit12.i23" ], [ false, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7c39fbd8269e3d9bE.exit16.i27" ], [ false, %45 ]
   ret i1 %.sroa.0.0
 }
 
@@ -92926,7 +92926,7 @@ define hidden noundef zeroext i1 @_ZN6yara_x7modules2vt5typos10vowel_swap17h2d85
   br label %_ZN4core3str11validations15next_code_point17h388521807b0a0dd3E.exit22
 
 _ZN4core3str11validations15next_code_point17h388521807b0a0dd3E.exit22: ; preds = %45, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7c39fbd8269e3d9bE.exit14.i26", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7c39fbd8269e3d9bE.exit16.i27", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7c39fbd8269e3d9bE.exit12.i23", %86, %84, %99, %102, %105
-  %.sroa.0.0 = phi i1 [ false, %99 ], [ %106, %105 ], [ false, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7c39fbd8269e3d9bE.exit14.i26" ], [ false, %102 ], [ false, %84 ], [ false, %86 ], [ false, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7c39fbd8269e3d9bE.exit12.i23" ], [ false, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7c39fbd8269e3d9bE.exit16.i27" ], [ false, %45 ]
+  %.sroa.0.0 = phi i1 [ false, %99 ], [ %106, %105 ], [ false, %84 ], [ false, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7c39fbd8269e3d9bE.exit14.i26" ], [ false, %102 ], [ false, %86 ], [ false, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7c39fbd8269e3d9bE.exit12.i23" ], [ false, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7c39fbd8269e3d9bE.exit16.i27" ], [ false, %45 ]
   ret i1 %.sroa.0.0
 }
 

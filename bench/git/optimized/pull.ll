@@ -723,7 +723,7 @@ skip_prefix.exit13.i.i:                           ; preds = %175
   br label %skip_prefix.exit.thread.i.i
 
 skip_prefix.exit.thread.i.i:                      ; preds = %.preheader.i.i, %skip_prefix.exit.i.i, %185, %183, %168, %164
-  %.018.i.i = phi ptr [ @.str.128, %185 ], [ @.str.4, %164 ], [ %166, %183 ], [ @.str.4, %168 ], [ %scevgep28.i.i, %skip_prefix.exit.i.i ], [ %scevgep.i.i, %.preheader.i.i ]
+  %.018.i.i = phi ptr [ @.str.128, %185 ], [ @.str.4, %164 ], [ %scevgep28.i.i, %skip_prefix.exit.i.i ], [ %166, %183 ], [ @.str.4, %168 ], [ %scevgep.i.i, %.preheader.i.i ]
   %186 = load i8, ptr %.018.i.i, align 1, !tbaa !13
   %.not8.i.i = icmp eq i8 %186, 0
   br i1 %.not8.i.i, label %get_tracking_branch.exit.i, label %sub_0.i.i

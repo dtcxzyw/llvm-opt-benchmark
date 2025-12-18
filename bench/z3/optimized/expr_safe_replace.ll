@@ -629,7 +629,7 @@ _ZNSt10_HashtableIP4exprSt4pairIKS1_S1_ESaIS4_ENSt8__detail10_Select1stESt8equal
   br label %common.resume
 
 _ZNSt13unordered_mapIP4exprS1_St4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S1_EEEixERS7_.exit: ; preds = %135, %130, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %131, %130 ], [ %146, %.loopexit.i.i ], [ %137, %135 ]
+  %.pn.i.i = phi ptr [ %146, %.loopexit.i.i ], [ %131, %130 ], [ %137, %135 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   %148 = load ptr, ptr %.1.i.i, align 8, !tbaa !14
   %.not = icmp eq ptr %148, null
@@ -748,7 +748,7 @@ _ZNSt10_HashtableIP4exprSt4pairIKS1_S1_ESaIS4_ENSt8__detail10_Select1stESt8equal
   br label %common.resume
 
 _ZNSt13unordered_mapIP4exprS1_St4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S1_EEEixERS7_.exit196: ; preds = %186, %181, %.loopexit.i.i192
-  %.pn.i.i194 = phi ptr [ %182, %181 ], [ %197, %.loopexit.i.i192 ], [ %188, %186 ]
+  %.pn.i.i194 = phi ptr [ %197, %.loopexit.i.i192 ], [ %182, %181 ], [ %188, %186 ]
   %.1.i.i195 = getelementptr inbounds nuw i8, ptr %.pn.i.i194, i64 16
   %199 = load ptr, ptr %.1.i.i195, align 8, !tbaa !14
   %.not181 = icmp eq ptr %199, null
@@ -1023,7 +1023,7 @@ _ZNSt10_HashtableIP4exprSt4pairIKS1_S1_ESaIS4_ENSt8__detail10_Select1stESt8equal
   br label %.body
 
 .loopexit415:                                     ; preds = %319, %.noexc, %314
-  %.pn.i.i223 = phi ptr [ %315, %314 ], [ %330, %.noexc ], [ %321, %319 ]
+  %.pn.i.i223 = phi ptr [ %330, %.noexc ], [ %315, %314 ], [ %321, %319 ]
   %.1.i.i224 = getelementptr inbounds nuw i8, ptr %.pn.i.i223, i64 16
   %332 = load ptr, ptr %.1.i.i224, align 8, !tbaa !14
   %.not.i225 = icmp eq ptr %332, null
@@ -1179,7 +1179,7 @@ _ZNSt10_HashtableIP4exprSt4pairIKS1_S1_ESaIS4_ENSt8__detail10_Select1stESt8equal
   br label %.body
 
 .loopexit414:                                     ; preds = %387, %.noexc244, %382
-  %.pn.i.i242 = phi ptr [ %383, %382 ], [ %398, %.noexc244 ], [ %389, %387 ]
+  %.pn.i.i242 = phi ptr [ %398, %.noexc244 ], [ %383, %382 ], [ %389, %387 ]
   %.1.i.i243 = getelementptr inbounds nuw i8, ptr %.pn.i.i242, i64 16
   %400 = load ptr, ptr %.1.i.i243, align 8, !tbaa !14
   %.not169 = icmp eq ptr %400, null
@@ -1354,7 +1354,7 @@ _ZNSt10_HashtableIP4exprSt4pairIKS1_S1_ESaIS4_ENSt8__detail10_Select1stESt8equal
   br label %.body
 
 .loopexit:                                        ; preds = %459, %.noexc270, %454
-  %.pn.i.i268 = phi ptr [ %455, %454 ], [ %470, %.noexc270 ], [ %461, %459 ]
+  %.pn.i.i268 = phi ptr [ %470, %.noexc270 ], [ %455, %454 ], [ %461, %459 ]
   %.1.i.i269 = getelementptr inbounds nuw i8, ptr %.pn.i.i268, i64 16
   %472 = load ptr, ptr %.1.i.i269, align 8, !tbaa !14
   %.not164 = icmp eq ptr %472, null
@@ -2333,7 +2333,7 @@ _ZNK6vectorIP4exprLb0EjE5emptyEv.exit.thread:     ; preds = %_ZNK6vectorIP4exprL
   unreachable
 
 _ZNSt13unordered_mapIP4exprS1_St4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S1_EEE2atERS7_.exit: ; preds = %837, %820, %832
-  %.sroa.06.1.i.i.i = phi ptr [ %833, %832 ], [ %.sroa.06.0.i.i.i, %820 ], [ %839, %837 ]
+  %.sroa.06.1.i.i.i = phi ptr [ %.sroa.06.0.i.i.i, %820 ], [ %833, %832 ], [ %839, %837 ]
   %845 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 16
   %846 = load ptr, ptr %845, align 8, !tbaa !14
   %.not.i356 = icmp eq ptr %846, null
@@ -3780,7 +3780,7 @@ _ZNSt10_HashtableIP4exprSt4pairIKS1_S1_ESaIS4_ENSt8__detail10_Select1stESt8equal
   resume { ptr, i32 } %47
 
 _ZNKSt10_HashtableIP4exprSt4pairIKS1_S1_ESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit: ; preds = %36, %22, %31
-  %.sroa.043.0.ph = phi ptr [ %32, %31 ], [ %.sroa.035.0, %22 ], [ %38, %36 ]
+  %.sroa.043.0.ph = phi ptr [ %.sroa.035.0, %22 ], [ %32, %31 ], [ %38, %36 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 24) #19
   br label %_ZNSt10_HashtableIP4exprSt4pairIKS1_S1_ESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 

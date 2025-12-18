@@ -277,8 +277,8 @@ _ZNSt13unordered_mapIPN3ade4NodeEN12_GLOBAL__N_16Cycles13TraverseStateESt4hashIS
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN3ade6HandleINS_4NodeEED2Ev.exit32.i, label %97
 
 _ZNSt13unordered_mapIPN3ade4NodeEN12_GLOBAL__N_16Cycles13TraverseStateESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S5_EEE4findERSB_.exit.i: ; preds = %69, %57, %77, %65
-  %.316.i = phi i8 [ %79, %77 ], [ %.01347.i, %65 ], [ %.01347.i, %57 ], [ %.01347.i, %69 ]
-  %cond.i = phi i1 [ %.not.i, %77 ], [ false, %65 ], [ false, %57 ], [ false, %69 ]
+  %.316.i = phi i8 [ %79, %77 ], [ %.01347.i, %57 ], [ %.01347.i, %65 ], [ %.01347.i, %69 ]
+  %cond.i = phi i1 [ %.not.i, %77 ], [ false, %57 ], [ false, %65 ], [ false, %69 ]
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN3ade6HandleINS_4NodeEED2Ev.exit.i, label %82
 
 82:                                               ; preds = %_ZNSt13unordered_mapIPN3ade4NodeEN12_GLOBAL__N_16Cycles13TraverseStateESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S5_EEE4findERSB_.exit.i
@@ -1432,7 +1432,7 @@ _ZNSt13unordered_mapIPN3ade4NodeEN12_GLOBAL__N_16Cycles13TraverseStateESt4hashIS
   br i1 %.not.i.i.i62, label %_ZN3ade6HandleINS_4NodeEED2Ev.exit66, label %241
 
 _ZNSt13unordered_mapIPN3ade4NodeEN12_GLOBAL__N_16Cycles13TraverseStateESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S5_EEE4findERSB_.exit: ; preds = %207, %195, %203
-  %.sroa.01.1.i.i = phi ptr [ %204, %203 ], [ %.sroa.01.0.i.i, %195 ], [ %209, %207 ]
+  %.sroa.01.1.i.i = phi ptr [ %.sroa.01.0.i.i, %195 ], [ %204, %203 ], [ %209, %207 ]
   %219 = getelementptr inbounds nuw i8, ptr %.sroa.01.1.i.i, i64 16
   %220 = load i32, ptr %219, align 8, !tbaa !139
   %221 = icmp eq i32 %220, 0
@@ -2855,8 +2855,8 @@ _ZNSt10_HashtableIPN3ade4NodeES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ES
   resume { ptr, i32 } %47
 
 _ZNKSt10_HashtableIPN3ade4NodeES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE15_M_find_node_trIS2_EEPNS4_10_Hash_nodeIS2_Lb0EEEmRKT_m.exit: ; preds = %33, %19, %.critedge, %28
-  %.sroa.031.1 = phi ptr [ %29, %28 ], [ %46, %.critedge ], [ %.sroa.028.0, %19 ], [ %35, %33 ]
-  %.sroa.432.1 = phi i8 [ 0, %28 ], [ 1, %.critedge ], [ 0, %19 ], [ 0, %33 ]
+  %.sroa.031.1 = phi ptr [ %.sroa.028.0, %19 ], [ %46, %.critedge ], [ %29, %28 ], [ %35, %33 ]
+  %.sroa.432.1 = phi i8 [ 0, %19 ], [ 1, %.critedge ], [ 0, %28 ], [ 0, %33 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.031.1, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.432.1, 1
   ret { ptr, i8 } %.fca.1.insert

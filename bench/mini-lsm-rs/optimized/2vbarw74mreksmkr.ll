@@ -4435,8 +4435,8 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17h09c85637e4bfc
   br i1 %.not.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17he862d7e4f5db8b6fE.llvm.8515880784993868172.exit._crit_edge", label %8
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h1a3ce7b1e39acebbE.llvm.8515880784993868172.exit": ; preds = %13, %2, %17
-  %.sroa.7.1 = phi i64 [ 0, %2 ], [ %12, %13 ], [ %12, %17 ]
-  %.sroa.16.1 = phi i64 [ 0, %2 ], [ 1, %13 ], [ 1, %17 ]
+  %.sroa.7.1 = phi i64 [ 0, %2 ], [ %12, %17 ], [ %12, %13 ]
+  %.sroa.16.1 = phi i64 [ 0, %2 ], [ 1, %17 ], [ 1, %13 ]
   %.not3.i = icmp eq i64 %.sroa.7.1, %4
   br i1 %.not3.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17he862d7e4f5db8b6fE.llvm.8515880784993868172.exit", label %.lr.ph.i1.preheader
 
@@ -8434,9 +8434,9 @@ define void @_ZN8mini_lsm7compact14simple_leveled33SimpleLeveledCompactionContro
   br i1 %69, label %73, label %.split.us.invoke, !prof !2831
 
 .split.us.invoke:                                 ; preds = %.lr.ph64.split.us, %68, %99
-  %70 = phi i64 [ %100, %99 ], [ %65, %68 ], [ %36, %.lr.ph64.split.us ]
-  %71 = phi i64 [ %.val21, %99 ], [ %.val25, %68 ], [ %.val25, %.lr.ph64.split.us ]
-  %72 = phi ptr [ @anon.a2529cd21221c1486fc2948c80b8cecc.97, %99 ], [ @anon.a2529cd21221c1486fc2948c80b8cecc.90, %68 ], [ @anon.a2529cd21221c1486fc2948c80b8cecc.90, %.lr.ph64.split.us ]
+  %70 = phi i64 [ %65, %68 ], [ %100, %99 ], [ %36, %.lr.ph64.split.us ]
+  %71 = phi i64 [ %.val25, %68 ], [ %.val21, %99 ], [ %.val25, %.lr.ph64.split.us ]
+  %72 = phi ptr [ @anon.a2529cd21221c1486fc2948c80b8cecc.90, %68 ], [ @anon.a2529cd21221c1486fc2948c80b8cecc.97, %99 ], [ @anon.a2529cd21221c1486fc2948c80b8cecc.90, %.lr.ph64.split.us ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %70, i64 noundef %71, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %72) #29
           to label %.split.us.cont unwind label %.loopexit.split-lp
 

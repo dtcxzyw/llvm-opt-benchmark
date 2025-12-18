@@ -3048,7 +3048,7 @@ _ZN6syntax7parsing9reparsing20find_reparsable_node17h33444ebd1f3e37d4E.exit.i: ;
   br label %609
 
 .loopexit.split-lp.i:                             ; preds = %628, %_ZN6syntax7parsing9reparsing11is_balanced17h8e1a6604a5bc8633E.exit.thread47.i, %598, %.noexc28.i, %594, %592, %590
-  %.2.ph.i = phi i1 [ true, %598 ], [ true, %.noexc28.i ], [ true, %594 ], [ true, %592 ], [ true, %590 ], [ true, %_ZN6syntax7parsing9reparsing11is_balanced17h8e1a6604a5bc8633E.exit.thread47.i ], [ false, %628 ]
+  %.2.ph.i = phi i1 [ true, %.noexc28.i ], [ true, %594 ], [ true, %592 ], [ true, %590 ], [ true, %598 ], [ true, %_ZN6syntax7parsing9reparsing11is_balanced17h8e1a6604a5bc8633E.exit.thread47.i ], [ false, %628 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %609

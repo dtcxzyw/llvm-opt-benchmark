@@ -1503,97 +1503,97 @@ zend_parse_arg_array_ht.exit:                     ; preds = %11, %8
   switch i8 %43, label %74 [
     i8 109, label %44
     i8 77, label %44
-    i8 112, label %64
-    i8 80, label %64
-    i8 117, label %70
-    i8 85, label %70
+    i8 112, label %62
+    i8 80, label %62
+    i8 117, label %68
+    i8 85, label %68
   ]
 
 44:                                               ; preds = %41, %41
   %45 = icmp eq i64 %38, 16
-  br i1 %45, label %46, label %50
+  br i1 %45, label %46, label %48
 
 46:                                               ; preds = %44
   %47 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %42, i64 noundef 16, ptr noundef nonnull @.str.11, i64 noundef 16) #10
   %.not71.i = icmp eq i32 %47, 0
-  br i1 %.not71.i, label %48, label %._crit_edge.i
+  br i1 %.not71.i, label %75, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %46
   %.pre.i = load i64, ptr %37, align 8, !tbaa !7
-  br label %50
+  br label %48
 
-48:                                               ; preds = %46
-  %49 = tail call fastcc i32 @cache_request_parse_body_option(ptr noundef nonnull %.05692.i, i32 noundef 0)
-  %.not84.i = icmp eq i32 %49, -1
-  br i1 %.not84.i, label %cache_request_parse_body_options.exit.thread, label %.critedge79.i
+48:                                               ; preds = %._crit_edge.i, %44
+  %49 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %38, %44 ]
+  %50 = icmp eq i64 %49, 14
+  br i1 %50, label %51, label %55
 
-50:                                               ; preds = %._crit_edge.i, %44
-  %51 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %38, %44 ]
-  %52 = icmp eq i64 %51, 14
-  br i1 %52, label %53, label %57
+51:                                               ; preds = %48
+  %52 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %42, i64 noundef 14, ptr noundef nonnull @.str.12, i64 noundef 14) #10
+  %.not72.i = icmp eq i32 %52, 0
+  br i1 %.not72.i, label %53, label %thread-pre-split.i
 
-53:                                               ; preds = %50
-  %54 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %42, i64 noundef 14, ptr noundef nonnull @.str.12, i64 noundef 14) #10
-  %.not72.i = icmp eq i32 %54, 0
-  br i1 %.not72.i, label %55, label %thread-pre-split.i
-
-55:                                               ; preds = %53
-  %56 = tail call fastcc i32 @cache_request_parse_body_option(ptr noundef nonnull %.05692.i, i32 noundef 1)
-  %.not83.i = icmp eq i32 %56, -1
+53:                                               ; preds = %51
+  %54 = tail call fastcc i32 @cache_request_parse_body_option(ptr noundef nonnull %.05692.i, i32 noundef 1)
+  %.not83.i = icmp eq i32 %54, -1
   br i1 %.not83.i, label %cache_request_parse_body_options.exit.thread, label %.critedge79.i
 
-thread-pre-split.i:                               ; preds = %53
+thread-pre-split.i:                               ; preds = %51
   %.pr.i = load i64, ptr %37, align 8, !tbaa !7
-  br label %57
+  br label %55
 
-57:                                               ; preds = %thread-pre-split.i, %50
-  %58 = phi i64 [ %.pr.i, %thread-pre-split.i ], [ %51, %50 ]
-  %59 = icmp eq i64 %58, 24
-  br i1 %59, label %60, label %74
+55:                                               ; preds = %thread-pre-split.i, %48
+  %56 = phi i64 [ %.pr.i, %thread-pre-split.i ], [ %49, %48 ]
+  %57 = icmp eq i64 %56, 24
+  br i1 %57, label %58, label %74
 
-60:                                               ; preds = %57
-  %61 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %42, i64 noundef 24, ptr noundef nonnull @.str.13, i64 noundef 24) #10
-  %.not73.i = icmp eq i32 %61, 0
-  br i1 %.not73.i, label %62, label %74
+58:                                               ; preds = %55
+  %59 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %42, i64 noundef 24, ptr noundef nonnull @.str.13, i64 noundef 24) #10
+  %.not73.i = icmp eq i32 %59, 0
+  br i1 %.not73.i, label %60, label %74
 
-62:                                               ; preds = %60
-  %63 = tail call fastcc i32 @cache_request_parse_body_option(ptr noundef nonnull %.05692.i, i32 noundef 2)
-  %.not82.i = icmp eq i32 %63, -1
+60:                                               ; preds = %58
+  %61 = tail call fastcc i32 @cache_request_parse_body_option(ptr noundef nonnull %.05692.i, i32 noundef 2)
+  %.not82.i = icmp eq i32 %61, -1
   br i1 %.not82.i, label %cache_request_parse_body_options.exit.thread, label %.critedge79.i
 
-64:                                               ; preds = %41, %41
-  %65 = icmp eq i64 %38, 13
-  br i1 %65, label %66, label %74
+62:                                               ; preds = %41, %41
+  %63 = icmp eq i64 %38, 13
+  br i1 %63, label %64, label %74
+
+64:                                               ; preds = %62
+  %65 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %42, i64 noundef 13, ptr noundef nonnull @.str.14, i64 noundef 13) #10
+  %.not70.i = icmp eq i32 %65, 0
+  br i1 %.not70.i, label %66, label %74
 
 66:                                               ; preds = %64
-  %67 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %42, i64 noundef 13, ptr noundef nonnull @.str.14, i64 noundef 13) #10
-  %.not70.i = icmp eq i32 %67, 0
-  br i1 %.not70.i, label %68, label %74
-
-68:                                               ; preds = %66
-  %69 = tail call fastcc i32 @cache_request_parse_body_option(ptr noundef nonnull %.05692.i, i32 noundef 3)
-  %.not81.i = icmp eq i32 %69, -1
+  %67 = tail call fastcc i32 @cache_request_parse_body_option(ptr noundef nonnull %.05692.i, i32 noundef 3)
+  %.not81.i = icmp eq i32 %67, -1
   br i1 %.not81.i, label %cache_request_parse_body_options.exit.thread, label %.critedge79.i
 
-70:                                               ; preds = %41, %41
-  %71 = icmp eq i64 %38, 19
-  br i1 %71, label %72, label %74
+68:                                               ; preds = %41, %41
+  %69 = icmp eq i64 %38, 19
+  br i1 %69, label %70, label %74
+
+70:                                               ; preds = %68
+  %71 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %42, i64 noundef 19, ptr noundef nonnull @.str.15, i64 noundef 19) #10
+  %.not69.i = icmp eq i32 %71, 0
+  br i1 %.not69.i, label %72, label %74
 
 72:                                               ; preds = %70
-  %73 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %42, i64 noundef 19, ptr noundef nonnull @.str.15, i64 noundef 19) #10
-  %.not69.i = icmp eq i32 %73, 0
-  br i1 %.not69.i, label %75, label %74
+  %73 = tail call fastcc i32 @cache_request_parse_body_option(ptr noundef nonnull %.05692.i, i32 noundef 4)
+  %.not80.i = icmp eq i32 %73, -1
+  br i1 %.not80.i, label %cache_request_parse_body_options.exit.thread, label %.critedge79.i
 
-74:                                               ; preds = %72, %70, %66, %64, %60, %57, %41
+74:                                               ; preds = %70, %68, %64, %62, %58, %55, %41
   tail call void (ptr, ...) @zend_value_error(ptr noundef nonnull @.str.16, ptr noundef nonnull %42) #10
   br label %cache_request_parse_body_options.exit.thread
 
-75:                                               ; preds = %72
-  %76 = tail call fastcc i32 @cache_request_parse_body_option(ptr noundef nonnull %.05692.i, i32 noundef 4)
-  %.not80.i = icmp eq i32 %76, -1
-  br i1 %.not80.i, label %cache_request_parse_body_options.exit.thread, label %.critedge79.i
+75:                                               ; preds = %46
+  %76 = tail call fastcc i32 @cache_request_parse_body_option(ptr noundef nonnull %.05692.i, i32 noundef 0)
+  %.not84.i = icmp eq i32 %76, -1
+  br i1 %.not84.i, label %cache_request_parse_body_options.exit.thread, label %.critedge79.i
 
-.critedge79.i:                                    ; preds = %75, %68, %62, %55, %48, %30
+.critedge79.i:                                    ; preds = %75, %72, %66, %60, %53, %30
   %77 = add i32 %.05593.i, -1
   %.not.not.i = icmp eq i32 %77, 0
   br i1 %.not.not.i, label %cache_request_parse_body_options.exit, label %.lr.ph.i
@@ -1656,7 +1656,7 @@ cache_request_parse_body_options.exit:            ; preds = %.critedge79.i, %cac
   store i32 775, ptr %100, align 8, !tbaa !4
   br label %cache_request_parse_body_options.exit.thread
 
-cache_request_parse_body_options.exit.thread:     ; preds = %55, %68, %48, %62, %75, %40, %35, %74, %86, %83, %79
+cache_request_parse_body_options.exit.thread:     ; preds = %66, %60, %72, %53, %75, %40, %35, %74, %86, %83, %79
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 560), align 8, !tbaa !61
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 568), i8 0, i64 80, i1 false)
   br label %101

@@ -1476,7 +1476,7 @@ define internal fastcc i64 @SummarizeWAL(i32 noundef %0, i64 noundef %1, i1 noun
   br label %.preheader
 
 SummarizeDbaseRecord.exit:                        ; preds = %137, %121
-  %.4 = phi i8 [ %.0103156, %121 ], [ %139, %137 ]
+  %.4 = phi i8 [ %139, %137 ], [ %.0103156, %121 ]
   %235 = trunc nuw i8 %.4 to i1
   br i1 %235, label %SummarizeDbaseRecord.exit.thread, label %.preheader
 

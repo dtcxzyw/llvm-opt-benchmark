@@ -5821,7 +5821,7 @@ select.unfold.loopexit.invoke.i:                  ; preds = %._crit_edge.i.i.i, 
   br label %.thread1699
 
 500:                                              ; preds = %1174, %1089
-  %.sroa.0543.5.ph = phi i8 [ 0, %1089 ], [ 1, %1174 ]
+  %.sroa.0543.5.ph = phi i8 [ 1, %1174 ], [ 0, %1089 ]
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.thread1764
@@ -19326,7 +19326,7 @@ _ZN3std4sync6poison4Flag4done17h10a53d883c6fda20E.exit.i.i.i: ; preds = %766, %.
   invoke void @"_ZN4core3ptr160drop_in_place$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$ruff_linter..settings..types..PythonVersion$C$rustc_hash..FxBuildHasher$GT$$GT$17h396bb068a96c6b37E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %2321)
           to label %"_ZN4core3ptr188drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$ruff_linter..settings..types..PythonVersion$C$rustc_hash..FxBuildHasher$GT$$GT$$GT$17h68fcb8465191739fE.exit912" unwind label %798
 
-"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$17h8a1e1b1e94329c9cE.exit914": ; preds = %1816, %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17hae93c0248ab47368E.exit713", %1910, %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17hae93c0248ab47368E.exit753", %1994, %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17hae93c0248ab47368E.exit791", %2329, %2333, %"_ZN4core3ptr188drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$ruff_linter..settings..types..PythonVersion$C$rustc_hash..FxBuildHasher$GT$$GT$$GT$17h68fcb8465191739fE.exit912"
+"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$17h8a1e1b1e94329c9cE.exit914": ; preds = %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17hae93c0248ab47368E.exit713", %1816, %1910, %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17hae93c0248ab47368E.exit753", %1994, %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17hae93c0248ab47368E.exit791", %2329, %2333, %"_ZN4core3ptr188drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$ruff_linter..settings..types..PythonVersion$C$rustc_hash..FxBuildHasher$GT$$GT$$GT$17h68fcb8465191739fE.exit912"
   %.pn53410071436150015131544155515801589160816151629 = phi { ptr, i32 } [ %.pn53410071436, %"_ZN4core3ptr188drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$ruff_linter..settings..types..PythonVersion$C$rustc_hash..FxBuildHasher$GT$$GT$$GT$17h68fcb8465191739fE.exit912" ], [ %.pn53410071436, %2329 ], [ %.pn53410071436, %2333 ], [ %.pn498, %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17hae93c0248ab47368E.exit791" ], [ %.pn498, %1994 ], [ %.pn476, %1910 ], [ %.pn452, %1816 ], [ %.pn476, %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17hae93c0248ab47368E.exit753" ], [ %.pn452, %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17hae93c0248ab47368E.exit713" ]
   %.sroa.0269.110051438149915141543155615791590160716161628 = phi i1 [ %.sroa.0269.110051438, %"_ZN4core3ptr188drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$ruff_linter..settings..types..PythonVersion$C$rustc_hash..FxBuildHasher$GT$$GT$$GT$17h68fcb8465191739fE.exit912" ], [ %.sroa.0269.110051438, %2329 ], [ %.sroa.0269.110051438, %2333 ], [ false, %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17hae93c0248ab47368E.exit791" ], [ false, %1994 ], [ false, %1910 ], [ false, %1816 ], [ false, %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17hae93c0248ab47368E.exit753" ], [ false, %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17hae93c0248ab47368E.exit713" ]
   %.sroa.0237.19851456149115211537156115751593160516171627 = phi i1 [ %.sroa.0237.19851456, %"_ZN4core3ptr188drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$ruff_linter..settings..types..PythonVersion$C$rustc_hash..FxBuildHasher$GT$$GT$$GT$17h68fcb8465191739fE.exit912" ], [ %.sroa.0237.19851456, %2329 ], [ %.sroa.0237.19851456, %2333 ], [ %.sroa.0237.16, %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17hae93c0248ab47368E.exit791" ], [ %.sroa.0237.16, %1994 ], [ false, %1910 ], [ false, %1816 ], [ false, %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17hae93c0248ab47368E.exit753" ], [ false, %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17hae93c0248ab47368E.exit713" ]
@@ -23864,12 +23864,12 @@ _ZN3std4sync6poison4Flag4done17h10a53d883c6fda20E.exit.i.i499: ; preds = %1017, 
           cleanup
   br label %.thread1173
 
-.thread928.thread1167.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %"_ZN4core3ptr65drop_in_place$LT$ruff_linter..rule_selector..RuleSelectorIter$GT$17hee22018a9f9e7b95E.exit592", %1435, %1427, %1423, %1414, %.thread1062, %1408, %1389, %1390, %1386, %1377, %1372, %1369, %1367, %1368, %1358, %1356, %1355, %1347, %1385, %1422, %1426
+.thread928.thread1167.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %"_ZN4core3ptr65drop_in_place$LT$ruff_linter..rule_selector..RuleSelectorIter$GT$17hee22018a9f9e7b95E.exit592", %1426, %1422, %1385, %1347, %1355, %1356, %1358, %1368, %1435, %1427, %1423, %1414, %.thread1062, %1408, %1389, %1390, %1386, %1377, %1372, %1369, %1367
   %lpad.loopexit1271 = landingpad { ptr, i32 }
           cleanup
   br label %.thread1173
 
-.thread928.thread1167.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %"_ZN134_$LT$ruff_linter..registry..rule_set..RuleSet$u20$as$u20$core..iter..traits..collect..FromIterator$LT$ruff_linter..codes..Rule$GT$$GT$9from_iter17h3ba6745fc6952d0aE.exit.i", %1241, %1287, %1242
+.thread928.thread1167.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %1242, %1287, %1241, %"_ZN134_$LT$ruff_linter..registry..rule_set..RuleSet$u20$as$u20$core..iter..traits..collect..FromIterator$LT$ruff_linter..codes..Rule$GT$$GT$9from_iter17h3ba6745fc6952d0aE.exit.i"
   %lpad.loopexit.split-lp1272 = landingpad { ptr, i32 }
           cleanup
   br label %.thread1173
@@ -24727,7 +24727,7 @@ select.unfold.i.i.i.i.i.i.i.i.i.i:                ; preds = %select.unfold.us.i.
   %1374 = getelementptr inbounds nuw i8, ptr %.sroa.30.6.lcssa, i64 24
   br label %.thread1062
 
-.thread1062:                                      ; preds = %.thread1062.loopexit, %1338, %1330, %.thread1010, %"_ZN4core3ptr65drop_in_place$LT$ruff_linter..rule_selector..RuleSelectorIter$GT$17hee22018a9f9e7b95E.exit", %1410, %1376
+.thread1062:                                      ; preds = %.thread1062.loopexit, %1330, %1338, %.thread1010, %"_ZN4core3ptr65drop_in_place$LT$ruff_linter..rule_selector..RuleSelectorIter$GT$17hee22018a9f9e7b95E.exit", %1410, %1376
   %.sroa.53.1973.ph10271091 = phi ptr [ %.sroa.53.0, %"_ZN4core3ptr65drop_in_place$LT$ruff_linter..rule_selector..RuleSelectorIter$GT$17hee22018a9f9e7b95E.exit" ], [ %.sroa.53.0, %1410 ], [ %.sroa.53.0, %1376 ], [ %.sroa.53.0, %.thread1010 ], [ %1339, %1338 ], [ %.sroa.53.0, %1330 ], [ %.sroa.53.0, %.thread1062.loopexit ]
   %.sroa.48.1972.ph10281090 = phi ptr [ %.sroa.48.1.ph, %"_ZN4core3ptr65drop_in_place$LT$ruff_linter..rule_selector..RuleSelectorIter$GT$17hee22018a9f9e7b95E.exit" ], [ %.sroa.48.1.ph, %1410 ], [ %.sroa.48.1.ph, %1376 ], [ %.sroa.48.0, %.thread1010 ], [ %.sroa.48.0, %1338 ], [ %.sroa.48.0, %1330 ], [ %.sroa.48.0, %.thread1062.loopexit ]
   %.sroa.43.1971.ph10291089 = phi ptr [ %.sroa.43.0, %"_ZN4core3ptr65drop_in_place$LT$ruff_linter..rule_selector..RuleSelectorIter$GT$17hee22018a9f9e7b95E.exit" ], [ %.sroa.43.0, %1410 ], [ %.sroa.43.0, %1376 ], [ %.sroa.43.0, %.thread1010 ], [ %.sroa.43.0, %1338 ], [ %1331, %1330 ], [ %.sroa.43.0, %.thread1062.loopexit ]

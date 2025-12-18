@@ -4979,7 +4979,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit787: ; preds = %16
   br label %.loopexit981
 
 .loopexit981:                                     ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit784, %1640, %1664, %._crit_edge2080, %1630, %1636
-  %.10 = phi i32 [ 1, %1630 ], [ 1, %1636 ], [ 0, %._crit_edge2080 ], [ 0, %1664 ], [ 0, %1640 ], [ %.8, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit784 ]
+  %.10 = phi i32 [ 0, %1640 ], [ 1, %1630 ], [ 1, %1636 ], [ 0, %._crit_edge2080 ], [ 0, %1664 ], [ %.8, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit784 ]
   %1667 = load ptr, ptr %81, align 8, !tbaa !130
   %1668 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %1669 = load ptr, ptr %1668, align 8, !tbaa !132

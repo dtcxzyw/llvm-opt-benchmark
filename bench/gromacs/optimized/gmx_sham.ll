@@ -3263,7 +3263,7 @@ _ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit247.i.thread: ; preds = %
   br label %.loopexit274.i
 
 .loopexit274.i:                                   ; preds = %._crit_edge289.i, %._crit_edge300.i, %._crit_edge321.i, %.preheader272.lr.ph.i, %.preheader273.i, %.preheader276.lr.ph.i, %.preheader277.i, %_ZNSt10filesystem7__cxx114pathD2Ev.exit.i
-  %.0157.i = phi i32 [ %.8.lcssa.i, %._crit_edge321.i ], [ %9, %_ZNSt10filesystem7__cxx114pathD2Ev.exit.i ], [ 0, %.preheader273.i ], [ 0, %.preheader277.i ], [ 0, %.preheader272.lr.ph.i ], [ 0, %.preheader276.lr.ph.i ], [ %.2159.lcssa.i, %._crit_edge300.i ], [ %.5162.lcssa.i, %._crit_edge289.i ]
+  %.0157.i = phi i32 [ %.8.lcssa.i, %._crit_edge321.i ], [ %9, %_ZNSt10filesystem7__cxx114pathD2Ev.exit.i ], [ 0, %.preheader276.lr.ph.i ], [ 0, %.preheader273.i ], [ 0, %.preheader272.lr.ph.i ], [ 0, %.preheader277.i ], [ %.2159.lcssa.i, %._crit_edge300.i ], [ %.5162.lcssa.i, %._crit_edge289.i ]
   %779 = sext i32 %.0157.i to i64
   call void @qsort(ptr noundef %510, i64 noundef %779, i64 noundef 16, ptr noundef nonnull @_ZL11comp_minimaPKvS0_)
   %780 = call i64 @fwrite(ptr nonnull @.str.174, i64 27, i64 1, ptr %511)

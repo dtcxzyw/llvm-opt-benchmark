@@ -9111,7 +9111,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   br label %.loopexit394
 
 .loopexit394:                                     ; preds = %.lr.ph85.i.i.i.i.i, %.loopexit395, %216, %227
-  %.0.i.i.i = phi double [ 0.000000e+00, %.loopexit395 ], [ %231, %227 ], [ %217, %216 ], [ %225, %.lr.ph85.i.i.i.i.i ]
+  %.0.i.i.i = phi double [ 0.000000e+00, %.loopexit395 ], [ %217, %216 ], [ %231, %227 ], [ %225, %.lr.ph85.i.i.i.i.i ]
   %.scalar.i = tail call noundef double @llvm.sqrt.f64(double %.0.i.i.i)
   %232 = load ptr, ptr %.0376410, align 8, !tbaa !388, !noalias !412
   %233 = load i64, ptr %104, align 8, !tbaa !390, !noalias !412
@@ -9218,7 +9218,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph85.i.i.i.i.i115, %293, %282, %.loopexit394
-  %.0.i.i.i113 = phi double [ 0.000000e+00, %.loopexit394 ], [ %297, %293 ], [ %283, %282 ], [ %291, %.lr.ph85.i.i.i.i.i115 ]
+  %.0.i.i.i113 = phi double [ 0.000000e+00, %.loopexit394 ], [ %283, %282 ], [ %297, %293 ], [ %291, %.lr.ph85.i.i.i.i.i115 ]
   %.scalar.i114 = tail call noundef double @llvm.sqrt.f64(double %.0.i.i.i113)
   %298 = fcmp olt double %.scalar.i, %.scalar.i114
   %.sroa.speculated = select i1 %298, double %.scalar.i114, double %.scalar.i
@@ -9399,7 +9399,7 @@ _ZN5Eigen3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEaSIN
   br label %.loopexit396
 
 .loopexit396:                                     ; preds = %.lr.ph85.i.i.i.i.i153, %389, %378, %321
-  %.0.i.i.i151 = phi double [ 0.000000e+00, %321 ], [ %393, %389 ], [ %379, %378 ], [ %387, %.lr.ph85.i.i.i.i.i153 ]
+  %.0.i.i.i151 = phi double [ 0.000000e+00, %321 ], [ %379, %378 ], [ %393, %389 ], [ %387, %.lr.ph85.i.i.i.i.i153 ]
   %.scalar.i152 = tail call noundef double @llvm.sqrt.f64(double %.0.i.i.i151)
   %394 = fmul double %.266, 2.000000e+00
   %395 = fcmp ult double %.scalar.i152, %394
@@ -9594,7 +9594,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   br i1 %90, label %.lr.ph.i.i.i.i.i.i28, label %._crit_edge.i.i.i.i.i.i24, !llvm.loop !427
 
 _ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEmLERKd.exit: ; preds = %.lr.ph.i17.i.i.i.i.i.i25, %22, %._crit_edge.i.i.i.i.i.i24, %11
-  %.0 = phi i1 [ false, %11 ], [ true, %._crit_edge.i.i.i.i.i.i24 ], [ false, %22 ], [ true, %.lr.ph.i17.i.i.i.i.i.i25 ]
+  %.0 = phi i1 [ false, %11 ], [ false, %22 ], [ true, %._crit_edge.i.i.i.i.i.i24 ], [ true, %.lr.ph.i17.i.i.i.i.i.i25 ]
   ret i1 %.0
 }
 

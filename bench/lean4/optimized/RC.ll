@@ -256,7 +256,7 @@ lean_nat_lt.exit.thread34.us:                     ; preds = %lean_obj_tag.exit.u
   br i1 %23, label %.split41.us, label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %.critedge.i.us, %lean_nat_lt.exit.thread34.us
-  %.021.us.be = phi ptr [ %21, %.critedge.i.us ], [ %15, %lean_nat_lt.exit.thread34.us ]
+  %.021.us.be = phi ptr [ %15, %lean_nat_lt.exit.thread34.us ], [ %21, %.critedge.i.us ]
   br label %.split.us
 
 .split:                                           ; preds = %2, %.split.backedge
@@ -309,7 +309,7 @@ lean_nat_lt.exit.thread:                          ; preds = %33
   br i1 %45, label %.split41.us, label %.split.backedge
 
 .split.backedge:                                  ; preds = %.thread, %lean_nat_lt.exit.thread, %lean_nat_lt.exit, %lean_nat_eq.exit
-  %.021.be = phi ptr [ %41, %lean_nat_eq.exit ], [ %35, %lean_nat_lt.exit.thread ], [ %35, %lean_nat_lt.exit ], [ %41, %.thread ]
+  %.021.be = phi ptr [ %41, %.thread ], [ %41, %lean_nat_eq.exit ], [ %35, %lean_nat_lt.exit.thread ], [ %35, %lean_nat_lt.exit ]
   br label %.split
 
 lean_nat_eq.exit:                                 ; preds = %lean_nat_lt.exit
@@ -11631,7 +11631,7 @@ lean_nat_lt.exit.thread44.us:                     ; preds = %lean_obj_tag.exit.u
   br i1 %23, label %.split53.us, label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %.critedge.i.us, %lean_nat_lt.exit.thread44.us
-  %.024.us.be = phi ptr [ %21, %.critedge.i.us ], [ %15, %lean_nat_lt.exit.thread44.us ]
+  %.024.us.be = phi ptr [ %15, %lean_nat_lt.exit.thread44.us ], [ %21, %.critedge.i.us ]
   br label %.split.us
 
 .split:                                           ; preds = %2, %.split.backedge
@@ -11684,7 +11684,7 @@ lean_nat_lt.exit.thread:                          ; preds = %33
   br i1 %45, label %.split53.us, label %.split.backedge
 
 .split.backedge:                                  ; preds = %.thread, %lean_nat_lt.exit.thread, %lean_nat_lt.exit, %lean_nat_eq.exit
-  %.024.be = phi ptr [ %41, %lean_nat_eq.exit ], [ %35, %lean_nat_lt.exit.thread ], [ %35, %lean_nat_lt.exit ], [ %41, %.thread ]
+  %.024.be = phi ptr [ %41, %.thread ], [ %41, %lean_nat_eq.exit ], [ %35, %lean_nat_lt.exit.thread ], [ %35, %lean_nat_lt.exit ]
   br label %.split
 
 lean_nat_eq.exit:                                 ; preds = %lean_nat_lt.exit

@@ -2721,8 +2721,8 @@ _ZNK4goal3depEj.exit:                             ; preds = %_ZNK11ast_manager3g
   br label %._crit_edge, !llvm.loop !204
 
 ._crit_edge:                                      ; preds = %69, %36, %.._crit_edge.loopexit_crit_edge, %_ZNK4goal4sizeEv.exit
-  %208 = phi i32 [ %41, %_ZNK4goal4sizeEv.exit ], [ %.pre119.pre, %.._crit_edge.loopexit_crit_edge ], [ %41, %36 ], [ %72, %69 ]
-  %209 = phi ptr [ %39, %_ZNK4goal4sizeEv.exit ], [ %.pre117.pre, %.._crit_edge.loopexit_crit_edge ], [ %39, %36 ], [ %70, %69 ]
+  %208 = phi i32 [ %41, %36 ], [ %41, %_ZNK4goal4sizeEv.exit ], [ %.pre119.pre, %.._crit_edge.loopexit_crit_edge ], [ %72, %69 ]
+  %209 = phi ptr [ %39, %36 ], [ %39, %_ZNK4goal4sizeEv.exit ], [ %.pre117.pre, %.._crit_edge.loopexit_crit_edge ], [ %70, %69 ]
   %210 = and i32 %208, 67108864
   %.not79 = icmp eq i32 %210, 0
   br i1 %.not79, label %236, label %211
@@ -7505,7 +7505,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK13rewriter_core10is_blockedEP
   br i1 %.not27.old.i.i, label %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit, label %.lr.ph38.i.i.backedge
 
 .lr.ph38.i.i.backedge:                            ; preds = %35, %32
-  %.137.i.i.be = phi ptr [ %.old.i.i, %35 ], [ %34, %32 ]
+  %.137.i.i.be = phi ptr [ %34, %32 ], [ %.old.i.i, %35 ]
   br label %.lr.ph38.i.i, !llvm.loop !293
 
 _ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit: ; preds = %16, %21, %27, %32, %35, %.preheader.i.i
@@ -8471,7 +8471,7 @@ define linkonce_odr hidden void @_ZN18bv1_blaster_tactic6rw_cfg8mk_constEP9func_
   br i1 %.not27.old.i.i.i, label %.loopexit66, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %40, %37
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %40 ], [ %39, %37 ]
+  %.137.i.i.i.be = phi ptr [ %39, %37 ], [ %.old.i.i.i, %40 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !309
 
 .loopexit:                                        ; preds = %21, %32

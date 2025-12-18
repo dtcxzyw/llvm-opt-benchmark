@@ -494,7 +494,7 @@ thread-pre-split.i:                               ; preds = %106
   br i1 %.not.i63, label %.loopexit.i, label %124
 
 .loopexit.i:                                      ; preds = %.preheader92.i, %143, %.preheader86.i, %168, %.preheader.i, %.preheader89.i
-  %.sroa.025.1.i = phi i32 [ 0, %.preheader.i ], [ 0, %.preheader89.i ], [ %147, %143 ], [ %172, %168 ], [ %.sroa.025.0.i, %.preheader86.i ], [ %.sroa.025.3.i, %.preheader92.i ]
+  %.sroa.025.1.i = phi i32 [ %147, %143 ], [ %172, %168 ], [ %.sroa.025.0.i, %.preheader86.i ], [ 0, %.preheader.i ], [ 0, %.preheader89.i ], [ %.sroa.025.3.i, %.preheader92.i ]
   %122 = zext i32 %.sroa.025.1.i to i64
   %123 = shl nuw i64 %122, 32
   br label %"_ZN4core3num21_$LT$impl$u20$i32$GT$16from_ascii_radix17hb188e15cdf5b2ea9E.exit"
@@ -527,7 +527,7 @@ thread-pre-split.i:                               ; preds = %106
   br label %.loopexit85.i
 
 .loopexit85.i:                                    ; preds = %131, %.lr.ph.i, %157, %.lr.ph113.i, %.loopexit94.split.loop.exit100.i, %.loopexit88.split.loop.exit106.i
-  %.sroa.12.2.i = phi i64 [ %.mux81.le.i, %.loopexit88.split.loop.exit106.i ], [ %.mux.le.i, %.loopexit94.split.loop.exit100.i ], [ 256, %.lr.ph.i ], [ 256, %.lr.ph113.i ], [ 512, %157 ], [ 768, %131 ]
+  %.sroa.12.2.i = phi i64 [ 256, %.lr.ph113.i ], [ 512, %157 ], [ 256, %.lr.ph.i ], [ %.mux81.le.i, %.loopexit88.split.loop.exit106.i ], [ %.mux.le.i, %.loopexit94.split.loop.exit100.i ], [ 768, %131 ]
   %138 = or disjoint i64 %.sroa.12.2.i, 1
   br label %"_ZN4core3num21_$LT$impl$u20$i32$GT$16from_ascii_radix17hb188e15cdf5b2ea9E.exit"
 

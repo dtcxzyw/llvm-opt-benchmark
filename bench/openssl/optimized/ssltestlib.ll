@@ -722,7 +722,7 @@ define internal i32 @mempacket_test_read(ptr noundef %0, ptr noundef writeonly c
   br i1 %94, label %37, label %.loopexit, !llvm.loop !33
 
 .loopexit:                                        ; preds = %90, %31, %26, %14
-  %.1 = phi i32 [ %spec.select, %26 ], [ %spec.select, %14 ], [ %spec.select, %31 ], [ %.3, %90 ]
+  %.1 = phi i32 [ %spec.select, %14 ], [ %spec.select, %26 ], [ %spec.select, %31 ], [ %.3, %90 ]
   %95 = load ptr, ptr %6, align 8, !tbaa !28
   %96 = sext i32 %.1 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 1 %95, i64 %96, i1 false)
@@ -993,7 +993,7 @@ define dso_local range(i32 0, 2) i32 @mempacket_swap_epoch(ptr noundef %0) local
   br i1 %67, label %.loopexit, label %17, !llvm.loop !35
 
 .loopexit:                                        ; preds = %17, %63, %11, %54, %41, %39, %6, %1, %62, %53
-  %.0 = phi i32 [ 1, %54 ], [ 0, %1 ], [ 0, %6 ], [ 0, %39 ], [ 0, %53 ], [ 0, %62 ], [ 0, %41 ], [ 0, %11 ], [ 0, %63 ], [ 0, %17 ]
+  %.0 = phi i32 [ 1, %54 ], [ 0, %1 ], [ 0, %6 ], [ 0, %41 ], [ 0, %62 ], [ 0, %39 ], [ 0, %53 ], [ 0, %11 ], [ 0, %63 ], [ 0, %17 ]
   ret i32 %.0
 }
 
@@ -1055,7 +1055,7 @@ define dso_local range(i32 0, 2) i32 @mempacket_move_packet(ptr noundef %0, i32 
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !36
 
 .loopexit:                                        ; preds = %.lr.ph, %14, %11, %7, %3
-  %.025 = phi i32 [ 0, %14 ], [ 0, %3 ], [ 0, %7 ], [ 0, %11 ], [ 1, %.lr.ph ]
+  %.025 = phi i32 [ 0, %14 ], [ 0, %3 ], [ 0, %11 ], [ 0, %7 ], [ 1, %.lr.ph ]
   ret i32 %.025
 }
 
@@ -1315,7 +1315,7 @@ mempacket_free.exit:                              ; preds = %119, %123
   br i1 %126, label %119, label %.loopexit, !llvm.loop !44
 
 .loopexit:                                        ; preds = %117, %72, %91, %95, %mempacket_free.exit, %88, %30, %23, %18, %5
-  %.0 = phi i32 [ -1, %5 ], [ -1, %18 ], [ -1, %23 ], [ -1, %30 ], [ %2, %88 ], [ %2, %72 ], [ -1, %mempacket_free.exit ], [ %2, %91 ], [ %2, %95 ], [ %2, %117 ]
+  %.0 = phi i32 [ %2, %72 ], [ -1, %5 ], [ -1, %18 ], [ -1, %23 ], [ -1, %mempacket_free.exit ], [ -1, %30 ], [ %2, %88 ], [ %2, %91 ], [ %2, %95 ], [ %2, %117 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -1972,7 +1972,7 @@ define dso_local range(i32 0, 2) i32 @create_test_sockets(ptr noundef writeonly 
   br label %54
 
 .thread64:                                        ; preds = %42, %47, %._crit_edge
-  %.071 = phi i32 [ %.2.lcssa, %47 ], [ %.2.lcssa, %._crit_edge ], [ %36, %42 ]
+  %.071 = phi i32 [ %.2.lcssa, %._crit_edge ], [ %.2.lcssa, %47 ], [ %36, %42 ]
   %51 = call i32 @close(i32 noundef %31) #14
   %.not55 = icmp eq i32 %.071, -1
   br i1 %.not55, label %54, label %52
@@ -2769,8 +2769,8 @@ define dso_local range(i32 0, 2) i32 @ssl_ctx_add_large_cert_chain(ptr noundef %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %19, %.preheader, %10, %7, %3, %26
-  %.010 = phi ptr [ %5, %10 ], [ null, %26 ], [ %5, %3 ], [ %5, %7 ], [ null, %.preheader ], [ null, %19 ]
-  %.09 = phi i32 [ 0, %10 ], [ 0, %26 ], [ 0, %3 ], [ 0, %7 ], [ 1, %19 ], [ 0, %.preheader ]
+  %.010 = phi ptr [ %5, %10 ], [ null, %26 ], [ %5, %7 ], [ %5, %3 ], [ null, %.preheader ], [ null, %19 ]
+  %.09 = phi i32 [ 0, %10 ], [ 0, %26 ], [ 0, %7 ], [ 0, %3 ], [ 1, %19 ], [ 0, %.preheader ]
   %28 = call i32 @BIO_free(ptr noundef %.010) #14
   %29 = load ptr, ptr %4, align 8, !tbaa !67
   call void @X509_free(ptr noundef %29) #14

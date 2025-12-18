@@ -1883,8 +1883,8 @@ if.end19.i:                                       ; preds = %if.else.i, %while.b
   br i1 %cmp.not.i, label %_ZNSt8_Rb_treeIPN4node7tracing16AsyncTraceWriterES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE11equal_rangeERKS3_.exit, label %while.body.i, !llvm.loop !29
 
 _ZNSt8_Rb_treeIPN4node7tracing16AsyncTraceWriterES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE11equal_rangeERKS3_.exit: ; preds = %if.end19.i, %while.body.i23.i, %entry, %_ZNSt8_Rb_treeIPN4node7tracing16AsyncTraceWriterES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i
-  %retval.sroa.0.0.i = phi ptr [ %__y.addr.0.lcssa.i.i, %_ZNSt8_Rb_treeIPN4node7tracing16AsyncTraceWriterES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i ], [ %add.ptr.i.i, %entry ], [ %__y.addr.0.lcssa.i.i, %while.body.i23.i ], [ %__y.1.i, %if.end19.i ]
-  %retval.sroa.3.0.i = phi ptr [ %__y.040.i, %_ZNSt8_Rb_treeIPN4node7tracing16AsyncTraceWriterES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i ], [ %add.ptr.i.i, %entry ], [ %__y.addr.1.i28.i, %while.body.i23.i ], [ %__y.1.i, %if.end19.i ]
+  %retval.sroa.0.0.i = phi ptr [ %__y.addr.0.lcssa.i.i, %while.body.i23.i ], [ %__y.addr.0.lcssa.i.i, %_ZNSt8_Rb_treeIPN4node7tracing16AsyncTraceWriterES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i ], [ %add.ptr.i.i, %entry ], [ %__y.1.i, %if.end19.i ]
+  %retval.sroa.3.0.i = phi ptr [ %__y.addr.1.i28.i, %while.body.i23.i ], [ %__y.040.i, %_ZNSt8_Rb_treeIPN4node7tracing16AsyncTraceWriterES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i ], [ %add.ptr.i.i, %entry ], [ %__y.1.i, %if.end19.i ]
   %_M_node_count.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %6 = load i64, ptr %_M_node_count.i, align 8
   %_M_left.i.i1 = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -2671,8 +2671,8 @@ if.then58:                                        ; preds = %if.else51
   br label %return
 
 return:                                           ; preds = %while.body.i25, %while.body.i, %if.else42, %if.else, %if.then58, %if.then32, %if.else51, %if.else44, %if.then18, %if.then9
-  %retval.sroa.0.0 = phi ptr [ null, %if.then9 ], [ %3, %if.then18 ], [ %spec.select60, %if.then58 ], [ null, %if.else44 ], [ %spec.select, %if.then32 ], [ null, %if.else51 ], [ null, %if.else ], [ null, %if.else42 ], [ null, %while.body.i ], [ null, %while.body.i25 ]
-  %retval.sroa.11.0 = phi ptr [ %2, %if.then9 ], [ %3, %if.then18 ], [ %spec.select61, %if.then58 ], [ %5, %if.else44 ], [ %spec.select59, %if.then32 ], [ null, %if.else51 ], [ %add.ptr.i, %if.else ], [ %add.ptr.i, %if.else42 ], [ %__x.07.i, %while.body.i ], [ %__x.07.i26, %while.body.i25 ]
+  %retval.sroa.0.0 = phi ptr [ null, %while.body.i ], [ null, %if.then9 ], [ %3, %if.then18 ], [ %spec.select60, %if.then58 ], [ null, %if.else44 ], [ %spec.select, %if.then32 ], [ null, %if.else51 ], [ null, %if.else ], [ null, %if.else42 ], [ null, %while.body.i25 ]
+  %retval.sroa.11.0 = phi ptr [ %__x.07.i, %while.body.i ], [ %2, %if.then9 ], [ %3, %if.then18 ], [ %spec.select61, %if.then58 ], [ %5, %if.else44 ], [ %spec.select59, %if.then32 ], [ null, %if.else51 ], [ %add.ptr.i, %if.else ], [ %add.ptr.i, %if.else42 ], [ %__x.07.i26, %while.body.i25 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %retval.sroa.11.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -2869,7 +2869,7 @@ _ZNSt10_HashtableIiSt4pairIKiSt10unique_ptrIN4node7tracing16AsyncTraceWriterESt1
   br label %return
 
 return:                                           ; preds = %if.end3.i, %if.end4.i, %lor.lhs.false.return.loopexit_crit_edge.i, %if.else, %if.then, %_ZNSt10_HashtableIiSt4pairIKiSt10unique_ptrIN4node7tracing16AsyncTraceWriterESt14default_deleteIS5_EEESaIS9_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNSB_15_Hash_node_baseEPNSB_10_Hash_nodeIS9_Lb0EEE.exit
-  %retval.0 = phi i64 [ 1, %_ZNSt10_HashtableIiSt4pairIKiSt10unique_ptrIN4node7tracing16AsyncTraceWriterESt14default_deleteIS5_EEESaIS9_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNSB_15_Hash_node_baseEPNSB_10_Hash_nodeIS9_Lb0EEE.exit ], [ 0, %if.then ], [ 0, %if.else ], [ 0, %lor.lhs.false.return.loopexit_crit_edge.i ], [ 0, %if.end4.i ], [ 0, %if.end3.i ]
+  %retval.0 = phi i64 [ 1, %_ZNSt10_HashtableIiSt4pairIKiSt10unique_ptrIN4node7tracing16AsyncTraceWriterESt14default_deleteIS5_EEESaIS9_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNSB_15_Hash_node_baseEPNSB_10_Hash_nodeIS9_Lb0EEE.exit ], [ 0, %if.end4.i ], [ 0, %if.then ], [ 0, %if.else ], [ 0, %lor.lhs.false.return.loopexit_crit_edge.i ], [ 0, %if.end3.i ]
   ret i64 %retval.0
 }
 
@@ -3053,7 +3053,7 @@ _ZNSt10_HashtableIiSt4pairIKiSt8multisetINSt7__cxx1112basic_stringIcSt11char_tra
   br label %return
 
 return:                                           ; preds = %if.end3.i, %if.end4.i, %lor.lhs.false.return.loopexit_crit_edge.i, %if.else, %if.then, %_ZNSt10_HashtableIiSt4pairIKiSt8multisetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEESaISD_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSF_18_Mod_range_hashingENSF_20_Default_ranged_hashENSF_20_Prime_rehash_policyENSF_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNSF_15_Hash_node_baseEPNSF_10_Hash_nodeISD_Lb0EEE.exit
-  %retval.0 = phi i64 [ 1, %_ZNSt10_HashtableIiSt4pairIKiSt8multisetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEESaISD_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSF_18_Mod_range_hashingENSF_20_Default_ranged_hashENSF_20_Prime_rehash_policyENSF_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNSF_15_Hash_node_baseEPNSF_10_Hash_nodeISD_Lb0EEE.exit ], [ 0, %if.then ], [ 0, %if.else ], [ 0, %lor.lhs.false.return.loopexit_crit_edge.i ], [ 0, %if.end4.i ], [ 0, %if.end3.i ]
+  %retval.0 = phi i64 [ 1, %_ZNSt10_HashtableIiSt4pairIKiSt8multisetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEESaISD_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSF_18_Mod_range_hashingENSF_20_Default_ranged_hashENSF_20_Prime_rehash_policyENSF_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNSF_15_Hash_node_baseEPNSF_10_Hash_nodeISD_Lb0EEE.exit ], [ 0, %if.end4.i ], [ 0, %if.then ], [ 0, %if.else ], [ 0, %lor.lhs.false.return.loopexit_crit_edge.i ], [ 0, %if.end3.i ]
   ret i64 %retval.0
 }
 

@@ -375,7 +375,7 @@ define internal i32 @dissect_quake3(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %dissect_quake3_ConnectionlessPacket.exit
 
 dissect_quake3_ConnectionlessPacket.exit:         ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i, %80, %.thread107.i, %122, %123
-  %.1 = phi i32 [ %.sink.i, %122 ], [ %.sink.i, %123 ], [ 4, %80 ], [ 4, %.thread107.i ], [ 4, %.lr.ph.split.us.i ], [ 4, %.lr.ph.split.i ]
+  %.1 = phi i32 [ %.sink.i, %122 ], [ %.sink.i, %123 ], [ 4, %.thread107.i ], [ 4, %80 ], [ 4, %.lr.ph.split.us.i ], [ 4, %.lr.ph.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %dissect_quake3_GamePacket.exit
 

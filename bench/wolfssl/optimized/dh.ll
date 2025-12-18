@@ -394,8 +394,8 @@ define range(i32 -263, 1) i32 @wc_DhCheckPrivKey_ex(ptr noundef %0, ptr noundef 
   %spec.select34 = select i1 %32, i32 -263, i32 0
   br label %.thread42
 
-.thread42:                                        ; preds = %26, %12, %29, %.thread, %20, %15, %.thread47, %24
-  %.3 = phi i32 [ -120, %.thread ], [ %spec.select34, %.thread47 ], [ -111, %12 ], [ 0, %24 ], [ -114, %29 ], [ -111, %15 ], [ -110, %20 ], [ -110, %26 ]
+.thread42:                                        ; preds = %26, %12, %29, %.thread, %15, %20, %.thread47, %24
+  %.3 = phi i32 [ -120, %.thread ], [ %spec.select34, %.thread47 ], [ -111, %12 ], [ 0, %24 ], [ -114, %29 ], [ -110, %20 ], [ -111, %15 ], [ -110, %26 ]
   call void @sp_forcezero(ptr noundef nonnull %6) #14
   call void @sp_clear(ptr noundef nonnull %7) #14
   br label %33
@@ -547,19 +547,19 @@ define i32 @wc_DhGenerateKeyPair(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %33 = shl i32 %28, 3
   %34 = and i32 %29, 536870911
   switch i32 %34, label %GeneratePrivateDh.exit.thread36.i [
-    i32 128, label %CheckDhLN.exit.i.i.i
-    i32 256, label %35
+    i32 128, label %35
+    i32 256, label %CheckDhLN.exit.i.i.i
   ]
 
 35:                                               ; preds = %32
+  %.not68.i.i.i = icmp eq i32 %33, 160
+  br i1 %.not68.i.i.i, label %37, label %GeneratePrivateDh.exit.thread36.i
+
+CheckDhLN.exit.i.i.i:                             ; preds = %32
   %36 = add i32 %33, -224
   %switch.and.i.i.i.i = and i32 %36, -40
   %switch.selectcmp.i.not.i.i.i = icmp eq i32 %switch.and.i.i.i.i, 0
   br i1 %switch.selectcmp.i.not.i.i.i, label %37, label %GeneratePrivateDh.exit.thread36.i
-
-CheckDhLN.exit.i.i.i:                             ; preds = %32
-  %.not68.i.i.i = icmp eq i32 %33, 160
-  br i1 %.not68.i.i.i, label %37, label %GeneratePrivateDh.exit.thread36.i
 
 37:                                               ; preds = %CheckDhLN.exit.i.i.i, %35, %27
   %38 = load i32, ptr %3, align 4, !tbaa !21

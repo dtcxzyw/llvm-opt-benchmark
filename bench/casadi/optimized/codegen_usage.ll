@@ -452,7 +452,7 @@ define noundef range(i32 0, 2) i32 @_Z7usage_cv() local_unnamed_addr #0 {
   br label %.critedge
 
 .critedge:                                        ; preds = %71, %50, %128, %101, %58, %48
-  %.3 = phi i32 [ 1, %48 ], [ 1, %50 ], [ 1, %58 ], [ %.10, %128 ], [ 1, %101 ], [ 1, %71 ]
+  %.3 = phi i32 [ 1, %48 ], [ 1, %50 ], [ 1, %58 ], [ 1, %101 ], [ %.10, %128 ], [ 1, %71 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -1264,7 +1264,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit64: ; preds = %249
   br label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %.thread, %.thread110, %.thread148
-  %.pn19.pn109.ph = phi { ptr, i32 } [ %eh.lpad-body81147, %.thread110 ], [ %91, %.thread148 ], [ %257, %.thread ]
+  %.pn19.pn109.ph = phi { ptr, i32 } [ %91, %.thread148 ], [ %eh.lpad-body81147, %.thread110 ], [ %257, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit
 
@@ -2459,7 +2459,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit234: ; preds = %.b
   br i1 %286, label %.loopexit438, label %283
 
 .loopexit438:                                     ; preds = %283, %.loopexit438.loopexit442, %.thread
-  %.pn100.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %94, %.thread ], [ %259, %.loopexit438.loopexit442 ], [ %.pn100.pn.pn.pn.pn390, %283 ]
+  %.pn100.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %259, %.loopexit438.loopexit442 ], [ %94, %.thread ], [ %.pn100.pn.pn.pn.pn390, %283 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %287 = load ptr, ptr %10, align 8, !tbaa !21
   %288 = icmp eq ptr %287, %91

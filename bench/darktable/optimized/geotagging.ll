@@ -339,7 +339,7 @@ define void @gui_init(ptr noundef initializes((280, 288)) %0) local_unnamed_addr
   br i1 %.not6469.i, label %.outer._crit_edge.i, label %.lr.ph.i
 
 .outer._crit_edge.i:                              ; preds = %.outer.i, %.backedge.i, %.preheader.i
-  %.051.ph.lcssa.i = phi ptr [ null, %.preheader.i ], [ %.051.ph80.i, %.backedge.i ], [ %.152.i, %.outer.i ]
+  %.051.ph.lcssa.i = phi ptr [ %.051.ph80.i, %.backedge.i ], [ null, %.preheader.i ], [ %.152.i, %.outer.i ]
   %60 = call i32 @fclose(ptr noundef nonnull %22)
   %61 = call ptr @g_list_sort(ptr noundef %.051.ph.lcssa.i, ptr noundef nonnull @_sort_timezones) #16
   %62 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #18

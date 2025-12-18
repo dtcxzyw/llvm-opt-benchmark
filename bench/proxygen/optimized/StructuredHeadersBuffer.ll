@@ -2678,7 +2678,7 @@ return.sink.split:                                ; preds = %if.then, %if.then5
   br label %return
 
 return:                                           ; preds = %while.body, %_ZN8proxygen23StructuredHeadersBuffer13advanceCursorEv.exit, %return.sink.split, %while.cond.preheader
-  %retval.0 = phi i8 [ 0, %while.cond.preheader ], [ %call7, %return.sink.split ], [ 0, %_ZN8proxygen23StructuredHeadersBuffer13advanceCursorEv.exit ], [ 0, %while.body ]
+  %retval.0 = phi i8 [ %call7, %return.sink.split ], [ 0, %while.cond.preheader ], [ 0, %_ZN8proxygen23StructuredHeadersBuffer13advanceCursorEv.exit ], [ 0, %while.body ]
   ret i8 %retval.0
 }
 
@@ -5257,7 +5257,7 @@ arraydestroy.body30.i:                            ; preds = %arraydestroy.body30
   br i1 %arraydestroy.done33.i, label %common.resume, label %arraydestroy.body30.i
 
 common.resume:                                    ; preds = %arraydestroy.body.i, %arraydestroy.body30.i, %arraydestroy.body.i12, %arraydestroy.body27.i
-  %common.resume.op = phi { ptr, i32 } [ %2, %arraydestroy.body30.i ], [ %7, %arraydestroy.body27.i ], [ %6, %arraydestroy.body.i12 ], [ %1, %arraydestroy.body.i ]
+  %common.resume.op = phi { ptr, i32 } [ %2, %arraydestroy.body30.i ], [ %6, %arraydestroy.body.i12 ], [ %7, %arraydestroy.body27.i ], [ %1, %arraydestroy.body.i ]
   resume { ptr, i32 } %common.resume.op
 
 __cxx_global_var_init.exit:                       ; preds = %arraydestroy.body24.i

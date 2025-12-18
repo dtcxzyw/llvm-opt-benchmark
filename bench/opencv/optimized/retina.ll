@@ -4552,7 +4552,7 @@ _ZN2cv4Mat_INS_3VecIfLi4EEEEC2ERKNS_3MatE.exit:   ; preds = %114
   br i1 %154, label %.loopexit, label %151
 
 .loopexit:                                        ; preds = %139, %151, %.thread
-  %.pn64.pn.pn = phi { ptr, i32 } [ %89, %.thread ], [ %.pn64.pn, %151 ], [ %138, %139 ]
+  %.pn64.pn.pn = phi { ptr, i32 } [ %.pn64.pn, %151 ], [ %89, %.thread ], [ %138, %139 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %238
 
@@ -4678,7 +4678,7 @@ _ZN2cv4Mat_INS_3VecIfLi3EEEEC2ERKNS_3MatE.exit:   ; preds = %182
   br i1 %208, label %.loopexit125, label %205
 
 .loopexit125:                                     ; preds = %198, %205, %.thread122
-  %.pn57.pn = phi { ptr, i32 } [ %165, %.thread122 ], [ %.pn57, %205 ], [ %197, %198 ]
+  %.pn57.pn = phi { ptr, i32 } [ %.pn57, %205 ], [ %165, %.thread122 ], [ %197, %198 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %238
 

@@ -1947,7 +1947,7 @@ define internal fastcc range(i32 0, 2) i32 @cvSensAllocVectors(ptr noundef nonnu
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph133, %95, %60, %83, %2, %125, %._crit_edge138, %46, %31, %21, %13
-  %.0120 = phi i32 [ 1, %125 ], [ 0, %13 ], [ 0, %21 ], [ 0, %31 ], [ 0, %46 ], [ 0, %2 ], [ 0, %._crit_edge138 ], [ 0, %83 ], [ 0, %60 ], [ 0, %95 ], [ 0, %.lr.ph133 ]
+  %.0120 = phi i32 [ 1, %125 ], [ 0, %13 ], [ 0, %21 ], [ 0, %31 ], [ 0, %46 ], [ 0, %2 ], [ 0, %83 ], [ 0, %._crit_edge138 ], [ 0, %60 ], [ 0, %95 ], [ 0, %.lr.ph133 ]
   ret i32 %.0120
 }
 
@@ -5057,7 +5057,7 @@ cvQuadSensUpdateNorm.exit:                        ; preds = %.lr.ph.i.i536, %604
   br i1 %exitcond631.not, label %cvInitialSetup.exit.thread, label %772, !llvm.loop !237
 
 cvInitialSetup.exit.thread:                       ; preds = %772, %763, %59, %58, %152, %146, %135, %128, %123, %116, %102, %95, %87, %77, %70, %111, %39, %757, %759, %419, %448, %446, %429, %422, %409, %406, %402, %386, %383, %380, %357, %276, %261, %250, %238, %235, %208, %205, %188, %185, %169, %166, %22, %19, %16, %12, %7
-  %.0468 = phi i32 [ -21, %7 ], [ -23, %12 ], [ -22, %16 ], [ -22, %19 ], [ -22, %22 ], [ -12, %409 ], [ -8, %166 ], [ -9, %169 ], [ -31, %185 ], [ -32, %188 ], [ -41, %205 ], [ -42, %208 ], [ -51, %235 ], [ -52, %238 ], [ -22, %250 ], [ -22, %261 ], [ %277, %276 ], [ -12, %357 ], [ -22, %380 ], [ -12, %383 ], [ 2, %386 ], [ 0, %402 ], [ -22, %422 ], [ %.0475, %757 ], [ 0, %429 ], [ -22, %446 ], [ 1, %448 ], [ 0, %419 ], [ 2, %406 ], [ %.0475, %759 ], [ -22, %59 ], [ -22, %58 ], [ -5, %152 ], [ -22, %146 ], [ -22, %135 ], [ -22, %128 ], [ -22, %123 ], [ -22, %116 ], [ -22, %102 ], [ -22, %95 ], [ -22, %87 ], [ -22, %77 ], [ -22, %70 ], [ -22, %111 ], [ -22, %39 ], [ %.0475, %763 ], [ %.0475, %772 ]
+  %.0468 = phi i32 [ -21, %7 ], [ -23, %12 ], [ -22, %16 ], [ -22, %19 ], [ -22, %22 ], [ -12, %409 ], [ -8, %166 ], [ -9, %169 ], [ -31, %185 ], [ -32, %188 ], [ -41, %205 ], [ -42, %208 ], [ -51, %235 ], [ -52, %238 ], [ -22, %250 ], [ -22, %261 ], [ %277, %276 ], [ -12, %357 ], [ -22, %380 ], [ -12, %383 ], [ 2, %386 ], [ 0, %402 ], [ -22, %422 ], [ %.0475, %757 ], [ 0, %429 ], [ -22, %446 ], [ 1, %448 ], [ 0, %419 ], [ 2, %406 ], [ -22, %39 ], [ %.0475, %759 ], [ -22, %59 ], [ -22, %58 ], [ -5, %152 ], [ -22, %146 ], [ -22, %135 ], [ -22, %128 ], [ -22, %123 ], [ -22, %116 ], [ -22, %102 ], [ -22, %95 ], [ -22, %87 ], [ -22, %77 ], [ -22, %70 ], [ -22, %111 ], [ %.0475, %763 ], [ %.0475, %772 ]
   ret i32 %.0468
 }
 
@@ -5263,7 +5263,7 @@ define internal fastcc range(i32 -51, 1) i32 @cvHin(ptr noundef nonnull %0, doub
   br i1 %87, label %74, label %.loopexit116.i, !llvm.loop !240
 
 .loopexit116.i:                                   ; preds = %74, %64, %61, %58
-  %.1105.i = phi double [ %.0104.i, %61 ], [ %.0104.i, %58 ], [ %.0104.i, %64 ], [ %.3.i, %74 ]
+  %.1105.i = phi double [ %.0104.i, %58 ], [ %.0104.i, %61 ], [ %.0104.i, %64 ], [ %.3.i, %74 ]
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %89 = load i32, ptr %88, align 8, !tbaa !184
   %.not114.i = icmp eq i32 %89, 0
@@ -5320,7 +5320,7 @@ define internal fastcc range(i32 -51, 1) i32 @cvHin(ptr noundef nonnull %0, doub
   br i1 %120, label %107, label %cvUpperBoundH0.exit, !llvm.loop !241
 
 cvUpperBoundH0.exit:                              ; preds = %107, %.loopexit116.i, %90, %93
-  %.4.i = phi double [ %.1105.i, %90 ], [ %.1105.i, %.loopexit116.i ], [ %.1105.i, %93 ], [ %.6.i, %107 ]
+  %.4.i = phi double [ %.1105.i, %.loopexit116.i ], [ %.1105.i, %90 ], [ %.1105.i, %93 ], [ %.6.i, %107 ]
   %121 = fmul double %9, 1.000000e-01
   %122 = fmul double %121, %.4.i
   %123 = fcmp ogt double %122, 1.000000e+00
@@ -5766,7 +5766,7 @@ cvQuadSensUpdateNorm.exit.i:                      ; preds = %.lr.ph.i.i158.i, %.
   br label %cvYddNorm.exit
 
 373:                                              ; preds = %cvQuadSensUpdateNorm.exit.i, %333, %331
-  %.2105 = phi double [ %.4, %331 ], [ %..i157.i, %cvQuadSensUpdateNorm.exit.i ], [ %.4, %333 ]
+  %.2105 = phi double [ %..i157.i, %cvQuadSensUpdateNorm.exit.i ], [ %.4, %331 ], [ %.4, %333 ]
   %374 = icmp eq i32 %.090138, 4
   %or.cond = or i1 %374, %.0141
   br i1 %or.cond, label %.thread122, label %375
@@ -9539,7 +9539,7 @@ cvNewtonIteration.exit.i.i:                       ; preds = %1055, %1013, %998, 
   br i1 %1065, label %cvNls.exit, label %.lr.ph149.i.i
 
 cvNls.exit:                                       ; preds = %.lr.ph149.i.i, %cvSensRhsWrapper.exit.i23.i, %799, %800, %810, %852, %854, %897, %899, %996, %998, %1011, %1013, %1053, %1055, %cvNewtonIteration.exit.i.i, %666, %670, %673, %683, %cvSensRhsWrapper.exit183.i.i, %721, %.thread.i.i.i, %1000, %cvSensRhsWrapper.exit.i.i.i, %.lr.ph226.i.i.i, %cvSet.exit, %471, %482, %cvSensRhsWrapper.exit.i.i, %521, %640, %641, %642, %646, %cvSensUpdateNorm.exit, %751, %988
-  %.0.i = phi i32 [ 0, %cvSet.exit ], [ 0, %642 ], [ -8, %471 ], [ 9, %482 ], [ -41, %cvSensRhsWrapper.exit.i.i ], [ 12, %521 ], [ 0, %641 ], [ 0, %646 ], [ 0, %cvSensUpdateNorm.exit ], [ 0, %640 ], [ 0, %988 ], [ -8, %751 ], [ -41, %cvSensRhsWrapper.exit183.i.i ], [ -7, %.lr.ph226.i.i.i ], [ -41, %cvSensRhsWrapper.exit.i.i.i ], [ -8, %1000 ], [ -7, %.thread.i.i.i ], [ 12, %721 ], [ 4, %670 ], [ 9, %683 ], [ -8, %673 ], [ 4, %666 ], [ 4, %996 ], [ 4, %897 ], [ 4, %852 ], [ 4, %810 ], [ 9, %1013 ], [ 4, %854 ], [ 4, %899 ], [ 4, %998 ], [ 12, %1055 ], [ 9, %1011 ], [ 9, %.lr.ph149.i.i ], [ -8, %cvNewtonIteration.exit.i.i ], [ -6, %800 ], [ -41, %cvSensRhsWrapper.exit.i23.i ], [ 12, %799 ], [ 12, %1053 ]
+  %.0.i = phi i32 [ 0, %cvSet.exit ], [ -41, %cvSensRhsWrapper.exit.i.i.i ], [ 0, %642 ], [ -8, %471 ], [ 9, %482 ], [ -41, %cvSensRhsWrapper.exit.i.i ], [ 12, %521 ], [ 0, %641 ], [ 0, %646 ], [ 0, %cvSensUpdateNorm.exit ], [ 0, %640 ], [ -41, %cvSensRhsWrapper.exit183.i.i ], [ 0, %988 ], [ -8, %751 ], [ -7, %.lr.ph226.i.i.i ], [ -8, %1000 ], [ -7, %.thread.i.i.i ], [ 12, %721 ], [ 4, %670 ], [ 9, %683 ], [ -8, %673 ], [ 4, %666 ], [ 4, %852 ], [ 4, %810 ], [ 9, %1013 ], [ 4, %854 ], [ 4, %899 ], [ 4, %998 ], [ 12, %1055 ], [ 9, %1011 ], [ 12, %799 ], [ -6, %800 ], [ 12, %1053 ], [ 4, %897 ], [ 4, %996 ], [ 9, %.lr.ph149.i.i ], [ -41, %cvSensRhsWrapper.exit.i23.i ], [ -8, %cvNewtonIteration.exit.i.i ]
   store i32 %.0.i, ptr %24, align 4, !tbaa !51
   %1066 = call fastcc i32 @cvHandleNFlag(ptr noundef %0, ptr noundef %24, double noundef %66, ptr noundef nonnull %18, ptr noundef nonnull %130)
   switch i32 %1066, label %.loopexit [
@@ -10419,7 +10419,7 @@ cvStgrNewtonIteration.exit.i.i:                   ; preds = %1513, %1475, %1395
   br i1 %.not52.i.i, label %.preheader459, label %cvStgrNls.exit
 
 cvStgrNls.exit:                                   ; preds = %cvSensRhsWrapper.exit.i13.i, %1348, %1393, %1395, %1473, %1475, %1511, %1513, %cvStgrNewtonIteration.exit.i.i, %1531, %1260, %1264, %cvSensRhsWrapper.exit121.i.i, %cvSensRhsWrapper.exit121.thread.i.i, %cvSensRhsWrapper.exit.i.i.i219, %.lr.ph138.i.i.i, %1129, %cvSensRhsWrapper.exit.i.i236, %cvSensRhsWrapper.exit.thread.i.i, %1251, %1258, %1465
-  %.0.i215 = phi i32 [ 0, %1129 ], [ 0, %1465 ], [ 0, %1258 ], [ -41, %cvSensRhsWrapper.exit.i.i236 ], [ 12, %cvSensRhsWrapper.exit.thread.i.i ], [ 0, %1251 ], [ -7, %.lr.ph138.i.i.i ], [ -41, %cvSensRhsWrapper.exit.i.i.i219 ], [ -41, %cvSensRhsWrapper.exit121.i.i ], [ 12, %cvSensRhsWrapper.exit121.thread.i.i ], [ 4, %1264 ], [ 4, %1260 ], [ -41, %cvSensRhsWrapper.exit.i13.i ], [ -6, %cvStgrNewtonIteration.exit.i.i ], [ 12, %1511 ], [ 12, %1513 ], [ 4, %1475 ], [ 4, %1395 ], [ 4, %1393 ], [ 4, %1473 ], [ 4, %1531 ], [ 12, %1348 ]
+  %.0.i215 = phi i32 [ 0, %1129 ], [ -7, %.lr.ph138.i.i.i ], [ 0, %1258 ], [ -41, %cvSensRhsWrapper.exit.i.i236 ], [ 12, %cvSensRhsWrapper.exit.thread.i.i ], [ 0, %1251 ], [ -41, %cvSensRhsWrapper.exit121.i.i ], [ 0, %1465 ], [ -41, %cvSensRhsWrapper.exit.i.i.i219 ], [ 12, %cvSensRhsWrapper.exit121.thread.i.i ], [ 4, %1264 ], [ 4, %1260 ], [ 12, %1513 ], [ 4, %1475 ], [ 4, %1395 ], [ 12, %1511 ], [ 4, %1393 ], [ 4, %1473 ], [ 12, %1348 ], [ -41, %cvSensRhsWrapper.exit.i13.i ], [ -6, %cvStgrNewtonIteration.exit.i.i ], [ 4, %1531 ]
   store i32 %.0.i215, ptr %24, align 4, !tbaa !51
   %1532 = call fastcc i32 @cvHandleNFlag(ptr noundef %0, ptr noundef %24, double noundef %66, ptr noundef nonnull %19, ptr noundef nonnull %149)
   br label %.loopexit338
@@ -14517,7 +14517,7 @@ define internal fastcc range(i32 -54, 6) i32 @cvDoErrorTest(ptr noundef nonnull 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %220, %.loopexit.sink.split, %.preheader, %.loopexit145, %216, %192, %174, %159, %150, %137, %129, %105, %12, %24, %7
-  %.0131 = phi i32 [ -54, %216 ], [ 0, %7 ], [ -3, %12 ], [ -8, %105 ], [ -11, %129 ], [ -31, %137 ], [ -34, %150 ], [ -41, %159 ], [ -44, %174 ], [ -51, %192 ], [ -3, %24 ], [ 5, %.loopexit145 ], [ 5, %.preheader ], [ 5, %.loopexit.sink.split ], [ 5, %220 ]
+  %.0131 = phi i32 [ -54, %216 ], [ 0, %7 ], [ 5, %.loopexit.sink.split ], [ 5, %.preheader ], [ -3, %12 ], [ -8, %105 ], [ -11, %129 ], [ -31, %137 ], [ -34, %150 ], [ -41, %159 ], [ -44, %174 ], [ -51, %192 ], [ -3, %24 ], [ 5, %.loopexit145 ], [ 5, %220 ]
   ret i32 %.0131
 }
 

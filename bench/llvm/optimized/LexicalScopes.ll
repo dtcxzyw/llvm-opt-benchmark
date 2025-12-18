@@ -526,7 +526,7 @@ _ZNK4llvm10DILocation12getInlinedAtEv.exit.thread.i: ; preds = %_ZNK4llvm10DILoc
   br label %_ZN4llvm13LexicalScopes23getOrCreateLexicalScopeEPKNS_10DILocationE.exit
 
 _ZN4llvm13LexicalScopes23getOrCreateLexicalScopeEPKNS_10DILocationE.exit: ; preds = %tailrecurse.i, %69, %_ZNK4llvm10DILocation12getInlinedAtEv.exit.thread.i
-  %74 = phi ptr [ %73, %_ZNK4llvm10DILocation12getInlinedAtEv.exit.thread.i ], [ %71, %69 ], [ null, %tailrecurse.i ]
+  %74 = phi ptr [ %71, %69 ], [ %73, %_ZNK4llvm10DILocation12getInlinedAtEv.exit.thread.i ], [ null, %tailrecurse.i ]
   %75 = load ptr, ptr %2, align 8, !tbaa !190
   %76 = load i32, ptr %8, align 8, !tbaa !193
   %77 = icmp eq i32 %76, 0
@@ -1131,7 +1131,7 @@ _ZNK4llvm10DILocation12getInlinedAtEv.exit.thread: ; preds = %_ZNK4llvm6MDNode14
   br label %_ZN4llvm13LexicalScopes23getOrCreateLexicalScopeEPKNS_12DILocalScopeEPKNS_10DILocationE.exit
 
 _ZN4llvm13LexicalScopes23getOrCreateLexicalScopeEPKNS_12DILocalScopeEPKNS_10DILocationE.exit: ; preds = %tailrecurse, %_ZNK4llvm10DILocation12getInlinedAtEv.exit.thread, %41
-  %46 = phi ptr [ %45, %_ZNK4llvm10DILocation12getInlinedAtEv.exit.thread ], [ %43, %41 ], [ null, %tailrecurse ]
+  %46 = phi ptr [ %43, %41 ], [ %45, %_ZNK4llvm10DILocation12getInlinedAtEv.exit.thread ], [ null, %tailrecurse ]
   ret ptr %46
 }
 
@@ -1460,12 +1460,12 @@ _ZNKSt8__detail15_Hashtable_baseISt4pairIPKN4llvm12DILocalScopeEPKNS2_10DILocati
   br label %_ZN4llvm13LexicalScopes16findLexicalScopeEPKNS_12DILocalScopeE.exit, !llvm.loop !258
 
 _ZNSt13unordered_mapIPKN4llvm12DILocalScopeENS0_12LexicalScopeESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S4_EEE4findERSA_.exit.i: ; preds = %101, %83, %96
-  %.sroa.06.1.i.i.i = phi ptr [ %97, %96 ], [ %.sroa.06.0.i.i.i, %83 ], [ %103, %101 ]
+  %.sroa.06.1.i.i.i = phi ptr [ %.sroa.06.0.i.i.i, %83 ], [ %97, %96 ], [ %103, %101 ]
   %109 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 16
   br label %_ZN4llvm13LexicalScopes16findLexicalScopeEPKNS_12DILocalScopeE.exit
 
 _ZN4llvm13LexicalScopes16findLexicalScopeEPKNS_12DILocalScopeE.exit: ; preds = %73, %_ZNKSt8__detail15_Hashtable_baseISt4pairIPKN4llvm12DILocalScopeEPKNS2_10DILocationEES1_IKS9_NS2_12LexicalScopeEENS_10_Select1stESt8equal_toIS9_ENS2_9pair_hashIS5_S8_EENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERSA_mRKNS_16_Hash_node_valueISC_Lb1EEE.exit.thread.i.i.i.i, %38, %.lr.ph.i.i.i.i.i, %82, %.loopexit, %47, %_ZNSt13unordered_mapIPKN4llvm12DILocalScopeENS0_12LexicalScopeESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S4_EEE4findERSA_.exit.i, %..loopexit_crit_edge21.i.i.i.i.i, %87, %_ZNK4llvm10DILocation8getScopeEv.exit
-  %.04 = phi ptr [ null, %47 ], [ %77, %.loopexit ], [ null, %_ZNK4llvm10DILocation8getScopeEv.exit ], [ %109, %_ZNSt13unordered_mapIPKN4llvm12DILocalScopeENS0_12LexicalScopeESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S4_EEE4findERSA_.exit.i ], [ null, %..loopexit_crit_edge21.i.i.i.i.i ], [ null, %87 ], [ null, %38 ], [ null, %82 ], [ null, %.lr.ph.i.i.i.i.i ], [ null, %_ZNKSt8__detail15_Hashtable_baseISt4pairIPKN4llvm12DILocalScopeEPKNS2_10DILocationEES1_IKS9_NS2_12LexicalScopeEENS_10_Select1stESt8equal_toIS9_ENS2_9pair_hashIS5_S8_EENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERSA_mRKNS_16_Hash_node_valueISC_Lb1EEE.exit.thread.i.i.i.i ], [ null, %73 ]
+  %.04 = phi ptr [ null, %47 ], [ %77, %.loopexit ], [ null, %_ZNK4llvm10DILocation8getScopeEv.exit ], [ %109, %_ZNSt13unordered_mapIPKN4llvm12DILocalScopeENS0_12LexicalScopeESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S4_EEE4findERSA_.exit.i ], [ null, %..loopexit_crit_edge21.i.i.i.i.i ], [ null, %38 ], [ null, %87 ], [ null, %82 ], [ null, %.lr.ph.i.i.i.i.i ], [ null, %_ZNKSt8__detail15_Hashtable_baseISt4pairIPKN4llvm12DILocalScopeEPKNS2_10DILocationEES1_IKS9_NS2_12LexicalScopeEENS_10_Select1stESt8equal_toIS9_ENS2_9pair_hashIS5_S8_EENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERSA_mRKNS_16_Hash_node_valueISC_Lb1EEE.exit.thread.i.i.i.i ], [ null, %73 ]
   ret ptr %.04
 }
 
@@ -1692,7 +1692,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_12LexicalScopeELb1EE9push_backES2_.exit: ;
   br label %_ZNSt13unordered_mapIPKN4llvm12DILocalScopeENS0_12LexicalScopeESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S4_EEE4findERSA_.exit
 
 _ZNSt13unordered_mapIPKN4llvm12DILocalScopeENS0_12LexicalScopeESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S4_EEE4findERSA_.exit: ; preds = %33, %16, %28, %84
-  %.sroa.06.1.i.i.pn = phi ptr [ %.fca.0.extract, %84 ], [ %29, %28 ], [ %.sroa.06.0.i.i, %16 ], [ %35, %33 ]
+  %.sroa.06.1.i.i.pn = phi ptr [ %.fca.0.extract, %84 ], [ %.sroa.06.0.i.i, %16 ], [ %29, %28 ], [ %35, %33 ]
   %.0 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.pn, i64 16
   ret ptr %.0
 }
@@ -1996,7 +1996,7 @@ _ZNK4llvm18DILexicalBlockBase8getScopeEv.exit:    ; preds = %47, %50
   br label %_ZNSt13unordered_mapIPKN4llvm12DILocalScopeENS0_12LexicalScopeESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S4_EEE4findERSA_.exit
 
 _ZNSt13unordered_mapIPKN4llvm12DILocalScopeENS0_12LexicalScopeESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S4_EEE4findERSA_.exit: ; preds = %33, %16, %28, %67
-  %.sroa.06.1.i.i.pn = phi ptr [ %.fca.0.extract, %67 ], [ %29, %28 ], [ %.sroa.06.0.i.i, %16 ], [ %35, %33 ]
+  %.sroa.06.1.i.i.pn = phi ptr [ %.fca.0.extract, %67 ], [ %.sroa.06.0.i.i, %16 ], [ %29, %28 ], [ %35, %33 ]
   %.0 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.pn, i64 16
   ret ptr %.0
 }
@@ -3104,7 +3104,7 @@ _ZNSt10_HashtableIPKN4llvm12DILocalScopeESt4pairIKS3_NS0_12LexicalScopeEESaIS7_E
   br label %_ZNSt10_HashtableIPKN4llvm12DILocalScopeESt4pairIKS3_NS0_12LexicalScopeEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 
 _ZNKSt10_HashtableIPKN4llvm12DILocalScopeESt4pairIKS3_NS0_12LexicalScopeEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS5_m.exit: ; preds = %79, %64, %74
-  %.sroa.033.0.ph = phi ptr [ %75, %74 ], [ %.sroa.026.0, %64 ], [ %81, %79 ]
+  %.sroa.033.0.ph = phi ptr [ %.sroa.026.0, %64 ], [ %75, %74 ], [ %81, %79 ]
   %120 = load ptr, ptr %29, align 8, !tbaa !32
   %121 = icmp eq ptr %120, %30
   br i1 %121, label %_ZN4llvm11SmallVectorISt4pairIPKNS_12MachineInstrES4_ELj4EED2Ev.exit.i.i.i.i.i.i, label %122

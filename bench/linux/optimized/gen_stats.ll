@@ -458,7 +458,7 @@ define dso_local noundef range(i32 -1, 1) i32 @gnet_stats_copy_rate_est(ptr noun
   br label %47
 
 47:                                               ; preds = %.sink.split, %37, %32, %20, %2
-  %48 = phi i32 [ 0, %2 ], [ 0, %32 ], [ 0, %20 ], [ 0, %37 ], [ -1, %.sink.split ]
+  %48 = phi i32 [ 0, %2 ], [ 0, %32 ], [ 0, %37 ], [ 0, %20 ], [ -1, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %48

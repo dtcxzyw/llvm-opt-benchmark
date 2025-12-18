@@ -775,7 +775,7 @@ define i32 @Abc_BddCountNodesArray(ptr noundef readonly captures(none) %0, ptr n
   br i1 %18, label %.critedge, label %.critedge2, !llvm.loop !36
 
 .critedge2:                                       ; preds = %.critedge, %2, %.critedge.preheader
-  %.0.lcssa34 = phi i32 [ %12, %.critedge.preheader ], [ 0, %2 ], [ %12, %.critedge ]
+  %.0.lcssa34 = phi i32 [ 0, %2 ], [ %12, %.critedge.preheader ], [ %12, %.critedge ]
   ret i32 %.0.lcssa34
 }
 

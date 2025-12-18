@@ -754,7 +754,7 @@ define ptr @Dar_ObjComputeCuts(ptr noundef captures(none) %0, ptr noundef initia
   br i1 %exitcond24.not.i, label %.thread.i, label %.lr.ph19.i, !llvm.loop !55
 
 .thread.i:                                        ; preds = %126, %._crit_edge14.i, %._crit_edge.i
-  %.5.i = phi ptr [ %.4.i, %._crit_edge14.i ], [ %.136.i, %._crit_edge.i ], [ %.7.i, %126 ]
+  %.5.i = phi ptr [ %.136.i, %._crit_edge.i ], [ %.4.i, %._crit_edge14.i ], [ %.7.i, %126 ]
   %129 = getelementptr inbounds nuw i8, ptr %.5.i, i64 4
   %130 = load i32, ptr %129, align 4
   %131 = and i32 %130, -268435457
@@ -909,7 +909,7 @@ Dar_CutCheckDominance.exit.i:                     ; preds = %._crit_edge.us.i.i,
   br i1 %exitcond31.not.i42.i, label %Dar_CutMerge.exit.thread.sink.split, label %.preheader.us.i34.i, !llvm.loop !58
 
 Dar_CutCheckDominance.exit.thread.i:              ; preds = %._crit_edge.us.i40.i, %186, %175, %177, %Dar_CutCheckDominance.exit.i, %166, %151
-  %190 = phi i64 [ %152, %166 ], [ %152, %177 ], [ %152, %151 ], [ %.pre.i, %Dar_CutCheckDominance.exit.i ], [ %152, %186 ], [ %152, %175 ], [ %152, %._crit_edge.us.i40.i ]
+  %190 = phi i64 [ %152, %186 ], [ %152, %166 ], [ %152, %175 ], [ %152, %177 ], [ %152, %151 ], [ %.pre.i, %Dar_CutCheckDominance.exit.i ], [ %152, %._crit_edge.us.i40.i ]
   %191 = add nuw nsw i32 %.059.i, 1
   %192 = getelementptr inbounds nuw i8, ptr %.02257.i, i64 24
   %193 = lshr i64 %190, 56
@@ -1427,7 +1427,7 @@ Dar_CutCheckDominance.exit43.i116:                ; preds = %400, %411
   br label %Dar_CutFilter.exit132
 
 Dar_CutCheckDominance.exit.thread.i102:           ; preds = %._crit_edge.us.i40.i113, %408, %397, %399, %Dar_CutCheckDominance.exit.i130, %388, %373
-  %413 = phi i64 [ %374, %388 ], [ %374, %399 ], [ %374, %373 ], [ %.pre.i131, %Dar_CutCheckDominance.exit.i130 ], [ %374, %408 ], [ %374, %397 ], [ %374, %._crit_edge.us.i40.i113 ]
+  %413 = phi i64 [ %374, %408 ], [ %374, %388 ], [ %374, %397 ], [ %374, %399 ], [ %374, %373 ], [ %.pre.i131, %Dar_CutCheckDominance.exit.i130 ], [ %374, %._crit_edge.us.i40.i113 ]
   %414 = add nuw nsw i32 %.059.i98, 1
   %415 = getelementptr inbounds nuw i8, ptr %.02257.i99, i64 24
   %416 = lshr i64 %413, 56
@@ -1901,7 +1901,7 @@ define internal fastcc range(i32 0, 2) i32 @Dar_CutMergeOrdered(ptr noundef capt
   br label %.thread105
 
 .thread105:                                       ; preds = %48, %21, %114, %118, %39, %16, %122, %75, %._crit_edge, %._crit_edge125
-  %.097 = phi i32 [ 0, %114 ], [ 0, %16 ], [ 1, %._crit_edge125 ], [ 0, %39 ], [ 1, %._crit_edge ], [ 1, %75 ], [ 1, %122 ], [ 0, %118 ], [ 0, %21 ], [ 0, %48 ]
+  %.097 = phi i32 [ 0, %114 ], [ 0, %16 ], [ 1, %._crit_edge125 ], [ 0, %21 ], [ 0, %39 ], [ 1, %._crit_edge ], [ 1, %75 ], [ 1, %122 ], [ 0, %118 ], [ 0, %48 ]
   ret i32 %.097
 }
 

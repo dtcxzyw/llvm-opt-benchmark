@@ -3326,7 +3326,7 @@ thread-pre-split:                                 ; preds = %13, %_ZN6dlexer9sav
   br i1 %384, label %_ZN6dlexer8read_numEv.exit, label %11, !llvm.loop !327
 
 _ZN6dlexer8read_numEv.exit:                       ; preds = %382, %_ZN6dlexer13save_and_nextEv.exit.i, %1, %_ZN6dlexer13save_and_nextEv.exit.thread.i, %_ZN6dlexer13save_and_nextEv.exit, %_ZN6dlexer13save_and_nextEv.exit.thread, %_ZN6dlexer4nextEv.exit67.thread, %_ZN6dlexer4nextEv.exit51.thread, %378, %380, %_ZN6dlexer4nextEv.exit67, %_ZN6dlexer4nextEv.exit51, %_ZN6dlexer4nextEv.exit83, %252, %_ZN6dlexer4nextEv.exit75, %_ZN6dlexer4nextEv.exit59, %_ZN6dlexer4nextEv.exit43, %_ZN6dlexer4nextEv.exit35, %_ZN6dlexer4nextEv.exit27, %_ZN6dlexer4nextEv.exit19, %74, %_ZN6dlexer4nextEv.exit
-  %.0 = phi i32 [ %274, %_ZN6dlexer4nextEv.exit83 ], [ 8, %_ZN6dlexer4nextEv.exit67.thread ], [ 8, %_ZN6dlexer4nextEv.exit67 ], [ 12, %_ZN6dlexer4nextEv.exit ], [ %75, %74 ], [ 0, %_ZN6dlexer4nextEv.exit19 ], [ 1, %_ZN6dlexer4nextEv.exit27 ], [ 7, %_ZN6dlexer4nextEv.exit35 ], [ 17, %_ZN6dlexer4nextEv.exit43 ], [ 14, %_ZN6dlexer4nextEv.exit59 ], [ 10, %_ZN6dlexer4nextEv.exit75 ], [ 18, %_ZN6dlexer4nextEv.exit51 ], [ %253, %252 ], [ %379, %378 ], [ %381, %380 ], [ 18, %_ZN6dlexer4nextEv.exit51.thread ], [ 4, %_ZN6dlexer13save_and_nextEv.exit.thread ], [ 4, %_ZN6dlexer13save_and_nextEv.exit ], [ 4, %_ZN6dlexer13save_and_nextEv.exit.thread.i ], [ 11, %1 ], [ 4, %_ZN6dlexer13save_and_nextEv.exit.i ], [ 11, %382 ]
+  %.0 = phi i32 [ %274, %_ZN6dlexer4nextEv.exit83 ], [ 8, %_ZN6dlexer4nextEv.exit67.thread ], [ 8, %_ZN6dlexer4nextEv.exit67 ], [ 12, %_ZN6dlexer4nextEv.exit ], [ %75, %74 ], [ 0, %_ZN6dlexer4nextEv.exit19 ], [ 1, %_ZN6dlexer4nextEv.exit27 ], [ 7, %_ZN6dlexer4nextEv.exit35 ], [ 17, %_ZN6dlexer4nextEv.exit43 ], [ 14, %_ZN6dlexer4nextEv.exit59 ], [ 11, %1 ], [ 10, %_ZN6dlexer4nextEv.exit75 ], [ 18, %_ZN6dlexer4nextEv.exit51 ], [ %253, %252 ], [ %379, %378 ], [ %381, %380 ], [ 18, %_ZN6dlexer4nextEv.exit51.thread ], [ 4, %_ZN6dlexer13save_and_nextEv.exit.thread ], [ 4, %_ZN6dlexer13save_and_nextEv.exit ], [ 4, %_ZN6dlexer13save_and_nextEv.exit.thread.i ], [ 4, %_ZN6dlexer13save_and_nextEv.exit.i ], [ 11, %382 ]
   ret i32 %.0
 }
 
@@ -9244,7 +9244,7 @@ _ZNK9table2mapI17default_map_entryI6symbolP9func_declE16symbol_hash_proc14symbol
   br label %_ZNK7datalog7context22try_get_predicate_declERK6symbol.exit
 
 _ZNK7datalog7context22try_get_predicate_declERK6symbol.exit: ; preds = %.lr.ph.i.i.i.i, %59, %.lr.ph34.i.i.i.i, %_ZNK9table2mapI17default_map_entryI6symbolP9func_declE16symbol_hash_proc14symbol_eq_procE9find_coreERKS1_.exit.i.i, %.preheader.i.i.i.i
-  %.0.i = phi ptr [ null, %.preheader.i.i.i.i ], [ %62, %_ZNK9table2mapI17default_map_entryI6symbolP9func_declE16symbol_hash_proc14symbol_eq_procE9find_coreERKS1_.exit.i.i ], [ null, %59 ], [ null, %.lr.ph34.i.i.i.i ], [ null, %.lr.ph.i.i.i.i ]
+  %.0.i = phi ptr [ null, %.preheader.i.i.i.i ], [ null, %59 ], [ %62, %_ZNK9table2mapI17default_map_entryI6symbolP9func_declE16symbol_hash_proc14symbol_eq_procE9find_coreERKS1_.exit.i.i ], [ null, %.lr.ph34.i.i.i.i ], [ null, %.lr.ph.i.i.i.i ]
   %63 = invoke noundef i32 @_ZN7dparser10parse_argsE6dtokenP9func_declR10ref_vectorI4expr11ast_managerER7svectorI6symboljE(ptr noundef nonnull align 8 dereferenceable(193) %0, i32 noundef %1, ptr noundef %.0.i, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
           to label %64 unwind label %80
 
@@ -10586,7 +10586,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %124, %123
-  %.042.us.be = phi i32 [ %126, %124 ], [ %.345.us, %123 ]
+  %.042.us.be = phi i32 [ %.345.us, %123 ], [ %126, %124 ]
   br label %.split.us, !llvm.loop !479
 
 .split112.us:                                     ; preds = %69, %61, %60, %51
@@ -10672,7 +10672,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit75: ; preds = %135
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %148, %142
-  %.042.be = phi i32 [ %150, %148 ], [ %145, %142 ]
+  %.042.be = phi i32 [ %145, %142 ], [ %150, %148 ]
   br label %.split, !llvm.loop !479
 
 .thread80:                                        ; preds = %.split, %.split, %.split.us, %.split.us, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.us, %.thread, %.split103.us, %.split122.us, %140, %5

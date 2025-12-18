@@ -68352,7 +68352,7 @@ define hidden void @_ZN14polars_compute4cast25cast_list_uint8_to_binary17h544e5a
   br i1 %.not52, label %274, label %239
 
 .outer._crit_edge:                                ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha8a91c0611ff98e3E.exit100", %269, %141
-  %.sroa.022.0.ph.lcssa249 = phi i1 [ %.sroa.022.0.ph270, %269 ], [ %.sroa.022.0.ph270, %141 ], [ %spec.select, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha8a91c0611ff98e3E.exit100" ]
+  %.sroa.022.0.ph.lcssa249 = phi i1 [ %.sroa.022.0.ph270, %141 ], [ %.sroa.022.0.ph270, %269 ], [ %spec.select, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha8a91c0611ff98e3E.exit100" ]
   br i1 %.sroa.022.0.ph.lcssa249, label %.critedge, label %"_ZN4core3ptr80drop_in_place$LT$$u5b$polars_arrow..buffer..immutable..Buffer$LT$u8$GT$$u5d$$GT$17hb37c36c0295cf74dE.exit"
 
 "_ZN4core3ptr80drop_in_place$LT$$u5b$polars_arrow..buffer..immutable..Buffer$LT$u8$GT$$u5d$$GT$17hb37c36c0295cf74dE.exit": ; preds = %"_ZN4core3ptr70drop_in_place$LT$polars_arrow..buffer..immutable..Buffer$LT$u8$GT$$GT$17h5642064c51898ac0E.exit.i", %.critedge, %.outer._crit_edge
@@ -68999,7 +68999,7 @@ _ZN12polars_arrow5array7binview4view4View14new_from_bytes17h2e0224cb3746c684E.ex
           to label %.thread158 unwind label %222
 
 .thread158:                                       ; preds = %"_ZN4core3ptr70drop_in_place$LT$polars_arrow..buffer..immutable..Buffer$LT$u8$GT$$GT$17h5642064c51898ac0E.exit8.i", %.thread162.loopexit.split-lp, %.thread162.loopexit.loopexit.split, %.thread162.loopexit.loopexit.split.us, %.thread162.loopexit.loopexit.split-lp, %397, %392, %401, %360, %365, %369, %172
-  %.pn67151 = phi { ptr, i32 } [ %lpad.loopexit209.us, %.thread162.loopexit.loopexit.split.us ], [ %173, %172 ], [ %361, %360 ], [ %393, %397 ], [ %361, %369 ], [ %361, %365 ], [ %393, %401 ], [ %393, %392 ], [ %lpad.loopexit.split-lp, %.thread162.loopexit.split-lp ], [ %lpad.loopexit.split-lp210, %.thread162.loopexit.loopexit.split-lp ], [ %lpad.loopexit209, %.thread162.loopexit.loopexit.split ], [ %173, %"_ZN4core3ptr70drop_in_place$LT$polars_arrow..buffer..immutable..Buffer$LT$u8$GT$$GT$17h5642064c51898ac0E.exit8.i" ]
+  %.pn67151 = phi { ptr, i32 } [ %393, %392 ], [ %lpad.loopexit209.us, %.thread162.loopexit.loopexit.split.us ], [ %173, %172 ], [ %361, %360 ], [ %393, %397 ], [ %361, %369 ], [ %361, %365 ], [ %393, %401 ], [ %lpad.loopexit.split-lp, %.thread162.loopexit.split-lp ], [ %lpad.loopexit.split-lp210, %.thread162.loopexit.loopexit.split-lp ], [ %lpad.loopexit209, %.thread162.loopexit.loopexit.split ], [ %173, %"_ZN4core3ptr70drop_in_place$LT$polars_arrow..buffer..immutable..Buffer$LT$u8$GT$$GT$17h5642064c51898ac0E.exit8.i" ]
   invoke void @"_ZN4core3ptr93drop_in_place$LT$alloc..vec..Vec$LT$polars_arrow..buffer..immutable..Buffer$LT$u8$GT$$GT$$GT$17h0cac322f2e81c074E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %20) #28
           to label %.thread197 unwind label %222
 
@@ -69335,7 +69335,7 @@ define hidden void @_ZN14polars_compute4cast25cast_list_uint8_to_binary17h78f757
   br i1 %.not52, label %272, label %237
 
 .outer._crit_edge:                                ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha8a91c0611ff98e3E.exit100", %267, %141
-  %.sroa.022.0.ph.lcssa245 = phi i1 [ %.sroa.022.0.ph264, %267 ], [ %.sroa.022.0.ph264, %141 ], [ %spec.select, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha8a91c0611ff98e3E.exit100" ]
+  %.sroa.022.0.ph.lcssa245 = phi i1 [ %.sroa.022.0.ph264, %141 ], [ %.sroa.022.0.ph264, %267 ], [ %spec.select, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha8a91c0611ff98e3E.exit100" ]
   br i1 %.sroa.022.0.ph.lcssa245, label %.critedge, label %"_ZN4core3ptr80drop_in_place$LT$$u5b$polars_arrow..buffer..immutable..Buffer$LT$u8$GT$$u5d$$GT$17hb37c36c0295cf74dE.exit"
 
 "_ZN4core3ptr80drop_in_place$LT$$u5b$polars_arrow..buffer..immutable..Buffer$LT$u8$GT$$u5d$$GT$17hb37c36c0295cf74dE.exit": ; preds = %"_ZN4core3ptr70drop_in_place$LT$polars_arrow..buffer..immutable..Buffer$LT$u8$GT$$GT$17h5642064c51898ac0E.exit.i", %.critedge, %.outer._crit_edge
@@ -69978,7 +69978,7 @@ _ZN12polars_arrow5array7binview4view4View14new_from_bytes17h2e0224cb3746c684E.ex
           to label %.thread158 unwind label %220
 
 .thread158:                                       ; preds = %"_ZN4core3ptr70drop_in_place$LT$polars_arrow..buffer..immutable..Buffer$LT$u8$GT$$GT$17h5642064c51898ac0E.exit8.i", %.thread162.loopexit.split-lp, %.thread162.loopexit.loopexit.split, %.thread162.loopexit.loopexit.split.us, %.thread162.loopexit.loopexit.split-lp, %393, %388, %397, %356, %361, %365, %170
-  %.pn67151 = phi { ptr, i32 } [ %lpad.loopexit209.us, %.thread162.loopexit.loopexit.split.us ], [ %171, %170 ], [ %357, %356 ], [ %389, %393 ], [ %357, %365 ], [ %357, %361 ], [ %389, %397 ], [ %389, %388 ], [ %lpad.loopexit.split-lp, %.thread162.loopexit.split-lp ], [ %lpad.loopexit.split-lp210, %.thread162.loopexit.loopexit.split-lp ], [ %lpad.loopexit209, %.thread162.loopexit.loopexit.split ], [ %171, %"_ZN4core3ptr70drop_in_place$LT$polars_arrow..buffer..immutable..Buffer$LT$u8$GT$$GT$17h5642064c51898ac0E.exit8.i" ]
+  %.pn67151 = phi { ptr, i32 } [ %389, %388 ], [ %lpad.loopexit209.us, %.thread162.loopexit.loopexit.split.us ], [ %171, %170 ], [ %357, %356 ], [ %389, %393 ], [ %357, %365 ], [ %357, %361 ], [ %389, %397 ], [ %lpad.loopexit.split-lp, %.thread162.loopexit.split-lp ], [ %lpad.loopexit.split-lp210, %.thread162.loopexit.loopexit.split-lp ], [ %lpad.loopexit209, %.thread162.loopexit.loopexit.split ], [ %171, %"_ZN4core3ptr70drop_in_place$LT$polars_arrow..buffer..immutable..Buffer$LT$u8$GT$$GT$17h5642064c51898ac0E.exit8.i" ]
   invoke void @"_ZN4core3ptr93drop_in_place$LT$alloc..vec..Vec$LT$polars_arrow..buffer..immutable..Buffer$LT$u8$GT$$GT$$GT$17h0cac322f2e81c074E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %20) #28
           to label %.thread197 unwind label %220
 

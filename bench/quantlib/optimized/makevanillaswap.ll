@@ -1672,7 +1672,7 @@ _ZN8QuantLibleERKNS_6PeriodES2_.exit:             ; preds = %invoke.cont110
   br label %cleanup.action
 
 cleanup.action:                                   ; preds = %_ZNK8QuantLib8Currency4nameB5cxx11Ev.exit11.i194, %invoke.cont105, %_ZN8QuantLibleERKNS_6PeriodES2_.exit, %if.end.i.i.i200
-  %79 = phi i1 [ %lnot.i212, %_ZN8QuantLibleERKNS_6PeriodES2_.exit ], [ false, %invoke.cont105 ], [ false, %if.end.i.i.i200 ], [ false, %_ZNK8QuantLib8Currency4nameB5cxx11Ev.exit11.i194 ]
+  %79 = phi i1 [ false, %if.end.i.i.i200 ], [ %lnot.i212, %_ZN8QuantLibleERKNS_6PeriodES2_.exit ], [ false, %invoke.cont105 ], [ false, %_ZNK8QuantLib8Currency4nameB5cxx11Ev.exit11.i194 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp108)
   %pn.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp99, i64 8
   %80 = load ptr, ptr %pn.i.i, align 8, !tbaa !37
@@ -3568,7 +3568,7 @@ if.end.i.i.i711:                                  ; preds = %land.rhs.i.i709
   br label %cleanup.action392
 
 cleanup.action392:                                ; preds = %invoke.cont385, %_ZNK8QuantLib8Currency4nameB5cxx11Ev.exit11.i705, %land.rhs.i.i709, %if.end.i.i.i711
-  %369 = phi i1 [ %368, %if.end.i.i.i711 ], [ %cmp.i.i5.mux.i700, %invoke.cont385 ], [ true, %land.rhs.i.i709 ], [ false, %_ZNK8QuantLib8Currency4nameB5cxx11Ev.exit11.i705 ]
+  %369 = phi i1 [ false, %_ZNK8QuantLib8Currency4nameB5cxx11Ev.exit11.i705 ], [ true, %land.rhs.i.i709 ], [ %cmp.i.i5.mux.i700, %invoke.cont385 ], [ %368, %if.end.i.i.i711 ]
   %pn.i.i722 = getelementptr inbounds nuw i8, ptr %ref.tmp382, i64 8
   %370 = load ptr, ptr %pn.i.i722, align 8, !tbaa !37
   %cmp.not.i.i.i723 = icmp eq ptr %370, null
@@ -8111,8 +8111,8 @@ if.end18.i:                                       ; preds = %if.else.i, %while.b
   br i1 %cmp.not.i, label %_ZNSt8_Rb_treeIPN8QuantLib8ObserverES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE11equal_rangeERKS2_.exit, label %while.body.i, !llvm.loop !143
 
 _ZNSt8_Rb_treeIPN8QuantLib8ObserverES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE11equal_rangeERKS2_.exit: ; preds = %if.end18.i, %while.body.i23.i, %entry, %_ZNSt8_Rb_treeIPN8QuantLib8ObserverES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i
-  %retval.sroa.0.0.i = phi ptr [ %__y.addr.0.lcssa.i.i, %_ZNSt8_Rb_treeIPN8QuantLib8ObserverES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i ], [ %add.ptr.i.i, %entry ], [ %__y.addr.0.lcssa.i.i, %while.body.i23.i ], [ %__y.1.i, %if.end18.i ]
-  %retval.sroa.3.0.i = phi ptr [ %__y.040.i, %_ZNSt8_Rb_treeIPN8QuantLib8ObserverES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i ], [ %add.ptr.i.i, %entry ], [ %__y.addr.1.i28.i, %while.body.i23.i ], [ %__y.1.i, %if.end18.i ]
+  %retval.sroa.0.0.i = phi ptr [ %__y.addr.0.lcssa.i.i, %while.body.i23.i ], [ %__y.addr.0.lcssa.i.i, %_ZNSt8_Rb_treeIPN8QuantLib8ObserverES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i ], [ %add.ptr.i.i, %entry ], [ %__y.1.i, %if.end18.i ]
+  %retval.sroa.3.0.i = phi ptr [ %__y.addr.1.i28.i, %while.body.i23.i ], [ %__y.040.i, %_ZNSt8_Rb_treeIPN8QuantLib8ObserverES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i ], [ %add.ptr.i.i, %entry ], [ %__y.1.i, %if.end18.i ]
   %_M_node_count.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %6 = load i64, ptr %_M_node_count.i, align 8, !tbaa !16
   %_M_left.i.i1 = getelementptr inbounds nuw i8, ptr %this, i64 24

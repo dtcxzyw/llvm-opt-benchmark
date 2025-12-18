@@ -2510,7 +2510,7 @@ define dso_local i64 @bitshiftleft(ptr noundef readonly captures(none) %0) #0 {
   br i1 %116, label %.lr.ph99, label %.loopexit93, !llvm.loop !28
 
 .loopexit93:                                      ; preds = %.lr.ph99, %84, %73, %.preheader, %.lr.ph101.preheader, %49, %41, %.lr.ph.preheader, %10
-  %.0 = phi i64 [ %15, %10 ], [ %21, %49 ], [ %21, %.lr.ph.preheader ], [ %21, %41 ], [ %21, %.lr.ph101.preheader ], [ %21, %.preheader ], [ %21, %73 ], [ %21, %84 ], [ %21, %.lr.ph99 ]
+  %.0 = phi i64 [ %15, %10 ], [ %21, %49 ], [ %21, %.lr.ph.preheader ], [ %21, %41 ], [ %21, %84 ], [ %21, %.lr.ph101.preheader ], [ %21, %.preheader ], [ %21, %73 ], [ %21, %.lr.ph99 ]
   ret i64 %.0
 }
 

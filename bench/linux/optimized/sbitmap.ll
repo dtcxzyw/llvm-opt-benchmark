@@ -1219,7 +1219,7 @@ define dso_local i64 @__sbitmap_queue_get_batch(ptr noundef %0, i32 noundef %1, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %36, %108, %113, %116, %20, %3
-  %120 = phi i64 [ 0, %3 ], [ 0, %20 ], [ %98, %116 ], [ %98, %113 ], [ %98, %108 ], [ 0, %36 ]
+  %120 = phi i64 [ 0, %3 ], [ 0, %20 ], [ %98, %108 ], [ %98, %116 ], [ %98, %113 ], [ 0, %36 ]
   ret i64 %120
 }
 
@@ -1802,7 +1802,7 @@ define internal fastcc i32 @sbitmap_find_bit(ptr noundef readonly captures(none)
   br label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %58, %49
-  %.be47 = phi i32 [ %15, %58 ], [ %53, %49 ]
+  %.be47 = phi i32 [ %53, %49 ], [ %15, %58 ]
   br label %.split.us, !llvm.loop !55
 
 .split:                                           ; preds = %30, %.split.backedge
@@ -1849,7 +1849,7 @@ define internal fastcc i32 @sbitmap_find_bit(ptr noundef readonly captures(none)
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %82, %73, %68
-  %.be = phi i32 [ %15, %82 ], [ %77, %73 ], [ 0, %68 ]
+  %.be = phi i32 [ 0, %68 ], [ %15, %82 ], [ %77, %73 ]
   br label %.split, !llvm.loop !55
 
 .split9.us:                                       ; preds = %54, %78

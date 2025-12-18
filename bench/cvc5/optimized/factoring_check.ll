@@ -6009,7 +6009,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit844: ; preds = %_ZN4cvc58internal1
   br i1 %2393, label %.loopexit, label %2390
 
 .loopexit:                                        ; preds = %2390, %.loopexit.loopexit1861, %.thread
-  %.pn168.pn.pn.pn = phi { ptr, i32 } [ %2191, %.thread ], [ %2385, %.loopexit.loopexit1861 ], [ %.pn168.pn.pn, %2390 ]
+  %.pn168.pn.pn.pn = phi { ptr, i32 } [ %2385, %.loopexit.loopexit1861 ], [ %2191, %.thread ], [ %.pn168.pn.pn, %2390 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %87)
   call void @llvm.lifetime.end.p0(ptr nonnull %86)
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %85) #19

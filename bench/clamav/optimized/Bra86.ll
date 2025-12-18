@@ -173,9 +173,9 @@ define i64 @x86_Convert(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noun
   br i1 %99, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %96, %20, %7
-  %.091.lcssa = phi i32 [ %9, %7 ], [ %.091147, %20 ], [ %.192, %96 ]
-  %.084.lcssa = phi i64 [ -1, %7 ], [ %.084148, %20 ], [ %25, %96 ]
-  %.087.lcssa = phi ptr [ %0, %7 ], [ %21, %20 ], [ %98, %96 ]
+  %.091.lcssa = phi i32 [ %.091147, %20 ], [ %9, %7 ], [ %.192, %96 ]
+  %.084.lcssa = phi i64 [ %.084148, %20 ], [ -1, %7 ], [ %25, %96 ]
+  %.087.lcssa = phi ptr [ %21, %20 ], [ %0, %7 ], [ %98, %96 ]
   %100 = ptrtoint ptr %.087.lcssa to i64
   %101 = sub i64 %100, %14
   %102 = sub i64 %101, %.084.lcssa

@@ -4031,7 +4031,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit285: ; preds = %51
   br i1 %526, label %.loopexit, label %523
 
 .loopexit:                                        ; preds = %523, %.loopexit.loopexit24, %.thread
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %87, %.thread ], [ %505, %.loopexit.loopexit24 ], [ %.pn.pn.pn.pn, %523 ]
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %505, %.loopexit.loopexit24 ], [ %87, %.thread ], [ %.pn.pn.pn.pn, %523 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %19) #21

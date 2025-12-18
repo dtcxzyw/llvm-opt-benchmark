@@ -249,7 +249,7 @@ els_import_byte.exit76.thread:                    ; preds = %74
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %..loopexit_crit_edge, %77, %64
-  %.1 = phi i32 [ %86, %77 ], [ %17, %64 ], [ %89, %..loopexit_crit_edge ], [ %89, %.preheader ]
+  %.1 = phi i32 [ %17, %64 ], [ %86, %77 ], [ %89, %..loopexit_crit_edge ], [ %89, %.preheader ]
   %100 = load i8, ptr %1, align 1, !tbaa !4
   %101 = and i8 %100, 1
   %102 = xor i8 %101, 1

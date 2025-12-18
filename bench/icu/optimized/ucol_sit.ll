@@ -602,7 +602,7 @@ define void @ucol_prepareShortStringOpen_77(ptr noundef %0, i8 noundef signext %
   br i1 %46, label %common.resume, label %43
 
 common.resume:                                    ; preds = %.preheader29.i, %43, %30, %_ZN12CollatorSpecD2Ev.exit60
-  %common.resume.op = phi { ptr, i32 } [ %.pn46.pn.pn.pn.pn.pn, %_ZN12CollatorSpecD2Ev.exit60 ], [ %31, %30 ], [ %.pn.i, %43 ], [ %31, %.preheader29.i ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn46.pn.pn.pn.pn.pn, %_ZN12CollatorSpecD2Ev.exit60 ], [ %.pn.i, %43 ], [ %31, %30 ], [ %31, %.preheader29.i ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12CollatorSpecC2Ev.exit:                       ; preds = %26
@@ -1188,7 +1188,7 @@ define ptr @ucol_openFromShortString_77(ptr noundef %0, i8 noundef signext %1, p
   br i1 %44, label %common.resume, label %41
 
 common.resume:                                    ; preds = %.preheader29.i, %41, %28, %_ZN12CollatorSpecD2Ev.exit66
-  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.pn, %_ZN12CollatorSpecD2Ev.exit66 ], [ %29, %28 ], [ %.pn.i, %41 ], [ %29, %.preheader29.i ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.pn, %_ZN12CollatorSpecD2Ev.exit66 ], [ %.pn.i, %41 ], [ %29, %28 ], [ %29, %.preheader29.i ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12CollatorSpecC2Ev.exit:                       ; preds = %24
@@ -1546,7 +1546,7 @@ define i32 @ucol_normalizeShortDefinitionString_77(ptr noundef %0, ptr noundef %
   br i1 %47, label %common.resume, label %44
 
 common.resume:                                    ; preds = %.preheader29.i, %44, %31, %_ZN12CollatorSpecD2Ev.exit23
-  %common.resume.op = phi { ptr, i32 } [ %lpad.phi, %_ZN12CollatorSpecD2Ev.exit23 ], [ %32, %31 ], [ %.pn.i, %44 ], [ %32, %.preheader29.i ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi, %_ZN12CollatorSpecD2Ev.exit23 ], [ %.pn.i, %44 ], [ %32, %31 ], [ %32, %.preheader29.i ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12CollatorSpecC2Ev.exit:                       ; preds = %27

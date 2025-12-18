@@ -2614,7 +2614,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPKN4llvm7remarks8ArgumentES7_EEbT_T0_.ex
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPKN4llvm7remarks8ArgumentES7_EEbT_T0_.exit.thread42: ; preds = %_ZN4llvmltENS_9StringRefES0_.exit20.i.i.i.i, %.thread.i.i19.i.i.i.i
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPKN4llvm7remarks8ArgumentES7_EEbT_T0_.exit.thread42: ; preds = %.thread.i.i19.i.i.i.i, %_ZN4llvmltENS_9StringRefES0_.exit20.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %40
@@ -2679,7 +2679,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPKN4llvm7remarks8ArgumentES7_EEbT_T0_.ex
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPKN4llvm7remarks8ArgumentES7_EEbT_T0_.exit40.thread44: ; preds = %_ZN4llvmltENS_9StringRefES0_.exit20.i.i.i.i35, %.thread.i.i19.i.i.i.i37
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPKN4llvm7remarks8ArgumentES7_EEbT_T0_.exit40.thread44: ; preds = %.thread.i.i19.i.i.i.i37, %_ZN4llvmltENS_9StringRefES0_.exit20.i.i.i.i35
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %50

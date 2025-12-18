@@ -1319,7 +1319,7 @@ _ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit:         ; preds = %.lr.ph
   br i1 %exitcond626.not, label %.loopexit464, label %.preheader462.us, !llvm.loop !62
 
 .loopexit464:                                     ; preds = %._crit_edge496.us, %._crit_edge505.split.us517, %._crit_edge505.split.us.us.us, %.preheader462.lr.ph, %.preheader465.lr.ph, %.preheader466, %.preheader463
-  %.3273 = phi float [ 0.000000e+00, %.preheader463 ], [ 0.000000e+00, %.preheader466 ], [ 0.000000e+00, %.preheader462.lr.ph ], [ 0.000000e+00, %.preheader465.lr.ph ], [ %.6276.us516, %._crit_edge505.split.us517 ], [ %.us-phi522, %._crit_edge505.split.us.us.us ], [ %.2272.us, %._crit_edge496.us ]
+  %.3273 = phi float [ %.us-phi522, %._crit_edge505.split.us.us.us ], [ 0.000000e+00, %.preheader463 ], [ 0.000000e+00, %.preheader462.lr.ph ], [ %.6276.us516, %._crit_edge505.split.us517 ], [ 0.000000e+00, %.preheader466 ], [ 0.000000e+00, %.preheader465.lr.ph ], [ %.2272.us, %._crit_edge496.us ]
   %550 = load ptr, ptr @stdout, align 8, !tbaa !32
   %551 = fpext float %.3273 to double
   %552 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %550, ptr noundef nonnull @.str.82, double noundef %551, ptr noundef nonnull %.0282) #17
@@ -1462,7 +1462,7 @@ _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit358:       ; preds = %_ZL13gmx_snew_implI
   br i1 %exitcond669.not, label %.loopexit, label %.lr.ph545, !llvm.loop !67
 
 .loopexit:                                        ; preds = %581, %.lr.ph545, %.lr.ph548, %.preheader460, %.preheader457, %.preheader456
-  %608 = phi i32 [ %563, %.preheader456 ], [ %569, %.preheader460 ], [ %563, %.preheader457 ], [ %563, %.lr.ph545 ], [ %563, %.lr.ph548 ], [ %569, %581 ]
+  %608 = phi i32 [ %563, %.lr.ph545 ], [ %563, %.lr.ph548 ], [ %563, %.preheader456 ], [ %569, %.preheader460 ], [ %563, %.preheader457 ], [ %569, %581 ]
   %609 = load i8, ptr @_ZZ11gmx_densmapiPPcE5bSums, align 1, !tbaa !38, !range !40, !noundef !41
   %610 = trunc nuw i8 %609 to i1
   br i1 %610, label %.preheader, label %629

@@ -2933,7 +2933,7 @@ _ZNSt14_Function_baseD2Ev.exit97.i:               ; preds = %840, %837
   br i1 %849, label %.loopexit156.i, label %846
 
 .loopexit156.i:                                   ; preds = %846, %.loopexit156.loopexit161.i, %.thread.i
-  %.pn42.i = phi { ptr, i32 } [ %677, %.thread.i ], [ %845, %.loopexit156.loopexit161.i ], [ %eh.lpad-body107194.i, %846 ]
+  %.pn42.i = phi { ptr, i32 } [ %845, %.loopexit156.loopexit161.i ], [ %677, %.thread.i ], [ %eh.lpad-body107194.i, %846 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %52)
   br label %893
 
@@ -7394,7 +7394,7 @@ _ZN2cv4util7variantIJNS0_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDes
   br i1 %155, label %.loopexit, label %.body
 
 .loopexit:                                        ; preds = %_ZN2cv4util7variantIJNS0_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEED2Ev.exit29, %138, %.thread
-  %.pn = phi { ptr, i32 } [ %lpad.thr_comm, %.thread ], [ %lpad.thr_comm.split-lp, %138 ], [ %56, %_ZN2cv4util7variantIJNS0_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEED2Ev.exit29 ]
+  %.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %138 ], [ %lpad.thr_comm, %.thread ], [ %56, %_ZN2cv4util7variantIJNS0_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEED2Ev.exit29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %158
 
@@ -11583,7 +11583,7 @@ _ZN2cv11GCompileArgD2Ev.exit:                     ; preds = %_ZNSt14_Function_ba
   br i1 %69, label %.body.thread, label %66
 
 .body.thread:                                     ; preds = %66, %_ZNSt14_Function_baseD2Ev.exit.i, %.body, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  %.pn = phi { ptr, i32 } [ %16, %_ZNSt14_Function_baseD2Ev.exit.i ], [ %16, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ], [ %65, %.body ], [ %eh.lpad-body1733, %66 ]
+  %.pn = phi { ptr, i32 } [ %16, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ], [ %16, %_ZNSt14_Function_baseD2Ev.exit.i ], [ %65, %.body ], [ %eh.lpad-body1733, %66 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn
 }

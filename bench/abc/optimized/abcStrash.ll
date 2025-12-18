@@ -2860,7 +2860,7 @@ Vec_IntGrow.exit.i:                               ; preds = %34, %Vec_IntAlloc.e
   br label %Vec_IntFill.exit
 
 Vec_IntFill.exit:                                 ; preds = %.lr.ph.i, %Vec_IntAlloc.exit.thread, %Vec_IntGrow.exit.i
-  %41 = phi ptr [ %38, %Vec_IntGrow.exit.i ], [ %22, %Vec_IntAlloc.exit.thread ], [ %38, %.lr.ph.i ]
+  %41 = phi ptr [ %22, %Vec_IntAlloc.exit.thread ], [ %38, %Vec_IntGrow.exit.i ], [ %38, %.lr.ph.i ]
   store i32 %14, ptr %17, align 4, !tbaa !39
   %42 = tail call ptr @Abc_AigConst1(ptr noundef nonnull %0) #12
   %43 = getelementptr i8, ptr %42, i64 16

@@ -3007,7 +3007,7 @@ mi_heap_malloc.exit:                              ; preds = %.split, %24
   br i1 %29, label %24, label %.critedge, !llvm.loop !39
 
 .critedge:                                        ; preds = %mi_heap_malloc.exit, %mi_heap_malloc.exit.us, %mi_heap_malloc.exit.us.thread, %.split8.us
-  %.05 = phi ptr [ null, %.split8.us ], [ %15, %mi_heap_malloc.exit.us.thread ], [ %22, %mi_heap_malloc.exit.us ], [ %28, %mi_heap_malloc.exit ]
+  %.05 = phi ptr [ null, %.split8.us ], [ %22, %mi_heap_malloc.exit.us ], [ %15, %mi_heap_malloc.exit.us.thread ], [ %28, %mi_heap_malloc.exit ]
   ret ptr %.05
 }
 

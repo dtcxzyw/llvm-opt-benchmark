@@ -1097,8 +1097,8 @@ thread-pre-split.i.i.preheader:                   ; preds = %_ZNK6vectorIjLb0EjE
   br label %_ZN12mpfx_manager6expandEv.exit
 
 thread-pre-split.i.i:                             ; preds = %thread-pre-split.i.i.backedge, %thread-pre-split.i.i.preheader
-  %20 = phi ptr [ %10, %thread-pre-split.i.i.preheader ], [ %.be17, %thread-pre-split.i.i.backedge ]
-  %21 = phi ptr [ %.ph, %thread-pre-split.i.i.preheader ], [ %.be17, %thread-pre-split.i.i.backedge ]
+  %20 = phi ptr [ %10, %thread-pre-split.i.i.preheader ], [ %.be, %thread-pre-split.i.i.backedge ]
+  %21 = phi ptr [ %.ph, %thread-pre-split.i.i.preheader ], [ %.be, %thread-pre-split.i.i.backedge ]
   %22 = icmp eq ptr %21, null
   br i1 %22, label %_ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i, label %_ZNK6vectorIjLb0EjE8capacityEv.exit.i.i
 
@@ -1222,7 +1222,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i: ; preds
   br label %thread-pre-split.i.i.backedge
 
 thread-pre-split.i.i.backedge:                    ; preds = %68, %27
-  %.be17 = phi ptr [ %30, %27 ], [ %71, %68 ]
+  %.be = phi ptr [ %71, %68 ], [ %30, %27 ]
   br label %thread-pre-split.i.i, !llvm.loop !23
 
 72:                                               ; preds = %_ZN17default_exceptionC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i
@@ -1505,7 +1505,7 @@ define hidden noundef zeroext i1 @_ZNK12mpfx_manager8is_int64ERK4mpfx(ptr nounde
   br i1 %or.cond33.not, label %.lr.ph, label %_ZNK12mpfx_manager6is_intERK4mpfx.exit, !llvm.loop !40
 
 _ZNK12mpfx_manager6is_intERK4mpfx.exit:           ; preds = %.lr.ph.i, %.lr.ph, %30, %26, %.loopexit
-  %.014 = phi i1 [ true, %.loopexit ], [ false, %26 ], [ true, %30 ], [ %.not, %.lr.ph ], [ false, %.lr.ph.i ]
+  %.014 = phi i1 [ true, %30 ], [ true, %.loopexit ], [ false, %26 ], [ %.not, %.lr.ph ], [ false, %.lr.ph.i ]
   ret i1 %.014
 }
 
@@ -1572,7 +1572,7 @@ define hidden noundef zeroext i1 @_ZNK12mpfx_manager9is_uint64ERK4mpfx(ptr nound
   br i1 %or.cond.not, label %.lr.ph, label %.critedge, !llvm.loop !41
 
 .critedge:                                        ; preds = %.lr.ph.i, %.lr.ph, %18, %.loopexit
-  %.011 = phi i1 [ true, %18 ], [ false, %.loopexit ], [ %.not, %.lr.ph ], [ false, %.lr.ph.i ]
+  %.011 = phi i1 [ true, %18 ], [ %.not, %.lr.ph ], [ false, %.loopexit ], [ false, %.lr.ph.i ]
   ret i1 %.011
 }
 
@@ -2667,8 +2667,8 @@ _ZN6id_gen7recycleEj.exit.i.i92:                  ; preds = %_ZN6vectorIjLb0EjE9
   br i1 %223, label %.lr.ph137, label %.loopexit, !llvm.loop !55
 
 .loopexit:                                        ; preds = %.lr.ph134, %.lr.ph137, %.preheader117
-  %224 = phi i32 [ %207, %.preheader117 ], [ %221, %.lr.ph137 ], [ %215, %.lr.ph134 ]
-  %.2 = phi i1 [ %.072.lcssa, %.preheader117 ], [ %spec.select86, %.lr.ph137 ], [ %.072.lcssa, %.lr.ph134 ]
+  %224 = phi i32 [ %221, %.lr.ph137 ], [ %207, %.preheader117 ], [ %215, %.lr.ph134 ]
+  %.2 = phi i1 [ %spec.select86, %.lr.ph137 ], [ %.072.lcssa, %.preheader117 ], [ %.072.lcssa, %.lr.ph134 ]
   br i1 %.2, label %.loopexit..critedge_crit_edge, label %_ZN12mpfx_manager11set_epsilonER4mpfx.exit
 
 .loopexit..critedge_crit_edge:                    ; preds = %.loopexit
@@ -5659,7 +5659,7 @@ define hidden noundef zeroext i1 @_ZNK12mpfx_manager15is_power_of_twoERK4mpfxRj(
   br i1 %.not20, label %34, label %_ZNK12mpfx_manager6is_intERK4mpfx.exit, !llvm.loop !80
 
 _ZNK12mpfx_manager6is_intERK4mpfx.exit:           ; preds = %.lr.ph.i, %35, %34, %23, %.loopexit
-  %.017 = phi i1 [ false, %.loopexit ], [ false, %23 ], [ %.not33.not, %35 ], [ %.not33.not, %34 ], [ false, %.lr.ph.i ]
+  %.017 = phi i1 [ %.not33.not, %35 ], [ false, %.loopexit ], [ false, %23 ], [ %.not33.not, %34 ], [ false, %.lr.ph.i ]
   ret i1 %.017
 }
 
@@ -5734,7 +5734,7 @@ define hidden noundef zeroext i1 @_ZNK12mpfx_manager15is_power_of_twoERK4mpfx(pt
   br i1 %.not20.i, label %28, label %_ZNK12mpfx_manager15is_power_of_twoERK4mpfxRj.exit, !llvm.loop !80
 
 _ZNK12mpfx_manager15is_power_of_twoERK4mpfxRj.exit: ; preds = %.lr.ph.i.i, %28, %29, %.loopexit.i, %21
-  %.017.i = phi i1 [ false, %.loopexit.i ], [ false, %21 ], [ %.not33.i.not.not, %28 ], [ %.not33.i.not.not, %29 ], [ false, %.lr.ph.i.i ]
+  %.017.i = phi i1 [ %.not33.i.not.not, %28 ], [ false, %.loopexit.i ], [ false, %21 ], [ %.not33.i.not.not, %29 ], [ false, %.lr.ph.i.i ]
   ret i1 %.017.i
 }
 

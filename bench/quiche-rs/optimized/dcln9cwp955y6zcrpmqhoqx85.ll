@@ -3607,8 +3607,8 @@ default.unreachable2:                             ; preds = %5
   unreachable
 
 _ZN6quiche8recovery11gcongestion4bbr28probe_bw7ProbeBW16enter_probe_down17h161ebadc6085264bE.exit: ; preds = %18, %27
-  %.sroa.4.0.i.i = phi i32 [ %28, %27 ], [ %23, %18 ]
-  %.sroa.0.0.i.i = phi i64 [ %29, %27 ], [ %20, %18 ]
+  %.sroa.4.0.i.i = phi i32 [ %23, %18 ], [ %28, %27 ]
+  %.sroa.0.0.i.i = phi i64 [ %20, %18 ], [ %29, %27 ]
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 656
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 704
   store i64 %.sroa.0.0.i.i, ptr %33, align 8, !alias.scope !205, !noalias !208
@@ -3885,8 +3885,8 @@ _ZN6quiche8recovery11gcongestion4bbr28probe_bw7ProbeBW26probe_inflight_high_upwa
   br i1 %119, label %128, label %125
 
 .critedge10.sink.split.i:                         ; preds = %178, %.noexc24, %68, %.noexc10
-  %.sroa.0.0.i.i14.sink.i = phi i64 [ %171, %.noexc24 ], [ %180, %178 ], [ %70, %68 ], [ %61, %.noexc10 ]
-  %.sroa.4.0.i.i13.sink.i = phi i32 [ %174, %.noexc24 ], [ %179, %178 ], [ %69, %68 ], [ %64, %.noexc10 ]
+  %.sroa.0.0.i.i14.sink.i = phi i64 [ %180, %178 ], [ %171, %.noexc24 ], [ %61, %.noexc10 ], [ %70, %68 ]
+  %.sroa.4.0.i.i13.sink.i = phi i32 [ %179, %178 ], [ %174, %.noexc24 ], [ %64, %.noexc10 ], [ %69, %68 ]
   %120 = getelementptr inbounds nuw i8, ptr %1, i64 656
   %121 = getelementptr inbounds nuw i8, ptr %1, i64 704
   store i64 %.sroa.0.0.i.i14.sink.i, ptr %121, align 8, !alias.scope !218, !noalias !248
@@ -7709,7 +7709,7 @@ define hidden void @"_ZN6quiche6stream8send_buf16SendBuf$LT$F$GT$4emit17hb3ebb3a
   br i1 %or.cond36, label %85, label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$7get_mut17hd74387359fe37950E.exit.thread"
 
 "_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$7get_mut17hd74387359fe37950E.exit.thread": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hc2afde73c26ae6a7E.exit", %.outer, %"_ZN6quiche6stream8send_buf16SendBuf$LT$F$GT$9off_front17hcee756c0bb3f3d25E.exit28", %"_ZN6quiche6stream8send_buf16SendBuf$LT$F$GT$9off_front17hcee756c0bb3f3d25E.exit"
-  %.sroa.013.1 = phi i64 [ 0, %"_ZN6quiche6stream8send_buf16SendBuf$LT$F$GT$9off_front17hcee756c0bb3f3d25E.exit" ], [ %.sroa.013.0.ph87, %"_ZN6quiche6stream8send_buf16SendBuf$LT$F$GT$9off_front17hcee756c0bb3f3d25E.exit28" ], [ 0, %.outer ], [ %117, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hc2afde73c26ae6a7E.exit" ]
+  %.sroa.013.1 = phi i64 [ 0, %"_ZN6quiche6stream8send_buf16SendBuf$LT$F$GT$9off_front17hcee756c0bb3f3d25E.exit" ], [ %.sroa.013.0.ph87, %"_ZN6quiche6stream8send_buf16SendBuf$LT$F$GT$9off_front17hcee756c0bb3f3d25E.exit28" ], [ %117, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hc2afde73c26ae6a7E.exit" ], [ 0, %.outer ]
   %.sroa.09.1 = phi i64 [ %.sroa.0.0.i, %"_ZN6quiche6stream8send_buf16SendBuf$LT$F$GT$9off_front17hcee756c0bb3f3d25E.exit" ], [ %.sroa.09.0.ph88, %"_ZN6quiche6stream8send_buf16SendBuf$LT$F$GT$9off_front17hcee756c0bb3f3d25E.exit28" ], [ %124, %.outer ], [ %124, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hc2afde73c26ae6a7E.exit" ]
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %75 = load i64, ptr %74, align 8, !range !18, !noundef !3

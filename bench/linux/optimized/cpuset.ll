@@ -2464,7 +2464,7 @@ define dso_local range(i32 -2147483648, 1) i32 @proc_cpuset_show(ptr noundef %0,
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge, %.loopexit.sink.split, %8
-  %43 = phi ptr [ %11, %8 ], [ %16, %.loopexit.sink.split ], [ %38, %._crit_edge ]
+  %43 = phi ptr [ %16, %.loopexit.sink.split ], [ %11, %8 ], [ %38, %._crit_edge ]
   tail call void @__rcu_read_unlock() #19
   %44 = load ptr, ptr %43, align 8
   %45 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #23, !srcloc !28
@@ -2893,9 +2893,9 @@ define internal fastcc void @update_prstate(ptr noundef %0, i32 noundef range(i3
   br label %123
 
 123:                                              ; preds = %46, %107, %108, %113, %114, %.split, %116
-  %124 = phi i1 [ false, %116 ], [ false, %.split ], [ false, %113 ], [ false, %114 ], [ false, %46 ], [ true, %108 ], [ false, %107 ]
-  %125 = phi i32 [ %.ph, %116 ], [ %.ph, %.split ], [ 0, %113 ], [ 0, %114 ], [ 0, %46 ], [ 0, %108 ], [ 0, %107 ]
-  %126 = phi i32 [ %117, %116 ], [ %117, %.split ], [ 0, %113 ], [ 0, %114 ], [ %1, %46 ], [ %1, %108 ], [ %1, %107 ]
+  %124 = phi i1 [ false, %116 ], [ false, %.split ], [ false, %107 ], [ false, %113 ], [ false, %114 ], [ true, %108 ], [ false, %46 ]
+  %125 = phi i32 [ %.ph, %116 ], [ %.ph, %.split ], [ 0, %107 ], [ 0, %113 ], [ 0, %114 ], [ 0, %108 ], [ 0, %46 ]
+  %126 = phi i32 [ %117, %116 ], [ %117, %.split ], [ %1, %107 ], [ 0, %113 ], [ 0, %114 ], [ %1, %108 ], [ %1, %46 ]
   call void @_raw_spin_lock_irq(ptr noundef nonnull @callback_lock) #19
   store i32 %126, ptr %4, align 8
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 336
@@ -3556,8 +3556,8 @@ define internal fastcc range(i32 0, 9) i32 @update_parent_effective_cpumask(ptr 
   br label %.thread18
 
 213:                                              ; preds = %101, %.thread13, %143, %145, %207
-  %214 = phi i32 [ 5, %.thread13 ], [ 5, %145 ], [ 5, %143 ], [ 7, %101 ], [ 4, %207 ]
-  %.shrunk = phi i1 [ %136, %.thread13 ], [ %150, %145 ], [ false, %143 ], [ false, %101 ], [ false, %207 ]
+  %214 = phi i32 [ 4, %207 ], [ 7, %101 ], [ 5, %143 ], [ 5, %.thread13 ], [ 5, %145 ]
+  %.shrunk = phi i1 [ false, %207 ], [ false, %101 ], [ false, %143 ], [ %136, %.thread13 ], [ %150, %145 ]
   %215 = getelementptr inbounds nuw i8, ptr %0, i64 336
   store volatile i32 %214, ptr %215, align 8
   br label %.thread18
@@ -5461,7 +5461,7 @@ define internal fastcc noundef range(i32 -28, 1) i32 @validate_change(ptr nounde
   br i1 %233, label %.critedge.thread, label %162, !llvm.loop !102
 
 .critedge.thread:                                 ; preds = %46, %39, %32, %56, %231, %225, %208, %87, %79, %71, %99, %153, %148, %139, %131, %.critedge
-  %234 = phi i32 [ 0, %.critedge ], [ -16, %148 ], [ -28, %139 ], [ -28, %131 ], [ 0, %153 ], [ -13, %79 ], [ -13, %71 ], [ -13, %99 ], [ -13, %87 ], [ 0, %231 ], [ -22, %208 ], [ -22, %225 ], [ -16, %56 ], [ -16, %32 ], [ -16, %39 ], [ -16, %46 ]
+  %234 = phi i32 [ 0, %.critedge ], [ -16, %148 ], [ -28, %139 ], [ -28, %131 ], [ 0, %153 ], [ -13, %79 ], [ -13, %71 ], [ -13, %99 ], [ 0, %231 ], [ -13, %87 ], [ -22, %208 ], [ -22, %225 ], [ -16, %56 ], [ -16, %32 ], [ -16, %39 ], [ -16, %46 ]
   tail call void @__rcu_read_unlock() #19
   ret i32 %234
 }

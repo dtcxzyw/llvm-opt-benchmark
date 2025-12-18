@@ -1390,7 +1390,7 @@ copy_rectangles.exit.i:                           ; preds = %147, %129, %128, %s
   br label %decode_region_inter.exit
 
 decode_region_inter.exit:                         ; preds = %._crit_edge123.us.i.i, %decode_pixel.exit.us.i.i, %365, %311, %308, %304, %301, %295, %292, %291, %225, %63, %53, %34, %24, %copy_rectangles.exit.i, %.preheader113.lr.ph.i.i, %244, %235, %233, %210, %185, %180, %175, %170, %165, %switch.early.test68.i, %switch.early.test.i, %decode_pixel.exit.i, %83, %10, %69, %67, %decode_pivot.exit62, %40, %38, %decode_pivot.exit, %6, %417, %77
-  %.0 = phi i32 [ -1, %34 ], [ -1, %69 ], [ -1094995529, %6 ], [ -1, %decode_pivot.exit ], [ -1, %38 ], [ 0, %417 ], [ -1, %40 ], [ -1, %decode_pivot.exit62 ], [ -1, %67 ], [ %78, %77 ], [ -1, %10 ], [ -1, %switch.early.test.i ], [ %234, %233 ], [ %.050.i111.i, %decode_pixel.exit.i ], [ 0, %copy_rectangles.exit.i ], [ -1, %switch.early.test68.i ], [ -1, %235 ], [ -1, %165 ], [ -1, %185 ], [ -1, %180 ], [ -1, %175 ], [ -1, %170 ], [ 0, %210 ], [ 0, %244 ], [ 0, %.preheader113.lr.ph.i.i ], [ %.085.us.i.i, %decode_pixel.exit.us.i.i ], [ -1094995529, %83 ], [ -1, %24 ], [ -1, %53 ], [ -1, %63 ], [ 0, %225 ], [ -1094995529, %365 ], [ -1, %304 ], [ -1, %308 ], [ -1, %311 ], [ -1, %295 ], [ -1, %292 ], [ -1, %301 ], [ -1, %291 ], [ 0, %._crit_edge123.us.i.i ]
+  %.0 = phi i32 [ -1, %34 ], [ -1, %69 ], [ -1094995529, %6 ], [ -1, %decode_pivot.exit ], [ -1, %38 ], [ 0, %417 ], [ -1, %40 ], [ -1, %decode_pivot.exit62 ], [ -1, %67 ], [ %78, %77 ], [ -1, %10 ], [ 0, %225 ], [ -1, %switch.early.test.i ], [ -1094995529, %83 ], [ %234, %233 ], [ %.050.i111.i, %decode_pixel.exit.i ], [ 0, %copy_rectangles.exit.i ], [ -1, %63 ], [ -1, %switch.early.test68.i ], [ -1, %235 ], [ -1, %165 ], [ -1, %185 ], [ -1, %180 ], [ -1, %175 ], [ -1, %170 ], [ 0, %210 ], [ 0, %.preheader113.lr.ph.i.i ], [ -1, %24 ], [ 0, %244 ], [ -1, %53 ], [ %.085.us.i.i, %decode_pixel.exit.us.i.i ], [ -1094995529, %365 ], [ -1, %304 ], [ -1, %308 ], [ -1, %311 ], [ -1, %295 ], [ -1, %292 ], [ -1, %301 ], [ -1, %291 ], [ 0, %._crit_edge123.us.i.i ]
   ret i32 %.0
 }
 
@@ -2097,7 +2097,7 @@ decode_pixel.exit.us:                             ; preds = %51, %._crit_edge.us
   br i1 %exitcond91.not, label %decode_pixel.exit.thread, label %.preheader64.us, !llvm.loop !89
 
 decode_pixel.exit.thread:                         ; preds = %._crit_edge73.us, %decode_pixel.exit.us, %43, %.preheader64.lr.ph, %20
-  %.057 = phi i32 [ 0, %20 ], [ 0, %.preheader64.lr.ph ], [ %.0.us, %decode_pixel.exit.us ], [ -1094995529, %43 ], [ 0, %._crit_edge73.us ]
+  %.057 = phi i32 [ %.0.us, %decode_pixel.exit.us ], [ 0, %20 ], [ 0, %.preheader64.lr.ph ], [ -1094995529, %43 ], [ 0, %._crit_edge73.us ]
   ret i32 %.057
 }
 
@@ -2405,7 +2405,7 @@ define internal fastcc i32 @decode_pixel_in_context(ptr noundef %0, ptr noundef 
   br label %._crit_edge80
 
 ._crit_edge80:                                    ; preds = %137, %.preheader58.us89, %132, %._crit_edge80.loopexit.split.loop.exit, %.preheader58.lr.ph.split, %.preheader59
-  %.053.i.lcssa = phi i32 [ 0, %.preheader59 ], [ %116, %.preheader58.lr.ph.split ], [ %139, %._crit_edge80.loopexit.split.loop.exit ], [ %116, %132 ], [ %umin, %.preheader58.us89 ], [ %135, %137 ]
+  %.053.i.lcssa = phi i32 [ 0, %.preheader59 ], [ %116, %132 ], [ %116, %.preheader58.lr.ph.split ], [ %139, %._crit_edge80.loopexit.split.loop.exit ], [ %umin, %.preheader58.us89 ], [ %135, %137 ]
   %140 = add nsw i32 %116, -1
   %141 = tail call i32 @llvm.smin.i32(i32 %.053.i.lcssa, i32 %140)
   %142 = getelementptr inbounds nuw i8, ptr %1, i64 8

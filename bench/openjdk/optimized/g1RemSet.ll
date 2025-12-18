@@ -2752,7 +2752,7 @@ define linkonce_odr hidden void @_ZN24G1ScanHRForRegionClosure12ChunkScanner14on
   br i1 %31, label %.lr.ph29.i, label %_ZNK24G1ScanHRForRegionClosure12ChunkScanner21find_first_dirty_cardEPh.exit, !llvm.loop !23
 
 _ZNK24G1ScanHRForRegionClosure12ChunkScanner21find_first_dirty_cardEPh.exit: ; preds = %.lr.ph.i, %.loopexit.i, %.preheader.i, %.preheader19.i
-  %.015.i = phi ptr [ %9, %.preheader19.i ], [ %9, %.loopexit.i ], [ %.226.i, %.preheader.i ], [ %.01625.i, %.lr.ph.i ]
+  %.015.i = phi ptr [ %9, %.loopexit.i ], [ %.226.i, %.preheader.i ], [ %9, %.preheader19.i ], [ %.01625.i, %.lr.ph.i ]
   %32 = ptrtoint ptr %.015.i to i64
   %33 = and i64 %32, 7
   %34 = icmp eq i64 %33, 0
@@ -2808,7 +2808,7 @@ _ZNK24G1ScanHRForRegionClosure12ChunkScanner21find_first_dirty_cardEPh.exit: ; p
   br i1 %53, label %.lr.ph29.i17, label %_ZNK24G1ScanHRForRegionClosure12ChunkScanner25find_first_non_dirty_cardEPh.exit, !llvm.loop !26
 
 _ZNK24G1ScanHRForRegionClosure12ChunkScanner25find_first_non_dirty_cardEPh.exit: ; preds = %.lr.ph.i12, %.loopexit.i25, %.preheader.i21, %.preheader19.i15
-  %.015.i14 = phi ptr [ %9, %.preheader19.i15 ], [ %9, %.loopexit.i25 ], [ %.226.i23, %.preheader.i21 ], [ %.01625.i13, %.lr.ph.i12 ]
+  %.015.i14 = phi ptr [ %9, %.loopexit.i25 ], [ %.226.i23, %.preheader.i21 ], [ %9, %.preheader19.i15 ], [ %.01625.i13, %.lr.ph.i12 ]
   %54 = icmp eq ptr %.015.i, %.015.i14
   br i1 %54, label %_ZNK24G1ScanHRForRegionClosure12ChunkScanner25find_first_non_dirty_cardEPh.exit._crit_edge, label %55
 

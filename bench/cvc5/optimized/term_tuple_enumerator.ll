@@ -2065,7 +2065,7 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers23TermTup
   br label %_ZN4cvc58internal6theory11quantifiers23TermTupleEnumeratorBase18nextCombinationSumEv.exit
 
 _ZN4cvc58internal6theory11quantifiers23TermTupleEnumeratorBase18nextCombinationSumEv.exit: ; preds = %.thread.i, %.lr.ph57.i, %31, %7, %38
-  %40 = phi i1 [ %39, %38 ], [ true, %31 ], [ false, %7 ], [ true, %.lr.ph57.i ], [ false, %.thread.i ]
+  %40 = phi i1 [ %39, %38 ], [ true, %31 ], [ true, %.lr.ph57.i ], [ false, %7 ], [ false, %.thread.i ]
   ret i1 %40
 }
 
@@ -2136,7 +2136,7 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers23TermTup
   br i1 %or.cond45, label %.critedge, label %.lr.ph57, !llvm.loop !68
 
 .critedge:                                        ; preds = %.thread, %.lr.ph57, %1, %25
-  %.not48 = phi i1 [ true, %25 ], [ false, %1 ], [ true, %.lr.ph57 ], [ false, %.thread ]
+  %.not48 = phi i1 [ true, %25 ], [ true, %.lr.ph57 ], [ false, %1 ], [ false, %.thread ]
   ret i1 %.not48
 }
 
@@ -2255,7 +2255,7 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEiEvT_S7_RKT0_.exit
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge65.backedge, %44, %1, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEiEvT_S7_RKT0_.exit, %.lr.ph.i.i.i.i43.preheader, %50, %.critedge2
-  %.0 = phi i1 [ true, %.critedge2 ], [ true, %50 ], [ true, %.lr.ph.i.i.i.i43.preheader ], [ true, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEiEvT_S7_RKT0_.exit ], [ false, %1 ], [ false, %44 ], [ false, %.critedge65.backedge ]
+  %.0 = phi i1 [ true, %.critedge2 ], [ false, %1 ], [ true, %.lr.ph.i.i.i.i43.preheader ], [ true, %50 ], [ true, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEiEvT_S7_RKT0_.exit ], [ false, %44 ], [ false, %.critedge65.backedge ]
   ret i1 %.0
 }
 

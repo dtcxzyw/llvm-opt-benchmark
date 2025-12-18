@@ -520,7 +520,7 @@ define internal void @PlanCacheObjectCallback(i64 %0, i32 noundef %1, i32 nounde
   br i1 %exitcond190.not, label %.critedge113, label %77
 
 .critedge113:                                     ; preds = %87, %70, %62, %.lr.ph135.split.split, %.lr.ph135.split.us.split, %.split138.us
-  %88 = phi ptr [ %.pre, %.split138.us ], [ %55, %.lr.ph135.split.us.split ], [ %55, %.lr.ph135.split.split ], [ %55, %62 ], [ %55, %70 ], [ %55, %87 ]
+  %88 = phi ptr [ %.pre, %.split138.us ], [ %55, %.lr.ph135.split.us.split ], [ %55, %.lr.ph135.split.split ], [ %55, %70 ], [ %55, %62 ], [ %55, %87 ]
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 18
   %90 = load i8, ptr %89, align 2, !range !4, !noundef !5
   %91 = trunc nuw i8 %90 to i1
@@ -1448,8 +1448,8 @@ choose_custom_plan.exit57:                        ; preds = %153
   %162 = fcmp uge double %161, %160
   br i1 %162, label %choose_custom_plan.exit57.thread, label %choose_custom_plan.exit57.thread77
 
-choose_custom_plan.exit57.thread:                 ; preds = %145, %24, %32, %30, %12, %153, %151, %cached_plan_cost.exit, %choose_custom_plan.exit, %choose_custom_plan.exit57
-  %.04471 = phi ptr [ null, %choose_custom_plan.exit57 ], [ null, %153 ], [ null, %151 ], [ %13, %24 ], [ null, %cached_plan_cost.exit ], [ %13, %choose_custom_plan.exit ], [ %13, %12 ], [ %13, %30 ], [ %13, %32 ], [ null, %145 ]
+choose_custom_plan.exit57.thread:                 ; preds = %145, %24, %30, %12, %32, %153, %151, %cached_plan_cost.exit, %choose_custom_plan.exit, %choose_custom_plan.exit57
+  %.04471 = phi ptr [ null, %choose_custom_plan.exit57 ], [ null, %153 ], [ null, %151 ], [ %13, %24 ], [ null, %cached_plan_cost.exit ], [ %13, %choose_custom_plan.exit ], [ %13, %32 ], [ %13, %12 ], [ %13, %30 ], [ null, %145 ]
   %163 = tail call fastcc ptr @BuildCachedPlan(ptr noundef nonnull %0, ptr noundef %.04471, ptr noundef %1, ptr noundef %3)
   %164 = getelementptr i8, ptr %163, i64 8
   %.val48 = load ptr, ptr %164, align 8
@@ -2340,7 +2340,7 @@ define dso_local noundef zeroext i1 @CachedPlanAllowsSimpleValidityCheck(ptr nou
   br label %.critedge76
 
 .critedge76:                                      ; preds = %27, %.critedge, %36, %33, %49, %65, %.critedge79, %71, %15, %11, %7, %3
-  %.0 = phi i1 [ true, %.critedge79 ], [ false, %3 ], [ false, %7 ], [ false, %11 ], [ false, %15 ], [ true, %71 ], [ false, %49 ], [ false, %65 ], [ false, %33 ], [ false, %36 ], [ false, %.critedge ], [ false, %27 ]
+  %.0 = phi i1 [ true, %.critedge79 ], [ false, %3 ], [ false, %7 ], [ false, %11 ], [ false, %15 ], [ false, %65 ], [ true, %71 ], [ false, %49 ], [ false, %33 ], [ false, %36 ], [ false, %.critedge ], [ false, %27 ]
   ret i1 %.0
 }
 

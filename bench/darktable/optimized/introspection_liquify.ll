@@ -4864,7 +4864,7 @@ define internal fastcc void @_distort_paths_locked(ptr noundef readonly captures
   br label %72
 
 72:                                               ; preds = %17, %41
-  %.1104 = phi ptr [ %.0103123, %17 ], [ %71, %41 ]
+  %.1104 = phi ptr [ %71, %41 ], [ %.0103123, %17 ]
   %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
   %exitcond131.not = icmp eq i64 %indvars.iv.next129, 100
   br i1 %exitcond131.not, label %.critedge, label %17
@@ -4983,7 +4983,7 @@ define internal fastcc void @_distort_paths_locked(ptr noundef readonly captures
   br label %153
 
 153:                                              ; preds = %93, %119
-  %.5 = phi ptr [ %.4107125, %93 ], [ %152, %119 ]
+  %.5 = phi ptr [ %152, %119 ], [ %.4107125, %93 ]
   %indvars.iv.next133 = add nuw nsw i64 %indvars.iv132, 1
   %exitcond135.not = icmp eq i64 %indvars.iv.next133, 100
   br i1 %exitcond135.not, label %.critedge118, label %93
@@ -9190,7 +9190,7 @@ get_arc_length.exit._crit_edge:                   ; preds = %mix_warps.exit121, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %mix_warps.exit, %22, %9, %13, %get_arc_length.exit._crit_edge, %16
-  %.2.ph = phi ptr [ %.0164, %16 ], [ %.7.lcssa, %get_arc_length.exit._crit_edge ], [ %15, %13 ], [ %.0164, %9 ], [ %.0164, %22 ], [ %135, %mix_warps.exit ]
+  %.2.ph = phi ptr [ %.0164, %16 ], [ %.7.lcssa, %get_arc_length.exit._crit_edge ], [ %.0164, %9 ], [ %15, %13 ], [ %.0164, %22 ], [ %135, %mix_warps.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 100
   br i1 %exitcond.not, label %331, label %2

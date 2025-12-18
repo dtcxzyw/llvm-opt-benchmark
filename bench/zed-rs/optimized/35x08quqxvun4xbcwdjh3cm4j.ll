@@ -1733,7 +1733,7 @@ define hidden void @_ZN10serde_json5value2de15visit_array_ref17h28eecb073cbd5c99
   br label %36
 
 34:                                               ; preds = %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h8ae05069e9896e9aE.exit.thread12.i.i.i20.i", %22
-  %.sroa.7.0 = phi i8 [ 2, %22 ], [ %28, %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h8ae05069e9896e9aE.exit.thread12.i.i.i20.i" ]
+  %.sroa.7.0 = phi i8 [ %28, %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h8ae05069e9896e9aE.exit.thread12.i.i.i20.i" ], [ 2, %22 ]
   %35 = icmp eq i64 %2, 2
   br i1 %35, label %38, label %41
 

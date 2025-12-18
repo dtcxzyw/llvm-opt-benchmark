@@ -1337,8 +1337,8 @@ _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_tra
   br i1 %.not49.i, label %.lr.ph68.i, label %.lr.ph.split.i, !llvm.loop !143
 
 _ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4i18n12phonenumbers13PhoneMetadataEEENS1_10StringHashENS1_12StringHashEq2EqESaISt4pairIKS9_SC_EEE4findIS9_EENSL_8iteratorERKT_m.exit: ; preds = %.lr.ph68.i, %._crit_edge.split.us.us.i, %._crit_edge.split.us.us.i.us, %.thread31.i
-  %.sroa.0.4.ph.i = phi ptr [ %91, %.thread31.i ], [ null, %._crit_edge.split.us.us.i ], [ null, %._crit_edge.split.us.us.i.us ], [ null, %.lr.ph68.i ]
-  %.sroa.3.4.ph.i = phi ptr [ %.us-phi10, %.thread31.i ], [ undef, %._crit_edge.split.us.us.i ], [ undef, %._crit_edge.split.us.us.i.us ], [ undef, %.lr.ph68.i ]
+  %.sroa.0.4.ph.i = phi ptr [ %91, %.thread31.i ], [ null, %._crit_edge.split.us.us.i.us ], [ null, %._crit_edge.split.us.us.i ], [ null, %.lr.ph68.i ]
+  %.sroa.3.4.ph.i = phi ptr [ %.us-phi10, %.thread31.i ], [ undef, %._crit_edge.split.us.us.i.us ], [ undef, %._crit_edge.split.us.us.i ], [ undef, %.lr.ph68.i ]
   %.fca.0.insert.i = insertvalue { ptr, ptr } poison, ptr %.sroa.0.4.ph.i, 0
   %.fca.1.insert.i = insertvalue { ptr, ptr } %.fca.0.insert.i, ptr %.sroa.3.4.ph.i, 1
   ret { ptr, ptr } %.fca.1.insert.i
@@ -3922,8 +3922,8 @@ _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_tra
   br i1 %.not49.i, label %.lr.ph68.i, label %.lr.ph.split.i, !llvm.loop !183
 
 _ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashSetPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_10StringHashENS1_12StringHashEq2EqESaIS9_EE4findIS9_EENSF_8iteratorERKT_m.exit: ; preds = %.lr.ph68.i, %._crit_edge.split.us.us.i, %._crit_edge.split.us.us.i.us, %.thread31.i
-  %.sroa.0.4.ph.i = phi ptr [ %91, %.thread31.i ], [ null, %._crit_edge.split.us.us.i ], [ null, %._crit_edge.split.us.us.i.us ], [ null, %.lr.ph68.i ]
-  %.sroa.3.4.ph.i = phi ptr [ %.us-phi10, %.thread31.i ], [ undef, %._crit_edge.split.us.us.i ], [ undef, %._crit_edge.split.us.us.i.us ], [ undef, %.lr.ph68.i ]
+  %.sroa.0.4.ph.i = phi ptr [ %91, %.thread31.i ], [ null, %._crit_edge.split.us.us.i.us ], [ null, %._crit_edge.split.us.us.i ], [ null, %.lr.ph68.i ]
+  %.sroa.3.4.ph.i = phi ptr [ %.us-phi10, %.thread31.i ], [ undef, %._crit_edge.split.us.us.i.us ], [ undef, %._crit_edge.split.us.us.i ], [ undef, %.lr.ph68.i ]
   %.fca.0.insert.i = insertvalue { ptr, ptr } poison, ptr %.sroa.0.4.ph.i, 0
   %.fca.1.insert.i = insertvalue { ptr, ptr } %.fca.0.insert.i, ptr %.sroa.3.4.ph.i, 1
   ret { ptr, ptr } %.fca.1.insert.i

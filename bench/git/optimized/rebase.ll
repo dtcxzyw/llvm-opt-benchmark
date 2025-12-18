@@ -2084,7 +2084,7 @@ skip_prefix.exit:                                 ; preds = %.preheader401, %799
   unreachable
 
 skip_prefix.exit262:                              ; preds = %807, %skip_prefix.exit, %787, %791, %812, %814, %816, %818, %820
-  %.2112 = phi i32 [ %.1111408, %820 ], [ %.1111408, %818 ], [ %.1111408, %816 ], [ %.1111408, %814 ], [ %.1111408, %812 ], [ 0, %787 ], [ 0, %791 ], [ %.1111408, %skip_prefix.exit ], [ %.1111408, %807 ]
+  %.2112 = phi i32 [ %.1111408, %skip_prefix.exit ], [ %.1111408, %820 ], [ %.1111408, %818 ], [ %.1111408, %816 ], [ %.1111408, %814 ], [ %.1111408, %812 ], [ 0, %787 ], [ 0, %791 ], [ %.1111408, %807 ]
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
   %exitcond423.not = icmp eq i64 %indvars.iv.next, %784
   br i1 %exitcond423.not, label %.preheader398, label %787, !llvm.loop !99

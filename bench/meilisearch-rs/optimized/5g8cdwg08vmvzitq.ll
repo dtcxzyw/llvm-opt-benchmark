@@ -262,8 +262,8 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h23cf475dff92edcfE(ptr noal
 
 .invoke:                                          ; preds = %.loopexit69, %91, %177
   %94 = phi i64 [ %173, %177 ], [ %.sroa.0.0100, %91 ], [ %.sroa.0.0100, %.loopexit69 ]
-  %95 = phi i64 [ %182, %177 ], [ %98, %.loopexit69 ], [ %.sroa.0.0.sroa.speculated.i.i, %91 ]
-  %96 = phi ptr [ @anon.ca863560633287ca9e85f7b2c0f8c937.21, %177 ], [ @anon.ca863560633287ca9e85f7b2c0f8c937.18, %.loopexit69 ], [ @anon.ca863560633287ca9e85f7b2c0f8c937.41, %91 ]
+  %95 = phi i64 [ %182, %177 ], [ %.sroa.0.0.sroa.speculated.i.i, %91 ], [ %98, %.loopexit69 ]
+  %96 = phi ptr [ @anon.ca863560633287ca9e85f7b2c0f8c937.21, %177 ], [ @anon.ca863560633287ca9e85f7b2c0f8c937.41, %91 ], [ @anon.ca863560633287ca9e85f7b2c0f8c937.18, %.loopexit69 ]
   invoke void @_ZN4core5slice5index22slice_index_order_fail17h375f84510c422e93E(i64 noundef %94, i64 noundef %95, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %96) #13
           to label %.cont unwind label %.loopexit.split-lp
 
@@ -582,9 +582,9 @@ _ZN4core5slice4sort20provide_sorted_batch17hb7bc1396a0e4f03cE.exit: ; preds = %.
   br i1 %or.cond4.i, label %.lr.ph.i52, label %"_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$6remove17h252224df08133153E.exit"
 
 "_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$6remove17h252224df08133153E.exit": ; preds = %.lr.ph.i52, %.lr.ph25.i, %192, %211
-  %.sroa.18.1.i = phi ptr [ %189, %192 ], [ %188, %211 ], [ %206, %.lr.ph25.i ], [ %224, %.lr.ph.i52 ]
-  %.sroa.10.1.i = phi ptr [ %194, %192 ], [ %212, %211 ], [ %207, %.lr.ph25.i ], [ %212, %.lr.ph.i52 ]
-  %.sroa.0.0.i51 = phi ptr [ %14, %192 ], [ %14, %211 ], [ %14, %.lr.ph25.i ], [ %227, %.lr.ph.i52 ]
+  %.sroa.18.1.i = phi ptr [ %206, %.lr.ph25.i ], [ %189, %192 ], [ %188, %211 ], [ %224, %.lr.ph.i52 ]
+  %.sroa.10.1.i = phi ptr [ %207, %.lr.ph25.i ], [ %194, %192 ], [ %212, %211 ], [ %212, %.lr.ph.i52 ]
+  %.sroa.0.0.i51 = phi ptr [ %14, %.lr.ph25.i ], [ %14, %192 ], [ %14, %211 ], [ %227, %.lr.ph.i52 ]
   %230 = ptrtoint ptr %.sroa.10.1.i to i64
   %231 = ptrtoint ptr %.sroa.0.0.i51 to i64
   %232 = sub nuw i64 %230, %231
@@ -858,8 +858,8 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h4006b20b23a238b7E(ptr noal
 
 .invoke:                                          ; preds = %.loopexit69, %91, %177
   %94 = phi i64 [ %173, %177 ], [ %.sroa.0.0100, %91 ], [ %.sroa.0.0100, %.loopexit69 ]
-  %95 = phi i64 [ %182, %177 ], [ %98, %.loopexit69 ], [ %.sroa.0.0.sroa.speculated.i.i, %91 ]
-  %96 = phi ptr [ @anon.ca863560633287ca9e85f7b2c0f8c937.21, %177 ], [ @anon.ca863560633287ca9e85f7b2c0f8c937.18, %.loopexit69 ], [ @anon.ca863560633287ca9e85f7b2c0f8c937.41, %91 ]
+  %95 = phi i64 [ %182, %177 ], [ %.sroa.0.0.sroa.speculated.i.i, %91 ], [ %98, %.loopexit69 ]
+  %96 = phi ptr [ @anon.ca863560633287ca9e85f7b2c0f8c937.21, %177 ], [ @anon.ca863560633287ca9e85f7b2c0f8c937.41, %91 ], [ @anon.ca863560633287ca9e85f7b2c0f8c937.18, %.loopexit69 ]
   invoke void @_ZN4core5slice5index22slice_index_order_fail17h375f84510c422e93E(i64 noundef %94, i64 noundef %95, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %96) #13
           to label %.cont unwind label %.loopexit.split-lp
 
@@ -1178,9 +1178,9 @@ _ZN4core5slice4sort20provide_sorted_batch17h52ea1c83a9e47677E.exit: ; preds = %.
   br i1 %or.cond4.i, label %.lr.ph.i52, label %"_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$6remove17hf3e39ce1aa01645bE.exit"
 
 "_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$6remove17hf3e39ce1aa01645bE.exit": ; preds = %.lr.ph.i52, %.lr.ph24.i, %192, %211
-  %.sroa.18.1.i = phi ptr [ %189, %192 ], [ %188, %211 ], [ %206, %.lr.ph24.i ], [ %224, %.lr.ph.i52 ]
-  %.sroa.10.1.i = phi ptr [ %194, %192 ], [ %212, %211 ], [ %207, %.lr.ph24.i ], [ %212, %.lr.ph.i52 ]
-  %.sroa.0.0.i51 = phi ptr [ %14, %192 ], [ %14, %211 ], [ %14, %.lr.ph24.i ], [ %227, %.lr.ph.i52 ]
+  %.sroa.18.1.i = phi ptr [ %206, %.lr.ph24.i ], [ %189, %192 ], [ %188, %211 ], [ %224, %.lr.ph.i52 ]
+  %.sroa.10.1.i = phi ptr [ %207, %.lr.ph24.i ], [ %194, %192 ], [ %212, %211 ], [ %212, %.lr.ph.i52 ]
+  %.sroa.0.0.i51 = phi ptr [ %14, %.lr.ph24.i ], [ %14, %192 ], [ %14, %211 ], [ %227, %.lr.ph.i52 ]
   %230 = ptrtoint ptr %.sroa.10.1.i to i64
   %231 = ptrtoint ptr %.sroa.0.0.i51 to i64
   %232 = sub nuw i64 %230, %231
@@ -1454,8 +1454,8 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h4ae80ea17e229fc0E(ptr noal
 
 .invoke:                                          ; preds = %.loopexit69, %91, %177
   %94 = phi i64 [ %173, %177 ], [ %.sroa.0.0100, %91 ], [ %.sroa.0.0100, %.loopexit69 ]
-  %95 = phi i64 [ %182, %177 ], [ %98, %.loopexit69 ], [ %.sroa.0.0.sroa.speculated.i.i, %91 ]
-  %96 = phi ptr [ @anon.ca863560633287ca9e85f7b2c0f8c937.21, %177 ], [ @anon.ca863560633287ca9e85f7b2c0f8c937.18, %.loopexit69 ], [ @anon.ca863560633287ca9e85f7b2c0f8c937.41, %91 ]
+  %95 = phi i64 [ %182, %177 ], [ %.sroa.0.0.sroa.speculated.i.i, %91 ], [ %98, %.loopexit69 ]
+  %96 = phi ptr [ @anon.ca863560633287ca9e85f7b2c0f8c937.21, %177 ], [ @anon.ca863560633287ca9e85f7b2c0f8c937.41, %91 ], [ @anon.ca863560633287ca9e85f7b2c0f8c937.18, %.loopexit69 ]
   invoke void @_ZN4core5slice5index22slice_index_order_fail17h375f84510c422e93E(i64 noundef %94, i64 noundef %95, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %96) #13
           to label %.cont unwind label %.loopexit.split-lp
 
@@ -1774,9 +1774,9 @@ _ZN4core5slice4sort20provide_sorted_batch17hb669c1cf9bb7a1f7E.exit: ; preds = %.
   br i1 %or.cond4.i, label %.lr.ph.i52, label %"_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$6remove17he382e266d3d26e86E.exit"
 
 "_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$6remove17he382e266d3d26e86E.exit": ; preds = %.lr.ph.i52, %.lr.ph24.i, %192, %211
-  %.sroa.18.1.i = phi ptr [ %189, %192 ], [ %188, %211 ], [ %206, %.lr.ph24.i ], [ %224, %.lr.ph.i52 ]
-  %.sroa.10.1.i = phi ptr [ %194, %192 ], [ %212, %211 ], [ %207, %.lr.ph24.i ], [ %212, %.lr.ph.i52 ]
-  %.sroa.0.0.i51 = phi ptr [ %14, %192 ], [ %14, %211 ], [ %14, %.lr.ph24.i ], [ %227, %.lr.ph.i52 ]
+  %.sroa.18.1.i = phi ptr [ %206, %.lr.ph24.i ], [ %189, %192 ], [ %188, %211 ], [ %224, %.lr.ph.i52 ]
+  %.sroa.10.1.i = phi ptr [ %207, %.lr.ph24.i ], [ %194, %192 ], [ %212, %211 ], [ %212, %.lr.ph.i52 ]
+  %.sroa.0.0.i51 = phi ptr [ %14, %.lr.ph24.i ], [ %14, %192 ], [ %14, %211 ], [ %227, %.lr.ph.i52 ]
   %230 = ptrtoint ptr %.sroa.10.1.i to i64
   %231 = ptrtoint ptr %.sroa.0.0.i51 to i64
   %232 = sub nuw i64 %230, %231
@@ -2050,8 +2050,8 @@ define hidden void @_ZN4core5slice4sort10merge_sort17hb4d4aa62292b5236E(ptr noal
 
 .invoke:                                          ; preds = %.loopexit69, %91, %177
   %94 = phi i64 [ %173, %177 ], [ %.sroa.0.0100, %91 ], [ %.sroa.0.0100, %.loopexit69 ]
-  %95 = phi i64 [ %182, %177 ], [ %98, %.loopexit69 ], [ %.sroa.0.0.sroa.speculated.i.i, %91 ]
-  %96 = phi ptr [ @anon.ca863560633287ca9e85f7b2c0f8c937.21, %177 ], [ @anon.ca863560633287ca9e85f7b2c0f8c937.18, %.loopexit69 ], [ @anon.ca863560633287ca9e85f7b2c0f8c937.41, %91 ]
+  %95 = phi i64 [ %182, %177 ], [ %.sroa.0.0.sroa.speculated.i.i, %91 ], [ %98, %.loopexit69 ]
+  %96 = phi ptr [ @anon.ca863560633287ca9e85f7b2c0f8c937.21, %177 ], [ @anon.ca863560633287ca9e85f7b2c0f8c937.41, %91 ], [ @anon.ca863560633287ca9e85f7b2c0f8c937.18, %.loopexit69 ]
   invoke void @_ZN4core5slice5index22slice_index_order_fail17h375f84510c422e93E(i64 noundef %94, i64 noundef %95, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %96) #13
           to label %.cont unwind label %.loopexit.split-lp
 
@@ -2370,9 +2370,9 @@ _ZN4core5slice4sort20provide_sorted_batch17hc884302c25a0e630E.exit: ; preds = %.
   br i1 %or.cond4.i, label %.lr.ph.i52, label %"_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$6remove17h8a1c9c9a151ec315E.exit"
 
 "_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$6remove17h8a1c9c9a151ec315E.exit": ; preds = %.lr.ph.i52, %.lr.ph24.i, %192, %211
-  %.sroa.18.1.i = phi ptr [ %189, %192 ], [ %188, %211 ], [ %206, %.lr.ph24.i ], [ %224, %.lr.ph.i52 ]
-  %.sroa.10.1.i = phi ptr [ %194, %192 ], [ %212, %211 ], [ %207, %.lr.ph24.i ], [ %212, %.lr.ph.i52 ]
-  %.sroa.0.0.i51 = phi ptr [ %14, %192 ], [ %14, %211 ], [ %14, %.lr.ph24.i ], [ %227, %.lr.ph.i52 ]
+  %.sroa.18.1.i = phi ptr [ %206, %.lr.ph24.i ], [ %189, %192 ], [ %188, %211 ], [ %224, %.lr.ph.i52 ]
+  %.sroa.10.1.i = phi ptr [ %207, %.lr.ph24.i ], [ %194, %192 ], [ %212, %211 ], [ %212, %.lr.ph.i52 ]
+  %.sroa.0.0.i51 = phi ptr [ %14, %.lr.ph24.i ], [ %14, %192 ], [ %14, %211 ], [ %227, %.lr.ph.i52 ]
   %230 = ptrtoint ptr %.sroa.10.1.i to i64
   %231 = ptrtoint ptr %.sroa.0.0.i51 to i64
   %232 = sub nuw i64 %230, %231

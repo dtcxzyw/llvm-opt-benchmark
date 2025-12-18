@@ -2251,8 +2251,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit249: ; preds = %49
   br label %.body
 
 .body:                                            ; preds = %.body.sink.split, %137, %117, %97, %77
-  %.014.lpad-body = phi ptr [ %82, %97 ], [ %122, %137 ], [ %62, %77 ], [ %102, %117 ], [ %.014.lpad-body.ph, %.body.sink.split ]
-  %eh.lpad-body = phi { ptr, i32 } [ %98, %97 ], [ %138, %137 ], [ %78, %77 ], [ %118, %117 ], [ %eh.lpad-body.ph, %.body.sink.split ]
+  %.014.lpad-body = phi ptr [ %102, %117 ], [ %62, %77 ], [ %122, %137 ], [ %82, %97 ], [ %.014.lpad-body.ph, %.body.sink.split ]
+  %eh.lpad-body = phi { ptr, i32 } [ %118, %117 ], [ %78, %77 ], [ %138, %137 ], [ %98, %97 ], [ %eh.lpad-body.ph, %.body.sink.split ]
   br label %508
 
 508:                                              ; preds = %.body, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit252
@@ -2297,7 +2297,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit255: ; preds = %51
   br i1 %527, label %.body.thread, label %519
 
 .body.thread:                                     ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit255, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit252, %56, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
-  %.pn16 = phi { ptr, i32 } [ %57, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i ], [ %57, %56 ], [ %eh.lpad-body, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit252 ], [ %518, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit255 ]
+  %.pn16 = phi { ptr, i32 } [ %57, %56 ], [ %57, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i ], [ %eh.lpad-body, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit252 ], [ %518, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit255 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %549
 
@@ -2311,8 +2311,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit255: ; preds = %51
   br label %.body83
 
 .body83:                                          ; preds = %.body83.sink.split, %247, %227, %207, %187
-  %.0.lpad-body = phi ptr [ %192, %207 ], [ %232, %247 ], [ %172, %187 ], [ %212, %227 ], [ %.0.lpad-body.ph, %.body83.sink.split ]
-  %eh.lpad-body84 = phi { ptr, i32 } [ %208, %207 ], [ %248, %247 ], [ %188, %187 ], [ %228, %227 ], [ %eh.lpad-body84.ph, %.body83.sink.split ]
+  %.0.lpad-body = phi ptr [ %212, %227 ], [ %172, %187 ], [ %232, %247 ], [ %192, %207 ], [ %.0.lpad-body.ph, %.body83.sink.split ]
+  %eh.lpad-body84 = phi { ptr, i32 } [ %228, %227 ], [ %188, %187 ], [ %248, %247 ], [ %208, %207 ], [ %eh.lpad-body84.ph, %.body83.sink.split ]
   br label %529
 
 529:                                              ; preds = %.body83, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit258
@@ -2357,7 +2357,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit261: ; preds = %54
   br i1 %548, label %.body83.thread, label %540
 
 .body83.thread:                                   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit261, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit258, %166, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i75
-  %.pn18 = phi { ptr, i32 } [ %167, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i75 ], [ %167, %166 ], [ %eh.lpad-body84, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit258 ], [ %539, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit261 ]
+  %.pn18 = phi { ptr, i32 } [ %167, %166 ], [ %167, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i75 ], [ %eh.lpad-body84, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit258 ], [ %539, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit261 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %549
 

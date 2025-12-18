@@ -188,7 +188,7 @@ default.unreachable15:                            ; preds = %22, %8
   br label %.critedge
 
 .critedge:                                        ; preds = %8, %10
-  %.sroa.6.0 = phi i64 [ %12, %10 ], [ 1, %8 ]
+  %.sroa.6.0 = phi i64 [ 1, %8 ], [ %12, %10 ]
   %13 = tail call noundef i64 @"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$3len17h682c8f28e584a57eE"(ptr noundef nonnull align 128 %1)
   %14 = sub i64 %.sroa.6.0, %13
   %.0.sroa.speculated.i = tail call noundef range(i64 0, -9223372036854775808) i64 @llvm.umin.i64(i64 range(i64 1, -9223372036854775808) %7, i64 %14)

@@ -1500,7 +1500,7 @@ define internal fastcc void @"_ZN3std4sync4mpmc4zero16Channel$LT$T$GT$4recv28_$u
   br label %.body
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %38, %84, %253, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.17851403509711027544.exit.i.i.i, %59, %88, %92, %106, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.17851403509711027544.exit.i.i.i35, %161, %188, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.17851403509711027544.exit.i.i.i56, %243
-  %.1.ph.ph.ph = phi i1 [ false, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.17851403509711027544.exit.i.i.i35 ], [ false, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.17851403509711027544.exit.i.i.i ], [ false, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.17851403509711027544.exit.i.i.i56 ], [ false, %253 ], [ false, %92 ], [ false, %188 ], [ false, %59 ], [ false, %243 ], [ false, %88 ], [ false, %106 ], [ true, %38 ], [ false, %161 ], [ false, %84 ]
+  %.1.ph.ph.ph = phi i1 [ false, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.17851403509711027544.exit.i.i.i ], [ false, %84 ], [ false, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.17851403509711027544.exit.i.i.i35 ], [ false, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.17851403509711027544.exit.i.i.i56 ], [ false, %253 ], [ false, %92 ], [ false, %188 ], [ false, %59 ], [ false, %243 ], [ false, %88 ], [ false, %106 ], [ true, %38 ], [ false, %161 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body

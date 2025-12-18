@@ -291,7 +291,7 @@ _ZN4core5slice4sort6shared17find_existing_run17h8c5a5a07d6365a09E.exit.i: ; pred
   br label %_ZN4core5slice4sort6stable5drift10create_run17h316d6e78a59cfe56E.exit
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h57b11a4149f44babE.exit.i": ; preds = %55, %.preheader13.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h6808a35ecccb6809E.exit.i", %44, %25
-  %.sroa.0.0.i912.i = phi i64 [ %.sroa.0.0.i.i, %44 ], [ %.sroa.0.0.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h6808a35ecccb6809E.exit.i" ], [ %22, %25 ], [ 2, %.preheader13.i ], [ %.sroa.0.0.i354245.i, %55 ]
+  %.sroa.0.0.i912.i = phi i64 [ %22, %25 ], [ %.sroa.0.0.i.i, %44 ], [ %.sroa.0.0.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h6808a35ecccb6809E.exit.i" ], [ 2, %.preheader13.i ], [ %.sroa.0.0.i354245.i, %55 ]
   %50 = shl i64 %.sroa.0.0.i912.i, 1
   %51 = or disjoint i64 %50, 1
   br label %_ZN4core5slice4sort6stable5drift10create_run17h316d6e78a59cfe56E.exit
@@ -1378,7 +1378,7 @@ default.unreachable:                              ; preds = %215
   call void @llvm.lifetime.start.p0(ptr nonnull %67), !noalias !56
   br label %226
 
-.thread310:                                       ; preds = %248, %220
+.thread310:                                       ; preds = %220, %248
   call void @llvm.lifetime.start.p0(ptr nonnull %67), !noalias !56
   br label %224
 
@@ -3047,8 +3047,8 @@ _ZN4core3str11validations15next_code_point17ha3a4b9b72e339e4aE.exit45.thread103:
   br label %187
 
 _ZN4core3str11validations15next_code_point17ha3a4b9b72e339e4aE.exit45.thread: ; preds = %_ZN4core3str11validations15next_code_point17ha3a4b9b72e339e4aE.exit45, %239, %138, %36, %19, %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17ha633faf6b1f1d458E.exit", %141, %242
-  %.sroa.5.1 = phi ptr [ %.sroa.3.0.i, %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17ha633faf6b1f1d458E.exit" ], [ %137, %141 ], [ %238, %242 ], [ undef, %19 ], [ undef, %36 ], [ undef, %138 ], [ undef, %239 ], [ undef, %_ZN4core3str11validations15next_code_point17ha3a4b9b72e339e4aE.exit45 ]
-  %.sroa.0.1 = phi i64 [ %spec.select35, %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17ha633faf6b1f1d458E.exit" ], [ 1, %141 ], [ 1, %242 ], [ 0, %19 ], [ 0, %36 ], [ 0, %138 ], [ 0, %239 ], [ 0, %_ZN4core3str11validations15next_code_point17ha3a4b9b72e339e4aE.exit45 ]
+  %.sroa.5.1 = phi ptr [ undef, %19 ], [ %.sroa.3.0.i, %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17ha633faf6b1f1d458E.exit" ], [ %137, %141 ], [ %238, %242 ], [ undef, %36 ], [ undef, %138 ], [ undef, %239 ], [ undef, %_ZN4core3str11validations15next_code_point17ha3a4b9b72e339e4aE.exit45 ]
+  %.sroa.0.1 = phi i64 [ 0, %19 ], [ %spec.select35, %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17ha633faf6b1f1d458E.exit" ], [ 1, %141 ], [ 1, %242 ], [ 0, %36 ], [ 0, %138 ], [ 0, %239 ], [ 0, %_ZN4core3str11validations15next_code_point17ha3a4b9b72e339e4aE.exit45 ]
   %185 = insertvalue { i64, ptr } poison, i64 %.sroa.0.1, 0
   %186 = insertvalue { i64, ptr } %185, ptr %.sroa.5.1, 1
   ret { i64, ptr } %186

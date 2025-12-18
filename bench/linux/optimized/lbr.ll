@@ -2076,8 +2076,8 @@ define dso_local void @intel_pmu_lbr_save_brstack(ptr noundef captures(none) %0,
   br i1 %96, label %.split, label %.loopexit4, !llvm.loop !46
 
 .loopexit4:                                       ; preds = %.loopexit.us, %.split, %.thread, %46
-  %97 = phi ptr [ %50, %.thread ], [ %47, %46 ], [ %58, %.split ], [ %47, %.loopexit.us ]
-  %98 = phi i64 [ 0, %.thread ], [ 0, %46 ], [ %95, %.split ], [ %85, %.loopexit.us ]
+  %97 = phi ptr [ %58, %.split ], [ %50, %.thread ], [ %47, %46 ], [ %47, %.loopexit.us ]
+  %98 = phi i64 [ %95, %.split ], [ 0, %.thread ], [ 0, %46 ], [ %85, %.loopexit.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %99 = getelementptr inbounds nuw i8, ptr %1, i64 3240
   %100 = getelementptr inbounds nuw i8, ptr %2, i64 288
@@ -2463,7 +2463,7 @@ define dso_local noundef range(i32 -95, 1) i32 @intel_pmu_setup_lbr_filter(ptr n
   br label %.thread
 
 .thread:                                          ; preds = %59, %29, %36, %32, %85, %81, %78, %72, %40, %1
-  %87 = phi i32 [ -95, %1 ], [ 0, %40 ], [ 0, %78 ], [ 0, %85 ], [ 0, %81 ], [ 0, %72 ], [ -95, %29 ], [ -22, %36 ], [ -95, %32 ], [ -95, %59 ]
+  %87 = phi i32 [ -95, %1 ], [ -95, %32 ], [ 0, %40 ], [ 0, %78 ], [ 0, %85 ], [ 0, %81 ], [ 0, %72 ], [ -95, %29 ], [ -22, %36 ], [ -95, %59 ]
   ret i32 %87
 }
 

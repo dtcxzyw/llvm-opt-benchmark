@@ -352,8 +352,8 @@ define hidden ptr @_PyPegen_parse_string(ptr noundef %0, ptr noundef %1) local_u
   br label %15
 
 15:                                               ; preds = %.preheader95, %.fold.split94, %.fold.split
-  %.270 = phi i32 [ 1, %.preheader95 ], [ %.16998, %.fold.split ], [ %.16998, %.fold.split94 ]
-  %.2 = phi i32 [ %.199, %.preheader95 ], [ %.199, %.fold.split ], [ 1, %.fold.split94 ]
+  %.270 = phi i32 [ %.16998, %.fold.split ], [ 1, %.preheader95 ], [ %.16998, %.fold.split94 ]
+  %.2 = phi i32 [ %.199, %.fold.split ], [ %.199, %.preheader95 ], [ 1, %.fold.split94 ]
   %.277 = getelementptr i8, ptr %.17696, i64 1
   %.273.in = load i8, ptr %.277, align 1, !tbaa !4
   %.273 = zext i8 %.273.in to i32

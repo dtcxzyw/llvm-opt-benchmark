@@ -704,7 +704,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK7obj_mapI9func_declN24special
   br i1 %.not27.old.i.i, label %_ZNK7obj_mapI9func_declN24special_relations_tactic9sp_axiomsEE9find_coreEPS0_.exit.thread, label %.lr.ph38.i.i.backedge
 
 .lr.ph38.i.i.backedge:                            ; preds = %36, %33
-  %.137.i.i.be = phi ptr [ %.old.i.i, %36 ], [ %35, %33 ]
+  %.137.i.i.be = phi ptr [ %35, %33 ], [ %.old.i.i, %36 ]
   br label %.lr.ph38.i.i, !llvm.loop !94
 
 _ZNK7obj_mapI9func_declN24special_relations_tactic9sp_axiomsEE9find_coreEPS0_.exit: ; preds = %17, %28
@@ -3875,8 +3875,8 @@ _ZNK4goal4sizeEv.exit:                            ; preds = %39, %43, %47
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %26, %_ZNK4goal4sizeEv.exit
-  %.not212283 = phi i1 [ true, %_ZNK4goal4sizeEv.exit ], [ true, %26 ], [ false, %._crit_edge.loopexit ]
-  %.07.i.i.i282 = phi i64 [ 0, %_ZNK4goal4sizeEv.exit ], [ 0, %26 ], [ %50, %._crit_edge.loopexit ]
+  %.not212283 = phi i1 [ true, %26 ], [ true, %_ZNK4goal4sizeEv.exit ], [ false, %._crit_edge.loopexit ]
+  %.07.i.i.i282 = phi i64 [ 0, %26 ], [ 0, %_ZNK4goal4sizeEv.exit ], [ %50, %._crit_edge.loopexit ]
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %52 = load ptr, ptr %51, align 8, !tbaa !29
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
@@ -4723,7 +4723,7 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit.i147:       ; preds = %.noexc153, %383
   br i1 %398, label %_ZN6vectorIjLb0EjE6appendERKS0_.exit, label %_ZNK6vectorIjLb0EjE4sizeEv.exit.i145, !llvm.loop !235
 
 _ZN6vectorIjLb0EjE6appendERKS0_.exit:             ; preds = %_ZN6vectorIjLb0EjE9push_backERKj.exit.i147, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i145, %_ZN6vectorIjLb0EjE9push_backERKj.exit.i117, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i115, %_ZN6vectorIjLb0EjE9push_backERKj.exit.i87, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i85, %_ZN6vectorIjLb0EjE9push_backERKj.exit.i, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i, %365, %292, %219, %146, %101
-  %.sroa.8.1 = phi i32 [ %.sroa.8.0205, %101 ], [ %.sroa.8.2, %146 ], [ %.sroa.8.3, %219 ], [ %.sroa.8.4, %292 ], [ %.sroa.8.5, %365 ], [ %.sroa.8.4, %_ZN6vectorIjLb0EjE9push_backERKj.exit.i117 ], [ %.sroa.8.2, %_ZN6vectorIjLb0EjE9push_backERKj.exit.i ], [ %.sroa.8.3, %_ZN6vectorIjLb0EjE9push_backERKj.exit.i87 ], [ %.sroa.8.2, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i ], [ %.sroa.8.3, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i85 ], [ %.sroa.8.4, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i115 ], [ %.sroa.8.5, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i145 ], [ %.sroa.8.5, %_ZN6vectorIjLb0EjE9push_backERKj.exit.i147 ]
+  %.sroa.8.1 = phi i32 [ %.sroa.8.0205, %101 ], [ %.sroa.8.3, %_ZN6vectorIjLb0EjE9push_backERKj.exit.i87 ], [ %.sroa.8.4, %_ZN6vectorIjLb0EjE9push_backERKj.exit.i117 ], [ %.sroa.8.2, %_ZN6vectorIjLb0EjE9push_backERKj.exit.i ], [ %.sroa.8.2, %146 ], [ %.sroa.8.4, %292 ], [ %.sroa.8.3, %219 ], [ %.sroa.8.5, %365 ], [ %.sroa.8.2, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i ], [ %.sroa.8.3, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i85 ], [ %.sroa.8.4, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i115 ], [ %.sroa.8.5, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i145 ], [ %.sroa.8.5, %_ZN6vectorIjLb0EjE9push_backERKj.exit.i147 ]
   %399 = getelementptr inbounds nuw i8, ptr %.sroa.0172.0204, i64 24
   %.not1.i.i = icmp eq ptr %399, %84
   br i1 %.not1.i.i, label %_ZN14core_hashtableIN7obj_mapI9func_declN24special_relations_tactic9sp_axiomsEE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE8iteratorppEv.exit, label %.lr.ph.i.i

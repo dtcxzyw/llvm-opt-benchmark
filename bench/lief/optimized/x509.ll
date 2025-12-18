@@ -589,7 +589,7 @@ x509_get_attr_type_value.exit._crit_edge:         ; preds = %x509_get_attr_type_
   br i1 %63, label %.loopexit, label %6
 
 .loopexit:                                        ; preds = %60, %53, %x509_get_attr_type_value.exit, %x509_get_attr_type_value.exit.thread, %8
-  %.023 = phi i32 [ %9, %8 ], [ %.0.i.ph, %x509_get_attr_type_value.exit.thread ], [ %.0.i, %x509_get_attr_type_value.exit ], [ -10368, %53 ], [ -10368, %60 ]
+  %.023 = phi i32 [ %9, %8 ], [ %.0.i, %x509_get_attr_type_value.exit ], [ %.0.i.ph, %x509_get_attr_type_value.exit.thread ], [ -10368, %53 ], [ -10368, %60 ]
   %64 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %65 = load ptr, ptr %64, align 8, !tbaa !17
   call void @mbedtls_asn1_free_named_data_list_shallow(ptr noundef %65) #13
@@ -1324,7 +1324,7 @@ define hidden i32 @mbedtls_x509_dn_gets(ptr noundef %0, i64 noundef %1, ptr noun
   br i1 %163, label %114, label %.loopexit, !llvm.loop !37
 
 .loopexit:                                        ; preds = %94, %158, %.preheader165, %.preheader
-  %.2135 = phi i64 [ 0, %.preheader ], [ %.0133.lcssa, %.preheader165 ], [ %161, %158 ], [ %109, %94 ]
+  %.2135 = phi i64 [ %161, %158 ], [ 0, %.preheader ], [ %.0133.lcssa, %.preheader165 ], [ %109, %94 ]
   %164 = getelementptr inbounds nuw i8, ptr %7, i64 %.2135
   store i8 0, ptr %164, align 1, !tbaa !8
   %165 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %56, i64 noundef %55, ptr noundef nonnull @.str.9, ptr noundef nonnull %7) #13
@@ -1347,13 +1347,13 @@ define hidden i32 @mbedtls_x509_dn_gets(ptr noundef %0, i64 noundef %1, ptr noun
   br i1 %.not179, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !30
 
 .outer._crit_edge:                                ; preds = %.outer, %12, %3
-  %.0130.ph.lcssa178 = phi i64 [ %1, %3 ], [ %.0130.ph196, %12 ], [ %169, %.outer ]
+  %.0130.ph.lcssa178 = phi i64 [ %.0130.ph196, %12 ], [ %1, %3 ], [ %169, %.outer ]
   %175 = sub i64 %1, %.0130.ph.lcssa178
   %176 = trunc i64 %175 to i32
   br label %.loopexit164
 
 .loopexit164:                                     ; preds = %.loopexit, %167, %65, %60, %50, %52, %46, %16, %20, %.lr.ph185, %92, %141, %134, %117, %114, %.outer._crit_edge
-  %.0125 = phi i32 [ %176, %.outer._crit_edge ], [ -10624, %.lr.ph185 ], [ -10624, %141 ], [ -10624, %92 ], [ -10624, %134 ], [ -9088, %117 ], [ -10624, %114 ], [ -10624, %16 ], [ -10624, %.loopexit ], [ -10624, %167 ], [ -10624, %52 ], [ -10624, %20 ], [ -110, %65 ], [ -110, %60 ], [ -10624, %50 ], [ -10624, %46 ]
+  %.0125 = phi i32 [ %176, %.outer._crit_edge ], [ -10624, %141 ], [ -10624, %92 ], [ -10624, %.lr.ph185 ], [ -10624, %134 ], [ -9088, %117 ], [ -10624, %114 ], [ -10624, %16 ], [ -10624, %.loopexit ], [ -10624, %167 ], [ -10624, %52 ], [ -10624, %20 ], [ -110, %65 ], [ -110, %60 ], [ -10624, %50 ], [ -10624, %46 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1477,7 +1477,7 @@ define hidden i32 @mbedtls_x509_serial_gets(ptr noundef writeonly captures(none)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %28, %20, %14, %.lr.ph.split.us, %38, %41, %45
-  %.038 = phi i32 [ %47, %45 ], [ -10624, %41 ], [ -10624, %38 ], [ -10624, %14 ], [ -10624, %.lr.ph.split.us ], [ -10624, %20 ], [ -10624, %28 ]
+  %.038 = phi i32 [ %47, %45 ], [ -10624, %38 ], [ -10624, %41 ], [ -10624, %14 ], [ -10624, %.lr.ph.split.us ], [ -10624, %20 ], [ -10624, %28 ]
   ret i32 %.038
 }
 
@@ -2717,8 +2717,8 @@ mbedtls_x509_free_subject_alt_name.exit328:       ; preds = %208, %211
   br label %.critedge
 
 .critedge:                                        ; preds = %77, %65, %194, %110, %33, %37, %223, %214, %93
-  %.5241 = phi ptr [ %225, %223 ], [ %216, %214 ], [ %96, %93 ], [ %113, %110 ], [ %.8244, %194 ], [ %35, %37 ], [ %35, %33 ], [ %67, %65 ], [ %79, %77 ]
-  %.5232 = phi i64 [ %224, %223 ], [ %217, %214 ], [ %97, %93 ], [ %114, %110 ], [ %.8, %194 ], [ %34, %37 ], [ %34, %33 ], [ %66, %65 ], [ %78, %77 ]
+  %.5241 = phi ptr [ %225, %223 ], [ %216, %214 ], [ %96, %93 ], [ %113, %110 ], [ %.8244, %194 ], [ %35, %33 ], [ %35, %37 ], [ %67, %65 ], [ %79, %77 ]
+  %.5232 = phi i64 [ %224, %223 ], [ %217, %214 ], [ %97, %93 ], [ %114, %110 ], [ %.8, %194 ], [ %34, %33 ], [ %34, %37 ], [ %66, %65 ], [ %78, %77 ]
   %226 = load i32, ptr %5, align 8, !tbaa !52
   %227 = icmp eq i32 %226, 4
   br i1 %227, label %228, label %.backedge
@@ -2737,7 +2737,7 @@ mbedtls_x509_free_subject_alt_name.exit328:       ; preds = %208, %211
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %142, %127, %103, %98, %63, %56, %49, %42, %31, %58, %51, %44, %39, %28, %218, %221, %115, %118, %83, %86, %21, %17, %75, %.lr.ph, %202, %199, %193, %109, %mbedtls_x509_free_subject_alt_name.exit328, %213, %124, %92, %._crit_edge
-  %.1 = phi i32 [ 0, %._crit_edge ], [ %206, %mbedtls_x509_free_subject_alt_name.exit328 ], [ -10240, %193 ], [ %206, %213 ], [ -10624, %109 ], [ -10624, %92 ], [ -10624, %124 ], [ -10624, %199 ], [ -10624, %202 ], [ -10624, %75 ], [ -10624, %.lr.ph ], [ -10624, %17 ], [ -10624, %21 ], [ -10624, %86 ], [ -10624, %83 ], [ -10624, %118 ], [ -10624, %115 ], [ -10624, %221 ], [ -10624, %218 ], [ -10624, %28 ], [ -10624, %39 ], [ -10624, %44 ], [ -10624, %51 ], [ -10624, %58 ], [ -10624, %31 ], [ -10624, %42 ], [ -10624, %49 ], [ -10624, %56 ], [ -10624, %63 ], [ -10624, %98 ], [ -10624, %103 ], [ -10624, %127 ], [ -10624, %142 ]
+  %.1 = phi i32 [ 0, %._crit_edge ], [ -10624, %75 ], [ %206, %mbedtls_x509_free_subject_alt_name.exit328 ], [ -10240, %193 ], [ -10624, %109 ], [ -10624, %124 ], [ -10624, %92 ], [ %206, %213 ], [ -10624, %202 ], [ -10624, %199 ], [ -10624, %.lr.ph ], [ -10624, %17 ], [ -10624, %21 ], [ -10624, %86 ], [ -10624, %83 ], [ -10624, %118 ], [ -10624, %115 ], [ -10624, %221 ], [ -10624, %218 ], [ -10624, %28 ], [ -10624, %39 ], [ -10624, %44 ], [ -10624, %51 ], [ -10624, %58 ], [ -10624, %31 ], [ -10624, %42 ], [ -10624, %49 ], [ -10624, %56 ], [ -10624, %63 ], [ -10624, %98 ], [ -10624, %103 ], [ -10624, %127 ], [ -10624, %142 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.1
 }

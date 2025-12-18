@@ -2980,7 +2980,7 @@ define dso_local i32 @cbuf_copy(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
   br label %47
 
 47:                                               ; preds = %.sink.split, %42, %9
-  %.0 = phi i32 [ 0, %9 ], [ %.035, %42 ], [ -1, %.sink.split ]
+  %.0 = phi i32 [ %.035, %42 ], [ 0, %9 ], [ -1, %.sink.split ]
   ret i32 %.0
 }
 
@@ -3344,7 +3344,7 @@ define dso_local i32 @cbuf_move(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
   br label %59
 
 59:                                               ; preds = %.sink.split, %54, %9
-  %.0 = phi i32 [ 0, %9 ], [ %.038, %54 ], [ -1, %.sink.split ]
+  %.0 = phi i32 [ %.038, %54 ], [ 0, %9 ], [ -1, %.sink.split ]
   ret i32 %.0
 }
 

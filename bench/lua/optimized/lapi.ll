@@ -6453,9 +6453,9 @@ aux_upvalue.exit:                                 ; preds = %88
   %.not = icmp eq ptr %93, null
   br i1 %.not, label %aux_upvalue.exit.thread, label %aux_upvalue.exit.thread16
 
-aux_upvalue.exit.thread16:                        ; preds = %76, %88, %64, %aux_upvalue.exit
-  %.1.i1021 = phi ptr [ %93, %aux_upvalue.exit ], [ @.str.2, %76 ], [ %92, %88 ], [ @.str, %64 ]
-  %.020 = phi ptr [ %82, %aux_upvalue.exit ], [ %82, %76 ], [ %82, %88 ], [ %67, %64 ]
+aux_upvalue.exit.thread16:                        ; preds = %88, %76, %64, %aux_upvalue.exit
+  %.1.i1021 = phi ptr [ %93, %aux_upvalue.exit ], [ %92, %88 ], [ @.str.2, %76 ], [ @.str, %64 ]
+  %.020 = phi ptr [ %82, %aux_upvalue.exit ], [ %82, %88 ], [ %82, %76 ], [ %67, %64 ]
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %95 = load ptr, ptr %94, align 8, !tbaa !20
   %96 = load i64, ptr %.020, align 8, !tbaa !20
@@ -6613,10 +6613,10 @@ aux_upvalue.exit:                                 ; preds = %88
   %.not = icmp eq ptr %93, null
   br i1 %.not, label %aux_upvalue.exit.thread, label %aux_upvalue.exit.thread26
 
-aux_upvalue.exit.thread26:                        ; preds = %76, %64, %88, %aux_upvalue.exit
-  %.1.i1533 = phi ptr [ %93, %aux_upvalue.exit ], [ @.str.2, %76 ], [ @.str, %64 ], [ %92, %88 ]
-  %.032 = phi ptr [ %80, %aux_upvalue.exit ], [ %80, %76 ], [ %58, %64 ], [ %80, %88 ]
-  %.01931 = phi ptr [ %82, %aux_upvalue.exit ], [ %82, %76 ], [ %67, %64 ], [ %82, %88 ]
+aux_upvalue.exit.thread26:                        ; preds = %64, %76, %88, %aux_upvalue.exit
+  %.1.i1533 = phi ptr [ %93, %aux_upvalue.exit ], [ @.str, %64 ], [ @.str.2, %76 ], [ %92, %88 ]
+  %.032 = phi ptr [ %80, %aux_upvalue.exit ], [ %58, %64 ], [ %80, %76 ], [ %80, %88 ]
+  %.01931 = phi ptr [ %82, %aux_upvalue.exit ], [ %67, %64 ], [ %82, %76 ], [ %82, %88 ]
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %95 = load ptr, ptr %94, align 8, !tbaa !20
   %96 = getelementptr inbounds i8, ptr %95, i64 -16

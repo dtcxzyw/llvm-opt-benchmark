@@ -772,7 +772,7 @@ gz_skip.exit:                                     ; preds = %39, %33
   br i1 %121, label %108, label %fast_seek_find.exit, !llvm.loop !18
 
 fast_seek_find.exit:                              ; preds = %116, %120
-  %.017.i = phi ptr [ %113, %116 ], [ %.121.i, %120 ]
+  %.017.i = phi ptr [ %.121.i, %120 ], [ %113, %116 ]
   %.not211 = icmp eq ptr %.017.i, null
   br i1 %.not211, label %fast_seek_find.exit.thread, label %122
 
@@ -1537,7 +1537,7 @@ gz_skip.exit.thread:                              ; preds = %42, %36, %9, %5
   br i1 %.not42, label %gz_skip.exit, label %49, !llvm.loop !19
 
 gz_skip.exit:                                     ; preds = %39, %31, %73, %67, %70, %62, %3
-  %.0 = phi i32 [ 0, %3 ], [ -1, %62 ], [ %.2, %73 ], [ %.032, %67 ], [ -1, %70 ], [ -1, %31 ], [ -1, %39 ]
+  %.0 = phi i32 [ -1, %62 ], [ 0, %3 ], [ %.2, %73 ], [ %.032, %67 ], [ -1, %70 ], [ -1, %31 ], [ -1, %39 ]
   ret i32 %.0
 }
 
@@ -1736,7 +1736,7 @@ fast_seek_header.exit.i:                          ; preds = %.thread.i.i, %84, %
   store i32 1, ptr %8, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %60, %fill_in_buffer.exit.i, %104, %30
+.loopexit:                                        ; preds = %60, %fill_in_buffer.exit.i, %30, %104
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %106 = load i32, ptr %105, align 8
   %.not = icmp eq i32 %106, 0
@@ -2652,7 +2652,7 @@ lz4_fill_out_buffer.exit:                         ; preds = %.thread.i30, %.loop
   br label %check_for_compression.exit
 
 check_for_compression.exit:                       ; preds = %60, %buf_read.exit.thread.i.i26, %351, %zlib_fill_out_buffer.exit, %lz4_fill_out_buffer.exit, %107, %uncompressed_fill_out_buffer.exit.thread, %zstd_fill_out_buffer.exit.thread44, %zstd_fill_out_buffer.exit, %uncompressed_fill_out_buffer.exit, %buf_read.exit.thread.i.i, %27, %.loopexit
-  %.0 = phi i32 [ -1, %uncompressed_fill_out_buffer.exit ], [ -1, %zstd_fill_out_buffer.exit ], [ 0, %.loopexit ], [ -1, %27 ], [ -1, %buf_read.exit.thread.i.i ], [ 0, %zlib_fill_out_buffer.exit ], [ 0, %zstd_fill_out_buffer.exit.thread44 ], [ 0, %uncompressed_fill_out_buffer.exit.thread ], [ 0, %107 ], [ 0, %lz4_fill_out_buffer.exit ], [ -1, %351 ], [ -1, %buf_read.exit.thread.i.i26 ], [ %63, %60 ]
+  %.0 = phi i32 [ -1, %uncompressed_fill_out_buffer.exit ], [ -1, %zstd_fill_out_buffer.exit ], [ -1, %buf_read.exit.thread.i.i26 ], [ 0, %.loopexit ], [ -1, %27 ], [ -1, %buf_read.exit.thread.i.i ], [ 0, %zlib_fill_out_buffer.exit ], [ 0, %zstd_fill_out_buffer.exit.thread44 ], [ 0, %uncompressed_fill_out_buffer.exit.thread ], [ 0, %107 ], [ 0, %lz4_fill_out_buffer.exit ], [ -1, %351 ], [ %63, %60 ]
   ret i32 %.0
 }
 
@@ -2774,7 +2774,7 @@ gz_skip.exit.sink.split:                          ; preds = %45, %4
   br label %gz_skip.exit
 
 gz_skip.exit:                                     ; preds = %39, %31, %55, %52, %47, %gz_skip.exit.sink.split, %1
-  %.0 = phi i32 [ -1, %1 ], [ %61, %gz_skip.exit.sink.split ], [ -1, %55 ], [ -1, %47 ], [ -1, %52 ], [ -1, %31 ], [ -1, %39 ]
+  %.0 = phi i32 [ %61, %gz_skip.exit.sink.split ], [ -1, %55 ], [ -1, %1 ], [ -1, %47 ], [ -1, %52 ], [ -1, %31 ], [ -1, %39 ]
   ret i32 %.0
 }
 
@@ -3947,7 +3947,7 @@ lz4_init.exit:                                    ; preds = %36, %49
   br i1 %.not33, label %.critedge, label %60, !llvm.loop !42
 
 .critedge:                                        ; preds = %86, %48, %43, %33, %24, %15, %82, %77, %67, %3
-  %.0 = phi i64 [ 0, %3 ], [ 0, %67 ], [ 0, %82 ], [ 0, %77 ], [ 0, %15 ], [ 0, %24 ], [ 0, %33 ], [ 0, %43 ], [ 0, %48 ], [ %2, %86 ]
+  %.0 = phi i64 [ 0, %48 ], [ 0, %3 ], [ 0, %67 ], [ 0, %82 ], [ 0, %77 ], [ 0, %15 ], [ 0, %24 ], [ 0, %33 ], [ 0, %43 ], [ %2, %86 ]
   ret i64 %.0
 }
 
@@ -4756,7 +4756,7 @@ fill_in_buffer.exit53.thread:                     ; preds = %81, %fill_in_buffer
   br label %fill_in_buffer.exit.thread
 
 fill_in_buffer.exit.thread:                       ; preds = %34, %79, %buf_read.exit.thread.i52, %buf_read.exit.thread.i, %1, %6, %11, %15, %19, %fill_in_buffer.exit.thread91, %72, %fill_in_buffer.exit53.thread, %136
-  %.2 = phi i32 [ -1, %buf_read.exit.thread.i ], [ %.1, %136 ], [ 0, %fill_in_buffer.exit.thread91 ], [ -1, %72 ], [ 0, %1 ], [ 0, %fill_in_buffer.exit53.thread ], [ 0, %19 ], [ 0, %15 ], [ 0, %11 ], [ 0, %6 ], [ -1, %buf_read.exit.thread.i52 ], [ -1, %79 ], [ -1, %34 ]
+  %.2 = phi i32 [ -1, %buf_read.exit.thread.i ], [ %.1, %136 ], [ 0, %fill_in_buffer.exit.thread91 ], [ -1, %72 ], [ 0, %1 ], [ 0, %fill_in_buffer.exit53.thread ], [ 0, %19 ], [ 0, %15 ], [ 0, %11 ], [ 0, %6 ], [ -1, %79 ], [ -1, %buf_read.exit.thread.i52 ], [ -1, %34 ]
   ret i32 %.2
 }
 
@@ -5074,8 +5074,8 @@ fill_in_buffer.exit.thread31:                     ; preds = %2, %fill_in_buffer.
   br label %fill_in_buffer.exit.thread
 
 fill_in_buffer.exit.thread:                       ; preds = %buf_read.exit.thread.i, %fill_in_buffer.exit.thread31
-  %.pr33 = phi i32 [ %44, %fill_in_buffer.exit.thread31 ], [ %.pre, %buf_read.exit.thread.i ]
-  %50 = phi i16 [ %49, %fill_in_buffer.exit.thread31 ], [ -1, %buf_read.exit.thread.i ]
+  %.pr33 = phi i32 [ %.pre, %buf_read.exit.thread.i ], [ %44, %fill_in_buffer.exit.thread31 ]
+  %50 = phi i16 [ -1, %buf_read.exit.thread.i ], [ %49, %fill_in_buffer.exit.thread31 ]
   %51 = icmp eq i32 %.pr33, 0
   br i1 %51, label %fill_in_buffer.exit.thread.thread, label %fill_in_buffer.exit29.thread34
 
@@ -5398,8 +5398,8 @@ fill_in_buffer.exit.thread63:                     ; preds = %2, %fill_in_buffer.
   br label %fill_in_buffer.exit.thread
 
 fill_in_buffer.exit.thread:                       ; preds = %buf_read.exit.thread.i, %fill_in_buffer.exit.thread63
-  %.pr65 = phi i32 [ %44, %fill_in_buffer.exit.thread63 ], [ %.pre, %buf_read.exit.thread.i ]
-  %50 = phi i32 [ %49, %fill_in_buffer.exit.thread63 ], [ -1, %buf_read.exit.thread.i ]
+  %.pr65 = phi i32 [ %.pre, %buf_read.exit.thread.i ], [ %44, %fill_in_buffer.exit.thread63 ]
+  %50 = phi i32 [ -1, %buf_read.exit.thread.i ], [ %49, %fill_in_buffer.exit.thread63 ]
   %51 = icmp eq i32 %.pr65, 0
   br i1 %51, label %fill_in_buffer.exit.thread.thread, label %fill_in_buffer.exit43.thread66
 
@@ -5493,9 +5493,9 @@ fill_in_buffer.exit43.thread.thread:              ; preds = %fill_in_buffer.exit
   br label %103
 
 fill_in_buffer.exit43.thread:                     ; preds = %buf_read.exit.thread.i42, %fill_in_buffer.exit43.thread66
-  %99 = phi i32 [ %89, %fill_in_buffer.exit43.thread66 ], [ %52, %buf_read.exit.thread.i42 ]
-  %.pr68 = phi i32 [ %91, %fill_in_buffer.exit43.thread66 ], [ %.pre73, %buf_read.exit.thread.i42 ]
-  %100 = phi i32 [ %97, %fill_in_buffer.exit43.thread66 ], [ -256, %buf_read.exit.thread.i42 ]
+  %99 = phi i32 [ %52, %buf_read.exit.thread.i42 ], [ %89, %fill_in_buffer.exit43.thread66 ]
+  %.pr68 = phi i32 [ %.pre73, %buf_read.exit.thread.i42 ], [ %91, %fill_in_buffer.exit43.thread66 ]
+  %100 = phi i32 [ -256, %buf_read.exit.thread.i42 ], [ %97, %fill_in_buffer.exit43.thread66 ]
   %101 = add nsw i32 %100, %99
   %102 = icmp eq i32 %.pr68, 0
   br i1 %102, label %103, label %fill_in_buffer.exit52.thread69
@@ -5590,9 +5590,9 @@ fill_in_buffer.exit52.thread.thread:              ; preds = %fill_in_buffer.exit
   br label %155
 
 fill_in_buffer.exit52.thread:                     ; preds = %buf_read.exit.thread.i51, %fill_in_buffer.exit52.thread69
-  %151 = phi i32 [ %141, %fill_in_buffer.exit52.thread69 ], [ %104, %buf_read.exit.thread.i51 ]
-  %.pr71 = phi i32 [ %143, %fill_in_buffer.exit52.thread69 ], [ %.pre74, %buf_read.exit.thread.i51 ]
-  %152 = phi i32 [ %149, %fill_in_buffer.exit52.thread69 ], [ -65536, %buf_read.exit.thread.i51 ]
+  %151 = phi i32 [ %104, %buf_read.exit.thread.i51 ], [ %141, %fill_in_buffer.exit52.thread69 ]
+  %.pr71 = phi i32 [ %.pre74, %buf_read.exit.thread.i51 ], [ %143, %fill_in_buffer.exit52.thread69 ]
+  %152 = phi i32 [ -65536, %buf_read.exit.thread.i51 ], [ %149, %fill_in_buffer.exit52.thread69 ]
   %153 = add nsw i32 %151, %152
   %154 = icmp eq i32 %.pr71, 0
   br i1 %154, label %155, label %fill_in_buffer.exit61.thread72

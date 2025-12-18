@@ -531,7 +531,7 @@ define internal noundef zeroext i1 @H5D__virtual_is_data_cached(ptr noundef read
   br i1 %62, label %11, label %.loopexit45, !llvm.loop !80
 
 .loopexit45:                                      ; preds = %.loopexit, %58, %39, %.preheader, %1
-  %.0 = phi i1 [ false, %1 ], [ false, %.preheader ], [ true, %39 ], [ false, %.loopexit ], [ true, %58 ]
+  %.0 = phi i1 [ false, %1 ], [ true, %39 ], [ false, %.preheader ], [ false, %.loopexit ], [ true, %58 ]
   ret i1 %.0
 }
 
@@ -1099,7 +1099,7 @@ define internal range(i32 -1, 1) i32 @H5D__virtual_flush(ptr noundef readonly ca
   br label %.loopexit31
 
 .loopexit31:                                      ; preds = %.loopexit, %.loopexit31.sink.split, %8, %1
-  %.0 = phi i32 [ 0, %1 ], [ 0, %8 ], [ -1, %.loopexit31.sink.split ], [ 0, %.loopexit ]
+  %.0 = phi i32 [ -1, %.loopexit31.sink.split ], [ 0, %8 ], [ 0, %1 ], [ 0, %.loopexit ]
   ret i32 %.0
 }
 
@@ -5058,7 +5058,7 @@ define range(i32 -1, 1) i32 @H5D__virtual_hold_source_dset_files(ptr noundef rea
   br label %H5D__virtual_release_source_dset_files.exit.thread
 
 H5D__virtual_release_source_dset_files.exit.thread: ; preds = %.thread, %100, %9, %86, %2, %.loopexit, %102
-  %.046 = phi i32 [ -1, %102 ], [ -1, %.loopexit ], [ 0, %2 ], [ -1, %86 ], [ 0, %9 ], [ -1, %100 ], [ 0, %.thread ]
+  %.046 = phi i32 [ -1, %102 ], [ 0, %9 ], [ -1, %.loopexit ], [ 0, %2 ], [ -1, %86 ], [ -1, %100 ], [ 0, %.thread ]
   ret i32 %.046
 }
 
@@ -5203,7 +5203,7 @@ define range(i32 -1, 1) i32 @H5D__virtual_refresh_source_dsets(ptr noundef reado
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.thread, %.loopexit.sink.split, %8, %1
-  %.027 = phi i32 [ 0, %1 ], [ 0, %8 ], [ -1, %.loopexit.sink.split ], [ 0, %.thread ]
+  %.027 = phi i32 [ -1, %.loopexit.sink.split ], [ 0, %8 ], [ 0, %1 ], [ 0, %.thread ]
   ret i32 %.027
 }
 
@@ -5269,7 +5269,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__virtual_refresh_source_dset(pt
   br label %39
 
 39:                                               ; preds = %34, %38
-  %.1 = phi i32 [ -1, %34 ], [ 0, %38 ]
+  %.1 = phi i32 [ 0, %38 ], [ -1, %34 ]
   %40 = tail call i32 @H5VL_free_object(ptr noundef nonnull %25) #14
   %41 = icmp slt i32 %40, 0
   br i1 %41, label %42, label %.thread
@@ -6542,7 +6542,7 @@ select.unfold20:                                  ; preds = %720, %708
   br i1 %743, label %407, label %.loopexit25, !llvm.loop !185
 
 .loopexit25:                                      ; preds = %739, %402, %.thread15, %4, %728, %716, %704, %693, %398
-  %.0184 = phi i32 [ -1, %.thread15 ], [ -1, %693 ], [ -1, %704 ], [ -1, %728 ], [ -1, %716 ], [ -1, %398 ], [ 0, %4 ], [ 0, %402 ], [ 0, %739 ]
+  %.0184 = phi i32 [ -1, %.thread15 ], [ -1, %693 ], [ -1, %704 ], [ -1, %728 ], [ -1, %716 ], [ 0, %4 ], [ -1, %398 ], [ 0, %402 ], [ 0, %739 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0184
@@ -6776,10 +6776,10 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__virtual_post_io(ptr noundef re
   br label %.loopexit
 
 .loopexit:                                        ; preds = %50, %21, %67, %57
-  %71 = phi ptr [ %68, %67 ], [ %12, %57 ], [ %12, %21 ], [ %51, %50 ]
-  %72 = phi ptr [ %68, %67 ], [ %13, %57 ], [ %13, %21 ], [ %51, %50 ]
-  %73 = phi ptr [ %68, %67 ], [ %14, %57 ], [ %13, %21 ], [ %51, %50 ]
-  %.6 = phi i32 [ %.5, %67 ], [ %.142, %57 ], [ %.142, %21 ], [ %.4, %50 ]
+  %71 = phi ptr [ %12, %57 ], [ %68, %67 ], [ %12, %21 ], [ %51, %50 ]
+  %72 = phi ptr [ %13, %57 ], [ %68, %67 ], [ %13, %21 ], [ %51, %50 ]
+  %73 = phi ptr [ %14, %57 ], [ %68, %67 ], [ %13, %21 ], [ %51, %50 ]
+  %.6 = phi i32 [ %.142, %57 ], [ %.5, %67 ], [ %.142, %21 ], [ %.4, %50 ]
   %74 = add nuw i64 %.03140, 1
   %75 = load i64, ptr %8, align 8, !tbaa !20
   %76 = icmp ult i64 %74, %75

@@ -589,7 +589,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.thread: ; preds = %.
   br label %_ZN9grpc_core8Duration25FromSecondsAndNanosecondsEli.exit
 
 _ZN9grpc_core8Duration25FromSecondsAndNanosecondsEli.exit: ; preds = %100, %106, %109, %112
-  %.0.i.i.i = phi i64 [ %102, %100 ], [ -9223372036854775808, %109 ], [ %113, %112 ], [ 9223372036854775807, %106 ]
+  %.0.i.i.i = phi i64 [ 9223372036854775807, %106 ], [ %102, %100 ], [ -9223372036854775808, %109 ], [ %113, %112 ]
   store i64 %.0.i.i.i, ptr %2, align 8, !tbaa !32
   br label %.critedge
 

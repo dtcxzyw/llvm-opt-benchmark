@@ -446,8 +446,8 @@ _ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit.thread.thread: ; pr
   br label %.lr.ph
 
 _ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit.thread: ; preds = %.noexc160, %.noexc, %7, %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit
-  %46 = phi i1 [ true, %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit ], [ false, %7 ], [ false, %.noexc ], [ false, %.noexc160 ]
-  %.017.i178 = phi i32 [ 0, %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit ], [ -1, %7 ], [ -1, %.noexc ], [ -1, %.noexc160 ]
+  %46 = phi i1 [ false, %.noexc ], [ true, %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit ], [ false, %7 ], [ false, %.noexc160 ]
+  %.017.i178 = phi i32 [ -1, %.noexc ], [ 0, %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit ], [ -1, %7 ], [ -1, %.noexc160 ]
   %.not156225 = icmp sgt i32 %3, 0
   br i1 %.not156225, label %.lr.ph, label %.thread192.thread
 
@@ -911,7 +911,7 @@ define noundef i32 @_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb(ptr 
   br i1 %.not25.not, label %.thread, label %.preheader, !llvm.loop !55
 
 .thread:                                          ; preds = %27, %26, %24, %14, %3
-  %.017 = phi i32 [ -1, %3 ], [ -1, %26 ], [ %spec.select, %14 ], [ 0, %24 ], [ -1, %27 ]
+  %.017 = phi i32 [ 0, %24 ], [ -1, %3 ], [ -1, %26 ], [ %spec.select, %14 ], [ -1, %27 ]
   ret i32 %.017
 }
 
@@ -1220,7 +1220,7 @@ define noundef i32 @_ZN6icu_7714LocaleDistance27getRegionPartitionsDistanceERNS_
   br label %.thread123
 
 .thread123:                                       ; preds = %94, %.thread116, %84, %.thread123.sink.split
-  %.1 = phi i32 [ %114, %.thread123.sink.split ], [ %.057, %84 ], [ %103, %94 ], [ %.571, %.thread116 ]
+  %.1 = phi i32 [ %114, %.thread123.sink.split ], [ %.057, %84 ], [ %.571, %.thread116 ], [ %103, %94 ]
   ret i32 %.1
 }
 

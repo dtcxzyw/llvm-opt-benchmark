@@ -119,7 +119,7 @@ define hidden range(i32 0, 2) i32 @_cmsRegisterOptimizationPlugin(ptr noundef %0
   br label %16
 
 16:                                               ; preds = %.sink.split, %9, %5
-  %.0 = phi i32 [ 0, %5 ], [ 0, %9 ], [ 1, %.sink.split ]
+  %.0 = phi i32 [ 0, %9 ], [ 0, %5 ], [ 1, %.sink.split ]
   ret i32 %.0
 }
 
@@ -219,7 +219,7 @@ define hidden range(i32 0, 2) i32 @_cmsOptimizePipeline(ptr noundef %0, ptr noun
   br i1 %.not43, label %.loopexit, label %.preheader, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph54, %39, %.preheader, %30, %29, %17, %11
-  %.039 = phi i32 [ %13, %11 ], [ 1, %17 ], [ 1, %29 ], [ 0, %30 ], [ 1, %.lr.ph54 ], [ 1, %.preheader ], [ %25, %39 ], [ 0, %.lr.ph ]
+  %.039 = phi i32 [ %13, %11 ], [ 1, %17 ], [ 1, %.lr.ph54 ], [ 1, %29 ], [ 1, %.preheader ], [ 0, %30 ], [ %25, %39 ], [ 0, %.lr.ph ]
   ret i32 %.039
 }
 
@@ -561,7 +561,7 @@ _Remove2Op.exit69.thread109:                      ; preds = %.split, %_Remove1Op
   br label %_MultiplyMatrix.exit
 
 _Remove2Op.exit69.thread121:                      ; preds = %_Remove2Op.exit29, %_Remove2Op.exit
-  %.ph93.ph.ph = phi i32 [ %58, %_Remove2Op.exit29 ], [ %37, %_Remove2Op.exit ]
+  %.ph93.ph.ph = phi i32 [ %37, %_Remove2Op.exit ], [ %58, %_Remove2Op.exit29 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %_MultiplyMatrix.exit
 
@@ -709,7 +709,7 @@ _MultiplyMatrix.exit.loopexit:                    ; preds = %204, %198, %174, %1
   br label %_MultiplyMatrix.exit
 
 _MultiplyMatrix.exit:                             ; preds = %_MultiplyMatrix.exit.loopexit, %_Remove2Op.exit69.thread121, %_Remove2Op.exit69.thread109, %_Remove2Op.exit69.thread, %_Remove2Op.exit69
-  %.0.i = phi i32 [ %142, %_Remove2Op.exit69 ], [ %121, %_Remove2Op.exit69.thread ], [ %.ph93.ph108, %_Remove2Op.exit69.thread109 ], [ %.ph93.ph.ph, %_Remove2Op.exit69.thread121 ], [ %205, %_MultiplyMatrix.exit.loopexit ]
+  %.0.i = phi i32 [ %142, %_Remove2Op.exit69 ], [ %.ph93.ph.ph, %_Remove2Op.exit69.thread121 ], [ %.ph93.ph108, %_Remove2Op.exit69.thread109 ], [ %121, %_Remove2Op.exit69.thread ], [ %205, %_MultiplyMatrix.exit.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not = icmp eq i32 %.0.i, 0
   br i1 %.not, label %.split126, label %.splitthread-pre-split, !llvm.loop !16
@@ -1268,7 +1268,7 @@ define internal fastcc ptr @PrelinOpt16alloc(ptr noundef %0, ptr noundef %1, i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph63.split, %.lr.ph63.split.us, %.loopexit.sink.split, %.preheader, %6
-  %.0 = phi ptr [ null, %6 ], [ %7, %.preheader ], [ null, %.loopexit.sink.split ], [ %7, %.lr.ph63.split.us ], [ %7, %.lr.ph63.split ]
+  %.0 = phi ptr [ null, %6 ], [ %7, %.lr.ph63.split.us ], [ null, %.loopexit.sink.split ], [ %7, %.preheader ], [ %7, %.lr.ph63.split ]
   ret ptr %.0
 }
 
@@ -1559,7 +1559,7 @@ WhitesAreEqual.exit:                              ; preds = %39
   br i1 %87, label %.lr.ph67, label %.loopexit, !llvm.loop !28
 
 .loopexit:                                        ; preds = %83, %.lr.ph69, %71, %.preheader
-  %88 = phi i32 [ 0, %.preheader ], [ 0, %71 ], [ %67, %.lr.ph69 ], [ %85, %83 ]
+  %88 = phi i32 [ %67, %.lr.ph69 ], [ 0, %.preheader ], [ 0, %71 ], [ %85, %83 ]
   %89 = load ptr, ptr %12, align 8
   %90 = load i32, ptr %10, align 4
   %91 = getelementptr inbounds nuw i8, ptr %89, i64 48
@@ -1756,7 +1756,7 @@ WhitesAreEqual.exit:                              ; preds = %39
   br i1 %exitcond.not.i54, label %PatchLUT.exit, label %.lr.ph.i51, !llvm.loop !29
 
 PatchLUT.exit:                                    ; preds = %.lr.ph.i, %29, %.lr.ph.i51, %25, %230, %228, %212, %164, %100, %97, %45, %21, %17, %15, %3
-  %.0 = phi i32 [ 0, %15 ], [ 0, %17 ], [ 0, %21 ], [ 0, %45 ], [ 0, %3 ], [ 1, %97 ], [ 1, %100 ], [ 1, %164 ], [ 1, %212 ], [ 1, %228 ], [ 1, %230 ], [ 1, %25 ], [ 1, %.lr.ph.i51 ], [ 1, %29 ], [ 1, %.lr.ph.i ]
+  %.0 = phi i32 [ 0, %15 ], [ 0, %17 ], [ 0, %21 ], [ 0, %45 ], [ 1, %.lr.ph.i51 ], [ 0, %3 ], [ 1, %97 ], [ 1, %100 ], [ 1, %164 ], [ 1, %212 ], [ 1, %228 ], [ 1, %230 ], [ 1, %25 ], [ 1, %29 ], [ 1, %.lr.ph.i ]
   ret i32 %.0
 }
 
@@ -2078,7 +2078,7 @@ _cmsQuickSaturateWord.exit:                       ; preds = %.lr.ph143, %57, %59
   br label %.loopexit133
 
 .loopexit133:                                     ; preds = %.lr.ph, %._crit_edge, %5, %11, %.thread127, %118
-  %.0 = phi i32 [ 1, %118 ], [ 0, %5 ], [ 0, %.thread127 ], [ 0, %11 ], [ 0, %._crit_edge ], [ 0, %.lr.ph ]
+  %.0 = phi i32 [ 1, %118 ], [ 0, %5 ], [ 0, %._crit_edge ], [ 0, %.thread127 ], [ 0, %11 ], [ 0, %.lr.ph ]
   ret i32 %.0
 }
 
@@ -2860,8 +2860,8 @@ IsDegenerated.exit204:                            ; preds = %.lr.ph333, %212
   br label %309
 
 .critedge176:                                     ; preds = %67, %77, %212, %.backedge, %IsDegenerated.exit204, %.lr.ph240, %252, %246, %241, %234, %228, %.critedge._crit_edge, %38
-  %.0136 = phi ptr [ null, %38 ], [ null, %.critedge._crit_edge ], [ %226, %234 ], [ %226, %252 ], [ %226, %246 ], [ %226, %241 ], [ %226, %228 ], [ null, %77 ], [ null, %.lr.ph240 ], [ null, %212 ], [ null, %IsDegenerated.exit204 ], [ null, %.backedge ], [ null, %67 ]
-  %.0135 = phi ptr [ null, %38 ], [ null, %.critedge._crit_edge ], [ null, %234 ], [ %239, %252 ], [ %239, %246 ], [ %239, %241 ], [ null, %228 ], [ null, %77 ], [ null, %.lr.ph240 ], [ null, %212 ], [ null, %IsDegenerated.exit204 ], [ null, %.backedge ], [ null, %67 ]
+  %.0136 = phi ptr [ null, %38 ], [ null, %77 ], [ null, %212 ], [ null, %.lr.ph240 ], [ null, %.critedge._crit_edge ], [ %226, %234 ], [ %226, %252 ], [ %226, %246 ], [ %226, %241 ], [ %226, %228 ], [ null, %IsDegenerated.exit204 ], [ null, %.backedge ], [ null, %67 ]
+  %.0135 = phi ptr [ null, %38 ], [ null, %77 ], [ null, %212 ], [ null, %.lr.ph240 ], [ null, %.critedge._crit_edge ], [ null, %234 ], [ %239, %252 ], [ %239, %246 ], [ %239, %241 ], [ null, %228 ], [ null, %IsDegenerated.exit204 ], [ null, %.backedge ], [ null, %67 ]
   %293 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %294 = load i32, ptr %293, align 8
   %.not254 = icmp eq i32 %294, 0
@@ -3058,7 +3058,7 @@ define internal fastcc ptr @CurvesAlloc(ptr noundef %0, i32 noundef %1, i32 noun
   br label %.loopexit61
 
 .loopexit61:                                      ; preds = %.loopexit59, %.loopexit.us, %.loopexit61.sink.split, %.preheader60, %4
-  %.0 = phi ptr [ null, %4 ], [ %5, %.preheader60 ], [ null, %.loopexit61.sink.split ], [ %5, %.loopexit.us ], [ %5, %.loopexit59 ]
+  %.0 = phi ptr [ null, %4 ], [ %5, %.loopexit.us ], [ null, %.loopexit61.sink.split ], [ %5, %.preheader60 ], [ %5, %.loopexit59 ]
   ret ptr %.0
 }
 

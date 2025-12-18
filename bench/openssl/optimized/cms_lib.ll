@@ -1252,7 +1252,7 @@ define ptr @CMS_add0_RevocationInfoChoice(ptr noundef readonly captures(none) %0
   br label %cms_get0_revocation_choices.exit.thread
 
 cms_get0_revocation_choices.exit:                 ; preds = %4, %8, %15
-  %.0.i = phi ptr [ %7, %4 ], [ %14, %8 ], [ %21, %15 ]
+  %.0.i = phi ptr [ %21, %15 ], [ %7, %4 ], [ %14, %8 ]
   %23 = load ptr, ptr %.0.i, align 8, !tbaa !66
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %.thread
@@ -1524,7 +1524,7 @@ define range(i32 0, 2) i32 @ossl_cms_get1_crls_ex(ptr noundef readonly captures(
   br label %cms_get0_revocation_choices.exit.thread
 
 cms_get0_revocation_choices.exit:                 ; preds = %7, %11, %18
-  %.0.i = phi ptr [ %10, %7 ], [ %17, %11 ], [ %24, %18 ]
+  %.0.i = phi ptr [ %24, %18 ], [ %10, %7 ], [ %17, %11 ]
   %26 = load ptr, ptr %.0.i, align 8, !tbaa !66
   %27 = tail call i32 @OPENSSL_sk_num(ptr noundef %26) #5
   %28 = tail call ptr @OPENSSL_sk_new_reserve(ptr noundef null, i32 noundef %27) #5
@@ -1570,7 +1570,7 @@ cms_get0_revocation_choices.exit:                 ; preds = %7, %11, %18
   br i1 %exitcond.not, label %cms_get0_revocation_choices.exit.thread, label %.lr.ph, !llvm.loop !75
 
 cms_get0_revocation_choices.exit.thread:          ; preds = %45, %.preheader, %18, %11, %25, %cms_get0_revocation_choices.exit, %2, %43
-  %.0 = phi i32 [ 0, %cms_get0_revocation_choices.exit ], [ 0, %2 ], [ 0, %43 ], [ 0, %25 ], [ 0, %11 ], [ 0, %18 ], [ 1, %.preheader ], [ 1, %45 ]
+  %.0 = phi i32 [ 0, %cms_get0_revocation_choices.exit ], [ 0, %2 ], [ 0, %18 ], [ 0, %43 ], [ 0, %25 ], [ 0, %11 ], [ 1, %.preheader ], [ 1, %45 ]
   ret i32 %.0
 }
 

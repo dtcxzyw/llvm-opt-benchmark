@@ -698,7 +698,7 @@ align_get_bits.exit340:                           ; preds = %173
   br i1 %192, label %.preheader368, label %.thread350, !llvm.loop !87
 
 .thread350:                                       ; preds = %184, %161, %144
-  %.1270371 = phi i32 [ 0, %144 ], [ %.1270375, %161 ], [ %190, %184 ]
+  %.1270371 = phi i32 [ %.1270375, %161 ], [ 0, %144 ], [ %190, %184 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit367
 
@@ -1014,7 +1014,7 @@ align_get_bits.exit340:                           ; preds = %173
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge.us, %._crit_edge.us403, %.loopexit.sink.split, %.preheader356.lr.ph, %349, %329, %91, %83, %53, %18, %42, %46, %50, %.loopexit366
-  %.0295 = phi i32 [ -1094995529, %18 ], [ -1094995529, %53 ], [ -1094995529, %83 ], [ -1094995529, %91 ], [ 0, %.loopexit366 ], [ -1094995529, %50 ], [ -1094995529, %46 ], [ -1094995529, %42 ], [ 0, %329 ], [ 0, %349 ], [ 0, %.preheader356.lr.ph ], [ -1163346256, %.loopexit.sink.split ], [ 0, %._crit_edge.us403 ], [ 0, %._crit_edge.us ]
+  %.0295 = phi i32 [ 0, %._crit_edge.us403 ], [ -1094995529, %18 ], [ -1094995529, %53 ], [ -1094995529, %83 ], [ -1094995529, %91 ], [ 0, %.loopexit366 ], [ -1163346256, %.loopexit.sink.split ], [ -1094995529, %50 ], [ -1094995529, %46 ], [ -1094995529, %42 ], [ 0, %329 ], [ 0, %349 ], [ 0, %.preheader356.lr.ph ], [ 0, %._crit_edge.us ]
   tail call void @av_free(ptr noundef nonnull %17) #9
   br label %366
 
@@ -1836,7 +1836,7 @@ mid_pred.exit:                                    ; preds = %357, %359, %360, %3
   br i1 %417, label %33, label %.thread311, !llvm.loop !103
 
 .thread311:                                       ; preds = %415, %33, %._crit_edge, %149, %9, %181
-  %.6 = phi i32 [ -1094995529, %181 ], [ 0, %9 ], [ 0, %._crit_edge ], [ 0, %149 ], [ -1094995529, %33 ], [ 0, %415 ]
+  %.6 = phi i32 [ -1094995529, %181 ], [ 0, %9 ], [ 0, %._crit_edge ], [ 0, %149 ], [ 0, %415 ], [ -1094995529, %33 ]
   ret i32 %.6
 }
 
@@ -2160,8 +2160,8 @@ define internal fastcc i32 @get_ur_golomb_jpegls(ptr noundef captures(none) %0, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %45, %107, %109, %104, %34
-  %storemerge123 = phi i32 [ %., %34 ], [ %.2, %104 ], [ %113, %109 ], [ %69, %107 ], [ %.0110130, %45 ]
-  %.0106 = phi i32 [ %38, %34 ], [ %106, %104 ], [ %114, %109 ], [ -1, %107 ], [ -1, %45 ]
+  %storemerge123 = phi i32 [ %., %34 ], [ %69, %107 ], [ %.2, %104 ], [ %113, %109 ], [ %.0110130, %45 ]
+  %.0106 = phi i32 [ %38, %34 ], [ -1, %107 ], [ %106, %104 ], [ %114, %109 ], [ -1, %45 ]
   store i32 %storemerge123, ptr %5, align 8, !tbaa !4
   ret i32 %.0106
 }

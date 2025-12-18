@@ -1932,7 +1932,7 @@ _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i843: ; preds = %527
   br label %.body475
 
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLi1ELin1ELi1ELi1ELin1EEEE6resizeEll.exit.thread: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i, %521, %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i839, %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i825, %501
-  %.sroa.0957.3 = phi ptr [ null, %501 ], [ null, %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i825 ], [ null, %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i839 ], [ null, %521 ], [ %530, %.lr.ph.i.i.i.i.i.i.i ], [ %509, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.sroa.0957.3 = phi ptr [ null, %521 ], [ null, %501 ], [ %530, %.lr.ph.i.i.i.i.i.i.i ], [ null, %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i825 ], [ null, %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i839 ], [ %509, %.lr.ph.i.i.i.i.i.i.i.i ]
   %542 = load ptr, ptr %459, align 8, !tbaa !33, !noalias !76
   %543 = getelementptr inbounds i32, ptr %542, i64 %.02761645
   %544 = load i64, ptr %467, align 8, !tbaa !32, !noalias !76
@@ -6778,7 +6778,7 @@ _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i741: ; preds = %489
   br label %.body453
 
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLi1ELin1ELi1ELi1ELin1EEEE6resizeEll.exit.thread: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i, %483, %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i737, %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i723, %463
-  %.sroa.0859.3 = phi ptr [ null, %463 ], [ null, %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i723 ], [ null, %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i737 ], [ null, %483 ], [ %492, %.lr.ph.i.i.i.i.i.i.i ], [ %471, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.sroa.0859.3 = phi ptr [ null, %483 ], [ null, %463 ], [ %492, %.lr.ph.i.i.i.i.i.i.i ], [ null, %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i723 ], [ null, %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i737 ], [ %471, %.lr.ph.i.i.i.i.i.i.i.i ]
   %504 = load ptr, ptr %421, align 8, !tbaa !33, !noalias !236
   %505 = getelementptr inbounds i32, ptr %504, i64 %.02661413
   %506 = load i64, ptr %429, align 8, !tbaa !32, !noalias !236
@@ -9590,7 +9590,7 @@ _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i761: ; preds = %493
   br label %.body463
 
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLi1ELin1ELi1ELi1ELin1EEEE6resizeEll.exit.thread: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i, %487, %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i757, %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i743, %467
-  %.sroa.0879.3 = phi ptr [ null, %467 ], [ null, %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i743 ], [ null, %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i757 ], [ null, %487 ], [ %496, %.lr.ph.i.i.i.i.i.i.i ], [ %475, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.sroa.0879.3 = phi ptr [ null, %487 ], [ null, %467 ], [ %496, %.lr.ph.i.i.i.i.i.i.i ], [ null, %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i743 ], [ null, %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i757 ], [ %475, %.lr.ph.i.i.i.i.i.i.i.i ]
   %508 = load ptr, ptr %425, align 8, !tbaa !33, !noalias !284
   %509 = getelementptr inbounds i32, ptr %508, i64 %.02661430
   %510 = load i64, ptr %433, align 8, !tbaa !32, !noalias !284
@@ -22242,7 +22242,7 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
   br label %454
 
 454:                                              ; preds = %.sink.split, %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE6resizeEmm.exit235, %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE6resizeEmm.exit242
-  %.2 = phi i64 [ %404, %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE6resizeEmm.exit235 ], [ %433, %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE6resizeEmm.exit242 ], [ %.sink289, %.sink.split ]
+  %.2 = phi i64 [ %433, %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE6resizeEmm.exit242 ], [ %404, %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE6resizeEmm.exit235 ], [ %.sink289, %.sink.split ]
   %.not138 = icmp eq i64 %.2, 0
   br i1 %.not138, label %.thread, label %.critedge.outer.backedge
 

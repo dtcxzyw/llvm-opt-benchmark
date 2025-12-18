@@ -1091,7 +1091,7 @@ lean_alloc_ctor.exit410:                          ; preds = %lean_dec.exit282
   br label %.backedge
 
 .backedge:                                        ; preds = %lean_alloc_ctor.exit410, %lean_alloc_ctor.exit423, %lean_alloc_ctor.exit436, %lean_alloc_ctor.exit430, %lean_alloc_ctor.exit417, %lean_alloc_ctor.exit407, %lean_dec.exit297, %lean_dec.exit292, %lean_dec.exit285, %lean_dec.exit289, %lean_dec.exit295, %lean_dec.exit298
-  %.0226.be = phi ptr [ %.0226, %lean_dec.exit298 ], [ %.0226, %lean_dec.exit295 ], [ %.0226, %lean_dec.exit289 ], [ %.0226, %lean_dec.exit285 ], [ %.0226, %lean_dec.exit292 ], [ %.0226, %lean_dec.exit297 ], [ %327, %lean_alloc_ctor.exit407 ], [ %359, %lean_alloc_ctor.exit410 ], [ %407, %lean_alloc_ctor.exit417 ], [ %464, %lean_alloc_ctor.exit423 ], [ %520, %lean_alloc_ctor.exit430 ], [ %582, %lean_alloc_ctor.exit436 ]
+  %.0226.be = phi ptr [ %582, %lean_alloc_ctor.exit436 ], [ %.0226, %lean_dec.exit298 ], [ %.0226, %lean_dec.exit295 ], [ %.0226, %lean_dec.exit289 ], [ %.0226, %lean_dec.exit285 ], [ %.0226, %lean_dec.exit292 ], [ %.0226, %lean_dec.exit297 ], [ %520, %lean_alloc_ctor.exit430 ], [ %327, %lean_alloc_ctor.exit407 ], [ %359, %lean_alloc_ctor.exit410 ], [ %407, %lean_alloc_ctor.exit417 ], [ %464, %lean_alloc_ctor.exit423 ]
   br label %9
 
 365:                                              ; preds = %lean_nat_lt.exit373
@@ -3330,7 +3330,7 @@ lean_dec.exit.i.i98:                              ; preds = %lean_string_utf8_at
   br label %l_System_Uri_pathToUri___lambda__2.exit
 
 l_System_Uri_pathToUri___lambda__2.exit:          ; preds = %lean_string_utf8_at_end.exit.i.i79, %lean_string_utf8_at_end.exit.i.i92, %lean_string_utf8_at_end.exit.i.i66, %lean_string_utf8_at_end.exit.i.i53, %lean_string_utf8_at_end.exit.i.i, %103, %102, %100, %74, %73, %71, %57, %56, %54, %40, %39, %37, %22, %21, %19, %1
-  %.02949.i.i.sink = phi ptr [ %2, %1 ], [ %13, %19 ], [ %13, %22 ], [ %13, %21 ], [ %31, %37 ], [ %31, %40 ], [ %31, %39 ], [ %48, %54 ], [ %48, %57 ], [ %48, %56 ], [ %65, %71 ], [ %65, %74 ], [ %65, %73 ], [ %94, %100 ], [ %94, %103 ], [ %94, %102 ], [ %.02951.i.i94, %lean_string_utf8_at_end.exit.i.i92 ], [ %.02951.i.i, %lean_string_utf8_at_end.exit.i.i ], [ %.02951.i.i55, %lean_string_utf8_at_end.exit.i.i53 ], [ %.02951.i.i68, %lean_string_utf8_at_end.exit.i.i66 ], [ %.02951.i.i81, %lean_string_utf8_at_end.exit.i.i79 ]
+  %.02949.i.i.sink = phi ptr [ %2, %1 ], [ %.02951.i.i55, %lean_string_utf8_at_end.exit.i.i53 ], [ %.02951.i.i, %lean_string_utf8_at_end.exit.i.i ], [ %.02951.i.i68, %lean_string_utf8_at_end.exit.i.i66 ], [ %.02951.i.i94, %lean_string_utf8_at_end.exit.i.i92 ], [ %13, %19 ], [ %13, %22 ], [ %13, %21 ], [ %31, %37 ], [ %31, %40 ], [ %31, %39 ], [ %48, %54 ], [ %48, %57 ], [ %48, %56 ], [ %65, %71 ], [ %65, %74 ], [ %65, %73 ], [ %94, %100 ], [ %94, %103 ], [ %94, %102 ], [ %.02951.i.i81, %lean_string_utf8_at_end.exit.i.i79 ]
   %104 = tail call ptr @lean_apply_2(ptr noundef %3, ptr noundef %.02949.i.i.sink, ptr noundef nonnull inttoptr (i64 1 to ptr)) #3
   ret ptr %104
 }

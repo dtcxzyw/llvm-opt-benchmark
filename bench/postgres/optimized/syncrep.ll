@@ -612,11 +612,11 @@ SyncRepGetNthLatestSyncRecPtr.exit.i:             ; preds = %.lr.ph.i24.i
   br label %SyncRepGetSyncRecPtr.exit
 
 SyncRepGetSyncRecPtr.exit:                        ; preds = %24, %.lr.ph.i.i, %.loopexit.i, %21, %SyncRepGetNthLatestSyncRecPtr.exit.i
-  %.06274 = phi i8 [ 1, %SyncRepGetNthLatestSyncRecPtr.exit.i ], [ 1, %.loopexit.i ], [ 0, %21 ], [ 1, %.lr.ph.i.i ], [ 0, %24 ]
-  %.069 = phi i64 [ %69, %SyncRepGetNthLatestSyncRecPtr.exit.i ], [ 0, %.loopexit.i ], [ 0, %21 ], [ %spec.select, %.lr.ph.i.i ], [ 0, %24 ]
-  %.065 = phi i64 [ %71, %SyncRepGetNthLatestSyncRecPtr.exit.i ], [ 0, %.loopexit.i ], [ 0, %21 ], [ %.267, %.lr.ph.i.i ], [ 0, %24 ]
-  %.063 = phi i64 [ %73, %SyncRepGetNthLatestSyncRecPtr.exit.i ], [ 0, %.loopexit.i ], [ 0, %21 ], [ %.2, %.lr.ph.i.i ], [ 0, %24 ]
-  %.019.ph.i = phi i1 [ true, %SyncRepGetNthLatestSyncRecPtr.exit.i ], [ false, %.loopexit.i ], [ false, %21 ], [ true, %.lr.ph.i.i ], [ false, %24 ]
+  %.06274 = phi i8 [ 1, %.lr.ph.i.i ], [ 1, %SyncRepGetNthLatestSyncRecPtr.exit.i ], [ 1, %.loopexit.i ], [ 0, %21 ], [ 0, %24 ]
+  %.069 = phi i64 [ %spec.select, %.lr.ph.i.i ], [ %69, %SyncRepGetNthLatestSyncRecPtr.exit.i ], [ 0, %.loopexit.i ], [ 0, %21 ], [ 0, %24 ]
+  %.065 = phi i64 [ %.267, %.lr.ph.i.i ], [ %71, %SyncRepGetNthLatestSyncRecPtr.exit.i ], [ 0, %.loopexit.i ], [ 0, %21 ], [ 0, %24 ]
+  %.063 = phi i64 [ %.2, %.lr.ph.i.i ], [ %73, %SyncRepGetNthLatestSyncRecPtr.exit.i ], [ 0, %.loopexit.i ], [ 0, %21 ], [ 0, %24 ]
+  %.019.ph.i = phi i1 [ true, %.lr.ph.i.i ], [ true, %SyncRepGetNthLatestSyncRecPtr.exit.i ], [ false, %.loopexit.i ], [ false, %21 ], [ false, %24 ]
   tail call void @pfree(ptr noundef %.pre) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %74 = load i8, ptr @announce_next_takeover, align 1, !range !4, !noundef !5
@@ -659,8 +659,8 @@ SyncRepGetSyncRecPtr.exit:                        ; preds = %24, %.lr.ph.i.i, %.
   br label %94
 
 94:                                               ; preds = %.sink.split, %83, %90, %SyncRepGetSyncRecPtr.exit
-  %95 = phi i1 [ %75, %SyncRepGetSyncRecPtr.exit ], [ true, %83 ], [ true, %90 ], [ true, %.sink.split ]
-  %.185 = phi i8 [ %.06274, %SyncRepGetSyncRecPtr.exit ], [ 1, %83 ], [ 1, %90 ], [ 1, %.sink.split ]
+  %95 = phi i1 [ %75, %SyncRepGetSyncRecPtr.exit ], [ true, %90 ], [ true, %83 ], [ true, %.sink.split ]
+  %.185 = phi i8 [ %.06274, %SyncRepGetSyncRecPtr.exit ], [ 1, %90 ], [ 1, %83 ], [ 1, %.sink.split ]
   %or.cond3 = select i1 %.019.ph.i, i1 %95, i1 false
   br i1 %or.cond3, label %100, label %96
 
@@ -718,7 +718,7 @@ SyncRepGetSyncRecPtr.exit:                        ; preds = %24, %.lr.ph.i.i, %.
   br i1 %.not22.i, label %SyncRepWakeQueue.exit, label %.lr.ph.split.i, !llvm.loop !16
 
 SyncRepWakeQueue.exit:                            ; preds = %113, %.lr.ph.split.i, %104, %100
-  %.0 = phi i32 [ 0, %100 ], [ 0, %104 ], [ %.01930.i, %.lr.ph.split.i ], [ %119, %113 ]
+  %.0 = phi i32 [ 0, %100 ], [ 0, %104 ], [ %119, %113 ], [ %.01930.i, %.lr.ph.split.i ]
   %120 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %121 = load volatile i64, ptr %120, align 8
   %122 = icmp ult i64 %121, %.065
@@ -764,7 +764,7 @@ SyncRepWakeQueue.exit:                            ; preds = %113, %.lr.ph.split.
   br i1 %.not22.i32, label %SyncRepWakeQueue.exit34, label %.lr.ph.split.i26, !llvm.loop !16
 
 SyncRepWakeQueue.exit34:                          ; preds = %133, %.lr.ph.split.i26, %123, %SyncRepWakeQueue.exit
-  %.012 = phi i32 [ 0, %SyncRepWakeQueue.exit ], [ 0, %123 ], [ %.01930.i28, %.lr.ph.split.i26 ], [ %139, %133 ]
+  %.012 = phi i32 [ 0, %SyncRepWakeQueue.exit ], [ 0, %123 ], [ %139, %133 ], [ %.01930.i28, %.lr.ph.split.i26 ]
   %140 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %141 = load volatile i64, ptr %140, align 8
   %142 = icmp ult i64 %141, %.063
@@ -810,7 +810,7 @@ SyncRepWakeQueue.exit34:                          ; preds = %133, %.lr.ph.split.
   br i1 %.not22.i47, label %SyncRepWakeQueue.exit49, label %.lr.ph.split.i41, !llvm.loop !16
 
 SyncRepWakeQueue.exit49:                          ; preds = %153, %.lr.ph.split.i41, %143, %SyncRepWakeQueue.exit34
-  %.013 = phi i32 [ 0, %SyncRepWakeQueue.exit34 ], [ 0, %143 ], [ %.01930.i43, %.lr.ph.split.i41 ], [ %159, %153 ]
+  %.013 = phi i32 [ 0, %SyncRepWakeQueue.exit34 ], [ 0, %143 ], [ %159, %153 ], [ %.01930.i43, %.lr.ph.split.i41 ]
   %160 = load ptr, ptr @MainLWLockArray, align 8
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 4096
   tail call void @LWLockRelease(ptr noundef nonnull %161) #10

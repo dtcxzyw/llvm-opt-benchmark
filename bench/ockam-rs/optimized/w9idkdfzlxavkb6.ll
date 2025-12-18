@@ -587,7 +587,7 @@ define hidden void @"_ZN167_$LT$$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$
   br label %23
 
 21:                                               ; preds = %18, %13
-  %.sroa.4.0 = phi i8 [ 1, %18 ], [ 0, %13 ]
+  %.sroa.4.0 = phi i8 [ 0, %13 ], [ 1, %18 ]
   store i8 %.sroa.4.0, ptr %0, align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %22, align 8
@@ -651,7 +651,7 @@ define hidden void @"_ZN167_$LT$$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$
   br label %22
 
 20:                                               ; preds = %17, %12
-  %.sroa.4.0 = phi i8 [ 1, %17 ], [ 0, %12 ]
+  %.sroa.4.0 = phi i8 [ 0, %12 ], [ 1, %17 ]
   store i8 %.sroa.4.0, ptr %0, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %21, align 8
@@ -5511,7 +5511,7 @@ define hidden void @_ZN5serde2de10EnumAccess7variant17h0a8402e36cc8c52dE.llvm.15
   br label %23
 
 21:                                               ; preds = %18, %13
-  %.sroa.4.0.i = phi i8 [ 1, %18 ], [ 0, %13 ]
+  %.sroa.4.0.i = phi i8 [ 0, %13 ], [ 1, %18 ]
   store i8 %.sroa.4.0.i, ptr %0, align 8, !alias.scope !1267, !noalias !1291
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %22, align 8, !alias.scope !1267, !noalias !1291

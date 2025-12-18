@@ -875,7 +875,7 @@ egg_parse_archive_headers.exit:                   ; preds = %egg_parse_archive_e
   br label %.thread68.i
 
 .thread68.i:                                      ; preds = %212, %.thread68.i.loopexit789, %.thread68.i.loopexit667, %.thread68.i.loopexit545, %.thread68.i.loopexit370, %.thread68.i.loopexit, %218, %217, %216, %215, %214
-  %.0.i.i183 = phi ptr [ @.str.17, %218 ], [ @.str.16, %217 ], [ @.str.6, %.thread68.i.loopexit ], [ @.str.8, %.thread68.i.loopexit370 ], [ @.str.9, %.thread68.i.loopexit545 ], [ @.str.10, %.thread68.i.loopexit667 ], [ @.str.11, %.thread68.i.loopexit789 ], [ @.str.13, %214 ], [ @.str.14, %215 ], [ @.str.15, %216 ], [ @.str.12, %212 ]
+  %.0.i.i183 = phi ptr [ @.str.17, %218 ], [ @.str.16, %217 ], [ @.str.15, %216 ], [ @.str.6, %.thread68.i.loopexit ], [ @.str.8, %.thread68.i.loopexit370 ], [ @.str.9, %.thread68.i.loopexit545 ], [ @.str.10, %.thread68.i.loopexit667 ], [ @.str.11, %.thread68.i.loopexit789 ], [ @.str.13, %214 ], [ @.str.14, %215 ], [ @.str.12, %212 ]
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.145, i32 noundef %213, ptr noundef nonnull %.0.i.i183) #14
   br label %466
 
@@ -3271,8 +3271,8 @@ define range(i32 0, 28) i32 @cli_egg_extract_file(ptr noundef captures(address_i
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.83) #14
   br label %.loopexit
 
-141:                                              ; preds = %139, %135, %.thread179
-  %142 = phi i64 [ %.pre284, %139 ], [ %132, %135 ], [ %132, %.thread179 ]
+141:                                              ; preds = %.thread179, %135, %139
+  %142 = phi i64 [ %132, %.thread179 ], [ %132, %135 ], [ %.pre284, %139 ]
   %143 = add nuw i64 %.0111253, 1
   %144 = icmp ult i64 %143, %142
   br i1 %144, label %57, label %.loopexit

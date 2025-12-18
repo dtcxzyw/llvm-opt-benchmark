@@ -1079,7 +1079,7 @@ find_next_header_sequence.exit.thread.thread:     ; preds = %contains.exit.i, %2
   %.pre309312 = load i32, ptr %5, align 4
   br label %220
 
-find_next_header_sequence.exit.thread.thread315:  ; preds = %189, %contains.exit60.i, %218, %215, %214, %213, %211, %207, %206, %205, %204, %201
+find_next_header_sequence.exit.thread.thread315:  ; preds = %189, %contains.exit60.i, %218, %201, %204, %215, %214, %213, %205, %211, %206, %207
   %.pre309316 = load i32, ptr %5, align 4
   br label %.critedge
 

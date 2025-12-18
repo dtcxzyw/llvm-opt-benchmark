@@ -1128,7 +1128,7 @@ switch.lookup7:                                   ; preds = %54
   br label %111
 
 111:                                              ; preds = %.sink.split, %108, %100, %97
-  %112 = phi i32 [ %1, %108 ], [ %1, %97 ], [ %1, %100 ], [ 0, %.sink.split ]
+  %112 = phi i32 [ %1, %100 ], [ %1, %108 ], [ %1, %97 ], [ 0, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %112
 }
@@ -1628,8 +1628,8 @@ switch.lookup:                                    ; preds = %12
 101:                                              ; preds = %34
   br i1 %37, label %.thread11, label %.thread8
 
-.thread8:                                         ; preds = %83, %83, %83, %83, %83, %83, %83, %83, %83, %83, %83, %83, %83, %83, %42, %67, %86, %101
-  %102 = phi i32 [ 3, %101 ], [ 4, %83 ], [ 4, %83 ], [ 4, %83 ], [ 4, %83 ], [ 4, %83 ], [ 4, %83 ], [ 4, %83 ], [ 4, %83 ], [ 4, %83 ], [ 4, %83 ], [ 4, %83 ], [ 4, %83 ], [ 4, %83 ], [ 4, %83 ], [ 3, %42 ], [ 1, %67 ], [ 2, %86 ]
+.thread8:                                         ; preds = %42, %67, %86, %83, %83, %83, %83, %83, %83, %83, %83, %83, %83, %83, %83, %83, %83, %101
+  %102 = phi i32 [ 3, %101 ], [ 4, %83 ], [ 4, %83 ], [ 4, %83 ], [ 4, %83 ], [ 4, %83 ], [ 4, %83 ], [ 4, %83 ], [ 4, %83 ], [ 4, %83 ], [ 4, %83 ], [ 3, %42 ], [ 4, %83 ], [ 1, %67 ], [ 2, %86 ], [ 4, %83 ], [ 4, %83 ], [ 4, %83 ]
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %104 = load i32, ptr %103, align 4
   %105 = icmp eq i32 %104, -1
@@ -2847,7 +2847,7 @@ define dso_local range(i32 -2147483648, 1) i32 @scsi_mode_sense(ptr noundef capt
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.split26, %111, %75, %77, %79, %92, %.split26.us.us, %42, %.split.us.us, %53, %63, %.split47.us, %163
-  %168 = phi i32 [ 0, %163 ], [ -5, %92 ], [ -22, %.split47.us ], [ %40, %.split.us.us ], [ -5, %63 ], [ -5, %53 ], [ -5, %42 ], [ -5, %.split26.us.us ], [ %81, %79 ], [ -22, %75 ], [ -22, %77 ], [ -5, %111 ], [ -5, %.split26 ]
+  %168 = phi i32 [ 0, %163 ], [ -22, %77 ], [ %40, %.split.us.us ], [ -22, %.split47.us ], [ -5, %63 ], [ -5, %53 ], [ -5, %42 ], [ -5, %.split26.us.us ], [ %81, %79 ], [ -22, %75 ], [ -5, %92 ], [ -5, %111 ], [ -5, %.split26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -4084,7 +4084,7 @@ switch.lookup:                                    ; preds = %37
   br label %47
 
 47:                                               ; preds = %switch.lookup, %45, %44, %43, %42, %35
-  %48 = phi i8 [ 1, %45 ], [ 3, %44 ], [ 6, %43 ], [ 9, %35 ], [ 7, %42 ], [ %switch.masked, %switch.lookup ]
+  %48 = phi i8 [ %switch.masked, %switch.lookup ], [ 1, %45 ], [ 3, %44 ], [ 6, %43 ], [ 9, %35 ], [ 7, %42 ]
   %49 = icmp ugt i8 %22, %48
   br i1 %49, label %.thread, label %50
 
@@ -5485,7 +5485,7 @@ define internal range(i32 -1, -2147483648) i32 @scsi_mq_get_budget(ptr noundef r
   br label %54
 
 54:                                               ; preds = %6, %13, %51, %46, %42
-  %55 = phi i32 [ -1, %46 ], [ -1, %42 ], [ -1, %51 ], [ %4, %6 ], [ %4, %13 ]
+  %55 = phi i32 [ -1, %46 ], [ -1, %42 ], [ -1, %51 ], [ %4, %13 ], [ %4, %6 ]
   ret i32 %55
 }
 

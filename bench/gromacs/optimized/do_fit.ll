@@ -187,9 +187,9 @@ define noundef float @_Z16calc_similar_indbiPKiPKfPA3_fS4_(i1 noundef zeroext %0
   br i1 %exitcond88.not, label %._crit_edge, label %.split, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.split49, %.split49.us, %.split49.us.us, %.split49.us.us.us, %6
-  %.041.lcssa = phi float [ 0.000000e+00, %6 ], [ %47, %.split49.us ], [ %23, %.split49.us.us.us ], [ %42, %.split49.us.us ], [ %71, %.split49 ]
-  %.037.lcssa = phi float [ 0.000000e+00, %6 ], [ 0.000000e+00, %.split49.us ], [ %22, %.split49.us.us.us ], [ %41, %.split49.us.us ], [ 0.000000e+00, %.split49 ]
-  %.0.lcssa = phi float [ 0.000000e+00, %6 ], [ %55, %.split49.us ], [ %19, %.split49.us.us.us ], [ %38, %.split49.us.us ], [ %70, %.split49 ]
+  %.041.lcssa = phi float [ 0.000000e+00, %6 ], [ %47, %.split49.us ], [ %42, %.split49.us.us ], [ %23, %.split49.us.us.us ], [ %71, %.split49 ]
+  %.037.lcssa = phi float [ 0.000000e+00, %6 ], [ 0.000000e+00, %.split49.us ], [ %41, %.split49.us.us ], [ %22, %.split49.us.us.us ], [ 0.000000e+00, %.split49 ]
+  %.0.lcssa = phi float [ 0.000000e+00, %6 ], [ %55, %.split49.us ], [ %38, %.split49.us.us ], [ %19, %.split49.us.us.us ], [ %70, %.split49 ]
   br i1 %0, label %72, label %76
 
 72:                                               ; preds = %._crit_edge
@@ -1356,7 +1356,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %20, %
   br i1 %exitcond123.not, label %.loopexit71, label %.lr.ph.us83, !llvm.loop !53
 
 .loopexit71:                                      ; preds = %._crit_edge.us, %._crit_edge.us84, %.preheader72, %.preheader70
-  %.155 = phi float [ 0.000000e+00, %.preheader70 ], [ 0.000000e+00, %.preheader72 ], [ %54, %._crit_edge.us84 ], [ %43, %._crit_edge.us ]
+  %.155 = phi float [ %54, %._crit_edge.us84 ], [ 0.000000e+00, %.preheader70 ], [ 0.000000e+00, %.preheader72 ], [ %43, %._crit_edge.us ]
   %55 = icmp sgt i32 %0, 0
   br i1 %55, label %.lr.ph.preheader, label %._crit_edge
 

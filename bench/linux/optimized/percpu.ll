@@ -1417,7 +1417,7 @@ define internal fastcc ptr @pcpu_alloc(i64 noundef %0, i64 noundef %1, i1 nounde
   br i1 %178, label %.loopexit, label %.split, !llvm.loop !30
 
 .loopexit:                                        ; preds = %175, %103, %.preheader
-  %179 = phi ptr [ %88, %.preheader ], [ %104, %103 ], [ %176, %175 ]
+  %179 = phi ptr [ %104, %103 ], [ %88, %.preheader ], [ %176, %175 ]
   %180 = add i32 %89, 1
   %181 = load i32, ptr @pcpu_free_slot, align 4
   %182 = icmp sgt i32 %180, %181
@@ -2753,7 +2753,7 @@ define dso_local noundef zeroext i1 @__is_kernel_percpu_address(i64 noundef %0, 
   br label %.thread
 
 .thread:                                          ; preds = %9, %5, %13, %30, %28
-  %38 = phi i1 [ true, %30 ], [ true, %28 ], [ false, %13 ], [ false, %5 ], [ false, %9 ]
+  %38 = phi i1 [ true, %28 ], [ true, %30 ], [ false, %13 ], [ false, %5 ], [ false, %9 ]
   ret i1 %38
 }
 
@@ -6629,7 +6629,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @pcpu_populate_chunk(ptr no
   br i1 %266, label %254, label %.thread27, !prof !40, !llvm.loop !162
 
 .thread27:                                        ; preds = %.loopexit38, %118, %97, %129, %.loopexit34, %135, %259, %263, %254, %.loopexit.us, %226, %.thread31.split.us, %.thread24, %20
-  %267 = phi i32 [ -12, %20 ], [ -12, %.thread24 ], [ 0, %129 ], [ -12, %.loopexit.us ], [ -12, %259 ], [ -12, %.thread31.split.us ], [ -12, %226 ], [ -12, %254 ], [ -12, %263 ], [ 0, %135 ], [ 0, %.loopexit34 ], [ -12, %97 ], [ -12, %118 ], [ -12, %.loopexit38 ]
+  %267 = phi i32 [ -12, %20 ], [ -12, %.loopexit.us ], [ -12, %259 ], [ -12, %.thread24 ], [ 0, %129 ], [ -12, %.thread31.split.us ], [ -12, %226 ], [ -12, %254 ], [ -12, %263 ], [ 0, %135 ], [ 0, %.loopexit34 ], [ -12, %97 ], [ -12, %118 ], [ -12, %.loopexit38 ]
   ret i32 %267
 }
 

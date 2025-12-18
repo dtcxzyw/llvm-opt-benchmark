@@ -201,7 +201,7 @@ define i32 @select(i32 noundef %0, ptr noundef captures(address_is_null) %1, ptr
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %88, %67, %52, %.lr.ph.split.split.us.split.us, %29, %.lr.ph.split.us.split.us.split
-  %.0101.lcssa = phi i32 [ %.1102.us154, %67 ], [ %spec.select, %.lr.ph.split.us.split.us.split ], [ %.1102.us, %29 ], [ %.1102.us147.us, %.lr.ph.split.split.us.split.us ], [ %.1102.us147, %52 ], [ %.1102, %88 ]
+  %.0101.lcssa = phi i32 [ %.1102.us154, %67 ], [ %.1102.us, %29 ], [ %.1102.us147, %52 ], [ %.1102.us147.us, %.lr.ph.split.split.us.split.us ], [ %spec.select, %.lr.ph.split.us.split.us.split ], [ %.1102, %88 ]
   %90 = icmp sgt i32 %.0101.lcssa, 0
   br i1 %90, label %91, label %.lr.ph163
 

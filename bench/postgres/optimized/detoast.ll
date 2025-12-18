@@ -472,7 +472,7 @@ tailrecurse:                                      ; preds = %16
   br label %.thread
 
 .thread:                                          ; preds = %13, %31, %29, %.split109, %38
-  %.2 = phi ptr [ %39, %38 ], [ %.tr101, %.split109 ], [ %32, %31 ], [ %30, %29 ], [ %.tr101, %13 ]
+  %.2 = phi ptr [ %30, %29 ], [ %39, %38 ], [ %.tr101, %.split109 ], [ %32, %31 ], [ %.tr101, %13 ]
   %40 = load i8, ptr %.2, align 1
   %41 = and i8 %40, 3
   %42 = icmp eq i8 %41, 2

@@ -3962,8 +3962,8 @@ define hidden void @_ZN2cv10ExrDecoder11ChromaToRGBEPfiii(ptr noundef nonnull re
   ret void
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.lver.orig, %.lr.ph.split, %.ph.lver.orig, %88, %.preheader
-  %115 = phi i32 [ %20, %.preheader ], [ %143, %.lr.ph.split ], [ %20, %88 ], [ %20, %.ph.lver.orig ], [ %58, %.lr.ph.split.lver.orig ]
-  %116 = phi i32 [ %21, %.preheader ], [ %143, %.lr.ph.split ], [ %20, %88 ], [ %20, %.ph.lver.orig ], [ %58, %.lr.ph.split.lver.orig ]
+  %115 = phi i32 [ %143, %.lr.ph.split ], [ %20, %.preheader ], [ %20, %88 ], [ %20, %.ph.lver.orig ], [ %58, %.lr.ph.split.lver.orig ]
+  %116 = phi i32 [ %143, %.lr.ph.split ], [ %21, %.preheader ], [ %20, %88 ], [ %20, %.ph.lver.orig ], [ %58, %.lr.ph.split.lver.orig ]
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
   %exitcond101.not = icmp eq i64 %indvars.iv.next98, %wide.trip.count100
   br i1 %exitcond101.not, label %._crit_edge90, label %.preheader, !llvm.loop !139
@@ -4193,8 +4193,8 @@ define hidden void @_ZN2cv10ExrDecoder11ChromaToBGREPfiii(ptr noundef nonnull re
   ret void
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.lver.orig, %.lr.ph.split, %.ph.lver.orig, %88, %.preheader
-  %115 = phi i32 [ %20, %.preheader ], [ %143, %.lr.ph.split ], [ %20, %88 ], [ %20, %.ph.lver.orig ], [ %58, %.lr.ph.split.lver.orig ]
-  %116 = phi i32 [ %21, %.preheader ], [ %143, %.lr.ph.split ], [ %20, %88 ], [ %20, %.ph.lver.orig ], [ %58, %.lr.ph.split.lver.orig ]
+  %115 = phi i32 [ %143, %.lr.ph.split ], [ %20, %.preheader ], [ %20, %88 ], [ %20, %.ph.lver.orig ], [ %58, %.lr.ph.split.lver.orig ]
+  %116 = phi i32 [ %143, %.lr.ph.split ], [ %21, %.preheader ], [ %20, %88 ], [ %20, %.ph.lver.orig ], [ %58, %.lr.ph.split.lver.orig ]
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
   %exitcond101.not = icmp eq i64 %indvars.iv.next98, %wide.trip.count100
   br i1 %exitcond101.not, label %._crit_edge90, label %.preheader, !llvm.loop !141

@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 define range(i32 0, 2) i32 @BN_X931_derive_prime_ex(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
   %10 = tail call i32 @BN_is_odd(ptr noundef %6) #2
   %.not = icmp eq i32 %10, 0
-  br i1 %.not, label %65, label %11
+  br i1 %.not, label %64, label %11
 
 11:                                               ; preds = %9
   tail call void @BN_CTX_start(ptr noundef %7) #2
@@ -94,15 +94,15 @@ define range(i32 0, 2) i32 @BN_X931_derive_prime_ex(ptr noundef %0, ptr noundef 
 47:                                               ; preds = %45
   %48 = tail call i32 @BN_add(ptr noundef nonnull %0, ptr noundef nonnull %0, ptr noundef %3) #2
   %.not95 = icmp eq i32 %48, 0
-  br i1 %.not95, label %.thread106, label %.critedge
+  br i1 %.not95, label %.thread106, label %.preheader
 
-.critedge:                                        ; preds = %47, %61
+.preheader:                                       ; preds = %47, %61
   %49 = tail call i32 @BN_GENCB_call(ptr noundef %8, i32 noundef 0, i32 noundef 1) #2
   %50 = tail call ptr @BN_copy(ptr noundef nonnull %22, ptr noundef nonnull %0) #2
   %.not96 = icmp eq ptr %50, null
   br i1 %.not96, label %.thread106, label %51
 
-51:                                               ; preds = %.critedge
+51:                                               ; preds = %.preheader
   %52 = tail call i32 @BN_sub_word(ptr noundef nonnull %22, i64 noundef 1) #2
   %.not97 = icmp eq i32 %52, 0
   br i1 %.not97, label %.thread106, label %53
@@ -124,23 +124,23 @@ define range(i32 0, 2) i32 @BN_X931_derive_prime_ex(ptr noundef %0, ptr noundef 
 
 60:                                               ; preds = %57
   %.not100 = icmp eq i32 %58, 0
-  br i1 %.not100, label %61, label %63
+  br i1 %.not100, label %61, label %.critedge
 
 61:                                               ; preds = %60, %55
   %62 = tail call i32 @BN_add(ptr noundef nonnull %0, ptr noundef nonnull %0, ptr noundef %21) #2
   %.not101 = icmp eq i32 %62, 0
-  br i1 %.not101, label %.thread106, label %.critedge
+  br i1 %.not101, label %.thread106, label %.preheader
 
-63:                                               ; preds = %60
-  %64 = tail call i32 @BN_GENCB_call(ptr noundef %8, i32 noundef 3, i32 noundef 0) #2
+.critedge:                                        ; preds = %60
+  %63 = tail call i32 @BN_GENCB_call(ptr noundef %8, i32 noundef 3, i32 noundef 0) #2
   br label %.thread106
 
-.thread106:                                       ; preds = %61, %57, %.critedge, %51, %53, %47, %45, %43, %38, %36, %34, %32, %30, %28, %26, %24, %19, %63
-  %.079 = phi i32 [ 0, %19 ], [ 1, %63 ], [ 0, %47 ], [ 0, %45 ], [ 0, %43 ], [ 0, %38 ], [ 0, %36 ], [ 0, %34 ], [ 0, %32 ], [ 0, %30 ], [ 0, %28 ], [ 0, %26 ], [ 0, %24 ], [ 0, %53 ], [ 0, %51 ], [ 0, %.critedge ], [ 0, %57 ], [ 0, %61 ]
+.thread106:                                       ; preds = %61, %57, %.preheader, %51, %53, %47, %45, %43, %38, %36, %34, %32, %30, %28, %26, %24, %19, %.critedge
+  %.079 = phi i32 [ 0, %19 ], [ 1, %.critedge ], [ 0, %24 ], [ 0, %47 ], [ 0, %45 ], [ 0, %43 ], [ 0, %38 ], [ 0, %36 ], [ 0, %34 ], [ 0, %32 ], [ 0, %30 ], [ 0, %28 ], [ 0, %26 ], [ 0, %53 ], [ 0, %51 ], [ 0, %.preheader ], [ 0, %57 ], [ 0, %61 ]
   tail call void @BN_CTX_end(ptr noundef %7) #2
-  br label %65
+  br label %64
 
-65:                                               ; preds = %9, %.thread106
+64:                                               ; preds = %9, %.thread106
   %.0 = phi i32 [ %.079, %.thread106 ], [ 0, %9 ]
   ret i32 %.0
 }

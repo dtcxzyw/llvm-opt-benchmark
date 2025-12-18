@@ -2821,7 +2821,7 @@ _ZN13obj_hashtableI4exprEC2Ej.exit:               ; preds = %164
   br i1 %.not27.old.i.i, label %.loopexit442, label %.lr.ph38.i.i.backedge
 
 .lr.ph38.i.i.backedge:                            ; preds = %227, %224
-  %.137.i.i.be = phi ptr [ %.old.i.i, %227 ], [ %226, %224 ]
+  %.137.i.i.be = phi ptr [ %226, %224 ], [ %.old.i.i, %227 ]
   br label %.lr.ph38.i.i, !llvm.loop !310
 
 .loopexit442:                                     ; preds = %213, %227, %224, %.preheader.i.i
@@ -25318,7 +25318,7 @@ _ZNK6vectorIPN7datalog4ruleELb0EjE4sizeEv.exit:   ; preds = %.preheader272, %167
   br i1 %.not27.old.i.i.i.i, label %_ZNK10model_core16get_const_interpEP9func_decl.exit, label %.lr.ph38.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.backedge:                        ; preds = %138, %135
-  %.137.i.i.i.i.be = phi ptr [ %.old.i.i.i.i, %138 ], [ %137, %135 ]
+  %.137.i.i.i.i.be = phi ptr [ %137, %135 ], [ %.old.i.i.i.i, %138 ]
   br label %.lr.ph38.i.i.i.i, !llvm.loop !698
 
 .loopexit.i:                                      ; preds = %119, %130
@@ -25556,7 +25556,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit:
   br i1 %.not27.old.i.i.i.i118, label %_ZNK10model_core16get_const_interpEP9func_decl.exit125.thread, label %.lr.ph38.i.i.i.i114.backedge
 
 .lr.ph38.i.i.i.i114.backedge:                     ; preds = %240, %237
-  %.137.i.i.i.i115.be = phi ptr [ %.old.i.i.i.i117, %240 ], [ %239, %237 ]
+  %.137.i.i.i.i115.be = phi ptr [ %239, %237 ], [ %.old.i.i.i.i117, %240 ]
   br label %.lr.ph38.i.i.i.i114, !llvm.loop !698
 
 _ZNK10model_core16get_const_interpEP9func_decl.exit125: ; preds = %221, %232
@@ -33969,7 +33969,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK13rewriter_core10is_blockedEP
   br i1 %.not27.old.i.i, label %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit, label %.lr.ph38.i.i.backedge
 
 .lr.ph38.i.i.backedge:                            ; preds = %35, %32
-  %.137.i.i.be = phi ptr [ %.old.i.i, %35 ], [ %34, %32 ]
+  %.137.i.i.be = phi ptr [ %34, %32 ], [ %.old.i.i, %35 ]
   br label %.lr.ph38.i.i, !llvm.loop !310
 
 _ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit: ; preds = %16, %21, %27, %32, %35, %.preheader.i.i
@@ -34279,7 +34279,7 @@ define linkonce_odr hidden noundef i32 @_ZN7datalog3bmc9nonlinear14level_replace
   br i1 %.not27.old.i.i.i.i, label %_ZN7datalog3bmc9nonlinear14level_replacer12is_predicateEP9func_decl.exit.thread, label %.lr.ph38.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.backedge:                        ; preds = %43, %40
-  %.137.i.i.i.i.be = phi ptr [ %.old.i.i.i.i, %43 ], [ %42, %40 ]
+  %.137.i.i.i.i.be = phi ptr [ %42, %40 ], [ %.old.i.i.i.i, %43 ]
   br label %.lr.ph38.i.i.i.i, !llvm.loop !771
 
 _ZN7datalog3bmc9nonlinear14level_replacer12is_predicateEP9func_decl.exit: ; preds = %24, %35

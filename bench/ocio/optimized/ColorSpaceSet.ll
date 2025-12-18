@@ -1065,8 +1065,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit55: ; preds = %85,
   br i1 %.not70, label %18, label %.thread65, !llvm.loop !60
 
 .thread65:                                        ; preds = %._crit_edge, %10, %.thread, %44
-  %.not7089 = phi i1 [ true, %.thread ], [ true, %44 ], [ false, %10 ], [ false, %._crit_edge ]
-  %.169 = phi i32 [ %84, %.thread ], [ %45, %44 ], [ undef, %10 ], [ undef, %._crit_edge ]
+  %.not7089 = phi i1 [ true, %44 ], [ true, %.thread ], [ false, %10 ], [ false, %._crit_edge ]
+  %.169 = phi i32 [ %45, %44 ], [ %84, %.thread ], [ undef, %10 ], [ undef, %._crit_edge ]
   %98 = load ptr, ptr %5, align 8, !tbaa !56
   %99 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %100 = icmp eq ptr %98, %99

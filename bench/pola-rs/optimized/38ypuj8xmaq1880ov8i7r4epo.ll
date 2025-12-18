@@ -4085,7 +4085,7 @@ define hidden void @"_ZN122_$LT$polars_parquet_format..parquet_format..ColumnChu
   br label %.loopexit.split-lp.i
 
 .loopexit.split-lp.i.loopexit.split-lp:           ; preds = %273, %276, %305, %576
-  %.sroa.0305.1.ph.i.ph = phi i1 [ false, %305 ], [ true, %276 ], [ true, %273 ], [ true, %576 ]
+  %.sroa.0305.1.ph.i.ph = phi i1 [ true, %276 ], [ true, %273 ], [ true, %576 ], [ false, %305 ]
   %lpad.loopexit.split-lp986 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp.i
@@ -8673,7 +8673,7 @@ define hidden void @"_ZN123_$LT$polars_parquet_format..parquet_format..FileMetaD
   br label %119
 
 .loopexit.split-lp:                               ; preds = %152, %130, %132, %161, %430, %147, %139, %144
-  %.sroa.0177.1.ph = phi i1 [ true, %430 ], [ true, %130 ], [ true, %132 ], [ true, %139 ], [ true, %144 ], [ true, %147 ], [ true, %152 ], [ false, %161 ]
+  %.sroa.0177.1.ph = phi i1 [ true, %130 ], [ true, %132 ], [ true, %139 ], [ true, %144 ], [ true, %147 ], [ true, %152 ], [ true, %430 ], [ false, %161 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %119
@@ -26779,7 +26779,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17h
   br i1 %19, label %.lr.ph157, label %._crit_edge
 
 .critedge:                                        ; preds = %.outer.backedge, %70, %3
-  %.sroa.0.0.ph.lcssa84 = phi ptr [ null, %3 ], [ %.sroa.0.0.ph88, %70 ], [ %.sroa.0.0.ph.be, %.outer.backedge ]
+  %.sroa.0.0.ph.lcssa84 = phi ptr [ %.sroa.0.0.ph88, %70 ], [ null, %3 ], [ %.sroa.0.0.ph.be, %.outer.backedge ]
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   br label %83
@@ -27039,7 +27039,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17h
   br i1 %19, label %.lr.ph157, label %._crit_edge
 
 .critedge:                                        ; preds = %.outer.backedge, %70, %3
-  %.sroa.0.0.ph.lcssa84 = phi ptr [ null, %3 ], [ %.sroa.0.0.ph88, %70 ], [ %.sroa.0.0.ph.be, %.outer.backedge ]
+  %.sroa.0.0.ph.lcssa84 = phi ptr [ %.sroa.0.0.ph88, %70 ], [ null, %3 ], [ %.sroa.0.0.ph.be, %.outer.backedge ]
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   br label %82
@@ -27298,7 +27298,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17h
   br i1 %19, label %.lr.ph157, label %._crit_edge
 
 .critedge:                                        ; preds = %.outer.backedge, %70, %3
-  %.sroa.0.0.ph.lcssa84 = phi ptr [ null, %3 ], [ %.sroa.0.0.ph88, %70 ], [ %.sroa.0.0.ph.be, %.outer.backedge ]
+  %.sroa.0.0.ph.lcssa84 = phi ptr [ %.sroa.0.0.ph88, %70 ], [ null, %3 ], [ %.sroa.0.0.ph.be, %.outer.backedge ]
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   br label %82
@@ -55721,7 +55721,7 @@ define internal void @"_ZN3std4sync6poison4once4Once15call_once_force28_$u7b$$u7
           to label %57 unwind label %55
 
 .loopexit.i.i.i.i:                                ; preds = %38, %36, %27, %.lr.ph.i.i.i.i.i, %18, %18, %13
-  %.sroa.4.0.ph.i.i.i.i = phi i8 [ 1, %18 ], [ 0, %13 ], [ 1, %18 ], [ 1, %.lr.ph.i.i.i.i.i ], [ 2, %38 ], [ 1, %27 ], [ 2, %36 ]
+  %.sroa.4.0.ph.i.i.i.i = phi i8 [ 1, %18 ], [ 1, %18 ], [ 0, %13 ], [ 1, %.lr.ph.i.i.i.i.i ], [ 2, %38 ], [ 1, %27 ], [ 2, %36 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !4040
   store i8 %.sroa.4.0.ph.i.i.i.i, ptr %3, align 1, !noalias !4040
   invoke void @_ZN4core6result13unwrap_failed17h730db56f15e0885aE(ptr noalias noundef nonnull readonly align 1 @anon.8d4d05d48f1984be0c820ace9dd61f64.400, i64 noundef 43, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.8d4d05d48f1984be0c820ace9dd61f64.398, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8d4d05d48f1984be0c820ace9dd61f64.532) #37
@@ -58652,7 +58652,7 @@ define internal noundef i64 @_ZN4core3ops8function6FnOnce9call_once17h01c1d40f04
           to label %52 unwind label %50
 
 .loopexit.i.i:                                    ; preds = %33, %31, %22, %.lr.ph.i.i.i, %13, %13, %8
-  %.sroa.4.0.ph.i.i = phi i8 [ 1, %13 ], [ 0, %8 ], [ 1, %13 ], [ 1, %.lr.ph.i.i.i ], [ 2, %33 ], [ 1, %22 ], [ 2, %31 ]
+  %.sroa.4.0.ph.i.i = phi i8 [ 1, %13 ], [ 1, %13 ], [ 0, %8 ], [ 1, %.lr.ph.i.i.i ], [ 2, %33 ], [ 1, %22 ], [ 2, %31 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %1), !noalias !4409
   store i8 %.sroa.4.0.ph.i.i, ptr %1, align 1, !noalias !4409
   invoke void @_ZN4core6result13unwrap_failed17h730db56f15e0885aE(ptr noalias noundef nonnull readonly align 1 @anon.8d4d05d48f1984be0c820ace9dd61f64.400, i64 noundef 43, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.8d4d05d48f1984be0c820ace9dd61f64.398, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8d4d05d48f1984be0c820ace9dd61f64.676) #37
@@ -58815,7 +58815,7 @@ define internal noundef i64 @_ZN4core3ops8function6FnOnce9call_once17h10ddcb05de
           to label %52 unwind label %50
 
 .loopexit.i.i:                                    ; preds = %33, %31, %22, %.lr.ph.i.i.i, %13, %13, %8
-  %.sroa.4.0.ph.i.i = phi i8 [ 1, %13 ], [ 0, %8 ], [ 1, %13 ], [ 1, %.lr.ph.i.i.i ], [ 2, %33 ], [ 1, %22 ], [ 2, %31 ]
+  %.sroa.4.0.ph.i.i = phi i8 [ 1, %13 ], [ 1, %13 ], [ 0, %8 ], [ 1, %.lr.ph.i.i.i ], [ 2, %33 ], [ 1, %22 ], [ 2, %31 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %1), !noalias !4421
   store i8 %.sroa.4.0.ph.i.i, ptr %1, align 1, !noalias !4421
   invoke void @_ZN4core6result13unwrap_failed17h730db56f15e0885aE(ptr noalias noundef nonnull readonly align 1 @anon.8d4d05d48f1984be0c820ace9dd61f64.400, i64 noundef 43, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.8d4d05d48f1984be0c820ace9dd61f64.398, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8d4d05d48f1984be0c820ace9dd61f64.678) #37
@@ -58978,7 +58978,7 @@ define internal noundef i64 @_ZN4core3ops8function6FnOnce9call_once17h9102703e62
           to label %52 unwind label %50
 
 .loopexit.i.i:                                    ; preds = %33, %31, %22, %.lr.ph.i.i.i, %13, %13, %8
-  %.sroa.4.0.ph.i.i = phi i8 [ 1, %13 ], [ 0, %8 ], [ 1, %13 ], [ 1, %.lr.ph.i.i.i ], [ 2, %33 ], [ 1, %22 ], [ 2, %31 ]
+  %.sroa.4.0.ph.i.i = phi i8 [ 1, %13 ], [ 1, %13 ], [ 0, %8 ], [ 1, %.lr.ph.i.i.i ], [ 2, %33 ], [ 1, %22 ], [ 2, %31 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %1), !noalias !4433
   store i8 %.sroa.4.0.ph.i.i, ptr %1, align 1, !noalias !4433
   invoke void @_ZN4core6result13unwrap_failed17h730db56f15e0885aE(ptr noalias noundef nonnull readonly align 1 @anon.8d4d05d48f1984be0c820ace9dd61f64.400, i64 noundef 43, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.8d4d05d48f1984be0c820ace9dd61f64.398, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8d4d05d48f1984be0c820ace9dd61f64.580) #37
@@ -59141,7 +59141,7 @@ define internal noundef i64 @_ZN4core3ops8function6FnOnce9call_once17haed0f6f1aa
           to label %52 unwind label %50
 
 .loopexit.i.i:                                    ; preds = %33, %31, %22, %.lr.ph.i.i.i, %13, %13, %8
-  %.sroa.4.0.ph.i.i = phi i8 [ 1, %13 ], [ 0, %8 ], [ 1, %13 ], [ 1, %.lr.ph.i.i.i ], [ 2, %33 ], [ 1, %22 ], [ 2, %31 ]
+  %.sroa.4.0.ph.i.i = phi i8 [ 1, %13 ], [ 1, %13 ], [ 0, %8 ], [ 1, %.lr.ph.i.i.i ], [ 2, %33 ], [ 1, %22 ], [ 2, %31 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %1), !noalias !4445
   store i8 %.sroa.4.0.ph.i.i, ptr %1, align 1, !noalias !4445
   invoke void @_ZN4core6result13unwrap_failed17h730db56f15e0885aE(ptr noalias noundef nonnull readonly align 1 @anon.8d4d05d48f1984be0c820ace9dd61f64.400, i64 noundef 43, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.8d4d05d48f1984be0c820ace9dd61f64.398, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8d4d05d48f1984be0c820ace9dd61f64.674) #37
@@ -59304,7 +59304,7 @@ define internal noundef i64 @_ZN4core3ops8function6FnOnce9call_once17haf8a034fa8
           to label %52 unwind label %50
 
 .loopexit.i.i:                                    ; preds = %33, %31, %22, %.lr.ph.i.i.i, %13, %13, %8
-  %.sroa.4.0.ph.i.i = phi i8 [ 1, %13 ], [ 0, %8 ], [ 1, %13 ], [ 1, %.lr.ph.i.i.i ], [ 2, %33 ], [ 1, %22 ], [ 2, %31 ]
+  %.sroa.4.0.ph.i.i = phi i8 [ 1, %13 ], [ 1, %13 ], [ 0, %8 ], [ 1, %.lr.ph.i.i.i ], [ 2, %33 ], [ 1, %22 ], [ 2, %31 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %1), !noalias !4457
   store i8 %.sroa.4.0.ph.i.i, ptr %1, align 1, !noalias !4457
   invoke void @_ZN4core6result13unwrap_failed17h730db56f15e0885aE(ptr noalias noundef nonnull readonly align 1 @anon.8d4d05d48f1984be0c820ace9dd61f64.400, i64 noundef 43, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.8d4d05d48f1984be0c820ace9dd61f64.398, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8d4d05d48f1984be0c820ace9dd61f64.578) #37
@@ -59467,7 +59467,7 @@ define internal noundef i64 @_ZN4core3ops8function6FnOnce9call_once17hcd3c1d0612
           to label %52 unwind label %50
 
 .loopexit.i.i:                                    ; preds = %33, %31, %22, %.lr.ph.i.i.i, %13, %13, %8
-  %.sroa.4.0.ph.i.i = phi i8 [ 1, %13 ], [ 0, %8 ], [ 1, %13 ], [ 1, %.lr.ph.i.i.i ], [ 2, %33 ], [ 1, %22 ], [ 2, %31 ]
+  %.sroa.4.0.ph.i.i = phi i8 [ 1, %13 ], [ 1, %13 ], [ 0, %8 ], [ 1, %.lr.ph.i.i.i ], [ 2, %33 ], [ 1, %22 ], [ 2, %31 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %1), !noalias !4469
   store i8 %.sroa.4.0.ph.i.i, ptr %1, align 1, !noalias !4469
   invoke void @_ZN4core6result13unwrap_failed17h730db56f15e0885aE(ptr noalias noundef nonnull readonly align 1 @anon.8d4d05d48f1984be0c820ace9dd61f64.400, i64 noundef 43, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.8d4d05d48f1984be0c820ace9dd61f64.398, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8d4d05d48f1984be0c820ace9dd61f64.637) #37
@@ -71051,7 +71051,7 @@ define hidden void @_ZN13polars_stream5nodes8io_sinks9partition6by_key22Partitio
           to label %.body16 unwind label %145, !noalias !5253
 
 .loopexit.i.i:                                    ; preds = %128, %126, %117, %.lr.ph.i.i.i, %108, %108, %103
-  %.sroa.4.0.ph.i.i = phi i8 [ 1, %108 ], [ 0, %103 ], [ 1, %108 ], [ 1, %.lr.ph.i.i.i ], [ 2, %128 ], [ 1, %117 ], [ 2, %126 ]
+  %.sroa.4.0.ph.i.i = phi i8 [ 1, %108 ], [ 1, %108 ], [ 0, %103 ], [ 1, %.lr.ph.i.i.i ], [ 2, %128 ], [ 1, %117 ], [ 2, %126 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !5264
   store i8 %.sroa.4.0.ph.i.i, ptr %12, align 1, !noalias !5264
   invoke void @_ZN4core6result13unwrap_failed17h730db56f15e0885aE(ptr noalias noundef nonnull readonly align 1 @anon.8d4d05d48f1984be0c820ace9dd61f64.549, i64 noundef 42, ptr noundef nonnull align 1 %12, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.8d4d05d48f1984be0c820ace9dd61f64.398, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8d4d05d48f1984be0c820ace9dd61f64.550) #37

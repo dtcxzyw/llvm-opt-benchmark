@@ -2239,7 +2239,7 @@ _ZN6icu_776number4impl17ParsedPatternInfo11ParserState4peekEv.exit.thread: ; pre
   br i1 %or.cond5, label %.sink.split, label %143
 
 .sink.split:                                      ; preds = %67, %55, %52, %33, %139, %_ZN6icu_776number4impl17ParsedPatternInfo11ParserState4peekEv.exit.thread
-  %.sink = phi i32 [ 65792, %_ZN6icu_776number4impl17ParsedPatternInfo11ParserState4peekEv.exit.thread ], [ 65799, %139 ], [ 65792, %33 ], [ 65792, %52 ], [ 65792, %55 ], [ 65792, %67 ]
+  %.sink = phi i32 [ 65799, %139 ], [ 65792, %_ZN6icu_776number4impl17ParsedPatternInfo11ParserState4peekEv.exit.thread ], [ 65792, %33 ], [ 65792, %52 ], [ 65792, %55 ], [ 65792, %67 ]
   store i32 %.sink, ptr %1, align 4, !tbaa !13
   br label %143
 
@@ -3580,7 +3580,7 @@ _ZN6icu_7713UnicodeString6appendERKS0_ii.exit:    ; preds = %_ZNK6icu_7713Unicod
   br label %.loopexit.split-lp268
 
 .loopexit276:                                     ; preds = %_ZN6icu_7713UnicodeString6appendEDs.exit215, %.preheader275, %213, %_ZN6icu_776number4impl18PatternStringUtils23ignoreRoundingIncrementEdi.exit, %_ZN6icu_7713UnicodeString6appendERKS0_ii.exit
-  %.0127 = phi i32 [ 0, %_ZN6icu_776number4impl18PatternStringUtils23ignoreRoundingIncrementEdi.exit ], [ %228, %_ZN6icu_7713UnicodeString6appendERKS0_ii.exit ], [ 0, %213 ], [ 0, %.preheader275 ], [ 0, %_ZN6icu_7713UnicodeString6appendEDs.exit215 ]
+  %.0127 = phi i32 [ 0, %213 ], [ 0, %_ZN6icu_776number4impl18PatternStringUtils23ignoreRoundingIncrementEdi.exit ], [ %228, %_ZN6icu_7713UnicodeString6appendERKS0_ii.exit ], [ 0, %.preheader275 ], [ 0, %_ZN6icu_7713UnicodeString6appendEDs.exit215 ]
   %266 = getelementptr inbounds nuw i8, ptr %26, i64 12
   %267 = load i16, ptr %185, align 8, !tbaa !34
   %268 = icmp slt i16 %267, 0

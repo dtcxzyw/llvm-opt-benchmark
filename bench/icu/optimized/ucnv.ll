@@ -1944,8 +1944,8 @@ _ZL14_updateOffsetsPiiii.exit:                    ; preds = %88, %69, %.lr.ph.pr
   br i1 %.0149, label %.loopexit.backedge, label %134
 
 .loopexit.backedge:                               ; preds = %124, %133, %128
-  %.2154.be = phi i32 [ %.6, %133 ], [ %.3138, %128 ], [ %.6, %124 ]
-  %.1144.be = phi ptr [ null, %133 ], [ null, %128 ], [ %.3146, %124 ]
+  %.2154.be = phi i32 [ %.3138, %128 ], [ %.6, %133 ], [ %.6, %124 ]
+  %.1144.be = phi ptr [ null, %128 ], [ null, %133 ], [ %.3146, %124 ]
   br label %.loopexit, !llvm.loop !87
 
 134:                                              ; preds = %133
@@ -2522,8 +2522,8 @@ _ZL14_updateOffsetsPiiii.exit:                    ; preds = %90, %71, %.lr.ph.pr
   br i1 %.0147, label %.loopexit.backedge, label %136
 
 .loopexit.backedge:                               ; preds = %124, %135, %128
-  %.2151.be = phi i32 [ %.6, %135 ], [ %.3136, %128 ], [ %.6, %124 ]
-  %.1142.be = phi ptr [ null, %135 ], [ null, %128 ], [ %.3144, %124 ]
+  %.2151.be = phi i32 [ %.3136, %128 ], [ %.6, %135 ], [ %.6, %124 ]
+  %.1142.be = phi ptr [ null, %128 ], [ null, %135 ], [ %.3144, %124 ]
   br label %.loopexit, !llvm.loop !101
 
 136:                                              ; preds = %135

@@ -6378,7 +6378,7 @@ _ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail13width_checkerEE
   unreachable
 
 _ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail13width_checkerEEEDTclfp_Li0EEEOT_.exit: ; preds = %18, %12, %9, %16, %22
-  %.0.i = phi i64 [ %.sroa.011.0.extract.trunc.i, %18 ], [ %11, %9 ], [ %17, %16 ], [ %13, %12 ], [ %.sroa.05.0.extract.trunc.i, %22 ]
+  %.0.i = phi i64 [ %.sroa.05.0.extract.trunc.i, %22 ], [ %13, %12 ], [ %.sroa.011.0.extract.trunc.i, %18 ], [ %11, %9 ], [ %17, %16 ]
   %34 = icmp ugt i64 %.0.i, 2147483647
   br i1 %34, label %_ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail13width_checkerEEEDTclfp_Li0EEEOT_.exit.thread11, label %35
 
@@ -6600,7 +6600,7 @@ _ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail17precision_check
   unreachable
 
 _ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail17precision_checkerEEEDTclfp_Li0EEEOT_.exit: ; preds = %18, %12, %9, %16, %22
-  %.0.i = phi i64 [ %.sroa.011.0.extract.trunc.i, %18 ], [ %11, %9 ], [ %17, %16 ], [ %13, %12 ], [ %.sroa.05.0.extract.trunc.i, %22 ]
+  %.0.i = phi i64 [ %.sroa.05.0.extract.trunc.i, %22 ], [ %13, %12 ], [ %.sroa.011.0.extract.trunc.i, %18 ], [ %11, %9 ], [ %17, %16 ]
   %34 = icmp ugt i64 %.0.i, 2147483647
   br i1 %34, label %_ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail17precision_checkerEEEDTclfp_Li0EEEOT_.exit.thread11, label %35
 
@@ -9074,8 +9074,8 @@ _ZNSt8_Rb_treeIN5vcpkg10StringViewESt4pairIKS1_St6vectorIPKNS0_11TripletFileESaI
   br i1 %.not, label %_ZNSt8_Rb_treeIN5vcpkg10StringViewESt4pairIKS1_St6vectorIPKNS0_11TripletFileESaIS7_EEESt10_Select1stISA_ESt4lessIS1_ESaISA_EE14_M_upper_boundEPSt13_Rb_tree_nodeISA_EPSt18_Rb_tree_node_baseRS3_.exit, label %5, !llvm.loop !263
 
 _ZNSt8_Rb_treeIN5vcpkg10StringViewESt4pairIKS1_St6vectorIPKNS0_11TripletFileESaIS7_EEESt10_Select1stISA_ESt4lessIS1_ESaISA_EE14_M_upper_boundEPSt13_Rb_tree_nodeISA_EPSt18_Rb_tree_node_baseRS3_.exit: ; preds = %19, %.lr.ph.i31, %2, %_ZNSt8_Rb_treeIN5vcpkg10StringViewESt4pairIKS1_St6vectorIPKNS0_11TripletFileESaIS7_EEESt10_Select1stISA_ESt4lessIS1_ESaISA_EE14_M_lower_boundEPSt13_Rb_tree_nodeISA_EPSt18_Rb_tree_node_baseRS3_.exit
-  %.sroa.049.0 = phi ptr [ %.08.lcssa.i, %_ZNSt8_Rb_treeIN5vcpkg10StringViewESt4pairIKS1_St6vectorIPKNS0_11TripletFileESaIS7_EEESt10_Select1stISA_ESt4lessIS1_ESaISA_EE14_M_lower_boundEPSt13_Rb_tree_nodeISA_EPSt18_Rb_tree_node_baseRS3_.exit ], [ %4, %2 ], [ %.08.lcssa.i, %.lr.ph.i31 ], [ %.123, %19 ]
-  %.sroa.3.0 = phi ptr [ %.02255, %_ZNSt8_Rb_treeIN5vcpkg10StringViewESt4pairIKS1_St6vectorIPKNS0_11TripletFileESaIS7_EEESt10_Select1stISA_ESt4lessIS1_ESaISA_EE14_M_lower_boundEPSt13_Rb_tree_nodeISA_EPSt18_Rb_tree_node_baseRS3_.exit ], [ %4, %2 ], [ %.19.i40, %.lr.ph.i31 ], [ %.123, %19 ]
+  %.sroa.049.0 = phi ptr [ %.08.lcssa.i, %.lr.ph.i31 ], [ %.08.lcssa.i, %_ZNSt8_Rb_treeIN5vcpkg10StringViewESt4pairIKS1_St6vectorIPKNS0_11TripletFileESaIS7_EEESt10_Select1stISA_ESt4lessIS1_ESaISA_EE14_M_lower_boundEPSt13_Rb_tree_nodeISA_EPSt18_Rb_tree_node_baseRS3_.exit ], [ %4, %2 ], [ %.123, %19 ]
+  %.sroa.3.0 = phi ptr [ %.19.i40, %.lr.ph.i31 ], [ %.02255, %_ZNSt8_Rb_treeIN5vcpkg10StringViewESt4pairIKS1_St6vectorIPKNS0_11TripletFileESaIS7_EEESt10_Select1stISA_ESt4lessIS1_ESaISA_EE14_M_lower_boundEPSt13_Rb_tree_nodeISA_EPSt18_Rb_tree_node_baseRS3_.exit ], [ %4, %2 ], [ %.123, %19 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.049.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.3.0, 1
   ret { ptr, ptr } %.fca.1.insert

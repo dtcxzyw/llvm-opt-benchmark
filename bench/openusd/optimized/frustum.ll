@@ -5192,7 +5192,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum14ComputePickRayERKNS_7GfVec2dE.
   br i1 %383, label %_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum18_SegmentIntersectsERKNS_7GfVec3dEjS3_j.exit, label %353
 
 _ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum18_SegmentIntersectsERKNS_7GfVec3dEjS3_j.exit: ; preds = %246, %293, %340, %353, %_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum14ComputePickRayERKNS_7GfVec2dE.exit, %200, %4
-  %.049 = phi i1 [ false, %4 ], [ true, %200 ], [ true, %293 ], [ %383, %353 ], [ true, %340 ], [ %383, %_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum14ComputePickRayERKNS_7GfVec2dE.exit ], [ true, %246 ]
+  %.049 = phi i1 [ true, %293 ], [ false, %4 ], [ true, %200 ], [ %383, %353 ], [ true, %340 ], [ %383, %_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum14ComputePickRayERKNS_7GfVec2dE.exit ], [ true, %246 ]
   ret i1 %.049
 }
 

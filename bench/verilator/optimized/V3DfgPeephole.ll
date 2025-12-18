@@ -8958,8 +8958,8 @@ _ZNK9DfgVertex16hasMultipleSinksEv.exit.thread:   ; preds = %.lr.ph, %_ZNK9DfgVe
   br label %98
 
 98:                                               ; preds = %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread, %83
-  %.185 = phi i1 [ true, %83 ], [ %.084134, %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread ]
-  %.177 = phi ptr [ %97, %83 ], [ %.076135, %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread ]
+  %.185 = phi i1 [ %.084134, %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread ], [ true, %83 ]
+  %.177 = phi ptr [ %.076135, %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread ], [ %97, %83 ]
   %99 = getelementptr inbounds nuw i8, ptr %.177, i64 88
   %100 = load ptr, ptr %99, align 8, !tbaa !205
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 56
@@ -8975,7 +8975,7 @@ _ZNK9DfgVertex16hasMultipleSinksEv.exit.thread:   ; preds = %.lr.ph, %_ZNK9DfgVe
   br label %.loopexit
 
 .loopexit:                                        ; preds = %98, %_ZNK9DfgVertex16hasMultipleSinksEv.exit, %.loopexit.sink.split, %74
-  %.0 = phi i1 [ false, %74 ], [ true, %.loopexit.sink.split ], [ %.185, %98 ], [ %.084134, %_ZNK9DfgVertex16hasMultipleSinksEv.exit ]
+  %.0 = phi i1 [ false, %74 ], [ true, %.loopexit.sink.split ], [ %.084134, %_ZNK9DfgVertex16hasMultipleSinksEv.exit ], [ %.185, %98 ]
   ret i1 %.0
 }
 
@@ -12032,8 +12032,8 @@ _ZNK9DfgVertex16hasMultipleSinksEv.exit.thread:   ; preds = %.lr.ph, %_ZNK9DfgVe
   br label %98
 
 98:                                               ; preds = %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread, %83
-  %.185 = phi i1 [ true, %83 ], [ %.084134, %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread ]
-  %.177 = phi ptr [ %97, %83 ], [ %.076135, %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread ]
+  %.185 = phi i1 [ %.084134, %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread ], [ true, %83 ]
+  %.177 = phi ptr [ %.076135, %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread ], [ %97, %83 ]
   %99 = getelementptr inbounds nuw i8, ptr %.177, i64 88
   %100 = load ptr, ptr %99, align 8, !tbaa !205
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 56
@@ -12049,7 +12049,7 @@ _ZNK9DfgVertex16hasMultipleSinksEv.exit.thread:   ; preds = %.lr.ph, %_ZNK9DfgVe
   br label %.loopexit
 
 .loopexit:                                        ; preds = %98, %_ZNK9DfgVertex16hasMultipleSinksEv.exit, %.loopexit.sink.split, %74
-  %.0 = phi i1 [ false, %74 ], [ true, %.loopexit.sink.split ], [ %.185, %98 ], [ %.084134, %_ZNK9DfgVertex16hasMultipleSinksEv.exit ]
+  %.0 = phi i1 [ false, %74 ], [ true, %.loopexit.sink.split ], [ %.084134, %_ZNK9DfgVertex16hasMultipleSinksEv.exit ], [ %.185, %98 ]
   ret i1 %.0
 }
 
@@ -13358,7 +13358,7 @@ _ZNKSt10_HashtableIN18V3DfgCacheInternal8KeyUnaryESt4pairIKS1_P14DfgVertexUnaryE
   br label %_ZNSt10_HashtableIN18V3DfgCacheInternal8KeyUnaryESt4pairIKS1_P14DfgVertexUnaryESaIS6_ENSt8__detail10_Select1stENS1_5EqualENS1_4HashENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit36
 
 _ZNKSt8__detail15_Hashtable_baseIN18V3DfgCacheInternal8KeyUnaryESt4pairIKS2_P14DfgVertexUnaryENS_10_Select1stENS2_5EqualENS2_4HashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS4_RKNS_16_Hash_node_valueIS7_Lb1EEE.exit.thread: ; preds = %_ZNKSt8__detail15_Hashtable_baseIN18V3DfgCacheInternal8KeyUnaryESt4pairIKS2_P14DfgVertexUnaryENS_10_Select1stENS2_5EqualENS2_4HashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS4_RKNS_16_Hash_node_valueIS7_Lb1EEE.exit, %.lr.ph, %62, %_ZNKSt10_HashtableIN18V3DfgCacheInternal8KeyUnaryESt4pairIKS1_P14DfgVertexUnaryESaIS6_ENSt8__detail10_Select1stENS1_5EqualENS1_4HashENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit
-  %.sroa.049.0.ph = phi ptr [ %.pre.i, %_ZNKSt10_HashtableIN18V3DfgCacheInternal8KeyUnaryESt4pairIKS1_P14DfgVertexUnaryESaIS6_ENSt8__detail10_Select1stENS1_5EqualENS1_4HashENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit ], [ %.0.i.i, %62 ], [ %.sroa.041.084, %.lr.ph ], [ %.sroa.041.084, %_ZNKSt8__detail15_Hashtable_baseIN18V3DfgCacheInternal8KeyUnaryESt4pairIKS2_P14DfgVertexUnaryENS_10_Select1stENS2_5EqualENS2_4HashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS4_RKNS_16_Hash_node_valueIS7_Lb1EEE.exit ]
+  %.sroa.049.0.ph = phi ptr [ %.0.i.i, %62 ], [ %.pre.i, %_ZNKSt10_HashtableIN18V3DfgCacheInternal8KeyUnaryESt4pairIKS1_P14DfgVertexUnaryESaIS6_ENSt8__detail10_Select1stENS1_5EqualENS1_4HashENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit ], [ %.sroa.041.084, %.lr.ph ], [ %.sroa.041.084, %_ZNKSt8__detail15_Hashtable_baseIN18V3DfgCacheInternal8KeyUnaryESt4pairIKS2_P14DfgVertexUnaryENS_10_Select1stENS2_5EqualENS2_4HashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS4_RKNS_16_Hash_node_valueIS7_Lb1EEE.exit ]
   tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 32) #23
   br label %_ZNSt10_HashtableIN18V3DfgCacheInternal8KeyUnaryESt4pairIKS1_P14DfgVertexUnaryESaIS6_ENSt8__detail10_Select1stENS1_5EqualENS1_4HashENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 
@@ -14628,8 +14628,8 @@ _ZNK9DfgVertex16hasMultipleSinksEv.exit.thread:   ; preds = %.lr.ph, %_ZNK9DfgVe
   br label %123
 
 123:                                              ; preds = %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread, %95
-  %.189 = phi i1 [ true, %95 ], [ %.088138, %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread ]
-  %.181 = phi ptr [ %122, %95 ], [ %.080139, %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread ]
+  %.189 = phi i1 [ %.088138, %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread ], [ true, %95 ]
+  %.181 = phi ptr [ %.080139, %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread ], [ %122, %95 ]
   %124 = getelementptr inbounds nuw i8, ptr %.181, i64 88
   %125 = load ptr, ptr %124, align 8, !tbaa !205
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 56
@@ -14645,7 +14645,7 @@ _ZNK9DfgVertex16hasMultipleSinksEv.exit.thread:   ; preds = %.lr.ph, %_ZNK9DfgVe
   br label %.loopexit
 
 .loopexit:                                        ; preds = %123, %_ZNK9DfgVertex16hasMultipleSinksEv.exit, %.loopexit.sink.split, %86
-  %.0 = phi i1 [ false, %86 ], [ true, %.loopexit.sink.split ], [ %.189, %123 ], [ %.088138, %_ZNK9DfgVertex16hasMultipleSinksEv.exit ]
+  %.0 = phi i1 [ false, %86 ], [ true, %.loopexit.sink.split ], [ %.088138, %_ZNK9DfgVertex16hasMultipleSinksEv.exit ], [ %.189, %123 ]
   ret i1 %.0
 }
 
@@ -16050,7 +16050,7 @@ _ZNKSt10_HashtableIN18V3DfgCacheInternal6KeySelESt4pairIKS1_P6DfgSelESaIS6_ENSt8
   br label %_ZNSt10_HashtableIN18V3DfgCacheInternal6KeySelESt4pairIKS1_P6DfgSelESaIS6_ENSt8__detail10_Select1stENS1_5EqualENS1_4HashENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit36
 
 _ZNKSt8__detail15_Hashtable_baseIN18V3DfgCacheInternal6KeySelESt4pairIKS2_P6DfgSelENS_10_Select1stENS2_5EqualENS2_4HashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS4_RKNS_16_Hash_node_valueIS7_Lb1EEE.exit.thread51: ; preds = %_ZNKSt8__detail15_Hashtable_baseIN18V3DfgCacheInternal6KeySelESt4pairIKS2_P6DfgSelENS_10_Select1stENS2_5EqualENS2_4HashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS4_RKNS_16_Hash_node_valueIS7_Lb1EEE.exit, %34, %107, %_ZNKSt10_HashtableIN18V3DfgCacheInternal6KeySelESt4pairIKS1_P6DfgSelESaIS6_ENSt8__detail10_Select1stENS1_5EqualENS1_4HashENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit
-  %.sroa.049.0.ph = phi ptr [ %.pre.i, %_ZNKSt10_HashtableIN18V3DfgCacheInternal6KeySelESt4pairIKS1_P6DfgSelESaIS6_ENSt8__detail10_Select1stENS1_5EqualENS1_4HashENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit ], [ %.0.i.i, %107 ], [ %.sroa.041.082, %34 ], [ %.sroa.041.082, %_ZNKSt8__detail15_Hashtable_baseIN18V3DfgCacheInternal6KeySelESt4pairIKS2_P6DfgSelENS_10_Select1stENS2_5EqualENS2_4HashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS4_RKNS_16_Hash_node_valueIS7_Lb1EEE.exit ]
+  %.sroa.049.0.ph = phi ptr [ %.0.i.i, %107 ], [ %.pre.i, %_ZNKSt10_HashtableIN18V3DfgCacheInternal6KeySelESt4pairIKS1_P6DfgSelESaIS6_ENSt8__detail10_Select1stENS1_5EqualENS1_4HashENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit ], [ %.sroa.041.082, %34 ], [ %.sroa.041.082, %_ZNKSt8__detail15_Hashtable_baseIN18V3DfgCacheInternal6KeySelESt4pairIKS2_P6DfgSelENS_10_Select1stENS2_5EqualENS2_4HashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS4_RKNS_16_Hash_node_valueIS7_Lb1EEE.exit ]
   tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 40) #23
   br label %_ZNSt10_HashtableIN18V3DfgCacheInternal6KeySelESt4pairIKS1_P6DfgSelESaIS6_ENSt8__detail10_Select1stENS1_5EqualENS1_4HashENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 
@@ -18723,8 +18723,8 @@ _ZNK9DfgVertex16hasMultipleSinksEv.exit.thread:   ; preds = %.lr.ph, %_ZNK9DfgVe
   br label %98
 
 98:                                               ; preds = %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread, %83
-  %.185 = phi i1 [ true, %83 ], [ %.084134, %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread ]
-  %.177 = phi ptr [ %97, %83 ], [ %.076135, %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread ]
+  %.185 = phi i1 [ %.084134, %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread ], [ true, %83 ]
+  %.177 = phi ptr [ %.076135, %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread ], [ %97, %83 ]
   %99 = getelementptr inbounds nuw i8, ptr %.177, i64 88
   %100 = load ptr, ptr %99, align 8, !tbaa !205
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 56
@@ -18740,7 +18740,7 @@ _ZNK9DfgVertex16hasMultipleSinksEv.exit.thread:   ; preds = %.lr.ph, %_ZNK9DfgVe
   br label %.loopexit
 
 .loopexit:                                        ; preds = %98, %_ZNK9DfgVertex16hasMultipleSinksEv.exit, %.loopexit.sink.split, %74
-  %.0 = phi i1 [ false, %74 ], [ true, %.loopexit.sink.split ], [ %.185, %98 ], [ %.084134, %_ZNK9DfgVertex16hasMultipleSinksEv.exit ]
+  %.0 = phi i1 [ false, %74 ], [ true, %.loopexit.sink.split ], [ %.084134, %_ZNK9DfgVertex16hasMultipleSinksEv.exit ], [ %.185, %98 ]
   ret i1 %.0
 }
 
@@ -19606,8 +19606,8 @@ _ZNK9DfgVertex16hasMultipleSinksEv.exit.thread:   ; preds = %.lr.ph, %_ZNK9DfgVe
   br label %98
 
 98:                                               ; preds = %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread, %83
-  %.185 = phi i1 [ true, %83 ], [ %.084134, %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread ]
-  %.177 = phi ptr [ %97, %83 ], [ %.076135, %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread ]
+  %.185 = phi i1 [ %.084134, %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread ], [ true, %83 ]
+  %.177 = phi ptr [ %.076135, %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread ], [ %97, %83 ]
   %99 = getelementptr inbounds nuw i8, ptr %.177, i64 88
   %100 = load ptr, ptr %99, align 8, !tbaa !205
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 56
@@ -19623,7 +19623,7 @@ _ZNK9DfgVertex16hasMultipleSinksEv.exit.thread:   ; preds = %.lr.ph, %_ZNK9DfgVe
   br label %.loopexit
 
 .loopexit:                                        ; preds = %98, %_ZNK9DfgVertex16hasMultipleSinksEv.exit, %.loopexit.sink.split, %74
-  %.0 = phi i1 [ false, %74 ], [ true, %.loopexit.sink.split ], [ %.185, %98 ], [ %.084134, %_ZNK9DfgVertex16hasMultipleSinksEv.exit ]
+  %.0 = phi i1 [ false, %74 ], [ true, %.loopexit.sink.split ], [ %.084134, %_ZNK9DfgVertex16hasMultipleSinksEv.exit ], [ %.185, %98 ]
   ret i1 %.0
 }
 
@@ -20764,8 +20764,8 @@ _ZNK9DfgVertex16hasMultipleSinksEv.exit.thread:   ; preds = %.lr.ph, %_ZNK9DfgVe
   br label %98
 
 98:                                               ; preds = %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread, %83
-  %.185 = phi i1 [ true, %83 ], [ %.084134, %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread ]
-  %.177 = phi ptr [ %97, %83 ], [ %.076135, %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread ]
+  %.185 = phi i1 [ %.084134, %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread ], [ true, %83 ]
+  %.177 = phi ptr [ %.076135, %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread ], [ %97, %83 ]
   %99 = getelementptr inbounds nuw i8, ptr %.177, i64 88
   %100 = load ptr, ptr %99, align 8, !tbaa !205
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 56
@@ -20781,7 +20781,7 @@ _ZNK9DfgVertex16hasMultipleSinksEv.exit.thread:   ; preds = %.lr.ph, %_ZNK9DfgVe
   br label %.loopexit
 
 .loopexit:                                        ; preds = %98, %_ZNK9DfgVertex16hasMultipleSinksEv.exit, %.loopexit.sink.split, %74
-  %.0 = phi i1 [ false, %74 ], [ true, %.loopexit.sink.split ], [ %.185, %98 ], [ %.084134, %_ZNK9DfgVertex16hasMultipleSinksEv.exit ]
+  %.0 = phi i1 [ false, %74 ], [ true, %.loopexit.sink.split ], [ %.084134, %_ZNK9DfgVertex16hasMultipleSinksEv.exit ], [ %.185, %98 ]
   ret i1 %.0
 }
 
@@ -22061,7 +22061,7 @@ _ZN13V3DfgPeephole9foldUnaryI9DfgRedAndEEbPT_.exit: ; preds = %7
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %37, %63, %68, %57
-  %.0 = phi i1 [ false, %63 ], [ false, %68 ], [ false, %57 ], [ false, %37 ], [ true, %.thread.sink.split ]
+  %.0 = phi i1 [ false, %37 ], [ false, %57 ], [ false, %68 ], [ false, %63 ], [ true, %.thread.sink.split ]
   ret i1 %.0
 }
 
@@ -22482,7 +22482,7 @@ _ZN13V3DfgPeephole9foldUnaryI8DfgRedOrEEbPT_.exit: ; preds = %7
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %37, %63, %68, %57
-  %.0 = phi i1 [ false, %63 ], [ false, %68 ], [ false, %57 ], [ false, %37 ], [ true, %.thread.sink.split ]
+  %.0 = phi i1 [ false, %37 ], [ false, %57 ], [ false, %68 ], [ false, %63 ], [ true, %.thread.sink.split ]
   ret i1 %.0
 }
 
@@ -22903,7 +22903,7 @@ _ZN13V3DfgPeephole9foldUnaryI9DfgRedXorEEbPT_.exit: ; preds = %7
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %37, %63, %68, %57
-  %.0 = phi i1 [ false, %63 ], [ false, %68 ], [ false, %57 ], [ false, %37 ], [ true, %.thread.sink.split ]
+  %.0 = phi i1 [ false, %37 ], [ false, %57 ], [ false, %68 ], [ false, %63 ], [ true, %.thread.sink.split ]
   ret i1 %.0
 }
 
@@ -24212,8 +24212,8 @@ _ZNK9DfgVertex16hasMultipleSinksEv.exit.thread:   ; preds = %.lr.ph, %_ZNK9DfgVe
   br label %98
 
 98:                                               ; preds = %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread, %83
-  %.185 = phi i1 [ true, %83 ], [ %.084134, %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread ]
-  %.177 = phi ptr [ %97, %83 ], [ %.076135, %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread ]
+  %.185 = phi i1 [ %.084134, %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread ], [ true, %83 ]
+  %.177 = phi ptr [ %.076135, %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread ], [ %97, %83 ]
   %99 = getelementptr inbounds nuw i8, ptr %.177, i64 88
   %100 = load ptr, ptr %99, align 8, !tbaa !205
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 56
@@ -24229,7 +24229,7 @@ _ZNK9DfgVertex16hasMultipleSinksEv.exit.thread:   ; preds = %.lr.ph, %_ZNK9DfgVe
   br label %.loopexit
 
 .loopexit:                                        ; preds = %98, %_ZNK9DfgVertex16hasMultipleSinksEv.exit, %.loopexit.sink.split, %74
-  %.0 = phi i1 [ false, %74 ], [ true, %.loopexit.sink.split ], [ %.185, %98 ], [ %.084134, %_ZNK9DfgVertex16hasMultipleSinksEv.exit ]
+  %.0 = phi i1 [ false, %74 ], [ true, %.loopexit.sink.split ], [ %.084134, %_ZNK9DfgVertex16hasMultipleSinksEv.exit ], [ %.185, %98 ]
   ret i1 %.0
 }
 

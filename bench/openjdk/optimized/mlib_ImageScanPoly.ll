@@ -983,9 +983,9 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr noundef captures(none) %
   br i1 %exitcond1172.not, label %.loopexit1084, label %460, !llvm.loop !16
 
 .loopexit1084:                                    ; preds = %._crit_edge1188, %._crit_edge1189, %.preheader1085, %.preheader1083
-  %.2849 = phi i32 [ 0, %.preheader1083 ], [ 0, %.preheader1085 ], [ %spec.select972, %._crit_edge1189 ], [ %spec.select989, %._crit_edge1188 ]
-  %.2826 = phi i32 [ %355, %.preheader1083 ], [ %355, %.preheader1085 ], [ %.1825, %._crit_edge1189 ], [ %.4828, %._crit_edge1188 ]
-  %.3 = phi i32 [ %350, %.preheader1083 ], [ %350, %.preheader1085 ], [ %.1822, %._crit_edge1189 ], [ %.5, %._crit_edge1188 ]
+  %.2849 = phi i32 [ %spec.select972, %._crit_edge1189 ], [ 0, %.preheader1083 ], [ 0, %.preheader1085 ], [ %spec.select989, %._crit_edge1188 ]
+  %.2826 = phi i32 [ %.1825, %._crit_edge1189 ], [ %355, %.preheader1083 ], [ %355, %.preheader1085 ], [ %.4828, %._crit_edge1188 ]
+  %.3 = phi i32 [ %.1822, %._crit_edge1189 ], [ %350, %.preheader1083 ], [ %350, %.preheader1085 ], [ %.5, %._crit_edge1188 ]
   %545 = sext i32 %.0838 to i64
   %546 = sext i32 %.1842 to i64
   br label %547

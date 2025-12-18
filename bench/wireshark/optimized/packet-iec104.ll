@@ -4258,7 +4258,7 @@ define internal range(i32 0, 256) i32 @dissect_iec60870_5_103(ptr noundef %0, pt
   br i1 %exitcond.not, label %.loopexit.sink.split, label %.lr.ph.split.split.us119, !llvm.loop !12
 
 .loopexit.sink.split:                             ; preds = %.lr.ph.split.split.us119, %.lr.ph.split.split.us117, %.lr.ph.split.split.us115
-  %.lcssa136.sink = phi i8 [ %194, %.lr.ph.split.split.us117 ], [ %185, %.lr.ph.split.split.us115 ], [ %200, %.lr.ph.split.split.us119 ]
+  %.lcssa136.sink = phi i8 [ %185, %.lr.ph.split.split.us115 ], [ %194, %.lr.ph.split.split.us117 ], [ %200, %.lr.ph.split.split.us119 ]
   store i8 %.lcssa136.sink, ptr %7, align 1
   br label %.loopexit
 

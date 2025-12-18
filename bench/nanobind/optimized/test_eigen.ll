@@ -11849,7 +11849,7 @@ _ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin
   br i1 %exitcond102.not, label %.loopexit, label %.lr.ph94, !llvm.loop !689
 
 .loopexit:                                        ; preds = %.lr.ph89, %.lr.ph94, %.preheader, %64
-  %.2 = phi i32 [ %65, %64 ], [ %.075.lcssa, %.preheader ], [ %69, %.lr.ph94 ], [ %61, %.lr.ph89 ]
+  %.2 = phi i32 [ %69, %.lr.ph94 ], [ %65, %64 ], [ %.075.lcssa, %.preheader ], [ %61, %.lr.ph89 ]
   ret i32 %.2
 }
 
@@ -16978,7 +16978,7 @@ _ZNK5Eigen20SparseCompressedBaseINS_12SparseMatrixIfLi1EiEEE8nonZerosEv.exit: ; 
   br i1 %exitcond.not, label %.loopexit78, label %.lr.ph, !llvm.loop !883
 
 .loopexit78:                                      ; preds = %.lr.ph, %34, %.preheader, %30, %3
-  %50 = phi ptr [ %6, %3 ], [ %39, %.preheader ], [ %calloc, %30 ], [ %calloc, %34 ], [ %39, %.lr.ph ]
+  %50 = phi ptr [ %calloc, %34 ], [ %6, %3 ], [ %39, %.preheader ], [ %calloc, %30 ], [ %39, %.lr.ph ]
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %53 = load i64, ptr %52, align 8, !tbaa !691

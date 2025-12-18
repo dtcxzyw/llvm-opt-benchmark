@@ -440,7 +440,7 @@ define noundef zeroext i1 @_ZN21command_palette_hooks20CommandPaletteFilter9is_h
   br label %144
 
 "_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17hc39c817243408a4fE.exit": ; preds = %66, %.sink.split.i, %.preheader79, %144, %.preheader, %65, %131, %.preheader.i.i, %81
-  %.sroa.4.1.i = phi i64 [ %10, %81 ], [ %10, %131 ], [ %10, %.preheader.i.i ], [ %spec.select, %65 ], [ %10, %.sink.split.i ], [ %134, %.preheader ], [ %10, %144 ], [ %86, %.preheader79 ], [ %13, %66 ]
+  %.sroa.4.1.i = phi i64 [ %10, %81 ], [ %10, %131 ], [ %10, %.sink.split.i ], [ %10, %144 ], [ %10, %.preheader.i.i ], [ %spec.select, %65 ], [ %134, %.preheader ], [ %86, %.preheader79 ], [ %13, %66 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !52)
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %178 = load i64, ptr %177, align 8, !alias.scope !52, !noalias !55, !noundef !12
@@ -587,7 +587,7 @@ select.unfold:                                    ; preds = %._crit_edge.i.i11, 
   br label %226
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hdc6febfb40514bbdE.exit": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h90c0c5231b73a5deE.exit.i.i", %._crit_edge.i.i22, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h03df40fc2f5e6faeE.exit.i.i", %select.unfold
-  %.sroa.0.0 = phi i1 [ false, %select.unfold ], [ false, %._crit_edge.i.i22 ], [ true, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h03df40fc2f5e6faeE.exit.i.i" ], [ true, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h90c0c5231b73a5deE.exit.i.i" ]
+  %.sroa.0.0 = phi i1 [ true, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h03df40fc2f5e6faeE.exit.i.i" ], [ false, %select.unfold ], [ false, %._crit_edge.i.i22 ], [ true, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h90c0c5231b73a5deE.exit.i.i" ]
   ret i1 %.sroa.0.0
 }
 

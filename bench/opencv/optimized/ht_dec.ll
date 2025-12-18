@@ -2442,7 +2442,7 @@ decode_noninit_uvlc.exit:                         ; preds = %720, %739, %758
   br i1 %1399, label %1213, label %._crit_edge1942, !llvm.loop !63
 
 ._crit_edge1942:                                  ; preds = %1382, %1181, %._crit_edge1909
-  %1400 = phi ptr [ %1185, %._crit_edge1909 ], [ %1182, %1181 ], [ %1185, %1382 ]
+  %1400 = phi ptr [ %1182, %1181 ], [ %1185, %._crit_edge1909 ], [ %1185, %1382 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %1400, i8 0, i64 %262, i1 false)
   br label %.thread1807
 
@@ -3164,7 +3164,7 @@ switch.lookup:                                    ; preds = %1528
   br i1 %exitcond2064.not, label %.critedge1742, label %.lr.ph2007.us, !llvm.loop !74
 
 .critedge1742:                                    ; preds = %._crit_edge2008.us, %.loopexit1836, %.thread2143, %839, %.critedge1766, %821, %.critedge1768, %37, %50, %.thread1797, %.thread2181, %82, %218, %.critedge1759, %211, %.critedge1757, %191, %.critedge1755, %170, %.critedge1750, %161, %.critedge1748, %152, %.critedge1746, %52, %17, %.critedge
-  %.0 = phi i32 [ 0, %.thread2181 ], [ 0, %37 ], [ 0, %82 ], [ 0, %218 ], [ 0, %.critedge1759 ], [ 0, %211 ], [ 0, %.critedge1757 ], [ 0, %.thread1797 ], [ 0, %839 ], [ 0, %191 ], [ 1, %52 ], [ 0, %.critedge ], [ 0, %17 ], [ 0, %.critedge1746 ], [ 0, %152 ], [ 0, %.critedge1748 ], [ 0, %161 ], [ 0, %.critedge1750 ], [ 0, %170 ], [ 0, %.critedge1755 ], [ 0, %50 ], [ 0, %.critedge1768 ], [ 0, %821 ], [ 0, %.critedge1766 ], [ 1, %.loopexit1836 ], [ 1, %.thread2143 ], [ 1, %._crit_edge2008.us ]
+  %.0 = phi i32 [ 0, %.thread2181 ], [ 0, %37 ], [ 1, %.thread2143 ], [ 0, %82 ], [ 0, %218 ], [ 0, %.critedge1759 ], [ 0, %211 ], [ 0, %.critedge1757 ], [ 0, %.thread1797 ], [ 0, %839 ], [ 0, %191 ], [ 0, %.critedge1766 ], [ 1, %52 ], [ 0, %.critedge ], [ 0, %17 ], [ 0, %.critedge1746 ], [ 0, %152 ], [ 0, %.critedge1748 ], [ 0, %161 ], [ 0, %.critedge1750 ], [ 0, %170 ], [ 0, %.critedge1755 ], [ 0, %50 ], [ 0, %.critedge1768 ], [ 0, %821 ], [ 1, %.loopexit1836 ], [ 1, %._crit_edge2008.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -3385,10 +3385,10 @@ define internal fastcc void @rev_init(ptr noundef nonnull writeonly captures(non
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.preheader.i, %.loopexit.i.sink.split, %53
-  %65 = phi i64 [ %40, %53 ], [ %.ph, %.loopexit.i.sink.split ], [ %40, %.preheader.i ]
-  %66 = phi i1 [ %42, %53 ], [ %.ph46, %.loopexit.i.sink.split ], [ %42, %.preheader.i ]
-  %67 = phi i32 [ %41, %53 ], [ %.ph47, %.loopexit.i.sink.split ], [ %41, %.preheader.i ]
-  %.0.i = phi i32 [ 0, %53 ], [ %.0.i.ph, %.loopexit.i.sink.split ], [ %61, %.preheader.i ]
+  %65 = phi i64 [ %.ph, %.loopexit.i.sink.split ], [ %40, %53 ], [ %40, %.preheader.i ]
+  %66 = phi i1 [ %.ph46, %.loopexit.i.sink.split ], [ %42, %53 ], [ %42, %.preheader.i ]
+  %67 = phi i32 [ %.ph47, %.loopexit.i.sink.split ], [ %41, %53 ], [ %41, %.preheader.i ]
+  %.0.i = phi i32 [ %.0.i.ph, %.loopexit.i.sink.split ], [ 0, %53 ], [ %61, %.preheader.i ]
   %68 = lshr i32 %.0.i, 24
   %69 = and i32 %.0.i, 2130706432
   %70 = icmp eq i32 %69, 2130706432

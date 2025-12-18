@@ -7327,7 +7327,7 @@ _ZN4lean10object_refD2Ev.exit844:                 ; preds = %_ZN4lean14name_gene
   br i1 %2286, label %.loopexit, label %2283
 
 .loopexit:                                        ; preds = %2283, %.loopexit.loopexit892, %.thread
-  %.pn168.pn.pn = phi { ptr, i32 } [ %1456, %.thread ], [ %2278, %.loopexit.loopexit892 ], [ %.pn168.pn, %2283 ]
+  %.pn168.pn.pn = phi { ptr, i32 } [ %2278, %.loopexit.loopexit892 ], [ %1456, %.thread ], [ %.pn168.pn, %2283 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %91)
   call void @llvm.lifetime.end.p0(ptr nonnull %90)
   br label %2287

@@ -29977,7 +29977,7 @@ define noundef zeroext i1 @_ZN15RtpPlayerDialog24writeAudioSilenceSamplesEP5QFil
   br i1 %exitcond29.not, label %.critedge17, label %.preheader.us, !llvm.loop !172
 
 .critedge17:                                      ; preds = %..critedge_crit_edge.us, %9, %4
-  %.not1520 = phi i1 [ true, %4 ], [ false, %9 ], [ true, %..critedge_crit_edge.us ]
+  %.not1520 = phi i1 [ false, %9 ], [ true, %4 ], [ true, %..critedge_crit_edge.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.not1520
 }
@@ -33990,7 +33990,7 @@ _ZN7QStringD2Ev.exit119:                          ; preds = %_ZN5QListIP15QTreeW
   br label %_ZN9QtPrivate17QForeachContainerI5QListIP15QTreeWidgetItemEED2Ev.exit
 
 _ZN9QtPrivate17QForeachContainerI5QListIP15QTreeWidgetItemEED2Ev.exit: ; preds = %116, %194, %_ZN7QStringD2Ev.exit71
-  %.pn36.pn.pn.pn = phi { ptr, i32 } [ %.pn26.pn, %_ZN7QStringD2Ev.exit71 ], [ %117, %116 ], [ %.pn36.pn, %194 ]
+  %.pn36.pn.pn.pn = phi { ptr, i32 } [ %.pn36.pn, %194 ], [ %.pn26.pn, %_ZN7QStringD2Ev.exit71 ], [ %117, %116 ]
   br i1 %.not.i.i.i.i.i, label %_ZN5QListIP15QTreeWidgetItemED2Ev.exit123, label %_ZN17QArrayDataPointerIP15QTreeWidgetItemE5derefEv.exit.i.i121
 
 _ZN17QArrayDataPointerIP15QTreeWidgetItemE5derefEv.exit.i.i121: ; preds = %_ZN17QArrayDataPointerIP15QTreeWidgetItemE5derefEv.exit.i.i.i49, %82, %_ZN9QtPrivate17QForeachContainerI5QListIP15QTreeWidgetItemEED2Ev.exit
@@ -49374,7 +49374,7 @@ define linkonce_odr void @_ZSt22__final_insertion_sortIN5QListIiE8iteratorEN9__g
   br i1 %28, label %.lr.ph.i.i, label %_ZSt13move_backwardIN5QListIiE8iteratorES2_ET0_T_S4_S3_.exit.i, !llvm.loop !286
 
 _ZSt13move_backwardIN5QListIiE8iteratorES2_ET0_T_S4_S3_.exit.i: ; preds = %.lr.ph.i.i, %.lr.ph.i.i.i.i.i.i, %23, %12
-  %.sink.i = phi ptr [ %0, %12 ], [ %.sroa.0.019.i, %23 ], [ %0, %.lr.ph.i.i.i.i.i.i ], [ %.sroa.0.09.i.i, %.lr.ph.i.i ]
+  %.sink.i = phi ptr [ %0, %12 ], [ %0, %.lr.ph.i.i.i.i.i.i ], [ %.sroa.0.019.i, %23 ], [ %.sroa.0.09.i.i, %.lr.ph.i.i ]
   store i32 %9, ptr %.sink.i, align 4
   %.sroa.0.0.i = getelementptr i8, ptr %.sroa.0.019.i, i64 4
   %.not.i = icmp eq ptr %.sroa.0.0.i, %7
@@ -49462,7 +49462,7 @@ _ZSt25__unguarded_linear_insertIN5QListIiE8iteratorEN9__gnu_cxx5__ops14_Val_less
   br i1 %57, label %.lr.ph.i.i23, label %_ZSt13move_backwardIN5QListIiE8iteratorES2_ET0_T_S4_S3_.exit.i19, !llvm.loop !286
 
 _ZSt13move_backwardIN5QListIiE8iteratorES2_ET0_T_S4_S3_.exit.i19: ; preds = %.lr.ph.i.i23, %.lr.ph.i.i.i.i.i.i28, %52, %41
-  %.sink.i20 = phi ptr [ %0, %41 ], [ %.sroa.0.019.i17, %52 ], [ %0, %.lr.ph.i.i.i.i.i.i28 ], [ %.sroa.0.09.i.i24, %.lr.ph.i.i23 ]
+  %.sink.i20 = phi ptr [ %0, %41 ], [ %0, %.lr.ph.i.i.i.i.i.i28 ], [ %.sroa.0.019.i17, %52 ], [ %.sroa.0.09.i.i24, %.lr.ph.i.i23 ]
   store i32 %38, ptr %.sink.i20, align 4
   %.sroa.0.0.i21 = getelementptr i8, ptr %.sroa.0.019.i17, i64 4
   %.not.i22 = icmp eq ptr %.sroa.0.0.i21, %1

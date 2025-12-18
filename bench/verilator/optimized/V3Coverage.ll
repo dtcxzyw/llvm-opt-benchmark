@@ -18077,7 +18077,7 @@ _ZNSt7__cxx114listISt5dequeIN15CoverageVisitor9CoverTermESaIS3_EESaIS5_EE6splice
   br i1 %.not.i.i8, label %_ZNSt7__cxx1110_List_baseISt5dequeIN15CoverageVisitor9CoverTermESaIS3_EESaIS5_EED2Ev.exit, label %.lr.ph.i.i7, !llvm.loop !107
 
 _ZNSt7__cxx1110_List_baseISt5dequeIN15CoverageVisitor9CoverTermESaIS3_EESaIS5_EED2Ev.exit: ; preds = %.lr.ph.i.i7, %4, %22
-  %.sroa.06.021 = phi ptr [ %.sroa.06.0, %22 ], [ %1, %4 ], [ %.sroa.06.0, %.lr.ph.i.i7 ]
+  %.sroa.06.021 = phi ptr [ %1, %4 ], [ %.sroa.06.0, %22 ], [ %.sroa.06.0, %.lr.ph.i.i7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.sroa.06.021
 }
@@ -18873,10 +18873,10 @@ _ZNSt15_Deque_iteratorIN15CoverageVisitor9CoverTermERS1_PS1_EpLEl.exit.i58: ; pr
   br i1 %207, label %171, label %_ZSt14__copy_move_a1ILb0EPN15CoverageVisitor9CoverTermES1_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS7_PS7_EE6__typeES5_S5_SA_.exit25, !llvm.loop !594
 
 _ZSt14__copy_move_a1ILb0EPN15CoverageVisitor9CoverTermES1_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS7_PS7_EE6__typeES5_S5_SA_.exit25: ; preds = %_ZNSt15_Deque_iteratorIN15CoverageVisitor9CoverTermERS1_PS1_EpLEl.exit.i16, %_ZNSt15_Deque_iteratorIN15CoverageVisitor9CoverTermERS1_PS1_EpLEl.exit.i58, %158, %._crit_edge
-  %.sink110 = phi ptr [ %69, %._crit_edge ], [ %160, %158 ], [ %storemerge.i.i59, %_ZNSt15_Deque_iteratorIN15CoverageVisitor9CoverTermERS1_PS1_EpLEl.exit.i58 ], [ %storemerge.i.i17, %_ZNSt15_Deque_iteratorIN15CoverageVisitor9CoverTermERS1_PS1_EpLEl.exit.i16 ]
-  %.sink = phi ptr [ %68, %._crit_edge ], [ %162, %158 ], [ %.sroa.4.1, %_ZNSt15_Deque_iteratorIN15CoverageVisitor9CoverTermERS1_PS1_EpLEl.exit.i58 ], [ %.sroa.471.1, %_ZNSt15_Deque_iteratorIN15CoverageVisitor9CoverTermERS1_PS1_EpLEl.exit.i16 ]
-  %.sroa.8.2.sink = phi ptr [ %67, %._crit_edge ], [ %164, %158 ], [ %.sroa.8.1, %_ZNSt15_Deque_iteratorIN15CoverageVisitor9CoverTermERS1_PS1_EpLEl.exit.i58 ], [ %.sroa.872.1, %_ZNSt15_Deque_iteratorIN15CoverageVisitor9CoverTermERS1_PS1_EpLEl.exit.i16 ]
-  %.sroa.12.2.sink = phi ptr [ %66, %._crit_edge ], [ %166, %158 ], [ %.sroa.12.1, %_ZNSt15_Deque_iteratorIN15CoverageVisitor9CoverTermERS1_PS1_EpLEl.exit.i58 ], [ %.sroa.1274.1, %_ZNSt15_Deque_iteratorIN15CoverageVisitor9CoverTermERS1_PS1_EpLEl.exit.i16 ]
+  %.sink110 = phi ptr [ %storemerge.i.i59, %_ZNSt15_Deque_iteratorIN15CoverageVisitor9CoverTermERS1_PS1_EpLEl.exit.i58 ], [ %69, %._crit_edge ], [ %160, %158 ], [ %storemerge.i.i17, %_ZNSt15_Deque_iteratorIN15CoverageVisitor9CoverTermERS1_PS1_EpLEl.exit.i16 ]
+  %.sink = phi ptr [ %.sroa.4.1, %_ZNSt15_Deque_iteratorIN15CoverageVisitor9CoverTermERS1_PS1_EpLEl.exit.i58 ], [ %68, %._crit_edge ], [ %162, %158 ], [ %.sroa.471.1, %_ZNSt15_Deque_iteratorIN15CoverageVisitor9CoverTermERS1_PS1_EpLEl.exit.i16 ]
+  %.sroa.8.2.sink = phi ptr [ %.sroa.8.1, %_ZNSt15_Deque_iteratorIN15CoverageVisitor9CoverTermERS1_PS1_EpLEl.exit.i58 ], [ %67, %._crit_edge ], [ %164, %158 ], [ %.sroa.872.1, %_ZNSt15_Deque_iteratorIN15CoverageVisitor9CoverTermERS1_PS1_EpLEl.exit.i16 ]
+  %.sroa.12.2.sink = phi ptr [ %.sroa.12.1, %_ZNSt15_Deque_iteratorIN15CoverageVisitor9CoverTermERS1_PS1_EpLEl.exit.i58 ], [ %66, %._crit_edge ], [ %166, %158 ], [ %.sroa.1274.1, %_ZNSt15_Deque_iteratorIN15CoverageVisitor9CoverTermERS1_PS1_EpLEl.exit.i16 ]
   store ptr %.sink110, ptr %0, align 8, !tbaa !181
   %208 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %208, align 8, !tbaa !182
@@ -25107,7 +25107,7 @@ _ZNK6AstVar17isToggleCoverableEv.exit:            ; preds = %.thread5.i
   %.not9 = icmp eq i8 %.sroa.0.0.copyload.i.i.i4.i, 12
   br i1 %.not9, label %_ZNK6AstVar17isToggleCoverableEv.exit.thread, label %_ZNK6AstVar17isToggleCoverableEv.exit.thread8
 
-_ZNK6AstVar17isToggleCoverableEv.exit.thread8:    ; preds = %23, %.thread5.i, %_ZNK6AstVar17isToggleCoverableEv.exit
+_ZNK6AstVar17isToggleCoverableEv.exit.thread8:    ; preds = %.thread5.i, %23, %_ZNK6AstVar17isToggleCoverableEv.exit
   %40 = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 992), align 8, !tbaa !792, !range !55, !noundef !56
   %41 = trunc nuw i8 %40 to i1
   br i1 %41, label %70, label %42

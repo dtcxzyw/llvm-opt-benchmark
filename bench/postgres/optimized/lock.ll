@@ -1524,7 +1524,7 @@ define internal fastcc noundef zeroext i1 @FastPathGrantRelationLock(i32 noundef
   br label %61
 
 36:                                               ; preds = %18, %25
-  %.225 = phi i32 [ %.02331, %25 ], [ %24, %18 ]
+  %.225 = phi i32 [ %24, %18 ], [ %.02331, %25 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
   br i1 %exitcond.not, label %37, label %18, !llvm.loop !18
@@ -1926,7 +1926,7 @@ define dso_local noundef zeroext i1 @LockCheckConflicts(ptr noundef readonly cap
   br i1 %.not70, label %.critedge, label %75
 
 75:                                               ; preds = %._crit_edge81, %56, %52, %.lr.ph87.split
-  %.6 = phi i32 [ %.25185, %56 ], [ %.25185, %52 ], [ %.25185, %.lr.ph87.split ], [ %.5, %._crit_edge81 ]
+  %.6 = phi i32 [ %.25185, %.lr.ph87.split ], [ %.25185, %56 ], [ %.25185, %52 ], [ %.5, %._crit_edge81 ]
   %76 = getelementptr inbounds nuw i8, ptr %.sroa.0.084, i64 8
   %77 = load ptr, ptr %76, align 8
   %.not66 = icmp eq ptr %77, %48
@@ -3954,7 +3954,7 @@ define dso_local ptr @GetLockConflicts(ptr noundef %0, i32 noundef %1, ptr nound
   br i1 %exitcond.not, label %.sink.split158, label %99, !llvm.loop !37
 
 .sink.split158:                                   ; preds = %123, %109, %116, %113, %83
-  %.2.ph = phi i32 [ %.1124, %83 ], [ %.1124, %113 ], [ %120, %116 ], [ %.1124, %109 ], [ %.1124, %123 ]
+  %.2.ph = phi i32 [ %.1124, %83 ], [ %.1124, %109 ], [ %.1124, %113 ], [ %120, %116 ], [ %.1124, %123 ]
   tail call void @LWLockRelease(ptr noundef nonnull %84) #16
   br label %124
 

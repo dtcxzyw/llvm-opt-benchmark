@@ -816,7 +816,7 @@ Vec_StrGets.exit153:                              ; preds = %114, %107
   br label %.outer._crit_edge
 
 .outer._crit_edge:                                ; preds = %.loopexit, %.outer._crit_edge.loopexit269, %._crit_edge248
-  %.0108.ph.lcssa207 = phi i32 [ %.lcssa, %._crit_edge248 ], [ %183, %.outer._crit_edge.loopexit269 ], [ %173, %.loopexit ]
+  %.0108.ph.lcssa207 = phi i32 [ %183, %.outer._crit_edge.loopexit269 ], [ %.lcssa, %._crit_edge248 ], [ %173, %.loopexit ]
   store i8 0, ptr %5, align 16, !tbaa !21
   br label %.loopexit194
 
@@ -912,7 +912,7 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %209, %213
   br i1 %219, label %.outer._crit_edge.loopexit269, label %.preheader.i156.lr.ph, !llvm.loop !49
 
 .loopexit194:                                     ; preds = %.preheader.i156, %184, %195, %.outer._crit_edge
-  %.0108.ph208 = phi i32 [ %.0108.ph.lcssa207, %.outer._crit_edge ], [ %173, %184 ], [ %173, %195 ], [ %173, %.preheader.i156 ]
+  %.0108.ph208 = phi i32 [ %173, %184 ], [ %.0108.ph.lcssa207, %.outer._crit_edge ], [ %173, %195 ], [ %173, %.preheader.i156 ]
   call void @Extra_ProgressBarStop(ptr noundef %164) #17
   %220 = load i32, ptr %119, align 4, !tbaa !25
   %.not126 = icmp eq i32 %.0108.ph208, %220
@@ -963,7 +963,7 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %209, %213
   br label %Vec_StrGets.exit.thread
 
 Vec_StrGets.exit.thread:                          ; preds = %.preheader.i, %31, %14, %25, %51, %62, %78, %89, %105, %116, %98, %71, %44, %4, %238, %205, %123, %96, %69, %42
-  %.0110 = phi i32 [ 1, %238 ], [ 0, %42 ], [ 0, %69 ], [ 0, %96 ], [ 0, %123 ], [ 0, %205 ], [ 0, %4 ], [ 0, %44 ], [ 0, %71 ], [ 0, %98 ], [ 0, %14 ], [ 0, %105 ], [ 0, %78 ], [ 0, %51 ], [ 0, %116 ], [ 0, %89 ], [ 0, %62 ], [ 0, %25 ], [ 0, %31 ], [ 0, %.preheader.i ]
+  %.0110 = phi i32 [ 1, %238 ], [ 0, %42 ], [ 0, %98 ], [ 0, %69 ], [ 0, %78 ], [ 0, %96 ], [ 0, %105 ], [ 0, %123 ], [ 0, %205 ], [ 0, %14 ], [ 0, %51 ], [ 0, %44 ], [ 0, %4 ], [ 0, %71 ], [ 0, %116 ], [ 0, %89 ], [ 0, %62 ], [ 0, %25 ], [ 0, %31 ], [ 0, %.preheader.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0110
 }

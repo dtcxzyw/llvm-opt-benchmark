@@ -7767,7 +7767,7 @@ _ZNSt3__114__map_iteratorINS_15__tree_iteratorINS_12__value_typeINS_12basic_stri
   br i1 %.not47, label %_ZNSt3__1neB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EESB_.exit.thread, label %.lr.ph
 
 _ZNSt3__1neB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EESB_.exit.thread: ; preds = %.lr.ph.i.i, %.lr.ph.i.i18, %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, %_ZNK7mitsuba7variantIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSB_INSC_IdLm4EEEEENS4_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEEneERKSR_.exit, %_ZNSt3__114__map_iteratorINS_15__tree_iteratorINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEEPNS_11__tree_nodeISB_PvEElEEEppB8ne190000Ev.exit, %82, %103, %99, %93, %65, %_ZNSt3__1neB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EESB_.exit.thread38, %2, %_ZNSt3__1neB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EESB_.exit, %_ZNSt3__1neB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EESB_.exit25, %_ZNSt3__1neB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EESB_.exit25.thread42
-  %.0 = phi i1 [ false, %_ZNSt3__1neB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EESB_.exit ], [ false, %2 ], [ false, %_ZNSt3__1neB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EESB_.exit25.thread42 ], [ false, %_ZNSt3__1neB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EESB_.exit25 ], [ false, %_ZNSt3__1neB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EESB_.exit.thread38 ], [ true, %65 ], [ false, %.lr.ph.i.i18 ], [ false, %93 ], [ false, %99 ], [ false, %103 ], [ false, %82 ], [ true, %_ZNSt3__114__map_iteratorINS_15__tree_iteratorINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEEPNS_11__tree_nodeISB_PvEElEEEppB8ne190000Ev.exit ], [ false, %_ZNK7mitsuba7variantIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSB_INSC_IdLm4EEEEENS4_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEEneERKSR_.exit ], [ false, %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit ], [ false, %.lr.ph.i.i ]
+  %.0 = phi i1 [ false, %93 ], [ false, %_ZNSt3__1neB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EESB_.exit ], [ false, %2 ], [ false, %_ZNSt3__1neB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EESB_.exit25.thread42 ], [ false, %_ZNSt3__1neB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EESB_.exit25 ], [ false, %_ZNSt3__1neB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EESB_.exit.thread38 ], [ false, %.lr.ph.i.i18 ], [ true, %65 ], [ false, %99 ], [ false, %103 ], [ false, %82 ], [ true, %_ZNSt3__114__map_iteratorINS_15__tree_iteratorINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEEPNS_11__tree_nodeISB_PvEElEEEppB8ne190000Ev.exit ], [ false, %_ZNK7mitsuba7variantIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSB_INSC_IdLm4EEEEENS4_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEEneERKSR_.exit ], [ false, %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit ], [ false, %.lr.ph.i.i ]
   ret i1 %.0
 }
 
@@ -9300,8 +9300,8 @@ _ZNSt3__121__tree_const_iteratorINS_12__value_typeINS_12basic_stringIcNS_11char_
   br i1 %.not30.i, label %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE12__find_equalIS7_EERPNS_16__tree_node_baseIPvEERPNS_15__tree_end_nodeISK_EERKT_.exit, label %.preheader.i.backedge
 
 .preheader.i.backedge:                            ; preds = %38, %34
-  %.024.i.be = phi ptr [ %35, %34 ], [ %40, %38 ]
-  %.0.i.be = phi ptr [ %.024.i, %34 ], [ %39, %38 ]
+  %.024.i.be = phi ptr [ %40, %38 ], [ %35, %34 ]
+  %.0.i.be = phi ptr [ %39, %38 ], [ %.024.i, %34 ]
   br label %.preheader.i, !llvm.loop !83
 
 _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE12__find_equalIS7_EERPNS_16__tree_node_baseIPvEERPNS_15__tree_end_nodeISK_EERKT_.exit: ; preds = %34, %36, %38, %30
@@ -9389,8 +9389,8 @@ _ZNSt3__121__tree_const_iteratorINS_12__value_typeINS_12basic_stringIcNS_11char_
   br i1 %.not30.i32, label %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE12__find_equalIS7_EERPNS_16__tree_node_baseIPvEERPNS_15__tree_end_nodeISK_EERKT_.exit36, label %.preheader.i27.backedge
 
 .preheader.i27.backedge:                          ; preds = %66, %62
-  %.024.i28.be = phi ptr [ %63, %62 ], [ %68, %66 ]
-  %.0.i29.be = phi ptr [ %.024.i28, %62 ], [ %67, %66 ]
+  %.024.i28.be = phi ptr [ %68, %66 ], [ %63, %62 ]
+  %.0.i29.be = phi ptr [ %67, %66 ], [ %.024.i28, %62 ]
   br label %.preheader.i27, !llvm.loop !83
 
 _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE12__find_equalIS7_EERPNS_16__tree_node_baseIPvEERPNS_15__tree_end_nodeISK_EERKT_.exit36: ; preds = %62, %64, %66, %58
@@ -10174,7 +10174,7 @@ define linkonce_odr hidden void @_ZNSt3__16__treeINS_12__value_typeINS_12basic_s
   br i1 %.not7.i.i.i.i, label %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE18_DetachedTreeCacheC2B8ne190000EPSF_.exit, label %.preheader.i.i.i.backedge
 
 .preheader.i.i.i.backedge:                        ; preds = %29, %.preheader.i.i.i
-  %.0.i.i.i.i.be = phi ptr [ %28, %.preheader.i.i.i ], [ %31, %29 ]
+  %.0.i.i.i.i.be = phi ptr [ %31, %29 ], [ %28, %.preheader.i.i.i ]
   br label %.preheader.i.i.i, !llvm.loop !87
 
 32:                                               ; preds = %20
@@ -10198,11 +10198,11 @@ define linkonce_odr hidden void @_ZNSt3__16__treeINS_12__value_typeINS_12basic_s
   br i1 %.not7.i19.i.i.i, label %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE18_DetachedTreeCacheC2B8ne190000EPSF_.exit, label %.preheader21.i.i.i.backedge
 
 .preheader21.i.i.i.backedge:                      ; preds = %38, %.preheader21.i.i.i
-  %.0.i15.i.i.i.be = phi ptr [ %37, %.preheader21.i.i.i ], [ %40, %38 ]
+  %.0.i15.i.i.i.be = phi ptr [ %40, %38 ], [ %37, %.preheader21.i.i.i ]
   br label %.preheader21.i.i.i, !llvm.loop !87
 
 _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE18_DetachedTreeCacheC2B8ne190000EPSF_.exit: ; preds = %38, %29, %16, %23, %32
-  %.0.i.i.i = phi ptr [ null, %16 ], [ %34, %32 ], [ %24, %23 ], [ %.0.i.i.i.i, %29 ], [ %.0.i15.i.i.i, %38 ]
+  %.0.i.i.i = phi ptr [ %.0.i.i.i.i, %29 ], [ null, %16 ], [ %34, %32 ], [ %24, %23 ], [ %.0.i15.i.i.i, %38 ]
   store ptr %.0.i.i.i, ptr %8, align 8
   %.not104 = icmp eq ptr %1, %2
   br i1 %.not104, label %.critedge, label %.lr.ph
@@ -10280,7 +10280,7 @@ _ZN7mitsuba6detail14variant_helperIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_strin
   br i1 %.not21.i.i, label %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE16__find_leaf_highERPNS_15__tree_end_nodeIPNS_16__tree_node_baseIPvEEEERKS7_.exit.i.loopexit.split.loop.exit, label %.preheader.i.i.backedge
 
 .preheader.i.i.backedge:                          ; preds = %74, %72
-  %.0.i.i.be = phi ptr [ %73, %72 ], [ %76, %74 ]
+  %.0.i.i.be = phi ptr [ %76, %74 ], [ %73, %72 ]
   br label %.preheader.i.i, !llvm.loop !88
 
 _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE16__find_leaf_highERPNS_15__tree_end_nodeIPNS_16__tree_node_baseIPvEEEERKS7_.exit.i.loopexit.split.loop.exit: ; preds = %74
@@ -10348,7 +10348,7 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
   br i1 %.not7.i.i.i, label %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE18_DetachedTreeCache13__detach_nextEPNS_11__tree_nodeISA_PvEE.exit.i, label %.preheader.i.i7.backedge
 
 .preheader.i.i7.backedge:                         ; preds = %101, %.preheader.i.i7
-  %.0.i.i.i8.be = phi ptr [ %100, %.preheader.i.i7 ], [ %103, %101 ]
+  %.0.i.i.i8.be = phi ptr [ %103, %101 ], [ %100, %.preheader.i.i7 ]
   br label %.preheader.i.i7, !llvm.loop !87
 
 104:                                              ; preds = %92
@@ -10372,11 +10372,11 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
   br i1 %.not7.i19.i.i, label %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE18_DetachedTreeCache13__detach_nextEPNS_11__tree_nodeISA_PvEE.exit.i, label %.preheader21.i.i.backedge
 
 .preheader21.i.i.backedge:                        ; preds = %110, %.preheader21.i.i
-  %.0.i15.i.i.be = phi ptr [ %109, %.preheader21.i.i ], [ %112, %110 ]
+  %.0.i15.i.i.be = phi ptr [ %112, %110 ], [ %109, %.preheader21.i.i ]
   br label %.preheader21.i.i, !llvm.loop !87
 
 _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE18_DetachedTreeCache13__detach_nextEPNS_11__tree_nodeISA_PvEE.exit.i: ; preds = %110, %101, %104, %95, %88
-  %.0.i.i6 = phi ptr [ null, %88 ], [ %106, %104 ], [ %96, %95 ], [ %.0.i.i.i8, %101 ], [ %.0.i15.i.i, %110 ]
+  %.0.i.i6 = phi ptr [ %.0.i.i.i8, %101 ], [ null, %88 ], [ %106, %104 ], [ %96, %95 ], [ %.0.i15.i.i, %110 ]
   store ptr %.0.i.i6, ptr %8, align 8
   br label %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE18_DetachedTreeCache9__advanceB8ne190000Ev.exit
 

@@ -5534,7 +5534,7 @@ Py_DECREF.exit:                                   ; preds = %Py_DECREF.exit86, %
   br i1 %117, label %Py_DECREF.exit88, label %.thread100
 
 .thread100:                                       ; preds = %.lr.ph, %116, %9, %45, %39, %33, %27, %21, %15, %109
-  %.sink117 = phi i32 [ 2, %109 ], [ 3, %15 ], [ 3, %21 ], [ 3, %27 ], [ 3, %33 ], [ 3, %39 ], [ 3, %45 ], [ 3, %9 ], [ 3, %116 ], [ 3, %.lr.ph ]
+  %.sink117 = phi i32 [ 2, %109 ], [ 3, %116 ], [ 3, %15 ], [ 3, %21 ], [ 3, %27 ], [ 3, %33 ], [ 3, %39 ], [ 3, %45 ], [ 3, %9 ], [ 3, %.lr.ph ]
   %118 = icmp eq i32 %2, %.sink117
   %_Py_TrueStruct._Py_FalseStruct84 = select i1 %118, ptr @_Py_TrueStruct, ptr @_Py_FalseStruct
   %119 = load i32, ptr %_Py_TrueStruct._Py_FalseStruct84, align 8, !tbaa !97
@@ -7933,9 +7933,9 @@ define internal fastcc ptr @code_new_impl(i32 noundef %0, i32 noundef %1, i32 no
   br label %59
 
 59:                                               ; preds = %57, %40, %48, %55
-  %.049 = phi ptr [ null, %40 ], [ null, %48 ], [ null, %55 ], [ %58, %57 ]
-  %.045 = phi ptr [ null, %40 ], [ null, %48 ], [ %.146, %55 ], [ %.146, %57 ]
-  %.0 = phi ptr [ null, %40 ], [ null, %48 ], [ null, %55 ], [ %.1, %57 ]
+  %.049 = phi ptr [ %58, %57 ], [ null, %55 ], [ null, %48 ], [ null, %40 ]
+  %.045 = phi ptr [ %.146, %57 ], [ %.146, %55 ], [ null, %48 ], [ null, %40 ]
+  %.0 = phi ptr [ %.1, %57 ], [ null, %55 ], [ null, %48 ], [ null, %40 ]
   %60 = load i32, ptr %38, align 8, !tbaa !97
   %.not.i.i = icmp sgt i32 %60, -1
   br i1 %.not.i.i, label %61, label %Py_XDECREF.exit
@@ -8098,7 +8098,7 @@ Py_DECREF.exit26.sink.split:                      ; preds = %34, %26
   br label %Py_DECREF.exit26
 
 Py_DECREF.exit26:                                 ; preds = %Py_INCREF.exit, %Py_DECREF.exit26.sink.split, %.preheader, %34, %32, %26, %20, %1
-  %.0 = phi ptr [ null, %1 ], [ null, %20 ], [ null, %26 ], [ null, %32 ], [ null, %34 ], [ %3, %.preheader ], [ null, %Py_DECREF.exit26.sink.split ], [ %3, %Py_INCREF.exit ]
+  %.0 = phi ptr [ null, %1 ], [ null, %Py_DECREF.exit26.sink.split ], [ %3, %.preheader ], [ null, %20 ], [ null, %26 ], [ null, %32 ], [ null, %34 ], [ %3, %Py_INCREF.exit ]
   ret ptr %.0
 }
 

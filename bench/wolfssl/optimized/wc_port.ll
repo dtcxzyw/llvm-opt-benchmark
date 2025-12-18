@@ -293,7 +293,7 @@ wc_FileExists.exit:                               ; preds = %52
   br label %wc_ReadDirClose.exit
 
 wc_ReadDirClose.exit:                             ; preds = %40, %63, %.thread54, %.thread, %9, %6
-  %.0 = phi i32 [ 0, %.thread ], [ -173, %6 ], [ -244, %9 ], [ %.133, %.thread54 ], [ %.133, %63 ], [ 0, %40 ]
+  %.0 = phi i32 [ 0, %.thread ], [ -173, %6 ], [ %.133, %63 ], [ -244, %9 ], [ %.133, %.thread54 ], [ 0, %40 ]
   ret i32 %.0
 }
 
@@ -468,7 +468,7 @@ wc_FileExists.exit:                               ; preds = %51
   br label %wc_ReadDirClose.exit
 
 wc_ReadDirClose.exit:                             ; preds = %39, %62, %.thread51, %.thread, %6
-  %.0 = phi i32 [ 0, %.thread ], [ -173, %6 ], [ %.130, %.thread51 ], [ %.130, %62 ], [ 0, %39 ]
+  %.0 = phi i32 [ 0, %.thread ], [ %.130, %62 ], [ -173, %6 ], [ %.130, %.thread51 ], [ 0, %39 ]
   ret i32 %.0
 }
 
@@ -609,7 +609,7 @@ define ptr @wc_strtok(ptr noundef %0, ptr noundef readonly captures(none) %1, pt
   br label %.thread58
 
 .thread58:                                        ; preds = %23, %.thread59, %39, %8, %10
-  %.046 = phi ptr [ null, %8 ], [ null, %10 ], [ %.lcssa67, %39 ], [ %.lcssa67, %.thread59 ], [ null, %23 ]
+  %.046 = phi ptr [ %.lcssa67, %.thread59 ], [ null, %8 ], [ null, %10 ], [ %.lcssa67, %39 ], [ null, %23 ]
   ret ptr %.046
 }
 
@@ -662,12 +662,12 @@ define ptr @wc_strsep(ptr noundef captures(address_is_null) %0, ptr noundef read
   br i1 %.not, label %.sink.split, label %.preheader, !llvm.loop !27
 
 .sink.split:                                      ; preds = %._crit_edge, %.preheader24, %.preheader.lr.ph, %16
-  %.sink = phi ptr [ %17, %16 ], [ null, %.preheader.lr.ph ], [ null, %.preheader24 ], [ null, %._crit_edge ]
+  %.sink = phi ptr [ %17, %16 ], [ null, %.preheader24 ], [ null, %.preheader.lr.ph ], [ null, %._crit_edge ]
   store ptr %.sink, ptr %0, align 8, !tbaa !7
   br label %20
 
 20:                                               ; preds = %.sink.split, %2, %4
-  %.019 = phi ptr [ null, %4 ], [ null, %2 ], [ %5, %.sink.split ]
+  %.019 = phi ptr [ null, %2 ], [ null, %4 ], [ %5, %.sink.split ]
   ret ptr %.019
 }
 

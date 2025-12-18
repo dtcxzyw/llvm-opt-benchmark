@@ -426,7 +426,7 @@ define i32 @Dsd_TreeCountNonTerminalNodes(ptr noundef readonly captures(none) %0
   br i1 %29, label %20, label %Dsd_TreeUnmark.exit, !llvm.loop !24
 
 Dsd_TreeUnmark.exit:                              ; preds = %20, %1, %._crit_edge
-  %.07.lcssa17 = phi i32 [ %14, %._crit_edge ], [ 0, %1 ], [ %14, %20 ]
+  %.07.lcssa17 = phi i32 [ 0, %1 ], [ %14, %._crit_edge ], [ %14, %20 ]
   ret i32 %.07.lcssa17
 }
 
@@ -537,7 +537,7 @@ define i32 @Dsd_TreeCountPrimeNodes(ptr noundef readonly captures(none) %0) loca
   br i1 %29, label %20, label %Dsd_TreeUnmark.exit, !llvm.loop !24
 
 Dsd_TreeUnmark.exit:                              ; preds = %20, %1, %._crit_edge
-  %.07.lcssa17 = phi i32 [ %14, %._crit_edge ], [ 0, %1 ], [ %14, %20 ]
+  %.07.lcssa17 = phi i32 [ 0, %1 ], [ %14, %._crit_edge ], [ %14, %20 ]
   ret i32 %.07.lcssa17
 }
 
@@ -719,7 +719,7 @@ define internal fastcc range(i32 0, 2) i32 @Dsd_TreeCollectDecomposableVars_rec(
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph8.split, !llvm.loop !37
 
 .loopexit:                                        ; preds = %51, %35, %.preheader, %19, %._crit_edge, %3
-  %.0 = phi i32 [ 0, %3 ], [ 1, %19 ], [ 1, %._crit_edge ], [ 0, %.preheader ], [ 0, %35 ], [ 0, %51 ]
+  %.0 = phi i32 [ 0, %3 ], [ 1, %._crit_edge ], [ 1, %19 ], [ 0, %.preheader ], [ 0, %35 ], [ 0, %51 ]
   ret i32 %.0
 }
 
@@ -777,8 +777,8 @@ Dsd_TreeCountNonTerminalNodes.exit.loopexit:      ; preds = %.lr.ph.i.i
   br label %Dsd_TreeCountNonTerminalNodes.exit
 
 Dsd_TreeCountNonTerminalNodes.exit:               ; preds = %Dsd_TreeCountNonTerminalNodes.exit.loopexit, %2, %._crit_edge.i
-  %31 = phi i1 [ false, %._crit_edge.i ], [ false, %2 ], [ %30, %Dsd_TreeCountNonTerminalNodes.exit.loopexit ]
-  %.07.lcssa17.i = phi i32 [ %16, %._crit_edge.i ], [ 0, %2 ], [ %16, %Dsd_TreeCountNonTerminalNodes.exit.loopexit ]
+  %31 = phi i1 [ false, %2 ], [ false, %._crit_edge.i ], [ %30, %Dsd_TreeCountNonTerminalNodes.exit.loopexit ]
+  %.07.lcssa17.i = phi i32 [ 0, %2 ], [ %16, %._crit_edge.i ], [ %16, %Dsd_TreeCountNonTerminalNodes.exit.loopexit ]
   store i32 0, ptr %3, align 4, !tbaa !28
   %32 = sext i32 %.07.lcssa17.i to i64
   %33 = shl nsw i64 %32, 3

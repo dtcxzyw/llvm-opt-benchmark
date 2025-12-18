@@ -791,7 +791,7 @@ get_reassembled_in_frame.exit.thread.i:           ; preds = %add_alert_to_sessio
   br label %.thread.i.i.i
 
 .thread.i.i.i:                                    ; preds = %221, %233, %230, %.preheader.i.i.i
-  %.3.i.i.i = phi i32 [ %236, %233 ], [ %232, %230 ], [ 0, %.preheader.i.i.i ], [ 0, %221 ]
+  %.3.i.i.i = phi i32 [ %232, %230 ], [ %236, %233 ], [ 0, %.preheader.i.i.i ], [ 0, %221 ]
   %237 = call ptr @g_ptr_array_free(ptr noundef nonnull %217, i32 noundef 1)
   br label %get_content_start_match.exit.i
 

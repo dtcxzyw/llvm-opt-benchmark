@@ -1106,7 +1106,7 @@ _ZN3gmxL13isNullOrEmptyEPKc.exit53.thread:        ; preds = %115, %_ZNSt7__cxx11
   br label %194
 
 .loopexit111:                                     ; preds = %_ZN3gmxL13isNullOrEmptyEPKc.exit.thread, %69, %16, %._crit_edge144, %._crit_edge
-  %.0 = phi i1 [ false, %._crit_edge ], [ true, %._crit_edge144 ], [ true, %16 ], [ false, %69 ], [ true, %_ZN3gmxL13isNullOrEmptyEPKc.exit.thread ]
+  %.0 = phi i1 [ true, %._crit_edge144 ], [ false, %._crit_edge ], [ true, %16 ], [ false, %69 ], [ true, %_ZN3gmxL13isNullOrEmptyEPKc.exit.thread ]
   ret i1 %.0
 
 194:                                              ; preds = %193, %64

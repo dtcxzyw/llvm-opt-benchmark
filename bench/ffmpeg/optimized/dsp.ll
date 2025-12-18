@@ -1171,13 +1171,13 @@ ff_vvc_inter_dsp_init_8.exit:                     ; preds = %303
   br i1 %exitcond18.not.i236, label %ff_vvc_sao_dsp_init_12.exit, label %364, !llvm.loop !119
 
 ff_vvc_sao_dsp_init_12.exit:                      ; preds = %243, %122, %364
-  %sao_edge_restore_0_8.sink = phi ptr [ @sao_edge_restore_0_12, %122 ], [ @sao_edge_restore_0_8, %364 ], [ @sao_edge_restore_0_10, %243 ]
-  %sao_edge_restore_1_8.sink = phi ptr [ @sao_edge_restore_1_12, %122 ], [ @sao_edge_restore_1_8, %364 ], [ @sao_edge_restore_1_10, %243 ]
-  %alf_filter_luma_8.sink = phi ptr [ @alf_filter_luma_12, %122 ], [ @alf_filter_luma_8, %364 ], [ @alf_filter_luma_10, %243 ]
-  %alf_filter_chroma_8.sink = phi ptr [ @alf_filter_chroma_12, %122 ], [ @alf_filter_chroma_8, %364 ], [ @alf_filter_chroma_10, %243 ]
-  %alf_filter_cc_8.sink = phi ptr [ @alf_filter_cc_12, %122 ], [ @alf_filter_cc_8, %364 ], [ @alf_filter_cc_10, %243 ]
-  %alf_classify_8.sink = phi ptr [ @alf_classify_12, %122 ], [ @alf_classify_8, %364 ], [ @alf_classify_10, %243 ]
-  %alf_recon_coeff_and_clip_8.sink = phi ptr [ @alf_recon_coeff_and_clip_12, %122 ], [ @alf_recon_coeff_and_clip_8, %364 ], [ @alf_recon_coeff_and_clip_10, %243 ]
+  %sao_edge_restore_0_8.sink = phi ptr [ @sao_edge_restore_0_8, %364 ], [ @sao_edge_restore_0_12, %122 ], [ @sao_edge_restore_0_10, %243 ]
+  %sao_edge_restore_1_8.sink = phi ptr [ @sao_edge_restore_1_8, %364 ], [ @sao_edge_restore_1_12, %122 ], [ @sao_edge_restore_1_10, %243 ]
+  %alf_filter_luma_8.sink = phi ptr [ @alf_filter_luma_8, %364 ], [ @alf_filter_luma_12, %122 ], [ @alf_filter_luma_10, %243 ]
+  %alf_filter_chroma_8.sink = phi ptr [ @alf_filter_chroma_8, %364 ], [ @alf_filter_chroma_12, %122 ], [ @alf_filter_chroma_10, %243 ]
+  %alf_filter_cc_8.sink = phi ptr [ @alf_filter_cc_8, %364 ], [ @alf_filter_cc_12, %122 ], [ @alf_filter_cc_10, %243 ]
+  %alf_classify_8.sink = phi ptr [ @alf_classify_8, %364 ], [ @alf_classify_12, %122 ], [ @alf_classify_10, %243 ]
+  %alf_recon_coeff_and_clip_8.sink = phi ptr [ @alf_recon_coeff_and_clip_8, %364 ], [ @alf_recon_coeff_and_clip_12, %122 ], [ @alf_recon_coeff_and_clip_10, %243 ]
   %366 = getelementptr inbounds nuw i8, ptr %0, i64 2256
   store ptr %sao_edge_restore_0_8.sink, ptr %366, align 8, !tbaa !4
   %367 = getelementptr inbounds nuw i8, ptr %0, i64 2264
@@ -7158,9 +7158,9 @@ cclm_select_luma_444_12.exit67:                   ; preds = %.lr.ph133, %239
   br i1 %exitcond252.not, label %cclm_select_luma_12.exit, label %366, !llvm.loop !321
 
 cclm_select_luma_12.exit:                         ; preds = %.lr.ph135, %436, %.loopexit78.cclm_select_luma_12.exit_crit_edge, %cclm_select_luma_444_12.exit67
-  %.pre-phi300 = phi i64 [ %.pre299, %.loopexit78.cclm_select_luma_12.exit_crit_edge ], [ %260, %cclm_select_luma_444_12.exit67 ], [ %365, %436 ], [ %260, %.lr.ph135 ]
-  %437 = phi i32 [ %.sroa.6392.0..sroa.6392.4.393, %.loopexit78.cclm_select_luma_12.exit_crit_edge ], [ %.sroa.6392.0..sroa.6392.4., %cclm_select_luma_444_12.exit67 ], [ %.sroa.6392.0..sroa.6392.4.393, %436 ], [ %.sroa.6392.0..sroa.6392.4., %.lr.ph135 ]
-  %438 = phi i32 [ %.sroa.0390.0..sroa.0390.0.391, %.loopexit78.cclm_select_luma_12.exit_crit_edge ], [ %.sroa.0390.0..sroa.0390.0., %cclm_select_luma_444_12.exit67 ], [ %.sroa.0390.0..sroa.0390.0.391, %436 ], [ %.sroa.0390.0..sroa.0390.0., %.lr.ph135 ]
+  %.pre-phi300 = phi i64 [ %.pre299, %.loopexit78.cclm_select_luma_12.exit_crit_edge ], [ %365, %436 ], [ %260, %cclm_select_luma_444_12.exit67 ], [ %260, %.lr.ph135 ]
+  %437 = phi i32 [ %.sroa.6392.0..sroa.6392.4.393, %.loopexit78.cclm_select_luma_12.exit_crit_edge ], [ %.sroa.6392.0..sroa.6392.4.393, %436 ], [ %.sroa.6392.0..sroa.6392.4., %cclm_select_luma_444_12.exit67 ], [ %.sroa.6392.0..sroa.6392.4., %.lr.ph135 ]
+  %438 = phi i32 [ %.sroa.0390.0..sroa.0390.0.391, %.loopexit78.cclm_select_luma_12.exit_crit_edge ], [ %.sroa.0390.0..sroa.0390.0.391, %436 ], [ %.sroa.0390.0..sroa.0390.0., %cclm_select_luma_444_12.exit67 ], [ %.sroa.0390.0..sroa.0390.0., %.lr.ph135 ]
   %439 = sext i32 %179 to i64
   %440 = add nsw i32 %183, -1
   %441 = sext i32 %440 to i64
@@ -8176,7 +8176,7 @@ ref_filter_12.exit:                               ; preds = %235, %._crit_edge23
   br i1 %exitcond303.not, label %prepare_intra_edge_params_12.exit, label %344, !llvm.loop !351
 
 prepare_intra_edge_params_12.exit:                ; preds = %344, %.lr.ph244, %314, %.lr.ph250, %.preheader219, %326, %.preheader216, %296, %ref_filter_12.exit, %281
-  %346 = phi i32 [ %.sink, %281 ], [ %.sink, %.preheader219 ], [ %.sink, %326 ], [ %.sink, %.preheader216 ], [ %.sink, %296 ], [ undef, %ref_filter_12.exit ], [ %.sink, %.lr.ph244 ], [ %.sink, %.lr.ph250 ], [ %.sink, %314 ], [ %.sink, %344 ]
+  %346 = phi i32 [ %.sink, %.lr.ph244 ], [ %.sink, %314 ], [ %.sink, %.lr.ph250 ], [ %.sink, %281 ], [ %.sink, %.preheader219 ], [ %.sink, %326 ], [ %.sink, %.preheader216 ], [ %.sink, %296 ], [ undef, %ref_filter_12.exit ], [ %.sink, %344 ]
   %347 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %.0237.i, ptr %347, align 8, !tbaa !352
   store ptr %.0239.i, ptr %7, align 8, !tbaa !353
@@ -12583,15 +12583,15 @@ define internal void @sao_edge_restore_1_12(ptr noundef writeonly captures(none)
   br label %126
 
 110:                                              ; preds = %.thread240, %99
-  %111 = phi i1 [ %103, %99 ], [ false, %.thread240 ]
-  %112 = phi ptr [ %100, %99 ], [ %98, %.thread240 ]
-  %113 = phi i32 [ 0, %99 ], [ %.ph239, %.thread240 ]
-  %114 = phi i1 [ true, %99 ], [ %.ph, %.thread240 ]
-  %.0196227234249 = phi i32 [ %.0196226, %99 ], [ %.0196227234.ph, %.thread240 ]
-  %.0200225235248 = phi i32 [ %.0200224, %99 ], [ %.0200225235.ph, %.thread240 ]
-  %.0201236247 = phi i32 [ %.0201, %99 ], [ %.0201236.ph, %.thread240 ]
-  %.0198237246 = phi i32 [ %.1199, %99 ], [ %.0198237.ph, %.thread240 ]
-  %115 = phi i1 [ %94, %99 ], [ %.ph, %.thread240 ]
+  %111 = phi i1 [ false, %.thread240 ], [ %103, %99 ]
+  %112 = phi ptr [ %98, %.thread240 ], [ %100, %99 ]
+  %113 = phi i32 [ %.ph239, %.thread240 ], [ 0, %99 ]
+  %114 = phi i1 [ %.ph, %.thread240 ], [ true, %99 ]
+  %.0196227234249 = phi i32 [ %.0196227234.ph, %.thread240 ], [ %.0196226, %99 ]
+  %.0200225235248 = phi i32 [ %.0200225235.ph, %.thread240 ], [ %.0200224, %99 ]
+  %.0201236247 = phi i32 [ %.0201236.ph, %.thread240 ], [ %.0201, %99 ]
+  %.0198237246 = phi i32 [ %.0198237.ph, %.thread240 ], [ %.1199, %99 ]
+  %115 = phi i1 [ %.ph, %.thread240 ], [ %94, %99 ]
   %116 = getelementptr inbounds nuw i8, ptr %11, i64 2
   %117 = load i8, ptr %116, align 1, !tbaa !128
   %118 = icmp eq i8 %117, 0
@@ -19933,9 +19933,9 @@ cclm_select_luma_444_10.exit67:                   ; preds = %.lr.ph133, %239
   br i1 %exitcond252.not, label %cclm_select_luma_10.exit, label %366, !llvm.loop !552
 
 cclm_select_luma_10.exit:                         ; preds = %.lr.ph135, %436, %.loopexit78.cclm_select_luma_10.exit_crit_edge, %cclm_select_luma_444_10.exit67
-  %.pre-phi300 = phi i64 [ %.pre299, %.loopexit78.cclm_select_luma_10.exit_crit_edge ], [ %260, %cclm_select_luma_444_10.exit67 ], [ %365, %436 ], [ %260, %.lr.ph135 ]
-  %437 = phi i32 [ %.sroa.6392.0..sroa.6392.4.393, %.loopexit78.cclm_select_luma_10.exit_crit_edge ], [ %.sroa.6392.0..sroa.6392.4., %cclm_select_luma_444_10.exit67 ], [ %.sroa.6392.0..sroa.6392.4.393, %436 ], [ %.sroa.6392.0..sroa.6392.4., %.lr.ph135 ]
-  %438 = phi i32 [ %.sroa.0390.0..sroa.0390.0.391, %.loopexit78.cclm_select_luma_10.exit_crit_edge ], [ %.sroa.0390.0..sroa.0390.0., %cclm_select_luma_444_10.exit67 ], [ %.sroa.0390.0..sroa.0390.0.391, %436 ], [ %.sroa.0390.0..sroa.0390.0., %.lr.ph135 ]
+  %.pre-phi300 = phi i64 [ %.pre299, %.loopexit78.cclm_select_luma_10.exit_crit_edge ], [ %365, %436 ], [ %260, %cclm_select_luma_444_10.exit67 ], [ %260, %.lr.ph135 ]
+  %437 = phi i32 [ %.sroa.6392.0..sroa.6392.4.393, %.loopexit78.cclm_select_luma_10.exit_crit_edge ], [ %.sroa.6392.0..sroa.6392.4.393, %436 ], [ %.sroa.6392.0..sroa.6392.4., %cclm_select_luma_444_10.exit67 ], [ %.sroa.6392.0..sroa.6392.4., %.lr.ph135 ]
+  %438 = phi i32 [ %.sroa.0390.0..sroa.0390.0.391, %.loopexit78.cclm_select_luma_10.exit_crit_edge ], [ %.sroa.0390.0..sroa.0390.0.391, %436 ], [ %.sroa.0390.0..sroa.0390.0., %cclm_select_luma_444_10.exit67 ], [ %.sroa.0390.0..sroa.0390.0., %.lr.ph135 ]
   %439 = sext i32 %179 to i64
   %440 = add nsw i32 %183, -1
   %441 = sext i32 %440 to i64
@@ -20951,7 +20951,7 @@ ref_filter_10.exit:                               ; preds = %235, %._crit_edge23
   br i1 %exitcond303.not, label %prepare_intra_edge_params_10.exit, label %344, !llvm.loop !571
 
 prepare_intra_edge_params_10.exit:                ; preds = %344, %.lr.ph244, %314, %.lr.ph250, %.preheader219, %326, %.preheader216, %296, %ref_filter_10.exit, %281
-  %346 = phi i32 [ %.sink, %281 ], [ %.sink, %.preheader219 ], [ %.sink, %326 ], [ %.sink, %.preheader216 ], [ %.sink, %296 ], [ undef, %ref_filter_10.exit ], [ %.sink, %.lr.ph244 ], [ %.sink, %.lr.ph250 ], [ %.sink, %314 ], [ %.sink, %344 ]
+  %346 = phi i32 [ %.sink, %.lr.ph244 ], [ %.sink, %314 ], [ %.sink, %.lr.ph250 ], [ %.sink, %281 ], [ %.sink, %.preheader219 ], [ %.sink, %326 ], [ %.sink, %.preheader216 ], [ %.sink, %296 ], [ undef, %ref_filter_10.exit ], [ %.sink, %344 ]
   %347 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %.0237.i, ptr %347, align 8, !tbaa !352
   store ptr %.0239.i, ptr %7, align 8, !tbaa !353
@@ -25308,15 +25308,15 @@ define internal void @sao_edge_restore_1_10(ptr noundef writeonly captures(none)
   br label %126
 
 110:                                              ; preds = %.thread240, %99
-  %111 = phi i1 [ %103, %99 ], [ false, %.thread240 ]
-  %112 = phi ptr [ %100, %99 ], [ %98, %.thread240 ]
-  %113 = phi i32 [ 0, %99 ], [ %.ph239, %.thread240 ]
-  %114 = phi i1 [ true, %99 ], [ %.ph, %.thread240 ]
-  %.0196227234249 = phi i32 [ %.0196226, %99 ], [ %.0196227234.ph, %.thread240 ]
-  %.0200225235248 = phi i32 [ %.0200224, %99 ], [ %.0200225235.ph, %.thread240 ]
-  %.0201236247 = phi i32 [ %.0201, %99 ], [ %.0201236.ph, %.thread240 ]
-  %.0198237246 = phi i32 [ %.1199, %99 ], [ %.0198237.ph, %.thread240 ]
-  %115 = phi i1 [ %94, %99 ], [ %.ph, %.thread240 ]
+  %111 = phi i1 [ false, %.thread240 ], [ %103, %99 ]
+  %112 = phi ptr [ %98, %.thread240 ], [ %100, %99 ]
+  %113 = phi i32 [ %.ph239, %.thread240 ], [ 0, %99 ]
+  %114 = phi i1 [ %.ph, %.thread240 ], [ true, %99 ]
+  %.0196227234249 = phi i32 [ %.0196227234.ph, %.thread240 ], [ %.0196226, %99 ]
+  %.0200225235248 = phi i32 [ %.0200225235.ph, %.thread240 ], [ %.0200224, %99 ]
+  %.0201236247 = phi i32 [ %.0201236.ph, %.thread240 ], [ %.0201, %99 ]
+  %.0198237246 = phi i32 [ %.0198237.ph, %.thread240 ], [ %.1199, %99 ]
+  %115 = phi i1 [ %.ph, %.thread240 ], [ %94, %99 ]
   %116 = getelementptr inbounds nuw i8, ptr %11, i64 2
   %117 = load i8, ptr %116, align 1, !tbaa !128
   %118 = icmp eq i8 %117, 0
@@ -32610,9 +32610,9 @@ cclm_select_luma_444_8.exit67:                    ; preds = %.lr.ph133, %234
   br i1 %exitcond248.not, label %cclm_select_luma_8.exit, label %359, !llvm.loop !764
 
 cclm_select_luma_8.exit:                          ; preds = %.lr.ph135, %429, %.loopexit78.cclm_select_luma_8.exit_crit_edge, %cclm_select_luma_444_8.exit67
-  %.pre-phi296 = phi i64 [ %.pre295, %.loopexit78.cclm_select_luma_8.exit_crit_edge ], [ %254, %cclm_select_luma_444_8.exit67 ], [ %358, %429 ], [ %254, %.lr.ph135 ]
-  %430 = phi i32 [ %.sroa.6386.0..sroa.6386.4.387, %.loopexit78.cclm_select_luma_8.exit_crit_edge ], [ %.sroa.6386.0..sroa.6386.4., %cclm_select_luma_444_8.exit67 ], [ %.sroa.6386.0..sroa.6386.4.387, %429 ], [ %.sroa.6386.0..sroa.6386.4., %.lr.ph135 ]
-  %431 = phi i32 [ %.sroa.0384.0..sroa.0384.0.385, %.loopexit78.cclm_select_luma_8.exit_crit_edge ], [ %.sroa.0384.0..sroa.0384.0., %cclm_select_luma_444_8.exit67 ], [ %.sroa.0384.0..sroa.0384.0.385, %429 ], [ %.sroa.0384.0..sroa.0384.0., %.lr.ph135 ]
+  %.pre-phi296 = phi i64 [ %.pre295, %.loopexit78.cclm_select_luma_8.exit_crit_edge ], [ %358, %429 ], [ %254, %cclm_select_luma_444_8.exit67 ], [ %254, %.lr.ph135 ]
+  %430 = phi i32 [ %.sroa.6386.0..sroa.6386.4.387, %.loopexit78.cclm_select_luma_8.exit_crit_edge ], [ %.sroa.6386.0..sroa.6386.4.387, %429 ], [ %.sroa.6386.0..sroa.6386.4., %cclm_select_luma_444_8.exit67 ], [ %.sroa.6386.0..sroa.6386.4., %.lr.ph135 ]
+  %431 = phi i32 [ %.sroa.0384.0..sroa.0384.0.385, %.loopexit78.cclm_select_luma_8.exit_crit_edge ], [ %.sroa.0384.0..sroa.0384.0.385, %429 ], [ %.sroa.0384.0..sroa.0384.0., %cclm_select_luma_444_8.exit67 ], [ %.sroa.0384.0..sroa.0384.0., %.lr.ph135 ]
   %432 = sext i32 %175 to i64
   %433 = add nsw i32 %179, -1
   %434 = sext i32 %433 to i64
@@ -38036,15 +38036,15 @@ define internal void @sao_edge_restore_1_8(ptr noundef writeonly captures(none) 
   br label %123
 
 107:                                              ; preds = %.thread240, %95
-  %108 = phi i1 [ %99, %95 ], [ false, %.thread240 ]
-  %109 = phi ptr [ %96, %95 ], [ %94, %.thread240 ]
-  %110 = phi i32 [ 0, %95 ], [ %.ph239, %.thread240 ]
-  %111 = phi i1 [ true, %95 ], [ %.ph, %.thread240 ]
-  %.0196227234249 = phi i32 [ %.0196226, %95 ], [ %.0196227234.ph, %.thread240 ]
-  %.0200225235248 = phi i32 [ %.0200224, %95 ], [ %.0200225235.ph, %.thread240 ]
-  %.0201236247 = phi i32 [ %.0201, %95 ], [ %.0201236.ph, %.thread240 ]
-  %.0198237246 = phi i32 [ %.1199, %95 ], [ %.0198237.ph, %.thread240 ]
-  %112 = phi i1 [ %88, %95 ], [ %.ph, %.thread240 ]
+  %108 = phi i1 [ false, %.thread240 ], [ %99, %95 ]
+  %109 = phi ptr [ %94, %.thread240 ], [ %96, %95 ]
+  %110 = phi i32 [ %.ph239, %.thread240 ], [ 0, %95 ]
+  %111 = phi i1 [ %.ph, %.thread240 ], [ true, %95 ]
+  %.0196227234249 = phi i32 [ %.0196227234.ph, %.thread240 ], [ %.0196226, %95 ]
+  %.0200225235248 = phi i32 [ %.0200225235.ph, %.thread240 ], [ %.0200224, %95 ]
+  %.0201236247 = phi i32 [ %.0201236.ph, %.thread240 ], [ %.0201, %95 ]
+  %.0198237246 = phi i32 [ %.0198237.ph, %.thread240 ], [ %.1199, %95 ]
+  %112 = phi i1 [ %.ph, %.thread240 ], [ %88, %95 ]
   %113 = getelementptr inbounds nuw i8, ptr %11, i64 2
   %114 = load i8, ptr %113, align 1, !tbaa !128
   %115 = icmp eq i8 %114, 0

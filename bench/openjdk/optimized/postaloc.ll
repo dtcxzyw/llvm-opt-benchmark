@@ -3910,7 +3910,7 @@ _ZN12PhaseChaitin24replace_and_yank_if_deadEP4NodeiP5BlockR9Node_ListS5_.exit490
   br label %_ZNK12PhaseChaitin21may_be_copy_of_calleeEP4Node.exit.thread
 
 _ZNK12PhaseChaitin21may_be_copy_of_calleeEP4Node.exit.thread: ; preds = %_ZN10Node_Array3mapEjP4Node.exit471, %979, %952, %.loopexit591, %_ZN12PhaseChaitin24replace_and_yank_if_deadEP4NodeiP5BlockR9Node_ListS5_.exit473, %1125, %_ZN12PhaseChaitin24replace_and_yank_if_deadEP4NodeiP5BlockR9Node_ListS5_.exit490, %_ZN12PhaseChaitin24replace_and_yank_if_deadEP4NodeiP5BlockR9Node_ListS5_.exit480, %_ZN10Node_Array3mapEjP4Node.exit488, %_ZN10Node_Array3mapEjP4Node.exit454, %_ZN12PhaseChaitin24replace_and_yank_if_deadEP4NodeiP5BlockR9Node_ListS5_.exit, %_ZN12PhaseChaitin24replace_and_yank_if_deadEP4NodeiP5BlockR9Node_ListS5_.exit458, %_ZNK12PhaseChaitin21may_be_copy_of_calleeEP4Node.exit
-  %.7 = phi i32 [ %926, %_ZN12PhaseChaitin24replace_and_yank_if_deadEP4NodeiP5BlockR9Node_ListS5_.exit ], [ %.6.lcssa, %_ZN10Node_Array3mapEjP4Node.exit454 ], [ %.6.lcssa, %_ZNK12PhaseChaitin21may_be_copy_of_calleeEP4Node.exit ], [ %991, %_ZN12PhaseChaitin24replace_and_yank_if_deadEP4NodeiP5BlockR9Node_ListS5_.exit458 ], [ %1038, %_ZN12PhaseChaitin24replace_and_yank_if_deadEP4NodeiP5BlockR9Node_ListS5_.exit473 ], [ %.6.lcssa, %.loopexit591 ], [ %1106, %_ZN12PhaseChaitin24replace_and_yank_if_deadEP4NodeiP5BlockR9Node_ListS5_.exit480 ], [ %.6.lcssa, %_ZN10Node_Array3mapEjP4Node.exit488 ], [ %.6.lcssa, %1125 ], [ %1137, %_ZN12PhaseChaitin24replace_and_yank_if_deadEP4NodeiP5BlockR9Node_ListS5_.exit490 ], [ %.6.lcssa, %979 ], [ %.6.lcssa, %952 ], [ %.6.lcssa, %_ZN10Node_Array3mapEjP4Node.exit471 ]
+  %.7 = phi i32 [ %926, %_ZN12PhaseChaitin24replace_and_yank_if_deadEP4NodeiP5BlockR9Node_ListS5_.exit ], [ %.6.lcssa, %_ZN10Node_Array3mapEjP4Node.exit454 ], [ %.6.lcssa, %_ZNK12PhaseChaitin21may_be_copy_of_calleeEP4Node.exit ], [ %991, %_ZN12PhaseChaitin24replace_and_yank_if_deadEP4NodeiP5BlockR9Node_ListS5_.exit458 ], [ %1038, %_ZN12PhaseChaitin24replace_and_yank_if_deadEP4NodeiP5BlockR9Node_ListS5_.exit473 ], [ %.6.lcssa, %.loopexit591 ], [ %.6.lcssa, %979 ], [ %1106, %_ZN12PhaseChaitin24replace_and_yank_if_deadEP4NodeiP5BlockR9Node_ListS5_.exit480 ], [ %.6.lcssa, %_ZN10Node_Array3mapEjP4Node.exit488 ], [ %.6.lcssa, %1125 ], [ %1137, %_ZN12PhaseChaitin24replace_and_yank_if_deadEP4NodeiP5BlockR9Node_ListS5_.exit490 ], [ %.6.lcssa, %952 ], [ %.6.lcssa, %_ZN10Node_Array3mapEjP4Node.exit471 ]
   %1138 = icmp eq i32 %795, 999
   br i1 %1138, label %1139, label %.loopexit588
 
@@ -3995,9 +3995,9 @@ _ZN15RegMaskIteratorC2ERK7RegMask.exit:           ; preds = %1149
   br label %_ZN15RegMaskIterator4nextEv.exit
 
 _ZN15RegMaskIterator4nextEv.exit:                 ; preds = %.preheader.i492, %1162, %1173
-  %.sroa.7.4 = phi i32 [ %1169, %1173 ], [ %.sroa.7.0685, %1162 ], [ %.sroa.7.3, %.preheader.i492 ]
-  %.sroa.0.4 = phi i64 [ %1177, %1173 ], [ %1166, %1162 ], [ 0, %.preheader.i492 ]
-  %.sink.i = phi i32 [ %1180, %1173 ], [ %1167, %1162 ], [ -1, %.preheader.i492 ]
+  %.sroa.7.4 = phi i32 [ %.sroa.7.0685, %1162 ], [ %1169, %1173 ], [ %.sroa.7.3, %.preheader.i492 ]
+  %.sroa.0.4 = phi i64 [ %1166, %1162 ], [ %1177, %1173 ], [ 0, %.preheader.i492 ]
+  %.sink.i = phi i32 [ %1167, %1162 ], [ %1180, %1173 ], [ -1, %.preheader.i492 ]
   %1181 = load i32, ptr %481, align 8
   %.not.i494 = icmp ult i32 %.sroa.11.0684, %1181
   br i1 %.not.i494, label %_ZN10Node_Array3mapEjP4Node.exit495, label %1182
@@ -4027,7 +4027,7 @@ _ZN10Node_Array3mapEjP4Node.exit497:              ; preds = %_ZN10Node_Array3map
   br i1 %.not585, label %.loopexit588, label %.lr.ph687, !llvm.loop !40
 
 .loopexit588:                                     ; preds = %1148, %_ZN10Node_Array3mapEjP4Node.exit497, %_ZN15RegMaskIteratorC2ERK7RegMask.exit, %_ZNK12PhaseChaitin21may_be_copy_of_calleeEP4Node.exit.thread, %._crit_edge678, %578
-  %.5 = phi i32 [ %.7, %_ZNK12PhaseChaitin21may_be_copy_of_calleeEP4Node.exit.thread ], [ %.6.lcssa, %._crit_edge678 ], [ %580, %578 ], [ %.7, %_ZN15RegMaskIteratorC2ERK7RegMask.exit ], [ %.7, %_ZN10Node_Array3mapEjP4Node.exit497 ], [ %.7, %1148 ]
+  %.5 = phi i32 [ %580, %578 ], [ %.7, %_ZNK12PhaseChaitin21may_be_copy_of_calleeEP4Node.exit.thread ], [ %.6.lcssa, %._crit_edge678 ], [ %.7, %_ZN15RegMaskIteratorC2ERK7RegMask.exit ], [ %.7, %_ZN10Node_Array3mapEjP4Node.exit497 ], [ %.7, %1148 ]
   %1190 = add i32 %.5, 1
   %1191 = load i32, ptr %60, align 8
   %1192 = icmp ult i32 %1190, %1191

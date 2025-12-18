@@ -1424,7 +1424,7 @@ if.end26:                                         ; preds = %if.then24, %if.then
   br i1 %or.cond1, label %if.then32, label %for.inc70
 
 if.then32:                                        ; preds = %if.end26, %if.end26.us, %if.then24.us, %if.then22.us, %if.then22.us
-  %4 = phi ptr [ %storemerge4355.us, %if.then22.us ], [ %storemerge4355.us, %if.then22.us ], [ %add.ptr.us, %if.then24.us ], [ %storemerge4355.us, %if.end26.us ], [ %storemerge4353, %if.end26 ]
+  %4 = phi ptr [ %add.ptr.us, %if.then24.us ], [ %storemerge4355.us, %if.end26.us ], [ %storemerge4355.us, %if.then22.us ], [ %storemerge4355.us, %if.then22.us ], [ %storemerge4353, %if.end26 ]
   %tobool33.not = icmp eq ptr %ppNewText, null
   br i1 %tobool33.not, label %if.end35, label %if.then34
 
@@ -1609,7 +1609,7 @@ if.end26:                                         ; preds = %if.then24, %if.then
   br i1 %or.cond1, label %if.then32, label %for.inc70
 
 if.then32:                                        ; preds = %if.end26, %if.end26.us, %if.then24.us, %if.then22.us, %if.then22.us
-  %3 = phi ptr [ %storemerge4355.us, %if.then22.us ], [ %storemerge4355.us, %if.then22.us ], [ %add.ptr.us, %if.then24.us ], [ %storemerge4355.us, %if.end26.us ], [ %storemerge4353, %if.end26 ]
+  %3 = phi ptr [ %add.ptr.us, %if.then24.us ], [ %storemerge4355.us, %if.end26.us ], [ %storemerge4355.us, %if.then22.us ], [ %storemerge4355.us, %if.then22.us ], [ %storemerge4353, %if.end26 ]
   %tobool33.not = icmp eq ptr %ppNewText, null
   br i1 %tobool33.not, label %if.end35, label %if.then34
 
@@ -1794,7 +1794,7 @@ if.end20:                                         ; preds = %if.then18, %if.then
   br i1 %or.cond1, label %if.then26, label %for.inc58
 
 if.then26:                                        ; preds = %if.end20, %if.end20.us, %if.then18.us, %if.then16.us, %if.then16.us
-  %3 = phi ptr [ %storemerge4658.us, %if.then16.us ], [ %storemerge4658.us, %if.then16.us ], [ %add.ptr.us, %if.then18.us ], [ %storemerge4658.us, %if.end20.us ], [ %storemerge4656, %if.end20 ]
+  %3 = phi ptr [ %add.ptr.us, %if.then18.us ], [ %storemerge4658.us, %if.end20.us ], [ %storemerge4658.us, %if.then16.us ], [ %storemerge4658.us, %if.then16.us ], [ %storemerge4656, %if.end20 ]
   %tobool27.not = icmp eq ptr %ppNewText, null
   br i1 %tobool27.not, label %if.end29, label %if.then28
 
@@ -2300,7 +2300,7 @@ if.end20:                                         ; preds = %if.else, %if.then18
   br i1 %exitcond.not, label %return, label %land.rhsthread-pre-split, !llvm.loop !35
 
 return:                                           ; preds = %if.end20, %for.body, %land.rhsthread-pre-split, %if.end20.us, %land.rhs.us, %if.end, %land.lhs.true5
-  %retval.0 = phi i1 [ false, %land.lhs.true5 ], [ false, %if.end ], [ true, %if.end20.us ], [ true, %land.rhs.us ], [ true, %land.rhsthread-pre-split ], [ true, %for.body ], [ true, %if.end20 ]
+  %retval.0 = phi i1 [ false, %if.end ], [ false, %land.lhs.true5 ], [ true, %if.end20.us ], [ true, %land.rhs.us ], [ true, %land.rhsthread-pre-split ], [ true, %for.body ], [ true, %if.end20 ]
   ret i1 %retval.0
 }
 
@@ -2400,7 +2400,7 @@ if.end20:                                         ; preds = %if.else, %if.then18
   br i1 %exitcond.not, label %return, label %land.rhsthread-pre-split, !llvm.loop !36
 
 return:                                           ; preds = %if.end20, %for.body, %land.rhsthread-pre-split, %if.end20.us, %land.rhs.us, %if.end, %land.lhs.true5
-  %retval.0 = phi i1 [ false, %land.lhs.true5 ], [ false, %if.end ], [ true, %if.end20.us ], [ true, %land.rhs.us ], [ true, %land.rhsthread-pre-split ], [ true, %for.body ], [ true, %if.end20 ]
+  %retval.0 = phi i1 [ false, %if.end ], [ false, %land.lhs.true5 ], [ true, %if.end20.us ], [ true, %land.rhs.us ], [ true, %land.rhsthread-pre-split ], [ true, %for.body ], [ true, %if.end20 ]
   ret i1 %retval.0
 }
 
@@ -2500,7 +2500,7 @@ if.end19:                                         ; preds = %if.else, %if.then17
   br i1 %exitcond.not, label %return, label %land.rhsthread-pre-split, !llvm.loop !37
 
 return:                                           ; preds = %if.end19, %for.body, %land.rhsthread-pre-split, %if.end19.us, %land.rhs.us, %if.end, %land.lhs.true5
-  %retval.0 = phi i1 [ false, %land.lhs.true5 ], [ false, %if.end ], [ true, %if.end19.us ], [ true, %land.rhs.us ], [ true, %land.rhsthread-pre-split ], [ true, %for.body ], [ true, %if.end19 ]
+  %retval.0 = phi i1 [ false, %if.end ], [ false, %land.lhs.true5 ], [ true, %if.end19.us ], [ true, %land.rhs.us ], [ true, %land.rhsthread-pre-split ], [ true, %for.body ], [ true, %if.end19 ]
   ret i1 %retval.0
 }
 
@@ -2633,7 +2633,7 @@ for.end:                                          ; preds = %if.end22, %for.body
   br label %return
 
 return:                                           ; preds = %if.then9, %if.then9.us, %if.end, %for.end
-  %retval.0 = phi i1 [ %tobool31, %for.end ], [ false, %if.end ], [ true, %if.then9.us ], [ true, %if.then9 ]
+  %retval.0 = phi i1 [ false, %if.end ], [ %tobool31, %for.end ], [ true, %if.then9.us ], [ true, %if.then9 ]
   ret i1 %retval.0
 }
 
@@ -2766,7 +2766,7 @@ for.end:                                          ; preds = %if.end22, %for.body
   br label %return
 
 return:                                           ; preds = %if.then9, %if.then9.us, %if.end, %for.end
-  %retval.0 = phi i1 [ %tobool31, %for.end ], [ false, %if.end ], [ true, %if.then9.us ], [ true, %if.then9 ]
+  %retval.0 = phi i1 [ false, %if.end ], [ %tobool31, %for.end ], [ true, %if.then9.us ], [ true, %if.then9 ]
   ret i1 %retval.0
 }
 
@@ -2899,7 +2899,7 @@ for.end:                                          ; preds = %if.end20, %for.body
   br label %return
 
 return:                                           ; preds = %if.then7, %if.then7.us, %if.end, %for.end
-  %retval.0 = phi i1 [ %tobool29, %for.end ], [ false, %if.end ], [ true, %if.then7.us ], [ true, %if.then7 ]
+  %retval.0 = phi i1 [ false, %if.end ], [ %tobool29, %for.end ], [ true, %if.then7.us ], [ true, %if.then7 ]
   ret i1 %retval.0
 }
 
@@ -3223,7 +3223,7 @@ while.body.us.us:                                 ; preds = %land.rhs.us.us
   br i1 %cmp2.us.us, label %land.rhs.us.us, label %return, !llvm.loop !50
 
 return:                                           ; preds = %for.inc.us, %while.body.us84, %while.body.us.us, %_ZN2EA4StdCL26BoyerMooreBadCharacterCalcEPKciPii.exit
-  %retval.0 = phi i32 [ %nPatternLength.mux, %_ZN2EA4StdCL26BoyerMooreBadCharacterCalcEPKciPii.exit ], [ %j.073.us, %while.body.us84 ], [ %j.073.us, %while.body.us.us ], [ %nPatternLength, %for.inc.us ]
+  %retval.0 = phi i32 [ %j.073.us, %while.body.us.us ], [ %j.073.us, %while.body.us84 ], [ %nPatternLength.mux, %_ZN2EA4StdCL26BoyerMooreBadCharacterCalcEPKciPii.exit ], [ %nPatternLength, %for.inc.us ]
   ret i32 %retval.0
 }
 

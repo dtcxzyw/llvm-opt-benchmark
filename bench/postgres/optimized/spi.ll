@@ -1488,11 +1488,11 @@ _SPI_pquery.exit:                                 ; preds = %198, %258
   br i1 %303, label %.lr.ph424, label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %300, %160, %.thread199, %158, %.lr.ph295, %53
-  %.1241 = phi i32 [ 0, %53 ], [ 0, %.lr.ph295 ], [ %.0142, %.thread199 ], [ -2, %160 ], [ -8, %158 ], [ %.2.lcssa, %300 ]
-  %.1130240 = phi i64 [ 0, %53 ], [ 0, %.lr.ph295 ], [ %.5134, %.thread199 ], [ %.2131281414, %160 ], [ %.2131281414, %158 ], [ %.2131.lcssa, %300 ]
-  %.1137239 = phi ptr [ null, %53 ], [ null, %.lr.ph295 ], [ %.5141, %.thread199 ], [ %.2138280415, %160 ], [ %.2138280415, %158 ], [ %.2138.lcssa, %300 ]
-  %.2147238 = phi i8 [ %.0145, %53 ], [ %.0145, %.lr.ph295 ], [ %.3148338, %160 ], [ %.3148338, %158 ], [ %.3148338, %.thread199 ], [ %.3148339, %300 ]
-  %.1153237 = phi ptr [ null, %53 ], [ null, %.lr.ph295 ], [ %121, %160 ], [ %121, %158 ], [ %121, %.thread199 ], [ null, %300 ]
+  %.1241 = phi i32 [ 0, %53 ], [ %.0142, %.thread199 ], [ 0, %.lr.ph295 ], [ -2, %160 ], [ -8, %158 ], [ %.2.lcssa, %300 ]
+  %.1130240 = phi i64 [ 0, %53 ], [ %.5134, %.thread199 ], [ 0, %.lr.ph295 ], [ %.2131281414, %160 ], [ %.2131281414, %158 ], [ %.2131.lcssa, %300 ]
+  %.1137239 = phi ptr [ null, %53 ], [ %.5141, %.thread199 ], [ null, %.lr.ph295 ], [ %.2138280415, %160 ], [ %.2138280415, %158 ], [ %.2138.lcssa, %300 ]
+  %.2147238 = phi i8 [ %.0145, %53 ], [ %.3148338, %160 ], [ %.0145, %.lr.ph295 ], [ %.3148338, %158 ], [ %.3148338, %.thread199 ], [ %.3148339, %300 ]
+  %.1153237 = phi ptr [ null, %53 ], [ %121, %160 ], [ null, %.lr.ph295 ], [ %121, %158 ], [ %121, %.thread199 ], [ null, %300 ]
   %304 = trunc nuw i8 %.2147238 to i1
   br i1 %304, label %305, label %306
 
@@ -2642,7 +2642,7 @@ define dso_local range(i32 -6, 1) i32 @SPI_keepplan(ptr noundef captures(address
   br i1 %28, label %.lr.ph21, label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph21, %13, %.lr.ph, %1, %3, %5, %9
-  %.0 = phi i32 [ -6, %1 ], [ -6, %9 ], [ -6, %5 ], [ -6, %3 ], [ 0, %.lr.ph ], [ 0, %13 ], [ 0, %.lr.ph21 ]
+  %.0 = phi i32 [ -6, %1 ], [ -6, %9 ], [ -6, %5 ], [ -6, %3 ], [ 0, %13 ], [ 0, %.lr.ph ], [ 0, %.lr.ph21 ]
   ret i32 %.0
 }
 
@@ -2779,8 +2779,8 @@ define dso_local noundef ptr @SPI_saveplan(ptr noundef readonly captures(address
   br i1 %72, label %.lr.ph61.i, label %.sink.split
 
 .sink.split:                                      ; preds = %.lr.ph61.i, %.lr.ph58.i, %.critedge.i, %1, %3
-  %.sink = phi i32 [ -6, %1 ], [ -6, %3 ], [ 0, %.critedge.i ], [ 0, %.lr.ph58.i ], [ 0, %.lr.ph61.i ]
-  %.0.ph = phi ptr [ null, %1 ], [ null, %3 ], [ %11, %.critedge.i ], [ %11, %.lr.ph58.i ], [ %11, %.lr.ph61.i ]
+  %.sink = phi i32 [ -6, %1 ], [ -6, %3 ], [ 0, %.lr.ph58.i ], [ 0, %.critedge.i ], [ 0, %.lr.ph61.i ]
+  %.0.ph = phi ptr [ null, %1 ], [ null, %3 ], [ %11, %.lr.ph58.i ], [ %11, %.critedge.i ], [ %11, %.lr.ph61.i ]
   store i32 %.sink, ptr @SPI_result, align 4
   br label %73
 
@@ -3142,7 +3142,7 @@ define dso_local range(i32 -32768, -2147483648) i32 @SPI_fnumber(ptr noundef %0,
   br label %28
 
 28:                                               ; preds = %.loopexit, %._crit_edge, %22
-  %.2 = phi i32 [ %25, %22 ], [ -9, %._crit_edge ], [ %27, %.loopexit ]
+  %.2 = phi i32 [ -9, %._crit_edge ], [ %25, %22 ], [ %27, %.loopexit ]
   ret i32 %.2
 }
 

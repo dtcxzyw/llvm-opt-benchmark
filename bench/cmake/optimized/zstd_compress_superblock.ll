@@ -223,7 +223,7 @@ ZSTD_estimateSubBlockSize_literal.exit.i.i:       ; preds = %116, %110, %107, %1
   br label %131
 
 131:                                              ; preds = %128, %124
-  %.0.i.i.i.i = phi i64 [ %130, %128 ], [ %125, %124 ]
+  %.0.i.i.i.i = phi i64 [ %125, %124 ], [ %130, %128 ]
   %132 = icmp ult i64 %.0.i.i.i.i, -119
   br i1 %132, label %.lr.ph.split.us.i.i.i.i.preheader, label %.thread.i.i.i.i
 
@@ -286,7 +286,7 @@ ZSTD_estimateSubBlockSize_symbolType.exit.i.i.i:  ; preds = %._crit_edge.i.i.i.i
   br label %149
 
 149:                                              ; preds = %146, %142
-  %.0.i33.i.i.i = phi i64 [ %148, %146 ], [ %143, %142 ]
+  %.0.i33.i.i.i = phi i64 [ %143, %142 ], [ %148, %146 ]
   %150 = icmp ult i64 %.0.i33.i.i.i, -119
   br i1 %150, label %.lr.ph.split.i.i.i.i.preheader, label %.thread.i34.i.i.i
 
@@ -348,7 +348,7 @@ ZSTD_estimateSubBlockSize_symbolType.exit36.i.i.i: ; preds = %._crit_edge.i30.i.
   br label %170
 
 170:                                              ; preds = %167, %163
-  %.0.i48.i.i.i = phi i64 [ %169, %167 ], [ %164, %163 ]
+  %.0.i48.i.i.i = phi i64 [ %164, %163 ], [ %169, %167 ]
   %171 = icmp ult i64 %.0.i48.i.i.i, -119
   br i1 %171, label %.lr.ph.split.i39.i.i.i.preheader, label %.thread.i49.i.i.i
 
@@ -902,7 +902,7 @@ ZSTD_updateRep.exit.i:                            ; preds = %.sink.split.i.i, %4
   br label %ZSTD_compressSubBlock_multi.exit
 
 ZSTD_compressSubBlock_multi.exit:                 ; preds = %ZSTD_compressSubBlock.exit.i, %ZSTD_compressSubBlock_sequences.exit.i.i, %.thread11.i.i.i, %314, %288, %ZSTD_compressSubBlock_literal.exit.i.i, %443, %ZSTD_noCompressBlock.exit.i, %380, %ZSTD_needSequenceEntropyTables.exit.i, %374, %372, %6
-  %.1 = phi i64 [ %21, %6 ], [ -70, %380 ], [ %446, %443 ], [ 0, %374 ], [ 0, %ZSTD_needSequenceEntropyTables.exit.i ], [ %386, %ZSTD_noCompressBlock.exit.i ], [ 0, %372 ], [ %352, %ZSTD_compressSubBlock.exit.i ], [ %333, %.thread11.i.i.i ], [ %317, %314 ], [ -70, %288 ], [ %348, %ZSTD_compressSubBlock_sequences.exit.i.i ], [ %.0.i.i216.i, %ZSTD_compressSubBlock_literal.exit.i.i ]
+  %.1 = phi i64 [ %21, %6 ], [ -70, %380 ], [ %446, %443 ], [ 0, %374 ], [ 0, %ZSTD_needSequenceEntropyTables.exit.i ], [ %386, %ZSTD_noCompressBlock.exit.i ], [ 0, %372 ], [ %352, %ZSTD_compressSubBlock.exit.i ], [ %348, %ZSTD_compressSubBlock_sequences.exit.i.i ], [ -70, %288 ], [ %317, %314 ], [ %.0.i.i216.i, %ZSTD_compressSubBlock_literal.exit.i.i ], [ %333, %.thread11.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i64 %.1
 }

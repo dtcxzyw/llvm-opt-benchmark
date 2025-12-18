@@ -822,7 +822,7 @@ _ZL18string_to_paralistP6pj_ctxPc.exit.i:         ; preds = %256
   br label %_ZL8get_initP6pj_ctxPKci.exit.thread
 
 _ZL8get_initP6pj_ctxPKci.exit:                    ; preds = %21, %259
-  %.0.i = phi ptr [ %25, %21 ], [ %.115.i.i, %259 ]
+  %.0.i = phi ptr [ %.115.i.i, %259 ], [ %25, %21 ]
   br label %263
 
 263:                                              ; preds = %_ZL8get_initP6pj_ctxPKci.exit, %263

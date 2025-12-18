@@ -3258,7 +3258,7 @@ _ZN6bParse4bDNA14getElementSizeEss.exit:          ; preds = %30, %33
   br i1 %exitcond.not, label %.thread, label %11, !llvm.loop !125
 
 .thread:                                          ; preds = %47, %6, %46, %45, %42
-  %spec.select = phi ptr [ null, %42 ], [ %.02542, %46 ], [ %.02542, %45 ], [ null, %6 ], [ null, %47 ]
+  %spec.select = phi ptr [ %.02542, %45 ], [ null, %42 ], [ %.02542, %46 ], [ null, %6 ], [ null, %47 ]
   ret ptr %spec.select
 }
 

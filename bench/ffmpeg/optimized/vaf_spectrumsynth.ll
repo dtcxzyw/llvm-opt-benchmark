@@ -455,7 +455,7 @@ define internal range(i32 -2147483648, 1) i32 @activate(ptr noundef %0) #1 {
   br i1 %91, label %.preheader, label %try_push_frames.exit, !llvm.loop !58
 
 try_push_frames.exit:                             ; preds = %16, %26, %97, %.preheader47, %.loopexit.i, %37, %33, %87, %76
-  %.1 = phi i32 [ 0, %33 ], [ -1497649742, %87 ], [ 0, %76 ], [ %.026.i, %.loopexit.i ], [ 0, %37 ], [ 0, %.preheader47 ], [ %30, %26 ], [ -1497649742, %97 ], [ 0, %16 ]
+  %.1 = phi i32 [ 0, %33 ], [ -1497649742, %87 ], [ 0, %76 ], [ 0, %.preheader47 ], [ -1497649742, %97 ], [ %.026.i, %.loopexit.i ], [ 0, %37 ], [ %30, %26 ], [ 0, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.1
@@ -744,7 +744,7 @@ av_cmp_q.exit129.thread137:                       ; preds = %56, %53
   br label %.loopexit
 
 .loopexit:                                        ; preds = %103, %.lr.ph, %119, %._crit_edge, %81, %75, %._crit_edge146, %74, %av_cmp_q.exit129.thread, %av_cmp_q.exit.thread, %._crit_edge151
-  %.0 = phi i32 [ -1094995529, %._crit_edge151 ], [ -1094995529, %av_cmp_q.exit.thread ], [ -1094995529, %av_cmp_q.exit129.thread ], [ %72, %74 ], [ -12, %81 ], [ 0, %._crit_edge146 ], [ -12, %._crit_edge ], [ -12, %75 ], [ -12, %119 ], [ -12, %.lr.ph ], [ -12, %103 ]
+  %.0 = phi i32 [ -1094995529, %._crit_edge151 ], [ -1094995529, %av_cmp_q.exit.thread ], [ -1094995529, %av_cmp_q.exit129.thread ], [ %72, %74 ], [ -12, %119 ], [ -12, %81 ], [ 0, %._crit_edge146 ], [ -12, %._crit_edge ], [ -12, %75 ], [ -12, %.lr.ph ], [ -12, %103 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
@@ -1563,7 +1563,7 @@ define internal fastcc void @generate_window_func(ptr noundef nonnull writeonly 
   unreachable
 
 ._crit_edge451:                                   ; preds = %427, %406, %404, %383, %339, %._crit_edge401, %277, %252, %249, %221, %213, %200, %183, %166, %121, %111, %98, %89, %79, %70, %.lr.ph450, %420, %.preheader382, %.preheader381, %.preheader380, %.preheader379, %279, %.preheader378, %.preheader377, %.preheader376, %.preheader375, %.preheader374, %.preheader373, %.preheader372, %.preheader371, %.preheader370, %.preheader369, %.preheader368, %.preheader367, %.preheader366, %.preheader365, %.preheader
-  %.sink565 = phi float [ 7.500000e-01, %.preheader382 ], [ 7.500000e-01, %.preheader381 ], [ 7.500000e-01, %.preheader380 ], [ 7.500000e-01, %.preheader379 ], [ 5.000000e-01, %279 ], [ 0x3FD51EB860000000, %.preheader378 ], [ 7.500000e-01, %.preheader377 ], [ 7.500000e-01, %.preheader376 ], [ 0x3FE5374BC0000000, %.preheader375 ], [ 7.500000e-01, %.preheader374 ], [ 5.000000e-01, %.preheader373 ], [ 0x3FE526E980000000, %.preheader372 ], [ 0x3FE526E980000000, %.preheader371 ], [ 0x3FEAE978E0000000, %.preheader370 ], [ 0x3FD2C08320000000, %.preheader369 ], [ 0x3FE526E980000000, %.preheader368 ], [ 5.000000e-01, %.preheader367 ], [ 5.000000e-01, %.preheader366 ], [ 5.000000e-01, %.preheader365 ], [ 0.000000e+00, %.preheader ], [ 7.500000e-01, %420 ], [ 7.500000e-01, %406 ], [ 0.000000e+00, %.lr.ph450 ], [ 5.000000e-01, %70 ], [ 5.000000e-01, %79 ], [ 5.000000e-01, %89 ], [ 0x3FE526E980000000, %98 ], [ 0x3FD2C08320000000, %111 ], [ 0x3FEAE978E0000000, %121 ], [ 0x3FE526E980000000, %166 ], [ 0x3FE526E980000000, %183 ], [ 5.000000e-01, %200 ], [ 7.500000e-01, %213 ], [ 0x3FE5374BC0000000, %221 ], [ 7.500000e-01, %249 ], [ 7.500000e-01, %252 ], [ 0x3FD51EB860000000, %277 ], [ 5.000000e-01, %._crit_edge401 ], [ 7.500000e-01, %339 ], [ 7.500000e-01, %383 ], [ 7.500000e-01, %404 ], [ 7.500000e-01, %427 ]
+  %.sink565 = phi float [ 7.500000e-01, %.preheader382 ], [ 7.500000e-01, %.preheader381 ], [ 7.500000e-01, %.preheader380 ], [ 7.500000e-01, %.preheader379 ], [ 5.000000e-01, %279 ], [ 0x3FD51EB860000000, %.preheader378 ], [ 7.500000e-01, %.preheader377 ], [ 7.500000e-01, %.preheader376 ], [ 0x3FE5374BC0000000, %.preheader375 ], [ 7.500000e-01, %.preheader374 ], [ 5.000000e-01, %.preheader373 ], [ 0x3FE526E980000000, %.preheader372 ], [ 0x3FE526E980000000, %.preheader371 ], [ 0x3FEAE978E0000000, %.preheader370 ], [ 0x3FD2C08320000000, %.preheader369 ], [ 0x3FE526E980000000, %.preheader368 ], [ 5.000000e-01, %.preheader367 ], [ 5.000000e-01, %.preheader366 ], [ 5.000000e-01, %.preheader365 ], [ 0.000000e+00, %.preheader ], [ 7.500000e-01, %420 ], [ 7.500000e-01, %383 ], [ 7.500000e-01, %404 ], [ 7.500000e-01, %406 ], [ 0.000000e+00, %.lr.ph450 ], [ 5.000000e-01, %70 ], [ 5.000000e-01, %79 ], [ 5.000000e-01, %89 ], [ 0x3FE526E980000000, %98 ], [ 0x3FD2C08320000000, %111 ], [ 0x3FEAE978E0000000, %121 ], [ 0x3FE526E980000000, %166 ], [ 0x3FE526E980000000, %183 ], [ 5.000000e-01, %200 ], [ 7.500000e-01, %213 ], [ 0x3FE5374BC0000000, %221 ], [ 7.500000e-01, %249 ], [ 7.500000e-01, %252 ], [ 0x3FD51EB860000000, %277 ], [ 5.000000e-01, %._crit_edge401 ], [ 7.500000e-01, %339 ], [ 7.500000e-01, %427 ]
   store float %.sink565, ptr %3, align 4, !tbaa !80
   ret void
 }
@@ -2315,7 +2315,7 @@ synth_window.exit:                                ; preds = %._crit_edge.i
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge147, %.thread113, %._crit_edge151
-  %.4 = phi i32 [ 0, %._crit_edge151 ], [ -12, %.thread113 ], [ %361, %._crit_edge147 ]
+  %.4 = phi i32 [ -12, %.thread113 ], [ 0, %._crit_edge151 ], [ %361, %._crit_edge147 ]
   ret i32 %.4
 }
 

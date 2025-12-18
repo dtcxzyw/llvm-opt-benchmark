@@ -335,7 +335,7 @@ define internal range(i32 -1, 1) i32 @H5P__dxfr_reg_prop(ptr noundef %0) #0 {
   br label %95
 
 95:                                               ; preds = %.sink.split, %89, %1
-  %.0 = phi i32 [ 0, %89 ], [ 0, %1 ], [ -1, %.sink.split ]
+  %.0 = phi i32 [ 0, %1 ], [ 0, %89 ], [ -1, %.sink.split ]
   ret i32 %.0
 }
 
@@ -2812,8 +2812,8 @@ define range(i32 -1, 1) i32 @H5Pset_dataset_io_hyperslab_selection(i64 noundef %
   %138 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5Pset_dataset_io_hyperslab_selection, i32 noundef 2327, i64 noundef %136, i64 noundef %137, ptr noundef nonnull @.str.52) #10
   br i1 %.181116, label %139, label %146
 
-139:                                              ; preds = %128, %120, %135
-  %.084.ph203 = phi i1 [ false, %120 ], [ %.185, %135 ], [ %.185, %128 ]
+139:                                              ; preds = %120, %128, %135
+  %.084.ph203 = phi i1 [ %.185, %128 ], [ %.185, %135 ], [ false, %120 ]
   %140 = call i32 @H5P_poke(ptr noundef nonnull %78, ptr noundef nonnull @.str.45, ptr noundef nonnull %8) #10
   %141 = icmp slt i32 %140, 0
   br i1 %141, label %142, label %146

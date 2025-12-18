@@ -1849,7 +1849,7 @@ list_provider_info.exit:                          ; preds = %595, %600, %._crit_
   br i1 %.not.i190, label %list_engines.exit, label %.lr.ph.i189, !llvm.loop !35
 
 list_engines.exit:                                ; preds = %.lr.ph.i189, %.thread655, %654
-  %.24 = phi i32 [ %.23, %654 ], [ %663, %.thread655 ], [ %663, %.lr.ph.i189 ]
+  %.24 = phi i32 [ %663, %.thread655 ], [ %.23, %654 ], [ %663, %.lr.ph.i189 ]
   %671 = and i32 %.sroa.0.0, 33554432
   %.not151 = icmp eq i32 %671, 0
   br i1 %.not151, label %693, label %674

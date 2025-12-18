@@ -829,8 +829,8 @@ define internal i32 @chrdev_open(ptr noundef %0, ptr noundef %1) #0 align 16 {
   call void @_raw_spin_unlock(ptr noundef nonnull @cdev_lock) #9
   br label %44
 
-37:                                               ; preds = %16, %20, %23
-  %.ph11 = phi i32 [ -6, %23 ], [ 0, %20 ], [ -6, %16 ]
+37:                                               ; preds = %23, %16, %20
+  %.ph11 = phi i32 [ 0, %20 ], [ -6, %16 ], [ -6, %23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_raw_spin_unlock(ptr noundef nonnull @cdev_lock) #9
   %38 = getelementptr inbounds nuw i8, ptr %11, i64 64

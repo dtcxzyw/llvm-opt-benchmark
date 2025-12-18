@@ -1460,7 +1460,7 @@ ckh_grow.exit:                                    ; preds = %332, %341, %352, %3
   br i1 %457, label %24, label %ckh_grow.exit.thread, !llvm.loop !99
 
 ckh_grow.exit.thread:                             ; preds = %ckh_grow.exit, %tsdn_witness_tsdp_get.exit43.i, %sz_s2u.exit35.i, %sz_sa2u.exit.i, %4
-  %458 = phi i1 [ false, %4 ], [ true, %tsdn_witness_tsdp_get.exit43.i ], [ true, %sz_sa2u.exit.i ], [ true, %sz_s2u.exit35.i ], [ false, %ckh_grow.exit ]
+  %458 = phi i1 [ true, %tsdn_witness_tsdp_get.exit43.i ], [ false, %4 ], [ true, %sz_sa2u.exit.i ], [ true, %sz_s2u.exit35.i ], [ false, %ckh_grow.exit ]
   ret i1 %458
 }
 

@@ -541,7 +541,7 @@ _ZN5folly17xlogStripFilenameEPKcS1_.exit.loopexit: ; preds = %tailrecurse.i2.i
   br label %_ZN5folly17xlogStripFilenameEPKcS1_.exit
 
 _ZN5folly17xlogStripFilenameEPKcS1_.exit:         ; preds = %58, %_ZN5folly17xlogStripFilenameEPKcS1_.exit.loopexit, %53
-  %70 = phi ptr [ %55, %53 ], [ %69, %_ZN5folly17xlogStripFilenameEPKcS1_.exit.loopexit ], [ @.str.2, %58 ]
+  %70 = phi ptr [ %69, %_ZN5folly17xlogStripFilenameEPKcS1_.exit.loopexit ], [ %55, %53 ], [ @.str.2, %58 ]
   %71 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %70) #25
   %72 = getelementptr inbounds nuw i8, ptr %70, i64 %71
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
@@ -657,7 +657,7 @@ _ZN5folly17xlogStripFilenameEPKcS1_.exit133.loopexit: ; preds = %tailrecurse.i2.
   br label %_ZN5folly17xlogStripFilenameEPKcS1_.exit133
 
 _ZN5folly17xlogStripFilenameEPKcS1_.exit133:      ; preds = %100, %_ZN5folly17xlogStripFilenameEPKcS1_.exit133.loopexit, %95
-  %112 = phi ptr [ %97, %95 ], [ %111, %_ZN5folly17xlogStripFilenameEPKcS1_.exit133.loopexit ], [ @.str.2, %100 ]
+  %112 = phi ptr [ %111, %_ZN5folly17xlogStripFilenameEPKcS1_.exit133.loopexit ], [ %97, %95 ], [ @.str.2, %100 ]
   %113 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %112) #25
   %114 = getelementptr inbounds nuw i8, ptr %112, i64 %113
   call void @llvm.lifetime.start.p0(ptr nonnull %15)

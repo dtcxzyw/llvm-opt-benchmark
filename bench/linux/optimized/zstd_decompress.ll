@@ -1362,8 +1362,8 @@ ZSTD_decompressBegin_usingDict.exit.thread:       ; preds = %109, %92, %82
   br i1 %247, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %241, %77, %14
-  %.lcssa56 = phi ptr [ %1, %14 ], [ %57, %77 ], [ %242, %241 ]
-  %.lcssa = phi i64 [ %4, %14 ], [ %79, %77 ], [ %234, %241 ]
+  %.lcssa56 = phi ptr [ %57, %77 ], [ %1, %14 ], [ %242, %241 ]
+  %.lcssa = phi i64 [ %79, %77 ], [ %4, %14 ], [ %234, %241 ]
   %248 = icmp eq i64 %.lcssa, 0
   br i1 %248, label %249, label %.thread23
 
@@ -4435,7 +4435,7 @@ ZSTD_nextInputType.exit:                          ; preds = %440
   br label %.thread38
 
 .thread38:                                        ; preds = %.thread52, %381, %369, %317, %305, %341, %ZSTD_DCtx_selectFrameDDict.exit, %269, %272, %230, %226, %190, %ZSTD_getDDict.exit, %145, %36, %ZSTD_nextInputType.exit, %459, %458, %456, %455, %450, %437, %435, %20, %3
-  %466 = phi i64 [ %180, %ZSTD_getDDict.exit ], [ -72, %3 ], [ -70, %20 ], [ -70, %435 ], [ -72, %437 ], [ %465, %ZSTD_nextInputType.exit ], [ 1, %455 ], [ 0, %456 ], [ 0, %450 ], [ 1, %459 ], [ 1, %458 ], [ %152, %145 ], [ -104, %36 ], [ -1, %.thread52 ], [ -70, %190 ], [ %309, %305 ], [ -20, %341 ], [ %94, %ZSTD_DCtx_selectFrameDDict.exit ], [ %228, %226 ], [ -16, %230 ], [ -64, %269 ], [ -64, %272 ], [ %321, %317 ], [ %385, %381 ], [ %373, %369 ]
+  %466 = phi i64 [ %180, %ZSTD_getDDict.exit ], [ -72, %3 ], [ -70, %20 ], [ -70, %435 ], [ -72, %437 ], [ %465, %ZSTD_nextInputType.exit ], [ 1, %455 ], [ 0, %456 ], [ 0, %450 ], [ 1, %459 ], [ 1, %458 ], [ %152, %145 ], [ -104, %36 ], [ -1, %.thread52 ], [ %309, %305 ], [ -20, %341 ], [ %94, %ZSTD_DCtx_selectFrameDDict.exit ], [ %228, %226 ], [ -16, %230 ], [ -70, %190 ], [ -64, %272 ], [ -64, %269 ], [ %321, %317 ], [ %385, %381 ], [ %373, %369 ]
   ret i64 %466
 }
 

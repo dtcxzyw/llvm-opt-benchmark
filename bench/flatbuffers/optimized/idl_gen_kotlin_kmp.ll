@@ -31820,8 +31820,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit116: ; preds = %11
   br label %203
 
 ._crit_edge.i.i117:                               ; preds = %293, %123, %134
-  %145 = phi ptr [ %135, %134 ], [ null, %123 ], [ %135, %293 ]
-  %.0.lcssa = phi ptr [ null, %134 ], [ null, %123 ], [ %.1, %293 ]
+  %145 = phi ptr [ null, %123 ], [ %135, %134 ], [ %135, %293 ]
+  %.0.lcssa = phi ptr [ null, %123 ], [ null, %134 ], [ %.1, %293 ]
   %146 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store ptr %146, ptr %22, align 8, !tbaa !15
   %147 = getelementptr inbounds nuw i8, ptr %22, i64 8

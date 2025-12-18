@@ -3721,7 +3721,7 @@ _ZNK9aiColor4tIfEltERKS0_.exit:                   ; preds = %105
   %111 = fcmp olt float %108, %110
   br i1 %111, label %.thread37, label %_ZNK9aiColor4tIfEltERKS0_.exit.thread41
 
-_ZNK9aiColor4tIfEltERKS0_.exit.thread41:          ; preds = %105, %97, %89, %_ZNK9aiColor4tIfEltERKS0_.exit
+_ZNK9aiColor4tIfEltERKS0_.exit.thread41:          ; preds = %97, %105, %89, %_ZNK9aiColor4tIfEltERKS0_.exit
   %112 = fcmp une float %86, %87
   br i1 %112, label %.thread37, label %113
 

@@ -1940,7 +1940,7 @@ udp6_unicast_rcv_skb.exit:                        ; preds = %126, %.thread19, %1
   %195 = load i8, ptr %194, align 1
   %196 = and i8 %195, 1
   %.not32 = icmp eq i8 %196, 0
-  br i1 %.not32, label %237, label %197
+  br i1 %.not32, label %232, label %197
 
 197:                                              ; preds = %190
   %198 = getelementptr inbounds nuw i8, ptr %0, i64 216
@@ -1987,48 +1987,48 @@ udp6_unicast_rcv_skb.exit:                        ; preds = %126, %.thread19, %1
   %229 = load i32, ptr %228, align 4
   %230 = and i32 %229, 2
   %231 = icmp eq i32 %230, 0
-  br i1 %231, label %.critedge, label %232
+  br i1 %231, label %.critedge, label %251
 
-232:                                              ; preds = %227
-  %233 = getelementptr inbounds nuw i8, ptr %217, i64 12
+232:                                              ; preds = %190
+  %233 = getelementptr inbounds nuw i8, ptr %193, i64 2816
   %234 = load i32, ptr %233, align 4
-  %235 = and i32 %234, 1
-  %236 = icmp eq i32 %235, 0
-  br i1 %236, label %.critedge, label %.critedge15
+  %.not33 = icmp eq i32 %234, 0
+  br i1 %.not33, label %235, label %.thread27
 
-237:                                              ; preds = %190
-  %238 = getelementptr inbounds nuw i8, ptr %193, i64 2816
-  %239 = load i32, ptr %238, align 4
-  %.not33 = icmp eq i32 %239, 0
-  br i1 %.not33, label %240, label %.thread27
+235:                                              ; preds = %232
+  %236 = getelementptr inbounds nuw i8, ptr %193, i64 2968
+  %237 = load i8, ptr %236, align 1
+  %238 = icmp eq i8 %237, 2
+  br i1 %238, label %.critedge15, label %.thread27
 
-240:                                              ; preds = %237
-  %241 = getelementptr inbounds nuw i8, ptr %193, i64 2968
-  %242 = load i8, ptr %241, align 1
-  %243 = icmp eq i8 %242, 2
-  br i1 %243, label %.critedge15, label %.thread27
+.thread27:                                        ; preds = %197, %206, %210, %213, %219, %235, %232
+  %239 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %240 = load i64, ptr %239, align 8
+  %241 = and i64 %240, -2
+  %242 = icmp eq i64 %241, 0
+  br i1 %242, label %249, label %243
 
-.thread27:                                        ; preds = %197, %206, %210, %213, %219, %240, %237
-  %244 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %245 = load i64, ptr %244, align 8
-  %246 = and i64 %245, -2
-  %247 = icmp eq i64 %246, 0
-  br i1 %247, label %254, label %248
+243:                                              ; preds = %.thread27
+  %244 = inttoptr i64 %241 to ptr
+  %245 = getelementptr inbounds nuw i8, ptr %244, i64 56
+  %246 = load i16, ptr %245, align 8
+  %247 = and i16 %246, 4
+  %248 = icmp eq i16 %247, 0
+  br i1 %248, label %249, label %.critedge15
 
-248:                                              ; preds = %.thread27
-  %249 = inttoptr i64 %246 to ptr
-  %250 = getelementptr inbounds nuw i8, ptr %249, i64 56
-  %251 = load i16, ptr %250, align 8
-  %252 = and i16 %251, 4
-  %253 = icmp eq i16 %252, 0
-  br i1 %253, label %254, label %.critedge15
-
-254:                                              ; preds = %.thread27, %248
-  %255 = tail call i32 @__xfrm_policy_check(ptr noundef null, i32 noundef 0, ptr noundef %0, i16 noundef zeroext 10) #14
-  %.not = icmp eq i32 %255, 0
+249:                                              ; preds = %243, %.thread27
+  %250 = tail call i32 @__xfrm_policy_check(ptr noundef null, i32 noundef 0, ptr noundef %0, i16 noundef zeroext 10) #14
+  %.not = icmp eq i32 %250, 0
   br i1 %.not, label %.critedge, label %.critedge15
 
-.critedge15:                                      ; preds = %232, %248, %240, %254
+251:                                              ; preds = %227
+  %252 = getelementptr inbounds nuw i8, ptr %217, i64 12
+  %253 = load i32, ptr %252, align 4
+  %254 = and i32 %253, 1
+  %255 = icmp eq i32 %254, 0
+  br i1 %255, label %.critedge, label %.critedge15
+
+.critedge15:                                      ; preds = %249, %243, %235, %251
   %256 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %257 = load i64, ptr %256, align 8
   %258 = and i64 %257, -8
@@ -2153,8 +2153,8 @@ udp_lib_checksum_complete.exit.thread:            ; preds = %273, %nf_reset_ct.e
   tail call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %323, ptr elementtype(i64) %323) #14, !srcloc !40
   br label %.critedge.thread
 
-.critedge:                                        ; preds = %232, %227, %254, %20, %16, %14
-  %324 = phi i32 [ 4, %20 ], [ 2, %14 ], [ 3, %254 ], [ 2, %16 ], [ 3, %227 ], [ 3, %232 ]
+.critedge:                                        ; preds = %249, %227, %251, %20, %16, %14
+  %324 = phi i32 [ 4, %20 ], [ 2, %14 ], [ 3, %251 ], [ 2, %16 ], [ 3, %227 ], [ 3, %249 ]
   %325 = icmp eq i32 %2, 136
   br i1 %325, label %326, label %.critedge.thread
 
@@ -3523,7 +3523,7 @@ select.unfold:                                    ; preds = %241, %thread-pre-sp
   br label %.thread36
 
 408:                                              ; preds = %401, %399, %398, %396
-  %409 = phi i32 [ %402, %401 ], [ %394, %396 ], [ %394, %398 ], [ %394, %399 ]
+  %409 = phi i32 [ %394, %399 ], [ %394, %398 ], [ %402, %401 ], [ %394, %396 ]
   %410 = icmp sgt i32 %409, 0
   br i1 %410, label %411, label %.thread36
 

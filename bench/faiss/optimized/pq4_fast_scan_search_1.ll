@@ -28361,7 +28361,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt
   br label %.split16
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i: ; preds = %78, %72
-  %.0.i.i = phi i32 [ %82, %78 ], [ %70, %72 ]
+  %.0.i.i = phi i32 [ %70, %72 ], [ %82, %78 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -28640,7 +28640,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt
   br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i: ; preds = %84, %76
-  %.0.i.i = phi i32 [ %88, %84 ], [ %74, %76 ]
+  %.0.i.i = phi i32 [ %74, %76 ], [ %88, %84 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -28927,7 +28927,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt
   br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i: ; preds = %83, %75
-  %.0.i.i = phi i32 [ %87, %83 ], [ %73, %75 ]
+  %.0.i.i = phi i32 [ %73, %75 ], [ %87, %83 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -29216,7 +29216,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt
   br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i: ; preds = %83, %75
-  %.0.i.i = phi i32 [ %87, %83 ], [ %73, %75 ]
+  %.0.i.i = phi i32 [ %73, %75 ], [ %87, %83 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -29505,7 +29505,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt
   br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i: ; preds = %83, %75
-  %.0.i.i = phi i32 [ %87, %83 ], [ %73, %75 ]
+  %.0.i.i = phi i32 [ %73, %75 ], [ %87, %83 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -29799,7 +29799,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt
   br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i: ; preds = %83, %77
-  %.0.i.i = phi i32 [ %87, %83 ], [ %75, %77 ]
+  %.0.i.i = phi i32 [ %75, %77 ], [ %87, %83 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -30087,7 +30087,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt
   br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i: ; preds = %89, %81
-  %.0.i.i = phi i32 [ %93, %89 ], [ %79, %81 ]
+  %.0.i.i = phi i32 [ %79, %81 ], [ %93, %89 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -30380,7 +30380,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt
   br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i: ; preds = %82, %76
-  %.0.i.i = phi i32 [ %86, %82 ], [ %74, %76 ]
+  %.0.i.i = phi i32 [ %74, %76 ], [ %86, %82 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -30661,7 +30661,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt
   br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i: ; preds = %82, %76
-  %.0.i.i = phi i32 [ %86, %82 ], [ %74, %76 ]
+  %.0.i.i = phi i32 [ %74, %76 ], [ %86, %82 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -30921,7 +30921,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt
   br label %209
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit: ; preds = %72, %82
-  %.0.i = phi i32 [ %86, %82 ], [ %70, %72 ]
+  %.0.i = phi i32 [ %70, %72 ], [ %86, %82 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -31337,7 +31337,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt
   br label %159
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit: ; preds = %67, %77
-  %.0.i = phi i32 [ %81, %77 ], [ %65, %67 ]
+  %.0.i = phi i32 [ %65, %67 ], [ %81, %77 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -31657,7 +31657,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt
   br label %.split16
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i: ; preds = %72, %66
-  %.0.i.i = phi i32 [ %76, %72 ], [ %64, %66 ]
+  %.0.i.i = phi i32 [ %64, %66 ], [ %76, %72 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -31921,7 +31921,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt
   br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i: ; preds = %78, %70
-  %.0.i.i = phi i32 [ %82, %78 ], [ %68, %70 ]
+  %.0.i.i = phi i32 [ %68, %70 ], [ %82, %78 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -32191,7 +32191,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt
   br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i: ; preds = %77, %69
-  %.0.i.i = phi i32 [ %81, %77 ], [ %67, %69 ]
+  %.0.i.i = phi i32 [ %67, %69 ], [ %81, %77 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -32463,7 +32463,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt
   br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i: ; preds = %77, %69
-  %.0.i.i = phi i32 [ %81, %77 ], [ %67, %69 ]
+  %.0.i.i = phi i32 [ %67, %69 ], [ %81, %77 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -32735,7 +32735,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt
   br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i: ; preds = %77, %69
-  %.0.i.i = phi i32 [ %81, %77 ], [ %67, %69 ]
+  %.0.i.i = phi i32 [ %67, %69 ], [ %81, %77 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -33012,7 +33012,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt
   br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i: ; preds = %77, %71
-  %.0.i.i = phi i32 [ %81, %77 ], [ %69, %71 ]
+  %.0.i.i = phi i32 [ %69, %71 ], [ %81, %77 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -33288,7 +33288,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt
   br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i: ; preds = %83, %75
-  %.0.i.i = phi i32 [ %87, %83 ], [ %73, %75 ]
+  %.0.i.i = phi i32 [ %73, %75 ], [ %87, %83 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -33564,7 +33564,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt
   br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i: ; preds = %76, %70
-  %.0.i.i = phi i32 [ %80, %76 ], [ %68, %70 ]
+  %.0.i.i = phi i32 [ %68, %70 ], [ %80, %76 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -33833,7 +33833,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt
   br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i: ; preds = %76, %70
-  %.0.i.i = phi i32 [ %80, %76 ], [ %68, %70 ]
+  %.0.i.i = phi i32 [ %68, %70 ], [ %80, %76 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -34082,7 +34082,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt
   br label %193
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit: ; preds = %67, %77
-  %.0.i = phi i32 [ %81, %77 ], [ %65, %67 ]
+  %.0.i = phi i32 [ %65, %67 ], [ %81, %77 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -34478,7 +34478,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt
   br label %147
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit: ; preds = %62, %72
-  %.0.i = phi i32 [ %76, %72 ], [ %60, %62 ]
+  %.0.i = phi i32 [ %60, %62 ], [ %76, %72 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -43814,7 +43814,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt
   br label %.split16
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i: ; preds = %78, %72
-  %.0.i.i = phi i32 [ %82, %78 ], [ %70, %72 ]
+  %.0.i.i = phi i32 [ %70, %72 ], [ %82, %78 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -44090,7 +44090,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt
   br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i: ; preds = %84, %76
-  %.0.i.i = phi i32 [ %88, %84 ], [ %74, %76 ]
+  %.0.i.i = phi i32 [ %74, %76 ], [ %88, %84 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -44377,7 +44377,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt
   br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i: ; preds = %83, %75
-  %.0.i.i = phi i32 [ %87, %83 ], [ %73, %75 ]
+  %.0.i.i = phi i32 [ %73, %75 ], [ %87, %83 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -44666,7 +44666,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt
   br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i: ; preds = %83, %75
-  %.0.i.i = phi i32 [ %87, %83 ], [ %73, %75 ]
+  %.0.i.i = phi i32 [ %73, %75 ], [ %87, %83 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -44955,7 +44955,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt
   br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i: ; preds = %83, %75
-  %.0.i.i = phi i32 [ %87, %83 ], [ %73, %75 ]
+  %.0.i.i = phi i32 [ %73, %75 ], [ %87, %83 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -45249,7 +45249,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt
   br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i: ; preds = %83, %77
-  %.0.i.i = phi i32 [ %87, %83 ], [ %75, %77 ]
+  %.0.i.i = phi i32 [ %75, %77 ], [ %87, %83 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -45537,7 +45537,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt
   br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i: ; preds = %89, %81
-  %.0.i.i = phi i32 [ %93, %89 ], [ %79, %81 ]
+  %.0.i.i = phi i32 [ %79, %81 ], [ %93, %89 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -45830,7 +45830,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt
   br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i: ; preds = %82, %76
-  %.0.i.i = phi i32 [ %86, %82 ], [ %74, %76 ]
+  %.0.i.i = phi i32 [ %74, %76 ], [ %86, %82 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -46111,7 +46111,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt
   br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i: ; preds = %82, %76
-  %.0.i.i = phi i32 [ %86, %82 ], [ %74, %76 ]
+  %.0.i.i = phi i32 [ %74, %76 ], [ %86, %82 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -46371,7 +46371,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt
   br label %209
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit: ; preds = %72, %82
-  %.0.i = phi i32 [ %86, %82 ], [ %70, %72 ]
+  %.0.i = phi i32 [ %70, %72 ], [ %86, %82 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -46787,7 +46787,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt
   br label %159
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit: ; preds = %67, %77
-  %.0.i = phi i32 [ %81, %77 ], [ %65, %67 ]
+  %.0.i = phi i32 [ %65, %67 ], [ %81, %77 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -47107,7 +47107,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt
   br label %.split16
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i: ; preds = %72, %66
-  %.0.i.i = phi i32 [ %76, %72 ], [ %64, %66 ]
+  %.0.i.i = phi i32 [ %64, %66 ], [ %76, %72 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -47371,7 +47371,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt
   br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i: ; preds = %78, %70
-  %.0.i.i = phi i32 [ %82, %78 ], [ %68, %70 ]
+  %.0.i.i = phi i32 [ %68, %70 ], [ %82, %78 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -47641,7 +47641,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt
   br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i: ; preds = %77, %69
-  %.0.i.i = phi i32 [ %81, %77 ], [ %67, %69 ]
+  %.0.i.i = phi i32 [ %67, %69 ], [ %81, %77 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -47913,7 +47913,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt
   br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i: ; preds = %77, %69
-  %.0.i.i = phi i32 [ %81, %77 ], [ %67, %69 ]
+  %.0.i.i = phi i32 [ %67, %69 ], [ %81, %77 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -48185,7 +48185,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt
   br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i: ; preds = %77, %69
-  %.0.i.i = phi i32 [ %81, %77 ], [ %67, %69 ]
+  %.0.i.i = phi i32 [ %67, %69 ], [ %81, %77 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -48462,7 +48462,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt
   br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i: ; preds = %77, %71
-  %.0.i.i = phi i32 [ %81, %77 ], [ %69, %71 ]
+  %.0.i.i = phi i32 [ %69, %71 ], [ %81, %77 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -48738,7 +48738,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt
   br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i: ; preds = %83, %75
-  %.0.i.i = phi i32 [ %87, %83 ], [ %73, %75 ]
+  %.0.i.i = phi i32 [ %73, %75 ], [ %87, %83 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -49014,7 +49014,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt
   br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i: ; preds = %76, %70
-  %.0.i.i = phi i32 [ %80, %76 ], [ %68, %70 ]
+  %.0.i.i = phi i32 [ %68, %70 ], [ %80, %76 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -49283,7 +49283,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt
   br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i: ; preds = %76, %70
-  %.0.i.i = phi i32 [ %80, %76 ], [ %68, %70 ]
+  %.0.i.i = phi i32 [ %68, %70 ], [ %80, %76 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -49532,7 +49532,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt
   br label %193
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit: ; preds = %67, %77
-  %.0.i = phi i32 [ %81, %77 ], [ %65, %67 ]
+  %.0.i = phi i32 [ %65, %67 ], [ %81, %77 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -49928,7 +49928,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt
   br label %147
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit: ; preds = %62, %72
-  %.0.i = phi i32 [ %76, %72 ], [ %60, %62 ]
+  %.0.i = phi i32 [ %60, %62 ], [ %76, %72 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -59264,7 +59264,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt
   br label %.split16
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i: ; preds = %78, %72
-  %.0.i.i = phi i32 [ %82, %78 ], [ %70, %72 ]
+  %.0.i.i = phi i32 [ %70, %72 ], [ %82, %78 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -59540,7 +59540,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt
   br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i: ; preds = %84, %76
-  %.0.i.i = phi i32 [ %88, %84 ], [ %74, %76 ]
+  %.0.i.i = phi i32 [ %74, %76 ], [ %88, %84 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -59827,7 +59827,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt
   br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i: ; preds = %83, %75
-  %.0.i.i = phi i32 [ %87, %83 ], [ %73, %75 ]
+  %.0.i.i = phi i32 [ %73, %75 ], [ %87, %83 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -60116,7 +60116,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt
   br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i: ; preds = %83, %75
-  %.0.i.i = phi i32 [ %87, %83 ], [ %73, %75 ]
+  %.0.i.i = phi i32 [ %73, %75 ], [ %87, %83 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -60405,7 +60405,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt
   br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i: ; preds = %83, %75
-  %.0.i.i = phi i32 [ %87, %83 ], [ %73, %75 ]
+  %.0.i.i = phi i32 [ %73, %75 ], [ %87, %83 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -60699,7 +60699,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt
   br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i: ; preds = %83, %77
-  %.0.i.i = phi i32 [ %87, %83 ], [ %75, %77 ]
+  %.0.i.i = phi i32 [ %75, %77 ], [ %87, %83 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -60987,7 +60987,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt
   br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i: ; preds = %89, %81
-  %.0.i.i = phi i32 [ %93, %89 ], [ %79, %81 ]
+  %.0.i.i = phi i32 [ %79, %81 ], [ %93, %89 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -61280,7 +61280,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt
   br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i: ; preds = %82, %76
-  %.0.i.i = phi i32 [ %86, %82 ], [ %74, %76 ]
+  %.0.i.i = phi i32 [ %74, %76 ], [ %86, %82 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -61561,7 +61561,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt
   br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i: ; preds = %82, %76
-  %.0.i.i = phi i32 [ %86, %82 ], [ %74, %76 ]
+  %.0.i.i = phi i32 [ %74, %76 ], [ %86, %82 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -61821,7 +61821,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt
   br label %207
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit: ; preds = %72, %82
-  %.0.i = phi i32 [ %86, %82 ], [ %70, %72 ]
+  %.0.i = phi i32 [ %70, %72 ], [ %86, %82 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -62240,7 +62240,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt
   br label %159
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit: ; preds = %67, %77
-  %.0.i = phi i32 [ %81, %77 ], [ %65, %67 ]
+  %.0.i = phi i32 [ %65, %67 ], [ %81, %77 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -62560,7 +62560,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb0EE11get_lt
   br label %.split16
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i: ; preds = %72, %66
-  %.0.i.i = phi i32 [ %76, %72 ], [ %64, %66 ]
+  %.0.i.i = phi i32 [ %64, %66 ], [ %76, %72 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -62824,7 +62824,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb0EE11get_lt
   br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i: ; preds = %78, %70
-  %.0.i.i = phi i32 [ %82, %78 ], [ %68, %70 ]
+  %.0.i.i = phi i32 [ %68, %70 ], [ %82, %78 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -63094,7 +63094,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb0EE11get_lt
   br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i: ; preds = %77, %69
-  %.0.i.i = phi i32 [ %81, %77 ], [ %67, %69 ]
+  %.0.i.i = phi i32 [ %67, %69 ], [ %81, %77 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -63366,7 +63366,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb0EE11get_lt
   br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i: ; preds = %77, %69
-  %.0.i.i = phi i32 [ %81, %77 ], [ %67, %69 ]
+  %.0.i.i = phi i32 [ %67, %69 ], [ %81, %77 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -63638,7 +63638,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb0EE11get_lt
   br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i: ; preds = %77, %69
-  %.0.i.i = phi i32 [ %81, %77 ], [ %67, %69 ]
+  %.0.i.i = phi i32 [ %67, %69 ], [ %81, %77 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -63915,7 +63915,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb0EE11get_lt
   br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i: ; preds = %77, %71
-  %.0.i.i = phi i32 [ %81, %77 ], [ %69, %71 ]
+  %.0.i.i = phi i32 [ %69, %71 ], [ %81, %77 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -64191,7 +64191,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb0EE11get_lt
   br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i: ; preds = %83, %75
-  %.0.i.i = phi i32 [ %87, %83 ], [ %73, %75 ]
+  %.0.i.i = phi i32 [ %73, %75 ], [ %87, %83 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -64467,7 +64467,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb0EE11get_lt
   br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i: ; preds = %76, %70
-  %.0.i.i = phi i32 [ %80, %76 ], [ %68, %70 ]
+  %.0.i.i = phi i32 [ %68, %70 ], [ %80, %76 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -64736,7 +64736,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb0EE11get_lt
   br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i: ; preds = %76, %70
-  %.0.i.i = phi i32 [ %80, %76 ], [ %68, %70 ]
+  %.0.i.i = phi i32 [ %68, %70 ], [ %80, %76 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -64985,7 +64985,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb0EE11get_lt
   br label %193
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit: ; preds = %67, %77
-  %.0.i = phi i32 [ %81, %77 ], [ %65, %67 ]
+  %.0.i = phi i32 [ %65, %67 ], [ %81, %77 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -65382,7 +65382,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb0EE11get_lt
   br label %147
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit: ; preds = %62, %72
-  %.0.i = phi i32 [ %76, %72 ], [ %60, %62 ]
+  %.0.i = phi i32 [ %60, %62 ], [ %76, %72 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -74718,7 +74718,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt
   br label %.split16
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i: ; preds = %78, %72
-  %.0.i.i = phi i32 [ %82, %78 ], [ %70, %72 ]
+  %.0.i.i = phi i32 [ %70, %72 ], [ %82, %78 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -74994,7 +74994,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt
   br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i: ; preds = %84, %76
-  %.0.i.i = phi i32 [ %88, %84 ], [ %74, %76 ]
+  %.0.i.i = phi i32 [ %74, %76 ], [ %88, %84 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -75281,7 +75281,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt
   br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i: ; preds = %83, %75
-  %.0.i.i = phi i32 [ %87, %83 ], [ %73, %75 ]
+  %.0.i.i = phi i32 [ %73, %75 ], [ %87, %83 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -75570,7 +75570,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt
   br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i: ; preds = %83, %75
-  %.0.i.i = phi i32 [ %87, %83 ], [ %73, %75 ]
+  %.0.i.i = phi i32 [ %73, %75 ], [ %87, %83 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -75859,7 +75859,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt
   br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i: ; preds = %83, %75
-  %.0.i.i = phi i32 [ %87, %83 ], [ %73, %75 ]
+  %.0.i.i = phi i32 [ %73, %75 ], [ %87, %83 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -76153,7 +76153,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt
   br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i: ; preds = %83, %77
-  %.0.i.i = phi i32 [ %87, %83 ], [ %75, %77 ]
+  %.0.i.i = phi i32 [ %75, %77 ], [ %87, %83 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -76441,7 +76441,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt
   br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i: ; preds = %89, %81
-  %.0.i.i = phi i32 [ %93, %89 ], [ %79, %81 ]
+  %.0.i.i = phi i32 [ %79, %81 ], [ %93, %89 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -76734,7 +76734,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt
   br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i: ; preds = %82, %76
-  %.0.i.i = phi i32 [ %86, %82 ], [ %74, %76 ]
+  %.0.i.i = phi i32 [ %74, %76 ], [ %86, %82 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -77015,7 +77015,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt
   br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i: ; preds = %82, %76
-  %.0.i.i = phi i32 [ %86, %82 ], [ %74, %76 ]
+  %.0.i.i = phi i32 [ %74, %76 ], [ %86, %82 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -77275,7 +77275,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt
   br label %207
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit: ; preds = %72, %82
-  %.0.i = phi i32 [ %86, %82 ], [ %70, %72 ]
+  %.0.i = phi i32 [ %70, %72 ], [ %86, %82 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -77694,7 +77694,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt
   br label %159
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit: ; preds = %67, %77
-  %.0.i = phi i32 [ %81, %77 ], [ %65, %67 ]
+  %.0.i = phi i32 [ %65, %67 ], [ %81, %77 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -78014,7 +78014,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb0EE11get_lt
   br label %.split16
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i: ; preds = %72, %66
-  %.0.i.i = phi i32 [ %76, %72 ], [ %64, %66 ]
+  %.0.i.i = phi i32 [ %64, %66 ], [ %76, %72 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -78278,7 +78278,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb0EE11get_lt
   br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i: ; preds = %78, %70
-  %.0.i.i = phi i32 [ %82, %78 ], [ %68, %70 ]
+  %.0.i.i = phi i32 [ %68, %70 ], [ %82, %78 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -78548,7 +78548,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb0EE11get_lt
   br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i: ; preds = %77, %69
-  %.0.i.i = phi i32 [ %81, %77 ], [ %67, %69 ]
+  %.0.i.i = phi i32 [ %67, %69 ], [ %81, %77 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -78820,7 +78820,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb0EE11get_lt
   br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i: ; preds = %77, %69
-  %.0.i.i = phi i32 [ %81, %77 ], [ %67, %69 ]
+  %.0.i.i = phi i32 [ %67, %69 ], [ %81, %77 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -79092,7 +79092,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb0EE11get_lt
   br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i: ; preds = %77, %69
-  %.0.i.i = phi i32 [ %81, %77 ], [ %67, %69 ]
+  %.0.i.i = phi i32 [ %67, %69 ], [ %81, %77 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -79369,7 +79369,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb0EE11get_lt
   br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i: ; preds = %77, %71
-  %.0.i.i = phi i32 [ %81, %77 ], [ %69, %71 ]
+  %.0.i.i = phi i32 [ %69, %71 ], [ %81, %77 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -79645,7 +79645,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb0EE11get_lt
   br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i: ; preds = %83, %75
-  %.0.i.i = phi i32 [ %87, %83 ], [ %73, %75 ]
+  %.0.i.i = phi i32 [ %73, %75 ], [ %87, %83 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -79921,7 +79921,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb0EE11get_lt
   br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i: ; preds = %76, %70
-  %.0.i.i = phi i32 [ %80, %76 ], [ %68, %70 ]
+  %.0.i.i = phi i32 [ %68, %70 ], [ %80, %76 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -80190,7 +80190,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb0EE11get_lt
   br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i: ; preds = %76, %70
-  %.0.i.i = phi i32 [ %80, %76 ], [ %68, %70 ]
+  %.0.i.i = phi i32 [ %68, %70 ], [ %80, %76 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -80439,7 +80439,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb0EE11get_lt
   br label %193
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit: ; preds = %67, %77
-  %.0.i = phi i32 [ %81, %77 ], [ %65, %67 ]
+  %.0.i = phi i32 [ %65, %67 ], [ %81, %77 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -80836,7 +80836,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb0EE11get_lt
   br label %147
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit: ; preds = %62, %72
-  %.0.i = phi i32 [ %76, %72 ], [ %60, %62 ]
+  %.0.i = phi i32 [ %60, %62 ], [ %76, %72 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

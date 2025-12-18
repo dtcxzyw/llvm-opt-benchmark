@@ -1670,7 +1670,7 @@ ehcleanup52:                                      ; preds = %if.then.i.i18, %ehc
   resume { ptr, i32 } %.pn.pn.pn.pn
 
 cleanup:                                          ; preds = %for.body21, %for.body, %sw.bb10, %sw.bb
-  %retval.0 = phi i1 [ true, %sw.bb10 ], [ false, %sw.bb ], [ %call8, %for.body ], [ %call23, %for.body21 ]
+  %retval.0 = phi i1 [ true, %sw.bb10 ], [ %call8, %for.body ], [ false, %sw.bb ], [ %call23, %for.body21 ]
   ret i1 %retval.0
 
 unreachable:                                      ; preds = %invoke.cont42
@@ -2014,7 +2014,7 @@ ehcleanup52:                                      ; preds = %if.then.i.i18, %ehc
   resume { ptr, i32 } %.pn.pn.pn.pn
 
 cleanup:                                          ; preds = %for.body21, %for.body, %sw.bb10, %sw.bb
-  %retval.0 = phi i1 [ false, %sw.bb10 ], [ true, %sw.bb ], [ %call.i, %for.body ], [ %call23, %for.body21 ]
+  %retval.0 = phi i1 [ false, %sw.bb10 ], [ %call.i, %for.body ], [ true, %sw.bb ], [ %call23, %for.body21 ]
   ret i1 %retval.0
 
 unreachable:                                      ; preds = %invoke.cont42

@@ -2173,8 +2173,8 @@ LBasis.exit:                                      ; preds = %47, %56
   br label %86
 
 LBasis.exit93:                                    ; preds = %86, %56, %57, %37
-  %92 = phi double [ 1.000000e+00, %37 ], [ 0.000000e+00, %57 ], [ %.1.i90, %56 ], [ %.127.us.i111, %86 ]
-  %93 = phi double [ 1.000000e+00, %37 ], [ 0.000000e+00, %57 ], [ %.1.i, %56 ], [ %.127.us.i, %86 ]
+  %92 = phi double [ %.1.i90, %56 ], [ 1.000000e+00, %37 ], [ 0.000000e+00, %57 ], [ %.127.us.i111, %86 ]
+  %93 = phi double [ %.1.i, %56 ], [ 1.000000e+00, %37 ], [ 0.000000e+00, %57 ], [ %.127.us.i, %86 ]
   %94 = load ptr, ptr %15, align 8, !tbaa !48
   %95 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %96 = load ptr, ptr %95, align 8, !tbaa !48

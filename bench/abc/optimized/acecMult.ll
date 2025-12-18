@@ -911,10 +911,10 @@ Vec_IntPushUnique.exit.sink.split:                ; preds = %Vec_IntPushUnique.e
   br label %Vec_IntPushUnique.exit
 
 Vec_IntPushUnique.exit:                           ; preds = %51, %24, %Vec_IntPushUnique.exit.sink.split, %45
-  %.pre.i.i56 = phi ptr [ %11, %45 ], [ %.pre.i.i56.ph, %Vec_IntPushUnique.exit.sink.split ], [ %11, %24 ], [ %11, %51 ]
-  %75 = phi ptr [ %12, %45 ], [ %.ph74, %Vec_IntPushUnique.exit.sink.split ], [ %12, %24 ], [ %12, %51 ]
-  %.pre.i.i2853 = phi ptr [ %13, %45 ], [ %.pre.i.i2851.sink, %Vec_IntPushUnique.exit.sink.split ], [ %12, %24 ], [ %13, %51 ]
-  %76 = phi ptr [ %14, %45 ], [ %.pre.i.i2851.sink, %Vec_IntPushUnique.exit.sink.split ], [ %12, %24 ], [ %14, %51 ]
+  %.pre.i.i56 = phi ptr [ %.pre.i.i56.ph, %Vec_IntPushUnique.exit.sink.split ], [ %11, %45 ], [ %11, %24 ], [ %11, %51 ]
+  %75 = phi ptr [ %.ph74, %Vec_IntPushUnique.exit.sink.split ], [ %12, %45 ], [ %12, %24 ], [ %12, %51 ]
+  %.pre.i.i2853 = phi ptr [ %.pre.i.i2851.sink, %Vec_IntPushUnique.exit.sink.split ], [ %13, %45 ], [ %12, %24 ], [ %13, %51 ]
+  %76 = phi ptr [ %.pre.i.i2851.sink, %Vec_IntPushUnique.exit.sink.split ], [ %14, %45 ], [ %12, %24 ], [ %14, %51 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %.val21 = load i32, ptr %8, align 4, !tbaa !27
   %77 = trunc i64 %indvars.iv.next to i32

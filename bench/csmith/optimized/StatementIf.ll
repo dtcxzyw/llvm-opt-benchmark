@@ -521,7 +521,7 @@ _ZNSt3mapIPK9StatementSt6vectorIPK4FactSaIS6_EESt4lessIS2_ESaISt4pairIKS2_S8_EEE
   br label %184
 
 184:                                              ; preds = %.sink.split, %161, %176, %128
-  %.2 = phi ptr [ null, %128 ], [ null, %161 ], [ %168, %176 ], [ null, %.sink.split ]
+  %.2 = phi ptr [ null, %128 ], [ %168, %176 ], [ null, %161 ], [ null, %.sink.split ]
   call void @_ZN6EffectD1Ev(ptr noundef nonnull align 8 dereferenceable(74) %8) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %187

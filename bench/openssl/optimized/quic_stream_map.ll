@@ -389,7 +389,7 @@ ossl_quic_stream_map_notify_totally_acked.exit:   ; preds = %ossl_quic_stream_ma
   %67 = icmp eq i32 %66, 4
   br i1 %67, label %qsm_ready_for_gc.exit.thread69, label %qsm_ready_for_gc.exit
 
-qsm_ready_for_gc.exit.thread69:                   ; preds = %63, %61
+qsm_ready_for_gc.exit.thread69:                   ; preds = %61, %63
   %68 = or disjoint i64 %55, 274877906944
   store i64 %68, ptr %6, align 8
   br label %71
@@ -511,8 +511,8 @@ stream_has_data_to_send.exit:                     ; preds = %97
   %.pre81 = load i64, ptr %6, align 8
   br i1 %narrow.i64, label %.critedge54, label %.critedge
 
-.critedge54:                                      ; preds = %stream_has_data_to_send.exit, %._crit_edge, %88, %86
-  %115 = phi i64 [ %.pre80, %86 ], [ %91, %._crit_edge ], [ %.pre78, %88 ], [ %.pre81, %stream_has_data_to_send.exit ]
+.critedge54:                                      ; preds = %stream_has_data_to_send.exit, %86, %88, %._crit_edge
+  %115 = phi i64 [ %91, %._crit_edge ], [ %.pre80, %86 ], [ %.pre78, %88 ], [ %.pre81, %stream_has_data_to_send.exit ]
   %116 = and i64 %115, 16777216
   %.not.i65 = icmp eq i64 %116, 0
   br i1 %.not.i65, label %117, label %stream_map_mark_active.exit

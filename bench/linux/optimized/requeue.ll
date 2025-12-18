@@ -285,7 +285,7 @@ define dso_local i32 @futex_requeue(ptr noundef %0, i32 noundef %1, ptr noundef 
   br i1 %129, label %.split166.us, label %.thread
 
 .thread:                                          ; preds = %122, %100, %.lr.ph, %.lr.ph590
-  %.us-phi164 = phi i32 [ %117, %.lr.ph ], [ %95, %.lr.ph590 ], [ %106, %100 ], [ %128, %122 ]
+  %.us-phi164 = phi i32 [ %117, %.lr.ph ], [ %95, %.lr.ph590 ], [ %128, %122 ], [ %106, %100 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %.loopexit45
 
@@ -744,7 +744,7 @@ select.unfold30:                                  ; preds = %193, %199
   br label %.loopexit45
 
 .loopexit45:                                      ; preds = %select.unfold30, %50, %.preheader44.split.us, %.split166.us, %.preheader44.split, %74, %350, %28, %.thread36, %.thread, %25, %21, %8
-  %355 = phi i32 [ %61, %.split166.us ], [ -22, %8 ], [ -22, %21 ], [ -12, %25 ], [ %.us-phi164, %.thread ], [ %194, %.thread36 ], [ %spec.select, %350 ], [ %37, %28 ], [ -22, %74 ], [ %63, %.preheader44.split ], [ -22, %50 ], [ %39, %.preheader44.split.us ], [ %202, %select.unfold30 ]
+  %355 = phi i32 [ %61, %.split166.us ], [ -22, %8 ], [ -22, %21 ], [ -12, %25 ], [ %.us-phi164, %.thread ], [ %spec.select, %350 ], [ %194, %.thread36 ], [ %37, %28 ], [ -22, %74 ], [ %63, %.preheader44.split ], [ -22, %50 ], [ %39, %.preheader44.split.us ], [ %202, %select.unfold30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)

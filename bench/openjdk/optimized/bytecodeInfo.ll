@@ -1951,7 +1951,7 @@ _ZNK10InlineTree9callee_atEiP8ciMethod.exit:      ; preds = %36
   br i1 %.not34, label %.loopexit40, label %.lr.ph, !llvm.loop !11
 
 .loopexit40:                                      ; preds = %_ZNK10InlineTree9callee_atEiP8ciMethod.exit, %3, %4, %7, %41
-  %.028 = phi ptr [ %42, %41 ], [ %0, %7 ], [ %0, %4 ], [ %0, %3 ], [ %28, %_ZNK10InlineTree9callee_atEiP8ciMethod.exit ]
+  %.028 = phi ptr [ %42, %41 ], [ %0, %7 ], [ %0, %3 ], [ %0, %4 ], [ %28, %_ZNK10InlineTree9callee_atEiP8ciMethod.exit ]
   ret ptr %.028
 }
 

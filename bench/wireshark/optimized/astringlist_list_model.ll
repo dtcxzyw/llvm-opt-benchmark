@@ -1920,7 +1920,7 @@ _ZNK4QMapIiN35AStringListListSortFilterProxyModel25AStringListListFilterTypeEE4k
   br label %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exitthread-pre-split
 
 _ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exitthread-pre-split: ; preds = %141, %146, %_ZNK4QMapIiN35AStringListListSortFilterProxyModel25AStringListListFilterTypeEE4keysEv.exit
-  %.1.i.i.i.ph = phi i1 [ false, %_ZNK4QMapIiN35AStringListListSortFilterProxyModel25AStringListListFilterTypeEE4keysEv.exit ], [ %150, %146 ], [ false, %141 ]
+  %.1.i.i.i.ph = phi i1 [ %150, %146 ], [ false, %_ZNK4QMapIiN35AStringListListSortFilterProxyModel25AStringListListFilterTypeEE4keysEv.exit ], [ false, %141 ]
   %.pr127 = load ptr, ptr %8, align 8
   br label %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit
 

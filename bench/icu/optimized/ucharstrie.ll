@@ -1226,7 +1226,7 @@ _ZN6icu_7710UCharsTrie9skipValueEPKDsi.exit:      ; preds = %.preheader, %52, %5
   br label %.thread50
 
 .thread50:                                        ; preds = %_ZN6icu_7710UCharsTrie11jumpByDeltaEPKDs.exit, %72, %69, %79
-  %.030 = phi ptr [ %80, %79 ], [ null, %72 ], [ null, %69 ], [ null, %_ZN6icu_7710UCharsTrie11jumpByDeltaEPKDs.exit ]
+  %.030 = phi ptr [ null, %72 ], [ %80, %79 ], [ null, %69 ], [ null, %_ZN6icu_7710UCharsTrie11jumpByDeltaEPKDs.exit ]
   ret ptr %.030
 }
 

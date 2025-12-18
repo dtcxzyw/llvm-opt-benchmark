@@ -758,7 +758,7 @@ _ZN10z3_log_ctxD2Ev.exit:                         ; preds = %6
   br i1 %.not27.old.i.i.i, label %_ZNK7obj_mapI3astPS0_E8containsES1_.exit, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %45, %42
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %45 ], [ %44, %42 ]
+  %.137.i.i.i.be = phi ptr [ %44, %42 ], [ %.old.i.i.i, %45 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !188
 
 _ZNK7obj_mapI3astPS0_E8containsES1_.exit:         ; preds = %31, %26, %45, %42, %37, %.preheader.i.i.i
@@ -892,7 +892,7 @@ define ptr @Z3_ast_map_find(ptr noundef %0, ptr noundef %1, ptr noundef %2) loca
   br i1 %.not27.old.i.i, label %.loopexit, label %.lr.ph38.i.i.backedge
 
 .lr.ph38.i.i.backedge:                            ; preds = %44, %41
-  %.137.i.i.be = phi ptr [ %.old.i.i, %44 ], [ %43, %41 ]
+  %.137.i.i.be = phi ptr [ %43, %41 ], [ %.old.i.i, %44 ]
   br label %.lr.ph38.i.i, !llvm.loop !188
 
 .loopexit:                                        ; preds = %30, %44, %41, %.preheader.i.i
@@ -1330,7 +1330,7 @@ define void @Z3_ast_map_erase(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   br i1 %.not27.old.i.i.i, label %_ZN11ast_manager7dec_refEP3ast.exit24, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %44, %41
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %44 ], [ %43, %41 ]
+  %.137.i.i.i.be = phi ptr [ %43, %41 ], [ %.old.i.i.i, %44 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !188
 
 .loopexit:                                        ; preds = %25, %36
@@ -2892,7 +2892,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI3astPS1_E13obj_ma
   br i1 %.not32.old, label %.loopexit, label %.lr.ph48.backedge
 
 .lr.ph48.backedge:                                ; preds = %36, %33
-  %.247.be = phi ptr [ %.old, %36 ], [ %35, %33 ]
+  %.247.be = phi ptr [ %35, %33 ], [ %.old, %36 ]
   br label %.lr.ph48, !llvm.loop !228
 
 .loopexit38:                                      ; preds = %17, %28

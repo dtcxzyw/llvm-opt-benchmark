@@ -7456,8 +7456,8 @@ define noundef zeroext i1 @_ZN3gmx15constrain_lincsEbRK10t_inputreclPNS_5LincsEN
   br i1 %exitcond206.not, label %.loopexit174, label %134, !llvm.loop !384
 
 .loopexit174:                                     ; preds = %128, %165, %.preheader175, %.preheader173, %.loopexit177
-  %166 = phi i32 [ %89, %.loopexit177 ], [ %89, %.preheader175 ], [ %89, %.preheader173 ], [ %89, %165 ], [ %131, %128 ]
-  %167 = phi ptr [ %3, %.loopexit177 ], [ %3, %.preheader175 ], [ %3, %.preheader173 ], [ %3, %165 ], [ %129, %128 ]
+  %166 = phi i32 [ %89, %165 ], [ %89, %.loopexit177 ], [ %89, %.preheader175 ], [ %89, %.preheader173 ], [ %131, %128 ]
+  %167 = phi ptr [ %3, %165 ], [ %3, %.loopexit177 ], [ %3, %.preheader175 ], [ %3, %.preheader173 ], [ %129, %128 ]
   %168 = load ptr, ptr @debug, align 8, !tbaa !105
   %.not114 = icmp ne ptr %168, null
   %169 = icmp sgt i32 %166, 0

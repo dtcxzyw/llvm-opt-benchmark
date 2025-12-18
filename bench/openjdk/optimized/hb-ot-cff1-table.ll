@@ -507,7 +507,7 @@ _ZN3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE10_cmp_rangeEPKvS7_.exit.t
   br label %_ZNK3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE6get_fdEj.exit.i
 
 _ZNK3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE6get_fdEj.exit.i: ; preds = %_ZN3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE10_cmp_rangeEPKvS7_.exit.i.i.i.i, %62, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %64, %62 ], [ @_hb_NullPool, %.loopexit.i.i ], [ %41, %_ZN3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE10_cmp_rangeEPKvS7_.exit.i.i.i.i ]
+  %.pn.i.i = phi ptr [ @_hb_NullPool, %.loopexit.i.i ], [ %64, %62 ], [ %41, %_ZN3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE10_cmp_rangeEPKvS7_.exit.i.i.i.i ]
   %65 = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 2
   %66 = load i8, ptr %65, align 1
   br label %_ZNK3CFF8FDSelect6get_fdEj.exit
@@ -689,7 +689,7 @@ _ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEE9get_countEv.exit.i6.i
   br label %.noexc
 
 .noexc:                                           ; preds = %151, %142
-  %.03.i22 = phi i32 [ %156, %151 ], [ %147, %142 ]
+  %.03.i22 = phi i32 [ %147, %142 ], [ %156, %151 ]
   switch i32 %.03.i22, label %.noexc.thread [
     i32 256, label %157
     i32 14, label %158
@@ -1050,7 +1050,7 @@ _ZN3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE10_cmp_rangeEPKvS7_.exit.t
   br label %_ZNK3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE6get_fdEj.exit.i
 
 _ZNK3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE6get_fdEj.exit.i: ; preds = %_ZN3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE10_cmp_rangeEPKvS7_.exit.i.i.i.i, %61, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %63, %61 ], [ @_hb_NullPool, %.loopexit.i.i ], [ %40, %_ZN3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE10_cmp_rangeEPKvS7_.exit.i.i.i.i ]
+  %.pn.i.i = phi ptr [ @_hb_NullPool, %.loopexit.i.i ], [ %63, %61 ], [ %40, %_ZN3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE10_cmp_rangeEPKvS7_.exit.i.i.i.i ]
   %64 = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 2
   %65 = load i8, ptr %64, align 1
   br label %_ZNK3CFF8FDSelect6get_fdEj.exit
@@ -1228,7 +1228,7 @@ _ZN3CFF20cff1_cs_interp_env_tC2IKN2OT4cff113accelerator_tEEERK10hb_array_tIKhERT
   br label %.noexc
 
 .noexc:                                           ; preds = %147, %138
-  %.03.i27 = phi i32 [ %152, %147 ], [ %143, %138 ]
+  %.03.i27 = phi i32 [ %143, %138 ], [ %152, %147 ]
   switch i32 %.03.i27, label %.noexc.thread [
     i32 256, label %153
     i32 14, label %154
@@ -1490,7 +1490,7 @@ _ZN3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE10_cmp_rangeEPKvS7_.exit.t
   br label %_ZNK3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE6get_fdEj.exit.i
 
 _ZNK3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE6get_fdEj.exit.i: ; preds = %_ZN3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE10_cmp_rangeEPKvS7_.exit.i.i.i.i, %60, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %62, %60 ], [ @_hb_NullPool, %.loopexit.i.i ], [ %39, %_ZN3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE10_cmp_rangeEPKvS7_.exit.i.i.i.i ]
+  %.pn.i.i = phi ptr [ @_hb_NullPool, %.loopexit.i.i ], [ %62, %60 ], [ %39, %_ZN3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE10_cmp_rangeEPKvS7_.exit.i.i.i.i ]
   %63 = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 2
   %64 = load i8, ptr %63, align 1
   br label %_ZNK3CFF8FDSelect6get_fdEj.exit
@@ -1940,7 +1940,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3CFF16cs_interpreter_tINS_20cf
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8fetch_opEv.exit
 
 _ZN3CFF12interp_env_tINS_8number_tEE8fetch_opEv.exit: ; preds = %11, %20
-  %.03.i = phi i32 [ %25, %20 ], [ %16, %11 ]
+  %.03.i = phi i32 [ %16, %11 ], [ %25, %20 ]
   %26 = load ptr, ptr %0, align 8
   switch i32 %.03.i, label %_ZN3CFF12interp_env_tINS_8number_tEE8fetch_opEv.exit.thread [
     i32 256, label %27
@@ -3550,7 +3550,7 @@ define linkonce_odr hidden noundef i32 @_ZNK3CFF7Charset9get_glyphEjj(ptr nounde
   br i1 %.not.i19, label %.lr.ph.i12, label %_ZNK3CFF8Charset09get_glyphEjj.exit, !llvm.loop !16
 
 _ZNK3CFF8Charset09get_glyphEjj.exit:              ; preds = %63, %.lr.ph._crit_edge.i, %19, %60, %40, %34, %21, %.loopexit.loopexit.split.loop.exit15.i, %5, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %5 ], [ %20, %.loopexit.loopexit.split.loop.exit15.i ], [ %36, %34 ], [ 0, %21 ], [ %62, %60 ], [ 0, %40 ], [ 0, %.lr.ph._crit_edge.i ], [ 0, %19 ], [ 0, %63 ]
+  %.0 = phi i32 [ 0, %.lr.ph._crit_edge.i ], [ 0, %3 ], [ 0, %19 ], [ 0, %5 ], [ %20, %.loopexit.loopexit.split.loop.exit15.i ], [ %36, %34 ], [ 0, %21 ], [ %62, %60 ], [ 0, %40 ], [ 0, %63 ]
   ret i32 %.0
 }
 

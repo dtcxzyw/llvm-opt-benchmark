@@ -1045,8 +1045,8 @@ _ZN4llvm28const_set_bits_iterator_implINS_9BitVectorEEppEv.exit: ; preds = %199
   br label %.critedge29
 
 .critedge29:                                      ; preds = %38, %189, %.thread, %_ZN4llvm28const_set_bits_iterator_implINS_9BitVectorEEppEv.exit, %206, %_ZN4llvm9BitVectorC2Ejb.exit, %_ZNK4llvm9BitVector8set_bitsEv.exit, %212
-  %213 = phi ptr [ %.pre, %212 ], [ %18, %_ZNK4llvm9BitVector8set_bitsEv.exit ], [ %18, %_ZN4llvm9BitVectorC2Ejb.exit ], [ %18, %189 ], [ %18, %206 ], [ %18, %_ZN4llvm28const_set_bits_iterator_implINS_9BitVectorEEppEv.exit ], [ %18, %.thread ], [ %18, %38 ]
-  %.not100 = phi i1 [ false, %212 ], [ true, %_ZNK4llvm9BitVector8set_bitsEv.exit ], [ true, %_ZN4llvm9BitVectorC2Ejb.exit ], [ true, %189 ], [ true, %206 ], [ true, %_ZN4llvm28const_set_bits_iterator_implINS_9BitVectorEEppEv.exit ], [ true, %.thread ], [ true, %38 ]
+  %213 = phi ptr [ %.pre, %212 ], [ %18, %_ZNK4llvm9BitVector8set_bitsEv.exit ], [ %18, %189 ], [ %18, %206 ], [ %18, %_ZN4llvm9BitVectorC2Ejb.exit ], [ %18, %_ZN4llvm28const_set_bits_iterator_implINS_9BitVectorEEppEv.exit ], [ %18, %.thread ], [ %18, %38 ]
+  %.not100 = phi i1 [ false, %212 ], [ true, %_ZNK4llvm9BitVector8set_bitsEv.exit ], [ true, %189 ], [ true, %206 ], [ true, %_ZN4llvm9BitVectorC2Ejb.exit ], [ true, %_ZN4llvm28const_set_bits_iterator_implINS_9BitVectorEEppEv.exit ], [ true, %.thread ], [ true, %38 ]
   %214 = icmp eq ptr %213, %13
   br i1 %214, label %_ZN4llvm9BitVectorD2Ev.exit, label %215
 
@@ -1235,7 +1235,7 @@ _ZN4llvm20BitMaskClassIteratorppEv.exit:          ; preds = %.lr.ph, %35
   br i1 %.not22, label %.loopexit, label %.lr.ph45, !llvm.loop !282
 
 .loopexit:                                        ; preds = %.lr.ph.i.i, %.lr.ph.i.i15.preheader, %_ZN4llvm20BitMaskClassIteratorppEv.exit, %.lr.ph45, %.lr.ph.i.i15, %_ZN4llvm20BitMaskClassIteratorC2EPKjRKNS_18TargetRegisterInfoE.exit, %2, %3
-  %.0 = phi ptr [ %1, %3 ], [ null, %2 ], [ null, %_ZN4llvm20BitMaskClassIteratorC2EPKjRKNS_18TargetRegisterInfoE.exit ], [ %30, %.lr.ph45 ], [ null, %.lr.ph.i.i15 ], [ null, %.lr.ph.i.i15.preheader ], [ null, %_ZN4llvm20BitMaskClassIteratorppEv.exit ], [ null, %.lr.ph.i.i ]
+  %.0 = phi ptr [ %1, %3 ], [ null, %2 ], [ null, %_ZN4llvm20BitMaskClassIteratorC2EPKjRKNS_18TargetRegisterInfoE.exit ], [ null, %.lr.ph.i.i15 ], [ %30, %.lr.ph45 ], [ null, %.lr.ph.i.i15.preheader ], [ null, %_ZN4llvm20BitMaskClassIteratorppEv.exit ], [ null, %.lr.ph.i.i ]
   ret ptr %.0
 }
 
@@ -1690,7 +1690,7 @@ _ZNK4llvm19TargetRegisterClass11hasSubClassEPKS0_.exit.us.us.i: ; preds = %31
   br label %_ZNK4llvm18TargetRegisterInfo19isTypeLegalForClassERKNS_19TargetRegisterClassENS_3LLTE.exit.us.us.i
 
 _ZNK4llvm18TargetRegisterInfo19isTypeLegalForClassERKNS_19TargetRegisterClassENS_3LLTE.exit.us.us.i: ; preds = %44, %_ZNK4llvm19TargetRegisterClass11hasSubClassEPKS0_.exit.us.us.i, %31, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.us.us.i, %_ZNK4llvm18TargetRegisterInfo19isTypeLegalForClassERKNS_19TargetRegisterClassENS_3LLTE.exit.thread.us.us.i
-  %.1.us.us.i = phi ptr [ %19, %44 ], [ %.028.us.us.i, %_ZNK4llvm19TargetRegisterClass11hasSubClassEPKS0_.exit.us.us.i ], [ %.028.us.us.i, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.us.us.i ], [ %.028.us.us.i, %_ZNK4llvm18TargetRegisterInfo19isTypeLegalForClassERKNS_19TargetRegisterClassENS_3LLTE.exit.thread.us.us.i ], [ %.028.us.us.i, %31 ]
+  %.1.us.us.i = phi ptr [ %19, %44 ], [ %.028.us.us.i, %_ZNK4llvm19TargetRegisterClass11hasSubClassEPKS0_.exit.us.us.i ], [ %.028.us.us.i, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.us.us.i ], [ %.028.us.us.i, %31 ], [ %.028.us.us.i, %_ZNK4llvm18TargetRegisterInfo19isTypeLegalForClassERKNS_19TargetRegisterClassENS_3LLTE.exit.thread.us.us.i ]
   %45 = getelementptr inbounds nuw i8, ptr %.01727.us.us.i, i64 8
   %.not.us.us.i = icmp eq ptr %45, %8
   br i1 %.not.us.us.i, label %_ZL22getMinimalPhysRegClassIN4llvm3LLTEEPKNS0_19TargetRegisterClassEPKNS0_18TargetRegisterInfoENS0_10MCRegisterET_.exit, label %_ZNK4llvm18TargetRegisterInfo19isTypeLegalForClassERKNS_19TargetRegisterClassENS_3LLTE.exit.thread.us.us.i
@@ -1781,7 +1781,7 @@ _ZNK4llvm19TargetRegisterClass11hasSubClassEPKS0_.exit.us37.i: ; preds = %81
   br label %_ZNK4llvm18TargetRegisterInfo19isTypeLegalForClassERKNS_19TargetRegisterClassENS_3LLTE.exit.us39.i
 
 _ZNK4llvm18TargetRegisterInfo19isTypeLegalForClassERKNS_19TargetRegisterClassENS_3LLTE.exit.us39.i: ; preds = %69, %_ZNK4llvm18TargetRegisterInfo19isTypeLegalForClassERKNS_19TargetRegisterClassENS_3LLTE.exit.thread.loopexit.us.i, %94, %_ZNK4llvm19TargetRegisterClass11hasSubClassEPKS0_.exit.us37.i, %81, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.us33.i
-  %.1.us40.i = phi ptr [ %46, %94 ], [ %.028.us30.i, %_ZNK4llvm19TargetRegisterClass11hasSubClassEPKS0_.exit.us37.i ], [ %.028.us30.i, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.us33.i ], [ %.028.us30.i, %_ZNK4llvm18TargetRegisterInfo19isTypeLegalForClassERKNS_19TargetRegisterClassENS_3LLTE.exit.thread.loopexit.us.i ], [ %.028.us30.i, %81 ], [ %.028.us30.i, %69 ]
+  %.1.us40.i = phi ptr [ %46, %94 ], [ %.028.us30.i, %_ZNK4llvm19TargetRegisterClass11hasSubClassEPKS0_.exit.us37.i ], [ %.028.us30.i, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.us33.i ], [ %.028.us30.i, %81 ], [ %.028.us30.i, %_ZNK4llvm18TargetRegisterInfo19isTypeLegalForClassERKNS_19TargetRegisterClassENS_3LLTE.exit.thread.loopexit.us.i ], [ %.028.us30.i, %69 ]
   %95 = getelementptr inbounds nuw i8, ptr %.01727.us31.i, i64 8
   %.not.us41.i = icmp eq ptr %95, %8
   br i1 %.not.us41.i, label %_ZL22getMinimalPhysRegClassIN4llvm3LLTEEPKNS0_19TargetRegisterClassEPKNS0_18TargetRegisterInfoENS0_10MCRegisterET_.exit, label %.lr.ph.split.split.us.i
@@ -1844,7 +1844,7 @@ _ZNK4llvm18TargetRegisterInfo19isTypeLegalForClassERKNS_19TargetRegisterClassENS
   br i1 %.not.i, label %_ZL22getMinimalPhysRegClassIN4llvm3LLTEEPKNS0_19TargetRegisterClassEPKNS0_18TargetRegisterInfoENS0_10MCRegisterET_.exit, label %.lr.ph.split.split.i
 
 _ZL22getMinimalPhysRegClassIN4llvm3LLTEEPKNS0_19TargetRegisterClassEPKNS0_18TargetRegisterInfoENS0_10MCRegisterET_.exit: ; preds = %_ZNK4llvm18TargetRegisterInfo19isTypeLegalForClassERKNS_19TargetRegisterClassENS_3LLTE.exit.i, %_ZNK4llvm18TargetRegisterInfo19isTypeLegalForClassERKNS_19TargetRegisterClassENS_3LLTE.exit.us39.i, %_ZNK4llvm18TargetRegisterInfo19isTypeLegalForClassERKNS_19TargetRegisterClassENS_3LLTE.exit.us.us.i, %3, %.lr.ph.split.us.i
-  %.0.lcssa.i = phi ptr [ null, %3 ], [ null, %.lr.ph.split.us.i ], [ %.1.us40.i, %_ZNK4llvm18TargetRegisterInfo19isTypeLegalForClassERKNS_19TargetRegisterClassENS_3LLTE.exit.us39.i ], [ %.1.us.us.i, %_ZNK4llvm18TargetRegisterInfo19isTypeLegalForClassERKNS_19TargetRegisterClassENS_3LLTE.exit.us.us.i ], [ null, %_ZNK4llvm18TargetRegisterInfo19isTypeLegalForClassERKNS_19TargetRegisterClassENS_3LLTE.exit.i ]
+  %.0.lcssa.i = phi ptr [ null, %3 ], [ null, %.lr.ph.split.us.i ], [ %.1.us.us.i, %_ZNK4llvm18TargetRegisterInfo19isTypeLegalForClassERKNS_19TargetRegisterClassENS_3LLTE.exit.us.us.i ], [ %.1.us40.i, %_ZNK4llvm18TargetRegisterInfo19isTypeLegalForClassERKNS_19TargetRegisterClassENS_3LLTE.exit.us39.i ], [ null, %_ZNK4llvm18TargetRegisterInfo19isTypeLegalForClassERKNS_19TargetRegisterClassENS_3LLTE.exit.i ]
   ret ptr %.0.lcssa.i
 }
 
@@ -1943,7 +1943,7 @@ _ZNK4llvm19TargetRegisterClass11hasSubClassEPKS0_.exit.us.us.i: ; preds = %42
   br label %_ZNK4llvm18TargetRegisterInfo19isTypeLegalForClassERKNS_19TargetRegisterClassENS_3LLTE.exit.us.us.i
 
 _ZNK4llvm18TargetRegisterInfo19isTypeLegalForClassERKNS_19TargetRegisterClassENS_3LLTE.exit.us.us.i: ; preds = %55, %_ZNK4llvm19TargetRegisterClass11hasSubClassEPKS0_.exit.us.us.i, %42, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterES1_.exit.us.us.i, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i.i.us.us.i, %_ZNK4llvm18TargetRegisterInfo19isTypeLegalForClassERKNS_19TargetRegisterClassENS_3LLTE.exit.thread.us.us.i
-  %.1.us.us.i = phi ptr [ %26, %55 ], [ %.031.us.us.i, %_ZNK4llvm19TargetRegisterClass11hasSubClassEPKS0_.exit.us.us.i ], [ %.031.us.us.i, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterES1_.exit.us.us.i ], [ %.031.us.us.i, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i.i.us.us.i ], [ %.031.us.us.i, %42 ], [ %.031.us.us.i, %_ZNK4llvm18TargetRegisterInfo19isTypeLegalForClassERKNS_19TargetRegisterClassENS_3LLTE.exit.thread.us.us.i ]
+  %.1.us.us.i = phi ptr [ %26, %55 ], [ %.031.us.us.i, %_ZNK4llvm19TargetRegisterClass11hasSubClassEPKS0_.exit.us.us.i ], [ %.031.us.us.i, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterES1_.exit.us.us.i ], [ %.031.us.us.i, %42 ], [ %.031.us.us.i, %_ZNK4llvm18TargetRegisterInfo19isTypeLegalForClassERKNS_19TargetRegisterClassENS_3LLTE.exit.thread.us.us.i ], [ %.031.us.us.i, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i.i.us.us.i ]
   %56 = getelementptr inbounds nuw i8, ptr %.01930.us.us.i, i64 8
   %.not.us.us.i = icmp eq ptr %56, %10
   br i1 %.not.us.us.i, label %_ZL28getCommonMinimalPhysRegClassIN4llvm3LLTEEPKNS0_19TargetRegisterClassEPKNS0_18TargetRegisterInfoENS0_10MCRegisterES8_T_.exit, label %_ZNK4llvm18TargetRegisterInfo19isTypeLegalForClassERKNS_19TargetRegisterClassENS_3LLTE.exit.thread.us.us.i
@@ -2540,7 +2540,7 @@ _ZN4llvm21SuperRegClassIteratorppEv.exit:         ; preds = %.lr.ph
   br i1 %.not.i7, label %_ZL16firstCommonClassPKjS0_PKN4llvm18TargetRegisterInfoE.exit, label %.lr.ph, !llvm.loop !298
 
 _ZL16firstCommonClassPKjS0_PKN4llvm18TargetRegisterInfoE.exit: ; preds = %_ZN4llvm21SuperRegClassIteratorppEv.exit, %28, %_ZN4llvm21SuperRegClassIteratorC2EPKNS_19TargetRegisterClassEPKNS_18TargetRegisterInfoEb.exit, %33, %22
-  %40 = phi ptr [ null, %22 ], [ %38, %33 ], [ null, %_ZN4llvm21SuperRegClassIteratorC2EPKNS_19TargetRegisterClassEPKNS_18TargetRegisterInfoEb.exit ], [ null, %28 ], [ null, %_ZN4llvm21SuperRegClassIteratorppEv.exit ]
+  %40 = phi ptr [ null, %_ZN4llvm21SuperRegClassIteratorC2EPKNS_19TargetRegisterClassEPKNS_18TargetRegisterInfoEb.exit ], [ %38, %33 ], [ null, %22 ], [ null, %28 ], [ null, %_ZN4llvm21SuperRegClassIteratorppEv.exit ]
   ret ptr %40
 }
 
@@ -2907,7 +2907,7 @@ _ZN4llvm21SuperRegClassIteratorppEv.exit83:       ; preds = %_ZN4llvm21SuperRegC
   br i1 %.not.i82, label %.loopexit, label %98, !llvm.loop !301
 
 .loopexit:                                        ; preds = %_ZN4llvm21SuperRegClassIteratorppEv.exit83, %197, %61
-  %227 = phi ptr [ null, %61 ], [ %133, %197 ], [ %.250.lcssa, %_ZN4llvm21SuperRegClassIteratorppEv.exit83 ]
+  %227 = phi ptr [ %133, %197 ], [ null, %61 ], [ %.250.lcssa, %_ZN4llvm21SuperRegClassIteratorppEv.exit83 ]
   ret ptr %227
 }
 
@@ -3001,7 +3001,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm18TargetRegisterInfo20shouldRewrit
   br label %_ZNK4llvm18TargetRegisterInfo17getCommonSubClassEPKNS_19TargetRegisterClassES3_.exit.i
 
 _ZNK4llvm18TargetRegisterInfo17getCommonSubClassEPKNS_19TargetRegisterClassES3_.exit.i: ; preds = %38, %43, %23, %20, %.thread.i, %12
-  %.1.in.i = phi ptr [ %13, %12 ], [ %19, %.thread.i ], [ null, %20 ], [ %48, %43 ], [ null, %23 ], [ null, %38 ]
+  %.1.in.i = phi ptr [ %13, %12 ], [ %19, %.thread.i ], [ null, %23 ], [ null, %20 ], [ %48, %43 ], [ null, %38 ]
   %.1.i = icmp ne ptr %.1.in.i, null
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

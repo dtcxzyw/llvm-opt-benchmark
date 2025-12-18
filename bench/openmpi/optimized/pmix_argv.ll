@@ -171,7 +171,7 @@ define noalias noundef ptr @pmix_argv_join_range(ptr noundef %0, i64 noundef %1,
   br label %.loopexit
 
 .loopexit:                                        ; preds = %46, %.loopexit.sink.split, %32, %29
-  %.035 = phi ptr [ %30, %32 ], [ null, %29 ], [ %48, %.loopexit.sink.split ], [ %30, %46 ]
+  %.035 = phi ptr [ %30, %32 ], [ %48, %.loopexit.sink.split ], [ null, %29 ], [ %30, %46 ]
   ret ptr %.035
 }
 

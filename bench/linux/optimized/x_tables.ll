@@ -2074,7 +2074,7 @@ define dso_local ptr @xt_find_table_lock(ptr noundef %0, i8 noundef zeroext %1, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %20, %57, %.thread, %.thread6
-  %64 = phi ptr [ inttoptr (i64 -2 to ptr), %.thread6 ], [ %49, %.thread ], [ %55, %57 ], [ %16, %20 ]
+  %64 = phi ptr [ inttoptr (i64 -2 to ptr), %.thread6 ], [ %55, %57 ], [ %49, %.thread ], [ %16, %20 ]
   ret ptr %64
 }
 

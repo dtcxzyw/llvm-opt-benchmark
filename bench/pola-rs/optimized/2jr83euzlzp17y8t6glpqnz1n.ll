@@ -17011,7 +17011,7 @@ define internal fastcc noundef i64 @_ZN10polars_row6decode34dtype_and_data_to_en
   ], !prof !1096
 
 .loopexit:                                        ; preds = %93, %58, %80, %45, %67, %40, %38, %36, %9
-  %.sroa.017.0 = phi i64 [ %10, %9 ], [ %37, %36 ], [ %39, %38 ], [ %41, %40 ], [ %68, %67 ], [ 1, %45 ], [ 1, %80 ], [ %61, %58 ], [ %96, %93 ]
+  %.sroa.017.0 = phi i64 [ %10, %9 ], [ %37, %36 ], [ %39, %38 ], [ %41, %40 ], [ %68, %67 ], [ %61, %58 ], [ 1, %45 ], [ 1, %80 ], [ %96, %93 ]
   ret i64 %.sroa.017.0
 
 13:                                               ; preds = %11
@@ -18242,7 +18242,7 @@ _ZN10polars_row6decode24rows_for_fixed_size_list17h1c3e75505b187d62E.exit: ; pre
   br label %.thread238
 
 .thread238.loopexit.split-lp.loopexit.split-lp:   ; preds = %._crit_edge.invoke, %346, %350, %353, %384, %392, %478, %549, %532, %345
-  %.sroa.020.2.ph.ph = phi i8 [ 1, %353 ], [ 1, %549 ], [ 1, %532 ], [ 1, %350 ], [ 1, %384 ], [ 1, %346 ], [ 1, %478 ], [ 1, %345 ], [ 0, %392 ], [ 1, %._crit_edge.invoke ]
+  %.sroa.020.2.ph.ph = phi i8 [ 1, %._crit_edge.invoke ], [ 1, %532 ], [ 1, %350 ], [ 1, %384 ], [ 0, %392 ], [ 1, %549 ], [ 1, %353 ], [ 1, %346 ], [ 1, %478 ], [ 1, %345 ]
   %lpad.loopexit.split-lp302 = landingpad { ptr, i32 }
           cleanup
   br label %.thread238

@@ -1197,8 +1197,8 @@ if.else143:                                       ; preds = %if.end129
   br i1 %call146, label %while.cond, label %if.end149, !llvm.loop !6
 
 if.end149:                                        ; preds = %if.else143, %while.cond, %if.else143.us, %while.cond.us, %land.lhs.true117.thread, %if.end112, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit117, %land.lhs.true117
-  %type.0216 = phi ptr [ %type.0217, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit117 ], [ %type.0217, %land.lhs.true117 ], [ %type.0, %if.end112 ], [ null, %land.lhs.true117.thread ], [ null, %if.else143.us ], [ null, %while.cond.us ], [ %type.0217, %while.cond ], [ %type.0217, %if.else143 ]
-  %isFunction.2 = phi i8 [ 1, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit117 ], [ %isFunction.0219, %land.lhs.true117 ], [ 0, %if.end112 ], [ 1, %land.lhs.true117.thread ], [ 1, %if.else143.us ], [ 1, %while.cond.us ], [ 1, %while.cond ], [ 1, %if.else143 ]
+  %type.0216 = phi ptr [ %type.0217, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit117 ], [ %type.0, %if.end112 ], [ %type.0217, %land.lhs.true117 ], [ null, %land.lhs.true117.thread ], [ null, %if.else143.us ], [ null, %while.cond.us ], [ %type.0217, %while.cond ], [ %type.0217, %if.else143 ]
+  %isFunction.2 = phi i8 [ 1, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit117 ], [ 0, %if.end112 ], [ %isFunction.0219, %land.lhs.true117 ], [ 1, %land.lhs.true117.thread ], [ 1, %if.else143.us ], [ 1, %while.cond.us ], [ 1, %while.cond ], [ 1, %if.else143 ]
   %call152 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl3eatENS0_9TokenKindENS0_7JSLexer14GrammarContextEPKcS7_N4llvh5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 54, i32 noundef 3, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr %start.coerce) #4
   br i1 %call152, label %if.end154, label %return
 
@@ -1382,8 +1382,8 @@ _ZN6hermes6ESTree18TSFunctionTypeNodeC2EON4llvh12simple_ilistINS0_4NodeEJEEEPS4_
   br label %return
 
 return:                                           ; preds = %while.body, %while.body.us, %if.end173, %if.then156, %if.end149, %if.else71, %if.then60, %if.then42, %cleanup.thread, %_ZN6hermes6ESTree18TSFunctionTypeNodeC2EON4llvh12simple_ilistINS0_4NodeEJEEEPS4_S7_.exit, %_ZN6hermes6ESTree21TSConstructorTypeNodeC2EON4llvh12simple_ilistINS0_4NodeEJEEEPS4_S7_.exit, %if.then172, %if.then33
-  %retval.sroa.0.0 = phi i64 [ %104, %_ZN6hermes6ESTree21TSConstructorTypeNodeC2EON4llvh12simple_ilistINS0_4NodeEJEEEPS4_S7_.exit ], [ %111, %_ZN6hermes6ESTree18TSFunctionTypeNodeC2EON4llvh12simple_ilistINS0_4NodeEJEEEPS4_S7_.exit ], [ undef, %if.then156 ], [ %85, %if.then172 ], [ undef, %if.end149 ], [ undef, %if.else71 ], [ undef, %if.then33 ], [ undef, %if.then42 ], [ undef, %if.then60 ], [ undef, %cleanup.thread ], [ undef, %if.end173 ], [ undef, %while.body.us ], [ undef, %while.body ]
-  %retval.sroa.4.1 = phi i8 [ 1, %_ZN6hermes6ESTree21TSConstructorTypeNodeC2EON4llvh12simple_ilistINS0_4NodeEJEEEPS4_S7_.exit ], [ 1, %_ZN6hermes6ESTree18TSFunctionTypeNodeC2EON4llvh12simple_ilistINS0_4NodeEJEEEPS4_S7_.exit ], [ 0, %if.then156 ], [ 1, %if.then172 ], [ 0, %if.end149 ], [ 0, %if.else71 ], [ 0, %if.then33 ], [ 0, %if.then42 ], [ 0, %if.then60 ], [ 0, %cleanup.thread ], [ 0, %if.end173 ], [ 0, %while.body.us ], [ 0, %while.body ]
+  %retval.sroa.0.0 = phi i64 [ %104, %_ZN6hermes6ESTree21TSConstructorTypeNodeC2EON4llvh12simple_ilistINS0_4NodeEJEEEPS4_S7_.exit ], [ %111, %_ZN6hermes6ESTree18TSFunctionTypeNodeC2EON4llvh12simple_ilistINS0_4NodeEJEEEPS4_S7_.exit ], [ undef, %if.then156 ], [ %85, %if.then172 ], [ undef, %if.end149 ], [ undef, %if.end173 ], [ undef, %if.else71 ], [ undef, %if.then33 ], [ undef, %if.then42 ], [ undef, %if.then60 ], [ undef, %cleanup.thread ], [ undef, %while.body.us ], [ undef, %while.body ]
+  %retval.sroa.4.1 = phi i8 [ 1, %_ZN6hermes6ESTree21TSConstructorTypeNodeC2EON4llvh12simple_ilistINS0_4NodeEJEEEPS4_S7_.exit ], [ 1, %_ZN6hermes6ESTree18TSFunctionTypeNodeC2EON4llvh12simple_ilistINS0_4NodeEJEEEPS4_S7_.exit ], [ 0, %if.then156 ], [ 1, %if.then172 ], [ 0, %if.end149 ], [ 0, %if.end173 ], [ 0, %if.else71 ], [ 0, %if.then33 ], [ 0, %if.then42 ], [ 0, %if.then60 ], [ 0, %cleanup.thread ], [ 0, %while.body.us ], [ 0, %while.body ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %retval.sroa.4.1, 1
   ret { i64, i8 } %.fca.1.insert
@@ -3089,8 +3089,8 @@ _ZN6hermes6ESTree26TSInterfaceDeclarationNodeC2EPNS0_4NodeES3_ON4llvh12simple_il
   br label %return
 
 return:                                           ; preds = %do.body, %while.body, %while.end, %if.end45, %if.then12, %_ZN6hermes6ESTree26TSInterfaceDeclarationNodeC2EPNS0_4NodeES3_ON4llvh12simple_ilistIS2_JEEES3_.exit, %if.then
-  %retval.sroa.0.0 = phi i64 [ %81, %_ZN6hermes6ESTree26TSInterfaceDeclarationNodeC2EPNS0_4NodeES3_ON4llvh12simple_ilistIS2_JEEES3_.exit ], [ undef, %if.end45 ], [ undef, %if.then12 ], [ undef, %if.then ], [ undef, %while.end ], [ undef, %while.body ], [ undef, %do.body ]
-  %retval.sroa.2.0 = phi i8 [ 1, %_ZN6hermes6ESTree26TSInterfaceDeclarationNodeC2EPNS0_4NodeES3_ON4llvh12simple_ilistIS2_JEEES3_.exit ], [ 0, %if.end45 ], [ 0, %if.then12 ], [ 0, %if.then ], [ 0, %while.end ], [ 0, %while.body ], [ 0, %do.body ]
+  %retval.sroa.0.0 = phi i64 [ %81, %_ZN6hermes6ESTree26TSInterfaceDeclarationNodeC2EPNS0_4NodeES3_ON4llvh12simple_ilistIS2_JEEES3_.exit ], [ undef, %while.end ], [ undef, %if.end45 ], [ undef, %while.body ], [ undef, %if.then12 ], [ undef, %if.then ], [ undef, %do.body ]
+  %retval.sroa.2.0 = phi i8 [ 1, %_ZN6hermes6ESTree26TSInterfaceDeclarationNodeC2EPNS0_4NodeES3_ON4llvh12simple_ilistIS2_JEEES3_.exit ], [ 0, %while.end ], [ 0, %if.end45 ], [ 0, %while.body ], [ 0, %if.then12 ], [ 0, %if.then ], [ 0, %do.body ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %retval.sroa.2.0, 1
   ret { i64, i8 } %.fca.1.insert
@@ -3453,8 +3453,8 @@ _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit23:  ; preds = %if.then.i.i.i21, %i
   br label %return
 
 return:                                           ; preds = %while.body, %while.end, %if.end, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit23, %if.then
-  %retval.sroa.0.0 = phi i64 [ %33, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit23 ], [ undef, %if.end ], [ undef, %if.then ], [ undef, %while.end ], [ undef, %while.body ]
-  %retval.sroa.2.0 = phi i8 [ 1, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit23 ], [ 0, %if.end ], [ 0, %if.then ], [ 0, %while.end ], [ 0, %while.body ]
+  %retval.sroa.0.0 = phi i64 [ %33, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit23 ], [ undef, %while.end ], [ undef, %if.end ], [ undef, %if.then ], [ undef, %while.body ]
+  %retval.sroa.2.0 = phi i8 [ 1, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit23 ], [ 0, %while.end ], [ 0, %if.end ], [ 0, %if.then ], [ 0, %while.body ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %retval.sroa.2.0, 1
   ret { i64, i8 } %.fca.1.insert
@@ -3606,8 +3606,8 @@ _ZN6hermes6ESTree21TSEnumDeclarationNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_J
   br label %return
 
 return:                                           ; preds = %while.body, %while.end, %if.end, %_ZN6hermes6ESTree21TSEnumDeclarationNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEE.exit, %if.then
-  %retval.sroa.0.0 = phi i64 [ %25, %_ZN6hermes6ESTree21TSEnumDeclarationNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEE.exit ], [ undef, %if.end ], [ undef, %if.then ], [ undef, %while.end ], [ undef, %while.body ]
-  %retval.sroa.2.0 = phi i8 [ 1, %_ZN6hermes6ESTree21TSEnumDeclarationNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEE.exit ], [ 0, %if.end ], [ 0, %if.then ], [ 0, %while.end ], [ 0, %while.body ]
+  %retval.sroa.0.0 = phi i64 [ %25, %_ZN6hermes6ESTree21TSEnumDeclarationNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEE.exit ], [ undef, %while.end ], [ undef, %if.end ], [ undef, %if.then ], [ undef, %while.body ]
+  %retval.sroa.2.0 = phi i8 [ 1, %_ZN6hermes6ESTree21TSEnumDeclarationNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEE.exit ], [ 0, %while.end ], [ 0, %if.end ], [ 0, %if.then ], [ 0, %while.body ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %retval.sroa.2.0, 1
   ret { i64, i8 } %.fca.1.insert

@@ -1392,7 +1392,7 @@ _ZNSt7__cxx114listIiSaIiEE6spliceESt20_List_const_iteratorIiERS2_.exit: ; preds 
   br i1 %.not.i.i.i8, label %_ZNSt7__cxx114listIiSaIiEED2Ev.exit, label %.lr.ph.i.i.i6, !llvm.loop !11
 
 _ZNSt7__cxx114listIiSaIiEED2Ev.exit:              ; preds = %.lr.ph.i.i.i6, %4, %23
-  %.sroa.04.020 = phi ptr [ %.sroa.04.0, %23 ], [ %1, %4 ], [ %.sroa.04.0, %.lr.ph.i.i.i6 ]
+  %.sroa.04.020 = phi ptr [ %1, %4 ], [ %.sroa.04.0, %23 ], [ %.sroa.04.0, %.lr.ph.i.i.i6 ]
   ret ptr %.sroa.04.020
 }
 
@@ -4004,7 +4004,7 @@ _ZN5QListI7QStringED2Ev.exit:                     ; preds = %_ZN7QStringD2Ev.exi
   br label %.loopexit
 
 .loopexit:                                        ; preds = %92, %.loopexit.loopexit397, %.thread, %533
-  %.pn79.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn79.pn.pn.pn, %533 ], [ %59, %.thread ], [ %91, %.loopexit.loopexit397 ], [ %lpad.phi.i.i, %92 ]
+  %.pn79.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn79.pn.pn.pn, %533 ], [ %91, %.loopexit.loopexit397 ], [ %59, %.thread ], [ %lpad.phi.i.i, %92 ]
   call void @_ZN17RichParameterListD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #27
   resume { ptr, i32 } %.pn79.pn.pn.pn.pn
 }
@@ -17891,7 +17891,7 @@ _Z21regionNormalDeviationI6CMeshOEdRK16StarPartitioningIT_EbRS2_.exit34: ; preds
   br i1 %.not15.not, label %.preheader, label %.loopexit, !llvm.loop !204
 
 .loopexit:                                        ; preds = %._crit_edge, %17, %25
-  %.0 = phi double [ 0.000000e+00, %25 ], [ 0.000000e+00, %17 ], [ %.2.lcssa, %._crit_edge ]
+  %.0 = phi double [ 0.000000e+00, %17 ], [ 0.000000e+00, %25 ], [ %.2.lcssa, %._crit_edge ]
   ret double %.0
 }
 

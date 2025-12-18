@@ -292,9 +292,9 @@ define internal fastcc i32 @asm_x86_inslen(ptr noundef readonly captures(none) %
   br label %.loopexit56
 
 .loopexit56:                                      ; preds = %3, %24, %28, %50, %40, %17
-  %.252 = phi ptr [ %18, %17 ], [ %.050.ph, %28 ], [ %42, %40 ], [ %.050.ph, %50 ], [ %.050.ph, %24 ], [ %.050.ph, %3 ]
-  %.3 = phi i32 [ %.047.ph.ph, %17 ], [ %.047.ph.ph, %28 ], [ %43, %40 ], [ %52, %50 ], [ %.047.ph.ph, %24 ], [ %.047.ph.ph, %3 ]
-  %.2 = phi i32 [ %.0.ph, %17 ], [ %spec.store.select, %28 ], [ %41, %40 ], [ %.0.ph, %50 ], [ 2, %24 ], [ %.0.ph, %3 ]
+  %.252 = phi ptr [ %18, %17 ], [ %.050.ph, %24 ], [ %.050.ph, %28 ], [ %42, %40 ], [ %.050.ph, %50 ], [ %.050.ph, %3 ]
+  %.3 = phi i32 [ %.047.ph.ph, %17 ], [ %.047.ph.ph, %24 ], [ %.047.ph.ph, %28 ], [ %43, %40 ], [ %52, %50 ], [ %.047.ph.ph, %3 ]
+  %.2 = phi i32 [ %.0.ph, %17 ], [ 2, %24 ], [ %spec.store.select, %28 ], [ %41, %40 ], [ %.0.ph, %50 ], [ %.0.ph, %3 ]
   %53 = and i32 %.2, 15
   %54 = add i32 %53, %.3
   %55 = getelementptr inbounds nuw i8, ptr %.252, i64 1
@@ -3789,8 +3789,8 @@ checkmclim.exit103.i.i:                           ; preds = %emit_rmro.exit151.i
   br i1 %1709, label %.lr.ph191.split.i.i, label %._crit_edge192.i.i, !llvm.loop !127
 
 ._crit_edge192.i.i:                               ; preds = %checkmclim.exit103.i.i, %checkmclim.exit103.us.i.i, %1537
-  %.082.i77.i = phi i32 [ 0, %1537 ], [ %.082.i7881.i, %checkmclim.exit103.us.i.i ], [ %1540, %checkmclim.exit103.i.i ]
-  %1710 = phi ptr [ %.046.i.i.i.i.i1058, %1537 ], [ %1631, %checkmclim.exit103.us.i.i ], [ %1705, %checkmclim.exit103.i.i ]
+  %.082.i77.i = phi i32 [ %.082.i7881.i, %checkmclim.exit103.us.i.i ], [ 0, %1537 ], [ %1540, %checkmclim.exit103.i.i ]
+  %1710 = phi ptr [ %1631, %checkmclim.exit103.us.i.i ], [ %.046.i.i.i.i.i1058, %1537 ], [ %1705, %checkmclim.exit103.i.i ]
   %1711 = load i32, ptr %152, align 8, !tbaa !78
   %1712 = shl nuw i32 1, %.082.i77.i
   %1713 = and i32 %1711, %1712
@@ -21666,9 +21666,9 @@ asm_swapops.exit:                                 ; preds = %131, %143, %146
   %spec.select144 = select i1 %switch.i, i32 %5, i32 %8
   br label %.thread138
 
-.thread138:                                       ; preds = %asm_swapops.exit, %118, %139, %105, %121, %146, %124
-  %153 = phi i32 [ %5, %146 ], [ %spec.select, %asm_swapops.exit ], [ %5, %121 ], [ %5, %124 ], [ %8, %105 ], [ %8, %118 ], [ %8, %139 ]
-  %154 = phi i32 [ %8, %146 ], [ %spec.select144, %asm_swapops.exit ], [ %8, %121 ], [ %8, %124 ], [ %5, %105 ], [ %5, %118 ], [ %5, %139 ]
+.thread138:                                       ; preds = %asm_swapops.exit, %118, %139, %105, %124, %121, %146
+  %153 = phi i32 [ %5, %121 ], [ %spec.select, %asm_swapops.exit ], [ %5, %124 ], [ %5, %146 ], [ %8, %105 ], [ %8, %118 ], [ %8, %139 ]
+  %154 = phi i32 [ %8, %121 ], [ %spec.select144, %asm_swapops.exit ], [ %8, %124 ], [ %8, %146 ], [ %5, %105 ], [ %5, %118 ], [ %5, %139 ]
   %155 = shl nuw i32 1, %.0.i
   %156 = xor i32 %155, -1
   %157 = and i32 %.074, %156
@@ -21719,9 +21719,9 @@ ra_alloc1.exit.i:                                 ; preds = %177, %173
   br label %asm_isk32.exit
 
 asm_isk32.exit:                                   ; preds = %184, %ra_alloc1.exit.i, %103, %96, %ra_dest.exit
-  %.0113 = phi i32 [ 0, %ra_dest.exit ], [ %97, %96 ], [ %104, %103 ], [ 0, %ra_alloc1.exit.i ], [ 0, %184 ]
-  %.075 = phi i32 [ %.mux, %ra_dest.exit ], [ %37, %96 ], [ %37, %103 ], [ %.0.i.i, %ra_alloc1.exit.i ], [ %185, %184 ]
-  %.072 = phi i32 [ %5, %ra_dest.exit ], [ %5, %96 ], [ %5, %103 ], [ %154, %ra_alloc1.exit.i ], [ %154, %184 ]
+  %.0113 = phi i32 [ 0, %ra_dest.exit ], [ %104, %103 ], [ %97, %96 ], [ 0, %ra_alloc1.exit.i ], [ 0, %184 ]
+  %.075 = phi i32 [ %.mux, %ra_dest.exit ], [ %37, %103 ], [ %37, %96 ], [ %.0.i.i, %ra_alloc1.exit.i ], [ %185, %184 ]
+  %.072 = phi i32 [ %5, %ra_dest.exit ], [ %5, %103 ], [ %5, %96 ], [ %154, %ra_alloc1.exit.i ], [ %154, %184 ]
   %186 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %187 = load i8, ptr %186, align 4, !tbaa !20
   %.not85 = icmp sgt i8 %187, -1
@@ -23036,9 +23036,9 @@ asm_swapops.exit:                                 ; preds = %87, %99, %102
   %spec.select59 = select i1 %switch.i, i32 %5, i32 %8
   br label %.thread55
 
-.thread55:                                        ; preds = %asm_swapops.exit, %74, %95, %60, %77, %102, %80
-  %109 = phi i32 [ %5, %102 ], [ %spec.select, %asm_swapops.exit ], [ %5, %77 ], [ %5, %80 ], [ %8, %60 ], [ %8, %74 ], [ %8, %95 ]
-  %110 = phi i32 [ %8, %102 ], [ %spec.select59, %asm_swapops.exit ], [ %8, %77 ], [ %8, %80 ], [ %5, %60 ], [ %5, %74 ], [ %5, %95 ]
+.thread55:                                        ; preds = %asm_swapops.exit, %74, %95, %60, %80, %77, %102
+  %109 = phi i32 [ %5, %77 ], [ %spec.select, %asm_swapops.exit ], [ %5, %80 ], [ %5, %102 ], [ %8, %60 ], [ %8, %74 ], [ %8, %95 ]
+  %110 = phi i32 [ %8, %77 ], [ %spec.select59, %asm_swapops.exit ], [ %8, %80 ], [ %8, %102 ], [ %5, %60 ], [ %5, %74 ], [ %5, %95 ]
   %111 = shl nuw i32 1, %.0.i
   %112 = xor i32 %111, -1
   %113 = and i32 %.033, %112
@@ -24269,7 +24269,7 @@ emit_rmro.exit279:                                ; preds = %emit_rmro.exit279.s
   br label %ir_khash.exit
 
 ir_khash.exit:                                    ; preds = %645, %634, %620
-  %653 = phi i32 [ %625, %620 ], [ %652, %645 ], [ %635, %634 ]
+  %653 = phi i32 [ %635, %634 ], [ %652, %645 ], [ %625, %620 ]
   %654 = icmp eq i32 %653, 0
   br i1 %654, label %655, label %ir_khash.exit.thread
 
@@ -25356,9 +25356,9 @@ ra_alloc1.exit:                                   ; preds = %asm_isk32.exit.thre
   br label %asm_isk32.exit
 
 asm_isk32.exit:                                   ; preds = %36, %29, %ra_alloc1.exit
-  %.154 = phi i32 [ 0, %ra_alloc1.exit ], [ %37, %36 ], [ %30, %29 ]
-  %.040 = phi i32 [ %.0.i, %ra_alloc1.exit ], [ 128, %36 ], [ 128, %29 ]
-  %.039 = phi i32 [ %56, %ra_alloc1.exit ], [ 49135, %36 ], [ 49135, %29 ]
+  %.154 = phi i32 [ 0, %ra_alloc1.exit ], [ %30, %29 ], [ %37, %36 ]
+  %.040 = phi i32 [ %.0.i, %ra_alloc1.exit ], [ 128, %29 ], [ 128, %36 ]
+  %.039 = phi i32 [ %56, %ra_alloc1.exit ], [ 49135, %29 ], [ 49135, %36 ]
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 5
   %58 = load i8, ptr %57, align 1, !tbaa !20
   %59 = icmp eq i8 %58, 77
@@ -27770,7 +27770,7 @@ define internal fastcc void @asm_fusearef(ptr noundef nonnull captures(none) ini
   br label %.thread.sink.split.i
 
 .thread.sink.split.i:                             ; preds = %39, %54, %52, %.preheader.i.i
-  %.sink.i = phi i32 [ 64, %.preheader.i.i ], [ %53, %52 ], [ %57, %54 ], [ 64, %39 ]
+  %.sink.i = phi i32 [ 64, %.preheader.i.i ], [ %57, %54 ], [ %53, %52 ], [ 64, %39 ]
   store i32 %.sink.i, ptr %9, align 8, !tbaa !132
   %58 = load i16, ptr %8, align 8, !tbaa !20
   %.pre20 = zext i16 %58 to i64

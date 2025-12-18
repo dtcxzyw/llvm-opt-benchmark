@@ -35877,7 +35877,7 @@ lean_alloc_ctor.exit978:                          ; preds = %1276
   br label %1285
 
 1285:                                             ; preds = %lean_alloc_ctor.exit834, %lean_alloc_ctor.exit818, %lean_alloc_ctor.exit817, %lean_array_uset.exit792, %318, %316, %774, %785, %833, %lean_alloc_ctor.exit978, %lean_alloc_ctor.exit961, %lean_alloc_ctor.exit959
-  %.1506 = phi ptr [ %.05051254, %lean_alloc_ctor.exit834 ], [ %.05051254, %lean_alloc_ctor.exit818 ], [ %.05051254, %lean_alloc_ctor.exit817 ], [ %.05051254, %lean_array_uset.exit792 ], [ %.05051254, %318 ], [ %.05051254, %316 ], [ %.05051254, %774 ], [ %.05051254, %785 ], [ %.05051254, %833 ], [ %1279, %lean_alloc_ctor.exit978 ], [ %1208, %lean_alloc_ctor.exit959 ], [ %1225, %lean_alloc_ctor.exit961 ]
+  %.1506 = phi ptr [ %1225, %lean_alloc_ctor.exit961 ], [ %1208, %lean_alloc_ctor.exit959 ], [ %.05051254, %lean_alloc_ctor.exit834 ], [ %.05051254, %lean_alloc_ctor.exit818 ], [ %.05051254, %lean_alloc_ctor.exit817 ], [ %.05051254, %lean_array_uset.exit792 ], [ %.05051254, %318 ], [ %.05051254, %316 ], [ %.05051254, %774 ], [ %.05051254, %785 ], [ %.05051254, %833 ], [ %1279, %lean_alloc_ctor.exit978 ]
   %.1500 = add nuw i64 %.04991255, 1
   %exitcond.not = icmp eq i64 %.1500, %4
   br i1 %exitcond.not, label %._crit_edge, label %29

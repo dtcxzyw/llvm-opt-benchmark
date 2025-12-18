@@ -2129,7 +2129,7 @@ _ZN4llvm18ExecutionDomainFix5allocEi.exit:        ; preds = %_ZN4llvm24SpecificB
   br label %.outer._crit_edge.thread297
 
 .outer._crit_edge.thread297:                      ; preds = %.lr.ph215.split.us, %.loopexit196, %_ZN4llvm18ExecutionDomainFix5allocEi.exit
-  %.191 = phi ptr [ %337, %_ZN4llvm18ExecutionDomainFix5allocEi.exit ], [ %.090.ph226, %.loopexit196 ], [ %246, %.lr.ph215.split.us ]
+  %.191 = phi ptr [ %.090.ph226, %.loopexit196 ], [ %337, %_ZN4llvm18ExecutionDomainFix5allocEi.exit ], [ %246, %.lr.ph215.split.us ]
   %339 = getelementptr inbounds nuw i8, ptr %.191, i64 16
   %340 = getelementptr inbounds nuw i8, ptr %.191, i64 24
   %341 = load i32, ptr %340, align 8, !tbaa !12

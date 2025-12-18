@@ -192,7 +192,7 @@ define range(i32 -1, 1) i32 @H5O_msg_create(ptr noundef %0, i32 noundef %1, i32 
   br label %36
 
 36:                                               ; preds = %32, %28
-  %.0 = phi i32 [ -1, %32 ], [ 0, %28 ]
+  %.0 = phi i32 [ 0, %28 ], [ -1, %32 ]
   %37 = tail call i32 @H5O_unpin(ptr noundef nonnull %22) #7
   %38 = icmp slt i32 %37, 0
   br i1 %38, label %39, label %.thread
@@ -610,7 +610,7 @@ define range(i32 -1, 1) i32 @H5O_msg_write(ptr noundef %0, i32 noundef %1, i32 n
   br label %39
 
 39:                                               ; preds = %35, %31
-  %.0 = phi i32 [ -1, %35 ], [ 0, %31 ]
+  %.0 = phi i32 [ 0, %31 ], [ -1, %35 ]
   %40 = tail call i32 @H5O_unpin(ptr noundef nonnull %25) #7
   %41 = icmp slt i32 %40, 0
   br i1 %41, label %42, label %.thread
@@ -1493,7 +1493,7 @@ define i32 @H5O_msg_count(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 
   br i1 %47, label %39, label %.loopexit, !llvm.loop !70
 
 .loopexit:                                        ; preds = %39, %28, %.preheader.i
-  %.0.ph = phi i32 [ 0, %.preheader.i ], [ 0, %28 ], [ %spec.select.i, %39 ]
+  %.0.ph = phi i32 [ 0, %28 ], [ 0, %.preheader.i ], [ %spec.select.i, %39 ]
   %48 = tail call i32 @H5O_unprotect(ptr noundef %0, ptr noundef nonnull %22, i32 noundef 0) #7
   %49 = icmp slt i32 %48, 0
   br i1 %49, label %50, label %H5O__msg_count_real.exit
@@ -1640,7 +1640,7 @@ define range(i32 -1, 2) i32 @H5O_msg_exists(ptr noundef %0, i32 noundef %1) loca
   br i1 %51, label %H5O_msg_exists_oh.exit.thread19, label %43
 
 H5O_msg_exists_oh.exit.thread19:                  ; preds = %43, %47, %35, %28
-  %.024 = phi i32 [ 0, %35 ], [ 0, %28 ], [ 1, %47 ], [ 0, %43 ]
+  %.024 = phi i32 [ 0, %35 ], [ 0, %28 ], [ 0, %43 ], [ 1, %47 ]
   %52 = call i32 @H5O_unprotect(ptr noundef nonnull %0, ptr noundef nonnull %22, i32 noundef 0) #7
   %53 = icmp slt i32 %52, 0
   br i1 %53, label %54, label %H5O_msg_exists_oh.exit.thread
@@ -1765,7 +1765,7 @@ define range(i32 -1, 1) i32 @H5O_msg_remove(ptr noundef %0, i32 noundef %1, i32 
   br label %38
 
 38:                                               ; preds = %34, %30
-  %.0 = phi i32 [ -1, %34 ], [ 0, %30 ]
+  %.0 = phi i32 [ 0, %30 ], [ -1, %34 ]
   %39 = tail call i32 @H5O_unpin(ptr noundef nonnull %24) #7
   %40 = icmp slt i32 %39, 0
   br i1 %40, label %41, label %.thread
@@ -1914,7 +1914,7 @@ define range(i32 -1, 1) i32 @H5O_msg_remove_op(ptr noundef %0, i32 noundef %1, i
   br label %40
 
 40:                                               ; preds = %36, %32
-  %.0 = phi i32 [ -1, %36 ], [ 0, %32 ]
+  %.0 = phi i32 [ 0, %32 ], [ -1, %36 ]
   %41 = tail call i32 @H5O_unpin(ptr noundef nonnull %26) #7
   %42 = icmp slt i32 %41, 0
   br i1 %42, label %43, label %.thread
@@ -3538,7 +3538,7 @@ define range(i32 -1, 1) i32 @H5O_msg_get_flags(ptr noundef %0, i32 noundef %1, p
   br label %49
 
 49:                                               ; preds = %._crit_edge.thread, %46
-  %.0 = phi i32 [ -1, %._crit_edge.thread ], [ 0, %46 ]
+  %.0 = phi i32 [ 0, %46 ], [ -1, %._crit_edge.thread ]
   %50 = tail call i32 @H5O_unprotect(ptr noundef %0, ptr noundef nonnull %23, i32 noundef 0) #7
   %51 = icmp slt i32 %50, 0
   br i1 %51, label %52, label %.thread

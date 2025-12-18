@@ -979,8 +979,8 @@ estimate_stereo_mode.exit.i:                      ; preds = %223
   br i1 %exitcond79.not.i, label %alac_stereo_decorrelation.exit, label %.lr.ph64.i, !llvm.loop !93
 
 alac_stereo_decorrelation.exit:                   ; preds = %.lr.ph.i, %.lr.ph61.i, %.lr.ph64.i, %.loopexit199, %.preheader.i143, %.preheader54.i, %.preheader55.i, %estimate_stereo_mode.exit.i
-  %.sink352 = phi i32 [ 1, %.preheader55.i ], [ 1, %.preheader54.i ], [ %spec.select.i.i, %estimate_stereo_mode.exit.i ], [ 1, %.preheader.i143 ], [ 0, %.loopexit199 ], [ 1, %.lr.ph61.i ], [ 1, %.lr.ph64.i ], [ 1, %.lr.ph.i ]
-  %.sink = phi i32 [ 31, %.preheader55.i ], [ 0, %.preheader54.i ], [ %spec.select.i.i, %estimate_stereo_mode.exit.i ], [ 1, %.preheader.i143 ], [ 0, %.loopexit199 ], [ 0, %.lr.ph61.i ], [ 1, %.lr.ph64.i ], [ 31, %.lr.ph.i ]
+  %.sink352 = phi i32 [ 1, %.lr.ph64.i ], [ 1, %.preheader55.i ], [ 1, %.preheader54.i ], [ %spec.select.i.i, %estimate_stereo_mode.exit.i ], [ 1, %.lr.ph61.i ], [ 0, %.loopexit199 ], [ 1, %.preheader.i143 ], [ 1, %.lr.ph.i ]
+  %.sink = phi i32 [ 1, %.lr.ph64.i ], [ 31, %.preheader55.i ], [ 0, %.preheader54.i ], [ %spec.select.i.i, %estimate_stereo_mode.exit.i ], [ 0, %.lr.ph61.i ], [ 0, %.loopexit199 ], [ 1, %.preheader.i143 ], [ 31, %.lr.ph.i ]
   %253 = getelementptr inbounds nuw i8, ptr %0, i64 65588
   store i32 %.sink352, ptr %253, align 4, !tbaa !94
   %254 = getelementptr inbounds nuw i8, ptr %0, i64 65584

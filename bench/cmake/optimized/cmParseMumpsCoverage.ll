@@ -1061,7 +1061,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %exitcond66.not, label %.critedge31, label %.lr.ph59, !llvm.loop !96
 
 .critedge:                                        ; preds = %54, %.lr.ph59, %.thread42
-  %.1 = phi i64 [ %.057, %.thread42 ], [ %.258, %.lr.ph59 ], [ %.057, %54 ]
+  %.1 = phi i64 [ %.258, %.lr.ph59 ], [ %.057, %.thread42 ], [ %.057, %54 ]
   %65 = icmp ult i64 %.1, %52
   br i1 %65, label %66, label %.critedge31
 

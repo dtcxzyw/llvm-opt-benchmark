@@ -1462,9 +1462,9 @@ vlc_common_end.exit:                              ; preds = %92
   br i1 %exitcond.not.i, label %vlc_multi_gen.exit, label %.lr.ph104.split.i, !llvm.loop !45
 
 vlc_multi_gen.exit:                               ; preds = %.lr.ph104.split.us.i, %.lr.ph104.split.i, %95
-  %.076.lcssa140.i = phi i32 [ %.067.lcssa, %95 ], [ %.076.lcssa.i, %.lr.ph104.split.i ], [ %.076.lcssa.i, %.lr.ph104.split.us.i ]
-  %.075.lcssa130133139.i = phi i32 [ 32, %95 ], [ %.075.lcssa.i108111, %.lr.ph104.split.i ], [ %.075.lcssa.i108111, %.lr.ph104.split.us.i ]
-  %.077.lcssa129134138.i = phi i32 [ 0, %95 ], [ %.077.lcssa.i107112, %.lr.ph104.split.i ], [ %.077.lcssa.i107112, %.lr.ph104.split.us.i ]
+  %.076.lcssa140.i = phi i32 [ %.076.lcssa.i, %.lr.ph104.split.i ], [ %.067.lcssa, %95 ], [ %.076.lcssa.i, %.lr.ph104.split.us.i ]
+  %.075.lcssa130133139.i = phi i32 [ %.075.lcssa.i108111, %.lr.ph104.split.i ], [ 32, %95 ], [ %.075.lcssa.i108111, %.lr.ph104.split.us.i ]
+  %.077.lcssa129134138.i = phi i32 [ %.077.lcssa.i107112, %.lr.ph104.split.i ], [ 0, %95 ], [ %.077.lcssa.i107112, %.lr.ph104.split.us.i ]
   call fastcc void @add_level(ptr noundef %96, i32 noundef range(i32 0, 2) %98, i32 noundef %.067.lcssa, i32 noundef %2, ptr noundef nonnull readonly %.192.ph, i32 noundef 0, i32 noundef 0, i32 noundef %.077.lcssa129134138.i, i32 noundef 0, i32 noundef %.075.lcssa130133139.i, i32 noundef %.076.lcssa140.i, ptr noundef %14, i64 0)
   %162 = load i32, ptr %14, align 16, !tbaa !17
   %163 = getelementptr inbounds nuw i8, ptr %14, i64 4
@@ -1838,8 +1838,8 @@ alloc_table.exit:                                 ; preds = %7, %26
   %exitcond242.not = icmp eq i64 %indvars.iv.next240, %wide.trip.count
   br i1 %exitcond242.not, label %.loopexit, label %.preheader, !llvm.loop !49
 
-.loopexit:                                        ; preds = %163, %185, %178, %.thread179, %alloc_table.exit.thread, %alloc_table.exit, %5
-  %.0134 = phi i32 [ -22, %5 ], [ %10, %alloc_table.exit ], [ -12, %alloc_table.exit.thread ], [ -1163346256, %178 ], [ -1094995529, %.thread179 ], [ %10, %185 ], [ %171, %163 ]
+.loopexit:                                        ; preds = %163, %185, %.thread179, %178, %alloc_table.exit.thread, %alloc_table.exit, %5
+  %.0134 = phi i32 [ -1163346256, %178 ], [ -22, %5 ], [ %10, %alloc_table.exit ], [ -12, %alloc_table.exit.thread ], [ %10, %185 ], [ -1094995529, %.thread179 ], [ %171, %163 ]
   ret i32 %.0134
 }
 

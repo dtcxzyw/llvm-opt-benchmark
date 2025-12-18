@@ -1418,8 +1418,8 @@ Raig_ManSimDeref.exit202:                         ; preds = %Raig_ManSimDeref.ex
   br i1 %.not177.not, label %.lr.ph238, label %.critedge, !llvm.loop !76
 
 .critedge:                                        ; preds = %.lr.ph229, %.lr.ph232, %.lr.ph235, %.lr.ph238, %.preheader215, %.preheader213, %.preheader211, %.preheader210, %.thread, %Raig_ManSimDeref.exit196
-  %.1155 = phi i32 [ %150, %Raig_ManSimDeref.exit196 ], [ %.0154254, %.thread ], [ %.0154254, %.preheader213 ], [ %.0154254, %.preheader210 ], [ %.0154254, %.preheader211 ], [ %.0154254, %.preheader215 ], [ %.0154254, %.lr.ph232 ], [ %.0154254, %.lr.ph238 ], [ %.0154254, %.lr.ph235 ], [ %.0154254, %.lr.ph229 ]
-  %.1153 = phi i32 [ %.0152255, %Raig_ManSimDeref.exit196 ], [ %217, %.thread ], [ %.0152255, %.preheader213 ], [ %.0152255, %.preheader210 ], [ %.0152255, %.preheader211 ], [ %.0152255, %.preheader215 ], [ %.0152255, %.lr.ph232 ], [ %.0152255, %.lr.ph238 ], [ %.0152255, %.lr.ph235 ], [ %.0152255, %.lr.ph229 ]
+  %.1155 = phi i32 [ %150, %Raig_ManSimDeref.exit196 ], [ %.0154254, %.thread ], [ %.0154254, %.preheader211 ], [ %.0154254, %.preheader210 ], [ %.0154254, %.preheader213 ], [ %.0154254, %.preheader215 ], [ %.0154254, %.lr.ph232 ], [ %.0154254, %.lr.ph238 ], [ %.0154254, %.lr.ph235 ], [ %.0154254, %.lr.ph229 ]
+  %.1153 = phi i32 [ %.0152255, %Raig_ManSimDeref.exit196 ], [ %217, %.thread ], [ %.0152255, %.preheader211 ], [ %.0152255, %.preheader210 ], [ %.0152255, %.preheader213 ], [ %.0152255, %.preheader215 ], [ %.0152255, %.lr.ph232 ], [ %.0152255, %.lr.ph238 ], [ %.0152255, %.lr.ph235 ], [ %.0152255, %.lr.ph229 ]
   %indvars.iv.next294 = add nuw nsw i64 %indvars.iv293, 1
   %303 = load i32, ptr %17, align 8, !tbaa !38
   %304 = sext i32 %303 to i64
@@ -1566,8 +1566,8 @@ define noundef ptr @Raig_ManGenerateCounter(ptr noundef readonly captures(none) 
   br i1 %66, label %.lr.ph48.split, label %._crit_edge49, !llvm.loop !83
 
 ._crit_edge49:                                    ; preds = %64, %43, %.preheader44
-  %.val4167 = phi i32 [ %.val4166, %.preheader44 ], [ %.val41.us, %43 ], [ %.val41, %64 ]
-  %.val414664 = phi i32 [ %.val4146, %.preheader44 ], [ %.val41.us, %43 ], [ %.val41, %64 ]
+  %.val4167 = phi i32 [ %.val41.us, %43 ], [ %.val4166, %.preheader44 ], [ %.val41, %64 ]
+  %.val414664 = phi i32 [ %.val41.us, %43 ], [ %.val4146, %.preheader44 ], [ %.val41, %64 ]
   %67 = add nuw i32 %.03551, 1
   %68 = load i32, ptr %20, align 4, !tbaa !82
   %69 = add nsw i32 %68, %.052

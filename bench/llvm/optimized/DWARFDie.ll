@@ -1501,8 +1501,8 @@ _ZN4llvm9DWARFUnit20getDIEIndexForOffsetEm.exit.i: ; preds = %49
   br label %57
 
 57:                                               ; preds = %_ZN4llvm9DWARFUnit20getDIEIndexForOffsetEm.exit.i, %49, %_ZN4llvm15partition_pointIRSt6vectorINS_19DWARFDebugInfoEntryESaIS2_EEZNS_9DWARFUnit20getDIEIndexForOffsetEmEUlRKS2_E_RS2_EEDaOT_T0_.exit.i.i
-  %.sroa.0.4 = phi ptr [ null, %_ZN4llvm15partition_pointIRSt6vectorINS_19DWARFDebugInfoEntryESaIS2_EEZNS_9DWARFUnit20getDIEIndexForOffsetEmEUlRKS2_E_RS2_EEDaOT_T0_.exit.i.i ], [ null, %49 ], [ %25, %_ZN4llvm9DWARFUnit20getDIEIndexForOffsetEm.exit.i ]
-  %.sroa.3.4 = phi ptr [ null, %_ZN4llvm15partition_pointIRSt6vectorINS_19DWARFDebugInfoEntryESaIS2_EEZNS_9DWARFUnit20getDIEIndexForOffsetEmEUlRKS2_E_RS2_EEDaOT_T0_.exit.i.i ], [ null, %49 ], [ %56, %_ZN4llvm9DWARFUnit20getDIEIndexForOffsetEm.exit.i ]
+  %.sroa.0.4 = phi ptr [ %25, %_ZN4llvm9DWARFUnit20getDIEIndexForOffsetEm.exit.i ], [ null, %49 ], [ null, %_ZN4llvm15partition_pointIRSt6vectorINS_19DWARFDebugInfoEntryESaIS2_EEZNS_9DWARFUnit20getDIEIndexForOffsetEmEUlRKS2_E_RS2_EEDaOT_T0_.exit.i.i ]
+  %.sroa.3.4 = phi ptr [ %56, %_ZN4llvm9DWARFUnit20getDIEIndexForOffsetEm.exit.i ], [ null, %49 ], [ null, %_ZN4llvm15partition_pointIRSt6vectorINS_19DWARFDebugInfoEntryESaIS2_EEZNS_9DWARFUnit20getDIEIndexForOffsetEmEUlRKS2_E_RS2_EEDaOT_T0_.exit.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %58
 
@@ -1635,8 +1635,8 @@ define dso_local { i64, i8 } @_ZNK4llvm8DWARFDie22getRangesBaseAttributeEv(ptr n
   br label %_ZN4llvm5dwarf15toSectionOffsetERKSt8optionalINS_14DWARFFormValueEE.exit
 
 _ZN4llvm5dwarf15toSectionOffsetERKSt8optionalINS_14DWARFFormValueEE.exit: ; preds = %14, %10, %1, %22
-  %.sroa.2.0.i = phi i8 [ %25, %22 ], [ 0, %1 ], [ 0, %10 ], [ 0, %14 ]
-  %.sroa.0.0.i = phi i64 [ %24, %22 ], [ undef, %1 ], [ undef, %10 ], [ undef, %14 ]
+  %.sroa.2.0.i = phi i8 [ %25, %22 ], [ 0, %10 ], [ 0, %1 ], [ 0, %14 ]
+  %.sroa.0.0.i = phi i64 [ %24, %22 ], [ undef, %10 ], [ undef, %1 ], [ undef, %14 ]
   %.fca.0.insert.i = insertvalue { i64, i8 } poison, i64 %.sroa.0.0.i, 0
   %.fca.1.insert.i = insertvalue { i64, i8 } %.fca.0.insert.i, i8 %.sroa.2.0.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -3360,8 +3360,8 @@ _ZNK4llvm8DWARFDie6getTagEv.exit.thread:          ; preds = %_ZNK4llvm8DWARFDie4
   br label %_ZNK4llvm8DWARFDie6getTagEv.exit23.thread
 
 _ZNK4llvm8DWARFDie6getTagEv.exit23.thread:        ; preds = %.lr.ph.i.i, %_ZN4llvm8DWARFDie8iteratorppEv.exit, %_ZNK4llvm8DWARFDie3endEv.exit, %_ZNK4llvm8DWARFDie6getTagEv.exit23, %_ZNK4llvm8DWARFDie6getTagEv.exit.thread, %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit.thread, %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit, %55, %146, %74, %80, %70, %49, %_ZNK4llvm8DWARFDie6getTagEv.exit, %_ZNK4llvm8DWARFDie6getTagEv.exit, %_ZNK4llvm8DWARFDie6getTagEv.exit, %44, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
-  %.sroa.083.0 = phi i64 [ %148, %146 ], [ undef, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ %2, %_ZNK4llvm8DWARFDie6getTagEv.exit ], [ %.sroa.083.2.ph, %_ZNK4llvm8DWARFDie6getTagEv.exit.thread ], [ %72, %70 ], [ %2, %55 ], [ %41, %44 ], [ %2, %_ZNK4llvm8DWARFDie6getTagEv.exit ], [ %2, %_ZNK4llvm8DWARFDie6getTagEv.exit ], [ %spec.select, %_ZNK4llvm8DWARFDie6getTagEv.exit23 ], [ %2, %49 ], [ %.sroa.083.2.ph, %74 ], [ %.sroa.083.2.ph, %80 ], [ %.sroa.083.2.ph, %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit.thread ], [ %.sroa.083.2.ph, %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit ], [ %82, %_ZNK4llvm8DWARFDie3endEv.exit ], [ %.186, %_ZN4llvm8DWARFDie8iteratorppEv.exit ], [ undef, %.lr.ph.i.i ]
-  %.sroa.8.0 = phi i8 [ %149, %146 ], [ 0, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ 1, %_ZNK4llvm8DWARFDie6getTagEv.exit ], [ 0, %_ZNK4llvm8DWARFDie6getTagEv.exit.thread ], [ %73, %70 ], [ 1, %55 ], [ 1, %44 ], [ 1, %_ZNK4llvm8DWARFDie6getTagEv.exit ], [ 1, %_ZNK4llvm8DWARFDie6getTagEv.exit ], [ 1, %_ZNK4llvm8DWARFDie6getTagEv.exit23 ], [ 1, %49 ], [ 0, %74 ], [ 0, %80 ], [ 0, %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit.thread ], [ 0, %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit ], [ 1, %_ZNK4llvm8DWARFDie3endEv.exit ], [ 1, %_ZN4llvm8DWARFDie8iteratorppEv.exit ], [ 0, %.lr.ph.i.i ]
+  %.sroa.083.0 = phi i64 [ %.sroa.083.2.ph, %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit ], [ %148, %146 ], [ undef, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ %2, %_ZNK4llvm8DWARFDie6getTagEv.exit ], [ %.sroa.083.2.ph, %_ZNK4llvm8DWARFDie6getTagEv.exit.thread ], [ %72, %70 ], [ %2, %55 ], [ %41, %44 ], [ %2, %_ZNK4llvm8DWARFDie6getTagEv.exit ], [ %2, %_ZNK4llvm8DWARFDie6getTagEv.exit ], [ %spec.select, %_ZNK4llvm8DWARFDie6getTagEv.exit23 ], [ %2, %49 ], [ %.sroa.083.2.ph, %74 ], [ %.sroa.083.2.ph, %80 ], [ %.sroa.083.2.ph, %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit.thread ], [ %82, %_ZNK4llvm8DWARFDie3endEv.exit ], [ %.186, %_ZN4llvm8DWARFDie8iteratorppEv.exit ], [ undef, %.lr.ph.i.i ]
+  %.sroa.8.0 = phi i8 [ 0, %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit ], [ %149, %146 ], [ 0, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ 1, %_ZNK4llvm8DWARFDie6getTagEv.exit ], [ 0, %_ZNK4llvm8DWARFDie6getTagEv.exit.thread ], [ %73, %70 ], [ 1, %55 ], [ 1, %44 ], [ 1, %_ZNK4llvm8DWARFDie6getTagEv.exit ], [ 1, %_ZNK4llvm8DWARFDie6getTagEv.exit ], [ 1, %_ZNK4llvm8DWARFDie6getTagEv.exit23 ], [ 1, %49 ], [ 0, %74 ], [ 0, %80 ], [ 0, %_ZNK4llvm8DWARFDie32getAttributeValueAsReferencedDieENS_5dwarf9AttributeE.exit.thread ], [ 1, %_ZNK4llvm8DWARFDie3endEv.exit ], [ 1, %_ZN4llvm8DWARFDie8iteratorppEv.exit ], [ 0, %.lr.ph.i.i ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.083.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.8.0, 1
   ret { i64, i8 } %.fca.1.insert
@@ -5479,9 +5479,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit112: ; preds = %_Z
   br label %196
 
 196:                                              ; preds = %189, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit112
-  %.sroa.6190.1 = phi i64 [ %184, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit112 ], [ %195, %189 ]
-  %.sroa.0189.1 = phi ptr [ %183, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit112 ], [ %194, %189 ]
-  %.0 = phi i32 [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit112 ], [ 4, %189 ]
+  %.sroa.6190.1 = phi i64 [ %195, %189 ], [ %184, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit112 ]
+  %.sroa.0189.1 = phi ptr [ %194, %189 ], [ %183, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit112 ]
+  %.0 = phi i32 [ 4, %189 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit112 ]
   %197 = icmp eq i64 %.sroa.6190.1, 0
   br i1 %197, label %.thread, label %198
 

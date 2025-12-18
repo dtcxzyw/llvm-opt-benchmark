@@ -580,7 +580,7 @@ define hidden void @"_ZN183_$LT$uv_distribution_types..index.._..$LT$impl$u20$se
   br label %.body
 
 .loopexit.split-lp:                               ; preds = %.invoke, %220, %272, %331, %342, %353, %395, %414, %455, %528
-  %.sroa.0163.1.ph = phi i8 [ 1, %331 ], [ 1, %272 ], [ 1, %220 ], [ %.sroa.0163.6, %528 ], [ 1, %.invoke ], [ 1, %455 ], [ 1, %414 ], [ 1, %395 ], [ 1, %353 ], [ 1, %342 ]
+  %.sroa.0163.1.ph = phi i8 [ 1, %414 ], [ 1, %455 ], [ 1, %395 ], [ 1, %.invoke ], [ 1, %353 ], [ %.sroa.0163.6, %528 ], [ 1, %342 ], [ 1, %220 ], [ 1, %331 ], [ 1, %272 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body

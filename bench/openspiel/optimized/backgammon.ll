@@ -10245,7 +10245,7 @@ _ZNSt6vectorIlSaIlEE9push_backEOl.exit50:         ; preds = %_ZNSt6vectorIlSaIlE
   br i1 %.not71, label %.loopexit, label %104
 
 .loopexit:                                        ; preds = %_ZNSt6vectorIlSaIlEE9push_backEOl.exit50, %.lr.ph, %._crit_edge.thread, %._crit_edge
-  %139 = phi ptr [ %100, %._crit_edge.thread ], [ %98, %._crit_edge ], [ null, %.lr.ph ], [ %136, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit50 ]
+  %139 = phi ptr [ null, %.lr.ph ], [ %100, %._crit_edge.thread ], [ %98, %._crit_edge ], [ %136, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit50 ]
   %140 = load ptr, ptr %0, align 8
   %141 = icmp eq ptr %140, %139
   br i1 %141, label %142, label %154
@@ -11665,8 +11665,8 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit.
   br i1 %190, label %.body195, label %187
 
 .body195:                                         ; preds = %187, %185, %93
-  %191 = phi i1 [ false, %93 ], [ false, %185 ], [ true, %187 ]
-  %.pn = phi { ptr, i32 } [ %94, %93 ], [ %186, %185 ], [ %eh.lpad-body236294, %187 ]
+  %191 = phi i1 [ false, %185 ], [ false, %93 ], [ true, %187 ]
+  %.pn = phi { ptr, i32 } [ %186, %185 ], [ %94, %93 ], [ %eh.lpad-body236294, %187 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %19) #31
   br label %.body190
 
@@ -12505,7 +12505,7 @@ _ZNK10open_spiel10backgammon15BackgammonState10IsGammonedEi.exit18.thread: ; pre
   br label %_ZNK10open_spiel10backgammon15BackgammonState14IsBackgammonedEi.exit
 
 _ZNK10open_spiel10backgammon15BackgammonState14IsBackgammonedEi.exit: ; preds = %45, %_ZNK10open_spiel10backgammon15BackgammonState10IsGammonedEi.exit18.thread, %_ZNK10open_spiel10backgammon15BackgammonState10IsGammonedEi.exit18, %32, %_ZNK10open_spiel10backgammon15BackgammonState10IsGammonedEi.exit.thread, %_ZNK10open_spiel10backgammon15BackgammonState10IsGammonedEi.exit, %15
-  %.0 = phi i32 [ 1, %15 ], [ 2, %_ZNK10open_spiel10backgammon15BackgammonState10IsGammonedEi.exit ], [ 1, %_ZNK10open_spiel10backgammon15BackgammonState10IsGammonedEi.exit.thread ], [ 3, %32 ], [ 1, %_ZNK10open_spiel10backgammon15BackgammonState10IsGammonedEi.exit18.thread ], [ 2, %_ZNK10open_spiel10backgammon15BackgammonState10IsGammonedEi.exit18 ], [ 3, %45 ]
+  %.0 = phi i32 [ 1, %15 ], [ 2, %_ZNK10open_spiel10backgammon15BackgammonState10IsGammonedEi.exit ], [ 2, %_ZNK10open_spiel10backgammon15BackgammonState10IsGammonedEi.exit18 ], [ 1, %_ZNK10open_spiel10backgammon15BackgammonState10IsGammonedEi.exit.thread ], [ 3, %32 ], [ 1, %_ZNK10open_spiel10backgammon15BackgammonState10IsGammonedEi.exit18.thread ], [ 3, %45 ]
   %49 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #33
   store ptr %49, ptr %0, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
@@ -22037,7 +22037,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit237.i:               ; preds = %220, %216
   br i1 %226, label %common.resume, label %216
 
 common.resume:                                    ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit237.i, %_ZNSt6vectorIiSaIiEED2Ev.exit234.i, %332, %335, %.body.i2
-  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.i, %.body.i2 ], [ %333, %335 ], [ %333, %332 ], [ %187, %_ZNSt6vectorIiSaIiEED2Ev.exit234.i ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %_ZNSt6vectorIiSaIiEED2Ev.exit237.i ]
+  %common.resume.op = phi { ptr, i32 } [ %187, %_ZNSt6vectorIiSaIiEED2Ev.exit234.i ], [ %.pn.pn.pn.pn.pn.pn.pn.i, %.body.i2 ], [ %333, %332 ], [ %333, %335 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %_ZNSt6vectorIiSaIiEED2Ev.exit237.i ]
   resume { ptr, i32 } %common.resume.op
 
 __cxx_global_var_init.2.exit:                     ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit.i

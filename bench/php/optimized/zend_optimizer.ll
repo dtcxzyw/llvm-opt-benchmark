@@ -2519,7 +2519,7 @@ define hidden noundef zeroext i1 @zend_optimizer_replace_by_const(ptr noundef ca
   br i1 %102, label %.lr.ph, label %.critedge91
 
 .critedge91:                                      ; preds = %100, %5, %60, %55, %._crit_edge, %.thread, %72, %62, %98, %88
-  %.4 = phi i1 [ %89, %88 ], [ false, %72 ], [ %99, %98 ], [ false, %.thread ], [ false, %62 ], [ true, %._crit_edge ], [ true, %55 ], [ true, %60 ], [ true, %5 ], [ true, %100 ]
+  %.4 = phi i1 [ %89, %88 ], [ false, %72 ], [ true, %60 ], [ %99, %98 ], [ false, %.thread ], [ false, %62 ], [ true, %._crit_edge ], [ true, %55 ], [ true, %5 ], [ true, %100 ]
   ret i1 %.4
 }
 
@@ -3252,7 +3252,7 @@ define hidden noundef ptr @zend_fetch_class_const_info(ptr noundef %0, ptr nound
   br label %86
 
 86:                                               ; preds = %83, %52, %65
-  %.2 = phi ptr [ %55, %52 ], [ %66, %65 ], [ %85, %83 ]
+  %.2 = phi ptr [ %85, %83 ], [ %55, %52 ], [ %66, %65 ]
   %.not76 = icmp eq ptr %.2, null
   br i1 %.not76, label %.thread, label %..thread89_crit_edge
 
@@ -4638,7 +4638,7 @@ zend_revert_pass_two.exit:                        ; preds = %._crit_edge.i, %71
   br i1 %228, label %217, label %.loopexit187
 
 .loopexit187:                                     ; preds = %225, %.preheader194, %.preheader195, %._crit_edge, %.loopexit189
-  %229 = phi i32 [ %212, %.loopexit189 ], [ %146, %.preheader194 ], [ %115, %.preheader195 ], [ %89, %._crit_edge ], [ %226, %225 ]
+  %229 = phi i32 [ %89, %._crit_edge ], [ %212, %.loopexit189 ], [ %146, %.preheader194 ], [ %115, %.preheader195 ], [ %226, %225 ]
   %230 = and i64 %1, 2048
   %.not148 = icmp eq i64 %230, 0
   br i1 %.not148, label %.loopexit185, label %.preheader184

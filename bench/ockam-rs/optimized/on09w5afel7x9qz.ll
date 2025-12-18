@@ -13775,8 +13775,8 @@ common.ret:                                       ; preds = %543, %540, %116
   br label %.body58
 
 539:                                              ; preds = %503, %528
-  %.sroa.1065.0 = phi ptr [ undef, %503 ], [ %.sroa.7171.1.i, %528 ]
-  %.sroa.0.0 = phi i8 [ 0, %503 ], [ 1, %528 ]
+  %.sroa.1065.0 = phi ptr [ %.sroa.7171.1.i, %528 ], [ undef, %503 ]
+  %.sroa.0.0 = phi i8 [ 1, %528 ], [ 0, %503 ]
   store i8 1, ptr %125, align 1, !noalias !1770
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9147.i)

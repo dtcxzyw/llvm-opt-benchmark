@@ -3180,7 +3180,7 @@ _ZN4Luau12DenseHashSetIPNS_21AstExprConstantStringENS_16DenseHashPointerESt8equa
   resume { ptr, i32 } %.pn340.pn.pn.pn.pn.pn.pn
 
 _ZN4Luau3getINS_7AnyTypeEEEPKT_PKNS_4TypeE.exit:  ; preds = %37, %37, %200, %.thread517, %128, %_ZN4Luau12DenseHashSetIPNS_21AstExprConstantStringENS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit, %123, %.critedge352, %104, %.critedge, %71, %9, %_ZN4Luau3getINS_8FreeTypeEEEPKT_PKNS_4TypeE.exit370.thread
-  %.0 = phi ptr [ %6, %9 ], [ %.11, %_ZN4Luau3getINS_8FreeTypeEEEPKT_PKNS_4TypeE.exit370.thread ], [ %36, %123 ], [ %36, %37 ], [ %36, %.critedge352 ], [ %36, %37 ], [ %36, %.critedge ], [ %36, %71 ], [ %36, %104 ], [ %.14, %200 ], [ %36, %.thread517 ], [ %36, %128 ], [ %36, %_ZN4Luau12DenseHashSetIPNS_21AstExprConstantStringENS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit ]
+  %.0 = phi ptr [ %6, %9 ], [ %.11, %_ZN4Luau3getINS_8FreeTypeEEEPKT_PKNS_4TypeE.exit370.thread ], [ %36, %123 ], [ %36, %37 ], [ %36, %.critedge352 ], [ %36, %37 ], [ %36, %.critedge ], [ %36, %71 ], [ %36, %104 ], [ %36, %.thread517 ], [ %.14, %200 ], [ %36, %128 ], [ %36, %_ZN4Luau12DenseHashSetIPNS_21AstExprConstantStringENS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit ]
   ret ptr %.0
 }
 
@@ -3532,9 +3532,9 @@ _ZN4Luau3getINS_13SingletonTypeEEEPKT_PKNS_4TypeE.exit.thread: ; preds = %91, %8
   br i1 %.not126, label %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit55.thread, label %.lr.ph
 
 _ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit55.thread: ; preds = %_ZN4Luau3getINS_13SingletonTypeEEEPKT_PKNS_4TypeE.exit.thread, %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit55, %19, %22
-  %.sroa.073.3.ph = phi ptr [ %.sroa.073.0136, %22 ], [ %.sroa.073.0136, %19 ], [ %spec.select, %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit55 ], [ %spec.select, %_ZN4Luau3getINS_13SingletonTypeEEEPKT_PKNS_4TypeE.exit.thread ]
-  %.sroa.474.3.ph = phi i8 [ %.sroa.474.0137, %22 ], [ %.sroa.474.0137, %19 ], [ 1, %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit55 ], [ 1, %_ZN4Luau3getINS_13SingletonTypeEEEPKT_PKNS_4TypeE.exit.thread ]
-  %.346.ph = phi i64 [ %.043138, %22 ], [ %.043138, %19 ], [ %26, %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit55 ], [ %26, %_ZN4Luau3getINS_13SingletonTypeEEEPKT_PKNS_4TypeE.exit.thread ]
+  %.sroa.073.3.ph = phi ptr [ %.sroa.073.0136, %19 ], [ %.sroa.073.0136, %22 ], [ %spec.select, %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit55 ], [ %spec.select, %_ZN4Luau3getINS_13SingletonTypeEEEPKT_PKNS_4TypeE.exit.thread ]
+  %.sroa.474.3.ph = phi i8 [ %.sroa.474.0137, %19 ], [ %.sroa.474.0137, %22 ], [ 1, %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit55 ], [ 1, %_ZN4Luau3getINS_13SingletonTypeEEEPKT_PKNS_4TypeE.exit.thread ]
+  %.346.ph = phi i64 [ %.043138, %19 ], [ %.043138, %22 ], [ %26, %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit55 ], [ %26, %_ZN4Luau3getINS_13SingletonTypeEEEPKT_PKNS_4TypeE.exit.thread ]
   %95 = getelementptr inbounds nuw i8, ptr %.sroa.070.0135, i64 8
   %.not = icmp eq ptr %95, %14
   br i1 %.not, label %._crit_edge, label %19
@@ -3545,8 +3545,8 @@ _ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit55.thread: ; preds = %_ZN4Luau3
   br label %.thread118
 
 .thread118:                                       ; preds = %84, %84, %91, %91, %._crit_edge, %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit, %8, %10, %3
-  %.sroa.078.0 = phi ptr [ undef, %8 ], [ undef, %3 ], [ undef, %10 ], [ %.sroa.073.3.ph, %._crit_edge ], [ undef, %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit ], [ %21, %91 ], [ %21, %91 ], [ %21, %84 ], [ %21, %84 ]
-  %.sroa.479.0 = phi i8 [ 0, %8 ], [ 0, %3 ], [ 0, %10 ], [ %spec.select167, %._crit_edge ], [ 0, %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit ], [ 1, %91 ], [ 1, %91 ], [ 1, %84 ], [ 1, %84 ]
+  %.sroa.078.0 = phi ptr [ undef, %8 ], [ undef, %3 ], [ undef, %10 ], [ undef, %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit ], [ %.sroa.073.3.ph, %._crit_edge ], [ %21, %91 ], [ %21, %91 ], [ %21, %84 ], [ %21, %84 ]
+  %.sroa.479.0 = phi i8 [ 0, %8 ], [ 0, %3 ], [ 0, %10 ], [ 0, %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit ], [ %spec.select167, %._crit_edge ], [ 1, %91 ], [ 1, %91 ], [ 1, %84 ], [ 1, %84 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.078.0, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.479.0, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -5821,7 +5821,7 @@ _ZN4Luau8VecDequeISt4pairIPKNS_9UnionTypeEmESaIS5_EE9pop_frontEv.exit.i: ; preds
   br label %_ZN4Luau6detail14DenseHashTableIPKNS_9UnionTypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i
 
 _ZN4Luau6detail14DenseHashTableIPKNS_9UnionTypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i: ; preds = %87, %.thread19, %.thread, %.loopexit.i.i, %74
-  %96 = phi i64 [ %.pre.i7, %.loopexit.i.i ], [ %29, %74 ], [ %29, %.thread ], [ %77, %.thread19 ], [ %29, %87 ]
+  %96 = phi i64 [ %.pre.i7, %.loopexit.i.i ], [ %29, %74 ], [ %77, %.thread19 ], [ %29, %.thread ], [ %29, %87 ]
   %97 = add i64 %96, -1
   %98 = ptrtoint ptr %23 to i64
   %99 = lshr i64 %98, 4
@@ -7607,8 +7607,8 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %.not, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4Luau8PropertyEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE14_M_upper_boundEPSt13_Rb_tree_nodeISA_EPSt18_Rb_tree_node_baseRS7_.exit, label %8, !llvm.loop !245
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4Luau8PropertyEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE14_M_upper_boundEPSt13_Rb_tree_nodeISA_EPSt18_Rb_tree_node_baseRS7_.exit: ; preds = %44, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i40, %2, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4Luau8PropertyEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE14_M_lower_boundEPSt13_Rb_tree_nodeISA_EPSt18_Rb_tree_node_baseRS7_.exit
-  %.sroa.055.0 = phi ptr [ %.08.lcssa.i, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4Luau8PropertyEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE14_M_lower_boundEPSt13_Rb_tree_nodeISA_EPSt18_Rb_tree_node_baseRS7_.exit ], [ %4, %2 ], [ %.08.lcssa.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i40 ], [ %.123, %44 ]
-  %.sroa.3.0 = phi ptr [ %.02267, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4Luau8PropertyEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE14_M_lower_boundEPSt13_Rb_tree_nodeISA_EPSt18_Rb_tree_node_baseRS7_.exit ], [ %4, %2 ], [ %.19.i42, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i40 ], [ %.123, %44 ]
+  %.sroa.055.0 = phi ptr [ %.08.lcssa.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i40 ], [ %.08.lcssa.i, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4Luau8PropertyEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE14_M_lower_boundEPSt13_Rb_tree_nodeISA_EPSt18_Rb_tree_node_baseRS7_.exit ], [ %4, %2 ], [ %.123, %44 ]
+  %.sroa.3.0 = phi ptr [ %.19.i42, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i40 ], [ %.02267, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4Luau8PropertyEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE14_M_lower_boundEPSt13_Rb_tree_nodeISA_EPSt18_Rb_tree_node_baseRS7_.exit ], [ %4, %2 ], [ %.123, %44 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.055.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.3.0, 1
   ret { ptr, ptr } %.fca.1.insert

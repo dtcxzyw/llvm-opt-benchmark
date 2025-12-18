@@ -279,7 +279,7 @@ select.unfold.thread31.i:                         ; preds = %select.unfold.i, %3
   br label %pg_sockaddr_cidr_mask.exit.i
 
 pg_sockaddr_cidr_mask.exit.i:                     ; preds = %37, %select.unfold.i, %33, %29, %25, %21, %17, %16
-  %.1.i = phi ptr [ %4, %37 ], [ %12, %17 ], [ %12, %16 ], [ %12, %33 ], [ %4, %select.unfold.i ], [ %12, %29 ], [ %12, %25 ], [ %12, %21 ]
+  %.1.i = phi ptr [ %12, %16 ], [ %4, %37 ], [ %12, %17 ], [ %12, %33 ], [ %4, %select.unfold.i ], [ %12, %29 ], [ %12, %25 ], [ %12, %21 ]
   call void %0(ptr noundef nonnull %10, ptr noundef nonnull %.1.i, ptr noundef %1) #9
   br label %run_ifaddr_callback.exit
 

@@ -7846,7 +7846,7 @@ _ZN11colvarvalueD2Ev.exit:                        ; preds = %_ZNSt6vectorIdSaIdE
   br i1 %exitcond.not.i, label %_ZNK12colvarmodule8vector1dIdE5norm2Ev.exit, label %.lr.ph.i, !llvm.loop !174
 
 _ZNK12colvarmodule8vector1dIdE5norm2Ev.exit:      ; preds = %_ZN11colvarvalueD2Ev.exit, %.lr.ph.i, %86, %1, %18, %8, %4
-  %.0 = phi double [ %7, %4 ], [ %17, %8 ], [ %30, %18 ], [ 0.000000e+00, %1 ], [ 0.000000e+00, %86 ], [ %97, %.lr.ph.i ], [ %49, %_ZN11colvarvalueD2Ev.exit ]
+  %.0 = phi double [ %97, %.lr.ph.i ], [ %7, %4 ], [ %17, %8 ], [ %30, %18 ], [ 0.000000e+00, %1 ], [ 0.000000e+00, %86 ], [ %49, %_ZN11colvarvalueD2Ev.exit ]
   ret double %.0
 }
 

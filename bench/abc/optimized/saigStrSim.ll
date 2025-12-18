@@ -850,7 +850,7 @@ Saig_StrSimHash.exit:                             ; preds = %7
   br i1 %.not, label %Saig_StrSimIsEqual.exit, label %.lr.ph, !llvm.loop !52
 
 Saig_StrSimIsEqual.exit:                          ; preds = %25, %19, %Saig_StrSimHash.exit
-  %.01019 = phi ptr [ null, %Saig_StrSimHash.exit ], [ %.01022, %19 ], [ null, %25 ]
+  %.01019 = phi ptr [ %.01022, %19 ], [ null, %Saig_StrSimHash.exit ], [ null, %25 ]
   ret ptr %.01019
 }
 
@@ -1140,7 +1140,7 @@ Saig_StrSimTableLookup.exit:                      ; preds = %67
   br label %Saig_StrSimIsZero.exit
 
 Saig_StrSimIsZero.exit:                           ; preds = %49, %53, %89, %88, %28, %Saig_StrSimTableLookup.exit, %Aig_ObjRepr.exit, %37
-  %100 = phi ptr [ %29, %37 ], [ %29, %89 ], [ %29, %88 ], [ %29, %28 ], [ %.pre, %Saig_StrSimTableLookup.exit ], [ %29, %Aig_ObjRepr.exit ], [ %29, %53 ], [ %29, %49 ]
+  %100 = phi ptr [ %29, %53 ], [ %29, %37 ], [ %29, %89 ], [ %29, %88 ], [ %29, %28 ], [ %.pre, %Saig_StrSimTableLookup.exit ], [ %29, %Aig_ObjRepr.exit ], [ %29, %49 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %101 = getelementptr i8, ptr %100, i64 4
   %.val106 = load i32, ptr %101, align 4, !tbaa !32
@@ -1297,7 +1297,7 @@ Saig_StrSimTableLookup.exit174:                   ; preds = %146
   br label %Saig_StrSimIsZero.exit150
 
 Saig_StrSimIsZero.exit150:                        ; preds = %128, %132, %152, %Saig_StrSimHash.exit.i161, %107, %162, %161, %Aig_ObjRepr.exit144, %116
-  %166 = phi ptr [ %108, %116 ], [ %108, %Saig_StrSimHash.exit.i161 ], [ %108, %107 ], [ %.pre235, %162 ], [ %108, %161 ], [ %108, %Aig_ObjRepr.exit144 ], [ %108, %132 ], [ %108, %152 ], [ %108, %128 ]
+  %166 = phi ptr [ %108, %132 ], [ %108, %152 ], [ %108, %116 ], [ %108, %Saig_StrSimHash.exit.i161 ], [ %108, %107 ], [ %.pre235, %162 ], [ %108, %161 ], [ %108, %Aig_ObjRepr.exit144 ], [ %108, %128 ]
   %indvars.iv.next230 = add nuw nsw i64 %indvars.iv229, 1
   %167 = getelementptr i8, ptr %166, i64 4
   %.val = load i32, ptr %167, align 4, !tbaa !32
@@ -1860,8 +1860,8 @@ Aig_ObjRepr.exit.thread.sink.split:               ; preds = %Aig_ObjRepr.exit106
   br label %Aig_ObjRepr.exit.thread
 
 Aig_ObjRepr.exit.thread:                          ; preds = %Aig_ObjRepr.exit.thread.sink.split, %63, %24, %20, %Saig_ObjIsLo.exit, %Aig_ObjRepr.exit106, %Aig_ObjRepr.exit98, %Aig_ObjRepr.exit
-  %.158 = phi i32 [ %.057112, %20 ], [ %.057112, %Aig_ObjRepr.exit ], [ %32, %Aig_ObjRepr.exit98 ], [ %32, %Aig_ObjRepr.exit106 ], [ %32, %Saig_ObjIsLo.exit ], [ %.057112, %24 ], [ %32, %63 ], [ %32, %Aig_ObjRepr.exit.thread.sink.split ]
-  %.1 = phi i32 [ %.0113, %20 ], [ %.0113, %Aig_ObjRepr.exit ], [ %.0113, %Aig_ObjRepr.exit98 ], [ %.0113, %Aig_ObjRepr.exit106 ], [ %.0113, %Saig_ObjIsLo.exit ], [ %.0113, %24 ], [ %.0113, %63 ], [ %93, %Aig_ObjRepr.exit.thread.sink.split ]
+  %.158 = phi i32 [ %.057112, %20 ], [ %.057112, %Aig_ObjRepr.exit ], [ %32, %63 ], [ %32, %Aig_ObjRepr.exit98 ], [ %.057112, %24 ], [ %32, %Aig_ObjRepr.exit106 ], [ %32, %Saig_ObjIsLo.exit ], [ %32, %Aig_ObjRepr.exit.thread.sink.split ]
+  %.1 = phi i32 [ %.0113, %20 ], [ %.0113, %Aig_ObjRepr.exit ], [ %.0113, %63 ], [ %.0113, %Aig_ObjRepr.exit98 ], [ %.0113, %24 ], [ %.0113, %Aig_ObjRepr.exit106 ], [ %.0113, %Saig_ObjIsLo.exit ], [ %93, %Aig_ObjRepr.exit.thread.sink.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.lr.ph118, label %20, !llvm.loop !70

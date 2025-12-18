@@ -5186,8 +5186,8 @@ Vec_IntRemove.exit428:                            ; preds = %439, %._crit_edge.i
   br i1 %465, label %.preheader523, label %._crit_edge571, !llvm.loop !103
 
 ._crit_edge571:                                   ; preds = %._crit_edge570, %Vec_IntAlloc.exit370, %thread-pre-split
-  %466 = phi ptr [ %.pre.i373639, %thread-pre-split ], [ %205, %Vec_IntAlloc.exit370 ], [ %.pre.i373639, %._crit_edge570 ]
-  %.val350724 = phi ptr [ %.val350643, %thread-pre-split ], [ %213, %Vec_IntAlloc.exit370 ], [ %.val350643, %._crit_edge570 ]
+  %466 = phi ptr [ %205, %Vec_IntAlloc.exit370 ], [ %.pre.i373639, %thread-pre-split ], [ %.pre.i373639, %._crit_edge570 ]
+  %.val350724 = phi ptr [ %213, %Vec_IntAlloc.exit370 ], [ %.val350643, %thread-pre-split ], [ %.val350643, %._crit_edge570 ]
   %.not.i429 = icmp eq ptr %466, null
   br i1 %.not.i429, label %Vec_IntFree.exit, label %467
 
@@ -5740,8 +5740,8 @@ Vec_IntRemove.exit513:                            ; preds = %667, %._crit_edge.i
   br i1 %693, label %.preheader, label %._crit_edge585, !llvm.loop !107
 
 ._crit_edge585:                                   ; preds = %._crit_edge584, %Vec_IntAlloc.exit439, %thread-pre-split520
-  %694 = phi ptr [ %.pre.i442579, %thread-pre-split520 ], [ %.promoted, %Vec_IntAlloc.exit439 ], [ %.pre.i442579, %._crit_edge584 ]
-  %.val348727 = phi ptr [ %.val348650, %thread-pre-split520 ], [ %497, %Vec_IntAlloc.exit439 ], [ %.val348650, %._crit_edge584 ]
+  %694 = phi ptr [ %.promoted, %Vec_IntAlloc.exit439 ], [ %.pre.i442579, %thread-pre-split520 ], [ %.pre.i442579, %._crit_edge584 ]
+  %.val348727 = phi ptr [ %497, %Vec_IntAlloc.exit439 ], [ %.val348650, %thread-pre-split520 ], [ %.val348650, %._crit_edge584 ]
   %.not.i514 = icmp eq ptr %694, null
   br i1 %.not.i514, label %Vec_IntFree.exit515, label %695
 
@@ -9030,7 +9030,7 @@ Vec_IntPush.exit.i404:                            ; preds = %209, %Vec_IntGrow.e
   br label %Vec_IntPushUnique.exit414
 
 Vec_IntPushUnique.exit414:                        ; preds = %125, %185, %Vec_IntPush.exit.i404, %107
-  %216 = phi ptr [ %108, %107 ], [ %.pre695, %Vec_IntPush.exit.i404 ], [ %165, %185 ], [ %108, %125 ]
+  %216 = phi ptr [ %165, %185 ], [ %108, %107 ], [ %.pre695, %Vec_IntPush.exit.i404 ], [ %108, %125 ]
   %indvars.iv.next649 = add nuw nsw i64 %indvars.iv648, 1
   %217 = getelementptr i8, ptr %216, i64 4
   %.val381 = load i32, ptr %217, align 4, !tbaa !31
@@ -9690,8 +9690,8 @@ Vec_IntPush.exit.i459:                            ; preds = %Vec_IntPush.exit.i4
   br label %Vec_IntPushUnique.exit469
 
 Vec_IntPushUnique.exit469:                        ; preds = %494, %502, %Vec_IntPush.exit.i459
-  %.pre.i.i458702 = phi ptr [ %.pre.i.i458703, %Vec_IntPush.exit.i459 ], [ %489, %502 ], [ %489, %494 ]
-  %526 = phi ptr [ %.pre.i.i458703, %Vec_IntPush.exit.i459 ], [ %490, %502 ], [ %490, %494 ]
+  %.pre.i.i458702 = phi ptr [ %489, %502 ], [ %.pre.i.i458703, %Vec_IntPush.exit.i459 ], [ %489, %494 ]
+  %526 = phi ptr [ %490, %502 ], [ %.pre.i.i458703, %Vec_IntPush.exit.i459 ], [ %490, %494 ]
   %527 = load i32, ptr %234, align 4, !tbaa !31
   %528 = icmp sgt i32 %527, 0
   br i1 %528, label %.lr.ph.i472, label %Vec_IntFind.exit478.thread

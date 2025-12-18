@@ -598,7 +598,7 @@ dtls1_get_buffered_message.exit.thread:           ; preds = %149, %171, %dtls1_h
   br label %.thread125
 
 173:                                              ; preds = %168, %159
-  %.021.i = phi ptr [ %150, %159 ], [ %166, %168 ]
+  %.021.i = phi ptr [ %166, %168 ], [ %150, %159 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %174 = getelementptr inbounds nuw i8, ptr %.021.i, i64 40
   %175 = load ptr, ptr %174, align 8, !tbaa !15

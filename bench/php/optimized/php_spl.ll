@@ -1271,11 +1271,11 @@ zend_parse_arg_bool_ex.exit:                      ; preds = %33
   %cond.fr101 = freeze i1 %37
   br i1 %cond.fr101, label %.critedge, label %.thread111, !prof !90
 
-.thread111:                                       ; preds = %zend_parse_arg_bool_ex.exit, %zend_parse_arg_func.exit, %zend_parse_arg_bool_ex.exit97, %13
-  %.073120 = phi i32 [ 1, %13 ], [ 9, %zend_parse_arg_bool_ex.exit97 ], [ %.85, %zend_parse_arg_func.exit ], [ 9, %zend_parse_arg_bool_ex.exit ]
-  %.074119 = phi i32 [ 0, %13 ], [ 2, %zend_parse_arg_bool_ex.exit97 ], [ %., %zend_parse_arg_func.exit ], [ 2, %zend_parse_arg_bool_ex.exit ]
-  %.075118 = phi ptr [ null, %13 ], [ %30, %zend_parse_arg_bool_ex.exit97 ], [ %17, %zend_parse_arg_func.exit ], [ %36, %zend_parse_arg_bool_ex.exit ]
-  %.076117 = phi i32 [ 0, %13 ], [ 2, %zend_parse_arg_bool_ex.exit97 ], [ 1, %zend_parse_arg_func.exit ], [ 3, %zend_parse_arg_bool_ex.exit ]
+.thread111:                                       ; preds = %zend_parse_arg_bool_ex.exit, %zend_parse_arg_bool_ex.exit97, %zend_parse_arg_func.exit, %13
+  %.073120 = phi i32 [ 1, %13 ], [ %.85, %zend_parse_arg_func.exit ], [ 9, %zend_parse_arg_bool_ex.exit97 ], [ 9, %zend_parse_arg_bool_ex.exit ]
+  %.074119 = phi i32 [ 0, %13 ], [ %., %zend_parse_arg_func.exit ], [ 2, %zend_parse_arg_bool_ex.exit97 ], [ 2, %zend_parse_arg_bool_ex.exit ]
+  %.075118 = phi ptr [ null, %13 ], [ %17, %zend_parse_arg_func.exit ], [ %30, %zend_parse_arg_bool_ex.exit97 ], [ %36, %zend_parse_arg_bool_ex.exit ]
+  %.076117 = phi i32 [ 0, %13 ], [ 1, %zend_parse_arg_func.exit ], [ 2, %zend_parse_arg_bool_ex.exit97 ], [ 3, %zend_parse_arg_bool_ex.exit ]
   %38 = load ptr, ptr %8, align 8, !tbaa !83
   call void @zend_wrong_parameter_error(i32 noundef %.073120, i32 noundef %.076117, ptr noundef %38, i32 noundef %.074119, ptr noundef %.075118) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

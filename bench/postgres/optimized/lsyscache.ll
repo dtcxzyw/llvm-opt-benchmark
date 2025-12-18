@@ -824,7 +824,7 @@ get_opfamily_member.exit56:                       ; preds = %.critedge
   br i1 %158, label %.lr.ph.split.split, label %.thread66, !llvm.loop !8
 
 .thread66:                                        ; preds = %get_opfamily_member.exit56, %.thread, %.thread.us79, %get_opfamily_member.exit.us, %.thread.us, %get_opfamily_member.exit56.us, %.thread.us.us, %7, %130, %129
-  %.1 = phi i1 [ true, %129 ], [ true, %130 ], [ false, %7 ], [ false, %.thread.us.us ], [ false, %.thread.us ], [ false, %.thread.us79 ], [ true, %get_opfamily_member.exit56.us ], [ true, %get_opfamily_member.exit.us ], [ true, %get_opfamily_member.exit56 ], [ false, %.thread ]
+  %.1 = phi i1 [ true, %129 ], [ true, %130 ], [ false, %7 ], [ true, %get_opfamily_member.exit.us ], [ false, %.thread.us.us ], [ false, %.thread.us ], [ true, %get_opfamily_member.exit56.us ], [ false, %.thread.us79 ], [ false, %.thread ], [ true, %get_opfamily_member.exit56 ]
   tail call void @ReleaseCatCacheList(ptr noundef nonnull %9) #7
   ret i1 %.1
 }
@@ -1078,7 +1078,7 @@ get_opfamily_proc.exit52:                         ; preds = %.thread
   br i1 %125, label %.lr.ph.split.split, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %get_opfamily_proc.exit52, %.thread58, %.thread58.us75, %get_opfamily_proc.exit.us, %.thread58.us, %get_opfamily_proc.exit52.us, %.lr.ph.split.us, %7, %.thread62
-  %.1 = phi i1 [ true, %.thread62 ], [ false, %7 ], [ false, %.thread58.us75 ], [ false, %.thread58.us ], [ false, %.lr.ph.split.us ], [ true, %get_opfamily_proc.exit52.us ], [ true, %get_opfamily_proc.exit.us ], [ true, %get_opfamily_proc.exit52 ], [ false, %.thread58 ]
+  %.1 = phi i1 [ true, %.thread62 ], [ false, %7 ], [ false, %.lr.ph.split.us ], [ true, %get_opfamily_proc.exit.us ], [ false, %.thread58.us ], [ true, %get_opfamily_proc.exit52.us ], [ false, %.thread58.us75 ], [ true, %get_opfamily_proc.exit52 ], [ false, %.thread58 ]
   tail call void @ReleaseCatCacheList(ptr noundef nonnull %9) #7
   ret i1 %.1
 }
@@ -4358,7 +4358,7 @@ define dso_local noundef zeroext i1 @get_attstatsslot(ptr noundef initializes((0
   br label %.split74.us
 
 .split74.us:                                      ; preds = %.split74.us.loopexit82, %.split74.us.loopexit, %.split.us
-  %.us-phi = phi i32 [ 0, %.split.us ], [ %31, %.split74.us.loopexit ], [ %32, %.split74.us.loopexit82 ]
+  %.us-phi = phi i32 [ %31, %.split74.us.loopexit ], [ 0, %.split.us ], [ %32, %.split74.us.loopexit82 ]
   %33 = zext nneg i32 %.us-phi to i64
   %34 = getelementptr inbounds nuw i32, ptr %13, i64 %33
   %35 = load i32, ptr %34, align 4

@@ -242,7 +242,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm19hasLessThanNumFusedERKNS_5SUnitEj
   br i1 %15, label %_ZL16getPredClusterSURKN4llvm5SUnitE.exit, label %8
 
 _ZL16getPredClusterSURKN4llvm5SUnitE.exit.thread: ; preds = %21, %8, %2
-  %.0613 = phi i32 [ 1, %2 ], [ %.0618, %8 ], [ %23, %21 ]
+  %.0613 = phi i32 [ %.0618, %8 ], [ 1, %2 ], [ %23, %21 ]
   %16 = icmp ult i32 %.0613, %1
   br label %.loopexit
 
@@ -591,7 +591,7 @@ _ZNK4llvm5SUnit6isSuccEPKS0_.exit:                ; preds = %.lr.ph.i135, %106, 
   br i1 %.not149, label %.loopexit, label %139
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph160, %146, %132, %.loopexit152, %._crit_edge179, %._crit_edge161
-  %.3 = phi i1 [ false, %._crit_edge161 ], [ true, %._crit_edge179 ], [ true, %.loopexit152 ], [ true, %132 ], [ false, %.lr.ph160 ], [ true, %146 ], [ false, %.lr.ph ]
+  %.3 = phi i1 [ false, %._crit_edge161 ], [ false, %.lr.ph160 ], [ true, %132 ], [ true, %.loopexit152 ], [ true, %._crit_edge179 ], [ true, %146 ], [ false, %.lr.ph ]
   ret i1 %.3
 }
 

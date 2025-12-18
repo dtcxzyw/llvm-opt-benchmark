@@ -13676,7 +13676,7 @@ define internal noundef zeroext i1 @VULKAN_SupportsSwapchainComposition(ptr noun
   br i1 %exitcond.not.i25, label %VULKAN_INTERNAL_VerifySwapSurfaceFormat.exit, label %.lr.ph.i22, !llvm.loop !73
 
 VULKAN_INTERNAL_VerifySwapSurfaceFormat.exit:     ; preds = %42, %56, %52, %29
-  %.1.in = phi i1 [ false, %29 ], [ false, %56 ], [ true, %52 ], [ true, %42 ]
+  %.1.in = phi i1 [ false, %56 ], [ false, %29 ], [ true, %52 ], [ true, %42 ]
   call void @SDL_free_REAL(ptr noundef %36) #12
   %57 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %58 = load ptr, ptr %57, align 8
@@ -18098,7 +18098,7 @@ define internal zeroext i1 @VULKAN_INTERNAL_RenderPassHashKeyMatch(ptr readnone 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %25, %30, %35, %59, %54, %49, %44, %.critedge61, %13, %8, %3
-  %.045 = phi i1 [ false, %3 ], [ false, %8 ], [ false, %13 ], [ false, %.critedge61 ], [ false, %44 ], [ false, %49 ], [ %.not59, %59 ], [ false, %54 ], [ false, %35 ], [ false, %30 ], [ false, %25 ], [ false, %.lr.ph ]
+  %.045 = phi i1 [ false, %35 ], [ false, %3 ], [ false, %8 ], [ false, %13 ], [ false, %.critedge61 ], [ false, %44 ], [ false, %49 ], [ %.not59, %59 ], [ false, %54 ], [ false, %30 ], [ false, %25 ], [ false, %.lr.ph ]
   ret i1 %.045
 }
 
@@ -18271,7 +18271,7 @@ define internal zeroext i1 @VULKAN_INTERNAL_FramebufferHashKeyMatch(ptr readnone
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %20, %34, %29, %.critedge42, %8, %3
-  %.031 = phi i1 [ false, %3 ], [ false, %8 ], [ false, %.critedge42 ], [ %.not40, %34 ], [ false, %29 ], [ false, %20 ], [ false, %.lr.ph ]
+  %.031 = phi i1 [ false, %20 ], [ false, %3 ], [ false, %8 ], [ false, %.critedge42 ], [ %.not40, %34 ], [ false, %29 ], [ false, %.lr.ph ]
   ret i1 %.031
 }
 
@@ -26924,8 +26924,8 @@ define internal fastcc range(i32 0, 3) i32 @VULKAN_INTERNAL_CreateSwapchain(ptr 
   br i1 %exitcond.not.i290, label %VULKAN_INTERNAL_VerifySwapSurfaceFormat.exit, label %.lr.ph.i287, !llvm.loop !73
 
 VULKAN_INTERNAL_VerifySwapSurfaceFormat.exit:     ; preds = %57, %71, %67, %.thread
-  %72 = phi i32 [ %53, %.thread ], [ %63, %71 ], [ %63, %67 ], [ %40, %57 ]
-  %.0246.in = phi i1 [ false, %.thread ], [ false, %71 ], [ true, %67 ], [ true, %57 ]
+  %72 = phi i32 [ %63, %71 ], [ %53, %.thread ], [ %63, %67 ], [ %40, %57 ]
+  %.0246.in = phi i1 [ false, %71 ], [ false, %.thread ], [ true, %67 ], [ true, %57 ]
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %74 = load i32, ptr %73, align 4
   %75 = zext i32 %74 to i64

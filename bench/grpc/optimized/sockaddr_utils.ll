@@ -249,7 +249,7 @@ thread-pre-split:                                 ; preds = %.critedge.i
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit.sink.split, %.critedge.i, %7
-  %.1 = phi i32 [ 0, %7 ], [ 0, %.critedge.i ], [ 1, %.loopexit.sink.split ], [ 0, %.preheader ]
+  %.1 = phi i32 [ 0, %.critedge.i ], [ 0, %7 ], [ 1, %.loopexit.sink.split ], [ 0, %.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.2)
   ret i32 %.1
 }

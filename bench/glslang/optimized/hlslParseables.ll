@@ -5373,7 +5373,7 @@ _ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit141.thread: ; preds = %_ZN12_GLOBAL__N_110
   br label %_ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit, !llvm.loop !16
 
 _ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit.thread:    ; preds = %33, %_ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit, %_ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit, %39
-  %.0..promoted502 = phi i32 [ %.0..promoted501, %39 ], [ %.0..promoted470, %_ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit ], [ %.0..promoted470, %_ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit ], [ %.0..promoted501, %33 ]
+  %.0..promoted502 = phi i32 [ %.0..promoted470, %_ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit ], [ %.0..promoted501, %39 ], [ %.0..promoted470, %_ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit ], [ %.0..promoted501, %33 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, 301
   br i1 %.not, label %602, label %.preheader451, !llvm.loop !17

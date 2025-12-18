@@ -934,7 +934,7 @@ define ptr @get_etsi_ts_102_221_annex_a_string(ptr noundef %0, ptr noundef reado
   br i1 %exitcond.not, label %get_ucs_2_string.exit, label %.lr.ph.split, !llvm.loop !16
 
 get_ucs_2_string.exit:                            ; preds = %67, %56, %32, %46, %40, %27, %._crit_edge.i, %30, %5
-  %.sink80 = phi ptr [ %39, %32 ], [ %39, %56 ], [ %39, %46 ], [ %39, %40 ], [ %14, %27 ], [ %31, %30 ], [ %6, %5 ], [ %14, %._crit_edge.i ], [ %39, %67 ]
+  %.sink80 = phi ptr [ %39, %32 ], [ %14, %._crit_edge.i ], [ %39, %56 ], [ %39, %46 ], [ %39, %40 ], [ %14, %27 ], [ %31, %30 ], [ %6, %5 ], [ %39, %67 ]
   %69 = tail call ptr @wmem_strbuf_finalize(ptr noundef %.sink80)
   ret ptr %69
 }

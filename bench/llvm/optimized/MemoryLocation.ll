@@ -1327,7 +1327,7 @@ _ZNSt8optionalIjEaSESt9nullopt_t.exit:            ; preds = %44
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %_ZNSt8optionalIjEaSESt9nullopt_t.exit, %.critedge, %.preheader, %_ZNK4llvm8CallBase17hasOperandBundlesEv.exit, %3, %65, %66
-  %.sink = phi i8 [ 1, %65 ], [ 1, %66 ], [ 0, %_ZNK4llvm8CallBase17hasOperandBundlesEv.exit ], [ 0, %3 ], [ 0, %.preheader ], [ 0, %.critedge ], [ 0, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ]
+  %.sink = phi i8 [ 0, %.critedge ], [ 1, %65 ], [ 1, %66 ], [ 0, %_ZNK4llvm8CallBase17hasOperandBundlesEv.exit ], [ 0, %3 ], [ 0, %.preheader ], [ 0, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ]
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i8 %.sink, ptr %67, align 8, !tbaa !40
   ret void

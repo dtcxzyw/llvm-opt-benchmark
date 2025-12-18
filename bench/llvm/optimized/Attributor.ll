@@ -3967,7 +3967,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm2AA17isValidAtPositionERKNS0_15Valu
   br label %.critedge, !llvm.loop !176
 
 .critedge:                                        ; preds = %42, %"._ZSt9__find_ifIN4llvm21ilist_iterator_w_bitsINS0_12ilist_detail12node_optionsINS0_11InstructionELb0ELb0EvLb1ENS0_10BasicBlockEEELb0ELb0EEEN9__gnu_cxx5__ops10_Iter_predIZNS0_2AA17isValidAtPositionERKNSB_15ValueAndContextERNS0_16InformationCacheEE3$_0EEET_SJ_SJ_T0_St18input_iterator_tag.exit.loopexit_crit_edge.i.i.i.i.i", %.lr.ph.i.i.i.i.i.i, %39, %29, %16, %20, %31, %32, %22, %2, %6
-  %.0 = phi i1 [ true, %2 ], [ true, %6 ], [ %19, %16 ], [ false, %20 ], [ false, %22 ], [ false, %32 ], [ false, %31 ], [ false, %"._ZSt9__find_ifIN4llvm21ilist_iterator_w_bitsINS0_12ilist_detail12node_optionsINS0_11InstructionELb0ELb0EvLb1ENS0_10BasicBlockEEELb0ELb0EEEN9__gnu_cxx5__ops10_Iter_predIZNS0_2AA17isValidAtPositionERKNSB_15ValueAndContextERNS0_16InformationCacheEE3$_0EEET_SJ_SJ_T0_St18input_iterator_tag.exit.loopexit_crit_edge.i.i.i.i.i" ], [ true, %.lr.ph.i.i.i.i.i.i ], [ false, %39 ], [ %30, %29 ], [ true, %42 ]
+  %.0 = phi i1 [ true, %2 ], [ true, %6 ], [ %19, %16 ], [ false, %20 ], [ false, %22 ], [ false, %32 ], [ false, %31 ], [ %30, %29 ], [ false, %"._ZSt9__find_ifIN4llvm21ilist_iterator_w_bitsINS0_12ilist_detail12node_optionsINS0_11InstructionELb0ELb0EvLb1ENS0_10BasicBlockEEELb0ELb0EEEN9__gnu_cxx5__ops10_Iter_predIZNS0_2AA17isValidAtPositionERKNSB_15ValueAndContextERNS0_16InformationCacheEE3$_0EEET_SJ_SJ_T0_St18input_iterator_tag.exit.loopexit_crit_edge.i.i.i.i.i" ], [ true, %.lr.ph.i.i.i.i.i.i ], [ false, %39 ], [ true, %42 ]
   ret i1 %.0
 }
 
@@ -4937,7 +4937,7 @@ _ZN4llvm2AA16hasAssumedIRAttrILNS_9Attribute8AttrKindE51ENS_17AbstractAttributeE
   store i8 %.lobit.sink.i, ptr %4, align 1, !tbaa !82
   br label %.critedge
 
-_ZN4llvm2AA16hasAssumedIRAttrILNS_9Attribute8AttrKindE51ENS_17AbstractAttributeEEEbRNS_10AttributorEPKS4_RKNS_10IRPositionENS_10DepClassTyERbbPPKT0_.exit.thread: ; preds = %20, %22, %9
+_ZN4llvm2AA16hasAssumedIRAttrILNS_9Attribute8AttrKindE51ENS_17AbstractAttributeEEEbRNS_10AttributorEPKS4_RKNS_10IRPositionENS_10DepClassTyERbbPPKT0_.exit.thread: ; preds = %22, %20, %9
   %.0.copyload.i.i.i.i.i = load i64, ptr %1, align 8
   %30 = trunc i64 %.0.copyload.i.i.i.i.i to i8
   %31 = and i8 %30, 3
@@ -7389,7 +7389,7 @@ _ZNK4llvm10IRPosition15getPositionKindEv.exit.i.i: ; preds = %1
   br label %_ZNK4llvm10IRPosition16getCallSiteArgNoEv.exit
 
 _ZNK4llvm10IRPosition16getCallSiteArgNoEv.exit:   ; preds = %9, %_ZNK4llvm10IRPosition15getPositionKindEv.exit.i.i
-  %.1.i.i = phi i32 [ %11, %9 ], [ %25, %_ZNK4llvm10IRPosition15getPositionKindEv.exit.i.i ]
+  %.1.i.i = phi i32 [ %25, %_ZNK4llvm10IRPosition15getPositionKindEv.exit.i.i ], [ %11, %9 ]
   %26 = icmp slt i32 %.1.i.i, 0
   br i1 %26, label %.critedge, label %27
 
@@ -10739,7 +10739,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_10IRPositionELb1EE9push_backES1_.exit101: ;
   br i1 %263, label %.lr.ph132, label %.critedge, !llvm.loop !549
 
 .critedge:                                        ; preds = %116, %113, %_ZN4llvm2AA14isValidInScopeERKNS_5ValueEPKNS_8FunctionE.exit, %91, %.critedge171, %198, %156, %197
-  %.368 = phi i32 [ 3, %197 ], [ 1, %156 ], [ 0, %198 ], [ 0, %.critedge171 ], [ 1, %91 ], [ 1, %_ZN4llvm2AA14isValidInScopeERKNS_5ValueEPKNS_8FunctionE.exit ], [ 1, %113 ], [ 1, %116 ]
+  %.368 = phi i32 [ 3, %197 ], [ 0, %198 ], [ 1, %156 ], [ 0, %.critedge171 ], [ 1, %91 ], [ 1, %_ZN4llvm2AA14isValidInScopeERKNS_5ValueEPKNS_8FunctionE.exit ], [ 1, %113 ], [ 1, %116 ]
   %264 = load ptr, ptr %11, align 8, !tbaa !32
   %265 = load i32, ptr %25, align 8, !tbaa !33
   %.not4.i.i = icmp eq i32 %265, 0
@@ -12979,7 +12979,7 @@ _ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE8containsEPKS1_.exit.thread65.sink.
   br label %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE8containsEPKS1_.exit.thread65
 
 _ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE8containsEPKS1_.exit.thread65: ; preds = %.lr.ph.i.i, %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE8containsEPKS1_.exit.thread65.sink.split, %59, %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE8containsEPKS1_.exit, %_ZN4llvm10IRPosition4instERKNS_11InstructionEPKNS_8CallBaseE.exit, %96, %111, %104, %101, %72, %56, %8
-  %.0 = phi i1 [ false, %8 ], [ false, %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE8containsEPKS1_.exit ], [ false, %56 ], [ true, %72 ], [ true, %111 ], [ false, %_ZN4llvm10IRPosition4instERKNS_11InstructionEPKNS_8CallBaseE.exit ], [ true, %96 ], [ false, %104 ], [ false, %59 ], [ false, %101 ], [ true, %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE8containsEPKS1_.exit.thread65.sink.split ], [ false, %.lr.ph.i.i ]
+  %.0 = phi i1 [ false, %8 ], [ false, %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE8containsEPKS1_.exit ], [ false, %101 ], [ false, %56 ], [ true, %72 ], [ true, %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE8containsEPKS1_.exit.thread65.sink.split ], [ true, %111 ], [ false, %_ZN4llvm10IRPosition4instERKNS_11InstructionEPKNS_8CallBaseE.exit ], [ true, %96 ], [ false, %59 ], [ false, %104 ], [ false, %.lr.ph.i.i ]
   ret i1 %.0
 }
 
@@ -13895,7 +13895,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_3UseELb1EE9push_backES3_.exit.i: ; preds 
   br i1 %.not71, label %"_ZZN4llvm10Attributor15checkForAllUsesENS_12function_refIFbRKNS_3UseERbEEERKNS_17AbstractAttributeERKNS_5ValueEbNS_10DepClassTyEbNS1_IFbS4_S4_EEEENK3$_0clESD_PS3_.exit127", label %.lr.ph170.split
 
 "_ZZN4llvm10Attributor15checkForAllUsesENS_12function_refIFbRKNS_3UseERbEEERKNS_17AbstractAttributeERKNS_5ValueEbNS_10DepClassTyEbNS1_IFbS4_S4_EEEENK3$_0clESD_PS3_.exit127": ; preds = %.loopexit.split, %.loopexit.split.us.us, %.lr.ph.split.i, %203, %201
-  %.763 = phi i32 [ 0, %201 ], [ 6, %203 ], [ 6, %.loopexit.split.us.us ], [ 1, %.lr.ph.split.i ], [ 6, %.loopexit.split ]
+  %.763 = phi i32 [ 6, %203 ], [ 0, %201 ], [ 6, %.loopexit.split.us.us ], [ 1, %.lr.ph.split.i ], [ 6, %.loopexit.split ]
   %243 = load ptr, ptr %125, align 8, !tbaa !32
   %244 = icmp eq ptr %243, %126
   br i1 %244, label %_ZN4llvm9SetVectorIPNS_5ValueENS_11SmallVectorIS2_Lj4EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj4EED2Ev.exit, label %245
@@ -13974,7 +13974,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_3UseELb1EE9push_backES3_.exit.us.i136: ; 
   br label %.backedge
 
 272:                                              ; preds = %"_ZZN4llvm10Attributor15checkForAllUsesENS_12function_refIFbRKNS_3UseERbEEERKNS_17AbstractAttributeERKNS_5ValueEbNS_10DepClassTyEbNS1_IFbS4_S4_EEEENK3$_0clESD_PS3_.exit139", %_ZN4llvm9SetVectorIPNS_5ValueENS_11SmallVectorIS2_Lj4EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj4EED2Ev.exit
-  %.359 = phi i32 [ %.864, %"_ZZN4llvm10Attributor15checkForAllUsesENS_12function_refIFbRKNS_3UseERbEEERKNS_17AbstractAttributeERKNS_5ValueEbNS_10DepClassTyEbNS1_IFbS4_S4_EEEENK3$_0clESD_PS3_.exit139" ], [ %.763, %_ZN4llvm9SetVectorIPNS_5ValueENS_11SmallVectorIS2_Lj4EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj4EED2Ev.exit ]
+  %.359 = phi i32 [ %.763, %_ZN4llvm9SetVectorIPNS_5ValueENS_11SmallVectorIS2_Lj4EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj4EED2Ev.exit ], [ %.864, %"_ZZN4llvm10Attributor15checkForAllUsesENS_12function_refIFbRKNS_3UseERbEEERKNS_17AbstractAttributeERKNS_5ValueEbNS_10DepClassTyEbNS1_IFbS4_S4_EEEENK3$_0clESD_PS3_.exit139" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   switch i32 %.359, label %._crit_edge174 [
     i32 0, label %.backedge
@@ -14098,7 +14098,7 @@ _ZNK4llvm10IRPosition14getAnchorValueEv.exit.i.i: ; preds = %29, %_ZN4llvm19dyn_
   br label %_ZNK4llvm10IRPosition21getAssociatedFunctionEv.exit
 
 _ZNK4llvm10IRPosition21getAssociatedFunctionEv.exit: ; preds = %19, %33, %38
-  %.2.i = phi ptr [ %21, %19 ], [ %35, %33 ], [ %39, %38 ]
+  %.2.i = phi ptr [ %39, %38 ], [ %21, %19 ], [ %35, %33 ]
   %.not = icmp eq ptr %.2.i, null
   br i1 %.not, label %_ZNK4llvm10IRPosition21getAssociatedFunctionEv.exit.thread, label %_ZNK4llvm10IRPosition21getAssociatedFunctionEv.exit.thread14
 
@@ -14733,7 +14733,7 @@ _ZNK4llvm12function_refIFbNS_16AbstractCallSiteEEEclES1_.exit: ; preds = %_ZN4ll
   br label %.thread123
 
 .thread123:                                       ; preds = %_ZNK4llvm8Function6getArgEj.exit, %_ZNK4llvm16AbstractCallSite8isCalleeEPKNS_3UseE.exit, %178, %284, %_ZNK4llvm12function_refIFbNS_16AbstractCallSiteEEEclES1_.exit, %153
-  %.561 = phi i1 [ %156, %153 ], [ %not., %_ZNK4llvm16AbstractCallSite8isCalleeEPKNS_3UseE.exit ], [ %278, %_ZNK4llvm12function_refIFbNS_16AbstractCallSiteEEEclES1_.exit ], [ %278, %284 ], [ %not., %178 ], [ false, %_ZNK4llvm8Function6getArgEj.exit ]
+  %.561 = phi i1 [ %156, %153 ], [ %not., %_ZNK4llvm16AbstractCallSite8isCalleeEPKNS_3UseE.exit ], [ %278, %284 ], [ %278, %_ZNK4llvm12function_refIFbNS_16AbstractCallSiteEEEclES1_.exit ], [ %not., %178 ], [ false, %_ZNK4llvm8Function6getArgEj.exit ]
   %285 = load ptr, ptr %103, align 8, !tbaa !32
   %286 = icmp eq ptr %285, %115
   br i1 %286, label %288, label %287
@@ -14869,7 +14869,7 @@ _ZNK4llvm10IRPosition14getAnchorValueEv.exit.i.i: ; preds = %32, %_ZN4llvm19dyn_
   br label %_ZNK4llvm10IRPosition21getAssociatedFunctionEv.exit
 
 _ZNK4llvm10IRPosition21getAssociatedFunctionEv.exit: ; preds = %22, %36, %41
-  %.2.i = phi ptr [ %24, %22 ], [ %38, %36 ], [ %42, %41 ]
+  %.2.i = phi ptr [ %42, %41 ], [ %24, %22 ], [ %38, %36 ]
   %.not = icmp eq ptr %.2.i, null
   br i1 %.not, label %_ZNK4llvm10IRPosition21getAssociatedFunctionEv.exit.thread, label %_ZNK4llvm10IRPosition21getAssociatedFunctionEv.exit.thread15
 
@@ -15306,7 +15306,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIjPNS_11SmallVectorIPNS_11InstructionELj8EEE
   br i1 %.not, label %.loopexit, label %.lr.ph18.splitthread-pre-split, !llvm.loop !656
 
 .loopexit:                                        ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIjPNS_11SmallVectorIPNS_11InstructionELj8EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS6_EEEEjS6_S8_SB_E6lookupERKj.exit.thread, %61, %.critedge.us, %.lr.ph18, %9
-  %.not12 = phi i1 [ true, %9 ], [ true, %.lr.ph18 ], [ false, %61 ], [ false, %.critedge.us ], [ true, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIjPNS_11SmallVectorIPNS_11InstructionELj8EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS6_EEEEjS6_S8_SB_E6lookupERKj.exit.thread ]
+  %.not12 = phi i1 [ true, %.lr.ph18 ], [ false, %61 ], [ true, %9 ], [ false, %.critedge.us ], [ true, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIjPNS_11SmallVectorIPNS_11InstructionELj8EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS6_EEEEjS6_S8_SB_E6lookupERKj.exit.thread ]
   ret i1 %.not12
 }
 
@@ -15483,7 +15483,7 @@ _ZNK4llvm10IRPosition14getAnchorValueEv.exit.i.i: ; preds = %31, %_ZN4llvm19dyn_
   br label %_ZNK4llvm10IRPosition21getAssociatedFunctionEv.exit
 
 _ZNK4llvm10IRPosition21getAssociatedFunctionEv.exit: ; preds = %21, %35, %40
-  %.2.i = phi ptr [ %23, %21 ], [ %37, %35 ], [ %41, %40 ]
+  %.2.i = phi ptr [ %41, %40 ], [ %23, %21 ], [ %37, %35 ]
   %.not = icmp eq ptr %.2.i, null
   br i1 %.not, label %.critedge, label %_ZNK4llvm10IRPosition21getAssociatedFunctionEv.exit.thread35
 
@@ -18297,8 +18297,8 @@ _ZN4llvm12is_containedIRNS_11SmallVectorIPNS_17AbstractAttributeELj16EEES3_EEbOT
   br label %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_17AbstractAttributeELj16EEES3_EEbOT_RKT0_.exit
 
 _ZN4llvm12is_containedIRNS_11SmallVectorIPNS_17AbstractAttributeELj16EEES3_EEbOT_RKT0_.exit: ; preds = %20, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_17AbstractAttributeELj16EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_17AbstractAttributeELj16EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit38, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_17AbstractAttributeELj16EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit40, %40, %46, %52
-  %59 = phi ptr [ %47, %46 ], [ %41, %40 ], [ %53, %52 ], [ %18, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_17AbstractAttributeELj16EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit40 ], [ %18, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_17AbstractAttributeELj16EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit38 ], [ %18, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_17AbstractAttributeELj16EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %18, %20 ]
-  %.028.i.i.i.i = phi ptr [ %.1.i.i.i.i, %46 ], [ %.029.lcssa.i.i.i.i, %40 ], [ %.2.i.i.i.i, %52 ], [ %58, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_17AbstractAttributeELj16EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit40 ], [ %57, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_17AbstractAttributeELj16EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit38 ], [ %56, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_17AbstractAttributeELj16EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %.02946.i.i.i.i, %20 ]
+  %59 = phi ptr [ %47, %46 ], [ %41, %40 ], [ %53, %52 ], [ %18, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_17AbstractAttributeELj16EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %18, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_17AbstractAttributeELj16EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit40 ], [ %18, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_17AbstractAttributeELj16EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit38 ], [ %18, %20 ]
+  %.028.i.i.i.i = phi ptr [ %.1.i.i.i.i, %46 ], [ %.029.lcssa.i.i.i.i, %40 ], [ %.2.i.i.i.i, %52 ], [ %56, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_17AbstractAttributeELj16EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %58, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_17AbstractAttributeELj16EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit40 ], [ %57, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_17AbstractAttributeELj16EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit38 ], [ %.02946.i.i.i.i, %20 ]
   %.not = icmp eq ptr %.028.i.i.i.i, %16
   br i1 %.not, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_17AbstractAttributeELj16EEES3_EEbOT_RKT0_.exit.thread, label %_ZN4llvm9SetVectorIPNS_17AbstractAttributeENS_11SmallVectorIS2_Lj16EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj16EE7makeBigEv.exit
 
@@ -18805,7 +18805,7 @@ _ZNK4llvm10IRPosition15getPositionKindEv.exit.i.i.i: ; preds = %_ZN4llvm11raw_os
   br label %_ZNK4llvm10IRPosition16getCallSiteArgNoEv.exit.i
 
 _ZNK4llvm10IRPosition16getCallSiteArgNoEv.exit.i: ; preds = %_ZNK4llvm10IRPosition15getPositionKindEv.exit.i.i.i, %204
-  %.1.i.i.i = phi i32 [ %206, %204 ], [ %220, %_ZNK4llvm10IRPosition15getPositionKindEv.exit.i.i.i ]
+  %.1.i.i.i = phi i32 [ %220, %_ZNK4llvm10IRPosition15getPositionKindEv.exit.i.i.i ], [ %206, %204 ]
   %221 = icmp slt i32 %.1.i.i.i, 0
   br i1 %221, label %.critedge.i, label %222
 
@@ -19515,8 +19515,8 @@ _ZN4llvm12is_containedIRNS_11SmallVectorIPNS_8FunctionELj8EEES3_EEbOT_RKT0_.exit
   br label %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_8FunctionELj8EEES3_EEbOT_RKT0_.exit
 
 _ZN4llvm12is_containedIRNS_11SmallVectorIPNS_8FunctionELj8EEES3_EEbOT_RKT0_.exit: ; preds = %20, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_8FunctionELj8EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_8FunctionELj8EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit38, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_8FunctionELj8EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit40, %40, %46, %52
-  %59 = phi ptr [ %47, %46 ], [ %41, %40 ], [ %53, %52 ], [ %18, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_8FunctionELj8EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit40 ], [ %18, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_8FunctionELj8EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit38 ], [ %18, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_8FunctionELj8EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %18, %20 ]
-  %.028.i.i.i.i = phi ptr [ %.1.i.i.i.i, %46 ], [ %.029.lcssa.i.i.i.i, %40 ], [ %.2.i.i.i.i, %52 ], [ %58, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_8FunctionELj8EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit40 ], [ %57, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_8FunctionELj8EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit38 ], [ %56, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_8FunctionELj8EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %.02946.i.i.i.i, %20 ]
+  %59 = phi ptr [ %47, %46 ], [ %41, %40 ], [ %53, %52 ], [ %18, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_8FunctionELj8EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %18, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_8FunctionELj8EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit40 ], [ %18, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_8FunctionELj8EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit38 ], [ %18, %20 ]
+  %.028.i.i.i.i = phi ptr [ %.1.i.i.i.i, %46 ], [ %.029.lcssa.i.i.i.i, %40 ], [ %.2.i.i.i.i, %52 ], [ %56, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_8FunctionELj8EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %58, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_8FunctionELj8EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit40 ], [ %57, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_8FunctionELj8EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit38 ], [ %.02946.i.i.i.i, %20 ]
   %.not = icmp eq ptr %.028.i.i.i.i, %16
   br i1 %.not, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_8FunctionELj8EEES3_EEbOT_RKT0_.exit.thread, label %_ZN4llvm9SetVectorIPNS_8FunctionENS_11SmallVectorIS2_Lj8EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj8EE7makeBigEv.exit
 
@@ -20603,7 +20603,7 @@ _ZN4llvm14WeakTrackingVHaSERKS0_.exit.i.i.i.i:    ; preds = %343, %_ZN4llvm15Val
   br i1 %.not.i.i.i.i161, label %"_ZN4llvm8erase_ifINS_11SmallVectorINS_14WeakTrackingVHELj32EEEZNS_10Attributor9cleanupIREvE3$_1EEvRT_T0_.exit", label %328, !llvm.loop !798
 
 "_ZN4llvm8erase_ifINS_11SmallVectorINS_14WeakTrackingVHELj32EEEZNS_10Attributor9cleanupIREvE3$_1EEvRT_T0_.exit": ; preds = %347, %._crit_edge.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10Attributor9cleanupIREvE3$_1EclIPNS2_14WeakTrackingVHEEEbT_.exit83.i.i.i.i.i.i", %"_ZSt9__find_ifIPN4llvm14WeakTrackingVHEN9__gnu_cxx5__ops10_Iter_predIZNS0_10Attributor9cleanupIREvE3$_1EEET_S9_S9_T0_.exit.i.i.i.i", %.preheader.i.i.i.i
-  %.016.i.i.i.i = phi ptr [ %247, %"_ZSt9__find_ifIPN4llvm14WeakTrackingVHEN9__gnu_cxx5__ops10_Iter_predIZNS0_10Attributor9cleanupIREvE3$_1EEET_S9_S9_T0_.exit.i.i.i.i" ], [ %247, %._crit_edge.i.i.i.i.i.i ], [ %247, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10Attributor9cleanupIREvE3$_1EclIPNS2_14WeakTrackingVHEEEbT_.exit83.i.i.i.i.i.i" ], [ %.028.i.i.i.i.i.i, %.preheader.i.i.i.i ], [ %.1.i.i.i.i, %347 ]
+  %.016.i.i.i.i = phi ptr [ %247, %"_ZSt9__find_ifIPN4llvm14WeakTrackingVHEN9__gnu_cxx5__ops10_Iter_predIZNS0_10Attributor9cleanupIREvE3$_1EEET_S9_S9_T0_.exit.i.i.i.i" ], [ %247, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10Attributor9cleanupIREvE3$_1EclIPNS2_14WeakTrackingVHEEEbT_.exit83.i.i.i.i.i.i" ], [ %247, %._crit_edge.i.i.i.i.i.i ], [ %.028.i.i.i.i.i.i, %.preheader.i.i.i.i ], [ %.1.i.i.i.i, %347 ]
   %348 = load ptr, ptr %10, align 8, !tbaa !32
   %349 = load i32, ptr %28, align 8, !tbaa !33
   %350 = zext i32 %349 to i64
@@ -21827,7 +21827,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9SetVectorINS_6WeakVHENS_
   br label %_ZN4llvm12is_containedIRNS_11SmallVectorINS_6WeakVHELj16EEES2_EEbOT_RKT0_.exit
 
 _ZN4llvm12is_containedIRNS_11SmallVectorINS_6WeakVHELj16EEES2_EEbOT_RKT0_.exit: ; preds = %19, %40, %48, %55, %.loopexit.split.loop.exit37.i.i.i.i, %.loopexit.split.loop.exit39.i.i.i.i, %.loopexit.split.loop.exit41.i.i.i.i
-  %.028.i.i.i.i = phi ptr [ %.1.i.i.i.i, %48 ], [ %.2.i.i.i.i, %55 ], [ %.029.lcssa.i.i.i.i, %40 ], [ %61, %.loopexit.split.loop.exit39.i.i.i.i ], [ %60, %.loopexit.split.loop.exit37.i.i.i.i ], [ %62, %.loopexit.split.loop.exit41.i.i.i.i ], [ %.02946.i.i.i.i, %19 ]
+  %.028.i.i.i.i = phi ptr [ %.1.i.i.i.i, %48 ], [ %62, %.loopexit.split.loop.exit41.i.i.i.i ], [ %.2.i.i.i.i, %55 ], [ %.029.lcssa.i.i.i.i, %40 ], [ %61, %.loopexit.split.loop.exit39.i.i.i.i ], [ %60, %.loopexit.split.loop.exit37.i.i.i.i ], [ %.02946.i.i.i.i, %19 ]
   %.not = icmp eq ptr %.028.i.i.i.i, %14
   br i1 %.not, label %_ZN4llvm12is_containedIRNS_11SmallVectorINS_6WeakVHELj16EEES2_EEbOT_RKT0_.exit.thread, label %_ZN4llvm9SetVectorINS_6WeakVHENS_11SmallVectorIS1_Lj16EEENS_8DenseSetIS1_NS_12DenseMapInfoIS1_vEEEELj16EE7makeBigEv.exit
 
@@ -27473,8 +27473,8 @@ _ZN4llvm12is_containedIRNS_11SmallVectorINS_14PointerIntPairIPNS_14AADepGraphNod
   br label %_ZN4llvm12is_containedIRNS_11SmallVectorINS_14PointerIntPairIPNS_14AADepGraphNodeELj1EjNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEELj2EEES9_EEbOT_RKT0_.exit
 
 _ZN4llvm12is_containedIRNS_11SmallVectorINS_14PointerIntPairIPNS_14AADepGraphNodeELj1EjNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEELj2EEES9_EEbOT_RKT0_.exit: ; preds = %19, %_ZN4llvm12is_containedIRNS_11SmallVectorINS_14PointerIntPairIPNS_14AADepGraphNodeELj1EjNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEELj2EEES9_EEbOT_RKT0_.exit.loopexit.split.loop.exit, %_ZN4llvm12is_containedIRNS_11SmallVectorINS_14PointerIntPairIPNS_14AADepGraphNodeELj1EjNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEELj2EEES9_EEbOT_RKT0_.exit.loopexit.split.loop.exit32, %_ZN4llvm12is_containedIRNS_11SmallVectorINS_14PointerIntPairIPNS_14AADepGraphNodeELj1EjNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEELj2EEES9_EEbOT_RKT0_.exit.loopexit.split.loop.exit34, %35, %39, %43
-  %.sroa.02.0.copyload26 = phi i64 [ %.0.copyload.i.i2.i.i39.i.i.i.i, %39 ], [ %.0.copyload.i.i.i.i36.i.i.i.i, %35 ], [ %.0.copyload.i.i2.i.i41.i.i.i.i, %43 ], [ %.0.copyload.i.i2.i.i.i.i.i.i, %_ZN4llvm12is_containedIRNS_11SmallVectorINS_14PointerIntPairIPNS_14AADepGraphNodeELj1EjNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEELj2EEES9_EEbOT_RKT0_.exit.loopexit.split.loop.exit34 ], [ %.0.copyload.i.i2.i.i.i.i.i.i, %_ZN4llvm12is_containedIRNS_11SmallVectorINS_14PointerIntPairIPNS_14AADepGraphNodeELj1EjNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEELj2EEES9_EEbOT_RKT0_.exit.loopexit.split.loop.exit32 ], [ %.0.copyload.i.i2.i.i.i.i.i.i, %_ZN4llvm12is_containedIRNS_11SmallVectorINS_14PointerIntPairIPNS_14AADepGraphNodeELj1EjNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEELj2EEES9_EEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %.0.copyload.i.i2.i.i.i.i.i.i, %19 ]
-  %.028.i.i.i.i = phi ptr [ %.1.i.i.i.i, %39 ], [ %.029.lcssa.i.i.i.i, %35 ], [ %.2.i.i.i.i, %43 ], [ %47, %_ZN4llvm12is_containedIRNS_11SmallVectorINS_14PointerIntPairIPNS_14AADepGraphNodeELj1EjNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEELj2EEES9_EEbOT_RKT0_.exit.loopexit.split.loop.exit34 ], [ %46, %_ZN4llvm12is_containedIRNS_11SmallVectorINS_14PointerIntPairIPNS_14AADepGraphNodeELj1EjNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEELj2EEES9_EEbOT_RKT0_.exit.loopexit.split.loop.exit32 ], [ %45, %_ZN4llvm12is_containedIRNS_11SmallVectorINS_14PointerIntPairIPNS_14AADepGraphNodeELj1EjNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEELj2EEES9_EEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %.02958.i.i.i.i, %19 ]
+  %.sroa.02.0.copyload26 = phi i64 [ %.0.copyload.i.i2.i.i39.i.i.i.i, %39 ], [ %.0.copyload.i.i.i.i36.i.i.i.i, %35 ], [ %.0.copyload.i.i2.i.i41.i.i.i.i, %43 ], [ %.0.copyload.i.i2.i.i.i.i.i.i, %_ZN4llvm12is_containedIRNS_11SmallVectorINS_14PointerIntPairIPNS_14AADepGraphNodeELj1EjNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEELj2EEES9_EEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %.0.copyload.i.i2.i.i.i.i.i.i, %_ZN4llvm12is_containedIRNS_11SmallVectorINS_14PointerIntPairIPNS_14AADepGraphNodeELj1EjNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEELj2EEES9_EEbOT_RKT0_.exit.loopexit.split.loop.exit34 ], [ %.0.copyload.i.i2.i.i.i.i.i.i, %_ZN4llvm12is_containedIRNS_11SmallVectorINS_14PointerIntPairIPNS_14AADepGraphNodeELj1EjNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEELj2EEES9_EEbOT_RKT0_.exit.loopexit.split.loop.exit32 ], [ %.0.copyload.i.i2.i.i.i.i.i.i, %19 ]
+  %.028.i.i.i.i = phi ptr [ %.1.i.i.i.i, %39 ], [ %.029.lcssa.i.i.i.i, %35 ], [ %.2.i.i.i.i, %43 ], [ %45, %_ZN4llvm12is_containedIRNS_11SmallVectorINS_14PointerIntPairIPNS_14AADepGraphNodeELj1EjNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEELj2EEES9_EEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %47, %_ZN4llvm12is_containedIRNS_11SmallVectorINS_14PointerIntPairIPNS_14AADepGraphNodeELj1EjNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEELj2EEES9_EEbOT_RKT0_.exit.loopexit.split.loop.exit34 ], [ %46, %_ZN4llvm12is_containedIRNS_11SmallVectorINS_14PointerIntPairIPNS_14AADepGraphNodeELj1EjNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEELj2EEES9_EEbOT_RKT0_.exit.loopexit.split.loop.exit32 ], [ %.02958.i.i.i.i, %19 ]
   %.not = icmp eq ptr %.028.i.i.i.i, %16
   br i1 %.not, label %_ZN4llvm12is_containedIRNS_11SmallVectorINS_14PointerIntPairIPNS_14AADepGraphNodeELj1EjNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEELj2EEES9_EEbOT_RKT0_.exit.thread, label %_ZN4llvm9SetVectorINS_14PointerIntPairIPNS_14AADepGraphNodeELj1EjNS_21PointerLikeTypeTraitsIS3_EENS_18PointerIntPairInfoIS3_Lj1ES5_EEEENS_11SmallVectorIS8_Lj2EEENS_8DenseSetIS8_NS_12DenseMapInfoIS8_vEEEELj2EE7makeBigEv.exit
 
@@ -36924,7 +36924,7 @@ _ZN4llvm11IRAttributeILNS_9Attribute8AttrKindE0ENS_12StateWrapperINS_15BitIntege
   br label %33
 
 33:                                               ; preds = %.sink.split, %22, %21, %17
-  %.0 = phi i1 [ false, %17 ], [ false, %22 ], [ false, %21 ], [ true, %.sink.split ]
+  %.0 = phi i1 [ false, %21 ], [ false, %17 ], [ false, %22 ], [ true, %.sink.split ]
   ret i1 %.0
 }
 
@@ -37649,7 +37649,7 @@ _ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread: ; preds = %_ZNK4llvm10IRPos
   br i1 %133, label %_ZNK4llvm10Attributor7isRunOnEPNS_8FunctionE.exit38, label %.lr.ph.i.i.i.i.i.i.i33, !prof !115, !llvm.loop !611
 
 _ZNK4llvm10Attributor7isRunOnEPNS_8FunctionE.exit38: ; preds = %88, %127, %.lr.ph.i.i.i.i.i.i.i33, %76, %66, %115, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit, %_ZNK4llvm10IRPosition21isAnyCallSitePositionEv.exit, %2, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit, %_ZNK4llvm10IRPosition21isAnyCallSitePositionEv.exit.thread, %62
-  %.0 = phi i1 [ false, %2 ], [ true, %62 ], [ false, %_ZNK4llvm10IRPosition21isAnyCallSitePositionEv.exit.thread ], [ false, %_ZNK4llvm10IRPosition21isAnyCallSitePositionEv.exit ], [ false, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit ], [ true, %66 ], [ true, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit ], [ false, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread ], [ true, %115 ], [ true, %76 ], [ %.not.i36.not.not, %127 ], [ %.not.i36.not.not, %.lr.ph.i.i.i.i.i.i.i33 ], [ true, %88 ]
+  %.0 = phi i1 [ %.not.i36.not.not, %127 ], [ false, %2 ], [ true, %62 ], [ false, %_ZNK4llvm10IRPosition21isAnyCallSitePositionEv.exit.thread ], [ false, %_ZNK4llvm10IRPosition21isAnyCallSitePositionEv.exit ], [ false, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit ], [ true, %66 ], [ true, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit ], [ false, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread ], [ true, %115 ], [ true, %76 ], [ %.not.i36.not.not, %.lr.ph.i.i.i.i.i.i.i33 ], [ true, %88 ]
   ret i1 %.0
 }
 
@@ -37932,7 +37932,7 @@ _ZNKSt8functionIFbRKN4llvm8FunctionEEEclES3_.exit.i: ; preds = %_ZNK4llvm15Small
   br label %_ZN4llvm10Attributor22isFunctionIPOAmendableERKNS_8FunctionE.exit
 
 _ZN4llvm10Attributor22isFunctionIPOAmendableERKNS_8FunctionE.exit: ; preds = %.lr.ph.i.i.i, %_ZNK4llvm10IRPosition17isFnInterfaceKindEv.exit, %_ZNK4llvm10IRPosition21getAssociatedFunctionEv.exit, %36, %_ZNKSt8functionIFbRKN4llvm8FunctionEEEclES3_.exit.i, %_ZNK4llvm15SmallPtrSetImplIPKNS_8FunctionEE5countES3_.exit.thread.i, %_ZNK4llvm15SmallPtrSetImplIPKNS_8FunctionEE5countES3_.exit.i, %_ZNK4llvm11GlobalValue18hasExactDefinitionEv.exit.i
-  %73 = phi i1 [ true, %_ZNK4llvm10IRPosition17isFnInterfaceKindEv.exit ], [ true, %_ZNK4llvm15SmallPtrSetImplIPKNS_8FunctionEE5countES3_.exit.i ], [ true, %_ZNK4llvm11GlobalValue18hasExactDefinitionEv.exit.i ], [ false, %_ZNK4llvm15SmallPtrSetImplIPKNS_8FunctionEE5countES3_.exit.thread.i ], [ %72, %_ZNKSt8functionIFbRKN4llvm8FunctionEEEclES3_.exit.i ], [ true, %36 ], [ true, %_ZNK4llvm10IRPosition21getAssociatedFunctionEv.exit ], [ true, %.lr.ph.i.i.i ]
+  %73 = phi i1 [ true, %_ZNK4llvm10IRPosition17isFnInterfaceKindEv.exit ], [ true, %_ZNK4llvm10IRPosition21getAssociatedFunctionEv.exit ], [ true, %_ZNK4llvm15SmallPtrSetImplIPKNS_8FunctionEE5countES3_.exit.i ], [ true, %_ZNK4llvm11GlobalValue18hasExactDefinitionEv.exit.i ], [ false, %_ZNK4llvm15SmallPtrSetImplIPKNS_8FunctionEE5countES3_.exit.thread.i ], [ %72, %_ZNKSt8functionIFbRKN4llvm8FunctionEEEclES3_.exit.i ], [ true, %36 ], [ true, %.lr.ph.i.i.i ]
   ret i1 %73
 }
 
@@ -39151,7 +39151,7 @@ _ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread: ; preds = %_ZNK4llvm10IRPos
   br i1 %130, label %_ZNK4llvm10Attributor7isRunOnEPNS_8FunctionE.exit38, label %.lr.ph.i.i.i.i.i.i.i33, !prof !115, !llvm.loop !611
 
 _ZNK4llvm10Attributor7isRunOnEPNS_8FunctionE.exit38: ; preds = %85, %124, %.lr.ph.i.i.i.i.i.i.i33, %73, %63, %112, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit, %2, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit, %_ZNK4llvm10IRPosition21isAnyCallSitePositionEv.exit.thread, %59
-  %.0 = phi i1 [ true, %63 ], [ false, %2 ], [ true, %59 ], [ false, %_ZNK4llvm10IRPosition21isAnyCallSitePositionEv.exit.thread ], [ false, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit ], [ true, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit ], [ false, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread ], [ true, %112 ], [ true, %73 ], [ %.not.i36.not.not, %124 ], [ %.not.i36.not.not, %.lr.ph.i.i.i.i.i.i.i33 ], [ true, %85 ]
+  %.0 = phi i1 [ true, %63 ], [ false, %2 ], [ true, %59 ], [ false, %_ZNK4llvm10IRPosition21isAnyCallSitePositionEv.exit.thread ], [ %.not.i36.not.not, %124 ], [ false, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit ], [ true, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit ], [ false, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread ], [ true, %112 ], [ true, %73 ], [ %.not.i36.not.not, %.lr.ph.i.i.i.i.i.i.i33 ], [ true, %85 ]
   ret i1 %.0
 }
 
@@ -39953,7 +39953,7 @@ _ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread: ; preds = %_ZNK4llvm10IRPos
   br i1 %130, label %_ZNK4llvm10Attributor7isRunOnEPNS_8FunctionE.exit38, label %.lr.ph.i.i.i.i.i.i.i33, !prof !115, !llvm.loop !611
 
 _ZNK4llvm10Attributor7isRunOnEPNS_8FunctionE.exit38: ; preds = %85, %124, %.lr.ph.i.i.i.i.i.i.i33, %73, %63, %112, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit, %2, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit, %_ZNK4llvm10IRPosition21isAnyCallSitePositionEv.exit.thread, %59
-  %.0 = phi i1 [ true, %63 ], [ false, %2 ], [ true, %59 ], [ false, %_ZNK4llvm10IRPosition21isAnyCallSitePositionEv.exit.thread ], [ false, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit ], [ true, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit ], [ false, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread ], [ true, %112 ], [ true, %73 ], [ %.not.i36.not.not, %124 ], [ %.not.i36.not.not, %.lr.ph.i.i.i.i.i.i.i33 ], [ true, %85 ]
+  %.0 = phi i1 [ true, %63 ], [ false, %2 ], [ true, %59 ], [ false, %_ZNK4llvm10IRPosition21isAnyCallSitePositionEv.exit.thread ], [ %.not.i36.not.not, %124 ], [ false, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit ], [ true, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit ], [ false, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread ], [ true, %112 ], [ true, %73 ], [ %.not.i36.not.not, %.lr.ph.i.i.i.i.i.i.i33 ], [ true, %85 ]
   ret i1 %.0
 }
 
@@ -40753,7 +40753,7 @@ _ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread: ; preds = %_ZNK4llvm10IRPos
   br i1 %130, label %_ZNK4llvm10Attributor7isRunOnEPNS_8FunctionE.exit38, label %.lr.ph.i.i.i.i.i.i.i33, !prof !115, !llvm.loop !611
 
 _ZNK4llvm10Attributor7isRunOnEPNS_8FunctionE.exit38: ; preds = %85, %124, %.lr.ph.i.i.i.i.i.i.i33, %73, %63, %112, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit, %2, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit, %_ZNK4llvm10IRPosition21isAnyCallSitePositionEv.exit.thread, %59
-  %.0 = phi i1 [ true, %63 ], [ false, %2 ], [ true, %59 ], [ false, %_ZNK4llvm10IRPosition21isAnyCallSitePositionEv.exit.thread ], [ false, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit ], [ true, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit ], [ false, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread ], [ true, %112 ], [ true, %73 ], [ %.not.i36.not.not, %124 ], [ %.not.i36.not.not, %.lr.ph.i.i.i.i.i.i.i33 ], [ true, %85 ]
+  %.0 = phi i1 [ true, %63 ], [ false, %2 ], [ true, %59 ], [ false, %_ZNK4llvm10IRPosition21isAnyCallSitePositionEv.exit.thread ], [ %.not.i36.not.not, %124 ], [ false, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit ], [ true, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit ], [ false, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread ], [ true, %112 ], [ true, %73 ], [ %.not.i36.not.not, %.lr.ph.i.i.i.i.i.i.i33 ], [ true, %85 ]
   ret i1 %.0
 }
 
@@ -41242,8 +41242,8 @@ _ZN4llvm12is_containedIRNS_11SmallVectorIPKNS_5ValueELj8EEES4_EEbOT_RKT0_.exit.l
   br label %_ZN4llvm12is_containedIRNS_11SmallVectorIPKNS_5ValueELj8EEES4_EEbOT_RKT0_.exit
 
 _ZN4llvm12is_containedIRNS_11SmallVectorIPKNS_5ValueELj8EEES4_EEbOT_RKT0_.exit: ; preds = %20, %_ZN4llvm12is_containedIRNS_11SmallVectorIPKNS_5ValueELj8EEES4_EEbOT_RKT0_.exit.loopexit.split.loop.exit, %_ZN4llvm12is_containedIRNS_11SmallVectorIPKNS_5ValueELj8EEES4_EEbOT_RKT0_.exit.loopexit.split.loop.exit38, %_ZN4llvm12is_containedIRNS_11SmallVectorIPKNS_5ValueELj8EEES4_EEbOT_RKT0_.exit.loopexit.split.loop.exit40, %40, %46, %52
-  %59 = phi ptr [ %47, %46 ], [ %41, %40 ], [ %53, %52 ], [ %18, %_ZN4llvm12is_containedIRNS_11SmallVectorIPKNS_5ValueELj8EEES4_EEbOT_RKT0_.exit.loopexit.split.loop.exit40 ], [ %18, %_ZN4llvm12is_containedIRNS_11SmallVectorIPKNS_5ValueELj8EEES4_EEbOT_RKT0_.exit.loopexit.split.loop.exit38 ], [ %18, %_ZN4llvm12is_containedIRNS_11SmallVectorIPKNS_5ValueELj8EEES4_EEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %18, %20 ]
-  %.028.i.i.i.i = phi ptr [ %.1.i.i.i.i, %46 ], [ %.029.lcssa.i.i.i.i, %40 ], [ %.2.i.i.i.i, %52 ], [ %58, %_ZN4llvm12is_containedIRNS_11SmallVectorIPKNS_5ValueELj8EEES4_EEbOT_RKT0_.exit.loopexit.split.loop.exit40 ], [ %57, %_ZN4llvm12is_containedIRNS_11SmallVectorIPKNS_5ValueELj8EEES4_EEbOT_RKT0_.exit.loopexit.split.loop.exit38 ], [ %56, %_ZN4llvm12is_containedIRNS_11SmallVectorIPKNS_5ValueELj8EEES4_EEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %.02946.i.i.i.i, %20 ]
+  %59 = phi ptr [ %47, %46 ], [ %41, %40 ], [ %53, %52 ], [ %18, %_ZN4llvm12is_containedIRNS_11SmallVectorIPKNS_5ValueELj8EEES4_EEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %18, %_ZN4llvm12is_containedIRNS_11SmallVectorIPKNS_5ValueELj8EEES4_EEbOT_RKT0_.exit.loopexit.split.loop.exit40 ], [ %18, %_ZN4llvm12is_containedIRNS_11SmallVectorIPKNS_5ValueELj8EEES4_EEbOT_RKT0_.exit.loopexit.split.loop.exit38 ], [ %18, %20 ]
+  %.028.i.i.i.i = phi ptr [ %.1.i.i.i.i, %46 ], [ %.029.lcssa.i.i.i.i, %40 ], [ %.2.i.i.i.i, %52 ], [ %56, %_ZN4llvm12is_containedIRNS_11SmallVectorIPKNS_5ValueELj8EEES4_EEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %58, %_ZN4llvm12is_containedIRNS_11SmallVectorIPKNS_5ValueELj8EEES4_EEbOT_RKT0_.exit.loopexit.split.loop.exit40 ], [ %57, %_ZN4llvm12is_containedIRNS_11SmallVectorIPKNS_5ValueELj8EEES4_EEbOT_RKT0_.exit.loopexit.split.loop.exit38 ], [ %.02946.i.i.i.i, %20 ]
   %.not = icmp eq ptr %.028.i.i.i.i, %16
   br i1 %.not, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPKNS_5ValueELj8EEES4_EEbOT_RKT0_.exit.thread, label %_ZN4llvm9SetVectorIPKNS_5ValueENS_11SmallVectorIS3_Lj8EEENS_8DenseSetIS3_NS_12DenseMapInfoIS3_vEEEELj8EE7makeBigEv.exit
 
@@ -44803,10 +44803,10 @@ _ZNSt10unique_ptrIN4llvm11SmallPtrSetIPNS0_8FunctionELj8EEESt14default_deleteIS4
   br i1 %.not.i.i.i.i.i, label %._crit_edge.i.i.i.i.i, label %.lr.ph.i.i11.i.i.i, !llvm.loop !379
 
 ._crit_edge.i.i.i.i.i:                            ; preds = %.critedge.i.i.i.i.i, %35, %_ZNSt10unique_ptrIN4llvm11SmallPtrSetIPNS0_8FunctionELj8EEESt14default_deleteIS4_EED2Ev.exit.i.thread.i.i
-  %41 = phi ptr [ %38, %35 ], [ %17, %_ZNSt10unique_ptrIN4llvm11SmallPtrSetIPNS0_8FunctionELj8EEESt14default_deleteIS4_EED2Ev.exit.i.thread.i.i ], [ %38, %.critedge.i.i.i.i.i ]
-  %42 = phi ptr [ %.phi.trans.insert.i.i.i, %35 ], [ %19, %_ZNSt10unique_ptrIN4llvm11SmallPtrSetIPNS0_8FunctionELj8EEESt14default_deleteIS4_EED2Ev.exit.i.thread.i.i ], [ %.phi.trans.insert.i.i.i, %.critedge.i.i.i.i.i ]
-  %43 = phi ptr [ %12, %35 ], [ %16, %_ZNSt10unique_ptrIN4llvm11SmallPtrSetIPNS0_8FunctionELj8EEESt14default_deleteIS4_EED2Ev.exit.i.thread.i.i ], [ %12, %.critedge.i.i.i.i.i ]
-  %44 = phi i32 [ 0, %35 ], [ 0, %_ZNSt10unique_ptrIN4llvm11SmallPtrSetIPNS0_8FunctionELj8EEESt14default_deleteIS4_EED2Ev.exit.i.thread.i.i ], [ %.pre.i.i.i, %.critedge.i.i.i.i.i ]
+  %41 = phi ptr [ %17, %_ZNSt10unique_ptrIN4llvm11SmallPtrSetIPNS0_8FunctionELj8EEESt14default_deleteIS4_EED2Ev.exit.i.thread.i.i ], [ %38, %35 ], [ %38, %.critedge.i.i.i.i.i ]
+  %42 = phi ptr [ %19, %_ZNSt10unique_ptrIN4llvm11SmallPtrSetIPNS0_8FunctionELj8EEESt14default_deleteIS4_EED2Ev.exit.i.thread.i.i ], [ %.phi.trans.insert.i.i.i, %35 ], [ %.phi.trans.insert.i.i.i, %.critedge.i.i.i.i.i ]
+  %43 = phi ptr [ %16, %_ZNSt10unique_ptrIN4llvm11SmallPtrSetIPNS0_8FunctionELj8EEESt14default_deleteIS4_EED2Ev.exit.i.thread.i.i ], [ %12, %35 ], [ %12, %.critedge.i.i.i.i.i ]
+  %44 = phi i32 [ 0, %_ZNSt10unique_ptrIN4llvm11SmallPtrSetIPNS0_8FunctionELj8EEESt14default_deleteIS4_EED2Ev.exit.i.thread.i.i ], [ 0, %35 ], [ %.pre.i.i.i, %.critedge.i.i.i.i.i ]
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %46 = load i32, ptr %45, align 8, !tbaa !36, !noalias !1533
   %47 = icmp ult i32 %44, %46
@@ -44824,7 +44824,7 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i.i: ; preds = %._crit_ed
   br label %"_ZSt10__invoke_rIbRZL24runAttributorOnFunctionsRN4llvm16InformationCacheERNS0_9SetVectorIPNS0_8FunctionENS0_11SmallVectorIS5_Lj0EEENS0_8DenseSetIS5_NS0_12DenseMapInfoIS5_vEEEELj0EEERNS0_14AnalysisGetterERNS0_16CallGraphUpdaterEbbE3$_0JRNS0_10AttributorERKNS0_17AbstractAttributeERNS0_8CallBaseERS4_jEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EEST_E4typeEOSU_DpOSV_.exit"
 
 "_ZSt10__invoke_rIbRZL24runAttributorOnFunctionsRN4llvm16InformationCacheERNS0_9SetVectorIPNS0_8FunctionENS0_11SmallVectorIS5_Lj0EEENS0_8DenseSetIS5_NS0_12DenseMapInfoIS5_vEEEELj0EEERNS0_14AnalysisGetterERNS0_16CallGraphUpdaterEbbE3$_0JRNS0_10AttributorERKNS0_17AbstractAttributeERNS0_8CallBaseERS4_jEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EEST_E4typeEOSU_DpOSV_.exit": ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i11.i.i.i, %6, %_ZNSt10unique_ptrIN4llvm11SmallPtrSetIPNS0_8FunctionELj8EEESt14default_deleteIS4_EED2Ev.exit.i.thread.i.i, %24, %31, %48, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i.i
-  %.0.i.i.i = phi i1 [ false, %6 ], [ true, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i.i ], [ %33, %31 ], [ false, %24 ], [ true, %48 ], [ false, %_ZNSt10unique_ptrIN4llvm11SmallPtrSetIPNS0_8FunctionELj8EEESt14default_deleteIS4_EED2Ev.exit.i.thread.i.i ], [ true, %.lr.ph.i.i11.i.i.i ], [ %29, %.lr.ph.i.i.i.i.i ]
+  %.0.i.i.i = phi i1 [ false, %6 ], [ true, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i.i ], [ %33, %31 ], [ false, %24 ], [ true, %.lr.ph.i.i11.i.i.i ], [ true, %48 ], [ false, %_ZNSt10unique_ptrIN4llvm11SmallPtrSetIPNS0_8FunctionELj8EEESt14default_deleteIS4_EED2Ev.exit.i.thread.i.i ], [ %29, %.lr.ph.i.i.i.i.i ]
   ret i1 %.0.i.i.i
 }
 
@@ -46789,7 +46789,7 @@ _ZNK4llvm10IRPosition14getAnchorValueEv.exit.i.i: ; preds = %34, %_ZN4llvm19dyn_
   br label %_ZNK4llvm10IRPosition21getAssociatedFunctionEv.exit
 
 _ZNK4llvm10IRPosition21getAssociatedFunctionEv.exit: ; preds = %24, %38, %43
-  %.2.i = phi ptr [ %26, %24 ], [ %40, %38 ], [ %44, %43 ]
+  %.2.i = phi ptr [ %44, %43 ], [ %26, %24 ], [ %40, %38 ]
   %.not = icmp eq ptr %.2.i, null
   br i1 %.not, label %_ZNK4llvm10IRPosition21getAssociatedFunctionEv.exit.thread, label %_ZNK4llvm10IRPosition21getAssociatedFunctionEv.exit.thread38
 
@@ -47622,7 +47622,7 @@ _ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread: ; preds = %_ZNK4llvm10IRPos
   br i1 %130, label %_ZNK4llvm10Attributor7isRunOnEPNS_8FunctionE.exit38, label %.lr.ph.i.i.i.i.i.i.i33, !prof !115, !llvm.loop !611
 
 _ZNK4llvm10Attributor7isRunOnEPNS_8FunctionE.exit38: ; preds = %85, %124, %.lr.ph.i.i.i.i.i.i.i33, %73, %63, %112, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit, %2, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit, %_ZNK4llvm10IRPosition21isAnyCallSitePositionEv.exit.thread, %59
-  %.0 = phi i1 [ true, %63 ], [ false, %2 ], [ true, %59 ], [ false, %_ZNK4llvm10IRPosition21isAnyCallSitePositionEv.exit.thread ], [ false, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit ], [ true, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit ], [ false, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread ], [ true, %112 ], [ true, %73 ], [ %.not.i36.not.not, %124 ], [ %.not.i36.not.not, %.lr.ph.i.i.i.i.i.i.i33 ], [ true, %85 ]
+  %.0 = phi i1 [ true, %63 ], [ false, %2 ], [ true, %59 ], [ false, %_ZNK4llvm10IRPosition21isAnyCallSitePositionEv.exit.thread ], [ %.not.i36.not.not, %124 ], [ false, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit ], [ true, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit ], [ false, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread ], [ true, %112 ], [ true, %73 ], [ %.not.i36.not.not, %.lr.ph.i.i.i.i.i.i.i33 ], [ true, %85 ]
   ret i1 %.0
 }
 
@@ -48422,7 +48422,7 @@ _ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread: ; preds = %_ZNK4llvm10IRPos
   br i1 %130, label %_ZNK4llvm10Attributor7isRunOnEPNS_8FunctionE.exit38, label %.lr.ph.i.i.i.i.i.i.i33, !prof !115, !llvm.loop !611
 
 _ZNK4llvm10Attributor7isRunOnEPNS_8FunctionE.exit38: ; preds = %85, %124, %.lr.ph.i.i.i.i.i.i.i33, %73, %63, %112, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit, %2, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit, %_ZNK4llvm10IRPosition21isAnyCallSitePositionEv.exit.thread, %59
-  %.0 = phi i1 [ true, %63 ], [ false, %2 ], [ true, %59 ], [ false, %_ZNK4llvm10IRPosition21isAnyCallSitePositionEv.exit.thread ], [ false, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit ], [ true, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit ], [ false, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread ], [ true, %112 ], [ true, %73 ], [ %.not.i36.not.not, %124 ], [ %.not.i36.not.not, %.lr.ph.i.i.i.i.i.i.i33 ], [ true, %85 ]
+  %.0 = phi i1 [ true, %63 ], [ false, %2 ], [ true, %59 ], [ false, %_ZNK4llvm10IRPosition21isAnyCallSitePositionEv.exit.thread ], [ %.not.i36.not.not, %124 ], [ false, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit ], [ true, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit ], [ false, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread ], [ true, %112 ], [ true, %73 ], [ %.not.i36.not.not, %.lr.ph.i.i.i.i.i.i.i33 ], [ true, %85 ]
   ret i1 %.0
 }
 
@@ -49104,8 +49104,8 @@ _ZN4llvm12is_containedIRNS_11SmallVectorIPNS_5ValueELj8EEES3_EEbOT_RKT0_.exit.lo
   br label %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_5ValueELj8EEES3_EEbOT_RKT0_.exit
 
 _ZN4llvm12is_containedIRNS_11SmallVectorIPNS_5ValueELj8EEES3_EEbOT_RKT0_.exit: ; preds = %20, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_5ValueELj8EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_5ValueELj8EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit38, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_5ValueELj8EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit40, %40, %46, %52
-  %59 = phi ptr [ %47, %46 ], [ %41, %40 ], [ %53, %52 ], [ %18, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_5ValueELj8EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit40 ], [ %18, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_5ValueELj8EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit38 ], [ %18, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_5ValueELj8EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %18, %20 ]
-  %.028.i.i.i.i = phi ptr [ %.1.i.i.i.i, %46 ], [ %.029.lcssa.i.i.i.i, %40 ], [ %.2.i.i.i.i, %52 ], [ %58, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_5ValueELj8EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit40 ], [ %57, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_5ValueELj8EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit38 ], [ %56, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_5ValueELj8EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %.02946.i.i.i.i, %20 ]
+  %59 = phi ptr [ %47, %46 ], [ %41, %40 ], [ %53, %52 ], [ %18, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_5ValueELj8EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %18, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_5ValueELj8EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit40 ], [ %18, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_5ValueELj8EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit38 ], [ %18, %20 ]
+  %.028.i.i.i.i = phi ptr [ %.1.i.i.i.i, %46 ], [ %.029.lcssa.i.i.i.i, %40 ], [ %.2.i.i.i.i, %52 ], [ %56, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_5ValueELj8EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %58, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_5ValueELj8EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit40 ], [ %57, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_5ValueELj8EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit38 ], [ %.02946.i.i.i.i, %20 ]
   %.not = icmp eq ptr %.028.i.i.i.i, %16
   br i1 %.not, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_5ValueELj8EEES3_EEbOT_RKT0_.exit.thread, label %_ZN4llvm9SetVectorIPNS_5ValueENS_11SmallVectorIS2_Lj8EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj8EE7makeBigEv.exit
 
@@ -49327,8 +49327,8 @@ _ZN4llvm12is_containedIRNS_11SmallVectorIPNS_11InstructionELj8EEES3_EEbOT_RKT0_.
   br label %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_11InstructionELj8EEES3_EEbOT_RKT0_.exit
 
 _ZN4llvm12is_containedIRNS_11SmallVectorIPNS_11InstructionELj8EEES3_EEbOT_RKT0_.exit: ; preds = %20, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_11InstructionELj8EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_11InstructionELj8EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit38, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_11InstructionELj8EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit40, %40, %46, %52
-  %59 = phi ptr [ %47, %46 ], [ %41, %40 ], [ %53, %52 ], [ %18, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_11InstructionELj8EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit40 ], [ %18, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_11InstructionELj8EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit38 ], [ %18, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_11InstructionELj8EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %18, %20 ]
-  %.028.i.i.i.i = phi ptr [ %.1.i.i.i.i, %46 ], [ %.029.lcssa.i.i.i.i, %40 ], [ %.2.i.i.i.i, %52 ], [ %58, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_11InstructionELj8EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit40 ], [ %57, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_11InstructionELj8EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit38 ], [ %56, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_11InstructionELj8EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %.02946.i.i.i.i, %20 ]
+  %59 = phi ptr [ %47, %46 ], [ %41, %40 ], [ %53, %52 ], [ %18, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_11InstructionELj8EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %18, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_11InstructionELj8EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit40 ], [ %18, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_11InstructionELj8EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit38 ], [ %18, %20 ]
+  %.028.i.i.i.i = phi ptr [ %.1.i.i.i.i, %46 ], [ %.029.lcssa.i.i.i.i, %40 ], [ %.2.i.i.i.i, %52 ], [ %56, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_11InstructionELj8EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %58, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_11InstructionELj8EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit40 ], [ %57, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_11InstructionELj8EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit38 ], [ %.02946.i.i.i.i, %20 ]
   %.not = icmp eq ptr %.028.i.i.i.i, %16
   br i1 %.not, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_11InstructionELj8EEES3_EEbOT_RKT0_.exit.thread, label %_ZN4llvm9SetVectorIPNS_11InstructionENS_11SmallVectorIS2_Lj8EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj8EE7makeBigEv.exit
 
@@ -50105,7 +50105,7 @@ _ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread: ; preds = %_ZNK4llvm10IRPos
   br i1 %130, label %_ZNK4llvm10Attributor7isRunOnEPNS_8FunctionE.exit38, label %.lr.ph.i.i.i.i.i.i.i33, !prof !115, !llvm.loop !611
 
 _ZNK4llvm10Attributor7isRunOnEPNS_8FunctionE.exit38: ; preds = %85, %124, %.lr.ph.i.i.i.i.i.i.i33, %73, %63, %112, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit, %2, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit, %_ZNK4llvm10IRPosition21isAnyCallSitePositionEv.exit.thread, %59
-  %.0 = phi i1 [ true, %63 ], [ false, %2 ], [ true, %59 ], [ false, %_ZNK4llvm10IRPosition21isAnyCallSitePositionEv.exit.thread ], [ false, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit ], [ true, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit ], [ false, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread ], [ true, %112 ], [ true, %73 ], [ %.not.i36.not.not, %124 ], [ %.not.i36.not.not, %.lr.ph.i.i.i.i.i.i.i33 ], [ true, %85 ]
+  %.0 = phi i1 [ true, %63 ], [ false, %2 ], [ true, %59 ], [ false, %_ZNK4llvm10IRPosition21isAnyCallSitePositionEv.exit.thread ], [ %.not.i36.not.not, %124 ], [ false, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit ], [ true, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit ], [ false, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread ], [ true, %112 ], [ true, %73 ], [ %.not.i36.not.not, %.lr.ph.i.i.i.i.i.i.i33 ], [ true, %85 ]
   ret i1 %.0
 }
 
@@ -51557,8 +51557,8 @@ _ZN4llvm12is_containedIRNS_11SmallVectorIPNS_5ValueELj4EEES3_EEbOT_RKT0_.exit.lo
   br label %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_5ValueELj4EEES3_EEbOT_RKT0_.exit
 
 _ZN4llvm12is_containedIRNS_11SmallVectorIPNS_5ValueELj4EEES3_EEbOT_RKT0_.exit: ; preds = %20, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_5ValueELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_5ValueELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit38, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_5ValueELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit40, %40, %46, %52
-  %59 = phi ptr [ %47, %46 ], [ %41, %40 ], [ %53, %52 ], [ %18, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_5ValueELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit40 ], [ %18, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_5ValueELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit38 ], [ %18, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_5ValueELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %18, %20 ]
-  %.028.i.i.i.i = phi ptr [ %.1.i.i.i.i, %46 ], [ %.029.lcssa.i.i.i.i, %40 ], [ %.2.i.i.i.i, %52 ], [ %58, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_5ValueELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit40 ], [ %57, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_5ValueELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit38 ], [ %56, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_5ValueELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %.02946.i.i.i.i, %20 ]
+  %59 = phi ptr [ %47, %46 ], [ %41, %40 ], [ %53, %52 ], [ %18, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_5ValueELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %18, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_5ValueELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit40 ], [ %18, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_5ValueELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit38 ], [ %18, %20 ]
+  %.028.i.i.i.i = phi ptr [ %.1.i.i.i.i, %46 ], [ %.029.lcssa.i.i.i.i, %40 ], [ %.2.i.i.i.i, %52 ], [ %56, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_5ValueELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %58, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_5ValueELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit40 ], [ %57, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_5ValueELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit38 ], [ %.02946.i.i.i.i, %20 ]
   %.not = icmp eq ptr %.028.i.i.i.i, %16
   br i1 %.not, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_5ValueELj4EEES3_EEbOT_RKT0_.exit.thread, label %_ZN4llvm9SetVectorIPNS_5ValueENS_11SmallVectorIS2_Lj4EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj4EE7makeBigEv.exit
 
@@ -51780,8 +51780,8 @@ _ZN4llvm12is_containedIRNS_11SmallVectorIPNS_11InstructionELj4EEES3_EEbOT_RKT0_.
   br label %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_11InstructionELj4EEES3_EEbOT_RKT0_.exit
 
 _ZN4llvm12is_containedIRNS_11SmallVectorIPNS_11InstructionELj4EEES3_EEbOT_RKT0_.exit: ; preds = %20, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_11InstructionELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_11InstructionELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit38, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_11InstructionELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit40, %40, %46, %52
-  %59 = phi ptr [ %47, %46 ], [ %41, %40 ], [ %53, %52 ], [ %18, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_11InstructionELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit40 ], [ %18, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_11InstructionELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit38 ], [ %18, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_11InstructionELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %18, %20 ]
-  %.028.i.i.i.i = phi ptr [ %.1.i.i.i.i, %46 ], [ %.029.lcssa.i.i.i.i, %40 ], [ %.2.i.i.i.i, %52 ], [ %58, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_11InstructionELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit40 ], [ %57, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_11InstructionELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit38 ], [ %56, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_11InstructionELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %.02946.i.i.i.i, %20 ]
+  %59 = phi ptr [ %47, %46 ], [ %41, %40 ], [ %53, %52 ], [ %18, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_11InstructionELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %18, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_11InstructionELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit40 ], [ %18, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_11InstructionELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit38 ], [ %18, %20 ]
+  %.028.i.i.i.i = phi ptr [ %.1.i.i.i.i, %46 ], [ %.029.lcssa.i.i.i.i, %40 ], [ %.2.i.i.i.i, %52 ], [ %56, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_11InstructionELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %58, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_11InstructionELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit40 ], [ %57, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_11InstructionELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit38 ], [ %.02946.i.i.i.i, %20 ]
   %.not = icmp eq ptr %.028.i.i.i.i, %16
   br i1 %.not, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_11InstructionELj4EEES3_EEbOT_RKT0_.exit.thread, label %_ZN4llvm9SetVectorIPNS_11InstructionENS_11SmallVectorIS2_Lj4EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj4EE7makeBigEv.exit
 
@@ -52994,7 +52994,7 @@ _ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread: ; preds = %_ZNK4llvm10IRPos
   br i1 %130, label %_ZNK4llvm10Attributor7isRunOnEPNS_8FunctionE.exit38, label %.lr.ph.i.i.i.i.i.i.i33, !prof !115, !llvm.loop !611
 
 _ZNK4llvm10Attributor7isRunOnEPNS_8FunctionE.exit38: ; preds = %85, %124, %.lr.ph.i.i.i.i.i.i.i33, %73, %63, %112, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit, %2, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit, %_ZNK4llvm10IRPosition21isAnyCallSitePositionEv.exit.thread, %59
-  %.0 = phi i1 [ true, %63 ], [ false, %2 ], [ true, %59 ], [ false, %_ZNK4llvm10IRPosition21isAnyCallSitePositionEv.exit.thread ], [ false, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit ], [ true, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit ], [ false, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread ], [ true, %112 ], [ true, %73 ], [ %.not.i36.not.not, %124 ], [ %.not.i36.not.not, %.lr.ph.i.i.i.i.i.i.i33 ], [ true, %85 ]
+  %.0 = phi i1 [ true, %63 ], [ false, %2 ], [ true, %59 ], [ false, %_ZNK4llvm10IRPosition21isAnyCallSitePositionEv.exit.thread ], [ %.not.i36.not.not, %124 ], [ false, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit ], [ true, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit ], [ false, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread ], [ true, %112 ], [ true, %73 ], [ %.not.i36.not.not, %.lr.ph.i.i.i.i.i.i.i33 ], [ true, %85 ]
   ret i1 %.0
 }
 
@@ -53849,7 +53849,7 @@ _ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread: ; preds = %_ZNK4llvm10IRPos
   br i1 %143, label %_ZNK4llvm10Attributor7isRunOnEPNS_8FunctionE.exit38, label %.lr.ph.i.i.i.i.i.i.i33, !prof !115, !llvm.loop !611
 
 _ZNK4llvm10Attributor7isRunOnEPNS_8FunctionE.exit38: ; preds = %98, %137, %.lr.ph.i.i.i.i.i.i.i33, %86, %76, %125, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit, %2, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit, %_ZNK4llvm10IRPosition15getPositionKindEv.exit, %_ZNK4llvm10IRPosition15getPositionKindEv.exit25.thread, %72
-  %.0 = phi i1 [ false, %2 ], [ true, %72 ], [ false, %_ZNK4llvm10IRPosition15getPositionKindEv.exit25.thread ], [ false, %_ZNK4llvm10IRPosition15getPositionKindEv.exit ], [ false, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit ], [ true, %76 ], [ true, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit ], [ false, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread ], [ true, %125 ], [ true, %86 ], [ %.not.i36.not.not, %137 ], [ %.not.i36.not.not, %.lr.ph.i.i.i.i.i.i.i33 ], [ true, %98 ]
+  %.0 = phi i1 [ %.not.i36.not.not, %137 ], [ false, %2 ], [ true, %72 ], [ false, %_ZNK4llvm10IRPosition15getPositionKindEv.exit25.thread ], [ false, %_ZNK4llvm10IRPosition15getPositionKindEv.exit ], [ false, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit ], [ true, %76 ], [ true, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit ], [ false, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread ], [ true, %125 ], [ true, %86 ], [ %.not.i36.not.not, %.lr.ph.i.i.i.i.i.i.i33 ], [ true, %98 ]
   ret i1 %.0
 }
 
@@ -56135,7 +56135,7 @@ _ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread: ; preds = %_ZNK4llvm10IRPos
   br i1 %143, label %_ZNK4llvm10Attributor7isRunOnEPNS_8FunctionE.exit38, label %.lr.ph.i.i.i.i.i.i.i33, !prof !115, !llvm.loop !611
 
 _ZNK4llvm10Attributor7isRunOnEPNS_8FunctionE.exit38: ; preds = %98, %137, %.lr.ph.i.i.i.i.i.i.i33, %86, %76, %125, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit, %2, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit, %_ZNK4llvm10IRPosition15getPositionKindEv.exit, %_ZNK4llvm10IRPosition15getPositionKindEv.exit25.thread, %72
-  %.0 = phi i1 [ false, %2 ], [ true, %72 ], [ false, %_ZNK4llvm10IRPosition15getPositionKindEv.exit25.thread ], [ false, %_ZNK4llvm10IRPosition15getPositionKindEv.exit ], [ false, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit ], [ true, %76 ], [ true, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit ], [ false, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread ], [ true, %125 ], [ true, %86 ], [ %.not.i36.not.not, %137 ], [ %.not.i36.not.not, %.lr.ph.i.i.i.i.i.i.i33 ], [ true, %98 ]
+  %.0 = phi i1 [ %.not.i36.not.not, %137 ], [ false, %2 ], [ true, %72 ], [ false, %_ZNK4llvm10IRPosition15getPositionKindEv.exit25.thread ], [ false, %_ZNK4llvm10IRPosition15getPositionKindEv.exit ], [ false, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit ], [ true, %76 ], [ true, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit ], [ false, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread ], [ true, %125 ], [ true, %86 ], [ %.not.i36.not.not, %.lr.ph.i.i.i.i.i.i.i33 ], [ true, %98 ]
   ret i1 %.0
 }
 
@@ -56835,7 +56835,7 @@ _ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread: ; preds = %_ZNK4llvm10IRPos
   br i1 %130, label %_ZNK4llvm10Attributor7isRunOnEPNS_8FunctionE.exit38, label %.lr.ph.i.i.i.i.i.i.i33, !prof !115, !llvm.loop !611
 
 _ZNK4llvm10Attributor7isRunOnEPNS_8FunctionE.exit38: ; preds = %85, %124, %.lr.ph.i.i.i.i.i.i.i33, %73, %63, %112, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit, %2, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit, %_ZNK4llvm10IRPosition21isAnyCallSitePositionEv.exit.thread, %59
-  %.0 = phi i1 [ true, %63 ], [ false, %2 ], [ true, %59 ], [ false, %_ZNK4llvm10IRPosition21isAnyCallSitePositionEv.exit.thread ], [ false, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit ], [ true, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit ], [ false, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread ], [ true, %112 ], [ true, %73 ], [ %.not.i36.not.not, %124 ], [ %.not.i36.not.not, %.lr.ph.i.i.i.i.i.i.i33 ], [ true, %85 ]
+  %.0 = phi i1 [ true, %63 ], [ false, %2 ], [ true, %59 ], [ false, %_ZNK4llvm10IRPosition21isAnyCallSitePositionEv.exit.thread ], [ %.not.i36.not.not, %124 ], [ false, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit ], [ true, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit ], [ false, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread ], [ true, %112 ], [ true, %73 ], [ %.not.i36.not.not, %.lr.ph.i.i.i.i.i.i.i33 ], [ true, %85 ]
   ret i1 %.0
 }
 
@@ -57578,7 +57578,7 @@ _ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread: ; preds = %_ZNK4llvm10IRPos
   br i1 %111, label %_ZNK4llvm10Attributor7isRunOnEPNS_8FunctionE.exit38, label %.lr.ph.i.i.i.i.i.i.i33, !prof !115, !llvm.loop !611
 
 _ZNK4llvm10Attributor7isRunOnEPNS_8FunctionE.exit38: ; preds = %66, %105, %.lr.ph.i.i.i.i.i.i.i33, %54, %44, %93, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit, %2, %_ZNK4llvm10IRPosition21getAssociatedFunctionEv.exit, %40
-  %.0 = phi i1 [ false, %2 ], [ true, %40 ], [ false, %_ZNK4llvm10IRPosition21getAssociatedFunctionEv.exit ], [ true, %44 ], [ true, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit ], [ false, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread ], [ true, %93 ], [ true, %54 ], [ %.not.i36.not.not, %105 ], [ %.not.i36.not.not, %.lr.ph.i.i.i.i.i.i.i33 ], [ true, %66 ]
+  %.0 = phi i1 [ %.not.i36.not.not, %105 ], [ false, %2 ], [ true, %40 ], [ false, %_ZNK4llvm10IRPosition21getAssociatedFunctionEv.exit ], [ true, %44 ], [ true, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit ], [ false, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread ], [ true, %93 ], [ true, %54 ], [ %.not.i36.not.not, %.lr.ph.i.i.i.i.i.i.i33 ], [ true, %66 ]
   ret i1 %.0
 }
 
@@ -59281,7 +59281,7 @@ _ZNK4llvm9SetVectorIPNS_8FunctionENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_1
   br label %"_ZZN4llvm10Attributor29identifyDeadInternalFunctionsEvENK3$_0clENS_16AbstractCallSiteE.exit"
 
 "_ZZN4llvm10Attributor29identifyDeadInternalFunctionsEvENK3$_0clENS_16AbstractCallSiteE.exit": ; preds = %.lr.ph.i.i.i.i.i.i.i, %.lr.ph.i.i.i, %_ZN4llvm16AbstractCallSiteC2EOS0_.exit, %20, %_ZNK4llvm9SetVectorIPNS_8FunctionENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE5countERKS2_.exit.i, %58, %66
-  %68 = phi i1 [ true, %_ZN4llvm16AbstractCallSiteC2EOS0_.exit ], [ false, %_ZNK4llvm9SetVectorIPNS_8FunctionENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE5countERKS2_.exit.i ], [ false, %20 ], [ %.not3.i, %66 ], [ true, %58 ], [ %.not11.i.not, %.lr.ph.i.i.i ], [ false, %.lr.ph.i.i.i.i.i.i.i ]
+  %68 = phi i1 [ true, %_ZN4llvm16AbstractCallSiteC2EOS0_.exit ], [ false, %_ZNK4llvm9SetVectorIPNS_8FunctionENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE5countERKS2_.exit.i ], [ %.not11.i.not, %.lr.ph.i.i.i ], [ false, %20 ], [ %.not3.i, %66 ], [ true, %58 ], [ false, %.lr.ph.i.i.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %69 = load ptr, ptr %7, align 8, !tbaa !32
   %70 = icmp eq ptr %69, %8
@@ -63712,7 +63712,7 @@ _ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread: ; preds = %_ZNK4llvm10IRPos
   br i1 %130, label %_ZNK4llvm10Attributor7isRunOnEPNS_8FunctionE.exit38, label %.lr.ph.i.i.i.i.i.i.i33, !prof !115, !llvm.loop !611
 
 _ZNK4llvm10Attributor7isRunOnEPNS_8FunctionE.exit38: ; preds = %85, %124, %.lr.ph.i.i.i.i.i.i.i33, %73, %63, %112, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit, %2, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit, %_ZNK4llvm10IRPosition21isAnyCallSitePositionEv.exit.thread, %59
-  %.0 = phi i1 [ true, %63 ], [ false, %2 ], [ true, %59 ], [ false, %_ZNK4llvm10IRPosition21isAnyCallSitePositionEv.exit.thread ], [ false, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit ], [ true, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit ], [ false, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread ], [ true, %112 ], [ true, %73 ], [ %.not.i36.not.not, %124 ], [ %.not.i36.not.not, %.lr.ph.i.i.i.i.i.i.i33 ], [ true, %85 ]
+  %.0 = phi i1 [ true, %63 ], [ false, %2 ], [ true, %59 ], [ false, %_ZNK4llvm10IRPosition21isAnyCallSitePositionEv.exit.thread ], [ %.not.i36.not.not, %124 ], [ false, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit ], [ true, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit ], [ false, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread ], [ true, %112 ], [ true, %73 ], [ %.not.i36.not.not, %.lr.ph.i.i.i.i.i.i.i33 ], [ true, %85 ]
   ret i1 %.0
 }
 
@@ -64512,7 +64512,7 @@ _ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread: ; preds = %_ZNK4llvm10IRPos
   br i1 %130, label %_ZNK4llvm10Attributor7isRunOnEPNS_8FunctionE.exit38, label %.lr.ph.i.i.i.i.i.i.i33, !prof !115, !llvm.loop !611
 
 _ZNK4llvm10Attributor7isRunOnEPNS_8FunctionE.exit38: ; preds = %85, %124, %.lr.ph.i.i.i.i.i.i.i33, %73, %63, %112, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit, %2, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit, %_ZNK4llvm10IRPosition21isAnyCallSitePositionEv.exit.thread, %59
-  %.0 = phi i1 [ true, %63 ], [ false, %2 ], [ true, %59 ], [ false, %_ZNK4llvm10IRPosition21isAnyCallSitePositionEv.exit.thread ], [ false, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit ], [ true, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit ], [ false, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread ], [ true, %112 ], [ true, %73 ], [ %.not.i36.not.not, %124 ], [ %.not.i36.not.not, %.lr.ph.i.i.i.i.i.i.i33 ], [ true, %85 ]
+  %.0 = phi i1 [ true, %63 ], [ false, %2 ], [ true, %59 ], [ false, %_ZNK4llvm10IRPosition21isAnyCallSitePositionEv.exit.thread ], [ %.not.i36.not.not, %124 ], [ false, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit ], [ true, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit ], [ false, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread ], [ true, %112 ], [ true, %73 ], [ %.not.i36.not.not, %.lr.ph.i.i.i.i.i.i.i33 ], [ true, %85 ]
   ret i1 %.0
 }
 
@@ -65312,7 +65312,7 @@ _ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread: ; preds = %_ZNK4llvm10IRPos
   br i1 %130, label %_ZNK4llvm10Attributor7isRunOnEPNS_8FunctionE.exit38, label %.lr.ph.i.i.i.i.i.i.i33, !prof !115, !llvm.loop !611
 
 _ZNK4llvm10Attributor7isRunOnEPNS_8FunctionE.exit38: ; preds = %85, %124, %.lr.ph.i.i.i.i.i.i.i33, %73, %63, %112, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit, %2, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit, %_ZNK4llvm10IRPosition21isAnyCallSitePositionEv.exit.thread, %59
-  %.0 = phi i1 [ true, %63 ], [ false, %2 ], [ true, %59 ], [ false, %_ZNK4llvm10IRPosition21isAnyCallSitePositionEv.exit.thread ], [ false, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit ], [ true, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit ], [ false, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread ], [ true, %112 ], [ true, %73 ], [ %.not.i36.not.not, %124 ], [ %.not.i36.not.not, %.lr.ph.i.i.i.i.i.i.i33 ], [ true, %85 ]
+  %.0 = phi i1 [ true, %63 ], [ false, %2 ], [ true, %59 ], [ false, %_ZNK4llvm10IRPosition21isAnyCallSitePositionEv.exit.thread ], [ %.not.i36.not.not, %124 ], [ false, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit ], [ true, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit ], [ false, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread ], [ true, %112 ], [ true, %73 ], [ %.not.i36.not.not, %.lr.ph.i.i.i.i.i.i.i33 ], [ true, %85 ]
   ret i1 %.0
 }
 
@@ -66175,7 +66175,7 @@ _ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread: ; preds = %_ZNK4llvm10IRPos
   br i1 %130, label %_ZNK4llvm10Attributor7isRunOnEPNS_8FunctionE.exit38, label %.lr.ph.i.i.i.i.i.i.i33, !prof !115, !llvm.loop !611
 
 _ZNK4llvm10Attributor7isRunOnEPNS_8FunctionE.exit38: ; preds = %85, %124, %.lr.ph.i.i.i.i.i.i.i33, %73, %63, %112, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit, %2, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit, %_ZNK4llvm10IRPosition21isAnyCallSitePositionEv.exit.thread, %59
-  %.0 = phi i1 [ true, %63 ], [ false, %2 ], [ true, %59 ], [ false, %_ZNK4llvm10IRPosition21isAnyCallSitePositionEv.exit.thread ], [ false, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit ], [ true, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit ], [ false, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread ], [ true, %112 ], [ true, %73 ], [ %.not.i36.not.not, %124 ], [ %.not.i36.not.not, %.lr.ph.i.i.i.i.i.i.i33 ], [ true, %85 ]
+  %.0 = phi i1 [ true, %63 ], [ false, %2 ], [ true, %59 ], [ false, %_ZNK4llvm10IRPosition21isAnyCallSitePositionEv.exit.thread ], [ %.not.i36.not.not, %124 ], [ false, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit ], [ true, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit ], [ false, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread ], [ true, %112 ], [ true, %73 ], [ %.not.i36.not.not, %.lr.ph.i.i.i.i.i.i.i33 ], [ true, %85 ]
   ret i1 %.0
 }
 
@@ -67176,7 +67176,7 @@ _ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread: ; preds = %_ZNK4llvm10IRPos
   br i1 %130, label %_ZNK4llvm10Attributor7isRunOnEPNS_8FunctionE.exit38, label %.lr.ph.i.i.i.i.i.i.i33, !prof !115, !llvm.loop !611
 
 _ZNK4llvm10Attributor7isRunOnEPNS_8FunctionE.exit38: ; preds = %85, %124, %.lr.ph.i.i.i.i.i.i.i33, %73, %63, %112, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit, %2, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit, %_ZNK4llvm10IRPosition21isAnyCallSitePositionEv.exit.thread, %59
-  %.0 = phi i1 [ true, %63 ], [ false, %2 ], [ true, %59 ], [ false, %_ZNK4llvm10IRPosition21isAnyCallSitePositionEv.exit.thread ], [ false, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit ], [ true, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit ], [ false, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread ], [ true, %112 ], [ true, %73 ], [ %.not.i36.not.not, %124 ], [ %.not.i36.not.not, %.lr.ph.i.i.i.i.i.i.i33 ], [ true, %85 ]
+  %.0 = phi i1 [ true, %63 ], [ false, %2 ], [ true, %59 ], [ false, %_ZNK4llvm10IRPosition21isAnyCallSitePositionEv.exit.thread ], [ %.not.i36.not.not, %124 ], [ false, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit ], [ true, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit ], [ false, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread ], [ true, %112 ], [ true, %73 ], [ %.not.i36.not.not, %.lr.ph.i.i.i.i.i.i.i33 ], [ true, %85 ]
   ret i1 %.0
 }
 
@@ -67976,7 +67976,7 @@ _ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread: ; preds = %_ZNK4llvm10IRPos
   br i1 %130, label %_ZNK4llvm10Attributor7isRunOnEPNS_8FunctionE.exit38, label %.lr.ph.i.i.i.i.i.i.i33, !prof !115, !llvm.loop !611
 
 _ZNK4llvm10Attributor7isRunOnEPNS_8FunctionE.exit38: ; preds = %85, %124, %.lr.ph.i.i.i.i.i.i.i33, %73, %63, %112, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit, %2, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit, %_ZNK4llvm10IRPosition21isAnyCallSitePositionEv.exit.thread, %59
-  %.0 = phi i1 [ true, %63 ], [ false, %2 ], [ true, %59 ], [ false, %_ZNK4llvm10IRPosition21isAnyCallSitePositionEv.exit.thread ], [ false, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit ], [ true, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit ], [ false, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread ], [ true, %112 ], [ true, %73 ], [ %.not.i36.not.not, %124 ], [ %.not.i36.not.not, %.lr.ph.i.i.i.i.i.i.i33 ], [ true, %85 ]
+  %.0 = phi i1 [ true, %63 ], [ false, %2 ], [ true, %59 ], [ false, %_ZNK4llvm10IRPosition21isAnyCallSitePositionEv.exit.thread ], [ %.not.i36.not.not, %124 ], [ false, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit ], [ true, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit ], [ false, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread ], [ true, %112 ], [ true, %73 ], [ %.not.i36.not.not, %.lr.ph.i.i.i.i.i.i.i33 ], [ true, %85 ]
   ret i1 %.0
 }
 
@@ -68776,7 +68776,7 @@ _ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread: ; preds = %_ZNK4llvm10IRPos
   br i1 %130, label %_ZNK4llvm10Attributor7isRunOnEPNS_8FunctionE.exit38, label %.lr.ph.i.i.i.i.i.i.i33, !prof !115, !llvm.loop !611
 
 _ZNK4llvm10Attributor7isRunOnEPNS_8FunctionE.exit38: ; preds = %85, %124, %.lr.ph.i.i.i.i.i.i.i33, %73, %63, %112, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit, %2, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit, %_ZNK4llvm10IRPosition21isAnyCallSitePositionEv.exit.thread, %59
-  %.0 = phi i1 [ true, %63 ], [ false, %2 ], [ true, %59 ], [ false, %_ZNK4llvm10IRPosition21isAnyCallSitePositionEv.exit.thread ], [ false, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit ], [ true, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit ], [ false, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread ], [ true, %112 ], [ true, %73 ], [ %.not.i36.not.not, %124 ], [ %.not.i36.not.not, %.lr.ph.i.i.i.i.i.i.i33 ], [ true, %85 ]
+  %.0 = phi i1 [ true, %63 ], [ false, %2 ], [ true, %59 ], [ false, %_ZNK4llvm10IRPosition21isAnyCallSitePositionEv.exit.thread ], [ %.not.i36.not.not, %124 ], [ false, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit ], [ true, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit ], [ false, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread ], [ true, %112 ], [ true, %73 ], [ %.not.i36.not.not, %.lr.ph.i.i.i.i.i.i.i33 ], [ true, %85 ]
   ret i1 %.0
 }
 
@@ -69576,7 +69576,7 @@ _ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread: ; preds = %_ZNK4llvm10IRPos
   br i1 %130, label %_ZNK4llvm10Attributor7isRunOnEPNS_8FunctionE.exit38, label %.lr.ph.i.i.i.i.i.i.i33, !prof !115, !llvm.loop !611
 
 _ZNK4llvm10Attributor7isRunOnEPNS_8FunctionE.exit38: ; preds = %85, %124, %.lr.ph.i.i.i.i.i.i.i33, %73, %63, %112, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit, %2, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit, %_ZNK4llvm10IRPosition21isAnyCallSitePositionEv.exit.thread, %59
-  %.0 = phi i1 [ true, %63 ], [ false, %2 ], [ true, %59 ], [ false, %_ZNK4llvm10IRPosition21isAnyCallSitePositionEv.exit.thread ], [ false, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit ], [ true, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit ], [ false, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread ], [ true, %112 ], [ true, %73 ], [ %.not.i36.not.not, %124 ], [ %.not.i36.not.not, %.lr.ph.i.i.i.i.i.i.i33 ], [ true, %85 ]
+  %.0 = phi i1 [ true, %63 ], [ false, %2 ], [ true, %59 ], [ false, %_ZNK4llvm10IRPosition21isAnyCallSitePositionEv.exit.thread ], [ %.not.i36.not.not, %124 ], [ false, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit ], [ true, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit ], [ false, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread ], [ true, %112 ], [ true, %73 ], [ %.not.i36.not.not, %.lr.ph.i.i.i.i.i.i.i33 ], [ true, %85 ]
   ret i1 %.0
 }
 
@@ -70376,7 +70376,7 @@ _ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread: ; preds = %_ZNK4llvm10IRPos
   br i1 %130, label %_ZNK4llvm10Attributor7isRunOnEPNS_8FunctionE.exit38, label %.lr.ph.i.i.i.i.i.i.i33, !prof !115, !llvm.loop !611
 
 _ZNK4llvm10Attributor7isRunOnEPNS_8FunctionE.exit38: ; preds = %85, %124, %.lr.ph.i.i.i.i.i.i.i33, %73, %63, %112, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit, %2, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit, %_ZNK4llvm10IRPosition21isAnyCallSitePositionEv.exit.thread, %59
-  %.0 = phi i1 [ true, %63 ], [ false, %2 ], [ true, %59 ], [ false, %_ZNK4llvm10IRPosition21isAnyCallSitePositionEv.exit.thread ], [ false, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit ], [ true, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit ], [ false, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread ], [ true, %112 ], [ true, %73 ], [ %.not.i36.not.not, %124 ], [ %.not.i36.not.not, %.lr.ph.i.i.i.i.i.i.i33 ], [ true, %85 ]
+  %.0 = phi i1 [ true, %63 ], [ false, %2 ], [ true, %59 ], [ false, %_ZNK4llvm10IRPosition21isAnyCallSitePositionEv.exit.thread ], [ %.not.i36.not.not, %124 ], [ false, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit ], [ true, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit ], [ false, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread ], [ true, %112 ], [ true, %73 ], [ %.not.i36.not.not, %.lr.ph.i.i.i.i.i.i.i33 ], [ true, %85 ]
   ret i1 %.0
 }
 
@@ -71176,7 +71176,7 @@ _ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread: ; preds = %_ZNK4llvm10IRPos
   br i1 %130, label %_ZNK4llvm10Attributor7isRunOnEPNS_8FunctionE.exit38, label %.lr.ph.i.i.i.i.i.i.i33, !prof !115, !llvm.loop !611
 
 _ZNK4llvm10Attributor7isRunOnEPNS_8FunctionE.exit38: ; preds = %85, %124, %.lr.ph.i.i.i.i.i.i.i33, %73, %63, %112, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit, %2, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit, %_ZNK4llvm10IRPosition21isAnyCallSitePositionEv.exit.thread, %59
-  %.0 = phi i1 [ true, %63 ], [ false, %2 ], [ true, %59 ], [ false, %_ZNK4llvm10IRPosition21isAnyCallSitePositionEv.exit.thread ], [ false, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit ], [ true, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit ], [ false, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread ], [ true, %112 ], [ true, %73 ], [ %.not.i36.not.not, %124 ], [ %.not.i36.not.not, %.lr.ph.i.i.i.i.i.i.i33 ], [ true, %85 ]
+  %.0 = phi i1 [ true, %63 ], [ false, %2 ], [ true, %59 ], [ false, %_ZNK4llvm10IRPosition21isAnyCallSitePositionEv.exit.thread ], [ %.not.i36.not.not, %124 ], [ false, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit ], [ true, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit ], [ false, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread ], [ true, %112 ], [ true, %73 ], [ %.not.i36.not.not, %.lr.ph.i.i.i.i.i.i.i33 ], [ true, %85 ]
   ret i1 %.0
 }
 
@@ -71976,7 +71976,7 @@ _ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread: ; preds = %_ZNK4llvm10IRPos
   br i1 %130, label %_ZNK4llvm10Attributor7isRunOnEPNS_8FunctionE.exit38, label %.lr.ph.i.i.i.i.i.i.i33, !prof !115, !llvm.loop !611
 
 _ZNK4llvm10Attributor7isRunOnEPNS_8FunctionE.exit38: ; preds = %85, %124, %.lr.ph.i.i.i.i.i.i.i33, %73, %63, %112, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit, %2, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit, %_ZNK4llvm10IRPosition21isAnyCallSitePositionEv.exit.thread, %59
-  %.0 = phi i1 [ true, %63 ], [ false, %2 ], [ true, %59 ], [ false, %_ZNK4llvm10IRPosition21isAnyCallSitePositionEv.exit.thread ], [ false, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit ], [ true, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit ], [ false, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread ], [ true, %112 ], [ true, %73 ], [ %.not.i36.not.not, %124 ], [ %.not.i36.not.not, %.lr.ph.i.i.i.i.i.i.i33 ], [ true, %85 ]
+  %.0 = phi i1 [ true, %63 ], [ false, %2 ], [ true, %59 ], [ false, %_ZNK4llvm10IRPosition21isAnyCallSitePositionEv.exit.thread ], [ %.not.i36.not.not, %124 ], [ false, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit ], [ true, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit ], [ false, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread ], [ true, %112 ], [ true, %73 ], [ %.not.i36.not.not, %.lr.ph.i.i.i.i.i.i.i33 ], [ true, %85 ]
   ret i1 %.0
 }
 
@@ -72778,7 +72778,7 @@ _ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread: ; preds = %_ZNK4llvm10IRPos
   br i1 %130, label %_ZNK4llvm10Attributor7isRunOnEPNS_8FunctionE.exit38, label %.lr.ph.i.i.i.i.i.i.i33, !prof !115, !llvm.loop !611
 
 _ZNK4llvm10Attributor7isRunOnEPNS_8FunctionE.exit38: ; preds = %85, %124, %.lr.ph.i.i.i.i.i.i.i33, %73, %63, %112, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit, %2, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit, %_ZNK4llvm10IRPosition21isAnyCallSitePositionEv.exit.thread, %59
-  %.0 = phi i1 [ true, %63 ], [ false, %2 ], [ true, %59 ], [ false, %_ZNK4llvm10IRPosition21isAnyCallSitePositionEv.exit.thread ], [ false, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit ], [ true, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit ], [ false, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread ], [ true, %112 ], [ true, %73 ], [ %.not.i36.not.not, %124 ], [ %.not.i36.not.not, %.lr.ph.i.i.i.i.i.i.i33 ], [ true, %85 ]
+  %.0 = phi i1 [ true, %63 ], [ false, %2 ], [ true, %59 ], [ false, %_ZNK4llvm10IRPosition21isAnyCallSitePositionEv.exit.thread ], [ %.not.i36.not.not, %124 ], [ false, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit ], [ true, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit ], [ false, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread ], [ true, %112 ], [ true, %73 ], [ %.not.i36.not.not, %.lr.ph.i.i.i.i.i.i.i33 ], [ true, %85 ]
   ret i1 %.0
 }
 
@@ -73601,7 +73601,7 @@ _ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread: ; preds = %_ZNK4llvm10IRPos
   br i1 %130, label %_ZNK4llvm10Attributor7isRunOnEPNS_8FunctionE.exit38, label %.lr.ph.i.i.i.i.i.i.i33, !prof !115, !llvm.loop !611
 
 _ZNK4llvm10Attributor7isRunOnEPNS_8FunctionE.exit38: ; preds = %85, %124, %.lr.ph.i.i.i.i.i.i.i33, %73, %63, %112, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit, %2, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit, %_ZNK4llvm10IRPosition21isAnyCallSitePositionEv.exit.thread, %59
-  %.0 = phi i1 [ true, %63 ], [ false, %2 ], [ true, %59 ], [ false, %_ZNK4llvm10IRPosition21isAnyCallSitePositionEv.exit.thread ], [ false, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit ], [ true, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit ], [ false, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread ], [ true, %112 ], [ true, %73 ], [ %.not.i36.not.not, %124 ], [ %.not.i36.not.not, %.lr.ph.i.i.i.i.i.i.i33 ], [ true, %85 ]
+  %.0 = phi i1 [ true, %63 ], [ false, %2 ], [ true, %59 ], [ false, %_ZNK4llvm10IRPosition21isAnyCallSitePositionEv.exit.thread ], [ %.not.i36.not.not, %124 ], [ false, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit ], [ true, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit ], [ false, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread ], [ true, %112 ], [ true, %73 ], [ %.not.i36.not.not, %.lr.ph.i.i.i.i.i.i.i33 ], [ true, %85 ]
   ret i1 %.0
 }
 
@@ -74426,7 +74426,7 @@ _ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread: ; preds = %_ZNK4llvm10IRPos
   br i1 %130, label %_ZNK4llvm10Attributor7isRunOnEPNS_8FunctionE.exit38, label %.lr.ph.i.i.i.i.i.i.i33, !prof !115, !llvm.loop !611
 
 _ZNK4llvm10Attributor7isRunOnEPNS_8FunctionE.exit38: ; preds = %85, %124, %.lr.ph.i.i.i.i.i.i.i33, %73, %63, %112, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit, %2, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit, %_ZNK4llvm10IRPosition21isAnyCallSitePositionEv.exit.thread, %59
-  %.0 = phi i1 [ true, %63 ], [ false, %2 ], [ true, %59 ], [ false, %_ZNK4llvm10IRPosition21isAnyCallSitePositionEv.exit.thread ], [ false, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit ], [ true, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit ], [ false, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread ], [ true, %112 ], [ true, %73 ], [ %.not.i36.not.not, %124 ], [ %.not.i36.not.not, %.lr.ph.i.i.i.i.i.i.i33 ], [ true, %85 ]
+  %.0 = phi i1 [ true, %63 ], [ false, %2 ], [ true, %59 ], [ false, %_ZNK4llvm10IRPosition21isAnyCallSitePositionEv.exit.thread ], [ %.not.i36.not.not, %124 ], [ false, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit ], [ true, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit ], [ false, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread ], [ true, %112 ], [ true, %73 ], [ %.not.i36.not.not, %.lr.ph.i.i.i.i.i.i.i33 ], [ true, %85 ]
   ret i1 %.0
 }
 
@@ -75268,7 +75268,7 @@ _ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread: ; preds = %_ZNK4llvm10IRPos
   br i1 %143, label %_ZNK4llvm10Attributor7isRunOnEPNS_8FunctionE.exit38, label %.lr.ph.i.i.i.i.i.i.i33, !prof !115, !llvm.loop !611
 
 _ZNK4llvm10Attributor7isRunOnEPNS_8FunctionE.exit38: ; preds = %98, %137, %.lr.ph.i.i.i.i.i.i.i33, %86, %76, %125, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit, %2, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit, %_ZNK4llvm10IRPosition15getPositionKindEv.exit, %_ZNK4llvm10IRPosition15getPositionKindEv.exit25.thread, %72
-  %.0 = phi i1 [ false, %2 ], [ true, %72 ], [ false, %_ZNK4llvm10IRPosition15getPositionKindEv.exit25.thread ], [ false, %_ZNK4llvm10IRPosition15getPositionKindEv.exit ], [ false, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit ], [ true, %76 ], [ true, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit ], [ false, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread ], [ true, %125 ], [ true, %86 ], [ %.not.i36.not.not, %137 ], [ %.not.i36.not.not, %.lr.ph.i.i.i.i.i.i.i33 ], [ true, %98 ]
+  %.0 = phi i1 [ %.not.i36.not.not, %137 ], [ false, %2 ], [ true, %72 ], [ false, %_ZNK4llvm10IRPosition15getPositionKindEv.exit25.thread ], [ false, %_ZNK4llvm10IRPosition15getPositionKindEv.exit ], [ false, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit ], [ true, %76 ], [ true, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit ], [ false, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread ], [ true, %125 ], [ true, %86 ], [ %.not.i36.not.not, %.lr.ph.i.i.i.i.i.i.i33 ], [ true, %98 ]
   ret i1 %.0
 }
 
@@ -76076,7 +76076,7 @@ _ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread: ; preds = %_ZNK4llvm10IRPos
   br i1 %130, label %_ZNK4llvm10Attributor7isRunOnEPNS_8FunctionE.exit38, label %.lr.ph.i.i.i.i.i.i.i33, !prof !115, !llvm.loop !611
 
 _ZNK4llvm10Attributor7isRunOnEPNS_8FunctionE.exit38: ; preds = %85, %124, %.lr.ph.i.i.i.i.i.i.i33, %73, %63, %112, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit, %2, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit, %_ZNK4llvm10IRPosition21isAnyCallSitePositionEv.exit.thread, %59
-  %.0 = phi i1 [ true, %63 ], [ false, %2 ], [ true, %59 ], [ false, %_ZNK4llvm10IRPosition21isAnyCallSitePositionEv.exit.thread ], [ false, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit ], [ true, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit ], [ false, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread ], [ true, %112 ], [ true, %73 ], [ %.not.i36.not.not, %124 ], [ %.not.i36.not.not, %.lr.ph.i.i.i.i.i.i.i33 ], [ true, %85 ]
+  %.0 = phi i1 [ true, %63 ], [ false, %2 ], [ true, %59 ], [ false, %_ZNK4llvm10IRPosition21isAnyCallSitePositionEv.exit.thread ], [ %.not.i36.not.not, %124 ], [ false, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit ], [ true, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit ], [ false, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread ], [ true, %112 ], [ true, %73 ], [ %.not.i36.not.not, %.lr.ph.i.i.i.i.i.i.i33 ], [ true, %85 ]
   ret i1 %.0
 }
 
@@ -76636,7 +76636,7 @@ _ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread: ; preds = %59, %64, %_ZNK4l
   br label %_ZN4llvm11AANoFPClass24isValidIRPositionForInitERNS_10AttributorERKNS_10IRPositionE.exit
 
 _ZN4llvm11AANoFPClass24isValidIRPositionForInitERNS_10AttributorERKNS_10IRPositionE.exit: ; preds = %16, %.lr.ph.i.i.i.i.i, %25, %70, %64, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread20, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread
-  %.0 = phi i1 [ false, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread ], [ true, %70 ], [ false, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread20 ], [ false, %64 ], [ false, %25 ], [ false, %.lr.ph.i.i.i.i.i ], [ false, %16 ]
+  %.0 = phi i1 [ false, %.lr.ph.i.i.i.i.i ], [ false, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread ], [ true, %70 ], [ false, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread20 ], [ false, %64 ], [ false, %25 ], [ false, %16 ]
   ret i1 %.0
 }
 
@@ -76923,7 +76923,7 @@ _ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread: ; preds = %_ZNK4llvm10IRPos
   br i1 %130, label %_ZNK4llvm10Attributor7isRunOnEPNS_8FunctionE.exit38, label %.lr.ph.i.i.i.i.i.i.i33, !prof !115, !llvm.loop !611
 
 _ZNK4llvm10Attributor7isRunOnEPNS_8FunctionE.exit38: ; preds = %85, %124, %.lr.ph.i.i.i.i.i.i.i33, %73, %63, %112, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit, %2, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit, %_ZNK4llvm10IRPosition21isAnyCallSitePositionEv.exit.thread, %59
-  %.0 = phi i1 [ true, %63 ], [ false, %2 ], [ true, %59 ], [ false, %_ZNK4llvm10IRPosition21isAnyCallSitePositionEv.exit.thread ], [ false, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit ], [ true, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit ], [ false, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread ], [ true, %112 ], [ true, %73 ], [ %.not.i36.not.not, %124 ], [ %.not.i36.not.not, %.lr.ph.i.i.i.i.i.i.i33 ], [ true, %85 ]
+  %.0 = phi i1 [ true, %63 ], [ false, %2 ], [ true, %59 ], [ false, %_ZNK4llvm10IRPosition21isAnyCallSitePositionEv.exit.thread ], [ %.not.i36.not.not, %124 ], [ false, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit ], [ true, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit ], [ false, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread ], [ true, %112 ], [ true, %73 ], [ %.not.i36.not.not, %.lr.ph.i.i.i.i.i.i.i33 ], [ true, %85 ]
   ret i1 %.0
 }
 
@@ -77778,7 +77778,7 @@ _ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread: ; preds = %_ZNK4llvm10IRPos
   br i1 %143, label %_ZNK4llvm10Attributor7isRunOnEPNS_8FunctionE.exit38, label %.lr.ph.i.i.i.i.i.i.i33, !prof !115, !llvm.loop !611
 
 _ZNK4llvm10Attributor7isRunOnEPNS_8FunctionE.exit38: ; preds = %98, %137, %.lr.ph.i.i.i.i.i.i.i33, %86, %76, %125, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit, %2, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit, %_ZNK4llvm10IRPosition15getPositionKindEv.exit, %_ZNK4llvm10IRPosition15getPositionKindEv.exit25.thread, %72
-  %.0 = phi i1 [ false, %2 ], [ true, %72 ], [ false, %_ZNK4llvm10IRPosition15getPositionKindEv.exit25.thread ], [ false, %_ZNK4llvm10IRPosition15getPositionKindEv.exit ], [ false, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit ], [ true, %76 ], [ true, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit ], [ false, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread ], [ true, %125 ], [ true, %86 ], [ %.not.i36.not.not, %137 ], [ %.not.i36.not.not, %.lr.ph.i.i.i.i.i.i.i33 ], [ true, %98 ]
+  %.0 = phi i1 [ %.not.i36.not.not, %137 ], [ false, %2 ], [ true, %72 ], [ false, %_ZNK4llvm10IRPosition15getPositionKindEv.exit25.thread ], [ false, %_ZNK4llvm10IRPosition15getPositionKindEv.exit ], [ false, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit ], [ true, %76 ], [ true, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit ], [ false, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread ], [ true, %125 ], [ true, %86 ], [ %.not.i36.not.not, %.lr.ph.i.i.i.i.i.i.i33 ], [ true, %98 ]
   ret i1 %.0
 }
 
@@ -78679,7 +78679,7 @@ _ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread: ; preds = %_ZNK4llvm10IRPos
   br i1 %130, label %_ZNK4llvm10Attributor7isRunOnEPNS_8FunctionE.exit38, label %.lr.ph.i.i.i.i.i.i.i33, !prof !115, !llvm.loop !611
 
 _ZNK4llvm10Attributor7isRunOnEPNS_8FunctionE.exit38: ; preds = %85, %124, %.lr.ph.i.i.i.i.i.i.i33, %73, %63, %112, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit, %2, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit, %_ZNK4llvm10IRPosition21isAnyCallSitePositionEv.exit.thread, %59
-  %.0 = phi i1 [ true, %63 ], [ false, %2 ], [ true, %59 ], [ false, %_ZNK4llvm10IRPosition21isAnyCallSitePositionEv.exit.thread ], [ false, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit ], [ true, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit ], [ false, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread ], [ true, %112 ], [ true, %73 ], [ %.not.i36.not.not, %124 ], [ %.not.i36.not.not, %.lr.ph.i.i.i.i.i.i.i33 ], [ true, %85 ]
+  %.0 = phi i1 [ true, %63 ], [ false, %2 ], [ true, %59 ], [ false, %_ZNK4llvm10IRPosition21isAnyCallSitePositionEv.exit.thread ], [ %.not.i36.not.not, %124 ], [ false, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit ], [ true, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit ], [ false, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread ], [ true, %112 ], [ true, %73 ], [ %.not.i36.not.not, %.lr.ph.i.i.i.i.i.i.i33 ], [ true, %85 ]
   ret i1 %.0
 }
 
@@ -79538,7 +79538,7 @@ _ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread: ; preds = %_ZNK4llvm10IRPos
   br i1 %143, label %_ZNK4llvm10Attributor7isRunOnEPNS_8FunctionE.exit38, label %.lr.ph.i.i.i.i.i.i.i33, !prof !115, !llvm.loop !611
 
 _ZNK4llvm10Attributor7isRunOnEPNS_8FunctionE.exit38: ; preds = %98, %137, %.lr.ph.i.i.i.i.i.i.i33, %86, %76, %125, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit, %2, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit, %_ZNK4llvm10IRPosition15getPositionKindEv.exit, %_ZNK4llvm10IRPosition15getPositionKindEv.exit25.thread, %72
-  %.0 = phi i1 [ false, %2 ], [ true, %72 ], [ false, %_ZNK4llvm10IRPosition15getPositionKindEv.exit25.thread ], [ false, %_ZNK4llvm10IRPosition15getPositionKindEv.exit ], [ false, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit ], [ true, %76 ], [ true, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit ], [ false, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread ], [ true, %125 ], [ true, %86 ], [ %.not.i36.not.not, %137 ], [ %.not.i36.not.not, %.lr.ph.i.i.i.i.i.i.i33 ], [ true, %98 ]
+  %.0 = phi i1 [ %.not.i36.not.not, %137 ], [ false, %2 ], [ true, %72 ], [ false, %_ZNK4llvm10IRPosition15getPositionKindEv.exit25.thread ], [ false, %_ZNK4llvm10IRPosition15getPositionKindEv.exit ], [ false, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit ], [ true, %76 ], [ true, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit ], [ false, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread ], [ true, %125 ], [ true, %86 ], [ %.not.i36.not.not, %.lr.ph.i.i.i.i.i.i.i33 ], [ true, %98 ]
   ret i1 %.0
 }
 
@@ -80361,7 +80361,7 @@ _ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread: ; preds = %_ZNK4llvm10IRPos
   br i1 %130, label %_ZNK4llvm10Attributor7isRunOnEPNS_8FunctionE.exit38, label %.lr.ph.i.i.i.i.i.i.i33, !prof !115, !llvm.loop !611
 
 _ZNK4llvm10Attributor7isRunOnEPNS_8FunctionE.exit38: ; preds = %85, %124, %.lr.ph.i.i.i.i.i.i.i33, %73, %63, %112, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit, %2, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit, %_ZNK4llvm10IRPosition21isAnyCallSitePositionEv.exit.thread, %59
-  %.0 = phi i1 [ true, %63 ], [ false, %2 ], [ true, %59 ], [ false, %_ZNK4llvm10IRPosition21isAnyCallSitePositionEv.exit.thread ], [ false, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit ], [ true, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit ], [ false, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread ], [ true, %112 ], [ true, %73 ], [ %.not.i36.not.not, %124 ], [ %.not.i36.not.not, %.lr.ph.i.i.i.i.i.i.i33 ], [ true, %85 ]
+  %.0 = phi i1 [ true, %63 ], [ false, %2 ], [ true, %59 ], [ false, %_ZNK4llvm10IRPosition21isAnyCallSitePositionEv.exit.thread ], [ %.not.i36.not.not, %124 ], [ false, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit ], [ true, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit ], [ false, %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread ], [ true, %112 ], [ true, %73 ], [ %.not.i36.not.not, %.lr.ph.i.i.i.i.i.i.i33 ], [ true, %85 ]
   ret i1 %.0
 }
 

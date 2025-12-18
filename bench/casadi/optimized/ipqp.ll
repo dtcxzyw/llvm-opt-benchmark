@@ -2176,7 +2176,7 @@ _ZN6casadi9casadi_mvIdEEvPKT_PKxS3_PS1_x.exit56:  ; preds = %.loopexit48.i, %_ZN
   %284 = icmp slt i32 %283, 0
   br i1 %284, label %_ZN6casadi9casadi_mvIdEEvPKT_PKxS3_PS1_x.exit68.sink.split, label %285
 
-285:                                              ; preds = %278, %276
+285:                                              ; preds = %276, %278
   %286 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi4uoutEv()
   %287 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #29
   %288 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %286, ptr noundef nonnull %8, i64 noundef %287)
@@ -11951,7 +11951,7 @@ _ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit:       ; preds = %1
   br i1 %exitcond.not, label %.lr.ph97, label %25, !llvm.loop !345
 
 .preheader93:                                     ; preds = %39, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit, %.preheader.i, %.preheader16.i
-  %34 = phi i1 [ false, %.preheader.i ], [ false, %.preheader16.i ], [ false, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit ], [ true, %39 ]
+  %34 = phi i1 [ false, %.preheader.i ], [ false, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit ], [ false, %.preheader16.i ], [ true, %39 ]
   %35 = load i64, ptr %2, align 8, !tbaa !116
   %36 = icmp sgt i64 %35, 0
   br i1 %36, label %.lr.ph99, label %.preheader92

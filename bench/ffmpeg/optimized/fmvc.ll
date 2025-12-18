@@ -965,10 +965,10 @@ bytestream2_put_le32.exit173:                     ; preds = %96, %99
   br label %.loopexit294
 
 .loopexit294:                                     ; preds = %.critedge, %102, %bytestream2_get_byte.exit135.thread, %.loopexit295.loopexit, %.loopexit294.split.loop.exit306
-  %.pre335351 = phi ptr [ %.pre333345, %bytestream2_get_byte.exit135.thread ], [ %.pre333345, %.loopexit294.split.loop.exit306 ], [ %.pre333345, %.loopexit295.loopexit ], [ %.pre333, %102 ], [ %.pre333, %.critedge ]
-  %104 = phi ptr [ %.pre333345, %bytestream2_get_byte.exit135.thread ], [ %39, %.loopexit294.split.loop.exit306 ], [ %49, %.loopexit295.loopexit ], [ %.pre334, %102 ], [ %.pre334, %.critedge ]
-  %.4106 = phi i32 [ 32, %bytestream2_get_byte.exit135.thread ], [ %103, %.loopexit294.split.loop.exit306 ], [ %53, %.loopexit295.loopexit ], [ %51, %102 ], [ %51, %.critedge ]
-  %.4 = phi i32 [ %45, %bytestream2_get_byte.exit135.thread ], [ %42, %.loopexit294.split.loop.exit306 ], [ %45, %.loopexit295.loopexit ], [ %45, %102 ], [ %45, %.critedge ]
+  %.pre335351 = phi ptr [ %.pre333345, %bytestream2_get_byte.exit135.thread ], [ %.pre333345, %.loopexit294.split.loop.exit306 ], [ %.pre333, %102 ], [ %.pre333345, %.loopexit295.loopexit ], [ %.pre333, %.critedge ]
+  %104 = phi ptr [ %.pre333345, %bytestream2_get_byte.exit135.thread ], [ %39, %.loopexit294.split.loop.exit306 ], [ %.pre334, %102 ], [ %49, %.loopexit295.loopexit ], [ %.pre334, %.critedge ]
+  %.4106 = phi i32 [ 32, %bytestream2_get_byte.exit135.thread ], [ %103, %.loopexit294.split.loop.exit306 ], [ %51, %102 ], [ %53, %.loopexit295.loopexit ], [ %51, %.critedge ]
+  %.4 = phi i32 [ %45, %bytestream2_get_byte.exit135.thread ], [ %42, %.loopexit294.split.loop.exit306 ], [ %45, %102 ], [ %45, %.loopexit295.loopexit ], [ %45, %.critedge ]
   %.not123 = icmp eq i32 %.4, 0
   br i1 %.not123, label %.preheader292.preheader, label %bytestream2_put_byte.exit189.thread
 
@@ -3398,13 +3398,13 @@ bytestream2_put_byte.exit413:                     ; preds = %700, %703
   br i1 %720, label %.lr.ph, label %.loopexit650, !llvm.loop !90
 
 .loopexit650:                                     ; preds = %.outer.backedge, %bytestream2_peek_byte.exit432, %..loopexit650.loopexit701_crit_edge, %.preheader649
-  %.pre-phi717 = phi i64 [ %18, %.preheader649 ], [ %.pre725, %..loopexit650.loopexit701_crit_edge ], [ %718, %.outer.backedge ], [ %61, %bytestream2_peek_byte.exit432 ]
-  %.pre-phi = phi i64 [ %16, %.preheader649 ], [ %.pre724, %..loopexit650.loopexit701_crit_edge ], [ %716, %.outer.backedge ], [ %59, %bytestream2_peek_byte.exit432 ]
-  %721 = phi ptr [ %14, %.preheader649 ], [ %408, %..loopexit650.loopexit701_crit_edge ], [ %715, %.outer.backedge ], [ %58, %bytestream2_peek_byte.exit432 ]
-  %722 = phi ptr [ %15, %.preheader649 ], [ %409, %..loopexit650.loopexit701_crit_edge ], [ %714, %.outer.backedge ], [ %57, %bytestream2_peek_byte.exit432 ]
-  %.2219 = phi i32 [ %.0217695, %.preheader649 ], [ 0, %..loopexit650.loopexit701_crit_edge ], [ %.1218.ph.be, %.outer.backedge ], [ %.1218.ph684, %bytestream2_peek_byte.exit432 ]
-  %.2215 = phi i32 [ %.0213696, %.preheader649 ], [ 0, %..loopexit650.loopexit701_crit_edge ], [ 0, %bytestream2_peek_byte.exit432 ], [ 0, %.outer.backedge ]
-  %.2199 = phi i32 [ %.0197697, %.preheader649 ], [ %.6203, %..loopexit650.loopexit701_crit_edge ], [ %.1198.ph.be, %.outer.backedge ], [ %.0.i431, %bytestream2_peek_byte.exit432 ]
+  %.pre-phi717 = phi i64 [ %.pre725, %..loopexit650.loopexit701_crit_edge ], [ %18, %.preheader649 ], [ %718, %.outer.backedge ], [ %61, %bytestream2_peek_byte.exit432 ]
+  %.pre-phi = phi i64 [ %.pre724, %..loopexit650.loopexit701_crit_edge ], [ %16, %.preheader649 ], [ %716, %.outer.backedge ], [ %59, %bytestream2_peek_byte.exit432 ]
+  %721 = phi ptr [ %408, %..loopexit650.loopexit701_crit_edge ], [ %14, %.preheader649 ], [ %715, %.outer.backedge ], [ %58, %bytestream2_peek_byte.exit432 ]
+  %722 = phi ptr [ %409, %..loopexit650.loopexit701_crit_edge ], [ %15, %.preheader649 ], [ %714, %.outer.backedge ], [ %57, %bytestream2_peek_byte.exit432 ]
+  %.2219 = phi i32 [ 0, %..loopexit650.loopexit701_crit_edge ], [ %.0217695, %.preheader649 ], [ %.1218.ph.be, %.outer.backedge ], [ %.1218.ph684, %bytestream2_peek_byte.exit432 ]
+  %.2215 = phi i32 [ 0, %..loopexit650.loopexit701_crit_edge ], [ %.0213696, %.preheader649 ], [ 0, %bytestream2_peek_byte.exit432 ], [ 0, %.outer.backedge ]
+  %.2199 = phi i32 [ %.6203, %..loopexit650.loopexit701_crit_edge ], [ %.0197697, %.preheader649 ], [ %.1198.ph.be, %.outer.backedge ], [ %.0.i431, %bytestream2_peek_byte.exit432 ]
   %..i285 = tail call i64 @llvm.smin.i64(i64 %.pre-phi717, i64 1)
   %723 = getelementptr inbounds i8, ptr %721, i64 %..i285
   store ptr %723, ptr %0, align 8, !tbaa !73
@@ -3995,8 +3995,8 @@ bytestream2_peek_byte.exit456.sink.split:         ; preds = %987, %816
   br label %bytestream2_peek_byte.exit456
 
 bytestream2_peek_byte.exit456:                    ; preds = %bytestream2_peek_byte.exit456.sink.split, %987, %809, %.loopexit647, %bytestream2_put_byte.exit417
-  %.10227 = phi i32 [ 1, %bytestream2_put_byte.exit417 ], [ 1, %.loopexit647 ], [ %.2219, %809 ], [ %.2219, %987 ], [ %.2219, %bytestream2_peek_byte.exit456.sink.split ]
-  %.14211 = phi i32 [ %.2199, %bytestream2_put_byte.exit417 ], [ %.2199, %.loopexit647 ], [ 0, %809 ], [ 0, %987 ], [ %995, %bytestream2_peek_byte.exit456.sink.split ]
+  %.10227 = phi i32 [ %.2219, %987 ], [ 1, %bytestream2_put_byte.exit417 ], [ 1, %.loopexit647 ], [ %.2219, %809 ], [ %.2219, %bytestream2_peek_byte.exit456.sink.split ]
+  %.14211 = phi i32 [ 0, %987 ], [ %.2199, %bytestream2_put_byte.exit417 ], [ %.2199, %.loopexit647 ], [ 0, %809 ], [ %995, %bytestream2_peek_byte.exit456.sink.split ]
   %996 = load ptr, ptr %3, align 8, !tbaa !56
   %997 = load ptr, ptr %0, align 8, !tbaa !73
   %998 = ptrtoint ptr %996 to i64

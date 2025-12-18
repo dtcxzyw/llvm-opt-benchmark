@@ -3095,7 +3095,7 @@ _ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit811.loopexit1200: ; preds = %845
   br label %_ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit811
 
 _ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit811: ; preds = %._crit_edge, %_ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit659, %_ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit811.loopexit1200, %.preheader950, %.preheader934, %849
-  %1155 = phi ptr [ %209, %849 ], [ %.pre1393, %_ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit811.loopexit1200 ], [ %209, %.preheader934 ], [ %209, %.preheader950 ], [ %680, %_ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit659 ], [ %918, %._crit_edge ]
+  %1155 = phi ptr [ %209, %849 ], [ %680, %_ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit659 ], [ %.pre1393, %_ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit811.loopexit1200 ], [ %209, %.preheader934 ], [ %209, %.preheader950 ], [ %918, %._crit_edge ]
   %1156 = load ptr, ptr %36, align 8
   %1157 = ptrtoint ptr %1156 to i64
   %1158 = ptrtoint ptr %1155 to i64

@@ -526,8 +526,8 @@ _ZN7Imf_3_418MultiPartInputFileD2Ev.exit:         ; preds = %_ZNSt12__shared_ptr
   br label %146
 
 139:                                              ; preds = %133, %121
-  %.227 = phi ptr [ %.025, %121 ], [ %.328, %133 ]
-  %.pn33.pn = phi { ptr, i32 } [ %122, %121 ], [ %134, %133 ]
+  %.227 = phi ptr [ %.328, %133 ], [ %.025, %121 ]
+  %.pn33.pn = phi { ptr, i32 } [ %134, %133 ], [ %122, %121 ]
   %.4 = extractvalue { ptr, i32 } %.pn33.pn, 0
   %140 = call ptr @__cxa_begin_catch(ptr %.4) #16
   %141 = icmp eq ptr %.227, null

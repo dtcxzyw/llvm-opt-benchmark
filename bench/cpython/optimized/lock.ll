@@ -585,7 +585,7 @@ thread-pre-split:                                 ; preds = %18, %7
   br label %.backedge
 
 unlock_once.exit:                                 ; preds = %.backedge, %15, %.split6.i
-  %.0 = phi i32 [ %11, %.split6.i ], [ %11, %15 ], [ 0, %.backedge ]
+  %.0 = phi i32 [ %11, %15 ], [ %11, %.split6.i ], [ 0, %.backedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }

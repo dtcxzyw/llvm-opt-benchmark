@@ -1011,7 +1011,7 @@ define internal fastcc i32 @init_vqs(ptr noundef captures(none) initializes((144
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %69, %77, %82, %106
-  %110 = phi i32 [ %108, %106 ], [ 0, %82 ], [ 0, %77 ], [ 0, %69 ], [ 0, %.preheader ]
+  %110 = phi i32 [ %108, %106 ], [ 0, %69 ], [ 0, %82 ], [ 0, %77 ], [ 0, %.preheader ]
   tail call void @kfree(ptr noundef %18) #17
   tail call void @kfree(ptr noundef %17) #17
   tail call void @kfree(ptr noundef %16) #17

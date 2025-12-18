@@ -2954,7 +2954,7 @@ _ZN9hashbrown3map9make_hash17h5e408e9b975d85deE.exit: ; preds = %10, %12
   br label %83
 
 83:                                               ; preds = %72, %76
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.113.i.i, %72 ], [ %82, %76 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %82, %76 ], [ %.sroa.4.113.i.i, %72 ]
   %84 = load ptr, ptr %0, align 8, !alias.scope !308, !noalias !311, !nonnull !4
   call void @llvm.experimental.noalias.scope.decl(metadata !319)
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 %.sroa.3.0.i.i.ph

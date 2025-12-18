@@ -776,8 +776,8 @@ define dso_local i64 @pg_blocking_pids(ptr noundef readonly captures(none) %0) l
   br label %.critedge
 
 .critedge:                                        ; preds = %73, %.preheader, %63, %66, %54, %50, %.loopexit
-  %82 = phi i32 [ %51, %63 ], [ %51, %50 ], [ %.pre, %.loopexit ], [ %51, %54 ], [ %51, %66 ], [ %51, %.preheader ], [ %51, %73 ]
-  %.2 = phi i32 [ %.166, %63 ], [ %.166, %50 ], [ %79, %.loopexit ], [ %.166, %54 ], [ %.166, %66 ], [ %.166, %.preheader ], [ %.166, %73 ]
+  %82 = phi i32 [ %51, %63 ], [ %51, %50 ], [ %.pre, %.loopexit ], [ %51, %66 ], [ %51, %54 ], [ %51, %.preheader ], [ %51, %73 ]
+  %.2 = phi i32 [ %.166, %63 ], [ %.166, %50 ], [ %79, %.loopexit ], [ %.166, %66 ], [ %.166, %54 ], [ %.166, %.preheader ], [ %.166, %73 ]
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
   %83 = sext i32 %82 to i64
   %84 = icmp slt i64 %indvars.iv.next84, %83

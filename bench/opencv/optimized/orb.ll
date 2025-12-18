@@ -3711,7 +3711,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EED2Ev.exit.i:   ; preds = %807, %._crit_edge13
   br i1 %exitcond96.not.i.i, label %._crit_edge.i.i, label %922, !llvm.loop !129
 
 _ZN2cvL8ICAnglesERKNS_3MatERKSt6vectorINS_5Rect_IiEESaIS5_EERS3_INS_8KeyPointESaISA_EERKS3_IiSaIiEEi.exit.i: ; preds = %.noexc256.i, %.noexc255.i, %.noexc254.i, %.noexc253.i
-  %935 = phi ptr [ %817, %.noexc253.i ], [ %870, %.noexc255.i ], [ %830, %.noexc254.i ], [ %909, %.noexc256.i ]
+  %935 = phi ptr [ %870, %.noexc255.i ], [ %830, %.noexc254.i ], [ %817, %.noexc253.i ], [ %909, %.noexc256.i ]
   %936 = icmp sgt i32 %814, 0
   br i1 %936, label %.lr.ph140.i, label %._crit_edge141.i
 

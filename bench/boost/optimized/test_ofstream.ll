@@ -9679,7 +9679,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost6nowide13basic_filebufIcSt11cha
   br label %.fold.split
 
 .fold.split:                                      ; preds = %1, %1, %.fold.split32, %.fold.split31, %.fold.split30, %.fold.split29, %.fold.split28, %.fold.split25, %.fold.split24, %.fold.split22, %.fold.split21, %.fold.split20, %.fold.split19, %2
-  %.0 = phi ptr [ @.str.33, %1 ], [ null, %2 ], [ @.str.34, %.fold.split32 ], [ @.str.35, %.fold.split19 ], [ @.str.36, %.fold.split20 ], [ @.str.37, %.fold.split21 ], [ @.str.38, %.fold.split22 ], [ @.str.33, %1 ], [ @.str.39, %.fold.split24 ], [ @.str.40, %.fold.split25 ], [ @.str.44, %.fold.split31 ], [ @.str.43, %.fold.split30 ], [ @.str.41, %.fold.split28 ], [ @.str.42, %.fold.split29 ]
+  %.0 = phi ptr [ @.str.43, %.fold.split30 ], [ @.str.33, %1 ], [ @.str.33, %1 ], [ null, %2 ], [ @.str.44, %.fold.split31 ], [ @.str.34, %.fold.split32 ], [ @.str.35, %.fold.split19 ], [ @.str.36, %.fold.split20 ], [ @.str.37, %.fold.split21 ], [ @.str.38, %.fold.split22 ], [ @.str.42, %.fold.split29 ], [ @.str.39, %.fold.split24 ], [ @.str.40, %.fold.split25 ], [ @.str.41, %.fold.split28 ]
   ret ptr %.0
 }
 

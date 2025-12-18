@@ -1749,9 +1749,9 @@ _ZNSt6vectorIN4pbrt15MortonPrimitiveESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIN4pbrt15MortonPrimitiveESaIS1_EEC2EmRKS2_.exit.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, !llvm.loop !99
 
 _ZNSt6vectorIN4pbrt15MortonPrimitiveESaIS1_EEC2EmRKS2_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i, %.noexc64, %_ZNSt6vectorIN4pbrt15MortonPrimitiveESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i
-  %.sroa.16.0.i = phi ptr [ %110, %.noexc64 ], [ null, %_ZNSt6vectorIN4pbrt15MortonPrimitiveESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i ], [ %110, %.lr.ph.i.i.i.i.i.i.i.i.i.i ]
-  %.sroa.048.0.i = phi ptr [ %109, %.noexc64 ], [ null, %_ZNSt6vectorIN4pbrt15MortonPrimitiveESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i ], [ %109, %.lr.ph.i.i.i.i.i.i.i.i.i.i ]
-  %.0.i.i.i.i.i.i = phi ptr [ %111, %.noexc64 ], [ null, %_ZNSt6vectorIN4pbrt15MortonPrimitiveESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i ], [ %115, %.lr.ph.i.i.i.i.i.i.i.i.i.i ]
+  %.sroa.16.0.i = phi ptr [ null, %_ZNSt6vectorIN4pbrt15MortonPrimitiveESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i ], [ %110, %.noexc64 ], [ %110, %.lr.ph.i.i.i.i.i.i.i.i.i.i ]
+  %.sroa.048.0.i = phi ptr [ null, %_ZNSt6vectorIN4pbrt15MortonPrimitiveESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i ], [ %109, %.noexc64 ], [ %109, %.lr.ph.i.i.i.i.i.i.i.i.i.i ]
+  %.0.i.i.i.i.i.i = phi ptr [ null, %_ZNSt6vectorIN4pbrt15MortonPrimitiveESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i ], [ %111, %.noexc64 ], [ %115, %.lr.ph.i.i.i.i.i.i.i.i.i.i ]
   %.not677187.i = icmp eq ptr %.sroa.048.0.i, %.0.i.i.i.i.i.i
   br label %.cont52.i
 
@@ -2921,7 +2921,7 @@ _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit193:        ; preds = %169, %_ZN4pbrt6Tupl
   br i1 %217, label %"_ZSt9partitionIPN4pbrt12BVHPrimitiveEZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS5_4spanIS1_EEPSt6atomicIiESG_RSt6vectorINS0_9PrimitiveESaISI_EEE3$_1ET_SN_SN_T0_.exit", label %.lr.ph.i.i, !llvm.loop !159
 
 "_ZSt9partitionIPN4pbrt12BVHPrimitiveEZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS5_4spanIS1_EEPSt6atomicIiESG_RSt6vectorINS0_9PrimitiveESaISI_EEE3$_1ET_SN_SN_T0_.exit": ; preds = %215, %188, %179, %195, %198
-  %.11635.i.i = phi ptr [ %.054.i.i, %188 ], [ %.us-phi.i.i, %198 ], [ %.054.i.i, %195 ], [ %.054.i.i, %179 ], [ %.1.i.i, %215 ]
+  %.11635.i.i = phi ptr [ %.054.i.i, %195 ], [ %.us-phi.i.i, %198 ], [ %.054.i.i, %179 ], [ %.054.i.i, %188 ], [ %.1.i.i, %215 ]
   %218 = ptrtoint ptr %.11635.i.i to i64
   %219 = ptrtoint ptr %44 to i64
   %220 = sub i64 %218, %219
@@ -3784,7 +3784,7 @@ _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.i.i.i.i47.i.i: ; preds = %.split.i.i46.i.
   br i1 %484, label %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.i.i.i.i47.i.i, label %"_ZSt25__unguarded_linear_insertIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_2EEEvT_T0_.exit.i.i.i", !llvm.loop !166
 
 "_ZSt25__unguarded_linear_insertIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_2EEEvT_T0_.exit.i.i.i": ; preds = %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread12.i.i.us.i.i.i.i, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread.i.i.us.i.i.i.i, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.i.i.i.i47.i.i, %.split.i.i46.i.i, %.split.us18.i.i.i.i, %.split.us.i.i.i.i
-  %.us-phi.i.i.i.i = phi ptr [ %.023.i.i.i, %.split.us.i.i.i.i ], [ %.023.i.i.i, %.split.us18.i.i.i.i ], [ %.023.i.i.i, %.split.i.i46.i.i ], [ %.0.us43.i.i.i.i, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread.i.i.us.i.i.i.i ], [ %.035.i.i.i.i, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.i.i.i.i47.i.i ], [ %.0.us2051.i.i.i.i, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread12.i.i.us.i.i.i.i ]
+  %.us-phi.i.i.i.i = phi ptr [ %.0.us43.i.i.i.i, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread.i.i.us.i.i.i.i ], [ %.023.i.i.i, %.split.us.i.i.i.i ], [ %.035.i.i.i.i, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.i.i.i.i47.i.i ], [ %.023.i.i.i, %.split.us18.i.i.i.i ], [ %.023.i.i.i, %.split.i.i46.i.i ], [ %.0.us2051.i.i.i.i, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread12.i.i.us.i.i.i.i ]
   store i64 %.sroa.0.0.copyload.i.i.i.i, ptr %.us-phi.i.i.i.i, align 8
   %.sroa.4.0..09.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %.us-phi.i.i.i.i, i64 8
   store <2 x float> %.sroa.021.0.copyload.i.i.i.i30.i.i, ptr %.sroa.4.0..09.sroa_idx.i.i.i.i, align 8
@@ -5788,7 +5788,7 @@ _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.i.i.i.i47.i: ; preds = %.split.i.i46.i, %
   br i1 %278, label %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.i.i.i.i47.i, label %"_ZSt25__unguarded_linear_insertIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_3EEEvT_T0_.exit.i.i", !llvm.loop !215
 
 "_ZSt25__unguarded_linear_insertIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_3EEEvT_T0_.exit.i.i": ; preds = %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread12.i.i.us.i.i.i, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread.i.i.us.i.i.i, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.i.i.i.i47.i, %.split.i.i46.i, %.split.us18.i.i.i, %.split.us.i.i.i
-  %.us-phi.i.i.i = phi ptr [ %.023.i.i, %.split.us.i.i.i ], [ %.023.i.i, %.split.us18.i.i.i ], [ %.023.i.i, %.split.i.i46.i ], [ %.0.us43.i.i.i, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread.i.i.us.i.i.i ], [ %.035.i.i.i, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.i.i.i.i47.i ], [ %.0.us2051.i.i.i, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread12.i.i.us.i.i.i ]
+  %.us-phi.i.i.i = phi ptr [ %.0.us43.i.i.i, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread.i.i.us.i.i.i ], [ %.023.i.i, %.split.us.i.i.i ], [ %.035.i.i.i, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.i.i.i.i47.i ], [ %.023.i.i, %.split.us18.i.i.i ], [ %.023.i.i, %.split.i.i46.i ], [ %.0.us2051.i.i.i, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread12.i.i.us.i.i.i ]
   store i64 %.sroa.0.0.copyload.i.i.i, ptr %.us-phi.i.i.i, align 8
   %.sroa.4.0..09.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %.us-phi.i.i.i, i64 8
   store <2 x float> %.sroa.021.0.copyload.i.i.i.i30.i, ptr %.sroa.4.0..09.sroa_idx.i.i.i, align 8
@@ -5983,7 +5983,7 @@ define internal fastcc noundef ptr @"_ZSt9partitionIPN4pbrt12BVHPrimitiveEZNS0_1
   br i1 %64, label %"_ZSt11__partitionIPN4pbrt12BVHPrimitiveEZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS5_4spanIS1_EEPSt6atomicIiESG_RSt6vectorINS0_9PrimitiveESaISI_EEE3$_4ET_SN_SN_T0_St26bidirectional_iterator_tag.exit", label %.lr.ph.i, !llvm.loop !219
 
 "_ZSt11__partitionIPN4pbrt12BVHPrimitiveEZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS5_4spanIS1_EEPSt6atomicIiESG_RSt6vectorINS0_9PrimitiveESaISI_EEE3$_4ET_SN_SN_T0_St26bidirectional_iterator_tag.exit": ; preds = %62, %35, %.preheader.i, %3
-  %.11649.i = phi ptr [ %0, %3 ], [ %36, %35 ], [ %.11656.i, %.preheader.i ], [ %63, %62 ]
+  %.11649.i = phi ptr [ %36, %35 ], [ %.11656.i, %.preheader.i ], [ %0, %3 ], [ %63, %62 ]
   ret ptr %.11649.i
 }
 
@@ -6671,7 +6671,7 @@ _ZNK4pbrt6Tuple3INS_6Point3EfEixEi.exit18.i19.i.i: ; preds = %_ZNK4pbrt6Tuple3IN
   br i1 %284, label %"_ZSt9partitionIPPN4pbrt12BVHBuildNodeEZNKS0_12BVHAggregate13buildUpperSAHEN4pstd3pmr21polymorphic_allocatorISt4byteEERSt6vectorIS2_SaIS2_EEiiPSt6atomicIiEE3$_0ET_SI_SI_T0_.exit", label %.lr.ph.i.i, !llvm.loop !245
 
 "_ZSt9partitionIPPN4pbrt12BVHBuildNodeEZNKS0_12BVHAggregate13buildUpperSAHEN4pstd3pmr21polymorphic_allocatorISt4byteEERSt6vectorIS2_SaIS2_EEiiPSt6atomicIiEE3$_0ET_SI_SI_T0_.exit": ; preds = %282, %261, %.preheader.i.i, %237
-  %.11637.i.i = phi ptr [ %240, %237 ], [ %.052.i.i, %261 ], [ %.11648.i.i, %.preheader.i.i ], [ %283, %282 ]
+  %.11637.i.i = phi ptr [ %.052.i.i, %261 ], [ %.11648.i.i, %.preheader.i.i ], [ %240, %237 ], [ %283, %282 ]
   %285 = ptrtoint ptr %.11637.i.i to i64
   %286 = ptrtoint ptr %239 to i64
   %287 = sub i64 %285, %286
@@ -7709,8 +7709,8 @@ _ZNK4pbrt7Bounds3IfE10IntersectPENS_6Point3IfEENS_7Vector3IfEEfS5_PKi.exit.threa
   br label %.backedge
 
 .backedge:                                        ; preds = %147, %132, %139
-  %.054.be = phi i32 [ %145, %139 ], [ %151, %147 ], [ %138, %132 ]
-  %.051.be = phi i32 [ %142, %139 ], [ %148, %147 ], [ %134, %132 ]
+  %.054.be = phi i32 [ %138, %132 ], [ %151, %147 ], [ %145, %139 ]
+  %.051.be = phi i32 [ %134, %132 ], [ %148, %147 ], [ %142, %139 ]
   br label %46
 
 .loopexit:                                        ; preds = %._crit_edge, %_ZNK4pbrt7Bounds3IfE10IntersectPENS_6Point3IfEENS_7Vector3IfEEfS5_PKi.exit.thread
@@ -11045,8 +11045,8 @@ _ZNK4pbrt6Tuple3INS_7Vector3EfEixEi.exit:         ; preds = %94, %95, %96
   br i1 %.not, label %.thread122, label %48, !llvm.loop !403
 
 .thread122:                                       ; preds = %119, %.critedge, %56, %.critedge98, %39
-  %.sink185.shrunk = phi i32 [ 0, %39 ], [ %49, %.critedge98 ], [ %49, %56 ], [ %49, %.critedge ], [ %49, %119 ]
-  %.8 = phi i1 [ false, %39 ], [ true, %.critedge98 ], [ false, %119 ], [ false, %.critedge ], [ true, %56 ]
+  %.sink185.shrunk = phi i32 [ %49, %.critedge98 ], [ 0, %39 ], [ %49, %56 ], [ %49, %.critedge ], [ %49, %119 ]
+  %.8 = phi i1 [ true, %.critedge98 ], [ false, %39 ], [ false, %.critedge ], [ true, %56 ], [ false, %119 ]
   %.sink185 = zext i32 %.sink185.shrunk to i64
   %120 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4pbrtL14kdNodesVisitedE)
   %121 = load i64, ptr %120, align 8, !tbaa !49

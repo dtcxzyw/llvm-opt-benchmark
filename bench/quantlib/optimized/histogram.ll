@@ -2070,7 +2070,7 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops1
   br i1 %cmp.i10, label %while.body.i9, label %return, !llvm.loop !57
 
 return:                                           ; preds = %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_less_iterEEvT_S9_S9_RT0_.exit.i, %entry, %while.end29
-  %retval.sroa.0.0 = phi ptr [ %retval.sroa.0.1.lcssa, %while.end29 ], [ %__result_last.coerce, %entry ], [ %retval.sroa.0.1.lcssa, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_less_iterEEvT_S9_S9_RT0_.exit.i ]
+  %retval.sroa.0.0 = phi ptr [ %__result_last.coerce, %entry ], [ %retval.sroa.0.1.lcssa, %while.end29 ], [ %retval.sroa.0.1.lcssa, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_less_iterEEvT_S9_S9_RT0_.exit.i ]
   ret ptr %retval.sroa.0.0
 }
 

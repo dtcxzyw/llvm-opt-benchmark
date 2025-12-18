@@ -262,7 +262,7 @@ list_length.exit:                                 ; preds = %1
   br label %.thread90
 
 .thread90:                                        ; preds = %60, %73, %56, %54, %69, %67, %.lr.ph, %1, %._crit_edge.loopexit, %35, %20, %16, %31
-  %.5 = phi i32 [ 4, %1 ], [ %.77, %31 ], [ %., %16 ], [ %.78, %35 ], [ %.76, %20 ], [ 4, %.lr.ph ], [ %80, %._crit_edge.loopexit ], [ 4, %67 ], [ 4, %69 ], [ 4, %54 ], [ 4, %56 ], [ 4, %73 ], [ 4, %60 ]
+  %.5 = phi i32 [ %80, %._crit_edge.loopexit ], [ %.77, %31 ], [ %., %16 ], [ %.78, %35 ], [ %.76, %20 ], [ 4, %.lr.ph ], [ 4, %1 ], [ 4, %67 ], [ 4, %69 ], [ 4, %54 ], [ 4, %56 ], [ 4, %73 ], [ 4, %60 ]
   ret i32 %.5
 }
 
@@ -399,7 +399,7 @@ tailrecurse:                                      ; preds = %42
   br label %FetchPortalTargetList.exit
 
 FetchPortalTargetList.exit:                       ; preds = %tailrecurse, %40, %42, %1, %23, %32, %28, %8, %11, %51
-  %.0 = phi ptr [ %55, %51 ], [ %10, %8 ], [ %27, %23 ], [ %13, %11 ], [ null, %28 ], [ %36, %32 ], [ null, %1 ], [ null, %42 ], [ null, %40 ], [ null, %tailrecurse ]
+  %.0 = phi ptr [ %36, %32 ], [ null, %28 ], [ %55, %51 ], [ %13, %11 ], [ %10, %8 ], [ %27, %23 ], [ null, %1 ], [ null, %42 ], [ null, %40 ], [ null, %tailrecurse ]
   ret ptr %.0
 }
 

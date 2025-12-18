@@ -364,7 +364,7 @@ agxbsizeof.exit.i81:                              ; preds = %53
   br label %agxbputc.exit88
 
 agxbputc.exit88:                                  ; preds = %120, %115, %agxbputc.exit51, %agxbputc.exit64, %agxbdisown.exit77
-  %.1 = phi ptr [ %37, %agxbputc.exit51 ], [ %spec.select, %agxbputc.exit64 ], [ %16, %agxbdisown.exit77 ], [ %16, %115 ], [ %16, %120 ]
+  %.1 = phi ptr [ %16, %agxbdisown.exit77 ], [ %37, %agxbputc.exit51 ], [ %spec.select, %agxbputc.exit64 ], [ %16, %115 ], [ %16, %120 ]
   %125 = load i8, ptr %.1, align 1, !tbaa !13
   %.not = icmp eq i8 %125, 0
   br i1 %.not, label %.critedge, label %14, !llvm.loop !17

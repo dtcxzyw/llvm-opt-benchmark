@@ -819,7 +819,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit56:       ; preds = %68
   br i1 %.not27.old.i.i.i, label %.loopexit12.i, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %106, %103
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %106 ], [ %105, %103 ]
+  %.137.i.i.i.be = phi ptr [ %105, %103 ], [ %.old.i.i.i, %106 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !141
 
 .loopexit.i:                                      ; preds = %87, %98
@@ -1100,7 +1100,7 @@ _ZN20dominator_simplifier11assert_exprEP4exprb.exit67: ; preds = %_ZN20dominator
   br i1 %.not27.old.i.i.i80, label %.loopexit12.i83, label %.lr.ph38.i.i.i76.backedge
 
 .lr.ph38.i.i.i76.backedge:                        ; preds = %223, %220
-  %.137.i.i.i77.be = phi ptr [ %.old.i.i.i79, %223 ], [ %222, %220 ]
+  %.137.i.i.i77.be = phi ptr [ %222, %220 ], [ %.old.i.i.i79, %223 ]
   br label %.lr.ph38.i.i.i76, !llvm.loop !141
 
 .loopexit.i84:                                    ; preds = %204, %215
@@ -1570,7 +1570,7 @@ define hidden void @_ZN20dominator_simplifier12simplify_argEP4expr(ptr dead_on_u
   br i1 %.not27.old.i.i.i.i, label %.loopexit.i, label %.lr.ph38.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.backedge:                        ; preds = %40, %37
-  %.137.i.i.i.i.be = phi ptr [ %.old.i.i.i.i, %40 ], [ %39, %37 ]
+  %.137.i.i.i.i.be = phi ptr [ %39, %37 ], [ %.old.i.i.i.i, %40 ]
   br label %.lr.ph38.i.i.i.i, !llvm.loop !153
 
 _ZNK7obj_mapI4exprPS0_E4findES1_RS1_.exit.i:      ; preds = %21, %32
@@ -1714,7 +1714,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN20dominator_sim
   br i1 %.not27.old.i.i, label %.loopexit12, label %.lr.ph38.i.i.backedge
 
 .lr.ph38.i.i.backedge:                            ; preds = %36, %33
-  %.137.i.i.be = phi ptr [ %.old.i.i, %36 ], [ %35, %33 ]
+  %.137.i.i.be = phi ptr [ %35, %33 ], [ %.old.i.i, %36 ]
   br label %.lr.ph38.i.i, !llvm.loop !141
 
 .loopexit:                                        ; preds = %17, %28
@@ -1831,7 +1831,7 @@ define hidden noundef zeroext i1 @_ZN20dominator_simplifier10is_subexprEP4exprS1
   br i1 %.not27.old.i.i.i, label %.loopexit22, label %.lr.ph37.i.i.i.backedge
 
 .lr.ph37.i.i.i.backedge:                          ; preds = %61, %58
-  %.136.i.i.i.be = phi ptr [ %.old.i.i.i, %61 ], [ %60, %58 ]
+  %.136.i.i.i.be = phi ptr [ %60, %58 ], [ %.old.i.i.i, %61 ]
   br label %.lr.ph37.i.i.i, !llvm.loop !161
 
 .loopexit:                                        ; preds = %36, %52
@@ -2073,7 +2073,7 @@ define hidden void @_ZN20dominator_simplifier12simplify_recEP4expr(ptr dead_on_u
   br i1 %.not27.old.i.i.i, label %.loopexit, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %47, %44
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %47 ], [ %46, %44 ]
+  %.137.i.i.i.be = phi ptr [ %46, %44 ], [ %.old.i.i.i, %47 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !153
 
 _ZNK7obj_mapI4exprPS0_E4findES1_RS1_.exit:        ; preds = %28, %39
@@ -2402,7 +2402,7 @@ _ZNK11ast_manager6is_notEPK4expr.exit.thread:     ; preds = %65, %60, %_ZNK11ast
   br i1 %.not27.old.i.i.i75, label %.loopexit12.i, label %.lr.ph38.i.i.i71.backedge
 
 .lr.ph38.i.i.i71.backedge:                        ; preds = %181, %178
-  %.137.i.i.i72.be = phi ptr [ %.old.i.i.i74, %181 ], [ %180, %178 ]
+  %.137.i.i.i72.be = phi ptr [ %180, %178 ], [ %.old.i.i.i74, %181 ]
   br label %.lr.ph38.i.i.i71, !llvm.loop !141
 
 .loopexit.i:                                      ; preds = %162, %173
@@ -3691,7 +3691,7 @@ define internal fastcc noundef zeroext i1 @"_ZZN20dominator_simplifier15simplify
   br i1 %.not27.old.i.i.i, label %.loopexit12.i, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %39, %36
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %39 ], [ %38, %36 ]
+  %.137.i.i.i.be = phi ptr [ %38, %36 ], [ %.old.i.i.i, %39 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !141
 
 .loopexit.i:                                      ; preds = %20, %31

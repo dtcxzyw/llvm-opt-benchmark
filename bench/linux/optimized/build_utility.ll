@@ -2646,7 +2646,7 @@ define internal fastcc i64 @wait_for_common(ptr noundef %0, i64 noundef %1, i32 
   br i1 %71, label %.split.split, label %.critedge5, !llvm.loop !82
 
 .critedge5:                                       ; preds = %44, %36, %.split.split.us, %58, %66, %25
-  %.us-phi = phi i64 [ %26, %25 ], [ %67, %66 ], [ -512, %58 ], [ -512, %.split.split.us ], [ %45, %44 ], [ -512, %36 ]
+  %.us-phi = phi i64 [ -512, %58 ], [ %26, %25 ], [ %67, %66 ], [ %45, %44 ], [ -512, %36 ], [ -512, %.split.split.us ]
   store volatile i32 0, ptr %19, align 8
   %72 = load volatile ptr, ptr %12, align 8
   %73 = icmp eq ptr %72, %12
@@ -5241,7 +5241,7 @@ define dso_local noundef range(i32 0, 2) i32 @cpupri_find_fitness(ptr noundef %0
   br i1 %155, label %.thread16, label %.thread17.split, !llvm.loop !106
 
 .thread16:                                        ; preds = %96, %72, %.thread14.us, %149, %153, %129, %125, %104, %104, %106, %.thread
-  %156 = phi i32 [ 0, %.thread ], [ 0, %106 ], [ 0, %104 ], [ 0, %104 ], [ 1, %72 ], [ 0, %129 ], [ 0, %153 ], [ 1, %.thread14.us ], [ 1, %125 ], [ 1, %149 ], [ 1, %96 ]
+  %156 = phi i32 [ 0, %.thread ], [ 0, %106 ], [ 0, %129 ], [ 0, %104 ], [ 0, %104 ], [ 1, %.thread14.us ], [ 1, %72 ], [ 1, %149 ], [ 1, %125 ], [ 0, %153 ], [ 1, %96 ]
   ret i32 %156
 }
 
@@ -8934,7 +8934,7 @@ define internal fastcc range(i32 -12, 1) i32 @build_sched_domains(ptr noundef %0
   br label %.loopexit138
 
 .loopexit138:                                     ; preds = %614, %1019, %1021, %605, %377
-  %.ph128 = phi i32 [ -12, %377 ], [ -12, %605 ], [ 0, %1021 ], [ 0, %1019 ], [ -12, %614 ]
+  %.ph128 = phi i32 [ -12, %377 ], [ 0, %1019 ], [ -12, %605 ], [ 0, %1021 ], [ -12, %614 ]
   %1023 = load volatile i32, ptr %99, align 8
   %1024 = icmp eq i32 %1023, 0
   br i1 %1024, label %1025, label %.thread131
@@ -9124,7 +9124,7 @@ define internal fastcc range(i32 -12, 1) i32 @build_sched_domains(ptr noundef %0
   br i1 %1124, label %.loopexit136, label %.preheader135, !llvm.loop !224
 
 .loopexit136:                                     ; preds = %.loopexit134, %.thread130, %.loopexit160
-  %1125 = phi i32 [ %1030, %.loopexit160 ], [ -12, %.thread130 ], [ %1030, %.loopexit134 ]
+  %1125 = phi i32 [ -12, %.thread130 ], [ %1030, %.loopexit160 ], [ %1030, %.loopexit134 ]
   ret i32 %1125
 }
 
@@ -9487,8 +9487,8 @@ define dso_local void @partition_sched_domains_locked(i32 noundef %0, ptr nounde
   br i1 %exitcond54.not, label %.loopexit18.us, label %.split.us34, !llvm.loop !231
 
 .loopexit.split.us.us:                            ; preds = %.split.us34, %204, %212, %.loopexit18.us
-  %194 = phi ptr [ %.pre58, %.loopexit18.us ], [ %.fr41, %204 ], [ %.fr41, %212 ], [ %.fr41, %.split.us34 ]
-  %195 = phi ptr [ %.pre, %.loopexit18.us ], [ %181, %204 ], [ %181, %212 ], [ %181, %.split.us34 ]
+  %194 = phi ptr [ %.fr41, %212 ], [ %.fr41, %204 ], [ %.pre58, %.loopexit18.us ], [ %.fr41, %.split.us34 ]
+  %195 = phi ptr [ %181, %212 ], [ %181, %204 ], [ %.pre, %.loopexit18.us ], [ %181, %.split.us34 ]
   %196 = add nuw nsw i64 %182, 1
   %197 = icmp eq i64 %196, %179
   br i1 %197, label %.loopexit19, label %.split31.us, !llvm.loop !232
@@ -12262,7 +12262,7 @@ destroy_sched_domain.exit:                        ; preds = %.loopexit.i, %89, %
   br label %.critedge27
 
 .critedge27:                                      ; preds = %35, %destroy_sched_domain.exit, %39
-  %95 = phi ptr [ %10, %destroy_sched_domain.exit ], [ %9, %39 ], [ %9, %35 ]
+  %95 = phi ptr [ %9, %39 ], [ %10, %destroy_sched_domain.exit ], [ %9, %35 ]
   %96 = load ptr, ptr %95, align 8
   %97 = icmp eq ptr %96, null
   br i1 %97, label %.critedge, label %.lr.ph78

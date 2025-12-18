@@ -2969,9 +2969,9 @@ _ZN8arrayvec13arrayvec_impl12ArrayVecImpl8try_push17h624ba57fdd1d2861E.exit53.i:
   br i1 %365, label %.noexc76, label %.invoke
 
 .invoke:                                          ; preds = %312, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5305efcde34f28d8E.exit.thread.i", %364, %237, %211
-  %366 = phi i64 [ %231, %237 ], [ %206, %211 ], [ %231, %364 ], [ %302, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5305efcde34f28d8E.exit.thread.i" ], [ %302, %312 ]
-  %367 = phi i64 [ %234, %237 ], [ %209, %211 ], [ %362, %364 ], [ %315, %312 ], [ %.sroa.3.0.i45.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5305efcde34f28d8E.exit.thread.i" ]
-  %368 = phi ptr [ @anon.579542b2bcc31514535eecd43207360e.16, %237 ], [ @anon.579542b2bcc31514535eecd43207360e.14, %211 ], [ @anon.579542b2bcc31514535eecd43207360e.17, %364 ], [ @anon.579542b2bcc31514535eecd43207360e.15, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5305efcde34f28d8E.exit.thread.i" ], [ @anon.579542b2bcc31514535eecd43207360e.15, %312 ]
+  %366 = phi i64 [ %231, %364 ], [ %206, %211 ], [ %231, %237 ], [ %302, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5305efcde34f28d8E.exit.thread.i" ], [ %302, %312 ]
+  %367 = phi i64 [ %362, %364 ], [ %209, %211 ], [ %234, %237 ], [ %315, %312 ], [ %.sroa.3.0.i45.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5305efcde34f28d8E.exit.thread.i" ]
+  %368 = phi ptr [ @anon.579542b2bcc31514535eecd43207360e.17, %364 ], [ @anon.579542b2bcc31514535eecd43207360e.14, %211 ], [ @anon.579542b2bcc31514535eecd43207360e.16, %237 ], [ @anon.579542b2bcc31514535eecd43207360e.15, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5305efcde34f28d8E.exit.thread.i" ], [ @anon.579542b2bcc31514535eecd43207360e.15, %312 ]
   call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %366, i64 noundef %367, ptr noalias noundef readonly align 8 dereferenceable(24) %368) #41
   unreachable
 
@@ -14704,8 +14704,8 @@ define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$14search_forward17h
   br label %_ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h729edfeeb5fd189eE.exit
 
 _ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h729edfeeb5fd189eE.exit: ; preds = %97, %.preheader27, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h5dc5c4103bfe7eafE.exit.thread", %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17haee218bc2547ba8dE.exit15"
-  %.sink = phi i32 [ 1, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17haee218bc2547ba8dE.exit15" ], [ -1, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h5dc5c4103bfe7eafE.exit.thread" ], [ -1, %.preheader27 ], [ -1, %97 ]
-  %.sroa.04.3 = phi i1 [ true, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17haee218bc2547ba8dE.exit15" ], [ false, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h5dc5c4103bfe7eafE.exit.thread" ], [ false, %.preheader27 ], [ false, %97 ]
+  %.sink = phi i32 [ 1, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17haee218bc2547ba8dE.exit15" ], [ -1, %.preheader27 ], [ -1, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h5dc5c4103bfe7eafE.exit.thread" ], [ -1, %97 ]
+  %.sroa.04.3 = phi i1 [ true, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17haee218bc2547ba8dE.exit15" ], [ false, %.preheader27 ], [ false, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h5dc5c4103bfe7eafE.exit.thread" ], [ false, %97 ]
   %108 = add i32 %24, %.sink
   store i32 %108, ptr %0, align 8
   %109 = icmp eq i32 %108, 0

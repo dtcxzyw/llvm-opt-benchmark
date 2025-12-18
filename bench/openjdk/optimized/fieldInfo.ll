@@ -1383,7 +1383,7 @@ _ZN26GrowableArrayWithAllocatorI9FieldInfo13GrowableArrayIS0_EE6appendERKS0_.exi
   %.pre47 = load i32, ptr %60, align 8
   br label %114, !llvm.loop !15
 
-_ZN15FieldInfoReader8has_nextEv.exit.thread:      ; preds = %.preheader.i.i.i.i17, %.lr.ph.split.us.i.i.i.i, %_ZN15FieldInfoReader8has_nextEv.exit, %.lr.ph.split.i.i.i.i, %142, %131
+_ZN15FieldInfoReader8has_nextEv.exit.thread:      ; preds = %.lr.ph.split.us.i.i.i.i, %.preheader.i.i.i.i17, %_ZN15FieldInfoReader8has_nextEv.exit, %.lr.ph.split.i.i.i.i, %142, %131
   ret ptr %52
 }
 
@@ -2056,7 +2056,7 @@ _ZN15FieldInfoReader8has_nextEv.exit.thread24:    ; preds = %71, %.lr.ph30.i.i.i
   %.pre35 = load i32, ptr %9, align 8
   br label %46, !llvm.loop !16
 
-_ZN15FieldInfoReader8has_nextEv.exit.thread:      ; preds = %.preheader.i.i.i.i15, %.lr.ph.split.us.i.i.i.i, %_ZN15FieldInfoReader8has_nextEv.exit, %.lr.ph.split.i.i.i.i, %74, %63
+_ZN15FieldInfoReader8has_nextEv.exit.thread:      ; preds = %.lr.ph.split.us.i.i.i.i, %.preheader.i.i.i.i15, %_ZN15FieldInfoReader8has_nextEv.exit, %.lr.ph.split.i.i.i.i, %74, %63
   ret void
 }
 

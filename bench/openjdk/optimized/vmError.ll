@@ -4234,7 +4234,7 @@ _ZN19TemplateInterpreter8containsEPh.exit.thread: ; preds = %5, %_ZN19TemplateIn
   br label %_ZL13add_if_absentPhPS_i.exit
 
 _ZL13add_if_absentPhPS_i.exit:                    ; preds = %27, %.preheader61, %53, %.preheader59, %71, %.preheader, %87, %85, %16, %15, %59, %60, %43, %54, %28
-  %.0 = phi i1 [ true, %28 ], [ true, %54 ], [ false, %43 ], [ false, %60 ], [ false, %59 ], [ false, %15 ], [ false, %16 ], [ true, %85 ], [ true, %87 ], [ false, %53 ], [ false, %71 ], [ false, %.preheader ], [ false, %.preheader59 ], [ false, %.preheader61 ], [ false, %27 ]
+  %.0 = phi i1 [ true, %28 ], [ true, %87 ], [ true, %54 ], [ false, %71 ], [ false, %43 ], [ false, %60 ], [ false, %53 ], [ false, %59 ], [ false, %15 ], [ false, %16 ], [ true, %85 ], [ false, %.preheader ], [ false, %.preheader59 ], [ false, %.preheader61 ], [ false, %27 ]
   ret i1 %.0
 }
 
@@ -5054,7 +5054,7 @@ _ZN7VMError16show_message_boxEPci.exit:           ; preds = %.preheader
   br label %.preheader30.i.backedge
 
 .preheader30.i.backedge:                          ; preds = %.critedge.i, %242, %231
-  %.023.i.be = phi ptr [ %227, %.critedge.i ], [ %238, %242 ], [ %238, %231 ]
+  %.023.i.be = phi ptr [ %227, %.critedge.i ], [ %238, %231 ], [ %238, %242 ]
   br label %.preheader30.i, !llvm.loop !26
 
 .preheader.i:                                     ; preds = %.preheader30.i, %229
@@ -5261,7 +5261,7 @@ define hidden void @_ZN24VM_ReportJavaOutOfMemory4doitEv(ptr noundef nonnull rea
   br label %.preheader30.i.backedge
 
 .preheader30.i.backedge:                          ; preds = %.critedge.i, %32, %19
-  %.023.i.be = phi ptr [ %15, %.critedge.i ], [ %26, %32 ], [ %26, %19 ]
+  %.023.i.be = phi ptr [ %15, %.critedge.i ], [ %26, %19 ], [ %26, %32 ]
   br label %.preheader30.i, !llvm.loop !26
 
 .preheader.i:                                     ; preds = %.preheader30.i, %17

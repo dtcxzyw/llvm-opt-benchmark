@@ -63,7 +63,7 @@ define hidden noundef zeroext i1 @"_ZN3std4sync4mpmc4list16Channel$LT$T$GT$10sta
   br i1 %17, label %.lr.ph166, label %._crit_edge
 
 .critedge:                                        ; preds = %.outer.backedge, %.loopexit, %2
-  %.sroa.049.0.ph.lcssa87 = phi ptr [ null, %2 ], [ %.sroa.049.0.ph92, %.loopexit ], [ %.sroa.049.0.ph.be, %.outer.backedge ]
+  %.sroa.049.0.ph.lcssa87 = phi ptr [ %.sroa.049.0.ph92, %.loopexit ], [ null, %2 ], [ %.sroa.049.0.ph.be, %.outer.backedge ]
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr null, ptr %18, align 8
   br label %71

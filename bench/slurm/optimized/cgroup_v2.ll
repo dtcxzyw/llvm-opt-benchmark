@@ -920,7 +920,7 @@ _setup_controllers.exit:                          ; preds = %173, %_enable_syste
   br label %.thread.i.i
 
 .split102.i.i:                                    ; preds = %.lr.ph139.i.i, %.lr.ph124.preheader.i.i, %.lr.ph124.preheader.i.preheader.i, %.lr.ph139.i.preheader.i
-  %.us-phi103.i.i = phi i64 [ %284, %.lr.ph124.preheader.i.preheader.i ], [ %271, %.lr.ph139.i.preheader.i ], [ %256, %.lr.ph124.preheader.i.i ], [ %281, %.lr.ph139.i.i ]
+  %.us-phi103.i.i = phi i64 [ %256, %.lr.ph124.preheader.i.i ], [ %284, %.lr.ph124.preheader.i.preheader.i ], [ %271, %.lr.ph139.i.preheader.i ], [ %281, %.lr.ph139.i.i ]
   %262 = and i64 %.us-phi103.i.i, 2147483647
   %263 = getelementptr inbounds nuw i8, ptr %.037.ph142.i.i, i64 %262
   %264 = sub i64 %.0.ph144.i.i, %262
@@ -4117,7 +4117,7 @@ define internal fastcc ptr @_get_root_mount_mountinfo(ptr noundef %0, ptr nounde
   br i1 %.not22, label %.loopexit, label %.lr.ph, !llvm.loop !28
 
 .loopexit:                                        ; preds = %22, %14, %.lr.ph44
-  %.120 = phi ptr [ %.0193143, %.lr.ph44 ], [ %.0193143, %14 ], [ %.3, %22 ]
+  %.120 = phi ptr [ %.0193143, %14 ], [ %.0193143, %.lr.ph44 ], [ %.3, %22 ]
   %25 = call i64 @__getdelim(ptr noundef nonnull %4, ptr noundef nonnull %6, i32 noundef 10, ptr noundef nonnull %8) #17
   %.not = icmp eq i64 %25, -1
   br i1 %.not, label %.critedge, label %.lr.ph44, !llvm.loop !29

@@ -8715,8 +8715,8 @@ Vec_IntFree.exit83:                               ; preds = %256, %260
   br i1 %278, label %47, label %.thread, !llvm.loop !229
 
 .thread:                                          ; preds = %275, %Vec_BitStart.exit, %262, %Vec_IntFree.exit
-  %.067107 = phi i32 [ %.067116, %Vec_IntFree.exit ], [ %.067116, %262 ], [ 1, %Vec_BitStart.exit ], [ %276, %275 ]
-  %.169 = phi i32 [ %248, %Vec_IntFree.exit ], [ %248, %262 ], [ -1, %Vec_BitStart.exit ], [ %248, %275 ]
+  %.067107 = phi i32 [ %.067116, %262 ], [ %.067116, %Vec_IntFree.exit ], [ 1, %Vec_BitStart.exit ], [ %276, %275 ]
+  %.169 = phi i32 [ %248, %262 ], [ %248, %Vec_IntFree.exit ], [ -1, %Vec_BitStart.exit ], [ %248, %275 ]
   %279 = load ptr, ptr %5, align 8, !tbaa !122
   %280 = icmp eq ptr %279, null
   br i1 %280, label %Vec_IntFreeP.exit, label %281
@@ -9258,7 +9258,7 @@ Vec_IntPush.exit114:                              ; preds = %Vec_IntPush.exit114
   br label %.loopexit
 
 .loopexit:                                        ; preds = %Vec_IntPush.exit114, %.loopexit.sink.split, %Vec_IntAlloc.exit
-  %.0 = phi ptr [ %161, %Vec_IntAlloc.exit ], [ null, %.loopexit.sink.split ], [ %161, %Vec_IntPush.exit114 ]
+  %.0 = phi ptr [ null, %.loopexit.sink.split ], [ %161, %Vec_IntAlloc.exit ], [ %161, %Vec_IntPush.exit114 ]
   %.not.i115 = icmp eq ptr %.val94, null
   br i1 %.not.i115, label %Vec_IntFree.exit116, label %202
 

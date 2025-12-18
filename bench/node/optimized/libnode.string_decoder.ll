@@ -455,7 +455,7 @@ return.sink.split:                                ; preds = %do.body, %if.then5
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.else17, %if.then
-  %retval.sroa.0.0 = phi ptr [ %call, %if.then ], [ %call18, %if.else17 ], [ null, %return.sink.split ]
+  %retval.sroa.0.0 = phi ptr [ %call18, %if.else17 ], [ %call, %if.then ], [ null, %return.sink.split ]
   ret ptr %retval.sroa.0.0
 }
 

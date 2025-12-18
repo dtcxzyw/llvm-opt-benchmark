@@ -4836,7 +4836,7 @@ define hidden noundef ptr @_ZNK8CmpPNode3subEPK4TypeS2_(ptr noundef nonnull read
   %.087.shrunk = phi i1 [ %59, %126 ], [ %59, %140 ], [ %55, %168 ], [ %55, %154 ]
   br i1 %.087.shrunk, label %.critedge98, label %.critedge96
 
-.critedge98:                                      ; preds = %85, %112, %181
+.critedge98:                                      ; preds = %112, %85, %181
   %182 = load i32, ptr %8, align 8
   %183 = zext i32 %182 to i64
   %184 = getelementptr inbounds nuw i32, ptr @_ZN7TypePtr8ptr_dualE, i64 %183
@@ -7110,7 +7110,7 @@ _ZL18is_cloop_conditionP8BoolNode.exit:           ; preds = %231, %235
   br label %1011
 
 _ZL18is_cloop_conditionP8BoolNode.exit447:        ; preds = %.lr.ph.i444, %.lr.ph.i450, %.lr.ph.i434, %.lr.ph.i438, %304, %356, %.loopexit567, %_ZL18is_cloop_conditionP8BoolNode.exit.thread654, %159, %200, %189, %168, %306, %.loopexit564, %449, %399, %_ZL18is_cloop_conditionP8BoolNode.exit
-  %489 = phi i1 [ %397, %.loopexit564 ], [ %397, %449 ], [ %397, %_ZL18is_cloop_conditionP8BoolNode.exit ], [ %397, %399 ], [ true, %306 ], [ false, %168 ], [ false, %189 ], [ false, %200 ], [ false, %159 ], [ %396, %_ZL18is_cloop_conditionP8BoolNode.exit.thread654 ], [ false, %304 ], [ true, %356 ], [ true, %.loopexit567 ], [ %397, %.lr.ph.i450 ], [ true, %.lr.ph.i438 ], [ true, %.lr.ph.i434 ], [ %397, %.lr.ph.i444 ]
+  %489 = phi i1 [ false, %159 ], [ %397, %.loopexit564 ], [ %396, %_ZL18is_cloop_conditionP8BoolNode.exit.thread654 ], [ %397, %449 ], [ %397, %_ZL18is_cloop_conditionP8BoolNode.exit ], [ %397, %399 ], [ true, %306 ], [ false, %168 ], [ false, %189 ], [ false, %200 ], [ %397, %.lr.ph.i450 ], [ true, %.lr.ph.i438 ], [ true, %.lr.ph.i434 ], [ false, %304 ], [ true, %356 ], [ true, %.loopexit567 ], [ %397, %.lr.ph.i444 ]
   %490 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %491 = load ptr, ptr %490, align 8
   %492 = getelementptr inbounds nuw i8, ptr %28, i64 40
@@ -7258,7 +7258,7 @@ _ZL18is_cloop_conditionP8BoolNode.exit447:        ; preds = %.lr.ph.i444, %.lr.p
   br label %_ZNK4Node12find_int_conEi.exit457.thread
 
 _ZNK4Node12find_int_conEi.exit457.thread:         ; preds = %569, %563, %556, %.fold.split, %558, %576
-  %.0320 = phi ptr [ %579, %576 ], [ null, %569 ], [ null, %558 ], [ %28, %556 ], [ null, %.fold.split ], [ null, %563 ]
+  %.0320 = phi ptr [ %28, %556 ], [ %579, %576 ], [ null, %569 ], [ null, %558 ], [ null, %.fold.split ], [ null, %563 ]
   %580 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %581 = load ptr, ptr %580, align 8
   %582 = getelementptr inbounds nuw i8, ptr %581, i64 16

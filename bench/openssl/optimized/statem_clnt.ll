@@ -467,7 +467,7 @@ ossl_statem_client13_read_transition.exit.thread: ; preds = %128, %106, %44, %50
   tail call void @BIO_set_flags(ptr noundef %166, i32 noundef 9) #8
   br label %167
 
-ossl_statem_client13_read_transition.exit.thread.thread: ; preds = %42, %33, %25, %13, %31, %29, %27, %23, %18, %16, %129, %152, %149, %66, %107, %38, %34, %ossl_statem_client13_read_transition.exit.thread
+ossl_statem_client13_read_transition.exit.thread.thread: ; preds = %42, %16, %18, %23, %27, %29, %31, %13, %25, %33, %129, %152, %149, %66, %107, %34, %38, %ossl_statem_client13_read_transition.exit.thread
   tail call void @ERR_new() #8
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 425, ptr noundef nonnull @__func__.ossl_statem_client_read_transition) #8
   tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 10, i32 noundef 244, ptr noundef null) #8
@@ -4537,7 +4537,7 @@ tls_process_ske_ecdhe.exit:                       ; preds = %288, %.sink.split.i
   br label %tls_process_ske_psk_preamble.exit.thread
 
 tls_process_ske_srp.exit:                         ; preds = %tls_process_ske_ecdhe.exit, %133, %tls_process_ske_dhe.exit
-  %.0125 = phi ptr [ %.4, %tls_process_ske_ecdhe.exit ], [ %.2, %tls_process_ske_dhe.exit ], [ %134, %133 ]
+  %.0125 = phi ptr [ %134, %133 ], [ %.4, %tls_process_ske_ecdhe.exit ], [ %.2, %tls_process_ske_dhe.exit ]
   %.not77 = icmp eq ptr %.0125, null
   br i1 %.not77, label %tls_process_ske_srp.exit.thread139, label %299
 

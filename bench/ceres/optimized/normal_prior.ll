@@ -789,7 +789,7 @@ _ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEv.exit.i.i.i.i
   br label %_ZNK5Eigen10MatrixBaseINS_5BlockIKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi1ELin1ELb1EEEE3dotINS1_IKNS2_IdLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb1EEEEENS_20ScalarBinaryOpTraitsIdNS_8internal6traitsIT_E6ScalarENSC_17scalar_product_opIdSG_EEE10ReturnTypeERKNS0_ISE_EE.exit.i.i.i.i.i.i.i.i
 
 _ZNK5Eigen10MatrixBaseINS_5BlockIKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi1ELin1ELb1EEEE3dotINS1_IKNS2_IdLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb1EEEEENS_20ScalarBinaryOpTraitsIdNS_8internal6traitsIT_E6ScalarENSC_17scalar_product_opIdSG_EEE10ReturnTypeERKNS0_ISE_EE.exit.i.i.i.i.i.i.i.i: ; preds = %.lr.ph85.i.i.i.i.i.i.i.i.i.i.i.i.i, %80, %70, %24
-  %.0.i.i.i.i.i.i.i.i.i.i.i = phi double [ 0.000000e+00, %24 ], [ %83, %80 ], [ %71, %70 ], [ %78, %.lr.ph85.i.i.i.i.i.i.i.i.i.i.i.i.i ]
+  %.0.i.i.i.i.i.i.i.i.i.i.i = phi double [ 0.000000e+00, %24 ], [ %71, %70 ], [ %83, %80 ], [ %78, %.lr.ph85.i.i.i.i.i.i.i.i.i.i.i.i.i ]
   %84 = load ptr, ptr %6, align 8, !tbaa !10
   %85 = load double, ptr %84, align 8, !tbaa !45
   %86 = fadd double %.0.i.i.i.i.i.i.i.i.i.i.i, %85

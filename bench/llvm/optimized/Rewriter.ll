@@ -1454,7 +1454,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit99.thread: ; preds = %_ZL20isWhitespace
   br i1 %.not73, label %.loopexit, label %.lr.ph, !llvm.loop !97
 
 .loopexit:                                        ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit99.thread, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread, %16, %9, %_ZNK4llvm9StringRef11starts_withES0_.exit, %_ZL20isWhitespaceExceptNLh.exit83, %4
-  %.0 = phi i1 [ true, %4 ], [ true, %_ZL20isWhitespaceExceptNLh.exit83 ], [ true, %_ZNK4llvm9StringRef11starts_withES0_.exit ], [ true, %16 ], [ true, %9 ], [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread ], [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit99.thread ]
+  %.0 = phi i1 [ true, %4 ], [ true, %_ZL20isWhitespaceExceptNLh.exit83 ], [ true, %_ZNK4llvm9StringRef11starts_withES0_.exit ], [ true, %9 ], [ true, %16 ], [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread ], [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit99.thread ]
   ret i1 %.0
 }
 

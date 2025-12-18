@@ -33569,7 +33569,7 @@ switch.lookup:                                    ; preds = %39
   br label %_ZNK4llvm3EVTeqES0_.exit
 
 _ZNK4llvm3EVTeqES0_.exit:                         ; preds = %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit, %39, %switch.lookup
-  %.0 = phi i32 [ %switch.offset, %switch.lookup ], [ 717, %39 ], [ 717, %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit ]
+  %.0 = phi i32 [ 717, %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit ], [ 717, %39 ], [ %switch.offset, %switch.lookup ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %10, i8 0, i64 18, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -34423,7 +34423,7 @@ switch.lookup:                                    ; preds = %39
   br label %_ZNK4llvm3EVTeqES0_.exit
 
 _ZNK4llvm3EVTeqES0_.exit:                         ; preds = %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit, %39, %switch.lookup
-  %.0 = phi i32 [ %switch.offset, %switch.lookup ], [ 717, %39 ], [ 717, %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit ]
+  %.0 = phi i32 [ 717, %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit ], [ 717, %39 ], [ %switch.offset, %switch.lookup ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %10, i8 0, i64 18, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -38661,8 +38661,8 @@ switch.lookup338:                                 ; preds = %131
   br label %_ZNK4llvm3EVTeqES0_.exit168.thread
 
 _ZNK4llvm3EVTeqES0_.exit168.thread:               ; preds = %128, %switch.lookup338, %switch.lookup335
-  %.0144.ph = phi i8 [ 4, %switch.lookup335 ], [ 5, %switch.lookup338 ], [ 4, %128 ]
-  %.0143.ph.in = phi i16 [ %132, %switch.lookup335 ], [ %133, %switch.lookup338 ], [ %switch.tableidx, %128 ]
+  %.0144.ph = phi i8 [ 5, %switch.lookup338 ], [ 4, %switch.lookup335 ], [ 4, %128 ]
+  %.0143.ph.in = phi i16 [ %133, %switch.lookup338 ], [ %132, %switch.lookup335 ], [ %switch.tableidx, %128 ]
   %134 = load ptr, ptr %0, align 8, !tbaa !60
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 400896
   %136 = zext i16 %.0143.ph.in to i64

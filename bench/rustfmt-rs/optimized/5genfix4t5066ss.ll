@@ -4298,7 +4298,7 @@ _ZN4core3str7pattern14small_slice_eq17h2dc82f3df9dd5a78E.exit.thread: ; preds = 
   br i1 %.not, label %_ZN4core3str7pattern14small_slice_eq17h2dc82f3df9dd5a78E.exit.thread14, label %.preheader17.split
 
 _ZN4core3str7pattern14small_slice_eq17h2dc82f3df9dd5a78E.exit.thread14: ; preds = %_ZN4core3str7pattern14small_slice_eq17h2dc82f3df9dd5a78E.exit.thread, %_ZN4core3str7pattern14small_slice_eq17h2dc82f3df9dd5a78E.exit, %_ZN4core3str7pattern14small_slice_eq17h2dc82f3df9dd5a78E.exit.thread.loopexit.us, %18, %4
-  %.0 = phi i1 [ false, %4 ], [ false, %_ZN4core3str7pattern14small_slice_eq17h2dc82f3df9dd5a78E.exit.thread.loopexit.us ], [ true, %18 ], [ true, %_ZN4core3str7pattern14small_slice_eq17h2dc82f3df9dd5a78E.exit ], [ false, %_ZN4core3str7pattern14small_slice_eq17h2dc82f3df9dd5a78E.exit.thread ]
+  %.0 = phi i1 [ false, %4 ], [ true, %18 ], [ false, %_ZN4core3str7pattern14small_slice_eq17h2dc82f3df9dd5a78E.exit.thread.loopexit.us ], [ true, %_ZN4core3str7pattern14small_slice_eq17h2dc82f3df9dd5a78E.exit ], [ false, %_ZN4core3str7pattern14small_slice_eq17h2dc82f3df9dd5a78E.exit.thread ]
   ret i1 %.0
 }
 
@@ -8654,7 +8654,7 @@ define internal fastcc noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..s
   br i1 %8, label %14, label %10
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit": ; preds = %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h1f3be4352dc86f97E.exit.us.i.i", %.critedge.backedge.us.i.i, %.lr.ph.split.us.i.i, %91, %11, %10, %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17he7c268187cb709a7E.exit"
-  %.036 = phi i8 [ 0, %10 ], [ %.sroa.0.0, %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17he7c268187cb709a7E.exit" ], [ %13, %11 ], [ 1, %.lr.ph.split.us.i.i ], [ %.4.i, %91 ], [ 0, %.critedge.backedge.us.i.i ], [ 1, %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h1f3be4352dc86f97E.exit.us.i.i" ]
+  %.036 = phi i8 [ 0, %10 ], [ %.sroa.0.0, %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17he7c268187cb709a7E.exit" ], [ %13, %11 ], [ %.4.i, %91 ], [ 1, %.lr.ph.split.us.i.i ], [ 0, %.critedge.backedge.us.i.i ], [ 1, %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h1f3be4352dc86f97E.exit.us.i.i" ]
   %9 = trunc nuw i8 %.036 to i1
   ret i1 %9
 
@@ -9223,7 +9223,7 @@ _ZN4core3str11validations15next_code_point17h875c6555aba9a391E.exit.thread.i.i: 
   br label %.backedge.i
 
 "_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17he7c268187cb709a7E.exit": ; preds = %_ZN4core3str11validations15next_code_point17h875c6555aba9a391E.exit.thread.i.i, %.backedge.sink.split.i, %.preheader69, %.backedge.i, %.preheader, %237, %182, %.preheader.i42, %.thread23.i.i, %.thread.i.i
-  %.sroa.0.0 = phi i8 [ 1, %.thread.i.i ], [ 0, %.preheader.i42 ], [ 0, %.thread23.i.i ], [ 0, %182 ], [ 0, %237 ], [ 0, %.backedge.sink.split.i ], [ 1, %.preheader ], [ 0, %.backedge.i ], [ 1, %.preheader69 ], [ 1, %_ZN4core3str11validations15next_code_point17h875c6555aba9a391E.exit.thread.i.i ]
+  %.sroa.0.0 = phi i8 [ 1, %.preheader ], [ 1, %.thread.i.i ], [ 0, %.preheader.i42 ], [ 0, %.thread23.i.i ], [ 1, %.preheader69 ], [ 0, %182 ], [ 0, %237 ], [ 0, %.backedge.sink.split.i ], [ 0, %.backedge.i ], [ 1, %_ZN4core3str11validations15next_code_point17h875c6555aba9a391E.exit.thread.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit"
 }
@@ -34523,8 +34523,8 @@ _ZN15rustfmt_nightly7comment20is_raw_string_suffix17h9d3fcb6d79b2af5aE.exit: ; p
   br label %"_ZN104_$LT$itertools..multipeek_impl..MultiPeek$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h860ecdc914c8e558E.exit.thread97"
 
 "_ZN104_$LT$itertools..multipeek_impl..MultiPeek$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h860ecdc914c8e558E.exit.thread97": ; preds = %"_ZN104_$LT$itertools..multipeek_impl..MultiPeek$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h860ecdc914c8e558E.exit.thread97.sink.split", %21, %25, %"_ZN104_$LT$itertools..multipeek_impl..MultiPeek$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h860ecdc914c8e558E.exit"
-  %.sroa.10.1 = phi i32 [ 1114112, %"_ZN104_$LT$itertools..multipeek_impl..MultiPeek$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h860ecdc914c8e558E.exit" ], [ 1114112, %25 ], [ 1114112, %21 ], [ %66, %"_ZN104_$LT$itertools..multipeek_impl..MultiPeek$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h860ecdc914c8e558E.exit.thread97.sink.split" ]
-  %.sroa.0.1 = phi i8 [ undef, %"_ZN104_$LT$itertools..multipeek_impl..MultiPeek$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h860ecdc914c8e558E.exit" ], [ undef, %25 ], [ undef, %21 ], [ %.sroa.0.1.ph, %"_ZN104_$LT$itertools..multipeek_impl..MultiPeek$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h860ecdc914c8e558E.exit.thread97.sink.split" ]
+  %.sroa.10.1 = phi i32 [ 1114112, %21 ], [ 1114112, %25 ], [ 1114112, %"_ZN104_$LT$itertools..multipeek_impl..MultiPeek$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h860ecdc914c8e558E.exit" ], [ %66, %"_ZN104_$LT$itertools..multipeek_impl..MultiPeek$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h860ecdc914c8e558E.exit.thread97.sink.split" ]
+  %.sroa.0.1 = phi i8 [ undef, %21 ], [ undef, %25 ], [ undef, %"_ZN104_$LT$itertools..multipeek_impl..MultiPeek$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h860ecdc914c8e558E.exit" ], [ %.sroa.0.1.ph, %"_ZN104_$LT$itertools..multipeek_impl..MultiPeek$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h860ecdc914c8e558E.exit.thread97.sink.split" ]
   %169 = insertvalue { i8, i32 } poison, i8 %.sroa.0.1, 0
   %170 = insertvalue { i8, i32 } %169, i32 %.sroa.10.1, 1
   ret { i8, i32 } %170
@@ -37390,8 +37390,8 @@ _ZN4core4iter6traits12double_ended19DoubleEndedIterator9try_rfold17hc511cf45e83a
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %.loopexit324
 
-.thread287:                                       ; preds = %.noexc164, %.noexc161
-  %313 = phi i64 [ %300, %.noexc164 ], [ %294, %.noexc161 ]
+.thread287:                                       ; preds = %.noexc161, %.noexc164
+  %313 = phi i64 [ %294, %.noexc161 ], [ %300, %.noexc164 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !7956
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %324
@@ -39100,7 +39100,7 @@ define internal fastcc noundef zeroext i1 @_ZN15rustfmt_nightly6string18is_valid
   br i1 %.not.i.i26.i, label %.preheader.i19.i, label %_ZN15rustfmt_nightly6string14is_punctuation17hc174282a8109cb7dE.exit
 
 _ZN15rustfmt_nightly6string14is_punctuation17hc174282a8109cb7dE.exit: ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2e64b9fa6bfbf5d7E.exit.thread.i.i", %.preheader.i.i, %76, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h78a09fc20fe204f8E.exit.i.i23.i", %.preheader.i19.i, %.critedge.i, %73, %.critedge.thread.i, %5
-  %.0 = phi i1 [ true, %5 ], [ true, %.critedge.i ], [ true, %.critedge.thread.i ], [ true, %73 ], [ false, %.preheader.i.i ], [ %exitcond.i20.i.not.not, %76 ], [ %exitcond.i20.i.not.not, %.preheader.i19.i ], [ %exitcond.i20.i.not.not, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h78a09fc20fe204f8E.exit.i.i23.i" ], [ false, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2e64b9fa6bfbf5d7E.exit.thread.i.i" ]
+  %.0 = phi i1 [ %exitcond.i20.i.not.not, %76 ], [ true, %5 ], [ false, %.preheader.i.i ], [ true, %73 ], [ true, %.critedge.thread.i ], [ true, %.critedge.i ], [ %exitcond.i20.i.not.not, %.preheader.i19.i ], [ %exitcond.i20.i.not.not, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h78a09fc20fe204f8E.exit.i.i23.i" ], [ false, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2e64b9fa6bfbf5d7E.exit.thread.i.i" ]
   ret i1 %.0
 }
 
@@ -43732,7 +43732,7 @@ _ZN5serde2de7Visitor12visit_string17h5c15f0dc63ec0499E.exit54.i.i: ; preds = %10
   ret void
 
 "_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h308c3dfd28122cfdE.llvm.4073844125802496097.exit": ; preds = %.preheader.i, %.preheader.i48, %.preheader.i57, %.preheader.i66, %.preheader.i75, %.preheader.i84, %.preheader.i93
-  %.sink = phi i8 [ 1, %.preheader.i48 ], [ 6, %.preheader.i93 ], [ 5, %.preheader.i84 ], [ 4, %.preheader.i75 ], [ 3, %.preheader.i66 ], [ 2, %.preheader.i57 ], [ 0, %.preheader.i ]
+  %.sink = phi i8 [ 3, %.preheader.i66 ], [ 2, %.preheader.i57 ], [ 1, %.preheader.i48 ], [ 6, %.preheader.i93 ], [ 5, %.preheader.i84 ], [ 4, %.preheader.i75 ], [ 0, %.preheader.i ]
   %279 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %.sink, ptr %279, align 8
   store i64 2, ptr %0, align 8

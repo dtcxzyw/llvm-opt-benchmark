@@ -4557,8 +4557,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
   br label %238
 
 _ZN7rocksdb17PlainTableBloomV17AddHashEj.exit:    ; preds = %.lr.ph.i.i, %.lr.ph.i2.i, %134, %112, %_ZN7rocksdbneERKNS_5SliceES2_.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %183
-  %.sroa.074.1 = phi ptr [ %.sroa.074.085, %_ZN7rocksdbneERKNS_5SliceES2_.exit ], [ %.sroa.074.0.copyload, %183 ], [ %211, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.sroa.074.085, %112 ], [ %.sroa.074.085, %134 ], [ %.sroa.074.085, %.lr.ph.i2.i ], [ %.sroa.074.085, %.lr.ph.i.i ]
-  %.sroa.8.1 = phi i64 [ %.sroa.8.086, %_ZN7rocksdbneERKNS_5SliceES2_.exit ], [ %.sroa.8.0.copyload, %183 ], [ %212, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.sroa.8.086, %112 ], [ %.sroa.8.086, %134 ], [ %.sroa.8.086, %.lr.ph.i2.i ], [ %.sroa.8.086, %.lr.ph.i.i ]
+  %.sroa.074.1 = phi ptr [ %.sroa.074.085, %_ZN7rocksdbneERKNS_5SliceES2_.exit ], [ %.sroa.074.0.copyload, %183 ], [ %211, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.sroa.074.085, %112 ], [ %.sroa.074.085, %.lr.ph.i2.i ], [ %.sroa.074.085, %134 ], [ %.sroa.074.085, %.lr.ph.i.i ]
+  %.sroa.8.1 = phi i64 [ %.sroa.8.086, %_ZN7rocksdbneERKNS_5SliceES2_.exit ], [ %.sroa.8.0.copyload, %183 ], [ %212, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.sroa.8.086, %112 ], [ %.sroa.8.086, %.lr.ph.i2.i ], [ %.sroa.8.086, %134 ], [ %.sroa.8.086, %.lr.ph.i.i ]
   %215 = load ptr, ptr %26, align 16, !tbaa !114
   %216 = icmp eq ptr %215, null
   br i1 %216, label %224, label %217
@@ -5713,8 +5713,8 @@ _ZN7rocksdb6StatusaSEOS0_.exit.thread:            ; preds = %91, %_ZNKSt14defaul
   br label %.critedge
 
 128:                                              ; preds = %124, %120
-  %.142 = phi i32 [ %.041114, %120 ], [ %87, %124 ]
-  %.140 = phi i32 [ %87, %120 ], [ %.039115, %124 ]
+  %.142 = phi i32 [ %87, %124 ], [ %.041114, %120 ]
+  %.140 = phi i32 [ %.039115, %124 ], [ %87, %120 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %129 = sub i32 %.142, %.140
   %130 = icmp ugt i32 %129, 1

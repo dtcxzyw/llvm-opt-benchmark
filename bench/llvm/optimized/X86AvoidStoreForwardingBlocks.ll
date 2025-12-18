@@ -1785,7 +1785,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit67.i: ; pre
   br i1 %.not46.i, label %_ZL21findPotentialBlockersPN4llvm12MachineInstrE.exit, label %.lr.ph111.i
 
 _ZL21findPotentialBlockersPN4llvm12MachineInstrE.exit: ; preds = %381, %.thread85.i, %._crit_edge.i60, %411
-  %471 = phi i32 [ %409, %411 ], [ %409, %._crit_edge.i60 ], [ %469, %.thread85.i ], [ %373, %381 ]
+  %471 = phi i32 [ %469, %.thread85.i ], [ %409, %411 ], [ %409, %._crit_edge.i60 ], [ %373, %381 ]
   %472 = load ptr, ptr %13, align 8, !tbaa !25
   %473 = zext i32 %471 to i64
   %.idx163 = shl nuw nsw i64 %473, 3

@@ -2887,7 +2887,7 @@ define ptr @Gia_ManEquivReduce(ptr noundef %0, i32 noundef %1, i32 noundef %2, i
   br i1 %50, label %.lr.ph163, label %._crit_edge, !llvm.loop !89
 
 ._crit_edge:                                      ; preds = %48, %11, %.preheader154
-  %.val31.i213 = phi i32 [ %.val128, %.preheader154 ], [ %.val131, %11 ], [ %.val126, %48 ]
+  %.val31.i213 = phi i32 [ %.val131, %11 ], [ %.val128, %.preheader154 ], [ %.val126, %48 ]
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %52 = load ptr, ptr %51, align 8, !tbaa !54
   %.not114 = icmp eq ptr %52, null
@@ -3738,7 +3738,7 @@ define ptr @Gia_ManEquivReduce2(ptr noundef %0, i32 noundef %1) local_unnamed_ad
   br i1 %51, label %.lr.ph157, label %._crit_edge, !llvm.loop !102
 
 ._crit_edge:                                      ; preds = %49, %12, %.preheader148
-  %.val31.i206 = phi i32 [ %.val121, %.preheader148 ], [ %.val124, %12 ], [ %.val119, %49 ]
+  %.val31.i206 = phi i32 [ %.val124, %12 ], [ %.val121, %.preheader148 ], [ %.val119, %49 ]
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %53 = load ptr, ptr %52, align 8, !tbaa !54
   %.not110 = icmp eq ptr %53, null
@@ -7195,8 +7195,8 @@ Gia_ManEquivCountLits.exit.split:                 ; preds = %Gia_ManEquivCountLi
   br i1 %or.cond, label %.split.us, label %.lr.ph
 
 .split.us:                                        ; preds = %66, %50, %Gia_ManEquivCountLits.exit.split, %Gia_ManEquivCountLits.exit.split.us
-  %.us-phi = phi i32 [ 1, %Gia_ManEquivCountLits.exit.split.us ], [ 1, %Gia_ManEquivCountLits.exit.split ], [ %51, %50 ], [ %67, %66 ]
-  %.us-phi38 = phi ptr [ %36, %Gia_ManEquivCountLits.exit.split.us ], [ %36, %Gia_ManEquivCountLits.exit.split ], [ %52, %50 ], [ %68, %66 ]
+  %.us-phi = phi i32 [ %51, %50 ], [ 1, %Gia_ManEquivCountLits.exit.split.us ], [ 1, %Gia_ManEquivCountLits.exit.split ], [ %67, %66 ]
+  %.us-phi38 = phi ptr [ %52, %50 ], [ %36, %Gia_ManEquivCountLits.exit.split.us ], [ %36, %Gia_ManEquivCountLits.exit.split ], [ %68, %66 ]
   %74 = icmp eq i32 %.us-phi, %2
   br i1 %74, label %75, label %76
 
@@ -9151,7 +9151,7 @@ Gia_ObjIsHead.exit.thread.loopexit:               ; preds = %54
   br label %Gia_ObjIsHead.exit.thread
 
 Gia_ObjIsHead.exit.thread:                        ; preds = %Gia_ObjIsHead.exit.thread.loopexit, %33, %Gia_ObjIsHead.exit
-  %.val = phi i32 [ %.val80, %Gia_ObjIsHead.exit ], [ %.val80, %33 ], [ %.val.pre, %Gia_ObjIsHead.exit.thread.loopexit ]
+  %.val = phi i32 [ %.val80, %33 ], [ %.val80, %Gia_ObjIsHead.exit ], [ %.val.pre, %Gia_ObjIsHead.exit.thread.loopexit ]
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %56 = sext i32 %.val to i64
   %57 = icmp slt i64 %indvars.iv.next73, %56
@@ -10671,8 +10671,8 @@ Vec_IntPush.exit199:                              ; preds = %.Vec_IntGrow.exit10
   br label %.critedge5
 
 .critedge5:                                       ; preds = %.critedge5.loopexit, %96, %185, %188, %Gia_ObjIsHead.exit
-  %.4132 = phi i32 [ %.2130224, %Gia_ObjIsHead.exit ], [ %.3131214, %188 ], [ %.3131214, %185 ], [ %.2130224, %96 ], [ %.3131214, %.critedge5.loopexit ]
-  %.5 = phi i32 [ %.2225, %Gia_ObjIsHead.exit ], [ %.2225, %188 ], [ %.2225, %185 ], [ %.2225, %96 ], [ %204, %.critedge5.loopexit ]
+  %.4132 = phi i32 [ %.2130224, %Gia_ObjIsHead.exit ], [ %.2130224, %96 ], [ %.3131214, %188 ], [ %.3131214, %185 ], [ %.3131214, %.critedge5.loopexit ]
+  %.5 = phi i32 [ %.2225, %Gia_ObjIsHead.exit ], [ %.2225, %96 ], [ %.2225, %188 ], [ %.2225, %185 ], [ %204, %.critedge5.loopexit ]
   %indvars.iv.next242 = add nuw nsw i64 %indvars.iv241, 1
   %.val = load i32, ptr %25, align 8, !tbaa !12
   %205 = sext i32 %.val to i64
@@ -11044,10 +11044,10 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   br label %.critedge4
 
 .critedge4:                                       ; preds = %.critedge4.loopexit, %78, %Gia_ObjIsHead.exit, %130
-  %.val155268 = phi ptr [ %.val155, %130 ], [ %.val155272, %Gia_ObjIsHead.exit ], [ %.val155272, %78 ], [ %.val155, %.critedge4.loopexit ]
-  %.pre.i262 = phi ptr [ %.pre.i264, %130 ], [ %.pre.i261, %Gia_ObjIsHead.exit ], [ %.pre.i261, %78 ], [ %.val155, %.critedge4.loopexit ]
-  %.4116 = phi i32 [ %.3115218, %130 ], [ %.2114226, %Gia_ObjIsHead.exit ], [ %.2114226, %78 ], [ %.3115218, %.critedge4.loopexit ]
-  %.4 = phi i32 [ %.2227, %130 ], [ %.2227, %Gia_ObjIsHead.exit ], [ %.2227, %78 ], [ %146, %.critedge4.loopexit ]
+  %.val155268 = phi ptr [ %.val155272, %78 ], [ %.val155, %130 ], [ %.val155272, %Gia_ObjIsHead.exit ], [ %.val155, %.critedge4.loopexit ]
+  %.pre.i262 = phi ptr [ %.pre.i261, %78 ], [ %.pre.i264, %130 ], [ %.pre.i261, %Gia_ObjIsHead.exit ], [ %.val155, %.critedge4.loopexit ]
+  %.4116 = phi i32 [ %.2114226, %78 ], [ %.3115218, %130 ], [ %.2114226, %Gia_ObjIsHead.exit ], [ %.3115218, %.critedge4.loopexit ]
+  %.4 = phi i32 [ %.2227, %78 ], [ %.2227, %130 ], [ %.2227, %Gia_ObjIsHead.exit ], [ %146, %.critedge4.loopexit ]
   %indvars.iv.next252 = add nuw nsw i64 %indvars.iv251, 1
   %.val148 = load i32, ptr %9, align 8, !tbaa !12
   %147 = sext i32 %.val148 to i64
@@ -11132,9 +11132,9 @@ Gia_ObjIsHead.exit189.thread:                     ; preds = %149, %176, %167, %G
   br i1 %178, label %149, label %.loopexit, !llvm.loop !202
 
 .loopexit:                                        ; preds = %.critedge4, %Gia_ObjIsHead.exit189.thread, %.preheader197, %.preheader196
-  %179 = phi ptr [ %7, %.preheader196 ], [ %7, %.preheader197 ], [ %7, %Gia_ObjIsHead.exit189.thread ], [ %.val155268, %.critedge4 ]
-  %.5117 = phi i32 [ %.0112.lcssa, %.preheader196 ], [ %.0112.lcssa, %.preheader197 ], [ %.8120, %Gia_ObjIsHead.exit189.thread ], [ %.4116, %.critedge4 ]
-  %.5 = phi i32 [ %.0110.lcssa, %.preheader196 ], [ %.0110.lcssa, %.preheader197 ], [ %.10, %Gia_ObjIsHead.exit189.thread ], [ %.4, %.critedge4 ]
+  %179 = phi ptr [ %7, %Gia_ObjIsHead.exit189.thread ], [ %7, %.preheader196 ], [ %7, %.preheader197 ], [ %.val155268, %.critedge4 ]
+  %.5117 = phi i32 [ %.8120, %Gia_ObjIsHead.exit189.thread ], [ %.0112.lcssa, %.preheader196 ], [ %.0112.lcssa, %.preheader197 ], [ %.4116, %.critedge4 ]
+  %.5 = phi i32 [ %.10, %Gia_ObjIsHead.exit189.thread ], [ %.0110.lcssa, %.preheader196 ], [ %.0110.lcssa, %.preheader197 ], [ %.4, %.critedge4 ]
   %.not.i190 = icmp eq ptr %179, null
   br i1 %.not.i190, label %Vec_IntFree.exit, label %180
 
@@ -12641,7 +12641,7 @@ Gia_ObjIsHead.exit:                               ; preds = %10
   br i1 %49, label %.lr.ph, label %Gia_ObjIsHead.exit.thread, !llvm.loop !227
 
 Gia_ObjIsHead.exit.thread:                        ; preds = %44, %18, %10, %Gia_ObjIsHead.exit
-  %.3 = phi i32 [ %.046, %Gia_ObjIsHead.exit ], [ %.046, %10 ], [ %.046, %18 ], [ %.2, %44 ]
+  %.3 = phi i32 [ %.046, %10 ], [ %.046, %Gia_ObjIsHead.exit ], [ %.046, %18 ], [ %.2, %44 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val = load i32, ptr %3, align 8, !tbaa !12
   %50 = sext i32 %.val to i64

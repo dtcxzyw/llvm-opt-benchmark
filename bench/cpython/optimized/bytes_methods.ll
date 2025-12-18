@@ -779,7 +779,7 @@ parse_args_finds_byte.exit:                       ; preds = %6
   br i1 %73, label %stringlib_find_char.exit, label %68, !llvm.loop !46
 
 stringlib_find_char.exit:                         ; preds = %70, %.lr.ph.i, %63, %54
-  %.lcssa.sink = phi ptr [ %65, %63 ], [ %56, %54 ], [ %.01721.i, %.lr.ph.i ], [ %71, %70 ]
+  %.lcssa.sink = phi ptr [ %65, %63 ], [ %.01721.i, %.lr.ph.i ], [ %56, %54 ], [ %71, %70 ]
   %.lcssa.sink.fr = freeze ptr %.lcssa.sink
   %74 = ptrtoint ptr %.lcssa.sink.fr to i64
   %75 = ptrtoint ptr %48 to i64
@@ -910,7 +910,7 @@ fastsearch.exit.i.i:                              ; preds = %128
   br label %stringlib_find_slice.exit
 
 stringlib_find_slice.exit:                        ; preds = %124, %103, %68, %59, %stringlib_find_char.exit, %63, %.preheader.i, %54, %fastsearch.exit.i.i, %.preheader56.i.i.i.i, %90, %87, %82, %80, %39
-  %.0 = phi i64 [ %.049, %80 ], [ -1, %39 ], [ %spec.select, %stringlib_find_char.exit ], [ %spec.select.i.i, %82 ], [ %spec.select.i.i64, %fastsearch.exit.i.i ], [ -1, %90 ], [ -1, %.preheader56.i.i.i.i ], [ %.048, %87 ], [ -1, %54 ], [ -1, %.preheader.i ], [ -1, %63 ], [ -1, %68 ], [ -1, %59 ], [ -1, %103 ], [ -1, %124 ]
+  %.0 = phi i64 [ %.049, %80 ], [ -1, %39 ], [ -1, %59 ], [ -1, %68 ], [ %spec.select, %stringlib_find_char.exit ], [ %spec.select.i.i, %82 ], [ %.048, %87 ], [ -1, %90 ], [ %spec.select.i.i64, %fastsearch.exit.i.i ], [ -1, %.preheader56.i.i.i.i ], [ -1, %.preheader.i ], [ -1, %63 ], [ -1, %54 ], [ -1, %103 ], [ -1, %124 ]
   br i1 %.not5717, label %parse_args_finds_byte.exit.thread, label %142
 
 142:                                              ; preds = %stringlib_find_slice.exit
@@ -1675,7 +1675,7 @@ define internal fastcc i64 @fastsearch(ptr noundef %0, i64 noundef %1, ptr nound
   br i1 %182, label %.lr.ph.i76, label %.preheader56.i, !llvm.loop !49
 
 stringlib_find_char.exit:                         ; preds = %96, %._crit_edge95.us.thread.i, %167, %146, %171, %44, %30, %68, %65, %.lr.ph.i69, %.preheader56.i, %.loopexit.i, %50, %38, %35, %26, %20, %17, %.preheader.i, %10, %6, %133, %131, %129
-  %.0 = phi i64 [ -1, %6 ], [ -1, %10 ], [ %130, %129 ], [ %132, %131 ], [ %134, %133 ], [ %23, %20 ], [ -1, %17 ], [ %29, %26 ], [ -1, %.preheader.i ], [ %41, %38 ], [ -1, %35 ], [ %53, %50 ], [ %121, %.loopexit.i ], [ -1, %.preheader56.i ], [ -1, %44 ], [ -1, %167 ], [ %.15065.us.i, %171 ], [ %spec.select.i, %.lr.ph.i69 ], [ %4, %65 ], [ -1, %30 ], [ %.1.i, %68 ], [ -1, %146 ], [ %.062101.us.i, %._crit_edge95.us.thread.i ], [ %4, %96 ]
+  %.0 = phi i64 [ -1, %.preheader56.i ], [ -1, %6 ], [ -1, %10 ], [ -1, %167 ], [ %.15065.us.i, %171 ], [ %4, %65 ], [ %spec.select.i, %.lr.ph.i69 ], [ %130, %129 ], [ %132, %131 ], [ %134, %133 ], [ %23, %20 ], [ -1, %17 ], [ %29, %26 ], [ -1, %.preheader.i ], [ %41, %38 ], [ -1, %35 ], [ %53, %50 ], [ -1, %44 ], [ -1, %30 ], [ %121, %.loopexit.i ], [ %.1.i, %68 ], [ -1, %146 ], [ %4, %96 ], [ %.062101.us.i, %._crit_edge95.us.thread.i ]
   ret i64 %.0
 }
 
@@ -2362,14 +2362,14 @@ define internal fastcc i64 @stringlib__two_way(ptr noundef %0, i64 noundef %1, p
   br label %.thread170
 
 .thread170:                                       ; preds = %118, %..preheader_crit_edge.us, %86, %.preheader
-  %.lcssa = phi ptr [ %136, %.preheader ], [ %85, %..preheader_crit_edge.us ], [ %85, %86 ], [ %117, %118 ]
+  %.lcssa = phi ptr [ %85, %..preheader_crit_edge.us ], [ %136, %.preheader ], [ %85, %86 ], [ %117, %118 ]
   %137 = ptrtoint ptr %.lcssa to i64
   %138 = ptrtoint ptr %0 to i64
   %139 = sub i64 %137, %138
   br label %.thread
 
 .thread:                                          ; preds = %.backedge, %.preheader180, %58, %.preheader175, %.thread167.us231, %.preheader175.us215, %104, %.preheader175.us, %.preheader182, %71, %.preheader177._crit_edge, %.thread170
-  %.4 = phi i64 [ %139, %.thread170 ], [ %70, %.preheader177._crit_edge ], [ -1, %71 ], [ -1, %.preheader182 ], [ -1, %58 ], [ -1, %104 ], [ -1, %.thread167.us231 ], [ -1, %.preheader175 ], [ -1, %.preheader175.us ], [ -1, %.preheader175.us215 ], [ -1, %.preheader180 ], [ -1, %.backedge ]
+  %.4 = phi i64 [ -1, %.thread167.us231 ], [ -1, %.preheader175 ], [ -1, %71 ], [ %139, %.thread170 ], [ %70, %.preheader177._crit_edge ], [ -1, %104 ], [ -1, %.preheader182 ], [ -1, %58 ], [ -1, %.preheader175.us ], [ -1, %.preheader175.us215 ], [ -1, %.preheader180 ], [ -1, %.backedge ]
   ret i64 %.4
 }
 

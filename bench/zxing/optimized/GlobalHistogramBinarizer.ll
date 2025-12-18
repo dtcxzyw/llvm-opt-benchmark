@@ -352,8 +352,8 @@ _ZN5ZXingL18EstimateBlackPointERKSt5arrayItLm32EE.exit: ; preds = %.lr.ph.i9
   br i1 %.not46.i32, label %_ZN5ZXingL18ThresholdSharpenedENS_5RangeINS_10StrideIterIPKhEEEEiRSt6vectorIhSaIhEE.exit, label %113, !llvm.loop !31
 
 _ZN5ZXingL18ThresholdSharpenedENS_5RangeINS_10StrideIterIPKhEEEEiRSt6vectorIhSaIhEE.exit: ; preds = %113, %.lr.ph.i13, %99, %80
-  %.sroa.036.0.lcssa.i34.sink = phi ptr [ %82, %80 ], [ %104, %99 ], [ %86, %.lr.ph.i13 ], [ %109, %113 ]
-  %.sroa.033.0.lcssa.i35.sink = phi ptr [ %.sroa.033.049.i, %80 ], [ %.sroa.033.049.i23, %99 ], [ %.sroa.033.0.i, %.lr.ph.i13 ], [ %.sroa.033.0.i31, %113 ]
+  %.sroa.036.0.lcssa.i34.sink = phi ptr [ %86, %.lr.ph.i13 ], [ %82, %80 ], [ %104, %99 ], [ %109, %113 ]
+  %.sroa.033.0.lcssa.i35.sink = phi ptr [ %.sroa.033.0.i, %.lr.ph.i13 ], [ %.sroa.033.049.i, %80 ], [ %.sroa.033.049.i23, %99 ], [ %.sroa.033.0.i31, %113 ]
   %126 = load i8, ptr %.sroa.036.0.lcssa.i34.sink, align 1, !tbaa !22
   %127 = zext i8 %126 to i32
   %.not4.i36 = icmp samesign uge i32 %72, %127

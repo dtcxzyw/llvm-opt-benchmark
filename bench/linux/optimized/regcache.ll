@@ -527,7 +527,7 @@ define internal fastcc i32 @regcache_hw_init(ptr noundef %0) unnamed_addr #0 ali
   br label %.loopexit
 
 .loopexit:                                        ; preds = %118, %.thread, %124, %.thread11, %34, %28, %1
-  %127 = phi i32 [ %125, %124 ], [ 0, %28 ], [ -22, %1 ], [ -12, %34 ], [ 0, %.thread11 ], [ -12, %.thread ], [ 0, %118 ]
+  %127 = phi i32 [ %125, %124 ], [ -12, %.thread ], [ 0, %28 ], [ -22, %1 ], [ -12, %34 ], [ 0, %.thread11 ], [ 0, %118 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %127
 }

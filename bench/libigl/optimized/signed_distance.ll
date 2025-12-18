@@ -5036,7 +5036,7 @@ _ZN3igl4AABBIN5Eigen6MatrixIfLin1ELi3ELi0ELin1ELi3EEELi3EEC2Ev.exit.i.i: ; preds
   br label %.body.i.i
 
 .loopexit73.i.i:                                  ; preds = %.lr.ph82.i.i.i.i.i.i.i, %.lr.ph87.i.i.i.i.i.i.i, %134, %125, %95
-  %.0.i.i.i.i.i = phi float [ 0.000000e+00, %95 ], [ %135, %134 ], [ %128, %125 ], [ %139, %.lr.ph87.i.i.i.i.i.i.i ], [ %132, %.lr.ph82.i.i.i.i.i.i.i ]
+  %.0.i.i.i.i.i = phi float [ 0.000000e+00, %95 ], [ %139, %.lr.ph87.i.i.i.i.i.i.i ], [ %135, %134 ], [ %128, %125 ], [ %132, %.lr.ph82.i.i.i.i.i.i.i ]
   %144 = fmul float %.0.i.i.i.i.i, 5.000000e-01
   store float %144, ptr %78, align 8, !tbaa !301
   call void @free(ptr noundef %.pre.i.i.i.i) #30
@@ -6161,7 +6161,7 @@ _ZN3igl4AABBIN5Eigen6MatrixIfLin1ELi3ELi1ELin1ELi3EEELi3EEC2Ev.exit.i.i: ; preds
   br label %.body.i.i
 
 .loopexit73.i.i:                                  ; preds = %.lr.ph82.i.i.i.i.i.i.i, %.lr.ph87.i.i.i.i.i.i.i, %134, %125, %95
-  %.0.i.i.i.i.i = phi float [ 0.000000e+00, %95 ], [ %135, %134 ], [ %128, %125 ], [ %139, %.lr.ph87.i.i.i.i.i.i.i ], [ %132, %.lr.ph82.i.i.i.i.i.i.i ]
+  %.0.i.i.i.i.i = phi float [ 0.000000e+00, %95 ], [ %139, %.lr.ph87.i.i.i.i.i.i.i ], [ %135, %134 ], [ %128, %125 ], [ %132, %.lr.ph82.i.i.i.i.i.i.i ]
   %144 = fmul float %.0.i.i.i.i.i, 5.000000e-01
   store float %144, ptr %78, align 8, !tbaa !301
   call void @free(ptr noundef %.pre.i.i.i.i) #30
@@ -7295,7 +7295,7 @@ _ZN3igl4AABBIN5Eigen6MatrixIfLin1ELi3ELi1ELin1ELi3EEELi3EEC2Ev.exit.i.i: ; preds
   br label %.body.i.i
 
 .loopexit73.i.i:                                  ; preds = %.lr.ph82.i.i.i.i.i.i.i, %.lr.ph87.i.i.i.i.i.i.i, %137, %128, %98
-  %.0.i.i.i.i.i = phi float [ 0.000000e+00, %98 ], [ %138, %137 ], [ %131, %128 ], [ %142, %.lr.ph87.i.i.i.i.i.i.i ], [ %135, %.lr.ph82.i.i.i.i.i.i.i ]
+  %.0.i.i.i.i.i = phi float [ 0.000000e+00, %98 ], [ %142, %.lr.ph87.i.i.i.i.i.i.i ], [ %138, %137 ], [ %131, %128 ], [ %135, %.lr.ph82.i.i.i.i.i.i.i ]
   %147 = fmul float %.0.i.i.i.i.i, 5.000000e-01
   store float %147, ptr %81, align 8, !tbaa !301
   call void @free(ptr noundef %.pre.i.i.i.i) #30
@@ -12440,7 +12440,7 @@ _ZN3igl17WindingNumberAABBIdiE23compute_min_max_cornersEv.exit: ; preds = %_ZN3i
   br label %_ZNK5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE3sumEv.exit
 
 _ZNK5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE3sumEv.exit: ; preds = %.lr.ph82.i.i.i, %117, %110, %80
-  %.0.i = phi double [ 0.000000e+00, %80 ], [ %118, %117 ], [ %111, %110 ], [ %115, %.lr.ph82.i.i.i ]
+  %.0.i = phi double [ 0.000000e+00, %80 ], [ %111, %110 ], [ %118, %117 ], [ %115, %.lr.ph82.i.i.i ]
   %119 = fmul double %.0.i, 5.000000e-01
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store double %119, ptr %120, align 8, !tbaa !67
@@ -15500,7 +15500,7 @@ _ZN5Eigen5BlockINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSERKS3_.exi
   br label %.body101
 
 .loopexit193:                                     ; preds = %.lr.ph82.i.i.i.i.i, %.lr.ph87.i.i.i.i.i, %223, %214, %184
-  %.0.i.i.i = phi float [ 0.000000e+00, %184 ], [ %224, %223 ], [ %217, %214 ], [ %228, %.lr.ph87.i.i.i.i.i ], [ %221, %.lr.ph82.i.i.i.i.i ]
+  %.0.i.i.i = phi float [ 0.000000e+00, %184 ], [ %228, %.lr.ph87.i.i.i.i.i ], [ %224, %223 ], [ %217, %214 ], [ %221, %.lr.ph82.i.i.i.i.i ]
   %235 = fmul float %.0.i.i.i, 5.000000e-01
   store float %235, ptr %179, align 8, !tbaa !301
   call void @free(ptr noundef %.pre.i.i) #30
@@ -15658,7 +15658,7 @@ _ZN5Eigen5BlockINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSERKS3_.exi
   br label %.body130
 
 .loopexit:                                        ; preds = %.lr.ph82.i.i.i.i.i112, %.lr.ph87.i.i.i.i.i125, %292, %283, %253
-  %.0.i.i.i111 = phi float [ 0.000000e+00, %253 ], [ %293, %292 ], [ %286, %283 ], [ %297, %.lr.ph87.i.i.i.i.i125 ], [ %290, %.lr.ph82.i.i.i.i.i112 ]
+  %.0.i.i.i111 = phi float [ 0.000000e+00, %253 ], [ %297, %.lr.ph87.i.i.i.i.i125 ], [ %293, %292 ], [ %286, %283 ], [ %290, %.lr.ph82.i.i.i.i.i112 ]
   %304 = fmul float %.0.i.i.i111, 5.000000e-01
   store float %304, ptr %248, align 8, !tbaa !301
   call void @free(ptr noundef %.pre.i.i107) #30

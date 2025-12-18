@@ -1854,8 +1854,8 @@ define noundef zeroext i1 @termination_condition(ptr noundef readonly captures(n
   br label %_ZNK5Eigen9DenseBaseINS_12CwiseUnaryOpINS_8internal13scalar_abs_opIdEEKNS_13CwiseBinaryOpINS2_20scalar_difference_opIddEEKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEESA_EEEEE8maxCoeffEv.exit46
 
 _ZNK5Eigen9DenseBaseINS_12CwiseUnaryOpINS_8internal13scalar_abs_opIdEEKNS_13CwiseBinaryOpINS2_20scalar_difference_opIddEEKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEESA_EEEEE8maxCoeffEv.exit46: ; preds = %.lr.ph85.i.i.i.i33, %120, %132
-  %.2.i.i.i.i114 = phi double [ %136, %132 ], [ %.2.i.i.i.i.ph, %120 ], [ %.2.i.i.i.i.ph, %.lr.ph85.i.i.i.i33 ]
-  %.2.i.i.i.i32 = phi double [ %143, %132 ], [ %122, %120 ], [ %130, %.lr.ph85.i.i.i.i33 ]
+  %.2.i.i.i.i114 = phi double [ %.2.i.i.i.i.ph, %120 ], [ %136, %132 ], [ %.2.i.i.i.i.ph, %.lr.ph85.i.i.i.i33 ]
+  %.2.i.i.i.i32 = phi double [ %122, %120 ], [ %143, %132 ], [ %130, %.lr.ph85.i.i.i.i33 ]
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %145 = load ptr, ptr %144, align 8, !tbaa !20
   %146 = load double, ptr %145, align 8, !tbaa !175
@@ -2064,8 +2064,8 @@ _ZNK5Eigen9DenseBaseINS_12CwiseUnaryOpINS_8internal13scalar_abs_opIdEEKNS_13Cwis
   br label %_ZNK5Eigen9DenseBaseINS_12CwiseUnaryOpINS_8internal13scalar_abs_opIdEEKNS_13CwiseBinaryOpINS2_20scalar_difference_opIddEEKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEESA_EEEEE8maxCoeffEv.exit86
 
 _ZNK5Eigen9DenseBaseINS_12CwiseUnaryOpINS_8internal13scalar_abs_opIdEEKNS_13CwiseBinaryOpINS2_20scalar_difference_opIddEEKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEESA_EEEEE8maxCoeffEv.exit86: ; preds = %.lr.ph85.i.i.i.i73, %256, %268
-  %.2.i.i.i.i52117 = phi double [ %272, %268 ], [ %.2.i.i.i.i52.ph, %256 ], [ %.2.i.i.i.i52.ph, %.lr.ph85.i.i.i.i73 ]
-  %.2.i.i.i.i72 = phi double [ %279, %268 ], [ %258, %256 ], [ %266, %.lr.ph85.i.i.i.i73 ]
+  %.2.i.i.i.i52117 = phi double [ %.2.i.i.i.i52.ph, %256 ], [ %272, %268 ], [ %.2.i.i.i.i52.ph, %.lr.ph85.i.i.i.i73 ]
+  %.2.i.i.i.i72 = phi double [ %258, %256 ], [ %279, %268 ], [ %266, %.lr.ph85.i.i.i.i73 ]
   %280 = fmul double %146, %.2.i.i.i.i72
   %281 = getelementptr inbounds nuw i8, ptr %3, i64 568
   store double %280, ptr %281, align 8, !tbaa !179
@@ -2599,7 +2599,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   br i1 %255, label %.lr.ph.i.i.i.i.i.i.i.i102, label %._crit_edge.i.i.i.i.i.i.i.i98, !llvm.loop !189
 
 _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEaSERKS1_.exit105: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i99, %.lr.ph.i.i.i.i.i.i.i.i.i43, %._crit_edge.i.i.i.i.i.i.i.i42, %._crit_edge.i.i.i.i.i.i.i.i98
-  %.1 = phi i32 [ 1, %._crit_edge.i.i.i.i.i.i.i.i98 ], [ 0, %._crit_edge.i.i.i.i.i.i.i.i42 ], [ 0, %.lr.ph.i.i.i.i.i.i.i.i.i43 ], [ 1, %.lr.ph.i.i.i.i.i.i.i.i.i99 ]
+  %.1 = phi i32 [ 0, %.lr.ph.i.i.i.i.i.i.i.i.i43 ], [ 1, %._crit_edge.i.i.i.i.i.i.i.i98 ], [ 0, %._crit_edge.i.i.i.i.i.i.i.i42 ], [ 1, %.lr.ph.i.i.i.i.i.i.i.i.i99 ]
   ret i32 %.1
 }
 
@@ -2948,7 +2948,7 @@ _ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEv.exit.i: ; pr
   br label %_ZNK5Eigen10MatrixBaseINS_5BlockIKNS_9TransposeINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEELi1ELin1ELb1EEEE3dotINS1_IKNS1_IS4_Lin1ELi1ELb1EEELin1ELi1ELb1EEEEENS_20ScalarBinaryOpTraitsIdNS_8internal6traitsIT_E6ScalarENSE_17scalar_product_opIdSI_EEE10ReturnTypeERKNS0_ISG_EE.exit.i.i.i
 
 _ZNK5Eigen10MatrixBaseINS_5BlockIKNS_9TransposeINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEELi1ELin1ELb1EEEE3dotINS1_IKNS1_IS4_Lin1ELi1ELb1EEELin1ELi1ELb1EEEEENS_20ScalarBinaryOpTraitsIdNS_8internal6traitsIT_E6ScalarENSE_17scalar_product_opIdSI_EEE10ReturnTypeERKNS0_ISG_EE.exit.i.i.i: ; preds = %.lr.ph85.i.i.i.i.i.i.i.i, %82, %72, %26
-  %.0.i.i.i.i.i.i = phi double [ 0.000000e+00, %26 ], [ %85, %82 ], [ %73, %72 ], [ %80, %.lr.ph85.i.i.i.i.i.i.i.i ]
+  %.0.i.i.i.i.i.i = phi double [ 0.000000e+00, %26 ], [ %73, %72 ], [ %85, %82 ], [ %80, %.lr.ph85.i.i.i.i.i.i.i.i ]
   %86 = load double, ptr %.sink, align 8, !tbaa !45
   %87 = fadd double %.0.i.i.i.i.i.i, %86
   store double %87, ptr %.sink, align 8, !tbaa !45

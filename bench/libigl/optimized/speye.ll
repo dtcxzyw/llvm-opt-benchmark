@@ -643,7 +643,7 @@ _ZNK5Eigen20SparseCompressedBaseINS_12SparseMatrixISt7complexIdELi0EiEEE8nonZero
   br i1 %exitcond.not, label %.loopexit80, label %.lr.ph, !llvm.loop !56
 
 .loopexit80:                                      ; preds = %.lr.ph, %34, %.preheader, %30, %3
-  %50 = phi ptr [ %6, %3 ], [ %39, %.preheader ], [ %calloc, %30 ], [ %calloc, %34 ], [ %39, %.lr.ph ]
+  %50 = phi ptr [ %calloc, %34 ], [ %6, %3 ], [ %39, %.preheader ], [ %calloc, %30 ], [ %39, %.lr.ph ]
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %53 = load i64, ptr %52, align 8, !tbaa !54
@@ -1136,7 +1136,7 @@ _ZNK5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE8nonZerosEv.exit: ; 
   br i1 %exitcond.not, label %.loopexit78, label %.lr.ph, !llvm.loop !75
 
 .loopexit78:                                      ; preds = %.lr.ph, %34, %.preheader, %30, %3
-  %50 = phi ptr [ %6, %3 ], [ %39, %.preheader ], [ %calloc, %30 ], [ %calloc, %34 ], [ %39, %.lr.ph ]
+  %50 = phi ptr [ %calloc, %34 ], [ %6, %3 ], [ %39, %.preheader ], [ %calloc, %30 ], [ %39, %.lr.ph ]
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %53 = load i64, ptr %52, align 8, !tbaa !73

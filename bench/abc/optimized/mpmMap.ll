@@ -1223,7 +1223,7 @@ Mpm_CutFindLeaf.exit101:                          ; preds = %102, %92, %._crit_e
   br i1 %exitcond36.not.i, label %Vec_IntSelectSort.exit, label %.lr.ph.preheader.i103, !llvm.loop !75
 
 Vec_IntSelectSort.exit:                           ; preds = %Mpm_CutFindLeaf.exit.thread, %106, %._crit_edge.i, %153, %143
-  %.084 = phi ptr [ %11, %143 ], [ %11, %153 ], [ null, %106 ], [ %11, %._crit_edge.i ], [ null, %Mpm_CutFindLeaf.exit.thread ]
+  %.084 = phi ptr [ null, %106 ], [ %11, %._crit_edge.i ], [ %11, %143 ], [ %11, %153 ], [ null, %Mpm_CutFindLeaf.exit.thread ]
   ret ptr %.084
 }
 

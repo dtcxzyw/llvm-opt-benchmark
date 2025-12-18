@@ -2732,7 +2732,7 @@ _ZN7rocksdb8IOStatusC2EOS0_.exit.thread:          ; preds = %84, %57, %18
   br label %_ZN7rocksdb6StatusD2Ev.exit24
 
 _ZN7rocksdb8IOStatusC2EOS0_.exit:                 ; preds = %._ZN7rocksdb8IOStatusC2EOS0_.exit_crit_edge, %80, %53, %76
-  %89 = phi ptr [ %.pre34, %._ZN7rocksdb8IOStatusC2EOS0_.exit_crit_edge ], [ %49, %80 ], [ %49, %53 ], [ %49, %76 ]
+  %89 = phi ptr [ %.pre34, %._ZN7rocksdb8IOStatusC2EOS0_.exit_crit_edge ], [ %49, %80 ], [ %49, %76 ], [ %49, %53 ]
   %90 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.not.i.i22 = icmp eq ptr %89, null
   br i1 %.not.i.i22, label %_ZN7rocksdb6StatusD2Ev.exit24, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i23
@@ -2988,7 +2988,7 @@ _ZN7rocksdb8IOStatusC2EOS0_.exit.thread:          ; preds = %84, %57, %18
   br label %_ZN7rocksdb6StatusD2Ev.exit24
 
 _ZN7rocksdb8IOStatusC2EOS0_.exit:                 ; preds = %._ZN7rocksdb8IOStatusC2EOS0_.exit_crit_edge, %80, %53, %76
-  %89 = phi ptr [ %.pre34, %._ZN7rocksdb8IOStatusC2EOS0_.exit_crit_edge ], [ %49, %80 ], [ %49, %53 ], [ %49, %76 ]
+  %89 = phi ptr [ %.pre34, %._ZN7rocksdb8IOStatusC2EOS0_.exit_crit_edge ], [ %49, %80 ], [ %49, %76 ], [ %49, %53 ]
   %90 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.not.i.i22 = icmp eq ptr %89, null
   br i1 %.not.i.i22, label %_ZN7rocksdb6StatusD2Ev.exit24, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i23

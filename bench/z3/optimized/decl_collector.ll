@@ -624,7 +624,7 @@ _ZNK14decl_collector14should_declareEP9func_decl.exit.thread28: ; preds = %_ZNK4
   br i1 %.not27.old.i.i.i.i.i, label %.loopexit, label %.lr.ph38.i.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.i.backedge:                      ; preds = %63, %60
-  %.137.i.i.i.i.i.be = phi ptr [ %.old.i.i.i.i.i, %63 ], [ %62, %60 ]
+  %.137.i.i.i.i.i.be = phi ptr [ %62, %60 ], [ %.old.i.i.i.i.i, %63 ]
   br label %.lr.ph38.i.i.i.i.i, !llvm.loop !148
 
 _ZNK6recfun4util7has_defEP9func_decl.exit:        ; preds = %44, %55
@@ -2399,7 +2399,7 @@ define hidden void @_ZN14decl_collector12collect_depsEP4sortR13obj_hashtableIS0_
   br i1 %.not27.old.i.i, label %.loopexit, label %.lr.ph38.i.i.backedge
 
 .lr.ph38.i.i.backedge:                            ; preds = %39, %36
-  %.137.i.i.be = phi ptr [ %.old.i.i, %39 ], [ %38, %36 ]
+  %.137.i.i.be = phi ptr [ %38, %36 ], [ %.old.i.i, %39 ]
   br label %.lr.ph38.i.i, !llvm.loop !204
 
 .loopexit:                                        ; preds = %25, %39, %36, %.preheader.i.i
@@ -3135,7 +3135,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableI14obj_hash_entryI4sortE12ob
   br i1 %.not32.old, label %.loopexit, label %.lr.ph48.backedge
 
 .lr.ph48.backedge:                                ; preds = %36, %33
-  %.247.be = phi ptr [ %.old, %36 ], [ %35, %33 ]
+  %.247.be = phi ptr [ %35, %33 ], [ %.old, %36 ]
   br label %.lr.ph48, !llvm.loop !216
 
 .loopexit38:                                      ; preds = %17, %28

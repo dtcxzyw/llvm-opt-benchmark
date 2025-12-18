@@ -637,7 +637,7 @@ define hidden void @_ZN17demodulator_index3addEP9func_decljR7obj_mapIS0_P8uint_s
   br i1 %.not27.old.i.i.i, label %.loopexit, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %38, %35
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %38 ], [ %37, %35 ]
+  %.137.i.i.i.be = phi ptr [ %37, %35 ], [ %.old.i.i.i, %38 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !28
 
 _ZNK7obj_mapI9func_declP8uint_setE4findEPS0_RS2_.exit: ; preds = %19, %30
@@ -795,7 +795,7 @@ define hidden void @_ZN17demodulator_index3delEP9func_decljR7obj_mapIS0_P8uint_s
   br i1 %.not27.old.i.i.i, label %_ZN8uint_set6removeEj.exit, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %37, %34
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %37 ], [ %36, %34 ]
+  %.137.i.i.i.be = phi ptr [ %36, %34 ], [ %.old.i.i.i, %37 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !28
 
 .loopexit:                                        ; preds = %18, %29
@@ -1843,7 +1843,7 @@ _Z11is_uninterpPK4expr.exit.thread.i106.i.i:      ; preds = %_Z11is_uninterpPK4e
   br i1 %.not27.old.i.i.i.i.i119.i.i, label %thread-pre-splitthread-pre-split.i.i, label %.lr.ph38.i.i.i.i.i115.i.i.backedge
 
 .lr.ph38.i.i.i.i.i115.i.i.backedge:               ; preds = %167, %164
-  %.137.i.i.i.i.i116.i.i.be = phi ptr [ %.old.i.i.i.i.i118.i.i, %167 ], [ %166, %164 ]
+  %.137.i.i.i.i.i116.i.i.be = phi ptr [ %166, %164 ], [ %.old.i.i.i.i.i118.i.i, %167 ]
   br label %.lr.ph38.i.i.i.i.i115.i.i, !llvm.loop !28
 
 .loopexit.i.i122.i.i:                             ; preds = %148, %159
@@ -3518,7 +3518,7 @@ define hidden noundef zeroext i1 @_ZN22demodulator_simplifier8rewrite1EP9func_de
   br i1 %.not27.old.i.i.i.i, label %_ZN17demodulator_index8find_fwdEP9func_declRP8uint_set.exit.thread, label %.lr.ph38.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.backedge:                        ; preds = %41, %38
-  %.137.i.i.i.i.be = phi ptr [ %.old.i.i.i.i, %41 ], [ %40, %38 ]
+  %.137.i.i.i.i.be = phi ptr [ %40, %38 ], [ %.old.i.i.i.i, %41 ]
   br label %.lr.ph38.i.i.i.i, !llvm.loop !28
 
 .loopexit:                                        ; preds = %22, %33
@@ -3855,7 +3855,7 @@ define hidden void @_ZN22demodulator_simplifier20reschedule_processedEP9func_dec
   br i1 %.not27.old.i.i.i.i, label %_ZN17demodulator_index8find_bwdEP9func_declRP8uint_set.exit.thread, label %.lr.ph38.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.backedge:                        ; preds = %46, %43
-  %.137.i.i.i.i.be = phi ptr [ %.old.i.i.i.i, %46 ], [ %45, %43 ]
+  %.137.i.i.i.i.be = phi ptr [ %45, %43 ], [ %.old.i.i.i.i, %46 ]
   br label %.lr.ph38.i.i.i.i, !llvm.loop !28
 
 .loopexit74:                                      ; preds = %27, %38
@@ -4345,7 +4345,7 @@ _ZN8uint_set6removeEj.exit:                       ; preds = %181, %_ZNK6vectorIj
   br i1 %.not27.old.i.i.i.i.i, label %_ZN17demodulator_index10remove_fwdEP9func_declj.exit, label %.lr.ph38.i.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.i.backedge:                      ; preds = %226, %223
-  %.137.i.i.i.i.i.be = phi ptr [ %.old.i.i.i.i.i, %226 ], [ %225, %223 ]
+  %.137.i.i.i.i.i.be = phi ptr [ %225, %223 ], [ %.old.i.i.i.i.i, %226 ]
   br label %.lr.ph38.i.i.i.i.i, !llvm.loop !28
 
 .loopexit.i.i:                                    ; preds = %207, %218
@@ -4522,7 +4522,7 @@ define hidden void @_ZN22demodulator_simplifier23reschedule_demodulatorsEP9func_
   br i1 %.not27.old.i.i.i.i, label %_ZN17demodulator_index8find_bwdEP9func_declRP8uint_set.exit.thread, label %.lr.ph38.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.backedge:                        ; preds = %42, %39
-  %.137.i.i.i.i.be = phi ptr [ %.old.i.i.i.i, %42 ], [ %41, %39 ]
+  %.137.i.i.i.i.be = phi ptr [ %41, %39 ], [ %.old.i.i.i.i, %42 ]
   br label %.lr.ph38.i.i.i.i, !llvm.loop !28
 
 .loopexit42:                                      ; preds = %23, %34
@@ -4830,7 +4830,7 @@ _ZN6vectorIjLb0EjED2Ev.exit:                      ; preds = %85, %87
   br i1 %.not27.old.i.i.i.i.i, label %_ZN17demodulator_index10remove_fwdEP9func_declj.exit, label %.lr.ph38.i.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.i.backedge:                      ; preds = %168, %165
-  %.137.i.i.i.i.i.be = phi ptr [ %.old.i.i.i.i.i, %168 ], [ %167, %165 ]
+  %.137.i.i.i.i.i.be = phi ptr [ %167, %165 ], [ %.old.i.i.i.i.i, %168 ]
   br label %.lr.ph38.i.i.i.i.i, !llvm.loop !28
 
 .loopexit.i.i:                                    ; preds = %149, %160

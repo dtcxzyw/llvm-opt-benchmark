@@ -511,7 +511,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %_ZNSt10filesystem7_
   br i1 %187, label %.lr.ph590, label %.loopexit534, !llvm.loop !45
 
 .loopexit534:                                     ; preds = %._crit_edge, %156, %_ZNSt10filesystem7__cxx114pathD2Ev.exit, %.loopexit535
-  %.0182 = phi ptr [ %140, %_ZNSt10filesystem7__cxx114pathD2Ev.exit ], [ null, %.loopexit535 ], [ %140, %156 ], [ %140, %._crit_edge ]
+  %.0182 = phi ptr [ null, %.loopexit535 ], [ %140, %_ZNSt10filesystem7__cxx114pathD2Ev.exit ], [ %140, %156 ], [ %140, %._crit_edge ]
   %188 = invoke { ptr, ptr } @_Z7opt2fnsB5cxx11PKciPK8t_filenm(ptr noundef nonnull @.str.40, i32 noundef 4, ptr noundef nonnull %39)
           to label %189 unwind label %196
 
@@ -2224,7 +2224,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   br i1 %exitcond.not.i392, label %.loopexit102.i, label %.lr.ph.i391, !llvm.loop !84
 
 .loopexit102.i:                                   ; preds = %.lr.ph.i391, %._crit_edge114.i, %.preheader.i384
-  %.3.i = phi i1 [ %.072.lcssa.i, %._crit_edge114.i ], [ %721, %.preheader.i384 ], [ %721, %.lr.ph.i391 ]
+  %.3.i = phi i1 [ %721, %.preheader.i384 ], [ %.072.lcssa.i, %._crit_edge114.i ], [ %721, %.lr.ph.i391 ]
   %.pre684 = ashr exact i64 %718, 5
   br i1 %.3.i, label %.loopexit102.i._crit_edge681, label %.loopexit102.i._crit_edge
 

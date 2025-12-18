@@ -2718,7 +2718,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEPNS2_4WireENS0_8hash_opsIS3_EEE7do_ha
   br i1 %692, label %.lr.ph.split.i.i, label %.noexc466.i, !llvm.loop !80
 
 .noexc466.i:                                      ; preds = %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEPNS2_4WireENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.i506.i, %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEPNS2_4WireENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.us.i.i, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i.i
-  %693 = phi ptr [ %637, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i.i ], [ %637, %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEPNS2_4WireENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.us.i.i ], [ %679, %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEPNS2_4WireENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.i506.i ]
+  %693 = phi ptr [ %637, %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEPNS2_4WireENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.us.i.i ], [ %637, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i.i ], [ %679, %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEPNS2_4WireENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.i506.i ]
   %694 = load ptr, ptr %530, align 8, !tbaa !40
   %695 = load ptr, ptr %531, align 8, !tbaa !40
   %696 = icmp eq ptr %694, %695
@@ -3245,7 +3245,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEPNS2_4WireENS0_8hash_opsIS3_EEE7do_ha
   br i1 %935, label %.lr.ph.split.i518.i, label %.noexc478.i, !llvm.loop !80
 
 .noexc478.i:                                      ; preds = %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEPNS2_4WireENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.i521.i, %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEPNS2_4WireENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.us.i531.i, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i515.i
-  %936 = phi ptr [ %879, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i515.i ], [ %879, %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEPNS2_4WireENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.us.i531.i ], [ %922, %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEPNS2_4WireENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.i521.i ]
+  %936 = phi ptr [ %879, %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEPNS2_4WireENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.us.i531.i ], [ %879, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i515.i ], [ %922, %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEPNS2_4WireENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.i521.i ]
   %937 = load ptr, ptr %790, align 8, !tbaa !40
   %938 = load ptr, ptr %791, align 8, !tbaa !40
   %939 = icmp eq ptr %937, %938
@@ -17066,7 +17066,7 @@ _ZNSt6vectorIN5Yosys7hashlib4poolINS0_5RTLIL5ConstENS1_8hash_opsIS4_EEE7entry_tE
   br label %_ZN5Yosys7hashlib4poolINS_5RTLIL5ConstENS0_8hash_opsIS3_EEE6insertERKS3_.exit
 
 _ZN5Yosys7hashlib4poolINS_5RTLIL5ConstENS0_8hash_opsIS3_EEE6insertERKS3_.exit: ; preds = %.noexc600, %.noexc636, %_ZNSt6vectorIN5Yosys7hashlib4poolINS0_5RTLIL5ConstENS1_8hash_opsIS4_EEE7entry_tESaIS8_EE12emplace_backIJRKS4_RiEEERS8_DpOT_.exit.i
-  %.sink.i = phi i1 [ true, %_ZNSt6vectorIN5Yosys7hashlib4poolINS0_5RTLIL5ConstENS1_8hash_opsIS4_EEE7entry_tESaIS8_EE12emplace_backIJRKS4_RiEEERS8_DpOT_.exit.i ], [ true, %.noexc636 ], [ false, %.noexc600 ]
+  %.sink.i = phi i1 [ true, %.noexc636 ], [ true, %_ZNSt6vectorIN5Yosys7hashlib4poolINS0_5RTLIL5ConstENS1_8hash_opsIS4_EEE7entry_tESaIS8_EE12emplace_backIJRKS4_RiEEERS8_DpOT_.exit.i ], [ false, %.noexc600 ]
   %6837 = load ptr, ptr %6639, align 8, !tbaa !40
   %6838 = load ptr, ptr %6641, align 8, !tbaa !40
   %6839 = icmp eq ptr %6837, %6838
@@ -19099,7 +19099,7 @@ _ZNSt6vectorIN5Yosys7hashlib4poolINS0_5RTLIL8IdStringENS1_8hash_opsIS4_EEE7entry
   br label %.body798
 
 _ZN5Yosys7hashlib4poolINS_5RTLIL8IdStringENS0_8hash_opsIS3_EEE6insertERKS3_.exit: ; preds = %314, %.noexc441, %343, %345, %353, %355, %_ZNSt6vectorIN5Yosys7hashlib4poolINS0_5RTLIL8IdStringENS1_8hash_opsIS4_EEE7entry_tESaIS8_EE12emplace_backIJRKS4_RiEEERS8_DpOT_.exit.i, %_ZN5Yosys5RTLIL8IdStringaSERKS1_.exit
-  %.0144 = phi ptr [ %87, %_ZN5Yosys5RTLIL8IdStringaSERKS1_.exit ], [ %143, %_ZNSt6vectorIN5Yosys7hashlib4poolINS0_5RTLIL8IdStringENS1_8hash_opsIS4_EEE7entry_tESaIS8_EE12emplace_backIJRKS4_RiEEERS8_DpOT_.exit.i ], [ %143, %355 ], [ %143, %353 ], [ %143, %345 ], [ %143, %343 ], [ %143, %.noexc441 ], [ %143, %314 ]
+  %.0144 = phi ptr [ %87, %_ZN5Yosys5RTLIL8IdStringaSERKS1_.exit ], [ %143, %.noexc441 ], [ %143, %_ZNSt6vectorIN5Yosys7hashlib4poolINS0_5RTLIL8IdStringENS1_8hash_opsIS4_EEE7entry_tESaIS8_EE12emplace_backIJRKS4_RiEEERS8_DpOT_.exit.i ], [ %143, %355 ], [ %143, %353 ], [ %143, %345 ], [ %143, %343 ], [ %143, %314 ]
   %391 = getelementptr inbounds nuw i8, ptr %.0144, i64 8
   %392 = invoke noundef zeroext i1 @_ZNK5Yosys5RTLIL10AttrObject18get_bool_attributeERKNS0_8IdStringE(ptr noundef nonnull align 8 dereferenceable(56) %391, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5Yosys5RTLIL2ID9abc9_flopE)
           to label %393 unwind label %.loopexit967
@@ -24806,7 +24806,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEPNS2_4WireENS0_8hash_opsIS3_EEE7do_ha
   br label %_ZN5Yosys5RTLIL6Module4wireERKNS0_8IdStringE.exit
 
 _ZN5Yosys5RTLIL6Module4wireERKNS0_8IdStringE.exit: ; preds = %969, %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit333.thread, %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit333, %._crit_edge.i955, %_ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringEPNS2_4WireENS0_8hash_opsIS3_EEE4findERKS3_.exit.i, %.noexc335
-  %975 = phi ptr [ %974, %.noexc335 ], [ null, %_ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringEPNS2_4WireENS0_8hash_opsIS3_EEE4findERKS3_.exit.i ], [ null, %._crit_edge.i955 ], [ null, %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit333 ], [ null, %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit333.thread ], [ null, %969 ]
+  %975 = phi ptr [ %974, %.noexc335 ], [ null, %_ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringEPNS2_4WireENS0_8hash_opsIS3_EEE4findERKS3_.exit.i ], [ null, %._crit_edge.i955 ], [ null, %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit333.thread ], [ null, %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit333 ], [ null, %969 ]
   %976 = invoke noundef ptr @_ZN5Yosys5RTLIL6Module7addWireENS0_8IdStringEPKNS0_4WireE(ptr noundef nonnull align 8 dereferenceable(616) %734, ptr noundef nonnull %24, ptr noundef %975)
           to label %977 unwind label %.loopexit2050
 
@@ -45811,7 +45811,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEPNS2_4WireENS0_8hash_opsIS3_EEE7do_ha
   br i1 %631, label %.lr.ph.split.i, label %.noexc2670, !llvm.loop !80
 
 .noexc2670:                                       ; preds = %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEPNS2_4WireENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.i2840, %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEPNS2_4WireENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.us.i, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i
-  %632 = phi ptr [ %575, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i ], [ %575, %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEPNS2_4WireENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.us.i ], [ %618, %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEPNS2_4WireENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.i2840 ]
+  %632 = phi ptr [ %575, %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEPNS2_4WireENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.us.i ], [ %575, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i ], [ %618, %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEPNS2_4WireENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.i2840 ]
   %633 = load ptr, ptr %485, align 8, !tbaa !40
   %634 = load ptr, ptr %486, align 8, !tbaa !40
   %635 = icmp eq ptr %633, %634

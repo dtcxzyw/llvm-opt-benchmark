@@ -2616,7 +2616,7 @@ _path_bounding_box_raw.exit:                      ; preds = %.lr.ph107.i, %._cri
   br i1 %exitcond351.not.i, label %_path_crop_to_roi.exit, label %.preheader.i
 
 _path_crop_to_roi.exit:                           ; preds = %266, %.thread295.i, %246
-  %.not320 = phi i1 [ true, %246 ], [ false, %.thread295.i ], [ true, %266 ]
+  %.not320 = phi i1 [ false, %.thread295.i ], [ true, %246 ], [ true, %266 ]
   %465 = icmp ne i32 %.0263, 0
   %466 = or i1 %465, %.not320
   %467 = zext i1 %466 to i32
@@ -4223,7 +4223,7 @@ g_list_next_wraparound.exit:                      ; preds = %.preheader170, %g_l
   br label %.thread
 
 .thread:                                          ; preds = %55, %.lr.ph186.split, %117, %._crit_edge, %24, %42, %158, %86
-  %.3 = phi i32 [ 0, %86 ], [ 1, %117 ], [ 1, %42 ], [ 1, %158 ], [ 0, %24 ], [ 1, %._crit_edge ], [ 1, %.lr.ph186.split ], [ 1, %55 ]
+  %.3 = phi i32 [ 0, %86 ], [ 1, %117 ], [ 1, %._crit_edge ], [ 1, %42 ], [ 1, %158 ], [ 0, %24 ], [ 1, %.lr.ph186.split ], [ 1, %55 ]
   ret i32 %.3
 }
 
@@ -5365,7 +5365,7 @@ g_list_shorter_than.exit484:                      ; preds = %.preheader534
   br label %.critedge
 
 .critedge:                                        ; preds = %181, %435, %.thread582, %.preheader535, %518, %g_list_shorter_than.exit, %251, %259, %283, %346, %372, %432, %559, %614, %68, %65, %._crit_edge, %169, %173, %330, %317, %499, %g_list_next_wraparound.exit, %g_list_shorter_than.exit472, %564, %563, %580, %577, %574, %.critedge454, %.critedge458, %585, %16, %15, %11
-  %.0 = phi i32 [ 1, %11 ], [ 0, %15 ], [ 0, %16 ], [ 1, %563 ], [ 1, %g_list_shorter_than.exit ], [ 1, %574 ], [ 1, %65 ], [ 1, %251 ], [ 1, %259 ], [ 1, %614 ], [ 1, %283 ], [ 0, %435 ], [ 1, %346 ], [ 1, %372 ], [ 1, %432 ], [ 1, %317 ], [ 1, %559 ], [ 1, %g_list_next_wraparound.exit ], [ 1, %g_list_shorter_than.exit472 ], [ 1, %68 ], [ 1, %._crit_edge ], [ 1, %169 ], [ 1, %173 ], [ 1, %330 ], [ 1, %499 ], [ 1, %564 ], [ 1, %580 ], [ 1, %577 ], [ 0, %.critedge454 ], [ 0, %.critedge458 ], [ 0, %585 ], [ 0, %518 ], [ 1, %.preheader535 ], [ 0, %.thread582 ], [ 1, %181 ]
+  %.0 = phi i32 [ 1, %11 ], [ 0, %15 ], [ 0, %16 ], [ 1, %563 ], [ 1, %g_list_shorter_than.exit ], [ 1, %574 ], [ 1, %65 ], [ 1, %251 ], [ 1, %259 ], [ 1, %614 ], [ 1, %283 ], [ 0, %435 ], [ 1, %346 ], [ 1, %372 ], [ 1, %432 ], [ 1, %317 ], [ 1, %559 ], [ 1, %g_list_next_wraparound.exit ], [ 1, %g_list_shorter_than.exit472 ], [ 1, %68 ], [ 1, %._crit_edge ], [ 1, %169 ], [ 1, %173 ], [ 0, %.thread582 ], [ 1, %330 ], [ 1, %499 ], [ 1, %564 ], [ 1, %580 ], [ 1, %577 ], [ 0, %.critedge454 ], [ 0, %.critedge458 ], [ 0, %585 ], [ 0, %518 ], [ 1, %.preheader535 ], [ 1, %181 ]
   ret i32 %.0
 }
 

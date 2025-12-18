@@ -1098,7 +1098,7 @@ define hidden void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17hfbd90518baf3
   br label %.loopexit107
 
 .loopexit:                                        ; preds = %183, %65, %21, %.sink.split.i.us, %124, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h24a4dd86c1d01abfE.exit.split"
-  %.sroa.0.0148 = phi i64 [ 0, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h24a4dd86c1d01abfE.exit.split" ], [ %.sroa.0.0.us, %65 ], [ %.sroa.0.0.us, %124 ], [ %.sroa.0.0.us, %.sink.split.i.us ], [ %.sroa.0.0.us, %21 ], [ %.sroa.0.0184, %183 ]
+  %.sroa.0.0148 = phi i64 [ %.sroa.0.0.us, %65 ], [ 0, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h24a4dd86c1d01abfE.exit.split" ], [ %.sroa.0.0.us, %124 ], [ %.sroa.0.0.us, %.sink.split.i.us ], [ %.sroa.0.0.us, %21 ], [ %.sroa.0.0184, %183 ]
   %gepdiff102 = sub nsw i64 %2, %.sroa.0.0148
   %198 = load i64, ptr %.sroa.55.0..sroa_idx, align 8, !alias.scope !139, !noundef !4
   %199 = load i64, ptr %9, align 8, !alias.scope !139, !noundef !4

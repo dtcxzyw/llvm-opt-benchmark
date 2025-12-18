@@ -970,7 +970,7 @@ zend_ssa_next_use.exit256.us:                     ; preds = %.lr.ph295.us, %415
   br label %.critedge
 
 .critedge:                                        ; preds = %27, %8, %.thread260, %._crit_edge308, %483, %40, %32, %3
-  %.0206 = phi i32 [ -1, %32 ], [ -1, %.thread260 ], [ 0, %3 ], [ 0, %._crit_edge308 ], [ -1, %40 ], [ 0, %483 ], [ 0, %8 ], [ 0, %27 ]
+  %.0206 = phi i32 [ -1, %32 ], [ -1, %.thread260 ], [ 0, %483 ], [ 0, %3 ], [ 0, %._crit_edge308 ], [ -1, %40 ], [ 0, %8 ], [ 0, %27 ]
   ret i32 %.0206
 }
 

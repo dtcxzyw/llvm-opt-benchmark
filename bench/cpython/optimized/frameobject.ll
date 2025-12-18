@@ -1723,7 +1723,7 @@ PyCell_GetRef.exit.sink.split.i:                  ; preds = %114, %110, %107, %9
   br label %120
 
 120:                                              ; preds = %PyCell_GetRef.exit.sink.split.i, %107, %96, %114, %110, %.thread40, %6
-  %.0 = phi ptr [ null, %6 ], [ null, %.thread40 ], [ %101, %110 ], [ %.sink42.i, %PyCell_GetRef.exit.sink.split.i ], [ %.val31.i, %107 ], [ %.val30.i, %96 ], [ %101, %114 ]
+  %.0 = phi ptr [ null, %6 ], [ null, %.thread40 ], [ %101, %114 ], [ %.sink42.i, %PyCell_GetRef.exit.sink.split.i ], [ %.val31.i, %107 ], [ %101, %110 ], [ %.val30.i, %96 ]
   ret ptr %.0
 }
 
@@ -2183,7 +2183,7 @@ Py_DECREF.exit14.sink.split:                      ; preds = %22, %14
   br label %Py_DECREF.exit14
 
 Py_DECREF.exit14:                                 ; preds = %Py_DECREF.exit14.sink.split, %2, %22, %20, %14, %12, %6, %17
-  %.0 = phi ptr [ @_Py_NotImplementedStruct, %2 ], [ null, %6 ], [ %7, %17 ], [ null, %12 ], [ null, %14 ], [ null, %20 ], [ null, %22 ], [ null, %Py_DECREF.exit14.sink.split ]
+  %.0 = phi ptr [ @_Py_NotImplementedStruct, %2 ], [ null, %6 ], [ %7, %17 ], [ null, %22 ], [ null, %12 ], [ null, %14 ], [ null, %20 ], [ null, %Py_DECREF.exit14.sink.split ]
   ret ptr %.0
 }
 
@@ -2792,7 +2792,7 @@ framelocalsproxy_getval.exit71.thread:            ; preds = %78, %79, %.lr.ph97.
   br label %.thread77
 
 .thread77:                                        ; preds = %framelocalsproxy_getval.exit71.thread, %75, %framelocalsproxy_getval.exit71.thread.us, %49, %.thread77.loopexit132.split.loop.exit139, %.thread77.loopexit.split.loop.exit141, %.thread77.loopexit.split.loop.exit145, %.thread77.loopexit134, %.preheader85, %.thread77.loopexit113, %._crit_edge, %3
-  %.0 = phi i32 [ -2, %3 ], [ -1, %._crit_edge ], [ -2, %49 ], [ -1, %.preheader85 ], [ %87, %.thread77.loopexit113 ], [ %91, %.thread77.loopexit134 ], [ %90, %.thread77.loopexit132.split.loop.exit139 ], [ %89, %.thread77.loopexit.split.loop.exit145 ], [ %88, %.thread77.loopexit.split.loop.exit141 ], [ -1, %framelocalsproxy_getval.exit71.thread.us ], [ -2, %75 ], [ -1, %framelocalsproxy_getval.exit71.thread ]
+  %.0 = phi i32 [ -2, %3 ], [ -2, %49 ], [ -1, %._crit_edge ], [ %90, %.thread77.loopexit132.split.loop.exit139 ], [ %91, %.thread77.loopexit134 ], [ -1, %.preheader85 ], [ %87, %.thread77.loopexit113 ], [ %89, %.thread77.loopexit.split.loop.exit145 ], [ %88, %.thread77.loopexit.split.loop.exit141 ], [ -1, %framelocalsproxy_getval.exit71.thread.us ], [ -2, %75 ], [ -1, %framelocalsproxy_getval.exit71.thread ]
   ret i32 %.0
 }
 

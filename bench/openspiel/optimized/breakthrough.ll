@@ -1129,8 +1129,8 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit: ; preds = %26, %44, %57, %_ZNS
   br i1 %134, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %131, %.split.us, %116, %.preheader
-  %135 = phi i32 [ %93, %.preheader ], [ %98, %.split.us ], [ %117, %116 ], [ %133, %131 ]
-  %136 = phi i32 [ %94, %.preheader ], [ %98, %.split.us ], [ %117, %116 ], [ %133, %131 ]
+  %135 = phi i32 [ %117, %116 ], [ %98, %.split.us ], [ %93, %.preheader ], [ %133, %131 ]
+  %136 = phi i32 [ %117, %116 ], [ %98, %.split.us ], [ %94, %.preheader ], [ %133, %131 ]
   %137 = add nuw nsw i32 %.01744, 1
   %138 = load i32, ptr %65, align 8
   %139 = icmp slt i32 %137, %138

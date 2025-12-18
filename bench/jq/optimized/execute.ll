@@ -6749,7 +6749,7 @@ tail_call_analyze.exit.i.loopexit:                ; preds = %tailrecurse.i.i.i
   br label %tail_call_analyze.exit.i
 
 tail_call_analyze.exit.i:                         ; preds = %.lr.ph.i.i, %tailrecurse.i.i.i, %tail_call_analyze.exit.i.loopexit
-  %.111.i.i = phi i16 [ 28, %tailrecurse.i.i.i ], [ 30, %tail_call_analyze.exit.i.loopexit ], [ 28, %.lr.ph.i.i ]
+  %.111.i.i = phi i16 [ 30, %tail_call_analyze.exit.i.loopexit ], [ 28, %tailrecurse.i.i.i ], [ 28, %.lr.ph.i.i ]
   store i16 %.111.i.i, ptr %.011.i, align 2, !tbaa !31
   br label %26
 

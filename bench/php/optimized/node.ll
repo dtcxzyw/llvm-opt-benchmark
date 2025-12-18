@@ -1914,7 +1914,7 @@ define hidden void @dom_set_document_ref_pointers(ptr noundef %0, ptr noundef %1
   br i1 %27, label %.preheader, label %php_dom_next_in_tree_order.exit
 
 php_dom_next_in_tree_order.exit:                  ; preds = %24, %12, %15
-  %.0.i = phi ptr [ %14, %12 ], [ %17, %15 ], [ %26, %24 ]
+  %.0.i = phi ptr [ %17, %15 ], [ %14, %12 ], [ %26, %24 ]
   %28 = tail call fastcc zeroext i1 @dom_set_document_ref_pointers_node(ptr noundef nonnull %.0.i, ptr noundef %1)
   br i1 %28, label %.lr.ph25, label %.critedge
 
@@ -2260,7 +2260,7 @@ php_libxml_invalidate_node_list_cache.exit.i:     ; preds = %61, %58
   br i1 %129, label %.preheader.i.i, label %php_dom_next_in_tree_order.exit.i.i
 
 php_dom_next_in_tree_order.exit.i.i:              ; preds = %126, %117, %114
-  %.0.i.i.i = phi ptr [ %116, %114 ], [ %119, %117 ], [ %128, %126 ]
+  %.0.i.i.i = phi ptr [ %119, %117 ], [ %116, %114 ], [ %128, %126 ]
   %130 = call fastcc zeroext i1 @dom_set_document_ref_pointers_node(ptr noundef nonnull %.0.i.i.i, ptr noundef %104)
   br i1 %130, label %.lr.ph.i, label %dom_set_document_ref_pointers.exit.i
 
@@ -3411,7 +3411,7 @@ thread-pre-split:                                 ; preds = %instanceof_function
   br i1 %94, label %.preheader.i.i, label %php_dom_next_in_tree_order.exit.i.i
 
 php_dom_next_in_tree_order.exit.i.i:              ; preds = %91, %82, %79
-  %.0.i.i.i = phi ptr [ %81, %79 ], [ %84, %82 ], [ %93, %91 ]
+  %.0.i.i.i = phi ptr [ %84, %82 ], [ %81, %79 ], [ %93, %91 ]
   %95 = tail call fastcc zeroext i1 @dom_set_document_ref_pointers_node(ptr noundef nonnull %.0.i.i.i, ptr noundef %69)
   br i1 %95, label %.lr.ph.i, label %dom_set_document_ref_pointers.exit.i
 
@@ -4977,7 +4977,7 @@ tailrecurse.backedge:                             ; preds = %91, %98
   br i1 %.not, label %tailrecurse.backedge, label %.thread71
 
 .thread71:                                        ; preds = %94, %98, %tailrecurse, %tailrecurse, %91, %88, %._crit_edge.split, %31, %._crit_edge.split.us.us, %79, %83, %16, %10, %.split86.us
-  %.045 = phi ptr [ %59, %.split86.us ], [ @.str.8, %16 ], [ @.str.7, %10 ], [ %81, %79 ], [ null, %83 ], [ null, %88 ], [ null, %31 ], [ null, %._crit_edge.split.us.us ], [ null, %._crit_edge.split ], [ null, %91 ], [ null, %tailrecurse ], [ null, %tailrecurse ], [ null, %98 ], [ null, %94 ]
+  %.045 = phi ptr [ %59, %.split86.us ], [ @.str.8, %16 ], [ null, %31 ], [ @.str.7, %10 ], [ %81, %79 ], [ null, %83 ], [ null, %88 ], [ null, %._crit_edge.split.us.us ], [ null, %._crit_edge.split ], [ null, %91 ], [ null, %tailrecurse ], [ null, %tailrecurse ], [ null, %98 ], [ null, %94 ]
   ret ptr %.045
 }
 
@@ -6476,8 +6476,8 @@ instanceof_function.exit:                         ; preds = %14
   br label %151
 
 .critedge215:                                     ; preds = %71, %69, %63, %59
-  %.0190 = phi ptr [ null, %59 ], [ %36, %63 ], [ %36, %69 ], [ %36, %71 ]
-  %.0185 = phi ptr [ %36, %59 ], [ %65, %63 ], [ %65, %69 ], [ %65, %71 ]
+  %.0190 = phi ptr [ %36, %63 ], [ null, %59 ], [ %36, %69 ], [ %36, %71 ]
+  %.0185 = phi ptr [ %65, %63 ], [ %36, %59 ], [ %65, %69 ], [ %65, %71 ]
   %80 = icmp eq ptr %.0183, null
   %81 = icmp eq ptr %.0185, null
   %or.cond4 = select i1 %80, i1 true, i1 %81
@@ -6609,8 +6609,8 @@ instanceof_function.exit:                         ; preds = %14
   br i1 %126, label %.preheader221, label %.loopexit.preheader
 
 .loopexit.preheader:                              ; preds = %.preheader221, %.preheader, %121
-  %.3188.ph = phi ptr [ %.0185, %121 ], [ %.0185, %.preheader ], [ %124, %.preheader221 ]
-  %.3.ph = phi ptr [ %.0183, %121 ], [ %118, %.preheader ], [ %.0183, %.preheader221 ]
+  %.3188.ph = phi ptr [ %.0185, %.preheader ], [ %.0185, %121 ], [ %124, %.preheader221 ]
+  %.3.ph = phi ptr [ %118, %.preheader ], [ %.0183, %121 ], [ %.0183, %.preheader221 ]
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.preheader, %.loopexit

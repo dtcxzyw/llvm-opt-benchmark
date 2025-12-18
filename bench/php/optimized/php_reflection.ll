@@ -7651,49 +7651,49 @@ define internal fastcc void @reflection_type_factory(ptr %0, i32 %1, ptr noundef
 11:                                               ; preds = %4
   %12 = and i32 %1, 25165824
   %.not12.i = icmp eq i32 %12, 0
-  br i1 %.not12.i, label %15, label %13
+  br i1 %.not12.i, label %19, label %13
 
 13:                                               ; preds = %11
   %14 = and i32 %1, 2097152
   %.not14.i = icmp eq i32 %14, 0
-  br i1 %.not14.i, label %get_type_kind.exit, label %get_type_kind.exit.thread, !prof !42
+  br i1 %.not14.i, label %15, label %get_type_kind.exit.thread, !prof !42
 
-15:                                               ; preds = %11
-  %16 = icmp eq i32 %6, 12
-  %17 = icmp eq i32 %5, 1022
-  %or.cond.i = or i1 %16, %17
-  br i1 %or.cond.i, label %get_type_kind.exit.thread, label %18
+15:                                               ; preds = %13
+  %.not15.i.not = icmp eq i32 %6, 0
+  %16 = icmp ne i32 %5, 1022
+  %17 = and i32 %1, 25427967
+  %18 = icmp ne i32 %17, 2
+  br i1 %.not15.i.not, label %28, label %get_type_kind.exit.thread26
 
-18:                                               ; preds = %15
-  %19 = tail call range(i32 0, 18) i32 @llvm.ctpop.i32(i32 %6)
-  %.not13.i = icmp samesign ugt i32 %19, 1
-  %20 = and i32 %1, 262143
-  %21 = icmp ne i32 %20, 2
-  br i1 %.not13.i, label %get_type_kind.exit.thread26, label %28
+19:                                               ; preds = %11
+  %20 = icmp eq i32 %6, 12
+  %21 = icmp eq i32 %5, 1022
+  %or.cond.i = or i1 %20, %21
+  br i1 %or.cond.i, label %get_type_kind.exit.thread, label %get_type_kind.exit
 
-get_type_kind.exit.thread:                        ; preds = %15, %13
+get_type_kind.exit.thread:                        ; preds = %19, %13
   %22 = icmp ne i32 %5, 1022
   %23 = and i32 %1, 25427967
   %24 = icmp ne i32 %23, 2
   br label %28
 
-get_type_kind.exit:                               ; preds = %13
-  %.not15.i.not = icmp eq i32 %6, 0
-  %25 = icmp ne i32 %5, 1022
-  %26 = and i32 %1, 25427967
+get_type_kind.exit:                               ; preds = %19
+  %25 = tail call range(i32 0, 18) i32 @llvm.ctpop.i32(i32 %6)
+  %.not13.i = icmp samesign ugt i32 %25, 1
+  %26 = and i32 %1, 262143
   %27 = icmp ne i32 %26, 2
-  br i1 %.not15.i.not, label %28, label %get_type_kind.exit.thread26
+  br i1 %.not13.i, label %get_type_kind.exit.thread26, label %28
 
-28:                                               ; preds = %18, %get_type_kind.exit, %get_type_kind.exit.thread
-  %29 = phi i1 [ %24, %get_type_kind.exit.thread ], [ %27, %get_type_kind.exit ], [ %21, %18 ]
-  %30 = phi i1 [ %22, %get_type_kind.exit.thread ], [ %25, %get_type_kind.exit ], [ true, %18 ]
+28:                                               ; preds = %15, %get_type_kind.exit, %get_type_kind.exit.thread
+  %29 = phi i1 [ %24, %get_type_kind.exit.thread ], [ %27, %get_type_kind.exit ], [ %18, %15 ]
+  %30 = phi i1 [ %22, %get_type_kind.exit.thread ], [ true, %get_type_kind.exit ], [ %16, %15 ]
   br label %get_type_kind.exit.thread26
 
-get_type_kind.exit.thread26:                      ; preds = %8, %get_type_kind.exit, %18, %28
-  %reflection_named_type_ptr.sink = phi ptr [ @reflection_named_type_ptr, %28 ], [ %spec.select, %8 ], [ @reflection_union_type_ptr, %18 ], [ @reflection_union_type_ptr, %get_type_kind.exit ]
-  %31 = phi i1 [ %29, %28 ], [ true, %8 ], [ %21, %18 ], [ %27, %get_type_kind.exit ]
-  %32 = phi i1 [ %30, %28 ], [ %10, %8 ], [ true, %18 ], [ %25, %get_type_kind.exit ]
-  %33 = phi i1 [ true, %28 ], [ false, %8 ], [ false, %18 ], [ false, %get_type_kind.exit ]
+get_type_kind.exit.thread26:                      ; preds = %8, %get_type_kind.exit, %15, %28
+  %reflection_named_type_ptr.sink = phi ptr [ @reflection_named_type_ptr, %28 ], [ %spec.select, %8 ], [ @reflection_union_type_ptr, %15 ], [ @reflection_union_type_ptr, %get_type_kind.exit ]
+  %31 = phi i1 [ %29, %28 ], [ true, %8 ], [ %18, %15 ], [ %27, %get_type_kind.exit ]
+  %32 = phi i1 [ %30, %28 ], [ %10, %8 ], [ %16, %15 ], [ true, %get_type_kind.exit ]
+  %33 = phi i1 [ true, %28 ], [ false, %8 ], [ false, %15 ], [ false, %get_type_kind.exit ]
   %34 = load ptr, ptr %reflection_named_type_ptr.sink, align 8, !tbaa !36
   %35 = tail call i32 @object_init_ex(ptr noundef %2, ptr noundef %34) #13
   %36 = load ptr, ptr %2, align 8, !tbaa !26
@@ -8376,7 +8376,7 @@ get_parameter_default.exit.thread:                ; preds = %get_recv_op.exit.i.
   %64 = tail call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %63, i64 noundef 0, ptr noundef nonnull @.str.28) #13
   br label %73
 
-get_parameter_default.exit.thread13:              ; preds = %46, %56, %get_parameter_default.exit
+get_parameter_default.exit.thread13:              ; preds = %56, %46, %get_parameter_default.exit
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %66 = load i8, ptr %65, align 8, !tbaa !26
   %67 = icmp eq i8 %66, 11
@@ -8522,8 +8522,8 @@ get_parameter_default.exit.thread:                ; preds = %get_recv_op.exit.i.
   %66 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %65, i64 noundef 0, ptr noundef nonnull @.str.28) #13
   br label %zval_ptr_dtor_nogc.exit
 
-get_parameter_default.exit.thread15:              ; preds = %get_parameter_default.exit.get_parameter_default.exit.thread15_crit_edge, %47, %58
-  %67 = phi i8 [ %.pre, %get_parameter_default.exit.get_parameter_default.exit.thread15_crit_edge ], [ %57, %47 ], [ %57, %58 ]
+get_parameter_default.exit.thread15:              ; preds = %get_parameter_default.exit.get_parameter_default.exit.thread15_crit_edge, %58, %47
+  %67 = phi i8 [ %.pre, %get_parameter_default.exit.get_parameter_default.exit.thread15_crit_edge ], [ %57, %58 ], [ %57, %47 ]
   %68 = icmp eq i8 %67, 11
   br i1 %68, label %69, label %switch.edge
 
@@ -8699,8 +8699,8 @@ get_parameter_default.exit.thread:                ; preds = %get_recv_op.exit.i.
   %66 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %65, i64 noundef 0, ptr noundef nonnull @.str.28) #13
   br label %zval_ptr_dtor_nogc.exit
 
-get_parameter_default.exit.thread42:              ; preds = %get_parameter_default.exit.get_parameter_default.exit.thread42_crit_edge, %47, %58
-  %67 = phi i8 [ %.pre, %get_parameter_default.exit.get_parameter_default.exit.thread42_crit_edge ], [ %57, %47 ], [ %57, %58 ]
+get_parameter_default.exit.thread42:              ; preds = %get_parameter_default.exit.get_parameter_default.exit.thread42_crit_edge, %58, %47
+  %67 = phi i8 [ %.pre, %get_parameter_default.exit.get_parameter_default.exit.thread42_crit_edge ], [ %57, %58 ], [ %57, %47 ]
   %.not34 = icmp eq i8 %67, 11
   br i1 %.not34, label %79, label %68
 
@@ -15049,8 +15049,8 @@ zend_string_release.exit:                         ; preds = %144, %148
   br label %.loopexit415
 
 .loopexit415:                                     ; preds = %219, %.loopexit415.sink.split, %197, %._crit_edge
-  %.0284407 = phi i32 [ %.2286, %._crit_edge ], [ %.2286, %197 ], [ 0, %.loopexit415.sink.split ], [ %.2286, %219 ]
-  %.0294406 = phi i32 [ %.2296, %._crit_edge ], [ %.2296, %197 ], [ 0, %.loopexit415.sink.split ], [ %.2296, %219 ]
+  %.0284407 = phi i32 [ 0, %.loopexit415.sink.split ], [ %.2286, %._crit_edge ], [ %.2286, %197 ], [ %.2286, %219 ]
+  %.0294406 = phi i32 [ 0, %.loopexit415.sink.split ], [ %.2296, %._crit_edge ], [ %.2296, %197 ], [ %.2296, %219 ]
   tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.185, ptr noundef %3) #13
   %221 = getelementptr inbounds nuw i8, ptr %1, i64 92
   %222 = load i32, ptr %221, align 4, !tbaa !105
@@ -24650,11 +24650,11 @@ thread-pre-split:                                 ; preds = %instanceof_function
   br i1 %or.cond105109, label %.lr.ph, label %.critedge
 
 45:                                               ; preds = %20, %36, %34
-  %.071 = phi ptr [ null, %20 ], [ %39, %36 ], [ null, %34 ]
-  %.070 = phi i32 [ 0, %20 ], [ 0, %36 ], [ 18, %34 ]
-  %.069 = phi ptr [ null, %20 ], [ %22, %36 ], [ %22, %34 ]
-  %.068 = phi i32 [ 1, %20 ], [ 3, %36 ], [ 9, %34 ]
-  %.067 = phi i32 [ 0, %20 ], [ 1, %36 ], [ 1, %34 ]
+  %.071 = phi ptr [ null, %20 ], [ null, %34 ], [ %39, %36 ]
+  %.070 = phi i32 [ 0, %20 ], [ 18, %34 ], [ 0, %36 ]
+  %.069 = phi ptr [ null, %20 ], [ %22, %34 ], [ %22, %36 ]
+  %.068 = phi i32 [ 1, %20 ], [ 9, %34 ], [ 3, %36 ]
+  %.067 = phi i32 [ 0, %20 ], [ 1, %34 ], [ 1, %36 ]
   tail call void @zend_wrong_parameter_error(i32 noundef %.068, i32 noundef %.067, ptr noundef %.071, i32 noundef %.070, ptr noundef %.069) #13
   br label %116
 
@@ -31957,7 +31957,7 @@ define hidden void @zim_ReflectionEnum_getBackingType(ptr noundef readonly captu
   br label %27
 
 27:                                               ; preds = %20, %.fold.split14, %.fold.split, %25
-  %28 = phi i32 [ 12, %20 ], [ %26, %25 ], [ 2097152, %.fold.split ], [ 1022, %.fold.split14 ]
+  %28 = phi i32 [ 12, %20 ], [ 2097152, %.fold.split ], [ %26, %25 ], [ 1022, %.fold.split14 ]
   tail call fastcc void @reflection_type_factory(ptr null, i32 %28, ptr noundef %1, i1 noundef zeroext false)
   br label %29
 

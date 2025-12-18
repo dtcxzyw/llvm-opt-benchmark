@@ -690,8 +690,8 @@ default.unreachable144:                           ; preds = %182, %2
   br label %.loopexit.i.i
 
 .loopexit.split-lp.i.i:                           ; preds = %.invoke281, %.invoke, %286, %282, %273, %249, %244, %224
-  %.sroa.0179.0318.i.i = phi i64 [ %.sroa.0179.0.i.i.ph285, %282 ], [ 0, %249 ], [ %.sroa.0179.0.i.i.ph285, %224 ], [ %.sroa.0179.0.i.i.ph285, %.invoke ], [ %.sroa.0179.0.i.i.ph285, %286 ], [ %.sroa.0179.0.i.i.ph285, %273 ], [ 1, %244 ], [ %.sroa.0179.0.i.i.ph285, %.invoke281 ]
-  %.sroa.0104.1.ph.i.i = phi i8 [ 0, %282 ], [ 1, %249 ], [ 1, %224 ], [ 1, %.invoke ], [ 0, %286 ], [ 1, %273 ], [ 1, %244 ], [ 1, %.invoke281 ]
+  %.sroa.0179.0318.i.i = phi i64 [ %.sroa.0179.0.i.i.ph285, %286 ], [ %.sroa.0179.0.i.i.ph285, %.invoke ], [ %.sroa.0179.0.i.i.ph285, %273 ], [ %.sroa.0179.0.i.i.ph285, %224 ], [ 1, %244 ], [ 0, %249 ], [ %.sroa.0179.0.i.i.ph285, %.invoke281 ], [ %.sroa.0179.0.i.i.ph285, %282 ]
+  %.sroa.0104.1.ph.i.i = phi i8 [ 0, %286 ], [ 1, %.invoke ], [ 1, %273 ], [ 1, %224 ], [ 1, %244 ], [ 1, %249 ], [ 1, %.invoke281 ], [ 0, %282 ]
   %lpad.loopexit.split-lp.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.i.i
@@ -1683,8 +1683,8 @@ default.unreachable144:                           ; preds = %182, %2
   br label %.loopexit.i.i
 
 .loopexit.split-lp.i.i:                           ; preds = %.invoke281, %.invoke, %286, %282, %273, %249, %244, %224
-  %.sroa.0179.0318.i.i = phi i64 [ %.sroa.0179.0.i.i.ph285, %282 ], [ 0, %249 ], [ %.sroa.0179.0.i.i.ph285, %224 ], [ %.sroa.0179.0.i.i.ph285, %.invoke ], [ %.sroa.0179.0.i.i.ph285, %286 ], [ %.sroa.0179.0.i.i.ph285, %273 ], [ 1, %244 ], [ %.sroa.0179.0.i.i.ph285, %.invoke281 ]
-  %.sroa.0104.1.ph.i.i = phi i8 [ 0, %282 ], [ 1, %249 ], [ 1, %224 ], [ 1, %.invoke ], [ 0, %286 ], [ 1, %273 ], [ 1, %244 ], [ 1, %.invoke281 ]
+  %.sroa.0179.0318.i.i = phi i64 [ %.sroa.0179.0.i.i.ph285, %286 ], [ %.sroa.0179.0.i.i.ph285, %.invoke ], [ %.sroa.0179.0.i.i.ph285, %273 ], [ %.sroa.0179.0.i.i.ph285, %224 ], [ 1, %244 ], [ 0, %249 ], [ %.sroa.0179.0.i.i.ph285, %.invoke281 ], [ %.sroa.0179.0.i.i.ph285, %282 ]
+  %.sroa.0104.1.ph.i.i = phi i8 [ 0, %286 ], [ 1, %.invoke ], [ 1, %273 ], [ 1, %224 ], [ 1, %244 ], [ 1, %249 ], [ 1, %.invoke281 ], [ 0, %282 ]
   %lpad.loopexit.split-lp.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.i.i
@@ -2681,8 +2681,8 @@ default.unreachable145:                           ; preds = %183, %2
   br label %.loopexit.i.i
 
 .loopexit.split-lp.i.i:                           ; preds = %.invoke284, %.invoke, %281, %"_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h052a16d9c6193067E.exit.i.i", %270, %246, %241
-  %.sroa.0151.0290.i.i = phi i64 [ %.sroa.0151.0.i.i.ph288, %"_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h052a16d9c6193067E.exit.i.i" ], [ 0, %246 ], [ %.sroa.0151.0.i.i.ph288, %.invoke ], [ %.sroa.0151.0.i.i.ph288, %281 ], [ %.sroa.0151.0.i.i.ph288, %270 ], [ 1, %241 ], [ %.sroa.0151.0.i.i.ph288, %.invoke284 ]
-  %.sroa.084.1.ph.i.i = phi i1 [ false, %"_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h052a16d9c6193067E.exit.i.i" ], [ true, %246 ], [ true, %.invoke ], [ false, %281 ], [ true, %270 ], [ true, %241 ], [ true, %.invoke284 ]
+  %.sroa.0151.0290.i.i = phi i64 [ %.sroa.0151.0.i.i.ph288, %281 ], [ %.sroa.0151.0.i.i.ph288, %270 ], [ %.sroa.0151.0.i.i.ph288, %.invoke ], [ 1, %241 ], [ 0, %246 ], [ %.sroa.0151.0.i.i.ph288, %.invoke284 ], [ %.sroa.0151.0.i.i.ph288, %"_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h052a16d9c6193067E.exit.i.i" ]
+  %.sroa.084.1.ph.i.i = phi i1 [ false, %281 ], [ true, %270 ], [ true, %.invoke ], [ true, %241 ], [ true, %246 ], [ true, %.invoke284 ], [ false, %"_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h052a16d9c6193067E.exit.i.i" ]
   %lpad.loopexit.split-lp.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.i.i
@@ -8438,7 +8438,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17h1b2df1bc081631caE(ptr dea
   br i1 %70, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hecc4f42d93447182E.exit92.thread", label %.lr.ph301
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hecc4f42d93447182E.exit92.thread": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hc271f008d26f381fE.exit128", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hc271f008d26f381fE.exit120", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hc271f008d26f381fE.exit112", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hc271f008d26f381fE.exit104", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hc271f008d26f381fE.exit96", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hc271f008d26f381fE.exit136", %.preheader261, %.preheader259, %.preheader257, %.preheader255, %.preheader253, %.preheader
-  %.sroa.27.6 = phi i64 [ %69, %.preheader ], [ %69, %.preheader253 ], [ %69, %.preheader255 ], [ %69, %.preheader257 ], [ %69, %.preheader259 ], [ %69, %.preheader261 ], [ %114, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hc271f008d26f381fE.exit120" ], [ %138, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hc271f008d26f381fE.exit136" ], [ %77, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hc271f008d26f381fE.exit96" ], [ %89, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hc271f008d26f381fE.exit104" ], [ %102, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hc271f008d26f381fE.exit112" ], [ %127, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hc271f008d26f381fE.exit128" ]
+  %.sroa.27.6 = phi i64 [ %102, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hc271f008d26f381fE.exit112" ], [ %114, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hc271f008d26f381fE.exit120" ], [ %89, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hc271f008d26f381fE.exit104" ], [ %77, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hc271f008d26f381fE.exit96" ], [ %138, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hc271f008d26f381fE.exit136" ], [ %69, %.preheader ], [ %69, %.preheader253 ], [ %69, %.preheader255 ], [ %69, %.preheader257 ], [ %69, %.preheader259 ], [ %69, %.preheader261 ], [ %127, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hc271f008d26f381fE.exit128" ]
   %71 = sub i64 %.sroa.01.0.i, %.sroa.27.6
   store i64 %71, ptr %54, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %18, i64 24, i1 false)

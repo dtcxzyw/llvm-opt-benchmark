@@ -822,8 +822,8 @@ define { i64, i8 } @_ZN9grpc_core12ParseTimeoutERKNS_5SliceE(ptr noundef nonnull
   br label %.critedge2, !llvm.loop !17
 
 .critedge2:                                       ; preds = %.lr.ph77, %..critedge2_crit_edge, %.lr.ph77.preheader
-  %.147.lcssa = phi ptr [ %.046.lcssa, %.lr.ph77.preheader ], [ %30, %..critedge2_crit_edge ], [ %30, %.lr.ph77 ]
-  %.0.lcssa = phi i32 [ 0, %.lr.ph77.preheader ], [ %29, %..critedge2_crit_edge ], [ %29, %.lr.ph77 ]
+  %.147.lcssa = phi ptr [ %30, %..critedge2_crit_edge ], [ %.046.lcssa, %.lr.ph77.preheader ], [ %30, %.lr.ph77 ]
+  %.0.lcssa = phi i32 [ %29, %..critedge2_crit_edge ], [ 0, %.lr.ph77.preheader ], [ %29, %.lr.ph77 ]
   %.not5485 = icmp eq ptr %.147.lcssa, %11
   %or.cond88 = or i1 %or.cond55112, %.not5485
   br i1 %or.cond88, label %.critedge57, label %.lr.ph87
@@ -901,8 +901,8 @@ define { i64, i8 } @_ZN9grpc_core12ParseTimeoutERKNS_5SliceE(ptr noundef nonnull
   br i1 %64, label %61, label %.critedge57
 
 .critedge57:                                      ; preds = %14, %24, %32, %.lr.ph87, %.lr.ph.i, %61, %.critedge, %59, %.critedge2
-  %.sroa.061.0 = phi i64 [ undef, %.critedge2 ], [ %.sroa.0.0, %59 ], [ undef, %.critedge ], [ 9223372036854775807, %24 ], [ undef, %.lr.ph.i ], [ undef, %32 ], [ %.sroa.0.0, %61 ], [ undef, %.lr.ph87 ], [ undef, %14 ]
-  %.sroa.3.0 = phi i8 [ 0, %.critedge2 ], [ 1, %59 ], [ 0, %.critedge ], [ 1, %24 ], [ 0, %.lr.ph.i ], [ 0, %32 ], [ 1, %61 ], [ 0, %.lr.ph87 ], [ 0, %14 ]
+  %.sroa.061.0 = phi i64 [ 9223372036854775807, %24 ], [ undef, %.critedge2 ], [ undef, %.lr.ph.i ], [ undef, %32 ], [ %.sroa.0.0, %59 ], [ undef, %.critedge ], [ %.sroa.0.0, %61 ], [ undef, %.lr.ph87 ], [ undef, %14 ]
+  %.sroa.3.0 = phi i8 [ 1, %24 ], [ 0, %.critedge2 ], [ 0, %.lr.ph.i ], [ 0, %32 ], [ 1, %59 ], [ 0, %.critedge ], [ 1, %61 ], [ 0, %.lr.ph87 ], [ 0, %14 ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.061.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.3.0, 1
   ret { i64, i8 } %.fca.1.insert

@@ -314,10 +314,10 @@ define internal range(i32 -2147483648, 1) i32 @cbs_jpeg_split_fragment(ptr nound
   br label %.critedge6
 
 .critedge6:                                       ; preds = %105, %74, %.preheader186, %71, %111
-  %.pre259 = phi ptr [ %.pre259.pre, %71 ], [ %87, %111 ], [ %.pre259.pre, %74 ], [ %.pre259.pre, %.preheader186 ], [ %87, %105 ]
-  %.2155 = phi i32 [ %.3214, %71 ], [ %98, %111 ], [ %.1154, %74 ], [ %.3214, %.preheader186 ], [ %98, %105 ]
-  %.1151 = phi i32 [ %72, %71 ], [ %112, %111 ], [ %.0150, %74 ], [ %.0150, %.preheader186 ], [ %.0150, %105 ]
-  %.0149 = phi i32 [ %73, %71 ], [ %116, %111 ], [ -1, %74 ], [ -1, %.preheader186 ], [ -1, %105 ]
+  %.pre259 = phi ptr [ %.pre259.pre, %71 ], [ %.pre259.pre, %.preheader186 ], [ %.pre259.pre, %74 ], [ %87, %111 ], [ %87, %105 ]
+  %.2155 = phi i32 [ %.3214, %71 ], [ %.3214, %.preheader186 ], [ %.1154, %74 ], [ %98, %111 ], [ %98, %105 ]
+  %.1151 = phi i32 [ %72, %71 ], [ %.0150, %.preheader186 ], [ %.0150, %74 ], [ %112, %111 ], [ %.0150, %105 ]
+  %.0149 = phi i32 [ %73, %71 ], [ -1, %.preheader186 ], [ -1, %74 ], [ %116, %111 ], [ -1, %105 ]
   br i1 %50, label %.critedge6.thread, label %.critedge6..critedge6.thread177_crit_edge
 
 .critedge6..critedge6.thread177_crit_edge:        ; preds = %.critedge6
@@ -1354,7 +1354,7 @@ cbs_jpeg_write_application_data.exit.i:           ; preds = %228, %223, %218, %2
   br i1 %278, label %272, label %cbs_jpeg_write_quantisation_table.exit.thread.i.i
 
 cbs_jpeg_write_quantisation_table.exit.thread.i.i: ; preds = %256, %250, %.preheader48.i.i.i, %.preheader.i.i.i
-  %.1.i.ph.i.i = phi i32 [ %270, %.preheader48.i.i.i ], [ %277, %.preheader.i.i.i ], [ %260, %256 ], [ %254, %250 ]
+  %.1.i.ph.i.i = phi i32 [ %270, %.preheader48.i.i.i ], [ %277, %.preheader.i.i.i ], [ %254, %250 ], [ %260, %256 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %cbs_jpeg_write_scan.exit
@@ -1485,7 +1485,7 @@ cbs_jpeg_write_quantisation_table.exit.thread.i.i: ; preds = %256, %250, %.prehe
   br i1 %exitcond79.not.i.i.i, label %331, label %.preheader.i.i42.i, !llvm.loop !95
 
 cbs_jpeg_write_huffman_table.exit.thread.i.i:     ; preds = %298, %292, %307, %318, %.lr.ph.i.i.i
-  %.1.i.ph.i38.i = phi i32 [ %312, %307 ], [ -1094995529, %.lr.ph.i.i.i ], [ %323, %318 ], [ %296, %292 ], [ %302, %298 ]
+  %.1.i.ph.i38.i = phi i32 [ %312, %307 ], [ -1094995529, %.lr.ph.i.i.i ], [ %323, %318 ], [ %302, %298 ], [ %296, %292 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %cbs_jpeg_write_scan.exit
@@ -1563,7 +1563,7 @@ cbs_jpeg_write_comment.exit.i:                    ; preds = %360, %355, %350, %3
   br label %cbs_jpeg_write_scan.exit
 
 cbs_jpeg_write_scan.exit:                         ; preds = %339, %291, %.loopexit.i.i, %cbs_jpeg_write_comment.exit.i, %cbs_jpeg_write_huffman_table.exit.thread.i.i, %.preheader.i36.i, %279, %cbs_jpeg_write_quantisation_table.exit.thread.i.i, %244, %237, %236, %cbs_jpeg_write_application_data.exit.i, %cbs_jpeg_write_frame_header.exit.i, %skip_put_bytes.exit.i, %86, %83, %cbs_jpeg_write_scan_header.exit.i, %cbs_jpeg_write_scan_header.exit.thread.i
-  %.0 = phi i32 [ %.1.i.ph.i, %cbs_jpeg_write_scan_header.exit.thread.i ], [ -28, %86 ], [ %81, %cbs_jpeg_write_scan_header.exit.i ], [ 0, %skip_put_bytes.exit.i ], [ 0, %83 ], [ -1163346256, %236 ], [ %.1.i.i, %cbs_jpeg_write_frame_header.exit.i ], [ %.1.i25.i, %cbs_jpeg_write_application_data.exit.i ], [ %.1.i48.i, %cbs_jpeg_write_comment.exit.i ], [ %242, %237 ], [ %.1.i.ph.i.i, %cbs_jpeg_write_quantisation_table.exit.thread.i.i ], [ 0, %244 ], [ %284, %279 ], [ %.1.i.ph.i38.i, %cbs_jpeg_write_huffman_table.exit.thread.i.i ], [ 0, %.preheader.i36.i ], [ 0, %.loopexit.i.i ], [ -1094995529, %291 ], [ 0, %339 ]
+  %.0 = phi i32 [ %.1.i.ph.i, %cbs_jpeg_write_scan_header.exit.thread.i ], [ -28, %86 ], [ %81, %cbs_jpeg_write_scan_header.exit.i ], [ 0, %skip_put_bytes.exit.i ], [ 0, %83 ], [ -1163346256, %236 ], [ %.1.i.i, %cbs_jpeg_write_frame_header.exit.i ], [ %.1.i25.i, %cbs_jpeg_write_application_data.exit.i ], [ %.1.i48.i, %cbs_jpeg_write_comment.exit.i ], [ 0, %.loopexit.i.i ], [ %242, %237 ], [ %.1.i.ph.i.i, %cbs_jpeg_write_quantisation_table.exit.thread.i.i ], [ 0, %244 ], [ %284, %279 ], [ %.1.i.ph.i38.i, %cbs_jpeg_write_huffman_table.exit.thread.i.i ], [ 0, %.preheader.i36.i ], [ -1094995529, %291 ], [ 0, %339 ]
   ret i32 %.0
 }
 
@@ -2257,7 +2257,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_jpeg_read_dht(ptr noun
   br label %cbs_jpeg_read_huffman_table.exit.thread
 
 cbs_jpeg_read_huffman_table.exit.thread:          ; preds = %.lr.ph.i, %41, %.critedge.i, %54, %.thread.i
-  %.147.i.ph = phi i32 [ %29, %.thread.i ], [ %52, %54 ], [ %24, %.critedge.i ], [ %39, %41 ], [ -1094995529, %.lr.ph.i ]
+  %.147.i.ph = phi i32 [ %29, %.thread.i ], [ %39, %41 ], [ %52, %54 ], [ %24, %.critedge.i ], [ -1094995529, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.loopexit

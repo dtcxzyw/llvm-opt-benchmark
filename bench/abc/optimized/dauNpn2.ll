@@ -4098,7 +4098,7 @@ switch.lookup74:                                  ; preds = %22
   br label %.sink.split.i45
 
 .sink.split.i45:                                  ; preds = %37, %41, %.sink.split.i45.fold.split, %43, %42, %38
-  %.sink.i46 = phi i32 [ 5, %.sink.split.i45.fold.split ], [ 7, %42 ], [ 8, %38 ], [ 3, %43 ], [ 9, %41 ], [ 6, %37 ]
+  %.sink.i46 = phi i32 [ 5, %.sink.split.i45.fold.split ], [ 7, %42 ], [ 8, %38 ], [ 9, %41 ], [ 3, %43 ], [ 6, %37 ]
   store i32 %.sink.i46, ptr %3, align 4, !tbaa !40
   br label %Dtt_ProcessType.exit
 
@@ -4276,7 +4276,7 @@ Dtt_ProcessType.exit.thread100:                   ; preds = %36
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %47, %.sink.split.i.fold.split, %41, %52, %51, %49, %48, %44, %42
-  %.sink.i = phi i32 [ %43, %42 ], [ 0, %41 ], [ 8, %44 ], [ 3, %49 ], [ 1, %52 ], [ 9, %47 ], [ 6, %48 ], [ 4, %51 ], [ 5, %.sink.split.i.fold.split ]
+  %.sink.i = phi i32 [ %43, %42 ], [ 0, %41 ], [ 8, %44 ], [ 4, %51 ], [ 3, %49 ], [ 1, %52 ], [ 9, %47 ], [ 6, %48 ], [ 5, %.sink.split.i.fold.split ]
   store i32 %.sink.i, ptr %5, align 4, !tbaa !40
   br label %.preheader63.preheader
 

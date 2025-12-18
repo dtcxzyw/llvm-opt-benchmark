@@ -914,7 +914,7 @@ _ZN4base8FilePath11IsSeparatorEc.exit18.i:        ; preds = %.lr.ph.i14.i, %_ZN4
   br i1 %27, label %.lr.ph.i.preheader.i, label %_ZN4base8FilePath31StripTrailingSeparatorsInternalEv.exit, !llvm.loop !32
 
 _ZN4base8FilePath31StripTrailingSeparatorsInternalEv.exit: ; preds = %_ZN4base8FilePath11IsSeparatorEc.exit18.i, %14, %2, %.lr.ph.i
-  %.pre-phi = phi i64 [ 0, %.lr.ph.i ], [ %9, %2 ], [ %9, %14 ], [ %9, %_ZN4base8FilePath11IsSeparatorEc.exit18.i ]
+  %.pre-phi = phi i64 [ %9, %14 ], [ %9, %2 ], [ 0, %.lr.ph.i ], [ %9, %_ZN4base8FilePath11IsSeparatorEc.exit18.i ]
   %28 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12find_last_ofEPKcmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @_ZN4base8FilePath11kSeparatorsE, i64 noundef -1, i64 noundef %.pre-phi) #22
   switch i64 %28, label %_ZN4base8FilePath11IsSeparatorEc.exit.thread [
     i64 -1, label %29
@@ -1120,7 +1120,7 @@ _ZN4base8FilePath11IsSeparatorEc.exit18.i:        ; preds = %.lr.ph.i14.i, %_ZN4
   br i1 %27, label %.lr.ph.i.preheader.i, label %_ZN4base8FilePath31StripTrailingSeparatorsInternalEv.exit, !llvm.loop !32
 
 _ZN4base8FilePath31StripTrailingSeparatorsInternalEv.exit: ; preds = %_ZN4base8FilePath11IsSeparatorEc.exit18.i, %14, %2, %.lr.ph.i
-  %.pre-phi = phi i64 [ 0, %.lr.ph.i ], [ %9, %2 ], [ %9, %14 ], [ %9, %_ZN4base8FilePath11IsSeparatorEc.exit18.i ]
+  %.pre-phi = phi i64 [ %9, %14 ], [ %9, %2 ], [ 0, %.lr.ph.i ], [ %9, %_ZN4base8FilePath11IsSeparatorEc.exit18.i ]
   %28 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12find_last_ofEPKcmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @_ZN4base8FilePath11kSeparatorsE, i64 noundef -1, i64 noundef %.pre-phi) #22
   %.not = icmp eq i64 %28, -1
   br i1 %.not, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit, label %31
@@ -1329,8 +1329,8 @@ _ZN4base8FilePathaSERKS0_.exit:                   ; preds = %38
   br label %56
 
 _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread: ; preds = %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit, %.lr.ph, %_ZN4base8FilePathaSERKS0_.exit, %._ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread_crit_edge, %._crit_edge, %13
-  %45 = phi ptr [ %.pre54, %._ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread_crit_edge ], [ %18, %13 ], [ %18, %._crit_edge ], [ %18, %_ZN4base8FilePathaSERKS0_.exit ], [ %18, %.lr.ph ], [ %18, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit ]
-  %.09 = phi i1 [ false, %._ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread_crit_edge ], [ false, %13 ], [ true, %._crit_edge ], [ true, %_ZN4base8FilePathaSERKS0_.exit ], [ false, %.lr.ph ], [ false, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit ]
+  %45 = phi ptr [ %.pre54, %._ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread_crit_edge ], [ %18, %13 ], [ %18, %_ZN4base8FilePathaSERKS0_.exit ], [ %18, %._crit_edge ], [ %18, %.lr.ph ], [ %18, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit ]
+  %.09 = phi i1 [ false, %._ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread_crit_edge ], [ false, %13 ], [ true, %_ZN4base8FilePathaSERKS0_.exit ], [ true, %._crit_edge ], [ false, %.lr.ph ], [ false, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit ]
   %.not4.i.i.i.i = icmp eq ptr %.pre, %45
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 

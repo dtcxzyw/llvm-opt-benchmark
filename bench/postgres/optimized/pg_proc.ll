@@ -1492,7 +1492,7 @@ define dso_local noundef i64 @fmgr_sql_validator(ptr noundef readonly captures(n
   br i1 %114, label %.lr.ph141, label %.critedge.thread154
 
 .critedge:                                        ; preds = %.lr.ph128, %86, %.lr.ph121
-  %.1 = phi ptr [ null, %.lr.ph121 ], [ null, %86 ], [ %95, %.lr.ph128 ]
+  %.1 = phi ptr [ null, %86 ], [ null, %.lr.ph121 ], [ %95, %.lr.ph128 ]
   br i1 %.097.lcssa, label %.critedge.thread, label %.critedge.thread154
 
 .critedge.thread154:                              ; preds = %.lr.ph141, %.lr.ph133, %101, %.critedge

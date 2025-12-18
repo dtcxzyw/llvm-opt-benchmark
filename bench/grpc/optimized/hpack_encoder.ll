@@ -2933,7 +2933,7 @@ _ZN9grpc_core5SliceD2Ev.exit:                     ; preds = %17, %20, %23
   resume { ptr, i32 } %.pn
 
 _ZN9grpc_core5SliceD2Ev.exit15.sink.split:        ; preds = %11, %10, %9, %8, %7, %3, %12
-  %.010.sink = phi i8 [ -120, %3 ], [ -114, %11 ], [ -118, %7 ], [ -117, %8 ], [ -116, %9 ], [ -115, %10 ], [ -119, %12 ]
+  %.010.sink = phi i8 [ -120, %3 ], [ -114, %11 ], [ -115, %10 ], [ -118, %7 ], [ -117, %8 ], [ -116, %9 ], [ -119, %12 ]
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %46 = load ptr, ptr %45, align 8, !tbaa !103
   %47 = tail call noundef ptr @grpc_slice_buffer_tiny_add(ptr noundef nonnull align 8 dereferenceable(232) %46, i64 noundef 1)

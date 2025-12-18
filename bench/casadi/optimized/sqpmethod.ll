@@ -6812,7 +6812,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6casadi11GenericT
   br i1 %1830, label %.loopexit1481, label %1827
 
 .loopexit1481:                                    ; preds = %1827, %.loopexit1481.loopexit1524, %.thread1447
-  %.pn442.pn.pn = phi { ptr, i32 } [ %1737, %.thread1447 ], [ %1821, %.loopexit1481.loopexit1524 ], [ %.pn442.pn, %1827 ]
+  %.pn442.pn.pn = phi { ptr, i32 } [ %1821, %.loopexit1481.loopexit1524 ], [ %1737, %.thread1447 ], [ %.pn442.pn, %1827 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %139)
   call void @llvm.lifetime.end.p0(ptr nonnull %138)
   %1831 = load ptr, ptr %137, align 8, !tbaa !11
@@ -7270,7 +7270,7 @@ _ZN6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEED2Ev.exit
   br i1 %1975, label %.loopexit, label %1972
 
 .loopexit:                                        ; preds = %1972, %.loopexit.loopexit1523, %.thread1461
-  %.pn447.pn.pn = phi { ptr, i32 } [ %1907, %.thread1461 ], [ %1966, %.loopexit.loopexit1523 ], [ %.pn447.pn, %1972 ]
+  %.pn447.pn.pn = phi { ptr, i32 } [ %1966, %.loopexit.loopexit1523 ], [ %1907, %.thread1461 ], [ %.pn447.pn, %1972 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %158)
   call void @llvm.lifetime.end.p0(ptr nonnull %157)
   %1976 = load ptr, ptr %156, align 8, !tbaa !11
@@ -11492,8 +11492,8 @@ _ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit761:    ; preds = %.lr.ph.i754, %_ZN6c
   br i1 %exitcond.not.i769, label %_ZN6casadi11casadi_axpyIdEEvxT_PKS1_PS1_.exit770, label %.lr.ph.i765, !llvm.loop !285
 
 _ZN6casadi11casadi_axpyIdEEvxT_PKS1_PS1_.exit770: ; preds = %.lr.ph.i765, %.lr.ph23.preheader.i760, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit761
-  %819 = phi i1 [ %812, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit761 ], [ true, %.lr.ph23.preheader.i760 ], [ true, %.lr.ph.i765 ]
-  %820 = phi i1 [ %776, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit761 ], [ %776, %.lr.ph23.preheader.i760 ], [ true, %.lr.ph.i765 ]
+  %819 = phi i1 [ true, %.lr.ph23.preheader.i760 ], [ %812, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit761 ], [ true, %.lr.ph.i765 ]
+  %820 = phi i1 [ %776, %.lr.ph23.preheader.i760 ], [ %776, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit761 ], [ true, %.lr.ph.i765 ]
   %821 = load ptr, ptr %47, align 8, !tbaa !286
   %822 = icmp ne ptr %821, null
   %823 = icmp ne ptr %802, null
@@ -12025,8 +12025,8 @@ _ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit865.sink.split: ; preds = %.preheader.
   br label %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit865
 
 _ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit865:    ; preds = %.lr.ph.i858, %.lr.ph.i913, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit865.sink.split, %.preheader.i918, %.preheader16.i911, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit908, %.preheader.i863, %.preheader16.i856, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit853, %996, %735
-  %.5396 = phi double [ %.2393, %735 ], [ %.6397, %996 ], [ %.6397, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit853 ], [ %.6397, %.preheader16.i856 ], [ %.6397, %.preheader.i863 ], [ %.6397, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit908 ], [ %.6397, %.preheader16.i911 ], [ %.6397, %.preheader.i918 ], [ %.6397, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit865.sink.split ], [ %.6397, %.lr.ph.i913 ], [ %.6397, %.lr.ph.i858 ]
-  %.4356 = phi i8 [ %.1353, %735 ], [ 1, %996 ], [ 0, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit853 ], [ 0, %.preheader16.i856 ], [ 0, %.preheader.i863 ], [ 0, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit908 ], [ 0, %.preheader16.i911 ], [ 0, %.preheader.i918 ], [ 0, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit865.sink.split ], [ 0, %.lr.ph.i913 ], [ 0, %.lr.ph.i858 ]
+  %.5396 = phi double [ %.2393, %735 ], [ %.6397, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit865.sink.split ], [ %.6397, %996 ], [ %.6397, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit853 ], [ %.6397, %.preheader16.i856 ], [ %.6397, %.preheader.i863 ], [ %.6397, %.lr.ph.i913 ], [ %.6397, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit908 ], [ %.6397, %.preheader16.i911 ], [ %.6397, %.preheader.i918 ], [ %.6397, %.lr.ph.i858 ]
+  %.4356 = phi i8 [ %.1353, %735 ], [ 0, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit865.sink.split ], [ 1, %996 ], [ 0, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit853 ], [ 0, %.preheader16.i856 ], [ 0, %.preheader.i863 ], [ 0, %.lr.ph.i913 ], [ 0, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit908 ], [ 0, %.preheader16.i911 ], [ 0, %.preheader.i918 ], [ 0, %.lr.ph.i858 ]
   %1020 = load i64, ptr %81, align 8, !tbaa !140
   %1021 = icmp sgt i64 %1020, 0
   br i1 %1021, label %1022, label %1171
@@ -12464,11 +12464,11 @@ _ZN6casadi11casadi_scalIdEEvxT_PS1_.exit1003:     ; preds = %.lr.ph.i999, %_ZN6c
   br i1 %exitcond.not.i1012, label %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit1015, label %.lr.ph.i1008, !llvm.loop !281
 
 _ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit1015:   ; preds = %.lr.ph.i1008, %.lr.ph23.preheader.i1014, %.preheader.i1013, %.preheader16.i1006, %_ZN6casadi11casadi_scalIdEEvxT_PS1_.exit1003, %1171
-  %1184 = phi i64 [ %1173, %1171 ], [ %1173, %.lr.ph23.preheader.i1014 ], [ %1173, %.preheader.i1013 ], [ %1173, %.preheader16.i1006 ], [ %.pr.pre, %_ZN6casadi11casadi_scalIdEEvxT_PS1_.exit1003 ], [ %1173, %.lr.ph.i1008 ]
-  %.4351 = phi i8 [ %.0347, %1171 ], [ %.0347, %.lr.ph23.preheader.i1014 ], [ %.0347, %.preheader.i1013 ], [ %.0347, %.preheader16.i1006 ], [ %.3350, %_ZN6casadi11casadi_scalIdEEvxT_PS1_.exit1003 ], [ %.0347, %.lr.ph.i1008 ]
-  %.5346 = phi double [ %.33441097, %1171 ], [ %.33441097, %.lr.ph23.preheader.i1014 ], [ %.33441097, %.preheader.i1013 ], [ %.33441097, %.preheader16.i1006 ], [ %.4345, %_ZN6casadi11casadi_scalIdEEvxT_PS1_.exit1003 ], [ %.33441097, %.lr.ph.i1008 ]
-  %.6 = phi double [ %.3334, %1171 ], [ %.3334, %.lr.ph23.preheader.i1014 ], [ %.3334, %.preheader.i1013 ], [ %.3334, %.preheader16.i1006 ], [ %.5, %_ZN6casadi11casadi_scalIdEEvxT_PS1_.exit1003 ], [ %.3334, %.lr.ph.i1008 ]
-  %.4327 = phi i64 [ %.0323, %1171 ], [ %.0323, %.lr.ph23.preheader.i1014 ], [ %.0323, %.preheader.i1013 ], [ %.0323, %.preheader16.i1006 ], [ %1056, %_ZN6casadi11casadi_scalIdEEvxT_PS1_.exit1003 ], [ %.0323, %.lr.ph.i1008 ]
+  %1184 = phi i64 [ %1173, %1171 ], [ %.pr.pre, %_ZN6casadi11casadi_scalIdEEvxT_PS1_.exit1003 ], [ %1173, %.lr.ph23.preheader.i1014 ], [ %1173, %.preheader.i1013 ], [ %1173, %.preheader16.i1006 ], [ %1173, %.lr.ph.i1008 ]
+  %.4351 = phi i8 [ %.0347, %1171 ], [ %.3350, %_ZN6casadi11casadi_scalIdEEvxT_PS1_.exit1003 ], [ %.0347, %.lr.ph23.preheader.i1014 ], [ %.0347, %.preheader.i1013 ], [ %.0347, %.preheader16.i1006 ], [ %.0347, %.lr.ph.i1008 ]
+  %.5346 = phi double [ %.33441097, %1171 ], [ %.4345, %_ZN6casadi11casadi_scalIdEEvxT_PS1_.exit1003 ], [ %.33441097, %.lr.ph23.preheader.i1014 ], [ %.33441097, %.preheader.i1013 ], [ %.33441097, %.preheader16.i1006 ], [ %.33441097, %.lr.ph.i1008 ]
+  %.6 = phi double [ %.3334, %1171 ], [ %.5, %_ZN6casadi11casadi_scalIdEEvxT_PS1_.exit1003 ], [ %.3334, %.lr.ph23.preheader.i1014 ], [ %.3334, %.preheader.i1013 ], [ %.3334, %.preheader16.i1006 ], [ %.3334, %.lr.ph.i1008 ]
+  %.4327 = phi i64 [ %.0323, %1171 ], [ %1056, %_ZN6casadi11casadi_scalIdEEvxT_PS1_.exit1003 ], [ %.0323, %.lr.ph23.preheader.i1014 ], [ %.0323, %.preheader.i1013 ], [ %.0323, %.preheader16.i1006 ], [ %.0323, %.lr.ph.i1008 ]
   %1185 = load ptr, ptr %27, align 8, !tbaa !257
   %1186 = load ptr, ptr %33, align 8, !tbaa !275
   %1187 = icmp ne ptr %1185, null
@@ -12666,13 +12666,13 @@ _ZNK6casadi9Sqpmethod12calc_gamma_1EPNS_15SqpmethodMemoryE.exit1067: ; preds = %
   br label %1270
 
 1270:                                             ; preds = %579, %1269, %544
-  %.1392 = phi double [ %.8399, %1269 ], [ %.3394, %544 ], [ %.sroa.speculated.i636, %579 ]
-  %.2354 = phi i8 [ %.4356, %1269 ], [ %.1353, %544 ], [ %.1353, %579 ]
-  %.1348 = phi i8 [ %.4351, %1269 ], [ %.0347, %544 ], [ %.0347, %579 ]
-  %.1342 = phi double [ %.5346, %1269 ], [ %.0341, %544 ], [ %.0341, %579 ]
-  %.1338 = phi double [ %.33401098, %1269 ], [ %.0337, %544 ], [ %.0337, %579 ]
-  %.1332 = phi double [ %.6, %1269 ], [ %.0331, %544 ], [ %.0331, %579 ]
-  %.1324 = phi i64 [ %.4327, %1269 ], [ %.0323, %544 ], [ %.0323, %579 ]
+  %.1392 = phi double [ %.sroa.speculated.i636, %579 ], [ %.3394, %544 ], [ %.8399, %1269 ]
+  %.2354 = phi i8 [ %.1353, %579 ], [ %.1353, %544 ], [ %.4356, %1269 ]
+  %.1348 = phi i8 [ %.0347, %579 ], [ %.0347, %544 ], [ %.4351, %1269 ]
+  %.1342 = phi double [ %.0341, %579 ], [ %.0341, %544 ], [ %.5346, %1269 ]
+  %.1338 = phi double [ %.0337, %579 ], [ %.0337, %544 ], [ %.33401098, %1269 ]
+  %.1332 = phi double [ %.0331, %579 ], [ %.0331, %544 ], [ %.6, %1269 ]
+  %.1324 = phi i64 [ %.0323, %579 ], [ %.0323, %544 ], [ %.4327, %1269 ]
   %.pre = load i64, ptr %29, align 8, !tbaa !182
   br label %._crit_edge.i.i473
 
@@ -12681,8 +12681,8 @@ _ZNK6casadi9Sqpmethod12calc_gamma_1EPNS_15SqpmethodMemoryE.exit1067: ; preds = %
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit509
 
-.thread1120:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit516, %350, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %308, %297, %287, %273, %132, %137
-  %.1 = phi i32 [ 1, %132 ], [ 0, %308 ], [ 1, %137 ], [ 0, %273 ], [ 0, %287 ], [ 0, %297 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ 1, %350 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit516 ]
+.thread1120:                                      ; preds = %350, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit516, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %308, %297, %287, %273, %132, %137
+  %.1 = phi i32 [ 1, %132 ], [ 0, %297 ], [ 0, %308 ], [ 1, %137 ], [ 0, %273 ], [ 0, %287 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit516 ], [ 1, %350 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %1272 = load ptr, ptr %4, align 8, !tbaa !11
   %1273 = icmp eq ptr %1272, %25
@@ -13513,7 +13513,7 @@ _ZN6casadi13casadi_lb_eigIdEET_PKxPKS1_.exit:     ; preds = %._crit_edge.i266
   br i1 %286, label %157, label %_ZN6casadi17casadi_regularizeIdEEvPKxPT_S3_.exit, !llvm.loop !345
 
 _ZN6casadi17casadi_regularizeIdEEvPKxPT_S3_.exit: ; preds = %219, %283, %.loopexit.i272, %147, %_ZN6casadi13casadi_lb_eigIdEET_PKxPKS1_.exit, %108, %_ZN6casadi14casadi_projectIdEEvPKT_PKxPS1_S5_S6_.exit
-  %.0 = phi i32 [ 0, %108 ], [ 0, %_ZN6casadi14casadi_projectIdEEvPKT_PKxPS1_S5_S6_.exit ], [ 0, %_ZN6casadi13casadi_lb_eigIdEET_PKxPKS1_.exit ], [ 0, %147 ], [ 0, %.loopexit.i272 ], [ %225, %219 ], [ 0, %283 ]
+  %.0 = phi i32 [ 0, %108 ], [ 0, %_ZN6casadi14casadi_projectIdEEvPKT_PKxPS1_S5_S6_.exit ], [ 0, %147 ], [ 0, %_ZN6casadi13casadi_lb_eigIdEET_PKxPKS1_.exit ], [ 0, %.loopexit.i272 ], [ %225, %219 ], [ 0, %283 ]
   ret i32 %.0
 }
 

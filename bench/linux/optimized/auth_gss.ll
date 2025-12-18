@@ -4551,7 +4551,7 @@ gss_unwrap_resp_integ.exit:                       ; preds = %112, %.critedge.i, 
   br label %gss_unwrap_resp_priv.exit
 
 gss_unwrap_resp_priv.exit:                        ; preds = %296, %gss_unwrap_resp_integ.exit
-  %299 = phi i32 [ %160, %gss_unwrap_resp_integ.exit ], [ %298, %296 ]
+  %299 = phi i32 [ %298, %296 ], [ %160, %gss_unwrap_resp_integ.exit ]
   %300 = icmp eq i32 %299, 0
   br i1 %300, label %gss_unwrap_resp_priv.exit.thread6, label %gss_unwrap_resp_priv.exit.thread
 

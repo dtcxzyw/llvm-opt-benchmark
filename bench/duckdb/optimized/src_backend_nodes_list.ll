@@ -261,8 +261,8 @@ _ZN17duckdb_libpgqueryL9list_headEPKNS_6PGListE.exit.i.i: ; preds = %3
   br label %_ZN17duckdb_libpgquery9list_freeEPNS_6PGListE.exit
 
 _ZN17duckdb_libpgquery9list_freeEPNS_6PGListE.exit: ; preds = %.lr.ph.i.i, %11, %19, %_ZN17duckdb_libpgqueryL9list_headEPKNS_6PGListE.exit.i.i
-  %.sink = phi ptr [ %0, %_ZN17duckdb_libpgqueryL9list_headEPKNS_6PGListE.exit.i.i ], [ %1, %19 ], [ %1, %11 ], [ %0, %.lr.ph.i.i ]
-  %.0 = phi ptr [ null, %_ZN17duckdb_libpgqueryL9list_headEPKNS_6PGListE.exit.i.i ], [ %0, %19 ], [ %0, %11 ], [ null, %.lr.ph.i.i ]
+  %.sink = phi ptr [ %0, %_ZN17duckdb_libpgqueryL9list_headEPKNS_6PGListE.exit.i.i ], [ %1, %11 ], [ %1, %19 ], [ %0, %.lr.ph.i.i ]
+  %.0 = phi ptr [ null, %_ZN17duckdb_libpgqueryL9list_headEPKNS_6PGListE.exit.i.i ], [ %0, %11 ], [ %0, %19 ], [ null, %.lr.ph.i.i ]
   tail call void @_ZN17duckdb_libpgquery5pfreeEPv(ptr noundef nonnull %.sink)
   ret ptr %.0
 }

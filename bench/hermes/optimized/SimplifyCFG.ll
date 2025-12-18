@@ -835,7 +835,7 @@ for.end144.i.i:                                   ; preds = %for.inc142.i.i, %fo
   br label %cleanup.i.i
 
 cleanup.i.i:                                      ; preds = %for.body.i70.i, %_ZNK4llvh15SmallPtrSetImplIPN6hermes10BasicBlockEE5countEPKS2_.exit113.i.i, %for.end144.i.i, %for.end.i72.i
-  %retval.1.i.i = phi i1 [ true, %for.end144.i.i ], [ false, %for.end.i72.i ], [ false, %_ZNK4llvh15SmallPtrSetImplIPN6hermes10BasicBlockEE5countEPKS2_.exit113.i.i ], [ false, %for.body.i70.i ]
+  %retval.1.i.i = phi i1 [ true, %for.end144.i.i ], [ false, %_ZNK4llvh15SmallPtrSetImplIPN6hermes10BasicBlockEE5countEPKS2_.exit113.i.i ], [ false, %for.end.i72.i ], [ false, %for.body.i70.i ]
   %104 = load ptr, ptr %orderedParents.i.i, align 8
   %cmp.i.i.i171.i.i = icmp eq ptr %104, %add.ptr.i.i.i.i.i.i67.i
   br i1 %cmp.i.i.i171.i.i, label %_ZN4llvh11SmallVectorIPN6hermes10BasicBlockELj8EED2Ev.exit.i.i, label %if.then.i.i172.i.i

@@ -5443,7 +5443,7 @@ _ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcE
   br i1 %.not60, label %_ZN7testing8internal15PrintIfNotEmptyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSo.exit, label %.lr.ph207, !llvm.loop !181
 
 _ZN7testing8internal15PrintIfNotEmptyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSo.exit: ; preds = %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit, %_ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit, %_ZN7testing19MatchResultListenerlsIA16_cEERS0_RKT_.exit, %251, %_ZN7testing19MatchResultListenerlsIA15_cEERS0_RKT_.exit, %.noexc99, %270, %250, %189, %_ZN7testing7MessageD2Ev.exit
-  %.0 = phi i1 [ false, %250 ], [ false, %189 ], [ false, %_ZN7testing7MessageD2Ev.exit ], [ true, %270 ], [ false, %_ZN7testing19MatchResultListenerlsIA15_cEERS0_RKT_.exit ], [ false, %.noexc99 ], [ false, %_ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit ], [ false, %251 ], [ false, %_ZN7testing19MatchResultListenerlsIA16_cEERS0_RKT_.exit ], [ true, %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit ]
+  %.0 = phi i1 [ false, %250 ], [ false, %189 ], [ false, %_ZN7testing7MessageD2Ev.exit ], [ true, %270 ], [ false, %_ZN7testing19MatchResultListenerlsIA15_cEERS0_RKT_.exit ], [ false, %.noexc99 ], [ false, %_ZN7testing19MatchResultListenerlsIA16_cEERS0_RKT_.exit ], [ false, %_ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit ], [ false, %251 ], [ true, %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit ]
   %298 = load ptr, ptr %9, align 8, !tbaa !160
   %299 = load ptr, ptr %33, align 8, !tbaa !164
   %.not4.i.i.i.i = icmp eq ptr %298, %299
@@ -20172,7 +20172,7 @@ _ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcE
   br i1 %.not59, label %_ZN7testing8internal15PrintIfNotEmptyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSo.exit, label %.lr.ph205, !llvm.loop !454
 
 _ZN7testing8internal15PrintIfNotEmptyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSo.exit: ; preds = %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit, %_ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit, %_ZN7testing19MatchResultListenerlsIA16_cEERS0_RKT_.exit, %251, %_ZN7testing19MatchResultListenerlsIA15_cEERS0_RKT_.exit, %.noexc97, %270, %250, %189, %_ZN7testing7MessageD2Ev.exit
-  %.0 = phi i1 [ false, %250 ], [ false, %189 ], [ false, %_ZN7testing7MessageD2Ev.exit ], [ true, %270 ], [ false, %_ZN7testing19MatchResultListenerlsIA15_cEERS0_RKT_.exit ], [ false, %.noexc97 ], [ false, %_ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit ], [ false, %251 ], [ false, %_ZN7testing19MatchResultListenerlsIA16_cEERS0_RKT_.exit ], [ true, %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit ]
+  %.0 = phi i1 [ false, %250 ], [ false, %189 ], [ false, %_ZN7testing7MessageD2Ev.exit ], [ true, %270 ], [ false, %_ZN7testing19MatchResultListenerlsIA15_cEERS0_RKT_.exit ], [ false, %.noexc97 ], [ false, %_ZN7testing19MatchResultListenerlsIA16_cEERS0_RKT_.exit ], [ false, %_ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit ], [ false, %251 ], [ true, %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit ]
   %298 = load ptr, ptr %9, align 8, !tbaa !160
   %299 = load ptr, ptr %33, align 8, !tbaa !164
   %.not4.i.i.i.i = icmp eq ptr %298, %299
@@ -21117,7 +21117,7 @@ _ZN4absl10FixedArrayISt4pairIiiELm18446744073709551615ESaIS2_EED2Ev.exit69: ; pr
   br i1 %.not.i.i73, label %.body36, label %.lr.ph.i.i71, !llvm.loop !473
 
 .body36:                                          ; preds = %.lr.ph.i.i.i32, %.lr.ph.i.i71, %_ZN4absl10FixedArrayISt4pairIiiELm18446744073709551615ESaIS2_EED2Ev.exit69, %26
-  %.pn23.pn.pn.pn.pn = phi { ptr, i32 } [ %27, %26 ], [ %.pn23.pn.pn.pn, %_ZN4absl10FixedArrayISt4pairIiiELm18446744073709551615ESaIS2_EED2Ev.exit69 ], [ %.pn23.pn.pn.pn, %.lr.ph.i.i71 ], [ %27, %.lr.ph.i.i.i32 ]
+  %.pn23.pn.pn.pn.pn = phi { ptr, i32 } [ %27, %26 ], [ %.pn23.pn.pn.pn, %.lr.ph.i.i71 ], [ %.pn23.pn.pn.pn, %_ZN4absl10FixedArrayISt4pairIiiELm18446744073709551615ESaIS2_EED2Ev.exit69 ], [ %27, %.lr.ph.i.i.i32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.085)
   br i1 %.not, label %_ZNSt14_Fwd_list_baseIiSaIiEED2Ev.exit.i, label %.lr.ph.i.i76
 
@@ -21129,7 +21129,7 @@ _ZN4absl10FixedArrayISt4pairIiiELm18446744073709551615ESaIS2_EED2Ev.exit69: ; pr
   br i1 %.not.i.i78, label %_ZNSt14_Fwd_list_baseIiSaIiEED2Ev.exit.i, label %.lr.ph.i.i76, !llvm.loop !459
 
 _ZNSt14_Fwd_list_baseIiSaIiEED2Ev.exit.i:         ; preds = %.lr.ph.i.i.i, %.lr.ph.i.i76, %.body36, %10
-  %.pn23.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %11, %10 ], [ %.pn23.pn.pn.pn.pn, %.body36 ], [ %.pn23.pn.pn.pn.pn, %.lr.ph.i.i76 ], [ %11, %.lr.ph.i.i.i ]
+  %.pn23.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %11, %10 ], [ %.pn23.pn.pn.pn.pn, %.lr.ph.i.i76 ], [ %.pn23.pn.pn.pn.pn, %.body36 ], [ %11, %.lr.ph.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.093)
   resume { ptr, i32 } %.pn23.pn.pn.pn.pn.pn
 }
@@ -23705,7 +23705,7 @@ _ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcE
   br i1 %.not60, label %_ZN7testing8internal15PrintIfNotEmptyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSo.exit, label %.lr.ph207, !llvm.loop !593
 
 _ZN7testing8internal15PrintIfNotEmptyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSo.exit: ; preds = %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit, %_ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit, %_ZN7testing19MatchResultListenerlsIA16_cEERS0_RKT_.exit, %251, %_ZN7testing19MatchResultListenerlsIA15_cEERS0_RKT_.exit, %.noexc99, %270, %250, %189, %_ZN7testing7MessageD2Ev.exit
-  %.0 = phi i1 [ false, %250 ], [ false, %189 ], [ false, %_ZN7testing7MessageD2Ev.exit ], [ true, %270 ], [ false, %_ZN7testing19MatchResultListenerlsIA15_cEERS0_RKT_.exit ], [ false, %.noexc99 ], [ false, %_ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit ], [ false, %251 ], [ false, %_ZN7testing19MatchResultListenerlsIA16_cEERS0_RKT_.exit ], [ true, %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit ]
+  %.0 = phi i1 [ false, %250 ], [ false, %189 ], [ false, %_ZN7testing7MessageD2Ev.exit ], [ true, %270 ], [ false, %_ZN7testing19MatchResultListenerlsIA15_cEERS0_RKT_.exit ], [ false, %.noexc99 ], [ false, %_ZN7testing19MatchResultListenerlsIA16_cEERS0_RKT_.exit ], [ false, %_ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit ], [ false, %251 ], [ true, %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit ]
   %298 = load ptr, ptr %9, align 8, !tbaa !160
   %299 = load ptr, ptr %33, align 8, !tbaa !164
   %.not4.i.i.i.i = icmp eq ptr %298, %299
@@ -27753,7 +27753,7 @@ _ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcE
   br i1 %.not60, label %_ZN7testing8internal15PrintIfNotEmptyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSo.exit, label %.lr.ph200, !llvm.loop !707
 
 _ZN7testing8internal15PrintIfNotEmptyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSo.exit: ; preds = %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit, %_ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit, %_ZN7testing19MatchResultListenerlsIA16_cEERS0_RKT_.exit, %250, %_ZN7testing19MatchResultListenerlsIA15_cEERS0_RKT_.exit, %.noexc99, %269, %249, %188, %_ZN7testing7MessageD2Ev.exit
-  %.0 = phi i1 [ false, %249 ], [ false, %188 ], [ false, %_ZN7testing7MessageD2Ev.exit ], [ true, %269 ], [ false, %_ZN7testing19MatchResultListenerlsIA15_cEERS0_RKT_.exit ], [ false, %.noexc99 ], [ false, %_ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit ], [ false, %250 ], [ false, %_ZN7testing19MatchResultListenerlsIA16_cEERS0_RKT_.exit ], [ true, %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit ]
+  %.0 = phi i1 [ false, %249 ], [ false, %188 ], [ false, %_ZN7testing7MessageD2Ev.exit ], [ true, %269 ], [ false, %_ZN7testing19MatchResultListenerlsIA15_cEERS0_RKT_.exit ], [ false, %.noexc99 ], [ false, %_ZN7testing19MatchResultListenerlsIA16_cEERS0_RKT_.exit ], [ false, %_ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit ], [ false, %250 ], [ true, %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit ]
   %297 = load ptr, ptr %9, align 8, !tbaa !160
   %298 = load ptr, ptr %33, align 8, !tbaa !164
   %.not4.i.i.i.i = icmp eq ptr %297, %298
@@ -32681,7 +32681,7 @@ _ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcE
   br i1 %.not60, label %_ZN7testing8internal15PrintIfNotEmptyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSo.exit, label %.lr.ph207, !llvm.loop !830
 
 _ZN7testing8internal15PrintIfNotEmptyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSo.exit: ; preds = %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit, %_ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit, %_ZN7testing19MatchResultListenerlsIA16_cEERS0_RKT_.exit, %251, %_ZN7testing19MatchResultListenerlsIA15_cEERS0_RKT_.exit, %.noexc99, %270, %250, %189, %_ZN7testing7MessageD2Ev.exit
-  %.0 = phi i1 [ false, %250 ], [ false, %189 ], [ false, %_ZN7testing7MessageD2Ev.exit ], [ true, %270 ], [ false, %_ZN7testing19MatchResultListenerlsIA15_cEERS0_RKT_.exit ], [ false, %.noexc99 ], [ false, %_ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit ], [ false, %251 ], [ false, %_ZN7testing19MatchResultListenerlsIA16_cEERS0_RKT_.exit ], [ true, %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit ]
+  %.0 = phi i1 [ false, %250 ], [ false, %189 ], [ false, %_ZN7testing7MessageD2Ev.exit ], [ true, %270 ], [ false, %_ZN7testing19MatchResultListenerlsIA15_cEERS0_RKT_.exit ], [ false, %.noexc99 ], [ false, %_ZN7testing19MatchResultListenerlsIA16_cEERS0_RKT_.exit ], [ false, %_ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit ], [ false, %251 ], [ true, %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit ]
   %298 = load ptr, ptr %9, align 8, !tbaa !160
   %299 = load ptr, ptr %33, align 8, !tbaa !164
   %.not4.i.i.i.i = icmp eq ptr %298, %299

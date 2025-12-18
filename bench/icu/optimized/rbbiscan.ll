@@ -438,7 +438,7 @@ _ZN6icu_7713UnicodeStringC2IA6_DsvEERKT_.exit:    ; preds = %_ZN6icu_778internal
   br i1 %135, label %.loopexit, label %134
 
 .loopexit:                                        ; preds = %.preheader, %134, %37
-  %.pn51.pn = phi { ptr, i32 } [ %38, %37 ], [ %.pn51, %134 ], [ %38, %.preheader ]
+  %.pn51.pn = phi { ptr, i32 } [ %.pn51, %134 ], [ %38, %37 ], [ %38, %.preheader ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %13) #13
   resume { ptr, i32 } %.pn51.pn
 }
@@ -4017,7 +4017,7 @@ _ZN6icu_7712LocalPointerINS_10UnicodeSetEEC2EPS1_R10UErrorCode.exit: ; preds = %
   br label %_ZN6icu_7715RBBIRuleScanner5errorE10UErrorCode.exit
 
 _ZN6icu_7715RBBIRuleScanner5errorE10UErrorCode.exit: ; preds = %31, %28, %21, %.critedge
-  %129 = phi ptr [ %17, %31 ], [ %17, %28 ], [ %17, %21 ], [ %128, %.critedge ]
+  %129 = phi ptr [ %128, %.critedge ], [ %17, %21 ], [ %17, %28 ], [ %17, %31 ]
   %130 = icmp eq ptr %129, null
   br i1 %130, label %_ZN6icu_7712LocalPointerINS_10UnicodeSetEED2Ev.exit, label %_ZN6icu_7715RBBIRuleScanner5errorE10UErrorCode.exit.thread
 

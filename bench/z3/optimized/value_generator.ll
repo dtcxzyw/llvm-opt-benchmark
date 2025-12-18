@@ -1440,7 +1440,7 @@ define linkonce_odr hidden void @_ZN24datatype_value_generator9get_valueEP4sortj
   br i1 %.not27.old.i.i.i, label %.loopexit243, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %47, %44
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %47 ], [ %46, %44 ]
+  %.137.i.i.i.be = phi ptr [ %46, %44 ], [ %.old.i.i.i, %47 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !115
 
 _ZNK7obj_mapI4sortP10ref_vectorI4expr11ast_managerEE4findEPS0_RS5_.exit: ; preds = %28, %39
@@ -1946,7 +1946,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE6resizeEj.exit
   br i1 %.not27.old.i.i.i91, label %_ZNK7obj_mapI9func_decljE4findEPS0_Rj.exit, label %.lr.ph38.i.i.i87.backedge
 
 .lr.ph38.i.i.i87.backedge:                        ; preds = %268, %265
-  %.137.i.i.i88.be = phi ptr [ %.old.i.i.i90, %268 ], [ %267, %265 ]
+  %.137.i.i.i88.be = phi ptr [ %267, %265 ], [ %.old.i.i.i90, %268 ]
   br label %.lr.ph38.i.i.i87, !llvm.loop !148
 
 _ZNK7obj_mapI9func_decljE9find_coreEPS0_.exit.i:  ; preds = %249, %260
@@ -1956,7 +1956,7 @@ _ZNK7obj_mapI9func_decljE9find_coreEPS0_.exit.i:  ; preds = %249, %260
   br label %_ZNK7obj_mapI9func_decljE4findEPS0_Rj.exit
 
 _ZNK7obj_mapI9func_decljE4findEPS0_Rj.exit:       ; preds = %254, %268, %265, %_ZNK7obj_mapI9func_decljE9find_coreEPS0_.exit.i, %.preheader.i.i.i85
-  %.0217 = phi i32 [ 0, %.preheader.i.i.i85 ], [ %270, %_ZNK7obj_mapI9func_decljE9find_coreEPS0_.exit.i ], [ 0, %268 ], [ 0, %265 ], [ 0, %254 ]
+  %.0217 = phi i32 [ 0, %.preheader.i.i.i85 ], [ 0, %268 ], [ %270, %_ZNK7obj_mapI9func_decljE9find_coreEPS0_.exit.i ], [ 0, %265 ], [ 0, %254 ]
   %271 = load i32, ptr %158, align 8, !tbaa !131
   %.not29.i = icmp eq i32 %271, 0
   br i1 %.not29.i, label %..thread_crit_edge.i, label %.lr.ph.i

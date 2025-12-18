@@ -2284,7 +2284,7 @@ Vec_QuePrio.exit30.i:                             ; preds = %.lr.ph43.i
   br i1 %132, label %Vec_QuePrio.exit30.i, label %Vec_QueMoveUp.exit, !llvm.loop !109
 
 Vec_QueMoveUp.exit:                               ; preds = %Vec_QuePrio.exit30.i, %.lr.ph43.i, %Vec_QuePrio.exit30.us.i, %.lr.ph48.i, %Vec_QuePrio.exit.i, %Vec_QuePrio.exit.thread.i, %.lr.ph.split.us.i, %.lr.ph.split.i
-  %.027.lcssa.i = phi i32 [ %91, %.lr.ph.split.us.i ], [ %95, %.lr.ph.split.i ], [ %95, %Vec_QuePrio.exit.thread.i ], [ %91, %Vec_QuePrio.exit.i ], [ %.02634.us46.i, %Vec_QuePrio.exit30.us.i ], [ %.02634.us46.i, %.lr.ph48.i ], [ %.0263441.i, %.lr.ph43.i ], [ %.0263441.i, %Vec_QuePrio.exit30.i ]
+  %.027.lcssa.i = phi i32 [ %.02634.us46.i, %Vec_QuePrio.exit30.us.i ], [ %91, %Vec_QuePrio.exit.i ], [ %91, %.lr.ph.split.us.i ], [ %95, %.lr.ph.split.i ], [ %95, %Vec_QuePrio.exit.thread.i ], [ %.02634.us46.i, %.lr.ph48.i ], [ %.0263441.i, %.lr.ph43.i ], [ %.0263441.i, %Vec_QuePrio.exit30.i ]
   %133 = sext i32 %.027.lcssa.i to i64
   %134 = getelementptr inbounds i32, ptr %85, i64 %133
   store i32 %1, ptr %134, align 4, !tbaa !33
@@ -3337,11 +3337,11 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   br i1 %exitcond.not, label %.critedge, label %406, !llvm.loop !130
 
 .critedge:                                        ; preds = %417, %Abc_NtkIncrementTravId.exit, %.preheader
-  %.0132.lcssa390 = phi i32 [ %.1133, %.preheader ], [ 0, %Abc_NtkIncrementTravId.exit ], [ %.1133, %417 ]
-  %.0134.lcssa389 = phi i32 [ %.1135, %.preheader ], [ 0, %Abc_NtkIncrementTravId.exit ], [ %.1135, %417 ]
-  %.0136.lcssa388 = phi i32 [ %402, %.preheader ], [ 0, %Abc_NtkIncrementTravId.exit ], [ %402, %417 ]
-  %.val177387 = phi ptr [ %.val177301, %.preheader ], [ %.val177296, %Abc_NtkIncrementTravId.exit ], [ %.val177301, %417 ]
-  %.pre.i199294 = phi ptr [ %.pre.i199288, %.preheader ], [ %.pre.i199291, %Abc_NtkIncrementTravId.exit ], [ %.val177301, %417 ]
+  %.0132.lcssa390 = phi i32 [ 0, %Abc_NtkIncrementTravId.exit ], [ %.1133, %.preheader ], [ %.1133, %417 ]
+  %.0134.lcssa389 = phi i32 [ 0, %Abc_NtkIncrementTravId.exit ], [ %.1135, %.preheader ], [ %.1135, %417 ]
+  %.0136.lcssa388 = phi i32 [ 0, %Abc_NtkIncrementTravId.exit ], [ %402, %.preheader ], [ %402, %417 ]
+  %.val177387 = phi ptr [ %.val177296, %Abc_NtkIncrementTravId.exit ], [ %.val177301, %.preheader ], [ %.val177301, %417 ]
+  %.pre.i199294 = phi ptr [ %.pre.i199291, %Abc_NtkIncrementTravId.exit ], [ %.pre.i199288, %.preheader ], [ %.val177301, %417 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %418 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %12) #24
   %419 = icmp slt i32 %418, 0

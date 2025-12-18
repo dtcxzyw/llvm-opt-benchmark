@@ -1293,9 +1293,9 @@ _ZN8WasmEdge4Host4WASI8FdHolderD2Ev.exit.thread.sink.split: ; preds = %69, %_ZN8
   br label %_ZN8WasmEdge4Host4WASI8FdHolderD2Ev.exit.thread
 
 _ZN8WasmEdge4Host4WASI8FdHolderD2Ev.exit.thread:  ; preds = %.loopexit, %_ZNSt6vectorIhSaIhEE5clearEv.exit, %_ZN8WasmEdge4Host4WASI8FdHolderD2Ev.exit.thread.sink.split, %20, %24, %69
-  %.sroa.051.1 = phi i32 [ 1, %69 ], [ 0, %24 ], [ 0, %20 ], [ 0, %_ZN8WasmEdge4Host4WASI8FdHolderD2Ev.exit.thread.sink.split ], [ 1, %_ZNSt6vectorIhSaIhEE5clearEv.exit ], [ 1, %.loopexit ]
-  %.sroa.652.sroa.0.1 = phi i16 [ 0, %69 ], [ %23, %24 ], [ %23, %20 ], [ %98, %_ZN8WasmEdge4Host4WASI8FdHolderD2Ev.exit.thread.sink.split ], [ 0, %_ZNSt6vectorIhSaIhEE5clearEv.exit ], [ 0, %.loopexit ]
-  %.sroa.652.sroa.6.1 = phi i16 [ 0, %69 ], [ %.sroa.652.sroa.6.0.extract.shift55, %24 ], [ %.sroa.652.sroa.6.0.extract.shift55, %20 ], [ %.sroa.652.sroa.6.0.extract.shift, %_ZN8WasmEdge4Host4WASI8FdHolderD2Ev.exit.thread.sink.split ], [ 0, %_ZNSt6vectorIhSaIhEE5clearEv.exit ], [ 0, %.loopexit ]
+  %.sroa.051.1 = phi i32 [ 0, %20 ], [ 0, %_ZN8WasmEdge4Host4WASI8FdHolderD2Ev.exit.thread.sink.split ], [ 0, %24 ], [ 1, %69 ], [ 1, %_ZNSt6vectorIhSaIhEE5clearEv.exit ], [ 1, %.loopexit ]
+  %.sroa.652.sroa.0.1 = phi i16 [ %23, %20 ], [ %98, %_ZN8WasmEdge4Host4WASI8FdHolderD2Ev.exit.thread.sink.split ], [ %23, %24 ], [ 0, %69 ], [ 0, %_ZNSt6vectorIhSaIhEE5clearEv.exit ], [ 0, %.loopexit ]
+  %.sroa.652.sroa.6.1 = phi i16 [ %.sroa.652.sroa.6.0.extract.shift55, %20 ], [ %.sroa.652.sroa.6.0.extract.shift, %_ZN8WasmEdge4Host4WASI8FdHolderD2Ev.exit.thread.sink.split ], [ %.sroa.652.sroa.6.0.extract.shift55, %24 ], [ 0, %69 ], [ 0, %_ZNSt6vectorIhSaIhEE5clearEv.exit ], [ 0, %.loopexit ]
   %.sroa.652.sroa.6.0.insert.shift = shl nuw i16 %.sroa.652.sroa.6.1, 8
   %.sroa.652.sroa.0.0.insert.ext = and i16 %.sroa.652.sroa.0.1, 255
   %.sroa.652.sroa.0.0.insert.insert = or disjoint i16 %.sroa.652.sroa.6.0.insert.shift, %.sroa.652.sroa.0.0.insert.ext
@@ -5066,8 +5066,8 @@ _ZNSt10_HashtableIiSt4pairIKiN8WasmEdge4Host4WASI6Poller6FdDataEESaIS7_ENSt8__de
   br label %.body
 
 .loopexit:                                        ; preds = %56, %.noexc36, %51
-  %.sroa.025.0.i.i = phi ptr [ %52, %51 ], [ %67, %.noexc36 ], [ %58, %56 ]
-  %.sroa.3.0.i.i = phi i1 [ false, %51 ], [ true, %.noexc36 ], [ false, %56 ]
+  %.sroa.025.0.i.i = phi ptr [ %67, %.noexc36 ], [ %52, %51 ], [ %58, %56 ]
+  %.sroa.3.0.i.i = phi i1 [ true, %.noexc36 ], [ false, %51 ], [ false, %56 ]
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %70 = load i64, ptr %69, align 8
   %.not.not.i.i = icmp eq i64 %70, 0
@@ -5455,8 +5455,8 @@ _ZNSt10_HashtableIiSt4pairIKiN8WasmEdge4Host4WASI6Poller6FdDataEESaIS7_ENSt8__de
   br label %.body
 
 .loopexit:                                        ; preds = %56, %.noexc36, %51
-  %.sroa.025.0.i.i = phi ptr [ %52, %51 ], [ %67, %.noexc36 ], [ %58, %56 ]
-  %.sroa.3.0.i.i = phi i1 [ false, %51 ], [ true, %.noexc36 ], [ false, %56 ]
+  %.sroa.025.0.i.i = phi ptr [ %67, %.noexc36 ], [ %52, %51 ], [ %58, %56 ]
+  %.sroa.3.0.i.i = phi i1 [ true, %.noexc36 ], [ false, %51 ], [ false, %56 ]
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %70 = load i64, ptr %69, align 8
   %.not.not.i.i = icmp eq i64 %70, 0
@@ -7189,7 +7189,7 @@ _ZNSt10_HashtableIiSt4pairIKiN8WasmEdge4Host4WASI6Poller6FdDataEESaIS7_ENSt8__de
   br label %_ZNSt10_HashtableIiSt4pairIKiN8WasmEdge4Host4WASI6Poller6FdDataEESaIS7_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS1_.exit.thread
 
 _ZNSt10_HashtableIiSt4pairIKiN8WasmEdge4Host4WASI6Poller6FdDataEESaIS7_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS1_.exit.thread: ; preds = %.lr.ph.i, %.lr.ph, %..loopexit_crit_edge21.i, %22, %5, %_ZNSt10_HashtableIiSt4pairIKiN8WasmEdge4Host4WASI6Poller6FdDataEESaIS7_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNS9_15_Hash_node_baseEPNS9_10_Hash_nodeIS7_Lb0EEE.exit
-  %.0 = phi i64 [ 1, %_ZNSt10_HashtableIiSt4pairIKiN8WasmEdge4Host4WASI6Poller6FdDataEESaIS7_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNS9_15_Hash_node_baseEPNS9_10_Hash_nodeIS7_Lb0EEE.exit ], [ 0, %5 ], [ 0, %22 ], [ 0, %..loopexit_crit_edge21.i ], [ 0, %.lr.ph ], [ 0, %.lr.ph.i ]
+  %.0 = phi i64 [ 1, %_ZNSt10_HashtableIiSt4pairIKiN8WasmEdge4Host4WASI6Poller6FdDataEESaIS7_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNS9_15_Hash_node_baseEPNS9_10_Hash_nodeIS7_Lb0EEE.exit ], [ 0, %.lr.ph ], [ 0, %5 ], [ 0, %22 ], [ 0, %..loopexit_crit_edge21.i ], [ 0, %.lr.ph.i ]
   ret i64 %.0
 }
 

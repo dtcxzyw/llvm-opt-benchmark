@@ -4240,8 +4240,8 @@ strip_array_coercion.exit:                        ; preds = %.lr.ph.i, %34, %39,
   br label %68
 
 68:                                               ; preds = %66, %66, %.fold.split, %67
-  %.1187 = phi i8 [ 1, %67 ], [ %.0186, %66 ], [ %.0186, %66 ], [ %.0186, %.fold.split ]
-  %.1183 = phi i8 [ %.0182, %67 ], [ 1, %66 ], [ 1, %66 ], [ %.0182, %.fold.split ]
+  %.1187 = phi i8 [ %.0186, %66 ], [ 1, %67 ], [ %.0186, %66 ], [ %.0186, %.fold.split ]
+  %.1183 = phi i8 [ 1, %66 ], [ %.0182, %67 ], [ 1, %66 ], [ %.0182, %.fold.split ]
   %.not210 = icmp eq ptr %.010.lcssa.i, null
   br i1 %.not210, label %.critedge, label %69
 
@@ -6899,10 +6899,10 @@ define dso_local double @estimate_num_groups(ptr noundef %0, ptr noundef readonl
   br label %371
 
 .loopexit:                                        ; preds = %63, %.preheader249, %35, %26, %53, %42, %45
-  %.2167.ph = phi i32 [ %.1166, %45 ], [ %.1166, %42 ], [ %.1166, %53 ], [ %28, %26 ], [ %.1166, %35 ], [ %.1166, %.preheader249 ], [ %.1166, %63 ]
-  %.2144.ph = phi double [ %.0142268, %45 ], [ %.0142268, %42 ], [ %.0142268, %53 ], [ %.0142268, %26 ], [ %36, %35 ], [ %.0142268, %.preheader249 ], [ %.0142268, %63 ]
-  %.2140.ph = phi double [ %.3141, %45 ], [ %.3141, %42 ], [ %.3141, %53 ], [ %.0138269, %26 ], [ %.3141, %35 ], [ %.3141, %.preheader249 ], [ %.3141, %63 ]
-  %.2136.ph = phi ptr [ %43, %45 ], [ %43, %42 ], [ %.0134270, %53 ], [ %.0134270, %26 ], [ %.0134270, %35 ], [ %.0134270, %.preheader249 ], [ %59, %63 ]
+  %.2167.ph = phi i32 [ %.1166, %35 ], [ %.1166, %45 ], [ %.1166, %42 ], [ %.1166, %53 ], [ %28, %26 ], [ %.1166, %.preheader249 ], [ %.1166, %63 ]
+  %.2144.ph = phi double [ %36, %35 ], [ %.0142268, %45 ], [ %.0142268, %42 ], [ %.0142268, %53 ], [ %.0142268, %26 ], [ %.0142268, %.preheader249 ], [ %.0142268, %63 ]
+  %.2140.ph = phi double [ %.3141, %35 ], [ %.3141, %45 ], [ %.3141, %42 ], [ %.3141, %53 ], [ %.0138269, %26 ], [ %.3141, %.preheader249 ], [ %.3141, %63 ]
+  %.2136.ph = phi ptr [ %.0134270, %35 ], [ %43, %45 ], [ %43, %42 ], [ %.0134270, %53 ], [ %.0134270, %26 ], [ %.0134270, %.preheader249 ], [ %59, %63 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %indvars.iv.next324 = add nuw nsw i64 %indvars.iv323, 1
   %66 = load i32, ptr %16, align 4
@@ -7274,7 +7274,7 @@ list_length.exit.i:                               ; preds = %189
   br label %.critedge260.i
 
 .critedge260.i:                                   ; preds = %232, %.critedge260.sink.split.i, %.lr.ph313.i, %219, %213, %209
-  %.3202.i = phi ptr [ %.0199318.i289, %219 ], [ %.0199318.i289, %209 ], [ %.0199318.i289, %213 ], [ %.0199318.i289, %.lr.ph313.i ], [ %236, %.critedge260.sink.split.i ], [ %.0199318.i289, %232 ]
+  %.3202.i = phi ptr [ %.0199318.i289, %213 ], [ %.0199318.i289, %.lr.ph313.i ], [ %236, %.critedge260.sink.split.i ], [ %.0199318.i289, %209 ], [ %.0199318.i289, %219 ], [ %.0199318.i289, %232 ]
   %indvars.iv.next361.i = add nuw nsw i64 %indvars.iv360.i288, 1
   %237 = load i32, ptr %121, align 4
   %238 = sext i32 %237 to i64
@@ -7398,7 +7398,7 @@ select.unfold.i:                                  ; preds = %253, %240
   br label %.critedge283.i
 
 .critedge283.i:                                   ; preds = %.lr.ph337.i, %.critedge283.sink.split.i, %281
-  %.3215.i = phi ptr [ %.0212338.i293, %281 ], [ %300, %.critedge283.sink.split.i ], [ %.0212338.i293, %.lr.ph337.i ]
+  %.3215.i = phi ptr [ %300, %.critedge283.sink.split.i ], [ %.0212338.i293, %281 ], [ %.0212338.i293, %.lr.ph337.i ]
   %indvars.iv.next370.i = add nuw nsw i64 %indvars.iv369.i292, 1
   %301 = load i32, ptr %121, align 4
   %302 = sext i32 %301 to i64
@@ -7462,9 +7462,9 @@ select.unfold.i:                                  ; preds = %253, %240
   br i1 %.not202, label %.critedge209._crit_edge, label %99, !llvm.loop !41
 
 .critedge209._crit_edge:                          ; preds = %.critedge211, %326, %.critedge211.thread368, %304
-  %.1153367 = phi i32 [ %270, %.critedge211.thread368 ], [ %.0152309, %304 ], [ %318, %326 ], [ %333, %.critedge211 ]
-  %.2157366 = phi double [ %.1156370, %.critedge211.thread368 ], [ %.0155308, %304 ], [ %.4159, %326 ], [ %.1156, %.critedge211 ]
-  %.1161365 = phi double [ %268, %.critedge211.thread368 ], [ %.0160307, %304 ], [ %316, %326 ], [ %331, %.critedge211 ]
+  %.1153367 = phi i32 [ %270, %.critedge211.thread368 ], [ %318, %326 ], [ %.0152309, %304 ], [ %333, %.critedge211 ]
+  %.2157366 = phi double [ %.1156370, %.critedge211.thread368 ], [ %.4159, %326 ], [ %.0155308, %304 ], [ %.1156, %.critedge211 ]
+  %.1161365 = phi double [ %268, %.critedge211.thread368 ], [ %316, %326 ], [ %.0160307, %304 ], [ %331, %.critedge211 ]
   %334 = getelementptr inbounds nuw i8, ptr %79, i64 200
   %335 = load double, ptr %334, align 8
   %336 = fcmp ogt double %335, 0.000000e+00
@@ -7897,7 +7897,7 @@ define dso_local ptr @get_quals_from_indexclauses(ptr noundef readonly captures(
   br i1 %15, label %.lr.ph34, label %.critedge26
 
 .critedge:                                        ; preds = %.critedge26, %.lr.ph37, %1
-  %.0.lcssa = phi ptr [ null, %1 ], [ null, %.lr.ph37 ], [ %.1.lcssa, %.critedge26 ]
+  %.0.lcssa = phi ptr [ null, %.lr.ph37 ], [ null, %1 ], [ %.1.lcssa, %.critedge26 ]
   ret ptr %.0.lcssa
 
 .lr.ph34:                                         ; preds = %.lr.ph, %.lr.ph34
@@ -8080,7 +8080,7 @@ define dso_local void @genericcostestimate(ptr noundef %0, ptr noundef readonly 
   br i1 %33, label %.lr.ph47.i, label %get_quals_from_indexclauses.exit
 
 get_quals_from_indexclauses.exit:                 ; preds = %.critedge26.i, %4, %.lr.ph37.i
-  %.0.lcssa.i = phi ptr [ null, %4 ], [ null, %.lr.ph37.i ], [ %.1.lcssa.i, %.critedge26.i ]
+  %.0.lcssa.i = phi ptr [ null, %.lr.ph37.i ], [ null, %4 ], [ %.1.lcssa.i, %.critedge26.i ]
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %35 = load ptr, ptr %34, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -9123,7 +9123,7 @@ define dso_local void @gincostestimate(ptr noundef %0, ptr noundef readonly capt
   br i1 %46, label %.lr.ph47.i, label %get_quals_from_indexclauses.exit
 
 get_quals_from_indexclauses.exit:                 ; preds = %.critedge26.i, %8, %.lr.ph37.i
-  %.0.lcssa.i = phi ptr [ null, %8 ], [ null, %.lr.ph37.i ], [ %.1.lcssa.i, %.critedge26.i ]
+  %.0.lcssa.i = phi ptr [ null, %.lr.ph37.i ], [ null, %8 ], [ %.1.lcssa.i, %.critedge26.i ]
   %47 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %48 = load i32, ptr %47, align 8
   %49 = uitofp i32 %48 to double
@@ -9874,7 +9874,7 @@ define dso_local void @brincostestimate(ptr noundef %0, ptr noundef readonly cap
   br i1 %41, label %.lr.ph47.i, label %get_quals_from_indexclauses.exit
 
 get_quals_from_indexclauses.exit:                 ; preds = %.critedge26.i, %8, %.lr.ph37.i
-  %.0.lcssa.i = phi ptr [ null, %8 ], [ null, %.lr.ph37.i ], [ %.1.lcssa.i, %.critedge26.i ]
+  %.0.lcssa.i = phi ptr [ null, %.lr.ph37.i ], [ null, %8 ], [ %.1.lcssa.i, %.critedge26.i ]
   %42 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %43 = load i32, ptr %42, align 8
   %44 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -10825,7 +10825,7 @@ define internal fastcc noundef zeroext i1 @get_actual_variable_endpoint(ptr noun
   br label %.thread, !llvm.loop !50
 
 .thread:                                          ; preds = %66, %9, %..thread.loopexit_crit_edge56, %61
-  %.1 = phi i1 [ true, %61 ], [ false, %..thread.loopexit_crit_edge56 ], [ false, %9 ], [ false, %66 ]
+  %.1 = phi i1 [ true, %61 ], [ false, %9 ], [ false, %..thread.loopexit_crit_edge56 ], [ false, %66 ]
   %68 = load i32, ptr %11, align 4
   %.not47 = icmp eq i32 %68, 0
   br i1 %.not47, label %70, label %69

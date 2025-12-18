@@ -88,7 +88,7 @@ define range(i32 0, 5) i32 @curl_share_setopt(ptr noundef %0, i32 noundef %1, ..
     i32 2, label %27
     i32 7, label %32
     i32 4, label %37
-    i32 5, label %40
+    i32 5, label %42
     i32 6, label %.thread
   ]
 
@@ -120,26 +120,26 @@ define range(i32 0, 5) i32 @curl_share_setopt(ptr noundef %0, i32 noundef %1, ..
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %39 = load ptr, ptr %38, align 8, !tbaa !31
   %.not53 = icmp eq ptr %39, null
-  br i1 %.not53, label %46, label %.thread
+  br i1 %.not53, label %40, label %.thread
 
-40:                                               ; preds = %24
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %42 = load ptr, ptr %41, align 8, !tbaa !32
-  %.not51 = icmp eq ptr %42, null
-  br i1 %.not51, label %43, label %.thread
-
-43:                                               ; preds = %40
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %45 = call i32 @Curl_cpool_init(ptr noundef nonnull %44, ptr noundef nonnull @Curl_on_disconnect, ptr noundef null, ptr noundef nonnull %0, i64 noundef 103) #4
-  %.not52 = icmp eq i32 %45, 0
-  br i1 %.not52, label %.thread, label %.thread69
-
-46:                                               ; preds = %37
-  %47 = call i32 @Curl_ssl_scache_create(i64 noundef 25, i64 noundef 2, ptr noundef nonnull %38) #4
-  %.not54 = icmp eq i32 %47, 0
+40:                                               ; preds = %37
+  %41 = call i32 @Curl_ssl_scache_create(i64 noundef 25, i64 noundef 2, ptr noundef nonnull %38) #4
+  %.not54 = icmp eq i32 %41, 0
   br i1 %.not54, label %.thread, label %.thread69
 
-.thread:                                          ; preds = %40, %37, %32, %24, %24, %27, %30, %35, %43, %46
+42:                                               ; preds = %24
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %44 = load ptr, ptr %43, align 8, !tbaa !32
+  %.not51 = icmp eq ptr %44, null
+  br i1 %.not51, label %45, label %.thread
+
+45:                                               ; preds = %42
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %47 = call i32 @Curl_cpool_init(ptr noundef nonnull %46, ptr noundef nonnull @Curl_on_disconnect, ptr noundef null, ptr noundef nonnull %0, i64 noundef 103) #4
+  %.not52 = icmp eq i32 %47, 0
+  br i1 %.not52, label %.thread, label %.thread69
+
+.thread:                                          ; preds = %42, %37, %32, %24, %24, %27, %40, %35, %30, %45
   %48 = shl nuw nsw i32 1, %26
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %50 = load i32, ptr %49, align 4, !tbaa !26
@@ -304,8 +304,8 @@ define range(i32 0, 5) i32 @curl_share_setopt(ptr noundef %0, i32 noundef %1, ..
   store ptr %135, ptr %136, align 8, !tbaa !35
   br label %.thread69
 
-.thread69:                                        ; preds = %24, %30, %35, %43, %10, %65, %65, %85, %76, %73, %80, %77, %84, %81, %46, %.thread, %133, %116, %99
-  %.1 = phi i32 [ 0, %133 ], [ 4, %46 ], [ 0, %.thread ], [ 1, %85 ], [ 0, %76 ], [ 0, %73 ], [ 0, %80 ], [ 0, %77 ], [ 0, %84 ], [ 0, %81 ], [ 0, %65 ], [ 0, %65 ], [ 0, %99 ], [ 0, %116 ], [ 1, %10 ], [ 4, %30 ], [ 4, %43 ], [ 4, %35 ], [ 1, %24 ]
+.thread69:                                        ; preds = %24, %40, %35, %30, %10, %65, %65, %85, %76, %73, %80, %77, %84, %81, %45, %.thread, %133, %116, %99
+  %.1 = phi i32 [ 0, %133 ], [ 4, %45 ], [ 0, %.thread ], [ 1, %85 ], [ 0, %76 ], [ 0, %73 ], [ 0, %80 ], [ 0, %77 ], [ 0, %84 ], [ 0, %81 ], [ 0, %65 ], [ 0, %65 ], [ 0, %99 ], [ 0, %116 ], [ 1, %10 ], [ 4, %40 ], [ 4, %30 ], [ 4, %35 ], [ 1, %24 ]
   call void @llvm.va_end.p0(ptr nonnull %3)
   br label %137
 

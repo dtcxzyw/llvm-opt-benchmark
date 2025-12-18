@@ -708,8 +708,8 @@ define internal noalias noundef ptr @_rpc_queue_worker(ptr noundef %0) #0 {
   br label %.backedge
 
 .backedge:                                        ; preds = %115, %143
-  %.079.be = phi i64 [ %148, %143 ], [ 0, %115 ]
-  %.0.be = phi i32 [ %146, %143 ], [ 0, %115 ]
+  %.079.be = phi i64 [ 0, %115 ], [ %148, %143 ]
+  %.0.be = phi i32 [ 0, %115 ], [ %146, %143 ]
   br label %31, !llvm.loop !13
 
 116:                                              ; preds = %38

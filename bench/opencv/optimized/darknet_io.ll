@@ -1852,7 +1852,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit756: ; preds = %_Z
   br label %551
 
 .outer:                                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit750, %301, %301, %301, %304, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit651
-  %.1 = phi i1 [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit651 ], [ true, %304 ], [ %.0.ph2415, %301 ], [ %.0.ph2415, %301 ], [ %.0.ph2415, %301 ], [ %.0.ph2415, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit750 ]
+  %.1 = phi i1 [ true, %304 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit651 ], [ %.0.ph2415, %301 ], [ %.0.ph2415, %301 ], [ %.0.ph2415, %301 ], [ %.0.ph2415, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit750 ]
   %545 = load ptr, ptr %0, align 8, !tbaa !18
   %546 = getelementptr i8, ptr %545, i64 -24
   %547 = load i64, ptr %546, align 8

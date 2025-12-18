@@ -543,7 +543,7 @@ _ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin
   br label %_ZNK5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE8nonZerosEv.exit
 
 _ZNK5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE8nonZerosEv.exit: ; preds = %.lr.ph89.i.i.i.i, %.lr.ph94.i.i.i.i, %.preheader.i.i.i.i, %170, %176
-  %.in = phi i32 [ %178, %176 ], [ %171, %170 ], [ %.075.lcssa.i.i.i.i, %.preheader.i.i.i.i ], [ %174, %.lr.ph94.i.i.i.i ], [ %167, %.lr.ph89.i.i.i.i ]
+  %.in = phi i32 [ %178, %176 ], [ %174, %.lr.ph94.i.i.i.i ], [ %171, %170 ], [ %.075.lcssa.i.i.i.i, %.preheader.i.i.i.i ], [ %167, %.lr.ph89.i.i.i.i ]
   %179 = icmp ult i32 %132, %.in
   br i1 %179, label %.lr.ph107.preheader, label %.loopexit
 
@@ -2589,7 +2589,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5arrayIiLm3EES
   br i1 %.not.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !91
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit: ; preds = %49, %47, %41
-  %.019.i.i.i = phi i64 [ %.1.i.i, %41 ], [ %.022.i.i.i, %47 ], [ 0, %49 ]
+  %.019.i.i.i = phi i64 [ %.022.i.i.i, %47 ], [ %.1.i.i, %41 ], [ 0, %49 ]
   %51 = getelementptr inbounds %"struct.std::array", ptr %0, i64 %.019.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %51, ptr noundef nonnull align 8 dereferenceable(12) %4, i64 12, i1 false), !tbaa.struct !27
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -2714,7 +2714,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5arrayIiLm3EES
   br i1 %49, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit, !llvm.loop !91
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit: ; preds = %47, %45, %39
-  %.019.i.i = phi i64 [ %.1.i, %39 ], [ %.022.i.i, %45 ], [ %.01023.i.i, %47 ]
+  %.019.i.i = phi i64 [ %.022.i.i, %45 ], [ %.1.i, %39 ], [ %.01023.i.i, %47 ]
   %50 = getelementptr inbounds %"struct.std::array", ptr %0, i64 %.019.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %50, ptr noundef nonnull align 8 dereferenceable(12) %4, i64 12, i1 false), !tbaa.struct !27
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

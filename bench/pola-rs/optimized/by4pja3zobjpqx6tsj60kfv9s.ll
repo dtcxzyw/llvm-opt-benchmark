@@ -1710,8 +1710,8 @@ define hidden noundef i64 @_ZN11polars_core13chunked_array3ops13search_sorted11l
   br i1 %20, label %._crit_edge, label %.lr.ph.split
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.us, %.lr.ph.split, %3
-  %.sroa.022.0.lcssa = phi i64 [ %1, %3 ], [ %unswitched.select, %.lr.ph.split ], [ %1, %.lr.ph.split.us ]
-  %.sroa.0.028.lcssa = phi i64 [ %0, %3 ], [ %spec.select29, %.lr.ph.split ], [ %8, %.lr.ph.split.us ]
+  %.sroa.022.0.lcssa = phi i64 [ %unswitched.select, %.lr.ph.split ], [ %1, %3 ], [ %1, %.lr.ph.split.us ]
+  %.sroa.0.028.lcssa = phi i64 [ %spec.select29, %.lr.ph.split ], [ %0, %3 ], [ %8, %.lr.ph.split.us ]
   %21 = icmp ult i64 %.sroa.0.028.lcssa, %.val1.i16.pre
   tail call void @llvm.assume(i1 %21)
   %22 = getelementptr inbounds nuw double, ptr %.val.i15.pre, i64 %.sroa.0.028.lcssa
@@ -3588,8 +3588,8 @@ define hidden noundef i64 @_ZN11polars_core13chunked_array3ops13search_sorted11l
   br i1 %20, label %._crit_edge, label %.lr.ph.split
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.us, %.lr.ph.split, %3
-  %.sroa.022.0.lcssa = phi i64 [ %1, %3 ], [ %unswitched.select, %.lr.ph.split ], [ %1, %.lr.ph.split.us ]
-  %.sroa.0.028.lcssa = phi i64 [ %0, %3 ], [ %spec.select29, %.lr.ph.split ], [ %8, %.lr.ph.split.us ]
+  %.sroa.022.0.lcssa = phi i64 [ %unswitched.select, %.lr.ph.split ], [ %1, %3 ], [ %1, %.lr.ph.split.us ]
+  %.sroa.0.028.lcssa = phi i64 [ %spec.select29, %.lr.ph.split ], [ %0, %3 ], [ %8, %.lr.ph.split.us ]
   %21 = icmp ult i64 %.sroa.0.028.lcssa, %.val1.i16.pre
   tail call void @llvm.assume(i1 %21)
   %22 = getelementptr inbounds nuw float, ptr %.val.i15.pre, i64 %.sroa.0.028.lcssa
@@ -4262,8 +4262,8 @@ define hidden noundef i64 @_ZN11polars_core13chunked_array3ops13search_sorted11l
   br i1 %20, label %._crit_edge, label %.lr.ph.split
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %3
-  %.sroa.021.0.lcssa = phi i64 [ %1, %3 ], [ %8, %.lr.ph.split.us ], [ %unswitched.select, %.lr.ph.split ]
-  %.sroa.0.027.lcssa = phi i64 [ %0, %3 ], [ %0, %.lr.ph.split.us ], [ %spec.select28, %.lr.ph.split ]
+  %.sroa.021.0.lcssa = phi i64 [ %8, %.lr.ph.split.us ], [ %1, %3 ], [ %unswitched.select, %.lr.ph.split ]
+  %.sroa.0.027.lcssa = phi i64 [ %0, %.lr.ph.split.us ], [ %0, %3 ], [ %spec.select28, %.lr.ph.split ]
   %21 = icmp ult i64 %.sroa.0.027.lcssa, %.val1.i16.pre
   tail call void @llvm.assume(i1 %21)
   %22 = getelementptr inbounds nuw double, ptr %.val.i15.pre, i64 %.sroa.0.027.lcssa
@@ -4958,8 +4958,8 @@ define hidden noundef i64 @_ZN11polars_core13chunked_array3ops13search_sorted11l
   br i1 %20, label %._crit_edge, label %.lr.ph.split
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %3
-  %.sroa.021.0.lcssa = phi i64 [ %1, %3 ], [ %8, %.lr.ph.split.us ], [ %unswitched.select, %.lr.ph.split ]
-  %.sroa.0.027.lcssa = phi i64 [ %0, %3 ], [ %0, %.lr.ph.split.us ], [ %spec.select28, %.lr.ph.split ]
+  %.sroa.021.0.lcssa = phi i64 [ %8, %.lr.ph.split.us ], [ %1, %3 ], [ %unswitched.select, %.lr.ph.split ]
+  %.sroa.0.027.lcssa = phi i64 [ %0, %.lr.ph.split.us ], [ %0, %3 ], [ %spec.select28, %.lr.ph.split ]
   %21 = icmp ult i64 %.sroa.0.027.lcssa, %.val1.i16.pre
   tail call void @llvm.assume(i1 %21)
   %22 = getelementptr inbounds nuw float, ptr %.val.i15.pre, i64 %.sroa.0.027.lcssa
@@ -8148,7 +8148,7 @@ _ZN4core3ops8function6FnOnce9call_once17h7aaa088d063f853aE.exit.i: ; preds = %_Z
   invoke void %92(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noundef align 1 %83, ptr noalias noundef nonnull align 8 dereferenceable(1400) %.sroa.01.0, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %2)
           to label %93 unwind label %174
 
-_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h7df8419d9464d12fE.exit.thread25: ; preds = %21, %28, %35, %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h7df8419d9464d12fE.exit
+_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h7df8419d9464d12fE.exit.thread25: ; preds = %28, %21, %35, %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h7df8419d9464d12fE.exit
   store i64 0, ptr %0, align 8
   br label %173
 
@@ -29848,7 +29848,7 @@ define internal fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h638
   br label %.loopexit
 
 .critedge21:                                      ; preds = %182, %76, %32, %.sink.split.i.us, %116, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17he345b7ccb11aa88fE.exit.split"
-  %.sroa.07.0162 = phi i64 [ 0, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17he345b7ccb11aa88fE.exit.split" ], [ %.sroa.07.0.us, %76 ], [ %.sroa.07.0.us, %116 ], [ %.sroa.07.0.us, %.sink.split.i.us ], [ %.sroa.07.0.us, %32 ], [ %.sroa.07.0.us198, %182 ]
+  %.sroa.07.0162 = phi i64 [ %.sroa.07.0.us, %76 ], [ 0, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17he345b7ccb11aa88fE.exit.split" ], [ %.sroa.07.0.us, %116 ], [ %.sroa.07.0.us, %.sink.split.i.us ], [ %.sroa.07.0.us, %32 ], [ %.sroa.07.0.us198, %182 ]
   %191 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.07.0162
   %192 = getelementptr inbounds nuw i8, ptr %1, i64 %2
   invoke void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17hefa4ec546e7ff036E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull %191, ptr noundef nonnull %192, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0bb29a53de908bccc74361d8340ca66a.84)

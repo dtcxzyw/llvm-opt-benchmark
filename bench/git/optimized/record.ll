@@ -404,7 +404,7 @@ get_var_int.exit27:                               ; preds = %32, %26
   br label %get_var_int.exit.thread
 
 get_var_int.exit.thread:                          ; preds = %11, %31, %23, %5, %get_var_int.exit27, %get_var_int.exit, %45
-  %.0 = phi i32 [ %51, %45 ], [ -1, %get_var_int.exit ], [ -1, %get_var_int.exit27 ], [ -1, %5 ], [ -1, %23 ], [ -1, %31 ], [ -1, %11 ]
+  %.0 = phi i32 [ %51, %45 ], [ -1, %get_var_int.exit ], [ -1, %get_var_int.exit27 ], [ -1, %31 ], [ -1, %5 ], [ -1, %23 ], [ -1, %11 ]
   ret i32 %.0
 }
 
@@ -541,7 +541,7 @@ reftable_decode_keylen.exit:                      ; preds = %get_var_int.exit27.
   br label %reftable_decode_keylen.exit.thread
 
 reftable_decode_keylen.exit.thread:               ; preds = %10, %30, %22, %4, %get_var_int.exit27.i, %get_var_int.exit.i, %61, %58, %49, %54, %reftable_decode_keylen.exit, %64
-  %.0 = phi i32 [ %66, %64 ], [ -1, %reftable_decode_keylen.exit ], [ -1, %49 ], [ %59, %58 ], [ -1, %54 ], [ %62, %61 ], [ -1, %get_var_int.exit.i ], [ -1, %get_var_int.exit27.i ], [ -1, %4 ], [ -1, %22 ], [ -1, %30 ], [ -1, %10 ]
+  %.0 = phi i32 [ %66, %64 ], [ -1, %reftable_decode_keylen.exit ], [ -1, %49 ], [ %59, %58 ], [ -1, %54 ], [ %62, %61 ], [ -1, %get_var_int.exit.i ], [ -1, %get_var_int.exit27.i ], [ -1, %30 ], [ -1, %4 ], [ -1, %22 ], [ -1, %10 ]
   ret i32 %.0
 }
 
@@ -1768,7 +1768,7 @@ decode_string.exit:                               ; preds = %97
   br label %get_var_int.exit.thread
 
 get_var_int.exit.thread:                          ; preds = %13, %80, %74, %97, %93, %get_var_int.exit.i, %decode_string.exit, %7, %reftable_alloc_grow.exit, %thread-pre-split, %55, %62, %get_var_int.exit, %109
-  %.0 = phi i32 [ %24, %get_var_int.exit ], [ %111, %109 ], [ -13, %thread-pre-split ], [ -3, %55 ], [ -3, %62 ], [ -13, %reftable_alloc_grow.exit ], [ -1, %7 ], [ -3, %decode_string.exit ], [ -3, %get_var_int.exit.i ], [ -3, %93 ], [ -3, %97 ], [ -3, %74 ], [ -3, %80 ], [ -1, %13 ]
+  %.0 = phi i32 [ %24, %get_var_int.exit ], [ %111, %109 ], [ -13, %thread-pre-split ], [ -3, %55 ], [ -3, %80 ], [ -3, %62 ], [ -13, %reftable_alloc_grow.exit ], [ -1, %7 ], [ -3, %decode_string.exit ], [ -3, %get_var_int.exit.i ], [ -3, %93 ], [ -3, %97 ], [ -3, %74 ], [ -1, %13 ]
   ret i32 %.0
 }
 
@@ -2945,7 +2945,7 @@ get_var_int.exit:                                 ; preds = %22, %16
   br label %get_var_int.exit.thread
 
 get_var_int.exit.thread:                          ; preds = %21, %get_var_int.exit, %15, %7
-  %.0 = phi i32 [ %13, %7 ], [ %32, %get_var_int.exit ], [ -1, %15 ], [ -1, %21 ]
+  %.0 = phi i32 [ -1, %15 ], [ %13, %7 ], [ %32, %get_var_int.exit ], [ -1, %21 ]
   ret i32 %.0
 }
 
@@ -3290,7 +3290,7 @@ put_var_int.exit48:                               ; preds = %._crit_edge.i45
   br label %.critedge
 
 .critedge:                                        ; preds = %put_var_int.exit48, %put_var_int.exit48.thread, %put_var_int.exit39.thread, %put_var_int.exit.thread, %put_var_int.exit39, %put_var_int.exit, %._crit_edge, %35
-  %.0 = phi i32 [ %95, %._crit_edge ], [ %36, %35 ], [ -1, %put_var_int.exit ], [ -1, %put_var_int.exit39 ], [ -1, %put_var_int.exit.thread ], [ -1, %put_var_int.exit39.thread ], [ -1, %put_var_int.exit48.thread ], [ -1, %put_var_int.exit48 ]
+  %.0 = phi i32 [ %95, %._crit_edge ], [ %36, %35 ], [ -1, %put_var_int.exit ], [ -1, %put_var_int.exit48.thread ], [ -1, %put_var_int.exit39 ], [ -1, %put_var_int.exit.thread ], [ -1, %put_var_int.exit39.thread ], [ -1, %put_var_int.exit48 ]
   ret i32 %.0
 }
 
@@ -3526,7 +3526,7 @@ get_var_int.exit80:                               ; preds = %83, %77
   br label %get_var_int.exit.thread
 
 get_var_int.exit.thread:                          ; preds = %28, %59, %get_var_int.exit80, %.lr.ph, %82, %41, %52, %22, %get_var_int.exit64, %st_mult.exit, %get_var_int.exit, %7, %.thread117
-  %.0 = phi i32 [ -13, %7 ], [ -13, %st_mult.exit ], [ %103, %.thread117 ], [ %39, %get_var_int.exit ], [ %71, %get_var_int.exit64 ], [ -1, %22 ], [ -1, %52 ], [ %39, %41 ], [ -1, %59 ], [ -1, %82 ], [ -1, %.lr.ph ], [ %93, %get_var_int.exit80 ], [ -1, %28 ]
+  %.0 = phi i32 [ -13, %7 ], [ -1, %59 ], [ -13, %st_mult.exit ], [ %103, %.thread117 ], [ -1, %82 ], [ %39, %get_var_int.exit ], [ %71, %get_var_int.exit64 ], [ %39, %41 ], [ -1, %22 ], [ -1, %52 ], [ -1, %.lr.ph ], [ %93, %get_var_int.exit80 ], [ -1, %28 ]
   ret i32 %.0
 }
 

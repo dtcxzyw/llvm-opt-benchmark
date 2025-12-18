@@ -851,8 +851,8 @@ sw.bb6:                                           ; preds = %if.end
   %call.i20 = tail call noundef i32 @_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE15deserialize_oneILm2ELm18446744073709551615ELb1ELm0ESt6vectorIN13my_name_space7array2DESaIS7_EEEENS_4errcERT3_(ptr noundef nonnull align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(24) %t)
   br label %return
 
-return:                                           ; preds = %if.end.i43, %if.then27.i, %_ZN11struct_pack6detail13memory_reader9read_viewEm.exit, %sw.bb2.i, %sw.bb8.i, %entry, %if.end.i, %if.end9.i, %sw.bb.i, %sw.bb, %sw.bb6
-  %retval.0 = phi i32 [ %call.i11, %sw.bb ], [ 1, %if.then27.i ], [ %call.i20, %sw.bb6 ], [ 1, %_ZN11struct_pack6detail13memory_reader9read_viewEm.exit ], [ 1, %sw.bb.i ], [ 1, %sw.bb2.i ], [ 1, %sw.bb8.i ], [ 1, %entry ], [ 2, %if.end.i ], [ 1, %if.end9.i ], [ 3, %if.end.i43 ]
+return:                                           ; preds = %if.end.i43, %if.then27.i, %_ZN11struct_pack6detail13memory_reader9read_viewEm.exit, %sw.bb2.i, %sw.bb.i, %entry, %if.end.i, %if.end9.i, %sw.bb8.i, %sw.bb, %sw.bb6
+  %retval.0 = phi i32 [ %call.i11, %sw.bb ], [ 1, %if.then27.i ], [ %call.i20, %sw.bb6 ], [ 1, %_ZN11struct_pack6detail13memory_reader9read_viewEm.exit ], [ 1, %sw.bb8.i ], [ 1, %sw.bb2.i ], [ 1, %sw.bb.i ], [ 1, %entry ], [ 2, %if.end.i ], [ 1, %if.end9.i ], [ 3, %if.end.i43 ]
   ret i32 %retval.0
 }
 
@@ -993,7 +993,7 @@ for.inc:                                          ; preds = %if.then25.i.i, %_ZN
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !14
 
 return:                                           ; preds = %for.inc, %entry, %if.end
-  %retval.0 = phi i32 [ 1, %entry ], [ 0, %if.end ], [ 0, %for.inc ]
+  %retval.0 = phi i32 [ 0, %if.end ], [ 1, %entry ], [ 0, %for.inc ]
   ret i32 %retval.0
 }
 

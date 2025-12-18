@@ -988,7 +988,7 @@ define noundef i32 @Java_sun_nio_ch_sctp_SctpChannelImpl_receive0(ptr noundef %0
   br label %.split61.us
 
 .split61.us:                                      ; preds = %33, %.thread, %65, %26, %42, %.split61.us.loopexit132, %.split61.us.loopexit126, %.split67.us, %61, %55, %.split59.us
-  %.0 = phi i32 [ 0, %.split59.us ], [ -3, %42 ], [ %75, %.split67.us ], [ -1, %55 ], [ 0, %61 ], [ -2, %.split61.us.loopexit126 ], [ -3, %26 ], [ 0, %.thread ], [ 0, %65 ], [ 0, %33 ], [ -2, %.split61.us.loopexit132 ]
+  %.0 = phi i32 [ 0, %.split59.us ], [ -3, %42 ], [ -3, %26 ], [ %75, %.split67.us ], [ -1, %55 ], [ 0, %61 ], [ -2, %.split61.us.loopexit126 ], [ 0, %.thread ], [ 0, %65 ], [ 0, %33 ], [ -2, %.split61.us.loopexit132 ]
   ret i32 %.0
 }
 

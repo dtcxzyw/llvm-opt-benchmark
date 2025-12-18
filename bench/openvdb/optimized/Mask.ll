@@ -15472,6 +15472,9 @@ if.then.i28:                                      ; preds = %if.then17
   %cmp.not.i.i29 = icmp eq i64 %39, 0
   br i1 %cmp.not.i.i29, label %search.outer.backedge, label %if.then.i.i30
 
+search.outer.backedge:                            ; preds = %if.then.i28, %for.end.i.i37
+  br label %search.outer
+
 search.outer:                                     ; preds = %restart, %search.outer.backedge
   %mask.1.ph = phi i64 [ %37, %search.outer.backedge ], [ %mask.0, %restart ]
   br label %search
@@ -15505,9 +15508,6 @@ for.end.i.i37:                                    ; preds = %for.cond.i.i32
   %cmp.i.i.i50 = icmp eq i64 %42, 3
   br i1 %cmp.i.i.i50, label %search.outer.backedge, label %cleanup
 
-search.outer.backedge:                            ; preds = %for.end.i.i37, %if.then.i28
-  br label %search.outer
-
 if.end23:                                         ; preds = %if.else, %invoke.cont15
   %cmp24 = icmp eq ptr %prev.090, null
   br i1 %cmp24, label %if.then25, label %if.else30
@@ -15530,9 +15530,9 @@ if.end33:                                         ; preds = %if.else30, %if.then
   br label %cleanup
 
 cleanup:                                          ; preds = %for.end.i.i37, %for.end.i.i, %if.then.i, %if.then, %if.end33
-  %erase_node.093 = phi ptr [ %erase_node.094, %if.end33 ], [ null, %for.end.i.i ], [ null, %if.then ], [ null, %if.then.i ], [ %erase_node.094, %for.end.i.i37 ]
-  %mask.2 = phi i64 [ %mask.1.ph, %if.end33 ], [ %16, %for.end.i.i ], [ %mask.1.ph, %if.then ], [ %16, %if.then.i ], [ %37, %for.end.i.i37 ]
-  %cleanup.dest.slot.0 = phi i32 [ 0, %if.end33 ], [ %spec.select, %for.end.i.i ], [ 1, %if.then ], [ 1, %if.then.i ], [ 2, %for.end.i.i37 ]
+  %erase_node.093 = phi ptr [ null, %if.then.i ], [ %erase_node.094, %if.end33 ], [ null, %for.end.i.i ], [ null, %if.then ], [ %erase_node.094, %for.end.i.i37 ]
+  %mask.2 = phi i64 [ %16, %if.then.i ], [ %mask.1.ph, %if.end33 ], [ %16, %for.end.i.i ], [ %mask.1.ph, %if.then ], [ %37, %for.end.i.i37 ]
+  %cleanup.dest.slot.0 = phi i32 [ 1, %if.then.i ], [ 0, %if.end33 ], [ %spec.select, %for.end.i.i ], [ 1, %if.then ], [ 2, %for.end.i.i37 ]
   %48 = load ptr, ptr %b, align 8
   %tobool.not.i.i55 = icmp eq ptr %48, null
   br i1 %tobool.not.i.i55, label %_ZN3tbb6detail2d219concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIbLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISH_EENSI_13tbb_allocatorISt4pairIKSH_bEEEE15bucket_accessorD2Ev.exit62, label %if.then.i.i56
@@ -15884,7 +15884,7 @@ common.resume:                                    ; preds = %if.then.i.i.i23, %i
   resume { ptr, i32 } %common.resume.op
 
 _ZN3tbb6detail2d219concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIbLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISH_EENSI_13tbb_allocatorISt4pairIKSH_bEEEE15bucket_accessorC2EPSQ_mb.exit: ; preds = %seqcst.i14.i.i.i, %if.then.i, %if.then11.i
-  %b_old.sroa.10.5 = phi i8 [ 1, %if.then.i ], [ 1, %if.then11.i ], [ 0, %seqcst.i14.i.i.i ]
+  %b_old.sroa.10.5 = phi i8 [ 1, %if.then11.i ], [ 1, %if.then.i ], [ 0, %seqcst.i14.i.i.i ]
   %shl2 = shl nuw i64 %sub, 1
   %or = or disjoint i64 %shl2, 1
   %13 = load atomic i64, ptr %node_list.i acquire, align 8
@@ -16377,8 +16377,8 @@ if.else.i.i.i.i:                                  ; preds = %_ZNKSt4lessIN7openv
   br label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.else.i.i.i.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i, %cond.false12.i.i.i.i.i.i, %cond.false.i.i.i.i.i.i
-  %.sink.i.i.i.i = phi i64 [ 24, %if.else.i.i.i.i ], [ 16, %cond.false12.i.i.i.i.i.i ], [ 16, %cond.false.i.i.i.i.i.i ], [ 16, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i ]
-  %__y.addr.1.i.i.i.i = phi ptr [ %__y.addr.010.i.i.i.i, %if.else.i.i.i.i ], [ %__x.addr.011.i.i.i.i, %cond.false12.i.i.i.i.i.i ], [ %__x.addr.011.i.i.i.i, %cond.false.i.i.i.i.i.i ], [ %__x.addr.011.i.i.i.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i ]
+  %.sink.i.i.i.i = phi i64 [ 24, %if.else.i.i.i.i ], [ 16, %cond.false.i.i.i.i.i.i ], [ 16, %cond.false12.i.i.i.i.i.i ], [ 16, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i ]
+  %__y.addr.1.i.i.i.i = phi ptr [ %__y.addr.010.i.i.i.i, %if.else.i.i.i.i ], [ %__x.addr.011.i.i.i.i, %cond.false.i.i.i.i.i.i ], [ %__x.addr.011.i.i.i.i, %cond.false12.i.i.i.i.i.i ], [ %__x.addr.011.i.i.i.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i ]
   %_M_right.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__x.addr.011.i.i.i.i, i64 %.sink.i.i.i.i
   %__x.addr.1.i.i.i.i = load ptr, ptr %_M_right.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %__x.addr.1.i.i.i.i, null
@@ -16421,7 +16421,7 @@ if.then.i:                                        ; preds = %_ZNKSt4lessIN7openv
   br label %invoke.cont31
 
 invoke.cont31:                                    ; preds = %if.then.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i, %cond.false12.i.i.i, %cond.false.i.i.i
-  %__i.sroa.0.0.i = phi ptr [ %__y.addr.1.i.i.i.i, %cond.false12.i.i.i ], [ %__y.addr.1.i.i.i.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i ], [ %__y.addr.1.i.i.i.i, %cond.false.i.i.i ], [ %call12.i16, %if.then.i ]
+  %__i.sroa.0.0.i = phi ptr [ %__y.addr.1.i.i.i.i, %cond.false.i.i.i ], [ %__y.addr.1.i.i.i.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i ], [ %__y.addr.1.i.i.i.i, %cond.false12.i.i.i ], [ %call12.i16, %if.then.i ]
   %second.i15 = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i, i64 48
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp9.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp10.i)
@@ -18135,7 +18135,7 @@ _ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit: ; preds = %cond.false1
   %cmp20.i.i = icmp slt i32 %6, %7
   br i1 %cmp20.i.i, label %return, label %if.else
 
-if.else:                                          ; preds = %cond.false12.i.i, %cond.false.i.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit, %if.then
+if.else:                                          ; preds = %cond.false.i.i, %cond.false12.i.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit, %if.then
   %_M_parent.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %__x.042.i = load ptr, ptr %_M_parent.i.i.i, align 8
   %cmp.not43.i = icmp eq ptr %__x.042.i, null
@@ -18317,7 +18317,7 @@ if.then32:                                        ; preds = %cond.false7.i.i35, 
   %spec.select259 = select i1 %cmp35, ptr %call.i, ptr %__position.coerce
   br label %return
 
-if.else42:                                        ; preds = %cond.false12.i.i39, %cond.false.i.i33, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit46
+if.else42:                                        ; preds = %cond.false.i.i33, %cond.false12.i.i39, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit46
   %_M_parent.i.i.i50 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %__x.042.i52 = load ptr, ptr %_M_parent.i.i.i50, align 8
   %cmp.not43.i53 = icmp eq ptr %__x.042.i52, null
@@ -18483,7 +18483,7 @@ if.then64:                                        ; preds = %cond.false7.i.i132,
   %spec.select261 = select i1 %cmp67, ptr %__position.coerce, ptr %call.i127
   br label %return
 
-if.else74:                                        ; preds = %cond.false12.i.i136, %cond.false.i.i130, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit143
+if.else74:                                        ; preds = %cond.false.i.i130, %cond.false12.i.i136, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit143
   %_M_parent.i.i.i147 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %__x.042.i149 = load ptr, ptr %_M_parent.i.i.i147, align 8
   %cmp.not43.i150 = icmp eq ptr %__x.042.i149, null
@@ -19707,7 +19707,7 @@ return.sink.split:                                ; preds = %if.then6.i, %if.the
   br label %return
 
 return:                                           ; preds = %cond.false.i.i.i, %do.body.backedge, %return.sink.split, %if.then.i65, %while.end30, %if.then.i, %if.then
-  %retval.0 = phi i1 [ true, %if.then ], [ true, %if.then.i ], [ true, %while.end30 ], [ true, %if.then.i65 ], [ true, %return.sink.split ], [ false, %do.body.backedge ], [ false, %cond.false.i.i.i ]
+  %retval.0 = phi i1 [ false, %do.body.backedge ], [ true, %return.sink.split ], [ true, %if.then ], [ true, %if.then.i65 ], [ true, %if.then.i ], [ true, %while.end30 ], [ false, %cond.false.i.i.i ]
   ret i1 %retval.0
 }
 
@@ -19864,7 +19864,7 @@ return.sink.split:                                ; preds = %_ZN7openvdb5v11_04t
   br label %return
 
 return:                                           ; preds = %return.sink.split, %entry, %land.lhs.true, %land.lhs.true3, %if.then, %if.then.i.i, %land.lhs.true3.i.i, %land.lhs.true.i.i, %cond.true.i, %if.then.i, %land.lhs.true3.i, %land.lhs.true.i
-  %retval.0 = phi i1 [ false, %land.lhs.true.i ], [ false, %entry ], [ false, %cond.true.i ], [ false, %if.then.i.i ], [ false, %land.lhs.true3.i.i ], [ false, %land.lhs.true.i.i ], [ false, %if.then.i ], [ false, %land.lhs.true3.i ], [ false, %if.then ], [ false, %land.lhs.true3 ], [ false, %land.lhs.true ], [ true, %return.sink.split ]
+  %retval.0 = phi i1 [ false, %land.lhs.true ], [ false, %if.then.i ], [ false, %entry ], [ false, %land.lhs.true.i ], [ false, %cond.true.i ], [ false, %land.lhs.true3 ], [ false, %land.lhs.true3.i ], [ false, %if.then.i.i ], [ false, %land.lhs.true3.i.i ], [ false, %land.lhs.true.i.i ], [ false, %if.then ], [ true, %return.sink.split ]
   ret i1 %retval.0
 }
 
@@ -20478,7 +20478,7 @@ return.sink.split:                                ; preds = %if.then6.i, %if.the
   br label %return
 
 return:                                           ; preds = %cond.false.i.i.i, %do.body.backedge, %return.sink.split, %if.then.i65, %while.end30, %if.then.i, %if.then
-  %retval.0 = phi i1 [ true, %if.then ], [ true, %if.then.i ], [ true, %while.end30 ], [ true, %if.then.i65 ], [ true, %return.sink.split ], [ false, %do.body.backedge ], [ false, %cond.false.i.i.i ]
+  %retval.0 = phi i1 [ false, %do.body.backedge ], [ true, %return.sink.split ], [ true, %if.then ], [ true, %if.then.i65 ], [ true, %if.then.i ], [ true, %while.end30 ], [ false, %cond.false.i.i.i ]
   ret i1 %retval.0
 }
 
@@ -20635,7 +20635,7 @@ return.sink.split:                                ; preds = %_ZN7openvdb5v11_04t
   br label %return
 
 return:                                           ; preds = %return.sink.split, %entry, %land.lhs.true, %land.lhs.true3, %if.then, %if.then.i.i, %land.lhs.true3.i.i, %land.lhs.true.i.i, %cond.true.i, %if.then.i, %land.lhs.true3.i, %land.lhs.true.i
-  %retval.0 = phi i1 [ false, %land.lhs.true.i ], [ false, %entry ], [ false, %cond.true.i ], [ false, %if.then.i.i ], [ false, %land.lhs.true3.i.i ], [ false, %land.lhs.true.i.i ], [ false, %if.then.i ], [ false, %land.lhs.true3.i ], [ false, %if.then ], [ false, %land.lhs.true3 ], [ false, %land.lhs.true ], [ true, %return.sink.split ]
+  %retval.0 = phi i1 [ false, %land.lhs.true ], [ false, %if.then.i ], [ false, %entry ], [ false, %land.lhs.true.i ], [ false, %cond.true.i ], [ false, %land.lhs.true3 ], [ false, %land.lhs.true3.i ], [ false, %if.then.i.i ], [ false, %land.lhs.true3.i.i ], [ false, %land.lhs.true.i.i ], [ false, %if.then ], [ true, %return.sink.split ]
   ret i1 %retval.0
 }
 
@@ -28264,7 +28264,7 @@ if.else.i124:                                     ; preds = %if.else12
   br i1 %cmp.i.i125, label %if.then.i.i131.invoke, label %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i
 
 if.then.i.i131.invoke:                            ; preds = %if.else.i.i, %if.else.i.i40, %if.then, %if.else.i124
-  %19 = phi ptr [ @.str.48, %if.else.i124 ], [ @.str.47, %if.then ], [ @.str.36, %if.else.i.i40 ], [ @.str.36, %if.else.i.i ]
+  %19 = phi ptr [ @.str.47, %if.then ], [ @.str.48, %if.else.i124 ], [ @.str.36, %if.else.i.i40 ], [ @.str.36, %if.else.i.i ]
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull %19) #28
           to label %if.then.i.i131.cont unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
@@ -28824,7 +28824,7 @@ if.else.i124:                                     ; preds = %if.else11
   br i1 %cmp.i.i125, label %if.then.i.i131.invoke, label %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i
 
 if.then.i.i131.invoke:                            ; preds = %if.else.i.i, %if.else.i.i40, %if.then, %if.else.i124
-  %19 = phi ptr [ @.str.48, %if.else.i124 ], [ @.str.47, %if.then ], [ @.str.36, %if.else.i.i40 ], [ @.str.36, %if.else.i.i ]
+  %19 = phi ptr [ @.str.47, %if.then ], [ @.str.48, %if.else.i124 ], [ @.str.36, %if.else.i.i40 ], [ @.str.36, %if.else.i.i ]
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull %19) #28
           to label %if.then.i.i131.cont unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
@@ -35980,7 +35980,7 @@ if.else.i124:                                     ; preds = %if.else12
   br i1 %cmp.i.i125, label %if.then.i.i131.invoke, label %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i
 
 if.then.i.i131.invoke:                            ; preds = %if.else.i.i, %if.else.i.i40, %if.then, %if.else.i124
-  %19 = phi ptr [ @.str.48, %if.else.i124 ], [ @.str.47, %if.then ], [ @.str.36, %if.else.i.i40 ], [ @.str.36, %if.else.i.i ]
+  %19 = phi ptr [ @.str.47, %if.then ], [ @.str.48, %if.else.i124 ], [ @.str.36, %if.else.i.i40 ], [ @.str.36, %if.else.i.i ]
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull %19) #28
           to label %if.then.i.i131.cont unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
@@ -36612,7 +36612,7 @@ if.else.i124:                                     ; preds = %if.else11
   br i1 %cmp.i.i125, label %if.then.i.i131.invoke, label %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i
 
 if.then.i.i131.invoke:                            ; preds = %if.else.i.i, %if.else.i.i40, %if.then, %if.else.i124
-  %19 = phi ptr [ @.str.48, %if.else.i124 ], [ @.str.47, %if.then ], [ @.str.36, %if.else.i.i40 ], [ @.str.36, %if.else.i.i ]
+  %19 = phi ptr [ @.str.47, %if.then ], [ @.str.48, %if.else.i124 ], [ @.str.36, %if.else.i.i40 ], [ @.str.36, %if.else.i.i ]
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull %19) #28
           to label %if.then.i.i131.cont unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
@@ -43291,7 +43291,7 @@ if.else.i124:                                     ; preds = %if.else12
   br i1 %cmp.i.i125, label %if.then.i.i131.invoke, label %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i
 
 if.then.i.i131.invoke:                            ; preds = %if.else.i.i, %if.else.i.i40, %if.then, %if.else.i124
-  %19 = phi ptr [ @.str.48, %if.else.i124 ], [ @.str.47, %if.then ], [ @.str.36, %if.else.i.i40 ], [ @.str.36, %if.else.i.i ]
+  %19 = phi ptr [ @.str.47, %if.then ], [ @.str.48, %if.else.i124 ], [ @.str.36, %if.else.i.i40 ], [ @.str.36, %if.else.i.i ]
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull %19) #28
           to label %if.then.i.i131.cont unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
@@ -47423,7 +47423,7 @@ if.else.i124:                                     ; preds = %if.else12
   br i1 %cmp.i.i125, label %if.then.i.i131.invoke, label %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i
 
 if.then.i.i131.invoke:                            ; preds = %if.else.i.i, %if.else.i.i40, %if.then, %if.else.i124
-  %19 = phi ptr [ @.str.48, %if.else.i124 ], [ @.str.47, %if.then ], [ @.str.36, %if.else.i.i40 ], [ @.str.36, %if.else.i.i ]
+  %19 = phi ptr [ @.str.47, %if.then ], [ @.str.48, %if.else.i124 ], [ @.str.36, %if.else.i.i40 ], [ @.str.36, %if.else.i.i ]
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull %19) #28
           to label %if.then.i.i131.cont unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
@@ -48070,7 +48070,7 @@ if.else.i124:                                     ; preds = %if.else11
   br i1 %cmp.i.i125, label %if.then.i.i131.invoke, label %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i
 
 if.then.i.i131.invoke:                            ; preds = %if.else.i.i, %if.else.i.i40, %if.then, %if.else.i124
-  %19 = phi ptr [ @.str.48, %if.else.i124 ], [ @.str.47, %if.then ], [ @.str.36, %if.else.i.i40 ], [ @.str.36, %if.else.i.i ]
+  %19 = phi ptr [ @.str.47, %if.then ], [ @.str.48, %if.else.i124 ], [ @.str.36, %if.else.i.i40 ], [ @.str.36, %if.else.i.i ]
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull %19) #28
           to label %if.then.i.i131.cont unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
@@ -54208,8 +54208,8 @@ if.else.i.i.i.i:                                  ; preds = %_ZNKSt4lessIN7openv
   br label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.else.i.i.i.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i, %cond.false12.i.i.i.i.i.i, %cond.false.i.i.i.i.i.i
-  %.sink.i.i.i.i = phi i64 [ 24, %if.else.i.i.i.i ], [ 16, %cond.false12.i.i.i.i.i.i ], [ 16, %cond.false.i.i.i.i.i.i ], [ 16, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i ]
-  %__y.addr.1.i.i.i.i = phi ptr [ %__y.addr.010.i.i.i.i, %if.else.i.i.i.i ], [ %__x.addr.011.i.i.i.i, %cond.false12.i.i.i.i.i.i ], [ %__x.addr.011.i.i.i.i, %cond.false.i.i.i.i.i.i ], [ %__x.addr.011.i.i.i.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i ]
+  %.sink.i.i.i.i = phi i64 [ 24, %if.else.i.i.i.i ], [ 16, %cond.false.i.i.i.i.i.i ], [ 16, %cond.false12.i.i.i.i.i.i ], [ 16, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i ]
+  %__y.addr.1.i.i.i.i = phi ptr [ %__y.addr.010.i.i.i.i, %if.else.i.i.i.i ], [ %__x.addr.011.i.i.i.i, %cond.false.i.i.i.i.i.i ], [ %__x.addr.011.i.i.i.i, %cond.false12.i.i.i.i.i.i ], [ %__x.addr.011.i.i.i.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i ]
   %_M_right.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__x.addr.011.i.i.i.i, i64 %.sink.i.i.i.i
   %__x.addr.1.i.i.i.i = load ptr, ptr %_M_right.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %__x.addr.1.i.i.i.i, null
@@ -54252,7 +54252,7 @@ if.then.i:                                        ; preds = %_ZNKSt4lessIN7openv
           to label %invoke.cont88 unwind label %lpad87
 
 invoke.cont88:                                    ; preds = %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i, %cond.false12.i.i.i, %cond.false.i.i.i, %if.then.i
-  %__i.sroa.0.0.i = phi ptr [ %__y.addr.1.i.i.i.i, %cond.false12.i.i.i ], [ %__y.addr.1.i.i.i.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i ], [ %__y.addr.1.i.i.i.i, %cond.false.i.i.i ], [ %call12.i106, %if.then.i ]
+  %__i.sroa.0.0.i = phi ptr [ %__y.addr.1.i.i.i.i, %cond.false.i.i.i ], [ %__y.addr.1.i.i.i.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i ], [ %__y.addr.1.i.i.i.i, %cond.false12.i.i.i ], [ %call12.i106, %if.then.i ]
   %second.i105 = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i, i64 48
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp9.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp10.i)
@@ -54351,8 +54351,8 @@ if.else.i.i.i.i173:                               ; preds = %_ZNKSt4lessIN7openv
   br label %if.end.i.i.i.i148
 
 if.end.i.i.i.i148:                                ; preds = %if.else.i.i.i.i173, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i145, %cond.false12.i.i.i.i.i.i143, %cond.false.i.i.i.i.i.i138
-  %.sink.i.i.i.i149 = phi i64 [ 24, %if.else.i.i.i.i173 ], [ 16, %cond.false12.i.i.i.i.i.i143 ], [ 16, %cond.false.i.i.i.i.i.i138 ], [ 16, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i145 ]
-  %__y.addr.1.i.i.i.i150 = phi ptr [ %__y.addr.010.i.i.i.i135, %if.else.i.i.i.i173 ], [ %__x.addr.011.i.i.i.i134, %cond.false12.i.i.i.i.i.i143 ], [ %__x.addr.011.i.i.i.i134, %cond.false.i.i.i.i.i.i138 ], [ %__x.addr.011.i.i.i.i134, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i145 ]
+  %.sink.i.i.i.i149 = phi i64 [ 24, %if.else.i.i.i.i173 ], [ 16, %cond.false.i.i.i.i.i.i138 ], [ 16, %cond.false12.i.i.i.i.i.i143 ], [ 16, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i145 ]
+  %__y.addr.1.i.i.i.i150 = phi ptr [ %__y.addr.010.i.i.i.i135, %if.else.i.i.i.i173 ], [ %__x.addr.011.i.i.i.i134, %cond.false.i.i.i.i.i.i138 ], [ %__x.addr.011.i.i.i.i134, %cond.false12.i.i.i.i.i.i143 ], [ %__x.addr.011.i.i.i.i134, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i145 ]
   %_M_right.i.i.i.i.i151 = getelementptr inbounds nuw i8, ptr %__x.addr.011.i.i.i.i134, i64 %.sink.i.i.i.i149
   %__x.addr.1.i.i.i.i152 = load ptr, ptr %_M_right.i.i.i.i.i151, align 8
   %cmp.not.i.i.i.i153 = icmp eq ptr %__x.addr.1.i.i.i.i152, null
@@ -54395,7 +54395,7 @@ if.then.i171:                                     ; preds = %_ZNKSt4lessIN7openv
           to label %invoke.cont105 unwind label %lpad104
 
 invoke.cont105:                                   ; preds = %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i166, %cond.false12.i.i.i164, %cond.false.i.i.i159, %if.then.i171
-  %__i.sroa.0.0.i169 = phi ptr [ %__y.addr.1.i.i.i.i150, %cond.false12.i.i.i164 ], [ %__y.addr.1.i.i.i.i150, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i166 ], [ %__y.addr.1.i.i.i.i150, %cond.false.i.i.i159 ], [ %call12.i175, %if.then.i171 ]
+  %__i.sroa.0.0.i169 = phi ptr [ %__y.addr.1.i.i.i.i150, %cond.false.i.i.i159 ], [ %__y.addr.1.i.i.i.i150, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i166 ], [ %__y.addr.1.i.i.i.i150, %cond.false12.i.i.i164 ], [ %call12.i175, %if.then.i171 ]
   %second.i170 = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i169, i64 48
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp9.i125)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp10.i126)
@@ -54529,8 +54529,8 @@ if.else.i.i.i.i245:                               ; preds = %_ZNKSt4lessIN7openv
   br label %if.end.i.i.i.i220
 
 if.end.i.i.i.i220:                                ; preds = %if.else.i.i.i.i245, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i217, %cond.false12.i.i.i.i.i.i215, %cond.false.i.i.i.i.i.i210
-  %.sink.i.i.i.i221 = phi i64 [ 24, %if.else.i.i.i.i245 ], [ 16, %cond.false12.i.i.i.i.i.i215 ], [ 16, %cond.false.i.i.i.i.i.i210 ], [ 16, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i217 ]
-  %__y.addr.1.i.i.i.i222 = phi ptr [ %__y.addr.010.i.i.i.i207, %if.else.i.i.i.i245 ], [ %__x.addr.011.i.i.i.i206, %cond.false12.i.i.i.i.i.i215 ], [ %__x.addr.011.i.i.i.i206, %cond.false.i.i.i.i.i.i210 ], [ %__x.addr.011.i.i.i.i206, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i217 ]
+  %.sink.i.i.i.i221 = phi i64 [ 24, %if.else.i.i.i.i245 ], [ 16, %cond.false.i.i.i.i.i.i210 ], [ 16, %cond.false12.i.i.i.i.i.i215 ], [ 16, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i217 ]
+  %__y.addr.1.i.i.i.i222 = phi ptr [ %__y.addr.010.i.i.i.i207, %if.else.i.i.i.i245 ], [ %__x.addr.011.i.i.i.i206, %cond.false.i.i.i.i.i.i210 ], [ %__x.addr.011.i.i.i.i206, %cond.false12.i.i.i.i.i.i215 ], [ %__x.addr.011.i.i.i.i206, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i217 ]
   %_M_right.i.i.i.i.i223 = getelementptr inbounds nuw i8, ptr %__x.addr.011.i.i.i.i206, i64 %.sink.i.i.i.i221
   %__x.addr.1.i.i.i.i224 = load ptr, ptr %_M_right.i.i.i.i.i223, align 8
   %cmp.not.i.i.i.i225 = icmp eq ptr %__x.addr.1.i.i.i.i224, null
@@ -54573,7 +54573,7 @@ if.then.i243:                                     ; preds = %_ZNKSt4lessIN7openv
   br label %invoke.cont141
 
 invoke.cont141:                                   ; preds = %if.then.i243, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i238, %cond.false12.i.i.i236, %cond.false.i.i.i231
-  %__i.sroa.0.0.i241 = phi ptr [ %__y.addr.1.i.i.i.i222, %cond.false12.i.i.i236 ], [ %__y.addr.1.i.i.i.i222, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i238 ], [ %__y.addr.1.i.i.i.i222, %cond.false.i.i.i231 ], [ %call12.i247, %if.then.i243 ]
+  %__i.sroa.0.0.i241 = phi ptr [ %__y.addr.1.i.i.i.i222, %cond.false.i.i.i231 ], [ %__y.addr.1.i.i.i.i222, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i238 ], [ %__y.addr.1.i.i.i.i222, %cond.false12.i.i.i236 ], [ %call12.i247, %if.then.i243 ]
   %second.i242 = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i241, i64 48
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp9.i197)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp10.i198)
@@ -54662,8 +54662,8 @@ if.else.i.i.i.i323:                               ; preds = %_ZNKSt4lessIN7openv
   br label %if.end.i.i.i.i298
 
 if.end.i.i.i.i298:                                ; preds = %if.else.i.i.i.i323, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i295, %cond.false12.i.i.i.i.i.i293, %cond.false.i.i.i.i.i.i288
-  %.sink.i.i.i.i299 = phi i64 [ 24, %if.else.i.i.i.i323 ], [ 16, %cond.false12.i.i.i.i.i.i293 ], [ 16, %cond.false.i.i.i.i.i.i288 ], [ 16, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i295 ]
-  %__y.addr.1.i.i.i.i300 = phi ptr [ %__y.addr.010.i.i.i.i285, %if.else.i.i.i.i323 ], [ %__x.addr.011.i.i.i.i284, %cond.false12.i.i.i.i.i.i293 ], [ %__x.addr.011.i.i.i.i284, %cond.false.i.i.i.i.i.i288 ], [ %__x.addr.011.i.i.i.i284, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i295 ]
+  %.sink.i.i.i.i299 = phi i64 [ 24, %if.else.i.i.i.i323 ], [ 16, %cond.false.i.i.i.i.i.i288 ], [ 16, %cond.false12.i.i.i.i.i.i293 ], [ 16, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i295 ]
+  %__y.addr.1.i.i.i.i300 = phi ptr [ %__y.addr.010.i.i.i.i285, %if.else.i.i.i.i323 ], [ %__x.addr.011.i.i.i.i284, %cond.false.i.i.i.i.i.i288 ], [ %__x.addr.011.i.i.i.i284, %cond.false12.i.i.i.i.i.i293 ], [ %__x.addr.011.i.i.i.i284, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i295 ]
   %_M_right.i.i.i.i.i301 = getelementptr inbounds nuw i8, ptr %__x.addr.011.i.i.i.i284, i64 %.sink.i.i.i.i299
   %__x.addr.1.i.i.i.i302 = load ptr, ptr %_M_right.i.i.i.i.i301, align 8
   %cmp.not.i.i.i.i303 = icmp eq ptr %__x.addr.1.i.i.i.i302, null
@@ -54706,7 +54706,7 @@ if.then.i321:                                     ; preds = %_ZNKSt4lessIN7openv
   br label %invoke.cont169
 
 invoke.cont169:                                   ; preds = %if.then.i321, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i316, %cond.false12.i.i.i314, %cond.false.i.i.i309
-  %__i.sroa.0.0.i319 = phi ptr [ %__y.addr.1.i.i.i.i300, %cond.false12.i.i.i314 ], [ %__y.addr.1.i.i.i.i300, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i316 ], [ %__y.addr.1.i.i.i.i300, %cond.false.i.i.i309 ], [ %call12.i325, %if.then.i321 ]
+  %__i.sroa.0.0.i319 = phi ptr [ %__y.addr.1.i.i.i.i300, %cond.false.i.i.i309 ], [ %__y.addr.1.i.i.i.i300, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i316 ], [ %__y.addr.1.i.i.i.i300, %cond.false12.i.i.i314 ], [ %call12.i325, %if.then.i321 ]
   %second.i320 = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i319, i64 48
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp9.i275)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp10.i276)
@@ -57711,9 +57711,9 @@ for.end114:                                       ; preds = %for.inc112, %if.els
           to label %if.end118 unwind label %ehcleanup.thread
 
 if.end118:                                        ; preds = %for.inc.i.i, %invoke.cont85, %invoke.cont85.thread, %invoke.cont74, %if.then, %for.end114, %if.end56
-  %scopedTempBuf.sroa.0.1 = phi ptr [ null, %if.then ], [ null, %if.end56 ], [ %call63, %for.end114 ], [ %call63, %invoke.cont74 ], [ %call63, %invoke.cont85.thread ], [ %call63, %invoke.cont85 ], [ %call63, %for.inc.i.i ]
-  %tempBuf.0 = phi ptr [ %srcBuf, %if.then ], [ %srcBuf, %if.end56 ], [ %call63, %for.end114 ], [ %call63, %invoke.cont74 ], [ %call63, %invoke.cont85.thread ], [ %call63, %invoke.cont85 ], [ %call63, %for.inc.i.i ]
-  %tempCount.0 = phi i32 [ %srcCount, %if.then ], [ %srcCount, %if.end56 ], [ %tempCount.2.lcssa, %for.end114 ], [ 0, %invoke.cont74 ], [ %inc97, %invoke.cont85.thread ], [ %inc, %invoke.cont85 ], [ 0, %for.inc.i.i ]
+  %scopedTempBuf.sroa.0.1 = phi ptr [ null, %if.then ], [ null, %if.end56 ], [ %call63, %for.end114 ], [ %call63, %invoke.cont74 ], [ %call63, %invoke.cont85 ], [ %call63, %invoke.cont85.thread ], [ %call63, %for.inc.i.i ]
+  %tempBuf.0 = phi ptr [ %srcBuf, %if.then ], [ %srcBuf, %if.end56 ], [ %call63, %for.end114 ], [ %call63, %invoke.cont74 ], [ %call63, %invoke.cont85 ], [ %call63, %invoke.cont85.thread ], [ %call63, %for.inc.i.i ]
+  %tempCount.0 = phi i32 [ %srcCount, %if.then ], [ %srcCount, %if.end56 ], [ %tempCount.2.lcssa, %for.end114 ], [ 0, %invoke.cont74 ], [ %inc, %invoke.cont85 ], [ %inc97, %invoke.cont85.thread ], [ 0, %for.inc.i.i ]
   %and.i.i = and i32 %call, 4
   %tobool.not.i.i51 = icmp eq i32 %and.i.i, 0
   br i1 %toHalf, label %if.then120, label %if.else122
@@ -58390,9 +58390,9 @@ for.end114:                                       ; preds = %for.inc112, %if.els
           to label %if.end118 unwind label %ehcleanup.thread
 
 if.end118:                                        ; preds = %for.inc.i.i, %invoke.cont85, %invoke.cont85.thread, %invoke.cont74, %if.then, %for.end114, %if.end56
-  %scopedTempBuf.sroa.0.1 = phi ptr [ null, %if.then ], [ null, %if.end56 ], [ %call63, %for.end114 ], [ %call63, %invoke.cont74 ], [ %call63, %invoke.cont85.thread ], [ %call63, %invoke.cont85 ], [ %call63, %for.inc.i.i ]
-  %tempBuf.0 = phi ptr [ %srcBuf, %if.then ], [ %srcBuf, %if.end56 ], [ %call63, %for.end114 ], [ %call63, %invoke.cont74 ], [ %call63, %invoke.cont85.thread ], [ %call63, %invoke.cont85 ], [ %call63, %for.inc.i.i ]
-  %tempCount.0 = phi i32 [ %srcCount, %if.then ], [ %srcCount, %if.end56 ], [ %tempCount.2.lcssa, %for.end114 ], [ 0, %invoke.cont74 ], [ %inc97, %invoke.cont85.thread ], [ %inc, %invoke.cont85 ], [ 0, %for.inc.i.i ]
+  %scopedTempBuf.sroa.0.1 = phi ptr [ null, %if.then ], [ null, %if.end56 ], [ %call63, %for.end114 ], [ %call63, %invoke.cont74 ], [ %call63, %invoke.cont85 ], [ %call63, %invoke.cont85.thread ], [ %call63, %for.inc.i.i ]
+  %tempBuf.0 = phi ptr [ %srcBuf, %if.then ], [ %srcBuf, %if.end56 ], [ %call63, %for.end114 ], [ %call63, %invoke.cont74 ], [ %call63, %invoke.cont85 ], [ %call63, %invoke.cont85.thread ], [ %call63, %for.inc.i.i ]
+  %tempCount.0 = phi i32 [ %srcCount, %if.then ], [ %srcCount, %if.end56 ], [ %tempCount.2.lcssa, %for.end114 ], [ 0, %invoke.cont74 ], [ %inc, %invoke.cont85 ], [ %inc97, %invoke.cont85.thread ], [ 0, %for.inc.i.i ]
   %and.i.i = and i32 %call, 4
   %tobool.not.i.i51 = icmp eq i32 %and.i.i, 0
   br i1 %toHalf, label %if.then120, label %if.else122
@@ -59271,8 +59271,8 @@ if.else.i.i.i.i:                                  ; preds = %_ZNKSt4lessIN7openv
   br label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.else.i.i.i.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i, %cond.false12.i.i.i.i.i.i, %cond.false.i.i.i.i.i.i
-  %.sink.i.i.i.i = phi i64 [ 24, %if.else.i.i.i.i ], [ 16, %cond.false12.i.i.i.i.i.i ], [ 16, %cond.false.i.i.i.i.i.i ], [ 16, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i ]
-  %__y.addr.1.i.i.i.i = phi ptr [ %__y.addr.010.i.i.i.i, %if.else.i.i.i.i ], [ %__x.addr.011.i.i.i.i, %cond.false12.i.i.i.i.i.i ], [ %__x.addr.011.i.i.i.i, %cond.false.i.i.i.i.i.i ], [ %__x.addr.011.i.i.i.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i ]
+  %.sink.i.i.i.i = phi i64 [ 24, %if.else.i.i.i.i ], [ 16, %cond.false.i.i.i.i.i.i ], [ 16, %cond.false12.i.i.i.i.i.i ], [ 16, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i ]
+  %__y.addr.1.i.i.i.i = phi ptr [ %__y.addr.010.i.i.i.i, %if.else.i.i.i.i ], [ %__x.addr.011.i.i.i.i, %cond.false.i.i.i.i.i.i ], [ %__x.addr.011.i.i.i.i, %cond.false12.i.i.i.i.i.i ], [ %__x.addr.011.i.i.i.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i ]
   %_M_right.i.i.i.i.i12 = getelementptr inbounds nuw i8, ptr %__x.addr.011.i.i.i.i, i64 %.sink.i.i.i.i
   %__x.addr.1.i.i.i.i = load ptr, ptr %_M_right.i.i.i.i.i12, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %__x.addr.1.i.i.i.i, null
@@ -59430,8 +59430,8 @@ if.else.i.i.i.i92:                                ; preds = %_ZNKSt4lessIN7openv
   br label %if.end.i.i.i.i69
 
 if.end.i.i.i.i69:                                 ; preds = %if.else.i.i.i.i92, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i66, %cond.false12.i.i.i.i.i.i64, %cond.false.i.i.i.i.i.i59
-  %.sink.i.i.i.i70 = phi i64 [ 24, %if.else.i.i.i.i92 ], [ 16, %cond.false12.i.i.i.i.i.i64 ], [ 16, %cond.false.i.i.i.i.i.i59 ], [ 16, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i66 ]
-  %__y.addr.1.i.i.i.i71 = phi ptr [ %__y.addr.010.i.i.i.i56, %if.else.i.i.i.i92 ], [ %__x.addr.011.i.i.i.i55, %cond.false12.i.i.i.i.i.i64 ], [ %__x.addr.011.i.i.i.i55, %cond.false.i.i.i.i.i.i59 ], [ %__x.addr.011.i.i.i.i55, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i66 ]
+  %.sink.i.i.i.i70 = phi i64 [ 24, %if.else.i.i.i.i92 ], [ 16, %cond.false.i.i.i.i.i.i59 ], [ 16, %cond.false12.i.i.i.i.i.i64 ], [ 16, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i66 ]
+  %__y.addr.1.i.i.i.i71 = phi ptr [ %__y.addr.010.i.i.i.i56, %if.else.i.i.i.i92 ], [ %__x.addr.011.i.i.i.i55, %cond.false.i.i.i.i.i.i59 ], [ %__x.addr.011.i.i.i.i55, %cond.false12.i.i.i.i.i.i64 ], [ %__x.addr.011.i.i.i.i55, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i66 ]
   %_M_right.i.i.i.i.i72 = getelementptr inbounds nuw i8, ptr %__x.addr.011.i.i.i.i55, i64 %.sink.i.i.i.i70
   %__x.addr.1.i.i.i.i73 = load ptr, ptr %_M_right.i.i.i.i.i72, align 8
   %cmp.not.i.i.i.i74 = icmp eq ptr %__x.addr.1.i.i.i.i73, null
@@ -61966,8 +61966,8 @@ if.else.i:                                        ; preds = %_ZNKSt4lessIN7openv
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.else.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i, %cond.false12.i.i.i, %cond.false.i.i.i
-  %.sink.i = phi i64 [ 24, %if.else.i ], [ 16, %cond.false12.i.i.i ], [ 16, %cond.false.i.i.i ], [ 16, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i ]
-  %__y.addr.1.i = phi ptr [ %__y.addr.010.i, %if.else.i ], [ %__x.addr.011.i, %cond.false12.i.i.i ], [ %__x.addr.011.i, %cond.false.i.i.i ], [ %__x.addr.011.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i ]
+  %.sink.i = phi i64 [ 24, %if.else.i ], [ 16, %cond.false.i.i.i ], [ 16, %cond.false12.i.i.i ], [ 16, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i ]
+  %__y.addr.1.i = phi ptr [ %__y.addr.010.i, %if.else.i ], [ %__x.addr.011.i, %cond.false.i.i.i ], [ %__x.addr.011.i, %cond.false12.i.i.i ], [ %__x.addr.011.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i ]
   %_M_right.i.i = getelementptr inbounds nuw i8, ptr %__x.addr.011.i, i64 %.sink.i
   %__x.addr.1.i = load ptr, ptr %_M_right.i.i, align 8
   %cmp.not.i = icmp eq ptr %__x.addr.1.i, null
@@ -62026,8 +62026,8 @@ if.end19:                                         ; preds = %_ZNKSt4lessIN7openv
   br i1 %cmp.not, label %return, label %while.body, !llvm.loop !874
 
 return:                                           ; preds = %if.end19, %if.end.i55, %entry, %_ZNSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIbLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPSt13_Rb_tree_nodeISF_EPSt18_Rb_tree_node_baseRS5_.exit
-  %retval.sroa.0.0 = phi ptr [ %__y.addr.0.lcssa.i, %_ZNSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIbLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPSt13_Rb_tree_nodeISF_EPSt18_Rb_tree_node_baseRS5_.exit ], [ %add.ptr.i, %entry ], [ %__y.addr.0.lcssa.i, %if.end.i55 ], [ %__y.1, %if.end19 ]
-  %retval.sroa.3.0 = phi ptr [ %__y.075, %_ZNSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIbLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPSt13_Rb_tree_nodeISF_EPSt18_Rb_tree_node_baseRS5_.exit ], [ %add.ptr.i, %entry ], [ %__y.addr.1.i57, %if.end.i55 ], [ %__y.1, %if.end19 ]
+  %retval.sroa.0.0 = phi ptr [ %__y.addr.0.lcssa.i, %if.end.i55 ], [ %__y.addr.0.lcssa.i, %_ZNSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIbLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPSt13_Rb_tree_nodeISF_EPSt18_Rb_tree_node_baseRS5_.exit ], [ %add.ptr.i, %entry ], [ %__y.1, %if.end19 ]
+  %retval.sroa.3.0 = phi ptr [ %__y.addr.1.i57, %if.end.i55 ], [ %__y.075, %_ZNSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIbLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPSt13_Rb_tree_nodeISF_EPSt18_Rb_tree_node_baseRS5_.exit ], [ %add.ptr.i, %entry ], [ %__y.1, %if.end19 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %retval.sroa.3.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -62189,8 +62189,8 @@ if.else.i.i.i.i:                                  ; preds = %_ZNKSt4lessIN7openv
   br label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.else.i.i.i.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i, %cond.false12.i.i.i.i.i.i, %cond.false.i.i.i.i.i.i
-  %.sink.i.i.i.i = phi i64 [ 24, %if.else.i.i.i.i ], [ 16, %cond.false12.i.i.i.i.i.i ], [ 16, %cond.false.i.i.i.i.i.i ], [ 16, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i ]
-  %__y.addr.1.i.i.i.i = phi ptr [ %__y.addr.010.i.i.i.i, %if.else.i.i.i.i ], [ %__x.addr.011.i.i.i.i, %cond.false12.i.i.i.i.i.i ], [ %__x.addr.011.i.i.i.i, %cond.false.i.i.i.i.i.i ], [ %__x.addr.011.i.i.i.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i ]
+  %.sink.i.i.i.i = phi i64 [ 24, %if.else.i.i.i.i ], [ 16, %cond.false.i.i.i.i.i.i ], [ 16, %cond.false12.i.i.i.i.i.i ], [ 16, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i ]
+  %__y.addr.1.i.i.i.i = phi ptr [ %__y.addr.010.i.i.i.i, %if.else.i.i.i.i ], [ %__x.addr.011.i.i.i.i, %cond.false.i.i.i.i.i.i ], [ %__x.addr.011.i.i.i.i, %cond.false12.i.i.i.i.i.i ], [ %__x.addr.011.i.i.i.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i ]
   %_M_right.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__x.addr.011.i.i.i.i, i64 %.sink.i.i.i.i
   %__x.addr.1.i.i.i.i = load ptr, ptr %_M_right.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %__x.addr.1.i.i.i.i, null
@@ -62285,8 +62285,8 @@ if.else.i.i.i.i73:                                ; preds = %_ZNKSt4lessIN7openv
   br label %if.end.i.i.i.i64
 
 if.end.i.i.i.i64:                                 ; preds = %if.else.i.i.i.i73, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i61, %cond.false12.i.i.i.i.i.i59, %cond.false.i.i.i.i.i.i54
-  %.sink.i.i.i.i65 = phi i64 [ 24, %if.else.i.i.i.i73 ], [ 16, %cond.false12.i.i.i.i.i.i59 ], [ 16, %cond.false.i.i.i.i.i.i54 ], [ 16, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i61 ]
-  %__y.addr.1.i.i.i.i66 = phi ptr [ %__y.addr.010.i.i.i.i51, %if.else.i.i.i.i73 ], [ %__x.addr.011.i.i.i.i50, %cond.false12.i.i.i.i.i.i59 ], [ %__x.addr.011.i.i.i.i50, %cond.false.i.i.i.i.i.i54 ], [ %__x.addr.011.i.i.i.i50, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i61 ]
+  %.sink.i.i.i.i65 = phi i64 [ 24, %if.else.i.i.i.i73 ], [ 16, %cond.false.i.i.i.i.i.i54 ], [ 16, %cond.false12.i.i.i.i.i.i59 ], [ 16, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i61 ]
+  %__y.addr.1.i.i.i.i66 = phi ptr [ %__y.addr.010.i.i.i.i51, %if.else.i.i.i.i73 ], [ %__x.addr.011.i.i.i.i50, %cond.false.i.i.i.i.i.i54 ], [ %__x.addr.011.i.i.i.i50, %cond.false12.i.i.i.i.i.i59 ], [ %__x.addr.011.i.i.i.i50, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i61 ]
   %_M_right.i.i.i.i.i67 = getelementptr inbounds nuw i8, ptr %__x.addr.011.i.i.i.i50, i64 %.sink.i.i.i.i65
   %__x.addr.1.i.i.i.i68 = load ptr, ptr %_M_right.i.i.i.i.i67, align 8
   %cmp.not.i.i.i.i69 = icmp eq ptr %__x.addr.1.i.i.i.i68, null
@@ -62474,8 +62474,8 @@ if.else.i.i.i.i146:                               ; preds = %_ZNKSt4lessIN7openv
   br label %if.end.i.i.i.i120
 
 if.end.i.i.i.i120:                                ; preds = %if.else.i.i.i.i146, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i117, %cond.false12.i.i.i.i.i.i115, %cond.false.i.i.i.i.i.i110
-  %.sink.i.i.i.i121 = phi i64 [ 24, %if.else.i.i.i.i146 ], [ 16, %cond.false12.i.i.i.i.i.i115 ], [ 16, %cond.false.i.i.i.i.i.i110 ], [ 16, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i117 ]
-  %__y.addr.1.i.i.i.i122 = phi ptr [ %__y.addr.010.i.i.i.i107, %if.else.i.i.i.i146 ], [ %__x.addr.011.i.i.i.i106, %cond.false12.i.i.i.i.i.i115 ], [ %__x.addr.011.i.i.i.i106, %cond.false.i.i.i.i.i.i110 ], [ %__x.addr.011.i.i.i.i106, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i117 ]
+  %.sink.i.i.i.i121 = phi i64 [ 24, %if.else.i.i.i.i146 ], [ 16, %cond.false.i.i.i.i.i.i110 ], [ 16, %cond.false12.i.i.i.i.i.i115 ], [ 16, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i117 ]
+  %__y.addr.1.i.i.i.i122 = phi ptr [ %__y.addr.010.i.i.i.i107, %if.else.i.i.i.i146 ], [ %__x.addr.011.i.i.i.i106, %cond.false.i.i.i.i.i.i110 ], [ %__x.addr.011.i.i.i.i106, %cond.false12.i.i.i.i.i.i115 ], [ %__x.addr.011.i.i.i.i106, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i117 ]
   %_M_right.i.i.i.i.i123 = getelementptr inbounds nuw i8, ptr %__x.addr.011.i.i.i.i106, i64 %.sink.i.i.i.i121
   %__x.addr.1.i.i.i.i124 = load ptr, ptr %_M_right.i.i.i.i.i123, align 8
   %cmp.not.i.i.i.i125 = icmp eq ptr %__x.addr.1.i.i.i.i124, null
@@ -62589,8 +62589,8 @@ if.then.i7.i207:                                  ; preds = %invoke.cont7.i181
   br label %if.then67.sink.split
 
 if.then67.sink.split:                             ; preds = %cleanup.thread.i203, %if.then.i7.i207, %cond.false.i.i.i131, %cond.false12.i.i.i136, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i138, %cleanup.thread.i, %if.then.i7.i, %cond.false.i.i.i72, %cond.false12.i.i.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i
-  %__i.sroa.0.0.i.sink401 = phi ptr [ %39, %if.then.i7.i ], [ %__y.addr.1.i.i.i.i66, %cond.false12.i.i.i ], [ %__y.addr.1.i.i.i.i66, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i ], [ %__y.addr.1.i.i.i.i66, %cond.false.i.i.i72 ], [ %call5.i.i.i.i.i.i174, %cleanup.thread.i ], [ %__y.addr.1.i.i.i.i122, %cond.false12.i.i.i136 ], [ %__y.addr.1.i.i.i.i122, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i138 ], [ %__y.addr.1.i.i.i.i122, %cond.false.i.i.i131 ], [ %call5.i.i.i.i.i.i209, %cleanup.thread.i203 ], [ %59, %if.then.i7.i207 ]
-  %call40.sink = phi ptr [ %call40, %if.then.i7.i ], [ %call40, %cond.false12.i.i.i ], [ %call40, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i ], [ %call40, %cond.false.i.i.i72 ], [ %call40, %cleanup.thread.i ], [ %call49, %cond.false12.i.i.i136 ], [ %call49, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i138 ], [ %call49, %cond.false.i.i.i131 ], [ %call49, %cleanup.thread.i203 ], [ %call49, %if.then.i7.i207 ]
+  %__i.sroa.0.0.i.sink401 = phi ptr [ %39, %if.then.i7.i ], [ %__y.addr.1.i.i.i.i66, %cond.false.i.i.i72 ], [ %__y.addr.1.i.i.i.i66, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i ], [ %__y.addr.1.i.i.i.i66, %cond.false12.i.i.i ], [ %call5.i.i.i.i.i.i174, %cleanup.thread.i ], [ %__y.addr.1.i.i.i.i122, %cond.false.i.i.i131 ], [ %__y.addr.1.i.i.i.i122, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i138 ], [ %__y.addr.1.i.i.i.i122, %cond.false12.i.i.i136 ], [ %call5.i.i.i.i.i.i209, %cleanup.thread.i203 ], [ %59, %if.then.i7.i207 ]
+  %call40.sink = phi ptr [ %call40, %if.then.i7.i ], [ %call40, %cond.false.i.i.i72 ], [ %call40, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i ], [ %call40, %cond.false12.i.i.i ], [ %call40, %cleanup.thread.i ], [ %call49, %cond.false.i.i.i131 ], [ %call49, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i138 ], [ %call49, %cond.false12.i.i.i136 ], [ %call49, %cleanup.thread.i203 ], [ %call49, %if.then.i7.i207 ]
   %second.i = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i.sink401, i64 48
   store ptr %call40.sink, ptr %second.i, align 8
   %ref.tmp41.sroa.2.0.second.i.sroa_idx = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i.sink401, i64 56
@@ -62667,7 +62667,7 @@ cond.end.i.thread.i:                              ; preds = %_ZNKSt4lessIN7openv
   br i1 %cmp.not.i25.i, label %if.end12.i.i, label %while.body.i.i.backedge
 
 while.body.i.i.backedge:                          ; preds = %cond.end.i.thread.i, %cond.end.i.i
-  %__x.044.i.i.be = phi ptr [ %__x.0.i.i, %cond.end.i.i ], [ %__x.0.i24.i, %cond.end.i.thread.i ]
+  %__x.044.i.i.be = phi ptr [ %__x.0.i24.i, %cond.end.i.thread.i ], [ %__x.0.i.i, %cond.end.i.i ]
   br label %while.body.i.i, !llvm.loop !191
 
 if.then.i.i:                                      ; preds = %cond.end.i.i, %if.else76
@@ -64775,7 +64775,7 @@ if.else.i124:                                     ; preds = %if.else12
   br i1 %cmp.i.i125, label %if.then.i.i131.invoke, label %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i
 
 if.then.i.i131.invoke:                            ; preds = %if.else.i.i, %if.else.i.i40, %if.then, %if.else.i124
-  %19 = phi ptr [ @.str.48, %if.else.i124 ], [ @.str.47, %if.then ], [ @.str.36, %if.else.i.i40 ], [ @.str.36, %if.else.i.i ]
+  %19 = phi ptr [ @.str.47, %if.then ], [ @.str.48, %if.else.i124 ], [ @.str.36, %if.else.i.i40 ], [ @.str.36, %if.else.i.i ]
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull %19) #28
           to label %if.then.i.i131.cont unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
@@ -65441,7 +65441,7 @@ if.else.i124:                                     ; preds = %if.else11
   br i1 %cmp.i.i125, label %if.then.i.i131.invoke, label %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i
 
 if.then.i.i131.invoke:                            ; preds = %if.else.i.i, %if.else.i.i40, %if.then, %if.else.i124
-  %19 = phi ptr [ @.str.48, %if.else.i124 ], [ @.str.47, %if.then ], [ @.str.36, %if.else.i.i40 ], [ @.str.36, %if.else.i.i ]
+  %19 = phi ptr [ @.str.47, %if.then ], [ @.str.48, %if.else.i124 ], [ @.str.36, %if.else.i.i40 ], [ @.str.36, %if.else.i.i ]
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull %19) #28
           to label %if.then.i.i131.cont unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
@@ -73093,8 +73093,8 @@ if.else.i.i.i:                                    ; preds = %_ZNKSt4lessIN7openv
   br label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i, %cond.false12.i.i.i.i.i, %cond.false.i.i.i.i.i
-  %.sink.i.i.i = phi i64 [ 24, %if.else.i.i.i ], [ 16, %cond.false12.i.i.i.i.i ], [ 16, %cond.false.i.i.i.i.i ], [ 16, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i ]
-  %__y.addr.1.i.i.i = phi ptr [ %__y.addr.010.i.i.i, %if.else.i.i.i ], [ %__x.addr.011.i.i.i, %cond.false12.i.i.i.i.i ], [ %__x.addr.011.i.i.i, %cond.false.i.i.i.i.i ], [ %__x.addr.011.i.i.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i ]
+  %.sink.i.i.i = phi i64 [ 24, %if.else.i.i.i ], [ 16, %cond.false.i.i.i.i.i ], [ 16, %cond.false12.i.i.i.i.i ], [ 16, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i ]
+  %__y.addr.1.i.i.i = phi ptr [ %__y.addr.010.i.i.i, %if.else.i.i.i ], [ %__x.addr.011.i.i.i, %cond.false.i.i.i.i.i ], [ %__x.addr.011.i.i.i, %cond.false12.i.i.i.i.i ], [ %__x.addr.011.i.i.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i ]
   %_M_right.i.i.i.i = getelementptr inbounds nuw i8, ptr %__x.addr.011.i.i.i, i64 %.sink.i.i.i
   %__x.addr.1.i.i.i = load ptr, ptr %_M_right.i.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %__x.addr.1.i.i.i, null
@@ -73251,8 +73251,8 @@ if.else.i.i.i.i:                                  ; preds = %_ZNKSt4lessIN7openv
   br label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.else.i.i.i.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i, %cond.false12.i.i.i.i.i.i, %cond.false.i.i.i.i.i.i
-  %.sink.i.i.i.i = phi i64 [ 24, %if.else.i.i.i.i ], [ 16, %cond.false12.i.i.i.i.i.i ], [ 16, %cond.false.i.i.i.i.i.i ], [ 16, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i ]
-  %__y.addr.1.i.i.i.i = phi ptr [ %__y.addr.010.i.i.i.i, %if.else.i.i.i.i ], [ %__x.addr.011.i.i.i.i, %cond.false12.i.i.i.i.i.i ], [ %__x.addr.011.i.i.i.i, %cond.false.i.i.i.i.i.i ], [ %__x.addr.011.i.i.i.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i ]
+  %.sink.i.i.i.i = phi i64 [ 24, %if.else.i.i.i.i ], [ 16, %cond.false.i.i.i.i.i.i ], [ 16, %cond.false12.i.i.i.i.i.i ], [ 16, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i ]
+  %__y.addr.1.i.i.i.i = phi ptr [ %__y.addr.010.i.i.i.i, %if.else.i.i.i.i ], [ %__x.addr.011.i.i.i.i, %cond.false.i.i.i.i.i.i ], [ %__x.addr.011.i.i.i.i, %cond.false12.i.i.i.i.i.i ], [ %__x.addr.011.i.i.i.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i ]
   %_M_right.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__x.addr.011.i.i.i.i, i64 %.sink.i.i.i.i
   %__x.addr.1.i.i.i.i = load ptr, ptr %_M_right.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %__x.addr.1.i.i.i.i, null
@@ -73295,7 +73295,7 @@ if.then.i:                                        ; preds = %_ZNKSt4lessIN7openv
   br label %invoke.cont24
 
 invoke.cont24:                                    ; preds = %if.then.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i, %cond.false12.i.i.i, %cond.false.i.i.i
-  %__i.sroa.0.0.i = phi ptr [ %__y.addr.1.i.i.i.i, %cond.false12.i.i.i ], [ %__y.addr.1.i.i.i.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i ], [ %__y.addr.1.i.i.i.i, %cond.false.i.i.i ], [ %call12.i13, %if.then.i ]
+  %__i.sroa.0.0.i = phi ptr [ %__y.addr.1.i.i.i.i, %cond.false.i.i.i ], [ %__y.addr.1.i.i.i.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i ], [ %__y.addr.1.i.i.i.i, %cond.false12.i.i.i ], [ %call12.i13, %if.then.i ]
   %second.i12 = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i, i64 48
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp9.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp10.i)
@@ -73485,8 +73485,8 @@ if.else.i.i.i.i119:                               ; preds = %_ZNKSt4lessIN7openv
   br label %if.end.i.i.i.i94
 
 if.end.i.i.i.i94:                                 ; preds = %if.else.i.i.i.i119, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i91, %cond.false12.i.i.i.i.i.i89, %cond.false.i.i.i.i.i.i84
-  %.sink.i.i.i.i95 = phi i64 [ 24, %if.else.i.i.i.i119 ], [ 16, %cond.false12.i.i.i.i.i.i89 ], [ 16, %cond.false.i.i.i.i.i.i84 ], [ 16, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i91 ]
-  %__y.addr.1.i.i.i.i96 = phi ptr [ %__y.addr.010.i.i.i.i81, %if.else.i.i.i.i119 ], [ %__x.addr.011.i.i.i.i80, %cond.false12.i.i.i.i.i.i89 ], [ %__x.addr.011.i.i.i.i80, %cond.false.i.i.i.i.i.i84 ], [ %__x.addr.011.i.i.i.i80, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i91 ]
+  %.sink.i.i.i.i95 = phi i64 [ 24, %if.else.i.i.i.i119 ], [ 16, %cond.false.i.i.i.i.i.i84 ], [ 16, %cond.false12.i.i.i.i.i.i89 ], [ 16, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i91 ]
+  %__y.addr.1.i.i.i.i96 = phi ptr [ %__y.addr.010.i.i.i.i81, %if.else.i.i.i.i119 ], [ %__x.addr.011.i.i.i.i80, %cond.false.i.i.i.i.i.i84 ], [ %__x.addr.011.i.i.i.i80, %cond.false12.i.i.i.i.i.i89 ], [ %__x.addr.011.i.i.i.i80, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i91 ]
   %_M_right.i.i.i.i.i97 = getelementptr inbounds nuw i8, ptr %__x.addr.011.i.i.i.i80, i64 %.sink.i.i.i.i95
   %__x.addr.1.i.i.i.i98 = load ptr, ptr %_M_right.i.i.i.i.i97, align 8
   %cmp.not.i.i.i.i99 = icmp eq ptr %__x.addr.1.i.i.i.i98, null
@@ -73529,7 +73529,7 @@ if.then.i117:                                     ; preds = %_ZNKSt4lessIN7openv
   br label %invoke.cont62
 
 invoke.cont62:                                    ; preds = %if.then.i117, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i112, %cond.false12.i.i.i110, %cond.false.i.i.i105
-  %__i.sroa.0.0.i115 = phi ptr [ %__y.addr.1.i.i.i.i96, %cond.false12.i.i.i110 ], [ %__y.addr.1.i.i.i.i96, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i112 ], [ %__y.addr.1.i.i.i.i96, %cond.false.i.i.i105 ], [ %call12.i121, %if.then.i117 ]
+  %__i.sroa.0.0.i115 = phi ptr [ %__y.addr.1.i.i.i.i96, %cond.false.i.i.i105 ], [ %__y.addr.1.i.i.i.i96, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i112 ], [ %__y.addr.1.i.i.i.i96, %cond.false12.i.i.i110 ], [ %call12.i121, %if.then.i117 ]
   %second.i116 = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i115, i64 48
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp9.i71)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp10.i72)
@@ -78066,8 +78066,8 @@ if.else.i.i.i:                                    ; preds = %_ZNKSt4lessIN7openv
   br label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i, %cond.false12.i.i.i.i.i, %cond.false.i.i.i.i.i
-  %.sink.i.i.i = phi i64 [ 24, %if.else.i.i.i ], [ 16, %cond.false12.i.i.i.i.i ], [ 16, %cond.false.i.i.i.i.i ], [ 16, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i ]
-  %__y.addr.1.i.i.i = phi ptr [ %__y.addr.010.i.i.i, %if.else.i.i.i ], [ %__x.addr.011.i.i.i, %cond.false12.i.i.i.i.i ], [ %__x.addr.011.i.i.i, %cond.false.i.i.i.i.i ], [ %__x.addr.011.i.i.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i ]
+  %.sink.i.i.i = phi i64 [ 24, %if.else.i.i.i ], [ 16, %cond.false.i.i.i.i.i ], [ 16, %cond.false12.i.i.i.i.i ], [ 16, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i ]
+  %__y.addr.1.i.i.i = phi ptr [ %__y.addr.010.i.i.i, %if.else.i.i.i ], [ %__x.addr.011.i.i.i, %cond.false.i.i.i.i.i ], [ %__x.addr.011.i.i.i, %cond.false12.i.i.i.i.i ], [ %__x.addr.011.i.i.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i ]
   %_M_right.i.i.i.i = getelementptr inbounds nuw i8, ptr %__x.addr.011.i.i.i, i64 %.sink.i.i.i
   %__x.addr.1.i.i.i = load ptr, ptr %_M_right.i.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %__x.addr.1.i.i.i, null
@@ -78224,8 +78224,8 @@ if.else.i.i.i.i:                                  ; preds = %_ZNKSt4lessIN7openv
   br label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.else.i.i.i.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i, %cond.false12.i.i.i.i.i.i, %cond.false.i.i.i.i.i.i
-  %.sink.i.i.i.i = phi i64 [ 24, %if.else.i.i.i.i ], [ 16, %cond.false12.i.i.i.i.i.i ], [ 16, %cond.false.i.i.i.i.i.i ], [ 16, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i ]
-  %__y.addr.1.i.i.i.i = phi ptr [ %__y.addr.010.i.i.i.i, %if.else.i.i.i.i ], [ %__x.addr.011.i.i.i.i, %cond.false12.i.i.i.i.i.i ], [ %__x.addr.011.i.i.i.i, %cond.false.i.i.i.i.i.i ], [ %__x.addr.011.i.i.i.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i ]
+  %.sink.i.i.i.i = phi i64 [ 24, %if.else.i.i.i.i ], [ 16, %cond.false.i.i.i.i.i.i ], [ 16, %cond.false12.i.i.i.i.i.i ], [ 16, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i ]
+  %__y.addr.1.i.i.i.i = phi ptr [ %__y.addr.010.i.i.i.i, %if.else.i.i.i.i ], [ %__x.addr.011.i.i.i.i, %cond.false.i.i.i.i.i.i ], [ %__x.addr.011.i.i.i.i, %cond.false12.i.i.i.i.i.i ], [ %__x.addr.011.i.i.i.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i ]
   %_M_right.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__x.addr.011.i.i.i.i, i64 %.sink.i.i.i.i
   %__x.addr.1.i.i.i.i = load ptr, ptr %_M_right.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %__x.addr.1.i.i.i.i, null
@@ -78268,7 +78268,7 @@ if.then.i:                                        ; preds = %_ZNKSt4lessIN7openv
   br label %invoke.cont24
 
 invoke.cont24:                                    ; preds = %if.then.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i, %cond.false12.i.i.i, %cond.false.i.i.i
-  %__i.sroa.0.0.i = phi ptr [ %__y.addr.1.i.i.i.i, %cond.false12.i.i.i ], [ %__y.addr.1.i.i.i.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i ], [ %__y.addr.1.i.i.i.i, %cond.false.i.i.i ], [ %call12.i13, %if.then.i ]
+  %__i.sroa.0.0.i = phi ptr [ %__y.addr.1.i.i.i.i, %cond.false.i.i.i ], [ %__y.addr.1.i.i.i.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i ], [ %__y.addr.1.i.i.i.i, %cond.false12.i.i.i ], [ %call12.i13, %if.then.i ]
   %second.i12 = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i, i64 48
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp9.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp10.i)
@@ -78458,8 +78458,8 @@ if.else.i.i.i.i119:                               ; preds = %_ZNKSt4lessIN7openv
   br label %if.end.i.i.i.i94
 
 if.end.i.i.i.i94:                                 ; preds = %if.else.i.i.i.i119, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i91, %cond.false12.i.i.i.i.i.i89, %cond.false.i.i.i.i.i.i84
-  %.sink.i.i.i.i95 = phi i64 [ 24, %if.else.i.i.i.i119 ], [ 16, %cond.false12.i.i.i.i.i.i89 ], [ 16, %cond.false.i.i.i.i.i.i84 ], [ 16, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i91 ]
-  %__y.addr.1.i.i.i.i96 = phi ptr [ %__y.addr.010.i.i.i.i81, %if.else.i.i.i.i119 ], [ %__x.addr.011.i.i.i.i80, %cond.false12.i.i.i.i.i.i89 ], [ %__x.addr.011.i.i.i.i80, %cond.false.i.i.i.i.i.i84 ], [ %__x.addr.011.i.i.i.i80, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i91 ]
+  %.sink.i.i.i.i95 = phi i64 [ 24, %if.else.i.i.i.i119 ], [ 16, %cond.false.i.i.i.i.i.i84 ], [ 16, %cond.false12.i.i.i.i.i.i89 ], [ 16, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i91 ]
+  %__y.addr.1.i.i.i.i96 = phi ptr [ %__y.addr.010.i.i.i.i81, %if.else.i.i.i.i119 ], [ %__x.addr.011.i.i.i.i80, %cond.false.i.i.i.i.i.i84 ], [ %__x.addr.011.i.i.i.i80, %cond.false12.i.i.i.i.i.i89 ], [ %__x.addr.011.i.i.i.i80, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i91 ]
   %_M_right.i.i.i.i.i97 = getelementptr inbounds nuw i8, ptr %__x.addr.011.i.i.i.i80, i64 %.sink.i.i.i.i95
   %__x.addr.1.i.i.i.i98 = load ptr, ptr %_M_right.i.i.i.i.i97, align 8
   %cmp.not.i.i.i.i99 = icmp eq ptr %__x.addr.1.i.i.i.i98, null
@@ -78502,7 +78502,7 @@ if.then.i117:                                     ; preds = %_ZNKSt4lessIN7openv
   br label %invoke.cont62
 
 invoke.cont62:                                    ; preds = %if.then.i117, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i112, %cond.false12.i.i.i110, %cond.false.i.i.i105
-  %__i.sroa.0.0.i115 = phi ptr [ %__y.addr.1.i.i.i.i96, %cond.false12.i.i.i110 ], [ %__y.addr.1.i.i.i.i96, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i112 ], [ %__y.addr.1.i.i.i.i96, %cond.false.i.i.i105 ], [ %call12.i121, %if.then.i117 ]
+  %__i.sroa.0.0.i115 = phi ptr [ %__y.addr.1.i.i.i.i96, %cond.false.i.i.i105 ], [ %__y.addr.1.i.i.i.i96, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i112 ], [ %__y.addr.1.i.i.i.i96, %cond.false12.i.i.i110 ], [ %call12.i121, %if.then.i117 ]
   %second.i116 = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i115, i64 48
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp9.i71)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp10.i72)
@@ -82834,8 +82834,8 @@ if.else.i.i.i:                                    ; preds = %_ZNKSt4lessIN7openv
   br label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i, %cond.false12.i.i.i.i.i, %cond.false.i.i.i.i.i
-  %.sink.i.i.i = phi i64 [ 24, %if.else.i.i.i ], [ 16, %cond.false12.i.i.i.i.i ], [ 16, %cond.false.i.i.i.i.i ], [ 16, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i ]
-  %__y.addr.1.i.i.i = phi ptr [ %__y.addr.010.i.i.i, %if.else.i.i.i ], [ %__x.addr.011.i.i.i, %cond.false12.i.i.i.i.i ], [ %__x.addr.011.i.i.i, %cond.false.i.i.i.i.i ], [ %__x.addr.011.i.i.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i ]
+  %.sink.i.i.i = phi i64 [ 24, %if.else.i.i.i ], [ 16, %cond.false.i.i.i.i.i ], [ 16, %cond.false12.i.i.i.i.i ], [ 16, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i ]
+  %__y.addr.1.i.i.i = phi ptr [ %__y.addr.010.i.i.i, %if.else.i.i.i ], [ %__x.addr.011.i.i.i, %cond.false.i.i.i.i.i ], [ %__x.addr.011.i.i.i, %cond.false12.i.i.i.i.i ], [ %__x.addr.011.i.i.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i ]
   %_M_right.i.i.i.i = getelementptr inbounds nuw i8, ptr %__x.addr.011.i.i.i, i64 %.sink.i.i.i
   %__x.addr.1.i.i.i = load ptr, ptr %_M_right.i.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %__x.addr.1.i.i.i, null
@@ -82992,8 +82992,8 @@ if.else.i.i.i.i:                                  ; preds = %_ZNKSt4lessIN7openv
   br label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.else.i.i.i.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i, %cond.false12.i.i.i.i.i.i, %cond.false.i.i.i.i.i.i
-  %.sink.i.i.i.i = phi i64 [ 24, %if.else.i.i.i.i ], [ 16, %cond.false12.i.i.i.i.i.i ], [ 16, %cond.false.i.i.i.i.i.i ], [ 16, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i ]
-  %__y.addr.1.i.i.i.i = phi ptr [ %__y.addr.010.i.i.i.i, %if.else.i.i.i.i ], [ %__x.addr.011.i.i.i.i, %cond.false12.i.i.i.i.i.i ], [ %__x.addr.011.i.i.i.i, %cond.false.i.i.i.i.i.i ], [ %__x.addr.011.i.i.i.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i ]
+  %.sink.i.i.i.i = phi i64 [ 24, %if.else.i.i.i.i ], [ 16, %cond.false.i.i.i.i.i.i ], [ 16, %cond.false12.i.i.i.i.i.i ], [ 16, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i ]
+  %__y.addr.1.i.i.i.i = phi ptr [ %__y.addr.010.i.i.i.i, %if.else.i.i.i.i ], [ %__x.addr.011.i.i.i.i, %cond.false.i.i.i.i.i.i ], [ %__x.addr.011.i.i.i.i, %cond.false12.i.i.i.i.i.i ], [ %__x.addr.011.i.i.i.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i ]
   %_M_right.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__x.addr.011.i.i.i.i, i64 %.sink.i.i.i.i
   %__x.addr.1.i.i.i.i = load ptr, ptr %_M_right.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %__x.addr.1.i.i.i.i, null
@@ -83036,7 +83036,7 @@ if.then.i:                                        ; preds = %_ZNKSt4lessIN7openv
   br label %invoke.cont24
 
 invoke.cont24:                                    ; preds = %if.then.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i, %cond.false12.i.i.i, %cond.false.i.i.i
-  %__i.sroa.0.0.i = phi ptr [ %__y.addr.1.i.i.i.i, %cond.false12.i.i.i ], [ %__y.addr.1.i.i.i.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i ], [ %__y.addr.1.i.i.i.i, %cond.false.i.i.i ], [ %call12.i13, %if.then.i ]
+  %__i.sroa.0.0.i = phi ptr [ %__y.addr.1.i.i.i.i, %cond.false.i.i.i ], [ %__y.addr.1.i.i.i.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i ], [ %__y.addr.1.i.i.i.i, %cond.false12.i.i.i ], [ %call12.i13, %if.then.i ]
   %second.i12 = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i, i64 48
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp9.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp10.i)
@@ -83226,8 +83226,8 @@ if.else.i.i.i.i119:                               ; preds = %_ZNKSt4lessIN7openv
   br label %if.end.i.i.i.i94
 
 if.end.i.i.i.i94:                                 ; preds = %if.else.i.i.i.i119, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i91, %cond.false12.i.i.i.i.i.i89, %cond.false.i.i.i.i.i.i84
-  %.sink.i.i.i.i95 = phi i64 [ 24, %if.else.i.i.i.i119 ], [ 16, %cond.false12.i.i.i.i.i.i89 ], [ 16, %cond.false.i.i.i.i.i.i84 ], [ 16, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i91 ]
-  %__y.addr.1.i.i.i.i96 = phi ptr [ %__y.addr.010.i.i.i.i81, %if.else.i.i.i.i119 ], [ %__x.addr.011.i.i.i.i80, %cond.false12.i.i.i.i.i.i89 ], [ %__x.addr.011.i.i.i.i80, %cond.false.i.i.i.i.i.i84 ], [ %__x.addr.011.i.i.i.i80, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i91 ]
+  %.sink.i.i.i.i95 = phi i64 [ 24, %if.else.i.i.i.i119 ], [ 16, %cond.false.i.i.i.i.i.i84 ], [ 16, %cond.false12.i.i.i.i.i.i89 ], [ 16, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i91 ]
+  %__y.addr.1.i.i.i.i96 = phi ptr [ %__y.addr.010.i.i.i.i81, %if.else.i.i.i.i119 ], [ %__x.addr.011.i.i.i.i80, %cond.false.i.i.i.i.i.i84 ], [ %__x.addr.011.i.i.i.i80, %cond.false12.i.i.i.i.i.i89 ], [ %__x.addr.011.i.i.i.i80, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i91 ]
   %_M_right.i.i.i.i.i97 = getelementptr inbounds nuw i8, ptr %__x.addr.011.i.i.i.i80, i64 %.sink.i.i.i.i95
   %__x.addr.1.i.i.i.i98 = load ptr, ptr %_M_right.i.i.i.i.i97, align 8
   %cmp.not.i.i.i.i99 = icmp eq ptr %__x.addr.1.i.i.i.i98, null
@@ -83270,7 +83270,7 @@ if.then.i117:                                     ; preds = %_ZNKSt4lessIN7openv
   br label %invoke.cont62
 
 invoke.cont62:                                    ; preds = %if.then.i117, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i112, %cond.false12.i.i.i110, %cond.false.i.i.i105
-  %__i.sroa.0.0.i115 = phi ptr [ %__y.addr.1.i.i.i.i96, %cond.false12.i.i.i110 ], [ %__y.addr.1.i.i.i.i96, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i112 ], [ %__y.addr.1.i.i.i.i96, %cond.false.i.i.i105 ], [ %call12.i121, %if.then.i117 ]
+  %__i.sroa.0.0.i115 = phi ptr [ %__y.addr.1.i.i.i.i96, %cond.false.i.i.i105 ], [ %__y.addr.1.i.i.i.i96, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i112 ], [ %__y.addr.1.i.i.i.i96, %cond.false12.i.i.i110 ], [ %call12.i121, %if.then.i117 ]
   %second.i116 = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i115, i64 48
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp9.i71)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp10.i72)
@@ -87600,8 +87600,8 @@ if.else.i.i.i:                                    ; preds = %_ZNKSt4lessIN7openv
   br label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i, %cond.false12.i.i.i.i.i, %cond.false.i.i.i.i.i
-  %.sink.i.i.i = phi i64 [ 24, %if.else.i.i.i ], [ 16, %cond.false12.i.i.i.i.i ], [ 16, %cond.false.i.i.i.i.i ], [ 16, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i ]
-  %__y.addr.1.i.i.i = phi ptr [ %__y.addr.010.i.i.i, %if.else.i.i.i ], [ %__x.addr.011.i.i.i, %cond.false12.i.i.i.i.i ], [ %__x.addr.011.i.i.i, %cond.false.i.i.i.i.i ], [ %__x.addr.011.i.i.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i ]
+  %.sink.i.i.i = phi i64 [ 24, %if.else.i.i.i ], [ 16, %cond.false.i.i.i.i.i ], [ 16, %cond.false12.i.i.i.i.i ], [ 16, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i ]
+  %__y.addr.1.i.i.i = phi ptr [ %__y.addr.010.i.i.i, %if.else.i.i.i ], [ %__x.addr.011.i.i.i, %cond.false.i.i.i.i.i ], [ %__x.addr.011.i.i.i, %cond.false12.i.i.i.i.i ], [ %__x.addr.011.i.i.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i ]
   %_M_right.i.i.i.i = getelementptr inbounds nuw i8, ptr %__x.addr.011.i.i.i, i64 %.sink.i.i.i
   %__x.addr.1.i.i.i = load ptr, ptr %_M_right.i.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %__x.addr.1.i.i.i, null
@@ -87758,8 +87758,8 @@ if.else.i.i.i.i:                                  ; preds = %_ZNKSt4lessIN7openv
   br label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.else.i.i.i.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i, %cond.false12.i.i.i.i.i.i, %cond.false.i.i.i.i.i.i
-  %.sink.i.i.i.i = phi i64 [ 24, %if.else.i.i.i.i ], [ 16, %cond.false12.i.i.i.i.i.i ], [ 16, %cond.false.i.i.i.i.i.i ], [ 16, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i ]
-  %__y.addr.1.i.i.i.i = phi ptr [ %__y.addr.010.i.i.i.i, %if.else.i.i.i.i ], [ %__x.addr.011.i.i.i.i, %cond.false12.i.i.i.i.i.i ], [ %__x.addr.011.i.i.i.i, %cond.false.i.i.i.i.i.i ], [ %__x.addr.011.i.i.i.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i ]
+  %.sink.i.i.i.i = phi i64 [ 24, %if.else.i.i.i.i ], [ 16, %cond.false.i.i.i.i.i.i ], [ 16, %cond.false12.i.i.i.i.i.i ], [ 16, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i ]
+  %__y.addr.1.i.i.i.i = phi ptr [ %__y.addr.010.i.i.i.i, %if.else.i.i.i.i ], [ %__x.addr.011.i.i.i.i, %cond.false.i.i.i.i.i.i ], [ %__x.addr.011.i.i.i.i, %cond.false12.i.i.i.i.i.i ], [ %__x.addr.011.i.i.i.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i ]
   %_M_right.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__x.addr.011.i.i.i.i, i64 %.sink.i.i.i.i
   %__x.addr.1.i.i.i.i = load ptr, ptr %_M_right.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %__x.addr.1.i.i.i.i, null
@@ -87802,7 +87802,7 @@ if.then.i:                                        ; preds = %_ZNKSt4lessIN7openv
   br label %invoke.cont24
 
 invoke.cont24:                                    ; preds = %if.then.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i, %cond.false12.i.i.i, %cond.false.i.i.i
-  %__i.sroa.0.0.i = phi ptr [ %__y.addr.1.i.i.i.i, %cond.false12.i.i.i ], [ %__y.addr.1.i.i.i.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i ], [ %__y.addr.1.i.i.i.i, %cond.false.i.i.i ], [ %call12.i13, %if.then.i ]
+  %__i.sroa.0.0.i = phi ptr [ %__y.addr.1.i.i.i.i, %cond.false.i.i.i ], [ %__y.addr.1.i.i.i.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i ], [ %__y.addr.1.i.i.i.i, %cond.false12.i.i.i ], [ %call12.i13, %if.then.i ]
   %second.i12 = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i, i64 48
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp9.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp10.i)
@@ -87992,8 +87992,8 @@ if.else.i.i.i.i119:                               ; preds = %_ZNKSt4lessIN7openv
   br label %if.end.i.i.i.i94
 
 if.end.i.i.i.i94:                                 ; preds = %if.else.i.i.i.i119, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i91, %cond.false12.i.i.i.i.i.i89, %cond.false.i.i.i.i.i.i84
-  %.sink.i.i.i.i95 = phi i64 [ 24, %if.else.i.i.i.i119 ], [ 16, %cond.false12.i.i.i.i.i.i89 ], [ 16, %cond.false.i.i.i.i.i.i84 ], [ 16, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i91 ]
-  %__y.addr.1.i.i.i.i96 = phi ptr [ %__y.addr.010.i.i.i.i81, %if.else.i.i.i.i119 ], [ %__x.addr.011.i.i.i.i80, %cond.false12.i.i.i.i.i.i89 ], [ %__x.addr.011.i.i.i.i80, %cond.false.i.i.i.i.i.i84 ], [ %__x.addr.011.i.i.i.i80, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i91 ]
+  %.sink.i.i.i.i95 = phi i64 [ 24, %if.else.i.i.i.i119 ], [ 16, %cond.false.i.i.i.i.i.i84 ], [ 16, %cond.false12.i.i.i.i.i.i89 ], [ 16, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i91 ]
+  %__y.addr.1.i.i.i.i96 = phi ptr [ %__y.addr.010.i.i.i.i81, %if.else.i.i.i.i119 ], [ %__x.addr.011.i.i.i.i80, %cond.false.i.i.i.i.i.i84 ], [ %__x.addr.011.i.i.i.i80, %cond.false12.i.i.i.i.i.i89 ], [ %__x.addr.011.i.i.i.i80, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i91 ]
   %_M_right.i.i.i.i.i97 = getelementptr inbounds nuw i8, ptr %__x.addr.011.i.i.i.i80, i64 %.sink.i.i.i.i95
   %__x.addr.1.i.i.i.i98 = load ptr, ptr %_M_right.i.i.i.i.i97, align 8
   %cmp.not.i.i.i.i99 = icmp eq ptr %__x.addr.1.i.i.i.i98, null
@@ -88036,7 +88036,7 @@ if.then.i117:                                     ; preds = %_ZNKSt4lessIN7openv
   br label %invoke.cont62
 
 invoke.cont62:                                    ; preds = %if.then.i117, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i112, %cond.false12.i.i.i110, %cond.false.i.i.i105
-  %__i.sroa.0.0.i115 = phi ptr [ %__y.addr.1.i.i.i.i96, %cond.false12.i.i.i110 ], [ %__y.addr.1.i.i.i.i96, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i112 ], [ %__y.addr.1.i.i.i.i96, %cond.false.i.i.i105 ], [ %call12.i121, %if.then.i117 ]
+  %__i.sroa.0.0.i115 = phi ptr [ %__y.addr.1.i.i.i.i96, %cond.false.i.i.i105 ], [ %__y.addr.1.i.i.i.i96, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i112 ], [ %__y.addr.1.i.i.i.i96, %cond.false12.i.i.i110 ], [ %call12.i121, %if.then.i117 ]
   %second.i116 = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i115, i64 48
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp9.i71)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp10.i72)
@@ -92364,8 +92364,8 @@ if.else.i.i.i:                                    ; preds = %_ZNKSt4lessIN7openv
   br label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i, %cond.false12.i.i.i.i.i, %cond.false.i.i.i.i.i
-  %.sink.i.i.i = phi i64 [ 24, %if.else.i.i.i ], [ 16, %cond.false12.i.i.i.i.i ], [ 16, %cond.false.i.i.i.i.i ], [ 16, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i ]
-  %__y.addr.1.i.i.i = phi ptr [ %__y.addr.010.i.i.i, %if.else.i.i.i ], [ %__x.addr.011.i.i.i, %cond.false12.i.i.i.i.i ], [ %__x.addr.011.i.i.i, %cond.false.i.i.i.i.i ], [ %__x.addr.011.i.i.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i ]
+  %.sink.i.i.i = phi i64 [ 24, %if.else.i.i.i ], [ 16, %cond.false.i.i.i.i.i ], [ 16, %cond.false12.i.i.i.i.i ], [ 16, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i ]
+  %__y.addr.1.i.i.i = phi ptr [ %__y.addr.010.i.i.i, %if.else.i.i.i ], [ %__x.addr.011.i.i.i, %cond.false.i.i.i.i.i ], [ %__x.addr.011.i.i.i, %cond.false12.i.i.i.i.i ], [ %__x.addr.011.i.i.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i ]
   %_M_right.i.i.i.i = getelementptr inbounds nuw i8, ptr %__x.addr.011.i.i.i, i64 %.sink.i.i.i
   %__x.addr.1.i.i.i = load ptr, ptr %_M_right.i.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %__x.addr.1.i.i.i, null
@@ -92522,8 +92522,8 @@ if.else.i.i.i.i:                                  ; preds = %_ZNKSt4lessIN7openv
   br label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.else.i.i.i.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i, %cond.false12.i.i.i.i.i.i, %cond.false.i.i.i.i.i.i
-  %.sink.i.i.i.i = phi i64 [ 24, %if.else.i.i.i.i ], [ 16, %cond.false12.i.i.i.i.i.i ], [ 16, %cond.false.i.i.i.i.i.i ], [ 16, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i ]
-  %__y.addr.1.i.i.i.i = phi ptr [ %__y.addr.010.i.i.i.i, %if.else.i.i.i.i ], [ %__x.addr.011.i.i.i.i, %cond.false12.i.i.i.i.i.i ], [ %__x.addr.011.i.i.i.i, %cond.false.i.i.i.i.i.i ], [ %__x.addr.011.i.i.i.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i ]
+  %.sink.i.i.i.i = phi i64 [ 24, %if.else.i.i.i.i ], [ 16, %cond.false.i.i.i.i.i.i ], [ 16, %cond.false12.i.i.i.i.i.i ], [ 16, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i ]
+  %__y.addr.1.i.i.i.i = phi ptr [ %__y.addr.010.i.i.i.i, %if.else.i.i.i.i ], [ %__x.addr.011.i.i.i.i, %cond.false.i.i.i.i.i.i ], [ %__x.addr.011.i.i.i.i, %cond.false12.i.i.i.i.i.i ], [ %__x.addr.011.i.i.i.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i ]
   %_M_right.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__x.addr.011.i.i.i.i, i64 %.sink.i.i.i.i
   %__x.addr.1.i.i.i.i = load ptr, ptr %_M_right.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %__x.addr.1.i.i.i.i, null
@@ -92566,7 +92566,7 @@ if.then.i:                                        ; preds = %_ZNKSt4lessIN7openv
   br label %invoke.cont24
 
 invoke.cont24:                                    ; preds = %if.then.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i, %cond.false12.i.i.i, %cond.false.i.i.i
-  %__i.sroa.0.0.i = phi ptr [ %__y.addr.1.i.i.i.i, %cond.false12.i.i.i ], [ %__y.addr.1.i.i.i.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i ], [ %__y.addr.1.i.i.i.i, %cond.false.i.i.i ], [ %call12.i13, %if.then.i ]
+  %__i.sroa.0.0.i = phi ptr [ %__y.addr.1.i.i.i.i, %cond.false.i.i.i ], [ %__y.addr.1.i.i.i.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i ], [ %__y.addr.1.i.i.i.i, %cond.false12.i.i.i ], [ %call12.i13, %if.then.i ]
   %second.i12 = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i, i64 48
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp9.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp10.i)
@@ -92756,8 +92756,8 @@ if.else.i.i.i.i119:                               ; preds = %_ZNKSt4lessIN7openv
   br label %if.end.i.i.i.i94
 
 if.end.i.i.i.i94:                                 ; preds = %if.else.i.i.i.i119, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i91, %cond.false12.i.i.i.i.i.i89, %cond.false.i.i.i.i.i.i84
-  %.sink.i.i.i.i95 = phi i64 [ 24, %if.else.i.i.i.i119 ], [ 16, %cond.false12.i.i.i.i.i.i89 ], [ 16, %cond.false.i.i.i.i.i.i84 ], [ 16, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i91 ]
-  %__y.addr.1.i.i.i.i96 = phi ptr [ %__y.addr.010.i.i.i.i81, %if.else.i.i.i.i119 ], [ %__x.addr.011.i.i.i.i80, %cond.false12.i.i.i.i.i.i89 ], [ %__x.addr.011.i.i.i.i80, %cond.false.i.i.i.i.i.i84 ], [ %__x.addr.011.i.i.i.i80, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i91 ]
+  %.sink.i.i.i.i95 = phi i64 [ 24, %if.else.i.i.i.i119 ], [ 16, %cond.false.i.i.i.i.i.i84 ], [ 16, %cond.false12.i.i.i.i.i.i89 ], [ 16, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i91 ]
+  %__y.addr.1.i.i.i.i96 = phi ptr [ %__y.addr.010.i.i.i.i81, %if.else.i.i.i.i119 ], [ %__x.addr.011.i.i.i.i80, %cond.false.i.i.i.i.i.i84 ], [ %__x.addr.011.i.i.i.i80, %cond.false12.i.i.i.i.i.i89 ], [ %__x.addr.011.i.i.i.i80, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i91 ]
   %_M_right.i.i.i.i.i97 = getelementptr inbounds nuw i8, ptr %__x.addr.011.i.i.i.i80, i64 %.sink.i.i.i.i95
   %__x.addr.1.i.i.i.i98 = load ptr, ptr %_M_right.i.i.i.i.i97, align 8
   %cmp.not.i.i.i.i99 = icmp eq ptr %__x.addr.1.i.i.i.i98, null
@@ -92800,7 +92800,7 @@ if.then.i117:                                     ; preds = %_ZNKSt4lessIN7openv
   br label %invoke.cont62
 
 invoke.cont62:                                    ; preds = %if.then.i117, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i112, %cond.false12.i.i.i110, %cond.false.i.i.i105
-  %__i.sroa.0.0.i115 = phi ptr [ %__y.addr.1.i.i.i.i96, %cond.false12.i.i.i110 ], [ %__y.addr.1.i.i.i.i96, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i112 ], [ %__y.addr.1.i.i.i.i96, %cond.false.i.i.i105 ], [ %call12.i121, %if.then.i117 ]
+  %__i.sroa.0.0.i115 = phi ptr [ %__y.addr.1.i.i.i.i96, %cond.false.i.i.i105 ], [ %__y.addr.1.i.i.i.i96, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i112 ], [ %__y.addr.1.i.i.i.i96, %cond.false12.i.i.i110 ], [ %call12.i121, %if.then.i117 ]
   %second.i116 = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i115, i64 48
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp9.i71)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp10.i72)
@@ -97128,8 +97128,8 @@ if.else.i.i.i:                                    ; preds = %_ZNKSt4lessIN7openv
   br label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i, %cond.false12.i.i.i.i.i, %cond.false.i.i.i.i.i
-  %.sink.i.i.i = phi i64 [ 24, %if.else.i.i.i ], [ 16, %cond.false12.i.i.i.i.i ], [ 16, %cond.false.i.i.i.i.i ], [ 16, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i ]
-  %__y.addr.1.i.i.i = phi ptr [ %__y.addr.010.i.i.i, %if.else.i.i.i ], [ %__x.addr.011.i.i.i, %cond.false12.i.i.i.i.i ], [ %__x.addr.011.i.i.i, %cond.false.i.i.i.i.i ], [ %__x.addr.011.i.i.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i ]
+  %.sink.i.i.i = phi i64 [ 24, %if.else.i.i.i ], [ 16, %cond.false.i.i.i.i.i ], [ 16, %cond.false12.i.i.i.i.i ], [ 16, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i ]
+  %__y.addr.1.i.i.i = phi ptr [ %__y.addr.010.i.i.i, %if.else.i.i.i ], [ %__x.addr.011.i.i.i, %cond.false.i.i.i.i.i ], [ %__x.addr.011.i.i.i, %cond.false12.i.i.i.i.i ], [ %__x.addr.011.i.i.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i ]
   %_M_right.i.i.i.i = getelementptr inbounds nuw i8, ptr %__x.addr.011.i.i.i, i64 %.sink.i.i.i
   %__x.addr.1.i.i.i = load ptr, ptr %_M_right.i.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %__x.addr.1.i.i.i, null
@@ -97286,8 +97286,8 @@ if.else.i.i.i.i:                                  ; preds = %_ZNKSt4lessIN7openv
   br label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.else.i.i.i.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i, %cond.false12.i.i.i.i.i.i, %cond.false.i.i.i.i.i.i
-  %.sink.i.i.i.i = phi i64 [ 24, %if.else.i.i.i.i ], [ 16, %cond.false12.i.i.i.i.i.i ], [ 16, %cond.false.i.i.i.i.i.i ], [ 16, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i ]
-  %__y.addr.1.i.i.i.i = phi ptr [ %__y.addr.010.i.i.i.i, %if.else.i.i.i.i ], [ %__x.addr.011.i.i.i.i, %cond.false12.i.i.i.i.i.i ], [ %__x.addr.011.i.i.i.i, %cond.false.i.i.i.i.i.i ], [ %__x.addr.011.i.i.i.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i ]
+  %.sink.i.i.i.i = phi i64 [ 24, %if.else.i.i.i.i ], [ 16, %cond.false.i.i.i.i.i.i ], [ 16, %cond.false12.i.i.i.i.i.i ], [ 16, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i ]
+  %__y.addr.1.i.i.i.i = phi ptr [ %__y.addr.010.i.i.i.i, %if.else.i.i.i.i ], [ %__x.addr.011.i.i.i.i, %cond.false.i.i.i.i.i.i ], [ %__x.addr.011.i.i.i.i, %cond.false12.i.i.i.i.i.i ], [ %__x.addr.011.i.i.i.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i ]
   %_M_right.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__x.addr.011.i.i.i.i, i64 %.sink.i.i.i.i
   %__x.addr.1.i.i.i.i = load ptr, ptr %_M_right.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %__x.addr.1.i.i.i.i, null
@@ -97330,7 +97330,7 @@ if.then.i:                                        ; preds = %_ZNKSt4lessIN7openv
   br label %invoke.cont24
 
 invoke.cont24:                                    ; preds = %if.then.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i, %cond.false12.i.i.i, %cond.false.i.i.i
-  %__i.sroa.0.0.i = phi ptr [ %__y.addr.1.i.i.i.i, %cond.false12.i.i.i ], [ %__y.addr.1.i.i.i.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i ], [ %__y.addr.1.i.i.i.i, %cond.false.i.i.i ], [ %call12.i13, %if.then.i ]
+  %__i.sroa.0.0.i = phi ptr [ %__y.addr.1.i.i.i.i, %cond.false.i.i.i ], [ %__y.addr.1.i.i.i.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i ], [ %__y.addr.1.i.i.i.i, %cond.false12.i.i.i ], [ %call12.i13, %if.then.i ]
   %second.i12 = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i, i64 48
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp9.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp10.i)
@@ -97520,8 +97520,8 @@ if.else.i.i.i.i119:                               ; preds = %_ZNKSt4lessIN7openv
   br label %if.end.i.i.i.i94
 
 if.end.i.i.i.i94:                                 ; preds = %if.else.i.i.i.i119, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i91, %cond.false12.i.i.i.i.i.i89, %cond.false.i.i.i.i.i.i84
-  %.sink.i.i.i.i95 = phi i64 [ 24, %if.else.i.i.i.i119 ], [ 16, %cond.false12.i.i.i.i.i.i89 ], [ 16, %cond.false.i.i.i.i.i.i84 ], [ 16, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i91 ]
-  %__y.addr.1.i.i.i.i96 = phi ptr [ %__y.addr.010.i.i.i.i81, %if.else.i.i.i.i119 ], [ %__x.addr.011.i.i.i.i80, %cond.false12.i.i.i.i.i.i89 ], [ %__x.addr.011.i.i.i.i80, %cond.false.i.i.i.i.i.i84 ], [ %__x.addr.011.i.i.i.i80, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i91 ]
+  %.sink.i.i.i.i95 = phi i64 [ 24, %if.else.i.i.i.i119 ], [ 16, %cond.false.i.i.i.i.i.i84 ], [ 16, %cond.false12.i.i.i.i.i.i89 ], [ 16, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i91 ]
+  %__y.addr.1.i.i.i.i96 = phi ptr [ %__y.addr.010.i.i.i.i81, %if.else.i.i.i.i119 ], [ %__x.addr.011.i.i.i.i80, %cond.false.i.i.i.i.i.i84 ], [ %__x.addr.011.i.i.i.i80, %cond.false12.i.i.i.i.i.i89 ], [ %__x.addr.011.i.i.i.i80, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i91 ]
   %_M_right.i.i.i.i.i97 = getelementptr inbounds nuw i8, ptr %__x.addr.011.i.i.i.i80, i64 %.sink.i.i.i.i95
   %__x.addr.1.i.i.i.i98 = load ptr, ptr %_M_right.i.i.i.i.i97, align 8
   %cmp.not.i.i.i.i99 = icmp eq ptr %__x.addr.1.i.i.i.i98, null
@@ -97564,7 +97564,7 @@ if.then.i117:                                     ; preds = %_ZNKSt4lessIN7openv
   br label %invoke.cont62
 
 invoke.cont62:                                    ; preds = %if.then.i117, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i112, %cond.false12.i.i.i110, %cond.false.i.i.i105
-  %__i.sroa.0.0.i115 = phi ptr [ %__y.addr.1.i.i.i.i96, %cond.false12.i.i.i110 ], [ %__y.addr.1.i.i.i.i96, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i112 ], [ %__y.addr.1.i.i.i.i96, %cond.false.i.i.i105 ], [ %call12.i121, %if.then.i117 ]
+  %__i.sroa.0.0.i115 = phi ptr [ %__y.addr.1.i.i.i.i96, %cond.false.i.i.i105 ], [ %__y.addr.1.i.i.i.i96, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i112 ], [ %__y.addr.1.i.i.i.i96, %cond.false12.i.i.i110 ], [ %call12.i121, %if.then.i117 ]
   %second.i116 = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i115, i64 48
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp9.i71)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp10.i72)
@@ -101892,8 +101892,8 @@ if.else.i.i.i:                                    ; preds = %_ZNKSt4lessIN7openv
   br label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i, %cond.false12.i.i.i.i.i, %cond.false.i.i.i.i.i
-  %.sink.i.i.i = phi i64 [ 24, %if.else.i.i.i ], [ 16, %cond.false12.i.i.i.i.i ], [ 16, %cond.false.i.i.i.i.i ], [ 16, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i ]
-  %__y.addr.1.i.i.i = phi ptr [ %__y.addr.010.i.i.i, %if.else.i.i.i ], [ %__x.addr.011.i.i.i, %cond.false12.i.i.i.i.i ], [ %__x.addr.011.i.i.i, %cond.false.i.i.i.i.i ], [ %__x.addr.011.i.i.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i ]
+  %.sink.i.i.i = phi i64 [ 24, %if.else.i.i.i ], [ 16, %cond.false.i.i.i.i.i ], [ 16, %cond.false12.i.i.i.i.i ], [ 16, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i ]
+  %__y.addr.1.i.i.i = phi ptr [ %__y.addr.010.i.i.i, %if.else.i.i.i ], [ %__x.addr.011.i.i.i, %cond.false.i.i.i.i.i ], [ %__x.addr.011.i.i.i, %cond.false12.i.i.i.i.i ], [ %__x.addr.011.i.i.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i ]
   %_M_right.i.i.i.i = getelementptr inbounds nuw i8, ptr %__x.addr.011.i.i.i, i64 %.sink.i.i.i
   %__x.addr.1.i.i.i = load ptr, ptr %_M_right.i.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %__x.addr.1.i.i.i, null
@@ -102050,8 +102050,8 @@ if.else.i.i.i.i:                                  ; preds = %_ZNKSt4lessIN7openv
   br label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.else.i.i.i.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i, %cond.false12.i.i.i.i.i.i, %cond.false.i.i.i.i.i.i
-  %.sink.i.i.i.i = phi i64 [ 24, %if.else.i.i.i.i ], [ 16, %cond.false12.i.i.i.i.i.i ], [ 16, %cond.false.i.i.i.i.i.i ], [ 16, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i ]
-  %__y.addr.1.i.i.i.i = phi ptr [ %__y.addr.010.i.i.i.i, %if.else.i.i.i.i ], [ %__x.addr.011.i.i.i.i, %cond.false12.i.i.i.i.i.i ], [ %__x.addr.011.i.i.i.i, %cond.false.i.i.i.i.i.i ], [ %__x.addr.011.i.i.i.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i ]
+  %.sink.i.i.i.i = phi i64 [ 24, %if.else.i.i.i.i ], [ 16, %cond.false.i.i.i.i.i.i ], [ 16, %cond.false12.i.i.i.i.i.i ], [ 16, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i ]
+  %__y.addr.1.i.i.i.i = phi ptr [ %__y.addr.010.i.i.i.i, %if.else.i.i.i.i ], [ %__x.addr.011.i.i.i.i, %cond.false.i.i.i.i.i.i ], [ %__x.addr.011.i.i.i.i, %cond.false12.i.i.i.i.i.i ], [ %__x.addr.011.i.i.i.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i ]
   %_M_right.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__x.addr.011.i.i.i.i, i64 %.sink.i.i.i.i
   %__x.addr.1.i.i.i.i = load ptr, ptr %_M_right.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %__x.addr.1.i.i.i.i, null
@@ -102094,7 +102094,7 @@ if.then.i:                                        ; preds = %_ZNKSt4lessIN7openv
   br label %invoke.cont24
 
 invoke.cont24:                                    ; preds = %if.then.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i, %cond.false12.i.i.i, %cond.false.i.i.i
-  %__i.sroa.0.0.i = phi ptr [ %__y.addr.1.i.i.i.i, %cond.false12.i.i.i ], [ %__y.addr.1.i.i.i.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i ], [ %__y.addr.1.i.i.i.i, %cond.false.i.i.i ], [ %call12.i13, %if.then.i ]
+  %__i.sroa.0.0.i = phi ptr [ %__y.addr.1.i.i.i.i, %cond.false.i.i.i ], [ %__y.addr.1.i.i.i.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i ], [ %__y.addr.1.i.i.i.i, %cond.false12.i.i.i ], [ %call12.i13, %if.then.i ]
   %second.i12 = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i, i64 48
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp9.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp10.i)
@@ -102284,8 +102284,8 @@ if.else.i.i.i.i119:                               ; preds = %_ZNKSt4lessIN7openv
   br label %if.end.i.i.i.i94
 
 if.end.i.i.i.i94:                                 ; preds = %if.else.i.i.i.i119, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i91, %cond.false12.i.i.i.i.i.i89, %cond.false.i.i.i.i.i.i84
-  %.sink.i.i.i.i95 = phi i64 [ 24, %if.else.i.i.i.i119 ], [ 16, %cond.false12.i.i.i.i.i.i89 ], [ 16, %cond.false.i.i.i.i.i.i84 ], [ 16, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i91 ]
-  %__y.addr.1.i.i.i.i96 = phi ptr [ %__y.addr.010.i.i.i.i81, %if.else.i.i.i.i119 ], [ %__x.addr.011.i.i.i.i80, %cond.false12.i.i.i.i.i.i89 ], [ %__x.addr.011.i.i.i.i80, %cond.false.i.i.i.i.i.i84 ], [ %__x.addr.011.i.i.i.i80, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i91 ]
+  %.sink.i.i.i.i95 = phi i64 [ 24, %if.else.i.i.i.i119 ], [ 16, %cond.false.i.i.i.i.i.i84 ], [ 16, %cond.false12.i.i.i.i.i.i89 ], [ 16, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i91 ]
+  %__y.addr.1.i.i.i.i96 = phi ptr [ %__y.addr.010.i.i.i.i81, %if.else.i.i.i.i119 ], [ %__x.addr.011.i.i.i.i80, %cond.false.i.i.i.i.i.i84 ], [ %__x.addr.011.i.i.i.i80, %cond.false12.i.i.i.i.i.i89 ], [ %__x.addr.011.i.i.i.i80, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i91 ]
   %_M_right.i.i.i.i.i97 = getelementptr inbounds nuw i8, ptr %__x.addr.011.i.i.i.i80, i64 %.sink.i.i.i.i95
   %__x.addr.1.i.i.i.i98 = load ptr, ptr %_M_right.i.i.i.i.i97, align 8
   %cmp.not.i.i.i.i99 = icmp eq ptr %__x.addr.1.i.i.i.i98, null
@@ -102328,7 +102328,7 @@ if.then.i117:                                     ; preds = %_ZNKSt4lessIN7openv
   br label %invoke.cont62
 
 invoke.cont62:                                    ; preds = %if.then.i117, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i112, %cond.false12.i.i.i110, %cond.false.i.i.i105
-  %__i.sroa.0.0.i115 = phi ptr [ %__y.addr.1.i.i.i.i96, %cond.false12.i.i.i110 ], [ %__y.addr.1.i.i.i.i96, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i112 ], [ %__y.addr.1.i.i.i.i96, %cond.false.i.i.i105 ], [ %call12.i121, %if.then.i117 ]
+  %__i.sroa.0.0.i115 = phi ptr [ %__y.addr.1.i.i.i.i96, %cond.false.i.i.i105 ], [ %__y.addr.1.i.i.i.i96, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i112 ], [ %__y.addr.1.i.i.i.i96, %cond.false12.i.i.i110 ], [ %call12.i121, %if.then.i117 ]
   %second.i116 = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i115, i64 48
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp9.i71)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp10.i72)

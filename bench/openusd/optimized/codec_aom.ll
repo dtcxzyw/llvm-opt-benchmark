@@ -417,7 +417,7 @@ define internal range(i32 0, 2) i32 @aomCodecGetNextImage(ptr noundef readonly c
   br label %.loopexit
 
 .loopexit:                                        ; preds = %49, %.loopexit.sink.split, %173, %178, %181, %69, %61, %62, %27, %20, %11
-  %.096 = phi i32 [ 0, %61 ], [ 0, %173 ], [ 0, %69 ], [ 0, %27 ], [ 0, %20 ], [ 0, %11 ], [ 0, %62 ], [ 0, %181 ], [ 0, %178 ], [ 1, %.loopexit.sink.split ], [ 0, %49 ]
+  %.096 = phi i32 [ 0, %61 ], [ 0, %173 ], [ 0, %69 ], [ 1, %.loopexit.sink.split ], [ 0, %27 ], [ 0, %20 ], [ 0, %11 ], [ 0, %62 ], [ 0, %181 ], [ 0, %178 ], [ 0, %49 ]
   ret i32 %.096
 }
 

@@ -179,8 +179,8 @@ u_posrelat.exit.thread:                           ; preds = %12, %u_posrelat.exi
   br i1 %62, label %58, label %.loopexit62
 
 .critedge:                                        ; preds = %.loopexit62, %.critedge2, %.critedge2.thread, %.preheader63
-  %.044 = phi i64 [ %.24667, %.preheader63 ], [ %47, %.critedge2.thread ], [ %53, %.critedge2 ], [ %.246, %.loopexit62 ]
-  %.2 = phi i64 [ %.056, %.preheader63 ], [ 0, %.critedge2.thread ], [ %49, %.critedge2 ], [ %59, %.loopexit62 ]
+  %.044 = phi i64 [ %53, %.critedge2 ], [ %.24667, %.preheader63 ], [ %47, %.critedge2.thread ], [ %.246, %.loopexit62 ]
+  %.2 = phi i64 [ %49, %.critedge2 ], [ %.056, %.preheader63 ], [ 0, %.critedge2.thread ], [ %59, %.loopexit62 ]
   %.not = icmp eq i64 %.044, 0
   br i1 %.not, label %.critedge.thread, label %.critedge.thread96
 
@@ -458,7 +458,7 @@ u_posrelat.exit42:                                ; preds = %u_posrelat.exit, %1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %108, %74, %.loopexit.sink.split, %35, %30
-  %.032 = phi i32 [ 0, %30 ], [ 0, %35 ], [ %113, %.loopexit.sink.split ], [ %77, %74 ], [ %111, %108 ]
+  %.032 = phi i32 [ 0, %30 ], [ %113, %.loopexit.sink.split ], [ %77, %74 ], [ 0, %35 ], [ %111, %108 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.032
 }
@@ -740,7 +740,7 @@ u_posrelat.exit37:                                ; preds = %u_posrelat.exit, %1
   br i1 %.not33.not, label %.lr.ph.split, label %._crit_edge
 
 .thread:                                          ; preds = %._crit_edge.i, %97, %.lr.ph.i, %66, %59, %._crit_edge.i.us, %.lr.ph.i.us
-  %.12852 = phi i64 [ %.12854, %.lr.ph.i ], [ %.12854.us, %.lr.ph.i.us ], [ %.12854.us, %66 ], [ %.12854.us, %._crit_edge.i.us ], [ %.12854.us, %59 ], [ %.12854, %97 ], [ %.12854, %._crit_edge.i ]
+  %.12852 = phi i64 [ %.12854.us, %.lr.ph.i.us ], [ %.12854.us, %66 ], [ %.12854, %.lr.ph.i ], [ %.12854.us, %._crit_edge.i.us ], [ %.12854.us, %59 ], [ %.12854, %97 ], [ %.12854, %._crit_edge.i ]
   call void @lua_pushnil(ptr noundef %0) #3
   %109 = add nsw i64 %.12852, 1
   br label %._crit_edge

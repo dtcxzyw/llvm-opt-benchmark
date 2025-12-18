@@ -1473,8 +1473,8 @@ Py_DECREF.exit:                                   ; preds = %45, %49, %52
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %63, %31, %.thread, %19
-  %65 = phi i1 [ false, %.thread ], [ false, %19 ], [ true, %31 ], [ true, %63 ]
-  %66 = phi i64 [ %.val108, %.thread ], [ 0, %19 ], [ 0, %31 ], [ %.val108, %63 ]
+  %65 = phi i1 [ false, %.thread ], [ true, %31 ], [ false, %19 ], [ true, %63 ]
+  %66 = phi i64 [ %.val108, %.thread ], [ 0, %31 ], [ 0, %19 ], [ %.val108, %63 ]
   %67 = icmp eq ptr %5, @_Py_NoneStruct
   br i1 %67, label %_ctypes_get_ffi_type.exit, label %68
 
@@ -1797,7 +1797,7 @@ Py_XDECREF.exit:                                  ; preds = %.lr.ph136, %194, %1
   br i1 %exitcond147.not, label %.loopexit, label %.lr.ph136, !llvm.loop !49
 
 .loopexit:                                        ; preds = %Py_XDECREF.exit, %139, %152, %188, %_call_function_pointer.exit.thread, %GetResult.exit, %12
-  %.0 = phi ptr [ null, %12 ], [ %.097, %GetResult.exit ], [ %142, %139 ], [ %154, %152 ], [ %180, %188 ], [ null, %_call_function_pointer.exit.thread ], [ %.097164, %Py_XDECREF.exit ]
+  %.0 = phi ptr [ null, %12 ], [ %.097, %GetResult.exit ], [ %142, %139 ], [ null, %_call_function_pointer.exit.thread ], [ %154, %152 ], [ %180, %188 ], [ %.097164, %Py_XDECREF.exit ]
   ret ptr %.0
 }
 

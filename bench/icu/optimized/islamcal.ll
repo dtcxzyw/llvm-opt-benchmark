@@ -1461,8 +1461,8 @@ define void @_ZN6icu_7723IslamicUmalquraCalendar19handleComputeFieldsEiR10UError
   br i1 %78, label %.lr.ph, label %.thread73, !llvm.loop !33
 
 .thread73:                                        ; preds = %59, %71, %..thread73.loopexit88_crit_edge, %63
-  %.pre-phi = phi i32 [ %45, %63 ], [ %.pre96, %..thread73.loopexit88_crit_edge ], [ %45, %71 ], [ %45, %59 ]
-  %.152 = phi i32 [ 0, %63 ], [ 0, %..thread73.loopexit88_crit_edge ], [ %73, %71 ], [ 11, %59 ]
+  %.pre-phi = phi i32 [ %45, %71 ], [ %45, %63 ], [ %.pre96, %..thread73.loopexit88_crit_edge ], [ %45, %59 ]
+  %.152 = phi i32 [ %73, %71 ], [ 0, %63 ], [ 0, %..thread73.loopexit88_crit_edge ], [ 11, %59 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %79 = load ptr, ptr %0, align 8, !tbaa !3
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 456

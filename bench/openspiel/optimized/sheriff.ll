@@ -1577,8 +1577,8 @@ _ZNK10open_spiel7sheriff12SheriffState10IsTerminalEv.exit: ; preds = %16
   br label %.body
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %select.unfold, %117, %101, %_ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i18, %71, %58, %_ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i
-  %.sroa.34.0.ph.ph = phi ptr [ %.sroa.34.3105, %101 ], [ %.sroa.15.1106, %117 ], [ null, %_ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i18 ], [ null, %select.unfold ], [ %.sroa.34.2101, %58 ], [ %.sroa.15.0102, %71 ], [ null, %_ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i ]
-  %.sroa.0.0.ph.ph = phi ptr [ %.sroa.0.3107, %101 ], [ %.sroa.0.3107, %117 ], [ null, %_ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i18 ], [ null, %select.unfold ], [ %.sroa.0.2103, %58 ], [ %.sroa.0.2103, %71 ], [ null, %_ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i ]
+  %.sroa.34.0.ph.ph = phi ptr [ %.sroa.15.1106, %117 ], [ null, %_ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i ], [ null, %_ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i18 ], [ null, %select.unfold ], [ %.sroa.34.2101, %58 ], [ %.sroa.15.0102, %71 ], [ %.sroa.34.3105, %101 ]
+  %.sroa.0.0.ph.ph = phi ptr [ %.sroa.0.3107, %117 ], [ null, %_ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i ], [ null, %_ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i18 ], [ null, %select.unfold ], [ %.sroa.0.2103, %58 ], [ %.sroa.0.2103, %71 ], [ %.sroa.0.3107, %101 ]
   %lpad.loopexit.split-lp81 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -1882,9 +1882,9 @@ _ZNSt6vectorIlSaIlEEaSESt16initializer_listIlE.exit: ; preds = %select.unfold
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZNSt6vectorIlSaIlEE9push_backEOl.exit, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit37, %_ZNSt6vectorIlSaIlEEaSESt16initializer_listIlE.exit
-  %.sroa.34.4 = phi ptr [ %133, %_ZNSt6vectorIlSaIlEEaSESt16initializer_listIlE.exit ], [ %.sroa.34.10, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit37 ], [ %.sroa.34.7, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit ]
-  %.sroa.15.2 = phi ptr [ %133, %_ZNSt6vectorIlSaIlEEaSESt16initializer_listIlE.exit ], [ %.sroa.15.6, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit37 ], [ %.sroa.15.4, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit ]
-  %.sroa.0.4 = phi ptr [ %132, %_ZNSt6vectorIlSaIlEEaSESt16initializer_listIlE.exit ], [ %.sroa.0.10, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit37 ], [ %.sroa.0.7, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit ]
+  %.sroa.34.4 = phi ptr [ %.sroa.34.10, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit37 ], [ %133, %_ZNSt6vectorIlSaIlEEaSESt16initializer_listIlE.exit ], [ %.sroa.34.7, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit ]
+  %.sroa.15.2 = phi ptr [ %.sroa.15.6, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit37 ], [ %133, %_ZNSt6vectorIlSaIlEEaSESt16initializer_listIlE.exit ], [ %.sroa.15.4, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit ]
+  %.sroa.0.4 = phi ptr [ %.sroa.0.10, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit37 ], [ %132, %_ZNSt6vectorIlSaIlEEaSESt16initializer_listIlE.exit ], [ %.sroa.0.7, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit ]
   store ptr %.sroa.0.4, ptr %0, align 8
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.15.2, ptr %134, align 8

@@ -354,7 +354,7 @@ parse_frame_object.exit.thread:                   ; preds = %read_memory.exit.i,
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %.backedge, %.preheader, %103, %100, %parse_frame_object.exit.thread, %28, %24
-  %.2 = phi ptr [ null, %24 ], [ null, %28 ], [ null, %parse_frame_object.exit.thread ], [ null, %100 ], [ null, %103 ], [ %29, %.preheader ], [ %29, %.backedge ]
+  %.2 = phi ptr [ null, %24 ], [ null, %28 ], [ null, %103 ], [ null, %parse_frame_object.exit.thread ], [ null, %100 ], [ %29, %.preheader ], [ %29, %.backedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %104
 

@@ -1638,7 +1638,7 @@ define range(i32 0, 2) i32 @png_set_text_2(ptr noalias noundef %0, ptr noalias n
   br label %.loopexit
 
 .loopexit:                                        ; preds = %106, %.loopexit.sink.split, %4
-  %.0 = phi i32 [ 0, %4 ], [ 1, %.loopexit.sink.split ], [ 0, %106 ]
+  %.0 = phi i32 [ 1, %.loopexit.sink.split ], [ 0, %4 ], [ 0, %106 ]
   ret i32 %.0
 }
 

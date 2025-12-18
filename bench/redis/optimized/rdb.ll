@@ -427,7 +427,7 @@ define dso_local noundef i64 @rdbWriteRaw(ptr noundef %0, ptr noundef %1, i64 no
   br i1 %.not31.i, label %rioWrite.exit, label %12
 
 rioWrite.exit:                                    ; preds = %24, %.thread.i, %4, %3, %.preheader.i
-  %.0 = phi i64 [ %2, %3 ], [ 0, %.preheader.i ], [ -1, %4 ], [ -1, %.thread.i ], [ %2, %24 ]
+  %.0 = phi i64 [ %2, %3 ], [ -1, %.thread.i ], [ 0, %.preheader.i ], [ -1, %4 ], [ %2, %24 ]
   ret i64 %.0
 }
 
@@ -476,7 +476,7 @@ rdbWriteRaw.exit.loopexit:                        ; preds = %14
   br label %rdbWriteRaw.exit
 
 rdbWriteRaw.exit:                                 ; preds = %rdbWriteRaw.exit.loopexit, %2, %4, %.thread.i.i
-  %.0.i = phi i32 [ 1, %2 ], [ -1, %4 ], [ -1, %.thread.i.i ], [ 1, %rdbWriteRaw.exit.loopexit ]
+  %.0.i = phi i32 [ 1, %2 ], [ -1, %.thread.i.i ], [ -1, %4 ], [ 1, %rdbWriteRaw.exit.loopexit ]
   ret i32 %.0.i
 }
 
@@ -708,7 +708,7 @@ define dso_local range(i64 -1, 9) i64 @rdbSaveMillisecondTime(ptr noundef %0, i6
   br i1 %.not31.i.i, label %rdbWriteRaw.exit, label %12
 
 rdbWriteRaw.exit:                                 ; preds = %24, %2, %4, %.thread.i.i
-  %.0.i = phi i64 [ 8, %2 ], [ -1, %4 ], [ -1, %.thread.i.i ], [ 8, %24 ]
+  %.0.i = phi i64 [ 8, %2 ], [ -1, %.thread.i.i ], [ -1, %4 ], [ 8, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %.0.i
 }
@@ -980,7 +980,7 @@ rdbWriteRaw.exit33.thread70:                      ; preds = %60
   %.not31.i.i42 = icmp eq i64 %98, 0
   br i1 %.not31.i.i42, label %rdbWriteRaw.exit44, label %.preheader.i.i37
 
-rdbWriteRaw.exit44.thread:                        ; preds = %78, %.thread.i.i43
+rdbWriteRaw.exit44.thread:                        ; preds = %.thread.i.i43, %78
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %rdbWriteRaw.exit
 
@@ -1081,8 +1081,8 @@ rdbWriteRaw.exit.loopexit:                        ; preds = %19
   store i64 %143, ptr %16, align 8, !tbaa !58
   br label %rdbWriteRaw.exit
 
-rdbWriteRaw.exit:                                 ; preds = %137, %53, %rdbWriteRaw.exit.loopexit, %.thread.i.i65, %120, %.thread.i.i54, %103, %.thread.i.i32, %61, %.thread.i.i21, %33, %.thread.i.i, %9, %7, %27, %rdbWriteRaw.exit44, %rdbWriteRaw.exit55.thread75, %rdbWriteRaw.exit44.thread
-  %.09 = phi i32 [ -1, %.thread.i.i32 ], [ -1, %.thread.i.i54 ], [ -1, %.thread.i.i ], [ -1, %rdbWriteRaw.exit44.thread ], [ -1, %.thread.i.i21 ], [ 5, %rdbWriteRaw.exit44 ], [ 1, %7 ], [ 2, %27 ], [ 9, %rdbWriteRaw.exit55.thread75 ], [ -1, %9 ], [ -1, %33 ], [ -1, %61 ], [ -1, %103 ], [ -1, %120 ], [ -1, %.thread.i.i65 ], [ 1, %rdbWriteRaw.exit.loopexit ], [ 2, %53 ], [ 9, %137 ]
+rdbWriteRaw.exit:                                 ; preds = %137, %53, %rdbWriteRaw.exit.loopexit, %120, %.thread.i.i65, %103, %.thread.i.i54, %61, %.thread.i.i32, %33, %.thread.i.i21, %9, %.thread.i.i, %7, %27, %rdbWriteRaw.exit44, %rdbWriteRaw.exit55.thread75, %rdbWriteRaw.exit44.thread
+  %.09 = phi i32 [ -1, %61 ], [ -1, %103 ], [ 2, %53 ], [ -1, %9 ], [ -1, %rdbWriteRaw.exit44.thread ], [ -1, %33 ], [ -1, %120 ], [ 1, %rdbWriteRaw.exit.loopexit ], [ 5, %rdbWriteRaw.exit44 ], [ 1, %7 ], [ 2, %27 ], [ 9, %rdbWriteRaw.exit55.thread75 ], [ -1, %.thread.i.i ], [ -1, %.thread.i.i21 ], [ -1, %.thread.i.i32 ], [ -1, %.thread.i.i54 ], [ -1, %.thread.i.i65 ], [ 9, %137 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.09
 }
@@ -1814,8 +1814,8 @@ rdbWriteRaw.exit31.thread34:                      ; preds = %.preheader.i.i24, %
   %59 = add i64 %58, %57
   br label %rdbWriteRaw.exit.thread
 
-rdbWriteRaw.exit.thread:                          ; preds = %.thread.i.i30, %30, %.thread.i.i, %6, %rdbWriteRaw.exit, %26, %rdbWriteRaw.exit31, %rdbWriteRaw.exit31.thread34
-  %.0 = phi i64 [ %59, %rdbWriteRaw.exit31.thread34 ], [ -1, %rdbWriteRaw.exit31 ], [ -1, %26 ], [ -1, %rdbWriteRaw.exit ], [ -1, %.thread.i.i ], [ -1, %6 ], [ -1, %30 ], [ -1, %.thread.i.i30 ]
+rdbWriteRaw.exit.thread:                          ; preds = %30, %.thread.i.i30, %6, %.thread.i.i, %rdbWriteRaw.exit, %26, %rdbWriteRaw.exit31, %rdbWriteRaw.exit31.thread34
+  %.0 = phi i64 [ %59, %rdbWriteRaw.exit31.thread34 ], [ -1, %rdbWriteRaw.exit31 ], [ -1, %26 ], [ -1, %rdbWriteRaw.exit ], [ -1, %6 ], [ -1, %.thread.i.i ], [ -1, %.thread.i.i30 ], [ -1, %30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %.0
 }
@@ -2187,8 +2187,8 @@ define dso_local i64 @rdbSaveRawString(ptr noundef %0, ptr noundef %1, i64 nound
   %.not31.i.i = icmp eq i64 %48, 0
   br i1 %.not31.i.i, label %.thread, label %34
 
-.thread:                                          ; preds = %46, %25, %.thread.i.i, %26
-  %.027.ph = phi i64 [ -1, %.thread.i.i ], [ -1, %26 ], [ %.0.i.ph, %25 ], [ %.0.i.ph, %46 ]
+.thread:                                          ; preds = %46, %25, %26, %.thread.i.i
+  %.027.ph = phi i64 [ -1, %26 ], [ -1, %.thread.i.i ], [ %.0.i.ph, %25 ], [ %.0.i.ph, %46 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %99
 
@@ -2299,7 +2299,7 @@ rdbWriteRaw.exit49:                               ; preds = %92, %71
   %98 = add i64 %2, %68
   br i1 %97, label %rdbWriteRaw.exit49.thread, label %99
 
-rdbWriteRaw.exit49.thread:                        ; preds = %.thread.i.i48, %72, %rdbWriteRaw.exit49
+rdbWriteRaw.exit49.thread:                        ; preds = %72, %.thread.i.i48, %rdbWriteRaw.exit49
   br label %99
 
 99:                                               ; preds = %rdbWriteRaw.exit49.thread, %rdbWriteRaw.exit49, %.thread, %70, %.thread66, %65, %rdbSaveLzfStringObject.exit
@@ -2481,11 +2481,11 @@ rdbWriteRaw.exit32:                               ; preds = %73, %52
   %79 = add nsw i64 %50, %48
   br i1 %78, label %rdbWriteRaw.exit32.thread, label %rdbWriteRaw.exit
 
-rdbWriteRaw.exit32.thread:                        ; preds = %.thread.i.i31, %53, %rdbWriteRaw.exit32
+rdbWriteRaw.exit32.thread:                        ; preds = %53, %.thread.i.i31, %rdbWriteRaw.exit32
   br label %rdbWriteRaw.exit
 
 rdbWriteRaw.exit:                                 ; preds = %39, %.preheader.i.i23, %rdbWriteRaw.exit32.thread, %rdbWriteRaw.exit32, %.thread.i.i, %19, %18, %47
-  %.0 = phi i64 [ -1, %47 ], [ -1, %.thread.i.i ], [ %.0.i.ph, %18 ], [ -1, %19 ], [ -1, %rdbWriteRaw.exit32.thread ], [ %79, %rdbWriteRaw.exit32 ], [ %50, %.preheader.i.i23 ], [ %.0.i.ph, %39 ]
+  %.0 = phi i64 [ -1, %47 ], [ -1, %19 ], [ %.0.i.ph, %18 ], [ -1, %.thread.i.i ], [ %50, %.preheader.i.i23 ], [ -1, %rdbWriteRaw.exit32.thread ], [ %79, %rdbWriteRaw.exit32 ], [ %.0.i.ph, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %.0
 }
@@ -3017,7 +3017,7 @@ define dso_local range(i64 -1, 257) i64 @rdbSaveDoubleValue(ptr noundef %0, doub
   br i1 %.not31.i.i, label %rdbWriteRaw.exit, label %39
 
 rdbWriteRaw.exit:                                 ; preds = %51, %30, %31, %.thread.i.i
-  %.0.i = phi i64 [ %.0, %30 ], [ -1, %31 ], [ -1, %.thread.i.i ], [ %.0, %51 ]
+  %.0.i = phi i64 [ %.0, %30 ], [ -1, %.thread.i.i ], [ -1, %31 ], [ %.0, %51 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %.0.i
 }
@@ -3223,7 +3223,7 @@ define dso_local range(i32 -1, 9) i32 @rdbSaveBinaryDoubleValue(ptr noundef %0, 
   br i1 %.not31.i.i, label %rdbWriteRaw.exit, label %12
 
 rdbWriteRaw.exit:                                 ; preds = %24, %2, %4, %.thread.i.i
-  %.0.i = phi i32 [ 8, %2 ], [ -1, %4 ], [ -1, %.thread.i.i ], [ 8, %24 ]
+  %.0.i = phi i32 [ 8, %2 ], [ -1, %.thread.i.i ], [ -1, %4 ], [ 8, %24 ]
   ret i32 %.0.i
 }
 
@@ -3278,7 +3278,7 @@ define dso_local range(i32 -1, 1) i32 @rdbLoadBinaryDoubleValue(ptr noundef %0, 
   br i1 %.not31.i, label %rioRead.exit, label %9
 
 rioRead.exit:                                     ; preds = %21, %.thread.i, %2
-  %26 = phi i32 [ -1, %2 ], [ -1, %.thread.i ], [ 0, %21 ]
+  %26 = phi i32 [ -1, %.thread.i ], [ -1, %2 ], [ 0, %21 ]
   ret i32 %26
 }
 
@@ -3340,7 +3340,7 @@ define dso_local range(i32 -1, 5) i32 @rdbSaveBinaryFloatValue(ptr noundef %0, f
   br i1 %.not31.i.i, label %rdbWriteRaw.exit, label %12
 
 rdbWriteRaw.exit:                                 ; preds = %24, %2, %4, %.thread.i.i
-  %.0.i = phi i32 [ 4, %2 ], [ -1, %4 ], [ -1, %.thread.i.i ], [ 4, %24 ]
+  %.0.i = phi i32 [ 4, %2 ], [ -1, %.thread.i.i ], [ -1, %4 ], [ 4, %24 ]
   ret i32 %.0.i
 }
 
@@ -3395,7 +3395,7 @@ define dso_local range(i32 -1, 1) i32 @rdbLoadBinaryFloatValue(ptr noundef %0, p
   br i1 %.not31.i, label %rioRead.exit, label %9
 
 rioRead.exit:                                     ; preds = %21, %.thread.i, %2
-  %26 = phi i32 [ -1, %2 ], [ -1, %.thread.i ], [ 0, %21 ]
+  %26 = phi i32 [ -1, %.thread.i ], [ -1, %2 ], [ 0, %21 ]
   ret i32 %26
 }
 
@@ -3470,7 +3470,7 @@ rdbWriteRaw.exit.loopexit.i:                      ; preds = %29
   br label %rdbSaveType.exit
 
 rdbSaveType.exit:                                 ; preds = %18, %19, %.thread.i.i.i, %rdbWriteRaw.exit.loopexit.i
-  %.0.i.i = phi i32 [ 1, %18 ], [ -1, %19 ], [ -1, %.thread.i.i.i ], [ 1, %rdbWriteRaw.exit.loopexit.i ]
+  %.0.i.i = phi i32 [ 1, %18 ], [ -1, %.thread.i.i.i ], [ -1, %19 ], [ 1, %rdbWriteRaw.exit.loopexit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %285
 
@@ -3526,7 +3526,7 @@ rdbWriteRaw.exit.loopexit.i33:                    ; preds = %51
   br label %rdbSaveType.exit35
 
 rdbSaveType.exit35:                               ; preds = %40, %41, %.thread.i.i.i34, %rdbWriteRaw.exit.loopexit.i33
-  %.0.i.i31 = phi i32 [ 1, %40 ], [ -1, %41 ], [ -1, %.thread.i.i.i34 ], [ 1, %rdbWriteRaw.exit.loopexit.i33 ]
+  %.0.i.i31 = phi i32 [ 1, %40 ], [ -1, %.thread.i.i.i34 ], [ -1, %41 ], [ 1, %rdbWriteRaw.exit.loopexit.i33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %285
 
@@ -3588,7 +3588,7 @@ rdbWriteRaw.exit.loopexit.i40:                    ; preds = %74
   br label %rdbSaveType.exit42
 
 rdbSaveType.exit42:                               ; preds = %63, %64, %.thread.i.i.i41, %rdbWriteRaw.exit.loopexit.i40
-  %.0.i.i38 = phi i32 [ 1, %63 ], [ -1, %64 ], [ -1, %.thread.i.i.i41 ], [ 1, %rdbWriteRaw.exit.loopexit.i40 ]
+  %.0.i.i38 = phi i32 [ 1, %63 ], [ -1, %.thread.i.i.i41 ], [ -1, %64 ], [ 1, %rdbWriteRaw.exit.loopexit.i40 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %285
 
@@ -3636,7 +3636,7 @@ rdbWriteRaw.exit.loopexit.i47:                    ; preds = %93
   br label %rdbSaveType.exit49
 
 rdbSaveType.exit49:                               ; preds = %82, %83, %.thread.i.i.i48, %rdbWriteRaw.exit.loopexit.i47
-  %.0.i.i45 = phi i32 [ 1, %82 ], [ -1, %83 ], [ -1, %.thread.i.i.i48 ], [ 1, %rdbWriteRaw.exit.loopexit.i47 ]
+  %.0.i.i45 = phi i32 [ 1, %82 ], [ -1, %.thread.i.i.i48 ], [ -1, %83 ], [ 1, %rdbWriteRaw.exit.loopexit.i47 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %285
 
@@ -3684,7 +3684,7 @@ rdbWriteRaw.exit.loopexit.i54:                    ; preds = %112
   br label %rdbSaveType.exit56
 
 rdbSaveType.exit56:                               ; preds = %101, %102, %.thread.i.i.i55, %rdbWriteRaw.exit.loopexit.i54
-  %.0.i.i52 = phi i32 [ 1, %101 ], [ -1, %102 ], [ -1, %.thread.i.i.i55 ], [ 1, %rdbWriteRaw.exit.loopexit.i54 ]
+  %.0.i.i52 = phi i32 [ 1, %101 ], [ -1, %.thread.i.i.i55 ], [ -1, %102 ], [ 1, %rdbWriteRaw.exit.loopexit.i54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %285
 
@@ -3745,7 +3745,7 @@ rdbWriteRaw.exit.loopexit.i61:                    ; preds = %135
   br label %rdbSaveType.exit63
 
 rdbSaveType.exit63:                               ; preds = %124, %125, %.thread.i.i.i62, %rdbWriteRaw.exit.loopexit.i61
-  %.0.i.i59 = phi i32 [ 1, %124 ], [ -1, %125 ], [ -1, %.thread.i.i.i62 ], [ 1, %rdbWriteRaw.exit.loopexit.i61 ]
+  %.0.i.i59 = phi i32 [ 1, %124 ], [ -1, %.thread.i.i.i62 ], [ -1, %125 ], [ 1, %rdbWriteRaw.exit.loopexit.i61 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %285
 
@@ -3793,7 +3793,7 @@ rdbWriteRaw.exit.loopexit.i68:                    ; preds = %154
   br label %rdbSaveType.exit70
 
 rdbSaveType.exit70:                               ; preds = %143, %144, %.thread.i.i.i69, %rdbWriteRaw.exit.loopexit.i68
-  %.0.i.i66 = phi i32 [ 1, %143 ], [ -1, %144 ], [ -1, %.thread.i.i.i69 ], [ 1, %rdbWriteRaw.exit.loopexit.i68 ]
+  %.0.i.i66 = phi i32 [ 1, %143 ], [ -1, %.thread.i.i.i69 ], [ -1, %144 ], [ 1, %rdbWriteRaw.exit.loopexit.i68 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %285
 
@@ -3855,7 +3855,7 @@ rdbWriteRaw.exit.loopexit.i75:                    ; preds = %177
   br label %rdbSaveType.exit77
 
 rdbSaveType.exit77:                               ; preds = %166, %167, %.thread.i.i.i76, %rdbWriteRaw.exit.loopexit.i75
-  %.0.i.i73 = phi i32 [ 1, %166 ], [ -1, %167 ], [ -1, %.thread.i.i.i76 ], [ 1, %rdbWriteRaw.exit.loopexit.i75 ]
+  %.0.i.i73 = phi i32 [ 1, %166 ], [ -1, %.thread.i.i.i76 ], [ -1, %167 ], [ 1, %rdbWriteRaw.exit.loopexit.i75 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %285
 
@@ -3903,7 +3903,7 @@ rdbWriteRaw.exit.loopexit.i82:                    ; preds = %196
   br label %rdbSaveType.exit84
 
 rdbSaveType.exit84:                               ; preds = %185, %186, %.thread.i.i.i83, %rdbWriteRaw.exit.loopexit.i82
-  %.0.i.i80 = phi i32 [ 1, %185 ], [ -1, %186 ], [ -1, %.thread.i.i.i83 ], [ 1, %rdbWriteRaw.exit.loopexit.i82 ]
+  %.0.i.i80 = phi i32 [ 1, %185 ], [ -1, %.thread.i.i.i83 ], [ -1, %186 ], [ 1, %rdbWriteRaw.exit.loopexit.i82 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %285
 
@@ -3956,7 +3956,7 @@ rdbWriteRaw.exit.loopexit.i89:                    ; preds = %218
   br label %rdbSaveType.exit91
 
 rdbSaveType.exit91:                               ; preds = %207, %208, %.thread.i.i.i90, %rdbWriteRaw.exit.loopexit.i89
-  %.0.i.i87 = phi i32 [ 1, %207 ], [ -1, %208 ], [ -1, %.thread.i.i.i90 ], [ 1, %rdbWriteRaw.exit.loopexit.i89 ]
+  %.0.i.i87 = phi i32 [ 1, %207 ], [ -1, %.thread.i.i.i90 ], [ -1, %208 ], [ 1, %rdbWriteRaw.exit.loopexit.i89 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %285
 
@@ -4003,7 +4003,7 @@ rdbWriteRaw.exit.loopexit.i96:                    ; preds = %237
   br label %rdbSaveType.exit98
 
 rdbSaveType.exit98:                               ; preds = %226, %227, %.thread.i.i.i97, %rdbWriteRaw.exit.loopexit.i96
-  %.0.i.i94 = phi i32 [ 1, %226 ], [ -1, %227 ], [ -1, %.thread.i.i.i97 ], [ 1, %rdbWriteRaw.exit.loopexit.i96 ]
+  %.0.i.i94 = phi i32 [ 1, %226 ], [ -1, %.thread.i.i.i97 ], [ -1, %227 ], [ 1, %rdbWriteRaw.exit.loopexit.i96 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %285
 
@@ -4056,7 +4056,7 @@ rdbWriteRaw.exit.loopexit.i103:                   ; preds = %257
   br label %rdbSaveType.exit105
 
 rdbSaveType.exit105:                              ; preds = %246, %247, %.thread.i.i.i104, %rdbWriteRaw.exit.loopexit.i103
-  %.0.i.i101 = phi i32 [ 1, %246 ], [ -1, %247 ], [ -1, %.thread.i.i.i104 ], [ 1, %rdbWriteRaw.exit.loopexit.i103 ]
+  %.0.i.i101 = phi i32 [ 1, %246 ], [ -1, %.thread.i.i.i104 ], [ -1, %247 ], [ 1, %rdbWriteRaw.exit.loopexit.i103 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %285
 
@@ -4104,7 +4104,7 @@ rdbWriteRaw.exit.loopexit.i110:                   ; preds = %276
   br label %rdbSaveType.exit112
 
 rdbSaveType.exit112:                              ; preds = %265, %266, %.thread.i.i.i111, %rdbWriteRaw.exit.loopexit.i110
-  %.0.i.i108 = phi i32 [ 1, %265 ], [ -1, %266 ], [ -1, %.thread.i.i.i111 ], [ 1, %rdbWriteRaw.exit.loopexit.i110 ]
+  %.0.i.i108 = phi i32 [ 1, %265 ], [ -1, %.thread.i.i.i111 ], [ -1, %266 ], [ 1, %rdbWriteRaw.exit.loopexit.i110 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %285
 
@@ -4399,7 +4399,7 @@ rdbWriteRaw.exit:                                 ; preds = %64
   br i1 %.not, label %.critedge, label %.lr.ph.split.split, !llvm.loop !72
 
 .critedge:                                        ; preds = %93, %.loopexit, %.lr.ph.split.split, %rdbWriteRaw.exit.us, %.lr.ph.split.split.us, %27, %rdbWriteRaw.exit.thread30.us, %rdbWriteRaw.exit.thread30.us.us, %9, %.thread.i.i, %.loopexit37
-  %.2 = phi i64 [ -1, %.loopexit37 ], [ %10, %9 ], [ -1, %.thread.i.i ], [ %20, %rdbWriteRaw.exit.thread30.us.us ], [ -1, %rdbWriteRaw.exit.thread30.us ], [ -1, %.lr.ph.split.split.us ], [ %29, %27 ], [ %48, %rdbWriteRaw.exit.us ], [ -1, %.loopexit ], [ %95, %93 ], [ -1, %.lr.ph.split.split ]
+  %.2 = phi i64 [ -1, %.loopexit37 ], [ -1, %.lr.ph.split.split.us ], [ -1, %.thread.i.i ], [ %10, %9 ], [ %20, %rdbWriteRaw.exit.thread30.us.us ], [ -1, %rdbWriteRaw.exit.thread30.us ], [ %29, %27 ], [ %48, %rdbWriteRaw.exit.us ], [ -1, %.loopexit ], [ -1, %.lr.ph.split.split ], [ %95, %93 ]
   call void @raxStop(ptr noundef nonnull %5) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %97
@@ -4756,7 +4756,7 @@ define dso_local i64 @rdbSaveObject(ptr noundef %0, ptr noundef %1, ptr noundef 
   store i64 %79, ptr %65, align 8, !tbaa !53
   br label %rdbSaveLen.exit.thread
 
-rdbSaveLen.exit.thread:                           ; preds = %64, %.thread.i.i.i
+rdbSaveLen.exit.thread:                           ; preds = %.thread.i.i.i, %64
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.thread
 
@@ -4799,7 +4799,7 @@ rdbWriteRaw.exit.loopexit.i418:                   ; preds = %88
   store i64 %95, ptr %71, align 8, !tbaa !58
   br label %96
 
-rdbSaveLen.exit420.thread:                        ; preds = %80, %.thread.i.i.i419
+rdbSaveLen.exit420.thread:                        ; preds = %.thread.i.i.i419, %80
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.thread
 
@@ -5170,7 +5170,7 @@ rdbSaveBinaryDoubleValue.exit.thread:             ; preds = %215, %.thread.i.i.i
   %.not31.i.i.i435 = icmp eq i64 %269, 0
   br i1 %.not31.i.i.i435, label %rdbSaveMillisecondTime.exit, label %255
 
-rdbSaveMillisecondTime.exit.thread:               ; preds = %247, %.thread.i.i.i436
+rdbSaveMillisecondTime.exit.thread:               ; preds = %.thread.i.i.i436, %247
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread
 
@@ -5253,7 +5253,7 @@ rdbSaveMillisecondTime.exit447:                   ; preds = %302, %281
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %308
 
-307:                                              ; preds = %282, %.thread.i.i.i446
+307:                                              ; preds = %.thread.i.i.i446, %282
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @dictReleaseIterator(ptr noundef %279) #23
   br label %.thread
@@ -5687,7 +5687,7 @@ rdbWriteRaw.exit.loopexit.i454:                   ; preds = %541
   store i64 %548, ptr %538, align 8, !tbaa !58
   br label %550
 
-549:                                              ; preds = %531, %.thread.i.i.i455
+549:                                              ; preds = %.thread.i.i.i455, %531
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store i32 1, ptr %521, align 8, !tbaa !138
   br label %553
@@ -5728,11 +5728,11 @@ rdbWriteRaw.exit.loopexit.i454:                   ; preds = %541
   unreachable
 
 .loopexit:                                        ; preds = %.loopexit509, %58, %178, %30, %510, %._crit_edge541, %._crit_edge554, %16, %96, %163, %272, %153, %147
-  %.0288 = phi i64 [ %.24312, %510 ], [ %17, %16 ], [ %99, %96 ], [ %.7295.lcssa, %._crit_edge554 ], [ %152, %147 ], [ %158, %153 ], [ %168, %163 ], [ %275, %272 ], [ %.17305.lcssa, %._crit_edge541 ], [ %31, %30 ], [ %179, %178 ], [ %.4292, %58 ], [ %235, %.loopexit509 ]
+  %.0288 = phi i64 [ %.24312, %510 ], [ %17, %16 ], [ %99, %96 ], [ %.7295.lcssa, %._crit_edge554 ], [ %152, %147 ], [ %158, %153 ], [ %168, %163 ], [ %.4292, %58 ], [ %275, %272 ], [ %.17305.lcssa, %._crit_edge541 ], [ %31, %30 ], [ %179, %178 ], [ %235, %.loopexit509 ]
   br label %.thread
 
 .thread:                                          ; preds = %sdslen.exit422, %.lr.ph560, %45, %51, %369, %.thread482, %367, %340, %317, %307, %rdbSaveBinaryDoubleValue.exit.thread, %169, %.thread468, %115, %rdbSaveLen.exit420.thread, %rdbSaveLen.exit.thread, %22, %.thread504, %rdbSaveMillisecondTime.exit.thread, %16, %96, %147, %153, %163, %272, %.loopexit, %561
-  %.0 = phi i64 [ %.30, %561 ], [ %.0288, %.loopexit ], [ -1, %.thread482 ], [ -1, %96 ], [ -1, %rdbSaveLen.exit420.thread ], [ -1, %147 ], [ -1, %153 ], [ -1, %163 ], [ -1, %.thread468 ], [ -1, %272 ], [ -1, %rdbSaveMillisecondTime.exit.thread ], [ -1, %.thread504 ], [ -1, %16 ], [ -1, %22 ], [ -1, %rdbSaveLen.exit.thread ], [ -1, %115 ], [ -1, %169 ], [ -1, %rdbSaveBinaryDoubleValue.exit.thread ], [ -1, %307 ], [ -1, %317 ], [ -1, %340 ], [ -1, %367 ], [ -1, %369 ], [ -1, %.lr.ph560 ], [ -1, %51 ], [ -1, %45 ], [ -1, %sdslen.exit422 ]
+  %.0 = phi i64 [ %.30, %561 ], [ %.0288, %.loopexit ], [ -1, %.thread482 ], [ -1, %96 ], [ -1, %rdbSaveLen.exit420.thread ], [ -1, %147 ], [ -1, %153 ], [ -1, %163 ], [ -1, %.thread468 ], [ -1, %272 ], [ -1, %rdbSaveMillisecondTime.exit.thread ], [ -1, %.lr.ph560 ], [ -1, %.thread504 ], [ -1, %16 ], [ -1, %369 ], [ -1, %367 ], [ -1, %22 ], [ -1, %340 ], [ -1, %rdbSaveLen.exit.thread ], [ -1, %115 ], [ -1, %169 ], [ -1, %rdbSaveBinaryDoubleValue.exit.thread ], [ -1, %307 ], [ -1, %317 ], [ -1, %51 ], [ -1, %45 ], [ -1, %sdslen.exit422 ]
   ret i64 %.0
 }
 
@@ -5828,7 +5828,7 @@ define dso_local range(i32 -1, 2) i32 @rdbSaveKeyValuePair(ptr noundef %0, ptr n
   store i64 %30, ptr %16, align 8, !tbaa !53
   br label %rdbSaveType.exit.thread
 
-rdbSaveType.exit.thread:                          ; preds = %15, %.thread.i.i.i
+rdbSaveType.exit.thread:                          ; preds = %.thread.i.i.i, %15
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.critedge
 
@@ -5884,7 +5884,7 @@ rdbSaveType.exit.thread:                          ; preds = %15, %.thread.i.i.i
   %.not31.i.i.i = icmp eq i64 %51, 0
   br i1 %.not31.i.i.i, label %rdbSaveMillisecondTime.exit, label %37
 
-rdbSaveMillisecondTime.exit.thread:               ; preds = %31, %.thread.i.i.i39
+rdbSaveMillisecondTime.exit.thread:               ; preds = %.thread.i.i.i39, %31
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.critedge
 
@@ -5940,7 +5940,7 @@ rdbWriteRaw.exit.loopexit.i44:                    ; preds = %67
   store i64 %74, ptr %64, align 8, !tbaa !58
   br label %75
 
-rdbSaveType.exit46.thread:                        ; preds = %57, %.thread.i.i.i45
+rdbSaveType.exit46.thread:                        ; preds = %.thread.i.i.i45, %57
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.critedge
 
@@ -6041,7 +6041,7 @@ rdbWriteRaw.exit.thread64:                        ; preds = %rdbWriteRaw.exit.th
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %114
 
-rdbWriteRaw.exit:                                 ; preds = %.thread.i.i, %98
+rdbWriteRaw.exit:                                 ; preds = %98, %.thread.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.critedge
 
@@ -6069,7 +6069,7 @@ rdbWriteRaw.exit:                                 ; preds = %.thread.i.i, %98
   call void @debugDelay(i32 noundef %124) #23
   br label %.critedge
 
-.critedge34:                                      ; preds = %82, %.thread.i.i.i52
+.critedge34:                                      ; preds = %.thread.i.i.i52, %82
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.critedge
@@ -6130,7 +6130,7 @@ rdbWriteRaw.exit.loopexit.i:                      ; preds = %17
   store i64 %24, ptr %14, align 8, !tbaa !58
   br label %25
 
-rdbSaveType.exit.thread:                          ; preds = %7, %.thread.i.i.i
+rdbSaveType.exit.thread:                          ; preds = %.thread.i.i.i, %7
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %34
 
@@ -6424,7 +6424,7 @@ define dso_local i64 @rdbSaveSingleModuleAux(ptr noundef %0, i32 noundef %1, ptr
   store i64 %31, ptr %17, align 8, !tbaa !53
   br label %rdbSaveType.exit.thread
 
-rdbSaveType.exit.thread:                          ; preds = %3, %.thread.i.i.i
+rdbSaveType.exit.thread:                          ; preds = %.thread.i.i.i, %3
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %rdbWriteRaw.exit.thread
 
@@ -6467,7 +6467,7 @@ rdbSaveType.exit.thread:                          ; preds = %3, %.thread.i.i.i
   store i64 %49, ptr %17, align 8, !tbaa !53
   br label %rdbSaveLen.exit.thread
 
-rdbSaveLen.exit.thread:                           ; preds = %38, %.thread.i.i.i26
+rdbSaveLen.exit.thread:                           ; preds = %.thread.i.i.i26, %38
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %rdbWriteRaw.exit.thread
 
@@ -6667,8 +6667,8 @@ rdbWriteRaw.exit.loopexit.i32:                    ; preds = %132
   br label %rdbSaveLen.exit34
 
 rdbSaveLen.exit34:                                ; preds = %121, %122, %.thread.i.i.i33, %rdbWriteRaw.exit.loopexit.i32
-  %140 = phi i1 [ true, %122 ], [ false, %rdbWriteRaw.exit.loopexit.i32 ], [ true, %.thread.i.i.i33 ], [ false, %121 ]
-  %.09.i30 = phi i64 [ 4294967295, %122 ], [ 1, %rdbWriteRaw.exit.loopexit.i32 ], [ 4294967295, %.thread.i.i.i33 ], [ 1, %121 ]
+  %140 = phi i1 [ false, %rdbWriteRaw.exit.loopexit.i32 ], [ true, %.thread.i.i.i33 ], [ false, %121 ], [ true, %122 ]
+  %.09.i30 = phi i64 [ 1, %rdbWriteRaw.exit.loopexit.i32 ], [ 4294967295, %.thread.i.i.i33 ], [ 1, %121 ], [ 4294967295, %122 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %141 = load ptr, ptr %15, align 8, !tbaa !142
   %.not20 = icmp eq ptr %141, null
@@ -6710,7 +6710,7 @@ rdbSaveLen.exit34:                                ; preds = %121, %122, %.thread
   %spec.select = select i1 %.not22, i64 %154, i64 -1
   br label %157
 
-rdbWriteRaw.exit.thread:                          ; preds = %.thread.i.i, %87, %rdbSaveLen.exit.thread, %rdbSaveType.exit.thread, %rdbWriteRaw.exit, %50, %32
+rdbWriteRaw.exit.thread:                          ; preds = %87, %.thread.i.i, %rdbSaveLen.exit.thread, %rdbSaveType.exit.thread, %rdbWriteRaw.exit, %50, %32
   %155 = getelementptr inbounds nuw i8, ptr %8, i64 72
   %156 = load ptr, ptr %155, align 8, !tbaa !59
   call void @sdsfree(ptr noundef %156) #23
@@ -6960,7 +6960,7 @@ rdbWriteRaw.exit.loopexit.i:                      ; preds = %28
   store i64 %35, ptr %25, align 8, !tbaa !58
   br label %36
 
-rdbSaveType.exit.thread:                          ; preds = %18, %.thread.i.i.i
+rdbSaveType.exit.thread:                          ; preds = %.thread.i.i.i, %18
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread121
 
@@ -7015,7 +7015,7 @@ rdbWriteRaw.exit.loopexit.i101:                   ; preds = %53
   store i64 %60, ptr %50, align 8, !tbaa !58
   br label %61
 
-rdbSaveType.exit103.thread:                       ; preds = %43, %.thread.i.i.i102
+rdbSaveType.exit103.thread:                       ; preds = %.thread.i.i.i102, %43
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread121
 
@@ -7403,7 +7403,7 @@ rdbWriteRaw.exit.loopexit.i:                      ; preds = %73
   store i64 %80, ptr %70, align 8, !tbaa !58
   br label %81
 
-rdbSaveType.exit.thread:                          ; preds = %63, %.thread.i.i.i
+rdbSaveType.exit.thread:                          ; preds = %.thread.i.i.i, %63
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %rdbWriteRaw.exit.thread
 
@@ -7461,7 +7461,7 @@ rdbSaveType.exit.thread:                          ; preds = %63, %.thread.i.i.i
   %.not31.i = icmp eq i64 %105, 0
   br i1 %.not31.i, label %rioWrite.exit, label %91
 
-rdbWriteRaw.exit.thread:                          ; preds = %.lr.ph, %.thread.i, %81, %.thread.i.i, %15, %rdbSaveType.exit.thread, %._crit_edge, %49, %44, %rdbWriteRaw.exit
+rdbWriteRaw.exit.thread:                          ; preds = %.lr.ph, %.thread.i, %81, %15, %.thread.i.i, %rdbSaveType.exit.thread, %._crit_edge, %49, %44, %rdbWriteRaw.exit
   %.not26 = icmp eq ptr %2, null
   br i1 %.not26, label %rioWrite.exit, label %108
 
@@ -7681,8 +7681,8 @@ rioWrite.exit.thread:                             ; preds = %rioWrite.exit.threa
   br label %rioWrite.exit43
 
 rioWrite.exit43:                                  ; preds = %78, %rioWrite.exit.thread, %85, %88
-  %.sink = phi i32 [ 4, %88 ], [ 4, %85 ], [ 4, %rioWrite.exit.thread ], [ 3, %78 ]
-  %.0 = phi i32 [ -1, %88 ], [ -1, %85 ], [ -1, %rioWrite.exit.thread ], [ 0, %78 ]
+  %.sink = phi i32 [ 4, %rioWrite.exit.thread ], [ 4, %88 ], [ 4, %85 ], [ 3, %78 ]
+  %.0 = phi i32 [ -1, %rioWrite.exit.thread ], [ -1, %88 ], [ -1, %85 ], [ 0, %78 ]
   call void @moduleFireServerEvent(i64 noundef 1, i32 noundef %.sink, ptr noundef null) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
@@ -8198,7 +8198,7 @@ define dso_local ptr @rdbLoadCheckModuleValue(ptr noundef %0, ptr noundef %1) lo
   %.not31.i.i = icmp eq i64 %42, 0
   br i1 %.not31.i.i, label %rdbLoadBinaryFloatValue.exit, label %.preheader.i.i
 
-45:                                               ; preds = %26, %.thread.i.i
+45:                                               ; preds = %.thread.i.i, %26
   call void (i32, i32, ptr, ...) @rdbReportError(i32 noundef 1, i32 noundef 1728, ptr noundef nonnull @.str.51, ptr noundef %1)
   br label %rdbLoadBinaryFloatValue.exit
 
@@ -8249,7 +8249,7 @@ rdbLoadBinaryFloatValue.exit:                     ; preds = %40, %45
   %.not31.i.i22 = icmp eq i64 %62, 0
   br i1 %.not31.i.i22, label %rdbLoadBinaryDoubleValue.exit, label %.preheader.i.i17
 
-65:                                               ; preds = %46, %.thread.i.i23
+65:                                               ; preds = %.thread.i.i23, %46
   call void (i32, i32, ptr, ...) @rdbReportError(i32 noundef 1, i32 noundef 1734, ptr noundef nonnull @.str.52, ptr noundef %1)
   br label %rdbLoadBinaryDoubleValue.exit
 
@@ -10062,7 +10062,7 @@ rdbLoadMillisecondTime.exit:                      ; preds = %514, %.thread.i.i10
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   br label %.critedge1047
 
-.thread1162:                                      ; preds = %655, %._crit_edge1350
+.thread1162:                                      ; preds = %._crit_edge1350, %655
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   br label %.critedge1037
 
@@ -10813,7 +10813,7 @@ rdbLoadMillisecondTime.exit:                      ; preds = %514, %.thread.i.i10
   br label %1209
 
 .thread1176:                                      ; preds = %913, %867
-  %.18794 = phi i32 [ %.24800, %913 ], [ %.23799, %867 ]
+  %.18794 = phi i32 [ %.23799, %867 ], [ %.24800, %913 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
   %cond = icmp ne i32 %.18794, 2
   %brmerge = or i1 %.not, %cond
@@ -11562,8 +11562,8 @@ rdbLoadMillisecondTime.exit:                      ; preds = %514, %.thread.i.i10
   tail call void (i32, i32, ptr, ...) @rdbReportError(i32 noundef 0, i32 noundef 3155, ptr noundef nonnull @.str.80, i32 noundef %0)
   br label %.critedge1047
 
-.critedge1037:                                    ; preds = %228, %.critedge1043, %.preheader1217, %508, %._crit_edge1343, %333, %335, %1205, %.thread1188, %.thread1171, %.thread1162, %._crit_edge, %81
-  %.0757 = phi ptr [ %82, %81 ], [ %90, %._crit_edge ], [ %734, %.thread1188 ], [ %238, %._crit_edge1343 ], [ %550, %.thread1162 ], [ %666, %.thread1171 ], [ %341, %508 ], [ %1206, %1205 ], [ %238, %335 ], [ %238, %333 ], [ %949, %.preheader1217 ], [ %949, %.critedge1043 ], [ %.2759, %228 ]
+.critedge1037:                                    ; preds = %228, %.critedge1043, %.preheader1217, %508, %335, %333, %._crit_edge1343, %1205, %.thread1188, %.thread1171, %.thread1162, %._crit_edge, %81
+  %.0757 = phi ptr [ %82, %81 ], [ %90, %._crit_edge ], [ %238, %333 ], [ %734, %.thread1188 ], [ %238, %335 ], [ %550, %.thread1162 ], [ %666, %.thread1171 ], [ %341, %508 ], [ %1206, %1205 ], [ %949, %.preheader1217 ], [ %238, %._crit_edge1343 ], [ %949, %.critedge1043 ], [ %.2759, %228 ]
   br i1 %.not, label %.critedge1047, label %1208
 
 1208:                                             ; preds = %.critedge1037
@@ -12913,7 +12913,7 @@ rioRead.exit302:                                  ; preds = %162, %164
   br label %390
 
 390:                                              ; preds = %.sink.split, %387, %383, %380
-  %.6 = phi i32 [ 2, %380 ], [ 2, %387 ], [ 7, %383 ], [ 2, %.sink.split ]
+  %.6 = phi i32 [ 7, %383 ], [ 2, %380 ], [ 2, %387 ], [ 2, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %393
 

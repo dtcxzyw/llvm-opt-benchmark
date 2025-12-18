@@ -912,7 +912,7 @@ remote_default_branch.exit.thread:                ; preds = %_.exit33.i, %_.exit
   br label %206
 
 remote_default_branch.exit:                       ; preds = %176, %199
-  %.3.i = phi ptr [ %200, %199 ], [ %177, %176 ]
+  %.3.i = phi ptr [ %177, %176 ], [ %200, %199 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr %.3.i, ptr %5, align 8, !tbaa !4
@@ -2339,7 +2339,7 @@ have_fsmonitor_support.exit.thread.sink.split:    ; preds = %have_fsmonitor_supp
   br label %have_fsmonitor_support.exit.thread
 
 have_fsmonitor_support.exit.thread:               ; preds = %have_fsmonitor_support.exit.thread.sink.split, %27, %23, %have_fsmonitor_support.exit, %start_fsmonitor_daemon.exit
-  %.0 = phi i32 [ 0, %start_fsmonitor_daemon.exit ], [ 0, %have_fsmonitor_support.exit ], [ 0, %23 ], [ 0, %27 ], [ -1, %have_fsmonitor_support.exit.thread.sink.split ]
+  %.0 = phi i32 [ 0, %27 ], [ 0, %23 ], [ 0, %have_fsmonitor_support.exit ], [ 0, %start_fsmonitor_daemon.exit ], [ -1, %have_fsmonitor_support.exit.thread.sink.split ]
   ret i32 %.0
 }
 

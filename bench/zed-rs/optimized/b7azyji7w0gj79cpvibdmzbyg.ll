@@ -1267,7 +1267,7 @@ _ZN5serde2de10EnumAccess7variant17h525f5003f05e44e1E.exit.i: ; preds = %41
           cleanup
   br label %.body.thread
 
-.body.thread115:                                  ; preds = %.body.i, %177, %139, %186, %.body.thread, %.body.thread
+.body.thread115:                                  ; preds = %177, %139, %.body.i, %186, %.body.thread, %.body.thread
   %.pn12111 = phi { ptr, i32 } [ %.pn12112, %186 ], [ %.pn12112, %.body.thread ], [ %.pn12112, %.body.thread ], [ %140, %139 ], [ %169, %.body.i ], [ %169, %177 ]
   resume { ptr, i32 } %.pn12111
 
@@ -1937,7 +1937,7 @@ _ZN5serde2de13VariantAccess15newtype_variant17h1d1ad64c5a841289E.exit.i: ; preds
           cleanup
   br label %.body.thread
 
-.body.thread119:                                  ; preds = %.body.i, %199, %161, %208, %.body.thread, %.body.thread
+.body.thread119:                                  ; preds = %199, %161, %.body.i, %208, %.body.thread, %.body.thread
   %.pn12115 = phi { ptr, i32 } [ %.pn12116, %208 ], [ %.pn12116, %.body.thread ], [ %.pn12116, %.body.thread ], [ %162, %161 ], [ %191, %.body.i ], [ %191, %199 ]
   resume { ptr, i32 } %.pn12115
 
@@ -2526,7 +2526,7 @@ _ZN5serde2de10EnumAccess7variant17h582bbfe580e946d4E.exit.i: ; preds = %41
           cleanup
   br label %.body.thread
 
-.body.thread115:                                  ; preds = %.body.i, %177, %139, %186, %.body.thread, %.body.thread
+.body.thread115:                                  ; preds = %177, %139, %.body.i, %186, %.body.thread, %.body.thread
   %.pn12111 = phi { ptr, i32 } [ %.pn12112, %186 ], [ %.pn12112, %.body.thread ], [ %.pn12112, %.body.thread ], [ %140, %139 ], [ %169, %.body.i ], [ %169, %177 ]
   resume { ptr, i32 } %.pn12111
 
@@ -3115,7 +3115,7 @@ _ZN5serde2de10EnumAccess7variant17ha6c1b1760078889fE.exit.i: ; preds = %41
           cleanup
   br label %.body.thread
 
-.body.thread115:                                  ; preds = %.body.i, %177, %139, %186, %.body.thread, %.body.thread
+.body.thread115:                                  ; preds = %177, %139, %.body.i, %186, %.body.thread, %.body.thread
   %.pn12111 = phi { ptr, i32 } [ %.pn12112, %186 ], [ %.pn12112, %.body.thread ], [ %.pn12112, %.body.thread ], [ %140, %139 ], [ %169, %.body.i ], [ %169, %177 ]
   resume { ptr, i32 } %.pn12111
 
@@ -3769,7 +3769,7 @@ _ZN5serde2de13VariantAccess15newtype_variant17ha808af8ff5dd5fbbE.exit._crit_edge
           cleanup
   br label %.body.thread
 
-.body.thread119:                                  ; preds = %.body.i, %190, %152, %199, %.body.thread, %.body.thread
+.body.thread119:                                  ; preds = %190, %152, %.body.i, %199, %.body.thread, %.body.thread
   %.pn12115 = phi { ptr, i32 } [ %.pn12116, %199 ], [ %.pn12116, %.body.thread ], [ %.pn12116, %.body.thread ], [ %153, %152 ], [ %182, %.body.i ], [ %182, %190 ]
   resume { ptr, i32 } %.pn12115
 
@@ -4364,7 +4364,7 @@ _ZN5serde2de10EnumAccess7variant17h5be92e7da68b8ed4E.exit.i: ; preds = %41
           cleanup
   br label %.body.thread
 
-.body.thread116:                                  ; preds = %.body.i, %177, %139, %186, %.body.thread, %.body.thread
+.body.thread116:                                  ; preds = %177, %139, %.body.i, %186, %.body.thread, %.body.thread
   %.pn12112 = phi { ptr, i32 } [ %.pn12113, %186 ], [ %.pn12113, %.body.thread ], [ %.pn12113, %.body.thread ], [ %140, %139 ], [ %169, %.body.i ], [ %169, %177 ]
   resume { ptr, i32 } %.pn12112
 
@@ -4982,7 +4982,7 @@ default.unreachable:                              ; preds = %58
           cleanup
   br label %.body.thread
 
-.body.thread118:                                  ; preds = %.body.i, %183, %145, %192, %.body.thread, %.body.thread
+.body.thread118:                                  ; preds = %183, %145, %.body.i, %192, %.body.thread, %.body.thread
   %.pn12114 = phi { ptr, i32 } [ %.pn12115, %192 ], [ %.pn12115, %.body.thread ], [ %.pn12115, %.body.thread ], [ %146, %145 ], [ %175, %.body.i ], [ %175, %183 ]
   resume { ptr, i32 } %.pn12114
 
@@ -5571,7 +5571,7 @@ _ZN5serde2de10EnumAccess7variant17h6743490324a9da1dE.exit.i: ; preds = %41
           cleanup
   br label %.body.thread
 
-.body.thread115:                                  ; preds = %.body.i, %177, %139, %186, %.body.thread, %.body.thread
+.body.thread115:                                  ; preds = %177, %139, %.body.i, %186, %.body.thread, %.body.thread
   %.pn12111 = phi { ptr, i32 } [ %.pn12112, %186 ], [ %.pn12112, %.body.thread ], [ %.pn12112, %.body.thread ], [ %140, %139 ], [ %169, %.body.i ], [ %169, %177 ]
   resume { ptr, i32 } %.pn12111
 
@@ -6160,7 +6160,7 @@ _ZN5serde2de10EnumAccess7variant17he4c25d07f19def93E.exit.i: ; preds = %41
           cleanup
   br label %.body.thread
 
-.body.thread115:                                  ; preds = %.body.i, %177, %139, %186, %.body.thread, %.body.thread
+.body.thread115:                                  ; preds = %177, %139, %.body.i, %186, %.body.thread, %.body.thread
   %.pn12111 = phi { ptr, i32 } [ %.pn12112, %186 ], [ %.pn12112, %.body.thread ], [ %.pn12112, %.body.thread ], [ %140, %139 ], [ %169, %.body.i ], [ %169, %177 ]
   resume { ptr, i32 } %.pn12111
 
@@ -9721,7 +9721,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17h11a7fdbf301b3f4eE(ptr dea
   br i1 %70, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc99cd4f03a9b07e5E.exit93.thread", label %.lr.ph304
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc99cd4f03a9b07e5E.exit93.thread": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h4a93b929dfe5b417E.exit129", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h4a93b929dfe5b417E.exit121", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h4a93b929dfe5b417E.exit113", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h4a93b929dfe5b417E.exit105", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h4a93b929dfe5b417E.exit97", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h4a93b929dfe5b417E.exit137", %.preheader264, %.preheader262, %.preheader260, %.preheader258, %.preheader256, %.preheader
-  %.sroa.27.6 = phi i64 [ %69, %.preheader ], [ %69, %.preheader256 ], [ %69, %.preheader258 ], [ %69, %.preheader260 ], [ %69, %.preheader262 ], [ %69, %.preheader264 ], [ %114, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h4a93b929dfe5b417E.exit121" ], [ %138, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h4a93b929dfe5b417E.exit137" ], [ %77, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h4a93b929dfe5b417E.exit97" ], [ %89, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h4a93b929dfe5b417E.exit105" ], [ %102, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h4a93b929dfe5b417E.exit113" ], [ %127, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h4a93b929dfe5b417E.exit129" ]
+  %.sroa.27.6 = phi i64 [ %102, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h4a93b929dfe5b417E.exit113" ], [ %114, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h4a93b929dfe5b417E.exit121" ], [ %89, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h4a93b929dfe5b417E.exit105" ], [ %77, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h4a93b929dfe5b417E.exit97" ], [ %138, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h4a93b929dfe5b417E.exit137" ], [ %69, %.preheader ], [ %69, %.preheader256 ], [ %69, %.preheader258 ], [ %69, %.preheader260 ], [ %69, %.preheader262 ], [ %69, %.preheader264 ], [ %127, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h4a93b929dfe5b417E.exit129" ]
   %71 = sub i64 %.sroa.01.0.i, %.sroa.27.6
   store i64 %71, ptr %56, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %18, i64 24, i1 false)
@@ -10144,7 +10144,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17h913349828ac530e7E(ptr dea
   br i1 %69, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h865f94c0c46df177E.exit93.thread", label %.lr.ph304
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h865f94c0c46df177E.exit93.thread": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h4a93b929dfe5b417E.exit129", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h4a93b929dfe5b417E.exit121", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h4a93b929dfe5b417E.exit113", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h4a93b929dfe5b417E.exit105", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h4a93b929dfe5b417E.exit97", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h4a93b929dfe5b417E.exit137", %.preheader264, %.preheader262, %.preheader260, %.preheader258, %.preheader256, %.preheader
-  %.sroa.27.6 = phi i64 [ %68, %.preheader ], [ %68, %.preheader256 ], [ %68, %.preheader258 ], [ %68, %.preheader260 ], [ %68, %.preheader262 ], [ %68, %.preheader264 ], [ %109, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h4a93b929dfe5b417E.exit121" ], [ %131, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h4a93b929dfe5b417E.exit137" ], [ %75, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h4a93b929dfe5b417E.exit97" ], [ %86, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h4a93b929dfe5b417E.exit105" ], [ %98, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h4a93b929dfe5b417E.exit113" ], [ %121, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h4a93b929dfe5b417E.exit129" ]
+  %.sroa.27.6 = phi i64 [ %98, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h4a93b929dfe5b417E.exit113" ], [ %109, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h4a93b929dfe5b417E.exit121" ], [ %86, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h4a93b929dfe5b417E.exit105" ], [ %75, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h4a93b929dfe5b417E.exit97" ], [ %131, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h4a93b929dfe5b417E.exit137" ], [ %68, %.preheader ], [ %68, %.preheader256 ], [ %68, %.preheader258 ], [ %68, %.preheader260 ], [ %68, %.preheader262 ], [ %68, %.preheader264 ], [ %121, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h4a93b929dfe5b417E.exit129" ]
   %70 = sub i64 %.sroa.01.0.i, %.sroa.27.6
   store i64 %70, ptr %56, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %18, i64 24, i1 false)

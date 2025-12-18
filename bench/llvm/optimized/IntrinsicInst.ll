@@ -1119,7 +1119,7 @@ _ZNK4llvm20DbgVariableIntrinsic12location_opsEv.exit: ; preds = %43, %49
   br i1 %.not3334, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_15ValueAsMetadataELb1EE9push_backES2_.exit, %.critedge.i.i, %_ZNK4llvm20DbgVariableIntrinsic12location_opsEv.exit
-  %60 = phi i32 [ 0, %_ZNK4llvm20DbgVariableIntrinsic12location_opsEv.exit ], [ 0, %.critedge.i.i ], [ %93, %_ZN4llvm23SmallVectorTemplateBaseIPNS_15ValueAsMetadataELb1EE9push_backES2_.exit ]
+  %60 = phi i32 [ 0, %.critedge.i.i ], [ 0, %_ZNK4llvm20DbgVariableIntrinsic12location_opsEv.exit ], [ %93, %_ZN4llvm23SmallVectorTemplateBaseIPNS_15ValueAsMetadataELb1EE9push_backES2_.exit ]
   %.idx = shl nuw nsw i64 %2, 3
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %.not36 = icmp eq i64 %2, 0

@@ -1802,12 +1802,12 @@ allowed_chars_len.exit:                           ; preds = %switch.early.test.i
   br i1 %33, label %is_padded.exit.sink.split, label %is_padded.exit
 
 is_padded.exit.sink.split:                        ; preds = %23, %32, %13, %30
-  %.sink = phi ptr [ %31, %30 ], [ %0, %13 ], [ %0, %32 ], [ %0, %23 ]
+  %.sink = phi ptr [ %31, %30 ], [ %0, %32 ], [ %0, %13 ], [ %0, %23 ]
   %34 = tail call i32 @dissect_at(ptr noundef %.sink, ptr noundef %1, ptr noundef %2, ptr poison)
   br label %is_padded.exit
 
 is_padded.exit:                                   ; preds = %.lr.ph.i27, %is_padded.exit.sink.split, %10, %32
-  %.0 = phi i1 [ false, %10 ], [ false, %32 ], [ true, %is_padded.exit.sink.split ], [ false, %.lr.ph.i27 ]
+  %.0 = phi i1 [ true, %is_padded.exit.sink.split ], [ false, %32 ], [ false, %10 ], [ false, %.lr.ph.i27 ]
   ret i1 %.0
 }
 

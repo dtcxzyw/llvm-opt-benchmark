@@ -2004,7 +2004,7 @@ lpad.thread:                                      ; preds = %if.then.i.i
   br label %if.then.i.i.i
 
 lpad.loopexit:                                    ; preds = %for.body, %_ZNKSt6vectorIPN3re26RegexpESaIS2_EE12_M_check_lenEmPKc.exit.i.i, %_ZNKSt6vectorIPN3re26RegexpESaIS2_EE12_M_check_lenEmPKc.exit.i.i37
-  %stk.sroa.0.1.ph.ph = phi ptr [ %stk.sroa.0.5, %_ZNKSt6vectorIPN3re26RegexpESaIS2_EE12_M_check_lenEmPKc.exit.i.i37 ], [ %stk.sroa.0.3160, %_ZNKSt6vectorIPN3re26RegexpESaIS2_EE12_M_check_lenEmPKc.exit.i.i ], [ %stk.sroa.0.3160, %for.body ]
+  %stk.sroa.0.1.ph.ph = phi ptr [ %stk.sroa.0.3160, %for.body ], [ %stk.sroa.0.5, %_ZNKSt6vectorIPN3re26RegexpESaIS2_EE12_M_check_lenEmPKc.exit.i.i37 ], [ %stk.sroa.0.3160, %_ZNKSt6vectorIPN3re26RegexpESaIS2_EE12_M_check_lenEmPKc.exit.i.i ]
   %lpad.loopexit124 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
@@ -2223,9 +2223,9 @@ invoke.cont32:                                    ; preds = %sw.bb25
   br i1 %call33, label %for.cond, label %cleanup, !llvm.loop !20
 
 sw.epilog36:                                      ; preds = %for.cond, %for.inc, %sw.bb8
-  %stk.sroa.0.2 = phi ptr [ %stk.sroa.0.0.ph, %sw.bb8 ], [ %stk.sroa.0.6, %for.inc ], [ %stk.sroa.0.0.ph, %for.cond ]
-  %stk.sroa.13.1 = phi ptr [ %stk.sroa.13.0.ph, %sw.bb8 ], [ %stk.sroa.13.4, %for.inc ], [ %stk.sroa.13.0.ph, %for.cond ]
-  %stk.sroa.27.1 = phi ptr [ %stk.sroa.27.0.ph, %sw.bb8 ], [ %stk.sroa.27.4, %for.inc ], [ %stk.sroa.27.0.ph, %for.cond ]
+  %stk.sroa.0.2 = phi ptr [ %stk.sroa.0.6, %for.inc ], [ %stk.sroa.0.0.ph, %sw.bb8 ], [ %stk.sroa.0.0.ph, %for.cond ]
+  %stk.sroa.13.1 = phi ptr [ %stk.sroa.13.4, %for.inc ], [ %stk.sroa.13.0.ph, %sw.bb8 ], [ %stk.sroa.13.0.ph, %for.cond ]
+  %stk.sroa.27.1 = phi ptr [ %stk.sroa.27.4, %for.inc ], [ %stk.sroa.27.0.ph, %sw.bb8 ], [ %stk.sroa.27.0.ph, %for.cond ]
   %cmp38 = icmp eq ptr %stk.sroa.13.1, %stk.sroa.0.2
   br i1 %cmp38, label %cleanup, label %if.end40
 
@@ -2254,8 +2254,8 @@ _ZNSt6vectorIPN3re26RegexpESaIS2_EE6resizeEm.exit: ; preds = %if.end40
   br label %for.cond.outer
 
 cleanup:                                          ; preds = %sw.epilog36, %invoke.cont32, %invoke.cont19
-  %stk.sroa.0.4 = phi ptr [ %stk.sroa.0.0.ph, %invoke.cont32 ], [ %stk.sroa.0.3160, %invoke.cont19 ], [ %stk.sroa.0.2, %sw.epilog36 ]
-  %retval.1 = phi i1 [ false, %invoke.cont32 ], [ false, %invoke.cont19 ], [ true, %sw.epilog36 ]
+  %stk.sroa.0.4 = phi ptr [ %stk.sroa.0.3160, %invoke.cont19 ], [ %stk.sroa.0.0.ph, %invoke.cont32 ], [ %stk.sroa.0.2, %sw.epilog36 ]
+  %retval.1 = phi i1 [ false, %invoke.cont19 ], [ false, %invoke.cont32 ], [ true, %sw.epilog36 ]
   %tobool.not.i.i.i72 = icmp eq ptr %stk.sroa.0.4, null
   br i1 %tobool.not.i.i.i72, label %return, label %if.then.i.i.i73
 
@@ -4094,7 +4094,7 @@ lpad.loopexit.split-lp.loopexit:                  ; preds = %_ZNKSt6vectorIN3re2
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp:         ; preds = %_ZNKSt6vectorIN3re29RuneRangeESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i70, %if.then.i.i.i.i93, %if.then.i.i.i.i52, %_ZNKSt6vectorIN3re29RuneRangeESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
-  %v.sroa.0.0.ph.ph.ph = phi ptr [ %v.sroa.0.2.lcssa, %_ZNKSt6vectorIN3re29RuneRangeESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i70 ], [ %v.sroa.0.2.lcssa, %if.then.i.i.i.i93 ], [ %v.sroa.0.2201, %if.then.i.i.i.i52 ], [ null, %_ZNKSt6vectorIN3re29RuneRangeESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i ]
+  %v.sroa.0.0.ph.ph.ph = phi ptr [ %v.sroa.0.2.lcssa, %if.then.i.i.i.i93 ], [ %v.sroa.0.2201, %if.then.i.i.i.i52 ], [ null, %_ZNKSt6vectorIN3re29RuneRangeESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %v.sroa.0.2.lcssa, %_ZNKSt6vectorIN3re29RuneRangeESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i70 ]
   %lpad.loopexit.split-lp187 = landingpad { ptr, i32 }
           cleanup
   br label %lpad

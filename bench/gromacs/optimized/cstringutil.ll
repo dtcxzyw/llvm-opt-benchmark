@@ -912,7 +912,7 @@ define noundef range(i32 0, 2) i32 @_Z11gmx_wcmatchPKcS0_(ptr noundef readonly c
   br label %.loopexit
 
 .loopexit:                                        ; preds = %22, %24, %.preheader40, %10, %19, %17, %.preheader, %29
-  %.025 = phi i32 [ %32, %29 ], [ 1, %10 ], [ 1, %.preheader ], [ 0, %17 ], [ 1, %19 ], [ 0, %.preheader40 ], [ 1, %24 ], [ 1, %22 ]
+  %.025 = phi i32 [ %32, %29 ], [ 0, %17 ], [ 1, %10 ], [ 1, %.preheader ], [ 1, %19 ], [ 0, %.preheader40 ], [ 1, %24 ], [ 1, %22 ]
   ret i32 %.025
 }
 
@@ -1096,12 +1096,12 @@ define noundef ptr @_Z10wrap_linesPKciib(ptr noundef readonly captures(none) %0,
   br label %.loopexit130
 
 .loopexit130:                                     ; preds = %.loopexit130.loopexit, %.thread175, %59
-  %.3.ph = phi ptr [ %.1120.lcssa, %59 ], [ %.1120.lcssa, %.thread175 ], [ %66, %.loopexit130.loopexit ]
-  %.393.ph = phi i32 [ %.191.lcssa, %59 ], [ %.191.lcssa, %.thread175 ], [ %64, %.loopexit130.loopexit ]
-  %.387.ph = phi i32 [ %57, %59 ], [ %57, %.thread175 ], [ %74, %.loopexit130.loopexit ]
-  %.7.ph = phi i32 [ %58, %59 ], [ %58, %.thread175 ], [ %.9.lcssa, %.loopexit130.loopexit ]
-  %.177.ph = phi i1 [ %.076, %59 ], [ %.076, %.thread175 ], [ false, %.loopexit130.loopexit ]
-  %.1.ph = phi i32 [ %.070, %59 ], [ %.070, %.thread175 ], [ %spec.select109, %.loopexit130.loopexit ]
+  %.3.ph = phi ptr [ %.1120.lcssa, %.thread175 ], [ %.1120.lcssa, %59 ], [ %66, %.loopexit130.loopexit ]
+  %.393.ph = phi i32 [ %.191.lcssa, %.thread175 ], [ %.191.lcssa, %59 ], [ %64, %.loopexit130.loopexit ]
+  %.387.ph = phi i32 [ %57, %.thread175 ], [ %57, %59 ], [ %74, %.loopexit130.loopexit ]
+  %.7.ph = phi i32 [ %58, %.thread175 ], [ %58, %59 ], [ %.9.lcssa, %.loopexit130.loopexit ]
+  %.177.ph = phi i1 [ %.076, %.thread175 ], [ %.076, %59 ], [ false, %.loopexit130.loopexit ]
+  %.1.ph = phi i32 [ %.070, %.thread175 ], [ %.070, %59 ], [ %spec.select109, %.loopexit130.loopexit ]
   %.pr = load i8, ptr %55, align 1, !tbaa !4
   %.not104 = icmp eq i8 %.pr, 0
   br i1 %.not104, label %.thread, label %13, !llvm.loop !34

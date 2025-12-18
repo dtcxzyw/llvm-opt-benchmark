@@ -2662,7 +2662,7 @@ _ZNK6vectorIP9func_declLb0EjE3endEv.exit:         ; preds = %44
   br label %58
 
 ._crit_edge:                                      ; preds = %_ZN7obj_refI3app11ast_managerED2Ev.exit, %44, %_ZNK6vectorIP9func_declLb0EjE3endEv.exit
-  %54 = phi ptr [ null, %_ZNK6vectorIP9func_declLb0EjE3endEv.exit ], [ null, %44 ], [ %84, %_ZN7obj_refI3app11ast_managerED2Ev.exit ]
+  %54 = phi ptr [ null, %44 ], [ null, %_ZNK6vectorIP9func_declLb0EjE3endEv.exit ], [ %84, %_ZN7obj_refI3app11ast_managerED2Ev.exit ]
   %55 = xor i32 %43, 1
   invoke void @_ZN2dt6solver15assert_eq_axiomEPN3euf5enodeEP4exprN3sat7literalE(ptr noundef nonnull align 8 dereferenceable(472) %0, ptr noundef nonnull %1, ptr noundef %17, i32 %55)
           to label %108 unwind label %56
@@ -3225,7 +3225,7 @@ _ZNK4sort11is_infiniteEv.exit:                    ; preds = %153
   br label %_ZNK3euf5enode10get_th_varEi.exit
 
 _ZNK3euf5enode10get_th_varEi.exit:                ; preds = %16, %153, %_ZNK8datatype4util14is_recognizer0EPK3app.exit.i.i.i, %14, %4, %73, %_ZNK2dt6solver13is_recognizerEPN3euf5enodeE.exit, %97, %148, %_ZNK4sort11is_infiniteEv.exit, %160, %139
-  %.0 = phi i32 [ %20, %73 ], [ %20, %139 ], [ %20, %160 ], [ %20, %_ZNK4sort11is_infiniteEv.exit ], [ %20, %148 ], [ %20, %97 ], [ %20, %_ZNK2dt6solver13is_recognizerEPN3euf5enodeE.exit ], [ -1, %4 ], [ %15, %14 ], [ %20, %_ZNK8datatype4util14is_recognizer0EPK3app.exit.i.i.i ], [ %20, %153 ], [ -1, %16 ]
+  %.0 = phi i32 [ %20, %73 ], [ %20, %139 ], [ %20, %160 ], [ %20, %_ZNK4sort11is_infiniteEv.exit ], [ %20, %148 ], [ %20, %97 ], [ %20, %_ZNK2dt6solver13is_recognizerEPN3euf5enodeE.exit ], [ -1, %4 ], [ %15, %14 ], [ %20, %153 ], [ %20, %_ZNK8datatype4util14is_recognizer0EPK3app.exit.i.i.i ], [ -1, %16 ]
   ret i32 %.0
 }
 
@@ -5793,8 +5793,8 @@ _ZN6vectorIPN3euf5enodeELb0EjE9push_backERKS2_.exit.i43: ; preds = %_ZN6vectorIP
   br i1 %.not33, label %_ZNK8seq_util3str9is_concatEPK4expr.exit.thread, label %.lr.ph69
 
 _ZNK8seq_util3str9is_concatEPK4expr.exit.thread:  ; preds = %"_ZZN2dt6solver12get_seq_argsEPN3euf5enodeERS3_ENK3$_0clES3_.exit47", %62, %97, %53, %_ZNK8seq_util3str9is_concatEPK4expr.exit, %_ZN6vectorIPN3euf5enodeELb0EjE9push_backEOS2_.exit
-  %.pre85 = phi ptr [ %.pre, %_ZN6vectorIPN3euf5enodeELb0EjE9push_backEOS2_.exit ], [ %.pre84, %97 ], [ %.pre84, %53 ], [ %.pre84, %_ZNK8seq_util3str9is_concatEPK4expr.exit ], [ %.pre84, %62 ], [ %.pre82, %"_ZZN2dt6solver12get_seq_argsEPN3euf5enodeERS3_ENK3$_0clES3_.exit47" ]
-  %182 = phi ptr [ %.pre, %_ZN6vectorIPN3euf5enodeELb0EjE9push_backEOS2_.exit ], [ %46, %97 ], [ %46, %53 ], [ %46, %_ZNK8seq_util3str9is_concatEPK4expr.exit ], [ %46, %62 ], [ %179, %"_ZZN2dt6solver12get_seq_argsEPN3euf5enodeERS3_ENK3$_0clES3_.exit47" ]
+  %.pre85 = phi ptr [ %.pre, %_ZN6vectorIPN3euf5enodeELb0EjE9push_backEOS2_.exit ], [ %.pre84, %97 ], [ %.pre84, %53 ], [ %.pre84, %62 ], [ %.pre84, %_ZNK8seq_util3str9is_concatEPK4expr.exit ], [ %.pre82, %"_ZZN2dt6solver12get_seq_argsEPN3euf5enodeERS3_ENK3$_0clES3_.exit47" ]
+  %182 = phi ptr [ %.pre, %_ZN6vectorIPN3euf5enodeELb0EjE9push_backEOS2_.exit ], [ %46, %97 ], [ %46, %53 ], [ %46, %62 ], [ %46, %_ZNK8seq_util3str9is_concatEPK4expr.exit ], [ %179, %"_ZZN2dt6solver12get_seq_argsEPN3euf5enodeERS3_ENK3$_0clES3_.exit47" ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %183 = icmp eq ptr %182, null
   br i1 %183, label %._crit_edge, label %_ZNK6vectorIPN3euf5enodeELb0EjE4sizeEv.exit.thread, !llvm.loop !561
@@ -6120,7 +6120,7 @@ _ZN6vectorISt4pairIPN3euf5enodeES3_ELb0EjE9push_backEOS4_.exit.i34: ; preds = %1
   br i1 %.not27, label %_ZNK17array_recognizers8is_arrayEP4sort.exit.thread, label %.lr.ph
 
 _ZNK17array_recognizers8is_arrayEP4sort.exit.thread: ; preds = %"_ZZN2dt6solver16explain_is_childEPN3euf5enodeES3_ENK3$_0clES3_.exit39", %125, %_ZNK6vectorIPN3euf5enodeELb0EjE3endEv.exit, %_Z15get_array_rangePK4sort.exit, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i32, %"_ZZN2dt6solver16explain_is_childEPN3euf5enodeES3_ENK3$_0clES3_.exit", %_ZNK4decl13get_family_idEv.exit.thread.i.i.i, %_ZNK8datatype4util11is_datatypeEPK4sort.exit, %_ZNK17array_recognizers8is_arrayEP4sort.exit
-  %.181 = phi i1 [ %.5, %_ZNK8datatype4util11is_datatypeEPK4sort.exit ], [ %.5, %_ZNK17array_recognizers8is_arrayEP4sort.exit ], [ %.5, %"_ZZN2dt6solver16explain_is_childEPN3euf5enodeES3_ENK3$_0clES3_.exit" ], [ %.5, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i ], [ %.5, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i32 ], [ %.5, %_Z15get_array_rangePK4sort.exit ], [ %.5, %_ZNK6vectorIPN3euf5enodeELb0EjE3endEv.exit ], [ %.5, %125 ], [ %.6, %"_ZZN2dt6solver16explain_is_childEPN3euf5enodeES3_ENK3$_0clES3_.exit39" ]
+  %.181 = phi i1 [ %.5, %_Z15get_array_rangePK4sort.exit ], [ %.5, %_ZNK8datatype4util11is_datatypeEPK4sort.exit ], [ %.5, %_ZNK17array_recognizers8is_arrayEP4sort.exit ], [ %.5, %"_ZZN2dt6solver16explain_is_childEPN3euf5enodeES3_ENK3$_0clES3_.exit" ], [ %.5, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i ], [ %.5, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i32 ], [ %.5, %_ZNK6vectorIPN3euf5enodeELb0EjE3endEv.exit ], [ %.5, %125 ], [ %.6, %"_ZZN2dt6solver16explain_is_childEPN3euf5enodeES3_ENK3$_0clES3_.exit39" ]
   %159 = load ptr, ptr %64, align 8, !tbaa !470
   %160 = tail call noundef ptr @_ZNK4expr8get_sortEv(ptr noundef nonnull align 4 dereferenceable(16) %159)
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 24
@@ -8078,7 +8078,7 @@ _ZN8top_sortIN3euf5enodeEE3addEPS1_S3_.exit:      ; preds = %_ZNK8top_sortIN3euf
   br i1 %.not, label %_ZNK2dt6solver11is_datatypeEP4expr.exit.thread, label %57
 
 _ZNK2dt6solver11is_datatypeEP4expr.exit.thread:   ; preds = %27, %_ZN8top_sortIN3euf5enodeEE3addEPS1_S3_.exit, %50, %17, %3, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i, %_ZNK3euf5enode10get_th_varEi.exit, %_ZNK2dt6solver11is_datatypeEP4expr.exit
-  %.0 = phi i1 [ false, %_ZNK2dt6solver11is_datatypeEP4expr.exit ], [ false, %_ZNK3euf5enode10get_th_varEi.exit ], [ false, %3 ], [ false, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i ], [ false, %17 ], [ true, %50 ], [ true, %_ZN8top_sortIN3euf5enodeEE3addEPS1_S3_.exit ], [ false, %27 ]
+  %.0 = phi i1 [ false, %_ZNK2dt6solver11is_datatypeEP4expr.exit ], [ false, %_ZNK3euf5enode10get_th_varEi.exit ], [ false, %3 ], [ true, %50 ], [ false, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i ], [ false, %17 ], [ true, %_ZN8top_sortIN3euf5enodeEE3addEPS1_S3_.exit ], [ false, %27 ]
   ret i1 %.0
 }
 

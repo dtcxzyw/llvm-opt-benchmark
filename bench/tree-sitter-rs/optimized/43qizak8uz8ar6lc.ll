@@ -29985,8 +29985,8 @@ define hidden noundef zeroext i1 @"_ZN79_$LT$tree_sitter_cli..generate..rules..R
     i64 8, label %199
   ]
 
-"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h29fd7b80f53a61bfE.exit": ; preds = %155, %tailrecurse.backedge, %.lr.ph, %"_ZN89_$LT$tree_sitter_cli..generate..rules..MetadataParams$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2bc32851d396fe96E.exit", %182, %15, %153, %154, %"_ZN80_$LT$tree_sitter_cli..generate..rules..Alias$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd00b42e6a1647e7aE.llvm.10393017446704266758.exit", %144, %138, %132, %126, %102, %"_ZN85_$LT$tree_sitter_cli..generate..rules..Precedence$u20$as$u20$core..cmp..PartialEq$GT$2eq17he3843bb8f877d2ebE.exit.thread.i", %"_ZN85_$LT$tree_sitter_cli..generate..rules..Precedence$u20$as$u20$core..cmp..PartialEq$GT$2eq17he3843bb8f877d2ebE.exit.i", %125, %177, %96, %123, %207, %205, %88, %86, %2, %36, %199, %80, %62, %57, %51, %46, %30, %25, %68, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h29fd7b80f53a61bfE.exit13", %74
-  %.0.shrunk = phi i1 [ %35, %30 ], [ false, %25 ], [ false, %199 ], [ %56, %51 ], [ false, %46 ], [ %79, %74 ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h29fd7b80f53a61bfE.exit13" ], [ false, %57 ], [ %67, %62 ], [ false, %68 ], [ %exitcond161.not, %88 ], [ false, %80 ], [ %exitcond.not, %207 ], [ false, %36 ], [ false, %2 ], [ %exitcond161.not, %86 ], [ %exitcond.not, %205 ], [ false, %123 ], [ false, %tailrecurse.backedge ], [ false, %96 ], [ false, %177 ], [ false, %"_ZN89_$LT$tree_sitter_cli..generate..rules..MetadataParams$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2bc32851d396fe96E.exit" ], [ true, %.lr.ph ], [ false, %182 ], [ false, %15 ], [ false, %153 ], [ false, %154 ], [ false, %"_ZN80_$LT$tree_sitter_cli..generate..rules..Alias$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd00b42e6a1647e7aE.llvm.10393017446704266758.exit" ], [ false, %144 ], [ false, %138 ], [ false, %132 ], [ false, %126 ], [ false, %102 ], [ false, %"_ZN85_$LT$tree_sitter_cli..generate..rules..Precedence$u20$as$u20$core..cmp..PartialEq$GT$2eq17he3843bb8f877d2ebE.exit.thread.i" ], [ false, %155 ], [ false, %"_ZN85_$LT$tree_sitter_cli..generate..rules..Precedence$u20$as$u20$core..cmp..PartialEq$GT$2eq17he3843bb8f877d2ebE.exit.i" ], [ false, %125 ]
+"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h29fd7b80f53a61bfE.exit": ; preds = %155, %tailrecurse.backedge, %.lr.ph, %"_ZN89_$LT$tree_sitter_cli..generate..rules..MetadataParams$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2bc32851d396fe96E.exit", %182, %15, %153, %154, %"_ZN80_$LT$tree_sitter_cli..generate..rules..Alias$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd00b42e6a1647e7aE.llvm.10393017446704266758.exit", %144, %138, %132, %126, %96, %"_ZN85_$LT$tree_sitter_cli..generate..rules..Precedence$u20$as$u20$core..cmp..PartialEq$GT$2eq17he3843bb8f877d2ebE.exit.thread.i", %"_ZN85_$LT$tree_sitter_cli..generate..rules..Precedence$u20$as$u20$core..cmp..PartialEq$GT$2eq17he3843bb8f877d2ebE.exit.i", %125, %177, %101, %123, %207, %205, %88, %86, %2, %36, %199, %80, %62, %57, %51, %46, %30, %25, %68, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h29fd7b80f53a61bfE.exit13", %74
+  %.0.shrunk = phi i1 [ %35, %30 ], [ false, %25 ], [ false, %199 ], [ %56, %51 ], [ false, %46 ], [ %79, %74 ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h29fd7b80f53a61bfE.exit13" ], [ false, %57 ], [ %67, %62 ], [ false, %68 ], [ %exitcond161.not, %88 ], [ false, %80 ], [ %exitcond.not, %207 ], [ false, %36 ], [ false, %2 ], [ %exitcond161.not, %86 ], [ %exitcond.not, %205 ], [ false, %123 ], [ false, %tailrecurse.backedge ], [ false, %101 ], [ false, %177 ], [ false, %"_ZN89_$LT$tree_sitter_cli..generate..rules..MetadataParams$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2bc32851d396fe96E.exit" ], [ true, %.lr.ph ], [ false, %182 ], [ false, %15 ], [ false, %153 ], [ false, %154 ], [ false, %"_ZN80_$LT$tree_sitter_cli..generate..rules..Alias$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd00b42e6a1647e7aE.llvm.10393017446704266758.exit" ], [ false, %144 ], [ false, %138 ], [ false, %132 ], [ false, %126 ], [ false, %96 ], [ false, %"_ZN85_$LT$tree_sitter_cli..generate..rules..Precedence$u20$as$u20$core..cmp..PartialEq$GT$2eq17he3843bb8f877d2ebE.exit.thread.i" ], [ false, %155 ], [ false, %"_ZN85_$LT$tree_sitter_cli..generate..rules..Precedence$u20$as$u20$core..cmp..PartialEq$GT$2eq17he3843bb8f877d2ebE.exit.i" ], [ false, %125 ]
   ret i1 %.0.shrunk
 
 15:                                               ; preds = %.lr.ph
@@ -30119,39 +30119,39 @@ define hidden noundef zeroext i1 @"_ZN79_$LT$tree_sitter_cli..generate..rules..R
 93:                                               ; preds = %15
   switch i64 %20, label %"_ZN85_$LT$tree_sitter_cli..generate..rules..Precedence$u20$as$u20$core..cmp..PartialEq$GT$2eq17he3843bb8f877d2ebE.exit.thread.i" [
     i64 1, label %94
-    i64 2, label %102
+    i64 2, label %96
   ]
 
 94:                                               ; preds = %93
   %95 = icmp eq i64 %21, -9223372036854775807
-  br i1 %95, label %96, label %"_ZN85_$LT$tree_sitter_cli..generate..rules..Precedence$u20$as$u20$core..cmp..PartialEq$GT$2eq17he3843bb8f877d2ebE.exit.thread.i"
+  br i1 %95, label %"_ZN85_$LT$tree_sitter_cli..generate..rules..Precedence$u20$as$u20$core..cmp..PartialEq$GT$2eq17he3843bb8f877d2ebE.exit.i", label %"_ZN85_$LT$tree_sitter_cli..generate..rules..Precedence$u20$as$u20$core..cmp..PartialEq$GT$2eq17he3843bb8f877d2ebE.exit.thread.i"
 
-96:                                               ; preds = %94
-  %97 = getelementptr inbounds nuw i8, ptr %.tr45, i64 64
-  %98 = load i32, ptr %97, align 8, !alias.scope !5812, !noalias !5813, !noundef !14
-  %99 = getelementptr inbounds nuw i8, ptr %.tr3246, i64 64
-  %100 = load i32, ptr %99, align 8, !alias.scope !5813, !noalias !5812, !noundef !14
-  %101 = icmp eq i32 %98, %100
-  br i1 %101, label %"_ZN85_$LT$tree_sitter_cli..generate..rules..Precedence$u20$as$u20$core..cmp..PartialEq$GT$2eq17he3843bb8f877d2ebE.exit.thread.i", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h29fd7b80f53a61bfE.exit"
+96:                                               ; preds = %93
+  %97 = getelementptr inbounds nuw i8, ptr %.tr45, i64 72
+  %98 = load i64, ptr %97, align 8, !alias.scope !5857, !noalias !5813, !noundef !14
+  %99 = getelementptr inbounds nuw i8, ptr %.tr3246, i64 72
+  %100 = load i64, ptr %99, align 8, !alias.scope !5860, !noalias !5812, !noundef !14
+  %.not.i.i.i = icmp eq i64 %98, %100
+  br i1 %.not.i.i.i, label %101, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h29fd7b80f53a61bfE.exit"
 
-102:                                              ; preds = %93
-  %103 = getelementptr inbounds nuw i8, ptr %.tr45, i64 72
-  %104 = load i64, ptr %103, align 8, !alias.scope !5857, !noalias !5813, !noundef !14
-  %105 = getelementptr inbounds nuw i8, ptr %.tr3246, i64 72
-  %106 = load i64, ptr %105, align 8, !alias.scope !5860, !noalias !5812, !noundef !14
-  %.not.i.i.i = icmp eq i64 %104, %106
-  br i1 %.not.i.i.i, label %"_ZN85_$LT$tree_sitter_cli..generate..rules..Precedence$u20$as$u20$core..cmp..PartialEq$GT$2eq17he3843bb8f877d2ebE.exit.i", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h29fd7b80f53a61bfE.exit"
+101:                                              ; preds = %96
+  %102 = getelementptr inbounds nuw i8, ptr %.tr3246, i64 64
+  %103 = load ptr, ptr %102, align 8, !alias.scope !5860, !noalias !5812, !nonnull !14, !noundef !14
+  %104 = getelementptr inbounds nuw i8, ptr %.tr45, i64 64
+  %105 = load ptr, ptr %104, align 8, !alias.scope !5857, !noalias !5813, !nonnull !14, !noundef !14
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %105, ptr nonnull readonly align 1 %103, i64 %98), !alias.scope !5863, !noalias !5867
+  %106 = icmp eq i32 %bcmp.i.i.i, 0
+  br i1 %106, label %"_ZN85_$LT$tree_sitter_cli..generate..rules..Precedence$u20$as$u20$core..cmp..PartialEq$GT$2eq17he3843bb8f877d2ebE.exit.thread.i", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h29fd7b80f53a61bfE.exit"
 
-"_ZN85_$LT$tree_sitter_cli..generate..rules..Precedence$u20$as$u20$core..cmp..PartialEq$GT$2eq17he3843bb8f877d2ebE.exit.i": ; preds = %102
-  %107 = getelementptr inbounds nuw i8, ptr %.tr3246, i64 64
-  %108 = load ptr, ptr %107, align 8, !alias.scope !5860, !noalias !5812, !nonnull !14, !noundef !14
-  %109 = getelementptr inbounds nuw i8, ptr %.tr45, i64 64
-  %110 = load ptr, ptr %109, align 8, !alias.scope !5857, !noalias !5813, !nonnull !14, !noundef !14
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %110, ptr nonnull readonly align 1 %108, i64 %104), !alias.scope !5863, !noalias !5867
-  %111 = icmp eq i32 %bcmp.i.i.i, 0
+"_ZN85_$LT$tree_sitter_cli..generate..rules..Precedence$u20$as$u20$core..cmp..PartialEq$GT$2eq17he3843bb8f877d2ebE.exit.i": ; preds = %94
+  %107 = getelementptr inbounds nuw i8, ptr %.tr45, i64 64
+  %108 = load i32, ptr %107, align 8, !alias.scope !5812, !noalias !5813, !noundef !14
+  %109 = getelementptr inbounds nuw i8, ptr %.tr3246, i64 64
+  %110 = load i32, ptr %109, align 8, !alias.scope !5813, !noalias !5812, !noundef !14
+  %111 = icmp eq i32 %108, %110
   br i1 %111, label %"_ZN85_$LT$tree_sitter_cli..generate..rules..Precedence$u20$as$u20$core..cmp..PartialEq$GT$2eq17he3843bb8f877d2ebE.exit.thread.i", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h29fd7b80f53a61bfE.exit"
 
-"_ZN85_$LT$tree_sitter_cli..generate..rules..Precedence$u20$as$u20$core..cmp..PartialEq$GT$2eq17he3843bb8f877d2ebE.exit.thread.i": ; preds = %"_ZN85_$LT$tree_sitter_cli..generate..rules..Precedence$u20$as$u20$core..cmp..PartialEq$GT$2eq17he3843bb8f877d2ebE.exit.i", %96, %94, %93
+"_ZN85_$LT$tree_sitter_cli..generate..rules..Precedence$u20$as$u20$core..cmp..PartialEq$GT$2eq17he3843bb8f877d2ebE.exit.thread.i": ; preds = %"_ZN85_$LT$tree_sitter_cli..generate..rules..Precedence$u20$as$u20$core..cmp..PartialEq$GT$2eq17he3843bb8f877d2ebE.exit.i", %101, %94, %93
   %112 = getelementptr inbounds nuw i8, ptr %.tr45, i64 80
   %113 = load i32, ptr %112, align 8, !alias.scope !5802, !noalias !5805, !noundef !14
   %114 = getelementptr inbounds nuw i8, ptr %.tr3246, i64 80

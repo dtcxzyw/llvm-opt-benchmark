@@ -3488,7 +3488,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %exitcond103.not, label %.critedge2, label %170, !llvm.loop !113
 
 .critedge2:                                       ; preds = %Llb_Nonlin4NextPartitions.exit, %212, %._crit_edge
-  %.0 = phi ptr [ %164, %._crit_edge ], [ %164, %212 ], [ null, %Llb_Nonlin4NextPartitions.exit ]
+  %.0 = phi ptr [ %164, %212 ], [ %164, %._crit_edge ], [ null, %Llb_Nonlin4NextPartitions.exit ]
   tail call void @Llb_Nonlin4Free(ptr noundef %5)
   ret ptr %.0
 }

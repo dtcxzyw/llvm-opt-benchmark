@@ -479,7 +479,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.
   br i1 %.not27.old.i.i.i, label %.loopexit85, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %102, %99
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %102 ], [ %101, %99 ]
+  %.137.i.i.i.be = phi ptr [ %101, %99 ], [ %.old.i.i.i, %102 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !241
 
 _ZNK7obj_mapI9func_declPS0_E4findES1_RS1_.exit:   ; preds = %83, %94
@@ -721,7 +721,7 @@ _ZN15ref_vector_coreI9func_decl19ref_manager_wrapperIS0_11ast_managerEE7inc_refE
   br i1 %.not27.old.i.i.i51, label %_ZNK7datalog8rule_set19is_output_predicateEP9func_decl.exit.thread, label %.lr.ph38.i.i.i47.backedge
 
 .lr.ph38.i.i.i47.backedge:                        ; preds = %206, %203
-  %.137.i.i.i48.be = phi ptr [ %.old.i.i.i50, %206 ], [ %205, %203 ]
+  %.137.i.i.i48.be = phi ptr [ %205, %203 ], [ %.old.i.i.i50, %206 ]
   br label %.lr.ph38.i.i.i47, !llvm.loop !258
 
 _ZNK7datalog8rule_set19is_output_predicateEP9func_decl.exit: ; preds = %187, %198
@@ -1178,7 +1178,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE6appendEjPKPS0
   br i1 %.not27.old.i.i.i, label %.loopexit, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %71, %68
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %71 ], [ %70, %68 ]
+  %.137.i.i.i.be = phi ptr [ %70, %68 ], [ %.old.i.i.i, %71 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !241
 
 _ZNK7obj_mapI9func_declPS0_E4findES1_RS1_.exit:   ; preds = %52, %63

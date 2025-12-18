@@ -5333,7 +5333,7 @@ define hidden void @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..funct
           to label %30 unwind label %139, !noalias !698
 
 .thread32.i:                                      ; preds = %143, %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$lsp_types..code_action..CodeActionKind$GT$$GT$17hdecc20a5b1eea7aaE.exit.i", %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$lsp_types..WorkspaceEdit$GT$$GT$17hbf707c23b99ecad0E.exit71.i", %30
-  %.pn53.pn35.i = phi { ptr, i32 } [ %.pn539.i, %30 ], [ %.pn53.pn37.i, %143 ], [ %.pn50.pn.i, %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$lsp_types..code_action..CodeActionKind$GT$$GT$17hdecc20a5b1eea7aaE.exit.i" ], [ %.pn48.i, %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$lsp_types..WorkspaceEdit$GT$$GT$17hbf707c23b99ecad0E.exit71.i" ]
+  %.pn53.pn35.i = phi { ptr, i32 } [ %.pn539.i, %30 ], [ %.pn53.pn37.i, %143 ], [ %.pn48.i, %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$lsp_types..WorkspaceEdit$GT$$GT$17hbf707c23b99ecad0E.exit71.i" ], [ %.pn50.pn.i, %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$lsp_types..code_action..CodeActionKind$GT$$GT$17hdecc20a5b1eea7aaE.exit.i" ]
   resume { ptr, i32 } %.pn53.pn35.i
 
 143:                                              ; preds = %31, %30

@@ -1502,7 +1502,7 @@ thread-pre-split:                                 ; preds = %7
   br i1 %.not, label %.loopexit, label %54
 
 .loopexit:                                        ; preds = %.preheader52.split.us, %.preheader52.split, %23, %84, %.preheader
-  %.sroa.013.1 = phi i64 [ 0, %.preheader ], [ %.sroa.013.0, %.preheader52.split ], [ %89, %84 ], [ %28, %23 ], [ %.sroa.013.0.us, %.preheader52.split.us ]
+  %.sroa.013.1 = phi i64 [ %89, %84 ], [ 0, %.preheader ], [ %.sroa.013.0, %.preheader52.split ], [ %28, %23 ], [ %.sroa.013.0.us, %.preheader52.split.us ]
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.013.1, ptr %53, align 8
   br label %10
@@ -4675,8 +4675,8 @@ define { i64, i64 } @"_ZN165_$LT$uv_client..httpcache..control..CacheControl$u20
   br i1 %trunc, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h66e8853389e1977fE.llvm.5695127635217446960.exit", label %20
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h66e8853389e1977fE.llvm.5695127635217446960.exit": ; preds = %8, %.preheader52.split.us.i, %39, %47, %49, %28, %.lr.ph.split.us.i, %21, %21, %20, %12
-  %.sroa.5.0 = phi i64 [ undef, %12 ], [ %.sroa.013.0.us.i, %.preheader52.split.us.i ], [ undef, %20 ], [ undef, %21 ], [ undef, %21 ], [ %33, %28 ], [ undef, %.lr.ph.split.us.i ], [ undef, %39 ], [ undef, %47 ], [ undef, %49 ], [ undef, %8 ]
-  %.sroa.0.0 = phi i64 [ 0, %12 ], [ 1, %.preheader52.split.us.i ], [ %17, %20 ], [ 0, %21 ], [ 0, %21 ], [ 1, %28 ], [ 0, %.lr.ph.split.us.i ], [ 0, %39 ], [ 0, %47 ], [ 0, %49 ], [ 0, %8 ]
+  %.sroa.5.0 = phi i64 [ undef, %12 ], [ %33, %28 ], [ %.sroa.013.0.us.i, %.preheader52.split.us.i ], [ undef, %20 ], [ undef, %21 ], [ undef, %21 ], [ undef, %.lr.ph.split.us.i ], [ undef, %39 ], [ undef, %47 ], [ undef, %49 ], [ undef, %8 ]
+  %.sroa.0.0 = phi i64 [ 0, %12 ], [ 1, %28 ], [ 1, %.preheader52.split.us.i ], [ %17, %20 ], [ 0, %21 ], [ 0, %21 ], [ 0, %.lr.ph.split.us.i ], [ 0, %39 ], [ 0, %47 ], [ 0, %49 ], [ 0, %8 ]
   %18 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %19 = insertvalue { i64, i64 } %18, i64 %.sroa.5.0, 1
   ret { i64, i64 } %19

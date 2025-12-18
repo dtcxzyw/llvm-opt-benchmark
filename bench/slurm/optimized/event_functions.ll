@@ -1148,7 +1148,7 @@ define internal range(i32 0, 2) i32 @_addto_state_char_list_internal(ptr noundef
   unreachable
 
 .loopexit:                                        ; preds = %.preheader.i, %16, %3, %12, %10
-  %.027.i.ph = phi i32 [ 8192, %10 ], [ 1048576, %12 ], [ 512, %3 ], [ 65536, %16 ], [ %.033.i, %.preheader.i ]
+  %.027.i.ph = phi i32 [ 65536, %16 ], [ 8192, %10 ], [ 1048576, %12 ], [ 512, %3 ], [ %.033.i, %.preheader.i ]
   %37 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.34, i32 noundef %.027.i.ph) #11
   store ptr %37, ptr %4, align 8
   %38 = tail call ptr @list_find_first(ptr noundef %0, ptr noundef nonnull @slurm_find_char_in_list, ptr noundef %37) #11

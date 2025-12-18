@@ -7944,8 +7944,8 @@ define hidden void @"_ZN8flycheck11test_runner1_92_$LT$impl$u20$serde..de..Deser
   br label %292
 
 148:                                              ; preds = %.thread181.i, %.thread142.i
-  %.sroa.077.0.i = phi i8 [ %.sroa.077.2120148.i, %.thread142.i ], [ %.sroa.077.3159187.i, %.thread181.i ]
-  %.sroa.1782.0.i = phi ptr [ %.sroa.1782.2122147.i, %.thread142.i ], [ %.sroa.1782.3161186.i, %.thread181.i ]
+  %.sroa.077.0.i = phi i8 [ %.sroa.077.3159187.i, %.thread181.i ], [ %.sroa.077.2120148.i, %.thread142.i ]
+  %.sroa.1782.0.i = phi ptr [ %.sroa.1782.3161186.i, %.thread181.i ], [ %.sroa.1782.2122147.i, %.thread142.i ]
   %149 = icmp eq i8 %.sroa.077.0.i, 4
   br i1 %149, label %.thread.i, label %291
 

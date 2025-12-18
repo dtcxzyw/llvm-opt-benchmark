@@ -6063,8 +6063,8 @@ switch.lookup:                                    ; preds = %194
   br i1 %exitcond465.not, label %.loopexit374, label %227, !llvm.loop !31
 
 .loopexit374:                                     ; preds = %.lr.ph383, %17, %227, %.preheader377, %12, %223
-  %.1314 = phi i32 [ %.13, %223 ], [ %14, %12 ], [ %.3316.lcssa, %.preheader377 ], [ %22, %17 ], [ %233, %227 ], [ %69, %.lr.ph383 ]
-  %.0312 = phi i32 [ %76, %223 ], [ 0, %12 ], [ %24, %.preheader377 ], [ 0, %17 ], [ %76, %227 ], [ %24, %.lr.ph383 ]
+  %.1314 = phi i32 [ %22, %17 ], [ %233, %227 ], [ %.13, %223 ], [ %14, %12 ], [ %.3316.lcssa, %.preheader377 ], [ %69, %.lr.ph383 ]
+  %.0312 = phi i32 [ 0, %17 ], [ %76, %227 ], [ %76, %223 ], [ 0, %12 ], [ %24, %.preheader377 ], [ %24, %.lr.ph383 ]
   br i1 %2, label %239, label %235
 
 235:                                              ; preds = %.loopexit374
@@ -8818,7 +8818,7 @@ tcg_out_goto_tb.exit:                             ; preds = %894, %tcg_out_nopn.
   br label %tcg_reg_alloc_mov.exit
 
 tcg_reg_alloc_mov.exit:                           ; preds = %temp_dead.exit113.i, %483, %479, %.preheader.i, %.preheader114.i, %set_temp_val_nonreg.exit.i.i169, %491, %set_temp_val_nonreg.exit.i.i91.i, %449, %447, %set_temp_val_nonreg.exit.i.i.i.i166, %345, %343, %340, %293, %set_temp_val_reg.exit.i, %set_temp_val_nonreg.exit.i.i89.i, %temp_dead.exit87.i, %set_temp_val_nonreg.exit.i.i.i.i, %166, %164, %161, %932, %tcg_out_goto_tb.exit, %tcg_out_exit_tb.exit, %tcg_reg_alloc_bb_end.exit
-  %.1118 = phi i32 [ %.0117280, %932 ], [ %.0117280, %tcg_out_goto_tb.exit ], [ %.0117280, %293 ], [ %.0117280, %set_temp_val_nonreg.exit.i.i91.i ], [ %.0117280, %tcg_reg_alloc_bb_end.exit ], [ %.0117280, %set_temp_val_nonreg.exit.i.i169 ], [ %.0117280, %tcg_out_exit_tb.exit ], [ %.0117280, %161 ], [ %.0117280, %164 ], [ %.0117280, %166 ], [ %.0117280, %set_temp_val_nonreg.exit.i.i.i.i ], [ %.0117280, %temp_dead.exit87.i ], [ %.0117280, %set_temp_val_nonreg.exit.i.i89.i ], [ %.0117280, %set_temp_val_reg.exit.i ], [ %.0117280, %340 ], [ %.0117280, %343 ], [ %.0117280, %345 ], [ %.0117280, %set_temp_val_nonreg.exit.i.i.i.i166 ], [ %.0117280, %447 ], [ %.0117280, %449 ], [ %.0117280, %491 ], [ %.0117280, %.preheader114.i ], [ %.0117280, %.preheader.i ], [ %480, %479 ], [ %480, %483 ], [ %.0117280, %temp_dead.exit113.i ]
+  %.1118 = phi i32 [ %.0117280, %932 ], [ %.0117280, %tcg_out_goto_tb.exit ], [ %.0117280, %293 ], [ %480, %479 ], [ %.0117280, %set_temp_val_nonreg.exit.i.i91.i ], [ %.0117280, %tcg_reg_alloc_bb_end.exit ], [ %.0117280, %set_temp_val_nonreg.exit.i.i169 ], [ %.0117280, %tcg_out_exit_tb.exit ], [ %.0117280, %161 ], [ %.0117280, %164 ], [ %.0117280, %166 ], [ %.0117280, %set_temp_val_nonreg.exit.i.i.i.i ], [ %.0117280, %temp_dead.exit87.i ], [ %.0117280, %set_temp_val_nonreg.exit.i.i89.i ], [ %.0117280, %set_temp_val_reg.exit.i ], [ %.0117280, %340 ], [ %.0117280, %343 ], [ %.0117280, %345 ], [ %.0117280, %set_temp_val_nonreg.exit.i.i.i.i166 ], [ %.0117280, %447 ], [ %.0117280, %449 ], [ %.0117280, %491 ], [ %.0117280, %.preheader114.i ], [ %.0117280, %.preheader.i ], [ %480, %483 ], [ %.0117280, %temp_dead.exit113.i ]
   %937 = load ptr, ptr %71, align 8
   %938 = load ptr, ptr %104, align 8
   %939 = icmp ugt ptr %937, %938
@@ -9688,7 +9688,7 @@ patch_reloc.exit.i211:                            ; preds = %1349, %1340
   br label %tcg_out_ldst_finalize.exit
 
 tcg_out_ldst_finalize.exit:                       ; preds = %tcg_reg_alloc_mov.exit, %940, %1250, %1303, %1311, %1284, %1342, %1333, %.loopexit
-  %.2 = phi i32 [ %1358, %.loopexit ], [ -2, %1342 ], [ -2, %1303 ], [ -1, %1250 ], [ -2, %1333 ], [ -1, %1284 ], [ -2, %1311 ], [ -1, %tcg_reg_alloc_mov.exit ], [ -2, %940 ]
+  %.2 = phi i32 [ -1, %1284 ], [ -1, %1250 ], [ -2, %1342 ], [ %1358, %.loopexit ], [ -2, %1333 ], [ -2, %1303 ], [ -2, %1311 ], [ -1, %tcg_reg_alloc_mov.exit ], [ -2, %940 ]
   ret i32 %.2
 }
 
@@ -10585,10 +10585,10 @@ la_reset_pref.exit295:                            ; preds = %48
   tail call void @tcg_op_remove(ptr noundef %0, ptr noundef nonnull %.0217397)
   br label %.thread
 
-.loopexit355.thread:                              ; preds = %228, %214, %250, %236
-  %.0223.ph = phi i32 [ %55, %236 ], [ %.1239, %250 ], [ %55, %214 ], [ %.0238, %228 ]
-  %.0222.shrunk.ph = phi i8 [ 2, %236 ], [ 1, %250 ], [ 2, %214 ], [ 1, %228 ]
-  %.0221.shrunk.ph = phi i8 [ 2, %236 ], [ 2, %250 ], [ 4, %214 ], [ 2, %228 ]
+.loopexit355.thread:                              ; preds = %236, %228, %214, %250
+  %.0223.ph = phi i32 [ %.1239, %250 ], [ %55, %214 ], [ %.0238, %228 ], [ %55, %236 ]
+  %.0222.shrunk.ph = phi i8 [ 1, %250 ], [ 2, %214 ], [ 1, %228 ], [ 2, %236 ]
+  %.0221.shrunk.ph = phi i8 [ 2, %250 ], [ 4, %214 ], [ 2, %228 ], [ 2, %236 ]
   %.0221473 = zext nneg i8 %.0221.shrunk.ph to i32
   br label %.lr.ph382
 
@@ -11065,7 +11065,7 @@ output_pref.exit.thread:                          ; preds = %467, %output_pref.e
   br i1 %480, label %455, label %.thread, !llvm.loop !77
 
 .thread:                                          ; preds = %205, %478, %la_cross_call.exit, %450, %440, %438, %.loopexit, %la_reset_pref.exit295, %48
-  %.0225 = phi i32 [ %.11.lcssa486, %440 ], [ %.11.lcssa486, %438 ], [ 0, %.loopexit ], [ 0, %la_reset_pref.exit295 ], [ 0, %48 ], [ %.11.lcssa486, %450 ], [ %.5230.lcssa, %la_cross_call.exit ], [ %.11.lcssa486, %478 ], [ %.5230.lcssa, %205 ]
+  %.0225 = phi i32 [ %.11.lcssa486, %450 ], [ %.11.lcssa486, %440 ], [ %.11.lcssa486, %438 ], [ 0, %.loopexit ], [ 0, %la_reset_pref.exit295 ], [ 0, %48 ], [ %.11.lcssa486, %478 ], [ %.5230.lcssa, %la_cross_call.exit ], [ %.5230.lcssa, %205 ]
   %481 = getelementptr inbounds nuw i8, ptr %.0217397, i64 4
   store i32 %.0225, ptr %481, align 4
   %.not = icmp eq ptr %53, null
@@ -12728,7 +12728,7 @@ set_temp_val_reg.exit402:                         ; preds = %.set_temp_val_reg.e
   br i1 %exitcond507.not, label %tcg_reg_alloc_cbranch.exit, label %406, !llvm.loop !89
 
 tcg_reg_alloc_cbranch.exit:                       ; preds = %374, %temp_save.exit.i, %set_temp_val_reg.exit402, %.loopexit, %377, %354
-  %.0314 = phi i32 [ %29, %354 ], [ %29, %377 ], [ %29, %.loopexit ], [ %29, %temp_save.exit.i ], [ %511, %set_temp_val_reg.exit402 ], [ %29, %374 ]
+  %.0314 = phi i32 [ %29, %temp_save.exit.i ], [ %511, %set_temp_val_reg.exit402 ], [ %29, %354 ], [ %29, %377 ], [ %29, %.loopexit ], [ %29, %374 ]
   %534 = load i32, ptr %1, align 8
   %trunc348 = trunc i32 %534 to i8
   switch i8 %trunc348, label %841 [
@@ -17756,7 +17756,7 @@ tcg_reg_free.exit:                                ; preds = %47
   br label %.thread73
 
 .thread73:                                        ; preds = %32, %28, %.thread73.sink.split, %52, %42
-  %.6 = phi i32 [ %43, %42 ], [ %49, %52 ], [ %.6.ph, %.thread73.sink.split ], [ %23, %28 ], [ %33, %32 ]
+  %.6 = phi i32 [ %.6.ph, %.thread73.sink.split ], [ %49, %52 ], [ %23, %28 ], [ %43, %42 ], [ %33, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.6
 }

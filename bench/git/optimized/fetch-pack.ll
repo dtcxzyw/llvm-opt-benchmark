@@ -3319,7 +3319,7 @@ next_flush.exit.thread.loopexit.i.i:              ; preds = %next_flush.exit.i.i
   br label %next_flush.exit.thread.i.i
 
 next_flush.exit.thread.i.i:                       ; preds = %next_flush.exit.thread.loopexit.i.i, %1151, %1146, %next_flush.exit.thread686.i.i
-  %.0.i310.i.i = phi i32 [ %1152, %1151 ], [ %1148, %1146 ], [ %.0.i687.i.i, %next_flush.exit.thread686.i.i ], [ %.0.i.le.i.i, %next_flush.exit.thread.loopexit.i.i ]
+  %.0.i310.i.i = phi i32 [ %1148, %1146 ], [ %1152, %1151 ], [ %.0.i687.i.i, %next_flush.exit.thread686.i.i ], [ %.0.i.le.i.i, %next_flush.exit.thread.loopexit.i.i ]
   call fastcc void @consume_shallow_list(i32 %1142, ptr noundef %15)
   %1154 = call i32 @packet_reader_read(ptr noundef nonnull %15) #20
   %.not.i263510.i.i = icmp eq i32 %1154, 1
@@ -3536,9 +3536,9 @@ _.exit268.i.i:                                    ; preds = %1222, %1220
   br i1 %.not205494.i.i, label %.thread332.i.i, label %.lr.ph501.i.i, !llvm.loop !132
 
 .thread332.i.i:                                   ; preds = %.thread342.i.i, %1224, %1225, %_.exit268.i.i, %1196, %strbuf_setlen.exit.i.i
-  %.6177.i.i = phi i32 [ %.3174512.i.lcssa.i, %_.exit268.i.i ], [ %.3174512.i284.i, %1196 ], [ 0, %strbuf_setlen.exit.i.i ], [ 0, %1225 ], [ 0, %.thread342.i.i ], [ 1, %1224 ]
-  %.2151.i.i = phi i32 [ %1121, %_.exit268.i.i ], [ %1121, %1196 ], [ 0, %strbuf_setlen.exit.i.i ], [ %1121, %1225 ], [ %.1150.i.i, %.thread342.i.i ], [ %1121, %1224 ]
-  %.5146.i.i = phi i32 [ %.3144516.i.lcssa.i, %_.exit268.i.i ], [ 0, %1196 ], [ -1, %strbuf_setlen.exit.i.i ], [ %.0141.ph525.i.i, %1225 ], [ %.1142.i.i, %.thread342.i.i ], [ %.3144516.i.lcssa.i, %1224 ]
+  %.6177.i.i = phi i32 [ %.3174512.i.lcssa.i, %_.exit268.i.i ], [ %.3174512.i284.i, %1196 ], [ 0, %strbuf_setlen.exit.i.i ], [ 0, %1225 ], [ 1, %1224 ], [ 0, %.thread342.i.i ]
+  %.2151.i.i = phi i32 [ %1121, %_.exit268.i.i ], [ %1121, %1196 ], [ 0, %strbuf_setlen.exit.i.i ], [ %1121, %1225 ], [ %1121, %1224 ], [ %.1150.i.i, %.thread342.i.i ]
+  %.5146.i.i = phi i32 [ %.3144516.i.lcssa.i, %_.exit268.i.i ], [ 0, %1196 ], [ -1, %strbuf_setlen.exit.i.i ], [ %.0141.ph525.i.i, %1225 ], [ %.3144516.i.lcssa.i, %1224 ], [ %.1142.i.i, %.thread342.i.i ]
   %.3.i.i = phi i32 [ %.0135499.i.i, %_.exit268.i.i ], [ 0, %1196 ], [ 0, %strbuf_setlen.exit.i.i ], [ %1226, %1225 ], [ %.0135499.i.i, %1224 ], [ %.0135499.i.i, %.thread342.i.i ]
   %.1134.i.i = phi i32 [ %1119, %_.exit268.i.i ], [ %1119, %1196 ], [ 0, %strbuf_setlen.exit.i.i ], [ 16, %1225 ], [ %1119, %1224 ], [ %1119, %.thread342.i.i ]
   %1231 = load ptr, ptr @the_repository, align 8, !tbaa !17

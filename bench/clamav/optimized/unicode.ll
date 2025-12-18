@@ -741,9 +741,9 @@ define noundef zeroext i1 @_Z9UtfToWidePKcPwm(ptr noundef readonly captures(none
   br label %81
 
 81:                                               ; preds = %77, %80
-  %.247 = phi ptr [ %.3, %80 ], [ %.04568, %77 ]
-  %.244 = phi i1 [ %.04269, %80 ], [ false, %77 ]
-  %.140 = phi i64 [ %.241, %80 ], [ %78, %77 ]
+  %.247 = phi ptr [ %.04568, %77 ], [ %.3, %80 ]
+  %.244 = phi i1 [ false, %77 ], [ %.04269, %80 ]
+  %.140 = phi i64 [ %78, %77 ], [ %.241, %80 ]
   %82 = load i8, ptr %.1, align 1, !tbaa !3
   %.not = icmp eq i8 %82, 0
   br i1 %.not, label %.thread, label %.lr.ph
@@ -999,7 +999,7 @@ define noundef ptr @_Z10wcscasestrPKwS0_(ptr noundef readonly captures(ret: addr
   br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !25
 
 .loopexit:                                        ; preds = %16, %.preheader, %6, %2
-  %20 = phi ptr [ null, %2 ], [ %4, %6 ], [ %4, %.preheader ], [ null, %16 ]
+  %20 = phi ptr [ null, %2 ], [ %4, %6 ], [ null, %16 ], [ %4, %.preheader ]
   ret ptr %20
 }
 

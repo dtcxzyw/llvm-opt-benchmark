@@ -783,7 +783,7 @@ define internal fastcc i32 @nexttoken(ptr noundef nonnull captures(none) %0, i32
   br i1 %.not110, label %.loopexit, label %.lr.ph164, !llvm.loop !22
 
 .loopexit:                                        ; preds = %.loopexit131, %40, %29, %17, %84, %.lr.ph152, %.preheader132, %.preheader127, %.preheader124, %.preheader, %80, %.critedge
-  %.076 = phi ptr [ %75, %.critedge ], [ %4, %.preheader127 ], [ %4, %80 ], [ %4, %.preheader ], [ %4, %.preheader124 ], [ %4, %.preheader132 ], [ %4, %.lr.ph152 ], [ %4, %40 ], [ %4, %84 ], [ %4, %17 ], [ %4, %29 ], [ %4, %.loopexit131 ]
+  %.076 = phi ptr [ %75, %.critedge ], [ %4, %.preheader127 ], [ %4, %.preheader124 ], [ %4, %.preheader ], [ %4, %80 ], [ %4, %.preheader132 ], [ %4, %.lr.ph152 ], [ %4, %29 ], [ %4, %40 ], [ %4, %84 ], [ %4, %17 ], [ %4, %.loopexit131 ]
   %89 = load ptr, ptr @stderr, align 8, !tbaa !18
   %90 = load i32, ptr @lineno, align 4, !tbaa !20
   %91 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %89, ptr noundef nonnull @.str.18, ptr noundef nonnull %.076, i32 noundef %90) #16
@@ -791,7 +791,7 @@ define internal fastcc i32 @nexttoken(ptr noundef nonnull captures(none) %0, i32
   unreachable
 
 .loopexit121:                                     ; preds = %37, %26, %14, %.lr.ph164, %62, %3, %.critedge, %78
-  %.5 = phi i32 [ %2, %78 ], [ %74, %.critedge ], [ %64, %62 ], [ 0, %3 ], [ %.171157, %26 ], [ %.575163, %.lr.ph164 ], [ %.070160, %14 ], [ %.272154, %37 ]
+  %.5 = phi i32 [ 0, %3 ], [ %.171157, %26 ], [ %2, %78 ], [ %74, %.critedge ], [ %64, %62 ], [ %.070160, %14 ], [ %.575163, %.lr.ph164 ], [ %.272154, %37 ]
   ret i32 %.5
 }
 

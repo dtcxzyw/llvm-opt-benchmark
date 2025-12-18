@@ -239,7 +239,7 @@ _ZSt4findIPiiET_S1_S1_RKT0_.exit.loopexit.split.loop.exit325: ; preds = %45
   br label %_ZSt4findIPiiET_S1_S1_RKT0_.exit
 
 _ZSt4findIPiiET_S1_S1_RKT0_.exit:                 ; preds = %34, %._crit_edge._crit_edge.i.i.i, %54, %._crit_edge.i.i.i, %_ZSt4findIPiiET_S1_S1_RKT0_.exit.loopexit.split.loop.exit325, %_ZSt4findIPiiET_S1_S1_RKT0_.exit.loopexit.split.loop.exit323, %_ZSt4findIPiiET_S1_S1_RKT0_.exit.loopexit.split.loop.exit, %._crit_edge._crit_edge52.i.i.i
-  %.028.i.i.i = phi ptr [ %.1.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %31, %._crit_edge.i.i.i ], [ %.029.lcssa.i.i.i, %54 ], [ %spec.select331, %._crit_edge._crit_edge52.i.i.i ], [ %67, %_ZSt4findIPiiET_S1_S1_RKT0_.exit.loopexit.split.loop.exit325 ], [ %65, %_ZSt4findIPiiET_S1_S1_RKT0_.exit.loopexit.split.loop.exit ], [ %66, %_ZSt4findIPiiET_S1_S1_RKT0_.exit.loopexit.split.loop.exit323 ], [ %.02946.i.i.i, %34 ]
+  %.028.i.i.i = phi ptr [ %.1.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %31, %._crit_edge.i.i.i ], [ %66, %_ZSt4findIPiiET_S1_S1_RKT0_.exit.loopexit.split.loop.exit323 ], [ %.029.lcssa.i.i.i, %54 ], [ %spec.select331, %._crit_edge._crit_edge52.i.i.i ], [ %67, %_ZSt4findIPiiET_S1_S1_RKT0_.exit.loopexit.split.loop.exit325 ], [ %65, %_ZSt4findIPiiET_S1_S1_RKT0_.exit.loopexit.split.loop.exit ], [ %.02946.i.i.i, %34 ]
   %68 = getelementptr inbounds i8, ptr %26, i64 -4
   %69 = load i32, ptr %68, align 4, !tbaa !9
   %70 = zext i32 %69 to i64
@@ -642,7 +642,7 @@ _ZNK14core_hashtableI14ptr_hash_entryIN19maximize_ac_sharing5entryEE12obj_ptr_ha
   br i1 %.not27.old.i, label %.loopexit170, label %.lr.ph56.i.backedge
 
 .lr.ph56.i.backedge:                              ; preds = %_ZNK14core_hashtableI14ptr_hash_entryIN19maximize_ac_sharing5entryEE12obj_ptr_hashIS2_E8deref_eqIS2_EE6equalsERKPS2_SB_.exit30.thread.i, %238
-  %.155.i.be = phi ptr [ %.old.i, %_ZNK14core_hashtableI14ptr_hash_entryIN19maximize_ac_sharing5entryEE12obj_ptr_hashIS2_E8deref_eqIS2_EE6equalsERKPS2_SB_.exit30.thread.i ], [ %240, %238 ]
+  %.155.i.be = phi ptr [ %240, %238 ], [ %.old.i, %_ZNK14core_hashtableI14ptr_hash_entryIN19maximize_ac_sharing5entryEE12obj_ptr_hashIS2_E8deref_eqIS2_EE6equalsERKPS2_SB_.exit30.thread.i ]
   br label %.lr.ph56.i, !llvm.loop !44
 
 .loopexit:                                        ; preds = %_ZNK14core_hashtableI14ptr_hash_entryIN19maximize_ac_sharing5entryEE12obj_ptr_hashIS2_E8deref_eqIS2_EE6equalsERKPS2_SB_.exit.i, %_ZNK14core_hashtableI14ptr_hash_entryIN19maximize_ac_sharing5entryEE12obj_ptr_hashIS2_E8deref_eqIS2_EE6equalsERKPS2_SB_.exit30.i
@@ -698,7 +698,7 @@ _ZNK14core_hashtableI14ptr_hash_entryIN19maximize_ac_sharing5entryEE12obj_ptr_ha
   br i1 %255, label %.preheader, label %.thread145, !llvm.loop !32
 
 .thread145:                                       ; preds = %.loopexit175, %.preheader174, %.loopexit173, %_ZN10ptr_bufferI4exprLj128EE6appendEjPKPS0_.exit
-  %.282 = phi i32 [ %.080, %_ZN10ptr_bufferI4exprLj128EE6appendEjPKPS0_.exit ], [ %.181213, %.loopexit173 ], [ %138, %.loopexit175 ], [ %.181213, %.preheader174 ]
+  %.282 = phi i32 [ %.181213, %.loopexit173 ], [ %.080, %_ZN10ptr_bufferI4exprLj128EE6appendEjPKPS0_.exit ], [ %138, %.loopexit175 ], [ %.181213, %.preheader174 ]
   %256 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %257 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %258 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -1651,7 +1651,7 @@ _ZNK14core_hashtableI14ptr_hash_entryIN19maximize_ac_sharing5entryEE12obj_ptr_ha
   br i1 %.not32.old, label %.loopexit, label %.lr.ph65.backedge
 
 .lr.ph65.backedge:                                ; preds = %_ZNK14core_hashtableI14ptr_hash_entryIN19maximize_ac_sharing5entryEE12obj_ptr_hashIS2_E8deref_eqIS2_EE6equalsERKPS2_SB_.exit35.thread, %92
-  %.264.be = phi ptr [ %.old, %_ZNK14core_hashtableI14ptr_hash_entryIN19maximize_ac_sharing5entryEE12obj_ptr_hashIS2_E8deref_eqIS2_EE6equalsERKPS2_SB_.exit35.thread ], [ %94, %92 ]
+  %.264.be = phi ptr [ %94, %92 ], [ %.old, %_ZNK14core_hashtableI14ptr_hash_entryIN19maximize_ac_sharing5entryEE12obj_ptr_hashIS2_E8deref_eqIS2_EE6equalsERKPS2_SB_.exit35.thread ]
   br label %.lr.ph65, !llvm.loop !89
 
 .loopexit55:                                      ; preds = %_ZNK14core_hashtableI14ptr_hash_entryIN19maximize_ac_sharing5entryEE12obj_ptr_hashIS2_E8deref_eqIS2_EE6equalsERKPS2_SB_.exit, %_ZNK14core_hashtableI14ptr_hash_entryIN19maximize_ac_sharing5entryEE12obj_ptr_hashIS2_E8deref_eqIS2_EE6equalsERKPS2_SB_.exit35
@@ -2600,7 +2600,7 @@ _ZNK14core_hashtableI14ptr_hash_entryIN19maximize_ac_sharing5entryEE12obj_ptr_ha
   br i1 %.not27.old, label %.loopexit, label %.lr.ph56.backedge
 
 .lr.ph56.backedge:                                ; preds = %_ZNK14core_hashtableI14ptr_hash_entryIN19maximize_ac_sharing5entryEE12obj_ptr_hashIS2_E8deref_eqIS2_EE6equalsERKPS2_SB_.exit30.thread, %92
-  %.155.be = phi ptr [ %.old, %_ZNK14core_hashtableI14ptr_hash_entryIN19maximize_ac_sharing5entryEE12obj_ptr_hashIS2_E8deref_eqIS2_EE6equalsERKPS2_SB_.exit30.thread ], [ %94, %92 ]
+  %.155.be = phi ptr [ %94, %92 ], [ %.old, %_ZNK14core_hashtableI14ptr_hash_entryIN19maximize_ac_sharing5entryEE12obj_ptr_hashIS2_E8deref_eqIS2_EE6equalsERKPS2_SB_.exit30.thread ]
   br label %.lr.ph56, !llvm.loop !44
 
 .loopexit:                                        ; preds = %73, %_ZNK14core_hashtableI14ptr_hash_entryIN19maximize_ac_sharing5entryEE12obj_ptr_hashIS2_E8deref_eqIS2_EE6equalsERKPS2_SB_.exit, %_ZNK14core_hashtableI14ptr_hash_entryIN19maximize_ac_sharing5entryEE12obj_ptr_hashIS2_E8deref_eqIS2_EE6equalsERKPS2_SB_.exit30, %92, %_ZNK14core_hashtableI14ptr_hash_entryIN19maximize_ac_sharing5entryEE12obj_ptr_hashIS2_E8deref_eqIS2_EE6equalsERKPS2_SB_.exit30.thread, %.preheader

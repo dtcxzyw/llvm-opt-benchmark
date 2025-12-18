@@ -1788,7 +1788,7 @@ define hidden range(i32 -36, 1) i32 @mbedtls_camellia_crypt_cfb128(ptr noundef r
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !33
 
 .loopexit:                                        ; preds = %30, %17, %.preheader43, %.preheader
-  %.1 = phi i64 [ %9, %.preheader ], [ %9, %.preheader43 ], [ %25, %17 ], [ %38, %30 ]
+  %.1 = phi i64 [ %25, %17 ], [ %9, %.preheader ], [ %9, %.preheader43 ], [ %38, %30 ]
   store i64 %.1, ptr %3, align 8, !tbaa !30
   br label %39
 
@@ -2374,7 +2374,7 @@ mbedtls_camellia_crypt_ctr.exit129:               ; preds = %.loopexit.i121
   br i1 %exitcond179.not, label %.loopexit, label %.loopexit203.backedge
 
 .loopexit203.backedge:                            ; preds = %218, %.thread198
-  %.2160.be = phi i32 [ %219, %218 ], [ %220, %.thread198 ]
+  %.2160.be = phi i32 [ %220, %.thread198 ], [ %219, %218 ]
   br label %.loopexit203, !llvm.loop !40
 
 .thread198:                                       ; preds = %217

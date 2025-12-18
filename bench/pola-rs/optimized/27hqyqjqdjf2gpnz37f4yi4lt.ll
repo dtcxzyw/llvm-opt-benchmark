@@ -1089,7 +1089,7 @@ define hidden void @"_ZN4core3ptr101drop_in_place$LT$alloc..collections..vec_deq
   br label %.body.i
 
 .body.i:                                          ; preds = %27, %41, %7
-  %eh.lpad-body.i = phi { ptr, i32 } [ %8, %7 ], [ %44, %41 ], [ %30, %27 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %44, %41 ], [ %8, %7 ], [ %30, %27 ]
   invoke fastcc void @"_ZN4core3ptr195drop_in_place$LT$$LT$alloc..collections..vec_deque..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$polars_core..frame..DataFrame$C$alloc..alloc..Global$GT$$GT$17hd611d674b52af9b0E"(ptr nonnull align 8 dereferenceable(40) %0) #24
           to label %52 unwind label %50
 

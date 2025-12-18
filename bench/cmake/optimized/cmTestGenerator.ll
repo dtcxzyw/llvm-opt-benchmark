@@ -6329,7 +6329,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6insert
   br i1 %.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !244
 
 .loopexit:                                        ; preds = %98, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6insertEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EEOS5_.exit.us, %49, %6
-  %.pn = phi ptr [ %7, %6 ], [ %44, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6insertEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EEOS5_.exit.us ], [ %58, %49 ], [ %99, %98 ]
+  %.pn = phi ptr [ %7, %6 ], [ %58, %49 ], [ %44, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6insertEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EEOS5_.exit.us ], [ %99, %98 ]
   %.sroa.020.0 = getelementptr inbounds i8, ptr %.pn, i64 %10
   ret ptr %.sroa.020.0
 }

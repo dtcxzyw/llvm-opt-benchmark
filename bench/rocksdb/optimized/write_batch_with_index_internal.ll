@@ -5036,7 +5036,7 @@ _ZN7rocksdb16WBWIIteratorImpl10MatchesKeyEjRKNS_5SliceE.exit.us: ; preds = %65, 
   %79 = getelementptr inbounds nuw i8, ptr %72, i64 8
   br label %.split.us.i.i.i.outer
 
-.split.us.i.i.i.outer.loopexit:                   ; preds = %_ZNK7rocksdb8SkipListIPNS_20WriteBatchIndexEntryERKNS_25WriteBatchEntryComparatorEE14KeyIsAfterNodeERKS2_PNS6_4NodeE.exit, %93, %95
+.split.us.i.i.i.outer.loopexit:                   ; preds = %_ZNK7rocksdb8SkipListIPNS_20WriteBatchIndexEntryERKNS_25WriteBatchEntryComparatorEE14KeyIsAfterNodeERKS2_PNS6_4NodeE.exit, %95, %93
   br label %.split.us.i.i.i.outer
 
 .split.us.i.i.i.outer:                            ; preds = %.split.us.i.i.i.outer.loopexit, %.split
@@ -5761,7 +5761,7 @@ _ZN7rocksdb16WBWIIteratorImpl4NextEv.exit31.thread.loopexit116: ; preds = %119, 
   br label %_ZN7rocksdb16WBWIIteratorImpl4NextEv.exit31.thread
 
 _ZN7rocksdb16WBWIIteratorImpl4NextEv.exit31.thread: ; preds = %119, %_ZN7rocksdb16WBWIIteratorImpl4NextEv.exit31.thread.loopexit116, %_ZN7rocksdb16WBWIIteratorImpl4NextEv.exit31.thread.loopexit
-  %.212.ph = phi i8 [ 1, %_ZN7rocksdb16WBWIIteratorImpl4NextEv.exit31.thread.loopexit116 ], [ 0, %_ZN7rocksdb16WBWIIteratorImpl4NextEv.exit31.thread.loopexit ], [ 4, %119 ]
+  %.212.ph = phi i8 [ 0, %_ZN7rocksdb16WBWIIteratorImpl4NextEv.exit31.thread.loopexit ], [ 1, %_ZN7rocksdb16WBWIIteratorImpl4NextEv.exit31.thread.loopexit116 ], [ 4, %119 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN7rocksdb16WBWIIteratorImpl4PrevEv.exit
 
@@ -9306,7 +9306,7 @@ _ZNK7rocksdb25WriteBatchEntryComparatorclEPKNS_20WriteBatchIndexEntryES3_.exit: 
   br i1 %.not, label %.thread, label %95
 
 _ZNK7rocksdb25WriteBatchEntryComparatorclEPKNS_20WriteBatchIndexEntryES3_.exit.thread: ; preds = %35, %20, %13, %_ZNK7rocksdb25WriteBatchEntryComparatorclEPKNS_20WriteBatchIndexEntryES3_.exit.thread31
-  %89 = phi i32 [ %.1.i.ph, %_ZNK7rocksdb25WriteBatchEntryComparatorclEPKNS_20WriteBatchIndexEntryES3_.exit.thread31 ], [ 1, %35 ], [ 1, %20 ], [ 1, %13 ]
+  %89 = phi i32 [ %.1.i.ph, %_ZNK7rocksdb25WriteBatchEntryComparatorclEPKNS_20WriteBatchIndexEntryES3_.exit.thread31 ], [ 1, %35 ], [ 1, %13 ], [ 1, %20 ]
   %90 = icmp sgt i32 %89, 0
   %91 = icmp eq i32 %.024, 0
   %or.cond = and i1 %91, %90
@@ -9543,7 +9543,7 @@ define linkonce_odr void @_ZN7rocksdb8SkipListIPNS_20WriteBatchIndexEntryERKNS_2
   %44 = getelementptr inbounds nuw i8, ptr %37, i64 8
   br label %.split.us.i.i.outer
 
-.split.us.i.i.outer.loopexit:                     ; preds = %_ZNK7rocksdb8SkipListIPNS_20WriteBatchIndexEntryERKNS_25WriteBatchEntryComparatorEE14KeyIsAfterNodeERKS2_PNS6_4NodeE.exit, %58, %60
+.split.us.i.i.outer.loopexit:                     ; preds = %_ZNK7rocksdb8SkipListIPNS_20WriteBatchIndexEntryERKNS_25WriteBatchEntryComparatorEE14KeyIsAfterNodeERKS2_PNS6_4NodeE.exit, %60, %58
   br label %.split.us.i.i.outer
 
 .split.us.i.i.outer:                              ; preds = %.split.us.i.i.outer.loopexit, %36

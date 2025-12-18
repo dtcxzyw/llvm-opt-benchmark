@@ -3369,7 +3369,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %rbimpl_RB_TYPE_P_fa
   unreachable
 
 .loopexit:                                        ; preds = %rb_array_len.exit.thread, %rb_array_len.exit.us, %.thread, %1, %rbimpl_RB_TYPE_P_fastpath.exit18.thread, %12
-  %.0 = phi i64 [ %0, %rbimpl_RB_TYPE_P_fastpath.exit18.thread ], [ %13, %12 ], [ 4, %1 ], [ %0, %.thread ], [ %0, %rb_array_len.exit.us ], [ %0, %rb_array_len.exit.thread ]
+  %.0 = phi i64 [ %0, %rbimpl_RB_TYPE_P_fastpath.exit18.thread ], [ %13, %12 ], [ %0, %.thread ], [ 4, %1 ], [ %0, %rb_array_len.exit.us ], [ %0, %rb_array_len.exit.thread ]
   ret i64 %.0
 }
 
@@ -11056,9 +11056,9 @@ append_basename.exit97:                           ; preds = %84, %91
   br label %133
 
 128:                                              ; preds = %122, %120
-  %.365 = phi ptr [ %127, %122 ], [ %28, %120 ]
-  %.3 = phi i1 [ %.not81, %122 ], [ true, %120 ]
-  %.1 = phi i8 [ %124, %122 ], [ %29, %120 ]
+  %.365 = phi ptr [ %28, %120 ], [ %127, %122 ]
+  %.3 = phi i1 [ true, %120 ], [ %.not81, %122 ]
+  %.1 = phi i8 [ %29, %120 ], [ %124, %122 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %129
 
@@ -11161,8 +11161,8 @@ RSTRING_PTR.exit:                                 ; preds = %3, %8
   br i1 %28, label %23, label %.backedge, !llvm.loop !176
 
 .backedge:                                        ; preds = %26, %23, %31, %.critedge4, %41
-  %.040.be = phi ptr [ %.242.lcssa, %41 ], [ %.242.lcssa, %.critedge4 ], [ %.04060, %31 ], [ %24, %23 ], [ %24, %26 ]
-  %.0.be = phi ptr [ %.2.lcssa, %41 ], [ %.2.lcssa, %.critedge4 ], [ %.061, %31 ], [ %.1, %23 ], [ %.1, %26 ]
+  %.040.be = phi ptr [ %.242.lcssa, %.critedge4 ], [ %.242.lcssa, %41 ], [ %.04060, %31 ], [ %24, %23 ], [ %24, %26 ]
+  %.0.be = phi ptr [ %.2.lcssa, %.critedge4 ], [ %.2.lcssa, %41 ], [ %.061, %31 ], [ %.1, %23 ], [ %.1, %26 ]
   %29 = icmp ult ptr %.0.be, %12
   %30 = icmp ult ptr %.040.be, %11
   %or.cond = select i1 %29, i1 %30, i1 false

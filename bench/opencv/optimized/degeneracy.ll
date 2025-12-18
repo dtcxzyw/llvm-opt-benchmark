@@ -9495,7 +9495,7 @@ _ZN2cv3MatC2IdLi3ELi3EEERKNS_4MatxIT_XT0_EXT1_EEEb.exit60: ; preds = %131
   br i1 %221, label %201, label %_ZN2cv4usac25FundamentalDegeneracyImpl12getOutliersHERKNS_3MatE.exit, !llvm.loop !301
 
 _ZN2cv4usac25FundamentalDegeneracyImpl12getOutliersHERKNS_3MatE.exit: ; preds = %218, %_ZN2cvmlIdLi3ELi3ELi3EEENS_4MatxIT_XT0_EXT1_EEERKNS1_IS2_XT0_EXT2_EEERKNS1_IS2_XT2_EXT1_EEE.exit, %.critedge, %._crit_edge95
-  %.038.lcssa109 = phi i1 [ false, %._crit_edge95 ], [ true, %.critedge ], [ false, %_ZN2cvmlIdLi3ELi3ELi3EEENS_4MatxIT_XT0_EXT1_EEERKNS1_IS2_XT0_EXT2_EEERKNS1_IS2_XT2_EXT1_EEE.exit ], [ true, %218 ]
+  %.038.lcssa109 = phi i1 [ false, %_ZN2cvmlIdLi3ELi3ELi3EEENS_4MatxIT_XT0_EXT1_EEERKNS1_IS2_XT0_EXT2_EEERKNS1_IS2_XT2_EXT1_EEE.exit ], [ false, %._crit_edge95 ], [ true, %.critedge ], [ true, %218 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -10449,7 +10449,7 @@ define linkonce_odr hidden noundef i32 @_ZN2cv4usac25FundamentalDegeneracyImpl19
   br label %.loopexit
 
 .loopexit:                                        ; preds = %34, %38, %15, %._crit_edge, %75, %81, %66
-  %.2 = phi i32 [ %.3.lcssa, %._crit_edge ], [ %.3.lcssa, %81 ], [ %.3.lcssa, %75 ], [ %.3.lcssa, %66 ], [ 0, %15 ], [ %.01723, %34 ], [ %.1, %38 ]
+  %.2 = phi i32 [ %.3.lcssa, %._crit_edge ], [ %.3.lcssa, %66 ], [ %.3.lcssa, %81 ], [ %.3.lcssa, %75 ], [ 0, %15 ], [ %.01723, %34 ], [ %.1, %38 ]
   ret i32 %.2
 }
 

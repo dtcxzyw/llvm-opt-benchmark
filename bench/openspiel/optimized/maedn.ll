@@ -4653,8 +4653,8 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit.
   br i1 %138, label %.body136, label %135
 
 .body136:                                         ; preds = %135, %133, %67
-  %139 = phi i1 [ false, %67 ], [ false, %133 ], [ true, %135 ]
-  %.pn = phi { ptr, i32 } [ %68, %67 ], [ %134, %133 ], [ %eh.lpad-body156194, %135 ]
+  %139 = phi i1 [ false, %133 ], [ false, %67 ], [ true, %135 ]
+  %.pn = phi { ptr, i32 } [ %134, %133 ], [ %68, %67 ], [ %eh.lpad-body156194, %135 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #28
   br label %.body131
 
@@ -5604,7 +5604,7 @@ _ZNSt6vectorIdSaIdEE9push_backEOd.exit19:         ; preds = %_ZNSt6vectorIdSaIdE
   br i1 %109, label %80, label %.loopexit, !llvm.loop !44
 
 .loopexit:                                        ; preds = %_ZNSt6vectorIdSaIdEE9push_backEOd.exit19, %_ZNSt6vectorIdSaIdEE9push_backEOd.exit, %.preheader25, %.preheader
-  %storemerge = phi ptr [ null, %.preheader ], [ null, %.preheader25 ], [ %68, %_ZNSt6vectorIdSaIdEE9push_backEOd.exit ], [ %106, %_ZNSt6vectorIdSaIdEE9push_backEOd.exit19 ]
+  %storemerge = phi ptr [ %68, %_ZNSt6vectorIdSaIdEE9push_backEOd.exit ], [ null, %.preheader ], [ null, %.preheader25 ], [ %106, %_ZNSt6vectorIdSaIdEE9push_backEOd.exit19 ]
   store ptr %storemerge, ptr %0, align 8
   ret void
 }

@@ -3597,7 +3597,7 @@ define noundef align 8 ptr @"_ZN79_$LT$yara_x_proto_json..test..Message$u20$as$u
   br i1 %12, label %13, label %17
 
 .loopexit:                                        ; preds = %57, %88, %84, %76, %68, %62, %46, %39, %29, %20, %13, %6
-  %.sroa.0.0 = phi ptr [ %9, %6 ], [ %16, %13 ], [ %25, %20 ], [ %34, %29 ], [ %42, %39 ], [ %90, %88 ], [ %48, %46 ], [ %63, %62 ], [ %71, %68 ], [ %79, %76 ], [ %87, %84 ], [ %58, %57 ]
+  %.sroa.0.0 = phi ptr [ %87, %84 ], [ %9, %6 ], [ %16, %13 ], [ %25, %20 ], [ %34, %29 ], [ %42, %39 ], [ %90, %88 ], [ %48, %46 ], [ %63, %62 ], [ %71, %68 ], [ %79, %76 ], [ %58, %57 ]
   ret ptr %.sroa.0.0
 
 13:                                               ; preds = %10
@@ -3857,7 +3857,7 @@ define void @"_ZN79_$LT$yara_x_proto_json..test..Message$u20$as$u20$protobuf..me
           to label %26 unwind label %33
 
 common.resume12:                                  ; preds = %26, %.body, %13, %7
-  %common.resume12.op = phi { ptr, i32 } [ %38, %.body ], [ %14, %13 ], [ %8, %7 ], [ %29, %26 ]
+  %common.resume12.op = phi { ptr, i32 } [ %8, %7 ], [ %38, %.body ], [ %14, %13 ], [ %29, %26 ]
   resume { ptr, i32 } %common.resume12.op
 
 33:                                               ; preds = %30

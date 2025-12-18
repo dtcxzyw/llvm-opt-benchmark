@@ -269,7 +269,7 @@ get_word.exit60.us.i:                             ; preds = %80, %79
   br i1 %.not56.i, label %probable_prime.exit, label %.backedge66.i
 
 .backedge66.i:                                    ; preds = %.backedge.i, %.critedge.us.i, %112
-  %.14596.i = phi i64 [ %.14597.i, %112 ], [ %.041.i, %.critedge.us.i ], [ %.04474.i, %.backedge.i ]
+  %.14596.i = phi i64 [ %.041.i, %.critedge.us.i ], [ %.14597.i, %112 ], [ %.04474.i, %.backedge.i ]
   %114 = tail call i32 @BN_rand(ptr noundef %0, i32 noundef range(i32 2, -2147483648) %1, i32 noundef 1, i32 noundef 1) #5
   %.not.i = icmp eq i32 %114, 0
   br i1 %.not.i, label %probable_prime.exit.thread, label %.preheader65.i
@@ -374,7 +374,7 @@ probable_prime.exit:                              ; preds = %112
   %.not52.i = icmp eq i32 %152, 0
   br i1 %.not52.i, label %probable_prime_dh_safe.exit.thread, label %.preheader.i80.backedge
 
-probable_prime_dh_safe.exit.thread:               ; preds = %117, %121, %138, %136, %130, %134, %132, %127, %125, %123, %149, %151
+probable_prime_dh_safe.exit.thread:               ; preds = %117, %123, %121, %138, %136, %130, %134, %132, %127, %125, %149, %151
   tail call void @BN_CTX_end(ptr noundef nonnull %40) #5
   br label %.thread106
 
@@ -509,7 +509,7 @@ BN_GENCB_call.exit92.thread:                      ; preds = %186, %BN_GENCB_call
   br label %.thread106
 
 .thread106:                                       ; preds = %BN_GENCB_call.exit92.thread, %BN_GENCB_call.exit92, %.preheader, %184, %179, %.thread106.loopexit167, %probable_prime.exit.thread, %42, %probable_prime_dh_safe.exit.thread, %probable_prime_dh.exit.thread
-  %.062108 = phi i32 [ 0, %.thread106.loopexit167 ], [ 0, %probable_prime_dh.exit.thread ], [ 0, %probable_prime_dh_safe.exit.thread ], [ 0, %probable_prime.exit.thread ], [ 0, %42 ], [ 1, %179 ], [ 1, %BN_GENCB_call.exit92.thread ], [ 0, %BN_GENCB_call.exit92 ], [ 0, %.preheader ], [ 0, %184 ]
+  %.062108 = phi i32 [ 0, %.thread106.loopexit167 ], [ 0, %probable_prime_dh.exit.thread ], [ 0, %probable_prime_dh_safe.exit.thread ], [ 1, %179 ], [ 0, %probable_prime.exit.thread ], [ 0, %42 ], [ 1, %BN_GENCB_call.exit92.thread ], [ 0, %BN_GENCB_call.exit92 ], [ 0, %.preheader ], [ 0, %184 ]
   tail call void @BN_CTX_end(ptr noundef nonnull %40) #5
   tail call void @BN_CTX_free(ptr noundef nonnull %40) #5
   br label %.thread109
@@ -796,7 +796,7 @@ BN_GENCB_call.exit114.thread:                     ; preds = %BN_GENCB_call.exit1
   br label %.thread133
 
 .thread133:                                       ; preds = %.preheader138, %BN_GENCB_call.exit, %60, %110, %111, %5, %47
-  %.0 = phi i32 [ %48, %47 ], [ 0, %5 ], [ %.081.ph, %111 ], [ %.081.ph, %110 ], [ -1, %60 ], [ -1, %BN_GENCB_call.exit ], [ 0, %.preheader138 ]
+  %.0 = phi i32 [ %48, %47 ], [ 0, %5 ], [ -1, %BN_GENCB_call.exit ], [ %.081.ph, %111 ], [ %.081.ph, %110 ], [ -1, %60 ], [ 0, %.preheader138 ]
   ret i32 %.0
 }
 

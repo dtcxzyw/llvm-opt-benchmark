@@ -11377,7 +11377,7 @@ define internal fastcc void @"_ZN118_$LT$polars_arrow..bitmap..utils..slice_iter
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.sink.split, %2, %._crit_edge148, %84
-  %.sink = phi i64 [ 0, %84 ], [ 0, %._crit_edge148 ], [ 0, %2 ], [ 1, %._crit_edge.sink.split ]
+  %.sink = phi i64 [ 0, %84 ], [ 0, %2 ], [ 0, %._crit_edge148 ], [ 1, %._crit_edge.sink.split ]
   store i64 %.sink, ptr %0, align 8
   ret void
 
@@ -96433,7 +96433,7 @@ define { ptr, ptr } @_ZN14polars_compute6filter18filter_with_bitmap17h57cfd34f58
   %909 = trunc nuw i64 %908 to i1
   br i1 %909, label %905, label %.loopexit396
 
-.loopexit396:                                     ; preds = %.noexc261, %804, %._crit_edge, %895
+.loopexit396:                                     ; preds = %.noexc261, %._crit_edge, %804, %895
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !7650
   %910 = icmp ne ptr %797, null
   call void @llvm.assume(i1 %910)
@@ -100689,20 +100689,20 @@ define void @"_ZN14polars_compute12if_then_else5array133_$LT$impl$u20$polars_com
   br i1 %85, label %"_ZN118_$LT$polars_arrow..bitmap..utils..slice_iterator..SlicesIterator$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4c12af9511f07d40E.exit.i", label %._crit_edge.i
 
 "_ZN118_$LT$polars_arrow..bitmap..utils..slice_iterator..SlicesIterator$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4c12af9511f07d40E.exit.i": ; preds = %.thread.i.i, %84, %76, %.lr.ph.i._crit_edge.i
-  %.sroa.20.3.i = phi ptr [ %.sroa.20.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %.sroa.20.180.i, %84 ], [ %spec.select.i, %76 ], [ %.sroa.20.180.i, %.thread.i.i ]
-  %.sroa.16.5.i = phi i64 [ %.sroa.16.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %.sroa.16.2.i, %84 ], [ %29, %76 ], [ %29, %.thread.i.i ]
-  %.sroa.8.5.i = phi i64 [ %.sroa.8.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %.sroa.8.2.i, %84 ], [ 1, %76 ], [ 1, %.thread.i.i ]
-  %.sroa.23.6.i = phi i8 [ %.sroa.23.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %.sroa.23.3.i, %84 ], [ %53, %76 ], [ 2, %.thread.i.i ]
-  %.sroa.27.1.i = phi i1 [ true, %.lr.ph.i._crit_edge.i ], [ true, %84 ], [ false, %76 ], [ false, %.thread.i.i ]
-  %.sroa.30.5.i = phi i8 [ %.sroa.30.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %.sroa.30.2.i, %84 ], [ 0, %76 ], [ 0, %.thread.i.i ]
-  %.sroa.021.3.i = phi ptr [ %.sroa.021.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %.sroa.021.185.i, %84 ], [ %spec.select39.i, %76 ], [ %.sroa.021.185.i, %.thread.i.i ]
-  %.lcssa110.sink.i.i = phi i64 [ %.lcssa48.i, %.lr.ph.i._crit_edge.i ], [ %74, %84 ], [ %31, %76 ], [ %31, %.thread.i.i ]
-  %.lcssa111.sink.i.i = phi i64 [ %.sroa.8.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %.sroa.8.2.i, %84 ], [ %.sroa.8.182.i, %76 ], [ %.sroa.8.182.i, %.thread.i.i ]
+  %.sroa.20.3.i = phi ptr [ %.sroa.20.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %spec.select.i, %76 ], [ %.sroa.20.180.i, %84 ], [ %.sroa.20.180.i, %.thread.i.i ]
+  %.sroa.16.5.i = phi i64 [ %.sroa.16.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %29, %76 ], [ %.sroa.16.2.i, %84 ], [ %29, %.thread.i.i ]
+  %.sroa.8.5.i = phi i64 [ %.sroa.8.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ 1, %76 ], [ %.sroa.8.2.i, %84 ], [ 1, %.thread.i.i ]
+  %.sroa.23.6.i = phi i8 [ %.sroa.23.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %53, %76 ], [ %.sroa.23.3.i, %84 ], [ 2, %.thread.i.i ]
+  %.sroa.27.1.i = phi i1 [ true, %.lr.ph.i._crit_edge.i ], [ false, %76 ], [ true, %84 ], [ false, %.thread.i.i ]
+  %.sroa.30.5.i = phi i8 [ %.sroa.30.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ 0, %76 ], [ %.sroa.30.2.i, %84 ], [ 0, %.thread.i.i ]
+  %.sroa.021.3.i = phi ptr [ %.sroa.021.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %spec.select39.i, %76 ], [ %.sroa.021.185.i, %84 ], [ %.sroa.021.185.i, %.thread.i.i ]
+  %.lcssa110.sink.i.i = phi i64 [ %.lcssa48.i, %.lr.ph.i._crit_edge.i ], [ %31, %76 ], [ %74, %84 ], [ %31, %.thread.i.i ]
+  %.lcssa111.sink.i.i = phi i64 [ %.sroa.8.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %.sroa.8.182.i, %76 ], [ %.sroa.8.2.i, %84 ], [ %.sroa.8.182.i, %.thread.i.i ]
   %.not17.i = icmp eq i64 %.lcssa110.sink.i.i, %.sroa.07.0100.i
   br i1 %.not17.i, label %.noexc7, label %89
 
 ._crit_edge.i:                                    ; preds = %.noexc8, %84, %.lr.ph.i._crit_edge.i, %.noexc
-  %.sroa.07.0.lcssa.i = phi i64 [ 0, %.noexc ], [ %91, %.noexc8 ], [ %.sroa.07.0100.i, %.lr.ph.i._crit_edge.i ], [ %.sroa.07.0100.i, %84 ]
+  %.sroa.07.0.lcssa.i = phi i64 [ 0, %.noexc ], [ %.sroa.07.0100.i, %.lr.ph.i._crit_edge.i ], [ %91, %.noexc8 ], [ %.sroa.07.0100.i, %84 ]
   %86 = load i64, ptr %16, align 8, !noalias !7878, !noundef !6
   %.not.i = icmp eq i64 %.sroa.07.0.lcssa.i, %86
   br i1 %.not.i, label %92, label %87
@@ -101044,20 +101044,20 @@ define void @"_ZN14polars_compute12if_then_else5array133_$LT$impl$u20$polars_com
   br i1 %101, label %"_ZN118_$LT$polars_arrow..bitmap..utils..slice_iterator..SlicesIterator$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4c12af9511f07d40E.exit.i", label %._crit_edge.i
 
 "_ZN118_$LT$polars_arrow..bitmap..utils..slice_iterator..SlicesIterator$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4c12af9511f07d40E.exit.i": ; preds = %.thread.i.i, %100, %92, %.lr.ph.i._crit_edge.i
-  %.sroa.20.3.i = phi ptr [ %.sroa.20.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %.sroa.20.180.i, %100 ], [ %spec.select.i, %92 ], [ %.sroa.20.180.i, %.thread.i.i ]
-  %.sroa.16.5.i = phi i64 [ %.sroa.16.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %.sroa.16.2.i, %100 ], [ %45, %92 ], [ %45, %.thread.i.i ]
-  %.sroa.8.5.i = phi i64 [ %.sroa.8.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %.sroa.8.2.i, %100 ], [ 1, %92 ], [ 1, %.thread.i.i ]
-  %.sroa.23.6.i = phi i8 [ %.sroa.23.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %.sroa.23.3.i, %100 ], [ %69, %92 ], [ 2, %.thread.i.i ]
-  %.sroa.27.1.i = phi i1 [ true, %.lr.ph.i._crit_edge.i ], [ true, %100 ], [ false, %92 ], [ false, %.thread.i.i ]
-  %.sroa.30.5.i = phi i8 [ %.sroa.30.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %.sroa.30.2.i, %100 ], [ 0, %92 ], [ 0, %.thread.i.i ]
-  %.sroa.021.3.i = phi ptr [ %.sroa.021.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %.sroa.021.185.i, %100 ], [ %spec.select39.i, %92 ], [ %.sroa.021.185.i, %.thread.i.i ]
-  %.lcssa110.sink.i.i = phi i64 [ %.lcssa48.i, %.lr.ph.i._crit_edge.i ], [ %90, %100 ], [ %47, %92 ], [ %47, %.thread.i.i ]
-  %.lcssa111.sink.i.i = phi i64 [ %.sroa.8.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %.sroa.8.2.i, %100 ], [ %.sroa.8.182.i, %92 ], [ %.sroa.8.182.i, %.thread.i.i ]
+  %.sroa.20.3.i = phi ptr [ %.sroa.20.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %spec.select.i, %92 ], [ %.sroa.20.180.i, %100 ], [ %.sroa.20.180.i, %.thread.i.i ]
+  %.sroa.16.5.i = phi i64 [ %.sroa.16.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %45, %92 ], [ %.sroa.16.2.i, %100 ], [ %45, %.thread.i.i ]
+  %.sroa.8.5.i = phi i64 [ %.sroa.8.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ 1, %92 ], [ %.sroa.8.2.i, %100 ], [ 1, %.thread.i.i ]
+  %.sroa.23.6.i = phi i8 [ %.sroa.23.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %69, %92 ], [ %.sroa.23.3.i, %100 ], [ 2, %.thread.i.i ]
+  %.sroa.27.1.i = phi i1 [ true, %.lr.ph.i._crit_edge.i ], [ false, %92 ], [ true, %100 ], [ false, %.thread.i.i ]
+  %.sroa.30.5.i = phi i8 [ %.sroa.30.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ 0, %92 ], [ %.sroa.30.2.i, %100 ], [ 0, %.thread.i.i ]
+  %.sroa.021.3.i = phi ptr [ %.sroa.021.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %spec.select39.i, %92 ], [ %.sroa.021.185.i, %100 ], [ %.sroa.021.185.i, %.thread.i.i ]
+  %.lcssa110.sink.i.i = phi i64 [ %.lcssa48.i, %.lr.ph.i._crit_edge.i ], [ %47, %92 ], [ %90, %100 ], [ %47, %.thread.i.i ]
+  %.lcssa111.sink.i.i = phi i64 [ %.sroa.8.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %.sroa.8.182.i, %92 ], [ %.sroa.8.2.i, %100 ], [ %.sroa.8.182.i, %.thread.i.i ]
   %.not17.i = icmp eq i64 %.lcssa110.sink.i.i, %.sroa.07.0100.i
   br i1 %.not17.i, label %.noexc10, label %105
 
 ._crit_edge.i:                                    ; preds = %.noexc11, %100, %.lr.ph.i._crit_edge.i, %.noexc
-  %.sroa.07.0.lcssa.i = phi i64 [ 0, %.noexc ], [ %107, %.noexc11 ], [ %.sroa.07.0100.i, %.lr.ph.i._crit_edge.i ], [ %.sroa.07.0100.i, %100 ]
+  %.sroa.07.0.lcssa.i = phi i64 [ 0, %.noexc ], [ %.sroa.07.0100.i, %.lr.ph.i._crit_edge.i ], [ %107, %.noexc11 ], [ %.sroa.07.0100.i, %100 ]
   %102 = load i64, ptr %31, align 8, !noalias !7885, !noundef !6
   %.not.i = icmp eq i64 %.sroa.07.0.lcssa.i, %102
   br i1 %.not.i, label %108, label %103
@@ -101410,20 +101410,20 @@ define void @"_ZN14polars_compute12if_then_else5array133_$LT$impl$u20$polars_com
   br i1 %101, label %"_ZN118_$LT$polars_arrow..bitmap..utils..slice_iterator..SlicesIterator$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4c12af9511f07d40E.exit.i", label %._crit_edge.i
 
 "_ZN118_$LT$polars_arrow..bitmap..utils..slice_iterator..SlicesIterator$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4c12af9511f07d40E.exit.i": ; preds = %.thread.i.i, %100, %92, %.lr.ph.i._crit_edge.i
-  %.sroa.20.3.i = phi ptr [ %.sroa.20.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %.sroa.20.180.i, %100 ], [ %spec.select.i, %92 ], [ %.sroa.20.180.i, %.thread.i.i ]
-  %.sroa.16.5.i = phi i64 [ %.sroa.16.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %.sroa.16.2.i, %100 ], [ %45, %92 ], [ %45, %.thread.i.i ]
-  %.sroa.8.5.i = phi i64 [ %.sroa.8.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %.sroa.8.2.i, %100 ], [ 1, %92 ], [ 1, %.thread.i.i ]
-  %.sroa.23.6.i = phi i8 [ %.sroa.23.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %.sroa.23.3.i, %100 ], [ %69, %92 ], [ 2, %.thread.i.i ]
-  %.sroa.27.1.i = phi i1 [ true, %.lr.ph.i._crit_edge.i ], [ true, %100 ], [ false, %92 ], [ false, %.thread.i.i ]
-  %.sroa.30.5.i = phi i8 [ %.sroa.30.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %.sroa.30.2.i, %100 ], [ 0, %92 ], [ 0, %.thread.i.i ]
-  %.sroa.021.3.i = phi ptr [ %.sroa.021.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %.sroa.021.185.i, %100 ], [ %spec.select39.i, %92 ], [ %.sroa.021.185.i, %.thread.i.i ]
-  %.lcssa110.sink.i.i = phi i64 [ %.lcssa48.i, %.lr.ph.i._crit_edge.i ], [ %90, %100 ], [ %47, %92 ], [ %47, %.thread.i.i ]
-  %.lcssa111.sink.i.i = phi i64 [ %.sroa.8.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %.sroa.8.2.i, %100 ], [ %.sroa.8.182.i, %92 ], [ %.sroa.8.182.i, %.thread.i.i ]
+  %.sroa.20.3.i = phi ptr [ %.sroa.20.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %spec.select.i, %92 ], [ %.sroa.20.180.i, %100 ], [ %.sroa.20.180.i, %.thread.i.i ]
+  %.sroa.16.5.i = phi i64 [ %.sroa.16.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %45, %92 ], [ %.sroa.16.2.i, %100 ], [ %45, %.thread.i.i ]
+  %.sroa.8.5.i = phi i64 [ %.sroa.8.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ 1, %92 ], [ %.sroa.8.2.i, %100 ], [ 1, %.thread.i.i ]
+  %.sroa.23.6.i = phi i8 [ %.sroa.23.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %69, %92 ], [ %.sroa.23.3.i, %100 ], [ 2, %.thread.i.i ]
+  %.sroa.27.1.i = phi i1 [ true, %.lr.ph.i._crit_edge.i ], [ false, %92 ], [ true, %100 ], [ false, %.thread.i.i ]
+  %.sroa.30.5.i = phi i8 [ %.sroa.30.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ 0, %92 ], [ %.sroa.30.2.i, %100 ], [ 0, %.thread.i.i ]
+  %.sroa.021.3.i = phi ptr [ %.sroa.021.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %spec.select39.i, %92 ], [ %.sroa.021.185.i, %100 ], [ %.sroa.021.185.i, %.thread.i.i ]
+  %.lcssa110.sink.i.i = phi i64 [ %.lcssa48.i, %.lr.ph.i._crit_edge.i ], [ %47, %92 ], [ %90, %100 ], [ %47, %.thread.i.i ]
+  %.lcssa111.sink.i.i = phi i64 [ %.sroa.8.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %.sroa.8.182.i, %92 ], [ %.sroa.8.2.i, %100 ], [ %.sroa.8.182.i, %.thread.i.i ]
   %.not17.i = icmp eq i64 %.lcssa110.sink.i.i, %.sroa.07.0100.i
   br i1 %.not17.i, label %.noexc10, label %105
 
 ._crit_edge.i:                                    ; preds = %.noexc11, %100, %.lr.ph.i._crit_edge.i, %.noexc
-  %.sroa.07.0.lcssa.i = phi i64 [ 0, %.noexc ], [ %107, %.noexc11 ], [ %.sroa.07.0100.i, %.lr.ph.i._crit_edge.i ], [ %.sroa.07.0100.i, %100 ]
+  %.sroa.07.0.lcssa.i = phi i64 [ 0, %.noexc ], [ %.sroa.07.0100.i, %.lr.ph.i._crit_edge.i ], [ %107, %.noexc11 ], [ %.sroa.07.0100.i, %100 ]
   %102 = load i64, ptr %31, align 8, !noalias !7892, !noundef !6
   %.not.i = icmp eq i64 %.sroa.07.0.lcssa.i, %102
   br i1 %.not.i, label %108, label %103
@@ -101808,20 +101808,20 @@ define void @"_ZN14polars_compute12if_then_else5array133_$LT$impl$u20$polars_com
   br i1 %114, label %"_ZN118_$LT$polars_arrow..bitmap..utils..slice_iterator..SlicesIterator$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4c12af9511f07d40E.exit.i", label %._crit_edge.i
 
 "_ZN118_$LT$polars_arrow..bitmap..utils..slice_iterator..SlicesIterator$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4c12af9511f07d40E.exit.i": ; preds = %.thread.i.i, %113, %105, %.lr.ph.i._crit_edge.i
-  %.sroa.20.3.i = phi ptr [ %.sroa.20.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %.sroa.20.180.i, %113 ], [ %spec.select.i, %105 ], [ %.sroa.20.180.i, %.thread.i.i ]
-  %.sroa.16.5.i = phi i64 [ %.sroa.16.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %.sroa.16.2.i, %113 ], [ %58, %105 ], [ %58, %.thread.i.i ]
-  %.sroa.8.5.i = phi i64 [ %.sroa.8.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %.sroa.8.2.i, %113 ], [ 1, %105 ], [ 1, %.thread.i.i ]
-  %.sroa.23.6.i = phi i8 [ %.sroa.23.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %.sroa.23.3.i, %113 ], [ %82, %105 ], [ 2, %.thread.i.i ]
-  %.sroa.27.1.i = phi i1 [ true, %.lr.ph.i._crit_edge.i ], [ true, %113 ], [ false, %105 ], [ false, %.thread.i.i ]
-  %.sroa.30.5.i = phi i8 [ %.sroa.30.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %.sroa.30.2.i, %113 ], [ 0, %105 ], [ 0, %.thread.i.i ]
-  %.sroa.021.3.i = phi ptr [ %.sroa.021.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %.sroa.021.185.i, %113 ], [ %spec.select39.i, %105 ], [ %.sroa.021.185.i, %.thread.i.i ]
-  %.lcssa110.sink.i.i = phi i64 [ %.lcssa48.i, %.lr.ph.i._crit_edge.i ], [ %103, %113 ], [ %60, %105 ], [ %60, %.thread.i.i ]
-  %.lcssa111.sink.i.i = phi i64 [ %.sroa.8.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %.sroa.8.2.i, %113 ], [ %.sroa.8.182.i, %105 ], [ %.sroa.8.182.i, %.thread.i.i ]
+  %.sroa.20.3.i = phi ptr [ %.sroa.20.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %spec.select.i, %105 ], [ %.sroa.20.180.i, %113 ], [ %.sroa.20.180.i, %.thread.i.i ]
+  %.sroa.16.5.i = phi i64 [ %.sroa.16.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %58, %105 ], [ %.sroa.16.2.i, %113 ], [ %58, %.thread.i.i ]
+  %.sroa.8.5.i = phi i64 [ %.sroa.8.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ 1, %105 ], [ %.sroa.8.2.i, %113 ], [ 1, %.thread.i.i ]
+  %.sroa.23.6.i = phi i8 [ %.sroa.23.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %82, %105 ], [ %.sroa.23.3.i, %113 ], [ 2, %.thread.i.i ]
+  %.sroa.27.1.i = phi i1 [ true, %.lr.ph.i._crit_edge.i ], [ false, %105 ], [ true, %113 ], [ false, %.thread.i.i ]
+  %.sroa.30.5.i = phi i8 [ %.sroa.30.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ 0, %105 ], [ %.sroa.30.2.i, %113 ], [ 0, %.thread.i.i ]
+  %.sroa.021.3.i = phi ptr [ %.sroa.021.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %spec.select39.i, %105 ], [ %.sroa.021.185.i, %113 ], [ %.sroa.021.185.i, %.thread.i.i ]
+  %.lcssa110.sink.i.i = phi i64 [ %.lcssa48.i, %.lr.ph.i._crit_edge.i ], [ %60, %105 ], [ %103, %113 ], [ %60, %.thread.i.i ]
+  %.lcssa111.sink.i.i = phi i64 [ %.sroa.8.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %.sroa.8.182.i, %105 ], [ %.sroa.8.2.i, %113 ], [ %.sroa.8.182.i, %.thread.i.i ]
   %.not17.i = icmp eq i64 %.lcssa110.sink.i.i, %.sroa.07.0100.i
   br i1 %.not17.i, label %.noexc18, label %118
 
 ._crit_edge.i:                                    ; preds = %.noexc19, %113, %.lr.ph.i._crit_edge.i, %.noexc
-  %.sroa.07.0.lcssa.i = phi i64 [ 0, %.noexc ], [ %120, %.noexc19 ], [ %.sroa.07.0100.i, %.lr.ph.i._crit_edge.i ], [ %.sroa.07.0100.i, %113 ]
+  %.sroa.07.0.lcssa.i = phi i64 [ 0, %.noexc ], [ %.sroa.07.0100.i, %.lr.ph.i._crit_edge.i ], [ %120, %.noexc19 ], [ %.sroa.07.0100.i, %113 ]
   %115 = load i64, ptr %44, align 8, !noalias !7899, !noundef !6
   %.not.i = icmp eq i64 %.sroa.07.0.lcssa.i, %115
   br i1 %.not.i, label %121, label %116
@@ -102122,20 +102122,20 @@ define hidden void @_ZN14polars_compute12if_then_else19if_then_else_extend17h73e
   br i1 %65, label %"_ZN118_$LT$polars_arrow..bitmap..utils..slice_iterator..SlicesIterator$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4c12af9511f07d40E.exit", label %._crit_edge
 
 "_ZN118_$LT$polars_arrow..bitmap..utils..slice_iterator..SlicesIterator$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4c12af9511f07d40E.exit": ; preds = %.thread.i, %56, %64, %.lr.ph.i._crit_edge
-  %.sroa.20.3 = phi ptr [ %.sroa.20.1.lcssa, %.lr.ph.i._crit_edge ], [ %.sroa.20.180, %64 ], [ %spec.select, %56 ], [ %.sroa.20.180, %.thread.i ]
-  %.sroa.16.5 = phi i64 [ %.sroa.16.1.lcssa, %.lr.ph.i._crit_edge ], [ %.sroa.16.2, %64 ], [ %9, %56 ], [ %9, %.thread.i ]
-  %.sroa.8.5 = phi i64 [ %.sroa.8.1.lcssa, %.lr.ph.i._crit_edge ], [ %.sroa.8.2, %64 ], [ 1, %56 ], [ 1, %.thread.i ]
-  %.sroa.23.6 = phi i8 [ %.sroa.23.1.lcssa, %.lr.ph.i._crit_edge ], [ %.sroa.23.3, %64 ], [ %33, %56 ], [ 2, %.thread.i ]
-  %.sroa.27.1 = phi i1 [ true, %.lr.ph.i._crit_edge ], [ true, %64 ], [ false, %56 ], [ false, %.thread.i ]
-  %.sroa.30.5 = phi i8 [ %.sroa.30.1.lcssa, %.lr.ph.i._crit_edge ], [ %.sroa.30.2, %64 ], [ 0, %56 ], [ 0, %.thread.i ]
-  %.sroa.021.3 = phi ptr [ %.sroa.021.1.lcssa, %.lr.ph.i._crit_edge ], [ %.sroa.021.185, %64 ], [ %spec.select39, %56 ], [ %.sroa.021.185, %.thread.i ]
-  %.lcssa110.sink.i = phi i64 [ %.lcssa48, %.lr.ph.i._crit_edge ], [ %54, %64 ], [ %11, %56 ], [ %11, %.thread.i ]
-  %.lcssa111.sink.i = phi i64 [ %.sroa.8.1.lcssa, %.lr.ph.i._crit_edge ], [ %.sroa.8.2, %64 ], [ %.sroa.8.182, %56 ], [ %.sroa.8.182, %.thread.i ]
+  %.sroa.20.3 = phi ptr [ %.sroa.20.1.lcssa, %.lr.ph.i._crit_edge ], [ %spec.select, %56 ], [ %.sroa.20.180, %64 ], [ %.sroa.20.180, %.thread.i ]
+  %.sroa.16.5 = phi i64 [ %.sroa.16.1.lcssa, %.lr.ph.i._crit_edge ], [ %9, %56 ], [ %.sroa.16.2, %64 ], [ %9, %.thread.i ]
+  %.sroa.8.5 = phi i64 [ %.sroa.8.1.lcssa, %.lr.ph.i._crit_edge ], [ 1, %56 ], [ %.sroa.8.2, %64 ], [ 1, %.thread.i ]
+  %.sroa.23.6 = phi i8 [ %.sroa.23.1.lcssa, %.lr.ph.i._crit_edge ], [ %33, %56 ], [ %.sroa.23.3, %64 ], [ 2, %.thread.i ]
+  %.sroa.27.1 = phi i1 [ true, %.lr.ph.i._crit_edge ], [ false, %56 ], [ true, %64 ], [ false, %.thread.i ]
+  %.sroa.30.5 = phi i8 [ %.sroa.30.1.lcssa, %.lr.ph.i._crit_edge ], [ 0, %56 ], [ %.sroa.30.2, %64 ], [ 0, %.thread.i ]
+  %.sroa.021.3 = phi ptr [ %.sroa.021.1.lcssa, %.lr.ph.i._crit_edge ], [ %spec.select39, %56 ], [ %.sroa.021.185, %64 ], [ %.sroa.021.185, %.thread.i ]
+  %.lcssa110.sink.i = phi i64 [ %.lcssa48, %.lr.ph.i._crit_edge ], [ %11, %56 ], [ %54, %64 ], [ %11, %.thread.i ]
+  %.lcssa111.sink.i = phi i64 [ %.sroa.8.1.lcssa, %.lr.ph.i._crit_edge ], [ %.sroa.8.182, %56 ], [ %.sroa.8.2, %64 ], [ %.sroa.8.182, %.thread.i ]
   %.not17 = icmp eq i64 %.lcssa110.sink.i, %.sroa.07.0100
   br i1 %.not17, label %73, label %71
 
-._crit_edge:                                      ; preds = %73, %.lr.ph.i._crit_edge, %64, %4
-  %.sroa.07.0.lcssa = phi i64 [ 0, %4 ], [ %.sroa.07.0100, %64 ], [ %.sroa.07.0100, %.lr.ph.i._crit_edge ], [ %74, %73 ]
+._crit_edge:                                      ; preds = %.lr.ph.i._crit_edge, %73, %64, %4
+  %.sroa.07.0.lcssa = phi i64 [ 0, %4 ], [ %.sroa.07.0100, %64 ], [ %74, %73 ], [ %.sroa.07.0100, %.lr.ph.i._crit_edge ]
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %67 = load i64, ptr %66, align 8, !noundef !6
   %.not = icmp eq i64 %.sroa.07.0.lcssa, %67
@@ -102347,20 +102347,20 @@ define hidden void @_ZN14polars_compute12if_then_else19if_then_else_extend17hdde
   br i1 %65, label %"_ZN118_$LT$polars_arrow..bitmap..utils..slice_iterator..SlicesIterator$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4c12af9511f07d40E.exit", label %._crit_edge
 
 "_ZN118_$LT$polars_arrow..bitmap..utils..slice_iterator..SlicesIterator$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4c12af9511f07d40E.exit": ; preds = %.thread.i, %56, %64, %.lr.ph.i._crit_edge
-  %.sroa.20.3 = phi ptr [ %.sroa.20.1.lcssa, %.lr.ph.i._crit_edge ], [ %.sroa.20.180, %64 ], [ %spec.select, %56 ], [ %.sroa.20.180, %.thread.i ]
-  %.sroa.16.5 = phi i64 [ %.sroa.16.1.lcssa, %.lr.ph.i._crit_edge ], [ %.sroa.16.2, %64 ], [ %9, %56 ], [ %9, %.thread.i ]
-  %.sroa.8.5 = phi i64 [ %.sroa.8.1.lcssa, %.lr.ph.i._crit_edge ], [ %.sroa.8.2, %64 ], [ 1, %56 ], [ 1, %.thread.i ]
-  %.sroa.23.6 = phi i8 [ %.sroa.23.1.lcssa, %.lr.ph.i._crit_edge ], [ %.sroa.23.3, %64 ], [ %33, %56 ], [ 2, %.thread.i ]
-  %.sroa.27.1 = phi i1 [ true, %.lr.ph.i._crit_edge ], [ true, %64 ], [ false, %56 ], [ false, %.thread.i ]
-  %.sroa.30.5 = phi i8 [ %.sroa.30.1.lcssa, %.lr.ph.i._crit_edge ], [ %.sroa.30.2, %64 ], [ 0, %56 ], [ 0, %.thread.i ]
-  %.sroa.021.3 = phi ptr [ %.sroa.021.1.lcssa, %.lr.ph.i._crit_edge ], [ %.sroa.021.185, %64 ], [ %spec.select39, %56 ], [ %.sroa.021.185, %.thread.i ]
-  %.lcssa110.sink.i = phi i64 [ %.lcssa48, %.lr.ph.i._crit_edge ], [ %54, %64 ], [ %11, %56 ], [ %11, %.thread.i ]
-  %.lcssa111.sink.i = phi i64 [ %.sroa.8.1.lcssa, %.lr.ph.i._crit_edge ], [ %.sroa.8.2, %64 ], [ %.sroa.8.182, %56 ], [ %.sroa.8.182, %.thread.i ]
+  %.sroa.20.3 = phi ptr [ %.sroa.20.1.lcssa, %.lr.ph.i._crit_edge ], [ %spec.select, %56 ], [ %.sroa.20.180, %64 ], [ %.sroa.20.180, %.thread.i ]
+  %.sroa.16.5 = phi i64 [ %.sroa.16.1.lcssa, %.lr.ph.i._crit_edge ], [ %9, %56 ], [ %.sroa.16.2, %64 ], [ %9, %.thread.i ]
+  %.sroa.8.5 = phi i64 [ %.sroa.8.1.lcssa, %.lr.ph.i._crit_edge ], [ 1, %56 ], [ %.sroa.8.2, %64 ], [ 1, %.thread.i ]
+  %.sroa.23.6 = phi i8 [ %.sroa.23.1.lcssa, %.lr.ph.i._crit_edge ], [ %33, %56 ], [ %.sroa.23.3, %64 ], [ 2, %.thread.i ]
+  %.sroa.27.1 = phi i1 [ true, %.lr.ph.i._crit_edge ], [ false, %56 ], [ true, %64 ], [ false, %.thread.i ]
+  %.sroa.30.5 = phi i8 [ %.sroa.30.1.lcssa, %.lr.ph.i._crit_edge ], [ 0, %56 ], [ %.sroa.30.2, %64 ], [ 0, %.thread.i ]
+  %.sroa.021.3 = phi ptr [ %.sroa.021.1.lcssa, %.lr.ph.i._crit_edge ], [ %spec.select39, %56 ], [ %.sroa.021.185, %64 ], [ %.sroa.021.185, %.thread.i ]
+  %.lcssa110.sink.i = phi i64 [ %.lcssa48, %.lr.ph.i._crit_edge ], [ %11, %56 ], [ %54, %64 ], [ %11, %.thread.i ]
+  %.lcssa111.sink.i = phi i64 [ %.sroa.8.1.lcssa, %.lr.ph.i._crit_edge ], [ %.sroa.8.182, %56 ], [ %.sroa.8.2, %64 ], [ %.sroa.8.182, %.thread.i ]
   %.not17 = icmp eq i64 %.lcssa110.sink.i, %.sroa.07.0100
   br i1 %.not17, label %73, label %71
 
-._crit_edge:                                      ; preds = %73, %.lr.ph.i._crit_edge, %64, %4
-  %.sroa.07.0.lcssa = phi i64 [ 0, %4 ], [ %.sroa.07.0100, %64 ], [ %.sroa.07.0100, %.lr.ph.i._crit_edge ], [ %74, %73 ]
+._crit_edge:                                      ; preds = %.lr.ph.i._crit_edge, %73, %64, %4
+  %.sroa.07.0.lcssa = phi i64 [ 0, %4 ], [ %.sroa.07.0100, %64 ], [ %74, %73 ], [ %.sroa.07.0100, %.lr.ph.i._crit_edge ]
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %67 = load i64, ptr %66, align 8, !noundef !6
   %.not = icmp eq i64 %.sroa.07.0.lcssa, %67
@@ -102572,20 +102572,20 @@ define hidden void @_ZN14polars_compute12if_then_else19if_then_else_extend17hf48
   br i1 %65, label %"_ZN118_$LT$polars_arrow..bitmap..utils..slice_iterator..SlicesIterator$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4c12af9511f07d40E.exit", label %._crit_edge
 
 "_ZN118_$LT$polars_arrow..bitmap..utils..slice_iterator..SlicesIterator$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4c12af9511f07d40E.exit": ; preds = %.thread.i, %56, %64, %.lr.ph.i._crit_edge
-  %.sroa.20.3 = phi ptr [ %.sroa.20.1.lcssa, %.lr.ph.i._crit_edge ], [ %.sroa.20.180, %64 ], [ %spec.select, %56 ], [ %.sroa.20.180, %.thread.i ]
-  %.sroa.16.5 = phi i64 [ %.sroa.16.1.lcssa, %.lr.ph.i._crit_edge ], [ %.sroa.16.2, %64 ], [ %9, %56 ], [ %9, %.thread.i ]
-  %.sroa.8.5 = phi i64 [ %.sroa.8.1.lcssa, %.lr.ph.i._crit_edge ], [ %.sroa.8.2, %64 ], [ 1, %56 ], [ 1, %.thread.i ]
-  %.sroa.23.6 = phi i8 [ %.sroa.23.1.lcssa, %.lr.ph.i._crit_edge ], [ %.sroa.23.3, %64 ], [ %33, %56 ], [ 2, %.thread.i ]
-  %.sroa.27.1 = phi i1 [ true, %.lr.ph.i._crit_edge ], [ true, %64 ], [ false, %56 ], [ false, %.thread.i ]
-  %.sroa.30.5 = phi i8 [ %.sroa.30.1.lcssa, %.lr.ph.i._crit_edge ], [ %.sroa.30.2, %64 ], [ 0, %56 ], [ 0, %.thread.i ]
-  %.sroa.021.3 = phi ptr [ %.sroa.021.1.lcssa, %.lr.ph.i._crit_edge ], [ %.sroa.021.185, %64 ], [ %spec.select39, %56 ], [ %.sroa.021.185, %.thread.i ]
-  %.lcssa110.sink.i = phi i64 [ %.lcssa48, %.lr.ph.i._crit_edge ], [ %54, %64 ], [ %11, %56 ], [ %11, %.thread.i ]
-  %.lcssa111.sink.i = phi i64 [ %.sroa.8.1.lcssa, %.lr.ph.i._crit_edge ], [ %.sroa.8.2, %64 ], [ %.sroa.8.182, %56 ], [ %.sroa.8.182, %.thread.i ]
+  %.sroa.20.3 = phi ptr [ %.sroa.20.1.lcssa, %.lr.ph.i._crit_edge ], [ %spec.select, %56 ], [ %.sroa.20.180, %64 ], [ %.sroa.20.180, %.thread.i ]
+  %.sroa.16.5 = phi i64 [ %.sroa.16.1.lcssa, %.lr.ph.i._crit_edge ], [ %9, %56 ], [ %.sroa.16.2, %64 ], [ %9, %.thread.i ]
+  %.sroa.8.5 = phi i64 [ %.sroa.8.1.lcssa, %.lr.ph.i._crit_edge ], [ 1, %56 ], [ %.sroa.8.2, %64 ], [ 1, %.thread.i ]
+  %.sroa.23.6 = phi i8 [ %.sroa.23.1.lcssa, %.lr.ph.i._crit_edge ], [ %33, %56 ], [ %.sroa.23.3, %64 ], [ 2, %.thread.i ]
+  %.sroa.27.1 = phi i1 [ true, %.lr.ph.i._crit_edge ], [ false, %56 ], [ true, %64 ], [ false, %.thread.i ]
+  %.sroa.30.5 = phi i8 [ %.sroa.30.1.lcssa, %.lr.ph.i._crit_edge ], [ 0, %56 ], [ %.sroa.30.2, %64 ], [ 0, %.thread.i ]
+  %.sroa.021.3 = phi ptr [ %.sroa.021.1.lcssa, %.lr.ph.i._crit_edge ], [ %spec.select39, %56 ], [ %.sroa.021.185, %64 ], [ %.sroa.021.185, %.thread.i ]
+  %.lcssa110.sink.i = phi i64 [ %.lcssa48, %.lr.ph.i._crit_edge ], [ %11, %56 ], [ %54, %64 ], [ %11, %.thread.i ]
+  %.lcssa111.sink.i = phi i64 [ %.sroa.8.1.lcssa, %.lr.ph.i._crit_edge ], [ %.sroa.8.182, %56 ], [ %.sroa.8.2, %64 ], [ %.sroa.8.182, %.thread.i ]
   %.not17 = icmp eq i64 %.lcssa110.sink.i, %.sroa.07.0100
   br i1 %.not17, label %73, label %71
 
-._crit_edge:                                      ; preds = %73, %.lr.ph.i._crit_edge, %64, %4
-  %.sroa.07.0.lcssa = phi i64 [ 0, %4 ], [ %.sroa.07.0100, %64 ], [ %.sroa.07.0100, %.lr.ph.i._crit_edge ], [ %74, %73 ]
+._crit_edge:                                      ; preds = %.lr.ph.i._crit_edge, %73, %64, %4
+  %.sroa.07.0.lcssa = phi i64 [ 0, %4 ], [ %.sroa.07.0100, %64 ], [ %74, %73 ], [ %.sroa.07.0100, %.lr.ph.i._crit_edge ]
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %67 = load i64, ptr %66, align 8, !noundef !6
   %.not = icmp eq i64 %.sroa.07.0.lcssa, %67
@@ -102797,20 +102797,20 @@ define hidden void @_ZN14polars_compute12if_then_else19if_then_else_extend17hfdb
   br i1 %65, label %"_ZN118_$LT$polars_arrow..bitmap..utils..slice_iterator..SlicesIterator$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4c12af9511f07d40E.exit", label %._crit_edge
 
 "_ZN118_$LT$polars_arrow..bitmap..utils..slice_iterator..SlicesIterator$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4c12af9511f07d40E.exit": ; preds = %.thread.i, %56, %64, %.lr.ph.i._crit_edge
-  %.sroa.20.3 = phi ptr [ %.sroa.20.1.lcssa, %.lr.ph.i._crit_edge ], [ %.sroa.20.180, %64 ], [ %spec.select, %56 ], [ %.sroa.20.180, %.thread.i ]
-  %.sroa.16.5 = phi i64 [ %.sroa.16.1.lcssa, %.lr.ph.i._crit_edge ], [ %.sroa.16.2, %64 ], [ %9, %56 ], [ %9, %.thread.i ]
-  %.sroa.8.5 = phi i64 [ %.sroa.8.1.lcssa, %.lr.ph.i._crit_edge ], [ %.sroa.8.2, %64 ], [ 1, %56 ], [ 1, %.thread.i ]
-  %.sroa.23.6 = phi i8 [ %.sroa.23.1.lcssa, %.lr.ph.i._crit_edge ], [ %.sroa.23.3, %64 ], [ %33, %56 ], [ 2, %.thread.i ]
-  %.sroa.27.1 = phi i1 [ true, %.lr.ph.i._crit_edge ], [ true, %64 ], [ false, %56 ], [ false, %.thread.i ]
-  %.sroa.30.5 = phi i8 [ %.sroa.30.1.lcssa, %.lr.ph.i._crit_edge ], [ %.sroa.30.2, %64 ], [ 0, %56 ], [ 0, %.thread.i ]
-  %.sroa.021.3 = phi ptr [ %.sroa.021.1.lcssa, %.lr.ph.i._crit_edge ], [ %.sroa.021.185, %64 ], [ %spec.select39, %56 ], [ %.sroa.021.185, %.thread.i ]
-  %.lcssa110.sink.i = phi i64 [ %.lcssa48, %.lr.ph.i._crit_edge ], [ %54, %64 ], [ %11, %56 ], [ %11, %.thread.i ]
-  %.lcssa111.sink.i = phi i64 [ %.sroa.8.1.lcssa, %.lr.ph.i._crit_edge ], [ %.sroa.8.2, %64 ], [ %.sroa.8.182, %56 ], [ %.sroa.8.182, %.thread.i ]
+  %.sroa.20.3 = phi ptr [ %.sroa.20.1.lcssa, %.lr.ph.i._crit_edge ], [ %spec.select, %56 ], [ %.sroa.20.180, %64 ], [ %.sroa.20.180, %.thread.i ]
+  %.sroa.16.5 = phi i64 [ %.sroa.16.1.lcssa, %.lr.ph.i._crit_edge ], [ %9, %56 ], [ %.sroa.16.2, %64 ], [ %9, %.thread.i ]
+  %.sroa.8.5 = phi i64 [ %.sroa.8.1.lcssa, %.lr.ph.i._crit_edge ], [ 1, %56 ], [ %.sroa.8.2, %64 ], [ 1, %.thread.i ]
+  %.sroa.23.6 = phi i8 [ %.sroa.23.1.lcssa, %.lr.ph.i._crit_edge ], [ %33, %56 ], [ %.sroa.23.3, %64 ], [ 2, %.thread.i ]
+  %.sroa.27.1 = phi i1 [ true, %.lr.ph.i._crit_edge ], [ false, %56 ], [ true, %64 ], [ false, %.thread.i ]
+  %.sroa.30.5 = phi i8 [ %.sroa.30.1.lcssa, %.lr.ph.i._crit_edge ], [ 0, %56 ], [ %.sroa.30.2, %64 ], [ 0, %.thread.i ]
+  %.sroa.021.3 = phi ptr [ %.sroa.021.1.lcssa, %.lr.ph.i._crit_edge ], [ %spec.select39, %56 ], [ %.sroa.021.185, %64 ], [ %.sroa.021.185, %.thread.i ]
+  %.lcssa110.sink.i = phi i64 [ %.lcssa48, %.lr.ph.i._crit_edge ], [ %11, %56 ], [ %54, %64 ], [ %11, %.thread.i ]
+  %.lcssa111.sink.i = phi i64 [ %.sroa.8.1.lcssa, %.lr.ph.i._crit_edge ], [ %.sroa.8.182, %56 ], [ %.sroa.8.2, %64 ], [ %.sroa.8.182, %.thread.i ]
   %.not17 = icmp eq i64 %.lcssa110.sink.i, %.sroa.07.0100
   br i1 %.not17, label %73, label %71
 
-._crit_edge:                                      ; preds = %73, %.lr.ph.i._crit_edge, %64, %4
-  %.sroa.07.0.lcssa = phi i64 [ 0, %4 ], [ %.sroa.07.0100, %64 ], [ %.sroa.07.0100, %.lr.ph.i._crit_edge ], [ %74, %73 ]
+._crit_edge:                                      ; preds = %.lr.ph.i._crit_edge, %73, %64, %4
+  %.sroa.07.0.lcssa = phi i64 [ 0, %4 ], [ %.sroa.07.0100, %64 ], [ %74, %73 ], [ %.sroa.07.0100, %.lr.ph.i._crit_edge ]
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %67 = load i64, ptr %66, align 8, !noundef !6
   %.not = icmp eq i64 %.sroa.07.0.lcssa, %67

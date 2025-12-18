@@ -9611,9 +9611,9 @@ define linkonce_odr noundef zeroext i1 @_ZNK5arrow9ArrayData7IsValidEl(ptr nound
   br label %.lr.ph
 
 tailrecurse._crit_edge:                           ; preds = %tailrecurse31, %tailrecurse, %2
-  %.tr3250 = phi i64 [ %1, %2 ], [ %.tr3257, %tailrecurse ], [ %70, %tailrecurse31 ]
-  %.tr.lcssa = phi ptr [ %0, %2 ], [ %43, %tailrecurse ], [ %75, %tailrecurse31 ]
-  %.lcssa = phi ptr [ %5, %2 ], [ %46, %tailrecurse ], [ %78, %tailrecurse31 ]
+  %.tr3250 = phi i64 [ %.tr3257, %tailrecurse ], [ %1, %2 ], [ %70, %tailrecurse31 ]
+  %.tr.lcssa = phi ptr [ %43, %tailrecurse ], [ %0, %2 ], [ %75, %tailrecurse31 ]
+  %.lcssa = phi ptr [ %46, %tailrecurse ], [ %5, %2 ], [ %78, %tailrecurse31 ]
   %7 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %.tr.lcssa, i64 32

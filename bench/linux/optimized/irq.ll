@@ -612,7 +612,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @pcibios_lookup_irq(ptr nound
   br i1 %105, label %.thread, label %.preheader, !llvm.loop !16
 
 .thread:                                          ; preds = %102, %82, %74, %84
-  %106 = phi i32 [ 0, %84 ], [ %72, %74 ], [ %72, %82 ], [ %103, %102 ]
+  %106 = phi i32 [ 0, %84 ], [ %72, %82 ], [ %72, %74 ], [ %103, %102 ]
   %107 = and i32 %70, 240
   %108 = icmp eq i32 %107, 240
   br i1 %108, label %109, label %111
@@ -1112,7 +1112,7 @@ define internal fastcc ptr @pirq_find_routing_table() unnamed_addr #2 section ".
   br label %.loopexit
 
 .loopexit:                                        ; preds = %77, %80, %34, %129, %.loopexit20
-  %132 = phi ptr [ %10, %34 ], [ null, %.loopexit20 ], [ %104, %129 ], [ null, %80 ], [ %50, %77 ]
+  %132 = phi ptr [ %10, %34 ], [ null, %.loopexit20 ], [ null, %80 ], [ %104, %129 ], [ %50, %77 ]
   ret ptr %132
 }
 

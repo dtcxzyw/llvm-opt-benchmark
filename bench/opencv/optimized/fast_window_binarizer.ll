@@ -1285,11 +1285,11 @@ _ZN5zxing19FastWindowBinarizer12fastIntegralEPKhPj.exit: ; preds = %.loopexit.i,
   br i1 %170, label %.lr.ph76.us, label %.critedge.us87
 
 .critedge.us87:                                   ; preds = %.critedge2.us89, %.lr.ph76.split.us92, %.lr.ph76.us, %.lr.ph82.split.us96
-  %171 = phi i32 [ %143, %.lr.ph76.us ], [ %143, %.lr.ph82.split.us96 ], [ %143, %.lr.ph76.split.us92 ], [ %184, %.critedge2.us89 ]
-  %172 = phi i32 [ %144, %.lr.ph76.us ], [ %144, %.lr.ph82.split.us96 ], [ %144, %.lr.ph76.split.us92 ], [ %185, %.critedge2.us89 ]
-  %173 = phi i32 [ %145, %.lr.ph76.us ], [ %145, %.lr.ph82.split.us96 ], [ %145, %.lr.ph76.split.us92 ], [ %185, %.critedge2.us89 ]
-  %174 = phi i32 [ %146, %.lr.ph76.us ], [ %146, %.lr.ph82.split.us96 ], [ %146, %.lr.ph76.split.us92 ], [ %184, %.critedge2.us89 ]
-  %175 = phi i32 [ %147, %.lr.ph76.us ], [ %147, %.lr.ph82.split.us96 ], [ %145, %.lr.ph76.split.us92 ], [ %185, %.critedge2.us89 ]
+  %171 = phi i32 [ %143, %.lr.ph76.split.us92 ], [ %143, %.lr.ph76.us ], [ %143, %.lr.ph82.split.us96 ], [ %184, %.critedge2.us89 ]
+  %172 = phi i32 [ %144, %.lr.ph76.split.us92 ], [ %144, %.lr.ph76.us ], [ %144, %.lr.ph82.split.us96 ], [ %185, %.critedge2.us89 ]
+  %173 = phi i32 [ %145, %.lr.ph76.split.us92 ], [ %145, %.lr.ph76.us ], [ %145, %.lr.ph82.split.us96 ], [ %185, %.critedge2.us89 ]
+  %174 = phi i32 [ %146, %.lr.ph76.split.us92 ], [ %146, %.lr.ph76.us ], [ %146, %.lr.ph82.split.us96 ], [ %184, %.critedge2.us89 ]
+  %175 = phi i32 [ %145, %.lr.ph76.split.us92 ], [ %147, %.lr.ph76.us ], [ %147, %.lr.ph82.split.us96 ], [ %185, %.critedge2.us89 ]
   %176 = add nuw nsw i32 %.06281.us86, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 6
   %exitcond.not = icmp eq i32 %176, %110

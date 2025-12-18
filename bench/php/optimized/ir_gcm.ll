@@ -801,8 +801,8 @@ ir_gcm_find_lca.exit:                             ; preds = %.lr.ph8.i, %.prehea
   br i1 %.not.i102, label %ir_gcm_find_lca.exit106, label %.lr.ph8.i99
 
 ir_gcm_find_lca.exit106:                          ; preds = %ir_gcm_find_lca.exit, %.lr.ph8.i99, %41, %.preheader.i96, %97, %35
-  %136 = phi ptr [ %19, %35 ], [ %98, %97 ], [ %98, %.preheader.i96 ], [ %19, %41 ], [ %98, %.lr.ph8.i99 ], [ %19, %ir_gcm_find_lca.exit ]
-  %.1 = phi i32 [ %.084147, %35 ], [ %.0, %97 ], [ %.020.lcssa.i94, %.preheader.i96 ], [ %.084147, %41 ], [ %131, %.lr.ph8.i99 ], [ %.3, %ir_gcm_find_lca.exit ]
+  %136 = phi ptr [ %98, %.lr.ph8.i99 ], [ %19, %35 ], [ %98, %97 ], [ %98, %.preheader.i96 ], [ %19, %41 ], [ %19, %ir_gcm_find_lca.exit ]
+  %.1 = phi i32 [ %131, %.lr.ph8.i99 ], [ %.084147, %35 ], [ %.0, %97 ], [ %.020.lcssa.i94, %.preheader.i96 ], [ %.084147, %41 ], [ %.3, %ir_gcm_find_lca.exit ]
   %137 = add nuw nsw i32 %.080148, 1
   %138 = load ptr, ptr %10, align 8, !tbaa !34
   %139 = getelementptr inbounds %struct._ir_use_list, ptr %138, i64 %8
@@ -1737,8 +1737,8 @@ ir_split_partially_dead_node.exit:                ; preds = %._crit_edge506.i, %
   br label %.loopexit
 
 ir_split_partially_dead_node.exit.thread:         ; preds = %ir_sparse_set_in.exit417.thread.i, %ir_sparse_set_in.exit.thread.i, %3, %.critedge416.i, %._crit_edge
-  %.084.lcssa241 = phi i32 [ %.1, %.critedge416.i ], [ %.1, %._crit_edge ], [ 0, %3 ], [ %.1, %ir_sparse_set_in.exit.thread.i ], [ %.1, %ir_sparse_set_in.exit417.thread.i ]
-  %622 = phi ptr [ %.pre, %.critedge416.i ], [ %136, %._crit_edge ], [ %7, %3 ], [ %136, %ir_sparse_set_in.exit.thread.i ], [ %136, %ir_sparse_set_in.exit417.thread.i ]
+  %.084.lcssa241 = phi i32 [ 0, %3 ], [ %.1, %ir_sparse_set_in.exit.thread.i ], [ %.1, %.critedge416.i ], [ %.1, %._crit_edge ], [ %.1, %ir_sparse_set_in.exit417.thread.i ]
+  %622 = phi ptr [ %7, %3 ], [ %136, %ir_sparse_set_in.exit.thread.i ], [ %.pre, %.critedge416.i ], [ %136, %._crit_edge ], [ %136, %ir_sparse_set_in.exit417.thread.i ]
   %623 = getelementptr inbounds i32, ptr %622, i64 %8
   %624 = load i32, ptr %623, align 4, !tbaa !32
   %.not = icmp eq i32 %.084.lcssa241, %624
@@ -2338,11 +2338,11 @@ ir_count_constant.exit937.us:                     ; preds = %168, %164
   br i1 %197, label %.lr.ph993.split, label %._crit_edge994
 
 ._crit_edge994:                                   ; preds = %.preheader960, %._crit_edge986.us, %.lr.ph993.split
-  %.3867.lcssa = phi ptr [ %178, %._crit_edge986.us ], [ %195, %.lr.ph993.split ], [ %.2866, %.preheader960 ]
-  %.1859.lcssa = phi i32 [ %179, %._crit_edge986.us ], [ %196, %.lr.ph993.split ], [ %.0858, %.preheader960 ]
-  %.3830.lcssa = phi i32 [ %.5832.us, %._crit_edge986.us ], [ %.1828, %.lr.ph993.split ], [ %.1828, %.preheader960 ]
-  %.3822.lcssa = phi i32 [ %174, %._crit_edge986.us ], [ %191, %.lr.ph993.split ], [ %.2821, %.preheader960 ]
-  %.3.lcssa = phi i32 [ %176, %._crit_edge986.us ], [ %193, %.lr.ph993.split ], [ %.2, %.preheader960 ]
+  %.3867.lcssa = phi ptr [ %195, %.lr.ph993.split ], [ %178, %._crit_edge986.us ], [ %.2866, %.preheader960 ]
+  %.1859.lcssa = phi i32 [ %196, %.lr.ph993.split ], [ %179, %._crit_edge986.us ], [ %.0858, %.preheader960 ]
+  %.3830.lcssa = phi i32 [ %.1828, %.lr.ph993.split ], [ %.5832.us, %._crit_edge986.us ], [ %.1828, %.preheader960 ]
+  %.3822.lcssa = phi i32 [ %191, %.lr.ph993.split ], [ %174, %._crit_edge986.us ], [ %.2821, %.preheader960 ]
+  %.3.lcssa = phi i32 [ %193, %.lr.ph993.split ], [ %176, %._crit_edge986.us ], [ %.2, %.preheader960 ]
   %198 = load ptr, ptr %123, align 8, !tbaa !34
   %199 = getelementptr inbounds %struct._ir_use_list, ptr %198, i64 %128
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 4
@@ -2674,9 +2674,9 @@ ir_count_constant.exit943:                        ; preds = %352
   br label %._crit_edge1027
 
 ._crit_edge1027:                                  ; preds = %335, %._crit_edge1027.loopexit, %.preheader957
-  %.9.lcssa = phi i32 [ %.81046, %.preheader957 ], [ %.91037, %._crit_edge1027.loopexit ], [ %325, %335 ]
-  %.lcssa965 = phi i32 [ 0, %.preheader957 ], [ %358, %._crit_edge1027.loopexit ], [ 0, %335 ]
-  %.13.lcssa = phi i32 [ %.118381044, %.preheader957 ], [ %.14, %._crit_edge1027.loopexit ], [ %.131022, %335 ]
+  %.9.lcssa = phi i32 [ %.91037, %._crit_edge1027.loopexit ], [ %.81046, %.preheader957 ], [ %325, %335 ]
+  %.lcssa965 = phi i32 [ %358, %._crit_edge1027.loopexit ], [ 0, %.preheader957 ], [ 0, %335 ]
+  %.13.lcssa = phi i32 [ %.14, %._crit_edge1027.loopexit ], [ %.118381044, %.preheader957 ], [ %.131022, %335 ]
   %359 = sext i32 %.9.lcssa to i64
   %360 = getelementptr inbounds i32, ptr %115, i64 %359
   store i32 %.78261045, ptr %360, align 4, !tbaa !32

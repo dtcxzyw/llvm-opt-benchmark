@@ -830,7 +830,7 @@ xds_data_orca_v3_OrcaLoadReport_named_metrics_set.exit.i: ; preds = %.noexc72.i
   br label %214
 
 .critedge.i:                                      ; preds = %xds_data_orca_v3_OrcaLoadReport_named_metrics_set.exit.i, %._crit_edge117.i, %._crit_edge111.thread.i
-  %176 = phi ptr [ %128, %._crit_edge117.i ], [ %132, %._crit_edge111.thread.i ], [ %138, %xds_data_orca_v3_OrcaLoadReport_named_metrics_set.exit.i ]
+  %176 = phi ptr [ %132, %._crit_edge111.thread.i ], [ %128, %._crit_edge117.i ], [ %138, %xds_data_orca_v3_OrcaLoadReport_named_metrics_set.exit.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !25
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !25
   %177 = invoke i32 @upb_Encode(ptr noundef %.0.i.i.i.i, ptr noundef nonnull @xds__data__orca__v3__OrcaLoadReport_msg_init, i32 noundef 0, ptr noundef nonnull %51, ptr noundef nonnull %7, ptr noundef nonnull %9)

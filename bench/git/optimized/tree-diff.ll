@@ -329,7 +329,7 @@ tree_entry_pathcmp.exit.thread:                   ; preds = %103, %tree_entry_pa
   br i1 %exitcond242.not, label %._crit_edge204, label %.lr.ph203, !llvm.loop !65
 
 ._crit_edge204:                                   ; preds = %.lr.ph203, %.thread170, %.preheader188
-  %.0117.lcssa267 = phi i32 [ %.1118, %.preheader188 ], [ 0, %.thread170 ], [ %.1118, %.lr.ph203 ]
+  %.0117.lcssa267 = phi i32 [ 0, %.thread170 ], [ %.1118, %.preheader188 ], [ %.1118, %.lr.ph203 ]
   %135 = sext i32 %.0117.lcssa267 to i64
   %136 = getelementptr inbounds %struct.tree_desc, ptr %.0122168262, i64 %135
   %137 = load i32, ptr %50, align 8, !tbaa !35
@@ -717,7 +717,7 @@ ll_diff_tree_oid.exit.i:                          ; preds = %.lr.ph.i.i, %36
   br i1 %86, label %.lr.ph52.i, label %try_to_follow_renames.exit, !llvm.loop !104
 
 try_to_follow_renames.exit:                       ; preds = %.lr.ph52.i, %ll_diff_tree_oid.exit.i, %.loopexit.i
-  %.164.i = phi ptr [ %63, %.loopexit.i ], [ %26, %ll_diff_tree_oid.exit.i ], [ %.165.i, %.lr.ph52.i ]
+  %.164.i = phi ptr [ %26, %ll_diff_tree_oid.exit.i ], [ %63, %.loopexit.i ], [ %.165.i, %.lr.ph52.i ]
   %87 = load ptr, ptr @diff_queued_diff, align 8, !tbaa !75
   store ptr %.164.i, ptr %87, align 8, !tbaa !78
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4, !tbaa !88

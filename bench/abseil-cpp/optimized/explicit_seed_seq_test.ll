@@ -6870,8 +6870,8 @@ _ZN4absl15random_internal15ExplicitSeedSeqD2Ev.exit: ; preds = %_ZN7testing15Ass
   br i1 %exitcond.not29.i.i, label %.loopexit145, label %.preheader.i.i.backedge
 
 .preheader.i.i.backedge:                          ; preds = %.thread.i.i, %121
-  %.01825.i.i.be = phi i64 [ %124, %121 ], [ %125, %.thread.i.i ]
-  %.01924.i.i.be = phi i1 [ %.1.shrunk.i.i, %121 ], [ false, %.thread.i.i ]
+  %.01825.i.i.be = phi i64 [ %125, %.thread.i.i ], [ %124, %121 ]
+  %.01924.i.i.be = phi i1 [ false, %.thread.i.i ], [ %.1.shrunk.i.i, %121 ]
   br label %.preheader.i.i, !llvm.loop !222
 
 126:                                              ; preds = %120
@@ -7163,8 +7163,8 @@ _ZN4absl15random_internal15ExplicitSeedSeqD2Ev.exit72: ; preds = %_ZN7testing15A
   br i1 %exitcond.not30.i.i, label %.loopexit, label %.preheader.i.i82.backedge
 
 .preheader.i.i82.backedge:                        ; preds = %.thread.i.i83, %220
-  %.01826.i.i.be = phi i64 [ %223, %220 ], [ %224, %.thread.i.i83 ]
-  %.01925.i.i.be = phi i1 [ %.1.shrunk.i.i87, %220 ], [ false, %.thread.i.i83 ]
+  %.01826.i.i.be = phi i64 [ %224, %.thread.i.i83 ], [ %223, %220 ]
+  %.01925.i.i.be = phi i1 [ false, %.thread.i.i83 ], [ %.1.shrunk.i.i87, %220 ]
   br label %.preheader.i.i82, !llvm.loop !226
 
 225:                                              ; preds = %209
@@ -16217,7 +16217,7 @@ _ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcE
   br i1 %.not57, label %_ZN7testing8internal11NativeArrayImED2Ev.exit, label %.lr.ph191, !llvm.loop !504
 
 _ZN7testing8internal11NativeArrayImED2Ev.exit:    ; preds = %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit, %_ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit, %_ZN7testing19MatchResultListenerlsIA16_cEERS0_RKT_.exit, %237, %_ZN7testing7MessageD2Ev.exit, %175, %236, %.thread, %.noexc96, %_ZN7testing19MatchResultListenerlsIA15_cEERS0_RKT_.exit
-  %.0 = phi i1 [ false, %236 ], [ false, %175 ], [ false, %_ZN7testing7MessageD2Ev.exit ], [ true, %.thread ], [ false, %_ZN7testing19MatchResultListenerlsIA15_cEERS0_RKT_.exit ], [ false, %.noexc96 ], [ false, %_ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit ], [ false, %237 ], [ false, %_ZN7testing19MatchResultListenerlsIA16_cEERS0_RKT_.exit ], [ true, %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit ]
+  %.0 = phi i1 [ false, %236 ], [ false, %175 ], [ false, %_ZN7testing7MessageD2Ev.exit ], [ true, %.thread ], [ false, %_ZN7testing19MatchResultListenerlsIA15_cEERS0_RKT_.exit ], [ false, %.noexc96 ], [ false, %_ZN7testing19MatchResultListenerlsIA16_cEERS0_RKT_.exit ], [ false, %_ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit ], [ false, %237 ], [ true, %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit ]
   %285 = load ptr, ptr %9, align 8, !tbaa !484
   %286 = load ptr, ptr %33, align 8, !tbaa !488
   %.not4.i.i.i.i = icmp eq ptr %285, %286

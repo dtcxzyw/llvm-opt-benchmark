@@ -301,7 +301,7 @@ _ZN4llvm12StringSwitchINS_5XCOFF10CFileCpuIdES2_E5CasesENS_13StringLiteralES4_S2
   br label %_ZN4llvm12StringSwitchINS_5XCOFF10CFileCpuIdES2_E5CasesENS_13StringLiteralES4_S2_.exit16.thread
 
 _ZN4llvm12StringSwitchINS_5XCOFF10CFileCpuIdES2_E5CasesENS_13StringLiteralES4_S2_.exit16.thread: ; preds = %_ZN4llvm12StringSwitchINS_5XCOFF10CFileCpuIdES2_E5CasesENS_13StringLiteralES4_S2_.exit16.thread.sink.split, %2, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i42.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i14.i.i11
-  %.ph = phi i1 [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.i42.i ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.i14.i.i11 ], [ false, %2 ], [ true, %_ZN4llvm12StringSwitchINS_5XCOFF10CFileCpuIdES2_E5CasesENS_13StringLiteralES4_S2_.exit16.thread.sink.split ]
+  %.ph = phi i1 [ false, %2 ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.i42.i ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.i14.i.i11 ], [ true, %_ZN4llvm12StringSwitchINS_5XCOFF10CFileCpuIdES2_E5CasesENS_13StringLiteralES4_S2_.exit16.thread.sink.split ]
   %.not.i.i.i20295 = icmp ne i64 %13, 3
   %25 = or i1 %.not.i.i.i20295, %.ph
   br i1 %25, label %_ZN4llvm12StringSwitchINS_5XCOFF10CFileCpuIdES2_E4CaseENS_13StringLiteralES2_.exit32, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i29

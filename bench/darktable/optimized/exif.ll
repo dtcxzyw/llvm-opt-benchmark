@@ -25808,8 +25808,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit132.i: ; preds = %
   br label %.body
 
 _ZL11_read_masksRN5Exiv27XmpDataEPKci.exit:       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit129.i, %.noexc667, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i351.i, %757, %.noexc666, %.noexc654, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit322.i
-  %.0386 = phi ptr [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit322.i ], [ null, %.noexc654 ], [ null, %.noexc666 ], [ null, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i351.i ], [ null, %757 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit129.i ], [ %.446.i, %.noexc667 ]
-  %.0385 = phi ptr [ %508, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit322.i ], [ %508, %.noexc654 ], [ null, %.noexc666 ], [ %508, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i351.i ], [ %508, %757 ], [ null, %.noexc667 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit129.i ]
+  %.0386 = phi ptr [ null, %.noexc666 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit322.i ], [ null, %.noexc654 ], [ null, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i351.i ], [ null, %757 ], [ %.446.i, %.noexc667 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit129.i ]
+  %.0385 = phi ptr [ null, %.noexc666 ], [ %508, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit322.i ], [ %508, %.noexc654 ], [ %508, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i351.i ], [ %508, %757 ], [ null, %.noexc667 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit129.i ]
   %1094 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !272
   invoke void @dt_database_start_transaction(ptr noundef %1094)
           to label %1095 unwind label %.loopexit.split-lp930.loopexit.split-lp
@@ -26809,7 +26809,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit194.i: ; preds = %
   br i1 %.not144.i, label %_ZL16_read_history_v2RN5Exiv27XmpDataEPKc.exit, label %.lr.ph249.i, !llvm.loop !305
 
 _ZL16_read_history_v2RN5Exiv27XmpDataEPKc.exit:   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit191.i, %1481, %.noexc686, %.noexc681, %.preheader.i
-  %.5.i = phi ptr [ null, %.preheader.i ], [ null, %.noexc681 ], [ null, %.noexc686 ], [ %.465.i, %1481 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit191.i ]
+  %.5.i = phi ptr [ null, %.preheader.i ], [ %.465.i, %1481 ], [ null, %.noexc686 ], [ null, %.noexc681 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit191.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %41)
   br label %1489
 

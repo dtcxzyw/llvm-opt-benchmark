@@ -674,8 +674,8 @@ _ZN4absl12lts_202407226StatusD2Ev.exit169:        ; preds = %169
   br label %_ZN4absl12lts_202407226StatusD2Ev.exit259
 
 .critedge:                                        ; preds = %107, %1235, %1225, %1145
-  %173 = phi ptr [ %1146, %1145 ], [ %1226, %1225 ], [ %1226, %1235 ], [ %1, %107 ]
-  %.1 = phi ptr [ %1148, %1145 ], [ %1230, %1225 ], [ %1230, %1235 ], [ %scevgep, %107 ]
+  %173 = phi ptr [ %1226, %1235 ], [ %1146, %1145 ], [ %1226, %1225 ], [ %1, %107 ]
+  %.1 = phi ptr [ %1230, %1235 ], [ %1148, %1145 ], [ %1230, %1225 ], [ %scevgep, %107 ]
   %174 = load i64, ptr %3, align 8, !tbaa !246
   %175 = getelementptr inbounds nuw i8, ptr %173, i64 1848
   %176 = load i64, ptr %175, align 8, !tbaa !247

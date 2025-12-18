@@ -3333,7 +3333,7 @@ define internal fastcc range(i32 0, 2) i32 @_gradient_get_pts_border(ptr noundef
   br i1 %exitcond.not, label %.loopexit, label %114
 
 .loopexit:                                        ; preds = %114, %99, %84, %107, %92, %62, %106
-  %.1108 = phi i32 [ 0, %106 ], [ 0, %62 ], [ 0, %92 ], [ 0, %107 ], [ 1, %99 ], [ 1, %84 ], [ 1, %114 ]
+  %.1108 = phi i32 [ 0, %106 ], [ 1, %99 ], [ 1, %84 ], [ 0, %62 ], [ 0, %92 ], [ 0, %107 ], [ 1, %114 ]
   %121 = load ptr, ptr %9, align 8, !tbaa !115
   tail call void @free(ptr noundef %121) #15
   %122 = load ptr, ptr %10, align 8, !tbaa !115

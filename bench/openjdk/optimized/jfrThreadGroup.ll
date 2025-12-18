@@ -897,7 +897,7 @@ _ZN22JfrThreadGroupPointers14clear_weak_refEv.exit.i: ; preds = %24, %.lr.ph.i
   br i1 %27, label %.lr.ph.i, label %_ZN21JfrThreadGroupsHelperD2Ev.exit, !llvm.loop !6
 
 _ZN21JfrThreadGroupsHelperD2Ev.exit:              ; preds = %_ZN22JfrThreadGroupPointers14clear_weak_refEv.exit.i, %_ZNK21JfrThreadGroupsHelper8is_validEv.exit, %14
-  %28 = phi i64 [ %15, %14 ], [ 0, %_ZNK21JfrThreadGroupsHelper8is_validEv.exit ], [ %15, %_ZN22JfrThreadGroupPointers14clear_weak_refEv.exit.i ]
+  %28 = phi i64 [ 0, %_ZNK21JfrThreadGroupsHelper8is_validEv.exit ], [ %15, %14 ], [ %15, %_ZN22JfrThreadGroupPointers14clear_weak_refEv.exit.i ]
   call void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #22
   ret i64 %28
 }

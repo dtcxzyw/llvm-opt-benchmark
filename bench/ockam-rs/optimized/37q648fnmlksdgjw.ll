@@ -29856,7 +29856,7 @@ _ZN14kafka_protocol8protocol3buf10ByteBufMut7gap_buf17h8c0bda94eed198a5E.exit: ;
           to label %"_ZN14kafka_protocol7records18RecordBatchEncoder16encode_new_batch28_$u7b$$u7b$closure$u7d$$u7d$17h4b09a7d7cd9c11a6E.exit" unwind label %41
 
 "_ZN14kafka_protocol7records18RecordBatchEncoder16encode_new_batch28_$u7b$$u7b$closure$u7d$$u7d$17h4b09a7d7cd9c11a6E.exit": ; preds = %.noexc, %83, %85
-  %.1 = phi ptr [ %62, %85 ], [ null, %83 ], [ %33, %.noexc ]
+  %.1 = phi ptr [ null, %83 ], [ %62, %85 ], [ %33, %.noexc ]
   call void @"_ZN68_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd201adc395a5a501E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret ptr %.1
@@ -30051,7 +30051,7 @@ _ZN14kafka_protocol8protocol3buf10ByteBufMut7gap_buf17h8c0bda94eed198a5E.exit: ;
           to label %"_ZN14kafka_protocol7records18RecordBatchEncoder13encode_legacy28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17ha52a8ba29b26402bE.exit" unwind label %33
 
 "_ZN14kafka_protocol7records18RecordBatchEncoder13encode_legacy28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17ha52a8ba29b26402bE.exit": ; preds = %.noexc, %75, %77
-  %.1 = phi ptr [ %54, %77 ], [ null, %75 ], [ %25, %.noexc ]
+  %.1 = phi ptr [ null, %75 ], [ %54, %77 ], [ %25, %.noexc ]
   call void @"_ZN68_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd201adc395a5a501E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret ptr %.1
@@ -35374,8 +35374,8 @@ define hidden void @"_ZN126_$LT$ockam_identity..identities..storage..attributes_
   br label %.thread390
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %.noexc360, %217, %197, %3
-  %51 = phi i64 [ 1, %.noexc360 ], [ 1, %217 ], [ 0, %3 ], [ %.ph, %197 ]
-  %.0322.ph.ph = phi i1 [ false, %.noexc360 ], [ false, %217 ], [ true, %3 ], [ true, %197 ]
+  %51 = phi i64 [ 1, %217 ], [ 1, %.noexc360 ], [ 0, %3 ], [ %.ph, %197 ]
+  %.0322.ph.ph = phi i1 [ false, %217 ], [ false, %.noexc360 ], [ true, %3 ], [ true, %197 ]
   %lpad.loopexit.split-lp471 = landingpad { ptr, i32 }
           cleanup
   br label %.thread390
@@ -124914,7 +124914,7 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h08023f9ad21ce1c2E.exit.i.i: ; p
   br label %.body131.i
 
 1436:                                             ; preds = %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17he778e50994e14118E.exit.i.i", %863
-  %.sink.i127.i = phi i8 [ 3, %863 ], [ 4, %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17he778e50994e14118E.exit.i.i" ]
+  %.sink.i127.i = phi i8 [ 4, %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17he778e50994e14118E.exit.i.i" ], [ 3, %863 ]
   store i8 %.sink.i127.i, ptr %826, align 2, !noalias !20493
   br label %1452
 
@@ -127846,7 +127846,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17hb6e79ba0f31224c4E.llvm.18
   br label %.body130.i
 
 2367:                                             ; preds = %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17he778e50994e14118E.exit.i.i666", %1986, %1839
-  %.sink.i126.i = phi i8 [ 4, %1986 ], [ 3, %1839 ], [ 5, %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17he778e50994e14118E.exit.i.i666" ]
+  %.sink.i126.i = phi i8 [ 5, %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17he778e50994e14118E.exit.i.i666" ], [ 4, %1986 ], [ 3, %1839 ]
   store i8 %.sink.i126.i, ptr %1805, align 4, !noalias !20945
   br label %2383
 
@@ -130241,10 +130241,10 @@ define hidden void @"_ZN111_$LT$ockam_api..cloud..share..invitation..ReceivedInv
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %523, %487, %395, %3
-  %.0479.ph.ph = phi i8 [ %.20499, %487 ], [ 1, %523 ], [ 1, %3 ], [ 1, %395 ]
-  %.0457.ph.ph = phi i8 [ %.18475, %487 ], [ 1, %523 ], [ 1, %3 ], [ 1, %395 ]
-  %.0436.ph.ph = phi i8 [ %.16452, %487 ], [ 1, %523 ], [ 1, %3 ], [ 1, %395 ]
-  %.0434.ph.ph = phi i8 [ 0, %487 ], [ 1, %523 ], [ 1, %3 ], [ 1, %395 ]
+  %.0479.ph.ph = phi i8 [ 1, %3 ], [ 1, %523 ], [ %.20499, %487 ], [ 1, %395 ]
+  %.0457.ph.ph = phi i8 [ 1, %3 ], [ 1, %523 ], [ %.18475, %487 ], [ 1, %395 ]
+  %.0436.ph.ph = phi i8 [ 1, %3 ], [ 1, %523 ], [ %.16452, %487 ], [ 1, %395 ]
+  %.0434.ph.ph = phi i8 [ 1, %3 ], [ 1, %523 ], [ 0, %487 ], [ 1, %395 ]
   %lpad.loopexit.split-lp758 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -132808,10 +132808,10 @@ define hidden void @"_ZN107_$LT$ockam_api..cloud..share..invitation..SentInvitat
   br label %.thread888
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %646, %611, %495, %3
-  %.0617.ph.ph = phi i8 [ %.22639, %611 ], [ 1, %646 ], [ 1, %3 ], [ 1, %495 ]
-  %.0593.ph.ph = phi i8 [ %.20613, %611 ], [ 1, %646 ], [ 1, %3 ], [ 1, %495 ]
-  %.0570.ph.ph = phi i8 [ %.18588, %611 ], [ 1, %646 ], [ 1, %3 ], [ 1, %495 ]
-  %.0568.ph.ph = phi i8 [ 0, %611 ], [ 1, %646 ], [ 1, %3 ], [ 1, %495 ]
+  %.0617.ph.ph = phi i8 [ 1, %3 ], [ 1, %646 ], [ %.22639, %611 ], [ 1, %495 ]
+  %.0593.ph.ph = phi i8 [ 1, %3 ], [ 1, %646 ], [ %.20613, %611 ], [ 1, %495 ]
+  %.0570.ph.ph = phi i8 [ 1, %3 ], [ 1, %646 ], [ %.18588, %611 ], [ 1, %495 ]
+  %.0568.ph.ph = phi i8 [ 1, %3 ], [ 1, %646 ], [ 0, %611 ], [ 1, %495 ]
   %lpad.loopexit.split-lp965 = landingpad { ptr, i32 }
           cleanup
   br label %.thread888
@@ -135987,9 +135987,9 @@ define hidden void @"_ZN113_$LT$ockam_api..cloud..share..invitation..ServiceAcce
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %484, %462, %495, %494, %384, %375, %3
-  %.0461.ph.ph = phi i8 [ %.20481, %462 ], [ 1, %484 ], [ 1, %495 ], [ 1, %494 ], [ 1, %384 ], [ 1, %3 ], [ 1, %375 ]
-  %.0439.ph.ph = phi i8 [ %.18457, %462 ], [ 1, %484 ], [ 1, %495 ], [ 1, %494 ], [ 1, %384 ], [ 1, %3 ], [ 1, %375 ]
-  %.0437.ph.ph = phi i8 [ 0, %462 ], [ 1, %484 ], [ 1, %495 ], [ 1, %494 ], [ 1, %384 ], [ 1, %3 ], [ 1, %375 ]
+  %.0461.ph.ph = phi i8 [ 1, %384 ], [ 1, %494 ], [ 1, %495 ], [ 1, %484 ], [ %.20481, %462 ], [ 1, %3 ], [ 1, %375 ]
+  %.0439.ph.ph = phi i8 [ 1, %384 ], [ 1, %494 ], [ 1, %495 ], [ 1, %484 ], [ %.18457, %462 ], [ 1, %3 ], [ 1, %375 ]
+  %.0437.ph.ph = phi i8 [ 1, %384 ], [ 1, %494 ], [ 1, %495 ], [ 1, %484 ], [ 0, %462 ], [ 1, %3 ], [ 1, %375 ]
   %lpad.loopexit.split-lp708 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp

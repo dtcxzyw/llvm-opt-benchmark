@@ -510,7 +510,7 @@ mbedtls_cipher_info_get_block_size.exit.i:        ; preds = %28, %24
   br label %psa_cipher_update_ecb.exit
 
 psa_cipher_update_ecb.exit:                       ; preds = %.lr.ph.i, %mbedtls_cipher_info_get_block_size.exit.i, %46, %._crit_edge.i, %63
-  %.053.i = phi i32 [ 0, %._crit_edge.i ], [ 0, %mbedtls_cipher_info_get_block_size.exit.i ], [ 0, %63 ], [ %48, %46 ], [ %55, %.lr.ph.i ]
+  %.053.i = phi i32 [ 0, %._crit_edge.i ], [ %48, %46 ], [ 0, %mbedtls_cipher_info_get_block_size.exit.i ], [ 0, %63 ], [ %55, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %78
 

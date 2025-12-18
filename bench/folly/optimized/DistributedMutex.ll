@@ -514,7 +514,7 @@ define weak_odr void @_ZN5folly6detail17distributed_mutex16DistributedMutexISt6a
   br label %39
 
 ._crit_edge.i:                                    ; preds = %27, %45, %20
-  %35 = phi ptr [ %22, %20 ], [ %34, %45 ], [ %29, %27 ]
+  %35 = phi ptr [ %34, %45 ], [ %22, %20 ], [ %29, %27 ]
   %.not.i.i = icmp eq ptr %35, null
   br i1 %.not.i.i, label %_ZN5folly6detail17distributed_mutex14tryUnlockCleanISt6atomicImENS1_16DistributedMutexIS3_Lb1EE26DistributedMutexStateProxyEPNS1_6WaiterIS3_EEEEbRT_RT0_T1_.exit.thread, label %36
 

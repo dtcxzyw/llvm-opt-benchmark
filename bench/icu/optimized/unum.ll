@@ -432,7 +432,7 @@ define noundef ptr @unum_open_77(i32 noundef %0, ptr noundef %1, i32 noundef %2,
   br label %.thread165
 
 .critedge145:                                     ; preds = %.thread151, %123, %118, %114, %.critedge143, %26
-  %.088 = phi ptr [ %25, %26 ], [ %48, %.thread151 ], [ %61, %.critedge143 ], [ %.290, %114 ], [ %117, %118 ], [ %122, %123 ]
+  %.088 = phi ptr [ %25, %26 ], [ %48, %.thread151 ], [ %61, %.critedge143 ], [ %117, %118 ], [ %122, %123 ], [ %.290, %114 ]
   %127 = icmp eq ptr %.088, null
   br i1 %127, label %.critedge145.thread, label %.critedge145.thread162
 

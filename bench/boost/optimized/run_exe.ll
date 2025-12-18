@@ -3246,11 +3246,11 @@ _ZN5boost9algorithm6detail17find_format_storeIN9__gnu_cxx17__normal_iteratorIPcN
           cleanup
   br label %103
 
-._crit_edge:                                      ; preds = %29, %.lr.ph35.i, %_ZN5boost9algorithm6detail17find_format_storeIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_13const_formatFINS_14iterator_rangeIPKcEEEESH_EaSINSE_ISC_EEEERSJ_T_.exit, %.critedge15.i, %.._crit_edge_crit_edge
-  %47 = phi i64 [ %.pre, %.._crit_edge_crit_edge ], [ %31, %.critedge15.i ], [ %31, %_ZN5boost9algorithm6detail17find_format_storeIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_13const_formatFINS_14iterator_rangeIPKcEEEESH_EaSINSE_ISC_EEEERSJ_T_.exit ], [ %31, %.lr.ph35.i ], [ %31, %29 ]
-  %48 = phi ptr [ %14, %.._crit_edge_crit_edge ], [ %30, %.critedge15.i ], [ %30, %_ZN5boost9algorithm6detail17find_format_storeIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_13const_formatFINS_14iterator_rangeIPKcEEEESH_EaSINSE_ISC_EEEERSJ_T_.exit ], [ %30, %.lr.ph35.i ], [ %30, %29 ]
-  %.sroa.016.0.lcssa = phi ptr [ %14, %.._crit_edge_crit_edge ], [ %.sroa.7.061, %.critedge15.i ], [ %.sroa.7.061, %_ZN5boost9algorithm6detail17find_format_storeIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_13const_formatFINS_14iterator_rangeIPKcEEEESH_EaSINSE_ISC_EEEERSJ_T_.exit ], [ %.sroa.7.061, %.lr.ph35.i ], [ %.sroa.7.061, %29 ]
-  %.sroa.017.0.lcssa = phi ptr [ %14, %.._crit_edge_crit_edge ], [ %23, %.critedge15.i ], [ %23, %_ZN5boost9algorithm6detail17find_format_storeIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_13const_formatFINS_14iterator_rangeIPKcEEEESH_EaSINSE_ISC_EEEERSJ_T_.exit ], [ %23, %.lr.ph35.i ], [ %23, %29 ]
+._crit_edge:                                      ; preds = %.lr.ph35.i, %29, %_ZN5boost9algorithm6detail17find_format_storeIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_13const_formatFINS_14iterator_rangeIPKcEEEESH_EaSINSE_ISC_EEEERSJ_T_.exit, %.critedge15.i, %.._crit_edge_crit_edge
+  %47 = phi i64 [ %.pre, %.._crit_edge_crit_edge ], [ %31, %.critedge15.i ], [ %31, %_ZN5boost9algorithm6detail17find_format_storeIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_13const_formatFINS_14iterator_rangeIPKcEEEESH_EaSINSE_ISC_EEEERSJ_T_.exit ], [ %31, %29 ], [ %31, %.lr.ph35.i ]
+  %48 = phi ptr [ %14, %.._crit_edge_crit_edge ], [ %30, %.critedge15.i ], [ %30, %_ZN5boost9algorithm6detail17find_format_storeIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_13const_formatFINS_14iterator_rangeIPKcEEEESH_EaSINSE_ISC_EEEERSJ_T_.exit ], [ %30, %29 ], [ %30, %.lr.ph35.i ]
+  %.sroa.016.0.lcssa = phi ptr [ %14, %.._crit_edge_crit_edge ], [ %.sroa.7.061, %.critedge15.i ], [ %.sroa.7.061, %_ZN5boost9algorithm6detail17find_format_storeIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_13const_formatFINS_14iterator_rangeIPKcEEEESH_EaSINSE_ISC_EEEERSJ_T_.exit ], [ %.sroa.7.061, %29 ], [ %.sroa.7.061, %.lr.ph35.i ]
+  %.sroa.017.0.lcssa = phi ptr [ %14, %.._crit_edge_crit_edge ], [ %23, %.critedge15.i ], [ %23, %_ZN5boost9algorithm6detail17find_format_storeIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_13const_formatFINS_14iterator_rangeIPKcEEEESH_EaSINSE_ISC_EEEERSJ_T_.exit ], [ %23, %29 ], [ %23, %.lr.ph35.i ]
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 %47
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -6036,10 +6036,10 @@ _ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i50:       ; preds = %156, %150
   br i1 %165, label %.lr.ph.i41, label %_ZSt14__copy_move_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit20, !llvm.loop !387
 
 _ZSt14__copy_move_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit20: ; preds = %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i18, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i50, %127, %._crit_edge
-  %.sink95 = phi ptr [ %58, %._crit_edge ], [ %129, %127 ], [ %storemerge.i.i51, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i50 ], [ %storemerge.i.i19, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i18 ]
-  %.sink = phi ptr [ %57, %._crit_edge ], [ %131, %127 ], [ %.sroa.4.1, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i50 ], [ %.sroa.456.1, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i18 ]
-  %.sroa.8.2.sink = phi ptr [ %56, %._crit_edge ], [ %133, %127 ], [ %.sroa.8.1, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i50 ], [ %.sroa.857.1, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i18 ]
-  %.sroa.12.2.sink = phi ptr [ %55, %._crit_edge ], [ %135, %127 ], [ %.sroa.12.1, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i50 ], [ %.sroa.1259.1, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i18 ]
+  %.sink95 = phi ptr [ %storemerge.i.i51, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i50 ], [ %58, %._crit_edge ], [ %129, %127 ], [ %storemerge.i.i19, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i18 ]
+  %.sink = phi ptr [ %.sroa.4.1, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i50 ], [ %57, %._crit_edge ], [ %131, %127 ], [ %.sroa.456.1, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i18 ]
+  %.sroa.8.2.sink = phi ptr [ %.sroa.8.1, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i50 ], [ %56, %._crit_edge ], [ %133, %127 ], [ %.sroa.857.1, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i18 ]
+  %.sroa.12.2.sink = phi ptr [ %.sroa.12.1, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i50 ], [ %55, %._crit_edge ], [ %135, %127 ], [ %.sroa.1259.1, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i18 ]
   store ptr %.sink95, ptr %0, align 8, !tbaa !117
   %166 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %166, align 8, !tbaa !130
@@ -6410,10 +6410,10 @@ _ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i59:       ; preds = %179, %173
   br i1 %188, label %.lr.ph.i46, label %_ZSt23__copy_move_backward_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit23, !llvm.loop !401
 
 _ZSt23__copy_move_backward_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit23: ; preds = %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i21, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i59, %143, %._crit_edge
-  %.sink107 = phi ptr [ %63, %._crit_edge ], [ %146, %143 ], [ %storemerge.i.i.i60, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i59 ], [ %storemerge.i.i.i22, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i21 ]
-  %.sink = phi ptr [ %62, %._crit_edge ], [ %148, %143 ], [ %.sroa.4.1, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i59 ], [ %.sroa.465.1, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i21 ]
-  %.sroa.9.2.sink = phi ptr [ %61, %._crit_edge ], [ %150, %143 ], [ %.sroa.9.1, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i59 ], [ %.sroa.966.1, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i21 ]
-  %.sroa.12.2.sink = phi ptr [ %60, %._crit_edge ], [ %152, %143 ], [ %.sroa.12.1, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i59 ], [ %.sroa.1267.1, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i21 ]
+  %.sink107 = phi ptr [ %storemerge.i.i.i60, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i59 ], [ %63, %._crit_edge ], [ %146, %143 ], [ %storemerge.i.i.i22, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i21 ]
+  %.sink = phi ptr [ %.sroa.4.1, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i59 ], [ %62, %._crit_edge ], [ %148, %143 ], [ %.sroa.465.1, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i21 ]
+  %.sroa.9.2.sink = phi ptr [ %.sroa.9.1, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i59 ], [ %61, %._crit_edge ], [ %150, %143 ], [ %.sroa.966.1, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i21 ]
+  %.sroa.12.2.sink = phi ptr [ %.sroa.12.1, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i59 ], [ %60, %._crit_edge ], [ %152, %143 ], [ %.sroa.1267.1, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i21 ]
   store ptr %.sink107, ptr %0, align 8, !tbaa !117
   %189 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %189, align 8, !tbaa !130

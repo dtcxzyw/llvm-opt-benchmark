@@ -825,7 +825,7 @@ define noundef zeroext i1 @_Z17check_constraintsP8py_annoyib(ptr noundef readonl
   br label %14
 
 14:                                               ; preds = %.sink.split, %5, %6
-  %.0 = phi i1 [ true, %6 ], [ true, %5 ], [ false, %.sink.split ]
+  %.0 = phi i1 [ true, %5 ], [ true, %6 ], [ false, %.sink.split ]
   ret i1 %.0
 }
 
@@ -1940,7 +1940,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
           to label %_ZNSt6vectorIfSaIfEED2Ev.exit unwind label %44
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %54, %.preheader, %58, %61, %38
-  %.1 = phi ptr [ null, %38 ], [ null, %61 ], [ null, %58 ], [ %37, %.preheader ], [ %37, %54 ]
+  %.1 = phi ptr [ null, %58 ], [ null, %38 ], [ null, %61 ], [ %37, %.preheader ], [ %37, %54 ]
   %62 = ptrtoint ptr %.sroa.11.0 to i64
   %63 = ptrtoint ptr %.sroa.041.0 to i64
   %64 = sub i64 %62, %63
@@ -12442,8 +12442,8 @@ _ZN5Annoy9Euclidean8distanceIifEET0_PKNS_9Minkowski4NodeIT_S2_EES8_i.exit87.i: ;
   br i1 %exitcond.not.i92.i, label %_ZN5Annoy4Base11update_meanIfNS_9Minkowski4NodeIifEEEEvPT0_S6_T_ii.exit.i, label %175, !llvm.loop !253
 
 _ZN5Annoy4Base11update_meanIfNS_9Minkowski4NodeIifEEEEvPT0_S6_T_ii.exit.i: ; preds = %175, %161, %171, %169, %157
-  %.267.i = phi i32 [ %.065107.i, %169 ], [ %.065107.i, %157 ], [ %172, %171 ], [ %.065107.i, %161 ], [ %172, %175 ]
-  %.2.i = phi i32 [ %.0108.i, %169 ], [ %158, %157 ], [ %.0108.i, %171 ], [ %158, %161 ], [ %.0108.i, %175 ]
+  %.267.i = phi i32 [ %.065107.i, %169 ], [ %.065107.i, %161 ], [ %172, %171 ], [ %.065107.i, %157 ], [ %172, %175 ]
+  %.2.i = phi i32 [ %.0108.i, %169 ], [ %158, %161 ], [ %.0108.i, %171 ], [ %158, %157 ], [ %.0108.i, %175 ]
   %183 = add nuw nsw i32 %.068106.i, 1
   %exitcond.not.i = icmp eq i32 %183, 200
   br i1 %exitcond.not.i, label %_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_9EuclideanENS_9Minkowski4NodeIifEEEEvRKSt6vectorIPT2_SaIS9_EEiRT0_bS9_S9_.exit.preheader, label %72, !llvm.loop !254
@@ -16624,8 +16624,8 @@ _ZN5Annoy9Manhattan8distanceIifEET0_PKNS_9Minkowski4NodeIT_S2_EES8_i.exit87.i: ;
   br i1 %exitcond.not.i92.i, label %_ZN5Annoy4Base11update_meanIfNS_9Minkowski4NodeIifEEEEvPT0_S6_T_ii.exit.i, label %175, !llvm.loop !253
 
 _ZN5Annoy4Base11update_meanIfNS_9Minkowski4NodeIifEEEEvPT0_S6_T_ii.exit.i: ; preds = %175, %161, %171, %169, %157
-  %.267.i = phi i32 [ %.065107.i, %169 ], [ %.065107.i, %157 ], [ %172, %171 ], [ %.065107.i, %161 ], [ %172, %175 ]
-  %.2.i = phi i32 [ %.0108.i, %169 ], [ %158, %157 ], [ %.0108.i, %171 ], [ %158, %161 ], [ %.0108.i, %175 ]
+  %.267.i = phi i32 [ %.065107.i, %169 ], [ %.065107.i, %161 ], [ %172, %171 ], [ %.065107.i, %157 ], [ %172, %175 ]
+  %.2.i = phi i32 [ %.0108.i, %169 ], [ %158, %161 ], [ %.0108.i, %171 ], [ %158, %157 ], [ %.0108.i, %175 ]
   %183 = add nuw nsw i32 %.068106.i, 1
   %exitcond.not.i = icmp eq i32 %183, 200
   br i1 %exitcond.not.i, label %_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_9ManhattanENS_9Minkowski4NodeIifEEEEvRKSt6vectorIPT2_SaIS9_EEiRT0_bS9_S9_.exit.preheader, label %72, !llvm.loop !290
@@ -21209,7 +21209,7 @@ define linkonce_odr void @_ZN5Annoy7Hamming12create_splitIimNS_12Kiss64RandomEEE
   br i1 %exitcond.not, label %.split49.us, label %.lr.ph, !llvm.loop !343
 
 .split49.us:                                      ; preds = %76, %._crit_edge
-  %.us-phi.ph = phi i64 [ 20, %76 ], [ %.02847, %._crit_edge ]
+  %.us-phi.ph = phi i64 [ %.02847, %._crit_edge ], [ 20, %76 ]
   %78 = icmp eq i64 %.us-phi.ph, 20
   %79 = icmp sgt i32 %6, 0
   %or.cond62 = and i1 %78, %79

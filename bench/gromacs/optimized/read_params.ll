@@ -12346,7 +12346,7 @@ define noundef zeroext i1 @_ZN3gmx24awhHasFepLambdaDimensionERKNS_9AwhParamsE(pt
   br i1 %.not35.not, label %.loopexit, label %.lr.ph46
 
 .loopexit:                                        ; preds = %._crit_edge, %.lr.ph, %1
-  %.not3539 = phi i1 [ false, %1 ], [ true, %.lr.ph ], [ false, %._crit_edge ]
+  %.not3539 = phi i1 [ true, %.lr.ph ], [ false, %1 ], [ false, %._crit_edge ]
   ret i1 %.not3539
 }
 

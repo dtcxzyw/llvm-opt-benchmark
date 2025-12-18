@@ -477,7 +477,7 @@ define dso_local noundef zeroext i1 @_ZN22btSubsimplexConvexCast16calcTimeOfImpa
   br label %300
 
 300:                                              ; preds = %293, %290
-  %.154 = phi float [ %299, %293 ], [ 0.000000e+00, %290 ]
+  %.154 = phi float [ 0.000000e+00, %290 ], [ %299, %293 ]
   %301 = load float, ptr %164, align 8, !tbaa !26
   %302 = fcmp ogt float %.154, %301
   br i1 %302, label %169, label %.critedge, !llvm.loop !27

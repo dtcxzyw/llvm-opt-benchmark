@@ -2509,8 +2509,8 @@ define hidden { i64, ptr } @"_ZN2h25codec12framed_write24FramedWrite$LT$T$C$B$GT
   br label %.loopexit196
 
 .loopexit196:                                     ; preds = %129, %.fold.split, %162, %165, %103, %104
-  %.sroa.8.1 = phi ptr [ %105, %104 ], [ undef, %103 ], [ undef, %162 ], [ %166, %165 ], [ %131, %.fold.split ], [ undef, %129 ]
-  %.sroa.0.1 = phi i64 [ 0, %104 ], [ 1, %103 ], [ 1, %162 ], [ 0, %165 ], [ 0, %.fold.split ], [ 1, %129 ]
+  %.sroa.8.1 = phi ptr [ %166, %165 ], [ %105, %104 ], [ undef, %103 ], [ %131, %.fold.split ], [ undef, %162 ], [ undef, %129 ]
+  %.sroa.0.1 = phi i64 [ 0, %165 ], [ 0, %104 ], [ 1, %103 ], [ 0, %.fold.split ], [ 1, %162 ], [ 1, %129 ]
   %132 = load i64, ptr %18, align 8, !range !54, !noundef !22
   %.not.i.i141 = icmp eq i64 %132, 2
   br i1 %.not.i.i141, label %"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h4f58a8a783da0f0bE.exit152", label %133

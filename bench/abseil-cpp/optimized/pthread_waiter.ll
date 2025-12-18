@@ -276,7 +276,7 @@ _ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderC2EP15pthrea
   br i1 %.not81, label %.critedge133, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %43, %27, %18, %_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderC2EP15pthread_mutex_t.exit
-  %.lcssa43 = phi i32 [ %12, %_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderC2EP15pthread_mutex_t.exit ], [ %28, %27 ], [ %19, %18 ], [ %44, %43 ]
+  %.lcssa43 = phi i32 [ %12, %_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderC2EP15pthread_mutex_t.exit ], [ %19, %18 ], [ %28, %27 ], [ %44, %43 ]
   %45 = add nsw i32 %.lcssa43, -1
   store i32 %45, ptr %11, align 4, !tbaa !9
   br label %.thread

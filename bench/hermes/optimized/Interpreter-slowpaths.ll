@@ -2924,7 +2924,7 @@ return.sink.split:                                ; preds = %entry, %entry, %if.
   br label %return
 
 return:                                           ; preds = %return.sink.split, %_ZN6hermes2vm15HandleRootOwner17makeMutableHandleINS0_8JSObjectEEENS0_13MutableHandleIT_EEPS5_.exit, %if.end
-  %retval.0 = phi i32 [ 0, %if.end ], [ 0, %_ZN6hermes2vm15HandleRootOwner17makeMutableHandleINS0_8JSObjectEEENS0_13MutableHandleIT_EEPS5_.exit ], [ 1, %return.sink.split ]
+  %retval.0 = phi i32 [ 0, %_ZN6hermes2vm15HandleRootOwner17makeMutableHandleINS0_8JSObjectEEENS0_13MutableHandleIT_EEPS5_.exit ], [ 0, %if.end ], [ 1, %return.sink.split ]
   ret i32 %retval.0
 }
 

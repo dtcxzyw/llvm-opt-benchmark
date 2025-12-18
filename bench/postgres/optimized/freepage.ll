@@ -702,7 +702,7 @@ FreePagePushSpanLeader.exit:                      ; preds = %FreePagePopSpanLead
   br i1 %.not, label %.thread, label %12
 
 .thread:                                          ; preds = %152, %12, %1, %53, %FreePagePushSpanLeader.exit, %66, %56
-  %.1 = phi i64 [ 0, %53 ], [ %151, %FreePagePushSpanLeader.exit ], [ 0, %56 ], [ 0, %66 ], [ 0, %1 ], [ 0, %12 ], [ 0, %152 ]
+  %.1 = phi i64 [ 0, %66 ], [ 0, %53 ], [ 0, %56 ], [ %151, %FreePagePushSpanLeader.exit ], [ 0, %1 ], [ 0, %12 ], [ 0, %152 ]
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %157 = load i32, ptr %156, align 4
   %.not71103 = icmp eq i32 %157, 0
@@ -1288,7 +1288,7 @@ FreePageBtreeSearchInternal.exit.i:               ; preds = %206, %204
   br label %FreePageBtreeFindRightSibling.exit
 
 FreePageBtreeFindRightSibling.exit:               ; preds = %214, %.preheader, %.preheader.i, %.thread.loopexit.i
-  %.2.i = phi ptr [ %225, %.preheader.i ], [ %236, %.thread.loopexit.i ], [ null, %.preheader ], [ null, %214 ]
+  %.2.i = phi ptr [ %236, %.thread.loopexit.i ], [ %225, %.preheader.i ], [ null, %.preheader ], [ null, %214 ]
   %.not253 = icmp eq ptr %.2.i, null
   %237 = getelementptr inbounds nuw i8, ptr %.2.i, i64 24
   %spec.select262 = select i1 %.not253, ptr null, ptr %237
@@ -3489,7 +3489,7 @@ FreePageBtreeFindLeftSibling.exit:                ; preds = %.lr.ph.i60, %.prehe
   br i1 %142, label %134, label %FreePageBtreeFindLeftSibling.exit.thread.sink.split, !llvm.loop !14
 
 FreePageBtreeFindLeftSibling.exit.thread.sink.split: ; preds = %65, %134, %123, %127, %54, %58
-  %.sink = phi ptr [ %.2.i74, %54 ], [ %.2.i74, %58 ], [ %1, %127 ], [ %1, %123 ], [ %1, %134 ], [ %.2.i74, %65 ]
+  %.sink = phi ptr [ %.2.i74, %54 ], [ %1, %134 ], [ %.2.i74, %58 ], [ %1, %123 ], [ %1, %127 ], [ %.2.i74, %65 ]
   tail call fastcc void @FreePageBtreeRemovePage(ptr noundef nonnull %0, ptr noundef nonnull %.sink)
   br label %FreePageBtreeFindLeftSibling.exit.thread
 

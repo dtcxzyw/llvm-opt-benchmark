@@ -166,7 +166,7 @@ define ptr @SRP_VBASE_new(ptr noundef %0) local_unnamed_addr #0 {
   br label %19
 
 19:                                               ; preds = %.sink.split, %11, %13, %1
-  %.0 = phi ptr [ null, %1 ], [ %2, %13 ], [ %2, %11 ], [ null, %.sink.split ]
+  %.0 = phi ptr [ null, %1 ], [ %2, %11 ], [ %2, %13 ], [ null, %.sink.split ]
   ret ptr %.0
 }
 
@@ -472,8 +472,8 @@ SRP_get_gN_by_id.exit.thread:                     ; preds = %124, %SRP_get_gN_by
   call void @CRYPTO_free(ptr noundef nonnull %38, ptr noundef nonnull @.str, i32 noundef 502) #7
   br label %SRP_user_pwd_free.exit
 
-.thread108.thread124:                             ; preds = %SRP_user_pwd_set1_ids.exit, %86, %111, %SRP_user_pwd_set_sv.exit.thread
-  %.056116128 = phi i32 [ 2, %SRP_user_pwd_set_sv.exit.thread ], [ 4, %SRP_user_pwd_set1_ids.exit ], [ 4, %86 ], [ 2, %111 ]
+.thread108.thread124:                             ; preds = %86, %SRP_user_pwd_set1_ids.exit, %111, %SRP_user_pwd_set_sv.exit.thread
+  %.056116128 = phi i32 [ 2, %SRP_user_pwd_set_sv.exit.thread ], [ 4, %86 ], [ 4, %SRP_user_pwd_set1_ids.exit ], [ 2, %111 ]
   %142 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %143 = load ptr, ptr %142, align 8, !tbaa !3
   call void @BN_free(ptr noundef %143) #7
@@ -489,8 +489,8 @@ SRP_get_gN_by_id.exit.thread:                     ; preds = %124, %SRP_get_gN_by
   br label %SRP_user_pwd_free.exit
 
 SRP_user_pwd_free.exit:                           ; preds = %37, %70, %SRP_get_gN_by_id.exit, %SRP_get_gN_by_id.exit.thread, %._crit_edge, %140, %10, %11, %13, %17, %2, %.thread108.thread124
-  %.057115121 = phi ptr [ %18, %.thread108.thread124 ], [ null, %10 ], [ null, %11 ], [ null, %13 ], [ null, %17 ], [ null, %2 ], [ %18, %140 ], [ %18, %._crit_edge ], [ %18, %SRP_get_gN_by_id.exit.thread ], [ %18, %SRP_get_gN_by_id.exit ], [ %18, %70 ], [ %18, %37 ]
-  %.056116120 = phi i32 [ %.056116128, %.thread108.thread124 ], [ 3, %10 ], [ 3, %11 ], [ 3, %13 ], [ 1, %17 ], [ 4, %2 ], [ %.1154, %140 ], [ 0, %._crit_edge ], [ 0, %SRP_get_gN_by_id.exit.thread ], [ 2, %SRP_get_gN_by_id.exit ], [ %.1154, %37 ], [ 4, %70 ]
+  %.057115121 = phi ptr [ %18, %.thread108.thread124 ], [ %18, %SRP_get_gN_by_id.exit ], [ null, %2 ], [ null, %10 ], [ null, %11 ], [ null, %13 ], [ null, %17 ], [ %18, %140 ], [ %18, %._crit_edge ], [ %18, %SRP_get_gN_by_id.exit.thread ], [ %18, %70 ], [ %18, %37 ]
+  %.056116120 = phi i32 [ %.056116128, %.thread108.thread124 ], [ 2, %SRP_get_gN_by_id.exit ], [ 4, %2 ], [ 3, %10 ], [ 3, %11 ], [ 3, %13 ], [ 1, %17 ], [ %.1154, %140 ], [ 0, %._crit_edge ], [ 0, %SRP_get_gN_by_id.exit.thread ], [ %.1154, %37 ], [ 4, %70 ]
   call void @TXT_DB_free(ptr noundef %.057115121) #7
   call void @BIO_free_all(ptr noundef %6) #7
   call void @OPENSSL_sk_free(ptr noundef %4) #7

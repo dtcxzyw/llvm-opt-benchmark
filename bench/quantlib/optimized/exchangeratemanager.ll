@@ -5993,7 +5993,7 @@ invoke.cont.i:                                    ; preds = %init.i
   br label %_ZN8QuantLib9SingletonINS_8SettingsESt17integral_constantIbLb0EEE8instanceEv.exit
 
 common.resume:                                    ; preds = %while.body.i.i119, %ehcleanup, %ehcleanup48, %lpad55, %lpad.i
-  %common.resume.op = phi { ptr, i32 } [ %23, %lpad.i ], [ %.pn, %ehcleanup ], [ %.pn26, %ehcleanup48 ], [ %64, %lpad55 ], [ %64, %while.body.i.i119 ]
+  %common.resume.op = phi { ptr, i32 } [ %23, %lpad.i ], [ %64, %lpad55 ], [ %.pn, %ehcleanup ], [ %.pn26, %ehcleanup48 ], [ %64, %while.body.i.i119 ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %init.i

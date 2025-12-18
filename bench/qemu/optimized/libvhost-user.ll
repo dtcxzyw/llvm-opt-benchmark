@@ -574,14 +574,14 @@ define internal fastcc noundef zeroext i1 @vu_message_write(ptr noundef %0, i32 
   br label %.critedge4.thread42.sink.split
 
 .critedge4.thread42.sink.split:                   ; preds = %36, %.lr.ph67, %.critedge4.thread42.sink.split.sink.split
-  %.pre-phi49.sink = phi ptr [ %.pre48, %.critedge4.thread42.sink.split.sink.split ], [ %52, %.lr.ph67 ], [ %35, %36 ]
+  %.pre-phi49.sink = phi ptr [ %52, %.lr.ph67 ], [ %.pre48, %.critedge4.thread42.sink.split.sink.split ], [ %35, %36 ]
   %60 = load i32, ptr %.pre-phi49.sink, align 4
   %61 = call ptr @strerror(i32 noundef %60) #21
   call void (ptr, ptr, ...) @vu_panic(ptr noundef %0, ptr noundef nonnull @.str.54, ptr noundef %61)
   br label %.critedge4.thread42
 
 .critedge4.thread42:                              ; preds = %.critedge4.thread42.sink.split, %42, %.critedge4
-  %.0 = phi i1 [ true, %.critedge4 ], [ true, %42 ], [ false, %.critedge4.thread42.sink.split ]
+  %.0 = phi i1 [ true, %42 ], [ true, %.critedge4 ], [ false, %.critedge4.thread42.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -1341,12 +1341,12 @@ vmsg_close_fds.exit.i:                            ; preds = %vmsg_close_fds.exit
   call void (ptr, ptr, ...) @vu_panic(ptr noundef nonnull %0, ptr noundef nonnull @.str.59, i32 noundef %159)
   br label %vu_process_message.exit
 
-.thread:                                          ; preds = %.critedge.i.i, %102, %133, %129, %vu_set_postcopy_end.exit.i, %vu_set_postcopy_listen.exit.i, %111, %77, %72, %51, %vu_get_shared_object.exit.i, %36, %vu_get_features_exec.exit.i
+.thread:                                          ; preds = %102, %133, %129, %vu_set_postcopy_end.exit.i, %vu_set_postcopy_listen.exit.i, %111, %.critedge.i.i, %77, %72, %51, %vu_get_shared_object.exit.i, %36, %vu_get_features_exec.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %163
 
 vu_process_message.exit:                          ; preds = %43, %89, %88, %20, %23, %34, %37, %39, %50, %52, %53, %59, %60, %73, %74, %76, %97, %109, %130, %131, %136, %138, %vmsg_close_fds.exit.i
-  %.074.i = phi i1 [ %22, %20 ], [ false, %vmsg_close_fds.exit.i ], [ false, %34 ], [ false, %37 ], [ false, %23 ], [ false, %50 ], [ false, %52 ], [ false, %53 ], [ false, %59 ], [ false, %60 ], [ false, %73 ], [ %75, %74 ], [ false, %76 ], [ false, %97 ], [ false, %109 ], [ false, %130 ], [ false, %131 ], [ %137, %136 ], [ false, %138 ], [ false, %39 ], [ false, %88 ], [ false, %89 ], [ false, %43 ]
+  %.074.i = phi i1 [ %22, %20 ], [ false, %vmsg_close_fds.exit.i ], [ false, %89 ], [ false, %34 ], [ false, %88 ], [ false, %37 ], [ false, %39 ], [ false, %23 ], [ false, %50 ], [ false, %138 ], [ false, %52 ], [ false, %53 ], [ false, %59 ], [ false, %60 ], [ %137, %136 ], [ false, %73 ], [ %75, %74 ], [ false, %76 ], [ false, %131 ], [ false, %109 ], [ false, %97 ], [ false, %130 ], [ false, %43 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %or.cond.not = select i1 %.074.i, i1 true, i1 %12
   br i1 %or.cond.not, label %162, label %.critedge
@@ -1972,7 +1972,7 @@ vu_gpa_to_va.exit:                                ; preds = %vu_gpa_to_mem_regio
   br i1 %.not82, label %.thread121, label %.thread
 
 116:                                              ; preds = %vu_gpa_to_va.exit.thread117, %vu_gpa_to_va.exit
-  %.1 = phi ptr [ %110, %vu_gpa_to_va.exit ], [ %100, %vu_gpa_to_va.exit.thread117 ]
+  %.1 = phi ptr [ %100, %vu_gpa_to_va.exit.thread117 ], [ %110, %vu_gpa_to_va.exit ]
   %.not83 = icmp eq ptr %.1, null
   br i1 %.not83, label %.thread, label %.thread121
 
@@ -2059,8 +2059,8 @@ virtqueue_read_next_desc.exit.thread127:          ; preds = %132
   br i1 %144, label %.thread141, label %41
 
 vu_is_vq_usable.exit.thread:                      ; preds = %41, %20, %23, %17, %28, %6, %.thread131, %.thread141, %.thread136
-  %.065 = phi i32 [ %.469, %.thread136 ], [ 0, %.thread131 ], [ 0, %.thread141 ], [ 0, %6 ], [ 0, %28 ], [ 0, %17 ], [ 0, %23 ], [ 0, %20 ], [ %.166203, %41 ]
-  %.063 = phi i32 [ %.4, %.thread136 ], [ 0, %.thread131 ], [ 0, %.thread141 ], [ 0, %6 ], [ 0, %28 ], [ 0, %17 ], [ 0, %23 ], [ 0, %20 ], [ %.164204, %41 ]
+  %.065 = phi i32 [ %.469, %.thread136 ], [ 0, %20 ], [ 0, %.thread131 ], [ 0, %.thread141 ], [ 0, %6 ], [ 0, %28 ], [ 0, %17 ], [ 0, %23 ], [ %.166203, %41 ]
+  %.063 = phi i32 [ %.4, %.thread136 ], [ 0, %20 ], [ 0, %.thread131 ], [ 0, %.thread141 ], [ 0, %6 ], [ 0, %28 ], [ 0, %17 ], [ 0, %23 ], [ %.164204, %41 ]
   %.not88 = icmp eq ptr %2, null
   br i1 %.not88, label %146, label %145
 
@@ -2199,7 +2199,7 @@ vu_gpa_to_mem_region.exit.i:                      ; preds = %20
   br i1 %.not, label %vu_gpa_to_va.exit.thread, label %8
 
 vu_gpa_to_va.exit.thread:                         ; preds = %vu_gpa_to_mem_region.exit.i, %27, %8, %24, %4
-  %.014 = phi i32 [ -1, %4 ], [ -1, %24 ], [ 0, %27 ], [ -1, %vu_gpa_to_mem_region.exit.i ], [ -1, %8 ]
+  %.014 = phi i32 [ -1, %24 ], [ -1, %4 ], [ 0, %27 ], [ -1, %vu_gpa_to_mem_region.exit.i ], [ -1, %8 ]
   ret i32 %.014
 }
 
@@ -2399,41 +2399,41 @@ vu_queue_empty.exit.thread21.i:                   ; preds = %vu_queue_empty.exit
   %.val.i = load i64, ptr %23, align 8
   %53 = and i64 %.val.i, 536870912
   %.not24.i = icmp eq i64 %53, 0
-  br i1 %.not24.i, label %54, label %56
+  br i1 %.not24.i, label %vring_notify.exit, label %54
 
 54:                                               ; preds = %vu_queue_empty.exit.thread21.i
-  %.val17.i = load ptr, ptr %9, align 8
-  %.val17.val.i = load i16, ptr %.val17.i, align 2
-  %55 = and i16 %.val17.val.i, 1
-  %.not15.i = icmp eq i16 %55, 0
-  br i1 %.not15.i, label %vring_notify.exit.thread, label %vu_is_vq_usable.exit.thread
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %56 = load i8, ptr %55, align 8, !range !5, !noundef !6
+  %57 = trunc nuw i8 %56 to i1
+  store i8 1, ptr %55, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 86
+  %59 = load i16, ptr %58, align 2
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 84
+  %61 = load i16, ptr %60, align 4
+  store i16 %61, ptr %58, align 2
+  br i1 %57, label %62, label %vring_notify.exit.thread
 
-56:                                               ; preds = %vu_queue_empty.exit.thread21.i
-  %57 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %58 = load i8, ptr %57, align 8, !range !5, !noundef !6
-  %59 = trunc nuw i8 %58 to i1
-  store i8 1, ptr %57, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %1, i64 86
-  %61 = load i16, ptr %60, align 2
-  %62 = getelementptr inbounds nuw i8, ptr %1, i64 84
-  %63 = load i16, ptr %62, align 4
-  store i16 %63, ptr %60, align 2
-  br i1 %59, label %vring_notify.exit, label %vring_notify.exit.thread
-
-vring_notify.exit:                                ; preds = %56
+62:                                               ; preds = %54
   %.val18.i = load i32, ptr %1, align 8
   %.val19.i = load ptr, ptr %9, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %.val19.i, i64 4
-  %65 = sext i32 %.val18.i to i64
-  %66 = getelementptr inbounds i16, ptr %64, i64 %65
-  %67 = load i16, ptr %66, align 2
-  %68 = xor i16 %67, -1
-  %69 = add i16 %63, %68
-  %70 = sub i16 %63, %61
-  %71 = icmp ult i16 %69, %70
-  br i1 %71, label %vring_notify.exit.thread, label %vu_is_vq_usable.exit.thread
+  %63 = getelementptr inbounds nuw i8, ptr %.val19.i, i64 4
+  %64 = sext i32 %.val18.i to i64
+  %65 = getelementptr inbounds i16, ptr %63, i64 %64
+  %66 = load i16, ptr %65, align 2
+  %67 = xor i16 %66, -1
+  %68 = add i16 %61, %67
+  %69 = sub i16 %61, %59
+  %70 = icmp ult i16 %68, %69
+  br i1 %70, label %vring_notify.exit.thread, label %vu_is_vq_usable.exit.thread
 
-vring_notify.exit.thread:                         ; preds = %36, %39, %33, %44, %28, %56, %vu_queue_empty.exit.i, %54, %vring_notify.exit
+vring_notify.exit:                                ; preds = %vu_queue_empty.exit.thread21.i
+  %.val17.i = load ptr, ptr %9, align 8
+  %.val17.val.i = load i16, ptr %.val17.i, align 2
+  %71 = and i16 %.val17.val.i, 1
+  %.not15.i = icmp eq i16 %71, 0
+  br i1 %.not15.i, label %vring_notify.exit.thread, label %vu_is_vq_usable.exit.thread
+
+vring_notify.exit.thread:                         ; preds = %36, %39, %33, %44, %28, %54, %vu_queue_empty.exit.i, %62, %vring_notify.exit
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %73 = load i32, ptr %72, align 8
   %74 = icmp slt i32 %73, 0
@@ -2500,7 +2500,7 @@ vring_notify.exit.thread:                         ; preds = %36, %39, %33, %44, 
   tail call void (ptr, ptr, ...) @vu_panic(ptr noundef nonnull %0, ptr noundef nonnull @.str.102, ptr noundef %108)
   br label %vu_is_vq_usable.exit.thread
 
-vu_is_vq_usable.exit.thread:                      ; preds = %14, %17, %11, %22, %3, %54, %vring_notify.exit, %105, %102, %101
+vu_is_vq_usable.exit.thread:                      ; preds = %14, %17, %11, %22, %3, %62, %vring_notify.exit, %105, %102, %101
   ret void
 }
 
@@ -2928,7 +2928,7 @@ vu_gpa_to_va.exit:                                ; preds = %vu_gpa_to_mem_regio
   br i1 %.not50, label %.thread25, label %virtqueue_alloc_element.exit.thread.sink.split
 
 69:                                               ; preds = %vu_gpa_to_va.exit.thread21, %vu_gpa_to_va.exit
-  %.1 = phi ptr [ %63, %vu_gpa_to_va.exit ], [ %53, %vu_gpa_to_va.exit.thread21 ]
+  %.1 = phi ptr [ %53, %vu_gpa_to_va.exit.thread21 ], [ %63, %vu_gpa_to_va.exit ]
   %.not51 = icmp eq ptr %.1, null
   br i1 %.not51, label %virtqueue_alloc_element.exit.thread.sink.split, label %.thread25
 
@@ -3075,12 +3075,12 @@ virtqueue_read_next_desc.exit:                    ; preds = %104, %.thread25
   br i1 %exitcond54.not, label %virtqueue_alloc_element.exit.thread, label %.lr.ph41
 
 virtqueue_alloc_element.exit.thread.sink.split:   ; preds = %40, %93, %86, %69, %67, %17, %22, %13, %108
-  %.str.104.sink = phi ptr [ @.str.104, %108 ], [ @.str.49, %67 ], [ @.str.49, %69 ], [ @.str.47, %13 ], [ @.str.49, %22 ], [ @.str.49, %17 ], [ @.str.103, %86 ], [ @.str.48, %93 ], [ @.str.49, %40 ]
+  %.str.104.sink = phi ptr [ @.str.104, %108 ], [ @.str.49, %67 ], [ @.str.49, %69 ], [ @.str.47, %13 ], [ @.str.103, %86 ], [ @.str.49, %22 ], [ @.str.49, %17 ], [ @.str.48, %93 ], [ @.str.49, %40 ]
   tail call void (ptr, ptr, ...) @vu_panic(ptr noundef %0, ptr noundef nonnull %.str.104.sink)
   br label %virtqueue_alloc_element.exit.thread
 
 virtqueue_alloc_element.exit.thread:              ; preds = %87, %77, %.lr.ph41, %virtqueue_alloc_element.exit.thread.sink.split, %.preheader, %116
-  %.043 = phi ptr [ null, %116 ], [ %121, %.preheader ], [ null, %virtqueue_alloc_element.exit.thread.sink.split ], [ %121, %.lr.ph41 ], [ null, %77 ], [ null, %87 ]
+  %.043 = phi ptr [ %121, %.lr.ph41 ], [ %121, %.preheader ], [ null, %virtqueue_alloc_element.exit.thread.sink.split ], [ null, %116 ], [ null, %77 ], [ null, %87 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -3283,7 +3283,7 @@ vu_gpa_to_va.exit.i:                              ; preds = %vu_gpa_to_mem_regio
   br i1 %.not45.i, label %.thread22.i, label %.thread.i
 
 88:                                               ; preds = %vu_gpa_to_va.exit.i, %vu_gpa_to_va.exit.thread18.i
-  %.139.i = phi ptr [ %82, %vu_gpa_to_va.exit.i ], [ %72, %vu_gpa_to_va.exit.thread18.i ]
+  %.139.i = phi ptr [ %72, %vu_gpa_to_va.exit.thread18.i ], [ %82, %vu_gpa_to_va.exit.i ]
   %.not46.i = icmp eq ptr %.139.i, null
   br i1 %.not46.i, label %.thread.i, label %.thread22.i
 
@@ -4536,7 +4536,7 @@ vu_check_queue_inflights.exit:                    ; preds = %._crit_edge.i, %148
   %.not54.i.not = icmp eq i32 %155, 0
   br i1 %.not54.i.not, label %vu_check_queue_inflights.exit.thread, label %vu_check_queue_inflights.exit.thread48
 
-vu_check_queue_inflights.exit.thread48:           ; preds = %61, %113, %vu_check_queue_inflights.exit
+vu_check_queue_inflights.exit.thread48:           ; preds = %113, %61, %vu_check_queue_inflights.exit
   tail call void (ptr, ptr, ...) @vu_panic(ptr noundef %0, ptr noundef nonnull @.str.76, i32 noundef %6)
   br label %vu_check_queue_inflights.exit.thread
 

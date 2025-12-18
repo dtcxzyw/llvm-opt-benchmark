@@ -262,7 +262,7 @@ r_remove_particle.exit.sink.split:                ; preds = %106, %111, %90, %84
   br label %r_remove_particle.exit
 
 r_remove_particle.exit:                           ; preds = %.critedge, %r_remove_particle.exit.sink.split, %82, %100, %94, %63, %.thread194, %37, %73, %47, %._crit_edge
-  %.0 = phi i32 [ %40, %37 ], [ 0, %73 ], [ 0, %47 ], [ 0, %._crit_edge ], [ %104, %.thread194 ], [ %66, %63 ], [ %92, %94 ], [ 1, %r_remove_particle.exit.sink.split ], [ %.9, %100 ], [ %80, %82 ], [ %spec.select, %.critedge ]
+  %.0 = phi i32 [ %40, %37 ], [ 0, %73 ], [ 0, %47 ], [ 1, %r_remove_particle.exit.sink.split ], [ 0, %._crit_edge ], [ %104, %.thread194 ], [ %80, %82 ], [ %66, %63 ], [ %92, %94 ], [ %spec.select, %.critedge ], [ %.9, %100 ]
   ret i32 %.0
 }
 

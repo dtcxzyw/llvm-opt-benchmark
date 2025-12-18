@@ -132,7 +132,7 @@ define dso_local noundef ptr @alloc_pd(ptr noundef %0) local_unnamed_addr #0 ali
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %1, %10
-  %18 = phi ptr [ %3, %10 ], [ inttoptr (i64 -12 to ptr), %1 ], [ inttoptr (i64 -12 to ptr), %.thread.sink.split ]
+  %18 = phi ptr [ inttoptr (i64 -12 to ptr), %1 ], [ %3, %10 ], [ inttoptr (i64 -12 to ptr), %.thread.sink.split ]
   ret ptr %18
 }
 

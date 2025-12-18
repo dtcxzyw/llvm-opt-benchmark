@@ -205,7 +205,7 @@ switch.lookup91:                                  ; preds = %72
   br label %hwloc_cuda_cores_per_MP.exit.thread
 
 hwloc_cuda_cores_per_MP.exit.thread:              ; preds = %switch.lookup91, %switch.lookup, %68, %hwloc_cuda_cores_per_MP.exit.thread.fold.split, %52, %69, %67
-  %.0.i59 = phi i32 [ %switch.load93, %switch.lookup91 ], [ 32, %68 ], [ %switch.load, %switch.lookup ], [ 48, %hwloc_cuda_cores_per_MP.exit.thread.fold.split ], [ 192, %52 ], [ 128, %69 ], [ 8, %67 ]
+  %.0.i59 = phi i32 [ 32, %68 ], [ %switch.load93, %switch.lookup91 ], [ %switch.load, %switch.lookup ], [ 48, %hwloc_cuda_cores_per_MP.exit.thread.fold.split ], [ 192, %52 ], [ 128, %69 ], [ 8, %67 ]
   %76 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 32, ptr noundef nonnull @.str.13, i32 noundef %.0.i59) #8
   %77 = call i32 @hwloc_modify_infos(ptr noundef nonnull %44, i64 noundef 1, ptr noundef nonnull @.str.14, ptr noundef nonnull %7) #8
   br label %hwloc_cuda_cores_per_MP.exit.thread60

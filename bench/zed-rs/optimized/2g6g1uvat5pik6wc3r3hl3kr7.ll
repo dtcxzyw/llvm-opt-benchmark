@@ -1735,8 +1735,8 @@ define internal fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h59a
   br label %.loopexit69
 
 .loopexit:                                        ; preds = %182, %65, %21, %.sink.split.i.us, %122, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h24a4dd86c1d01abfE.exit.split"
-  %197 = phi i64 [ 0, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h24a4dd86c1d01abfE.exit.split" ], [ %17, %65 ], [ %17, %122 ], [ %17, %.sink.split.i.us ], [ %17, %21 ], [ %128, %182 ]
-  %.sroa.0.0110 = phi i64 [ 0, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h24a4dd86c1d01abfE.exit.split" ], [ %.sroa.0.0.us, %65 ], [ %.sroa.0.0.us, %122 ], [ %.sroa.0.0.us, %.sink.split.i.us ], [ %.sroa.0.0.us, %21 ], [ %.sroa.0.0146, %182 ]
+  %197 = phi i64 [ %17, %65 ], [ 0, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h24a4dd86c1d01abfE.exit.split" ], [ %17, %122 ], [ %17, %.sink.split.i.us ], [ %17, %21 ], [ %128, %182 ]
+  %.sroa.0.0110 = phi i64 [ %.sroa.0.0.us, %65 ], [ 0, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h24a4dd86c1d01abfE.exit.split" ], [ %.sroa.0.0.us, %122 ], [ %.sroa.0.0.us, %.sink.split.i.us ], [ %.sroa.0.0.us, %21 ], [ %.sroa.0.0146, %182 ]
   %gepdiff64 = sub nsw i64 %2, %.sroa.0.0110
   %198 = load i64, ptr %5, align 8, !alias.scope !354, !noundef !4
   %199 = sub i64 %198, %197
@@ -10791,14 +10791,14 @@ switch.early.test.i.i.i:                          ; preds = %500
   br label %.thread547.i
 
 .loopexit.split-lp.loopexit.split-lp.i.loopexit:  ; preds = %652, %655, %732, %807, %835, %836, %839, %845, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0884e637bdffc4a8E.llvm.15820221243642496832.exit.i.i", %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0884e637bdffc4a8E.llvm.15820221243642496832.exit.i.i.i", %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0884e637bdffc4a8E.llvm.15820221243642496832.exit.i392.i"
-  %.sroa.0131.0.ph.ph.i.ph = phi i8 [ 1, %732 ], [ 1, %652 ], [ 1, %807 ], [ 1, %655 ], [ 1, %835 ], [ 1, %839 ], [ 1, %845 ], [ 1, %836 ], [ %.sroa.0131.2.i, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0884e637bdffc4a8E.llvm.15820221243642496832.exit.i.i.i" ], [ %.sroa.0131.2.i, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0884e637bdffc4a8E.llvm.15820221243642496832.exit.i392.i" ], [ %.sroa.0131.2.i192, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0884e637bdffc4a8E.llvm.15820221243642496832.exit.i.i" ]
-  %.sroa.0133.2.ph.ph.i.ph = phi i8 [ 1, %732 ], [ 1, %652 ], [ 1, %807 ], [ 1, %655 ], [ 1, %835 ], [ 1, %839 ], [ 1, %845 ], [ 1, %836 ], [ 0, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0884e637bdffc4a8E.llvm.15820221243642496832.exit.i.i.i" ], [ 1, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0884e637bdffc4a8E.llvm.15820221243642496832.exit.i392.i" ], [ 1, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0884e637bdffc4a8E.llvm.15820221243642496832.exit.i.i" ]
+  %.sroa.0131.0.ph.ph.i.ph = phi i8 [ 1, %732 ], [ %.sroa.0131.2.i192, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0884e637bdffc4a8E.llvm.15820221243642496832.exit.i.i" ], [ 1, %652 ], [ 1, %807 ], [ 1, %655 ], [ 1, %835 ], [ 1, %839 ], [ 1, %845 ], [ 1, %836 ], [ %.sroa.0131.2.i, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0884e637bdffc4a8E.llvm.15820221243642496832.exit.i.i.i" ], [ %.sroa.0131.2.i, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0884e637bdffc4a8E.llvm.15820221243642496832.exit.i392.i" ]
+  %.sroa.0133.2.ph.ph.i.ph = phi i8 [ 1, %732 ], [ 1, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0884e637bdffc4a8E.llvm.15820221243642496832.exit.i.i" ], [ 1, %652 ], [ 1, %807 ], [ 1, %655 ], [ 1, %835 ], [ 1, %839 ], [ 1, %845 ], [ 1, %836 ], [ 0, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0884e637bdffc4a8E.llvm.15820221243642496832.exit.i.i.i" ], [ 1, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0884e637bdffc4a8E.llvm.15820221243642496832.exit.i392.i" ]
   %lpad.loopexit206 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
 
 .loopexit.split-lp.loopexit.split-lp.i.loopexit.split-lp: ; preds = %._crit_edge723.invoke.i, %.invoke1005.i, %809
-  %.sroa.0131.0.ph.ph.i.ph205 = phi i8 [ 0, %809 ], [ 1, %._crit_edge723.invoke.i ], [ 1, %.invoke1005.i ]
+  %.sroa.0131.0.ph.ph.i.ph205 = phi i8 [ 1, %._crit_edge723.invoke.i ], [ 0, %809 ], [ 1, %.invoke1005.i ]
   %lpad.loopexit.split-lp207 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i

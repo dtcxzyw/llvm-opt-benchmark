@@ -373,7 +373,7 @@ define internal ptr @dtvsearch(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
   br label %107
 
 .loopexit:                                        ; preds = %._crit_edge181, %.preheader.lr.ph, %115, %.thread, %70, %25, %._crit_edge167, %._crit_edge, %5
-  %.0 = phi ptr [ %9, %5 ], [ %.1110, %._crit_edge ], [ %.1116, %._crit_edge167 ], [ null, %25 ], [ null, %.thread ], [ null, %70 ], [ %.2180, %115 ], [ %.1, %.preheader.lr.ph ], [ null, %._crit_edge181 ]
+  %.0 = phi ptr [ %9, %5 ], [ %.1110, %._crit_edge ], [ %.1116, %._crit_edge167 ], [ null, %25 ], [ null, %.thread ], [ %.2180, %115 ], [ null, %70 ], [ %.1, %.preheader.lr.ph ], [ null, %._crit_edge181 ]
   ret ptr %.0
 }
 

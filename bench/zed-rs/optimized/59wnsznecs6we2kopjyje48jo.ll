@@ -5676,7 +5676,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17ha8cfccf4f7513202E(pt
   br i1 %.sroa.18.0.in.i.us, label %.split17.us, label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %16, %13, %11
-  %.sroa.0.0.us.be = phi i32 [ %15, %13 ], [ %.sroa.08.0.i.us, %16 ], [ %.sroa.08.0.i13.us, %11 ]
+  %.sroa.0.0.us.be = phi i32 [ %.sroa.08.0.i13.us, %11 ], [ %15, %13 ], [ %.sroa.08.0.i.us, %16 ]
   br label %.split.us
 
 .split:                                           ; preds = %4, %.split.backedge
@@ -5785,7 +5785,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17ha8cfccf4f7513202E(pt
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %42, %22, %40
-  %.sroa.0.0.be = phi i32 [ %44, %42 ], [ %.sroa.08.0.i, %22 ], [ %.sroa.08.0.i13, %40 ]
+  %.sroa.0.0.be = phi i32 [ %.sroa.08.0.i13, %40 ], [ %44, %42 ], [ %.sroa.08.0.i, %22 ]
   br label %.split
 }
 
@@ -19179,7 +19179,7 @@ _ZN7project14worktree_store13WorktreeStore19create_ssh_worktree17hbba6cd9c7c5aaa
           to label %712 unwind label %.body97
 
 .thread156:                                       ; preds = %661, %665
-  %.sroa.3.0.i.ph.i.i = phi i64 [ %.sroa.6.1.i.i.i, %661 ], [ %671, %665 ]
+  %.sroa.3.0.i.ph.i.i = phi i64 [ %671, %665 ], [ %.sroa.6.1.i.i.i, %661 ]
   %685 = load ptr, ptr %15, align 8, !noalias !3821, !nonnull !4, !noundef !4
   %686 = load i64, ptr %609, align 8, !noalias !3821, !noundef !4
   call void @llvm.experimental.noalias.scope.decl(metadata !3890)
@@ -21015,7 +21015,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17h7c586a875
   br label %76
 
 .loopexit.split-lp:                               ; preds = %111, %72, %.loopexit143, %120, %125, %134
-  %.sroa.03.0.ph = phi i8 [ %.sroa.03.2, %120 ], [ 1, %72 ], [ %.sroa.03.2, %.loopexit143 ], [ %.sroa.03.2, %111 ], [ %.sroa.03.2, %125 ], [ %.sroa.03.2, %134 ]
+  %.sroa.03.0.ph = phi i8 [ 1, %72 ], [ %.sroa.03.2, %120 ], [ %.sroa.03.2, %.loopexit143 ], [ %.sroa.03.2, %111 ], [ %.sroa.03.2, %125 ], [ %.sroa.03.2, %134 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %76
@@ -21635,8 +21635,8 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17h7c586a875
   br label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hea7a4adb55459e42E.exit"
 
 .body.thread:                                     ; preds = %.body.thread.i, %205, %201, %.body.thread111
-  %eh.lpad-body107 = phi { ptr, i32 } [ %lpad.thr_comm109, %.body.thread111 ], [ %202, %201 ], [ %eh.lpad-body253849.i, %.body.thread.i ], [ %202, %205 ]
-  %.sroa.05.2.lpad-body106 = phi i1 [ %.sroa.05.2.ph, %.body.thread111 ], [ false, %201 ], [ false, %.body.thread.i ], [ false, %205 ]
+  %eh.lpad-body107 = phi { ptr, i32 } [ %lpad.thr_comm109, %.body.thread111 ], [ %202, %205 ], [ %eh.lpad-body253849.i, %.body.thread.i ], [ %202, %201 ]
+  %.sroa.05.2.lpad-body106 = phi i1 [ %.sroa.05.2.ph, %.body.thread111 ], [ false, %205 ], [ false, %.body.thread.i ], [ false, %201 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h456eb04633331537E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %34) #58
           to label %166 unwind label %160
 
@@ -21897,7 +21897,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17hca618b0b4
   br label %76
 
 .loopexit.split-lp:                               ; preds = %111, %72, %.loopexit143, %120, %125, %134
-  %.sroa.03.0.ph = phi i8 [ %.sroa.03.2, %120 ], [ 1, %72 ], [ %.sroa.03.2, %.loopexit143 ], [ %.sroa.03.2, %111 ], [ %.sroa.03.2, %125 ], [ %.sroa.03.2, %134 ]
+  %.sroa.03.0.ph = phi i8 [ 1, %72 ], [ %.sroa.03.2, %120 ], [ %.sroa.03.2, %.loopexit143 ], [ %.sroa.03.2, %111 ], [ %.sroa.03.2, %125 ], [ %.sroa.03.2, %134 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %76
@@ -22517,8 +22517,8 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17hca618b0b4
   br label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hea7a4adb55459e42E.exit"
 
 .body.thread:                                     ; preds = %.body.thread.i, %205, %201, %.body.thread111
-  %eh.lpad-body107 = phi { ptr, i32 } [ %lpad.thr_comm109, %.body.thread111 ], [ %202, %201 ], [ %eh.lpad-body253849.i, %.body.thread.i ], [ %202, %205 ]
-  %.sroa.05.2.lpad-body106 = phi i1 [ %.sroa.05.2.ph, %.body.thread111 ], [ false, %201 ], [ false, %.body.thread.i ], [ false, %205 ]
+  %eh.lpad-body107 = phi { ptr, i32 } [ %lpad.thr_comm109, %.body.thread111 ], [ %202, %205 ], [ %eh.lpad-body253849.i, %.body.thread.i ], [ %202, %201 ]
+  %.sroa.05.2.lpad-body106 = phi i1 [ %.sroa.05.2.ph, %.body.thread111 ], [ false, %205 ], [ false, %.body.thread.i ], [ false, %201 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h456eb04633331537E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %34) #58
           to label %166 unwind label %160
 
@@ -35828,7 +35828,7 @@ common.resume:                                    ; preds = %137, %109
   ret { ptr, ptr } %114
 
 115:                                              ; preds = %78, %82
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.1.i.i, %78 ], [ %88, %82 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %88, %82 ], [ %.sroa.6.1.i.i, %78 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1048) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(1048) %1, i64 1048, i1 false)
   call void @llvm.experimental.noalias.scope.decl(metadata !7811)
@@ -36012,8 +36012,8 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h1b
   ret void
 
 69:                                               ; preds = %55, %59
-  %70 = phi i8 [ %57, %55 ], [ %.pre, %59 ]
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.1.i.i, %55 ], [ %65, %59 ]
+  %70 = phi i8 [ %.pre, %59 ], [ %57, %55 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %65, %59 ], [ %.sroa.6.1.i.i, %55 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
   %.sroa.5.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.5, i64 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(24) %.sroa.5.8..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
@@ -36186,8 +36186,8 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h40
   br label %84
 
 67:                                               ; preds = %58, %54
-  %68 = phi i8 [ %56, %54 ], [ %.pre, %58 ]
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.1.i.i, %54 ], [ %64, %58 ]
+  %68 = phi i8 [ %.pre, %58 ], [ %56, %54 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %64, %58 ], [ %.sroa.6.1.i.i, %54 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7910)
   %69 = getelementptr inbounds i8, ptr %21, i64 %.sroa.3.0.i.ph.i
   %70 = and i8 %68, 1
@@ -36334,8 +36334,8 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
   br label %64
 
 64:                                               ; preds = %57, %53
-  %65 = phi i8 [ %55, %53 ], [ %.pre, %57 ]
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.1.i.i, %53 ], [ %63, %57 ]
+  %65 = phi i8 [ %.pre, %57 ], [ %55, %53 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %63, %57 ], [ %.sroa.6.1.i.i, %53 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7945)
   %66 = getelementptr inbounds i8, ptr %20, i64 %.sroa.3.0.i.ph.i
   %67 = and i8 %65, 1
@@ -36497,8 +36497,8 @@ define hidden { ptr, ptr } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   ret { ptr, ptr } %69
 
 70:                                               ; preds = %51, %55
-  %71 = phi i8 [ %53, %51 ], [ %.pre, %55 ]
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.1.i.i, %51 ], [ %61, %55 ]
+  %71 = phi i8 [ %.pre, %55 ], [ %53, %51 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %61, %55 ], [ %.sroa.6.1.i.i, %51 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7991)
   %72 = getelementptr inbounds i8, ptr %19, i64 %.sroa.3.0.i.ph.i
   %73 = and i8 %71, 1
@@ -36759,7 +36759,7 @@ define internal fastcc void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6in
   ret void
 
 105:                                              ; preds = %83, %87
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.1.i.i, %83 ], [ %93, %87 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %93, %87 ], [ %.sroa.6.1.i.i, %83 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   call void @llvm.experimental.noalias.scope.decl(metadata !8066)
@@ -37048,8 +37048,8 @@ define internal fastcc void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6in
   ret void
 
 105:                                              ; preds = %80, %84
-  %106 = phi i8 [ %82, %80 ], [ %.pre, %84 ]
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.1.i.i, %80 ], [ %90, %84 ]
+  %106 = phi i8 [ %.pre, %84 ], [ %82, %80 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %90, %84 ], [ %.sroa.6.1.i.i, %80 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   %107 = getelementptr inbounds nuw i8, ptr %9, i64 24
@@ -38027,8 +38027,8 @@ define hidden { i64, i64 } @_ZN9hashbrown3raw13RawTableInner30find_or_find_inser
   br i1 %25, label %._crit_edge, label %.lr.ph
 
 _ZN9hashbrown3raw13RawTableInner15fix_insert_slot17hc6d54d5516b1859cE.exit: ; preds = %.lr.ph, %45, %41
-  %.sroa.3.0 = phi i64 [ %51, %45 ], [ %.sroa.6.1, %41 ], [ %20, %.lr.ph ]
-  %.sroa.0.0 = phi i64 [ 1, %45 ], [ 1, %41 ], [ 0, %.lr.ph ]
+  %.sroa.3.0 = phi i64 [ %.sroa.6.1, %41 ], [ %51, %45 ], [ %20, %.lr.ph ]
+  %.sroa.0.0 = phi i64 [ 1, %41 ], [ 1, %45 ], [ 0, %.lr.ph ]
   %26 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %27 = insertvalue { i64, i64 } %26, i64 %.sroa.3.0, 1
   ret { i64, i64 } %27
@@ -38217,8 +38217,8 @@ define hidden { i64, ptr } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_f
   %60 = zext nneg i16 %59 to i64
   br label %_ZN9hashbrown3raw13RawTableInner30find_or_find_insert_slot_inner17h8a34f073cb252b20E.llvm.2878021675176791581.exit.thread
 
-_ZN9hashbrown3raw13RawTableInner30find_or_find_insert_slot_inner17h8a34f073cb252b20E.llvm.2878021675176791581.exit.thread: ; preds = %54, %50
-  %.sroa.3.0.i.ph = phi i64 [ %.sroa.6.1.i, %50 ], [ %60, %54 ]
+_ZN9hashbrown3raw13RawTableInner30find_or_find_insert_slot_inner17h8a34f073cb252b20E.llvm.2878021675176791581.exit.thread: ; preds = %50, %54
+  %.sroa.3.0.i.ph = phi i64 [ %60, %54 ], [ %.sroa.6.1.i, %50 ]
   %61 = inttoptr i64 %.sroa.3.0.i.ph to ptr
   br label %.loopexit
 
@@ -38564,8 +38564,8 @@ _ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17h5ac2ae42596d
   %70 = zext nneg i16 %69 to i64
   br label %_ZN9hashbrown3raw5inner13RawTableInner30find_or_find_insert_slot_inner17h905c416281a1f195E.exit.thread
 
-_ZN9hashbrown3raw5inner13RawTableInner30find_or_find_insert_slot_inner17h905c416281a1f195E.exit.thread: ; preds = %64, %60
-  %.sroa.3.0.i.ph = phi i64 [ %.sroa.4.1.i, %60 ], [ %70, %64 ]
+_ZN9hashbrown3raw5inner13RawTableInner30find_or_find_insert_slot_inner17h905c416281a1f195E.exit.thread: ; preds = %60, %64
+  %.sroa.3.0.i.ph = phi i64 [ %70, %64 ], [ %.sroa.4.1.i, %60 ]
   %71 = inttoptr i64 %.sroa.3.0.i.ph to ptr
   br label %.loopexit
 
@@ -39582,7 +39582,7 @@ define hidden void @_ZN15recent_projects15ssh_connections9SshPrompt10set_prompt1
   br i1 %.sroa.05.0.ph, label %36, label %.thread20
 
 33:                                               ; preds = %10, %4
-  %.sroa.05.0.ph = phi i1 [ true, %4 ], [ false, %10 ]
+  %.sroa.05.0.ph = phi i1 [ false, %10 ], [ true, %4 ]
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr126drop_in_place$LT$futures_channel..oneshot..Sender$LT$core..result..Result$LT$alloc..string..String$C$anyhow..Error$GT$$GT$$GT$17hd2caf26c431f6544E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %8) #58

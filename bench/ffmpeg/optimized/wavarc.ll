@@ -919,11 +919,11 @@ get_srice.exit.i:                                 ; preds = %333, %.lr.ph.i.i.i.
   br i1 %exitcond86.not.i.i, label %do_stereo.exit.i, label %.preheader.i.i, !llvm.loop !70
 
 do_stereo.exit.i:                                 ; preds = %.preheader60.i.i, %.preheader.i.i, %get_urice.exit188.i, %get_urice.exit178.i
-  %.val.i = phi i32 [ %224, %get_urice.exit188.i ], [ %197, %get_urice.exit178.i ], [ %spec.select.i.i, %.preheader.i.i ], [ %spec.select.i.i, %.preheader60.i.i ]
-  %421 = phi i32 [ %.pre.i, %get_urice.exit188.i ], [ %.pre.i, %get_urice.exit178.i ], [ %397, %.preheader.i.i ], [ %397, %.preheader60.i.i ]
-  %422 = phi ptr [ %101, %get_urice.exit188.i ], [ %101, %get_urice.exit178.i ], [ %392, %.preheader.i.i ], [ %392, %.preheader60.i.i ]
-  %.1144.i = phi i32 [ %.0143242.i164, %get_urice.exit188.i ], [ %.0143242.i164, %get_urice.exit178.i ], [ 0, %.preheader.i.i ], [ 1, %.preheader60.i.i ]
-  %.1138.i = phi i32 [ %.0137244.i163, %get_urice.exit188.i ], [ %.0137244.i163, %get_urice.exit178.i ], [ 1, %.preheader.i.i ], [ 1, %.preheader60.i.i ]
+  %.val.i = phi i32 [ %197, %get_urice.exit178.i ], [ %224, %get_urice.exit188.i ], [ %spec.select.i.i, %.preheader.i.i ], [ %spec.select.i.i, %.preheader60.i.i ]
+  %421 = phi i32 [ %.pre.i, %get_urice.exit178.i ], [ %.pre.i, %get_urice.exit188.i ], [ %397, %.preheader.i.i ], [ %397, %.preheader60.i.i ]
+  %422 = phi ptr [ %101, %get_urice.exit178.i ], [ %101, %get_urice.exit188.i ], [ %392, %.preheader.i.i ], [ %392, %.preheader60.i.i ]
+  %.1144.i = phi i32 [ %.0143242.i164, %get_urice.exit178.i ], [ %.0143242.i164, %get_urice.exit188.i ], [ 0, %.preheader.i.i ], [ 1, %.preheader60.i.i ]
+  %.1138.i = phi i32 [ %.0137244.i163, %get_urice.exit178.i ], [ %.0137244.i163, %get_urice.exit188.i ], [ 1, %.preheader.i.i ], [ 1, %.preheader60.i.i ]
   %423 = zext nneg i32 %.1138.i to i64
   %424 = getelementptr inbounds nuw [640 x i32], ptr %91, i64 %423
   %.val158.i = load i32, ptr %74, align 4, !tbaa !51
@@ -1748,8 +1748,8 @@ get_urice.exit141:                                ; preds = %.lr.ph.i.i135, %117
   br i1 %exitcond86.not.i, label %do_stereo.exit, label %.preheader.i, !llvm.loop !70
 
 do_stereo.exit:                                   ; preds = %.preheader60.i, %.preheader.i, %get_urice.exit141, %93
-  %.1108 = phi i32 [ %.0107174252, %get_urice.exit141 ], [ %.0107174252, %93 ], [ 0, %.preheader.i ], [ 1, %.preheader60.i ]
-  %.1105 = phi i32 [ %.0104175251, %get_urice.exit141 ], [ %.0104175251, %93 ], [ 1, %.preheader.i ], [ 1, %.preheader60.i ]
+  %.1108 = phi i32 [ %.0107174252, %93 ], [ 0, %.preheader.i ], [ %.0107174252, %get_urice.exit141 ], [ 1, %.preheader60.i ]
+  %.1105 = phi i32 [ %.0104175251, %93 ], [ 1, %.preheader.i ], [ %.0104175251, %get_urice.exit141 ], [ 1, %.preheader60.i ]
   %246 = zext nneg i32 %.1105 to i64
   %247 = getelementptr inbounds nuw [640 x i32], ptr %4, i64 %246
   %.val = load i32, ptr %5, align 8, !tbaa !54
@@ -1787,7 +1787,7 @@ get_urice.exit141.do_stereo.exit.thread.loopexit243_crit_edge: ; preds = %get_ur
   br label %do_stereo.exit.thread, !llvm.loop !89
 
 do_stereo.exit.thread:                            ; preds = %76, %do_stereo.exit, %get_urice.exit131, %254, %3, %get_urice.exit141.do_stereo.exit.thread.loopexit243_crit_edge, %91, %.loopexit227
-  %.2 = phi i32 [ 0, %.loopexit227 ], [ -541478725, %91 ], [ -1094995529, %get_urice.exit141.do_stereo.exit.thread.loopexit243_crit_edge ], [ -1094995529, %3 ], [ 0, %254 ], [ -1094995529, %get_urice.exit131 ], [ -1094995529, %do_stereo.exit ], [ -1094995529, %76 ]
+  %.2 = phi i32 [ 0, %.loopexit227 ], [ -1094995529, %3 ], [ -541478725, %91 ], [ 0, %254 ], [ -1094995529, %get_urice.exit141.do_stereo.exit.thread.loopexit243_crit_edge ], [ -1094995529, %get_urice.exit131 ], [ -1094995529, %do_stereo.exit ], [ -1094995529, %76 ]
   ret i32 %.2
 }
 
@@ -3277,8 +3277,8 @@ get_urice.exit459:                                ; preds = %.lr.ph.i.i453, %440
   br i1 %exitcond86.not.i, label %do_stereo.exit, label %.preheader.i466, !llvm.loop !70
 
 do_stereo.exit:                                   ; preds = %.preheader60.i, %.preheader.i466, %get_urice.exit448, %get_urice.exit459
-  %.1370 = phi i32 [ %.0369637955, %get_urice.exit459 ], [ %.0369637955, %get_urice.exit448 ], [ 0, %.preheader.i466 ], [ 1, %.preheader60.i ]
-  %.1354 = phi i32 [ %.0353639954, %get_urice.exit459 ], [ %.0353639954, %get_urice.exit448 ], [ 1, %.preheader.i466 ], [ 1, %.preheader60.i ]
+  %.1370 = phi i32 [ %.0369637955, %get_urice.exit459 ], [ 0, %.preheader.i466 ], [ %.0369637955, %get_urice.exit448 ], [ 1, %.preheader60.i ]
+  %.1354 = phi i32 [ %.0353639954, %get_urice.exit459 ], [ 1, %.preheader.i466 ], [ %.0353639954, %get_urice.exit448 ], [ 1, %.preheader60.i ]
   %710 = zext nneg i32 %.1354 to i64
   %711 = getelementptr inbounds nuw [640 x i32], ptr %4, i64 %710
   %.val398 = load i32, ptr %7, align 8, !tbaa !54
@@ -3318,7 +3318,7 @@ get_urice.exit448.do_stereo.exit.thread.loopexit923_crit_edge: ; preds = %get_ur
   br label %do_stereo.exit.thread, !llvm.loop !108
 
 do_stereo.exit.thread:                            ; preds = %do_stereo.exit, %get_urice.exit409, %get_urice.exit419, %.loopexit543.thread, %716, %3, %get_urice.exit459.do_stereo.exit.thread.loopexit923_crit_edge, %get_urice.exit448.do_stereo.exit.thread.loopexit923_crit_edge, %.loopexit, %.thread491, %302, %.loopexit517, %398, %.loopexit867
-  %.7 = phi i32 [ 0, %.loopexit867 ], [ -1094995529, %.loopexit517 ], [ -541478725, %398 ], [ -1094995529, %.thread491 ], [ -1094995529, %.loopexit ], [ -1094995529, %302 ], [ -1094995529, %get_urice.exit448.do_stereo.exit.thread.loopexit923_crit_edge ], [ -1094995529, %get_urice.exit459.do_stereo.exit.thread.loopexit923_crit_edge ], [ -1094995529, %3 ], [ 0, %716 ], [ -1094995529, %.loopexit543.thread ], [ -1094995529, %get_urice.exit419 ], [ -1094995529, %get_urice.exit409 ], [ -1094995529, %do_stereo.exit ]
+  %.7 = phi i32 [ 0, %.loopexit867 ], [ -1094995529, %3 ], [ -1094995529, %302 ], [ -1094995529, %.loopexit517 ], [ -1094995529, %.loopexit ], [ -1094995529, %.thread491 ], [ -541478725, %398 ], [ 0, %716 ], [ -1094995529, %get_urice.exit459.do_stereo.exit.thread.loopexit923_crit_edge ], [ -1094995529, %get_urice.exit448.do_stereo.exit.thread.loopexit923_crit_edge ], [ -1094995529, %.loopexit543.thread ], [ -1094995529, %get_urice.exit419 ], [ -1094995529, %get_urice.exit409 ], [ -1094995529, %do_stereo.exit ]
   ret i32 %.7
 }
 

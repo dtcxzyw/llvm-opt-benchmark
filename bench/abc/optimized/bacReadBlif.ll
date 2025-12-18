@@ -1848,7 +1848,7 @@ Psr_ManSkipToChar.exit.i.i126.i.i:                ; preds = %.lr.ph.i.i.i124.i.i
   br i1 %.not.i47.i.i.i, label %Psr_ManSkipToChar.exit.i.i.i, label %.lr.ph.i.i129.i.i, !llvm.loop !30
 
 Psr_ManSkipToChar.exit.i.i.i:                     ; preds = %612, %.lr.ph.i14.i.i121.i.i, %.lr.ph.i.i129.i.i
-  %623 = phi i32 [ 2, %.lr.ph.i14.i.i121.i.i ], [ %620, %.lr.ph.i.i129.i.i ], [ 2, %612 ]
+  %623 = phi i32 [ %620, %.lr.ph.i.i129.i.i ], [ 2, %.lr.ph.i14.i.i121.i.i ], [ 2, %612 ]
   %624 = load ptr, ptr %42, align 8, !tbaa !36
   tail call fastcc void @Psr_NtkAddBox(ptr noundef %624, i32 noundef -1, i32 noundef %623, ptr noundef %43)
   br label %Psr_ManReadDirective.exit..backedge_crit_edge.i
@@ -2140,7 +2140,7 @@ Psr_ManSkipToChar.exit.i.i170.i.i:                ; preds = %.lr.ph.i.i.i167.i.i
   br label %Psr_ManReadLines.exit
 
 Psr_ManReadName.exit.thread.i.i:                  ; preds = %Psr_ManReadName.exit.i.i, %.critedge.i.i.i, %304, %.lr.ph.i14.i.i37.i.i
-  %.0.i41174.i.i = phi i32 [ 0, %304 ], [ 0, %.lr.ph.i14.i.i37.i.i ], [ %317, %Psr_ManReadName.exit.i.i ], [ 0, %.critedge.i.i.i ]
+  %.0.i41174.i.i = phi i32 [ 0, %.lr.ph.i14.i.i37.i.i ], [ 0, %304 ], [ 0, %.critedge.i.i.i ], [ %317, %Psr_ManReadName.exit.i.i ]
   %690 = load ptr, ptr %25, align 8, !tbaa !20
   %691 = tail call ptr @Abc_NamStr(ptr noundef %690, i32 noundef %.0.i41174.i.i) #19
   %692 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.18, ptr noundef %691)

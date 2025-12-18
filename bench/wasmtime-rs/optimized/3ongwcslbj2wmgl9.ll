@@ -4297,7 +4297,7 @@ _ZN16wasmtime_runtime3sys4unix2vm13get_page_size17h6ec93d4509f1070eE.exit.i: ; p
   br i1 %trunc, label %129, label %120
 
 .loopexit137:                                     ; preds = %.noexc58, %97, %63, %209
-  %storemerge136 = phi i64 [ -9223372036854775807, %209 ], [ -9223372036854775808, %97 ], [ -9223372036854775808, %63 ], [ -9223372036854775808, %.noexc58 ]
+  %storemerge136 = phi i64 [ -9223372036854775807, %209 ], [ -9223372036854775808, %63 ], [ -9223372036854775808, %97 ], [ -9223372036854775808, %.noexc58 ]
   store i64 %storemerge136, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   call void @llvm.lifetime.end.p0(ptr nonnull %27)

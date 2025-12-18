@@ -308,8 +308,8 @@ define internal i64 @read_mem(ptr readnone captures(none) %0, ptr noundef %1, i6
   %.not = icmp eq i64 %60, 0
   br i1 %.not, label %.preheader, label %.thread5
 
-.thread5:                                         ; preds = %54, %58, %.preheader
-  %61 = phi i64 [ %15, %.preheader ], [ %46, %58 ], [ %46, %54 ]
+.thread5:                                         ; preds = %58, %54, %.preheader
+  %61 = phi i64 [ %15, %.preheader ], [ %46, %54 ], [ %46, %58 ]
   tail call void @kfree(ptr noundef nonnull %10) #12
   %62 = load i64, ptr %3, align 8
   %63 = add i64 %62, %61
@@ -880,7 +880,7 @@ define internal i64 @read_iter_zero(ptr noundef readonly captures(none) %0, ptr 
   br i1 %48, label %.thread, label %8, !llvm.loop !21
 
 .thread:                                          ; preds = %46, %17, %41, %.critedge, %2
-  %49 = phi i64 [ 0, %2 ], [ %19, %17 ], [ %43, %41 ], [ %32, %.critedge ], [ %21, %46 ]
+  %49 = phi i64 [ 0, %2 ], [ %32, %.critedge ], [ %19, %17 ], [ %43, %41 ], [ %21, %46 ]
   ret i64 %49
 }
 

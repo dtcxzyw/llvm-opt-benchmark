@@ -2996,7 +2996,7 @@ _ZNK22PreprocessingAtomTypes22atomNumberFromAtomTypeEi.exit57.us.us.us96: ; pred
   br label %._crit_edge15.split.us.us.us
 
 ._crit_edge15.split.us.us.us:                     ; preds = %._crit_edge15.split.us.us.us.loopexit7, %.lr.ph14.split.us.split.us.us.us.split.split.us.preheader, %.lr.ph14.split.us.split.us.us.us.split.us.split.us.preheader, %.lr.ph14.split.us.split.us.us.us.split.us.split.preheader
-  %.us-phi17.us.us = phi i1 [ %100, %.lr.ph14.split.us.split.us.us.us.split.us.split.preheader ], [ %99, %.lr.ph14.split.us.split.us.us.us.split.us.split.us.preheader ], [ %102, %.lr.ph14.split.us.split.us.us.us.split.split.us.preheader ], [ %95, %._crit_edge15.split.us.us.us.loopexit7 ]
+  %.us-phi17.us.us = phi i1 [ %99, %.lr.ph14.split.us.split.us.us.us.split.us.split.us.preheader ], [ %102, %.lr.ph14.split.us.split.us.us.us.split.split.us.preheader ], [ %100, %.lr.ph14.split.us.split.us.us.us.split.us.split.preheader ], [ %95, %._crit_edge15.split.us.us.us.loopexit7 ]
   br i1 %.us-phi17.us.us, label %._crit_edge32.loopexit185, label %89
 
 .lr.ph14.split.us.split.us.us.us:                 ; preds = %.preheader.us.us65
@@ -3077,12 +3077,12 @@ _ZNK22PreprocessingAtomTypes22atomNumberFromAtomTypeEi.exit57.us.us.us: ; preds 
   br label %._crit_edge32
 
 ._crit_edge32:                                    ; preds = %._crit_edge32.loopexit185, %._crit_edge32.loopexit180, %._crit_edge32.loopexit, %.lr.ph31, %4
-  %.044.lcssa = phi i32 [ 0, %4 ], [ 0, %.lr.ph31 ], [ %118, %._crit_edge32.loopexit ], [ %119, %._crit_edge32.loopexit180 ], [ %120, %._crit_edge32.loopexit185 ]
+  %.044.lcssa = phi i32 [ 0, %4 ], [ %119, %._crit_edge32.loopexit180 ], [ %118, %._crit_edge32.loopexit ], [ 0, %.lr.ph31 ], [ %120, %._crit_edge32.loopexit185 ]
   %121 = icmp eq i32 %.044.lcssa, %6
   br i1 %121, label %._crit_edge32.thread, label %131
 
 ._crit_edge32.thread:                             ; preds = %89, %106, %._crit_edge15.split.us41.us.thread, %._crit_edge32
-  %.044.lcssa175 = phi i32 [ %.044.lcssa, %._crit_edge32 ], [ %6, %106 ], [ %6, %._crit_edge15.split.us41.us.thread ], [ %6, %89 ]
+  %.044.lcssa175 = phi i32 [ %.044.lcssa, %._crit_edge32 ], [ %6, %._crit_edge15.split.us41.us.thread ], [ %6, %106 ], [ %6, %89 ]
   %122 = icmp eq i32 %6, %18
   br i1 %122, label %123, label %127
 

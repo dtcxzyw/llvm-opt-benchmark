@@ -3147,7 +3147,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit429: ; preds = 
   br i1 %exitcond.not, label %.loopexit, label %1172, !llvm.loop !178
 
 .loopexit:                                        ; preds = %_ZN4llvm9StringMapISt4pairIjjENS_15MallocAllocatorEE21try_emplace_with_hashIJEEES1_INS_17StringMapIteratorIS2_EEbENS_9StringRefEjDpOT_.exit, %1172, %..loopexit_crit_edge, %.preheader, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit429
-  %1182 = phi i32 [ %.pre743, %..loopexit_crit_edge ], [ %1168, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit429 ], [ 0, %.preheader ], [ %1168, %1172 ], [ %1137, %_ZN4llvm9StringMapISt4pairIjjENS_15MallocAllocatorEE21try_emplace_with_hashIJEEES1_INS_17StringMapIteratorIS2_EEbENS_9StringRefEjDpOT_.exit ]
+  %1182 = phi i32 [ %.pre743, %..loopexit_crit_edge ], [ %1168, %1172 ], [ %1168, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit429 ], [ 0, %.preheader ], [ %1137, %_ZN4llvm9StringMapISt4pairIjjENS_15MallocAllocatorEE21try_emplace_with_hashIJEEES1_INS_17StringMapIteratorIS2_EEbENS_9StringRefEjDpOT_.exit ]
   %1183 = load i32, ptr %19, align 4, !tbaa !96
   %1184 = add i32 %1183, %1182
   store i32 %1184, ptr %19, align 4, !tbaa !96
@@ -6010,8 +6010,8 @@ define dso_local void @_ZN4llvm18CodeGenInstruction24FlattenAsmStringVariantsB5c
   br label %28
 
 ._crit_edge:                                      ; preds = %20, %17
-  %.0.lcssa = phi i64 [ %.sroa.11.0121, %20 ], [ %.077, %17 ]
-  %.not.lcssa = phi i1 [ true, %20 ], [ false, %17 ]
+  %.0.lcssa = phi i64 [ %.077, %17 ], [ %.sroa.11.0121, %20 ]
+  %.not.lcssa = phi i1 [ false, %17 ], [ true, %20 ]
   %23 = load i64, ptr %9, align 8, !tbaa !114
   %24 = sub i64 4611686018427387903, %23
   %25 = icmp ult i64 %24, %.0.lcssa

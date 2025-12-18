@@ -7734,7 +7734,7 @@ _ZN5boost6locale6detail18is_us_ascii_stringEPKc.exit: ; preds = %51
   br i1 %or.cond34, label %.lr.ph.split, label %.loopexit, !llvm.loop !243
 
 .loopexit:                                        ; preds = %_ZN5boost6locale6detail18is_us_ascii_stringEPKc.exit, %_ZN5boost6locale6detail18is_us_ascii_stringEPKc.exit.us, %.preheader, %9, %6, %3
-  %.011 = phi i1 [ false, %6 ], [ true, %9 ], [ false, %3 ], [ true, %.preheader ], [ %.not.i.us, %_ZN5boost6locale6detail18is_us_ascii_stringEPKc.exit.us ], [ %.not.i, %_ZN5boost6locale6detail18is_us_ascii_stringEPKc.exit ]
+  %.011 = phi i1 [ false, %6 ], [ true, %9 ], [ false, %3 ], [ %.not.i.us, %_ZN5boost6locale6detail18is_us_ascii_stringEPKc.exit.us ], [ true, %.preheader ], [ %.not.i, %_ZN5boost6locale6detail18is_us_ascii_stringEPKc.exit ]
   ret i1 %.011
 }
 

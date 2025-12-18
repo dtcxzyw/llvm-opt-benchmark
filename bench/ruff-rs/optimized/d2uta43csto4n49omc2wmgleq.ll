@@ -2279,7 +2279,7 @@ _ZN4core5slice4sort6shared17find_existing_run17h2900d44841921851E.exit.i: ; pred
   br label %_ZN4core5slice4sort6stable5drift10create_run17h207c75c07266d13eE.exit
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17ha02473a7d8db77c3E.exit.i": ; preds = %_ZN4core10intrinsics25typed_swap_nonoverlapping17hfe4ad1ed8b19b13dE.exit.i.i.i, %.preheader24.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h588effeb0ac6ba59E.exit.i", %56, %31
-  %.sroa.0.0.i2023.i = phi i64 [ %.sroa.0.0.i.i, %56 ], [ %.sroa.0.0.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h588effeb0ac6ba59E.exit.i" ], [ %28, %31 ], [ 2, %.preheader24.i ], [ %.sroa.0.0.i566366.i, %_ZN4core10intrinsics25typed_swap_nonoverlapping17hfe4ad1ed8b19b13dE.exit.i.i.i ]
+  %.sroa.0.0.i2023.i = phi i64 [ %28, %31 ], [ %.sroa.0.0.i.i, %56 ], [ %.sroa.0.0.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h588effeb0ac6ba59E.exit.i" ], [ 2, %.preheader24.i ], [ %.sroa.0.0.i566366.i, %_ZN4core10intrinsics25typed_swap_nonoverlapping17hfe4ad1ed8b19b13dE.exit.i.i.i ]
   %62 = shl i64 %.sroa.0.0.i2023.i, 1
   %63 = or disjoint i64 %62, 1
   br label %_ZN4core5slice4sort6stable5drift10create_run17h207c75c07266d13eE.exit
@@ -2569,7 +2569,7 @@ _ZN4core5slice4sort6shared17find_existing_run17he2c669aad39491a8E.exit.i: ; pred
   br label %_ZN4core5slice4sort6stable5drift10create_run17hd918356288cd005dE.exit
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h3e65098f5b32e4e0E.exit.i": ; preds = %53, %.preheader22.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hace4f9678ea6e940E.exit.i", %42, %25
-  %.sroa.0.0.i1821.i = phi i64 [ %.sroa.0.0.i.i, %42 ], [ %.sroa.0.0.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hace4f9678ea6e940E.exit.i" ], [ %22, %25 ], [ 2, %.preheader22.i ], [ %.sroa.0.0.i475457.i, %53 ]
+  %.sroa.0.0.i1821.i = phi i64 [ %22, %25 ], [ %.sroa.0.0.i.i, %42 ], [ %.sroa.0.0.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hace4f9678ea6e940E.exit.i" ], [ 2, %.preheader22.i ], [ %.sroa.0.0.i475457.i, %53 ]
   %48 = shl i64 %.sroa.0.0.i1821.i, 1
   %49 = or disjoint i64 %48, 1
   br label %_ZN4core5slice4sort6stable5drift10create_run17hd918356288cd005dE.exit
@@ -2876,7 +2876,7 @@ _ZN4core5slice4sort6shared17find_existing_run17hd8ef5971535c51c9E.exit.i: ; pred
   br label %_ZN4core5slice4sort6stable5drift10create_run17hbd308ce3831cdc4eE.exit
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h844612722f41c31fE.exit.i": ; preds = %63, %.preheader24.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hacc28cdcefb397e7E.exit.i", %52, %31
-  %.sroa.0.0.i2023.i = phi i64 [ %.sroa.0.0.i.i, %52 ], [ %.sroa.0.0.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hacc28cdcefb397e7E.exit.i" ], [ %28, %31 ], [ 2, %.preheader24.i ], [ %.sroa.0.0.i536063.i, %63 ]
+  %.sroa.0.0.i2023.i = phi i64 [ %28, %31 ], [ %.sroa.0.0.i.i, %52 ], [ %.sroa.0.0.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hacc28cdcefb397e7E.exit.i" ], [ 2, %.preheader24.i ], [ %.sroa.0.0.i536063.i, %63 ]
   %58 = shl i64 %.sroa.0.0.i2023.i, 1
   %59 = or disjoint i64 %58, 1
   br label %_ZN4core5slice4sort6stable5drift10create_run17hbd308ce3831cdc4eE.exit
@@ -3185,7 +3185,7 @@ _ZN4core5slice4sort6shared17find_existing_run17h72a9dfda12856caaE.exit.i: ; pred
   br label %_ZN4core5slice4sort6stable5drift10create_run17hbf2d0cac3176a0aaE.exit
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h5eb16f6201183655E.exit.i": ; preds = %66, %.preheader34.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h9f2ebc0999892cbaE.exit.i", %55, %25
-  %.sroa.0.0.i3033.i = phi i64 [ %.sroa.0.0.i.i, %55 ], [ %.sroa.0.0.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h9f2ebc0999892cbaE.exit.i" ], [ %22, %25 ], [ 2, %.preheader34.i ], [ %.sroa.0.0.i677477.i, %66 ]
+  %.sroa.0.0.i3033.i = phi i64 [ %22, %25 ], [ %.sroa.0.0.i.i, %55 ], [ %.sroa.0.0.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h9f2ebc0999892cbaE.exit.i" ], [ 2, %.preheader34.i ], [ %.sroa.0.0.i677477.i, %66 ]
   %61 = shl i64 %.sroa.0.0.i3033.i, 1
   %62 = or disjoint i64 %61, 1
   br label %_ZN4core5slice4sort6stable5drift10create_run17hbf2d0cac3176a0aaE.exit
@@ -3453,7 +3453,7 @@ _ZN4core5slice4sort6shared17find_existing_run17h070705bcf2d1f542E.exit.i: ; pred
   br label %_ZN4core5slice4sort6stable5drift10create_run17h69fa5055cf0570e3E.exit
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17hb9d0585300ac866aE.exit.i": ; preds = %_ZN4core10intrinsics25typed_swap_nonoverlapping17h4c3dfcaf283a9a6dE.exit.i.i.i, %.preheader13.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17he11f1af1c169896bE.exit.i", %41, %25
-  %.sroa.0.0.i912.i = phi i64 [ %.sroa.0.0.i.i, %41 ], [ %.sroa.0.0.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17he11f1af1c169896bE.exit.i" ], [ %22, %25 ], [ 2, %.preheader13.i ], [ %.sroa.0.0.i364346.i, %_ZN4core10intrinsics25typed_swap_nonoverlapping17h4c3dfcaf283a9a6dE.exit.i.i.i ]
+  %.sroa.0.0.i912.i = phi i64 [ %22, %25 ], [ %.sroa.0.0.i.i, %41 ], [ %.sroa.0.0.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17he11f1af1c169896bE.exit.i" ], [ 2, %.preheader13.i ], [ %.sroa.0.0.i364346.i, %_ZN4core10intrinsics25typed_swap_nonoverlapping17h4c3dfcaf283a9a6dE.exit.i.i.i ]
   %47 = shl i64 %.sroa.0.0.i912.i, 1
   %48 = or disjoint i64 %47, 1
   br label %_ZN4core5slice4sort6stable5drift10create_run17h69fa5055cf0570e3E.exit
@@ -3737,7 +3737,7 @@ _ZN4core5slice4sort6shared17find_existing_run17h22d8fbdab244f4d1E.exit.i: ; pred
   br label %_ZN4core5slice4sort6stable5drift10create_run17h1740f7c6c79ff42aE.exit
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h420c7188413d2502E.exit.i": ; preds = %53, %.preheader18.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h9ef6de189f449c39E.exit.i", %42, %25
-  %.sroa.0.0.i1417.i = phi i64 [ %.sroa.0.0.i.i, %42 ], [ %.sroa.0.0.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h9ef6de189f449c39E.exit.i" ], [ %22, %25 ], [ 2, %.preheader18.i ], [ %.sroa.0.0.i435053.i, %53 ]
+  %.sroa.0.0.i1417.i = phi i64 [ %22, %25 ], [ %.sroa.0.0.i.i, %42 ], [ %.sroa.0.0.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h9ef6de189f449c39E.exit.i" ], [ 2, %.preheader18.i ], [ %.sroa.0.0.i435053.i, %53 ]
   %48 = shl i64 %.sroa.0.0.i1417.i, 1
   %49 = or disjoint i64 %48, 1
   br label %_ZN4core5slice4sort6stable5drift10create_run17h1740f7c6c79ff42aE.exit
@@ -23670,23 +23670,23 @@ define internal fastcc void @"_ZN185_$LT$ruff_workspace..options.._..$LT$impl$u2
   br label %.body
 
 .thread2684:                                      ; preds = %347, %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$17hd1d17c08f66b8c22E.exit.i.i", %2
-  %.sroa.5539.05670 = phi i8 [ undef, %2 ], [ %.sroa.5539.05671, %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$17hd1d17c08f66b8c22E.exit.i.i" ], [ %.sroa.5539.1, %347 ]
-  %.sroa.2535.05532 = phi i8 [ 4, %2 ], [ %.sroa.2535.05672, %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$17hd1d17c08f66b8c22E.exit.i.i" ], [ %.sroa.2535.1, %347 ]
-  %.sroa.0533.05394 = phi i32 [ undef, %2 ], [ %.sroa.0533.05673, %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$17hd1d17c08f66b8c22E.exit.i.i" ], [ %.sroa.0533.1, %347 ]
-  %.sroa.0593.05256 = phi i8 [ 4, %2 ], [ %.sroa.0593.05674, %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$17hd1d17c08f66b8c22E.exit.i.i" ], [ %.sroa.0593.1, %347 ]
-  %.sroa.5516.05118 = phi i64 [ undef, %2 ], [ %.sroa.5516.05675, %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$17hd1d17c08f66b8c22E.exit.i.i" ], [ %.sroa.5516.1, %347 ]
-  %.sroa.0513.04980 = phi i64 [ 3, %2 ], [ %.sroa.0513.05676, %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$17hd1d17c08f66b8c22E.exit.i.i" ], [ %.sroa.0513.1, %347 ]
-  %.sroa.0485.04842 = phi i8 [ 4, %2 ], [ %.sroa.0485.05677, %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$17hd1d17c08f66b8c22E.exit.i.i" ], [ %.sroa.0485.1, %347 ]
-  %.sroa.0461.04704 = phi i8 [ 4, %2 ], [ %.sroa.0461.05678, %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$17hd1d17c08f66b8c22E.exit.i.i" ], [ %.sroa.0461.1, %347 ]
-  %.sroa.5409.sroa.0.04566 = phi i24 [ undef, %2 ], [ %.sroa.5409.sroa.0.05679, %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$17hd1d17c08f66b8c22E.exit.i.i" ], [ %.sroa.5409.sroa.0.1, %347 ]
-  %.sroa.0406.04428 = phi i8 [ 4, %2 ], [ %.sroa.0406.05680, %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$17hd1d17c08f66b8c22E.exit.i.i" ], [ %.sroa.0406.1, %347 ]
-  %.sroa.5393.04290 = phi i64 [ undef, %2 ], [ %.sroa.5393.05681, %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$17hd1d17c08f66b8c22E.exit.i.i" ], [ %.sroa.5393.1, %347 ]
-  %.sroa.0390.04152 = phi i64 [ 3, %2 ], [ %.sroa.0390.05682, %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$17hd1d17c08f66b8c22E.exit.i.i" ], [ %.sroa.0390.1, %347 ]
-  %.sroa.0368.04014 = phi i8 [ 4, %2 ], [ %.sroa.0368.05683, %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$17hd1d17c08f66b8c22E.exit.i.i" ], [ %.sroa.0368.1, %347 ]
-  %.sroa.5.03876 = phi i32 [ undef, %2 ], [ %.sroa.5.05684, %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$17hd1d17c08f66b8c22E.exit.i.i" ], [ %.sroa.5.1, %347 ]
-  %.sroa.0311.03738 = phi i8 [ 4, %2 ], [ %.sroa.0311.05685, %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$17hd1d17c08f66b8c22E.exit.i.i" ], [ %.sroa.0311.1, %347 ]
-  %.sroa.0271.03600 = phi i8 [ 3, %2 ], [ %.sroa.0271.05686, %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$17hd1d17c08f66b8c22E.exit.i.i" ], [ %.sroa.0271.1, %347 ]
-  %.sroa.0240.03462 = phi i8 [ 3, %2 ], [ %.sroa.0240.05687, %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$17hd1d17c08f66b8c22E.exit.i.i" ], [ %.sroa.0240.1, %347 ]
+  %.sroa.5539.05670 = phi i8 [ %.sroa.5539.05671, %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$17hd1d17c08f66b8c22E.exit.i.i" ], [ undef, %2 ], [ %.sroa.5539.1, %347 ]
+  %.sroa.2535.05532 = phi i8 [ %.sroa.2535.05672, %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$17hd1d17c08f66b8c22E.exit.i.i" ], [ 4, %2 ], [ %.sroa.2535.1, %347 ]
+  %.sroa.0533.05394 = phi i32 [ %.sroa.0533.05673, %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$17hd1d17c08f66b8c22E.exit.i.i" ], [ undef, %2 ], [ %.sroa.0533.1, %347 ]
+  %.sroa.0593.05256 = phi i8 [ %.sroa.0593.05674, %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$17hd1d17c08f66b8c22E.exit.i.i" ], [ 4, %2 ], [ %.sroa.0593.1, %347 ]
+  %.sroa.5516.05118 = phi i64 [ %.sroa.5516.05675, %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$17hd1d17c08f66b8c22E.exit.i.i" ], [ undef, %2 ], [ %.sroa.5516.1, %347 ]
+  %.sroa.0513.04980 = phi i64 [ %.sroa.0513.05676, %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$17hd1d17c08f66b8c22E.exit.i.i" ], [ 3, %2 ], [ %.sroa.0513.1, %347 ]
+  %.sroa.0485.04842 = phi i8 [ %.sroa.0485.05677, %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$17hd1d17c08f66b8c22E.exit.i.i" ], [ 4, %2 ], [ %.sroa.0485.1, %347 ]
+  %.sroa.0461.04704 = phi i8 [ %.sroa.0461.05678, %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$17hd1d17c08f66b8c22E.exit.i.i" ], [ 4, %2 ], [ %.sroa.0461.1, %347 ]
+  %.sroa.5409.sroa.0.04566 = phi i24 [ %.sroa.5409.sroa.0.05679, %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$17hd1d17c08f66b8c22E.exit.i.i" ], [ undef, %2 ], [ %.sroa.5409.sroa.0.1, %347 ]
+  %.sroa.0406.04428 = phi i8 [ %.sroa.0406.05680, %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$17hd1d17c08f66b8c22E.exit.i.i" ], [ 4, %2 ], [ %.sroa.0406.1, %347 ]
+  %.sroa.5393.04290 = phi i64 [ %.sroa.5393.05681, %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$17hd1d17c08f66b8c22E.exit.i.i" ], [ undef, %2 ], [ %.sroa.5393.1, %347 ]
+  %.sroa.0390.04152 = phi i64 [ %.sroa.0390.05682, %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$17hd1d17c08f66b8c22E.exit.i.i" ], [ 3, %2 ], [ %.sroa.0390.1, %347 ]
+  %.sroa.0368.04014 = phi i8 [ %.sroa.0368.05683, %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$17hd1d17c08f66b8c22E.exit.i.i" ], [ 4, %2 ], [ %.sroa.0368.1, %347 ]
+  %.sroa.5.03876 = phi i32 [ %.sroa.5.05684, %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$17hd1d17c08f66b8c22E.exit.i.i" ], [ undef, %2 ], [ %.sroa.5.1, %347 ]
+  %.sroa.0311.03738 = phi i8 [ %.sroa.0311.05685, %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$17hd1d17c08f66b8c22E.exit.i.i" ], [ 4, %2 ], [ %.sroa.0311.1, %347 ]
+  %.sroa.0271.03600 = phi i8 [ %.sroa.0271.05686, %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$17hd1d17c08f66b8c22E.exit.i.i" ], [ 3, %2 ], [ %.sroa.0271.1, %347 ]
+  %.sroa.0240.03462 = phi i8 [ %.sroa.0240.05687, %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$17hd1d17c08f66b8c22E.exit.i.i" ], [ 3, %2 ], [ %.sroa.0240.1, %347 ]
   %250 = load i64, ptr %179, align 8, !range !1226, !noundef !4
   %.not1716 = icmp eq i64 %250, -9223372036854775807
   br i1 %.not1716, label %962, label %961

@@ -567,7 +567,7 @@ _ZNSt14_Function_baseD2Ev.exit209.thread.loopexit: ; preds = %133
   br label %_ZNSt14_Function_baseD2Ev.exit209.thread
 
 _ZNSt14_Function_baseD2Ev.exit209.thread:         ; preds = %_ZNSt14_Function_baseD2Ev.exit209.thread.loopexit, %158, %172, %176, %_ZNSt14_Function_baseD2Ev.exit, %103, %214, %.thread270, %53, %_ZNKSt8functionIFbPKN5clang4ExprEbEEclES3_b.exit227
-  %.5 = phi i1 [ %229, %_ZNKSt8functionIFbPKN5clang4ExprEbEEclES3_b.exit227 ], [ %217, %214 ], [ %122, %.thread270 ], [ %56, %53 ], [ %100, %103 ], [ %100, %_ZNSt14_Function_baseD2Ev.exit ], [ %159, %158 ], [ %173, %172 ], [ %177, %176 ], [ %230, %_ZNSt14_Function_baseD2Ev.exit209.thread.loopexit ]
+  %.5 = phi i1 [ %229, %_ZNKSt8functionIFbPKN5clang4ExprEbEEclES3_b.exit227 ], [ %217, %214 ], [ %177, %176 ], [ %122, %.thread270 ], [ %56, %53 ], [ %100, %103 ], [ %100, %_ZNSt14_Function_baseD2Ev.exit ], [ %159, %158 ], [ %173, %172 ], [ %230, %_ZNSt14_Function_baseD2Ev.exit209.thread.loopexit ]
   ret i1 %.5
 }
 

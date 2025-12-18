@@ -5282,7 +5282,7 @@ lean_nat_lt.exit431.thread:                       ; preds = %754
   br label %.backedge.backedge
 
 lean_dec.exit264:                                 ; preds = %lean_obj_tag.exit, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit543, %720, %722, %723, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit534, %694, %696, %697, %lean_dec.exit260, %635, %637, %638, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectAlts.exit516, %600, %602, %603, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectAlts.exit, %572, %574, %575
-  %.1 = phi ptr [ %.0.i530, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit534 ], [ %.0.i.i513, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectAlts.exit516 ], [ %.0.i.i, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectAlts.exit ], [ %622, %lean_dec.exit260 ], [ %.0.i.i, %575 ], [ %.0.i.i, %574 ], [ %.0.i.i, %572 ], [ %.0.i.i513, %603 ], [ %.0.i.i513, %602 ], [ %.0.i.i513, %600 ], [ %622, %638 ], [ %622, %637 ], [ %622, %635 ], [ %.0.i530, %697 ], [ %.0.i530, %696 ], [ %.0.i530, %694 ], [ %.0.i539, %723 ], [ %.0.i539, %722 ], [ %.0.i539, %720 ], [ %.0.i539, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit543 ], [ %.0215, %lean_obj_tag.exit ]
+  %.1 = phi ptr [ %.0.i530, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit534 ], [ %.0.i.i513, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectAlts.exit516 ], [ %.0.i.i, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectAlts.exit ], [ %.0.i539, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit543 ], [ %622, %lean_dec.exit260 ], [ %.0.i.i, %575 ], [ %.0.i.i, %574 ], [ %.0.i.i, %572 ], [ %.0.i.i513, %603 ], [ %.0.i.i513, %602 ], [ %.0.i.i513, %600 ], [ %622, %638 ], [ %622, %637 ], [ %622, %635 ], [ %.0.i530, %697 ], [ %.0.i530, %696 ], [ %.0.i530, %694 ], [ %.0.i539, %723 ], [ %.0.i539, %722 ], [ %.0.i539, %720 ], [ %.0215, %lean_obj_tag.exit ]
   ret ptr %.1
 }
 
@@ -5757,7 +5757,7 @@ lean_nat_lt.exit.thread44.us:                     ; preds = %lean_obj_tag.exit.u
   br i1 %23, label %.split53.us, label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %.critedge.i.us, %lean_nat_lt.exit.thread44.us
-  %.024.us.be = phi ptr [ %21, %.critedge.i.us ], [ %15, %lean_nat_lt.exit.thread44.us ]
+  %.024.us.be = phi ptr [ %15, %lean_nat_lt.exit.thread44.us ], [ %21, %.critedge.i.us ]
   br label %.split.us
 
 .split:                                           ; preds = %2, %.split.backedge
@@ -5810,7 +5810,7 @@ lean_nat_lt.exit.thread:                          ; preds = %33
   br i1 %45, label %.split53.us, label %.split.backedge
 
 .split.backedge:                                  ; preds = %.thread, %lean_nat_lt.exit.thread, %lean_nat_lt.exit, %lean_nat_eq.exit
-  %.024.be = phi ptr [ %41, %lean_nat_eq.exit ], [ %35, %lean_nat_lt.exit.thread ], [ %35, %lean_nat_lt.exit ], [ %41, %.thread ]
+  %.024.be = phi ptr [ %41, %.thread ], [ %41, %lean_nat_eq.exit ], [ %35, %lean_nat_lt.exit.thread ], [ %35, %lean_nat_lt.exit ]
   br label %.split
 
 lean_nat_eq.exit:                                 ; preds = %lean_nat_lt.exit

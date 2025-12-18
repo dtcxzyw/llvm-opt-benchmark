@@ -373,9 +373,9 @@ define range(i32 -1, 1) i32 @H5Rcreate_object(i64 noundef %0, ptr noundef %1, i6
   %.not55 = icmp eq i64 %89, -1
   br i1 %.not55, label %.thread95, label %.thread63, !prof !25
 
-.thread63:                                        ; preds = %128, %131, %124, %115, %103, %94, %135
-  %.072 = phi i1 [ true, %135 ], [ false, %128 ], [ true, %131 ], [ true, %124 ], [ true, %115 ], [ true, %103 ], [ true, %94 ]
-  %.04170 = phi i32 [ -1, %135 ], [ 0, %128 ], [ -1, %131 ], [ -1, %124 ], [ -1, %115 ], [ -1, %103 ], [ -1, %94 ]
+.thread63:                                        ; preds = %94, %103, %115, %124, %131, %128, %135
+  %.072 = phi i1 [ true, %135 ], [ true, %94 ], [ true, %103 ], [ true, %115 ], [ true, %124 ], [ true, %131 ], [ false, %128 ]
+  %.04170 = phi i32 [ -1, %135 ], [ -1, %94 ], [ -1, %103 ], [ -1, %115 ], [ -1, %124 ], [ -1, %131 ], [ 0, %128 ]
   %139 = call i32 @H5I_dec_ref(i64 noundef %89) #5
   %140 = icmp slt i32 %139, 0
   br i1 %140, label %141, label %147, !prof !25
@@ -709,9 +709,9 @@ define range(i32 -1, 1) i32 @H5Rcreate_region(i64 noundef %0, ptr noundef %1, i6
   %.not67 = icmp eq i64 %103, -1
   br i1 %.not67, label %.thread107, label %.thread75, !prof !25
 
-.thread75:                                        ; preds = %142, %145, %138, %129, %117, %108, %149
-  %.084 = phi i1 [ true, %149 ], [ false, %142 ], [ true, %145 ], [ true, %138 ], [ true, %129 ], [ true, %117 ], [ true, %108 ]
-  %.05182 = phi i32 [ -1, %149 ], [ 0, %142 ], [ -1, %145 ], [ -1, %138 ], [ -1, %129 ], [ -1, %117 ], [ -1, %108 ]
+.thread75:                                        ; preds = %108, %117, %129, %138, %145, %142, %149
+  %.084 = phi i1 [ true, %149 ], [ true, %108 ], [ true, %117 ], [ true, %129 ], [ true, %138 ], [ true, %145 ], [ false, %142 ]
+  %.05182 = phi i32 [ -1, %149 ], [ -1, %108 ], [ -1, %117 ], [ -1, %129 ], [ -1, %138 ], [ -1, %145 ], [ 0, %142 ]
   %153 = call i32 @H5I_dec_ref(i64 noundef %103) #5
   %154 = icmp slt i32 %153, 0
   br i1 %154, label %155, label %161, !prof !25
@@ -1004,9 +1004,9 @@ define range(i32 -1, 1) i32 @H5Rcreate_attr(i64 noundef %0, ptr noundef %1, ptr 
   %.not62 = icmp eq i64 %97, -1
   br i1 %.not62, label %.thread102, label %.thread70, !prof !25
 
-.thread70:                                        ; preds = %136, %139, %132, %123, %111, %102, %143
-  %.079 = phi i1 [ true, %143 ], [ false, %136 ], [ true, %139 ], [ true, %132 ], [ true, %123 ], [ true, %111 ], [ true, %102 ]
-  %.04577 = phi i32 [ -1, %143 ], [ 0, %136 ], [ -1, %139 ], [ -1, %132 ], [ -1, %123 ], [ -1, %111 ], [ -1, %102 ]
+.thread70:                                        ; preds = %102, %111, %123, %132, %139, %136, %143
+  %.079 = phi i1 [ true, %143 ], [ true, %102 ], [ true, %111 ], [ true, %123 ], [ true, %132 ], [ true, %139 ], [ false, %136 ]
+  %.04577 = phi i32 [ -1, %143 ], [ -1, %102 ], [ -1, %111 ], [ -1, %123 ], [ -1, %132 ], [ -1, %139 ], [ 0, %136 ]
   %147 = call i32 @H5I_dec_ref(i64 noundef %97) #5
   %148 = icmp slt i32 %147, 0
   br i1 %148, label %149, label %155, !prof !25
@@ -2104,9 +2104,9 @@ define internal fastcc noundef i64 @H5R__open_region_api_common(ptr noundef %0, 
   %.not58 = icmp eq i64 %81, -1
   br i1 %.not58, label %.thread74, label %.thread65
 
-.thread65:                                        ; preds = %107, %110, %103, %95, %86, %114
-  %.172 = phi i64 [ -1, %114 ], [ %100, %107 ], [ -1, %110 ], [ -1, %103 ], [ -1, %95 ], [ -1, %86 ]
-  %.04471 = phi i64 [ -1, %114 ], [ %100, %107 ], [ %100, %110 ], [ %100, %103 ], [ -1, %95 ], [ -1, %86 ]
+.thread65:                                        ; preds = %86, %95, %103, %110, %107, %114
+  %.172 = phi i64 [ -1, %114 ], [ -1, %86 ], [ -1, %95 ], [ -1, %103 ], [ -1, %110 ], [ %100, %107 ]
+  %.04471 = phi i64 [ -1, %114 ], [ -1, %86 ], [ -1, %95 ], [ %100, %103 ], [ %100, %110 ], [ %100, %107 ]
   %118 = call i32 @H5I_dec_ref(i64 noundef %81) #5
   %119 = icmp slt i32 %118, 0
   br i1 %119, label %120, label %124
@@ -2576,9 +2576,9 @@ define internal fastcc range(i64 -1, -9223372036854775808) i64 @H5R__open_attr_a
   %.not59 = icmp eq i64 %80, -1
   br i1 %.not59, label %.thread95, label %.thread84
 
-.thread84:                                        ; preds = %.cont66, %114, %104, %93, %85, %118
-  %.193 = phi i64 [ -1, %118 ], [ %112, %.cont66 ], [ -1, %114 ], [ -1, %104 ], [ -1, %93 ], [ -1, %85 ]
-  %.04492 = phi i1 [ false, %118 ], [ true, %.cont66 ], [ true, %114 ], [ false, %104 ], [ false, %93 ], [ false, %85 ]
+.thread84:                                        ; preds = %85, %93, %104, %114, %.cont66, %118
+  %.193 = phi i64 [ -1, %118 ], [ -1, %85 ], [ -1, %93 ], [ -1, %104 ], [ -1, %114 ], [ %112, %.cont66 ]
+  %.04492 = phi i1 [ false, %118 ], [ false, %85 ], [ false, %93 ], [ false, %104 ], [ true, %114 ], [ true, %.cont66 ]
   %122 = call i32 @H5I_dec_ref(i64 noundef %80) #5
   %123 = icmp slt i32 %122, 0
   br i1 %123, label %124, label %128

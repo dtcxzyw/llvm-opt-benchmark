@@ -1083,8 +1083,8 @@ for.inc.i:                                        ; preds = %_ZNKSt8functionIFvN
   br i1 %cmp.not.i14, label %if.end13, label %for.body.i, !llvm.loop !18
 
 if.end13:                                         ; preds = %if.end, %for.inc.i, %if.then10
-  %properties.sroa.5.049 = phi ptr [ %properties.sroa.5.053, %if.then10 ], [ %properties.sroa.5.053, %for.inc.i ], [ %properties.sroa.5.1, %if.end ]
-  %properties.sroa.0.046 = phi ptr [ %properties.sroa.0.054, %if.then10 ], [ %properties.sroa.0.054, %for.inc.i ], [ %properties.sroa.0.1, %if.end ]
+  %properties.sroa.5.049 = phi ptr [ %properties.sroa.5.053, %for.inc.i ], [ %properties.sroa.5.053, %if.then10 ], [ %properties.sroa.5.1, %if.end ]
+  %properties.sroa.0.046 = phi ptr [ %properties.sroa.0.054, %for.inc.i ], [ %properties.sroa.0.054, %if.then10 ], [ %properties.sroa.0.1, %if.end ]
   %cmp.i.i.i17.not57 = icmp eq ptr %properties.sroa.5.049, %properties.sroa.0.046
   br i1 %cmp.i.i.i17.not57, label %for.end, label %for.body.lr.ph
 
@@ -1625,7 +1625,7 @@ if.then5.i:                                       ; preds = %if.else.i
   br label %_ZN6hermes2vm6detail13TransitionMap6lookupERNS0_7RuntimeERKNS1_10TransitionE.exit
 
 _ZN6hermes2vm6detail13TransitionMap6lookupERNS0_7RuntimeERKNS1_10TransitionE.exit: ; preds = %if.end.i.i, %if.then5.i
-  %retval.0.i = phi ptr [ %call7.i, %if.then5.i ], [ %18, %if.end.i.i ]
+  %retval.0.i = phi ptr [ %18, %if.end.i.i ], [ %call7.i, %if.then5.i ]
   %tobool54.not = icmp eq ptr %retval.0.i, null
   br i1 %tobool54.not, label %_ZN6hermes2vm6detail13TransitionMap6lookupERNS0_7RuntimeERKNS1_10TransitionE.exit.if.end98_crit_edge, label %if.then55
 
@@ -2370,7 +2370,7 @@ if.then5.i:                                       ; preds = %if.else.i
   br label %_ZN6hermes2vm6detail13TransitionMap6lookupERNS0_7RuntimeERKNS1_10TransitionE.exit
 
 _ZN6hermes2vm6detail13TransitionMap6lookupERNS0_7RuntimeERKNS1_10TransitionE.exit: ; preds = %if.end.i.i, %if.then5.i
-  %retval.0.i = phi ptr [ %call7.i, %if.then5.i ], [ %19, %if.end.i.i ]
+  %retval.0.i = phi ptr [ %19, %if.end.i.i ], [ %call7.i, %if.then5.i ]
   %tobool.not = icmp eq ptr %retval.0.i, null
   br i1 %tobool.not, label %if.end84, label %if.then61
 
@@ -4114,9 +4114,9 @@ if.end13.i.i49:                                   ; preds = %if.end9.i.i40
   br i1 %15, label %if.end12, label %if.end9.i.i40, !llvm.loop !20
 
 if.end12:                                         ; preds = %if.end13.i.i, %if.end13.i.i49, %if.then12.i.i66, %if.end.i.i24, %if.then10, %if.then12.i.i, %if.end.i.i, %if.then, %if.else
-  %bf.clear.i.i.i.pre-phi = phi i32 [ %bf.clear.i.i, %if.else ], [ %bf.clear.i.i.i.i17, %if.then12.i.i66 ], [ %bf.clear.i.i.i.i17, %if.end.i.i24 ], [ %bf.clear.i.i.i.i17, %if.then10 ], [ %bf.clear.i.i.i.i, %if.then12.i.i ], [ %bf.clear.i.i.i.i, %if.end.i.i ], [ %bf.clear.i.i.i.i, %if.then ], [ %bf.clear.i.i.i.i17, %if.end13.i.i49 ], [ %bf.clear.i.i.i.i, %if.end13.i.i ]
-  %bf.load.i.i.i = phi i32 [ %bf.load.i.i, %if.else ], [ %bf.load.i.i.i.i16, %if.then12.i.i66 ], [ %bf.load.i.i.i.i16, %if.end.i.i24 ], [ %bf.load.i.i.i.i16, %if.then10 ], [ %bf.load.i.i.i.i, %if.then12.i.i ], [ %bf.load.i.i.i.i, %if.end.i.i ], [ %bf.load.i.i.i.i, %if.then ], [ %bf.load.i.i.i.i16, %if.end13.i.i49 ], [ %bf.load.i.i.i.i, %if.end13.i.i ]
-  %TheBucket.addr.0 = phi ptr [ %TheBucket, %if.else ], [ %cond.i.i68, %if.then12.i.i66 ], [ %add.ptr35.i.i34, %if.end.i.i24 ], [ null, %if.then10 ], [ %cond.i.i10, %if.then12.i.i ], [ %add.ptr35.i.i, %if.end.i.i ], [ null, %if.then ], [ %add.ptr.i.i58, %if.end13.i.i49 ], [ %add.ptr.i.i, %if.end13.i.i ]
+  %bf.clear.i.i.i.pre-phi = phi i32 [ %bf.clear.i.i.i.i17, %if.end13.i.i49 ], [ %bf.clear.i.i, %if.else ], [ %bf.clear.i.i.i.i17, %if.then12.i.i66 ], [ %bf.clear.i.i.i.i17, %if.end.i.i24 ], [ %bf.clear.i.i.i.i17, %if.then10 ], [ %bf.clear.i.i.i.i, %if.then12.i.i ], [ %bf.clear.i.i.i.i, %if.end.i.i ], [ %bf.clear.i.i.i.i, %if.then ], [ %bf.clear.i.i.i.i, %if.end13.i.i ]
+  %bf.load.i.i.i = phi i32 [ %bf.load.i.i.i.i16, %if.end13.i.i49 ], [ %bf.load.i.i, %if.else ], [ %bf.load.i.i.i.i16, %if.then12.i.i66 ], [ %bf.load.i.i.i.i16, %if.end.i.i24 ], [ %bf.load.i.i.i.i16, %if.then10 ], [ %bf.load.i.i.i.i, %if.then12.i.i ], [ %bf.load.i.i.i.i, %if.end.i.i ], [ %bf.load.i.i.i.i, %if.then ], [ %bf.load.i.i.i.i, %if.end13.i.i ]
+  %TheBucket.addr.0 = phi ptr [ %add.ptr.i.i58, %if.end13.i.i49 ], [ %TheBucket, %if.else ], [ %cond.i.i68, %if.then12.i.i66 ], [ %add.ptr35.i.i34, %if.end.i.i24 ], [ null, %if.then10 ], [ %cond.i.i10, %if.then12.i.i ], [ %add.ptr35.i.i, %if.end.i.i ], [ null, %if.then ], [ %add.ptr.i.i, %if.end13.i.i ]
   %bf.lshr.i.i.i = and i32 %bf.load.i.i.i, -2
   %bf.value.i.i.i = add i32 %bf.lshr.i.i.i, 2
   %bf.set.i.i.i = or disjoint i32 %bf.value.i.i.i, %bf.clear.i.i.i.pre-phi

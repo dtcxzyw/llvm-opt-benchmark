@@ -477,7 +477,7 @@ define internal ptr @slice_indices(ptr readnone captures(none) %0, ptr noundef %
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %30, %38, %35, %33, %17, %12, %2, %10
-  %.011 = phi ptr [ null, %2 ], [ null, %12 ], [ null, %17 ], [ null, %10 ], [ null, %33 ], [ null, %35 ], [ null, %38 ], [ %22, %30 ]
+  %.011 = phi ptr [ null, %2 ], [ null, %12 ], [ null, %38 ], [ null, %17 ], [ null, %10 ], [ null, %33 ], [ null, %35 ], [ %22, %30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -829,7 +829,7 @@ get_ascii_order.exit:                             ; preds = %Py_DECREF.exit.i, %
   br label %44
 
 43:                                               ; preds = %40, %36
-  %.010 = phi ptr [ null, %36 ], [ %42, %40 ]
+  %.010 = phi ptr [ %42, %40 ], [ null, %36 ]
   call void @PyBuffer_Release(ptr noundef nonnull %6) #14
   call void @PyMem_Free(ptr noundef nonnull %32) #14
   br label %44
@@ -1137,7 +1137,7 @@ arraycmp.exit31.thread:                           ; preds = %91, %84, %83
   br label %arraycmp.exit
 
 arraycmp.exit:                                    ; preds = %.lr.ph.split.us.i, %.lr.ph.split.us.i27, %arraycmp.exit31.thread, %80, %28, %33, %38, %43, %49, %56, %63, %24, %26
-  %.not24 = phi ptr [ @_Py_FalseStruct, %28 ], [ @_Py_FalseStruct, %33 ], [ @_Py_FalseStruct, %38 ], [ @_Py_FalseStruct, %49 ], [ @_Py_FalseStruct, %56 ], [ @_Py_FalseStruct, %63 ], [ %spec.select, %arraycmp.exit31.thread ], [ @_Py_FalseStruct, %24 ], [ @_Py_FalseStruct, %80 ], [ @_Py_FalseStruct, %26 ], [ @_Py_FalseStruct, %43 ], [ @_Py_FalseStruct, %.lr.ph.split.us.i27 ], [ @_Py_FalseStruct, %.lr.ph.split.us.i ]
+  %.not24 = phi ptr [ @_Py_FalseStruct, %28 ], [ @_Py_FalseStruct, %33 ], [ @_Py_FalseStruct, %38 ], [ @_Py_FalseStruct, %49 ], [ @_Py_FalseStruct, %56 ], [ @_Py_FalseStruct, %63 ], [ %spec.select, %arraycmp.exit31.thread ], [ @_Py_FalseStruct, %24 ], [ @_Py_FalseStruct, %.lr.ph.split.us.i27 ], [ @_Py_FalseStruct, %80 ], [ @_Py_FalseStruct, %26 ], [ @_Py_FalseStruct, %43 ], [ @_Py_FalseStruct, %.lr.ph.split.us.i ]
   call void @PyBuffer_Release(ptr noundef nonnull %5) #14
   call void @PyBuffer_Release(ptr noundef nonnull %6) #14
   %95 = load i32, ptr %.not24, align 8, !tbaa !11
@@ -2235,7 +2235,7 @@ define internal ptr @ndarray_subscript(ptr noundef %0, ptr noundef %1) #0 {
   br label %_Py_NewRef.exit
 
 .loopexit:                                        ; preds = %114, %.lr.ph.split.us.i, %.thread53.i, %93
-  %.156.i = phi ptr [ null, %.thread53.i ], [ %90, %93 ], [ null, %.lr.ph.split.us.i ], [ %90, %114 ]
+  %.156.i = phi ptr [ null, %.thread53.i ], [ null, %.lr.ph.split.us.i ], [ %90, %93 ], [ %90, %114 ]
   %136 = getelementptr inbounds nuw i8, ptr %48, i64 128
   store ptr %76, ptr %136, align 8, !tbaa !32
   %137 = getelementptr inbounds nuw i8, ptr %48, i64 136
@@ -4537,7 +4537,7 @@ Py_DECREF.exit53.sink.split:                      ; preds = %57, %25
   br label %Py_DECREF.exit53
 
 Py_DECREF.exit53:                                 ; preds = %60, %41, %Py_DECREF.exit53.sink.split, %.preheader, %.split.us, %57, %25, %Py_INCREF.exit, %28, %14, %11
-  %.0 = phi ptr [ null, %28 ], [ null, %11 ], [ %12, %14 ], [ %19, %Py_INCREF.exit ], [ %19, %25 ], [ null, %57 ], [ null, %.split.us ], [ %30, %.preheader ], [ %.0.ph, %Py_DECREF.exit53.sink.split ], [ %30, %41 ], [ %30, %60 ]
+  %.0 = phi ptr [ null, %28 ], [ null, %.split.us ], [ null, %11 ], [ %12, %14 ], [ %.0.ph, %Py_DECREF.exit53.sink.split ], [ %19, %Py_INCREF.exit ], [ %19, %25 ], [ %30, %41 ], [ null, %57 ], [ %30, %.preheader ], [ %30, %60 ]
   ret ptr %.0
 }
 
@@ -5390,7 +5390,7 @@ strides_from_shape.exit.i.i:                      ; preds = %284
   br i1 %364, label %verify_structure.exit.i.i, label %.loopexit.i.i
 
 verify_structure.exit.i.i:                        ; preds = %.lr.ph.i41.i.i, %361, %._crit_edge.i.i111.i
-  %.str.79.sink.i.i.i = phi ptr [ @.str.79, %._crit_edge.i.i111.i ], [ @.str.79, %361 ], [ @.str.78, %.lr.ph.i41.i.i ]
+  %.str.79.sink.i.i.i = phi ptr [ @.str.79, %361 ], [ @.str.79, %._crit_edge.i.i111.i ], [ @.str.78, %.lr.ph.i41.i.i ]
   %365 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !9
   tail call void @PyErr_SetString(ptr noundef %365, ptr noundef nonnull %.str.79.sink.i.i.i) #14
   br label %init_simple.exit.thread.i
@@ -5788,7 +5788,7 @@ define internal fastcc ptr @seq_as_ssize_array(ptr noundef readonly captures(non
   br i1 %exitcond.not, label %.critedge, label %.lr.ph.split, !llvm.loop !88
 
 .critedge:                                        ; preds = %47, %23, %.preheader, %.split37.us, %44, %.split.us, %.thread
-  %.0 = phi ptr [ null, %.thread ], [ null, %.split.us ], [ null, %44 ], [ null, %.split37.us ], [ %7, %.preheader ], [ %7, %23 ], [ %7, %47 ]
+  %.0 = phi ptr [ null, %.thread ], [ null, %.split37.us ], [ null, %.split.us ], [ null, %44 ], [ %7, %.preheader ], [ %7, %23 ], [ %7, %47 ]
   ret ptr %.0
 }
 
@@ -5956,7 +5956,7 @@ define internal ptr @ndarray_get_shape(ptr noundef readonly captures(none) %0, p
   br i1 %exitcond.not.i, label %ssize_array_as_tuple.exit, label %18, !llvm.loop !89
 
 ssize_array_as_tuple.exit:                        ; preds = %29, %11, %13, %.preheader.i, %23, %25, %28
-  %.014.i = phi ptr [ %12, %11 ], [ null, %13 ], [ null, %23 ], [ null, %25 ], [ null, %28 ], [ %14, %.preheader.i ], [ %14, %29 ]
+  %.014.i = phi ptr [ %12, %11 ], [ null, %13 ], [ null, %28 ], [ null, %23 ], [ null, %25 ], [ %14, %.preheader.i ], [ %14, %29 ]
   ret ptr %.014.i
 }
 
@@ -6020,7 +6020,7 @@ define internal ptr @ndarray_get_strides(ptr noundef readonly captures(none) %0,
   br i1 %exitcond.not.i, label %ssize_array_as_tuple.exit, label %18, !llvm.loop !89
 
 ssize_array_as_tuple.exit:                        ; preds = %29, %11, %13, %.preheader.i, %23, %25, %28
-  %.014.i = phi ptr [ %12, %11 ], [ null, %13 ], [ null, %23 ], [ null, %25 ], [ null, %28 ], [ %14, %.preheader.i ], [ %14, %29 ]
+  %.014.i = phi ptr [ %12, %11 ], [ null, %13 ], [ null, %28 ], [ null, %23 ], [ null, %25 ], [ %14, %.preheader.i ], [ %14, %29 ]
   ret ptr %.014.i
 }
 
@@ -6084,7 +6084,7 @@ define internal ptr @ndarray_get_suboffsets(ptr noundef readonly captures(none) 
   br i1 %exitcond.not.i, label %ssize_array_as_tuple.exit, label %18, !llvm.loop !89
 
 ssize_array_as_tuple.exit:                        ; preds = %29, %11, %13, %.preheader.i, %23, %25, %28
-  %.014.i = phi ptr [ %12, %11 ], [ null, %13 ], [ null, %23 ], [ null, %25 ], [ null, %28 ], [ %14, %.preheader.i ], [ %14, %29 ]
+  %.014.i = phi ptr [ %12, %11 ], [ null, %13 ], [ null, %28 ], [ null, %23 ], [ null, %25 ], [ %14, %.preheader.i ], [ %14, %29 ]
   ret ptr %.014.i
 }
 

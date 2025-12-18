@@ -1374,7 +1374,7 @@ switch.lookup:                                    ; preds = %67
   br label %cops_c_type_to_str.exit.i
 
 cops_c_type_to_str.exit.i:                        ; preds = %switch.lookup, %77, %75, %73, %72, %70, %69, %66, %64
-  %.0.i.i = phi ptr [ @.str.661, %77 ], [ @.str.683, %73 ], [ @.str.670, %64 ], [ %switch.select21.i.i, %66 ], [ @.str.684, %75 ], [ %switch.select29.i.i, %72 ], [ @.str.680, %70 ], [ %switch.select25.i.i, %69 ], [ %switch.load, %switch.lookup ]
+  %.0.i.i = phi ptr [ @.str.661, %77 ], [ @.str.683, %73 ], [ @.str.670, %64 ], [ %switch.select21.i.i, %66 ], [ @.str.684, %75 ], [ @.str.680, %70 ], [ %switch.select29.i.i, %72 ], [ %switch.select25.i.i, %69 ], [ %switch.load, %switch.lookup ]
   %79 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %21, i32 noundef %61, ptr noundef %0, i32 noundef %.0227276, i32 noundef %51, i32 noundef %62, ptr noundef nonnull @.str.666, ptr noundef %63, ptr noundef %.0.i.i)
   %80 = load i32, ptr @ett_cops_obj, align 4
   %81 = call ptr @proto_item_add_subtree(ptr noundef %79, i32 noundef %80)
@@ -1448,7 +1448,7 @@ switch.lookup331:                                 ; preds = %89
   br label %cops_c_type_to_str.exit75.i
 
 cops_c_type_to_str.exit75.i:                      ; preds = %switch.lookup331, %99, %97, %95, %94, %92, %91, %88, %86
-  %.0.i62.i = phi ptr [ @.str.661, %99 ], [ @.str.683, %95 ], [ @.str.670, %86 ], [ %switch.select21.i74.i, %88 ], [ @.str.684, %97 ], [ %switch.select29.i66.i, %94 ], [ @.str.680, %92 ], [ %switch.select25.i70.i, %91 ], [ %switch.load333, %switch.lookup331 ]
+  %.0.i62.i = phi ptr [ @.str.661, %99 ], [ @.str.683, %95 ], [ @.str.670, %86 ], [ %switch.select21.i74.i, %88 ], [ @.str.684, %97 ], [ @.str.680, %92 ], [ %switch.select29.i66.i, %94 ], [ %switch.select25.i70.i, %91 ], [ %switch.load333, %switch.lookup331 ]
   %101 = load i32, ptr @hf_cops_obj_c_type, align 4
   %102 = zext i8 %60 to i32
   %char0.i = load i8, ptr %.0.i62.i, align 1

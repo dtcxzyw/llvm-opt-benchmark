@@ -738,8 +738,8 @@ brin_build_empty_tuple.exit.i59.i:                ; preds = %341, %334
   br i1 %350, label %.lr.ph.i56.i, label %brin_fill_empty_ranges.exit.i, !llvm.loop !10
 
 brin_fill_empty_ranges.exit.i:                    ; preds = %brin_build_empty_tuple.exit.i59.i, %brin_build_empty_tuple.exit.i.i, %317, %.lr.ph.split.us.i
-  %351 = phi ptr [ %284, %.lr.ph.split.us.i ], [ %290, %317 ], [ %284, %brin_build_empty_tuple.exit.i.i ], [ %290, %brin_build_empty_tuple.exit.i59.i ]
-  %.1.i = phi ptr [ %288, %.lr.ph.split.us.i ], [ %327, %317 ], [ %288, %brin_build_empty_tuple.exit.i.i ], [ %327, %brin_build_empty_tuple.exit.i59.i ]
+  %351 = phi ptr [ %284, %brin_build_empty_tuple.exit.i.i ], [ %284, %.lr.ph.split.us.i ], [ %290, %317 ], [ %290, %brin_build_empty_tuple.exit.i59.i ]
+  %.1.i = phi ptr [ %288, %brin_build_empty_tuple.exit.i.i ], [ %288, %.lr.ph.split.us.i ], [ %327, %317 ], [ %327, %brin_build_empty_tuple.exit.i59.i ]
   %352 = load i32, ptr %351, align 4
   %353 = load ptr, ptr %97, align 8
   %354 = call ptr @tuplesort_getbrintuple(ptr noundef %353, ptr noundef nonnull %5, i1 noundef zeroext true) #9
@@ -1703,8 +1703,8 @@ define dso_local i64 @bringetbitmap(ptr noundef readonly captures(none) %0, ptr 
   br label %137
 
 .thread.preheader:                                ; preds = %select.unfold, %.preheader213, %120, %123
-  %.1171203.ph = phi ptr [ %127, %123 ], [ %.0170233, %120 ], [ %127, %.preheader213 ], [ %127, %select.unfold ]
-  %.1177195201.ph = phi ptr [ %125, %123 ], [ %.0176232, %120 ], [ %125, %.preheader213 ], [ %125, %select.unfold ]
+  %.1171203.ph = phi ptr [ %.0170233, %120 ], [ %127, %123 ], [ %127, %.preheader213 ], [ %127, %select.unfold ]
+  %.1177195201.ph = phi ptr [ %.0176232, %120 ], [ %125, %123 ], [ %125, %.preheader213 ], [ %125, %select.unfold ]
   %134 = load i32, ptr %10, align 8
   %135 = add i32 %134, %.0167235
   %.193226 = call i32 @llvm.umin.i32(i32 %30, i32 %135)
@@ -1873,9 +1873,9 @@ select.unfold:                                    ; preds = %205, %.preheader, %
   br i1 %.not191, label %.thread197.thread, label %.thread, !llvm.loop !22
 
 .thread197.thread:                                ; preds = %184, %196, %147, %.thread, %175, %180, %178, %209, %.thread.preheader
-  %.1171202 = phi ptr [ %.1171203.ph, %.thread.preheader ], [ %.1171203.ph, %.thread ], [ %127, %209 ], [ %127, %175 ], [ %127, %178 ], [ %127, %180 ], [ %127, %147 ], [ %127, %196 ], [ %127, %184 ]
-  %.1177195200 = phi ptr [ %.1177195201.ph, %.thread.preheader ], [ %.1177195201.ph, %.thread ], [ %125, %209 ], [ %125, %175 ], [ %125, %178 ], [ %125, %180 ], [ %125, %147 ], [ %125, %196 ], [ %125, %184 ]
-  %.1 = phi i64 [ %.0168234, %.thread.preheader ], [ %220, %.thread ], [ %.0168234, %209 ], [ %.0168234, %175 ], [ %.0168234, %178 ], [ %.0168234, %180 ], [ %.0168234, %147 ], [ %.0168234, %196 ], [ %.0168234, %184 ]
+  %.1171202 = phi ptr [ %.1171203.ph, %.thread.preheader ], [ %127, %175 ], [ %.1171203.ph, %.thread ], [ %127, %209 ], [ %127, %178 ], [ %127, %180 ], [ %127, %147 ], [ %127, %196 ], [ %127, %184 ]
+  %.1177195200 = phi ptr [ %.1177195201.ph, %.thread.preheader ], [ %125, %175 ], [ %.1177195201.ph, %.thread ], [ %125, %209 ], [ %125, %178 ], [ %125, %180 ], [ %125, %147 ], [ %125, %196 ], [ %125, %184 ]
+  %.1 = phi i64 [ %.0168234, %.thread.preheader ], [ %.0168234, %175 ], [ %220, %.thread ], [ %.0168234, %209 ], [ %.0168234, %178 ], [ %.0168234, %180 ], [ %.0168234, %147 ], [ %.0168234, %196 ], [ %.0168234, %184 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %225 = load i32, ptr %10, align 8

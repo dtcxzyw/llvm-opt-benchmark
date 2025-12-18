@@ -991,7 +991,7 @@ splittingStep_AccessARKODEStepMem.exit:           ; preds = %6
   br label %splittingStep_AccessARKODEStepMem.exit.thread
 
 splittingStep_AccessARKODEStepMem.exit.thread:    ; preds = %20, %16, %10, %5, %25, %13
-  %.013 = phi i32 [ 0, %25 ], [ -22, %13 ], [ -21, %5 ], [ -21, %10 ], [ 0, %16 ], [ 0, %20 ]
+  %.013 = phi i32 [ 0, %25 ], [ -22, %13 ], [ -21, %10 ], [ -21, %5 ], [ 0, %16 ], [ 0, %20 ]
   ret i32 %.013
 }
 
@@ -1127,7 +1127,7 @@ define internal fastcc range(i32 -51, 1) i32 @splittingStep_SequentialMethod(ptr
   br i1 %.not58, label %.preheader, label %.thread, !llvm.loop !78
 
 .thread:                                          ; preds = %.critedge, %46, %43, %34, %.preheader.lr.ph, %4, %.thread63
-  %spec.select = phi i32 [ -51, %.thread63 ], [ 0, %4 ], [ 0, %.preheader.lr.ph ], [ -51, %46 ], [ -51, %34 ], [ -51, %43 ], [ 0, %.critedge ]
+  %spec.select = phi i32 [ 0, %4 ], [ -51, %.thread63 ], [ 0, %.preheader.lr.ph ], [ -51, %46 ], [ -51, %34 ], [ -51, %43 ], [ 0, %.critedge ]
   ret i32 %spec.select
 }
 

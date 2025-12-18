@@ -7612,10 +7612,10 @@ define internal i32 @dissect_mms_AccessResult(i1 zeroext %0, ptr noundef %1, i32
   %.not28.not = icmp eq i16 %45, 0
   br i1 %.not28.not, label %.backedge.backedge, label %.critedge
 
-.backedge.backedge:                               ; preds = %43, %25, %31, %19, %28, %16, %40, %34, %37, %22
+.backedge.backedge:                               ; preds = %43, %25, %19, %31, %16, %22, %34, %37, %28, %40
   br label %.backedge, !llvm.loop !10
 
-.critedge:                                        ; preds = %22, %37, %34, %40, %16, %28, %19, %31, %25, %.backedge, %43
+.critedge:                                        ; preds = %40, %28, %37, %34, %22, %16, %31, %19, %25, %.backedge, %43
   store i32 %15, ptr %11, align 4
   %46 = load i32, ptr @ett_mms_AccessResult, align 4
   %47 = call i32 @dissect_ber_choice(ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, ptr noundef nonnull @AccessResult_choice, i32 noundef %5, i32 noundef %46, ptr noundef nonnull %7)

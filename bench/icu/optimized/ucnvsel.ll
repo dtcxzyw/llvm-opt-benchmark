@@ -954,7 +954,7 @@ define noundef ptr @ucnvsel_openFromSerialized_77(ptr noundef %0, i32 noundef %1
   br i1 %exitcond.not, label %.critedge, label %122, !llvm.loop !47
 
 .critedge:                                        ; preds = %122, %110, %11, %14, %74, %92, %109, %82, %68, %63, %58, %55, %43, %39, %3
-  %.0106 = phi ptr [ null, %3 ], [ null, %11 ], [ null, %14 ], [ null, %43 ], [ null, %39 ], [ null, %74 ], [ null, %82 ], [ null, %92 ], [ null, %109 ], [ null, %68 ], [ null, %63 ], [ null, %58 ], [ null, %55 ], [ %84, %110 ], [ %84, %122 ]
+  %.0106 = phi ptr [ null, %3 ], [ null, %11 ], [ null, %14 ], [ null, %43 ], [ null, %39 ], [ null, %74 ], [ null, %55 ], [ null, %82 ], [ null, %92 ], [ null, %109 ], [ null, %68 ], [ null, %63 ], [ null, %58 ], [ %84, %110 ], [ %84, %122 ]
   ret ptr %.0106
 }
 

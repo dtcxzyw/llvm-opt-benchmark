@@ -1036,7 +1036,7 @@ _ZN26GrowableArrayWithAllocatorIPV8zpointer18GrowableArrayCHeapIS2_L8MEMFLAGS5EE
   br i1 %exitcond.not.i.i.i24, label %_ZN40ZRememberedScanForwardingMeasureRetainedD2Ev.exit, label %276, !llvm.loop !15
 
 _ZN40ZRememberedScanForwardingMeasureRetainedD2Ev.exit: ; preds = %296, %179, %294, %._crit_edge.i.i.i26, %177, %._crit_edge.i.i.i
-  %.0 = phi i1 [ %.3, %._crit_edge.i.i.i ], [ %.3, %177 ], [ %.4, %._crit_edge.i.i.i26 ], [ %.4, %294 ], [ %.3, %179 ], [ %.4, %296 ]
+  %.0 = phi i1 [ %.3, %179 ], [ %.3, %._crit_edge.i.i.i ], [ %.3, %177 ], [ %.4, %._crit_edge.i.i.i26 ], [ %.4, %294 ], [ %.4, %296 ]
   ret i1 %.0
 }
 

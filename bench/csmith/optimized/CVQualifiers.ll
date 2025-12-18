@@ -1068,7 +1068,7 @@ _ZNSt19_Bit_const_iteratorppEv.exit.i.i.i.i.i13:  ; preds = %.lr.ph.i.i.i.i.i8
   br label %_ZSteqIbSaIbEEbRKSt6vectorIT_T0_ES6_.exit
 
 _ZSteqIbSaIbEEbRKSt6vectorIT_T0_ES6_.exit:        ; preds = %.lr.ph.i.i.i.i.i, %123, %99, %15, %._crit_edge.loopexit.i.i.i.i.i21, %79, %_ZSteqIbSaIbEEbRKSt6vectorIT_T0_ES6_.exit.thread, %125, %2
-  %.0 = phi i1 [ true, %99 ], [ true, %2 ], [ %.not3.i.not.lcssa.ph.i.i.i.i.i22, %._crit_edge.loopexit.i.i.i.i.i21 ], [ %124, %123 ], [ false, %15 ], [ %126, %125 ], [ false, %_ZSteqIbSaIbEEbRKSt6vectorIT_T0_ES6_.exit.thread ], [ true, %79 ], [ false, %.lr.ph.i.i.i.i.i ]
+  %.0 = phi i1 [ true, %99 ], [ true, %2 ], [ true, %79 ], [ %.not3.i.not.lcssa.ph.i.i.i.i.i22, %._crit_edge.loopexit.i.i.i.i.i21 ], [ %124, %123 ], [ false, %15 ], [ %126, %125 ], [ false, %_ZSteqIbSaIbEEbRKSt6vectorIT_T0_ES6_.exit.thread ], [ false, %.lr.ph.i.i.i.i.i ]
   ret i1 %.0
 }
 
@@ -5908,7 +5908,7 @@ _ZN10EnumeratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE17reset_all
   br i1 %39, label %_ZN10EnumeratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE10EnumObject4nextEv.exit.thread, label %41
 
 _ZN10EnumeratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE10EnumObject4nextEv.exit.thread: ; preds = %_ZN10EnumeratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE17reset_all_changedEv.exit.loopexit, %tailrecurse.us, %.split.us
-  %.us-phi = phi ptr [ %8, %.split.us ], [ %22, %tailrecurse.us ], [ %34, %_ZN10EnumeratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE17reset_all_changedEv.exit.loopexit ]
+  %.us-phi = phi ptr [ %22, %tailrecurse.us ], [ %8, %.split.us ], [ %34, %_ZN10EnumeratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE17reset_all_changedEv.exit.loopexit ]
   %40 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 10
   store i8 1, ptr %40, align 2, !tbaa !124
   br label %48

@@ -175,7 +175,7 @@ define noundef ptr @_Z11ConvertPathPKwPwm(ptr noundef %0, ptr noundef %1, i64 no
   br i1 %26, label %27, label %.loopexit.preheader
 
 .loopexit.preheader:                              ; preds = %29, %.preheader, %32, %23
-  %.0.ph = phi ptr [ %33, %32 ], [ %.248, %23 ], [ %.248, %.preheader ], [ %.248, %29 ]
+  %.0.ph = phi ptr [ %.248, %.preheader ], [ %33, %32 ], [ %.248, %23 ], [ %.248, %29 ]
   br label %.loopexit
 
 27:                                               ; preds = %23
@@ -1668,7 +1668,7 @@ _Z11PointToNamePKw.exit.i:                        ; preds = %48, %56
   br label %_Z6GetExtPKw.exit
 
 _Z6GetExtPKw.exit:                                ; preds = %21, %11, %_Z11PointToNamePKw.exit.i, %24, %19
-  %.136 = phi ptr [ %20, %19 ], [ %58, %_Z11PointToNamePKw.exit.i ], [ null, %24 ], [ %1, %11 ], [ %1, %21 ]
+  %.136 = phi ptr [ null, %24 ], [ %20, %19 ], [ %58, %_Z11PointToNamePKw.exit.i ], [ %1, %11 ], [ %1, %21 ]
   %59 = tail call noundef zeroext i1 @_Z9FileExistPKw(ptr noundef %1)
   br i1 %59, label %106, label %60
 

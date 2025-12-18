@@ -2827,14 +2827,14 @@ run_prog.exit:                                    ; preds = %172, %154
   br i1 %.not63.i171.i.not, label %goughExec8_i.exit, label %244
 
 .loopexit81:                                      ; preds = %.outer.us152, %run_prog.exit.us, %.outer, %.outer.split.us.preheader, %..loopexit81_crit_edge
-  %.reass185.pre-phi = phi i64 [ %.pre222, %..loopexit81_crit_edge ], [ %.reass, %.outer.split.us.preheader ], [ %.reass, %run_prog.exit.us ], [ %.reass, %.outer ], [ %.reass, %.outer.us152 ]
-  %.pre-phi221 = phi i64 [ %.pre220, %..loopexit81_crit_edge ], [ %39, %.outer.split.us.preheader ], [ %39, %run_prog.exit.us ], [ %39, %.outer ], [ %39, %.outer.us152 ]
-  %.037 = phi i32 [ 0, %..loopexit81_crit_edge ], [ %.441, %.outer.split.us.preheader ], [ %.441, %run_prog.exit.us ], [ %.542.ph.ph, %.outer ], [ %.441, %.outer.us152 ]
-  %.029 = phi i16 [ 0, %..loopexit81_crit_edge ], [ %.433, %.outer.split.us.preheader ], [ %.433, %run_prog.exit.us ], [ %.534.ph.ph, %.outer ], [ %.433, %.outer.us152 ]
-  %.0 = phi i32 [ 0, %..loopexit81_crit_edge ], [ %.4, %.outer.split.us.preheader ], [ %.4, %run_prog.exit.us ], [ %.5.ph.ph, %.outer ], [ %.4, %.outer.us152 ]
-  %.1134.i = phi ptr [ %3, %..loopexit81_crit_edge ], [ %.0133.i, %.outer.split.us.preheader ], [ %.0133.i, %run_prog.exit.us ], [ %.0133.i, %.outer ], [ %.0133.i, %.outer.us152 ]
-  %.1129.i = phi ptr [ %3, %..loopexit81_crit_edge ], [ %.0128.i, %.outer.split.us.preheader ], [ %99, %run_prog.exit.us ], [ %.2130.i, %.outer ], [ %.2130.i.us165, %.outer.us152 ]
-  %.1125.i = phi i8 [ %11, %..loopexit81_crit_edge ], [ %.0124.i, %.outer.split.us.preheader ], [ %147, %run_prog.exit.us ], [ %.2126.i, %.outer ], [ %.2126.i.us166, %.outer.us152 ]
+  %.reass185.pre-phi = phi i64 [ %.pre222, %..loopexit81_crit_edge ], [ %.reass, %.outer.split.us.preheader ], [ %.reass, %.outer ], [ %.reass, %run_prog.exit.us ], [ %.reass, %.outer.us152 ]
+  %.pre-phi221 = phi i64 [ %.pre220, %..loopexit81_crit_edge ], [ %39, %.outer.split.us.preheader ], [ %39, %.outer ], [ %39, %run_prog.exit.us ], [ %39, %.outer.us152 ]
+  %.037 = phi i32 [ 0, %..loopexit81_crit_edge ], [ %.441, %.outer.split.us.preheader ], [ %.542.ph.ph, %.outer ], [ %.441, %run_prog.exit.us ], [ %.441, %.outer.us152 ]
+  %.029 = phi i16 [ 0, %..loopexit81_crit_edge ], [ %.433, %.outer.split.us.preheader ], [ %.534.ph.ph, %.outer ], [ %.433, %run_prog.exit.us ], [ %.433, %.outer.us152 ]
+  %.0 = phi i32 [ 0, %..loopexit81_crit_edge ], [ %.4, %.outer.split.us.preheader ], [ %.5.ph.ph, %.outer ], [ %.4, %run_prog.exit.us ], [ %.4, %.outer.us152 ]
+  %.1134.i = phi ptr [ %3, %..loopexit81_crit_edge ], [ %.0133.i, %.outer.split.us.preheader ], [ %.0133.i, %.outer ], [ %.0133.i, %run_prog.exit.us ], [ %.0133.i, %.outer.us152 ]
+  %.1129.i = phi ptr [ %3, %..loopexit81_crit_edge ], [ %.0128.i, %.outer.split.us.preheader ], [ %.2130.i, %.outer ], [ %99, %run_prog.exit.us ], [ %.2130.i.us165, %.outer.us152 ]
+  %.1125.i = phi i8 [ %11, %..loopexit81_crit_edge ], [ %.0124.i, %.outer.split.us.preheader ], [ %.2126.i, %.outer ], [ %147, %run_prog.exit.us ], [ %.2126.i.us166, %.outer.us152 ]
   %258 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %.not154.i = icmp eq i32 %9, 2
   %259 = icmp eq i32 %9, 1
@@ -3062,9 +3062,9 @@ run_prog.exit11:                                  ; preds = %281, %.lr.ph395
   br label %.loopexit.loopexit
 
 doReports.exit.i:                                 ; preds = %357, %331, %327, %353, %371, %run_prog.exit11
-  %.340 = phi i32 [ %.138390, %run_prog.exit11 ], [ %.138390, %371 ], [ %.138390, %327 ], [ %345, %353 ], [ %.138390, %331 ], [ %.138390, %357 ]
-  %.332 = phi i16 [ %.130391, %run_prog.exit11 ], [ %.130391, %371 ], [ %.130391, %327 ], [ %314, %353 ], [ %.130391, %331 ], [ %.130391, %357 ]
-  %.3 = phi i32 [ %.1392, %run_prog.exit11 ], [ %.1392, %371 ], [ %.1392, %327 ], [ %347, %353 ], [ %.1392, %331 ], [ %.1392, %357 ]
+  %.340 = phi i32 [ %.138390, %run_prog.exit11 ], [ %.138390, %371 ], [ %.138390, %331 ], [ %.138390, %327 ], [ %345, %353 ], [ %.138390, %357 ]
+  %.332 = phi i16 [ %.130391, %run_prog.exit11 ], [ %.130391, %371 ], [ %.130391, %331 ], [ %.130391, %327 ], [ %314, %353 ], [ %.130391, %357 ]
+  %.3 = phi i32 [ %.1392, %run_prog.exit11 ], [ %.1392, %371 ], [ %.1392, %331 ], [ %.1392, %327 ], [ %347, %353 ], [ %.1392, %357 ]
   %385 = icmp ult ptr %265, %12
   %386 = icmp ne i8 %313, 0
   %387 = and i1 %385, %386
@@ -3087,7 +3087,7 @@ goughExec8_i.exit.sink.split:                     ; preds = %goughExec8_i.exit.s
   br label %goughExec8_i.exit
 
 goughExec8_i.exit:                                ; preds = %238, %213, %254, %353, %327, %367, %goughExec8_i.exit.sink.split, %._crit_edge
-  %.6.i = phi i8 [ 1, %._crit_edge ], [ 1, %goughExec8_i.exit.sink.split ], [ 0, %213 ], [ 0, %367 ], [ 0, %353 ], [ 0, %254 ], [ 0, %327 ], [ 0, %238 ]
+  %.6.i = phi i8 [ 1, %goughExec8_i.exit.sink.split ], [ 0, %254 ], [ 0, %213 ], [ 1, %._crit_edge ], [ 0, %367 ], [ 0, %353 ], [ 0, %327 ], [ 0, %238 ]
   ret i8 %.6.i
 }
 
@@ -4074,10 +4074,10 @@ doSherman16.exit16:                               ; preds = %.thread67, %271, %2
   br label %.loopexit.loopexit
 
 doReports.exit.i:                                 ; preds = %330, %304, %326, %300, %.doReports.exit.i_crit_edge
-  %.439 = phi i32 [ %.136298, %.doReports.exit.i_crit_edge ], [ %318, %326 ], [ %.136298, %304 ], [ %.136298, %300 ], [ %.136298, %330 ]
-  %.429 = phi i16 [ %.126299, %.doReports.exit.i_crit_edge ], [ %292, %326 ], [ %.126299, %304 ], [ %.126299, %300 ], [ %.126299, %330 ]
-  %.4 = phi i32 [ %.1300, %.doReports.exit.i_crit_edge ], [ %320, %326 ], [ %.1300, %304 ], [ %.1300, %300 ], [ %.1300, %330 ]
-  %.7151.i = phi i16 [ %.pre178, %.doReports.exit.i_crit_edge ], [ %292, %326 ], [ %292, %304 ], [ %292, %300 ], [ %292, %330 ]
+  %.439 = phi i32 [ %.136298, %300 ], [ %.136298, %.doReports.exit.i_crit_edge ], [ %318, %326 ], [ %.136298, %304 ], [ %.136298, %330 ]
+  %.429 = phi i16 [ %.126299, %300 ], [ %.126299, %.doReports.exit.i_crit_edge ], [ %292, %326 ], [ %.126299, %304 ], [ %.126299, %330 ]
+  %.4 = phi i32 [ %.1300, %300 ], [ %.1300, %.doReports.exit.i_crit_edge ], [ %320, %326 ], [ %.1300, %304 ], [ %.1300, %330 ]
+  %.7151.i = phi i16 [ %292, %300 ], [ %.pre178, %.doReports.exit.i_crit_edge ], [ %292, %326 ], [ %292, %304 ], [ %292, %330 ]
   %364 = icmp ult ptr %202, %13
   %365 = icmp ne i16 %.7151.i, 0
   %366 = select i1 %364, i1 %365, i1 false
@@ -4096,7 +4096,7 @@ doReports.exit.i:                                 ; preds = %330, %304, %326, %3
   br label %goughExec16_i.exit
 
 goughExec16_i.exit:                               ; preds = %171, %145, %185, %326, %300, %340, %287, %132, %368
-  %.6.i = phi i8 [ 1, %368 ], [ 1, %132 ], [ 1, %287 ], [ 0, %185 ], [ 0, %340 ], [ 0, %326 ], [ 0, %300 ], [ 0, %145 ], [ 0, %171 ]
+  %.6.i = phi i8 [ 0, %326 ], [ 0, %340 ], [ 1, %368 ], [ 1, %132 ], [ 0, %185 ], [ 1, %287 ], [ 0, %300 ], [ 0, %145 ], [ 0, %171 ]
   ret i8 %.6.i
 }
 

@@ -282,7 +282,7 @@ packetlogger_check_record.exit81:                 ; preds = %60
   br label %.thread
 
 .thread:                                          ; preds = %packetlogger_check_record.exit, %packetlogger_check_record.exit81, %packetlogger_read_header.exit73.thread, %packetlogger_check_record.exit81.thread, %55, %packetlogger_check_record.exit.thread, %packetlogger_read_header.exit.thread, %.thread97, %packetlogger_check_record.exit.thread84, %packetlogger_check_record.exit81.thread90, %76
-  %.0 = phi i32 [ %spec.select111, %packetlogger_check_record.exit ], [ -1, %packetlogger_check_record.exit.thread84 ], [ 1, %76 ], [ -1, %packetlogger_check_record.exit81.thread90 ], [ %15, %packetlogger_read_header.exit.thread ], [ -1, %.thread97 ], [ 0, %packetlogger_check_record.exit.thread ], [ 0, %packetlogger_check_record.exit81.thread ], [ 0, %55 ], [ %spec.select, %packetlogger_check_record.exit81 ], [ -1, %packetlogger_read_header.exit73.thread ]
+  %.0 = phi i32 [ -1, %.thread97 ], [ %spec.select111, %packetlogger_check_record.exit ], [ -1, %packetlogger_check_record.exit.thread84 ], [ 1, %76 ], [ -1, %packetlogger_check_record.exit81.thread90 ], [ %15, %packetlogger_read_header.exit.thread ], [ 0, %packetlogger_check_record.exit.thread ], [ 0, %packetlogger_check_record.exit81.thread ], [ 0, %55 ], [ %spec.select, %packetlogger_check_record.exit81 ], [ -1, %packetlogger_read_header.exit73.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }

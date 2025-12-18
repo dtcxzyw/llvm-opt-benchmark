@@ -453,7 +453,7 @@ define dso_local i32 @php_pcre2_callout_enumerate(ptr noundef %0, ptr noundef re
   br label %.backedge
 
 .backedge:                                        ; preds = %52, %60, %70, %101, %145, %153, %45, %41, %35
-  %.057.be = phi ptr [ %158, %153 ], [ %51, %45 ], [ %40, %41 ], [ %40, %35 ], [ %152, %145 ], [ %spec.select, %52 ], [ %69, %60 ], [ %79, %70 ], [ %107, %101 ]
+  %.057.be = phi ptr [ %107, %101 ], [ %79, %70 ], [ %69, %60 ], [ %158, %153 ], [ %51, %45 ], [ %40, %41 ], [ %40, %35 ], [ %152, %145 ], [ %spec.select, %52 ]
   br label %33
 
 60:                                               ; preds = %33, %33

@@ -611,7 +611,7 @@ common.resume:                                    ; preds = %45, %92, %.body.i50
   br label %"_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17hf8d9b90d0e14a051E.llvm.18440006897943885896.exit"
 
 "_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17hf8d9b90d0e14a051E.llvm.18440006897943885896.exit": ; preds = %32, %79, %"_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17hf8d9b90d0e14a051E.llvm.18440006897943885896.exit.sink.split", %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h8482c6f155e6cc47E.exit63", %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h8482c6f155e6cc47E.exit57", %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h8482c6f155e6cc47E.exit48", %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h8482c6f155e6cc47E.exit"
-  %.sroa.0.0 = phi ptr [ %99, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h8482c6f155e6cc47E.exit57" ], [ %67, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h8482c6f155e6cc47E.exit48" ], [ %52, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h8482c6f155e6cc47E.exit" ], [ %108, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h8482c6f155e6cc47E.exit63" ], [ %.sink139, %"_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17hf8d9b90d0e14a051E.llvm.18440006897943885896.exit.sink.split" ], [ null, %79 ], [ null, %32 ]
+  %.sroa.0.0 = phi ptr [ %99, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h8482c6f155e6cc47E.exit57" ], [ null, %79 ], [ %67, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h8482c6f155e6cc47E.exit48" ], [ %52, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h8482c6f155e6cc47E.exit" ], [ %108, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h8482c6f155e6cc47E.exit63" ], [ %.sink139, %"_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17hf8d9b90d0e14a051E.llvm.18440006897943885896.exit.sink.split" ], [ null, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.sroa.0.0
 
@@ -925,7 +925,7 @@ common.resume:                                    ; preds = %45, %92, %.body.i50
   br label %"_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17hf8d9b90d0e14a051E.llvm.18440006897943885896.exit"
 
 "_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17hf8d9b90d0e14a051E.llvm.18440006897943885896.exit": ; preds = %32, %79, %"_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17hf8d9b90d0e14a051E.llvm.18440006897943885896.exit.sink.split", %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h4499d77934c5da98E.exit63", %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h4499d77934c5da98E.exit57", %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h4499d77934c5da98E.exit48", %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h4499d77934c5da98E.exit"
-  %.sroa.0.0 = phi ptr [ %99, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h4499d77934c5da98E.exit57" ], [ %67, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h4499d77934c5da98E.exit48" ], [ %52, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h4499d77934c5da98E.exit" ], [ %108, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h4499d77934c5da98E.exit63" ], [ %.sink139, %"_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17hf8d9b90d0e14a051E.llvm.18440006897943885896.exit.sink.split" ], [ null, %79 ], [ null, %32 ]
+  %.sroa.0.0 = phi ptr [ %99, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h4499d77934c5da98E.exit57" ], [ null, %79 ], [ %67, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h4499d77934c5da98E.exit48" ], [ %52, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h4499d77934c5da98E.exit" ], [ %108, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h4499d77934c5da98E.exit63" ], [ %.sink139, %"_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17hf8d9b90d0e14a051E.llvm.18440006897943885896.exit.sink.split" ], [ null, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.sroa.0.0
 
@@ -1239,7 +1239,7 @@ common.resume:                                    ; preds = %45, %92, %.body.i50
   br label %"_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17hf8d9b90d0e14a051E.llvm.18440006897943885896.exit"
 
 "_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17hf8d9b90d0e14a051E.llvm.18440006897943885896.exit": ; preds = %32, %79, %"_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17hf8d9b90d0e14a051E.llvm.18440006897943885896.exit.sink.split", %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17hfa722195479cb05aE.exit63", %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17hfa722195479cb05aE.exit57", %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17hfa722195479cb05aE.exit48", %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17hfa722195479cb05aE.exit"
-  %.sroa.0.0 = phi ptr [ %99, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17hfa722195479cb05aE.exit57" ], [ %67, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17hfa722195479cb05aE.exit48" ], [ %52, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17hfa722195479cb05aE.exit" ], [ %108, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17hfa722195479cb05aE.exit63" ], [ %.sink139, %"_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17hf8d9b90d0e14a051E.llvm.18440006897943885896.exit.sink.split" ], [ null, %79 ], [ null, %32 ]
+  %.sroa.0.0 = phi ptr [ %99, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17hfa722195479cb05aE.exit57" ], [ null, %79 ], [ %67, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17hfa722195479cb05aE.exit48" ], [ %52, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17hfa722195479cb05aE.exit" ], [ %108, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17hfa722195479cb05aE.exit63" ], [ %.sink139, %"_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17hf8d9b90d0e14a051E.llvm.18440006897943885896.exit.sink.split" ], [ null, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.sroa.0.0
 
@@ -1553,7 +1553,7 @@ common.resume:                                    ; preds = %45, %92, %.body.i50
   br label %"_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17hf8d9b90d0e14a051E.llvm.18440006897943885896.exit"
 
 "_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17hf8d9b90d0e14a051E.llvm.18440006897943885896.exit": ; preds = %32, %79, %"_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17hf8d9b90d0e14a051E.llvm.18440006897943885896.exit.sink.split", %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17he9177ecaef383319E.exit63", %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17he9177ecaef383319E.exit57", %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17he9177ecaef383319E.exit48", %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17he9177ecaef383319E.exit"
-  %.sroa.0.0 = phi ptr [ %99, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17he9177ecaef383319E.exit57" ], [ %67, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17he9177ecaef383319E.exit48" ], [ %52, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17he9177ecaef383319E.exit" ], [ %108, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17he9177ecaef383319E.exit63" ], [ %.sink139, %"_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17hf8d9b90d0e14a051E.llvm.18440006897943885896.exit.sink.split" ], [ null, %79 ], [ null, %32 ]
+  %.sroa.0.0 = phi ptr [ %99, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17he9177ecaef383319E.exit57" ], [ null, %79 ], [ %67, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17he9177ecaef383319E.exit48" ], [ %52, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17he9177ecaef383319E.exit" ], [ %108, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17he9177ecaef383319E.exit63" ], [ %.sink139, %"_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17hf8d9b90d0e14a051E.llvm.18440006897943885896.exit.sink.split" ], [ null, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.sroa.0.0
 
@@ -1868,7 +1868,7 @@ common.resume:                                    ; preds = %43, %90, %.body.i50
   br label %"_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17hf8d9b90d0e14a051E.llvm.18440006897943885896.exit"
 
 "_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17hf8d9b90d0e14a051E.llvm.18440006897943885896.exit": ; preds = %30, %77, %"_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17hf8d9b90d0e14a051E.llvm.18440006897943885896.exit.sink.split", %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h97dd4f34aacae3ecE.exit63", %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h97dd4f34aacae3ecE.exit57", %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h97dd4f34aacae3ecE.exit48", %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h97dd4f34aacae3ecE.exit"
-  %.sroa.0.0 = phi ptr [ %97, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h97dd4f34aacae3ecE.exit57" ], [ %65, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h97dd4f34aacae3ecE.exit48" ], [ %50, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h97dd4f34aacae3ecE.exit" ], [ %106, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h97dd4f34aacae3ecE.exit63" ], [ %.sink76, %"_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17hf8d9b90d0e14a051E.llvm.18440006897943885896.exit.sink.split" ], [ null, %77 ], [ null, %30 ]
+  %.sroa.0.0 = phi ptr [ %97, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h97dd4f34aacae3ecE.exit57" ], [ null, %77 ], [ %65, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h97dd4f34aacae3ecE.exit48" ], [ %50, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h97dd4f34aacae3ecE.exit" ], [ %106, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h97dd4f34aacae3ecE.exit63" ], [ %.sink76, %"_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17hf8d9b90d0e14a051E.llvm.18440006897943885896.exit.sink.split" ], [ null, %30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.sroa.0.0
 
@@ -3531,7 +3531,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN16concurrent_queue9unbounded18Unbou
   br i1 %27, label %28, label %30
 
 "_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17hf9bb4f1fcd5cd05aE.exit": ; preds = %85, %73, %._crit_edge.i50, %._crit_edge.i, %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17h9a3405db4706185fE.exit", %24
-  %.sroa.0.0 = phi i8 [ %., %24 ], [ 2, %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17h9a3405db4706185fE.exit" ], [ 2, %._crit_edge.i ], [ 2, %._crit_edge.i50 ], [ 2, %73 ], [ 2, %85 ]
+  %.sroa.0.0 = phi i8 [ %., %24 ], [ 2, %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17h9a3405db4706185fE.exit" ], [ 2, %73 ], [ 2, %._crit_edge.i ], [ 2, %._crit_edge.i50 ], [ 2, %85 ]
   ret i8 %.sroa.0.0
 
 28:                                               ; preds = %26
@@ -3869,7 +3869,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$3pop17h9
   br label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h1170322781e76f78E.exit"
 
 "_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h1170322781e76f78E.exit": ; preds = %97, %84, %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h1170322781e76f78E.exit.sink.split", %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17h82bcea7954c2a682E.exit"
-  %.sroa.0.0 = phi ptr [ %53, %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17h82bcea7954c2a682E.exit" ], [ %.sroa.0.0.ph, %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h1170322781e76f78E.exit.sink.split" ], [ %77, %84 ], [ %53, %97 ]
+  %.sroa.0.0 = phi ptr [ %.sroa.0.0.ph, %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h1170322781e76f78E.exit.sink.split" ], [ %77, %84 ], [ %53, %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17h82bcea7954c2a682E.exit" ], [ %53, %97 ]
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.0.0, ptr %102, align 8
   br label %33
@@ -4100,7 +4100,7 @@ define hidden { i64, ptr } @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$
   br i1 %19, label %.lr.ph173, label %._crit_edge
 
 .thread67:                                        ; preds = %.outer.backedge, %81, %2
-  %.sroa.0.051.ph.lcssa99 = phi ptr [ null, %2 ], [ %.sroa.0.051.ph103, %81 ], [ %.sroa.0.051.ph.be, %.outer.backedge ]
+  %.sroa.0.051.ph.lcssa99 = phi ptr [ %.sroa.0.051.ph103, %81 ], [ null, %2 ], [ %.sroa.0.051.ph.be, %.outer.backedge ]
   %20 = load ptr, ptr %5, align 8, !nonnull !4, !noundef !4
   br label %92
 
@@ -4515,7 +4515,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17h2e141474c73ef19bE(pt
   br i1 %.sroa.18.0.in.i.us, label %.split17.us, label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %16, %13, %11
-  %.sroa.0.0.us.be = phi i32 [ %15, %13 ], [ %.sroa.08.0.i.us, %16 ], [ %.sroa.08.0.i13.us, %11 ]
+  %.sroa.0.0.us.be = phi i32 [ %.sroa.08.0.i13.us, %11 ], [ %15, %13 ], [ %.sroa.08.0.i.us, %16 ]
   br label %.split.us
 
 .split:                                           ; preds = %4, %.split.backedge
@@ -4662,7 +4662,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17h2e141474c73ef19bE(pt
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %47, %22, %45
-  %.sroa.0.0.be = phi i32 [ %49, %47 ], [ %.sroa.08.0.i, %22 ], [ %.sroa.08.0.i13, %45 ]
+  %.sroa.0.0.be = phi i32 [ %.sroa.08.0.i13, %45 ], [ %49, %47 ], [ %.sroa.08.0.i, %22 ]
   br label %.split
 }
 
@@ -4706,7 +4706,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17h3840d4b54c364aecE(pt
   br i1 %.sroa.18.0.in.i.us, label %.split17.us, label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %16, %13, %11
-  %.sroa.0.0.us.be = phi i32 [ %15, %13 ], [ %.sroa.08.0.i.us, %16 ], [ %.sroa.08.0.i13.us, %11 ]
+  %.sroa.0.0.us.be = phi i32 [ %.sroa.08.0.i13.us, %11 ], [ %15, %13 ], [ %.sroa.08.0.i.us, %16 ]
   br label %.split.us
 
 .split:                                           ; preds = %4, %.split.backedge
@@ -4853,7 +4853,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17h3840d4b54c364aecE(pt
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %47, %22, %45
-  %.sroa.0.0.be = phi i32 [ %49, %47 ], [ %.sroa.08.0.i, %22 ], [ %.sroa.08.0.i13, %45 ]
+  %.sroa.0.0.be = phi i32 [ %.sroa.08.0.i13, %45 ], [ %49, %47 ], [ %.sroa.08.0.i, %22 ]
   br label %.split
 }
 
@@ -4894,7 +4894,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17h43dd0df1049a14acE(pt
   br i1 %.sroa.18.0.in.i.us, label %.split16.us, label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %15, %12, %10
-  %.sroa.0.0.us.be = phi i32 [ %14, %12 ], [ %.sroa.08.0.i.us, %15 ], [ %.sroa.08.0.i12.us, %10 ]
+  %.sroa.0.0.us.be = phi i32 [ %.sroa.08.0.i12.us, %10 ], [ %14, %12 ], [ %.sroa.08.0.i.us, %15 ]
   br label %.split.us
 
 .split:                                           ; preds = %4, %.split.backedge
@@ -5000,7 +5000,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17h43dd0df1049a14acE(pt
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %39, %21, %37
-  %.sroa.0.0.be = phi i32 [ %41, %39 ], [ %.sroa.08.0.i, %21 ], [ %.sroa.08.0.i12, %37 ]
+  %.sroa.0.0.be = phi i32 [ %.sroa.08.0.i12, %37 ], [ %41, %39 ], [ %.sroa.08.0.i, %21 ]
   br label %.split
 }
 
@@ -5044,7 +5044,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17h469140d97bce7807E(pt
   br i1 %.sroa.18.0.in.i.us, label %.split17.us, label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %16, %13, %11
-  %.sroa.0.0.us.be = phi i32 [ %15, %13 ], [ %.sroa.08.0.i.us, %16 ], [ %.sroa.08.0.i13.us, %11 ]
+  %.sroa.0.0.us.be = phi i32 [ %.sroa.08.0.i13.us, %11 ], [ %15, %13 ], [ %.sroa.08.0.i.us, %16 ]
   br label %.split.us
 
 .split:                                           ; preds = %4, %.split.backedge
@@ -5191,7 +5191,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17h469140d97bce7807E(pt
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %47, %22, %45
-  %.sroa.0.0.be = phi i32 [ %49, %47 ], [ %.sroa.08.0.i, %22 ], [ %.sroa.08.0.i13, %45 ]
+  %.sroa.0.0.be = phi i32 [ %.sroa.08.0.i13, %45 ], [ %49, %47 ], [ %.sroa.08.0.i, %22 ]
   br label %.split
 }
 
@@ -5235,7 +5235,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17h947b1747e006b60eE(pt
   br i1 %.sroa.18.0.in.i.us, label %.split17.us, label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %16, %13, %11
-  %.sroa.0.0.us.be = phi i32 [ %15, %13 ], [ %.sroa.08.0.i.us, %16 ], [ %.sroa.08.0.i13.us, %11 ]
+  %.sroa.0.0.us.be = phi i32 [ %.sroa.08.0.i13.us, %11 ], [ %15, %13 ], [ %.sroa.08.0.i.us, %16 ]
   br label %.split.us
 
 .split:                                           ; preds = %4, %.split.backedge
@@ -5382,7 +5382,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17h947b1747e006b60eE(pt
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %47, %22, %45
-  %.sroa.0.0.be = phi i32 [ %49, %47 ], [ %.sroa.08.0.i, %22 ], [ %.sroa.08.0.i13, %45 ]
+  %.sroa.0.0.be = phi i32 [ %.sroa.08.0.i13, %45 ], [ %49, %47 ], [ %.sroa.08.0.i, %22 ]
   br label %.split
 }
 
@@ -5424,7 +5424,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17hf2ce9ab7ef01ff4fE(pt
   br i1 %.sroa.18.0.in.i.us, label %.split17.us, label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %15, %12, %10
-  %.sroa.0.0.us.be = phi i32 [ %14, %12 ], [ %.sroa.08.0.i.us, %15 ], [ %.sroa.08.0.i13.us, %10 ]
+  %.sroa.0.0.us.be = phi i32 [ %.sroa.08.0.i13.us, %10 ], [ %14, %12 ], [ %.sroa.08.0.i.us, %15 ]
   br label %.split.us
 
 .split:                                           ; preds = %4, %.split.backedge
@@ -5543,7 +5543,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17hf2ce9ab7ef01ff4fE(pt
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %41, %21, %39
-  %.sroa.0.0.be = phi i32 [ %43, %41 ], [ %.sroa.08.0.i, %21 ], [ %.sroa.08.0.i13, %39 ]
+  %.sroa.0.0.be = phi i32 [ %.sroa.08.0.i13, %39 ], [ %43, %41 ], [ %.sroa.08.0.i, %21 ]
   br label %.split
 }
 

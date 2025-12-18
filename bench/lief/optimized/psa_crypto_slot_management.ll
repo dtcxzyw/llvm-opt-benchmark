@@ -399,7 +399,7 @@ define hidden i32 @psa_get_and_lock_key_slot(i32 noundef %0, ptr noundef capture
   store ptr %.0.i, ptr %1, align 8, !tbaa !3
   br label %psa_get_and_lock_key_slot_in_memory.exit
 
-.loopexit48:                                      ; preds = %39, %17, %14, %9, %22, %26
+.loopexit48:                                      ; preds = %39, %14, %9, %17, %22, %26
   %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_data, i64 176), align 8, !tbaa !3
   br label %47
 
@@ -800,8 +800,8 @@ define hidden i32 @psa_close_key(i32 noundef %0) local_unnamed_addr #3 {
   store i64 %38, ptr %37, align 8, !tbaa !18
   br label %psa_unregister_read.exit
 
-psa_unregister_read.exit:                         ; preds = %35, %45, %25, %.loopexit.i, %13, %10, %5, %18, %22, %43, %1
-  %.07 = phi i32 [ 0, %1 ], [ -136, %22 ], [ %44, %43 ], [ -136, %25 ], [ -151, %.loopexit.i ], [ -136, %13 ], [ -136, %10 ], [ -136, %5 ], [ -136, %18 ], [ 0, %45 ], [ -136, %35 ]
+psa_unregister_read.exit:                         ; preds = %35, %45, %25, %.loopexit.i, %10, %5, %13, %18, %22, %43, %1
+  %.07 = phi i32 [ 0, %1 ], [ -136, %22 ], [ %44, %43 ], [ -151, %.loopexit.i ], [ -136, %25 ], [ 0, %45 ], [ -136, %10 ], [ -136, %5 ], [ -136, %13 ], [ -136, %18 ], [ -136, %35 ]
   ret i32 %.07
 }
 
@@ -897,8 +897,8 @@ define hidden i32 @psa_purge_key(i32 noundef %0) local_unnamed_addr #3 {
   store i64 %37, ptr %36, align 8, !tbaa !18
   br label %psa_unregister_read.exit
 
-psa_unregister_read.exit:                         ; preds = %34, %12, %9, %4, %.loopexit.i, %17, %21, %24, %._crit_edge.i, %46
-  %.05 = phi i32 [ 0, %._crit_edge.i ], [ %47, %46 ], [ -140, %17 ], [ -140, %21 ], [ -136, %24 ], [ -140, %12 ], [ -140, %9 ], [ -140, %4 ], [ -151, %.loopexit.i ], [ -140, %34 ]
+psa_unregister_read.exit:                         ; preds = %34, %9, %4, %12, %17, %.loopexit.i, %21, %24, %._crit_edge.i, %46
+  %.05 = phi i32 [ 0, %._crit_edge.i ], [ %47, %46 ], [ -140, %17 ], [ -151, %.loopexit.i ], [ -140, %21 ], [ -136, %24 ], [ -140, %9 ], [ -140, %4 ], [ -140, %12 ], [ -140, %34 ]
   ret i32 %.05
 }
 

@@ -7538,7 +7538,7 @@ Abc_NtkCheckSpecialPi.exit:                       ; preds = %.lr.ph323
   br i1 %428, label %.lr.ph364.split, label %.critedge15, !llvm.loop !157
 
 .critedge15:                                      ; preds = %425, %388, %.preheader
-  %429 = phi ptr [ %355, %.preheader ], [ %118, %388 ], [ %355, %425 ]
+  %429 = phi ptr [ %118, %388 ], [ %355, %.preheader ], [ %355, %425 ]
   br i1 %or.cond13, label %430, label %431
 
 430:                                              ; preds = %.critedge15

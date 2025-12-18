@@ -93,8 +93,8 @@ define internal i32 @mpl2_decode_frame(ptr noundef readonly captures(none) %0, p
   br label %.critedge.i.preheader, !llvm.loop !31
 
 .critedge.i.preheader:                            ; preds = %21, %..critedge.i_crit_edge, %.preheader.i
-  %.ph = phi i8 [ %19, %.preheader.i ], [ 0, %..critedge.i_crit_edge ], [ %.pr.i, %21 ]
-  %.3.i.ph = phi ptr [ %.139.i, %.preheader.i ], [ %27, %..critedge.i_crit_edge ], [ %27, %21 ]
+  %.ph = phi i8 [ 0, %..critedge.i_crit_edge ], [ %19, %.preheader.i ], [ %.pr.i, %21 ]
+  %.3.i.ph = phi ptr [ %27, %..critedge.i_crit_edge ], [ %.139.i, %.preheader.i ], [ %27, %21 ]
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %.critedge.i.preheader, %30

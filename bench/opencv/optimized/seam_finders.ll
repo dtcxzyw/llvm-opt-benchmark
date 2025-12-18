@@ -8110,7 +8110,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__n
   br label %399
 
 _ZN2cv6detail12DpSeamFinder14closeToContourEiiRKNS_4Mat_IhEE.exit: ; preds = %.critedge.i, %.critedge.i165, %164, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, %151, %148
-  %188 = phi ptr [ %53, %148 ], [ %166, %164 ], [ %185, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %53, %151 ], [ %53, %.critedge.i165 ], [ %53, %.critedge.i ]
+  %188 = phi ptr [ %53, %.critedge.i165 ], [ %53, %148 ], [ %166, %164 ], [ %185, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %53, %151 ], [ %53, %.critedge.i ]
   %189 = add nuw i64 %.0127225, 1
   %190 = load ptr, ptr %29, align 8, !tbaa !152
   %191 = getelementptr inbounds nuw %"class.std::vector.20", ptr %190, i64 %12
@@ -9840,7 +9840,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backEOS2_.exit326: ; preds = %_ZNSt6ve
   br label %665
 
 .loopexit:                                        ; preds = %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backEOS2_.exit326, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backEOS2_.exit304, %.preheader513, %.preheader
-  %624 = phi ptr [ %525, %.preheader ], [ %525, %.preheader513 ], [ %577, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backEOS2_.exit304 ], [ %622, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backEOS2_.exit326 ]
+  %624 = phi ptr [ %577, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backEOS2_.exit304 ], [ %525, %.preheader ], [ %525, %.preheader513 ], [ %622, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backEOS2_.exit326 ]
   %.pre586 = load ptr, ptr %8, align 8, !tbaa !319
   br i1 %.0143, label %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPN2cv6Point_IiEESt6vectorIS4_SaIS4_EEEEEvT_SA_.exit, label %625
 
@@ -15893,7 +15893,7 @@ _ZNSt6vectorIPN2cv6detail7GCGraphIfE3VtxESaIS5_EED2Ev.exit: ; preds = %.loopexit
   br label %395
 
 ._crit_edge431:                                   ; preds = %.loopexit340, %114, %._crit_edge
-  %.sroa.0.0639 = phi ptr [ null, %._crit_edge ], [ %.sroa.0.0641, %114 ], [ %.sroa.0.7.lcssa, %.loopexit340 ]
+  %.sroa.0.0639 = phi ptr [ %.sroa.0.0641, %114 ], [ null, %._crit_edge ], [ %.sroa.0.7.lcssa, %.loopexit340 ]
   %393 = load float, ptr %51, align 8, !tbaa !375
   %.not.i.i.i280 = icmp eq ptr %.sroa.0.0639, null
   br i1 %.not.i.i.i280, label %_ZNSt6vectorIPN2cv6detail7GCGraphIfE3VtxESaIS5_EED2Ev.exit281, label %394
@@ -18701,8 +18701,8 @@ _ZNKSt4lessISt4pairIiiEEclERKS1_S4_.exit.thread.i: ; preds = %_ZNKSt4lessISt4pai
   br i1 %.not.i, label %_ZNSt8_Rb_treeISt4pairIiiES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE11equal_rangeERKS1_.exit, label %8, !llvm.loop !470
 
 _ZNSt8_Rb_treeISt4pairIiiES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE11equal_rangeERKS1_.exit: ; preds = %_ZNKSt4lessISt4pairIiiEEclERKS1_S4_.exit.thread.i, %_ZNKSt4lessISt4pairIiiEEclERKS1_S4_.exit.thread.i31.i, %2, %_ZNSt8_Rb_treeISt4pairIiiES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit.i
-  %.sroa.040.0.i = phi ptr [ %.08.lcssa.i.i, %_ZNSt8_Rb_treeISt4pairIiiES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit.i ], [ %4, %2 ], [ %.08.lcssa.i.i, %_ZNKSt4lessISt4pairIiiEEclERKS1_S4_.exit.thread.i31.i ], [ %.123.i, %_ZNKSt4lessISt4pairIiiEEclERKS1_S4_.exit.thread.i ]
-  %.sroa.3.0.i = phi ptr [ %.02247.i, %_ZNSt8_Rb_treeISt4pairIiiES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit.i ], [ %4, %2 ], [ %.19.i33.i, %_ZNKSt4lessISt4pairIiiEEclERKS1_S4_.exit.thread.i31.i ], [ %.123.i, %_ZNKSt4lessISt4pairIiiEEclERKS1_S4_.exit.thread.i ]
+  %.sroa.040.0.i = phi ptr [ %.08.lcssa.i.i, %_ZNKSt4lessISt4pairIiiEEclERKS1_S4_.exit.thread.i31.i ], [ %.08.lcssa.i.i, %_ZNSt8_Rb_treeISt4pairIiiES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit.i ], [ %4, %2 ], [ %.123.i, %_ZNKSt4lessISt4pairIiiEEclERKS1_S4_.exit.thread.i ]
+  %.sroa.3.0.i = phi ptr [ %.19.i33.i, %_ZNKSt4lessISt4pairIiiEEclERKS1_S4_.exit.thread.i31.i ], [ %.02247.i, %_ZNSt8_Rb_treeISt4pairIiiES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit.i ], [ %4, %2 ], [ %.123.i, %_ZNKSt4lessISt4pairIiiEEclERKS1_S4_.exit.thread.i ]
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %43 = load i64, ptr %42, align 8, !tbaa !150
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 24

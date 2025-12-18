@@ -107,7 +107,7 @@ _ZN9grpc_coremiENS_9TimestampES0_.exit.thread:    ; preds = %21, %.thread.i, %31
   br label %65
 
 _ZN9grpc_coremiENS_9TimestampES0_.exit:           ; preds = %22, %26, %34, %37
-  %.sroa.04.0.i = phi i64 [ %spec.select.i, %22 ], [ -9223372036854775808, %26 ], [ -9223372036854775808, %34 ], [ %38, %37 ]
+  %.sroa.04.0.i = phi i64 [ %spec.select.i, %22 ], [ %38, %37 ], [ -9223372036854775808, %26 ], [ -9223372036854775808, %34 ]
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.03.0.copyload = load i64, ptr %40, align 8, !tbaa !13
   %41 = icmp slt i64 %.sroa.04.0.i, %.sroa.03.0.copyload

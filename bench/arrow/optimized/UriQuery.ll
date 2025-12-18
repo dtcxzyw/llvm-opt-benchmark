@@ -259,7 +259,7 @@ define range(i32 0, 5) i32 @uriComposeQueryExA(ptr noundef %0, ptr noundef reado
   br label %uriComposeQueryEngineA.exit
 
 uriComposeQueryEngineA.exit:                      ; preds = %50, %33, %31, %64, %.split97.us.i, %9, %6
-  %.0 = phi i32 [ 4, %9 ], [ 2, %6 ], [ 0, %.split97.us.i ], [ 0, %64 ], [ 4, %31 ], [ 4, %33 ], [ 4, %50 ]
+  %.0 = phi i32 [ 4, %9 ], [ 2, %6 ], [ 0, %64 ], [ 0, %.split97.us.i ], [ 4, %31 ], [ 4, %33 ], [ 4, %50 ]
   ret i32 %.0
 }
 
@@ -714,7 +714,7 @@ uriAppendQueryItemA.exit103:                      ; preds = %._crit_edge
   %124 = icmp eq i32 %123, 0
   br i1 %124, label %uriAppendQueryItemA.exit103.thread117, label %uriFreeQueryListMmA.exit
 
-uriAppendQueryItemA.exit103.thread117:            ; preds = %97, %108, %uriAppendQueryItemA.exit103
+uriAppendQueryItemA.exit103.thread117:            ; preds = %108, %97, %uriAppendQueryItemA.exit103
   store i32 0, ptr %12, align 4, !tbaa !3
   %125 = load ptr, ptr %0, align 8, !tbaa !22
   %126 = call i32 @uriMemoryManagerIsComplete(ptr noundef nonnull %.077) #7
@@ -744,7 +744,7 @@ uriAppendQueryItemA.exit103.thread117:            ; preds = %97, %108, %uriAppen
   br i1 %.not17.i109, label %uriFreeQueryListMmA.exit, label %128, !llvm.loop !21
 
 uriFreeQueryListMmA.exit:                         ; preds = %68, %128, %.split83, %118, %uriAppendQueryItemA.exit103.thread117, %uriAppendQueryItemA.exit.thread113, %uriAppendQueryItemA.exit103, %20, %16, %7
-  %.0 = phi i32 [ 9, %16 ], [ 2, %7 ], [ 0, %uriAppendQueryItemA.exit103 ], [ 10, %20 ], [ 3, %uriAppendQueryItemA.exit.thread113 ], [ 3, %uriAppendQueryItemA.exit103.thread117 ], [ 0, %.split83 ], [ 0, %118 ], [ 3, %128 ], [ 3, %68 ]
+  %.0 = phi i32 [ 9, %16 ], [ 2, %7 ], [ 0, %uriAppendQueryItemA.exit103 ], [ 0, %.split83 ], [ 10, %20 ], [ 3, %uriAppendQueryItemA.exit.thread113 ], [ 3, %128 ], [ 0, %118 ], [ 3, %uriAppendQueryItemA.exit103.thread117 ], [ 3, %68 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.0
 }
@@ -1127,7 +1127,7 @@ define range(i32 0, 5) i32 @uriComposeQueryExW(ptr noundef %0, ptr noundef reado
   br label %uriComposeQueryEngineW.exit
 
 uriComposeQueryEngineW.exit:                      ; preds = %51, %33, %31, %67, %.split97.us.i, %9, %6
-  %.0 = phi i32 [ 4, %9 ], [ 2, %6 ], [ 0, %.split97.us.i ], [ 0, %67 ], [ 4, %31 ], [ 4, %33 ], [ 4, %51 ]
+  %.0 = phi i32 [ 4, %9 ], [ 2, %6 ], [ 0, %67 ], [ 0, %.split97.us.i ], [ 4, %31 ], [ 4, %33 ], [ 4, %51 ]
   ret i32 %.0
 }
 
@@ -1583,7 +1583,7 @@ uriAppendQueryItemW.exit103:                      ; preds = %._crit_edge
   %129 = icmp eq i32 %128, 0
   br i1 %129, label %uriAppendQueryItemW.exit103.thread117, label %uriFreeQueryListMmW.exit
 
-uriAppendQueryItemW.exit103.thread117:            ; preds = %100, %112, %uriAppendQueryItemW.exit103
+uriAppendQueryItemW.exit103.thread117:            ; preds = %112, %100, %uriAppendQueryItemW.exit103
   store i32 0, ptr %10, align 4, !tbaa !3
   %130 = load ptr, ptr %0, align 8, !tbaa !33
   %131 = call i32 @uriMemoryManagerIsComplete(ptr noundef nonnull %.077) #7
@@ -1613,7 +1613,7 @@ uriAppendQueryItemW.exit103.thread117:            ; preds = %100, %112, %uriAppe
   br i1 %.not17.i109, label %uriFreeQueryListMmW.exit, label %133, !llvm.loop !32
 
 uriFreeQueryListMmW.exit:                         ; preds = %68, %133, %.split83, %123, %uriAppendQueryItemW.exit103.thread117, %uriAppendQueryItemW.exit.thread113, %uriAppendQueryItemW.exit103, %18, %14, %7
-  %.0 = phi i32 [ 9, %14 ], [ 2, %7 ], [ 0, %uriAppendQueryItemW.exit103 ], [ 10, %18 ], [ 3, %uriAppendQueryItemW.exit.thread113 ], [ 3, %uriAppendQueryItemW.exit103.thread117 ], [ 0, %.split83 ], [ 0, %123 ], [ 3, %133 ], [ 3, %68 ]
+  %.0 = phi i32 [ 9, %14 ], [ 2, %7 ], [ 0, %uriAppendQueryItemW.exit103 ], [ 0, %.split83 ], [ 10, %18 ], [ 3, %uriAppendQueryItemW.exit.thread113 ], [ 3, %133 ], [ 0, %123 ], [ 3, %uriAppendQueryItemW.exit103.thread117 ], [ 3, %68 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }

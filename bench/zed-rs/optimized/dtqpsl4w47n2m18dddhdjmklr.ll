@@ -330,7 +330,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h6b8c694f63a5deacE.exit.thread.i.i.i.i.i.i.i.i.i", label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h6b8c694f63a5deacE.exit.i.i.i.i.i.i.i.i.i"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h6b8c694f63a5deacE.exit.i.i.i.i.i.i.i.i.i": ; preds = %131, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h3b6902ca1ed2d4d8E.exit.thread.i.i.i.i.i.i.i.i.i", %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h3b6902ca1ed2d4d8E.exit.i.i.i.i.i.i.i.i.i"
-  %.sroa.02.041.i.i.i.i.i.i.i.i.i = phi i8 [ %spec.select.i.i.i.i.i.i.i.i.i, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h3b6902ca1ed2d4d8E.exit.thread.i.i.i.i.i.i.i.i.i" ], [ 0, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h3b6902ca1ed2d4d8E.exit.i.i.i.i.i.i.i.i.i" ], [ 0, %131 ]
+  %.sroa.02.041.i.i.i.i.i.i.i.i.i = phi i8 [ 0, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h3b6902ca1ed2d4d8E.exit.i.i.i.i.i.i.i.i.i" ], [ %spec.select.i.i.i.i.i.i.i.i.i, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h3b6902ca1ed2d4d8E.exit.thread.i.i.i.i.i.i.i.i.i" ], [ 0, %131 ]
   %rhsc.i.i.i.i.i.i.i.i.i = load i8, ptr %124, align 1, !noalias !96
   %137 = icmp eq i8 %rhsc.i.i.i.i.i.i.i.i.i, 10
   %spec.select57.i.i.i.i.i.i.i.i.i = zext i1 %137 to i64
@@ -4556,8 +4556,8 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17ha7a2b0fa0a113
   br i1 %.not.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h2da579fd199ebaffE.exit._crit_edge", label %7
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h5e5b869f0ae599b5E.exit": ; preds = %21, %17, %12, %2
-  %.sroa.7.2 = phi i64 [ 0, %2 ], [ %14, %12 ], [ %14, %21 ], [ %14, %17 ]
-  %.sroa.16.1 = phi i64 [ 0, %2 ], [ 1, %12 ], [ 1, %21 ], [ 1, %17 ]
+  %.sroa.7.2 = phi i64 [ 0, %2 ], [ %14, %17 ], [ %14, %12 ], [ %14, %21 ]
+  %.sroa.16.1 = phi i64 [ 0, %2 ], [ 1, %17 ], [ 1, %12 ], [ 1, %21 ]
   %.not1.i = icmp eq i64 %.sroa.7.2, %4
   br i1 %.not1.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h2da579fd199ebaffE.exit", label %.lr.ph.i3.preheader
 

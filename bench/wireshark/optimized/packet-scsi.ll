@@ -5945,8 +5945,8 @@ define hidden void @dissect_scsi_lun(ptr noundef %0, ptr noundef %1, i32 noundef
 76:                                               ; preds = %75
   br label %77
 
-77:                                               ; preds = %76, %75
-  %.1.ph = phi ptr [ @.str.57, %75 ], [ @.str.58, %76 ]
+77:                                               ; preds = %75, %76
+  %.1.ph = phi ptr [ @.str.58, %76 ], [ @.str.57, %75 ]
   %78 = load i32, ptr @hf_scsi_lun_extended, align 4
   %79 = add i32 %10, 1
   %80 = add nsw i32 %67, -1

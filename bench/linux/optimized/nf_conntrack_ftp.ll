@@ -370,7 +370,7 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
   br i1 %139, label %.thread34, label %141
 
 .thread34:                                        ; preds = %.split70, %.preheader, %.loopexit45
-  %140 = phi ptr [ %107, %.loopexit45 ], [ %107, %.preheader ], [ %113, %.split70 ]
+  %140 = phi ptr [ %107, %.preheader ], [ %107, %.loopexit45 ], [ %113, %.split70 ]
   call void (ptr, ptr, ptr, ...) @nf_ct_helper_log(ptr noundef %0, ptr noundef %2, ptr noundef nonnull @.str.2, ptr noundef %140) #11
   br label %.loopexit
 
@@ -675,7 +675,7 @@ define internal i32 @try_rfc959(ptr noundef readonly captures(none) %0, i64 noun
   br label %.thread
 
 .thread:                                          ; preds = %31, %5, %26, %39
-  %63 = phi i32 [ %9, %39 ], [ 0, %26 ], [ 0, %5 ], [ 0, %31 ]
+  %63 = phi i32 [ %9, %39 ], [ 0, %5 ], [ 0, %26 ], [ 0, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %63
 }
@@ -808,7 +808,7 @@ define internal i32 @try_eprt(ptr noundef %0, i64 noundef %1, ptr noundef %2, i8
   br label %.thread
 
 .thread:                                          ; preds = %60, %55, %68
-  %83 = phi i32 [ %38, %68 ], [ 0, %55 ], [ 0, %60 ]
+  %83 = phi i32 [ 0, %55 ], [ %38, %68 ], [ 0, %60 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %select.unfold11
 

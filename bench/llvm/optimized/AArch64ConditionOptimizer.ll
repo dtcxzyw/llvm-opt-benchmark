@@ -1328,7 +1328,7 @@ _ZN4llvm10prev_nodbgINS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEEET
   br i1 %or.cond.not.i.i.i.i, label %_ZNK4llvm19MachineRegisterInfo15use_nodbg_emptyENS_8RegisterE.exit.thread48, label %.critedge2.i.i.i.i, !llvm.loop !266
 
 _ZNK4llvm19MachineRegisterInfo15use_nodbg_emptyENS_8RegisterE.exit.thread48: ; preds = %.lr.ph, %_ZNK4llvm19MachineRegisterInfo15use_nodbg_emptyENS_8RegisterE.exit, %_ZN4llvm10prev_nodbgINS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEEET_S4_S4_b.exit, %48, %48, %48, %48, %48, %48, %48, %48, %48, %48, %48, %48, %.critedge2.i.i.i.i, %85, %51, %58, %66, %82, %6, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %6 ], [ %.sroa.03.0.lcssa.i.i, %66 ], [ null, %82 ], [ null, %58 ], [ null, %51 ], [ null, %_ZNK4llvm19MachineRegisterInfo15use_nodbg_emptyENS_8RegisterE.exit ], [ %.sroa.03.0.lcssa.i.i, %.critedge2.i.i.i.i ], [ null, %85 ], [ null, %48 ], [ null, %48 ], [ null, %48 ], [ null, %48 ], [ null, %48 ], [ null, %48 ], [ null, %48 ], [ null, %48 ], [ null, %48 ], [ null, %48 ], [ null, %48 ], [ null, %48 ], [ null, %_ZN4llvm10prev_nodbgINS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEEET_S4_S4_b.exit ], [ null, %.lr.ph ]
+  %.0 = phi ptr [ null, %_ZNK4llvm19MachineRegisterInfo15use_nodbg_emptyENS_8RegisterE.exit ], [ null, %2 ], [ null, %6 ], [ %.sroa.03.0.lcssa.i.i, %.critedge2.i.i.i.i ], [ null, %51 ], [ %.sroa.03.0.lcssa.i.i, %66 ], [ null, %82 ], [ null, %58 ], [ null, %85 ], [ null, %48 ], [ null, %48 ], [ null, %48 ], [ null, %48 ], [ null, %48 ], [ null, %48 ], [ null, %48 ], [ null, %48 ], [ null, %48 ], [ null, %48 ], [ null, %48 ], [ null, %48 ], [ null, %_ZN4llvm10prev_nodbgINS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEEET_S4_S4_b.exit ], [ null, %.lr.ph ]
   ret ptr %.0
 }
 

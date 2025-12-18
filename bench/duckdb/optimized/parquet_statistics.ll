@@ -4374,7 +4374,7 @@ define internal fastcc noundef zeroext i1 @_ZN6duckdbL18HasFilterConstantsERKNS_
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph35, %24, %14, %1, %4, %9
-  %.0 = phi i1 [ %13, %9 ], [ false, %1 ], [ false, %4 ], [ false, %14 ], [ false, %24 ], [ %22, %.lr.ph35 ], [ %32, %.lr.ph ]
+  %.0 = phi i1 [ %13, %9 ], [ %22, %.lr.ph35 ], [ false, %1 ], [ false, %4 ], [ false, %14 ], [ false, %24 ], [ %32, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -4886,7 +4886,7 @@ _ZN6duckdb18ParquetBloomFilter11FilterCheckEm.exit: ; preds = %_ZN6duckdb17Parqu
   br i1 %.not36, label %_ZN6duckdbL10ValueXXH64ERKNS_5ValueE.exit.thread, label %.lr.ph
 
 _ZN6duckdbL10ValueXXH64ERKNS_5ValueE.exit.thread: ; preds = %.lr.ph, %.lr.ph45, %105, %95, %17, %_ZN6duckdb18ParquetBloomFilter11FilterCheckEm.exit, %2, %_ZN6duckdbL10ValueXXH64ERKNS_5ValueE.exit
-  %.0 = phi i1 [ false, %2 ], [ %spec.select, %_ZN6duckdb18ParquetBloomFilter11FilterCheckEm.exit ], [ false, %_ZN6duckdbL10ValueXXH64ERKNS_5ValueE.exit ], [ false, %17 ], [ false, %95 ], [ true, %105 ], [ %103, %.lr.ph45 ], [ %113, %.lr.ph ]
+  %.0 = phi i1 [ false, %2 ], [ false, %17 ], [ %103, %.lr.ph45 ], [ %spec.select, %_ZN6duckdb18ParquetBloomFilter11FilterCheckEm.exit ], [ false, %_ZN6duckdbL10ValueXXH64ERKNS_5ValueE.exit ], [ false, %95 ], [ true, %105 ], [ %113, %.lr.ph ]
   ret i1 %.0
 }
 

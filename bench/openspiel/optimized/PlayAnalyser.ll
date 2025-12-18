@@ -659,7 +659,7 @@ define i32 @AnalyseAllPlaysPBN(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
   br label %AnalyseAllPlaysBin.exit
 
 AnalyseAllPlaysBin.exit:                          ; preds = %12, %46, %57, %54, %52, %._crit_edge42, %4
-  %.033 = phi i32 [ -101, %4 ], [ %56, %54 ], [ -101, %._crit_edge42 ], [ -1, %52 ], [ %..i, %57 ], [ -98, %46 ], [ -99, %12 ]
+  %.033 = phi i32 [ %..i, %57 ], [ -101, %4 ], [ -98, %46 ], [ %56, %54 ], [ -101, %._crit_edge42 ], [ -1, %52 ], [ -99, %12 ]
   ret i32 %.033
 }
 

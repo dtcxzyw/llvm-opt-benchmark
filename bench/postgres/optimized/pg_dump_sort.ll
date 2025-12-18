@@ -1961,7 +1961,7 @@ define internal fastcc i32 @findLoop(ptr noundef %0, i32 noundef %1, ptr noundef
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %32, %41, %13, %6, %._crit_edge61
-  %.0 = phi i32 [ 0, %._crit_edge61 ], [ 0, %6 ], [ 0, %13 ], [ %22, %32 ], [ %42, %41 ], [ 0, %.lr.ph ]
+  %.0 = phi i32 [ 0, %._crit_edge61 ], [ 0, %6 ], [ 0, %13 ], [ %42, %41 ], [ %22, %32 ], [ 0, %.lr.ph ]
   ret i32 %.0
 }
 

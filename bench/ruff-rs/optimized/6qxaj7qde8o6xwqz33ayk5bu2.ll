@@ -3329,7 +3329,7 @@ _ZN4core5slice4sort6shared17find_existing_run17h187cac858c81ccb6E.exit.i: ; pred
   br label %_ZN4core5slice4sort6stable5drift10create_run17hbbc00128040a5763E.exit
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h099ce6fee1c5d476E.exit.i": ; preds = %_ZN4core10intrinsics25typed_swap_nonoverlapping17h8801220ce6f94167E.exit.i.i.i, %.preheader20.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h0e21eddedbe98239E.exit.i", %42, %25
-  %.sroa.0.0.i1619.i = phi i64 [ %.sroa.0.0.i.i, %42 ], [ %.sroa.0.0.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h0e21eddedbe98239E.exit.i" ], [ %22, %25 ], [ 2, %.preheader20.i ], [ %.sroa.0.0.i485558.i, %_ZN4core10intrinsics25typed_swap_nonoverlapping17h8801220ce6f94167E.exit.i.i.i ]
+  %.sroa.0.0.i1619.i = phi i64 [ %22, %25 ], [ %.sroa.0.0.i.i, %42 ], [ %.sroa.0.0.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h0e21eddedbe98239E.exit.i" ], [ 2, %.preheader20.i ], [ %.sroa.0.0.i485558.i, %_ZN4core10intrinsics25typed_swap_nonoverlapping17h8801220ce6f94167E.exit.i.i.i ]
   %48 = shl i64 %.sroa.0.0.i1619.i, 1
   %49 = or disjoint i64 %48, 1
   br label %_ZN4core5slice4sort6stable5drift10create_run17hbbc00128040a5763E.exit
@@ -3615,7 +3615,7 @@ _ZN4core5slice4sort6shared17find_existing_run17h241ff898c6885db3E.exit.i: ; pred
   br label %_ZN4core5slice4sort6stable5drift10create_run17hba0af9c2f1d48276E.exit
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17he5841c6ee7f2715bE.exit.i": ; preds = %_ZN4core10intrinsics25typed_swap_nonoverlapping17h4727d19794d35259E.exit.i.i.i, %.preheader20.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h2aa4e1061912cb9aE.exit.i", %42, %25
-  %.sroa.0.0.i1619.i = phi i64 [ %.sroa.0.0.i.i, %42 ], [ %.sroa.0.0.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h2aa4e1061912cb9aE.exit.i" ], [ %22, %25 ], [ 2, %.preheader20.i ], [ %.sroa.0.0.i485558.i, %_ZN4core10intrinsics25typed_swap_nonoverlapping17h4727d19794d35259E.exit.i.i.i ]
+  %.sroa.0.0.i1619.i = phi i64 [ %22, %25 ], [ %.sroa.0.0.i.i, %42 ], [ %.sroa.0.0.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h2aa4e1061912cb9aE.exit.i" ], [ 2, %.preheader20.i ], [ %.sroa.0.0.i485558.i, %_ZN4core10intrinsics25typed_swap_nonoverlapping17h4727d19794d35259E.exit.i.i.i ]
   %48 = shl i64 %.sroa.0.0.i1619.i, 1
   %49 = or disjoint i64 %48, 1
   br label %_ZN4core5slice4sort6stable5drift10create_run17hba0af9c2f1d48276E.exit
@@ -3927,7 +3927,7 @@ _ZN4core5slice4sort6shared17find_existing_run17h34c6564e22f8e567E.exit.i: ; pred
   br label %_ZN4core5slice4sort6stable5drift10create_run17hf97ca30758bd1cb9E.exit
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17hdc5339c3aade7f57E.exit.i": ; preds = %_ZN4core10intrinsics25typed_swap_nonoverlapping17h38020be054f04ca4E.exit.i.i.i, %.preheader28.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hecec7bee05d912cbE.exit.i", %58, %25
-  %.sroa.0.0.i2427.i = phi i64 [ %.sroa.0.0.i.i, %58 ], [ %.sroa.0.0.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hecec7bee05d912cbE.exit.i" ], [ %22, %25 ], [ 2, %.preheader28.i ], [ %.sroa.0.0.i606770.i, %_ZN4core10intrinsics25typed_swap_nonoverlapping17h38020be054f04ca4E.exit.i.i.i ]
+  %.sroa.0.0.i2427.i = phi i64 [ %22, %25 ], [ %.sroa.0.0.i.i, %58 ], [ %.sroa.0.0.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hecec7bee05d912cbE.exit.i" ], [ 2, %.preheader28.i ], [ %.sroa.0.0.i606770.i, %_ZN4core10intrinsics25typed_swap_nonoverlapping17h38020be054f04ca4E.exit.i.i.i ]
   %64 = shl i64 %.sroa.0.0.i2427.i, 1
   %65 = or disjoint i64 %64, 1
   br label %_ZN4core5slice4sort6stable5drift10create_run17hf97ca30758bd1cb9E.exit
@@ -4216,7 +4216,7 @@ _ZN4core5slice4sort6shared17find_existing_run17h9da794c81146f01cE.exit.i: ; pred
   br label %_ZN4core5slice4sort6stable5drift10create_run17h464ef80863c27e79E.exit
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h8b54fc11f3c0f6a4E.exit.i": ; preds = %60, %.preheader18.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h168be53e1416e070E.exit.i", %49, %25
-  %.sroa.0.0.i1417.i = phi i64 [ %.sroa.0.0.i.i, %49 ], [ %.sroa.0.0.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h168be53e1416e070E.exit.i" ], [ %22, %25 ], [ 2, %.preheader18.i ], [ %.sroa.0.0.i495659.i, %60 ]
+  %.sroa.0.0.i1417.i = phi i64 [ %22, %25 ], [ %.sroa.0.0.i.i, %49 ], [ %.sroa.0.0.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h168be53e1416e070E.exit.i" ], [ 2, %.preheader18.i ], [ %.sroa.0.0.i495659.i, %60 ]
   %55 = shl i64 %.sroa.0.0.i1417.i, 1
   %56 = or disjoint i64 %55, 1
   br label %_ZN4core5slice4sort6stable5drift10create_run17h464ef80863c27e79E.exit
@@ -4606,7 +4606,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17ha67ec914f4a850daE(ptr dea
   br i1 %64, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2323d6a26508c31bE.exit105.thread", label %.lr.ph327
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2323d6a26508c31bE.exit105.thread": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hf56135f64b2f9da0E.exit140", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hf56135f64b2f9da0E.exit132", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hf56135f64b2f9da0E.exit124", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hf56135f64b2f9da0E.exit116", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hf56135f64b2f9da0E.exit108", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hf56135f64b2f9da0E.exit148", %.preheader287, %.preheader285, %.preheader283, %.preheader281, %.preheader279, %.preheader
-  %.sroa.27.6 = phi i64 [ %63, %.preheader ], [ %63, %.preheader279 ], [ %63, %.preheader281 ], [ %63, %.preheader283 ], [ %63, %.preheader285 ], [ %63, %.preheader287 ], [ %104, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hf56135f64b2f9da0E.exit132" ], [ %126, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hf56135f64b2f9da0E.exit148" ], [ %70, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hf56135f64b2f9da0E.exit108" ], [ %81, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hf56135f64b2f9da0E.exit116" ], [ %93, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hf56135f64b2f9da0E.exit124" ], [ %116, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hf56135f64b2f9da0E.exit140" ]
+  %.sroa.27.6 = phi i64 [ %93, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hf56135f64b2f9da0E.exit124" ], [ %104, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hf56135f64b2f9da0E.exit132" ], [ %81, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hf56135f64b2f9da0E.exit116" ], [ %70, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hf56135f64b2f9da0E.exit108" ], [ %126, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hf56135f64b2f9da0E.exit148" ], [ %63, %.preheader ], [ %63, %.preheader279 ], [ %63, %.preheader281 ], [ %63, %.preheader283 ], [ %63, %.preheader285 ], [ %63, %.preheader287 ], [ %116, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hf56135f64b2f9da0E.exit140" ]
   %65 = sub i64 %.sroa.01.0.i, %.sroa.27.6
   store i64 %65, ptr %55, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %18, i64 24, i1 false)
@@ -5843,7 +5843,7 @@ define hidden noundef ptr @"_ZN6flate23zio19Writer$LT$W$C$D$GT$6finish17h22fa639
   br i1 %32, label %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h45bdd8587fe8a40aE.exit.thread18", label %8
 
 "_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h45bdd8587fe8a40aE.exit.thread18": ; preds = %31, %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h45bdd8587fe8a40aE.exit", %22, %29
-  %.sroa.0.0 = phi ptr [ %30, %29 ], [ inttoptr (i64 98784247811 to ptr), %22 ], [ null, %31 ], [ %18, %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h45bdd8587fe8a40aE.exit" ]
+  %.sroa.0.0 = phi ptr [ inttoptr (i64 98784247811 to ptr), %22 ], [ %30, %29 ], [ null, %31 ], [ %18, %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h45bdd8587fe8a40aE.exit" ]
   ret ptr %.sroa.0.0
 }
 
@@ -5918,7 +5918,7 @@ define hidden noundef ptr @"_ZN6flate23zio19Writer$LT$W$C$D$GT$6finish17h48b4b99
   br i1 %32, label %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h8f0406ef1ef9fbbcE.exit.thread18", label %8
 
 "_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h8f0406ef1ef9fbbcE.exit.thread18": ; preds = %31, %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h8f0406ef1ef9fbbcE.exit", %22, %29
-  %.sroa.0.0 = phi ptr [ %30, %29 ], [ inttoptr (i64 98784247811 to ptr), %22 ], [ null, %31 ], [ %18, %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h8f0406ef1ef9fbbcE.exit" ]
+  %.sroa.0.0 = phi ptr [ inttoptr (i64 98784247811 to ptr), %22 ], [ %30, %29 ], [ null, %31 ], [ %18, %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h8f0406ef1ef9fbbcE.exit" ]
   ret ptr %.sroa.0.0
 }
 

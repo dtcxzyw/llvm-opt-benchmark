@@ -15006,9 +15006,9 @@ _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i107.i: ; preds = %6299, %6289
   br label %.loopexit271.i.body
 
 _ZNSt6vectorIiSaIiEE9push_backERKi.exit.i:        ; preds = %6310, %5892, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i, %6254, %.preheader259.i, %.preheader253.i
-  %.sroa.23.1.i = phi ptr [ %6274, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ], [ %.sroa.23.0377.i, %6254 ], [ %.sroa.23.0377.i, %.preheader253.i ], [ %.sroa.23.0377.i, %.preheader259.i ], [ %.sroa.23.0377.i, %5892 ], [ %.sroa.23.0377.i, %6310 ]
-  %.sroa.14.1.i = phi ptr [ %6272, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ], [ %6255, %6254 ], [ %.sroa.14.0378.i, %.preheader253.i ], [ %.sroa.14.0378.i, %.preheader259.i ], [ %.sroa.14.0378.i, %5892 ], [ %.sroa.14.0378.i, %6310 ]
-  %.sroa.0229.1.i = phi ptr [ %6268, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ], [ %.sroa.0229.0379.i, %6254 ], [ %.sroa.0229.0379.i, %.preheader253.i ], [ %.sroa.0229.0379.i, %.preheader259.i ], [ %.sroa.0229.0379.i, %5892 ], [ %.sroa.0229.0379.i, %6310 ]
+  %.sroa.23.1.i = phi ptr [ %.sroa.23.0377.i, %6254 ], [ %.sroa.23.0377.i, %.preheader253.i ], [ %6274, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ], [ %.sroa.23.0377.i, %.preheader259.i ], [ %.sroa.23.0377.i, %5892 ], [ %.sroa.23.0377.i, %6310 ]
+  %.sroa.14.1.i = phi ptr [ %6255, %6254 ], [ %.sroa.14.0378.i, %.preheader253.i ], [ %6272, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ], [ %.sroa.14.0378.i, %.preheader259.i ], [ %.sroa.14.0378.i, %5892 ], [ %.sroa.14.0378.i, %6310 ]
+  %.sroa.0229.1.i = phi ptr [ %.sroa.0229.0379.i, %6254 ], [ %.sroa.0229.0379.i, %.preheader253.i ], [ %6268, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ], [ %.sroa.0229.0379.i, %.preheader259.i ], [ %.sroa.0229.0379.i, %5892 ], [ %.sroa.0229.0379.i, %6310 ]
   %indvars.iv.next473.i = add nuw nsw i64 %indvars.iv472.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next473.i, %5848
   br i1 %exitcond.not.i, label %._crit_edge.i, label %5856, !llvm.loop !297
@@ -18097,7 +18097,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %.loopexit497.i.body
 
 .loopexit497.i.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %7318, %7513, %7520, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i957, %7551, %7559, %7561, %7474, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i4057
-  %.sroa.25.0657.lcssa736.i.ph.ph.ph = phi ptr [ %.sroa.25.0657.i, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i4057 ], [ %.sroa.25.0657.i, %7474 ], [ %.sroa.25.0657.i, %7551 ], [ %.sroa.15.0658.i, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i957 ], [ %.sroa.25.0657.i, %7513 ], [ %.sroa.25.0657.i, %7318 ], [ %.sroa.25.0657.i, %7561 ], [ %.sroa.25.0657.i, %7559 ], [ %.sroa.25.0657.i, %7520 ]
+  %.sroa.25.0657.lcssa736.i.ph.ph.ph = phi ptr [ %.sroa.25.0657.i, %7474 ], [ %.sroa.25.0657.i, %7520 ], [ %.sroa.25.0657.i, %7551 ], [ %.sroa.15.0658.i, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i957 ], [ %.sroa.25.0657.i, %7513 ], [ %.sroa.25.0657.i, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i4057 ], [ %.sroa.25.0657.i, %7318 ], [ %.sroa.25.0657.i, %7561 ], [ %.sroa.25.0657.i, %7559 ]
   %lpad.loopexit5775 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit497.i.body
@@ -34110,7 +34110,7 @@ _ZN5Yosys7hashlib8hash_opsINS_7SigPool8bitDef_tEE4hashERKS3_.exit.i: ; preds = %
   br i1 %.not37.not, label %.loopexit, label %12
 
 .loopexit:                                        ; preds = %.critedge12, %151, %2
-  %.not3743 = phi i1 [ false, %2 ], [ true, %151 ], [ false, %.critedge12 ]
+  %.not3743 = phi i1 [ true, %151 ], [ false, %2 ], [ false, %.critedge12 ]
   ret i1 %.not3743
 }
 
@@ -34380,7 +34380,7 @@ _ZN5Yosys7hashlib8hash_opsINS_7SigPool8bitDef_tEE4hashERKS3_.exit.i: ; preds = %
   br i1 %.not33, label %_ZNK5Yosys7hashlib4poolINS_7SigPool8bitDef_tENS0_8hash_opsIS3_EEE5countERKS3_.exit.thread31, label %12
 
 _ZNK5Yosys7hashlib4poolINS_7SigPool8bitDef_tENS0_8hash_opsIS3_EEE5countERKS3_.exit.thread31: ; preds = %26, %.critedge11, %_ZNK5Yosys7hashlib4poolINS_7SigPool8bitDef_tENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit21, %._crit_edge.i.i, %160, %2
-  %.not3339 = phi i1 [ true, %2 ], [ false, %160 ], [ false, %26 ], [ true, %.critedge11 ], [ false, %_ZNK5Yosys7hashlib4poolINS_7SigPool8bitDef_tENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit21 ], [ false, %._crit_edge.i.i ]
+  %.not3339 = phi i1 [ false, %160 ], [ true, %2 ], [ false, %._crit_edge.i.i ], [ true, %.critedge11 ], [ false, %_ZNK5Yosys7hashlib4poolINS_7SigPool8bitDef_tENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit21 ], [ false, %26 ]
   ret i1 %.not3339
 }
 

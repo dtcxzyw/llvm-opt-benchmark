@@ -656,7 +656,7 @@ _ZNK4ncnn3Mat5emptyEv.exit671:                    ; preds = %192
   br i1 %exitcond1442.not, label %.loopexit1211, label %.lr.ph1273.us, !llvm.loop !60
 
 .loopexit1211:                                    ; preds = %._crit_edge1274.us, %.preheader1214, %.lr.ph1244.split.preheader, %.preheader1212, %.lr.ph1261.split.preheader, %.lr.ph1277.split.preheader, %.preheader, %.loopexit1213
-  %.5569 = phi ptr [ %.3567, %.loopexit1213 ], [ %.3567, %.preheader ], [ %scevgep1436, %.lr.ph1277.split.preheader ], [ %scevgep1429, %.lr.ph1261.split.preheader ], [ %.1565, %.preheader1212 ], [ %scevgep, %.lr.ph1244.split.preheader ], [ %.05641283, %.preheader1214 ], [ %358, %._crit_edge1274.us ]
+  %.5569 = phi ptr [ %.3567, %.loopexit1213 ], [ %.3567, %.preheader ], [ %.05641283, %.preheader1214 ], [ %scevgep1436, %.lr.ph1277.split.preheader ], [ %scevgep1429, %.lr.ph1261.split.preheader ], [ %.1565, %.preheader1212 ], [ %scevgep, %.lr.ph1244.split.preheader ], [ %358, %._crit_edge1274.us ]
   %359 = icmp eq i32 %231, %.01206.lcssa
   br i1 %359, label %360, label %373
 

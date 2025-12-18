@@ -11160,7 +11160,7 @@ thread-pre-split.i:                               ; preds = %322, %287, %.loopex
   br label %thread-pre-split.i
 
 .loopexit.split-lp.i.i:                           ; preds = %332, %328, %309, %289, %270, %.invoke.i.i
-  %.sroa.039.1.ph.i.i = phi i8 [ %.sroa.039.6.i.i, %328 ], [ 1, %309 ], [ %.sroa.039.6.i.i, %332 ], [ 1, %.invoke.i.i ], [ 1, %289 ], [ 1, %270 ]
+  %.sroa.039.1.ph.i.i = phi i8 [ 1, %.invoke.i.i ], [ %.sroa.039.6.i.i, %332 ], [ 1, %309 ], [ 1, %289 ], [ %.sroa.039.6.i.i, %328 ], [ 1, %270 ]
   %lpad.loopexit.split-lp.i.i = landingpad { ptr, i32 }
           cleanup
   br label %thread-pre-split.i
@@ -23783,7 +23783,7 @@ _ZN5serde9__private2de7content17visit_content_seq17ha53181b61b890008E.exit: ; pr
   br label %264
 
 .loopexit.split-lp.i.i:                           ; preds = %331, %"_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17hb0380bb3bc59e6d1E.exit137.i.i", %319, %.invoke.i, %.invoke.i.i
-  %.sroa.081.1.ph.i.i = phi i8 [ 0, %"_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17hb0380bb3bc59e6d1E.exit137.i.i" ], [ 1, %319 ], [ 0, %331 ], [ 1, %.invoke.i.i ], [ 1, %.invoke.i ]
+  %.sroa.081.1.ph.i.i = phi i8 [ 1, %.invoke.i.i ], [ 0, %331 ], [ 1, %319 ], [ 1, %.invoke.i ], [ 0, %"_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17hb0380bb3bc59e6d1E.exit137.i.i" ]
   %lpad.loopexit.split-lp.i.i = landingpad { ptr, i32 }
           cleanup
   br label %264
@@ -48276,7 +48276,7 @@ define hidden void @_ZN5serde9__private2de7content17visit_content_map17h5f6bc5eb
   br label %.loopexit.i
 
 .loopexit.split-lp.i:                             ; preds = %.invoke, %"_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17hbf09ab9471fb92faE.exit.i", %66, %.invoke.i
-  %.sroa.054.1.ph.i = phi i8 [ 1, %66 ], [ %.sroa.054.5.i, %"_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17hbf09ab9471fb92faE.exit.i" ], [ 1, %.invoke.i ], [ 1, %.invoke ]
+  %.sroa.054.1.ph.i = phi i8 [ 1, %.invoke.i ], [ %.sroa.054.5.i, %"_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17hbf09ab9471fb92faE.exit.i" ], [ 1, %.invoke ], [ 1, %66 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.i
@@ -48775,10 +48775,10 @@ define hidden void @_ZN5serde9__private2de7content17visit_content_map17hb2453e1f
   br label %64
 
 .loopexit.split-lp.i:                             ; preds = %.invoke, %192, %"_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h04f865bd7770d2cdE.exit339.i", %176, %.invoke.i
-  %.sroa.0195.1.ph.i = phi i8 [ %.sroa.0195.9.i, %"_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h04f865bd7770d2cdE.exit339.i" ], [ 1, %.invoke ], [ 1, %.invoke.i ], [ %.sroa.0195.9.i, %192 ], [ 1, %176 ]
-  %.sroa.0197.1.ph.i = phi i8 [ %.sroa.0197.9.i, %"_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h04f865bd7770d2cdE.exit339.i" ], [ 1, %.invoke ], [ 1, %.invoke.i ], [ %.sroa.0197.9.i, %192 ], [ 1, %176 ]
-  %.sroa.0199.1.ph.i = phi i8 [ %.sroa.0199.10.i, %"_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h04f865bd7770d2cdE.exit339.i" ], [ 1, %.invoke ], [ 1, %.invoke.i ], [ %.sroa.0199.10.i, %192 ], [ 1, %176 ]
-  %.sroa.0201.1.ph.i = phi i8 [ 0, %"_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h04f865bd7770d2cdE.exit339.i" ], [ 1, %.invoke ], [ 1, %.invoke.i ], [ 0, %192 ], [ 1, %176 ]
+  %.sroa.0195.1.ph.i = phi i8 [ 1, %.invoke.i ], [ %.sroa.0195.9.i, %192 ], [ 1, %176 ], [ 1, %.invoke ], [ %.sroa.0195.9.i, %"_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h04f865bd7770d2cdE.exit339.i" ]
+  %.sroa.0197.1.ph.i = phi i8 [ 1, %.invoke.i ], [ %.sroa.0197.9.i, %192 ], [ 1, %176 ], [ 1, %.invoke ], [ %.sroa.0197.9.i, %"_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h04f865bd7770d2cdE.exit339.i" ]
+  %.sroa.0199.1.ph.i = phi i8 [ 1, %.invoke.i ], [ %.sroa.0199.10.i, %192 ], [ 1, %176 ], [ 1, %.invoke ], [ %.sroa.0199.10.i, %"_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h04f865bd7770d2cdE.exit339.i" ]
+  %.sroa.0201.1.ph.i = phi i8 [ 1, %.invoke.i ], [ 0, %192 ], [ 1, %176 ], [ 1, %.invoke ], [ 0, %"_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h04f865bd7770d2cdE.exit339.i" ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %64
@@ -49985,17 +49985,17 @@ define hidden void @_ZN5serde9__private2de7content17visit_content_map17hda73c00b
   br label %"_ZN4core3ptr57drop_in_place$LT$uv_platform_tags..platform..Platform$GT$17he4ef6fbedb1faae3E.exit.i"
 
 .loopexit.split-lp.i:                             ; preds = %.invoke, %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit801.i", %366, %359, %340, %308, %214, %.invoke.i
-  %.sroa.0432.1.ph.i = phi i8 [ 1, %359 ], [ 1, %.invoke ], [ 1, %308 ], [ 1, %340 ], [ 1, %.invoke.i ], [ %.sroa.0432.8.i, %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit801.i" ], [ 1, %366 ], [ 1, %214 ]
-  %.sroa.0434.1.ph.i = phi i8 [ 1, %359 ], [ 1, %.invoke ], [ 1, %308 ], [ 1, %340 ], [ 1, %.invoke.i ], [ %.sroa.0434.9.i, %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit801.i" ], [ 1, %366 ], [ 1, %214 ]
-  %.sroa.0436.1.ph.i = phi i8 [ 1, %359 ], [ 1, %.invoke ], [ 1, %308 ], [ 1, %340 ], [ 1, %.invoke.i ], [ %.sroa.0436.9.i, %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit801.i" ], [ 1, %366 ], [ 1, %214 ]
-  %.sroa.0438.1.ph.i = phi i8 [ 1, %359 ], [ 1, %.invoke ], [ 1, %308 ], [ 1, %340 ], [ 1, %.invoke.i ], [ %.sroa.0438.9.i, %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit801.i" ], [ 1, %366 ], [ 1, %214 ]
-  %.sroa.0440.1.ph.i = phi i8 [ 1, %359 ], [ 1, %.invoke ], [ 1, %308 ], [ 1, %340 ], [ 1, %.invoke.i ], [ %.sroa.0440.9.i, %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit801.i" ], [ 1, %366 ], [ 1, %214 ]
-  %.sroa.0442.1.ph.i = phi i8 [ 1, %359 ], [ 1, %.invoke ], [ 1, %308 ], [ 1, %340 ], [ 1, %.invoke.i ], [ %.sroa.0442.9.i, %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit801.i" ], [ 1, %366 ], [ 1, %214 ]
-  %.sroa.0444.1.ph.i = phi i8 [ 1, %359 ], [ 1, %.invoke ], [ 1, %308 ], [ 1, %340 ], [ 1, %.invoke.i ], [ %.sroa.0444.9.i, %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit801.i" ], [ 1, %366 ], [ 1, %214 ]
-  %.sroa.0446.1.ph.i = phi i8 [ 1, %359 ], [ 1, %.invoke ], [ 1, %308 ], [ 1, %340 ], [ 1, %.invoke.i ], [ %.sroa.0446.9.i, %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit801.i" ], [ 1, %366 ], [ 1, %214 ]
-  %.sroa.0448.1.ph.i = phi i8 [ 1, %359 ], [ 1, %.invoke ], [ 1, %308 ], [ 1, %340 ], [ 1, %.invoke.i ], [ %.sroa.0448.9.i, %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit801.i" ], [ 1, %366 ], [ 1, %214 ]
-  %.sroa.0450.1.ph.i = phi i8 [ 1, %359 ], [ 1, %.invoke ], [ 1, %308 ], [ 1, %340 ], [ 1, %.invoke.i ], [ %.sroa.0450.10.i, %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit801.i" ], [ 1, %366 ], [ 1, %214 ]
-  %.sroa.0452.1.ph.i = phi i8 [ 1, %359 ], [ 1, %.invoke ], [ 1, %308 ], [ 1, %340 ], [ 1, %.invoke.i ], [ 0, %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit801.i" ], [ 1, %366 ], [ 1, %214 ]
+  %.sroa.0432.1.ph.i = phi i8 [ 1, %366 ], [ %.sroa.0432.8.i, %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit801.i" ], [ 1, %.invoke.i ], [ 1, %340 ], [ 1, %359 ], [ 1, %308 ], [ 1, %.invoke ], [ 1, %214 ]
+  %.sroa.0434.1.ph.i = phi i8 [ 1, %366 ], [ %.sroa.0434.9.i, %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit801.i" ], [ 1, %.invoke.i ], [ 1, %340 ], [ 1, %359 ], [ 1, %308 ], [ 1, %.invoke ], [ 1, %214 ]
+  %.sroa.0436.1.ph.i = phi i8 [ 1, %366 ], [ %.sroa.0436.9.i, %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit801.i" ], [ 1, %.invoke.i ], [ 1, %340 ], [ 1, %359 ], [ 1, %308 ], [ 1, %.invoke ], [ 1, %214 ]
+  %.sroa.0438.1.ph.i = phi i8 [ 1, %366 ], [ %.sroa.0438.9.i, %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit801.i" ], [ 1, %.invoke.i ], [ 1, %340 ], [ 1, %359 ], [ 1, %308 ], [ 1, %.invoke ], [ 1, %214 ]
+  %.sroa.0440.1.ph.i = phi i8 [ 1, %366 ], [ %.sroa.0440.9.i, %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit801.i" ], [ 1, %.invoke.i ], [ 1, %340 ], [ 1, %359 ], [ 1, %308 ], [ 1, %.invoke ], [ 1, %214 ]
+  %.sroa.0442.1.ph.i = phi i8 [ 1, %366 ], [ %.sroa.0442.9.i, %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit801.i" ], [ 1, %.invoke.i ], [ 1, %340 ], [ 1, %359 ], [ 1, %308 ], [ 1, %.invoke ], [ 1, %214 ]
+  %.sroa.0444.1.ph.i = phi i8 [ 1, %366 ], [ %.sroa.0444.9.i, %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit801.i" ], [ 1, %.invoke.i ], [ 1, %340 ], [ 1, %359 ], [ 1, %308 ], [ 1, %.invoke ], [ 1, %214 ]
+  %.sroa.0446.1.ph.i = phi i8 [ 1, %366 ], [ %.sroa.0446.9.i, %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit801.i" ], [ 1, %.invoke.i ], [ 1, %340 ], [ 1, %359 ], [ 1, %308 ], [ 1, %.invoke ], [ 1, %214 ]
+  %.sroa.0448.1.ph.i = phi i8 [ 1, %366 ], [ %.sroa.0448.9.i, %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit801.i" ], [ 1, %.invoke.i ], [ 1, %340 ], [ 1, %359 ], [ 1, %308 ], [ 1, %.invoke ], [ 1, %214 ]
+  %.sroa.0450.1.ph.i = phi i8 [ 1, %366 ], [ %.sroa.0450.10.i, %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit801.i" ], [ 1, %.invoke.i ], [ 1, %340 ], [ 1, %359 ], [ 1, %308 ], [ 1, %.invoke ], [ 1, %214 ]
+  %.sroa.0452.1.ph.i = phi i8 [ 1, %366 ], [ 0, %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit801.i" ], [ 1, %.invoke.i ], [ 1, %340 ], [ 1, %359 ], [ 1, %308 ], [ 1, %.invoke ], [ 1, %214 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr57drop_in_place$LT$uv_platform_tags..platform..Platform$GT$17he4ef6fbedb1faae3E.exit.i"
@@ -56223,8 +56223,8 @@ define hidden void @"_ZN84_$LT$serde..__private..de..content..ContentVisitor$u20
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.14.i.i.i)
   br label %.loopexit36
 
-.thread31:                                        ; preds = %32, %27
-  %42 = phi i32 [ %30, %32 ], [ 0, %27 ]
+.thread31:                                        ; preds = %27, %32
+  %42 = phi i32 [ 0, %27 ], [ %30, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.626)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.14.i.i.i)
   br label %45

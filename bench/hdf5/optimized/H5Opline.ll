@@ -794,7 +794,7 @@ define internal range(i32 -1, 1) i32 @H5O__pline_shared_encode(ptr noundef %0, i
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.lr.ph.preheader.i, %100, %83
-  %.3.i = phi ptr [ %101, %100 ], [ %99, %83 ], [ %scevgep28.i, %.lr.ph.preheader.i ]
+  %.3.i = phi ptr [ %99, %83 ], [ %101, %100 ], [ %scevgep28.i, %.lr.ph.preheader.i ]
   %108 = load i64, ptr %92, align 8, !tbaa !29
   %.not24.i = icmp eq i64 %108, 0
   br i1 %.not24.i, label %._crit_edge.thread.i, label %.lr.ph14.i

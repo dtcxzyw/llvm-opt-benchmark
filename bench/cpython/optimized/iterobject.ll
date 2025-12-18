@@ -1931,7 +1931,7 @@ Py_DECREF.exit21:                                 ; preds = %19, %20, %23
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %28, %25, %16, %15, %3, %Py_DECREF.exit21, %0
-  %.0 = phi ptr [ %12, %Py_DECREF.exit21 ], [ null, %0 ], [ %1, %3 ], [ null, %15 ], [ null, %16 ], [ null, %25 ], [ null, %28 ], [ null, %.critedge.sink.split ]
+  %.0 = phi ptr [ %12, %Py_DECREF.exit21 ], [ null, %0 ], [ %1, %3 ], [ null, %28 ], [ null, %15 ], [ null, %16 ], [ null, %25 ], [ null, %.critedge.sink.split ]
   ret ptr %.0
 }
 

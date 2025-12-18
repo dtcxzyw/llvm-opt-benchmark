@@ -882,9 +882,9 @@ H5D__dset_ioinfo_init.exit:                       ; preds = %.H5D__dset_ioinfo_i
   br label %442
 
 442:                                              ; preds = %312, %.thread297, %441
-  %.0238 = phi ptr [ %.2240.ph, %.thread297 ], [ %.3241, %441 ], [ %.3241, %312 ]
-  %.0233 = phi i64 [ %.0224355, %.thread297 ], [ %0, %441 ], [ %0, %312 ]
-  %.1220 = phi i32 [ -1, %.thread297 ], [ %.11, %441 ], [ -1, %312 ]
+  %.0238 = phi ptr [ %.3241, %312 ], [ %.3241, %441 ], [ %.2240.ph, %.thread297 ]
+  %.0233 = phi i64 [ %0, %312 ], [ %0, %441 ], [ %.0224355, %.thread297 ]
+  %.1220 = phi i32 [ -1, %312 ], [ %.11, %441 ], [ -1, %.thread297 ]
   %.not380 = icmp eq i64 %.0233, 0
   br i1 %.not380, label %._crit_edge370, label %.lr.ph369.preheader
 
@@ -921,9 +921,9 @@ H5D__dset_ioinfo_init.exit:                       ; preds = %.H5D__dset_ioinfo_i
   br i1 %exitcond419.not, label %._crit_edge370, label %.lr.ph369, !llvm.loop !117
 
 ._crit_edge370:                                   ; preds = %453, %44, %40, %442
-  %.0236466 = phi ptr [ %.1237450, %442 ], [ null, %40 ], [ %6, %44 ], [ %.1237450, %453 ]
-  %.0238464 = phi ptr [ %.0238, %442 ], [ null, %40 ], [ null, %44 ], [ %.0238463, %453 ]
-  %.12.lcssa = phi i32 [ %.1220, %442 ], [ -1, %40 ], [ 0, %44 ], [ %.13, %453 ]
+  %.0236466 = phi ptr [ %.1237450, %442 ], [ %6, %44 ], [ null, %40 ], [ %.1237450, %453 ]
+  %.0238464 = phi ptr [ %.0238, %442 ], [ null, %44 ], [ null, %40 ], [ %.0238463, %453 ]
+  %.12.lcssa = phi i32 [ %.1220, %442 ], [ 0, %44 ], [ -1, %40 ], [ %.13, %453 ]
   %455 = load i8, ptr @H5D_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %456 = trunc nuw i8 %455 to i1
   %457 = load i8, ptr @H5_libterm_g, align 1, !range !7

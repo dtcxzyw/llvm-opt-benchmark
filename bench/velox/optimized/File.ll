@@ -1057,7 +1057,7 @@ if.end56:                                         ; preds = %invoke.cont3, %invo
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont32, %invoke.cont20, %invoke.cont51, %if.end56
-  %retval.0 = phi i64 [ %35, %if.end56 ], [ %call52, %invoke.cont51 ], [ %call21, %invoke.cont20 ], [ %call33, %invoke.cont32 ]
+  %retval.0 = phi i64 [ %call52, %invoke.cont51 ], [ %call21, %invoke.cont20 ], [ %35, %if.end56 ], [ %call33, %invoke.cont32 ]
   %36 = load ptr, ptr %iovecs, align 8
   %tobool.not.i.i.i74 = icmp eq ptr %36, null
   br i1 %tobool.not.i.i.i74, label %_ZNSt6vectorI5iovecSaIS0_EED2Ev.exit76, label %if.then.i.i.i75

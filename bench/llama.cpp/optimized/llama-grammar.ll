@@ -4022,8 +4022,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit449: ; preds = %_Z
   br label %671
 
 _ZL11parse_spacePKcb.exit363:                     ; preds = %.split.i426, %.split.us.i435, %.split.i346, %.split.us.i355
-  %storemerge = phi ptr [ %.0.us.i436, %.split.us.i435 ], [ %.0.us.i356, %.split.us.i355 ], [ %.0.i347, %.split.i346 ], [ %.0.i427, %.split.i426 ]
-  %.064 = phi i32 [ %.165, %.split.us.i435 ], [ %495, %.split.us.i355 ], [ %495, %.split.i346 ], [ %.165, %.split.i426 ]
+  %storemerge = phi ptr [ %.0.us.i356, %.split.us.i355 ], [ %.0.us.i436, %.split.us.i435 ], [ %.0.i347, %.split.i346 ], [ %.0.i427, %.split.i426 ]
+  %.064 = phi i32 [ %495, %.split.us.i355 ], [ %.165, %.split.us.i435 ], [ %495, %.split.i346 ], [ %.165, %.split.i426 ]
   store ptr %storemerge, ptr %11, align 8, !tbaa !58
   call fastcc void @"_ZZN20llama_grammar_parser14parse_sequenceEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorI21llama_grammar_elementSaISB_EEbENK3$_0clEii"(ptr noundef nonnull align 8 dereferenceable(40) %12, i32 noundef %495, i32 noundef %.064)
   br label %_ZNSt6vectorI21llama_grammar_elementSaIS0_EE9push_backEOS0_.exit179
@@ -10255,13 +10255,13 @@ _ZNSt6vectorIS_I21llama_grammar_elementSaIS0_EESaIS2_EED2Ev.exit: ; preds = %_ZS
   br label %.body66
 
 .body66:                                          ; preds = %315, %.body73
-  %334 = phi ptr [ %306, %.body73 ], [ %316, %315 ]
-  %335 = phi ptr [ %305, %.body73 ], [ %317, %315 ]
-  %336 = phi ptr [ %304, %.body73 ], [ %318, %315 ]
-  %337 = phi ptr [ %303, %.body73 ], [ %319, %315 ]
-  %338 = phi ptr [ %309, %.body73 ], [ %323, %315 ]
-  %339 = phi ptr [ %310, %.body73 ], [ %322, %315 ]
-  %.pn43.pn.pn.pn = phi { ptr, i32 } [ %.pn43.pn237, %.body73 ], [ %.pn43.pn.pn162, %315 ]
+  %334 = phi ptr [ %316, %315 ], [ %306, %.body73 ]
+  %335 = phi ptr [ %317, %315 ], [ %305, %.body73 ]
+  %336 = phi ptr [ %318, %315 ], [ %304, %.body73 ]
+  %337 = phi ptr [ %319, %315 ], [ %303, %.body73 ]
+  %338 = phi ptr [ %323, %315 ], [ %309, %.body73 ]
+  %339 = phi ptr [ %322, %315 ], [ %310, %.body73 ]
+  %.pn43.pn.pn.pn = phi { ptr, i32 } [ %.pn43.pn.pn162, %315 ], [ %.pn43.pn237, %.body73 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not.i.i117 = icmp eq ptr %339, null
   br i1 %.not.i.i117, label %.body, label %340
@@ -13511,9 +13511,9 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %_ZNSt6vectorIjSaIjE
   ret void
 
 145:                                              ; preds = %.loopexit, %.loopexit.split-lp, %43, %143, %23, %75
-  %.sroa.47.13 = phi ptr [ %.sroa.47.0, %23 ], [ %.sroa.47.0, %43 ], [ %.sroa.47.6.lcssa, %143 ], [ %.sroa.47.6134, %75 ], [ %.sroa.25.6135, %.loopexit ], [ %.sroa.25.6135, %.loopexit.split-lp ]
-  %.sroa.017.13 = phi ptr [ %.sroa.25.0, %23 ], [ %.sroa.25.0, %43 ], [ %.sroa.017.6.lcssa, %143 ], [ %.sroa.017.6136, %75 ], [ %.sroa.017.6136, %.loopexit ], [ %.sroa.017.6136, %.loopexit.split-lp ]
-  %.pn53.pn.pn = phi { ptr, i32 } [ %24, %23 ], [ %44, %43 ], [ %144, %143 ], [ %76, %75 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.sroa.47.13 = phi ptr [ %.sroa.47.6134, %75 ], [ %.sroa.47.0, %23 ], [ %.sroa.47.0, %43 ], [ %.sroa.47.6.lcssa, %143 ], [ %.sroa.25.6135, %.loopexit ], [ %.sroa.25.6135, %.loopexit.split-lp ]
+  %.sroa.017.13 = phi ptr [ %.sroa.017.6136, %75 ], [ %.sroa.25.0, %23 ], [ %.sroa.25.0, %43 ], [ %.sroa.017.6.lcssa, %143 ], [ %.sroa.017.6136, %.loopexit ], [ %.sroa.017.6136, %.loopexit.split-lp ]
+  %.pn53.pn.pn = phi { ptr, i32 } [ %76, %75 ], [ %24, %23 ], [ %44, %43 ], [ %144, %143 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.not.i.i.i94 = icmp eq ptr %.sroa.017.13, null
   br i1 %.not.i.i.i94, label %_ZNSt6vectorIjSaIjEED2Ev.exit95, label %.thread85
 
@@ -15053,7 +15053,7 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt6vectorIPK21llama_grammar_elementSaIS5_
   br label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt6vectorIPK21llama_grammar_elementSaIS5_EEEclINS_17__normal_iteratorIPS7_S2_IS7_SaIS7_EEEEEEbT_.exit.thread
 
 _ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt6vectorIPK21llama_grammar_elementSaIS5_EEEclINS_17__normal_iteratorIPS7_S2_IS7_SaIS7_EEEEEEbT_.exit.thread: ; preds = %25, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt6vectorIPK21llama_grammar_elementSaIS5_EEEclINS_17__normal_iteratorIPS7_S2_IS7_SaIS7_EEEEEEbT_.exit, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt6vectorIPK21llama_grammar_elementSaIS5_EEEclINS_17__normal_iteratorIPS7_S2_IS7_SaIS7_EEEEEEbT_.exit.thread.loopexit.split.loop.exit, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt6vectorIPK21llama_grammar_elementSaIS5_EEEclINS_17__normal_iteratorIPS7_S2_IS7_SaIS7_EEEEEEbT_.exit.thread.loopexit.split.loop.exit126, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt6vectorIPK21llama_grammar_elementSaIS5_EEEclINS_17__normal_iteratorIPS7_S2_IS7_SaIS7_EEEEEEbT_.exit.thread.loopexit.split.loop.exit128, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt6vectorIPK21llama_grammar_elementSaIS5_EEEclINS_17__normal_iteratorIPS7_S2_IS7_SaIS7_EEEEEEbT_.exit.thread.loopexit.split.loop.exit130, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt6vectorIPK21llama_grammar_elementSaIS5_EEEclINS_17__normal_iteratorIPS7_S2_IS7_SaIS7_EEEEEEbT_.exit.thread.loopexit.split.loop.exit132, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt6vectorIPK21llama_grammar_elementSaIS5_EEEclINS_17__normal_iteratorIPS7_S2_IS7_SaIS7_EEEEEEbT_.exit.thread.loopexit.split.loop.exit134, %93, %82, %71, %._crit_edge, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt6vectorIPK21llama_grammar_elementSaIS5_EEEclINS_17__normal_iteratorIPS7_S2_IS7_SaIS7_EEEEEEbT_.exit39.thread64, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt6vectorIPK21llama_grammar_elementSaIS5_EEEclINS_17__normal_iteratorIPS7_S2_IS7_SaIS7_EEEEEEbT_.exit39, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt6vectorIPK21llama_grammar_elementSaIS5_EEEclINS_17__normal_iteratorIPS7_S2_IS7_SaIS7_EEEEEEbT_.exit35, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt6vectorIPK21llama_grammar_elementSaIS5_EEEclINS_17__normal_iteratorIPS7_S2_IS7_SaIS7_EEEEEEbT_.exit31
-  %.sroa.08.0.in.sroa.speculated = phi ptr [ %.sroa.049.1, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt6vectorIPK21llama_grammar_elementSaIS5_EEEclINS_17__normal_iteratorIPS7_S2_IS7_SaIS7_EEEEEEbT_.exit35 ], [ %1, %._crit_edge ], [ %.sroa.049.1, %82 ], [ %.sroa.049.0.lcssa, %71 ], [ %.sroa.049.2, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt6vectorIPK21llama_grammar_elementSaIS5_EEEclINS_17__normal_iteratorIPS7_S2_IS7_SaIS7_EEEEEEbT_.exit39 ], [ %.sroa.049.2, %93 ], [ %.sroa.049.0.lcssa, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt6vectorIPK21llama_grammar_elementSaIS5_EEEclINS_17__normal_iteratorIPS7_S2_IS7_SaIS7_EEEEEEbT_.exit31 ], [ %1, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt6vectorIPK21llama_grammar_elementSaIS5_EEEclINS_17__normal_iteratorIPS7_S2_IS7_SaIS7_EEEEEEbT_.exit39.thread64 ], [ %99, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt6vectorIPK21llama_grammar_elementSaIS5_EEEclINS_17__normal_iteratorIPS7_S2_IS7_SaIS7_EEEEEEbT_.exit.thread.loopexit.split.loop.exit134 ], [ %97, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt6vectorIPK21llama_grammar_elementSaIS5_EEEclINS_17__normal_iteratorIPS7_S2_IS7_SaIS7_EEEEEEbT_.exit.thread.loopexit.split.loop.exit130 ], [ %98, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt6vectorIPK21llama_grammar_elementSaIS5_EEEclINS_17__normal_iteratorIPS7_S2_IS7_SaIS7_EEEEEEbT_.exit.thread.loopexit.split.loop.exit132 ], [ %96, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt6vectorIPK21llama_grammar_elementSaIS5_EEEclINS_17__normal_iteratorIPS7_S2_IS7_SaIS7_EEEEEEbT_.exit.thread.loopexit.split.loop.exit128 ], [ %94, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt6vectorIPK21llama_grammar_elementSaIS5_EEEclINS_17__normal_iteratorIPS7_S2_IS7_SaIS7_EEEEEEbT_.exit.thread.loopexit.split.loop.exit ], [ %95, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt6vectorIPK21llama_grammar_elementSaIS5_EEEclINS_17__normal_iteratorIPS7_S2_IS7_SaIS7_EEEEEEbT_.exit.thread.loopexit.split.loop.exit126 ], [ %.sroa.049.086, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt6vectorIPK21llama_grammar_elementSaIS5_EEEclINS_17__normal_iteratorIPS7_S2_IS7_SaIS7_EEEEEEbT_.exit ], [ %.sroa.049.086, %25 ]
+  %.sroa.08.0.in.sroa.speculated = phi ptr [ %.sroa.049.1, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt6vectorIPK21llama_grammar_elementSaIS5_EEEclINS_17__normal_iteratorIPS7_S2_IS7_SaIS7_EEEEEEbT_.exit35 ], [ %1, %._crit_edge ], [ %.sroa.049.1, %82 ], [ %.sroa.049.0.lcssa, %71 ], [ %.sroa.049.2, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt6vectorIPK21llama_grammar_elementSaIS5_EEEclINS_17__normal_iteratorIPS7_S2_IS7_SaIS7_EEEEEEbT_.exit39 ], [ %.sroa.049.2, %93 ], [ %.sroa.049.0.lcssa, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt6vectorIPK21llama_grammar_elementSaIS5_EEEclINS_17__normal_iteratorIPS7_S2_IS7_SaIS7_EEEEEEbT_.exit31 ], [ %1, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt6vectorIPK21llama_grammar_elementSaIS5_EEEclINS_17__normal_iteratorIPS7_S2_IS7_SaIS7_EEEEEEbT_.exit39.thread64 ], [ %95, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt6vectorIPK21llama_grammar_elementSaIS5_EEEclINS_17__normal_iteratorIPS7_S2_IS7_SaIS7_EEEEEEbT_.exit.thread.loopexit.split.loop.exit126 ], [ %99, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt6vectorIPK21llama_grammar_elementSaIS5_EEEclINS_17__normal_iteratorIPS7_S2_IS7_SaIS7_EEEEEEbT_.exit.thread.loopexit.split.loop.exit134 ], [ %98, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt6vectorIPK21llama_grammar_elementSaIS5_EEEclINS_17__normal_iteratorIPS7_S2_IS7_SaIS7_EEEEEEbT_.exit.thread.loopexit.split.loop.exit132 ], [ %96, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt6vectorIPK21llama_grammar_elementSaIS5_EEEclINS_17__normal_iteratorIPS7_S2_IS7_SaIS7_EEEEEEbT_.exit.thread.loopexit.split.loop.exit128 ], [ %94, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt6vectorIPK21llama_grammar_elementSaIS5_EEEclINS_17__normal_iteratorIPS7_S2_IS7_SaIS7_EEEEEEbT_.exit.thread.loopexit.split.loop.exit ], [ %97, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt6vectorIPK21llama_grammar_elementSaIS5_EEEclINS_17__normal_iteratorIPS7_S2_IS7_SaIS7_EEEEEEbT_.exit.thread.loopexit.split.loop.exit130 ], [ %.sroa.049.086, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt6vectorIPK21llama_grammar_elementSaIS5_EEEclINS_17__normal_iteratorIPS7_S2_IS7_SaIS7_EEEEEEbT_.exit ], [ %.sroa.049.086, %25 ]
   ret ptr %.sroa.08.0.in.sroa.speculated
 }
 

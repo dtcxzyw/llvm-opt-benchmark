@@ -712,7 +712,7 @@ if.end:                                           ; preds = %if.end.sink.split, 
   ret void
 
 eh.resume:                                        ; preds = %ehcleanup67, %ehcleanup22, %ehcleanup67.thread104, %ehcleanup22.thread94
-  %.pn7.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.ph, %ehcleanup67.thread104 ], [ %.pn7.pn.ph, %ehcleanup22.thread94 ], [ %.pn7.pn, %ehcleanup22 ], [ %.pn.pn, %ehcleanup67 ]
+  %.pn7.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.ph, %ehcleanup67.thread104 ], [ %.pn7.pn, %ehcleanup22 ], [ %.pn7.pn.ph, %ehcleanup22.thread94 ], [ %.pn.pn, %ehcleanup67 ]
   resume { ptr, i32 } %.pn7.pn.pn.pn
 }
 
@@ -1000,7 +1000,7 @@ arraydestroy.body23.preheader:                    ; preds = %ehcleanup22, %ehcle
   br label %eh.resume
 
 eh.resume:                                        ; preds = %ehcleanup22.thread30, %arraydestroy.body23.preheader, %lpad.i, %lpad2.i
-  %.pn.pn.pn22 = phi { ptr, i32 } [ %.pn, %ehcleanup22.thread30 ], [ %0, %lpad.i ], [ %1, %lpad2.i ], [ %.pn.pn.pn29, %arraydestroy.body23.preheader ]
+  %.pn.pn.pn22 = phi { ptr, i32 } [ %1, %lpad2.i ], [ %.pn, %ehcleanup22.thread30 ], [ %0, %lpad.i ], [ %.pn.pn.pn29, %arraydestroy.body23.preheader ]
   resume { ptr, i32 } %.pn.pn.pn22
 }
 
@@ -1336,7 +1336,7 @@ arraydestroy.body31:                              ; preds = %arraydestroy.body31
   br i1 %arraydestroy.done34, label %eh.resume, label %arraydestroy.body31
 
 eh.resume:                                        ; preds = %arraydestroy.body31, %lpad.i, %lpad2.i, %ehcleanup30
-  %.pn.pn.pn.pn53 = phi { ptr, i32 } [ %.pn.pn, %ehcleanup30 ], [ %0, %lpad.i ], [ %1, %lpad2.i ], [ %.pn.pn.pn.pn68, %arraydestroy.body31 ]
+  %.pn.pn.pn.pn53 = phi { ptr, i32 } [ %1, %lpad2.i ], [ %.pn.pn, %ehcleanup30 ], [ %0, %lpad.i ], [ %.pn.pn.pn.pn68, %arraydestroy.body31 ]
   resume { ptr, i32 } %.pn.pn.pn.pn53
 }
 

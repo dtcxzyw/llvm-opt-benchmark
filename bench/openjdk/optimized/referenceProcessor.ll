@@ -957,7 +957,7 @@ _ZNK14DiscoveredList8is_emptyEv.exit.thread.i.i:  ; preds = %_ZNK14DiscoveredLis
   br label %_ZN18ReferenceProcessor20maybe_balance_queuesEP14DiscoveredList.exit
 
 _ZN18ReferenceProcessor20maybe_balance_queuesEP14DiscoveredList.exit: ; preds = %_ZNK14DiscoveredList8is_emptyEv.exit.thread.i.i, %_ZNK14DiscoveredList8is_emptyEv.exit.thread.us.i.i, %39, %.loopexit.i
-  %60 = phi i8 [ %.pre, %.loopexit.i ], [ %37, %39 ], [ %37, %_ZNK14DiscoveredList8is_emptyEv.exit.thread.us.i.i ], [ %37, %_ZNK14DiscoveredList8is_emptyEv.exit.thread.i.i ]
+  %60 = phi i8 [ %37, %_ZNK14DiscoveredList8is_emptyEv.exit.thread.us.i.i ], [ %.pre, %.loopexit.i ], [ %37, %39 ], [ %37, %_ZNK14DiscoveredList8is_emptyEv.exit.thread.i.i ]
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %62 = load ptr, ptr %61, align 8
   %63 = trunc i8 %60 to i1
@@ -1020,7 +1020,7 @@ _ZNK14DiscoveredList8is_emptyEv.exit.thread.i.i18: ; preds = %_ZNK14DiscoveredLi
   br label %_ZN18ReferenceProcessor20maybe_balance_queuesEP14DiscoveredList.exit28
 
 _ZN18ReferenceProcessor20maybe_balance_queuesEP14DiscoveredList.exit28: ; preds = %_ZNK14DiscoveredList8is_emptyEv.exit.thread.i.i18, %_ZNK14DiscoveredList8is_emptyEv.exit.thread.us.i.i24, %64, %.loopexit.i17
-  %85 = phi i8 [ %.pre59, %.loopexit.i17 ], [ %60, %64 ], [ %60, %_ZNK14DiscoveredList8is_emptyEv.exit.thread.us.i.i24 ], [ %60, %_ZNK14DiscoveredList8is_emptyEv.exit.thread.i.i18 ]
+  %85 = phi i8 [ %60, %_ZNK14DiscoveredList8is_emptyEv.exit.thread.us.i.i24 ], [ %.pre59, %.loopexit.i17 ], [ %60, %64 ], [ %60, %_ZNK14DiscoveredList8is_emptyEv.exit.thread.i.i18 ]
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %87 = load ptr, ptr %86, align 8
   %88 = trunc i8 %85 to i1
@@ -2390,7 +2390,7 @@ _ZNK14DiscoveredList8is_emptyEv.exit:             ; preds = %_ZNK14DiscoveredLis
   br i1 %or.cond22, label %.loopexit, label %_ZNK14DiscoveredList8is_emptyEv.exit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %_ZNK14DiscoveredList8is_emptyEv.exit, %.lr.ph.split.us, %5, %2
-  %.05 = phi i1 [ true, %2 ], [ false, %5 ], [ %or.cond.not, %.lr.ph.split.us ], [ %.not, %_ZNK14DiscoveredList8is_emptyEv.exit ]
+  %.05 = phi i1 [ true, %2 ], [ %or.cond.not, %.lr.ph.split.us ], [ false, %5 ], [ %.not, %_ZNK14DiscoveredList8is_emptyEv.exit ]
   ret i1 %.05
 }
 

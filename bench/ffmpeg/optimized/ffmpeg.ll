@@ -1983,8 +1983,8 @@ ost_iter.exit:                                    ; preds = %41
   br label %51
 
 ._crit_edge:                                      ; preds = %39, %.thread.i, %ost_iter.exit161, %109, %31, %ost_iter.exit
-  %.0131.lcssa = phi i64 [ 0, %ost_iter.exit ], [ 0, %31 ], [ %.1132, %.thread.i ], [ %.1132, %109 ], [ %.1132, %ost_iter.exit161 ], [ 0, %39 ]
-  %.0129.lcssa = phi i64 [ 0, %ost_iter.exit ], [ 0, %31 ], [ %.1130, %.thread.i ], [ %.1130, %109 ], [ %.1130, %ost_iter.exit161 ], [ 0, %39 ]
+  %.0131.lcssa = phi i64 [ 0, %ost_iter.exit ], [ %.1132, %109 ], [ %.1132, %.thread.i ], [ 0, %31 ], [ %.1132, %ost_iter.exit161 ], [ 0, %39 ]
+  %.0129.lcssa = phi i64 [ 0, %ost_iter.exit ], [ %.1130, %109 ], [ %.1130, %.thread.i ], [ 0, %31 ], [ %.1130, %ost_iter.exit161 ], [ 0, %39 ]
   %50 = load i32, ptr @copy_ts, align 4, !tbaa !12
   %.not145 = icmp eq i32 %50, 0
   br i1 %.not145, label %128, label %120

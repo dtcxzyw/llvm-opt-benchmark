@@ -2218,7 +2218,7 @@ Vec_IntDowndateEntry.exit250:                     ; preds = %214, %220
   br label %.critedge6
 
 .critedge6:                                       ; preds = %.critedge6.loopexit, %236, %201, %237, %225
-  %.4144 = phi i32 [ %.2142287, %201 ], [ %.2142287, %225 ], [ %.2142287, %237 ], [ %.2142287, %236 ], [ %252, %.critedge6.loopexit ]
+  %.4144 = phi i32 [ %.2142287, %236 ], [ %.2142287, %201 ], [ %.2142287, %225 ], [ %.2142287, %237 ], [ %252, %.critedge6.loopexit ]
   %.not338 = icmp eq i32 %.4144, 0
   br i1 %.not338, label %.critedge4, label %189, !llvm.loop !128
 

@@ -325,7 +325,7 @@ define internal range(i32 -22, 1) i32 @cinepak_encode_init(ptr noundef %0) #0 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %61, %92, %88, %72, %45, %35, %30, %23, %20, %17, %182, %16, %._crit_edge
-  %.0 = phi i32 [ -22, %._crit_edge ], [ -22, %16 ], [ -12, %45 ], [ 0, %182 ], [ -12, %88 ], [ -12, %72 ], [ -12, %35 ], [ -12, %30 ], [ -12, %23 ], [ -12, %20 ], [ -12, %17 ], [ -12, %92 ], [ -12, %61 ]
+  %.0 = phi i32 [ -22, %._crit_edge ], [ -22, %16 ], [ -12, %45 ], [ 0, %182 ], [ -12, %88 ], [ -12, %72 ], [ -12, %92 ], [ -12, %35 ], [ -12, %30 ], [ -12, %23 ], [ -12, %20 ], [ -12, %17 ], [ -12, %61 ]
   ret i32 %.0
 }
 
@@ -1196,7 +1196,7 @@ calculate_skip_errors.exit.i.i:                   ; preds = %._crit_edge.split.u
   br i1 %exitcond185.not.i.i.i, label %calculate_mode_score.exit.thread.i.i, label %450, !llvm.loop !90
 
 calculate_mode_score.exit.thread.i.i:             ; preds = %473, %433, %414, %.thread352.i.i
-  %.4357.i.i = phi i32 [ %spec.select157.i.i, %.thread352.i.i ], [ %.1119277.i.i, %414 ], [ %spec.select157.i.i, %433 ], [ %.1119277.i.i, %473 ]
+  %.4357.i.i = phi i32 [ %spec.select157.i.i, %433 ], [ %spec.select157.i.i, %.thread352.i.i ], [ %.1119277.i.i, %414 ], [ %.1119277.i.i, %473 ]
   %474 = load i32, ptr %151, align 8, !tbaa !91
   store i32 %.0120290.i.i, ptr %149, align 4, !tbaa !81
   %475 = call fastcc i32 @quantize(ptr noundef %12, i32 noundef range(i32 1, -2147483648) %178, ptr noundef nonnull readonly %7, ptr noundef nonnull readonly %8, i32 noundef 1, ptr noundef %6, i32 noundef 0)
@@ -1386,9 +1386,9 @@ calculate_mode_score.exit.thread.i.i:             ; preds = %473, %433, %414, %.
   br i1 %exitcond.not.i163.i.i, label %calculate_mode_score.exit170.i.i, label %542, !llvm.loop !93
 
 calculate_mode_score.exit170.i.i:                 ; preds = %567, %526, %515, %537, %523, %509, %488
-  %.8198.i.i = phi i32 [ %.7197.i.i, %488 ], [ %.7197.i.i, %509 ], [ 0, %523 ], [ 0, %537 ], [ 0, %526 ], [ %.7197.i.i, %515 ], [ %.1115.i.i.i, %567 ]
-  %.8.i.i = phi i32 [ %.7189.i.i, %488 ], [ %.7189.i.i, %509 ], [ 0, %523 ], [ 0, %537 ], [ 0, %526 ], [ %.7189.i.i, %515 ], [ %.1.i.i.i, %567 ]
-  %.0116.i160.i.i = phi i64 [ %507, %488 ], [ %512, %509 ], [ %507, %523 ], [ %507, %537 ], [ %536, %526 ], [ %521, %515 ], [ %.6.i.i.i, %567 ]
+  %.8198.i.i = phi i32 [ %.7197.i.i, %488 ], [ %.7197.i.i, %515 ], [ %.7197.i.i, %509 ], [ 0, %526 ], [ 0, %523 ], [ 0, %537 ], [ %.1115.i.i.i, %567 ]
+  %.8.i.i = phi i32 [ %.7189.i.i, %488 ], [ %.7189.i.i, %515 ], [ %.7189.i.i, %509 ], [ 0, %526 ], [ 0, %523 ], [ 0, %537 ], [ %.1.i.i.i, %567 ]
+  %.0116.i160.i.i = phi i64 [ %507, %488 ], [ %521, %515 ], [ %512, %509 ], [ %536, %526 ], [ %507, %523 ], [ %507, %537 ], [ %.6.i.i.i, %567 ]
   %568 = icmp ne i32 %.8198.i.i, 0
   %569 = icmp ne i32 %.8.i.i, 0
   %or.cond4.i.i = select i1 %568, i1 true, i1 %569
@@ -1445,14 +1445,14 @@ calculate_mode_score.exit170.i.i:                 ; preds = %567, %526, %515, %5
   br label %488
 
 calculate_mode_score.exit.thread203.i.i:          ; preds = %570, %calculate_mode_score.exit170.i.i, %420, %.thread.i.i
-  %.4350.i.i = phi i32 [ %.1119277.i.i, %.thread.i.i ], [ %.1119277.i.i, %420 ], [ %.4357.i.i, %calculate_mode_score.exit170.i.i ], [ %.4357.i.i, %570 ]
-  %.6348.i.i = phi i32 [ %spec.select.i.i, %.thread.i.i ], [ %spec.select.i.i, %420 ], [ %.2123276.i.i, %calculate_mode_score.exit170.i.i ], [ %.2123276.i.i, %570 ]
-  %.val.i.i.i = phi i32 [ %392, %.thread.i.i ], [ %392, %420 ], [ %490, %calculate_mode_score.exit170.i.i ], [ %490, %570 ]
-  %588 = phi i32 [ 0, %.thread.i.i ], [ 0, %420 ], [ %489, %calculate_mode_score.exit170.i.i ], [ %489, %570 ]
-  %589 = phi i32 [ %388, %.thread.i.i ], [ %388, %420 ], [ %493, %calculate_mode_score.exit170.i.i ], [ %493, %570 ]
-  %.5195.i.i = phi i32 [ %.2192273.i.i, %.thread.i.i ], [ %.2192273.i.i, %420 ], [ %.8198.i.i, %570 ], [ 0, %calculate_mode_score.exit170.i.i ]
-  %.5.i.i = phi i32 [ %.2185274.i.i, %.thread.i.i ], [ %.2185274.i.i, %420 ], [ %.8.i.i, %570 ], [ 0, %calculate_mode_score.exit170.i.i ]
-  %.0130.i.i = phi i64 [ %402, %.thread.i.i ], [ %426, %420 ], [ %.0116.i160.i.i, %calculate_mode_score.exit170.i.i ], [ %.0116.i160.i.i, %570 ]
+  %.4350.i.i = phi i32 [ %.1119277.i.i, %420 ], [ %.1119277.i.i, %.thread.i.i ], [ %.4357.i.i, %calculate_mode_score.exit170.i.i ], [ %.4357.i.i, %570 ]
+  %.6348.i.i = phi i32 [ %spec.select.i.i, %420 ], [ %spec.select.i.i, %.thread.i.i ], [ %.2123276.i.i, %calculate_mode_score.exit170.i.i ], [ %.2123276.i.i, %570 ]
+  %.val.i.i.i = phi i32 [ %392, %420 ], [ %392, %.thread.i.i ], [ %490, %calculate_mode_score.exit170.i.i ], [ %490, %570 ]
+  %588 = phi i32 [ 0, %420 ], [ 0, %.thread.i.i ], [ %489, %calculate_mode_score.exit170.i.i ], [ %489, %570 ]
+  %589 = phi i32 [ %388, %420 ], [ %388, %.thread.i.i ], [ %493, %calculate_mode_score.exit170.i.i ], [ %493, %570 ]
+  %.5195.i.i = phi i32 [ %.2192273.i.i, %420 ], [ %.2192273.i.i, %.thread.i.i ], [ 0, %calculate_mode_score.exit170.i.i ], [ %.8198.i.i, %570 ]
+  %.5.i.i = phi i32 [ %.2185274.i.i, %420 ], [ %.2185274.i.i, %.thread.i.i ], [ 0, %calculate_mode_score.exit170.i.i ], [ %.8.i.i, %570 ]
+  %.0130.i.i = phi i64 [ %426, %420 ], [ %402, %.thread.i.i ], [ %.0116.i160.i.i, %calculate_mode_score.exit170.i.i ], [ %.0116.i160.i.i, %570 ]
   %590 = icmp eq i32 %.2128275.i.i, 0
   %591 = icmp slt i64 %.0130.i.i, %.6261.i
   %or.cond342.i = select i1 %590, i1 true, i1 %591
@@ -2310,7 +2310,7 @@ thread-pre-split.i.i.i:                           ; preds = %950, %943, %940
   br label %encode_mode.exit.i.i
 
 encode_mode.exit.i.i:                             ; preds = %.loopexit.loopexit.i.i.i, %._crit_edge344.thread.i.i.i, %._crit_edge365.i.i.i, %841, %.split334.us.i.i.i
-  %.2171.i.i.i = phi i32 [ %.1170.i.i.i, %.split334.us.i.i.i ], [ %.4173.lcssa.i.i.i, %._crit_edge365.i.i.i ], [ %.11.i.i.i, %._crit_edge344.thread.i.i.i ], [ %853, %841 ], [ %998, %.loopexit.loopexit.i.i.i ]
+  %.2171.i.i.i = phi i32 [ %.1170.i.i.i, %.split334.us.i.i.i ], [ %.11.i.i.i, %._crit_edge344.thread.i.i.i ], [ %.4173.lcssa.i.i.i, %._crit_edge365.i.i.i ], [ %853, %841 ], [ %998, %.loopexit.loopexit.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %999 = load i32, ptr %150, align 4, !tbaa !84
   %1000 = icmp ne i32 %999, 2

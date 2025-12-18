@@ -1209,7 +1209,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %_ZN32pxrInter
   br label %.body27
 
 .body27:                                          ; preds = %183, %.body30, %175, %75
-  %.pn.pn.pn = phi { ptr, i32 } [ %176, %175 ], [ %76, %75 ], [ %.pn.pn, %.body30 ], [ %.pn.pn, %183 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %76, %75 ], [ %176, %175 ], [ %.pn.pn, %.body30 ], [ %.pn.pn, %183 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev(ptr noundef nonnull align 4 dereferenceable(8) %9) #18
   br label %187
 

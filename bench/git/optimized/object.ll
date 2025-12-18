@@ -198,7 +198,7 @@ define dso_local ptr @lookup_object(ptr noundef readonly captures(none) %0, ptr 
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph56, %7, %25, %26, %2
-  %.0 = phi ptr [ null, %2 ], [ %.lcssa50, %26 ], [ %.lcssa50, %25 ], [ null, %7 ], [ null, %.lr.ph56 ]
+  %.0 = phi ptr [ null, %2 ], [ %.lcssa50, %25 ], [ %.lcssa50, %26 ], [ null, %7 ], [ null, %.lr.ph56 ]
   ret ptr %.0
 }
 
@@ -685,7 +685,7 @@ _.exit:                                           ; preds = %36, %38
   br label %.critedge
 
 .critedge:                                        ; preds = %34, %25, %20, %_.exit, %9, %7, %10, %22, %17, %23, %31, %29, %27, %32
-  %.1 = phi ptr [ null, %25 ], [ %spec.select, %34 ], [ null, %20 ], [ null, %_.exit ], [ null, %7 ], [ null, %10 ], [ %24, %27 ], [ %8, %9 ], [ %11, %17 ], [ %11, %22 ], [ null, %23 ], [ %24, %31 ], [ %24, %29 ], [ null, %32 ]
+  %.1 = phi ptr [ null, %25 ], [ null, %32 ], [ null, %20 ], [ null, %_.exit ], [ null, %7 ], [ %11, %22 ], [ %24, %29 ], [ %8, %9 ], [ null, %10 ], [ %11, %17 ], [ %24, %27 ], [ null, %23 ], [ %24, %31 ], [ %spec.select, %34 ]
   ret ptr %.1
 }
 
@@ -1032,7 +1032,7 @@ _.exit80:                                         ; preds = %114, %116
   br label %lookup_object.exit77
 
 lookup_object.exit77:                             ; preds = %.lr.ph107, %.lr.ph.i68.preheader, %93, %.lr.ph.i68._crit_edge, %76, %71, %106, %126, %129, %lookup_object.exit, %51, %_.exit80, %104, %_.exit
-  %.0 = phi ptr [ %52, %51 ], [ null, %106 ], [ null, %_.exit ], [ %105, %104 ], [ %.lcssa95138, %lookup_object.exit ], [ null, %_.exit80 ], [ %123, %126 ], [ %123, %129 ], [ null, %71 ], [ %91, %93 ], [ %91, %.lr.ph.i68._crit_edge ], [ null, %76 ], [ %83, %.lr.ph.i68.preheader ], [ null, %.lr.ph107 ]
+  %.0 = phi ptr [ %52, %51 ], [ null, %106 ], [ null, %_.exit ], [ %105, %104 ], [ %.lcssa95138, %lookup_object.exit ], [ null, %_.exit80 ], [ %123, %126 ], [ %123, %129 ], [ null, %71 ], [ %91, %.lr.ph.i68._crit_edge ], [ %91, %93 ], [ null, %76 ], [ %83, %.lr.ph.i68.preheader ], [ null, %.lr.ph107 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

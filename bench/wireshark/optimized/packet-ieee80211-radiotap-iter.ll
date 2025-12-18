@@ -106,7 +106,7 @@ define hidden range(i32 -22, 1) i32 @ieee80211_radiotap_iterator_init(ptr nounde
   br label %.loopexit
 
 .loopexit:                                        ; preds = %45, %41, %34, %8, %6, %4, %.loopexit54
-  %.0 = phi i32 [ -22, %8 ], [ -22, %4 ], [ -22, %6 ], [ -22, %34 ], [ 0, %.loopexit54 ], [ -22, %41 ], [ -22, %45 ]
+  %.0 = phi i32 [ -22, %8 ], [ -22, %4 ], [ -22, %6 ], [ 0, %.loopexit54 ], [ -22, %34 ], [ -22, %41 ], [ -22, %45 ]
   ret i32 %.0
 }
 

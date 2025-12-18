@@ -7478,7 +7478,7 @@ return.fold.split.i:                              ; preds = %invoke.cont8
   br label %invoke.cont14
 
 invoke.cont14:                                    ; preds = %return.fold.split.i, %if.then33.i, %if.then.i.i.i.i.i.i.i, %if.then11.i, %invoke.cont8, %if.end.i.i.i.i.i.i.i
-  %retval.sroa.0.0.i = phi ptr [ %16, %if.then33.i ], [ @_ZN6hermes2vm15HandleRootOwner15undefinedValue_E, %invoke.cont8 ], [ %cond.i.i, %if.then11.i ], [ %13, %if.then.i.i.i.i.i.i.i ], [ @_ZN6hermes2vm15HandleRootOwner10nullValue_E, %return.fold.split.i ], [ %call7.i.i.i.i.i.i.i1, %if.end.i.i.i.i.i.i.i ]
+  %retval.sroa.0.0.i = phi ptr [ %16, %if.then33.i ], [ @_ZN6hermes2vm15HandleRootOwner15undefinedValue_E, %invoke.cont8 ], [ %cond.i.i, %if.then11.i ], [ @_ZN6hermes2vm15HandleRootOwner10nullValue_E, %return.fold.split.i ], [ %13, %if.then.i.i.i.i.i.i.i ], [ %call7.i.i.i.i.i.i.i1, %if.end.i.i.i.i.i.i.i ]
   %call.i2 = invoke i32 @_ZN6hermes2vm8JSObject27putComputedWithReceiver_RJSENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEES7_S7_NS0_11PropOpFlagsE(ptr nonnull %3, ptr noundef nonnull align 8 dereferenceable(9832) %4, ptr nonnull %6, ptr %retval.sroa.0.0.i, ptr nonnull %3, i32 1)
           to label %invoke.cont30 unwind label %lpad
 
@@ -7597,7 +7597,7 @@ return.fold.split.i:                              ; preds = %invoke.cont8
   br label %invoke.cont13
 
 invoke.cont13:                                    ; preds = %return.fold.split.i, %if.then33.i, %if.then.i.i.i.i.i.i.i, %if.then11.i, %invoke.cont8, %if.end.i.i.i.i.i.i.i
-  %retval.sroa.0.0.i = phi ptr [ %17, %if.then33.i ], [ @_ZN6hermes2vm15HandleRootOwner15undefinedValue_E, %invoke.cont8 ], [ %cond.i.i, %if.then11.i ], [ %14, %if.then.i.i.i.i.i.i.i ], [ @_ZN6hermes2vm15HandleRootOwner10nullValue_E, %return.fold.split.i ], [ %call7.i.i.i.i.i.i.i1, %if.end.i.i.i.i.i.i.i ]
+  %retval.sroa.0.0.i = phi ptr [ %17, %if.then33.i ], [ @_ZN6hermes2vm15HandleRootOwner15undefinedValue_E, %invoke.cont8 ], [ %cond.i.i, %if.then11.i ], [ @_ZN6hermes2vm15HandleRootOwner10nullValue_E, %return.fold.split.i ], [ %14, %if.then.i.i.i.i.i.i.i ], [ %call7.i.i.i.i.i.i.i1, %if.end.i.i.i.i.i.i.i ]
   %call29 = invoke i32 @_ZN6hermes2vm8JSObject17putNamedOrIndexedENS0_6HandleIS1_EERNS0_7RuntimeENS0_8SymbolIDENS2_INS0_11HermesValueEEENS0_11PropOpFlagsE(ptr nonnull %3, ptr noundef nonnull align 8 dereferenceable(9832) %7, i32 %conv.i, ptr %retval.sroa.0.0.i, i32 1)
           to label %invoke.cont28 unwind label %lpad
 
@@ -8895,7 +8895,7 @@ return.fold.split.i:                              ; preds = %invoke.cont18
   br label %invoke.cont23
 
 invoke.cont23:                                    ; preds = %return.fold.split.i, %if.then33.i, %if.then.i.i.i.i.i.i.i, %if.then11.i, %invoke.cont18, %if.end.i.i.i.i.i.i.i
-  %retval.sroa.0.0.i = phi ptr [ %25, %if.then33.i ], [ @_ZN6hermes2vm15HandleRootOwner15undefinedValue_E, %invoke.cont18 ], [ %cond.i.i, %if.then11.i ], [ %22, %if.then.i.i.i.i.i.i.i ], [ @_ZN6hermes2vm15HandleRootOwner10nullValue_E, %return.fold.split.i ], [ %call7.i.i.i.i.i.i.i25, %if.end.i.i.i.i.i.i.i ]
+  %retval.sroa.0.0.i = phi ptr [ %25, %if.then33.i ], [ @_ZN6hermes2vm15HandleRootOwner15undefinedValue_E, %invoke.cont18 ], [ %cond.i.i, %if.then11.i ], [ @_ZN6hermes2vm15HandleRootOwner10nullValue_E, %return.fold.split.i ], [ %22, %if.then.i.i.i.i.i.i.i ], [ %call7.i.i.i.i.i.i.i25, %if.end.i.i.i.i.i.i.i ]
   %call.i26 = invoke i32 @_ZN6hermes2vm8JSObject27putComputedWithReceiver_RJSENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEES7_S7_NS0_11PropOpFlagsE(ptr nonnull %3, ptr noundef nonnull align 8 dereferenceable(9832) %10, ptr %retval.0.i.i.i.i.i.i, ptr %retval.sroa.0.0.i, ptr nonnull %3, i32 0)
           to label %invoke.cont35 unwind label %lpad
 
@@ -9904,7 +9904,7 @@ return.fold.split.i:                              ; preds = %invoke.cont6
   br label %invoke.cont8
 
 invoke.cont8:                                     ; preds = %return.fold.split.i, %if.then33.i, %if.then.i.i.i.i.i.i.i, %if.then11.i, %invoke.cont6, %if.end.i.i.i.i.i.i.i
-  %retval.sroa.0.0.i = phi ptr [ %13, %if.then33.i ], [ @_ZN6hermes2vm15HandleRootOwner15undefinedValue_E, %invoke.cont6 ], [ %cond.i.i, %if.then11.i ], [ %10, %if.then.i.i.i.i.i.i.i ], [ @_ZN6hermes2vm15HandleRootOwner10nullValue_E, %return.fold.split.i ], [ %call7.i.i.i.i.i.i.i11, %if.end.i.i.i.i.i.i.i ]
+  %retval.sroa.0.0.i = phi ptr [ %13, %if.then33.i ], [ @_ZN6hermes2vm15HandleRootOwner15undefinedValue_E, %invoke.cont6 ], [ %cond.i.i, %if.then11.i ], [ @_ZN6hermes2vm15HandleRootOwner10nullValue_E, %return.fold.split.i ], [ %10, %if.then.i.i.i.i.i.i.i ], [ %call7.i.i.i.i.i.i.i11, %if.end.i.i.i.i.i.i.i ]
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #39
   %call.i12 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %msg)
           to label %call.i.noexc unwind label %lpad12

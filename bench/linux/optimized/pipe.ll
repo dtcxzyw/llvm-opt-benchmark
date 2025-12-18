@@ -1350,7 +1350,7 @@ define internal i64 @pipe_read(ptr noundef readonly captures(none) %0, ptr nound
   br label %.thread27.outer, !llvm.loop !25
 
 .thread20:                                        ; preds = %.thread13, %87, %107, %111, %100, %71, %61, %49
-  %150 = phi i64 [ %64, %61 ], [ %51, %49 ], [ %73, %71 ], [ %75, %87 ], [ %75, %.thread13 ], [ %101, %100 ], [ -11, %107 ], [ -11, %111 ]
+  %150 = phi i64 [ %64, %61 ], [ %51, %49 ], [ %73, %71 ], [ %75, %87 ], [ %75, %.thread13 ], [ -11, %107 ], [ -11, %111 ], [ %101, %100 ]
   %151 = load i32, ptr %11, align 8
   %152 = load i32, ptr %13, align 4
   %153 = icmp eq i32 %151, %152
@@ -1718,9 +1718,9 @@ define internal i64 @pipe_write(ptr noundef readonly captures(none) %0, ptr noun
   br i1 %206, label %.loopexit, label %88, !llvm.loop !26
 
 .thread11:                                        ; preds = %135, %105, %132, %.thread, %59, %.critedge, %148, %.loopexit, %64, %14
-  %207 = phi i64 [ %150, %148 ], [ %162, %.critedge ], [ %87, %.loopexit ], [ %62, %64 ], [ -32, %14 ], [ %60, %59 ], [ -14, %.thread ], [ %107, %105 ], [ %134, %132 ], [ %136, %135 ]
-  %208 = phi i8 [ %91, %148 ], [ %91, %.critedge ], [ %81, %.loopexit ], [ %24, %64 ], [ 0, %14 ], [ %24, %59 ], [ %24, %.thread ], [ %91, %105 ], [ %91, %132 ], [ %91, %135 ]
-  %209 = phi i8 [ %90, %148 ], [ %90, %.critedge ], [ %82, %.loopexit ], [ 0, %64 ], [ 0, %14 ], [ 0, %59 ], [ 0, %.thread ], [ %90, %105 ], [ %90, %132 ], [ %90, %135 ]
+  %207 = phi i64 [ %150, %148 ], [ %162, %.critedge ], [ %87, %.loopexit ], [ %62, %64 ], [ -32, %14 ], [ %134, %132 ], [ %60, %59 ], [ -14, %.thread ], [ %107, %105 ], [ %136, %135 ]
+  %208 = phi i8 [ %91, %148 ], [ %91, %.critedge ], [ %81, %.loopexit ], [ %24, %64 ], [ 0, %14 ], [ %91, %132 ], [ %24, %59 ], [ %24, %.thread ], [ %91, %105 ], [ %91, %135 ]
+  %209 = phi i8 [ %90, %148 ], [ %90, %.critedge ], [ %82, %.loopexit ], [ 0, %64 ], [ 0, %14 ], [ %90, %132 ], [ 0, %59 ], [ 0, %.thread ], [ %90, %105 ], [ %90, %135 ]
   %210 = getelementptr inbounds nuw i8, ptr %6, i64 80
   %211 = load i32, ptr %210, align 8
   %212 = getelementptr inbounds nuw i8, ptr %6, i64 84

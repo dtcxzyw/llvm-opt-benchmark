@@ -2795,7 +2795,7 @@ vc1_decode_i_block.exit:                          ; preds = %.split.us.i, %521, 
   br i1 %exitcond183.not, label %.loopexit150, label %.preheader, !llvm.loop !154
 
 .loopexit150:                                     ; preds = %547, %563, %548, %533
-  %.sink193 = phi i32 [ 1, %533 ], [ 0, %548 ], [ 0, %563 ], [ 1, %547 ]
+  %.sink193 = phi i32 [ 1, %533 ], [ 0, %563 ], [ 0, %548 ], [ 1, %547 ]
   tail call fastcc void @vc1_put_blocks_clamped(ptr noundef %0, i32 noundef %.sink193)
   %564 = load i32, ptr %81, align 4, !tbaa !48
   %.not137 = icmp eq i32 %564, 0
@@ -4381,7 +4381,7 @@ get_mvdata_interlaced.exit350.i:                  ; preds = %872, %807, %782, %7
   br label %1084
 
 1031:                                             ; preds = %1026, %.thread429.i, %926
-  %.7.i = phi i32 [ %198, %926 ], [ 1, %1026 ], [ %.12.i, %.thread429.i ]
+  %.7.i = phi i32 [ %.12.i, %.thread429.i ], [ %198, %926 ], [ 1, %1026 ]
   %1032 = trunc i32 %.7.i to i8
   %1033 = load ptr, ptr %73, align 8, !tbaa !117
   %1034 = sext i32 %194 to i64
@@ -4563,7 +4563,7 @@ get_vlc2.exit.i:                                  ; preds = %1062, %1038
   br label %vc1_decode_p_mb_intfi.exit
 
 vc1_decode_p_mb_intfi.exit:                       ; preds = %1109, %478, %1139
-  %.0265.i = phi i32 [ 0, %1139 ], [ %488, %478 ], [ %1124, %1109 ]
+  %.0265.i = phi i32 [ %488, %478 ], [ 0, %1139 ], [ %1124, %1109 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %28, label %1149, label %3897
 
@@ -8704,8 +8704,8 @@ get_vlc2.exit.i157:                               ; preds = %3723, %3699
   br label %.loopexit882.i
 
 .loopexit882.i:                                   ; preds = %3287, %3873, %.loopexit886.i, %3299
-  %.5587.i = phi i32 [ 0, %3873 ], [ %.2584.i, %.loopexit886.i ], [ 0, %3299 ], [ %.1583.i, %3287 ]
-  %.5.i155 = phi i32 [ 0, %3873 ], [ %.2.i, %.loopexit886.i ], [ 0, %3299 ], [ %.1581.i, %3287 ]
+  %.5587.i = phi i32 [ 0, %3873 ], [ 0, %3299 ], [ %.2584.i, %.loopexit886.i ], [ %.1583.i, %3287 ]
+  %.5.i155 = phi i32 [ 0, %3873 ], [ 0, %3299 ], [ %.2.i, %.loopexit886.i ], [ %.1581.i, %3287 ]
   %3876 = load i32, ptr %111, align 8, !tbaa !136
   %.not728.i = icmp eq i32 %3876, 0
   br i1 %.not728.i, label %3881, label %3877
@@ -10806,7 +10806,7 @@ get_mvdata_interlaced.exit.i:                     ; preds = %1120, %1119, %1054,
   br label %1329
 
 1276:                                             ; preds = %1271, %.thread523.i, %1171
-  %.7.i = phi i32 [ %196, %1171 ], [ 1, %1271 ], [ %.12.i, %.thread523.i ]
+  %.7.i = phi i32 [ %.12.i, %.thread523.i ], [ %196, %1171 ], [ 1, %1271 ]
   %1277 = trunc i32 %.7.i to i8
   %1278 = load ptr, ptr %75, align 8, !tbaa !117
   %1279 = sext i32 %192 to i64
@@ -12059,8 +12059,8 @@ decode012.exit.thread.i112:                       ; preds = %.critedge.i108
   br label %.thread1075.i
 
 .thread1075.i:                                    ; preds = %1976, %.preheader1150.i, %2062, %2060, %decode012.exit.i110
-  %.0814.i = phi i1 [ true, %2060 ], [ %2073, %2062 ], [ true, %decode012.exit.i110 ], [ true, %.preheader1150.i ], [ true, %1976 ]
-  %.0797.i = phi i32 [ %.1.i, %2060 ], [ %.1.i, %2062 ], [ 2, %decode012.exit.i110 ], [ 0, %.preheader1150.i ], [ 0, %1976 ]
+  %.0814.i = phi i1 [ true, %2060 ], [ %2073, %2062 ], [ true, %.preheader1150.i ], [ true, %decode012.exit.i110 ], [ true, %1976 ]
+  %.0797.i = phi i32 [ %.1.i, %2060 ], [ %.1.i, %2062 ], [ 0, %.preheader1150.i ], [ 2, %decode012.exit.i110 ], [ 0, %1976 ]
   br i1 %.not840.i, label %2074, label %.preheader1149.i
 
 2074:                                             ; preds = %.thread1075.i
@@ -14288,8 +14288,8 @@ get_vlc2.exit.i89:                                ; preds = %3431, %3407
   br label %.loopexit.i87
 
 .loopexit.i87:                                    ; preds = %1786, %.loopexit.loopexit1174.i, %3645
-  %3648 = phi i32 [ 0, %3645 ], [ %.pre1218.i, %.loopexit.loopexit1174.i ], [ 0, %1786 ]
-  %.0802.i = phi i32 [ 0, %3645 ], [ %.2804.i, %.loopexit.loopexit1174.i ], [ 0, %1786 ]
+  %3648 = phi i32 [ %.pre1218.i, %.loopexit.loopexit1174.i ], [ 0, %3645 ], [ 0, %1786 ]
+  %.0802.i = phi i32 [ %.2804.i, %.loopexit.loopexit1174.i ], [ 0, %3645 ], [ 0, %1786 ]
   %3649 = load ptr, ptr %111, align 8, !tbaa !195
   %3650 = load i32, ptr %28, align 4, !tbaa !65
   %3651 = sext i32 %3650 to i64
@@ -18126,14 +18126,14 @@ ff_vc1_pred_dc.exit:                              ; preds = %256, %.thread130.i,
   br i1 %exitcond511.not, label %.critedge, label %560, !llvm.loop !278
 
 .critedge.sink.split:                             ; preds = %313, %457, %351
-  %.4.ph = phi i32 [ -1094995529, %351 ], [ 0, %457 ], [ %314, %313 ]
+  %.4.ph = phi i32 [ 0, %457 ], [ -1094995529, %351 ], [ %314, %313 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.critedge
 
 .critedge:                                        ; preds = %548, %560, %.critedge.sink.split, %459, %496, %468, %507
-  %.4 = phi i32 [ -1094995529, %468 ], [ -1094995529, %507 ], [ 0, %496 ], [ 0, %459 ], [ %.4.ph, %.critedge.sink.split ], [ 0, %560 ], [ 0, %548 ]
+  %.4 = phi i32 [ -1094995529, %468 ], [ %.4.ph, %.critedge.sink.split ], [ -1094995529, %507 ], [ 0, %560 ], [ 0, %496 ], [ 0, %459 ], [ 0, %548 ]
   ret i32 %.4
 }
 
@@ -18703,7 +18703,7 @@ thread-pre-split357:                              ; preds = %314, %305
   br i1 %287, label %286, label %.loopexit, !llvm.loop !287
 
 .loopexit:                                        ; preds = %._crit_edge.thread, %._crit_edge390.thread, %.thread340.thread, %.thread334, %167, %130
-  %.0269 = phi i32 [ 0, %130 ], [ 15, %167 ], [ 15, %.thread334 ], [ %232, %._crit_edge390.thread ], [ %178, %.thread340.thread ], [ %279, %._crit_edge.thread ]
+  %.0269 = phi i32 [ 0, %130 ], [ %178, %.thread340.thread ], [ 15, %167 ], [ 15, %.thread334 ], [ %232, %._crit_edge390.thread ], [ %279, %._crit_edge.thread ]
   %.not319 = icmp eq ptr %8, null
   br i1 %.not319, label %.thread330, label %321
 
@@ -18716,7 +18716,7 @@ thread-pre-split357:                              ; preds = %314, %305
   br label %.thread330
 
 .thread330:                                       ; preds = %.lr.ph, %.lr.ph389, %.lr.ph398, %144, %.loopexit, %321
-  %.2 = phi i32 [ %.0269, %.loopexit ], [ %.0269, %321 ], [ %250, %.lr.ph389 ], [ %146, %144 ], [ %195, %.lr.ph398 ], [ %295, %.lr.ph ]
+  %.2 = phi i32 [ %195, %.lr.ph398 ], [ %.0269, %.loopexit ], [ %250, %.lr.ph389 ], [ %146, %144 ], [ %.0269, %321 ], [ %295, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)

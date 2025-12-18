@@ -443,7 +443,7 @@ define noundef ptr @Abc_ConvertSopToBdd(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %.not90, label %.loopexit, label %.split, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us, %.critedge.split.split, %.critedge.split.us.us, %.preheader99, %.preheader, %57
-  %.178 = phi ptr [ %.279, %57 ], [ %5, %.preheader ], [ %5, %.preheader99 ], [ %9, %.lr.ph.split.us ], [ %34, %.critedge.split.us.us ], [ %74, %.critedge.split.split ], [ %13, %.lr.ph.split ]
+  %.178 = phi ptr [ %9, %.lr.ph.split.us ], [ %.279, %57 ], [ %5, %.preheader ], [ %34, %.critedge.split.us.us ], [ %74, %.critedge.split.split ], [ %5, %.preheader99 ], [ %13, %.lr.ph.split ]
   %78 = ptrtoint ptr %.178 to i64
   %79 = tail call i32 @Abc_SopGetPhase(ptr noundef %1) #17
   %.not97 = icmp eq i32 %79, 0
@@ -1343,7 +1343,7 @@ Vec_IntGrow.exit.i:                               ; preds = %28, %Vec_IntAlloc.e
   br i1 %exitcond.not.i, label %Vec_IntFill.exit, label %34, !llvm.loop !72
 
 Vec_IntFill.exit:                                 ; preds = %34, %Vec_IntAlloc.exit.thread, %Vec_IntGrow.exit.i
-  %36 = phi ptr [ %32, %Vec_IntGrow.exit.i ], [ %16, %Vec_IntAlloc.exit.thread ], [ %32, %34 ]
+  %36 = phi ptr [ %16, %Vec_IntAlloc.exit.thread ], [ %32, %Vec_IntGrow.exit.i ], [ %32, %34 ]
   %37 = icmp slt i32 %2, 1000000000
   br i1 %37, label %38, label %.critedge103
 
@@ -2720,7 +2720,7 @@ define ptr @Abc_ConvertSopToAigInternal(ptr noundef %0, ptr noundef %1) local_un
   br i1 %.not42, label %.loopexit, label %17, !llvm.loop !101
 
 .loopexit:                                        ; preds = %.lr.ph, %.critedge, %9, %14
-  %.138 = phi ptr [ %8, %14 ], [ %8, %9 ], [ %32, %.critedge ], [ %12, %.lr.ph ]
+  %.138 = phi ptr [ %32, %.critedge ], [ %8, %14 ], [ %8, %9 ], [ %12, %.lr.ph ]
   %36 = tail call i32 @Abc_SopIsComplement(ptr noundef %1) #17
   %.not45 = icmp eq i32 %36, 0
   %37 = ptrtoint ptr %.138 to i64

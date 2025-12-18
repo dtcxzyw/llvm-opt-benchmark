@@ -1576,7 +1576,7 @@ define internal range(i32 -107, 1) i32 @CVApolynomialGetY(ptr noundef readonly c
   br label %._crit_edge
 
 .loopexit:                                        ; preds = %.split, %.split.us.us, %.thread285, %100
-  %.0153290 = phi i32 [ %114, %.thread285 ], [ %104, %100 ], [ %.0153289296, %.split.us.us ], [ %.0153289296, %.split ]
+  %.0153290 = phi i32 [ %114, %.thread285 ], [ %.0153289296, %.split.us.us ], [ %104, %100 ], [ %.0153289296, %.split ]
   %219 = getelementptr inbounds nuw i8, ptr %0, i64 2640
   %220 = load ptr, ptr %219, align 8, !tbaa !66
   store double 1.000000e+00, ptr %220, align 8, !tbaa !67
@@ -1627,7 +1627,7 @@ define internal range(i32 -107, 1) i32 @CVApolynomialGetY(ptr noundef readonly c
   br label %CVAfindIndex.exit
 
 CVAfindIndex.exit:                                ; preds = %134, %163, %185, %.loopexit211, %238, %._crit_edge, %85, %242, %89
-  %.0 = phi i32 [ -28, %238 ], [ 0, %89 ], [ -28, %85 ], [ -28, %._crit_edge ], [ 0, %242 ], [ -107, %.loopexit211 ], [ -28, %163 ], [ -28, %185 ], [ -28, %134 ]
+  %.0 = phi i32 [ -28, %163 ], [ -28, %238 ], [ 0, %89 ], [ -28, %85 ], [ -28, %185 ], [ -107, %.loopexit211 ], [ -28, %._crit_edge ], [ 0, %242 ], [ -28, %134 ]
   ret i32 %.0
 }
 
@@ -3677,7 +3677,7 @@ define i32 @CVodeF(ptr noundef %0, double noundef %1, ptr noundef %2, ptr nounde
   br i1 %or.cond3, label %.loopexit, label %249
 
 .loopexit:                                        ; preds = %724, %705, %254, %722, %.loopexit188, %252
-  %.1155 = phi i32 [ -1, %252 ], [ -20, %.loopexit188 ], [ %723, %722 ], [ %255, %254 ], [ %255, %705 ], [ %255, %724 ]
+  %.1155 = phi i32 [ -1, %252 ], [ %723, %722 ], [ -20, %.loopexit188 ], [ %255, %254 ], [ %255, %705 ], [ %255, %724 ]
   %726 = load i32, ptr %245, align 8, !tbaa !25
   store i32 %726, ptr %5, align 4, !tbaa !112
   %727 = getelementptr inbounds nuw i8, ptr %16, i64 180
@@ -4779,7 +4779,7 @@ define i32 @CVodeB(ptr noundef %0, double noundef %1, i32 noundef %2) local_unna
   br i1 %147, label %.loopexit, label %.lr.ph186
 
 .loopexit:                                        ; preds = %..critedge_crit_edge.split.us, %134, %..critedge_crit_edge.split.us203, %.lr.ph186.split.split.us202, %.lr.ph186.split.split.us.us
-  %.0133178 = phi ptr [ %.0133, %134 ], [ %.0133.us197, %.lr.ph186.split.split.us.us ], [ %.0133.us197, %.lr.ph186.split.split.us202 ], [ %.0133.us197, %..critedge_crit_edge.split.us203 ], [ %.0133, %..critedge_crit_edge.split.us ]
+  %.0133178 = phi ptr [ %.0133.us197, %..critedge_crit_edge.split.us203 ], [ %.0133, %134 ], [ %.0133.us197, %.lr.ph186.split.split.us202 ], [ %.0133.us197, %.lr.ph186.split.split.us.us ], [ %.0133, %..critedge_crit_edge.split.us ]
   %148 = getelementptr inbounds nuw i8, ptr %14, i64 96
   %149 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %150 = icmp eq i32 %2, 2
@@ -4942,7 +4942,7 @@ define i32 @CVodeB(ptr noundef %0, double noundef %1, i32 noundef %2) local_unna
   br label %.split222.split.split
 
 .critedge163:                                     ; preds = %182, %217, %178, %153, %151, %.split222.us.split.us, %156, %.split222.us.split.split.us, %.thread164, %94, %74, %70, %53, %47, %24, %18, %11, %6
-  %.0128 = phi i32 [ -21, %6 ], [ -101, %11 ], [ -103, %18 ], [ -102, %24 ], [ -104, %47 ], [ -22, %53 ], [ -22, %74 ], [ -22, %70 ], [ %.us-phi233, %.thread164 ], [ -22, %94 ], [ 0, %.split222.us.split.split.us ], [ %154, %153 ], [ %152, %151 ], [ 0, %.split222.us.split.us ], [ %157, %156 ], [ %.5, %217 ], [ %.5.us, %178 ], [ %183, %182 ]
+  %.0128 = phi i32 [ -21, %6 ], [ -101, %11 ], [ -103, %18 ], [ -102, %24 ], [ -104, %47 ], [ -22, %53 ], [ -22, %74 ], [ -22, %70 ], [ %.us-phi233, %.thread164 ], [ -22, %94 ], [ 0, %.split222.us.split.us ], [ %152, %151 ], [ 0, %.split222.us.split.split.us ], [ %.5.us, %178 ], [ %.5, %217 ], [ %157, %156 ], [ %154, %153 ], [ %183, %182 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0128
 }
@@ -5501,7 +5501,7 @@ CVAckpntGet.exit:                                 ; preds = %._crit_edge283.i, %
   br label %CVAckpntGet.exit.thread
 
 CVAckpntGet.exit.thread:                          ; preds = %258, %._crit_edge276.i, %._crit_edge264.i, %._crit_edge260.i, %._crit_edge254.i, %._crit_edge.i, %38, %29, %22, %11, %._crit_edge271.i, %276
-  %.0 = phi i32 [ 0, %276 ], [ -105, %._crit_edge271.i ], [ -105, %11 ], [ -105, %22 ], [ -105, %29 ], [ -105, %38 ], [ -105, %._crit_edge.i ], [ -105, %._crit_edge254.i ], [ -105, %._crit_edge260.i ], [ -105, %._crit_edge264.i ], [ -105, %._crit_edge276.i ], [ -106, %258 ]
+  %.0 = phi i32 [ 0, %276 ], [ -105, %._crit_edge276.i ], [ -105, %._crit_edge271.i ], [ -105, %11 ], [ -105, %22 ], [ -105, %29 ], [ -105, %38 ], [ -105, %._crit_edge.i ], [ -105, %._crit_edge254.i ], [ -105, %._crit_edge260.i ], [ -105, %._crit_edge264.i ], [ -106, %258 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

@@ -3579,7 +3579,7 @@ define linkonce_odr void @_ZN5Eigen8internal20generic_product_implINS_9Transpose
   br label %_ZNK5Eigen10MatrixBaseINS_5BlockIKNS_9TransposeINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEELi1ELin1ELb1EEEE3dotINS1_IKNS1_IKS4_Lin1ELi1ELb1EEELin1ELi1ELb1EEEEENS_20ScalarBinaryOpTraitsIdNS_8internal6traitsIT_E6ScalarENSF_17scalar_product_opIdSJ_EEE10ReturnTypeERKNS0_ISH_EE.exit.i
 
 _ZNK5Eigen10MatrixBaseINS_5BlockIKNS_9TransposeINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEELi1ELin1ELb1EEEE3dotINS1_IKNS1_IKS4_Lin1ELi1ELb1EEELin1ELi1ELb1EEEEENS_20ScalarBinaryOpTraitsIdNS_8internal6traitsIT_E6ScalarENSF_17scalar_product_opIdSJ_EEE10ReturnTypeERKNS0_ISH_EE.exit.i: ; preds = %.lr.ph85.i.i.i.i.i.i, %96, %86, %42
-  %.0.i.i.i.i = phi double [ 0.000000e+00, %42 ], [ %99, %96 ], [ %87, %86 ], [ %94, %.lr.ph85.i.i.i.i.i.i ]
+  %.0.i.i.i.i = phi double [ 0.000000e+00, %42 ], [ %87, %86 ], [ %99, %96 ], [ %94, %.lr.ph85.i.i.i.i.i.i ]
   %100 = load double, ptr %31, align 8, !tbaa !35
   %101 = tail call double @llvm.fmuladd.f64(double %43, double %.0.i.i.i.i, double %100)
   store double %101, ptr %31, align 8, !tbaa !35
@@ -3719,7 +3719,7 @@ _ZN5Eigen8internal20generic_product_implINS_9TransposeINS_6MatrixIdLin1ELin1ELi0
   br label %_ZNK5Eigen10MatrixBaseINS_5BlockIKNS1_IKNS_9TransposeINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEELi1ELin1ELb1EEELi1ELin1ELb1EEEE3dotINS1_IKS4_Lin1ELi1ELb1EEEEENS_20ScalarBinaryOpTraitsIdNS_8internal6traitsIT_E6ScalarENSF_17scalar_product_opIdSJ_EEE10ReturnTypeERKNS0_ISH_EE.exit.i
 
 _ZNK5Eigen10MatrixBaseINS_5BlockIKNS1_IKNS_9TransposeINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEELi1ELin1ELb1EEELi1ELin1ELb1EEEE3dotINS1_IKS4_Lin1ELi1ELb1EEEEENS_20ScalarBinaryOpTraitsIdNS_8internal6traitsIT_E6ScalarENSF_17scalar_product_opIdSJ_EEE10ReturnTypeERKNS0_ISH_EE.exit.i: ; preds = %.lr.ph85.i.i.i.i.i.i30, %168, %158, %112
-  %.0.i.i.i.i29 = phi double [ 0.000000e+00, %112 ], [ %171, %168 ], [ %159, %158 ], [ %166, %.lr.ph85.i.i.i.i.i.i30 ]
+  %.0.i.i.i.i29 = phi double [ 0.000000e+00, %112 ], [ %159, %158 ], [ %171, %168 ], [ %166, %.lr.ph85.i.i.i.i.i.i30 ]
   %172 = load double, ptr %109, align 8, !tbaa !35
   %173 = tail call double @llvm.fmuladd.f64(double %113, double %.0.i.i.i.i29, double %172)
   store double %173, ptr %109, align 8, !tbaa !35
@@ -9394,7 +9394,7 @@ _ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEv.exit: ; pred
   br label %_ZNK5Eigen10MatrixBaseINS_5BlockIKNS_9TransposeINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEELi1ELin1ELb1EEEE3dotINS1_IKNS1_IKS4_Lin1ELi1ELb1EEELin1ELi1ELb1EEEEENS_20ScalarBinaryOpTraitsIdNS_8internal6traitsIT_E6ScalarENSF_17scalar_product_opIdSJ_EEE10ReturnTypeERKNS0_ISH_EE.exit.i.i
 
 _ZNK5Eigen10MatrixBaseINS_5BlockIKNS_9TransposeINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEELi1ELin1ELb1EEEE3dotINS1_IKNS1_IKS4_Lin1ELi1ELb1EEELin1ELi1ELb1EEEEENS_20ScalarBinaryOpTraitsIdNS_8internal6traitsIT_E6ScalarENSF_17scalar_product_opIdSJ_EEE10ReturnTypeERKNS0_ISH_EE.exit.i.i: ; preds = %.lr.ph85.i.i.i.i.i.i.i, %188, %178, %135
-  %.0.i.i.i.i.i = phi double [ 0.000000e+00, %135 ], [ %191, %188 ], [ %179, %178 ], [ %186, %.lr.ph85.i.i.i.i.i.i.i ]
+  %.0.i.i.i.i.i = phi double [ 0.000000e+00, %135 ], [ %179, %178 ], [ %191, %188 ], [ %186, %.lr.ph85.i.i.i.i.i.i.i ]
   %192 = load double, ptr %128, align 8, !tbaa !35
   %193 = fadd double %.0.i.i.i.i.i, %192
   store double %193, ptr %128, align 8, !tbaa !35

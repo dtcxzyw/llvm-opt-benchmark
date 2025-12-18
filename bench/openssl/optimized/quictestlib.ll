@@ -1254,7 +1254,7 @@ qtest_add_time.exit:                              ; preds = %32, %35
   br label %.loopexit
 
 .loopexit:                                        ; preds = %64, %51, %.thread, %.critedge19.thread, %83, %70, %76, %11, %5, %60
-  %.081 = phi i32 [ 0, %60 ], [ 0, %.critedge19.thread ], [ 1, %83 ], [ 0, %76 ], [ 0, %70 ], [ 0, %11 ], [ 0, %5 ], [ 0, %.thread ], [ 0, %51 ], [ 0, %64 ]
+  %.081 = phi i32 [ 0, %.thread ], [ 0, %60 ], [ 0, %.critedge19.thread ], [ 1, %83 ], [ 0, %76 ], [ 0, %70 ], [ 0, %5 ], [ 0, %11 ], [ 0, %51 ], [ 0, %64 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.081
 }
@@ -2017,7 +2017,7 @@ qtest_fault_resize_message.exit:                  ; preds = %82, %84
   br label %PACKET_buf_init.exit.thread
 
 PACKET_buf_init.exit.thread:                      ; preds = %33, %23, %21, %11, %5, %qtest_fault_resize_message.exit, %75, %65, %49, %55
-  %.0 = phi i32 [ 0, %49 ], [ 0, %65 ], [ 0, %55 ], [ 0, %5 ], [ 0, %75 ], [ 1, %qtest_fault_resize_message.exit ], [ 0, %11 ], [ 0, %21 ], [ 0, %23 ], [ 0, %33 ]
+  %.0 = phi i32 [ 0, %49 ], [ 0, %65 ], [ 0, %11 ], [ 0, %55 ], [ 1, %qtest_fault_resize_message.exit ], [ 0, %5 ], [ 0, %75 ], [ 0, %21 ], [ 0, %23 ], [ 0, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
@@ -2218,7 +2218,7 @@ PACKET_buf_init.exit:                             ; preds = %57
   br label %PACKET_buf_init.exit.thread
 
 PACKET_buf_init.exit.thread:                      ; preds = %57, %35, %6, %.loopexit, %34, %27
-  %.0 = phi i32 [ %28, %27 ], [ 1, %34 ], [ 0, %6 ], [ %93, %.loopexit ], [ 0, %35 ], [ 0, %57 ]
+  %.0 = phi i32 [ %93, %.loopexit ], [ %28, %27 ], [ 1, %34 ], [ 0, %6 ], [ 0, %35 ], [ 0, %57 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

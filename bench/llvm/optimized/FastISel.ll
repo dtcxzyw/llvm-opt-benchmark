@@ -3513,7 +3513,7 @@ _ZNK4llvm3EVTeqES0_.exit58.sink.split:            ; preds = %139, %.thread126, %
   br label %_ZNK4llvm3EVTeqES0_.exit58
 
 _ZNK4llvm3EVTeqES0_.exit58:                       ; preds = %_ZNK4llvm3EVTeqES0_.exit58.sink.split, %3, %.thread126, %_ZNK4llvm4User10getOperandEj.exit65, %139, %_ZNK4llvm4User10getOperandEj.exit76, %57, %_ZNK4llvm4User10getOperandEj.exit61, %15
-  %.0 = phi i1 [ false, %15 ], [ false, %.thread126 ], [ false, %_ZNK4llvm4User10getOperandEj.exit61 ], [ false, %57 ], [ false, %_ZNK4llvm4User10getOperandEj.exit65 ], [ false, %3 ], [ false, %_ZNK4llvm4User10getOperandEj.exit76 ], [ false, %139 ], [ true, %_ZNK4llvm3EVTeqES0_.exit58.sink.split ]
+  %.0 = phi i1 [ false, %139 ], [ false, %_ZNK4llvm4User10getOperandEj.exit61 ], [ false, %15 ], [ false, %_ZNK4llvm4User10getOperandEj.exit76 ], [ false, %.thread126 ], [ false, %3 ], [ false, %57 ], [ false, %_ZNK4llvm4User10getOperandEj.exit65 ], [ true, %_ZNK4llvm3EVTeqES0_.exit58.sink.split ]
   ret i1 %.0
 }
 
@@ -6800,7 +6800,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_14MachineOperandELb1EE9push_backERKS1_.exit
   br label %.critedge110
 
 .critedge110:                                     ; preds = %385, %._crit_edge255, %582, %._crit_edge
-  %.5 = phi i1 [ false, %._crit_edge ], [ true, %582 ], [ true, %._crit_edge255 ], [ false, %385 ]
+  %.5 = phi i1 [ true, %._crit_edge255 ], [ false, %._crit_edge ], [ true, %582 ], [ false, %385 ]
   %584 = load ptr, ptr %4, align 8, !tbaa !247
   %585 = icmp eq ptr %584, %91
   br i1 %585, label %_ZN4llvm11SmallVectorINS_14MachineOperandELj32EED2Ev.exit, label %586
@@ -9696,7 +9696,7 @@ _ZN4llvm11SmallVectorINS_14MachineOperandELj1EED2Ev.exit: ; preds = %_ZN4llvm11S
   br label %.critedge98
 
 .critedge98:                                      ; preds = %142, %132, %201, %_ZN4llvm11SmallVectorINS_14MachineOperandELj1EED2Ev.exit, %194, %.thread, %.critedge96, %_ZN4llvm8DebugLocD2Ev.exit108, %_ZN4llvm8DebugLocD2Ev.exit, %_ZN4llvm8DebugLocD2Ev.exit117, %37
-  %.0 = phi i1 [ true, %37 ], [ true, %_ZN4llvm8DebugLocD2Ev.exit117 ], [ true, %.critedge96 ], [ true, %.thread ], [ true, %_ZN4llvm8DebugLocD2Ev.exit108 ], [ true, %_ZN4llvm8DebugLocD2Ev.exit ], [ false, %194 ], [ true, %_ZN4llvm11SmallVectorINS_14MachineOperandELj1EED2Ev.exit ], [ true, %201 ], [ false, %132 ], [ false, %142 ]
+  %.0 = phi i1 [ true, %37 ], [ true, %_ZN4llvm8DebugLocD2Ev.exit117 ], [ true, %201 ], [ true, %.thread ], [ true, %_ZN4llvm8DebugLocD2Ev.exit108 ], [ true, %_ZN4llvm8DebugLocD2Ev.exit ], [ true, %.critedge96 ], [ false, %194 ], [ true, %_ZN4llvm11SmallVectorINS_14MachineOperandELj1EED2Ev.exit ], [ false, %132 ], [ false, %142 ]
   ret i1 %.0
 }
 
@@ -10951,7 +10951,7 @@ _ZN4llvm8FastISel24removeDeadLocalValueCodeEPNS_12MachineInstrE.exit121: ; preds
   br label %_ZN4llvm8FastISel24removeDeadLocalValueCodeEPNS_12MachineInstrE.exit
 
 _ZN4llvm8FastISel24removeDeadLocalValueCodeEPNS_12MachineInstrE.exit: ; preds = %.lr.ph, %284, %282, %280, %278, %36, %17, %_ZN4llvm10MIMetadataD2Ev.exit104, %.critedge56, %_ZN4llvm10MIMetadataD2Ev.exit87, %_ZN4llvm10MIMetadataD2Ev.exit71
-  %.0 = phi i1 [ true, %_ZN4llvm10MIMetadataD2Ev.exit87 ], [ false, %36 ], [ true, %_ZN4llvm10MIMetadataD2Ev.exit71 ], [ false, %.critedge56 ], [ false, %_ZN4llvm10MIMetadataD2Ev.exit104 ], [ false, %17 ], [ false, %278 ], [ false, %280 ], [ false, %282 ], [ false, %284 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ true, %_ZN4llvm10MIMetadataD2Ev.exit87 ], [ false, %36 ], [ true, %_ZN4llvm10MIMetadataD2Ev.exit71 ], [ false, %.critedge56 ], [ false, %_ZN4llvm10MIMetadataD2Ev.exit104 ], [ false, %284 ], [ false, %17 ], [ false, %278 ], [ false, %280 ], [ false, %282 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -11473,7 +11473,7 @@ _ZNSt6vectorISt4pairIPN4llvm12MachineInstrEjESaIS4_EE6resizeEm.exit: ; preds = %
   br i1 %.not175, label %.thread170, label %44
 
 .thread170:                                       ; preds = %.loopexit, %2, %27, %_ZN4llvm10successorsEPKNS_10BasicBlockE.exit, %176, %174, %172, %113, %111, %109, %115, %178
-  %.not175184 = phi i1 [ false, %178 ], [ false, %176 ], [ false, %174 ], [ false, %172 ], [ false, %113 ], [ false, %111 ], [ false, %109 ], [ false, %115 ], [ true, %_ZN4llvm10successorsEPKNS_10BasicBlockE.exit ], [ true, %27 ], [ true, %2 ], [ true, %.loopexit ]
+  %.not175184 = phi i1 [ false, %178 ], [ false, %176 ], [ false, %174 ], [ false, %172 ], [ false, %113 ], [ false, %111 ], [ false, %109 ], [ false, %115 ], [ true, %_ZN4llvm10successorsEPKNS_10BasicBlockE.exit ], [ true, %2 ], [ true, %27 ], [ true, %.loopexit ]
   %227 = load i8, ptr %11, align 4, !tbaa !679, !range !150, !noundef !151
   %228 = trunc nuw i8 %227 to i1
   br i1 %228, label %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit, label %229
@@ -13644,7 +13644,7 @@ _ZNK4llvm6detail12DenseSetImplINS_8RegisterENS_8DenseMapIS2_NS0_13DenseSetEmptyE
   br label %.critedge
 
 .critedge:                                        ; preds = %15, %13, %8, %_ZNK4llvm5Value9hasOneUseEv.exit, %.preheader.i.i.i.i, %46, %26, %_ZNK4llvm6detail12DenseSetImplINS_8RegisterENS_8DenseMapIS2_NS0_13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS0_12DenseSetPairIS2_EEEES6_E8containsERKS2_.exit.thread, %24, %_ZNK4llvm6detail12DenseSetImplINS_8RegisterENS_8DenseMapIS2_NS0_13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS0_12DenseSetPairIS2_EEEES6_E8containsERKS2_.exit, %.critedge24
-  %.0 = phi i1 [ false, %_ZNK4llvm6detail12DenseSetImplINS_8RegisterENS_8DenseMapIS2_NS0_13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS0_12DenseSetPairIS2_EEEES6_E8containsERKS2_.exit ], [ false, %.critedge24 ], [ %92, %_ZNK4llvm6detail12DenseSetImplINS_8RegisterENS_8DenseMapIS2_NS0_13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS0_12DenseSetPairIS2_EEEES6_E8containsERKS2_.exit.thread ], [ false, %24 ], [ false, %26 ], [ false, %.preheader.i.i.i.i ], [ false, %46 ], [ false, %_ZNK4llvm5Value9hasOneUseEv.exit ], [ false, %8 ], [ false, %13 ], [ false, %15 ]
+  %.0 = phi i1 [ false, %46 ], [ false, %.preheader.i.i.i.i ], [ false, %_ZNK4llvm6detail12DenseSetImplINS_8RegisterENS_8DenseMapIS2_NS0_13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS0_12DenseSetPairIS2_EEEES6_E8containsERKS2_.exit ], [ false, %.critedge24 ], [ false, %26 ], [ false, %24 ], [ %92, %_ZNK4llvm6detail12DenseSetImplINS_8RegisterENS_8DenseMapIS2_NS0_13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS0_12DenseSetPairIS2_EEEES6_E8containsERKS2_.exit.thread ], [ false, %_ZNK4llvm5Value9hasOneUseEv.exit ], [ false, %8 ], [ false, %13 ], [ false, %15 ]
   ret i1 %.0
 }
 

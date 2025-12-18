@@ -1605,8 +1605,8 @@ define hidden { i64, i64 } @"_ZN109_$LT$alloc..collections..vec_deque..iter..Ite
   br i1 %34, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h7a955cd04efaf339E.exit12, label %26
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h7a955cd04efaf339E.exit12: ; preds = %10, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hfaeaf2d05cd28d18E.exit.i9", %26, %.loopexit
-  %.pn16 = phi i64 [ undef, %.loopexit ], [ %27, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hfaeaf2d05cd28d18E.exit.i9" ], [ %27, %26 ], [ %11, %10 ]
-  %.sroa.0.0 = phi i64 [ 0, %.loopexit ], [ 0, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hfaeaf2d05cd28d18E.exit.i9" ], [ 1, %26 ], [ 1, %10 ]
+  %.pn16 = phi i64 [ %27, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hfaeaf2d05cd28d18E.exit.i9" ], [ undef, %.loopexit ], [ %27, %26 ], [ %11, %10 ]
+  %.sroa.0.0 = phi i64 [ 0, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hfaeaf2d05cd28d18E.exit.i9" ], [ 0, %.loopexit ], [ 1, %26 ], [ 1, %10 ]
   %35 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %36 = insertvalue { i64, i64 } %35, i64 %.pn16, 1
   ret { i64, i64 } %36
@@ -1687,8 +1687,8 @@ define hidden { i64, i64 } @"_ZN109_$LT$alloc..collections..vec_deque..iter..Ite
   br i1 %33, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h1f7959917324569cE.exit10, label %.lr.ph.i4
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h1f7959917324569cE.exit10: ; preds = %.lr.ph.i, %10, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17ha890965a1b8e4031E.exit.i7", %.lr.ph.i4, %26, %.loopexit
-  %.pn14 = phi i64 [ undef, %.loopexit ], [ %22, %.lr.ph.i4 ], [ undef, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17ha890965a1b8e4031E.exit.i7" ], [ %22, %26 ], [ %6, %10 ], [ %6, %.lr.ph.i ]
-  %.sroa.0.0 = phi i64 [ 0, %.loopexit ], [ 1, %.lr.ph.i4 ], [ 0, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17ha890965a1b8e4031E.exit.i7" ], [ 1, %26 ], [ 1, %10 ], [ 1, %.lr.ph.i ]
+  %.pn14 = phi i64 [ %22, %.lr.ph.i4 ], [ undef, %.loopexit ], [ undef, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17ha890965a1b8e4031E.exit.i7" ], [ %22, %26 ], [ %6, %10 ], [ %6, %.lr.ph.i ]
+  %.sroa.0.0 = phi i64 [ 1, %.lr.ph.i4 ], [ 0, %.loopexit ], [ 0, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17ha890965a1b8e4031E.exit.i7" ], [ 1, %26 ], [ 1, %10 ], [ 1, %.lr.ph.i ]
   %34 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %35 = insertvalue { i64, i64 } %34, i64 %.pn14, 1
   ret { i64, i64 } %35
@@ -4154,7 +4154,7 @@ define hidden noundef range(i8 -1, 2) i8 @_ZN4core4iter6traits8iterator8Iterator
   br label %_ZN4core4iter6traits8iterator12iter_compare17h34badf61ce611be1E.exit
 
 _ZN4core4iter6traits8iterator12iter_compare17h34badf61ce611be1E.exit: ; preds = %17, %.split.loop.exit22.i.i.i.i, %32, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he10979a6c2223edfE.exit.i"
-  %.sroa.3.0.i = phi i8 [ -1, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he10979a6c2223edfE.exit.i" ], [ %31, %.split.loop.exit22.i.i.i.i ], [ 0, %32 ], [ 1, %17 ]
+  %.sroa.3.0.i = phi i8 [ -1, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he10979a6c2223edfE.exit.i" ], [ 0, %32 ], [ %31, %.split.loop.exit22.i.i.i.i ], [ 1, %17 ]
   ret i8 %.sroa.3.0.i
 }
 
@@ -23625,7 +23625,7 @@ define { i32, i32 } @"_ZN99_$LT$fish..builtins..string..length..Length$u20$as$u2
           to label %112 unwind label %.loopexit.split-lp.loopexit.split-lp.split
 
 .split76.us:                                      ; preds = %100, %92, %55, %24
-  %.us-phi77 = phi i64 [ 0, %92 ], [ 0, %24 ], [ %.sroa.012.0.us, %55 ], [ %.sroa.012.0, %100 ]
+  %.us-phi77 = phi i64 [ 0, %92 ], [ %.sroa.012.0.us, %55 ], [ 0, %24 ], [ %.sroa.012.0, %100 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @"_ZN4core3ptr54drop_in_place$LT$fish..builtins..shared..Arguments$GT$17he50b4e1aa69c2d83E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
@@ -26855,8 +26855,8 @@ thread-pre-split:                                 ; preds = %"_ZN4core3ptr79drop
           to label %703 unwind label %701
 
 .loopexit:                                        ; preds = %694, %733, %688, %677
-  %.sroa.032.6 = phi i8 [ %.sroa.032.2302, %677 ], [ 1, %688 ], [ 1, %733 ], [ 1, %694 ]
-  %.sroa.028.4 = phi i32 [ %.sroa.028.1304, %677 ], [ %689, %688 ], [ %696, %733 ], [ %696, %694 ]
+  %.sroa.032.6 = phi i8 [ 1, %688 ], [ %.sroa.032.2302, %677 ], [ 1, %733 ], [ 1, %694 ]
+  %.sroa.028.4 = phi i32 [ %689, %688 ], [ %.sroa.028.1304, %677 ], [ %696, %733 ], [ %696, %694 ]
   %699 = icmp ne i32 %.sroa.028.4, 0
   %or.cond7 = select i1 %699, i1 true, i1 %96
   %or.cond9 = select i1 %or.cond7, i1 true, i1 %97
@@ -33091,11 +33091,11 @@ define internal fastcc void @_ZN4fish8terminal9Outputter22set_text_face_internal
 29:                                               ; preds = %3, %27
   br i1 %2, label %31, label %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit.thread"
 
-"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit.thread": ; preds = %37, %35, %31, %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit.thread343", %29
-  %.sroa.17.0 = phi i8 [ %.sroa.17.0.extract.trunc204, %31 ], [ 0, %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit.thread343" ], [ %.sroa.17.0.extract.trunc204, %37 ], [ %.sroa.17.0.extract.trunc204, %29 ], [ %.sroa.17.0.extract.trunc204, %35 ]
-  %.sroa.15.0 = phi i8 [ %.sroa.15.0.extract.trunc185, %31 ], [ 0, %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit.thread343" ], [ %.sroa.15.0.extract.trunc185, %37 ], [ %.sroa.15.0.extract.trunc185, %29 ], [ %.sroa.15.0.extract.trunc185, %35 ]
-  %.sroa.11.0 = phi i8 [ %.sroa.11.0.extract.trunc164, %31 ], [ %.sroa.11.0.extract.trunc, %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit.thread343" ], [ %.sroa.11.0.extract.trunc164, %37 ], [ %.sroa.11.0.extract.trunc164, %29 ], [ %.sroa.11.0.extract.trunc164, %35 ]
-  %.sroa.0.0 = phi i8 [ %.sroa.0.0.extract.trunc146, %31 ], [ 1, %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit.thread343" ], [ 2, %37 ], [ %.sroa.0.0.extract.trunc146, %29 ], [ 1, %35 ]
+"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit.thread": ; preds = %35, %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit", %31, %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit.thread343", %29
+  %.sroa.17.0 = phi i8 [ %.sroa.17.0.extract.trunc204, %31 ], [ 0, %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit.thread343" ], [ %.sroa.17.0.extract.trunc204, %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit" ], [ %.sroa.17.0.extract.trunc204, %29 ], [ %.sroa.17.0.extract.trunc204, %35 ]
+  %.sroa.15.0 = phi i8 [ %.sroa.15.0.extract.trunc185, %31 ], [ 0, %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit.thread343" ], [ %.sroa.15.0.extract.trunc185, %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit" ], [ %.sroa.15.0.extract.trunc185, %29 ], [ %.sroa.15.0.extract.trunc185, %35 ]
+  %.sroa.11.0 = phi i8 [ %.sroa.11.0.extract.trunc164, %31 ], [ %.sroa.11.0.extract.trunc, %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit.thread343" ], [ %.sroa.11.0.extract.trunc164, %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit" ], [ %.sroa.11.0.extract.trunc164, %29 ], [ %.sroa.11.0.extract.trunc164, %35 ]
+  %.sroa.0.0 = phi i8 [ %.sroa.0.0.extract.trunc146, %31 ], [ 1, %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit.thread343" ], [ 1, %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit" ], [ %.sroa.0.0.extract.trunc146, %29 ], [ 2, %35 ]
   %.sroa.17.0.insert.ext = zext i8 %.sroa.17.0 to i32
   %.sroa.17.0.insert.shift = shl nuw i32 %.sroa.17.0.insert.ext, 24
   %.sroa.15.0.insert.ext = zext i8 %.sroa.15.0 to i32
@@ -33107,7 +33107,7 @@ define internal fastcc void @_ZN4fish8terminal9Outputter22set_text_face_internal
   %.sroa.0.0.insert.ext = zext i8 %.sroa.0.0 to i32
   %.sroa.0.0.insert.insert = or disjoint i32 %.sroa.11.0.insert.insert, %.sroa.0.0.insert.ext
   %30 = call noundef zeroext i1 @_ZN4fish5color5Color7is_none17hae401a89115854e4E(i32 %.sroa.0.0.insert.insert)
-  br i1 %30, label %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit128.thread348", label %44
+  br i1 %30, label %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit128.thread348", label %43
 
 31:                                               ; preds = %29
   %32 = call noundef zeroext i1 @_ZN4fish5color5Color10is_special17h87cdac6c7a23d62bE(i32 %.fr)
@@ -33117,356 +33117,356 @@ define internal fastcc void @_ZN4fish8terminal9Outputter22set_text_face_internal
 
 34:                                               ; preds = %31
   switch i8 %.sroa.0.0.extract.trunc146, label %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit.thread343" [
-    i8 1, label %35
-    i8 2, label %37
+    i8 1, label %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit"
+    i8 2, label %35
   ]
 
 35:                                               ; preds = %34
   %36 = icmp eq i8 %.sroa.11.0.extract.trunc164, %.sroa.10.0.extract.trunc
-  br i1 %36, label %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit.thread343", label %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit.thread"
-
-37:                                               ; preds = %34
-  %38 = icmp eq i8 %.sroa.11.0.extract.trunc164, %.sroa.10.0.extract.trunc
-  %39 = icmp eq i8 %.sroa.15.0.extract.trunc185, %.sroa.16.0.extract.trunc
-  %or.cond356 = select i1 %38, i1 %39, i1 false
-  %40 = icmp eq i32 %.sroa.17.0.extract.shift203, %.sroa.19.0.extract.shift
-  %or.cond357 = select i1 %or.cond356, i1 %40, i1 false
+  %37 = icmp eq i8 %.sroa.15.0.extract.trunc185, %.sroa.16.0.extract.trunc
+  %or.cond356 = select i1 %36, i1 %37, i1 false
+  %38 = icmp eq i32 %.sroa.17.0.extract.shift203, %.sroa.19.0.extract.shift
+  %or.cond357 = select i1 %or.cond356, i1 %38, i1 false
   br i1 %or.cond357, label %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit.thread343", label %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit.thread"
 
-"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit.thread343": ; preds = %37, %34, %35
-  %41 = icmp eq i8 %.sroa.0.0.extract.trunc146, 1
-  %42 = icmp eq i8 %.sroa.10.0.extract.trunc, 7
-  %43 = and i1 %41, %42
-  %.sroa.11.0.extract.trunc = select i1 %43, i8 0, i8 7
+"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit": ; preds = %34
+  %39 = icmp eq i8 %.sroa.11.0.extract.trunc164, %.sroa.10.0.extract.trunc
+  br i1 %39, label %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit.thread343", label %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit.thread"
+
+"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit.thread343": ; preds = %35, %34, %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit"
+  %40 = icmp eq i8 %.sroa.0.0.extract.trunc146, 1
+  %41 = icmp eq i8 %.sroa.10.0.extract.trunc, 7
+  %42 = and i1 %40, %41
+  %.sroa.11.0.extract.trunc = select i1 %42, i8 0, i8 7
   br label %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit.thread"
 
-44:                                               ; preds = %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit.thread"
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 37
-  %46 = load i8, ptr %45, align 1, !range !619, !alias.scope !5324, !noalias !5327, !noundef !3
-  %47 = icmp eq i8 %.sroa.0.0, %46
-  br i1 %47, label %48, label %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit128.thread"
+43:                                               ; preds = %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit.thread"
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 37
+  %45 = load i8, ptr %44, align 1, !range !619, !alias.scope !5324, !noalias !5327, !noundef !3
+  %46 = icmp eq i8 %.sroa.0.0, %45
+  br i1 %46, label %47, label %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit128.thread"
 
-48:                                               ; preds = %44
+47:                                               ; preds = %43
   switch i8 %.sroa.0.0, label %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit128.thread348" [
-    i8 1, label %49
-    i8 2, label %53
+    i8 1, label %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit128"
+    i8 2, label %48
   ]
 
-49:                                               ; preds = %48
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 38
-  %51 = load i8, ptr %50, align 2, !alias.scope !5324, !noalias !5327, !noundef !3
-  %52 = icmp eq i8 %.sroa.11.0, %51
-  br i1 %52, label %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit128.thread348", label %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit128.thread"
-
-53:                                               ; preds = %48
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 38
-  %55 = load i8, ptr %54, align 2, !alias.scope !5324, !noalias !5327, !noundef !3
-  %56 = icmp eq i8 %.sroa.11.0, %55
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 39
-  %58 = load i8, ptr %57, align 1
-  %59 = icmp eq i8 %.sroa.15.0, %58
-  %or.cond360 = select i1 %56, i1 %59, i1 false
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %61 = load i8, ptr %60, align 8
-  %62 = icmp eq i8 %.sroa.17.0, %61
-  %or.cond363 = select i1 %or.cond360, i1 %62, i1 false
+48:                                               ; preds = %47
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 38
+  %50 = load i8, ptr %49, align 2, !alias.scope !5324, !noalias !5327, !noundef !3
+  %51 = icmp eq i8 %.sroa.11.0, %50
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 39
+  %53 = load i8, ptr %52, align 1
+  %54 = icmp eq i8 %.sroa.15.0, %53
+  %or.cond360 = select i1 %51, i1 %54, i1 false
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %56 = load i8, ptr %55, align 8
+  %57 = icmp eq i8 %.sroa.17.0, %56
+  %or.cond363 = select i1 %or.cond360, i1 %57, i1 false
   br i1 %or.cond363, label %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit128.thread348", label %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit128.thread"
 
-"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit128.thread": ; preds = %53, %44, %49
-  %63 = call noundef zeroext i1 @_ZN4fish5color5Color9is_normal17he77f35b151a55509E(i32 %.sroa.0.0.insert.insert)
-  br i1 %63, label %67, label %65
+"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit128": ; preds = %47
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 38
+  %59 = load i8, ptr %58, align 2, !alias.scope !5324, !noalias !5327, !noundef !3
+  %60 = icmp eq i8 %.sroa.11.0, %59
+  br i1 %60, label %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit128.thread348", label %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit128.thread"
 
-"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit128.thread348": ; preds = %53, %48, %49, %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit.thread", %74
-  %64 = call noundef zeroext i1 @_ZN4fish5color5Color7is_none17hae401a89115854e4E(i32 %.fr)
-  br i1 %64, label %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit130.thread351", label %75
+"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit128.thread": ; preds = %48, %43, %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit128"
+  %61 = call noundef zeroext i1 @_ZN4fish5color5Color9is_normal17he77f35b151a55509E(i32 %.sroa.0.0.insert.insert)
+  br i1 %61, label %65, label %63
+
+"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit128.thread348": ; preds = %48, %47, %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit.thread", %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit128", %72
+  %62 = call noundef zeroext i1 @_ZN4fish5color5Color7is_none17hae401a89115854e4E(i32 %.fr)
+  br i1 %62, label %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit130.thread351", label %73
+
+63:                                               ; preds = %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit128.thread"
+  %64 = call noundef zeroext i1 @_ZN4fish5color5Color10is_special17h87cdac6c7a23d62bE(i32 %.sroa.0.0.insert.insert)
+  br i1 %64, label %71, label %70, !prof !33
 
 65:                                               ; preds = %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit128.thread"
-  %66 = call noundef zeroext i1 @_ZN4fish5color5Color10is_special17h87cdac6c7a23d62bE(i32 %.sroa.0.0.insert.insert)
-  br i1 %66, label %73, label %72, !prof !33
-
-67:                                               ; preds = %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit128.thread"
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i8 0, ptr %16, align 8
-  %68 = call noundef zeroext i1 @_ZN4fish8terminal6Output13write_command17hdac5f78fdb3a6f46E(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %16)
+  %66 = call noundef zeroext i1 @_ZN4fish8terminal6Output13write_command17hdac5f78fdb3a6f46E(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  store i8 3, ptr %69, align 1
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 45
-  store i8 3, ptr %70, align 1
-  %71 = call i40 @_ZN4fish9text_face11TextStyling7default17h82c17837fa3ebf07E()
-  store i40 %71, ptr %24, align 8
-  br label %74
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 41
+  store i8 3, ptr %67, align 1
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 45
+  store i8 3, ptr %68, align 1
+  %69 = call i40 @_ZN4fish9text_face11TextStyling7default17h82c17837fa3ebf07E()
+  store i40 %69, ptr %24, align 8
+  br label %72
 
-72:                                               ; preds = %65
+70:                                               ; preds = %63
   call fastcc void @_ZN4fish8terminal9Outputter11write_color17hbd96257052de85acE(ptr noalias noundef align 8 dereferenceable(56) %0, i8 noundef 0, i32 %.sroa.0.0.insert.insert)
-  br label %74
+  br label %72
 
-73:                                               ; preds = %65
+71:                                               ; preds = %63
   call void @_ZN4core9panicking5panic17h13ee8adf815f0d87E(ptr noalias noundef nonnull readonly align 1 @anon.f915ba968a6bd8310f3a5cc2ada4a612.304, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f915ba968a6bd8310f3a5cc2ada4a612.305) #33
   unreachable
 
-74:                                               ; preds = %72, %67
-  store i32 %.sroa.0.0.insert.insert, ptr %45, align 1
+72:                                               ; preds = %70, %65
+  store i32 %.sroa.0.0.insert.insert, ptr %44, align 1
   br label %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit128.thread348"
 
-75:                                               ; preds = %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit128.thread348"
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  %77 = load i8, ptr %76, align 1, !range !619, !alias.scope !5329, !noalias !5332, !noundef !3
-  %78 = icmp eq i8 %77, %.sroa.0206.0.extract.trunc
-  br i1 %78, label %79, label %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit130.thread"
+73:                                               ; preds = %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit128.thread348"
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 41
+  %75 = load i8, ptr %74, align 1, !range !619, !alias.scope !5329, !noalias !5332, !noundef !3
+  %76 = icmp eq i8 %75, %.sroa.0206.0.extract.trunc
+  br i1 %76, label %77, label %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit130.thread"
 
-79:                                               ; preds = %75
+77:                                               ; preds = %73
   switch i8 %.sroa.0206.0.extract.trunc, label %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit130.thread351" [
-    i8 1, label %80
-    i8 2, label %84
+    i8 1, label %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit130"
+    i8 2, label %78
   ]
 
-80:                                               ; preds = %79
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 42
-  %82 = load i8, ptr %81, align 2, !alias.scope !5329, !noalias !5332, !noundef !3
-  %83 = icmp eq i8 %82, %.sroa.10.0.extract.trunc
-  br i1 %83, label %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit130.thread351", label %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit130.thread"
-
-84:                                               ; preds = %79
-  %85 = getelementptr inbounds nuw i8, ptr %0, i64 42
-  %86 = load i8, ptr %85, align 2, !alias.scope !5329, !noalias !5332, !noundef !3
-  %87 = icmp eq i8 %86, %.sroa.10.0.extract.trunc
-  %88 = getelementptr inbounds nuw i8, ptr %0, i64 43
-  %89 = load i8, ptr %88, align 1
-  %90 = icmp eq i8 %89, %.sroa.16.0.extract.trunc
-  %or.cond366 = select i1 %87, i1 %90, i1 false
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %92 = load i8, ptr %91, align 4
-  %93 = icmp eq i8 %92, %.sroa.19.0.extract.trunc
-  %or.cond369 = select i1 %or.cond366, i1 %93, i1 false
+78:                                               ; preds = %77
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 42
+  %80 = load i8, ptr %79, align 2, !alias.scope !5329, !noalias !5332, !noundef !3
+  %81 = icmp eq i8 %80, %.sroa.10.0.extract.trunc
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 43
+  %83 = load i8, ptr %82, align 1
+  %84 = icmp eq i8 %83, %.sroa.16.0.extract.trunc
+  %or.cond366 = select i1 %81, i1 %84, i1 false
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %86 = load i8, ptr %85, align 4
+  %87 = icmp eq i8 %86, %.sroa.19.0.extract.trunc
+  %or.cond369 = select i1 %or.cond366, i1 %87, i1 false
   br i1 %or.cond369, label %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit130.thread351", label %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit130.thread"
 
-"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit130.thread351": ; preds = %84, %79, %80, %102, %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit128.thread348"
-  %94 = call noundef zeroext i1 @_ZN4fish5color5Color7is_none17hae401a89115854e4E(i32 %23)
-  br i1 %94, label %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit132.thread354", label %103
+"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit130": ; preds = %77
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 42
+  %89 = load i8, ptr %88, align 2, !alias.scope !5329, !noalias !5332, !noundef !3
+  %90 = icmp eq i8 %89, %.sroa.10.0.extract.trunc
+  br i1 %90, label %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit130.thread351", label %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit130.thread"
 
-"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit130.thread": ; preds = %84, %75, %80
-  %95 = call noundef zeroext i1 @_ZN4fish5color5Color9is_normal17he77f35b151a55509E(i32 %.fr)
-  br i1 %95, label %98, label %96
+"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit130.thread351": ; preds = %78, %77, %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit130", %99, %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit128.thread348"
+  %91 = call noundef zeroext i1 @_ZN4fish5color5Color7is_none17hae401a89115854e4E(i32 %23)
+  br i1 %91, label %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit132.thread354", label %100
 
-96:                                               ; preds = %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit130.thread"
-  %97 = call noundef zeroext i1 @_ZN4fish5color5Color10is_special17h87cdac6c7a23d62bE(i32 %.fr)
-  br i1 %97, label %101, label %100, !prof !33
+"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit130.thread": ; preds = %78, %73, %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit130"
+  %92 = call noundef zeroext i1 @_ZN4fish5color5Color9is_normal17he77f35b151a55509E(i32 %.fr)
+  br i1 %92, label %95, label %93
 
-98:                                               ; preds = %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit130.thread"
+93:                                               ; preds = %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit130.thread"
+  %94 = call noundef zeroext i1 @_ZN4fish5color5Color10is_special17h87cdac6c7a23d62bE(i32 %.fr)
+  br i1 %94, label %98, label %97, !prof !33
+
+95:                                               ; preds = %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit130.thread"
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i8 14, ptr %15, align 8
-  %99 = call noundef zeroext i1 @_ZN4fish8terminal6Output13write_command17hdac5f78fdb3a6f46E(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %15)
+  %96 = call noundef zeroext i1 @_ZN4fish8terminal6Output13write_command17hdac5f78fdb3a6f46E(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  br label %102
+  br label %99
 
-100:                                              ; preds = %96
+97:                                               ; preds = %93
   call fastcc void @_ZN4fish8terminal9Outputter11write_color17hbd96257052de85acE(ptr noalias noundef align 8 dereferenceable(56) %0, i8 noundef 1, i32 %.fr)
-  br label %102
+  br label %99
 
-101:                                              ; preds = %96
+98:                                               ; preds = %93
   call void @_ZN4core9panicking5panic17h13ee8adf815f0d87E(ptr noalias noundef nonnull readonly align 1 @anon.f915ba968a6bd8310f3a5cc2ada4a612.306, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f915ba968a6bd8310f3a5cc2ada4a612.307) #33
   unreachable
 
-102:                                              ; preds = %100, %98
-  store i32 %.fr, ptr %76, align 1
+99:                                               ; preds = %97, %95
+  store i32 %.fr, ptr %74, align 1
   br label %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit130.thread351"
 
-103:                                              ; preds = %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit130.thread351"
-  %104 = getelementptr inbounds nuw i8, ptr %0, i64 45
-  %105 = load i8, ptr %104, align 1, !range !619, !alias.scope !5334, !noalias !5337, !noundef !3
-  %106 = icmp eq i8 %105, %.sroa.0294.0.extract.trunc
-  br i1 %106, label %107, label %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit132.thread"
+100:                                              ; preds = %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit130.thread351"
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 45
+  %102 = load i8, ptr %101, align 1, !range !619, !alias.scope !5334, !noalias !5337, !noundef !3
+  %103 = icmp eq i8 %102, %.sroa.0294.0.extract.trunc
+  br i1 %103, label %104, label %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit132.thread"
 
-107:                                              ; preds = %103
+104:                                              ; preds = %100
   switch i8 %.sroa.0294.0.extract.trunc, label %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit132.thread354" [
-    i8 1, label %108
-    i8 2, label %112
+    i8 1, label %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit132"
+    i8 2, label %105
   ]
 
-108:                                              ; preds = %107
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 46
-  %110 = load i8, ptr %109, align 2, !alias.scope !5334, !noalias !5337, !noundef !3
-  %111 = icmp eq i8 %110, %.sroa.6.0.extract.trunc
-  br i1 %111, label %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit132.thread354", label %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit132.thread"
-
-112:                                              ; preds = %107
-  %113 = getelementptr inbounds nuw i8, ptr %0, i64 46
-  %114 = load i8, ptr %113, align 2, !alias.scope !5334, !noalias !5337, !noundef !3
-  %115 = icmp eq i8 %114, %.sroa.6.0.extract.trunc
-  %116 = getelementptr inbounds nuw i8, ptr %0, i64 47
-  %117 = load i8, ptr %116, align 1
-  %118 = icmp eq i8 %117, %.sroa.8.0.extract.trunc
-  %or.cond372 = select i1 %115, i1 %118, i1 false
-  %119 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %120 = load i8, ptr %119, align 8
-  %121 = icmp eq i8 %120, %.sroa.9.0.extract.trunc
-  %or.cond375 = select i1 %or.cond372, i1 %121, i1 false
+105:                                              ; preds = %104
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 46
+  %107 = load i8, ptr %106, align 2, !alias.scope !5334, !noalias !5337, !noundef !3
+  %108 = icmp eq i8 %107, %.sroa.6.0.extract.trunc
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 47
+  %110 = load i8, ptr %109, align 1
+  %111 = icmp eq i8 %110, %.sroa.8.0.extract.trunc
+  %or.cond372 = select i1 %108, i1 %111, i1 false
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %113 = load i8, ptr %112, align 8
+  %114 = icmp eq i8 %113, %.sroa.9.0.extract.trunc
+  %or.cond375 = select i1 %or.cond372, i1 %114, i1 false
   br i1 %or.cond375, label %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit132.thread354", label %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit132.thread"
 
-"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit132.thread354": ; preds = %112, %107, %108, %127, %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit130.thread351"
+"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit132": ; preds = %104
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 46
+  %116 = load i8, ptr %115, align 2, !alias.scope !5334, !noalias !5337, !noundef !3
+  %117 = icmp eq i8 %116, %.sroa.6.0.extract.trunc
+  br i1 %117, label %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit132.thread354", label %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit132.thread"
+
+"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit132.thread354": ; preds = %105, %104, %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit132", %123, %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit130.thread351"
   %.sroa.093.0.insert.ext = zext i32 %.sroa.0.0.copyload to i40
   %.sroa.093.4.insert.ext = zext i8 %.sroa.7.0.copyload to i40
   %.sroa.093.4.insert.shift = shl nuw i40 %.sroa.093.4.insert.ext, 32
   %.sroa.093.4.insert.insert = or disjoint i40 %.sroa.093.4.insert.shift, %.sroa.093.0.insert.ext
-  %122 = call noundef zeroext i1 @_ZN4fish9text_face11TextStyling7is_bold17hedb1ade40d2b8aa6E(i40 %.sroa.093.4.insert.insert)
-  br i1 %122, label %130, label %128
+  %118 = call noundef zeroext i1 @_ZN4fish9text_face11TextStyling7is_bold17hedb1ade40d2b8aa6E(i40 %.sroa.093.4.insert.insert)
+  br i1 %118, label %126, label %124
 
-"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit132.thread": ; preds = %112, %103, %108
-  %123 = call noundef zeroext i1 @_ZN4fish5color5Color9is_normal17he77f35b151a55509E(i32 %23)
-  br i1 %123, label %125, label %124
+"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit132.thread": ; preds = %105, %100, %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit132"
+  %119 = call noundef zeroext i1 @_ZN4fish5color5Color9is_normal17he77f35b151a55509E(i32 %23)
+  br i1 %119, label %121, label %120
 
-124:                                              ; preds = %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit132.thread"
+120:                                              ; preds = %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit132.thread"
   call fastcc void @_ZN4fish8terminal9Outputter11write_color17hbd96257052de85acE(ptr noalias noundef align 8 dereferenceable(56) %0, i8 noundef 2, i32 %23)
-  br label %127
+  br label %123
 
-125:                                              ; preds = %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit132.thread"
+121:                                              ; preds = %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit132.thread"
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i8 15, ptr %14, align 8
-  %126 = call noundef zeroext i1 @_ZN4fish8terminal6Output13write_command17hdac5f78fdb3a6f46E(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %14)
+  %122 = call noundef zeroext i1 @_ZN4fish8terminal6Output13write_command17hdac5f78fdb3a6f46E(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  br label %127
+  br label %123
 
-127:                                              ; preds = %125, %124
-  store i32 %23, ptr %104, align 1
+123:                                              ; preds = %121, %120
+  store i32 %23, ptr %101, align 1
   br label %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit132.thread354"
 
-128:                                              ; preds = %132, %130, %134, %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit132.thread354"
+124:                                              ; preds = %128, %126, %130, %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit132.thread354"
   %.not121 = icmp eq i8 %.sroa.7.0.copyload, 5
-  %129 = load i8, ptr %.sroa.349.0..sroa_idx, align 4, !range !422, !noundef !3
-  br i1 %.not121, label %136, label %135
+  %125 = load i8, ptr %.sroa.349.0..sroa_idx, align 4, !range !422, !noundef !3
+  br i1 %.not121, label %132, label %131
 
-130:                                              ; preds = %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit132.thread354"
+126:                                              ; preds = %"_ZN59_$LT$fish..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h800a5da22321dddeE.exit132.thread354"
   %.sroa.097.0.copyload = load i40, ptr %24, align 8
-  %131 = call noundef zeroext i1 @_ZN4fish9text_face11TextStyling7is_bold17hedb1ade40d2b8aa6E(i40 %.sroa.097.0.copyload)
-  br i1 %131, label %128, label %132
+  %127 = call noundef zeroext i1 @_ZN4fish9text_face11TextStyling7is_bold17hedb1ade40d2b8aa6E(i40 %.sroa.097.0.copyload)
+  br i1 %127, label %124, label %128
 
-132:                                              ; preds = %130
+128:                                              ; preds = %126
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i8 1, ptr %13, align 8
-  %133 = call noundef zeroext i1 @_ZN4fish8terminal6Output13write_command17hdac5f78fdb3a6f46E(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
+  %129 = call noundef zeroext i1 @_ZN4fish8terminal6Output13write_command17hdac5f78fdb3a6f46E(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br i1 %133, label %134, label %128
+  br i1 %129, label %130, label %124
 
-134:                                              ; preds = %132
+130:                                              ; preds = %128
   store i8 1, ptr %24, align 8
-  br label %128
+  br label %124
 
-135:                                              ; preds = %128
-  %.not123 = icmp ne i8 %129, 5
-  %.not124 = icmp eq i8 %.sroa.7.0.copyload, %129
+131:                                              ; preds = %124
+  %.not123 = icmp ne i8 %125, 5
+  %.not124 = icmp eq i8 %.sroa.7.0.copyload, %125
   %or.cond = select i1 %.not123, i1 %.not124, i1 false
-  br i1 %or.cond, label %137, label %142
+  br i1 %or.cond, label %133, label %138
 
-136:                                              ; preds = %128
-  %.not122 = icmp eq i8 %129, 5
-  br i1 %.not122, label %137, label %140
+132:                                              ; preds = %124
+  %.not122 = icmp eq i8 %125, 5
+  br i1 %.not122, label %133, label %136
 
-.sink.split:                                      ; preds = %142, %140
-  %.sroa.7.0.copyload.sink = phi i8 [ 5, %140 ], [ %.sroa.7.0.copyload, %142 ]
+.sink.split:                                      ; preds = %138, %136
+  %.sroa.7.0.copyload.sink = phi i8 [ 5, %136 ], [ %.sroa.7.0.copyload, %138 ]
   store i8 %.sroa.7.0.copyload.sink, ptr %.sroa.349.0..sroa_idx, align 4
-  br label %137
+  br label %133
 
-137:                                              ; preds = %.sink.split, %142, %140, %135, %136
+133:                                              ; preds = %.sink.split, %138, %136, %131, %132
   %.sroa.0100.0.copyload = load i40, ptr %24, align 8
-  %138 = call noundef zeroext i1 @_ZN4fish9text_face11TextStyling10is_italics17h5d75e8a54aef9d2eE(i40 %.sroa.0100.0.copyload)
-  %139 = call noundef zeroext i1 @_ZN4fish9text_face11TextStyling10is_italics17h5d75e8a54aef9d2eE(i40 %.sroa.093.4.insert.insert)
-  %.not = xor i1 %138, true
-  %brmerge = or i1 %139, %.not
-  br i1 %brmerge, label %145, label %147
+  %134 = call noundef zeroext i1 @_ZN4fish9text_face11TextStyling10is_italics17h5d75e8a54aef9d2eE(i40 %.sroa.0100.0.copyload)
+  %135 = call noundef zeroext i1 @_ZN4fish9text_face11TextStyling10is_italics17h5d75e8a54aef9d2eE(i40 %.sroa.093.4.insert.insert)
+  %.not = xor i1 %134, true
+  %brmerge = or i1 %135, %.not
+  br i1 %brmerge, label %141, label %143
 
-140:                                              ; preds = %136
+136:                                              ; preds = %132
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i8 8, ptr %12, align 8
-  %141 = call noundef zeroext i1 @_ZN4fish8terminal6Output13write_command17hdac5f78fdb3a6f46E(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
+  %137 = call noundef zeroext i1 @_ZN4fish8terminal6Output13write_command17hdac5f78fdb3a6f46E(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br i1 %141, label %.sink.split, label %137
+  br i1 %137, label %.sink.split, label %133
 
-142:                                              ; preds = %135
+138:                                              ; preds = %131
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %143 = getelementptr inbounds nuw i8, ptr %11, i64 1
-  store i8 %.sroa.7.0.copyload, ptr %143, align 1
+  %139 = getelementptr inbounds nuw i8, ptr %11, i64 1
+  store i8 %.sroa.7.0.copyload, ptr %139, align 1
   store i8 4, ptr %11, align 8
-  %144 = call noundef zeroext i1 @_ZN4fish8terminal6Output13write_command17hdac5f78fdb3a6f46E(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %11)
+  %140 = call noundef zeroext i1 @_ZN4fish8terminal6Output13write_command17hdac5f78fdb3a6f46E(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br i1 %144, label %.sink.split, label %137
+  br i1 %140, label %.sink.split, label %133
 
-145:                                              ; preds = %147, %137
-  %146 = call noundef zeroext i1 @_ZN4fish9text_face11TextStyling10is_italics17h5d75e8a54aef9d2eE(i40 %.sroa.093.4.insert.insert)
-  %.not1 = xor i1 %146, true
-  %brmerge2 = or i1 %138, %.not1
-  br i1 %brmerge2, label %149, label %151
+141:                                              ; preds = %143, %133
+  %142 = call noundef zeroext i1 @_ZN4fish9text_face11TextStyling10is_italics17h5d75e8a54aef9d2eE(i40 %.sroa.093.4.insert.insert)
+  %.not1 = xor i1 %142, true
+  %brmerge2 = or i1 %134, %.not1
+  br i1 %brmerge2, label %145, label %147
 
-147:                                              ; preds = %137
+143:                                              ; preds = %133
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 7, ptr %10, align 8
-  %148 = call noundef zeroext i1 @_ZN4fish8terminal6Output13write_command17hdac5f78fdb3a6f46E(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %10)
+  %144 = call noundef zeroext i1 @_ZN4fish8terminal6Output13write_command17hdac5f78fdb3a6f46E(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br i1 %148, label %.sink.split379, label %145
+  br i1 %144, label %.sink.split379, label %141
 
-.sink.split379:                                   ; preds = %147, %151
-  %.sink = phi i8 [ 1, %151 ], [ 0, %147 ]
+.sink.split379:                                   ; preds = %143, %147
+  %.sink = phi i8 [ 1, %147 ], [ 0, %143 ]
   store i8 %.sink, ptr %.sroa.2.0..sroa_idx, align 1
-  br label %149
+  br label %145
 
-149:                                              ; preds = %.sink.split379, %151, %145
-  %150 = call noundef zeroext i1 @_ZN4fish9text_face11TextStyling6is_dim17h1219c8a9d15df778E(i40 %.sroa.093.4.insert.insert)
-  br i1 %150, label %155, label %153
+145:                                              ; preds = %.sink.split379, %147, %141
+  %146 = call noundef zeroext i1 @_ZN4fish9text_face11TextStyling6is_dim17h1219c8a9d15df778E(i40 %.sroa.093.4.insert.insert)
+  br i1 %146, label %151, label %149
 
-151:                                              ; preds = %145
+147:                                              ; preds = %141
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 3, ptr %9, align 8
-  %152 = call noundef zeroext i1 @_ZN4fish8terminal6Output13write_command17hdac5f78fdb3a6f46E(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %9)
+  %148 = call noundef zeroext i1 @_ZN4fish8terminal6Output13write_command17hdac5f78fdb3a6f46E(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br i1 %152, label %.sink.split379, label %149
+  br i1 %148, label %.sink.split379, label %145
 
-153:                                              ; preds = %157, %155, %159, %149
-  %154 = call noundef zeroext i1 @_ZN4fish9text_face11TextStyling10is_reverse17h9da1cc41689fee36E(i40 %.sroa.093.4.insert.insert)
-  br i1 %154, label %161, label %160
+149:                                              ; preds = %153, %151, %155, %145
+  %150 = call noundef zeroext i1 @_ZN4fish9text_face11TextStyling10is_reverse17h9da1cc41689fee36E(i40 %.sroa.093.4.insert.insert)
+  br i1 %150, label %157, label %156
 
-155:                                              ; preds = %149
+151:                                              ; preds = %145
   %.sroa.0115.0.copyload = load i40, ptr %24, align 8
-  %156 = call noundef zeroext i1 @_ZN4fish9text_face11TextStyling6is_dim17h1219c8a9d15df778E(i40 %.sroa.0115.0.copyload)
-  br i1 %156, label %153, label %157
+  %152 = call noundef zeroext i1 @_ZN4fish9text_face11TextStyling6is_dim17h1219c8a9d15df778E(i40 %.sroa.0115.0.copyload)
+  br i1 %152, label %149, label %153
 
-157:                                              ; preds = %155
+153:                                              ; preds = %151
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i8 2, ptr %8, align 8
-  %158 = call noundef zeroext i1 @_ZN4fish8terminal6Output13write_command17hdac5f78fdb3a6f46E(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %8)
+  %154 = call noundef zeroext i1 @_ZN4fish8terminal6Output13write_command17hdac5f78fdb3a6f46E(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br i1 %158, label %159, label %153
+  br i1 %154, label %155, label %149
 
-159:                                              ; preds = %157
+155:                                              ; preds = %153
   store i8 1, ptr %.sroa.346.0..sroa_idx, align 2
-  br label %153
+  br label %149
 
-160:                                              ; preds = %165, %161, %167, %153
+156:                                              ; preds = %161, %157, %163, %149
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   ret void
 
-161:                                              ; preds = %153
+157:                                              ; preds = %149
   %.sroa.0120.0.copyload = load i40, ptr %24, align 8
-  %162 = call noundef zeroext i1 @_ZN4fish9text_face11TextStyling10is_reverse17h9da1cc41689fee36E(i40 %.sroa.0120.0.copyload)
-  br i1 %162, label %160, label %163
+  %158 = call noundef zeroext i1 @_ZN4fish9text_face11TextStyling10is_reverse17h9da1cc41689fee36E(i40 %.sroa.0120.0.copyload)
+  br i1 %158, label %156, label %159
 
-163:                                              ; preds = %161
+159:                                              ; preds = %157
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 5, ptr %7, align 8
-  %164 = call noundef zeroext i1 @_ZN4fish8terminal6Output13write_command17hdac5f78fdb3a6f46E(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %7)
+  %160 = call noundef zeroext i1 @_ZN4fish8terminal6Output13write_command17hdac5f78fdb3a6f46E(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %164, label %167, label %165
+  br i1 %160, label %163, label %161
 
-165:                                              ; preds = %163
+161:                                              ; preds = %159
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 6, ptr %6, align 8
-  %166 = call noundef zeroext i1 @_ZN4fish8terminal6Output13write_command17hdac5f78fdb3a6f46E(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %6)
+  %162 = call noundef zeroext i1 @_ZN4fish8terminal6Output13write_command17hdac5f78fdb3a6f46E(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %166, label %167, label %160
+  br i1 %162, label %163, label %156
 
-167:                                              ; preds = %165, %163
-  %168 = getelementptr inbounds nuw i8, ptr %0, i64 35
-  store i8 1, ptr %168, align 1
-  br label %160
+163:                                              ; preds = %161, %159
+  %164 = getelementptr inbounds nuw i8, ptr %0, i64 35
+  store i8 1, ptr %164, align 1
+  br label %156
 }
 
 ; Function Attrs: nonlazybind uwtable

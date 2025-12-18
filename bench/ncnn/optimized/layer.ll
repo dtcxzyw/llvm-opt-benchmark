@@ -7450,7 +7450,7 @@ _ZN4ncnn14layer_to_indexEPKc.exit:                ; preds = %2
   br label %_ZN4ncnn18create_layer_naiveEi.exit
 
 _ZN4ncnn18create_layer_naiveEi.exit:              ; preds = %7, %9, %_ZN4ncnn14layer_to_indexEPKc.exit, %_ZN4ncnn14layer_to_indexEPKc.exit
-  %.0 = phi ptr [ null, %_ZN4ncnn14layer_to_indexEPKc.exit ], [ null, %_ZN4ncnn14layer_to_indexEPKc.exit ], [ %12, %9 ], [ null, %7 ]
+  %.0 = phi ptr [ null, %_ZN4ncnn14layer_to_indexEPKc.exit ], [ %12, %9 ], [ null, %_ZN4ncnn14layer_to_indexEPKc.exit ], [ null, %7 ]
   ret ptr %.0
 }
 
@@ -7538,7 +7538,7 @@ _ZN4ncnn14layer_to_indexEPKc.exit:                ; preds = %2
   br label %_ZN4ncnn16create_layer_cpuEi.exit
 
 _ZN4ncnn16create_layer_cpuEi.exit:                ; preds = %7, %.thread.i, %17, %17
-  %.0 = phi ptr [ null, %17 ], [ null, %17 ], [ %20, %.thread.i ], [ null, %7 ]
+  %.0 = phi ptr [ null, %17 ], [ %20, %.thread.i ], [ null, %17 ], [ null, %7 ]
   ret ptr %.0
 }
 

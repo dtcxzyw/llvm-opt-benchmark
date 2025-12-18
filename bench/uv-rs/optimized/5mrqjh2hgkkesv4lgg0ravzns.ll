@@ -880,7 +880,7 @@ _ZN4core3cmp3Ord3max17h320a53dcb995d2d1E.exit:    ; preds = %.noexc58, %127
   call void @llvm.trap()
   unreachable
 
-select.unfold:                                    ; preds = %.noexc62, %187, %.thread208, %_ZN4core3cmp3Ord3max17h320a53dcb995d2d1E.exit67
+select.unfold:                                    ; preds = %.noexc62, %187, %_ZN4core3cmp3Ord3max17h320a53dcb995d2d1E.exit67, %.thread208
   %.sroa.8.0.ph100 = phi ptr [ %192, %.thread208 ], [ %.sroa.0.0.sroa.speculated.i65, %_ZN4core3cmp3Ord3max17h320a53dcb995d2d1E.exit67 ], [ %.sroa.09.0, %187 ], [ %.sroa.09.0, %.noexc62 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.experimental.noalias.scope.decl(metadata !259)

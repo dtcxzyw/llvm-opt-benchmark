@@ -3200,7 +3200,7 @@ define hidden i32 @ssl3_get_client_key_exchange(ptr noundef %0) local_unnamed_ad
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %241
 
-.thread173:                                       ; preds = %116, %107, %108, %117
+.thread173:                                       ; preds = %117, %108, %116, %107
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %243
 

@@ -947,7 +947,7 @@ stbds_is_key_equal.exit71:                        ; preds = %.lr.ph.split
   br label %95
 
 .loopexit:                                        ; preds = %132, %103, %144, %115, %.split88.us, %.split82.us
-  %.0 = phi i64 [ %131, %.split82.us ], [ %143, %.split88.us ], [ -1, %103 ], [ -1, %115 ], [ -1, %144 ], [ -1, %132 ]
+  %.0 = phi i64 [ %131, %.split82.us ], [ -1, %115 ], [ %143, %.split88.us ], [ -1, %103 ], [ -1, %144 ], [ -1, %132 ]
   ret i64 %.0
 }
 

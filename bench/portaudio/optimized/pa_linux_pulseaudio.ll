@@ -668,7 +668,7 @@ PaPulseAudio_CheckConnection.exit:                ; preds = %select.unfold.prehe
   br label %.thread98
 
 .thread101:                                       ; preds = %select.unfold.preheader, %21, %65
-  %.07996104 = phi i32 [ -9999, %21 ], [ -9992, %65 ], [ 1, %select.unfold.preheader ]
+  %.07996104 = phi i32 [ -9992, %65 ], [ -9999, %21 ], [ 1, %select.unfold.preheader ]
   %83 = load ptr, ptr %15, align 8, !tbaa !21
   call void @PaPulseAudio_UnLock(ptr noundef %83) #14
   br label %84

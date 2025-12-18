@@ -3314,7 +3314,7 @@ define void @_ZN10CmdExtract15ExtrPrepareNameER7ArchivePKwPwm(ptr noundef nonnul
   br label %114
 
 69:                                               ; preds = %66, %57, %45, %43, %36
-  %.0 = phi ptr [ %2, %36 ], [ %.2, %66 ], [ %2, %57 ], [ %2, %45 ], [ %2, %43 ]
+  %.0 = phi ptr [ %2, %36 ], [ %2, %43 ], [ %.2, %66 ], [ %2, %57 ], [ %2, %45 ]
   %70 = load ptr, ptr %6, align 8, !tbaa !16
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 83476
   %72 = load i32, ptr %71, align 4, !tbaa !14

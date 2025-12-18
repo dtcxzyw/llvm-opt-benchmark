@@ -552,7 +552,7 @@ define hidden void @dissect_amp_as_subtree(ptr noundef %0, ptr noundef %1, ptr n
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge336, %.loopexit.sink.split, %._crit_edge, %41, %51
-  %.1 = phi i32 [ %58, %51 ], [ %49, %41 ], [ %76, %._crit_edge ], [ %49, %.loopexit.sink.split ], [ %.7.lcssa, %._crit_edge336 ]
+  %.1 = phi i32 [ %58, %51 ], [ %49, %41 ], [ %49, %.loopexit.sink.split ], [ %76, %._crit_edge ], [ %.7.lcssa, %._crit_edge336 ]
   %169 = add i32 %.0299345, 1
   %170 = zext i32 %169 to i64
   %171 = icmp ugt i64 %.sroa.10128.0.copyload, %170

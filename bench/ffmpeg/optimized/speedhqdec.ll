@@ -1606,7 +1606,7 @@ decode_alpha_block.exit174.i:                     ; preds = %713
   br i1 %.not154.i, label %448, label %decode_speedhq_border.exit, !llvm.loop !77
 
 decode_speedhq_border.exit:                       ; preds = %.critedge, %730, %413, %.thread.i, %434, %.thread, %._crit_edge, %416, %59, %35
-  %.0185 = phi i32 [ -1094995529, %59 ], [ -1094995529, %35 ], [ -1094995529, %413 ], [ %.4.ph, %.thread ], [ 0, %416 ], [ 0, %._crit_edge ], [ %.2.ph.i, %.thread.i ], [ 0, %434 ], [ 0, %730 ], [ -1094995529, %.critedge ]
+  %.0185 = phi i32 [ -1094995529, %59 ], [ -1094995529, %35 ], [ 0, %730 ], [ -1094995529, %413 ], [ %.4.ph, %.thread ], [ 0, %416 ], [ 0, %._crit_edge ], [ %.2.ph.i, %.thread.i ], [ 0, %434 ], [ -1094995529, %.critedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   ret i32 %.0185

@@ -1265,11 +1265,11 @@ Vec_IntPushUnique.exit159:                        ; preds = %70
   br i1 %exitcond229.not, label %.split.us, label %44, !llvm.loop !56
 
 .critedge2:                                       ; preds = %245, %.critedge, %Vec_IntPush.exit.i149
-  %.val = phi i32 [ %.val.pre, %Vec_IntPush.exit.i149 ], [ %.val235, %.critedge ], [ %242, %245 ]
-  %.pre.i231 = phi ptr [ %.pre.i232, %Vec_IntPush.exit.i149 ], [ %42, %.critedge ], [ %.pre.i232, %245 ]
-  %.1172 = phi i32 [ %73, %Vec_IntPush.exit.i149 ], [ 0, %.critedge ], [ %73, %245 ]
-  %.281 = phi i32 [ %.483, %Vec_IntPush.exit.i149 ], [ %.079, %.critedge ], [ %.483, %245 ]
-  %.278 = phi i32 [ %163, %Vec_IntPush.exit.i149 ], [ %.076, %.critedge ], [ %163, %245 ]
+  %.val = phi i32 [ %.val235, %.critedge ], [ %.val.pre, %Vec_IntPush.exit.i149 ], [ %242, %245 ]
+  %.pre.i231 = phi ptr [ %42, %.critedge ], [ %.pre.i232, %Vec_IntPush.exit.i149 ], [ %.pre.i232, %245 ]
+  %.1172 = phi i32 [ 0, %.critedge ], [ %73, %Vec_IntPush.exit.i149 ], [ %73, %245 ]
+  %.281 = phi i32 [ %.079, %.critedge ], [ %.483, %Vec_IntPush.exit.i149 ], [ %.483, %245 ]
+  %.278 = phi i32 [ %.076, %.critedge ], [ %163, %Vec_IntPush.exit.i149 ], [ %163, %245 ]
   %261 = icmp eq i32 %.1172, %.val
   br i1 %261, label %.split.us, label %.critedge, !llvm.loop !57
 

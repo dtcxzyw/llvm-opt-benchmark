@@ -334,7 +334,7 @@ define internal fastcc void @domain_check_input(i64 noundef %0, i1 noundef zeroe
   br i1 %89, label %.lr.ph89, label %.critedge
 
 .critedge:                                        ; preds = %86, %4, %.lr.ph.split.split.split, %.lr.ph.split.us.split, %44, %.split70.us
-  %.053 = phi ptr [ %.061.us96, %.split70.us ], [ %.061.us96, %44 ], [ %7, %4 ], [ %7, %.lr.ph.split.us.split ], [ %7, %.lr.ph.split.split.split ], [ %.2, %86 ]
+  %.053 = phi ptr [ %.061.us96, %.split70.us ], [ %.061.us96, %44 ], [ %7, %4 ], [ %7, %.lr.ph.split.split.split ], [ %7, %.lr.ph.split.us.split ], [ %.2, %86 ]
   %.not44 = icmp eq ptr %.053, null
   br i1 %.not44, label %90, label %.critedge.thread
 

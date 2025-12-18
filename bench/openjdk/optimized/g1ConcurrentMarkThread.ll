@@ -1234,7 +1234,7 @@ define hidden noundef zeroext i1 @_ZN22G1ConcurrentMarkThread15phase_mark_loopEv
   br label %.loopexit
 
 .loopexit:                                        ; preds = %30, %13, %15, %20, %7, %34, %33
-  %.03 = phi i1 [ false, %33 ], [ false, %34 ], [ true, %7 ], [ true, %20 ], [ true, %15 ], [ true, %13 ], [ true, %30 ]
+  %.03 = phi i1 [ false, %34 ], [ false, %33 ], [ true, %7 ], [ true, %20 ], [ true, %15 ], [ true, %13 ], [ true, %30 ]
   ret i1 %.03
 }
 

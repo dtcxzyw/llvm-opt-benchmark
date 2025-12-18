@@ -301,7 +301,7 @@ define hidden void @_ZN4cvc58internal6theory7TypeSet3addENS0_8TypeNodeENS0_12Nod
   br label %53
 
 _ZNSt13unordered_mapIN4cvc58internal8TypeNodeEPSt3setINS1_12NodeTemplateILb1EEESt4lessIS5_ESaIS5_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_SA_EEE4findERSG_.exit: ; preds = %33, %11, %23
-  %.sroa.06.1.i.i = phi ptr [ %24, %23 ], [ %.sroa.06.0.i.i, %11 ], [ %39, %33 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %11 ], [ %24, %23 ], [ %39, %33 ]
   %51 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %52 = load ptr, ptr %51, align 8, !tbaa !9
   br label %53
@@ -487,13 +487,13 @@ define hidden noundef ptr @_ZNK4cvc58internal6theory7TypeSet6getSetENS0_8TypeNod
   br label %_ZNKSt13unordered_mapIN4cvc58internal8TypeNodeEPSt3setINS1_12NodeTemplateILb1EEESt4lessIS5_ESaIS5_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_SA_EEE4findERSG_.exit.thread, !llvm.loop !49
 
 _ZNKSt13unordered_mapIN4cvc58internal8TypeNodeEPSt3setINS1_12NodeTemplateILb1EEESt4lessIS5_ESaIS5_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_SA_EEE4findERSG_.exit: ; preds = %31, %9, %21
-  %.sroa.06.1.i.i = phi ptr [ %22, %21 ], [ %.sroa.06.0.i.i, %9 ], [ %37, %31 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %9 ], [ %22, %21 ], [ %37, %31 ]
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %43 = load ptr, ptr %42, align 8, !tbaa !9
   br label %_ZNKSt13unordered_mapIN4cvc58internal8TypeNodeEPSt3setINS1_12NodeTemplateILb1EEESt4lessIS5_ESaIS5_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_SA_EEE4findERSG_.exit.thread
 
 _ZNKSt13unordered_mapIN4cvc58internal8TypeNodeEPSt3setINS1_12NodeTemplateILb1EEESt4lessIS5_ESaIS5_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_SA_EEE4findERSG_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %8, %13, %..loopexit_crit_edge21.i.i.i.i, %_ZNKSt13unordered_mapIN4cvc58internal8TypeNodeEPSt3setINS1_12NodeTemplateILb1EEESt4lessIS5_ESaIS5_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_SA_EEE4findERSG_.exit
-  %.0 = phi ptr [ %43, %_ZNKSt13unordered_mapIN4cvc58internal8TypeNodeEPSt3setINS1_12NodeTemplateILb1EEESt4lessIS5_ESaIS5_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_SA_EEE4findERSG_.exit ], [ null, %..loopexit_crit_edge21.i.i.i.i ], [ null, %13 ], [ null, %8 ], [ null, %.lr.ph.i.i.i.i ]
+  %.0 = phi ptr [ %43, %_ZNKSt13unordered_mapIN4cvc58internal8TypeNodeEPSt3setINS1_12NodeTemplateILb1EEESt4lessIS5_ESaIS5_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_SA_EEE4findERSG_.exit ], [ null, %..loopexit_crit_edge21.i.i.i.i ], [ null, %8 ], [ null, %13 ], [ null, %.lr.ph.i.i.i.i ]
   ret ptr %.0
 }
 
@@ -659,7 +659,7 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit:              ; preds = %68, %72, %78
   br label %common.resume
 
 _ZNSt13unordered_mapIN4cvc58internal8TypeNodeEPNS1_6theory14TypeEnumeratorESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S5_EEE4findERSB_.exit: ; preds = %38, %16, %28
-  %.sroa.06.1.i.i = phi ptr [ %29, %28 ], [ %.sroa.06.0.i.i, %16 ], [ %44, %38 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %16 ], [ %29, %28 ], [ %44, %38 ]
   %88 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %89 = load ptr, ptr %88, align 8, !tbaa !22
   br label %90
@@ -797,7 +797,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2Ev.exit:   ; preds = %96, %99, %103
   br label %157
 
 _ZNSt13unordered_mapIN4cvc58internal8TypeNodeEPSt3setINS1_12NodeTemplateILb1EEESt4lessIS5_ESaIS5_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_SA_EEE4findERSG_.exit: ; preds = %137, %115, %127
-  %.sroa.06.1.i.i38 = phi ptr [ %128, %127 ], [ %.sroa.06.0.i.i40, %115 ], [ %143, %137 ]
+  %.sroa.06.1.i.i38 = phi ptr [ %.sroa.06.0.i.i40, %115 ], [ %128, %127 ], [ %143, %137 ]
   %155 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i38, i64 16
   %156 = load ptr, ptr %155, align 8, !tbaa !9
   br label %157
@@ -3046,8 +3046,8 @@ _ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb0EEES3_SaIS3_ENSt8__detail9_Id
   resume { ptr, i32 } %48
 
 _ZNKSt10_HashtableIN4cvc58internal12NodeTemplateILb0EEES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS3_EEPNS5_10_Hash_nodeIS3_Lb1EEEmRKT_m.exit: ; preds = %11, %33, %.critedge, %24
-  %.sroa.031.1 = phi ptr [ %25, %24 ], [ %47, %.critedge ], [ %39, %33 ], [ %.sroa.028.0, %11 ]
-  %.sroa.432.1 = phi i8 [ 0, %24 ], [ 1, %.critedge ], [ 0, %33 ], [ 0, %11 ]
+  %.sroa.031.1 = phi ptr [ %47, %.critedge ], [ %39, %33 ], [ %25, %24 ], [ %.sroa.028.0, %11 ]
+  %.sroa.432.1 = phi i8 [ 1, %.critedge ], [ 0, %33 ], [ 0, %24 ], [ 0, %11 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.031.1, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.432.1, 1
   ret { ptr, i8 } %.fca.1.insert

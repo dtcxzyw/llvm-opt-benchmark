@@ -2704,7 +2704,7 @@ define internal fastcc ptr @dequeue_hugetlb_folio_nodemask(ptr noundef %0, i32 n
   br i1 %.not, label %.thread5, label %.loopexit
 
 .thread5:                                         ; preds = %.split, %.split.us, %.split18.us, %54, %50
-  %98 = phi i32 [ %48, %54 ], [ %56, %.split18.us ], [ %48, %50 ], [ %56, %.split.us ], [ %56, %.split ]
+  %98 = phi i32 [ %48, %50 ], [ %48, %54 ], [ %56, %.split18.us ], [ %56, %.split.us ], [ %56, %.split ]
   %99 = getelementptr i8, ptr %49, i64 16
   br i1 %17, label %100, label %104, !prof !24
 
@@ -14064,7 +14064,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @demote_size_show(ptr nou
   unreachable
 
 .loopexit:                                        ; preds = %5, %.preheader, %21
-  %.pn = phi i64 [ 0, %.preheader ], [ 1, %21 ], [ %7, %5 ]
+  %.pn = phi i64 [ 1, %21 ], [ 0, %.preheader ], [ %7, %5 ]
   %25 = getelementptr %struct.hstate, ptr @hstates, i64 %.pn
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 44
   %27 = load i32, ptr %26, align 4
@@ -14147,7 +14147,7 @@ define internal noundef i64 @demote_size_store(ptr noundef readnone captures(add
   unreachable
 
 .loopexit:                                        ; preds = %.preheader10, %.preheader, %38
-  %.pn = phi i64 [ 0, %.preheader ], [ 1, %38 ], [ %24, %.preheader10 ]
+  %.pn = phi i64 [ 1, %38 ], [ 0, %.preheader ], [ %24, %.preheader10 ]
   %42 = getelementptr %struct.hstate, ptr @hstates, i64 %.pn
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 40
   %44 = load i32, ptr %43, align 8
@@ -14738,7 +14738,7 @@ define internal i64 @demote_store(ptr noundef readnone captures(address) %0, ptr
   br i1 %326, label %.thread29, label %52, !llvm.loop !154
 
 .thread29:                                        ; preds = %67, %313, %58, %72, %194, %180, %65, %.thread22
-  %327 = phi i32 [ 0, %.thread22 ], [ %178, %180 ], [ -22, %65 ], [ %178, %194 ], [ -16, %72 ], [ -16, %67 ], [ 0, %58 ], [ 0, %313 ]
+  %327 = phi i32 [ 0, %.thread22 ], [ %178, %194 ], [ %178, %180 ], [ -22, %65 ], [ -16, %72 ], [ -16, %67 ], [ 0, %58 ], [ 0, %313 ]
   %.fr = freeze i32 %327
   call void @_raw_spin_unlock_irq(ptr noundef nonnull @hugetlb_lock) #22
   call void @mutex_unlock(ptr noundef %37) #22
@@ -14888,7 +14888,7 @@ define internal i64 @nr_hugepages_store(ptr noundef readnone captures(address) %
 
 .loopexit.i:                                      ; preds = %.preheader7.i, %.preheader.i, %26
   %30 = phi i32 [ %21, %.preheader.i ], [ %21, %26 ], [ -1, %.preheader7.i ]
-  %.pn.i = phi i64 [ 0, %.preheader.i ], [ 1, %26 ], [ %12, %.preheader7.i ]
+  %.pn.i = phi i64 [ 1, %26 ], [ 0, %.preheader.i ], [ %12, %.preheader7.i ]
   %31 = getelementptr %struct.hstate, ptr @hstates, i64 %.pn.i
   %32 = load i64, ptr %5, align 8
   %33 = call fastcc i64 @__nr_hugepages_store_common(i1 noundef zeroext false, ptr noundef %31, i32 noundef %30, i64 noundef %32, i64 noundef %3)
@@ -16999,7 +16999,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @nr_overcommit_hugepages_
   unreachable
 
 .loopexit:                                        ; preds = %5, %.preheader, %21
-  %.pn = phi i64 [ 0, %.preheader ], [ 1, %21 ], [ %7, %5 ]
+  %.pn = phi i64 [ 1, %21 ], [ 0, %.preheader ], [ %7, %5 ]
   %25 = getelementptr %struct.hstate, ptr @hstates, i64 %.pn
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 96
   %27 = load i64, ptr %26, align 8
@@ -17056,7 +17056,7 @@ define internal i64 @nr_overcommit_hugepages_store(ptr noundef readnone captures
   unreachable
 
 .loopexit:                                        ; preds = %7, %.preheader, %23
-  %.pn = phi i64 [ 0, %.preheader ], [ 1, %23 ], [ %9, %7 ]
+  %.pn = phi i64 [ 1, %23 ], [ 0, %.preheader ], [ %9, %7 ]
   %27 = getelementptr %struct.hstate, ptr @hstates, i64 %.pn
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 40
   %29 = load i32, ptr %28, align 8
@@ -17133,7 +17133,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @resv_hugepages_show(ptr 
   unreachable
 
 .loopexit:                                        ; preds = %5, %.preheader, %21
-  %.pn = phi i64 [ 0, %.preheader ], [ 1, %21 ], [ %7, %5 ]
+  %.pn = phi i64 [ 1, %21 ], [ 0, %.preheader ], [ %7, %5 ]
   %25 = getelementptr %struct.hstate, ptr @hstates, i64 %.pn
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 80
   %27 = load i64, ptr %26, align 8
@@ -17270,7 +17270,7 @@ define internal i64 @nr_hugepages_mempolicy_store(ptr noundef readnone captures(
 
 .loopexit.i:                                      ; preds = %.preheader7.i, %.preheader.i, %26
   %30 = phi i32 [ %21, %.preheader.i ], [ %21, %26 ], [ -1, %.preheader7.i ]
-  %.pn.i = phi i64 [ 0, %.preheader.i ], [ 1, %26 ], [ %12, %.preheader7.i ]
+  %.pn.i = phi i64 [ 1, %26 ], [ 0, %.preheader.i ], [ %12, %.preheader7.i ]
   %31 = getelementptr %struct.hstate, ptr @hstates, i64 %.pn.i
   %32 = load i64, ptr %5, align 8
   %33 = call fastcc i64 @__nr_hugepages_store_common(i1 noundef zeroext true, ptr noundef %31, i32 noundef %30, i64 noundef %32, i64 noundef %3)

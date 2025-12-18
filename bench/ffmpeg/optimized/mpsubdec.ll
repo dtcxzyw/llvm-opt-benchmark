@@ -319,10 +319,10 @@ parse_line.exit:                                  ; preds = %31, %41
   br label %136
 
 107:                                              ; preds = %98, %81, %parse_line.exit, %28
-  %.261 = phi i32 [ %.059117, %81 ], [ %.059117, %parse_line.exit ], [ %.059117, %28 ], [ %104, %98 ]
-  %.155 = phi i64 [ %.054118, %81 ], [ %.054118, %parse_line.exit ], [ %.054118, %28 ], [ %105, %98 ]
-  %.2 = phi i32 [ %79, %81 ], [ %.051119, %parse_line.exit ], [ %.051119, %28 ], [ %79, %98 ]
-  %.sroa.031.2 = phi i32 [ %.sroa.031.0120, %81 ], [ %.sroa.031.0120, %parse_line.exit ], [ %29, %28 ], [ %.sroa.031.0120, %98 ]
+  %.261 = phi i32 [ %104, %98 ], [ %.059117, %parse_line.exit ], [ %.059117, %28 ], [ %.059117, %81 ]
+  %.155 = phi i64 [ %105, %98 ], [ %.054118, %parse_line.exit ], [ %.054118, %28 ], [ %.054118, %81 ]
+  %.2 = phi i32 [ %79, %98 ], [ %.051119, %parse_line.exit ], [ %.051119, %28 ], [ %79, %81 ]
+  %.sroa.031.2 = phi i32 [ %.sroa.031.0120, %98 ], [ %.sroa.031.0120, %parse_line.exit ], [ %29, %28 ], [ %.sroa.031.0120, %81 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

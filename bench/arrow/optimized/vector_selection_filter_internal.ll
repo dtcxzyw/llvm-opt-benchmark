@@ -919,7 +919,7 @@ define noundef i64 @_ZN5arrow7compute8internal19GetFilterOutputSizeERKNS_9ArrayS
   br i1 %47, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !74
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %.lr.ph32.i, %.preheader.i, %.preheader26.i
-  %.1.i = phi i64 [ 0, %.preheader.i ], [ 0, %.preheader26.i ], [ %36, %.lr.ph32.i ], [ %43, %.lr.ph.i ]
+  %.1.i = phi i64 [ %36, %.lr.ph32.i ], [ 0, %.preheader.i ], [ 0, %.preheader26.i ], [ %43, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN5arrow7compute8internal12_GLOBAL__N_125GetBitmapFilterOutputSizeERKNS_9ArraySpanENS0_13FilterOptions21NullSelectionBehaviorE.exit
 
@@ -2199,7 +2199,7 @@ _ZN5arrow7compute8internal12_GLOBAL__N_115DropNullCounter9NextBlockEv.exit.i: ; 
   br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !176
 
 .loopexit.i:                                      ; preds = %747, %663, %596, %534, %464, %411, %.preheader139.i, %.preheader141.i, %.preheader137.i, %.preheader133.i, %.preheader135.i, %.preheader.i, %358, %339, %327
-  %.1.i = phi i64 [ %338, %327 ], [ %353, %339 ], [ %360, %358 ], [ %.073165.i, %.preheader.i ], [ %.073165.i, %.preheader133.i ], [ %.073165.i, %.preheader135.i ], [ %.073165.i, %.preheader137.i ], [ %.073165.i, %.preheader139.i ], [ %.073165.i, %.preheader141.i ], [ %664, %663 ], [ %412, %411 ], [ %465, %464 ], [ %535, %534 ], [ %597, %596 ], [ %748, %747 ]
+  %.1.i = phi i64 [ %338, %327 ], [ %353, %339 ], [ %360, %358 ], [ %597, %596 ], [ %664, %663 ], [ %412, %411 ], [ %465, %464 ], [ %535, %534 ], [ %.073165.i, %.preheader.i ], [ %.073165.i, %.preheader133.i ], [ %.073165.i, %.preheader135.i ], [ %.073165.i, %.preheader137.i ], [ %.073165.i, %.preheader139.i ], [ %.073165.i, %.preheader141.i ], [ %748, %747 ]
   %750 = load i64, ptr %125, align 8, !tbaa !120
   %751 = icmp slt i64 %.1.i, %750
   br i1 %751, label %.lr.ph166.i, label %._crit_edge.i, !llvm.loop !177
@@ -3130,7 +3130,7 @@ _ZN5arrow7compute8internal12_GLOBAL__N_115DropNullCounter9NextBlockEv.exit.i78: 
   br i1 %exitcond.not.i90, label %.loopexit.i86, label %.lr.ph.i88, !llvm.loop !198
 
 .loopexit.i86:                                    ; preds = %1272, %1211, %1161, %1116, %1069, %1033, %.preheader134.i, %.preheader136.i, %.preheader132.i, %.preheader128.i, %.preheader130.i, %.preheader.i98, %997, %978, %966
-  %.1.i87 = phi i64 [ %977, %966 ], [ %992, %978 ], [ %999, %997 ], [ %.073160.i, %.preheader.i98 ], [ %.073160.i, %.preheader128.i ], [ %.073160.i, %.preheader130.i ], [ %.073160.i, %.preheader132.i ], [ %.073160.i, %.preheader134.i ], [ %.073160.i, %.preheader136.i ], [ %1212, %1211 ], [ %1034, %1033 ], [ %1070, %1069 ], [ %1117, %1116 ], [ %1162, %1161 ], [ %1273, %1272 ]
+  %.1.i87 = phi i64 [ %977, %966 ], [ %992, %978 ], [ %999, %997 ], [ %1162, %1161 ], [ %1212, %1211 ], [ %1034, %1033 ], [ %1070, %1069 ], [ %1117, %1116 ], [ %.073160.i, %.preheader.i98 ], [ %.073160.i, %.preheader128.i ], [ %.073160.i, %.preheader130.i ], [ %.073160.i, %.preheader132.i ], [ %.073160.i, %.preheader134.i ], [ %.073160.i, %.preheader136.i ], [ %1273, %1272 ]
   %1275 = load i64, ptr %765, align 8, !tbaa !184
   %1276 = icmp slt i64 %.1.i87, %1275
   br i1 %1276, label %.lr.ph161.i, label %._crit_edge.i70, !llvm.loop !199
@@ -4085,7 +4085,7 @@ _ZN5arrow7compute8internal12_GLOBAL__N_115DropNullCounter9NextBlockEv.exit.i138:
   br i1 %exitcond.not.i160, label %.loopexit.i151, label %.lr.ph.i153, !llvm.loop !220
 
 .loopexit.i151:                                   ; preds = %1821, %1757, %1705, %1658, %1608, %1570, %.preheader134.i162, %.preheader136.i150, %.preheader132.i170, %.preheader128.i186, %.preheader130.i177, %.preheader.i193, %1532, %1510, %1495
-  %.1.i152 = phi i64 [ %1509, %1495 ], [ %1527, %1510 ], [ %1534, %1532 ], [ %.073160.i130, %.preheader.i193 ], [ %.073160.i130, %.preheader128.i186 ], [ %.073160.i130, %.preheader130.i177 ], [ %.073160.i130, %.preheader132.i170 ], [ %.073160.i130, %.preheader134.i162 ], [ %.073160.i130, %.preheader136.i150 ], [ %1758, %1757 ], [ %1571, %1570 ], [ %1609, %1608 ], [ %1659, %1658 ], [ %1706, %1705 ], [ %1822, %1821 ]
+  %.1.i152 = phi i64 [ %1509, %1495 ], [ %1527, %1510 ], [ %1534, %1532 ], [ %1706, %1705 ], [ %1758, %1757 ], [ %1571, %1570 ], [ %1609, %1608 ], [ %1659, %1658 ], [ %.073160.i130, %.preheader.i193 ], [ %.073160.i130, %.preheader128.i186 ], [ %.073160.i130, %.preheader130.i177 ], [ %.073160.i130, %.preheader132.i170 ], [ %.073160.i130, %.preheader134.i162 ], [ %.073160.i130, %.preheader136.i150 ], [ %1822, %1821 ]
   %1824 = load i64, ptr %1290, align 8, !tbaa !206
   %1825 = icmp slt i64 %.1.i152, %1824
   br i1 %1825, label %.lr.ph161.i129, label %._crit_edge.i128, !llvm.loop !221
@@ -5040,7 +5040,7 @@ _ZN5arrow7compute8internal12_GLOBAL__N_115DropNullCounter9NextBlockEv.exit.i237:
   br i1 %exitcond.not.i259, label %.loopexit.i250, label %.lr.ph.i252, !llvm.loop !242
 
 .loopexit.i250:                                   ; preds = %2370, %2306, %2254, %2207, %2157, %2119, %.preheader134.i261, %.preheader136.i249, %.preheader132.i269, %.preheader128.i285, %.preheader130.i276, %.preheader.i292, %2081, %2059, %2044
-  %.1.i251 = phi i64 [ %2058, %2044 ], [ %2076, %2059 ], [ %2083, %2081 ], [ %.073160.i229, %.preheader.i292 ], [ %.073160.i229, %.preheader128.i285 ], [ %.073160.i229, %.preheader130.i276 ], [ %.073160.i229, %.preheader132.i269 ], [ %.073160.i229, %.preheader134.i261 ], [ %.073160.i229, %.preheader136.i249 ], [ %2307, %2306 ], [ %2120, %2119 ], [ %2158, %2157 ], [ %2208, %2207 ], [ %2255, %2254 ], [ %2371, %2370 ]
+  %.1.i251 = phi i64 [ %2058, %2044 ], [ %2076, %2059 ], [ %2083, %2081 ], [ %2255, %2254 ], [ %2307, %2306 ], [ %2120, %2119 ], [ %2158, %2157 ], [ %2208, %2207 ], [ %.073160.i229, %.preheader.i292 ], [ %.073160.i229, %.preheader128.i285 ], [ %.073160.i229, %.preheader130.i276 ], [ %.073160.i229, %.preheader132.i269 ], [ %.073160.i229, %.preheader134.i261 ], [ %.073160.i229, %.preheader136.i249 ], [ %2371, %2370 ]
   %2373 = load i64, ptr %1839, align 8, !tbaa !228
   %2374 = icmp slt i64 %.1.i251, %2373
   br i1 %2374, label %.lr.ph161.i228, label %._crit_edge.i227, !llvm.loop !243
@@ -5995,7 +5995,7 @@ _ZN5arrow7compute8internal12_GLOBAL__N_115DropNullCounter9NextBlockEv.exit.i336:
   br i1 %exitcond.not.i358, label %.loopexit.i349, label %.lr.ph.i351, !llvm.loop !264
 
 .loopexit.i349:                                   ; preds = %2919, %2855, %2803, %2756, %2706, %2668, %.preheader134.i360, %.preheader136.i348, %.preheader132.i368, %.preheader128.i384, %.preheader130.i375, %.preheader.i391, %2630, %2608, %2593
-  %.1.i350 = phi i64 [ %2607, %2593 ], [ %2625, %2608 ], [ %2632, %2630 ], [ %.073160.i328, %.preheader.i391 ], [ %.073160.i328, %.preheader128.i384 ], [ %.073160.i328, %.preheader130.i375 ], [ %.073160.i328, %.preheader132.i368 ], [ %.073160.i328, %.preheader134.i360 ], [ %.073160.i328, %.preheader136.i348 ], [ %2856, %2855 ], [ %2669, %2668 ], [ %2707, %2706 ], [ %2757, %2756 ], [ %2804, %2803 ], [ %2920, %2919 ]
+  %.1.i350 = phi i64 [ %2607, %2593 ], [ %2625, %2608 ], [ %2632, %2630 ], [ %2804, %2803 ], [ %2856, %2855 ], [ %2669, %2668 ], [ %2707, %2706 ], [ %2757, %2756 ], [ %.073160.i328, %.preheader.i391 ], [ %.073160.i328, %.preheader128.i384 ], [ %.073160.i328, %.preheader130.i375 ], [ %.073160.i328, %.preheader132.i368 ], [ %.073160.i328, %.preheader134.i360 ], [ %.073160.i328, %.preheader136.i348 ], [ %2920, %2919 ]
   %2922 = load i64, ptr %2388, align 8, !tbaa !250
   %2923 = icmp slt i64 %.1.i350, %2922
   br i1 %2923, label %.lr.ph161.i327, label %._crit_edge.i326, !llvm.loop !265
@@ -6944,7 +6944,7 @@ _ZN5arrow7compute8internal12_GLOBAL__N_115DropNullCounter9NextBlockEv.exit.i435:
   br i1 %exitcond.not.i457, label %.loopexit.i448, label %.lr.ph.i450, !llvm.loop !286
 
 .loopexit.i448:                                   ; preds = %3462, %3399, %3348, %3302, %3253, %3216, %.preheader134.i459, %.preheader136.i447, %.preheader132.i467, %.preheader128.i483, %.preheader130.i474, %.preheader.i490, %3179, %3157, %3142
-  %.1.i449 = phi i64 [ %3156, %3142 ], [ %3174, %3157 ], [ %3181, %3179 ], [ %.073160.i427, %.preheader.i490 ], [ %.073160.i427, %.preheader128.i483 ], [ %.073160.i427, %.preheader130.i474 ], [ %.073160.i427, %.preheader132.i467 ], [ %.073160.i427, %.preheader134.i459 ], [ %.073160.i427, %.preheader136.i447 ], [ %3400, %3399 ], [ %3217, %3216 ], [ %3254, %3253 ], [ %3303, %3302 ], [ %3349, %3348 ], [ %3463, %3462 ]
+  %.1.i449 = phi i64 [ %3156, %3142 ], [ %3174, %3157 ], [ %3181, %3179 ], [ %3349, %3348 ], [ %3400, %3399 ], [ %3217, %3216 ], [ %3254, %3253 ], [ %3303, %3302 ], [ %.073160.i427, %.preheader.i490 ], [ %.073160.i427, %.preheader128.i483 ], [ %.073160.i427, %.preheader130.i474 ], [ %.073160.i427, %.preheader132.i467 ], [ %.073160.i427, %.preheader134.i459 ], [ %.073160.i427, %.preheader136.i447 ], [ %3463, %3462 ]
   %3465 = load i64, ptr %2937, align 8, !tbaa !272
   %3466 = icmp slt i64 %.1.i449, %3465
   br i1 %3466, label %.lr.ph161.i426, label %._crit_edge.i425, !llvm.loop !287
@@ -7893,7 +7893,7 @@ _ZN5arrow7compute8internal12_GLOBAL__N_115DropNullCounter9NextBlockEv.exit.i534:
   br i1 %exitcond.not.i556, label %.loopexit.i547, label %.lr.ph.i549, !llvm.loop !308
 
 .loopexit.i547:                                   ; preds = %4005, %3942, %3891, %3845, %3796, %3759, %.preheader134.i558, %.preheader136.i546, %.preheader132.i566, %.preheader128.i582, %.preheader130.i573, %.preheader.i589, %3722, %3700, %3685
-  %.1.i548 = phi i64 [ %3699, %3685 ], [ %3717, %3700 ], [ %3724, %3722 ], [ %.073160.i526, %.preheader.i589 ], [ %.073160.i526, %.preheader128.i582 ], [ %.073160.i526, %.preheader130.i573 ], [ %.073160.i526, %.preheader132.i566 ], [ %.073160.i526, %.preheader134.i558 ], [ %.073160.i526, %.preheader136.i546 ], [ %3943, %3942 ], [ %3760, %3759 ], [ %3797, %3796 ], [ %3846, %3845 ], [ %3892, %3891 ], [ %4006, %4005 ]
+  %.1.i548 = phi i64 [ %3699, %3685 ], [ %3717, %3700 ], [ %3724, %3722 ], [ %3892, %3891 ], [ %3943, %3942 ], [ %3760, %3759 ], [ %3797, %3796 ], [ %3846, %3845 ], [ %.073160.i526, %.preheader.i589 ], [ %.073160.i526, %.preheader128.i582 ], [ %.073160.i526, %.preheader130.i573 ], [ %.073160.i526, %.preheader132.i566 ], [ %.073160.i526, %.preheader134.i558 ], [ %.073160.i526, %.preheader136.i546 ], [ %4006, %4005 ]
   %4008 = load i64, ptr %3480, align 8, !tbaa !294
   %4009 = icmp slt i64 %.1.i548, %4008
   br i1 %4009, label %.lr.ph161.i525, label %._crit_edge.i524, !llvm.loop !309
@@ -8854,7 +8854,7 @@ _ZN5arrow7compute8internal12_GLOBAL__N_115DropNullCounter9NextBlockEv.exit.i631:
   br i1 %exitcond.not.i644, label %.loopexit.i639, label %.lr.ph.i641, !llvm.loop !330
 
 .loopexit.i639:                                   ; preds = %4548, %4485, %4434, %4388, %4339, %4302, %.preheader142.i, %.preheader144.i, %.preheader140.i, %.preheader136.i660, %.preheader138.i, %.preheader.i661, %4265, %4243, %4228
-  %.1.i640 = phi i64 [ %4242, %4228 ], [ %4260, %4243 ], [ %4267, %4265 ], [ %.073168.i, %.preheader.i661 ], [ %.073168.i, %.preheader136.i660 ], [ %.073168.i, %.preheader138.i ], [ %.073168.i, %.preheader140.i ], [ %.073168.i, %.preheader142.i ], [ %.073168.i, %.preheader144.i ], [ %4486, %4485 ], [ %4303, %4302 ], [ %4340, %4339 ], [ %4389, %4388 ], [ %4435, %4434 ], [ %4549, %4548 ]
+  %.1.i640 = phi i64 [ %4242, %4228 ], [ %4260, %4243 ], [ %4267, %4265 ], [ %4435, %4434 ], [ %4486, %4485 ], [ %4303, %4302 ], [ %4340, %4339 ], [ %4389, %4388 ], [ %.073168.i, %.preheader.i661 ], [ %.073168.i, %.preheader136.i660 ], [ %.073168.i, %.preheader138.i ], [ %.073168.i, %.preheader140.i ], [ %.073168.i, %.preheader142.i ], [ %.073168.i, %.preheader144.i ], [ %4549, %4548 ]
   %4551 = load i64, ptr %4023, align 8, !tbaa !316
   %4552 = icmp slt i64 %.1.i640, %4551
   br i1 %4552, label %.lr.ph169.i, label %._crit_edge.i623, !llvm.loop !331
@@ -14316,7 +14316,7 @@ _ZN5arrow6StatusD2Ev.exit394.i:                   ; preds = %1444
   br i1 %.not289.i, label %827, label %.critedge341.i
 
 .critedge303.i.sink.split:                        ; preds = %_ZN5arrow6StatusD2Ev.exit394.i, %_ZN5arrow6StatusD2Ev.exit390.i, %_ZN5arrow6StatusD2Ev.exit386.i, %_ZN5arrow6StatusD2Ev.exit382.i, %_ZN5arrow6StatusD2Ev.exit378.i, %_ZN5arrow6StatusD2Ev.exit374.i, %_ZN5arrow6StatusD2Ev.exit370.i
-  %.lcssa713.sink = phi ptr [ %1356, %_ZN5arrow6StatusD2Ev.exit390.i ], [ %977, %_ZN5arrow6StatusD2Ev.exit370.i ], [ %1046, %_ZN5arrow6StatusD2Ev.exit374.i ], [ %1123, %_ZN5arrow6StatusD2Ev.exit378.i ], [ %1200, %_ZN5arrow6StatusD2Ev.exit382.i ], [ %1282, %_ZN5arrow6StatusD2Ev.exit386.i ], [ %1445, %_ZN5arrow6StatusD2Ev.exit394.i ]
+  %.lcssa713.sink = phi ptr [ %1046, %_ZN5arrow6StatusD2Ev.exit374.i ], [ %977, %_ZN5arrow6StatusD2Ev.exit370.i ], [ %1356, %_ZN5arrow6StatusD2Ev.exit390.i ], [ %1282, %_ZN5arrow6StatusD2Ev.exit386.i ], [ %1200, %_ZN5arrow6StatusD2Ev.exit382.i ], [ %1123, %_ZN5arrow6StatusD2Ev.exit378.i ], [ %1445, %_ZN5arrow6StatusD2Ev.exit394.i ]
   store ptr %.lcssa713.sink, ptr %93, align 8
   br label %.critedge303.i
 
@@ -16101,7 +16101,7 @@ _ZN5arrow6StatusD2Ev.exit394.i276:                ; preds = %2279
   br i1 %.not289.i262, label %1679, label %.critedge341.i223
 
 .critedge303.i277.sink.split:                     ; preds = %_ZN5arrow6StatusD2Ev.exit394.i276, %_ZN5arrow6StatusD2Ev.exit390.i296, %_ZN5arrow6StatusD2Ev.exit386.i316, %_ZN5arrow6StatusD2Ev.exit382.i333, %_ZN5arrow6StatusD2Ev.exit378.i352, %_ZN5arrow6StatusD2Ev.exit374.i368, %_ZN5arrow6StatusD2Ev.exit370.i383
-  %.lcssa720.sink = phi ptr [ %2195, %_ZN5arrow6StatusD2Ev.exit390.i296 ], [ %1826, %_ZN5arrow6StatusD2Ev.exit370.i383 ], [ %1893, %_ZN5arrow6StatusD2Ev.exit374.i368 ], [ %1968, %_ZN5arrow6StatusD2Ev.exit378.i352 ], [ %2043, %_ZN5arrow6StatusD2Ev.exit382.i333 ], [ %2123, %_ZN5arrow6StatusD2Ev.exit386.i316 ], [ %2280, %_ZN5arrow6StatusD2Ev.exit394.i276 ]
+  %.lcssa720.sink = phi ptr [ %1893, %_ZN5arrow6StatusD2Ev.exit374.i368 ], [ %1826, %_ZN5arrow6StatusD2Ev.exit370.i383 ], [ %2195, %_ZN5arrow6StatusD2Ev.exit390.i296 ], [ %2123, %_ZN5arrow6StatusD2Ev.exit386.i316 ], [ %2043, %_ZN5arrow6StatusD2Ev.exit382.i333 ], [ %1968, %_ZN5arrow6StatusD2Ev.exit378.i352 ], [ %2280, %_ZN5arrow6StatusD2Ev.exit394.i276 ]
   store ptr %.lcssa720.sink, ptr %94, align 8
   br label %.critedge303.i277
 

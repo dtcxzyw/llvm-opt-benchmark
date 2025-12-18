@@ -1654,7 +1654,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit287: ; preds = %.b
   br i1 %420, label %.loopexit336, label %417
 
 .loopexit336:                                     ; preds = %417, %.loopexit336.loopexit341, %.thread
-  %.pn74.pn = phi { ptr, i32 } [ %69, %.thread ], [ %412, %.loopexit336.loopexit341 ], [ %.pn74, %417 ]
+  %.pn74.pn = phi { ptr, i32 } [ %412, %.loopexit336.loopexit341 ], [ %69, %.thread ], [ %.pn74, %417 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %421 = load ptr, ptr %8, align 8, !tbaa !20
   %422 = icmp eq ptr %421, %66
@@ -1787,7 +1787,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit293: ; preds = %42
   br i1 %458, label %.loopexit332, label %455
 
 .loopexit332:                                     ; preds = %455, %.loopexit332.loopexit340, %.thread313
-  %.pn80.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %145, %.thread313 ], [ %431, %.loopexit332.loopexit340 ], [ %.pn80.pn.pn.pn.pn320, %455 ]
+  %.pn80.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %431, %.loopexit332.loopexit340 ], [ %145, %.thread313 ], [ %.pn80.pn.pn.pn.pn320, %455 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %459 = load ptr, ptr %15, align 8, !tbaa !20
   %460 = icmp eq ptr %459, %142
@@ -1903,7 +1903,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit302: ; preds = %.l
   br i1 %486, label %.loopexit, label %483
 
 .loopexit:                                        ; preds = %483, %.loopexit.loopexit339, %.thread326
-  %.pn96.pn = phi { ptr, i32 } [ %337, %.thread326 ], [ %480, %.loopexit.loopexit339 ], [ %.pn96, %483 ]
+  %.pn96.pn = phi { ptr, i32 } [ %480, %.loopexit.loopexit339 ], [ %337, %.thread326 ], [ %.pn96, %483 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
   call void @_ZN6casadi14FileSerializerD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %27) #24

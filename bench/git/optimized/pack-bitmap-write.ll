@@ -1460,8 +1460,8 @@ bb_data_at.exit82:                                ; preds = %._crit_edge4.i.i79,
   br i1 %.not58.not, label %.loopexit, label %37, !llvm.loop !106
 
 .loopexit:                                        ; preds = %247, %139, %..loopexit_crit_edge, %.thread81.sink.split.i
-  %249 = phi i32 [ %.promoted, %.thread81.sink.split.i ], [ %.pre149, %..loopexit_crit_edge ], [ %.promoted, %139 ], [ %.lcssa117174, %247 ]
-  %.not58113 = phi i1 [ true, %.thread81.sink.split.i ], [ false, %..loopexit_crit_edge ], [ true, %139 ], [ false, %247 ]
+  %249 = phi i32 [ %.promoted, %139 ], [ %.promoted, %.thread81.sink.split.i ], [ %.pre149, %..loopexit_crit_edge ], [ %.lcssa117174, %247 ]
+  %.not58113 = phi i1 [ true, %139 ], [ true, %.thread81.sink.split.i ], [ false, %..loopexit_crit_edge ], [ false, %247 ]
   call void @clear_prio_queue(ptr noundef nonnull %5) #19
   call void @clear_prio_queue(ptr noundef nonnull %6) #19
   %250 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2130,7 +2130,7 @@ bb_data_at.exit148:                               ; preds = %164, %169
   br label %.loopexit
 
 .loopexit:                                        ; preds = %215, %.loopexit.sink.split, %.preheader162, %147
-  %.2 = phi i32 [ %.3, %.preheader162 ], [ %.3, %147 ], [ %.2.ph, %.loopexit.sink.split ], [ %.3, %215 ]
+  %.2 = phi i32 [ %.3, %.preheader162 ], [ %.2.ph, %.loopexit.sink.split ], [ %.3, %147 ], [ %.3, %215 ]
   %218 = load ptr, ptr %120, align 8, !tbaa !108
   call void @bitmap_free(ptr noundef %218) #19
   store ptr null, ptr %120, align 8, !tbaa !108
@@ -2648,8 +2648,8 @@ hashwrite_be32.exit.i:                            ; preds = %121, %120
   unreachable
 
 write_selected_commits_v1.exit:                   ; preds = %106, %81, %._crit_edge
-  %.val125.i = phi i32 [ %.val56, %._crit_edge ], [ %.val56125, %81 ], [ %.val20.i, %106 ]
-  %.val.i60 = phi i32 [ %.val55, %._crit_edge ], [ %.val55124, %81 ], [ %.val.i, %106 ]
+  %.val125.i = phi i32 [ %.val56125, %81 ], [ %.val56, %._crit_edge ], [ %.val20.i, %106 ]
+  %.val.i60 = phi i32 [ %.val55124, %81 ], [ %.val55, %._crit_edge ], [ %.val.i, %106 ]
   %139 = and i32 %36, 32
   %.not49 = icmp eq i32 %139, 0
   br i1 %.not49, label %426, label %140
@@ -3687,7 +3687,7 @@ find_object_pos.exit24.thread:                    ; preds = %47
   br label %.loopexit
 
 .loopexit:                                        ; preds = %42, %find_object_pos.exit24.thread, %find_object_pos.exit.thread, %11, %._crit_edge
-  %.0 = phi i32 [ -1, %find_object_pos.exit.thread ], [ 0, %11 ], [ 0, %._crit_edge ], [ -1, %find_object_pos.exit24.thread ], [ -1, %42 ]
+  %.0 = phi i32 [ -1, %find_object_pos.exit.thread ], [ 0, %11 ], [ -1, %find_object_pos.exit24.thread ], [ 0, %._crit_edge ], [ -1, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0

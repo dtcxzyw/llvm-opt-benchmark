@@ -589,7 +589,7 @@ ff_mpeg4_set_one_direct_mv.exit121:               ; preds = %226, %228, %240, %2
   br label %.loopexit
 
 .loopexit:                                        ; preds = %ff_mpeg4_set_one_direct_mv.exit, %162, %.loopexit.sink.split
-  %.0 = phi i32 [ 12552, %.loopexit.sink.split ], [ 12688, %162 ], [ 12608, %ff_mpeg4_set_one_direct_mv.exit ]
+  %.0 = phi i32 [ 12688, %162 ], [ 12552, %.loopexit.sink.split ], [ 12608, %ff_mpeg4_set_one_direct_mv.exit ]
   ret i32 %.0
 }
 

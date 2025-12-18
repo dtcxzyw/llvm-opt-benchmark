@@ -878,7 +878,7 @@ _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit71: ; preds = %_ZNSt6vecto
   br label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit65
 
 _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit65: ; preds = %50, %74, %69, %.critedge62, %85
-  %.4 = phi i1 [ true, %.critedge62 ], [ true, %85 ], [ false, %74 ], [ false, %69 ], [ false, %50 ]
+  %.4 = phi i1 [ true, %.critedge62 ], [ false, %74 ], [ true, %85 ], [ false, %69 ], [ false, %50 ]
   tail call void @_ZdaPv(ptr noundef nonnull %28) #17
   tail call void @_ZdaPv(ptr noundef nonnull %27) #17
   br label %86

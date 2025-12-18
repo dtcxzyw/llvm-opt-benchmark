@@ -348,7 +348,7 @@ cdf_read.exit.thread.sink.split:                  ; preds = %cdf_read.exit, %65,
   br label %cdf_read.exit.thread
 
 cdf_read.exit.thread:                             ; preds = %cdf_read.exit.thread.sink.split, %16, %13, %68
-  %.0 = phi i32 [ 0, %68 ], [ -1, %13 ], [ -1, %16 ], [ -1, %cdf_read.exit.thread.sink.split ]
+  %.0 = phi i32 [ 0, %68 ], [ -1, %16 ], [ -1, %13 ], [ -1, %cdf_read.exit.thread.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -746,7 +746,7 @@ cdf_read_sector.exit103:                          ; preds = %133
   br i1 %or.cond, label %.loopexit, label %85
 
 .loopexit:                                        ; preds = %._crit_edge, %.lr.ph, %78
-  %.3 = phi i64 [ %.1.lcssa, %78 ], [ %.4138, %.lr.ph ], [ %.4.lcssa, %._crit_edge ]
+  %.3 = phi i64 [ %.4138, %.lr.ph ], [ %.1.lcssa, %78 ], [ %.4.lcssa, %._crit_edge ]
   store i64 %.3, ptr %37, align 8, !tbaa !24
   tail call void @_efree(ptr noundef nonnull %76) #21
   br label %149
@@ -980,7 +980,7 @@ cdf_read_sector.exit:                             ; preds = %66
   br label %.loopexit
 
 .loopexit:                                        ; preds = %73, %.loopexit.sink.split, %.preheader
-  %.0 = phi i32 [ 0, %.preheader ], [ -1, %.loopexit.sink.split ], [ 0, %73 ]
+  %.0 = phi i32 [ -1, %.loopexit.sink.split ], [ 0, %.preheader ], [ 0, %73 ]
   ret i32 %.0
 }
 
@@ -1110,7 +1110,7 @@ cdf_read_short_sector.exit:                       ; preds = %52
   br i1 %70, label %.lr.ph.split, label %.loopexit
 
 cdf_read_short_sector.exit.thread:                ; preds = %.lr.ph.split, %42, %44, %.split.us, %cdf_count_chain.exit
-  %71 = phi ptr [ %33, %cdf_count_chain.exit ], [ %34, %.split.us ], [ %34, %44 ], [ %34, %42 ], [ %34, %.lr.ph.split ]
+  %71 = phi ptr [ %34, %.split.us ], [ %33, %cdf_count_chain.exit ], [ %34, %44 ], [ %34, %42 ], [ %34, %.lr.ph.split ]
   %72 = tail call ptr @__errno_location() #22
   store i32 22, ptr %72, align 4, !tbaa !21
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %71, i8 0, i64 24, i1 false)
@@ -2381,8 +2381,8 @@ define hidden range(i32 -1, 1) i32 @cdf_unpack_catalog(ptr noundef readnone capt
   br label %64
 
 64:                                               ; preds = %48, %._crit_edge171
-  %.2 = phi i64 [ %.0128173, %48 ], [ %.0125174, %._crit_edge171 ]
-  %.1126 = phi i64 [ %.0125174, %48 ], [ %63, %._crit_edge171 ]
+  %.2 = phi i64 [ %.0125174, %._crit_edge171 ], [ %.0128173, %48 ]
+  %.1126 = phi i64 [ %63, %._crit_edge171 ], [ %.0125174, %48 ]
   %65 = zext i16 %46 to i64
   %66 = getelementptr inbounds nuw i8, ptr %.1175, i64 %65
   %67 = icmp ult i64 %.1126, %19
@@ -2393,7 +2393,7 @@ define hidden range(i32 -1, 1) i32 @cdf_unpack_catalog(ptr noundef readnone capt
   br label %.thread145
 
 .thread145:                                       ; preds = %64, %.thread145.sink.split, %24
-  %.0128155 = phi i64 [ 0, %24 ], [ %.0128173, %.thread145.sink.split ], [ %.2, %64 ]
+  %.0128155 = phi i64 [ %.0128173, %.thread145.sink.split ], [ 0, %24 ], [ %.2, %64 ]
   store i64 %.0128155, ptr %22, align 8, !tbaa !64
   br label %._crit_edge.thread
 

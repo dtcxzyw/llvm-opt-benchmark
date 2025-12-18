@@ -182,7 +182,7 @@ define internal range(i32 0, 2) i32 @test_rsa_oaep(i32 noundef %0) #0 {
   br i1 %.not17, label %.loopexit, label %24
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph23, %24, %.preheader, %7, %11, %1
-  %.014 = phi i32 [ 0, %7 ], [ 0, %11 ], [ 0, %1 ], [ 1, %.preheader ], [ 1, %24 ], [ 0, %.lr.ph23 ], [ 0, %.lr.ph ]
+  %.014 = phi i32 [ 0, %7 ], [ 1, %.preheader ], [ 0, %11 ], [ 0, %1 ], [ 1, %24 ], [ 0, %.lr.ph23 ], [ 0, %.lr.ph ]
   call void @RSA_free(ptr noundef %.pre) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

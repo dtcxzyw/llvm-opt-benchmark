@@ -1967,7 +1967,7 @@ add_same_unmerged.exit:                           ; preds = %199, %205, %236, %1
   store ptr %.072150, ptr %9, align 16, !tbaa !96
   br label %unpack_failed.exit.thread
 
-unpack_failed.exit.thread:                        ; preds = %compare_entry.exit, %66, %64, %next_cache_entry.exit, %47, %86, %91, %skip_prefix.exit.i, %81, %175, %241, %debug_unpack_callback.exit
+unpack_failed.exit.thread:                        ; preds = %compare_entry.exit, %66, %64, %next_cache_entry.exit, %47, %86, %skip_prefix.exit.i, %91, %81, %175, %241, %debug_unpack_callback.exit
   %242 = call fastcc i32 @unpack_single_entry(i32 noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %9, ptr noundef %3, ptr noundef %4, ptr noundef %10)
   %.not86 = icmp eq i32 %242, 0
   br i1 %.not86, label %243, label %unpack_failed.exit.thread163
@@ -6721,7 +6721,7 @@ entry_is_new_sparse_dir.exit:                     ; preds = %58
   br label %.loopexit
 
 .loopexit:                                        ; preds = %123, %130, %135, %.loopexit.sink.split, %._crit_edge.thread, %110, %entry_is_new_sparse_dir.exit, %17
-  %.0 = phi i32 [ 0, %entry_is_new_sparse_dir.exit ], [ 0, %17 ], [ %spec.store.select.i, %110 ], [ 0, %.loopexit.sink.split ], [ 0, %._crit_edge.thread ], [ 0, %135 ], [ -1, %130 ], [ %spec.store.select.i, %123 ]
+  %.0 = phi i32 [ 0, %entry_is_new_sparse_dir.exit ], [ 0, %.loopexit.sink.split ], [ 0, %135 ], [ 0, %17 ], [ 0, %._crit_edge.thread ], [ %spec.store.select.i, %110 ], [ -1, %130 ], [ %spec.store.select.i, %123 ]
   ret i32 %.0
 }
 
@@ -7559,7 +7559,7 @@ verify_clean_subdirectory.exit.thread:            ; preds = %verify_uptodate.exi
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %164
 
-verify_clean_subdirectory.exit.thread34:          ; preds = %138, %142
+verify_clean_subdirectory.exit.thread34:          ; preds = %142, %138
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %add_rejected_path.exit
 

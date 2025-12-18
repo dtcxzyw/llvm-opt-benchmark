@@ -604,7 +604,7 @@ if.then.i.i.i:                                    ; preds = %cond.true.i
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.then.i.i.i, %cond.true.i
-  %striked_payoff.sroa.5.0 = phi ptr [ %3, %if.then.i.i.i ], [ null, %cond.true.i ]
+  %striked_payoff.sroa.5.0 = phi ptr [ null, %cond.true.i ], [ %3, %if.then.i.i.i ]
   %strike_.i = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load double, ptr %strike_.i, align 8, !tbaa !30
   %sMin_ = getelementptr inbounds nuw i8, ptr %this, i64 216

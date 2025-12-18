@@ -534,7 +534,7 @@ _Z9is_groundPK4expr.exit:                         ; preds = %.lr.ph
   br i1 %.not17, label %_ZN16push_app_ite_cfg9is_targetEP9func_decljPKP4expr.exit.thread14, label %42
 
 _ZN16push_app_ite_cfg9is_targetEP9func_decljPKP4expr.exit.thread14: ; preds = %37, %_Z9is_groundPK4expr.exit, %42, %.lr.ph, %.preheader.i, %11, %_ZN16push_app_ite_cfg9is_targetEP9func_decljPKP4expr.exit
-  %.012 = phi i1 [ false, %_ZN16push_app_ite_cfg9is_targetEP9func_decljPKP4expr.exit ], [ false, %11 ], [ false, %.preheader.i ], [ true, %.lr.ph ], [ false, %42 ], [ true, %_Z9is_groundPK4expr.exit ], [ false, %37 ]
+  %.012 = phi i1 [ false, %_ZN16push_app_ite_cfg9is_targetEP9func_decljPKP4expr.exit ], [ false, %11 ], [ true, %.lr.ph ], [ false, %.preheader.i ], [ false, %42 ], [ true, %_Z9is_groundPK4expr.exit ], [ false, %37 ]
   ret i1 %.012
 }
 

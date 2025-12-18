@@ -274,9 +274,9 @@ define hidden void @avifCalcYUVCoefficients(ptr noundef readonly captures(none) 
   br label %calcYUVInfoFromCICP.exit
 
 calcYUVInfoFromCICP.exit:                         ; preds = %12, %9, %16
-  %23 = phi float [ %20, %16 ], [ %.pre15, %9 ], [ 0x3FBD2F1AA0000000, %12 ]
-  %24 = phi float [ %18, %16 ], [ %.pre, %9 ], [ 0x3FD322D0E0000000, %12 ]
-  %25 = phi float [ %22, %16 ], [ %.pre13, %9 ], [ 0x3FE2C8B420000000, %12 ]
+  %23 = phi float [ %.pre15, %9 ], [ %20, %16 ], [ 0x3FBD2F1AA0000000, %12 ]
+  %24 = phi float [ %.pre, %9 ], [ %18, %16 ], [ 0x3FD322D0E0000000, %12 ]
+  %25 = phi float [ %.pre13, %9 ], [ %22, %16 ], [ 0x3FE2C8B420000000, %12 ]
   store float %24, ptr %1, align 4
   store float %25, ptr %2, align 4
   store float %23, ptr %3, align 4

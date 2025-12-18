@@ -1049,8 +1049,8 @@ define internal range(i64 -2147483648, 2147483648) i64 @inotify_read(ptr noundef
   br label %.critedge
 
 .critedge:                                        ; preds = %88, %.lr.ph.split, %107, %103, %.thread3, %.loopexit.loopexit, %34, %30, %.lr.ph.split.us, %.thread7
-  %.fr3039 = phi ptr [ %.fr30, %.thread7 ], [ %.fr30, %34 ], [ %.fr30, %30 ], [ %.fr30, %.lr.ph.split.us ], [ %.fr30, %.thread3 ], [ %.fr30, %.loopexit.loopexit ], [ %1, %.lr.ph.split ], [ %1, %103 ], [ %1, %107 ], [ %.fr30, %88 ]
-  %117 = phi i32 [ -14, %.thread7 ], [ -512, %34 ], [ -512, %30 ], [ -11, %.lr.ph.split.us ], [ -22, %.thread3 ], [ %116, %.loopexit.loopexit ], [ -11, %.lr.ph.split ], [ -512, %107 ], [ -512, %103 ], [ %93, %88 ]
+  %.fr3039 = phi ptr [ %1, %.lr.ph.split ], [ %.fr30, %.thread3 ], [ %.fr30, %.thread7 ], [ %.fr30, %34 ], [ %.fr30, %30 ], [ %.fr30, %.lr.ph.split.us ], [ %.fr30, %.loopexit.loopexit ], [ %1, %103 ], [ %1, %107 ], [ %.fr30, %88 ]
+  %117 = phi i32 [ -11, %.lr.ph.split ], [ -22, %.thread3 ], [ -14, %.thread7 ], [ -512, %34 ], [ -512, %30 ], [ -11, %.lr.ph.split.us ], [ %116, %.loopexit.loopexit ], [ -512, %107 ], [ -512, %103 ], [ %93, %88 ]
   call void @remove_wait_queue(ptr noundef nonnull %15, ptr noundef nonnull %6) #10
   %118 = icmp ne ptr %.fr3039, %1
   %119 = icmp ne i32 %117, -14

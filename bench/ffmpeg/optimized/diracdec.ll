@@ -349,7 +349,7 @@ define internal i32 @dirac_decode_frame(ptr noundef %0, ptr noundef %1, ptr noun
   br label %.backedge
 
 .backedge:                                        ; preds = %121, %2984
-  %.099.be = phi i32 [ %2985, %2984 ], [ %122, %121 ]
+  %.099.be = phi i32 [ %122, %121 ], [ %2985, %2984 ]
   %123 = add nsw i32 %.099.be, 13
   %124 = icmp slt i32 %123, %18
   br i1 %124, label %.lr.ph, label %._crit_edge
@@ -5381,8 +5381,8 @@ dirac_decode_picture_header.exit:                 ; preds = %2966
   %2982 = icmp slt i32 %2981, 0
   br i1 %2982, label %alloc_sequence_buffers.exit.thread, label %2984
 
-alloc_sequence_buffers.exit.thread:               ; preds = %dirac_unpack_block_motion_data.exit.i, %423, %438, %266, %125, %171, %dirac_decode_picture_header.exit, %.critedge.i, %1158, %2597, %2540, %2752, %2849, %2740, %.loopexit223, %2463, %2408, %2603, %.loopexit222, %1047, %1052, %1056, %1063, %1169, %1191, %806, %get_buffer_with_edge.exit.thread.i, %dirac_unpack_block_motion_data.exit.thread.i, %.loopexit.thread.i, %302, %151, %.thread.i, %314, %get_buffer_with_edge.exit.thread, %355, %309
-  %.0.i121.ph = phi i32 [ -1094995529, %806 ], [ -1094995529, %309 ], [ -1094995529, %355 ], [ %.0.i116.ph.i, %get_buffer_with_edge.exit.thread.i ], [ %.0.i186.ph, %get_buffer_with_edge.exit.thread ], [ -1094995529, %302 ], [ -1094995529, %314 ], [ -1094995529, %dirac_unpack_block_motion_data.exit.thread.i ], [ %.1153197.i, %.thread.i ], [ %149, %151 ], [ -1094995529, %.loopexit.thread.i ], [ -1094995529, %2597 ], [ -1094995529, %2540 ], [ -1094995529, %2752 ], [ -1094995529, %2849 ], [ -1094995529, %2740 ], [ -1094995529, %.loopexit223 ], [ -1094995529, %2463 ], [ -1094995529, %2408 ], [ -1094995529, %2603 ], [ -1094995529, %.loopexit222 ], [ -1094995529, %1047 ], [ -1094995529, %1052 ], [ -1163346256, %1056 ], [ -1094995529, %1063 ], [ -1094995529, %1169 ], [ -1094995529, %1191 ], [ -1094995529, %1158 ], [ -12, %.critedge.i ], [ %2327, %dirac_unpack_block_motion_data.exit.i ], [ -12, %438 ], [ -1094995529, %125 ], [ %210, %171 ], [ -12, %266 ], [ -12, %423 ], [ %2981, %dirac_decode_picture_header.exit ]
+alloc_sequence_buffers.exit.thread:               ; preds = %dirac_unpack_block_motion_data.exit.i, %423, %438, %266, %125, %171, %dirac_decode_picture_header.exit, %.critedge.i, %1158, %2540, %2752, %2849, %2740, %.loopexit223, %2463, %2408, %2603, %.loopexit222, %1047, %1052, %1056, %1063, %1169, %1191, %806, %2597, %get_buffer_with_edge.exit.thread.i, %dirac_unpack_block_motion_data.exit.thread.i, %.loopexit.thread.i, %302, %151, %.thread.i, %314, %get_buffer_with_edge.exit.thread, %355, %309
+  %.0.i121.ph = phi i32 [ -1094995529, %1191 ], [ -1094995529, %309 ], [ -1094995529, %355 ], [ -1094995529, %806 ], [ -1094995529, %1158 ], [ %.0.i186.ph, %get_buffer_with_edge.exit.thread ], [ -1094995529, %302 ], [ -1094995529, %314 ], [ -1094995529, %2597 ], [ %.1153197.i, %.thread.i ], [ %149, %151 ], [ %.0.i116.ph.i, %get_buffer_with_edge.exit.thread.i ], [ -12, %.critedge.i ], [ -1094995529, %dirac_unpack_block_motion_data.exit.thread.i ], [ -1094995529, %.loopexit.thread.i ], [ -1094995529, %2540 ], [ -1094995529, %2752 ], [ -1094995529, %2849 ], [ -1094995529, %2740 ], [ -1094995529, %.loopexit223 ], [ -1094995529, %2463 ], [ -1094995529, %2408 ], [ -1094995529, %2603 ], [ -1094995529, %.loopexit222 ], [ -1094995529, %1047 ], [ -1094995529, %1052 ], [ -1163346256, %1056 ], [ -1094995529, %1063 ], [ -1094995529, %1169 ], [ %2327, %dirac_unpack_block_motion_data.exit.i ], [ -12, %438 ], [ -1094995529, %125 ], [ %210, %171 ], [ -12, %266 ], [ -12, %423 ], [ %2981, %dirac_decode_picture_header.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %2983 = load ptr, ptr %14, align 16, !tbaa !27
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %2983, i32 noundef 16, ptr noundef nonnull @.str.3) #14
@@ -5462,8 +5462,8 @@ remove_frame.exit.loopexit:                       ; preds = %.lr.ph33.i
   br label %remove_frame.exit
 
 remove_frame.exit:                                ; preds = %remove_frame.exit.loopexit, %2994, %._crit_edge.i132, %.preheader.i133
-  %3011 = phi ptr [ %.pr, %._crit_edge.i132 ], [ %.pr, %.preheader.i133 ], [ %.pr, %2994 ], [ %.pre859, %remove_frame.exit.loopexit ]
-  %.020.lcssa41.i = phi ptr [ null, %._crit_edge.i132 ], [ %spec.select.i129, %.preheader.i133 ], [ null, %2994 ], [ %spec.select.i129, %remove_frame.exit.loopexit ]
+  %3011 = phi ptr [ %.pr, %2994 ], [ %.pr, %._crit_edge.i132 ], [ %.pr, %.preheader.i133 ], [ %.pre859, %remove_frame.exit.loopexit ]
+  %.020.lcssa41.i = phi ptr [ null, %2994 ], [ null, %._crit_edge.i132 ], [ %spec.select.i129, %.preheader.i133 ], [ %spec.select.i129, %remove_frame.exit.loopexit ]
   %3012 = getelementptr inbounds nuw i8, ptr %3011, i64 216
   %3013 = load i32, ptr %3012, align 8, !tbaa !53
   %3014 = or i32 %3013, 4
@@ -5550,7 +5550,7 @@ add_frame.exit:                                   ; preds = %3015
   br i1 %.not24.i154, label %remove_frame.exit156, label %.lr.ph33.i151, !llvm.loop !139
 
 remove_frame.exit156:                             ; preds = %.lr.ph33.i151, %._crit_edge544, %._crit_edge.i147, %.preheader.i149
-  %.020.lcssa41.i155 = phi ptr [ null, %._crit_edge.i147 ], [ %spec.select.i143, %.preheader.i149 ], [ null, %._crit_edge544 ], [ %spec.select.i143, %.lr.ph33.i151 ]
+  %.020.lcssa41.i155 = phi ptr [ null, %._crit_edge544 ], [ null, %._crit_edge.i147 ], [ %spec.select.i143, %.preheader.i149 ], [ %spec.select.i143, %.lr.ph33.i151 ]
   %3043 = load ptr, ptr %31, align 8, !tbaa !55
   br label %3045
 
@@ -6914,8 +6914,8 @@ align_get_bits.exit96.i:                          ; preds = %get_interleaved_ue_
   br label %650
 
 650:                                              ; preds = %643, %get_interleaved_ue_golomb.exit.i
-  %.val.i124.i = phi i32 [ %649, %643 ], [ %.val.i125.i, %get_interleaved_ue_golomb.exit.i ]
-  %.362.i = phi i32 [ %.4.i, %643 ], [ %.160132.i, %get_interleaved_ue_golomb.exit.i ]
+  %.val.i124.i = phi i32 [ %.val.i125.i, %get_interleaved_ue_golomb.exit.i ], [ %649, %643 ]
+  %.362.i = phi i32 [ %.160132.i, %get_interleaved_ue_golomb.exit.i ], [ %.4.i, %643 ]
   %indvars.iv.next166.i = add nuw nsw i64 %indvars.iv165.i, 1
   %exitcond.not.i169 = icmp eq i64 %indvars.iv.next166.i, 4
   br i1 %exitcond.not.i169, label %651, label %516, !llvm.loop !257
@@ -9437,7 +9437,7 @@ define internal range(i32 -2147483648, 1) i32 @decode_subband_arith(ptr noundef 
   br label %decode_subband_internal.exit
 
 decode_subband_internal.exit:                     ; preds = %50, %2, %._crit_edge, %60, %67, %68
-  %.0.i = phi i32 [ 0, %2 ], [ 0, %67 ], [ 0, %68 ], [ 0, %60 ], [ 0, %._crit_edge ], [ %56, %50 ]
+  %.0.i = phi i32 [ 0, %2 ], [ 0, %._crit_edge ], [ 0, %67 ], [ 0, %68 ], [ 0, %60 ], [ %56, %50 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0.i
@@ -9570,7 +9570,7 @@ define internal range(i32 -2147483648, 1) i32 @decode_subband_golomb(ptr noundef
   br label %decode_subband_internal.exit
 
 decode_subband_internal.exit:                     ; preds = %51, %2, %._crit_edge, %61, %68, %69
-  %.0.i = phi i32 [ 0, %2 ], [ 0, %68 ], [ 0, %69 ], [ 0, %61 ], [ 0, %._crit_edge ], [ %57, %51 ]
+  %.0.i = phi i32 [ 0, %2 ], [ 0, %._crit_edge ], [ 0, %68 ], [ 0, %69 ], [ 0, %61 ], [ %57, %51 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0.i
@@ -10617,7 +10617,7 @@ coeff_unpack_golomb.exit.us:                      ; preds = %593, %dirac_get_se_
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph192.split.us, %._crit_edge.us, %.lr.ph199.split.us, %._crit_edge.us203, %.lr.ph199.split, %.lr.ph192.split, %dirac_get_arith_bit.exit, %.preheader159, %.preheader157, %.critedge, %73, %249
-  %.0 = phi i32 [ -1094995529, %249 ], [ 0, %73 ], [ -1094995529, %.critedge ], [ %spec.select316, %.lr.ph199.split ], [ 0, %.preheader157 ], [ 0, %dirac_get_arith_bit.exit ], [ 0, %.preheader159 ], [ -1094995529, %.lr.ph199.split.us ], [ %519, %.lr.ph192.split ], [ 0, %._crit_edge.us203 ], [ 0, %._crit_edge.us ], [ %277, %.lr.ph192.split.us ]
+  %.0 = phi i32 [ -1094995529, %249 ], [ 0, %73 ], [ -1094995529, %.critedge ], [ 0, %dirac_get_arith_bit.exit ], [ %519, %.lr.ph192.split ], [ 0, %.preheader157 ], [ -1094995529, %.lr.ph199.split.us ], [ %spec.select316, %.lr.ph199.split ], [ 0, %.preheader159 ], [ 0, %._crit_edge.us203 ], [ 0, %._crit_edge.us ], [ %277, %.lr.ph192.split.us ]
   ret i32 %.0
 }
 

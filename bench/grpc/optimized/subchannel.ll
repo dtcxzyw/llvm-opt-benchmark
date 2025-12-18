@@ -2007,8 +2007,8 @@ define void @_ZN9grpc_core10Subchannel28ConnectivityStateWatcherList12NotifyLock
   br i1 %31, label %.lr.ph.i.i, label %.lr.ph, !llvm.loop !149
 
 .lr.ph:                                           ; preds = %.lr.ph.i.i, %8, %14
-  %.sroa.6.0.i.ph = phi ptr [ %.sroa.0.0.copyload.i.i.i, %14 ], [ %13, %8 ], [ %29, %.lr.ph.i.i ]
-  %.sroa.0.0.i.ph = phi ptr [ %15, %14 ], [ @_ZN4absl12lts_2024072218container_internal11kSooControlE, %8 ], [ %28, %.lr.ph.i.i ]
+  %.sroa.6.0.i.ph = phi ptr [ %13, %8 ], [ %.sroa.0.0.copyload.i.i.i, %14 ], [ %29, %.lr.ph.i.i ]
+  %.sroa.0.0.i.ph = phi ptr [ @_ZN4absl12lts_2024072218container_internal11kSooControlE, %8 ], [ %15, %14 ], [ %28, %.lr.ph.i.i ]
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -8430,8 +8430,8 @@ _ZN9grpc_core13RefCountedPtrINS_8channelz10SocketNodeEED2Ev.exit233: ; preds = %
   ret i1 %.251
 
 _ZNSt10unique_ptrIN9grpc_core15ClientTransportENS0_16OrphanableDeleteEED2Ev.exit196: ; preds = %.thread271, %723, %727, %404, %.body114, %606, %728, %682, %197, %74
-  %.sroa.0254.0 = phi ptr [ %36, %197 ], [ %.sroa.0254.2, %728 ], [ %36, %404 ], [ %36, %682 ], [ %36, %74 ], [ %36, %606 ], [ %36, %.body114 ], [ %.sroa.0254.2, %727 ], [ %.sroa.0254.2, %723 ], [ %.sroa.0254.2, %.thread271 ]
-  %.pn85.pn = phi { ptr, i32 } [ %.pn71.pn.pn.pn, %197 ], [ %729, %728 ], [ %405, %404 ], [ %.pn76.pn.pn.pn.pn, %682 ], [ %75, %74 ], [ %.pn57.pn.pn.pn.pn, %606 ], [ %.pn57.pn.pn.pn.pn, %.body114 ], [ %724, %727 ], [ %724, %723 ], [ %715, %.thread271 ]
+  %.sroa.0254.0 = phi ptr [ %36, %197 ], [ %.sroa.0254.2, %728 ], [ %.sroa.0254.2, %727 ], [ %36, %404 ], [ %36, %682 ], [ %36, %74 ], [ %36, %606 ], [ %36, %.body114 ], [ %.sroa.0254.2, %.thread271 ], [ %.sroa.0254.2, %723 ]
+  %.pn85.pn = phi { ptr, i32 } [ %.pn71.pn.pn.pn, %197 ], [ %729, %728 ], [ %724, %727 ], [ %405, %404 ], [ %.pn76.pn.pn.pn.pn, %682 ], [ %75, %74 ], [ %.pn57.pn.pn.pn.pn, %606 ], [ %.pn57.pn.pn.pn.pn, %.body114 ], [ %715, %.thread271 ], [ %724, %723 ]
   %.not.i234 = icmp eq ptr %.sroa.0254.0, null
   br i1 %.not.i234, label %_ZN9grpc_core13RefCountedPtrINS_8channelz10SocketNodeEED2Ev.exit235, label %754
 
@@ -10198,7 +10198,7 @@ _ZZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolic
   br i1 %.not34, label %.loopexit, label %121, !llvm.loop !537
 
 .loopexit:                                        ; preds = %174, %62, %115, %48
-  %176 = phi i64 [ 0, %48 ], [ 0, %115 ], [ %50, %62 ], [ %117, %174 ]
+  %176 = phi i64 [ %50, %62 ], [ 0, %48 ], [ 0, %115 ], [ %117, %174 ]
   %177 = load i8, ptr %31, align 8, !tbaa !526, !range !263, !noundef !146
   %178 = trunc nuw i8 %177 to i1
   %.neg.i = select i1 %178, i64 -9, i64 -8

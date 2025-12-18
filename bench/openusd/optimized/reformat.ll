@@ -1907,7 +1907,7 @@ define internal fastcc i32 @avifImageYUVToRGBImpl(ptr noundef %0, ptr noundef %1
   br label %.thread
 
 .thread:                                          ; preds = %76, %.thread.fold.split, %70, %73, %79, %79
-  %82 = phi i1 [ false, %76 ], [ true, %79 ], [ true, %79 ], [ false, %73 ], [ false, %70 ], [ true, %.thread.fold.split ]
+  %82 = phi i1 [ false, %76 ], [ true, %79 ], [ true, %79 ], [ false, %70 ], [ false, %73 ], [ true, %.thread.fold.split ]
   %83 = icmp eq i32 %3, 0
   br i1 %83, label %87, label %84
 
@@ -2013,7 +2013,7 @@ define internal fastcc i32 @avifImageYUVToRGBImpl(ptr noundef %0, ptr noundef %1
   br label %135
 
 135:                                              ; preds = %120, %122, %115, %117, %131, %133, %126, %128
-  %.096 = phi i32 [ %134, %133 ], [ %116, %115 ], [ %118, %117 ], [ %121, %120 ], [ %123, %122 ], [ %127, %126 ], [ %129, %128 ], [ %132, %131 ]
+  %.096 = phi i32 [ %123, %122 ], [ %134, %133 ], [ %132, %131 ], [ %129, %128 ], [ %127, %126 ], [ %116, %115 ], [ %118, %117 ], [ %121, %120 ]
   %136 = icmp eq i32 %.096, 25
   br i1 %136, label %.thread131, label %582
 

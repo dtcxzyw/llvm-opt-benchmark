@@ -1331,7 +1331,7 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_av1_end_frame(ptr noundef %
   br i1 %exitcond, label %.loopexit, label %.preheader.split, !llvm.loop !209
 
 .loopexit:                                        ; preds = %46, %39, %60, %.thread, %15
-  %.031 = phi i32 [ %18, %15 ], [ %20, %.thread ], [ 0, %60 ], [ 0, %46 ], [ %42, %39 ]
+  %.031 = phi i32 [ %18, %15 ], [ %20, %.thread ], [ 0, %60 ], [ %42, %39 ], [ 0, %46 ]
   ret i32 %.031
 }
 

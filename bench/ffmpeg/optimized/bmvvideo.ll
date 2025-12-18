@@ -490,8 +490,8 @@ default.unreachable.i:                            ; preds = %169
   unreachable
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %215, %213, %208, %202, %._crit_edge.i
-  %.6.i = phi ptr [ %.5240.i, %215 ], [ %.5240.i, %._crit_edge.i ], [ %204, %202 ], [ %211, %208 ], [ %.5240.i, %213 ], [ %.5240.i, %.lr.ph.i ]
-  %.3184.i = phi ptr [ %217, %215 ], [ %181, %._crit_edge.i ], [ %203, %202 ], [ %210, %208 ], [ %214, %213 ], [ %184, %.lr.ph.i ]
+  %.6.i = phi ptr [ %.5240.i, %215 ], [ %.5240.i, %._crit_edge.i ], [ %.5240.i, %213 ], [ %204, %202 ], [ %211, %208 ], [ %.5240.i, %.lr.ph.i ]
+  %.3184.i = phi ptr [ %217, %215 ], [ %181, %._crit_edge.i ], [ %214, %213 ], [ %203, %202 ], [ %210, %208 ], [ %184, %.lr.ph.i ]
   %.not254.i = icmp eq ptr %.3184.i, %.0180.i
   br i1 %.not254.i, label %decode_bmv_frame.exit, label %119
 

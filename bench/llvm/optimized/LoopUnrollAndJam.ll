@@ -8584,7 +8584,7 @@ _ZL26preservesForwardDependencePN4llvm11InstructionES1_jjbPNS_10DependenceE.exit
   br i1 %.not15.i.i, label %385, label %_ZL27preservesBackwardDependencePN4llvm11InstructionES1_jjbPNS_10DependenceE.exit.thread29.i, !llvm.loop !447
 
 _ZL27preservesBackwardDependencePN4llvm11InstructionES1_jjbPNS_10DependenceE.exit.thread29.i: ; preds = %.lr.ph.i167, %380, %386, %385, %392, %_ZL26preservesForwardDependencePN4llvm11InstructionES1_jjbPNS_10DependenceE.exit.thread.i, %.critedge.i164, %350
-  %.1.ph.i = phi i1 [ false, %350 ], [ true, %_ZL26preservesForwardDependencePN4llvm11InstructionES1_jjbPNS_10DependenceE.exit.thread.i ], [ true, %.critedge.i164 ], [ false, %380 ], [ false, %385 ], [ true, %386 ], [ false, %392 ], [ true, %.lr.ph.i167 ]
+  %.1.ph.i = phi i1 [ false, %350 ], [ false, %392 ], [ false, %380 ], [ true, %_ZL26preservesForwardDependencePN4llvm11InstructionES1_jjbPNS_10DependenceE.exit.thread.i ], [ true, %.critedge.i164 ], [ true, %386 ], [ false, %385 ], [ true, %.lr.ph.i167 ]
   %.pr.i = load ptr, ptr %8, align 8, !tbaa !443
   %.not.i23.i = icmp eq ptr %.pr.i, null
   br i1 %.not.i23.i, label %_ZL15checkDependencyPN4llvm11InstructionES1_jjbRNS_14DependenceInfoE.exit, label %_ZNKSt14default_deleteIN4llvm10DependenceEEclEPS1_.exit.i.i
@@ -8748,7 +8748,7 @@ _ZL26preservesForwardDependencePN4llvm11InstructionES1_jjbPNS_10DependenceE.exit
   br i1 %.not15.i.i191, label %451, label %_ZL27preservesBackwardDependencePN4llvm11InstructionES1_jjbPNS_10DependenceE.exit.thread29.i178, !llvm.loop !447
 
 _ZL27preservesBackwardDependencePN4llvm11InstructionES1_jjbPNS_10DependenceE.exit.thread29.i178: ; preds = %.lr.ph.i194, %446, %452, %451, %458, %_ZL26preservesForwardDependencePN4llvm11InstructionES1_jjbPNS_10DependenceE.exit.thread.i186, %.critedge.i172, %416
-  %.1.ph.i179 = phi i1 [ false, %416 ], [ true, %_ZL26preservesForwardDependencePN4llvm11InstructionES1_jjbPNS_10DependenceE.exit.thread.i186 ], [ true, %.critedge.i172 ], [ false, %446 ], [ false, %458 ], [ true, %452 ], [ true, %451 ], [ true, %.lr.ph.i194 ]
+  %.1.ph.i179 = phi i1 [ false, %416 ], [ true, %_ZL26preservesForwardDependencePN4llvm11InstructionES1_jjbPNS_10DependenceE.exit.thread.i186 ], [ false, %446 ], [ false, %458 ], [ true, %.critedge.i172 ], [ true, %452 ], [ true, %451 ], [ true, %.lr.ph.i194 ]
   %.pr.i180 = load ptr, ptr %7, align 8, !tbaa !443
   %.not.i23.i181 = icmp eq ptr %.pr.i180, null
   br i1 %.not.i23.i181, label %_ZL15checkDependencyPN4llvm11InstructionES1_jjbRNS_14DependenceInfoE.exit198, label %_ZNKSt14default_deleteIN4llvm10DependenceEEclEPS1_.exit.i.i182
@@ -8819,7 +8819,7 @@ _ZN4llvm15SmallVectorImplIPNS_11InstructionEE7reserveEm.exit.i: ; preds = %474, 
   br i1 %.not104, label %.thread229, label %216
 
 .thread229:                                       ; preds = %479, %_ZNK4llvm11Instruction20mayReadOrWriteMemoryEv.exit.i, %236, %243, %250, %_ZL15checkDependencyPN4llvm11InstructionES1_jjbRNS_14DependenceInfoE.exit, %_ZNKSt14default_deleteIN4llvm10DependenceEEclEPS1_.exit.i.i, %_ZL15checkDependencyPN4llvm11InstructionES1_jjbRNS_14DependenceInfoE.exit198, %_ZNKSt14default_deleteIN4llvm10DependenceEEclEPS1_.exit.i.i182, %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE12getLoopDepthEv.exit
-  %.not104244 = phi i1 [ true, %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE12getLoopDepthEv.exit ], [ false, %_ZNK4llvm11Instruction20mayReadOrWriteMemoryEv.exit.i ], [ false, %_ZL15checkDependencyPN4llvm11InstructionES1_jjbRNS_14DependenceInfoE.exit198 ], [ false, %_ZL15checkDependencyPN4llvm11InstructionES1_jjbRNS_14DependenceInfoE.exit ], [ false, %_ZNKSt14default_deleteIN4llvm10DependenceEEclEPS1_.exit.i.i182 ], [ false, %_ZNKSt14default_deleteIN4llvm10DependenceEEclEPS1_.exit.i.i ], [ false, %250 ], [ false, %243 ], [ false, %236 ], [ true, %479 ]
+  %.not104244 = phi i1 [ false, %_ZL15checkDependencyPN4llvm11InstructionES1_jjbRNS_14DependenceInfoE.exit198 ], [ false, %_ZNK4llvm11Instruction20mayReadOrWriteMemoryEv.exit.i ], [ false, %_ZL15checkDependencyPN4llvm11InstructionES1_jjbRNS_14DependenceInfoE.exit ], [ true, %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE12getLoopDepthEv.exit ], [ false, %_ZNKSt14default_deleteIN4llvm10DependenceEEclEPS1_.exit.i.i182 ], [ false, %_ZNKSt14default_deleteIN4llvm10DependenceEEclEPS1_.exit.i.i ], [ false, %250 ], [ false, %243 ], [ false, %236 ], [ true, %479 ]
   %483 = load ptr, ptr %15, align 8, !tbaa !32
   %484 = icmp eq ptr %483, %146
   br i1 %484, label %_ZN4llvm11SmallVectorIPNS_11InstructionELj4EED2Ev.exit, label %485
@@ -9261,7 +9261,7 @@ _ZN4llvm19SmallPtrSetIteratorIPNS_10BasicBlockEEppEv.exit: ; preds = %.lr.ph.i4.
   br i1 %.not125, label %.critedge, label %.lr.ph146
 
 .critedge:                                        ; preds = %_ZN4llvm19SmallPtrSetIteratorIPNS_10BasicBlockEEppEv.exit, %.lr.ph141.split.us, %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5countEPKS1_.exit, %108, %113, %102, %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5beginEv.exit
-  %.not125134 = phi i1 [ true, %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5beginEv.exit ], [ false, %102 ], [ false, %113 ], [ false, %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5countEPKS1_.exit ], [ false, %108 ], [ false, %.lr.ph141.split.us ], [ true, %_ZN4llvm19SmallPtrSetIteratorIPNS_10BasicBlockEEppEv.exit ]
+  %.not125134 = phi i1 [ false, %102 ], [ false, %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5countEPKS1_.exit ], [ true, %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5beginEv.exit ], [ false, %113 ], [ false, %108 ], [ false, %.lr.ph141.split.us ], [ true, %_ZN4llvm19SmallPtrSetIteratorIPNS_10BasicBlockEEppEv.exit ]
   ret i1 %.not125134
 }
 
@@ -9472,7 +9472,7 @@ _ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5countEPKS1_.exit.thread5.i.i.i.i: 
   br label %"_ZSt10__invoke_rIbRZL24processHeaderPhiOperandsIZL33moveHeaderPhiOperandsToForeBlocksPN4llvm10BasicBlockES3_NS1_21ilist_iterator_w_bitsINS1_12ilist_detail12node_optionsINS1_11InstructionELb0ELb0EvLb1ES2_EELb0ELb0EEERNS1_11SmallPtrSetIS3_Lj4EEEE3$_0EbS3_S3_SC_T_EUlPS7_E_JSF_EENSt9enable_ifIX16is_invocable_r_vISE_T0_DpT1_EESE_E4typeEOSJ_DpOSK_.exit"
 
 "_ZSt10__invoke_rIbRZL24processHeaderPhiOperandsIZL33moveHeaderPhiOperandsToForeBlocksPN4llvm10BasicBlockES3_NS1_21ilist_iterator_w_bitsINS1_12ilist_detail12node_optionsINS1_11InstructionELb0ELb0EvLb1ES2_EELb0ELb0EEERNS1_11SmallPtrSetIS3_Lj4EEEE3$_0EbS3_S3_SC_T_EUlPS7_E_JSF_EENSt9enable_ifIX16is_invocable_r_vISE_T0_DpT1_EESE_E4typeEOSJ_DpOSK_.exit": ; preds = %.lr.ph.i.i.i.i.i, %_ZNKSt8functionIFbPN4llvm11InstructionEEEclES2_.exit.i.i.i, %82, %_ZN4llvm15SmallPtrSetImplIPNS_11InstructionEE6insertES2_.exit.i.i.i, %76, %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5countEPKS1_.exit.i.i.i.i, %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5countEPKS1_.exit.thread5.i.i.i.i
-  %.0.i.i.i = phi i1 [ true, %_ZN4llvm15SmallPtrSetImplIPNS_11InstructionEE6insertES2_.exit.i.i.i ], [ true, %76 ], [ true, %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5countEPKS1_.exit.i.i.i.i ], [ true, %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5countEPKS1_.exit.thread5.i.i.i.i ], [ false, %_ZNKSt8functionIFbPN4llvm11InstructionEEEclES2_.exit.i.i.i ], [ true, %82 ], [ true, %.lr.ph.i.i.i.i.i ]
+  %.0.i.i.i = phi i1 [ true, %_ZN4llvm15SmallPtrSetImplIPNS_11InstructionEE6insertES2_.exit.i.i.i ], [ true, %82 ], [ true, %76 ], [ true, %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5countEPKS1_.exit.thread5.i.i.i.i ], [ true, %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5countEPKS1_.exit.i.i.i.i ], [ false, %_ZNKSt8functionIFbPN4llvm11InstructionEEEclES2_.exit.i.i.i ], [ true, %.lr.ph.i.i.i.i.i ]
   ret i1 %.0.i.i.i
 }
 
@@ -12823,7 +12823,7 @@ _ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5countEPKS1_.exit.thread.i.i.i.i: ;
   br label %"_ZSt10__invoke_rIbRZL24processHeaderPhiOperandsIZN4llvm20isSafeToUnrollAndJamEPNS1_4LoopERNS1_15ScalarEvolutionERNS1_13DominatorTreeERNS1_14DependenceInfoERNS1_8LoopInfoEE3$_1EbPNS1_10BasicBlockESE_RNS1_11SmallPtrSetISE_Lj4EEET_EUlPNS1_11InstructionEE_JSK_EENSt9enable_ifIX16is_invocable_r_vISI_T0_DpT1_EESI_E4typeEOSO_DpOSP_.exit"
 
 "_ZSt10__invoke_rIbRZL24processHeaderPhiOperandsIZN4llvm20isSafeToUnrollAndJamEPNS1_4LoopERNS1_15ScalarEvolutionERNS1_13DominatorTreeERNS1_14DependenceInfoERNS1_8LoopInfoEE3$_1EbPNS1_10BasicBlockESE_RNS1_11SmallPtrSetISE_Lj4EEET_EUlPNS1_11InstructionEE_JSK_EENSt9enable_ifIX16is_invocable_r_vISI_T0_DpT1_EESI_E4typeEOSO_DpOSP_.exit": ; preds = %.lr.ph.i.i.i.i.i, %_ZNKSt8functionIFbPN4llvm11InstructionEEEclES2_.exit.i.i.i, %.lr.ph.i.i.i.i.i.i.i, %_ZN4llvm15SmallPtrSetImplIPNS_11InstructionEE6insertES2_.exit.i.i.i, %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsEPKS1_.exit.i.i.i.i, %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5countEPKS1_.exit.thread9.i.i.i.i, %108, %110, %_ZNK4llvm11Instruction20mayReadOrWriteMemoryEv.exit.i.i.i.i, %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5countEPKS1_.exit.thread.i.i.i.i
-  %.0.i.i.i = phi i1 [ true, %_ZN4llvm15SmallPtrSetImplIPNS_11InstructionEE6insertES2_.exit.i.i.i ], [ true, %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5countEPKS1_.exit.thread.i.i.i.i ], [ false, %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsEPKS1_.exit.i.i.i.i ], [ false, %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5countEPKS1_.exit.thread9.i.i.i.i ], [ false, %_ZNK4llvm11Instruction20mayReadOrWriteMemoryEv.exit.i.i.i.i ], [ false, %108 ], [ false, %110 ], [ false, %_ZNKSt8functionIFbPN4llvm11InstructionEEEclES2_.exit.i.i.i ], [ false, %.lr.ph.i.i.i.i.i.i.i ], [ true, %.lr.ph.i.i.i.i.i ]
+  %.0.i.i.i = phi i1 [ true, %_ZN4llvm15SmallPtrSetImplIPNS_11InstructionEE6insertES2_.exit.i.i.i ], [ false, %.lr.ph.i.i.i.i.i.i.i ], [ true, %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5countEPKS1_.exit.thread.i.i.i.i ], [ false, %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsEPKS1_.exit.i.i.i.i ], [ false, %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5countEPKS1_.exit.thread9.i.i.i.i ], [ false, %_ZNK4llvm11Instruction20mayReadOrWriteMemoryEv.exit.i.i.i.i ], [ false, %108 ], [ false, %110 ], [ false, %_ZNKSt8functionIFbPN4llvm11InstructionEEEclES2_.exit.i.i.i ], [ true, %.lr.ph.i.i.i.i.i ]
   ret i1 %.0.i.i.i
 }
 

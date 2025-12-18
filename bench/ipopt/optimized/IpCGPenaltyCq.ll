@@ -817,8 +817,8 @@ define noundef double @_ZN5Ipopt11CGPenaltyCq16curr_jac_cd_normEi(ptr noundef no
   br label %90
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.us76, %.thread.us, %.lr.ph, %.preheader70
-  %.049.lcssa = phi double [ 0.000000e+00, %.preheader70 ], [ 0.000000e+00, %.lr.ph ], [ %.sroa.speculated.i.us, %.thread.us ], [ %25, %.lr.ph.split.us76 ]
-  %.039.lcssa = phi i32 [ 1, %.preheader70 ], [ 1, %.lr.ph ], [ 1, %.thread.us ], [ %8, %.lr.ph.split.us76 ]
+  %.049.lcssa = phi double [ 0.000000e+00, %.preheader70 ], [ %.sroa.speculated.i.us, %.thread.us ], [ 0.000000e+00, %.lr.ph ], [ %25, %.lr.ph.split.us76 ]
+  %.039.lcssa = phi i32 [ 1, %.preheader70 ], [ 1, %.thread.us ], [ 1, %.lr.ph ], [ %8, %.lr.ph.split.us76 ]
   call void @_ZdaPv(ptr noundef nonnull %14) #24
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %30 = load ptr, ptr %5, align 8, !tbaa !22
@@ -1574,7 +1574,7 @@ _ZNK5Ipopt13CachedResultsIdE25CleanupInvalidatedResultsEv.exit: ; preds = %_ZNK5
   br i1 %.not23.i, label %_ZNK5Ipopt15DependentResultIdE19DependentsIdenticalERKSt6vectorIPKNS_12TaggedObjectESaIS5_EERKS2_IdSaIdEE.exit, label %124
 
 _ZNK5Ipopt15DependentResultIdE19DependentsIdenticalERKSt6vectorIPKNS_12TaggedObjectESaIS5_EERKS2_IdSaIdEE.exit: ; preds = %113, %102, %.preheader.i.loopexit.us, %78
-  %121 = phi ptr [ %80, %102 ], [ %45, %78 ], [ %45, %.preheader.i.loopexit.us ], [ %104, %113 ]
+  %121 = phi ptr [ %45, %78 ], [ %45, %.preheader.i.loopexit.us ], [ %80, %102 ], [ %104, %113 ]
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 40
   %123 = load double, ptr %122, align 8, !tbaa !37
   store double %123, ptr %1, align 8, !tbaa !37
@@ -1586,7 +1586,7 @@ _ZNK5Ipopt15DependentResultIdE19DependentsIdenticalERKSt6vectorIPKNS_12TaggedObj
   br i1 %.not15, label %.loopexit17, label %.lr.ph.split.split, !llvm.loop !142
 
 .loopexit17:                                      ; preds = %124, %.loopexit.us35, %.loopexit.us, %_ZNK5Ipopt13CachedResultsIdE25CleanupInvalidatedResultsEv.exit, %_ZNK5Ipopt15DependentResultIdE19DependentsIdenticalERKSt6vectorIPKNS_12TaggedObjectESaIS5_EERKS2_IdSaIdEE.exit, %4
-  %.05 = phi i1 [ false, %4 ], [ true, %_ZNK5Ipopt15DependentResultIdE19DependentsIdenticalERKSt6vectorIPKNS_12TaggedObjectESaIS5_EERKS2_IdSaIdEE.exit ], [ false, %_ZNK5Ipopt13CachedResultsIdE25CleanupInvalidatedResultsEv.exit ], [ false, %.loopexit.us35 ], [ false, %.loopexit.us ], [ false, %124 ]
+  %.05 = phi i1 [ false, %4 ], [ true, %_ZNK5Ipopt15DependentResultIdE19DependentsIdenticalERKSt6vectorIPKNS_12TaggedObjectESaIS5_EERKS2_IdSaIdEE.exit ], [ false, %_ZNK5Ipopt13CachedResultsIdE25CleanupInvalidatedResultsEv.exit ], [ false, %.loopexit.us ], [ false, %.loopexit.us35 ], [ false, %124 ]
   ret i1 %.05
 }
 

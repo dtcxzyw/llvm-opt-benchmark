@@ -2027,7 +2027,7 @@ define noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7712RegexMatche
   br i1 %283, label %.lr.ph, label %._crit_edge, !llvm.loop !102
 
 ._crit_edge:                                      ; preds = %279, %.thread236, %277, %.preheader
-  %.0190.lcssa = phi i32 [ 0, %.preheader ], [ %276, %277 ], [ 0, %.thread236 ], [ 0, %279 ]
+  %.0190.lcssa = phi i32 [ 0, %.preheader ], [ 0, %.thread236 ], [ %276, %277 ], [ 0, %279 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %14) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %.thread238
@@ -2123,7 +2123,7 @@ define noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7712RegexMatche
   br label %.thread238.thread
 
 .thread238:                                       ; preds = %303, %306, %315, %._crit_edge
-  %.2192.ph = phi i32 [ %.3193, %315 ], [ %.0190.lcssa, %._crit_edge ], [ %.3193, %306 ], [ %.3193, %303 ]
+  %.2192.ph = phi i32 [ %.0190.lcssa, %._crit_edge ], [ %.3193, %315 ], [ %.3193, %306 ], [ %.3193, %303 ]
   %.pr = load i32, ptr %3, align 4, !tbaa !13
   %335 = icmp sgt i32 %.pr, 0
   br i1 %335, label %.thread238.thread, label %336
@@ -10572,7 +10572,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1262: ;
   br label %3474
 
 3474:                                             ; preds = %3463, %3468
-  %.2755 = phi i64 [ %3467, %3463 ], [ %3473, %3468 ]
+  %.2755 = phi i64 [ %3473, %3468 ], [ %3467, %3463 ]
   %3475 = load i64, ptr %78, align 8, !tbaa !69
   %.not936 = icmp slt i64 %.2755, %3475
   br i1 %.not936, label %.lr.ph1429, label %._crit_edge1430
@@ -10845,7 +10845,7 @@ _ZN6icu_77L16isLineTerminatorEi.exit1289.thread:  ; preds = %3595, %3592, %3586
   br label %3612
 
 3612:                                             ; preds = %3601, %3606
-  %.2743 = phi i64 [ %3605, %3601 ], [ %3611, %3606 ]
+  %.2743 = phi i64 [ %3611, %3606 ], [ %3605, %3601 ]
   %3613 = load i64, ptr %78, align 8, !tbaa !69
   %.not933 = icmp slt i64 %.2743, %3613
   br i1 %.not933, label %3567, label %.thread1385.sink.split
@@ -18991,7 +18991,7 @@ _ZN6icu_7712RegexMatcher4findEv.exit.thread:      ; preds = %120, %_ZN6icu_7712R
   br i1 %.not203, label %120, label %._crit_edge281, !llvm.loop !167
 
 .thread235:                                       ; preds = %365, %305, %303, %295, %177, %364, %119, %330, %322, %._crit_edge281, %77, %86
-  %.1186 = phi i32 [ %29, %77 ], [ %29, %86 ], [ %29, %119 ], [ %29, %._crit_edge281 ], [ %.0185277, %364 ], [ %.0185277, %177 ], [ %.0185277, %322 ], [ %.0185277, %330 ], [ %296, %305 ], [ %296, %303 ], [ %.2.lcssa, %295 ], [ %.2.lcssa, %365 ]
+  %.1186 = phi i32 [ %29, %77 ], [ %29, %86 ], [ %29, %119 ], [ %29, %._crit_edge281 ], [ %.2.lcssa, %295 ], [ %.0185277, %364 ], [ %.0185277, %177 ], [ %.0185277, %322 ], [ %.0185277, %330 ], [ %296, %305 ], [ %296, %303 ], [ %.2.lcssa, %365 ]
   %370 = add nsw i32 %.1186, 1
   br label %371
 

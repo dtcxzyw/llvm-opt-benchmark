@@ -248,7 +248,7 @@ pmix_obj_run_destructors.exit28:                  ; preds = %.lr.ph.i25, %._crit
   br label %pmix_obj_run_destructors.exit
 
 pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i16, %.lr.ph.i20, %._crit_edge, %47, %39, %pmix_obj_run_destructors.exit28, %77, %83
-  %.0 = phi i32 [ %68, %pmix_obj_run_destructors.exit28 ], [ %68, %83 ], [ %68, %77 ], [ 0, %39 ], [ %38, %47 ], [ -31, %._crit_edge ], [ %38, %.lr.ph.i20 ], [ 0, %.lr.ph.i16 ]
+  %.0 = phi i32 [ %38, %.lr.ph.i20 ], [ %68, %pmix_obj_run_destructors.exit28 ], [ -31, %._crit_edge ], [ %68, %83 ], [ %68, %77 ], [ 0, %39 ], [ %38, %47 ], [ 0, %.lr.ph.i16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }

@@ -4316,7 +4316,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit345.i: ; preds = %
   br label %1882
 
 .loopexit933.i:                                   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit236.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %1109, %351
-  %.6112.i = phi i32 [ %.01061761.i, %351 ], [ %.01061761.i, %1109 ], [ %.2108.lcssa2548.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ %.8114.lcssa2551.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit236.i ]
+  %.6112.i = phi i32 [ %.2108.lcssa2548.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ %.01061761.i, %351 ], [ %.01061761.i, %1109 ], [ %.8114.lcssa2551.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit236.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %1881 = getelementptr inbounds nuw i8, ptr %.sroa.0848.01760.i, i64 8
   %.not875.i = icmp eq ptr %1881, %323

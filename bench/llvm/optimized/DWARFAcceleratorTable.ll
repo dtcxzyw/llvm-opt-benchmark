@@ -10157,8 +10157,8 @@ _ZNK4llvm15DWARFDebugNames14NameTableEntry10sameNameAsENS_9StringRefE.exit35: ; 
   br label %.critedge27
 
 .critedge27:                                      ; preds = %.thread66, %81, %.critedge, %.critedge27.loopexit79.split.loop.exit85, %.preheader, %.critedge27.loopexit.split.loop.exit92, %12, %62
-  %.sroa.062.0 = phi i64 [ undef, %62 ], [ %136, %.critedge27.loopexit.split.loop.exit92 ], [ undef, %12 ], [ %137, %.critedge27.loopexit79.split.loop.exit85 ], [ undef, %.preheader ], [ undef, %.critedge ], [ undef, %81 ], [ undef, %.thread66 ]
-  %.sroa.3.0 = phi i8 [ 0, %62 ], [ 1, %.critedge27.loopexit.split.loop.exit92 ], [ 0, %12 ], [ 1, %.critedge27.loopexit79.split.loop.exit85 ], [ 0, %.preheader ], [ 0, %.critedge ], [ 0, %81 ], [ 0, %.thread66 ]
+  %.sroa.062.0 = phi i64 [ undef, %.critedge ], [ undef, %62 ], [ %136, %.critedge27.loopexit.split.loop.exit92 ], [ undef, %12 ], [ %137, %.critedge27.loopexit79.split.loop.exit85 ], [ undef, %.preheader ], [ undef, %81 ], [ undef, %.thread66 ]
+  %.sroa.3.0 = phi i8 [ 0, %.critedge ], [ 0, %62 ], [ 1, %.critedge27.loopexit.split.loop.exit92 ], [ 0, %12 ], [ 1, %.critedge27.loopexit79.split.loop.exit85 ], [ 0, %.preheader ], [ 0, %81 ], [ 0, %.thread66 ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.062.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.3.0, 1
   ret { i64, i8 } %.fca.1.insert

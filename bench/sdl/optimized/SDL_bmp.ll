@@ -700,7 +700,7 @@ thread-pre-split:                                 ; preds = %56, %.thread269, %1
   br i1 %324, label %.critedge.i, label %CorrectAlphaChannel.exit, !llvm.loop !10
 
 .thread209:                                       ; preds = %216, %230, %226, %221, %195, %205, %200, %278, %302, %297, %247, %165, %171, %186, %156, %111, %98, %100, %85, %87, %60, %62, %64, %66, %68, %70, %72, %74, %76, %92, %96, %58, %83, %104, %30, %32, %34, %36, %38, %.thread, %132, %140, %256, %127, %121, %28, %23, %20
-  %.0150.ph213 = phi ptr [ %149, %165 ], [ null, %20 ], [ null, %23 ], [ null, %28 ], [ null, %121 ], [ null, %127 ], [ %149, %256 ], [ null, %140 ], [ null, %132 ], [ null, %.thread ], [ null, %30 ], [ null, %38 ], [ null, %36 ], [ null, %34 ], [ null, %32 ], [ null, %104 ], [ null, %83 ], [ null, %58 ], [ null, %96 ], [ null, %92 ], [ null, %76 ], [ null, %74 ], [ null, %72 ], [ null, %70 ], [ null, %68 ], [ null, %66 ], [ null, %64 ], [ null, %62 ], [ null, %60 ], [ null, %87 ], [ null, %85 ], [ null, %100 ], [ null, %98 ], [ null, %111 ], [ %149, %156 ], [ %149, %186 ], [ %149, %171 ], [ %149, %247 ], [ %149, %297 ], [ %149, %302 ], [ %149, %195 ], [ %149, %278 ], [ %149, %200 ], [ %149, %205 ], [ %149, %221 ], [ %149, %226 ], [ %149, %230 ], [ %149, %216 ]
+  %.0150.ph213 = phi ptr [ %149, %165 ], [ null, %20 ], [ null, %23 ], [ null, %28 ], [ null, %121 ], [ null, %127 ], [ %149, %256 ], [ null, %140 ], [ null, %132 ], [ null, %.thread ], [ null, %30 ], [ null, %38 ], [ null, %36 ], [ null, %34 ], [ null, %32 ], [ null, %104 ], [ null, %83 ], [ null, %58 ], [ null, %96 ], [ null, %92 ], [ null, %76 ], [ null, %74 ], [ null, %72 ], [ null, %70 ], [ null, %68 ], [ null, %66 ], [ null, %64 ], [ null, %62 ], [ null, %60 ], [ null, %87 ], [ null, %85 ], [ null, %100 ], [ null, %98 ], [ null, %111 ], [ %149, %156 ], [ %149, %186 ], [ %149, %171 ], [ %149, %278 ], [ %149, %247 ], [ %149, %302 ], [ %149, %195 ], [ %149, %297 ], [ %149, %200 ], [ %149, %205 ], [ %149, %221 ], [ %149, %226 ], [ %149, %230 ], [ %149, %216 ]
   %325 = call i64 @SDL_SeekIO_REAL(ptr noundef nonnull %0, i64 noundef %21, i32 noundef 0) #4
   br label %326
 
@@ -710,7 +710,7 @@ thread-pre-split:                                 ; preds = %56, %.thread269, %1
   br label %CorrectAlphaChannel.exit
 
 CorrectAlphaChannel.exit:                         ; preds = %.lr.ph.i, %.critedge.i, %252, %._crit_edge, %311, %326
-  %.1151 = phi ptr [ null, %326 ], [ %149, %311 ], [ %149, %252 ], [ %149, %._crit_edge ], [ %149, %.critedge.i ], [ %149, %.lr.ph.i ]
+  %.1151 = phi ptr [ null, %326 ], [ %149, %311 ], [ %149, %252 ], [ %149, %.critedge.i ], [ %149, %._crit_edge ], [ %149, %.lr.ph.i ]
   %or.cond5 = and i1 %1, %18
   br i1 %or.cond5, label %327, label %329
 
@@ -1437,7 +1437,7 @@ define hidden noundef zeroext i1 @SDL_SaveBMP_IO_REAL(ptr noundef %0, ptr nounde
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader329, %162, %159, %155, %.lr.ph, %.lr.ph336.split, %.preheader, %.lr.ph336.split.us, %222, %54, %74, %72, %70, %68, %66, %113, %111, %109, %107, %105, %103, %101, %99, %97, %95, %93, %124, %122, %120, %118, %116, %134, %132, %130, %142, %140, %138, %136, %.critedge293, %171, %174, %._crit_edge, %209, %214, %217, %.thread306
-  %.0205 = phi i1 [ true, %.thread306 ], [ true, %66 ], [ true, %54 ], [ true, %136 ], [ true, %171 ], [ true, %174 ], [ true, %._crit_edge ], [ true, %214 ], [ false, %222 ], [ true, %209 ], [ true, %.critedge293 ], [ true, %217 ], [ true, %116 ], [ true, %130 ], [ true, %93 ], [ true, %74 ], [ true, %72 ], [ true, %70 ], [ true, %68 ], [ true, %113 ], [ true, %111 ], [ true, %109 ], [ true, %107 ], [ true, %105 ], [ true, %103 ], [ true, %101 ], [ true, %99 ], [ true, %97 ], [ true, %95 ], [ true, %124 ], [ true, %122 ], [ true, %120 ], [ true, %118 ], [ true, %134 ], [ true, %132 ], [ true, %142 ], [ true, %140 ], [ true, %138 ], [ true, %162 ], [ true, %.lr.ph336.split.us ], [ true, %.preheader ], [ true, %.lr.ph336.split ], [ true, %.lr.ph ], [ true, %155 ], [ true, %159 ], [ true, %.preheader329 ]
+  %.0205 = phi i1 [ true, %138 ], [ true, %.preheader ], [ true, %.thread306 ], [ true, %140 ], [ true, %142 ], [ true, %66 ], [ true, %54 ], [ true, %136 ], [ true, %171 ], [ true, %174 ], [ true, %132 ], [ true, %162 ], [ true, %._crit_edge ], [ true, %214 ], [ false, %222 ], [ true, %209 ], [ true, %.critedge293 ], [ true, %217 ], [ true, %116 ], [ true, %130 ], [ true, %.lr.ph336.split.us ], [ true, %93 ], [ true, %74 ], [ true, %72 ], [ true, %70 ], [ true, %68 ], [ true, %113 ], [ true, %111 ], [ true, %109 ], [ true, %107 ], [ true, %105 ], [ true, %103 ], [ true, %101 ], [ true, %99 ], [ true, %97 ], [ true, %95 ], [ true, %124 ], [ true, %122 ], [ true, %120 ], [ true, %118 ], [ true, %134 ], [ true, %.lr.ph336.split ], [ true, %.lr.ph ], [ true, %155 ], [ true, %159 ], [ true, %.preheader329 ]
   %.not277 = icmp eq ptr %.1210310, %0
   br i1 %.not277, label %.thread313, label %223
 

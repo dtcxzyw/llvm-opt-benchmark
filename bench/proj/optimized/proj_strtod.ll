@@ -216,10 +216,10 @@ switch.early.test:                                ; preds = %33
   br i1 %71, label %.lr.ph549, label %.outer248
 
 .outer248._crit_edge:                             ; preds = %.outer248, %.lr.ph549, %.preheader247
-  %.0174.ph.lcssa = phi double [ 0.000000e+00, %.preheader247 ], [ %.0174.ph284, %.lr.ph549 ], [ %65, %.outer248 ]
-  %.0160.ph.lcssa = phi i32 [ 0, %.preheader247 ], [ %.0160.ph286, %.lr.ph549 ], [ %67, %.outer248 ]
-  %.3.lcssa = phi ptr [ %.2167, %.preheader247 ], [ %60, %.lr.ph549 ], [ %66, %.outer248 ]
-  %.lcssa260 = phi i8 [ %47, %.preheader247 ], [ %61, %.lr.ph549 ], [ %68, %.outer248 ]
+  %.0174.ph.lcssa = phi double [ %.0174.ph284, %.lr.ph549 ], [ 0.000000e+00, %.preheader247 ], [ %65, %.outer248 ]
+  %.0160.ph.lcssa = phi i32 [ %.0160.ph286, %.lr.ph549 ], [ 0, %.preheader247 ], [ %67, %.outer248 ]
+  %.3.lcssa = phi ptr [ %60, %.lr.ph549 ], [ %.2167, %.preheader247 ], [ %66, %.outer248 ]
+  %.lcssa260 = phi i8 [ %61, %.lr.ph549 ], [ %47, %.preheader247 ], [ %68, %.outer248 ]
   %.0160.ph.lcssa.fr = freeze i32 %.0160.ph.lcssa
   switch i8 %.lcssa260, label %.outer245._crit_edge.thread [
     i8 0, label %72
@@ -493,8 +493,8 @@ thread-pre-split:                                 ; preds = %77
   br i1 %or.cond239353, label %.critedge11.lr.ph, label %.outer._crit_edge, !llvm.loop !23
 
 .outer._crit_edge:                                ; preds = %.outer, %.lr.ph552, %140
-  %.0163.ph.lcssa = phi i32 [ 0, %140 ], [ %.0163.ph365, %.lr.ph552 ], [ %150, %.outer ]
-  %.11.lcssa = phi ptr [ %.10, %140 ], [ %145, %.lr.ph552 ], [ %151, %.outer ]
+  %.0163.ph.lcssa = phi i32 [ %.0163.ph365, %.lr.ph552 ], [ 0, %140 ], [ %150, %.outer ]
+  %.11.lcssa = phi ptr [ %145, %.lr.ph552 ], [ %.10, %140 ], [ %151, %.outer ]
   %155 = sub nsw i32 0, %.0163.ph.lcssa
   %spec.select240 = select i1 %135, i32 %155, i32 %.0163.ph.lcssa
   %156 = add nsw i32 %spec.select240, %.0172

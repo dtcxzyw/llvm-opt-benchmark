@@ -106,9 +106,9 @@ define internal fastcc void @mi_heap_collect_ex(ptr noundef %0, i32 noundef rang
   br i1 %exitcond.i, label %.critedge.thread, label %34, !llvm.loop !38
 
 .critedge.thread:                                 ; preds = %.critedge.i, %20, %24, %15, %.critedge, %29
-  %40 = phi i1 [ false, %.critedge ], [ true, %29 ], [ false, %15 ], [ false, %24 ], [ false, %20 ], [ true, %.critedge.i ]
-  %41 = phi i1 [ %27, %.critedge ], [ %27, %29 ], [ true, %15 ], [ true, %24 ], [ true, %20 ], [ %27, %.critedge.i ]
-  %42 = phi i1 [ %26, %.critedge ], [ %26, %29 ], [ true, %15 ], [ true, %24 ], [ true, %20 ], [ %26, %.critedge.i ]
+  %40 = phi i1 [ false, %20 ], [ false, %.critedge ], [ true, %29 ], [ false, %15 ], [ false, %24 ], [ true, %.critedge.i ]
+  %41 = phi i1 [ true, %20 ], [ %27, %.critedge ], [ %27, %29 ], [ true, %15 ], [ true, %24 ], [ %27, %.critedge.i ]
+  %42 = phi i1 [ true, %20 ], [ %26, %.critedge ], [ %26, %29 ], [ true, %15 ], [ true, %24 ], [ %26, %.critedge.i ]
   tail call void @_mi_heap_delayed_free_all(ptr noundef nonnull %0) #11
   tail call void @_mi_heap_collect_retired(ptr noundef nonnull %0, i1 noundef zeroext %6) #11
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -982,7 +982,7 @@ define hidden noundef zeroext i1 @mi_heap_check_owned(ptr noundef readonly captu
   br i1 %exitcond.i, label %mi_heap_visit_pages.exit, label %13, !llvm.loop !38
 
 mi_heap_visit_pages.exit:                         ; preds = %.critedge.i, %.lr.ph, %8, %2, %4
-  %.0 = phi i1 [ false, %4 ], [ false, %2 ], [ false, %8 ], [ true, %.lr.ph ], [ false, %.critedge.i ]
+  %.0 = phi i1 [ false, %4 ], [ false, %2 ], [ true, %.lr.ph ], [ false, %8 ], [ false, %.critedge.i ]
   ret i1 %.0
 }
 
@@ -1046,7 +1046,7 @@ define hidden noundef zeroext i1 @mi_check_owned(ptr noundef %0) local_unnamed_a
   br i1 %exitcond.i.i, label %mi_heap_check_owned.exit, label %14, !llvm.loop !38
 
 mi_heap_check_owned.exit:                         ; preds = %.critedge.i.i, %.lr.ph.i, %1, %5, %9
-  %.0.i = phi i1 [ false, %5 ], [ false, %1 ], [ false, %9 ], [ true, %.lr.ph.i ], [ false, %.critedge.i.i ]
+  %.0.i = phi i1 [ false, %5 ], [ false, %1 ], [ true, %.lr.ph.i ], [ false, %9 ], [ false, %.critedge.i.i ]
   ret i1 %.0.i
 }
 
@@ -1264,7 +1264,7 @@ define hidden zeroext i1 @_mi_heap_area_visit_blocks(ptr noundef %0, ptr noundef
   br i1 %exitcond147.not, label %.critedge117, label %79, !llvm.loop !80
 
 .critedge117:                                     ; preds = %.critedge115, %90, %.preheader121, %.preheader123
-  %.not112128 = phi i1 [ true, %.preheader123 ], [ false, %90 ], [ false, %.preheader121 ], [ true, %.critedge115 ]
+  %.not112128 = phi i1 [ false, %90 ], [ false, %.preheader121 ], [ true, %.preheader123 ], [ true, %.critedge115 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.critedge
 

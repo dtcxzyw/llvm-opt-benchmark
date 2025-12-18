@@ -350,7 +350,7 @@ _ZNK5ZXing6Pdf41711ModulusPoly11coefficientEi.exit: ; preds = %4
   br i1 %58, label %"_ZN5ZXing6ReduceISt6vectorIiSaIiEEiZNKS_6Pdf41711ModulusPoly10evaluateAtEiE3$_1EET0_RKT_S7_T1_.exit", label %36, !llvm.loop !34
 
 "_ZN5ZXing6ReduceISt6vectorIiSaIiEEiZNKS_6Pdf41711ModulusPoly10evaluateAtEiE3$_1EET0_RKT_S7_T1_.exit": ; preds = %19, %"_ZZNK5ZXing6Pdf41711ModulusPoly10evaluateAtEiENK3$_0clIiiEEDaT_T0_.exit.i", %27, %16, %_ZNK5ZXing6Pdf41711ModulusPoly11coefficientEi.exit
-  %.0 = phi i32 [ %15, %_ZNK5ZXing6Pdf41711ModulusPoly11coefficientEi.exit ], [ 0, %16 ], [ 0, %27 ], [ %56, %"_ZZNK5ZXing6Pdf41711ModulusPoly10evaluateAtEiENK3$_0clIiiEEDaT_T0_.exit.i" ], [ %24, %19 ]
+  %.0 = phi i32 [ %15, %_ZNK5ZXing6Pdf41711ModulusPoly11coefficientEi.exit ], [ %56, %"_ZZNK5ZXing6Pdf41711ModulusPoly10evaluateAtEiENK3$_0clIiiEEDaT_T0_.exit.i" ], [ 0, %16 ], [ 0, %27 ], [ %24, %19 ]
   ret i32 %.0
 }
 

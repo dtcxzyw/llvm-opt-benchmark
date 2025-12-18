@@ -8123,10 +8123,10 @@ for.cond22.for.cond.cleanup25_crit_edge.us:       ; preds = %for.body26.us
   br i1 %exitcond191.not, label %for.cond38.preheader, label %for.body.us, !llvm.loop !206
 
 for.cond38.preheader:                             ; preds = %for.cond22.for.cond.cleanup25_crit_edge.us, %for.cond22.preheader, %invoke.cont18
-  %sumsqs.sroa.11.0207 = phi i64 [ 0, %invoke.cont18 ], [ 0, %for.cond22.preheader ], [ %13, %for.cond22.for.cond.cleanup25_crit_edge.us ]
-  %sumsqs.sroa.0.0205 = phi ptr [ null, %invoke.cont18 ], [ null, %for.cond22.preheader ], [ %call5.i.i.i.i2.i.i91, %for.cond22.for.cond.cleanup25_crit_edge.us ]
-  %sums.sroa.11.0169203 = phi ptr [ null, %invoke.cont18 ], [ null, %for.cond22.preheader ], [ %add.ptr.i.i.i59, %for.cond22.for.cond.cleanup25_crit_edge.us ]
-  %sums.sroa.0.0172201 = phi ptr [ null, %invoke.cont18 ], [ null, %for.cond22.preheader ], [ %call5.i.i.i.i2.i.i67, %for.cond22.for.cond.cleanup25_crit_edge.us ]
+  %sumsqs.sroa.11.0207 = phi i64 [ 0, %for.cond22.preheader ], [ 0, %invoke.cont18 ], [ %13, %for.cond22.for.cond.cleanup25_crit_edge.us ]
+  %sumsqs.sroa.0.0205 = phi ptr [ null, %for.cond22.preheader ], [ null, %invoke.cont18 ], [ %call5.i.i.i.i2.i.i91, %for.cond22.for.cond.cleanup25_crit_edge.us ]
+  %sums.sroa.11.0169203 = phi ptr [ null, %for.cond22.preheader ], [ null, %invoke.cont18 ], [ %add.ptr.i.i.i59, %for.cond22.for.cond.cleanup25_crit_edge.us ]
+  %sums.sroa.0.0172201 = phi ptr [ null, %for.cond22.preheader ], [ null, %invoke.cont18 ], [ %call5.i.i.i.i2.i.i67, %for.cond22.for.cond.cleanup25_crit_edge.us ]
   br i1 %cmp.not.i.i.i.i56, label %for.cond.cleanup41, label %for.body42.lr.ph
 
 for.body42.lr.ph:                                 ; preds = %invoke.cont18.thread, %for.cond38.preheader
@@ -10834,7 +10834,7 @@ for.inc462.us:                                    ; preds = %_ZNKSt14default_del
   br i1 %cmp453.us, label %for.body455.us, label %for.cond.cleanup454, !llvm.loop !246
 
 for.cond.cleanup454:                              ; preds = %for.inc462, %for.inc462.us, %_ZNSt6vectorIN8QuantLib6MatrixESaIS1_EE6resizeEm.exit
-  %332 = phi i64 [ 0, %_ZNSt6vectorIN8QuantLib6MatrixESaIS1_EE6resizeEm.exit ], [ %331, %for.inc462.us ], [ %338, %for.inc462 ]
+  %332 = phi i64 [ %331, %for.inc462.us ], [ 0, %_ZNSt6vectorIN8QuantLib6MatrixESaIS1_EE6resizeEm.exit ], [ %338, %for.inc462 ]
   %inc467 = add nuw i64 %i439.0895, 1
   %333 = load i64, ptr %numberProducts_, align 8, !tbaa !220
   %cmp442 = icmp ult i64 %inc467, %333
@@ -12726,10 +12726,10 @@ for.cond25.for.cond.cleanup28_crit_edge.us:       ; preds = %for.body29.us
   br i1 %exitcond193.not, label %for.cond41.preheader, label %for.body.us, !llvm.loop !282
 
 for.cond41.preheader:                             ; preds = %for.cond25.for.cond.cleanup28_crit_edge.us, %for.cond25.preheader, %invoke.cont21
-  %sumsqs.sroa.11.0209 = phi i64 [ 0, %invoke.cont21 ], [ 0, %for.cond25.preheader ], [ %15, %for.cond25.for.cond.cleanup28_crit_edge.us ]
-  %sumsqs.sroa.0.0207 = phi ptr [ null, %invoke.cont21 ], [ null, %for.cond25.preheader ], [ %call5.i.i.i.i2.i.i91, %for.cond25.for.cond.cleanup28_crit_edge.us ]
-  %sums.sroa.11.0169205 = phi ptr [ null, %invoke.cont21 ], [ null, %for.cond25.preheader ], [ %add.ptr.i.i.i59, %for.cond25.for.cond.cleanup28_crit_edge.us ]
-  %sums.sroa.0.0172203 = phi ptr [ null, %invoke.cont21 ], [ null, %for.cond25.preheader ], [ %call5.i.i.i.i2.i.i67, %for.cond25.for.cond.cleanup28_crit_edge.us ]
+  %sumsqs.sroa.11.0209 = phi i64 [ 0, %for.cond25.preheader ], [ 0, %invoke.cont21 ], [ %15, %for.cond25.for.cond.cleanup28_crit_edge.us ]
+  %sumsqs.sroa.0.0207 = phi ptr [ null, %for.cond25.preheader ], [ null, %invoke.cont21 ], [ %call5.i.i.i.i2.i.i91, %for.cond25.for.cond.cleanup28_crit_edge.us ]
+  %sums.sroa.11.0169205 = phi ptr [ null, %for.cond25.preheader ], [ null, %invoke.cont21 ], [ %add.ptr.i.i.i59, %for.cond25.for.cond.cleanup28_crit_edge.us ]
+  %sums.sroa.0.0172203 = phi ptr [ null, %for.cond25.preheader ], [ null, %invoke.cont21 ], [ %call5.i.i.i.i2.i.i67, %for.cond25.for.cond.cleanup28_crit_edge.us ]
   br i1 %cmp.not.i.i.i.i56, label %for.cond.cleanup44, label %for.body45.lr.ph
 
 for.body45.lr.ph:                                 ; preds = %invoke.cont21.thread, %for.cond41.preheader

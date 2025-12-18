@@ -486,8 +486,8 @@ ffshgetc.exit297.loopexit:                        ; preds = %ffshgetc.exit297.lo
   br label %ffshgetc.exit297
 
 ffshgetc.exit297:                                 ; preds = %ffshgetc.exit297.loopexit, %192, %179, %167
-  %.3 = phi ptr [ %.0195, %167 ], [ %.0195, %192 ], [ %.0195, %179 ], [ %195, %ffshgetc.exit297.loopexit ]
-  %.0193 = phi i32 [ %170, %167 ], [ %177, %192 ], [ %177, %179 ], [ %194, %ffshgetc.exit297.loopexit ]
+  %.3 = phi ptr [ %.0195, %179 ], [ %.0195, %167 ], [ %.0195, %192 ], [ %195, %ffshgetc.exit297.loopexit ]
+  %.0193 = phi i32 [ %177, %179 ], [ %170, %167 ], [ %177, %192 ], [ %194, %ffshgetc.exit297.loopexit ]
   %196 = load i8, ptr %.3, align 1, !tbaa !16
   %197 = zext i8 %196 to i32
   %.not235 = icmp eq i32 %.0193, %197
@@ -1118,8 +1118,8 @@ ffshgetc.exit352:                                 ; preds = %380, %._crit_edge.i
   br i1 %439, label %.lr.ph667, label %.loopexit, !llvm.loop !34
 
 .loopexit:                                        ; preds = %.lr.ph667, %431, %428, %428, %426
-  %440 = phi i8 [ 45, %428 ], [ 45, %428 ], [ %427, %426 ], [ %430, %431 ], [ %437, %.lr.ph667 ]
-  %.13 = phi ptr [ %.12, %428 ], [ %.12, %428 ], [ %.12, %426 ], [ %429, %431 ], [ %429, %.lr.ph667 ]
+  %440 = phi i8 [ %427, %426 ], [ 45, %428 ], [ 45, %428 ], [ %430, %431 ], [ %437, %.lr.ph667 ]
+  %.13 = phi ptr [ %.12, %426 ], [ %.12, %428 ], [ %.12, %428 ], [ %429, %431 ], [ %429, %.lr.ph667 ]
   %441 = zext i8 %440 to i64
   %442 = getelementptr inbounds nuw i8, ptr %40, i64 %441
   %443 = getelementptr inbounds nuw i8, ptr %442, i64 1
@@ -1560,8 +1560,8 @@ ffshgetc.exit219.thread.i:                        ; preds = %._crit_edge.i206.i,
   br label %ffshgetc.exit219.i
 
 ffshgetc.exit219.i:                               ; preds = %ffshgetc.exit.i, %639, %624, %605
-  %.0166.in.i = phi i8 [ %607, %605 ], [ %621, %624 ], [ %621, %639 ], [ %.in.i, %ffshgetc.exit.i ]
-  %.0164.i = phi i64 [ %.neg.i, %605 ], [ %.neg.i, %624 ], [ %.neg.i, %639 ], [ 0, %ffshgetc.exit.i ]
+  %.0166.in.i = phi i8 [ %621, %639 ], [ %607, %605 ], [ %621, %624 ], [ %.in.i, %ffshgetc.exit.i ]
+  %.0164.i = phi i64 [ %.neg.i, %639 ], [ %.neg.i, %605 ], [ %.neg.i, %624 ], [ 0, %ffshgetc.exit.i ]
   %.0166.i = zext i8 %.0166.in.i to i32
   %or.cond5.i = or i1 %559, %560
   %640 = icmp eq i8 %.0166.in.i, 48
@@ -2518,10 +2518,10 @@ ffshgetc.exit394.i..critedge12.i.loopexit497_crit_edge: ; preds = %ffshgetc.exit
   br label %.critedge12.i, !llvm.loop !43
 
 .critedge12.i:                                    ; preds = %.lr.ph463.i, %.lr.ph657, %ffshgetc.exit352.i, %..critedge12.i.loopexit1155_crit_edge, %ffshgetc.exit394.i..critedge12.i.loopexit497_crit_edge, %._crit_edge469.i, %._crit_edge487.i, %868, %.preheader445.i, %.critedge.i
-  %.0171428.i = phi i32 [ 10, %.critedge.i ], [ %.0171429.i, %._crit_edge469.i ], [ %.0171429.i, %._crit_edge487.i ], [ %.0171429.i, %.preheader445.i ], [ %.0171429.i, %868 ], [ %.0171429.i, %ffshgetc.exit394.i..critedge12.i.loopexit497_crit_edge ], [ %.0171429.i, %..critedge12.i.loopexit1155_crit_edge ], [ %.0171429.i, %.lr.ph657 ], [ %.0171429.i, %ffshgetc.exit352.i ], [ 10, %.lr.ph463.i ]
-  %.0164421426.i = phi i64 [ %.0164421.i, %.critedge.i ], [ %.0164421427.i, %._crit_edge469.i ], [ %.0164421427.i, %._crit_edge487.i ], [ %.0164421427.i, %.preheader445.i ], [ %.0164421427.i, %868 ], [ %.0164421427.i, %ffshgetc.exit394.i..critedge12.i.loopexit497_crit_edge ], [ %.0164421427.i, %..critedge12.i.loopexit1155_crit_edge ], [ %.0164421427.i, %.lr.ph657 ], [ %.0164421427.i, %ffshgetc.exit352.i ], [ %.0164421.i, %.lr.ph463.i ]
-  %.4170.i = phi i32 [ %857, %.critedge.i ], [ %1035, %._crit_edge469.i ], [ %925, %._crit_edge487.i ], [ %.1167430.i, %.preheader445.i ], [ %.1167430.i, %868 ], [ %1096, %ffshgetc.exit394.i..critedge12.i.loopexit497_crit_edge ], [ %1096, %..critedge12.i.loopexit1155_crit_edge ], [ %1096, %.lr.ph657 ], [ %983, %ffshgetc.exit352.i ], [ %857, %.lr.ph463.i ]
-  %.2.i = phi i64 [ %818, %.critedge.i ], [ %1043, %._crit_edge469.i ], [ %933, %._crit_edge487.i ], [ 0, %.preheader445.i ], [ 0, %868 ], [ %1054, %ffshgetc.exit394.i..critedge12.i.loopexit497_crit_edge ], [ %1054, %..critedge12.i.loopexit1155_crit_edge ], [ %1054, %.lr.ph657 ], [ %941, %ffshgetc.exit352.i ], [ %818, %.lr.ph463.i ]
+  %.0171428.i = phi i32 [ 10, %.critedge.i ], [ %.0171429.i, %._crit_edge469.i ], [ %.0171429.i, %._crit_edge487.i ], [ %.0171429.i, %.preheader445.i ], [ %.0171429.i, %..critedge12.i.loopexit1155_crit_edge ], [ %.0171429.i, %868 ], [ %.0171429.i, %ffshgetc.exit394.i..critedge12.i.loopexit497_crit_edge ], [ %.0171429.i, %ffshgetc.exit352.i ], [ %.0171429.i, %.lr.ph657 ], [ 10, %.lr.ph463.i ]
+  %.0164421426.i = phi i64 [ %.0164421.i, %.critedge.i ], [ %.0164421427.i, %._crit_edge469.i ], [ %.0164421427.i, %._crit_edge487.i ], [ %.0164421427.i, %.preheader445.i ], [ %.0164421427.i, %..critedge12.i.loopexit1155_crit_edge ], [ %.0164421427.i, %868 ], [ %.0164421427.i, %ffshgetc.exit394.i..critedge12.i.loopexit497_crit_edge ], [ %.0164421427.i, %ffshgetc.exit352.i ], [ %.0164421427.i, %.lr.ph657 ], [ %.0164421.i, %.lr.ph463.i ]
+  %.4170.i = phi i32 [ %857, %.critedge.i ], [ %1035, %._crit_edge469.i ], [ %925, %._crit_edge487.i ], [ %.1167430.i, %.preheader445.i ], [ %1096, %..critedge12.i.loopexit1155_crit_edge ], [ %.1167430.i, %868 ], [ %1096, %ffshgetc.exit394.i..critedge12.i.loopexit497_crit_edge ], [ %983, %ffshgetc.exit352.i ], [ %1096, %.lr.ph657 ], [ %857, %.lr.ph463.i ]
+  %.2.i = phi i64 [ %818, %.critedge.i ], [ %1043, %._crit_edge469.i ], [ %933, %._crit_edge487.i ], [ 0, %.preheader445.i ], [ %1054, %..critedge12.i.loopexit1155_crit_edge ], [ 0, %868 ], [ %1054, %ffshgetc.exit394.i..critedge12.i.loopexit497_crit_edge ], [ %941, %ffshgetc.exit352.i ], [ %1054, %.lr.ph657 ], [ %818, %.lr.ph463.i ]
   %1102 = sext i32 %.4170.i to i64
   %1103 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @table, i64 1), i64 %1102
   %1104 = load i8, ptr %1103, align 1, !tbaa !16
@@ -2903,8 +2903,8 @@ ffshgetc.exit.i427:                               ; preds = %1216, %1201, %1182
   br label %ffshgetc.exit159.i
 
 ffshgetc.exit159.i:                               ; preds = %ffshgetc.exit.i427, %1258, %1243, %1223
-  %.0115.i = phi i32 [ %1219, %1223 ], [ %1219, %1258 ], [ %1219, %1243 ], [ 1, %ffshgetc.exit.i427 ]
-  %.0.i406.in = phi i8 [ %1225, %1223 ], [ %1239, %1258 ], [ %1239, %1243 ], [ %.in.i428, %ffshgetc.exit.i427 ]
+  %.0115.i = phi i32 [ %1219, %1258 ], [ %1219, %1223 ], [ %1219, %1243 ], [ 1, %ffshgetc.exit.i427 ]
+  %.0.i406.in = phi i8 [ %1239, %1258 ], [ %1225, %1223 ], [ %1239, %1243 ], [ %.in.i428, %ffshgetc.exit.i427 ]
   %.0.i406 = zext i8 %.0.i406.in to i32
   %1259 = and i32 %.0.i406, 223
   %1260 = icmp eq i32 %1259, 73
@@ -4526,10 +4526,10 @@ ffshgetc.exit470.i.i:                             ; preds = %1973, %1958, %1939
   br label %.loopexit.i279.i
 
 .loopexit.i279.i:                                 ; preds = %ffshgetc.exit.i298.i, %.loopexit.i279.loopexit.i, %.loopexit.sink.split.i.i, %ffshgetc.exit449.i.i
-  %.0359.i.i = phi i64 [ 0, %ffshgetc.exit449.i.i ], [ %.0359.ph.i.i, %.loopexit.sink.split.i.i ], [ %1935, %.loopexit.i279.loopexit.i ], [ 0, %ffshgetc.exit.i298.i ]
-  %.1349.i.i = phi i32 [ %.0348.i.i, %ffshgetc.exit449.i.i ], [ %.1349.ph.i.i, %.loopexit.sink.split.i.i ], [ 1, %.loopexit.i279.loopexit.i ], [ %.0348.i.i, %ffshgetc.exit.i298.i ]
-  %.0345.i.i = phi i32 [ 1, %ffshgetc.exit449.i.i ], [ 1, %.loopexit.sink.split.i.i ], [ 1, %.loopexit.i279.loopexit.i ], [ 0, %ffshgetc.exit.i298.i ]
-  %.1280.i.i = phi i32 [ %1933, %ffshgetc.exit449.i.i ], [ -1, %.loopexit.sink.split.i.i ], [ %1975, %.loopexit.i279.loopexit.i ], [ %.0279.i.i, %ffshgetc.exit.i298.i ]
+  %.0359.i.i = phi i64 [ %1935, %.loopexit.i279.loopexit.i ], [ 0, %ffshgetc.exit449.i.i ], [ %.0359.ph.i.i, %.loopexit.sink.split.i.i ], [ 0, %ffshgetc.exit.i298.i ]
+  %.1349.i.i = phi i32 [ 1, %.loopexit.i279.loopexit.i ], [ %.0348.i.i, %ffshgetc.exit449.i.i ], [ %.1349.ph.i.i, %.loopexit.sink.split.i.i ], [ %.0348.i.i, %ffshgetc.exit.i298.i ]
+  %.0345.i.i = phi i32 [ 1, %.loopexit.i279.loopexit.i ], [ 1, %ffshgetc.exit449.i.i ], [ 1, %.loopexit.sink.split.i.i ], [ 0, %ffshgetc.exit.i298.i ]
+  %.1280.i.i = phi i32 [ %1975, %.loopexit.i279.loopexit.i ], [ %1933, %ffshgetc.exit449.i.i ], [ -1, %.loopexit.sink.split.i.i ], [ %.0279.i.i, %ffshgetc.exit.i298.i ]
   store i32 0, ptr %8, align 16, !tbaa !28
   %1976 = add nsw i32 %.1280.i.i, -48
   %1977 = icmp ult i32 %1976, 10
@@ -5190,9 +5190,6 @@ ffshgetc.exit491.i.i:                             ; preds = %2044, %2029, %2026,
   %.not401.i.i = icmp eq i32 %2267, 0
   br i1 %.not401.i.i, label %.critedge5.i.i.outer.backedge, label %2276
 
-.critedge5.i.i.outer.backedge:                    ; preds = %._crit_edge596.i.i, %2286
-  br label %.critedge5.i.i.outer
-
 .critedge5.i.i.outer:                             ; preds = %.critedge5.i.i.outer.backedge, %.critedge5.i.i.outer.outer
   %.5341.i.i.ph = phi i32 [ %.5341.i.i.ph.ph, %.critedge5.i.i.outer.outer ], [ %.8344.i.i, %.critedge5.i.i.outer.backedge ]
   %.1332.i.i.ph = phi i32 [ %.1332.i.i.ph.ph, %.critedge5.i.i.outer.outer ], [ %2257, %.critedge5.i.i.outer.backedge ]
@@ -5230,6 +5227,9 @@ ffshgetc.exit491.i.i:                             ; preds = %2044, %2029, %2026,
   %2288 = or i32 %2287, 1
   store i32 %2288, ptr %2285, align 4, !tbaa !28
   br label %.critedge5.i.i.outer.backedge
+
+.critedge5.i.i.outer.backedge:                    ; preds = %2286, %._crit_edge596.i.i
+  br label %.critedge5.i.i.outer
 
 .preheader.i282.i:                                ; preds = %2256, %2299
   %2289 = phi i1 [ false, %2299 ], [ true, %2256 ]
@@ -5453,7 +5453,7 @@ store_int.exit:                                   ; preds = %309, %308, %306, %3
   br label %.loopexit500
 
 .loopexit500:                                     ; preds = %56, %fffloatscan.exit, %ffintscan.exit, %544, %751, %734, %2392, %.loopexit496, %202
-  %.2189 = phi i32 [ %.0187, %202 ], [ -1, %2392 ], [ %.0187, %.loopexit496 ], [ %.0187, %734 ], [ %.0187, %751 ], [ %.0187, %544 ], [ %.0187, %ffintscan.exit ], [ %.0187, %fffloatscan.exit ], [ %.0187, %56 ]
+  %.2189 = phi i32 [ %.0187, %202 ], [ -1, %2392 ], [ %.0187, %.loopexit496 ], [ %.0187, %751 ], [ %.0187, %734 ], [ %.0187, %544 ], [ %.0187, %ffintscan.exit ], [ %.0187, %fffloatscan.exit ], [ %.0187, %56 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
   ret i32 %.2189
 }

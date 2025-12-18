@@ -695,14 +695,14 @@ define dso_local i64 @_copy_to_iter(ptr noundef %0, i64 noundef %1, ptr noundef 
   br i1 %274, label %.loopexit17, label %254, !llvm.loop !34
 
 .loopexit:                                        ; preds = %254, %.preheader, %213
-  %.ph14 = phi i64 [ %211, %213 ], [ %211, %.preheader ], [ %257, %254 ]
-  %.ph15 = phi i64 [ %209, %213 ], [ %209, %.preheader ], [ %258, %254 ]
+  %.ph14 = phi i64 [ %211, %.preheader ], [ %211, %213 ], [ %257, %254 ]
+  %.ph15 = phi i64 [ %209, %.preheader ], [ %209, %213 ], [ %258, %254 ]
   %278 = call fastcc ptr @xas_next_entry(ptr noundef nonnull %4)
   %279 = icmp eq ptr %278, null
   br i1 %279, label %.loopexit17, label %.preheader, !llvm.loop !35
 
 .loopexit17:                                      ; preds = %.loopexit, %260, %217, %227, %194
-  %280 = phi i64 [ 0, %194 ], [ %211, %217 ], [ %211, %227 ], [ %272, %260 ], [ %.ph14, %.loopexit ]
+  %280 = phi i64 [ 0, %194 ], [ %272, %260 ], [ %211, %217 ], [ %211, %227 ], [ %.ph14, %.loopexit ]
   call void @__rcu_read_unlock() #15
   %281 = load i64, ptr %197, align 8
   %282 = add i64 %281, %280
@@ -1133,14 +1133,14 @@ define dso_local i64 @_copy_mc_to_iter(ptr noundef %0, i64 noundef %1, ptr nound
   br i1 %283, label %258, label %.loopexit17, !llvm.loop !34
 
 .loopexit:                                        ; preds = %258, %.preheader, %217
-  %.ph14 = phi i64 [ %215, %217 ], [ %215, %.preheader ], [ %261, %258 ]
-  %.ph15 = phi i64 [ %213, %217 ], [ %213, %.preheader ], [ %262, %258 ]
+  %.ph14 = phi i64 [ %215, %.preheader ], [ %215, %217 ], [ %261, %258 ]
+  %.ph15 = phi i64 [ %213, %.preheader ], [ %213, %217 ], [ %262, %258 ]
   %287 = call fastcc ptr @xas_next_entry(ptr noundef nonnull %4)
   %288 = icmp eq ptr %287, null
   br i1 %288, label %.loopexit17, label %.preheader, !llvm.loop !35
 
 .loopexit17:                                      ; preds = %.loopexit, %264, %221, %231, %198
-  %289 = phi i64 [ 0, %198 ], [ %215, %221 ], [ %215, %231 ], [ %279, %264 ], [ %.ph14, %.loopexit ]
+  %289 = phi i64 [ 0, %198 ], [ %279, %264 ], [ %215, %221 ], [ %215, %231 ], [ %.ph14, %.loopexit ]
   call void @__rcu_read_unlock() #15
   %290 = load i64, ptr %201, align 8
   %291 = add i64 %290, %289
@@ -1581,14 +1581,14 @@ define dso_local i64 @_copy_from_iter(ptr noundef %0, i64 noundef %1, ptr nounde
   br i1 %280, label %.loopexit17, label %260, !llvm.loop !34
 
 .loopexit:                                        ; preds = %260, %.preheader, %219
-  %.ph14 = phi i64 [ %217, %219 ], [ %217, %.preheader ], [ %263, %260 ]
-  %.ph15 = phi i64 [ %215, %219 ], [ %215, %.preheader ], [ %264, %260 ]
+  %.ph14 = phi i64 [ %217, %.preheader ], [ %217, %219 ], [ %263, %260 ]
+  %.ph15 = phi i64 [ %215, %.preheader ], [ %215, %219 ], [ %264, %260 ]
   %284 = call fastcc ptr @xas_next_entry(ptr noundef nonnull %4)
   %285 = icmp eq ptr %284, null
   br i1 %285, label %.loopexit17, label %.preheader, !llvm.loop !35
 
 .loopexit17:                                      ; preds = %.loopexit, %266, %223, %233, %200
-  %286 = phi i64 [ 0, %200 ], [ %217, %223 ], [ %217, %233 ], [ %278, %266 ], [ %.ph14, %.loopexit ]
+  %286 = phi i64 [ 0, %200 ], [ %278, %266 ], [ %217, %223 ], [ %217, %233 ], [ %.ph14, %.loopexit ]
   call void @__rcu_read_unlock() #15
   %287 = load i64, ptr %203, align 8
   %288 = add i64 %287, %286
@@ -1990,14 +1990,14 @@ define dso_local i64 @_copy_from_iter_nocache(ptr noundef %0, i64 noundef %1, pt
   br i1 %258, label %.loopexit17, label %238, !llvm.loop !34
 
 .loopexit:                                        ; preds = %238, %.preheader, %197
-  %.ph14 = phi i64 [ %195, %197 ], [ %195, %.preheader ], [ %241, %238 ]
-  %.ph15 = phi i64 [ %193, %197 ], [ %193, %.preheader ], [ %242, %238 ]
+  %.ph14 = phi i64 [ %195, %.preheader ], [ %195, %197 ], [ %241, %238 ]
+  %.ph15 = phi i64 [ %193, %.preheader ], [ %193, %197 ], [ %242, %238 ]
   %262 = call fastcc ptr @xas_next_entry(ptr noundef nonnull %4)
   %263 = icmp eq ptr %262, null
   br i1 %263, label %.loopexit17, label %.preheader, !llvm.loop !35
 
 .loopexit17:                                      ; preds = %.loopexit, %244, %201, %211, %178
-  %264 = phi i64 [ 0, %178 ], [ %195, %201 ], [ %195, %211 ], [ %256, %244 ], [ %.ph14, %.loopexit ]
+  %264 = phi i64 [ 0, %178 ], [ %256, %244 ], [ %195, %201 ], [ %195, %211 ], [ %.ph14, %.loopexit ]
   call void @__rcu_read_unlock() #15
   %265 = load i64, ptr %181, align 8
   %266 = add i64 %265, %264
@@ -2395,14 +2395,14 @@ define dso_local i64 @_copy_from_iter_flushcache(ptr noundef %0, i64 noundef %1,
   br i1 %258, label %.loopexit17, label %238, !llvm.loop !34
 
 .loopexit:                                        ; preds = %238, %.preheader, %197
-  %.ph14 = phi i64 [ %195, %197 ], [ %195, %.preheader ], [ %241, %238 ]
-  %.ph15 = phi i64 [ %193, %197 ], [ %193, %.preheader ], [ %242, %238 ]
+  %.ph14 = phi i64 [ %195, %.preheader ], [ %195, %197 ], [ %241, %238 ]
+  %.ph15 = phi i64 [ %193, %.preheader ], [ %193, %197 ], [ %242, %238 ]
   %262 = call fastcc ptr @xas_next_entry(ptr noundef nonnull %4)
   %263 = icmp eq ptr %262, null
   br i1 %263, label %.loopexit17, label %.preheader, !llvm.loop !35
 
 .loopexit17:                                      ; preds = %.loopexit, %244, %201, %211, %178
-  %264 = phi i64 [ 0, %178 ], [ %195, %201 ], [ %195, %211 ], [ %256, %244 ], [ %.ph14, %.loopexit ]
+  %264 = phi i64 [ 0, %178 ], [ %256, %244 ], [ %195, %201 ], [ %195, %211 ], [ %.ph14, %.loopexit ]
   call void @__rcu_read_unlock() #15
   %265 = load i64, ptr %181, align 8
   %266 = add i64 %265, %264
@@ -3033,14 +3033,14 @@ define dso_local i64 @copy_page_to_iter_nofault(ptr noundef %0, i32 noundef %1, 
   br i1 %319, label %.loopexit19, label %299, !llvm.loop !34
 
 .loopexit:                                        ; preds = %299, %.preheader, %258
-  %.ph16 = phi i64 [ %256, %258 ], [ %256, %.preheader ], [ %302, %299 ]
-  %.ph17 = phi i64 [ %254, %258 ], [ %254, %.preheader ], [ %303, %299 ]
+  %.ph16 = phi i64 [ %256, %.preheader ], [ %256, %258 ], [ %302, %299 ]
+  %.ph17 = phi i64 [ %254, %.preheader ], [ %254, %258 ], [ %303, %299 ]
   %323 = call fastcc ptr @xas_next_entry(ptr noundef nonnull %5)
   %324 = icmp eq ptr %323, null
   br i1 %324, label %.loopexit19, label %.preheader, !llvm.loop !35
 
 .loopexit19:                                      ; preds = %.loopexit, %305, %262, %272, %246
-  %325 = phi i64 [ 0, %246 ], [ %256, %262 ], [ %256, %272 ], [ %317, %305 ], [ %.ph16, %.loopexit ]
+  %325 = phi i64 [ 0, %246 ], [ %317, %305 ], [ %256, %262 ], [ %256, %272 ], [ %.ph16, %.loopexit ]
   call void @__rcu_read_unlock() #15
   %326 = load i64, ptr %70, align 8
   %327 = add i64 %326, %325
@@ -3598,14 +3598,14 @@ define dso_local i64 @iov_iter_zero(i64 noundef %0, ptr noundef captures(none) %
   br i1 %264, label %.loopexit17, label %245, !llvm.loop !34
 
 .loopexit:                                        ; preds = %245, %.preheader, %204
-  %.ph14 = phi i64 [ %202, %204 ], [ %202, %.preheader ], [ %248, %245 ]
-  %.ph15 = phi i64 [ %200, %204 ], [ %200, %.preheader ], [ %249, %245 ]
+  %.ph14 = phi i64 [ %202, %.preheader ], [ %202, %204 ], [ %248, %245 ]
+  %.ph15 = phi i64 [ %200, %.preheader ], [ %200, %204 ], [ %249, %245 ]
   %268 = call fastcc ptr @xas_next_entry(ptr noundef nonnull %3)
   %269 = icmp eq ptr %268, null
   br i1 %269, label %.loopexit17, label %.preheader, !llvm.loop !35
 
 .loopexit17:                                      ; preds = %.loopexit, %251, %208, %218, %185
-  %270 = phi i64 [ 0, %185 ], [ %202, %208 ], [ %202, %218 ], [ %262, %251 ], [ %.ph14, %.loopexit ]
+  %270 = phi i64 [ 0, %185 ], [ %262, %251 ], [ %202, %208 ], [ %202, %218 ], [ %.ph14, %.loopexit ]
   call void @__rcu_read_unlock() #15
   %271 = load i64, ptr %188, align 8
   %272 = add i64 %271, %270
@@ -4148,14 +4148,14 @@ define dso_local i64 @copy_page_from_iter_atomic(ptr noundef %0, i64 noundef %1,
   br i1 %347, label %.loopexit18, label %327, !llvm.loop !34
 
 .loopexit:                                        ; preds = %327, %.preheader, %286
-  %.ph15 = phi i64 [ %284, %286 ], [ %284, %.preheader ], [ %330, %327 ]
-  %.ph16 = phi i64 [ %282, %286 ], [ %282, %.preheader ], [ %331, %327 ]
+  %.ph15 = phi i64 [ %284, %.preheader ], [ %284, %286 ], [ %330, %327 ]
+  %.ph16 = phi i64 [ %282, %.preheader ], [ %282, %286 ], [ %331, %327 ]
   %351 = call fastcc ptr @xas_next_entry(ptr noundef nonnull %5)
   %352 = icmp eq ptr %351, null
   br i1 %352, label %.loopexit18, label %.preheader, !llvm.loop !35
 
 .loopexit18:                                      ; preds = %.loopexit, %333, %290, %300, %267
-  %353 = phi i64 [ 0, %267 ], [ %284, %290 ], [ %284, %300 ], [ %345, %333 ], [ %.ph15, %.loopexit ]
+  %353 = phi i64 [ 0, %267 ], [ %345, %333 ], [ %284, %290 ], [ %284, %300 ], [ %.ph15, %.loopexit ]
   call void @__rcu_read_unlock() #15
   %354 = load i64, ptr %270, align 8
   %355 = add i64 %354, %353
@@ -6564,7 +6564,7 @@ define internal fastcc range(i64 -12, 17592186040321) i64 @iov_iter_extract_kvec
   br label %.thread
 
 .thread:                                          ; preds = %23, %38, %43, %96, %95, %94, %90, %87, %5
-  %98 = phi i64 [ %82, %87 ], [ %82, %90 ], [ %82, %94 ], [ %82, %95 ], [ %82, %96 ], [ 0, %5 ], [ -12, %43 ], [ -12, %38 ], [ 0, %23 ]
+  %98 = phi i64 [ -12, %38 ], [ %82, %87 ], [ %82, %90 ], [ %82, %94 ], [ %82, %95 ], [ %82, %96 ], [ 0, %5 ], [ -12, %43 ], [ 0, %23 ]
   ret i64 %98
 }
 
@@ -6704,7 +6704,7 @@ define internal fastcc range(i64 -12, 17592186040321) i64 @iov_iter_extract_bvec
   br label %.thread
 
 .thread:                                          ; preds = %24, %43, %48, %79, %78, %77, %73, %70, %5
-  %81 = phi i64 [ %65, %70 ], [ %65, %73 ], [ %65, %77 ], [ %65, %78 ], [ %65, %79 ], [ 0, %5 ], [ -12, %48 ], [ -12, %43 ], [ 0, %24 ]
+  %81 = phi i64 [ -12, %43 ], [ %65, %70 ], [ %65, %73 ], [ %65, %77 ], [ %65, %78 ], [ %65, %79 ], [ 0, %5 ], [ -12, %48 ], [ 0, %24 ]
   ret i64 %81
 }
 

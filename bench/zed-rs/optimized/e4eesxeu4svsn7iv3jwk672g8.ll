@@ -4350,7 +4350,7 @@ define hidden void @_ZN10serde_json5value2de15visit_array_ref17hd18a8d4ac5afa410
   br label %36
 
 34:                                               ; preds = %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hda017dfa72cf8fe9E.exit.thread12.i.i.i20.i", %22
-  %.sroa.7.0 = phi i8 [ 2, %22 ], [ %28, %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hda017dfa72cf8fe9E.exit.thread12.i.i.i20.i" ]
+  %.sroa.7.0 = phi i8 [ %28, %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hda017dfa72cf8fe9E.exit.thread12.i.i.i20.i" ], [ 2, %22 ]
   %35 = icmp eq i64 %2, 2
   br i1 %35, label %38, label %41
 
@@ -21230,7 +21230,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17h91bd00209d3b4
   br label %.backedge.i
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17he20cece03a868575E.llvm.3533412349758872646.exit.thread": ; preds = %.loopexit.i, %.backedge.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h0f9c5798e0cbae7eE.llvm.3533412349758872646.exit", %.lr.ph.i
-  %.sroa.17.442 = phi i64 [ 0, %.lr.ph.i ], [ %.sroa.17.1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h0f9c5798e0cbae7eE.llvm.3533412349758872646.exit" ], [ %.sroa.17.3, %.backedge.i ], [ 0, %.loopexit.i ]
+  %.sroa.17.442 = phi i64 [ 0, %.lr.ph.i ], [ %.sroa.17.3, %.backedge.i ], [ %.sroa.17.1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h0f9c5798e0cbae7eE.llvm.3533412349758872646.exit" ], [ 0, %.loopexit.i ]
   %99 = sub i64 %4, %.sroa.17.442
   store i64 %99, ptr %3, align 8, !noalias !4078
   ret void
@@ -21481,7 +21481,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17hbffd7a4649ca2
   br label %.backedge.i
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h7fff1a20760e8e5dE.llvm.3533412349758872646.exit.thread": ; preds = %.loopexit.i, %.backedge.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h6718e39e9b10edc2E.llvm.3533412349758872646.exit", %.lr.ph.i
-  %.sroa.17.442 = phi i64 [ 0, %.lr.ph.i ], [ %.sroa.17.1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h6718e39e9b10edc2E.llvm.3533412349758872646.exit" ], [ %.sroa.17.3, %.backedge.i ], [ 0, %.loopexit.i ]
+  %.sroa.17.442 = phi i64 [ 0, %.lr.ph.i ], [ %.sroa.17.3, %.backedge.i ], [ %.sroa.17.1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h6718e39e9b10edc2E.llvm.3533412349758872646.exit" ], [ 0, %.loopexit.i ]
   %103 = sub i64 %4, %.sroa.17.442
   store i64 %103, ptr %3, align 8, !noalias !4184
   ret void
@@ -40719,7 +40719,7 @@ common.resume:                                    ; preds = %.loopexit142, %315,
   br label %287
 
 .loopexit142:                                     ; preds = %"_ZN4core3ptr66drop_in_place$LT$alloc..sync..Arc$LT$client..user..Contact$GT$$GT$17h1574c02389ed7a64E.llvm.3533412349758872646.exit8.i", %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$client..user..User$GT$$GT$17hd6501acfb8307d27E.llvm.3533412349758872646.exit8.i", %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$client..user..User$GT$$GT$17hd6501acfb8307d27E.llvm.3533412349758872646.exit8.i52", %63, %332, %356
-  %eh.lpad-body.ph = phi { ptr, i32 } [ %333, %332 ], [ %64, %63 ], [ %357, %356 ], [ %333, %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$client..user..User$GT$$GT$17hd6501acfb8307d27E.llvm.3533412349758872646.exit8.i" ], [ %357, %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$client..user..User$GT$$GT$17hd6501acfb8307d27E.llvm.3533412349758872646.exit8.i52" ], [ %64, %"_ZN4core3ptr66drop_in_place$LT$alloc..sync..Arc$LT$client..user..Contact$GT$$GT$17h1574c02389ed7a64E.llvm.3533412349758872646.exit8.i" ]
+  %eh.lpad-body.ph = phi { ptr, i32 } [ %333, %332 ], [ %64, %63 ], [ %357, %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$client..user..User$GT$$GT$17hd6501acfb8307d27E.llvm.3533412349758872646.exit8.i52" ], [ %333, %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$client..user..User$GT$$GT$17hd6501acfb8307d27E.llvm.3533412349758872646.exit8.i" ], [ %357, %356 ], [ %64, %"_ZN4core3ptr66drop_in_place$LT$alloc..sync..Arc$LT$client..user..Contact$GT$$GT$17h1574c02389ed7a64E.llvm.3533412349758872646.exit8.i" ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$postage..channels..barrier..Sender$GT$17h570ce109346642ceE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %24) #48
           to label %common.resume unwind label %290
 }
@@ -41228,7 +41228,7 @@ define noundef range(i8 0, 4) i8 @_ZN6client4user9UserStore22contact_request_sta
   br i1 %52, label %35, label %.loopexit55
 
 .loopexit:                                        ; preds = %9, %35, %71, %59, %.loopexit55
-  %.sroa.0.0 = phi i8 [ 0, %.loopexit55 ], [ 1, %35 ], [ 2, %59 ], [ 0, %71 ], [ 3, %9 ]
+  %.sroa.0.0 = phi i8 [ 1, %35 ], [ 0, %.loopexit55 ], [ 2, %59 ], [ 0, %71 ], [ 3, %9 ]
   ret i8 %.sroa.0.0
 
 .loopexit55:                                      ; preds = %47, %.loopexit57
@@ -42605,7 +42605,7 @@ define void @_ZN6client4user9UserStore9get_users17hc02a2f4f139ee03eE(ptr dead_on
   br label %.backedge.i.i.i
 
 .loopexit:                                        ; preds = %.loopexit.i.i.i, %.backedge.i.i.i, %.loopexit.i18.i.us.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h658238d964614257E.exit.i.i", %.lr.ph.i.i.i
-  %.sroa.16.339.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %.sroa.16.0.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h658238d964614257E.exit.i.i" ], [ %.sroa.16.2.i.i, %.backedge.i.i.i ], [ %.sroa.16.0.i.i, %.loopexit.i18.i.us.i ], [ 0, %.loopexit.i.i.i ]
+  %.sroa.16.339.i.i = phi i64 [ %.sroa.16.2.i.i, %.backedge.i.i.i ], [ 0, %.lr.ph.i.i.i ], [ %.sroa.16.0.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h658238d964614257E.exit.i.i" ], [ %.sroa.16.0.i.i, %.loopexit.i18.i.us.i ], [ 0, %.loopexit.i.i.i ]
   %99 = sub i64 %.val4, %.sroa.16.339.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7922)
   %100 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -43376,7 +43376,7 @@ define noundef ptr @_ZN6client4user9UserStore27cached_user_by_github_login17hfa8
   unreachable
 
 "_ZN6client4user9UserStore27cached_user_by_github_login28_$u7b$$u7b$closure$u7d$$u7d$17h7dcdab610c207afbE.exit": ; preds = %._crit_edge.i.i, %._crit_edge.i.i.i, %3, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hd0c3bdf00f61248aE.exit.i", %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h230d904043f37b6dE.exit"
-  %.sroa.0.0 = phi ptr [ %76, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hd0c3bdf00f61248aE.exit.i" ], [ null, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h230d904043f37b6dE.exit" ], [ null, %3 ], [ null, %._crit_edge.i.i.i ], [ null, %._crit_edge.i.i ]
+  %.sroa.0.0 = phi ptr [ null, %._crit_edge.i.i.i ], [ %76, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hd0c3bdf00f61248aE.exit.i" ], [ null, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h230d904043f37b6dE.exit" ], [ null, %3 ], [ null, %._crit_edge.i.i ]
   ret ptr %.sroa.0.0
 }
 

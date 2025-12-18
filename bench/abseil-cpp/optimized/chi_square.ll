@@ -297,7 +297,7 @@ _ZN4absl15random_internal12_GLOBAL__N_13POZEd.exit: ; preds = %_ZN4absl15random_
   br label %.thread
 
 .thread:                                          ; preds = %"_ZZN4absl15random_internal15ChiSquarePValueEdiENK3$_0clEd.exit78", %85, %24, %_ZN4absl15random_internal12_GLOBAL__N_115normal_survivalEd.exit73, %_ZN4absl15random_internal12_GLOBAL__N_115normal_survivalEd.exit, %_ZN4absl15random_internal12_GLOBAL__N_13POZEd.exit, %._crit_edge, %39, %37
-  %.2 = phi double [ 1.000000e+00, %37 ], [ 0.000000e+00, %39 ], [ %78, %_ZN4absl15random_internal12_GLOBAL__N_13POZEd.exit ], [ %112, %._crit_edge ], [ %36, %_ZN4absl15random_internal12_GLOBAL__N_115normal_survivalEd.exit73 ], [ %23, %_ZN4absl15random_internal12_GLOBAL__N_115normal_survivalEd.exit ], [ 5.000000e-01, %24 ], [ %78, %85 ], [ %97, %"_ZZN4absl15random_internal15ChiSquarePValueEdiENK3$_0clEd.exit78" ]
+  %.2 = phi double [ 5.000000e-01, %24 ], [ 1.000000e+00, %37 ], [ 0.000000e+00, %39 ], [ %78, %_ZN4absl15random_internal12_GLOBAL__N_13POZEd.exit ], [ %112, %._crit_edge ], [ %36, %_ZN4absl15random_internal12_GLOBAL__N_115normal_survivalEd.exit73 ], [ %23, %_ZN4absl15random_internal12_GLOBAL__N_115normal_survivalEd.exit ], [ %78, %85 ], [ %97, %"_ZZN4absl15random_internal15ChiSquarePValueEdiENK3$_0clEd.exit78" ]
   ret double %.2
 }
 

@@ -770,9 +770,9 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68
   br i1 %187, label %191, label %.invoke
 
 .invoke:                                          ; preds = %.preheader.i.i.i, %185, %182, %233, %253, %204
-  %188 = phi i64 [ %umax.i.i.i.i, %253 ], [ %umax.i35.i.i.i, %204 ], [ %183, %182 ], [ %235, %233 ], [ %186, %185 ], [ %215, %.preheader.i.i.i ]
-  %189 = phi i64 [ %147, %253 ], [ %147, %204 ], [ %149, %182 ], [ %147, %233 ], [ %147, %185 ], [ %149, %.preheader.i.i.i ]
-  %190 = phi ptr [ @anon.33f6a03c3bc25af8acfd823daedf823c.7, %253 ], [ @anon.33f6a03c3bc25af8acfd823daedf823c.7, %204 ], [ @anon.33f6a03c3bc25af8acfd823daedf823c.4, %182 ], [ @anon.33f6a03c3bc25af8acfd823daedf823c.5, %233 ], [ @anon.33f6a03c3bc25af8acfd823daedf823c.5, %185 ], [ @anon.33f6a03c3bc25af8acfd823daedf823c.4, %.preheader.i.i.i ]
+  %188 = phi i64 [ %umax.i.i.i.i, %253 ], [ %235, %233 ], [ %umax.i35.i.i.i, %204 ], [ %183, %182 ], [ %186, %185 ], [ %215, %.preheader.i.i.i ]
+  %189 = phi i64 [ %147, %253 ], [ %147, %233 ], [ %147, %204 ], [ %149, %182 ], [ %147, %185 ], [ %149, %.preheader.i.i.i ]
+  %190 = phi ptr [ @anon.33f6a03c3bc25af8acfd823daedf823c.7, %253 ], [ @anon.33f6a03c3bc25af8acfd823daedf823c.5, %233 ], [ @anon.33f6a03c3bc25af8acfd823daedf823c.7, %204 ], [ @anon.33f6a03c3bc25af8acfd823daedf823c.4, %182 ], [ @anon.33f6a03c3bc25af8acfd823daedf823c.5, %185 ], [ @anon.33f6a03c3bc25af8acfd823daedf823c.4, %.preheader.i.i.i ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %188, i64 noundef %189, ptr noalias noundef readonly align 8 dereferenceable(24) %190) #18
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 

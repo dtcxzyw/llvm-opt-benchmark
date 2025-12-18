@@ -872,7 +872,7 @@ PQmakeEmptyPGresult.exit.thread.sink.split:       ; preds = %47, %74, %96, %PQre
   br label %PQmakeEmptyPGresult.exit.thread
 
 PQmakeEmptyPGresult.exit.thread:                  ; preds = %126, %PQmakeEmptyPGresult.exit.thread.sink.split, %102, %4, %2
-  %.059 = phi ptr [ null, %2 ], [ null, %4 ], [ %5, %102 ], [ null, %PQmakeEmptyPGresult.exit.thread.sink.split ], [ %5, %126 ]
+  %.059 = phi ptr [ null, %4 ], [ null, %PQmakeEmptyPGresult.exit.thread.sink.split ], [ %5, %102 ], [ null, %2 ], [ %5, %126 ]
   ret ptr %.059
 }
 
@@ -2048,7 +2048,7 @@ define range(i32 0, 2) i32 @pqRowProcessor(ptr noundef captures(none) %0, ptr no
   br label %.critedge
 
 .critedge:                                        ; preds = %37, %73, %62, %82, %91, %94, %25, %16
-  %.0 = phi i32 [ 0, %16 ], [ 0, %25 ], [ 1, %91 ], [ 1, %82 ], [ 1, %94 ], [ 0, %62 ], [ 0, %73 ], [ 0, %37 ]
+  %.0 = phi i32 [ 0, %16 ], [ 0, %25 ], [ 1, %91 ], [ 1, %82 ], [ 0, %73 ], [ 1, %94 ], [ 0, %62 ], [ 0, %37 ]
   ret i32 %.0
 }
 
@@ -3376,7 +3376,7 @@ pqCommandQueueAdvance.exit:                       ; preds = %47, %52, %pqRecycle
   br label %getCopyResult.exit
 
 getCopyResult.exit:                               ; preds = %134, %132, %122, %115, %113, %103, %96, %94, %84, %43, %136, %77
-  %.045 = phi ptr [ %142, %136 ], [ %116, %115 ], [ %44, %43 ], [ %78, %77 ], [ %97, %96 ], [ %88, %84 ], [ %95, %94 ], [ %107, %103 ], [ %114, %113 ], [ %126, %122 ], [ %133, %132 ], [ %135, %134 ]
+  %.045 = phi ptr [ %142, %136 ], [ %116, %115 ], [ %114, %113 ], [ %44, %43 ], [ %135, %134 ], [ %133, %132 ], [ %126, %122 ], [ %78, %77 ], [ %107, %103 ], [ %97, %96 ], [ %88, %84 ], [ %95, %94 ]
   %.not52 = icmp eq ptr %.045, null
   br i1 %.not52, label %.thread67, label %getCopyResult.exit.thread
 
@@ -3651,7 +3651,7 @@ define internal fastcc noundef zeroext i1 @PQexecStart(ptr noundef %0) unnamed_a
   br label %.critedge
 
 .critedge:                                        ; preds = %19, %14, %23, %.critedge.sink.split, %1
-  %.0 = phi i1 [ false, %1 ], [ false, %.critedge.sink.split ], [ %.not22, %23 ], [ %.not22, %14 ], [ %.not22, %19 ]
+  %.0 = phi i1 [ false, %.critedge.sink.split ], [ false, %1 ], [ %.not22, %23 ], [ %.not22, %14 ], [ %.not22, %19 ]
   ret i1 %.0
 }
 
@@ -5216,7 +5216,7 @@ define range(i32 -2147483648, 2147483647) i32 @PQfnumber(ptr noundef readonly ca
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %.thread71, %4, %7, %2, %._crit_edge86, %52
-  %.0 = phi i32 [ -1, %2 ], [ -1, %.thread71 ], [ %53, %52 ], [ -1, %._crit_edge86 ], [ -1, %7 ], [ -1, %4 ], [ %55, %.loopexit.loopexit ]
+  %.0 = phi i32 [ -1, %2 ], [ -1, %.thread71 ], [ -1, %4 ], [ %53, %52 ], [ -1, %._crit_edge86 ], [ -1, %7 ], [ %55, %.loopexit.loopexit ]
   ret i32 %.0
 }
 
@@ -6762,8 +6762,8 @@ define internal fastcc noalias ptr @PQescapeByteaInternal(ptr noundef %0, ptr no
   br i1 %.not81, label %._crit_edge96, label %.lr.ph95.split.split, !llvm.loop !38
 
 ._crit_edge96:                                    ; preds = %93, %67, %.lr.ph95.split.us, %.thread114, %30
-  %96 = phi ptr [ %19, %30 ], [ %24, %.thread114 ], [ %19, %67 ], [ %24, %.lr.ph95.split.us ], [ %19, %93 ]
-  %.276.lcssa = phi ptr [ %19, %30 ], [ %32, %.thread114 ], [ %.3.us101, %67 ], [ %44, %.lr.ph95.split.us ], [ %.3, %93 ]
+  %96 = phi ptr [ %19, %30 ], [ %24, %.lr.ph95.split.us ], [ %24, %.thread114 ], [ %19, %67 ], [ %19, %93 ]
+  %.276.lcssa = phi ptr [ %19, %30 ], [ %44, %.lr.ph95.split.us ], [ %32, %.thread114 ], [ %.3.us101, %67 ], [ %.3, %93 ]
   store i8 0, ptr %.276.lcssa, align 1
   br label %97
 

@@ -566,7 +566,7 @@ define dso_local range(i32 -1, 1) i32 @split_ident_line(ptr noundef writeonly ca
   br label %.loopexit101.thread
 
 .loopexit101.thread:                              ; preds = %14, %34, %.loopexit, %3, %.critedge, %66
-  %.0 = phi i32 [ 0, %.critedge ], [ 0, %66 ], [ -1, %3 ], [ -1, %.loopexit ], [ -1, %34 ], [ -1, %14 ]
+  %.0 = phi i32 [ 0, %.critedge ], [ 0, %66 ], [ -1, %34 ], [ -1, %3 ], [ -1, %.loopexit ], [ -1, %14 ]
   ret i32 %.0
 }
 

@@ -3029,7 +3029,7 @@ define internal noundef zeroext i1 @update_spdu_signal_list(ptr noundef readonly
   br label %284
 
 284:                                              ; preds = %.sink.split, %260, %263, %266, %277
-  %.0 = phi i1 [ true, %277 ], [ true, %266 ], [ true, %263 ], [ true, %260 ], [ false, %.sink.split ]
+  %.0 = phi i1 [ true, %260 ], [ true, %263 ], [ true, %266 ], [ true, %277 ], [ false, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
@@ -6075,7 +6075,7 @@ dissect_spdu_payload_signal.exit.thread:          ; preds = %121
   br i1 %.not74.i.i, label %dissect_shifted_and_shortened_uint.exit.i, label %.lr.ph69.split.i.i
 
 dissect_shifted_and_shortened_uint.exit.i:        ; preds = %196, %.lr.ph.split.us.i.i, %.lr.ph69.split.i.i, %.lr.ph69.split.us.i.i, %.lr.ph69.split.i.preheader.i, %.preheader.i.i, %.preheader61.i.i
-  %.2.i.i = phi i64 [ 0, %.preheader.i.i ], [ 0, %.preheader61.i.i ], [ 0, %.lr.ph69.split.i.preheader.i ], [ %169, %.lr.ph.split.us.i.i ], [ %184, %.lr.ph69.split.us.i.i ], [ %203, %.lr.ph69.split.i.i ], [ %.155.i.i, %196 ]
+  %.2.i.i = phi i64 [ %184, %.lr.ph69.split.us.i.i ], [ 0, %.preheader.i.i ], [ %203, %.lr.ph69.split.i.i ], [ 0, %.preheader61.i.i ], [ %169, %.lr.ph.split.us.i.i ], [ 0, %.lr.ph69.split.i.preheader.i ], [ %.155.i.i, %196 ]
   %205 = getelementptr inbounds nuw i8, ptr %103, i64 16
   %206 = load i32, ptr %205, align 8
   switch i32 %206, label %proto_item_set_hidden.exit.i [

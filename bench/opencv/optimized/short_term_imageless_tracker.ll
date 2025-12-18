@@ -1773,8 +1773,8 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %_ZNSt6vectorIiSaIiE
   ret i32 0
 
 735:                                              ; preds = %_ZNSt10unique_ptrIN3vas2ot26ShortTermImagelessTrackletESt14default_deleteIS2_EED2Ev.exit221, %573, %516, %222
-  %.sroa.0241.0 = phi ptr [ %.sroa.0241.3, %222 ], [ %.sroa.0241.2, %_ZNSt10unique_ptrIN3vas2ot26ShortTermImagelessTrackletESt14default_deleteIS2_EED2Ev.exit221 ], [ %.sroa.0241.2, %573 ], [ %.sroa.0241.3, %516 ]
-  %.pn124.pn.pn = phi { ptr, i32 } [ %.pn, %222 ], [ %.pn117.pn.pn.pn.pn, %_ZNSt10unique_ptrIN3vas2ot26ShortTermImagelessTrackletESt14default_deleteIS2_EED2Ev.exit221 ], [ %574, %573 ], [ %517, %516 ]
+  %.sroa.0241.0 = phi ptr [ %.sroa.0241.3, %222 ], [ %.sroa.0241.3, %516 ], [ %.sroa.0241.2, %_ZNSt10unique_ptrIN3vas2ot26ShortTermImagelessTrackletESt14default_deleteIS2_EED2Ev.exit221 ], [ %.sroa.0241.2, %573 ]
+  %.pn124.pn.pn = phi { ptr, i32 } [ %.pn, %222 ], [ %517, %516 ], [ %.pn117.pn.pn.pn.pn, %_ZNSt10unique_ptrIN3vas2ot26ShortTermImagelessTrackletESt14default_deleteIS2_EED2Ev.exit221 ], [ %574, %573 ]
   %.not.i.i.i224 = icmp eq ptr %.sroa.0241.0, null
   br i1 %.not.i.i.i224, label %_ZNSt6vectorIiSaIiEED2Ev.exit225, label %736
 

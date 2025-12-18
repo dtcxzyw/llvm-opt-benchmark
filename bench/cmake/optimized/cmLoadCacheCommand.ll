@@ -1015,7 +1015,7 @@ _ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_
   br i1 %.not.old, label %._crit_edge, label %.lr.ph.backedge
 
 .lr.ph.backedge:                                  ; preds = %.critedge, %322
-  %.sroa.095.0103.be = phi ptr [ %.old, %.critedge ], [ %325, %322 ]
+  %.sroa.095.0103.be = phi ptr [ %325, %322 ], [ %.old, %.critedge ]
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.critedge, %322
@@ -1071,7 +1071,7 @@ _ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_
   br i1 %.not100.old, label %._crit_edge111.loopexit, label %.lr.ph110.backedge
 
 .lr.ph110.backedge:                               ; preds = %.critedge63, %339
-  %.sroa.091.0107.be = phi ptr [ %.old119, %.critedge63 ], [ %342, %339 ]
+  %.sroa.091.0107.be = phi ptr [ %342, %339 ], [ %.old119, %.critedge63 ]
   br label %.lr.ph110
 
 ._crit_edge111.loopexit:                          ; preds = %339, %.critedge63

@@ -131,7 +131,7 @@ define float @dt_image_distance_transform(ptr noundef readonly captures(none) %0
   br i1 %exitcond124.not, label %._crit_edge110, label %.lr.ph106.us
 
 ._crit_edge110:                                   ; preds = %._crit_edge.us112, %.preheader85, %.lr.ph109.split, %.preheader
-  %.081.lcssa = phi float [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %.preheader85 ], [ 0.000000e+00, %.lr.ph109.split ], [ %43, %._crit_edge.us112 ]
+  %.081.lcssa = phi float [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %.lr.ph109.split ], [ 0.000000e+00, %.preheader85 ], [ %43, %._crit_edge.us112 ]
   tail call void @free(ptr noundef %17) #7
   tail call void @free(ptr noundef %20) #7
   tail call void @free(ptr noundef %19) #7

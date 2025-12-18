@@ -2590,7 +2590,7 @@ RangeDec_Decode.exit209:                          ; preds = %566
   br label %.thread215
 
 .thread215:                                       ; preds = %552, %.thread215.loopexit, %Ppmd8_Update2.exit
-  %.5.ph = phi i32 [ %551, %Ppmd8_Update2.exit ], [ -1, %.thread215.loopexit ], [ -2, %552 ]
+  %.5.ph = phi i32 [ -1, %.thread215.loopexit ], [ %551, %Ppmd8_Update2.exit ], [ -2, %552 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread
 

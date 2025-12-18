@@ -745,8 +745,8 @@ _ZN4core5slice4sort25insertion_sort_shift_left17h1ae935e5a73ef618E.exit: ; preds
   br i1 %50, label %87, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h4078fc42c6f6cfb9E.exit"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h4078fc42c6f6cfb9E.exit": ; preds = %_ZN4core3mem4swap17h6754e6add108a6a0E.exit.i.i, %42, %92, %.thread84, %.loopexit95
-  %64 = phi i64 [ %51, %.thread84 ], [ %63, %.loopexit95 ], [ %88, %92 ], [ %1, %42 ], [ %88, %_ZN4core3mem4swap17h6754e6add108a6a0E.exit.i.i ]
-  %.sroa.0.0.i80 = phi i64 [ 2, %.thread84 ], [ %.sroa.0.1.i, %.loopexit95 ], [ %.sroa.0.1.i83, %92 ], [ %45, %42 ], [ %.sroa.0.1.i83, %_ZN4core3mem4swap17h6754e6add108a6a0E.exit.i.i ]
+  %64 = phi i64 [ %1, %42 ], [ %51, %.thread84 ], [ %63, %.loopexit95 ], [ %88, %92 ], [ %88, %_ZN4core3mem4swap17h6754e6add108a6a0E.exit.i.i ]
+  %.sroa.0.0.i80 = phi i64 [ %45, %42 ], [ 2, %.thread84 ], [ %.sroa.0.1.i, %.loopexit95 ], [ %.sroa.0.1.i83, %92 ], [ %.sroa.0.1.i83, %_ZN4core3mem4swap17h6754e6add108a6a0E.exit.i.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !116)
   %65 = icmp uge i64 %64, %.0154
   %66 = icmp ule i64 %64, %1
@@ -1152,9 +1152,9 @@ _ZN4core5slice4sort20provide_sorted_batch17hfc511b2652135f95E.exit: ; preds = %_
   br label %.body
 
 "_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$6remove17h0f724e5ad5439e18E.exit": ; preds = %207, %199, %192, %187
-  %.sroa.18.1.i = phi ptr [ %184, %187 ], [ %183, %192 ], [ %200, %199 ], [ %208, %207 ]
-  %.sroa.10.1.i = phi ptr [ %189, %187 ], [ %193, %192 ], [ %202, %199 ], [ %193, %207 ]
-  %.sroa.0.0.i66 = phi ptr [ %16, %187 ], [ %16, %192 ], [ %16, %199 ], [ %213, %207 ]
+  %.sroa.18.1.i = phi ptr [ %200, %199 ], [ %184, %187 ], [ %183, %192 ], [ %208, %207 ]
+  %.sroa.10.1.i = phi ptr [ %202, %199 ], [ %189, %187 ], [ %193, %192 ], [ %193, %207 ]
+  %.sroa.0.0.i66 = phi ptr [ %16, %199 ], [ %16, %187 ], [ %16, %192 ], [ %213, %207 ]
   %220 = ptrtoint ptr %.sroa.10.1.i to i64
   %221 = ptrtoint ptr %.sroa.0.0.i66 to i64
   %222 = sub nuw i64 %220, %221

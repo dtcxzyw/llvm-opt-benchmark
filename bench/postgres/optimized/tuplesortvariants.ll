@@ -856,7 +856,7 @@ define internal i32 @comparetup_cluster_tiebreak(ptr noundef readonly captures(n
   br i1 %53, label %ApplySortAbbrevFullComparator.exit.thread, label %ApplySortAbbrevFullComparator.exit
 
 ApplySortAbbrevFullComparator.exit:               ; preds = %52, %45
-  %.077 = phi i32 [ %48, %45 ], [ %54, %52 ]
+  %.077 = phi i32 [ %54, %52 ], [ %48, %45 ]
   %.not82 = icmp eq i32 %.077, 0
   br i1 %.not82, label %ApplySortAbbrevFullComparator.exit.thread98, label %ApplySortAbbrevFullComparator.exit.thread
 

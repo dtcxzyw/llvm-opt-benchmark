@@ -207,7 +207,7 @@ define hidden range(i32 0, 2) i32 @_PyFuture_FromAST(ptr noundef readonly captur
   br i1 %exitcond.not.i, label %future_parse.exit, label %.lr.ph50.i, !llvm.loop !36
 
 future_parse.exit:                                ; preds = %.loopexit.i, %26, %29, %22, %.lr.ph50.i, %.lr.ph.i, %13, %6, %10, %3, %.critedge.sink.split.i.i
-  %104 = phi i32 [ 0, %.critedge.sink.split.i.i ], [ 1, %3 ], [ 1, %10 ], [ 1, %6 ], [ 1, %13 ], [ 0, %.lr.ph.i ], [ 1, %.lr.ph50.i ], [ 1, %22 ], [ 1, %29 ], [ 1, %26 ], [ 1, %.loopexit.i ]
+  %104 = phi i32 [ 0, %.lr.ph.i ], [ 0, %.critedge.sink.split.i.i ], [ 1, %3 ], [ 1, %10 ], [ 1, %6 ], [ 1, %13 ], [ 1, %.lr.ph50.i ], [ 1, %22 ], [ 1, %29 ], [ 1, %26 ], [ 1, %.loopexit.i ]
   ret i32 %104
 }
 

@@ -5574,10 +5574,10 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL6SigBitEPiNS0_8hash_opsIS3_EEE7do_hashERKS3_.ex
   br label %.body819
 
 _ZNK5Yosys5RTLIL6SigBiteqERKS1_.exit.thread:      ; preds = %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.i.i763, %.noexc742, %.noexc743, %1778, %2198, %1774, %_ZNK5Yosys5RTLIL6SigBiteqERKS1_.exit, %_ZN5Yosys10TimingInfo7NameBit14get_connectionEPNS_5RTLIL4CellE.exit746
-  %.sroa.11.6 = phi ptr [ %.sroa.11.55484, %1774 ], [ %.sroa.11.55484, %_ZNK5Yosys5RTLIL6SigBiteqERKS1_.exit ], [ %.sroa.11.10, %2198 ], [ %.sroa.11.55484, %_ZN5Yosys10TimingInfo7NameBit14get_connectionEPNS_5RTLIL4CellE.exit746 ], [ %.sroa.11.55484, %1778 ], [ %.sroa.11.55484, %.noexc743 ], [ %.sroa.11.55484, %.noexc742 ], [ %.sroa.11.55484, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.i.i763 ]
-  %.sroa.0.12 = phi ptr [ %.sroa.0.95485, %1774 ], [ %.sroa.0.95485, %_ZNK5Yosys5RTLIL6SigBiteqERKS1_.exit ], [ %.sroa.0.22, %2198 ], [ %.sroa.0.95485, %_ZN5Yosys10TimingInfo7NameBit14get_connectionEPNS_5RTLIL4CellE.exit746 ], [ %.sroa.0.95485, %1778 ], [ %.sroa.0.95485, %.noexc743 ], [ %.sroa.0.95485, %.noexc742 ], [ %.sroa.0.95485, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.i.i763 ]
-  %.sroa.14.12 = phi ptr [ %.sroa.14.95486, %1774 ], [ %.sroa.14.95486, %_ZNK5Yosys5RTLIL6SigBiteqERKS1_.exit ], [ %.sroa.14.22, %2198 ], [ %.sroa.14.95486, %_ZN5Yosys10TimingInfo7NameBit14get_connectionEPNS_5RTLIL4CellE.exit746 ], [ %.sroa.14.95486, %1778 ], [ %.sroa.14.95486, %.noexc743 ], [ %.sroa.14.95486, %.noexc742 ], [ %.sroa.14.95486, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.i.i763 ]
-  %.sroa.25.12 = phi ptr [ %.sroa.25.95487, %1774 ], [ %.sroa.25.95487, %_ZNK5Yosys5RTLIL6SigBiteqERKS1_.exit ], [ %.sroa.25.22, %2198 ], [ %.sroa.25.95487, %_ZN5Yosys10TimingInfo7NameBit14get_connectionEPNS_5RTLIL4CellE.exit746 ], [ %.sroa.25.95487, %1778 ], [ %.sroa.25.95487, %.noexc743 ], [ %.sroa.25.95487, %.noexc742 ], [ %.sroa.25.95487, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.i.i763 ]
+  %.sroa.11.6 = phi ptr [ %.sroa.11.55484, %1774 ], [ %.sroa.11.55484, %_ZNK5Yosys5RTLIL6SigBiteqERKS1_.exit ], [ %.sroa.11.10, %2198 ], [ %.sroa.11.55484, %_ZN5Yosys10TimingInfo7NameBit14get_connectionEPNS_5RTLIL4CellE.exit746 ], [ %.sroa.11.55484, %1778 ], [ %.sroa.11.55484, %.noexc742 ], [ %.sroa.11.55484, %.noexc743 ], [ %.sroa.11.55484, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.i.i763 ]
+  %.sroa.0.12 = phi ptr [ %.sroa.0.95485, %1774 ], [ %.sroa.0.95485, %_ZNK5Yosys5RTLIL6SigBiteqERKS1_.exit ], [ %.sroa.0.22, %2198 ], [ %.sroa.0.95485, %_ZN5Yosys10TimingInfo7NameBit14get_connectionEPNS_5RTLIL4CellE.exit746 ], [ %.sroa.0.95485, %1778 ], [ %.sroa.0.95485, %.noexc742 ], [ %.sroa.0.95485, %.noexc743 ], [ %.sroa.0.95485, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.i.i763 ]
+  %.sroa.14.12 = phi ptr [ %.sroa.14.95486, %1774 ], [ %.sroa.14.95486, %_ZNK5Yosys5RTLIL6SigBiteqERKS1_.exit ], [ %.sroa.14.22, %2198 ], [ %.sroa.14.95486, %_ZN5Yosys10TimingInfo7NameBit14get_connectionEPNS_5RTLIL4CellE.exit746 ], [ %.sroa.14.95486, %1778 ], [ %.sroa.14.95486, %.noexc742 ], [ %.sroa.14.95486, %.noexc743 ], [ %.sroa.14.95486, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.i.i763 ]
+  %.sroa.25.12 = phi ptr [ %.sroa.25.95487, %1774 ], [ %.sroa.25.95487, %_ZNK5Yosys5RTLIL6SigBiteqERKS1_.exit ], [ %.sroa.25.22, %2198 ], [ %.sroa.25.95487, %_ZN5Yosys10TimingInfo7NameBit14get_connectionEPNS_5RTLIL4CellE.exit746 ], [ %.sroa.25.95487, %1778 ], [ %.sroa.25.95487, %.noexc742 ], [ %.sroa.25.95487, %.noexc743 ], [ %.sroa.25.95487, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.i.i763 ]
   %2203 = load i32, ptr %579, align 4, !tbaa !28
   %2204 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1, !tbaa !31, !range !33, !noundef !34
   %2205 = trunc nuw i8 %2204 to i1
@@ -5961,8 +5961,8 @@ _ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.i843: ;
   br i1 %2380, label %.lr.ph.i.split.i841, label %.loopexit2765, !llvm.loop !212
 
 .loopexit2765:                                    ; preds = %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.i843, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.us.i847, %.loopexit2769, %._crit_edge.i.i836
-  %2381 = phi ptr [ %2352, %._crit_edge.i.i836 ], [ %2233, %.loopexit2769 ], [ %2352, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.us.i847 ], [ %2352, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.i843 ]
-  %2382 = phi ptr [ %2354, %._crit_edge.i.i836 ], [ %2233, %.loopexit2769 ], [ %2354, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.us.i847 ], [ %2354, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.i843 ]
+  %2381 = phi ptr [ %2352, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.us.i847 ], [ %2352, %._crit_edge.i.i836 ], [ %2233, %.loopexit2769 ], [ %2352, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.i843 ]
+  %2382 = phi ptr [ %2354, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.us.i847 ], [ %2354, %._crit_edge.i.i836 ], [ %2233, %.loopexit2769 ], [ %2354, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.i843 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store ptr %.fr.i839, ptr %19, align 8
   store i32 %.sroa.102428.0.copyload, ptr %584, align 8
@@ -8533,8 +8533,8 @@ _ZNSt4pairIN5Yosys10TimingInfo6BitBitEiED2Ev.exit1067: ; preds = %_ZN5Yosys10Tim
   br label %.body699
 
 .loopexit2729:                                    ; preds = %_ZNSt4pairIN5Yosys10TimingInfo6BitBitEiED2Ev.exit1067, %.lr.ph5561, %3209, %.preheader
-  %.sroa.02360.3 = phi ptr [ %.sroa.02360.25565, %.preheader ], [ %.sroa.02360.25565, %3209 ], [ %.sroa.02360.25565, %.lr.ph5561 ], [ %.sroa.02360.5, %_ZNSt4pairIN5Yosys10TimingInfo6BitBitEiED2Ev.exit1067 ]
-  %.sroa.52361.3 = phi i32 [ %.sroa.52361.25566, %.preheader ], [ %.sroa.52361.25566, %3209 ], [ %.sroa.52361.25566, %.lr.ph5561 ], [ %.sroa.52361.5, %_ZNSt4pairIN5Yosys10TimingInfo6BitBitEiED2Ev.exit1067 ]
+  %.sroa.02360.3 = phi ptr [ %.sroa.02360.25565, %.preheader ], [ %.sroa.02360.25565, %.lr.ph5561 ], [ %.sroa.02360.25565, %3209 ], [ %.sroa.02360.5, %_ZNSt4pairIN5Yosys10TimingInfo6BitBitEiED2Ev.exit1067 ]
+  %.sroa.52361.3 = phi i32 [ %.sroa.52361.25566, %.preheader ], [ %.sroa.52361.25566, %.lr.ph5561 ], [ %.sroa.52361.25566, %3209 ], [ %.sroa.52361.5, %_ZNSt4pairIN5Yosys10TimingInfo6BitBitEiED2Ev.exit1067 ]
   %indvars.iv.next7630 = add nuw nsw i64 %indvars.iv7629, 1
   %3517 = load i32, ptr %32, align 8, !tbaa !184
   %3518 = sext i32 %3517 to i64

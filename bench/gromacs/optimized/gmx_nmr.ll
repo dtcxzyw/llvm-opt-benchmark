@@ -1245,8 +1245,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit533: ; preds = %37
   br label %.body
 
 ._crit_edge:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit530, %.preheader1104, %_ZL15gmx_srenew_implIiEvPKcS1_iRPT_m.exit523.preheader, %.loopexit1101
-  %.14051926 = phi i32 [ %.34071921, %.loopexit1101 ], [ 0, %.preheader1104 ], [ %.0, %_ZL15gmx_srenew_implIiEvPKcS1_iRPT_m.exit523.preheader ], [ %.14051931, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit530 ]
-  %.210421925 = phi ptr [ %301, %.loopexit1101 ], [ %301, %.preheader1104 ], [ %323, %_ZL15gmx_srenew_implIiEvPKcS1_iRPT_m.exit523.preheader ], [ %.210421930, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit530 ]
+  %.14051926 = phi i32 [ %.0, %_ZL15gmx_srenew_implIiEvPKcS1_iRPT_m.exit523.preheader ], [ %.34071921, %.loopexit1101 ], [ 0, %.preheader1104 ], [ %.14051931, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit530 ]
+  %.210421925 = phi ptr [ %323, %_ZL15gmx_srenew_implIiEvPKcS1_iRPT_m.exit523.preheader ], [ %301, %.loopexit1101 ], [ %301, %.preheader1104 ], [ %.210421930, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit530 ]
   br i1 %164, label %383, label %438
 
 383:                                              ; preds = %._crit_edge

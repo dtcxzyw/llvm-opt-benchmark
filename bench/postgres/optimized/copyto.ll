@@ -1882,8 +1882,8 @@ CopySendChar.exit100:                             ; preds = %190, %191
   br label %118
 
 .loopexit:                                        ; preds = %.outer104, %125, %.outer, %31
-  %.480 = phi ptr [ %.278.ph142, %125 ], [ %.076.ph155, %31 ], [ %.177, %.outer ], [ %.379, %.outer104 ]
-  %.5 = phi ptr [ %126, %125 ], [ %32, %31 ], [ %.2, %.outer ], [ %.4, %.outer104 ]
+  %.480 = phi ptr [ %.177, %.outer ], [ %.278.ph142, %125 ], [ %.076.ph155, %31 ], [ %.379, %.outer104 ]
+  %.5 = phi ptr [ %.2, %.outer ], [ %126, %125 ], [ %32, %31 ], [ %.4, %.outer104 ]
   %207 = icmp ugt ptr %.5, %.480
   br i1 %207, label %208, label %.loopexit.thread
 

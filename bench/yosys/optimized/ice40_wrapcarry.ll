@@ -11817,8 +11817,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit625: ; preds = %_Z
   br i1 %4666, label %.body543, label %4663
 
 .body543:                                         ; preds = %4663, %.loopexit2165, %.loopexit.split-lp2166, %4354, %.body1094, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i1073, %4388
-  %4667 = phi i1 [ false, %4388 ], [ false, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i1073 ], [ false, %.body1094 ], [ false, %4354 ], [ false, %.loopexit2165 ], [ false, %.loopexit.split-lp2166 ], [ true, %4663 ]
-  %.pn148.pn = phi { ptr, i32 } [ %lpad.phi2174, %4388 ], [ %lpad.phi2174, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i1073 ], [ %4348, %.body1094 ], [ %4348, %4354 ], [ %lpad.loopexit2167, %.loopexit2165 ], [ %lpad.loopexit.split-lp2168, %.loopexit.split-lp2166 ], [ %.pn148, %4663 ]
+  %4667 = phi i1 [ false, %.loopexit2165 ], [ false, %4388 ], [ false, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i1073 ], [ false, %.body1094 ], [ false, %4354 ], [ false, %.loopexit.split-lp2166 ], [ true, %4663 ]
+  %.pn148.pn = phi { ptr, i32 } [ %lpad.loopexit2167, %.loopexit2165 ], [ %lpad.phi2174, %4388 ], [ %lpad.phi2174, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i1073 ], [ %4348, %.body1094 ], [ %4348, %4354 ], [ %lpad.loopexit.split-lp2168, %.loopexit.split-lp2166 ], [ %.pn148, %4663 ]
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %67) #27
   br label %.body520
 
@@ -11917,8 +11917,8 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit638:              ; preds = %_ZSt8_DestroyIPN5Yo
   br label %.body465.thread
 
 .body465.thread:                                  ; preds = %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit638, %.body465.thread.sink.split, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i977, %.body998, %.body465
-  %.not.i.i.i.i.i4445659 = phi i1 [ %.not.i.i.i.i.i4445662, %.body465 ], [ %.not.i.i.i.i.i444, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i977 ], [ false, %.body998 ], [ %.not.i.i.i.i.i4445659.ph, %.body465.thread.sink.split ], [ %.not.i.i.i.i.i4445662, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit638 ]
-  %.pn148.pn.pn.pn2021 = phi { ptr, i32 } [ %.pn148.pn.pn.pn, %.body465 ], [ %lpad.phi2154, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i977 ], [ %4027, %.body998 ], [ %.pn148.pn.pn.pn2021.ph, %.body465.thread.sink.split ], [ %.pn148.pn.pn.pn, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit638 ]
+  %.not.i.i.i.i.i4445659 = phi i1 [ %.not.i.i.i.i.i4445662, %.body465 ], [ false, %.body998 ], [ %.not.i.i.i.i.i444, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i977 ], [ %.not.i.i.i.i.i4445659.ph, %.body465.thread.sink.split ], [ %.not.i.i.i.i.i4445662, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit638 ]
+  %.pn148.pn.pn.pn2021 = phi { ptr, i32 } [ %.pn148.pn.pn.pn, %.body465 ], [ %4027, %.body998 ], [ %lpad.phi2154, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i977 ], [ %.pn148.pn.pn.pn2021.ph, %.body465.thread.sink.split ], [ %.pn148.pn.pn.pn, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit638 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %66)
   br label %.body595
 

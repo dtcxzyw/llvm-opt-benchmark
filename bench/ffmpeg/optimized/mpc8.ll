@@ -1543,8 +1543,8 @@ get_vlc2.exit397:                                 ; preds = %835, %853
   br i1 %exitcond582.not, label %.loopexit424, label %835, !llvm.loop !76
 
 .loopexit424:                                     ; preds = %get_vlc2.exit393, %get_vlc2.exit389, %get_vlc2.exit385, %663, %524, %888, %517
-  %.promoted503509 = phi i32 [ %.promoted503510, %517 ], [ %772, %get_vlc2.exit389 ], [ %890, %888 ], [ %.promoted503510, %524 ], [ %660, %663 ], [ %709, %get_vlc2.exit385 ], [ %831, %get_vlc2.exit393 ]
-  %.lcssa501504 = phi i32 [ %.lcssa501505506, %517 ], [ %772, %get_vlc2.exit389 ], [ %890, %888 ], [ %.lcssa501505506, %524 ], [ %660, %663 ], [ %709, %get_vlc2.exit385 ], [ %831, %get_vlc2.exit393 ]
+  %.promoted503509 = phi i32 [ %890, %888 ], [ %772, %get_vlc2.exit389 ], [ %709, %get_vlc2.exit385 ], [ %.promoted503510, %524 ], [ %.promoted503510, %517 ], [ %660, %663 ], [ %831, %get_vlc2.exit393 ]
+  %.lcssa501504 = phi i32 [ %890, %888 ], [ %772, %get_vlc2.exit389 ], [ %709, %get_vlc2.exit385 ], [ %.lcssa501505506, %524 ], [ %.lcssa501505506, %517 ], [ %660, %663 ], [ %831, %get_vlc2.exit393 ]
   br i1 %518, label %517, label %892, !llvm.loop !77
 
 892:                                              ; preds = %.loopexit424

@@ -2828,7 +2828,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.
   br label %460
 
 _ZN6vectorIP4exprLb0EjE6appendEjPKS1_.exit:       ; preds = %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit.i, %328, %324, %_ZNK17arith_recognizers5is_geEPK4expr.exit.i, %351, %308, %146, %323, %318, %307, %201, %130, %319, %291, %300, %408, %_ZNK11ast_manager6is_iffEPK4exprRPS0_S4_.exit.thread
-  %.136 = phi i1 [ %.035214, %408 ], [ %spec.select, %130 ], [ %.035214, %_ZNK11ast_manager6is_iffEPK4exprRPS0_S4_.exit.thread ], [ %.035214, %308 ], [ %spec.select48, %318 ], [ %spec.select49, %323 ], [ %.035214, %319 ], [ %spec.select46, %201 ], [ %spec.select47, %307 ], [ %.035214, %300 ], [ %.035214, %291 ], [ %.035214, %146 ], [ %.035214, %351 ], [ %.035214, %_ZNK17arith_recognizers5is_geEPK4expr.exit.i ], [ %.035214, %328 ], [ %.035214, %324 ], [ %.035214, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit.i ]
+  %.136 = phi i1 [ %.035214, %408 ], [ %spec.select, %130 ], [ %.035214, %_ZNK11ast_manager6is_iffEPK4exprRPS0_S4_.exit.thread ], [ %.035214, %308 ], [ %spec.select48, %318 ], [ %spec.select49, %323 ], [ %.035214, %319 ], [ %.035214, %324 ], [ %spec.select46, %201 ], [ %spec.select47, %307 ], [ %.035214, %300 ], [ %.035214, %291 ], [ %.035214, %146 ], [ %.035214, %351 ], [ %.035214, %_ZNK17arith_recognizers5is_geEPK4expr.exit.i ], [ %.035214, %328 ], [ %.035214, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit.i ]
   %411 = load ptr, ptr %22, align 8, !tbaa !297
   %412 = icmp eq ptr %411, null
   br i1 %412, label %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit.thread, label %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit, !llvm.loop !387
@@ -4563,8 +4563,8 @@ _ZN7obj_refIN7datalog4ruleENS0_12rule_managerEEaSERKS3_.exit78: ; preds = %567, 
   br i1 %.154, label %46, label %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEEaSERKS3_.exit
 
 _ZN7obj_refIN7datalog4ruleENS0_12rule_managerEEaSERKS3_.exit: ; preds = %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEEaSERKS3_.exit78, %59, %._ZN7obj_refIN7datalog4ruleENS0_12rule_managerEEaSERKS3_.exitthread-pre-split_crit_edge
-  %572 = phi ptr [ %.pr215.pre, %._ZN7obj_refIN7datalog4ruleENS0_12rule_managerEEaSERKS3_.exitthread-pre-split_crit_edge ], [ %.pr.i73, %59 ], [ %.pr.i73291, %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEEaSERKS3_.exit78 ]
-  %.0 = phi i1 [ true, %._ZN7obj_refIN7datalog4ruleENS0_12rule_managerEEaSERKS3_.exitthread-pre-split_crit_edge ], [ true, %59 ], [ %.3, %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEEaSERKS3_.exit78 ]
+  %572 = phi ptr [ %.pr.i73, %59 ], [ %.pr215.pre, %._ZN7obj_refIN7datalog4ruleENS0_12rule_managerEEaSERKS3_.exitthread-pre-split_crit_edge ], [ %.pr.i73291, %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEEaSERKS3_.exit78 ]
+  %.0 = phi i1 [ true, %59 ], [ true, %._ZN7obj_refIN7datalog4ruleENS0_12rule_managerEEaSERKS3_.exitthread-pre-split_crit_edge ], [ %.3, %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEEaSERKS3_.exit78 ]
   %.not.i.i172 = icmp eq ptr %572, null
   br i1 %.not.i.i172, label %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit174, label %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEEaSERKS3_.exit.thread
 
@@ -8528,7 +8528,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK13rewriter_core10is_blockedEP
   br i1 %.not27.old.i.i, label %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit, label %.lr.ph38.i.i.backedge
 
 .lr.ph38.i.i.backedge:                            ; preds = %35, %32
-  %.137.i.i.be = phi ptr [ %.old.i.i, %35 ], [ %34, %32 ]
+  %.137.i.i.be = phi ptr [ %34, %32 ], [ %.old.i.i, %35 ]
   br label %.lr.ph38.i.i, !llvm.loop !450
 
 _ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit: ; preds = %16, %21, %27, %32, %35, %.preheader.i.i
@@ -10099,9 +10099,9 @@ _ZN11ast_manager7inc_refEP3ast.exit.i:            ; preds = %60
   store ptr %61, ptr %65, align 8, !tbaa !305
   br label %96
 
-_ZN7datalog25mk_interp_tail_simplifier14normalizer_cfg14match_arg_pairEP4exprRSt4pairIS3_S3_Eb.exit.thread: ; preds = %40, %39, %_ZNK11ast_manager5is_orEPK4expr.exit.i.i, %51, %23, %_ZNK11ast_manager6is_andEPK4expr.exit.i.i, %35, %24, %.thread55
-  %.0.i53 = phi i1 [ true, %.thread55 ], [ false, %24 ], [ false, %35 ], [ false, %_ZNK11ast_manager6is_andEPK4expr.exit.i.i ], [ false, %23 ], [ false, %51 ], [ false, %_ZNK11ast_manager5is_orEPK4expr.exit.i.i ], [ false, %39 ], [ false, %40 ]
-  %.337 = phi i32 [ %.02869, %.thread55 ], [ %.03467, %24 ], [ %.03467, %35 ], [ %.03467, %_ZNK11ast_manager6is_andEPK4expr.exit.i.i ], [ %.03467, %23 ], [ %.03467, %51 ], [ %.03467, %_ZNK11ast_manager5is_orEPK4expr.exit.i.i ], [ %.03467, %39 ], [ %.03467, %40 ]
+_ZN7datalog25mk_interp_tail_simplifier14normalizer_cfg14match_arg_pairEP4exprRSt4pairIS3_S3_Eb.exit.thread: ; preds = %_ZNK11ast_manager5is_orEPK4expr.exit.i.i, %51, %39, %23, %_ZNK11ast_manager6is_andEPK4expr.exit.i.i, %35, %40, %24, %.thread55
+  %.0.i53 = phi i1 [ true, %.thread55 ], [ false, %24 ], [ false, %40 ], [ false, %35 ], [ false, %_ZNK11ast_manager6is_andEPK4expr.exit.i.i ], [ false, %23 ], [ false, %39 ], [ false, %51 ], [ false, %_ZNK11ast_manager5is_orEPK4expr.exit.i.i ]
+  %.337 = phi i32 [ %.02869, %.thread55 ], [ %.03467, %24 ], [ %.03467, %40 ], [ %.03467, %35 ], [ %.03467, %_ZNK11ast_manager6is_andEPK4expr.exit.i.i ], [ %.03467, %23 ], [ %.03467, %39 ], [ %.03467, %51 ], [ %.03467, %_ZNK11ast_manager5is_orEPK4expr.exit.i.i ]
   %80 = zext i32 %.02869 to i64
   %.not = icmp eq i64 %indvars.iv, %80
   br i1 %.not, label %94, label %_ZN11ast_manager7inc_refEP3ast.exit.i43

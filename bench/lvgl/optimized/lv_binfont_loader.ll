@@ -1489,7 +1489,7 @@ read_bits.exit248:                                ; preds = %301
   br i1 %exitcond384.not, label %.thread274, label %216, !llvm.loop !87
 
 .thread274:                                       ; preds = %34, %216, %320, %.thread275.thread, %.thread275, %.thread291, %206, %read_label.exit.thread, %read_label.exit
-  %.0118 = phi i32 [ -1, %read_label.exit ], [ -1, %206 ], [ -1, %read_label.exit.thread ], [ -1, %.thread291 ], [ %17, %.thread275 ], [ %17, %.thread275.thread ], [ %17, %320 ], [ -1, %216 ], [ -1, %34 ]
+  %.0118 = phi i32 [ -1, %read_label.exit ], [ %17, %.thread275 ], [ -1, %206 ], [ -1, %read_label.exit.thread ], [ -1, %.thread291 ], [ %17, %.thread275.thread ], [ %17, %320 ], [ -1, %216 ], [ -1, %34 ]
   ret i32 %.0118
 }
 

@@ -5969,7 +5969,7 @@ _ZN7AstNode6existsIZN14FuncOptVisitor8readsLhsEP13AstNodeAssignEUlPK9AstVarRefE1
   br i1 %.not, label %.loopexit60, label %.lr.ph.split
 
 .loopexit60:                                      ; preds = %.loopexit61, %87, %92, %.loopexit59.us, %76, %67, %.loopexit, %_ZN7AstNode6existsIZN14FuncOptVisitor8readsLhsEP13AstNodeAssignEUlPK9AstVarRefE0_EEbOT_.exit, %_ZN7AstNode6existsIZN14FuncOptVisitor8readsLhsEP13AstNodeAssignEUlPK9AstVarRefE1_EEbOT_.exit
-  %.1 = phi i1 [ true, %_ZN7AstNode6existsIZN14FuncOptVisitor8readsLhsEP13AstNodeAssignEUlPK9AstVarRefE1_EEbOT_.exit ], [ true, %_ZN7AstNode6existsIZN14FuncOptVisitor8readsLhsEP13AstNodeAssignEUlPK9AstVarRefE0_EEbOT_.exit ], [ %.not.i.i, %.loopexit ], [ false, %67 ], [ true, %76 ], [ false, %.loopexit59.us ], [ true, %92 ], [ false, %.loopexit61 ], [ true, %87 ]
+  %.1 = phi i1 [ true, %_ZN7AstNode6existsIZN14FuncOptVisitor8readsLhsEP13AstNodeAssignEUlPK9AstVarRefE1_EEbOT_.exit ], [ true, %_ZN7AstNode6existsIZN14FuncOptVisitor8readsLhsEP13AstNodeAssignEUlPK9AstVarRefE0_EEbOT_.exit ], [ %.not.i.i, %.loopexit ], [ true, %92 ], [ true, %76 ], [ false, %.loopexit59.us ], [ false, %67 ], [ false, %.loopexit61 ], [ true, %87 ]
   %101 = load ptr, ptr %14, align 8, !tbaa !185
   %.not5.i.i.i.i = icmp eq ptr %101, null
   br i1 %.not5.i.i.i.i, label %_ZNSt10_HashtableIPK6AstVarS2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i, label %.lr.ph.i.i.i.i
@@ -7358,7 +7358,7 @@ _ZNSt10_HashtableIPK6AstVarS2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4h
   resume { ptr, i32 } %43
 
 _ZNKSt10_HashtableIPK6AstVarS2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE12_M_find_nodeEmRKS2_m.exit: ; preds = %32, %18, %27
-  %.sroa.042.0.ph = phi ptr [ %28, %27 ], [ %.sroa.034.0, %18 ], [ %34, %32 ]
+  %.sroa.042.0.ph = phi ptr [ %.sroa.034.0, %18 ], [ %28, %27 ], [ %34, %32 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 16) #24
   br label %_ZNSt10_HashtableIPK6AstVarS2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit
 
@@ -8278,7 +8278,7 @@ _ZZN7AstNode13predicateImplI9AstVarRefLb0EZN14FuncOptVisitor8readsLhsEP13AstNode
   br i1 %170, label %.lr.ph, label %_ZZN14FuncOptVisitor8readsLhsEP13AstNodeAssignENKUlPK9AstVarRefE1_clES4_.exit.i.thread, !prof !227, !llvm.loop !251
 
 _ZZN14FuncOptVisitor8readsLhsEP13AstNodeAssignENKUlPK9AstVarRefE1_clES4_.exit.i.thread: ; preds = %45, %28, %.backedge, %131, %136, %119, %.preheader, %40
-  %.0 = phi i1 [ true, %40 ], [ false, %.preheader ], [ true, %28 ], [ true, %119 ], [ true, %136 ], [ true, %131 ], [ false, %.backedge ], [ true, %45 ]
+  %.0 = phi i1 [ true, %28 ], [ false, %.preheader ], [ true, %40 ], [ true, %136 ], [ true, %119 ], [ true, %131 ], [ false, %.backedge ], [ true, %45 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

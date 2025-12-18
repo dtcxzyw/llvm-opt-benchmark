@@ -579,7 +579,7 @@ define internal i32 @lavfi_read_header(ptr noundef %0) #0 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph320, %214, %169, %.thread271, %.thread262, %.thread258, %._crit_edge321, %69, %66, %63, %._crit_edge, %46, %._crit_edge331, %._crit_edge327, %49, %55, %19
-  %.0172 = phi i32 [ -22, %19 ], [ %51, %49 ], [ -22, %55 ], [ -22, %.thread262 ], [ -12, %._crit_edge321 ], [ %.6.ph, %.thread271 ], [ %164, %._crit_edge327 ], [ -12, %169 ], [ %233, %._crit_edge331 ], [ -12, %69 ], [ -12, %66 ], [ -12, %63 ], [ -12, %._crit_edge ], [ -12, %46 ], [ %.1173.ph, %.thread258 ], [ %218, %214 ], [ -12, %.lr.ph320 ]
+  %.0172 = phi i32 [ -22, %19 ], [ %51, %49 ], [ -22, %55 ], [ -22, %.thread262 ], [ -12, %._crit_edge321 ], [ %.6.ph, %.thread271 ], [ %164, %._crit_edge327 ], [ -12, %169 ], [ %233, %._crit_edge331 ], [ %218, %214 ], [ -12, %69 ], [ -12, %66 ], [ -12, %63 ], [ -12, %._crit_edge ], [ -12, %46 ], [ %.1173.ph, %.thread258 ], [ -12, %.lr.ph320 ]
   call void @avfilter_inout_free(ptr noundef nonnull %2) #10
   call void @avfilter_inout_free(ptr noundef nonnull %3) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -804,7 +804,7 @@ define internal i32 @lavfi_read_packet(ptr noundef readonly captures(none) %0, p
   br label %122
 
 .loopexit:                                        ; preds = %40, %16, %.thread111, %85, %72, %._crit_edge, %112
-  %.276 = phi i32 [ -12, %72 ], [ %113, %112 ], [ %.3.ph, %.thread111 ], [ -541478725, %._crit_edge ], [ %95, %85 ], [ -541478725, %16 ], [ %35, %40 ]
+  %.276 = phi i32 [ -12, %72 ], [ %95, %85 ], [ %113, %112 ], [ %.3.ph, %.thread111 ], [ -541478725, %._crit_edge ], [ -541478725, %16 ], [ %35, %40 ]
   call void @av_frame_free(ptr noundef nonnull %3) #10
   br label %122
 

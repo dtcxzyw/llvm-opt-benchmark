@@ -245,9 +245,9 @@ parse_str_int.exit110:                            ; preds = %33, %._crit_edge.i9
   br label %120
 
 120:                                              ; preds = %105, %102, %80
-  %.280.us = phi i32 [ %103, %105 ], [ %.078124.us, %102 ], [ %.078124.us, %80 ]
-  %.6.us = phi ptr [ %.4.us, %105 ], [ %.3.us, %102 ], [ %.3.us, %80 ]
-  %.2.us = phi ptr [ %119, %105 ], [ %95, %102 ], [ %95, %80 ]
+  %.280.us = phi i32 [ %.078124.us, %80 ], [ %103, %105 ], [ %.078124.us, %102 ]
+  %.6.us = phi ptr [ %.3.us, %80 ], [ %.4.us, %105 ], [ %.3.us, %102 ]
+  %.2.us = phi ptr [ %95, %80 ], [ %119, %105 ], [ %95, %102 ]
   %121 = add nsw i32 %.280.us, 1
   %122 = icmp slt i32 %121, %59
   br i1 %122, label %.preheader.us, label %._crit_edge.us, !llvm.loop !39

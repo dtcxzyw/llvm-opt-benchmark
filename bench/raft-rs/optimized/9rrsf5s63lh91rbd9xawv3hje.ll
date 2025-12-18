@@ -500,13 +500,13 @@ define hidden { i64, i64 } @"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$
   br label %30
 
 "_ZN106_$LT$std..collections..hash..set..Union$LT$T$C$S$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h308d4d5c745c70d8E.exit.thread6": ; preds = %16, %._crit_edge.i.i.i.i.i.i.i, %4
-  %.sroa.0.0.i2.i.i9 = phi ptr [ %6, %4 ], [ %17, %._crit_edge.i.i.i.i.i.i.i ], [ %17, %16 ]
+  %.sroa.0.0.i2.i.i9 = phi ptr [ %17, %._crit_edge.i.i.i.i.i.i.i ], [ %6, %4 ], [ %17, %16 ]
   %51 = load i64, ptr %.sroa.0.0.i2.i.i9, align 8, !alias.scope !86, !noundef !13
   br label %"_ZN106_$LT$std..collections..hash..set..Union$LT$T$C$S$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h308d4d5c745c70d8E.exit.thread"
 
 "_ZN106_$LT$std..collections..hash..set..Union$LT$T$C$S$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h308d4d5c745c70d8E.exit.thread": ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h4d8edf3d60aa9136E.exit.loopexit.i.i.i.i.i", %10, %8, %"_ZN106_$LT$std..collections..hash..set..Union$LT$T$C$S$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h308d4d5c745c70d8E.exit.thread6"
-  %.sroa.3.0 = phi i64 [ %51, %"_ZN106_$LT$std..collections..hash..set..Union$LT$T$C$S$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h308d4d5c745c70d8E.exit.thread6" ], [ undef, %8 ], [ undef, %10 ], [ undef, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h4d8edf3d60aa9136E.exit.loopexit.i.i.i.i.i" ]
-  %.sroa.0.0 = phi i64 [ 1, %"_ZN106_$LT$std..collections..hash..set..Union$LT$T$C$S$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h308d4d5c745c70d8E.exit.thread6" ], [ 0, %8 ], [ 0, %10 ], [ 0, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h4d8edf3d60aa9136E.exit.loopexit.i.i.i.i.i" ]
+  %.sroa.3.0 = phi i64 [ %51, %"_ZN106_$LT$std..collections..hash..set..Union$LT$T$C$S$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h308d4d5c745c70d8E.exit.thread6" ], [ undef, %10 ], [ undef, %8 ], [ undef, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h4d8edf3d60aa9136E.exit.loopexit.i.i.i.i.i" ]
+  %.sroa.0.0 = phi i64 [ 1, %"_ZN106_$LT$std..collections..hash..set..Union$LT$T$C$S$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h308d4d5c745c70d8E.exit.thread6" ], [ 0, %10 ], [ 0, %8 ], [ 0, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h4d8edf3d60aa9136E.exit.loopexit.i.i.i.i.i" ]
   %52 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %53 = insertvalue { i64, i64 } %52, i64 %.sroa.3.0, 1
   ret { i64, i64 } %53
@@ -1507,8 +1507,8 @@ select.unfold.us.us:                              ; preds = %.lr.ph.lr.ph.split.
   br label %76
 
 .outer._crit_edge:                                ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h4d8edf3d60aa9136E.exit", %select.unfold26, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h4d8edf3d60aa9136E.exit.loopexit.split.us.us", %select.unfold26.loopexit.us.us, %select.unfold.us.us, %2
-  %.sroa.02.0.ph.lcssa = phi i64 [ 0, %2 ], [ %.sroa.02.0.ph58, %select.unfold26 ], [ 0, %select.unfold.us.us ], [ %.sroa.02.0.ph58.us, %select.unfold26.loopexit.us.us ], [ %.sroa.02.1.us, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h4d8edf3d60aa9136E.exit.loopexit.split.us.us" ], [ %.sroa.02.1, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h4d8edf3d60aa9136E.exit" ]
-  %.sroa.04.0.ph.lcssa = phi i64 [ 0, %2 ], [ %.sroa.04.0.ph60, %select.unfold26 ], [ 0, %select.unfold.us.us ], [ %.sroa.04.0.ph60.us, %select.unfold26.loopexit.us.us ], [ %.sroa.04.1.us, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h4d8edf3d60aa9136E.exit.loopexit.split.us.us" ], [ %.sroa.04.1, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h4d8edf3d60aa9136E.exit" ]
+  %.sroa.02.0.ph.lcssa = phi i64 [ 0, %select.unfold.us.us ], [ 0, %2 ], [ %.sroa.02.1.us, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h4d8edf3d60aa9136E.exit.loopexit.split.us.us" ], [ %.sroa.02.0.ph58.us, %select.unfold26.loopexit.us.us ], [ %.sroa.02.0.ph58, %select.unfold26 ], [ %.sroa.02.1, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h4d8edf3d60aa9136E.exit" ]
+  %.sroa.04.0.ph.lcssa = phi i64 [ 0, %select.unfold.us.us ], [ 0, %2 ], [ %.sroa.04.1.us, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h4d8edf3d60aa9136E.exit.loopexit.split.us.us" ], [ %.sroa.04.0.ph60.us, %select.unfold26.loopexit.us.us ], [ %.sroa.04.0.ph60, %select.unfold26 ], [ %.sroa.04.1, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h4d8edf3d60aa9136E.exit" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %97 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %98 = call noundef range(i8 0, 3) i8 @_ZN4raft6quorum5joint13Configuration11vote_result17hbd0d910257c60a49E(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %97, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %5)

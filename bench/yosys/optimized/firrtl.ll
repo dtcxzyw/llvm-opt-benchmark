@@ -4478,8 +4478,8 @@ _ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11c
   br label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %.loopexit.loopexit.i.i, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops16_Iter_equals_valIKcEEET_SE_SE_T0_.exit.i.i.i.i, %._crit_edge.i.i.i.i.i.i
-  %956 = phi ptr [ %909, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops16_Iter_equals_valIKcEEET_SE_SE_T0_.exit.i.i.i.i ], [ %909, %._crit_edge.i.i.i.i.i.i ], [ %.pre.i.i, %.loopexit.loopexit.i.i ]
-  %.sroa.013.0.i.i.i.i = phi ptr [ %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops16_Iter_equals_valIKcEEET_SE_SE_T0_.exit.i.i.i.i ], [ %911, %._crit_edge.i.i.i.i.i.i ], [ %.sroa.013.2.i.i.i.i, %.loopexit.loopexit.i.i ]
+  %956 = phi ptr [ %909, %._crit_edge.i.i.i.i.i.i ], [ %909, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops16_Iter_equals_valIKcEEET_SE_SE_T0_.exit.i.i.i.i ], [ %.pre.i.i, %.loopexit.loopexit.i.i ]
+  %.sroa.013.0.i.i.i.i = phi ptr [ %911, %._crit_edge.i.i.i.i.i.i ], [ %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops16_Iter_equals_valIKcEEET_SE_SE_T0_.exit.i.i.i.i ], [ %.sroa.013.2.i.i.i.i, %.loopexit.loopexit.i.i ]
   %957 = ptrtoint ptr %.sroa.013.0.i.i.i.i to i64
   %958 = ptrtoint ptr %956 to i64
   %959 = sub i64 %957, %958
@@ -33681,7 +33681,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %.body3981
 
 .thread4457:                                      ; preds = %9708, %._crit_edge.i.i3197, %10032, %9704, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.i3204
-  %.1605 = phi i32 [ %.0604, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.i3204 ], [ %.0604, %._crit_edge.i.i3197 ], [ %.0604, %9708 ], [ %.0604, %9704 ], [ %.3607, %10032 ]
+  %.1605 = phi i32 [ %.0604, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.i3204 ], [ %.0604, %9708 ], [ %.0604, %._crit_edge.i.i3197 ], [ %.0604, %9704 ], [ %.3607, %10032 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %314)
   %10033 = load ptr, ptr %312, align 8, !tbaa !13
   %10034 = load i32, ptr %9346, align 8, !tbaa !783

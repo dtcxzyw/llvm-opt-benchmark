@@ -12394,7 +12394,7 @@ if.end18:                                         ; preds = %invoke.cont14
   br i1 %cmp.i, label %return, label %while.cond9, !llvm.loop !138
 
 return:                                           ; preds = %if.end37.i, %if.end20.i, %while.body, %if.end18, %invoke.cont14, %if.end14.i, %if.end.i, %if.end11.i
-  %retval.0 = phi i1 [ true, %if.end14.i ], [ false, %if.end11.i ], [ true, %if.end.i ], [ true, %while.body ], [ %cmp16.not.not, %if.end18 ], [ %cmp16.not.not, %invoke.cont14 ], [ %cmp.i.i.i.not.i, %if.end20.i ], [ %cmp.i.i.i.not.i, %if.end37.i ]
+  %retval.0 = phi i1 [ true, %if.end.i ], [ true, %while.body ], [ true, %if.end14.i ], [ %cmp16.not.not, %if.end18 ], [ false, %if.end11.i ], [ %cmp16.not.not, %invoke.cont14 ], [ %cmp.i.i.i.not.i, %if.end20.i ], [ %cmp.i.i.i.not.i, %if.end37.i ]
   ret i1 %retval.0
 
 terminate.lpad:                                   ; preds = %if.end.i4, %while.cond9

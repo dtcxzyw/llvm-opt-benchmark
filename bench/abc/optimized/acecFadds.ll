@@ -742,7 +742,7 @@ define range(i32 0, 2) i32 @Dtc_ManCutMergeOne(ptr noundef readonly captures(non
   br label %.loopexit59
 
 .loopexit59:                                      ; preds = %._crit_edge, %47, %50, %37
-  %.0 = phi i32 [ 1, %37 ], [ 1, %50 ], [ 1, %47 ], [ 0, %._crit_edge ]
+  %.0 = phi i32 [ 1, %37 ], [ 1, %47 ], [ 1, %50 ], [ 0, %._crit_edge ]
   ret i32 %.0
 }
 
@@ -789,7 +789,7 @@ define range(i32 0, 2) i32 @Dtc_ManCutCheckEqual(ptr noundef readonly captures(n
   br i1 %exitcond30.not, label %.thread, label %.preheader, !llvm.loop !51
 
 .thread:                                          ; preds = %13, %.preheader, %8, %2
-  %.018 = phi i32 [ 0, %2 ], [ 1, %8 ], [ 1, %.preheader ], [ 0, %13 ]
+  %.018 = phi i32 [ 1, %8 ], [ 0, %2 ], [ 0, %13 ], [ 1, %.preheader ]
   ret i32 %.018
 }
 
@@ -966,7 +966,7 @@ define range(i32 0, 4) i32 @Dtc_ObjComputeTruth(ptr noundef readonly captures(no
   br label %25
 
 25:                                               ; preds = %23, %23, %.fold.split47, %.fold.split, %24
-  %.043 = phi i32 [ 0, %24 ], [ 3, %23 ], [ 3, %23 ], [ 1, %.fold.split ], [ 2, %.fold.split47 ]
+  %.043 = phi i32 [ 0, %24 ], [ 3, %23 ], [ 1, %.fold.split ], [ 3, %23 ], [ 2, %.fold.split47 ]
   ret i32 %.043
 }
 
@@ -1167,7 +1167,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntFill.exit, %
   store i32 %72, ptr %36, align 8, !tbaa !33
   br label %84
 
-84:                                               ; preds = %71, %83, %80
+84:                                               ; preds = %71, %80, %83
   %.val.i = load ptr, ptr %21, align 8, !tbaa !11
   %85 = load i32, ptr %.val.i, align 4, !tbaa !33
   %86 = icmp sgt i32 %85, 0
@@ -1693,7 +1693,7 @@ Vec_IntGrow.exit.i:                               ; preds = %66, %Vec_IntAlloc.e
   br label %Vec_IntFill.exit
 
 Vec_IntFill.exit:                                 ; preds = %.lr.ph.i, %Vec_IntAlloc.exit113.thread, %Vec_IntGrow.exit.i
-  %73 = phi ptr [ %70, %Vec_IntGrow.exit.i ], [ %54, %Vec_IntAlloc.exit113.thread ], [ %70, %.lr.ph.i ]
+  %73 = phi ptr [ %54, %Vec_IntAlloc.exit113.thread ], [ %70, %Vec_IntGrow.exit.i ], [ %70, %.lr.ph.i ]
   store i32 %11, ptr %49, align 4, !tbaa !3
   tail call void @Gia_ManCleanValue(ptr noundef nonnull %0) #32
   %74 = getelementptr i8, ptr %0, i64 32
@@ -6862,7 +6862,7 @@ Vec_IntPush.exit:                                 ; preds = %170, %Vec_IntGrow.e
   br i1 %210, label %190, label %.critedge, !llvm.loop !128
 
 .critedge:                                        ; preds = %203, %187, %.lr.ph.i, %5, %Gia_ManFindChainStart.exit, %180
-  %.0 = phi i32 [ 0, %180 ], [ -1, %Gia_ManFindChainStart.exit ], [ -1, %5 ], [ -1, %.lr.ph.i ], [ %.val74124, %187 ], [ %.val74, %203 ]
+  %.0 = phi i32 [ -1, %.lr.ph.i ], [ 0, %180 ], [ -1, %Gia_ManFindChainStart.exit ], [ -1, %5 ], [ %.val74124, %187 ], [ %.val74, %203 ]
   ret i32 %.0
 }
 

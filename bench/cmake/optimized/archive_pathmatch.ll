@@ -520,7 +520,7 @@ pm_slashskip.exit96:                              ; preds = %.preheader102, %124
   br label %27
 
 .loopexit:                                        ; preds = %129, %pm_slashskip.exit93, %102, %101, %100, %93, %pm_list.exit, %40, %.preheader100, %.lr.ph, %47, %.preheader99, %32, %pm_slashskip.exit96, %pm_slashskip.exit86
-  %.055.shrunk = phi i1 [ %128, %pm_slashskip.exit96 ], [ %39, %pm_slashskip.exit86 ], [ true, %32 ], [ false, %.preheader99 ], [ true, %.preheader100 ], [ %.not77.not.not, %.lr.ph ], [ %.not77.not.not, %47 ], [ false, %101 ], [ false, %100 ], [ false, %93 ], [ false, %pm_list.exit ], [ false, %129 ], [ false, %102 ], [ false, %40 ], [ true, %pm_slashskip.exit93 ]
+  %.055.shrunk = phi i1 [ true, %.preheader100 ], [ %128, %pm_slashskip.exit96 ], [ %39, %pm_slashskip.exit86 ], [ true, %32 ], [ false, %.preheader99 ], [ %.not77.not.not, %.lr.ph ], [ %.not77.not.not, %47 ], [ false, %101 ], [ false, %100 ], [ false, %93 ], [ false, %pm_list.exit ], [ false, %129 ], [ false, %102 ], [ false, %40 ], [ true, %pm_slashskip.exit93 ]
   %.055 = zext i1 %.055.shrunk to i32
   ret i32 %.055
 }
@@ -1045,7 +1045,7 @@ pm_slashskip_w.exit96:                            ; preds = %.preheader102, %124
   br label %27
 
 .loopexit:                                        ; preds = %129, %pm_slashskip_w.exit93, %102, %101, %100, %93, %pm_list_w.exit, %40, %.preheader100, %.lr.ph, %47, %.preheader99, %32, %pm_slashskip_w.exit96, %pm_slashskip_w.exit86
-  %.055.shrunk = phi i1 [ %128, %pm_slashskip_w.exit96 ], [ %39, %pm_slashskip_w.exit86 ], [ true, %32 ], [ false, %.preheader99 ], [ true, %.preheader100 ], [ %.not77.not.not, %.lr.ph ], [ %.not77.not.not, %47 ], [ false, %101 ], [ false, %100 ], [ false, %93 ], [ false, %pm_list_w.exit ], [ false, %129 ], [ false, %102 ], [ false, %40 ], [ true, %pm_slashskip_w.exit93 ]
+  %.055.shrunk = phi i1 [ true, %.preheader100 ], [ %128, %pm_slashskip_w.exit96 ], [ %39, %pm_slashskip_w.exit86 ], [ true, %32 ], [ false, %.preheader99 ], [ %.not77.not.not, %.lr.ph ], [ %.not77.not.not, %47 ], [ false, %101 ], [ false, %100 ], [ false, %93 ], [ false, %pm_list_w.exit ], [ false, %129 ], [ false, %102 ], [ false, %40 ], [ true, %pm_slashskip_w.exit93 ]
   %.055 = zext i1 %.055.shrunk to i32
   ret i32 %.055
 }

@@ -304,7 +304,7 @@ switch.early.test:                                ; preds = %101
   br label %.loopexit
 
 .loopexit:                                        ; preds = %42, %.loopexit.sink.split, %switch.early.test, %switch.early.test, %101, %65, %75
-  %.092 = phi i32 [ 0, %75 ], [ 0, %switch.early.test ], [ 0, %65 ], [ 0, %101 ], [ 0, %switch.early.test ], [ %.092.ph, %.loopexit.sink.split ], [ 4, %42 ]
+  %.092 = phi i32 [ 0, %switch.early.test ], [ %.092.ph, %.loopexit.sink.split ], [ 0, %75 ], [ 0, %switch.early.test ], [ 0, %65 ], [ 0, %101 ], [ 4, %42 ]
   ret i32 %.092
 }
 

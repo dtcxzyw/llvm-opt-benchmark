@@ -29033,7 +29033,7 @@ _ZN13pingora_error5Error7because17hdc17ca44da48dc1aE.exit.i.i.i.i.i: ; preds = %
   br label %.body.i120
 
 2173:                                             ; preds = %2157, %2140
-  %.sink.i.i = phi i8 [ 3, %2140 ], [ 4, %2157 ]
+  %.sink.i.i = phi i8 [ 4, %2157 ], [ 3, %2140 ]
   store i8 %.sink.i.i, ptr %2029, align 8, !noalias !1899
   call void @llvm.lifetime.end.p0(ptr nonnull %129)
   store i8 3, ptr %2009, align 8, !noalias !1892

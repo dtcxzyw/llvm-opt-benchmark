@@ -3516,9 +3516,9 @@ _ignore_missing_wb.exit:                          ; preds = %68
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %69, %78, %63, %.critedge60, %_calculate_bogus_daylight_wb.exit, %23
-  %.sink91 = phi double [ 1.000000e+00, %23 ], [ %34, %_calculate_bogus_daylight_wb.exit ], [ 2.000000e+00, %.critedge60 ], [ 2.000000e+00, %63 ], [ 2.000000e+00, %78 ], [ 2.000000e+00, %69 ]
-  %.sink88 = phi double [ 1.000000e+00, %23 ], [ %37, %_calculate_bogus_daylight_wb.exit ], [ 1.500000e+00, %.critedge60 ], [ 1.500000e+00, %63 ], [ 1.500000e+00, %78 ], [ 1.500000e+00, %69 ]
-  %.sink = phi double [ 1.000000e+00, %23 ], [ %40, %_calculate_bogus_daylight_wb.exit ], [ 1.000000e+00, %.critedge60 ], [ 1.000000e+00, %63 ], [ 1.000000e+00, %78 ], [ 1.000000e+00, %69 ]
+  %.sink91 = phi double [ 1.000000e+00, %23 ], [ %34, %_calculate_bogus_daylight_wb.exit ], [ 2.000000e+00, %78 ], [ 2.000000e+00, %.critedge60 ], [ 2.000000e+00, %63 ], [ 2.000000e+00, %69 ]
+  %.sink88 = phi double [ 1.000000e+00, %23 ], [ %37, %_calculate_bogus_daylight_wb.exit ], [ 1.500000e+00, %78 ], [ 1.500000e+00, %.critedge60 ], [ 1.500000e+00, %63 ], [ 1.500000e+00, %69 ]
+  %.sink = phi double [ 1.000000e+00, %23 ], [ %40, %_calculate_bogus_daylight_wb.exit ], [ 1.000000e+00, %78 ], [ 1.000000e+00, %.critedge60 ], [ 1.000000e+00, %63 ], [ 1.000000e+00, %69 ]
   store double %.sink91, ptr %1, align 8, !tbaa !78
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store double 1.000000e+00, ptr %80, align 8, !tbaa !78
@@ -4611,7 +4611,7 @@ _temp_params_from_array.exit149:                  ; preds = %125, %_temp_params_
   br label %_temp_params_from_array.exit
 
 _temp_params_from_array.exit:                     ; preds = %83, %75, %67, %51, %.lr.ph173, %144, %170, %151, %.critedge131, %.critedge2, %188, %_temp_params_from_array.exit149, %57, %62
-  %.0 = phi i32 [ 0, %_temp_params_from_array.exit149 ], [ 0, %57 ], [ 0, %62 ], [ 0, %.critedge2 ], [ 1, %188 ], [ 0, %.critedge131 ], [ 0, %75 ], [ 0, %.lr.ph173 ], [ 0, %51 ], [ 0, %67 ], [ 0, %151 ], [ 0, %170 ], [ 0, %144 ], [ 0, %83 ]
+  %.0 = phi i32 [ 0, %51 ], [ 0, %_temp_params_from_array.exit149 ], [ 0, %57 ], [ 0, %62 ], [ 0, %75 ], [ 0, %.critedge131 ], [ 0, %.critedge2 ], [ 1, %188 ], [ 0, %67 ], [ 0, %.lr.ph173 ], [ 0, %151 ], [ 0, %170 ], [ 0, %144 ], [ 0, %83 ]
   %214 = load ptr, ptr %18, align 8, !tbaa !125
   %215 = tail call i64 @gtk_widget_get_type() #25
   %216 = call ptr @g_type_check_instance_cast(ptr noundef %214, i64 noundef %215) #24

@@ -2058,14 +2058,14 @@ define internal fastcc range(i32 -11, 1) i32 @yae_overlap_add(ptr noundef captur
   br i1 %232, label %.lr.ph357.split, label %.loopexit.sink.split, !llvm.loop !121
 
 .loopexit.sink.split:                             ; preds = %._crit_edge.us, %._crit_edge.us328, %._crit_edge, %._crit_edge374.us, %.lr.ph279.split.split.preheader, %.lr.ph313.split.split.preheader, %.lr.ph357.split.us.split.preheader, %.lr.ph387.split.split.preheader
-  %.us-phi290.sink = phi i64 [ %161, %.lr.ph387.split.split.preheader ], [ %125, %.lr.ph357.split.us.split.preheader ], [ %117, %.lr.ph313.split.split.preheader ], [ %84, %.lr.ph279.split.split.preheader ], [ %105, %._crit_edge.us328 ], [ %149, %._crit_edge374.us ], [ %227, %._crit_edge ], [ %72, %._crit_edge.us ]
-  %.0206.ph = phi ptr [ %.fr429, %.lr.ph387.split.split.preheader ], [ %.fr429, %.lr.ph357.split.us.split.preheader ], [ %.fr429, %.lr.ph313.split.split.preheader ], [ %.fr429, %.lr.ph279.split.split.preheader ], [ %.us-phi306.us, %._crit_edge.us328 ], [ %.us-phi378.us, %._crit_edge374.us ], [ %.1245.lcssa, %._crit_edge ], [ %.us-phi272.us, %._crit_edge.us ]
+  %.us-phi290.sink = phi i64 [ %227, %._crit_edge ], [ %149, %._crit_edge374.us ], [ %105, %._crit_edge.us328 ], [ %161, %.lr.ph387.split.split.preheader ], [ %125, %.lr.ph357.split.us.split.preheader ], [ %117, %.lr.ph313.split.split.preheader ], [ %84, %.lr.ph279.split.split.preheader ], [ %72, %._crit_edge.us ]
+  %.0206.ph = phi ptr [ %.1245.lcssa, %._crit_edge ], [ %.us-phi378.us, %._crit_edge374.us ], [ %.us-phi306.us, %._crit_edge.us328 ], [ %.fr429, %.lr.ph387.split.split.preheader ], [ %.fr429, %.lr.ph357.split.us.split.preheader ], [ %.fr429, %.lr.ph313.split.split.preheader ], [ %.fr429, %.lr.ph279.split.split.preheader ], [ %.us-phi272.us, %._crit_edge.us ]
   store i64 %.us-phi290.sink, ptr %11, align 8, !tbaa !29
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge417, %.loopexit.sink.split, %.preheader263, %.preheader261, %.preheader259, %.preheader257, %.preheader, %28
-  %233 = phi i64 [ %12, %28 ], [ %12, %.preheader261 ], [ %12, %.preheader257 ], [ %12, %.preheader259 ], [ %12, %.preheader ], [ %12, %.preheader263 ], [ %.us-phi290.sink, %.loopexit.sink.split ], [ %192, %._crit_edge417 ]
-  %.0206 = phi ptr [ %.fr429, %28 ], [ %.fr429, %.preheader261 ], [ %.fr429, %.preheader257 ], [ %.fr429, %.preheader259 ], [ %.fr429, %.preheader ], [ %.fr429, %.preheader263 ], [ %.0206.ph, %.loopexit.sink.split ], [ %.1219.lcssa, %._crit_edge417 ]
+  %233 = phi i64 [ %12, %28 ], [ %12, %.preheader259 ], [ %12, %.preheader261 ], [ %12, %.preheader263 ], [ %12, %.preheader257 ], [ %12, %.preheader ], [ %.us-phi290.sink, %.loopexit.sink.split ], [ %192, %._crit_edge417 ]
+  %.0206 = phi ptr [ %.fr429, %28 ], [ %.fr429, %.preheader259 ], [ %.fr429, %.preheader261 ], [ %.fr429, %.preheader263 ], [ %.fr429, %.preheader257 ], [ %.fr429, %.preheader ], [ %.0206.ph, %.loopexit.sink.split ], [ %.1219.lcssa, %._crit_edge417 ]
   store ptr %.0206, ptr %1, align 8, !tbaa !50
   %234 = icmp eq i64 %233, %25
   %235 = select i1 %234, i32 0, i32 -11

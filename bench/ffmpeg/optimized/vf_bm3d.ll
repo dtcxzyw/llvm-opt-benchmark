@@ -798,7 +798,7 @@ define internal noundef i32 @filter_slice(ptr noundef readonly captures(none) %0
   br label %search_boundary.exit.i.i.us
 
 search_boundary.exit.i.i.us:                      ; preds = %97, %.loopexit.loopexit.i.i.i.i.us, %82
-  %.0.i.i.i.i.us = phi i32 [ 0, %82 ], [ %109, %.loopexit.loopexit.i.i.i.i.us ], [ %.2.i.i.i.i.us, %97 ]
+  %.0.i.i.i.i.us = phi i32 [ %109, %.loopexit.loopexit.i.i.i.i.us ], [ 0, %82 ], [ %.2.i.i.i.i.us, %97 ]
   %110 = sub nsw i32 %83, %85
   %111 = icmp eq i32 %spec.select84.us, %110
   br i1 %111, label %search_boundary.exit77.i.i.us, label %112
@@ -835,7 +835,7 @@ search_boundary.exit.i.i.us:                      ; preds = %97, %.loopexit.loop
   br label %search_boundary.exit77.i.i.us
 
 search_boundary.exit77.i.i.us:                    ; preds = %116, %.loopexit.loopexit.i.i72.i.i.us, %search_boundary.exit.i.i.us
-  %.0.i.i71.i.i.us = phi i32 [ %spec.select84.us, %search_boundary.exit.i.i.us ], [ %128, %.loopexit.loopexit.i.i72.i.i.us ], [ %.2.i.i70.i.i.us, %116 ]
+  %.0.i.i71.i.i.us = phi i32 [ %128, %.loopexit.loopexit.i.i72.i.i.us ], [ %spec.select84.us, %search_boundary.exit.i.i.us ], [ %.2.i.i70.i.i.us, %116 ]
   br i1 %74, label %search_boundary.exit85.i.i.us, label %129
 
 129:                                              ; preds = %search_boundary.exit77.i.i.us
@@ -869,7 +869,7 @@ search_boundary.exit77.i.i.us:                    ; preds = %116, %.loopexit.loo
   br label %search_boundary.exit85.i.i.us
 
 search_boundary.exit85.i.i.us:                    ; preds = %132, %.loopexit.loopexit.i.i80.i.i.us, %search_boundary.exit77.i.i.us
-  %.0.i.i79.i.i.us = phi i32 [ 0, %search_boundary.exit77.i.i.us ], [ %144, %.loopexit.loopexit.i.i80.i.i.us ], [ %.2.i.i78.i.i.us, %132 ]
+  %.0.i.i79.i.i.us = phi i32 [ %144, %.loopexit.loopexit.i.i80.i.i.us ], [ 0, %search_boundary.exit77.i.i.us ], [ %.2.i.i78.i.i.us, %132 ]
   %145 = sub nsw i32 %84, %85
   %146 = icmp eq i32 %spec.select83.us, %145
   br i1 %146, label %search_boundary.exit93.i.i.us, label %147
@@ -906,7 +906,7 @@ search_boundary.exit85.i.i.us:                    ; preds = %132, %.loopexit.loo
   br label %search_boundary.exit93.i.i.us
 
 search_boundary.exit93.i.i.us:                    ; preds = %151, %.loopexit.loopexit.i.i88.i.i.us, %search_boundary.exit85.i.i.us
-  %.0.i.i87.i.i.us = phi i32 [ %spec.select83.us, %search_boundary.exit85.i.i.us ], [ %163, %.loopexit.loopexit.i.i88.i.i.us ], [ %.2.i.i86.i.i.us, %151 ]
+  %.0.i.i87.i.i.us = phi i32 [ %163, %.loopexit.loopexit.i.i88.i.i.us ], [ %spec.select83.us, %search_boundary.exit85.i.i.us ], [ %.2.i.i86.i.i.us, %151 ]
   %.not102.i.i.us = icmp sgt i32 %.0.i.i79.i.i.us, %.0.i.i87.i.i.us
   %.not6998.i.i.us = icmp sgt i32 %.0.i.i.i.i.us, %.0.i.i71.i.i.us
   %or.cond = select i1 %.not102.i.i.us, i1 true, i1 %.not6998.i.i.us
@@ -1337,7 +1337,7 @@ define internal void @basic_block_filtering(ptr noundef readonly captures(none) 
   br i1 %exitcond410.not, label %._crit_edge, label %109, !llvm.loop !132
 
 ._crit_edge281:                                   ; preds = %._crit_edge272.split.split.us.us.us, %._crit_edge272.split.us.split.us293.us, %._crit_edge272.split.us.split.us.us.us.us, %.preheader256.lr.ph.thread, %.preheader257.thread, %.preheader257
-  %115 = phi i1 [ false, %.preheader257.thread ], [ false, %.preheader257 ], [ true, %.preheader256.lr.ph.thread ], [ true, %._crit_edge272.split.us.split.us293.us ], [ true, %._crit_edge272.split.us.split.us.us.us.us ], [ true, %._crit_edge272.split.split.us.us.us ]
+  %115 = phi i1 [ false, %.preheader257.thread ], [ false, %.preheader257 ], [ true, %._crit_edge272.split.us.split.us293.us ], [ true, %.preheader256.lr.ph.thread ], [ true, %._crit_edge272.split.us.split.us.us.us.us ], [ true, %._crit_edge272.split.split.us.us.us ]
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %117 = load float, ptr %116, align 4, !tbaa !133
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1550,7 +1550,7 @@ define internal void @basic_block_filtering(ptr noundef readonly captures(none) 
   br i1 %exitcond440.not, label %._crit_edge341, label %.preheader252.us.us357, !llvm.loop !141
 
 ._crit_edge341:                                   ; preds = %._crit_edge331.split.split.us.us.us, %._crit_edge331.split.us.split.us352.us, %._crit_edge331.split.us.split.us.us.us.us
-  %.0234.lcssa499 = phi i32 [ %.3237.us.us.us, %._crit_edge331.split.us.split.us352.us ], [ %.3237.us.us.us, %._crit_edge331.split.us.split.us.us.us.us ], [ 0, %._crit_edge331.split.split.us.us.us ]
+  %.0234.lcssa499 = phi i32 [ %.3237.us.us.us, %._crit_edge331.split.us.split.us.us.us.us ], [ %.3237.us.us.us, %._crit_edge331.split.us.split.us352.us ], [ 0, %._crit_edge331.split.split.us.us.us ]
   %.0234.lcssa499.fr = freeze i32 %.0234.lcssa499
   %205 = icmp slt i32 %.0234.lcssa499.fr, 1
   %206 = sitofp i32 %.0234.lcssa499.fr to float
@@ -2152,9 +2152,9 @@ define internal void @final_block_filtering(ptr noundef readonly captures(none) 
   br i1 %exitcond544.not, label %._crit_edge431, label %.preheader329.us.us447, !llvm.loop !167
 
 ._crit_edge431:                                   ; preds = %._crit_edge421.split.split.us.us.us, %._crit_edge421.split.us.split.us442.us, %._crit_edge421.split.us.split.us.us.us.us, %._crit_edge402.thread612
-  %218 = phi ptr [ %178, %._crit_edge402.thread612 ], [ %179, %._crit_edge421.split.us.split.us442.us ], [ %179, %._crit_edge421.split.us.split.us.us.us.us ], [ %173, %._crit_edge421.split.split.us.us.us ]
-  %.0320.lcssa607 = phi float [ 0.000000e+00, %._crit_edge402.thread612 ], [ %168, %._crit_edge421.split.us.split.us442.us ], [ %168, %._crit_edge421.split.us.split.us.us.us.us ], [ 0.000000e+00, %._crit_edge421.split.split.us.us.us ]
-  %219 = phi i1 [ false, %._crit_edge402.thread612 ], [ true, %._crit_edge421.split.us.split.us442.us ], [ true, %._crit_edge421.split.us.split.us.us.us.us ], [ true, %._crit_edge421.split.split.us.us.us ]
+  %218 = phi ptr [ %178, %._crit_edge402.thread612 ], [ %179, %._crit_edge421.split.us.split.us.us.us.us ], [ %179, %._crit_edge421.split.us.split.us442.us ], [ %173, %._crit_edge421.split.split.us.us.us ]
+  %.0320.lcssa607 = phi float [ 0.000000e+00, %._crit_edge402.thread612 ], [ %168, %._crit_edge421.split.us.split.us.us.us.us ], [ %168, %._crit_edge421.split.us.split.us442.us ], [ 0.000000e+00, %._crit_edge421.split.split.us.us.us ]
+  %219 = phi i1 [ false, %._crit_edge402.thread612 ], [ true, %._crit_edge421.split.us.split.us.us.us.us ], [ true, %._crit_edge421.split.us.split.us442.us ], [ true, %._crit_edge421.split.split.us.us.us ]
   %220 = fcmp nsz ogt float %.0320.lcssa607, 0x3CD203AFA0000000
   %221 = select nsz i1 %220, float %.0320.lcssa607, float 0x3CD203AFA0000000
   %222 = fdiv nsz float 1.000000e+00, %221

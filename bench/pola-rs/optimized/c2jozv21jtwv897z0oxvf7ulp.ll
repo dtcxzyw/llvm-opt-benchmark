@@ -18355,7 +18355,7 @@ _ZN9hashbrown3map9make_hash17h7164bc9c392466f6E.exit.i: ; preds = %114, %112
           to label %219 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 200:                                              ; preds = %191, %187
-  %.sroa.3.0.i.i.ph.i = phi i64 [ %.sroa.4.113.i.i.i, %187 ], [ %197, %191 ]
+  %.sroa.3.0.i.i.ph.i = phi i64 [ %197, %191 ], [ %.sroa.4.113.i.i.i, %187 ]
   %201 = load ptr, ptr %30, align 8, !alias.scope !1501, !noalias !1504, !nonnull !6
   call void @llvm.experimental.noalias.scope.decl(metadata !1515)
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 %.sroa.3.0.i.i.ph.i

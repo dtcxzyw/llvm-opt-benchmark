@@ -1476,7 +1476,7 @@ _ZN2dd3bddD2Ev.exit49:                            ; preds = %156, %148, %_ZNK6ve
   %171 = call noundef zeroext i1 @_ZN11mpz_managerILb1EE7get_bitERK3mpzj(ptr noundef nonnull align 8 dereferenceable(728) %170, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef %52)
   br i1 %171, label %.thread101, label %.thread
 
-.thread101:                                       ; preds = %104, %102, %169
+.thread101:                                       ; preds = %102, %104, %169
   %.1106 = phi i8 [ 1, %169 ], [ 0, %102 ], [ %spec.select, %104 ]
   %.129105 = phi i1 [ false, %169 ], [ %.028131, %102 ], [ %.028131, %104 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)

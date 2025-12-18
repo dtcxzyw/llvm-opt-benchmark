@@ -1375,7 +1375,7 @@ define noundef ptr @_ZN4pkpy2VM15__run_top_frameEv(ptr noundef nonnull align 8 d
   br label %.body
 
 .loopexit.split-lp4960.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %4874, %201
-  %.1.ph.ph.ph.ph = phi ptr [ %.3, %4874 ], [ %.03554, %201 ]
+  %.1.ph.ph.ph.ph = phi ptr [ %.03554, %201 ], [ %.3, %4874 ]
   %lpad.loopexit.split-lp4985 = landingpad { ptr, i32 }
           catch ptr @_ZTIN4pkpy16HandledExceptionE
           catch ptr @_ZTIN4pkpy18UnhandledExceptionE
@@ -2903,7 +2903,7 @@ _ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.
   br label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit
 
 _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit: ; preds = %_ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i, %726
-  %.in4945 = phi ptr [ %728, %726 ], [ %754, %_ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i ]
+  %.in4945 = phi ptr [ %754, %_ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i ], [ %728, %726 ]
   %755 = load ptr, ptr %.in4945, align 8
   %.not4062 = icmp eq ptr %755, null
   br i1 %.not4062, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit.thread, label %756
@@ -3015,7 +3015,7 @@ _ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.
   br label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4144
 
 _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4144: ; preds = %_ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i4139, %779
-  %.in4946 = phi ptr [ %781, %779 ], [ %807, %_ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i4139 ]
+  %.in4946 = phi ptr [ %807, %_ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i4139 ], [ %781, %779 ]
   %808 = load ptr, ptr %.in4946, align 8
   %.not4063 = icmp eq ptr %808, null
   br i1 %.not4063, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4144.thread, label %809
@@ -3195,7 +3195,7 @@ _ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.
   br label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4154
 
 _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4154: ; preds = %_ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i4149, %850
-  %.in4943 = phi ptr [ %852, %850 ], [ %878, %_ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i4149 ]
+  %.in4943 = phi ptr [ %878, %_ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i4149 ], [ %852, %850 ]
   %879 = load ptr, ptr %.in4943, align 8
   %.not4054 = icmp eq ptr %879, null
   br i1 %.not4054, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4154.thread, label %880
@@ -3307,7 +3307,7 @@ _ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.
   br label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4164
 
 _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4164: ; preds = %_ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i4159, %903
-  %.in4944 = phi ptr [ %905, %903 ], [ %931, %_ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i4159 ]
+  %.in4944 = phi ptr [ %931, %_ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i4159 ], [ %905, %903 ]
   %932 = load ptr, ptr %.in4944, align 8
   %.not4055 = icmp eq ptr %932, null
   br i1 %.not4055, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4164.thread, label %933
@@ -3448,7 +3448,7 @@ _ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.
   br label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4174
 
 _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4174: ; preds = %_ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i4169, %962
-  %.in4941 = phi ptr [ %964, %962 ], [ %990, %_ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i4169 ]
+  %.in4941 = phi ptr [ %990, %_ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i4169 ], [ %964, %962 ]
   %991 = load ptr, ptr %.in4941, align 8
   %.not4048 = icmp eq ptr %991, null
   br i1 %.not4048, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4174.thread, label %992
@@ -3560,7 +3560,7 @@ _ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.
   br label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4184
 
 _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4184: ; preds = %_ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i4179, %1015
-  %.in4942 = phi ptr [ %1017, %1015 ], [ %1043, %_ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i4179 ]
+  %.in4942 = phi ptr [ %1043, %_ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i4179 ], [ %1017, %1015 ]
   %1044 = load ptr, ptr %.in4942, align 8
   %.not4049 = icmp eq ptr %1044, null
   br i1 %.not4049, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4184.thread, label %1045
@@ -3879,7 +3879,7 @@ _ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.
   br label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4194
 
 _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4194: ; preds = %_ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i4189, %1124
-  %.in4939 = phi ptr [ %1126, %1124 ], [ %1152, %_ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i4189 ]
+  %.in4939 = phi ptr [ %1152, %_ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i4189 ], [ %1126, %1124 ]
   %1153 = load ptr, ptr %.in4939, align 8
   %.not4041 = icmp eq ptr %1153, null
   br i1 %.not4041, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4194.thread, label %1154
@@ -3991,7 +3991,7 @@ _ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.
   br label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4204
 
 _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4204: ; preds = %_ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i4199, %1177
-  %.in4940 = phi ptr [ %1179, %1177 ], [ %1205, %_ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i4199 ]
+  %.in4940 = phi ptr [ %1205, %_ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i4199 ], [ %1179, %1177 ]
   %1206 = load ptr, ptr %.in4940, align 8
   %.not4042 = icmp eq ptr %1206, null
   br i1 %.not4042, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4204.thread, label %1207
@@ -5100,7 +5100,7 @@ _ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.
   br label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4234
 
 _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4234: ; preds = %_ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i4229, %1641
-  %.in4938 = phi ptr [ %1643, %1641 ], [ %1669, %_ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i4229 ]
+  %.in4938 = phi ptr [ %1669, %_ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i4229 ], [ %1643, %1641 ]
   %1670 = load ptr, ptr %.in4938, align 8
   %1671 = icmp eq ptr %1670, null
   br i1 %1671, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4234.thread, label %1672
@@ -5233,7 +5233,7 @@ _ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.
   br label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4245
 
 _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4245: ; preds = %_ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i4240, %1704
-  %.in4937 = phi ptr [ %1706, %1704 ], [ %1732, %_ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i4240 ]
+  %.in4937 = phi ptr [ %1732, %_ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i4240 ], [ %1706, %1704 ]
   %1733 = load ptr, ptr %.in4937, align 8
   %1734 = icmp eq ptr %1733, null
   br i1 %1734, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4245.thread, label %1735
@@ -9584,13 +9584,13 @@ _ZNK4pkpy13LargeNameDictIiE7try_getENS_7StrNameE.exit.sink.split.i.i: ; preds = 
   br label %_ZNK4pkpy12NameDictImplIiE20try_get_likely_foundENS_7StrNameE.exit
 
 _ZNK4pkpy12NameDictImplIiE20try_get_likely_foundENS_7StrNameE.exit: ; preds = %_ZNK4pkpy13LargeNameDictIiE7try_getENS_7StrNameE.exit.sink.split.i.i, %3489
-  %.in4932 = phi ptr [ %3490, %3489 ], [ %3515, %_ZNK4pkpy13LargeNameDictIiE7try_getENS_7StrNameE.exit.sink.split.i.i ]
+  %.in4932 = phi ptr [ %3515, %_ZNK4pkpy13LargeNameDictIiE7try_getENS_7StrNameE.exit.sink.split.i.i ], [ %3490, %3489 ]
   %3516 = load i32, ptr %.in4932, align 4
   %3517 = icmp slt i32 %3516, 0
   br i1 %3517, label %_ZNK4pkpy12NameDictImplIiE20try_get_likely_foundENS_7StrNameE.exit.thread, label %3527
 
 _ZNK4pkpy12NameDictImplIiE20try_get_likely_foundENS_7StrNameE.exit.thread: ; preds = %.lr.ph.i.i4436, %3485, %3506, %_ZNK4pkpy12NameDictImplIiE20try_get_likely_foundENS_7StrNameE.exit
-  %3518 = phi i32 [ %3516, %_ZNK4pkpy12NameDictImplIiE20try_get_likely_foundENS_7StrNameE.exit ], [ -1, %3506 ], [ -1, %3485 ], [ -1, %.lr.ph.i.i4436 ]
+  %3518 = phi i32 [ %3516, %_ZNK4pkpy12NameDictImplIiE20try_get_likely_foundENS_7StrNameE.exit ], [ -1, %3485 ], [ -1, %3506 ], [ -1, %.lr.ph.i.i4436 ]
   invoke void @_ZNK4pkpy7StrName6escapeEv(ptr dead_on_unwind nonnull writable sret(%"struct.pkpy::Str") align 8 %88, ptr noundef nonnull align 2 dereferenceable(2) %86)
           to label %3519 unwind label %.loopexit.split-lp4960.loopexit.split-lp.loopexit
 
@@ -10392,7 +10392,7 @@ _ZN4pkpy6py_varINS_3StrEEEPNS_8PyObjectEPNS_2VMEOT_.exit4494: ; preds = %3818
   br label %.backedge4988.backedge
 
 .backedge4988.backedge:                           ; preds = %3842, %3931, %3952
-  %.3.be = phi ptr [ %3844, %3842 ], [ %3933, %3931 ], [ %3954, %3952 ]
+  %.3.be = phi ptr [ %3954, %3952 ], [ %3933, %3931 ], [ %3844, %3842 ]
   br label %.backedge4988
 
 3845:                                             ; preds = %3840
@@ -11615,7 +11615,7 @@ _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i.i.i4526: ; preds = %4320
   br label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE7try_getENS_7StrNameE.exit
 
 _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE7try_getENS_7StrNameE.exit: ; preds = %4365, %.lr.ph.i._crit_edge.i
-  %.in = phi ptr [ %4367, %4365 ], [ %4385, %.lr.ph.i._crit_edge.i ]
+  %.in = phi ptr [ %4385, %.lr.ph.i._crit_edge.i ], [ %4367, %4365 ]
   %4386 = load ptr, ptr %.in, align 8
   %.not3878 = icmp eq ptr %4386, null
   br i1 %.not3878, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.thread, label %4387
@@ -11754,7 +11754,7 @@ _ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.
   br label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4554
 
 _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4554: ; preds = %_ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i4549, %4434
-  %.in4928 = phi ptr [ %4436, %4434 ], [ %4462, %_ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i4549 ]
+  %.in4928 = phi ptr [ %4462, %_ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i4549 ], [ %4436, %4434 ]
   %4463 = load ptr, ptr %.in4928, align 8
   %4464 = icmp eq ptr %4463, null
   br i1 %4464, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4554.thread, label %4521
@@ -15332,7 +15332,7 @@ define linkonce_odr noundef zeroext i1 @_ZN4pkpy12NameDictImplIPNS_8PyObjectEE3d
   br i1 %61, label %_ZN4pkpy13SmallNameDictIPNS_8PyObjectEE3delENS_7StrNameE.exit, label %.lr.ph35.i, !llvm.loop !65
 
 _ZN4pkpy13SmallNameDictIPNS_8PyObjectEE3delENS_7StrNameE.exit: ; preds = %.lr.ph, %51, %.lr.ph35.i, %8, %.lr.ph.i._crit_edge, %18, %13
-  %62 = phi i1 [ true, %13 ], [ true, %.lr.ph.i._crit_edge ], [ false, %18 ], [ true, %51 ], [ false, %8 ], [ true, %.lr.ph35.i ], [ false, %.lr.ph ]
+  %62 = phi i1 [ true, %13 ], [ false, %8 ], [ true, %.lr.ph.i._crit_edge ], [ true, %51 ], [ false, %18 ], [ true, %.lr.ph35.i ], [ false, %.lr.ph ]
   ret i1 %62
 }
 
@@ -15899,7 +15899,7 @@ _ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.
   br label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit
 
 _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit: ; preds = %16, %_ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i
-  %.in = phi ptr [ %18, %16 ], [ %44, %_ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i ]
+  %.in = phi ptr [ %44, %_ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i ], [ %18, %16 ]
   %45 = load ptr, ptr %.in, align 8
   %46 = icmp eq ptr %45, null
   br i1 %46, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit.thread, label %60

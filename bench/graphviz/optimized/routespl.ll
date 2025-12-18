@@ -861,7 +861,7 @@ gv_calloc.exit:                                   ; preds = %.thread.i358, %266
   br i1 %exitcond.not, label %.loopexit371, label %.preheader370, !llvm.loop !57
 
 .loopexit371:                                     ; preds = %.preheader370, %gv_calloc.exit, %275
-  %.0334 = phi i1 [ false, %275 ], [ false, %gv_calloc.exit ], [ true, %.preheader370 ]
+  %.0334 = phi i1 [ false, %gv_calloc.exit ], [ false, %275 ], [ true, %.preheader370 ]
   %287 = load i32, ptr %.0332381, align 8
   %288 = and i32 %287, 3
   %289 = icmp eq i32 %288, 3
@@ -1654,7 +1654,7 @@ nodes_delete.exit.i.i.i.i:                        ; preds = %97, %.lr.ph.i.i.i.i
   br i1 %exitcond.not.i.i, label %find_all_cycles.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !88
 
 find_all_cycles.exit.i:                           ; preds = %nodes_delete.exit.i.i.i.i, %._crit_edge.i.i, %57
-  %.sroa.0.0.lcssa55.i.i = phi ptr [ %.sroa.0.1.i.i, %._crit_edge.i.i ], [ null, %57 ], [ %.sroa.0.1.i.i, %nodes_delete.exit.i.i.i.i ]
+  %.sroa.0.0.lcssa55.i.i = phi ptr [ null, %57 ], [ %.sroa.0.1.i.i, %._crit_edge.i.i ], [ %.sroa.0.1.i.i, %nodes_delete.exit.i.i.i.i ]
   tail call void @free(ptr noundef %.sroa.0.0.lcssa55.i.i) #19, !noalias !81
   %101 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.val16.i.i = load i64, ptr %101, align 8, !tbaa !89

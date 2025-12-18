@@ -1174,7 +1174,7 @@ define range(i32 -1, 1) i32 @H5D__fill_refill_vl(ptr noundef readonly captures(n
   br label %119
 
 119:                                              ; preds = %.sink.split, %112, %109
-  %.4 = phi i32 [ %.15782, %109 ], [ %.15782, %112 ], [ -1, %.sink.split ]
+  %.4 = phi i32 [ %.15782, %112 ], [ %.15782, %109 ], [ -1, %.sink.split ]
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %121 = load ptr, ptr %120, align 8, !tbaa !21
   %.not67 = icmp eq ptr %121, null

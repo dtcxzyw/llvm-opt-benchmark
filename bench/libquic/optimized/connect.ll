@@ -494,9 +494,9 @@ define internal fastcc i32 @conn_state(ptr noundef %0, ptr noundef %1) unnamed_a
   br label %50
 
 50:                                               ; preds = %46, %44, %36, %29
-  %.240.i = phi ptr [ %42, %46 ], [ %37, %36 ], [ null, %44 ], [ null, %29 ]
-  %.136.i = phi i64 [ %49, %46 ], [ %33, %36 ], [ %45, %44 ], [ %33, %29 ]
-  %.134.i = phi ptr [ %17, %46 ], [ %30, %36 ], [ %17, %44 ], [ %30, %29 ]
+  %.240.i = phi ptr [ %37, %36 ], [ %42, %46 ], [ null, %44 ], [ null, %29 ]
+  %.136.i = phi i64 [ %33, %36 ], [ %49, %46 ], [ %45, %44 ], [ %33, %29 ]
+  %.134.i = phi ptr [ %30, %36 ], [ %17, %46 ], [ %17, %44 ], [ %30, %29 ]
   %51 = call ptr @BUF_strndup(ptr noundef nonnull %.134.i, i64 noundef %.136.i) #10
   store ptr %51, ptr %4, align 8, !tbaa !30
   %52 = icmp eq ptr %51, null
@@ -679,7 +679,7 @@ split_host_and_port.exit:                         ; preds = %55, %.critedge.sink
   br label %.loopexit
 
 .loopexit:                                        ; preds = %14, %.loopexit.loopexit, %.loopexit89, %102, %104, %92, %94, %82, %75, %67, %19
-  %.1 = phi i32 [ %.062, %19 ], [ %80, %82 ], [ %88, %92 ], [ %88, %94 ], [ %.062, %75 ], [ %.062, %67 ], [ %.062, %.loopexit89 ], [ -1, %102 ], [ 0, %104 ], [ %.062, %.loopexit.loopexit ], [ 1, %14 ]
+  %.1 = phi i32 [ %.062, %.loopexit.loopexit ], [ %.062, %19 ], [ %80, %82 ], [ %88, %92 ], [ %88, %94 ], [ %.062, %75 ], [ %.062, %67 ], [ %.062, %.loopexit89 ], [ -1, %102 ], [ 0, %104 ], [ 1, %14 ]
   br i1 %.not, label %.loopexit90, label %111
 
 111:                                              ; preds = %.loopexit

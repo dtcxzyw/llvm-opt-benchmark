@@ -176,7 +176,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   br i1 %exitcond39.not.i, label %Vec_IntSelectSortCost.exit, label %.lr.ph.i, !llvm.loop !40
 
 Vec_IntSelectSortCost.exit:                       ; preds = %._crit_edge.i, %22, %._crit_edge
-  %.val65120 = phi ptr [ %.val65107, %._crit_edge ], [ %.val65110, %22 ], [ %.val65107, %._crit_edge.i ]
+  %.val65120 = phi ptr [ %.val65110, %22 ], [ %.val65107, %._crit_edge ], [ %.val65107, %._crit_edge.i ]
   %72 = tail call i32 @Abc_SopGetCubeNum(ptr noundef %24) #21
   %73 = add nsw i32 %25, 3
   %74 = mul nsw i32 %72, %73

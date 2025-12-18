@@ -3267,7 +3267,7 @@ tailrecurse:                                      ; preds = %33, %3
   br label %_ZNK3nla11nex_creator13gt_on_mul_mulERKNS_7nex_mulES3_.exit
 
 _ZNK3nla11nex_creator13gt_on_mul_mulERKNS_7nex_mulES3_.exit: ; preds = %tailrecurse, %31, %29, %8, %37, %14
-  %.0 = phi i1 [ false, %37 ], [ %32, %31 ], [ %18, %14 ], [ true, %8 ], [ %30, %29 ], [ false, %tailrecurse ]
+  %.0 = phi i1 [ false, %37 ], [ %32, %31 ], [ %30, %29 ], [ %18, %14 ], [ true, %8 ], [ false, %tailrecurse ]
   ret i1 %.0
 }
 
@@ -3648,7 +3648,7 @@ tailrecurse:                                      ; preds = %59
   br label %_ZgtRK8rationalS1_.exit
 
 _ZgtRK8rationalS1_.exit:                          ; preds = %tailrecurse, %83, %75, %._crit_edge.i, %3, %55, %52, %48, %99, %11, %57, %9
-  %.017 = phi i1 [ false, %99 ], [ %54, %52 ], [ %10, %9 ], [ %58, %57 ], [ false, %11 ], [ %56, %55 ], [ %51, %48 ], [ false, %3 ], [ %94, %._crit_edge.i ], [ %82, %83 ], [ %82, %75 ], [ false, %tailrecurse ]
+  %.017 = phi i1 [ %51, %48 ], [ false, %99 ], [ %54, %52 ], [ %82, %83 ], [ %10, %9 ], [ %58, %57 ], [ false, %11 ], [ %56, %55 ], [ false, %3 ], [ %94, %._crit_edge.i ], [ %82, %75 ], [ false, %tailrecurse ]
   ret i1 %.017
 }
 
@@ -6810,7 +6810,7 @@ _ZN3nla11nex_creator11mul_factorymLERKNS_7nex_powE.exit41: ; preds = %131, %137
   br label %255
 
 _ZNSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE4findERS5_.exit: ; preds = %118, %102, %113
-  %.sroa.06.1.i.i = phi ptr [ %114, %113 ], [ %.sroa.06.0.i.i, %102 ], [ %120, %118 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %102 ], [ %114, %113 ], [ %120, %118 ]
   %144 = getelementptr inbounds nuw i8, ptr %.074, i64 8
   %145 = load i32, ptr %144, align 8, !tbaa !23
   %146 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 8
@@ -7185,7 +7185,7 @@ _ZNSt10_HashtableIjSt4pairIKjjESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4
   resume { ptr, i32 } %53
 
 _ZNSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEEixERS5_.exit: ; preds = %41, %36, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %37, %36 ], [ %52, %.loopexit.i.i ], [ %43, %41 ]
+  %.pn.i.i = phi ptr [ %52, %.loopexit.i.i ], [ %37, %36 ], [ %43, %41 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 12
   store i32 %29, ptr %.1.i.i, align 4, !tbaa !20
   br label %54
@@ -11822,8 +11822,8 @@ _ZNSt10_HashtableIjjSaIjENSt8__detail9_IdentityESt8equal_toIjESt4hashIjENS1_18_M
   resume { ptr, i32 } %48
 
 _ZNKSt10_HashtableIjjSaIjENSt8__detail9_IdentityESt8equal_toIjESt4hashIjENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE15_M_find_node_trIjEEPNS1_10_Hash_nodeIjLb0EEEmRKT_m.exit: ; preds = %34, %20, %.critedge, %29
-  %.sroa.031.1 = phi ptr [ %30, %29 ], [ %47, %.critedge ], [ %.sroa.028.0, %20 ], [ %36, %34 ]
-  %.sroa.432.1 = phi i8 [ 0, %29 ], [ 1, %.critedge ], [ 0, %20 ], [ 0, %34 ]
+  %.sroa.031.1 = phi ptr [ %.sroa.028.0, %20 ], [ %47, %.critedge ], [ %30, %29 ], [ %36, %34 ]
+  %.sroa.432.1 = phi i8 [ 0, %20 ], [ 1, %.critedge ], [ 0, %29 ], [ 0, %34 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.031.1, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.432.1, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -13516,8 +13516,8 @@ _ZNSt10_HashtableIPKN3nla3nexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ES
   resume { ptr, i32 } %48
 
 _ZNKSt10_HashtableIPKN3nla3nexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE15_M_find_node_trIS3_EEPNS5_10_Hash_nodeIS3_Lb0EEEmRKT_m.exit: ; preds = %34, %20, %.critedge, %29
-  %.sroa.031.1 = phi ptr [ %30, %29 ], [ %47, %.critedge ], [ %.sroa.028.0, %20 ], [ %36, %34 ]
-  %.sroa.432.1 = phi i8 [ 0, %29 ], [ 1, %.critedge ], [ 0, %20 ], [ 0, %34 ]
+  %.sroa.031.1 = phi ptr [ %.sroa.028.0, %20 ], [ %47, %.critedge ], [ %30, %29 ], [ %36, %34 ]
+  %.sroa.432.1 = phi i8 [ 0, %20 ], [ 1, %.critedge ], [ 0, %29 ], [ 0, %34 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.031.1, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.432.1, 1
   ret { ptr, i8 } %.fca.1.insert

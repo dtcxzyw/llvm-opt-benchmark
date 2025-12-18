@@ -90,7 +90,7 @@ define internal range(i32 0, 51) i32 @lrc_probe(ptr noundef readonly captures(no
   br i1 %.not34, label %.loopexit, label %20, !llvm.loop !16
 
 .loopexit:                                        ; preds = %7, %26, %.critedge38, %.preheader, %14, %11
-  %.0 = phi i32 [ 40, %11 ], [ 50, %14 ], [ 5, %.preheader ], [ 5, %.critedge38 ], [ 40, %26 ], [ 0, %7 ]
+  %.0 = phi i32 [ 5, %.preheader ], [ 40, %11 ], [ 50, %14 ], [ 5, %.critedge38 ], [ 40, %26 ], [ 0, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)

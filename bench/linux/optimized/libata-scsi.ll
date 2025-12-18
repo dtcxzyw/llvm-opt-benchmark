@@ -208,7 +208,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @ata_scsi_park_show(ptr n
   br label %60
 
 60:                                               ; preds = %55, %47
-  %61 = phi ptr [ %59, %55 ], [ %50, %47 ]
+  %61 = phi ptr [ %50, %47 ], [ %59, %55 ]
   %62 = icmp eq ptr %61, null
   br i1 %62, label %switch.edge.thread, label %63, !prof !7
 
@@ -395,7 +395,7 @@ define internal i64 @ata_scsi_park_store(ptr noundef readonly captures(none) %0,
   br label %75
 
 75:                                               ; preds = %70, %62
-  %76 = phi ptr [ %74, %70 ], [ %65, %62 ]
+  %76 = phi ptr [ %65, %62 ], [ %74, %70 ]
   %77 = icmp eq ptr %76, null
   br i1 %77, label %switch.edge.thread, label %78, !prof !7
 
@@ -467,7 +467,7 @@ switch.edge.thread.fold.split:                    ; preds = %78, %78, %78
   br label %switch.edge.thread
 
 switch.edge.thread:                               ; preds = %78, %switch.edge.thread.fold.split, %66, %60, %36, %28, %40, %32, %75, %109, %105, %104, %90, %85
-  %113 = phi i32 [ %18, %90 ], [ %18, %104 ], [ %18, %109 ], [ %18, %105 ], [ -95, %85 ], [ -19, %75 ], [ -19, %32 ], [ -19, %40 ], [ -19, %28 ], [ -19, %36 ], [ -19, %60 ], [ -19, %66 ], [ -19, %78 ], [ -95, %switch.edge.thread.fold.split ]
+  %113 = phi i32 [ %18, %90 ], [ %18, %104 ], [ %18, %109 ], [ %18, %105 ], [ -95, %85 ], [ -19, %78 ], [ -19, %75 ], [ -19, %32 ], [ -19, %40 ], [ -19, %28 ], [ -19, %36 ], [ -19, %60 ], [ -19, %66 ], [ -95, %switch.edge.thread.fold.split ]
   %114 = load ptr, ptr %22, align 16
   call void @_raw_spin_unlock_irqrestore(ptr noundef %114, i64 noundef %24) #19
   %115 = icmp eq i32 %113, 0
@@ -626,7 +626,7 @@ define dso_local void @ata_scsi_unlock_native_capacity(ptr noundef readonly capt
   br label %58
 
 58:                                               ; preds = %53, %45
-  %59 = phi ptr [ %57, %53 ], [ %48, %45 ]
+  %59 = phi ptr [ %48, %45 ], [ %57, %53 ]
   %60 = icmp eq ptr %59, null
   br i1 %60, label %switch.edge.thread, label %61, !prof !7
 
@@ -754,7 +754,7 @@ define dso_local ptr @ata_scsi_find_dev(ptr noundef readonly captures(address, r
   br label %53
 
 53:                                               ; preds = %48, %40
-  %54 = phi ptr [ %52, %48 ], [ %43, %40 ]
+  %54 = phi ptr [ %43, %40 ], [ %52, %48 ]
   %55 = icmp eq ptr %54, null
   br i1 %55, label %switch.edge, label %56, !prof !7
 
@@ -1311,7 +1311,7 @@ define dso_local i32 @ata_sas_scsi_ioctl(ptr noundef %0, ptr noundef %1, i32 nou
   br label %123
 
 123:                                              ; preds = %118, %110
-  %124 = phi ptr [ %122, %118 ], [ %113, %110 ]
+  %124 = phi ptr [ %113, %110 ], [ %122, %118 ]
   %125 = icmp eq ptr %124, null
   br i1 %125, label %switch.edge.thread, label %126, !prof !7
 
@@ -1772,7 +1772,7 @@ define dso_local noundef range(i32 -12, 1) i32 @ata_scsi_slave_config(ptr nounde
   br label %55
 
 55:                                               ; preds = %50, %42
-  %56 = phi ptr [ %54, %50 ], [ %45, %42 ]
+  %56 = phi ptr [ %45, %42 ], [ %54, %50 ]
   %57 = icmp eq ptr %56, null
   br i1 %57, label %.thread4, label %58
 
@@ -1876,7 +1876,7 @@ define dso_local void @ata_scsi_slave_destroy(ptr noundef %0) #0 align 16 {
   br label %60
 
 60:                                               ; preds = %55, %47
-  %61 = phi ptr [ %59, %55 ], [ %50, %47 ]
+  %61 = phi ptr [ %50, %47 ], [ %59, %55 ]
   %62 = icmp eq ptr %61, null
   br i1 %62, label %.thread4, label %63
 
@@ -3147,7 +3147,7 @@ define dso_local range(i32 0, 4183) i32 @ata_scsi_queuecmd(ptr noundef readonly 
   br label %59
 
 59:                                               ; preds = %54, %46
-  %60 = phi ptr [ %58, %54 ], [ %49, %46 ]
+  %60 = phi ptr [ %49, %46 ], [ %58, %54 ]
   %61 = icmp eq ptr %60, null
   br i1 %61, label %.thread5, label %62, !prof !7
 
@@ -3965,7 +3965,7 @@ define internal fastcc void @ata_scsiop_read_cap(ptr noundef readonly captures(n
   br label %.thread
 
 .thread:                                          ; preds = %96, %124, %143, %139, %134, %129, %127, %111, %106, %101, %99, %57
-  %156 = phi ptr [ %85, %57 ], [ %.pre, %143 ], [ %113, %139 ], [ %113, %134 ], [ %113, %129 ], [ %113, %127 ], [ %113, %111 ], [ %85, %106 ], [ %85, %101 ], [ %85, %99 ], [ %113, %124 ], [ %85, %96 ]
+  %156 = phi ptr [ %113, %124 ], [ %85, %57 ], [ %.pre, %143 ], [ %113, %139 ], [ %113, %134 ], [ %113, %129 ], [ %113, %127 ], [ %113, %111 ], [ %85, %106 ], [ %85, %101 ], [ %85, %99 ], [ %85, %96 ]
   %157 = getelementptr i8, ptr %156, i64 138
   %158 = load i16, ptr %157, align 2
   %159 = and i16 %158, 3
@@ -5452,8 +5452,8 @@ define internal noundef range(i32 0, 2) i32 @ata_scsi_pass_thru(ptr noundef capt
   br label %273
 
 21:                                               ; preds = %19, %18, %17, %1
-  %22 = phi i1 [ false, %19 ], [ true, %18 ], [ true, %17 ], [ true, %1 ]
-  %23 = phi i8 [ 6, %19 ], [ 1, %18 ], [ 2, %17 ], [ 0, %1 ]
+  %22 = phi i1 [ true, %1 ], [ false, %19 ], [ true, %18 ], [ true, %17 ]
+  %23 = phi i8 [ 0, %1 ], [ 6, %19 ], [ 1, %18 ], [ 2, %17 ]
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 %23, ptr %24, align 8
   %25 = or disjoint i32 %10, 2

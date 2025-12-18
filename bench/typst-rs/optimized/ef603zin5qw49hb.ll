@@ -4016,7 +4016,7 @@ _ZN4core3ops8function5FnMut8call_mut17h640dbde9362ea1e0E.llvm.591469556003304376
   br i1 %.not17.i171, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h774183f8e8b0429bE.llvm.5914695560033043764.exit173", label %.lr.ph.i165
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h774183f8e8b0429bE.llvm.5914695560033043764.exit173": ; preds = %.lr.ph.i, %187, %.lr.ph.i154, %199, %.lr.ph.i165, %210, %_ZN4core3ops8function5FnMut8call_mut17h640dbde9362ea1e0E.llvm.5914695560033043764.exit.backedge.i170, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h774183f8e8b0429bE.llvm.5914695560033043764.exit162"
-  %.085 = phi i8 [ 0, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h774183f8e8b0429bE.llvm.5914695560033043764.exit162" ], [ 1, %.lr.ph.i154 ], [ 1, %210 ], [ 0, %_ZN4core3ops8function5FnMut8call_mut17h640dbde9362ea1e0E.llvm.5914695560033043764.exit.backedge.i170 ], [ 1, %.lr.ph.i165 ], [ 1, %199 ], [ 1, %187 ], [ 1, %.lr.ph.i ]
+  %.085 = phi i8 [ 1, %.lr.ph.i154 ], [ 1, %210 ], [ 0, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h774183f8e8b0429bE.llvm.5914695560033043764.exit162" ], [ 0, %_ZN4core3ops8function5FnMut8call_mut17h640dbde9362ea1e0E.llvm.5914695560033043764.exit.backedge.i170 ], [ 1, %.lr.ph.i165 ], [ 1, %199 ], [ 1, %187 ], [ 1, %.lr.ph.i ]
   %215 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i8 %.085, ptr %215, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %9)

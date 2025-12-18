@@ -713,7 +713,7 @@ if.then7.i.i.i:                                   ; preds = %invoke.cont.i.i.i50
   br label %_ZNSt12__shared_ptrIN5sound12PlayingSoundELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN5sound12PlayingSoundELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %do.body.i.i.i.i.i, %if.then7.i.i.i, %invoke.cont.i.i.i50, %if.then.i.i.i53, %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2ERKSt12__weak_countILS1_2EESt9nothrow_t.exit.i.i.i, %_ZNSt6vectorISt8weak_ptrIN5sound12PlayingSoundEESaIS3_EE8pop_backEv.exit
-  %wptr.sroa.0.0 = phi <2 x ptr> [ %6, %_ZNSt6vectorISt8weak_ptrIN5sound12PlayingSoundEESaIS3_EE8pop_backEv.exit ], [ %6, %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2ERKSt12__weak_countILS1_2EESt9nothrow_t.exit.i.i.i ], [ %wptr.sroa.0.1, %if.then.i.i.i53 ], [ %wptr.sroa.0.1, %if.then7.i.i.i ], [ %wptr.sroa.0.1, %invoke.cont.i.i.i50 ], [ %6, %do.body.i.i.i.i.i ]
+  %wptr.sroa.0.0 = phi <2 x ptr> [ %6, %_ZNSt6vectorISt8weak_ptrIN5sound12PlayingSoundEESaIS3_EE8pop_backEv.exit ], [ %wptr.sroa.0.1, %invoke.cont.i.i.i50 ], [ %6, %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2ERKSt12__weak_countILS1_2EESt9nothrow_t.exit.i.i.i ], [ %wptr.sroa.0.1, %if.then.i.i.i53 ], [ %wptr.sroa.0.1, %if.then7.i.i.i ], [ %6, %do.body.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %snd)
   %wptr.sroa.0.8.vec.extract16 = extractelement <2 x ptr> %wptr.sroa.0.0, i64 1
   %cmp.not.i.i58 = icmp eq ptr %wptr.sroa.0.8.vec.extract16, null
@@ -8389,7 +8389,7 @@ lpad48:                                           ; preds = %if.end46
   resume { ptr, i32 } %28
 
 cleanup64:                                        ; preds = %for.body.us, %land.rhs.i.i.i.i.i.i, %land.rhs.i.us.i.i
-  %retval.sroa.0.0.ph = phi ptr [ %__p.0.i.i, %land.rhs.i.i.i.i.i.i ], [ %__p.0.us.i.i, %land.rhs.i.us.i.i ], [ %__it.sroa.0.0107.us, %for.body.us ]
+  %retval.sroa.0.0.ph = phi ptr [ %__p.0.us.i.i, %land.rhs.i.us.i.i ], [ %__p.0.i.i, %land.rhs.i.i.i.i.i.i ], [ %__it.sroa.0.0107.us, %for.body.us ]
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN5sound14ISoundDataOpenEEESaISC_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit, label %if.then.i
 
@@ -10797,7 +10797,7 @@ lpad48:                                           ; preds = %if.end46
   resume { ptr, i32 } %28
 
 cleanup64:                                        ; preds = %for.body.us, %land.rhs.i.i.i.i.i.i, %land.rhs.i.us.i.i
-  %retval.sroa.0.0.ph = phi ptr [ %__p.0.i.i, %land.rhs.i.i.i.i.i.i ], [ %__p.0.us.i.i, %land.rhs.i.us.i.i ], [ %__it.sroa.0.0107.us, %for.body.us ]
+  %retval.sroa.0.0.ph = phi ptr [ %__p.0.us.i.i, %land.rhs.i.us.i.i ], [ %__p.0.i.i, %land.rhs.i.i.i.i.i.i ], [ %__it.sroa.0.0107.us, %for.body.us ]
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10unique_ptrIN5sound16ISoundDataUnopenESt14default_deleteISA_EEESaISE_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSG_18_Mod_range_hashingENSG_20_Default_ranged_hashENSG_20_Prime_rehash_policyENSG_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit, label %if.then.i
 
@@ -11335,7 +11335,7 @@ lpad48:                                           ; preds = %if.end46
   resume { ptr, i32 } %28
 
 cleanup64:                                        ; preds = %for.body.us, %land.rhs.i.i.i.i.i.i, %land.rhs.i.us.i.i
-  %retval.sroa.0.0.ph = phi ptr [ %__p.0.i.i, %land.rhs.i.i.i.i.i.i ], [ %__p.0.us.i.i, %land.rhs.i.us.i.i ], [ %__it.sroa.0.0107.us, %for.body.us ]
+  %retval.sroa.0.0.ph = phi ptr [ %__p.0.us.i.i, %land.rhs.i.us.i.i ], [ %__p.0.i.i, %land.rhs.i.i.i.i.i.i ], [ %__it.sroa.0.0107.us, %for.body.us ]
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10unique_ptrIN5sound16ISoundDataUnopenESt14default_deleteISA_EEESaISE_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSG_18_Mod_range_hashingENSG_20_Default_ranged_hashENSG_20_Prime_rehash_policyENSG_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit, label %if.then.i
 
@@ -11960,7 +11960,7 @@ lpad48:                                           ; preds = %if.end46
   resume { ptr, i32 } %28
 
 cleanup64:                                        ; preds = %for.body.us, %land.rhs.i.i.i.i.i.i, %land.rhs.i.us.i.i
-  %retval.sroa.0.0.ph = phi ptr [ %__p.0.i.i, %land.rhs.i.i.i.i.i.i ], [ %__p.0.us.i.i, %land.rhs.i.us.i.i ], [ %__it.sroa.0.0107.us, %for.body.us ]
+  %retval.sroa.0.0.ph = phi ptr [ %__p.0.us.i.i, %land.rhs.i.us.i.i ], [ %__p.0.i.i, %land.rhs.i.i.i.i.i.i ], [ %__it.sroa.0.0107.us, %for.body.us ]
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIS5_SaIS5_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit, label %if.then.i
 

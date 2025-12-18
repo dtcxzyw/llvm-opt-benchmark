@@ -9816,8 +9816,8 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i24.i415.i.i.i.i.i: ; preds = 
   br i1 %.not.i339.i.i.i.i.i, label %.noexc244.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !315
 
 .noexc244.i.i.i.i.i:                              ; preds = %840, %699, %838, %_ZNSt8_Rb_treeIPN9grpc_core15XdsLocalityNameESt4pairIKS2_mESt10_Select1stIS5_ENS1_4LessESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS4_.exit.i.i.i.i.i.i, %.lr.ph84.i.i.i.i.i
-  %.sroa.042.0.i.i.i.i.i.i = phi ptr [ %.08.lcssa.i.i.i.i.i.i.i, %_ZNSt8_Rb_treeIPN9grpc_core15XdsLocalityNameESt4pairIKS2_mESt10_Select1stIS5_ENS1_4LessESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS4_.exit.i.i.i.i.i.i ], [ %109, %.lr.ph84.i.i.i.i.i ], [ %109, %699 ], [ %.08.lcssa.i.i.i.i.i.i.i, %838 ], [ %.123.i.i.i.i.i.i, %840 ]
-  %.sroa.3.0.i335.i.i.i.i.i = phi ptr [ %.us-phi103.i.i.i.i, %_ZNSt8_Rb_treeIPN9grpc_core15XdsLocalityNameESt4pairIKS2_mESt10_Select1stIS5_ENS1_4LessESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS4_.exit.i.i.i.i.i.i ], [ %109, %.lr.ph84.i.i.i.i.i ], [ %109, %699 ], [ %.19.i34.i.i.i.i.i.i, %838 ], [ %.123.i.i.i.i.i.i, %840 ]
+  %.sroa.042.0.i.i.i.i.i.i = phi ptr [ %.08.lcssa.i.i.i.i.i.i.i, %838 ], [ %.08.lcssa.i.i.i.i.i.i.i, %_ZNSt8_Rb_treeIPN9grpc_core15XdsLocalityNameESt4pairIKS2_mESt10_Select1stIS5_ENS1_4LessESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS4_.exit.i.i.i.i.i.i ], [ %109, %.lr.ph84.i.i.i.i.i ], [ %109, %699 ], [ %.123.i.i.i.i.i.i, %840 ]
+  %.sroa.3.0.i335.i.i.i.i.i = phi ptr [ %.19.i34.i.i.i.i.i.i, %838 ], [ %.us-phi103.i.i.i.i, %_ZNSt8_Rb_treeIPN9grpc_core15XdsLocalityNameESt4pairIKS2_mESt10_Select1stIS5_ENS1_4LessESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS4_.exit.i.i.i.i.i.i ], [ %109, %.lr.ph84.i.i.i.i.i ], [ %109, %699 ], [ %.123.i.i.i.i.i.i, %840 ]
   %842 = load ptr, ptr %111, align 8, !tbaa !78, !noalias !279
   %843 = icmp eq ptr %.sroa.042.0.i.i.i.i.i.i, %842
   %844 = icmp eq ptr %.sroa.3.0.i335.i.i.i.i.i, %109
@@ -10267,8 +10267,8 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i24.i515.i.i.i.i.i: ; preds = 
   br i1 %.not.i387.i.i.i.i.i, label %.noexc251.i.i.i.i.i, label %.lr.ph.i346.i.i.i.i.i, !llvm.loop !315
 
 .noexc251.i.i.i.i.i:                              ; preds = %1001, %999, %_ZNSt8_Rb_treeIPN9grpc_core15XdsLocalityNameESt4pairIKS2_mESt10_Select1stIS5_ENS1_4LessESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS4_.exit.i366.i.i.i.i.i, %854
-  %.sroa.042.0.i378.i.i.i.i.i = phi ptr [ %.08.lcssa.i.i367.i.i.i.i.i, %_ZNSt8_Rb_treeIPN9grpc_core15XdsLocalityNameESt4pairIKS2_mESt10_Select1stIS5_ENS1_4LessESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS4_.exit.i366.i.i.i.i.i ], [ %109, %854 ], [ %.08.lcssa.i.i367.i.i.i.i.i, %999 ], [ %.123.i385.i.i.i.i.i, %1001 ]
-  %.sroa.3.0.i379.i.i.i.i.i = phi ptr [ %.02250.i348.i.i.i.i.i, %_ZNSt8_Rb_treeIPN9grpc_core15XdsLocalityNameESt4pairIKS2_mESt10_Select1stIS5_ENS1_4LessESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS4_.exit.i366.i.i.i.i.i ], [ %109, %854 ], [ %.19.i34.i375.i.i.i.i.i, %999 ], [ %.123.i385.i.i.i.i.i, %1001 ]
+  %.sroa.042.0.i378.i.i.i.i.i = phi ptr [ %.08.lcssa.i.i367.i.i.i.i.i, %999 ], [ %.08.lcssa.i.i367.i.i.i.i.i, %_ZNSt8_Rb_treeIPN9grpc_core15XdsLocalityNameESt4pairIKS2_mESt10_Select1stIS5_ENS1_4LessESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS4_.exit.i366.i.i.i.i.i ], [ %109, %854 ], [ %.123.i385.i.i.i.i.i, %1001 ]
+  %.sroa.3.0.i379.i.i.i.i.i = phi ptr [ %.19.i34.i375.i.i.i.i.i, %999 ], [ %.02250.i348.i.i.i.i.i, %_ZNSt8_Rb_treeIPN9grpc_core15XdsLocalityNameESt4pairIKS2_mESt10_Select1stIS5_ENS1_4LessESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS4_.exit.i366.i.i.i.i.i ], [ %109, %854 ], [ %.123.i385.i.i.i.i.i, %1001 ]
   %1003 = load ptr, ptr %111, align 8, !tbaa !78, !noalias !279
   %1004 = icmp eq ptr %.sroa.042.0.i378.i.i.i.i.i, %1003
   %1005 = icmp eq ptr %.sroa.3.0.i379.i.i.i.i.i, %109
@@ -15777,7 +15777,7 @@ _ZN9grpc_core12experimental4JsonD2Ev.exit695:     ; preds = %_ZN9grpc_core12expe
   br label %.loopexit892
 
 .loopexit892.sink.split:                          ; preds = %1110, %.body502.thread, %.body502.thread1039
-  %.pn305.pn.pn.pn.pn844.ph = phi { ptr, i32 } [ %646, %.body502.thread ], [ %647, %.body502.thread1039 ], [ %.pn305.pn.pn, %1110 ]
+  %.pn305.pn.pn.pn.pn844.ph = phi { ptr, i32 } [ %647, %.body502.thread1039 ], [ %646, %.body502.thread ], [ %.pn305.pn.pn, %1110 ]
   call void @_ZN9grpc_core12experimental4JsonD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %142) #39
   call void @llvm.lifetime.end.p0(ptr nonnull %142)
   br label %.loopexit892
@@ -15849,7 +15849,7 @@ _ZN9grpc_core12experimental4JsonD2Ev.exit695:     ; preds = %_ZN9grpc_core12expe
   br label %.loopexit889
 
 .loopexit889.sink.split:                          ; preds = %1123, %.body547.thread, %.body547.thread1041
-  %.pn311.pn.pn.pn.pn853.ph = phi { ptr, i32 } [ %749, %.body547.thread ], [ %750, %.body547.thread1041 ], [ %.pn311.pn.pn, %1123 ]
+  %.pn311.pn.pn.pn.pn853.ph = phi { ptr, i32 } [ %750, %.body547.thread1041 ], [ %749, %.body547.thread ], [ %.pn311.pn.pn, %1123 ]
   call void @_ZN9grpc_core12experimental4JsonD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %155) #39
   call void @llvm.lifetime.end.p0(ptr nonnull %155)
   br label %.loopexit889
@@ -17526,7 +17526,7 @@ _ZNK9grpc_core15XdsLocalityName4LessclEPKS0_S3_.exit.i: ; preds = %.lr.ph.i
   br i1 %.not.i, label %._crit_edge.thread.i, label %.lr.ph.i.backedge
 
 .lr.ph.i.backedge:                                ; preds = %30, %.thread
-  %.02331.i.be = phi ptr [ %.023.i, %30 ], [ %.023.i93, %.thread ]
+  %.02331.i.be = phi ptr [ %.023.i93, %.thread ], [ %.023.i, %30 ]
   br label %.lr.ph.i, !llvm.loop !513
 
 .thread:                                          ; preds = %27, %_ZNK9grpc_core15XdsLocalityName4LessclEPKS0_S3_.exit.i
@@ -17657,7 +17657,7 @@ _ZNK9grpc_core15XdsLocalityName4LessclEPKS0_S3_.exit.i21: ; preds = %.lr.ph.i18
   br i1 %.not.i25, label %._crit_edge.thread.i36, label %.lr.ph.i18.backedge
 
 .lr.ph.i18.backedge:                              ; preds = %84, %.thread97
-  %.02331.i19.be = phi ptr [ %.023.i24, %84 ], [ %.023.i24100, %.thread97 ]
+  %.02331.i19.be = phi ptr [ %.023.i24100, %.thread97 ], [ %.023.i24, %84 ]
   br label %.lr.ph.i18, !llvm.loop !513
 
 .thread97:                                        ; preds = %81, %_ZNK9grpc_core15XdsLocalityName4LessclEPKS0_S3_.exit.i21
@@ -17781,7 +17781,7 @@ _ZNK9grpc_core15XdsLocalityName4LessclEPKS0_S3_.exit.i51: ; preds = %.lr.ph.i48
   br i1 %.not.i55, label %._crit_edge.thread.i66, label %.lr.ph.i48.backedge
 
 .lr.ph.i48.backedge:                              ; preds = %136, %.thread104
-  %.02331.i49.be = phi ptr [ %.023.i54, %136 ], [ %.023.i54107, %.thread104 ]
+  %.02331.i49.be = phi ptr [ %.023.i54107, %.thread104 ], [ %.023.i54, %136 ]
   br label %.lr.ph.i48, !llvm.loop !513
 
 .thread104:                                       ; preds = %133, %_ZNK9grpc_core15XdsLocalityName4LessclEPKS0_S3_.exit.i51

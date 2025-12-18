@@ -495,7 +495,7 @@ _ZN17meshopt_Allocator8allocateIjEEPT_m.exit:     ; preds = %14
   br i1 %223, label %183, label %._crit_edge268.i, !llvm.loop !27
 
 ._crit_edge275.i:                                 ; preds = %.lr.ph274.i, %._crit_edge268.i, %.lr.ph278.i
-  %.0182.lcssa341.i = phi i32 [ %181, %._crit_edge268.i ], [ 0, %.lr.ph278.i ], [ %181, %.lr.ph274.i ]
+  %.0182.lcssa341.i = phi i32 [ 0, %.lr.ph278.i ], [ %181, %._crit_edge268.i ], [ %181, %.lr.ph274.i ]
   %224 = getelementptr inbounds nuw i32, ptr %68, i64 %.0185276.i
   %225 = load i32, ptr %224, align 4, !tbaa !11
   %226 = add i32 %225, %.0182.lcssa341.i
@@ -1049,7 +1049,7 @@ _ZN7meshoptL11countSharedEPKNS_12ClusterGroupEiiRKNS_16ClusterAdjacencyE.exit: ;
   br i1 %495, label %.lr.ph220, label %._crit_edge221, !llvm.loop !52
 
 _ZN7meshoptL8heapPushEPNS_10GroupOrderEmS0_.exit179: ; preds = %488, %.lr.ph.i175, %363, %._crit_edge221, %_ZN7meshoptL16pickGroupToMergeEPKNS_12ClusterGroupEiRKNS_16ClusterAdjacencyEm.exit, %._crit_edge216, %_ZN7meshoptL7heapPopEPNS_10GroupOrderEm.exit
-  %.2141 = phi i64 [ %322, %._crit_edge216 ], [ %322, %_ZN7meshoptL7heapPopEPNS_10GroupOrderEm.exit ], [ %322, %_ZN7meshoptL16pickGroupToMergeEPKNS_12ClusterGroupEiRKNS_16ClusterAdjacencyEm.exit ], [ 1, %._crit_edge221 ], [ %322, %363 ], [ %.1140223, %.lr.ph.i175 ], [ %.1140223, %488 ]
+  %.2141 = phi i64 [ %322, %._crit_edge216 ], [ %322, %_ZN7meshoptL7heapPopEPNS_10GroupOrderEm.exit ], [ %322, %363 ], [ %322, %_ZN7meshoptL16pickGroupToMergeEPKNS_12ClusterGroupEiRKNS_16ClusterAdjacencyEm.exit ], [ 1, %._crit_edge221 ], [ %.1140223, %.lr.ph.i175 ], [ %.1140223, %488 ]
   %.not = icmp eq i64 %.2141, 0
   br i1 %.not, label %.lr.ph231, label %.lr.ph224
 

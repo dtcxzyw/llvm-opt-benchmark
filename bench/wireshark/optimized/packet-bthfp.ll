@@ -2070,12 +2070,12 @@ define internal fastcc i32 @dissect_at_command(ptr noundef %0, ptr noundef %1, p
   br label %.thread433
 
 .thread433:                                       ; preds = %.thread, %.critedge, %73
-  %.0383 = phi ptr [ %62, %73 ], [ %89, %.critedge ], [ null, %.thread ]
-  %.0382 = phi ptr [ %64, %73 ], [ %91, %.critedge ], [ null, %.thread ]
-  %.1373 = phi i32 [ %76, %73 ], [ %96, %.critedge ], [ %3, %.thread ]
-  %.0371 = phi ptr [ %79, %73 ], [ %98, %.critedge ], [ %27, %.thread ]
-  %.0366 = phi i32 [ %77, %73 ], [ %.2369.lcssa.ph, %.critedge ], [ 0, %.thread ]
-  %.0365 = phi i32 [ %80, %73 ], [ %99, %.critedge ], [ %8, %.thread ]
+  %.0383 = phi ptr [ %89, %.critedge ], [ %62, %73 ], [ null, %.thread ]
+  %.0382 = phi ptr [ %91, %.critedge ], [ %64, %73 ], [ null, %.thread ]
+  %.1373 = phi i32 [ %96, %.critedge ], [ %76, %73 ], [ %3, %.thread ]
+  %.0371 = phi ptr [ %98, %.critedge ], [ %79, %73 ], [ %27, %.thread ]
+  %.0366 = phi i32 [ %.2369.lcssa.ph, %.critedge ], [ %77, %73 ], [ 0, %.thread ]
+  %.0365 = phi i32 [ %99, %.critedge ], [ %80, %73 ], [ %8, %.thread ]
   %.not412 = icmp eq ptr %.0371, null
   br i1 %.not412, label %.thread509, label %.preheader521
 

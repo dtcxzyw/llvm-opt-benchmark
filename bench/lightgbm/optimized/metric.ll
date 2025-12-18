@@ -13409,10 +13409,10 @@ _ZNSt6vectorIiSaIiEE12emplace_backIJRiEEEvDpOT_.exit: ; preds = %_ZNSt6vectorIiS
   br i1 %exitcond.not, label %.loopexit, label %117, !llvm.loop !189
 
 .loopexit:                                        ; preds = %132, %110, %.preheader112, %.preheader
-  %.276 = phi double [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %.preheader112 ], [ %113, %110 ], [ %137, %132 ]
-  %.266 = phi double [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %.preheader112 ], [ %.165, %110 ], [ %.468, %132 ]
-  %.261 = phi double [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %.preheader112 ], [ %.160, %110 ], [ %.463, %132 ]
-  %.2 = phi double [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %.preheader112 ], [ %116, %110 ], [ %142, %132 ]
+  %.276 = phi double [ %113, %110 ], [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %.preheader112 ], [ %137, %132 ]
+  %.266 = phi double [ %.165, %110 ], [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %.preheader112 ], [ %.468, %132 ]
+  %.261 = phi double [ %.160, %110 ], [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %.preheader112 ], [ %.463, %132 ]
+  %.2 = phi double [ %116, %110 ], [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %.preheader112 ], [ %142, %132 ]
   %143 = call double @llvm.fmuladd.f64(double %.2, double 5.000000e-01, double %.261)
   %144 = call double @llvm.fmuladd.f64(double %.276, double %143, double %.266)
   %145 = fadd double %.261, %.2
@@ -15317,11 +15317,11 @@ _ZNSt6vectorIiSaIiEE12emplace_backIJRiEEEvDpOT_.exit: ; preds = %_ZNSt6vectorIiS
   br i1 %exitcond.not, label %.loopexit, label %119, !llvm.loop !228
 
 .loopexit:                                        ; preds = %136, %112, %.preheader129, %.preheader
-  %.292 = phi double [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %.preheader129 ], [ %.191, %112 ], [ %.494, %136 ]
-  %.287 = phi double [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %.preheader129 ], [ %115, %112 ], [ %141, %136 ]
-  %.277 = phi double [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %.preheader129 ], [ %.176, %112 ], [ %.479, %136 ]
-  %.272 = phi double [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %.preheader129 ], [ %.171, %112 ], [ %.474, %136 ]
-  %.2 = phi double [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %.preheader129 ], [ %118, %112 ], [ %146, %136 ]
+  %.292 = phi double [ %.191, %112 ], [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %.preheader129 ], [ %.494, %136 ]
+  %.287 = phi double [ %115, %112 ], [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %.preheader129 ], [ %141, %136 ]
+  %.277 = phi double [ %.176, %112 ], [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %.preheader129 ], [ %.479, %136 ]
+  %.272 = phi double [ %.171, %112 ], [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %.preheader129 ], [ %.474, %136 ]
+  %.2 = phi double [ %118, %112 ], [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %.preheader129 ], [ %146, %136 ]
   %147 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %148 = load double, ptr %147, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
@@ -18299,8 +18299,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit174.thread:          ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %exitcond487.not, label %._crit_edge418, label %.lr.ph417.split, !llvm.loop !268
 
 ._crit_edge418:                                   ; preds = %.loopexit, %.loopexit.us, %_ZNSt6vectorIdSaIdEED2Ev.exit, %.preheader
-  %.lcssa364536 = phi i32 [ %.lcssa364, %.preheader ], [ %35, %_ZNSt6vectorIdSaIdEED2Ev.exit ], [ %.lcssa364, %.loopexit.us ], [ %.lcssa364, %.loopexit ]
-  %.0288.lcssa = phi double [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %_ZNSt6vectorIdSaIdEED2Ev.exit ], [ %.1.lcssa.us, %.loopexit.us ], [ %.1.lcssa, %.loopexit ]
+  %.lcssa364536 = phi i32 [ %.lcssa364, %.preheader ], [ %.lcssa364, %.loopexit.us ], [ %35, %_ZNSt6vectorIdSaIdEED2Ev.exit ], [ %.lcssa364, %.loopexit ]
+  %.0288.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %.1.lcssa.us, %.loopexit.us ], [ 0.000000e+00, %_ZNSt6vectorIdSaIdEED2Ev.exit ], [ %.1.lcssa, %.loopexit ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %338 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #34
           to label %.noexc182 unwind label %364
@@ -26348,7 +26348,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !442
 
 _ZSt11swap_rangesIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit: ; preds = %._crit_edge, %._crit_edge102, %.lr.ph.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit, %5, %3
-  %.sroa.025.0 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %23, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit ], [ %23, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit ], [ %1, %.lr.ph.i ], [ %23, %._crit_edge102 ], [ %23, %._crit_edge ]
+  %.sroa.025.0 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %23, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit ], [ %1, %.lr.ph.i ], [ %23, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit ], [ %23, %._crit_edge102 ], [ %23, %._crit_edge ]
   ret ptr %.sroa.025.0
 }
 
@@ -33188,7 +33188,7 @@ _ZN8LightGBML8YentLossEd.exit23:                  ; preds = %177, %180
   br i1 %exitcond.not, label %.loopexit, label %168, !llvm.loop !555
 
 .loopexit:                                        ; preds = %_ZN8LightGBML8YentLossEd.exit23, %_ZN8LightGBML8YentLossEd.exit, %.preheader25, %.preheader
-  %187 = phi double [ 0.000000e+00, %.preheader25 ], [ 0.000000e+00, %.preheader ], [ %167, %_ZN8LightGBML8YentLossEd.exit ], [ %186, %_ZN8LightGBML8YentLossEd.exit23 ]
+  %187 = phi double [ 0.000000e+00, %.preheader25 ], [ %167, %_ZN8LightGBML8YentLossEd.exit ], [ 0.000000e+00, %.preheader ], [ %186, %_ZN8LightGBML8YentLossEd.exit23 ]
   %188 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %189 = load double, ptr %129, align 8, !tbaa !553
   %190 = fdiv double %187, %189

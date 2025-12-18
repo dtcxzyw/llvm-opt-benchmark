@@ -1788,7 +1788,7 @@ lpGetIntegerIfValid.exit168:                      ; preds = %184, %190
   br label %.thread175
 
 .thread175:                                       ; preds = %.thread175.sink.split, %222, %210, %219, %207
-  %.3.ph = phi i32 [ 0, %207 ], [ 0, %219 ], [ 1, %210 ], [ 1, %222 ], [ 1, %.thread175.sink.split ]
+  %.3.ph = phi i32 [ 1, %222 ], [ 1, %210 ], [ 0, %207 ], [ 0, %219 ], [ 1, %.thread175.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %.loopexit183
 
@@ -2852,9 +2852,9 @@ lpGetIntegerIfValid.exit127:                      ; preds = %88, %94
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph221, !llvm.loop !123
 
 thread-pre-split:                                 ; preds = %177, %._crit_edge226
-  %.pr = phi ptr [ %175, %._crit_edge226 ], [ %186, %177 ]
-  %.2106 = phi i64 [ %.0104228, %._crit_edge226 ], [ %183, %177 ]
-  %.299 = phi ptr [ %.097229, %._crit_edge226 ], [ %182, %177 ]
+  %.pr = phi ptr [ %186, %177 ], [ %175, %._crit_edge226 ]
+  %.2106 = phi i64 [ %183, %177 ], [ %.0104228, %._crit_edge226 ]
+  %.299 = phi ptr [ %182, %177 ], [ %.097229, %._crit_edge226 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   %.not117 = icmp eq ptr %.pr, null
   br i1 %.not117, label %.loopexit, label %104
@@ -6072,9 +6072,9 @@ define internal fastcc i32 @streamParseAddOrTrimArgsOrReply(ptr noundef %0, ptr 
   tail call void @addReplyErrorObject(ptr noundef nonnull %0, ptr noundef %120) #17
   br label %.thread151
 
-121:                                              ; preds = %.thread148, %67, %107, %114
-  %.2120.ph = phi i32 [ 1, %107 ], [ %.0118184, %114 ], [ %.0118184, %.thread148 ], [ %.0118184, %67 ]
-  %.2111.ph = phi i32 [ %102, %107 ], [ %.0109185, %114 ], [ %93, %.thread148 ], [ %58, %67 ]
+121:                                              ; preds = %114, %107, %67, %.thread148
+  %.2120.ph = phi i32 [ %.0118184, %67 ], [ %.0118184, %.thread148 ], [ %.0118184, %114 ], [ 1, %107 ]
+  %.2111.ph = phi i32 [ %58, %67 ], [ %93, %.thread148 ], [ %.0109185, %114 ], [ %102, %107 ]
   %122 = add nsw i32 %.2111.ph, 1
   %123 = load i32, ptr %4, align 8, !tbaa !157
   %124 = icmp slt i32 %122, %123
@@ -6152,7 +6152,7 @@ define internal fastcc i32 @streamParseAddOrTrimArgsOrReply(ptr noundef %0, ptr 
   br label %.thread151
 
 .thread151:                                       ; preds = %.critedge, %101, %.critedge139, %66, %110, %115, %73, %38, %.critedge142, %147, %140, %152, %144, %145, %137, %131
-  %.5 = phi i32 [ %.0109169, %152 ], [ -1, %131 ], [ -1, %137 ], [ -1, %145 ], [ %.0109169, %144 ], [ %.0109169, %147 ], [ %.0109169, %140 ], [ -1, %.critedge142 ], [ -1, %38 ], [ -1, %73 ], [ -1, %115 ], [ -1, %110 ], [ -1, %66 ], [ -1, %.critedge139 ], [ -1, %101 ], [ -1, %.critedge ]
+  %.5 = phi i32 [ %.0109169, %152 ], [ -1, %131 ], [ -1, %137 ], [ -1, %145 ], [ %.0109169, %144 ], [ %.0109169, %147 ], [ %.0109169, %140 ], [ -1, %.critedge142 ], [ -1, %38 ], [ -1, %66 ], [ -1, %73 ], [ -1, %115 ], [ -1, %110 ], [ -1, %.critedge139 ], [ -1, %101 ], [ -1, %.critedge ]
   ret i32 %.5
 }
 
@@ -6603,11 +6603,11 @@ sdslen.exit:                                      ; preds = %1, %22, %25, %29, %
   %.not286 = icmp eq i32 %107, 0
   br i1 %.not286, label %.thread329, label %.thread357
 
-.thread329:                                       ; preds = %89, %66, %69, %98, %102
-  %.2242341 = phi i32 [ %.0240449, %102 ], [ 1, %98 ], [ %.0240449, %89 ], [ %.0240449, %66 ], [ %.0240449, %69 ]
-  %.2255340 = phi ptr [ %.0253448, %102 ], [ %.0253448, %98 ], [ %91, %89 ], [ %.0253448, %66 ], [ %.0253448, %69 ]
-  %.2267339 = phi ptr [ %.0265447, %102 ], [ %.0265447, %98 ], [ %95, %89 ], [ %.0265447, %66 ], [ %.0265447, %69 ]
-  %.1270338 = phi i32 [ %103, %102 ], [ %.0269446, %98 ], [ %92, %89 ], [ %61, %66 ], [ %61, %69 ]
+.thread329:                                       ; preds = %98, %69, %66, %89, %102
+  %.2242341 = phi i32 [ %.0240449, %102 ], [ %.0240449, %69 ], [ %.0240449, %66 ], [ %.0240449, %89 ], [ 1, %98 ]
+  %.2255340 = phi ptr [ %.0253448, %102 ], [ %.0253448, %69 ], [ %.0253448, %66 ], [ %91, %89 ], [ %.0253448, %98 ]
+  %.2267339 = phi ptr [ %.0265447, %102 ], [ %.0265447, %69 ], [ %.0265447, %66 ], [ %95, %89 ], [ %.0265447, %98 ]
+  %.1270338 = phi i32 [ %103, %102 ], [ %61, %69 ], [ %61, %66 ], [ %92, %89 ], [ %.0269446, %98 ]
   %108 = add nsw i32 %.1270338, 1
   %109 = load i32, ptr %42, align 8, !tbaa !157
   %110 = icmp slt i32 %108, %109
@@ -9141,8 +9141,8 @@ streamDecrID.exit.thread:                         ; preds = %streamDecrID.exit.t
   br label %99
 
 99:                                               ; preds = %1, %95, %streamDecrID.exit.thread
-  %100 = phi ptr [ %.pre155, %streamDecrID.exit.thread ], [ %.pre155, %95 ], [ %17, %1 ]
-  %.0 = phi ptr [ null, %streamDecrID.exit.thread ], [ %98, %95 ], [ null, %1 ]
+  %100 = phi ptr [ %.pre155, %95 ], [ %.pre155, %streamDecrID.exit.thread ], [ %17, %1 ]
+  %.0 = phi ptr [ %98, %95 ], [ null, %streamDecrID.exit.thread ], [ null, %1 ]
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %102 = load ptr, ptr %101, align 8, !tbaa !134
   %103 = getelementptr inbounds nuw i8, ptr %100, i64 8
@@ -12588,7 +12588,7 @@ lpGetIntegerIfValid.exit128:                      ; preds = %37
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph, %86, %83, %78, %75, %72, %69, %66, %63, %._crit_edge161, %62, %102, %.lr.ph154, %.lr.ph160, %lpGetIntegerIfValid.exit, %24, %lpGetIntegerIfValid.exit128, %44, %105, %55, %._crit_edge, %34, %lpGetIntegerIfValid.exit126, %14, %13, %3
-  %.0 = phi i32 [ 0, %14 ], [ 1, %13 ], [ 0, %3 ], [ 0, %24 ], [ 0, %lpGetIntegerIfValid.exit ], [ 0, %34 ], [ 0, %lpGetIntegerIfValid.exit126 ], [ 0, %44 ], [ 0, %lpGetIntegerIfValid.exit128 ], [ 0, %._crit_edge ], [ 0, %55 ], [ %.122, %105 ], [ 0, %86 ], [ 0, %.lr.ph160 ], [ 0, %.lr.ph154 ], [ 0, %102 ], [ 0, %62 ], [ 0, %._crit_edge161 ], [ 0, %63 ], [ 0, %66 ], [ 0, %69 ], [ 0, %72 ], [ 0, %75 ], [ 0, %78 ], [ 0, %83 ], [ 0, %.lr.ph ]
+  %.0 = phi i32 [ 0, %.lr.ph154 ], [ 0, %14 ], [ 1, %13 ], [ 0, %3 ], [ 0, %24 ], [ 0, %lpGetIntegerIfValid.exit ], [ 0, %34 ], [ 0, %lpGetIntegerIfValid.exit126 ], [ 0, %44 ], [ 0, %86 ], [ 0, %lpGetIntegerIfValid.exit128 ], [ 0, %._crit_edge ], [ 0, %.lr.ph160 ], [ 0, %55 ], [ %.122, %105 ], [ 0, %102 ], [ 0, %62 ], [ 0, %._crit_edge161 ], [ 0, %63 ], [ 0, %66 ], [ 0, %69 ], [ 0, %72 ], [ 0, %75 ], [ 0, %78 ], [ 0, %83 ], [ 0, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.0

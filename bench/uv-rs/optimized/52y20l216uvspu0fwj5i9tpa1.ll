@@ -14100,7 +14100,7 @@ _ZN5serde2de7Visitor10visit_bool17h204782e1e284ccfdE.exit.i: ; preds = %768
   ret void
 
 854:                                              ; preds = %662, %851, %672
-  %.sroa.05.2 = phi i1 [ false, %672 ], [ false, %662 ], [ true, %851 ]
+  %.sroa.05.2 = phi i1 [ true, %851 ], [ false, %672 ], [ false, %662 ]
   %855 = load i64, ptr %1, align 8, !range !246, !noundef !3
   %856 = add nsw i64 %855, -8
   %857 = icmp ugt i64 %856, 3
@@ -14201,9 +14201,9 @@ common.resume:                                    ; preds = %894, %897, %898, %8
           cleanup
   br label %.body.thread48
 
-.body.thread48:                                   ; preds = %844, %651, %665, %657, %.body.thread55
-  %.sroa.05.153 = phi i1 [ true, %.body.thread55 ], [ true, %844 ], [ false, %651 ], [ false, %665 ], [ false, %657 ]
-  %.pn52 = phi { ptr, i32 } [ %lpad.thr_comm, %.body.thread55 ], [ %845, %844 ], [ %652, %651 ], [ %666, %665 ], [ %658, %657 ]
+.body.thread48:                                   ; preds = %665, %657, %651, %844, %.body.thread55
+  %.sroa.05.153 = phi i1 [ true, %.body.thread55 ], [ false, %665 ], [ false, %657 ], [ false, %651 ], [ true, %844 ]
+  %.pn52 = phi { ptr, i32 } [ %lpad.thr_comm, %.body.thread55 ], [ %666, %665 ], [ %658, %657 ], [ %652, %651 ], [ %845, %844 ]
   %889 = load i64, ptr %1, align 8, !range !246, !noundef !3
   %890 = add nsw i64 %889, -8
   %891 = icmp ugt i64 %890, 3
@@ -15363,7 +15363,7 @@ _ZN5serde2de7Visitor10visit_bool17hcd91564643d59d42E.exit.i: ; preds = %265
   ret void
 
 350:                                              ; preds = %.loopexit72, %348, %173
-  %.sroa.05.2 = phi i1 [ false, %.loopexit72 ], [ false, %173 ], [ true, %348 ]
+  %.sroa.05.2 = phi i1 [ true, %348 ], [ false, %.loopexit72 ], [ false, %173 ]
   %351 = load i64, ptr %1, align 8, !range !246, !noundef !3
   %352 = add nsw i64 %351, -8
   %353 = icmp ugt i64 %352, 3
@@ -15464,9 +15464,9 @@ common.resume:                                    ; preds = %390, %393, %394, %3
           cleanup
   br label %.body.thread61
 
-.body.thread61:                                   ; preds = %.loopexit, %.loopexit.split-lp, %341, %155, %166, %.body.thread68
-  %.sroa.05.166 = phi i1 [ true, %.body.thread68 ], [ true, %341 ], [ false, %155 ], [ false, %166 ], [ false, %.loopexit.split-lp ], [ false, %.loopexit ]
-  %.pn65 = phi { ptr, i32 } [ %lpad.thr_comm, %.body.thread68 ], [ %342, %341 ], [ %156, %155 ], [ %167, %166 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ]
+.body.thread61:                                   ; preds = %.loopexit, %.loopexit.split-lp, %166, %155, %341, %.body.thread68
+  %.sroa.05.166 = phi i1 [ true, %.body.thread68 ], [ false, %166 ], [ true, %341 ], [ false, %155 ], [ false, %.loopexit.split-lp ], [ false, %.loopexit ]
+  %.pn65 = phi { ptr, i32 } [ %lpad.thr_comm, %.body.thread68 ], [ %167, %166 ], [ %342, %341 ], [ %156, %155 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ]
   %385 = load i64, ptr %1, align 8, !range !246, !noundef !3
   %386 = add nsw i64 %385, -8
   %387 = icmp ugt i64 %386, 3
@@ -16626,7 +16626,7 @@ _ZN5serde2de7Visitor10visit_bool17h41a451a81d6e76ebE.exit.i: ; preds = %265
   ret void
 
 350:                                              ; preds = %.loopexit72, %348, %173
-  %.sroa.05.2 = phi i1 [ false, %.loopexit72 ], [ false, %173 ], [ true, %348 ]
+  %.sroa.05.2 = phi i1 [ true, %348 ], [ false, %.loopexit72 ], [ false, %173 ]
   %351 = load i64, ptr %1, align 8, !range !246, !noundef !3
   %352 = add nsw i64 %351, -8
   %353 = icmp ugt i64 %352, 3
@@ -16727,9 +16727,9 @@ common.resume:                                    ; preds = %390, %393, %394, %3
           cleanup
   br label %.body.thread61
 
-.body.thread61:                                   ; preds = %.loopexit, %.loopexit.split-lp, %341, %155, %166, %.body.thread68
-  %.sroa.05.166 = phi i1 [ true, %.body.thread68 ], [ true, %341 ], [ false, %155 ], [ false, %166 ], [ false, %.loopexit.split-lp ], [ false, %.loopexit ]
-  %.pn65 = phi { ptr, i32 } [ %lpad.thr_comm, %.body.thread68 ], [ %342, %341 ], [ %156, %155 ], [ %167, %166 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ]
+.body.thread61:                                   ; preds = %.loopexit, %.loopexit.split-lp, %166, %155, %341, %.body.thread68
+  %.sroa.05.166 = phi i1 [ true, %.body.thread68 ], [ false, %166 ], [ true, %341 ], [ false, %155 ], [ false, %.loopexit.split-lp ], [ false, %.loopexit ]
+  %.pn65 = phi { ptr, i32 } [ %lpad.thr_comm, %.body.thread68 ], [ %167, %166 ], [ %342, %341 ], [ %156, %155 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ]
   %385 = load i64, ptr %1, align 8, !range !246, !noundef !3
   %386 = add nsw i64 %385, -8
   %387 = icmp ugt i64 %386, 3
@@ -17889,7 +17889,7 @@ _ZN5serde2de7Visitor10visit_bool17h9856f3856c9e0879E.exit.i: ; preds = %266
   ret void
 
 351:                                              ; preds = %.loopexit72, %349, %174
-  %.sroa.05.2 = phi i1 [ false, %.loopexit72 ], [ false, %174 ], [ true, %349 ]
+  %.sroa.05.2 = phi i1 [ true, %349 ], [ false, %.loopexit72 ], [ false, %174 ]
   %352 = load i64, ptr %1, align 8, !range !246, !noundef !3
   %353 = add nsw i64 %352, -8
   %354 = icmp ugt i64 %353, 3
@@ -17990,9 +17990,9 @@ common.resume:                                    ; preds = %391, %394, %395, %3
           cleanup
   br label %.body.thread61
 
-.body.thread61:                                   ; preds = %.loopexit, %.loopexit.split-lp, %342, %156, %167, %.body.thread68
-  %.sroa.05.166 = phi i1 [ true, %.body.thread68 ], [ true, %342 ], [ false, %156 ], [ false, %167 ], [ false, %.loopexit.split-lp ], [ false, %.loopexit ]
-  %.pn65 = phi { ptr, i32 } [ %lpad.thr_comm, %.body.thread68 ], [ %343, %342 ], [ %157, %156 ], [ %168, %167 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ]
+.body.thread61:                                   ; preds = %.loopexit, %.loopexit.split-lp, %167, %156, %342, %.body.thread68
+  %.sroa.05.166 = phi i1 [ true, %.body.thread68 ], [ false, %167 ], [ true, %342 ], [ false, %156 ], [ false, %.loopexit.split-lp ], [ false, %.loopexit ]
+  %.pn65 = phi { ptr, i32 } [ %lpad.thr_comm, %.body.thread68 ], [ %168, %167 ], [ %343, %342 ], [ %157, %156 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ]
   %386 = load i64, ptr %1, align 8, !range !246, !noundef !3
   %387 = add nsw i64 %386, -8
   %388 = icmp ugt i64 %387, 3

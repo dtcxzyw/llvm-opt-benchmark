@@ -7129,8 +7129,8 @@ select.unfold.i:                                  ; preds = %43, %4
   br label %210
 
 210:                                              ; preds = %203, %199
-  %211 = phi i8 [ %201, %199 ], [ %.pre.i.i, %203 ]
-  %.sroa.3.0.i.i.ph.i.i = phi i64 [ %.sroa.4.113.i.i.i.i, %199 ], [ %209, %203 ]
+  %211 = phi i8 [ %.pre.i.i, %203 ], [ %201, %199 ]
+  %.sroa.3.0.i.i.ph.i.i = phi i64 [ %209, %203 ], [ %.sroa.4.113.i.i.i.i, %199 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !496)
   %212 = getelementptr inbounds nuw i8, ptr %.val.i.i11.i, i64 %.sroa.3.0.i.i.ph.i.i
   %213 = and i8 %211, 1

@@ -3036,7 +3036,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit.thread:  ; preds = %.lr.ph.split, %_ZNK
   br i1 %exitcond.not, label %.thread, label %.lr.ph.split
 
 .thread:                                          ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread, %_ZNK6icu_7713UnicodeString6charAtEi.exit, %_ZNK6icu_7713UnicodeString6charAtEi.exit, %_ZNK6icu_7713UnicodeString6charAtEi.exit, %_ZNK6icu_7713UnicodeString6charAtEi.exit, %_ZNK6icu_7713UnicodeString6charAtEi.exit, %_ZNK6icu_7713UnicodeString6charAtEi.exit, %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread.us, %_ZNK6icu_7713UnicodeString6charAtEi.exit.us, %_ZNK6icu_7713UnicodeString6charAtEi.exit.us, %_ZNK6icu_7713UnicodeString6charAtEi.exit.us, %_ZNK6icu_7713UnicodeString6charAtEi.exit.us, %_ZNK6icu_7713UnicodeString6charAtEi.exit.us, %_ZNK6icu_7713UnicodeString6charAtEi.exit.us, %2
-  %.1 = phi i32 [ %1, %2 ], [ %12, %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread.us ], [ %20, %_ZNK6icu_7713UnicodeString6charAtEi.exit.us ], [ %20, %_ZNK6icu_7713UnicodeString6charAtEi.exit.us ], [ %20, %_ZNK6icu_7713UnicodeString6charAtEi.exit.us ], [ %20, %_ZNK6icu_7713UnicodeString6charAtEi.exit.us ], [ %20, %_ZNK6icu_7713UnicodeString6charAtEi.exit.us ], [ %20, %_ZNK6icu_7713UnicodeString6charAtEi.exit.us ], [ %12, %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread ], [ %26, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ %26, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ %26, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ %26, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ %26, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ %26, %_ZNK6icu_7713UnicodeString6charAtEi.exit ]
+  %.1 = phi i32 [ %12, %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread.us ], [ %1, %2 ], [ %20, %_ZNK6icu_7713UnicodeString6charAtEi.exit.us ], [ %20, %_ZNK6icu_7713UnicodeString6charAtEi.exit.us ], [ %20, %_ZNK6icu_7713UnicodeString6charAtEi.exit.us ], [ %20, %_ZNK6icu_7713UnicodeString6charAtEi.exit.us ], [ %20, %_ZNK6icu_7713UnicodeString6charAtEi.exit.us ], [ %20, %_ZNK6icu_7713UnicodeString6charAtEi.exit.us ], [ %12, %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread ], [ %26, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ %26, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ %26, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ %26, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ %26, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ %26, %_ZNK6icu_7713UnicodeString6charAtEi.exit ]
   ret i32 %.1
 }
 
@@ -5320,7 +5320,7 @@ _ZN6icu_7719CollationRuleParser13setParseErrorEPKcR10UErrorCode.exit.thread.sink
   br label %_ZN6icu_7719CollationRuleParser13setParseErrorEPKcR10UErrorCode.exit.thread
 
 _ZN6icu_7719CollationRuleParser13setParseErrorEPKcR10UErrorCode.exit.thread: ; preds = %_ZN6icu_7719CollationRuleParser13setParseErrorEPKcR10UErrorCode.exit85, %_ZN6icu_7719CollationRuleParser13setParseErrorEPKcR10UErrorCode.exit.thread.sink.split, %_ZN6icu_7719CollationRuleParser13setParseErrorEPKcR10UErrorCode.exit.thread107, %104, %101, %61, %_ZNK6icu_7713UnicodeString6charAtEi.exit75.thread._crit_edge, %139, %142, %148, %151, %4
-  %.0 = phi i32 [ %1, %4 ], [ %.362.lcssa, %61 ], [ %.362.lcssa, %_ZNK6icu_7713UnicodeString6charAtEi.exit75.thread._crit_edge ], [ %.059.lcssa, %139 ], [ %.059.lcssa, %142 ], [ %.059.lcssa, %148 ], [ %.059.lcssa, %151 ], [ %.059.lcssa, %_ZN6icu_7719CollationRuleParser13setParseErrorEPKcR10UErrorCode.exit.thread107 ], [ %27, %104 ], [ %27, %101 ], [ %.0.ph, %_ZN6icu_7719CollationRuleParser13setParseErrorEPKcR10UErrorCode.exit.thread.sink.split ], [ %.059.lcssa, %_ZN6icu_7719CollationRuleParser13setParseErrorEPKcR10UErrorCode.exit85 ]
+  %.0 = phi i32 [ %1, %4 ], [ %.362.lcssa, %_ZNK6icu_7713UnicodeString6charAtEi.exit75.thread._crit_edge ], [ %.0.ph, %_ZN6icu_7719CollationRuleParser13setParseErrorEPKcR10UErrorCode.exit.thread.sink.split ], [ %.362.lcssa, %61 ], [ %.059.lcssa, %139 ], [ %.059.lcssa, %142 ], [ %.059.lcssa, %148 ], [ %.059.lcssa, %151 ], [ %.059.lcssa, %_ZN6icu_7719CollationRuleParser13setParseErrorEPKcR10UErrorCode.exit.thread107 ], [ %27, %104 ], [ %27, %101 ], [ %.059.lcssa, %_ZN6icu_7719CollationRuleParser13setParseErrorEPKcR10UErrorCode.exit85 ]
   ret i32 %.0
 }
 
@@ -5679,9 +5679,9 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit.i42:     ; preds = %146, %.lr.ph.i39
   br i1 %or.cond563, label %.loopexit, label %.outer.backedge
 
 _ZN6icu_7713UnicodeString8truncateEi.exit:        ; preds = %105, %_ZNK6icu_7713UnicodeString8endsWithENS_14ConstChar16PtrEi.exit, %82, %156, %_ZNK6icu_7713UnicodeString6charAtEi.exit.i42, %128
-  %or.cond562 = phi i1 [ %or.cond563, %128 ], [ %or.cond563, %156 ], [ %or.cond563, %_ZNK6icu_7713UnicodeString6charAtEi.exit.i42 ], [ %or.cond564, %82 ], [ %or.cond564, %_ZNK6icu_7713UnicodeString8endsWithENS_14ConstChar16PtrEi.exit ], [ %or.cond564, %105 ]
-  %.129 = phi i32 [ %127, %128 ], [ %157, %156 ], [ %144, %_ZNK6icu_7713UnicodeString6charAtEi.exit.i42 ], [ %.028.ph108, %82 ], [ %.028.ph108, %_ZNK6icu_7713UnicodeString8endsWithENS_14ConstChar16PtrEi.exit ], [ %.028.ph108, %105 ]
-  %.2 = phi i32 [ %.098, %128 ], [ %.098, %156 ], [ %.098, %_ZNK6icu_7713UnicodeString6charAtEi.exit.i42 ], [ %.028.ph108, %82 ], [ %.028.ph108, %_ZNK6icu_7713UnicodeString8endsWithENS_14ConstChar16PtrEi.exit ], [ %.028.ph108, %105 ]
+  %or.cond562 = phi i1 [ %or.cond563, %156 ], [ %or.cond563, %128 ], [ %or.cond563, %_ZNK6icu_7713UnicodeString6charAtEi.exit.i42 ], [ %or.cond564, %82 ], [ %or.cond564, %_ZNK6icu_7713UnicodeString8endsWithENS_14ConstChar16PtrEi.exit ], [ %or.cond564, %105 ]
+  %.129 = phi i32 [ %157, %156 ], [ %127, %128 ], [ %144, %_ZNK6icu_7713UnicodeString6charAtEi.exit.i42 ], [ %.028.ph108, %82 ], [ %.028.ph108, %_ZNK6icu_7713UnicodeString8endsWithENS_14ConstChar16PtrEi.exit ], [ %.028.ph108, %105 ]
+  %.2 = phi i32 [ %.098, %156 ], [ %.098, %128 ], [ %.098, %_ZNK6icu_7713UnicodeString6charAtEi.exit.i42 ], [ %.028.ph108, %82 ], [ %.028.ph108, %_ZNK6icu_7713UnicodeString8endsWithENS_14ConstChar16PtrEi.exit ], [ %.028.ph108, %105 ]
   br i1 %or.cond562, label %.loopexit, label %.outer.backedge
 
 .outer.backedge:                                  ; preds = %_ZN6icu_7713UnicodeString8truncateEi.exit, %169

@@ -261,7 +261,7 @@ switch.lookup91:                                  ; preds = %86
   br label %_Z18CalcMultiContractsii.exit
 
 _Z18CalcMultiContractsii.exit:                    ; preds = %86, %switch.lookup91, %84, %switch.lookup, %72, %88, %89
-  %.0.i = phi i32 [ %..i, %89 ], [ %83, %72 ], [ %switch.select14.i, %88 ], [ %switch.load93, %switch.lookup91 ], [ %switch.load, %switch.lookup ], [ 5, %84 ], [ 4, %86 ]
+  %.0.i = phi i32 [ %switch.select14.i, %88 ], [ %..i, %89 ], [ %83, %72 ], [ %switch.load93, %switch.lookup91 ], [ 5, %84 ], [ %switch.load, %switch.lookup ], [ 4, %86 ]
   %93 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %.0.i) #14
   %94 = getelementptr inbounds nuw i8, ptr %73, i64 12
   %95 = load i32, ptr %94, align 4
@@ -693,10 +693,10 @@ _Z8rawscoreiii.exit496:                           ; preds = %144, %141, %136, %1
   br label %.thread542
 
 .thread542:                                       ; preds = %.thread542.sink.split, %148, %151, %133, %130
-  %157 = phi i32 [ %87, %151 ], [ %90, %.thread542.sink.split ], [ %87, %130 ], [ %87, %133 ], [ %87, %148 ]
-  %158 = phi i32 [ %88, %151 ], [ %.ph, %.thread542.sink.split ], [ %88, %130 ], [ %88, %133 ], [ %88, %148 ]
-  %.1451 = phi i32 [ %.0450623, %151 ], [ 1, %.thread542.sink.split ], [ %.0450623, %130 ], [ %.0450623, %133 ], [ %.0450623, %148 ]
-  %.5 = phi i32 [ %.3444, %151 ], [ %.3444, %.thread542.sink.split ], [ %129, %130 ], [ %.4445, %133 ], [ %.3444, %148 ]
+  %157 = phi i32 [ %87, %148 ], [ %87, %133 ], [ %87, %151 ], [ %90, %.thread542.sink.split ], [ %87, %130 ]
+  %158 = phi i32 [ %88, %148 ], [ %88, %133 ], [ %88, %151 ], [ %.ph, %.thread542.sink.split ], [ %88, %130 ]
+  %.1451 = phi i32 [ %.0450623, %148 ], [ %.0450623, %133 ], [ %.0450623, %151 ], [ 1, %.thread542.sink.split ], [ %.0450623, %130 ]
+  %.5 = phi i32 [ %.3444, %148 ], [ %.4445, %133 ], [ %.3444, %151 ], [ %.3444, %.thread542.sink.split ], [ %129, %130 ]
   %indvars.iv.next722 = add nuw nsw i64 %indvars.iv721, 1
   %exitcond726.not = icmp eq i64 %indvars.iv.next722, %wide.trip.count725
   br i1 %exitcond726.not, label %._crit_edge.loopexit, label %86, !llvm.loop !11
@@ -1195,7 +1195,7 @@ _Z8rawscoreiii.exit521:                           ; preds = %_Z13VulnerDefSideii
   br i1 %344, label %.lr.ph655.split, label %_Z8rawscoreiii.exit521._crit_edge, !llvm.loop !19
 
 _Z8rawscoreiii.exit521._crit_edge:                ; preds = %330, %323, %342, %_Z8rawscoreiii.exit521, %.thread, %315, %.lr.ph655
-  %.1540.lcssa = phi i32 [ %318, %.thread ], [ %.0539.lcssa, %.lr.ph655 ], [ %316, %315 ], [ 0, %323 ], [ %.1540653, %_Z8rawscoreiii.exit521 ], [ 0, %342 ], [ 0, %330 ]
+  %.1540.lcssa = phi i32 [ %318, %.thread ], [ %.0539.lcssa, %.lr.ph655 ], [ %316, %315 ], [ %.1540653, %_Z8rawscoreiii.exit521 ], [ 0, %323 ], [ 0, %342 ], [ 0, %330 ]
   %345 = icmp ult i32 %277, 5
   br i1 %345, label %switch.lookup, label %.loopexit
 
@@ -1541,7 +1541,7 @@ _Z14CalcOverTricksiiiiP16parResultsMaster.exit:   ; preds = %357, %358, %359, %3
   br i1 %452, label %.preheader604, label %.loopexit, !llvm.loop !26
 
 .loopexit:                                        ; preds = %_Z8rawscoreiii.exit521._crit_edge, %._crit_edge697, %446, %186
-  %.0416 = phi i32 [ 1, %186 ], [ 1, %446 ], [ 1, %._crit_edge697 ], [ -1, %_Z8rawscoreiii.exit521._crit_edge ]
+  %.0416 = phi i32 [ 1, %186 ], [ 1, %._crit_edge697 ], [ 1, %446 ], [ -1, %_Z8rawscoreiii.exit521._crit_edge ]
   ret i32 %.0416
 }
 
@@ -1599,7 +1599,7 @@ switch.lookup16:                                  ; preds = %5
   br label %14
 
 14:                                               ; preds = %5, %switch.lookup16, %3, %switch.lookup, %7, %8, %10
-  %.0 = phi i32 [ %11, %10 ], [ %., %8 ], [ %switch.select14, %7 ], [ %switch.load18, %switch.lookup16 ], [ %switch.load, %switch.lookup ], [ 5, %3 ], [ 4, %5 ]
+  %.0 = phi i32 [ %11, %10 ], [ %., %8 ], [ %switch.select14, %7 ], [ %switch.load18, %switch.lookup16 ], [ 5, %3 ], [ %switch.load, %switch.lookup ], [ 4, %5 ]
   ret i32 %.0
 }
 

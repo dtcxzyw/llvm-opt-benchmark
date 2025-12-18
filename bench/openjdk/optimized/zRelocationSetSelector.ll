@@ -212,7 +212,7 @@ _ZN18GrowableArrayCHeapIP5ZPageL8MEMFLAGS5EE8allocateEiS2_.exit.i: ; preds = %25
   br label %_ZN18GrowableArrayCHeapIP5ZPageL8MEMFLAGS5EEC2EiiRKS1_.exit
 
 _ZN18GrowableArrayCHeapIP5ZPageL8MEMFLAGS5EEC2EiiRKS1_.exit: ; preds = %.lr.ph.preheader.i.i, %_ZN18GrowableArrayCHeapIP5ZPageL8MEMFLAGS5EE8allocateEiS2_.exit.i, %25
-  %.0.i.i3538 = phi ptr [ %26, %_ZN18GrowableArrayCHeapIP5ZPageL8MEMFLAGS5EE8allocateEiS2_.exit.i ], [ null, %25 ], [ %26, %.lr.ph.preheader.i.i ]
+  %.0.i.i3538 = phi ptr [ null, %25 ], [ %26, %_ZN18GrowableArrayCHeapIP5ZPageL8MEMFLAGS5EE8allocateEiS2_.exit.i ], [ %26, %.lr.ph.preheader.i.i ]
   %29 = load i32, ptr %6, align 8
   %30 = load ptr, ptr %9, align 8
   %31 = sext i32 %29 to i64

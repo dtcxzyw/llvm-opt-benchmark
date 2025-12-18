@@ -4351,11 +4351,11 @@ define hidden void @_ZN12object_store4path4Path5parse17hd52a62bc34171086E(ptr no
   br i1 %.not34.i.us, label %.lr.ph.i.us, label %.loopexit.us
 
 .loopexit.us:                                     ; preds = %.sink.split.i.us, %130, %114, %91, %61, %46
-  %.sroa.53.2.us = phi i1 [ true, %46 ], [ true, %91 ], [ false, %61 ], [ false, %114 ], [ true, %130 ], [ true, %.sink.split.i.us ]
-  %.sroa.43.2.us = phi i64 [ %.sroa.43.0260.us, %46 ], [ %.sroa.43.0260.us, %91 ], [ %62, %61 ], [ %115, %114 ], [ %.sroa.43.0260.us, %130 ], [ %.sroa.43.0260.us, %.sink.split.i.us ]
-  %.sroa.33103.2.us = phi i64 [ %.sroa.33103.0262.us, %46 ], [ -1, %91 ], [ 0, %61 ], [ -1, %114 ], [ -1, %130 ], [ %.sink.i.us, %.sink.split.i.us ]
-  %.sroa.21.2.us = phi i64 [ %.sroa.031.sroa.13.0.copyload, %46 ], [ %.sroa.031.sroa.13.0.copyload, %91 ], [ %62, %61 ], [ %115, %114 ], [ %.sroa.031.sroa.13.0.copyload, %130 ], [ %.sroa.031.sroa.13.0.copyload, %.sink.split.i.us ]
-  %spec.select66.pn.us = phi i64 [ %spec.select66, %46 ], [ %spec.select66, %91 ], [ %49, %61 ], [ %93, %114 ], [ %spec.select66, %130 ], [ %spec.select66, %.sink.split.i.us ]
+  %.sroa.53.2.us = phi i1 [ true, %46 ], [ true, %91 ], [ true, %130 ], [ false, %61 ], [ false, %114 ], [ true, %.sink.split.i.us ]
+  %.sroa.43.2.us = phi i64 [ %.sroa.43.0260.us, %46 ], [ %.sroa.43.0260.us, %91 ], [ %.sroa.43.0260.us, %130 ], [ %62, %61 ], [ %115, %114 ], [ %.sroa.43.0260.us, %.sink.split.i.us ]
+  %.sroa.33103.2.us = phi i64 [ %.sroa.33103.0262.us, %46 ], [ -1, %91 ], [ -1, %130 ], [ 0, %61 ], [ -1, %114 ], [ %.sink.i.us, %.sink.split.i.us ]
+  %.sroa.21.2.us = phi i64 [ %.sroa.031.sroa.13.0.copyload, %46 ], [ %.sroa.031.sroa.13.0.copyload, %91 ], [ %.sroa.031.sroa.13.0.copyload, %130 ], [ %62, %61 ], [ %115, %114 ], [ %.sroa.031.sroa.13.0.copyload, %.sink.split.i.us ]
+  %spec.select66.pn.us = phi i64 [ %spec.select66, %46 ], [ %spec.select66, %91 ], [ %spec.select66, %130 ], [ %49, %61 ], [ %93, %114 ], [ %spec.select66, %.sink.split.i.us ]
   %133 = icmp eq i64 %spec.select66.pn.us, %.sroa.43.0260.us
   br i1 %133, label %.split286.us, label %134
 
@@ -4576,12 +4576,12 @@ _ZN4core3str11validations15next_code_point17ha72a6b36edb5bb08E.exit.thread.i.i.i
   br label %.loopexit203
 
 .loopexit203:                                     ; preds = %.loopexit203.loopexit, %.thread.i.i.i, %.preheader.i.i, %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h81357aafb99f3895E.exit.i"
-  %.sroa.999.sroa.0.6 = phi i8 [ %.sroa.999.sroa.0.0257, %.preheader.i.i ], [ 0, %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h81357aafb99f3895E.exit.i" ], [ 1, %.thread.i.i.i ], [ %.sroa.999.sroa.0.6.ph, %.loopexit203.loopexit ]
-  %.sroa.53.2 = phi i1 [ true, %.preheader.i.i ], [ false, %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h81357aafb99f3895E.exit.i" ], [ true, %.thread.i.i.i ], [ %.sroa.53.2.ph, %.loopexit203.loopexit ]
-  %.sroa.999.sroa.12116.3 = phi i8 [ 1, %.preheader.i.i ], [ 0, %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h81357aafb99f3895E.exit.i" ], [ 1, %.thread.i.i.i ], [ %.sroa.999.sroa.0.6.ph, %.loopexit203.loopexit ]
-  %.sroa.43.2 = phi i64 [ %.sroa.43.0260, %.preheader.i.i ], [ %.sroa.5.1333, %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h81357aafb99f3895E.exit.i" ], [ %.sroa.43.0260, %.thread.i.i.i ], [ %.sroa.43.2.ph, %.loopexit203.loopexit ]
-  %.sroa.5.4 = phi i64 [ %.sroa.5.0264, %.preheader.i.i ], [ %.sroa.5.1333, %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h81357aafb99f3895E.exit.i" ], [ %.sroa.5.1333, %.thread.i.i.i ], [ %.sroa.5.1, %.loopexit203.loopexit ]
-  %spec.select66.pn = phi i64 [ %spec.select66, %.preheader.i.i ], [ %.sroa.5.1333, %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h81357aafb99f3895E.exit.i" ], [ %spec.select66, %.thread.i.i.i ], [ %spec.select66.pn.ph, %.loopexit203.loopexit ]
+  %.sroa.999.sroa.0.6 = phi i8 [ 1, %.thread.i.i.i ], [ %.sroa.999.sroa.0.0257, %.preheader.i.i ], [ 0, %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h81357aafb99f3895E.exit.i" ], [ %.sroa.999.sroa.0.6.ph, %.loopexit203.loopexit ]
+  %.sroa.53.2 = phi i1 [ true, %.thread.i.i.i ], [ true, %.preheader.i.i ], [ false, %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h81357aafb99f3895E.exit.i" ], [ %.sroa.53.2.ph, %.loopexit203.loopexit ]
+  %.sroa.999.sroa.12116.3 = phi i8 [ 1, %.thread.i.i.i ], [ 1, %.preheader.i.i ], [ 0, %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h81357aafb99f3895E.exit.i" ], [ %.sroa.999.sroa.0.6.ph, %.loopexit203.loopexit ]
+  %.sroa.43.2 = phi i64 [ %.sroa.43.0260, %.thread.i.i.i ], [ %.sroa.43.0260, %.preheader.i.i ], [ %.sroa.5.1333, %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h81357aafb99f3895E.exit.i" ], [ %.sroa.43.2.ph, %.loopexit203.loopexit ]
+  %.sroa.5.4 = phi i64 [ %.sroa.5.1333, %.thread.i.i.i ], [ %.sroa.5.0264, %.preheader.i.i ], [ %.sroa.5.1333, %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h81357aafb99f3895E.exit.i" ], [ %.sroa.5.1, %.loopexit203.loopexit ]
+  %spec.select66.pn = phi i64 [ %spec.select66, %.thread.i.i.i ], [ %spec.select66, %.preheader.i.i ], [ %.sroa.5.1333, %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h81357aafb99f3895E.exit.i" ], [ %spec.select66.pn.ph, %.loopexit203.loopexit ]
   %211 = icmp eq i64 %spec.select66.pn, %.sroa.43.0260
   br i1 %211, label %.split286.us, label %228
 

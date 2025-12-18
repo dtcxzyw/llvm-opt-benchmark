@@ -3641,7 +3641,7 @@ switch.lookup:                                    ; preds = %1030, %1034
   br label %.thread72
 
 .thread72:                                        ; preds = %1189, %1202, %1217, %1220
-  %1225 = phi i32 [ %spec.select, %1220 ], [ 678172224, %1202 ], [ 678172224, %1217 ], [ 678172224, %1189 ]
+  %1225 = phi i32 [ %spec.select, %1220 ], [ 678172224, %1217 ], [ 678172224, %1202 ], [ 678172224, %1189 ]
   %1226 = getelementptr inbounds nuw i8, ptr %0, i64 4916
   store i32 %1225, ptr %1226, align 4
   %.pre165 = load i32, ptr %58, align 4
@@ -3995,7 +3995,7 @@ switch.lookup:                                    ; preds = %1030, %1034
   br label %1428
 
 1428:                                             ; preds = %.sink.split270, %1312, %1271
-  %1429 = phi i32 [ -12, %1312 ], [ -19, %1271 ], [ %.ph271, %.sink.split270 ]
+  %1429 = phi i32 [ -19, %1271 ], [ -12, %1312 ], [ %.ph271, %.sink.split270 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %2544
 
@@ -5263,7 +5263,7 @@ thread-pre-split81.thread:                        ; preds = %.thread80, %1972, %
   br label %2072
 
 2057:                                             ; preds = %2055, %2047, %1885
-  %2058 = phi i32 [ %1889, %1885 ], [ %2056, %2055 ], [ %2049, %2047 ]
+  %2058 = phi i32 [ %1889, %1885 ], [ %2049, %2047 ], [ %2056, %2055 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %2059 = icmp eq i32 %2058, 0
@@ -6961,7 +6961,7 @@ define internal fastcc range(i32 -19, 1) i32 @tg3_test_dma(ptr noundef %0) unnam
   br label %173
 
 select.unfold:                                    ; preds = %149, %154, %129, %136
-  %.ph = phi i32 [ %127, %129 ], [ %134, %136 ], [ 0, %154 ], [ 0, %149 ]
+  %.ph = phi i32 [ %127, %129 ], [ 0, %154 ], [ %134, %136 ], [ 0, %149 ]
   %160 = load i32, ptr %10, align 4
   %161 = and i32 %160, 14336
   %162 = icmp eq i32 %161, 2048
@@ -12709,7 +12709,7 @@ define internal fastcc range(i32 -16, 1) i32 @tg3_phy_reset(ptr noundef %0) unna
   br i1 %355, label %356, label %.thread41
 
 .thread41:                                        ; preds = %132, %312, %347, %.thread, %.thread34
-  %.ph40 = phi i32 [ %.ph, %.thread34 ], [ -16, %.thread ], [ %354, %347 ], [ -16, %312 ], [ %137, %132 ]
+  %.ph40 = phi i32 [ %.ph, %.thread34 ], [ -16, %312 ], [ -16, %.thread ], [ %354, %347 ], [ %137, %132 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %800
@@ -19463,7 +19463,7 @@ define internal fastcc range(i32 -16, 1) i32 @tg3_rxcpu_pause(ptr noundef %0) un
   br label %.loopexit
 
 .loopexit:                                        ; preds = %13, %.thread, %21
-  %23 = phi i32 [ -16, %.thread ], [ 0, %21 ], [ -16, %13 ]
+  %23 = phi i32 [ 0, %21 ], [ -16, %.thread ], [ -16, %13 ]
   %24 = load ptr, ptr %2, align 8
   tail call void %24(ptr noundef %0, i32 noundef 20484, i32 noundef -1) #28
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 4680
@@ -23307,7 +23307,7 @@ define internal i32 @tg3_set_eeprom(ptr noundef %0, ptr noundef readonly capture
   br i1 %419, label %.critedge.thread43, label %.lr.ph
 
 .critedge.thread43:                               ; preds = %.critedge, %362, %375, %387, %.critedge.loopexit, %363, %376, %388, %411, %315, %.thread39
-  %420 = phi i32 [ %325, %.thread39 ], [ 0, %376 ], [ 0, %315 ], [ 0, %363 ], [ -16, %411 ], [ 0, %388 ], [ -16, %.critedge.loopexit ], [ 0, %387 ], [ 0, %362 ], [ 0, %375 ], [ 0, %.critedge ]
+  %420 = phi i32 [ 0, %388 ], [ -16, %411 ], [ 0, %376 ], [ %325, %.thread39 ], [ 0, %363 ], [ 0, %315 ], [ 0, %387 ], [ 0, %362 ], [ 0, %375 ], [ 0, %.critedge ], [ -16, %.critedge.loopexit ]
   %421 = load ptr, ptr %189, align 8
   tail call void %421(ptr noundef %7, i32 noundef 28672, i32 noundef 131096) #28
   br label %422
@@ -23335,7 +23335,7 @@ define internal i32 @tg3_set_eeprom(ptr noundef %0, ptr noundef readonly capture
   br label %.thread34
 
 .thread34:                                        ; preds = %299, %282, %304, %284, %301, %.loopexit, %308, %199
-  %432 = phi i32 [ 0, %199 ], [ %420, %.loopexit ], [ -12, %308 ], [ -16, %301 ], [ -16, %284 ], [ -16, %299 ], [ -16, %282 ], [ 0, %304 ]
+  %432 = phi i32 [ 0, %199 ], [ %420, %.loopexit ], [ -12, %308 ], [ -16, %284 ], [ -16, %301 ], [ -16, %299 ], [ -16, %282 ], [ 0, %304 ]
   %433 = load ptr, ptr %186, align 16
   %434 = tail call i32 %433(ptr noundef %7, i32 noundef 26624) #28
   %435 = load ptr, ptr %189, align 8
@@ -23414,7 +23414,7 @@ define internal i32 @tg3_set_eeprom(ptr noundef %0, ptr noundef readonly capture
   br label %504
 
 .thread45:                                        ; preds = %129, %126, %472, %470, %459, %449, %99
-  %479 = phi i32 [ %432, %472 ], [ 0, %99 ], [ %432, %449 ], [ %432, %459 ], [ %432, %470 ], [ -16, %126 ], [ 0, %129 ]
+  %479 = phi i32 [ %432, %472 ], [ 0, %99 ], [ -16, %126 ], [ %432, %449 ], [ %432, %459 ], [ %432, %470 ], [ 0, %129 ]
   %480 = load volatile i64, ptr %8, align 8
   %481 = and i64 %480, 4096
   %482 = icmp eq i64 %481, 0
@@ -24615,22 +24615,22 @@ define internal void @tg3_self_test(ptr noundef %0, ptr noundef captures(none) %
   br label %.sink.split
 
 .thread30:                                        ; preds = %88, %.loopexit52, %239
-  %.ph = phi ptr [ %66, %.loopexit52 ], [ %66, %88 ], [ %237, %239 ]
+  %.ph = phi ptr [ %66, %88 ], [ %66, %.loopexit52 ], [ %237, %239 ]
   call void @kfree(ptr noundef nonnull %.ph) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %250
 
 243:                                              ; preds = %239, %.thread25
-  %244 = phi ptr [ %237, %239 ], [ %66, %.thread25 ]
-  %245 = phi i32 [ %241, %239 ], [ %208, %.thread25 ]
+  %244 = phi ptr [ %66, %.thread25 ], [ %237, %239 ]
+  %245 = phi i32 [ %208, %.thread25 ], [ %241, %239 ]
   call void @kfree(ptr noundef nonnull %244) #28
   %246 = icmp eq i32 %245, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %246, label %250, label %247
 
-.sink.split:                                      ; preds = %39, %51, %59, %62, %236, %.thread28
+.sink.split:                                      ; preds = %236, %39, %51, %62, %59, %.thread28
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %247
@@ -29952,7 +29952,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @tg3_run_loopback(ptr nound
   br label %.loopexit11
 
 .loopexit11:                                      ; preds = %.loopexit, %290, %310, %313, %315, %322, %327, %346, %.loopexit11.sink.split, %280, %.loopexit13, %21
-  %357 = phi i32 [ -12, %21 ], [ -5, %.loopexit13 ], [ 0, %280 ], [ -5, %.loopexit11.sink.split ], [ -5, %346 ], [ 0, %.loopexit ], [ -5, %327 ], [ -5, %290 ], [ -5, %322 ], [ -5, %310 ], [ -5, %313 ], [ -5, %315 ]
+  %357 = phi i32 [ 0, %280 ], [ -5, %346 ], [ -12, %21 ], [ -5, %.loopexit13 ], [ -5, %.loopexit11.sink.split ], [ -5, %313 ], [ 0, %.loopexit ], [ -5, %327 ], [ -5, %290 ], [ -5, %322 ], [ -5, %310 ], [ -5, %315 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %357
@@ -31142,7 +31142,7 @@ define internal fastcc void @tg3_frob_aux_power(ptr noundef %0, i1 noundef zeroe
   br label %149
 
 149:                                              ; preds = %130, %144, %148, %126, %122
-  %150 = phi i1 [ true, %122 ], [ true, %126 ], [ true, %130 ], [ false, %148 ], [ true, %144 ]
+  %150 = phi i1 [ true, %122 ], [ true, %126 ], [ true, %130 ], [ true, %144 ], [ false, %148 ]
   br i1 %1, label %151, label %155
 
 151:                                              ; preds = %149
@@ -33932,7 +33932,7 @@ thread-pre-split37:                               ; preds = %690
   br i1 %702, label %.preheader41, label %.loopexit52, !llvm.loop !185
 
 .loopexit52:                                      ; preds = %226, %300, %407, %.preheader41, %694, %select.unfold, %285, %.critedge
-  %703 = phi i32 [ -12, %select.unfold ], [ -12, %.critedge ], [ -12, %285 ], [ %684, %694 ], [ -12, %300 ], [ %684, %.preheader41 ], [ -12, %407 ], [ -12, %226 ]
+  %703 = phi i32 [ -12, %select.unfold ], [ -12, %300 ], [ -12, %407 ], [ %684, %.preheader41 ], [ -12, %.critedge ], [ -12, %285 ], [ %684, %694 ], [ -12, %226 ]
   call fastcc void @tg3_free_consistent(ptr noundef %0)
   %704 = load volatile i64, ptr %10, align 8
   %705 = and i64 %704, 262144
@@ -39764,7 +39764,7 @@ define internal fastcc void @tg3_get_5720_nvram_info(ptr noundef %0) unnamed_add
   br label %.thread
 
 .thread:                                          ; preds = %16, %.thread.fold.split, %29
-  %35 = phi i1 [ false, %29 ], [ true, %16 ], [ %34, %.thread.fold.split ]
+  %35 = phi i1 [ true, %16 ], [ false, %29 ], [ %34, %.thread.fold.split ]
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 5204
   store i32 31, ptr %36, align 4
   %37 = getelementptr i8, ptr %0, i64 4681

@@ -4233,7 +4233,7 @@ define dso_local range(i64 0, 2) i64 @overlaps_time(ptr noundef captures(none) %
   br label %48
 
 48:                                               ; preds = %.sink.split, %45, %43, %41, %35, %33
-  %.0 = phi i64 [ 0, %43 ], [ 1, %33 ], [ 0, %35 ], [ 1, %41 ], [ 1, %45 ], [ 0, %.sink.split ]
+  %.0 = phi i64 [ 1, %45 ], [ 1, %41 ], [ 0, %35 ], [ 0, %43 ], [ 1, %33 ], [ 0, %.sink.split ]
   ret i64 %.0
 }
 
@@ -4829,7 +4829,7 @@ define internal fastcc i64 @time_part_common(ptr noundef readonly captures(none)
   unreachable
 
 108:                                              ; preds = %40, %85, %52
-  %.140 = phi i64 [ %56, %52 ], [ %42, %85 ], [ %45, %40 ]
+  %.140 = phi i64 [ %42, %85 ], [ %56, %52 ], [ %45, %40 ]
   br i1 %1, label %109, label %112
 
 109:                                              ; preds = %108
@@ -5938,7 +5938,7 @@ define dso_local range(i64 0, 2) i64 @overlaps_timetz(ptr noundef captures(none)
   br label %50
 
 50:                                               ; preds = %.sink.split, %47, %45, %43, %37, %35
-  %.0 = phi i64 [ 0, %45 ], [ 1, %35 ], [ 0, %37 ], [ 1, %43 ], [ 1, %47 ], [ 0, %.sink.split ]
+  %.0 = phi i64 [ 1, %47 ], [ 1, %43 ], [ 0, %37 ], [ 0, %45 ], [ 1, %35 ], [ 0, %.sink.split ]
   ret i64 %.0
 }
 

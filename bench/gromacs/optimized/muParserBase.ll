@@ -12289,12 +12289,12 @@ _ZNK2mu11ParserTokenIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7GetC
   invoke void @_ZNK2mu10ParserBase9ApplyFuncERSt5stackINS_11ParserTokenIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt5dequeIS9_SaIS9_EEESE_i(ptr noundef nonnull align 8 dereferenceable(596) %0, ptr noundef nonnull align 8 dereferenceable(80) %4, ptr noundef nonnull align 8 dereferenceable(80) %5, i32 noundef 1)
           to label %.critedge.backedge unwind label %818
 
-.critedge.backedge:                               ; preds = %845, %846
-  br label %.critedge
-
 846:                                              ; preds = %_ZNK2mu11ParserTokenIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7GetCodeEv.exit283
   invoke void @_ZNK2mu10ParserBase12ApplyBinOprtERSt5stackINS_11ParserTokenIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt5dequeIS9_SaIS9_EEESE_(ptr noundef nonnull align 8 dereferenceable(596) %0, ptr noundef nonnull align 8 dereferenceable(80) %4, ptr noundef nonnull align 8 dereferenceable(80) %5)
           to label %.critedge.backedge unwind label %818
+
+.critedge.backedge:                               ; preds = %846, %845
+  br label %.critedge
 
 .critedge2:                                       ; preds = %822, %812, %825, %_ZNK2mu11ParserTokenIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7GetCodeEv.exit263, %_ZNK2mu11ParserTokenIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7GetCodeEv.exit258, %.critedge, %_ZNK2mu11ParserTokenIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7GetCodeEv.exit268
   %847 = load ptr, ptr %116, align 8, !tbaa !99

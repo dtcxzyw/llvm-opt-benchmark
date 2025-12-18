@@ -16012,7 +16012,7 @@ _ZN5Yosys7hashlib8hash_opsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
   br i1 %4167, label %.lr.ph.i1655.split, label %_ZNK5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS0_8hash_opsIS7_EEE7do_hashERKS7_.exit.i1155.thread, !llvm.loop !252
 
 _ZNK5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS0_8hash_opsIS7_EEE7do_hashERKS7_.exit.i1155.thread: ; preds = %4077, %._crit_edge.i1652, %_ZN5Yosys7hashlib8hash_opsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3cmpERKS7_SA_.exit.thread13.i1657, %_ZN5Yosys7hashlib8hash_opsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3cmpERKS7_SA_.exit.thread13.i1657.us
-  %4168 = phi ptr [ %.pre7791.pre, %_ZN5Yosys7hashlib8hash_opsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3cmpERKS7_SA_.exit.thread13.i1657 ], [ %.pre7791.pre, %_ZN5Yosys7hashlib8hash_opsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3cmpERKS7_SA_.exit.thread13.i1657.us ], [ %.pre7791.pre7832, %4077 ], [ %.pre7791.pre, %._crit_edge.i1652 ]
+  %4168 = phi ptr [ %.pre7791.pre, %_ZN5Yosys7hashlib8hash_opsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3cmpERKS7_SA_.exit.thread13.i1657 ], [ %.pre7791.pre, %_ZN5Yosys7hashlib8hash_opsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3cmpERKS7_SA_.exit.thread13.i1657.us ], [ %.pre7791.pre, %._crit_edge.i1652 ], [ %.pre7791.pre7832, %4077 ]
   %4169 = invoke noundef ptr @_ZN5Yosys6log_idERKNS_5RTLIL8IdStringE(ptr noundef nonnull align 4 dereferenceable(4) %505)
           to label %4170 unwind label %.loopexit.split-lp2746
 
@@ -18533,8 +18533,8 @@ _ZNSt6vectorIN5Yosys7hashlib4dictISt4pairIiiESt5tupleIJiiiEENS1_8hash_opsIS4_EEE
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i1718, %_ZNSt6vectorIN5Yosys7hashlib4dictISt4pairIiiESt5tupleIJiiiEENS1_8hash_opsIS4_EEE7entry_tESaISA_EE12emplace_backIJS3_IS4_S6_ERiEEERSA_DpOT_.exit.i, %.noexc1713
-  %5269 = phi ptr [ %5259, %_ZNSt6vectorIN5Yosys7hashlib4dictISt4pairIiiESt5tupleIJiiiEENS1_8hash_opsIS4_EEE7entry_tESaISA_EE12emplace_backIJS3_IS4_S6_ERiEEERSA_DpOT_.exit.i ], [ %5166, %.noexc1713 ], [ %5043, %.lr.ph.i1718 ]
-  %.0.i1274 = phi i32 [ %5266, %_ZNSt6vectorIN5Yosys7hashlib4dictISt4pairIiiESt5tupleIJiiiEENS1_8hash_opsIS4_EEE7entry_tESaISA_EE12emplace_backIJS3_IS4_S6_ERiEEERSA_DpOT_.exit.i ], [ %.pre21.i, %.noexc1713 ], [ %.01214.i, %.lr.ph.i1718 ]
+  %5269 = phi ptr [ %5166, %.noexc1713 ], [ %5259, %_ZNSt6vectorIN5Yosys7hashlib4dictISt4pairIiiESt5tupleIJiiiEENS1_8hash_opsIS4_EEE7entry_tESaISA_EE12emplace_backIJS3_IS4_S6_ERiEEERSA_DpOT_.exit.i ], [ %5043, %.lr.ph.i1718 ]
+  %.0.i1274 = phi i32 [ %.pre21.i, %.noexc1713 ], [ %5266, %_ZNSt6vectorIN5Yosys7hashlib4dictISt4pairIiiESt5tupleIJiiiEENS1_8hash_opsIS4_EEE7entry_tESaISA_EE12emplace_backIJS3_IS4_S6_ERiEEERSA_DpOT_.exit.i ], [ %.01214.i, %.lr.ph.i1718 ]
   %5270 = sext i32 %.0.i1274 to i64
   %5271 = getelementptr inbounds nuw %"struct.Yosys::hashlib::dict<std::pair<int, int>, std::tuple<int, int, int>>::entry_t", ptr %5269, i64 %5270
   %5272 = getelementptr inbounds nuw i8, ptr %5271, i64 8
@@ -23582,7 +23582,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %33, %35, %37, %39
   br i1 %58, label %.lr.ph, label %.loopexit, !llvm.loop !142
 
 .loopexit:                                        ; preds = %.lr.ph, %_ZNSt6vectorIiSaIiEE6resizeEm.exit, %3, %14
-  %.08 = phi i1 [ false, %14 ], [ false, %3 ], [ true, %_ZNSt6vectorIiSaIiEE6resizeEm.exit ], [ true, %.lr.ph ]
+  %.08 = phi i1 [ false, %3 ], [ false, %14 ], [ true, %_ZNSt6vectorIiSaIiEE6resizeEm.exit ], [ true, %.lr.ph ]
   ret i1 %.08
 }
 
@@ -41942,7 +41942,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1822: ; preds = %3
   br label %3691
 
 ._crit_edge6389:                                  ; preds = %3645, %3675, %.preheader
-  %3657 = phi i32 [ %3638, %.preheader ], [ %3676, %3675 ], [ %3646, %3645 ]
+  %3657 = phi i32 [ %3676, %3675 ], [ %3638, %.preheader ], [ %3646, %3645 ]
   %indvars.iv.next7518 = add nuw nsw i64 %indvars.iv7517, 1
   %exitcond7522.not = icmp eq i64 %indvars.iv.next7518, %wide.trip.count7521
   br i1 %exitcond7522.not, label %._crit_edge6395, label %.preheader, !llvm.loop !704

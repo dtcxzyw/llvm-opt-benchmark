@@ -9336,7 +9336,7 @@ common.resume:                                    ; preds = %135, %107
   ret { ptr, ptr } %112
 
 113:                                              ; preds = %76, %80
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.1.i.i, %76 ], [ %86, %80 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %86, %80 ], [ %.sroa.6.1.i.i, %76 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1048) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(1048) %1, i64 1048, i1 false)
   call void @llvm.experimental.noalias.scope.decl(metadata !2146)

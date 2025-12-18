@@ -2956,7 +2956,7 @@ define linkonce_odr void @_ZN5arrow2io8internal14ReadRangeCache4Impl7WaitForESt6
   br label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN5arrow2io9ReadRangeESt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIZNS3_8internal14ReadRangeCache4Impl7WaitForES8_EUlRKS4_E_EEET_SJ_SJ_T0_.exit.i.i
 
 _ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN5arrow2io9ReadRangeESt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIZNS3_8internal14ReadRangeCache4Impl7WaitForES8_EUlRKS4_E_EEET_SJ_SJ_T0_.exit.i.i: ; preds = %.lr.ph.i.i.i.i, %.loopexit.split.loop.exit39.i.i.i.i, %.loopexit.split.loop.exit37.i.i.i.i, %.loopexit.split.loop.exit35.i.i.i.i, %52, %46, %40
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.025.1.i.i.i.i, %46 ], [ %spec.select.i.i.i.i, %52 ], [ %.sroa.025.0.lcssa.i.i.i.i, %40 ], [ %57, %.loopexit.split.loop.exit37.i.i.i.i ], [ %56, %.loopexit.split.loop.exit35.i.i.i.i ], [ %58, %.loopexit.split.loop.exit39.i.i.i.i ], [ %.sroa.025.044.i.i.i.i, %.lr.ph.i.i.i.i ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.025.1.i.i.i.i, %46 ], [ %spec.select.i.i.i.i, %52 ], [ %58, %.loopexit.split.loop.exit39.i.i.i.i ], [ %.sroa.025.0.lcssa.i.i.i.i, %40 ], [ %57, %.loopexit.split.loop.exit37.i.i.i.i ], [ %56, %.loopexit.split.loop.exit35.i.i.i.i ], [ %.sroa.025.044.i.i.i.i, %.lr.ph.i.i.i.i ]
   %59 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i, %13
   %.sroa.06.021.i.i = getelementptr inbounds nuw i8, ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i, i64 16
   %.not22.i.i = icmp eq ptr %.sroa.06.021.i.i, %13

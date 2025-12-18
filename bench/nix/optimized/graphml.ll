@@ -1396,8 +1396,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit.i141: ; pred
   br label %.noexc101, !llvm.loop !24
 
 .noexc101:                                        ; preds = %.lr.ph19.i147, %.lr.ph19.preheader.i145, %..noexc101.loopexit_crit_edge, %.noexc.i33..noexc101_crit_edge, %._crit_edge.i142
-  %353 = phi i32 [ %.pre309, %.noexc.i33..noexc101_crit_edge ], [ %.pre310, %._crit_edge.i142 ], [ %.pre310, %..noexc101.loopexit_crit_edge ], [ %.pre310, %.lr.ph19.preheader.i145 ], [ %.pre310, %.lr.ph19.i147 ]
-  %354 = phi i32 [ %.pre308, %.noexc.i33..noexc101_crit_edge ], [ 0, %._crit_edge.i142 ], [ %352, %..noexc101.loopexit_crit_edge ], [ 0, %.lr.ph19.preheader.i145 ], [ %352, %.lr.ph19.i147 ]
+  %353 = phi i32 [ %.pre309, %.noexc.i33..noexc101_crit_edge ], [ %.pre310, %._crit_edge.i142 ], [ %.pre310, %.lr.ph19.preheader.i145 ], [ %.pre310, %..noexc101.loopexit_crit_edge ], [ %.pre310, %.lr.ph19.i147 ]
+  %354 = phi i32 [ %.pre308, %.noexc.i33..noexc101_crit_edge ], [ 0, %._crit_edge.i142 ], [ 0, %.lr.ph19.preheader.i145 ], [ %352, %..noexc101.loopexit_crit_edge ], [ %352, %.lr.ph19.i147 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !20
   %.not.i.i77 = icmp slt i32 %354, %353
   br i1 %.not.i.i77, label %.preheader.i.i92, label %357
@@ -1677,11 +1677,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit.i: ; preds =
   br label %.noexc73, !llvm.loop !24
 
 .noexc73:                                         ; preds = %.lr.ph19.i, %.lr.ph19.preheader.i, %..noexc73.loopexit_crit_edge, %.noexc.i.i..noexc73_crit_edge, %._crit_edge.i127
-  %476 = phi ptr [ %391, %.noexc.i.i..noexc73_crit_edge ], [ %462, %._crit_edge.i127 ], [ %462, %..noexc73.loopexit_crit_edge ], [ %462, %.lr.ph19.preheader.i ], [ %462, %.lr.ph19.i ]
-  %477 = phi i32 [ %390, %.noexc.i.i..noexc73_crit_edge ], [ %463, %._crit_edge.i127 ], [ %463, %..noexc73.loopexit_crit_edge ], [ %463, %.lr.ph19.preheader.i ], [ %463, %.lr.ph19.i ]
-  %478 = phi ptr [ %389, %.noexc.i.i..noexc73_crit_edge ], [ %464, %._crit_edge.i127 ], [ %464, %..noexc73.loopexit_crit_edge ], [ %464, %.lr.ph19.preheader.i ], [ %464, %.lr.ph19.i ]
-  %479 = phi i32 [ %.pre314, %.noexc.i.i..noexc73_crit_edge ], [ %.pre315, %._crit_edge.i127 ], [ %.pre315, %..noexc73.loopexit_crit_edge ], [ %.pre315, %.lr.ph19.preheader.i ], [ %.pre315, %.lr.ph19.i ]
-  %480 = phi i32 [ %419, %.noexc.i.i..noexc73_crit_edge ], [ 0, %._crit_edge.i127 ], [ %475, %..noexc73.loopexit_crit_edge ], [ 0, %.lr.ph19.preheader.i ], [ %475, %.lr.ph19.i ]
+  %476 = phi ptr [ %391, %.noexc.i.i..noexc73_crit_edge ], [ %462, %._crit_edge.i127 ], [ %462, %.lr.ph19.preheader.i ], [ %462, %..noexc73.loopexit_crit_edge ], [ %462, %.lr.ph19.i ]
+  %477 = phi i32 [ %390, %.noexc.i.i..noexc73_crit_edge ], [ %463, %._crit_edge.i127 ], [ %463, %.lr.ph19.preheader.i ], [ %463, %..noexc73.loopexit_crit_edge ], [ %463, %.lr.ph19.i ]
+  %478 = phi ptr [ %389, %.noexc.i.i..noexc73_crit_edge ], [ %464, %._crit_edge.i127 ], [ %464, %.lr.ph19.preheader.i ], [ %464, %..noexc73.loopexit_crit_edge ], [ %464, %.lr.ph19.i ]
+  %479 = phi i32 [ %.pre314, %.noexc.i.i..noexc73_crit_edge ], [ %.pre315, %._crit_edge.i127 ], [ %.pre315, %.lr.ph19.preheader.i ], [ %.pre315, %..noexc73.loopexit_crit_edge ], [ %.pre315, %.lr.ph19.i ]
+  %480 = phi i32 [ %419, %.noexc.i.i..noexc73_crit_edge ], [ 0, %._crit_edge.i127 ], [ 0, %.lr.ph19.preheader.i ], [ %475, %..noexc73.loopexit_crit_edge ], [ %475, %.lr.ph19.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !20
   %.not.i.i70 = icmp slt i32 %480, %479
   br i1 %.not.i.i70, label %.preheader.i.i, label %483
@@ -3354,8 +3354,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit.thread.threa
   br label %131
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit.thread: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i, %.backedge
-  %.083.lcssa = phi i64 [ %.083.be, %.backedge ], [ %.083113, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i ], [ %.083113, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit ]
-  %.lcssa = phi i64 [ %64, %.backedge ], [ %39, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i ], [ %39, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit ]
+  %.083.lcssa = phi i64 [ %.083113, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i ], [ %.083.be, %.backedge ], [ %.083113, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit ]
+  %.lcssa = phi i64 [ %39, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i ], [ %64, %.backedge ], [ %39, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit ]
   %125 = icmp eq i64 %indvars.iv, 0
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %127 = load ptr, ptr %0, align 8
@@ -3983,7 +3983,7 @@ define linkonce_odr { i64, i64 } @_ZN5boost2io18basic_altstringbufIcSt11char_tra
   br label %64
 
 64:                                               ; preds = %.sink.split, %13, %27, %36, %20, %18, %49, %46, %44
-  %.sroa.021.0 = phi i64 [ -1, %46 ], [ %1, %36 ], [ %1, %27 ], [ -1, %44 ], [ -1, %18 ], [ -1, %20 ], [ -1, %49 ], [ -1, %13 ], [ %1, %.sink.split ]
+  %.sroa.021.0 = phi i64 [ -1, %46 ], [ -1, %13 ], [ %1, %36 ], [ %1, %27 ], [ -1, %44 ], [ -1, %49 ], [ -1, %18 ], [ -1, %20 ], [ %1, %.sink.split ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.021.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 0, 1
   ret { i64, i64 } %.fca.1.insert
@@ -4440,7 +4440,7 @@ _ZN5boost2io6detail18wrap_scan_notdigitIN9__gnu_cxx17__normal_iteratorIPKcNSt7__
   br i1 %59, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.lr.ph, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit.thread, !llvm.loop !36
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit.thread: ; preds = %.outer, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i, %37, %4, %29
-  %.131 = phi i32 [ %30, %29 ], [ 0, %4 ], [ %.030.ph55, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit ], [ %.030.ph55, %37 ], [ %.030.ph55, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i ], [ %58, %.outer ]
+  %.131 = phi i32 [ %30, %29 ], [ %.030.ph55, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit ], [ 0, %4 ], [ %.030.ph55, %37 ], [ %.030.ph55, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i ], [ %58, %.outer ]
   ret i32 %.131
 }
 

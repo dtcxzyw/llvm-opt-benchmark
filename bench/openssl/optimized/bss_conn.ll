@@ -1211,7 +1211,7 @@ conn_create_dgram_bio.exit102:                    ; preds = %114
   br label %.thread
 
 .thread:                                          ; preds = %15, %.thread.loopexit, %31, %119, %109, %72, %52, %41, %23
-  %.1 = phi i32 [ %.080, %23 ], [ %.080, %41 ], [ -1, %52 ], [ 0, %72 ], [ 0, %109 ], [ 0, %119 ], [ %.080, %31 ], [ %.080, %.thread.loopexit ], [ 1, %15 ]
+  %.1 = phi i32 [ %.080, %31 ], [ %.080, %23 ], [ %.080, %41 ], [ %.080, %.thread.loopexit ], [ -1, %52 ], [ 0, %72 ], [ 0, %109 ], [ 0, %119 ], [ 1, %15 ]
   br i1 %.not, label %.loopexit, label %125
 
 125:                                              ; preds = %.thread

@@ -1628,7 +1628,7 @@ define range(i32 0, 2) i32 @TLSX_CheckUnsupportedExtension(ptr noundef readonly 
   br i1 %.not.i10, label %TLSX_Find.exit, label %.lr.ph.i7, !llvm.loop !101
 
 TLSX_Find.exit:                                   ; preds = %.lr.ph.i, %13, %.lr.ph.i7, %.loopexit
-  %.0 = phi i32 [ 1, %.loopexit ], [ 1, %13 ], [ 0, %.lr.ph.i7 ], [ 0, %.lr.ph.i ]
+  %.0 = phi i32 [ 1, %13 ], [ 1, %.loopexit ], [ 0, %.lr.ph.i7 ], [ 0, %.lr.ph.i ]
   ret i32 %.0
 }
 
@@ -1891,7 +1891,7 @@ TLSX_SNI_Free.exit48:                             ; preds = %58, %64
   br label %.critedge
 
 .critedge:                                        ; preds = %52, %36, %42, %8, %20, %19, %TLSX_SNI_Free.exit48, %TLSX_SNI_Free.exit, %5
-  %.0 = phi i32 [ -125, %TLSX_SNI_Free.exit ], [ -173, %5 ], [ -125, %8 ], [ 1, %TLSX_SNI_Free.exit48 ], [ -125, %19 ], [ -125, %20 ], [ 1, %42 ], [ 1, %36 ], [ 1, %52 ]
+  %.0 = phi i32 [ -125, %TLSX_SNI_Free.exit ], [ -173, %5 ], [ 1, %36 ], [ -125, %8 ], [ 1, %TLSX_SNI_Free.exit48 ], [ -125, %19 ], [ -125, %20 ], [ 1, %42 ], [ 1, %52 ]
   ret i32 %.0
 }
 
@@ -2263,7 +2263,7 @@ define range(i32 -396, 2) i32 @TLSX_SNI_GetFromBuffer(ptr noundef readonly captu
   br label %.thread165
 
 .thread165:                                       ; preds = %121, %.lr.ph184, %.lr.ph, %149, %92, %87, %80, %70, %67, %61, %45, %42, %33, %29, %26, %9, %21, %13, %5, %._crit_edge
-  %.0 = phi i32 [ %168, %._crit_edge ], [ -310, %5 ], [ %., %21 ], [ -328, %13 ], [ 0, %87 ], [ -328, %9 ], [ -328, %26 ], [ -396, %29 ], [ -310, %33 ], [ -328, %42 ], [ -328, %45 ], [ -328, %61 ], [ -328, %67 ], [ -328, %70 ], [ -328, %92 ], [ -328, %80 ], [ 1, %149 ], [ -328, %.lr.ph ], [ -328, %.lr.ph184 ], [ -328, %121 ]
+  %.0 = phi i32 [ %168, %._crit_edge ], [ -310, %5 ], [ %., %21 ], [ -328, %13 ], [ 0, %87 ], [ -328, %9 ], [ -328, %26 ], [ -396, %29 ], [ -310, %33 ], [ -328, %42 ], [ -328, %45 ], [ -328, %61 ], [ -328, %67 ], [ -328, %70 ], [ -328, %92 ], [ -328, %80 ], [ -328, %.lr.ph ], [ 1, %149 ], [ -328, %.lr.ph184 ], [ -328, %121 ]
   ret i32 %.0
 }
 
@@ -2509,7 +2509,7 @@ TLSX_Find.exit:                                   ; preds = %.lr.ph.i
   br label %TLSX_SupportedCurve_New.exit
 
 TLSX_SupportedCurve_New.exit:                     ; preds = %34, %33, %21, %45, %27, %5, %41, %.loopexit, %TLSX_Push.exit, %3
-  %.0 = phi i32 [ -173, %3 ], [ -125, %.loopexit ], [ -173, %5 ], [ -125, %TLSX_Push.exit ], [ -125, %41 ], [ 1, %27 ], [ 1, %45 ], [ 1, %21 ], [ 1, %34 ], [ -173, %33 ]
+  %.0 = phi i32 [ -173, %3 ], [ -125, %.loopexit ], [ -125, %41 ], [ -173, %5 ], [ -125, %TLSX_Push.exit ], [ 1, %45 ], [ 1, %21 ], [ 1, %27 ], [ 1, %34 ], [ -173, %33 ]
   ret i32 %.0
 }
 
@@ -2586,12 +2586,12 @@ TLSX_Find.exit34:                                 ; preds = %.lr.ph.i29
   br label %TLSX_Find.exit.thread.sink.split
 
 TLSX_Find.exit.thread.sink.split:                 ; preds = %13, %.lr.ph, %._crit_edge, %11, %TLSX_Find.exit
-  %.023.ph = phi i32 [ %9, %TLSX_Find.exit ], [ 0, %11 ], [ 0, %._crit_edge ], [ 0, %.lr.ph ], [ 0, %13 ]
+  %.023.ph = phi i32 [ %9, %TLSX_Find.exit ], [ 0, %11 ], [ 0, %.lr.ph ], [ 0, %._crit_edge ], [ 0, %13 ]
   call void @TLSX_FreeAll(ptr noundef %10, ptr poison)
   br label %TLSX_Find.exit.thread
 
 TLSX_Find.exit.thread:                            ; preds = %6, %TLSX_Find.exit.thread.sink.split, %1
-  %.023 = phi i32 [ 0, %1 ], [ %.023.ph, %TLSX_Find.exit.thread.sink.split ], [ 0, %6 ]
+  %.023 = phi i32 [ %.023.ph, %TLSX_Find.exit.thread.sink.split ], [ 0, %1 ], [ 0, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.023
 }
@@ -2860,13 +2860,13 @@ TLSX_Find.exit50:                                 ; preds = %.lr.ph.i45
   br label %tlsx_ffdhe_find_group.exit
 
 tlsx_ffdhe_find_group.exit:                       ; preds = %.thread55.i, %50, %69, %TLSX_Find.exit50, %30
-  %.031 = phi i32 [ %35, %30 ], [ 0, %69 ], [ 0, %TLSX_Find.exit50 ], [ -173, %50 ], [ 0, %.thread55.i ]
+  %.031 = phi i32 [ %35, %30 ], [ -173, %50 ], [ 0, %69 ], [ 0, %TLSX_Find.exit50 ], [ 0, %.thread55.i ]
   %81 = load ptr, ptr %2, align 8, !tbaa !59
   call void @TLSX_FreeAll(ptr noundef %81, ptr poison)
   br label %.critedge
 
 .critedge:                                        ; preds = %6, %13, %TLSX_Find.exit, %1, %tlsx_ffdhe_find_group.exit
-  %.0 = phi i32 [ %.031, %tlsx_ffdhe_find_group.exit ], [ 0, %1 ], [ 0, %TLSX_Find.exit ], [ 0, %13 ], [ 0, %6 ]
+  %.0 = phi i32 [ 0, %TLSX_Find.exit ], [ %.031, %tlsx_ffdhe_find_group.exit ], [ 0, %1 ], [ 0, %13 ], [ 0, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -2929,7 +2929,7 @@ TLSX_KeyShare_IsSupported.exit.thread:            ; preds = %9, %9, %9, %9, %9, 
   br label %TLSX_Find.exit.thread
 
 TLSX_Find.exit.thread:                            ; preds = %6, %TLSX_Find.exit, %TLSX_Find.exit.us, %2, %TLSX_KeyShare_IsSupported.exit.thread
-  %.08 = phi i32 [ %12, %TLSX_KeyShare_IsSupported.exit.thread ], [ -173, %2 ], [ -173, %TLSX_Find.exit.us ], [ -173, %TLSX_Find.exit ], [ -173, %6 ]
+  %.08 = phi i32 [ -173, %TLSX_Find.exit.us ], [ %12, %TLSX_KeyShare_IsSupported.exit.thread ], [ -173, %2 ], [ -173, %TLSX_Find.exit ], [ -173, %6 ]
   ret i32 %.08
 }
 
@@ -3314,14 +3314,14 @@ TLSX_Find.exit:                                   ; preds = %.lr.ph.split.split,
   br i1 %.not210, label %TLSX_Find.exit._crit_edge, label %.lr.ph.split.split, !llvm.loop !136
 
 TLSX_Find.exit._crit_edge:                        ; preds = %TLSX_Find.exit, %TLSX_Find.exit.us181, %TLSX_Find.exit.us
-  %.0103.lcssa = phi i32 [ %.1104.us182, %TLSX_Find.exit.us181 ], [ %.1104.us, %TLSX_Find.exit.us ], [ %.1104, %TLSX_Find.exit ]
-  %.097.lcssa = phi i32 [ %.198.us183, %TLSX_Find.exit.us181 ], [ %.198.us, %TLSX_Find.exit.us ], [ %.198, %TLSX_Find.exit ]
-  %.094.lcssa = phi i32 [ %.195.us184, %TLSX_Find.exit.us181 ], [ %.195.us, %TLSX_Find.exit.us ], [ %.195, %TLSX_Find.exit ]
-  %.091.lcssa = phi i32 [ %.192.us185, %TLSX_Find.exit.us181 ], [ %.192.us, %TLSX_Find.exit.us ], [ %.192, %TLSX_Find.exit ]
-  %.088.lcssa = phi i32 [ %.189.us186, %TLSX_Find.exit.us181 ], [ %.189.us, %TLSX_Find.exit.us ], [ %.189, %TLSX_Find.exit ]
-  %.085.lcssa = phi i32 [ %.186.us187, %TLSX_Find.exit.us181 ], [ %.186.us, %TLSX_Find.exit.us ], [ 0, %TLSX_Find.exit ]
-  %.082.lcssa.shrunk = phi i1 [ %.183.shrunk.us188, %TLSX_Find.exit.us181 ], [ %.183.shrunk.us, %TLSX_Find.exit.us ], [ false, %TLSX_Find.exit ]
-  %.0.lcssa = phi i32 [ %.1.us189, %TLSX_Find.exit.us181 ], [ %.1.us, %TLSX_Find.exit.us ], [ %.1, %TLSX_Find.exit ]
+  %.0103.lcssa = phi i32 [ %.1104.us, %TLSX_Find.exit.us ], [ %.1104.us182, %TLSX_Find.exit.us181 ], [ %.1104, %TLSX_Find.exit ]
+  %.097.lcssa = phi i32 [ %.198.us, %TLSX_Find.exit.us ], [ %.198.us183, %TLSX_Find.exit.us181 ], [ %.198, %TLSX_Find.exit ]
+  %.094.lcssa = phi i32 [ %.195.us, %TLSX_Find.exit.us ], [ %.195.us184, %TLSX_Find.exit.us181 ], [ %.195, %TLSX_Find.exit ]
+  %.091.lcssa = phi i32 [ %.192.us, %TLSX_Find.exit.us ], [ %.192.us185, %TLSX_Find.exit.us181 ], [ %.192, %TLSX_Find.exit ]
+  %.088.lcssa = phi i32 [ %.189.us, %TLSX_Find.exit.us ], [ %.189.us186, %TLSX_Find.exit.us181 ], [ %.189, %TLSX_Find.exit ]
+  %.085.lcssa = phi i32 [ %.186.us, %TLSX_Find.exit.us ], [ %.186.us187, %TLSX_Find.exit.us181 ], [ 0, %TLSX_Find.exit ]
+  %.082.lcssa.shrunk = phi i1 [ %.183.shrunk.us, %TLSX_Find.exit.us ], [ %.183.shrunk.us188, %TLSX_Find.exit.us181 ], [ false, %TLSX_Find.exit ]
+  %.0.lcssa = phi i32 [ %.1.us, %TLSX_Find.exit.us ], [ %.1.us189, %TLSX_Find.exit.us181 ], [ %.1, %TLSX_Find.exit ]
   %.082.lcssa = zext i1 %.082.lcssa.shrunk to i32
   %.not116 = icmp eq i32 %.0.lcssa, 0
   br i1 %.not116, label %TLSX_Find.exit.thread, label %TLSX_Find.exit._crit_edge.thread
@@ -3526,7 +3526,7 @@ TLSX_Find.exit:                                   ; preds = %.lr.ph.i
   br label %TLSX_PointFormat_New.exit
 
 TLSX_PointFormat_New.exit:                        ; preds = %34, %33, %21, %45, %27, %41, %.loopexit, %TLSX_Push.exit, %3
-  %.0 = phi i32 [ -125, %TLSX_Push.exit ], [ -125, %.loopexit ], [ -173, %3 ], [ -125, %41 ], [ 1, %27 ], [ 1, %45 ], [ 1, %21 ], [ 1, %34 ], [ -173, %33 ]
+  %.0 = phi i32 [ -125, %TLSX_Push.exit ], [ -125, %.loopexit ], [ -125, %41 ], [ -173, %3 ], [ 1, %45 ], [ 1, %21 ], [ 1, %27 ], [ 1, %34 ], [ -173, %33 ]
   ret i32 %.0
 }
 
@@ -3798,7 +3798,7 @@ define range(i32 -394, 1) i32 @TLSX_SupportedVersions_Parse(ptr noundef %0, ptr 
   br label %TLSX_Find.exit
 
 TLSX_Find.exit:                                   ; preds = %.lr.ph.i, %73, %57, %65, %100, %107, %._crit_edge.thread, %11, %15, %.loopexit, %76, %104, %101, %97, %79, %78
-  %.181 = phi i32 [ %72, %.loopexit ], [ -394, %76 ], [ -326, %104 ], [ -328, %78 ], [ -326, %79 ], [ -326, %101 ], [ -326, %97 ], [ -326, %._crit_edge.thread ], [ -328, %11 ], [ -328, %15 ], [ 0, %100 ], [ 0, %107 ], [ 0, %65 ], [ 0, %57 ], [ 0, %73 ], [ 0, %.lr.ph.i ]
+  %.181 = phi i32 [ %72, %.loopexit ], [ -394, %76 ], [ -326, %104 ], [ -328, %78 ], [ -326, %79 ], [ 0, %73 ], [ -326, %101 ], [ -326, %97 ], [ -326, %._crit_edge.thread ], [ -328, %11 ], [ -328, %15 ], [ 0, %100 ], [ 0, %107 ], [ 0, %65 ], [ 0, %57 ], [ 0, %.lr.ph.i ]
   ret i32 %.181
 }
 
@@ -4725,7 +4725,7 @@ TLSX_Find.exit.i113:                              ; preds = %.lr.ph.i.i107
   br label %TLSX_KeyShare_Find.exit105
 
 TLSX_KeyShare_Find.exit105:                       ; preds = %110, %TLSX_Find.exit.i78, %.lr.ph.i101, %28, %TLSX_Find.exit.i, %42, %46, %.loopexit.i71, %63, %59, %51, %TLSX_KeyShare_Find.exit, %TLSX_Find.exit.i61, %.loopexit.i60, %.loopexit.i, %81, %74, %TLSX_KeyShareEntry_Parse.exit, %9, %.loopexit.i111, %88, %85, %6, %157, %.loopexit, %4, %93
-  %.1 = phi i32 [ -394, %4 ], [ %155, %.loopexit ], [ -328, %63 ], [ %86, %85 ], [ -328, %93 ], [ %8, %6 ], [ 0, %157 ], [ -125, %.loopexit.i111 ], [ 0, %88 ], [ -421, %81 ], [ -328, %9 ], [ -421, %74 ], [ -328, %TLSX_KeyShareEntry_Parse.exit ], [ -421, %.loopexit.i ], [ -421, %.loopexit.i60 ], [ -421, %TLSX_Find.exit.i61 ], [ -328, %TLSX_KeyShare_Find.exit ], [ -328, %51 ], [ -328, %59 ], [ -421, %.loopexit.i71 ], [ -421, %TLSX_Find.exit.i78 ], [ -421, %46 ], [ -421, %42 ], [ -421, %TLSX_Find.exit.i ], [ -421, %28 ], [ -421, %.lr.ph.i101 ], [ -421, %110 ]
+  %.1 = phi i32 [ -394, %4 ], [ %155, %.loopexit ], [ -421, %46 ], [ -328, %63 ], [ 0, %88 ], [ -328, %93 ], [ %8, %6 ], [ 0, %157 ], [ -125, %.loopexit.i111 ], [ %86, %85 ], [ -421, %28 ], [ -421, %81 ], [ -328, %9 ], [ -421, %74 ], [ -328, %TLSX_KeyShareEntry_Parse.exit ], [ -421, %TLSX_Find.exit.i78 ], [ -421, %.loopexit.i ], [ -421, %.lr.ph.i101 ], [ -421, %.loopexit.i60 ], [ -421, %TLSX_Find.exit.i61 ], [ -421, %TLSX_Find.exit.i ], [ -328, %TLSX_KeyShare_Find.exit ], [ -328, %51 ], [ -328, %59 ], [ -421, %.loopexit.i71 ], [ -421, %42 ], [ -421, %110 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.1
 }
@@ -5686,15 +5686,15 @@ TLSX_KeyShare_GroupRank.exit:                     ; preds = %55, %.split.loop.ex
   br label %TLSX_SupportedGroups_Find.exit.thread
 
 TLSX_SupportedGroups_Find.exit.thread:            ; preds = %39, %TLSX_Find.exit.i, %TLSX_SupportedGroups_Find.exit, %47, %.loopexit.i, %TLSX_KeyShare_GroupRank.exit, %25
-  %.135 = phi ptr [ %.03471, %25 ], [ %spec.select, %TLSX_KeyShare_GroupRank.exit ], [ %.03471, %TLSX_SupportedGroups_Find.exit ], [ %.03471, %.loopexit.i ], [ %.03471, %47 ], [ %.03471, %TLSX_Find.exit.i ], [ %.03471, %39 ]
-  %.1 = phi i32 [ %.03372, %25 ], [ %spec.select47, %TLSX_KeyShare_GroupRank.exit ], [ %.03372, %TLSX_SupportedGroups_Find.exit ], [ %.03372, %.loopexit.i ], [ %.03372, %47 ], [ %.03372, %TLSX_Find.exit.i ], [ %.03372, %39 ]
+  %.135 = phi ptr [ %.03471, %25 ], [ %spec.select, %TLSX_KeyShare_GroupRank.exit ], [ %.03471, %TLSX_SupportedGroups_Find.exit ], [ %.03471, %TLSX_Find.exit.i ], [ %.03471, %.loopexit.i ], [ %.03471, %47 ], [ %.03471, %39 ]
+  %.1 = phi i32 [ %.03372, %25 ], [ %spec.select47, %TLSX_KeyShare_GroupRank.exit ], [ %.03372, %TLSX_SupportedGroups_Find.exit ], [ %.03372, %TLSX_Find.exit.i ], [ %.03372, %.loopexit.i ], [ %.03372, %47 ], [ %.03372, %39 ]
   %60 = getelementptr inbounds nuw i8, ptr %.03273, i64 72
   %61 = load ptr, ptr %60, align 8, !tbaa !176
   %.not43 = icmp eq ptr %61, null
   br i1 %.not43, label %._crit_edge, label %25, !llvm.loop !180
 
 ._crit_edge:                                      ; preds = %14, %TLSX_SupportedGroups_Find.exit.thread, %12, %.thread
-  %.034.lcssa = phi ptr [ null, %.thread ], [ null, %12 ], [ %.135, %TLSX_SupportedGroups_Find.exit.thread ], [ null, %14 ]
+  %.034.lcssa = phi ptr [ null, %.thread ], [ %.135, %TLSX_SupportedGroups_Find.exit.thread ], [ null, %12 ], [ null, %14 ]
   store ptr %.034.lcssa, ptr %4, align 8, !tbaa !157
   store i8 1, ptr %5, align 1, !tbaa !51
   br label %62
@@ -6297,7 +6297,7 @@ TLSX_Find.exit133:                                ; preds = %.lr.ph.i128
   br label %TLSX_EncryptThenMac_Use.exit
 
 TLSX_EncryptThenMac_Use.exit:                     ; preds = %96, %TLSX_SignatureAlgorithms_FreeAll.exit.i, %.loopexit.i119, %.loopexit.i, %.thread146, %115, %.loopexit154, %.loopexit157, %.thread
-  %.0 = phi i32 [ %65, %.loopexit154 ], [ 0, %.thread ], [ -125, %.loopexit.i ], [ -125, %TLSX_SignatureAlgorithms_FreeAll.exit.i ], [ %117, %115 ], [ %44, %.loopexit157 ], [ %140, %.thread146 ], [ -303, %.loopexit.i119 ], [ -125, %96 ]
+  %.0 = phi i32 [ %65, %.loopexit154 ], [ 0, %.thread ], [ -125, %.loopexit.i ], [ -303, %.loopexit.i119 ], [ %117, %115 ], [ %44, %.loopexit157 ], [ %140, %.thread146 ], [ -125, %TLSX_SignatureAlgorithms_FreeAll.exit.i ], [ -125, %96 ]
   ret i32 %.0
 }
 
@@ -6748,7 +6748,7 @@ TLSX_SignatureAlgorithms_GetSize.exit:            ; preds = %58, %72
   br label %.outer.i, !llvm.loop !193
 
 TLSX_KeyShare_GetSize.exit:                       ; preds = %.split.us.us.i, %88, %78, %.split16.us.i
-  %.0.i43 = phi i16 [ 2, %78 ], [ 2, %.split16.us.i ], [ %.1.ph.i, %88 ], [ %87, %.split.us.us.i ]
+  %.0.i43 = phi i16 [ 2, %78 ], [ %.1.ph.i, %88 ], [ 2, %.split16.us.i ], [ %87, %.split.us.us.i ]
   %100 = add i16 %.0.i43, %27
   br label %TLSX_SupportedVersions_GetSize.exit
 
@@ -6812,8 +6812,8 @@ TLSX_SupportedVersions_GetSize.exit:              ; preds = %121, %117, %28, %25
   br i1 %.not76, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !189
 
 .outer._crit_edge:                                ; preds = %TLSX_SupportedVersions_GetSize.exit, %.backedge, %4
-  %.061.ph.lcssa = phi i16 [ 0, %4 ], [ %.061.ph82, %.backedge ], [ %.162, %TLSX_SupportedVersions_GetSize.exit ]
-  %.026.ph.lcssa = phi i32 [ 0, %4 ], [ %.026.ph83, %.backedge ], [ %.1, %TLSX_SupportedVersions_GetSize.exit ]
+  %.061.ph.lcssa = phi i16 [ %.061.ph82, %.backedge ], [ 0, %4 ], [ %.162, %TLSX_SupportedVersions_GetSize.exit ]
+  %.026.ph.lcssa = phi i32 [ %.026.ph83, %.backedge ], [ 0, %4 ], [ %.1, %TLSX_SupportedVersions_GetSize.exit ]
   %130 = load i16, ptr %3, align 2, !tbaa !64
   %131 = add i16 %130, %.061.ph.lcssa
   store i16 %131, ptr %3, align 2, !tbaa !64
@@ -8269,7 +8269,7 @@ TLSX_GetMinSize_Client.exit.thread:               ; preds = %57, %TLSX_GetMinSiz
   br i1 %.not.i98.i, label %TLSX_Find.exit.i, label %.lr.ph.i95.i, !llvm.loop !101
 
 TLSX_Find.exit.i:                                 ; preds = %.lr.ph.i.i, %86, %.lr.ph.i95.i, %.loopexit.i
-  %.063.i = phi ptr [ null, %.loopexit.i ], [ null, %86 ], [ %.07.i96.i, %.lr.ph.i95.i ], [ %.07.i.i, %.lr.ph.i.i ]
+  %.063.i = phi ptr [ null, %86 ], [ null, %.loopexit.i ], [ %.07.i96.i, %.lr.ph.i95.i ], [ %.07.i.i, %.lr.ph.i.i ]
   %.not72.i = icmp eq ptr %.063.i, null
   switch i8 %3, label %89 [
     i8 13, label %106
@@ -8677,8 +8677,8 @@ TLSX_Find.exit.i.i:                               ; preds = %.lr.ph.i.i108.i
   br label %.loopexit
 
 .loopexit:                                        ; preds = %146, %170, %95, %102, %65, %58, %215, %192, %200, %231, %239, %246, %254, %184, %196, %210, %219, %224, %235, %242, %250, %TLSX_GetMinSize_Client.exit.thread, %182, %182, %183, %207, %207, %207, %208, %209, %216, %222, %223, %241, %241, %241, %176, %93, %98, %TLSX_SNI_Find.exit.i.i, %110, %142, %TLSX_SNI_Find.exit.i, %.critedge.thread.i, %165, %167, %TLSX_Find.exit.i.i, %174
-  %.2212 = phi i32 [ 0, %TLSX_GetMinSize_Client.exit.thread ], [ 0, %223 ], [ 0, %250 ], [ 0, %176 ], [ 0, %184 ], [ 0, %183 ], [ %195, %192 ], [ 0, %196 ], [ %203, %200 ], [ 0, %241 ], [ 0, %208 ], [ 0, %210 ], [ 0, %209 ], [ 0, %219 ], [ 0, %216 ], [ 0, %241 ], [ 0, %222 ], [ %234, %231 ], [ 0, %224 ], [ 0, %235 ], [ %240, %239 ], [ 0, %241 ], [ %249, %246 ], [ 0, %242 ], [ %257, %254 ], [ 0, %182 ], [ 0, %182 ], [ 0, %207 ], [ 0, %207 ], [ 0, %207 ], [ 0, %215 ], [ 0, %110 ], [ 0, %65 ], [ %164, %.critedge.thread.i ], [ 0, %TLSX_SNI_Find.exit.i.i ], [ 0, %174 ], [ %.mux.i, %93 ], [ 0, %TLSX_SNI_Find.exit.i ], [ 0, %98 ], [ 0, %165 ], [ 0, %167 ], [ 0, %TLSX_Find.exit.i.i ], [ 0, %142 ], [ 0, %58 ], [ 0, %170 ], [ 0, %102 ], [ 0, %95 ], [ 0, %146 ]
-  %.2 = phi i8 [ %.0204310, %TLSX_GetMinSize_Client.exit.thread ], [ %.0204310, %223 ], [ %.0204310, %250 ], [ %.0204310, %176 ], [ %.0204310, %184 ], [ %.0204310, %183 ], [ %.0204310, %192 ], [ %.0204310, %196 ], [ %.0204310, %200 ], [ %.0204310, %241 ], [ %.0204310, %208 ], [ %.0204310, %210 ], [ %.0204310, %209 ], [ %.0204310, %219 ], [ 1, %216 ], [ %.0204310, %241 ], [ %.0204310, %222 ], [ %.0204310, %231 ], [ %.0204310, %224 ], [ %.0204310, %235 ], [ %.0204310, %239 ], [ %.0204310, %241 ], [ %.0204310, %246 ], [ %.0204310, %242 ], [ %.0204310, %254 ], [ %.0204310, %182 ], [ %.0204310, %182 ], [ %.0204310, %207 ], [ %.0204310, %207 ], [ %.0204310, %207 ], [ 1, %215 ], [ %.0204310, %110 ], [ %.0204310, %65 ], [ %.0204310, %.critedge.thread.i ], [ %.0204310, %TLSX_SNI_Find.exit.i.i ], [ %.0204310, %174 ], [ %.0204310, %93 ], [ %.0204310, %TLSX_SNI_Find.exit.i ], [ %.0204310, %98 ], [ %.0204310, %165 ], [ %.0204310, %167 ], [ %.0204310, %TLSX_Find.exit.i.i ], [ %.0204310, %142 ], [ %.0204310, %58 ], [ %.0204310, %170 ], [ %.0204310, %102 ], [ %.0204310, %95 ], [ %.0204310, %146 ]
+  %.2212 = phi i32 [ 0, %TLSX_GetMinSize_Client.exit.thread ], [ 0, %223 ], [ 0, %250 ], [ 0, %176 ], [ 0, %184 ], [ 0, %183 ], [ %195, %192 ], [ 0, %196 ], [ %203, %200 ], [ 0, %241 ], [ 0, %208 ], [ 0, %210 ], [ 0, %209 ], [ 0, %219 ], [ 0, %216 ], [ 0, %241 ], [ 0, %222 ], [ %234, %231 ], [ 0, %224 ], [ 0, %235 ], [ %240, %239 ], [ 0, %241 ], [ %249, %246 ], [ 0, %242 ], [ %257, %254 ], [ 0, %182 ], [ 0, %182 ], [ 0, %207 ], [ 0, %207 ], [ 0, %207 ], [ 0, %215 ], [ 0, %110 ], [ 0, %TLSX_Find.exit.i.i ], [ 0, %165 ], [ 0, %95 ], [ %164, %.critedge.thread.i ], [ 0, %142 ], [ 0, %TLSX_SNI_Find.exit.i.i ], [ 0, %170 ], [ 0, %174 ], [ 0, %167 ], [ %.mux.i, %93 ], [ 0, %102 ], [ 0, %TLSX_SNI_Find.exit.i ], [ 0, %65 ], [ 0, %58 ], [ 0, %98 ], [ 0, %146 ]
+  %.2 = phi i8 [ %.0204310, %TLSX_GetMinSize_Client.exit.thread ], [ %.0204310, %223 ], [ %.0204310, %250 ], [ %.0204310, %176 ], [ %.0204310, %184 ], [ %.0204310, %183 ], [ %.0204310, %192 ], [ %.0204310, %196 ], [ %.0204310, %200 ], [ %.0204310, %241 ], [ %.0204310, %208 ], [ %.0204310, %210 ], [ %.0204310, %209 ], [ %.0204310, %219 ], [ 1, %216 ], [ %.0204310, %241 ], [ %.0204310, %222 ], [ %.0204310, %231 ], [ %.0204310, %224 ], [ %.0204310, %235 ], [ %.0204310, %239 ], [ %.0204310, %241 ], [ %.0204310, %246 ], [ %.0204310, %242 ], [ %.0204310, %254 ], [ %.0204310, %182 ], [ %.0204310, %182 ], [ %.0204310, %207 ], [ %.0204310, %207 ], [ %.0204310, %207 ], [ 1, %215 ], [ %.0204310, %110 ], [ %.0204310, %TLSX_Find.exit.i.i ], [ %.0204310, %165 ], [ %.0204310, %95 ], [ %.0204310, %.critedge.thread.i ], [ %.0204310, %142 ], [ %.0204310, %TLSX_SNI_Find.exit.i.i ], [ %.0204310, %170 ], [ %.0204310, %174 ], [ %.0204310, %167 ], [ %.0204310, %93 ], [ %.0204310, %102 ], [ %.0204310, %TLSX_SNI_Find.exit.i ], [ %.0204310, %65 ], [ %.0204310, %58 ], [ %.0204310, %98 ], [ %.0204310, %146 ]
   %258 = add i16 %37, %38
   %259 = icmp eq i32 %.2212, 0
   %260 = icmp ult i16 %258, %2
@@ -8692,9 +8692,9 @@ TLSX_Find.exit.i.i:                               ; preds = %.lr.ph.i.i108.i
   br label %._crit_edge.loopexit
 
 ._crit_edge.loopexit:                             ; preds = %130, %126, %116, %114, %.loopexit, %._crit_edge.loopexit.sink.split
-  %263 = phi i1 [ false, %._crit_edge.loopexit.sink.split ], [ false, %130 ], [ false, %126 ], [ false, %116 ], [ false, %114 ], [ %259, %.loopexit ]
-  %.2363 = phi i8 [ %.0204310, %._crit_edge.loopexit.sink.split ], [ %.0204310, %130 ], [ %.0204310, %126 ], [ %.0204310, %116 ], [ %.0204310, %114 ], [ %.2, %.loopexit ]
-  %.2212362 = phi i32 [ %.2212362.ph, %._crit_edge.loopexit.sink.split ], [ -328, %130 ], [ -328, %126 ], [ -328, %116 ], [ -328, %114 ], [ %.2212, %.loopexit ]
+  %263 = phi i1 [ false, %._crit_edge.loopexit.sink.split ], [ %259, %.loopexit ], [ false, %114 ], [ false, %130 ], [ false, %126 ], [ false, %116 ]
+  %.2363 = phi i8 [ %.0204310, %._crit_edge.loopexit.sink.split ], [ %.2, %.loopexit ], [ %.0204310, %114 ], [ %.0204310, %130 ], [ %.0204310, %126 ], [ %.0204310, %116 ]
+  %.2212362 = phi i32 [ %.2212362.ph, %._crit_edge.loopexit.sink.split ], [ %.2212, %.loopexit ], [ -328, %114 ], [ -328, %130 ], [ -328, %126 ], [ -328, %116 ]
   %264 = icmp ne i8 %.2363, 0
   br label %._crit_edge
 
@@ -8908,7 +8908,7 @@ TLSX_SNI_Find.exit.i261:                          ; preds = %.lr.ph.i45.i
   br label %TLSX_SNI_VerifyParse.exit
 
 TLSX_SNI_VerifyParse.exit:                        ; preds = %52, %245, %241, %238, %230, %229, %223, %222, %219, %214, %213, %209, %208, %207, %199, %191, %190, %184, %183, %182, %253, %176, %73, %72, %TLSX_GetMinSize_Server.exit, %41, %20, %TLSX_GetMinSize_Client.exit, %306, %333, %278, %.thread.sink.split.i, %.preheader.i, %.thread72.i, %.thread82.i, %277, %5
-  %.0205 = phi i32 [ -173, %5 ], [ %.0210.lcssa, %277 ], [ 0, %278 ], [ 0, %.preheader.i ], [ 0, %.thread72.i ], [ 0, %.thread82.i ], [ -402, %.thread.sink.split.i ], [ 0, %306 ], [ 0, %333 ], [ -328, %20 ], [ -457, %41 ], [ -328, %TLSX_GetMinSize_Server.exit ], [ -424, %72 ], [ -424, %73 ], [ -424, %176 ], [ -424, %253 ], [ -424, %182 ], [ -424, %183 ], [ -424, %184 ], [ -424, %190 ], [ -424, %191 ], [ -424, %199 ], [ -424, %207 ], [ -424, %208 ], [ -424, %209 ], [ -424, %213 ], [ -328, %214 ], [ -424, %219 ], [ -424, %222 ], [ -424, %223 ], [ -424, %229 ], [ -424, %230 ], [ -424, %238 ], [ -424, %241 ], [ -424, %245 ], [ -328, %52 ], [ -328, %TLSX_GetMinSize_Client.exit ]
+  %.0205 = phi i32 [ 0, %333 ], [ -173, %5 ], [ %.0210.lcssa, %277 ], [ 0, %278 ], [ 0, %306 ], [ 0, %.thread72.i ], [ 0, %.preheader.i ], [ 0, %.thread82.i ], [ -402, %.thread.sink.split.i ], [ -328, %20 ], [ -457, %41 ], [ -328, %TLSX_GetMinSize_Server.exit ], [ -424, %72 ], [ -424, %73 ], [ -424, %176 ], [ -424, %253 ], [ -424, %182 ], [ -424, %183 ], [ -424, %184 ], [ -424, %190 ], [ -424, %191 ], [ -424, %199 ], [ -424, %207 ], [ -424, %208 ], [ -424, %209 ], [ -424, %213 ], [ -328, %214 ], [ -424, %219 ], [ -424, %222 ], [ -424, %223 ], [ -424, %229 ], [ -424, %230 ], [ -424, %238 ], [ -424, %241 ], [ -424, %245 ], [ -328, %52 ], [ -328, %TLSX_GetMinSize_Client.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0205
 }
@@ -9156,7 +9156,7 @@ define internal fastcc range(i32 -394, 1) i32 @TLSX_EncryptThenMac_Parse(ptr nou
   br label %TLSX_EncryptThenMac_Use.exit
 
 TLSX_EncryptThenMac_Use.exit:                     ; preds = %.lr.ph.i.i, %26, %32, %11, %.loopexit.i, %36, %5, %3, %37
-  %.0 = phi i32 [ 0, %37 ], [ -394, %3 ], [ -125, %.loopexit.i ], [ -328, %5 ], [ -394, %36 ], [ 0, %11 ], [ 0, %32 ], [ 0, %26 ], [ 0, %.lr.ph.i.i ]
+  %.0 = phi i32 [ 0, %37 ], [ -394, %3 ], [ -125, %.loopexit.i ], [ -328, %5 ], [ -394, %36 ], [ 0, %11 ], [ 0, %26 ], [ 0, %32 ], [ 0, %.lr.ph.i.i ]
   ret i32 %.0
 }
 

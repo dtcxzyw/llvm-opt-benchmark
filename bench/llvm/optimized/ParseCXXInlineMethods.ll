@@ -2003,7 +2003,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang6Parser21LateParsedDeclarationELb1EE9p
   br label %"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang5TokenELj4EEEZNS2_6Parser23ParseCXXInlineMethodDefENS2_15AccessSpecifierERKNS2_20ParsedAttributesViewERNS2_17ParsingDeclaratorERKNS6_18ParsedTemplateInfoERKNS2_14VirtSpecifiersENS2_14SourceLocationEE3$_0EEbOT_T0_.exit"
 
 "_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang5TokenELj4EEEZNS2_6Parser23ParseCXXInlineMethodDefENS2_15AccessSpecifierERKNS2_20ParsedAttributesViewERNS2_17ParsingDeclaratorERKNS6_18ParsedTemplateInfoERKNS2_14VirtSpecifiersENS2_14SourceLocationEE3$_0EEbOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i.i, %488, %493, %498, %.loopexit.split.loop.exit34.i.i.i.i.i.i, %.loopexit.split.loop.exit36.i.i.i.i.i.i, %.loopexit.split.loop.exit38.i.i.i.i.i.i
-  %.028.i.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i.i, %493 ], [ %.2.i.i.i.i.i.i, %498 ], [ %.029.lcssa.i.i.i.i.i.i, %488 ], [ %502, %.loopexit.split.loop.exit36.i.i.i.i.i.i ], [ %501, %.loopexit.split.loop.exit34.i.i.i.i.i.i ], [ %503, %.loopexit.split.loop.exit38.i.i.i.i.i.i ], [ %.02943.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
+  %.028.i.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i.i, %493 ], [ %503, %.loopexit.split.loop.exit38.i.i.i.i.i.i ], [ %.2.i.i.i.i.i.i, %498 ], [ %.029.lcssa.i.i.i.i.i.i, %488 ], [ %502, %.loopexit.split.loop.exit36.i.i.i.i.i.i ], [ %501, %.loopexit.split.loop.exit34.i.i.i.i.i.i ], [ %.02943.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
   %.not204 = icmp eq ptr %469, %.028.i.i.i.i.i.i
   br i1 %.not204, label %"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang5TokenELj4EEEZNS2_6Parser23ParseCXXInlineMethodDefENS2_15AccessSpecifierERKNS2_20ParsedAttributesViewERNS2_17ParsingDeclaratorERKNS6_18ParsedTemplateInfoERKNS2_14VirtSpecifiersENS2_14SourceLocationEE3$_0EEbOT_T0_.exit.thread", label %601
 
@@ -4929,6 +4929,10 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang5TokenELb1EE9push_backERKS2_.exit325: ;
   call void @_ZN5clang12Preprocessor3LexERNS_5TokenE(ptr noundef nonnull align 8 dereferenceable(3288) %1233, ptr noundef nonnull align 8 dereferenceable(20) %17) #17
   br label %thread-pre-split561.outer.backedge
 
+thread-pre-split561.outer.backedge:               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang5TokenELb1EE9push_backERKS2_.exit325, %1282
+  %.067.ph.ph.be = phi i1 [ %spec.select, %_ZN4llvm23SmallVectorTemplateBaseIN5clang5TokenELb1EE9push_backERKS2_.exit325 ], [ true, %1282 ]
+  br label %thread-pre-split561.outer, !llvm.loop !1093
+
 1234:                                             ; preds = %1210
   %1235 = load i32, ptr %191, align 8, !tbaa !353
   %1236 = zext i32 %1235 to i64
@@ -5051,10 +5055,6 @@ _ZN5clang6Parser12ConsumeBraceEv.exit355:         ; preds = %1257, %.sink.split.
 
 1282:                                             ; preds = %1210
   br i1 %spec.select, label %thread-pre-split561.outer.backedge, label %1283
-
-thread-pre-split561.outer.backedge:               ; preds = %1282, %_ZN4llvm23SmallVectorTemplateBaseIN5clang5TokenELb1EE9push_backERKS2_.exit325
-  %.067.ph.ph.be = phi i1 [ true, %1282 ], [ %spec.select, %_ZN4llvm23SmallVectorTemplateBaseIN5clang5TokenELb1EE9push_backERKS2_.exit325 ]
-  br label %thread-pre-split561.outer, !llvm.loop !1093
 
 1283:                                             ; preds = %1282
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
@@ -6867,8 +6867,8 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang5TokenELb1EE9push_backERKS2_.exit300: ;
   br i1 %19, label %.loopexit322, label %.loopexit
 
 .loopexit:                                        ; preds = %26, %.loopexit324, %_ZN5clang4Sema22TentativeAnalysisScopeD2Ev.exit, %559, %.loopexit323, %93, %29, %89
-  %.380 = phi i32 [ %.077.ph, %29 ], [ %.077.ph, %559 ], [ %.077.ph, %89 ], [ 1, %_ZN5clang4Sema22TentativeAnalysisScopeD2Ev.exit ], [ %spec.select100, %.loopexit324 ], [ %.077.ph, %.loopexit323 ], [ %.077.ph, %93 ], [ %.077.ph, %26 ]
-  %.375 = phi i32 [ %.072.ph, %29 ], [ %.072.ph, %559 ], [ %90, %89 ], [ %.072.ph, %_ZN5clang4Sema22TentativeAnalysisScopeD2Ev.exit ], [ %spec.select97, %.loopexit324 ], [ %.072.ph, %.loopexit323 ], [ %.072.ph, %93 ], [ %.072.ph, %26 ]
+  %.380 = phi i32 [ %.077.ph, %93 ], [ %.077.ph, %29 ], [ %.077.ph, %559 ], [ %.077.ph, %89 ], [ 1, %_ZN5clang4Sema22TentativeAnalysisScopeD2Ev.exit ], [ %spec.select100, %.loopexit324 ], [ %.077.ph, %.loopexit323 ], [ %.077.ph, %26 ]
+  %.375 = phi i32 [ %.072.ph, %93 ], [ %.072.ph, %29 ], [ %.072.ph, %559 ], [ %90, %89 ], [ %.072.ph, %_ZN5clang4Sema22TentativeAnalysisScopeD2Ev.exit ], [ %spec.select97, %.loopexit324 ], [ %.072.ph, %.loopexit323 ], [ %.072.ph, %26 ]
   %560 = load i32, ptr %8, align 8, !tbaa !353
   %561 = zext i32 %560 to i64
   %562 = add nuw nsw i64 %561, 1
@@ -8166,7 +8166,7 @@ _ZNK5clang6Parser19AngleBracketTracker3Loc16isActiveOrNestedERS0_.exit.thread.i.
   br label %_ZN5clang12RedeclarableINS_12FunctionDeclEE15getPreviousDeclEv.exit
 
 _ZN5clang12RedeclarableINS_12FunctionDeclEE15getPreviousDeclEv.exit: ; preds = %262, %257
-  %.077 = phi ptr [ %258, %257 ], [ %263, %262 ]
+  %.077 = phi ptr [ %263, %262 ], [ %258, %257 ]
   %.not88 = icmp eq ptr %.077, null
   br i1 %.not88, label %_ZNSt10unique_ptrIN4llvm11SmallVectorIN5clang5TokenELj4EEESt14default_deleteIS4_EED2Ev.exit, label %264
 

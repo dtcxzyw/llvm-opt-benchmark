@@ -1210,7 +1210,7 @@ switch.lookup:                                    ; preds = %1
   br label %16
 
 16:                                               ; preds = %switch.lookup, %4, %11, %13
-  %.0 = phi i1 [ %15, %13 ], [ %switch.masked, %switch.lookup ], [ false, %4 ], [ false, %11 ]
+  %.0 = phi i1 [ %15, %13 ], [ %switch.masked, %switch.lookup ], [ false, %11 ], [ false, %4 ]
   ret i1 %.0
 }
 
@@ -1591,7 +1591,7 @@ _ZN4llvm5APIntD2Ev.exit97:                        ; preds = %_ZN4llvm5APIntD2Ev.
   br label %183
 
 183:                                              ; preds = %166, %169, %_ZN4llvm11SmallVectorIPNS_8ConstantELj8EED2Ev.exit, %_ZNK4llvm11ConstantInt3ugeEm.exit.thread, %182, %172, %180, %25, %21, %15
-  %.0 = phi ptr [ %18, %15 ], [ %24, %21 ], [ null, %182 ], [ %181, %180 ], [ %173, %172 ], [ null, %25 ], [ %45, %_ZNK4llvm11ConstantInt3ugeEm.exit.thread ], [ %.9, %_ZN4llvm11SmallVectorIPNS_8ConstantELj8EED2Ev.exit ], [ %168, %166 ], [ %171, %169 ]
+  %.0 = phi ptr [ %18, %15 ], [ %24, %21 ], [ null, %182 ], [ %181, %180 ], [ %173, %172 ], [ null, %25 ], [ %45, %_ZNK4llvm11ConstantInt3ugeEm.exit.thread ], [ %171, %169 ], [ %.9, %_ZN4llvm11SmallVectorIPNS_8ConstantELj8EED2Ev.exit ], [ %168, %166 ]
   ret ptr %.0
 }
 
@@ -2726,7 +2726,7 @@ tailrecurse:                                      ; preds = %3
   br i1 %78, label %.split628.us, label %81
 
 .split628.us:                                     ; preds = %44, %47, %73, %76
-  %.us-phi629 = phi ptr [ %62, %76 ], [ %62, %73 ], [ %33, %47 ], [ %33, %44 ]
+  %.us-phi629 = phi ptr [ %62, %73 ], [ %62, %76 ], [ %33, %47 ], [ %33, %44 ]
   %79 = load ptr, ptr %.us-phi629, align 8, !tbaa !17
   %80 = tail call noundef ptr @_ZN4llvm11PoisonValue3getEPNS_4TypeE(ptr noundef %79) #11
   br label %_ZN4llvm11Instruction13isAssociativeEj.exit
@@ -3146,7 +3146,7 @@ _ZNK4llvm11ConstantInt6isZeroEv.exit291:          ; preds = %_ZNK4llvm11Constant
   br i1 %.not.i.i293, label %.critedge23.threadthread-pre-split, label %.critedge25
 
 .critedge25:                                      ; preds = %227, %232, %222
-  %.sroa.0341.0 = phi i8 [ %238, %232 ], [ %224, %227 ], [ %224, %222 ]
+  %.sroa.0341.0 = phi i8 [ %238, %232 ], [ %224, %222 ], [ %224, %227 ]
   %.not521 = icmp eq i8 %.sroa.0341.0, 0
   br i1 %.not521, label %.critedge23.threadthread-pre-split, label %.critedge25.thread848
 
@@ -3247,9 +3247,9 @@ _ZN4llvm5APIntD2Ev.exit294:                       ; preds = %_ZN4llvm5APIntD2Ev.
   br i1 %.0.i463, label %_ZN4llvm11Instruction13isAssociativeEj.exit, label %.critedge23.threadthread-pre-split
 
 .critedge23.threadthread-pre-split:               ; preds = %58, %192, %232, %230, %.critedge23, %_ZNK4llvm11ConstantInt6isZeroEv.exit291, %206, %173, %_ZNK4llvm11ConstantInt6isZeroEv.exit, %179, %210, %.critedge25, %.critedge256
-  %.tr530596.ph = phi ptr [ %1, %.critedge256 ], [ %.us-phi688, %.critedge23 ], [ %.us-phi688, %.critedge25 ], [ %.us-phi688, %210 ], [ %.us-phi688, %179 ], [ %.us-phi688, %_ZNK4llvm11ConstantInt6isZeroEv.exit ], [ %.us-phi688, %173 ], [ %.us-phi688, %206 ], [ %.us-phi688, %192 ], [ %.us-phi688, %_ZNK4llvm11ConstantInt6isZeroEv.exit291 ], [ %.us-phi688, %230 ], [ %.us-phi688, %232 ], [ %.tr530.us, %58 ]
-  %.tr531577.ph = phi ptr [ %2, %.critedge256 ], [ %.us-phi689, %.critedge23 ], [ %.us-phi689, %.critedge25 ], [ %.us-phi689, %210 ], [ %.us-phi689, %179 ], [ %.us-phi689, %_ZNK4llvm11ConstantInt6isZeroEv.exit ], [ %.us-phi689, %173 ], [ %.us-phi689, %206 ], [ %.us-phi689, %192 ], [ %.us-phi689, %_ZNK4llvm11ConstantInt6isZeroEv.exit291 ], [ %.us-phi689, %230 ], [ %.us-phi689, %232 ], [ %.tr531.us, %58 ]
-  %.ph = phi ptr [ %62, %.critedge256 ], [ %.us-phi690, %.critedge23 ], [ %.us-phi690, %.critedge25 ], [ %.us-phi690, %210 ], [ %.us-phi690, %179 ], [ %.us-phi690, %_ZNK4llvm11ConstantInt6isZeroEv.exit ], [ %.us-phi690, %173 ], [ %.us-phi690, %206 ], [ %.us-phi690, %192 ], [ %.us-phi690, %_ZNK4llvm11ConstantInt6isZeroEv.exit291 ], [ %.us-phi690, %230 ], [ %.us-phi690, %232 ], [ %33, %58 ]
+  %.tr530596.ph = phi ptr [ %.us-phi688, %232 ], [ %1, %.critedge256 ], [ %.us-phi688, %.critedge23 ], [ %.us-phi688, %210 ], [ %.us-phi688, %179 ], [ %.us-phi688, %_ZNK4llvm11ConstantInt6isZeroEv.exit ], [ %.us-phi688, %173 ], [ %.us-phi688, %206 ], [ %.us-phi688, %.critedge25 ], [ %.us-phi688, %192 ], [ %.us-phi688, %_ZNK4llvm11ConstantInt6isZeroEv.exit291 ], [ %.us-phi688, %230 ], [ %.tr530.us, %58 ]
+  %.tr531577.ph = phi ptr [ %.us-phi689, %232 ], [ %2, %.critedge256 ], [ %.us-phi689, %.critedge23 ], [ %.us-phi689, %210 ], [ %.us-phi689, %179 ], [ %.us-phi689, %_ZNK4llvm11ConstantInt6isZeroEv.exit ], [ %.us-phi689, %173 ], [ %.us-phi689, %206 ], [ %.us-phi689, %.critedge25 ], [ %.us-phi689, %192 ], [ %.us-phi689, %_ZNK4llvm11ConstantInt6isZeroEv.exit291 ], [ %.us-phi689, %230 ], [ %.tr531.us, %58 ]
+  %.ph = phi ptr [ %.us-phi690, %232 ], [ %62, %.critedge256 ], [ %.us-phi690, %.critedge23 ], [ %.us-phi690, %210 ], [ %.us-phi690, %179 ], [ %.us-phi690, %_ZNK4llvm11ConstantInt6isZeroEv.exit ], [ %.us-phi690, %173 ], [ %.us-phi690, %206 ], [ %.us-phi690, %.critedge25 ], [ %.us-phi690, %192 ], [ %.us-phi690, %_ZNK4llvm11ConstantInt6isZeroEv.exit291 ], [ %.us-phi690, %230 ], [ %33, %58 ]
   %.pr = load i8, ptr %.tr530596.ph, align 8, !tbaa !3
   br label %.critedge23.thread
 
@@ -4138,7 +4138,7 @@ _ZN4llvm11Instruction11isIntDivRemEj.exit:        ; preds = %552, %553
   br label %_ZN4llvm11Instruction13isAssociativeEj.exit
 
 _ZN4llvm11Instruction13isAssociativeEj.exit:      ; preds = %40, %38, %36, %67, %69, %65, %616, %.split658.us, %.split643.us, %.split637.us, %555, %566, %564, %522, %_ZN4llvm5APIntD2Ev.exit301, %_ZN4llvm5APIntD2Ev.exit304, %_ZN4llvm5APIntD2Ev.exit305, %_ZN4llvm5APIntD2Ev.exit306, %362, %_ZN4llvm5APIntD2Ev.exit307, %_ZN4llvm5APIntD2Ev.exit308, %391, %_ZN4llvm5APIntD2Ev.exit309, %_ZN4llvm5APIntD2Ev.exit312, %_ZN4llvm5APIntD2Ev.exit315, %_ZN4llvm5APIntD2Ev.exit318, %_ZN4llvm5APIntD2Ev.exit319, %488, %_ZN4llvm5APIntD2Ev.exit320, %505, %_ZN4llvm5APIntD2Ev.exit321, %.split687.us, %201, %197, %184, %.split695.us, %652, %640, %.thread486, %524, %163, %157, %90, %.loopexit532, %94, %114, %116, %120, %124, %128, %131, %134, %138, %141, %145, %148, %152, %166, %658, %660, %661, %.critedge23, %657, %654, %.split628.us
-  %.3 = phi ptr [ %80, %.split628.us ], [ %647, %640 ], [ %168, %166 ], [ %659, %658 ], [ %.tr530596, %660 ], [ %556, %555 ], [ %663, %661 ], [ %523, %522 ], [ %.32, %616 ], [ %543, %.thread486 ], [ %.9, %.critedge23 ], [ %91, %90 ], [ %93, %.loopexit532 ], [ null, %654 ], [ %95, %94 ], [ %.us-phi640, %.split637.us ], [ %.5, %114 ], [ %119, %116 ], [ %122, %120 ], [ %127, %124 ], [ %130, %128 ], [ %.us-phi645, %.split643.us ], [ %132, %131 ], [ %137, %134 ], [ %139, %138 ], [ %144, %141 ], [ %146, %145 ], [ %151, %148 ], [ %153, %152 ], [ %.us-phi661, %.split658.us ], [ %.us-phi681, %157 ], [ null, %657 ], [ %.tr530595, %163 ], [ %324, %_ZN4llvm5APIntD2Ev.exit304 ], [ null, %564 ], [ %.tr530596, %524 ], [ %653, %652 ], [ %298, %_ZN4llvm5APIntD2Ev.exit301 ], [ %572, %566 ], [ %.us-phi689, %.split687.us ], [ %277, %.split695.us ], [ %203, %201 ], [ %199, %197 ], [ %186, %184 ], [ %514, %_ZN4llvm5APIntD2Ev.exit321 ], [ %506, %505 ], [ %497, %_ZN4llvm5APIntD2Ev.exit320 ], [ %489, %488 ], [ %480, %_ZN4llvm5APIntD2Ev.exit319 ], [ %459, %_ZN4llvm5APIntD2Ev.exit318 ], [ %436, %_ZN4llvm5APIntD2Ev.exit315 ], [ %413, %_ZN4llvm5APIntD2Ev.exit312 ], [ %396, %_ZN4llvm5APIntD2Ev.exit309 ], [ %393, %391 ], [ %379, %_ZN4llvm5APIntD2Ev.exit308 ], [ %369, %_ZN4llvm5APIntD2Ev.exit307 ], [ %365, %362 ], [ %350, %_ZN4llvm5APIntD2Ev.exit306 ], [ %339, %_ZN4llvm5APIntD2Ev.exit305 ], [ %1, %69 ], [ %2, %65 ], [ %1, %67 ], [ %.tr530.us, %38 ], [ %.tr530.us, %40 ], [ %.tr531.us, %36 ]
+  %.3 = phi ptr [ %80, %.split628.us ], [ %647, %640 ], [ %168, %166 ], [ %659, %658 ], [ %.tr530596, %660 ], [ %556, %555 ], [ %663, %661 ], [ %523, %522 ], [ %.32, %616 ], [ %543, %.thread486 ], [ %.9, %.critedge23 ], [ %91, %90 ], [ %93, %.loopexit532 ], [ null, %654 ], [ %95, %94 ], [ %.us-phi640, %.split637.us ], [ %.5, %114 ], [ %119, %116 ], [ %122, %120 ], [ %127, %124 ], [ %130, %128 ], [ %.us-phi645, %.split643.us ], [ %132, %131 ], [ %137, %134 ], [ %139, %138 ], [ %144, %141 ], [ %146, %145 ], [ %151, %148 ], [ %153, %152 ], [ %.us-phi661, %.split658.us ], [ %.us-phi681, %157 ], [ null, %657 ], [ %.tr530595, %163 ], [ %324, %_ZN4llvm5APIntD2Ev.exit304 ], [ null, %564 ], [ %.tr530596, %524 ], [ %653, %652 ], [ %298, %_ZN4llvm5APIntD2Ev.exit301 ], [ %572, %566 ], [ %277, %.split695.us ], [ %.us-phi689, %.split687.us ], [ %203, %201 ], [ %199, %197 ], [ %186, %184 ], [ %514, %_ZN4llvm5APIntD2Ev.exit321 ], [ %506, %505 ], [ %497, %_ZN4llvm5APIntD2Ev.exit320 ], [ %489, %488 ], [ %480, %_ZN4llvm5APIntD2Ev.exit319 ], [ %459, %_ZN4llvm5APIntD2Ev.exit318 ], [ %436, %_ZN4llvm5APIntD2Ev.exit315 ], [ %413, %_ZN4llvm5APIntD2Ev.exit312 ], [ %396, %_ZN4llvm5APIntD2Ev.exit309 ], [ %393, %391 ], [ %379, %_ZN4llvm5APIntD2Ev.exit308 ], [ %369, %_ZN4llvm5APIntD2Ev.exit307 ], [ %365, %362 ], [ %350, %_ZN4llvm5APIntD2Ev.exit306 ], [ %339, %_ZN4llvm5APIntD2Ev.exit305 ], [ %1, %69 ], [ %2, %65 ], [ %1, %67 ], [ %.tr530.us, %38 ], [ %.tr530.us, %40 ], [ %.tr531.us, %36 ]
   ret ptr %.3
 }
 
@@ -4181,7 +4181,7 @@ define linkonce_odr noundef zeroext i1 @_ZN4llvm12PatternMatch5matchINS_8Constan
   br label %_ZN4llvm12PatternMatch11apint_match5matchINS_8ConstantEEEbPT_.exit
 
 _ZN4llvm12PatternMatch11apint_match5matchINS_8ConstantEEEbPT_.exit: ; preds = %5, %12, %17, %.critedge.thread.sink.split.i
-  %.1.i = phi i1 [ false, %5 ], [ false, %12 ], [ false, %17 ], [ true, %.critedge.thread.sink.split.i ]
+  %.1.i = phi i1 [ false, %17 ], [ false, %12 ], [ false, %5 ], [ true, %.critedge.thread.sink.split.i ]
   ret i1 %.1.i
 }
 
@@ -5038,7 +5038,7 @@ _ZNK4llvm4Type16isFPOrFPVectorTyEv.exit.thread:   ; preds = %_ZNK4llvm4Type13get
   br i1 %181, label %.thread217, label %182
 
 182:                                              ; preds = %170, %173, %167, %179, %176
-  %.0.in = phi i1 [ %168, %167 ], [ %174, %173 ], [ %171, %170 ], [ %177, %176 ], [ %180, %179 ]
+  %.0.in = phi i1 [ %180, %179 ], [ %168, %167 ], [ %177, %176 ], [ %171, %170 ], [ %174, %173 ]
   br i1 %.0.in, label %.thread222, label %.thread217
 
 switch.lookup:                                    ; preds = %159
@@ -5329,7 +5329,7 @@ _ZN4llvm8dyn_castINS_11GEPOperatorENS_8ConstantEEEDcPT0_.exit: ; preds = %_ZN4ll
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %27, %37, %28, %67, %100, %98, %96, %35, %44, %76, %74
-  %.4.ph = phi i32 [ 42, %96 ], [ 34, %67 ], [ %101, %100 ], [ %36, %35 ], [ 33, %27 ], [ 42, %98 ], [ 33, %28 ], [ 34, %44 ], [ 33, %37 ], [ 42, %74 ], [ %77, %76 ]
+  %.4.ph = phi i32 [ %101, %100 ], [ 34, %67 ], [ 42, %98 ], [ %36, %35 ], [ 33, %27 ], [ 42, %96 ], [ 33, %28 ], [ 34, %44 ], [ 33, %37 ], [ 42, %74 ], [ %77, %76 ]
   br label %.critedge
 
 .critedge:                                        ; preds = %27, %37, %82, %_ZN4llvm14CastIsPossibleINS_11GEPOperatorEPNS_8ConstantEvE10isPossibleERKS3_.exit.i.i, %80, %_ZN4llvm8dyn_castINS_11GEPOperatorENS_8ConstantEEEDcPT0_.exit, %94, %60, %67, %62, %72, %48, %47, %28, %22, %24, %38, %44, %.critedge.thread, %4, %2

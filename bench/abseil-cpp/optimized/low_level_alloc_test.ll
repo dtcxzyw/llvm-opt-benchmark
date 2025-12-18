@@ -471,8 +471,8 @@ _ZN4absl13base_internal12_GLOBAL__N_114CheckBlockDescERKNS1_9BlockDescE.exit: ; 
   br i1 %178, label %.lr.ph.i.i68, label %.loopexit133, !llvm.loop !49
 
 .loopexit133:                                     ; preds = %.lr.ph.i.i68, %163, %161
-  %.sroa.6.0.i.ph = phi ptr [ %.sroa.0.0.copyload.i.i.i, %163 ], [ %13, %161 ], [ %176, %.lr.ph.i.i68 ]
-  %.sroa.0.0.i.ph = phi ptr [ %.val4.i, %163 ], [ @_ZN4absl18container_internal11kSooControlE, %161 ], [ %175, %.lr.ph.i.i68 ]
+  %.sroa.6.0.i.ph = phi ptr [ %13, %161 ], [ %.sroa.0.0.copyload.i.i.i, %163 ], [ %176, %.lr.ph.i.i68 ]
+  %.sroa.0.0.i.ph = phi ptr [ @_ZN4absl18container_internal11kSooControlE, %161 ], [ %.val4.i, %163 ], [ %175, %.lr.ph.i.i68 ]
   %.val52.val = load ptr, ptr %.sroa.6.0.i.ph, align 8, !tbaa !17
   %179 = getelementptr inbounds nuw i8, ptr %.val52.val, i64 8
   %180 = getelementptr inbounds nuw i8, ptr %.val52.val, i64 16
@@ -565,8 +565,8 @@ _ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyIiNS_13base_in
   br i1 %220, label %.lr.ph.i.i87, label %.loopexit, !llvm.loop !49
 
 .loopexit:                                        ; preds = %.lr.ph.i.i87, %205, %.lr.ph
-  %.sroa.6.0.i83.ph = phi ptr [ %.sroa.0.0.copyload.i.i.i82, %205 ], [ %13, %.lr.ph ], [ %218, %.lr.ph.i.i87 ]
-  %.sroa.0.0.i84.ph = phi ptr [ %.val4.i81, %205 ], [ @_ZN4absl18container_internal11kSooControlE, %.lr.ph ], [ %217, %.lr.ph.i.i87 ]
+  %.sroa.6.0.i83.ph = phi ptr [ %13, %.lr.ph ], [ %.sroa.0.0.copyload.i.i.i82, %205 ], [ %218, %.lr.ph.i.i87 ]
+  %.sroa.0.0.i84.ph = phi ptr [ @_ZN4absl18container_internal11kSooControlE, %.lr.ph ], [ %.val4.i81, %205 ], [ %217, %.lr.ph.i.i87 ]
   %.val56.val = load ptr, ptr %.sroa.6.0.i83.ph, align 8, !tbaa !17
   %221 = getelementptr inbounds nuw i8, ptr %.val56.val, i64 8
   %222 = getelementptr inbounds nuw i8, ptr %.val56.val, i64 16

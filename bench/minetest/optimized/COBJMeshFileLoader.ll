@@ -2687,7 +2687,7 @@ _ZNK3irr5video9S3DVertexltERKS1_.exit101:         ; preds = %lor.rhs.i.i88
   %cmp7.i107.i91 = fcmp ogt float %242, %212
   br i1 %cmp7.i107.i91, label %if.else152, label %if.then150
 
-if.then150:                                       ; preds = %_ZNK3irr4core8vector3dIfEeqERKS2_.exit79.i92, %land.lhs.true11.i53.i73, %lor.lhs.false.i.i51, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit.i63, %lor.lhs.false.i47.i68, %lor.rhs.i.i88, %land.lhs.true11.i.i57, %land.lhs.true26.i82, %_ZNK3irr5video9S3DVertexltERKS1_.exit101
+if.then150:                                       ; preds = %_ZNK3irr4core8vector3dIfEeqERKS2_.exit79.i92, %lor.rhs.i.i88, %lor.lhs.false.i47.i68, %land.lhs.true11.i.i57, %land.lhs.true26.i82, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit.i63, %lor.lhs.false.i.i51, %land.lhs.true11.i53.i73, %_ZNK3irr5video9S3DVertexltERKS1_.exit101
   %second = getelementptr inbounds nuw i8, ptr %231, i64 68
   %243 = load i32, ptr %second, align 4, !tbaa !156
   store i32 %243, ptr %vertLocation, align 4, !tbaa !90
@@ -5113,7 +5113,7 @@ for.inc:                                          ; preds = %land.rhs.i.i56, %if
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !228
 
 for.end:                                          ; preds = %for.inc, %for.inc.us22, %for.inc.us, %for.inc.us.us
-  %.us-phi8 = phi ptr [ %defMaterial.1.us23, %for.inc.us22 ], [ %defMaterial.1.us.us, %for.inc.us.us ], [ %defMaterial.1.us, %for.inc.us ], [ %defMaterial.1, %for.inc ]
+  %.us-phi8 = phi ptr [ %defMaterial.1.us23, %for.inc.us22 ], [ %defMaterial.1.us, %for.inc.us ], [ %defMaterial.1.us.us, %for.inc.us.us ], [ %defMaterial.1, %for.inc ]
   %tobool.not = icmp eq ptr %.us-phi8, null
   br i1 %tobool.not, label %if.else23, label %if.then14
 
@@ -5279,7 +5279,7 @@ cleanup40.sink.split:                             ; preds = %_ZN3irr4core5arrayI
   br label %cleanup40
 
 cleanup40:                                        ; preds = %land.rhs.i.i56, %if.then.us17, %land.rhs.i.i56.us, %land.rhs.i.i.us.us, %cleanup40.sink.split, %_ZN3irr4core5arrayIPNS_5scene18COBJMeshFileLoader7SObjMtlEE9push_backEOS5_.exit103, %if.else23, %_ZN3irr4core5arrayIPNS_5scene18COBJMeshFileLoader7SObjMtlEE9push_backEOS5_.exit
-  %retval.1 = phi ptr [ null, %if.else23 ], [ %33, %_ZN3irr4core5arrayIPNS_5scene18COBJMeshFileLoader7SObjMtlEE9push_backEOS5_.exit ], [ %43, %_ZN3irr4core5arrayIPNS_5scene18COBJMeshFileLoader7SObjMtlEE9push_backEOS5_.exit103 ], [ %.pre129, %cleanup40.sink.split ], [ %15, %if.then.us17 ], [ %7, %land.rhs.i.i.us.us ], [ %10, %land.rhs.i.i56.us ], [ %20, %land.rhs.i.i56 ]
+  %retval.1 = phi ptr [ null, %if.else23 ], [ %33, %_ZN3irr4core5arrayIPNS_5scene18COBJMeshFileLoader7SObjMtlEE9push_backEOS5_.exit ], [ %43, %_ZN3irr4core5arrayIPNS_5scene18COBJMeshFileLoader7SObjMtlEE9push_backEOS5_.exit103 ], [ %.pre129, %cleanup40.sink.split ], [ %15, %if.then.us17 ], [ %10, %land.rhs.i.i56.us ], [ %7, %land.rhs.i.i.us.us ], [ %20, %land.rhs.i.i56 ]
   ret ptr %retval.1
 }
 
@@ -5478,7 +5478,7 @@ while.body10.i:                                   ; preds = %land.lhs.true.i, %l
   br i1 %cmp3.not.i, label %_ZN3irr5scene18COBJMeshFileLoader11goFirstWordEPKcS3_b.exit, label %land.lhs.true.i, !llvm.loop !96
 
 _ZN3irr5scene18COBJMeshFileLoader11goFirstWordEPKcS3_b.exit: ; preds = %while.body, %while.body10.i, %land.lhs.true.i, %while.body.i, %land.rhs.i, %entry
-  %buf.addr.2.i = phi ptr [ %buf, %entry ], [ %scevgep37.i, %while.body10.i ], [ %buf.addr.028.i, %land.rhs.i ], [ %scevgep37.i, %while.body.i ], [ %buf.addr.125.i, %land.lhs.true.i ], [ %scevgep, %while.body ]
+  %buf.addr.2.i = phi ptr [ %buf, %entry ], [ %buf.addr.028.i, %land.rhs.i ], [ %buf.addr.125.i, %land.lhs.true.i ], [ %scevgep37.i, %while.body.i ], [ %scevgep37.i, %while.body10.i ], [ %scevgep, %while.body ]
   ret ptr %buf.addr.2.i
 }
 

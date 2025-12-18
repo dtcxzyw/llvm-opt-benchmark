@@ -1828,7 +1828,7 @@ tryfuncTM.exit:                                   ; preds = %._crit_edge.i
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.loopexit.sink.split, %prepCallInfo.exit
-  %.0 = phi ptr [ %115, %prepCallInfo.exit ], [ null, %.loopexit.sink.split ], [ %115, %.lr.ph ]
+  %.0 = phi ptr [ null, %.loopexit.sink.split ], [ %115, %prepCallInfo.exit ], [ %115, %.lr.ph ]
   ret ptr %.0
 }
 

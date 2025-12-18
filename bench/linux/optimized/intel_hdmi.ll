@@ -1107,7 +1107,7 @@ define dso_local zeroext i1 @intel_hdmi_bpc_possible(ptr noundef readonly captur
   br i1 %103, label %.loopexit, label %.split.split, !llvm.loop !36
 
 .loopexit:                                        ; preds = %83, %76, %67, %60, %100, %51, %48, %.split, %.split6.us, %3
-  %104 = phi i1 [ %.us-phi, %.split6.us ], [ true, %3 ], [ %69, %67 ], [ %53, %51 ], [ true, %.split ], [ %102, %100 ], [ %15, %48 ], [ %56, %60 ], [ %85, %83 ], [ %72, %76 ]
+  %104 = phi i1 [ %.us-phi, %.split6.us ], [ true, %3 ], [ %102, %100 ], [ true, %.split ], [ %69, %67 ], [ %53, %51 ], [ %15, %48 ], [ %56, %60 ], [ %85, %83 ], [ %72, %76 ]
   ret i1 %104
 }
 

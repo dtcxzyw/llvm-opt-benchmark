@@ -7966,7 +7966,7 @@ _ZN7rocksdb8MemTable25NewRangeTombstoneIteratorERKNS_11ReadOptionsEmb.exit.threa
   br label %281
 
 _ZNK7rocksdb12DynamicBloom10MayContainERKNS_5SliceE.exit: ; preds = %.lr.ph.i.i.i85, %.lr.ph.i.i.i, %._crit_edge.i.i.i79, %._crit_edge.i.i.i
-  %.035.shrunk = phi i1 [ %150, %._crit_edge.i.i.i ], [ %205, %._crit_edge.i.i.i79 ], [ false, %.lr.ph.i.i.i ], [ false, %.lr.ph.i.i.i85 ]
+  %.035.shrunk = phi i1 [ false, %.lr.ph.i.i.i ], [ %150, %._crit_edge.i.i.i ], [ %205, %._crit_edge.i.i.i79 ], [ false, %.lr.ph.i.i.i85 ]
   %222 = load ptr, ptr %123, align 16, !tbaa !354
   %.not153 = icmp eq ptr %222, null
   %or.cond = or i1 %.035.shrunk, %.not153

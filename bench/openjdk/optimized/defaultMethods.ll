@@ -997,9 +997,9 @@ _ZN26GrowableArrayWithAllocatorIP15EmptyVtableSlot13GrowableArrayIS1_EE6appendER
   br label %_ZL23already_in_vtable_slotsP13GrowableArrayIP15EmptyVtableSlotEP6Method.exit62.i
 
 _ZL23already_in_vtable_slotsP13GrowableArrayIP15EmptyVtableSlotEP6Method.exit62.i: ; preds = %238, %_ZN26GrowableArrayWithAllocatorIP15EmptyVtableSlot13GrowableArrayIS1_EE6appendERKS1_.exit67.i, %264, %219
-  %.sroa.0219.8 = phi i32 [ %.sroa.0219.7, %219 ], [ %295, %_ZN26GrowableArrayWithAllocatorIP15EmptyVtableSlot13GrowableArrayIS1_EE6appendERKS1_.exit67.i ], [ %.sroa.0219.7, %264 ], [ %.sroa.0219.7, %238 ]
-  %.sroa.27.10 = phi i32 [ %.sroa.27.8, %219 ], [ %.sroa.27.9, %_ZN26GrowableArrayWithAllocatorIP15EmptyVtableSlot13GrowableArrayIS1_EE6appendERKS1_.exit67.i ], [ %.sroa.27.8, %264 ], [ %.sroa.27.8, %238 ]
-  %.sroa.42.10 = phi ptr [ %.sroa.42.8, %219 ], [ %.sroa.42.9, %_ZN26GrowableArrayWithAllocatorIP15EmptyVtableSlot13GrowableArrayIS1_EE6appendERKS1_.exit67.i ], [ %.sroa.42.8, %264 ], [ %.sroa.42.8, %238 ]
+  %.sroa.0219.8 = phi i32 [ %.sroa.0219.7, %219 ], [ %.sroa.0219.7, %264 ], [ %295, %_ZN26GrowableArrayWithAllocatorIP15EmptyVtableSlot13GrowableArrayIS1_EE6appendERKS1_.exit67.i ], [ %.sroa.0219.7, %238 ]
+  %.sroa.27.10 = phi i32 [ %.sroa.27.8, %219 ], [ %.sroa.27.8, %264 ], [ %.sroa.27.9, %_ZN26GrowableArrayWithAllocatorIP15EmptyVtableSlot13GrowableArrayIS1_EE6appendERKS1_.exit67.i ], [ %.sroa.27.8, %238 ]
+  %.sroa.42.10 = phi ptr [ %.sroa.42.8, %219 ], [ %.sroa.42.8, %264 ], [ %.sroa.42.9, %_ZN26GrowableArrayWithAllocatorIP15EmptyVtableSlot13GrowableArrayIS1_EE6appendERKS1_.exit67.i ], [ %.sroa.42.8, %238 ]
   %indvars.iv.next136.i = add nuw nsw i64 %indvars.iv135.i, 1
   %317 = load ptr, ptr %206, align 8
   %318 = load i32, ptr %317, align 8
@@ -1189,9 +1189,9 @@ _ZN26GrowableArrayWithAllocatorIP15EmptyVtableSlot13GrowableArrayIS1_EE6appendER
   br label %_ZL23already_in_vtable_slotsP13GrowableArrayIP15EmptyVtableSlotEP6Method.exit74.i
 
 _ZL23already_in_vtable_slotsP13GrowableArrayIP15EmptyVtableSlotEP6Method.exit74.i: ; preds = %346, %_ZN26GrowableArrayWithAllocatorIP15EmptyVtableSlot13GrowableArrayIS1_EE6appendERKS1_.exit79.i, %373
-  %.sroa.0219.6 = phi i32 [ %404, %_ZN26GrowableArrayWithAllocatorIP15EmptyVtableSlot13GrowableArrayIS1_EE6appendERKS1_.exit79.i ], [ %.sroa.0219.5, %373 ], [ %.sroa.0219.5, %346 ]
-  %.sroa.27.7 = phi i32 [ %.sroa.27.6, %_ZN26GrowableArrayWithAllocatorIP15EmptyVtableSlot13GrowableArrayIS1_EE6appendERKS1_.exit79.i ], [ %.sroa.27.5, %373 ], [ %.sroa.27.5, %346 ]
-  %.sroa.42.7 = phi ptr [ %.sroa.42.6, %_ZN26GrowableArrayWithAllocatorIP15EmptyVtableSlot13GrowableArrayIS1_EE6appendERKS1_.exit79.i ], [ %.sroa.42.5, %373 ], [ %.sroa.42.5, %346 ]
+  %.sroa.0219.6 = phi i32 [ %.sroa.0219.5, %373 ], [ %404, %_ZN26GrowableArrayWithAllocatorIP15EmptyVtableSlot13GrowableArrayIS1_EE6appendERKS1_.exit79.i ], [ %.sroa.0219.5, %346 ]
+  %.sroa.27.7 = phi i32 [ %.sroa.27.5, %373 ], [ %.sroa.27.6, %_ZN26GrowableArrayWithAllocatorIP15EmptyVtableSlot13GrowableArrayIS1_EE6appendERKS1_.exit79.i ], [ %.sroa.27.5, %346 ]
+  %.sroa.42.7 = phi ptr [ %.sroa.42.5, %373 ], [ %.sroa.42.6, %_ZN26GrowableArrayWithAllocatorIP15EmptyVtableSlot13GrowableArrayIS1_EE6appendERKS1_.exit79.i ], [ %.sroa.42.5, %346 ]
   %indvars.iv.next139.i = add nuw nsw i64 %indvars.iv138.i, 1
   %426 = load ptr, ptr %321, align 8
   %427 = load i32, ptr %426, align 8

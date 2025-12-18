@@ -2853,7 +2853,7 @@ define dso_local zeroext i1 @regmap_check_range_table(ptr readnone captures(none
   br i1 %23, label %24, label %9, !llvm.loop !35
 
 24:                                               ; preds = %19, %15
-  %25 = phi i1 [ %10, %15 ], [ %22, %19 ]
+  %25 = phi i1 [ %22, %19 ], [ %10, %15 ]
   br i1 %25, label %.loopexit, label %.critedge
 
 .critedge:                                        ; preds = %3, %24
@@ -2952,7 +2952,7 @@ define dso_local zeroext i1 @regmap_writeable(ptr noundef readonly captures(none
   br i1 %40, label %41, label %26, !llvm.loop !35
 
 41:                                               ; preds = %36, %32
-  %42 = phi i1 [ %27, %32 ], [ %39, %36 ]
+  %42 = phi i1 [ %39, %36 ], [ %27, %32 ]
   br i1 %42, label %.loopexit, label %.critedge
 
 .critedge:                                        ; preds = %20, %41
@@ -3110,7 +3110,7 @@ define dso_local zeroext i1 @regmap_readable(ptr noundef readonly captures(none)
   br i1 %48, label %49, label %34, !llvm.loop !35
 
 49:                                               ; preds = %44, %40
-  %50 = phi i1 [ %35, %40 ], [ %47, %44 ]
+  %50 = phi i1 [ %47, %44 ], [ %35, %40 ]
   br i1 %50, label %.loopexit, label %.critedge
 
 .critedge:                                        ; preds = %28, %49
@@ -3221,7 +3221,7 @@ define dso_local zeroext i1 @regmap_volatile(ptr noundef readonly captures(none)
   br i1 %48, label %49, label %34, !llvm.loop !35
 
 49:                                               ; preds = %44, %40
-  %50 = phi i1 [ %35, %40 ], [ %47, %44 ]
+  %50 = phi i1 [ %47, %44 ], [ %35, %40 ]
   br i1 %50, label %.loopexit, label %.critedge
 
 .critedge:                                        ; preds = %28, %49
@@ -3310,7 +3310,7 @@ define dso_local zeroext i1 @regmap_volatile(ptr noundef readonly captures(none)
   br i1 %105, label %106, label %91, !llvm.loop !35
 
 106:                                              ; preds = %101, %97
-  %107 = phi i1 [ %92, %97 ], [ %104, %101 ]
+  %107 = phi i1 [ %104, %101 ], [ %92, %97 ]
   br i1 %107, label %.loopexit, label %.critedge17
 
 .critedge17:                                      ; preds = %85, %106
@@ -3427,7 +3427,7 @@ define dso_local zeroext i1 @regmap_precious(ptr noundef readonly captures(none)
   br i1 %48, label %49, label %34, !llvm.loop !35
 
 49:                                               ; preds = %44, %40
-  %50 = phi i1 [ %35, %40 ], [ %47, %44 ]
+  %50 = phi i1 [ %47, %44 ], [ %35, %40 ]
   br i1 %50, label %.loopexit, label %.critedge
 
 .critedge:                                        ; preds = %28, %49
@@ -3516,7 +3516,7 @@ define dso_local zeroext i1 @regmap_precious(ptr noundef readonly captures(none)
   br i1 %105, label %106, label %91, !llvm.loop !35
 
 106:                                              ; preds = %101, %97
-  %107 = phi i1 [ %92, %97 ], [ %104, %101 ]
+  %107 = phi i1 [ %104, %101 ], [ %92, %97 ]
   br i1 %107, label %.loopexit, label %.critedge17
 
 .critedge17:                                      ; preds = %85, %106
@@ -3607,7 +3607,7 @@ define dso_local zeroext i1 @regmap_writeable_noinc(ptr noundef readonly capture
   br i1 %34, label %35, label %20, !llvm.loop !35
 
 35:                                               ; preds = %30, %26
-  %36 = phi i1 [ %21, %26 ], [ %33, %30 ]
+  %36 = phi i1 [ %33, %30 ], [ %21, %26 ]
   br i1 %36, label %.loopexit, label %.critedge
 
 .critedge:                                        ; preds = %14, %35
@@ -3698,7 +3698,7 @@ define dso_local zeroext i1 @regmap_readable_noinc(ptr noundef readonly captures
   br i1 %34, label %35, label %20, !llvm.loop !35
 
 35:                                               ; preds = %30, %26
-  %36 = phi i1 [ %21, %26 ], [ %33, %30 ]
+  %36 = phi i1 [ %33, %30 ], [ %21, %26 ]
   br i1 %36, label %.loopexit, label %.critedge
 
 .critedge:                                        ; preds = %14, %35
@@ -4863,7 +4863,7 @@ define dso_local ptr @__regmap_init(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %.thread46
 
 .thread46:                                        ; preds = %572, %.loopexit49, %517, %570, %497, %491, %485, %480, %588, %.loopexit50
-  %589 = phi i32 [ %580, %.loopexit50 ], [ %585, %588 ], [ -22, %517 ], [ -22, %570 ], [ -22, %497 ], [ -22, %491 ], [ -22, %485 ], [ -22, %480 ], [ -12, %.loopexit49 ], [ -12, %572 ]
+  %589 = phi i32 [ %580, %.loopexit50 ], [ %585, %588 ], [ -22, %517 ], [ -22, %480 ], [ -22, %485 ], [ -22, %570 ], [ -22, %497 ], [ -22, %491 ], [ -12, %.loopexit49 ], [ -12, %572 ]
   %590 = tail call ptr @rb_first(ptr noundef nonnull %462) #24
   %591 = icmp eq ptr %590, null
   br i1 %591, label %.loopexit, label %.preheader
@@ -6453,7 +6453,7 @@ define dso_local i32 @_regmap_write(ptr noundef %0, i32 noundef %1, i32 noundef 
   br i1 %53, label %54, label %39, !llvm.loop !35
 
 54:                                               ; preds = %49, %45
-  %55 = phi i1 [ %40, %45 ], [ %52, %49 ]
+  %55 = phi i1 [ %52, %49 ], [ %40, %45 ]
   br i1 %55, label %121, label %.critedge
 
 .critedge:                                        ; preds = %33, %54
@@ -6783,7 +6783,7 @@ define internal fastcc i32 @_regmap_raw_write_impl(ptr noundef %0, i32 noundef %
   br i1 %47, label %48, label %33, !llvm.loop !35
 
 48:                                               ; preds = %43, %39
-  %49 = phi i1 [ %34, %39 ], [ %46, %43 ]
+  %49 = phi i1 [ %46, %43 ], [ %34, %39 ]
   br i1 %49, label %72, label %.critedge
 
 .critedge:                                        ; preds = %27, %48
@@ -6909,7 +6909,7 @@ define internal fastcc i32 @_regmap_raw_write_impl(ptr noundef %0, i32 noundef %
   br i1 %129, label %130, label %115, !llvm.loop !35
 
 130:                                              ; preds = %125, %121
-  %131 = phi i1 [ %116, %121 ], [ %128, %125 ]
+  %131 = phi i1 [ %128, %125 ], [ %116, %121 ]
   br i1 %131, label %.thread, label %.critedge69
 
 .critedge69:                                      ; preds = %109, %130
@@ -6995,7 +6995,7 @@ define internal fastcc i32 @_regmap_raw_write_impl(ptr noundef %0, i32 noundef %
   br i1 %183, label %184, label %169, !llvm.loop !35
 
 184:                                              ; preds = %179, %175
-  %185 = phi i1 [ %170, %175 ], [ %182, %179 ]
+  %185 = phi i1 [ %182, %179 ], [ %170, %175 ]
   br i1 %185, label %208, label %.critedge71
 
 .critedge71:                                      ; preds = %163, %184
@@ -7718,7 +7718,7 @@ define internal fastcc i32 @_regmap_raw_write_impl(ptr noundef %0, i32 noundef %
   br label %.thread
 
 .thread:                                          ; preds = %157, %103, %206, %.critedge71, %160, %152, %130, %93, %.preheader, %271, %.split96.us, %.thread77, %633, %629, %616, %611, %.thread79, %511, %508, %475, %464
-  %636 = phi i32 [ %.ph76, %.thread77 ], [ %.us-phi97, %.split96.us ], [ -12, %475 ], [ -12, %464 ], [ %509, %511 ], [ 0, %508 ], [ -12, %.thread79 ], [ %612, %611 ], [ %612, %616 ], [ %612, %629 ], [ %612, %633 ], [ 0, %271 ], [ %311, %.preheader ], [ -22, %93 ], [ -22, %130 ], [ -22, %152 ], [ -22, %160 ], [ -22, %.critedge71 ], [ -22, %206 ], [ -22, %103 ], [ -22, %157 ]
+  %636 = phi i32 [ %.ph76, %.thread77 ], [ %.us-phi97, %.split96.us ], [ -12, %475 ], [ -12, %464 ], [ %509, %511 ], [ 0, %508 ], [ -12, %.thread79 ], [ %612, %611 ], [ %612, %616 ], [ %612, %629 ], [ %612, %633 ], [ %311, %.preheader ], [ 0, %271 ], [ -22, %93 ], [ -22, %130 ], [ -22, %152 ], [ -22, %160 ], [ -22, %.critedge71 ], [ -22, %206 ], [ -22, %103 ], [ -22, %157 ]
   ret i32 %636
 }
 
@@ -7945,7 +7945,7 @@ define dso_local i32 @regmap_noinc_write(ptr noundef %0, i32 noundef %1, ptr nou
   br i1 %67, label %68, label %53, !llvm.loop !35
 
 68:                                               ; preds = %63, %59
-  %69 = phi i1 [ %54, %59 ], [ %66, %63 ]
+  %69 = phi i1 [ %66, %63 ], [ %54, %59 ]
   br i1 %69, label %.thread20, label %.critedge
 
 .critedge:                                        ; preds = %47, %68
@@ -9047,7 +9047,7 @@ define internal fastcc i32 @_regmap_multi_reg_write(ptr noundef %0, ptr noundef 
   br label %.thread31
 
 .thread31:                                        ; preds = %70, %62, %41, %12, %107, %.loopexit, %.loopexit34, %95, %.split1, %100, %45, %8
-  %262 = phi i32 [ 0, %100 ], [ -22, %45 ], [ 0, %8 ], [ %261, %.loopexit ], [ -22, %107 ], [ %131, %.split1 ], [ %93, %95 ], [ -12, %.loopexit34 ], [ 0, %41 ], [ %19, %12 ], [ -22, %62 ], [ -22, %70 ]
+  %262 = phi i32 [ 0, %41 ], [ 0, %100 ], [ -22, %45 ], [ 0, %8 ], [ %261, %.loopexit ], [ -22, %107 ], [ %131, %.split1 ], [ %93, %95 ], [ -12, %.loopexit34 ], [ %19, %12 ], [ -22, %62 ], [ -22, %70 ]
   ret i32 %262
 }
 
@@ -9328,7 +9328,7 @@ define internal fastcc i32 @_regmap_read(ptr noundef %0, i32 noundef %1, ptr nou
   br i1 %72, label %73, label %58, !llvm.loop !35
 
 73:                                               ; preds = %68, %64
-  %74 = phi i1 [ %59, %64 ], [ %71, %68 ]
+  %74 = phi i1 [ %71, %68 ], [ %59, %64 ]
   br i1 %74, label %129, label %.critedge
 
 .critedge:                                        ; preds = %52, %73
@@ -10016,7 +10016,7 @@ define dso_local i32 @regmap_noinc_read(ptr noundef %0, i32 noundef %1, ptr noun
   br i1 %59, label %60, label %45, !llvm.loop !35
 
 60:                                               ; preds = %55, %51
-  %61 = phi i1 [ %46, %51 ], [ %58, %55 ]
+  %61 = phi i1 [ %58, %55 ], [ %46, %51 ]
   br i1 %61, label %.loopexit, label %.critedge
 
 .critedge:                                        ; preds = %39, %60

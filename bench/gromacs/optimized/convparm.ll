@@ -1636,7 +1636,7 @@ _ZL12enter_paramsP14gmx_ffparams_tiN3gmx8ArrayRefIKfEE15CombinationRulefib.exit.
   br label %_ZL18append_interactionP15InteractionListiN3gmx8ArrayRefIKiEE.exit
 
 _ZL12enter_paramsP14gmx_ffparams_tiN3gmx8ArrayRefIKfEE15CombinationRulefib.exit: ; preds = %583, %621, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i, %_ZL12assign_paramiP9t_iparamsN3gmx8ArrayRefIKfEE15CombinationRuled.exit.loopexit.i
-  %.0.i = phi i32 [ %576, %583 ], [ %593, %621 ], [ %593, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ], [ %643, %_ZL12assign_paramiP9t_iparamsN3gmx8ArrayRefIKfEE15CombinationRuled.exit.loopexit.i ]
+  %.0.i = phi i32 [ %576, %583 ], [ %593, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ], [ %643, %_ZL12assign_paramiP9t_iparamsN3gmx8ArrayRefIKfEE15CombinationRuled.exit.loopexit.i ], [ %593, %621 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %644 = icmp slt i32 %.0.i, 0
   %or.cond.not = or i1 %5, %644

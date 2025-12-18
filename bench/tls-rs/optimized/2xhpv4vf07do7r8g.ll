@@ -6549,8 +6549,8 @@ define hidden void @_ZN6rustls6server5tls1212client_hello27CompleteClientHelloHa
   br label %.body254
 
 .loopexit.split-lp:                               ; preds = %183, %1162, %105, %118, %_ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit, %141, %146, %168, %.loopexit515, %198, %216, %.critedge25.i, %"_ZN4core3ptr122drop_in_place$LT$core..result..Result$LT$rustls..msgs..persist..ServerSessionValue$C$rustls..error..InvalidMessage$GT$$GT$17hf14a070e1c526336E.exit.i", %308, %.thread.i273, %1145
-  %.0165.ph = phi i8 [ 1, %146 ], [ 1, %105 ], [ 1, %118 ], [ 1, %168 ], [ 1, %_ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit ], [ 1, %183 ], [ 1, %.loopexit515 ], [ 1, %141 ], [ 1, %"_ZN4core3ptr122drop_in_place$LT$core..result..Result$LT$rustls..msgs..persist..ServerSessionValue$C$rustls..error..InvalidMessage$GT$$GT$17hf14a070e1c526336E.exit.i" ], [ 1, %198 ], [ 1, %.critedge25.i ], [ 1, %216 ], [ 1, %308 ], [ 1, %.thread.i273 ], [ 0, %1145 ], [ 1, %1162 ]
-  %.0162.ph = phi i8 [ 1, %146 ], [ 1, %105 ], [ 1, %118 ], [ 1, %168 ], [ 1, %_ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit ], [ 1, %183 ], [ 1, %.loopexit515 ], [ 1, %141 ], [ 1, %"_ZN4core3ptr122drop_in_place$LT$core..result..Result$LT$rustls..msgs..persist..ServerSessionValue$C$rustls..error..InvalidMessage$GT$$GT$17hf14a070e1c526336E.exit.i" ], [ 1, %198 ], [ 1, %.critedge25.i ], [ 1, %216 ], [ 1, %308 ], [ 1, %.thread.i273 ], [ 0, %1145 ], [ %.11440, %1162 ]
+  %.0165.ph = phi i8 [ 1, %105 ], [ 1, %118 ], [ 1, %168 ], [ 1, %_ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit ], [ 1, %183 ], [ 1, %146 ], [ 1, %.loopexit515 ], [ 1, %141 ], [ 1, %"_ZN4core3ptr122drop_in_place$LT$core..result..Result$LT$rustls..msgs..persist..ServerSessionValue$C$rustls..error..InvalidMessage$GT$$GT$17hf14a070e1c526336E.exit.i" ], [ 1, %198 ], [ 1, %.critedge25.i ], [ 1, %216 ], [ 1, %308 ], [ 1, %.thread.i273 ], [ 0, %1145 ], [ 1, %1162 ]
+  %.0162.ph = phi i8 [ 1, %105 ], [ 1, %118 ], [ 1, %168 ], [ 1, %_ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit ], [ 1, %183 ], [ 1, %146 ], [ 1, %.loopexit515 ], [ 1, %141 ], [ 1, %"_ZN4core3ptr122drop_in_place$LT$core..result..Result$LT$rustls..msgs..persist..ServerSessionValue$C$rustls..error..InvalidMessage$GT$$GT$17hf14a070e1c526336E.exit.i" ], [ 1, %198 ], [ 1, %.critedge25.i ], [ 1, %216 ], [ 1, %308 ], [ 1, %.thread.i273 ], [ 0, %1145 ], [ %.11440, %1162 ]
   %lpad.loopexit.split-lp513 = landingpad { ptr, i32 }
           cleanup
   br label %.body254
@@ -7166,8 +7166,8 @@ _ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit: ; preds
   br label %.body127.i
 
 .loopexit.split-lp.i:                             ; preds = %551, %361, %349, %343
-  %.090.ph.i = phi i1 [ false, %551 ], [ true, %361 ], [ true, %349 ], [ true, %343 ]
-  %.085.ph.i = phi i8 [ 0, %551 ], [ 1, %361 ], [ 0, %349 ], [ 1, %343 ]
+  %.090.ph.i = phi i1 [ true, %361 ], [ true, %349 ], [ true, %343 ], [ false, %551 ]
+  %.085.ph.i = phi i8 [ 1, %361 ], [ 0, %349 ], [ 1, %343 ], [ 0, %551 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.body127.i
@@ -8154,7 +8154,7 @@ _ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit: ; preds
   br label %.thread424
 
 .thread431.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %751, %.loopexit9.i, %.loopexit, %732, %717, %_ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit.i, %834, %671
-  %.9.ph.ph.ph.ph = phi i8 [ 1, %671 ], [ 0, %834 ], [ 0, %_ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit.i ], [ 0, %717 ], [ 1, %732 ], [ 1, %.loopexit ], [ 1, %.loopexit9.i ], [ 0, %751 ]
+  %.9.ph.ph.ph.ph = phi i8 [ 0, %_ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit.i ], [ 0, %717 ], [ 1, %671 ], [ 1, %732 ], [ 0, %751 ], [ 0, %834 ], [ 1, %.loopexit ], [ 1, %.loopexit9.i ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.thread424
@@ -11003,8 +11003,8 @@ _ZN6rustls7hash_hs13HandshakeHash19abandon_client_auth17h859e0a4f4ff1d067E.exit:
   br label %"_ZN4core3ptr86drop_in_place$LT$alloc..boxed..Box$LT$rustls..server..tls12..ExpectCertificate$GT$$GT$17h83dd2adf02a370e6E.exit"
 
 .thread:                                          ; preds = %"_ZN4core3ptr62drop_in_place$LT$rustls..msgs..handshake..CertificateChain$GT$17h3cf6ea4a2bd4c202E.exit179", %271, %234, %"_ZN4core3ptr62drop_in_place$LT$rustls..msgs..handshake..CertificateChain$GT$17h3cf6ea4a2bd4c202E.exit172"
-  %.2 = phi i8 [ %.4, %234 ], [ %.1, %271 ], [ %.1, %"_ZN4core3ptr62drop_in_place$LT$rustls..msgs..handshake..CertificateChain$GT$17h3cf6ea4a2bd4c202E.exit179" ], [ %.1, %"_ZN4core3ptr62drop_in_place$LT$rustls..msgs..handshake..CertificateChain$GT$17h3cf6ea4a2bd4c202E.exit172" ]
-  %.pn129 = phi { ptr, i32 } [ %235, %234 ], [ %.pn, %271 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$rustls..msgs..handshake..CertificateChain$GT$17h3cf6ea4a2bd4c202E.exit179" ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$rustls..msgs..handshake..CertificateChain$GT$17h3cf6ea4a2bd4c202E.exit172" ]
+  %.2 = phi i8 [ %.4, %234 ], [ %.1, %271 ], [ %.1, %"_ZN4core3ptr62drop_in_place$LT$rustls..msgs..handshake..CertificateChain$GT$17h3cf6ea4a2bd4c202E.exit172" ], [ %.1, %"_ZN4core3ptr62drop_in_place$LT$rustls..msgs..handshake..CertificateChain$GT$17h3cf6ea4a2bd4c202E.exit179" ]
+  %.pn129 = phi { ptr, i32 } [ %235, %234 ], [ %.pn, %271 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$rustls..msgs..handshake..CertificateChain$GT$17h3cf6ea4a2bd4c202E.exit172" ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$rustls..msgs..handshake..CertificateChain$GT$17h3cf6ea4a2bd4c202E.exit179" ]
   %cond = icmp eq i8 %.2, 0
   br i1 %cond, label %common.resume, label %.thread.thread
 

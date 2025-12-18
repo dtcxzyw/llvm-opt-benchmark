@@ -2156,7 +2156,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__nbit_decompress_one_array(ptr 
   br i1 %exitcond.not.i, label %H5Z__nbit_decompress_one_nooptype.exit, label %100, !llvm.loop !36
 
 H5Z__nbit_decompress_one_nooptype.exit:           ; preds = %132, %95, %77, %57, %79, %61, %53, %97, %49, %73, %91, %15, %7
-  %.0 = phi i32 [ 0, %15 ], [ -1, %49 ], [ -1, %73 ], [ -1, %91 ], [ 0, %7 ], [ 0, %97 ], [ 0, %79 ], [ 0, %53 ], [ 0, %61 ], [ 0, %95 ], [ 0, %57 ], [ 0, %77 ], [ 0, %132 ]
+  %.0 = phi i32 [ 0, %15 ], [ -1, %49 ], [ 0, %61 ], [ -1, %73 ], [ 0, %79 ], [ -1, %91 ], [ 0, %53 ], [ 0, %7 ], [ 0, %97 ], [ 0, %77 ], [ 0, %95 ], [ 0, %57 ], [ 0, %132 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }

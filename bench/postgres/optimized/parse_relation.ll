@@ -421,7 +421,7 @@ scanNameSpaceForRelid.exit:                       ; preds = %141
   %.not41.not = icmp eq ptr %.1.i, null
   br i1 %.not41.not, label %scanNameSpaceForRelid.exit.thread, label %152
 
-scanNameSpaceForRelid.exit.thread:                ; preds = %.lr.ph.i, %96, %scanNameSpaceForRelid.exit
+scanNameSpaceForRelid.exit.thread:                ; preds = %96, %.lr.ph.i, %scanNameSpaceForRelid.exit
   %149 = load i32, ptr %4, align 4
   %150 = add i32 %149, 1
   store i32 %150, ptr %4, align 4
@@ -438,7 +438,7 @@ scanNameSpaceForRelid.exit.thread:                ; preds = %.lr.ph.i, %96, %sca
   br label %.critedge
 
 .critedge:                                        ; preds = %152, %.split.split, %92, %50, %.split.us, %.critedge.loopexit117, %.lr.ph.i.us, %.split.split.us, %.split.split.us.split, %8, %10
-  %.2 = phi ptr [ null, %10 ], [ null, %8 ], [ null, %.split.split.us.split ], [ %.1.i.us, %92 ], [ null, %.split.split.us ], [ null, %.lr.ph.i.us ], [ %.4.us, %.critedge.loopexit117 ], [ null, %50 ], [ null, %.split.us ], [ null, %.split.split ], [ %.4, %152 ]
+  %.2 = phi ptr [ null, %8 ], [ null, %.lr.ph.i.us ], [ null, %10 ], [ null, %.split.split.us.split ], [ %.1.i.us, %92 ], [ null, %.split.split.us ], [ null, %50 ], [ %.4.us, %.critedge.loopexit117 ], [ null, %.split.us ], [ %.4, %152 ], [ null, %.split.split ]
   ret ptr %.2
 }
 
@@ -1059,7 +1059,7 @@ updateFuzzyAttrMatchState.exit.us:                ; preds = %23, %16
   br i1 %30, label %31, label %36
 
 .critedge:                                        ; preds = %updateFuzzyAttrMatchState.exit, %updateFuzzyAttrMatchState.exit.us, %.lr.ph.split.preheader
-  %.031.lcssa = phi i32 [ 0, %.lr.ph.split.preheader ], [ %.1.us, %updateFuzzyAttrMatchState.exit.us ], [ %.1, %updateFuzzyAttrMatchState.exit ]
+  %.031.lcssa = phi i32 [ %.1.us, %updateFuzzyAttrMatchState.exit.us ], [ 0, %.lr.ph.split.preheader ], [ %.1, %updateFuzzyAttrMatchState.exit ]
   %.not38 = icmp eq i32 %.031.lcssa, 0
   br i1 %.not38, label %.critedge.thread, label %specialAttNum.exit.thread
 
@@ -1655,7 +1655,7 @@ define internal fastcc noundef zeroext i1 @isFutureCTE(ptr noundef readonly capt
   br i1 %.not.not, label %.loopexit, label %.lr.ph39, !llvm.loop !14
 
 .loopexit:                                        ; preds = %._crit_edge32.split.us, %11, %2
-  %.not30 = phi i1 [ false, %2 ], [ true, %11 ], [ false, %._crit_edge32.split.us ]
+  %.not30 = phi i1 [ true, %11 ], [ false, %2 ], [ false, %._crit_edge32.split.us ]
   ret i1 %.not30
 }
 
@@ -1770,8 +1770,8 @@ define dso_local noundef ptr @addRangeTableEntry(ptr noundef %0, ptr noundef %1,
   %exitcond85.not.i = icmp eq i64 %indvars.iv.next, %34
   br i1 %exitcond85.not.i, label %isLockedRefname.exit, label %35
 
-isLockedRefname.exit:                             ; preds = %.loopexit.i, %35, %46, %26, %27, %.lr.ph57.split.us.split.i, %17, %.lr.ph57.split.split.i, %5
-  %52 = phi i32 [ 2, %5 ], [ 1, %.lr.ph57.split.split.i ], [ 1, %17 ], [ 1, %.lr.ph57.split.us.split.i ], [ 2, %46 ], [ 2, %27 ], [ 1, %26 ], [ 1, %.loopexit.i ], [ 2, %35 ]
+isLockedRefname.exit:                             ; preds = %.loopexit.i, %35, %46, %26, %27, %17, %.lr.ph57.split.split.i, %.lr.ph57.split.us.split.i, %5
+  %52 = phi i32 [ 2, %5 ], [ 2, %46 ], [ 2, %27 ], [ 1, %17 ], [ 1, %.lr.ph57.split.us.split.i ], [ 1, %.lr.ph57.split.split.i ], [ 1, %26 ], [ 1, %.loopexit.i ], [ 2, %35 ]
   %53 = tail call ptr @parserOpenTable(ptr noundef %0, ptr noundef %1, i32 noundef %52)
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 72
   %55 = load i32, ptr %54, align 8
@@ -2009,7 +2009,7 @@ define dso_local noundef zeroext i1 @isLockedRefname(ptr noundef readonly captur
   br i1 %exitcond85.not, label %.critedge, label %23
 
 .critedge:                                        ; preds = %.loopexit, %23, %35, %14, %6, %.lr.ph57.split.split, %.lr.ph57.split.us.split, %2
-  %.0 = phi i1 [ true, %2 ], [ false, %.lr.ph57.split.split ], [ false, %6 ], [ false, %.lr.ph57.split.us.split ], [ true, %35 ], [ %20, %14 ], [ %29, %23 ], [ %29, %.loopexit ]
+  %.0 = phi i1 [ true, %2 ], [ false, %.lr.ph57.split.us.split ], [ true, %35 ], [ false, %.lr.ph57.split.split ], [ %20, %14 ], [ false, %6 ], [ %29, %23 ], [ %29, %.loopexit ]
   ret i1 %.0
 }
 
@@ -2577,7 +2577,7 @@ list_length.exit.split.split.split:               ; preds = %list_length.exit.th
   br i1 %or.cond3, label %55, label %.critedge
 
 .critedge:                                        ; preds = %37, %32, %list_length.exit, %list_length.exit.thread
-  %42 = phi ptr [ %6, %list_length.exit ], [ %11, %list_length.exit.thread ], [ %11, %32 ], [ %11, %37 ]
+  %42 = phi ptr [ %11, %list_length.exit.thread ], [ %6, %list_length.exit ], [ %11, %32 ], [ %11, %37 ]
   %43 = tail call ptr @palloc(i64 noundef 48) #10
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %45 = load ptr, ptr %44, align 8
@@ -5480,7 +5480,7 @@ markVarForSelectPriv.exit.us:                     ; preds = %.lr.ph.i.us, %42
   br i1 %76, label %77, label %.thread
 
 .thread:                                          ; preds = %72, %67, %32, %37, %19, %.split.split, %.split.split.us
-  %.us-phi = phi ptr [ null, %.split.split.us ], [ null, %.split.split ], [ null, %19 ], [ %.0.us35, %32 ], [ %.0.us35, %37 ], [ %.0, %67 ], [ %.0, %72 ]
+  %.us-phi = phi ptr [ %.0.us35, %32 ], [ null, %19 ], [ null, %.split.split ], [ null, %.split.split.us ], [ %.0.us35, %37 ], [ %.0, %67 ], [ %.0, %72 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.us-phi
 
@@ -5968,7 +5968,7 @@ specialAttNum.exit.thread:                        ; preds = %30, %specialAttNum.
   br label %37
 
 37:                                               ; preds = %.loopexit, %specialAttNum.exit, %specialAttNum.exit.thread
-  %.2 = phi i32 [ 0, %specialAttNum.exit.thread ], [ %34, %specialAttNum.exit ], [ %36, %.loopexit ]
+  %.2 = phi i32 [ %34, %specialAttNum.exit ], [ 0, %specialAttNum.exit.thread ], [ %36, %.loopexit ]
   ret i32 %.2
 }
 
@@ -6373,7 +6373,7 @@ scanNameSpaceForCTE.exit.thread72.i.thread:       ; preds = %2, %scanNameSpaceFo
   br i1 %.not63.i, label %searchRangeTableForRel.exit.thread49.thread, label %.lr.ph147.split.split.i, !llvm.loop !32
 
 .loopexit:                                        ; preds = %50, %.thread86.us149.us.i, %73, %.thread86.us.us133.i.us81, %.thread86.us.us133.i.us, %.thread86.us.us170.us.i, %98
-  %.4.i.ph = phi ptr [ %69, %73 ], [ %93, %.thread86.us.us170.us.i ], [ %116, %.thread86.us.us133.i.us ], [ %93, %98 ], [ %69, %.thread86.us.us133.i.us81 ], [ %40, %.thread86.us149.us.i ], [ %40, %50 ]
+  %.4.i.ph = phi ptr [ %93, %.thread86.us.us170.us.i ], [ %69, %73 ], [ %116, %.thread86.us.us133.i.us ], [ %93, %98 ], [ %69, %.thread86.us.us133.i.us81 ], [ %40, %.thread86.us149.us.i ], [ %40, %50 ]
   %124 = getelementptr inbounds nuw i8, ptr %.4.i.ph, i64 8
   %125 = load ptr, ptr %124, align 8
   %.not31 = icmp eq ptr %125, null

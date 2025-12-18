@@ -468,7 +468,7 @@ sub_times.exit:                                   ; preds = %php_network_set_lim
   br label %.loopexit
 
 .split.us:                                        ; preds = %php_pollfd_for.exit.us, %php_pollfd_for.exit, %php_network_set_limit_time.exit.split
-  %.us-phi = phi i32 [ %.0.i62, %php_network_set_limit_time.exit.split ], [ %.0.i, %php_pollfd_for.exit ], [ %.0.i.us, %php_pollfd_for.exit.us ]
+  %.us-phi = phi i32 [ %.0.i, %php_pollfd_for.exit ], [ %.0.i62, %php_network_set_limit_time.exit.split ], [ %.0.i.us, %php_pollfd_for.exit.us ]
   %89 = icmp eq i32 %.us-phi, 0
   br i1 %89, label %90, label %91
 
@@ -534,7 +534,7 @@ php_socket_error_str.exit51:                      ; preds = %97
   br label %108
 
 108:                                              ; preds = %.sink.split, %thread-pre-split, %97, %33, %22
-  %.0 = phi i32 [ 0, %33 ], [ -1, %22 ], [ -1, %97 ], [ %.030, %thread-pre-split ], [ -1, %.sink.split ]
+  %.0 = phi i32 [ 0, %33 ], [ -1, %22 ], [ %.030, %thread-pre-split ], [ -1, %97 ], [ -1, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
@@ -713,7 +713,7 @@ php_socket_error_str.exit:                        ; preds = %55
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %45, %php_socket_error_str.exit, %55
-  %.040 = phi i32 [ -1, %php_socket_error_str.exit ], [ -1, %55 ], [ %30, %45 ]
+  %.040 = phi i32 [ -1, %55 ], [ -1, %php_socket_error_str.exit ], [ %30, %45 ]
   %66 = load ptr, ptr %13, align 8, !tbaa !4
   %.not8.i = icmp eq ptr %66, null
   br i1 %.not8.i, label %._crit_edge.i, label %.lr.ph.i

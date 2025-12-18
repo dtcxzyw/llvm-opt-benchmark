@@ -864,7 +864,7 @@ init_frame.exit:                                  ; preds = %.lr.ph.split.i, %.l
   br i1 %117, label %.preheader35.us.i, label %copy_samples.exit, !llvm.loop !97
 
 copy_samples.exit:                                ; preds = %._crit_edge.us.i, %._crit_edge.us45.i, %102, %.preheader34.i
-  %118 = phi i32 [ %34, %.preheader34.i ], [ %34, %102 ], [ %99, %._crit_edge.us45.i ], [ %115, %._crit_edge.us.i ]
+  %118 = phi i32 [ %34, %.preheader34.i ], [ %99, %._crit_edge.us45.i ], [ %34, %102 ], [ %115, %._crit_edge.us.i ]
   %119 = getelementptr inbounds nuw i8, ptr %8, i64 328968
   %120 = getelementptr inbounds nuw i8, ptr %8, i64 1182160
   %121 = getelementptr inbounds nuw i8, ptr %8, i64 6825640
@@ -1007,10 +1007,10 @@ copy_samples.exit:                                ; preds = %._crit_edge.us.i, %
   br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !101
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i, %.lr.ph116.i.i, %.preheader.i.i, %.preheader95.i.i
-  %storemerge126.i.i = phi i64 [ 0, %.preheader.i.i ], [ 0, %.preheader95.i.i ], [ %165, %.lr.ph116.i.i ], [ %206, %.lr.ph.i.i ]
-  %storemerge125.i.i = phi i64 [ 0, %.preheader.i.i ], [ 0, %.preheader95.i.i ], [ %169, %.lr.ph116.i.i ], [ %209, %.lr.ph.i.i ]
-  %storemerge124.i.i = phi i64 [ 0, %.preheader.i.i ], [ 0, %.preheader95.i.i ], [ %172, %.lr.ph116.i.i ], [ %211, %.lr.ph.i.i ]
-  %storemerge.i.i = phi i64 [ 0, %.preheader.i.i ], [ 0, %.preheader95.i.i ], [ %175, %.lr.ph116.i.i ], [ %213, %.lr.ph.i.i ]
+  %storemerge126.i.i = phi i64 [ %165, %.lr.ph116.i.i ], [ 0, %.preheader.i.i ], [ 0, %.preheader95.i.i ], [ %206, %.lr.ph.i.i ]
+  %storemerge125.i.i = phi i64 [ %169, %.lr.ph116.i.i ], [ 0, %.preheader.i.i ], [ 0, %.preheader95.i.i ], [ %209, %.lr.ph.i.i ]
+  %storemerge124.i.i = phi i64 [ %172, %.lr.ph116.i.i ], [ 0, %.preheader.i.i ], [ 0, %.preheader95.i.i ], [ %211, %.lr.ph.i.i ]
+  %storemerge.i.i = phi i64 [ %175, %.lr.ph116.i.i ], [ 0, %.preheader.i.i ], [ 0, %.preheader95.i.i ], [ %213, %.lr.ph.i.i ]
   store i64 %storemerge126.i.i, ptr %136, align 16
   store i64 %storemerge125.i.i, ptr %135, align 8
   store i64 %storemerge124.i.i, ptr %5, align 16
@@ -2656,9 +2656,9 @@ put_sbits.exit152.i.i:                            ; preds = %1050, %1031
   br i1 %1053, label %.lr.ph211.i.i, label %.loopexit187.i.i, !llvm.loop !135
 
 .loopexit187.i.i:                                 ; preds = %put_bits32.exit147.i.i, %put_sbits.exit152.i.i, %._crit_edge.i.i, %.preheader.i.i118, %.preheader189.i.i
-  %1054 = phi i32 [ %947, %._crit_edge.i.i ], [ %736, %.preheader.i.i118 ], [ %736, %.preheader189.i.i ], [ %.0.i.i.i151.i.i, %put_sbits.exit152.i.i ], [ %736, %put_bits32.exit147.i.i ]
-  %1055 = phi i32 [ %948, %._crit_edge.i.i ], [ %737, %.preheader.i.i118 ], [ %737, %.preheader189.i.i ], [ %.026.i.i.i150.i.i, %put_sbits.exit152.i.i ], [ %1002, %put_bits32.exit147.i.i ]
-  %.2.i.i = phi ptr [ %949, %._crit_edge.i.i ], [ %641, %.preheader.i.i118 ], [ %641, %.preheader189.i.i ], [ %1026, %put_sbits.exit152.i.i ], [ %1001, %put_bits32.exit147.i.i ]
+  %1054 = phi i32 [ %947, %._crit_edge.i.i ], [ %.0.i.i.i151.i.i, %put_sbits.exit152.i.i ], [ %736, %.preheader.i.i118 ], [ %736, %.preheader189.i.i ], [ %736, %put_bits32.exit147.i.i ]
+  %1055 = phi i32 [ %948, %._crit_edge.i.i ], [ %.026.i.i.i150.i.i, %put_sbits.exit152.i.i ], [ %737, %.preheader.i.i118 ], [ %737, %.preheader189.i.i ], [ %1002, %put_bits32.exit147.i.i ]
+  %.2.i.i = phi ptr [ %949, %._crit_edge.i.i ], [ %1026, %put_sbits.exit152.i.i ], [ %641, %.preheader.i.i118 ], [ %641, %.preheader189.i.i ], [ %1001, %put_bits32.exit147.i.i ]
   %1056 = load i32, ptr %640, align 8, !tbaa !128
   %1057 = icmp eq i32 %1056, 32
   br i1 %1057, label %1058, label %.loopexit186.i.i
@@ -3155,8 +3155,8 @@ set_sr_golomb_flac.exit.i.i:                      ; preds = %put_bits.exit22.i.i
   br label %.loopexit.i.i109
 
 .loopexit.i.i109:                                 ; preds = %put_bits32.exit137.i.i, %put_sbits63.exit136.i.i, %put_sbits.exit142.i.i, %._crit_edge217.i.i, %.loopexit.sink.split.i.i, %put_bits.exit173.i.i, %839, %.preheader191.i.i, %.preheader194.i.i
-  %.pr.i = phi i32 [ %736, %.preheader194.i.i ], [ %736, %839 ], [ %736, %.preheader191.i.i ], [ %1193, %put_bits.exit173.i.i ], [ %.sink334.i.i, %.loopexit.sink.split.i.i ], [ %872, %put_sbits63.exit136.i.i ], [ %1309, %._crit_edge217.i.i ], [ %.0.i.i.i141.i.i, %put_sbits.exit142.i.i ], [ %736, %put_bits32.exit137.i.i ]
-  %1314 = phi i32 [ %737, %.preheader194.i.i ], [ %737, %839 ], [ %737, %.preheader191.i.i ], [ %.026.i.i171.i.i, %put_bits.exit173.i.i ], [ %.sink335.i.i, %.loopexit.sink.split.i.i ], [ %848, %put_sbits63.exit136.i.i ], [ %1310, %._crit_edge217.i.i ], [ %.026.i.i.i140.i.i, %put_sbits.exit142.i.i ], [ %894, %put_bits32.exit137.i.i ]
+  %.pr.i = phi i32 [ %.sink334.i.i, %.loopexit.sink.split.i.i ], [ %.0.i.i.i141.i.i, %put_sbits.exit142.i.i ], [ %1309, %._crit_edge217.i.i ], [ %872, %put_sbits63.exit136.i.i ], [ %736, %.preheader194.i.i ], [ %736, %839 ], [ %736, %.preheader191.i.i ], [ %1193, %put_bits.exit173.i.i ], [ %736, %put_bits32.exit137.i.i ]
+  %1314 = phi i32 [ %.sink335.i.i, %.loopexit.sink.split.i.i ], [ %.026.i.i.i140.i.i, %put_sbits.exit142.i.i ], [ %1310, %._crit_edge217.i.i ], [ %848, %put_sbits63.exit136.i.i ], [ %737, %.preheader194.i.i ], [ %737, %839 ], [ %737, %.preheader191.i.i ], [ %.026.i.i171.i.i, %put_bits.exit173.i.i ], [ %894, %put_bits32.exit137.i.i ]
   %indvars.iv.next252.i.i = add nuw nsw i64 %indvars.iv251.i.i, 1
   %1315 = load i32, ptr %70, align 8, !tbaa !44
   %1316 = sext i32 %1315 to i64
@@ -4156,7 +4156,7 @@ rice_count_exact.exit.i452.i:                     ; preds = %219, %210
   br i1 %exitcond.not.i456.i, label %subframe_count_exact.exit442.i, label %210, !llvm.loop !163
 
 subframe_count_exact.exit442.i:                   ; preds = %rice_count_exact.exit.i452.i, %200, %185, %182, %150
-  %.1.in.i = phi i32 [ %156, %150 ], [ %184, %182 ], [ %189, %185 ], [ %205, %200 ], [ %228, %rice_count_exact.exit.i452.i ]
+  %.1.in.i = phi i32 [ %156, %150 ], [ %205, %200 ], [ %184, %182 ], [ %189, %185 ], [ %228, %rice_count_exact.exit.i452.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %encode_residual_ch.exit
 
@@ -4582,7 +4582,7 @@ lpc_encode_with_residual_limit_33bps.exit.sink.split.i105: ; preds = %.thread109
   br label %lpc_encode_choose_datapath.exit174
 
 lpc_encode_choose_datapath.exit174:               ; preds = %.preheader.i57.i116, %.preheader.i.i123, %._crit_edge.us.i79.i151, %._crit_edge.us.i.i170, %.loopexit186, %309, %.lr.ph539.i
-  %.10.i = phi i32 [ %.9536.i, %.lr.ph539.i ], [ %spec.select375.i, %.loopexit186 ], [ %.9536.i, %309 ], [ %.9536.i, %.preheader.i.i123 ], [ %.9536.i, %._crit_edge.us.i.i170 ], [ %.9536.i, %._crit_edge.us.i79.i151 ], [ %.9536.i, %.preheader.i57.i116 ]
+  %.10.i = phi i32 [ %.9536.i, %.lr.ph539.i ], [ %spec.select375.i, %.loopexit186 ], [ %.9536.i, %309 ], [ %.9536.i, %.preheader.i.i123 ], [ %.9536.i, %._crit_edge.us.i79.i151 ], [ %.9536.i, %._crit_edge.us.i.i170 ], [ %.9536.i, %.preheader.i57.i116 ]
   %indvars.iv.next603.i = add nsw i64 %indvars.iv602.i, %306
   %.not358.i = icmp sgt i64 %indvars.iv602.i, %307
   br i1 %.not358.i, label %._crit_edge540.i, label %.lr.ph539.i, !llvm.loop !176
@@ -5099,7 +5099,7 @@ rice_count_exact.exit.i494.i:                     ; preds = %643, %634
   br i1 %exitcond.not.i498.i, label %encode_residual_ch.exit, label %634, !llvm.loop !163
 
 encode_residual_ch.exit:                          ; preds = %rice_count_exact.exit.i494.i, %._crit_edge521.thread.i, %._crit_edge.thread.i, %107, %subframe_count_exact.exit442.i, %591, %606, %609, %624
-  %.0.in.i = phi i32 [ %629, %624 ], [ %.1.in.i, %subframe_count_exact.exit442.i ], [ %113, %107 ], [ %597, %591 ], [ %84, %._crit_edge521.thread.i ], [ %96, %._crit_edge.thread.i ], [ %613, %609 ], [ %608, %606 ], [ %652, %rice_count_exact.exit.i494.i ]
+  %.0.in.i = phi i32 [ %608, %606 ], [ %629, %624 ], [ %.1.in.i, %subframe_count_exact.exit442.i ], [ %113, %107 ], [ %597, %591 ], [ %84, %._crit_edge521.thread.i ], [ %96, %._crit_edge.thread.i ], [ %613, %609 ], [ %652, %rice_count_exact.exit.i494.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %654 = sext i32 %.0.in.i to i64
@@ -6019,7 +6019,7 @@ find_optimal_param_exact.exit.loopexit.i.i:       ; preds = %143
   br i1 %exitcond.not.i46.i, label %calc_optimal_rice_params.exit.i, label %.lr.ph.i.i.i, !llvm.loop !208
 
 calc_optimal_rice_params.exit.i:                  ; preds = %find_optimal_param_exact.exit.loopexit.i.i, %find_optimal_param_exact.exit.us.i.i, %find_optimal_param.exit.us.i.i, %calc_sum_next.exit.i
-  %.0.lcssa.i.i = phi i64 [ %109, %calc_sum_next.exit.i ], [ %.1.us43.i.i, %find_optimal_param_exact.exit.us.i.i ], [ %.1.us.i.i, %find_optimal_param.exit.us.i.i ], [ %.1.i.i39, %find_optimal_param_exact.exit.loopexit.i.i ]
+  %.0.lcssa.i.i = phi i64 [ %109, %calc_sum_next.exit.i ], [ %.1.us.i.i, %find_optimal_param.exit.us.i.i ], [ %.1.us43.i.i, %find_optimal_param_exact.exit.us.i.i ], [ %.1.i.i39, %find_optimal_param_exact.exit.loopexit.i.i ]
   store i32 %107, ptr %101, align 4, !tbaa !210
   %152 = getelementptr inbounds i64, ptr %4, i64 %indvars.iv65.i
   store i64 %.0.lcssa.i.i, ptr %152, align 8, !tbaa !102
@@ -6328,7 +6328,7 @@ lpc_encode_with_residual_limit_33bps.exit.sink.split: ; preds = %.thread109, %54
   br label %lpc_encode_with_residual_limit_33bps.exit
 
 lpc_encode_with_residual_limit_33bps.exit:        ; preds = %88, %.preheader.i57, %51, %.preheader.i, %62, %._crit_edge.us.i79, %25, %._crit_edge.us.i, %lpc_encode_with_residual_limit_33bps.exit.sink.split, %.preheader42.i68, %.preheader42.i
-  %.049 = phi i32 [ 0, %.preheader42.i ], [ 1, %._crit_edge.us.i79 ], [ 0, %.preheader42.i68 ], [ 0, %51 ], [ 1, %._crit_edge.us.i ], [ 0, %lpc_encode_with_residual_limit_33bps.exit.sink.split ], [ 0, %25 ], [ 0, %62 ], [ 1, %.preheader.i ], [ 0, %88 ], [ 1, %.preheader.i57 ]
+  %.049 = phi i32 [ 0, %.preheader42.i ], [ 0, %lpc_encode_with_residual_limit_33bps.exit.sink.split ], [ 0, %.preheader42.i68 ], [ 0, %51 ], [ 1, %._crit_edge.us.i79 ], [ 1, %._crit_edge.us.i ], [ 0, %25 ], [ 0, %62 ], [ 1, %.preheader.i ], [ 1, %.preheader.i57 ], [ 0, %88 ]
   ret i32 %.049
 }
 

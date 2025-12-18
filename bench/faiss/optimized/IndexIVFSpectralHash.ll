@@ -1086,7 +1086,7 @@ _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit: ; preds = %214
   br label %._crit_edge194
 
 ._crit_edge194:                                   ; preds = %275, %264, %._crit_edge194.loopexit210, %246
-  %283 = phi i32 [ %.pre231, %._crit_edge194.loopexit210 ], [ %240, %246 ], [ %240, %264 ], [ %240, %275 ]
+  %283 = phi i32 [ %.pre231, %._crit_edge194.loopexit210 ], [ %240, %264 ], [ %240, %246 ], [ %240, %275 ]
   %indvars.iv.next228 = add nsw i64 %indvars.iv227, 1
   %284 = sext i32 %283 to i64
   %.not94.not = icmp slt i64 %indvars.iv227, %284

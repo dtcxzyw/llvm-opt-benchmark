@@ -951,7 +951,7 @@ _ZNKR5folly8OptionalISt13unordered_mapIPKNS_7dynamicES2_St4hashIS4_ESt8equal_toI
   br label %.loopexit83, !llvm.loop !110
 
 .loopexit84:                                      ; preds = %176, %159, %171
-  %.sroa.06.1.i.i.i = phi ptr [ %172, %171 ], [ %.sroa.06.0.i.i.i, %159 ], [ %178, %176 ]
+  %.sroa.06.1.i.i.i = phi ptr [ %.sroa.06.0.i.i.i, %159 ], [ %172, %171 ], [ %178, %176 ]
   %184 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 16
   %185 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %186 = load ptr, ptr %185, align 8, !tbaa !74
@@ -1870,8 +1870,8 @@ thread-pre-split.i.i.i.i.i.i:                     ; preds = %.lr.ph.i.i.i, %9
   br label %_ZN5folly6detail14IteratorFacadeINS_7dynamic19const_item_iteratorEKSt4pairIKS2_S2_ESt20forward_iterator_tagEppEv.exit.i.i.i
 
 _ZN5folly6detail14IteratorFacadeINS_7dynamic19const_item_iteratorEKSt4pairIKS2_S2_ESt20forward_iterator_tagEppEv.exit.i.i.i: ; preds = %thread-pre-split.i.i.i.i.i.i, %.critedge.i.i.i.i.i.i.i, %26
-  %.sroa.02.1.i.i.i = phi ptr [ %33, %26 ], [ null, %.critedge.i.i.i.i.i.i.i ], [ %13, %thread-pre-split.i.i.i.i.i.i ]
-  %.sroa.5.3.i.i.i = phi i64 [ %30, %26 ], [ 0, %.critedge.i.i.i.i.i.i.i ], [ %12, %thread-pre-split.i.i.i.i.i.i ]
+  %.sroa.02.1.i.i.i = phi ptr [ null, %.critedge.i.i.i.i.i.i.i ], [ %33, %26 ], [ %13, %thread-pre-split.i.i.i.i.i.i ]
+  %.sroa.5.3.i.i.i = phi i64 [ 0, %.critedge.i.i.i.i.i.i.i ], [ %30, %26 ], [ %12, %thread-pre-split.i.i.i.i.i.i ]
   %34 = add nuw nsw i64 %.014.i.i.i, 1
   %.not.i.i.i = icmp eq ptr %.sroa.02.1.i.i.i, %3
   br i1 %.not.i.i.i, label %_ZSt8distanceIN5folly7dynamic19const_item_iteratorEENSt15iterator_traitsIT_E15difference_typeES4_S4_.exit.i, label %.lr.ph.i.i.i, !llvm.loop !119
@@ -2052,8 +2052,8 @@ thread-pre-split.i.i.i:                           ; preds = %_ZSt10_ConstructISt
   br label %_ZN5folly6detail14IteratorFacadeINS_7dynamic19const_item_iteratorEKSt4pairIKS2_S2_ESt20forward_iterator_tagEppEv.exit
 
 _ZN5folly6detail14IteratorFacadeINS_7dynamic19const_item_iteratorEKSt4pairIKS2_S2_ESt20forward_iterator_tagEppEv.exit: ; preds = %thread-pre-split.i.i.i, %.critedge.i.i.i.i, %30
-  %.sroa.08.1 = phi ptr [ %37, %30 ], [ null, %.critedge.i.i.i.i ], [ %17, %thread-pre-split.i.i.i ]
-  %.sroa.6.3 = phi i64 [ %34, %30 ], [ 0, %.critedge.i.i.i.i ], [ %16, %thread-pre-split.i.i.i ]
+  %.sroa.08.1 = phi ptr [ null, %.critedge.i.i.i.i ], [ %37, %30 ], [ %17, %thread-pre-split.i.i.i ]
+  %.sroa.6.3 = phi i64 [ 0, %.critedge.i.i.i.i ], [ %34, %30 ], [ %16, %thread-pre-split.i.i.i ]
   %38 = getelementptr inbounds nuw i8, ptr %.024, i64 80
   %.not = icmp eq ptr %.sroa.08.1, %2
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !120

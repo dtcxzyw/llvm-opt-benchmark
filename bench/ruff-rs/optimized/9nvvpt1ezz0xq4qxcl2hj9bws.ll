@@ -7059,7 +7059,7 @@ _ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17h462316f1a2bf
           to label %"_ZN4core3ptr246drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$ruff_db..system..path..SystemPathBuf$C$dashmap..util..SharedValue$LT$ruff_db..system..os..ListedDirectory$GT$$RP$$GT$$GT$$GT$17hf75a377c3c5806d3E.exit" unwind label %158
 
 148:                                              ; preds = %137, %133
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.1.i.i, %133 ], [ %143, %137 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %143, %137 ], [ %.sroa.4.1.i.i, %133 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   %.sroa.44.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %87, ptr %.sroa.44.0..sroa_idx, align 8
@@ -7278,7 +7278,7 @@ _ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17h462316f1a2bf
           to label %"_ZN4core3ptr234drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$ruff_db..vendored..path..VendoredPathBuf$C$dashmap..util..SharedValue$LT$ruff_db..files..File$GT$$RP$$GT$$GT$$GT$17h3731cf2f41dc9d5fE.exit" unwind label %93
 
 83:                                               ; preds = %72, %68
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.1.i.i, %68 ], [ %78, %72 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %78, %72 ], [ %.sroa.4.1.i.i, %68 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   %.sroa.44.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %22, ptr %.sroa.44.0..sroa_idx, align 8
@@ -7498,7 +7498,7 @@ _ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17h462316f1a2bf
           to label %"_ZN4core3ptr230drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$ruff_db..system..path..SystemPathBuf$C$dashmap..util..SharedValue$LT$ruff_db..files..File$GT$$RP$$GT$$GT$$GT$17h10c343a7c09d7a4fE.exit" unwind label %95
 
 85:                                               ; preds = %74, %70
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.1.i.i, %70 ], [ %80, %74 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %80, %74 ], [ %.sroa.4.1.i.i, %70 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   %.sroa.44.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %24, ptr %.sroa.44.0..sroa_idx, align 8
@@ -7831,7 +7831,7 @@ _ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17h462316f1a2bf
   resume { ptr, i32 } %.pn.i
 
 "_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$u20$dashmap..t..Map$LT$K$C$V$C$S$GT$$GT$6_entry17h4bd2f865ba86ab7aE.exit": ; preds = %128, %132
-  %.sroa.3.0.i.i.ph.i = phi i64 [ %.sroa.4.1.i.i.i, %128 ], [ %138, %132 ]
+  %.sroa.3.0.i.i.ph.i = phi i64 [ %138, %132 ], [ %.sroa.4.1.i.i.i, %128 ]
   %.sroa.0.0.copyload4 = load i64, ptr %1, align 8, !alias.scope !877, !noalias !871
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false), !alias.scope !877, !noalias !871
   %148 = inttoptr i64 %73 to ptr

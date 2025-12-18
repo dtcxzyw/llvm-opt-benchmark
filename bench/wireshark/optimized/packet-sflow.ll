@@ -1949,7 +1949,7 @@ dissect_sflow_245_samples.exit.us:                ; preds = %dissect_sflow_5_cou
   br label %dissect_sflow_245_samples.exit
 
 dissect_sflow_245_samples.exit:                   ; preds = %359, %.lr.ph.split, %333, %440, %441, %443, %445, %447
-  %.0.i81 = phi i32 [ %446, %445 ], [ %448, %447 ], [ %289, %.lr.ph.split ], [ %335, %333 ], [ %.0.i.i, %440 ], [ %442, %441 ], [ %444, %443 ], [ %.2.i.i, %359 ]
+  %.0.i81 = phi i32 [ %444, %443 ], [ %446, %445 ], [ %289, %.lr.ph.split ], [ %448, %447 ], [ %335, %333 ], [ %.0.i.i, %440 ], [ %442, %441 ], [ %.2.i.i, %359 ]
   %449 = load ptr, ptr %8, align 8
   call void @proto_item_set_end(ptr noundef %449, ptr noundef %0, i32 noundef %.0.i81)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

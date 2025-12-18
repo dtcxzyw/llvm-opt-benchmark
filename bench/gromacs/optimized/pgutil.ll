@@ -269,9 +269,9 @@ _Z15search_res_atomPKciPK7t_atomsS0_b.exit:       ; preds = %78, %70, %79
   br i1 %exitcond264.not, label %.critedge2, label %.lr.ph228, !llvm.loop !33
 
 .critedge2:                                       ; preds = %87, %102, %.critedge96
-  %.0285 = phi ptr [ %.0, %.critedge96 ], [ %.0, %102 ], [ %22, %87 ]
-  %.085283 = phi i32 [ %.085, %.critedge96 ], [ %.085, %102 ], [ %9, %87 ]
-  %.0169282 = phi i32 [ %.0169, %.critedge96 ], [ %.0169, %102 ], [ %20, %87 ]
+  %.0285 = phi ptr [ %.0, %102 ], [ %.0, %.critedge96 ], [ %22, %87 ]
+  %.085283 = phi i32 [ %.085, %102 ], [ %.085, %.critedge96 ], [ %9, %87 ]
+  %.0169282 = phi i32 [ %.0169, %102 ], [ %.0169, %.critedge96 ], [ %20, %87 ]
   %.pre = sext i32 %.085283 to i64
   br i1 %.not89, label %.critedge2.thread, label %103
 
@@ -527,9 +527,9 @@ _Z15search_res_atomPKciPK7t_atomsS0_b.exit134:    ; preds = %182, %174, %183
   br label %.loopexit
 
 .loopexit:                                        ; preds = %206, %98, %.critedge2.thread, %103, %213, %.critedge8, %_Z15search_res_atomPKciPK7t_atomsS0_b.exit134, %_Z15search_res_atomPKciPK7t_atomsS0_b.exit
-  %.sroa.8.sroa.0.0 = phi i64 [ %.sroa.8.0.extract.shift, %_Z15search_res_atomPKciPK7t_atomsS0_b.exit134 ], [ %.sroa.8.0.extract.shift162, %_Z15search_res_atomPKciPK7t_atomsS0_b.exit ], [ 0, %.critedge8 ], [ 0, %213 ], [ 0, %103 ], [ 0, %.critedge2.thread ], [ 0, %98 ], [ 0, %206 ]
-  %.sroa.5.0 = phi i64 [ %.sroa.0166.0.insert.insert, %_Z15search_res_atomPKciPK7t_atomsS0_b.exit134 ], [ %.sroa.0164.0.insert.insert, %_Z15search_res_atomPKciPK7t_atomsS0_b.exit ], [ 0, %.critedge8 ], [ 0, %213 ], [ 0, %103 ], [ 0, %.critedge2.thread ], [ 4294967296, %98 ], [ 4294967296, %206 ]
-  %.sroa.0158.0 = phi i64 [ %.sroa.0166.0.insert.insert, %_Z15search_res_atomPKciPK7t_atomsS0_b.exit134 ], [ %.sroa.0164.0.insert.insert, %_Z15search_res_atomPKciPK7t_atomsS0_b.exit ], [ 0, %.critedge8 ], [ 0, %213 ], [ 0, %103 ], [ 0, %.critedge2.thread ], [ %indvars.iv260, %98 ], [ %198, %206 ]
+  %.sroa.8.sroa.0.0 = phi i64 [ %.sroa.8.0.extract.shift, %_Z15search_res_atomPKciPK7t_atomsS0_b.exit134 ], [ 0, %98 ], [ %.sroa.8.0.extract.shift162, %_Z15search_res_atomPKciPK7t_atomsS0_b.exit ], [ 0, %.critedge2.thread ], [ 0, %.critedge8 ], [ 0, %213 ], [ 0, %103 ], [ 0, %206 ]
+  %.sroa.5.0 = phi i64 [ %.sroa.0166.0.insert.insert, %_Z15search_res_atomPKciPK7t_atomsS0_b.exit134 ], [ 4294967296, %98 ], [ %.sroa.0164.0.insert.insert, %_Z15search_res_atomPKciPK7t_atomsS0_b.exit ], [ 0, %.critedge2.thread ], [ 0, %.critedge8 ], [ 0, %213 ], [ 0, %103 ], [ 4294967296, %206 ]
+  %.sroa.0158.0 = phi i64 [ %.sroa.0166.0.insert.insert, %_Z15search_res_atomPKciPK7t_atomsS0_b.exit134 ], [ %indvars.iv260, %98 ], [ %.sroa.0164.0.insert.insert, %_Z15search_res_atomPKciPK7t_atomsS0_b.exit ], [ 0, %.critedge2.thread ], [ 0, %.critedge8 ], [ 0, %213 ], [ 0, %103 ], [ %198, %206 ]
   %.sroa.5.0.insert.ext = and i64 %.sroa.5.0, 1095216660480
   %.sroa.5.0.insert.insert = or disjoint i64 %.sroa.5.0.insert.ext, %.sroa.8.sroa.0.0
   %.sroa.0158.0.insert.ext = and i64 %.sroa.0158.0, 4294967295

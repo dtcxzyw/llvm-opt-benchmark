@@ -196,7 +196,7 @@ _ZL9findindexP9lua_StateP8LuaTableP10lua_TValue.exit: ; preds = %._ZL9findindexP
   br label %.loopexit
 
 .loopexit:                                        ; preds = %82, %.loopexit.sink.split, %71
-  %.0 = phi i32 [ 0, %71 ], [ 1, %.loopexit.sink.split ], [ 0, %82 ]
+  %.0 = phi i32 [ 1, %.loopexit.sink.split ], [ 0, %71 ], [ 0, %82 ]
   ret i32 %.0
 }
 

@@ -464,7 +464,7 @@ serialize_more.exit219:                           ; preds = %136, %145
   br i1 %.not206, label %serialize_wu124.exit234, label %132, !llvm.loop !36
 
 serialize_wu124.exit234:                          ; preds = %154, %149, %152, %108, %.loopexit253
-  %.1 = phi ptr [ %0, %.loopexit253 ], [ %0, %108 ], [ %151, %149 ], [ %153, %152 ], [ %0, %154 ]
+  %.1 = phi ptr [ %0, %.loopexit253 ], [ %0, %108 ], [ %153, %152 ], [ %151, %149 ], [ %0, %154 ]
   %158 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %159 = load ptr, ptr %158, align 8, !tbaa !26
   %160 = ptrtoint ptr %159 to i64
@@ -1308,12 +1308,12 @@ serialize_ru124.exit185.thread231:                ; preds = %serialize_ru124.exi
   br label %173
 
 173:                                              ; preds = %serialize_ru124.exit185.thread231.thread, %serialize_ru124.exit185.thread231, %.fold.split, %168
-  %174 = phi i32 [ %167, %168 ], [ %167, %serialize_ru124.exit185.thread231 ], [ %167, %.fold.split ], [ %155, %serialize_ru124.exit185.thread231.thread ]
-  %.in.in = phi i64 [ %166, %168 ], [ %166, %serialize_ru124.exit185.thread231 ], [ %166, %.fold.split ], [ %154, %serialize_ru124.exit185.thread231.thread ]
-  %175 = phi ptr [ %165, %168 ], [ %165, %serialize_ru124.exit185.thread231 ], [ %165, %.fold.split ], [ %153, %serialize_ru124.exit185.thread231.thread ]
-  %.6278 = phi ptr [ %.6, %168 ], [ %.6, %serialize_ru124.exit185.thread231 ], [ %.6, %.fold.split ], [ %.5, %serialize_ru124.exit185.thread231.thread ]
-  %.not162 = phi i1 [ %172, %168 ], [ true, %serialize_ru124.exit185.thread231 ], [ false, %.fold.split ], [ true, %serialize_ru124.exit185.thread231.thread ]
-  %176 = phi i32 [ %171, %168 ], [ %164, %serialize_ru124.exit185.thread231 ], [ %164, %.fold.split ], [ 0, %serialize_ru124.exit185.thread231.thread ]
+  %174 = phi i32 [ %167, %serialize_ru124.exit185.thread231 ], [ %167, %168 ], [ %167, %.fold.split ], [ %155, %serialize_ru124.exit185.thread231.thread ]
+  %.in.in = phi i64 [ %166, %serialize_ru124.exit185.thread231 ], [ %166, %168 ], [ %166, %.fold.split ], [ %154, %serialize_ru124.exit185.thread231.thread ]
+  %175 = phi ptr [ %165, %serialize_ru124.exit185.thread231 ], [ %165, %168 ], [ %165, %.fold.split ], [ %153, %serialize_ru124.exit185.thread231.thread ]
+  %.6278 = phi ptr [ %.6, %serialize_ru124.exit185.thread231 ], [ %.6, %168 ], [ %.6, %.fold.split ], [ %.5, %serialize_ru124.exit185.thread231.thread ]
+  %.not162 = phi i1 [ true, %serialize_ru124.exit185.thread231 ], [ %172, %168 ], [ false, %.fold.split ], [ true, %serialize_ru124.exit185.thread231.thread ]
+  %176 = phi i32 [ %164, %serialize_ru124.exit185.thread231 ], [ %171, %168 ], [ %164, %.fold.split ], [ 0, %serialize_ru124.exit185.thread231.thread ]
   %.in = and i64 %.in.in, -8
   %177 = inttoptr i64 %.in to ptr
   %178 = tail call ptr @lj_tab_new(ptr noundef %177, i32 noundef %174, i32 noundef %176) #11

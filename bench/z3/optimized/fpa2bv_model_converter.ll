@@ -252,7 +252,7 @@ _ZNK10model_core17get_num_functionsEv.exit:       ; preds = %._crit_edge
   br i1 %.not27.old.i.i, label %.loopexit106, label %.lr.ph38.i.i.backedge
 
 .lr.ph38.i.i.backedge:                            ; preds = %71, %68
-  %.137.i.i.be = phi ptr [ %.old.i.i, %71 ], [ %70, %68 ]
+  %.137.i.i.be = phi ptr [ %70, %68 ], [ %.old.i.i, %71 ]
   br label %.lr.ph38.i.i, !llvm.loop !51
 
 .loopexit106:                                     ; preds = %57, %71, %68, %.preheader.i.i
@@ -322,7 +322,7 @@ _ZNK10model_core17get_num_functionsEv.exit:       ; preds = %._crit_edge
   br i1 %.not27.old.i.i.i.i, label %_ZNK10model_core16get_const_interpEP9func_decl.exit, label %.lr.ph38.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.backedge:                        ; preds = %101, %98
-  %.137.i.i.i.i.be = phi ptr [ %.old.i.i.i.i, %101 ], [ %100, %98 ]
+  %.137.i.i.i.i.be = phi ptr [ %100, %98 ], [ %.old.i.i.i.i, %101 ]
   br label %.lr.ph38.i.i.i.i, !llvm.loop !62
 
 .loopexit.i:                                      ; preds = %82, %93
@@ -430,7 +430,7 @@ _ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_E
   br i1 %.not27.old.i.i66, label %.loopexit, label %.lr.ph38.i.i62.backedge
 
 .lr.ph38.i.i62.backedge:                          ; preds = %145, %142
-  %.137.i.i63.be = phi ptr [ %.old.i.i65, %145 ], [ %144, %142 ]
+  %.137.i.i63.be = phi ptr [ %144, %142 ], [ %.old.i.i65, %145 ]
   br label %.lr.ph38.i.i62, !llvm.loop !51
 
 .loopexit:                                        ; preds = %131, %145, %142, %.preheader.i.i60

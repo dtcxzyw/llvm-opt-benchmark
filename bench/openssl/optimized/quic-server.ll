@@ -266,9 +266,9 @@ define dso_local noundef i32 @FuzzerTestOneInput(ptr noundef %0, i64 noundef %1)
   br label %.thread
 
 102:                                              ; preds = %72, %69, %65, %64
-  %.5 = phi i32 [ %.4, %64 ], [ %68, %65 ], [ %spec.select138, %69 ], [ %spec.select140, %72 ]
-  %.2111 = phi i32 [ %.1110, %64 ], [ %.1110, %65 ], [ %spec.select139, %69 ], [ %.1110, %72 ]
-  %.198 = phi i32 [ %.097, %64 ], [ %68, %65 ], [ %70, %69 ], [ %73, %72 ]
+  %.5 = phi i32 [ %.4, %64 ], [ %spec.select140, %72 ], [ %spec.select138, %69 ], [ %68, %65 ]
+  %.2111 = phi i32 [ %.1110, %64 ], [ %.1110, %72 ], [ %spec.select139, %69 ], [ %.1110, %65 ]
+  %.198 = phi i32 [ %.097, %64 ], [ %73, %72 ], [ %70, %69 ], [ %68, %65 ]
   %103 = icmp slt i32 %.198, 1
   br i1 %103, label %104, label %.thread
 

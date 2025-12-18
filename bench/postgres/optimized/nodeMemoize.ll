@@ -1499,7 +1499,7 @@ prepare_probe_slot.exit:                          ; preds = %._crit_edge.i, %slo
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %29, %41, %35
-  %.1 = phi i1 [ false, %35 ], [ true, %41 ], [ true, %29 ], [ true, %.critedge.sink.split ]
+  %.1 = phi i1 [ false, %35 ], [ true, %29 ], [ true, %41 ], [ true, %.critedge.sink.split ]
   ret i1 %.1
 }
 
@@ -2004,7 +2004,7 @@ define internal fastcc i32 @MemoizeHash_hash(ptr readonly captures(none) %.40.va
   br i1 %exitcond.not, label %.loopexit, label %47, !llvm.loop !15
 
 .loopexit:                                        ; preds = %63, %38, %39, %.preheader
-  %.2 = phi i32 [ 0, %.preheader ], [ 0, %39 ], [ %.1, %38 ], [ %.4, %63 ]
+  %.2 = phi i32 [ %.1, %38 ], [ 0, %.preheader ], [ 0, %39 ], [ %.4, %63 ]
   store ptr %9, ptr @CurrentMemoryContext, align 8
   %64 = lshr i32 %.2, 16
   %65 = xor i32 %64, %.2

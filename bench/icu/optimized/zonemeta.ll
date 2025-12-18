@@ -1605,7 +1605,7 @@ _ZN6icu_7712LocalPointerINS_7UVectorEE29adoptInsteadAndCheckErrorCodeEPS1_R10UEr
   br i1 %111, label %_ZN6icu_7712LocalPointerINS_23OlsonToMetaMappingEntryEED2Ev.exit.thread, label %.thread95
 
 .thread95:                                        ; preds = %_ZN6icu_7712LocalPointerINS_7UVectorEE29adoptInsteadAndCheckErrorCodeEPS1_R10UErrorCode.exit, %104, %.thread, %110
-  %.sroa.082.999 = phi ptr [ %.sroa.082.5.ph, %110 ], [ null, %.thread ], [ null, %104 ], [ null, %_ZN6icu_7712LocalPointerINS_7UVectorEE29adoptInsteadAndCheckErrorCodeEPS1_R10UErrorCode.exit ]
+  %.sroa.082.999 = phi ptr [ %.sroa.082.5.ph, %110 ], [ null, %104 ], [ null, %.thread ], [ null, %_ZN6icu_7712LocalPointerINS_7UVectorEE29adoptInsteadAndCheckErrorCodeEPS1_R10UErrorCode.exit ]
   call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %86) #13
   br label %_ZN6icu_7712LocalPointerINS_23OlsonToMetaMappingEntryEED2Ev.exit.thread
 
@@ -1797,10 +1797,10 @@ define internal fastcc noundef double @_ZN6icu_77L9parseDateEPKDsR10UErrorCode(p
   br i1 %42, label %.critedge5, label %.lr.ph142, !llvm.loop !62
 
 .critedge5:                                       ; preds = %.critedge3, %.critedge.preheader.thread214, %8, %.critedge3.thread, %.critedge3.preheader.thread196
-  %.098.lcssa191 = phi i32 [ %32, %.critedge3.preheader.thread196 ], [ %21, %.critedge3.thread ], [ -1, %8 ], [ -1, %.critedge.preheader.thread214 ], [ %21, %.critedge3 ]
-  %.0100.lcssa183190 = phi i32 [ %19, %.critedge3.preheader.thread196 ], [ %19, %.critedge3.thread ], [ 0, %8 ], [ %.0100132, %.critedge.preheader.thread214 ], [ %19, %.critedge3 ]
-  %.promoted144 = phi i32 [ 3, %.critedge3.preheader.thread196 ], [ 3, %.critedge3.thread ], [ %.promoted, %8 ], [ 3, %.critedge.preheader.thread214 ], [ %.promoted, %.critedge3 ]
-  %.096.lcssa = phi i32 [ 0, %.critedge3.preheader.thread196 ], [ %.096140, %.critedge3.thread ], [ 0, %8 ], [ 0, %.critedge.preheader.thread214 ], [ %41, %.critedge3 ]
+  %.098.lcssa191 = phi i32 [ %32, %.critedge3.preheader.thread196 ], [ -1, %.critedge.preheader.thread214 ], [ %21, %.critedge3.thread ], [ -1, %8 ], [ %21, %.critedge3 ]
+  %.0100.lcssa183190 = phi i32 [ %19, %.critedge3.preheader.thread196 ], [ %.0100132, %.critedge.preheader.thread214 ], [ %19, %.critedge3.thread ], [ 0, %8 ], [ %19, %.critedge3 ]
+  %.promoted144 = phi i32 [ 3, %.critedge3.preheader.thread196 ], [ 3, %.critedge.preheader.thread214 ], [ 3, %.critedge3.thread ], [ %.promoted, %8 ], [ %.promoted, %.critedge3 ]
+  %.096.lcssa = phi i32 [ 0, %.critedge3.preheader.thread196 ], [ 0, %.critedge.preheader.thread214 ], [ %.096140, %.critedge3.thread ], [ 0, %8 ], [ %41, %.critedge3 ]
   %43 = icmp eq i32 %6, 16
   br i1 %43, label %.preheader, label %.critedge9
 

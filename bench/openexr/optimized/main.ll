@@ -2301,7 +2301,7 @@ _ZNSolsEPFRSoS_E.exit:                            ; preds = %128
           to label %132 unwind label %133
 
 .thread:                                          ; preds = %110, %31, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit48, %_ZNSolsEPFRSoS_E.exit, %_Z12usageMessageRSoPKcb.exit
-  %.027 = phi i32 [ -1, %_Z12usageMessageRSoPKcb.exit ], [ 1, %_ZNSolsEPFRSoS_E.exit ], [ 0, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit48 ], [ 0, %31 ], [ 0, %110 ]
+  %.027 = phi i32 [ -1, %_Z12usageMessageRSoPKcb.exit ], [ 1, %_ZNSolsEPFRSoS_E.exit ], [ 0, %31 ], [ 0, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit48 ], [ 0, %110 ]
   ret i32 %.027
 
 132:                                              ; preds = %130, %111

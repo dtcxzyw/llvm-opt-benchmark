@@ -496,7 +496,7 @@ define dso_local i32 @pg_inet_net_pton(i32 noundef %0, ptr noundef readonly capt
   br i1 %224, label %.lr.ph203.i, label %inet_net_pton_ipv4.exit, !llvm.loop !10
 
 .loopexit.sink.split.i:                           ; preds = %118, %164, %161, %.critedge2.i, %143, %188, %.lr.ph203.i, %.thread143.i, %.critedge136.i, %173, %135, %130, %.preheader158.i, %91
-  %.sink.i = phi i32 [ 2, %135 ], [ 2, %161 ], [ 2, %.preheader158.i ], [ 2, %173 ], [ 2, %.thread143.i ], [ 90, %.critedge136.i ], [ 90, %130 ], [ 90, %91 ], [ 90, %.lr.ph203.i ], [ 2, %188 ], [ 2, %143 ], [ 90, %.critedge2.i ], [ 2, %164 ], [ 90, %118 ]
+  %.sink.i = phi i32 [ 2, %135 ], [ 90, %.critedge136.i ], [ 90, %130 ], [ 90, %.lr.ph203.i ], [ 2, %161 ], [ 2, %.preheader158.i ], [ 2, %173 ], [ 2, %.thread143.i ], [ 2, %143 ], [ 2, %188 ], [ 90, %91 ], [ 90, %.critedge2.i ], [ 2, %164 ], [ 90, %118 ]
   %225 = tail call ptr @__errno_location() #7
   store i32 %.sink.i, ptr %225, align 4
   br label %inet_net_pton_ipv4.exit
@@ -519,7 +519,7 @@ define dso_local i32 @pg_inet_net_pton(i32 noundef %0, ptr noundef readonly capt
   br label %inet_net_pton_ipv4.exit
 
 inet_net_pton_ipv4.exit:                          ; preds = %218, %.loopexit.sink.split.i, %214, %.loopexit89.i, %.critedge3.i, %.lr.ph.preheader.i, %.preheader.i, %228, %230, %232
-  %.0 = phi i32 [ -1, %232 ], [ %.246.i, %.lr.ph.preheader.i ], [ %231, %230 ], [ %229, %228 ], [ -1, %.critedge3.i ], [ -1, %.loopexit89.i ], [ %.246.i, %.preheader.i ], [ %.290.i, %214 ], [ -1, %.loopexit.sink.split.i ], [ %.290.i, %218 ]
+  %.0 = phi i32 [ -1, %232 ], [ %.246.i, %.lr.ph.preheader.i ], [ %231, %230 ], [ %229, %228 ], [ -1, %.critedge3.i ], [ -1, %.loopexit89.i ], [ %.246.i, %.preheader.i ], [ -1, %.loopexit.sink.split.i ], [ %.290.i, %214 ], [ %.290.i, %218 ]
   ret i32 %.0
 }
 

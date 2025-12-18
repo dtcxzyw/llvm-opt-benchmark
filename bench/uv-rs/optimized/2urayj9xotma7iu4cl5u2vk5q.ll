@@ -12737,7 +12737,7 @@ define hidden void @_ZN15uv_distribution8metadata8lowering11path_source17h78e82b
   %72 = invoke noundef align 8 dereferenceable(88) ptr @"_ZN80_$LT$uv_pep508..verbatim_url..VerbatimUrl$u20$as$u20$core..ops..deref..Deref$GT$5deref17h1bf9bd74247a5004E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %54)
           to label %75 unwind label %73
 
-.thread288.thread326:                             ; preds = %.critedge, %183, %200, %330, %324
+.thread288.thread326:                             ; preds = %183, %.critedge, %200, %330, %324
   %lpad.thr_comm324 = landingpad { ptr, i32 }
           cleanup
   br label %.thread259

@@ -305,7 +305,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h20
   ret void
 
 57:                                               ; preds = %45, %41
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.19.i.i, %41 ], [ %51, %45 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %51, %45 ], [ %.sroa.6.19.i.i, %41 ]
   %58 = load i64, ptr %5, align 8, !noundef !3
   call void @llvm.experimental.noalias.scope.decl(metadata !43)
   %59 = load ptr, ptr %1, align 8, !alias.scope !43, !noalias !46, !nonnull !3, !noundef !3
@@ -476,7 +476,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h3b
   ret void
 
 57:                                               ; preds = %45, %41
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.19.i.i, %41 ], [ %51, %45 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %51, %45 ], [ %.sroa.6.19.i.i, %41 ]
   %58 = load i64, ptr %5, align 8, !noundef !3
   call void @llvm.experimental.noalias.scope.decl(metadata !58)
   %59 = load ptr, ptr %1, align 8, !alias.scope !58, !noalias !61, !nonnull !3, !noundef !3
@@ -627,7 +627,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h58
   br label %52
 
 52:                                               ; preds = %41, %45
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.19.i.i, %41 ], [ %51, %45 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %51, %45 ], [ %.sroa.6.19.i.i, %41 ]
   %53 = load i64, ptr %6, align 8, !noundef !3
   call void @llvm.experimental.noalias.scope.decl(metadata !75)
   %54 = load ptr, ptr %1, align 8, !alias.scope !75, !noalias !78, !nonnull !3, !noundef !3
@@ -775,7 +775,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   br label %50
 
 50:                                               ; preds = %39, %43
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.19.i.i, %39 ], [ %49, %43 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %49, %43 ], [ %.sroa.6.19.i.i, %39 ]
   %51 = load i64, ptr %4, align 8, !noundef !3
   call void @llvm.experimental.noalias.scope.decl(metadata !92)
   %52 = load ptr, ptr %0, align 8, !alias.scope !92, !nonnull !3, !noundef !3
@@ -916,7 +916,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
   br label %49
 
 49:                                               ; preds = %38, %42
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.19.i.i, %38 ], [ %48, %42 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %48, %42 ], [ %.sroa.6.19.i.i, %38 ]
   %50 = load i64, ptr %3, align 8, !noundef !3
   call void @llvm.experimental.noalias.scope.decl(metadata !106)
   %51 = load ptr, ptr %0, align 8, !alias.scope !106, !nonnull !3, !noundef !3
@@ -1044,7 +1044,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   br label %50
 
 50:                                               ; preds = %39, %43
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.19.i.i, %39 ], [ %49, %43 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %49, %43 ], [ %.sroa.6.19.i.i, %39 ]
   %51 = load i64, ptr %4, align 8, !noundef !3
   call void @llvm.experimental.noalias.scope.decl(metadata !120)
   %52 = load ptr, ptr %0, align 8, !alias.scope !120, !nonnull !3, !noundef !3
@@ -1205,7 +1205,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17heb
   ret void
 
 57:                                               ; preds = %45, %41
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.19.i.i, %41 ], [ %51, %45 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %51, %45 ], [ %.sroa.6.19.i.i, %41 ]
   %58 = load i64, ptr %5, align 8, !noundef !3
   call void @llvm.experimental.noalias.scope.decl(metadata !132)
   %59 = load ptr, ptr %1, align 8, !alias.scope !132, !noalias !135, !nonnull !3, !noundef !3

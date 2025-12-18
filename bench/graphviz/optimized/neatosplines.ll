@@ -880,7 +880,7 @@ gv_calloc.exit308:                                ; preds = %gv_alloc.exit307
   br label %.loopexit
 
 .loopexit:                                        ; preds = %166, %136, %113, %92, %.loopexit.sink.split, %3
-  %.0 = phi ptr [ null, %3 ], [ %.0.ph, %.loopexit.sink.split ], [ %8, %136 ], [ %8, %92 ], [ %8, %113 ], [ %8, %166 ]
+  %.0 = phi ptr [ null, %3 ], [ %8, %113 ], [ %.0.ph, %.loopexit.sink.split ], [ %8, %92 ], [ %8, %136 ], [ %8, %166 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
@@ -1693,7 +1693,7 @@ gv_calloc.exit:                                   ; preds = %.thread.i, %17
   br label %.loopexit175
 
 .loopexit175:                                     ; preds = %._crit_edge183, %62, %109, %111
-  %.0136.shrunk = phi i1 [ true, %111 ], [ %7, %109 ], [ %7, %62 ], [ %7, %._crit_edge183 ]
+  %.0136.shrunk = phi i1 [ %7, %109 ], [ true, %111 ], [ %7, %62 ], [ %7, %._crit_edge183 ]
   %.0136.shrunk.fr = freeze i1 %.0136.shrunk
   %112 = call ptr @agfstnode(ptr noundef %0) #20
   %.not149201 = icmp eq ptr %112, null

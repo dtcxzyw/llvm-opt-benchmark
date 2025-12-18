@@ -2836,7 +2836,7 @@ define internal fastcc zeroext i1 @flush_workqueue_prep_pwqs(ptr noundef %0, i32
   br i1 %77, label %.split6.us, label %.split.split, !llvm.loop !100
 
 .split6.us:                                       ; preds = %.split.split, %69, %52, %40
-  %.us-phi = phi i8 [ %70, %69 ], [ %33, %40 ], [ 0, %52 ], [ 0, %.split.split ]
+  %.us-phi = phi i8 [ %70, %69 ], [ 0, %52 ], [ %33, %40 ], [ 0, %.split.split ]
   %78 = icmp ne i8 %.us-phi, 0
   br label %79
 

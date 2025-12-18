@@ -3419,9 +3419,9 @@ define dso_local void @reuse_partial_packfile_from_bitmap(ptr noundef readonly c
   br label %load_reverse_index.exit
 
 load_reverse_index.exit:                          ; preds = %.lr.ph.i, %.preheader.i, %33
-  %.ph = phi ptr [ %37, %33 ], [ %18, %.preheader.i ], [ %18, %.lr.ph.i ]
-  %.ph208 = phi ptr [ %36, %33 ], [ %17, %.preheader.i ], [ %17, %.lr.ph.i ]
-  %.0.i135.ph = phi ptr [ %.0.i134, %33 ], [ %.0.i, %.preheader.i ], [ %.0.i, %.lr.ph.i ]
+  %.ph = phi ptr [ %18, %.preheader.i ], [ %37, %33 ], [ %18, %.lr.ph.i ]
+  %.ph208 = phi ptr [ %17, %.preheader.i ], [ %36, %33 ], [ %17, %.lr.ph.i ]
+  %.0.i135.ph = phi ptr [ %.0.i, %.preheader.i ], [ %.0.i134, %33 ], [ %.0.i, %.lr.ph.i ]
   %.pr = load ptr, ptr %14, align 8, !tbaa !49
   %.not161 = icmp eq ptr %.pr, null
   br i1 %.not161, label %106, label %load_reverse_index.exit.thread
@@ -5060,7 +5060,7 @@ nth_bitmap_object_oid.exit:                       ; preds = %24, %26
   br label %11, !llvm.loop !259
 
 .loopexit:                                        ; preds = %bitmap_num_objects.exit, %bitmap_num_objects.exit.thread, %prepare_bitmap_git.exit.thread, %prepare_bitmap_git.exit, %7
-  %.0.i25 = phi ptr [ null, %prepare_bitmap_git.exit.thread ], [ null, %prepare_bitmap_git.exit ], [ %3, %7 ], [ %3, %bitmap_num_objects.exit.thread ], [ %3, %bitmap_num_objects.exit ]
+  %.0.i25 = phi ptr [ null, %prepare_bitmap_git.exit.thread ], [ %3, %7 ], [ null, %prepare_bitmap_git.exit ], [ %3, %bitmap_num_objects.exit.thread ], [ %3, %bitmap_num_objects.exit ]
   call void @free_bitmap_index(ptr noundef %.0.i25)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 0
@@ -5137,7 +5137,7 @@ prepare_bitmap_git.exit:                          ; preds = %4
   br i1 %24, label %.lr.ph, label %.loopexit, !llvm.loop !263
 
 .loopexit:                                        ; preds = %.lr.ph, %prepare_bitmap_git.exit.thread, %prepare_bitmap_git.exit, %6
-  %.0.i20 = phi ptr [ null, %prepare_bitmap_git.exit.thread ], [ null, %prepare_bitmap_git.exit ], [ %2, %6 ], [ %2, %.lr.ph ]
+  %.0.i20 = phi ptr [ null, %prepare_bitmap_git.exit.thread ], [ %2, %6 ], [ null, %prepare_bitmap_git.exit ], [ %2, %.lr.ph ]
   tail call void @free_bitmap_index(ptr noundef %.0.i20)
   ret i32 0
 }

@@ -531,7 +531,7 @@ cdce.end:                                         ; preds = %106, %cdce.call
   br i1 %.not1620.not, label %.lr.ph1770, label %.loopexit1730, !llvm.loop !16
 
 .loopexit1730:                                    ; preds = %.loopexit1733, %.loopexit1731, %.loopexit1729
-  %.2 = phi i32 [ %.4, %.loopexit1731 ], [ %.1, %.loopexit1729 ], [ %.6, %.loopexit1733 ]
+  %.2 = phi i32 [ %.1, %.loopexit1729 ], [ %.4, %.loopexit1731 ], [ %.6, %.loopexit1733 ]
   %.not1629 = icmp eq i32 %.2, 0
   br i1 %.not1629, label %251, label %.loopexit1730.thread
 
@@ -1897,11 +1897,11 @@ cdce.end:                                         ; preds = %106, %cdce.call
   br label %.loopexit1726
 
 .loopexit1726:                                    ; preds = %.loopexit1726.loopexit, %1119, %1120
-  %1122 = phi double [ %1121, %1120 ], [ %.pre1985, %1119 ], [ %.pre1984, %.loopexit1726.loopexit ]
-  %.61522 = phi double [ %.51521, %1120 ], [ %.51521, %1119 ], [ %.41520, %.loopexit1726.loopexit ]
-  %.71504 = phi double [ %.61503, %1120 ], [ %.61503, %1119 ], [ %.41501, %.loopexit1726.loopexit ]
-  %.81484 = phi i32 [ 0, %1120 ], [ 0, %1119 ], [ %.31479, %.loopexit1726.loopexit ]
-  %.61475 = phi i32 [ %.51474, %1120 ], [ %.51474, %1119 ], [ %.31472, %.loopexit1726.loopexit ]
+  %1122 = phi double [ %.pre1985, %1119 ], [ %1121, %1120 ], [ %.pre1984, %.loopexit1726.loopexit ]
+  %.61522 = phi double [ %.51521, %1119 ], [ %.51521, %1120 ], [ %.41520, %.loopexit1726.loopexit ]
+  %.71504 = phi double [ %.61503, %1119 ], [ %.61503, %1120 ], [ %.41501, %.loopexit1726.loopexit ]
+  %.81484 = phi i32 [ 0, %1119 ], [ 0, %1120 ], [ %.31479, %.loopexit1726.loopexit ]
+  %.61475 = phi i32 [ %.51474, %1119 ], [ %.51474, %1120 ], [ %.31472, %.loopexit1726.loopexit ]
   %1123 = load i32, ptr %24, align 4, !tbaa !3
   %1124 = sext i32 %1123 to i64
   %1125 = getelementptr inbounds double, ptr %34, i64 %1124

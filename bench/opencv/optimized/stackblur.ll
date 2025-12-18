@@ -1407,8 +1407,8 @@ _ZNSt6vectorItSaItEE9push_backEOt.exit:           ; preds = %56, %_ZNSt6vectorIt
   br label %138
 
 ._crit_edge466:                                   ; preds = %._crit_edge463, %.preheader367.us, %.preheader369
-  %.pre571579 = phi i32 [ %.pre571580, %.preheader369 ], [ %112, %.preheader367.us ], [ %136, %._crit_edge463 ]
-  %123 = phi i32 [ %101, %.preheader369 ], [ %112, %.preheader367.us ], [ %136, %._crit_edge463 ]
+  %.pre571579 = phi i32 [ %112, %.preheader367.us ], [ %.pre571580, %.preheader369 ], [ %136, %._crit_edge463 ]
+  %123 = phi i32 [ %112, %.preheader367.us ], [ %101, %.preheader369 ], [ %136, %._crit_edge463 ]
   %124 = add nuw nsw i32 %.0296467, 1
   %125 = load i32, ptr %4, align 8, !tbaa !40
   %126 = icmp slt i32 %124, %125
@@ -1562,8 +1562,8 @@ _ZNSt6vectorItSaItEE9push_backEOt.exit:           ; preds = %56, %_ZNSt6vectorIt
   br label %219
 
 ._crit_edge492:                                   ; preds = %._crit_edge487, %.preheader.us, %.preheader368
-  %.pre571575 = phi i32 [ %.pre571576, %.preheader368 ], [ %196, %.preheader.us ], [ %217, %._crit_edge487 ]
-  %204 = phi i32 [ %185, %.preheader368 ], [ %196, %.preheader.us ], [ %217, %._crit_edge487 ]
+  %.pre571575 = phi i32 [ %196, %.preheader.us ], [ %.pre571576, %.preheader368 ], [ %217, %._crit_edge487 ]
+  %204 = phi i32 [ %196, %.preheader.us ], [ %185, %.preheader368 ], [ %217, %._crit_edge487 ]
   %205 = add nsw i32 %.0302493, 1
   %206 = load i32, ptr %9, align 4, !tbaa !44
   %207 = icmp slt i32 %205, %206

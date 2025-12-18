@@ -1611,7 +1611,7 @@ get_rate.exit:                                    ; preds = %214, %221, %223, %2
   br label %.loopexit
 
 .loopexit:                                        ; preds = %300, %257, %289, %358, %195, %186, %182, %176, %169, %166, %135, %121, %105, %103, %12
-  %.0 = phi i32 [ -1163346256, %121 ], [ -1163346256, %135 ], [ -1094995529, %166 ], [ -1094995529, %169 ], [ -1094995529, %176 ], [ -1094995529, %182 ], [ -1094995529, %186 ], [ -1163346256, %195 ], [ -1094995529, %257 ], [ 0, %358 ], [ -22, %12 ], [ -1163346256, %103 ], [ -1163346256, %105 ], [ -12, %289 ], [ %316, %300 ]
+  %.0 = phi i32 [ -1163346256, %121 ], [ -1163346256, %135 ], [ -1094995529, %166 ], [ -1094995529, %169 ], [ -1094995529, %176 ], [ -1094995529, %182 ], [ -1094995529, %186 ], [ -1163346256, %195 ], [ -1094995529, %257 ], [ -12, %289 ], [ 0, %358 ], [ -22, %12 ], [ -1163346256, %103 ], [ -1163346256, %105 ], [ %316, %300 ]
   ret i32 %.0
 }
 
@@ -2728,7 +2728,7 @@ define internal fastcc range(i32 0, 2) i32 @decode_frame(ptr noundef %0, ptr nou
   br label %.loopexit146
 
 decode_subframe_length.exit.i:                    ; preds = %153, %._crit_edge111.i
-  %.0.i.i = phi i32 [ %66, %._crit_edge111.i ], [ %154, %153 ]
+  %.0.i.i = phi i32 [ %154, %153 ], [ %66, %._crit_edge111.i ]
   %158 = icmp eq i32 %.0.i.i, 0
   br i1 %158, label %.loopexit146, label %159
 
@@ -2794,8 +2794,8 @@ decode_subframe_length.exit.i:                    ; preds = %153, %._crit_edge11
   br label %191
 
 191:                                              ; preds = %187, %183, %172
-  %.386.i = phi i32 [ %.285112.i, %172 ], [ %186, %187 ], [ %.285112.i, %183 ]
-  %.377.i = phi i32 [ %.276114.i, %172 ], [ %190, %187 ], [ %.276114.i, %183 ]
+  %.386.i = phi i32 [ %.285112.i, %183 ], [ %186, %187 ], [ %.285112.i, %172 ]
+  %.377.i = phi i32 [ %.276114.i, %183 ], [ %190, %187 ], [ %.276114.i, %172 ]
   %indvars.iv.next146.i = add nuw nsw i64 %indvars.iv145.i, 1
   %exitcond149.not.i = icmp eq i64 %indvars.iv.next146.i, %wide.trip.count138.i
   br i1 %exitcond149.not.i, label %._crit_edge117.i, label %162, !llvm.loop !151
@@ -2852,7 +2852,7 @@ decode_subframe_length.exit.i:                    ; preds = %153, %._crit_edge11
   %exitcond158.not.i = icmp eq i64 %indvars.iv.next155.i, %wide.trip.count138.i
   br i1 %exitcond158.not.i, label %.loopexit144, label %.preheader.i, !llvm.loop !154
 
-.loopexit146:                                     ; preds = %106, %decode_subframe_length.exit.i, %181, %170, %156
+.loopexit146:                                     ; preds = %106, %decode_subframe_length.exit.i, %156, %181, %170
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %204 = getelementptr inbounds nuw i8, ptr %0, i64 68260
@@ -4109,7 +4109,7 @@ decode_channel_transform.exit.i:                  ; preds = %.lr.ph133.i.i, %.lo
   br i1 %exitcond512.not.i, label %.critedge314.i, label %883, !llvm.loop !192
 
 .critedge314.i:                                   ; preds = %876, %883, %844, %.preheader.i116
-  %889 = phi i32 [ %spec.select.i344.i, %.preheader.i116 ], [ %spec.select.i344.i, %844 ], [ %spec.select.i344.i, %883 ], [ %870, %876 ]
+  %889 = phi i32 [ %spec.select.i344.i, %883 ], [ %spec.select.i344.i, %.preheader.i116 ], [ %spec.select.i344.i, %844 ], [ %870, %876 ]
   %890 = lshr i32 %889, 3
   %891 = zext nneg i32 %890 to i64
   %892 = getelementptr inbounds nuw i8, ptr %830, i64 %891
@@ -5532,7 +5532,7 @@ decode_subframe.exit:                             ; preds = %1783, %inverse_chan
   %.not92 = icmp eq i8 %1785, 0
   br i1 %.not92, label %367, label %.preheader135, !llvm.loop !225
 
-1786:                                             ; preds = %534, %.critedge312.i, %1781, %1231, %decode_channel_transform.exit.thread.i, %881
+1786:                                             ; preds = %534, %.critedge312.i, %1781, %881, %1231, %decode_channel_transform.exit.thread.i
   %1787 = getelementptr inbounds nuw i8, ptr %0, i64 68260
   store i8 1, ptr %1787, align 4, !tbaa !39
   br label %1868

@@ -3322,8 +3322,8 @@ _ZN6quiche2h310Connection18send_grease_frames17h313475fc69334655E.exit.thread.i:
   br label %391
 
 _ZN6quiche2h310Connection18send_grease_frames17h313475fc69334655E.exit.i: ; preds = %389, %382
-  %.pn171.i = phi { i64, i64 } [ %390, %389 ], [ %.pn126.pn.i.i, %382 ]
-  %.sroa.0.6.i.i = extractvalue { i64, i64 } %.pn171.i, 0
+  %.pn126.pn.i.pn.i = phi { i64, i64 } [ %.pn126.pn.i.i, %382 ], [ %390, %389 ]
+  %.sroa.0.6.i.i = extractvalue { i64, i64 } %.pn126.pn.i.pn.i, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %45), !noalias !248
   call void @llvm.lifetime.end.p0(ptr nonnull %46), !noalias !225
   %.not88.i = icmp eq i64 %.sroa.0.6.i.i, 40
@@ -3903,8 +3903,8 @@ select.unfold.i129.i:                             ; preds = %._crit_edge.i.i.i12
   call void @llvm.lifetime.end.p0(ptr nonnull %60), !noalias !225
   %652 = load i64, ptr %648, align 16, !range !212, !alias.scope !223, !noalias !228
   %.not95.i = icmp ne i64 %652, 3
-  %or.cond232.not.i = select i1 %650, i1 %.not95.i, i1 false
-  br i1 %or.cond232.not.i, label %655, label %653
+  %or.cond231.not.i = select i1 %650, i1 %.not95.i, i1 false
+  br i1 %or.cond231.not.i, label %655, label %653
 
 653:                                              ; preds = %"_ZN4core3ptr71drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$qlog..Error$GT$$GT$17h9baaa62f56c37685E.exit.i", %651
   %654 = invoke fastcc noundef align 8 dereferenceable_or_null(120) ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$13get_inner_mut17h56c9f833899d3790E"(ptr noalias noundef align 8 dereferenceable(32) %85, ptr noalias noundef readonly align 8 dereferenceable(8) %73)
@@ -4139,7 +4139,7 @@ select.unfold.i:                                  ; preds = %._crit_edge.i.i.i, 
   br label %703
 
 _ZN6quiche2h310Connection12send_headers17h5da14305d7e76aaeE.exit: ; preds = %_ZN6quiche2h310Connection18send_grease_frames17h313475fc69334655E.exit.i, %.sink.split.i
-  %.merged.i = phi { i64, i64 } [ %.pn171.i, %_ZN6quiche2h310Connection18send_grease_frames17h313475fc69334655E.exit.i ], [ %699, %.sink.split.i ]
+  %.merged.i = phi { i64, i64 } [ %.pn126.pn.i.pn.i, %_ZN6quiche2h310Connection18send_grease_frames17h313475fc69334655E.exit.i ], [ %699, %.sink.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %70), !noalias !225
   call void @llvm.lifetime.end.p0(ptr nonnull %71), !noalias !225
   call void @llvm.lifetime.end.p0(ptr nonnull %59)

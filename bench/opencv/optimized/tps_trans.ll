@@ -399,9 +399,9 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %31, %34
   br label %_ZN2cvL20_applyTransformationERKNS_3MatENS_6Point_IfEES2_.exit.us
 
 _ZN2cvL20_applyTransformationERKNS_3MatENS_6Point_IfEES2_.exit.us: ; preds = %.split.us.i.us53, %.thread60.i.us
-  %158 = phi i32 [ %74, %.split.us.i.us53 ], [ %153, %.thread60.i.us ]
-  %159 = phi i32 [ %74, %.split.us.i.us53 ], [ %154, %.thread60.i.us ]
-  %.us-phi.i.us = phi <2 x float> [ %.sroa.035.4.vec.insert.us.i.us, %.split.us.i.us53 ], [ %.sroa.035.4.vec.insert.i.us, %.thread60.i.us ]
+  %158 = phi i32 [ %153, %.thread60.i.us ], [ %74, %.split.us.i.us53 ]
+  %159 = phi i32 [ %154, %.thread60.i.us ], [ %74, %.split.us.i.us53 ]
+  %.us-phi.i.us = phi <2 x float> [ %.sroa.035.4.vec.insert.i.us, %.thread60.i.us ], [ %.sroa.035.4.vec.insert.us.i.us, %.split.us.i.us53 ]
   %.sroa.0.0.vec.extract.us = extractelement <2 x float> %.us-phi.i.us, i64 0
   %160 = getelementptr inbounds nuw float, ptr %70, i64 %indvars.iv63
   store float %.sroa.0.0.vec.extract.us, ptr %160, align 4, !tbaa !38
@@ -905,7 +905,7 @@ _ZNK2cv11_InputArray6getMatEi.exit37:             ; preds = %62, %59
   br label %.split.i, !llvm.loop !42
 
 _ZN2cvL20_applyTransformationERKNS_3MatENS_6Point_IfEES2_.exit: ; preds = %.thread60.i, %.split.us.i
-  %.us-phi.i = phi <2 x float> [ %.sroa.035.4.vec.insert.us.i, %.split.us.i ], [ %.sroa.035.4.vec.insert.i, %.thread60.i ]
+  %.us-phi.i = phi <2 x float> [ %.sroa.035.4.vec.insert.i, %.thread60.i ], [ %.sroa.035.4.vec.insert.us.i, %.split.us.i ]
   %159 = load ptr, ptr %72, align 8, !tbaa !60
   %160 = getelementptr inbounds nuw %"class.cv::Point_", ptr %159, i64 %indvars.iv
   store <2 x float> %.us-phi.i, ptr %160, align 4

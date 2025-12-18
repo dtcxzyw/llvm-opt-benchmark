@@ -2275,7 +2275,7 @@ tcp_checksum_complete.exit.thread:                ; preds = %256, %251, %262, %t
   %427 = load i8, ptr %132, align 1
   %428 = and i8 %427, 1
   %.not58 = icmp eq i8 %428, 0
-  br i1 %.not58, label %468, label %429
+  br i1 %.not58, label %463, label %429
 
 429:                                              ; preds = %.lr.ph
   %430 = load ptr, ptr %133, align 8
@@ -2321,52 +2321,52 @@ tcp_checksum_complete.exit.thread:                ; preds = %256, %251, %262, %t
   %460 = load i32, ptr %459, align 4
   %461 = and i32 %460, 2
   %462 = icmp eq i32 %461, 0
-  br i1 %462, label %.critedge27, label %463
+  br i1 %462, label %.critedge27, label %481
 
-463:                                              ; preds = %458
-  %464 = getelementptr inbounds nuw i8, ptr %448, i64 12
+463:                                              ; preds = %.lr.ph
+  %464 = getelementptr inbounds nuw i8, ptr %426, i64 2816
   %465 = load i32, ptr %464, align 4
-  %466 = and i32 %465, 1
-  %467 = icmp eq i32 %466, 0
-  br i1 %467, label %.critedge27, label %.critedge29
+  %.not59 = icmp eq i32 %465, 0
+  br i1 %.not59, label %466, label %.thread52
 
-468:                                              ; preds = %.lr.ph
-  %469 = getelementptr inbounds nuw i8, ptr %426, i64 2816
-  %470 = load i32, ptr %469, align 4
-  %.not59 = icmp eq i32 %470, 0
-  br i1 %.not59, label %471, label %.thread52
+466:                                              ; preds = %463
+  %467 = getelementptr inbounds nuw i8, ptr %426, i64 2968
+  %468 = load i8, ptr %467, align 1
+  %469 = icmp eq i8 %468, 2
+  br i1 %469, label %.critedge29, label %.thread52
 
-471:                                              ; preds = %468
-  %472 = getelementptr inbounds nuw i8, ptr %426, i64 2968
-  %473 = load i8, ptr %472, align 1
-  %474 = icmp eq i8 %473, 2
-  br i1 %474, label %.critedge29, label %.thread52
+.thread52:                                        ; preds = %429, %437, %441, %444, %450, %466, %463
+  %470 = load i64, ptr %129, align 8
+  %471 = and i64 %470, -2
+  %472 = icmp eq i64 %471, 0
+  br i1 %472, label %479, label %473
 
-.thread52:                                        ; preds = %429, %437, %441, %444, %450, %471, %468
-  %475 = load i64, ptr %129, align 8
-  %476 = and i64 %475, -2
-  %477 = icmp eq i64 %476, 0
-  br i1 %477, label %484, label %478
+473:                                              ; preds = %.thread52
+  %474 = inttoptr i64 %471 to ptr
+  %475 = getelementptr inbounds nuw i8, ptr %474, i64 56
+  %476 = load i16, ptr %475, align 8
+  %477 = and i16 %476, 4
+  %478 = icmp eq i16 %477, 0
+  br i1 %478, label %479, label %.critedge29
 
-478:                                              ; preds = %.thread52
-  %479 = inttoptr i64 %476 to ptr
-  %480 = getelementptr inbounds nuw i8, ptr %479, i64 56
-  %481 = load i16, ptr %480, align 8
-  %482 = and i16 %481, 4
-  %483 = icmp eq i16 %482, 0
-  br i1 %483, label %484, label %.critedge29
-
-484:                                              ; preds = %.thread52, %478
-  %485 = call i32 @__xfrm_policy_check(ptr noundef null, i32 noundef 0, ptr noundef %0, i16 noundef zeroext 10) #15
-  %.not = icmp eq i32 %485, 0
+479:                                              ; preds = %473, %.thread52
+  %480 = call i32 @__xfrm_policy_check(ptr noundef null, i32 noundef 0, ptr noundef %0, i16 noundef zeroext 10) #15
+  %.not = icmp eq i32 %480, 0
   br i1 %.not, label %.critedge27, label %.critedge29
 
-.critedge27:                                      ; preds = %463, %458, %484
+481:                                              ; preds = %458
+  %482 = getelementptr inbounds nuw i8, ptr %448, i64 12
+  %483 = load i32, ptr %482, align 4
+  %484 = and i32 %483, 1
+  %485 = icmp eq i32 %484, 0
+  br i1 %485, label %.critedge27, label %.critedge29
+
+.critedge27:                                      ; preds = %479, %458, %481
   store i32 14, ptr %2, align 4
   call void @inet_twsk_put(ptr noundef nonnull %423) #15
   br label %.loopexit
 
-.critedge29:                                      ; preds = %463, %478, %471, %484
+.critedge29:                                      ; preds = %479, %473, %466, %481
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %134, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !42
   %486 = load i32, ptr %223, align 4

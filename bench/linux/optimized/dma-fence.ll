@@ -1445,8 +1445,8 @@ define dso_local i64 @dma_fence_default_wait(ptr noundef %0, i1 noundef zeroext 
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.us, %._crit_edge.loopexit, %.thread, %._crit_edge14
-  %.lcssa6 = phi i64 [ %6, %._crit_edge14 ], [ %.ph, %.thread ], [ %71, %._crit_edge.loopexit ], [ %43, %.lr.ph.split.us ]
-  %.lcssa = phi i64 [ %8, %._crit_edge14 ], [ %56, %.thread ], [ %56, %._crit_edge.loopexit ], [ %45, %.lr.ph.split.us ]
+  %.lcssa6 = phi i64 [ %6, %._crit_edge14 ], [ %71, %._crit_edge.loopexit ], [ %.ph, %.thread ], [ %43, %.lr.ph.split.us ]
+  %.lcssa = phi i64 [ %8, %._crit_edge14 ], [ %56, %._crit_edge.loopexit ], [ %56, %.thread ], [ %45, %.lr.ph.split.us ]
   %72 = load volatile ptr, ptr %4, align 8
   %73 = icmp eq ptr %72, %4
   br i1 %73, label %77, label %74

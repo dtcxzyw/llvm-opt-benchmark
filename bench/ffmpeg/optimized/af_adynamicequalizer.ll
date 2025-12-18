@@ -825,8 +825,8 @@ define internal noundef i32 @filter_channels_double(ptr noundef readonly capture
   br label %queue_sample_double.exit
 
 queue_sample_double.exit:                         ; preds = %.lr.ph118.i, %.lr.ph.i, %207, %215, %.preheader.i, %.critedge.i
-  %.2139.i = phi i32 [ %.0108.i, %.critedge.i ], [ %.180.i306, %.preheader.i ], [ %.180.i306, %207 ], [ %.180.i306, %215 ], [ %.180.i306, %.lr.ph.i ], [ %.0108.i, %.lr.ph118.i ]
-  %.180.i = phi i32 [ %spec.select98.i, %.critedge.i ], [ %.180.i306, %.preheader.i ], [ %.180.i306, %207 ], [ %.180.i306, %215 ], [ %.180.i306, %.lr.ph.i ], [ %.0108.i, %.lr.ph118.i ]
+  %.2139.i = phi i32 [ %.0108.i, %.critedge.i ], [ %.180.i306, %.lr.ph.i ], [ %.180.i306, %215 ], [ %.180.i306, %.preheader.i ], [ %.180.i306, %207 ], [ %.0108.i, %.lr.ph118.i ]
+  %.180.i = phi i32 [ %spec.select98.i, %.critedge.i ], [ %.180.i306, %.lr.ph.i ], [ %.180.i306, %215 ], [ %.180.i306, %.preheader.i ], [ %.180.i306, %207 ], [ %.0108.i, %.lr.ph118.i ]
   %239 = sext i32 %.180.i to i64
   %240 = getelementptr inbounds double, ptr %142, i64 %239
   store double %190, ptr %240, align 8, !tbaa !74
@@ -1759,8 +1759,8 @@ define internal noundef i32 @filter_channels_float(ptr noundef readonly captures
   br label %queue_sample_float.exit
 
 queue_sample_float.exit:                          ; preds = %.lr.ph118.i, %.lr.ph.i, %220, %228, %.preheader.i, %.critedge.i
-  %.2139.i = phi i32 [ %.0108.i, %.critedge.i ], [ %.180.i306, %.preheader.i ], [ %.180.i306, %220 ], [ %.180.i306, %228 ], [ %.180.i306, %.lr.ph.i ], [ %.0108.i, %.lr.ph118.i ]
-  %.180.i = phi i32 [ %spec.select98.i, %.critedge.i ], [ %.180.i306, %.preheader.i ], [ %.180.i306, %220 ], [ %.180.i306, %228 ], [ %.180.i306, %.lr.ph.i ], [ %.0108.i, %.lr.ph118.i ]
+  %.2139.i = phi i32 [ %.0108.i, %.critedge.i ], [ %.180.i306, %.lr.ph.i ], [ %.180.i306, %228 ], [ %.180.i306, %.preheader.i ], [ %.180.i306, %220 ], [ %.0108.i, %.lr.ph118.i ]
+  %.180.i = phi i32 [ %spec.select98.i, %.critedge.i ], [ %.180.i306, %.lr.ph.i ], [ %.180.i306, %228 ], [ %.180.i306, %.preheader.i ], [ %.180.i306, %220 ], [ %.0108.i, %.lr.ph118.i ]
   %252 = sext i32 %.180.i to i64
   %253 = getelementptr inbounds float, ptr %155, i64 %252
   store float %203, ptr %253, align 4, !tbaa !108

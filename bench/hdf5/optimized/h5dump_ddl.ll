@@ -3407,7 +3407,7 @@ define dso_local void @handle_datasets(i64 noundef %0, ptr noundef %1, ptr nound
   br i1 %exitcond.not, label %.loopexit174, label %.lr.ph, !llvm.loop !142
 
 .loopexit174:                                     ; preds = %.lr.ph, %48, %45, %.thread
-  %61 = phi ptr [ %.pre, %.thread ], [ %44, %45 ], [ %44, %48 ], [ %58, %.lr.ph ]
+  %61 = phi ptr [ %.pre, %.thread ], [ %44, %48 ], [ %44, %45 ], [ %58, %.lr.ph ]
   %62 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %63 = load ptr, ptr %62, align 8, !tbaa !138
   %.not147 = icmp eq ptr %63, null
@@ -3454,8 +3454,8 @@ define dso_local void @handle_datasets(i64 noundef %0, ptr noundef %1, ptr nound
   br label %.loopexit173
 
 .loopexit173:                                     ; preds = %.lr.ph177, %.loopexit173.sink.split, %.loopexit174.thread, %.loopexit174
-  %73 = phi ptr [ null, %.loopexit174.thread ], [ %61, %.loopexit174 ], [ %.ph, %.loopexit173.sink.split ], [ %61, %.lr.ph177 ]
-  %74 = phi ptr [ %66, %.loopexit174.thread ], [ %63, %.loopexit174 ], [ null, %.loopexit173.sink.split ], [ %69, %.lr.ph177 ]
+  %73 = phi ptr [ null, %.loopexit174.thread ], [ %.ph, %.loopexit173.sink.split ], [ %61, %.loopexit174 ], [ %61, %.lr.ph177 ]
+  %74 = phi ptr [ %66, %.loopexit174.thread ], [ null, %.loopexit173.sink.split ], [ %63, %.loopexit174 ], [ %69, %.lr.ph177 ]
   %75 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %76 = load ptr, ptr %75, align 8, !tbaa !139
   %.not150 = icmp eq ptr %76, null

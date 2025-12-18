@@ -479,7 +479,7 @@ Gia_ObjIsRo.exit.thread:                          ; preds = %19, %Gia_ObjIsRo.ex
   br i1 %.not33, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %Gia_ObjIsRo.exit.thread, %tailrecurse, %3, %Vec_IntPush.exit
-  %accumulator.tr.ph32 = phi i32 [ %accumulator.tr.ph37, %Vec_IntPush.exit ], [ 0, %3 ], [ %accumulator.tr.ph37, %tailrecurse ], [ %75, %Gia_ObjIsRo.exit.thread ]
+  %accumulator.tr.ph32 = phi i32 [ %accumulator.tr.ph37, %Vec_IntPush.exit ], [ %accumulator.tr.ph37, %tailrecurse ], [ 0, %3 ], [ %75, %Gia_ObjIsRo.exit.thread ]
   ret i32 %accumulator.tr.ph32
 }
 

@@ -8886,8 +8886,8 @@ define hidden void @"_ZN4moka12notification8notifier29NotificationTask$LT$K$C$V$
   br i1 %70, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he538ba0fa9586e63E.exit.thread", label %78
 
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he538ba0fa9586e63E.exit.thread": ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he538ba0fa9586e63E.exit", %"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hfb732e27a6d6ea71E.exit52", %79, %62, %100, %107
-  %.2133 = phi i16 [ %.2138, %100 ], [ %.2138, %107 ], [ %.0, %62 ], [ %.2138, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he538ba0fa9586e63E.exit" ], [ %81, %"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hfb732e27a6d6ea71E.exit52" ], [ %.2138, %79 ]
-  %.4 = phi i1 [ false, %100 ], [ false, %107 ], [ %.013, %62 ], [ %.013, %79 ], [ %.013, %"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hfb732e27a6d6ea71E.exit52" ], [ %.013, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he538ba0fa9586e63E.exit" ]
+  %.2133 = phi i16 [ %.2138, %107 ], [ %.2138, %100 ], [ %.0, %62 ], [ %.2138, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he538ba0fa9586e63E.exit" ], [ %81, %"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hfb732e27a6d6ea71E.exit52" ], [ %.2138, %79 ]
+  %.4 = phi i1 [ false, %107 ], [ false, %100 ], [ %.013, %62 ], [ %.013, %79 ], [ %.013, %"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hfb732e27a6d6ea71E.exit52" ], [ %.013, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he538ba0fa9586e63E.exit" ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1951)
   call void @llvm.experimental.noalias.scope.decl(metadata !1954)
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !1957
@@ -13631,7 +13631,7 @@ _ZN8smallvec10deallocate17hca131a5c1af83405E.exit.i.i: ; preds = %54
   tail call void @_ZN5alloc5alloc18handle_alloc_error17h81706c48453a6249E(i64 noundef 8, i64 noundef %38) #41
   unreachable
 
-_ZN8smallvec10infallible17hc7405d8a7bbba02fE.exit: ; preds = %_ZN8smallvec10deallocate17hca131a5c1af83405E.exit.i.i, %35, %51, %36
+_ZN8smallvec10infallible17hc7405d8a7bbba02fE.exit: ; preds = %36, %_ZN8smallvec10deallocate17hca131a5c1af83405E.exit.i.i, %51, %35
   %62 = load ptr, ptr %7, align 8, !noundef !7
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pre16 = load i64, ptr %63, align 8

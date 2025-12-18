@@ -2481,7 +2481,7 @@ define i32 @Java_com_sun_media_sound_DirectAudioDevice_nWrite(ptr noundef %0, pt
   br label %handleSignEndianConversion.exit
 
 handleSignEndianConversion.exit:                  ; preds = %.lr.ph.i, %.lr.ph69.i, %.lr.ph73.i, %.lr.ph77.i, %105, %91, %80, %.preheader.i, %72, %122, %24
-  %.068 = phi ptr [ %26, %24 ], [ %.1, %122 ], [ %.1, %72 ], [ %.1, %.preheader.i ], [ %.1, %80 ], [ %.1, %91 ], [ %.1, %105 ], [ %.1, %.lr.ph69.i ], [ %.1, %.lr.ph77.i ], [ %.1, %.lr.ph73.i ], [ %.1, %.lr.ph.i ]
+  %.068 = phi ptr [ %26, %24 ], [ %.1, %122 ], [ %.1, %72 ], [ %.1, %.preheader.i ], [ %.1, %.lr.ph69.i ], [ %.1, %80 ], [ %.1, %.lr.ph77.i ], [ %.1, %91 ], [ %.1, %.lr.ph73.i ], [ %.1, %105 ], [ %.1, %.lr.ph.i ]
   %123 = load ptr, ptr %11, align 8
   %124 = call i32 @DAUDIO_Write(ptr noundef %123, ptr noundef %.068, i32 noundef %5) #7
   br label %.sink.split

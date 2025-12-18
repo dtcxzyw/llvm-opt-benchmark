@@ -1971,7 +1971,7 @@ _ZN3gmxL41supportsDynamicPairlistGenerationIntervalERK10t_inputrec.exit.thread.s
   br label %_ZN3gmxL41supportsDynamicPairlistGenerationIntervalERK10t_inputrec.exit.thread
 
 _ZN3gmxL41supportsDynamicPairlistGenerationIntervalERK10t_inputrec.exit.thread: ; preds = %_ZN3gmxL41supportsDynamicPairlistGenerationIntervalERK10t_inputrec.exit.thread.sink.split, %35, %50, %53, %60, %_ZN3gmxL41supportsDynamicPairlistGenerationIntervalERK10t_inputrec.exit
-  %228 = phi i1 [ false, %35 ], [ false, %50 ], [ false, %53 ], [ false, %60 ], [ false, %_ZN3gmxL41supportsDynamicPairlistGenerationIntervalERK10t_inputrec.exit ], [ %227, %_ZN3gmxL41supportsDynamicPairlistGenerationIntervalERK10t_inputrec.exit.thread.sink.split ]
+  %228 = phi i1 [ false, %35 ], [ false, %50 ], [ false, %53 ], [ false, %_ZN3gmxL41supportsDynamicPairlistGenerationIntervalERK10t_inputrec.exit ], [ false, %60 ], [ %227, %_ZN3gmxL41supportsDynamicPairlistGenerationIntervalERK10t_inputrec.exit.thread.sink.split ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %229 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %229, ptr %13, align 8, !tbaa !4

@@ -780,9 +780,9 @@ _ZN16veloxtpFlexLexer21yy_get_previous_stateEv.exit: ; preds = %for.inc.i, %if.t
   br i1 %cmp.i80, label %yy_find_action.outer.backedge, label %if.then165
 
 yy_find_action.outer.backedge:                    ; preds = %for.inc.i132, %_ZN16veloxtpFlexLexer21yy_get_previous_stateEv.exit, %sw.bb201
-  %yy_cp.2.ph.be = phi ptr [ %arrayidx208, %sw.bb201 ], [ %add.ptr158, %_ZN16veloxtpFlexLexer21yy_get_previous_stateEv.exit ], [ %arrayidx208, %for.inc.i132 ]
-  %yy_bp.1.ph.be = phi ptr [ %91, %sw.bb201 ], [ %69, %_ZN16veloxtpFlexLexer21yy_get_previous_stateEv.exit ], [ %91, %for.inc.i132 ]
-  %yy_current_state.2.ph.be = phi i32 [ %90, %sw.bb201 ], [ %yy_current_state.0.lcssa.i, %_ZN16veloxtpFlexLexer21yy_get_previous_stateEv.exit ], [ %yy_current_state.1.i131, %for.inc.i132 ]
+  %yy_cp.2.ph.be = phi ptr [ %add.ptr158, %_ZN16veloxtpFlexLexer21yy_get_previous_stateEv.exit ], [ %arrayidx208, %sw.bb201 ], [ %arrayidx208, %for.inc.i132 ]
+  %yy_bp.1.ph.be = phi ptr [ %69, %_ZN16veloxtpFlexLexer21yy_get_previous_stateEv.exit ], [ %91, %sw.bb201 ], [ %91, %for.inc.i132 ]
+  %yy_current_state.2.ph.be = phi i32 [ %yy_current_state.0.lcssa.i, %_ZN16veloxtpFlexLexer21yy_get_previous_stateEv.exit ], [ %90, %sw.bb201 ], [ %yy_current_state.1.i131, %for.inc.i132 ]
   br label %yy_find_action.outer
 
 if.then165:                                       ; preds = %_ZN16veloxtpFlexLexer21yy_get_previous_stateEv.exit
@@ -946,8 +946,8 @@ sw.epilog217.sink.split.loopexit301:              ; preds = %do_action
   br label %sw.epilog217.sink.split
 
 sw.epilog217.sink.split:                          ; preds = %do_action, %sw.epilog217.sink.split.loopexit301, %if.else183
-  %.sink = phi i64 [ 112, %sw.epilog217.sink.split.loopexit301 ], [ 56, %if.else183 ], [ 112, %do_action ]
-  %yyin134.sink = phi ptr [ @.str.1, %sw.epilog217.sink.split.loopexit301 ], [ %yyin134, %if.else183 ], [ @.str, %do_action ]
+  %.sink = phi i64 [ 56, %if.else183 ], [ 112, %sw.epilog217.sink.split.loopexit301 ], [ 112, %do_action ]
+  %yyin134.sink = phi ptr [ %yyin134, %if.else183 ], [ @.str.1, %sw.epilog217.sink.split.loopexit301 ], [ @.str, %do_action ]
   %vtable188 = load ptr, ptr %this, align 8
   %vfn189 = getelementptr inbounds nuw i8, ptr %vtable188, i64 %.sink
   %95 = load ptr, ptr %vfn189, align 8

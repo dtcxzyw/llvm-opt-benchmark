@@ -1525,7 +1525,7 @@ RelationReloadIndexInfo.exit:                     ; preds = %24, %44, %HeapTuple
   br label %equalRuleLocks.exit
 
 equalRuleLocks.exit:                              ; preds = %163, %172, %177, %182, %187, %193, %152, %153, %199, %.loopexit.i
-  %.0.i = phi i1 [ false, %199 ], [ false, %152 ], [ true, %.loopexit.i ], [ false, %153 ], [ false, %193 ], [ false, %187 ], [ false, %182 ], [ false, %177 ], [ false, %172 ], [ false, %163 ]
+  %.0.i = phi i1 [ false, %199 ], [ false, %152 ], [ false, %153 ], [ true, %.loopexit.i ], [ false, %193 ], [ false, %187 ], [ false, %182 ], [ false, %177 ], [ false, %172 ], [ false, %163 ]
   %200 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %201 = load ptr, ptr %200, align 8
   %202 = getelementptr inbounds nuw i8, ptr %135, i64 112
@@ -1742,7 +1742,7 @@ equalPolicy.exit.i:                               ; preds = %315, %309
   br label %.preheader.split.i, !llvm.loop !16
 
 equalRSDesc.exit:                                 ; preds = %232, %237, %245, %246, %251, %256, %260, %._crit_edge.i.i, %309, %315, %.lr.ph.i.i, %equalRuleLocks.exit, %206, %list_length.exit.thread.i, %list_length.exit45.i, %list_length.exit45.thread.i
-  %.0.i142 = phi i1 [ true, %equalRuleLocks.exit ], [ false, %206 ], [ true, %list_length.exit.thread.i ], [ false, %list_length.exit45.thread.i ], [ %.not.i145, %list_length.exit45.i ], [ false, %.lr.ph.i.i ], [ false, %309 ], [ false, %245 ], [ false, %246 ], [ false, %251 ], [ false, %256 ], [ false, %260 ], [ false, %._crit_edge.i.i ], [ false, %315 ], [ true, %232 ], [ true, %237 ]
+  %.0.i142 = phi i1 [ false, %.lr.ph.i.i ], [ true, %equalRuleLocks.exit ], [ false, %206 ], [ %.not.i145, %list_length.exit45.i ], [ true, %list_length.exit.thread.i ], [ false, %list_length.exit45.thread.i ], [ false, %309 ], [ false, %245 ], [ false, %246 ], [ false, %251 ], [ false, %256 ], [ false, %260 ], [ false, %._crit_edge.i.i ], [ false, %315 ], [ true, %232 ], [ true, %237 ]
   %316 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %317 = load ptr, ptr %316, align 8
   %.not132 = icmp eq ptr %317, null
@@ -2597,13 +2597,13 @@ fastgetattr.exit92:                               ; preds = %362
   br label %387
 
 387:                                              ; preds = %376, %369, %fastgetattr.exit92
-  %.2.i.i = phi i32 [ %.046.i.i, %369 ], [ %.046.i.i, %fastgetattr.exit92 ], [ %386, %376 ]
+  %.2.i.i = phi i32 [ %386, %376 ], [ %.046.i.i, %fastgetattr.exit92 ], [ %.046.i.i, %369 ]
   %388 = call ptr @systable_getnext(ptr noundef %304) #14
   %.not.i.i = icmp eq ptr %388, null
   br i1 %.not.i.i, label %.loopexit.i.i, label %307
 
 .loopexit.i.i:                                    ; preds = %387, %314, %316, %296
-  %.044.i.i = phi i32 [ 0, %296 ], [ %.046.i.i, %316 ], [ %.046.i.i, %314 ], [ %.2.i.i, %387 ]
+  %.044.i.i = phi i32 [ %.046.i.i, %314 ], [ 0, %296 ], [ %.046.i.i, %316 ], [ %.2.i.i, %387 ]
   call void @systable_endscan(ptr noundef %304) #14
   call void @table_close(ptr noundef %303, i32 noundef 1) #14
   %.not40.i.i = icmp eq i32 %.044.i.i, %.184.i
@@ -2837,13 +2837,13 @@ fastgetattr.exit:                                 ; preds = %501
   br label %519
 
 519:                                              ; preds = %512, %508, %fastgetattr.exit, %428
-  %.2.i94.i = phi i32 [ %.056.i.i, %428 ], [ %.056.i.i, %508 ], [ %.056.i.i, %fastgetattr.exit ], [ %518, %512 ]
+  %.2.i94.i = phi i32 [ %518, %512 ], [ %.056.i.i, %428 ], [ %.056.i.i, %fastgetattr.exit ], [ %.056.i.i, %508 ]
   %520 = call ptr @systable_getnext(ptr noundef %425) #14
   %.not.i95.i = icmp eq ptr %520, null
   br i1 %.not.i95.i, label %.loopexit.i96.i, label %428
 
 .loopexit.i96.i:                                  ; preds = %519, %438, %440, %416
-  %.054.i.i = phi i32 [ 0, %416 ], [ %.056.i.i, %440 ], [ %.056.i.i, %438 ], [ %.2.i94.i, %519 ]
+  %.054.i.i = phi i32 [ %.056.i.i, %438 ], [ 0, %416 ], [ %.056.i.i, %440 ], [ %.2.i94.i, %519 ]
   call void @systable_endscan(ptr noundef %425) #14
   call void @table_close(ptr noundef %424, i32 noundef 1) #14
   %.not50.i.i = icmp eq i32 %.054.i.i, %417
@@ -3654,7 +3654,7 @@ RelationCloseSmgr.exit:                           ; preds = %33, %36
   br i1 %61, label %66, label %74
 
 .critedge:                                        ; preds = %84, %.lr.ph84, %.outer._crit_edge
-  %.0.ph.lcssa118 = phi ptr [ null, %.outer._crit_edge ], [ %.0.ph.lcssa, %.lr.ph84 ], [ %.0.ph.lcssa, %84 ]
+  %.0.ph.lcssa118 = phi ptr [ %.0.ph.lcssa, %.lr.ph84 ], [ null, %.outer._crit_edge ], [ %.0.ph.lcssa, %84 ]
   call void @list_free(ptr noundef %.0.ph.lcssa118) #14
   %62 = getelementptr inbounds nuw i8, ptr %.052.ph.lcssa, i64 4
   %.not62 = icmp eq ptr %.052.ph.lcssa, null
@@ -5776,7 +5776,7 @@ define internal fastcc noundef zeroext i1 @load_relcache_init_file(i1 noundef ze
   br label %.preheader
 
 .thread277:                                       ; preds = %21, %29, %37, %39, %._crit_edge, %83, %87, %.preheader, %108, %110, %115, %133, %137, %140, %144, %147, %151, %154, %158, %161, %.lr.ph, %68, %.lr.ph316, %177
-  %.2.ph = phi ptr [ %.3, %.lr.ph ], [ %.3, %.lr.ph316 ], [ %.3, %177 ], [ %.3, %68 ], [ %.3, %161 ], [ %.3, %158 ], [ %.3, %154 ], [ %.3, %151 ], [ %.3, %147 ], [ %.3, %144 ], [ %.3, %140 ], [ %.3, %137 ], [ %.3, %133 ], [ %.3, %115 ], [ %.3, %110 ], [ %.3, %108 ], [ %.1, %21 ], [ %.3, %29 ], [ %.3, %37 ], [ %.1, %.preheader ], [ %.3, %39 ], [ %.3, %._crit_edge ], [ %.3, %83 ], [ %.3, %87 ]
+  %.2.ph = phi ptr [ %.3, %.lr.ph ], [ %.3, %.lr.ph316 ], [ %.3, %177 ], [ %.3, %68 ], [ %.3, %158 ], [ %.3, %154 ], [ %.3, %151 ], [ %.3, %147 ], [ %.3, %144 ], [ %.3, %140 ], [ %.3, %137 ], [ %.3, %133 ], [ %.3, %115 ], [ %.3, %110 ], [ %.3, %108 ], [ %.3, %161 ], [ %.1, %21 ], [ %.3, %29 ], [ %.3, %37 ], [ %.1, %.preheader ], [ %.3, %39 ], [ %.3, %._crit_edge ], [ %.3, %83 ], [ %.3, %87 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %275
 
@@ -8448,7 +8448,7 @@ heap_getattr.exit124:                             ; preds = %217, %216, %210, %2
   unreachable
 
 .loopexit:                                        ; preds = %309, %.preheader, %289, %33, %318, %316, %315, %314, %26, %22, %18, %14, %10
-  %.0 = phi ptr [ %13, %10 ], [ %17, %14 ], [ %21, %18 ], [ %25, %22 ], [ %29, %26 ], [ null, %33 ], [ %.0104.lcssa, %314 ], [ %.0108.lcssa, %315 ], [ %317, %316 ], [ %319, %318 ], [ %.0103.lcssa, %289 ], [ null, %.preheader ], [ null, %309 ]
+  %.0 = phi ptr [ %13, %10 ], [ %17, %14 ], [ %21, %18 ], [ %25, %22 ], [ %29, %26 ], [ null, %33 ], [ %.0103.lcssa, %289 ], [ %.0104.lcssa, %314 ], [ %.0108.lcssa, %315 ], [ %317, %316 ], [ %319, %318 ], [ null, %.preheader ], [ null, %309 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0

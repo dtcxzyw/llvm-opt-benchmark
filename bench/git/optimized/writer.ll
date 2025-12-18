@@ -798,7 +798,7 @@ reftable_writer_add_log_verbatim.exit31:          ; preds = %71, %74
   br label %.loopexit
 
 .loopexit:                                        ; preds = %54, %.critedge, %58, %42, %reftable_writer_add_log_verbatim.exit31
-  %.0 = phi i32 [ %.1.i30, %reftable_writer_add_log_verbatim.exit31 ], [ %43, %42 ], [ %59, %58 ], [ -6, %.critedge ], [ %55, %54 ]
+  %.0 = phi i32 [ %.1.i30, %reftable_writer_add_log_verbatim.exit31 ], [ %43, %42 ], [ -6, %.critedge ], [ %59, %58 ], [ %55, %54 ]
   call void @reftable_buf_release(ptr noundef nonnull %5) #12
   br label %82
 
@@ -1893,7 +1893,7 @@ writer_reftable_block_stats.exit:                 ; preds = %writer_clear_index.
   br label %.thread
 
 .thread:                                          ; preds = %38, %._crit_edge, %._crit_edge.thread, %.lr.ph, %1, %writer_reftable_block_stats.exit
-  %.0 = phi i32 [ 0, %writer_reftable_block_stats.exit ], [ %12, %1 ], [ %52, %.lr.ph ], [ %56, %._crit_edge.thread ], [ %43, %38 ], [ %54, %._crit_edge ]
+  %.0 = phi i32 [ 0, %writer_reftable_block_stats.exit ], [ %12, %1 ], [ %52, %.lr.ph ], [ %54, %._crit_edge ], [ %43, %38 ], [ %56, %._crit_edge.thread ]
   ret i32 %.0
 }
 

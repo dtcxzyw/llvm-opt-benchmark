@@ -946,7 +946,7 @@ tsvector_bsearch.exit.thread.loopexit:            ; preds = %97
   br label %tsvector_bsearch.exit.thread
 
 tsvector_bsearch.exit.thread:                     ; preds = %tsCompareString.exit.thread25.i, %tsCompareString.exit.thread25.us.i, %tsvector_bsearch.exit.thread.loopexit, %tsvector_bsearch.exit.thread58, %41, %tsvector_bsearch.exit, %86, %35
-  %102 = phi i32 [ %36, %35 ], [ %.pre81, %tsvector_bsearch.exit.thread.loopexit ], [ %36, %tsvector_bsearch.exit.thread58 ], [ %36, %41 ], [ %36, %tsvector_bsearch.exit ], [ %36, %86 ], [ %36, %tsCompareString.exit.thread25.us.i ], [ %36, %tsCompareString.exit.thread25.i ]
+  %102 = phi i32 [ %36, %tsCompareString.exit.thread25.us.i ], [ %36, %35 ], [ %.pre81, %tsvector_bsearch.exit.thread.loopexit ], [ %36, %tsvector_bsearch.exit.thread58 ], [ %36, %41 ], [ %36, %tsvector_bsearch.exit ], [ %36, %86 ], [ %36, %tsCompareString.exit.thread25.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %103 = sext i32 %102 to i64
   %104 = icmp slt i64 %indvars.iv.next, %103
@@ -1168,7 +1168,7 @@ tsvector_bsearch.exit:                            ; preds = %79, %.lr.ph.split.i
   br label %tsvector_bsearch.exit.thread
 
 tsvector_bsearch.exit.thread:                     ; preds = %tsCompareString.exit.thread25.i, %tsCompareString.exit.thread25.i.us, %tsCompareString.exit.thread25.us.i, %32, %91, %94, %tsvector_bsearch.exit
-  %.0.in = phi ptr [ %6, %tsvector_bsearch.exit ], [ %87, %91 ], [ %87, %94 ], [ %6, %32 ], [ %6, %tsCompareString.exit.thread25.i.us ], [ %6, %tsCompareString.exit.thread25.us.i ], [ %6, %tsCompareString.exit.thread25.i ]
+  %.0.in = phi ptr [ %6, %tsvector_bsearch.exit ], [ %87, %91 ], [ %87, %94 ], [ %6, %tsCompareString.exit.thread25.us.i ], [ %6, %tsCompareString.exit.thread25.i.us ], [ %6, %32 ], [ %6, %tsCompareString.exit.thread25.i ]
   %.0 = ptrtoint ptr %.0.in to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
@@ -2472,7 +2472,7 @@ define dso_local noundef i64 @tsvector_concat(ptr noundef readonly captures(none
   br i1 %.not317, label %.thread, label %30, !llvm.loop !28
 
 .thread:                                          ; preds = %30, %15, %19
-  %.1264 = phi i32 [ %.0263335, %19 ], [ %.0263335, %15 ], [ %spec.select, %30 ]
+  %.1264 = phi i32 [ %.0263335, %15 ], [ %.0263335, %19 ], [ %spec.select, %30 ]
   %35 = getelementptr inbounds nuw i8, ptr %.0336, i64 4
   %.not = icmp eq i32 %16, 0
   br i1 %.not, label %._crit_edge, label %15, !llvm.loop !29
@@ -3650,7 +3650,7 @@ define internal fastcc zeroext i1 @TS_execute_locations_recurse(ptr noundef %0, 
   unreachable
 
 .critedge:                                        ; preds = %.critedge81, %.lr.ph85, %.preheader, %94, %98, %38, %50, %60, %31, %25, %22, %100, %34, %18, %16
-  %.0 = phi i1 [ true, %16 ], [ false, %18 ], [ false, %100 ], [ %not., %22 ], [ true, %34 ], [ false, %25 ], [ false, %38 ], [ false, %31 ], [ true, %50 ], [ true, %94 ], [ true, %98 ], [ true, %60 ], [ true, %.preheader ], [ true, %.lr.ph85 ], [ true, %.critedge81 ]
+  %.0 = phi i1 [ true, %16 ], [ false, %18 ], [ false, %100 ], [ %not., %22 ], [ true, %34 ], [ false, %25 ], [ false, %38 ], [ false, %31 ], [ true, %50 ], [ true, %94 ], [ true, %98 ], [ true, %60 ], [ true, %.lr.ph85 ], [ true, %.preheader ], [ true, %.critedge81 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0
@@ -4135,7 +4135,7 @@ qunique.exit:                                     ; preds = %140, %157
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %136, %107, %108, %.critedge, %qunique.exit, %57, %.loopexit
-  %.3118 = phi i32 [ %.1116, %.loopexit ], [ 1, %57 ], [ 1, %qunique.exit ], [ %.4119198, %.critedge ], [ 2, %108 ], [ 2, %107 ], [ 1, %136 ]
+  %.3118 = phi i32 [ %.1116, %.loopexit ], [ 1, %57 ], [ 1, %qunique.exit ], [ %.4119198, %.critedge ], [ 2, %107 ], [ 2, %108 ], [ 1, %136 ]
   ret i32 %.3118
 }
 
@@ -4655,7 +4655,7 @@ tailrecurse.i:                                    ; preds = %37
   br i1 %41, label %walkStatEntryTree.exit.thread, label %.lr.ph.i
 
 walkStatEntryTree.exit:                           ; preds = %.lr.ph.i, %.lr.ph41.i, %.preheader.i
-  %.022.i = phi ptr [ %.039.i, %.preheader.i ], [ %.0.i, %.lr.ph41.i ], [ %14, %.lr.ph.i ]
+  %.022.i = phi ptr [ %.0.i, %.lr.ph41.i ], [ %.039.i, %.preheader.i ], [ %14, %.lr.ph.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -5547,8 +5547,8 @@ define internal fastcc range(i32 0, 2) i32 @TS_phrase_output(ptr noundef capture
   br i1 %48, label %.thread74, label %.thread.us.us
 
 .thread.us.us:                                    ; preds = %41, %47, %45, %.thread138
-  %.149.us.us = phi i32 [ %.250.us.us, %47 ], [ %.048.us.us90, %41 ], [ %43, %.thread138 ], [ %46, %45 ]
-  %.146.us.us = phi i32 [ %.247.us.us, %47 ], [ %42, %41 ], [ %44, %.thread138 ], [ %.045.us.us91, %45 ]
+  %.149.us.us = phi i32 [ %.048.us.us90, %41 ], [ %.250.us.us, %47 ], [ %43, %.thread138 ], [ %46, %45 ]
+  %.146.us.us = phi i32 [ %42, %41 ], [ %.247.us.us, %47 ], [ %44, %.thread138 ], [ %.045.us.us91, %45 ]
   %49 = icmp slt i32 %.149.us.us, %16
   br i1 %49, label %20, label %.thread70
 
@@ -5607,6 +5607,11 @@ define internal fastcc range(i32 0, 2) i32 @TS_phrase_output(ptr noundef capture
   %76 = add nsw i32 %.045.us.us81.ph, 1
   br i1 %.not58, label %.split.us.split.split.us.outer.backedge, label %79
 
+.split.us.split.split.us.outer.backedge:          ; preds = %74, %79
+  %.048.us.us80.ph.be = phi i32 [ %.250.us.us84, %79 ], [ %75, %74 ]
+  %.045.us.us81.ph.be = phi i32 [ %.247.us.us85, %79 ], [ %76, %74 ]
+  br label %.split.us.split.split.us.outer
+
 77:                                               ; preds = %.thread115
   %78 = add i32 %.048.us.us80, 1
   br label %.split.us.split.split.us
@@ -5617,11 +5622,6 @@ define internal fastcc range(i32 0, 2) i32 @TS_phrase_output(ptr noundef capture
   %.1.us.us86 = phi i32 [ %68, %72 ], [ %.044.us.us82117, %74 ]
   %80 = icmp sgt i32 %.1.us.us86, 0
   br i1 %80, label %.thread74, label %.split.us.split.split.us.outer.backedge
-
-.split.us.split.split.us.outer.backedge:          ; preds = %79, %74
-  %.048.us.us80.ph.be = phi i32 [ %75, %74 ], [ %.250.us.us84, %79 ]
-  %.045.us.us81.ph.be = phi i32 [ %76, %74 ], [ %.247.us.us85, %79 ]
-  br label %.split.us.split.split.us.outer
 
 .split.us.split.split:                            ; preds = %.split.us.split, %.split.us.split.split.backedge
   %.048.us = phi i32 [ %.048.us.be, %.split.us.split.split.backedge ], [ 0, %.split.us.split ]
@@ -5761,11 +5761,6 @@ define internal fastcc range(i32 0, 2) i32 @TS_phrase_output(ptr noundef capture
   %143 = icmp sgt i32 %.1, 0
   br i1 %143, label %147, label %.split.outer.backedge
 
-.split.outer.backedge:                            ; preds = %.loopexit, %152, %.thread134, %135
-  %.048.ph.be = phi i32 [ %136, %135 ], [ %139, %.thread134 ], [ %.250, %152 ], [ %.250, %.loopexit ]
-  %.045.ph.be = phi i32 [ %.045, %135 ], [ %140, %.thread134 ], [ %.247, %152 ], [ %.247, %.loopexit ]
-  br label %.split.outer
-
 .split.outer:                                     ; preds = %7, %.split.outer.backedge
   %.048.ph = phi i32 [ %.048.ph.be, %.split.outer.backedge ], [ 0, %7 ]
   %.045.ph = phi i32 [ %.045.ph.be, %.split.outer.backedge ], [ 0, %7 ]
@@ -5795,6 +5790,11 @@ define internal fastcc range(i32 0, 2) i32 @TS_phrase_output(ptr noundef capture
   %158 = getelementptr inbounds i16, ptr %153, i64 %157
   store i16 %154, ptr %158, align 2
   br label %.split.outer.backedge
+
+.split.outer.backedge:                            ; preds = %152, %.loopexit, %.thread134, %135
+  %.048.ph.be = phi i32 [ %136, %135 ], [ %139, %.thread134 ], [ %.250, %.loopexit ], [ %.250, %152 ]
+  %.045.ph.be = phi i32 [ %.045, %135 ], [ %140, %.thread134 ], [ %.247, %.loopexit ], [ %.247, %152 ]
+  br label %.split.outer
 
 .thread70:                                        ; preds = %113, %124, %82, %54, %52, %28, %.thread.us.us
   br i1 %.not60, label %.thread70.thread, label %159
@@ -6160,11 +6160,11 @@ tsCompareString.exit.thread71.loopexit.split.loop.exit179: ; preds = %tsCompareS
   br label %tsCompareString.exit.thread71
 
 tsCompareString.exit.thread71:                    ; preds = %tsCompareString.exit.thread, %91, %.lr.ph.split.us, %.lr.ph.split.us.preheader, %tsCompareString.exit.thread71.loopexit.split.loop.exit179, %.preheader
-  %.060.lcssa = phi ptr [ null, %.preheader ], [ null, %tsCompareString.exit.thread71.loopexit.split.loop.exit179 ], [ %9, %.lr.ph.split.us.preheader ], [ %80, %.lr.ph.split.us ], [ %.06074, %91 ], [ null, %tsCompareString.exit.thread ]
-  %.059.lcssa = phi ptr [ null, %.preheader ], [ %.06074.us196, %tsCompareString.exit.thread71.loopexit.split.loop.exit179 ], [ null, %.lr.ph.split.us.preheader ], [ %.06074.us196, %.lr.ph.split.us ], [ %.05975, %91 ], [ %.06074, %tsCompareString.exit.thread ]
-  %.0.lcssa = phi i32 [ 1, %.preheader ], [ %81, %tsCompareString.exit.thread71.loopexit.split.loop.exit179 ], [ 1, %.lr.ph.split.us.preheader ], [ %81, %.lr.ph.split.us ], [ %.076, %91 ], [ %97, %tsCompareString.exit.thread ]
-  %.not65.lcssa = phi i1 [ true, %.preheader ], [ true, %tsCompareString.exit.thread71.loopexit.split.loop.exit179 ], [ false, %.lr.ph.split.us.preheader ], [ false, %.lr.ph.split.us ], [ false, %91 ], [ true, %tsCompareString.exit.thread ]
-  %.1 = phi i32 [ 0, %.preheader ], [ %.0.i.us.le, %tsCompareString.exit.thread71.loopexit.split.loop.exit179 ], [ 0, %.lr.ph.split.us.preheader ], [ 0, %.lr.ph.split.us ], [ 0, %91 ], [ %.0.i70, %tsCompareString.exit.thread ]
+  %.060.lcssa = phi ptr [ null, %.preheader ], [ %80, %.lr.ph.split.us ], [ null, %tsCompareString.exit.thread71.loopexit.split.loop.exit179 ], [ %9, %.lr.ph.split.us.preheader ], [ %.06074, %91 ], [ null, %tsCompareString.exit.thread ]
+  %.059.lcssa = phi ptr [ null, %.preheader ], [ %.06074.us196, %.lr.ph.split.us ], [ %.06074.us196, %tsCompareString.exit.thread71.loopexit.split.loop.exit179 ], [ null, %.lr.ph.split.us.preheader ], [ %.05975, %91 ], [ %.06074, %tsCompareString.exit.thread ]
+  %.0.lcssa = phi i32 [ 1, %.preheader ], [ %81, %.lr.ph.split.us ], [ %81, %tsCompareString.exit.thread71.loopexit.split.loop.exit179 ], [ 1, %.lr.ph.split.us.preheader ], [ %.076, %91 ], [ %97, %tsCompareString.exit.thread ]
+  %.not65.lcssa = phi i1 [ true, %.preheader ], [ false, %.lr.ph.split.us ], [ true, %tsCompareString.exit.thread71.loopexit.split.loop.exit179 ], [ false, %.lr.ph.split.us.preheader ], [ false, %91 ], [ true, %tsCompareString.exit.thread ]
+  %.1 = phi i32 [ 0, %.preheader ], [ 0, %.lr.ph.split.us ], [ %.0.i.us.le, %tsCompareString.exit.thread71.loopexit.split.loop.exit179 ], [ 0, %.lr.ph.split.us.preheader ], [ 0, %91 ], [ %.0.i70, %tsCompareString.exit.thread ]
   %99 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %100 = load i32, ptr %99, align 4
   %101 = icmp ugt i32 %.0.lcssa, %100

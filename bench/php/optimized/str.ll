@@ -528,7 +528,7 @@ lexbor_str_append.exit60:                         ; preds = %71, %79
   br label %.critedge
 
 .critedge:                                        ; preds = %55, %41, %37, %26, %76, %67, %14, %4, %.critedge50
-  %.1 = phi ptr [ null, %76 ], [ %88, %.critedge50 ], [ null, %67 ], [ null, %4 ], [ null, %14 ], [ null, %26 ], [ null, %37 ], [ null, %41 ], [ null, %55 ]
+  %.1 = phi ptr [ null, %76 ], [ %88, %.critedge50 ], [ null, %14 ], [ null, %67 ], [ null, %4 ], [ null, %26 ], [ null, %37 ], [ null, %41 ], [ null, %55 ]
   ret ptr %.1
 }
 
@@ -972,7 +972,7 @@ lexbor_str_data_ncasecmp.exit:                    ; preds = %.lr.ph.i
   br i1 %.not.not, label %.loopexit, label %.lr.ph.i.preheader
 
 .loopexit:                                        ; preds = %lexbor_str_data_ncasecmp.exit, %7, %.lr.ph, %4
-  %.not16 = phi i1 [ false, %4 ], [ true, %.lr.ph ], [ true, %7 ], [ false, %lexbor_str_data_ncasecmp.exit ]
+  %.not16 = phi i1 [ true, %.lr.ph ], [ true, %7 ], [ false, %4 ], [ false, %lexbor_str_data_ncasecmp.exit ]
   ret i1 %.not16
 }
 

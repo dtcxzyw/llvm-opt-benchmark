@@ -1276,7 +1276,7 @@ default.unreachable1557:                          ; preds = %254
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.5) #5
   br label %.critedge.sink.split
 
-.critedge.sink.split:                             ; preds = %.loopexit, %84, %553, %88, %208, %204, %199, %549, %197, %541, %544, %.critedge.sink.split.sink.split
+.critedge.sink.split:                             ; preds = %.loopexit, %544, %84, %553, %88, %208, %204, %199, %549, %197, %541, %.critedge.sink.split.sink.split
   tail call void @free(ptr noundef %62) #5
   br label %.critedge
 

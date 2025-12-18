@@ -1788,8 +1788,8 @@ define dso_local ptr @relative_path(ptr noundef %0, ptr noundef readonly capture
   br label %.loopexit137
 
 .loopexit137:                                     ; preds = %.loopexit137.loopexit161, %.loopexit137.loopexit, %.thread195, %37, %43, %45
-  %.289 = phi i32 [ %.087.lcssa188, %43 ], [ %6, %37 ], [ %.087.lcssa187204, %.thread195 ], [ %.087.lcssa188, %45 ], [ %51, %.loopexit137.loopexit ], [ %6, %.loopexit137.loopexit161 ]
-  %.384 = phi i32 [ %.081.lcssa190, %43 ], [ %.081.lcssa, %37 ], [ %.085.lcssa189203, %.thread195 ], [ %.081.lcssa190, %45 ], [ %.081.lcssa191202, %.loopexit137.loopexit ], [ %52, %.loopexit137.loopexit161 ]
+  %.289 = phi i32 [ %.087.lcssa188, %43 ], [ %6, %37 ], [ %51, %.loopexit137.loopexit ], [ %.087.lcssa187204, %.thread195 ], [ %.087.lcssa188, %45 ], [ %6, %.loopexit137.loopexit161 ]
+  %.384 = phi i32 [ %.081.lcssa190, %43 ], [ %.081.lcssa, %37 ], [ %.081.lcssa191202, %.loopexit137.loopexit ], [ %.085.lcssa189203, %.thread195 ], [ %.081.lcssa190, %45 ], [ %52, %.loopexit137.loopexit161 ]
   %53 = sext i32 %.289 to i64
   %54 = getelementptr inbounds i8, ptr %0, i64 %53
   %.not107 = icmp slt i32 %.384, %9
@@ -1996,7 +1996,7 @@ strbuf_setlen.exit:                               ; preds = %29, %32
   br label %.loopexit63
 
 .loopexit63:                                      ; preds = %15, %10, %22, %2, %3, %37
-  %.039 = phi ptr [ %0, %2 ], [ %38, %37 ], [ %0, %3 ], [ %0, %22 ], [ %0, %10 ], [ %0, %15 ]
+  %.039 = phi ptr [ %0, %2 ], [ %0, %22 ], [ %38, %37 ], [ %0, %3 ], [ %0, %10 ], [ %0, %15 ]
   ret ptr %.039
 }
 
@@ -2201,7 +2201,7 @@ thread-pre-split:                                 ; preds = %54, %.lr.ph120, %83
   br label %.preheader190
 
 .preheader190:                                    ; preds = %57, %49, %.fold.split, %.preheader109.split
-  %.8.ph = phi ptr [ %.262, %.fold.split ], [ %50, %49 ], [ %.262, %.preheader109.split ], [ %.262, %57 ]
+  %.8.ph = phi ptr [ %.262, %.fold.split ], [ %.262, %.preheader109.split ], [ %50, %49 ], [ %.262, %57 ]
   br label %65
 
 65:                                               ; preds = %.preheader190, %68
@@ -2301,6 +2301,12 @@ define dso_local range(i32 -1, 1) i32 @normalize_path_copy(ptr noundef captures(
   %12 = getelementptr inbounds nuw i8, ptr %.161.i, i64 1
   br i1 %.not.i, label %10, label %.preheader109.split.us.i.outer, !llvm.loop !89
 
+.preheader109.split.us.i.outer.backedge:          ; preds = %.preheader.us.i, %28, %thread-pre-split.us.i.loopexit
+  %.ph.be = phi i8 [ %42, %thread-pre-split.us.i.loopexit ], [ %.pr.us138.i, %28 ], [ %.pr.us138.i, %.preheader.us.i ]
+  %.262.us.i.ph.be = phi ptr [ %.9119.us.i, %thread-pre-split.us.i.loopexit ], [ %.6.us.i, %28 ], [ %.6.us.i, %.preheader.us.i ]
+  %.158.us.i.ph.be = phi ptr [ %40, %thread-pre-split.us.i.loopexit ], [ %.5.us.i, %28 ], [ %.5.us.i, %.preheader.us.i ]
+  br label %.preheader109.split.us.i.outer
+
 .preheader109.split.us.i.outer:                   ; preds = %10, %.preheader109.split.us.i.outer.backedge
   %.ph = phi i8 [ %.ph.be, %.preheader109.split.us.i.outer.backedge ], [ %11, %10 ]
   %.262.us.i.ph = phi ptr [ %.262.us.i.ph.be, %.preheader109.split.us.i.outer.backedge ], [ %.161.i, %10 ]
@@ -2396,12 +2402,6 @@ thread-pre-split.us.i.loopexit:                   ; preds = %.lr.ph120.us.i
   %40 = getelementptr inbounds nuw i8, ptr %.3.us.i, i64 1
   br label %.preheader109.split.us.i.outer.backedge
 
-.preheader109.split.us.i.outer.backedge:          ; preds = %.preheader.us.i, %28, %thread-pre-split.us.i.loopexit
-  %.ph.be = phi i8 [ %42, %thread-pre-split.us.i.loopexit ], [ %.pr.us138.i, %28 ], [ %.pr.us138.i, %.preheader.us.i ]
-  %.262.us.i.ph.be = phi ptr [ %.9119.us.i, %thread-pre-split.us.i.loopexit ], [ %.6.us.i, %28 ], [ %.6.us.i, %.preheader.us.i ]
-  %.158.us.i.ph.be = phi ptr [ %40, %thread-pre-split.us.i.loopexit ], [ %.5.us.i, %28 ], [ %.5.us.i, %.preheader.us.i ]
-  br label %.preheader109.split.us.i.outer
-
 .lr.ph120.us.i:                                   ; preds = %.lr.ph120.us.i, %.lr.ph120.us.preheader.i
   %.9119.us.i = phi ptr [ %41, %.lr.ph120.us.i ], [ %38, %.lr.ph120.us.preheader.i ]
   %41 = getelementptr inbounds nuw i8, ptr %.9119.us.i, i64 1
@@ -2463,6 +2463,12 @@ define dso_local range(i32 -1, 1) i32 @strbuf_normalize_path(ptr noundef capture
   %.not.i.i = icmp eq i8 %18, 47
   %19 = getelementptr inbounds nuw i8, ptr %.161.i.i, i64 1
   br i1 %.not.i.i, label %17, label %.preheader109.split.us.i.i.outer, !llvm.loop !89
+
+.preheader109.split.us.i.i.outer.backedge:        ; preds = %.preheader.us.i.i, %35, %thread-pre-split.us.i.loopexit.i
+  %.ph.be = phi i8 [ %49, %thread-pre-split.us.i.loopexit.i ], [ %.pr.us138.i.i, %35 ], [ %.pr.us138.i.i, %.preheader.us.i.i ]
+  %.262.us.i.i.ph.be = phi ptr [ %.9119.us.i.i, %thread-pre-split.us.i.loopexit.i ], [ %.6.us.i.i, %35 ], [ %.6.us.i.i, %.preheader.us.i.i ]
+  %.158.us.i.i.ph.be = phi ptr [ %47, %thread-pre-split.us.i.loopexit.i ], [ %.5.us.i.i, %35 ], [ %.5.us.i.i, %.preheader.us.i.i ]
+  br label %.preheader109.split.us.i.i.outer
 
 .preheader109.split.us.i.i.outer:                 ; preds = %17, %.preheader109.split.us.i.i.outer.backedge
   %.ph = phi i8 [ %.ph.be, %.preheader109.split.us.i.i.outer.backedge ], [ %18, %17 ]
@@ -2558,12 +2564,6 @@ define dso_local range(i32 -1, 1) i32 @strbuf_normalize_path(ptr noundef capture
 thread-pre-split.us.i.loopexit.i:                 ; preds = %.lr.ph120.us.i.i
   %47 = getelementptr inbounds nuw i8, ptr %.3.us.i.i, i64 1
   br label %.preheader109.split.us.i.i.outer.backedge
-
-.preheader109.split.us.i.i.outer.backedge:        ; preds = %.preheader.us.i.i, %35, %thread-pre-split.us.i.loopexit.i
-  %.ph.be = phi i8 [ %49, %thread-pre-split.us.i.loopexit.i ], [ %.pr.us138.i.i, %35 ], [ %.pr.us138.i.i, %.preheader.us.i.i ]
-  %.262.us.i.i.ph.be = phi ptr [ %.9119.us.i.i, %thread-pre-split.us.i.loopexit.i ], [ %.6.us.i.i, %35 ], [ %.6.us.i.i, %.preheader.us.i.i ]
-  %.158.us.i.i.ph.be = phi ptr [ %47, %thread-pre-split.us.i.loopexit.i ], [ %.5.us.i.i, %35 ], [ %.5.us.i.i, %.preheader.us.i.i ]
-  br label %.preheader109.split.us.i.i.outer
 
 .lr.ph120.us.i.i:                                 ; preds = %.lr.ph120.us.i.i, %.lr.ph120.us.preheader.i.i
   %.9119.us.i.i = phi ptr [ %48, %.lr.ph120.us.i.i ], [ %45, %.lr.ph120.us.preheader.i.i ]
@@ -2823,7 +2823,7 @@ chomp_trailing_dir_sep.exit40:                    ; preds = %.critedge.loopexit.
   br label %.split
 
 .split:                                           ; preds = %27, %12, %.lr.ph, %41, %._crit_edge, %.critedge.loopexit.split.loop.exit11.i47, %33
-  %.023 = phi i64 [ -1, %33 ], [ 0, %._crit_edge ], [ %42, %.critedge.loopexit.split.loop.exit11.i47 ], [ 0, %41 ], [ -1, %.lr.ph ], [ -1, %12 ], [ -1, %27 ]
+  %.023 = phi i64 [ 0, %41 ], [ %42, %.critedge.loopexit.split.loop.exit11.i47 ], [ 0, %._crit_edge ], [ -1, %33 ], [ -1, %.lr.ph ], [ -1, %12 ], [ -1, %27 ]
   ret i64 %.023
 }
 
@@ -2879,14 +2879,14 @@ define dso_local range(i32 -1, 1) i32 @daemon_avoid_alias(ptr noundef readonly c
     i8 0, label %11
   ]
 
+.outer.backedge:                                  ; preds = %13, %6, %7, %9
+  %.not31.ph.be = phi i1 [ false, %9 ], [ true, %6 ], [ false, %7 ], [ false, %13 ]
+  %.018.ph.be = phi i32 [ 0, %9 ], [ 0, %6 ], [ %8, %7 ], [ 0, %13 ]
+  br label %.outer
+
 7:                                                ; preds = %6
   %8 = add nsw i32 %.018.ph, 1
   br label %.outer.backedge
-
-.outer.backedge:                                  ; preds = %13, %7, %9, %6
-  %.not31.ph.be = phi i1 [ true, %6 ], [ false, %9 ], [ false, %7 ], [ false, %13 ]
-  %.018.ph.be = phi i32 [ 0, %6 ], [ 0, %9 ], [ %8, %7 ], [ 0, %13 ]
-  br label %.outer
 
 9:                                                ; preds = %6
   %10 = icmp slt i32 %.018.ph, 3
@@ -2993,7 +2993,7 @@ define dso_local range(i32 0, 2) i32 @is_ntfs_dotgit(ptr noundef readonly captur
   br label %.fold.split
 
 .fold.split:                                      ; preds = %33, %.fold.split.loopexit53, %17, %26, %29, %19, %22, %5, %8, %12
-  %.045 = phi i32 [ 0, %26 ], [ 0, %17 ], [ 0, %5 ], [ 0, %12 ], [ 0, %8 ], [ 0, %22 ], [ 0, %19 ], [ 0, %29 ], [ 1, %.fold.split.loopexit53 ], [ 0, %33 ]
+  %.045 = phi i32 [ 0, %26 ], [ 0, %17 ], [ 1, %.fold.split.loopexit53 ], [ 0, %5 ], [ 0, %12 ], [ 0, %8 ], [ 0, %22 ], [ 0, %19 ], [ 0, %29 ], [ 0, %33 ]
   ret i32 %.045
 }
 
@@ -3791,7 +3791,7 @@ check_common.exit70:                              ; preds = %50
   br label %.loopexit
 
 .loopexit:                                        ; preds = %25, %.thread, %50, %46, %33, %8, %11, %check_common.exit70, %check_common.exit66, %check_common.exit
-  %.0 = phi i32 [ -1, %8 ], [ -1, %33 ], [ %.0.i69, %check_common.exit70 ], [ %48, %46 ], [ %.0.i65, %check_common.exit66 ], [ %.0.i, %check_common.exit ], [ -1, %11 ], [ %.0462, %.thread ], [ -1, %50 ], [ -1, %25 ]
+  %.0 = phi i32 [ -1, %8 ], [ -1, %33 ], [ %.0.i69, %check_common.exit70 ], [ %48, %46 ], [ %.0.i65, %check_common.exit66 ], [ -1, %50 ], [ %.0.i, %check_common.exit ], [ -1, %11 ], [ %.0462, %.thread ], [ -1, %25 ]
   ret i32 %.0
 }
 

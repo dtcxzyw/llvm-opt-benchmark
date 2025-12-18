@@ -594,8 +594,8 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.i:             ; preds = %10
   br i1 %29, label %.lr.ph.i, label %_ZN10OpenSubdiv6v3_6_03Vtr8internal14QuadRefinement34populateFaceVertexCountsAndOffsetsEv.exit, !llvm.loop !10
 
 _ZN10OpenSubdiv6v3_6_03Vtr8internal14QuadRefinement34populateFaceVertexCountsAndOffsetsEv.exit: ; preds = %.lr.ph.i, %1, %10, %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i
-  %30 = phi i32 [ %.pre1, %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i ], [ %9, %1 ], [ 0, %10 ], [ %27, %.lr.ph.i ]
-  %31 = phi ptr [ %.pre, %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i ], [ %3, %1 ], [ %3, %10 ], [ %26, %.lr.ph.i ]
+  %30 = phi i32 [ 0, %10 ], [ %.pre1, %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i ], [ %9, %1 ], [ %27, %.lr.ph.i ]
+  %31 = phi ptr [ %3, %10 ], [ %.pre, %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i ], [ %3, %1 ], [ %26, %.lr.ph.i ]
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 48
   %33 = shl nsw i32 %30, 2
   %34 = sext i32 %33 to i64
@@ -681,8 +681,8 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.i:             ; preds = %10
   br i1 %29, label %.lr.ph.i, label %_ZN10OpenSubdiv6v3_6_03Vtr8internal14QuadRefinement34populateFaceVertexCountsAndOffsetsEv.exit, !llvm.loop !10
 
 _ZN10OpenSubdiv6v3_6_03Vtr8internal14QuadRefinement34populateFaceVertexCountsAndOffsetsEv.exit: ; preds = %.lr.ph.i, %1, %10, %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i
-  %30 = phi i32 [ %.pre1, %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i ], [ %9, %1 ], [ 0, %10 ], [ %27, %.lr.ph.i ]
-  %31 = phi ptr [ %.pre, %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i ], [ %3, %1 ], [ %3, %10 ], [ %26, %.lr.ph.i ]
+  %30 = phi i32 [ 0, %10 ], [ %.pre1, %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i ], [ %9, %1 ], [ %27, %.lr.ph.i ]
+  %31 = phi ptr [ %3, %10 ], [ %.pre, %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i ], [ %3, %1 ], [ %26, %.lr.ph.i ]
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 72
   %33 = shl nsw i32 %30, 2
   %34 = sext i32 %33 to i64

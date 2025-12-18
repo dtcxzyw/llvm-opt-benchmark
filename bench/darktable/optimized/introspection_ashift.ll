@@ -5521,7 +5521,7 @@ crop_adjust.exit:                                 ; preds = %31, %330
   store i32 %779, ptr %768, align 4, !tbaa !440
   br label %.critedge275
 
-.critedge275:                                     ; preds = %.lr.ph.split.us.split.us, %.lr.ph.split.split.us, %.thread340, %721, %718, %770, %.critedge
+.critedge275:                                     ; preds = %.thread340, %.lr.ph.split.us.split.us, %.lr.ph.split.split.us, %721, %718, %770, %.critedge
   call void (...) @dt_control_queue_redraw_center() #35
   %780 = load i32, ptr %716, align 8, !tbaa !438
   %.not265 = icmp eq i32 %780, 0
@@ -5783,7 +5783,7 @@ define internal fastcc void @_get_near(ptr noundef readonly captures(none) %0, p
   br i1 %.old75, label %.lr.ph.split.us.backedge, label %.loopexit68
 
 .lr.ph.split.us.backedge:                         ; preds = %.thread.us, %.loopexit.us
-  %.05973.us.be = phi i32 [ %.old, %.thread.us ], [ %55, %.loopexit.us ]
+  %.05973.us.be = phi i32 [ %55, %.loopexit.us ], [ %.old, %.thread.us ]
   br label %.lr.ph.split.us
 
 .preheader69:                                     ; preds = %.preheader69.preheader, %.preheader69
@@ -6337,7 +6337,7 @@ define range(i32 0, 2) i32 @button_pressed(ptr noundef readonly captures(none) %
   br i1 %216, label %.lr.ph298, label %._crit_edge228
 
 ._crit_edge228:                                   ; preds = %.lr.ph227.split, %.lr.ph227.split.us.outer, %.lr.ph227.split.us.backedge, %.lr.ph227.split.preheader
-  %.1183.lcssa = phi i32 [ 0, %.lr.ph227.split.preheader ], [ %.1183226.us.ph, %.lr.ph227.split.us.outer ], [ %.1183226.us.be, %.lr.ph227.split.us.backedge ], [ %.2184, %.lr.ph227.split ]
+  %.1183.lcssa = phi i32 [ %.1183226.us.be, %.lr.ph227.split.us.backedge ], [ %.1183226.us.ph, %.lr.ph227.split.us.outer ], [ 0, %.lr.ph227.split.preheader ], [ %.2184, %.lr.ph227.split ]
   %.not219 = icmp eq i32 %.1183.lcssa, 0
   br i1 %.not219, label %._crit_edge228..thread_crit_edge, label %._crit_edge228.thread
 
@@ -10572,9 +10572,9 @@ define internal fastcc i32 @simplex(ptr noundef readonly captures(none) %0, ptr 
   br i1 %exitcond573.not, label %._crit_edge455, label %109
 
 ._crit_edge455:                                   ; preds = %109, %.preheader410, %.preheader407
-  %.0338.lcssa678682690 = phi i32 [ %.1339, %.preheader407 ], [ 0, %.preheader410 ], [ %.1339, %109 ]
-  %.0343.lcssa672677683689 = phi i32 [ %.1344, %.preheader407 ], [ 0, %.preheader410 ], [ %.1344, %109 ]
-  %.0341.lcssa684688 = phi i32 [ %.1342, %.preheader407 ], [ 0, %.preheader410 ], [ %.1342, %109 ]
+  %.0338.lcssa678682690 = phi i32 [ 0, %.preheader410 ], [ %.1339, %.preheader407 ], [ %.1339, %109 ]
+  %.0343.lcssa672677683689 = phi i32 [ 0, %.preheader410 ], [ %.1344, %.preheader407 ], [ %.1344, %109 ]
+  %.0341.lcssa684688 = phi i32 [ 0, %.preheader410 ], [ %.1342, %.preheader407 ], [ %.1342, %109 ]
   br i1 %.not372, label %117, label %116
 
 116:                                              ; preds = %._crit_edge455
@@ -16280,7 +16280,7 @@ shuffle.exit.loopexit175:                         ; preds = %.lr.ph.i
   br label %shuffle.exit
 
 shuffle.exit:                                     ; preds = %.preheader, %shuffle.exit.loopexit175, %55, %54
-  %.1142 = phi i32 [ 1, %55 ], [ %.0141166, %54 ], [ %73, %shuffle.exit.loopexit175 ], [ %.0141166, %.preheader ]
+  %.1142 = phi i32 [ %.0141166, %54 ], [ %73, %shuffle.exit.loopexit175 ], [ 1, %55 ], [ %.0141166, %.preheader ]
   %74 = load i32, ptr %1, align 4, !tbaa !71
   %75 = sext i32 %74 to i64
   %76 = getelementptr inbounds %struct.dt_iop_ashift_line_t, ptr %0, i64 %75

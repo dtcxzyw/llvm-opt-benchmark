@@ -3498,7 +3498,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit23: ; preds = %89, %95
   ret void
 
 .loopexit26:                                      ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit23, %.preheader, %84, %.body.thread
-  %.pn = phi { ptr, i32 } [ %11, %.body.thread ], [ %eh.lpad-body36, %84 ], [ %eh.lpad-body36, %.preheader ], [ %88, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit23 ]
+  %.pn = phi { ptr, i32 } [ %11, %.body.thread ], [ %eh.lpad-body36, %.preheader ], [ %eh.lpad-body36, %84 ], [ %88, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit23 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -5970,7 +5970,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit22: ; preds = %86, %92
   br i1 %96, label %.loopexit, label %86
 
 .loopexit:                                        ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit22, %.preheader, %81, %.body.thread
-  %.pn = phi { ptr, i32 } [ %7, %.body.thread ], [ %eh.lpad-body34, %81 ], [ %eh.lpad-body34, %.preheader ], [ %85, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit22 ]
+  %.pn = phi { ptr, i32 } [ %7, %.body.thread ], [ %eh.lpad-body34, %.preheader ], [ %eh.lpad-body34, %81 ], [ %85, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit22 ]
   resume { ptr, i32 } %.pn
 }
 

@@ -495,7 +495,7 @@ define hidden void @_RNCINvNtCsaPKTPzkFU9s_3nom5multi15separated_list1INtCs4DJqE
   br label %.thread
 
 .loopexit.split-lp:                               ; preds = %3, %113, %123, %135
-  %.sroa.02.0.ph = phi i8 [ %.sroa.02.4, %113 ], [ 1, %3 ], [ %.sroa.02.4, %123 ], [ 0, %135 ]
+  %.sroa.02.0.ph = phi i8 [ 1, %3 ], [ %.sroa.02.4, %113 ], [ %.sroa.02.4, %123 ], [ 0, %135 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %28

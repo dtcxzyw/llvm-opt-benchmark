@@ -12282,7 +12282,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %222, %220, %218, %2
   br label %78, !llvm.loop !583
 
 "_ZNSt6vectorIN5Yosys14TopoSortedSccsINS0_12ComputeGraphINS0_10Functional2IR8NodeDataENS4_4AttrENS0_5RTLIL8IdStringESt5tupleIJS8_S8_bEEE10SccAdaptorEZNS4_16topological_sortEvE3$_0E9dfs_entryESaISF_EE12emplace_backIJRiNSC_20successor_enumeratorESJ_EEERSF_DpOT_.exit.thread": ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit, %"_ZNSt6vectorIN5Yosys14TopoSortedSccsINS0_12ComputeGraphINS0_10Functional2IR8NodeDataENS4_4AttrENS0_5RTLIL8IdStringESt5tupleIJS8_S8_bEEE10SccAdaptorEZNS4_16topological_sortEvE3$_0E9dfs_entryESaISF_EE17_M_realloc_insertIJRiNSC_20successor_enumeratorESJ_EEEvN9__gnu_cxx17__normal_iteratorIPSF_SH_EEDpOT_.exit.i", %241
-  %.263 = phi i32 [ %231, %241 ], [ %231, %"_ZNSt6vectorIN5Yosys14TopoSortedSccsINS0_12ComputeGraphINS0_10Functional2IR8NodeDataENS4_4AttrENS0_5RTLIL8IdStringESt5tupleIJS8_S8_bEEE10SccAdaptorEZNS4_16topological_sortEvE3$_0E9dfs_entryESaISF_EE17_M_realloc_insertIJRiNSC_20successor_enumeratorESJ_EEEvN9__gnu_cxx17__normal_iteratorIPSF_SH_EEDpOT_.exit.i" ], [ %.162.ph, %_ZNSt6vectorIiSaIiEE6resizeEm.exit ]
+  %.263 = phi i32 [ %231, %"_ZNSt6vectorIN5Yosys14TopoSortedSccsINS0_12ComputeGraphINS0_10Functional2IR8NodeDataENS4_4AttrENS0_5RTLIL8IdStringESt5tupleIJS8_S8_bEEE10SccAdaptorEZNS4_16topological_sortEvE3$_0E9dfs_entryESaISF_EE17_M_realloc_insertIJRiNSC_20successor_enumeratorESJ_EEEvN9__gnu_cxx17__normal_iteratorIPSF_SH_EEDpOT_.exit.i" ], [ %231, %241 ], [ %.162.ph, %_ZNSt6vectorIiSaIiEE6resizeEm.exit ]
   br i1 %.not70, label %.loopexit, label %29
 
 .loopexit:                                        ; preds = %"_ZNSt6vectorIN5Yosys14TopoSortedSccsINS0_12ComputeGraphINS0_10Functional2IR8NodeDataENS4_4AttrENS0_5RTLIL8IdStringESt5tupleIJS8_S8_bEEE10SccAdaptorEZNS4_16topological_sortEvE3$_0E9dfs_entryESaISF_EE12emplace_backIJRiNSC_20successor_enumeratorESJ_EEERSF_DpOT_.exit.thread", %2
@@ -94400,7 +94400,7 @@ _ZNK5Yosys7hashlib4dictINS_9DriveSpecENS_10Functional4NodeENS0_8hash_opsIS2_EEE7
   br i1 %92, label %59, label %.critedge, !llvm.loop !1419
 
 .critedge:                                        ; preds = %.loopexit, %83, %85, %49, %3
-  %.011 = phi i32 [ -1, %3 ], [ %54, %49 ], [ %.016, %85 ], [ %91, %.loopexit ], [ %.016, %83 ]
+  %.011 = phi i32 [ -1, %3 ], [ %.016, %85 ], [ %54, %49 ], [ %91, %.loopexit ], [ %.016, %83 ]
   ret i32 %.011
 }
 
@@ -96305,7 +96305,7 @@ _ZNK5Yosys7hashlib4poolINS_10DriveChunkENS0_8hash_opsIS2_EEE7do_hashERKS2_.exit:
   unreachable
 
 _ZNK5Yosys14DriveChunkWireeqERKS0_.exit:          ; preds = %95, %._crit_edge.i, %_ZNK5Yosys7hashlib4poolINS_10DriveChunkENS0_8hash_opsIS2_EEE7do_hashERKS2_.exit, %_ZNK5Yosys7hashlib4poolINS_10DriveChunkENS0_8hash_opsIS2_EEE9do_lookupERKS2_Rj.exit, %146, %92, %70, %77, %64, %58, %52, %46, %40, %34, %28, %22, %16, %10, %5, %2, %6
-  %.0 = phi i1 [ %69, %64 ], [ false, %2 ], [ %9, %6 ], [ true, %5 ], [ %27, %22 ], [ %51, %46 ], [ false, %16 ], [ false, %10 ], [ false, %40 ], [ false, %34 ], [ false, %28 ], [ false, %58 ], [ false, %52 ], [ false, %70 ], [ false, %77 ], [ true, %92 ], [ false, %146 ], [ false, %95 ], [ false, %._crit_edge.i ], [ false, %_ZNK5Yosys7hashlib4poolINS_10DriveChunkENS0_8hash_opsIS2_EEE7do_hashERKS2_.exit ], [ true, %_ZNK5Yosys7hashlib4poolINS_10DriveChunkENS0_8hash_opsIS2_EEE9do_lookupERKS2_Rj.exit ]
+  %.0 = phi i1 [ %69, %64 ], [ false, %2 ], [ %9, %6 ], [ true, %5 ], [ %27, %22 ], [ %51, %46 ], [ false, %16 ], [ false, %10 ], [ false, %40 ], [ false, %34 ], [ false, %28 ], [ false, %58 ], [ false, %52 ], [ false, %70 ], [ false, %77 ], [ true, %92 ], [ false, %146 ], [ true, %_ZNK5Yosys7hashlib4poolINS_10DriveChunkENS0_8hash_opsIS2_EEE9do_lookupERKS2_Rj.exit ], [ false, %._crit_edge.i ], [ false, %_ZNK5Yosys7hashlib4poolINS_10DriveChunkENS0_8hash_opsIS2_EEE7do_hashERKS2_.exit ], [ false, %95 ]
   ret i1 %.0
 }
 
@@ -96550,12 +96550,12 @@ _ZNK5Yosys7hashlib4poolINS_10Functional2IR8NodeDataENS0_8hash_opsIS4_EEE7do_hash
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %.pre22 = load ptr, ptr %10, align 8, !tbaa !70
+  %.pre21 = load ptr, ptr %10, align 8, !tbaa !70
   br label %59
 
 59:                                               ; preds = %.lr.ph, %_ZN5Yosys7hashlib8hash_opsINS_10Functional2IR8NodeDataEE3cmpERKS4_S7_.exit.thread
-  %60 = phi ptr [ %.pre22, %.lr.ph ], [ %94, %_ZN5Yosys7hashlib8hash_opsINS_10Functional2IR8NodeDataEE3cmpERKS4_S7_.exit.thread ]
-  %.014 = phi i32 [ %54, %.lr.ph ], [ %97, %_ZN5Yosys7hashlib8hash_opsINS_10Functional2IR8NodeDataEE3cmpERKS4_S7_.exit.thread ]
+  %60 = phi ptr [ %.pre21, %.lr.ph ], [ %93, %_ZN5Yosys7hashlib8hash_opsINS_10Functional2IR8NodeDataEE3cmpERKS4_S7_.exit.thread ]
+  %.014 = phi i32 [ %54, %.lr.ph ], [ %96, %_ZN5Yosys7hashlib8hash_opsINS_10Functional2IR8NodeDataEE3cmpERKS4_S7_.exit.thread ]
   %61 = zext nneg i32 %.014 to i64
   %62 = getelementptr inbounds nuw %"struct.Yosys::hashlib::pool<Yosys::Functional::IR::NodeData>::entry_t", ptr %60, i64 %61
   %63 = load i32, ptr %62, align 8, !tbaa !71
@@ -96568,72 +96568,72 @@ _ZNK5Yosys7hashlib4poolINS_10Functional2IR8NodeDataENS0_8hash_opsIS4_EEE7do_hash
   %68 = load i8, ptr %57, align 8, !tbaa !89
   %69 = getelementptr inbounds nuw i8, ptr %62, i64 48
   %70 = load i8, ptr %69, align 8, !tbaa !89
-  switch i8 %68, label %92 [
-    i8 0, label %71
-    i8 1, label %73
-    i8 2, label %75
-    i8 3, label %85
-    i8 -1, label %90
+  switch i8 %68, label %91 [
+    i8 0, label %_ZN5Yosys7hashlib8hash_opsINS_10Functional2IR8NodeDataEE3cmpERKS4_S7_.exit
+    i8 1, label %71
+    i8 2, label %74
+    i8 3, label %84
+    i8 -1, label %89
   ]
 
 71:                                               ; preds = %66
-  %72 = icmp eq i8 %70, 0
-  br i1 %72, label %.critedge, label %_ZN5Yosys7hashlib8hash_opsINS_10Functional2IR8NodeDataEE3cmpERKS4_S7_.exit.thread
+  %72 = icmp eq i8 %70, 1
+  br i1 %72, label %_ZSt3getILm1EJSt9monostateN5Yosys5RTLIL5ConstESt4pairINS2_8IdStringES5_EiEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit.i.i.i.i.i.i.i.i, label %_ZN5Yosys7hashlib8hash_opsINS_10Functional2IR8NodeDataEE3cmpERKS4_S7_.exit.thread
 
-73:                                               ; preds = %66
-  %74 = icmp eq i8 %70, 1
-  br i1 %74, label %_ZN5Yosys7hashlib8hash_opsINS_10Functional2IR8NodeDataEE3cmpERKS4_S7_.exit, label %_ZN5Yosys7hashlib8hash_opsINS_10Functional2IR8NodeDataEE3cmpERKS4_S7_.exit.thread
+_ZSt3getILm1EJSt9monostateN5Yosys5RTLIL5ConstESt4pairINS2_8IdStringES5_EiEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit.i.i.i.i.i.i.i.i: ; preds = %71
+  %73 = call noundef zeroext i1 @_ZNK5Yosys5RTLIL5ConsteqERKS1_(ptr noundef nonnull align 8 dereferenceable(41) %67, ptr noundef nonnull align 8 dereferenceable(41) %56)
+  br i1 %73, label %.critedge, label %_ZSt3getILm1EJSt9monostateN5Yosys5RTLIL5ConstESt4pairINS2_8IdStringES5_EiEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit.i.i.i.i.i.i.i.i._ZN5Yosys7hashlib8hash_opsINS_10Functional2IR8NodeDataEE3cmpERKS4_S7_.exit.thread_crit_edge
 
-75:                                               ; preds = %66
-  %76 = icmp eq i8 %70, 2
-  br i1 %76, label %_ZSt3getILm2EJSt9monostateN5Yosys5RTLIL5ConstESt4pairINS2_8IdStringES5_EiEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit.i.i.i.i.i.i.i.i, label %_ZN5Yosys7hashlib8hash_opsINS_10Functional2IR8NodeDataEE3cmpERKS4_S7_.exit.thread
-
-_ZSt3getILm2EJSt9monostateN5Yosys5RTLIL5ConstESt4pairINS2_8IdStringES5_EiEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit.i.i.i.i.i.i.i.i: ; preds = %75
-  %77 = load i32, ptr %67, align 4, !tbaa !13
-  %78 = load i32, ptr %56, align 8, !tbaa !13
-  %79 = icmp eq i32 %77, %78
-  %80 = getelementptr inbounds nuw i8, ptr %62, i64 12
-  %81 = load i32, ptr %80, align 4
-  %82 = load i32, ptr %58, align 4
-  %83 = icmp eq i32 %81, %82
-  %84 = select i1 %79, i1 %83, i1 false
-  br i1 %84, label %.critedge, label %_ZN5Yosys7hashlib8hash_opsINS_10Functional2IR8NodeDataEE3cmpERKS4_S7_.exit.thread
-
-85:                                               ; preds = %66
-  %86 = icmp eq i8 %70, 3
-  br i1 %86, label %_ZSt3getILm3EJSt9monostateN5Yosys5RTLIL5ConstESt4pairINS2_8IdStringES5_EiEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit.i.i.i.i.i.i.i.i, label %_ZN5Yosys7hashlib8hash_opsINS_10Functional2IR8NodeDataEE3cmpERKS4_S7_.exit.thread
-
-_ZSt3getILm3EJSt9monostateN5Yosys5RTLIL5ConstESt4pairINS2_8IdStringES5_EiEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit.i.i.i.i.i.i.i.i: ; preds = %85
-  %87 = load i32, ptr %67, align 4, !tbaa !88
-  %88 = load i32, ptr %56, align 8, !tbaa !88
-  %89 = icmp eq i32 %87, %88
-  br i1 %89, label %.critedge, label %_ZN5Yosys7hashlib8hash_opsINS_10Functional2IR8NodeDataEE3cmpERKS4_S7_.exit.thread
-
-90:                                               ; preds = %66
-  %91 = icmp eq i8 %70, -1
-  br i1 %91, label %.critedge, label %_ZN5Yosys7hashlib8hash_opsINS_10Functional2IR8NodeDataEE3cmpERKS4_S7_.exit.thread
-
-92:                                               ; preds = %66
-  unreachable
-
-_ZN5Yosys7hashlib8hash_opsINS_10Functional2IR8NodeDataEE3cmpERKS4_S7_.exit: ; preds = %73
-  %93 = call noundef zeroext i1 @_ZNK5Yosys5RTLIL5ConsteqERKS1_(ptr noundef nonnull align 8 dereferenceable(41) %67, ptr noundef nonnull align 8 dereferenceable(41) %56)
-  br i1 %93, label %.critedge, label %_ZN5Yosys7hashlib8hash_opsINS_10Functional2IR8NodeDataEE3cmpERKS4_S7_.exit._ZN5Yosys7hashlib8hash_opsINS_10Functional2IR8NodeDataEE3cmpERKS4_S7_.exit.thread_crit_edge
-
-_ZN5Yosys7hashlib8hash_opsINS_10Functional2IR8NodeDataEE3cmpERKS4_S7_.exit._ZN5Yosys7hashlib8hash_opsINS_10Functional2IR8NodeDataEE3cmpERKS4_S7_.exit.thread_crit_edge: ; preds = %_ZN5Yosys7hashlib8hash_opsINS_10Functional2IR8NodeDataEE3cmpERKS4_S7_.exit
-  %.pre23 = load ptr, ptr %10, align 8, !tbaa !70
+_ZSt3getILm1EJSt9monostateN5Yosys5RTLIL5ConstESt4pairINS2_8IdStringES5_EiEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit.i.i.i.i.i.i.i.i._ZN5Yosys7hashlib8hash_opsINS_10Functional2IR8NodeDataEE3cmpERKS4_S7_.exit.thread_crit_edge: ; preds = %_ZSt3getILm1EJSt9monostateN5Yosys5RTLIL5ConstESt4pairINS2_8IdStringES5_EiEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit.i.i.i.i.i.i.i.i
+  %.pre22 = load ptr, ptr %10, align 8, !tbaa !70
   br label %_ZN5Yosys7hashlib8hash_opsINS_10Functional2IR8NodeDataEE3cmpERKS4_S7_.exit.thread
 
-_ZN5Yosys7hashlib8hash_opsINS_10Functional2IR8NodeDataEE3cmpERKS4_S7_.exit.thread: ; preds = %_ZN5Yosys7hashlib8hash_opsINS_10Functional2IR8NodeDataEE3cmpERKS4_S7_.exit._ZN5Yosys7hashlib8hash_opsINS_10Functional2IR8NodeDataEE3cmpERKS4_S7_.exit.thread_crit_edge, %85, %75, %73, %59, %90, %_ZSt3getILm2EJSt9monostateN5Yosys5RTLIL5ConstESt4pairINS2_8IdStringES5_EiEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit.i.i.i.i.i.i.i.i, %_ZSt3getILm3EJSt9monostateN5Yosys5RTLIL5ConstESt4pairINS2_8IdStringES5_EiEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit.i.i.i.i.i.i.i.i, %71
-  %94 = phi ptr [ %.pre23, %_ZN5Yosys7hashlib8hash_opsINS_10Functional2IR8NodeDataEE3cmpERKS4_S7_.exit._ZN5Yosys7hashlib8hash_opsINS_10Functional2IR8NodeDataEE3cmpERKS4_S7_.exit.thread_crit_edge ], [ %60, %85 ], [ %60, %75 ], [ %60, %73 ], [ %60, %59 ], [ %60, %90 ], [ %60, %_ZSt3getILm2EJSt9monostateN5Yosys5RTLIL5ConstESt4pairINS2_8IdStringES5_EiEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit.i.i.i.i.i.i.i.i ], [ %60, %_ZSt3getILm3EJSt9monostateN5Yosys5RTLIL5ConstESt4pairINS2_8IdStringES5_EiEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit.i.i.i.i.i.i.i.i ], [ %60, %71 ]
-  %95 = getelementptr inbounds nuw %"struct.Yosys::hashlib::pool<Yosys::Functional::IR::NodeData>::entry_t", ptr %94, i64 %61
-  %96 = getelementptr inbounds nuw i8, ptr %95, i64 56
-  %97 = load i32, ptr %96, align 8, !tbaa !1446
-  %98 = icmp sgt i32 %97, -1
-  br i1 %98, label %59, label %.critedge, !llvm.loop !1448
+74:                                               ; preds = %66
+  %75 = icmp eq i8 %70, 2
+  br i1 %75, label %_ZSt3getILm2EJSt9monostateN5Yosys5RTLIL5ConstESt4pairINS2_8IdStringES5_EiEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit.i.i.i.i.i.i.i.i, label %_ZN5Yosys7hashlib8hash_opsINS_10Functional2IR8NodeDataEE3cmpERKS4_S7_.exit.thread
 
-.critedge:                                        ; preds = %_ZN5Yosys7hashlib8hash_opsINS_10Functional2IR8NodeDataEE3cmpERKS4_S7_.exit.thread, %_ZN5Yosys7hashlib8hash_opsINS_10Functional2IR8NodeDataEE3cmpERKS4_S7_.exit, %71, %_ZSt3getILm3EJSt9monostateN5Yosys5RTLIL5ConstESt4pairINS2_8IdStringES5_EiEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit.i.i.i.i.i.i.i.i, %_ZSt3getILm2EJSt9monostateN5Yosys5RTLIL5ConstESt4pairINS2_8IdStringES5_EiEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit.i.i.i.i.i.i.i.i, %90, %49, %3
-  %.011 = phi i32 [ -1, %3 ], [ %54, %49 ], [ %97, %_ZN5Yosys7hashlib8hash_opsINS_10Functional2IR8NodeDataEE3cmpERKS4_S7_.exit.thread ], [ %.014, %_ZN5Yosys7hashlib8hash_opsINS_10Functional2IR8NodeDataEE3cmpERKS4_S7_.exit ], [ %.014, %71 ], [ %.014, %_ZSt3getILm3EJSt9monostateN5Yosys5RTLIL5ConstESt4pairINS2_8IdStringES5_EiEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit.i.i.i.i.i.i.i.i ], [ %.014, %_ZSt3getILm2EJSt9monostateN5Yosys5RTLIL5ConstESt4pairINS2_8IdStringES5_EiEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit.i.i.i.i.i.i.i.i ], [ %.014, %90 ]
+_ZSt3getILm2EJSt9monostateN5Yosys5RTLIL5ConstESt4pairINS2_8IdStringES5_EiEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit.i.i.i.i.i.i.i.i: ; preds = %74
+  %76 = load i32, ptr %67, align 4, !tbaa !13
+  %77 = load i32, ptr %56, align 8, !tbaa !13
+  %78 = icmp eq i32 %76, %77
+  %79 = getelementptr inbounds nuw i8, ptr %62, i64 12
+  %80 = load i32, ptr %79, align 4
+  %81 = load i32, ptr %58, align 4
+  %82 = icmp eq i32 %80, %81
+  %83 = select i1 %78, i1 %82, i1 false
+  br i1 %83, label %.critedge, label %_ZN5Yosys7hashlib8hash_opsINS_10Functional2IR8NodeDataEE3cmpERKS4_S7_.exit.thread
+
+84:                                               ; preds = %66
+  %85 = icmp eq i8 %70, 3
+  br i1 %85, label %_ZSt3getILm3EJSt9monostateN5Yosys5RTLIL5ConstESt4pairINS2_8IdStringES5_EiEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit.i.i.i.i.i.i.i.i, label %_ZN5Yosys7hashlib8hash_opsINS_10Functional2IR8NodeDataEE3cmpERKS4_S7_.exit.thread
+
+_ZSt3getILm3EJSt9monostateN5Yosys5RTLIL5ConstESt4pairINS2_8IdStringES5_EiEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit.i.i.i.i.i.i.i.i: ; preds = %84
+  %86 = load i32, ptr %67, align 4, !tbaa !88
+  %87 = load i32, ptr %56, align 8, !tbaa !88
+  %88 = icmp eq i32 %86, %87
+  br i1 %88, label %.critedge, label %_ZN5Yosys7hashlib8hash_opsINS_10Functional2IR8NodeDataEE3cmpERKS4_S7_.exit.thread
+
+89:                                               ; preds = %66
+  %90 = icmp eq i8 %70, -1
+  br i1 %90, label %.critedge, label %_ZN5Yosys7hashlib8hash_opsINS_10Functional2IR8NodeDataEE3cmpERKS4_S7_.exit.thread
+
+91:                                               ; preds = %66
+  unreachable
+
+_ZN5Yosys7hashlib8hash_opsINS_10Functional2IR8NodeDataEE3cmpERKS4_S7_.exit: ; preds = %66
+  %92 = icmp eq i8 %70, 0
+  br i1 %92, label %.critedge, label %_ZN5Yosys7hashlib8hash_opsINS_10Functional2IR8NodeDataEE3cmpERKS4_S7_.exit.thread
+
+_ZN5Yosys7hashlib8hash_opsINS_10Functional2IR8NodeDataEE3cmpERKS4_S7_.exit.thread: ; preds = %_ZSt3getILm1EJSt9monostateN5Yosys5RTLIL5ConstESt4pairINS2_8IdStringES5_EiEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit.i.i.i.i.i.i.i.i._ZN5Yosys7hashlib8hash_opsINS_10Functional2IR8NodeDataEE3cmpERKS4_S7_.exit.thread_crit_edge, %84, %74, %71, %59, %89, %_ZSt3getILm2EJSt9monostateN5Yosys5RTLIL5ConstESt4pairINS2_8IdStringES5_EiEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit.i.i.i.i.i.i.i.i, %_ZSt3getILm3EJSt9monostateN5Yosys5RTLIL5ConstESt4pairINS2_8IdStringES5_EiEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit.i.i.i.i.i.i.i.i, %_ZN5Yosys7hashlib8hash_opsINS_10Functional2IR8NodeDataEE3cmpERKS4_S7_.exit
+  %93 = phi ptr [ %.pre22, %_ZSt3getILm1EJSt9monostateN5Yosys5RTLIL5ConstESt4pairINS2_8IdStringES5_EiEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit.i.i.i.i.i.i.i.i._ZN5Yosys7hashlib8hash_opsINS_10Functional2IR8NodeDataEE3cmpERKS4_S7_.exit.thread_crit_edge ], [ %60, %84 ], [ %60, %74 ], [ %60, %71 ], [ %60, %59 ], [ %60, %89 ], [ %60, %_ZSt3getILm2EJSt9monostateN5Yosys5RTLIL5ConstESt4pairINS2_8IdStringES5_EiEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit.i.i.i.i.i.i.i.i ], [ %60, %_ZSt3getILm3EJSt9monostateN5Yosys5RTLIL5ConstESt4pairINS2_8IdStringES5_EiEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit.i.i.i.i.i.i.i.i ], [ %60, %_ZN5Yosys7hashlib8hash_opsINS_10Functional2IR8NodeDataEE3cmpERKS4_S7_.exit ]
+  %94 = getelementptr inbounds nuw %"struct.Yosys::hashlib::pool<Yosys::Functional::IR::NodeData>::entry_t", ptr %93, i64 %61
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 56
+  %96 = load i32, ptr %95, align 8, !tbaa !1446
+  %97 = icmp sgt i32 %96, -1
+  br i1 %97, label %59, label %.critedge, !llvm.loop !1448
+
+.critedge:                                        ; preds = %_ZN5Yosys7hashlib8hash_opsINS_10Functional2IR8NodeDataEE3cmpERKS4_S7_.exit.thread, %_ZN5Yosys7hashlib8hash_opsINS_10Functional2IR8NodeDataEE3cmpERKS4_S7_.exit, %_ZSt3getILm3EJSt9monostateN5Yosys5RTLIL5ConstESt4pairINS2_8IdStringES5_EiEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit.i.i.i.i.i.i.i.i, %_ZSt3getILm2EJSt9monostateN5Yosys5RTLIL5ConstESt4pairINS2_8IdStringES5_EiEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit.i.i.i.i.i.i.i.i, %89, %_ZSt3getILm1EJSt9monostateN5Yosys5RTLIL5ConstESt4pairINS2_8IdStringES5_EiEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit.i.i.i.i.i.i.i.i, %49, %3
+  %.011 = phi i32 [ -1, %3 ], [ %54, %49 ], [ %96, %_ZN5Yosys7hashlib8hash_opsINS_10Functional2IR8NodeDataEE3cmpERKS4_S7_.exit.thread ], [ %.014, %_ZN5Yosys7hashlib8hash_opsINS_10Functional2IR8NodeDataEE3cmpERKS4_S7_.exit ], [ %.014, %_ZSt3getILm3EJSt9monostateN5Yosys5RTLIL5ConstESt4pairINS2_8IdStringES5_EiEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit.i.i.i.i.i.i.i.i ], [ %.014, %_ZSt3getILm2EJSt9monostateN5Yosys5RTLIL5ConstESt4pairINS2_8IdStringES5_EiEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit.i.i.i.i.i.i.i.i ], [ %.014, %89 ], [ %.014, %_ZSt3getILm1EJSt9monostateN5Yosys5RTLIL5ConstESt4pairINS2_8IdStringES5_EiEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit.i.i.i.i.i.i.i.i ]
   ret i32 %.011
 }
 
@@ -108710,9 +108710,9 @@ _ZNSt6vectorIN5Yosys10Functional4NodeESaIS2_EED2Ev.exit224: ; preds = %_ZNSt6vec
   br label %_ZNSt6vectorIN5Yosys10Functional4NodeESaIS2_EED2Ev.exit226
 
 _ZNSt6vectorIN5Yosys10Functional4NodeESaIS2_EED2Ev.exit226: ; preds = %.loopexit255, %.loopexit.split-lp, %410, %407, %144, %378, %311
-  %.sroa.16.1 = phi ptr [ %.sroa.16.0, %144 ], [ %.sroa.16.2324, %311 ], [ %.sroa.16.3, %410 ], [ %.sroa.16.2324, %378 ], [ %.sroa.16.3, %407 ], [ %.sroa.16.2324.lcssa338, %.loopexit255 ], [ %.sroa.10.0325, %.loopexit.split-lp ]
-  %.sroa.0238.1 = phi ptr [ %.sroa.0238.0, %144 ], [ %.sroa.0238.2326, %311 ], [ %.sroa.0238.3, %410 ], [ %.sroa.0238.2326, %378 ], [ %.sroa.0238.3, %407 ], [ %.sroa.0238.2326, %.loopexit255 ], [ %.sroa.0238.2326, %.loopexit.split-lp ]
-  %.pn137.pn.pn = phi { ptr, i32 } [ %145, %144 ], [ %312, %311 ], [ %408, %410 ], [ %.pn115.pn, %378 ], [ %408, %407 ], [ %lpad.loopexit, %.loopexit255 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.sroa.16.1 = phi ptr [ %.sroa.16.3, %410 ], [ %.sroa.16.3, %407 ], [ %.sroa.16.2324, %378 ], [ %.sroa.16.0, %144 ], [ %.sroa.16.2324, %311 ], [ %.sroa.16.2324.lcssa338, %.loopexit255 ], [ %.sroa.10.0325, %.loopexit.split-lp ]
+  %.sroa.0238.1 = phi ptr [ %.sroa.0238.3, %410 ], [ %.sroa.0238.3, %407 ], [ %.sroa.0238.2326, %378 ], [ %.sroa.0238.0, %144 ], [ %.sroa.0238.2326, %311 ], [ %.sroa.0238.2326, %.loopexit255 ], [ %.sroa.0238.2326, %.loopexit.split-lp ]
+  %.pn137.pn.pn = phi { ptr, i32 } [ %408, %410 ], [ %408, %407 ], [ %.pn115.pn, %378 ], [ %145, %144 ], [ %312, %311 ], [ %lpad.loopexit, %.loopexit255 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.not.i.i.i227 = icmp eq ptr %.sroa.0238.1, null
   br i1 %.not.i.i.i227, label %_ZNSt6vectorIN5Yosys10Functional4NodeESaIS2_EED2Ev.exit228, label %415
 

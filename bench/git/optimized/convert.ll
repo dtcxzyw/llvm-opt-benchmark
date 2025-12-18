@@ -2456,7 +2456,7 @@ define internal fastcc range(i32 0, 2) i32 @convert_to_working_tree_ca_internal(
   br i1 %or.cond.i.i, label %.preheader.i.i, label %.outer.backedge.i.i, !llvm.loop !88
 
 count_ident.exit.i:                               ; preds = %27, %.outer.backedge.i.i, %17, %.backedge.i.i
-  %.0.ph.lcssa.i.i = phi i32 [ %.0.ph48.i.i, %17 ], [ %.0.ph48.i.i, %.backedge.i.i ], [ %.0.ph.be.i.i, %.outer.backedge.i.i ], [ %spec.select.i.i, %27 ]
+  %.0.ph.lcssa.i.i = phi i32 [ %.0.ph48.i.i, %17 ], [ %.0.ph48.i.i, %.backedge.i.i ], [ %spec.select.i.i, %27 ], [ %.0.ph.be.i.i, %.outer.backedge.i.i ]
   %.not63.i = icmp eq i32 %.0.ph.lcssa.i.i, 0
   br i1 %.not63.i, label %ident_to_worktree.exit.thread, label %37
 
@@ -4313,7 +4313,7 @@ strbuf_addch.exit100:                             ; preds = %strbuf_avail.exit.i
   br label %.sink.split
 
 .sink.split:                                      ; preds = %72, %strbuf_addch.exit90, %117, %strbuf_setlen.exit, %strbuf_addch.exit, %92, %strbuf_addch.exit80, %strbuf_addch.exit100
-  %.sink = phi i32 [ -1, %strbuf_addch.exit100 ], [ -1, %strbuf_setlen.exit ], [ 0, %strbuf_addch.exit80 ], [ %93, %92 ], [ -1, %strbuf_addch.exit ], [ -1, %117 ], [ -2, %strbuf_addch.exit90 ], [ -1, %72 ]
+  %.sink = phi i32 [ -1, %strbuf_addch.exit100 ], [ -1, %strbuf_setlen.exit ], [ 0, %strbuf_addch.exit80 ], [ %93, %92 ], [ -2, %strbuf_addch.exit90 ], [ -1, %strbuf_addch.exit ], [ -1, %117 ], [ -1, %72 ]
   store i32 %.sink, ptr %6, align 8, !tbaa !114
   br label %.backedge
 
@@ -4462,7 +4462,7 @@ define internal range(i32 -1, 1) i32 @cascade_filter_fn(ptr noundef %0, ptr noun
   br i1 %59, label %.loopexit66, label %.outer.backedge
 
 .loopexit66:                                      ; preds = %57, %.outer.backedge, %18, %5
-  %.047.ph89 = phi i64 [ 0, %5 ], [ %.047.ph122, %18 ], [ %.047.ph122, %57 ], [ %.047.ph.be, %.outer.backedge ]
+  %.047.ph89 = phi i64 [ 0, %5 ], [ %.047.ph122, %18 ], [ %.047.ph.be, %.outer.backedge ], [ %.047.ph122, %57 ]
   %60 = load i64, ptr %4, align 8, !tbaa !4
   %61 = sub i64 %60, %.047.ph89
   store i64 %61, ptr %4, align 8, !tbaa !4

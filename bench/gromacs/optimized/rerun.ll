@@ -2204,7 +2204,7 @@ _ZN3gmx11StopHandler18isSuitableStopStepEli.exit.fold.split.i: ; preds = %1016
   br label %_ZNK3gmx11StopHandler24stoppingAfterCurrentStepEl.exit
 
 _ZNK3gmx11StopHandler24stoppingAfterCurrentStepEl.exit: ; preds = %_ZN3gmx11StopHandler18isSuitableStopStepEli.exit.fold.split.i, %1026, %1022, %1016, %_ZL17prepareRerunStateRK10t_trxframeP7t_statebPKN3gmx19VirtualSitesHandlerE.exit
-  %1031 = phi i8 [ 1, %_ZL17prepareRerunStateRK10t_trxframeP7t_statebPKN3gmx19VirtualSitesHandlerE.exit ], [ 1, %1016 ], [ 1, %1022 ], [ %1030, %1026 ], [ 0, %_ZN3gmx11StopHandler18isSuitableStopStepEli.exit.fold.split.i ]
+  %1031 = phi i8 [ 1, %_ZL17prepareRerunStateRK10t_trxframeP7t_statebPKN3gmx19VirtualSitesHandlerE.exit ], [ 1, %1016 ], [ %1030, %1026 ], [ 1, %1022 ], [ 0, %_ZN3gmx11StopHandler18isSuitableStopStepEli.exit.fold.split.i ]
   store i8 %1031, ptr %2, align 1, !tbaa !57
   %1032 = load ptr, ptr %61, align 8, !tbaa !60
   %1033 = getelementptr i8, ptr %1032, i64 112
@@ -3227,7 +3227,7 @@ _ZNSt10unique_ptrIN3gmx11StopHandlerESt14default_deleteIS1_EED2Ev.exit: ; preds 
   ret void
 
 .loopexit.split-lp:                               ; preds = %1195, %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %.loopexit357, %.loopexit.split-lp358, %1159, %1161, %1369, %1375, %1459, %1223, %_ZN3gmx14LogEntryWriterD2Ev.exit308, %1378, %1396, %1376, %956, %962, %1055, %933
-  %.merged254 = phi { ptr, i32 } [ %934, %933 ], [ %957, %956 ], [ %lpad.loopexit.split-lp363, %.loopexit.split-lp.loopexit.split-lp ], [ %1056, %1055 ], [ %.pn215, %962 ], [ %1217, %_ZN3gmx14LogEntryWriterD2Ev.exit308 ], [ %lpad.loopexit.split-lp360, %.loopexit.split-lp358 ], [ %1460, %1459 ], [ %.pn203, %1375 ], [ %1370, %1369 ], [ %1160, %1159 ], [ %1162, %1161 ], [ %1224, %1223 ], [ %1377, %1376 ], [ %.pn211, %1396 ], [ %1379, %1378 ], [ %lpad.loopexit359, %.loopexit357 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit362, %.loopexit.split-lp.loopexit ], [ %1196, %1195 ]
+  %.merged254 = phi { ptr, i32 } [ %934, %933 ], [ %957, %956 ], [ %lpad.loopexit.split-lp363, %.loopexit.split-lp.loopexit.split-lp ], [ %1056, %1055 ], [ %.pn215, %962 ], [ %1217, %_ZN3gmx14LogEntryWriterD2Ev.exit308 ], [ %lpad.loopexit.split-lp360, %.loopexit.split-lp358 ], [ %1460, %1459 ], [ %.pn203, %1375 ], [ %1370, %1369 ], [ %1160, %1159 ], [ %1162, %1161 ], [ %1379, %1378 ], [ %1224, %1223 ], [ %1377, %1376 ], [ %.pn211, %1396 ], [ %lpad.loopexit359, %.loopexit357 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit362, %.loopexit.split-lp.loopexit ], [ %1196, %1195 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
   br label %1575
 

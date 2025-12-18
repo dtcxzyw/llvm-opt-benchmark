@@ -4561,8 +4561,8 @@ _ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit.thread
   br label %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit.thread12.i.i
 
 _ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit.thread12.i.i: ; preds = %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit.thread.i.i, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit.i.i, %278, %272, %266, %260, %254, %248
-  %.sink.i.i = phi i64 [ 24, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit.thread.i.i ], [ 16, %278 ], [ 16, %272 ], [ 16, %266 ], [ 16, %260 ], [ 16, %254 ], [ 16, %248 ], [ 16, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit.i.i ]
-  %.19.i.i = phi ptr [ %.0815.i.i, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit.thread.i.i ], [ %.016.i.i, %278 ], [ %.016.i.i, %272 ], [ %.016.i.i, %266 ], [ %.016.i.i, %260 ], [ %.016.i.i, %254 ], [ %.016.i.i, %248 ], [ %.016.i.i, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit.i.i ]
+  %.sink.i.i = phi i64 [ 24, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit.thread.i.i ], [ 16, %260 ], [ 16, %266 ], [ 16, %254 ], [ 16, %272 ], [ 16, %248 ], [ 16, %278 ], [ 16, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit.i.i ]
+  %.19.i.i = phi ptr [ %.0815.i.i, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit.thread.i.i ], [ %.016.i.i, %260 ], [ %.016.i.i, %266 ], [ %.016.i.i, %254 ], [ %.016.i.i, %272 ], [ %.016.i.i, %248 ], [ %.016.i.i, %278 ], [ %.016.i.i, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit.i.i ]
   %283 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 %.sink.i.i
   %.1.i.i = load ptr, ptr %283, align 8
   %.not.i.i139 = icmp eq ptr %.1.i.i, null
@@ -4721,8 +4721,8 @@ _ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit.thread
   br label %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit.thread12.i.i.i.i
 
 _ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit.thread12.i.i.i.i: ; preds = %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit.thread.i.i.i.i, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit.i.i.i.i, %362, %356, %350, %344, %338, %332
-  %.sink.i.i.i.i135 = phi i64 [ 24, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit.thread.i.i.i.i ], [ 16, %362 ], [ 16, %356 ], [ 16, %350 ], [ 16, %344 ], [ 16, %338 ], [ 16, %332 ], [ 16, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit.i.i.i.i ]
-  %.19.i.i.i.i136 = phi ptr [ %.0815.i.i.i.i134, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit.thread.i.i.i.i ], [ %.016.i.i.i.i133, %362 ], [ %.016.i.i.i.i133, %356 ], [ %.016.i.i.i.i133, %350 ], [ %.016.i.i.i.i133, %344 ], [ %.016.i.i.i.i133, %338 ], [ %.016.i.i.i.i133, %332 ], [ %.016.i.i.i.i133, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit.i.i.i.i ]
+  %.sink.i.i.i.i135 = phi i64 [ 24, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit.thread.i.i.i.i ], [ 16, %344 ], [ 16, %350 ], [ 16, %338 ], [ 16, %356 ], [ 16, %332 ], [ 16, %362 ], [ 16, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit.i.i.i.i ]
+  %.19.i.i.i.i136 = phi ptr [ %.0815.i.i.i.i134, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit.thread.i.i.i.i ], [ %.016.i.i.i.i133, %344 ], [ %.016.i.i.i.i133, %350 ], [ %.016.i.i.i.i133, %338 ], [ %.016.i.i.i.i133, %356 ], [ %.016.i.i.i.i133, %332 ], [ %.016.i.i.i.i133, %362 ], [ %.016.i.i.i.i133, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit.i.i.i.i ]
   %367 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i133, i64 %.sink.i.i.i.i135
   %.1.i.i.i.i137 = load ptr, ptr %367, align 8
   %.not.i.i.i.i138 = icmp eq ptr %.1.i.i.i.i137, null
@@ -4925,8 +4925,8 @@ _ZNSt8_Rb_treeIN6Assimp11ObjExporter10vertexDataESt4pairIKS2_iESt10_Select1stIS5
   br label %_ZNSt3mapIN6Assimp11ObjExporter10vertexDataEiNS1_17vertexDataCompareESaISt4pairIKS2_iEEEixERS5_.exit
 
 _ZNSt3mapIN6Assimp11ObjExporter10vertexDataEiNS1_17vertexDataCompareESaISt4pairIKS2_iEEEixERS5_.exit: ; preds = %475, %.thread.i186, %373, %379, %385, %391, %397, %403, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit.i
-  %476 = phi i32 [ %326, %403 ], [ %326, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit.i ], [ %326, %373 ], [ %326, %379 ], [ %326, %385 ], [ %326, %391 ], [ %326, %397 ], [ %408, %.thread.i186 ], [ %408, %475 ]
-  %.sroa.06.0.i = phi ptr [ %.19.i.i.i.i136, %403 ], [ %.19.i.i.i.i136, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit.i ], [ %.19.i.i.i.i136, %373 ], [ %.19.i.i.i.i136, %379 ], [ %.19.i.i.i.i136, %385 ], [ %.19.i.i.i.i136, %391 ], [ %.19.i.i.i.i136, %397 ], [ %409, %.thread.i186 ], [ %418, %475 ]
+  %476 = phi i32 [ %326, %385 ], [ %326, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit.i ], [ %326, %403 ], [ %326, %373 ], [ %326, %397 ], [ %326, %379 ], [ %326, %391 ], [ %408, %.thread.i186 ], [ %408, %475 ]
+  %.sroa.06.0.i = phi ptr [ %.19.i.i.i.i136, %385 ], [ %.19.i.i.i.i136, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit.i ], [ %.19.i.i.i.i136, %403 ], [ %.19.i.i.i.i136, %373 ], [ %.19.i.i.i.i136, %397 ], [ %.19.i.i.i.i136, %379 ], [ %.19.i.i.i.i136, %391 ], [ %409, %.thread.i186 ], [ %418, %475 ]
   %477 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i, i64 60
   store i32 %476, ptr %477, align 4
   br label %_ZN6Assimp11ObjExporter8indexMapINS0_10vertexDataENS0_17vertexDataCompareEE8getIndexERKS2_.exit
@@ -5014,8 +5014,8 @@ _ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit.thread
   br label %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit.thread12.i.i163
 
 _ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit.thread12.i.i163: ; preds = %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit.thread.i.i172, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit.i.i162, %515, %509, %503, %497, %491, %485
-  %.sink.i.i164 = phi i64 [ 24, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit.thread.i.i172 ], [ 16, %515 ], [ 16, %509 ], [ 16, %503 ], [ 16, %497 ], [ 16, %491 ], [ 16, %485 ], [ 16, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit.i.i162 ]
-  %.19.i.i165 = phi ptr [ %.0815.i.i161, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit.thread.i.i172 ], [ %.016.i.i160, %515 ], [ %.016.i.i160, %509 ], [ %.016.i.i160, %503 ], [ %.016.i.i160, %497 ], [ %.016.i.i160, %491 ], [ %.016.i.i160, %485 ], [ %.016.i.i160, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit.i.i162 ]
+  %.sink.i.i164 = phi i64 [ 24, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit.thread.i.i172 ], [ 16, %497 ], [ 16, %503 ], [ 16, %491 ], [ 16, %509 ], [ 16, %485 ], [ 16, %515 ], [ 16, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit.i.i162 ]
+  %.19.i.i165 = phi ptr [ %.0815.i.i161, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit.thread.i.i172 ], [ %.016.i.i160, %497 ], [ %.016.i.i160, %503 ], [ %.016.i.i160, %491 ], [ %.016.i.i160, %509 ], [ %.016.i.i160, %485 ], [ %.016.i.i160, %515 ], [ %.016.i.i160, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit.i.i162 ]
   %520 = getelementptr inbounds nuw i8, ptr %.016.i.i160, i64 %.sink.i.i164
   %.1.i.i166 = load ptr, ptr %520, align 8
   %.not.i.i167 = icmp eq ptr %.1.i.i166, null
@@ -5174,8 +5174,8 @@ _ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit.thread
   br label %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit.thread12.i.i.i.i146
 
 _ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit.thread12.i.i.i.i146: ; preds = %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit.thread.i.i.i.i156, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit.i.i.i.i145, %599, %593, %587, %581, %575, %569
-  %.sink.i.i.i.i147 = phi i64 [ 24, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit.thread.i.i.i.i156 ], [ 16, %599 ], [ 16, %593 ], [ 16, %587 ], [ 16, %581 ], [ 16, %575 ], [ 16, %569 ], [ 16, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit.i.i.i.i145 ]
-  %.19.i.i.i.i148 = phi ptr [ %.0815.i.i.i.i144, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit.thread.i.i.i.i156 ], [ %.016.i.i.i.i143, %599 ], [ %.016.i.i.i.i143, %593 ], [ %.016.i.i.i.i143, %587 ], [ %.016.i.i.i.i143, %581 ], [ %.016.i.i.i.i143, %575 ], [ %.016.i.i.i.i143, %569 ], [ %.016.i.i.i.i143, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit.i.i.i.i145 ]
+  %.sink.i.i.i.i147 = phi i64 [ 24, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit.thread.i.i.i.i156 ], [ 16, %581 ], [ 16, %587 ], [ 16, %575 ], [ 16, %593 ], [ 16, %569 ], [ 16, %599 ], [ 16, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit.i.i.i.i145 ]
+  %.19.i.i.i.i148 = phi ptr [ %.0815.i.i.i.i144, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit.thread.i.i.i.i156 ], [ %.016.i.i.i.i143, %581 ], [ %.016.i.i.i.i143, %587 ], [ %.016.i.i.i.i143, %575 ], [ %.016.i.i.i.i143, %593 ], [ %.016.i.i.i.i143, %569 ], [ %.016.i.i.i.i143, %599 ], [ %.016.i.i.i.i143, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit.i.i.i.i145 ]
   %604 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i143, i64 %.sink.i.i.i.i147
   %.1.i.i.i.i149 = load ptr, ptr %604, align 8
   %.not.i.i.i.i150 = icmp eq ptr %.1.i.i.i.i149, null
@@ -5378,8 +5378,8 @@ _ZNSt8_Rb_treeIN6Assimp11ObjExporter10vertexDataESt4pairIKS2_iESt10_Select1stIS5
   br label %_ZNSt3mapIN6Assimp11ObjExporter10vertexDataEiNS1_17vertexDataCompareESaISt4pairIKS2_iEEEixERS5_.exit157
 
 _ZNSt3mapIN6Assimp11ObjExporter10vertexDataEiNS1_17vertexDataCompareESaISt4pairIKS2_iEEEixERS5_.exit157: ; preds = %712, %.thread.i192, %610, %616, %622, %628, %634, %640, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit.i152
-  %713 = phi i32 [ %563, %640 ], [ %563, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit.i152 ], [ %563, %610 ], [ %563, %616 ], [ %563, %622 ], [ %563, %628 ], [ %563, %634 ], [ %645, %.thread.i192 ], [ %645, %712 ]
-  %.sroa.06.0.i153 = phi ptr [ %.19.i.i.i.i148, %640 ], [ %.19.i.i.i.i148, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit.i152 ], [ %.19.i.i.i.i148, %610 ], [ %.19.i.i.i.i148, %616 ], [ %.19.i.i.i.i148, %622 ], [ %.19.i.i.i.i148, %628 ], [ %.19.i.i.i.i148, %634 ], [ %646, %.thread.i192 ], [ %655, %712 ]
+  %713 = phi i32 [ %563, %622 ], [ %563, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit.i152 ], [ %563, %640 ], [ %563, %610 ], [ %563, %634 ], [ %563, %616 ], [ %563, %628 ], [ %645, %.thread.i192 ], [ %645, %712 ]
+  %.sroa.06.0.i153 = phi ptr [ %.19.i.i.i.i148, %622 ], [ %.19.i.i.i.i148, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit.i152 ], [ %.19.i.i.i.i148, %640 ], [ %.19.i.i.i.i148, %610 ], [ %.19.i.i.i.i148, %634 ], [ %.19.i.i.i.i148, %616 ], [ %.19.i.i.i.i148, %628 ], [ %646, %.thread.i192 ], [ %655, %712 ]
   %714 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i153, i64 60
   store i32 %713, ptr %714, align 4
   br label %_ZN6Assimp11ObjExporter8indexMapINS0_10vertexDataENS0_17vertexDataCompareEE8getIndexERKS2_.exit
@@ -7104,7 +7104,7 @@ _ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit: ; pre
   %62 = icmp ult i32 %59, %61
   br i1 %62, label %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit.thread, label %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit.thread41
 
-_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit.thread41: ; preds = %56, %48, %40, %32, %24, %16, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit, %6
+_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit.thread41: ; preds = %32, %40, %24, %48, %16, %56, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit, %6
   %63 = tail call { ptr, ptr } @_ZNSt8_Rb_treeIN6Assimp11ObjExporter10vertexDataESt4pairIKS2_iESt10_Select1stIS5_ENS1_17vertexDataCompareESaIS5_EE24_M_get_insert_unique_posERS4_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(28) %2)
   %64 = extractvalue { ptr, ptr } %63, 0
   %65 = extractvalue { ptr, ptr } %63, 1
@@ -7282,13 +7282,13 @@ _ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit13.thre
   %spec.select59 = select i1 %175, ptr %122, ptr %1
   br label %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit.thread
 
-_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit13.thread49: ; preds = %166, %158, %150, %142, %134, %126, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit13
+_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit13.thread49: ; preds = %142, %150, %134, %158, %126, %166, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit13
   %176 = tail call { ptr, ptr } @_ZNSt8_Rb_treeIN6Assimp11ObjExporter10vertexDataESt4pairIKS2_iESt10_Select1stIS5_ENS1_17vertexDataCompareESaIS5_EE24_M_get_insert_unique_posERS4_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(28) %2)
   %177 = extractvalue { ptr, ptr } %176, 0
   %178 = extractvalue { ptr, ptr } %176, 1
   br label %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit.thread
 
-179:                                              ; preds = %111, %103, %95, %87, %79, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit11
+179:                                              ; preds = %87, %95, %79, %103, %111, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit11
   %180 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %181 = load float, ptr %180, align 4
   %182 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -7449,15 +7449,15 @@ _ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit17.thre
   %spec.select61 = select i1 %281, ptr %1, ptr %228
   br label %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit.thread
 
-_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit17.thread57: ; preds = %272, %264, %256, %248, %240, %232, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit17
+_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit17.thread57: ; preds = %248, %256, %240, %264, %232, %272, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit17
   %282 = tail call { ptr, ptr } @_ZNSt8_Rb_treeIN6Assimp11ObjExporter10vertexDataESt4pairIKS2_iESt10_Select1stIS5_ENS1_17vertexDataCompareESaIS5_EE24_M_get_insert_unique_posERS4_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(28) %2)
   %283 = extractvalue { ptr, ptr } %282, 0
   %284 = extractvalue { ptr, ptr } %282, 1
   br label %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit.thread
 
-_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit.thread: ; preds = %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit17.thread, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit13.thread, %209, %201, %193, %185, %217, %50, %42, %34, %26, %18, %9, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit15, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit17.thread57, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit15.thread, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit13.thread49, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit11.thread, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit.thread41
-  %.sroa.038.0 = phi ptr [ %64, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit.thread41 ], [ %1, %201 ], [ null, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit ], [ %spec.select60, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit17.thread ], [ %1, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit15 ], [ %177, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit13.thread49 ], [ %119, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit11.thread ], [ %1, %209 ], [ %283, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit17.thread57 ], [ null, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit15.thread ], [ %spec.select, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit13.thread ], [ null, %50 ], [ null, %9 ], [ null, %18 ], [ null, %26 ], [ null, %34 ], [ null, %42 ], [ %1, %217 ], [ %1, %185 ], [ %1, %193 ]
-  %.sroa.12.0 = phi ptr [ %65, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit.thread41 ], [ null, %201 ], [ %11, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit ], [ %spec.select61, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit17.thread ], [ null, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit15 ], [ %178, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit13.thread49 ], [ %119, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit11.thread ], [ null, %209 ], [ %284, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit17.thread57 ], [ %225, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit15.thread ], [ %spec.select59, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit13.thread ], [ %11, %50 ], [ %11, %9 ], [ %11, %18 ], [ %11, %26 ], [ %11, %34 ], [ %11, %42 ], [ null, %217 ], [ null, %185 ], [ null, %193 ]
+_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit.thread: ; preds = %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit17.thread, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit13.thread, %193, %185, %201, %217, %209, %50, %42, %34, %26, %18, %9, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit15, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit17.thread57, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit15.thread, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit13.thread49, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit11.thread, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit.thread41
+  %.sroa.038.0 = phi ptr [ %64, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit.thread41 ], [ %1, %185 ], [ null, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit ], [ %spec.select60, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit17.thread ], [ %1, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit15 ], [ %177, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit13.thread49 ], [ %119, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit11.thread ], [ %1, %193 ], [ %283, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit17.thread57 ], [ null, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit15.thread ], [ %spec.select, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit13.thread ], [ null, %50 ], [ null, %9 ], [ null, %18 ], [ null, %26 ], [ null, %34 ], [ null, %42 ], [ %1, %209 ], [ %1, %217 ], [ %1, %201 ]
+  %.sroa.12.0 = phi ptr [ %65, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit.thread41 ], [ null, %185 ], [ %11, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit ], [ %spec.select61, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit17.thread ], [ null, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit15 ], [ %178, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit13.thread49 ], [ %119, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit11.thread ], [ null, %193 ], [ %284, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit17.thread57 ], [ %225, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit15.thread ], [ %spec.select59, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit13.thread ], [ %11, %50 ], [ %11, %9 ], [ %11, %18 ], [ %11, %26 ], [ %11, %34 ], [ %11, %42 ], [ null, %209 ], [ null, %217 ], [ null, %201 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.038.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -7554,7 +7554,7 @@ _ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit: ; pre
   %56 = icmp ult i32 %17, %55
   br i1 %56, label %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit.thread, label %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit.thread27
 
-_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit.thread27: ; preds = %52, %46, %40, %34, %28, %22, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit
+_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit.thread27: ; preds = %34, %40, %28, %46, %22, %52, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit
   br label %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit.thread
 
 _ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit.thread: ; preds = %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit, %18, %24, %30, %36, %42, %48, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit.thread27
@@ -7660,7 +7660,7 @@ _ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit6: ; pr
   %114 = icmp ult i32 %111, %113
   br i1 %114, label %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit6.thread, label %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit6.thread32
 
-_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit6.thread32: ; preds = %108, %100, %92, %84, %76, %68, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit6
+_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit6.thread32: ; preds = %84, %92, %76, %100, %68, %108, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit6
   br label %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit6.thread
 
 _ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit6.thread: ; preds = %102, %94, %86, %78, %70, %63, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit6, %._crit_edge.thread, %_ZNK6Assimp11ObjExporter17vertexDataCompareclERKNS0_10vertexDataES4_.exit6.thread32

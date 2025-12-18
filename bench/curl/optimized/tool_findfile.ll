@@ -122,7 +122,7 @@ checkhome.exit.sink.split:                        ; preds = %33, %.split30.us.i
   br label %checkhome.exit
 
 checkhome.exit:                                   ; preds = %21, %12, %checkhome.exit.sink.split, %.split.i.preheader, %24, %27, %30, %2
-  %.0 = phi ptr [ null, %2 ], [ %.0.ph, %checkhome.exit.sink.split ], [ null, %24 ], [ null, %27 ], [ null, %30 ], [ null, %.split.i.preheader ], [ null, %12 ], [ %.fr, %21 ]
+  %.0 = phi ptr [ null, %30 ], [ null, %2 ], [ %.0.ph, %checkhome.exit.sink.split ], [ null, %.split.i.preheader ], [ null, %24 ], [ null, %27 ], [ %.fr, %21 ], [ null, %12 ]
   ret ptr %.0
 }
 

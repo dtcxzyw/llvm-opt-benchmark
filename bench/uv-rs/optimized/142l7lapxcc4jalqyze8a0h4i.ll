@@ -11209,7 +11209,7 @@ define internal fastcc void @"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$a
   br i1 %.not42.i.i.i.i.i.i, label %"_ZN5serde2de5impls56_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$u64$GT$11deserialize17h37295d839237ed85E.exit.thread.i.i.i", label %.lr.ph.split.i.i.i.i.i.i
 
 "_ZN5serde2de5impls56_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$u64$GT$11deserialize17h37295d839237ed85E.exit.i.i.i": ; preds = %169, %.lr.ph.i.i.i.i.i, %.lr.ph.split.i.i.i.i.i.i, %125, %123, %115, %.lr.ph.split.us.i.i.i.i.i.i, %149, %149, %141, %108, %108, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h05067f5f459bd62dE.exit.thread.i.i.i.i.i"
-  %.sroa.3.086.i.i.i.i.i = phi i8 [ 1, %108 ], [ 0, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h05067f5f459bd62dE.exit.thread.i.i.i.i.i" ], [ 1, %108 ], [ 1, %149 ], [ 1, %149 ], [ 0, %141 ], [ 1, %.lr.ph.split.us.i.i.i.i.i.i ], [ 2, %123 ], [ 1, %.lr.ph.split.i.i.i.i.i.i ], [ 1, %115 ], [ 2, %125 ], [ 2, %169 ], [ 1, %.lr.ph.i.i.i.i.i ]
+  %.sroa.3.086.i.i.i.i.i = phi i8 [ 2, %123 ], [ 1, %108 ], [ 1, %108 ], [ 0, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h05067f5f459bd62dE.exit.thread.i.i.i.i.i" ], [ 1, %149 ], [ 1, %.lr.ph.split.i.i.i.i.i.i ], [ 1, %.lr.ph.split.us.i.i.i.i.i.i ], [ 0, %141 ], [ 1, %149 ], [ 1, %115 ], [ 2, %125 ], [ 1, %.lr.ph.i.i.i.i.i ], [ 2, %169 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !2122
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !2122
   %184 = getelementptr inbounds nuw i8, ptr %3, i64 1
@@ -11229,7 +11229,7 @@ define internal fastcc void @"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$a
   br i1 %185, label %"_ZN5serde2de5impls56_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$u64$GT$11deserialize17h37295d839237ed85E.exit.thread.i.i.i", label %"_ZN5serde2de5impls56_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$u64$GT$11deserialize17h37295d839237ed85E.exit.thread7.i.i.i"
 
 "_ZN5serde2de5impls56_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$u64$GT$11deserialize17h37295d839237ed85E.exit.thread.i.i.i": ; preds = %.preheader50.split.i.i.i.i.i.i, %178, %.preheader50.split.us.i.i.i.i.i.i, %135, %"_ZN5serde2de5impls56_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$u64$GT$11deserialize17h37295d839237ed85E.exit.i.i.i"
-  %.sroa.7.05.i.i.i = phi i64 [ %.sroa.617.0.copyload.i.i.i.i.i, %"_ZN5serde2de5impls56_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$u64$GT$11deserialize17h37295d839237ed85E.exit.i.i.i" ], [ %183, %178 ], [ %140, %135 ], [ %.sroa.013.0.us.i.i.i.i.i.i, %.preheader50.split.us.i.i.i.i.i.i ], [ %159, %.preheader50.split.i.i.i.i.i.i ]
+  %.sroa.7.05.i.i.i = phi i64 [ %.sroa.617.0.copyload.i.i.i.i.i, %"_ZN5serde2de5impls56_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$u64$GT$11deserialize17h37295d839237ed85E.exit.i.i.i" ], [ %183, %178 ], [ %.sroa.013.0.us.i.i.i.i.i.i, %.preheader50.split.us.i.i.i.i.i.i ], [ %140, %135 ], [ %159, %.preheader50.split.i.i.i.i.i.i ]
   %186 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 1, ptr %186, align 8, !alias.scope !2138, !noalias !2139
   %187 = getelementptr inbounds nuw i8, ptr %0, i64 16

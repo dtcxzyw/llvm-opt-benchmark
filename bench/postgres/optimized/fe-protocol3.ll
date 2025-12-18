@@ -767,7 +767,7 @@ getParameterStatus.exit209:                       ; preds = %152
   br i1 %.not39.i, label %268, label %getAnotherTuple.exit
 
 .sink.split.i212:                                 ; preds = %263, %252, %245, %239, %235
-  %.str.38.sink.i = phi ptr [ null, %245 ], [ @.str.39, %239 ], [ @.str.38, %235 ], [ @.str.38, %252 ], [ @.str.38, %263 ]
+  %.str.38.sink.i = phi ptr [ @.str.38, %235 ], [ null, %245 ], [ @.str.39, %239 ], [ @.str.38, %252 ], [ @.str.38, %263 ]
   store ptr %.str.38.sink.i, ptr %2, align 8
   br label %268
 
@@ -1960,11 +1960,11 @@ define void @pqBuildErrorMessage3(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br i1 %139, label %.preheader.i, label %.loopexit.i, !llvm.loop !13
 
 .loopexit.i:                                      ; preds = %.preheader193.i, %.preheader.i, %111
-  %141 = phi i32 [ %115, %111 ], [ %137, %.preheader.i ], [ %115, %.preheader193.i ]
-  %.pre-phi.i = phi i64 [ %112, %111 ], [ %130, %.preheader.i ], [ %124, %.preheader193.i ]
-  %.4152.i = phi i32 [ %.0148204.i, %111 ], [ %.5153.i, %.preheader.i ], [ %.0148204.i, %.preheader193.i ]
-  %.0135.i = phi i1 [ false, %111 ], [ %.1136.i, %.preheader.i ], [ false, %.preheader193.i ]
-  %.0133.i = phi i1 [ false, %111 ], [ %.1134.i, %.preheader.i ], [ true, %.preheader193.i ]
+  %141 = phi i32 [ %137, %.preheader.i ], [ %115, %111 ], [ %115, %.preheader193.i ]
+  %.pre-phi.i = phi i64 [ %130, %.preheader.i ], [ %112, %111 ], [ %124, %.preheader193.i ]
+  %.4152.i = phi i32 [ %.5153.i, %.preheader.i ], [ %.0148204.i, %111 ], [ %.0148204.i, %.preheader193.i ]
+  %.0135.i = phi i1 [ %.1136.i, %.preheader.i ], [ false, %111 ], [ false, %.preheader193.i ]
+  %.0133.i = phi i1 [ %.1134.i, %.preheader.i ], [ false, %111 ], [ true, %.preheader193.i ]
   %142 = getelementptr inbounds i32, ptr %65, i64 %.pre-phi.i
   %143 = load i32, ptr %142, align 4
   %144 = sext i32 %143 to i64
@@ -2294,7 +2294,7 @@ define range(i32 -1, 1) i32 @pqGetNegotiateProtocolVersion3(ptr noundef %0) loca
   br label %.sink.split
 
 .sink.split:                                      ; preds = %13, %40, %44
-  %.022.ph = phi i32 [ 0, %44 ], [ 0, %40 ], [ -1, %13 ]
+  %.022.ph = phi i32 [ 0, %40 ], [ 0, %44 ], [ -1, %13 ]
   call void @termPQExpBuffer(ptr noundef nonnull %4) #16
   br label %45
 
@@ -3127,8 +3127,8 @@ switch.early.test:                                ; preds = %68
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %128, %58, %61, %78, %87, %93, %95, %97, %99, %101, %103, %120
-  %.0104.be = phi i1 [ true, %58 ], [ true, %61 ], [ true, %78 ], [ true, %87 ], [ true, %93 ], [ false, %128 ], [ true, %95 ], [ true, %97 ], [ true, %99 ], [ true, %101 ], [ true, %103 ], [ true, %120 ]
-  %.0103.be = phi i32 [ %.0103, %58 ], [ %.0103, %61 ], [ %.0103, %78 ], [ %.0103, %87 ], [ %.0103, %93 ], [ %.1, %128 ], [ %.0103, %95 ], [ %.0103, %97 ], [ %.0103, %99 ], [ %.0103, %101 ], [ %.0103, %103 ], [ %.0103, %120 ]
+  %.0104.be = phi i1 [ true, %120 ], [ true, %58 ], [ true, %61 ], [ true, %78 ], [ true, %87 ], [ true, %93 ], [ false, %128 ], [ true, %95 ], [ true, %97 ], [ true, %99 ], [ true, %101 ], [ true, %103 ]
+  %.0103.be = phi i32 [ %.0103, %120 ], [ %.0103, %58 ], [ %.0103, %61 ], [ %.0103, %78 ], [ %.0103, %87 ], [ %.0103, %93 ], [ %.1, %128 ], [ %.0103, %95 ], [ %.0103, %97 ], [ %.0103, %99 ], [ %.0103, %101 ], [ %.0103, %103 ]
   br label %.backedge
 
 .loopexit:                                        ; preds = %53, %55, %83, %71, %66
@@ -3140,7 +3140,7 @@ switch.early.test:                                ; preds = %68
   br label %.loopexit131
 
 .loopexit131:                                     ; preds = %39, %36, %.lr.ph, %.loopexit131.sink.split, %45, %48, %._crit_edge, %7, %12, %15, %18, %21
-  %.0102 = phi ptr [ null, %7 ], [ null, %._crit_edge ], [ null, %21 ], [ null, %18 ], [ null, %15 ], [ null, %12 ], [ null, %48 ], [ null, %45 ], [ %133, %.loopexit131.sink.split ], [ null, %.lr.ph ], [ null, %36 ], [ null, %39 ]
+  %.0102 = phi ptr [ %133, %.loopexit131.sink.split ], [ null, %7 ], [ null, %45 ], [ null, %48 ], [ null, %12 ], [ null, %._crit_edge ], [ null, %15 ], [ null, %18 ], [ null, %21 ], [ null, %.lr.ph ], [ null, %36 ], [ null, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret ptr %.0102

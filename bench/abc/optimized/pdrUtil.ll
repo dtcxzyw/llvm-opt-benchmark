@@ -309,7 +309,7 @@ define noalias noundef ptr @Pdr_SetCreateSubset(ptr noundef readonly captures(no
   br i1 %exitcond36.not.i, label %Vec_IntSelectSort.exit, label %.lr.ph.preheader.i, !llvm.loop !21
 
 Vec_IntSelectSort.exit:                           ; preds = %._crit_edge.i, %3, %29
-  %.0.lcssa54 = phi i64 [ %32, %29 ], [ 20, %3 ], [ %32, %._crit_edge.i ]
+  %.0.lcssa54 = phi i64 [ 20, %3 ], [ %32, %29 ], [ %32, %._crit_edge.i ]
   %48 = icmp slt i32 %8, %5
   br i1 %48, label %.lr.ph37, label %._crit_edge38
 
@@ -1233,7 +1233,7 @@ define range(i32 0, 2) i32 @Pdr_SetContainsSimple(ptr noundef readonly captures(
   br i1 %.not38, label %.loopexit, label %.lr.ph, !llvm.loop !49
 
 .loopexit:                                        ; preds = %19, %13, %.outer, %12, %2
-  %.019 = phi i32 [ 1, %2 ], [ 1, %12 ], [ 1, %.outer ], [ 0, %13 ], [ 0, %19 ]
+  %.019 = phi i32 [ 1, %2 ], [ 1, %12 ], [ 0, %19 ], [ 0, %13 ], [ 1, %.outer ]
   ret i32 %.019
 }
 

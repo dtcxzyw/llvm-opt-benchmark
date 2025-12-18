@@ -5864,7 +5864,7 @@ lean_inc.exit510:                                 ; preds = %1126, %1125, %1123,
   br i1 %.not.i884, label %1127, label %lean_dec.exit493.backedge
 
 lean_dec.exit493.backedge:                        ; preds = %lean_inc.exit510, %1130, %1132, %1133, %lean_inc.exit528, %581, %583, %584, %lean_inc.exit540, %290, %292, %293
-  %.0402.be = phi ptr [ %278, %lean_inc.exit540 ], [ %569, %lean_inc.exit528 ], [ %278, %293 ], [ %278, %292 ], [ %278, %290 ], [ %569, %584 ], [ %569, %583 ], [ %569, %581 ], [ %1118, %1133 ], [ %1118, %1132 ], [ %1118, %1130 ], [ %1118, %lean_inc.exit510 ]
+  %.0402.be = phi ptr [ %1118, %lean_inc.exit510 ], [ %1118, %1130 ], [ %1118, %1132 ], [ %1118, %1133 ], [ %569, %581 ], [ %569, %583 ], [ %569, %584 ], [ %278, %290 ], [ %278, %292 ], [ %278, %293 ], [ %569, %lean_inc.exit528 ], [ %278, %lean_inc.exit540 ]
   br label %lean_dec.exit493
 
 1127:                                             ; preds = %lean_inc.exit510
@@ -39611,7 +39611,7 @@ lean_dec.exit564:                                 ; preds = %1486, %1485, %1483,
   br i1 %.not1213, label %1487, label %lean_inc.exit677.backedge
 
 lean_inc.exit677.backedge:                        ; preds = %lean_dec.exit564, %1489, %1491, %1492, %lean_dec.exit582, %969, %971, %972, %lean_dec.exit599, %514, %516, %517, %lean_dec.exit617, %203, %205, %206
-  %.0486.be = phi ptr [ %185, %lean_dec.exit617 ], [ %496, %lean_dec.exit599 ], [ %951, %lean_dec.exit582 ], [ %185, %206 ], [ %185, %205 ], [ %185, %203 ], [ %496, %517 ], [ %496, %516 ], [ %496, %514 ], [ %951, %972 ], [ %951, %971 ], [ %951, %969 ], [ %1471, %1492 ], [ %1471, %1491 ], [ %1471, %1489 ], [ %1471, %lean_dec.exit564 ]
+  %.0486.be = phi ptr [ %1471, %lean_dec.exit564 ], [ %1471, %1489 ], [ %1471, %1491 ], [ %1471, %1492 ], [ %951, %969 ], [ %951, %971 ], [ %951, %972 ], [ %496, %514 ], [ %496, %516 ], [ %496, %517 ], [ %185, %203 ], [ %185, %205 ], [ %185, %206 ], [ %185, %lean_dec.exit617 ], [ %951, %lean_dec.exit582 ], [ %496, %lean_dec.exit599 ]
   br label %lean_inc.exit677
 
 1487:                                             ; preds = %lean_dec.exit564

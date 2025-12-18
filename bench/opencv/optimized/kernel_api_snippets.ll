@@ -1798,7 +1798,7 @@ _ZN2cv4GArgD2Ev.exit33:                           ; preds = %117, %_ZNKSt14defau
   br i1 %125, label %.loopexit, label %117
 
 .loopexit:                                        ; preds = %_ZN2cv4GArgD2Ev.exit30, %_ZN2cv4GArgD2Ev.exit33, %.body.thread
-  %.pn.pn = phi { ptr, i32 } [ %27, %.body.thread ], [ %.pn, %_ZN2cv4GArgD2Ev.exit33 ], [ %eh.lpad-body, %_ZN2cv4GArgD2Ev.exit30 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN2cv4GArgD2Ev.exit33 ], [ %27, %.body.thread ], [ %eh.lpad-body, %_ZN2cv4GArgD2Ev.exit30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %.pn.pn

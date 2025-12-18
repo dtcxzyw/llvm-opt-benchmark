@@ -838,8 +838,8 @@ thread-pre-split337:                              ; preds = %.loopexit342, %324,
   br label %338
 
 338:                                              ; preds = %.loopexit, %thread-pre-split337, %309, %306
-  %339 = phi i16 [ %.pr338, %thread-pre-split337 ], [ %311, %309 ], [ %308, %306 ], [ %.lcssa349, %.loopexit ]
-  %.12 = phi ptr [ %.12.ph, %thread-pre-split337 ], [ %310, %309 ], [ %307, %306 ], [ %.14.lcssa, %.loopexit ]
+  %339 = phi i16 [ %.pr338, %thread-pre-split337 ], [ %308, %306 ], [ %311, %309 ], [ %.lcssa349, %.loopexit ]
+  %.12 = phi ptr [ %.12.ph, %thread-pre-split337 ], [ %307, %306 ], [ %310, %309 ], [ %.14.lcssa, %.loopexit ]
   switch i16 %339, label %350 [
     i16 104, label %340
     i16 108, label %340

@@ -444,7 +444,7 @@ hwloc__nvml_get_peer_gpu_by_pci.exit.thread:      ; preds = %177, %162, %hwloc__
   br i1 %switch.selectcmp32.i, label %.thread.i, label %206
 
 206:                                              ; preds = %203, %194
-  %.019.i = phi i32 [ %switch.select.i, %203 ], [ %181, %194 ]
+  %.019.i = phi i32 [ %181, %194 ], [ %switch.select.i, %203 ]
   switch i32 %.019.i, label %219 [
     i32 1, label %.thread.i
     i32 2, label %214
@@ -512,7 +512,7 @@ hwloc__nvml_get_peer_gpu_by_pci.exit.thread:      ; preds = %177, %162, %hwloc__
   br label %252
 
 .loopexit:                                        ; preds = %.lr.ph.i179, %217, %214, %.thread.i
-  %.020.i = phi ptr [ %182, %217 ], [ %182, %214 ], [ %spec.select.i, %.thread.i ], [ %211, %.lr.ph.i179 ]
+  %.020.i = phi ptr [ %182, %214 ], [ %spec.select.i, %.thread.i ], [ %182, %217 ], [ %211, %.lr.ph.i179 ]
   %241 = load i32, ptr %5, align 4, !tbaa !14
   %242 = icmp ult i32 %241, %.1190233
   br i1 %242, label %.lr.ph.preheader.i, label %.._crit_edge_crit_edge.i

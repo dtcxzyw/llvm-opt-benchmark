@@ -97,7 +97,7 @@ define hidden ptr @rdp8_decompress(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %.critedge
 
 .critedge:                                        ; preds = %35, %29, %4, %._crit_edge, %7, %11
-  %.0 = phi ptr [ %19, %11 ], [ null, %7 ], [ %47, %._crit_edge ], [ %2, %4 ], [ null, %29 ], [ null, %35 ]
+  %.0 = phi ptr [ %2, %4 ], [ %19, %11 ], [ null, %7 ], [ %47, %._crit_edge ], [ null, %29 ], [ null, %35 ]
   ret ptr %.0
 }
 

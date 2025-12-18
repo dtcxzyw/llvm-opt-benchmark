@@ -7402,8 +7402,8 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ESt16
   br i1 %72, label %.body32.i, label %.body35.i
 
 .body32.i:                                        ; preds = %.body35.i, %68, %.body
-  %.pn.i = phi { ptr, i32 } [ %69, %68 ], [ %49, %.body ], [ %52, %.body35.i ]
-  %73 = phi i1 [ false, %68 ], [ false, %.body ], [ true, %.body35.i ]
+  %.pn.i = phi { ptr, i32 } [ %49, %.body ], [ %69, %68 ], [ %52, %.body35.i ]
+  %73 = phi i1 [ false, %.body ], [ false, %68 ], [ true, %.body35.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #34
   br label %.body27.i
 

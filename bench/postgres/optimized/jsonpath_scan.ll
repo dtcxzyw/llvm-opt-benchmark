@@ -249,9 +249,9 @@ addchar.exit341:                                  ; preds = %addchar.exit341.bac
   br label %.loopexit
 
 .loopexit.loopexit:                               ; preds = %.lr.ph.i415, %1118, %1337
-  %.3270.ph = phi ptr [ %1335, %1337 ], [ %1100, %1118 ], [ %1335, %.lr.ph.i415 ]
-  %.5266.ph = phi ptr [ %1344, %1337 ], [ %1123, %1118 ], [ %1344, %.lr.ph.i415 ]
-  %.5.ph = phi ptr [ %1348, %1337 ], [ %1122, %1118 ], [ %1356, %.lr.ph.i415 ]
+  %.3270.ph = phi ptr [ %1100, %1118 ], [ %1335, %1337 ], [ %1335, %.lr.ph.i415 ]
+  %.5266.ph = phi ptr [ %1123, %1118 ], [ %1344, %1337 ], [ %1344, %.lr.ph.i415 ]
+  %.5.ph = phi ptr [ %1122, %1118 ], [ %1348, %1337 ], [ %1356, %.lr.ph.i415 ]
   %.0275889.pre = load i8, ptr %.5266.ph, align 1
   br label %.loopexit
 
@@ -2546,7 +2546,7 @@ checkKeyword.exit.loopexit1715:                   ; preds = %113
   br label %checkKeyword.exit
 
 checkKeyword.exit:                                ; preds = %503, %parseHexChar.exit, %473, %297, %248, %194, %113, %checkKeyword.exit.loopexit1715, %checkKeyword.exit.loopexit1463, %checkKeyword.exit.loopexit1221, %checkKeyword.exit.loopexit896, %checkKeyword.exit.loopexit439, %hexval.exit13.i, %hexval.exit.i, %.critedge.i304, %285, %250, %.critedge.i294, %236, %199, %.critedge.i, %182, %147, %1062, %999, %998, %997, %996, %addchar.exit398, %addchar.exit391, %addchar.exit384, %addchar.exit377, %addchar.exit370, %addchar.exit363, %663, %addchar.exit354, %592, %591, %590, %589, %588, %551, %548, %547, %546, %502, %501
-  %.0 = phi i32 [ 0, %999 ], [ 0, %1062 ], [ 0, %501 ], [ 0, %502 ], [ 0, %546 ], [ 0, %547 ], [ 266, %548 ], [ 269, %551 ], [ 0, %588 ], [ 265, %297 ], [ 275, %589 ], [ 276, %590 ], [ 277, %591 ], [ 278, %592 ], [ 269, %addchar.exit354 ], [ %666, %663 ], [ 267, %addchar.exit363 ], [ 267, %addchar.exit370 ], [ 268, %addchar.exit377 ], [ 268, %addchar.exit384 ], [ 268, %addchar.exit391 ], [ 268, %addchar.exit398 ], [ 0, %996 ], [ 0, %997 ], [ 0, %998 ], [ 265, %147 ], [ %193, %.critedge.i ], [ 265, %182 ], [ 265, %199 ], [ %247, %.critedge.i294 ], [ 265, %236 ], [ 265, %250 ], [ %296, %.critedge.i304 ], [ 265, %285 ], [ 0, %hexval.exit.i ], [ 0, %hexval.exit13.i ], [ 271, %checkKeyword.exit.loopexit439 ], [ 270, %checkKeyword.exit.loopexit896 ], [ 272, %checkKeyword.exit.loopexit1221 ], [ 279, %checkKeyword.exit.loopexit1463 ], [ 274, %113 ], [ 265, %194 ], [ 265, %248 ], [ 273, %checkKeyword.exit.loopexit1715 ], [ 0, %473 ], [ 0, %parseHexChar.exit ], [ 0, %503 ]
+  %.0 = phi i32 [ 0, %999 ], [ 0, %hexval.exit13.i ], [ 274, %113 ], [ 0, %1062 ], [ 271, %checkKeyword.exit.loopexit439 ], [ 0, %501 ], [ 0, %502 ], [ 0, %hexval.exit.i ], [ 0, %546 ], [ 0, %547 ], [ 266, %548 ], [ 269, %551 ], [ 0, %588 ], [ 270, %checkKeyword.exit.loopexit896 ], [ 272, %checkKeyword.exit.loopexit1221 ], [ 279, %checkKeyword.exit.loopexit1463 ], [ 273, %checkKeyword.exit.loopexit1715 ], [ 265, %194 ], [ 265, %297 ], [ 275, %589 ], [ 276, %590 ], [ 265, %248 ], [ 277, %591 ], [ 278, %592 ], [ 269, %addchar.exit354 ], [ %666, %663 ], [ 267, %addchar.exit363 ], [ 267, %addchar.exit370 ], [ 268, %addchar.exit377 ], [ 268, %addchar.exit384 ], [ 268, %addchar.exit391 ], [ 268, %addchar.exit398 ], [ 0, %996 ], [ 0, %997 ], [ 0, %998 ], [ 265, %147 ], [ %193, %.critedge.i ], [ 265, %182 ], [ 265, %199 ], [ %247, %.critedge.i294 ], [ 265, %236 ], [ 265, %250 ], [ %296, %.critedge.i304 ], [ 265, %285 ], [ 0, %473 ], [ 0, %parseHexChar.exit ], [ 0, %503 ]
   ret i32 %.0
 }
 
@@ -2878,7 +2878,7 @@ addUnicode.exit.thread64:                         ; preds = %55
   br label %.critedge
 
 .critedge:                                        ; preds = %addUnicode.exit, %4, %78, %65, %58, %56, %76, %63, %hexval.exit, %hexval.exit45, %._crit_edge91, %88, %90
-  %.2 = phi i1 [ false, %hexval.exit ], [ false, %88 ], [ false, %90 ], [ true, %._crit_edge91 ], [ false, %hexval.exit45 ], [ false, %63 ], [ false, %76 ], [ false, %56 ], [ false, %58 ], [ false, %65 ], [ false, %78 ], [ true, %4 ], [ %82, %addUnicode.exit ]
+  %.2 = phi i1 [ false, %78 ], [ false, %hexval.exit ], [ false, %88 ], [ false, %90 ], [ true, %._crit_edge91 ], [ false, %hexval.exit45 ], [ false, %63 ], [ false, %76 ], [ false, %56 ], [ false, %58 ], [ false, %65 ], [ true, %4 ], [ %82, %addUnicode.exit ]
   ret i1 %.2
 }
 
@@ -4174,7 +4174,7 @@ jsonpath_yy_delete_buffer.exit.i:                 ; preds = %36, %33, %.critedge
   br label %jsonpath_yypop_buffer_state.exit
 
 jsonpath_yypop_buffer_state.exit:                 ; preds = %27, %46, %49
-  %58 = phi ptr [ %26, %27 ], [ %45, %46 ], [ %45, %49 ]
+  %58 = phi ptr [ %45, %49 ], [ %26, %27 ], [ %45, %46 ]
   %59 = load i64, ptr %4, align 8
   %60 = getelementptr inbounds nuw ptr, ptr %58, i64 %59
   %61 = load ptr, ptr %60, align 8

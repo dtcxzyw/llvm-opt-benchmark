@@ -417,7 +417,7 @@ select.unfold.i.i:                                ; preds = %146, %127, %111, %1
   br i1 %.not110.i.i, label %.thread.i.i, label %.lr.ph.i.i
 
 .thread.i.i:                                      ; preds = %select.unfold.i.i, %._crit_edge177.i.i, %130, %93
-  %.194.i.i = phi i32 [ %.093164.i.i, %130 ], [ %145, %._crit_edge177.i.i ], [ 0, %93 ], [ %.396.i.i, %select.unfold.i.i ]
+  %.194.i.i = phi i32 [ %145, %._crit_edge177.i.i ], [ %.093164.i.i, %130 ], [ 0, %93 ], [ %.396.i.i, %select.unfold.i.i ]
   %157 = load ptr, ptr %35, align 8, !tbaa !17
   call void @free(ptr noundef %157) #10
   %158 = zext i32 %.194.i.i to i64
@@ -587,10 +587,10 @@ select.unfold.i.i:                                ; preds = %146, %127, %111, %1
   br label %.thread.i144.i
 
 239:                                              ; preds = %227, %197
-  %.2101.i143.i = phi i32 [ %187, %197 ], [ %215, %227 ]
-  %.195.i.i = phi i32 [ %.296.i.i, %197 ], [ %.498.i.i, %227 ]
-  %.289.i.i = phi ptr [ %.390.i.i, %197 ], [ %.592.i.i, %227 ]
-  %.285.i.i = phi i32 [ %180, %197 ], [ %205, %227 ]
+  %.2101.i143.i = phi i32 [ %215, %227 ], [ %187, %197 ]
+  %.195.i.i = phi i32 [ %.498.i.i, %227 ], [ %.296.i.i, %197 ]
+  %.289.i.i = phi ptr [ %.592.i.i, %227 ], [ %.390.i.i, %197 ]
+  %.285.i.i = phi i32 [ %205, %227 ], [ %180, %197 ]
   %240 = icmp ult i32 %.285.i.i, %78
   br i1 %240, label %.lr.ph.i142.i, label %.thread.i144.i
 
@@ -1090,7 +1090,7 @@ filter_flatedecode.exit.i:                        ; preds = %.thread14.i.i, %.th
   br i1 %.not36.i.i, label %.loopexit.i.i, label %.lr.ph.i162.i
 
 .loopexit.i.i:                                    ; preds = %413, %.preheader.i161.i, %389
-  %.029.i.i = phi i32 [ 2, %389 ], [ 2, %.preheader.i161.i ], [ %.2.i163.i, %413 ]
+  %.029.i.i = phi i32 [ 2, %.preheader.i161.i ], [ 2, %389 ], [ %.2.i163.i, %413 ]
   %415 = load i32, ptr %69, align 8, !tbaa !7
   %416 = call ptr @decrypt_any(ptr noundef nonnull %0, i32 noundef %415, ptr noundef %79, ptr noundef nonnull %12, i32 noundef %.029.i.i) #10
   %.not41.i165.i = icmp eq ptr %416, null

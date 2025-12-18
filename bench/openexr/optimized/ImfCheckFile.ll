@@ -3570,7 +3570,7 @@ define internal noundef range(i32 0, 2) i32 @_ZN7Imf_3_412_GLOBAL__N_116realloc_
   br i1 %exitcond128.not, label %.loopexit92, label %.lr.ph, !llvm.loop !99
 
 .loopexit92:                                      ; preds = %._crit_edge.us, %.lr.ph, %.preheader93.lr.ph, %.preheader94, %.preheader91
-  %.2 = phi i64 [ 0, %.preheader91 ], [ 0, %.preheader94 ], [ 0, %.preheader93.lr.ph ], [ %47, %.lr.ph ], [ %37, %._crit_edge.us ]
+  %.2 = phi i64 [ %47, %.lr.ph ], [ 0, %.preheader91 ], [ 0, %.preheader94 ], [ 0, %.preheader93.lr.ph ], [ %37, %._crit_edge.us ]
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %49 = load i16, ptr %48, align 8, !tbaa !66
   %50 = icmp sgt i16 %49, 0
@@ -3678,7 +3678,7 @@ define internal noundef range(i32 0, 2) i32 @_ZN7Imf_3_412_GLOBAL__N_116realloc_
   br i1 %108, label %94, label %.loopexit, !llvm.loop !102
 
 .loopexit:                                        ; preds = %94, %62, %14, %.loopexit92, %90, %.preheader, %82
-  %.0 = phi i32 [ 1, %82 ], [ 0, %.preheader ], [ 0, %90 ], [ 0, %.loopexit92 ], [ 0, %62 ], [ 0, %14 ], [ 0, %94 ]
+  %.0 = phi i32 [ 0, %.preheader ], [ 0, %62 ], [ 1, %82 ], [ 0, %90 ], [ 0, %.loopexit92 ], [ 0, %14 ], [ 0, %94 ]
   ret i32 %.0
 }
 
@@ -4727,7 +4727,7 @@ default.unreachable:                              ; preds = %363
   br label %253
 
 ._crit_edge.i:                                    ; preds = %236, %228, %224, %219
-  %not..not.lcssa.i = phi i1 [ false, %219 ], [ true, %224 ], [ false, %228 ], [ %.346.i, %236 ]
+  %not..not.lcssa.i = phi i1 [ false, %219 ], [ false, %228 ], [ true, %224 ], [ %.346.i, %236 ]
   %.not.i.i.i.i = icmp eq ptr %.sroa.092.0.i, null
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIjSaIjEED2Ev.exit.i, label %240
 
@@ -7253,9 +7253,9 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit.us.i.us.us.us.us.us.us: ; preds = %_ZNSt12_Ve
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit.i140
 
 .loopexit308.i:                                   ; preds = %..thread267_crit_edge.us.i, %993, %.split.us, %.split.us452.split.us
-  %.not188373.i = phi i1 [ true, %.split.us ], [ true, %.split.us452.split.us ], [ true, %993 ], [ %.us-phi470, %..thread267_crit_edge.us.i ]
-  %.sroa.0.1.i = phi ptr [ %.sroa.0.0472.us.i, %.split.us ], [ %.sroa.0.0472.us.i, %.split.us452.split.us ], [ %.sroa.0.11.us.i.us.us.us.us.us.us, %993 ], [ %.us-phi467, %..thread267_crit_edge.us.i ]
-  %.sroa.15.1.i = phi ptr [ %.sroa.15.0474.us.i, %.split.us ], [ %.sroa.15.0474.us.i, %.split.us452.split.us ], [ %.sroa.15.11.us.i.us.us.us.us.us.us, %993 ], [ %.us-phi469, %..thread267_crit_edge.us.i ]
+  %.not188373.i = phi i1 [ true, %.split.us ], [ true, %993 ], [ true, %.split.us452.split.us ], [ %.us-phi470, %..thread267_crit_edge.us.i ]
+  %.sroa.0.1.i = phi ptr [ %.sroa.0.0472.us.i, %.split.us ], [ %.sroa.0.11.us.i.us.us.us.us.us.us, %993 ], [ %.sroa.0.0472.us.i, %.split.us452.split.us ], [ %.us-phi467, %..thread267_crit_edge.us.i ]
+  %.sroa.15.1.i = phi ptr [ %.sroa.15.0474.us.i, %.split.us ], [ %.sroa.15.11.us.i.us.us.us.us.us.us, %993 ], [ %.sroa.15.0474.us.i, %.split.us452.split.us ], [ %.us-phi469, %..thread267_crit_edge.us.i ]
   %.not.i.i.i197.i = icmp eq ptr %.sroa.0.1.i, null
   br i1 %.not.i.i.i197.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit198.i, label %1056
 
@@ -8102,7 +8102,7 @@ default.unreachable:                              ; preds = %78
   br label %158
 
 ._crit_edge:                                      ; preds = %141, %133, %129, %124
-  %not..not.lcssa = phi i1 [ false, %124 ], [ true, %129 ], [ false, %133 ], [ %.346, %141 ]
+  %not..not.lcssa = phi i1 [ false, %124 ], [ false, %133 ], [ true, %129 ], [ %.346, %141 ]
   %.not.i.i.i = icmp eq ptr %.sroa.092.0, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIjSaIjEED2Ev.exit, label %145
 

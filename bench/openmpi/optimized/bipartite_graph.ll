@@ -646,7 +646,7 @@ pmix_pointer_array_get_item.exit:                 ; preds = %21
   br label %47
 
 .thread:                                          ; preds = %.lr.ph, %21, %pmix_pointer_array_get_item.exit, %.lr.ph56
-  %.131 = phi i32 [ -13, %21 ], [ %42, %.lr.ph56 ], [ -13, %pmix_pointer_array_get_item.exit ], [ %20, %.lr.ph ]
+  %.131 = phi i32 [ %42, %.lr.ph56 ], [ -13, %21 ], [ -13, %pmix_pointer_array_get_item.exit ], [ %20, %.lr.ph ]
   %46 = call i32 @prte_bp_graph_free(ptr noundef %.pre66.pre)
   br label %47
 
@@ -957,7 +957,7 @@ pmix_pointer_array_get_item.exit58:               ; preds = %pmix_obj_update.exi
   br label %pmix_pointer_array_get_item.exit.thread
 
 pmix_pointer_array_get_item.exit.thread:          ; preds = %.lr.ph, %14, %pmix_obj_new_tma.exit, %pmix_pointer_array_get_item.exit55.thread, %pmix_pointer_array_get_item.exit58, %pmix_pointer_array_get_item.exit, %10, %6, %8
-  %.0 = phi i32 [ -13, %pmix_pointer_array_get_item.exit55.thread ], [ -5, %6 ], [ -5, %10 ], [ -5, %8 ], [ 0, %pmix_pointer_array_get_item.exit58 ], [ -13, %pmix_pointer_array_get_item.exit ], [ -2, %pmix_obj_new_tma.exit ], [ -13, %14 ], [ -14, %.lr.ph ]
+  %.0 = phi i32 [ -13, %pmix_pointer_array_get_item.exit55.thread ], [ -5, %6 ], [ -5, %10 ], [ -13, %14 ], [ -5, %8 ], [ 0, %pmix_pointer_array_get_item.exit58 ], [ -13, %pmix_pointer_array_get_item.exit ], [ -2, %pmix_obj_new_tma.exit ], [ -14, %.lr.ph ]
   ret i32 %.0
 }
 
@@ -1469,7 +1469,7 @@ pmix_pointer_array_get_item.exit:                 ; preds = %54
   br i1 %exitcond128.not, label %.thread, label %54, !llvm.loop !74
 
 .thread:                                          ; preds = %40, %34, %._crit_edge111, %pmix_pointer_array_get_item.exit, %54, %.lr.ph110, %.preheader, %49, %._crit_edge, %5, %1
-  %.0 = phi i32 [ -5, %._crit_edge ], [ %4, %1 ], [ 0, %49 ], [ %7, %5 ], [ -13, %54 ], [ -5, %.preheader ], [ %70, %.lr.ph110 ], [ -13, %pmix_pointer_array_get_item.exit ], [ 0, %._crit_edge111 ], [ %38, %34 ], [ %44, %40 ]
+  %.0 = phi i32 [ -5, %._crit_edge ], [ %4, %1 ], [ 0, %49 ], [ %7, %5 ], [ %70, %.lr.ph110 ], [ -5, %.preheader ], [ -13, %54 ], [ 0, %._crit_edge111 ], [ -13, %pmix_pointer_array_get_item.exit ], [ %44, %40 ], [ %38, %34 ]
   ret i32 %.0
 }
 

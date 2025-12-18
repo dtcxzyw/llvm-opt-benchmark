@@ -1420,7 +1420,7 @@ _ZN8PSOldGen21cas_allocate_noexpandEm.exit.i.i26: ; preds = %109
   br i1 %128, label %109, label %_ZN20ParallelScavengeHeap24expand_heap_and_allocateEmb.exit, !llvm.loop !14
 
 _ZN20ParallelScavengeHeap24expand_heap_and_allocateEmb.exit: ; preds = %_ZN8PSOldGen21cas_allocate_noexpandEm.exit.i.i26, %_ZN8PSOldGen21cas_allocate_noexpandEm.exit.i.i, %126, %115, %_ZN20ParallelScavengeHeap24expand_heap_and_allocateEmb.exit22.thread33, %93, %82, %38, %27, %9, %_ZN20ParallelScavengeHeap24expand_heap_and_allocateEmb.exit22
-  %.0 = phi ptr [ %81, %93 ], [ %71, %_ZN20ParallelScavengeHeap24expand_heap_and_allocateEmb.exit22 ], [ %16, %9 ], [ %26, %27 ], [ %26, %38 ], [ %81, %82 ], [ %104, %_ZN20ParallelScavengeHeap24expand_heap_and_allocateEmb.exit22.thread33 ], [ %114, %115 ], [ %114, %126 ], [ null, %_ZN8PSOldGen21cas_allocate_noexpandEm.exit.i.i ], [ null, %_ZN8PSOldGen21cas_allocate_noexpandEm.exit.i.i26 ]
+  %.0 = phi ptr [ %81, %93 ], [ %71, %_ZN20ParallelScavengeHeap24expand_heap_and_allocateEmb.exit22 ], [ %16, %9 ], [ %26, %27 ], [ %26, %38 ], [ null, %_ZN8PSOldGen21cas_allocate_noexpandEm.exit.i.i ], [ %81, %82 ], [ %104, %_ZN20ParallelScavengeHeap24expand_heap_and_allocateEmb.exit22.thread33 ], [ %114, %115 ], [ %114, %126 ], [ null, %_ZN8PSOldGen21cas_allocate_noexpandEm.exit.i.i26 ]
   ret ptr %.0
 }
 

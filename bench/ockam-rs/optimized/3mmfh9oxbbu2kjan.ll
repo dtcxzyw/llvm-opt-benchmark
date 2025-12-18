@@ -316,12 +316,12 @@ define hidden void @"_ZN101_$LT$futures_util..stream..stream..map..Map$LT$St$C$F
   resume { ptr, i32 } %20
 
 "_ZN56_$LT$T$u20$as$u20$futures_util..fns..FnMut1$LT$A$GT$$GT$8call_mut17h472cf7818d6277bfE.exit": ; preds = %14, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h33e27de0b268ff61E.llvm.17178189915861732009.exit.i.i", %16
-  %.sroa.54.sroa.0.0 = phi ptr [ %.sroa.4.sroa.0.0.copyload, %14 ], [ %.sroa.716.8.copyload17, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h33e27de0b268ff61E.llvm.17178189915861732009.exit.i.i" ], [ null, %16 ]
-  %.sroa.54.sroa.4.0 = phi i64 [ %.sroa.4.sroa.4.0.copyload, %14 ], [ %.sroa.11.8.copyload18, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h33e27de0b268ff61E.llvm.17178189915861732009.exit.i.i" ], [ %.sroa.4.sroa.4.0.copyload, %16 ]
-  %.sroa.54.sroa.5.0 = phi i64 [ %.sroa.4.sroa.5.0.copyload, %14 ], [ %.sroa.13.8.copyload19, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h33e27de0b268ff61E.llvm.17178189915861732009.exit.i.i" ], [ %.sroa.4.sroa.5.0.copyload, %16 ]
-  %.sroa.54.sroa.6.0 = phi i64 [ %.sroa.4.sroa.6.0.copyload, %14 ], [ %.sroa.15.0, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h33e27de0b268ff61E.llvm.17178189915861732009.exit.i.i" ], [ undef, %16 ]
-  %.sroa.54.sroa.7.0 = phi i64 [ %.sroa.4.sroa.7.0.copyload, %14 ], [ %.sroa.16.0, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h33e27de0b268ff61E.llvm.17178189915861732009.exit.i.i" ], [ undef, %16 ]
-  %.sroa.02.0 = phi i64 [ %12, %14 ], [ %21, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h33e27de0b268ff61E.llvm.17178189915861732009.exit.i.i" ], [ 16, %16 ]
+  %.sroa.54.sroa.0.0 = phi ptr [ %.sroa.4.sroa.0.0.copyload, %14 ], [ null, %16 ], [ %.sroa.716.8.copyload17, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h33e27de0b268ff61E.llvm.17178189915861732009.exit.i.i" ]
+  %.sroa.54.sroa.4.0 = phi i64 [ %.sroa.4.sroa.4.0.copyload, %14 ], [ %.sroa.4.sroa.4.0.copyload, %16 ], [ %.sroa.11.8.copyload18, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h33e27de0b268ff61E.llvm.17178189915861732009.exit.i.i" ]
+  %.sroa.54.sroa.5.0 = phi i64 [ %.sroa.4.sroa.5.0.copyload, %14 ], [ %.sroa.4.sroa.5.0.copyload, %16 ], [ %.sroa.13.8.copyload19, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h33e27de0b268ff61E.llvm.17178189915861732009.exit.i.i" ]
+  %.sroa.54.sroa.6.0 = phi i64 [ %.sroa.4.sroa.6.0.copyload, %14 ], [ undef, %16 ], [ %.sroa.15.0, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h33e27de0b268ff61E.llvm.17178189915861732009.exit.i.i" ]
+  %.sroa.54.sroa.7.0 = phi i64 [ %.sroa.4.sroa.7.0.copyload, %14 ], [ undef, %16 ], [ %.sroa.16.0, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h33e27de0b268ff61E.llvm.17178189915861732009.exit.i.i" ]
+  %.sroa.02.0 = phi i64 [ %12, %14 ], [ 16, %16 ], [ %21, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h33e27de0b268ff61E.llvm.17178189915861732009.exit.i.i" ]
   store i64 %.sroa.02.0, ptr %0, align 8
   %.sroa.54.0..sroa_idx5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.54.sroa.0.0, ptr %.sroa.54.0..sroa_idx5, align 8
@@ -430,12 +430,12 @@ define hidden void @"_ZN101_$LT$futures_util..stream..stream..map..Map$LT$St$C$F
   resume { ptr, i32 } %20
 
 "_ZN56_$LT$T$u20$as$u20$futures_util..fns..FnMut1$LT$A$GT$$GT$8call_mut17h34e7b1ceb4dfb407E.exit": ; preds = %14, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hc718bb55f8eebc42E.llvm.17178189915861732009.exit.i.i", %16
-  %.sroa.54.sroa.0.0 = phi ptr [ %.sroa.4.sroa.0.0.copyload, %14 ], [ %.sroa.716.8.copyload17, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hc718bb55f8eebc42E.llvm.17178189915861732009.exit.i.i" ], [ null, %16 ]
-  %.sroa.54.sroa.4.0 = phi i64 [ %.sroa.4.sroa.4.0.copyload, %14 ], [ %.sroa.11.8.copyload18, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hc718bb55f8eebc42E.llvm.17178189915861732009.exit.i.i" ], [ %.sroa.4.sroa.4.0.copyload, %16 ]
-  %.sroa.54.sroa.5.0 = phi i64 [ %.sroa.4.sroa.5.0.copyload, %14 ], [ %.sroa.13.8.copyload19, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hc718bb55f8eebc42E.llvm.17178189915861732009.exit.i.i" ], [ %.sroa.4.sroa.5.0.copyload, %16 ]
-  %.sroa.54.sroa.6.0 = phi i64 [ %.sroa.4.sroa.6.0.copyload, %14 ], [ %.sroa.15.0, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hc718bb55f8eebc42E.llvm.17178189915861732009.exit.i.i" ], [ undef, %16 ]
-  %.sroa.54.sroa.7.0 = phi i64 [ %.sroa.4.sroa.7.0.copyload, %14 ], [ %.sroa.16.0, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hc718bb55f8eebc42E.llvm.17178189915861732009.exit.i.i" ], [ undef, %16 ]
-  %.sroa.02.0 = phi i64 [ %12, %14 ], [ %21, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hc718bb55f8eebc42E.llvm.17178189915861732009.exit.i.i" ], [ 16, %16 ]
+  %.sroa.54.sroa.0.0 = phi ptr [ %.sroa.4.sroa.0.0.copyload, %14 ], [ null, %16 ], [ %.sroa.716.8.copyload17, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hc718bb55f8eebc42E.llvm.17178189915861732009.exit.i.i" ]
+  %.sroa.54.sroa.4.0 = phi i64 [ %.sroa.4.sroa.4.0.copyload, %14 ], [ %.sroa.4.sroa.4.0.copyload, %16 ], [ %.sroa.11.8.copyload18, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hc718bb55f8eebc42E.llvm.17178189915861732009.exit.i.i" ]
+  %.sroa.54.sroa.5.0 = phi i64 [ %.sroa.4.sroa.5.0.copyload, %14 ], [ %.sroa.4.sroa.5.0.copyload, %16 ], [ %.sroa.13.8.copyload19, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hc718bb55f8eebc42E.llvm.17178189915861732009.exit.i.i" ]
+  %.sroa.54.sroa.6.0 = phi i64 [ %.sroa.4.sroa.6.0.copyload, %14 ], [ undef, %16 ], [ %.sroa.15.0, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hc718bb55f8eebc42E.llvm.17178189915861732009.exit.i.i" ]
+  %.sroa.54.sroa.7.0 = phi i64 [ %.sroa.4.sroa.7.0.copyload, %14 ], [ undef, %16 ], [ %.sroa.16.0, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hc718bb55f8eebc42E.llvm.17178189915861732009.exit.i.i" ]
+  %.sroa.02.0 = phi i64 [ %12, %14 ], [ 16, %16 ], [ %21, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hc718bb55f8eebc42E.llvm.17178189915861732009.exit.i.i" ]
   store i64 %.sroa.02.0, ptr %0, align 8
   %.sroa.54.0..sroa_idx5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.54.sroa.0.0, ptr %.sroa.54.0..sroa_idx5, align 8
@@ -812,12 +812,12 @@ define hidden void @"_ZN101_$LT$futures_util..stream..stream..map..Map$LT$St$C$F
   resume { ptr, i32 } %20
 
 "_ZN56_$LT$T$u20$as$u20$futures_util..fns..FnMut1$LT$A$GT$$GT$8call_mut17h371c7b750efa0605E.exit": ; preds = %14, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hf0c55fe0bb05de25E.llvm.17178189915861732009.exit.i.i", %16
-  %.sroa.54.sroa.0.0 = phi ptr [ %.sroa.4.sroa.0.0.copyload, %14 ], [ %.sroa.716.8.copyload17, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hf0c55fe0bb05de25E.llvm.17178189915861732009.exit.i.i" ], [ null, %16 ]
-  %.sroa.54.sroa.4.0 = phi i64 [ %.sroa.4.sroa.4.0.copyload, %14 ], [ %.sroa.11.8.copyload18, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hf0c55fe0bb05de25E.llvm.17178189915861732009.exit.i.i" ], [ %.sroa.4.sroa.4.0.copyload, %16 ]
-  %.sroa.54.sroa.5.0 = phi i64 [ %.sroa.4.sroa.5.0.copyload, %14 ], [ %.sroa.13.8.copyload19, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hf0c55fe0bb05de25E.llvm.17178189915861732009.exit.i.i" ], [ %.sroa.4.sroa.5.0.copyload, %16 ]
-  %.sroa.54.sroa.6.0 = phi i64 [ %.sroa.4.sroa.6.0.copyload, %14 ], [ %.sroa.15.0, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hf0c55fe0bb05de25E.llvm.17178189915861732009.exit.i.i" ], [ undef, %16 ]
-  %.sroa.54.sroa.7.0 = phi i64 [ %.sroa.4.sroa.7.0.copyload, %14 ], [ %.sroa.16.0, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hf0c55fe0bb05de25E.llvm.17178189915861732009.exit.i.i" ], [ undef, %16 ]
-  %.sroa.02.0 = phi i64 [ %12, %14 ], [ %21, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hf0c55fe0bb05de25E.llvm.17178189915861732009.exit.i.i" ], [ 16, %16 ]
+  %.sroa.54.sroa.0.0 = phi ptr [ %.sroa.4.sroa.0.0.copyload, %14 ], [ null, %16 ], [ %.sroa.716.8.copyload17, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hf0c55fe0bb05de25E.llvm.17178189915861732009.exit.i.i" ]
+  %.sroa.54.sroa.4.0 = phi i64 [ %.sroa.4.sroa.4.0.copyload, %14 ], [ %.sroa.4.sroa.4.0.copyload, %16 ], [ %.sroa.11.8.copyload18, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hf0c55fe0bb05de25E.llvm.17178189915861732009.exit.i.i" ]
+  %.sroa.54.sroa.5.0 = phi i64 [ %.sroa.4.sroa.5.0.copyload, %14 ], [ %.sroa.4.sroa.5.0.copyload, %16 ], [ %.sroa.13.8.copyload19, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hf0c55fe0bb05de25E.llvm.17178189915861732009.exit.i.i" ]
+  %.sroa.54.sroa.6.0 = phi i64 [ %.sroa.4.sroa.6.0.copyload, %14 ], [ undef, %16 ], [ %.sroa.15.0, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hf0c55fe0bb05de25E.llvm.17178189915861732009.exit.i.i" ]
+  %.sroa.54.sroa.7.0 = phi i64 [ %.sroa.4.sroa.7.0.copyload, %14 ], [ undef, %16 ], [ %.sroa.16.0, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hf0c55fe0bb05de25E.llvm.17178189915861732009.exit.i.i" ]
+  %.sroa.02.0 = phi i64 [ %12, %14 ], [ 16, %16 ], [ %21, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hf0c55fe0bb05de25E.llvm.17178189915861732009.exit.i.i" ]
   store i64 %.sroa.02.0, ptr %0, align 8
   %.sroa.54.0..sroa_idx5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.54.sroa.0.0, ptr %.sroa.54.0..sroa_idx5, align 8

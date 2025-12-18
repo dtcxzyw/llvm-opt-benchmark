@@ -597,8 +597,8 @@ _ZNKSt14default_deleteIN4base15DictionaryValueEEclEPS1_.exit.i29: ; preds = %.th
   br label %_ZNSt10unique_ptrIN4base15DictionaryValueESt14default_deleteIS1_EED2Ev.exit30
 
 _ZNSt10unique_ptrIN4base15DictionaryValueESt14default_deleteIS1_EED2Ev.exit30: ; preds = %76, %_ZNKSt14default_deleteIN4base15DictionaryValueEEclEPS1_.exit.i29
-  %.sroa.052.1 = phi ptr [ %.sroa.052.6, %76 ], [ %.sroa.052.361, %_ZNKSt14default_deleteIN4base15DictionaryValueEEclEPS1_.exit.i29 ]
-  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn, %76 ], [ %.pn.pn.pn.pn63, %_ZNKSt14default_deleteIN4base15DictionaryValueEEclEPS1_.exit.i29 ]
+  %.sroa.052.1 = phi ptr [ %.sroa.052.361, %_ZNKSt14default_deleteIN4base15DictionaryValueEEclEPS1_.exit.i29 ], [ %.sroa.052.6, %76 ]
+  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn63, %_ZNKSt14default_deleteIN4base15DictionaryValueEEclEPS1_.exit.i29 ], [ %.pn, %76 ]
   %.not.i31 = icmp eq ptr %.sroa.052.1, null
   br i1 %.not.i31, label %_ZNSt10unique_ptrIN4base9ListValueESt14default_deleteIS1_EED2Ev.exit33, label %_ZNKSt14default_deleteIN4base9ListValueEEclEPS1_.exit.i32
 

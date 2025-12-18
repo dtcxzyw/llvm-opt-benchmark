@@ -1959,14 +1959,14 @@ define hidden noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..
   %45 = icmp eq i64 %44, 0
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %47 = load i64, ptr %46, align 8, !alias.scope !409, !noalias !408, !noundef !4
-  br i1 %45, label %48, label %"_ZN69_$LT$multi_buffer..anchor..Anchor$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6c7aa44299be95dE.llvm.981029652891059309.exit.i"
+  br i1 %45, label %"_ZN69_$LT$multi_buffer..anchor..Anchor$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6c7aa44299be95dE.llvm.981029652891059309.exit.i", label %48
 
 48:                                               ; preds = %42
-  %49 = icmp eq i64 %47, 0
+  %49 = icmp eq i64 %44, %47
   br i1 %49, label %51, label %"_ZN75_$LT$core..ops..range..Range$LT$Idx$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfd770c68dac6e4b4E.llvm.981029652891059309.exit"
 
 "_ZN69_$LT$multi_buffer..anchor..Anchor$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6c7aa44299be95dE.llvm.981029652891059309.exit.i": ; preds = %42
-  %50 = icmp eq i64 %44, %47
+  %50 = icmp eq i64 %47, 0
   br i1 %50, label %51, label %"_ZN75_$LT$core..ops..range..Range$LT$Idx$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfd770c68dac6e4b4E.llvm.981029652891059309.exit"
 
 51:                                               ; preds = %"_ZN69_$LT$multi_buffer..anchor..Anchor$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6c7aa44299be95dE.llvm.981029652891059309.exit.i", %48
@@ -2173,7 +2173,7 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
   br label %46
 
 "_ZN13outline_panel12OutlinePanel18add_search_entries28_$u7b$$u7b$closure$u7d$$u7d$17h4ed25b09872f38f4E.llvm.981029652891059309.exit": ; preds = %.lr.ph.i.i.i, %._crit_edge.i.i12.i, %.lr.ph.i.i9.i, %2
-  %.sroa.0.0.i = phi i1 [ false, %2 ], [ false, %._crit_edge.i.i12.i ], [ true, %.lr.ph.i.i9.i ], [ true, %.lr.ph.i.i.i ]
+  %.sroa.0.0.i = phi i1 [ true, %.lr.ph.i.i9.i ], [ false, %2 ], [ false, %._crit_edge.i.i12.i ], [ true, %.lr.ph.i.i.i ]
   ret i1 %.sroa.0.0.i
 }
 
@@ -6634,14 +6634,14 @@ define hidden noundef zeroext i1 @"_ZN4core5tuple64_$LT$impl$u20$core..cmp..Part
   %51 = icmp eq i64 %50, 0
   %52 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %53 = load i64, ptr %52, align 8, !alias.scope !1892, !noalias !1893, !noundef !4
-  br i1 %51, label %54, label %"_ZN69_$LT$multi_buffer..anchor..Anchor$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6c7aa44299be95dE.llvm.981029652891059309.exit.i.i"
+  br i1 %51, label %"_ZN69_$LT$multi_buffer..anchor..Anchor$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6c7aa44299be95dE.llvm.981029652891059309.exit.i.i", label %54
 
 54:                                               ; preds = %48
-  %55 = icmp eq i64 %53, 0
+  %55 = icmp eq i64 %50, %53
   br i1 %55, label %57, label %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h8902150646661fceE.llvm.981029652891059309.exit"
 
 "_ZN69_$LT$multi_buffer..anchor..Anchor$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6c7aa44299be95dE.llvm.981029652891059309.exit.i.i": ; preds = %48
-  %56 = icmp eq i64 %50, %53
+  %56 = icmp eq i64 %53, 0
   br i1 %56, label %57, label %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h8902150646661fceE.llvm.981029652891059309.exit"
 
 57:                                               ; preds = %"_ZN69_$LT$multi_buffer..anchor..Anchor$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6c7aa44299be95dE.llvm.981029652891059309.exit.i.i", %54
@@ -18513,14 +18513,14 @@ define hidden noundef zeroext i1 @"_ZN75_$LT$core..ops..range..Range$LT$Idx$GT$$
   %43 = icmp eq i64 %42, 0
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %45 = load i64, ptr %44, align 8, !alias.scope !4122, !noalias !4121, !noundef !4
-  br i1 %43, label %46, label %"_ZN69_$LT$multi_buffer..anchor..Anchor$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6c7aa44299be95dE.llvm.981029652891059309.exit"
+  br i1 %43, label %"_ZN69_$LT$multi_buffer..anchor..Anchor$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6c7aa44299be95dE.llvm.981029652891059309.exit", label %46
 
 46:                                               ; preds = %40
-  %47 = icmp eq i64 %45, 0
+  %47 = icmp eq i64 %42, %45
   br i1 %47, label %49, label %"_ZN69_$LT$multi_buffer..anchor..Anchor$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6c7aa44299be95dE.llvm.981029652891059309.exit2"
 
 "_ZN69_$LT$multi_buffer..anchor..Anchor$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6c7aa44299be95dE.llvm.981029652891059309.exit": ; preds = %40
-  %48 = icmp eq i64 %42, %45
+  %48 = icmp eq i64 %45, 0
   br i1 %48, label %49, label %"_ZN69_$LT$multi_buffer..anchor..Anchor$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6c7aa44299be95dE.llvm.981029652891059309.exit2"
 
 49:                                               ; preds = %46, %"_ZN69_$LT$multi_buffer..anchor..Anchor$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6c7aa44299be95dE.llvm.981029652891059309.exit"
@@ -30680,7 +30680,7 @@ define hidden noundef zeroext i1 @"_ZN13outline_panel12OutlinePanel17update_fs_e
   br i1 %43, label %common.resume, label %.lr.ph12.i
 
 common.resume:                                    ; preds = %"_ZN4core3ptr95drop_in_place$LT$$LP$worktree..ProjectEntryId$C$alloc..sync..Arc$LT$std..path..Path$GT$$RP$$GT$17hd2bf00e6f1c5b1c3E.exit8.i", %355, %359, %269, %33
-  %common.resume.op = phi { ptr, i32 } [ %270, %269 ], [ %34, %33 ], [ %356, %359 ], [ %356, %355 ], [ %34, %"_ZN4core3ptr95drop_in_place$LT$$LP$worktree..ProjectEntryId$C$alloc..sync..Arc$LT$std..path..Path$GT$$RP$$GT$17hd2bf00e6f1c5b1c3E.exit8.i" ]
+  %common.resume.op = phi { ptr, i32 } [ %270, %269 ], [ %34, %33 ], [ %356, %355 ], [ %356, %359 ], [ %34, %"_ZN4core3ptr95drop_in_place$LT$$LP$worktree..ProjectEntryId$C$alloc..sync..Arc$LT$std..path..Path$GT$$RP$$GT$17hd2bf00e6f1c5b1c3E.exit8.i" ]
   resume { ptr, i32 } %common.resume.op
 
 44:                                               ; preds = %42
@@ -31874,7 +31874,7 @@ define hidden noundef zeroext i1 @"_ZN13outline_panel12OutlinePanel18add_search_
   br label %45
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hae1011fff3ae7434E.llvm.981029652891059309.exit": ; preds = %.lr.ph.i.i, %._crit_edge.i.i12, %.lr.ph.i.i9, %2
-  %.sroa.0.0 = phi i1 [ false, %2 ], [ false, %._crit_edge.i.i12 ], [ true, %.lr.ph.i.i9 ], [ true, %.lr.ph.i.i ]
+  %.sroa.0.0 = phi i1 [ true, %.lr.ph.i.i9 ], [ false, %2 ], [ false, %._crit_edge.i.i12 ], [ true, %.lr.ph.i.i ]
   ret i1 %.sroa.0.0
 }
 

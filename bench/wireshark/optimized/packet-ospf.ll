@@ -2271,7 +2271,7 @@ switch.lookup:                                    ; preds = %.lr.ph.split.i231
   br i1 %.not112.i.i, label %dissect_ospfv3_lls_tlv.exit.i, label %.lr.ph.i.i, !llvm.loop !20
 
 dissect_ospfv3_lls_tlv.exit.i:                    ; preds = %.lr.ph.i.i, %.lr.ph131.i.i, %.lr.ph135.i.i, %.lr.ph139.i.i, %430, %415, %405, %400, %.preheader.i.i, %.preheader121.i.i, %.preheader123.i.i, %392
-  %.0.i.i = phi i32 [ %.040.i, %392 ], [ %.040.i, %400 ], [ %.040.i, %405 ], [ %.040.i, %430 ], [ %.040.i, %.preheader121.i.i ], [ %.040.i, %.preheader.i.i ], [ %424, %415 ], [ %.040.i, %.preheader123.i.i ], [ %.040.i, %.lr.ph131.i.i ], [ %.040.i, %.lr.ph139.i.i ], [ %429, %.lr.ph135.i.i ], [ %.040.i, %.lr.ph.i.i ]
+  %.0.i.i = phi i32 [ %.040.i, %392 ], [ %.040.i, %400 ], [ %.040.i, %405 ], [ %.040.i, %.preheader.i.i ], [ %.040.i, %.preheader121.i.i ], [ %.040.i, %430 ], [ %.040.i, %.lr.ph131.i.i ], [ %.040.i, %.preheader123.i.i ], [ %424, %415 ], [ %.040.i, %.lr.ph139.i.i ], [ %429, %.lr.ph135.i.i ], [ %.040.i, %.lr.ph.i.i ]
   %438 = add i32 %.0.i.i, %380
   %439 = icmp sgt i32 %341, %438
   br i1 %439, label %.lr.ph.split.i231, label %dissect_ospf_lls_data_block.exit, !llvm.loop !16
@@ -3961,7 +3961,7 @@ dissect_ospf_lsa_opaque.exit:                     ; preds = %278, %230, %231, %2
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph268, %.lr.ph271, %._crit_edge, %211, %193, %178, %112, %dissect_ospf_lsa_opaque.exit, %906, %109, %106, %104, %98
-  %.0 = phi i32 [ -1, %98 ], [ -1, %104 ], [ %107, %109 ], [ %107, %106 ], [ %909, %906 ], [ %905, %dissect_ospf_lsa_opaque.exit ], [ %119, %112 ], [ %174, %178 ], [ %187, %193 ], [ %205, %211 ], [ %200, %.lr.ph268 ], [ %.1.lcssa, %._crit_edge ], [ %182, %.lr.ph271 ], [ %226, %.lr.ph ]
+  %.0 = phi i32 [ -1, %98 ], [ -1, %104 ], [ %107, %109 ], [ %107, %106 ], [ %909, %906 ], [ %905, %dissect_ospf_lsa_opaque.exit ], [ %.1.lcssa, %._crit_edge ], [ %182, %.lr.ph271 ], [ %200, %.lr.ph268 ], [ %119, %112 ], [ %174, %178 ], [ %187, %193 ], [ %205, %211 ], [ %226, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   ret i32 %.0
@@ -4496,7 +4496,7 @@ dissect_ospf_v3_network_lsa_common.exit266:       ; preds = %326, %330
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %255, %.lr.ph418, %93, %68, %264, %227, %dissect_ospf_v3_network_lsa_common.exit, %148, %172, %295, %298, %314, %dissect_ospf_v3_network_lsa_common.exit266, %340, %343, %354, %223, %220, %proto_item_set_hidden.exit
-  %.0403 = phi i32 [ %358, %354 ], [ %154, %148 ], [ %179, %172 ], [ %226, %223 ], [ %.4, %220 ], [ %297, %295 ], [ %313, %298 ], [ %325, %314 ], [ %339, %dissect_ospf_v3_network_lsa_common.exit266 ], [ %342, %340 ], [ %353, %343 ], [ %65, %proto_item_set_hidden.exit ], [ %118, %dissect_ospf_v3_network_lsa_common.exit ], [ %241, %227 ], [ %276, %264 ], [ %76, %68 ], [ %261, %255 ], [ %106, %93 ], [ %123, %.lr.ph418 ], [ %292, %.lr.ph ]
+  %.0403 = phi i32 [ %358, %354 ], [ %65, %proto_item_set_hidden.exit ], [ %76, %68 ], [ %154, %148 ], [ %179, %172 ], [ %226, %223 ], [ %.4, %220 ], [ %123, %.lr.ph418 ], [ %261, %255 ], [ %297, %295 ], [ %313, %298 ], [ %325, %314 ], [ %339, %dissect_ospf_v3_network_lsa_common.exit266 ], [ %342, %340 ], [ %353, %343 ], [ %106, %93 ], [ %118, %dissect_ospf_v3_network_lsa_common.exit ], [ %241, %227 ], [ %276, %264 ], [ %292, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0403
@@ -5496,7 +5496,7 @@ dissect_ospf_subtlv_ext_admin_group.exit:         ; preds = %563, %.lr.ph.i, %43
   br label %.loopexit
 
 .loopexit:                                        ; preds = %676, %dissect_ospf_subtlv_ext_admin_group.exit, %591, %37, %606, %681, %25
-  %.pre-phi = phi i32 [ %26, %25 ], [ %592, %591 ], [ %38, %37 ], [ %592, %606 ], [ %683, %681 ], [ %38, %dissect_ospf_subtlv_ext_admin_group.exit ], [ %592, %676 ]
+  %.pre-phi = phi i32 [ %38, %dissect_ospf_subtlv_ext_admin_group.exit ], [ %26, %25 ], [ %592, %591 ], [ %38, %37 ], [ %592, %606 ], [ %683, %681 ], [ %592, %676 ]
   %694 = add i32 %.pre-phi, %.01030
   %695 = sub i32 %.09571029, %.pre-phi
   %.not = icmp eq i32 %695, 0
@@ -5825,7 +5825,7 @@ define internal fastcc void @dissect_ospf_lsa_opaque_ri(ptr noundef %0, ptr noun
   br label %dissect_ospf_subtlv_ext_admin_group.exit
 
 dissect_ospf_subtlv_ext_admin_group.exit:         ; preds = %.lr.ph, %.lr.ph.i, %.preheader, %187, %206, %196
-  %.pre-phi306 = phi i32 [ %197, %196 ], [ %188, %187 ], [ %208, %206 ], [ %.pre, %.preheader ], [ %188, %.lr.ph.i ], [ %.pre, %.lr.ph ]
+  %.pre-phi306 = phi i32 [ %188, %.lr.ph.i ], [ %.pre, %.preheader ], [ %197, %196 ], [ %188, %187 ], [ %208, %206 ], [ %.pre, %.lr.ph ]
   %210 = add nuw nsw i32 %179, 3
   %211 = and i32 %210, 131068
   %212 = add i32 %.pre-phi306, %211

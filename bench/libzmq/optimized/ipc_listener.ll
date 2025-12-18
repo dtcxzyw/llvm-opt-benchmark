@@ -194,7 +194,7 @@ define noundef i32 @_ZN3zmq14ipc_listener_t6acceptEv(ptr noundef nonnull readonl
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %13, %20, %22, %18, %13, %13, %13, %13
-  %.0 = phi i32 [ -1, %18 ], [ -1, %22 ], [ -1, %13 ], [ -1, %13 ], [ -1, %13 ], [ -1, %13 ], [ %11, %20 ], [ -1, %13 ], [ -1, %.critedge.sink.split ]
+  %.0 = phi i32 [ -1, %13 ], [ -1, %18 ], [ -1, %22 ], [ -1, %13 ], [ -1, %13 ], [ -1, %13 ], [ -1, %13 ], [ %11, %20 ], [ -1, %.critedge.sink.split ]
   ret i32 %.0
 }
 

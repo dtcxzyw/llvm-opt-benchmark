@@ -1453,7 +1453,7 @@ _ZN5vcpkg15LocalizedStringD2Ev.exit113:           ; preds = %380, %_ZNKSt7__cxx1
   br i1 %388, label %.loopexit, label %380
 
 .loopexit:                                        ; preds = %_ZN5vcpkg15LocalizedStringD2Ev.exit113, %368, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i108, %.thread
-  %.pn25.pn.pn = phi { ptr, i32 } [ %266, %.thread ], [ %369, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i108 ], [ %369, %368 ], [ %.pn25.pn, %_ZN5vcpkg15LocalizedStringD2Ev.exit113 ]
+  %.pn25.pn.pn = phi { ptr, i32 } [ %369, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i108 ], [ %266, %.thread ], [ %369, %368 ], [ %.pn25.pn, %_ZN5vcpkg15LocalizedStringD2Ev.exit113 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   %389 = load ptr, ptr %32, align 8, !tbaa !29

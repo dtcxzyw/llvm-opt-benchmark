@@ -812,7 +812,7 @@ define internal fastcc void @_php_finfo_get_type(ptr noundef %0, ptr noundef wri
   unreachable
 
 120:                                              ; preds = %.thread, %76, %67
-  %.059 = phi ptr [ %70, %67 ], [ %.2.ph, %.thread ], [ %79, %76 ]
+  %.059 = phi ptr [ %.2.ph, %.thread ], [ %70, %67 ], [ %79, %76 ]
   %.not89 = icmp eq ptr %.059, null
   br i1 %.not89, label %.thread100, label %zend_string_alloc.exit
 

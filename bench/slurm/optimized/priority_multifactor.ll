@@ -4263,7 +4263,7 @@ define internal fastcc i64 @_next_reset(i16 noundef zeroext %0, i64 noundef %1) 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit18, %.loopexit.loopexit, %8, %2, %73
-  %.0 = phi i64 [ %74, %73 ], [ 0, %2 ], [ 0, %8 ], [ %21, %.loopexit.loopexit ], [ %39, %.loopexit.loopexit18 ]
+  %.0 = phi i64 [ %74, %73 ], [ %21, %.loopexit.loopexit ], [ 0, %2 ], [ 0, %8 ], [ %39, %.loopexit.loopexit18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.0
 }

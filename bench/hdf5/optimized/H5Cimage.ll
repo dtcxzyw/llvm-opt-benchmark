@@ -609,10 +609,10 @@ H5C__cache_image_block_entry_header_size.exit.i.i: ; preds = %229, %218
   br label %268
 
 H5C__encode_cache_image_header.exit.i:            ; preds = %._crit_edge.i.i, %74
-  %263 = phi i32 [ %.pre49.i, %._crit_edge.i.i ], [ %75, %74 ]
-  %264 = phi i8 [ %.pre47.i, %._crit_edge.i.i ], [ 1, %74 ]
-  %265 = phi i8 [ %.pre.i, %._crit_edge.i.i ], [ 0, %74 ]
-  %.2.i = phi ptr [ %258, %._crit_edge.i.i ], [ %.03343.i, %74 ]
+  %263 = phi i32 [ %75, %74 ], [ %.pre49.i, %._crit_edge.i.i ]
+  %264 = phi i8 [ 1, %74 ], [ %.pre47.i, %._crit_edge.i.i ]
+  %265 = phi i8 [ 0, %74 ], [ %.pre.i, %._crit_edge.i.i ]
+  %.2.i = phi ptr [ %.03343.i, %74 ], [ %258, %._crit_edge.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %266 = zext i32 %263 to i64
@@ -2027,7 +2027,7 @@ H5C__reconstruct_cache_contents.exit.thread:      ; preds = %625, %._crit_edge.i
   %715 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5C__load_cache_image, i32 noundef 629, i64 noundef %713, i64 noundef %714, ptr noundef nonnull @.str.9) #15
   br label %.critedge
 
-H5C__reconstruct_cache_contents.exit.thread28:    ; preds = %H5C__decode_cache_image_header.exit._crit_edge.i, %H5C__read_cache_image.exit, %H5C__reconstruct_cache_contents.exit
+H5C__reconstruct_cache_contents.exit.thread28:    ; preds = %H5C__read_cache_image.exit, %H5C__decode_cache_image_header.exit._crit_edge.i, %H5C__reconstruct_cache_contents.exit
   %716 = load ptr, ptr %22, align 8, !tbaa !52
   %717 = call ptr @H5MM_xfree(ptr noundef %716) #15
   store ptr %717, ptr %22, align 8, !tbaa !52
@@ -2759,8 +2759,8 @@ H5C__prep_for_file_close__compute_fd_heights.exit.i: ; preds = %H5C__prep_for_fi
   br i1 %.not83.i, label %._crit_edge107.i, label %.lr.ph106.i, !llvm.loop !176
 
 ._crit_edge107.i:                                 ; preds = %333, %H5C__prep_for_file_close__compute_fd_heights.exit.i, %.preheader103.i.i, %.preheader112.i.i, %H5C__cache_image_block_entry_header_size.exit.i
-  %.075.lcssa.i = phi i32 [ 0, %H5C__prep_for_file_close__compute_fd_heights.exit.i ], [ 0, %.preheader112.i.i ], [ 0, %.preheader103.i.i ], [ 0, %H5C__cache_image_block_entry_header_size.exit.i ], [ %.176.i, %333 ]
-  %.073.lcssa.i = phi i64 [ %90, %H5C__prep_for_file_close__compute_fd_heights.exit.i ], [ %90, %.preheader112.i.i ], [ %90, %.preheader103.i.i ], [ %90, %H5C__cache_image_block_entry_header_size.exit.i ], [ %.174.i, %333 ]
+  %.075.lcssa.i = phi i32 [ 0, %H5C__prep_for_file_close__compute_fd_heights.exit.i ], [ 0, %H5C__cache_image_block_entry_header_size.exit.i ], [ 0, %.preheader112.i.i ], [ 0, %.preheader103.i.i ], [ %.176.i, %333 ]
+  %.073.lcssa.i = phi i64 [ %90, %H5C__prep_for_file_close__compute_fd_heights.exit.i ], [ %90, %H5C__cache_image_block_entry_header_size.exit.i ], [ %90, %.preheader112.i.i ], [ %90, %.preheader103.i.i ], [ %.174.i, %333 ]
   %335 = getelementptr inbounds nuw i8, ptr %17, i64 527696
   store i32 %.075.lcssa.i, ptr %335, align 8, !tbaa !59
   %336 = getelementptr inbounds nuw i8, ptr %17, i64 524824

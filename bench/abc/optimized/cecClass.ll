@@ -214,7 +214,7 @@ Gia_WordFindFirstBit.exit26:                      ; preds = %23, %26
   br i1 %exitcond46.not, label %.loopexit, label %.lr.ph34, !llvm.loop !14
 
 .loopexit:                                        ; preds = %17, %29, %.preheader27, %.preheader, %Gia_WordFindFirstBit.exit26, %Gia_WordFindFirstBit.exit
-  %.017 = phi i32 [ %16, %Gia_WordFindFirstBit.exit ], [ %28, %Gia_WordFindFirstBit.exit26 ], [ -1, %.preheader ], [ -1, %.preheader27 ], [ -1, %29 ], [ -1, %17 ]
+  %.017 = phi i32 [ %16, %Gia_WordFindFirstBit.exit ], [ -1, %.preheader ], [ %28, %Gia_WordFindFirstBit.exit26 ], [ -1, %.preheader27 ], [ -1, %29 ], [ -1, %17 ]
   ret i32 %.017
 }
 
@@ -318,7 +318,7 @@ Gia_WordFindFirstBit.exit36:                      ; preds = %34, %37
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !16
 
 .loopexit:                                        ; preds = %40, %24, %.preheader37, %.preheader, %Gia_WordFindFirstBit.exit36, %Gia_WordFindFirstBit.exit
-  %.026 = phi i32 [ %23, %Gia_WordFindFirstBit.exit ], [ %39, %Gia_WordFindFirstBit.exit36 ], [ -1, %.preheader ], [ -1, %.preheader37 ], [ -1, %24 ], [ -1, %40 ]
+  %.026 = phi i32 [ %23, %Gia_WordFindFirstBit.exit ], [ -1, %.preheader ], [ %39, %Gia_WordFindFirstBit.exit36 ], [ -1, %.preheader37 ], [ -1, %24 ], [ -1, %40 ]
   ret i32 %.026
 }
 
@@ -1589,7 +1589,7 @@ define range(i32 0, -1) i32 @Cec_ManSimHashKey(ptr noundef readonly captures(non
   br i1 %exitcond33.not, label %.loopexit, label %.lr.ph24, !llvm.loop !65
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph24, %.preheader18, %.preheader
-  %.117 = phi i32 [ 0, %.preheader ], [ 0, %.preheader18 ], [ %21, %.lr.ph24 ], [ %14, %.lr.ph ]
+  %.117 = phi i32 [ %21, %.lr.ph24 ], [ 0, %.preheader ], [ 0, %.preheader18 ], [ %14, %.lr.ph ]
   %22 = urem i32 %.117, %2
   ret i32 %22
 }
@@ -1915,7 +1915,7 @@ Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %10
   br i1 %exitcond33.not.i, label %Cec_ManSimHashKey.exit, label %.lr.ph24.i, !llvm.loop !65
 
 Cec_ManSimHashKey.exit:                           ; preds = %.lr.ph.i75, %.lr.ph24.i, %.preheader18.i, %.preheader.i76
-  %.117.i = phi i32 [ 0, %.preheader.i76 ], [ 0, %.preheader18.i ], [ %51, %.lr.ph24.i ], [ %44, %.lr.ph.i75 ]
+  %.117.i = phi i32 [ %51, %.lr.ph24.i ], [ 0, %.preheader.i76 ], [ 0, %.preheader18.i ], [ %44, %.lr.ph.i75 ]
   %52 = urem i32 %.117.i, %8
   %53 = sext i32 %52 to i64
   %54 = getelementptr inbounds i32, ptr %16, i64 %53
@@ -2456,7 +2456,7 @@ Gia_WordFindFirstBit.exit36.i:                    ; preds = %95, %92
   br i1 %exitcond.not.i69, label %Cec_ManSimCompareEqualFirstBit.exit, label %.lr.ph.i65, !llvm.loop !16
 
 Cec_ManSimCompareEqualFirstBit.exit:              ; preds = %98, %82, %.preheader37.i, %.preheader.i70, %Gia_WordFindFirstBit.exit.i, %Gia_WordFindFirstBit.exit36.i
-  %.026.i = phi i32 [ %81, %Gia_WordFindFirstBit.exit.i ], [ %97, %Gia_WordFindFirstBit.exit36.i ], [ -1, %.preheader.i70 ], [ -1, %.preheader37.i ], [ -1, %82 ], [ -1, %98 ]
+  %.026.i = phi i32 [ %81, %Gia_WordFindFirstBit.exit.i ], [ -1, %.preheader.i70 ], [ %97, %Gia_WordFindFirstBit.exit36.i ], [ -1, %.preheader37.i ], [ -1, %82 ], [ -1, %98 ]
   %99 = getelementptr i8, ptr %33, i64 64
   %.val.i = load ptr, ptr %99, align 8, !tbaa !79
   %100 = getelementptr i8, ptr %.val.i, i64 4
@@ -2549,7 +2549,7 @@ Cec_ManSimSavePattern.exit:                       ; preds = %135, %Cec_ManSimCom
   br label %Cec_ManSimCompareEqual.exit.thread
 
 Cec_ManSimCompareEqual.exit.thread:               ; preds = %52, %47, %.preheader.i, %.preheader18.i, %149, %143
-  %152 = phi ptr [ %33, %143 ], [ %33, %.preheader.i ], [ %33, %.preheader18.i ], [ %.pre, %149 ], [ %33, %47 ], [ %33, %52 ]
+  %152 = phi ptr [ %33, %47 ], [ %33, %143 ], [ %33, %.preheader.i ], [ %33, %.preheader18.i ], [ %.pre, %149 ], [ %33, %52 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %153 = getelementptr i8, ptr %152, i64 16
   %.val55 = load i32, ptr %153, align 8, !tbaa !92
@@ -2695,7 +2695,7 @@ Gia_WordFindFirstBit.exit26.i:                    ; preds = %201, %198
   br i1 %exitcond46.not.i, label %Cec_ManSimCompareConstFirstBit.exit, label %.lr.ph34.i, !llvm.loop !14
 
 Cec_ManSimCompareConstFirstBit.exit:              ; preds = %192, %204, %.preheader27.i, %.preheader.i94, %Gia_WordFindFirstBit.exit.i90, %Gia_WordFindFirstBit.exit26.i
-  %.017.i = phi i32 [ %191, %Gia_WordFindFirstBit.exit.i90 ], [ %203, %Gia_WordFindFirstBit.exit26.i ], [ -1, %.preheader.i94 ], [ -1, %.preheader27.i ], [ -1, %204 ], [ -1, %192 ]
+  %.017.i = phi i32 [ %191, %Gia_WordFindFirstBit.exit.i90 ], [ -1, %.preheader.i94 ], [ %203, %Gia_WordFindFirstBit.exit26.i ], [ -1, %.preheader27.i ], [ -1, %204 ], [ -1, %192 ]
   %205 = getelementptr i8, ptr %160, i64 64
   %.val.i95 = load ptr, ptr %205, align 8, !tbaa !79
   %206 = getelementptr i8, ptr %.val.i95, i64 4
@@ -2786,7 +2786,7 @@ Cec_ManSimSavePattern.exit102:                    ; preds = %241, %Cec_ManSimCom
   br label %Cec_ManSimCompareConst.exit.thread
 
 Cec_ManSimCompareConst.exit.thread:               ; preds = %169, %172, %.preheader.i82, %.preheader14.i, %253, %248
-  %256 = phi ptr [ %160, %248 ], [ %160, %.preheader.i82 ], [ %160, %.preheader14.i ], [ %.pre166, %253 ], [ %160, %172 ], [ %160, %169 ]
+  %256 = phi ptr [ %160, %172 ], [ %160, %248 ], [ %160, %.preheader.i82 ], [ %160, %.preheader14.i ], [ %.pre166, %253 ], [ %160, %169 ]
   %indvars.iv.next164 = add nuw nsw i64 %indvars.iv163, 1
   %257 = getelementptr i8, ptr %256, i64 16
   %.val59 = load i32, ptr %257, align 8, !tbaa !92
@@ -3244,8 +3244,8 @@ Cec_ManSimSimDeref.exit245:                       ; preds = %Cec_ManSimSimDeref.
   br i1 %.not200.not, label %.lr.ph322, label %.loopexit290, !llvm.loop !114
 
 .loopexit290:                                     ; preds = %.lr.ph313, %.lr.ph316, %.lr.ph319, %.lr.ph322, %.preheader295, %.preheader293, %.preheader291, %.preheader289, %.loopexit
-  %.0182 = phi ptr [ %79, %.loopexit ], [ %144, %.preheader293 ], [ %144, %.preheader289 ], [ %144, %.preheader291 ], [ %144, %.preheader295 ], [ %144, %.lr.ph316 ], [ %144, %.lr.ph322 ], [ %144, %.lr.ph319 ], [ %144, %.lr.ph313 ]
-  %.3 = phi i32 [ %.2, %.loopexit ], [ %.0172337, %.preheader293 ], [ %.0172337, %.preheader289 ], [ %.0172337, %.preheader291 ], [ %.0172337, %.preheader295 ], [ %.0172337, %.lr.ph316 ], [ %.0172337, %.lr.ph322 ], [ %.0172337, %.lr.ph319 ], [ %.0172337, %.lr.ph313 ]
+  %.0182 = phi ptr [ %79, %.loopexit ], [ %144, %.preheader291 ], [ %144, %.preheader289 ], [ %144, %.preheader293 ], [ %144, %.preheader295 ], [ %144, %.lr.ph316 ], [ %144, %.lr.ph322 ], [ %144, %.lr.ph319 ], [ %144, %.lr.ph313 ]
+  %.3 = phi i32 [ %.2, %.loopexit ], [ %.0172337, %.preheader291 ], [ %.0172337, %.preheader289 ], [ %.0172337, %.preheader293 ], [ %.0172337, %.preheader295 ], [ %.0172337, %.lr.ph316 ], [ %.0172337, %.lr.ph322 ], [ %.0172337, %.lr.ph319 ], [ %.0172337, %.lr.ph313 ]
   %218 = load ptr, ptr %0, align 8, !tbaa !58
   %219 = getelementptr i8, ptr %218, i64 192
   %.val225 = load ptr, ptr %219, align 8, !tbaa !30
@@ -3661,8 +3661,8 @@ Cec_ManSimSimDeref.exit266:                       ; preds = %370, %381
   br i1 %387, label %370, label %.critedge2, !llvm.loop !117
 
 .critedge2:                                       ; preds = %.lr.ph307, %.lr.ph310, %Cec_ManSimSimDeref.exit266, %Gia_ObjIsClass.exit, %.preheader299, %.preheader297, %._crit_edge, %312, %Gia_ObjIsTail.exit, %Cec_ManSimSimDeref.exit, %75
-  %.1173 = phi i32 [ %76, %75 ], [ %.3, %Gia_ObjIsTail.exit ], [ %.0172337, %Cec_ManSimSimDeref.exit ], [ %.3, %312 ], [ %.0172337, %.preheader297 ], [ %.3, %._crit_edge ], [ %.0172337, %.preheader299 ], [ %.3, %Gia_ObjIsClass.exit ], [ %.0172337, %.lr.ph310 ], [ %.3, %Cec_ManSimSimDeref.exit266 ], [ %.0172337, %.lr.ph307 ]
-  %.1 = phi i32 [ %.0338, %75 ], [ %.0338, %Gia_ObjIsTail.exit ], [ %.0338, %Cec_ManSimSimDeref.exit ], [ %.0338, %312 ], [ %123, %.preheader297 ], [ %.0338, %._crit_edge ], [ %123, %.preheader299 ], [ %.0338, %Gia_ObjIsClass.exit ], [ %123, %.lr.ph310 ], [ %.0338, %Cec_ManSimSimDeref.exit266 ], [ %123, %.lr.ph307 ]
+  %.1173 = phi i32 [ %76, %75 ], [ %.3, %312 ], [ %.3, %Gia_ObjIsTail.exit ], [ %.3, %._crit_edge ], [ %.0172337, %.preheader297 ], [ %.0172337, %Cec_ManSimSimDeref.exit ], [ %.0172337, %.preheader299 ], [ %.3, %Cec_ManSimSimDeref.exit266 ], [ %.3, %Gia_ObjIsClass.exit ], [ %.0172337, %.lr.ph310 ], [ %.0172337, %.lr.ph307 ]
+  %.1 = phi i32 [ %.0338, %75 ], [ %.0338, %312 ], [ %.0338, %Gia_ObjIsTail.exit ], [ %.0338, %._crit_edge ], [ %123, %.preheader297 ], [ %.0338, %Cec_ManSimSimDeref.exit ], [ %123, %.preheader299 ], [ %.0338, %Cec_ManSimSimDeref.exit266 ], [ %.0338, %Gia_ObjIsClass.exit ], [ %123, %.lr.ph310 ], [ %123, %.lr.ph307 ]
   %indvars.iv.next386 = add nuw nsw i64 %indvars.iv385, 1
   %388 = load ptr, ptr %0, align 8, !tbaa !58
   %389 = getelementptr inbounds nuw i8, ptr %388, i64 24
@@ -4595,7 +4595,7 @@ Gia_ObjLevel.exit:                                ; preds = %67, %._crit_edge.i.
   br i1 %.not102.not, label %222, label %.loopexit, !llvm.loop !151
 
 .loopexit:                                        ; preds = %242, %236, %208, %204, %._crit_edge
-  %.086 = phi i32 [ 1, %._crit_edge ], [ 0, %204 ], [ 0, %208 ], [ 1, %236 ], [ 0, %242 ]
+  %.086 = phi i32 [ 1, %._crit_edge ], [ 0, %208 ], [ 1, %236 ], [ 0, %204 ], [ 0, %242 ]
   ret i32 %.086
 }
 
@@ -4694,7 +4694,7 @@ define range(i32 0, 2) i32 @Cec_ManSimClassesRefine(ptr noundef initializes((16,
   br label %.loopexit
 
 .loopexit:                                        ; preds = %36, %._crit_edge, %44
-  %.020 = phi i32 [ 0, %44 ], [ 0, %._crit_edge ], [ 1, %36 ]
+  %.020 = phi i32 [ 0, %._crit_edge ], [ 0, %44 ], [ 1, %36 ]
   ret i32 %.020
 }
 

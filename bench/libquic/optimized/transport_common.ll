@@ -994,7 +994,7 @@ _Z20SocketSetNonBlockingib.exit.outer.backedge:   ; preds = %104, %104
   br label %_Z20SocketSetNonBlockingib.exit.outer, !llvm.loop !47
 
 _Z20SocketSetNonBlockingib.exit.thread:           ; preds = %104, %19, %2, %.thread75
-  %.0 = phi i1 [ false, %.thread75 ], [ false, %2 ], [ false, %19 ], [ %.2, %104 ]
+  %.0 = phi i1 [ false, %19 ], [ false, %.thread75 ], [ false, %2 ], [ %.2, %104 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }

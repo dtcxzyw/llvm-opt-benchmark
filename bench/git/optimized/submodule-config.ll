@@ -350,7 +350,7 @@ skip_prefix.exit28.i:                             ; preds = %37
   br i1 %.not16.i, label %.critedge, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %21, %skip_prefix.exit.i, %skip_prefix.exit20.i, %skip_prefix.exit24.i, %47, %45, %43, %skip_prefix.exit28.i
-  %.030.ph = phi ptr [ %0, %skip_prefix.exit28.i ], [ %0, %43 ], [ %0, %45 ], [ %0, %47 ], [ %scevgep37.i, %skip_prefix.exit.i ], [ %scevgep.i, %skip_prefix.exit24.i ], [ %scevgep39.i, %skip_prefix.exit20.i ], [ %scevgep.i, %21 ]
+  %.030.ph = phi ptr [ %scevgep.i, %skip_prefix.exit24.i ], [ %0, %skip_prefix.exit28.i ], [ %0, %43 ], [ %0, %45 ], [ %0, %47 ], [ %scevgep37.i, %skip_prefix.exit.i ], [ %scevgep39.i, %skip_prefix.exit20.i ], [ %scevgep.i, %21 ]
   %49 = tail call ptr @url_normalize(ptr noundef %.030.ph, ptr noundef null) #16
   %.not24 = icmp eq ptr %49, null
   br i1 %.not24, label %.critedge, label %50

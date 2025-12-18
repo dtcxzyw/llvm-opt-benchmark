@@ -4301,7 +4301,7 @@ _ZNK6Assimp11BatchLoader11PropertyMap5emptyEv.exit.thread: ; preds = %.lr.ph.spl
   br label %64
 
 ._crit_edge:                                      ; preds = %_ZNK6Assimp11BatchLoader11PropertyMap5emptyEv.exit.thread, %_ZNK6Assimp11BatchLoader11PropertyMap5emptyEv.exit.thread.us, %4
-  %50 = phi ptr [ %5, %4 ], [ %29, %_ZNK6Assimp11BatchLoader11PropertyMap5emptyEv.exit.thread.us ], [ %43, %_ZNK6Assimp11BatchLoader11PropertyMap5emptyEv.exit.thread ]
+  %50 = phi ptr [ %29, %_ZNK6Assimp11BatchLoader11PropertyMap5emptyEv.exit.thread.us ], [ %5, %4 ], [ %43, %_ZNK6Assimp11BatchLoader11PropertyMap5emptyEv.exit.thread ]
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 72
   %52 = tail call noalias noundef nonnull dereferenceable(272) ptr @_Znwm(i64 noundef 272) #29
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
@@ -4494,7 +4494,7 @@ _ZSteqIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIjESaISt4pair
   br label %_ZSteqIjiSt4lessIjESaISt4pairIKjiEEEbRKSt3mapIT_T0_T1_T2_ESD_.exit
 
 _ZSteqIjiSt4lessIjESaISt4pairIKjiEEEbRKSt3mapIT_T0_T1_T2_ESD_.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i7, %69, %.lr.ph.i.i.i.i.i.i12, %_ZSteqIKjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEbRKSt4pairIT_T0_ESC_.exit.i.i.i.i.i.i, %.loopexit, %89, %_ZSteqIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIjESaISt4pairIKjS5_EEEbRKSt3mapIT_T0_T1_T2_ESJ_.exit, %.loopexit16, %2
-  %96 = phi i1 [ %95, %89 ], [ false, %2 ], [ false, %.loopexit16 ], [ false, %_ZSteqIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIjESaISt4pairIKjS5_EEEbRKSt3mapIT_T0_T1_T2_ESJ_.exit ], [ false, %.loopexit ], [ false, %.lr.ph.i.i.i.i.i.i7 ], [ false, %69 ], [ false, %_ZSteqIKjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEbRKSt4pairIT_T0_ESC_.exit.i.i.i.i.i.i ], [ false, %.lr.ph.i.i.i.i.i.i12 ], [ false, %.lr.ph.i.i.i.i.i.i ]
+  %96 = phi i1 [ %95, %89 ], [ false, %69 ], [ false, %.lr.ph.i.i.i.i.i.i7 ], [ false, %2 ], [ false, %.loopexit16 ], [ false, %_ZSteqIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIjESaISt4pairIKjS5_EEEbRKSt3mapIT_T0_T1_T2_ESJ_.exit ], [ false, %.loopexit ], [ false, %_ZSteqIKjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEbRKSt4pairIT_T0_ESC_.exit.i.i.i.i.i.i ], [ false, %.lr.ph.i.i.i.i.i.i12 ], [ false, %.lr.ph.i.i.i.i.i.i ]
   ret i1 %96
 }
 
@@ -4547,7 +4547,7 @@ define noundef ptr @_ZN6Assimp11BatchLoader9GetImportEj(ptr noundef nonnull read
   br i1 %.not15, label %.thread, label %.lr.ph, !llvm.loop !66
 
 .thread:                                          ; preds = %24, %2, %12, %18
-  %25 = phi ptr [ %14, %18 ], [ %14, %12 ], [ null, %2 ], [ null, %24 ]
+  %25 = phi ptr [ %14, %12 ], [ %14, %18 ], [ null, %2 ], [ null, %24 ]
   ret ptr %25
 }
 
@@ -6642,7 +6642,7 @@ define linkonce_odr hidden void @_ZSt9__find_ifISt16reverse_iteratorIN9__gnu_cxx
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %._crit_edge, %78, %70, %59, %50, %38, %30, %22
-  %.sink = phi i64 [ %72, %70 ], [ %61, %59 ], [ %47, %50 ], [ %.cast17, %38 ], [ %.cast16, %30 ], [ %.cast, %22 ], [ %.pre, %78 ], [ %46, %._crit_edge ], [ %10, %.lr.ph ]
+  %.sink = phi i64 [ %72, %70 ], [ %61, %59 ], [ %47, %50 ], [ %46, %._crit_edge ], [ %.cast17, %38 ], [ %.cast16, %30 ], [ %.cast, %22 ], [ %.pre, %78 ], [ %10, %.lr.ph ]
   store i64 %.sink, ptr %0, align 8
   ret void
 }

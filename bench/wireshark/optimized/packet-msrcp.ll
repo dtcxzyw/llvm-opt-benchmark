@@ -244,7 +244,7 @@ define internal i32 @dissect_msrcp(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %77
 
 77:                                               ; preds = %62, %69, %35
-  %.1 = phi ptr [ %.mux, %62 ], [ %72, %69 ], [ %37, %35 ]
+  %.1 = phi ptr [ %37, %35 ], [ %.mux, %62 ], [ %72, %69 ]
   %.not146 = icmp eq ptr %.1, null
   br i1 %.not146, label %.thread, label %.thread153
 
@@ -267,7 +267,7 @@ define internal i32 @dissect_msrcp(ptr noundef %0, ptr noundef %1, ptr noundef %
   store i8 %.sink, ptr %84, align 4
   br label %.thread153
 
-.thread153:                                       ; preds = %.thread153.sink.split, %53, %66, %77, %18
+.thread153:                                       ; preds = %.thread153.sink.split, %66, %53, %77, %18
   %.0 = phi ptr [ %.1, %77 ], [ %61, %66 ], [ null, %18 ], [ %48, %53 ], [ %.sink166, %.thread153.sink.split ]
   %85 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %86 = load ptr, ptr %85, align 8

@@ -1068,7 +1068,7 @@ conn_report_connect_stats.exit:                   ; preds = %cf_cntrl_update_inf
   br label %conn_report_connect_stats.exit44
 
 conn_report_connect_stats.exit44:                 ; preds = %37, %119, %.critedge, %46, %17, %conn_report_connect_stats.exit, %16
-  %.0 = phi i32 [ 2, %16 ], [ 0, %17 ], [ 0, %46 ], [ 0, %conn_report_connect_stats.exit ], [ %45, %.critedge ], [ %45, %119 ], [ %38, %37 ]
+  %.0 = phi i32 [ %45, %119 ], [ 2, %16 ], [ 0, %17 ], [ 0, %46 ], [ 0, %conn_report_connect_stats.exit ], [ %45, %.critedge ], [ %38, %37 ]
   ret i32 %.0
 }
 
@@ -1134,7 +1134,7 @@ define hidden i32 @Curl_conn_flush(ptr noundef %0, i32 noundef %1) local_unnamed
   br i1 %.not15.i, label %Curl_conn_cf_cntrl.exit, label %.lr.ph.split.i, !llvm.loop !128
 
 Curl_conn_cf_cntrl.exit:                          ; preds = %13, %16, %2
-  %.1.i = phi i32 [ 0, %2 ], [ %14, %13 ], [ 0, %16 ]
+  %.1.i = phi i32 [ 0, %2 ], [ 0, %16 ], [ %14, %13 ]
   ret i32 %.1.i
 }
 
@@ -1661,7 +1661,7 @@ Curl_conn_cf_adjust_pollset.exit:                 ; preds = %.lr.ph29.i
   br i1 %exitcond.not, label %._crit_edge, label %30, !llvm.loop !147
 
 ._crit_edge:                                      ; preds = %6, %21, %43, %Curl_conn_cf_adjust_pollset.exit
-  %.016.lcssa = phi i32 [ 0, %Curl_conn_cf_adjust_pollset.exit ], [ 0, %21 ], [ %.117, %43 ], [ 0, %6 ]
+  %.016.lcssa = phi i32 [ 0, %Curl_conn_cf_adjust_pollset.exit ], [ %.117, %43 ], [ 0, %21 ], [ 0, %6 ]
   %44 = call i32 @Curl_poll(ptr noundef nonnull %5, i32 noundef %.016.lcssa, i64 noundef %2) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -1760,7 +1760,7 @@ define hidden i32 @Curl_conn_cf_cntrl(ptr noundef %0, ptr noundef %1, i1 noundef
   br i1 %.not15, label %._crit_edge, label %.lr.ph.split, !llvm.loop !128
 
 ._crit_edge:                                      ; preds = %23, %20, %13, %6
-  %.1 = phi i32 [ 0, %6 ], [ %.2.us, %13 ], [ %21, %20 ], [ 0, %23 ]
+  %.1 = phi i32 [ 0, %6 ], [ %.2.us, %13 ], [ 0, %23 ], [ %21, %20 ]
   ret i32 %.1
 }
 

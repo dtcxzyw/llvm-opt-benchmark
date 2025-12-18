@@ -654,7 +654,7 @@ switch.lookup:                                    ; preds = %56
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %.sink.split.fold.split.i, %100, %99, %98, %97, %72, %72, %72
-  %hf_gsmtap_channel_type.sink.i = phi ptr [ %hf_gsmtap_burst_type.mux.mux.i, %72 ], [ @hf_gsmtap_lte_rrc_channel_type, %98 ], [ @hf_gsmtap_e1t1_sub_type, %100 ], [ @hf_gsmtap_rrc_sub_type, %99 ], [ @hf_gsmtap_gmr1_channel_type, %97 ], [ %hf_gsmtap_burst_type.mux.mux.i, %72 ], [ %hf_gsmtap_burst_type.mux.mux.i, %72 ], [ @hf_gsmtap_burst_type, %.sink.split.fold.split.i ]
+  %hf_gsmtap_channel_type.sink.i = phi ptr [ %hf_gsmtap_burst_type.mux.mux.i, %72 ], [ %hf_gsmtap_burst_type.mux.mux.i, %72 ], [ @hf_gsmtap_lte_rrc_channel_type, %98 ], [ @hf_gsmtap_e1t1_sub_type, %100 ], [ @hf_gsmtap_rrc_sub_type, %99 ], [ @hf_gsmtap_gmr1_channel_type, %97 ], [ %hf_gsmtap_burst_type.mux.mux.i, %72 ], [ @hf_gsmtap_burst_type, %.sink.split.fold.split.i ]
   %101 = load i32, ptr %hf_gsmtap_channel_type.sink.i, align 4
   %102 = tail call ptr @proto_tree_add_item(ptr noundef %39, i32 noundef %101, ptr noundef %0, i32 noundef 12, i32 noundef 1, i32 noundef 0)
   br label %103

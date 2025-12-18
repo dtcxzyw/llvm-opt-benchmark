@@ -475,7 +475,7 @@ LzmaDec_InitStateReal.exit:                       ; preds = %122
   br label %.thread187
 
 .thread187:                                       ; preds = %173, %146, %86, %._crit_edge233, %187, %172, %167, %142, %136, %112, %.loopexit, %110, %85
-  %.9 = phi i32 [ 1, %._crit_edge233 ], [ 0, %85 ], [ 1, %112 ], [ 0, %.loopexit ], [ 0, %110 ], [ 0, %136 ], [ 1, %142 ], [ 1, %172 ], [ 0, %167 ], [ %189, %187 ], [ 1, %86 ], [ 1, %146 ], [ 1, %173 ]
+  %.9 = phi i32 [ 1, %._crit_edge233 ], [ 0, %85 ], [ 0, %167 ], [ 1, %112 ], [ 0, %.loopexit ], [ 0, %110 ], [ 0, %136 ], [ 1, %172 ], [ 1, %142 ], [ %189, %187 ], [ 1, %86 ], [ 1, %146 ], [ 1, %173 ]
   ret i32 %.9
 }
 
@@ -1233,9 +1233,9 @@ define internal fastcc range(i32 0, 4) i32 @LzmaDec_TryDummy(ptr noundef readonl
   br i1 %.not547, label %.thread, label %413
 
 .thread:                                          ; preds = %438, %150, %97, %339, %375
-  %.0444.ph = phi i32 [ %.3447, %339 ], [ %.3447, %375 ], [ 1, %150 ], [ 1, %97 ], [ %.3447, %438 ]
-  %.1405.ph = phi i32 [ %.27431, %339 ], [ %.32436, %375 ], [ %.9413.ph, %150 ], [ %.5409, %97 ], [ %.41, %438 ]
-  %.1373.ph = phi ptr [ %.24, %339 ], [ %.27, %375 ], [ %.7379, %150 ], [ %.3375, %97 ], [ %.35, %438 ]
+  %.0444.ph = phi i32 [ %.3447, %339 ], [ %.3447, %375 ], [ 1, %97 ], [ 1, %150 ], [ %.3447, %438 ]
+  %.1405.ph = phi i32 [ %.27431, %339 ], [ %.32436, %375 ], [ %.5409, %97 ], [ %.9413.ph, %150 ], [ %.41, %438 ]
+  %.1373.ph = phi ptr [ %.24, %339 ], [ %.27, %375 ], [ %.3375, %97 ], [ %.7379, %150 ], [ %.35, %438 ]
   %440 = icmp ugt i32 %.1405.ph, 16777215
   %.not553591 = icmp ult ptr %.1373.ph, %8
   %or.cond592 = select i1 %440, i1 true, i1 %.not553591
@@ -1243,7 +1243,7 @@ define internal fastcc range(i32 0, 4) i32 @LzmaDec_TryDummy(ptr noundef readonl
   br label %.critedge
 
 .critedge:                                        ; preds = %318, %354, %396, %419, %130, %78, %214, %27, %226, %246, %161, %181, %200, %212, %266, %290, %.thread
-  %441 = phi i32 [ %spec.select555593, %.thread ], [ 0, %27 ], [ 3, %212 ], [ %spec.select, %214 ], [ 0, %200 ], [ 0, %181 ], [ 0, %161 ], [ 0, %226 ], [ 0, %246 ], [ 0, %266 ], [ 0, %290 ], [ 0, %354 ], [ 0, %78 ], [ 0, %130 ], [ 0, %419 ], [ 0, %396 ], [ 0, %318 ]
+  %441 = phi i32 [ %spec.select555593, %.thread ], [ 0, %130 ], [ 0, %27 ], [ 0, %290 ], [ 0, %354 ], [ 0, %419 ], [ 0, %396 ], [ 0, %78 ], [ 3, %212 ], [ %spec.select, %214 ], [ 0, %200 ], [ 0, %181 ], [ 0, %161 ], [ 0, %226 ], [ 0, %246 ], [ 0, %266 ], [ 0, %318 ]
   ret i32 %441
 }
 
@@ -2637,17 +2637,17 @@ define internal fastcc range(i32 0, 2) i32 @LzmaDec_DecodeReal2(ptr noundef capt
   br label %.loopexit1142.i
 
 .loopexit1142.i:                                  ; preds = %.preheader.i, %.loopexit1142.loopexit1156.i, %258, %.loopexit.i
-  %.1966.ph.i = phi i32 [ %.0965.i, %258 ], [ %.0965.i, %.loopexit.i ], [ %812, %.loopexit1142.loopexit1156.i ], [ %812, %.preheader.i ]
-  %.7931.ph.i = phi ptr [ %.11935.i, %258 ], [ %.4928.i, %.loopexit.i ], [ %.21945.i, %.loopexit1142.loopexit1156.i ], [ %.21945.i, %.preheader.i ]
-  %.9877.ph.i = phi i32 [ %256, %258 ], [ %.5873.i, %.loopexit.i ], [ %.25893.i, %.loopexit1142.loopexit1156.i ], [ %.25893.i, %.preheader.i ]
-  %.9861.ph.i = phi i32 [ %.13865.i, %258 ], [ %.5857.i, %.loopexit.i ], [ %.25.i, %.loopexit1142.loopexit1156.i ], [ %.25.i, %.preheader.i ]
-  %.pn.i = phi i32 [ 1, %258 ], [ 1, %.loopexit.i ], [ %806, %.loopexit1142.loopexit1156.i ], [ %806, %.preheader.i ]
-  %.1837.ph.i = phi i64 [ %271, %258 ], [ %186, %.loopexit.i ], [ %832, %.loopexit1142.loopexit1156.i ], [ %824, %.preheader.i ]
-  %.1829.ph.i = phi i32 [ %.0828.i, %258 ], [ %.0828.i, %.loopexit.i ], [ %.6834.i, %.loopexit1142.loopexit1156.i ], [ %.6834.i, %.preheader.i ]
-  %.1806.ph.i = phi i32 [ %.0805.i, %258 ], [ %.0805.i, %.loopexit.i ], [ %.5810.i, %.loopexit1142.loopexit1156.i ], [ %.5810.i, %.preheader.i ]
-  %.1795.ph.i = phi i32 [ %.0794.i, %258 ], [ %.0794.i, %.loopexit.i ], [ %.4798.i, %.loopexit1142.loopexit1156.i ], [ %.4798.i, %.preheader.i ]
-  %.1786.ph.i = phi i32 [ %.0785.i, %258 ], [ %.0785.i, %.loopexit.i ], [ %.4789.i, %.loopexit1142.loopexit1156.i ], [ %.4789.i, %.preheader.i ]
-  %.2779.ph.i = phi i32 [ %273, %258 ], [ %.1778.i, %.loopexit.i ], [ %.4781.i, %.loopexit1142.loopexit1156.i ], [ %.4781.i, %.preheader.i ]
+  %.1966.ph.i = phi i32 [ %.0965.i, %.loopexit.i ], [ %812, %.loopexit1142.loopexit1156.i ], [ %.0965.i, %258 ], [ %812, %.preheader.i ]
+  %.7931.ph.i = phi ptr [ %.4928.i, %.loopexit.i ], [ %.21945.i, %.loopexit1142.loopexit1156.i ], [ %.11935.i, %258 ], [ %.21945.i, %.preheader.i ]
+  %.9877.ph.i = phi i32 [ %.5873.i, %.loopexit.i ], [ %.25893.i, %.loopexit1142.loopexit1156.i ], [ %256, %258 ], [ %.25893.i, %.preheader.i ]
+  %.9861.ph.i = phi i32 [ %.5857.i, %.loopexit.i ], [ %.25.i, %.loopexit1142.loopexit1156.i ], [ %.13865.i, %258 ], [ %.25.i, %.preheader.i ]
+  %.pn.i = phi i32 [ 1, %.loopexit.i ], [ %806, %.loopexit1142.loopexit1156.i ], [ 1, %258 ], [ %806, %.preheader.i ]
+  %.1837.ph.i = phi i64 [ %186, %.loopexit.i ], [ %832, %.loopexit1142.loopexit1156.i ], [ %271, %258 ], [ %824, %.preheader.i ]
+  %.1829.ph.i = phi i32 [ %.0828.i, %.loopexit.i ], [ %.6834.i, %.loopexit1142.loopexit1156.i ], [ %.0828.i, %258 ], [ %.6834.i, %.preheader.i ]
+  %.1806.ph.i = phi i32 [ %.0805.i, %.loopexit.i ], [ %.5810.i, %.loopexit1142.loopexit1156.i ], [ %.0805.i, %258 ], [ %.5810.i, %.preheader.i ]
+  %.1795.ph.i = phi i32 [ %.0794.i, %.loopexit.i ], [ %.4798.i, %.loopexit1142.loopexit1156.i ], [ %.0794.i, %258 ], [ %.4798.i, %.preheader.i ]
+  %.1786.ph.i = phi i32 [ %.0785.i, %.loopexit.i ], [ %.4789.i, %.loopexit1142.loopexit1156.i ], [ %.0785.i, %258 ], [ %.4789.i, %.preheader.i ]
+  %.2779.ph.i = phi i32 [ %.1778.i, %.loopexit.i ], [ %.4781.i, %.loopexit1142.loopexit1156.i ], [ %273, %258 ], [ %.4781.i, %.preheader.i ]
   %.1849.ph.i = add i32 %.pn.i, %.0848.i
   %833 = icmp ult i64 %.1837.ph.i, %.031
   %834 = icmp ult ptr %.7931.ph.i, %2

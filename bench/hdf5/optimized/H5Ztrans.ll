@@ -791,7 +791,7 @@ H5Z__xform_find_type.exit:                        ; preds = %117, %111, %105, %9
   br i1 %398, label %.lr.ph138, label %.loopexit, !llvm.loop !40
 
 .loopexit:                                        ; preds = %.lr.ph136, %393, %359, %363, %143, %172, %201, %230, %258, %287, %304, %316, %301, %272, %244, %216, %186, %157, %.critedge, %31
-  %.1 = phi i32 [ -1, %.critedge ], [ 0, %31 ], [ 0, %157 ], [ 0, %186 ], [ 0, %216 ], [ 0, %244 ], [ 0, %272 ], [ 0, %301 ], [ 0, %316 ], [ 0, %304 ], [ 0, %287 ], [ 0, %258 ], [ 0, %230 ], [ 0, %201 ], [ 0, %172 ], [ 0, %143 ], [ 0, %363 ], [ 0, %359 ], [ -1, %393 ], [ 0, %.lr.ph136 ]
+  %.1 = phi i32 [ 0, %363 ], [ -1, %.critedge ], [ 0, %31 ], [ 0, %157 ], [ 0, %186 ], [ 0, %216 ], [ 0, %244 ], [ 0, %272 ], [ 0, %301 ], [ 0, %316 ], [ 0, %304 ], [ 0, %287 ], [ 0, %258 ], [ 0, %230 ], [ 0, %201 ], [ 0, %172 ], [ 0, %143 ], [ -1, %393 ], [ 0, %359 ], [ 0, %.lr.ph136 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.1
 }
@@ -7960,7 +7960,7 @@ H5Z__unget_token.exit:                            ; preds = %H5Z__unget_token.ex
   br i1 %.not45, label %35, label %H5Z__unget_token.exit.backedge
 
 H5Z__unget_token.exit.backedge:                   ; preds = %31, %56
-  %.036.be = phi ptr [ %47, %56 ], [ %22, %31 ]
+  %.036.be = phi ptr [ %22, %31 ], [ %47, %56 ]
   br label %H5Z__unget_token.exit
 
 35:                                               ; preds = %31

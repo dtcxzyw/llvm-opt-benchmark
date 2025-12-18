@@ -2394,8 +2394,8 @@ netlib_check_login_pkt.exit.thread54:             ; preds = %netlib_check_login_
   %54 = tail call i32 @tvb_captured_length(ptr noundef %0)
   br label %netlib_check_login_pkt.exit.thread
 
-netlib_check_login_pkt.exit.thread:               ; preds = %netlib_check_login_pkt.exit, %46, %37, %35, %32, %29, %26, %23, %20, %18, %39, %13, %11, %7, %4, %netlib_check_login_pkt.exit.thread54
-  %.0 = phi i1 [ false, %4 ], [ false, %11 ], [ true, %netlib_check_login_pkt.exit.thread54 ], [ false, %13 ], [ false, %7 ], [ false, %netlib_check_login_pkt.exit ], [ false, %39 ], [ false, %18 ], [ false, %20 ], [ false, %23 ], [ false, %26 ], [ false, %29 ], [ false, %32 ], [ false, %35 ], [ false, %37 ], [ false, %46 ]
+netlib_check_login_pkt.exit.thread:               ; preds = %netlib_check_login_pkt.exit, %37, %46, %35, %32, %29, %26, %23, %20, %18, %39, %13, %11, %7, %4, %netlib_check_login_pkt.exit.thread54
+  %.0 = phi i1 [ false, %4 ], [ false, %11 ], [ true, %netlib_check_login_pkt.exit.thread54 ], [ false, %13 ], [ false, %7 ], [ false, %netlib_check_login_pkt.exit ], [ false, %39 ], [ false, %18 ], [ false, %20 ], [ false, %23 ], [ false, %26 ], [ false, %29 ], [ false, %32 ], [ false, %35 ], [ false, %46 ], [ false, %37 ]
   ret i1 %.0
 }
 
@@ -7044,7 +7044,7 @@ thread-pre-split708.i:                            ; preds = %.thread647.i
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.lr.ph.i280, %.lr.ph657.i, %1155, %1145, %1129, %1097, %1081, %1064, %1059, %1017, %1012, %976, %960, %953, %937, %930, %924, %907, %900, %899, %896, %.thread650.thread.i
-  %.2.i277 = phi i32 [ %895, %896 ], [ %895, %899 ], [ %906, %900 ], [ %1158, %1155 ], [ %923, %907 ], [ %929, %924 ], [ %936, %930 ], [ %952, %937 ], [ %959, %953 ], [ %975, %960 ], [ %895, %.thread650.thread.i ], [ %1069, %1064 ], [ %1063, %1059 ], [ %978, %976 ], [ %1106, %1097 ], [ %1154, %1145 ], [ %1022, %1017 ], [ %1016, %1012 ], [ %1086, %1081 ], [ %1134, %1129 ], [ %1095, %.lr.ph657.i ], [ %1143, %.lr.ph.i280 ]
+  %.2.i277 = phi i32 [ %895, %896 ], [ %895, %899 ], [ %906, %900 ], [ %1158, %1155 ], [ %923, %907 ], [ %929, %924 ], [ %936, %930 ], [ %952, %937 ], [ %959, %953 ], [ %975, %960 ], [ %895, %.thread650.thread.i ], [ %1069, %1064 ], [ %1063, %1059 ], [ %978, %976 ], [ %1106, %1097 ], [ %1095, %.lr.ph657.i ], [ %1154, %1145 ], [ %1022, %1017 ], [ %1016, %1012 ], [ %1086, %1081 ], [ %1134, %1129 ], [ %1143, %.lr.ph.i280 ]
   %1159 = call zeroext i8 @tvb_get_uint8(ptr noundef nonnull %0, i32 noundef %.2.i277)
   %1160 = load i32, ptr @hf_tds_colmetadata_colname_length, align 4
   %1161 = call ptr @proto_tree_add_item(ptr noundef %795, i32 noundef %1160, ptr noundef nonnull %0, i32 noundef %.2.i277, i32 noundef 1, i32 noundef 0)
@@ -10633,7 +10633,7 @@ define internal fastcc noundef i32 @dissect_tds_order_token(ptr noundef nonnull 
   br i1 %36, label %.lr.ph, label %.loopexit, !llvm.loop !42
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph28, %28, %20
-  %.121 = phi i32 [ %11, %20 ], [ %11, %28 ], [ %24, %.lr.ph28 ], [ %32, %.lr.ph ]
+  %.121 = phi i32 [ %24, %.lr.ph28 ], [ %11, %20 ], [ %11, %28 ], [ %32, %.lr.ph ]
   %37 = sub i32 %.121, %1
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %37

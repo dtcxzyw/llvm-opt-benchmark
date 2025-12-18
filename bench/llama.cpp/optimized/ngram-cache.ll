@@ -927,7 +927,7 @@ _ZNKSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt
   br label %_ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE10_M_emplaceIJRS1_iEEES0_INS4_14_Node_iteratorIS2_Lb0ELb0EEEbESt17integral_constantIbLb1EEDpOT_.exit76
 
 _ZNSt13unordered_mapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEE4findERS5_.exit: ; preds = %202, %185, %197
-  %.sroa.06.1.i.i53 = phi ptr [ %198, %197 ], [ %.sroa.06.0.i.i55, %185 ], [ %204, %202 ]
+  %.sroa.06.1.i.i53 = phi ptr [ %.sroa.06.0.i.i55, %185 ], [ %198, %197 ], [ %204, %202 ]
   %324 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i53, i64 12
   %325 = load i32, ptr %324, align 4, !tbaa !40
   %326 = add nsw i32 %325, 1
@@ -2002,14 +2002,14 @@ _ZNSt13unordered_mapI12common_ngramS_IiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEE
   br label %_ZNSt13unordered_mapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEE4findERS5_.exit.thread, !llvm.loop !50
 
 _ZNSt13unordered_mapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEE4findERS5_.exit: ; preds = %105, %91, %100
-  %.sroa.06.1.i.i42 = phi ptr [ %101, %100 ], [ %.sroa.06.0.i.i44, %91 ], [ %107, %105 ]
+  %.sroa.06.1.i.i42 = phi ptr [ %.sroa.06.0.i.i44, %91 ], [ %101, %100 ], [ %107, %105 ]
   %113 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i42, i64 12
   %114 = load i32, ptr %113, align 4, !tbaa !40
   %115 = mul nsw i32 %114, 100
   br label %_ZNSt13unordered_mapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEE4findERS5_.exit.thread
 
 _ZNSt13unordered_mapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEE4findERS5_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %.preheader, %95, %..loopexit_crit_edge21.i.i.i.i, %_ZNSt13unordered_mapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEE4findERS5_.exit
-  %116 = phi i32 [ %115, %_ZNSt13unordered_mapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEE4findERS5_.exit ], [ 1, %..loopexit_crit_edge21.i.i.i.i ], [ 1, %95 ], [ 1, %.preheader ], [ 1, %.lr.ph.i.i.i.i ]
+  %116 = phi i32 [ %115, %_ZNSt13unordered_mapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEE4findERS5_.exit ], [ 1, %..loopexit_crit_edge21.i.i.i.i ], [ 1, %.preheader ], [ 1, %95 ], [ 1, %.lr.ph.i.i.i.i ]
   %117 = mul nsw i32 %116, %90
   %118 = mul nsw i32 %.03178, %.03377
   %119 = icmp sgt i32 %117, %118
@@ -3658,7 +3658,7 @@ _ZNKSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt
   br label %.body
 
 _ZNSt13unordered_mapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEE4findERS5_.exit: ; preds = %114, %98, %109
-  %.sroa.06.1.i.i28 = phi ptr [ %110, %109 ], [ %.sroa.06.0.i.i30, %98 ], [ %116, %114 ]
+  %.sroa.06.1.i.i28 = phi ptr [ %.sroa.06.0.i.i30, %98 ], [ %110, %109 ], [ %116, %114 ]
   %225 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i28, i64 12
   %226 = load i32, ptr %225, align 4, !tbaa !40
   %227 = add nsw i32 %226, %90

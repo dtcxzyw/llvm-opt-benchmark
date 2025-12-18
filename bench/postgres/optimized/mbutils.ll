@@ -809,14 +809,14 @@ define dso_local i32 @pg_verify_mbstr_len(i32 noundef %0, ptr noundef %1, i32 no
   br label %34
 
 34:                                               ; preds = %30, %20
-  %.140 = phi i32 [ %33, %30 ], [ %22, %20 ]
-  %.136 = phi ptr [ %32, %30 ], [ %21, %20 ]
+  %.140 = phi i32 [ %22, %20 ], [ %33, %30 ]
+  %.136 = phi ptr [ %21, %20 ], [ %32, %30 ]
   %.138 = add i32 %.03755, 1
   %35 = icmp sgt i32 %.140, 0
   br i1 %35, label %.lr.ph, label %.thread
 
 .thread:                                          ; preds = %34, %12, %28, %23, %7
-  %.1 = phi i32 [ %.mux, %7 ], [ -1, %23 ], [ -1, %28 ], [ 0, %12 ], [ %.138, %34 ]
+  %.1 = phi i32 [ -1, %28 ], [ %.mux, %7 ], [ -1, %23 ], [ 0, %12 ], [ %.138, %34 ]
   ret i32 %.1
 }
 
@@ -1722,7 +1722,7 @@ define dso_local i32 @pg_mbcliplen(ptr noundef %0, i32 noundef %1, i32 noundef %
   br i1 %33, label %.lr.ph.i, label %pg_encoding_mbcliplen.exit, !llvm.loop !11
 
 pg_encoding_mbcliplen.exit:                       ; preds = %.lr.ph.i, %23, %27, %29, %14, %9, %.critedge.loopexit.split.loop.exit13.i.i, %16
-  %.0.i = phi i32 [ 0, %9 ], [ %15, %.critedge.loopexit.split.loop.exit13.i.i ], [ 0, %16 ], [ %10, %14 ], [ %.02130.i, %.lr.ph.i ], [ %2, %27 ], [ %25, %29 ], [ %.02130.i, %23 ]
+  %.0.i = phi i32 [ 0, %16 ], [ 0, %9 ], [ %15, %.critedge.loopexit.split.loop.exit13.i.i ], [ %10, %14 ], [ %2, %27 ], [ %25, %29 ], [ %.02130.i, %23 ], [ %.02130.i, %.lr.ph.i ]
   ret i32 %.0.i
 }
 
@@ -1791,7 +1791,7 @@ define dso_local i32 @pg_encoding_mbcliplen(i32 noundef %0, ptr noundef %1, i32 
   br i1 %31, label %.lr.ph, label %.critedge, !llvm.loop !11
 
 .critedge:                                        ; preds = %27, %25, %21, %.lr.ph, %12, %14, %.critedge.loopexit.split.loop.exit13.i, %7
-  %.0 = phi i32 [ 0, %7 ], [ %13, %.critedge.loopexit.split.loop.exit13.i ], [ 0, %14 ], [ %8, %12 ], [ %.02130, %21 ], [ %23, %27 ], [ %3, %25 ], [ %.02130, %.lr.ph ]
+  %.0 = phi i32 [ 0, %14 ], [ 0, %7 ], [ %13, %.critedge.loopexit.split.loop.exit13.i ], [ %8, %12 ], [ %.02130, %21 ], [ %23, %27 ], [ %3, %25 ], [ %.02130, %.lr.ph ]
   ret i32 %.0
 }
 
@@ -1869,7 +1869,7 @@ define dso_local i32 @pg_mbcharcliplen(ptr noundef %0, i32 noundef %1, i32 nound
   br i1 %37, label %.lr.ph, label %.critedge, !llvm.loop !12
 
 .critedge:                                        ; preds = %32, %21, %.lr.ph, %18, %.preheader, %.critedge.loopexit.split.loop.exit13.i, %13
-  %.0 = phi i32 [ 0, %13 ], [ %19, %.critedge.loopexit.split.loop.exit13.i ], [ 0, %.preheader ], [ %14, %18 ], [ %33, %32 ], [ %.01725, %21 ], [ %.01725, %.lr.ph ]
+  %.0 = phi i32 [ %14, %18 ], [ %19, %.critedge.loopexit.split.loop.exit13.i ], [ 0, %13 ], [ 0, %.preheader ], [ %33, %32 ], [ %.01725, %21 ], [ %.01725, %.lr.ph ]
   ret i32 %.0
 }
 
@@ -2143,7 +2143,7 @@ define internal noundef zeroext i1 @pg_eucjp_increment(ptr noundef captures(none
   br label %.loopexit
 
 .loopexit:                                        ; preds = %16, %32, %47, %12, %13, %9, %45, %31, %15, %4, %42, %38, %27, %23
-  %.035 = phi i1 [ true, %38 ], [ true, %42 ], [ false, %31 ], [ false, %45 ], [ false, %15 ], [ false, %4 ], [ true, %23 ], [ true, %27 ], [ true, %9 ], [ true, %13 ], [ true, %12 ], [ true, %47 ], [ false, %32 ], [ false, %16 ]
+  %.035 = phi i1 [ false, %32 ], [ true, %38 ], [ true, %42 ], [ false, %31 ], [ true, %47 ], [ false, %45 ], [ false, %15 ], [ false, %4 ], [ true, %23 ], [ true, %27 ], [ true, %9 ], [ true, %13 ], [ true, %12 ], [ false, %16 ]
   ret i1 %.035
 }
 

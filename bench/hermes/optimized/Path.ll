@@ -421,7 +421,7 @@ if.then62:                                        ; preds = %land.lhs.true57, %i
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit127:                 ; preds = %land.rhs45.us, %land.rhs45, %if.end.i.i, %_ZN4llvh3sys4path12is_separatorEcNS1_5StyleE.exit37
-  %18 = phi i64 [ %add, %_ZN4llvh3sys4path12is_separatorEcNS1_5StyleE.exit37 ], [ %2, %if.end.i.i ], [ %16, %land.rhs45 ], [ %14, %land.rhs45.us ]
+  %18 = phi i64 [ %16, %land.rhs45 ], [ %add, %_ZN4llvh3sys4path12is_separatorEcNS1_5StyleE.exit37 ], [ %2, %if.end.i.i ], [ %14, %land.rhs45.us ]
   %cmp.i.not.i51 = icmp eq i32 %.fr, 0
   %.str.11..str.1.i = select i1 %cmp.i.not.i51, ptr @.str.11, ptr @.str.1
   %call.i126 = select i1 %cmp.i.not.i51, i64 2, i64 1
@@ -759,7 +759,7 @@ if.end26.i:                                       ; preds = %land.lhs.true22.i, 
   br label %_ZN12_GLOBAL__N_112filename_posEN4llvh9StringRefENS0_3sys4path5StyleE.exit
 
 _ZN12_GLOBAL__N_112filename_posEN4llvh9StringRefENS0_3sys4path5StyleE.exit: ; preds = %while.cond.i.i.i, %land.lhs.true.i35, %_ZN4llvh3sys4path12is_separatorEcNS1_5StyleE.exit.i, %if.end19.i, %land.lhs.true22.i, %if.end26.i
-  %retval.0.i42 = phi i64 [ 0, %land.lhs.true22.i ], [ %add.i, %if.end26.i ], [ 0, %if.end19.i ], [ %sub.i36, %_ZN4llvh3sys4path12is_separatorEcNS1_5StyleE.exit.i ], [ %sub.i36, %land.lhs.true.i35 ], [ 0, %while.cond.i.i.i ]
+  %retval.0.i42 = phi i64 [ 0, %land.lhs.true22.i ], [ %add.i, %if.end26.i ], [ 0, %if.end19.i ], [ %sub.i36, %land.lhs.true.i35 ], [ %sub.i36, %_ZN4llvh3sys4path12is_separatorEcNS1_5StyleE.exit.i ], [ 0, %while.cond.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %str.i34)
   %26 = load i64, ptr %agg.tmp.sroa.2.0.Path.sroa_idx, align 8
   %27 = call i64 @llvm.umin.i64(i64 %26, i64 %retval.0.i42)
@@ -2298,7 +2298,7 @@ _ZN12_GLOBAL__N_112filename_posEN4llvh9StringRefENS0_3sys4path5StyleE.exit.threa
   br label %if.then
 
 _ZN12_GLOBAL__N_112filename_posEN4llvh9StringRefENS0_3sys4path5StyleE.exit: ; preds = %land.lhs.true, %_ZN4llvh3sys4path12is_separatorEcNS1_5StyleE.exit.i, %if.end26.i
-  %retval.0.i = phi i64 [ %add.i, %if.end26.i ], [ %sub.i, %_ZN4llvh3sys4path12is_separatorEcNS1_5StyleE.exit.i ], [ %sub.i, %land.lhs.true ]
+  %retval.0.i = phi i64 [ %sub.i, %_ZN4llvh3sys4path12is_separatorEcNS1_5StyleE.exit.i ], [ %add.i, %if.end26.i ], [ %sub.i, %land.lhs.true ]
   call void @llvm.lifetime.end.p0(ptr nonnull %str.i)
   %cmp5.not = icmp ult i64 %dec.i.i, %retval.0.i
   br i1 %cmp5.not, label %if.end, label %if.then
@@ -3110,7 +3110,7 @@ if.else14:                                        ; preds = %if.else, %land.lhs.
   br label %return
 
 return:                                           ; preds = %while.cond.i.i, %land.lhs.true, %land.lhs.true9, %if.else14
-  %retval.sroa.4.0 = phi i64 [ %dec.i.i, %if.else14 ], [ 2, %land.lhs.true9 ], [ 1, %land.lhs.true ], [ %ref.tmp.sroa.2.0.copyload.i, %while.cond.i.i ]
+  %retval.sroa.4.0 = phi i64 [ %dec.i.i, %if.else14 ], [ 1, %land.lhs.true ], [ 2, %land.lhs.true9 ], [ %ref.tmp.sroa.2.0.copyload.i, %while.cond.i.i ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %ref.tmp.sroa.1.0.copyload.i, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %retval.sroa.4.0, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -3171,8 +3171,8 @@ if.else14:                                        ; preds = %if.else, %land.lhs.
   br label %return
 
 return:                                           ; preds = %while.cond.i.i, %land.lhs.true, %land.lhs.true9, %if.else14
-  %retval.sroa.6.0 = phi i64 [ %sub.i, %if.else14 ], [ 0, %land.lhs.true9 ], [ 0, %land.lhs.true ], [ 0, %while.cond.i.i ]
-  %retval.sroa.0.0 = phi ptr [ %arrayidx.i.i.le, %if.else14 ], [ null, %land.lhs.true9 ], [ null, %land.lhs.true ], [ null, %while.cond.i.i ]
+  %retval.sroa.6.0 = phi i64 [ %sub.i, %if.else14 ], [ 0, %land.lhs.true ], [ 0, %land.lhs.true9 ], [ 0, %while.cond.i.i ]
+  %retval.sroa.0.0 = phi ptr [ %arrayidx.i.i.le, %if.else14 ], [ null, %land.lhs.true ], [ null, %land.lhs.true9 ], [ null, %while.cond.i.i ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %retval.sroa.6.0, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -3406,7 +3406,7 @@ if.else14.i:                                      ; preds = %land.lhs.true9.i, %
   br label %_ZN4llvh3sys4path4stemENS_9StringRefENS1_5StyleE.exit
 
 _ZN4llvh3sys4path4stemENS_9StringRefENS1_5StyleE.exit: ; preds = %while.cond.i.i.i, %land.lhs.true.i, %land.lhs.true9.i, %if.else14.i
-  %retval.sroa.4.0.i = phi i64 [ %dec.i.i.i, %if.else14.i ], [ 2, %land.lhs.true9.i ], [ 2, %land.lhs.true.i ], [ %ref.tmp.sroa.2.0.copyload.i.i, %while.cond.i.i.i ]
+  %retval.sroa.4.0.i = phi i64 [ %dec.i.i.i, %if.else14.i ], [ 1, %land.lhs.true.i ], [ 1, %land.lhs.true9.i ], [ %ref.tmp.sroa.2.0.copyload.i.i, %while.cond.i.i.i ]
   %4 = load ptr, ptr %path_storage, align 8
   %cmp.i.i.i.i = icmp eq ptr %4, %add.ptr.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i, label %_ZN4llvh11SmallStringILj128EED2Ev.exit, label %if.then.i.i.i
@@ -3483,7 +3483,7 @@ if.else14.i:                                      ; preds = %land.lhs.true9.i, %
   br label %_ZN4llvh3sys4path9extensionENS_9StringRefENS1_5StyleE.exit
 
 _ZN4llvh3sys4path9extensionENS_9StringRefENS1_5StyleE.exit: ; preds = %while.cond.i.i.i, %land.lhs.true.i, %land.lhs.true9.i, %if.else14.i
-  %retval.sroa.6.0.i = phi i1 [ true, %if.else14.i ], [ false, %land.lhs.true9.i ], [ false, %land.lhs.true.i ], [ false, %while.cond.i.i.i ]
+  %retval.sroa.6.0.i = phi i1 [ true, %if.else14.i ], [ false, %land.lhs.true.i ], [ false, %land.lhs.true9.i ], [ false, %while.cond.i.i.i ]
   %4 = load ptr, ptr %path_storage, align 8
   %cmp.i.i.i.i = icmp eq ptr %4, %add.ptr.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i, label %_ZN4llvh11SmallStringILj128EED2Ev.exit, label %if.then.i.i.i
@@ -3695,8 +3695,8 @@ while.end16.loopexit146:                          ; preds = %while.body13.us.us
   br label %while.end16
 
 while.end16:                                      ; preds = %land.rhs.us92, %while.end.us105, %land.lhs.true.us88, %land.rhs.us, %while.end.us, %land.lhs.true.us, %while.end16.loopexit146, %while.end16.loopexit, %entry
-  %Path.sroa.8.0.lcssa = phi i64 [ %Path.coerce1, %entry ], [ 0, %while.end16.loopexit146 ], [ %storemerge51.us70, %while.end.us ], [ 0, %while.end16.loopexit ], [ %Path.sroa.8.061.us, %land.rhs.us ], [ %Path.sroa.8.061.us, %land.lhs.true.us ], [ %Path.sroa.8.061.us90, %land.lhs.true.us88 ], [ %storemerge51.us.us, %while.end.us105 ], [ %Path.sroa.8.061.us90, %land.rhs.us92 ]
-  %Path.sroa.0.0.lcssa = phi ptr [ %Path.coerce0, %entry ], [ %scevgep.le, %while.end16.loopexit146 ], [ %storemerge1050.us71, %while.end.us ], [ %scevgep138.le, %while.end16.loopexit ], [ %Path.sroa.0.062.us, %land.rhs.us ], [ %Path.sroa.0.062.us, %land.lhs.true.us ], [ %Path.sroa.0.062.us89, %land.lhs.true.us88 ], [ %storemerge1050.us.us, %while.end.us105 ], [ %Path.sroa.0.062.us89, %land.rhs.us92 ]
+  %Path.sroa.8.0.lcssa = phi i64 [ %Path.coerce1, %entry ], [ %storemerge51.us70, %while.end.us ], [ 0, %while.end16.loopexit ], [ 0, %while.end16.loopexit146 ], [ %Path.sroa.8.061.us, %land.rhs.us ], [ %Path.sroa.8.061.us, %land.lhs.true.us ], [ %Path.sroa.8.061.us90, %land.lhs.true.us88 ], [ %storemerge51.us.us, %while.end.us105 ], [ %Path.sroa.8.061.us90, %land.rhs.us92 ]
+  %Path.sroa.0.0.lcssa = phi ptr [ %Path.coerce0, %entry ], [ %storemerge1050.us71, %while.end.us ], [ %scevgep138.le, %while.end16.loopexit ], [ %scevgep.le, %while.end16.loopexit146 ], [ %Path.sroa.0.062.us, %land.rhs.us ], [ %Path.sroa.0.062.us, %land.lhs.true.us ], [ %Path.sroa.0.062.us89, %land.lhs.true.us88 ], [ %storemerge1050.us.us, %while.end.us105 ], [ %Path.sroa.0.062.us89, %land.rhs.us92 ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %Path.sroa.0.0.lcssa, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %Path.sroa.8.0.lcssa, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -8535,8 +8535,8 @@ if.end23.i:                                       ; preds = %if.end14.i
   br i1 %cmp.i19.not.i, label %while.cond.i, label %cleanup30.i, !llvm.loop !106
 
 cleanup30.i:                                      ; preds = %if.end23.i, %if.end14.i, %if.then6.i, %while.cond.i, %if.end14.us.i, %if.then.i, %entry.split.us.i
-  %retval.sroa.660.0.i = phi ptr [ %retval.sroa.31.0.copyload.i.i, %if.then.i ], [ %call.i.i, %entry.split.us.i ], [ %call.i.i, %if.end14.us.i ], [ %call.i.i, %while.cond.i ], [ %14, %if.end14.i ], [ %12, %if.then6.i ], [ %17, %if.end23.i ]
-  %retval.sroa.0.0.i = phi i32 [ %retval.sroa.0.0.copyload.i.i, %if.then.i ], [ 0, %entry.split.us.i ], [ 0, %if.end14.us.i ], [ 0, %while.cond.i ], [ %13, %if.end14.i ], [ %11, %if.then6.i ], [ %16, %if.end23.i ]
+  %retval.sroa.660.0.i = phi ptr [ %retval.sroa.31.0.copyload.i.i, %if.then.i ], [ %call.i.i, %if.end14.us.i ], [ %call.i.i, %entry.split.us.i ], [ %14, %if.end14.i ], [ %12, %if.then6.i ], [ %17, %if.end23.i ], [ %call.i.i, %while.cond.i ]
+  %retval.sroa.0.0.i = phi i32 [ %retval.sroa.0.0.copyload.i.i, %if.then.i ], [ 0, %if.end14.us.i ], [ 0, %entry.split.us.i ], [ %13, %if.end14.i ], [ %11, %if.then6.i ], [ %16, %if.end23.i ], [ 0, %while.cond.i ]
   %_M_refcount.i.i.i.i = getelementptr inbounds nuw i8, ptr %End.i, i64 8
   %18 = load ptr, ptr %_M_refcount.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %18, null
@@ -10800,8 +10800,8 @@ if.end23:                                         ; preds = %if.end14
   br i1 %cmp.i19.not, label %while.cond, label %cleanup30, !llvm.loop !199
 
 cleanup30:                                        ; preds = %while.cond, %if.then6, %if.end14, %if.end23, %if.end14.us, %entry.split.us, %if.then
-  %retval.sroa.660.0 = phi ptr [ %retval.sroa.31.0.copyload.i, %if.then ], [ %call.i, %entry.split.us ], [ %call.i, %if.end14.us ], [ %17, %if.end23 ], [ %12, %if.then6 ], [ %14, %if.end14 ], [ %call.i, %while.cond ]
-  %retval.sroa.0.0 = phi i32 [ %retval.sroa.0.0.copyload.i, %if.then ], [ 0, %entry.split.us ], [ 0, %if.end14.us ], [ %16, %if.end23 ], [ %11, %if.then6 ], [ %13, %if.end14 ], [ 0, %while.cond ]
+  %retval.sroa.660.0 = phi ptr [ %retval.sroa.31.0.copyload.i, %if.then ], [ %call.i, %if.end14.us ], [ %call.i, %entry.split.us ], [ %17, %if.end23 ], [ %12, %if.then6 ], [ %14, %if.end14 ], [ %call.i, %while.cond ]
+  %retval.sroa.0.0 = phi i32 [ %retval.sroa.0.0.copyload.i, %if.then ], [ 0, %if.end14.us ], [ 0, %entry.split.us ], [ %16, %if.end23 ], [ %11, %if.then6 ], [ %13, %if.end14 ], [ 0, %while.cond ]
   %_M_refcount.i.i.i = getelementptr inbounds nuw i8, ptr %End, i64 8
   %18 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %18, null

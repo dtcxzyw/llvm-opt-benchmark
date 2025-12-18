@@ -8937,7 +8937,7 @@ build_model.exit.thread1124.i:                    ; preds = %.loopexit.i.i, %109
   br i1 %.not.i, label %.thread1140.i, label %.thread1151.i
 
 .thread1068.i:                                    ; preds = %1143, %1072, %1015, %985, %poolClear.exit1020.i, %poolClear.exit1012.i, %598, %596, %594, %poolClear.exit878.i, %262, %243, %199, %197, %128
-  %.0604.i = phi i8 [ %.2606.i, %128 ], [ %.4608.i, %243 ], [ %.4608.i, %199 ], [ %.4608.i, %197 ], [ %.7611.i, %262 ], [ %.9613.i, %poolClear.exit878.i ], [ %spec.select804.i, %1072 ], [ %.14618.i, %594 ], [ %.14618.i, %598 ], [ %.14618.i, %596 ], [ %.18622.i, %poolClear.exit1012.i ], [ %.20624.i, %poolClear.exit1020.i ], [ %.23627.i, %985 ], [ %.24628.i, %1015 ], [ %spec.select804.i, %1143 ]
+  %.0604.i = phi i8 [ %.18622.i, %poolClear.exit1012.i ], [ %.20624.i, %poolClear.exit1020.i ], [ %.2606.i, %128 ], [ %spec.select804.i, %1072 ], [ %.23627.i, %985 ], [ %.4608.i, %243 ], [ %.4608.i, %199 ], [ %.4608.i, %197 ], [ %.24628.i, %1015 ], [ %.7611.i, %262 ], [ %.14618.i, %596 ], [ %.14618.i, %598 ], [ %.14618.i, %594 ], [ %spec.select804.i, %1143 ], [ %.9613.i, %poolClear.exit878.i ]
   %.not793.i = icmp eq i8 %.0604.i, 0
   br i1 %.not793.i, label %.thread1151.i, label %.thread1140.i
 
@@ -9018,7 +9018,7 @@ reportDefault.exit.i:                             ; preds = %1179, %1195
   br label %.thread1151.i
 
 .thread1151.i:                                    ; preds = %reportDefault.exit.i, %.thread1140.i, %.thread1068.i, %1163, %1161, %1157, %1155, %1151, %1150, %1147, %1144, %1063, %1018, %998, %961, %.thread1105.i, %844, %793, %764, %711, %699, %653, %638, %548, %poolClear.exit909.i, %322, %286, %264, %243, %poolClear.exit.i, %.thread.i
-  %.25921146.i = phi ptr [ %.0590.i, %reportDefault.exit.i ], [ %.0590.i, %.thread1140.i ], [ %.0590.i, %.thread1068.i ], [ %100, %.thread.i ], [ %.0590.i, %764 ], [ %.0590.i, %1147 ], [ %.0590.i, %1144 ], [ %.0590.i, %1018 ], [ %.0590.i, %1063 ], [ %.0590.i, %1161 ], [ %.0590.i, %961 ], [ %.0590.i, %998 ], [ %.0590.i, %638 ], [ %.0590.i, %844 ], [ %.0590.i, %793 ], [ %.0590.i, %poolClear.exit909.i ], [ %.0590.i, %711 ], [ %.0590.i, %699 ], [ %.0590.i, %653 ], [ %.0590.i, %1155 ], [ %.0590.i, %286 ], [ %.0590.i, %1157 ], [ %.0590.i, %322 ], [ %.0590.i, %1163 ], [ %.0590.i, %1151 ], [ %.0590.i, %264 ], [ %.0590.i, %poolClear.exit.i ], [ %.0590.i, %1150 ], [ %.0590.i, %.thread1105.i ], [ %.0590.i, %548 ], [ %.0590.i, %243 ]
+  %.25921146.i = phi ptr [ %.0590.i, %reportDefault.exit.i ], [ %.0590.i, %.thread1140.i ], [ %.0590.i, %.thread1068.i ], [ %.0590.i, %793 ], [ %.0590.i, %844 ], [ %.0590.i, %poolClear.exit909.i ], [ %.0590.i, %638 ], [ %.0590.i, %711 ], [ %.0590.i, %699 ], [ %.0590.i, %998 ], [ %.0590.i, %653 ], [ %.0590.i, %961 ], [ %.0590.i, %1161 ], [ %.0590.i, %1155 ], [ %.0590.i, %286 ], [ %.0590.i, %1063 ], [ %.0590.i, %1157 ], [ %.0590.i, %1018 ], [ %.0590.i, %1144 ], [ %.0590.i, %322 ], [ %.0590.i, %1147 ], [ %.0590.i, %1163 ], [ %.0590.i, %1151 ], [ %.0590.i, %264 ], [ %.0590.i, %764 ], [ %.0590.i, %poolClear.exit.i ], [ %100, %.thread.i ], [ %.0590.i, %1150 ], [ %.0590.i, %.thread1105.i ], [ %.0590.i, %548 ], [ %.0590.i, %243 ]
   %1201 = load i32, ptr %82, align 8, !tbaa !108
   switch i32 %1201, label %1204 [
     i32 3, label %1202
@@ -9044,7 +9044,7 @@ doProlog.exit.loopexit600:                        ; preds = %89
   br label %doProlog.exit
 
 doProlog.exit:                                    ; preds = %97, %poolStoreString.exit.i, %143, %poolAppend.exit.i820.i, %172, %poolStoreString.exit826.i, %192, %poolAppend.exit.i833.i, %225, %poolStoreString.exit839.i, %269, %272, %poolAppendString.exit.i, %poolAppend.exit.i, %355, %357, %390, %398, %423, %445, %475, %477, %510, %518, %544, %poolStoreString.exit921.i, %598, %poolStoreString.exit933.i, %645, %poolStoreString.exit945.i, %poolAppend.exit.i951.i, %746, %poolStoreString.exit957.i, %751, %poolStoreString.exit969.i, %795, %poolAppend.exit.i975.i, %826, %poolStoreString.exit981.i, %poolAppend.exit.i998.i, %874, %poolStoreString.exit1004.i, %910, %922, %939, %952, %963, %990, %995, %1003, %1043, %1047, %1053, %1086, %1144, %1147, %.thread1151.i, %300, %89, %doProlog.exit.loopexit600, %doProlog.exit.loopexit472, %88, %90, %poolStoreString.exit.thread.i, %poolAppend.exit.thread.i818.i, %poolAppend.exit.thread.i831.i, %266, %poolAppend.exit.thread.i, %354, %474, %poolStoreString.exit921.thread.i, %poolStoreString.exit933.thread.i, %poolStoreString.exit945.thread.i, %poolAppend.exit.thread.i949.i, %poolStoreString.exit969.thread.i, %poolAppend.exit.thread.i973.i, %poolAppend.exit.thread.i996.i, %905, %.thread1101.i, %932, %1202
-  %.1.ph.i = phi i32 [ 1, %poolAppend.exit.thread.i949.i ], [ 1, %poolStoreString.exit969.thread.i ], [ 1, %poolStoreString.exit945.thread.i ], [ 1, %poolStoreString.exit933.thread.i ], [ 1, %poolStoreString.exit921.thread.i ], [ %switch.select1178.i, %905 ], [ 1, %poolStoreString.exit.thread.i ], [ 0, %88 ], [ 1, %poolAppend.exit.thread.i818.i ], [ 4, %90 ], [ 1, %poolAppend.exit.thread.i973.i ], [ 1, %474 ], [ 1, %poolAppend.exit.thread.i ], [ 1, %poolAppend.exit.thread.i831.i ], [ 1, %354 ], [ %268, %266 ], [ 0, %1202 ], [ 1, %932 ], [ 1, %.thread1101.i ], [ 1, %poolAppend.exit.thread.i996.i ], [ 1, %300 ], [ 5, %doProlog.exit.loopexit472 ], [ 3, %89 ], [ 1, %939 ], [ 1, %544 ], [ %99, %97 ], [ 1, %398 ], [ 1, %1144 ], [ 1, %995 ], [ 1, %1053 ], [ 1, %1003 ], [ 1, %922 ], [ 22, %990 ], [ 2, %963 ], [ 2, %952 ], [ 1, %910 ], [ 32, %795 ], [ 1, %1086 ], [ 1, %poolStoreString.exit969.i ], [ 1, %1047 ], [ 1, %poolStoreString.exit945.i ], [ 1, %477 ], [ 1, %poolStoreString.exit933.i ], [ 1, %645 ], [ 22, %598 ], [ 1, %poolStoreString.exit921.i ], [ 1, %390 ], [ 1, %357 ], [ 1, %272 ], [ 1, %269 ], [ 32, %192 ], [ 1, %poolStoreString.exit.i ], [ 1, %1043 ], [ 35, %.thread1151.i ], [ 1, %1147 ], [ 32, %143 ], [ 1, %poolStoreString.exit826.i ], [ 1, %poolAppend.exit.i820.i ], [ 1, %172 ], [ 1, %poolStoreString.exit839.i ], [ 1, %poolAppend.exit.i833.i ], [ 1, %225 ], [ 1, %poolAppendString.exit.i ], [ 1, %poolAppend.exit.i ], [ 1, %355 ], [ 1, %518 ], [ %432, %423 ], [ 1, %510 ], [ 1, %445 ], [ 1, %475 ], [ 1, %751 ], [ 1, %poolStoreString.exit957.i ], [ 1, %poolAppend.exit.i951.i ], [ 1, %746 ], [ 1, %poolStoreString.exit981.i ], [ 1, %poolAppend.exit.i975.i ], [ 1, %826 ], [ 1, %poolStoreString.exit1004.i ], [ 1, %poolAppend.exit.i998.i ], [ 1, %874 ], [ 6, %doProlog.exit.loopexit600 ]
+  %.1.ph.i = phi i32 [ 1, %poolAppend.exit.thread.i949.i ], [ 1, %poolStoreString.exit969.thread.i ], [ 1, %poolStoreString.exit945.thread.i ], [ 1, %poolStoreString.exit933.thread.i ], [ 1, %poolStoreString.exit921.thread.i ], [ 1, %300 ], [ 1, %poolStoreString.exit.thread.i ], [ %switch.select1178.i, %905 ], [ 0, %1202 ], [ 5, %doProlog.exit.loopexit472 ], [ 4, %90 ], [ 1, %poolAppend.exit.thread.i818.i ], [ 1, %poolAppend.exit.thread.i973.i ], [ 0, %88 ], [ 1, %474 ], [ 1, %poolAppend.exit.thread.i ], [ 1, %poolAppend.exit.thread.i831.i ], [ 1, %354 ], [ 3, %89 ], [ %268, %266 ], [ 1, %932 ], [ 1, %.thread1101.i ], [ 1, %poolAppend.exit.thread.i996.i ], [ 1, %939 ], [ 1, %544 ], [ %99, %97 ], [ 1, %398 ], [ 1, %1144 ], [ 1, %995 ], [ 1, %1053 ], [ 1, %1003 ], [ 1, %922 ], [ 22, %990 ], [ 2, %963 ], [ 2, %952 ], [ 1, %910 ], [ 1, %1086 ], [ 32, %795 ], [ 1, %1047 ], [ 1, %poolStoreString.exit969.i ], [ 1, %1043 ], [ 1, %poolStoreString.exit945.i ], [ 1, %475 ], [ 1, %poolStoreString.exit933.i ], [ 1, %645 ], [ 22, %598 ], [ 1, %poolStoreString.exit921.i ], [ 1, %390 ], [ 1, %355 ], [ 1, %272 ], [ 1, %poolAppend.exit.i998.i ], [ 1, %269 ], [ 32, %192 ], [ 1, %poolStoreString.exit.i ], [ 1, %874 ], [ 35, %.thread1151.i ], [ 1, %1147 ], [ 32, %143 ], [ 1, %poolStoreString.exit826.i ], [ 1, %poolAppend.exit.i820.i ], [ 1, %172 ], [ 1, %poolStoreString.exit839.i ], [ 1, %poolAppend.exit.i833.i ], [ 1, %225 ], [ 1, %poolAppendString.exit.i ], [ 1, %poolAppend.exit.i ], [ 1, %357 ], [ 1, %518 ], [ %432, %423 ], [ 1, %510 ], [ 1, %445 ], [ 1, %477 ], [ 1, %751 ], [ 1, %poolStoreString.exit957.i ], [ 1, %poolAppend.exit.i951.i ], [ 1, %746 ], [ 1, %poolStoreString.exit981.i ], [ 1, %poolAppend.exit.i975.i ], [ 1, %826 ], [ 1, %poolStoreString.exit1004.i ], [ 6, %doProlog.exit.loopexit600 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   ret i32 %.1.ph.i
@@ -10105,7 +10105,7 @@ poolStoreString.exit:                             ; preds = %32, %._crit_edge.i
   br label %84, !llvm.loop !264
 
 .critedge:                                        ; preds = %84, %89, %poolAppend.exit.thread.i, %36, %poolAppend.exit.i, %114, %112, %47, %81, %49, %99, %101, %41, %poolStoreString.exit, %14
-  %.072 = phi ptr [ null, %99 ], [ null, %41 ], [ null, %poolStoreString.exit ], [ null, %14 ], [ null, %101 ], [ %44, %47 ], [ %44, %49 ], [ %44, %81 ], [ %44, %112 ], [ %44, %114 ], [ null, %poolAppend.exit.i ], [ null, %36 ], [ null, %poolAppend.exit.thread.i ], [ null, %89 ], [ %44, %84 ]
+  %.072 = phi ptr [ null, %99 ], [ null, %41 ], [ null, %poolStoreString.exit ], [ null, %14 ], [ null, %poolAppend.exit.thread.i ], [ null, %101 ], [ %44, %47 ], [ %44, %49 ], [ %44, %81 ], [ %44, %112 ], [ %44, %114 ], [ null, %89 ], [ null, %poolAppend.exit.i ], [ null, %36 ], [ %44, %84 ]
   ret ptr %.072
 }
 
@@ -14145,7 +14145,7 @@ hashTableIterNext.exit118:                        ; preds = %211
   br label %.critedge
 
 .critedge:                                        ; preds = %28, %178, %65, %146, %144, %141, %._crit_edge.i, %122, %119, %126, %192, %221, %233, %13, %245, %247
-  %.2 = phi ptr [ null, %13 ], [ %250, %247 ], [ null, %245 ], [ null, %178 ], [ null, %233 ], [ null, %221 ], [ null, %192 ], [ null, %146 ], [ null, %126 ], [ null, %119 ], [ null, %122 ], [ null, %._crit_edge.i ], [ null, %141 ], [ null, %144 ], [ null, %65 ], [ null, %28 ]
+  %.2 = phi ptr [ null, %13 ], [ null, %146 ], [ %250, %247 ], [ null, %245 ], [ null, %233 ], [ null, %178 ], [ null, %221 ], [ null, %192 ], [ null, %126 ], [ null, %119 ], [ null, %122 ], [ null, %._crit_edge.i ], [ null, %141 ], [ null, %144 ], [ null, %65 ], [ null, %28 ]
   ret ptr %.2
 }
 
@@ -14604,7 +14604,7 @@ poolStoreString.exit:                             ; preds = %208, %._crit_edge.i
   %.not563 = icmp eq i32 %239, 0
   br i1 %.not563, label %.thread619, label %.critedge565
 
-.thread619:                                       ; preds = %228, %233, %235
+.thread619:                                       ; preds = %233, %228, %235
   %.1410625 = phi i32 [ %.0409765, %235 ], [ %229, %228 ], [ %234, %233 ]
   %.1444624 = phi i32 [ %.0443763, %235 ], [ %230, %228 ], [ %.0443763, %233 ]
   %indvars.iv.next859 = add nuw nsw i64 %indvars.iv858, 1
@@ -15220,7 +15220,7 @@ keylen.exit:                                      ; preds = %431, %.lr.ph.prehea
   br label %517
 
 .thread672:                                       ; preds = %lookup.exit601, %403, %copy_salt_to_sipkey.exit, %362, %396, %417, %439, %.critedge, %500
-  %.22.ph.ph = phi i32 [ 1, %500 ], [ 8, %.critedge ], [ 1, %439 ], [ 1, %417 ], [ 1, %396 ], [ 1, %copy_salt_to_sipkey.exit ], [ 1, %lookup.exit601 ], [ 1, %362 ], [ 27, %403 ]
+  %.22.ph.ph = phi i32 [ 1, %417 ], [ 8, %.critedge ], [ 1, %439 ], [ 1, %396 ], [ 1, %500 ], [ 1, %copy_salt_to_sipkey.exit ], [ 1, %lookup.exit601 ], [ 1, %362 ], [ 27, %403 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.critedge565
 
@@ -15331,7 +15331,7 @@ keylen.exit:                                      ; preds = %431, %.lr.ph.prehea
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader.preheader, %.loopexit692
-  %.0416 = phi i32 [ %555, %.preheader.preheader ], [ 0, %.loopexit692 ]
+  %.0416 = phi i32 [ 0, %.loopexit692 ], [ %555, %.preheader.preheader ]
   %556 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %.1456, ptr %556, align 8, !tbaa !333
   %557 = getelementptr inbounds nuw i8, ptr %.1454, i64 40
@@ -15446,7 +15446,7 @@ keylen.exit:                                      ; preds = %431, %.lr.ph.prehea
   br label %.critedge565
 
 .critedge565:                                     ; preds = %63, %186, %.loopexit707, %poolStoreString.exit, %126, %235, %278, %576, %574, %316, %306, %289, %poolStoreString.exit.thread, %143, %139, %.thread672, %96, %109, %74, %poolCopyString.exit, %79, %.loopexit, %566, %547, %539, %._crit_edge808, %lookup.exit, %610
-  %.2 = phi i32 [ 1, %.loopexit ], [ 8, %139 ], [ 0, %547 ], [ 0, %610 ], [ 1, %316 ], [ 0, %._crit_edge808 ], [ 27, %539 ], [ 1, %lookup.exit ], [ 1, %306 ], [ 1, %74 ], [ 1, %566 ], [ 1, %79 ], [ 1, %poolCopyString.exit ], [ 1, %109 ], [ 1, %96 ], [ 1, %289 ], [ %.22.ph.ph, %.thread672 ], [ 1, %poolStoreString.exit.thread ], [ 1, %574 ], [ 1, %576 ], [ 8, %143 ], [ %239, %235 ], [ %279, %278 ], [ 1, %poolStoreString.exit ], [ 1, %186 ], [ %173, %.loopexit707 ], [ 1, %126 ], [ 1, %63 ]
+  %.2 = phi i32 [ 1, %.loopexit ], [ %239, %235 ], [ 1, %576 ], [ 0, %547 ], [ 0, %610 ], [ 1, %316 ], [ 0, %._crit_edge808 ], [ 27, %539 ], [ 1, %lookup.exit ], [ 8, %139 ], [ 1, %74 ], [ 1, %566 ], [ 1, %79 ], [ 1, %poolCopyString.exit ], [ 1, %109 ], [ 1, %96 ], [ 1, %289 ], [ %279, %278 ], [ %.22.ph.ph, %.thread672 ], [ 1, %poolStoreString.exit.thread ], [ 1, %306 ], [ 1, %574 ], [ 8, %143 ], [ 1, %poolStoreString.exit ], [ 1, %186 ], [ %173, %.loopexit707 ], [ 1, %126 ], [ 1, %63 ]
   ret i32 %.2
 }
 
@@ -16070,7 +16070,7 @@ reportDefault.exit83:                             ; preds = %165, %181
   br label %41
 
 .loopexit:                                        ; preds = %195, %194, %85, %188, %198, %191, %187, %189, %192
-  %.1.ph = phi i32 [ 0, %192 ], [ 0, %189 ], [ 4, %187 ], [ 20, %191 ], [ 0, %198 ], [ 6, %188 ], [ %., %85 ], [ 23, %194 ], [ 35, %195 ]
+  %.1.ph = phi i32 [ 23, %194 ], [ 0, %192 ], [ 0, %189 ], [ 4, %187 ], [ 20, %191 ], [ 0, %198 ], [ 6, %188 ], [ %., %85 ], [ 35, %195 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret i32 %.1.ph
@@ -16407,7 +16407,7 @@ define internal fastcc range(i32 0, 2) i32 @setElementTypePrefix(ptr noundef rea
   br label %6, !llvm.loop !340
 
 .critedge:                                        ; preds = %6, %15, %27, %30, %44
-  %.1 = phi i32 [ 1, %44 ], [ 0, %30 ], [ 0, %27 ], [ 0, %15 ], [ 1, %6 ]
+  %.1 = phi i32 [ 0, %15 ], [ 1, %44 ], [ 0, %30 ], [ 0, %27 ], [ 1, %6 ]
   ret i32 %.1
 }
 
@@ -16837,11 +16837,11 @@ is_rfc3986_uri_char.exit:                         ; preds = %96, %96, %96, %96, 
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9, %._crit_edge.loopexit175, %._crit_edge.loopexit173, %._crit_edge.loopexit172, %._crit_edge.loopexit
-  %.0109208 = phi i8 [ 1, %._crit_edge.loopexit175 ], [ 0, %._crit_edge.loopexit ], [ 0, %._crit_edge.loopexit172 ], [ 1, %._crit_edge.loopexit173 ], [ 0, %9 ]
-  %.not130206 = phi i32 [ 38, %._crit_edge.loopexit175 ], [ 40, %._crit_edge.loopexit ], [ 40, %._crit_edge.loopexit172 ], [ 38, %._crit_edge.loopexit173 ], [ 40, %9 ]
-  %.0107.lcssa = phi i8 [ %.1108.us, %._crit_edge.loopexit175 ], [ %.1108.us157, %._crit_edge.loopexit ], [ %.1108, %._crit_edge.loopexit172 ], [ %.1108.us.us, %._crit_edge.loopexit173 ], [ 1, %9 ]
-  %.0105.lcssa = phi i8 [ 1, %._crit_edge.loopexit175 ], [ %.1106.us158, %._crit_edge.loopexit ], [ %.1106, %._crit_edge.loopexit172 ], [ 1, %._crit_edge.loopexit173 ], [ 1, %9 ]
-  %.0102.lcssa = phi i32 [ %102, %._crit_edge.loopexit175 ], [ %99, %._crit_edge.loopexit ], [ %100, %._crit_edge.loopexit172 ], [ %101, %._crit_edge.loopexit173 ], [ 0, %9 ]
+  %.0109208 = phi i8 [ 1, %._crit_edge.loopexit175 ], [ 1, %._crit_edge.loopexit173 ], [ 0, %._crit_edge.loopexit172 ], [ 0, %._crit_edge.loopexit ], [ 0, %9 ]
+  %.not130206 = phi i32 [ 38, %._crit_edge.loopexit175 ], [ 38, %._crit_edge.loopexit173 ], [ 40, %._crit_edge.loopexit172 ], [ 40, %._crit_edge.loopexit ], [ 40, %9 ]
+  %.0107.lcssa = phi i8 [ %.1108.us, %._crit_edge.loopexit175 ], [ %.1108.us.us, %._crit_edge.loopexit173 ], [ %.1108, %._crit_edge.loopexit172 ], [ %.1108.us157, %._crit_edge.loopexit ], [ 1, %9 ]
+  %.0105.lcssa = phi i8 [ 1, %._crit_edge.loopexit175 ], [ 1, %._crit_edge.loopexit173 ], [ %.1106, %._crit_edge.loopexit172 ], [ %.1106.us158, %._crit_edge.loopexit ], [ 1, %9 ]
+  %.0102.lcssa = phi i32 [ %102, %._crit_edge.loopexit175 ], [ %101, %._crit_edge.loopexit173 ], [ %100, %._crit_edge.loopexit172 ], [ %99, %._crit_edge.loopexit ], [ 0, %9 ]
   %103 = icmp ne i8 %.0107.lcssa, 0
   %104 = icmp eq i32 %.0102.lcssa, 36
   %105 = and i1 %103, %104

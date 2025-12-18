@@ -953,7 +953,7 @@ thread-pre-split.i:                               ; preds = %.noexc240
   br i1 %193, label %.lr.ph29.i, label %.critedge4.i, !llvm.loop !41
 
 .critedge4.i:                                     ; preds = %.critedge2.i, %191, %.noexc241, %.critedge.i, %thread-pre-split.i
-  %194 = phi i32 [ %.pr26.i, %.critedge.i ], [ %.pr.i, %thread-pre-split.i ], [ %.pre.pre.i, %.noexc241 ], [ %192, %191 ], [ 0, %.critedge2.i ]
+  %194 = phi i32 [ %.pre.pre.i, %.noexc241 ], [ %.pr26.i, %.critedge.i ], [ %.pr.i, %thread-pre-split.i ], [ %192, %191 ], [ 0, %.critedge2.i ]
   store ptr %164, ptr %6, align 8, !tbaa !42
   %195 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString5setToEaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %10, i8 noundef signext 0, ptr noundef nonnull %6, i32 noundef %194)
           to label %199 unwind label %196

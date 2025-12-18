@@ -18867,7 +18867,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17h16c024d7b445884dE.exit.i.i.i.i.i.i.i: 
   br label %245
 
 .loopexit.split-lp.i.i.i.i.i.i.i:                 ; preds = %.invoke.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i, %241
-  %.sroa.012.2.ph.i.i.i.i.i.i.i = phi i1 [ true, %.invoke.i.i.i.i.i.i.i ], [ true, %241 ], [ false, %._crit_edge.i.i.i.i.i.i.i ]
+  %.sroa.012.2.ph.i.i.i.i.i.i.i = phi i1 [ true, %241 ], [ true, %.invoke.i.i.i.i.i.i.i ], [ false, %._crit_edge.i.i.i.i.i.i.i ]
   %lpad.loopexit.split-lp.i.i.i.i.i.i.i = landingpad { ptr, i32 }
           cleanup
   br label %245
@@ -27201,7 +27201,7 @@ select.unfold122:                                 ; preds = %._crit_edge.i.i65, 
   br label %189
 
 .loopexit.split-lp:                               ; preds = %185, %.loopexit177, %224, %234, %239, %248
-  %.sroa.03.0.ph = phi i8 [ %.sroa.03.2, %234 ], [ 1, %185 ], [ %.sroa.03.2, %.loopexit177 ], [ %.sroa.03.2, %224 ], [ %.sroa.03.2, %239 ], [ %.sroa.03.2, %248 ]
+  %.sroa.03.0.ph = phi i8 [ 1, %185 ], [ %.sroa.03.2, %234 ], [ %.sroa.03.2, %.loopexit177 ], [ %.sroa.03.2, %224 ], [ %.sroa.03.2, %239 ], [ %.sroa.03.2, %248 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %189
@@ -29087,8 +29087,8 @@ _ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17h5ac2ae42596d
   %70 = zext nneg i16 %69 to i64
   br label %_ZN9hashbrown3raw5inner13RawTableInner30find_or_find_insert_slot_inner17h905c416281a1f195E.exit.thread
 
-_ZN9hashbrown3raw5inner13RawTableInner30find_or_find_insert_slot_inner17h905c416281a1f195E.exit.thread: ; preds = %64, %60
-  %.sroa.3.0.i.ph = phi i64 [ %.sroa.4.1.i, %60 ], [ %70, %64 ]
+_ZN9hashbrown3raw5inner13RawTableInner30find_or_find_insert_slot_inner17h905c416281a1f195E.exit.thread: ; preds = %60, %64
+  %.sroa.3.0.i.ph = phi i64 [ %70, %64 ], [ %.sroa.4.1.i, %60 ]
   %71 = inttoptr i64 %.sroa.3.0.i.ph to ptr
   br label %.loopexit
 

@@ -187,12 +187,12 @@ define ptr @PKCS7_dataInit(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0
   br label %61
 
 61:                                               ; preds = %.sink.split, %42, %28, %18
-  %.096 = phi ptr [ %39, %28 ], [ %51, %42 ], [ null, %18 ], [ null, %.sink.split ]
-  %.095 = phi ptr [ %33, %28 ], [ null, %42 ], [ null, %18 ], [ %.095.ph, %.sink.split ]
-  %.094 = phi ptr [ %31, %28 ], [ %45, %42 ], [ null, %18 ], [ null, %.sink.split ]
-  %.093 = phi ptr [ %37, %28 ], [ %49, %42 ], [ null, %18 ], [ null, %.sink.split ]
-  %.091 = phi ptr [ null, %28 ], [ null, %42 ], [ null, %18 ], [ %60, %.sink.split ]
-  %.090 = phi ptr [ null, %28 ], [ null, %42 ], [ null, %18 ], [ %.090.ph, %.sink.split ]
+  %.096 = phi ptr [ null, %18 ], [ %39, %28 ], [ %51, %42 ], [ null, %.sink.split ]
+  %.095 = phi ptr [ null, %18 ], [ %33, %28 ], [ null, %42 ], [ %.095.ph, %.sink.split ]
+  %.094 = phi ptr [ null, %18 ], [ %31, %28 ], [ %45, %42 ], [ null, %.sink.split ]
+  %.093 = phi ptr [ null, %18 ], [ %37, %28 ], [ %49, %42 ], [ null, %.sink.split ]
+  %.091 = phi ptr [ null, %18 ], [ null, %28 ], [ null, %42 ], [ %60, %.sink.split ]
+  %.090 = phi ptr [ null, %18 ], [ null, %28 ], [ null, %42 ], [ %.090.ph, %.sink.split ]
   %62 = tail call i32 @OPENSSL_sk_num(ptr noundef %.095) #4
   %63 = icmp sgt i32 %62, 0
   br i1 %63, label %.lr.ph, label %._crit_edge
@@ -459,8 +459,8 @@ pkcs7_encode_rinfo.exit.thread:                   ; preds = %.lr.ph139, %129
   %192 = icmp eq ptr %191, null
   br i1 %192, label %.thread131, label %.thread134
 
-.thread134:                                       ; preds = %187, %175, %189, %160
-  %.084 = phi ptr [ %191, %189 ], [ %1, %160 ], [ %185, %187 ], [ %174, %175 ]
+.thread134:                                       ; preds = %175, %187, %189, %160
+  %.084 = phi ptr [ %191, %189 ], [ %1, %160 ], [ %174, %175 ], [ %185, %187 ]
   %193 = load ptr, ptr %4, align 8, !tbaa !17
   %.not122 = icmp eq ptr %193, null
   br i1 %.not122, label %196, label %194
@@ -475,9 +475,9 @@ pkcs7_encode_rinfo.exit.thread:                   ; preds = %.lr.ph139, %129
   br label %199
 
 .thread131:                                       ; preds = %.lr.ph, %172, %182, %.thread, %189, %183, %70, %59, %53, %41
-  %.098 = phi ptr [ null, %59 ], [ null, %189 ], [ null, %183 ], [ %.2100.ph, %.thread ], [ null, %70 ], [ null, %41 ], [ null, %53 ], [ null, %182 ], [ null, %172 ], [ null, %.lr.ph ]
-  %.192 = phi ptr [ null, %59 ], [ %.091, %189 ], [ %.091, %183 ], [ %.091, %.thread ], [ %.091, %70 ], [ null, %41 ], [ null, %53 ], [ %.091, %182 ], [ %.091, %172 ], [ %.091, %.lr.ph ]
-  %.088 = phi ptr [ null, %59 ], [ null, %189 ], [ null, %183 ], [ %75, %.thread ], [ null, %70 ], [ null, %41 ], [ null, %53 ], [ null, %182 ], [ null, %172 ], [ null, %.lr.ph ]
+  %.098 = phi ptr [ null, %59 ], [ null, %172 ], [ null, %189 ], [ null, %183 ], [ %.2100.ph, %.thread ], [ null, %70 ], [ null, %41 ], [ null, %53 ], [ null, %182 ], [ null, %.lr.ph ]
+  %.192 = phi ptr [ null, %59 ], [ %.091, %172 ], [ %.091, %189 ], [ %.091, %183 ], [ %.091, %.thread ], [ %.091, %70 ], [ null, %41 ], [ null, %53 ], [ %.091, %182 ], [ %.091, %.lr.ph ]
+  %.088 = phi ptr [ null, %59 ], [ null, %172 ], [ null, %189 ], [ null, %183 ], [ %75, %.thread ], [ null, %70 ], [ null, %41 ], [ null, %53 ], [ null, %182 ], [ null, %.lr.ph ]
   call void @ASN1_OCTET_STRING_free(ptr noundef %.192) #4
   call void @EVP_CIPHER_free(ptr noundef %.098) #4
   %198 = load ptr, ptr %4, align 8, !tbaa !17
@@ -630,7 +630,7 @@ PKCS7_get_octet_string.exit.thread:               ; preds = %12, %16, %19, %PKCS
   br label %66
 
 66:                                               ; preds = %60, %65
-  %.123 = phi ptr [ null, %65 ], [ %49, %60 ]
+  %.123 = phi ptr [ %49, %60 ], [ null, %65 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -1305,12 +1305,12 @@ pkcs7_cmp_ri.exit.thread:                         ; preds = %.lr.ph260, %pkcs7_c
   br label %246
 
 .loopexit245:                                     ; preds = %.lr.ph262, %235, %230, %214, %195, %191, %187, %181, %.loopexit, %172, %._crit_edge, %144, %131, %126, %117, %109, %102, %100, %80, %56
-  %.0149 = phi ptr [ null, %102 ], [ null, %56 ], [ null, %109 ], [ null, %117 ], [ null, %126 ], [ null, %131 ], [ null, %144 ], [ %142, %._crit_edge ], [ %142, %.loopexit ], [ %142, %181 ], [ %142, %187 ], [ %142, %191 ], [ %142, %195 ], [ %142, %214 ], [ null, %235 ], [ null, %230 ], [ %142, %172 ], [ null, %80 ], [ null, %100 ], [ %142, %.lr.ph262 ]
-  %.0143 = phi ptr [ null, %102 ], [ null, %56 ], [ null, %109 ], [ null, %117 ], [ %115, %126 ], [ %115, %131 ], [ null, %144 ], [ null, %._crit_edge ], [ null, %.loopexit ], [ null, %181 ], [ null, %187 ], [ null, %191 ], [ null, %195 ], [ null, %214 ], [ null, %235 ], [ null, %230 ], [ null, %172 ], [ null, %80 ], [ null, %100 ], [ null, %.lr.ph262 ]
-  %.0139 = phi ptr [ null, %102 ], [ null, %56 ], [ %.1140190, %109 ], [ %.1140, %117 ], [ %.1140, %126 ], [ %.1140, %131 ], [ %.1140191208223, %144 ], [ %.1140191208223, %._crit_edge ], [ %.1140191208223, %.loopexit ], [ %.1140191208223, %181 ], [ %.1140191208223, %187 ], [ %.1140191208223, %191 ], [ %.1140191208223, %195 ], [ %.1140191208223, %214 ], [ %.1140191208224238, %235 ], [ %.1140191208224238, %230 ], [ %.1140191208223, %172 ], [ null, %80 ], [ null, %100 ], [ %.1140191208223, %.lr.ph262 ]
-  %.0126 = phi ptr [ null, %102 ], [ null, %56 ], [ null, %109 ], [ null, %117 ], [ null, %126 ], [ null, %131 ], [ null, %144 ], [ null, %._crit_edge ], [ null, %.loopexit ], [ null, %181 ], [ null, %187 ], [ null, %191 ], [ %193, %195 ], [ %.3129, %214 ], [ null, %235 ], [ null, %230 ], [ null, %172 ], [ null, %80 ], [ null, %100 ], [ null, %.lr.ph262 ]
-  %.0124 = phi i32 [ 0, %102 ], [ 0, %56 ], [ 0, %109 ], [ 0, %117 ], [ 0, %126 ], [ 0, %131 ], [ 0, %144 ], [ 0, %._crit_edge ], [ 0, %.loopexit ], [ 0, %181 ], [ 0, %187 ], [ %189, %191 ], [ %189, %195 ], [ %189, %214 ], [ %.1125240, %235 ], [ %.1125240, %230 ], [ 0, %172 ], [ 0, %80 ], [ 0, %100 ], [ 0, %.lr.ph262 ]
-  %.0121 = phi ptr [ null, %102 ], [ null, %56 ], [ null, %109 ], [ %.2123257, %117 ], [ %.2123257, %126 ], [ %.2123257, %131 ], [ %.1122228, %144 ], [ %.1122228, %._crit_edge ], [ %.1122228, %.loopexit ], [ %.1122228, %181 ], [ %.1122228, %187 ], [ %.1122228, %191 ], [ %.1122228, %195 ], [ %.1122228, %214 ], [ %.4242, %235 ], [ %.4242, %230 ], [ %.1122228, %172 ], [ null, %80 ], [ null, %100 ], [ %.1122228, %.lr.ph262 ]
+  %.0149 = phi ptr [ null, %102 ], [ null, %56 ], [ null, %109 ], [ null, %117 ], [ null, %126 ], [ null, %131 ], [ null, %144 ], [ %142, %._crit_edge ], [ null, %100 ], [ %142, %.loopexit ], [ %142, %181 ], [ %142, %187 ], [ %142, %191 ], [ %142, %195 ], [ %142, %214 ], [ null, %235 ], [ null, %230 ], [ %142, %172 ], [ null, %80 ], [ %142, %.lr.ph262 ]
+  %.0143 = phi ptr [ null, %102 ], [ null, %56 ], [ null, %109 ], [ null, %117 ], [ %115, %126 ], [ %115, %131 ], [ null, %144 ], [ null, %._crit_edge ], [ null, %100 ], [ null, %.loopexit ], [ null, %181 ], [ null, %187 ], [ null, %191 ], [ null, %195 ], [ null, %214 ], [ null, %235 ], [ null, %230 ], [ null, %172 ], [ null, %80 ], [ null, %.lr.ph262 ]
+  %.0139 = phi ptr [ null, %102 ], [ null, %56 ], [ %.1140190, %109 ], [ %.1140, %117 ], [ %.1140, %126 ], [ %.1140, %131 ], [ %.1140191208223, %144 ], [ %.1140191208223, %._crit_edge ], [ null, %100 ], [ %.1140191208223, %.loopexit ], [ %.1140191208223, %181 ], [ %.1140191208223, %187 ], [ %.1140191208223, %191 ], [ %.1140191208223, %195 ], [ %.1140191208223, %214 ], [ %.1140191208224238, %235 ], [ %.1140191208224238, %230 ], [ %.1140191208223, %172 ], [ null, %80 ], [ %.1140191208223, %.lr.ph262 ]
+  %.0126 = phi ptr [ null, %102 ], [ null, %56 ], [ null, %109 ], [ null, %117 ], [ null, %126 ], [ null, %131 ], [ null, %144 ], [ null, %._crit_edge ], [ null, %100 ], [ null, %.loopexit ], [ null, %181 ], [ null, %187 ], [ null, %191 ], [ %193, %195 ], [ %.3129, %214 ], [ null, %235 ], [ null, %230 ], [ null, %172 ], [ null, %80 ], [ null, %.lr.ph262 ]
+  %.0124 = phi i32 [ 0, %102 ], [ 0, %56 ], [ 0, %109 ], [ 0, %117 ], [ 0, %126 ], [ 0, %131 ], [ 0, %144 ], [ 0, %._crit_edge ], [ 0, %100 ], [ 0, %.loopexit ], [ 0, %181 ], [ 0, %187 ], [ %189, %191 ], [ %189, %195 ], [ %189, %214 ], [ %.1125240, %235 ], [ %.1125240, %230 ], [ 0, %172 ], [ 0, %80 ], [ 0, %.lr.ph262 ]
+  %.0121 = phi ptr [ null, %102 ], [ null, %56 ], [ null, %109 ], [ %.2123257, %117 ], [ %.2123257, %126 ], [ %.2123257, %131 ], [ %.1122228, %144 ], [ %.1122228, %._crit_edge ], [ null, %100 ], [ %.1122228, %.loopexit ], [ %.1122228, %181 ], [ %.1122228, %187 ], [ %.1122228, %191 ], [ %.1122228, %195 ], [ %.1122228, %214 ], [ %.4242, %235 ], [ %.4242, %230 ], [ %.1122228, %172 ], [ null, %80 ], [ %.1122228, %.lr.ph262 ]
   call void @EVP_CIPHER_free(ptr noundef %.0139) #4
   %242 = load ptr, ptr %6, align 8, !tbaa !66
   %243 = load i32, ptr %7, align 4, !tbaa !67
@@ -1689,8 +1689,8 @@ PKCS7_get_octet_string.exit108:                   ; preds = %103, %106, %110, %1
   br label %139
 
 139:                                              ; preds = %.sink.split, %PKCS7_get_octet_string.exit, %91, %29
-  %.079 = phi ptr [ %61, %91 ], [ %32, %29 ], [ %61, %PKCS7_get_octet_string.exit ], [ %.079.ph, %.sink.split ]
-  %.078 = phi ptr [ %.0.i, %91 ], [ %36, %29 ], [ %.0.i, %PKCS7_get_octet_string.exit ], [ %.sink, %.sink.split ]
+  %.079 = phi ptr [ %61, %PKCS7_get_octet_string.exit ], [ %61, %91 ], [ %32, %29 ], [ %.079.ph, %.sink.split ]
+  %.078 = phi ptr [ %.0.i, %PKCS7_get_octet_string.exit ], [ %.0.i, %91 ], [ %36, %29 ], [ %.sink, %.sink.split ]
   %.not91 = icmp eq ptr %.079, null
   br i1 %.not91, label %.thread120, label %.preheader
 
@@ -1862,7 +1862,7 @@ do_pkcs7_signed_attrib.exit:                      ; preds = %170
   br label %.thread120
 
 .thread120:                                       ; preds = %192, %.preheader, %139, %212, %42, %53, %27
-  %.078113 = phi ptr [ %.078.ph.ph, %212 ], [ %28, %27 ], [ %47, %42 ], [ %50, %53 ], [ %.078, %139 ], [ %.078, %.preheader ], [ %.078, %192 ]
+  %.078113 = phi ptr [ %.078.ph.ph, %212 ], [ %28, %27 ], [ %.078, %139 ], [ %47, %42 ], [ %50, %53 ], [ %.078, %.preheader ], [ %.078, %192 ]
   %213 = load ptr, ptr %23, align 8, !tbaa !3
   %214 = call i32 @OBJ_obj2nid(ptr noundef %213) #4
   %215 = icmp eq i32 %214, 22
@@ -1908,7 +1908,7 @@ do_pkcs7_signed_attrib.exit:                      ; preds = %170
   br label %.loopexit
 
 .loopexit:                                        ; preds = %do_pkcs7_signed_attrib.exit, %153, %146, %216, %220, %.thread129, %231, %.thread127, %.thread118, %do_pkcs7_signed_attrib.exit.thread, %218, %134, %52, %41
-  %.077 = phi i32 [ 0, %134 ], [ 0, %.thread118 ], [ 0, %do_pkcs7_signed_attrib.exit.thread ], [ 0, %218 ], [ 0, %231 ], [ 0, %.thread127 ], [ 0, %41 ], [ 0, %52 ], [ 1, %.thread129 ], [ 1, %220 ], [ 1, %216 ], [ 0, %146 ], [ 0, %153 ], [ 0, %do_pkcs7_signed_attrib.exit ]
+  %.077 = phi i32 [ 0, %134 ], [ 1, %216 ], [ 1, %220 ], [ 0, %.thread118 ], [ 1, %.thread129 ], [ 0, %do_pkcs7_signed_attrib.exit.thread ], [ 0, %218 ], [ 0, %231 ], [ 0, %.thread127 ], [ 0, %41 ], [ 0, %52 ], [ 0, %146 ], [ 0, %153 ], [ 0, %do_pkcs7_signed_attrib.exit ]
   call void @EVP_MD_CTX_free(ptr noundef nonnull %19) #4
   br label %232
 

@@ -1088,7 +1088,7 @@ define dso_local i64 @_ZNK4llvm6object15XCOFFObjectFile16getSectionByTypeENS_5XC
   br label %"_ZZNK4llvm6object15XCOFFObjectFile16getSectionByTypeENS_5XCOFF16SectionTypeFlagsEENK3$_0clINS_8ArrayRefINS0_20XCOFFSectionHeader64EEEEEmRKT_.exit"
 
 "_ZZNK4llvm6object15XCOFFObjectFile16getSectionByTypeENS_5XCOFF16SectionTypeFlagsEENK3$_0clINS_8ArrayRefINS0_20XCOFFSectionHeader64EEEEEmRKT_.exit": ; preds = %30, %22, %.split.loop.exit5.i18, %25, %.split.loop.exit5.i, %17
-  %.sroa.022.0 = phi i64 [ %24, %.split.loop.exit5.i ], [ 0, %17 ], [ %32, %.split.loop.exit5.i18 ], [ 0, %25 ], [ 0, %22 ], [ 0, %30 ]
+  %.sroa.022.0 = phi i64 [ 0, %22 ], [ %24, %.split.loop.exit5.i ], [ 0, %17 ], [ %32, %.split.loop.exit5.i18 ], [ 0, %25 ], [ 0, %30 ]
   ret i64 %.sroa.022.0
 }
 
@@ -5542,9 +5542,9 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit97: ; 
   %.sroa.38.10255269 = phi i64 [ 13, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i93 ], [ 10, %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit97 ], [ 14, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i21 ], [ 9, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i57 ], [ 14, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i30 ], [ 13, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i39 ], [ 12, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i48 ], [ 9, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i75 ], [ 12, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i66 ], [ 11, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i84 ], [ 10, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ]
   br label %.thread270
 
-.thread270:                                       ; preds = %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit97, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i84, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i93, %3, %.thread
-  %16 = phi ptr [ %15, %.thread ], [ %1, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i93 ], [ %1, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i84 ], [ %1, %3 ], [ %1, %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit97 ]
-  %17 = phi i64 [ %.sroa.38.10255269, %.thread ], [ 5, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i93 ], [ 7, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i84 ], [ %2, %3 ], [ 6, %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit97 ]
+.thread270:                                       ; preds = %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit97, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i84, %3, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i93, %.thread
+  %16 = phi ptr [ %15, %.thread ], [ %1, %3 ], [ %1, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i84 ], [ %1, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i93 ], [ %1, %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit97 ]
+  %17 = phi i64 [ %.sroa.38.10255269, %.thread ], [ %2, %3 ], [ 7, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i84 ], [ 5, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i93 ], [ 6, %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit97 ]
   %.fca.0.insert.i = insertvalue { ptr, i64 } poison, ptr %16, 0
   %.fca.1.insert.i = insertvalue { ptr, i64 } %.fca.0.insert.i, i64 %17, 1
   ret { ptr, i64 } %.fca.1.insert.i

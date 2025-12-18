@@ -1519,7 +1519,7 @@ define internal fastcc noundef zeroext i1 @"_ZN4core5tuple64_$LT$impl$u20$core..
 "_ZN65_$LT$uv_auth..cache..FetchUrl$u20$as$u20$core..cmp..PartialEq$GT$2eq17he6f58a19f143a2feE.exit": ; preds = %.thread.i.i
   br i1 %trunc2.i.i, label %"_ZN71_$LT$uv_auth..credentials..Username$u20$as$u20$core..cmp..PartialEq$GT$2eq17h80b205ae63924709E.exit", label %59
 
-59:                                               ; preds = %53, %13, %"_ZN65_$LT$uv_auth..cache..FetchUrl$u20$as$u20$core..cmp..PartialEq$GT$2eq17he6f58a19f143a2feE.exit"
+59:                                               ; preds = %13, %53, %"_ZN65_$LT$uv_auth..cache..FetchUrl$u20$as$u20$core..cmp..PartialEq$GT$2eq17he6f58a19f143a2feE.exit"
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 88
   tail call void @llvm.experimental.noalias.scope.decl(metadata !197)
@@ -1551,8 +1551,8 @@ define internal fastcc noundef zeroext i1 @"_ZN4core5tuple64_$LT$impl$u20$core..
   %72 = icmp eq i32 %bcmp.i.i.i.i.i, 0
   br label %"_ZN71_$LT$uv_auth..credentials..Username$u20$as$u20$core..cmp..PartialEq$GT$2eq17h80b205ae63924709E.exit"
 
-"_ZN71_$LT$uv_auth..credentials..Username$u20$as$u20$core..cmp..PartialEq$GT$2eq17h80b205ae63924709E.exit": ; preds = %21, %35, %43, %52, %37, %36, %"_ZN64_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h669109e18a59e9a8E.exit.i.i", %2, %9, %69, %66, %59, %53, %13, %"_ZN65_$LT$uv_auth..cache..FetchUrl$u20$as$u20$core..cmp..PartialEq$GT$2eq17he6f58a19f143a2feE.exit"
-  %.sroa.0.0 = phi i1 [ false, %53 ], [ false, %"_ZN65_$LT$uv_auth..cache..FetchUrl$u20$as$u20$core..cmp..PartialEq$GT$2eq17he6f58a19f143a2feE.exit" ], [ %72, %69 ], [ false, %13 ], [ false, %66 ], [ %.mux.i.i, %59 ], [ false, %9 ], [ false, %2 ], [ false, %"_ZN64_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h669109e18a59e9a8E.exit.i.i" ], [ false, %36 ], [ false, %37 ], [ false, %52 ], [ false, %43 ], [ false, %35 ], [ false, %21 ]
+"_ZN71_$LT$uv_auth..credentials..Username$u20$as$u20$core..cmp..PartialEq$GT$2eq17h80b205ae63924709E.exit": ; preds = %21, %35, %43, %52, %37, %36, %"_ZN64_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h669109e18a59e9a8E.exit.i.i", %2, %9, %69, %66, %59, %13, %53, %"_ZN65_$LT$uv_auth..cache..FetchUrl$u20$as$u20$core..cmp..PartialEq$GT$2eq17he6f58a19f143a2feE.exit"
+  %.sroa.0.0 = phi i1 [ false, %13 ], [ false, %"_ZN65_$LT$uv_auth..cache..FetchUrl$u20$as$u20$core..cmp..PartialEq$GT$2eq17he6f58a19f143a2feE.exit" ], [ %72, %69 ], [ false, %53 ], [ false, %66 ], [ %.mux.i.i, %59 ], [ false, %9 ], [ false, %2 ], [ false, %"_ZN64_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h669109e18a59e9a8E.exit.i.i" ], [ false, %36 ], [ false, %37 ], [ false, %52 ], [ false, %43 ], [ false, %35 ], [ false, %21 ]
   ret i1 %.sroa.0.0
 }
 
@@ -2728,7 +2728,7 @@ _ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17h36ed79f5487b
   br label %82
 
 81:                                               ; preds = %68, %64
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.4.1.i.i, %64 ], [ %74, %68 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %74, %68 ], [ %.sroa.4.1.i.i, %64 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(112) %2, i64 112, i1 false)
   %.sroa.44.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %17, ptr %.sroa.44.0..sroa_idx, align 8
@@ -3261,8 +3261,8 @@ _ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17h36ed79f5487b
   %56 = zext nneg i16 %55 to i64
   br label %_ZN9hashbrown3raw5inner13RawTableInner30find_or_find_insert_slot_inner17haa9597d0c447fbdfE.exit.thread
 
-_ZN9hashbrown3raw5inner13RawTableInner30find_or_find_insert_slot_inner17haa9597d0c447fbdfE.exit.thread: ; preds = %50, %46
-  %.sroa.3.0.i.ph = phi i64 [ %.sroa.4.1.i, %46 ], [ %56, %50 ]
+_ZN9hashbrown3raw5inner13RawTableInner30find_or_find_insert_slot_inner17haa9597d0c447fbdfE.exit.thread: ; preds = %46, %50
+  %.sroa.3.0.i.ph = phi i64 [ %56, %50 ], [ %.sroa.4.1.i, %46 ]
   %57 = inttoptr i64 %.sroa.3.0.i.ph to ptr
   br label %.loopexit
 

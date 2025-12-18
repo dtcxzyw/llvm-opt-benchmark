@@ -9910,7 +9910,7 @@ cond.end.i.thread.i:                              ; preds = %_ZNKSt4lessIN3irr4c
   br i1 %cmp.not.i32.i, label %if.end12.i.i, label %while.body.i.i.backedge
 
 while.body.i.i.backedge:                          ; preds = %cond.end.i.thread.i, %cond.end.i.i
-  %__x.059.i.i.be = phi ptr [ %__x.0.i.i, %cond.end.i.i ], [ %__x.0.i31.i, %cond.end.i.thread.i ]
+  %__x.059.i.i.be = phi ptr [ %__x.0.i31.i, %cond.end.i.thread.i ], [ %__x.0.i.i, %cond.end.i.i ]
   br label %while.body.i.i, !llvm.loop !397
 
 if.then.i.i1507:                                  ; preds = %cond.end.i.i, %if.then103

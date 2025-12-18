@@ -400,7 +400,7 @@ define dso_local noundef ptr @rb_econv_open(ptr noundef %0, ptr noundef %1, i32 
   br label %decorator_names.exit
 
 decorator_names.exit:                             ; preds = %44, %42
-  %.025.i = phi i32 [ %45, %44 ], [ %.5.i, %42 ]
+  %.025.i = phi i32 [ %.5.i, %42 ], [ %45, %44 ]
   %48 = and i32 %2, 255
   %49 = load i8, ptr %0, align 1, !tbaa !27
   %.not.i18 = icmp eq i8 %49, 0
@@ -1303,7 +1303,7 @@ ruby_nonempty_memcpy.exit200.i:                   ; preds = %73, %72
   br label %rb_econv_convert0.exit
 
 select.unfold219.i:                               ; preds = %.preheader62, %.thread217.i, %123, %118, %ruby_nonempty_memcpy.exit200.i
-  %.2159.i = phi i32 [ %119, %118 ], [ %124, %123 ], [ %130, %.thread217.i ], [ %.192.i, %ruby_nonempty_memcpy.exit200.i ], [ %131, %.preheader62 ]
+  %.2159.i = phi i32 [ %.192.i, %ruby_nonempty_memcpy.exit200.i ], [ %119, %118 ], [ %124, %123 ], [ %130, %.thread217.i ], [ %131, %.preheader62 ]
   store i32 %.2159.i, ptr %14, align 8, !tbaa !50
   switch i32 %.2159.i, label %rb_econv_convert0.exit [
     i32 6, label %133
@@ -4490,7 +4490,7 @@ define internal fastcc i32 @transcode_search_path(ptr noundef %0, ptr noundef %1
   br i1 %.not48, label %.loopexit, label %.lr.ph62
 
 .loopexit:                                        ; preds = %.backedge, %.lr.ph62, %.preheader
-  %.034 = phi i32 [ %.135, %.preheader ], [ %.135, %.lr.ph62 ], [ -1, %.backedge ]
+  %.034 = phi i32 [ %.135, %.lr.ph62 ], [ %.135, %.preheader ], [ -1, %.backedge ]
   %59 = load ptr, ptr %5, align 8, !tbaa !180
   call void @rb_st_free_table(ptr noundef %59) #22
   br label %60
@@ -5400,7 +5400,7 @@ define internal i64 @econv_s_search_convpath(i32 noundef %0, ptr noundef readonl
   br label %decorator_names.exit.i
 
 decorator_names.exit.i:                           ; preds = %70, %68
-  %.025.i.i = phi i32 [ %71, %70 ], [ %.5.i.i, %68 ]
+  %.025.i.i = phi i32 [ %.5.i.i, %68 ], [ %71, %70 ]
   %74 = inttoptr i64 %22 to ptr
   %75 = load i64, ptr %74, align 8, !tbaa !33
   %76 = and i64 %75, 8192
@@ -5594,7 +5594,7 @@ load_transcoder_entry.exit.thread66.i:            ; preds = %load_transcoder_ent
   br label %163
 
 163:                                              ; preds = %.sink.split, %156, %load_transcoder_entry.exit.thread66.i, %RARRAY_LENINT.exit.i
-  %.035.i = phi i32 [ 0, %RARRAY_LENINT.exit.i ], [ %85, %156 ], [ %85, %load_transcoder_entry.exit.thread66.i ], [ %.035.i.ph, %.sink.split ]
+  %.035.i = phi i32 [ 0, %RARRAY_LENINT.exit.i ], [ %85, %load_transcoder_entry.exit.thread66.i ], [ %85, %156 ], [ %.035.i.ph, %.sink.split ]
   %.not76.i = icmp eq i32 %.025.i.i, 0
   br i1 %.not76.i, label %.loopexit, label %.lr.ph.preheader.i
 
@@ -5615,7 +5615,7 @@ load_transcoder_entry.exit.thread66.i:            ; preds = %load_transcoder_ent
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !200
 
-170:                                              ; preds = %load_transcoder_entry.exit.i, %31, %33, %138
+170:                                              ; preds = %138, %load_transcoder_entry.exit.i, %31, %33
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %171 = call i64 @rb_econv_open_exc(ptr noundef %19, ptr noundef %20, i32 noundef %24)
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
@@ -8279,8 +8279,8 @@ define internal fastcc range(i32 0, 7) i32 @transcode_restartable0(ptr noundef c
   ], !llvm.loop !259
 
 .loopexit:                                        ; preds = %74, %837, %812, %1013, %959, %1193, %1135, %668, %99, %6, %658, %524, %391, %292, %226
-  %.01129 = phi ptr [ %10, %6 ], [ %.31132, %99 ], [ %.61135, %226 ], [ %.81137, %292 ], [ %.111140, %391 ], [ %.151144, %524 ], [ %.191148, %658 ], [ %.201149, %668 ], [ %.221151, %812 ], [ %.231152, %837 ], [ %.261155, %959 ], [ %.271156, %1013 ], [ %.291158, %1135 ], [ %.301159, %1193 ], [ %.21131, %74 ]
-  %.01093 = phi ptr [ %11, %6 ], [ %.31096, %99 ], [ %231, %226 ], [ %297, %292 ], [ %396, %391 ], [ %529, %524 ], [ %665, %658 ], [ %.201113, %668 ], [ %817, %812 ], [ %.231116, %837 ], [ %962, %959 ], [ %.271120, %1013 ], [ %1140, %1135 ], [ %.301123, %1193 ], [ %.21095, %74 ]
+  %.01129 = phi ptr [ %10, %6 ], [ %.31132, %99 ], [ %.301159, %1193 ], [ %.61135, %226 ], [ %.81137, %292 ], [ %.111140, %391 ], [ %.151144, %524 ], [ %.191148, %658 ], [ %.201149, %668 ], [ %.221151, %812 ], [ %.231152, %837 ], [ %.261155, %959 ], [ %.271156, %1013 ], [ %.291158, %1135 ], [ %.21131, %74 ]
+  %.01093 = phi ptr [ %11, %6 ], [ %.31096, %99 ], [ %.301123, %1193 ], [ %231, %226 ], [ %297, %292 ], [ %396, %391 ], [ %529, %524 ], [ %665, %658 ], [ %.201113, %668 ], [ %817, %812 ], [ %.231116, %837 ], [ %962, %959 ], [ %.271120, %1013 ], [ %1140, %1135 ], [ %.21095, %74 ]
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i64 0, ptr %14, align 8, !tbaa !92
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 16

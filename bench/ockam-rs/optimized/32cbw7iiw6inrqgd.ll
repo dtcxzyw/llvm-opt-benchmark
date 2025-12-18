@@ -1965,7 +1965,7 @@ common.resume:                                    ; preds = %.thread128, %42
   %57 = invoke { ptr, i8 } @"_ZN102_$LT$tracing_subscriber..registry..sharded..Data$u20$as$u20$tracing_subscriber..registry..SpanData$GT$14extensions_mut17h239bfed1bd5da3cbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.8.0..sroa_idx)
           to label %59 unwind label %.thread
 
-.thread135:                                       ; preds = %178, %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.8848114157358331746.exit.i.i.i, %171, %180
+.thread135:                                       ; preds = %171, %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.8848114157358331746.exit.i.i.i, %178, %180
   %lpad.thr_comm133 = landingpad { ptr, i32 }
           cleanup
   br label %.thread128
@@ -2606,7 +2606,7 @@ common.resume:                                    ; preds = %.thread84, %34
   %49 = invoke { ptr, i8 } @"_ZN102_$LT$tracing_subscriber..registry..sharded..Data$u20$as$u20$tracing_subscriber..registry..SpanData$GT$14extensions_mut17h239bfed1bd5da3cbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.8.0..sroa_idx)
           to label %51 unwind label %.thread
 
-.thread91:                                        ; preds = %123, %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.8848114157358331746.exit.i.i.i, %116, %125
+.thread91:                                        ; preds = %116, %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.8848114157358331746.exit.i.i.i, %123, %125
   %lpad.thr_comm89 = landingpad { ptr, i32 }
           cleanup
   br label %.thread84
@@ -3516,7 +3516,7 @@ common.resume:                                    ; preds = %.thread84, %34
   %49 = invoke { ptr, i8 } @"_ZN102_$LT$tracing_subscriber..registry..sharded..Data$u20$as$u20$tracing_subscriber..registry..SpanData$GT$14extensions_mut17h239bfed1bd5da3cbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.8.0..sroa_idx)
           to label %51 unwind label %.thread
 
-.thread91:                                        ; preds = %122, %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.8848114157358331746.exit.i.i.i, %115, %124
+.thread91:                                        ; preds = %115, %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.8848114157358331746.exit.i.i.i, %122, %124
   %lpad.thr_comm89 = landingpad { ptr, i32 }
           cleanup
   br label %.thread84
@@ -10396,7 +10396,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$
   br label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$12remove_entry17hb4d277bf19624437E.llvm.15673428424896960800.exit.thread"
 
 "_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$12remove_entry17hb4d277bf19624437E.llvm.15673428424896960800.exit.thread": ; preds = %.lr.ph.i.i, %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$12remove_entry17hb4d277bf19624437E.llvm.15673428424896960800.exit", %3, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h7deb21f24263c480E.exit"
-  %storemerge = phi i64 [ 1, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h7deb21f24263c480E.exit" ], [ 0, %3 ], [ 0, %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$12remove_entry17hb4d277bf19624437E.llvm.15673428424896960800.exit" ], [ 0, %.lr.ph.i.i ]
+  %storemerge = phi i64 [ 1, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h7deb21f24263c480E.exit" ], [ 0, %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$12remove_entry17hb4d277bf19624437E.llvm.15673428424896960800.exit" ], [ 0, %3 ], [ 0, %.lr.ph.i.i ]
   store i64 %storemerge, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
   ret void

@@ -289,7 +289,7 @@ _ZNSt6vectorIN5Eigen7TripletIiiEESaIS2_EE7reserveEm.exit: ; preds = %_ZNSt12_Vec
   br i1 %exitcond92.not.i.i.i.i, label %_ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE8maxCoeffEv.exit, label %.lr.ph85.i.i.i.i, !llvm.loop !20
 
 _ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE8maxCoeffEv.exit: ; preds = %.lr.ph80.i.i.i.i, %.lr.ph85.i.i.i.i, %69, %62
-  %.2.i.i.i.i = phi i32 [ %70, %69 ], [ %63, %62 ], [ %74, %.lr.ph85.i.i.i.i ], [ %67, %.lr.ph80.i.i.i.i ]
+  %.2.i.i.i.i = phi i32 [ %74, %.lr.ph85.i.i.i.i ], [ %70, %69 ], [ %63, %62 ], [ %67, %.lr.ph80.i.i.i.i ]
   %76 = add nsw i32 %.2.i.i.i.i, 1
   %77 = icmp sgt i64 %9, 1
   br i1 %77, label %.lr.ph172, label %._crit_edge
@@ -1178,7 +1178,7 @@ _ZNSt6vectorIN5Eigen7TripletIbiEESaIS2_EE9push_backEOS2_.exit72: ; preds = %_ZNS
   br label %335
 
 _ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE8maxCoeffEv.exit: ; preds = %.lr.ph80.i.i.i.i, %.lr.ph85.i.i.i.i, %72, %65
-  %.2.i.i.i.i = phi i32 [ %73, %72 ], [ %66, %65 ], [ %77, %.lr.ph85.i.i.i.i ], [ %70, %.lr.ph80.i.i.i.i ]
+  %.2.i.i.i.i = phi i32 [ %77, %.lr.ph85.i.i.i.i ], [ %73, %72 ], [ %66, %65 ], [ %70, %.lr.ph80.i.i.i.i ]
   %139 = add nsw i32 %.2.i.i.i.i, 1
   %140 = sext i32 %139 to i64
   invoke void @_ZN5Eigen12SparseMatrixIbLi0EiE6resizeEll(ptr noundef nonnull align 8 dereferenceable(72) %1, i64 noundef %140, i64 noundef %140)
@@ -1309,7 +1309,7 @@ _ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE8maxCoeffEv.exit: ; 
   br i1 %exitcond92.not.i.i.i.i97, label %_ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE8maxCoeffEv.exit98, label %.lr.ph85.i.i.i.i94, !llvm.loop !60
 
 _ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE8maxCoeffEv.exit98: ; preds = %.lr.ph80.i.i.i.i82, %.lr.ph85.i.i.i.i94, %194, %187
-  %.2.i.i.i.i81 = phi i32 [ %195, %194 ], [ %188, %187 ], [ %199, %.lr.ph85.i.i.i.i94 ], [ %192, %.lr.ph80.i.i.i.i82 ]
+  %.2.i.i.i.i81 = phi i32 [ %199, %.lr.ph85.i.i.i.i94 ], [ %195, %194 ], [ %188, %187 ], [ %192, %.lr.ph80.i.i.i.i82 ]
   %201 = mul i32 %.2.i.i.i.i81, 6
   %202 = add i32 %201, 6
   br label %_ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE8maxCoeffEv.exit125.invoke
@@ -1415,7 +1415,7 @@ _ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE8maxCoeffEv.exit98: 
   br i1 %exitcond92.not.i.i.i.i124, label %_ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE8maxCoeffEv.exit125, label %.lr.ph85.i.i.i.i121, !llvm.loop !60
 
 _ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE8maxCoeffEv.exit125: ; preds = %.lr.ph85.i.i.i.i121, %244, %246
-  %.2.i.i.i.i108 = phi i32 [ %247, %246 ], [ %245, %244 ], [ %251, %.lr.ph85.i.i.i.i121 ]
+  %.2.i.i.i.i108 = phi i32 [ %245, %244 ], [ %247, %246 ], [ %251, %.lr.ph85.i.i.i.i121 ]
   %253 = mul i32 %.2.i.i.i.i108, 26
   %254 = add i32 %253, 26
   br label %_ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE8maxCoeffEv.exit125.invoke
@@ -2068,7 +2068,7 @@ _ZNSt6vectorIN5Eigen7TripletIdiEESaIS2_EE9push_backEOS2_.exit72: ; preds = %_ZNS
   br label %335
 
 _ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE8maxCoeffEv.exit: ; preds = %.lr.ph80.i.i.i.i, %.lr.ph85.i.i.i.i, %72, %65
-  %.2.i.i.i.i = phi i32 [ %73, %72 ], [ %66, %65 ], [ %77, %.lr.ph85.i.i.i.i ], [ %70, %.lr.ph80.i.i.i.i ]
+  %.2.i.i.i.i = phi i32 [ %77, %.lr.ph85.i.i.i.i ], [ %73, %72 ], [ %66, %65 ], [ %70, %.lr.ph80.i.i.i.i ]
   %139 = add nsw i32 %.2.i.i.i.i, 1
   %140 = sext i32 %139 to i64
   invoke void @_ZN5Eigen12SparseMatrixIdLi0EiE6resizeEll(ptr noundef nonnull align 8 dereferenceable(72) %1, i64 noundef %140, i64 noundef %140)
@@ -2199,7 +2199,7 @@ _ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE8maxCoeffEv.exit: ; 
   br i1 %exitcond92.not.i.i.i.i97, label %_ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE8maxCoeffEv.exit98, label %.lr.ph85.i.i.i.i94, !llvm.loop !60
 
 _ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE8maxCoeffEv.exit98: ; preds = %.lr.ph80.i.i.i.i82, %.lr.ph85.i.i.i.i94, %194, %187
-  %.2.i.i.i.i81 = phi i32 [ %195, %194 ], [ %188, %187 ], [ %199, %.lr.ph85.i.i.i.i94 ], [ %192, %.lr.ph80.i.i.i.i82 ]
+  %.2.i.i.i.i81 = phi i32 [ %199, %.lr.ph85.i.i.i.i94 ], [ %195, %194 ], [ %188, %187 ], [ %192, %.lr.ph80.i.i.i.i82 ]
   %201 = mul i32 %.2.i.i.i.i81, 6
   %202 = add i32 %201, 6
   br label %_ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE8maxCoeffEv.exit125.invoke
@@ -2305,7 +2305,7 @@ _ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE8maxCoeffEv.exit98: 
   br i1 %exitcond92.not.i.i.i.i124, label %_ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE8maxCoeffEv.exit125, label %.lr.ph85.i.i.i.i121, !llvm.loop !60
 
 _ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE8maxCoeffEv.exit125: ; preds = %.lr.ph85.i.i.i.i121, %244, %246
-  %.2.i.i.i.i108 = phi i32 [ %247, %246 ], [ %245, %244 ], [ %251, %.lr.ph85.i.i.i.i121 ]
+  %.2.i.i.i.i108 = phi i32 [ %245, %244 ], [ %247, %246 ], [ %251, %.lr.ph85.i.i.i.i121 ]
   %253 = mul i32 %.2.i.i.i.i108, 26
   %254 = add i32 %253, 26
   br label %_ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE8maxCoeffEv.exit125.invoke
@@ -2958,7 +2958,7 @@ _ZNSt6vectorIN5Eigen7TripletIiiEESaIS2_EE9push_backEOS2_.exit72: ; preds = %_ZNS
   br label %335
 
 _ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE8maxCoeffEv.exit: ; preds = %.lr.ph80.i.i.i.i, %.lr.ph85.i.i.i.i, %72, %65
-  %.2.i.i.i.i = phi i32 [ %73, %72 ], [ %66, %65 ], [ %77, %.lr.ph85.i.i.i.i ], [ %70, %.lr.ph80.i.i.i.i ]
+  %.2.i.i.i.i = phi i32 [ %77, %.lr.ph85.i.i.i.i ], [ %73, %72 ], [ %66, %65 ], [ %70, %.lr.ph80.i.i.i.i ]
   %139 = add nsw i32 %.2.i.i.i.i, 1
   %140 = sext i32 %139 to i64
   invoke void @_ZN5Eigen12SparseMatrixIiLi0EiE6resizeEll(ptr noundef nonnull align 8 dereferenceable(72) %1, i64 noundef %140, i64 noundef %140)
@@ -3089,7 +3089,7 @@ _ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE8maxCoeffEv.exit: ; 
   br i1 %exitcond92.not.i.i.i.i97, label %_ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE8maxCoeffEv.exit98, label %.lr.ph85.i.i.i.i94, !llvm.loop !60
 
 _ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE8maxCoeffEv.exit98: ; preds = %.lr.ph80.i.i.i.i82, %.lr.ph85.i.i.i.i94, %194, %187
-  %.2.i.i.i.i81 = phi i32 [ %195, %194 ], [ %188, %187 ], [ %199, %.lr.ph85.i.i.i.i94 ], [ %192, %.lr.ph80.i.i.i.i82 ]
+  %.2.i.i.i.i81 = phi i32 [ %199, %.lr.ph85.i.i.i.i94 ], [ %195, %194 ], [ %188, %187 ], [ %192, %.lr.ph80.i.i.i.i82 ]
   %201 = mul i32 %.2.i.i.i.i81, 6
   %202 = add i32 %201, 6
   br label %_ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE8maxCoeffEv.exit125.invoke
@@ -3195,7 +3195,7 @@ _ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE8maxCoeffEv.exit98: 
   br i1 %exitcond92.not.i.i.i.i124, label %_ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE8maxCoeffEv.exit125, label %.lr.ph85.i.i.i.i121, !llvm.loop !60
 
 _ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE8maxCoeffEv.exit125: ; preds = %.lr.ph85.i.i.i.i121, %244, %246
-  %.2.i.i.i.i108 = phi i32 [ %247, %246 ], [ %245, %244 ], [ %251, %.lr.ph85.i.i.i.i121 ]
+  %.2.i.i.i.i108 = phi i32 [ %245, %244 ], [ %247, %246 ], [ %251, %.lr.ph85.i.i.i.i121 ]
   %253 = mul i32 %.2.i.i.i.i108, 26
   %254 = add i32 %253, 26
   br label %_ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE8maxCoeffEv.exit125.invoke
@@ -3766,7 +3766,7 @@ _ZNSt6vectorIN5Eigen7TripletIiiEESaIS2_EE9push_backEOS2_.exit72: ; preds = %_ZNS
   br label %266
 
 _ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELi3ELi0ELin1ELi3EEEE8maxCoeffEv.exit: ; preds = %.lr.ph80.i.i.i.i, %.lr.ph85.i.i.i.i, %64, %57
-  %.2.i.i.i.i = phi i32 [ %65, %64 ], [ %58, %57 ], [ %69, %.lr.ph85.i.i.i.i ], [ %62, %.lr.ph80.i.i.i.i ]
+  %.2.i.i.i.i = phi i32 [ %69, %.lr.ph85.i.i.i.i ], [ %65, %64 ], [ %58, %57 ], [ %62, %.lr.ph80.i.i.i.i ]
   %125 = add nsw i32 %.2.i.i.i.i, 1
   %126 = sext i32 %125 to i64
   invoke void @_ZN5Eigen12SparseMatrixIiLi0EiE6resizeEll(ptr noundef nonnull align 8 dereferenceable(72) %1, i64 noundef %126, i64 noundef %126)
@@ -3890,7 +3890,7 @@ _ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELi3ELi0ELin1ELi3EEEE8maxCoeffEv.exit: ; pr
   br i1 %exitcond92.not.i.i.i.i97, label %_ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELi3ELi0ELin1ELi3EEEE8maxCoeffEv.exit98, label %.lr.ph85.i.i.i.i94, !llvm.loop !139
 
 _ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELi3ELi0ELin1ELi3EEEE8maxCoeffEv.exit98: ; preds = %.lr.ph80.i.i.i.i82, %.lr.ph85.i.i.i.i94, %178, %171
-  %.2.i.i.i.i81 = phi i32 [ %179, %178 ], [ %172, %171 ], [ %183, %.lr.ph85.i.i.i.i94 ], [ %176, %.lr.ph80.i.i.i.i82 ]
+  %.2.i.i.i.i81 = phi i32 [ %183, %.lr.ph85.i.i.i.i94 ], [ %179, %178 ], [ %172, %171 ], [ %176, %.lr.ph80.i.i.i.i82 ]
   %185 = mul i32 %.2.i.i.i.i81, 6
   %186 = add i32 %185, 6
   %187 = sext i32 %186 to i64
@@ -5504,7 +5504,7 @@ _ZNK5Eigen20SparseCompressedBaseINS_12SparseMatrixIiLi0EiEEE8nonZerosEv.exit: ; 
   br i1 %exitcond.not, label %.loopexit79, label %.lr.ph, !llvm.loop !183
 
 .loopexit79:                                      ; preds = %.lr.ph, %34, %.preheader, %30, %3
-  %50 = phi ptr [ %6, %3 ], [ %39, %.preheader ], [ %calloc, %30 ], [ %calloc, %34 ], [ %39, %.lr.ph ]
+  %50 = phi ptr [ %calloc, %34 ], [ %6, %3 ], [ %39, %.preheader ], [ %calloc, %30 ], [ %39, %.lr.ph ]
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %53 = load i64, ptr %52, align 8, !tbaa !153
@@ -7736,7 +7736,7 @@ _ZNK5Eigen20SparseCompressedBaseINS_12SparseMatrixIbLi0EiEEE8nonZerosEv.exit: ; 
   br i1 %exitcond.not, label %.loopexit79, label %.lr.ph, !llvm.loop !244
 
 .loopexit79:                                      ; preds = %.lr.ph, %34, %.preheader, %30, %3
-  %50 = phi ptr [ %6, %3 ], [ %39, %.preheader ], [ %calloc, %30 ], [ %calloc, %34 ], [ %39, %.lr.ph ]
+  %50 = phi ptr [ %calloc, %34 ], [ %6, %3 ], [ %39, %.preheader ], [ %calloc, %30 ], [ %39, %.lr.ph ]
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %53 = load i64, ptr %52, align 8, !tbaa !213
@@ -9977,7 +9977,7 @@ _ZNK5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE8nonZerosEv.exit: ; 
   br i1 %exitcond.not, label %.loopexit78, label %.lr.ph, !llvm.loop !299
 
 .loopexit78:                                      ; preds = %.lr.ph, %34, %.preheader, %30, %3
-  %50 = phi ptr [ %6, %3 ], [ %39, %.preheader ], [ %calloc, %30 ], [ %calloc, %34 ], [ %39, %.lr.ph ]
+  %50 = phi ptr [ %calloc, %34 ], [ %6, %3 ], [ %39, %.preheader ], [ %calloc, %30 ], [ %39, %.lr.ph ]
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %53 = load i64, ptr %52, align 8, !tbaa !270

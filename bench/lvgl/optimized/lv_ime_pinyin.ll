@@ -1955,7 +1955,7 @@ pinyin_search_matching.exit.thread:               ; preds = %._crit_edge.us.thre
   br label %68
 
 pinyin_search_matching.exit:                      ; preds = %._crit_edge.us.i, %.lr.ph.i, %.preheader.lr.ph.i, %.preheader.lr.ph.split.us.i
-  %.us-phi.i = phi ptr [ %16, %.preheader.lr.ph.i ], [ %16, %.preheader.lr.ph.split.us.i ], [ %.02943.us.i, %.lr.ph.i ], [ %.02943.us.i, %._crit_edge.us.i ]
+  %.us-phi.i = phi ptr [ %16, %.preheader.lr.ph.split.us.i ], [ %16, %.preheader.lr.ph.i ], [ %.02943.us.i, %.lr.ph.i ], [ %.02943.us.i, %._crit_edge.us.i ]
   %39 = getelementptr inbounds nuw i8, ptr %.us-phi.i, i64 8
   %40 = load ptr, ptr %39, align 8, !tbaa !39
   %41 = tail call i64 @lv_strlen(ptr noundef %40) #6

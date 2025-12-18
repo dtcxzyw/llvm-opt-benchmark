@@ -1209,8 +1209,8 @@ list_length.exit:                                 ; preds = %.lr.ph, %33, %.preh
   br label %72
 
 72:                                               ; preds = %68, %56, %.fold.split
-  %.1126 = phi i1 [ %.0125172184, %.fold.split ], [ %spec.select, %68 ], [ %.0125172184, %56 ]
-  %.1124 = phi i8 [ %.0123173183, %.fold.split ], [ %.0123173183, %68 ], [ 1, %56 ]
+  %.1126 = phi i1 [ %.0125172184, %56 ], [ %.0125172184, %.fold.split ], [ %spec.select, %68 ]
+  %.1124 = phi i8 [ 1, %56 ], [ %.0123173183, %.fold.split ], [ %.0123173183, %68 ]
   %indvars.iv.next219 = add nuw nsw i64 %indvars.iv218, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next219, %wide.trip.count
   br i1 %exitcond.not, label %.critedge158, label %56
@@ -1610,7 +1610,7 @@ list_length.exit:                                 ; preds = %.lr.ph.split, %21
   br i1 %65, label %.lr.ph173, label %..critedge129_crit_edge167.split
 
 .critedge127:                                     ; preds = %..critedge129_crit_edge167.split, %.lr.ph165.lr.ph, %.lr.ph177, %.lr.ph177.split.split, %.lr.ph258
-  %.0103.lcssa = phi ptr [ null, %.lr.ph258 ], [ null, %.lr.ph177 ], [ null, %.lr.ph165.lr.ph ], [ null, %.lr.ph177.split.split ], [ %split168, %..critedge129_crit_edge167.split ]
+  %.0103.lcssa = phi ptr [ null, %.lr.ph258 ], [ null, %.lr.ph165.lr.ph ], [ null, %.lr.ph177 ], [ null, %.lr.ph177.split.split ], [ %split168, %..critedge129_crit_edge167.split ]
   %indvars.iv.next232 = add nuw nsw i64 %indvars.iv231256, 1
   %66 = load i32, ptr %46, align 4
   %67 = sext i32 %66 to i64
@@ -1714,7 +1714,7 @@ list_length.exit135.thread:                       ; preds = %list_length.exit135
   br i1 %.not115, label %.critedge133, label %94, !llvm.loop !14
 
 .critedge133:                                     ; preds = %list_length.exit, %94, %110, %list_length.exit135.thread, %3
-  %.0 = phi ptr [ null, %3 ], [ %.188199.lcssa, %list_length.exit135.thread ], [ %.390207, %94 ], [ %.4, %110 ], [ null, %list_length.exit ]
+  %.0 = phi ptr [ %.390207, %94 ], [ null, %3 ], [ %.188199.lcssa, %list_length.exit135.thread ], [ %.4, %110 ], [ null, %list_length.exit ]
   ret ptr %.0
 }
 
@@ -1905,7 +1905,7 @@ list_length.exit:                                 ; preds = %10
   br i1 %76, label %.lr.ph92, label %.critedge80
 
 .critedge80:                                      ; preds = %.lr.ph92, %..critedge78_crit_edge98.split, %.preheader83.us, %62, %.lr.ph, %._crit_edge, %6, %4, %1
-  %.0 = phi ptr [ null, %1 ], [ %5, %4 ], [ %9, %6 ], [ %34, %._crit_edge ], [ null, %62 ], [ null, %.lr.ph ], [ %42, %.preheader83.us ], [ %47, %..critedge78_crit_edge98.split ], [ %73, %.lr.ph92 ]
+  %.0 = phi ptr [ null, %1 ], [ %5, %4 ], [ %9, %6 ], [ %34, %._crit_edge ], [ %47, %..critedge78_crit_edge98.split ], [ %42, %.preheader83.us ], [ null, %62 ], [ null, %.lr.ph ], [ %73, %.lr.ph92 ]
   ret ptr %.0
 }
 
@@ -2179,7 +2179,7 @@ define dso_local noundef zeroext i1 @agg_args_support_sendreceive(ptr noundef re
   br i1 %35, label %.lr.ph42, label %.critedge29
 
 .critedge29:                                      ; preds = %.critedge, %1, %.lr.ph, %.split39
-  %.not2432 = phi i1 [ false, %.split39 ], [ true, %.lr.ph ], [ true, %1 ], [ true, %.critedge ]
+  %.not2432 = phi i1 [ false, %.split39 ], [ true, %1 ], [ true, %.lr.ph ], [ true, %.critedge ]
   ret i1 %.not2432
 }
 
@@ -3160,7 +3160,7 @@ common.ret235:                                    ; preds = %2, %16, %118, %.thr
   %106 = icmp eq i32 %105, 0
   br i1 %106, label %.critedge114.thread, label %113
 
-.critedge114.thread:                              ; preds = %88, %.lr.ph, %46, %85, %82, %.critedge114, %51, %.lr.ph138, %94, %81
+.critedge114.thread:                              ; preds = %.lr.ph, %88, %46, %85, %82, %.critedge114, %51, %.lr.ph138, %94, %81
   %107 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   %108 = tail call i32 @errcode(i32 noundef 50364548) #10
   %109 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.81) #10

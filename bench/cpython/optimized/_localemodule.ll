@@ -2000,7 +2000,7 @@ define internal fastcc ptr @copy_grouping(ptr noundef readonly captures(none) %0
   ]
 
 .critedge2:                                       ; preds = %25, %25, %24, %21, %19, %.critedge, %4
-  %.0 = phi ptr [ %5, %4 ], [ null, %.critedge ], [ null, %19 ], [ null, %21 ], [ null, %24 ], [ %9, %25 ], [ %9, %25 ]
+  %.0 = phi ptr [ %5, %4 ], [ null, %24 ], [ null, %.critedge ], [ null, %21 ], [ null, %19 ], [ %9, %25 ], [ %9, %25 ]
   ret ptr %.0
 }
 
@@ -2360,7 +2360,7 @@ define internal range(i32 -1, 1) i32 @_locale_exec(ptr noundef %0) #0 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %25, %38, %22, %19, %16, %13, %10, %7, %4, %1
-  %.0 = phi i32 [ -1, %22 ], [ -1, %1 ], [ -1, %4 ], [ -1, %7 ], [ -1, %10 ], [ -1, %13 ], [ -1, %16 ], [ -1, %19 ], [ -1, %25 ], [ %., %38 ], [ -1, %.preheader ]
+  %.0 = phi i32 [ -1, %22 ], [ -1, %1 ], [ -1, %4 ], [ -1, %7 ], [ -1, %10 ], [ -1, %13 ], [ -1, %16 ], [ -1, %19 ], [ %., %38 ], [ -1, %25 ], [ -1, %.preheader ]
   ret i32 %.0
 }
 

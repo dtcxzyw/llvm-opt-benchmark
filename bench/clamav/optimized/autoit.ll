@@ -788,7 +788,7 @@ define i32 @cli_scanautoit(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %422, %166, %159, %144, %139, %125
-  %.1116.be.i = phi ptr [ %140, %139 ], [ %136, %144 ], [ %156, %159 ], [ %156, %166 ], [ %156, %422 ], [ %126, %125 ]
+  %.1116.be.i = phi ptr [ %126, %125 ], [ %140, %139 ], [ %136, %144 ], [ %156, %159 ], [ %156, %166 ], [ %156, %422 ]
   %127 = call i32 @cli_checklimits(ptr noundef nonnull @.str.457, ptr noundef nonnull %0, i64 noundef 0, i64 noundef 0, i64 noundef 0) #14
   %128 = icmp eq i32 %127, 0
   br i1 %128, label %50, label %ea05.exit
@@ -1271,11 +1271,11 @@ getbits.exit225.i:                                ; preds = %343
   br i1 %or.cond578.i, label %.thread525.sink.split.i, label %.preheader.i
 
 .loopexit597.i:                                   ; preds = %getbits.exit225.i, %getbits.exit220.i, %getbits.exit215.i, %getbits.exit210.i, %getbits.exit205.i
-  %.sroa.46.1.i = phi i32 [ %.sroa.46.20.i, %getbits.exit220.i ], [ %.sroa.46.17.i, %getbits.exit215.i ], [ %.sroa.46.14.i, %getbits.exit210.i ], [ %.sroa.46.11.i, %getbits.exit205.i ], [ %.sroa.46.23.i, %getbits.exit225.i ]
-  %.sroa.108.1.i = phi i32 [ %321, %getbits.exit220.i ], [ %294, %getbits.exit215.i ], [ %267, %getbits.exit210.i ], [ %241, %getbits.exit205.i ], [ %348, %getbits.exit225.i ]
-  %.sroa.125.sroa.0.1.i = phi i16 [ %.sroa.125.sroa.0.0.extract.trunc348.i, %getbits.exit220.i ], [ %.sroa.125.sroa.0.0.extract.trunc344.i, %getbits.exit215.i ], [ %.sroa.125.sroa.0.0.extract.trunc340.i, %getbits.exit210.i ], [ %.sroa.125.sroa.0.0.extract.trunc336.i, %getbits.exit205.i ], [ %.sroa.125.sroa.0.0.extract.trunc352.i, %getbits.exit225.i ]
-  %.0113.i = phi i32 [ %.sroa.125.sroa.44.0.extract.shift385.i, %getbits.exit220.i ], [ %.sroa.125.sroa.44.0.extract.shift379.i, %getbits.exit215.i ], [ %.sroa.125.sroa.44.0.extract.shift373.i, %getbits.exit210.i ], [ %.sroa.125.sroa.44.0.extract.shift367.i, %getbits.exit205.i ], [ %.sroa.125.sroa.44.0.extract.shift391.i, %getbits.exit225.i ]
-  %.0112.i = phi i32 [ 41, %getbits.exit220.i ], [ 10, %getbits.exit215.i ], [ 3, %getbits.exit210.i ], [ 0, %getbits.exit205.i ], [ %.1656.i, %getbits.exit225.i ]
+  %.sroa.46.1.i = phi i32 [ %.sroa.46.11.i, %getbits.exit205.i ], [ %.sroa.46.20.i, %getbits.exit220.i ], [ %.sroa.46.17.i, %getbits.exit215.i ], [ %.sroa.46.14.i, %getbits.exit210.i ], [ %.sroa.46.23.i, %getbits.exit225.i ]
+  %.sroa.108.1.i = phi i32 [ %241, %getbits.exit205.i ], [ %321, %getbits.exit220.i ], [ %294, %getbits.exit215.i ], [ %267, %getbits.exit210.i ], [ %348, %getbits.exit225.i ]
+  %.sroa.125.sroa.0.1.i = phi i16 [ %.sroa.125.sroa.0.0.extract.trunc336.i, %getbits.exit205.i ], [ %.sroa.125.sroa.0.0.extract.trunc348.i, %getbits.exit220.i ], [ %.sroa.125.sroa.0.0.extract.trunc344.i, %getbits.exit215.i ], [ %.sroa.125.sroa.0.0.extract.trunc340.i, %getbits.exit210.i ], [ %.sroa.125.sroa.0.0.extract.trunc352.i, %getbits.exit225.i ]
+  %.0113.i = phi i32 [ %.sroa.125.sroa.44.0.extract.shift367.i, %getbits.exit205.i ], [ %.sroa.125.sroa.44.0.extract.shift385.i, %getbits.exit220.i ], [ %.sroa.125.sroa.44.0.extract.shift379.i, %getbits.exit215.i ], [ %.sroa.125.sroa.44.0.extract.shift373.i, %getbits.exit210.i ], [ %.sroa.125.sroa.44.0.extract.shift391.i, %getbits.exit225.i ]
+  %.0112.i = phi i32 [ 0, %getbits.exit205.i ], [ 41, %getbits.exit220.i ], [ 10, %getbits.exit215.i ], [ 3, %getbits.exit210.i ], [ %.1656.i, %getbits.exit225.i ]
   %356 = add nuw nsw i32 %.0113.i, 3
   %357 = add i32 %356, %.0112.i
   br i1 %or.cond568.not.i, label %358, label %.sink.split
@@ -1537,7 +1537,7 @@ getbits.exit225.i:                                ; preds = %343
   br label %ea05.exit
 
 ea05.exit:                                        ; preds = %.outer.i, %50, %60, %71, %81, %89, %99, %109, %.backedge.i, %145, %29, %.preheader604.i, %59, %123, %.thread551.i, %.thread546.i, %.thread546.thread559.i, %456
-  %.0117537543554.i = phi i32 [ %.0117.i, %.thread551.i ], [ %.0117537543563.i, %.thread546.thread559.i ], [ %.0117537543563.i, %456 ], [ 9, %.thread546.i ], [ 0, %29 ], [ 0, %59 ], [ 0, %123 ], [ %41, %.preheader604.i ], [ 0, %60 ], [ %127, %.backedge.i ], [ 0, %50 ], [ 0, %71 ], [ 0, %81 ], [ 0, %99 ], [ 0, %109 ], [ 20, %145 ], [ 0, %89 ], [ %450, %.outer.i ]
+  %.0117537543554.i = phi i32 [ %.0117.i, %.thread551.i ], [ %.0117537543563.i, %.thread546.thread559.i ], [ %.0117537543563.i, %456 ], [ 9, %.thread546.i ], [ 0, %29 ], [ 0, %59 ], [ 0, %123 ], [ 0, %60 ], [ %41, %.preheader604.i ], [ %127, %.backedge.i ], [ 0, %50 ], [ 0, %71 ], [ 0, %81 ], [ 0, %99 ], [ 0, %109 ], [ 20, %145 ], [ 0, %89 ], [ %450, %.outer.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %1174
@@ -2069,8 +2069,8 @@ u2a.exit382.i:                                    ; preds = %.lr.ph49.i377.i, %.
   br label %.loopexit442.i
 
 .loopexit442.i:                                   ; preds = %.loopexit442.loopexit.i, %707, %704, %701, %697
-  %.0236.i = phi i32 [ 44, %707 ], [ 13, %704 ], [ 6, %701 ], [ 3, %697 ], [ %713, %.loopexit442.loopexit.i ]
-  %.0234.i = phi i32 [ %708, %707 ], [ %705, %704 ], [ %702, %701 ], [ %699, %697 ], [ %710, %.loopexit442.loopexit.i ]
+  %.0236.i = phi i32 [ 3, %697 ], [ 44, %707 ], [ 13, %704 ], [ 6, %701 ], [ %713, %.loopexit442.loopexit.i ]
+  %.0234.i = phi i32 [ %699, %697 ], [ %708, %707 ], [ %705, %704 ], [ %702, %701 ], [ %710, %.loopexit442.loopexit.i ]
   %714 = add i32 %.0234.i, %.0236.i
   %715 = load i32, ptr %484, align 8, !tbaa !58
   %.not303.i = icmp eq i32 %715, 0

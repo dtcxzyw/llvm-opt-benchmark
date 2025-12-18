@@ -2129,7 +2129,7 @@ define dso_local void @compile() local_unnamed_addr #0 {
   br i1 %exitcond.not.i, label %._crit_edge.i, label %43, !llvm.loop !26
 
 ._crit_edge.i:                                    ; preds = %43, %.thread.i, %39
-  %.0264449.i = phi ptr [ %34, %.thread.i ], [ %34, %39 ], [ %.02643.i173, %43 ]
+  %.0264449.i = phi ptr [ %34, %39 ], [ %34, %.thread.i ], [ %.02643.i173, %43 ]
   %49 = call zeroext i1 @dir_change(ptr noundef %.0264449.i) #20
   call void @free(ptr noundef %.0264449.i) #20
   br label %execute_scripts.exit

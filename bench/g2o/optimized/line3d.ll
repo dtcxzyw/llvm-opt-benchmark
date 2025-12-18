@@ -1165,9 +1165,9 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   br i1 %175, label %171, label %_ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELin1ELi1ELb0EEEEdVERKd.exit
 
 _ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELin1ELi1ELb0EEEEdVERKd.exit: ; preds = %171, %.preheader.us.us.i159, %.lr.ph.i17.i.i.i.i.i.i149, %.thread438, %168, %170, %._crit_edge.i.i.i.i.i.i148
-  %176 = phi double [ %115, %._crit_edge.i.i.i.i.i.i148 ], [ %115, %168 ], [ %115, %170 ], [ %107, %.thread438 ], [ %115, %.lr.ph.i17.i.i.i.i.i.i149 ], [ %115, %.preheader.us.us.i159 ], [ %115, %171 ]
-  %177 = phi i1 [ true, %._crit_edge.i.i.i.i.i.i148 ], [ false, %168 ], [ false, %170 ], [ %108, %.thread438 ], [ true, %.lr.ph.i17.i.i.i.i.i.i149 ], [ false, %.preheader.us.us.i159 ], [ false, %171 ]
-  %.4 = phi i8 [ %.0120.ph, %._crit_edge.i.i.i.i.i.i148 ], [ 0, %168 ], [ 1, %170 ], [ %.0120.ph, %.thread438 ], [ %.0120.ph, %.lr.ph.i17.i.i.i.i.i.i149 ], [ 1, %171 ], [ 0, %.preheader.us.us.i159 ]
+  %176 = phi double [ %115, %.lr.ph.i17.i.i.i.i.i.i149 ], [ %107, %.thread438 ], [ %115, %._crit_edge.i.i.i.i.i.i148 ], [ %115, %168 ], [ %115, %170 ], [ %115, %.preheader.us.us.i159 ], [ %115, %171 ]
+  %177 = phi i1 [ true, %.lr.ph.i17.i.i.i.i.i.i149 ], [ %108, %.thread438 ], [ true, %._crit_edge.i.i.i.i.i.i148 ], [ false, %168 ], [ false, %170 ], [ false, %.preheader.us.us.i159 ], [ false, %171 ]
+  %.4 = phi i8 [ %.0120.ph, %.lr.ph.i17.i.i.i.i.i.i149 ], [ %.0120.ph, %.thread438 ], [ %.0120.ph, %._crit_edge.i.i.i.i.i.i148 ], [ 0, %168 ], [ 1, %170 ], [ 0, %.preheader.us.us.i159 ], [ 1, %171 ]
   %178 = select i1 %177, i1 %.0116.ph, i1 false
   %.5 = select i1 %178, i8 0, i8 %.4
   %not. = xor i1 %177, true

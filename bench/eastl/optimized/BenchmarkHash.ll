@@ -3989,7 +3989,7 @@ _ZNSt10_HashtableIjSt4pairIKj10TestObjectESaIS3_ENSt8__detail10_Select1stESt8equ
   br label %call.i.i.i1075.noexc
 
 call.i.i.i1075.noexc:                             ; preds = %if.end3.i.i, %if.end4.i.i, %_ZNSt10_HashtableIjSt4pairIKj10TestObjectESaIS3_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNS5_15_Hash_node_baseEPNS5_10_Hash_nodeIS3_Lb0EEE.exit.i, %lor.lhs.false.return.loopexit_crit_edge.i.i, %if.else.i1996, %if.then.i2019
-  %481 = phi i64 [ 0, %if.then.i2019 ], [ %dec.i.i2012, %_ZNSt10_HashtableIjSt4pairIKj10TestObjectESaIS3_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNS5_15_Hash_node_baseEPNS5_10_Hash_nodeIS3_Lb0EEE.exit.i ], [ %445, %lor.lhs.false.return.loopexit_crit_edge.i.i ], [ %445, %if.else.i1996 ], [ 0, %if.end4.i.i ], [ %445, %if.end3.i.i ]
+  %481 = phi i64 [ 0, %if.end4.i.i ], [ 0, %if.then.i2019 ], [ %dec.i.i2012, %_ZNSt10_HashtableIjSt4pairIKj10TestObjectESaIS3_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNS5_15_Hash_node_baseEPNS5_10_Hash_nodeIS3_Lb0EEE.exit.i ], [ %445, %lor.lhs.false.return.loopexit_crit_edge.i.i ], [ %445, %if.else.i1996 ], [ %445, %if.end3.i.i ]
   %incdec.ptr.i1076 = getelementptr inbounds nuw i8, ptr %pArrayBegin.addr.06.i1074, i64 32
   %cmp.not.i1077 = icmp eq ptr %incdec.ptr.i1076, %add.ptr330
   br i1 %cmp.not.i1077, label %while.end.i1078, label %while.body.i1073, !llvm.loop !74

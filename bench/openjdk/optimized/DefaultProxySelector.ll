@@ -617,7 +617,7 @@ getProxyByGProxyResolver.exit:                    ; preds = %25, %29, %35, %.loo
   br label %getProxyByGConf.exit
 
 getProxyByGConf.exit:                             ; preds = %206, %122, %127, %198, %.critedge85.i, %219, %224, %228, %233
-  %.049.i = phi ptr [ %spec.select86.i, %233 ], [ null, %.critedge85.i ], [ null, %224 ], [ null, %219 ], [ null, %228 ], [ null, %198 ], [ null, %127 ], [ null, %122 ], [ null, %206 ]
+  %.049.i = phi ptr [ %spec.select86.i, %233 ], [ null, %.critedge85.i ], [ null, %224 ], [ null, %219 ], [ null, %228 ], [ null, %198 ], [ null, %122 ], [ null, %127 ], [ null, %206 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %241
 

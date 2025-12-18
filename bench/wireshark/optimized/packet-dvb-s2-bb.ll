@@ -2365,7 +2365,7 @@ default.unreachable:                              ; preds = %219
   br label %dissect_dvb_s2_bb.exit
 
 dissect_dvb_s2_bb.exit:                           ; preds = %dissect_dvb_s2_gse.exit.i, %.preheader.i, %286, %516, %521, %694, %695, %698, %702
-  %.2.i = phi i32 [ %520, %516 ], [ %525, %521 ], [ %.4.lcssa.i, %695 ], [ %.4.lcssa.i, %694 ], [ %701, %698 ], [ %706, %702 ], [ 10, %.preheader.i ], [ %292, %286 ], [ %511, %dissect_dvb_s2_gse.exit.i ]
+  %.2.i = phi i32 [ %706, %702 ], [ %520, %516 ], [ %525, %521 ], [ %.4.lcssa.i, %695 ], [ %.4.lcssa.i, %694 ], [ %701, %698 ], [ 10, %.preheader.i ], [ %292, %286 ], [ %511, %dissect_dvb_s2_gse.exit.i ]
   %708 = add i32 %.2.i, %.0
   ret i32 %708
 }

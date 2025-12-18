@@ -397,7 +397,7 @@ tcg_region_tree_lock_all.exit:                    ; preds = %.lr.ph.i
   br i1 %31, label %.lr.ph.i7, label %tcg_region_tree_unlock_all.exit, !llvm.loop !8
 
 tcg_region_tree_unlock_all.exit:                  ; preds = %.lr.ph.i7, %0, %tcg_region_tree_lock_all.exit, %._crit_edge
-  %.0.lcssa17 = phi i64 [ %20, %._crit_edge ], [ 0, %tcg_region_tree_lock_all.exit ], [ 0, %0 ], [ %20, %.lr.ph.i7 ]
+  %.0.lcssa17 = phi i64 [ 0, %0 ], [ %20, %._crit_edge ], [ 0, %tcg_region_tree_lock_all.exit ], [ %20, %.lr.ph.i7 ]
   ret i64 %.0.lcssa17
 }
 
@@ -724,8 +724,8 @@ alloc_code_gen_buffer_splitwx.exit.i:             ; preds = %21
   br label %alloc_code_gen_buffer.exit
 
 alloc_code_gen_buffer.exit:                       ; preds = %alloc_code_gen_buffer_splitwx.exit.i, %47
-  %.not5667 = phi i1 [ true, %alloc_code_gen_buffer_splitwx.exit.i ], [ false, %47 ]
-  %.not59 = phi i1 [ false, %alloc_code_gen_buffer_splitwx.exit.i ], [ true, %47 ]
+  %.not5667 = phi i1 [ false, %47 ], [ true, %alloc_code_gen_buffer_splitwx.exit.i ]
+  %.not59 = phi i1 [ true, %47 ], [ false, %alloc_code_gen_buffer_splitwx.exit.i ]
   %.val.i = load ptr, ptr %5, align 8
   %.val19.i = load ptr, ptr %18, align 8
   call void @error_propagate(ptr noundef %.val19.i, ptr noundef %.val.i) #12

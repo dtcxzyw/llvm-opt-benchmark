@@ -397,7 +397,7 @@ _ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread16.i.i: ; preds = %.
   br i1 %.not44.i81, label %.loopexit181.invoke, label %.lr.ph.i77
 
 .loopexit184:                                     ; preds = %93, %82, %91, %.lr.ph.i, %70, %73, %73
-  %.sroa.8.0.i.ph = phi i8 [ 0, %70 ], [ 1, %73 ], [ 1, %73 ], [ 1, %.lr.ph.i ], [ 2, %93 ], [ 1, %82 ], [ 2, %91 ]
+  %.sroa.8.0.i.ph = phi i8 [ 1, %73 ], [ 1, %.lr.ph.i ], [ 0, %70 ], [ 1, %73 ], [ 2, %93 ], [ 1, %82 ], [ 2, %91 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i8 %.sroa.8.0.i.ph, ptr %14, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
@@ -517,7 +517,7 @@ _ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread16.i.i: ; preds = %.
   br i1 %.not44.i105, label %.loopexit181.invoke, label %.lr.ph.i101
 
 .loopexit180:                                     ; preds = %167, %156, %165, %.lr.ph.i101, %.loopexit185, %147, %147
-  %.sroa.8.0.i96.ph = phi i8 [ 0, %.loopexit185 ], [ 1, %147 ], [ 1, %147 ], [ 1, %.lr.ph.i101 ], [ 2, %167 ], [ 1, %156 ], [ 2, %165 ]
+  %.sroa.8.0.i96.ph = phi i8 [ 1, %147 ], [ 1, %.lr.ph.i101 ], [ 0, %.loopexit185 ], [ 1, %147 ], [ 2, %167 ], [ 1, %156 ], [ 2, %165 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i8 %.sroa.8.0.i96.ph, ptr %11, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -550,8 +550,8 @@ _ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread16.i.i: ; preds = %.
   br label %193
 
 .loopexit181.invoke:                              ; preds = %.preheader46.i108, %176, %.preheader46.i84, %139
-  %184 = phi i8 [ %.sroa.8.0.i, %176 ], [ %144, %139 ], [ %.sroa.014.0.i87, %.preheader46.i84 ], [ %.sroa.8.0.i, %.preheader46.i108 ]
-  %185 = phi i8 [ %181, %176 ], [ 0, %139 ], [ 0, %.preheader46.i84 ], [ %.sroa.014.0.i111, %.preheader46.i108 ]
+  %184 = phi i8 [ %.sroa.014.0.i87, %.preheader46.i84 ], [ %.sroa.8.0.i, %176 ], [ %144, %139 ], [ %.sroa.8.0.i, %.preheader46.i108 ]
+  %185 = phi i8 [ 0, %.preheader46.i84 ], [ %181, %176 ], [ 0, %139 ], [ %.sroa.014.0.i111, %.preheader46.i108 ]
   %186 = invoke { i8, i8 } @"_ZN109_$LT$ruff_python_ast..python_version..PythonVersion$u20$as$u20$core..convert..From$LT$$LP$u8$C$u8$RP$$GT$$GT$4from17hc19f65706b217356E"(i8 noundef %184, i8 noundef %185)
           to label %187 unwind label %.loopexit.split-lp
 
@@ -573,7 +573,7 @@ _ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread16.i.i: ; preds = %.
   br label %197
 
 .loopexit:                                        ; preds = %130, %119, %128, %.lr.ph.i77, %.loopexit188, %110, %110
-  %.sroa.8.0.i72.ph = phi i8 [ 0, %.loopexit188 ], [ 1, %110 ], [ 1, %110 ], [ 1, %.lr.ph.i77 ], [ 2, %130 ], [ 1, %119 ], [ 2, %128 ]
+  %.sroa.8.0.i72.ph = phi i8 [ 1, %110 ], [ 1, %.lr.ph.i77 ], [ 0, %.loopexit188 ], [ 1, %110 ], [ 2, %130 ], [ 1, %119 ], [ 2, %128 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i8 %.sroa.8.0.i72.ph, ptr %8, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %7)

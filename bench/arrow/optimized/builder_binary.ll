@@ -734,9 +734,9 @@ define void @_ZN5arrow17BinaryViewBuilder16AppendArraySliceERKNS_9ArraySpanEll(p
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.loopexit.i.loopexit57, %.loopexit.i.loopexit, %.preheader6.i, %.preheader8.i, %.preheader.i
-  %.lcssa5254 = phi i64 [ %.lcssa5255, %.preheader.i ], [ %.lcssa5255, %.preheader8.i ], [ %spec.select, %.preheader6.i ], [ %59, %.loopexit.i.loopexit ], [ %60, %.loopexit.i.loopexit57 ]
-  %.1 = phi i64 [ %.0, %.preheader.i ], [ %.0, %.preheader8.i ], [ %.0, %.preheader6.i ], [ %.6, %.loopexit.i.loopexit ], [ %.4, %.loopexit.i.loopexit57 ]
-  %.pre-phi.i = phi i64 [ %25, %.preheader.i ], [ %36, %.preheader8.i ], [ %36, %.preheader6.i ], [ %25, %.loopexit.i.loopexit ], [ %36, %.loopexit.i.loopexit57 ]
+  %.lcssa5254 = phi i64 [ %.lcssa5255, %.preheader8.i ], [ %.lcssa5255, %.preheader.i ], [ %spec.select, %.preheader6.i ], [ %59, %.loopexit.i.loopexit ], [ %60, %.loopexit.i.loopexit57 ]
+  %.1 = phi i64 [ %.0, %.preheader8.i ], [ %.0, %.preheader.i ], [ %.0, %.preheader6.i ], [ %.6, %.loopexit.i.loopexit ], [ %.4, %.loopexit.i.loopexit57 ]
+  %.pre-phi.i = phi i64 [ %36, %.preheader8.i ], [ %25, %.preheader.i ], [ %36, %.preheader6.i ], [ %25, %.loopexit.i.loopexit ], [ %36, %.loopexit.i.loopexit57 ]
   %61 = add nsw i64 %.pre-phi.i, %.02415.i
   %62 = add nsw i64 %.pre-phi.i, %.02316.i
   %63 = icmp slt i64 %61, %4

@@ -3964,8 +3964,8 @@ _ZN3sat11literal_setaSERKS0_.exit:                ; preds = %._crit_edge
   %.not.i.i.i.i43 = icmp eq ptr %.pre, null
   br i1 %.not.i.i.i.i43, label %_ZN6vectorIjLb0EjED2Ev.exit.i.i, label %_ZN3sat11literal_setaSERKS0_.exit.thread116
 
-_ZN3sat11literal_setaSERKS0_.exit.thread116:      ; preds = %_ZNK6vectorIjLb0EjE3endEv.exit.i.i.i.i.i, %63, %_ZN3sat11literal_setaSERKS0_.exit
-  %221 = phi ptr [ %.pre, %_ZN3sat11literal_setaSERKS0_.exit ], [ %59, %63 ], [ %59, %_ZNK6vectorIjLb0EjE3endEv.exit.i.i.i.i.i ]
+_ZN3sat11literal_setaSERKS0_.exit.thread116:      ; preds = %63, %_ZNK6vectorIjLb0EjE3endEv.exit.i.i.i.i.i, %_ZN3sat11literal_setaSERKS0_.exit
+  %221 = phi ptr [ %.pre, %_ZN3sat11literal_setaSERKS0_.exit ], [ %59, %_ZNK6vectorIjLb0EjE3endEv.exit.i.i.i.i.i ], [ %59, %63 ]
   %222 = getelementptr inbounds i8, ptr %221, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %222)
           to label %_ZN6vectorIjLb0EjED2Ev.exit.i.i unwind label %223
@@ -4696,8 +4696,8 @@ _ZN3sat11literal_setaSERKS0_.exit54:              ; preds = %_ZN3sat11literal_se
   %.not.i.i.i.i55 = icmp eq ptr %.pre, null
   br i1 %.not.i.i.i.i55, label %_ZN6vectorIjLb0EjED2Ev.exit.i.i, label %_ZN3sat11literal_setaSERKS0_.exit54.thread147
 
-_ZN3sat11literal_setaSERKS0_.exit54.thread147:    ; preds = %_ZNK6vectorIjLb0EjE3endEv.exit.i.i.i.i.i48, %265, %_ZN3sat11literal_setaSERKS0_.exit54
-  %269 = phi ptr [ %.pre, %_ZN3sat11literal_setaSERKS0_.exit54 ], [ %261, %265 ], [ %261, %_ZNK6vectorIjLb0EjE3endEv.exit.i.i.i.i.i48 ]
+_ZN3sat11literal_setaSERKS0_.exit54.thread147:    ; preds = %265, %_ZNK6vectorIjLb0EjE3endEv.exit.i.i.i.i.i48, %_ZN3sat11literal_setaSERKS0_.exit54
+  %269 = phi ptr [ %.pre, %_ZN3sat11literal_setaSERKS0_.exit54 ], [ %261, %_ZNK6vectorIjLb0EjE3endEv.exit.i.i.i.i.i48 ], [ %261, %265 ]
   %270 = getelementptr inbounds i8, ptr %269, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %270)
           to label %_ZN6vectorIjLb0EjED2Ev.exit.i.i unwind label %271

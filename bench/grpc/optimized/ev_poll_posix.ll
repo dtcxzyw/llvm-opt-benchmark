@@ -1116,7 +1116,7 @@ _ZN9grpc_coremiENS_9TimestampES0_.exit.thread.fold.split.i: ; preds = %105
   br label %_ZL31poll_deadline_to_millis_timeoutN9grpc_core9TimestampE.exit
 
 _ZL31poll_deadline_to_millis_timeoutN9grpc_core9TimestampE.exit: ; preds = %_ZN9grpc_coremiENS_9TimestampES0_.exit.thread.fold.split.i, %.thread16.i, %128, %_ZN9grpc_coremiENS_9TimestampES0_.exit.i, %123, %116, %113, %.noexc203, %105
-  %.0.i = phi i32 [ -1, %105 ], [ %130, %128 ], [ 0, %_ZN9grpc_coremiENS_9TimestampES0_.exit.i ], [ -1, %.thread16.i ], [ 0, %116 ], [ 0, %123 ], [ 0, %.noexc203 ], [ 0, %113 ], [ 0, %_ZN9grpc_coremiENS_9TimestampES0_.exit.thread.fold.split.i ]
+  %.0.i = phi i32 [ 0, %113 ], [ -1, %105 ], [ %130, %128 ], [ 0, %_ZN9grpc_coremiENS_9TimestampES0_.exit.i ], [ -1, %.thread16.i ], [ 0, %116 ], [ 0, %123 ], [ 0, %.noexc203 ], [ 0, %_ZN9grpc_coremiENS_9TimestampES0_.exit.thread.fold.split.i ]
   %131 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %132 = load i64, ptr %131, align 8, !tbaa !92
   %133 = add i64 %132, 2

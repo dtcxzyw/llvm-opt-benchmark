@@ -7320,8 +7320,8 @@ lean_dec.exit784.thread1562.sink.split:           ; preds = %lean_dec.exit784.th
   store ptr %.sink, ptr %2141, align 8, !tbaa !4
   br label %lean_dec.exit784.thread1562
 
-lean_dec.exit784.thread1562:                      ; preds = %lean_dec.exit784.thread1562.sink.split, %lean_dec.exit757, %lean_dec.exit770, %lean_dec.exit690, %lean_dec.exit702
-  %.1 = phi ptr [ %155, %lean_dec.exit690 ], [ %507, %lean_dec.exit770 ], [ %215, %lean_dec.exit702 ], [ %732, %lean_dec.exit757 ], [ %.1.ph, %lean_dec.exit784.thread1562.sink.split ]
+lean_dec.exit784.thread1562:                      ; preds = %lean_dec.exit784.thread1562.sink.split, %lean_dec.exit770, %lean_dec.exit702, %lean_dec.exit690, %lean_dec.exit757
+  %.1 = phi ptr [ %155, %lean_dec.exit690 ], [ %507, %lean_dec.exit770 ], [ %732, %lean_dec.exit757 ], [ %215, %lean_dec.exit702 ], [ %.1.ph, %lean_dec.exit784.thread1562.sink.split ]
   ret ptr %.1
 }
 

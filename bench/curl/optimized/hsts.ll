@@ -286,7 +286,7 @@ define hidden range(i32 0, 44) i32 @Curl_hsts_parse(ptr noundef %0, ptr noundef 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %34, %49, %51, %45, %.critedge114, %3, %58, %62
-  %.0 = phi i32 [ 0, %3 ], [ 0, %58 ], [ %65, %62 ], [ 43, %45 ], [ 43, %.critedge114 ], [ 0, %51 ], [ 0, %49 ], [ 43, %34 ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %58 ], [ %65, %62 ], [ 43, %45 ], [ 0, %49 ], [ 43, %.critedge114 ], [ 0, %51 ], [ 43, %34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }

@@ -76,7 +76,7 @@ define hidden range(i32 -1, 2) i32 @netscreen_open(ptr noundef captures(none) %0
   %23 = sext i1 %switch.selectcmp.not to i32
   br label %36
 
-24:                                               ; preds = %19, %17
+24:                                               ; preds = %17, %19
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %25 = load ptr, ptr %0, align 8
   %26 = call i64 @file_seek(ptr noundef %25, i64 noundef 0, i32 noundef 0, ptr noundef %1)
@@ -100,7 +100,7 @@ define hidden range(i32 -1, 2) i32 @netscreen_open(ptr noundef captures(none) %0
   br label %36
 
 36:                                               ; preds = %.loopexit, %24, %28
-  %.0 = phi i32 [ 1, %28 ], [ %23, %.loopexit ], [ -1, %24 ]
+  %.0 = phi i32 [ -1, %24 ], [ 1, %28 ], [ %23, %.loopexit ]
   ret i32 %.0
 }
 

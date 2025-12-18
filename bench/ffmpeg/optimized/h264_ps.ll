@@ -2883,7 +2883,7 @@ get_se_golomb.exit:                               ; preds = %44, %54
   br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !132
 
 .loopexit:                                        ; preds = %87, %82, %31, %86
-  %.3 = phi i32 [ -1094995529, %82 ], [ 0, %86 ], [ 0, %31 ], [ 0, %87 ]
+  %.3 = phi i32 [ -1094995529, %82 ], [ 0, %31 ], [ 0, %86 ], [ 0, %87 ]
   ret i32 %.3
 }
 

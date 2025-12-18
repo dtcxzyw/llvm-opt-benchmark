@@ -624,8 +624,8 @@ define internal range(i32 -1, 1) i32 @H5S__point_serialize(ptr noundef readonly 
   br label %187
 
 .loopexit173:                                     ; preds = %.loopexit177, %.loopexit, %.preheader176.lr.ph, %.preheader.lr.ph, %159, %70, %144
-  %.3.ph = phi ptr [ %.4.lcssa, %144 ], [ %78, %70 ], [ %160, %159 ], [ %160, %.preheader176.lr.ph ], [ %78, %.preheader.lr.ph ], [ %.2164.lcssa, %.loopexit ], [ %.7.lcssa, %.loopexit177 ]
-  %.1160.ph = phi i32 [ %150, %144 ], [ %.0159, %70 ], [ %.0159, %159 ], [ %.0159, %.preheader176.lr.ph ], [ %.0159, %.preheader.lr.ph ], [ %.0159, %.loopexit ], [ %.0159, %.loopexit177 ]
+  %.3.ph = phi ptr [ %.2164.lcssa, %.loopexit ], [ %.4.lcssa, %144 ], [ %78, %70 ], [ %78, %.preheader.lr.ph ], [ %160, %159 ], [ %160, %.preheader176.lr.ph ], [ %.7.lcssa, %.loopexit177 ]
+  %.1160.ph = phi i32 [ %.0159, %.loopexit ], [ %150, %144 ], [ %.0159, %70 ], [ %.0159, %.preheader.lr.ph ], [ %.0159, %159 ], [ %.0159, %.preheader176.lr.ph ], [ %.0159, %.loopexit177 ]
   %.pr = load i32, ptr %3, align 4, !tbaa !30
   %185 = icmp eq i32 %.pr, 1
   br i1 %185, label %186, label %.thread
@@ -1133,7 +1133,7 @@ define internal range(i32 -1, 1) i32 @H5S__point_deserialize(ptr noundef capture
   br label %281
 
 ._crit_edge304:                                   ; preds = %._crit_edge.split.split.us309, %._crit_edge.split.split.us.us.us, %._crit_edge.split.us.us.us, %.preheader278
-  %.3.lcssa = phi ptr [ %182, %.preheader278 ], [ %242, %._crit_edge.split.split.us.us.us ], [ %218, %._crit_edge.split.us.us.us ], [ %251, %._crit_edge.split.split.us309 ]
+  %.3.lcssa = phi ptr [ %182, %.preheader278 ], [ %218, %._crit_edge.split.us.us.us ], [ %242, %._crit_edge.split.split.us.us.us ], [ %251, %._crit_edge.split.split.us309 ]
   %272 = call i32 @H5S_select_elements(ptr noundef nonnull %.1, i32 noundef 0, i64 noundef %.0204254, ptr noundef nonnull %208)
   %273 = icmp slt i32 %272, 0
   br i1 %273, label %274, label %278
@@ -1558,7 +1558,7 @@ define internal range(i32 0, 2) i32 @H5S__point_shape_same(ptr noundef readonly 
   br i1 %88, label %.preheader47.us67, label %.loopexit46, !llvm.loop !57
 
 .loopexit46:                                      ; preds = %..loopexit_crit_edge.us76, %80, %.loopexit.us, %60, %.lr.ph62.us, %.preheader47.lr.ph.split, %.preheader49, %2
-  %.0 = phi i32 [ 1, %2 ], [ 1, %.preheader49 ], [ 1, %.preheader47.lr.ph.split ], [ 0, %80 ], [ 0, %.lr.ph62.us ], [ 0, %60 ], [ 1, %.loopexit.us ], [ 1, %..loopexit_crit_edge.us76 ]
+  %.0 = phi i32 [ 1, %2 ], [ 1, %.preheader47.lr.ph.split ], [ 1, %.preheader49 ], [ 0, %80 ], [ 1, %.loopexit.us ], [ 0, %60 ], [ 0, %.lr.ph62.us ], [ 1, %..loopexit_crit_edge.us76 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -2451,7 +2451,7 @@ H5S__point_add.exit:                              ; preds = %.lr.ph118.i, %128
   %136 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S_select_elements, i32 noundef 764, i64 noundef %134, i64 noundef %135, ptr noundef nonnull @.str.4) #15
   br label %138
 
-137:                                              ; preds = %61, %122, %124
+137:                                              ; preds = %124, %61, %122
   store ptr @H5S_sel_point, ptr %62, align 8, !tbaa !34
   br label %138
 

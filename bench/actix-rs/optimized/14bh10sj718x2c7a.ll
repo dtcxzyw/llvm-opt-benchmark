@@ -949,7 +949,7 @@ _ZN19brotli_decompressor6writer9write_all17hbfdb5a109718fda8E.exit: ; preds = %5
   br label %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h665de1428ec0d8f1E.exit"
 
 "_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h665de1428ec0d8f1E.exit": ; preds = %.loopexit42, %20, %67, %70, %_ZN19brotli_decompressor6writer9write_all17hbfdb5a109718fda8E.exit
-  %.0 = phi ptr [ %33, %_ZN19brotli_decompressor6writer9write_all17hbfdb5a109718fda8E.exit ], [ %71, %70 ], [ %68, %67 ], [ null, %20 ], [ null, %.loopexit42 ]
+  %.0 = phi ptr [ %68, %67 ], [ %33, %_ZN19brotli_decompressor6writer9write_all17hbfdb5a109718fda8E.exit ], [ %71, %70 ], [ null, %20 ], [ null, %.loopexit42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -4441,7 +4441,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit: ; preds = %.lr.ph.
   br label %.loopexit
 
 .loopexit:                                        ; preds = %63, %39, %2, %.split.us, %.split72.us
-  %storemerge23 = phi i64 [ 0, %.split.us ], [ 1, %.split72.us ], [ 0, %2 ], [ 0, %39 ], [ 0, %63 ]
+  %storemerge23 = phi i64 [ 1, %.split72.us ], [ 0, %.split.us ], [ 0, %2 ], [ 0, %39 ], [ 0, %63 ]
   store i64 %storemerge23, ptr %0, align 8
   ret void
 }
@@ -5670,7 +5670,7 @@ define void @_ZN9actix_web4http6header5range13ByteRangeSpec20to_satisfiable_rang
   br label %11
 
 11:                                               ; preds = %.sink.split, %3, %19, %17, %12
-  %.sink = phi i64 [ 0, %17 ], [ 0, %12 ], [ 0, %19 ], [ 0, %3 ], [ 1, %.sink.split ]
+  %.sink = phi i64 [ 0, %3 ], [ 0, %19 ], [ 0, %17 ], [ 0, %12 ], [ 1, %.sink.split ]
   store i64 %.sink, ptr %0, align 8
   ret void
 

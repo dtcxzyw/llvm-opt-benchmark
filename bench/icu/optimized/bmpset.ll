@@ -1904,7 +1904,7 @@ _ZNK6icu_776BMPSet12containsSlowEiii.exit147:     ; preds = %.lr.ph.i.i142, %224
   br i1 %236, label %.loopexit, label %.preheader, !llvm.loop !35
 
 .loopexit:                                        ; preds = %135, %_ZNK6icu_776BMPSet12containsSlowEiii.exit117, %_ZNK6icu_776BMPSet12containsSlowEiii.exit107, %45, %39, %66, %_ZNK6icu_776BMPSet12containsSlowEiii.exit, %235, %_ZNK6icu_776BMPSet12containsSlowEiii.exit147, %_ZNK6icu_776BMPSet12containsSlowEiii.exit137, %147, %141, %167, %_ZNK6icu_776BMPSet12containsSlowEiii.exit127
-  %.0 = phi ptr [ %1, %235 ], [ %.3, %167 ], [ %.3, %141 ], [ %.3, %147 ], [ %.3, %_ZNK6icu_776BMPSet12containsSlowEiii.exit137 ], [ %.3, %_ZNK6icu_776BMPSet12containsSlowEiii.exit147 ], [ %.3, %_ZNK6icu_776BMPSet12containsSlowEiii.exit127 ], [ %.072, %66 ], [ %.072, %39 ], [ %.072, %45 ], [ %.072, %_ZNK6icu_776BMPSet12containsSlowEiii.exit107 ], [ %.072, %_ZNK6icu_776BMPSet12containsSlowEiii.exit117 ], [ %.072, %_ZNK6icu_776BMPSet12containsSlowEiii.exit ], [ %1, %135 ]
+  %.0 = phi ptr [ %1, %235 ], [ %.3, %167 ], [ %.3, %141 ], [ %.3, %147 ], [ %.3, %_ZNK6icu_776BMPSet12containsSlowEiii.exit137 ], [ %.3, %_ZNK6icu_776BMPSet12containsSlowEiii.exit147 ], [ %.3, %_ZNK6icu_776BMPSet12containsSlowEiii.exit127 ], [ %.072, %66 ], [ %.072, %39 ], [ %.072, %45 ], [ %.072, %_ZNK6icu_776BMPSet12containsSlowEiii.exit107 ], [ %.072, %_ZNK6icu_776BMPSet12containsSlowEiii.exit117 ], [ %1, %135 ], [ %.072, %_ZNK6icu_776BMPSet12containsSlowEiii.exit ]
   ret ptr %.0
 }
 
@@ -2530,7 +2530,7 @@ _ZNK6icu_776BMPSet12containsSlowEiii.exit70:      ; preds = %.lr.ph.i.i65, %91, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %127, %.preheader73.preheader, %.preheader.preheader, %.lr.ph, %.lr.ph159, %.preheader73._crit_edge, %.preheader._crit_edge, %.loopexit.loopexit120.split.loop.exit134, %.loopexit76.split.loop.exit81, %.loopexit76.split.loop.exit83, %.loopexit76.split.loop.exit85
-  %.1 = phi i32 [ 0, %.lr.ph159 ], [ %131, %.loopexit76.split.loop.exit83 ], [ %130, %.loopexit76.split.loop.exit81 ], [ %132, %.loopexit76.split.loop.exit85 ], [ %133, %.loopexit.loopexit120.split.loop.exit134 ], [ 0, %.lr.ph ], [ %27, %.preheader._crit_edge ], [ %37, %.preheader73._crit_edge ], [ 0, %127 ], [ %14, %.preheader73.preheader ], [ %14, %.preheader.preheader ]
+  %.1 = phi i32 [ %27, %.preheader._crit_edge ], [ %37, %.preheader73._crit_edge ], [ %131, %.loopexit76.split.loop.exit83 ], [ 0, %.lr.ph ], [ %130, %.loopexit76.split.loop.exit81 ], [ 0, %.lr.ph159 ], [ %132, %.loopexit76.split.loop.exit85 ], [ %133, %.loopexit.loopexit120.split.loop.exit134 ], [ 0, %127 ], [ %14, %.preheader73.preheader ], [ %14, %.preheader.preheader ]
   ret i32 %.1
 }
 

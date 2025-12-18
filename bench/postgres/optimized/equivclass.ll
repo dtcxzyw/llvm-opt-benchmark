@@ -2419,7 +2419,7 @@ select_equality_operator.exit.thread:             ; preds = %77, %.lr.ph.i, %.lr
   br label %.loopexit265
 
 .loopexit265:                                     ; preds = %155, %.lr.ph347, %.loopexit265.sink.split, %5, %.lr.ph, %115, %112
-  %.2 = phi ptr [ %.0114, %112 ], [ %.0114, %115 ], [ null, %.lr.ph ], [ null, %5 ], [ null, %.loopexit265.sink.split ], [ %.0114, %.lr.ph347 ], [ %.7121.ph, %155 ]
+  %.2 = phi ptr [ null, %.loopexit265.sink.split ], [ %.0114, %112 ], [ null, %.lr.ph ], [ %.0114, %115 ], [ null, %5 ], [ %.0114, %.lr.ph347 ], [ %.7121.ph, %155 ]
   ret ptr %.2
 }
 
@@ -3018,7 +3018,7 @@ find_join_domain.exit.i:                          ; preds = %.lr.ph4.i.i
   br label %select_equality_operator.exit.thread.i
 
 select_equality_operator.exit.thread.i:           ; preds = %215, %find_join_domain.exit.i, %.lr.ph.i.i
-  %.2103.ph.i = phi i1 [ %.010159.i197, %.lr.ph.i.i ], [ %spec.select.i, %find_join_domain.exit.i ], [ %.010159.i197, %215 ]
+  %.2103.ph.i = phi i1 [ %spec.select.i, %find_join_domain.exit.i ], [ %.010159.i197, %.lr.ph.i.i ], [ %.010159.i197, %215 ]
   %.pr.i = load ptr, ptr %177, align 8
   %243 = load i32, ptr %3, align 4
   %244 = load i32, ptr %198, align 4
@@ -3526,7 +3526,7 @@ select_equality_operator.exit.thread:             ; preds = %111, %.lr.ph.i, %93
   br i1 %144, label %.lr.ph83, label %.critedge
 
 .critedge:                                        ; preds = %.critedge93, %select_equality_operator.exit.thread, %.lr.ph35, %.lr.ph39, %get_rightop.exit, %.critedge9.split
-  %.072 = phi i1 [ false, %.critedge9.split ], [ false, %get_rightop.exit ], [ false, %.lr.ph39 ], [ false, %.lr.ph35 ], [ %.4, %select_equality_operator.exit.thread ], [ false, %.critedge93 ]
+  %.072 = phi i1 [ false, %.lr.ph35 ], [ false, %.critedge9.split ], [ false, %get_rightop.exit ], [ false, %.lr.ph39 ], [ %.4, %select_equality_operator.exit.thread ], [ false, %.critedge93 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.072
@@ -3858,8 +3858,8 @@ define dso_local ptr @match_eclasses_to_foreign_key_col(ptr noundef readonly cap
   br i1 %83, label %.thread, label %.loopexit104
 
 .loopexit:                                        ; preds = %58, %.preheader, %52, %74
-  %.175.ph = phi ptr [ %.276, %74 ], [ %.074107113, %52 ], [ %.074107113, %.preheader ], [ %.074107113, %58 ]
-  %.172.ph = phi ptr [ %.273, %74 ], [ %.071108112, %52 ], [ %.071108112, %.preheader ], [ %.071108112, %58 ]
+  %.175.ph = phi ptr [ %.074107113, %52 ], [ %.276, %74 ], [ %.074107113, %.preheader ], [ %.074107113, %58 ]
+  %.172.ph = phi ptr [ %.071108112, %52 ], [ %.273, %74 ], [ %.071108112, %.preheader ], [ %.071108112, %58 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit104, label %52
@@ -3874,7 +3874,7 @@ define dso_local ptr @match_eclasses_to_foreign_key_col(ptr noundef readonly cap
   br label %.loopexit105
 
 .loopexit104:                                     ; preds = %.loopexit, %44, %.lr.ph, %80, %34
-  %.161 = phi ptr [ %.060115, %34 ], [ %.565, %80 ], [ %.060115, %.lr.ph ], [ %.060115, %44 ], [ %.060115, %.loopexit ]
+  %.161 = phi ptr [ %.060115, %34 ], [ %.565, %80 ], [ %.060115, %44 ], [ %.060115, %.lr.ph ], [ %.060115, %.loopexit ]
   %88 = tail call i32 @bms_next_member(ptr noundef %30, i32 noundef %35) #7
   %89 = icmp sgt i32 %88, -1
   br i1 %89, label %34, label %.loopexit105

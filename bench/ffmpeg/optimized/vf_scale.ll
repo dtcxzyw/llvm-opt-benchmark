@@ -817,7 +817,7 @@ define internal range(i32 -2147483648, 1) i32 @query_formats(ptr noundef readonl
   br label %.loopexit74
 
 .loopexit74:                                      ; preds = %11, %28, %127, %.loopexit, %73, %._crit_edge95, %._crit_edge86, %._crit_edge
-  %.051 = phi i32 [ %118, %.loopexit ], [ %19, %._crit_edge ], [ %36, %._crit_edge86 ], [ %43, %._crit_edge95 ], [ %77, %73 ], [ %., %127 ], [ %30, %28 ], [ %13, %11 ]
+  %.051 = phi i32 [ %118, %.loopexit ], [ %30, %28 ], [ %19, %._crit_edge ], [ %., %127 ], [ %36, %._crit_edge86 ], [ %43, %._crit_edge95 ], [ %77, %73 ], [ %13, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.051
 }

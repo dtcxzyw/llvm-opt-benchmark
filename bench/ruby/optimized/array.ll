@@ -10925,7 +10925,7 @@ rb_ary_includes_by_eql.exit.loopexit97:           ; preds = %RARRAY_AREF.exit
   br label %rb_ary_includes_by_eql.exit
 
 rb_ary_includes_by_eql.exit:                      ; preds = %rb_ary_includes_by_eql.exit.loopexit97, %rb_ary_includes_by_eql.exit.loopexit, %rb_ary_elt.exit
-  %.04378 = phi i32 [ 0, %rb_ary_elt.exit ], [ %122, %rb_ary_includes_by_eql.exit.loopexit ], [ %123, %rb_ary_includes_by_eql.exit.loopexit97 ]
+  %.04378 = phi i32 [ %122, %rb_ary_includes_by_eql.exit.loopexit ], [ 0, %rb_ary_elt.exit ], [ %123, %rb_ary_includes_by_eql.exit.loopexit97 ]
   %124 = icmp eq i32 %.04378, %0
   br i1 %124, label %rb_ary_includes_by_eql.exit.thread95, label %rb_ary_push.exit
 
@@ -11328,7 +11328,7 @@ RARRAY_AREF.exit59:                               ; preds = %rb_array_len.exit56
   br i1 %.not, label %105, label %rb_ary_includes_by_eql.exit, !llvm.loop !90
 
 rb_ary_includes_by_eql.exit:                      ; preds = %rb_array_len.exit56.thread, %rb_array_len.exit56, %RARRAY_AREF.exit59, %rb_array_len.exit42.thread, %rb_array_len.exit42, %RARRAY_AREF.exit.i, %rb_array_len.exit, %rb_array_len.exit39
-  %.029 = phi i64 [ 0, %rb_array_len.exit ], [ 0, %rb_array_len.exit39 ], [ 20, %RARRAY_AREF.exit.i ], [ 0, %rb_array_len.exit42.thread ], [ 0, %rb_array_len.exit42 ], [ 0, %rb_array_len.exit56.thread ], [ 20, %RARRAY_AREF.exit59 ], [ 0, %rb_array_len.exit56 ]
+  %.029 = phi i64 [ 0, %rb_array_len.exit42.thread ], [ 0, %rb_array_len.exit ], [ 20, %RARRAY_AREF.exit.i ], [ 0, %rb_array_len.exit39 ], [ 0, %rb_array_len.exit42 ], [ 20, %RARRAY_AREF.exit59 ], [ 0, %rb_array_len.exit56 ], [ 0, %rb_array_len.exit56.thread ]
   ret i64 %.029
 }
 
@@ -12193,7 +12193,7 @@ rb_long2num_inline.exit35:                        ; preds = %RARRAY_AREF.exit32
   br label %44, !llvm.loop !94
 
 rb_long2num_inline.exit:                          ; preds = %rb_array_len.exit29.thread, %rb_array_len.exit29, %rb_array_len.exit.thread, %rb_array_len.exit, %59, %62, %32, %29, %9
-  %.0 = phi i64 [ %12, %9 ], [ %31, %29 ], [ %33, %32 ], [ %63, %62 ], [ %61, %59 ], [ 4, %rb_array_len.exit.thread ], [ 4, %rb_array_len.exit ], [ 4, %rb_array_len.exit29 ], [ 4, %rb_array_len.exit29.thread ]
+  %.0 = phi i64 [ %61, %59 ], [ %63, %62 ], [ %12, %9 ], [ 4, %rb_array_len.exit.thread ], [ %33, %32 ], [ %31, %29 ], [ 4, %rb_array_len.exit ], [ 4, %rb_array_len.exit29 ], [ 4, %rb_array_len.exit29.thread ]
   ret i64 %.0
 }
 
@@ -12377,7 +12377,7 @@ rb_array_len.exit45:                              ; preds = %72, %75
   br i1 %77, label %rb_long2num_inline.exit, label %rb_long2num_inline.exit42
 
 rb_long2num_inline.exit:                          ; preds = %rb_array_len.exit45, %rb_long2num_inline.exit42, %rb_array_len.exit35, %.preheader, %67, %64, %36, %33, %17
-  %.0 = phi i64 [ %37, %36 ], [ %20, %17 ], [ %35, %33 ], [ %68, %67 ], [ %66, %64 ], [ 4, %.preheader ], [ 4, %rb_array_len.exit35 ], [ 4, %rb_long2num_inline.exit42 ], [ 4, %rb_array_len.exit45 ]
+  %.0 = phi i64 [ %66, %64 ], [ %37, %36 ], [ %20, %17 ], [ 4, %.preheader ], [ %35, %33 ], [ %68, %67 ], [ 4, %rb_array_len.exit35 ], [ 4, %rb_long2num_inline.exit42 ], [ 4, %rb_array_len.exit45 ]
   ret i64 %.0
 }
 
@@ -14981,14 +14981,14 @@ rb_ary_elt.exit69:                                ; preds = %rb_array_len.exit.i
   br i1 %exitcond91.not, label %._crit_edge, label %99, !llvm.loop !114
 
 ._crit_edge:                                      ; preds = %rb_ary_elt.exit69, %rb_array_len.exit48, %.loopexit
-  %.1102 = phi i64 [ %.1, %.loopexit ], [ %61, %rb_array_len.exit48 ], [ %.1, %rb_ary_elt.exit69 ]
-  %.136101 = phi i64 [ %.136, %.loopexit ], [ %.0.i47, %rb_array_len.exit48 ], [ %.136, %rb_ary_elt.exit69 ]
+  %.1102 = phi i64 [ %61, %rb_array_len.exit48 ], [ %.1, %.loopexit ], [ %.1, %rb_ary_elt.exit69 ]
+  %.136101 = phi i64 [ %.0.i47, %rb_array_len.exit48 ], [ %.136, %.loopexit ], [ %.136, %rb_ary_elt.exit69 ]
   %119 = add nuw nsw i64 %.03485, 1
   %exitcond92.not = icmp eq i64 %119, %.0.i73.ph98
   br i1 %exitcond92.not, label %rb_ary_dup.exit, label %35, !llvm.loop !115
 
 rb_ary_dup.exit:                                  ; preds = %._crit_edge, %.preheader, %33, %31
-  %.031 = phi i64 [ %20, %31 ], [ %20, %33 ], [ 0, %.preheader ], [ %.1102, %._crit_edge ]
+  %.031 = phi i64 [ %20, %33 ], [ %20, %31 ], [ 0, %.preheader ], [ %.1102, %._crit_edge ]
   ret i64 %.031
 }
 
@@ -16693,7 +16693,7 @@ RB_FLOAT_TYPE_P.exit.thread59:                    ; preds = %rbimpl_RB_TYPE_P_fa
   br label %ary_max_opt_fixnum.exit
 
 ary_max_opt_fixnum.exit:                          ; preds = %79, %74, %.thread61, %.loopexit, %ary_max_generic.exit.i, %rb_array_len.exit.thread.i, %rb_array_len.exit.i, %116, %123, %RB_FLOAT_TYPE_P.exit.thread59, %9
-  %.0 = phi i64 [ %10, %9 ], [ %125, %RB_FLOAT_TYPE_P.exit.thread59 ], [ %124, %123 ], [ %117, %116 ], [ %.0.i18.i, %ary_max_generic.exit.i ], [ %54, %rb_array_len.exit.i ], [ %54, %rb_array_len.exit.thread.i ], [ 4, %.thread61 ], [ %.2.fr, %.loopexit ], [ %spec.select.us.i, %74 ], [ %spec.select.i, %79 ]
+  %.0 = phi i64 [ %10, %9 ], [ %spec.select.us.i, %74 ], [ %125, %RB_FLOAT_TYPE_P.exit.thread59 ], [ %124, %123 ], [ %117, %116 ], [ %.0.i18.i, %ary_max_generic.exit.i ], [ %54, %rb_array_len.exit.i ], [ %54, %rb_array_len.exit.thread.i ], [ %.2.fr, %.loopexit ], [ 4, %.thread61 ], [ %spec.select.i, %79 ]
   ret i64 %.0
 }
 
@@ -16994,7 +16994,7 @@ RB_FLOAT_TYPE_P.exit.thread59:                    ; preds = %rbimpl_RB_TYPE_P_fa
   br label %ary_min_opt_fixnum.exit
 
 ary_min_opt_fixnum.exit:                          ; preds = %79, %74, %.thread61, %.loopexit, %ary_min_generic.exit.i, %rb_array_len.exit.thread.i, %rb_array_len.exit.i, %116, %123, %RB_FLOAT_TYPE_P.exit.thread59, %9
-  %.0 = phi i64 [ %10, %9 ], [ %125, %RB_FLOAT_TYPE_P.exit.thread59 ], [ %124, %123 ], [ %117, %116 ], [ %.0.i18.i, %ary_min_generic.exit.i ], [ %54, %rb_array_len.exit.i ], [ %54, %rb_array_len.exit.thread.i ], [ 4, %.thread61 ], [ %.2.fr, %.loopexit ], [ %spec.select.us.i, %74 ], [ %spec.select.i, %79 ]
+  %.0 = phi i64 [ %10, %9 ], [ %spec.select.us.i, %74 ], [ %125, %RB_FLOAT_TYPE_P.exit.thread59 ], [ %124, %123 ], [ %117, %116 ], [ %.0.i18.i, %ary_min_generic.exit.i ], [ %54, %rb_array_len.exit.i ], [ %54, %rb_array_len.exit.thread.i ], [ %.2.fr, %.loopexit ], [ 4, %.thread61 ], [ %spec.select.i, %79 ]
   ret i64 %.0
 }
 
@@ -18742,7 +18742,7 @@ permute0.exit:                                    ; preds = %185, %104, %198
   br label %.loopexit
 
 .loopexit:                                        ; preds = %rb_array_len.exit46.thread, %rb_array_len.exit46, %rb_num2long_inline.exit, %permute0.exit, %36, %16
-  %.0 = phi i64 [ %19, %16 ], [ %2, %36 ], [ %2, %permute0.exit ], [ %2, %rb_num2long_inline.exit ], [ %2, %rb_array_len.exit46 ], [ %2, %rb_array_len.exit46.thread ]
+  %.0 = phi i64 [ %19, %16 ], [ %2, %36 ], [ %2, %rb_num2long_inline.exit ], [ %2, %permute0.exit ], [ %2, %rb_array_len.exit46 ], [ %2, %rb_array_len.exit46.thread ]
   ret i64 %.0
 }
 
@@ -19031,7 +19031,7 @@ combinate0.exit:                                  ; preds = %.preheader.i
   br label %.loopexit
 
 .loopexit:                                        ; preds = %rb_array_len.exit31.thread, %rb_array_len.exit31, %rb_array_len.exit, %combinate0.exit, %30, %11
-  %.0 = phi i64 [ %14, %11 ], [ %0, %30 ], [ %0, %combinate0.exit ], [ %0, %rb_array_len.exit ], [ %0, %rb_array_len.exit31 ], [ %0, %rb_array_len.exit31.thread ]
+  %.0 = phi i64 [ %14, %11 ], [ %0, %30 ], [ %0, %rb_array_len.exit ], [ %0, %combinate0.exit ], [ %0, %rb_array_len.exit31 ], [ %0, %rb_array_len.exit31.thread ]
   ret i64 %.0
 }
 
@@ -19400,7 +19400,7 @@ rpermute0.exit:                                   ; preds = %.preheader24.i, %..
   br label %.loopexit
 
 .loopexit:                                        ; preds = %rb_array_len.exit27.thread, %rb_array_len.exit27, %rb_num2long_inline.exit, %rpermute0.exit, %30, %16
-  %.0 = phi i64 [ %19, %16 ], [ %0, %30 ], [ %0, %rpermute0.exit ], [ %0, %rb_num2long_inline.exit ], [ %0, %rb_array_len.exit27 ], [ %0, %rb_array_len.exit27.thread ]
+  %.0 = phi i64 [ %19, %16 ], [ %0, %30 ], [ %0, %rb_num2long_inline.exit ], [ %0, %rpermute0.exit ], [ %0, %rb_array_len.exit27 ], [ %0, %rb_array_len.exit27.thread ]
   ret i64 %.0
 }
 
@@ -22943,7 +22943,7 @@ rb_ary_ptr_use_start.exit252:                     ; preds = %217, %212
   br i1 %exitcond302.not, label %._crit_edge285, label %.lr.ph284, !llvm.loop !184
 
 ._crit_edge285:                                   ; preds = %.lr.ph284, %217, %212, %rb_ary_ptr_use_start.exit252
-  %.2268315 = phi i64 [ %.2268, %rb_ary_ptr_use_start.exit252 ], [ 0, %212 ], [ 0, %217 ], [ %.2268, %.lr.ph284 ]
+  %.2268315 = phi i64 [ 0, %217 ], [ %.2268, %rb_ary_ptr_use_start.exit252 ], [ 0, %212 ], [ %.2268, %.lr.ph284 ]
   store ptr null, ptr %193, align 8, !tbaa !180
   call void @rb_st_free_table(ptr noundef %191) #26
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -27206,7 +27206,7 @@ rb_num2long_inline.exit:                          ; preds = %23, %25
   br i1 %exitcond.not.i, label %binomial_coefficient.exit, label %.lr.ph.i, !llvm.loop !213
 
 binomial_coefficient.exit:                        ; preds = %.lr.ph.i, %rb_num2long_inline.exit, %29, %31
-  %.019.i = phi i64 [ 1, %rb_num2long_inline.exit ], [ 3, %29 ], [ %33, %31 ], [ %41, %.lr.ph.i ]
+  %.019.i = phi i64 [ 3, %29 ], [ 1, %rb_num2long_inline.exit ], [ %33, %31 ], [ %41, %.lr.ph.i ]
   ret i64 %.019.i
 }
 
@@ -27374,7 +27374,7 @@ rb_num2long_inline.exit:                          ; preds = %23, %25
   br i1 %exitcond.not.i, label %binomial_coefficient.exit, label %.lr.ph.i, !llvm.loop !213
 
 binomial_coefficient.exit:                        ; preds = %.lr.ph.i, %34, %32, %28, %rb_num2long_inline.exit
-  %.0 = phi i64 [ 3, %rb_num2long_inline.exit ], [ 1, %28 ], [ 3, %32 ], [ %36, %34 ], [ %44, %.lr.ph.i ]
+  %.0 = phi i64 [ 3, %rb_num2long_inline.exit ], [ 3, %32 ], [ 1, %28 ], [ %36, %34 ], [ %44, %.lr.ph.i ]
   ret i64 %.0
 }
 

@@ -344,7 +344,7 @@ define linkonce_odr hidden void @_ZN3nnf3impC2ER11ast_managerR13defined_namesRK1
   br i1 %55, label %_ZNSt5arrayI9act_cacheLm4EED2Ev.exit, label %54
 
 _ZNSt5arrayI9act_cacheLm4EED2Ev.exit:             ; preds = %30, %54, %.thread
-  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %9, %.thread ], [ %.pn.pn, %54 ], [ %29, %30 ]
+  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %54 ], [ %9, %.thread ], [ %29, %30 ]
   tail call void @_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #20
   tail call void @_ZN6vectorIN3nnf3imp5frameELb1EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #20
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn
@@ -1920,13 +1920,13 @@ _ZN6vectorIN3nnf3imp5frameELb1EjE4backEv.exit:    ; preds = %17, %20
   %43 = load i32, ptr %42, align 4
   %trunc = trunc i32 %43 to i16
   switch i16 %trunc, label %.critedge [
-    i16 0, label %44
-    i16 2, label %49
+    i16 0, label %49
+    i16 2, label %44
     i16 1, label %.thread
   ]
 
 44:                                               ; preds = %41
-  %45 = tail call noundef zeroext i1 @_ZN3nnf3imp11process_appEP3appRNS0_5frameE(ptr noundef nonnull align 8 dereferenceable(1352) %0, ptr noundef nonnull %26, ptr noundef nonnull align 8 dereferenceable(24) %25)
+  %45 = tail call noundef zeroext i1 @_ZN3nnf3imp18process_quantifierEP10quantifierRNS0_5frameE(ptr noundef nonnull align 8 dereferenceable(1352) %0, ptr noundef nonnull %26, ptr noundef nonnull align 8 dereferenceable(24) %25)
   br i1 %45, label %51, label %113
 
 .thread:                                          ; preds = %41
@@ -1942,7 +1942,7 @@ _ZN6vectorIN3nnf3imp5frameELb1EjE4backEv.exit:    ; preds = %17, %20
   br label %51
 
 49:                                               ; preds = %41
-  %50 = tail call noundef zeroext i1 @_ZN3nnf3imp18process_quantifierEP10quantifierRNS0_5frameE(ptr noundef nonnull align 8 dereferenceable(1352) %0, ptr noundef nonnull %26, ptr noundef nonnull align 8 dereferenceable(24) %25)
+  %50 = tail call noundef zeroext i1 @_ZN3nnf3imp11process_appEP3appRNS0_5frameE(ptr noundef nonnull align 8 dereferenceable(1352) %0, ptr noundef nonnull %26, ptr noundef nonnull align 8 dereferenceable(24) %25)
   br i1 %50, label %51, label %113
 
 51:                                               ; preds = %44, %.thread, %.critedge, %49

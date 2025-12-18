@@ -737,7 +737,7 @@ define range(i32 -1, 1) i32 @H5EA__iblock_delete(ptr noundef %0) local_unnamed_a
   br label %H5EA__iblock_unprotect.exit.thread
 
 .loopexit:                                        ; preds = %65, %39, %58, %.thread
-  %.151.ph = phi i32 [ -1, %58 ], [ 0, %.thread ], [ -1, %39 ], [ 0, %65 ]
+  %.151.ph = phi i32 [ -1, %39 ], [ -1, %58 ], [ 0, %.thread ], [ 0, %65 ]
   %76 = load i8, ptr @H5EA_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %77 = trunc nuw i8 %76 to i1
   %78 = load i8, ptr @H5_libterm_g, align 1, !range !7

@@ -3572,8 +3572,8 @@ _ZNSt14_Bit_referenceaSEb.exit.us.i:              ; preds = %.thread.us.i, %940
   br i1 %exitcond412.not.i, label %._crit_edge351.i, label %.preheader333.us.i, !llvm.loop !469
 
 ._crit_edge351.i:                                 ; preds = %._crit_edge.us.i, %_ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit.i, %908
-  %.sroa.30279.0474.i = phi ptr [ %916, %_ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit.i ], [ null, %908 ], [ %916, %._crit_edge.us.i ]
-  %.sroa.0271.0473.i = phi ptr [ %914, %_ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit.i ], [ null, %908 ], [ %914, %._crit_edge.us.i ]
+  %.sroa.30279.0474.i = phi ptr [ null, %908 ], [ %916, %_ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit.i ], [ %916, %._crit_edge.us.i ]
+  %.sroa.0271.0473.i = phi ptr [ null, %908 ], [ %914, %_ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit.i ], [ %914, %._crit_edge.us.i ]
   %943 = getelementptr inbounds nuw i8, ptr %5, i64 184
   %944 = getelementptr inbounds nuw i8, ptr %5, i64 472
   %945 = getelementptr inbounds nuw i8, ptr %5, i64 480
@@ -5179,8 +5179,8 @@ define internal fastcc void @_ZL18make_bonded_tablesP8_IO_FILEiiRK10gmx_mtop_tN3
   br i1 %74, label %.lr.ph49.i, label %.loopexit.i, !llvm.loop !525
 
 .loopexit.i:                                      ; preds = %63, %23, %20
-  %.259 = phi i32 [ %.158, %23 ], [ %.158, %20 ], [ %.461, %63 ]
-  %.2 = phi ptr [ %.156, %23 ], [ %.156, %20 ], [ %.4, %63 ]
+  %.259 = phi i32 [ %.158, %20 ], [ %.158, %23 ], [ %.461, %63 ]
+  %.2 = phi ptr [ %.156, %20 ], [ %.156, %23 ], [ %.4, %63 ]
   %indvars.iv.next58.i = add nuw nsw i64 %indvars.iv57.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next58.i, 95
   br i1 %exitcond.not.i, label %75, label %20, !llvm.loop !526

@@ -1924,7 +1924,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZStn
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %_ZN9grpc_core12_GLOBAL__N_116IsConfiguredPathESt17basic_string_viewIcSt11char_traitsIcEERK19grpc_metadata_batch.exit.thread117
 
-_ZN9grpc_core12_GLOBAL__N_116IsConfiguredPathESt17basic_string_viewIcSt11char_traitsIcEERK19grpc_metadata_batch.exit.thread117: ; preds = %77, %_ZN4absl12lts_2024072210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i, %59, %_ZN9grpc_core12_GLOBAL__N_116IsConfiguredPathESt17basic_string_viewIcSt11char_traitsIcEERK19grpc_metadata_batch.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+_ZN9grpc_core12_GLOBAL__N_116IsConfiguredPathESt17basic_string_viewIcSt11char_traitsIcEERK19grpc_metadata_batch.exit.thread117: ; preds = %_ZN4absl12lts_2024072210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i, %77, %59, %_ZN9grpc_core12_GLOBAL__N_116IsConfiguredPathESt17basic_string_viewIcSt11char_traitsIcEERK19grpc_metadata_batch.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   ret void
 
 .loopexit:                                        ; preds = %.lr.ph.i67, %.noexc69

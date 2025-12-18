@@ -3881,10 +3881,10 @@ define dso_local void @start_apply(i64 noundef %0) local_unnamed_addr #0 {
   br label %.preheader.i
 
 .loopexit.i:                                      ; preds = %35, %41, %39, %26
-  %.053.i = phi i1 [ false, %26 ], [ true, %41 ], [ true, %39 ], [ false, %35 ]
-  %.146.i = phi i1 [ %.045.i, %26 ], [ %.247.i, %41 ], [ %.247.i, %39 ], [ %.247.i, %35 ]
-  %.143.i = phi i64 [ %.042.i, %26 ], [ %.244.i, %41 ], [ %.244.i, %39 ], [ %.244.i, %35 ]
-  %.1.i = phi i64 [ %.0.i, %26 ], [ %.2.i, %41 ], [ %.2.i, %39 ], [ %.2.i, %35 ]
+  %.053.i = phi i1 [ true, %39 ], [ false, %26 ], [ true, %41 ], [ false, %35 ]
+  %.146.i = phi i1 [ %.247.i, %39 ], [ %.045.i, %26 ], [ %.247.i, %41 ], [ %.247.i, %35 ]
+  %.143.i = phi i64 [ %.244.i, %39 ], [ %.042.i, %26 ], [ %.244.i, %41 ], [ %.244.i, %35 ]
+  %.1.i = phi i64 [ %.2.i, %39 ], [ %.0.i, %26 ], [ %.2.i, %41 ], [ %.2.i, %35 ]
   call fastcc void @send_feedback(i64 noundef %.1.i, i1 noundef zeroext false, i1 noundef zeroext false)
   %81 = load i8, ptr @in_remote_transaction, align 1, !range !4, !noundef !5
   %82 = trunc nuw i8 %81 to i1

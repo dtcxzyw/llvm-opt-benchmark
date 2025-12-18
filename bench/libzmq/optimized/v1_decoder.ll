@@ -636,7 +636,7 @@ define linkonce_odr noundef i32 @_ZN3zmq14decoder_base_tINS_12v1_decoder_tENS_18
   br i1 %.not44, label %57, label %.thread, !llvm.loop !32
 
 .thread:                                          ; preds = %.loopexit, %70, %36, %24, %.preheader
-  %.2 = phi i32 [ 0, %.preheader ], [ %74, %70 ], [ %40, %36 ], [ 0, %24 ], [ 0, %.loopexit ]
+  %.2 = phi i32 [ %40, %36 ], [ %74, %70 ], [ 0, %.preheader ], [ 0, %24 ], [ 0, %.loopexit ]
   ret i32 %.2
 }
 

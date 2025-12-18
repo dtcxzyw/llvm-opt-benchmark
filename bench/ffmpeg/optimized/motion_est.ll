@@ -7927,8 +7927,8 @@ mid_pred.exit:                                    ; preds = %144, %146, %147, %1
   br i1 %exitcond266.not, label %.loopexit, label %.preheader.split, !llvm.loop !158
 
 .loopexit:                                        ; preds = %166, %175, %.thread, %157
-  %storemerge298 = phi i32 [ %.0.i243, %.thread ], [ %103, %157 ], [ %103, %175 ], [ %.0.i243, %166 ]
-  %storemerge293296 = phi i32 [ %.0.i, %.thread ], [ %108, %157 ], [ %108, %175 ], [ %.0.i, %166 ]
+  %storemerge298 = phi i32 [ %.0.i243, %.thread ], [ %103, %175 ], [ %103, %157 ], [ %.0.i243, %166 ]
+  %storemerge293296 = phi i32 [ %.0.i, %.thread ], [ %108, %175 ], [ %108, %157 ], [ %.0.i, %166 ]
   %176 = load ptr, ptr %53, align 8, !tbaa !147
   %177 = trunc nuw nsw i64 %indvars.iv267 to i32
   %178 = call fastcc i32 @epzs_motion_search2(ptr noundef %0, ptr noundef %6, ptr noundef %7, ptr noundef %5, i32 noundef %177, i32 noundef %177, ptr noundef %176, i32 noundef %54, i32 noundef 1)

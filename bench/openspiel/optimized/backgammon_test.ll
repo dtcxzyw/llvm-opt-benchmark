@@ -2579,7 +2579,7 @@ _ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel13G
   br i1 %977, label %.loopexit.i39, label %.preheader.i41
 
 .loopexit.i39:                                    ; preds = %.preheader.i41, %973, %.thread87.i, %.thread.i
-  %.pn.pn.pn.pn.pn86.i = phi { ptr, i32 } [ %953, %.thread.i ], [ %.pn.pn.pn.i40, %973 ], [ %954, %.thread87.i ], [ %.pn.pn.pn.i40, %.preheader.i41 ]
+  %.pn.pn.pn.pn.pn86.i = phi { ptr, i32 } [ %953, %.thread.i ], [ %954, %.thread87.i ], [ %.pn.pn.pn.i40, %973 ], [ %.pn.pn.pn.i40, %.preheader.i41 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %180) #23
   br label %.body42.i
 

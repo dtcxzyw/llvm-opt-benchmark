@@ -2165,8 +2165,8 @@ if.end4.i:                                        ; preds = %land.rhs.i.i.i.i, %
   br i1 %cmp.not.i, label %return, label %for.body.i, !llvm.loop !38
 
 if.end:                                           ; preds = %land.rhs.i.i.i.i, %for.body.us.i, %for.cond.preheader.split.us.i
-  %4 = phi ptr [ %1, %for.cond.preheader.split.us.i ], [ %2, %for.body.us.i ], [ %__p.07.i, %land.rhs.i.i.i.i ]
-  %retval.0.i = phi ptr [ %_M_before_begin.i, %for.cond.preheader.split.us.i ], [ %__p.07.us12.i, %for.body.us.i ], [ %__prev_p.06.i, %land.rhs.i.i.i.i ]
+  %4 = phi ptr [ %2, %for.body.us.i ], [ %1, %for.cond.preheader.split.us.i ], [ %__p.07.i, %land.rhs.i.i.i.i ]
+  %retval.0.i = phi ptr [ %__p.07.us12.i, %for.body.us.i ], [ %_M_before_begin.i, %for.cond.preheader.split.us.i ], [ %__prev_p.06.i, %land.rhs.i.i.i.i ]
   %_M_bucket_count.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %5 = load i64, ptr %_M_bucket_count.i, align 8
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -2373,7 +2373,7 @@ _ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_St8weak_
   br label %return
 
 return:                                           ; preds = %if.end4.i, %if.end4.us.i, %if.end3.i, %lor.lhs.false.i, %if.end3.us.i, %lor.lhs.false.us.i, %_ZNKSt8__detail15_Hash_code_baseISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS4_St8weak_ptrIN8facebook5velox5cache11ScanTrackerEEENS_10_Select1stESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS6_.exit, %if.then, %_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_St8weak_ptrIN8facebook5velox5cache11ScanTrackerEEESaISC_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE8_M_eraseEmPNSE_15_Hash_node_baseEPNSE_10_Hash_nodeISC_Lb1EEE.exit
-  %retval.0 = phi i64 [ 1, %_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_St8weak_ptrIN8facebook5velox5cache11ScanTrackerEEESaISC_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE8_M_eraseEmPNSE_15_Hash_node_baseEPNSE_10_Hash_nodeISC_Lb1EEE.exit ], [ 0, %if.then ], [ 0, %_ZNKSt8__detail15_Hash_code_baseISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS4_St8weak_ptrIN8facebook5velox5cache11ScanTrackerEEENS_10_Select1stESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS6_.exit ], [ 0, %if.end4.us.i ], [ 0, %if.end3.us.i ], [ 0, %if.end3.i ], [ 0, %lor.lhs.false.us.i ], [ 0, %lor.lhs.false.i ], [ 0, %if.end4.i ]
+  %retval.0 = phi i64 [ 1, %_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_St8weak_ptrIN8facebook5velox5cache11ScanTrackerEEESaISC_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE8_M_eraseEmPNSE_15_Hash_node_baseEPNSE_10_Hash_nodeISC_Lb1EEE.exit ], [ 0, %if.end4.us.i ], [ 0, %if.then ], [ 0, %if.end3.i ], [ 0, %_ZNKSt8__detail15_Hash_code_baseISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS4_St8weak_ptrIN8facebook5velox5cache11ScanTrackerEEENS_10_Select1stESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS6_.exit ], [ 0, %if.end3.us.i ], [ 0, %lor.lhs.false.us.i ], [ 0, %lor.lhs.false.i ], [ 0, %if.end4.i ]
   ret i64 %retval.0
 }
 
@@ -3067,7 +3067,7 @@ lpad:                                             ; preds = %if.end
   resume { ptr, i32 } %14
 
 return:                                           ; preds = %land.rhs.i.i.i.i.i.i, %land.rhs.i.us.i.i, %if.end
-  %retval.0.i.pn = phi ptr [ %call7, %if.end ], [ %__p.0.us.i.i, %land.rhs.i.us.i.i ], [ %__p.0.i.i, %land.rhs.i.i.i.i.i.i ]
+  %retval.0.i.pn = phi ptr [ %__p.0.us.i.i, %land.rhs.i.us.i.i ], [ %call7, %if.end ], [ %__p.0.i.i, %land.rhs.i.i.i.i.i.i ]
   %retval.0 = getelementptr inbounds nuw i8, ptr %retval.0.i.pn, i64 24
   ret ptr %retval.0
 }

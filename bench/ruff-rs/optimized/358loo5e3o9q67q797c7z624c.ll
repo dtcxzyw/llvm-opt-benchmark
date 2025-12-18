@@ -20811,7 +20811,7 @@ _ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread16.i.i: ; preds = %.
   br i1 %.not42.i, label %"_ZN4core3num23_$LT$impl$u20$usize$GT$16from_ascii_radix17hc106fb2194a84924E.exit", label %.lr.ph.i
 
 .loopexit130:                                     ; preds = %72, %70, %61, %.lr.ph.i, %52, %52, %51
-  %.sroa.5108.0.ph = phi i8 [ 1, %52 ], [ 0, %51 ], [ 1, %52 ], [ 1, %.lr.ph.i ], [ 2, %72 ], [ 1, %61 ], [ 2, %70 ]
+  %.sroa.5108.0.ph = phi i8 [ 1, %52 ], [ 1, %52 ], [ 0, %51 ], [ 1, %.lr.ph.i ], [ 2, %72 ], [ 1, %61 ], [ 2, %70 ]
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 3, ptr %87, align 8
   %.sroa.2.0..sroa_idx60 = getelementptr inbounds nuw i8, ptr %0, i64 9
@@ -20906,7 +20906,7 @@ _ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread16.i.i: ; preds = %.
   br i1 %.not42.i92, label %"_ZN4core3num23_$LT$impl$u20$usize$GT$16from_ascii_radix17hc106fb2194a84924E.exit106", label %.lr.ph.i88
 
 .loopexit:                                        ; preds = %108, %106, %97, %.lr.ph.i88, %88, %88, %"_ZN4core3num23_$LT$impl$u20$usize$GT$16from_ascii_radix17hc106fb2194a84924E.exit"
-  %.sroa.5111.0.ph = phi i8 [ 1, %88 ], [ 0, %"_ZN4core3num23_$LT$impl$u20$usize$GT$16from_ascii_radix17hc106fb2194a84924E.exit" ], [ 1, %88 ], [ 1, %.lr.ph.i88 ], [ 2, %108 ], [ 1, %97 ], [ 2, %106 ]
+  %.sroa.5111.0.ph = phi i8 [ 1, %88 ], [ 1, %88 ], [ 0, %"_ZN4core3num23_$LT$impl$u20$usize$GT$16from_ascii_radix17hc106fb2194a84924E.exit" ], [ 1, %.lr.ph.i88 ], [ 2, %108 ], [ 1, %97 ], [ 2, %106 ]
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 4, ptr %123, align 8
   %.sroa.275.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9

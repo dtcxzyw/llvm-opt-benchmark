@@ -6390,9 +6390,9 @@ _ZN6vectorIjLb0EjE3endEv.exit.us:                 ; preds = %.lr.ph.preheader.i.
   br i1 %.not155.us, label %.critedge180.us, label %.lr.ph.us
 
 .critedge180.us:                                  ; preds = %786, %_ZN6vectorIjLb0EjE5resetEv.exit.us, %_ZN6vectorIjLb0EjE3endEv.exit.us, %784, %_ZN8rationalD2Ev.exit287.us, %_ZNK6vectorIjLb0EjE4sizeEv.exit225.us
-  %.sroa.0.5.lcssa.us888904 = phi ptr [ %.sroa.0.5547.us1094, %_ZNK6vectorIjLb0EjE4sizeEv.exit225.us ], [ %.sroa.0.5547.us1094, %784 ], [ %.sroa.0.5547.us1094, %_ZN8rationalD2Ev.exit287.us ], [ %.sroa.0.5547.us1094, %_ZN6vectorIjLb0EjE3endEv.exit.us ], [ %.sroa.0.3559.us, %_ZN6vectorIjLb0EjE5resetEv.exit.us ], [ %.sroa.0.5547.us1094, %786 ]
-  %.3135.us = phi i1 [ %.1133561.us, %_ZNK6vectorIjLb0EjE4sizeEv.exit225.us ], [ true, %784 ], [ true, %_ZN8rationalD2Ev.exit287.us ], [ true, %_ZN6vectorIjLb0EjE3endEv.exit.us ], [ %.1133561.us, %_ZN6vectorIjLb0EjE5resetEv.exit.us ], [ true, %786 ]
-  %.4127.us = phi i32 [ 9, %_ZNK6vectorIjLb0EjE4sizeEv.exit225.us ], [ 1, %784 ], [ 1, %_ZN8rationalD2Ev.exit287.us ], [ 0, %_ZN6vectorIjLb0EjE3endEv.exit.us ], [ 9, %_ZN6vectorIjLb0EjE5resetEv.exit.us ], [ 0, %786 ]
+  %.sroa.0.5.lcssa.us888904 = phi ptr [ %.sroa.0.5547.us1094, %_ZNK6vectorIjLb0EjE4sizeEv.exit225.us ], [ %.sroa.0.5547.us1094, %_ZN8rationalD2Ev.exit287.us ], [ %.sroa.0.5547.us1094, %784 ], [ %.sroa.0.5547.us1094, %_ZN6vectorIjLb0EjE3endEv.exit.us ], [ %.sroa.0.3559.us, %_ZN6vectorIjLb0EjE5resetEv.exit.us ], [ %.sroa.0.5547.us1094, %786 ]
+  %.3135.us = phi i1 [ %.1133561.us, %_ZNK6vectorIjLb0EjE4sizeEv.exit225.us ], [ true, %_ZN8rationalD2Ev.exit287.us ], [ true, %784 ], [ true, %_ZN6vectorIjLb0EjE3endEv.exit.us ], [ %.1133561.us, %_ZN6vectorIjLb0EjE5resetEv.exit.us ], [ true, %786 ]
+  %.4127.us = phi i32 [ 9, %_ZNK6vectorIjLb0EjE4sizeEv.exit225.us ], [ 1, %_ZN8rationalD2Ev.exit287.us ], [ 1, %784 ], [ 0, %_ZN6vectorIjLb0EjE3endEv.exit.us ], [ 9, %_ZN6vectorIjLb0EjE5resetEv.exit.us ], [ 0, %786 ]
   %788 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !56
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %788, ptr noundef nonnull align 8 dereferenceable(32) %13)
           to label %.noexc.i288.us unwind label %.split719.us
@@ -6879,8 +6879,8 @@ _ZN8rationalD2Ev.exit291:                         ; preds = %.noexc.i290, %.spli
   br label %941
 
 .critedge:                                        ; preds = %_ZNK6vectorIjLb0EjE5emptyEv.exit.us, %136, %._crit_edge.us, %_ZN8rationalD2Ev.exit289.us, %_ZNK6vectorI8rationalLb1EjE4sizeEv.exit, %.critedge176, %3, %72, %_ZNK6vectorIS_I8rationalLb1EjELb1EjE5emptyEv.exit
-  %.sroa.0.0 = phi ptr [ null, %_ZNK6vectorIS_I8rationalLb1EjELb1EjE5emptyEv.exit ], [ null, %3 ], [ null, %72 ], [ null, %_ZNK6vectorI8rationalLb1EjE4sizeEv.exit ], [ null, %.critedge176 ], [ %.sroa.0.5.lcssa.us888904, %_ZN8rationalD2Ev.exit289.us ], [ %.sroa.0.2.us1252, %_ZNK6vectorIjLb0EjE5emptyEv.exit.us ], [ %.sroa.0.2.us1252, %136 ], [ %.sroa.0.5.lcssa.us888904, %._crit_edge.us ]
-  %.0 = phi i1 [ true, %_ZNK6vectorIS_I8rationalLb1EjELb1EjE5emptyEv.exit ], [ true, %3 ], [ false, %72 ], [ true, %_ZNK6vectorI8rationalLb1EjE4sizeEv.exit ], [ true, %.critedge176 ], [ false, %_ZN8rationalD2Ev.exit289.us ], [ true, %._crit_edge.us ], [ true, %136 ], [ true, %_ZNK6vectorIjLb0EjE5emptyEv.exit.us ]
+  %.sroa.0.0 = phi ptr [ null, %_ZNK6vectorIS_I8rationalLb1EjELb1EjE5emptyEv.exit ], [ null, %3 ], [ null, %72 ], [ %.sroa.0.5.lcssa.us888904, %_ZN8rationalD2Ev.exit289.us ], [ null, %_ZNK6vectorI8rationalLb1EjE4sizeEv.exit ], [ null, %.critedge176 ], [ %.sroa.0.2.us1252, %136 ], [ %.sroa.0.5.lcssa.us888904, %._crit_edge.us ], [ %.sroa.0.2.us1252, %_ZNK6vectorIjLb0EjE5emptyEv.exit.us ]
+  %.0 = phi i1 [ true, %_ZNK6vectorIS_I8rationalLb1EjELb1EjE5emptyEv.exit ], [ true, %3 ], [ false, %72 ], [ false, %_ZN8rationalD2Ev.exit289.us ], [ true, %_ZNK6vectorI8rationalLb1EjE4sizeEv.exit ], [ true, %.critedge176 ], [ true, %._crit_edge.us ], [ true, %136 ], [ true, %_ZNK6vectorIjLb0EjE5emptyEv.exit.us ]
   %901 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !56
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %901, ptr noundef nonnull align 8 dereferenceable(32) %12)
           to label %.noexc.i292 unwind label %902
@@ -9083,7 +9083,7 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit172:         ; preds = %537, %.noexc171
   br i1 %552, label %.thread190, label %_ZNK6vectorIS_I8rationalLb1EjELb1EjE4sizeEv.exit, !llvm.loop !191
 
 .thread190:                                       ; preds = %_ZNK6vectorIS_I8rationalLb1EjELb1EjE4sizeEv.exit, %.thread184, %_ZN8rationalD2Ev.exit144, %113, %3
-  %.1 = phi i1 [ true, %3 ], [ %.not.not.not, %_ZN8rationalD2Ev.exit144 ], [ %.not.not.not, %113 ], [ true, %.thread184 ], [ true, %_ZNK6vectorIS_I8rationalLb1EjELb1EjE4sizeEv.exit ]
+  %.1 = phi i1 [ %.not.not.not, %_ZN8rationalD2Ev.exit144 ], [ true, %3 ], [ %.not.not.not, %113 ], [ true, %.thread184 ], [ true, %_ZNK6vectorIS_I8rationalLb1EjELb1EjE4sizeEv.exit ]
   %553 = load ptr, ptr %8, align 8, !tbaa !125
   %.not.i.i173 = icmp eq ptr %553, null
   br i1 %.not.i.i173, label %_ZN6vectorIjLb0EjED2Ev.exit, label %554

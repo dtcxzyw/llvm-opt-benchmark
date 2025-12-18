@@ -993,7 +993,7 @@ st_add.exit181.i:                                 ; preds = %st_add.exit.i
 
 414:                                              ; preds = %st_add.exit181.i
   call void @free(ptr noundef nonnull %409) #18
-  br label %.backedge.i
+  br label %.backedge.i, !llvm.loop !63
 
 415:                                              ; preds = %st_add.exit181.i
   call void @hashmap_add(ptr noundef nonnull %17, ptr noundef nonnull %409) #18
@@ -1010,7 +1010,7 @@ st_add.exit181.i:                                 ; preds = %st_add.exit.i
   br i1 %.not.i182.i, label %420, label %.sink.split.i
 
 420:                                              ; preds = %415
-  %421 = load i32, ptr %287, align 8, !tbaa !63
+  %421 = load i32, ptr %287, align 8, !tbaa !65
   %422 = and i32 %421, 61440
   %423 = icmp eq i32 %422, 40960
   br i1 %423, label %.sink.split.i, label %424
@@ -1025,7 +1025,7 @@ st_add.exit181.i:                                 ; preds = %st_add.exit.i
 428:                                              ; preds = %424
   %429 = load ptr, ptr @the_repository, align 8, !tbaa !21
   %430 = getelementptr inbounds nuw i8, ptr %429, i64 384
-  %431 = load ptr, ptr %430, align 8, !tbaa !66
+  %431 = load ptr, ptr %430, align 8, !tbaa !68
   %432 = call i32 @index_fd(ptr noundef %431, ptr noundef nonnull %7, i32 noundef %426, ptr noundef nonnull %6, i32 noundef 3, ptr noundef nonnull %.0119.i, i32 noundef 0) #18
   %.not9.i184.i = icmp eq i32 %432, 0
   br i1 %.not9.i184.i, label %433, label %use_wt_file.exit.thread245.i
@@ -1037,8 +1037,8 @@ st_add.exit181.i:                                 ; preds = %st_add.exit.i
 
 use_wt_file.exit.thread248.i:                     ; preds = %433
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %28, ptr noundef nonnull readonly align 4 dereferenceable(32) %7, i64 32, i1 false)
-  %434 = load i32, ptr %288, align 4, !tbaa !80
-  store i32 %434, ptr %289, align 4, !tbaa !80
+  %434 = load i32, ptr %288, align 4, !tbaa !82
+  store i32 %434, ptr %289, align 4, !tbaa !82
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @strbuf_release(ptr noundef nonnull %5) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1192,7 +1192,7 @@ use_wt_file.exit.i:                               ; preds = %433
 write_standin_files.exit.i:                       ; preds = %482, %479
   %484 = call ptr @hashmap_iter_next(ptr noundef nonnull %20) #18
   %.not157.i = icmp eq ptr %484, null
-  br i1 %.not157.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !81
+  br i1 %.not157.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !83
 
 ._crit_edge.i:                                    ; preds = %write_standin_files.exit.i, %473
   call void @hashmap_iter_init(ptr noundef nonnull %19, ptr noundef nonnull %20) #18
@@ -1226,7 +1226,7 @@ write_standin_files.exit.i:                       ; preds = %482, %479
 write_standin_files.exit192.i:                    ; preds = %493, %490
   %495 = call ptr @hashmap_iter_next(ptr noundef nonnull %20) #18
   %.not158.i = icmp eq ptr %495, null
-  br i1 %.not158.i, label %._crit_edge423.i, label %.lr.ph422.i, !llvm.loop !83
+  br i1 %.not158.i, label %._crit_edge423.i, label %.lr.ph422.i, !llvm.loop !84
 
 ._crit_edge423.i:                                 ; preds = %write_standin_files.exit192.i, %._crit_edge.i
   %496 = load i64, ptr %13, align 8, !tbaa !47
@@ -1295,7 +1295,7 @@ strbuf_setlen.exit198.i:                          ; preds = %508, %506
   %522 = freeze i32 %521
   call void @ensure_full_index(ptr noundef nonnull %21) #18
   %523 = getelementptr inbounds nuw i8, ptr %21, i64 12
-  %524 = load i32, ptr %523, align 4, !tbaa !84
+  %524 = load i32, ptr %523, align 4, !tbaa !85
   %.not430.i = icmp eq i32 %524, 0
   br i1 %.not430.i, label %._crit_edge429.thread.i, label %.lr.ph428.i
 
@@ -1314,9 +1314,9 @@ strbuf_setlen.exit198.i:                          ; preds = %508, %506
   %.3111426.i = phi i64 [ %589, %588 ], [ %.3111426.ph.i, %.outer.i ]
   %.0122425.i = phi i32 [ %.1123.ph.i, %588 ], [ %.0122425.ph.i, %.outer.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
-  %529 = load ptr, ptr %21, align 8, !tbaa !85
+  %529 = load ptr, ptr %21, align 8, !tbaa !86
   %530 = getelementptr inbounds nuw ptr, ptr %529, i64 %.3111426.i
-  %531 = load ptr, ptr %530, align 8, !tbaa !86
+  %531 = load ptr, ptr %530, align 8, !tbaa !87
   %532 = getelementptr inbounds nuw i8, ptr %531, i64 108
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
   call fastcc void @add_path(ptr noundef %14, i64 noundef %263, ptr noundef nonnull %532)
@@ -1326,7 +1326,7 @@ strbuf_setlen.exit198.i:                          ; preds = %508, %506
   br i1 %.not162.i, label %535, label %588
 
 535:                                              ; preds = %528
-  %.pre548.i = load i32, ptr %525, align 8, !tbaa !63
+  %.pre548.i = load i32, ptr %525, align 8, !tbaa !65
   %.pre551.i = and i32 %.pre548.i, 61440
   %536 = icmp eq i32 %.pre551.i, 32768
   br i1 %536, label %537, label %588
@@ -1470,10 +1470,10 @@ _.exit211.i:                                      ; preds = %581, %579
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   %589 = add nuw nsw i64 %.3111426.i, 1
-  %590 = load i32, ptr %523, align 4, !tbaa !84
+  %590 = load i32, ptr %523, align 4, !tbaa !85
   %591 = zext i32 %590 to i64
   %592 = icmp samesign ult i64 %589, %591
-  br i1 %592, label %528, label %._crit_edge429.i, !llvm.loop !88
+  br i1 %592, label %528, label %._crit_edge429.i, !llvm.loop !89
 
 .thread589.i:                                     ; preds = %570, %_.exit.i
   %.0.i207.i = phi ptr [ %571, %570 ], [ @.str.68, %_.exit.i ]
@@ -1482,10 +1482,10 @@ _.exit211.i:                                      ; preds = %581, %579
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   %593 = add nuw nsw i64 %.3111426.i, 1
-  %594 = load i32, ptr %523, align 4, !tbaa !84
+  %594 = load i32, ptr %523, align 4, !tbaa !85
   %595 = zext i32 %594 to i64
   %596 = icmp samesign ult i64 %593, %595
-  br i1 %596, label %.outer.i, label %._crit_edge429.thread593.i, !llvm.loop !88
+  br i1 %596, label %.outer.i, label %._crit_edge429.thread593.i, !llvm.loop !89
 
 ._crit_edge429.i:                                 ; preds = %588
   br i1 %527, label %._crit_edge429.thread.i, label %._crit_edge429.thread593.i
@@ -2121,7 +2121,7 @@ st_add.exit17:                                    ; preds = %st_add.exit
   call void @hashmap_add(ptr noundef nonnull %0, ptr noundef nonnull %41) #18
   %47 = call i32 @strbuf_getline_nul(ptr noundef nonnull %6, ptr noundef %30) #18
   %.not15 = icmp eq i32 %47, 0
-  br i1 %.not15, label %33, label %._crit_edge, !llvm.loop !89
+  br i1 %.not15, label %33, label %._crit_edge, !llvm.loop !90
 
 ._crit_edge:                                      ; preds = %st_add.exit17, %28
   %48 = call i32 @fclose(ptr noundef %30)
@@ -2331,30 +2331,31 @@ attributes #20 = { nounwind willreturn memory(read) }
 !60 = !{!"hashmap_entry", !61, i64 0, !5, i64 8}
 !61 = !{!"p1 _ZTS13hashmap_entry", !11, i64 0}
 !62 = !{!60, !61, i64 0}
-!63 = !{!64, !5, i64 24}
-!64 = !{!"stat", !12, i64 0, !12, i64 8, !12, i64 16, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !12, i64 40, !12, i64 48, !12, i64 56, !12, i64 64, !65, i64 72, !65, i64 88, !65, i64 104, !6, i64 120}
-!65 = !{!"timespec", !12, i64 0, !12, i64 8}
-!66 = !{!67, !50, i64 384}
-!67 = !{!"repository", !10, i64 0, !10, i64 8, !68, i64 16, !69, i64 24, !70, i64 32, !71, i64 40, !71, i64 104, !72, i64 168, !10, i64 224, !10, i64 232, !10, i64 240, !10, i64 248, !73, i64 256, !75, i64 368, !76, i64 376, !50, i64 384, !77, i64 392, !78, i64 400, !78, i64 408, !5, i64 416, !5, i64 420, !5, i64 424, !10, i64 432, !79, i64 440, !5, i64 448, !5, i64 452, !5, i64 456}
-!68 = !{!"p1 _ZTS16raw_object_store", !11, i64 0}
-!69 = !{!"p1 _ZTS18parsed_object_pool", !11, i64 0}
-!70 = !{!"p1 _ZTS9ref_store", !11, i64 0}
-!71 = !{!"strmap", !36, i64 0, !41, i64 48, !5, i64 56}
-!72 = !{!"repo_path_cache", !10, i64 0, !10, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !10, i64 40, !10, i64 48}
-!73 = !{!"repo_settings", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !5, i64 40, !5, i64 44, !74, i64 48, !5, i64 56, !5, i64 60, !5, i64 64, !5, i64 68, !5, i64 72, !5, i64 76, !5, i64 80, !12, i64 88, !12, i64 96, !12, i64 104}
-!74 = !{!"p1 _ZTS18fsmonitor_settings", !11, i64 0}
-!75 = !{!"p1 _ZTS10config_set", !11, i64 0}
-!76 = !{!"p1 _ZTS15submodule_cache", !11, i64 0}
-!77 = !{!"p1 _ZTS12remote_state", !11, i64 0}
-!78 = !{!"p1 _ZTS13git_hash_algo", !11, i64 0}
-!79 = !{!"p1 _ZTS22promisor_remote_config", !11, i64 0}
-!80 = !{!38, !5, i64 32}
-!81 = distinct !{!81, !82}
-!82 = !{!"llvm.loop.mustprogress"}
-!83 = distinct !{!83, !82}
-!84 = !{!30, !5, i64 12}
-!85 = !{!30, !31, i64 0}
-!86 = !{!87, !87, i64 0}
-!87 = !{!"p1 _ZTS11cache_entry", !11, i64 0}
-!88 = distinct !{!88, !82}
-!89 = distinct !{!89, !82}
+!63 = distinct !{!63, !64}
+!64 = !{!"llvm.loop.mustprogress"}
+!65 = !{!66, !5, i64 24}
+!66 = !{!"stat", !12, i64 0, !12, i64 8, !12, i64 16, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !12, i64 40, !12, i64 48, !12, i64 56, !12, i64 64, !67, i64 72, !67, i64 88, !67, i64 104, !6, i64 120}
+!67 = !{!"timespec", !12, i64 0, !12, i64 8}
+!68 = !{!69, !50, i64 384}
+!69 = !{!"repository", !10, i64 0, !10, i64 8, !70, i64 16, !71, i64 24, !72, i64 32, !73, i64 40, !73, i64 104, !74, i64 168, !10, i64 224, !10, i64 232, !10, i64 240, !10, i64 248, !75, i64 256, !77, i64 368, !78, i64 376, !50, i64 384, !79, i64 392, !80, i64 400, !80, i64 408, !5, i64 416, !5, i64 420, !5, i64 424, !10, i64 432, !81, i64 440, !5, i64 448, !5, i64 452, !5, i64 456}
+!70 = !{!"p1 _ZTS16raw_object_store", !11, i64 0}
+!71 = !{!"p1 _ZTS18parsed_object_pool", !11, i64 0}
+!72 = !{!"p1 _ZTS9ref_store", !11, i64 0}
+!73 = !{!"strmap", !36, i64 0, !41, i64 48, !5, i64 56}
+!74 = !{!"repo_path_cache", !10, i64 0, !10, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !10, i64 40, !10, i64 48}
+!75 = !{!"repo_settings", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !5, i64 40, !5, i64 44, !76, i64 48, !5, i64 56, !5, i64 60, !5, i64 64, !5, i64 68, !5, i64 72, !5, i64 76, !5, i64 80, !12, i64 88, !12, i64 96, !12, i64 104}
+!76 = !{!"p1 _ZTS18fsmonitor_settings", !11, i64 0}
+!77 = !{!"p1 _ZTS10config_set", !11, i64 0}
+!78 = !{!"p1 _ZTS15submodule_cache", !11, i64 0}
+!79 = !{!"p1 _ZTS12remote_state", !11, i64 0}
+!80 = !{!"p1 _ZTS13git_hash_algo", !11, i64 0}
+!81 = !{!"p1 _ZTS22promisor_remote_config", !11, i64 0}
+!82 = !{!38, !5, i64 32}
+!83 = distinct !{!83, !64}
+!84 = distinct !{!84, !64}
+!85 = !{!30, !5, i64 12}
+!86 = !{!30, !31, i64 0}
+!87 = !{!88, !88, i64 0}
+!88 = !{!"p1 _ZTS11cache_entry", !11, i64 0}
+!89 = distinct !{!89, !64}
+!90 = distinct !{!90, !64}

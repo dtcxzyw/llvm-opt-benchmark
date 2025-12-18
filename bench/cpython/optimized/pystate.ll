@@ -1357,7 +1357,7 @@ define hidden void @_PyRuntimeState_ReInitThreads(ptr dead_on_unwind noalias wri
   br i1 %exitcond.not, label %27, label %36, !llvm.loop !191
 
 tstate_tss_reinit.exit:                           ; preds = %30, %34
-  %.sroa.12.0 = phi ptr [ @.str.1, %30 ], [ @.str.159, %34 ]
+  %.sroa.12.0 = phi ptr [ @.str.159, %34 ], [ @.str.1, %30 ]
   store i32 1, ptr %0, align 8, !tbaa !193
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.8.0..sroa_idx, align 4
@@ -4880,7 +4880,7 @@ select.unfold:                                    ; preds = %Py_DECREF.exit45, %
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %._crit_edge, %PyMutex_LockFlags.exit, %59, %56, %select.unfold
-  %.037 = phi ptr [ null, %select.unfold ], [ null, %56 ], [ null, %59 ], [ %6, %PyMutex_LockFlags.exit ], [ %6, %._crit_edge ]
+  %.037 = phi ptr [ null, %59 ], [ null, %select.unfold ], [ null, %56 ], [ %6, %PyMutex_LockFlags.exit ], [ %6, %._crit_edge ]
   %60 = cmpxchg ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 696), i8 1, i8 0 seq_cst seq_cst, align 1
   %61 = extractvalue { i8, i1 } %60, 1
   br i1 %61, label %_PyMutex_Unlock.exit, label %62
@@ -5004,7 +5004,7 @@ select.unfold:                                    ; preds = %Py_DECREF.exit43, %
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %._crit_edge, %PyMutex_LockFlags.exit, %41, %38, %select.unfold
-  %.036 = phi ptr [ null, %select.unfold ], [ null, %38 ], [ null, %41 ], [ %8, %PyMutex_LockFlags.exit ], [ %8, %._crit_edge ]
+  %.036 = phi ptr [ null, %41 ], [ null, %select.unfold ], [ null, %38 ], [ %8, %PyMutex_LockFlags.exit ], [ %8, %._crit_edge ]
   %42 = cmpxchg ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 696), i8 1, i8 0 seq_cst seq_cst, align 1
   %43 = extractvalue { i8, i1 } %42, 1
   br i1 %43, label %_PyMutex_Unlock.exit, label %44

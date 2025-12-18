@@ -562,8 +562,8 @@ t42_parse_dict.exit.i:                            ; preds = %.thread128.i.i, %65
   br label %.thread.us.i
 
 .thread.us.i:                                     ; preds = %211, %215, %212, %.lr.ph111.split.us.i
-  %.167.us.i = phi i32 [ %.066107.us.i, %.lr.ph111.split.us.i ], [ %spec.select83.us.i, %215 ], [ %.066107.us.i, %212 ], [ %.066107.us.i, %211 ]
-  %.165.us.i = phi i32 [ %.064108.us.i, %.lr.ph111.split.us.i ], [ %spec.select84.us.i, %215 ], [ %.064108.us.i, %212 ], [ %.064108.us.i, %211 ]
+  %.167.us.i = phi i32 [ %.066107.us.i, %.lr.ph111.split.us.i ], [ %.066107.us.i, %212 ], [ %spec.select83.us.i, %215 ], [ %.066107.us.i, %211 ]
+  %.165.us.i = phi i32 [ %.064108.us.i, %.lr.ph111.split.us.i ], [ %.064108.us.i, %212 ], [ %spec.select84.us.i, %215 ], [ %.064108.us.i, %211 ]
   %indvars.iv.next129.i = add nuw nsw i64 %indvars.iv128.i, 1
   %exitcond132.not.i = icmp eq i64 %indvars.iv.next129.i, %wide.trip.count131.i
   br i1 %exitcond132.not.i, label %._crit_edge.i, label %.lr.ph111.split.us.i, !llvm.loop !132
@@ -592,7 +592,7 @@ t42_parse_dict.exit.i:                            ; preds = %.thread128.i.i, %65
   br label %t42_parse_dict.exit.thread.i
 
 t42_parse_dict.exit.thread.i:                     ; preds = %.thread117.i.i, %t42_load_keyword.exit.i.i, %118, %101, %._crit_edge.i, %169, %166, %t42_parse_dict.exit.i, %t42_parser_init.exit.i, %t42_parser_init.exit.thread90.i
-  %.062.i = phi i32 [ %.pre3.i.i, %t42_parser_init.exit.i ], [ %.pr.i, %t42_parse_dict.exit.i ], [ %spec.select.i, %169 ], [ %spec.select.i, %._crit_edge.i ], [ 2, %166 ], [ %62, %t42_parser_init.exit.thread90.i ], [ %103, %101 ], [ %.0.i.i.i, %t42_load_keyword.exit.i.i ], [ %162, %.thread117.i.i ], [ %121, %118 ]
+  %.062.i = phi i32 [ %.pre3.i.i, %t42_parser_init.exit.i ], [ %.pr.i, %t42_parse_dict.exit.i ], [ %spec.select.i, %169 ], [ %spec.select.i, %._crit_edge.i ], [ 2, %166 ], [ %62, %t42_parser_init.exit.thread90.i ], [ %103, %101 ], [ %162, %.thread117.i.i ], [ %121, %118 ], [ %.0.i.i.i, %t42_load_keyword.exit.i.i ]
   %225 = getelementptr inbounds nuw i8, ptr %9, i64 272
   %226 = load ptr, ptr %225, align 8, !tbaa !137
   %.not.i88.i = icmp eq ptr %226, null
@@ -1818,8 +1818,8 @@ define internal void @t42_parse_encoding(ptr noundef captures(none) %0, ptr noun
   br i1 %.not163, label %138, label %.critedge
 
 138:                                              ; preds = %133, %125, %135
-  %.5 = phi i32 [ %.1144185, %135 ], [ %.1144185, %133 ], [ %132, %125 ]
-  %.4 = phi ptr [ %75, %135 ], [ %104, %133 ], [ %112, %125 ]
+  %.5 = phi i32 [ %.1144185, %135 ], [ %132, %125 ], [ %.1144185, %133 ]
+  %.4 = phi ptr [ %75, %135 ], [ %112, %125 ], [ %104, %133 ]
   %139 = load ptr, ptr %8, align 8, !tbaa !88
   call void %139(ptr noundef nonnull %1) #14
   %140 = load ptr, ptr %1, align 8, !tbaa !85
@@ -2700,9 +2700,9 @@ default.unreachable526:                           ; preds = %.lr.ph416
   br label %.thread250
 
 .thread250:                                       ; preds = %49, %._crit_edge, %.thread..thread250.loopexit423_crit_edge, %60, %65, %74, %137, %.thread234, %37, %48, %78, %87, %146, %19, %._crit_edge723, %18
-  %156 = phi i32 [ 3, %18 ], [ %22, %19 ], [ 3, %74 ], [ 3, %._crit_edge723 ], [ 3, %.thread234 ], [ 3, %37 ], [ 3, %48 ], [ 3, %78 ], [ 3, %87 ], [ 3, %146 ], [ 3, %137 ], [ 3, %60 ], [ 3, %65 ], [ %.pre512.pre, %.thread..thread250.loopexit423_crit_edge ], [ %144, %._crit_edge ], [ %51, %49 ]
-  %.0180 = phi ptr [ null, %18 ], [ null, %19 ], [ %71, %74 ], [ %.1181.lcssa, %._crit_edge723 ], [ %.4184226, %.thread234 ], [ %.1181714, %37 ], [ %.1181714, %48 ], [ null, %78 ], [ %.4184226, %87 ], [ %.4184226, %146 ], [ %.4184226, %137 ], [ %.1181714, %60 ], [ %.1181714, %65 ], [ %.4184226, %.thread..thread250.loopexit423_crit_edge ], [ %.4184226, %._crit_edge ], [ %50, %49 ]
-  %.0175 = phi i8 [ 0, %18 ], [ 0, %19 ], [ 0, %74 ], [ %.1176.lcssa, %._crit_edge723 ], [ %.3178227, %.thread234 ], [ 0, %37 ], [ %.1176715, %48 ], [ %.3178, %78 ], [ %.3178227, %87 ], [ %.3178227, %146 ], [ %.3178227, %137 ], [ 1, %60 ], [ 0, %65 ], [ %.3178227, %.thread..thread250.loopexit423_crit_edge ], [ %.3178227, %._crit_edge ], [ %.1176715, %49 ]
+  %156 = phi i32 [ 3, %18 ], [ %22, %19 ], [ 3, %65 ], [ 3, %._crit_edge723 ], [ 3, %.thread234 ], [ %144, %._crit_edge ], [ 3, %37 ], [ 3, %48 ], [ 3, %78 ], [ 3, %87 ], [ 3, %146 ], [ 3, %137 ], [ 3, %74 ], [ 3, %60 ], [ %.pre512.pre, %.thread..thread250.loopexit423_crit_edge ], [ %51, %49 ]
+  %.0180 = phi ptr [ null, %18 ], [ null, %19 ], [ %.1181714, %65 ], [ %.1181.lcssa, %._crit_edge723 ], [ %.4184226, %.thread234 ], [ %.4184226, %._crit_edge ], [ %.1181714, %37 ], [ %.1181714, %48 ], [ null, %78 ], [ %.4184226, %87 ], [ %.4184226, %146 ], [ %.4184226, %137 ], [ %71, %74 ], [ %.1181714, %60 ], [ %.4184226, %.thread..thread250.loopexit423_crit_edge ], [ %50, %49 ]
+  %.0175 = phi i8 [ 0, %18 ], [ 0, %19 ], [ 0, %65 ], [ %.1176.lcssa, %._crit_edge723 ], [ %.3178227, %.thread234 ], [ %.3178227, %._crit_edge ], [ 0, %37 ], [ %.1176715, %48 ], [ %.3178, %78 ], [ %.3178227, %87 ], [ %.3178227, %146 ], [ %.3178227, %137 ], [ 0, %74 ], [ 1, %60 ], [ %.3178227, %.thread..thread250.loopexit423_crit_edge ], [ %.1176715, %49 ]
   %157 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 %156, ptr %157, align 8, !tbaa !87
   br label %.thread261

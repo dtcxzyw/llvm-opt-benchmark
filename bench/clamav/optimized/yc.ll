@@ -428,7 +428,7 @@ yc_bounds_check.exit175:                          ; preds = %28
   br i1 %exitcond.not, label %.loopexit, label %10
 
 .loopexit:                                        ; preds = %138, %yc_bounds_check.exit159, %7, %yc_bounds_check.exit173, %yc_bounds_check.exit171, %yc_bounds_check.exit169, %yc_bounds_check.exit167, %yc_bounds_check.exit165, %yc_bounds_check.exit163, %yc_bounds_check.exit161, %yc_bounds_check.exit159.thread, %yc_bounds_check.exit157, %yc_bounds_check.exit, %yc_bounds_check.exit175
-  %.0143 = phi i32 [ 2, %yc_bounds_check.exit159.thread ], [ 2, %yc_bounds_check.exit ], [ 2, %yc_bounds_check.exit173 ], [ 1, %yc_bounds_check.exit175 ], [ 2, %yc_bounds_check.exit157 ], [ 2, %yc_bounds_check.exit161 ], [ 2, %yc_bounds_check.exit163 ], [ 2, %yc_bounds_check.exit165 ], [ 2, %yc_bounds_check.exit167 ], [ 2, %yc_bounds_check.exit169 ], [ 2, %yc_bounds_check.exit171 ], [ 0, %7 ], [ 2, %yc_bounds_check.exit159 ], [ 0, %138 ]
+  %.0143 = phi i32 [ 2, %yc_bounds_check.exit159.thread ], [ 2, %yc_bounds_check.exit ], [ 2, %yc_bounds_check.exit173 ], [ 1, %yc_bounds_check.exit175 ], [ 2, %yc_bounds_check.exit157 ], [ 2, %yc_bounds_check.exit171 ], [ 0, %7 ], [ 2, %yc_bounds_check.exit161 ], [ 2, %yc_bounds_check.exit163 ], [ 2, %yc_bounds_check.exit165 ], [ 2, %yc_bounds_check.exit167 ], [ 2, %yc_bounds_check.exit169 ], [ 2, %yc_bounds_check.exit159 ], [ 0, %138 ]
   ret i32 %.0143
 }
 

@@ -1310,7 +1310,7 @@ nsiter2.exit:                                     ; preds = %create_aux_edges.ex
   br label %.thread80.i
 
 .thread80.i:                                      ; preds = %675, %.lr.ph.i, %705, %.lr.ph93.i, %717, %._crit_edge.i, %.lr.ph100.i
-  %738 = phi ptr [ %642, %._crit_edge.i ], [ %.pre.i24, %717 ], [ %642, %.lr.ph100.i ], [ %642, %705 ], [ %642, %.lr.ph93.i ], [ %642, %.lr.ph.i ], [ %642, %675 ]
+  %738 = phi ptr [ %642, %.lr.ph100.i ], [ %642, %705 ], [ %642, %._crit_edge.i ], [ %.pre.i24, %717 ], [ %642, %.lr.ph93.i ], [ %642, %.lr.ph.i ], [ %642, %675 ]
   %indvars.iv.next113.i = add nsw i64 %indvars.iv112.i, 1
   %739 = getelementptr inbounds nuw i8, ptr %738, i64 340
   %740 = load i32, ptr %739, align 4, !tbaa !36
@@ -2024,8 +2024,8 @@ define internal fastcc void @set_ycoords(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not137.not, label %.lr.ph168, label %.loopexit145, !llvm.loop !157
 
 .loopexit145:                                     ; preds = %.lr.ph168, %169, %164, %160, %._crit_edge161
-  %194 = phi ptr [ %165, %164 ], [ %106, %160 ], [ %106, %._crit_edge161 ], [ %165, %169 ], [ %165, %.lr.ph168 ]
-  %.1125 = phi double [ %.0124.lcssa, %164 ], [ %.0124.lcssa, %160 ], [ %.0124.lcssa, %._crit_edge161 ], [ 0.000000e+00, %169 ], [ %193, %.lr.ph168 ]
+  %194 = phi ptr [ %106, %._crit_edge161 ], [ %165, %164 ], [ %106, %160 ], [ %165, %169 ], [ %165, %.lr.ph168 ]
+  %.1125 = phi double [ %.0124.lcssa, %._crit_edge161 ], [ %.0124.lcssa, %164 ], [ %.0124.lcssa, %160 ], [ 0.000000e+00, %169 ], [ %193, %.lr.ph168 ]
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 396
   %196 = load i8, ptr %195, align 4, !tbaa !156, !range !33, !noundef !34
   %197 = trunc nuw i8 %196 to i1

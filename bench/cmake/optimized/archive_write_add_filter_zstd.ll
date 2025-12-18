@@ -73,7 +73,7 @@ define dso_local range(i32 -30, 1) i32 @archive_write_add_filter_zstd(ptr nounde
   br label %22
 
 22:                                               ; preds = %.sink.split, %7, %1
-  %.1 = phi i32 [ -30, %1 ], [ 0, %7 ], [ -30, %.sink.split ]
+  %.1 = phi i32 [ 0, %7 ], [ -30, %1 ], [ -30, %.sink.split ]
   ret i32 %.1
 }
 

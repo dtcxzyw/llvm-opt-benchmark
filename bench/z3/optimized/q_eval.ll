@@ -2075,7 +2075,7 @@ _ZN6vectorISt4pairIPN3euf5enodeES3_ELb0EjE6shrinkEj.exit62.sink.split: ; preds =
   br label %_ZN6vectorISt4pairIPN3euf5enodeES3_ELb0EjE6shrinkEj.exit62
 
 _ZN6vectorISt4pairIPN3euf5enodeES3_ELb0EjE6shrinkEj.exit62: ; preds = %_ZN6vectorISt4pairIPN3euf5enodeES3_ELb0EjE6shrinkEj.exit, %_ZNK6vectorISt4pairIPN3euf5enodeES3_ELb0EjE4sizeEv.exit57, %_ZN6vectorISt4pairIPN3euf5enodeES3_ELb0EjE6shrinkEj.exit62.sink.split, %_ZNK6vectorISt4pairIPN3euf5enodeES3_ELb0EjE4sizeEv.exit59, %_ZNK6vectorISt4pairIPN3euf5enodeES3_ELb0EjE4sizeEv.exit, %.split.us, %.thread.thread, %.thread, %28, %23, %13, %18, %10, %6
-  %.046 = phi i32 [ -1, %10 ], [ 1, %6 ], [ 0, %13 ], [ 0, %23 ], [ 0, %28 ], [ 0, %18 ], [ 1, %_ZNK6vectorISt4pairIPN3euf5enodeES3_ELb0EjE4sizeEv.exit ], [ 0, %.split.us ], [ 1, %.thread ], [ 0, %.thread.thread ], [ -1, %_ZNK6vectorISt4pairIPN3euf5enodeES3_ELb0EjE4sizeEv.exit59 ], [ %.046.ph, %_ZN6vectorISt4pairIPN3euf5enodeES3_ELb0EjE6shrinkEj.exit62.sink.split ], [ %69, %_ZNK6vectorISt4pairIPN3euf5enodeES3_ELb0EjE4sizeEv.exit57 ], [ 1, %_ZN6vectorISt4pairIPN3euf5enodeES3_ELb0EjE6shrinkEj.exit ]
+  %.046 = phi i32 [ -1, %10 ], [ 1, %6 ], [ 0, %13 ], [ 0, %23 ], [ 0, %28 ], [ 0, %18 ], [ 1, %_ZNK6vectorISt4pairIPN3euf5enodeES3_ELb0EjE4sizeEv.exit ], [ 0, %.split.us ], [ 1, %.thread ], [ 0, %.thread.thread ], [ %.046.ph, %_ZN6vectorISt4pairIPN3euf5enodeES3_ELb0EjE6shrinkEj.exit62.sink.split ], [ -1, %_ZNK6vectorISt4pairIPN3euf5enodeES3_ELb0EjE4sizeEv.exit59 ], [ %69, %_ZNK6vectorISt4pairIPN3euf5enodeES3_ELb0EjE4sizeEv.exit57 ], [ 1, %_ZN6vectorISt4pairIPN3euf5enodeES3_ELb0EjE6shrinkEj.exit ]
   ret i32 %.046
 }
 

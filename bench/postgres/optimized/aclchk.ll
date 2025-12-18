@@ -585,7 +585,7 @@ define dso_local void @ExecuteGrantStmt(ptr noundef readonly captures(none) %0) 
   unreachable
 
 objectNamesToOids.exit:                           ; preds = %._crit_edge.us.i, %.lr.ph83.i, %.lr.ph.i63, %38, %88, %.lr.ph114.i, %.lr.ph126.i, %.lr.ph138.i, %.lr.ph54.split.i, %.lr.ph54.split.us59.split.i, %.lr.ph54.split.us.split.i, %92, %.lr.ph54.split.us67.i, %.lr.ph106.i, %65, %.lr.ph118.i, %53, %.lr.ph130.i, %.preheader.i, %.lr.ph.i, %.preheader88.i
-  %.0.lcssa.i.sink = phi ptr [ null, %.preheader.i ], [ null, %.lr.ph130.i ], [ null, %53 ], [ null, %.lr.ph118.i ], [ null, %65 ], [ null, %.lr.ph106.i ], [ null, %.preheader88.i ], [ null, %.lr.ph.i ], [ null, %92 ], [ null, %.lr.ph54.split.i ], [ null, %.lr.ph54.split.us59.split.i ], [ null, %.lr.ph54.split.us.split.i ], [ null, %.lr.ph54.split.us67.i ], [ %126, %.lr.ph83.i ], [ %49, %.lr.ph138.i ], [ %61, %.lr.ph126.i ], [ %74, %.lr.ph114.i ], [ %.5.i, %88 ], [ %.5.us101.i, %38 ], [ %115, %.lr.ph.i63 ], [ %.2.lcssa.us.i, %._crit_edge.us.i ]
+  %.0.lcssa.i.sink = phi ptr [ %49, %.lr.ph138.i ], [ %.5.us101.i, %38 ], [ %126, %.lr.ph83.i ], [ %.5.i, %88 ], [ null, %.preheader.i ], [ null, %.lr.ph130.i ], [ null, %53 ], [ null, %.lr.ph118.i ], [ null, %65 ], [ null, %.lr.ph106.i ], [ null, %.preheader88.i ], [ null, %.lr.ph.i ], [ %115, %.lr.ph.i63 ], [ null, %92 ], [ %61, %.lr.ph126.i ], [ null, %.lr.ph54.split.us59.split.i ], [ null, %.lr.ph54.split.us.split.i ], [ null, %.lr.ph54.split.i ], [ %74, %.lr.ph114.i ], [ null, %.lr.ph54.split.us67.i ], [ %.2.lcssa.us.i, %._crit_edge.us.i ]
   %171 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %.0.lcssa.i.sink, ptr %171, align 8
   %172 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -1604,7 +1604,7 @@ expand_col_privileges.exit.i:                     ; preds = %267, %.lr.ph.i157.i
   br i1 %351, label %.lr.ph50.i.i, label %merge_acl_with_grant.exit.i
 
 merge_acl_with_grant.exit.i:                      ; preds = %347, %.lr.ph55.i.i, %.lr.ph.split.split.i.i, %.lr.ph.split.us.split.i.i, %306
-  %.032.lcssa.i.i = phi ptr [ %.049.i.i, %306 ], [ %.049.i.i, %.lr.ph.split.us.split.i.i ], [ %.049.i.i, %.lr.ph.split.split.i.i ], [ %336, %.lr.ph55.i.i ], [ %348, %347 ]
+  %.032.lcssa.i.i = phi ptr [ %.049.i.i, %306 ], [ %.049.i.i, %.lr.ph.split.split.i.i ], [ %.049.i.i, %.lr.ph.split.us.split.i.i ], [ %336, %.lr.ph55.i.i ], [ %348, %347 ]
   %352 = call i32 @aclmembers(ptr noundef %.032.lcssa.i.i, ptr noundef nonnull %28) #10
   %353 = getelementptr inbounds nuw i8, ptr %.032.lcssa.i.i, i64 16
   %354 = load i32, ptr %353, align 4
@@ -5521,7 +5521,7 @@ define internal fastcc ptr @merge_acl_with_grant(ptr noundef %0, i1 noundef zero
   br i1 %32, label %.split.us, label %36
 
 .critedge:                                        ; preds = %.lr.ph55, %36, %.lr.ph.split.us.split, %.lr.ph.split.split, %8
-  %.032.lcssa = phi ptr [ %0, %8 ], [ %0, %.lr.ph.split.us.split ], [ %0, %.lr.ph.split.split ], [ %37, %36 ], [ %25, %.lr.ph55 ]
+  %.032.lcssa = phi ptr [ %0, %8 ], [ %0, %.lr.ph.split.split ], [ %0, %.lr.ph.split.us.split ], [ %37, %36 ], [ %25, %.lr.ph55 ]
   ret ptr %.032.lcssa
 
 .split.us:                                        ; preds = %.lr.ph50

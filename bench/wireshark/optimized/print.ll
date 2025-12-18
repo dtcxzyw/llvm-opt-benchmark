@@ -4380,7 +4380,7 @@ get_field_data.exit:                              ; preds = %19
   br i1 %50, label %.lr.ph, label %get_field_data.exit.thread, !llvm.loop !43
 
 get_field_data.exit.thread:                       ; preds = %23, %.lr.ph, %29, %14, %19, %get_field_data.exit, %2, %12
-  %.0 = phi ptr [ %13, %12 ], [ null, %2 ], [ null, %get_field_data.exit ], [ null, %19 ], [ null, %14 ], [ %34, %29 ], [ %34, %.lr.ph ], [ null, %23 ]
+  %.0 = phi ptr [ %13, %12 ], [ null, %2 ], [ %34, %29 ], [ null, %get_field_data.exit ], [ null, %19 ], [ null, %14 ], [ %34, %.lr.ph ], [ null, %23 ]
   ret ptr %.0
 }
 

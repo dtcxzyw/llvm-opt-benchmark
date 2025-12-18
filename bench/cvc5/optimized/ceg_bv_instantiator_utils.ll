@@ -404,7 +404,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %_ZN4cvc58internal12
   br label %_ZNK4cvc58internal12NodeTemplateILb0EE12getAttributeINS0_4expr9AttributeINS0_6theory11quantifiers19BvLinearAttributeIdEbEEEENT_10value_typeERKSA_.exit.thread, !llvm.loop !111
 
 _ZNK4cvc58internal12NodeTemplateILb0EE12getAttributeINS0_4expr9AttributeINS0_6theory11quantifiers19BvLinearAttributeIdEbEEEENT_10value_typeERKSA_.exit: ; preds = %132, %109, %123
-  %.sroa.06.1.i.i.i.i.i.i = phi ptr [ %124, %123 ], [ %.sroa.06.0.i.i.i.i.i.i, %109 ], [ %138, %132 ]
+  %.sroa.06.1.i.i.i.i.i.i = phi ptr [ %.sroa.06.0.i.i.i.i.i.i, %109 ], [ %124, %123 ], [ %138, %132 ]
   %143 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i.i.i, i64 16
   %144 = load i64, ptr %143, align 8, !tbaa !112
   %145 = shl nuw i64 1, %103
@@ -482,7 +482,7 @@ _ZN4cvc58internal4expr9NodeValue3decEv.exit.i26:  ; preds = %163, %157, %154
           cleanup
   br label %.body
 
-_ZNK4cvc58internal12NodeTemplateILb0EE12getAttributeINS0_4expr9AttributeINS0_6theory11quantifiers19BvLinearAttributeIdEbEEEENT_10value_typeERKSA_.exit.thread: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %108, %..loopexit_crit_edge21.i.i.i.i.i.i.i.i, %113, %93, %_ZNK4cvc58internal12NodeTemplateILb0EE12getAttributeINS0_4expr9AttributeINS0_6theory11quantifiers19BvLinearAttributeIdEbEEEENT_10value_typeERKSA_.exit
+_ZNK4cvc58internal12NodeTemplateILb0EE12getAttributeINS0_4expr9AttributeINS0_6theory11quantifiers19BvLinearAttributeIdEbEEEENT_10value_typeERKSA_.exit.thread: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %108, %113, %..loopexit_crit_edge21.i.i.i.i.i.i.i.i, %93, %_ZNK4cvc58internal12NodeTemplateILb0EE12getAttributeINS0_4expr9AttributeINS0_6theory11quantifiers19BvLinearAttributeIdEbEEEENT_10value_typeERKSA_.exit
   tail call void @llvm.experimental.noalias.scope.decl(metadata !117)
   %183 = load ptr, ptr @_ZN4cvc58internal12NodeTemplateILb1EE6s_nullE, align 8, !tbaa !11, !noalias !117
   store ptr %183, ptr %0, align 8, !tbaa !11, !alias.scope !117
@@ -921,7 +921,7 @@ _ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit: ; preds = %77, %70
   br label %.critedge, !llvm.loop !111
 
 _ZNK4cvc58internal12NodeTemplateILb0EE12getAttributeINS0_4expr9AttributeINS0_6theory11quantifiers19BvLinearAttributeIdEbEEEENT_10value_typeERKSA_.exit: ; preds = %128, %105, %119
-  %.sroa.06.1.i.i.i.i.i.i = phi ptr [ %120, %119 ], [ %.sroa.06.0.i.i.i.i.i.i, %105 ], [ %134, %128 ]
+  %.sroa.06.1.i.i.i.i.i.i = phi ptr [ %.sroa.06.0.i.i.i.i.i.i, %105 ], [ %120, %119 ], [ %134, %128 ]
   %139 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i.i.i, i64 16
   %140 = load i64, ptr %139, align 8, !tbaa !112
   %141 = shl nuw i64 1, %99
@@ -2342,7 +2342,7 @@ _ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit: ; preds = %104, %97
   br label %_ZNK4cvc58internal12NodeTemplateILb0EE12getAttributeINS0_4expr9AttributeINS0_6theory11quantifiers19BvLinearAttributeIdEbEEEENT_10value_typeERKSA_.exit121.thread, !llvm.loop !111
 
 _ZNK4cvc58internal12NodeTemplateILb0EE12getAttributeINS0_4expr9AttributeINS0_6theory11quantifiers19BvLinearAttributeIdEbEEEENT_10value_typeERKSA_.exit: ; preds = %153, %130, %144
-  %.sroa.06.1.i.i.i.i.i.i = phi ptr [ %145, %144 ], [ %.sroa.06.0.i.i.i.i.i.i, %130 ], [ %159, %153 ]
+  %.sroa.06.1.i.i.i.i.i.i = phi ptr [ %.sroa.06.0.i.i.i.i.i.i, %130 ], [ %145, %144 ], [ %159, %153 ]
   %164 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i.i.i, i64 16
   %165 = load i64, ptr %164, align 8, !tbaa !112
   %166 = shl nuw i64 1, %124
@@ -2633,7 +2633,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit107: ; preds = %231, %235, %241
   br label %_ZNK4cvc58internal12NodeTemplateILb0EE12getAttributeINS0_4expr9AttributeINS0_6theory11quantifiers19BvLinearAttributeIdEbEEEENT_10value_typeERKSA_.exit121.thread, !llvm.loop !111
 
 _ZNK4cvc58internal12NodeTemplateILb0EE12getAttributeINS0_4expr9AttributeINS0_6theory11quantifiers19BvLinearAttributeIdEbEEEENT_10value_typeERKSA_.exit121: ; preds = %283, %260, %274
-  %.sroa.06.1.i.i.i.i.i.i117 = phi ptr [ %275, %274 ], [ %.sroa.06.0.i.i.i.i.i.i119, %260 ], [ %289, %283 ]
+  %.sroa.06.1.i.i.i.i.i.i117 = phi ptr [ %.sroa.06.0.i.i.i.i.i.i119, %260 ], [ %275, %274 ], [ %289, %283 ]
   %294 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i.i.i117, i64 16
   %295 = load i64, ptr %294, align 8, !tbaa !112
   %296 = shl nuw i64 1, %254
@@ -3702,7 +3702,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit205: ; preds = %726, %730, %736
   br i1 %758, label %.loopexit, label %755
 
 .loopexit:                                        ; preds = %755, %.loopexit.loopexit297, %.thread
-  %.pn72.pn.pn = phi { ptr, i32 } [ %600, %.thread ], [ %749, %.loopexit.loopexit297 ], [ %.pn72.pn, %755 ]
+  %.pn72.pn.pn = phi { ptr, i32 } [ %749, %.loopexit.loopexit297 ], [ %600, %.thread ], [ %.pn72.pn, %755 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
@@ -4681,7 +4681,7 @@ _ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit: ; preds = %117, %_ZN4cvc58in
   br label %_ZNK4cvc58internal12NodeTemplateILb0EE12getAttributeINS0_4expr9AttributeINS0_6theory11quantifiers19BvLinearAttributeIdEbEEEENT_10value_typeERKSA_.exit.thread, !llvm.loop !111
 
 _ZNK4cvc58internal12NodeTemplateILb0EE12getAttributeINS0_4expr9AttributeINS0_6theory11quantifiers19BvLinearAttributeIdEbEEEENT_10value_typeERKSA_.exit: ; preds = %158, %135, %149
-  %.sroa.06.1.i.i.i.i.i.i = phi ptr [ %150, %149 ], [ %.sroa.06.0.i.i.i.i.i.i, %135 ], [ %164, %158 ]
+  %.sroa.06.1.i.i.i.i.i.i = phi ptr [ %.sroa.06.0.i.i.i.i.i.i, %135 ], [ %150, %149 ], [ %164, %158 ]
   %169 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i.i.i, i64 16
   %170 = load i64, ptr %169, align 8, !tbaa !112
   %171 = shl nuw i64 1, %129
@@ -4689,7 +4689,7 @@ _ZNK4cvc58internal12NodeTemplateILb0EE12getAttributeINS0_4expr9AttributeINS0_6th
   %.not = icmp eq i64 %172, 0
   br i1 %.not, label %_ZNK4cvc58internal12NodeTemplateILb0EE12getAttributeINS0_4expr9AttributeINS0_6theory11quantifiers19BvLinearAttributeIdEbEEEENT_10value_typeERKSA_.exit.thread, label %175
 
-_ZNK4cvc58internal12NodeTemplateILb0EE12getAttributeINS0_4expr9AttributeINS0_6theory11quantifiers19BvLinearAttributeIdEbEEEENT_10value_typeERKSA_.exit.thread: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %134, %..loopexit_crit_edge21.i.i.i.i.i.i.i.i, %139, %_ZNK4cvc58internal12NodeTemplateILb0EE12getAttributeINS0_4expr9AttributeINS0_6theory11quantifiers19BvLinearAttributeIdEbEEEENT_10value_typeERKSA_.exit
+_ZNK4cvc58internal12NodeTemplateILb0EE12getAttributeINS0_4expr9AttributeINS0_6theory11quantifiers19BvLinearAttributeIdEbEEEENT_10value_typeERKSA_.exit.thread: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %134, %139, %..loopexit_crit_edge21.i.i.i.i.i.i.i.i, %_ZNK4cvc58internal12NodeTemplateILb0EE12getAttributeINS0_4expr9AttributeINS0_6theory11quantifiers19BvLinearAttributeIdEbEEEENT_10value_typeERKSA_.exit
   %173 = load ptr, ptr %2, align 8, !tbaa !11
   %174 = icmp eq ptr %.sroa.0290.1, %173
   br i1 %174, label %175, label %_ZN4cvc58internal12NodeTemplateILb1EEaSERKNS1_ILb0EEE.exit
@@ -5986,7 +5986,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit208: ; preds = %_ZN4cvc58internal1
   br i1 %747, label %.loopexit305, label %744
 
 .loopexit305:                                     ; preds = %744, %.loopexit305.loopexit321, %.thread
-  %.pn58 = phi { ptr, i32 } [ %586, %.thread ], [ %742, %.loopexit305.loopexit321 ], [ %743, %744 ]
+  %.pn58 = phi { ptr, i32 } [ %742, %.loopexit305.loopexit321 ], [ %586, %.thread ], [ %743, %744 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
   br label %1056
 
@@ -6790,7 +6790,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit271: ; preds = %_ZN4cvc58internal1
   br i1 %1078, label %.loopexit304, label %1075
 
 .loopexit304:                                     ; preds = %.preheader, %1075, %.body92
-  %.pn84.pn.pn.pn.pn = phi { ptr, i32 } [ %72, %.body92 ], [ %.pn84.pn.pn.pn, %1075 ], [ %72, %.preheader ]
+  %.pn84.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn84.pn.pn.pn, %1075 ], [ %72, %.body92 ], [ %72, %.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %1097
 
@@ -6839,7 +6839,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit274: ; preds = %1079, %1085, %1091
   br i1 %1100, label %.loopexit, label %1097
 
 .loopexit:                                        ; preds = %.preheader310, %1097, %.body
-  %.pn84.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %56, %.body ], [ %.pn84.pn.pn.pn.pn, %1097 ], [ %56, %.preheader310 ]
+  %.pn84.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn84.pn.pn.pn.pn, %1097 ], [ %56, %.body ], [ %56, %.preheader310 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   resume { ptr, i32 } %.pn84.pn.pn.pn.pn.pn
 }
@@ -7660,7 +7660,7 @@ _ZNSt10_HashtableIPN4cvc58internal4expr9NodeValueESt4pairIKS4_mESaIS7_ENSt8__det
   resume { ptr, i32 } %36
 
 _ZNSt10_HashtableIPN4cvc58internal4expr9NodeValueESt4pairIKS4_mESaIS7_ENSt8__detail10_Select1stESt8equal_toIS4_ENS2_4attr20AttrBoolHashFunctionENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit: ; preds = %21, %.loopexit, %12
-  %.pn = phi ptr [ %13, %12 ], [ %35, %.loopexit ], [ %27, %21 ]
+  %.pn = phi ptr [ %35, %.loopexit ], [ %13, %12 ], [ %27, %21 ]
   %.1 = getelementptr inbounds nuw i8, ptr %.pn, i64 16
   ret ptr %.1
 }

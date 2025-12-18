@@ -1771,8 +1771,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit22: ; preds = %87, %93
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit20, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit22, %.thread, %98
-  %_ZGVZN32pxrInternal_v0_24__pxrReserved__13UsdGeomSubset23GetSchemaAttributeNamesEbE8allNames.sink = phi ptr [ @_ZGVZN32pxrInternal_v0_24__pxrReserved__13UsdGeomSubset23GetSchemaAttributeNamesEbE8allNames, %98 ], [ @_ZGVZN32pxrInternal_v0_24__pxrReserved__13UsdGeomSubset23GetSchemaAttributeNamesEbE10localNames, %.thread ], [ @_ZGVZN32pxrInternal_v0_24__pxrReserved__13UsdGeomSubset23GetSchemaAttributeNamesEbE10localNames, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit22 ], [ @_ZGVZN32pxrInternal_v0_24__pxrReserved__13UsdGeomSubset23GetSchemaAttributeNamesEbE10localNames, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit20 ]
-  %.pn10 = phi { ptr, i32 } [ %99, %98 ], [ %10, %.thread ], [ %85, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit22 ], [ %72, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit20 ]
+  %_ZGVZN32pxrInternal_v0_24__pxrReserved__13UsdGeomSubset23GetSchemaAttributeNamesEbE8allNames.sink = phi ptr [ @_ZGVZN32pxrInternal_v0_24__pxrReserved__13UsdGeomSubset23GetSchemaAttributeNamesEbE8allNames, %98 ], [ @_ZGVZN32pxrInternal_v0_24__pxrReserved__13UsdGeomSubset23GetSchemaAttributeNamesEbE10localNames, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit22 ], [ @_ZGVZN32pxrInternal_v0_24__pxrReserved__13UsdGeomSubset23GetSchemaAttributeNamesEbE10localNames, %.thread ], [ @_ZGVZN32pxrInternal_v0_24__pxrReserved__13UsdGeomSubset23GetSchemaAttributeNamesEbE10localNames, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit20 ]
+  %.pn10 = phi { ptr, i32 } [ %99, %98 ], [ %85, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit22 ], [ %10, %.thread ], [ %72, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit20 ]
   call void @__cxa_guard_abort(ptr nonnull %_ZGVZN32pxrInternal_v0_24__pxrReserved__13UsdGeomSubset23GetSchemaAttributeNamesEbE8allNames.sink) #19
   resume { ptr, i32 } %.pn10
 }
@@ -13483,8 +13483,8 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__11UsdTimeCodeESaIS1_EE12emplace_
   br label %1284
 
 .loopexit.split-lp597:                            ; preds = %1274, %406, %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__11UsdTimeCodeESaIS1_EE11_M_allocateEm.exit.i, %449
-  %.sroa.18.0.ph = phi ptr [ %402, %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__11UsdTimeCodeESaIS1_EE11_M_allocateEm.exit.i ], [ %.sroa.18.1.lcssa, %1274 ], [ %.sroa.9.0836, %449 ], [ %402, %406 ]
-  %.sroa.0530.0.ph = phi ptr [ %401, %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__11UsdTimeCodeESaIS1_EE11_M_allocateEm.exit.i ], [ %.sroa.0530.1.lcssa, %1274 ], [ %.sroa.0530.1837, %449 ], [ %401, %406 ]
+  %.sroa.18.0.ph = phi ptr [ %.sroa.18.1.lcssa, %1274 ], [ %402, %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__11UsdTimeCodeESaIS1_EE11_M_allocateEm.exit.i ], [ %.sroa.9.0836, %449 ], [ %402, %406 ]
+  %.sroa.0530.0.ph = phi ptr [ %.sroa.0530.1.lcssa, %1274 ], [ %401, %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__11UsdTimeCodeESaIS1_EE11_M_allocateEm.exit.i ], [ %.sroa.0530.1837, %449 ], [ %401, %406 ]
   %lpad.loopexit.split-lp599 = landingpad { ptr, i32 }
           cleanup
   br label %1284
@@ -14250,7 +14250,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit387: ; preds = %765, %752,
   br i1 %.not257, label %_ZNSt3setIiSt4lessIiESaIiEE6insertIPiEEvT_S6_.exit, label %673
 
 _ZNSt3setIiSt4lessIiESaIiEE6insertIPiEEvT_S6_.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit387, %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE17_M_insert_unique_IRiNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIiESt23_Rb_tree_const_iteratorIiEOT_RT0_.exit.i.i, %.preheader579, %635
-  %.4182 = phi i1 [ %.3181, %635 ], [ %.3181, %.preheader579 ], [ %.3181, %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE17_M_insert_unique_IRiNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIiESt23_Rb_tree_const_iteratorIiEOT_RT0_.exit.i.i ], [ %.6184, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit387 ]
+  %.4182 = phi i1 [ %.3181, %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE17_M_insert_unique_IRiNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIiESt23_Rb_tree_const_iteratorIiEOT_RT0_.exit.i.i ], [ %.3181, %635 ], [ %.3181, %.preheader579 ], [ %.6184, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit387 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %28) #19
   %777 = getelementptr inbounds nuw i8, ptr %.sroa.0517.0847, i64 24
   %.not566 = icmp eq ptr %777, %467
@@ -15062,7 +15062,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit457: ; preds = %1082, %106
   br i1 %.not234, label %_ZNSt3setIN32pxrInternal_v0_24__pxrReserved__7GfVec2iENS0_12_GLOBAL__N_17cmpEdgeESaIS1_EE6insertIPS1_EEvT_S8_.exit, label %986
 
 _ZNSt3setIN32pxrInternal_v0_24__pxrReserved__7GfVec2iENS0_12_GLOBAL__N_17cmpEdgeESaIS1_EE6insertIPS1_EEvT_S8_.exit: ; preds = %_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7GfVec2iES1_St9_IdentityIS1_ENS0_12_GLOBAL__N_17cmpEdgeESaIS1_EE17_M_insert_unique_IRS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_ESt23_Rb_tree_const_iteratorIS1_EOT_RT0_.exit.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit457, %.preheader, %941
-  %.10188 = phi i1 [ %.9187860, %941 ], [ %.9187860, %.preheader ], [ %.12190, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit457 ], [ %.9187860, %_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7GfVec2iES1_St9_IdentityIS1_ENS0_12_GLOBAL__N_17cmpEdgeESaIS1_EE17_M_insert_unique_IRS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_ESt23_Rb_tree_const_iteratorIS1_EOT_RT0_.exit.i.i ]
+  %.10188 = phi i1 [ %.12190, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit457 ], [ %.9187860, %941 ], [ %.9187860, %.preheader ], [ %.9187860, %_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7GfVec2iES1_St9_IdentityIS1_ENS0_12_GLOBAL__N_17cmpEdgeESaIS1_EE17_M_insert_unique_IRS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_ESt23_Rb_tree_const_iteratorIS1_EOT_RT0_.exit.i.i ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %42) #19
   %1094 = getelementptr inbounds nuw i8, ptr %.sroa.0512.0859, i64 24
   %.not567 = icmp eq ptr %1094, %935

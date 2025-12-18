@@ -1703,7 +1703,7 @@ getTocEntryByDumpId.exit:                         ; preds = %152
   br label %_tocEntryIsACL.exit.thread
 
 _tocEntryIsACL.exit.thread:                       ; preds = %.thread.us, %.thread, %114, %30, %27, %321, %256, %265, %259, %252, %246, %233, %227, %220, %214, %184, %176, %173, %103, %81, %65, %74, %70, %66, %62, %56, %44, %47, %50, %38, %_tocEntryIsACL.exit, %22, %3, %10, %13, %371
-  %.0 = phi i32 [ 0, %70 ], [ %., %22 ], [ 4, %3 ], [ 4, %10 ], [ 0, %_tocEntryIsACL.exit ], [ 0, %38 ], [ 0, %44 ], [ 0, %56 ], [ 0, %74 ], [ 0, %256 ], [ %spec.select, %371 ], [ 0, %81 ], [ 0, %30 ], [ 0, %176 ], [ 0, %214 ], [ 0, %184 ], [ 0, %227 ], [ 0, %220 ], [ 0, %246 ], [ 0, %233 ], [ 0, %259 ], [ 0, %252 ], [ 0, %265 ], [ 0, %173 ], [ 0, %103 ], [ 0, %65 ], [ 0, %62 ], [ 0, %66 ], [ 4, %13 ], [ 0, %50 ], [ 0, %47 ], [ 0, %321 ], [ 0, %27 ], [ 0, %114 ], [ 0, %.thread ], [ 0, %.thread.us ]
+  %.0 = phi i32 [ 0, %70 ], [ %., %22 ], [ 4, %3 ], [ 4, %10 ], [ 0, %_tocEntryIsACL.exit ], [ 0, %38 ], [ 0, %44 ], [ 0, %56 ], [ 0, %74 ], [ 0, %256 ], [ %spec.select, %371 ], [ 0, %81 ], [ 0, %30 ], [ 0, %176 ], [ 0, %214 ], [ 0, %184 ], [ 0, %227 ], [ 0, %220 ], [ 0, %246 ], [ 0, %233 ], [ 0, %259 ], [ 0, %252 ], [ 0, %265 ], [ 0, %173 ], [ 0, %103 ], [ 0, %65 ], [ 0, %62 ], [ 0, %66 ], [ 4, %13 ], [ 0, %50 ], [ 0, %47 ], [ 0, %321 ], [ 0, %27 ], [ 0, %.thread ], [ 0, %114 ], [ 0, %.thread.us ]
   ret i32 %.0
 }
 
@@ -2578,7 +2578,7 @@ repoint_table_dependencies.exit.i.i:              ; preds = %.loopexit.i.i.i, %.
   br i1 %.not89.i.i, label %.loopexit116.i.i, label %.lr.ph133.i.i, !llvm.loop !19
 
 .loopexit116.i.i:                                 ; preds = %350, %.preheader115.i.i, %340, %325, %repoint_table_dependencies.exit.i.i
-  %351 = phi ptr [ %321, %repoint_table_dependencies.exit.i.i ], [ %321, %325 ], [ %.pre.i.i, %340 ], [ %321, %.preheader115.i.i ], [ %321, %350 ]
+  %351 = phi ptr [ %321, %.preheader115.i.i ], [ %321, %repoint_table_dependencies.exit.i.i ], [ %321, %325 ], [ %.pre.i.i, %340 ], [ %321, %350 ]
   %.2.in136.i.i = getelementptr inbounds nuw i8, ptr %351, i64 8
   %.2137.i.i = load ptr, ptr %.2.in136.i.i, align 8
   %.not92138.i.i = icmp eq ptr %.2137.i.i, %351
@@ -3512,7 +3512,7 @@ default.unreachable400:                           ; preds = %733
   br i1 %.not224, label %.loopexit272, label %.lr.ph312, !llvm.loop !36
 
 .loopexit272:                                     ; preds = %749, %.preheader, %._crit_edge305
-  %751 = phi ptr [ %739, %.preheader ], [ %739, %._crit_edge305 ], [ %750, %749 ]
+  %751 = phi ptr [ %739, %._crit_edge305 ], [ %739, %.preheader ], [ %750, %749 ]
   br i1 %.1, label %752, label %.loopexit
 
 752:                                              ; preds = %.loopexit272

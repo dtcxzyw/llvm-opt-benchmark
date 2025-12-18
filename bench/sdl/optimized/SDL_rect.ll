@@ -1084,7 +1084,7 @@ ComputeOutCode.exit284:                           ; preds = %191, %189, %132, %1
   br label %SDL_RectEmpty.exit.thread
 
 SDL_RectEmpty.exit.thread:                        ; preds = %.lr.ph, %35, %61, %63, %62, %53, %55, %54, %47, %38, %._crit_edge, %33, %30, %27, %24, %SDL_RectCanOverflow.exit.thread, %6
-  %.0188 = phi i1 [ false, %SDL_RectCanOverflow.exit.thread ], [ false, %6 ], [ true, %62 ], [ true, %38 ], [ false, %47 ], [ true, %53 ], [ true, %61 ], [ true, %._crit_edge ], [ false, %33 ], [ false, %30 ], [ false, %27 ], [ false, %24 ], [ true, %63 ], [ false, %35 ], [ true, %54 ], [ true, %55 ], [ false, %.lr.ph ]
+  %.0188 = phi i1 [ false, %SDL_RectCanOverflow.exit.thread ], [ false, %6 ], [ true, %55 ], [ true, %38 ], [ false, %47 ], [ true, %53 ], [ true, %61 ], [ true, %._crit_edge ], [ false, %33 ], [ false, %30 ], [ false, %27 ], [ false, %24 ], [ true, %63 ], [ true, %62 ], [ false, %35 ], [ true, %54 ], [ false, %.lr.ph ]
   ret i1 %.0188
 }
 

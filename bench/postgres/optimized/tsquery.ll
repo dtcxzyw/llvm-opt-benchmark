@@ -1070,7 +1070,7 @@ default.unreachable.i:                            ; preds = %85
   store i8 4, ptr %1, align 1
   br label %.loopexit70
 
-.loopexit:                                        ; preds = %87, %96, %103, %118, %.outer.i, %93, %112, %115, %83
+.loopexit:                                        ; preds = %87, %96, %103, %118, %.outer.i, %93, %115, %112, %83
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %125 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %125, null
@@ -1133,7 +1133,7 @@ default.unreachable.i:                            ; preds = %85
   br label %11
 
 .loopexit70:                                      ; preds = %147, %129, %13, %70, %72, %67, %63, %143, %136, %123, %81, %79, %get_modifiers.exit, %17, %15
-  %.0 = phi i32 [ 3, %15 ], [ 4, %17 ], [ 2, %get_modifiers.exit ], [ 1, %63 ], [ 0, %67 ], [ 3, %79 ], [ 3, %81 ], [ 3, %123 ], [ 1, %70 ], [ %142, %136 ], [ %146, %143 ], [ 1, %72 ], [ 1, %13 ], [ 1, %129 ], [ 1, %147 ]
+  %.0 = phi i32 [ 3, %15 ], [ 4, %17 ], [ 1, %72 ], [ 2, %get_modifiers.exit ], [ %146, %143 ], [ 1, %63 ], [ 0, %67 ], [ 3, %79 ], [ 3, %81 ], [ 3, %123 ], [ 1, %70 ], [ %142, %136 ], [ 1, %13 ], [ 1, %129 ], [ 1, %147 ]
   ret i32 %.0
 }
 

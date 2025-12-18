@@ -2138,7 +2138,7 @@ _ZN4absl7debian213flat_hash_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaI
   br label %.loopexit
 
 .loopexit:                                        ; preds = %96, %.loopexit.loopexit69, %.thread, %246
-  %.pn30.pn = phi { ptr, i32 } [ %.pn30, %246 ], [ %63, %.thread ], [ %95, %.loopexit.loopexit69 ], [ %77, %96 ]
+  %.pn30.pn = phi { ptr, i32 } [ %.pn30, %246 ], [ %95, %.loopexit.loopexit69 ], [ %63, %.thread ], [ %77, %96 ]
   call void @_ZNSt10unique_ptrISt6vectorIN10open_spiel15dynamic_routing23OriginDestinationDemandESaIS3_EESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %60) #27
   call void @_ZNSt10unique_ptrIN10open_spiel15dynamic_routing7NetworkESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %59) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %58) #27
@@ -14617,8 +14617,8 @@ _ZN4absl7debian218container_internal14btree_iteratorINS1_10btree_nodeINS1_10set_
   br label %_ZN4absl7debian218container_internal14btree_iteratorINS1_10btree_nodeINS1_10set_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISA_ESaISA_ELi256ELb0EEEEERSA_PSA_EppEv.exit
 
 _ZN4absl7debian218container_internal14btree_iteratorINS1_10btree_nodeINS1_10set_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISA_ESaISA_ELi256ELb0EEEEERSA_PSA_EppEv.exit: ; preds = %.lr.ph.i.i.i, %124, %_ZN4absl7debian218container_internal14btree_iteratorINS1_10btree_nodeINS1_10set_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISA_ESaISA_ELi256ELb0EEEEERSA_PSA_EppEv.exit.loopexit105.split.loop.exit106, %106
-  %.sroa.076.1 = phi ptr [ %2, %106 ], [ %113, %_ZN4absl7debian218container_internal14btree_iteratorINS1_10btree_nodeINS1_10set_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISA_ESaISA_ELi256ELb0EEEEERSA_PSA_EppEv.exit.loopexit105.split.loop.exit106 ], [ %storemerge.i.i.i, %124 ], [ %2, %.lr.ph.i.i.i ]
-  %.sroa.16.1 = phi i32 [ %107, %106 ], [ %128, %_ZN4absl7debian218container_internal14btree_iteratorINS1_10btree_nodeINS1_10set_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISA_ESaISA_ELi256ELb0EEEEERSA_PSA_EppEv.exit.loopexit105.split.loop.exit106 ], [ 0, %124 ], [ %107, %.lr.ph.i.i.i ]
+  %.sroa.076.1 = phi ptr [ %2, %106 ], [ %storemerge.i.i.i, %124 ], [ %113, %_ZN4absl7debian218container_internal14btree_iteratorINS1_10btree_nodeINS1_10set_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISA_ESaISA_ELi256ELb0EEEEERSA_PSA_EppEv.exit.loopexit105.split.loop.exit106 ], [ %2, %.lr.ph.i.i.i ]
+  %.sroa.16.1 = phi i32 [ %107, %106 ], [ 0, %124 ], [ %128, %_ZN4absl7debian218container_internal14btree_iteratorINS1_10btree_nodeINS1_10set_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISA_ESaISA_ELi256ELb0EEEEERSA_PSA_EppEv.exit.loopexit105.split.loop.exit106 ], [ %107, %.lr.ph.i.i.i ]
   %129 = load ptr, ptr %11, align 8
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 10
   %131 = load i8, ptr %130, align 1

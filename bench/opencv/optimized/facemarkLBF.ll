@@ -19032,10 +19032,10 @@ _ZNSt6vectorIdSaIdEED2Ev.exit262.thread:          ; preds = %35
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph412, %.loopexit.sink.split, %.preheader, %161, %158
-  %.1343 = phi double [ %.sroa.speculated, %158 ], [ %.sroa.speculated, %161 ], [ %.sroa.speculated, %.preheader ], [ %.0342413, %.loopexit.sink.split ], [ %.sroa.speculated, %.lr.ph412 ]
-  %.1212 = phi double [ %145, %158 ], [ %145, %161 ], [ %145, %.preheader ], [ %.0211414, %.loopexit.sink.split ], [ %145, %.lr.ph412 ]
-  %.2206 = phi i32 [ %.1205415, %158 ], [ %.1205415, %161 ], [ %.1205415, %.preheader ], [ %175, %.loopexit.sink.split ], [ %.1205415, %.lr.ph412 ]
-  %.1199 = phi i32 [ %.0198416, %158 ], [ %.0198416, %161 ], [ %.0198416, %.preheader ], [ %179, %.loopexit.sink.split ], [ %.0198416, %.lr.ph412 ]
+  %.1343 = phi double [ %.sroa.speculated, %158 ], [ %.0342413, %.loopexit.sink.split ], [ %.sroa.speculated, %161 ], [ %.sroa.speculated, %.preheader ], [ %.sroa.speculated, %.lr.ph412 ]
+  %.1212 = phi double [ %145, %158 ], [ %.0211414, %.loopexit.sink.split ], [ %145, %161 ], [ %145, %.preheader ], [ %145, %.lr.ph412 ]
+  %.2206 = phi i32 [ %.1205415, %158 ], [ %175, %.loopexit.sink.split ], [ %.1205415, %161 ], [ %.1205415, %.preheader ], [ %.1205415, %.lr.ph412 ]
+  %.1199 = phi i32 [ %.0198416, %158 ], [ %179, %.loopexit.sink.split ], [ %.0198416, %161 ], [ %.0198416, %.preheader ], [ %.0198416, %.lr.ph412 ]
   %180 = add nsw i32 %.1199, 1
   %181 = icmp slt i32 %180, %.2206
   br i1 %181, label %85, label %._crit_edge418, !llvm.loop !509
@@ -19057,8 +19057,8 @@ _ZNSt6vectorIdSaIdEED2Ev.exit262.thread:          ; preds = %35
   br i1 %187, label %188, label %.backedge
 
 .backedge:                                        ; preds = %186, %._crit_edge418
-  %.0213.be = phi double [ 0x7FF0000000000000, %186 ], [ %.0342.lcssa, %._crit_edge418 ]
-  %.0204.be = phi i32 [ %4, %186 ], [ %.1205.lcssa, %._crit_edge418 ]
+  %.0213.be = phi double [ %.0342.lcssa, %._crit_edge418 ], [ 0x7FF0000000000000, %186 ]
+  %.0204.be = phi i32 [ %.1205.lcssa, %._crit_edge418 ], [ %4, %186 ]
   %exitcond456.not = icmp eq i32 %183, 1000
   br i1 %exitcond456.not, label %.thread497, label %.preheader388, !llvm.loop !510
 

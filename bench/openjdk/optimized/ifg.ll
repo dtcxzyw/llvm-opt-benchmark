@@ -3078,7 +3078,7 @@ _ZN16IndexSetIterator4nextEv.exit:                ; preds = %10
   br label %.backedge
 
 .backedge:                                        ; preds = %169, %155, %56, %42
-  %.0.be = phi i32 [ %48, %42 ], [ %57, %56 ], [ %161, %155 ], [ %170, %169 ]
+  %.0.be = phi i32 [ %170, %169 ], [ %48, %42 ], [ %57, %56 ], [ %161, %155 ]
   %.not = icmp eq i32 %.0.be, 0
   br i1 %.not, label %.loopexit, label %31, !llvm.loop !29
 
@@ -3499,7 +3499,7 @@ _ZNK5Block8get_nodeEj.exit:                       ; preds = %10
   br i1 %or.cond19, label %.critedge, label %.loopexit, !llvm.loop !33
 
 .loopexit:                                        ; preds = %.critedge, %_ZNK5Block8get_nodeEj.exit, %10, %4
-  %.013 = phi i32 [ %6, %10 ], [ %6, %4 ], [ %6, %_ZNK5Block8get_nodeEj.exit ], [ %44, %.critedge ]
+  %.013 = phi i32 [ %6, %4 ], [ %6, %10 ], [ %6, %_ZNK5Block8get_nodeEj.exit ], [ %44, %.critedge ]
   store i32 %.013, ptr %2, align 4
   ret void
 }
@@ -4983,7 +4983,7 @@ _ZNK5Block8get_nodeEj.exit.i138:                  ; preds = %813
   br i1 %or.cond19.i, label %.critedge.i139, label %_ZN12PhaseChaitin26adjust_high_pressure_indexEP5BlockRjRNS_8PressureE.exit, !llvm.loop !33
 
 _ZN12PhaseChaitin26adjust_high_pressure_indexEP5BlockRjRNS_8PressureE.exit: ; preds = %.critedge.i139, %_ZN12PhaseChaitin29check_for_high_pressure_blockERNS_8PressureE.exit137, %813, %_ZNK5Block8get_nodeEj.exit.i138
-  %.013.i = phi i32 [ %810, %813 ], [ %810, %_ZN12PhaseChaitin29check_for_high_pressure_blockERNS_8PressureE.exit137 ], [ %810, %_ZNK5Block8get_nodeEj.exit.i138 ], [ %844, %.critedge.i139 ]
+  %.013.i = phi i32 [ %810, %_ZN12PhaseChaitin29check_for_high_pressure_blockERNS_8PressureE.exit137 ], [ %810, %813 ], [ %810, %_ZNK5Block8get_nodeEj.exit.i138 ], [ %844, %.critedge.i139 ]
   store i32 %.013.i, ptr %809, align 4
   %857 = getelementptr inbounds nuw i8, ptr %43, i64 120
   %858 = load i32, ptr %.sink31.i.sroa.gep, align 4
@@ -5052,7 +5052,7 @@ _ZNK5Block8get_nodeEj.exit.i142:                  ; preds = %861
   br i1 %or.cond19.i148, label %.critedge.i145, label %_ZN12PhaseChaitin26adjust_high_pressure_indexEP5BlockRjRNS_8PressureE.exit149, !llvm.loop !33
 
 _ZN12PhaseChaitin26adjust_high_pressure_indexEP5BlockRjRNS_8PressureE.exit149: ; preds = %.critedge.i145, %_ZN12PhaseChaitin26adjust_high_pressure_indexEP5BlockRjRNS_8PressureE.exit, %861, %_ZNK5Block8get_nodeEj.exit.i142
-  %.013.i141 = phi i32 [ %858, %861 ], [ %858, %_ZN12PhaseChaitin26adjust_high_pressure_indexEP5BlockRjRNS_8PressureE.exit ], [ %858, %_ZNK5Block8get_nodeEj.exit.i142 ], [ %892, %.critedge.i145 ]
+  %.013.i141 = phi i32 [ %858, %_ZN12PhaseChaitin26adjust_high_pressure_indexEP5BlockRjRNS_8PressureE.exit ], [ %858, %861 ], [ %858, %_ZNK5Block8get_nodeEj.exit.i142 ], [ %892, %.critedge.i145 ]
   store i32 %.013.i141, ptr %857, align 4
   %905 = load i32, ptr %16, align 4
   store i32 %905, ptr %129, align 4

@@ -9554,8 +9554,8 @@ _ZNK4entt9meta_type4infoEv.exit52.us:             ; preds = %65, %63, %60, %_ZNK
   br label %_ZN4entt8internal11find_memberITnDaXadL_ZNS0_14meta_base_node4typeEEESt6vectorIS2_SaIS2_EEjEEPDaRT0_T1_.exit.us
 
 _ZN4entt8internal11find_memberITnDaXadL_ZNS0_14meta_base_node4typeEEESt6vectorIS2_SaIS2_EEjEEPDaRT0_T1_.exit.us: ; preds = %.lr.ph.i.us, %.lr.ph.i55.us, %91, %.loopexit.us, %76, %73
-  %.036.us = phi i1 [ false, %76 ], [ true, %91 ], [ true, %73 ], [ false, %.loopexit.us ], [ %.not.i57.us, %.lr.ph.i55.us ], [ true, %.lr.ph.i.us ]
-  %.3.us = phi i64 [ %.03394.us, %76 ], [ %92, %91 ], [ %.03394.us, %73 ], [ %.03394.us, %.loopexit.us ], [ %.03394.us, %.lr.ph.i55.us ], [ %.03394.us, %.lr.ph.i.us ]
+  %.036.us = phi i1 [ false, %76 ], [ %.not.i57.us, %.lr.ph.i55.us ], [ true, %91 ], [ true, %73 ], [ false, %.loopexit.us ], [ true, %.lr.ph.i.us ]
+  %.3.us = phi i64 [ %.03394.us, %76 ], [ %.03394.us, %.lr.ph.i55.us ], [ %92, %91 ], [ %.03394.us, %73 ], [ %.03394.us, %.loopexit.us ], [ %.03394.us, %.lr.ph.i.us ]
   %.not.i.i.i.i.us = icmp eq ptr %.sroa.14.4.us, null
   br i1 %.not.i.i.i.i.us, label %_ZNSt12__shared_ptrIN4entt8internal20meta_type_descriptorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i.us, label %93
 

@@ -1666,7 +1666,7 @@ _ZN10OpenSubdiv6v3_6_03Far17PatchTableBuilder16LocalPointHelper19findSharedEdgeP
   br i1 %exitcond231.not, label %.loopexit, label %149, !llvm.loop !13
 
 .loopexit:                                        ; preds = %239, %69, %.lr.ph221, %.loopexit207, %.preheader204, %.loopexit203
-  %.3 = phi i32 [ %17, %.loopexit203 ], [ %17, %.preheader204 ], [ %17, %.loopexit207 ], [ %.2, %69 ], [ %41, %.lr.ph221 ], [ %.5, %239 ]
+  %.3 = phi i32 [ %41, %.lr.ph221 ], [ %.2, %69 ], [ %17, %.loopexit203 ], [ %17, %.preheader204 ], [ %17, %.loopexit207 ], [ %.5, %239 ]
   %241 = sub nsw i32 %.3, %17
   %242 = load i32, ptr %15, align 8
   %243 = add nsw i32 %242, %241
@@ -2121,7 +2121,7 @@ _ZN10OpenSubdiv6v3_6_03Far17PatchTableBuilder16LocalPointHelper19findSharedEdgeP
   br i1 %exitcond231.not, label %.loopexit, label %149, !llvm.loop !18
 
 .loopexit:                                        ; preds = %239, %69, %.lr.ph221, %.loopexit207, %.preheader204, %.loopexit203
-  %.3 = phi i32 [ %17, %.loopexit203 ], [ %17, %.preheader204 ], [ %17, %.loopexit207 ], [ %.2, %69 ], [ %41, %.lr.ph221 ], [ %.5, %239 ]
+  %.3 = phi i32 [ %41, %.lr.ph221 ], [ %.2, %69 ], [ %17, %.loopexit203 ], [ %17, %.preheader204 ], [ %17, %.loopexit207 ], [ %.5, %239 ]
   %241 = sub nsw i32 %.3, %17
   %242 = load i32, ptr %15, align 8
   %243 = add nsw i32 %242, %241
@@ -4874,8 +4874,8 @@ define void @_ZN10OpenSubdiv6v3_6_03Far17PatchTableBuilder20BuildUniformPolygons
   br i1 %255, label %.lr.ph202, label %.loopexit, !llvm.loop !36
 
 .loopexit:                                        ; preds = %.lr.ph202, %.preheader, %.loopexit173, %220, %155
-  %.3137 = phi ptr [ %.2136206, %155 ], [ %227, %220 ], [ %180, %.loopexit173 ], [ %227, %.preheader ], [ %227, %.lr.ph202 ]
-  %.3 = phi ptr [ %.2132207, %155 ], [ %226, %220 ], [ %.4.lcssa, %.loopexit173 ], [ %226, %.preheader ], [ %226, %.lr.ph202 ]
+  %.3137 = phi ptr [ %.2136206, %155 ], [ %180, %.loopexit173 ], [ %227, %220 ], [ %227, %.preheader ], [ %227, %.lr.ph202 ]
+  %.3 = phi ptr [ %.2132207, %155 ], [ %.4.lcssa, %.loopexit173 ], [ %226, %220 ], [ %226, %.preheader ], [ %226, %.lr.ph202 ]
   %indvars.iv.next252 = add nuw nsw i64 %indvars.iv251, 1
   %exitcond255.not = icmp eq i64 %indvars.iv.next252, %wide.trip.count254
   br i1 %exitcond255.not, label %.loopexit177, label %.lr.ph208, !llvm.loop !37
@@ -4940,7 +4940,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Far17PatchTableBuilder20BuildUniformPolygons
   br i1 %295, label %.lr.ph212, label %.loopexit175, !llvm.loop !38
 
 .loopexit175:                                     ; preds = %.lr.ph212, %.preheader174, %.loopexit177, %258
-  %.1143 = phi i32 [ %266, %258 ], [ %.0142216, %.loopexit177 ], [ %266, %.preheader174 ], [ %266, %.lr.ph212 ]
+  %.1143 = phi i32 [ %.0142216, %.loopexit177 ], [ %266, %258 ], [ %266, %.preheader174 ], [ %266, %.lr.ph212 ]
   %indvars.iv.next260 = add nuw nsw i64 %indvars.iv259, 1
   %exitcond263.not = icmp eq i64 %indvars.iv.next260, %wide.trip.count262
   br i1 %exitcond263.not, label %._crit_edge221, label %142, !llvm.loop !39
@@ -6241,7 +6241,7 @@ _ZNK10OpenSubdiv6v3_6_03Far17PatchTableBuilder21getRefinerFVarChannelEi.exit: ; 
   br label %777
 
 .loopexit270:                                     ; preds = %317, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIPNS0_3Far17PatchTableBuilder16LocalPointHelperELj4ELb0EE7SetSizeEj.exit, %271, %._crit_edge296
-  %.0162 = phi ptr [ %243, %271 ], [ null, %._crit_edge296 ], [ %243, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIPNS0_3Far17PatchTableBuilder16LocalPointHelperELj4ELb0EE7SetSizeEj.exit ], [ %243, %317 ]
+  %.0162 = phi ptr [ null, %._crit_edge296 ], [ %243, %271 ], [ %243, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIPNS0_3Far17PatchTableBuilder16LocalPointHelperELj4ELb0EE7SetSizeEj.exit ], [ %243, %317 ]
   store i8 0, ptr %9, align 8
   %331 = getelementptr inbounds nuw i8, ptr %9, i64 1
   store i8 0, ptr %331, align 1

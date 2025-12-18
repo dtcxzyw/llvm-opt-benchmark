@@ -83,7 +83,7 @@ l_strton.exit.thread.sink.split:                  ; preds = %7, %29
   br label %l_strton.exit.thread
 
 l_strton.exit.thread:                             ; preds = %l_strton.exit.thread.sink.split, %10, %l_strton.exit
-  %.0 = phi i32 [ 0, %l_strton.exit ], [ 0, %10 ], [ 1, %l_strton.exit.thread.sink.split ]
+  %.0 = phi i32 [ 0, %10 ], [ 0, %l_strton.exit ], [ 1, %l_strton.exit.thread.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -7650,7 +7650,7 @@ lessequalothers.exit:                             ; preds = %l_strcmp.exit.i2722
   br i1 %3133, label %.lr.ph3281, label %.loopexit, !prof !74
 
 .loopexit:                                        ; preds = %.lr.ph3281, %.lr.ph3284, %3118, %3088, %3102, %3116, %3083, %3077, %3030
-  %.103 = phi i32 [ %3035, %3030 ], [ %3080, %3077 ], [ 1, %3083 ], [ 1, %3102 ], [ %.32227, %3116 ], [ %.32227, %3088 ], [ %.32227, %3118 ], [ %.32227, %.lr.ph3284 ], [ %.32227, %.lr.ph3281 ]
+  %.103 = phi i32 [ %3035, %3030 ], [ %3080, %3077 ], [ 1, %3083 ], [ %.32227, %3088 ], [ 1, %3102 ], [ %.32227, %3116 ], [ %.32227, %3118 ], [ %.32227, %.lr.ph3284 ], [ %.32227, %.lr.ph3281 ]
   %3134 = getelementptr inbounds nuw i8, ptr %.1, i64 60
   %3135 = load i32, ptr %3134, align 4, !tbaa !71
   %3136 = and i32 %3135, 65536
@@ -7912,7 +7912,7 @@ l_strton.exit.i20.i.i:                            ; preds = %3260, %3257
   br label %luaV_tonumber_.exit.i.i
 
 luaV_tonumber_.exit.i.i:                          ; preds = %3268, %3246
-  %.124.i.i = phi double [ %3273, %3268 ], [ %3248, %3246 ]
+  %.124.i.i = phi double [ %3248, %3246 ], [ %3273, %3268 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %3275
 
@@ -8034,7 +8034,7 @@ l_strton.exit.i.i:                                ; preds = %3314, %3311
   br label %luaV_tonumber_.exit.i
 
 luaV_tonumber_.exit.i:                            ; preds = %3322, %3300
-  %.1101.i = phi double [ %3327, %3322 ], [ %3302, %3300 ]
+  %.1101.i = phi double [ %3302, %3300 ], [ %3327, %3322 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %3329
 
@@ -8106,7 +8106,7 @@ l_strton.exit.i76.i:                              ; preds = %3350, %3347
   br label %luaV_tonumber_.exit82.i
 
 luaV_tonumber_.exit82.i:                          ; preds = %3358, %3336
-  %.199.i = phi double [ %3363, %3358 ], [ %3338, %3336 ]
+  %.199.i = phi double [ %3338, %3336 ], [ %3363, %3358 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %3365
 
@@ -8177,7 +8177,7 @@ l_strton.exit.i84.i:                              ; preds = %3385, %3382
   br label %luaV_tonumber_.exit90.i
 
 luaV_tonumber_.exit90.i:                          ; preds = %3393, %3371
-  %.1103.i = phi double [ %3398, %3393 ], [ %3373, %3371 ]
+  %.1103.i = phi double [ %3373, %3371 ], [ %3398, %3393 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %3400
 

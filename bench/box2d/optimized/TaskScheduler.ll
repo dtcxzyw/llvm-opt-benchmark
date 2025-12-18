@@ -1616,9 +1616,9 @@ _ZN4enki21LockLessMultiReadPipeILh8ENS_10SubTaskSetEE17ReaderTryReadBackEPS1_.ex
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %_ZN4enki21LockLessMultiReadPipeILh8ENS_10SubTaskSetEE18WriterTryReadFrontEPS1_.exit, %_ZN4enki21LockLessMultiReadPipeILh8ENS_10SubTaskSetEE17ReaderTryReadBackEPS1_.exit
-  %.sroa.0.0.ph = phi ptr [ %.sroa.0.0.copyload86, %_ZN4enki21LockLessMultiReadPipeILh8ENS_10SubTaskSetEE17ReaderTryReadBackEPS1_.exit ], [ %.sroa.0.0.copyload85, %_ZN4enki21LockLessMultiReadPipeILh8ENS_10SubTaskSetEE18WriterTryReadFrontEPS1_.exit ], [ %.sroa.0.0.copyload87, %.loopexit.loopexit ]
-  %.sroa.11.0.ph = phi i64 [ %.sroa.11.0.copyload89, %_ZN4enki21LockLessMultiReadPipeILh8ENS_10SubTaskSetEE17ReaderTryReadBackEPS1_.exit ], [ %.sroa.11.0.copyload, %_ZN4enki21LockLessMultiReadPipeILh8ENS_10SubTaskSetEE18WriterTryReadFrontEPS1_.exit ], [ %.sroa.11.0.copyload91, %.loopexit.loopexit ]
-  %.044.ph = phi i32 [ %36, %_ZN4enki21LockLessMultiReadPipeILh8ENS_10SubTaskSetEE17ReaderTryReadBackEPS1_.exit ], [ %32, %_ZN4enki21LockLessMultiReadPipeILh8ENS_10SubTaskSetEE18WriterTryReadFrontEPS1_.exit ], [ %80, %.loopexit.loopexit ]
+  %.sroa.0.0.ph = phi ptr [ %.sroa.0.0.copyload85, %_ZN4enki21LockLessMultiReadPipeILh8ENS_10SubTaskSetEE18WriterTryReadFrontEPS1_.exit ], [ %.sroa.0.0.copyload86, %_ZN4enki21LockLessMultiReadPipeILh8ENS_10SubTaskSetEE17ReaderTryReadBackEPS1_.exit ], [ %.sroa.0.0.copyload87, %.loopexit.loopexit ]
+  %.sroa.11.0.ph = phi i64 [ %.sroa.11.0.copyload, %_ZN4enki21LockLessMultiReadPipeILh8ENS_10SubTaskSetEE18WriterTryReadFrontEPS1_.exit ], [ %.sroa.11.0.copyload89, %_ZN4enki21LockLessMultiReadPipeILh8ENS_10SubTaskSetEE17ReaderTryReadBackEPS1_.exit ], [ %.sroa.11.0.copyload91, %.loopexit.loopexit ]
+  %.044.ph = phi i32 [ %32, %_ZN4enki21LockLessMultiReadPipeILh8ENS_10SubTaskSetEE18WriterTryReadFrontEPS1_.exit ], [ %36, %_ZN4enki21LockLessMultiReadPipeILh8ENS_10SubTaskSetEE17ReaderTryReadBackEPS1_.exit ], [ %80, %.loopexit.loopexit ]
   store i32 %.044.ph, ptr %3, align 4, !tbaa !27
   %.sroa.11.12.extract.shift = lshr i64 %.sroa.11.0.ph, 32
   %.sroa.11.12.extract.trunc = trunc nuw i64 %.sroa.11.12.extract.shift to i32
@@ -1809,7 +1809,7 @@ _ZN4enki13TaskScheduler28WakeThreadsForTaskCompletionEv.exit.i66: ; preds = %_ZN
   br i1 %.not.i70, label %.critedge, label %.lr.ph.i68, !llvm.loop !42
 
 .critedge:                                        ; preds = %_ZN4enki21LockLessMultiReadPipeILh8ENS_10SubTaskSetEE17ReaderTryReadBackEPS1_.exit61, %199, %158, %.loopexit123, %_ZN4enki13TaskScheduler28WakeThreadsForTaskCompletionEv.exit.i66, %118, %_ZN4enki13TaskScheduler28WakeThreadsForTaskCompletionEv.exit.i, %159
-  %.0117 = phi i1 [ true, %118 ], [ true, %159 ], [ true, %_ZN4enki13TaskScheduler28WakeThreadsForTaskCompletionEv.exit.i ], [ true, %_ZN4enki13TaskScheduler28WakeThreadsForTaskCompletionEv.exit.i66 ], [ false, %.loopexit123 ], [ true, %199 ], [ true, %158 ], [ false, %_ZN4enki21LockLessMultiReadPipeILh8ENS_10SubTaskSetEE17ReaderTryReadBackEPS1_.exit61 ]
+  %.0117 = phi i1 [ false, %.loopexit123 ], [ true, %118 ], [ true, %159 ], [ true, %199 ], [ true, %_ZN4enki13TaskScheduler28WakeThreadsForTaskCompletionEv.exit.i ], [ true, %_ZN4enki13TaskScheduler28WakeThreadsForTaskCompletionEv.exit.i66 ], [ true, %158 ], [ false, %_ZN4enki21LockLessMultiReadPipeILh8ENS_10SubTaskSetEE17ReaderTryReadBackEPS1_.exit61 ]
   ret i1 %.0117
 }
 
@@ -2478,7 +2478,7 @@ _ZN4enki13TaskScheduler22WakeThreadsForNewTasksEv.exit.thread: ; preds = %18, %8
   br i1 %50, label %8, label %_ZN4enki13TaskScheduler22WakeThreadsForNewTasksEv.exit, !llvm.loop !119
 
 _ZN4enki13TaskScheduler22WakeThreadsForNewTasksEv.exit: ; preds = %_ZN4enki13TaskScheduler22WakeThreadsForNewTasksEv.exit.thread, %_ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit.i.i, %.lr.ph.i.i.i, %2, %_ZN4enki15SemaphoreSignalERNS_13semaphoreid_tEi.exit.i
-  %51 = phi i1 [ true, %_ZN4enki15SemaphoreSignalERNS_13semaphoreid_tEi.exit.i ], [ false, %2 ], [ true, %_ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit.i.i ], [ true, %.lr.ph.i.i.i ], [ false, %_ZN4enki13TaskScheduler22WakeThreadsForNewTasksEv.exit.thread ]
+  %51 = phi i1 [ true, %_ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit.i.i ], [ true, %.lr.ph.i.i.i ], [ true, %_ZN4enki15SemaphoreSignalERNS_13semaphoreid_tEi.exit.i ], [ false, %2 ], [ false, %_ZN4enki13TaskScheduler22WakeThreadsForNewTasksEv.exit.thread ]
   ret i1 %51
 }
 
@@ -3009,7 +3009,7 @@ _ZN4enki13TaskScheduler10TryRunTaskEjRj.exit:     ; preds = %.noexc
   br i1 %58, label %.lr.ph.i, label %_ZN12_GLOBAL__N_18SpinWaitEj.exit, !llvm.loop !68
 
 _ZN12_GLOBAL__N_18SpinWaitEj.exit:                ; preds = %.lr.ph.i, %46, %50, %47
-  %.145 = phi i32 [ 0, %47 ], [ %spec.store.select, %50 ], [ 0, %46 ], [ %spec.store.select, %.lr.ph.i ]
+  %.145 = phi i32 [ 0, %46 ], [ 0, %47 ], [ %spec.store.select, %50 ], [ %spec.store.select, %.lr.ph.i ]
   %59 = load i32, ptr %15, align 8, !tbaa !72
   %60 = icmp eq i32 %59, 0
   br i1 %60, label %.loopexit, label %.lr.ph
@@ -3109,7 +3109,7 @@ _ZN4enki13TaskScheduler9HaveTasksEj.exit:         ; preds = %_ZN4enki13TaskSched
   br i1 %.not52, label %.loopexit, label %.lr.ph80, !llvm.loop !134
 
 .loopexit:                                        ; preds = %62, %62, %62, %_ZN4enki13TaskScheduler9HaveTasksEj.exit, %78, %.lr.ph.i61, %_ZN12_GLOBAL__N_18SpinWaitEj.exit, %.preheader
-  %.3 = phi i1 [ false, %_ZN12_GLOBAL__N_18SpinWaitEj.exit ], [ false, %.preheader ], [ true, %.lr.ph.i61 ], [ %.5, %_ZN4enki13TaskScheduler9HaveTasksEj.exit ], [ true, %78 ], [ true, %62 ], [ true, %62 ], [ true, %62 ]
+  %.3 = phi i1 [ false, %_ZN12_GLOBAL__N_18SpinWaitEj.exit ], [ false, %.preheader ], [ %.5, %_ZN4enki13TaskScheduler9HaveTasksEj.exit ], [ true, %.lr.ph.i61 ], [ true, %78 ], [ true, %62 ], [ true, %62 ], [ true, %62 ]
   %93 = load atomic i8, ptr %12 acquire, align 8
   %94 = trunc i8 %93 to i1
   %95 = or i1 %22, %.3

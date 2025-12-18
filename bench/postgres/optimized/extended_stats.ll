@@ -2451,7 +2451,7 @@ stat_covers_expressions.exit.us:                  ; preds = %.lr.ph66.i.us, %.lr
   br i1 %.not57, label %87, label %108
 
 .critedge:                                        ; preds = %108, %.lr.ph78.split.us, %.lr.ph78.split.us.preheader, %.lr.ph78.split.split, %6
-  %.042.lcssa = phi ptr [ null, %6 ], [ null, %.lr.ph78.split.split ], [ null, %.lr.ph78.split.us.preheader ], [ %.1.us, %.lr.ph78.split.us ], [ %.1, %108 ]
+  %.042.lcssa = phi ptr [ null, %6 ], [ null, %.lr.ph78.split.split ], [ %.1.us, %.lr.ph78.split.us ], [ null, %.lr.ph78.split.us.preheader ], [ %.1, %108 ]
   ret ptr %.042.lcssa
 
 87:                                               ; preds = %.lr.ph
@@ -2949,7 +2949,7 @@ stat_covers_expressions.exit.i:                   ; preds = %.lr.ph.i.us.i.i, %.
   br label %92
 
 statext_mcv_clauselist_selectivity.exit:          ; preds = %46, %list_length.exit180.i, %list_length.exit180.thread.i, %37, %.lr.ph.i.i
-  %.0.i = phi double [ %18, %.lr.ph.i.i ], [ %18, %37 ], [ %.0144.i, %list_length.exit180.i ], [ %.0144.i, %list_length.exit180.thread.i ], [ %18, %46 ]
+  %.0.i = phi double [ %.0144.i, %list_length.exit180.i ], [ %18, %.lr.ph.i.i ], [ %18, %37 ], [ %.0144.i, %list_length.exit180.thread.i ], [ %18, %46 ]
   br i1 %7, label %223, label %220
 
 220:                                              ; preds = %statext_mcv_clauselist_selectivity.exit
@@ -3632,7 +3632,7 @@ is_andclause.exit:                                ; preds = %13
   br label %.critedge
 
 .critedge:                                        ; preds = %100, %76, %29, %list_length.exit86, %examine_opclause_args.exit95, %109, %list_length.exit, %59, %66, %56, %.lr.ph139, %128, %121, %.lr.ph, %116, %73, %141, %25, %15, %18, %21, %.thread118
-  %.1 = phi i1 [ true, %.thread118 ], [ false, %21 ], [ true, %141 ], [ false, %18 ], [ false, %15 ], [ true, %25 ], [ true, %116 ], [ true, %73 ], [ true, %.lr.ph ], [ true, %121 ], [ %135, %.lr.ph139 ], [ %135, %128 ], [ false, %56 ], [ false, %66 ], [ false, %59 ], [ false, %list_length.exit ], [ false, %109 ], [ false, %examine_opclause_args.exit95 ], [ false, %list_length.exit86 ], [ false, %29 ], [ false, %76 ], [ false, %100 ]
+  %.1 = phi i1 [ true, %.thread118 ], [ true, %.lr.ph ], [ true, %73 ], [ false, %21 ], [ true, %141 ], [ false, %18 ], [ false, %15 ], [ true, %25 ], [ true, %116 ], [ %135, %.lr.ph139 ], [ true, %121 ], [ %135, %128 ], [ false, %56 ], [ false, %66 ], [ false, %59 ], [ false, %list_length.exit ], [ false, %109 ], [ false, %examine_opclause_args.exit95 ], [ false, %list_length.exit86 ], [ false, %29 ], [ false, %76 ], [ false, %100 ]
   ret i1 %.1
 }
 

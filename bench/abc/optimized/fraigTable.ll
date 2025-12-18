@@ -700,7 +700,7 @@ define ptr @Fraig_HashTableLookupF0(ptr noundef readonly captures(none) %0, ptr 
   br label %Fraig_CompareSimInfo.exit
 
 Fraig_CompareSimInfo.exit:                        ; preds = %.lr.ph.split, %28, %40
-  %.02332 = phi ptr [ null, %40 ], [ %.02335.us, %28 ], [ %.02335, %.lr.ph.split ]
+  %.02332 = phi ptr [ %.02335.us, %28 ], [ null, %40 ], [ %.02335, %.lr.ph.split ]
   ret ptr %.02332
 }
 

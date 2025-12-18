@@ -681,7 +681,7 @@ thread-pre-split:                                 ; preds = %.thread13, %111
   br i1 %124, label %.loopexit, label %.preheader, !llvm.loop !19
 
 .loopexit:                                        ; preds = %.preheader, %.thread, %.loopexit16, %.thread7, %38, %29, %23
-  %125 = phi i32 [ 0, %23 ], [ -28, %38 ], [ -28, %.thread7 ], [ -95, %29 ], [ %115, %.loopexit16 ], [ -95, %.thread ], [ %115, %.preheader ]
+  %125 = phi i32 [ -95, %.thread ], [ 0, %23 ], [ -28, %38 ], [ -28, %.thread7 ], [ -95, %29 ], [ %115, %.loopexit16 ], [ %115, %.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

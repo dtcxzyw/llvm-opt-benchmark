@@ -647,7 +647,7 @@ _ZNSt14_Optional_baseIN4llvm5APIntELb0ELb0EED2Ev.exit63: ; preds = %33, %.crited
   br label %.loopexit
 
 .loopexit:                                        ; preds = %31, %81, %94, %98, %90, %_ZNSt14_Optional_baseIN4llvm5APIntELb0ELb0EED2Ev.exit63
-  %.1 = phi i1 [ false, %_ZNSt14_Optional_baseIN4llvm5APIntELb0ELb0EED2Ev.exit63 ], [ true, %90 ], [ true, %98 ], [ true, %94 ], [ true, %81 ], [ false, %31 ]
+  %.1 = phi i1 [ false, %_ZNSt14_Optional_baseIN4llvm5APIntELb0ELb0EED2Ev.exit63 ], [ true, %81 ], [ true, %90 ], [ true, %98 ], [ true, %94 ], [ false, %31 ]
   ret i1 %.1
 }
 
@@ -2992,7 +2992,7 @@ _ZN4llvm9Evaluator6setValEPNS_5ValueEPNS_8ConstantE.exit: ; preds = %889, %896
   br label %.thread518
 
 .thread518:                                       ; preds = %_ZN4llvm5APIntD2Ev.exit333, %358, %596, %_ZNK4llvm12MemIntrinsic10isVolatileEv.exit, %565, %598, %_ZN4llvm9Evaluator6getValEPNS_5ValueE.exit307, %_ZN4llvm3isaINS_16DbgInfoIntrinsicENS_8CallBaseEEEbRKT0_.exit.thread.thread, %_ZN4llvm11SmallVectorIPNS_8ConstantELj8EED2Ev.exit, %264, %_ZN4llvm9Evaluator6getValEPNS_5ValueE.exit292, %_ZN4llvm11SmallVectorIPNS_8ConstantELj6EED2Ev.exit, %210, %_ZN4llvm5APIntD2Ev.exit282, %52, %316, %.thread518.sink.split, %675, %799, %_ZN4llvm9Evaluator6getValEPNS_5ValueE.exit344, %_ZN4llvm9Evaluator6getValEPNS_5ValueE.exit357
-  %.38522 = phi i1 [ false, %799 ], [ false, %_ZN4llvm9Evaluator6getValEPNS_5ValueE.exit357 ], [ false, %675 ], [ false, %_ZN4llvm9Evaluator6getValEPNS_5ValueE.exit344 ], [ true, %.thread518.sink.split ], [ false, %316 ], [ false, %52 ], [ false, %_ZN4llvm5APIntD2Ev.exit282 ], [ false, %210 ], [ false, %_ZN4llvm11SmallVectorIPNS_8ConstantELj6EED2Ev.exit ], [ false, %_ZN4llvm9Evaluator6getValEPNS_5ValueE.exit292 ], [ false, %264 ], [ false, %_ZN4llvm11SmallVectorIPNS_8ConstantELj8EED2Ev.exit ], [ false, %_ZN4llvm3isaINS_16DbgInfoIntrinsicENS_8CallBaseEEEbRKT0_.exit.thread.thread ], [ false, %_ZN4llvm9Evaluator6getValEPNS_5ValueE.exit307 ], [ false, %598 ], [ false, %565 ], [ false, %_ZNK4llvm12MemIntrinsic10isVolatileEv.exit ], [ false, %596 ], [ false, %358 ], [ false, %_ZN4llvm5APIntD2Ev.exit333 ]
+  %.38522 = phi i1 [ false, %799 ], [ false, %_ZN4llvm9Evaluator6getValEPNS_5ValueE.exit357 ], [ false, %675 ], [ true, %.thread518.sink.split ], [ false, %_ZN4llvm9Evaluator6getValEPNS_5ValueE.exit344 ], [ false, %316 ], [ false, %52 ], [ false, %_ZN4llvm5APIntD2Ev.exit282 ], [ false, %210 ], [ false, %_ZN4llvm11SmallVectorIPNS_8ConstantELj6EED2Ev.exit ], [ false, %_ZN4llvm9Evaluator6getValEPNS_5ValueE.exit292 ], [ false, %264 ], [ false, %_ZN4llvm11SmallVectorIPNS_8ConstantELj8EED2Ev.exit ], [ false, %_ZN4llvm3isaINS_16DbgInfoIntrinsicENS_8CallBaseEEEbRKT0_.exit.thread.thread ], [ false, %_ZN4llvm9Evaluator6getValEPNS_5ValueE.exit307 ], [ false, %598 ], [ false, %565 ], [ false, %_ZNK4llvm12MemIntrinsic10isVolatileEv.exit ], [ false, %596 ], [ false, %358 ], [ false, %_ZN4llvm5APIntD2Ev.exit333 ]
   ret i1 %.38522
 }
 
@@ -3204,7 +3204,7 @@ tailrecurse.backedge:                             ; preds = %93, %59, %78, %._cr
   br i1 %100, label %tailrecurse.backedge, label %_ZL33isSimpleEnoughValueToCommitHelperPN4llvm8ConstantERNS_15SmallPtrSetImplIS1_EERKNS_10DataLayoutE.exit
 
 _ZL33isSimpleEnoughValueToCommitHelperPN4llvm8ConstantERNS_15SmallPtrSetImplIS1_EERKNS_10DataLayoutE.exit: ; preds = %93, %63, %53, %31, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i, %.lr.ph.i.i, %86, %.lr.ph43, %24, %29
-  %.0 = phi i1 [ %.not, %29 ], [ false, %24 ], [ %51, %.lr.ph43 ], [ false, %86 ], [ true, %.lr.ph.i.i ], [ true, %31 ], [ true, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ false, %93 ], [ false, %63 ], [ false, %53 ]
+  %.0 = phi i1 [ false, %24 ], [ true, %.lr.ph.i.i ], [ %.not, %29 ], [ %51, %.lr.ph43 ], [ false, %86 ], [ true, %31 ], [ true, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ false, %93 ], [ false, %63 ], [ false, %53 ]
   ret i1 %.0
 }
 
@@ -4155,7 +4155,7 @@ _ZN4llvm9Evaluator6setValEPNS_5ValueEPNS_8ConstantE.exit53: ; preds = %_ZN4llvm9
   br i1 %272, label %110, label %.loopexit, !llvm.loop !268
 
 .loopexit:                                        ; preds = %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i, %._crit_edge110, %.lr.ph.i.i, %._crit_edge, %180, %_ZNK4llvm10ReturnInst14getReturnValueEv.exit
-  %.2.ph = phi i1 [ true, %180 ], [ false, %_ZNK4llvm10ReturnInst14getReturnValueEv.exit ], [ false, %._crit_edge ], [ false, %.lr.ph.i.i ], [ false, %._crit_edge110 ], [ false, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ]
+  %.2.ph = phi i1 [ false, %_ZNK4llvm10ReturnInst14getReturnValueEv.exit ], [ true, %180 ], [ false, %._crit_edge ], [ false, %.lr.ph.i.i ], [ false, %._crit_edge110 ], [ false, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %273 = load i8, ptr %83, align 4, !tbaa !189, !range !20, !noundef !21
@@ -4636,8 +4636,8 @@ define linkonce_odr hidden { ptr, i64 } @_ZSt9__find_ifIN4llvm10SwitchInst16Case
   br label %.loopexit
 
 .loopexit:                                        ; preds = %36, %28, %20, %13, %70, %60, %49, %78
-  %.sroa.014.0.in.sroa.speculated = phi ptr [ %0, %60 ], [ %2, %78 ], [ %0, %49 ], [ %0, %70 ], [ %0, %13 ], [ %0, %20 ], [ %0, %28 ], [ %0, %36 ]
-  %.sroa.9.0 = phi i64 [ %.sroa.15.1, %60 ], [ %3, %78 ], [ %.sroa.15.0.lcssa, %49 ], [ %.sroa.15.2, %70 ], [ %37, %36 ], [ %29, %28 ], [ %21, %20 ], [ %.sroa.15.076, %13 ]
+  %.sroa.014.0.in.sroa.speculated = phi ptr [ %0, %60 ], [ %0, %70 ], [ %0, %49 ], [ %2, %78 ], [ %0, %13 ], [ %0, %20 ], [ %0, %28 ], [ %0, %36 ]
+  %.sroa.9.0 = phi i64 [ %.sroa.15.1, %60 ], [ %.sroa.15.2, %70 ], [ %.sroa.15.0.lcssa, %49 ], [ %3, %78 ], [ %37, %36 ], [ %29, %28 ], [ %21, %20 ], [ %.sroa.15.076, %13 ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.014.0.in.sroa.speculated, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.9.0, 1
   ret { ptr, i64 } %.fca.1.insert

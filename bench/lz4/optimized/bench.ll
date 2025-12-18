@@ -1563,7 +1563,7 @@ LZ4_buildCompressionParameters.exit.i:            ; preds = %97, %96, %93, %92
   br label %.thread392.us.i
 
 .thread392.us.i:                                  ; preds = %295, %304, %298
-  %.9.us.i = phi i32 [ 1, %304 ], [ 1, %298 ], [ %.7453.us.i, %295 ]
+  %.9.us.i = phi i32 [ 1, %298 ], [ 1, %304 ], [ %.7453.us.i, %295 ]
   %307 = add nuw i32 %.0299452.us.i, 1
   %exitcond560.not.i = icmp eq i32 %307, %.1316467.i
   br i1 %exitcond560.not.i, label %._crit_edge454.i, label %.preheader.us.i, !llvm.loop !54
@@ -1742,7 +1742,7 @@ LZ4_buildCompressionParameters.exit.i:            ; preds = %97, %96, %93, %92
   br i1 %390, label %176, label %.thread396.i, !llvm.loop !59
 
 .thread396.i:                                     ; preds = %389, %387, %._crit_edge484.i, %357
-  %.1.i = phi i32 [ 1, %._crit_edge484.i ], [ 1, %357 ], [ 1, %387 ], [ %.6.i, %389 ]
+  %.1.i = phi i32 [ 1, %357 ], [ 1, %._crit_edge484.i ], [ 1, %387 ], [ %.6.i, %389 ]
   %391 = load i32, ptr @g_displayLevel, align 4, !tbaa !4
   %392 = icmp ugt i32 %391, 1
   br i1 %392, label %393, label %396

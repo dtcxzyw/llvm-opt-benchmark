@@ -258,8 +258,8 @@ init.exit:                                        ; preds = %.init.exit_crit_edg
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.lr.ph70.i, %._crit_edge66.i, %74, %._crit_edge66.thread.i
-  %76 = phi ptr [ null, %._crit_edge66.i ], [ %75, %74 ], [ null, %._crit_edge66.thread.i ], [ %.pre.i, %.lr.ph70.i ]
-  %.not48629599.i = phi i1 [ true, %._crit_edge66.i ], [ %.not486295100.i, %74 ], [ true, %._crit_edge66.thread.i ], [ false, %.lr.ph70.i ]
+  %76 = phi ptr [ null, %._crit_edge66.thread.i ], [ null, %._crit_edge66.i ], [ %75, %74 ], [ %.pre.i, %.lr.ph70.i ]
+  %.not48629599.i = phi i1 [ true, %._crit_edge66.thread.i ], [ true, %._crit_edge66.i ], [ %.not486295100.i, %74 ], [ false, %.lr.ph70.i ]
   %77 = load i32, ptr @doTree, align 4, !tbaa !4
   %.not51.i = icmp eq i32 %77, 0
   br i1 %.not51.i, label %99, label %78

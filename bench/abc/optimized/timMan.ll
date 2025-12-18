@@ -511,8 +511,8 @@ Tim_ManBoxNum.exit:                               ; preds = %Tim_ManPoNum.exit
   br i1 %exitcond.not, label %.critedge, label %27, !llvm.loop !50
 
 .critedge:                                        ; preds = %39, %Tim_ManPoNum.exit, %Tim_ManBoxNum.exit
-  %.0118 = phi i32 [ %.0.i, %Tim_ManBoxNum.exit ], [ %.0.i, %Tim_ManPoNum.exit ], [ %.2120, %39 ]
-  %.0116 = phi i32 [ %.0.i144, %Tim_ManBoxNum.exit ], [ %.0.i144, %Tim_ManPoNum.exit ], [ %.2, %39 ]
+  %.0118 = phi i32 [ %.0.i, %Tim_ManPoNum.exit ], [ %.0.i, %Tim_ManBoxNum.exit ], [ %.2120, %39 ]
+  %.0116 = phi i32 [ %.0.i144, %Tim_ManPoNum.exit ], [ %.0.i144, %Tim_ManBoxNum.exit ], [ %.2, %39 ]
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %41 = load i32, ptr %40, align 8, !tbaa !12
   %42 = icmp eq i32 %.0118, %41
@@ -3211,7 +3211,7 @@ Tim_ManBoxNum.exit:                               ; preds = %1
   br i1 %exitcond.not, label %.critedge, label %6, !llvm.loop !111
 
 .critedge:                                        ; preds = %6, %1, %Tim_ManBoxNum.exit
-  %.0 = phi i32 [ 0, %Tim_ManBoxNum.exit ], [ 0, %1 ], [ %11, %6 ]
+  %.0 = phi i32 [ 0, %1 ], [ 0, %Tim_ManBoxNum.exit ], [ %11, %6 ]
   ret i32 %.0
 }
 

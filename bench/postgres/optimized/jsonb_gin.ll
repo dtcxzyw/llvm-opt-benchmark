@@ -1596,7 +1596,7 @@ define internal ptr @jsonb_ops__extract_nodes(ptr noundef readonly captures(none
   br label %46
 
 37:                                               ; preds = %26, %22, %23, %23
-  %38 = phi i1 [ false, %22 ], [ false, %26 ], [ true, %23 ], [ true, %23 ]
+  %38 = phi i1 [ true, %23 ], [ false, %22 ], [ true, %23 ], [ false, %26 ]
   %39 = tail call fastcc i64 @make_scalar_key(ptr noundef nonnull readonly %2, i1 noundef zeroext %38)
   %40 = tail call noundef ptr @palloc(i64 noundef 16) #7
   store i32 2, ptr %40, align 8

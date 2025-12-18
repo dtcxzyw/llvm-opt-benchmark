@@ -1235,8 +1235,8 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i.i.i.i.i.i: ; pr
   unreachable
 
 "_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h2e5c2224201b0165E.exit.i.i.i.i.i.i": ; preds = %159, %.split.us.i.i.i.i.loopexit1.i.i.i, %.lr.ph.split.split.i.i.i.i
-  %164 = phi i64 [ %136, %.lr.ph.split.split.i.i.i.i ], [ %12, %.split.us.i.i.i.i.loopexit1.i.i.i ], [ %157, %159 ]
-  %.promoted.i.i.i53.i.i.i.i = phi i64 [ %.promoted.i.i.i.i.i.i.i, %.lr.ph.split.split.i.i.i.i ], [ %12, %.split.us.i.i.i.i.loopexit1.i.i.i ], [ %157, %159 ]
+  %164 = phi i64 [ %12, %.split.us.i.i.i.i.loopexit1.i.i.i ], [ %136, %.lr.ph.split.split.i.i.i.i ], [ %157, %159 ]
+  %.promoted.i.i.i53.i.i.i.i = phi i64 [ %12, %.split.us.i.i.i.i.loopexit1.i.i.i ], [ %.promoted.i.i.i.i.i.i.i, %.lr.ph.split.split.i.i.i.i ], [ %157, %159 ]
   store i8 1, ptr %6, align 1, !alias.scope !137, !noalias !118
   %.not.i6.i.i.i.i.i.i = icmp ne i64 %.pre5.i.i.i.i.fr.i.i.i, %.lcssa222829.i.i.i.i
   %or.cond.not.i.i.i.i.i.i.i = select i1 %22, i1 true, i1 %.not.i6.i.i.i.i.i.i

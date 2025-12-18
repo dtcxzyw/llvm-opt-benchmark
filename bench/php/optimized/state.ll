@@ -6463,7 +6463,7 @@ switch.early.test:                                ; preds = %54
   br label %.thread
 
 .thread:                                          ; preds = %58, %56
-  %64 = phi i32 [ %.pre66, %58 ], [ %.fr, %56 ]
+  %64 = phi i32 [ %.fr, %56 ], [ %.pre66, %58 ]
   %65 = icmp ult i32 %64, 160
   br i1 %65, label %.thread.thread, label %.thread73
 

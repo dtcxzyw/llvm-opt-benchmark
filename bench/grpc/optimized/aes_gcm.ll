@@ -1901,7 +1901,7 @@ define internal fastcc noundef range(i32 0, 14) i32 @_ZL25aes_gcm_rekey_if_requi
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %3, %66, %10
-  %.0 = phi i32 [ 0, %10 ], [ 0, %66 ], [ 0, %3 ], [ 13, %.critedge.sink.split ]
+  %.0 = phi i32 [ 0, %10 ], [ 0, %3 ], [ 0, %66 ], [ 13, %.critedge.sink.split ]
   ret i32 %.0
 }
 

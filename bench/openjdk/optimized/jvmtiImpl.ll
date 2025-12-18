@@ -573,8 +573,8 @@ _ZN13GrowableCache6removeEi.exit:                 ; preds = %_ZN17GrowableArrayV
   br i1 %70, label %.lr.ph, label %tailrecurse._crit_edge
 
 tailrecurse._crit_edge:                           ; preds = %_ZN13GrowableCache6removeEi.exit, %13, %1
-  %71 = phi ptr [ %10, %1 ], [ %26, %13 ], [ %69, %_ZN13GrowableCache6removeEi.exit ]
-  %.lcssa17 = phi i32 [ %5, %1 ], [ %12, %13 ], [ %64, %_ZN13GrowableCache6removeEi.exit ]
+  %71 = phi ptr [ %26, %13 ], [ %10, %1 ], [ %69, %_ZN13GrowableCache6removeEi.exit ]
+  %.lcssa17 = phi i32 [ %12, %13 ], [ %5, %1 ], [ %64, %_ZN13GrowableCache6removeEi.exit ]
   %72 = sext i32 %.lcssa17 to i64
   %73 = getelementptr inbounds ptr, ptr %71, i64 %72
   store ptr null, ptr %73, align 8
@@ -2373,7 +2373,7 @@ _ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit:      ; preds = %17, %19, %23
   br i1 %or.cond, label %.loopexit, label %.lr.ph32, !llvm.loop !21
 
 .loopexit:                                        ; preds = %34, %.lr.ph32, %._crit_edge, %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit
-  %.0 = phi i1 [ true, %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit ], [ false, %._crit_edge ], [ %49, %.lr.ph32 ], [ true, %34 ]
+  %.0 = phi i1 [ false, %._crit_edge ], [ true, %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit ], [ %49, %.lr.ph32 ], [ true, %34 ]
   br i1 %.not.i, label %_ZN16SymbolHandleBaseILb1EED2Ev.exit, label %50
 
 50:                                               ; preds = %.loopexit
@@ -2551,13 +2551,13 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %85, %95
   br i1 %100, label %102, label %.sink.split
 
 .sink.split:                                      ; preds = %38, %98, %_ZNK7oopDesc5klassEv.exit, %78, %67, %26, %12, %16
-  %.sink = phi i32 [ 20, %_ZNK7oopDesc5klassEv.exit ], [ 20, %78 ], [ 34, %67 ], [ 35, %26 ], [ 35, %12 ], [ 35, %16 ], [ 34, %98 ], [ 35, %38 ]
+  %.sink = phi i32 [ 20, %_ZNK7oopDesc5klassEv.exit ], [ 20, %78 ], [ 34, %67 ], [ 34, %98 ], [ 35, %26 ], [ 35, %12 ], [ 35, %16 ], [ 35, %38 ]
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i32 %.sink, ptr %101, align 4
   br label %102
 
 102:                                              ; preds = %.sink.split, %70, %98, %16
-  %.0 = phi i1 [ true, %16 ], [ true, %98 ], [ true, %70 ], [ false, %.sink.split ]
+  %.0 = phi i1 [ true, %70 ], [ true, %98 ], [ true, %16 ], [ false, %.sink.split ]
   ret i1 %.0
 }
 
@@ -2639,7 +2639,7 @@ define hidden noundef zeroext i1 @_ZN20VM_BaseGetOrSetLocal22check_slot_type_no_
   br label %49
 
 49:                                               ; preds = %.sink.split, %43, %45
-  %.0 = phi i1 [ true, %45 ], [ true, %43 ], [ false, %.sink.split ]
+  %.0 = phi i1 [ true, %43 ], [ true, %45 ], [ false, %.sink.split ]
   ret i1 %.0
 }
 
@@ -2814,7 +2814,7 @@ _ZN20VM_BaseGetOrSetLocal22check_slot_type_no_lvtEP10javaVFrame.exit: ; preds = 
   store i32 %.sink.i, ptr %92, align 4
   br label %273
 
-93:                                               ; preds = %89, %87
+93:                                               ; preds = %87, %89
   %94 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %95 = load ptr, ptr %94, align 8
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 28
@@ -3670,7 +3670,7 @@ _ZNK6HandleclEv.exit30:                           ; preds = %40, %44
   br label %48
 
 48:                                               ; preds = %_ZNK6HandleclEv.exit30, %33
-  %.021 = phi ptr [ %35, %33 ], [ %47, %_ZNK6HandleclEv.exit30 ]
+  %.021 = phi ptr [ %47, %_ZNK6HandleclEv.exit30 ], [ %35, %33 ]
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.not2331 = icmp ne ptr %.021, null
   %50 = load i32, ptr %49, align 8

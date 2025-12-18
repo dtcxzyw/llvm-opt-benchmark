@@ -1236,8 +1236,8 @@ skip_prefix.exit70.i:                             ; preds = %78
   br i1 %exitcond155.not.i, label %skip_prefix.exit.thread.i, label %skip_prefix.exit.preheader.i, !llvm.loop !67
 
 skip_prefix.exit.thread.i:                        ; preds = %68, %skip_prefix.exit70.i, %.thread103.i, %replace_cstring.exit79.i, %111, %.thread97.i
-  %.189.i = phi ptr [ %.4.i, %111 ], [ %.5133.i.lcssa, %.thread103.i ], [ %128, %replace_cstring.exit79.i ], [ %.4.i, %.thread97.i ], [ %indvars.iv.i, %skip_prefix.exit70.i ], [ %.088.i, %68 ]
-  %.1.i = phi i32 [ %.39699.i, %111 ], [ %.39699.i, %.thread103.i ], [ %.39699.i, %replace_cstring.exit79.i ], [ %.39699.i, %.thread97.i ], [ %.049138.i, %skip_prefix.exit70.i ], [ %.049138.i, %68 ]
+  %.189.i = phi ptr [ %indvars.iv.i, %skip_prefix.exit70.i ], [ %.4.i, %.thread97.i ], [ %.4.i, %111 ], [ %.5133.i.lcssa, %.thread103.i ], [ %128, %replace_cstring.exit79.i ], [ %.088.i, %68 ]
+  %.1.i = phi i32 [ %.049138.i, %skip_prefix.exit70.i ], [ %.39699.i, %.thread97.i ], [ %.39699.i, %111 ], [ %.39699.i, %.thread103.i ], [ %.39699.i, %replace_cstring.exit79.i ], [ %.049138.i, %68 ]
   %140 = getelementptr inbounds nuw i8, ptr %.189.i, i64 1
   %141 = call ptr @strchrnul(ptr noundef nonnull %140, i32 noundef 10) #18
   %142 = load i8, ptr %141, align 1, !tbaa !33

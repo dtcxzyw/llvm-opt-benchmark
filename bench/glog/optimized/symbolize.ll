@@ -300,7 +300,7 @@ _ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit51: ; preds = %9
   br i1 %exitcond.not, label %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit41.thread, label %.lr.ph.split, !llvm.loop !21
 
 _ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit41.thread: ; preds = %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i37", %46, %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit51, %106, %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i47", %89, %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i47.us", %75, %.thread58, %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit51.us, %.preheader, %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit41
-  %.1 = phi i1 [ false, %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit41 ], [ %.5.ph, %.thread58 ], [ false, %.preheader ], [ false, %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit51.us ], [ false, %46 ], [ false, %75 ], [ false, %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i47.us" ], [ false, %89 ], [ false, %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i47" ], [ false, %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit51 ], [ false, %106 ], [ false, %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i37" ]
+  %.1 = phi i1 [ false, %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit41 ], [ false, %46 ], [ false, %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit51 ], [ %.5.ph, %.thread58 ], [ false, %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i47.us" ], [ false, %75 ], [ false, %89 ], [ false, %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i47" ], [ false, %.preheader ], [ false, %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit51.us ], [ false, %106 ], [ false, %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i37" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit.thread
 
@@ -373,7 +373,7 @@ define internal fastcc noundef range(i64 -1, -9223372036854775808) i64 @_ZN6goog
   unreachable
 
 "_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.thread": ; preds = %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit", %17, %24
-  %.2 = phi i64 [ %.122, %24 ], [ -1, %17 ], [ -1, %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit" ]
+  %.2 = phi i64 [ -1, %17 ], [ %.122, %24 ], [ -1, %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit" ]
   ret i64 %.2
 }
 
@@ -1524,7 +1524,7 @@ _ZN6google24glog_internal_namespace_L6GetHexEPKcS2_Pm.exit90: ; preds = %switch.
   unreachable
 
 .loopexit:                                        ; preds = %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i102", %166, %173
-  %.2.i101 = phi i64 [ %.122.i99, %173 ], [ -1, %166 ], [ -1, %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i102" ]
+  %.2.i101 = phi i64 [ -1, %166 ], [ %.122.i99, %173 ], [ -1, %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i102" ]
   %175 = icmp eq i64 %.2.i101, 56
   %176 = load i32, ptr %11, align 8
   %177 = icmp eq i32 %176, 1
@@ -2080,8 +2080,8 @@ _ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit.thread: ; preds
   %.not68.not = icmp samesign ugt i64 %24, %71
   br i1 %.not68.not, label %.lr.ph, label %.loopexit, !llvm.loop !53
 
-.loopexit.thread:                                 ; preds = %66, %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit.thread
-  %.4.ph = phi i1 [ false, %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit.thread ], [ true, %66 ]
+.loopexit.thread:                                 ; preds = %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit.thread, %66
+  %.4.ph = phi i1 [ true, %66 ], [ false, %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit31
 

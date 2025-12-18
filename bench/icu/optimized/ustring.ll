@@ -342,7 +342,7 @@ _ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit132.thread: ; preds = %.lr.ph180, %142
   br i1 %.not, label %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit, label %128, !llvm.loop !16
 
 _ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit:       ; preds = %29, %.lr.ph, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread, %41, %45, %.lr.ph168, %90, %87, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit132.thread, %137, %142, %._crit_edge195, %.loopexit, %.preheader, %.preheader.us, %100, %.preheader155, %.preheader152, %119, %.preheader142, %82, %118, %80, %68, %13, %7, %4
-  %.0 = phi ptr [ %0, %68 ], [ %0, %4 ], [ null, %7 ], [ %0, %13 ], [ null, %118 ], [ null, %.preheader152 ], [ null, %.preheader ], [ %81, %80 ], [ null, %82 ], [ %.092171, %41 ], [ null, %.preheader142 ], [ %0, %.preheader155 ], [ %.2184, %142 ], [ null, %119 ], [ null, %.loopexit ], [ %.09.i, %87 ], [ null, %.lr.ph168 ], [ %.193198.us, %.preheader.us ], [ null, %100 ], [ %.193198, %._crit_edge195 ], [ null, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit132.thread ], [ %.2184, %137 ], [ null, %90 ], [ %.092171, %45 ], [ null, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread ], [ null, %.lr.ph ], [ %30, %29 ]
+  %.0 = phi ptr [ %0, %68 ], [ %0, %4 ], [ null, %7 ], [ %0, %13 ], [ %.2184, %142 ], [ null, %119 ], [ null, %118 ], [ null, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread ], [ %.193198.us, %.preheader.us ], [ %0, %.preheader155 ], [ null, %82 ], [ null, %.lr.ph168 ], [ %81, %80 ], [ null, %.preheader ], [ null, %.preheader142 ], [ null, %.loopexit ], [ %.09.i, %87 ], [ null, %.preheader152 ], [ null, %100 ], [ %.193198, %._crit_edge195 ], [ null, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit132.thread ], [ %.2184, %137 ], [ null, %90 ], [ %.092171, %45 ], [ %.092171, %41 ], [ %30, %29 ], [ null, %.lr.ph ]
   ret ptr %.0
 }
 
@@ -422,7 +422,7 @@ _ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread: ; preds = %_ZL19isMatchAtCPBo
   br i1 %31, label %u_strFindFirst_77.exit, label %.lr.ph, !llvm.loop !7
 
 u_strFindFirst_77.exit:                           ; preds = %.lr.ph, %28, %15, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread, %21, %20, %.preheader13, %.preheader11.split, %7
-  %.0 = phi ptr [ null, %7 ], [ null, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread ], [ null, %.preheader11.split ], [ %0, %.preheader13 ], [ %.193.i28, %15 ], [ %.193.i28, %20 ], [ %.193.i28, %21 ], [ %29, %28 ], [ null, %.lr.ph ]
+  %.0 = phi ptr [ null, %.preheader11.split ], [ null, %7 ], [ %0, %.preheader13 ], [ null, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread ], [ %.193.i28, %15 ], [ %.193.i28, %20 ], [ %.193.i28, %21 ], [ %29, %28 ], [ null, %.lr.ph ]
   ret ptr %.0
 }
 
@@ -728,7 +728,7 @@ _ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i: ; preds = %77, %70, %63, %.
   br i1 %.not117.i, label %u_strFindFirst_77.exit, label %.lr.ph172.i, !llvm.loop !10
 
 u_strFindFirst_77.exit:                           ; preds = %.lr.ph.i, %56, %._crit_edge.i.loopexit.us, %48, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i.us9, %.lr.ph168.i.us, %68, %70, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i, %.lr.ph168.i, %.preheader150.i.us.us, %22, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i.us.us, %.preheader150.i.us, %30, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i.us, %2, %4, %6, %.preheader155.i, %.preheader152.i
-  %.0.i = phi ptr [ %0, %2 ], [ null, %4 ], [ %0, %6 ], [ %.092171.i.us.us, %.preheader150.i.us.us ], [ %0, %.preheader155.i ], [ null, %.preheader152.i ], [ %.092171.i.us6, %48 ], [ null, %.lr.ph168.i ], [ %.092171.i.us, %.preheader150.i.us ], [ %.092171.i, %68 ], [ null, %.lr.ph168.i.us ], [ %.092171.i.us, %30 ], [ null, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i.us ], [ null, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i.us.us ], [ %.092171.i.us.us, %22 ], [ null, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i ], [ %.092171.i, %70 ], [ %.092171.i.us6, %._crit_edge.i.loopexit.us ], [ null, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i.us9 ], [ null, %.lr.ph.i ], [ %57, %56 ]
+  %.0.i = phi ptr [ %.092171.i.us, %.preheader150.i.us ], [ %0, %2 ], [ null, %4 ], [ %0, %6 ], [ null, %.lr.ph168.i ], [ null, %.preheader152.i ], [ %0, %.preheader155.i ], [ null, %.lr.ph168.i.us ], [ %.092171.i, %70 ], [ %.092171.i.us6, %._crit_edge.i.loopexit.us ], [ %.092171.i.us.us, %22 ], [ %.092171.i.us, %30 ], [ null, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i.us ], [ %.092171.i.us.us, %.preheader150.i.us.us ], [ null, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i.us.us ], [ %.092171.i, %68 ], [ null, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i ], [ null, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i.us9 ], [ %.092171.i.us6, %48 ], [ null, %.lr.ph.i ], [ %57, %56 ]
   ret ptr %.0.i
 }
 
@@ -856,7 +856,7 @@ _ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.threadthread-pre-split.i: ; preds = %
   br i1 %.not, label %u_strchr_77.exit, label %.lr.ph, !llvm.loop !17
 
 u_strchr_77.exit:                                 ; preds = %51, %.lr.ph, %33, %.lr.ph.i, %.lr.ph29.i.us.us, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i.us.us, %.preheader.i, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.threadthread-pre-split.i, %26, %.lr.ph29.i.us, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.threadthread-pre-split.i.us, %39, %.preheader11.split.i, %10, %.preheader13.i, %37
-  %.0 = phi ptr [ null, %37 ], [ %0, %.preheader13.i ], [ %34, %33 ], [ null, %10 ], [ null, %39 ], [ null, %.preheader11.split.i ], [ %.193.i28.i.us.us, %.lr.ph29.i.us.us ], [ null, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.threadthread-pre-split.i.us ], [ null, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.threadthread-pre-split.i ], [ %.193.i28.i.us, %.lr.ph29.i.us ], [ %0, %.preheader.i ], [ %.193.i28.i, %26 ], [ null, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i.us.us ], [ null, %.lr.ph.i ], [ null, %51 ], [ %.01221, %.lr.ph ]
+  %.0 = phi ptr [ null, %37 ], [ null, %39 ], [ %34, %33 ], [ null, %.preheader11.split.i ], [ null, %10 ], [ %0, %.preheader13.i ], [ %.193.i28.i.us.us, %.lr.ph29.i.us.us ], [ null, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.threadthread-pre-split.i.us ], [ null, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.threadthread-pre-split.i ], [ %.193.i28.i.us, %.lr.ph29.i.us ], [ %0, %.preheader.i ], [ %.193.i28.i, %26 ], [ null, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i.us.us ], [ null, %.lr.ph.i ], [ null, %51 ], [ %.01221, %.lr.ph ]
   ret ptr %.0
 }
 
@@ -1120,7 +1120,7 @@ _ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread: ; preds = %.lr.ph111, %75, %6
   br i1 %.not, label %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit, label %.lr.ph, !llvm.loop !22
 
 _ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit:       ; preds = %45, %41, %.preheader75, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread, %74, %75, %55, %36, %54, %19, %7, %4
-  %.0 = phi ptr [ %0, %19 ], [ %0, %4 ], [ null, %7 ], [ null, %54 ], [ null, %36 ], [ null, %55 ], [ %spec.select.i, %.preheader75 ], [ %.051.lcssa, %75 ], [ null, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread ], [ %.051.lcssa, %74 ], [ null, %45 ], [ %42, %41 ]
+  %.0 = phi ptr [ %0, %19 ], [ %0, %4 ], [ null, %7 ], [ %spec.select.i, %.preheader75 ], [ null, %54 ], [ null, %36 ], [ null, %55 ], [ %.051.lcssa, %75 ], [ null, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread ], [ %.051.lcssa, %74 ], [ null, %45 ], [ %42, %41 ]
   ret ptr %.0
 }
 
@@ -1224,7 +1224,7 @@ _ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i.us18: ; preds = %32, %.lr.ph
   br i1 %38, label %u_strFindLast_77.exit, label %.preheader, !llvm.loop !19
 
 u_strFindLast_77.exit:                            ; preds = %.preheader, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i.us, %.preheader.i.preheader.us, %24, %.preheader.i.preheader.us20, %32, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i.us18, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i.us.us, %.lr.ph.i.us.us, %u_strlen_77.exit69.i, %5
-  %.0 = phi ptr [ null, %u_strlen_77.exit69.i ], [ null, %5 ], [ null, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i.us.us ], [ %0, %.preheader.i.preheader.us ], [ %29, %32 ], [ %18, %.lr.ph.i.us.us ], [ %29, %.preheader.i.preheader.us20 ], [ null, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i.us18 ], [ null, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i.us ], [ %21, %24 ], [ %spec.select, %.preheader ]
+  %.0 = phi ptr [ %29, %32 ], [ null, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i.us.us ], [ null, %u_strlen_77.exit69.i ], [ null, %5 ], [ null, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i.us ], [ %18, %.lr.ph.i.us.us ], [ %29, %.preheader.i.preheader.us20 ], [ null, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i.us18 ], [ %21, %24 ], [ %0, %.preheader.i.preheader.us ], [ %spec.select, %.preheader ]
   ret ptr %.0
 }
 
@@ -1404,7 +1404,7 @@ _ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i.us18.i: ; preds = %35, %.lr.
   br i1 %.not, label %u_strrchr_77.exit, label %.lr.ph, !llvm.loop !23
 
 u_strrchr_77.exit:                                ; preds = %.lr.ph, %.preheader.i, %.preheader.i.preheader.us.i, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i.us.i, %27, %.preheader.i.preheader.us20.i, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i.us18.i, %35, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i.us.us.i, %.lr.ph.i.us.us.i, %45, %u_strlen_77.exit69.i.i, %8, %43
-  %.0 = phi ptr [ null, %43 ], [ null, %u_strlen_77.exit69.i.i ], [ null, %8 ], [ null, %45 ], [ %spec.select.i, %.preheader.i ], [ null, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i.us.us.i ], [ %32, %35 ], [ %24, %27 ], [ %21, %.lr.ph.i.us.us.i ], [ null, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i.us18.i ], [ %32, %.preheader.i.preheader.us20.i ], [ %0, %.preheader.i.preheader.us.i ], [ null, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i.us.i ], [ %.1, %.lr.ph ]
+  %.0 = phi ptr [ null, %43 ], [ %24, %27 ], [ null, %45 ], [ %spec.select.i, %.preheader.i ], [ null, %u_strlen_77.exit69.i.i ], [ null, %8 ], [ %32, %35 ], [ null, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i.us.us.i ], [ %21, %.lr.ph.i.us.us.i ], [ null, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i.us18.i ], [ %32, %.preheader.i.preheader.us20.i ], [ null, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i.us.i ], [ %0, %.preheader.i.preheader.us.i ], [ %.1, %.lr.ph ]
   ret ptr %.0
 }
 
@@ -1746,7 +1746,7 @@ define internal fastcc noundef i32 @_ZL13_matchFromSetPKDsS0_a(ptr noundef reado
   br label %.loopexit96
 
 .loopexit94:                                      ; preds = %74, %93, %.preheader98
-  %.179 = phi i32 [ %71, %.preheader98 ], [ %.280, %93 ], [ %71, %74 ]
+  %.179 = phi i32 [ %.280, %93 ], [ %71, %.preheader98 ], [ %71, %74 ]
   %122 = sext i32 %.179 to i64
   %123 = getelementptr inbounds i16, ptr %0, i64 %122
   %124 = load i16, ptr %123, align 2, !tbaa !3
@@ -1760,7 +1760,7 @@ define internal fastcc noundef i32 @_ZL13_matchFromSetPKDsS0_a(ptr noundef reado
   br label %.loopexit96
 
 .loopexit96:                                      ; preds = %.lr.ph, %.preheader95.us, %22, %._crit_edge, %.split.us, %117
-  %.0 = phi i32 [ %119, %117 ], [ %121, %.split.us ], [ %126, %._crit_edge ], [ %.078114.us, %.preheader95.us ], [ %.078114.us, %22 ], [ %.078114, %.lr.ph ]
+  %.0 = phi i32 [ %119, %117 ], [ %121, %.split.us ], [ %126, %._crit_edge ], [ %.078114.us, %22 ], [ %.078114.us, %.preheader95.us ], [ %.078114, %.lr.ph ]
   ret i32 %.0
 }
 
@@ -2146,7 +2146,7 @@ u_strlen_77.exit141:                              ; preds = %.preheader142
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph, %30, %60, %24, %53, %22, %10, %108
-  %.0100 = phi i32 [ %111, %108 ], [ 0, %10 ], [ 0, %22 ], [ %.0, %53 ], [ 0, %24 ], [ 0, %30 ], [ %.0, %60 ], [ 0, %.lr.ph ]
+  %.0100 = phi i32 [ 0, %24 ], [ %111, %108 ], [ 0, %10 ], [ %.0, %60 ], [ 0, %22 ], [ %.0, %53 ], [ 0, %30 ], [ 0, %.lr.ph ]
   ret i32 %.0100
 }
 
@@ -2260,7 +2260,7 @@ define i32 @u_strCompareIter_77(ptr noundef %0, ptr noundef %1, i8 noundef signe
   br label %.loopexit
 
 .loopexit:                                        ; preds = %21, %3, %69
-  %.044 = phi i32 [ 0, %3 ], [ %70, %69 ], [ 0, %21 ]
+  %.044 = phi i32 [ %70, %69 ], [ 0, %3 ], [ 0, %21 ]
   ret i32 %.044
 }
 
@@ -2388,7 +2388,7 @@ define range(i32 -65535, 65536) i32 @u_strcmpCodePointOrder_77(ptr noundef reado
   br label %uprv_strCompare_77.exit
 
 uprv_strCompare_77.exit:                          ; preds = %.lr.ph.i, %2, %49
-  %.0100.i = phi i32 [ %52, %49 ], [ 0, %2 ], [ 0, %.lr.ph.i ]
+  %.0100.i = phi i32 [ 0, %2 ], [ %52, %49 ], [ 0, %.lr.ph.i ]
   ret i32 %.0100.i
 }
 
@@ -2556,7 +2556,7 @@ define i32 @u_countChar32_77(ptr noundef readonly captures(address_is_null) %0, 
   br i1 %35, label %.loopexit, label %.lr.ph, !llvm.loop !54
 
 .loopexit:                                        ; preds = %33, %20, %.preheader30, %.preheader, %2
-  %.0 = phi i32 [ 0, %2 ], [ 0, %.preheader ], [ 0, %.preheader30 ], [ %9, %20 ], [ %25, %33 ]
+  %.0 = phi i32 [ 0, %2 ], [ %9, %20 ], [ 0, %.preheader ], [ 0, %.preheader30 ], [ %25, %33 ]
   ret i32 %.0
 }
 
@@ -2808,9 +2808,9 @@ define range(i32 -1, 1084293120) i32 @u_unescapeAt_77(ptr noundef readonly captu
   br i1 %24, label %.thread207, label %.critedge.preheader
 
 25:                                               ; preds = %13, %16, %8, %19, %12
-  %.0112 = phi i32 [ 1, %13 ], [ 4, %8 ], [ 8, %12 ], [ 1, %19 ], [ 1, %16 ]
-  %.0111 = phi i32 [ 2, %13 ], [ 4, %8 ], [ 8, %12 ], [ 8, %19 ], [ 2, %16 ]
-  %.not136 = phi i1 [ true, %13 ], [ true, %8 ], [ true, %12 ], [ false, %19 ], [ true, %16 ]
+  %.0112 = phi i32 [ 1, %16 ], [ 1, %13 ], [ 4, %8 ], [ 8, %12 ], [ 1, %19 ]
+  %.0111 = phi i32 [ 2, %16 ], [ 2, %13 ], [ 4, %8 ], [ 8, %12 ], [ 8, %19 ]
+  %.not136 = phi i1 [ true, %16 ], [ true, %13 ], [ true, %8 ], [ true, %12 ], [ false, %19 ]
   %26 = load i32, ptr %1, align 4, !tbaa !59
   %27 = icmp slt i32 %26, %2
   br i1 %27, label %.lr.ph.split, label %_ZL8_digit16Ds.exit.thread.thread
@@ -2904,11 +2904,11 @@ _ZL8_digit16Ds.exit.thread.loopexit:              ; preds = %.lr.ph.split.us
   br label %_ZL8_digit16Ds.exit.thread
 
 _ZL8_digit16Ds.exit.thread:                       ; preds = %_ZL8_digit16Ds.exit.thread147, %58, %_ZL8_digit16Ds.exit.thread.loopexit, %.lr.ph.split.us.preheader, %_ZL8_digit16Ds.exit.thread147.us._ZL8_digit16Ds.exit.thread.loopexit_crit_edge
-  %.not136220 = phi i1 [ true, %.lr.ph.split.us.preheader ], [ true, %_ZL8_digit16Ds.exit.thread147.us._ZL8_digit16Ds.exit.thread.loopexit_crit_edge ], [ true, %_ZL8_digit16Ds.exit.thread.loopexit ], [ %.not136, %58 ], [ %.not136, %_ZL8_digit16Ds.exit.thread147 ]
-  %.0112216 = phi i32 [ 1, %.lr.ph.split.us.preheader ], [ 1, %_ZL8_digit16Ds.exit.thread147.us._ZL8_digit16Ds.exit.thread.loopexit_crit_edge ], [ 1, %_ZL8_digit16Ds.exit.thread.loopexit ], [ %.0112, %58 ], [ %.0112, %_ZL8_digit16Ds.exit.thread147 ]
-  %.1116.lcssa = phi i32 [ %28, %.lr.ph.split.us.preheader ], [ %40, %_ZL8_digit16Ds.exit.thread147.us._ZL8_digit16Ds.exit.thread.loopexit_crit_edge ], [ %40, %_ZL8_digit16Ds.exit.thread.loopexit ], [ %63, %_ZL8_digit16Ds.exit.thread147 ], [ %.1116159, %58 ]
-  %.lcssa = phi i32 [ 1, %.lr.ph.split.us.preheader ], [ %71, %_ZL8_digit16Ds.exit.thread147.us._ZL8_digit16Ds.exit.thread.loopexit_crit_edge ], [ %72, %_ZL8_digit16Ds.exit.thread.loopexit ], [ %68, %_ZL8_digit16Ds.exit.thread147 ], [ %47, %58 ]
-  %.1103 = phi i32 [ %32, %.lr.ph.split.us.preheader ], [ %37, %_ZL8_digit16Ds.exit.thread147.us._ZL8_digit16Ds.exit.thread.loopexit_crit_edge ], [ %35, %_ZL8_digit16Ds.exit.thread.loopexit ], [ %50, %58 ], [ %50, %_ZL8_digit16Ds.exit.thread147 ]
+  %.not136220 = phi i1 [ true, %.lr.ph.split.us.preheader ], [ true, %_ZL8_digit16Ds.exit.thread.loopexit ], [ true, %_ZL8_digit16Ds.exit.thread147.us._ZL8_digit16Ds.exit.thread.loopexit_crit_edge ], [ %.not136, %58 ], [ %.not136, %_ZL8_digit16Ds.exit.thread147 ]
+  %.0112216 = phi i32 [ 1, %.lr.ph.split.us.preheader ], [ 1, %_ZL8_digit16Ds.exit.thread.loopexit ], [ 1, %_ZL8_digit16Ds.exit.thread147.us._ZL8_digit16Ds.exit.thread.loopexit_crit_edge ], [ %.0112, %58 ], [ %.0112, %_ZL8_digit16Ds.exit.thread147 ]
+  %.1116.lcssa = phi i32 [ %28, %.lr.ph.split.us.preheader ], [ %40, %_ZL8_digit16Ds.exit.thread.loopexit ], [ %40, %_ZL8_digit16Ds.exit.thread147.us._ZL8_digit16Ds.exit.thread.loopexit_crit_edge ], [ %.1116159, %58 ], [ %63, %_ZL8_digit16Ds.exit.thread147 ]
+  %.lcssa = phi i32 [ 1, %.lr.ph.split.us.preheader ], [ %72, %_ZL8_digit16Ds.exit.thread.loopexit ], [ %71, %_ZL8_digit16Ds.exit.thread147.us._ZL8_digit16Ds.exit.thread.loopexit_crit_edge ], [ %47, %58 ], [ %68, %_ZL8_digit16Ds.exit.thread147 ]
+  %.1103 = phi i32 [ %32, %.lr.ph.split.us.preheader ], [ %35, %_ZL8_digit16Ds.exit.thread.loopexit ], [ %37, %_ZL8_digit16Ds.exit.thread147.us._ZL8_digit16Ds.exit.thread.loopexit_crit_edge ], [ %50, %58 ], [ %50, %_ZL8_digit16Ds.exit.thread147 ]
   %73 = icmp sgt i32 %.0112216, %.lcssa
   br i1 %73, label %_ZL8_digit16Ds.exit.thread.thread, label %74
 

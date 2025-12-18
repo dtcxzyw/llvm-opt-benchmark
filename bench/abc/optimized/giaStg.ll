@@ -510,7 +510,7 @@ Vec_VecStart.exit:                                ; preds = %.lr.ph.i, %Vec_VecA
   br i1 %97, label %.loopexit189, label %93
 
 .loopexit189:                                     ; preds = %.lr.ph222, %.lr.ph233, %.loopexit192, %.lr.ph248, %.loopexit201, %.lr.ph, %69, %46, %Vec_VecStart.exit, %._crit_edge
-  %.0179 = phi ptr [ %4, %._crit_edge ], [ null, %Vec_VecStart.exit ], [ null, %46 ], [ null, %69 ], [ %4, %.lr.ph233 ], [ %4, %.lr.ph ], [ null, %.loopexit201 ], [ %4, %.lr.ph248 ], [ null, %.loopexit192 ], [ %4, %.lr.ph222 ]
+  %.0179 = phi ptr [ %4, %._crit_edge ], [ null, %69 ], [ null, %.loopexit201 ], [ %4, %.lr.ph ], [ null, %.loopexit192 ], [ null, %Vec_VecStart.exit ], [ %4, %.lr.ph233 ], [ null, %46 ], [ %4, %.lr.ph248 ], [ %4, %.lr.ph222 ]
   ret ptr %.0179
 }
 
@@ -2954,9 +2954,9 @@ Vec_IntPush.exit70:                               ; preds = %Vec_IntPush.exit70.
   br i1 %.not4571, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !92
 
 .outer._crit_edge:                                ; preds = %Vec_IntPush.exit70, %.backedge, %17
-  %.039.ph.lcssa = phi i32 [ -1, %17 ], [ %.039.ph78, %.backedge ], [ %.140, %Vec_IntPush.exit70 ]
-  %.038.ph.lcssa = phi i32 [ -1, %17 ], [ %.038.ph79, %.backedge ], [ %.1, %Vec_IntPush.exit70 ]
-  %.037.ph.lcssa = phi i32 [ 1, %17 ], [ %.037.ph80, %.backedge ], [ %74, %Vec_IntPush.exit70 ]
+  %.039.ph.lcssa = phi i32 [ %.039.ph78, %.backedge ], [ -1, %17 ], [ %.140, %Vec_IntPush.exit70 ]
+  %.038.ph.lcssa = phi i32 [ %.038.ph79, %.backedge ], [ -1, %17 ], [ %.1, %Vec_IntPush.exit70 ]
+  %.037.ph.lcssa = phi i32 [ %.037.ph80, %.backedge ], [ 1, %17 ], [ %74, %Vec_IntPush.exit70 ]
   %107 = call i32 @fclose(ptr noundef nonnull %13)
   %.not46 = icmp eq ptr %1, null
   br i1 %.not46, label %109, label %108

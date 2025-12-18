@@ -1435,7 +1435,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINSt7__cxx1112basic_stri
   br label %.noexc115.i
 
 .noexc115.i:                                      ; preds = %423, %417
-  %425 = phi ptr [ %424, %423 ], [ %422, %417 ]
+  %425 = phi ptr [ %422, %417 ], [ %424, %423 ]
   %.not16.i.i = icmp eq ptr %425, null
   br i1 %.not16.i.i, label %.noexc115.i.thread, label %426
 
@@ -4960,7 +4960,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit.thread2.i378
           to label %_ZN32pxrInternal_v0_24__pxrReserved__L8_GetInfoIdEEPKT_RKNS_12VtDictionaryERKNS_7TfTokenE.exit388 unwind label %.loopexit581
 
 _ZN32pxrInternal_v0_24__pxrReserved__L8_GetInfoIdEEPKT_RKNS_12VtDictionaryERKNS_7TfTokenE.exit388: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit.thread2.i378, %1836
-  %1842 = phi ptr [ %1822, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit.thread2.i378 ], [ %1841, %1836 ]
+  %1842 = phi ptr [ %1841, %1836 ], [ %1822, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit.thread2.i378 ]
   %1843 = icmp ne ptr %1736, null
   %1844 = icmp ne ptr %1789, null
   %or.cond = and i1 %1843, %1844
@@ -14389,26 +14389,26 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_13PcpLa
   %.not.i.i.i.i.i = icmp eq i64 %273, 0
   %274 = and i64 %.0.copyload.i6.i.i.i.i.i, 4294967295
   %.not.i.i.i.i = icmp eq i64 %274, 0
-  br i1 %.not.i.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i.i.i, label %275
+  br i1 %.not.i.i.i.i.i, label %276, label %275
 
 275:                                              ; preds = %272
-  br i1 %.not.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i.i.i, label %276
+  br i1 %.not.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i.i.i
 
-276:                                              ; preds = %275
+276:                                              ; preds = %272
+  br i1 %.not.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i.i.i, label %_ZNSt15__tuple_compareISt5tupleIJRKN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS1_13PcpLayerStackEEERKNS1_7SdfPathERKmEESC_Lm0ELm3EE6__lessERKSC_SF_.exit.thread.i.i
+
+_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i.i.i: ; preds = %275
   %277 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %245, ptr noundef nonnull align 4 dereferenceable(8) %45)
-  br i1 %277, label %_ZNSt15__tuple_compareISt5tupleIJRKN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS1_13PcpLayerStackEEERKNS1_7SdfPathERKmEESC_Lm0ELm3EE6__lessERKSC_SF_.exit.thread.i.i, label %._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i.i.i
+  br i1 %277, label %_ZNSt15__tuple_compareISt5tupleIJRKN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS1_13PcpLayerStackEEERKNS1_7SdfPathERKmEESC_Lm0ELm3EE6__lessERKSC_SF_.exit.thread.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i.i.i
 
-._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i.i.i: ; preds = %276
+_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i.i.i
   %.0.copyload.i.i6.pre.i.i.i.i = load i64, ptr %45, align 4
   %.0.copyload.i6.i7.pre.i.i.i.i = load i64, ptr %245, align 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i.i.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i.i.i: ; preds = %272
-  br i1 %.not.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i.i.i, label %_ZNSt15__tuple_compareISt5tupleIJRKN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS1_13PcpLayerStackEEERKNS1_7SdfPathERKmEESC_Lm0ELm3EE6__lessERKSC_SF_.exit.thread.i.i
-
-_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i.i.i, %._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i.i.i, %275
-  %.0.copyload.i6.i7.i.i.i.i = phi i64 [ %.0.copyload.i6.i7.pre.i.i.i.i, %._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i.i.i ], [ %.0.copyload.i.i.i.i.i.i, %275 ], [ %.0.copyload.i.i.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i.i.i ]
-  %.0.copyload.i.i6.i.i.i.i = phi i64 [ %.0.copyload.i.i6.pre.i.i.i.i, %._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i.i.i ], [ %.0.copyload.i6.i.i.i.i.i, %275 ], [ %.0.copyload.i6.i.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i.i.i ]
+_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i.i.i, %276, %275
+  %.0.copyload.i6.i7.i.i.i.i = phi i64 [ %.0.copyload.i6.i7.pre.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i.i.i ], [ %.0.copyload.i.i.i.i.i.i, %275 ], [ %.0.copyload.i.i.i.i.i.i, %276 ]
+  %.0.copyload.i.i6.i.i.i.i = phi i64 [ %.0.copyload.i.i6.pre.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i.i.i ], [ %.0.copyload.i6.i.i.i.i.i, %275 ], [ %.0.copyload.i6.i.i.i.i.i, %276 ]
   %278 = icmp eq i64 %.0.copyload.i.i6.i.i.i.i, %.0.copyload.i6.i7.i.i.i.i
   br i1 %278, label %_ZNSt15__tuple_compareISt5tupleIJRKN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS1_13PcpLayerStackEEERKNS1_7SdfPathERKmEESC_Lm0ELm3EE6__lessERKSC_SF_.exit.i.i, label %279
 
@@ -14417,17 +14417,17 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i.i.i: ; pr
   %.not.i8.i.i.i.i = icmp eq i64 %280, 0
   %281 = and i64 %.0.copyload.i6.i7.i.i.i.i, 4294967295
   %.not14.i.i.i.i = icmp eq i64 %281, 0
-  br i1 %.not.i8.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.i.i.i.i, label %282
+  br i1 %.not.i8.i.i.i.i, label %283, label %282
 
 282:                                              ; preds = %279
-  br i1 %.not14.i.i.i.i, label %_ZNSt15__tuple_compareISt5tupleIJRKN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS1_13PcpLayerStackEEERKNS1_7SdfPathERKmEESC_Lm0ELm3EE6__lessERKSC_SF_.exit.i.i, label %283
+  br i1 %.not14.i.i.i.i, label %_ZNSt15__tuple_compareISt5tupleIJRKN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS1_13PcpLayerStackEEERKNS1_7SdfPathERKmEESC_Lm0ELm3EE6__lessERKSC_SF_.exit.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.i.i.i.i
 
-283:                                              ; preds = %282
+283:                                              ; preds = %279
+  br i1 %.not14.i.i.i.i, label %_ZNSt15__tuple_compareISt5tupleIJRKN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS1_13PcpLayerStackEEERKNS1_7SdfPathERKmEESC_Lm0ELm3EE6__lessERKSC_SF_.exit.i.i, label %_ZNSt15__tuple_compareISt5tupleIJRKN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS1_13PcpLayerStackEEERKNS1_7SdfPathERKmEESC_Lm0ELm3EE6__lessERKSC_SF_.exit.thread58.i.i.preheader
+
+_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.i.i.i.i: ; preds = %282
   %284 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %45, ptr noundef nonnull align 4 dereferenceable(8) %245)
   br i1 %284, label %_ZNSt15__tuple_compareISt5tupleIJRKN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS1_13PcpLayerStackEEERKNS1_7SdfPathERKmEESC_Lm0ELm3EE6__lessERKSC_SF_.exit.thread58.i.i.preheader, label %_ZNSt15__tuple_compareISt5tupleIJRKN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS1_13PcpLayerStackEEERKNS1_7SdfPathERKmEESC_Lm0ELm3EE6__lessERKSC_SF_.exit.i.i
-
-_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.i.i.i.i: ; preds = %279
-  br i1 %.not14.i.i.i.i, label %_ZNSt15__tuple_compareISt5tupleIJRKN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS1_13PcpLayerStackEEERKNS1_7SdfPathERKmEESC_Lm0ELm3EE6__lessERKSC_SF_.exit.i.i, label %_ZNSt15__tuple_compareISt5tupleIJRKN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS1_13PcpLayerStackEEERKNS1_7SdfPathERKmEESC_Lm0ELm3EE6__lessERKSC_SF_.exit.thread58.i.i.preheader
 
 _ZNSt15__tuple_compareISt5tupleIJRKN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS1_13PcpLayerStackEEERKNS1_7SdfPathERKmEESC_Lm0ELm3EE6__lessERKSC_SF_.exit.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.i.i.i.i, %283, %282, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_13PcpLayerStackEEltIS2_EEbRKNS1_IT_EE.exit11.thread.i.i.i
   %285 = load i64, ptr %246, align 8
@@ -14507,53 +14507,53 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_13PcpLa
   %.not.i.i.i23.i.i = icmp eq i64 %317, 0
   %318 = and i64 %.0.copyload.i6.i.i.i22.i.i, 4294967295
   %.not.i.i24.i.i = icmp eq i64 %318, 0
-  br i1 %.not.i.i.i23.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i37.i.i, label %319
+  br i1 %.not.i.i.i23.i.i, label %320, label %319
 
 319:                                              ; preds = %316
-  br i1 %.not.i.i24.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i30.i.i, label %320
+  br i1 %.not.i.i24.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i31.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i25.i.i
 
-320:                                              ; preds = %319
+320:                                              ; preds = %316
+  br i1 %.not.i.i24.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i31.i.i, label %_ZNSt15__tuple_compareISt5tupleIJRKN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS1_13PcpLayerStackEEERKNS1_7SdfPathERKmEESC_Lm0ELm3EE6__lessERKSC_SF_.exit.thread58.i.i.backedge
+
+_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i25.i.i: ; preds = %319
   %321 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %45, ptr noundef nonnull align 4 dereferenceable(8) %289)
-  br i1 %321, label %_ZNSt15__tuple_compareISt5tupleIJRKN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS1_13PcpLayerStackEEERKNS1_7SdfPathERKmEESC_Lm0ELm3EE6__lessERKSC_SF_.exit.thread58.i.i.backedge, label %._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i25.i.i
+  br i1 %321, label %_ZNSt15__tuple_compareISt5tupleIJRKN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS1_13PcpLayerStackEEERKNS1_7SdfPathERKmEESC_Lm0ELm3EE6__lessERKSC_SF_.exit.thread58.i.i.backedge, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i26.i.i
 
-._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i25.i.i: ; preds = %320
-  %.0.copyload.i.i6.pre.i.i28.i.i = load i64, ptr %289, align 4
-  %.0.copyload.i6.i7.pre.i.i29.i.i = load i64, ptr %45, align 4
-  br label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i30.i.i
+_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i26.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i25.i.i
+  %.0.copyload.i.i6.pre.i.i29.i.i = load i64, ptr %289, align 4
+  %.0.copyload.i6.i7.pre.i.i30.i.i = load i64, ptr %45, align 4
+  br label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i31.i.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i37.i.i: ; preds = %316
-  br i1 %.not.i.i24.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i30.i.i, label %_ZNSt15__tuple_compareISt5tupleIJRKN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS1_13PcpLayerStackEEERKNS1_7SdfPathERKmEESC_Lm0ELm3EE6__lessERKSC_SF_.exit.thread58.i.i.backedge
-
-_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i30.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i37.i.i, %._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i25.i.i, %319
-  %.0.copyload.i6.i7.i.i31.i.i = phi i64 [ %.0.copyload.i6.i7.pre.i.i29.i.i, %._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i25.i.i ], [ %.0.copyload.i.i.i.i21.i.i, %319 ], [ %.0.copyload.i.i.i.i21.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i37.i.i ]
-  %.0.copyload.i.i6.i.i32.i.i = phi i64 [ %.0.copyload.i.i6.pre.i.i28.i.i, %._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i25.i.i ], [ %.0.copyload.i6.i.i.i22.i.i, %319 ], [ %.0.copyload.i6.i.i.i22.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i37.i.i ]
-  %322 = icmp eq i64 %.0.copyload.i.i6.i.i32.i.i, %.0.copyload.i6.i7.i.i31.i.i
+_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i31.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i26.i.i, %320, %319
+  %.0.copyload.i6.i7.i.i32.i.i = phi i64 [ %.0.copyload.i6.i7.pre.i.i30.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i26.i.i ], [ %.0.copyload.i.i.i.i21.i.i, %319 ], [ %.0.copyload.i.i.i.i21.i.i, %320 ]
+  %.0.copyload.i.i6.i.i33.i.i = phi i64 [ %.0.copyload.i.i6.pre.i.i29.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i.i26.i.i ], [ %.0.copyload.i6.i.i.i22.i.i, %319 ], [ %.0.copyload.i6.i.i.i22.i.i, %320 ]
+  %322 = icmp eq i64 %.0.copyload.i.i6.i.i33.i.i, %.0.copyload.i6.i7.i.i32.i.i
   br i1 %322, label %_ZNSt15__tuple_compareISt5tupleIJRKN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS1_13PcpLayerStackEEERKNS1_7SdfPathERKmEESC_Lm0ELm3EE6__lessERKSC_SF_.exit38.i.i, label %323
 
-323:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i30.i.i
-  %324 = and i64 %.0.copyload.i.i6.i.i32.i.i, 4294967295
-  %.not.i8.i.i33.i.i = icmp eq i64 %324, 0
-  %325 = and i64 %.0.copyload.i6.i7.i.i31.i.i, 4294967295
-  %.not14.i.i34.i.i = icmp eq i64 %325, 0
-  br i1 %.not.i8.i.i33.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.i.i36.i.i, label %326
+323:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i31.i.i
+  %324 = and i64 %.0.copyload.i.i6.i.i33.i.i, 4294967295
+  %.not.i8.i.i34.i.i = icmp eq i64 %324, 0
+  %325 = and i64 %.0.copyload.i6.i7.i.i32.i.i, 4294967295
+  %.not14.i.i35.i.i = icmp eq i64 %325, 0
+  br i1 %.not.i8.i.i34.i.i, label %327, label %326
 
 326:                                              ; preds = %323
-  br i1 %.not14.i.i34.i.i, label %_ZNSt15__tuple_compareISt5tupleIJRKN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS1_13PcpLayerStackEEERKNS1_7SdfPathERKmEESC_Lm0ELm3EE6__lessERKSC_SF_.exit38.i.i, label %327
+  br i1 %.not14.i.i35.i.i, label %_ZNSt15__tuple_compareISt5tupleIJRKN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS1_13PcpLayerStackEEERKNS1_7SdfPathERKmEESC_Lm0ELm3EE6__lessERKSC_SF_.exit38.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.i.i36.i.i
 
-327:                                              ; preds = %326
+327:                                              ; preds = %323
+  br i1 %.not14.i.i35.i.i, label %_ZNSt15__tuple_compareISt5tupleIJRKN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS1_13PcpLayerStackEEERKNS1_7SdfPathERKmEESC_Lm0ELm3EE6__lessERKSC_SF_.exit38.i.i, label %_ZNSt15__tuple_compareISt5tupleIJRKN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS1_13PcpLayerStackEEERKNS1_7SdfPathERKmEESC_Lm0ELm3EE6__lessERKSC_SF_.exit38.thread62.i.i
+
+_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.i.i36.i.i: ; preds = %326
   %328 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %289, ptr noundef nonnull align 4 dereferenceable(8) %45)
   br i1 %328, label %_ZNSt15__tuple_compareISt5tupleIJRKN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS1_13PcpLayerStackEEERKNS1_7SdfPathERKmEESC_Lm0ELm3EE6__lessERKSC_SF_.exit38.thread62.i.i, label %_ZNSt15__tuple_compareISt5tupleIJRKN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS1_13PcpLayerStackEEERKNS1_7SdfPathERKmEESC_Lm0ELm3EE6__lessERKSC_SF_.exit38.i.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.i.i36.i.i: ; preds = %323
-  br i1 %.not14.i.i34.i.i, label %_ZNSt15__tuple_compareISt5tupleIJRKN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS1_13PcpLayerStackEEERKNS1_7SdfPathERKmEESC_Lm0ELm3EE6__lessERKSC_SF_.exit38.i.i, label %_ZNSt15__tuple_compareISt5tupleIJRKN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS1_13PcpLayerStackEEERKNS1_7SdfPathERKmEESC_Lm0ELm3EE6__lessERKSC_SF_.exit38.thread62.i.i
-
-_ZNSt15__tuple_compareISt5tupleIJRKN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS1_13PcpLayerStackEEERKNS1_7SdfPathERKmEESC_Lm0ELm3EE6__lessERKSC_SF_.exit38.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.i.i36.i.i, %327, %326, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i30.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_13PcpLayerStackEEltIS2_EEbRKNS1_IT_EE.exit11.thread.i20.i.i
+_ZNSt15__tuple_compareISt5tupleIJRKN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS1_13PcpLayerStackEEERKNS1_7SdfPathERKmEESC_Lm0ELm3EE6__lessERKSC_SF_.exit38.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.i.i36.i.i, %327, %326, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i.i31.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_13PcpLayerStackEEltIS2_EEbRKNS1_IT_EE.exit11.thread.i20.i.i
   %329 = load i64, ptr %94, align 8
   %330 = load i64, ptr %290, align 8
   %331 = icmp ult i64 %329, %330
   br i1 %331, label %_ZNSt15__tuple_compareISt5tupleIJRKN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS1_13PcpLayerStackEEERKNS1_7SdfPathERKmEESC_Lm0ELm3EE6__lessERKSC_SF_.exit.thread58.i.i.backedge, label %_ZNSt15__tuple_compareISt5tupleIJRKN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS1_13PcpLayerStackEEERKNS1_7SdfPathERKmEESC_Lm0ELm3EE6__lessERKSC_SF_.exit38.thread62.i.i
 
-_ZNSt15__tuple_compareISt5tupleIJRKN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS1_13PcpLayerStackEEERKNS1_7SdfPathERKmEESC_Lm0ELm3EE6__lessERKSC_SF_.exit.thread58.i.i.backedge: ; preds = %_ZNSt15__tuple_compareISt5tupleIJRKN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS1_13PcpLayerStackEEERKNS1_7SdfPathERKmEESC_Lm0ELm3EE6__lessERKSC_SF_.exit38.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i37.i.i, %320, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_13PcpLayerStackEEltIS2_EEbRKNS1_IT_EE.exit.i13.i.i
+_ZNSt15__tuple_compareISt5tupleIJRKN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS1_13PcpLayerStackEEERKNS1_7SdfPathERKmEESC_Lm0ELm3EE6__lessERKSC_SF_.exit.thread58.i.i.backedge: ; preds = %_ZNSt15__tuple_compareISt5tupleIJRKN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS1_13PcpLayerStackEEERKNS1_7SdfPathERKmEESC_Lm0ELm3EE6__lessERKSC_SF_.exit38.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i25.i.i, %320, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_13PcpLayerStackEEltIS2_EEbRKNS1_IT_EE.exit.i13.i.i
   br label %_ZNSt15__tuple_compareISt5tupleIJRKN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS1_13PcpLayerStackEEERKNS1_7SdfPathERKmEESC_Lm0ELm3EE6__lessERKSC_SF_.exit.thread58.i.i, !llvm.loop !170
 
 _ZNSt15__tuple_compareISt5tupleIJRKN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS1_13PcpLayerStackEEERKNS1_7SdfPathERKmEESC_Lm0ELm3EE6__lessERKSC_SF_.exit38.thread62.i.i: ; preds = %_ZNSt15__tuple_compareISt5tupleIJRKN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS1_13PcpLayerStackEEERKNS1_7SdfPathERKmEESC_Lm0ELm3EE6__lessERKSC_SF_.exit38.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.i.i36.i.i, %327, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_13PcpLayerStackEEltIS2_EEbRKNS1_IT_EE.exit11.i19.i.i
@@ -15185,30 +15185,30 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_13PcpLa
   %.not.i.i = icmp eq i64 %43, 0
   %44 = and i64 %.0.copyload.i6.i.i, 4294967295
   %.not.i = icmp eq i64 %44, 0
-  br i1 %.not.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i, label %45
+  br i1 %.not.i.i, label %46, label %45
 
 45:                                               ; preds = %42
-  br i1 %.not.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i, label %46
+  br i1 %.not.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i
 
-46:                                               ; preds = %45
+46:                                               ; preds = %42
+  br i1 %.not.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i, label %_ZNSt15__tuple_compareISt5tupleIJRKN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS1_13PcpLayerStackEEERKNS1_7SdfPathERKmEESC_Lm1ELm3EE6__lessERKSC_SF_.exit
+
+_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i: ; preds = %45
   %47 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %38, ptr noundef nonnull align 4 dereferenceable(8) %40)
-  br i1 %47, label %_ZNSt15__tuple_compareISt5tupleIJRKN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS1_13PcpLayerStackEEERKNS1_7SdfPathERKmEESC_Lm1ELm3EE6__lessERKSC_SF_.exit, label %._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i
+  br i1 %47, label %_ZNSt15__tuple_compareISt5tupleIJRKN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS1_13PcpLayerStackEEERKNS1_7SdfPathERKmEESC_Lm1ELm3EE6__lessERKSC_SF_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i
 
-._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i: ; preds = %46
+_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i
   %.pre.i = load ptr, ptr %39, align 8
   %.pre15.i = load ptr, ptr %37, align 8
   %.0.copyload.i.i6.pre.i = load i64, ptr %.pre.i, align 4
   %.0.copyload.i6.i7.pre.i = load i64, ptr %.pre15.i, align 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i: ; preds = %42
-  br i1 %.not.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i, label %_ZNSt15__tuple_compareISt5tupleIJRKN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS1_13PcpLayerStackEEERKNS1_7SdfPathERKmEESC_Lm1ELm3EE6__lessERKSC_SF_.exit
-
-_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i, %._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i, %45
-  %.0.copyload.i6.i7.i = phi i64 [ %.0.copyload.i6.i7.pre.i, %._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i ], [ %.0.copyload.i.i.i, %45 ], [ %.0.copyload.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i ]
-  %.0.copyload.i.i6.i = phi i64 [ %.0.copyload.i.i6.pre.i, %._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i ], [ %.0.copyload.i6.i.i, %45 ], [ %.0.copyload.i6.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i ]
-  %48 = phi ptr [ %.pre15.i, %._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i ], [ %38, %45 ], [ %38, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i ]
-  %49 = phi ptr [ %.pre.i, %._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i ], [ %40, %45 ], [ %40, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i ]
+_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i, %46, %45
+  %.0.copyload.i6.i7.i = phi i64 [ %.0.copyload.i6.i7.pre.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i ], [ %.0.copyload.i.i.i, %45 ], [ %.0.copyload.i.i.i, %46 ]
+  %.0.copyload.i.i6.i = phi i64 [ %.0.copyload.i.i6.pre.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i ], [ %.0.copyload.i6.i.i, %45 ], [ %.0.copyload.i6.i.i, %46 ]
+  %48 = phi ptr [ %.pre15.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i ], [ %38, %45 ], [ %38, %46 ]
+  %49 = phi ptr [ %.pre.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit._ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread_crit_edge.i ], [ %40, %45 ], [ %40, %46 ]
   %50 = icmp eq i64 %.0.copyload.i.i6.i, %.0.copyload.i6.i7.i
   br i1 %50, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.thread.i, label %51
 
@@ -15217,17 +15217,17 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i: ; preds = 
   %.not.i8.i = icmp eq i64 %52, 0
   %53 = and i64 %.0.copyload.i6.i7.i, 4294967295
   %.not14.i = icmp eq i64 %53, 0
-  br i1 %.not.i8.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.i, label %54
+  br i1 %.not.i8.i, label %55, label %54
 
 54:                                               ; preds = %51
-  br i1 %.not14.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.thread.i, label %55
+  br i1 %.not14.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.thread.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.i
 
-55:                                               ; preds = %54
+55:                                               ; preds = %51
+  br i1 %.not14.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.thread.i, label %_ZNSt15__tuple_compareISt5tupleIJRKN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS1_13PcpLayerStackEEERKNS1_7SdfPathERKmEESC_Lm1ELm3EE6__lessERKSC_SF_.exit
+
+_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.i: ; preds = %54
   %56 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %49, ptr noundef nonnull align 4 dereferenceable(8) %48)
   br i1 %56, label %_ZNSt15__tuple_compareISt5tupleIJRKN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS1_13PcpLayerStackEEERKNS1_7SdfPathERKmEESC_Lm1ELm3EE6__lessERKSC_SF_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.thread.i
-
-_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.i: ; preds = %51
-  br i1 %.not14.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.thread.i, label %_ZNSt15__tuple_compareISt5tupleIJRKN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS1_13PcpLayerStackEEERKNS1_7SdfPathERKmEESC_Lm1ELm3EE6__lessERKSC_SF_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.thread.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.i, %55, %54, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.thread.i, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_13PcpLayerStackEEltIS2_EEbRKNS1_IT_EE.exit11.thread
   %57 = load ptr, ptr %0, align 8

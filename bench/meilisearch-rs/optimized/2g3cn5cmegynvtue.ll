@@ -2376,7 +2376,7 @@ _ZN10serde_json3ser9Formatter9end_array17hae6f10287f2e9dbdE.exit.i9.i.i: ; preds
   br label %"_ZN5serde3ser5impls76_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$9serialize17hb2b951907705fd9fE.exit"
 
 "_ZN5serde3ser5impls76_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$9serialize17hb2b951907705fd9fE.exit": ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h0301d700524eb0b6E.exit.i.i.i.i", %._crit_edge.thread.i.i, %_ZN10serde_json3ser9Formatter9end_array17hae6f10287f2e9dbdE.exit.i9.i.i
-  %.sroa.0.1 = phi ptr [ null, %_ZN10serde_json3ser9Formatter9end_array17hae6f10287f2e9dbdE.exit.i9.i.i ], [ null, %._crit_edge.thread.i.i ], [ %56, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h0301d700524eb0b6E.exit.i.i.i.i" ]
+  %.sroa.0.1 = phi ptr [ null, %._crit_edge.thread.i.i ], [ null, %_ZN10serde_json3ser9Formatter9end_array17hae6f10287f2e9dbdE.exit.i9.i.i ], [ %56, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h0301d700524eb0b6E.exit.i.i.i.i" ]
   ret ptr %.sroa.0.1
 }
 

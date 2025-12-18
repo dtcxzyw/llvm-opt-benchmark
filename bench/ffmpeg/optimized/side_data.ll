@@ -584,7 +584,7 @@ av_frame_side_data_get.exit.thread:               ; preds = %41, %av_frame_side_
   br label %replace_side_data_from_buf.exit
 
 replace_side_data_from_buf.exit:                  ; preds = %70, %47
-  %.0 = phi ptr [ %43, %47 ], [ %69, %70 ]
+  %.0 = phi ptr [ %69, %70 ], [ %43, %47 ]
   br i1 %.not, label %79, label %replace_side_data_from_buf.exit.thread.thread
 
 79:                                               ; preds = %replace_side_data_from_buf.exit

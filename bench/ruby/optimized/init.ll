@@ -1208,7 +1208,7 @@ switch.lookup:                                    ; preds = %26
   br label %wait_connectable.exit
 
 wait_connectable.exit:                            ; preds = %22, %rb_num2int_inline.exit.i, %41, %44, %44, %44, %44, %44, %44, %44, %.sink.split.i
-  %.0.i = phi i32 [ -1, %22 ], [ -1, %41 ], [ -1, %rb_num2int_inline.exit.i ], [ 0, %44 ], [ 0, %44 ], [ 0, %44 ], [ 0, %44 ], [ 0, %44 ], [ 0, %44 ], [ 0, %44 ], [ -1, %.sink.split.i ]
+  %.0.i = phi i32 [ 0, %44 ], [ -1, %22 ], [ -1, %41 ], [ -1, %rb_num2int_inline.exit.i ], [ 0, %44 ], [ 0, %44 ], [ 0, %44 ], [ 0, %44 ], [ 0, %44 ], [ 0, %44 ], [ -1, %.sink.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %48

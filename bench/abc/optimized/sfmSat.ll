@@ -1043,7 +1043,7 @@ Abc_Clock.exit262:                                ; preds = %512, %517
   br label %.loopexit
 
 .loopexit:                                        ; preds = %238, %462, %.critedge20, %Abc_Clock.exit262
-  %.0 = phi i32 [ %514, %Abc_Clock.exit262 ], [ 0, %.critedge20 ], [ 0, %462 ], [ 0, %238 ]
+  %.0 = phi i32 [ %514, %Abc_Clock.exit262 ], [ 0, %462 ], [ 0, %.critedge20 ], [ 0, %238 ]
   ret i32 %.0
 }
 

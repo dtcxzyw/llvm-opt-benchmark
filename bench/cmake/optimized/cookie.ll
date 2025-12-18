@@ -1706,7 +1706,7 @@ sub_0:                                            ; preds = %469
   br label %replace_existing.exit
 
 replace_existing.exit:                            ; preds = %596, %._crit_edge.i98, %497
-  %.0101 = phi i8 [ %.176.i, %._crit_edge.i98 ], [ %.176.i, %596 ], [ 0, %497 ]
+  %.0101 = phi i8 [ 0, %497 ], [ %.176.i, %596 ], [ %.176.i, %._crit_edge.i98 ]
   %616 = load ptr, ptr %498, align 8, !tbaa !111
   %617 = call fastcc i64 @cookiehash(ptr noundef %616)
   %618 = getelementptr inbounds nuw %struct.Curl_llist, ptr %1, i64 %617
@@ -1778,7 +1778,7 @@ replace_existing.exit:                            ; preds = %596, %._crit_edge.i
   store i64 %653, ptr %655, align 8, !tbaa !88
   br label %675
 
-parse_cookie_header.exit.thread:                  ; preds = %sanitize_cookie_path.exit.i, %99, %100, %245, %133, %147, %591, %sub_0, %543, %555, %551, %544, %cookie_tailmatch.exit.thread.i, %115, %54, %240, %66, %62, %55, %84, %80, %73, %301, %127, %123, %116, %244, %sanitize_cookie_path.exit.thread347.i, %72, %233, %.thread382.i, %335, %284, %.thread394.i, %17, %parse_cookie_header.exit.thread108, %461, %485, %468, %469, %.tail
+parse_cookie_header.exit.thread:                  ; preds = %sanitize_cookie_path.exit.i, %99, %100, %245, %133, %147, %591, %sub_0, %544, %551, %555, %543, %cookie_tailmatch.exit.thread.i, %115, %54, %240, %66, %62, %55, %84, %80, %73, %301, %127, %123, %116, %244, %sanitize_cookie_path.exit.thread347.i, %72, %233, %.thread382.i, %335, %284, %.thread394.i, %17, %parse_cookie_header.exit.thread108, %461, %485, %468, %469, %.tail
   %659 = load ptr, ptr @Curl_cfree, align 8, !tbaa !86
   %660 = getelementptr inbounds nuw i8, ptr %15, i64 96
   %661 = load ptr, ptr %660, align 8, !tbaa !111
@@ -2591,7 +2591,7 @@ get_netscape_format.exit.i:                       ; preds = %19, %15
   br label %cookie_list.exit
 
 cookie_list.exit:                                 ; preds = %._crit_edge.i, %1, %5, %.thread.sink.split.i
-  %.0.i = phi ptr [ null, %1 ], [ null, %5 ], [ null, %.thread.sink.split.i ], [ %.122.lcssa.i, %._crit_edge.i ]
+  %.0.i = phi ptr [ null, %1 ], [ null, %.thread.sink.split.i ], [ null, %5 ], [ %.122.lcssa.i, %._crit_edge.i ]
   %45 = tail call i32 @Curl_share_unlock(ptr noundef %0, i32 noundef 2) #12
   ret ptr %.0.i
 }

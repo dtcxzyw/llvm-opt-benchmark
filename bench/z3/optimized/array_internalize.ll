@@ -2176,9 +2176,9 @@ _ZNK17array_recognizers8is_constEP4expr.exit:     ; preds = %_ZNK17array_recogni
   br label %"_ZZNK5array6solver9is_sharedEiENK3$_2clEPN3euf5enodeE.exit"
 
 "_ZZNK5array6solver9is_sharedEiENK3$_2clEPN3euf5enodeE.exit": ; preds = %"_ZZNK5array6solver9is_sharedEiENK3$_1clEPN3euf5enodeE.exit62", %"_ZZNK5array6solver9is_sharedEiENK3$_2clEPN3euf5enodeE.exit.sink.split", %44, %"_ZZNK5array6solver9is_sharedEiENK3$_0clEPN3euf5enodeE.exit61", %.lr.ph, %_ZNK17array_recognizers8is_constEP4expr.exit
-  %.179 = phi i8 [ %.07898, %_ZNK17array_recognizers8is_constEP4expr.exit ], [ %.07898, %.lr.ph ], [ %.07898, %44 ], [ %.07898, %"_ZZNK5array6solver9is_sharedEiENK3$_0clEPN3euf5enodeE.exit61" ], [ %spec.select90, %"_ZZNK5array6solver9is_sharedEiENK3$_2clEPN3euf5enodeE.exit.sink.split" ], [ %.07898, %"_ZZNK5array6solver9is_sharedEiENK3$_1clEPN3euf5enodeE.exit62" ]
-  %.276 = phi i8 [ %.07499, %_ZNK17array_recognizers8is_constEP4expr.exit ], [ %.07499, %.lr.ph ], [ %.07499, %44 ], [ %.07499, %"_ZZNK5array6solver9is_sharedEiENK3$_0clEPN3euf5enodeE.exit61" ], [ %.276.ph, %"_ZZNK5array6solver9is_sharedEiENK3$_2clEPN3euf5enodeE.exit.sink.split" ], [ %spec.select89, %"_ZZNK5array6solver9is_sharedEiENK3$_1clEPN3euf5enodeE.exit62" ]
-  %.1 = phi i8 [ %.073100, %_ZNK17array_recognizers8is_constEP4expr.exit ], [ %.073100, %.lr.ph ], [ %.073100, %44 ], [ %spec.select88, %"_ZZNK5array6solver9is_sharedEiENK3$_0clEPN3euf5enodeE.exit61" ], [ %.1.ph, %"_ZZNK5array6solver9is_sharedEiENK3$_2clEPN3euf5enodeE.exit.sink.split" ], [ %spec.select88, %"_ZZNK5array6solver9is_sharedEiENK3$_1clEPN3euf5enodeE.exit62" ]
+  %.179 = phi i8 [ %.07898, %_ZNK17array_recognizers8is_constEP4expr.exit ], [ %.07898, %"_ZZNK5array6solver9is_sharedEiENK3$_0clEPN3euf5enodeE.exit61" ], [ %.07898, %44 ], [ %.07898, %.lr.ph ], [ %spec.select90, %"_ZZNK5array6solver9is_sharedEiENK3$_2clEPN3euf5enodeE.exit.sink.split" ], [ %.07898, %"_ZZNK5array6solver9is_sharedEiENK3$_1clEPN3euf5enodeE.exit62" ]
+  %.276 = phi i8 [ %.07499, %_ZNK17array_recognizers8is_constEP4expr.exit ], [ %.07499, %"_ZZNK5array6solver9is_sharedEiENK3$_0clEPN3euf5enodeE.exit61" ], [ %.07499, %44 ], [ %.07499, %.lr.ph ], [ %.276.ph, %"_ZZNK5array6solver9is_sharedEiENK3$_2clEPN3euf5enodeE.exit.sink.split" ], [ %spec.select89, %"_ZZNK5array6solver9is_sharedEiENK3$_1clEPN3euf5enodeE.exit62" ]
+  %.1 = phi i8 [ %.073100, %_ZNK17array_recognizers8is_constEP4expr.exit ], [ %spec.select88, %"_ZZNK5array6solver9is_sharedEiENK3$_0clEPN3euf5enodeE.exit61" ], [ %.073100, %44 ], [ %.073100, %.lr.ph ], [ %.1.ph, %"_ZZNK5array6solver9is_sharedEiENK3$_2clEPN3euf5enodeE.exit.sink.split" ], [ %spec.select88, %"_ZZNK5array6solver9is_sharedEiENK3$_1clEPN3euf5enodeE.exit62" ]
   %narrow = add nuw nsw i8 %.276, %.179
   %narrow41 = add nuw nsw i8 %narrow, %.1
   %92 = icmp ugt i8 %narrow41, 1
@@ -2326,7 +2326,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN5array6solver9
   br i1 %.not27.old.i.i.i, label %.loopexit, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %37, %34
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %37 ], [ %36, %34 ]
+  %.137.i.i.i.be = phi ptr [ %36, %34 ], [ %.old.i.i.i, %37 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !220
 
 _ZNK7obj_mapI4sortP10ref_vectorI9func_decl11ast_managerEE4findEPS0_RS5_.exit: ; preds = %18, %29
@@ -5075,7 +5075,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI4sortP10ref_vecto
   br i1 %.not32.old, label %.loopexit, label %.lr.ph48.backedge
 
 .lr.ph48.backedge:                                ; preds = %36, %33
-  %.247.be = phi ptr [ %.old, %36 ], [ %35, %33 ]
+  %.247.be = phi ptr [ %35, %33 ], [ %.old, %36 ]
   br label %.lr.ph48, !llvm.loop !301
 
 .loopexit38:                                      ; preds = %17, %28

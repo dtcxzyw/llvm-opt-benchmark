@@ -1929,8 +1929,8 @@ define void @_ZN9uu_mktemp6Params4from17h1b7886859fa0f651E(ptr noalias noundef w
   br label %.thread282
 
 46:                                               ; preds = %494, %556
-  %.0144.ph = phi i8 [ 0, %494 ], [ %.9333, %556 ]
-  %.0138.ph = phi i8 [ 1, %494 ], [ %.8335, %556 ]
+  %.0144.ph = phi i8 [ %.9333, %556 ], [ 0, %494 ]
+  %.0138.ph = phi i8 [ %.8335, %556 ], [ 1, %494 ]
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.thread
@@ -2173,9 +2173,9 @@ _ZN4core3str11validations23next_code_point_reverse17h0c36ac845fa069d6E.exit.thre
   br i1 %.not.i256.us, label %.split.us, label %.split391.us
 
 .split389.us.invoke:                              ; preds = %.split, %161, %192, %186
-  %170 = phi i64 [ %umax.i, %186 ], [ %umax84.i, %192 ], [ %163, %161 ], [ %160, %.split ]
-  %171 = phi i64 [ %137, %186 ], [ %133, %192 ], [ %133, %161 ], [ %137, %.split ]
-  %172 = phi ptr [ @anon.9fd4be8228f29cc0ab08323cdb596bb9.33, %186 ], [ @anon.9fd4be8228f29cc0ab08323cdb596bb9.34, %192 ], [ @anon.9fd4be8228f29cc0ab08323cdb596bb9.36, %161 ], [ @anon.9fd4be8228f29cc0ab08323cdb596bb9.35, %.split ]
+  %170 = phi i64 [ %163, %161 ], [ %umax.i, %186 ], [ %umax84.i, %192 ], [ %160, %.split ]
+  %171 = phi i64 [ %133, %161 ], [ %137, %186 ], [ %133, %192 ], [ %137, %.split ]
+  %172 = phi ptr [ @anon.9fd4be8228f29cc0ab08323cdb596bb9.36, %161 ], [ @anon.9fd4be8228f29cc0ab08323cdb596bb9.33, %186 ], [ @anon.9fd4be8228f29cc0ab08323cdb596bb9.34, %192 ], [ @anon.9fd4be8228f29cc0ab08323cdb596bb9.35, %.split ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %170, i64 noundef %171, ptr noalias noundef readonly align 8 dereferenceable(24) %172) #19
           to label %.split389.us.cont unwind label %.thread290
 
@@ -2276,10 +2276,10 @@ _ZN4core3str11validations23next_code_point_reverse17h0c36ac845fa069d6E.exit.thre
   br i1 %204, label %209, label %.invoke
 
 .invoke:                                          ; preds = %74, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i.i.i", %200, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i"
-  %205 = phi ptr [ %57, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i" ], [ %57, %200 ], [ %67, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i.i.i" ], [ %67, %74 ]
-  %206 = phi i64 [ %56, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i" ], [ %56, %200 ], [ %69, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i.i.i" ], [ %69, %74 ]
-  %207 = phi i64 [ %199, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i" ], [ %199, %200 ], [ %73, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i.i.i" ], [ %73, %74 ]
-  %208 = phi ptr [ @anon.9fd4be8228f29cc0ab08323cdb596bb9.95, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i" ], [ @anon.9fd4be8228f29cc0ab08323cdb596bb9.95, %200 ], [ @anon.9fd4be8228f29cc0ab08323cdb596bb9.58, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i.i.i" ], [ @anon.9fd4be8228f29cc0ab08323cdb596bb9.58, %74 ]
+  %205 = phi ptr [ %57, %200 ], [ %57, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i" ], [ %67, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i.i.i" ], [ %67, %74 ]
+  %206 = phi i64 [ %56, %200 ], [ %56, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i" ], [ %69, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i.i.i" ], [ %69, %74 ]
+  %207 = phi i64 [ %199, %200 ], [ %199, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i" ], [ %73, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i.i.i" ], [ %73, %74 ]
+  %208 = phi ptr [ @anon.9fd4be8228f29cc0ab08323cdb596bb9.95, %200 ], [ @anon.9fd4be8228f29cc0ab08323cdb596bb9.95, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i" ], [ @anon.9fd4be8228f29cc0ab08323cdb596bb9.58, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i.i.i" ], [ @anon.9fd4be8228f29cc0ab08323cdb596bb9.58, %74 ]
   invoke void @_ZN4core3str16slice_error_fail17he2ff12236fb0c056E(ptr noalias noundef nonnull readonly align 1 %205, i64 noundef %206, i64 noundef 0, i64 noundef %207, ptr noalias noundef readonly align 8 dereferenceable(24) %208) #19
           to label %.cont unwind label %.thread290
 

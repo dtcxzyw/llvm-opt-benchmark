@@ -1681,7 +1681,7 @@ wb_write_padding_to_temp.exit.thread:             ; preds = %wb_write_padding_to
   br label %.critedge
 
 .critedge:                                        ; preds = %21, %zisofs_finish_entry.exit.thread, %wb_write_padding_to_temp.exit, %12, %8, %1, %wb_write_padding_to_temp.exit.thread
-  %.0 = phi i32 [ 0, %wb_write_padding_to_temp.exit.thread ], [ 0, %1 ], [ 0, %8 ], [ -30, %wb_write_padding_to_temp.exit ], [ -30, %zisofs_finish_entry.exit.thread ], [ 0, %12 ], [ -30, %21 ]
+  %.0 = phi i32 [ 0, %wb_write_padding_to_temp.exit.thread ], [ 0, %1 ], [ 0, %8 ], [ 0, %12 ], [ -30, %wb_write_padding_to_temp.exit ], [ -30, %zisofs_finish_entry.exit.thread ], [ -30, %21 ]
   ret i32 %.0
 }
 
@@ -2200,7 +2200,7 @@ wb_consume.exit123.i.i:                           ; preds = %260
   br i1 %263, label %wb_write_padding_to_temp.exit.thread.i, label %zisofs_extract.exit.i
 
 zisofs_extract.exit.i:                            ; preds = %wb_consume.exit.thread141.i.i, %wb_consume.exit123.i.i, %260, %215
-  %.2102.i.i = phi i64 [ %248, %wb_consume.exit123.i.i ], [ %248, %260 ], [ %.1101.i.i, %215 ], [ %.1101.i.i, %wb_consume.exit.thread141.i.i ]
+  %.2102.i.i = phi i64 [ %248, %260 ], [ %248, %wb_consume.exit123.i.i ], [ %.1101.i.i, %215 ], [ %.1101.i.i, %wb_consume.exit.thread141.i.i ]
   %264 = trunc i64 %113 to i32
   %265 = load i32, ptr %100, align 4, !tbaa !136
   %266 = add i32 %265, %264
@@ -2243,8 +2243,8 @@ wb_write_padding_to_temp.exit.i:                  ; preds = %.thread.thread180.i
   %spec.select89.i = select i1 %280, i32 -30, i32 0
   br label %wb_write_padding_to_temp.exit.thread.i
 
-wb_write_padding_to_temp.exit.thread.i:           ; preds = %wb_consume.exit123.i.i, %wb_consume.exit.i.i, %wb_consume.exit123.thread.i.i, %212, %242, %154, %139, %144, %188, %198, %203, %wb_consume.exit.thread.i.i, %wb_write_padding_to_temp.exit.i, %.thread.thread180.i, %.thread.i, %.thread.thread.i
-  %.3.i = phi i32 [ %270, %.thread.i ], [ 0, %.thread.thread180.i ], [ %spec.select89.i, %wb_write_padding_to_temp.exit.i ], [ -30, %.thread.thread.i ], [ -30, %wb_consume.exit.thread.i.i ], [ -30, %203 ], [ -30, %198 ], [ -30, %188 ], [ -30, %144 ], [ -30, %139 ], [ -30, %154 ], [ -30, %242 ], [ -30, %212 ], [ -30, %wb_consume.exit123.thread.i.i ], [ %230, %wb_consume.exit.i.i ], [ %262, %wb_consume.exit123.i.i ]
+wb_write_padding_to_temp.exit.thread.i:           ; preds = %wb_consume.exit123.i.i, %wb_consume.exit.i.i, %wb_consume.exit123.thread.i.i, %242, %154, %212, %139, %144, %188, %198, %203, %wb_consume.exit.thread.i.i, %wb_write_padding_to_temp.exit.i, %.thread.thread180.i, %.thread.i, %.thread.thread.i
+  %.3.i = phi i32 [ %270, %.thread.i ], [ 0, %.thread.thread180.i ], [ %spec.select89.i, %wb_write_padding_to_temp.exit.i ], [ -30, %.thread.thread.i ], [ -30, %wb_consume.exit.thread.i.i ], [ -30, %203 ], [ -30, %198 ], [ -30, %188 ], [ -30, %144 ], [ -30, %139 ], [ -30, %212 ], [ -30, %154 ], [ -30, %242 ], [ -30, %wb_consume.exit123.thread.i.i ], [ %230, %wb_consume.exit.i.i ], [ %262, %wb_consume.exit123.i.i ]
   call void @free(ptr noundef %87) #24
   %281 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %282 = load ptr, ptr %281, align 8, !tbaa !130
@@ -3696,8 +3696,8 @@ calculate_path_table_size.exit.i:                 ; preds = %._crit_edge.i114.i,
   call fastcc void @calculate_path_table_size(ptr noundef nonnull %952)
   br label %953
 
-isoent_make_path_table.exit.thread:               ; preds = %.lr.ph.i216, %912, %isoent_alloc_path_table.exit90.i, %isoent_rr_move.exit.i, %isofile_connect_hardlink_files.exit.i, %888, %920, %533, %543
-  %.058.i.ph = phi i32 [ -30, %543 ], [ -30, %533 ], [ -30, %920 ], [ %890, %888 ], [ %883, %isofile_connect_hardlink_files.exit.i ], [ -30, %isoent_rr_move.exit.i ], [ -30, %isoent_alloc_path_table.exit90.i ], [ %913, %912 ], [ %899, %.lr.ph.i216 ]
+isoent_make_path_table.exit.thread:               ; preds = %.lr.ph.i216, %912, %543, %isoent_alloc_path_table.exit90.i, %isoent_rr_move.exit.i, %isofile_connect_hardlink_files.exit.i, %888, %920, %533
+  %.058.i.ph = phi i32 [ %913, %912 ], [ -30, %533 ], [ -30, %920 ], [ -30, %543 ], [ %890, %888 ], [ %883, %isofile_connect_hardlink_files.exit.i ], [ -30, %isoent_rr_move.exit.i ], [ -30, %isoent_alloc_path_table.exit90.i ], [ %899, %.lr.ph.i216 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %1273
 
@@ -4182,7 +4182,7 @@ fd_boot_image_size.exit.thread.i238:              ; preds = %fd_boot_image_size.
   %.not.i.i239 = icmp eq i64 %1195, 0
   br i1 %.not.i.i239, label %setup_boot_information.exit, label %1187, !llvm.loop !216
 
-setup_boot_information.exit.thread:               ; preds = %1147, %.thread.i234, %1191
+setup_boot_information.exit.thread:               ; preds = %1147, %1191, %.thread.i234
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %1273
 
@@ -4994,7 +4994,7 @@ define internal fastcc range(i32 -30, 1) i32 @isofile_gen_utility_names(ptr noun
   ]
 
 .backedge:                                        ; preds = %152, %146, %158, %167, %169, %149, %155, %172
-  %.3173.be = phi ptr [ %.3173, %149 ], [ %.3173, %155 ], [ %173, %172 ], [ %86, %169 ], [ %.0, %167 ], [ %147, %158 ], [ %147, %152 ], [ %147, %146 ]
+  %.3173.be = phi ptr [ %147, %146 ], [ %147, %152 ], [ %.3173, %149 ], [ %.3173, %155 ], [ %173, %172 ], [ %86, %169 ], [ %.0, %167 ], [ %147, %158 ]
   br label %144, !llvm.loop !233
 
 155:                                              ; preds = %152
@@ -6806,7 +6806,7 @@ wb_consume.exit.thread:                           ; preds = %wb_consume.exit.wb_
   br i1 %.not97, label %.loopexit, label %27, !llvm.loop !265
 
 .loopexit:                                        ; preds = %57, %112, %97, %wb_consume.exit, %wb_consume.exit.thread103, %96
-  %.4 = phi i32 [ -30, %96 ], [ -30, %wb_consume.exit.thread103 ], [ -30, %wb_consume.exit ], [ %60, %57 ], [ -30, %97 ], [ 0, %112 ]
+  %.4 = phi i32 [ -30, %96 ], [ -30, %wb_consume.exit ], [ -30, %wb_consume.exit.thread103 ], [ %60, %57 ], [ -30, %97 ], [ 0, %112 ]
   ret i32 %.4
 }
 
@@ -7068,7 +7068,7 @@ write_to_temp.exit:                               ; preds = %28
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %write_to_temp.exit, %66, %47, %68, %7
-  %.050 = phi i32 [ -30, %7 ], [ -30, %write_to_temp.exit ], [ 0, %68 ], [ -30, %47 ], [ -30, %66 ], [ -30, %.lr.ph ]
+  %.050 = phi i32 [ -30, %7 ], [ -30, %66 ], [ -30, %write_to_temp.exit ], [ 0, %68 ], [ -30, %47 ], [ -30, %.lr.ph ]
   ret i32 %.050
 }
 
@@ -8194,7 +8194,7 @@ _write_path_table.exit.thread23:                  ; preds = %_write_path_table.e
   br label %_write_path_table.exit.thread
 
 _write_path_table.exit.thread:                    ; preds = %wb_consume.exit85.i, %_write_path_table.exit, %wb_consume.exit.i, %3, %wb_consume.exit.thread.i, %wb_consume.exit85.thread.i, %._crit_edge, %140
-  %.018 = phi i32 [ -30, %wb_consume.exit85.thread.i ], [ %142, %140 ], [ %.062.i25, %._crit_edge ], [ -30, %wb_consume.exit.thread.i ], [ 0, %3 ], [ %53, %wb_consume.exit.i ], [ %.065.lcssa.i, %_write_path_table.exit ], [ %131, %wb_consume.exit85.i ]
+  %.018 = phi i32 [ %53, %wb_consume.exit.i ], [ %142, %140 ], [ %.062.i25, %._crit_edge ], [ -30, %wb_consume.exit85.thread.i ], [ -30, %wb_consume.exit.thread.i ], [ 0, %3 ], [ %131, %wb_consume.exit85.i ], [ %.065.lcssa.i, %_write_path_table.exit ]
   ret i32 %.018
 }
 
@@ -8541,12 +8541,12 @@ wb_consume.exit.thread:                           ; preds = %156, %wb_consume.ex
   br i1 %.not55, label %.thread, label %7, !llvm.loop !295
 
 .thread.sink.split:                               ; preds = %._crit_edge.i, %35, %.lr.ph, %62
-  %.lcssa.sink = phi i64 [ %154, %.lr.ph ], [ %65, %62 ], [ %40, %35 ], [ %128, %._crit_edge.i ]
+  %.lcssa.sink = phi i64 [ %65, %62 ], [ %154, %.lr.ph ], [ %128, %._crit_edge.i ], [ %40, %35 ]
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef -1, ptr noundef nonnull @.str.57, i64 noundef 2048, i64 noundef %.lcssa.sink) #24
   br label %.thread
 
 .thread:                                          ; preds = %_write_directory_descriptors.exit, %.loopexit, %wb_consume.exit, %wb_write_out.exit, %.thread.sink.split
-  %.5 = phi i32 [ -30, %.thread.sink.split ], [ %159, %wb_consume.exit ], [ %.0.i56, %wb_write_out.exit ], [ %133, %_write_directory_descriptors.exit ], [ 0, %.loopexit ]
+  %.5 = phi i32 [ -30, %.thread.sink.split ], [ %.0.i56, %wb_write_out.exit ], [ %159, %wb_consume.exit ], [ %133, %_write_directory_descriptors.exit ], [ 0, %.loopexit ]
   ret i32 %.5
 }
 
@@ -8844,7 +8844,7 @@ make_boot_catalog.exit.thread61:                  ; preds = %68, %make_boot_cata
   br label %.loopexit63
 
 .loopexit63:                                      ; preds = %99, %make_boot_catalog.exit.thread, %115, %83, %make_boot_catalog.exit, %119
-  %.047 = phi i32 [ 0, %119 ], [ %71, %make_boot_catalog.exit ], [ %85, %83 ], [ %117, %115 ], [ -30, %make_boot_catalog.exit.thread ], [ %100, %99 ]
+  %.047 = phi i32 [ 0, %119 ], [ %71, %make_boot_catalog.exit ], [ %85, %83 ], [ -30, %make_boot_catalog.exit.thread ], [ %117, %115 ], [ %100, %99 ]
   ret i32 %.047
 }
 
@@ -10390,7 +10390,7 @@ idr_resolve.exit:                                 ; preds = %266, %._crit_edge25
   br label %.loopexit
 
 .loopexit:                                        ; preds = %347, %303, %.loopexit.sink.split, %idr_start.exit, %idr_resolve.exit, %3
-  %.0197 = phi i32 [ 0, %3 ], [ 0, %idr_resolve.exit ], [ 0, %idr_start.exit ], [ -30, %.loopexit.sink.split ], [ 0, %303 ], [ 0, %347 ]
+  %.0197 = phi i32 [ 0, %303 ], [ 0, %3 ], [ 0, %idr_start.exit ], [ 0, %idr_resolve.exit ], [ -30, %.loopexit.sink.split ], [ 0, %347 ]
   ret i32 %.0197
 }
 
@@ -10583,7 +10583,7 @@ define internal fastcc i32 @isoent_cmp_joliet_identifier(ptr noundef readonly ca
   br label %.loopexit
 
 .loopexit:                                        ; preds = %79, %67, %.thread100, %75, %54, %50, %48, %44, %40, %2, %84, %72, %36, %24
-  %.073 = phi i32 [ %37, %36 ], [ %26, %24 ], [ %13, %2 ], [ 0, %40 ], [ 0, %44 ], [ -1, %48 ], [ 1, %50 ], [ %74, %72 ], [ %61, %54 ], [ %85, %84 ], [ 0, %75 ], [ -1, %.thread100 ], [ 0, %67 ], [ 0, %79 ]
+  %.073 = phi i32 [ %37, %36 ], [ %26, %24 ], [ %13, %2 ], [ 0, %40 ], [ 0, %44 ], [ -1, %48 ], [ 1, %50 ], [ %74, %72 ], [ %61, %54 ], [ %85, %84 ], [ 0, %75 ], [ 0, %67 ], [ -1, %.thread100 ], [ 0, %79 ]
   ret i32 %.073
 }
 
@@ -10777,7 +10777,7 @@ define internal fastcc i32 @isoent_cmp_iso9660_identifier(ptr noundef readonly c
   br label %.loopexit
 
 .loopexit:                                        ; preds = %80, %68, %.thread100, %76, %55, %51, %49, %45, %41, %2, %85, %73, %36, %24
-  %.073 = phi i32 [ %38, %36 ], [ %26, %24 ], [ %13, %2 ], [ 0, %41 ], [ 0, %45 ], [ -1, %49 ], [ 1, %51 ], [ %75, %73 ], [ %62, %55 ], [ %87, %85 ], [ 0, %76 ], [ -1, %.thread100 ], [ 0, %68 ], [ 0, %80 ]
+  %.073 = phi i32 [ %38, %36 ], [ %26, %24 ], [ %13, %2 ], [ 0, %41 ], [ 0, %45 ], [ -1, %49 ], [ 1, %51 ], [ %75, %73 ], [ %62, %55 ], [ %87, %85 ], [ 0, %76 ], [ 0, %68 ], [ -1, %.thread100 ], [ 0, %80 ]
   ret i32 %.073
 }
 
@@ -14573,7 +14573,7 @@ _isoent_free.exit22:                              ; preds = %.lr.ph.i19, %25
   br label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %_isoent_free.exit22, %6
-  %.0.be = phi ptr [ %11, %_isoent_free.exit22 ], [ %8, %6 ]
+  %.0.be = phi ptr [ %8, %6 ], [ %11, %_isoent_free.exit22 ]
   br label %.preheader
 
 .loopexit:                                        ; preds = %_isoent_free.exit, %1

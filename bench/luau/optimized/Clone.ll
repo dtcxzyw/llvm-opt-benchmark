@@ -1860,7 +1860,7 @@ define internal fastcc noundef ptr @_ZN4Luau12_GLOBAL__N_110TypeCloner12shallowC
   br label %.loopexit.i, !llvm.loop !62
 
 _ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_11TypePackVarE.exit.thread: ; preds = %32, %15, %27
-  %.sroa.06.1.i.i.i = phi ptr [ %28, %27 ], [ %.sroa.06.0.i.i.i, %15 ], [ %34, %32 ]
+  %.sroa.06.1.i.i.i = phi ptr [ %.sroa.06.0.i.i.i, %15 ], [ %28, %27 ], [ %34, %32 ]
   %40 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 16
   %41 = load ptr, ptr %40, align 8, !tbaa !57
   br label %.thread
@@ -2071,7 +2071,7 @@ _ZNSt10_HashtableIPKN4Luau11TypePackVarESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Se
   br label %common.resume
 
 _ZNSt13unordered_mapIPKN4Luau11TypePackVarES3_St4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S3_EEEixERS9_.exit: ; preds = %125, %120, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %121, %120 ], [ %136, %.loopexit.i.i ], [ %127, %125 ]
+  %.pn.i.i = phi ptr [ %136, %.loopexit.i.i ], [ %121, %120 ], [ %127, %125 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   store ptr %65, ptr %.1.i.i, align 8, !tbaa !57
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -2372,7 +2372,7 @@ define internal fastcc noundef ptr @_ZN4Luau12_GLOBAL__N_110TypeCloner12shallowC
   br label %.loopexit.i, !llvm.loop !89
 
 _ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_4TypeE.exit.thread: ; preds = %32, %15, %27
-  %.sroa.06.1.i.i.i = phi ptr [ %28, %27 ], [ %.sroa.06.0.i.i.i, %15 ], [ %34, %32 ]
+  %.sroa.06.1.i.i.i = phi ptr [ %.sroa.06.0.i.i.i, %15 ], [ %28, %27 ], [ %34, %32 ]
   %40 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 16
   %41 = load ptr, ptr %40, align 8, !tbaa !85
   br label %.thread
@@ -2640,7 +2640,7 @@ _ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stE
   br label %common.resume
 
 _ZNSt13unordered_mapIPKN4Luau4TypeES3_St4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S3_EEEixERS9_.exit: ; preds = %149, %144, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %145, %144 ], [ %160, %.loopexit.i.i ], [ %151, %149 ]
+  %.pn.i.i = phi ptr [ %160, %.loopexit.i.i ], [ %145, %144 ], [ %151, %149 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   store ptr %73, ptr %.1.i.i, align 8, !tbaa !85
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -2892,7 +2892,7 @@ _ZNSt10_HashtableIPKN4Luau11TypePackVarESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Se
   resume { ptr, i32 } %49
 
 _ZNSt13unordered_mapIPKN4Luau11TypePackVarES3_St4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S3_EEEixERS9_.exit: ; preds = %37, %32, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %33, %32 ], [ %48, %.loopexit.i.i ], [ %39, %37 ]
+  %.pn.i.i = phi ptr [ %48, %.loopexit.i.i ], [ %33, %32 ], [ %39, %37 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   store ptr %22, ptr %.1.i.i, align 8, !tbaa !57
   br label %101
@@ -2962,7 +2962,7 @@ _ZNK4Luau12_GLOBAL__N_110TypeCloner25hasExceededIterationLimitEv.exit.thread: ; 
   br label %.loopexit.i, !llvm.loop !62
 
 _ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_11TypePackVarE.exit.thread: ; preds = %75, %58, %70
-  %.sroa.06.1.i.i.i = phi ptr [ %71, %70 ], [ %.sroa.06.0.i.i.i, %58 ], [ %77, %75 ]
+  %.sroa.06.1.i.i.i = phi ptr [ %.sroa.06.0.i.i.i, %58 ], [ %71, %70 ], [ %77, %75 ]
   %83 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 16
   %84 = load ptr, ptr %83, align 8, !tbaa !57
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3177,7 +3177,7 @@ _ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stE
   resume { ptr, i32 } %49
 
 _ZNSt13unordered_mapIPKN4Luau4TypeES3_St4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S3_EEEixERS9_.exit: ; preds = %37, %32, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %33, %32 ], [ %48, %.loopexit.i.i ], [ %39, %37 ]
+  %.pn.i.i = phi ptr [ %48, %.loopexit.i.i ], [ %33, %32 ], [ %39, %37 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   store ptr %22, ptr %.1.i.i, align 8, !tbaa !85
   br label %101
@@ -3247,7 +3247,7 @@ _ZNK4Luau12_GLOBAL__N_110TypeCloner25hasExceededIterationLimitEv.exit.thread: ; 
   br label %.loopexit.i, !llvm.loop !89
 
 _ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_4TypeE.exit.thread: ; preds = %75, %58, %70
-  %.sroa.06.1.i.i.i = phi ptr [ %71, %70 ], [ %.sroa.06.0.i.i.i, %58 ], [ %77, %75 ]
+  %.sroa.06.1.i.i.i = phi ptr [ %.sroa.06.0.i.i.i, %58 ], [ %71, %70 ], [ %77, %75 ]
   %83 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 16
   %84 = load ptr, ptr %83, align 8, !tbaa !85
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -10635,7 +10635,7 @@ _ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_11TypePackVarE.exit.i: ; preds = %
   br i1 %or.cond.i21.not.i, label %_ZNSt14_Optional_baseIN4Luau7VariantIJPKNS0_4TypeEPKNS0_11TypePackVarEEEELb0ELb0EED2Ev.exit, label %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findENS_7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEE.exit
 
 _ZNK4Luau12_GLOBAL__N_110TypeCloner4findENS_7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEE.exit.sink.split: ; preds = %124, %107, %84, %67, %119, %79
-  %.sroa.06.1.i.i.i23.i.sink = phi ptr [ %80, %79 ], [ %120, %119 ], [ %.sroa.06.0.i.i.i25.i, %107 ], [ %.sroa.06.0.i.i.i.i, %67 ], [ %86, %84 ], [ %126, %124 ]
+  %.sroa.06.1.i.i.i23.i.sink = phi ptr [ %.sroa.06.0.i.i.i.i, %67 ], [ %.sroa.06.0.i.i.i25.i, %107 ], [ %80, %79 ], [ %86, %84 ], [ %120, %119 ], [ %126, %124 ]
   %138 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i23.i.sink, i64 16
   %139 = load ptr, ptr %138, align 8, !tbaa !42, !noalias !329
   br label %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findENS_7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEE.exit
@@ -10664,7 +10664,7 @@ _ZNSt14_Optional_baseIN4Luau7VariantIJPKNS0_4TypeEPKNS0_11TypePackVarEEEELb0ELb0
   br label %_ZNSt14_Optional_baseIN4Luau7VariantIJPKNS0_4TypeEPKNS0_11TypePackVarEEEELb0ELb0EED2Ev.exit
 
 _ZNSt14_Optional_baseIN4Luau7VariantIJPKNS0_4TypeEPKNS0_11TypePackVarEEEELb0ELb0EED2Ev.exit: ; preds = %_ZNSt14_Optional_baseIN4Luau7VariantIJPKNS0_4TypeEPKNS0_11TypePackVarEEEELb0ELb0EED2Ev.exit.sink.split, %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_4TypeE.exit.i, %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_11TypePackVarE.exit.i, %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findENS_7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEE.exit
-  %146 = phi i1 [ true, %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findENS_7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEE.exit ], [ false, %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_11TypePackVarE.exit.i ], [ false, %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_4TypeE.exit.i ], [ false, %_ZNSt14_Optional_baseIN4Luau7VariantIJPKNS0_4TypeEPKNS0_11TypePackVarEEEELb0ELb0EED2Ev.exit.sink.split ]
+  %146 = phi i1 [ true, %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findENS_7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEE.exit ], [ false, %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_4TypeE.exit.i ], [ false, %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_11TypePackVarE.exit.i ], [ false, %_ZNSt14_Optional_baseIN4Luau7VariantIJPKNS0_4TypeEPKNS0_11TypePackVarEEEELb0ELb0EED2Ev.exit.sink.split ]
   %147 = load i32, ptr %6, align 8, !tbaa !40
   %148 = sext i32 %147 to i64
   %149 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEE9tableDtorE, i64 %148

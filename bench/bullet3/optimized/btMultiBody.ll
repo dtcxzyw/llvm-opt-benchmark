@@ -17006,7 +17006,7 @@ _ZNK11btMultiBody23isLinkStaticOrKinematicEi.exit: ; preds = %5
   br label %_ZNK11btMultiBody23isBaseStaticOrKinematicEv.exit
 
 _ZNK11btMultiBody23isBaseStaticOrKinematicEv.exit: ; preds = %5, %_ZNK11btMultiBody23isLinkStaticOrKinematicEi.exit, %22, %19, %._crit_edge
-  %.05 = phi i1 [ %26, %22 ], [ true, %._crit_edge ], [ false, %19 ], [ false, %_ZNK11btMultiBody23isLinkStaticOrKinematicEi.exit ], [ false, %5 ]
+  %.05 = phi i1 [ %26, %22 ], [ false, %19 ], [ true, %._crit_edge ], [ false, %_ZNK11btMultiBody23isLinkStaticOrKinematicEi.exit ], [ false, %5 ]
   ret i1 %.05
 }
 

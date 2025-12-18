@@ -1228,7 +1228,7 @@ define internal void @prepare_impulse(ptr noundef %0, ptr noundef %1, i32 nounde
   br i1 %exitcond118.not, label %.loopexit, label %.lr.ph.us95, !llvm.loop !103
 
 .loopexit:                                        ; preds = %._crit_edge.us, %._crit_edge.us96, %.lr.ph93, %.lr.ph87, %.preheader81, %.preheader
-  %.2 = phi nsz float [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %.preheader81 ], [ 0.000000e+00, %.lr.ph93 ], [ 0.000000e+00, %.lr.ph87 ], [ %48, %._crit_edge.us96 ], [ %34, %._crit_edge.us ]
+  %.2 = phi nsz float [ 0.000000e+00, %.lr.ph93 ], [ 0.000000e+00, %.preheader ], [ %48, %._crit_edge.us96 ], [ 0.000000e+00, %.preheader81 ], [ 0.000000e+00, %.lr.ph87 ], [ %34, %._crit_edge.us ]
   %49 = fcmp nsz olt float %.2, 1.000000e+00
   %50 = select nsz i1 %49, float 1.000000e+00, float %.2
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 1600

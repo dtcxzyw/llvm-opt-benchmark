@@ -463,7 +463,7 @@ uv__spawn_and_init_child.exit.thread128:          ; preds = %119, %.preheader.i
   br label %144
 
 uv__spawn_and_init_child.exit:                    ; preds = %uv__spawn_and_init_child_fork.exit.i, %.critedge2.i
-  %.022.i = phi i32 [ %116, %.critedge2.i ], [ %.0.i.i, %uv__spawn_and_init_child_fork.exit.i ]
+  %.022.i = phi i32 [ %.0.i.i, %uv__spawn_and_init_child_fork.exit.i ], [ %116, %.critedge2.i ]
   %124 = load i32, ptr %6, align 8, !tbaa !25
   %125 = call i32 @uv__close_nocheckstdio(i32 noundef %124) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -599,7 +599,7 @@ uv__process_open_stream.exit.thread:              ; preds = %uv__process_open_st
   br i1 %.not102, label %.thread, label %.thread.sink.split
 
 uv__process_init_stdio.exit.thread:               ; preds = %44, %61, %50, %uv__process_init_stdio.exit, %uv__process_close_stream.exit, %.preheader
-  %.095 = phi i32 [ %172, %.preheader ], [ %172, %uv__process_close_stream.exit ], [ -22, %44 ], [ -22, %61 ], [ -22, %50 ], [ %65, %uv__process_init_stdio.exit ]
+  %.095 = phi i32 [ %172, %.preheader ], [ %172, %uv__process_close_stream.exit ], [ -22, %61 ], [ -22, %50 ], [ %65, %uv__process_init_stdio.exit ], [ -22, %44 ]
   %185 = getelementptr inbounds nuw i8, ptr %2, i64 48
   br label %186
 

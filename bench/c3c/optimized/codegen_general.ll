@@ -145,7 +145,7 @@ define dso_local ptr @type_abi_find_single_struct_element(ptr noundef %0) local_
   br label %.loopexit54
 
 .loopexit54:                                      ; preds = %40, %.loopexit54.loopexit.critedge, %17, %20, %._crit_edge, %11, %8
-  %.041 = phi ptr [ null, %8 ], [ null, %11 ], [ %spec.select, %._crit_edge ], [ null, %20 ], [ null, %17 ], [ null, %.loopexit54.loopexit.critedge ], [ null, %40 ]
+  %.041 = phi ptr [ null, %8 ], [ null, %11 ], [ %spec.select, %._crit_edge ], [ null, %17 ], [ null, %20 ], [ null, %.loopexit54.loopexit.critedge ], [ null, %40 ]
   ret ptr %.041
 }
 
@@ -739,7 +739,7 @@ thread-pre-split:                                 ; preds = %49, %98
   unreachable
 
 type_homogenous_aggregate_small_enough.exit:      ; preds = %._crit_edge, %123, %117, %115, %111, %104, %104, %104, %104, %101, %98, %92, %77, %58, %54, %49, %._crit_edge82, %11, %3, %3, %3, %3, %7
-  %.062 = phi i1 [ false, %77 ], [ false, %92 ], [ false, %98 ], [ false, %101 ], [ false, %58 ], [ false, %54 ], [ true, %7 ], [ false, %3 ], [ false, %11 ], [ false, %._crit_edge82 ], [ false, %49 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ %112, %111 ], [ %116, %115 ], [ %122, %117 ], [ %124, %123 ], [ false, %104 ], [ false, %104 ], [ false, %104 ], [ false, %104 ], [ false, %._crit_edge ]
+  %.062 = phi i1 [ false, %77 ], [ false, %92 ], [ false, %98 ], [ false, %101 ], [ false, %58 ], [ false, %54 ], [ true, %7 ], [ false, %3 ], [ false, %11 ], [ false, %._crit_edge82 ], [ false, %104 ], [ false, %49 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ %112, %111 ], [ %116, %115 ], [ %122, %117 ], [ %124, %123 ], [ false, %104 ], [ false, %104 ], [ false, %104 ], [ false, %._crit_edge ]
   ret i1 %.062
 }
 

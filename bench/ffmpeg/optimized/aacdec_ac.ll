@@ -349,7 +349,7 @@ define zeroext i16 @ff_aac_ac_decode(ptr noundef captures(none) %0, ptr noundef 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %23, %64, %18, %4, %59, %34
-  %.091 = phi ptr [ %.ptr100, %4 ], [ %.7.ptr, %59 ], [ %spec.select113, %64 ], [ %spec.select114, %23 ], [ %.ptr100, %34 ], [ %spec.select, %18 ], [ %spec.select109, %.preheader ]
+  %.091 = phi ptr [ %.ptr100, %4 ], [ %.7.ptr, %59 ], [ %spec.select, %18 ], [ %spec.select113, %64 ], [ %spec.select114, %23 ], [ %.ptr100, %34 ], [ %spec.select109, %.preheader ]
   %70 = ptrtoint ptr %.091 to i64
   %71 = ptrtoint ptr %2 to i64
   %72 = sub i64 %70, %71

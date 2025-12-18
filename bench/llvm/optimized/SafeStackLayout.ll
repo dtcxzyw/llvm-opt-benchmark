@@ -4641,7 +4641,7 @@ _ZN4llvm9safestack11StackLayout11StackObjectC2EOS2_.exit.i.sink.split: ; preds =
   br label %_ZN4llvm9safestack11StackLayout11StackObjectC2EOS2_.exit.i
 
 _ZN4llvm9safestack11StackLayout11StackObjectC2EOS2_.exit.i: ; preds = %_ZN4llvm9safestack11StackLayout11StackObjectC2EOS2_.exit.i.sink.split, %43, %.lr.ph157
-  %57 = phi i32 [ 0, %.lr.ph157 ], [ %42, %43 ], [ 0, %_ZN4llvm9safestack11StackLayout11StackObjectC2EOS2_.exit.i.sink.split ]
+  %57 = phi i32 [ %42, %43 ], [ 0, %.lr.ph157 ], [ 0, %_ZN4llvm9safestack11StackLayout11StackObjectC2EOS2_.exit.i.sink.split ]
   %58 = getelementptr inbounds nuw i8, ptr %.143150, i64 80
   %59 = load i32, ptr %58, align 8, !tbaa !82
   store i32 %59, ptr %33, align 8, !tbaa !82
@@ -4968,7 +4968,7 @@ _ZN4llvm9safestack11StackLayout11StackObjectC2EOS2_.exit.i55.sink.split: ; preds
   br label %_ZN4llvm9safestack11StackLayout11StackObjectC2EOS2_.exit.i55
 
 _ZN4llvm9safestack11StackLayout11StackObjectC2EOS2_.exit.i55: ; preds = %_ZN4llvm9safestack11StackLayout11StackObjectC2EOS2_.exit.i55.sink.split, %163, %.lr.ph
-  %177 = phi i32 [ 0, %.lr.ph ], [ %162, %163 ], [ 0, %_ZN4llvm9safestack11StackLayout11StackObjectC2EOS2_.exit.i55.sink.split ]
+  %177 = phi i32 [ %162, %163 ], [ 0, %.lr.ph ], [ 0, %_ZN4llvm9safestack11StackLayout11StackObjectC2EOS2_.exit.i55.sink.split ]
   %178 = getelementptr inbounds i8, ptr %.345147, i64 -8
   %179 = load i32, ptr %178, align 8, !tbaa !82
   store i32 %179, ptr %28, align 8, !tbaa !82
@@ -7043,7 +7043,7 @@ _ZSt4moveIPN4llvm9safestack11StackLayout11StackObjectES4_ET0_T_S6_S5_.exit58: ; 
   br label %_ZSt4moveIPN4llvm9safestack11StackLayout11StackObjectES4_ET0_T_S6_S5_.exit44
 
 _ZSt4moveIPN4llvm9safestack11StackLayout11StackObjectES4_ET0_T_S6_S5_.exit44: ; preds = %.lr.ph.i.i.i.i.i40, %.lr.ph.i.i.i.i.i61, %_ZSt4moveIPN4llvm9safestack11StackLayout11StackObjectES4_ET0_T_S6_S5_.exit58, %_ZSt13move_backwardIPN4llvm9safestack11StackLayout11StackObjectES4_ET0_T_S6_S5_.exit, %56, %9, %102
-  %.0 = phi ptr [ %2, %56 ], [ %103, %102 ], [ %0, %9 ], [ %0, %_ZSt13move_backwardIPN4llvm9safestack11StackLayout11StackObjectES4_ET0_T_S6_S5_.exit ], [ %2, %_ZSt4moveIPN4llvm9safestack11StackLayout11StackObjectES4_ET0_T_S6_S5_.exit58 ], [ %93, %.lr.ph.i.i.i.i.i61 ], [ %52, %.lr.ph.i.i.i.i.i40 ]
+  %.0 = phi ptr [ %2, %56 ], [ %103, %102 ], [ %93, %.lr.ph.i.i.i.i.i61 ], [ %0, %9 ], [ %0, %_ZSt13move_backwardIPN4llvm9safestack11StackLayout11StackObjectES4_ET0_T_S6_S5_.exit ], [ %2, %_ZSt4moveIPN4llvm9safestack11StackLayout11StackObjectES4_ET0_T_S6_S5_.exit58 ], [ %52, %.lr.ph.i.i.i.i.i40 ]
   ret ptr %.0
 }
 

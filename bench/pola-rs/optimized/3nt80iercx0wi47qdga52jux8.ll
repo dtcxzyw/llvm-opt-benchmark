@@ -27889,7 +27889,7 @@ define internal fastcc noundef ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A
   ret ptr %.sroa.0.0
 
 136:                                              ; preds = %119, %115
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %115 ], [ %125, %119 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %125, %119 ], [ %.sroa.4.19.i.i, %115 ]
   %137 = load ptr, ptr %0, align 8, !alias.scope !2447, !noalias !2452, !nonnull !4
   %138 = load ptr, ptr %6, align 8, !nonnull !4, !noundef !4
   %139 = load i64, ptr %7, align 8, !noundef !4
@@ -34857,7 +34857,7 @@ _ZN11compact_str13CompactString7try_new17h700074de784f45d0E.exit.thread.i.i36: ;
           to label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h0b0d537f19a3c4ccE.exit.i" unwind label %650, !noalias !3131
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h0b0d537f19a3c4ccE.exit.thread.i": ; preds = %615, %611
-  %.sroa.3.0.i.i.ph.i.i = phi i64 [ %.sroa.4.19.i.i.i.i, %611 ], [ %621, %615 ]
+  %.sroa.3.0.i.i.ph.i.i = phi i64 [ %621, %615 ], [ %.sroa.4.19.i.i.i.i, %611 ]
   %626 = load ptr, ptr %.val60.i, align 8, !alias.scope !3213, !noalias !3216, !nonnull !4
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false), !noalias !3190
@@ -45272,7 +45272,7 @@ define noundef i64 @_ZN9polars_io10file_cache5cache22get_env_file_cache_ttl17h40
           to label %52 unwind label %50
 
 .loopexit.i:                                      ; preds = %33, %31, %22, %.lr.ph.i.i, %13, %13, %8
-  %.sroa.4.0.ph.i = phi i8 [ 1, %13 ], [ 0, %8 ], [ 1, %13 ], [ 1, %.lr.ph.i.i ], [ 2, %31 ], [ 1, %22 ], [ 2, %33 ]
+  %.sroa.4.0.ph.i = phi i8 [ 1, %13 ], [ 1, %13 ], [ 0, %8 ], [ 1, %.lr.ph.i.i ], [ 1, %22 ], [ 2, %33 ], [ 2, %31 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %1), !noalias !4158
   store i8 %.sroa.4.0.ph.i, ptr %1, align 1, !noalias !4158
   invoke void @_ZN4core6result13unwrap_failed17h730db56f15e0885aE(ptr noalias noundef nonnull readonly align 1 @anon.9c42337fde20ee2cf432511e12198f95.697, i64 noundef 7, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.9c42337fde20ee2cf432511e12198f95.171, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9c42337fde20ee2cf432511e12198f95.698) #31
@@ -46244,8 +46244,8 @@ _ZN4core4sync6atomic9AtomicU3212fetch_update17h8e3bd8f907d38a0bE.exit.i: ; preds
           to label %"_ZN4core3ptr291drop_in_place$LT$core..result..Result$LT$std..sync..poison..rwlock..RwLockWriteGuard$LT$polars_io..file_cache..cache_lock..GlobalLockData$GT$$C$std..sync..poison..TryLockError$LT$std..sync..poison..rwlock..RwLockWriteGuard$LT$polars_io..file_cache..cache_lock..GlobalLockData$GT$$GT$$GT$$GT$17h58a271d7818ddb34E.exit" unwind label %32
 
 "_ZN4core3ptr291drop_in_place$LT$core..result..Result$LT$std..sync..poison..rwlock..RwLockWriteGuard$LT$polars_io..file_cache..cache_lock..GlobalLockData$GT$$C$std..sync..poison..TryLockError$LT$std..sync..poison..rwlock..RwLockWriteGuard$LT$polars_io..file_cache..cache_lock..GlobalLockData$GT$$GT$$GT$$GT$17h58a271d7818ddb34E.exit": ; preds = %16, %.invoke, %87, %105, %98
-  %.sroa.5.2 = phi i8 [ 2, %98 ], [ 2, %.invoke ], [ %.sroa.5.0, %87 ], [ %.sroa.5.0, %105 ], [ 2, %16 ]
-  %.sroa.0.2 = phi ptr [ undef, %98 ], [ undef, %.invoke ], [ %.sroa.0.0, %87 ], [ %.sroa.0.0, %105 ], [ undef, %16 ]
+  %.sroa.5.2 = phi i8 [ %.sroa.5.0, %105 ], [ 2, %98 ], [ 2, %.invoke ], [ %.sroa.5.0, %87 ], [ 2, %16 ]
+  %.sroa.0.2 = phi ptr [ %.sroa.0.0, %105 ], [ undef, %98 ], [ undef, %.invoke ], [ %.sroa.0.0, %87 ], [ undef, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @"_ZN4core3ptr69drop_in_place$LT$polars_io..file_cache..cache_lock..AccessTracker$GT$17hf9cc7d703b4b58e8E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

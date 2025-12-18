@@ -11882,7 +11882,7 @@ _ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !354
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i, %117, %._crit_edge
-  %.pr.i123 = phi ptr [ %.pr.i, %._crit_edge ], [ %118, %117 ], [ %.pr.i, %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i ]
+  %.pr.i123 = phi ptr [ %118, %117 ], [ %.pr.i, %._crit_edge ], [ %.pr.i, %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i ]
   %.not.i.i.i = icmp eq ptr %.pr.i123, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %145
 
@@ -34930,7 +34930,7 @@ _ZN14duckdb_httplib6detail11read_socketEiPvmi.exit: ; preds = %28
   br i1 %45, label %.preheader, label %_ZN14duckdb_httplib6detail11read_socketEiPvmi.exit23, !llvm.loop !815
 
 _ZN14duckdb_httplib6detail11read_socketEiPvmi.exit23: ; preds = %42, %.preheader, %31, %38, %39, %_ZN14duckdb_httplib6detail11read_socketEiPvmi.exit, %16, %9
-  %.1 = phi i64 [ %..sroa.speculated, %9 ], [ -1, %16 ], [ %2, %39 ], [ %29, %38 ], [ 0, %_ZN14duckdb_httplib6detail11read_socketEiPvmi.exit ], [ %29, %31 ], [ %40, %.preheader ], [ %40, %42 ]
+  %.1 = phi i64 [ %..sroa.speculated, %9 ], [ -1, %16 ], [ %29, %31 ], [ %2, %39 ], [ %29, %38 ], [ 0, %_ZN14duckdb_httplib6detail11read_socketEiPvmi.exit ], [ %40, %.preheader ], [ %40, %42 ]
   ret i64 %.1
 }
 
@@ -65578,16 +65578,16 @@ _ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcE
   br i1 %.not.i57, label %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_EN14duckdb_httplib6detail2ciESaIS8_EE14_M_upper_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit, label %.lr.ph.i38, !llvm.loop !1400
 
 _ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.thread: ; preds = %.lr.ph.i.i.i, %.lr.ph.i.i.i29, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit36, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit
-  %.sink = phi i64 [ 24, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit ], [ 16, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit36 ], [ 16, %.lr.ph.i.i.i29 ], [ 24, %.lr.ph.i.i.i ]
-  %.123 = phi ptr [ %.02287, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit ], [ %.088, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit36 ], [ %.088, %.lr.ph.i.i.i29 ], [ %.02287, %.lr.ph.i.i.i ]
+  %.sink = phi i64 [ 24, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit ], [ 16, %.lr.ph.i.i.i29 ], [ 16, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit36 ], [ 24, %.lr.ph.i.i.i ]
+  %.123 = phi ptr [ %.02287, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit ], [ %.088, %.lr.ph.i.i.i29 ], [ %.088, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit36 ], [ %.02287, %.lr.ph.i.i.i ]
   %78 = getelementptr inbounds nuw i8, ptr %.088, i64 %.sink
   %.0 = load ptr, ptr %78, align 8, !tbaa !572
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_EN14duckdb_httplib6detail2ciESaIS8_EE14_M_upper_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit, label %9, !llvm.loop !1401
 
 _ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_EN14duckdb_httplib6detail2ciESaIS8_EE14_M_upper_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit: ; preds = %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.thread, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.thread.i53, %2, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_EN14duckdb_httplib6detail2ciESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit
-  %.sroa.063.0 = phi ptr [ %.08.lcssa.i, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_EN14duckdb_httplib6detail2ciESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit ], [ %4, %2 ], [ %.08.lcssa.i, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.thread.i53 ], [ %.123, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.thread ]
-  %.sroa.3.0 = phi ptr [ %.02287, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_EN14duckdb_httplib6detail2ciESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit ], [ %4, %2 ], [ %.19.i55, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.thread.i53 ], [ %.123, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.thread ]
+  %.sroa.063.0 = phi ptr [ %.08.lcssa.i, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.thread.i53 ], [ %.08.lcssa.i, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_EN14duckdb_httplib6detail2ciESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit ], [ %4, %2 ], [ %.123, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.thread ]
+  %.sroa.3.0 = phi ptr [ %.19.i55, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.thread.i53 ], [ %.02287, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_EN14duckdb_httplib6detail2ciESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit ], [ %4, %2 ], [ %.123, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.thread ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.063.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.3.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -77314,7 +77314,7 @@ _ZN14duckdb_httplib6detail12handle_EINTRIZNS0_26wait_until_socket_is_readyEillEU
   br i1 %87, label %_ZN14duckdb_httplib6detail26wait_until_socket_is_readyEill.exit, label %_ZN14duckdb_httplib6detail26wait_until_socket_is_readyEill.exit.thread
 
 _ZN14duckdb_httplib6detail26wait_until_socket_is_readyEill.exit.thread: ; preds = %75, %_ZN14duckdb_httplib6detail12handle_EINTRIZNS0_26wait_until_socket_is_readyEillEUlvE_EElT_.exit.i, %83, %79
-  %.0.i19.ph = phi i32 [ 2, %79 ], [ 2, %83 ], [ 13, %_ZN14duckdb_httplib6detail12handle_EINTRIZNS0_26wait_until_socket_is_readyEillEUlvE_EElT_.exit.i ], [ 2, %75 ]
+  %.0.i19.ph = phi i32 [ 13, %_ZN14duckdb_httplib6detail12handle_EINTRIZNS0_26wait_until_socket_is_readyEillEUlvE_EElT_.exit.i ], [ 2, %79 ], [ 2, %83 ], [ 2, %75 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.sink.split
 

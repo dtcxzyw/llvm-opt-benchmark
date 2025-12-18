@@ -906,7 +906,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %65, %55, %.lr.ph, %123, %._crit_edge41.loopexit.i, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i, %8, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
-  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ %135, %._crit_edge41.loopexit.i ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ false, %.lr.ph ], [ false, %123 ], [ false, %55 ], [ false, %65 ]
+  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %123 ], [ false, %8 ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ false, %.lr.ph ], [ %135, %._crit_edge41.loopexit.i ], [ false, %55 ], [ false, %65 ]
   ret i1 %.039
 }
 
@@ -4554,7 +4554,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %65, %55, %.lr.ph, %123, %._crit_edge41.loopexit.i, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i, %8, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
-  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ %135, %._crit_edge41.loopexit.i ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ false, %.lr.ph ], [ false, %123 ], [ false, %55 ], [ false, %65 ]
+  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %123 ], [ false, %8 ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ false, %.lr.ph ], [ %135, %._crit_edge41.loopexit.i ], [ false, %55 ], [ false, %65 ]
   ret i1 %.039
 }
 
@@ -5044,7 +5044,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %65, %55, %.lr.ph, %123, %._crit_edge41.loopexit.i, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i, %8, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
-  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ %135, %._crit_edge41.loopexit.i ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ false, %.lr.ph ], [ false, %123 ], [ false, %55 ], [ false, %65 ]
+  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %123 ], [ false, %8 ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ false, %.lr.ph ], [ %135, %._crit_edge41.loopexit.i ], [ false, %55 ], [ false, %65 ]
   ret i1 %.039
 }
 
@@ -5534,7 +5534,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %65, %55, %.lr.ph, %123, %._crit_edge41.loopexit.i, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i, %8, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
-  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ %135, %._crit_edge41.loopexit.i ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ false, %.lr.ph ], [ false, %123 ], [ false, %55 ], [ false, %65 ]
+  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %123 ], [ false, %8 ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ false, %.lr.ph ], [ %135, %._crit_edge41.loopexit.i ], [ false, %55 ], [ false, %65 ]
   ret i1 %.039
 }
 
@@ -6024,7 +6024,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %65, %55, %.lr.ph, %123, %._crit_edge41.loopexit.i, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i, %8, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
-  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ %135, %._crit_edge41.loopexit.i ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ false, %.lr.ph ], [ false, %123 ], [ false, %55 ], [ false, %65 ]
+  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %123 ], [ false, %8 ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ false, %.lr.ph ], [ %135, %._crit_edge41.loopexit.i ], [ false, %55 ], [ false, %65 ]
   ret i1 %.039
 }
 
@@ -6514,7 +6514,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %65, %55, %.lr.ph, %123, %._crit_edge41.loopexit.i, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i, %8, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
-  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ %135, %._crit_edge41.loopexit.i ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ false, %.lr.ph ], [ false, %123 ], [ false, %55 ], [ false, %65 ]
+  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %123 ], [ false, %8 ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ false, %.lr.ph ], [ %135, %._crit_edge41.loopexit.i ], [ false, %55 ], [ false, %65 ]
   ret i1 %.039
 }
 
@@ -7004,7 +7004,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %65, %55, %.lr.ph, %123, %._crit_edge41.loopexit.i, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i, %8, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
-  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ %135, %._crit_edge41.loopexit.i ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ false, %.lr.ph ], [ false, %123 ], [ false, %55 ], [ false, %65 ]
+  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %123 ], [ false, %8 ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ false, %.lr.ph ], [ %135, %._crit_edge41.loopexit.i ], [ false, %55 ], [ false, %65 ]
   ret i1 %.039
 }
 
@@ -7494,7 +7494,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %65, %55, %.lr.ph, %123, %._crit_edge41.loopexit.i, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i, %8, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
-  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ %135, %._crit_edge41.loopexit.i ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ false, %.lr.ph ], [ false, %123 ], [ false, %55 ], [ false, %65 ]
+  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %123 ], [ false, %8 ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ false, %.lr.ph ], [ %135, %._crit_edge41.loopexit.i ], [ false, %55 ], [ false, %65 ]
   ret i1 %.039
 }
 
@@ -7984,7 +7984,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %65, %55, %.lr.ph, %123, %._crit_edge41.loopexit.i, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i, %8, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
-  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ %135, %._crit_edge41.loopexit.i ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ false, %.lr.ph ], [ false, %123 ], [ false, %55 ], [ false, %65 ]
+  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %123 ], [ false, %8 ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ false, %.lr.ph ], [ %135, %._crit_edge41.loopexit.i ], [ false, %55 ], [ false, %65 ]
   ret i1 %.039
 }
 
@@ -8474,7 +8474,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %65, %55, %.lr.ph, %123, %._crit_edge41.loopexit.i, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i, %8, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
-  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ %135, %._crit_edge41.loopexit.i ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ false, %.lr.ph ], [ false, %123 ], [ false, %55 ], [ false, %65 ]
+  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %123 ], [ false, %8 ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ false, %.lr.ph ], [ %135, %._crit_edge41.loopexit.i ], [ false, %55 ], [ false, %65 ]
   ret i1 %.039
 }
 
@@ -8964,7 +8964,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %65, %55, %.lr.ph, %123, %._crit_edge41.loopexit.i, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i, %8, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
-  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ %135, %._crit_edge41.loopexit.i ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ false, %.lr.ph ], [ false, %123 ], [ false, %55 ], [ false, %65 ]
+  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %123 ], [ false, %8 ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ false, %.lr.ph ], [ %135, %._crit_edge41.loopexit.i ], [ false, %55 ], [ false, %65 ]
   ret i1 %.039
 }
 
@@ -9454,7 +9454,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %65, %55, %.lr.ph, %123, %._crit_edge41.loopexit.i, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i, %8, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
-  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ %135, %._crit_edge41.loopexit.i ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ false, %.lr.ph ], [ false, %123 ], [ false, %55 ], [ false, %65 ]
+  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %123 ], [ false, %8 ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ false, %.lr.ph ], [ %135, %._crit_edge41.loopexit.i ], [ false, %55 ], [ false, %65 ]
   ret i1 %.039
 }
 
@@ -9944,7 +9944,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %65, %55, %.lr.ph, %123, %._crit_edge41.loopexit.i, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i, %8, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
-  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ %135, %._crit_edge41.loopexit.i ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ false, %.lr.ph ], [ false, %123 ], [ false, %55 ], [ false, %65 ]
+  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %123 ], [ false, %8 ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ false, %.lr.ph ], [ %135, %._crit_edge41.loopexit.i ], [ false, %55 ], [ false, %65 ]
   ret i1 %.039
 }
 
@@ -10434,7 +10434,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %65, %55, %.lr.ph, %123, %._crit_edge41.loopexit.i, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i, %8, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
-  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ %135, %._crit_edge41.loopexit.i ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ false, %.lr.ph ], [ false, %123 ], [ false, %55 ], [ false, %65 ]
+  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %123 ], [ false, %8 ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ false, %.lr.ph ], [ %135, %._crit_edge41.loopexit.i ], [ false, %55 ], [ false, %65 ]
   ret i1 %.039
 }
 
@@ -10924,7 +10924,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %65, %55, %.lr.ph, %123, %._crit_edge41.loopexit.i, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i, %8, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
-  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ %135, %._crit_edge41.loopexit.i ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ false, %.lr.ph ], [ false, %123 ], [ false, %55 ], [ false, %65 ]
+  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %123 ], [ false, %8 ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ false, %.lr.ph ], [ %135, %._crit_edge41.loopexit.i ], [ false, %55 ], [ false, %65 ]
   ret i1 %.039
 }
 
@@ -11414,7 +11414,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %65, %55, %.lr.ph, %123, %._crit_edge41.loopexit.i, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i, %8, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
-  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ %135, %._crit_edge41.loopexit.i ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ false, %.lr.ph ], [ false, %123 ], [ false, %55 ], [ false, %65 ]
+  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %123 ], [ false, %8 ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ false, %.lr.ph ], [ %135, %._crit_edge41.loopexit.i ], [ false, %55 ], [ false, %65 ]
   ret i1 %.039
 }
 
@@ -11904,7 +11904,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %65, %55, %.lr.ph, %123, %._crit_edge41.loopexit.i, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i, %8, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
-  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ %135, %._crit_edge41.loopexit.i ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ false, %.lr.ph ], [ false, %123 ], [ false, %55 ], [ false, %65 ]
+  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %123 ], [ false, %8 ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ false, %.lr.ph ], [ %135, %._crit_edge41.loopexit.i ], [ false, %55 ], [ false, %65 ]
   ret i1 %.039
 }
 
@@ -12394,7 +12394,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %65, %55, %.lr.ph, %123, %._crit_edge41.loopexit.i, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i, %8, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
-  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ %135, %._crit_edge41.loopexit.i ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ false, %.lr.ph ], [ false, %123 ], [ false, %55 ], [ false, %65 ]
+  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %123 ], [ false, %8 ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ false, %.lr.ph ], [ %135, %._crit_edge41.loopexit.i ], [ false, %55 ], [ false, %65 ]
   ret i1 %.039
 }
 

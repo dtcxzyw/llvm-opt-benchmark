@@ -1194,7 +1194,7 @@ Abc_TtNot.exit.sink.split:                        ; preds = %498, %507
   br label %Abc_TtNot.exit
 
 Abc_TtNot.exit:                                   ; preds = %.lr.ph.i, %Abc_TtNot.exit.sink.split, %519, %516
-  %.0 = phi ptr [ %517, %516 ], [ %517, %519 ], [ %2, %Abc_TtNot.exit.sink.split ], [ %517, %.lr.ph.i ]
+  %.0 = phi ptr [ %2, %Abc_TtNot.exit.sink.split ], [ %517, %519 ], [ %517, %516 ], [ %517, %.lr.ph.i ]
   %528 = getelementptr i8, ptr %437, i64 8
   %.val384 = load ptr, ptr %528, align 8, !tbaa !47
   %529 = getelementptr i8, ptr %437, i64 4
@@ -1465,9 +1465,9 @@ Vec_IntGrow.exit.i482:                            ; preds = %.lr.ph528, %614
   br i1 %exitcond609.not, label %._crit_edge544, label %.lr.ph543, !llvm.loop !67
 
 ._crit_edge544:                                   ; preds = %640, %.preheader496, %.loopexit495
-  %.1711 = phi i32 [ %.1, %.loopexit495 ], [ %.2.lcssa, %.preheader496 ], [ %.1, %640 ]
-  %.1276710 = phi i32 [ %.1276, %.loopexit495 ], [ %.0275550, %.preheader496 ], [ %.1276, %640 ]
-  %.pre.i468650709 = phi ptr [ %.pre.i468650, %.loopexit495 ], [ %.pre.i468649, %.preheader496 ], [ %.pre.i468650, %640 ]
+  %.1711 = phi i32 [ %.2.lcssa, %.preheader496 ], [ %.1, %.loopexit495 ], [ %.1, %640 ]
+  %.1276710 = phi i32 [ %.0275550, %.preheader496 ], [ %.1276, %.loopexit495 ], [ %.1276, %640 ]
+  %.pre.i468650709 = phi ptr [ %.pre.i468649, %.preheader496 ], [ %.pre.i468650, %.loopexit495 ], [ %.pre.i468650, %640 ]
   %641 = add nsw i32 %381, %.0287548
   %642 = add nsw i32 %382, %.0288546
   %643 = add nuw nsw i32 %.1290545, 1
@@ -1835,8 +1835,8 @@ Abc_TtSwapVars.exit:                              ; preds = %._crit_edge124.spli
   %156 = add nsw i32 %.052, 1
   br label %Abc_TtHasVar.exit.thread
 
-Abc_TtHasVar.exit.thread:                         ; preds = %._crit_edge.us.i, %20, %.preheader.lr.ph.i, %14, %27, %Abc_TtHasVar.exit, %Abc_TtSwapVars.exit
-  %.1 = phi i32 [ %156, %Abc_TtSwapVars.exit ], [ %.052, %Abc_TtHasVar.exit ], [ %.052, %27 ], [ %.052, %14 ], [ %.052, %.preheader.lr.ph.i ], [ %.052, %20 ], [ %.052, %._crit_edge.us.i ]
+Abc_TtHasVar.exit.thread:                         ; preds = %._crit_edge.us.i, %20, %14, %27, %.preheader.lr.ph.i, %Abc_TtHasVar.exit, %Abc_TtSwapVars.exit
+  %.1 = phi i32 [ %156, %Abc_TtSwapVars.exit ], [ %.052, %Abc_TtHasVar.exit ], [ %.052, %.preheader.lr.ph.i ], [ %.052, %27 ], [ %.052, %14 ], [ %.052, %20 ], [ %.052, %._crit_edge.us.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !78
@@ -3032,15 +3032,15 @@ Abc_TtHasVar.exit.thread36.i.i:                   ; preds = %513, %Abc_TtHasVar.
   br label %Abc_TtHasVar.exit.thread.i.i
 
 Abc_TtHasVar.exit.thread.i.i:                     ; preds = %._crit_edge.us.i.i.i, %512, %539, %.preheader.lr.ph.i.i.i
-  %.124.i.i = phi i32 [ %540, %539 ], [ %.02346.i.i, %.preheader.lr.ph.i.i.i ], [ %.02346.i.i, %512 ], [ %.02346.i.i, %._crit_edge.us.i.i.i ]
-  %.1.i.i = phi i32 [ %533, %539 ], [ %.047.i.i, %.preheader.lr.ph.i.i.i ], [ %.047.i.i, %512 ], [ %.047.i.i, %._crit_edge.us.i.i.i ]
+  %.124.i.i = phi i32 [ %540, %539 ], [ %.02346.i.i, %512 ], [ %.02346.i.i, %.preheader.lr.ph.i.i.i ], [ %.02346.i.i, %._crit_edge.us.i.i.i ]
+  %.1.i.i = phi i32 [ %533, %539 ], [ %.047.i.i, %512 ], [ %.047.i.i, %.preheader.lr.ph.i.i.i ], [ %.047.i.i, %._crit_edge.us.i.i.i ]
   %indvars.iv.next.i79.i = add nuw nsw i64 %indvars.iv.i78.i, 1
   %exitcond.not.i80.i = icmp eq i64 %indvars.iv.next.i79.i, %wide.trip.count.i
   br i1 %exitcond.not.i80.i, label %._crit_edge.i.i, label %.lr.ph.split.split.i.i, !llvm.loop !96
 
 ._crit_edge.i.i:                                  ; preds = %Abc_TtHasVar.exit.thread.i.i, %Abc_TtHasVar.exit.thread.us.i.i, %Abc_TtHasVar.exit.us.us.i.i
-  %.023.lcssa.i.i = phi i32 [ %.124.us.i.i, %Abc_TtHasVar.exit.thread.us.i.i ], [ %.124.us.us.i.i, %Abc_TtHasVar.exit.us.us.i.i ], [ %.124.i.i, %Abc_TtHasVar.exit.thread.i.i ]
-  %.0.lcssa.i.i = phi i32 [ %.1.us.i.i, %Abc_TtHasVar.exit.thread.us.i.i ], [ %.1.us.us.i.i, %Abc_TtHasVar.exit.us.us.i.i ], [ %.1.i.i, %Abc_TtHasVar.exit.thread.i.i ]
+  %.023.lcssa.i.i = phi i32 [ %.124.us.us.i.i, %Abc_TtHasVar.exit.us.us.i.i ], [ %.124.us.i.i, %Abc_TtHasVar.exit.thread.us.i.i ], [ %.124.i.i, %Abc_TtHasVar.exit.thread.i.i ]
+  %.0.lcssa.i.i = phi i32 [ %.1.us.us.i.i, %Abc_TtHasVar.exit.us.us.i.i ], [ %.1.us.i.i, %Abc_TtHasVar.exit.thread.us.i.i ], [ %.1.i.i, %Abc_TtHasVar.exit.thread.i.i ]
   %541 = icmp eq i32 %.0.lcssa.i.i, 0
   br i1 %541, label %Abc_TtSimplify.exit, label %542
 
@@ -3181,7 +3181,7 @@ Abc_TtSwapAdjacent.exit.us.us.us.us.i.i.i:        ; preds = %._crit_edge.us.i.us
   br i1 %.not15.not.us.us.us.us.i.i.i, label %.lr.ph.us.us.i.i.i, label %._crit_edge.split.us.us.split.us.us.i.i.i, !llvm.loop !102
 
 Abc_TtSimplify.exit:                              ; preds = %552, %343, %.lr.ph.split.i.i, %._crit_edge.i.i, %542, %.lr.ph61.i.i.i
-  %.0457 = phi i32 [ %.023.lcssa.i.i, %._crit_edge.i.i ], [ %.023.lcssa.i.i, %542 ], [ %.023.lcssa.i.i, %.lr.ph61.i.i.i ], [ 0, %.lr.ph.split.i.i ], [ 0, %343 ], [ %.023.lcssa.i.i, %552 ]
+  %.0457 = phi i32 [ %.023.lcssa.i.i, %._crit_edge.i.i ], [ %.023.lcssa.i.i, %542 ], [ 0, %343 ], [ %.023.lcssa.i.i, %.lr.ph61.i.i.i ], [ 0, %.lr.ph.split.i.i ], [ %.023.lcssa.i.i, %552 ]
   store i32 %.0457, ptr %259, align 4, !tbaa !30
   %598 = call i32 @Gia_ManFromIfLogicCreateLut(ptr noundef nonnull %195, ptr noundef %275, ptr noundef nonnull %258, ptr noundef nonnull %262, ptr noundef nonnull %212, ptr noundef nonnull %223) #18
   %.val284 = load i32, ptr %224, align 4, !tbaa !30

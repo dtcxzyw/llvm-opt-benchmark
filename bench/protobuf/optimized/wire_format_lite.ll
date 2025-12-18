@@ -301,7 +301,7 @@ if.else.i55:                                      ; preds = %sw.bb30
   br label %return
 
 return:                                           ; preds = %if.end4.i39, %if.else.i55, %if.then.i58, %if.end4.i, %if.then3.i, %if.else.i, %if.then.i17, %if.end.i, %if.then.i, %if.end, %_ZN6google8protobuf2io16CodedInputStream23DecrementRecursionDepthEv.exit, %sw.bb17, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit, %entry
-  %retval.0 = phi i1 [ %call4.i56, %if.else.i55 ], [ false, %entry ], [ false, %if.end ], [ %cmp.i48, %_ZN6google8protobuf2io16CodedInputStream23DecrementRecursionDepthEv.exit ], [ %tobool.i, %if.end.i ], [ false, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit ], [ %call4.i, %if.else.i ], [ false, %sw.bb17 ], [ true, %if.then.i ], [ true, %if.then.i17 ], [ %call5.i, %if.end4.i ], [ true, %if.then3.i ], [ true, %if.then.i58 ], [ false, %if.end4.i39 ]
+  %retval.0 = phi i1 [ true, %if.then.i58 ], [ %call4.i56, %if.else.i55 ], [ false, %entry ], [ false, %if.end ], [ %cmp.i48, %_ZN6google8protobuf2io16CodedInputStream23DecrementRecursionDepthEv.exit ], [ %tobool.i, %if.end.i ], [ false, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit ], [ %call4.i, %if.else.i ], [ false, %sw.bb17 ], [ true, %if.then.i ], [ true, %if.then.i17 ], [ %call5.i, %if.end4.i ], [ true, %if.then3.i ], [ false, %if.end4.i39 ]
   ret i1 %retval.0
 }
 

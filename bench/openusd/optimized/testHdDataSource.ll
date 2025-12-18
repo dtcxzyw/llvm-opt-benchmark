@@ -21246,7 +21246,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2
   ret i1 %.035
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit161: ; preds = %.preheader, %1560, %.body184.thread, %679, %.body168, %597, %.body124, %.body184, %583
-  %.pn61 = phi { ptr, i32 } [ %584, %583 ], [ %.pn45.pn.pn.pn, %.body184 ], [ %.pn42.pn, %597 ], [ %.pn42.pn, %.body124 ], [ %620, %.body168 ], [ %620, %679 ], [ %.pn45.pn.pn.pn.pn.ph, %.body184.thread ], [ %.pn56.pn.pn.pn, %1560 ], [ %.pn45.pn.pn.pn, %.preheader ]
+  %.pn61 = phi { ptr, i32 } [ %584, %583 ], [ %.pn45.pn.pn.pn.pn.ph, %.body184.thread ], [ %.pn45.pn.pn.pn, %.body184 ], [ %.pn56.pn.pn.pn, %1560 ], [ %.pn42.pn, %597 ], [ %.pn42.pn, %.body124 ], [ %620, %.body168 ], [ %620, %679 ], [ %.pn45.pn.pn.pn, %.preheader ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__22HdTypedContainerSchemaINS_24HdTypedSampledDataSourceIiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %19) #22
   br label %1635
 

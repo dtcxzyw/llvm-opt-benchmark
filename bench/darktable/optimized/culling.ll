@@ -780,7 +780,7 @@ define internal range(i32 0, 2) i32 @_event_motion_notify(ptr readnone captures(
   br i1 %.not91, label %.lr.ph114.preheader, label %81
 
 .lr.ph114.preheader:                              ; preds = %81, %68, %72
-  %.084112.ph = phi ptr [ %.085107, %72 ], [ %.085107, %68 ], [ %.086103, %81 ]
+  %.084112.ph = phi ptr [ %.085107, %68 ], [ %.085107, %72 ], [ %.086103, %81 ]
   br label %.lr.ph114
 
 .lr.ph114:                                        ; preds = %.lr.ph114.preheader, %129
@@ -2290,7 +2290,7 @@ _thumbs_recreate_list_at.exit:                    ; preds = %._crit_edge98.i
   br i1 %.not425.i, label %.lr.ph481.i, label %.lr.ph473.i
 
 ._crit_edge482.i:                                 ; preds = %.lr.ph481.split.i, %.lr.ph481.split.us.i, %295
-  %.0395.lcssa.i = phi i32 [ 0, %295 ], [ %.0395..us.i, %.lr.ph481.split.us.i ], [ %.0395..i, %.lr.ph481.split.i ]
+  %.0395.lcssa.i = phi i32 [ %.0395..us.i, %.lr.ph481.split.us.i ], [ 0, %295 ], [ %.0395..i, %.lr.ph481.split.i ]
   %322 = add nuw nsw i32 %.0375489.i, 1
   %323 = add nuw nsw i32 %322, %.0395.lcssa.i
   %324 = getelementptr inbounds nuw i8, ptr %.0387487.i, i64 8

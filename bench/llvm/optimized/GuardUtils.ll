@@ -307,7 +307,7 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i26: ; preds = %._crit_edge.i
   br label %19, !llvm.loop !64
 
 .thread68:                                        ; preds = %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i26, %._crit_edge, %_ZN4llvm12PatternMatch5matchINS_11InstructionENS0_17IntrinsicID_matchEEEbPT_RKT0_.exit, %_ZN4llvm12PatternMatch5matchINS_11InstructionENS0_17IntrinsicID_matchEEEbPT_RKT0_.exit.thread, %.lr.ph.i.i45
-  %.5 = phi i1 [ false, %_ZN4llvm12PatternMatch5matchINS_11InstructionENS0_17IntrinsicID_matchEEEbPT_RKT0_.exit.thread ], [ false, %.lr.ph.i.i45 ], [ true, %_ZN4llvm12PatternMatch5matchINS_11InstructionENS0_17IntrinsicID_matchEEEbPT_RKT0_.exit ], [ false, %._crit_edge ], [ false, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i26 ]
+  %.5 = phi i1 [ false, %.lr.ph.i.i45 ], [ false, %_ZN4llvm12PatternMatch5matchINS_11InstructionENS0_17IntrinsicID_matchEEEbPT_RKT0_.exit.thread ], [ true, %_ZN4llvm12PatternMatch5matchINS_11InstructionENS0_17IntrinsicID_matchEEEbPT_RKT0_.exit ], [ false, %._crit_edge ], [ false, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i26 ]
   %58 = load i8, ptr %18, align 4, !tbaa !50, !range !57, !noundef !61
   %59 = trunc nuw i8 %58 to i1
   br i1 %59, label %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit, label %60
@@ -603,7 +603,7 @@ _ZNK4llvm5Value9hasOneUseEv.exit.thread.sink.split: ; preds = %145, %142, %_ZN4l
   br label %_ZNK4llvm5Value9hasOneUseEv.exit.thread
 
 _ZNK4llvm5Value9hasOneUseEv.exit.thread:          ; preds = %_ZNK4llvm5Value9hasOneUseEv.exit.thread.sink.split, %20, %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17IntrinsicID_matchEEEbPT_RKT0_.exit, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i, %26, %29, %_ZNK4llvm5Value9hasOneUseEv.exit49, %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17IntrinsicID_matchEEEbPT_RKT0_.exit46, %55, %52, %.critedge, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i45, %106, %109, %120, %12, %_ZNK4llvm5Value9hasOneUseEv.exit, %5, %7
-  %.0 = phi i1 [ false, %5 ], [ false, %7 ], [ false, %12 ], [ false, %_ZNK4llvm5Value9hasOneUseEv.exit ], [ false, %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17IntrinsicID_matchEEEbPT_RKT0_.exit46 ], [ false, %120 ], [ false, %109 ], [ false, %_ZNK4llvm5Value9hasOneUseEv.exit49 ], [ false, %52 ], [ false, %20 ], [ false, %55 ], [ false, %.critedge ], [ false, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i45 ], [ false, %106 ], [ false, %29 ], [ false, %26 ], [ false, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i ], [ false, %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17IntrinsicID_matchEEEbPT_RKT0_.exit ], [ true, %_ZNK4llvm5Value9hasOneUseEv.exit.thread.sink.split ]
+  %.0 = phi i1 [ false, %5 ], [ false, %7 ], [ false, %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17IntrinsicID_matchEEEbPT_RKT0_.exit ], [ false, %12 ], [ false, %_ZNK4llvm5Value9hasOneUseEv.exit ], [ false, %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17IntrinsicID_matchEEEbPT_RKT0_.exit46 ], [ false, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i ], [ false, %26 ], [ false, %120 ], [ false, %109 ], [ false, %_ZNK4llvm5Value9hasOneUseEv.exit49 ], [ false, %52 ], [ false, %20 ], [ false, %55 ], [ false, %.critedge ], [ false, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i45 ], [ false, %106 ], [ false, %29 ], [ true, %_ZNK4llvm5Value9hasOneUseEv.exit.thread.sink.split ]
   ret i1 %.0
 }
 

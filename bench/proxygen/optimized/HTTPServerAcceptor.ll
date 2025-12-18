@@ -1347,8 +1347,8 @@ while.body.i.i:                                   ; preds = %for.end, %while.bod
   br i1 %cmp.i1.i.i, label %while.body.i.i, label %invoke.cont15, !llvm.loop !18
 
 invoke.cont15:                                    ; preds = %while.body.i.i, %entry, %for.end
-  %handlerFactories.sroa.0.0.lcssa75 = phi ptr [ %handlerFactories.sroa.0.1, %for.end ], [ null, %entry ], [ %handlerFactories.sroa.0.1, %while.body.i.i ]
-  %handlerFactories.sroa.8.0.lcssa74 = phi ptr [ %handlerFactories.sroa.8.1, %for.end ], [ null, %entry ], [ %handlerFactories.sroa.8.1, %while.body.i.i ]
+  %handlerFactories.sroa.0.0.lcssa75 = phi ptr [ null, %entry ], [ %handlerFactories.sroa.0.1, %for.end ], [ %handlerFactories.sroa.0.1, %while.body.i.i ]
+  %handlerFactories.sroa.8.0.lcssa74 = phi ptr [ null, %entry ], [ %handlerFactories.sroa.8.1, %for.end ], [ %handlerFactories.sroa.8.1, %while.body.i.i ]
   %call17 = invoke noalias noundef nonnull dereferenceable(1992) ptr @_Znwm(i64 noundef 1992) #24
           to label %invoke.cont16 unwind label %lpad.loopexit.split-lp
 
@@ -7764,7 +7764,7 @@ _ZNSt16allocator_traitsISaISt10_List_nodeIN5folly10SSLContext17NextProtocolsItem
   br i1 %cmp.not.i.i.i, label %_ZNSt7__cxx114listIN5folly10SSLContext17NextProtocolsItemESaIS3_EED2Ev.exit, label %while.body.i.i.i, !llvm.loop !29
 
 _ZNSt7__cxx114listIN5folly10SSLContext17NextProtocolsItemESaIS3_EED2Ev.exit: ; preds = %_ZNSt16allocator_traitsISaISt10_List_nodeIN5folly10SSLContext17NextProtocolsItemEEEE7destroyIS3_EEvRS5_PT_.exit.i.i.i, %entry, %cleanup
-  %retval.sroa.0.09 = phi ptr [ %retval.sroa.0.0, %cleanup ], [ %__position.coerce, %entry ], [ %retval.sroa.0.0, %_ZNSt16allocator_traitsISaISt10_List_nodeIN5folly10SSLContext17NextProtocolsItemEEEE7destroyIS3_EEvRS5_PT_.exit.i.i.i ]
+  %retval.sroa.0.09 = phi ptr [ %__position.coerce, %entry ], [ %retval.sroa.0.0, %cleanup ], [ %retval.sroa.0.0, %_ZNSt16allocator_traitsISaISt10_List_nodeIN5folly10SSLContext17NextProtocolsItemEEEE7destroyIS3_EEvRS5_PT_.exit.i.i.i ]
   ret ptr %retval.sroa.0.09
 }
 
@@ -7905,7 +7905,7 @@ while.body.i.i.i:                                 ; preds = %cleanup, %while.bod
   br i1 %cmp.not.i.i.i, label %_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %while.body.i.i.i, !llvm.loop !17
 
 _ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit: ; preds = %while.body.i.i.i, %entry, %cleanup
-  %retval.sroa.0.010 = phi ptr [ %retval.sroa.0.0, %cleanup ], [ %__position.coerce, %entry ], [ %retval.sroa.0.0, %while.body.i.i.i ]
+  %retval.sroa.0.010 = phi ptr [ %__position.coerce, %entry ], [ %retval.sroa.0.0, %cleanup ], [ %retval.sroa.0.0, %while.body.i.i.i ]
   ret ptr %retval.sroa.0.010
 }
 
@@ -8353,7 +8353,7 @@ while.body.i.i.i:                                 ; preds = %cleanup, %while.bod
   br i1 %cmp.not.i.i.i, label %_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %while.body.i.i.i, !llvm.loop !17
 
 _ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit: ; preds = %while.body.i.i.i, %entry, %cleanup
-  %retval.sroa.0.08 = phi ptr [ %retval.sroa.0.0, %cleanup ], [ %__position.coerce, %entry ], [ %retval.sroa.0.0, %while.body.i.i.i ]
+  %retval.sroa.0.08 = phi ptr [ %__position.coerce, %entry ], [ %retval.sroa.0.0, %cleanup ], [ %retval.sroa.0.0, %while.body.i.i.i ]
   ret ptr %retval.sroa.0.08
 }
 

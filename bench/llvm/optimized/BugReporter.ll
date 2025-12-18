@@ -8870,7 +8870,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_112FRIEC_WLItemELb1EE9push_backE
   br label %256
 
 256:                                              ; preds = %254, %.thread.thread191
-  %257 = phi i32 [ %255, %254 ], [ %250, %.thread.thread191 ]
+  %257 = phi i32 [ %250, %.thread.thread191 ], [ %255, %254 ]
   %.not.i = icmp eq i32 %257, 0
   br i1 %.not.i, label %._crit_edge, label %115, !llvm.loop !1244
 
@@ -8906,7 +8906,7 @@ _ZN4llvm11SmallVectorIN12_GLOBAL__N_112FRIEC_WLItemELj10EED2Ev.exit: ; preds = %
   br i1 %.not62, label %.loopexit, label %61
 
 .loopexit:                                        ; preds = %43, %266, %21, %45
-  %.0 = phi ptr [ null, %45 ], [ %14, %21 ], [ %.153, %266 ], [ %.1, %43 ]
+  %.0 = phi ptr [ %.153, %266 ], [ null, %45 ], [ %14, %21 ], [ %.1, %43 ]
   ret ptr %.0
 }
 
@@ -18807,7 +18807,7 @@ _ZL17isContainedByStmtRKN5clang9ParentMapEPKNS_4StmtES5_.exit45.i: ; preds = %.l
   br i1 %or.cond.not.i52.i, label %.lr.ph.i49.i, label %_ZL12isInLoopBodyRKN5clang9ParentMapEPKNS_4StmtES5_.exit, !llvm.loop !1530
 
 _ZL12isInLoopBodyRKN5clang9ParentMapEPKNS_4StmtES5_.exit: ; preds = %.lr.ph.i49.i, %_ZL17isContainedByStmtRKN5clang9ParentMapEPKNS_4StmtES5_.exit.i285, %_ZL17isContainedByStmtRKN5clang9ParentMapEPKNS_4StmtES5_.exit37.i, %_ZL17isContainedByStmtRKN5clang9ParentMapEPKNS_4StmtES5_.exit45.i, %1530
-  %.1.i = phi i1 [ true, %_ZL17isContainedByStmtRKN5clang9ParentMapEPKNS_4StmtES5_.exit.i285 ], [ true, %_ZL17isContainedByStmtRKN5clang9ParentMapEPKNS_4StmtES5_.exit37.i ], [ true, %_ZL17isContainedByStmtRKN5clang9ParentMapEPKNS_4StmtES5_.exit45.i ], [ %.not8.i46.i, %1530 ], [ %.not.i51.i, %.lr.ph.i49.i ]
+  %.1.i = phi i1 [ true, %_ZL17isContainedByStmtRKN5clang9ParentMapEPKNS_4StmtES5_.exit.i285 ], [ true, %_ZL17isContainedByStmtRKN5clang9ParentMapEPKNS_4StmtES5_.exit37.i ], [ %.not8.i46.i, %1530 ], [ true, %_ZL17isContainedByStmtRKN5clang9ParentMapEPKNS_4StmtES5_.exit45.i ], [ %.not.i51.i, %.lr.ph.i49.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %71)
   %1534 = getelementptr i8, ptr %.sroa.0336.0.copyload, i64 80
   %.val150.val = load ptr, ptr %1534, align 8, !tbaa !1464
@@ -20338,7 +20338,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i197: ; preds = 
   br i1 %.not341356, label %.thread332, label %.lr.ph
 
 .thread332:                                       ; preds = %_ZL13getStmtParentPKN5clang4StmtERKNS_9ParentMapE.exit142, %.outer, %_ZNK4llvm6detail12DenseSetImplIPKN5clang4ento23PathDiagnosticCallPieceENS_8DenseMapIS6_NS0_13DenseSetEmptyENS_12DenseMapInfoIS6_vEENS0_12DenseSetPairIS6_EEEESA_E5countES6_.exit.thread
-  %.0.ph354 = phi i1 [ %.0.ph361, %_ZNK4llvm6detail12DenseSetImplIPKN5clang4ento23PathDiagnosticCallPieceENS_8DenseMapIS6_NS0_13DenseSetEmptyENS_12DenseMapInfoIS6_vEENS0_12DenseSetPairIS6_EEEESA_E5countES6_.exit.thread ], [ %.0.ph361, %_ZL13getStmtParentPKN5clang4StmtERKNS_9ParentMapE.exit142 ], [ %.2, %.outer ]
+  %.0.ph354 = phi i1 [ %.0.ph361, %_ZNK4llvm6detail12DenseSetImplIPKN5clang4ento23PathDiagnosticCallPieceENS_8DenseMapIS6_NS0_13DenseSetEmptyENS_12DenseMapInfoIS6_vEENS0_12DenseSetPairIS6_EEEESA_E5countES6_.exit.thread ], [ %.2, %.outer ], [ %.0.ph361, %_ZL13getStmtParentPKN5clang4StmtERKNS_9ParentMapE.exit142 ]
   br i1 %.0.ph354, label %_ZL21removeIdenticalEventsRN5clang4ento10PathPiecesE.exit, label %.thread332.thread
 
 .thread332.thread:                                ; preds = %_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21getLocationContextForEPKN5clang4ento10PathPiecesE.exit, %.thread332
@@ -20889,7 +20889,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i47.i: ; preds =
   br label %504
 
 504:                                              ; preds = %.thread99.i, %502, %423, %418, %405
-  %.sroa.084.1.i = phi ptr [ %406, %405 ], [ %476, %502 ], [ %503, %.thread99.i ], [ %410, %423 ], [ %410, %418 ]
+  %.sroa.084.1.i = phi ptr [ %406, %405 ], [ %410, %418 ], [ %410, %423 ], [ %476, %502 ], [ %503, %.thread99.i ]
   %.not109.i = icmp eq ptr %.sroa.084.1.i, %1
   br i1 %.not109.i, label %_ZL19removeContextCyclesRN5clang4ento10PathPiecesERKNS_13SourceManagerE.exit.loopexit, label %399
 
@@ -21092,7 +21092,7 @@ _ZNSt7__cxx114listISt10shared_ptrIN5clang4ento19PathDiagnosticPieceEESaIS5_EE5er
   br label %.thread125.i
 
 .thread125.i:                                     ; preds = %537, %_ZN4llvmeqENS_9StringRefES0_.exit69.i, %_ZN4llvmeqENS_9StringRefES0_.exit65.i, %_ZN4llvmeqENS_9StringRefES0_.exit61.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i, %526, %_ZNSt7__cxx114listISt10shared_ptrIN5clang4ento19PathDiagnosticPieceEESaIS5_EE5eraseESt20_List_const_iteratorIS5_E.exit.i222, %_ZN4llvm3isaIN5clang7ForStmtENS1_9WhileStmtEJNS1_6IfStmtENS1_21ObjCForCollectionStmtENS1_15CXXForRangeStmtEEPKNS1_4StmtEEEbRKT2_.exit.thread.i, %545, %540, %535, %512, %506
-  %.sroa.0103.1.ph.i = phi ptr [ %.sroa.0103.0144.i, %506 ], [ %.sroa.0103.0144.i, %540 ], [ %.sroa.0103.0144.i, %545 ], [ %.sroa.0103.0144.i, %_ZN4llvm3isaIN5clang7ForStmtENS1_9WhileStmtEJNS1_6IfStmtENS1_21ObjCForCollectionStmtENS1_15CXXForRangeStmtEEPKNS1_4StmtEEEbRKT2_.exit.thread.i ], [ %552, %_ZNSt7__cxx114listISt10shared_ptrIN5clang4ento19PathDiagnosticPieceEESaIS5_EE5eraseESt20_List_const_iteratorIS5_E.exit.i222 ], [ %.sroa.0103.0144.i, %512 ], [ %.sroa.0103.0144.i, %535 ], [ %.sroa.0103.0144.i, %526 ], [ %.sroa.0103.0144.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i ], [ %.sroa.0103.0144.i, %_ZN4llvmeqENS_9StringRefES0_.exit61.i ], [ %.sroa.0103.0144.i, %_ZN4llvmeqENS_9StringRefES0_.exit65.i ], [ %.sroa.0103.0144.i, %_ZN4llvmeqENS_9StringRefES0_.exit69.i ], [ %.sroa.0103.0144.i, %537 ]
+  %.sroa.0103.1.ph.i = phi ptr [ %.sroa.0103.0144.i, %506 ], [ %.sroa.0103.0144.i, %540 ], [ %.sroa.0103.0144.i, %545 ], [ %.sroa.0103.0144.i, %_ZN4llvm3isaIN5clang7ForStmtENS1_9WhileStmtEJNS1_6IfStmtENS1_21ObjCForCollectionStmtENS1_15CXXForRangeStmtEEPKNS1_4StmtEEEbRKT2_.exit.thread.i ], [ %552, %_ZNSt7__cxx114listISt10shared_ptrIN5clang4ento19PathDiagnosticPieceEESaIS5_EE5eraseESt20_List_const_iteratorIS5_E.exit.i222 ], [ %.sroa.0103.0144.i, %535 ], [ %.sroa.0103.0144.i, %512 ], [ %.sroa.0103.0144.i, %526 ], [ %.sroa.0103.0144.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i ], [ %.sroa.0103.0144.i, %_ZN4llvmeqENS_9StringRefES0_.exit61.i ], [ %.sroa.0103.0144.i, %_ZN4llvmeqENS_9StringRefES0_.exit65.i ], [ %.sroa.0103.0144.i, %_ZN4llvmeqENS_9StringRefES0_.exit69.i ], [ %.sroa.0103.0144.i, %537 ]
   %.sroa.0103.0.i = load ptr, ptr %.sroa.0103.1.ph.i, align 8, !tbaa !906
   %.not137.i = icmp eq ptr %.sroa.0103.0.i, %1
   br i1 %.not137.i, label %_ZL22simplifySimpleBranchesRN5clang4ento10PathPiecesE.exit.loopexit, label %506, !llvm.loop !1602
@@ -21597,7 +21597,7 @@ _ZNK5clang4ento22PathDiagnosticLocationneERKS1_.exit.i: ; preds = %77
   br label %_ZL27eventsDescribeSameConditionPN5clang4ento24PathDiagnosticEventPieceES2_.exit
 
 _ZL27eventsDescribeSameConditionPN5clang4ento24PathDiagnosticEventPieceES2_.exit: ; preds = %103, %98
-  %.0.i = phi ptr [ %100, %98 ], [ %105, %103 ]
+  %.0.i = phi ptr [ %105, %103 ], [ %100, %98 ]
   %106 = icmp eq ptr %.0.i, %49
   %107 = load ptr, ptr %0, align 8
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 16
@@ -27012,7 +27012,7 @@ _ZNSt16allocator_traitsISaISt10_List_nodeISt10shared_ptrIN5clang4ento19PathDiagn
   br i1 %.not.i.i7, label %_ZNSt7__cxx1110_List_baseISt10shared_ptrIN5clang4ento19PathDiagnosticPieceEESaIS5_EED2Ev.exit, label %.lr.ph.i.i6, !llvm.loop !981
 
 _ZNSt7__cxx1110_List_baseISt10shared_ptrIN5clang4ento19PathDiagnosticPieceEESaIS5_EED2Ev.exit: ; preds = %_ZNSt16allocator_traitsISaISt10_List_nodeISt10shared_ptrIN5clang4ento19PathDiagnosticPieceEEEEE7destroyIS5_EEvRS7_PT_.exit.i.i, %4, %30
-  %.sroa.05.021 = phi ptr [ %.sroa.05.0, %30 ], [ %1, %4 ], [ %.sroa.05.0, %_ZNSt16allocator_traitsISaISt10_List_nodeISt10shared_ptrIN5clang4ento19PathDiagnosticPieceEEEEE7destroyIS5_EEvRS7_PT_.exit.i.i ]
+  %.sroa.05.021 = phi ptr [ %1, %4 ], [ %.sroa.05.0, %30 ], [ %.sroa.05.0, %_ZNSt16allocator_traitsISaISt10_List_nodeISt10shared_ptrIN5clang4ento19PathDiagnosticPieceEEEEE7destroyIS5_EEvRS7_PT_.exit.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.sroa.05.021
 }

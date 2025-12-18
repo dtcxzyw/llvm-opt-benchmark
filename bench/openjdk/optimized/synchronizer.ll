@@ -1049,7 +1049,7 @@ _ZN9LockStack19try_recursive_enterEP7oopDesc.exit.thread: ; preds = %33, %36, %2
   br label %68
 
 68:                                               ; preds = %.sink.split, %_ZN9LockStack19try_recursive_enterEP7oopDesc.exit.thread, %65, %63, %47, %27, %_ZNK7oopDesc5klassEv.exit, %3
-  %.0 = phi i1 [ false, %47 ], [ false, %3 ], [ false, %_ZNK7oopDesc5klassEv.exit ], [ false, %27 ], [ false, %63 ], [ false, %65 ], [ false, %_ZN9LockStack19try_recursive_enterEP7oopDesc.exit.thread ], [ true, %.sink.split ]
+  %.0 = phi i1 [ false, %47 ], [ false, %3 ], [ false, %_ZNK7oopDesc5klassEv.exit ], [ false, %_ZN9LockStack19try_recursive_enterEP7oopDesc.exit.thread ], [ false, %27 ], [ false, %65 ], [ false, %63 ], [ true, %.sink.split ]
   ret i1 %.0
 }
 

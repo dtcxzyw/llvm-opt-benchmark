@@ -8127,8 +8127,8 @@ _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit287.preheader.i: ; preds = %_ZL13gmx_snew
   br i1 %exitcond511.not.i, label %.loopexit.i721, label %.lr.ph444.i, !llvm.loop !310
 
 .loopexit.i721:                                   ; preds = %._crit_edge439.i, %.loopexit413.i, %2857, %.preheader412.i, %.lr.ph450.i
-  %.4207.i = phi double [ %.1204447.i, %.lr.ph450.i ], [ %.1204447.i, %.loopexit413.i ], [ %.1204447.i, %2857 ], [ %.1204447.i, %.preheader412.i ], [ %.3206.lcssa.i, %._crit_edge439.i ]
-  %.3196.i = phi i32 [ %.1194448.i, %.lr.ph450.i ], [ %.1194448.i, %.loopexit413.i ], [ %.1194448.i, %2857 ], [ %.1194448.i, %.preheader412.i ], [ %2887, %._crit_edge439.i ]
+  %.4207.i = phi double [ %.1204447.i, %.lr.ph450.i ], [ %.1204447.i, %.loopexit413.i ], [ %.1204447.i, %.preheader412.i ], [ %.1204447.i, %2857 ], [ %.3206.lcssa.i, %._crit_edge439.i ]
+  %.3196.i = phi i32 [ %.1194448.i, %.lr.ph450.i ], [ %.1194448.i, %.loopexit413.i ], [ %.1194448.i, %.preheader412.i ], [ %.1194448.i, %2857 ], [ %2887, %._crit_edge439.i ]
   %indvars.iv.next513.i = add nuw nsw i64 %indvars.iv512.i, 1
   %2947 = load ptr, ptr %784, align 8, !tbaa !67
   %2948 = load ptr, ptr %499, align 8, !tbaa !59
@@ -9028,8 +9028,8 @@ _ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit.preheader.i: ; preds = %_ZL13gmx_snew_im
   br i1 %.not150.not.i, label %.lr.ph227.split.i, label %._crit_edge.i760, !llvm.loop !319
 
 ._crit_edge.i760:                                 ; preds = %3281, %3305, %.preheader217.i
-  %3308 = phi i32 [ %3259, %.preheader217.i ], [ %3307, %3305 ], [ %3282, %3281 ]
-  %3309 = phi i32 [ %3260, %.preheader217.i ], [ %3307, %3305 ], [ %3282, %3281 ]
+  %3308 = phi i32 [ %3307, %3305 ], [ %3259, %.preheader217.i ], [ %3282, %3281 ]
+  %3309 = phi i32 [ %3307, %3305 ], [ %3260, %.preheader217.i ], [ %3282, %3281 ]
   %3310 = add i32 %.2109229.i, 1
   %indvars.iv.next266.i = add nuw nsw i64 %indvars.iv265.i, 1
   %exitcond269.not.i = icmp eq i64 %indvars.iv.next266.i, %wide.trip.count268.i
@@ -13548,7 +13548,7 @@ _ZL9cos_anglePKfS0_.exit._crit_edge.i:            ; preds = %_ZL9cos_anglePKfS0_
   call void @llvm.lifetime.end.p0(ptr nonnull %40), !llvm.access.group !398
   br label %1468
 
-.thread397:                                       ; preds = %815, %952, %._crit_edge.i271
+.thread397:                                       ; preds = %952, %815, %._crit_edge.i271
   %.sroa.0383.13.ph = phi float [ %.sroa.0383.111269, %815 ], [ %954, %952 ], [ %.sroa.0383.111269, %._crit_edge.i271 ]
   %.sroa.0385.12.ph = phi float [ %.sroa.0385.111270, %815 ], [ %953, %952 ], [ %.sroa.0385.111270, %._crit_edge.i271 ]
   %.sroa.0.12.ph396 = phi i32 [ %.sroa.0.111271, %815 ], [ %832, %952 ], [ -49297, %._crit_edge.i271 ]

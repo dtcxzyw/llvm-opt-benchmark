@@ -783,7 +783,7 @@ thread-pre-split.i:                               ; preds = %32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %94, %.loopexit.loopexit143, %._crit_edge142, %111, %114, %117, %120, %123, %1
-  %.0 = phi i32 [ 0, %._crit_edge142 ], [ -12, %1 ], [ 0, %123 ], [ 0, %120 ], [ 0, %117 ], [ 0, %114 ], [ 0, %111 ], [ -22, %.loopexit.loopexit143 ], [ -12, %94 ]
+  %.0 = phi i32 [ -22, %.loopexit.loopexit143 ], [ 0, %._crit_edge142 ], [ -12, %1 ], [ 0, %123 ], [ 0, %120 ], [ 0, %117 ], [ 0, %114 ], [ 0, %111 ], [ -12, %94 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }

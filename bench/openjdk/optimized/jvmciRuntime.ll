@@ -5494,8 +5494,8 @@ define hidden noundef ptr @_ZN12JVMCIRuntime14select_runtimeEP10JavaThreadPS_Pi(
   br i1 %or.cond24, label %.split.us, label %68
 
 .split.us:                                        ; preds = %60, %42, %25, %13
-  %.us-phi = phi ptr [ %.01731.us36, %42 ], [ %.01731.us.us, %13 ], [ %.01731.us, %25 ], [ %.01731, %60 ]
-  %.us-phi32 = phi i32 [ %39, %42 ], [ %15, %13 ], [ %27, %25 ], [ %57, %60 ]
+  %.us-phi = phi ptr [ %.01731.us36, %42 ], [ %.01731.us, %25 ], [ %.01731.us.us, %13 ], [ %.01731, %60 ]
+  %.us-phi32 = phi i32 [ %39, %42 ], [ %27, %25 ], [ %15, %13 ], [ %57, %60 ]
   %66 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 88
   %67 = add nuw nsw i32 %.us-phi32, 1
   store i32 %67, ptr %66, align 8
@@ -5508,7 +5508,7 @@ define hidden noundef ptr @_ZN12JVMCIRuntime14select_runtimeEP10JavaThreadPS_Pi(
   br i1 %.not, label %.loopexit, label %.lr.ph.split.split, !llvm.loop !39
 
 .loopexit:                                        ; preds = %68, %47, %29, %17, %3, %.split.us
-  %.01726 = phi ptr [ %.us-phi, %.split.us ], [ null, %3 ], [ null, %47 ], [ null, %17 ], [ null, %29 ], [ null, %68 ]
+  %.01726 = phi ptr [ %.us-phi, %.split.us ], [ null, %3 ], [ null, %47 ], [ null, %29 ], [ null, %17 ], [ null, %68 ]
   ret ptr %.01726
 }
 
@@ -5858,7 +5858,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %2, %4
   br i1 %.not, label %_ZN12JVMCIRuntime13attach_threadEP10JavaThread.exit, label %.lr.ph, !llvm.loop !41
 
 _ZN12JVMCIRuntime13attach_threadEP10JavaThread.exit: ; preds = %35, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit, %30, %25, %8
-  %.010 = phi ptr [ @.str.49, %8 ], [ null, %25 ], [ null, %30 ], [ @.str.50, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit ], [ @.str.50, %35 ]
+  %.010 = phi ptr [ @.str.49, %8 ], [ null, %30 ], [ null, %25 ], [ @.str.50, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit ], [ @.str.50, %35 ]
   br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %37
 
 37:                                               ; preds = %_ZN12JVMCIRuntime13attach_threadEP10JavaThread.exit

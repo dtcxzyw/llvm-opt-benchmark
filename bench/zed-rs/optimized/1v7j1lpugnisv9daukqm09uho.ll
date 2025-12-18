@@ -13689,7 +13689,7 @@ define hidden void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %18, %._crit_edge, %14
-  %.sroa.04.0.in.in121.lcssa.sink = phi i64 [ %.sroa.04.0.lcssa, %18 ], [ %.sroa.04.0.in.in.lcssa, %14 ], [ %.sroa.04.0.in.in.lcssa, %._crit_edge ], [ %.sroa.04.0.in.in121, %.lr.ph ]
+  %.sroa.04.0.in.in121.lcssa.sink = phi i64 [ %.sroa.04.0.in.in.lcssa, %._crit_edge ], [ %.sroa.04.0.lcssa, %18 ], [ %.sroa.04.0.in.in.lcssa, %14 ], [ %.sroa.04.0.in.in121, %.lr.ph ]
   %20 = getelementptr inbounds i64, ptr %5, i64 %.sroa.04.0.in.in121.lcssa.sink
   store i64 %10, ptr %20, align 8, !noalias !7
   ret void

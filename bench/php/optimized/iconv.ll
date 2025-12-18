@@ -1820,7 +1820,7 @@ get_internal_encoding.exit:                       ; preds = %12, %14
   br label %zend_hash_find_deref.exit
 
 zend_hash_find_deref.exit:                        ; preds = %22, %42, %35, %38
-  %.143 = phi i32 [ 0, %35 ], [ %46, %42 ], [ 0, %38 ], [ 0, %22 ]
+  %.143 = phi i32 [ 0, %35 ], [ 0, %38 ], [ %46, %42 ], [ 0, %22 ]
   %47 = load ptr, ptr %9, align 8, !tbaa !32
   %48 = load ptr, ptr %47, align 8, !tbaa !4
   %49 = call ptr @zend_hash_str_find(ptr noundef %48, ptr noundef nonnull @.str.18, i64 noundef 13) #16
@@ -2706,9 +2706,9 @@ smart_str_0.exit.loopexit.i.loopexit216:          ; preds = %263
   br label %smart_str_0.exit.loopexit.i
 
 smart_str_0.exit.loopexit.i:                      ; preds = %435, %282, %smart_str_appendc_ex.exit237.i, %280, %277, %274, %266, %263, %347, %350, %356, %smart_str_0.exit.loopexit.i.loopexit216, %smart_str_0.exit.loopexit.i.loopexit215, %smart_str_0.exit.loopexit.i.loopexit209, %smart_str_0.exit.loopexit.i.loopexit, %446, %444
-  %.0143.i = phi ptr [ null, %446 ], [ null, %444 ], [ null, %347 ], [ null, %smart_str_0.exit.loopexit.i.loopexit209 ], [ null, %smart_str_0.exit.loopexit.i.loopexit216 ], [ null, %smart_str_0.exit.loopexit.i.loopexit ], [ null, %263 ], [ null, %smart_str_0.exit.loopexit.i.loopexit215 ], [ null, %356 ], [ null, %350 ], [ null, %266 ], [ null, %274 ], [ null, %277 ], [ null, %280 ], [ null, %435 ], [ %285, %282 ], [ null, %smart_str_appendc_ex.exit237.i ]
-  %451 = phi i1 [ true, %446 ], [ true, %444 ], [ false, %347 ], [ false, %smart_str_0.exit.loopexit.i.loopexit209 ], [ false, %smart_str_0.exit.loopexit.i.loopexit216 ], [ false, %smart_str_0.exit.loopexit.i.loopexit ], [ false, %263 ], [ false, %smart_str_0.exit.loopexit.i.loopexit215 ], [ false, %356 ], [ false, %350 ], [ false, %266 ], [ false, %274 ], [ false, %277 ], [ false, %280 ], [ false, %smart_str_appendc_ex.exit237.i ], [ false, %282 ], [ false, %435 ]
-  %.0128.i = phi i32 [ 0, %446 ], [ 0, %444 ], [ 6, %347 ], [ 5, %smart_str_0.exit.loopexit.i.loopexit209 ], [ 4, %smart_str_0.exit.loopexit.i.loopexit216 ], [ 5, %smart_str_0.exit.loopexit.i.loopexit ], [ 6, %263 ], [ 4, %smart_str_0.exit.loopexit.i.loopexit215 ], [ 6, %356 ], [ 6, %350 ], [ 3, %280 ], [ 6, %277 ], [ 6, %274 ], [ 3, %266 ], [ 6, %435 ], [ 6, %282 ], [ 3, %smart_str_appendc_ex.exit237.i ]
+  %.0143.i = phi ptr [ null, %smart_str_0.exit.loopexit.i.loopexit209 ], [ null, %446 ], [ null, %444 ], [ null, %smart_str_0.exit.loopexit.i.loopexit ], [ null, %smart_str_0.exit.loopexit.i.loopexit215 ], [ null, %347 ], [ null, %263 ], [ null, %smart_str_0.exit.loopexit.i.loopexit216 ], [ null, %356 ], [ null, %350 ], [ null, %266 ], [ null, %274 ], [ null, %277 ], [ null, %280 ], [ null, %smart_str_appendc_ex.exit237.i ], [ %285, %282 ], [ null, %435 ]
+  %451 = phi i1 [ false, %smart_str_0.exit.loopexit.i.loopexit209 ], [ true, %446 ], [ true, %444 ], [ false, %smart_str_0.exit.loopexit.i.loopexit ], [ false, %smart_str_0.exit.loopexit.i.loopexit215 ], [ false, %347 ], [ false, %263 ], [ false, %smart_str_0.exit.loopexit.i.loopexit216 ], [ false, %356 ], [ false, %350 ], [ false, %266 ], [ false, %274 ], [ false, %277 ], [ false, %280 ], [ false, %smart_str_appendc_ex.exit237.i ], [ false, %282 ], [ false, %435 ]
+  %.0128.i = phi i32 [ 5, %smart_str_0.exit.loopexit.i.loopexit209 ], [ 0, %446 ], [ 0, %444 ], [ 5, %smart_str_0.exit.loopexit.i.loopexit ], [ 4, %smart_str_0.exit.loopexit.i.loopexit215 ], [ 6, %347 ], [ 6, %263 ], [ 4, %smart_str_0.exit.loopexit.i.loopexit216 ], [ 6, %356 ], [ 6, %350 ], [ 3, %280 ], [ 6, %277 ], [ 6, %274 ], [ 3, %266 ], [ 3, %smart_str_appendc_ex.exit237.i ], [ 6, %282 ], [ 6, %435 ]
   %452 = call i32 @iconv_close(ptr noundef %147) #16
   %453 = call i32 @iconv_close(ptr noundef %140) #16
   %.not168.i = icmp eq ptr %.0143.i, null
@@ -5147,7 +5147,7 @@ smart_str_alloc.exit27:                           ; preds = %38, %43
   br label %.loopexit
 
 .loopexit:                                        ; preds = %28, %57, %25, %.loopexit.loopexit53, %.loopexit.loopexit50, %.preheader30, %50
-  %.020 = phi i32 [ 0, %50 ], [ 0, %.preheader30 ], [ 6, %57 ], [ 5, %.loopexit.loopexit50 ], [ 6, %25 ], [ 0, %28 ], [ 4, %.loopexit.loopexit53 ]
+  %.020 = phi i32 [ 5, %.loopexit.loopexit50 ], [ 6, %25 ], [ 6, %57 ], [ 0, %50 ], [ 0, %.preheader30 ], [ 0, %28 ], [ 4, %.loopexit.loopexit53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -5872,8 +5872,8 @@ define internal fastcc range(i32 -1, 1) i32 @php_iconv_stream_filter_append_buck
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %33, %37, %30, %91, %.loopexit.sink.split.loopexit127, %.loopexit.sink.split.loopexit118, %94, %96
-  %.str.104.sink = phi ptr [ @.str.104, %.loopexit.sink.split.loopexit118 ], [ @.str.103, %96 ], [ @.str.102, %30 ], [ @.str.105, %94 ], [ @.str.102, %91 ], [ @.str.102, %33 ], [ @.str.103, %37 ], [ @.str.104, %.loopexit.sink.split.loopexit127 ]
-  %.3.ph = phi ptr [ %.639, %.loopexit.sink.split.loopexit118 ], [ %.639, %96 ], [ %.120936, %30 ], [ %.639, %94 ], [ %.639, %91 ], [ %.120936, %37 ], [ %.120936, %33 ], [ %.120936, %.loopexit.sink.split.loopexit127 ]
+  %.str.104.sink = phi ptr [ @.str.104, %.loopexit.sink.split.loopexit118 ], [ @.str.103, %96 ], [ @.str.105, %94 ], [ @.str.102, %30 ], [ @.str.102, %91 ], [ @.str.102, %33 ], [ @.str.103, %37 ], [ @.str.104, %.loopexit.sink.split.loopexit127 ]
+  %.3.ph = phi ptr [ %.639, %.loopexit.sink.split.loopexit118 ], [ %.639, %96 ], [ %.639, %94 ], [ %.120936, %30 ], [ %.639, %91 ], [ %.120936, %37 ], [ %.120936, %33 ], [ %.120936, %.loopexit.sink.split.loopexit127 ]
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %149 = load ptr, ptr %148, align 8, !tbaa !71
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -5882,7 +5882,7 @@ define internal fastcc range(i32 -1, 1) i32 @php_iconv_stream_filter_append_buck
   br label %.loopexit
 
 .loopexit:                                        ; preds = %50, %103, %.loopexit.sink.split, %134
-  %.3 = phi ptr [ %.6.lcssa, %134 ], [ %.3.ph, %.loopexit.sink.split ], [ %.639, %103 ], [ %.120936, %50 ]
+  %.3 = phi ptr [ %.639, %103 ], [ %.6.lcssa, %134 ], [ %.3.ph, %.loopexit.sink.split ], [ %.120936, %50 ]
   br i1 %.not, label %153, label %152
 
 152:                                              ; preds = %.loopexit

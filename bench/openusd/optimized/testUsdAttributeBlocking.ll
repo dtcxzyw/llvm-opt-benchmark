@@ -2066,8 +2066,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute3SetINS_13SdfValueBlockEEEbR
   br label %.loopexit213
 
 .body:                                            ; preds = %184, %35, %182
-  %188 = phi i1 [ false, %35 ], [ false, %182 ], [ true, %184 ]
-  %.pn = phi { ptr, i32 } [ %36, %35 ], [ %183, %182 ], [ %eh.lpad-body137258, %184 ]
+  %188 = phi i1 [ false, %182 ], [ false, %35 ], [ true, %184 ]
+  %.pn = phi { ptr, i32 } [ %183, %182 ], [ %36, %35 ], [ %eh.lpad-body137258, %184 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #15
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #15
   br i1 %188, label %.loopexit213, label %.preheader212.preheader

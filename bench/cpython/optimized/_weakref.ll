@@ -222,7 +222,7 @@ _Py_TryIncref.exit:                               ; preds = %46, %43, %42, %.lr.
   br i1 %.not18, label %Py_DECREF.exit22, label %.lr.ph, !llvm.loop !37
 
 Py_DECREF.exit22:                                 ; preds = %_Py_TryIncref.exit, %2, %_PyObject_GET_WEAKREFS_LISTPTR.exit, %41, %38, %Py_DECREF.exit, %6
-  %.0 = phi ptr [ %5, %2 ], [ null, %6 ], [ null, %Py_DECREF.exit ], [ null, %38 ], [ null, %41 ], [ %5, %_PyObject_GET_WEAKREFS_LISTPTR.exit ], [ %5, %_Py_TryIncref.exit ]
+  %.0 = phi ptr [ %5, %2 ], [ null, %6 ], [ null, %41 ], [ null, %Py_DECREF.exit ], [ null, %38 ], [ %5, %_PyObject_GET_WEAKREFS_LISTPTR.exit ], [ %5, %_Py_TryIncref.exit ]
   ret ptr %.0
 }
 

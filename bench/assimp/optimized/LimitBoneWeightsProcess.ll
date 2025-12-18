@@ -456,7 +456,7 @@ _ZSt4sortIPN6Assimp23LimitBoneWeightsProcess6WeightEEvT_S4_.exit._crit_edge: ; p
   br i1 %.not71, label %.loopexit, label %.lr.ph135, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.lr.ph135, %_ZSt4sortIPN6Assimp23LimitBoneWeightsProcess6WeightEEvT_S4_.exit._crit_edge, %._crit_edge130, %.lr.ph139
-  %146 = phi i32 [ %100, %.lr.ph139 ], [ %129, %._crit_edge130 ], [ %129, %_ZSt4sortIPN6Assimp23LimitBoneWeightsProcess6WeightEEvT_S4_.exit._crit_edge ], [ %129, %.lr.ph135 ]
+  %146 = phi i32 [ %100, %.lr.ph139 ], [ %129, %_ZSt4sortIPN6Assimp23LimitBoneWeightsProcess6WeightEEvT_S4_.exit._crit_edge ], [ %129, %._crit_edge130 ], [ %129, %.lr.ph135 ]
   %147 = getelementptr inbounds nuw i8, ptr %.sroa.086.0137, i64 88
   %148 = load ptr, ptr %26, align 8
   %.not109 = icmp eq ptr %147, %148

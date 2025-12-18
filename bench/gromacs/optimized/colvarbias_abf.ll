@@ -26075,7 +26075,7 @@ _ZN11UIestimator8n_matrix5roundEd.exit22:         ; preds = %53, %56
   br i1 %82, label %65, label %._crit_edge, !llvm.loop !531
 
 ._crit_edge:                                      ; preds = %71, %3, %.thread, %.preheader
-  %.0.lcssa = phi i32 [ 0, %.preheader ], [ %.143, %.thread ], [ 0, %3 ], [ %.1, %71 ]
+  %.0.lcssa = phi i32 [ 0, %.preheader ], [ 0, %3 ], [ %.143, %.thread ], [ %.1, %71 ]
   ret i32 %.0.lcssa
 }
 
@@ -33134,8 +33134,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit155: ; preds = %26
   br label %281
 
 .loopexit:                                        ; preds = %._crit_edge263.split, %._crit_edge280, %_ZNK11colvar_gridImE16wrap_detect_edgeERSt6vectorIiSaIiEE.exit
-  %.258 = phi i64 [ %.561, %._crit_edge280 ], [ %.157, %_ZNK11colvar_gridImE16wrap_detect_edgeERSt6vectorIiSaIiEE.exit ], [ %.965, %._crit_edge263.split ]
-  %.255 = phi i64 [ %.5, %._crit_edge280 ], [ %.154, %_ZNK11colvar_gridImE16wrap_detect_edgeERSt6vectorIiSaIiEE.exit ], [ %.9, %._crit_edge263.split ]
+  %.258 = phi i64 [ %.157, %_ZNK11colvar_gridImE16wrap_detect_edgeERSt6vectorIiSaIiEE.exit ], [ %.561, %._crit_edge280 ], [ %.965, %._crit_edge263.split ]
+  %.255 = phi i64 [ %.154, %_ZNK11colvar_gridImE16wrap_detect_edgeERSt6vectorIiSaIiEE.exit ], [ %.5, %._crit_edge280 ], [ %.9, %._crit_edge263.split ]
   %.not85 = icmp eq i64 %.255, 0
   br i1 %.not85, label %_ZNK11colvar_gridImE8index_okERKSt6vectorIiSaIiEE.exit.thread, label %271
 
@@ -33154,11 +33154,11 @@ _ZNK11colvar_gridImE8index_okERKSt6vectorIiSaIiEE.exit: ; preds = %.thread218, %
   br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %_ZNK11colvar_gridImE8index_okERKSt6vectorIiSaIiEE.exit.thread
 
 _ZNK11colvar_gridImE8index_okERKSt6vectorIiSaIiEE.exit.thread: ; preds = %70, %66, %.loopexit, %271, %_ZNK11colvar_gridImE8index_okERKSt6vectorIiSaIiEE.exit
-  %.075406 = phi i32 [ %.075, %_ZNK11colvar_gridImE8index_okERKSt6vectorIiSaIiEE.exit ], [ 0, %.loopexit ], [ %273, %271 ], [ 0, %66 ], [ 0, %70 ]
-  %.sroa.0165.1405 = phi ptr [ %.sroa.0165.1, %_ZNK11colvar_gridImE8index_okERKSt6vectorIiSaIiEE.exit ], [ %.sroa.0165.3, %.loopexit ], [ %.sroa.0165.3, %271 ], [ %11, %66 ], [ %11, %70 ]
-  %.sroa.27.1404 = phi ptr [ %.sroa.27.1, %_ZNK11colvar_gridImE8index_okERKSt6vectorIiSaIiEE.exit ], [ %.sroa.27.3, %.loopexit ], [ %.sroa.27.3, %271 ], [ %13, %66 ], [ %13, %70 ]
-  %.sroa.0183.0206351402 = phi ptr [ %.sroa.0183.0206351, %_ZNK11colvar_gridImE8index_okERKSt6vectorIiSaIiEE.exit ], [ %.sroa.0183.0206349373, %.loopexit ], [ %.sroa.0183.0206349373, %271 ], [ %9, %66 ], [ %9, %70 ]
-  %.sroa.21.0201353369400 = phi ptr [ %.sroa.21.0201353369, %_ZNK11colvar_gridImE8index_okERKSt6vectorIiSaIiEE.exit ], [ %.sroa.21.0201353370, %.loopexit ], [ %.sroa.21.0201353370, %271 ], [ %10, %66 ], [ %10, %70 ]
+  %.075406 = phi i32 [ %.075, %_ZNK11colvar_gridImE8index_okERKSt6vectorIiSaIiEE.exit ], [ %273, %271 ], [ 0, %.loopexit ], [ 0, %66 ], [ 0, %70 ]
+  %.sroa.0165.1405 = phi ptr [ %.sroa.0165.1, %_ZNK11colvar_gridImE8index_okERKSt6vectorIiSaIiEE.exit ], [ %.sroa.0165.3, %271 ], [ %.sroa.0165.3, %.loopexit ], [ %11, %66 ], [ %11, %70 ]
+  %.sroa.27.1404 = phi ptr [ %.sroa.27.1, %_ZNK11colvar_gridImE8index_okERKSt6vectorIiSaIiEE.exit ], [ %.sroa.27.3, %271 ], [ %.sroa.27.3, %.loopexit ], [ %13, %66 ], [ %13, %70 ]
+  %.sroa.0183.0206351402 = phi ptr [ %.sroa.0183.0206351, %_ZNK11colvar_gridImE8index_okERKSt6vectorIiSaIiEE.exit ], [ %.sroa.0183.0206349373, %271 ], [ %.sroa.0183.0206349373, %.loopexit ], [ %9, %66 ], [ %9, %70 ]
+  %.sroa.21.0201353369400 = phi ptr [ %.sroa.21.0201353369, %_ZNK11colvar_gridImE8index_okERKSt6vectorIiSaIiEE.exit ], [ %.sroa.21.0201353370, %271 ], [ %.sroa.21.0201353370, %.loopexit ], [ %10, %66 ], [ %10, %70 ]
   %274 = ptrtoint ptr %.sroa.27.1404 to i64
   %275 = ptrtoint ptr %.sroa.0165.1405 to i64
   %276 = sub i64 %274, %275
@@ -36087,9 +36087,9 @@ _ZN11UIestimator8n_matrix5roundEd.exit22.i:       ; preds = %566, %563
   br i1 %592, label %575, label %_ZN11UIestimator8n_matrix9convert_xERKSt6vectorIdSaIdEE.exit.i.thread, !llvm.loop !531
 
 _ZN11UIestimator8n_matrix9convert_xERKSt6vectorIdSaIdEE.exit.i.thread: ; preds = %581, %491, %.preheader27.i.i314, %.preheader.i, %.thread.i
-  %593 = phi i32 [ %572, %.preheader.i ], [ %576, %.thread.i ], [ %509, %.preheader27.i.i314 ], [ %492, %491 ], [ %.pre.i, %581 ]
-  %594 = phi ptr [ %526, %.preheader.i ], [ %526, %.thread.i ], [ %480, %.preheader27.i.i314 ], [ %480, %491 ], [ %526, %581 ]
-  %.0.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %.143.i, %.thread.i ], [ 0, %.preheader27.i.i314 ], [ 0, %491 ], [ %.1.i, %581 ]
+  %593 = phi i32 [ %572, %.preheader.i ], [ %509, %.preheader27.i.i314 ], [ %576, %.thread.i ], [ %492, %491 ], [ %.pre.i, %581 ]
+  %594 = phi ptr [ %526, %.preheader.i ], [ %480, %.preheader27.i.i314 ], [ %526, %.thread.i ], [ %480, %491 ], [ %526, %581 ]
+  %.0.lcssa.i = phi i32 [ 0, %.preheader.i ], [ 0, %.preheader27.i.i314 ], [ %.143.i, %.thread.i ], [ 0, %491 ], [ %.1.i, %581 ]
   %595 = sext i32 %.0.lcssa.i to i64
   %596 = load ptr, ptr %594, align 8, !tbaa !27
   %597 = getelementptr inbounds nuw i32, ptr %596, i64 %595
@@ -36497,8 +36497,8 @@ _ZN11UIestimator8n_matrix5roundEd.exit22.i545:    ; preds = %781, %778
   br i1 %807, label %790, label %_ZN11UIestimator8n_matrix9convert_xERKSt6vectorIdSaIdEE.exit.i372.thread, !llvm.loop !531
 
 _ZN11UIestimator8n_matrix9convert_xERKSt6vectorIdSaIdEE.exit.i372.thread: ; preds = %796, %705, %.preheader27.i.i377, %.preheader.i547, %.thread.i552
-  %808 = phi ptr [ %741, %.preheader.i547 ], [ %741, %.thread.i552 ], [ %480, %705 ], [ %480, %.preheader27.i.i377 ], [ %741, %796 ]
-  %.0.lcssa.i540 = phi i32 [ 0, %.preheader.i547 ], [ %.143.i553, %.thread.i552 ], [ 0, %705 ], [ 0, %.preheader27.i.i377 ], [ %.1.i556, %796 ]
+  %808 = phi ptr [ %741, %.preheader.i547 ], [ %480, %.preheader27.i.i377 ], [ %741, %.thread.i552 ], [ %480, %705 ], [ %741, %796 ]
+  %.0.lcssa.i540 = phi i32 [ 0, %.preheader.i547 ], [ 0, %.preheader27.i.i377 ], [ %.143.i553, %.thread.i552 ], [ 0, %705 ], [ %.1.i556, %796 ]
   %809 = sext i32 %.0.lcssa.i540 to i64
   %810 = load ptr, ptr %808, align 8, !tbaa !27
   %811 = getelementptr inbounds nuw i32, ptr %810, i64 %809
@@ -36886,9 +36886,9 @@ _ZN11UIestimator8n_matrix5roundEd.exit22.i563:    ; preds = %990, %987
   br i1 %1016, label %999, label %_ZN11UIestimator8n_matrix9convert_xERKSt6vectorIdSaIdEE.exit.i437.thread, !llvm.loop !531
 
 _ZN11UIestimator8n_matrix9convert_xERKSt6vectorIdSaIdEE.exit.i437.thread: ; preds = %1005, %915, %.preheader27.i.i442, %.preheader.i565, %.thread.i570
-  %1017 = phi i32 [ %996, %.preheader.i565 ], [ %1000, %.thread.i570 ], [ %916, %915 ], [ %933, %.preheader27.i.i442 ], [ %.pre.i572, %1005 ]
-  %1018 = phi ptr [ %950, %.preheader.i565 ], [ %950, %.thread.i570 ], [ %480, %915 ], [ %480, %.preheader27.i.i442 ], [ %950, %1005 ]
-  %.0.lcssa.i558 = phi i32 [ 0, %.preheader.i565 ], [ %.143.i571, %.thread.i570 ], [ 0, %915 ], [ 0, %.preheader27.i.i442 ], [ %.1.i574, %1005 ]
+  %1017 = phi i32 [ %996, %.preheader.i565 ], [ %933, %.preheader27.i.i442 ], [ %1000, %.thread.i570 ], [ %916, %915 ], [ %.pre.i572, %1005 ]
+  %1018 = phi ptr [ %950, %.preheader.i565 ], [ %480, %.preheader27.i.i442 ], [ %950, %.thread.i570 ], [ %480, %915 ], [ %950, %1005 ]
+  %.0.lcssa.i558 = phi i32 [ 0, %.preheader.i565 ], [ 0, %.preheader27.i.i442 ], [ %.143.i571, %.thread.i570 ], [ 0, %915 ], [ %.1.i574, %1005 ]
   %1019 = sext i32 %.0.lcssa.i558 to i64
   %1020 = load ptr, ptr %1018, align 8, !tbaa !27
   %1021 = getelementptr inbounds nuw i32, ptr %1020, i64 %1019

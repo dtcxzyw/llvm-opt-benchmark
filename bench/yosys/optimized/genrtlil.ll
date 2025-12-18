@@ -2137,8 +2137,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %68, %
   br i1 %.not.i.i.not, label %.invoke580, label %_ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit
 
 .invoke580:                                       ; preds = %319, %587, %440, %428, %335, %325, %313, %306, %294
-  %299 = phi i64 [ 2, %440 ], [ 0, %294 ], [ 0, %306 ], [ 0, %313 ], [ 0, %325 ], [ 1, %335 ], [ 1, %428 ], [ 0, %587 ], [ 0, %319 ]
-  %300 = phi i64 [ %446, %440 ], [ 0, %294 ], [ 0, %306 ], [ 0, %313 ], [ %331, %325 ], [ %331, %335 ], [ %436, %428 ], [ %583, %587 ], [ 0, %319 ]
+  %299 = phi i64 [ 2, %440 ], [ 0, %294 ], [ 0, %306 ], [ 0, %313 ], [ 0, %587 ], [ 0, %325 ], [ 1, %335 ], [ 1, %428 ], [ 0, %319 ]
+  %300 = phi i64 [ %446, %440 ], [ 0, %294 ], [ 0, %306 ], [ 0, %313 ], [ %583, %587 ], [ %331, %325 ], [ %331, %335 ], [ %436, %428 ], [ 0, %319 ]
   invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.98, i64 noundef %299, i64 noundef %300) #32
           to label %.cont581 unwind label %.loopexit.split-lp438.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -6909,7 +6909,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit:                 ; preds = %_ZSt8_DestroyIPN5Yo
   br i1 %1423, label %.loopexit1956, label %1420
 
 .loopexit1956:                                    ; preds = %1413, %1420, %.thread1919
-  %.pn992 = phi { ptr, i32 } [ %1368, %.thread1919 ], [ %1418, %1420 ], [ %1412, %1413 ]
+  %.pn992 = phi { ptr, i32 } [ %1418, %1420 ], [ %1368, %.thread1919 ], [ %1412, %1413 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %75)
   br label %.loopexit.split-lp
 

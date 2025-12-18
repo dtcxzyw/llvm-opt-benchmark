@@ -1542,7 +1542,7 @@ define void @wtap_dump_params_init(ptr noundef %0, ptr noundef readonly captures
   br i1 %36, label %.lr.ph.i, label %wtap_file_get_shb_for_new_file.exit, !llvm.loop !6
 
 wtap_file_get_shb_for_new_file.exit:              ; preds = %.lr.ph.i, %5, %17, %21
-  %.0.i = phi ptr [ null, %17 ], [ null, %5 ], [ %22, %21 ], [ %22, %.lr.ph.i ]
+  %.0.i = phi ptr [ %22, %21 ], [ null, %17 ], [ null, %5 ], [ %22, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.0.i, ptr %37, align 8
@@ -1633,7 +1633,7 @@ define void @wtap_dump_params_init_no_idbs(ptr noundef %0, ptr noundef readonly 
   br i1 %36, label %.lr.ph.i, label %wtap_file_get_shb_for_new_file.exit, !llvm.loop !6
 
 wtap_file_get_shb_for_new_file.exit:              ; preds = %.lr.ph.i, %5, %17, %21
-  %.0.i = phi ptr [ null, %17 ], [ null, %5 ], [ %22, %21 ], [ %22, %.lr.ph.i ]
+  %.0.i = phi ptr [ %22, %21 ], [ null, %17 ], [ null, %5 ], [ %22, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.0.i, ptr %37, align 8

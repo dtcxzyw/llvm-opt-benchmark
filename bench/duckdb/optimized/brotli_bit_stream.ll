@@ -1802,9 +1802,9 @@ _ZL22StoreSymbolWithContextP12BlockEncodermmPKjPmPhm.exit: ; preds = %.lr.ph244,
   br i1 %.not192, label %.loopexit, label %.lr.ph244, !llvm.loop !287
 
 .loopexit:                                        ; preds = %_ZL22StoreSymbolWithContextP12BlockEncodermmPKjPmPhm.exit, %_ZL11StoreSymbolP12BlockEncodermPmPh.exit, %.preheader236, %.preheader
-  %.2184 = phi i64 [ %.0182253, %.preheader ], [ %.0182253, %.preheader236 ], [ %436, %_ZL11StoreSymbolP12BlockEncodermPmPh.exit ], [ %558, %_ZL22StoreSymbolWithContextP12BlockEncodermmPKjPmPhm.exit ]
-  %.1179 = phi i8 [ %.0178254, %.preheader ], [ %.0178254, %.preheader236 ], [ %.0178254, %_ZL11StoreSymbolP12BlockEncodermPmPh.exit ], [ %.2243, %_ZL22StoreSymbolWithContextP12BlockEncodermmPKjPmPhm.exit ]
-  %.1 = phi i8 [ %.0255, %.preheader ], [ %.0255, %.preheader236 ], [ %.0255, %_ZL11StoreSymbolP12BlockEncodermPmPh.exit ], [ %448, %_ZL22StoreSymbolWithContextP12BlockEncodermmPKjPmPhm.exit ]
+  %.2184 = phi i64 [ %436, %_ZL11StoreSymbolP12BlockEncodermPmPh.exit ], [ %.0182253, %.preheader ], [ %.0182253, %.preheader236 ], [ %558, %_ZL22StoreSymbolWithContextP12BlockEncodermmPKjPmPhm.exit ]
+  %.1179 = phi i8 [ %.0178254, %_ZL11StoreSymbolP12BlockEncodermPmPh.exit ], [ %.0178254, %.preheader ], [ %.0178254, %.preheader236 ], [ %.2243, %_ZL22StoreSymbolWithContextP12BlockEncodermmPKjPmPhm.exit ]
+  %.1 = phi i8 [ %.0255, %_ZL11StoreSymbolP12BlockEncodermPmPh.exit ], [ %.0255, %.preheader ], [ %.0255, %.preheader236 ], [ %448, %_ZL22StoreSymbolWithContextP12BlockEncodermmPKjPmPhm.exit ]
   %560 = zext nneg i32 %253 to i64
   %561 = add i64 %.2184, %560
   %.not194 = icmp eq i32 %253, 0

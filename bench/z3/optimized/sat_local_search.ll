@@ -3247,7 +3247,7 @@ _ZNK3sat12local_search8num_varsEv.exit.us:        ; preds = %9, %.split.us
   br label %.lr.ph
 
 .split8.us:                                       ; preds = %_ZNK3sat12local_search8num_varsEv.exit, %_ZNK3sat12local_search8num_varsEv.exit.us, %.split
-  %.us-phi = phi i32 [ 0, %.split ], [ %.1.us, %_ZNK3sat12local_search8num_varsEv.exit.us ], [ %.1, %_ZNK3sat12local_search8num_varsEv.exit ]
+  %.us-phi = phi i32 [ %.1.us, %_ZNK3sat12local_search8num_varsEv.exit.us ], [ 0, %.split ], [ %.1, %_ZNK3sat12local_search8num_varsEv.exit ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %18 = load ptr, ptr %17, align 8, !tbaa !9
   %19 = icmp eq ptr %18, null
@@ -5791,7 +5791,7 @@ _ZNK3sat12local_search8num_varsEv.exit.preheader: ; preds = %.preheader129.split
   br label %_ZNK3sat12local_search8num_varsEv.exit
 
 .preheader:                                       ; preds = %_ZNK3sat12local_search8num_varsEv.exit, %_ZNK3sat12local_search8num_varsEv.exit.us, %.preheader129.split
-  %.us-phi = phi double [ 0.000000e+00, %.preheader129.split ], [ %.sroa.speculated.us, %_ZNK3sat12local_search8num_varsEv.exit.us ], [ %.sroa.speculated, %_ZNK3sat12local_search8num_varsEv.exit ]
+  %.us-phi = phi double [ %.sroa.speculated.us, %_ZNK3sat12local_search8num_varsEv.exit.us ], [ 0.000000e+00, %.preheader129.split ], [ %.sroa.speculated, %_ZNK3sat12local_search8num_varsEv.exit ]
   %236 = getelementptr inbounds i8, ptr %227, i64 -4
   %237 = load double, ptr %20, align 8
   br label %242
@@ -6461,7 +6461,7 @@ _ZNK3sat12local_search10constraint3endEv.exit:    ; preds = %190
   br i1 %.not, label %.loopexit, label %197
 
 .loopexit:                                        ; preds = %.thread155, %220, %.preheader
-  %.4 = phi i32 [ %44, %.preheader ], [ %.6, %220 ], [ %.3, %.thread155 ]
+  %.4 = phi i32 [ %.6, %220 ], [ %44, %.preheader ], [ %.3, %.thread155 ]
   %223 = icmp eq i32 %.4, 2147483647
   br i1 %223, label %.loopexit.thread, label %233
 

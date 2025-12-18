@@ -768,11 +768,11 @@ addr_first_match.exit118.i:                       ; preds = %79
   br i1 %.not.i122.i, label %addr_first_match.exit.i, label %.lr.ph.i120.i, !llvm.loop !138
 
 addr_first_match.exit.i:                          ; preds = %66, %.lr.ph.i102.i, %59, %.lr.ph.i.i, %.lr.ph.i114.i, %88, %.lr.ph.i120.i, %addr_first_match.exit118.i, %69, %62, %55
-  %91 = phi ptr [ @.str.7, %addr_first_match.exit118.i ], [ @.str.9, %55 ], [ @.str.9, %62 ], [ @.str.7, %69 ], [ @.str.9, %59 ], [ @.str.7, %88 ], [ @.str.7, %.lr.ph.i114.i ], [ @.str.7, %.lr.ph.i120.i ], [ @.str.9, %.lr.ph.i.i ], [ @.str.9, %.lr.ph.i102.i ], [ @.str.9, %66 ]
-  %.080.i = phi i32 [ 2, %addr_first_match.exit118.i ], [ 0, %55 ], [ 0, %62 ], [ 2, %69 ], [ 0, %59 ], [ 2, %88 ], [ 2, %.lr.ph.i114.i ], [ 2, %.lr.ph.i120.i ], [ 0, %.lr.ph.i.i ], [ 0, %.lr.ph.i102.i ], [ 0, %66 ]
-  %.078.i = phi ptr [ %.05.lcssa.i111.i, %addr_first_match.exit118.i ], [ null, %55 ], [ null, %62 ], [ null, %69 ], [ null, %59 ], [ null, %88 ], [ %.05.lcssa.i111.i, %.lr.ph.i114.i ], [ %.057.i121.i, %.lr.ph.i120.i ], [ %.057.i.i, %.lr.ph.i.i ], [ null, %66 ], [ %.057.i103.i, %.lr.ph.i102.i ]
-  %.076.i = phi ptr [ null, %addr_first_match.exit118.i ], [ null, %55 ], [ null, %62 ], [ null, %69 ], [ null, %59 ], [ null, %88 ], [ %.057.i115.i, %.lr.ph.i114.i ], [ null, %.lr.ph.i120.i ], [ null, %.lr.ph.i.i ], [ null, %.lr.ph.i102.i ], [ null, %66 ]
-  %.075.i = phi i32 [ 10, %addr_first_match.exit118.i ], [ 10, %55 ], [ 2, %62 ], [ 10, %69 ], [ 10, %59 ], [ %84, %88 ], [ 10, %.lr.ph.i114.i ], [ %84, %.lr.ph.i120.i ], [ 10, %.lr.ph.i.i ], [ 2, %.lr.ph.i102.i ], [ 2, %66 ]
+  %91 = phi ptr [ @.str.9, %59 ], [ @.str.7, %.lr.ph.i114.i ], [ @.str.7, %addr_first_match.exit118.i ], [ @.str.7, %69 ], [ @.str.9, %55 ], [ @.str.7, %88 ], [ @.str.9, %62 ], [ @.str.7, %.lr.ph.i120.i ], [ @.str.9, %.lr.ph.i.i ], [ @.str.9, %.lr.ph.i102.i ], [ @.str.9, %66 ]
+  %.080.i = phi i32 [ 0, %59 ], [ 2, %.lr.ph.i114.i ], [ 2, %addr_first_match.exit118.i ], [ 2, %69 ], [ 0, %55 ], [ 2, %88 ], [ 0, %62 ], [ 2, %.lr.ph.i120.i ], [ 0, %.lr.ph.i.i ], [ 0, %.lr.ph.i102.i ], [ 0, %66 ]
+  %.078.i = phi ptr [ null, %59 ], [ %.05.lcssa.i111.i, %.lr.ph.i114.i ], [ %.05.lcssa.i111.i, %addr_first_match.exit118.i ], [ null, %69 ], [ null, %55 ], [ null, %88 ], [ null, %62 ], [ %.057.i121.i, %.lr.ph.i120.i ], [ %.057.i.i, %.lr.ph.i.i ], [ null, %66 ], [ %.057.i103.i, %.lr.ph.i102.i ]
+  %.076.i = phi ptr [ null, %59 ], [ %.057.i115.i, %.lr.ph.i114.i ], [ null, %addr_first_match.exit118.i ], [ null, %69 ], [ null, %55 ], [ null, %88 ], [ null, %62 ], [ null, %.lr.ph.i120.i ], [ null, %.lr.ph.i.i ], [ null, %.lr.ph.i102.i ], [ null, %66 ]
+  %.075.i = phi i32 [ 10, %59 ], [ 10, %.lr.ph.i114.i ], [ 10, %addr_first_match.exit118.i ], [ 10, %69 ], [ 10, %55 ], [ %84, %88 ], [ 2, %62 ], [ %84, %.lr.ph.i120.i ], [ 10, %.lr.ph.i.i ], [ 2, %.lr.ph.i102.i ], [ 2, %66 ]
   %92 = icmp eq ptr %.078.i, null
   %93 = icmp ne ptr %.076.i, null
   %or.cond3.i = and i1 %92, %93
@@ -1708,7 +1708,7 @@ baller_start_next.exit.i:                         ; preds = %333, %330, %baller_
   br label %.split359.us.i
 
 .split359.us.i:                                   ; preds = %540, %506, %.split359.us.i.loopexit110.split.loop.exit132, %.split359.us.i.loopexit.split.loop.exit138
-  %.us-phi.i = phi i32 [ %.mux.le, %.split359.us.i.loopexit.split.loop.exit138 ], [ %.mux107.le, %.split359.us.i.loopexit110.split.loop.exit132 ], [ 7, %506 ], [ 7, %540 ]
+  %.us-phi.i = phi i32 [ 7, %506 ], [ %.mux107.le, %.split359.us.i.loopexit110.split.loop.exit132 ], [ %.mux.le, %.split359.us.i.loopexit.split.loop.exit138 ], [ 7, %540 ]
   %541 = getelementptr inbounds nuw i8, ptr %198, i64 920
   %542 = load i64, ptr %541, align 8
   %543 = and i64 %542, 2
@@ -1923,7 +1923,7 @@ cf_he_ctx_clear.exit:                             ; preds = %575, %baller_close.
   br label %is_connected.exit
 
 is_connected.exit:                                ; preds = %.loopexit, %145, %94, %addr_first_match.exit.i, %46, %548, %399, %16, %637, %633, %15
-  %.0 = phi i32 [ 0, %15 ], [ %spec.select.i68, %548 ], [ 0, %16 ], [ 0, %637 ], [ 0, %633 ], [ 0, %.loopexit ], [ 28, %399 ], [ 27, %145 ], [ 27, %94 ], [ 7, %addr_first_match.exit.i ], [ 28, %46 ]
+  %.0 = phi i32 [ 0, %15 ], [ 28, %399 ], [ 0, %16 ], [ 0, %637 ], [ 0, %633 ], [ 0, %.loopexit ], [ %spec.select.i68, %548 ], [ 27, %145 ], [ 27, %94 ], [ 7, %addr_first_match.exit.i ], [ 28, %46 ]
   ret i32 %.0
 }
 

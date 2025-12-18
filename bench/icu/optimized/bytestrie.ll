@@ -1499,7 +1499,7 @@ _ZN6icu_779BytesTrie15findUniqueValueEPKhaRi.exit: ; preds = %228, %146, %148
   br label %_ZN6icu_779BytesTrie15findUniqueValueEPKhaRi.exit.thread
 
 _ZN6icu_779BytesTrie15findUniqueValueEPKhaRi.exit.thread: ; preds = %_ZN6icu_779BytesTrie11jumpByDeltaEPKh.exit, %146, %162, %225, %246
-  %.029 = phi ptr [ %247, %246 ], [ null, %146 ], [ null, %162 ], [ null, %225 ], [ null, %_ZN6icu_779BytesTrie11jumpByDeltaEPKh.exit ]
+  %.029 = phi ptr [ null, %162 ], [ %247, %246 ], [ null, %146 ], [ null, %225 ], [ null, %_ZN6icu_779BytesTrie11jumpByDeltaEPKh.exit ]
   ret ptr %.029
 }
 

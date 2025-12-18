@@ -282,7 +282,7 @@ define internal range(i32 0, 2) i32 @ossl_aes_gcm_siv_get_ctx_params(ptr noundef
   br label %28
 
 28:                                               ; preds = %.sink.split, %22, %24
-  %.0 = phi i32 [ 1, %24 ], [ 1, %22 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 1, %22 ], [ 1, %24 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 

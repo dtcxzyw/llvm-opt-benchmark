@@ -2023,11 +2023,11 @@ _ZN6object4read3elf4file10FileHeader15section_headers17h4d60653b00a9eed5E.exit.t
   br label %72
 
 _ZN6object4read3elf7section13SectionHeader10file_range17hcf0045faa9ddb1f4E.llvm.14695038267805529467.exit.thread.i: ; preds = %23, %5, %57, %51, %32
-  %.sink21.i45 = phi i64 [ 0, %32 ], [ %31, %57 ], [ %31, %51 ], [ 0, %5 ], [ 0, %23 ]
-  %anon.518f0f8e4047b0fec1ad8ab3b728328b.31.sink.i43 = phi ptr [ %30, %32 ], [ %30, %57 ], [ %30, %51 ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.4.llvm.14695038267805529467, %5 ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.4.llvm.14695038267805529467, %23 ]
-  %.sroa.20.0 = phi i64 [ 0, %32 ], [ %.0.i.i1.i.i, %57 ], [ 0, %51 ], [ 0, %5 ], [ 0, %23 ]
-  %.sroa.23.0 = phi i64 [ 0, %32 ], [ %65, %57 ], [ 0, %51 ], [ 0, %5 ], [ 0, %23 ]
-  %.sroa.8.0 = phi ptr [ null, %32 ], [ %3, %57 ], [ null, %51 ], [ null, %5 ], [ null, %23 ]
+  %.sink21.i45 = phi i64 [ %31, %57 ], [ 0, %32 ], [ %31, %51 ], [ 0, %5 ], [ 0, %23 ]
+  %anon.518f0f8e4047b0fec1ad8ab3b728328b.31.sink.i43 = phi ptr [ %30, %57 ], [ %30, %32 ], [ %30, %51 ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.4.llvm.14695038267805529467, %5 ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.4.llvm.14695038267805529467, %23 ]
+  %.sroa.20.0 = phi i64 [ %.0.i.i1.i.i, %57 ], [ 0, %32 ], [ 0, %51 ], [ 0, %5 ], [ 0, %23 ]
+  %.sroa.23.0 = phi i64 [ %65, %57 ], [ 0, %32 ], [ 0, %51 ], [ 0, %5 ], [ 0, %23 ]
+  %.sroa.8.0 = phi ptr [ %3, %57 ], [ null, %32 ], [ null, %51 ], [ null, %5 ], [ null, %23 ]
   store ptr %anon.518f0f8e4047b0fec1ad8ab3b728328b.31.sink.i43, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sink21.i45, ptr %.sroa.4.0..sroa_idx, align 8

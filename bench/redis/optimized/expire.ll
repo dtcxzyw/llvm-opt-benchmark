@@ -477,8 +477,8 @@ thread-pre-split:                                 ; preds = %.lr.ph
   br i1 %.not111, label %.thread119, label %92, !llvm.loop !66
 
 .thread119:                                       ; preds = %163, %160, %97
-  %.287129 = phi i64 [ %117, %160 ], [ %.186, %97 ], [ %117, %163 ]
-  %.290128 = phi i64 [ %118, %160 ], [ %.189, %97 ], [ %118, %163 ]
+  %.287129 = phi i64 [ %.186, %97 ], [ %117, %160 ], [ %117, %163 ]
+  %.290128 = phi i64 [ %.189, %97 ], [ %118, %160 ], [ %118, %163 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %164 = add nuw nsw i32 %.071151, 1
   %165 = icmp sge i32 %spec.select114, %spec.select

@@ -372,7 +372,7 @@ of_streamcopy.exit.i:                             ; preds = %.thread.i.i
   br i1 %.not87.i, label %.backedge.i, label %mux_packet_filter.exit
 
 .backedge.i:                                      ; preds = %sync_queue_process.exit.i, %194, %184, %159
-  %.0.be.i = phi i32 [ 0, %sync_queue_process.exit.i ], [ 0, %159 ], [ %.1119124.i, %184 ], [ 0, %194 ]
+  %.0.be.i = phi i32 [ 0, %159 ], [ 0, %sync_queue_process.exit.i ], [ %.1119124.i, %184 ], [ 0, %194 ]
   %.not86.i = icmp eq i32 %.0.be.i, 0
   br i1 %.not86.i, label %153, label %mux_packet_filter.exit.thread44, !llvm.loop !97
 
@@ -493,9 +493,9 @@ sync_queue_process.exit95.thread158.i:            ; preds = %215, %197
   br i1 %.not89.i, label %sync_queue_process.exit95.thread158.i.thread36, label %mux_packet_filter.exit.thread44
 
 sync_queue_process.exit.thread.i:                 ; preds = %sync_queue_process.exit.i, %184, %217, %186, %sync_queue_process.exit95.i, %215, %209, %178, %.thread112.i, %122
-  %.2 = phi i32 [ %.3, %209 ], [ %.3, %215 ], [ %.030, %.thread112.i ], [ %.030, %178 ], [ 0, %sync_queue_process.exit95.i ], [ 0, %122 ], [ %.3, %217 ], [ %.030, %186 ], [ %.030, %184 ], [ %.030, %sync_queue_process.exit.i ]
-  %.065.i = phi ptr [ @.str.15, %209 ], [ @.str.15, %215 ], [ @.str.13, %.thread112.i ], [ @.str.15, %178 ], [ @.str.15, %sync_queue_process.exit95.i ], [ undef, %122 ], [ @.str.15, %217 ], [ @.str.15, %186 ], [ @.str.15, %184 ], [ @.str.15, %sync_queue_process.exit.i ]
-  %.063.i = phi i32 [ %207, %209 ], [ %213, %215 ], [ %149, %.thread112.i ], [ %176, %178 ], [ %225, %sync_queue_process.exit95.i ], [ %135, %122 ], [ %223, %217 ], [ %192, %186 ], [ %195, %sync_queue_process.exit.i ], [ %182, %184 ]
+  %.2 = phi i32 [ %.3, %209 ], [ %.3, %215 ], [ %.3, %217 ], [ %.030, %.thread112.i ], [ %.030, %178 ], [ %.030, %186 ], [ 0, %122 ], [ 0, %sync_queue_process.exit95.i ], [ %.030, %184 ], [ %.030, %sync_queue_process.exit.i ]
+  %.065.i = phi ptr [ @.str.15, %209 ], [ @.str.15, %215 ], [ @.str.15, %217 ], [ @.str.13, %.thread112.i ], [ @.str.15, %178 ], [ @.str.15, %186 ], [ undef, %122 ], [ @.str.15, %sync_queue_process.exit95.i ], [ @.str.15, %184 ], [ @.str.15, %sync_queue_process.exit.i ]
+  %.063.i = phi i32 [ %207, %209 ], [ %213, %215 ], [ %223, %217 ], [ %149, %.thread112.i ], [ %176, %178 ], [ %192, %186 ], [ %135, %122 ], [ %225, %sync_queue_process.exit95.i ], [ %182, %184 ], [ %195, %sync_queue_process.exit.i ]
   %.not90.i = icmp eq i32 %.063.i, -541478725
   br i1 %.not90.i, label %mux_packet_filter.exit.thread44, label %227
 
@@ -505,7 +505,7 @@ sync_queue_process.exit.thread.i:                 ; preds = %sync_queue_process.
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %45, i32 noundef 16, ptr noundef nonnull @.str.16, ptr noundef %.065.i, ptr noundef nonnull %3) #11
   br label %mux_packet_filter.exit
 
-mux_packet_filter.exit.thread44:                  ; preds = %.critedge.thread.i, %.backedge.i, %sync_queue_process.exit.thread.i, %209, %178, %sync_queue_process.exit95.thread158.i
+mux_packet_filter.exit.thread44:                  ; preds = %.critedge.thread.i, %.backedge.i, %sync_queue_process.exit.thread.i, %sync_queue_process.exit95.thread158.i, %209, %178
   %.5.ph = phi i32 [ 1, %178 ], [ 1, %sync_queue_process.exit95.thread158.i ], [ 1, %209 ], [ %.2, %sync_queue_process.exit.thread.i ], [ 1, %.backedge.i ], [ 1, %.critedge.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -1835,8 +1835,8 @@ filesize.exit:                                    ; preds = %3, %16, %19
   br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !166
 
 .thread.i.i:                                      ; preds = %185, %166, %145
-  %.042.i.i = phi i32 [ %149, %145 ], [ %167, %185 ], [ %167, %166 ]
-  %.1.i.i = phi i64 [ %.064.i.i, %145 ], [ %.2.i.i, %185 ], [ %.2.i.i, %166 ]
+  %.042.i.i = phi i32 [ %149, %145 ], [ %167, %166 ], [ %167, %185 ]
+  %.1.i.i = phi i64 [ %.064.i.i, %145 ], [ %.2.i.i, %166 ], [ %.2.i.i, %185 ]
   %191 = zext nneg i32 %.042.i.i to i64
   %192 = icmp ult i32 %.042.i.i, 7
   br i1 %192, label %145, label %.loopexit.i.i, !llvm.loop !167

@@ -239,7 +239,7 @@ _ZNRSt8optionalImE5valueEv.exit:                  ; preds = %_ZNSt11char_traitsI
   br label %_ZNSt8optionalIN4absl4CordEEC2IRS1_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_IS7_ISt10in_place_tSE_EESt16is_constructibleIS1_JSA_EESt14is_convertibleISA_S1_EEEbE4typeELb1EEEOSA_.exit
 
 _ZNSt8optionalIN4absl4CordEEC2IRS1_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_IS7_ISt10in_place_tSE_EESt16is_constructibleIS1_JSA_EESt14is_convertibleISA_S1_EEEbE4typeELb1EEEOSA_.exit: ; preds = %27, %19, %.preheader.i, %4, %41, %40, %35
-  %.sink = phi i8 [ 1, %41 ], [ 1, %35 ], [ 1, %40 ], [ 0, %4 ], [ 0, %.preheader.i ], [ 0, %19 ], [ 0, %27 ]
+  %.sink = phi i8 [ 1, %41 ], [ 1, %35 ], [ 1, %40 ], [ 0, %19 ], [ 0, %.preheader.i ], [ 0, %4 ], [ 0, %27 ]
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %.sink, ptr %42, align 8, !tbaa !21
   ret void
@@ -337,7 +337,7 @@ _ZN4absl4CordaSEOS0_.exit:                        ; preds = %_ZNRSt8optionalImE5
   br label %89
 
 .loopexit:                                        ; preds = %28, %20, %.preheader.i.thread, %.preheader.i
-  %38 = phi ptr [ %9, %.preheader.i.thread ], [ %8, %.preheader.i ], [ %8, %20 ], [ %8, %28 ]
+  %38 = phi ptr [ %9, %.preheader.i.thread ], [ %8, %20 ], [ %8, %.preheader.i ], [ %8, %28 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %39 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %39, ptr %6, align 8, !tbaa !29
@@ -1162,7 +1162,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br i1 %.not47, label %.thread74, label %42
 
 .thread74:                                        ; preds = %.thread81, %_ZN4abslneERKNS_4CordES2_.exit, %_ZNK4absl4Cord4sizeEv.exit10.i.i, %42, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread63, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread63.us, %37, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread62
-  %.1 = phi i1 [ false, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread62 ], [ true, %37 ], [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread63 ], [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread63.us ], [ false, %42 ], [ false, %_ZN4abslneERKNS_4CordES2_.exit ], [ true, %.thread81 ], [ false, %_ZNK4absl4Cord4sizeEv.exit10.i.i ]
+  %.1 = phi i1 [ false, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread62 ], [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread63.us ], [ true, %37 ], [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread63 ], [ false, %_ZNK4absl4Cord4sizeEv.exit10.i.i ], [ true, %.thread81 ], [ false, %_ZN4abslneERKNS_4CordES2_.exit ], [ false, %42 ]
   %92 = load i64, ptr %3, align 8, !tbaa !9
   %93 = icmp eq i64 %92, 0
   br i1 %93, label %_ZN4absl13InlinedVectorINS_15status_internal7PayloadELm1ESaIS2_EED2Ev.exit, label %94

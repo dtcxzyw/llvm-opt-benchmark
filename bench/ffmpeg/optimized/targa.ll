@@ -889,7 +889,7 @@ advance_line.exit.thread:                         ; preds = %advance_line.exit, 
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %._crit_edge.thread.sink.split, %8, %._crit_edge
-  %.064 = phi i32 [ 0, %._crit_edge ], [ 0, %8 ], [ -1094995529, %._crit_edge.thread.sink.split ]
+  %.064 = phi i32 [ 0, %8 ], [ 0, %._crit_edge ], [ -1094995529, %._crit_edge.thread.sink.split ]
   ret i32 %.064
 }
 

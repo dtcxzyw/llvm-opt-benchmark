@@ -567,10 +567,10 @@ get_sample_rate.exit104:                          ; preds = %304, %317
   br label %371
 
 .loopexit.thread:                                 ; preds = %352, %get_object_type.exit100, %.thread108, %.preheader, %.loopexit
-  %.pr113169 = phi i32 [ %.pr113, %.loopexit ], [ %.pr113134, %.thread108 ], [ %.pr113134, %.preheader ], [ %.pr113136, %get_object_type.exit100 ], [ %.pr113134, %352 ]
-  %357 = phi i32 [ %238, %.loopexit ], [ %238, %.thread108 ], [ %238, %.preheader ], [ %81, %get_object_type.exit100 ], [ %238, %352 ]
-  %358 = phi i32 [ %158, %.loopexit ], [ %158, %.thread108 ], [ %158, %.preheader ], [ %137, %get_object_type.exit100 ], [ %158, %352 ]
-  %.074158168 = phi i32 [ %.074, %.loopexit ], [ %.074, %.thread108 ], [ %.074, %.preheader ], [ %139, %get_object_type.exit100 ], [ %.074, %352 ]
+  %.pr113169 = phi i32 [ %.pr113, %.loopexit ], [ %.pr113136, %get_object_type.exit100 ], [ %.pr113134, %.thread108 ], [ %.pr113134, %.preheader ], [ %.pr113134, %352 ]
+  %357 = phi i32 [ %238, %.loopexit ], [ %81, %get_object_type.exit100 ], [ %238, %.thread108 ], [ %238, %.preheader ], [ %238, %352 ]
+  %358 = phi i32 [ %158, %.loopexit ], [ %137, %get_object_type.exit100 ], [ %158, %.thread108 ], [ %158, %.preheader ], [ %158, %352 ]
+  %.074158168 = phi i32 [ %.074, %.loopexit ], [ %139, %get_object_type.exit100 ], [ %.074, %.thread108 ], [ %.074, %.preheader ], [ %.074, %352 ]
   %359 = icmp ne i32 %.pr113169, -1
   %.not82 = icmp eq i32 %358, 2
   %or.cond176 = or i1 %359, %.not82

@@ -994,7 +994,7 @@ _ZN20btAlignedObjectArrayIfE9push_backERKf.exit85: ; preds = %_ZN20btAlignedObje
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %.loopexit94, %_ZN20btAlignedObjectArrayIfE9push_backERKf.exit85, %_ZN20btAlignedObjectArrayI9btVector3E9push_backERKS0_.exit
-  %.125 = phi i32 [ %71, %_ZN20btAlignedObjectArrayI9btVector3E9push_backERKS0_.exit ], [ %206, %_ZN20btAlignedObjectArrayIfE9push_backERKf.exit85 ], [ %208, %.loopexit94 ], [ %209, %.loopexit.loopexit ]
+  %.125 = phi i32 [ %71, %_ZN20btAlignedObjectArrayI9btVector3E9push_backERKS0_.exit ], [ %208, %.loopexit94 ], [ %206, %_ZN20btAlignedObjectArrayIfE9push_backERKf.exit85 ], [ %209, %.loopexit.loopexit ]
   ret i32 %.125
 }
 

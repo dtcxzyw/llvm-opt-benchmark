@@ -3033,7 +3033,7 @@ define internal noundef zeroext i1 @ssi_28_3(ptr noundef %0, ptr noundef %1, ptr
   br label %14
 
 14:                                               ; preds = %.sink.split, %6, %9
-  %.0 = phi i1 [ false, %9 ], [ false, %6 ], [ true, %.sink.split ]
+  %.0 = phi i1 [ false, %6 ], [ false, %9 ], [ true, %.sink.split ]
   ret i1 %.0
 }
 

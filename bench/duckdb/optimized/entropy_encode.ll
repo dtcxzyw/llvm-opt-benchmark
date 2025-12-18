@@ -74,7 +74,7 @@ define noundef range(i32 0, 2) i32 @_ZN13duckdb_brotli14BrotliSetDepthEiPNS_11Hu
   br label %.backedge.backedge
 
 .critedge.thread:                                 ; preds = %11, %20, %31
-  %.022 = phi i32 [ 1, %31 ], [ 1, %20 ], [ 0, %11 ]
+  %.022 = phi i32 [ 1, %31 ], [ 0, %11 ], [ 1, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.022
 }
@@ -238,7 +238,7 @@ _ZL15SortHuffmanTreePKN13duckdb_brotli11HuffmanTreeES2_.exit83: ; preds = %.lr.p
   br i1 %exitcond150.not, label %.lr.ph139, label %46, !llvm.loop !23
 
 .lr.ph139:                                        ; preds = %._crit_edge130, %40, %7, %.preheader
-  %.065.lcssa166168 = phi i64 [ 0, %.preheader ], [ 0, %7 ], [ %.1, %40 ], [ %.1, %._crit_edge130 ]
+  %.065.lcssa166168 = phi i64 [ 0, %7 ], [ %.1, %40 ], [ 0, %.preheader ], [ %.1, %._crit_edge130 ]
   %65 = getelementptr inbounds nuw %"struct.duckdb_brotli::HuffmanTree", ptr %3, i64 %.065.lcssa166168
   store i64 -1, ptr %65, align 4
   %66 = add i64 %.065.lcssa166168, 1
@@ -1069,8 +1069,8 @@ _ZL7ReversePhmm.exit.i57:                         ; preds = %_ZL7ReversePhmm.exi
   br i1 %153, label %.lr.ph.i45.i, label %_ZL38BrotliWriteHuffmanTreeRepetitionsZerosmPmPhS0_.exit, !llvm.loop !39
 
 _ZL38BrotliWriteHuffmanTreeRepetitionsZerosmPmPhS0_.exit: ; preds = %.lr.ph.i67, %.lr.ph.i45.i, %.lr.ph.i52, %.lr.ph.i36.i, %_ZL7ReversePhmm.exit.i57, %.preheader.i64, %_ZL7ReversePhmm.exit.i, %.preheader.i
-  %.04174 = phi i64 [ 0, %.preheader.i ], [ %.0417679, %_ZL7ReversePhmm.exit.i ], [ %.04175, %.preheader.i64 ], [ %.04175, %_ZL7ReversePhmm.exit.i57 ], [ %.04175, %.lr.ph.i45.i ], [ %.0417679, %.lr.ph.i36.i ], [ %.04176808386, %.lr.ph.i52 ], [ %.04175, %.lr.ph.i67 ]
-  %.143 = phi i8 [ %.042106, %.preheader.i ], [ %.042106, %_ZL7ReversePhmm.exit.i ], [ %39, %.preheader.i64 ], [ %39, %_ZL7ReversePhmm.exit.i57 ], [ %39, %.lr.ph.i45.i ], [ %.042106, %.lr.ph.i36.i ], [ %.042106, %.lr.ph.i52 ], [ %39, %.lr.ph.i67 ]
+  %.04174 = phi i64 [ %.04176808386, %.lr.ph.i52 ], [ 0, %.preheader.i ], [ %.0417679, %.lr.ph.i36.i ], [ %.0417679, %_ZL7ReversePhmm.exit.i ], [ %.04175, %.preheader.i64 ], [ %.04175, %.lr.ph.i45.i ], [ %.04175, %_ZL7ReversePhmm.exit.i57 ], [ %.04175, %.lr.ph.i67 ]
+  %.143 = phi i8 [ %.042106, %.lr.ph.i52 ], [ %.042106, %.preheader.i ], [ %.042106, %.lr.ph.i36.i ], [ %.042106, %_ZL7ReversePhmm.exit.i ], [ %39, %.preheader.i64 ], [ %39, %.lr.ph.i45.i ], [ %39, %_ZL7ReversePhmm.exit.i57 ], [ %39, %.lr.ph.i67 ]
   %154 = add i64 %.04174, %.146104
   %155 = icmp ult i64 %154, %.04494
   br i1 %155, label %.lr.ph107, label %._crit_edge108, !llvm.loop !42

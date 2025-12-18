@@ -152,7 +152,7 @@ drbg_hmac_update.exit45.thread:                   ; preds = %32, %drbg_hmac_upda
   br label %drbg_hmac_update.exit.thread
 
 drbg_hmac_update.exit.thread:                     ; preds = %.lr.ph, %25, %23, %13, %34, %10, %drbg_hmac_update.exit45.thread, %drbg_hmac_update.exit45, %30, %drbg_hmac_update.exit
-  %.032 = phi i32 [ 0, %30 ], [ 0, %10 ], [ 0, %drbg_hmac_update.exit ], [ 0, %drbg_hmac_update.exit45.thread ], [ 1, %drbg_hmac_update.exit45 ], [ 1, %34 ], [ 0, %13 ], [ 0, %23 ], [ 0, %25 ], [ 0, %.lr.ph ]
+  %.032 = phi i32 [ 1, %34 ], [ 0, %30 ], [ 0, %10 ], [ 1, %drbg_hmac_update.exit45 ], [ 0, %drbg_hmac_update.exit ], [ 0, %drbg_hmac_update.exit45.thread ], [ 0, %13 ], [ 0, %23 ], [ 0, %25 ], [ 0, %.lr.ph ]
   ret i32 %.032
 }
 

@@ -449,7 +449,7 @@ uv__spawn_and_init_child.exit.thread104:          ; preds = %land.rhs33.i, %do.b
   br label %if.end57
 
 uv__spawn_and_init_child.exit:                    ; preds = %uv__spawn_and_init_child_fork.exit.i, %do.end23.i
-  %err.0.i = phi i32 [ %19, %do.end23.i ], [ %retval.0.i.i, %uv__spawn_and_init_child_fork.exit.i ]
+  %err.0.i = phi i32 [ %retval.0.i.i, %uv__spawn_and_init_child_fork.exit.i ], [ %19, %do.end23.i ]
   %22 = load i32, ptr %signal_pipe.i, align 8
   %call44.i = call i32 @uv__close_nocheckstdio(i32 noundef %22) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %signal_pipe.i)
@@ -585,7 +585,7 @@ for.end80:                                        ; preds = %for.inc78, %if.end5
   br i1 %cmp82.not, label %return, label %return.sink.split
 
 error:                                            ; preds = %for.body21, %if.end.i, %sw.bb1.i, %uv__process_init_stdio.exit, %uv__process_close_stream.exit, %while.cond.preheader
-  %err.0 = phi i32 [ %call21.i, %while.cond.preheader ], [ %call21.i, %uv__process_close_stream.exit ], [ -22, %for.body21 ], [ -22, %if.end.i ], [ -22, %sw.bb1.i ], [ %call.i, %uv__process_init_stdio.exit ]
+  %err.0 = phi i32 [ %call21.i, %while.cond.preheader ], [ %call21.i, %uv__process_close_stream.exit ], [ -22, %if.end.i ], [ -22, %sw.bb1.i ], [ %call.i, %uv__process_init_stdio.exit ], [ -22, %for.body21 ]
   %stdio97 = getelementptr inbounds nuw i8, ptr %options, i64 48
   br label %for.body92
 

@@ -386,7 +386,7 @@ define internal range(i32 0, -2147483648) i32 @dissect_cp2179(ptr noundef %0, pt
   br i1 %35, label %19, label %clean_telnet_iac.exit, !llvm.loop !7
 
 clean_telnet_iac.exit:                            ; preds = %.outer.i, %31, %.thread.i
-  %.026.ph.lcssa.i = phi i32 [ %.026.ph38.i, %.thread.i ], [ %.026.ph38.i, %31 ], [ %26, %.outer.i ]
+  %.026.ph.lcssa.i = phi i32 [ %.026.ph38.i, %31 ], [ %.026.ph38.i, %.thread.i ], [ %26, %.outer.i ]
   %36 = sub i32 %5, %.026.ph.lcssa.i
   %37 = tail call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %18, i32 noundef %36, i32 noundef %36)
   tail call void @add_new_data_source(ptr noundef %1, ptr noundef %37, ptr noundef nonnull @.str.167)
@@ -766,7 +766,7 @@ copy_request_frame.exit.i:                        ; preds = %.lr.ph.i.i, %.lr.ph
   br label %dissect_request_frame.exit.i
 
 dissect_request_frame.exit.i:                     ; preds = %.preheader82.i.i, %.preheader.i.i, %.loopexit.sink.split.i.i, %205, %199
-  %.0.i63.i = phi i32 [ 6, %205 ], [ 6, %199 ], [ 7, %.loopexit.sink.split.i.i ], [ %209, %.preheader.i.i ], [ %217, %.preheader82.i.i ]
+  %.0.i63.i = phi i32 [ 6, %205 ], [ %209, %.preheader.i.i ], [ 7, %.loopexit.sink.split.i.i ], [ 6, %199 ], [ %217, %.preheader82.i.i ]
   %222 = load i32, ptr @hf_cp2179_crc, align 4
   %223 = tail call ptr @proto_tree_add_item(ptr noundef %171, i32 noundef %222, ptr noundef %.014, i32 noundef %.0.i63.i, i32 noundef 2, i32 noundef 0)
   %224 = tail call i32 @tvb_reported_length(ptr noundef %.014)
@@ -1111,7 +1111,7 @@ proto_item_set_generated.exit.i.i:                ; preds = %271, %266
   br label %dissect_cp2179_pdu.exit
 
 .thread270.i.i:                                   ; preds = %.loopexit.i.i, %.preheader281.i.i, %.preheader279.i.i, %.preheader277.i.i, %.preheader275.i.i, %329, %307, %.preheader.i71.i, %.thread270.sink.split.i.i, %383, %.split.i.i, %343, %294, %292, %291, %289
-  %.10.lcssa.lcssa.sink.i.i = phi i32 [ 8, %.thread270.sink.split.i.i ], [ 8, %383 ], [ 7, %343 ], [ 7, %.split.i.i ], [ 7, %294 ], [ 7, %291 ], [ 7, %292 ], [ 7, %289 ], [ %380, %.preheader281.i.i ], [ %304, %.preheader.i71.i ], [ %318, %307 ], [ %340, %329 ], [ %358, %.preheader275.i.i ], [ %366, %.preheader277.i.i ], [ %373, %.preheader279.i.i ], [ %.10.lcssa.i.i, %.loopexit.i.i ]
+  %.10.lcssa.lcssa.sink.i.i = phi i32 [ 8, %.thread270.sink.split.i.i ], [ %366, %.preheader277.i.i ], [ 8, %383 ], [ 7, %343 ], [ %373, %.preheader279.i.i ], [ %358, %.preheader275.i.i ], [ %340, %329 ], [ %318, %307 ], [ 7, %.split.i.i ], [ %304, %.preheader.i71.i ], [ 7, %294 ], [ %380, %.preheader281.i.i ], [ 7, %289 ], [ 7, %291 ], [ 7, %292 ], [ %.10.lcssa.i.i, %.loopexit.i.i ]
   %428 = load i32, ptr @hf_cp2179_crc, align 4
   %429 = tail call ptr @proto_tree_add_item(ptr noundef %229, i32 noundef %428, ptr noundef %.014, i32 noundef %.10.lcssa.lcssa.sink.i.i, i32 noundef 2, i32 noundef 0)
   %430 = tail call i32 @tvb_reported_length(ptr noundef %.014)

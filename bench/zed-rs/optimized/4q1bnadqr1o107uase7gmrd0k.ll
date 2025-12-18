@@ -104695,8 +104695,8 @@ _ZN4gpui4view7AnyView8downcast17h32f391484c1d0277E.exit.i.i.i: ; preds = %.noexc
   unreachable
 
 377:                                              ; preds = %373, %48, %260, %265, %269, %.body39.i, %.thread.i, %369, %346, %351, %355
-  %.pn.ph = phi { ptr, i32 } [ %49, %48 ], [ %374, %373 ], [ %261, %269 ], [ %.pn12.i, %.body39.i ], [ %.pn104777.i, %369 ], [ %.pn8.i, %.thread.i ], [ %261, %260 ], [ %261, %265 ], [ %347, %346 ], [ %347, %351 ], [ %347, %355 ]
-  %.sroa.02.1.ph = phi i1 [ true, %48 ], [ false, %373 ], [ false, %269 ], [ false, %.body39.i ], [ false, %369 ], [ false, %.thread.i ], [ false, %260 ], [ false, %265 ], [ false, %346 ], [ false, %351 ], [ false, %355 ]
+  %.pn.ph = phi { ptr, i32 } [ %49, %48 ], [ %374, %373 ], [ %261, %260 ], [ %.pn12.i, %.body39.i ], [ %.pn104777.i, %369 ], [ %.pn8.i, %.thread.i ], [ %261, %269 ], [ %261, %265 ], [ %347, %346 ], [ %347, %351 ], [ %347, %355 ]
+  %.sroa.02.1.ph = phi i1 [ true, %48 ], [ false, %373 ], [ false, %260 ], [ false, %.body39.i ], [ false, %369 ], [ false, %.thread.i ], [ false, %269 ], [ false, %265 ], [ false, %346 ], [ false, %351 ], [ false, %355 ]
   invoke void @"_ZN4core3ptr78drop_in_place$LT$gpui..app..entity_map..Lease$LT$workspace..pane..Pane$GT$$GT$17h9327b0f8be0e0785E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %28) #33
           to label %38 unwind label %375
 
@@ -117641,8 +117641,8 @@ _ZN4gpui3app10entity_map9EntityMap5lease17hb4a629dac12d0bdeE.exit.i.i: ; preds =
   unreachable
 
 334:                                              ; preds = %331, %51, %.body, %.body22.i, %272, %277, %281, %322, %325
-  %.pn.ph = phi { ptr, i32 } [ %52, %51 ], [ %lpad.thr_comm.split-lp, %.body ], [ %lpad.thr_comm, %331 ], [ %.pn952.i, %325 ], [ %.pn952.i, %322 ], [ %.pn7.i, %.body22.i ], [ %273, %272 ], [ %273, %281 ], [ %273, %277 ]
-  %.sroa.02.1.ph = phi i1 [ true, %51 ], [ false, %.body ], [ false, %331 ], [ false, %325 ], [ false, %322 ], [ false, %.body22.i ], [ false, %272 ], [ false, %281 ], [ false, %277 ]
+  %.pn.ph = phi { ptr, i32 } [ %52, %51 ], [ %lpad.thr_comm.split-lp, %.body ], [ %lpad.thr_comm, %331 ], [ %.pn952.i, %325 ], [ %.pn952.i, %322 ], [ %.pn7.i, %.body22.i ], [ %273, %277 ], [ %273, %272 ], [ %273, %281 ]
+  %.sroa.02.1.ph = phi i1 [ true, %51 ], [ false, %.body ], [ false, %331 ], [ false, %325 ], [ false, %322 ], [ false, %.body22.i ], [ false, %277 ], [ false, %272 ], [ false, %281 ]
   invoke void @"_ZN4core3ptr78drop_in_place$LT$gpui..app..entity_map..Lease$LT$workspace..pane..Pane$GT$$GT$17h9327b0f8be0e0785E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %31) #33
           to label %41 unwind label %332
 
@@ -122794,14 +122794,14 @@ define hidden void @"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..Visu
   %177 = getelementptr i8, ptr %110, i64 -16
   %178 = load i64, ptr %177, align 8, !alias.scope !26013, !noalias !26016, !noundef !4
   %179 = icmp eq i64 %178, 0
-  br i1 %179, label %180, label %"_ZN69_$LT$multi_buffer..anchor..Anchor$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6c7aa44299be95dE.exit.i.i"
+  br i1 %179, label %"_ZN69_$LT$multi_buffer..anchor..Anchor$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6c7aa44299be95dE.exit.i.i", label %180
 
 180:                                              ; preds = %176
-  %181 = icmp eq i64 %.sroa.8.sroa.10.0.copyload48.i.i, 0
+  %181 = icmp eq i64 %178, %.sroa.8.sroa.10.0.copyload48.i.i
   br i1 %181, label %183, label %"_ZN61_$LT$text..anchor..Anchor$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdab38859d1fb3fd0E.exit.thread.i.i"
 
 "_ZN69_$LT$multi_buffer..anchor..Anchor$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6c7aa44299be95dE.exit.i.i": ; preds = %176
-  %182 = icmp eq i64 %178, %.sroa.8.sroa.10.0.copyload48.i.i
+  %182 = icmp eq i64 %.sroa.8.sroa.10.0.copyload48.i.i, 0
   br i1 %182, label %183, label %"_ZN61_$LT$text..anchor..Anchor$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdab38859d1fb3fd0E.exit.thread.i.i"
 
 183:                                              ; preds = %188, %"_ZN69_$LT$multi_buffer..anchor..Anchor$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6c7aa44299be95dE.exit.i.i", %180

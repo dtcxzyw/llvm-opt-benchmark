@@ -218,7 +218,7 @@ _ZNK11ast_manager5is_orEPK4expr.exit:             ; preds = %_ZNK11ast_manager10
   br i1 %exitcond67.not, label %_ZNK11ast_manager5is_orEPK4expr.exit.thread, label %62, !llvm.loop !31
 
 _ZNK11ast_manager5is_orEPK4expr.exit.thread:      ; preds = %62, %26, %14, %.preheader53, %7, %37, %_ZNK11ast_manager5is_orEPK4expr.exit, %47
-  %.1 = phi i32 [ %40, %37 ], [ %.sroa.speculated31, %47 ], [ %10, %_ZNK11ast_manager5is_orEPK4expr.exit ], [ %10, %7 ], [ %10, %.preheader53 ], [ %10, %14 ], [ %30, %26 ], [ %.sroa.speculated, %62 ]
+  %.1 = phi i32 [ %10, %.preheader53 ], [ %40, %37 ], [ %.sroa.speculated31, %47 ], [ %10, %7 ], [ %10, %_ZNK11ast_manager5is_orEPK4expr.exit ], [ %10, %14 ], [ %30, %26 ], [ %.sroa.speculated, %62 ]
   %66 = icmp ugt i32 %.1, 1
   br i1 %66, label %67, label %72
 
@@ -483,7 +483,7 @@ _ZNK11ast_manager6is_andEPK4expr.exit:            ; preds = %_ZNK11ast_manager10
   br i1 %exitcond55.not, label %_ZNK11ast_manager6is_andEPK4expr.exit.thread, label %64, !llvm.loop !43
 
 _ZNK11ast_manager6is_andEPK4expr.exit.thread:     ; preds = %64, %26, %14, %.preheader41, %7, %37, %_ZNK11ast_manager6is_andEPK4expr.exit, %47
-  %.1 = phi i32 [ %40, %37 ], [ %55, %47 ], [ %10, %_ZNK11ast_manager6is_andEPK4expr.exit ], [ %10, %7 ], [ %10, %.preheader41 ], [ %10, %14 ], [ %30, %26 ], [ %.sroa.speculated, %64 ]
+  %.1 = phi i32 [ %10, %.preheader41 ], [ %40, %37 ], [ %55, %47 ], [ %10, %7 ], [ %10, %_ZNK11ast_manager6is_andEPK4expr.exit ], [ %10, %14 ], [ %30, %26 ], [ %.sroa.speculated, %64 ]
   %68 = icmp ugt i32 %.1, 1
   br i1 %68, label %69, label %74
 
@@ -703,7 +703,7 @@ define hidden void @_ZN3smt22for_each_relevant_expr7processEP4expr(ptr noundef n
   br i1 %.not27.old.i.i, label %.loopexit39, label %.lr.ph38.i.i.backedge
 
 .lr.ph38.i.i.backedge:                            ; preds = %36, %33
-  %.137.i.i.be = phi ptr [ %.old.i.i, %36 ], [ %35, %33 ]
+  %.137.i.i.be = phi ptr [ %35, %33 ], [ %.old.i.i, %36 ]
   br label %.lr.ph38.i.i, !llvm.loop !550
 
 .loopexit39:                                      ; preds = %22, %36, %33, %.preheader.i.i
@@ -819,7 +819,7 @@ _ZN6vectorIP4exprLb0EjE4backEv.exit:              ; preds = %_ZNK6vectorIP4exprL
   br i1 %.not27.old.i.i15, label %.loopexit, label %.lr.ph38.i.i11.backedge
 
 .lr.ph38.i.i11.backedge:                          ; preds = %88, %85
-  %.137.i.i12.be = phi ptr [ %.old.i.i14, %88 ], [ %87, %85 ]
+  %.137.i.i12.be = phi ptr [ %87, %85 ], [ %.old.i.i14, %88 ]
   br label %.lr.ph38.i.i11, !llvm.loop !550
 
 .loopexit:                                        ; preds = %74, %88, %85, %.preheader.i.i9
@@ -1154,7 +1154,7 @@ define hidden void @_ZN3smt22for_each_relevant_expr11process_iteEP3app(ptr nound
   br i1 %.not27.old.i.i, label %.loopexit72, label %.lr.ph38.i.i.backedge
 
 .lr.ph38.i.i.backedge:                            ; preds = %37, %34
-  %.137.i.i.be = phi ptr [ %.old.i.i, %37 ], [ %36, %34 ]
+  %.137.i.i.be = phi ptr [ %36, %34 ], [ %.old.i.i, %37 ]
   br label %.lr.ph38.i.i, !llvm.loop !550
 
 .loopexit72:                                      ; preds = %23, %37, %34, %.preheader.i.i
@@ -1191,7 +1191,7 @@ _ZN6vectorIP4exprLb0EjE9push_backEOS1_.exit:      ; preds = %41, %47
   br label %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit
 
 _ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit: ; preds = %18, %29, %_ZN6vectorIP4exprLb0EjE9push_backEOS1_.exit
-  %54 = phi ptr [ %.pre, %_ZN6vectorIP4exprLb0EjE9push_backEOS1_.exit ], [ %5, %29 ], [ %5, %18 ]
+  %54 = phi ptr [ %5, %29 ], [ %.pre, %_ZN6vectorIP4exprLb0EjE9push_backEOS1_.exit ], [ %5, %18 ]
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %56 = load ptr, ptr %55, align 8, !tbaa !553
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 104
@@ -1340,7 +1340,7 @@ _ZN3smt22for_each_relevant_expr14get_assignmentEP4expr.exit: ; preds = %_ZNK14co
   br i1 %.not27.old.i.i22, label %.loopexit, label %.lr.ph38.i.i18.backedge
 
 .lr.ph38.i.i18.backedge:                          ; preds = %128, %125
-  %.137.i.i19.be = phi ptr [ %.old.i.i21, %128 ], [ %127, %125 ]
+  %.137.i.i19.be = phi ptr [ %127, %125 ], [ %.old.i.i21, %128 ]
   br label %.lr.ph38.i.i18, !llvm.loop !550
 
 .loopexit:                                        ; preds = %114, %128, %125, %.preheader.i.i16
@@ -1451,7 +1451,7 @@ _ZN3smt22for_each_relevant_expr14get_assignmentEP4expr.exit.thread: ; preds = %_
   br i1 %.not27.old.i.i46, label %.loopexit69, label %.lr.ph38.i.i42.backedge
 
 .lr.ph38.i.i42.backedge:                          ; preds = %178, %175
-  %.137.i.i43.be = phi ptr [ %.old.i.i45, %178 ], [ %177, %175 ]
+  %.137.i.i43.be = phi ptr [ %177, %175 ], [ %.old.i.i45, %178 ]
   br label %.lr.ph38.i.i42, !llvm.loop !550
 
 .loopexit69:                                      ; preds = %164, %178, %175, %.preheader.i.i40
@@ -1580,7 +1580,7 @@ define hidden void @_ZN3smt22for_each_relevant_expr11process_appEP3app(ptr nound
   br i1 %.not27.old.i.i, label %.loopexit, label %.lr.ph38.i.i.backedge
 
 .lr.ph38.i.i.backedge:                            ; preds = %42, %39
-  %.137.i.i.be = phi ptr [ %.old.i.i, %42 ], [ %41, %39 ]
+  %.137.i.i.be = phi ptr [ %41, %39 ], [ %.old.i.i, %42 ]
   br label %.lr.ph38.i.i, !llvm.loop !550
 
 .loopexit:                                        ; preds = %28, %42, %39, %.preheader.i.i
@@ -1806,7 +1806,7 @@ _ZN3smt22for_each_relevant_expr14get_assignmentEP4expr.exit: ; preds = %_ZNK3smt
   br i1 %.not27.old.i.i, label %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit.thread, label %.lr.ph38.i.i.backedge
 
 .lr.ph38.i.i.backedge:                            ; preds = %93, %90
-  %.137.i.i.be = phi ptr [ %.old.i.i, %93 ], [ %92, %90 ]
+  %.137.i.i.be = phi ptr [ %92, %90 ], [ %.old.i.i, %93 ]
   br label %.lr.ph38.i.i, !llvm.loop !550
 
 _ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit.thread: ; preds = %79, %90, %93, %.preheader.i.i, %_ZN3smt22for_each_relevant_expr11is_relevantEP4expr.exit, %_ZN3smt22for_each_relevant_expr14get_assignmentEP4expr.exit

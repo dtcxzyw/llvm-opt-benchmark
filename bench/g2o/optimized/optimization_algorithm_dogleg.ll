@@ -1035,8 +1035,8 @@ _ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEv.exit: ; pred
   br label %_ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE3dotINS_3MapIKS2_Li0ENS_6StrideILi0ELi0EEEEEEENS_20ScalarBinaryOpTraitsIdNS_8internal6traitsIT_E6ScalarENSB_17scalar_product_opIdSF_EEE10ReturnTypeERKNS0_ISD_EE.exit
 
 _ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE3dotINS_3MapIKS2_Li0ENS_6StrideILi0ELi0EEEEEEENS_20ScalarBinaryOpTraitsIdNS_8internal6traitsIT_E6ScalarENSB_17scalar_product_opIdSF_EEE10ReturnTypeERKNS0_ISD_EE.exit: ; preds = %.lr.ph85.i.i.i.i.i, %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEv.exit, %184, %194
-  %.0.i.i334 = phi double [ %196, %194 ], [ %.0.i.i.ph.ph, %184 ], [ 0.000000e+00, %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEv.exit ], [ %.0.i.i.ph.ph, %.lr.ph85.i.i.i.i.i ]
-  %.0.i.i.i = phi double [ %199, %194 ], [ %185, %184 ], [ 0.000000e+00, %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEv.exit ], [ %192, %.lr.ph85.i.i.i.i.i ]
+  %.0.i.i334 = phi double [ 0.000000e+00, %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEv.exit ], [ %.0.i.i.ph.ph, %184 ], [ %196, %194 ], [ %.0.i.i.ph.ph, %.lr.ph85.i.i.i.i.i ]
+  %.0.i.i.i = phi double [ 0.000000e+00, %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEv.exit ], [ %185, %184 ], [ %199, %194 ], [ %192, %.lr.ph85.i.i.i.i.i ]
   %200 = fdiv double %.0.i.i334, %.0.i.i.i
   %201 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %.sroa.3.8.vec.insert.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %200, i64 0
@@ -1173,7 +1173,7 @@ _ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEaSINS_13CwiseBinaryOpINS_8internal17sca
   br label %_ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE4normEv.exit
 
 _ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE4normEv.exit: ; preds = %.lr.ph85.i.i.i.i.i85, %_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEaSINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS4_18scalar_constant_opIdEEKS1_EEKNS_3MapISA_Li0ENS_6StrideILi0ELi0EEEEEEEEERS1_RKNS_9DenseBaseIT_EE.exit, %257, %265
-  %.0.i.i.i84 = phi double [ 0.000000e+00, %_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEaSINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS4_18scalar_constant_opIdEEKS1_EEKNS_3MapISA_Li0ENS_6StrideILi0ELi0EEEEEEEEERS1_RKNS_9DenseBaseIT_EE.exit ], [ %267, %265 ], [ %258, %257 ], [ %263, %.lr.ph85.i.i.i.i.i85 ]
+  %.0.i.i.i84 = phi double [ 0.000000e+00, %_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEaSINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS4_18scalar_constant_opIdEEKS1_EEKNS_3MapISA_Li0ENS_6StrideILi0ELi0EEEEEEEEERS1_RKNS_9DenseBaseIT_EE.exit ], [ %258, %257 ], [ %267, %265 ], [ %263, %.lr.ph85.i.i.i.i.i85 ]
   %.scalar.i = tail call noundef double @llvm.sqrt.f64(double %.0.i.i.i84)
   %268 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %269 = getelementptr inbounds nuw i8, ptr %0, i64 180
@@ -1360,7 +1360,7 @@ _ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE4normEv.exit: ; pred
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph85.i.i.i.i.i103, %367, %359, %.loopexit512
-  %.0.i.i.i101 = phi double [ 0.000000e+00, %.loopexit512 ], [ %369, %367 ], [ %360, %359 ], [ %365, %.lr.ph85.i.i.i.i.i103 ]
+  %.0.i.i.i101 = phi double [ 0.000000e+00, %.loopexit512 ], [ %360, %359 ], [ %369, %367 ], [ %365, %.lr.ph85.i.i.i.i.i103 ]
   %.scalar.i102 = tail call noundef double @llvm.sqrt.f64(double %.0.i.i.i101)
   br label %371
 
@@ -1789,7 +1789,7 @@ _ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE11squaredNormEv.exit
   br label %_ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE11squaredNormEv.exit196
 
 _ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE11squaredNormEv.exit196: ; preds = %.lr.ph85.i.i.i.i183, %_ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE11squaredNormEv.exit.thread, %575, %583
-  %.0.i.i182 = phi double [ 0.000000e+00, %_ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE11squaredNormEv.exit.thread ], [ %585, %583 ], [ %576, %575 ], [ %581, %.lr.ph85.i.i.i.i183 ]
+  %.0.i.i182 = phi double [ 0.000000e+00, %_ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE11squaredNormEv.exit.thread ], [ %576, %575 ], [ %585, %583 ], [ %581, %.lr.ph85.i.i.i.i183 ]
   %586 = fneg double %.0.i.i182
   %587 = tail call double @llvm.fmuladd.f64(double %542, double %542, double %586)
   %588 = fmul double %.0.i.i165342, %587
@@ -1881,7 +1881,7 @@ _ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE11squaredNormEv.exit
   br label %_ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE11squaredNormEv.exit214
 
 _ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE11squaredNormEv.exit214: ; preds = %.lr.ph85.i.i.i.i201, %593, %626, %634
-  %.0.i.i200 = phi double [ 0.000000e+00, %593 ], [ %635, %634 ], [ %627, %626 ], [ %632, %.lr.ph85.i.i.i.i201 ]
+  %.0.i.i200 = phi double [ 0.000000e+00, %593 ], [ %627, %626 ], [ %635, %634 ], [ %632, %.lr.ph85.i.i.i.i201 ]
   %636 = load double, ptr %272, align 8, !tbaa !56
   %637 = fneg double %.0.i.i200
   %638 = tail call double @llvm.fmuladd.f64(double %636, double %636, double %637)
@@ -2145,8 +2145,8 @@ _ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEv.exit227: ; p
   br label %_ZNK5Eigen10MatrixBaseINS_3MapIKNS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEE3dotIS3_EENS_20ScalarBinaryOpTraitsIdNS_8internal6traitsIT_E6ScalarENSB_17scalar_product_opIdSF_EEE10ReturnTypeERKNS0_ISD_EE.exit
 
 _ZNK5Eigen10MatrixBaseINS_3MapIKNS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEE3dotIS3_EENS_20ScalarBinaryOpTraitsIdNS_8internal6traitsIT_E6ScalarENSB_17scalar_product_opIdSF_EEE10ReturnTypeERKNS0_ISD_EE.exit: ; preds = %.lr.ph85.i.i.i.i.i250, %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEv.exit227, %768, %778
-  %.0.i.i.i231345 = phi double [ %781, %778 ], [ %.0.i.i.i231.ph.ph, %768 ], [ 0.000000e+00, %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEv.exit227 ], [ %.0.i.i.i231.ph.ph, %.lr.ph85.i.i.i.i.i250 ]
-  %.0.i.i.i249 = phi double [ %783, %778 ], [ %769, %768 ], [ 0.000000e+00, %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEv.exit227 ], [ %776, %.lr.ph85.i.i.i.i.i250 ]
+  %.0.i.i.i231345 = phi double [ 0.000000e+00, %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEv.exit227 ], [ %.0.i.i.i231.ph.ph, %768 ], [ %781, %778 ], [ %.0.i.i.i231.ph.ph, %.lr.ph85.i.i.i.i.i250 ]
+  %.0.i.i.i249 = phi double [ 0.000000e+00, %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEv.exit227 ], [ %769, %768 ], [ %783, %778 ], [ %776, %.lr.ph85.i.i.i.i.i250 ]
   %784 = fmul double %.0.i.i.i249, 2.000000e+00
   %785 = fsub double %784, %.0.i.i.i231345
   %786 = load ptr, ptr %76, align 8, !tbaa !78
@@ -2261,7 +2261,7 @@ _ZNK5Eigen10MatrixBaseINS_3MapIKNS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6Stri
   br label %_ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE4normEv.exit281
 
 _ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE4normEv.exit281: ; preds = %.lr.ph85.i.i.i.i.i268, %805, %840, %848
-  %.0.i.i.i266 = phi double [ 0.000000e+00, %805 ], [ %850, %848 ], [ %841, %840 ], [ %846, %.lr.ph85.i.i.i.i.i268 ]
+  %.0.i.i.i266 = phi double [ 0.000000e+00, %805 ], [ %841, %840 ], [ %850, %848 ], [ %846, %.lr.ph85.i.i.i.i.i268 ]
   %.scalar.i267 = tail call noundef double @llvm.sqrt.f64(double %.0.i.i.i266)
   %851 = fmul double %.scalar.i267, 3.000000e+00
   %852 = load double, ptr %272, align 8, !tbaa !17

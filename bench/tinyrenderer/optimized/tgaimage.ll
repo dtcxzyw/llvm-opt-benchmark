@@ -551,7 +551,7 @@ define dso_local noundef zeroext i1 @_ZN8TGAImage13load_rle_dataERSt14basic_ifst
   br i1 %85, label %12, label %.thread71, !llvm.loop !52
 
 .thread71:                                        ; preds = %.thread65, %52, %83, %.thread, %21, %67
-  %cond76 = phi i1 [ false, %52 ], [ false, %83 ], [ false, %67 ], [ false, %21 ], [ false, %.thread ], [ true, %.thread65 ]
+  %cond76 = phi i1 [ false, %.thread ], [ false, %52 ], [ false, %83 ], [ false, %67 ], [ false, %21 ], [ true, %.thread65 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %cond76
 }
@@ -1085,9 +1085,9 @@ define dso_local noundef zeroext i1 @_ZNK8TGAImage15unload_rle_dataERSt14basic_o
   br label %.thread.thread101
 
 .thread.thread101:                                ; preds = %21, %39, %.thread, %.split, %.split68.us
-  %.14595 = phi i1 [ true, %.split68.us ], [ true, %.split ], [ %45, %.thread ], [ false, %39 ], [ false, %21 ]
-  %.14793 = phi i8 [ %38, %.split68.us ], [ 1, %.split ], [ %18, %.thread ], [ %42, %39 ], [ %18, %21 ]
-  %46 = phi i8 [ -1, %.split68.us ], [ -1, %.split ], [ %spec.select, %.thread ], [ 127, %39 ], [ 127, %21 ]
+  %.14595 = phi i1 [ true, %.split68.us ], [ false, %39 ], [ %45, %.thread ], [ true, %.split ], [ false, %21 ]
+  %.14793 = phi i8 [ %38, %.split68.us ], [ %42, %39 ], [ %18, %.thread ], [ 1, %.split ], [ %18, %21 ]
+  %46 = phi i8 [ -1, %.split68.us ], [ 127, %39 ], [ %spec.select, %.thread ], [ -1, %.split ], [ 127, %21 ]
   %47 = add i8 %46, %.14793
   %48 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %1, i8 noundef signext %47)
   %49 = load ptr, ptr %1, align 8, !tbaa !25

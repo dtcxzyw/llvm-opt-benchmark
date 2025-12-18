@@ -354,7 +354,7 @@ lv_obj_get_event_dsc.exit.thread:                 ; preds = %.lr.ph.split, %15, 
   br i1 %exitcond.not, label %lv_obj_remove_event.exit, label %.lr.ph.splitthread-pre-split, !llvm.loop !30
 
 lv_obj_remove_event.exit:                         ; preds = %lv_obj_get_event_dsc.exit.thread, %3, %.lr.ph, %lv_obj_get_event_count.exit, %20, %.critedge
-  %24 = phi i1 [ true, %.critedge ], [ true, %20 ], [ false, %lv_obj_get_event_count.exit ], [ false, %.lr.ph ], [ false, %3 ], [ false, %lv_obj_get_event_dsc.exit.thread ]
+  %24 = phi i1 [ true, %.critedge ], [ true, %20 ], [ false, %lv_obj_get_event_count.exit ], [ false, %3 ], [ false, %.lr.ph ], [ false, %lv_obj_get_event_dsc.exit.thread ]
   ret i1 %24
 }
 
@@ -470,7 +470,7 @@ lv_obj_get_event_dsc.exit.thread:                 ; preds = %.lr.ph.split, %lv_o
   br i1 %34, label %.lr.ph.splitthread-pre-split, label %._crit_edge, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %lv_obj_get_event_dsc.exit.thread, %4, %.lr.ph, %lv_obj_get_event_count.exit
-  %.0.lcssa = phi i32 [ 0, %lv_obj_get_event_count.exit ], [ 0, %.lr.ph ], [ 0, %4 ], [ %.1, %lv_obj_get_event_dsc.exit.thread ]
+  %.0.lcssa = phi i32 [ 0, %lv_obj_get_event_count.exit ], [ 0, %4 ], [ 0, %.lr.ph ], [ %.1, %lv_obj_get_event_dsc.exit.thread ]
   ret i32 %.0.lcssa
 }
 

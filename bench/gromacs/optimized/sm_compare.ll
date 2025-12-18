@@ -575,39 +575,39 @@ define internal void @_ZL16evaluate_compareRKN3gmx20SelMethodEvalContextEP15gmx_
   %30 = getelementptr inbounds nuw i32, ptr %17, i64 %29
   %31 = load i32, ptr %30, align 4, !tbaa !28
   switch i32 %19, label %.critedge.i [
-    i32 6, label %38
-    i32 1, label %39
-    i32 2, label %32
-    i32 3, label %33
-    i32 4, label %35
-    i32 5, label %36
+    i32 6, label %40
+    i32 1, label %32
+    i32 2, label %34
+    i32 3, label %35
+    i32 4, label %37
+    i32 5, label %38
   ]
 
 32:                                               ; preds = %22
+  %33 = icmp slt i32 %28, %31
+  br i1 %33, label %41, label %.critedge.i
+
+34:                                               ; preds = %22
   %.not39.i = icmp sgt i32 %28, %31
   br i1 %.not39.i, label %.critedge.i, label %41
 
-33:                                               ; preds = %22
-  %34 = icmp sgt i32 %28, %31
-  br i1 %34, label %41, label %.critedge.i
-
 35:                                               ; preds = %22
+  %36 = icmp sgt i32 %28, %31
+  br i1 %36, label %41, label %.critedge.i
+
+37:                                               ; preds = %22
   %.not38.i = icmp slt i32 %28, %31
   br i1 %.not38.i, label %.critedge.i, label %41
 
-36:                                               ; preds = %22
-  %37 = icmp eq i32 %28, %31
-  br i1 %37, label %41, label %.critedge.i
-
 38:                                               ; preds = %22
+  %39 = icmp eq i32 %28, %31
+  br i1 %39, label %41, label %.critedge.i
+
+40:                                               ; preds = %22
   %.not40.i = icmp eq i32 %28, %31
   br i1 %.not40.i, label %.critedge.i, label %41
 
-39:                                               ; preds = %22
-  %40 = icmp slt i32 %28, %31
-  br i1 %40, label %41, label %.critedge.i
-
-41:                                               ; preds = %39, %38, %36, %35, %33, %32
+41:                                               ; preds = %40, %38, %37, %35, %34, %32
   %42 = load ptr, ptr %20, align 8, !tbaa !41
   %43 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv.i
   %44 = load i32, ptr %43, align 4, !tbaa !28
@@ -623,11 +623,11 @@ define internal void @_ZL16evaluate_compareRKN3gmx20SelMethodEvalContextEP15gmx_
   %.pre15 = load i32, ptr %7, align 8, !tbaa !38
   br label %.critedge.i
 
-.critedge.i:                                      ; preds = %41, %39, %38, %36, %35, %33, %32, %22
-  %51 = phi i32 [ %.pre15, %41 ], [ %23, %39 ], [ %23, %22 ], [ %23, %38 ], [ %23, %36 ], [ %23, %35 ], [ %23, %33 ], [ %23, %32 ]
-  %52 = phi i32 [ %.pre, %41 ], [ %24, %39 ], [ %24, %22 ], [ %24, %38 ], [ %24, %36 ], [ %24, %35 ], [ %24, %33 ], [ %24, %32 ]
-  %53 = phi i32 [ %.pre.i, %41 ], [ %25, %39 ], [ %25, %22 ], [ %25, %38 ], [ %25, %36 ], [ %25, %35 ], [ %25, %33 ], [ %25, %32 ]
-  %.134.i = phi i32 [ %48, %41 ], [ %.03342.i, %39 ], [ %.03342.i, %22 ], [ %.03342.i, %38 ], [ %.03342.i, %36 ], [ %.03342.i, %35 ], [ %.03342.i, %33 ], [ %.03342.i, %32 ]
+.critedge.i:                                      ; preds = %41, %40, %38, %37, %35, %34, %32, %22
+  %51 = phi i32 [ %.pre15, %41 ], [ %23, %40 ], [ %23, %22 ], [ %23, %38 ], [ %23, %37 ], [ %23, %35 ], [ %23, %34 ], [ %23, %32 ]
+  %52 = phi i32 [ %.pre, %41 ], [ %24, %40 ], [ %24, %22 ], [ %24, %38 ], [ %24, %37 ], [ %24, %35 ], [ %24, %34 ], [ %24, %32 ]
+  %53 = phi i32 [ %.pre.i, %41 ], [ %25, %40 ], [ %25, %22 ], [ %25, %38 ], [ %25, %37 ], [ %25, %35 ], [ %25, %34 ], [ %25, %32 ]
+  %.134.i = phi i32 [ %48, %41 ], [ %.03342.i, %40 ], [ %.03342.i, %22 ], [ %.03342.i, %38 ], [ %.03342.i, %37 ], [ %.03342.i, %35 ], [ %.03342.i, %34 ], [ %.03342.i, %32 ]
   %54 = and i32 %52, 1
   %55 = xor i32 %54, 1
   %spec.select.i = add nuw nsw i32 %55, %.03243.i
@@ -683,43 +683,43 @@ define internal void @_ZL16evaluate_compareRKN3gmx20SelMethodEvalContextEP15gmx_
   %85 = phi float [ %78, %75 ], [ %83, %79 ]
   %86 = load i32, ptr %64, align 8, !tbaa !24
   switch i32 %86, label %.critedge.i12 [
-    i32 6, label %97
-    i32 1, label %101
-    i32 2, label %87
-    i32 3, label %89
-    i32 4, label %91
-    i32 5, label %93
+    i32 6, label %99
+    i32 1, label %87
+    i32 2, label %89
+    i32 3, label %91
+    i32 4, label %93
+    i32 5, label %95
   ]
 
 87:                                               ; preds = %84
-  %88 = fcmp ugt float %72, %85
-  br i1 %88, label %.critedge.i12, label %103
+  %88 = fcmp olt float %72, %85
+  br i1 %88, label %103, label %.critedge.i12
 
 89:                                               ; preds = %84
-  %90 = fcmp ogt float %72, %85
-  br i1 %90, label %103, label %.critedge.i12
+  %90 = fcmp ugt float %72, %85
+  br i1 %90, label %.critedge.i12, label %103
 
 91:                                               ; preds = %84
-  %92 = fcmp ult float %72, %85
-  br i1 %92, label %.critedge.i12, label %103
+  %92 = fcmp ogt float %72, %85
+  br i1 %92, label %103, label %.critedge.i12
 
 93:                                               ; preds = %84
-  %94 = fpext float %72 to double
-  %95 = fpext float %85 to double
-  %96 = tail call noundef zeroext i1 @_Z14gmx_within_tolddd(double noundef %94, double noundef %95, double noundef 0x3E80000000000000)
-  br i1 %96, label %103, label %.critedge.i12
+  %94 = fcmp ult float %72, %85
+  br i1 %94, label %.critedge.i12, label %103
 
-97:                                               ; preds = %84
-  %98 = fpext float %72 to double
-  %99 = fpext float %85 to double
-  %100 = tail call noundef zeroext i1 @_Z14gmx_within_tolddd(double noundef %98, double noundef %99, double noundef 0x3E80000000000000)
-  br i1 %100, label %.critedge.i12, label %103
+95:                                               ; preds = %84
+  %96 = fpext float %72 to double
+  %97 = fpext float %85 to double
+  %98 = tail call noundef zeroext i1 @_Z14gmx_within_tolddd(double noundef %96, double noundef %97, double noundef 0x3E80000000000000)
+  br i1 %98, label %103, label %.critedge.i12
 
-101:                                              ; preds = %84
-  %102 = fcmp olt float %72, %85
-  br i1 %102, label %103, label %.critedge.i12
+99:                                               ; preds = %84
+  %100 = fpext float %72 to double
+  %101 = fpext float %85 to double
+  %102 = tail call noundef zeroext i1 @_Z14gmx_within_tolddd(double noundef %100, double noundef %101, double noundef 0x3E80000000000000)
+  br i1 %102, label %.critedge.i12, label %103
 
-103:                                              ; preds = %101, %97, %93, %91, %89, %87
+103:                                              ; preds = %99, %95, %93, %91, %89, %87
   %104 = load ptr, ptr %65, align 8, !tbaa !41
   %105 = getelementptr inbounds nuw i32, ptr %104, i64 %indvars.iv.i11
   %106 = load i32, ptr %105, align 4, !tbaa !28
@@ -732,8 +732,8 @@ define internal void @_ZL16evaluate_compareRKN3gmx20SelMethodEvalContextEP15gmx_
   store i32 %106, ptr %112, align 4, !tbaa !28
   br label %.critedge.i12
 
-.critedge.i12:                                    ; preds = %103, %101, %97, %93, %91, %89, %87, %84
-  %.137.i = phi i32 [ %110, %103 ], [ %.03643.i, %101 ], [ %.03643.i, %84 ], [ %.03643.i, %97 ], [ %.03643.i, %93 ], [ %.03643.i, %91 ], [ %.03643.i, %89 ], [ %.03643.i, %87 ]
+.critedge.i12:                                    ; preds = %103, %99, %95, %93, %91, %89, %87, %84
+  %.137.i = phi i32 [ %110, %103 ], [ %.03643.i, %99 ], [ %.03643.i, %84 ], [ %.03643.i, %95 ], [ %.03643.i, %93 ], [ %.03643.i, %91 ], [ %.03643.i, %89 ], [ %.03643.i, %87 ]
   %113 = load i32, ptr %5, align 8, !tbaa !37
   %114 = and i32 %113, 1
   %115 = xor i32 %114, 1
@@ -749,7 +749,7 @@ define internal void @_ZL16evaluate_compareRKN3gmx20SelMethodEvalContextEP15gmx_
   br i1 %121, label %67, label %_ZL20evaluate_compare_intP15gmx_ana_index_tP18gmx_ana_selvalue_tPv.exit, !llvm.loop !43
 
 _ZL20evaluate_compare_intP15gmx_ana_index_tP18gmx_ana_selvalue_tPv.exit: ; preds = %.critedge.i12, %.critedge.i, %60, %13
-  %.036.lcssa.i.sink = phi i32 [ 0, %13 ], [ 0, %60 ], [ %.134.i, %.critedge.i ], [ %.137.i, %.critedge.i12 ]
+  %.036.lcssa.i.sink = phi i32 [ %.134.i, %.critedge.i ], [ 0, %13 ], [ 0, %60 ], [ %.137.i, %.critedge.i12 ]
   %122 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %123 = load ptr, ptr %122, align 8, !tbaa !4
   store i32 %.036.lcssa.i.sink, ptr %123, align 8, !tbaa !39

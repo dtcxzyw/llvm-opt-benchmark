@@ -1352,7 +1352,7 @@ define internal ptr @range_iter(ptr noundef readonly captures(none) %0) #0 {
   br label %get_len_of_range.exit
 
 get_len_of_range.exit:                            ; preds = %39, %30, %22
-  %phi.call = phi i64 [ %26, %22 ], [ %35, %30 ], [ %40, %39 ]
+  %phi.call = phi i64 [ %40, %39 ], [ %26, %22 ], [ %35, %30 ]
   %41 = icmp slt i64 %phi.call, 0
   br i1 %41, label %57, label %42
 
@@ -2415,7 +2415,7 @@ define internal fastcc ptr @make_range_object(ptr noundef %0, ptr noundef %1, pt
   br label %get_len_of_range.exit.i.i
 
 get_len_of_range.exit.i.i:                        ; preds = %43, %34, %26
-  %phi.call.i.i = phi i64 [ %30, %26 ], [ %39, %34 ], [ %44, %43 ]
+  %phi.call.i.i = phi i64 [ %44, %43 ], [ %30, %26 ], [ %39, %34 ]
   %phi.call.fr.i.i = freeze i64 %phi.call.i.i
   %45 = icmp slt i64 %phi.call.fr.i.i, 0
   br i1 %45, label %select.unfold.i, label %compute_range_length.exit
@@ -2644,8 +2644,8 @@ compute_range_length.exit:                        ; preds = %31, %.split11.i.i, 
   %126 = icmp eq ptr %125, null
   br i1 %126, label %Py_DECREF.exit, label %compute_range_length.exit.thread22
 
-compute_range_length.exit.thread22:               ; preds = %97, %Py_DECREF.exit60.i, %63, %66, %100, %compute_range_length.exit
-  %.0.i24 = phi ptr [ %125, %compute_range_length.exit ], [ %78, %97 ], [ %78, %Py_DECREF.exit60.i ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 14072), %63 ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 14072), %66 ], [ %78, %100 ]
+compute_range_length.exit.thread22:               ; preds = %100, %66, %63, %Py_DECREF.exit60.i, %97, %compute_range_length.exit
+  %.0.i24 = phi ptr [ %125, %compute_range_length.exit ], [ %78, %100 ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 14072), %66 ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 14072), %63 ], [ %78, %Py_DECREF.exit60.i ], [ %78, %97 ]
   %127 = call ptr @_PyObject_New(ptr noundef %0) #6
   %128 = icmp eq ptr %127, null
   br i1 %128, label %129, label %135

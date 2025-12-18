@@ -2238,7 +2238,7 @@ _ZN5clanglsINS_10ParsedAttrEEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZNK5clang4Decl7getAttrINS_31OpenCLIntelReqdSubGroupSizeAttrEEEPT_v.exit.thread
 
-_ZNK5clang4Decl7getAttrINS_31OpenCLIntelReqdSubGroupSizeAttrEEEPT_v.exit.thread: ; preds = %145, %134, %_ZN5clangneENS_22specific_attr_iteratorINS_31OpenCLIntelReqdSubGroupSizeAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, %130, %_ZN5clanglsINS_10ParsedAttrEEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit24, %_ZNK5clang4Decl7getAttrINS_31OpenCLIntelReqdSubGroupSizeAttrEEEPT_v.exit
+_ZNK5clang4Decl7getAttrINS_31OpenCLIntelReqdSubGroupSizeAttrEEEPT_v.exit.thread: ; preds = %145, %_ZN5clangneENS_22specific_attr_iteratorINS_31OpenCLIntelReqdSubGroupSizeAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, %134, %130, %_ZN5clanglsINS_10ParsedAttrEEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit24, %_ZNK5clang4Decl7getAttrINS_31OpenCLIntelReqdSubGroupSizeAttrEEEPT_v.exit
   %246 = call noundef nonnull align 8 dereferenceable(23216) ptr @_ZNK5clang8SemaBase13getASTContextEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #17
   %247 = getelementptr inbounds nuw i8, ptr %246, i64 2192
   %248 = getelementptr inbounds nuw i8, ptr %246, i64 2272
@@ -10096,7 +10096,7 @@ _ZN5clangneENS_22specific_attr_iteratorINS_16OpenCLAccessAttrEN4llvm11SmallVecto
   br i1 %189, label %_ZN5clangL18getOpenCLArgAccessEPKNS_4DeclE.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !76
 
 _ZN5clangL18getOpenCLArgAccessEPKNS_4DeclE.exit:  ; preds = %177, %.lr.ph.i.i.i.i.i, %160, %166, %_ZN5clangneENS_22specific_attr_iteratorINS_16OpenCLAccessAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i.i, %179
-  %190 = phi ptr [ null, %160 ], [ null, %_ZN5clangneENS_22specific_attr_iteratorINS_16OpenCLAccessAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i.i ], [ %180, %179 ], [ null, %166 ], [ %186, %.lr.ph.i.i.i.i.i ], [ null, %177 ]
+  %190 = phi ptr [ null, %160 ], [ null, %166 ], [ null, %_ZN5clangneENS_22specific_attr_iteratorINS_16OpenCLAccessAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i.i ], [ %180, %179 ], [ %186, %.lr.ph.i.i.i.i.i ], [ null, %177 ]
   %191 = load i32, ptr %1, align 8
   %192 = lshr i32 %191, 24
   %193 = zext nneg i32 %192 to i64

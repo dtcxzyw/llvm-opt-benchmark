@@ -3106,7 +3106,7 @@ flush_pending.exit59:                             ; preds = %151, %166, %184
   br label %.loopexit
 
 .loopexit:                                        ; preds = %flush_pending.exit, %flush_pending.exit59, %flush_pending.exit57, %19, %191
-  %.0 = phi i32 [ 0, %19 ], [ %., %flush_pending.exit57 ], [ 1, %191 ], [ 0, %flush_pending.exit59 ], [ 0, %flush_pending.exit ]
+  %.0 = phi i32 [ 0, %19 ], [ %., %flush_pending.exit57 ], [ 0, %flush_pending.exit59 ], [ 1, %191 ], [ 0, %flush_pending.exit ]
   ret i32 %.0
 }
 
@@ -3594,7 +3594,7 @@ flush_pending.exit132:                            ; preds = %249, %264, %282
   br label %.loopexit
 
 .loopexit:                                        ; preds = %flush_pending.exit, %19, %flush_pending.exit132, %flush_pending.exit130, %289
-  %.0 = phi i32 [ %., %flush_pending.exit130 ], [ 1, %289 ], [ 0, %flush_pending.exit132 ], [ 0, %19 ], [ 0, %flush_pending.exit ]
+  %.0 = phi i32 [ 0, %flush_pending.exit132 ], [ %., %flush_pending.exit130 ], [ 1, %289 ], [ 0, %19 ], [ 0, %flush_pending.exit ]
   ret i32 %.0
 }
 
@@ -4104,7 +4104,7 @@ flush_pending.exit82:                             ; preds = %186, %199, %217
   br label %.loopexit
 
 .loopexit:                                        ; preds = %flush_pending.exit78, %flush_pending.exit, %14, %flush_pending.exit82, %flush_pending.exit80, %224
-  %.0 = phi i32 [ %., %flush_pending.exit80 ], [ 1, %224 ], [ 0, %flush_pending.exit82 ], [ 0, %14 ], [ 0, %flush_pending.exit ], [ 0, %flush_pending.exit78 ]
+  %.0 = phi i32 [ 0, %flush_pending.exit82 ], [ %., %flush_pending.exit80 ], [ 1, %224 ], [ 0, %14 ], [ 0, %flush_pending.exit ], [ 0, %flush_pending.exit78 ]
   ret i32 %.0
 }
 
@@ -4605,7 +4605,7 @@ flush_pending.exit148:                            ; preds = %292, %306, %324
   br label %.loopexit
 
 .loopexit:                                        ; preds = %flush_pending.exit, %28, %flush_pending.exit148, %flush_pending.exit146, %331
-  %.0 = phi i32 [ %., %flush_pending.exit146 ], [ 1, %331 ], [ 0, %flush_pending.exit148 ], [ 0, %28 ], [ 0, %flush_pending.exit ]
+  %.0 = phi i32 [ 0, %flush_pending.exit148 ], [ %., %flush_pending.exit146 ], [ 1, %331 ], [ 0, %28 ], [ 0, %flush_pending.exit ]
   ret i32 %.0
 }
 
@@ -5256,7 +5256,7 @@ flush_pending.exit188:                            ; preds = %373, %387, %405
   br label %.loopexit
 
 .loopexit:                                        ; preds = %flush_pending.exit184, %flush_pending.exit, %31, %flush_pending.exit188, %flush_pending.exit186, %412
-  %.1 = phi i32 [ %., %flush_pending.exit186 ], [ 1, %412 ], [ 0, %flush_pending.exit188 ], [ 0, %31 ], [ 0, %flush_pending.exit ], [ 0, %flush_pending.exit184 ]
+  %.1 = phi i32 [ 0, %flush_pending.exit188 ], [ %., %flush_pending.exit186 ], [ 1, %412 ], [ 0, %31 ], [ 0, %flush_pending.exit ], [ 0, %flush_pending.exit184 ]
   ret i32 %.1
 }
 

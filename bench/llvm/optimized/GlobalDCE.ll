@@ -477,7 +477,7 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i31: ; preds = %._crit_edge.i
   br label %.loopexit, !llvm.loop !103
 
 _ZNSt13unordered_mapIPN4llvm8ConstantENS0_11SmallPtrSetIPNS0_11GlobalValueELj8EEESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S6_EEE4findERSC_.exit: ; preds = %74, %57, %69
-  %.sroa.06.1.i.i = phi ptr [ %70, %69 ], [ %.sroa.06.0.i.i, %57 ], [ %76, %74 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %57 ], [ %70, %69 ], [ %76, %74 ]
   %82 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %83 = load ptr, ptr %82, align 8, !tbaa !28
   %84 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 36
@@ -1228,7 +1228,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_11GlobalValueELb1EE9push_backES2_.exit: ; 
   br label %.loopexit, !llvm.loop !145
 
 _ZNSt10_HashtableIPN4llvm6ComdatESt4pairIKS2_PNS0_11GlobalValueEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb0EEEE4findERS4_.exit.i.i: ; preds = %66, %48, %61
-  %.sroa.06.1.i.i.i = phi ptr [ %62, %61 ], [ %.sroa.06.0.i.i.i, %48 ], [ %68, %66 ]
+  %.sroa.06.1.i.i.i = phi ptr [ %.sroa.06.0.i.i.i, %48 ], [ %62, %61 ], [ %68, %66 ]
   br label %74
 
 74:                                               ; preds = %75, %_ZNSt10_HashtableIPN4llvm6ComdatESt4pairIKS2_PNS0_11GlobalValueEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb0EEEE4findERS4_.exit.i.i
@@ -1611,7 +1611,7 @@ _ZNKSt4lessISt4pairIPN4llvm14GlobalVariableEmEEclERKS4_S7_.exit.thread.i.thread.
   br i1 %.not.i14.i, label %._crit_edge.i.thread.i, label %.lr.ph.i.i44.backedge
 
 .lr.ph.i.i44.backedge:                            ; preds = %_ZNKSt4lessISt4pairIPN4llvm14GlobalVariableEmEEclERKS4_S7_.exit.thread.i.thread.i, %_ZNKSt4lessISt4pairIPN4llvm14GlobalVariableEmEEclERKS4_S7_.exit.thread.i.i
-  %.02126.i.i.be = phi ptr [ %.021.i.i, %_ZNKSt4lessISt4pairIPN4llvm14GlobalVariableEmEEclERKS4_S7_.exit.thread.i.i ], [ %.021.i13.i, %_ZNKSt4lessISt4pairIPN4llvm14GlobalVariableEmEEclERKS4_S7_.exit.thread.i.thread.i ]
+  %.02126.i.i.be = phi ptr [ %.021.i13.i, %_ZNKSt4lessISt4pairIPN4llvm14GlobalVariableEmEEclERKS4_S7_.exit.thread.i.thread.i ], [ %.021.i.i, %_ZNKSt4lessISt4pairIPN4llvm14GlobalVariableEmEEclERKS4_S7_.exit.thread.i.i ]
   br label %.lr.ph.i.i44, !llvm.loop !190
 
 ._crit_edge.thread.i.i:                           ; preds = %_ZNKSt4lessISt4pairIPN4llvm14GlobalVariableEmEEclERKS4_S7_.exit.thread.i.i, %160
@@ -5565,7 +5565,7 @@ define internal noundef zeroext i1 @"_ZN4llvm12function_refIFbjPNS_8FunctionEEE1
   br i1 %.not39.i.i, label %"_ZZN4llvm13GlobalDCEPass3runERNS_6ModuleERNS_15AnalysisManagerIS1_JEEEENK3$_0clEjPNS_8FunctionE.exit", label %.lr.ph.i.i
 
 "_ZZN4llvm13GlobalDCEPass3runERNS_6ModuleERNS_15AnalysisManagerIS1_JEEEENK3$_0clEjPNS_8FunctionE.exit": ; preds = %24, %3, %5, %12, %14, %18
-  %.0.i.i = phi i1 [ false, %3 ], [ false, %12 ], [ %23, %18 ], [ true, %14 ], [ false, %5 ], [ false, %24 ]
+  %.0.i.i = phi i1 [ false, %3 ], [ false, %12 ], [ true, %14 ], [ %23, %18 ], [ false, %5 ], [ false, %24 ]
   ret i1 %.0.i.i
 }
 

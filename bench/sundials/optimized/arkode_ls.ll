@@ -660,7 +660,7 @@ arkLs_AccessARKODELMem.exit:                      ; preds = %10
   br label %arkLs_AccessARKODELMem.exit.thread
 
 arkLs_AccessARKODELMem.exit.thread:               ; preds = %30, %32, %15, %9, %.thread
-  %.024 = phi i32 [ -1, %9 ], [ 0, %.thread ], [ -2, %15 ], [ 1, %32 ], [ -1, %30 ]
+  %.024 = phi i32 [ -2, %15 ], [ -1, %9 ], [ 0, %.thread ], [ 1, %32 ], [ -1, %30 ]
   ret i32 %.024
 }
 

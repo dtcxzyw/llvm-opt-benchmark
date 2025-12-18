@@ -621,7 +621,7 @@ _ZL9bPotAnglePK10gmx_enfrotPK8t_rotgrpl.exit.thread.loopexit.i: ; preds = %_ZL9b
   br label %_ZL9bPotAnglePK10gmx_enfrotPK8t_rotgrpl.exit.thread.i
 
 _ZL9bPotAnglePK10gmx_enfrotPK8t_rotgrpl.exit.thread.i: ; preds = %_ZL9bPotAnglePK10gmx_enfrotPK8t_rotgrpl.exit.thread.loopexit.i, %_ZL9bPotAnglePK10gmx_enfrotPK8t_rotgrpl.exit.preheader.i, %102, %_Z11do_per_stepll.exit.thread.i.i, %75
-  %.1151.i = phi i32 [ %93, %102 ], [ %93, %75 ], [ %93, %_Z11do_per_stepll.exit.thread.i.i ], [ %93, %_ZL9bPotAnglePK10gmx_enfrotPK8t_rotgrpl.exit.preheader.i ], [ %116, %_ZL9bPotAnglePK10gmx_enfrotPK8t_rotgrpl.exit.thread.loopexit.i ]
+  %.1151.i = phi i32 [ %93, %_Z11do_per_stepll.exit.thread.i.i ], [ %93, %102 ], [ %93, %75 ], [ %93, %_ZL9bPotAnglePK10gmx_enfrotPK8t_rotgrpl.exit.preheader.i ], [ %116, %_ZL9bPotAnglePK10gmx_enfrotPK8t_rotgrpl.exit.thread.loopexit.i ]
   %.val161.i = load i32, ptr %76, align 8, !tbaa !99
   %117 = and i32 %.val161.i, -4
   %switch.i.i = icmp eq i32 %117, 8
@@ -666,7 +666,7 @@ _ZL8bSlabTauPK10gmx_enfrotPK8t_rotgrpl.exit.thread.loopexit.i: ; preds = %128
   br label %_ZL8bSlabTauPK10gmx_enfrotPK8t_rotgrpl.exit.thread.i
 
 _ZL8bSlabTauPK10gmx_enfrotPK8t_rotgrpl.exit.thread.i: ; preds = %_ZL8bSlabTauPK10gmx_enfrotPK8t_rotgrpl.exit.thread.loopexit.i, %_ZL8bSlabTauPK10gmx_enfrotPK8t_rotgrpl.exit.i, %118, %_ZL9bPotAnglePK10gmx_enfrotPK8t_rotgrpl.exit.thread.i
-  %.3.i = phi i32 [ %.1151.i, %_ZL8bSlabTauPK10gmx_enfrotPK8t_rotgrpl.exit.i ], [ %.1151.i, %_ZL9bPotAnglePK10gmx_enfrotPK8t_rotgrpl.exit.thread.i ], [ %.1151.i, %118 ], [ %132, %_ZL8bSlabTauPK10gmx_enfrotPK8t_rotgrpl.exit.thread.loopexit.i ]
+  %.3.i = phi i32 [ %.1151.i, %118 ], [ %.1151.i, %_ZL8bSlabTauPK10gmx_enfrotPK8t_rotgrpl.exit.i ], [ %.1151.i, %_ZL9bPotAnglePK10gmx_enfrotPK8t_rotgrpl.exit.thread.i ], [ %132, %_ZL8bSlabTauPK10gmx_enfrotPK8t_rotgrpl.exit.thread.loopexit.i ]
   %133 = getelementptr inbounds nuw i8, ptr %.sroa.0188.0206.i, i64 376
   %.not194.i = icmp eq ptr %133, %68
   br i1 %.not194.i, label %._crit_edge.i, label %75
@@ -803,7 +803,7 @@ _ZL9bPotAnglePK10gmx_enfrotPK8t_rotgrpl.exit169.thread.loopexit.i: ; preds = %_Z
   br label %_ZL9bPotAnglePK10gmx_enfrotPK8t_rotgrpl.exit169.thread.i
 
 _ZL9bPotAnglePK10gmx_enfrotPK8t_rotgrpl.exit169.thread.i: ; preds = %_ZL9bPotAnglePK10gmx_enfrotPK8t_rotgrpl.exit169.thread.loopexit.i, %_ZL9bPotAnglePK10gmx_enfrotPK8t_rotgrpl.exit169.preheader.i, %187, %_Z11do_per_stepll.exit.thread.i167.i, %159
-  %.6.i = phi i32 [ %175, %187 ], [ %175, %159 ], [ %175, %_Z11do_per_stepll.exit.thread.i167.i ], [ %175, %_ZL9bPotAnglePK10gmx_enfrotPK8t_rotgrpl.exit169.preheader.i ], [ %202, %_ZL9bPotAnglePK10gmx_enfrotPK8t_rotgrpl.exit169.thread.loopexit.i ]
+  %.6.i = phi i32 [ %175, %187 ], [ %175, %_Z11do_per_stepll.exit.thread.i167.i ], [ %175, %159 ], [ %175, %_ZL9bPotAnglePK10gmx_enfrotPK8t_rotgrpl.exit169.preheader.i ], [ %202, %_ZL9bPotAnglePK10gmx_enfrotPK8t_rotgrpl.exit169.thread.loopexit.i ]
   %.val162.i = load i32, ptr %160, align 8, !tbaa !99
   %203 = and i32 %.val162.i, -4
   %switch.i170.i = icmp eq i32 %203, 8
@@ -848,7 +848,7 @@ _ZL8bSlabTauPK10gmx_enfrotPK8t_rotgrpl.exit173.thread.loopexit.i: ; preds = %214
   br label %_ZL8bSlabTauPK10gmx_enfrotPK8t_rotgrpl.exit173.thread.i
 
 _ZL8bSlabTauPK10gmx_enfrotPK8t_rotgrpl.exit173.thread.i: ; preds = %_ZL8bSlabTauPK10gmx_enfrotPK8t_rotgrpl.exit173.thread.loopexit.i, %_ZL8bSlabTauPK10gmx_enfrotPK8t_rotgrpl.exit173.i, %204, %_ZL9bPotAnglePK10gmx_enfrotPK8t_rotgrpl.exit169.thread.i
-  %.8.i = phi i32 [ %.6.i, %_ZL8bSlabTauPK10gmx_enfrotPK8t_rotgrpl.exit173.i ], [ %.6.i, %_ZL9bPotAnglePK10gmx_enfrotPK8t_rotgrpl.exit169.thread.i ], [ %.6.i, %204 ], [ %218, %_ZL8bSlabTauPK10gmx_enfrotPK8t_rotgrpl.exit173.thread.loopexit.i ]
+  %.8.i = phi i32 [ %.6.i, %_ZL8bSlabTauPK10gmx_enfrotPK8t_rotgrpl.exit173.i ], [ %.6.i, %204 ], [ %.6.i, %_ZL9bPotAnglePK10gmx_enfrotPK8t_rotgrpl.exit169.thread.i ], [ %218, %_ZL8bSlabTauPK10gmx_enfrotPK8t_rotgrpl.exit173.thread.loopexit.i ]
   %219 = getelementptr inbounds nuw i8, ptr %.sroa.0184.0220.i, i64 376
   %.not195.i = icmp eq ptr %219, %156
   br i1 %.not195.i, label %.loopexit.i, label %159
@@ -1547,7 +1547,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i:        ; preds = %_ZNSt10filesystem7_
   br label %_ZL18HaveFlexibleGroupsPK5t_rot.exit.thread
 
 _ZL18HaveFlexibleGroupsPK5t_rot.exit.thread:      ; preds = %108, %104, %170
-  %171 = phi i32 [ %98, %104 ], [ %.pre, %170 ], [ %98, %108 ]
+  %171 = phi i32 [ %.pre, %170 ], [ %98, %104 ], [ %98, %108 ]
   %172 = icmp eq i32 %171, 0
   br i1 %172, label %176, label %_ZL18HaveFlexibleGroupsPK5t_rot.exit.thread.thread
 
@@ -2957,7 +2957,7 @@ _ZL15get_slab_weightiPK13gmx_enfrotgrpN3gmx8ArrayRefIKNS2_11BasicVectorIfEEEEPKf
   br label %_ZL22get_firstlast_slab_refP13gmx_enfrotgrpPfii.exit.i
 
 _ZL22get_firstlast_slab_refP13gmx_enfrotgrpPfii.exit.loopexit.i: ; preds = %944, %_ZL15get_slab_weightiPK13gmx_enfrotgrpN3gmx8ArrayRefIKNS2_11BasicVectorIfEEEEPKfPA3_f.exit25.i.i
-  %.0.lcssa.i.ph.i = phi i32 [ %945, %944 ], [ %.037.i.i, %_ZL15get_slab_weightiPK13gmx_enfrotgrpN3gmx8ArrayRefIKNS2_11BasicVectorIfEEEEPKfPA3_f.exit25.i.i ]
+  %.0.lcssa.i.ph.i = phi i32 [ %.037.i.i, %_ZL15get_slab_weightiPK13gmx_enfrotgrpN3gmx8ArrayRefIKNS2_11BasicVectorIfEEEEPKfPA3_f.exit25.i.i ], [ %945, %944 ]
   %.pre285.i = load i32, ptr %916, align 8, !tbaa !345
   br label %_ZL22get_firstlast_slab_refP13gmx_enfrotgrpPfii.exit.i
 
@@ -4386,7 +4386,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br label %.loopexit323
 
 .loopexit323:                                     ; preds = %.lr.ph.i.i.i.i, %.loopexit.split.loop.exit45.i.i.i.i, %.loopexit.split.loop.exit43.i.i.i.i, %.loopexit.split.loop.exit41.i.i.i.i, %1598, %1593, %1588
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.031.1.i.i.i.i, %1593 ], [ %spec.select.i.i.i.i, %1598 ], [ %.sroa.031.0.lcssa.i.i.i.i, %1588 ], [ %1602, %.loopexit.split.loop.exit43.i.i.i.i ], [ %1601, %.loopexit.split.loop.exit41.i.i.i.i ], [ %1603, %.loopexit.split.loop.exit45.i.i.i.i ], [ %.sroa.031.050.i.i.i.i, %.lr.ph.i.i.i.i ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.031.1.i.i.i.i, %1593 ], [ %spec.select.i.i.i.i, %1598 ], [ %1603, %.loopexit.split.loop.exit45.i.i.i.i ], [ %.sroa.031.0.lcssa.i.i.i.i, %1588 ], [ %1602, %.loopexit.split.loop.exit43.i.i.i.i ], [ %1601, %.loopexit.split.loop.exit41.i.i.i.i ], [ %.sroa.031.050.i.i.i.i, %.lr.ph.i.i.i.i ]
   %.not319 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i, %.val131
   br i1 %.not319, label %.thread, label %_ZL18HaveFlexibleGroupsPK5t_rot.exit234
 

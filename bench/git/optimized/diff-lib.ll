@@ -1925,8 +1925,8 @@ ce_mode_from_stat.exit:                           ; preds = %.thread30.i, %60, %
   br label %78
 
 76:                                               ; preds = %match_stat_with_submodule.exit, %ce_mode_from_stat.exit
-  %.124 = phi ptr [ %75, %ce_mode_from_stat.exit ], [ %10, %match_stat_with_submodule.exit ]
-  %.1 = phi i32 [ %.0.i34, %ce_mode_from_stat.exit ], [ %12, %match_stat_with_submodule.exit ]
+  %.124 = phi ptr [ %10, %match_stat_with_submodule.exit ], [ %75, %ce_mode_from_stat.exit ]
+  %.1 = phi i32 [ %12, %match_stat_with_submodule.exit ], [ %.0.i34, %ce_mode_from_stat.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %77
 

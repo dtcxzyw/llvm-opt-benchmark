@@ -300,7 +300,7 @@ _ZN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEC2ERKS1_.exit: ; preds = %_ZN5Eigen8int
   br label %_ZNK5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE8minCoeffEv.exit
 
 _ZNK5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE8minCoeffEv.exit: ; preds = %.lr.ph82.i.i.i.i, %102, %93
-  %.2.i.i.i.i = phi double [ %103, %102 ], [ %95, %93 ], [ %100, %.lr.ph82.i.i.i.i ]
+  %.2.i.i.i.i = phi double [ %95, %93 ], [ %103, %102 ], [ %100, %.lr.ph82.i.i.i.i ]
   %104 = fcmp ugt double %.2.i.i.i.i, 0.000000e+00
   br i1 %104, label %129, label %_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal13scalar_cmp_opIiiLNS2_14ComparisonNameE0EEEKNS_5BlockINS_12ArrayWrapperINS_6MatrixIiLin1ELi3ELi0ELin1ELi3EEEEELin1ELi1ELb1EEESC_EEE3anyEv.exit.thread168
 
@@ -484,8 +484,8 @@ _ZN5Eigen11IndexedViewIKNS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEESt6vectorIiSaIiEEN
   br label %184
 
 _ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal13scalar_cmp_opIiiLNS2_14ComparisonNameE0EEEKNS_5BlockINS_12ArrayWrapperINS_6MatrixIiLin1ELi3ELi0ELin1ELi3EEEEELin1ELi1ELb1EEESC_EEE3anyEv.exit.thread168: ; preds = %.preheader.us.i, %.preheader.us.i55, %.preheader.us.i61, %_ZNK5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE8minCoeffEv.exit, %158
-  %174 = phi ptr [ %.pre, %158 ], [ %65, %_ZNK5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE8minCoeffEv.exit ], [ %65, %.preheader.us.i55 ], [ %65, %.preheader.us.i61 ], [ %65, %.preheader.us.i ]
-  %.027 = phi i1 [ %163, %158 ], [ true, %_ZNK5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE8minCoeffEv.exit ], [ true, %.preheader.us.i55 ], [ true, %.preheader.us.i61 ], [ true, %.preheader.us.i ]
+  %174 = phi ptr [ %.pre, %158 ], [ %65, %_ZNK5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE8minCoeffEv.exit ], [ %65, %.preheader.us.i61 ], [ %65, %.preheader.us.i55 ], [ %65, %.preheader.us.i ]
+  %.027 = phi i1 [ %163, %158 ], [ true, %_ZNK5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE8minCoeffEv.exit ], [ true, %.preheader.us.i61 ], [ true, %.preheader.us.i55 ], [ true, %.preheader.us.i ]
   call void @free(ptr noundef %174) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %175 = load ptr, ptr %7, align 8, !tbaa !62

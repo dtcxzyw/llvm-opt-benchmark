@@ -283,8 +283,8 @@ phi_at.exit.i:                                    ; preds = %121, %117
   %.not96.i = icmp eq ptr %.085.lcssa.i, %16
   br i1 %.not96.i, label %wavesynth_parse_extradata.exit, label %.loopexit
 
-.loopexit:                                        ; preds = %32, %50, %37, %58, %54, %109, %141, %53, %12, %8, %25, %._crit_edge.i, %21
-  %.084.i.ph = phi i32 [ -22, %21 ], [ -22, %._crit_edge.i ], [ -12, %25 ], [ -22, %8 ], [ -22, %12 ], [ -22, %53 ], [ -22, %141 ], [ -22, %109 ], [ -22, %54 ], [ -22, %58 ], [ -22, %37 ], [ -22, %50 ], [ -22, %32 ]
+.loopexit:                                        ; preds = %32, %50, %37, %58, %54, %109, %141, %53, %12, %8, %25, %21, %._crit_edge.i
+  %.084.i.ph = phi i32 [ -22, %12 ], [ -22, %8 ], [ -12, %25 ], [ -22, %21 ], [ -22, %._crit_edge.i ], [ -22, %53 ], [ -22, %141 ], [ -22, %109 ], [ -22, %54 ], [ -22, %58 ], [ -22, %37 ], [ -22, %50 ], [ -22, %32 ]
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.3) #7
   br label %188
 

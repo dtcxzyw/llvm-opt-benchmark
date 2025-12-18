@@ -1088,7 +1088,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDat
   br i1 %64, label %.loopexit107, label %61
 
 .loopexit107:                                     ; preds = %61, %.loopexit107.loopexit115, %.thread
-  %.pn = phi { ptr, i32 } [ %lpad.thr_comm, %.thread ], [ %lpad.thr_comm.split-lp, %.loopexit107.loopexit115 ], [ %59, %61 ]
+  %.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %.loopexit107.loopexit115 ], [ %lpad.thr_comm, %.thread ], [ %59, %61 ]
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN32pxrInternal_v0_24__pxrReserved__45UsdImagingMaterialBindingsResolvingSceneIndex13_PrimsDirtiedERKNS_16HdSceneIndexBaseERKNS_13TfSmallVectorINS_20HdSceneIndexObserver16DirtiedPrimEntryELj16EEEE26usdMaterialBindingLocators) #22
   br label %231
 

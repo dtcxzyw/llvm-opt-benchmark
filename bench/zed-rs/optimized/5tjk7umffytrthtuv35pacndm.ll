@@ -4764,7 +4764,7 @@ define void @_ZN12multi_buffer11MultiBuffer21set_active_selections17h02bce8000a6
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %69, %._crit_edge231, %"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcbce507e3ca5b85dE.exit.thread", %270, %291, %294
-  %.sroa.08.4.ph.ph.ph = phi i1 [ true, %270 ], [ true, %294 ], [ true, %291 ], [ false, %._crit_edge231 ], [ false, %"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcbce507e3ca5b85dE.exit.thread" ], [ true, %69 ]
+  %.sroa.08.4.ph.ph.ph = phi i1 [ true, %291 ], [ true, %69 ], [ false, %"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcbce507e3ca5b85dE.exit.thread" ], [ false, %._crit_edge231 ], [ true, %294 ], [ true, %270 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -16745,7 +16745,7 @@ define noundef align 8 dereferenceable_or_null(80) ptr @_ZN12multi_buffer7Histor
   br i1 %33, label %"_ZN4core6option15Option$LT$T$GT$7or_else17h49ad60f9773ca75fE.exit", label %.lr.ph.i.i.i
 
 "_ZN4core6option15Option$LT$T$GT$7or_else17h49ad60f9773ca75fE.exit": ; preds = %15, %29, %"_ZN12multi_buffer7History11transaction28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h14160b423b8dcd5bE.exit.backedge.i.i.i", %.loopexit
-  %.sroa.02.0.i = phi ptr [ null, %.loopexit ], [ %24, %29 ], [ null, %"_ZN12multi_buffer7History11transaction28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h14160b423b8dcd5bE.exit.backedge.i.i.i" ], [ %10, %15 ]
+  %.sroa.02.0.i = phi ptr [ %24, %29 ], [ null, %.loopexit ], [ null, %"_ZN12multi_buffer7History11transaction28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h14160b423b8dcd5bE.exit.backedge.i.i.i" ], [ %10, %15 ]
   ret ptr %.sroa.02.0.i
 }
 

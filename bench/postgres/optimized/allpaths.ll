@@ -4693,8 +4693,8 @@ define internal fastcc noundef zeroext i1 @find_window_run_conditions(ptr nounde
   store ptr %100, ptr %6, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %10, %55, %46, %.lr.ph, %.critedge104, %63, %.critedge106, %69, %.critedge, %26, %41, %21, %17, %15, %.critedge.thread
-  %.0 = phi i1 [ false, %21 ], [ true, %.critedge.thread ], [ false, %26 ], [ false, %17 ], [ false, %15 ], [ false, %41 ], [ false, %.critedge ], [ false, %69 ], [ false, %.critedge106 ], [ false, %63 ], [ false, %.critedge104 ], [ false, %.lr.ph ], [ false, %46 ], [ false, %55 ], [ false, %10 ]
+.loopexit:                                        ; preds = %10, %55, %.lr.ph, %46, %63, %.critedge106, %69, %.critedge104, %.critedge, %26, %41, %21, %17, %15, %.critedge.thread
+  %.0 = phi i1 [ false, %.critedge ], [ false, %21 ], [ true, %.critedge.thread ], [ false, %26 ], [ false, %17 ], [ false, %15 ], [ false, %41 ], [ false, %55 ], [ false, %.critedge104 ], [ false, %69 ], [ false, %.critedge106 ], [ false, %63 ], [ false, %46 ], [ false, %.lr.ph ], [ false, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i1 %.0
 }
@@ -4929,7 +4929,7 @@ set_append_rel_pathlist.exit:                     ; preds = %43, %.lr.ph, %10
   br label %set_function_pathlist.exit
 
 set_function_pathlist.exit:                       ; preds = %101, %65, %70, %.lr.ph.i, %.critedge.i
-  %.0.i39 = phi ptr [ null, %65 ], [ %104, %.critedge.i ], [ null, %.lr.ph.i ], [ null, %70 ], [ null, %101 ]
+  %.0.i39 = phi ptr [ null, %65 ], [ %104, %.critedge.i ], [ null, %70 ], [ null, %.lr.ph.i ], [ null, %101 ]
   %105 = tail call ptr @create_functionscan_path(ptr noundef %0, ptr noundef %1, ptr noundef %.0.i39, ptr noundef %68) #9
   tail call void @add_path(ptr noundef %1, ptr noundef %105) #9
   br label %118

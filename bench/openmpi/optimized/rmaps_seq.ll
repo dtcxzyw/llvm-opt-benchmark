@@ -1615,7 +1615,7 @@ pmix_obj_run_destructors.exit449:                 ; preds = %.lr.ph.i446, %._cri
   br label %pmix_obj_run_destructors.exit345
 
 pmix_obj_run_destructors.exit365:                 ; preds = %351, %pmix_obj_run_constructors.exit370, %170, %.lr.ph.i404, %.lr.ph.i362, %._crit_edge625, %._crit_edge627, %pmix_obj_update.exit331, %634, %632, %pmix_obj_update.exit330, %609, %607, %437, %494, %514, %.thread512, %567, %266
-  %.0245 = phi i32 [ -43, %437 ], [ %611, %pmix_obj_update.exit331 ], [ -43, %494 ], [ -43, %567 ], [ %376, %._crit_edge625 ], [ %586, %pmix_obj_update.exit330 ], [ -43, %.thread512 ], [ -43, %514 ], [ %265, %266 ], [ %586, %607 ], [ %586, %609 ], [ %611, %632 ], [ %611, %634 ], [ %195, %._crit_edge627 ], [ %195, %.lr.ph.i362 ], [ %376, %.lr.ph.i404 ], [ -13, %170 ], [ %265, %pmix_obj_run_constructors.exit370 ], [ -13, %351 ]
+  %.0245 = phi i32 [ -43, %437 ], [ %611, %pmix_obj_update.exit331 ], [ -43, %494 ], [ -43, %567 ], [ %195, %._crit_edge627 ], [ %586, %pmix_obj_update.exit330 ], [ -43, %.thread512 ], [ -43, %514 ], [ %265, %266 ], [ %376, %._crit_edge625 ], [ %195, %.lr.ph.i362 ], [ %376, %.lr.ph.i404 ], [ %586, %607 ], [ %586, %609 ], [ %611, %632 ], [ %611, %634 ], [ -13, %170 ], [ %265, %pmix_obj_run_constructors.exit370 ], [ -13, %351 ]
   %734 = load volatile i64, ptr %.0244.sroa.gep477, align 8, !tbaa !46
   %735 = icmp eq i64 %734, 0
   br i1 %735, label %._crit_edge629, label %.lr.ph628

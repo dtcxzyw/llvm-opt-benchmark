@@ -2064,8 +2064,8 @@ _ZNK5clang4Decl14getDeclContextEv.exit.i.i:       ; preds = %143, %137
   br label %_ZL15findBackingIvarPKN5clang16ObjCPropertyDeclE.exit.i
 
 _ZL15findBackingIvarPKN5clang16ObjCPropertyDeclE.exit.i: ; preds = %168, %130, %._crit_edge.i
-  %.360.i = phi ptr [ %.259.i, %._crit_edge.i ], [ %129, %130 ], [ %129, %168 ]
-  %.355.i = phi ptr [ %.254.i, %._crit_edge.i ], [ %132, %130 ], [ %170, %168 ]
+  %.360.i = phi ptr [ %.259.i, %._crit_edge.i ], [ %129, %168 ], [ %129, %130 ]
+  %.355.i = phi ptr [ %.254.i, %._crit_edge.i ], [ %170, %168 ], [ %132, %130 ]
   %171 = icmp ne ptr %.355.i, null
   %172 = icmp ne ptr %.360.i, null
   %or.cond.i = select i1 %171, i1 %172, i1 false

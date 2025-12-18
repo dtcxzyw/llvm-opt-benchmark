@@ -170,7 +170,7 @@ define internal noundef zeroext i1 @HIDAPI_DriverLg4ff_IsSupportedDevice(ptr nou
   br i1 %or.cond27.i, label %HIDAPI_DriverLg4ff_IdentifyWheel.exit, label %HIDAPI_DriverLg4ff_SwitchMode.exit
 
 HIDAPI_DriverLg4ff_IdentifyWheel.exit:            ; preds = %23, %27, %30, %33, %34, %35, %38, %42, %44, %48, %51, %54, %56, %62, %65
-  %.0.i = phi i16 [ -15717, %62 ], [ -15793, %65 ], [ -15793, %23 ], [ -15793, %27 ], [ -15717, %30 ], [ -15718, %34 ], [ -15719, %33 ], [ -15720, %35 ], [ -15793, %38 ], [ %switch.select24.i, %42 ], [ -15793, %44 ], [ -15793, %48 ], [ -15717, %51 ], [ -15719, %54 ], [ -15793, %56 ]
+  %.0.i = phi i16 [ -15793, %56 ], [ -15793, %65 ], [ -15793, %23 ], [ -15793, %27 ], [ -15717, %30 ], [ -15718, %34 ], [ -15719, %33 ], [ -15720, %35 ], [ -15793, %38 ], [ %switch.select24.i, %42 ], [ -15717, %62 ], [ -15793, %44 ], [ -15793, %48 ], [ -15717, %51 ], [ -15719, %54 ]
   %71 = icmp eq i16 %.0.i, %4
   %72 = icmp eq i16 %.0.i, 0
   %or.cond = or i1 %71, %72

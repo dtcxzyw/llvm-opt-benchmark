@@ -1765,7 +1765,7 @@ _ZNK9Stockfish10ThreadPool14nodes_searchedEv.exit207: ; preds = %.lr.ph.i.i202, 
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN9Stockfish6Search8RootMoveESt6vectorIS4_SaIS4_EEEEZNS3_6Worker19iterative_deepeningEvE3$_0ET_SC_SC_T0_.exit.i"
 
 "_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN9Stockfish6Search8RootMoveESt6vectorIS4_SaIS4_EEEEZNS3_6Worker19iterative_deepeningEvE3$_0ET_SC_SC_T0_.exit.i": ; preds = %410, %.loopexit.split.loop.exit58.i.i.i.i, %.loopexit.split.loop.exit56.i.i.i.i, %.loopexit.split.loop.exit54.i.i.i.i, %437, %432, %427
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.044.1.i.i.i.i, %432 ], [ %spec.select.i.i.i.i, %437 ], [ %.sroa.044.0.lcssa.i.i.i.i, %427 ], [ %441, %.loopexit.split.loop.exit56.i.i.i.i ], [ %440, %.loopexit.split.loop.exit54.i.i.i.i ], [ %442, %.loopexit.split.loop.exit58.i.i.i.i ], [ %.sroa.044.063.i.i.i.i, %410 ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.044.1.i.i.i.i, %432 ], [ %spec.select.i.i.i.i, %437 ], [ %442, %.loopexit.split.loop.exit58.i.i.i.i ], [ %.sroa.044.0.lcssa.i.i.i.i, %427 ], [ %441, %.loopexit.split.loop.exit56.i.i.i.i ], [ %440, %.loopexit.split.loop.exit54.i.i.i.i ], [ %.sroa.044.063.i.i.i.i, %410 ]
   %.not.i208 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i, %.val179
   br i1 %.not.i208, label %"_ZN9Stockfish7Utility13move_to_frontINS_6Search8RootMoveEZNS2_6Worker19iterative_deepeningEvE3$_0EEvRSt6vectorIT_SaIS7_EET0_.exit", label %443
 
@@ -4602,7 +4602,7 @@ _ZN9Stockfish12_GLOBAL__N_129update_continuation_historiesEPNS_6Search5StackENS_
   br label %.loopexit726
 
 .loopexit726:                                     ; preds = %648, %931, %916, %920, %928, %._crit_edge840, %319, %317, %292, %325, %16
-  %.0 = phi i32 [ %17, %16 ], [ %.0457, %317 ], [ %326, %325 ], [ %294, %292 ], [ %321, %319 ], [ %885, %._crit_edge840 ], [ %885, %931 ], [ %885, %928 ], [ %885, %920 ], [ %885, %916 ], [ 0, %648 ]
+  %.0 = phi i32 [ %17, %16 ], [ %.0457, %317 ], [ %885, %916 ], [ %326, %325 ], [ %294, %292 ], [ %321, %319 ], [ %885, %._crit_edge840 ], [ %885, %931 ], [ %885, %928 ], [ %885, %920 ], [ 0, %648 ]
   ret i32 %.0
 }
 
@@ -11152,7 +11152,7 @@ define linkonce_odr dso_local ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iter
   br label %34, !llvm.loop !56
 
 _ZSt11swap_rangesIN9__gnu_cxx17__normal_iteratorIPN9Stockfish6Search8RootMoveESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit: ; preds = %._crit_edge, %._crit_edge62, %.lr.ph.i, %5, %3
-  %.sroa.012.0 = phi ptr [ %2, %3 ], [ %0, %5 ], [ %1, %.lr.ph.i ], [ %33, %._crit_edge62 ], [ %33, %._crit_edge ]
+  %.sroa.012.0 = phi ptr [ %1, %.lr.ph.i ], [ %2, %3 ], [ %0, %5 ], [ %33, %._crit_edge62 ], [ %33, %._crit_edge ]
   ret ptr %.sroa.012.0
 }
 

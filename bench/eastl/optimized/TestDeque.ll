@@ -16151,9 +16151,9 @@ for.body25.preheader.i:                           ; preds = %_ZN5eastl5dequeI14M
   br label %for.end29.i.invoke
 
 for.end29.i.invoke:                               ; preds = %_ZN5eastl13DequeIteratorIiPKiRS1_Lj64EEppEv.exit44.i, %for.cond23.preheader.i, %for.body25.preheader.i
-  %159 = phi ptr [ @.str.141, %for.body25.preheader.i ], [ @.str.141, %for.cond23.preheader.i ], [ @.str.139, %_ZN5eastl13DequeIteratorIiPKiRS1_Lj64EEppEv.exit44.i ]
-  %160 = phi i64 [ %158, %for.body25.preheader.i ], [ %numMatching.0.lcssa101123.i, %for.cond23.preheader.i ], [ %inc.i3141, %_ZN5eastl13DequeIteratorIiPKiRS1_Lj64EEppEv.exit44.i ]
-  %161 = phi i64 [ %numMatching.0.lcssa101123.i39423951, %for.body25.preheader.i ], [ %numMatching.0.lcssa101123.i, %for.cond23.preheader.i ], [ %inc12.i, %_ZN5eastl13DequeIteratorIiPKiRS1_Lj64EEppEv.exit44.i ]
+  %159 = phi ptr [ @.str.141, %for.cond23.preheader.i ], [ @.str.141, %for.body25.preheader.i ], [ @.str.139, %_ZN5eastl13DequeIteratorIiPKiRS1_Lj64EEppEv.exit44.i ]
+  %160 = phi i64 [ %numMatching.0.lcssa101123.i, %for.cond23.preheader.i ], [ %158, %for.body25.preheader.i ], [ %inc.i3141, %_ZN5eastl13DequeIteratorIiPKiRS1_Lj64EEppEv.exit44.i ]
+  %161 = phi i64 [ %numMatching.0.lcssa101123.i, %for.cond23.preheader.i ], [ %numMatching.0.lcssa101123.i39423951, %for.body25.preheader.i ], [ %inc12.i, %_ZN5eastl13DequeIteratorIiPKiRS1_Lj64EEppEv.exit44.i ]
   invoke void (ptr, ...) @_ZN2EA8UnitTest6ReportEPKcz(ptr noundef nonnull %159, ptr noundef nonnull @.str.12, i64 noundef %160, i64 noundef %161)
           to label %invoke.cont169 unwind label %lpad168
 
@@ -16295,9 +16295,9 @@ for.body25.preheader.i3183:                       ; preds = %invoke.cont181, %fo
   br label %for.end29.i3184.invoke
 
 for.end29.i3184.invoke:                           ; preds = %_ZN5eastl13DequeIteratorIiPKiRS1_Lj64EEppEv.exit44.i3223, %for.cond23.preheader.i3181, %for.body25.preheader.i3183
-  %179 = phi ptr [ @.str.141, %for.body25.preheader.i3183 ], [ @.str.141, %for.cond23.preheader.i3181 ], [ @.str.139, %_ZN5eastl13DequeIteratorIiPKiRS1_Lj64EEppEv.exit44.i3223 ]
-  %180 = phi i64 [ %178, %for.body25.preheader.i3183 ], [ %numMatching.0.lcssa101123.i3174, %for.cond23.preheader.i3181 ], [ %inc.i3195, %_ZN5eastl13DequeIteratorIiPKiRS1_Lj64EEppEv.exit44.i3223 ]
-  %181 = phi i64 [ %numMatching.0.lcssa101123.i317439613970, %for.body25.preheader.i3183 ], [ %numMatching.0.lcssa101123.i3174, %for.cond23.preheader.i3181 ], [ %inc12.i3220, %_ZN5eastl13DequeIteratorIiPKiRS1_Lj64EEppEv.exit44.i3223 ]
+  %179 = phi ptr [ @.str.141, %for.cond23.preheader.i3181 ], [ @.str.141, %for.body25.preheader.i3183 ], [ @.str.139, %_ZN5eastl13DequeIteratorIiPKiRS1_Lj64EEppEv.exit44.i3223 ]
+  %180 = phi i64 [ %numMatching.0.lcssa101123.i3174, %for.cond23.preheader.i3181 ], [ %178, %for.body25.preheader.i3183 ], [ %inc.i3195, %_ZN5eastl13DequeIteratorIiPKiRS1_Lj64EEppEv.exit44.i3223 ]
+  %181 = phi i64 [ %numMatching.0.lcssa101123.i3174, %for.cond23.preheader.i3181 ], [ %numMatching.0.lcssa101123.i317439613970, %for.body25.preheader.i3183 ], [ %inc12.i3220, %_ZN5eastl13DequeIteratorIiPKiRS1_Lj64EEppEv.exit44.i3223 ]
   invoke void (ptr, ...) @_ZN2EA8UnitTest6ReportEPKcz(ptr noundef nonnull %179, ptr noundef nonnull @.str.12, i64 noundef %180, i64 noundef %181)
           to label %invoke.cont191 unwind label %lpad168
 
@@ -16439,9 +16439,9 @@ for.body25.preheader.i3269:                       ; preds = %invoke.cont203, %fo
   br label %for.end29.i3270.invoke
 
 for.end29.i3270.invoke:                           ; preds = %_ZN5eastl13DequeIteratorIiPKiRS1_Lj64EEppEv.exit44.i3309, %for.cond23.preheader.i3267, %for.body25.preheader.i3269
-  %199 = phi ptr [ @.str.141, %for.body25.preheader.i3269 ], [ @.str.141, %for.cond23.preheader.i3267 ], [ @.str.139, %_ZN5eastl13DequeIteratorIiPKiRS1_Lj64EEppEv.exit44.i3309 ]
-  %200 = phi i64 [ %198, %for.body25.preheader.i3269 ], [ %numMatching.0.lcssa101123.i3260, %for.cond23.preheader.i3267 ], [ %inc.i3281, %_ZN5eastl13DequeIteratorIiPKiRS1_Lj64EEppEv.exit44.i3309 ]
-  %201 = phi i64 [ %numMatching.0.lcssa101123.i326039803989, %for.body25.preheader.i3269 ], [ %numMatching.0.lcssa101123.i3260, %for.cond23.preheader.i3267 ], [ %inc12.i3306, %_ZN5eastl13DequeIteratorIiPKiRS1_Lj64EEppEv.exit44.i3309 ]
+  %199 = phi ptr [ @.str.141, %for.cond23.preheader.i3267 ], [ @.str.141, %for.body25.preheader.i3269 ], [ @.str.139, %_ZN5eastl13DequeIteratorIiPKiRS1_Lj64EEppEv.exit44.i3309 ]
+  %200 = phi i64 [ %numMatching.0.lcssa101123.i3260, %for.cond23.preheader.i3267 ], [ %198, %for.body25.preheader.i3269 ], [ %inc.i3281, %_ZN5eastl13DequeIteratorIiPKiRS1_Lj64EEppEv.exit44.i3309 ]
+  %201 = phi i64 [ %numMatching.0.lcssa101123.i3260, %for.cond23.preheader.i3267 ], [ %numMatching.0.lcssa101123.i326039803989, %for.body25.preheader.i3269 ], [ %inc12.i3306, %_ZN5eastl13DequeIteratorIiPKiRS1_Lj64EEppEv.exit44.i3309 ]
   invoke void (ptr, ...) @_ZN2EA8UnitTest6ReportEPKcz(ptr noundef nonnull %199, ptr noundef nonnull @.str.12, i64 noundef %200, i64 noundef %201)
           to label %invoke.cont212 unwind label %lpad168
 
@@ -16633,9 +16633,9 @@ for.body25.preheader.i3355:                       ; preds = %invoke.cont226, %fo
   br label %for.end29.i3356.invoke
 
 for.end29.i3356.invoke:                           ; preds = %_ZN5eastl13DequeIteratorIiPKiRS1_Lj64EEppEv.exit44.i3395, %for.cond23.preheader.i3353, %for.body25.preheader.i3355
-  %225 = phi ptr [ @.str.141, %for.body25.preheader.i3355 ], [ @.str.141, %for.cond23.preheader.i3353 ], [ @.str.139, %_ZN5eastl13DequeIteratorIiPKiRS1_Lj64EEppEv.exit44.i3395 ]
-  %226 = phi i64 [ %224, %for.body25.preheader.i3355 ], [ %numMatching.0.lcssa101123.i3346, %for.cond23.preheader.i3353 ], [ %inc.i3367, %_ZN5eastl13DequeIteratorIiPKiRS1_Lj64EEppEv.exit44.i3395 ]
-  %227 = phi i64 [ %numMatching.0.lcssa101123.i334639994008, %for.body25.preheader.i3355 ], [ %numMatching.0.lcssa101123.i3346, %for.cond23.preheader.i3353 ], [ %inc12.i3392, %_ZN5eastl13DequeIteratorIiPKiRS1_Lj64EEppEv.exit44.i3395 ]
+  %225 = phi ptr [ @.str.141, %for.cond23.preheader.i3353 ], [ @.str.141, %for.body25.preheader.i3355 ], [ @.str.139, %_ZN5eastl13DequeIteratorIiPKiRS1_Lj64EEppEv.exit44.i3395 ]
+  %226 = phi i64 [ %numMatching.0.lcssa101123.i3346, %for.cond23.preheader.i3353 ], [ %224, %for.body25.preheader.i3355 ], [ %inc.i3367, %_ZN5eastl13DequeIteratorIiPKiRS1_Lj64EEppEv.exit44.i3395 ]
+  %227 = phi i64 [ %numMatching.0.lcssa101123.i3346, %for.cond23.preheader.i3353 ], [ %numMatching.0.lcssa101123.i334639994008, %for.body25.preheader.i3355 ], [ %inc12.i3392, %_ZN5eastl13DequeIteratorIiPKiRS1_Lj64EEppEv.exit44.i3395 ]
   invoke void (ptr, ...) @_ZN2EA8UnitTest6ReportEPKcz(ptr noundef nonnull %225, ptr noundef nonnull @.str.12, i64 noundef %226, i64 noundef %227)
           to label %invoke.cont233 unwind label %lpad168
 
@@ -20889,10 +20889,10 @@ _ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit11.i.i.i: ; preds = %if.then.i6.i.i
   br i1 %cmp.i.not.i43.i.i, label %"_ZN5eastl9remove_ifINS_13DequeIteratorIiPiRiLj64EEEZ9TestDequevE3$_0EET_S6_S6_T0_.exit.i", label %for.body.i.i.i, !llvm.loop !748
 
 "_ZN5eastl9remove_ifINS_13DequeIteratorIiPiRiLj64EEEZ9TestDequevE3$_0EET_S6_S6_T0_.exit.i": ; preds = %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit11.i.i.i, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i, %"_ZN5eastl7find_ifINS_13DequeIteratorIiPiRiLj64EEEZ9TestDequevE3$_0EET_S6_S6_T0_.exit.i.i"
-  %.lcssa.i.sink.i.i = phi ptr [ %.lcssa.i.i.i, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i ], [ %.lcssa.i.i.i, %"_ZN5eastl7find_ifINS_13DequeIteratorIiPiRiLj64EEEZ9TestDequevE3$_0EET_S6_S6_T0_.exit.i.i" ], [ %agg.tmp6.sroa.0.1.i.i, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit11.i.i.i ]
-  %agg.tmp.sroa.4.2.sink.i.i = phi ptr [ %agg.tmp.sroa.4.2.i.i, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i ], [ %agg.tmp.sroa.4.2.i.i, %"_ZN5eastl7find_ifINS_13DequeIteratorIiPiRiLj64EEEZ9TestDequevE3$_0EET_S6_S6_T0_.exit.i.i" ], [ %agg.tmp6.sroa.6.1.i.i, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit11.i.i.i ]
-  %agg.tmp.sroa.7.2.sink.i.i = phi ptr [ %agg.tmp.sroa.7.2.i.i, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i ], [ %agg.tmp.sroa.7.2.i.i, %"_ZN5eastl7find_ifINS_13DequeIteratorIiPiRiLj64EEEZ9TestDequevE3$_0EET_S6_S6_T0_.exit.i.i" ], [ %agg.tmp6.sroa.9.1.i.i, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit11.i.i.i ]
-  %agg.tmp.sroa.11.2.sink.i.i = phi ptr [ %agg.tmp.sroa.11.2.i.i, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i ], [ %agg.tmp.sroa.11.2.i.i, %"_ZN5eastl7find_ifINS_13DequeIteratorIiPiRiLj64EEEZ9TestDequevE3$_0EET_S6_S6_T0_.exit.i.i" ], [ %agg.tmp6.sroa.13.1.i.i, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit11.i.i.i ]
+  %.lcssa.i.sink.i.i = phi ptr [ %.lcssa.i.i.i, %"_ZN5eastl7find_ifINS_13DequeIteratorIiPiRiLj64EEEZ9TestDequevE3$_0EET_S6_S6_T0_.exit.i.i" ], [ %.lcssa.i.i.i, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i ], [ %agg.tmp6.sroa.0.1.i.i, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit11.i.i.i ]
+  %agg.tmp.sroa.4.2.sink.i.i = phi ptr [ %agg.tmp.sroa.4.2.i.i, %"_ZN5eastl7find_ifINS_13DequeIteratorIiPiRiLj64EEEZ9TestDequevE3$_0EET_S6_S6_T0_.exit.i.i" ], [ %agg.tmp.sroa.4.2.i.i, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i ], [ %agg.tmp6.sroa.6.1.i.i, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit11.i.i.i ]
+  %agg.tmp.sroa.7.2.sink.i.i = phi ptr [ %agg.tmp.sroa.7.2.i.i, %"_ZN5eastl7find_ifINS_13DequeIteratorIiPiRiLj64EEEZ9TestDequevE3$_0EET_S6_S6_T0_.exit.i.i" ], [ %agg.tmp.sroa.7.2.i.i, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i ], [ %agg.tmp6.sroa.9.1.i.i, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit11.i.i.i ]
+  %agg.tmp.sroa.11.2.sink.i.i = phi ptr [ %agg.tmp.sroa.11.2.i.i, %"_ZN5eastl7find_ifINS_13DequeIteratorIiPiRiLj64EEEZ9TestDequevE3$_0EET_S6_S6_T0_.exit.i.i" ], [ %agg.tmp.sroa.11.2.i.i, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i ], [ %agg.tmp6.sroa.13.1.i.i, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit11.i.i.i ]
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %857 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %agg.tmp.sroa.11.2.sink.i.i to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
@@ -43804,8 +43804,8 @@ invoke.cont524:                                   ; preds = %invoke.cont521
   ret i32 %413
 
 eh.resume:                                        ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i, %lpad414.loopexit, %lpad414.loopexit.split-lp, %lpad51, %lpad.loopexit.split-lp2190.loopexit, %lpad.loopexit.split-lp2190.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp2190.loopexit.split-lp.loopexit, %lpad.loopexit2189
-  %dErase.sink = phi ptr [ %d, %lpad51 ], [ %d, %lpad.loopexit2189 ], [ %d, %lpad.loopexit.split-lp2190.loopexit.split-lp.loopexit ], [ %d, %lpad.loopexit.split-lp2190.loopexit.split-lp.loopexit.split-lp ], [ %d, %lpad.loopexit.split-lp2190.loopexit ], [ %dErase, %lpad414.loopexit.split-lp ], [ %dErase, %lpad414.loopexit ], [ %d, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i ]
-  %.pn.pn = phi { ptr, i32 } [ %lpad.phi2170, %lpad51 ], [ %lpad.loopexit2191, %lpad.loopexit2189 ], [ %lpad.loopexit2197, %lpad.loopexit.split-lp2190.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp2198, %lpad.loopexit.split-lp2190.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit2194, %lpad.loopexit.split-lp2190.loopexit ], [ %lpad.loopexit.split-lp, %lpad414.loopexit.split-lp ], [ %lpad.loopexit, %lpad414.loopexit ], [ %lpad.phi2170, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i ]
+  %dErase.sink = phi ptr [ %d, %lpad51 ], [ %dErase, %lpad414.loopexit ], [ %d, %lpad.loopexit2189 ], [ %d, %lpad.loopexit.split-lp2190.loopexit.split-lp.loopexit ], [ %d, %lpad.loopexit.split-lp2190.loopexit.split-lp.loopexit.split-lp ], [ %d, %lpad.loopexit.split-lp2190.loopexit ], [ %dErase, %lpad414.loopexit.split-lp ], [ %d, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i ]
+  %.pn.pn = phi { ptr, i32 } [ %lpad.phi2170, %lpad51 ], [ %lpad.loopexit, %lpad414.loopexit ], [ %lpad.loopexit2191, %lpad.loopexit2189 ], [ %lpad.loopexit2197, %lpad.loopexit.split-lp2190.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp2198, %lpad.loopexit.split-lp2190.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit2194, %lpad.loopexit.split-lp2190.loopexit ], [ %lpad.loopexit.split-lp, %lpad414.loopexit.split-lp ], [ %lpad.phi2170, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i ]
   call void @_ZN5eastl5dequeIiNS_9allocatorELj64EED1Ev(ptr noundef nonnull align 8 dereferenceable(81) %dErase.sink) #14
   resume { ptr, i32 } %.pn.pn
 }
@@ -46464,8 +46464,8 @@ _ZN5eastl5dequeIiNS_9allocatorELj1EED2Ev.exit1864: ; preds = %invoke.cont524, %_
   ret i32 %452
 
 eh.resume:                                        ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i, %lpad414.loopexit, %lpad414.loopexit.split-lp, %lpad51, %lpad.loopexit.split-lp2017.loopexit, %lpad.loopexit.split-lp2017.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp2017.loopexit.split-lp.loopexit, %lpad.loopexit2016
-  %dErase.sink = phi ptr [ %d, %lpad51 ], [ %d, %lpad.loopexit2016 ], [ %d, %lpad.loopexit.split-lp2017.loopexit.split-lp.loopexit ], [ %d, %lpad.loopexit.split-lp2017.loopexit.split-lp.loopexit.split-lp ], [ %d, %lpad.loopexit.split-lp2017.loopexit ], [ %dErase, %lpad414.loopexit.split-lp ], [ %dErase, %lpad414.loopexit ], [ %d, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i ]
-  %.pn.pn = phi { ptr, i32 } [ %lpad.phi1997, %lpad51 ], [ %lpad.loopexit2018, %lpad.loopexit2016 ], [ %lpad.loopexit2024, %lpad.loopexit.split-lp2017.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp2025, %lpad.loopexit.split-lp2017.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit2021, %lpad.loopexit.split-lp2017.loopexit ], [ %lpad.loopexit.split-lp, %lpad414.loopexit.split-lp ], [ %lpad.loopexit, %lpad414.loopexit ], [ %lpad.phi1997, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i ]
+  %dErase.sink = phi ptr [ %d, %lpad51 ], [ %dErase, %lpad414.loopexit ], [ %d, %lpad.loopexit2016 ], [ %d, %lpad.loopexit.split-lp2017.loopexit.split-lp.loopexit ], [ %d, %lpad.loopexit.split-lp2017.loopexit.split-lp.loopexit.split-lp ], [ %d, %lpad.loopexit.split-lp2017.loopexit ], [ %dErase, %lpad414.loopexit.split-lp ], [ %d, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i ]
+  %.pn.pn = phi { ptr, i32 } [ %lpad.phi1997, %lpad51 ], [ %lpad.loopexit, %lpad414.loopexit ], [ %lpad.loopexit2018, %lpad.loopexit2016 ], [ %lpad.loopexit2024, %lpad.loopexit.split-lp2017.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp2025, %lpad.loopexit.split-lp2017.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit2021, %lpad.loopexit.split-lp2017.loopexit ], [ %lpad.loopexit.split-lp, %lpad414.loopexit.split-lp ], [ %lpad.phi1997, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i ]
   call void @_ZN5eastl5dequeIiNS_9allocatorELj1EED2Ev(ptr noundef nonnull align 8 dereferenceable(81) %dErase.sink) #14
   resume { ptr, i32 } %.pn.pn
 }
@@ -49360,8 +49360,8 @@ _ZN5eastl5dequeIiNS_9allocatorELj32768EED2Ev.exit2101: ; preds = %invoke.cont524
   ret i32 %428
 
 eh.resume:                                        ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i, %lpad414.loopexit, %lpad414.loopexit.split-lp, %lpad51, %lpad.loopexit.split-lp2236.loopexit, %lpad.loopexit.split-lp2236.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp2236.loopexit.split-lp.loopexit, %lpad.loopexit2235
-  %dErase.sink = phi ptr [ %d, %lpad51 ], [ %d, %lpad.loopexit2235 ], [ %d, %lpad.loopexit.split-lp2236.loopexit.split-lp.loopexit ], [ %d, %lpad.loopexit.split-lp2236.loopexit.split-lp.loopexit.split-lp ], [ %d, %lpad.loopexit.split-lp2236.loopexit ], [ %dErase, %lpad414.loopexit.split-lp ], [ %dErase, %lpad414.loopexit ], [ %d, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i ]
-  %.pn.pn = phi { ptr, i32 } [ %lpad.phi2216, %lpad51 ], [ %lpad.loopexit2237, %lpad.loopexit2235 ], [ %lpad.loopexit2243, %lpad.loopexit.split-lp2236.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp2244, %lpad.loopexit.split-lp2236.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit2240, %lpad.loopexit.split-lp2236.loopexit ], [ %lpad.loopexit.split-lp, %lpad414.loopexit.split-lp ], [ %lpad.loopexit, %lpad414.loopexit ], [ %lpad.phi2216, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i ]
+  %dErase.sink = phi ptr [ %d, %lpad51 ], [ %dErase, %lpad414.loopexit ], [ %d, %lpad.loopexit2235 ], [ %d, %lpad.loopexit.split-lp2236.loopexit.split-lp.loopexit ], [ %d, %lpad.loopexit.split-lp2236.loopexit.split-lp.loopexit.split-lp ], [ %d, %lpad.loopexit.split-lp2236.loopexit ], [ %dErase, %lpad414.loopexit.split-lp ], [ %d, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i ]
+  %.pn.pn = phi { ptr, i32 } [ %lpad.phi2216, %lpad51 ], [ %lpad.loopexit, %lpad414.loopexit ], [ %lpad.loopexit2237, %lpad.loopexit2235 ], [ %lpad.loopexit2243, %lpad.loopexit.split-lp2236.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp2244, %lpad.loopexit.split-lp2236.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit2240, %lpad.loopexit.split-lp2236.loopexit ], [ %lpad.loopexit.split-lp, %lpad414.loopexit.split-lp ], [ %lpad.phi2216, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i ]
   call void @_ZN5eastl5dequeIiNS_9allocatorELj32768EED2Ev(ptr noundef nonnull align 8 dereferenceable(81) %dErase.sink) #14
   resume { ptr, i32 } %.pn.pn
 }
@@ -52684,7 +52684,7 @@ ehcleanup548.loopexit:                            ; preds = %_ZN10TestObjectD2Ev
   br label %ehcleanup548
 
 ehcleanup548:                                     ; preds = %ehcleanup548.loopexit, %_ZN13InputIteratorI10TestObjectED2Ev.exit2128, %_ZN13InputIteratorI10TestObjectED2Ev.exit1914, %lpad385
-  %.pn31.pn = phi { ptr, i32 } [ %.pn31, %_ZN13InputIteratorI10TestObjectED2Ev.exit2128 ], [ %464, %lpad385 ], [ %465, %_ZN13InputIteratorI10TestObjectED2Ev.exit1914 ], [ %472, %ehcleanup548.loopexit ]
+  %.pn31.pn = phi { ptr, i32 } [ %.pn31, %_ZN13InputIteratorI10TestObjectED2Ev.exit2128 ], [ %465, %_ZN13InputIteratorI10TestObjectED2Ev.exit1914 ], [ %464, %lpad385 ], [ %472, %ehcleanup548.loopexit ]
   %527 = load i32, ptr %mMagicValue.i1587, align 8
   %cmp.not.i2130 = icmp eq i32 %527, 32623592
   br i1 %cmp.not.i2130, label %_ZN10TestObjectD2Ev.exit2135, label %if.then.i2131
@@ -52720,7 +52720,7 @@ ehcleanup549.loopexit3014:                        ; preds = %_ZN10TestObjectD2Ev
   br label %ehcleanup549
 
 ehcleanup549:                                     ; preds = %ehcleanup549.loopexit3014, %ehcleanup549.loopexit, %_ZN10TestObjectD2Ev.exit2135, %_ZN10TestObjectD2Ev.exit1585, %_ZN10TestObjectD2Ev.exit1578, %_ZN10TestObjectD2Ev.exit1564, %_ZN10TestObjectD2Ev.exit1550, %_ZN10TestObjectD2Ev.exit1049, %_ZN10TestObjectD2Ev.exit1042, %_ZN10TestObjectD2Ev.exit862, %_ZN10TestObjectD2Ev.exit855, %lpad112
-  %.pn34 = phi { ptr, i32 } [ %266, %_ZN10TestObjectD2Ev.exit862 ], [ %260, %lpad112 ], [ %306, %_ZN10TestObjectD2Ev.exit1049 ], [ %409, %_ZN10TestObjectD2Ev.exit1585 ], [ %.pn31.pn, %_ZN10TestObjectD2Ev.exit2135 ], [ %404, %_ZN10TestObjectD2Ev.exit1578 ], [ %397, %_ZN10TestObjectD2Ev.exit1564 ], [ %390, %_ZN10TestObjectD2Ev.exit1550 ], [ %301, %_ZN10TestObjectD2Ev.exit1042 ], [ %261, %_ZN10TestObjectD2Ev.exit855 ], [ %402, %ehcleanup549.loopexit ], [ %395, %ehcleanup549.loopexit3014 ]
+  %.pn34 = phi { ptr, i32 } [ %266, %_ZN10TestObjectD2Ev.exit862 ], [ %260, %lpad112 ], [ %306, %_ZN10TestObjectD2Ev.exit1049 ], [ %409, %_ZN10TestObjectD2Ev.exit1585 ], [ %.pn31.pn, %_ZN10TestObjectD2Ev.exit2135 ], [ %404, %_ZN10TestObjectD2Ev.exit1578 ], [ %261, %_ZN10TestObjectD2Ev.exit855 ], [ %397, %_ZN10TestObjectD2Ev.exit1564 ], [ %402, %ehcleanup549.loopexit ], [ %390, %_ZN10TestObjectD2Ev.exit1550 ], [ %301, %_ZN10TestObjectD2Ev.exit1042 ], [ %395, %ehcleanup549.loopexit3014 ]
   %535 = load i32, ptr %mMagicValue.i407, align 8
   %cmp.not.i2137 = icmp eq i32 %535, 32623592
   br i1 %cmp.not.i2137, label %_ZN10TestObjectD2Ev.exit2142, label %if.then.i2138
@@ -57007,7 +57007,7 @@ ehcleanup548.loopexit:                            ; preds = %_ZN10TestObjectD2Ev
   br label %ehcleanup548
 
 ehcleanup548:                                     ; preds = %ehcleanup548.loopexit, %_ZN13InputIteratorI10TestObjectED2Ev.exit2025, %_ZN13InputIteratorI10TestObjectED2Ev.exit1776, %lpad385
-  %.pn31.pn = phi { ptr, i32 } [ %.pn31, %_ZN13InputIteratorI10TestObjectED2Ev.exit2025 ], [ %505, %lpad385 ], [ %506, %_ZN13InputIteratorI10TestObjectED2Ev.exit1776 ], [ %513, %ehcleanup548.loopexit ]
+  %.pn31.pn = phi { ptr, i32 } [ %.pn31, %_ZN13InputIteratorI10TestObjectED2Ev.exit2025 ], [ %506, %_ZN13InputIteratorI10TestObjectED2Ev.exit1776 ], [ %505, %lpad385 ], [ %513, %ehcleanup548.loopexit ]
   %582 = load i32, ptr %mMagicValue.i1454, align 8
   %cmp.not.i2027 = icmp eq i32 %582, 32623592
   br i1 %cmp.not.i2027, label %_ZN10TestObjectD2Ev.exit2032, label %if.then.i2028
@@ -57043,7 +57043,7 @@ ehcleanup549.loopexit2895:                        ; preds = %_ZN10TestObjectD2Ev
   br label %ehcleanup549
 
 ehcleanup549:                                     ; preds = %ehcleanup549.loopexit2895, %ehcleanup549.loopexit, %_ZN10TestObjectD2Ev.exit2032, %_ZN10TestObjectD2Ev.exit1452, %_ZN10TestObjectD2Ev.exit1445, %_ZN10TestObjectD2Ev.exit1431, %_ZN10TestObjectD2Ev.exit1417, %_ZN10TestObjectD2Ev.exit963, %_ZN10TestObjectD2Ev.exit956, %_ZN10TestObjectD2Ev.exit786, %_ZN10TestObjectD2Ev.exit779, %lpad112
-  %.pn34 = phi { ptr, i32 } [ %300, %_ZN10TestObjectD2Ev.exit786 ], [ %294, %lpad112 ], [ %343, %_ZN10TestObjectD2Ev.exit963 ], [ %450, %_ZN10TestObjectD2Ev.exit1452 ], [ %.pn31.pn, %_ZN10TestObjectD2Ev.exit2032 ], [ %445, %_ZN10TestObjectD2Ev.exit1445 ], [ %438, %_ZN10TestObjectD2Ev.exit1431 ], [ %431, %_ZN10TestObjectD2Ev.exit1417 ], [ %338, %_ZN10TestObjectD2Ev.exit956 ], [ %295, %_ZN10TestObjectD2Ev.exit779 ], [ %443, %ehcleanup549.loopexit ], [ %436, %ehcleanup549.loopexit2895 ]
+  %.pn34 = phi { ptr, i32 } [ %300, %_ZN10TestObjectD2Ev.exit786 ], [ %294, %lpad112 ], [ %343, %_ZN10TestObjectD2Ev.exit963 ], [ %450, %_ZN10TestObjectD2Ev.exit1452 ], [ %.pn31.pn, %_ZN10TestObjectD2Ev.exit2032 ], [ %445, %_ZN10TestObjectD2Ev.exit1445 ], [ %295, %_ZN10TestObjectD2Ev.exit779 ], [ %438, %_ZN10TestObjectD2Ev.exit1431 ], [ %443, %ehcleanup549.loopexit ], [ %431, %_ZN10TestObjectD2Ev.exit1417 ], [ %338, %_ZN10TestObjectD2Ev.exit956 ], [ %436, %ehcleanup549.loopexit2895 ]
   %590 = load i32, ptr %mMagicValue.i387, align 8
   %cmp.not.i2034 = icmp eq i32 %590, 32623592
   br i1 %cmp.not.i2034, label %_ZN10TestObjectD2Ev.exit2039, label %if.then.i2035
@@ -61488,7 +61488,7 @@ ehcleanup548.loopexit:                            ; preds = %_ZN10TestObjectD2Ev
   br label %ehcleanup548
 
 ehcleanup548:                                     ; preds = %ehcleanup548.loopexit, %_ZN13InputIteratorI10TestObjectED2Ev.exit2183, %_ZN13InputIteratorI10TestObjectED2Ev.exit1934, %lpad385
-  %.pn31.pn = phi { ptr, i32 } [ %.pn31, %_ZN13InputIteratorI10TestObjectED2Ev.exit2183 ], [ %466, %lpad385 ], [ %467, %_ZN13InputIteratorI10TestObjectED2Ev.exit1934 ], [ %474, %ehcleanup548.loopexit ]
+  %.pn31.pn = phi { ptr, i32 } [ %.pn31, %_ZN13InputIteratorI10TestObjectED2Ev.exit2183 ], [ %467, %_ZN13InputIteratorI10TestObjectED2Ev.exit1934 ], [ %466, %lpad385 ], [ %474, %ehcleanup548.loopexit ]
   %543 = load i32, ptr %mMagicValue.i1606, align 8
   %cmp.not.i2185 = icmp eq i32 %543, 32623592
   br i1 %cmp.not.i2185, label %_ZN10TestObjectD2Ev.exit2190, label %if.then.i2186
@@ -61524,7 +61524,7 @@ ehcleanup549.loopexit3130:                        ; preds = %_ZN10TestObjectD2Ev
   br label %ehcleanup549
 
 ehcleanup549:                                     ; preds = %ehcleanup549.loopexit3130, %ehcleanup549.loopexit, %_ZN10TestObjectD2Ev.exit2190, %_ZN10TestObjectD2Ev.exit1604, %_ZN10TestObjectD2Ev.exit1597, %_ZN10TestObjectD2Ev.exit1583, %_ZN10TestObjectD2Ev.exit1569, %_ZN10TestObjectD2Ev.exit1067, %_ZN10TestObjectD2Ev.exit1060, %_ZN10TestObjectD2Ev.exit876, %_ZN10TestObjectD2Ev.exit869, %lpad112
-  %.pn34 = phi { ptr, i32 } [ %268, %_ZN10TestObjectD2Ev.exit876 ], [ %262, %lpad112 ], [ %308, %_ZN10TestObjectD2Ev.exit1067 ], [ %411, %_ZN10TestObjectD2Ev.exit1604 ], [ %.pn31.pn, %_ZN10TestObjectD2Ev.exit2190 ], [ %406, %_ZN10TestObjectD2Ev.exit1597 ], [ %399, %_ZN10TestObjectD2Ev.exit1583 ], [ %392, %_ZN10TestObjectD2Ev.exit1569 ], [ %303, %_ZN10TestObjectD2Ev.exit1060 ], [ %263, %_ZN10TestObjectD2Ev.exit869 ], [ %404, %ehcleanup549.loopexit ], [ %397, %ehcleanup549.loopexit3130 ]
+  %.pn34 = phi { ptr, i32 } [ %268, %_ZN10TestObjectD2Ev.exit876 ], [ %262, %lpad112 ], [ %308, %_ZN10TestObjectD2Ev.exit1067 ], [ %411, %_ZN10TestObjectD2Ev.exit1604 ], [ %.pn31.pn, %_ZN10TestObjectD2Ev.exit2190 ], [ %406, %_ZN10TestObjectD2Ev.exit1597 ], [ %263, %_ZN10TestObjectD2Ev.exit869 ], [ %399, %_ZN10TestObjectD2Ev.exit1583 ], [ %404, %ehcleanup549.loopexit ], [ %392, %_ZN10TestObjectD2Ev.exit1569 ], [ %303, %_ZN10TestObjectD2Ev.exit1060 ], [ %397, %ehcleanup549.loopexit3130 ]
   %551 = load i32, ptr %mMagicValue.i411, align 8
   %cmp.not.i2192 = icmp eq i32 %551, 32623592
   br i1 %cmp.not.i2192, label %_ZN10TestObjectD2Ev.exit2197, label %if.then.i2193
@@ -65866,10 +65866,10 @@ _ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit10.i.i: ; preds = %if.then.i5.i.i, 
   br i1 %cmp.i.not.i44.i, label %_ZN5eastl6removeINS_13DequeIteratorIiPiRiLj64EEEiEET_S5_S5_RKT0_.exit, label %for.body.i.i, !llvm.loop !2796
 
 _ZN5eastl6removeINS_13DequeIteratorIiPiRiLj64EEEiEET_S5_S5_RKT0_.exit: ; preds = %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit10.i.i, %_ZN5eastl4findINS_13DequeIteratorIiPiRiLj64EEEiEET_S5_S5_RKT0_.exit.i, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i
-  %.lcssa.i.sink.i = phi ptr [ %.lcssa.i.i, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i ], [ %.lcssa.i.i, %_ZN5eastl4findINS_13DequeIteratorIiPiRiLj64EEEiEET_S5_S5_RKT0_.exit.i ], [ %agg.tmp5.sroa.0.1.i, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit10.i.i ]
-  %agg.tmp.sroa.4.2.sink.i = phi ptr [ %agg.tmp.sroa.4.2.i, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i ], [ %agg.tmp.sroa.4.2.i, %_ZN5eastl4findINS_13DequeIteratorIiPiRiLj64EEEiEET_S5_S5_RKT0_.exit.i ], [ %agg.tmp5.sroa.6.1.i, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit10.i.i ]
-  %agg.tmp.sroa.7.2.sink.i = phi ptr [ %agg.tmp.sroa.7.2.i, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i ], [ %agg.tmp.sroa.7.2.i, %_ZN5eastl4findINS_13DequeIteratorIiPiRiLj64EEEiEET_S5_S5_RKT0_.exit.i ], [ %agg.tmp5.sroa.9.1.i, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit10.i.i ]
-  %agg.tmp.sroa.11.2.sink.i = phi ptr [ %agg.tmp.sroa.11.2.i, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i ], [ %agg.tmp.sroa.11.2.i, %_ZN5eastl4findINS_13DequeIteratorIiPiRiLj64EEEiEET_S5_S5_RKT0_.exit.i ], [ %agg.tmp5.sroa.13.1.i, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit10.i.i ]
+  %.lcssa.i.sink.i = phi ptr [ %.lcssa.i.i, %_ZN5eastl4findINS_13DequeIteratorIiPiRiLj64EEEiEET_S5_S5_RKT0_.exit.i ], [ %.lcssa.i.i, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i ], [ %agg.tmp5.sroa.0.1.i, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit10.i.i ]
+  %agg.tmp.sroa.4.2.sink.i = phi ptr [ %agg.tmp.sroa.4.2.i, %_ZN5eastl4findINS_13DequeIteratorIiPiRiLj64EEEiEET_S5_S5_RKT0_.exit.i ], [ %agg.tmp.sroa.4.2.i, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i ], [ %agg.tmp5.sroa.6.1.i, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit10.i.i ]
+  %agg.tmp.sroa.7.2.sink.i = phi ptr [ %agg.tmp.sroa.7.2.i, %_ZN5eastl4findINS_13DequeIteratorIiPiRiLj64EEEiEET_S5_S5_RKT0_.exit.i ], [ %agg.tmp.sroa.7.2.i, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i ], [ %agg.tmp5.sroa.9.1.i, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit10.i.i ]
+  %agg.tmp.sroa.11.2.sink.i = phi ptr [ %agg.tmp.sroa.11.2.i, %_ZN5eastl4findINS_13DequeIteratorIiPiRiLj64EEEiEET_S5_S5_RKT0_.exit.i ], [ %agg.tmp.sroa.11.2.i, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i ], [ %agg.tmp5.sroa.13.1.i, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit10.i.i ]
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %agg.tmp.sroa.11.2.sink.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
@@ -77808,7 +77808,7 @@ for.body.i.i7.i:                                  ; preds = %while.end.i, %for.b
   br i1 %cmp.not.i.i17.i, label %_ZN10TestObjectD2Ev.exit, label %for.body.i.i7.i, !llvm.loop !298
 
 _ZN10TestObjectD2Ev.exit:                         ; preds = %for.body.i.i7.i, %_ZN5eastl9DequeBaseI10TestObjectNS_9allocatorELj1EEC2EmRKS2_.exit, %while.end.i
-  %dec.i = phi i64 [ %7, %while.end.i ], [ %3, %_ZN5eastl9DequeBaseI10TestObjectNS_9allocatorELj1EEC2EmRKS2_.exit ], [ %11, %for.body.i.i7.i ]
+  %dec.i = phi i64 [ %3, %_ZN5eastl9DequeBaseI10TestObjectNS_9allocatorELj1EEC2EmRKS2_.exit ], [ %7, %while.end.i ], [ %11, %for.body.i.i7.i ]
   store i64 %dec.i, ptr @_ZN10TestObject8sTOCountE, align 8
   %14 = load i64, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %inc3.i4 = add nsw i64 %14, 1
@@ -90536,11 +90536,11 @@ _ZN5eastl4copyINS_12ListIteratorIiPiRiEENS_13DequeIteratorIiS2_S3_Lj64EEEEET0_T_
   br label %_ZN5eastl4copyINS_12ListIteratorIiPiRiEENS_13DequeIteratorIiS2_S3_Lj64EEEEET0_T_S8_S7_.exit
 
 _ZN5eastl4copyINS_12ListIteratorIiPiRiEENS_13DequeIteratorIiS2_S3_Lj64EEEEET0_T_S8_S7_.exit: ; preds = %_ZN5eastl4copyINS_12ListIteratorIiPiRiEENS_13DequeIteratorIiS2_S3_Lj64EEEEET0_T_S8_S7_.exit.loopexit, %while.cond1.preheader.i.i.i, %_ZN5eastl7advanceINS_12ListIteratorIiPiRiEElEEvRT_T0_.exit
-  %17 = phi ptr [ %1, %_ZN5eastl7advanceINS_12ListIteratorIiPiRiEElEEvRT_T0_.exit ], [ %1, %while.cond1.preheader.i.i.i ], [ %.pre72, %_ZN5eastl4copyINS_12ListIteratorIiPiRiEENS_13DequeIteratorIiS2_S3_Lj64EEEEET0_T_S8_S7_.exit.loopexit ]
-  %18 = phi ptr [ %4, %_ZN5eastl7advanceINS_12ListIteratorIiPiRiEElEEvRT_T0_.exit ], [ %4, %while.cond1.preheader.i.i.i ], [ %.pre71, %_ZN5eastl4copyINS_12ListIteratorIiPiRiEENS_13DequeIteratorIiS2_S3_Lj64EEEEET0_T_S8_S7_.exit.loopexit ]
-  %19 = phi ptr [ %7, %_ZN5eastl7advanceINS_12ListIteratorIiPiRiEElEEvRT_T0_.exit ], [ %7, %while.cond1.preheader.i.i.i ], [ %.pre70, %_ZN5eastl4copyINS_12ListIteratorIiPiRiEENS_13DequeIteratorIiS2_S3_Lj64EEEEET0_T_S8_S7_.exit.loopexit ]
-  %20 = phi ptr [ %6, %_ZN5eastl7advanceINS_12ListIteratorIiPiRiEElEEvRT_T0_.exit ], [ %6, %while.cond1.preheader.i.i.i ], [ %.pre, %_ZN5eastl4copyINS_12ListIteratorIiPiRiEENS_13DequeIteratorIiS2_S3_Lj64EEEEET0_T_S8_S7_.exit.loopexit ]
-  %atEnd.sroa.0.065 = phi ptr [ %atEnd.sroa.0.0, %_ZN5eastl7advanceINS_12ListIteratorIiPiRiEElEEvRT_T0_.exit ], [ %0, %while.cond1.preheader.i.i.i ], [ %atEnd.sroa.0.0, %_ZN5eastl4copyINS_12ListIteratorIiPiRiEENS_13DequeIteratorIiS2_S3_Lj64EEEEET0_T_S8_S7_.exit.loopexit ]
+  %17 = phi ptr [ %1, %while.cond1.preheader.i.i.i ], [ %1, %_ZN5eastl7advanceINS_12ListIteratorIiPiRiEElEEvRT_T0_.exit ], [ %.pre72, %_ZN5eastl4copyINS_12ListIteratorIiPiRiEENS_13DequeIteratorIiS2_S3_Lj64EEEEET0_T_S8_S7_.exit.loopexit ]
+  %18 = phi ptr [ %4, %while.cond1.preheader.i.i.i ], [ %4, %_ZN5eastl7advanceINS_12ListIteratorIiPiRiEElEEvRT_T0_.exit ], [ %.pre71, %_ZN5eastl4copyINS_12ListIteratorIiPiRiEENS_13DequeIteratorIiS2_S3_Lj64EEEEET0_T_S8_S7_.exit.loopexit ]
+  %19 = phi ptr [ %7, %while.cond1.preheader.i.i.i ], [ %7, %_ZN5eastl7advanceINS_12ListIteratorIiPiRiEElEEvRT_T0_.exit ], [ %.pre70, %_ZN5eastl4copyINS_12ListIteratorIiPiRiEENS_13DequeIteratorIiS2_S3_Lj64EEEEET0_T_S8_S7_.exit.loopexit ]
+  %20 = phi ptr [ %6, %while.cond1.preheader.i.i.i ], [ %6, %_ZN5eastl7advanceINS_12ListIteratorIiPiRiEElEEvRT_T0_.exit ], [ %.pre, %_ZN5eastl4copyINS_12ListIteratorIiPiRiEENS_13DequeIteratorIiS2_S3_Lj64EEEEET0_T_S8_S7_.exit.loopexit ]
+  %atEnd.sroa.0.065 = phi ptr [ %0, %while.cond1.preheader.i.i.i ], [ %atEnd.sroa.0.0, %_ZN5eastl7advanceINS_12ListIteratorIiPiRiEElEEvRT_T0_.exit ], [ %atEnd.sroa.0.0, %_ZN5eastl4copyINS_12ListIteratorIiPiRiEENS_13DequeIteratorIiS2_S3_Lj64EEEEET0_T_S8_S7_.exit.loopexit ]
   %mpEnd4.i7 = getelementptr inbounds nuw i8, ptr %this, i64 64
   %21 = load ptr, ptr %mpEnd4.i7, align 8
   store ptr %atEnd.sroa.0.065, ptr %agg.tmp8, align 8
@@ -91556,7 +91556,7 @@ while.body3.i.i.i481:                             ; preds = %while.cond1.prehead
   br i1 %tobool2.not.i.i.i485, label %_ZN5eastl7advanceINS_12ListIteratorIiPiRiEElEEvRT_T0_.exit492, label %while.body3.i.i.i481, !llvm.loop !4422
 
 _ZN5eastl7advanceINS_12ListIteratorIiPiRiEElEEvRT_T0_.exit492: ; preds = %while.body3.i.i.i481, %while.body.i.i.i488, %while.cond1.preheader.i.i.i477
-  %mid83.sroa.0.0 = phi ptr [ %93, %while.cond1.preheader.i.i.i477 ], [ %95, %while.body.i.i.i488 ], [ %97, %while.body3.i.i.i481 ]
+  %mid83.sroa.0.0 = phi ptr [ %95, %while.body.i.i.i488 ], [ %93, %while.cond1.preheader.i.i.i477 ], [ %97, %while.body3.i.i.i481 ]
   %98 = load ptr, ptr %last, align 8
   %cmp.i.not5.i.i.i514 = icmp eq ptr %mid83.sroa.0.0, %98
   br i1 %cmp.i.not5.i.i.i514, label %_ZN5eastl18uninitialized_copyINS_12ListIteratorIiPiRiEENS_13DequeIteratorIiS2_S3_Lj64EEEEET0_T_S8_S7_.exit.i, label %for.body.i.i.i515
@@ -93352,11 +93352,11 @@ _ZN5eastl4copyINS_12ListIteratorIiPiRiEENS_13DequeIteratorIiS2_S3_Lj1EEEEET0_T_S
   br label %_ZN5eastl4copyINS_12ListIteratorIiPiRiEENS_13DequeIteratorIiS2_S3_Lj1EEEEET0_T_S8_S7_.exit
 
 _ZN5eastl4copyINS_12ListIteratorIiPiRiEENS_13DequeIteratorIiS2_S3_Lj1EEEEET0_T_S8_S7_.exit: ; preds = %_ZN5eastl4copyINS_12ListIteratorIiPiRiEENS_13DequeIteratorIiS2_S3_Lj1EEEEET0_T_S8_S7_.exit.loopexit, %while.cond1.preheader.i.i.i, %_ZN5eastl7advanceINS_12ListIteratorIiPiRiEElEEvRT_T0_.exit
-  %17 = phi ptr [ %1, %_ZN5eastl7advanceINS_12ListIteratorIiPiRiEElEEvRT_T0_.exit ], [ %1, %while.cond1.preheader.i.i.i ], [ %.pre72, %_ZN5eastl4copyINS_12ListIteratorIiPiRiEENS_13DequeIteratorIiS2_S3_Lj1EEEEET0_T_S8_S7_.exit.loopexit ]
-  %18 = phi ptr [ %4, %_ZN5eastl7advanceINS_12ListIteratorIiPiRiEElEEvRT_T0_.exit ], [ %4, %while.cond1.preheader.i.i.i ], [ %.pre71, %_ZN5eastl4copyINS_12ListIteratorIiPiRiEENS_13DequeIteratorIiS2_S3_Lj1EEEEET0_T_S8_S7_.exit.loopexit ]
-  %19 = phi ptr [ %7, %_ZN5eastl7advanceINS_12ListIteratorIiPiRiEElEEvRT_T0_.exit ], [ %7, %while.cond1.preheader.i.i.i ], [ %.pre70, %_ZN5eastl4copyINS_12ListIteratorIiPiRiEENS_13DequeIteratorIiS2_S3_Lj1EEEEET0_T_S8_S7_.exit.loopexit ]
-  %20 = phi ptr [ %6, %_ZN5eastl7advanceINS_12ListIteratorIiPiRiEElEEvRT_T0_.exit ], [ %6, %while.cond1.preheader.i.i.i ], [ %.pre, %_ZN5eastl4copyINS_12ListIteratorIiPiRiEENS_13DequeIteratorIiS2_S3_Lj1EEEEET0_T_S8_S7_.exit.loopexit ]
-  %atEnd.sroa.0.065 = phi ptr [ %atEnd.sroa.0.0, %_ZN5eastl7advanceINS_12ListIteratorIiPiRiEElEEvRT_T0_.exit ], [ %0, %while.cond1.preheader.i.i.i ], [ %atEnd.sroa.0.0, %_ZN5eastl4copyINS_12ListIteratorIiPiRiEENS_13DequeIteratorIiS2_S3_Lj1EEEEET0_T_S8_S7_.exit.loopexit ]
+  %17 = phi ptr [ %1, %while.cond1.preheader.i.i.i ], [ %1, %_ZN5eastl7advanceINS_12ListIteratorIiPiRiEElEEvRT_T0_.exit ], [ %.pre72, %_ZN5eastl4copyINS_12ListIteratorIiPiRiEENS_13DequeIteratorIiS2_S3_Lj1EEEEET0_T_S8_S7_.exit.loopexit ]
+  %18 = phi ptr [ %4, %while.cond1.preheader.i.i.i ], [ %4, %_ZN5eastl7advanceINS_12ListIteratorIiPiRiEElEEvRT_T0_.exit ], [ %.pre71, %_ZN5eastl4copyINS_12ListIteratorIiPiRiEENS_13DequeIteratorIiS2_S3_Lj1EEEEET0_T_S8_S7_.exit.loopexit ]
+  %19 = phi ptr [ %7, %while.cond1.preheader.i.i.i ], [ %7, %_ZN5eastl7advanceINS_12ListIteratorIiPiRiEElEEvRT_T0_.exit ], [ %.pre70, %_ZN5eastl4copyINS_12ListIteratorIiPiRiEENS_13DequeIteratorIiS2_S3_Lj1EEEEET0_T_S8_S7_.exit.loopexit ]
+  %20 = phi ptr [ %6, %while.cond1.preheader.i.i.i ], [ %6, %_ZN5eastl7advanceINS_12ListIteratorIiPiRiEElEEvRT_T0_.exit ], [ %.pre, %_ZN5eastl4copyINS_12ListIteratorIiPiRiEENS_13DequeIteratorIiS2_S3_Lj1EEEEET0_T_S8_S7_.exit.loopexit ]
+  %atEnd.sroa.0.065 = phi ptr [ %0, %while.cond1.preheader.i.i.i ], [ %atEnd.sroa.0.0, %_ZN5eastl7advanceINS_12ListIteratorIiPiRiEElEEvRT_T0_.exit ], [ %atEnd.sroa.0.0, %_ZN5eastl4copyINS_12ListIteratorIiPiRiEENS_13DequeIteratorIiS2_S3_Lj1EEEEET0_T_S8_S7_.exit.loopexit ]
   %mpEnd4.i7 = getelementptr inbounds nuw i8, ptr %this, i64 64
   %21 = load ptr, ptr %mpEnd4.i7, align 8
   store ptr %atEnd.sroa.0.065, ptr %agg.tmp8, align 8
@@ -95208,7 +95208,7 @@ while.body3.i.i.i587:                             ; preds = %while.cond1.prehead
   br i1 %tobool2.not.i.i.i591, label %_ZN5eastl7advanceINS_12ListIteratorIiPiRiEElEEvRT_T0_.exit598, label %while.body3.i.i.i587, !llvm.loop !4422
 
 _ZN5eastl7advanceINS_12ListIteratorIiPiRiEElEEvRT_T0_.exit598: ; preds = %while.body3.i.i.i587, %while.body.i.i.i594, %while.cond1.preheader.i.i.i583
-  %mid83.sroa.0.0 = phi ptr [ %115, %while.cond1.preheader.i.i.i583 ], [ %117, %while.body.i.i.i594 ], [ %119, %while.body3.i.i.i587 ]
+  %mid83.sroa.0.0 = phi ptr [ %117, %while.body.i.i.i594 ], [ %115, %while.cond1.preheader.i.i.i583 ], [ %119, %while.body3.i.i.i587 ]
   %120 = load ptr, ptr %last, align 8
   %cmp.i.not5.i.i.i620 = icmp eq ptr %mid83.sroa.0.0, %120
   br i1 %cmp.i.not5.i.i.i620, label %_ZN5eastl18uninitialized_copyINS_12ListIteratorIiPiRiEENS_13DequeIteratorIiS2_S3_Lj1EEEEET0_T_S8_S7_.exit.i, label %for.body.i.i.i621
@@ -97239,11 +97239,11 @@ _ZN5eastl4copyINS_12ListIteratorIiPiRiEENS_13DequeIteratorIiS2_S3_Lj32768EEEEET0
   br label %_ZN5eastl4copyINS_12ListIteratorIiPiRiEENS_13DequeIteratorIiS2_S3_Lj32768EEEEET0_T_S8_S7_.exit
 
 _ZN5eastl4copyINS_12ListIteratorIiPiRiEENS_13DequeIteratorIiS2_S3_Lj32768EEEEET0_T_S8_S7_.exit: ; preds = %_ZN5eastl4copyINS_12ListIteratorIiPiRiEENS_13DequeIteratorIiS2_S3_Lj32768EEEEET0_T_S8_S7_.exit.loopexit, %while.cond1.preheader.i.i.i, %_ZN5eastl7advanceINS_12ListIteratorIiPiRiEElEEvRT_T0_.exit
-  %17 = phi ptr [ %1, %_ZN5eastl7advanceINS_12ListIteratorIiPiRiEElEEvRT_T0_.exit ], [ %1, %while.cond1.preheader.i.i.i ], [ %.pre72, %_ZN5eastl4copyINS_12ListIteratorIiPiRiEENS_13DequeIteratorIiS2_S3_Lj32768EEEEET0_T_S8_S7_.exit.loopexit ]
-  %18 = phi ptr [ %4, %_ZN5eastl7advanceINS_12ListIteratorIiPiRiEElEEvRT_T0_.exit ], [ %4, %while.cond1.preheader.i.i.i ], [ %.pre71, %_ZN5eastl4copyINS_12ListIteratorIiPiRiEENS_13DequeIteratorIiS2_S3_Lj32768EEEEET0_T_S8_S7_.exit.loopexit ]
-  %19 = phi ptr [ %7, %_ZN5eastl7advanceINS_12ListIteratorIiPiRiEElEEvRT_T0_.exit ], [ %7, %while.cond1.preheader.i.i.i ], [ %.pre70, %_ZN5eastl4copyINS_12ListIteratorIiPiRiEENS_13DequeIteratorIiS2_S3_Lj32768EEEEET0_T_S8_S7_.exit.loopexit ]
-  %20 = phi ptr [ %6, %_ZN5eastl7advanceINS_12ListIteratorIiPiRiEElEEvRT_T0_.exit ], [ %6, %while.cond1.preheader.i.i.i ], [ %.pre, %_ZN5eastl4copyINS_12ListIteratorIiPiRiEENS_13DequeIteratorIiS2_S3_Lj32768EEEEET0_T_S8_S7_.exit.loopexit ]
-  %atEnd.sroa.0.065 = phi ptr [ %atEnd.sroa.0.0, %_ZN5eastl7advanceINS_12ListIteratorIiPiRiEElEEvRT_T0_.exit ], [ %0, %while.cond1.preheader.i.i.i ], [ %atEnd.sroa.0.0, %_ZN5eastl4copyINS_12ListIteratorIiPiRiEENS_13DequeIteratorIiS2_S3_Lj32768EEEEET0_T_S8_S7_.exit.loopexit ]
+  %17 = phi ptr [ %1, %while.cond1.preheader.i.i.i ], [ %1, %_ZN5eastl7advanceINS_12ListIteratorIiPiRiEElEEvRT_T0_.exit ], [ %.pre72, %_ZN5eastl4copyINS_12ListIteratorIiPiRiEENS_13DequeIteratorIiS2_S3_Lj32768EEEEET0_T_S8_S7_.exit.loopexit ]
+  %18 = phi ptr [ %4, %while.cond1.preheader.i.i.i ], [ %4, %_ZN5eastl7advanceINS_12ListIteratorIiPiRiEElEEvRT_T0_.exit ], [ %.pre71, %_ZN5eastl4copyINS_12ListIteratorIiPiRiEENS_13DequeIteratorIiS2_S3_Lj32768EEEEET0_T_S8_S7_.exit.loopexit ]
+  %19 = phi ptr [ %7, %while.cond1.preheader.i.i.i ], [ %7, %_ZN5eastl7advanceINS_12ListIteratorIiPiRiEElEEvRT_T0_.exit ], [ %.pre70, %_ZN5eastl4copyINS_12ListIteratorIiPiRiEENS_13DequeIteratorIiS2_S3_Lj32768EEEEET0_T_S8_S7_.exit.loopexit ]
+  %20 = phi ptr [ %6, %while.cond1.preheader.i.i.i ], [ %6, %_ZN5eastl7advanceINS_12ListIteratorIiPiRiEElEEvRT_T0_.exit ], [ %.pre, %_ZN5eastl4copyINS_12ListIteratorIiPiRiEENS_13DequeIteratorIiS2_S3_Lj32768EEEEET0_T_S8_S7_.exit.loopexit ]
+  %atEnd.sroa.0.065 = phi ptr [ %0, %while.cond1.preheader.i.i.i ], [ %atEnd.sroa.0.0, %_ZN5eastl7advanceINS_12ListIteratorIiPiRiEElEEvRT_T0_.exit ], [ %atEnd.sroa.0.0, %_ZN5eastl4copyINS_12ListIteratorIiPiRiEENS_13DequeIteratorIiS2_S3_Lj32768EEEEET0_T_S8_S7_.exit.loopexit ]
   %mpEnd4.i7 = getelementptr inbounds nuw i8, ptr %this, i64 64
   %21 = load ptr, ptr %mpEnd4.i7, align 8
   store ptr %atEnd.sroa.0.065, ptr %agg.tmp8, align 8
@@ -98876,7 +98876,7 @@ while.body3.i.i.i481:                             ; preds = %while.cond1.prehead
   br i1 %tobool2.not.i.i.i485, label %_ZN5eastl7advanceINS_12ListIteratorIiPiRiEElEEvRT_T0_.exit492, label %while.body3.i.i.i481, !llvm.loop !4422
 
 _ZN5eastl7advanceINS_12ListIteratorIiPiRiEElEEvRT_T0_.exit492: ; preds = %while.body3.i.i.i481, %while.body.i.i.i488, %while.cond1.preheader.i.i.i477
-  %mid83.sroa.0.0 = phi ptr [ %93, %while.cond1.preheader.i.i.i477 ], [ %95, %while.body.i.i.i488 ], [ %97, %while.body3.i.i.i481 ]
+  %mid83.sroa.0.0 = phi ptr [ %95, %while.body.i.i.i488 ], [ %93, %while.cond1.preheader.i.i.i477 ], [ %97, %while.body3.i.i.i481 ]
   %98 = load ptr, ptr %last, align 8
   %cmp.i.not5.i.i.i514 = icmp eq ptr %mid83.sroa.0.0, %98
   br i1 %cmp.i.not5.i.i.i514, label %_ZN5eastl18uninitialized_copyINS_12ListIteratorIiPiRiEENS_13DequeIteratorIiS2_S3_Lj32768EEEEET0_T_S8_S7_.exit.i, label %for.body.i.i.i515
@@ -100265,11 +100265,11 @@ _ZN5eastl4copyINS_12ListIteratorI10TestObjectPS2_RS2_EENS_13DequeIteratorIS2_S3_
   br label %_ZN5eastl4copyINS_12ListIteratorI10TestObjectPS2_RS2_EENS_13DequeIteratorIS2_S3_S4_Lj8EEEEET0_T_S9_S8_.exit
 
 _ZN5eastl4copyINS_12ListIteratorI10TestObjectPS2_RS2_EENS_13DequeIteratorIS2_S3_S4_Lj8EEEEET0_T_S9_S8_.exit: ; preds = %_ZN5eastl4copyINS_12ListIteratorI10TestObjectPS2_RS2_EENS_13DequeIteratorIS2_S3_S4_Lj8EEEEET0_T_S9_S8_.exit.loopexit, %while.cond1.preheader.i.i.i, %_ZN5eastl7advanceINS_12ListIteratorI10TestObjectPS2_RS2_EElEEvRT_T0_.exit
-  %21 = phi ptr [ %1, %_ZN5eastl7advanceINS_12ListIteratorI10TestObjectPS2_RS2_EElEEvRT_T0_.exit ], [ %1, %while.cond1.preheader.i.i.i ], [ %.pre84, %_ZN5eastl4copyINS_12ListIteratorI10TestObjectPS2_RS2_EENS_13DequeIteratorIS2_S3_S4_Lj8EEEEET0_T_S9_S8_.exit.loopexit ]
-  %22 = phi ptr [ %4, %_ZN5eastl7advanceINS_12ListIteratorI10TestObjectPS2_RS2_EElEEvRT_T0_.exit ], [ %4, %while.cond1.preheader.i.i.i ], [ %.pre83, %_ZN5eastl4copyINS_12ListIteratorI10TestObjectPS2_RS2_EENS_13DequeIteratorIS2_S3_S4_Lj8EEEEET0_T_S9_S8_.exit.loopexit ]
-  %23 = phi ptr [ %7, %_ZN5eastl7advanceINS_12ListIteratorI10TestObjectPS2_RS2_EElEEvRT_T0_.exit ], [ %7, %while.cond1.preheader.i.i.i ], [ %.pre82, %_ZN5eastl4copyINS_12ListIteratorI10TestObjectPS2_RS2_EENS_13DequeIteratorIS2_S3_S4_Lj8EEEEET0_T_S9_S8_.exit.loopexit ]
-  %24 = phi ptr [ %6, %_ZN5eastl7advanceINS_12ListIteratorI10TestObjectPS2_RS2_EElEEvRT_T0_.exit ], [ %6, %while.cond1.preheader.i.i.i ], [ %.pre, %_ZN5eastl4copyINS_12ListIteratorI10TestObjectPS2_RS2_EENS_13DequeIteratorIS2_S3_S4_Lj8EEEEET0_T_S9_S8_.exit.loopexit ]
-  %atEnd.sroa.0.077 = phi ptr [ %atEnd.sroa.0.0, %_ZN5eastl7advanceINS_12ListIteratorI10TestObjectPS2_RS2_EElEEvRT_T0_.exit ], [ %0, %while.cond1.preheader.i.i.i ], [ %atEnd.sroa.0.0, %_ZN5eastl4copyINS_12ListIteratorI10TestObjectPS2_RS2_EENS_13DequeIteratorIS2_S3_S4_Lj8EEEEET0_T_S9_S8_.exit.loopexit ]
+  %21 = phi ptr [ %1, %while.cond1.preheader.i.i.i ], [ %1, %_ZN5eastl7advanceINS_12ListIteratorI10TestObjectPS2_RS2_EElEEvRT_T0_.exit ], [ %.pre84, %_ZN5eastl4copyINS_12ListIteratorI10TestObjectPS2_RS2_EENS_13DequeIteratorIS2_S3_S4_Lj8EEEEET0_T_S9_S8_.exit.loopexit ]
+  %22 = phi ptr [ %4, %while.cond1.preheader.i.i.i ], [ %4, %_ZN5eastl7advanceINS_12ListIteratorI10TestObjectPS2_RS2_EElEEvRT_T0_.exit ], [ %.pre83, %_ZN5eastl4copyINS_12ListIteratorI10TestObjectPS2_RS2_EENS_13DequeIteratorIS2_S3_S4_Lj8EEEEET0_T_S9_S8_.exit.loopexit ]
+  %23 = phi ptr [ %7, %while.cond1.preheader.i.i.i ], [ %7, %_ZN5eastl7advanceINS_12ListIteratorI10TestObjectPS2_RS2_EElEEvRT_T0_.exit ], [ %.pre82, %_ZN5eastl4copyINS_12ListIteratorI10TestObjectPS2_RS2_EENS_13DequeIteratorIS2_S3_S4_Lj8EEEEET0_T_S9_S8_.exit.loopexit ]
+  %24 = phi ptr [ %6, %while.cond1.preheader.i.i.i ], [ %6, %_ZN5eastl7advanceINS_12ListIteratorI10TestObjectPS2_RS2_EElEEvRT_T0_.exit ], [ %.pre, %_ZN5eastl4copyINS_12ListIteratorI10TestObjectPS2_RS2_EENS_13DequeIteratorIS2_S3_S4_Lj8EEEEET0_T_S9_S8_.exit.loopexit ]
+  %atEnd.sroa.0.077 = phi ptr [ %0, %while.cond1.preheader.i.i.i ], [ %atEnd.sroa.0.0, %_ZN5eastl7advanceINS_12ListIteratorI10TestObjectPS2_RS2_EElEEvRT_T0_.exit ], [ %atEnd.sroa.0.0, %_ZN5eastl4copyINS_12ListIteratorI10TestObjectPS2_RS2_EENS_13DequeIteratorIS2_S3_S4_Lj8EEEEET0_T_S9_S8_.exit.loopexit ]
   %mpEnd4.i7 = getelementptr inbounds nuw i8, ptr %this, i64 64
   %25 = load ptr, ptr %mpEnd4.i7, align 8
   store ptr %atEnd.sroa.0.077, ptr %agg.tmp8, align 8
@@ -101547,7 +101547,7 @@ while.body3.i.i.i522:                             ; preds = %while.cond1.prehead
   br i1 %tobool2.not.i.i.i526, label %_ZN5eastl7advanceINS_12ListIteratorI10TestObjectPS2_RS2_EElEEvRT_T0_.exit533, label %while.body3.i.i.i522, !llvm.loop !5370
 
 _ZN5eastl7advanceINS_12ListIteratorI10TestObjectPS2_RS2_EElEEvRT_T0_.exit533: ; preds = %while.body3.i.i.i522, %while.body.i.i.i529, %while.cond1.preheader.i.i.i518
-  %mid83.sroa.0.0 = phi ptr [ %176, %while.cond1.preheader.i.i.i518 ], [ %178, %while.body.i.i.i529 ], [ %180, %while.body3.i.i.i522 ]
+  %mid83.sroa.0.0 = phi ptr [ %178, %while.body.i.i.i529 ], [ %176, %while.cond1.preheader.i.i.i518 ], [ %180, %while.body3.i.i.i522 ]
   %181 = load ptr, ptr %last, align 8
   %cmp.i.not5.i.i.i555 = icmp eq ptr %mid83.sroa.0.0, %181
   br i1 %cmp.i.not5.i.i.i555, label %_ZN5eastl18uninitialized_copyINS_12ListIteratorI10TestObjectPS2_RS2_EENS_13DequeIteratorIS2_S3_S4_Lj8EEEEET0_T_S9_S8_.exit.i, label %for.body.i.i.i556
@@ -103955,11 +103955,11 @@ _ZN5eastl4copyINS_12ListIteratorI10TestObjectPS2_RS2_EENS_13DequeIteratorIS2_S3_
   br label %_ZN5eastl4copyINS_12ListIteratorI10TestObjectPS2_RS2_EENS_13DequeIteratorIS2_S3_S4_Lj1EEEEET0_T_S9_S8_.exit
 
 _ZN5eastl4copyINS_12ListIteratorI10TestObjectPS2_RS2_EENS_13DequeIteratorIS2_S3_S4_Lj1EEEEET0_T_S9_S8_.exit: ; preds = %_ZN5eastl4copyINS_12ListIteratorI10TestObjectPS2_RS2_EENS_13DequeIteratorIS2_S3_S4_Lj1EEEEET0_T_S9_S8_.exit.loopexit, %while.cond1.preheader.i.i.i, %_ZN5eastl7advanceINS_12ListIteratorI10TestObjectPS2_RS2_EElEEvRT_T0_.exit
-  %21 = phi ptr [ %1, %_ZN5eastl7advanceINS_12ListIteratorI10TestObjectPS2_RS2_EElEEvRT_T0_.exit ], [ %1, %while.cond1.preheader.i.i.i ], [ %.pre84, %_ZN5eastl4copyINS_12ListIteratorI10TestObjectPS2_RS2_EENS_13DequeIteratorIS2_S3_S4_Lj1EEEEET0_T_S9_S8_.exit.loopexit ]
-  %22 = phi ptr [ %4, %_ZN5eastl7advanceINS_12ListIteratorI10TestObjectPS2_RS2_EElEEvRT_T0_.exit ], [ %4, %while.cond1.preheader.i.i.i ], [ %.pre83, %_ZN5eastl4copyINS_12ListIteratorI10TestObjectPS2_RS2_EENS_13DequeIteratorIS2_S3_S4_Lj1EEEEET0_T_S9_S8_.exit.loopexit ]
-  %23 = phi ptr [ %7, %_ZN5eastl7advanceINS_12ListIteratorI10TestObjectPS2_RS2_EElEEvRT_T0_.exit ], [ %7, %while.cond1.preheader.i.i.i ], [ %.pre82, %_ZN5eastl4copyINS_12ListIteratorI10TestObjectPS2_RS2_EENS_13DequeIteratorIS2_S3_S4_Lj1EEEEET0_T_S9_S8_.exit.loopexit ]
-  %24 = phi ptr [ %6, %_ZN5eastl7advanceINS_12ListIteratorI10TestObjectPS2_RS2_EElEEvRT_T0_.exit ], [ %6, %while.cond1.preheader.i.i.i ], [ %.pre, %_ZN5eastl4copyINS_12ListIteratorI10TestObjectPS2_RS2_EENS_13DequeIteratorIS2_S3_S4_Lj1EEEEET0_T_S9_S8_.exit.loopexit ]
-  %atEnd.sroa.0.077 = phi ptr [ %atEnd.sroa.0.0, %_ZN5eastl7advanceINS_12ListIteratorI10TestObjectPS2_RS2_EElEEvRT_T0_.exit ], [ %0, %while.cond1.preheader.i.i.i ], [ %atEnd.sroa.0.0, %_ZN5eastl4copyINS_12ListIteratorI10TestObjectPS2_RS2_EENS_13DequeIteratorIS2_S3_S4_Lj1EEEEET0_T_S9_S8_.exit.loopexit ]
+  %21 = phi ptr [ %1, %while.cond1.preheader.i.i.i ], [ %1, %_ZN5eastl7advanceINS_12ListIteratorI10TestObjectPS2_RS2_EElEEvRT_T0_.exit ], [ %.pre84, %_ZN5eastl4copyINS_12ListIteratorI10TestObjectPS2_RS2_EENS_13DequeIteratorIS2_S3_S4_Lj1EEEEET0_T_S9_S8_.exit.loopexit ]
+  %22 = phi ptr [ %4, %while.cond1.preheader.i.i.i ], [ %4, %_ZN5eastl7advanceINS_12ListIteratorI10TestObjectPS2_RS2_EElEEvRT_T0_.exit ], [ %.pre83, %_ZN5eastl4copyINS_12ListIteratorI10TestObjectPS2_RS2_EENS_13DequeIteratorIS2_S3_S4_Lj1EEEEET0_T_S9_S8_.exit.loopexit ]
+  %23 = phi ptr [ %7, %while.cond1.preheader.i.i.i ], [ %7, %_ZN5eastl7advanceINS_12ListIteratorI10TestObjectPS2_RS2_EElEEvRT_T0_.exit ], [ %.pre82, %_ZN5eastl4copyINS_12ListIteratorI10TestObjectPS2_RS2_EENS_13DequeIteratorIS2_S3_S4_Lj1EEEEET0_T_S9_S8_.exit.loopexit ]
+  %24 = phi ptr [ %6, %while.cond1.preheader.i.i.i ], [ %6, %_ZN5eastl7advanceINS_12ListIteratorI10TestObjectPS2_RS2_EElEEvRT_T0_.exit ], [ %.pre, %_ZN5eastl4copyINS_12ListIteratorI10TestObjectPS2_RS2_EENS_13DequeIteratorIS2_S3_S4_Lj1EEEEET0_T_S9_S8_.exit.loopexit ]
+  %atEnd.sroa.0.077 = phi ptr [ %0, %while.cond1.preheader.i.i.i ], [ %atEnd.sroa.0.0, %_ZN5eastl7advanceINS_12ListIteratorI10TestObjectPS2_RS2_EElEEvRT_T0_.exit ], [ %atEnd.sroa.0.0, %_ZN5eastl4copyINS_12ListIteratorI10TestObjectPS2_RS2_EENS_13DequeIteratorIS2_S3_S4_Lj1EEEEET0_T_S9_S8_.exit.loopexit ]
   %mpEnd4.i7 = getelementptr inbounds nuw i8, ptr %this, i64 64
   %25 = load ptr, ptr %mpEnd4.i7, align 8
   store ptr %atEnd.sroa.0.077, ptr %agg.tmp8, align 8
@@ -106280,7 +106280,7 @@ while.body3.i.i.i631:                             ; preds = %while.cond1.prehead
   br i1 %tobool2.not.i.i.i635, label %_ZN5eastl7advanceINS_12ListIteratorI10TestObjectPS2_RS2_EElEEvRT_T0_.exit642, label %while.body3.i.i.i631, !llvm.loop !5370
 
 _ZN5eastl7advanceINS_12ListIteratorI10TestObjectPS2_RS2_EElEEvRT_T0_.exit642: ; preds = %while.body3.i.i.i631, %while.body.i.i.i638, %while.cond1.preheader.i.i.i627
-  %mid83.sroa.0.0 = phi ptr [ %198, %while.cond1.preheader.i.i.i627 ], [ %200, %while.body.i.i.i638 ], [ %202, %while.body3.i.i.i631 ]
+  %mid83.sroa.0.0 = phi ptr [ %200, %while.body.i.i.i638 ], [ %198, %while.cond1.preheader.i.i.i627 ], [ %202, %while.body3.i.i.i631 ]
   %203 = load ptr, ptr %last, align 8
   %cmp.i.not5.i.i.i664 = icmp eq ptr %mid83.sroa.0.0, %203
   br i1 %cmp.i.not5.i.i.i664, label %_ZN5eastl18uninitialized_copyINS_12ListIteratorI10TestObjectPS2_RS2_EENS_13DequeIteratorIS2_S3_S4_Lj1EEEEET0_T_S9_S8_.exit.i, label %for.body.i.i.i665
@@ -108941,11 +108941,11 @@ _ZN5eastl4copyINS_12ListIteratorI10TestObjectPS2_RS2_EENS_13DequeIteratorIS2_S3_
   br label %_ZN5eastl4copyINS_12ListIteratorI10TestObjectPS2_RS2_EENS_13DequeIteratorIS2_S3_S4_Lj32768EEEEET0_T_S9_S8_.exit
 
 _ZN5eastl4copyINS_12ListIteratorI10TestObjectPS2_RS2_EENS_13DequeIteratorIS2_S3_S4_Lj32768EEEEET0_T_S9_S8_.exit: ; preds = %_ZN5eastl4copyINS_12ListIteratorI10TestObjectPS2_RS2_EENS_13DequeIteratorIS2_S3_S4_Lj32768EEEEET0_T_S9_S8_.exit.loopexit, %while.cond1.preheader.i.i.i, %_ZN5eastl7advanceINS_12ListIteratorI10TestObjectPS2_RS2_EElEEvRT_T0_.exit
-  %21 = phi ptr [ %1, %_ZN5eastl7advanceINS_12ListIteratorI10TestObjectPS2_RS2_EElEEvRT_T0_.exit ], [ %1, %while.cond1.preheader.i.i.i ], [ %.pre84, %_ZN5eastl4copyINS_12ListIteratorI10TestObjectPS2_RS2_EENS_13DequeIteratorIS2_S3_S4_Lj32768EEEEET0_T_S9_S8_.exit.loopexit ]
-  %22 = phi ptr [ %4, %_ZN5eastl7advanceINS_12ListIteratorI10TestObjectPS2_RS2_EElEEvRT_T0_.exit ], [ %4, %while.cond1.preheader.i.i.i ], [ %.pre83, %_ZN5eastl4copyINS_12ListIteratorI10TestObjectPS2_RS2_EENS_13DequeIteratorIS2_S3_S4_Lj32768EEEEET0_T_S9_S8_.exit.loopexit ]
-  %23 = phi ptr [ %7, %_ZN5eastl7advanceINS_12ListIteratorI10TestObjectPS2_RS2_EElEEvRT_T0_.exit ], [ %7, %while.cond1.preheader.i.i.i ], [ %.pre82, %_ZN5eastl4copyINS_12ListIteratorI10TestObjectPS2_RS2_EENS_13DequeIteratorIS2_S3_S4_Lj32768EEEEET0_T_S9_S8_.exit.loopexit ]
-  %24 = phi ptr [ %6, %_ZN5eastl7advanceINS_12ListIteratorI10TestObjectPS2_RS2_EElEEvRT_T0_.exit ], [ %6, %while.cond1.preheader.i.i.i ], [ %.pre, %_ZN5eastl4copyINS_12ListIteratorI10TestObjectPS2_RS2_EENS_13DequeIteratorIS2_S3_S4_Lj32768EEEEET0_T_S9_S8_.exit.loopexit ]
-  %atEnd.sroa.0.077 = phi ptr [ %atEnd.sroa.0.0, %_ZN5eastl7advanceINS_12ListIteratorI10TestObjectPS2_RS2_EElEEvRT_T0_.exit ], [ %0, %while.cond1.preheader.i.i.i ], [ %atEnd.sroa.0.0, %_ZN5eastl4copyINS_12ListIteratorI10TestObjectPS2_RS2_EENS_13DequeIteratorIS2_S3_S4_Lj32768EEEEET0_T_S9_S8_.exit.loopexit ]
+  %21 = phi ptr [ %1, %while.cond1.preheader.i.i.i ], [ %1, %_ZN5eastl7advanceINS_12ListIteratorI10TestObjectPS2_RS2_EElEEvRT_T0_.exit ], [ %.pre84, %_ZN5eastl4copyINS_12ListIteratorI10TestObjectPS2_RS2_EENS_13DequeIteratorIS2_S3_S4_Lj32768EEEEET0_T_S9_S8_.exit.loopexit ]
+  %22 = phi ptr [ %4, %while.cond1.preheader.i.i.i ], [ %4, %_ZN5eastl7advanceINS_12ListIteratorI10TestObjectPS2_RS2_EElEEvRT_T0_.exit ], [ %.pre83, %_ZN5eastl4copyINS_12ListIteratorI10TestObjectPS2_RS2_EENS_13DequeIteratorIS2_S3_S4_Lj32768EEEEET0_T_S9_S8_.exit.loopexit ]
+  %23 = phi ptr [ %7, %while.cond1.preheader.i.i.i ], [ %7, %_ZN5eastl7advanceINS_12ListIteratorI10TestObjectPS2_RS2_EElEEvRT_T0_.exit ], [ %.pre82, %_ZN5eastl4copyINS_12ListIteratorI10TestObjectPS2_RS2_EENS_13DequeIteratorIS2_S3_S4_Lj32768EEEEET0_T_S9_S8_.exit.loopexit ]
+  %24 = phi ptr [ %6, %while.cond1.preheader.i.i.i ], [ %6, %_ZN5eastl7advanceINS_12ListIteratorI10TestObjectPS2_RS2_EElEEvRT_T0_.exit ], [ %.pre, %_ZN5eastl4copyINS_12ListIteratorI10TestObjectPS2_RS2_EENS_13DequeIteratorIS2_S3_S4_Lj32768EEEEET0_T_S9_S8_.exit.loopexit ]
+  %atEnd.sroa.0.077 = phi ptr [ %0, %while.cond1.preheader.i.i.i ], [ %atEnd.sroa.0.0, %_ZN5eastl7advanceINS_12ListIteratorI10TestObjectPS2_RS2_EElEEvRT_T0_.exit ], [ %atEnd.sroa.0.0, %_ZN5eastl4copyINS_12ListIteratorI10TestObjectPS2_RS2_EENS_13DequeIteratorIS2_S3_S4_Lj32768EEEEET0_T_S9_S8_.exit.loopexit ]
   %mpEnd4.i7 = getelementptr inbounds nuw i8, ptr %this, i64 64
   %25 = load ptr, ptr %mpEnd4.i7, align 8
   store ptr %atEnd.sroa.0.077, ptr %agg.tmp8, align 8
@@ -111046,7 +111046,7 @@ while.body3.i.i.i525:                             ; preds = %while.cond1.prehead
   br i1 %tobool2.not.i.i.i529, label %_ZN5eastl7advanceINS_12ListIteratorI10TestObjectPS2_RS2_EElEEvRT_T0_.exit536, label %while.body3.i.i.i525, !llvm.loop !5370
 
 _ZN5eastl7advanceINS_12ListIteratorI10TestObjectPS2_RS2_EElEEvRT_T0_.exit536: ; preds = %while.body3.i.i.i525, %while.body.i.i.i532, %while.cond1.preheader.i.i.i521
-  %mid83.sroa.0.0 = phi ptr [ %176, %while.cond1.preheader.i.i.i521 ], [ %178, %while.body.i.i.i532 ], [ %180, %while.body3.i.i.i525 ]
+  %mid83.sroa.0.0 = phi ptr [ %178, %while.body.i.i.i532 ], [ %176, %while.cond1.preheader.i.i.i521 ], [ %180, %while.body3.i.i.i525 ]
   %181 = load ptr, ptr %last, align 8
   %cmp.i.not5.i.i.i558 = icmp eq ptr %mid83.sroa.0.0, %181
   br i1 %cmp.i.not5.i.i.i558, label %_ZN5eastl18uninitialized_copyINS_12ListIteratorI10TestObjectPS2_RS2_EENS_13DequeIteratorIS2_S3_S4_Lj32768EEEEET0_T_S9_S8_.exit.i, label %for.body.i.i.i559

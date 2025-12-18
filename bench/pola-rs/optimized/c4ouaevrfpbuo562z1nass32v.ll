@@ -23473,7 +23473,7 @@ define hidden void @"_ZN5tokio7runtime7context6scoped15Scoped$LT$T$GT$3set17h042
   br label %163
 
 .loopexit.split-lp.i.i:                           ; preds = %152, %.backedge.i.i
-  %.sroa.0.2.ph54.ph.i.i = phi ptr [ %.sroa.0.4131.i.i, %152 ], [ %.sroa.0.1.i.i, %.backedge.i.i ]
+  %.sroa.0.2.ph54.ph.i.i = phi ptr [ %.sroa.0.1.i.i, %.backedge.i.i ], [ %.sroa.0.4131.i.i, %152 ]
   %lpad.loopexit.split-lp.i.i = landingpad { ptr, i32 }
           cleanup
   br label %163
@@ -24041,7 +24041,7 @@ define hidden void @"_ZN5tokio7runtime7context6scoped15Scoped$LT$T$GT$3set17h064
   br label %163
 
 .loopexit.split-lp.i.i:                           ; preds = %152, %.backedge.i.i
-  %.sroa.0.2.ph54.ph.i.i = phi ptr [ %.sroa.0.4131.i.i, %152 ], [ %.sroa.0.1.i.i, %.backedge.i.i ]
+  %.sroa.0.2.ph54.ph.i.i = phi ptr [ %.sroa.0.1.i.i, %.backedge.i.i ], [ %.sroa.0.4131.i.i, %152 ]
   %lpad.loopexit.split-lp.i.i = landingpad { ptr, i32 }
           cleanup
   br label %163
@@ -24609,7 +24609,7 @@ define hidden void @"_ZN5tokio7runtime7context6scoped15Scoped$LT$T$GT$3set17h13c
   br label %163
 
 .loopexit.split-lp.i.i:                           ; preds = %152, %.backedge.i.i
-  %.sroa.0.2.ph54.ph.i.i = phi ptr [ %.sroa.0.4131.i.i, %152 ], [ %.sroa.0.1.i.i, %.backedge.i.i ]
+  %.sroa.0.2.ph54.ph.i.i = phi ptr [ %.sroa.0.1.i.i, %.backedge.i.i ], [ %.sroa.0.4131.i.i, %152 ]
   %lpad.loopexit.split-lp.i.i = landingpad { ptr, i32 }
           cleanup
   br label %163
@@ -25750,7 +25750,7 @@ define hidden void @"_ZN5tokio7runtime7context6scoped15Scoped$LT$T$GT$3set17h2b5
   br label %163
 
 .loopexit.split-lp.i.i:                           ; preds = %152, %.backedge.i.i
-  %.sroa.0.2.ph54.ph.i.i = phi ptr [ %.sroa.0.4131.i.i, %152 ], [ %.sroa.0.1.i.i, %.backedge.i.i ]
+  %.sroa.0.2.ph54.ph.i.i = phi ptr [ %.sroa.0.1.i.i, %.backedge.i.i ], [ %.sroa.0.4131.i.i, %152 ]
   %lpad.loopexit.split-lp.i.i = landingpad { ptr, i32 }
           cleanup
   br label %163
@@ -28029,7 +28029,7 @@ define hidden void @"_ZN5tokio7runtime7context6scoped15Scoped$LT$T$GT$3set17h45a
   br label %163
 
 .loopexit.split-lp.i.i:                           ; preds = %152, %.backedge.i.i
-  %.sroa.0.2.ph54.ph.i.i = phi ptr [ %.sroa.0.4131.i.i, %152 ], [ %.sroa.0.1.i.i, %.backedge.i.i ]
+  %.sroa.0.2.ph54.ph.i.i = phi ptr [ %.sroa.0.1.i.i, %.backedge.i.i ], [ %.sroa.0.4131.i.i, %152 ]
   %lpad.loopexit.split-lp.i.i = landingpad { ptr, i32 }
           cleanup
   br label %163
@@ -30300,7 +30300,7 @@ define hidden void @"_ZN5tokio7runtime7context6scoped15Scoped$LT$T$GT$3set17h900
   br label %163
 
 .loopexit.split-lp.i.i:                           ; preds = %152, %.backedge.i.i
-  %.sroa.0.2.ph54.ph.i.i = phi ptr [ %.sroa.0.4131.i.i, %152 ], [ %.sroa.0.1.i.i, %.backedge.i.i ]
+  %.sroa.0.2.ph54.ph.i.i = phi ptr [ %.sroa.0.1.i.i, %.backedge.i.i ], [ %.sroa.0.4131.i.i, %152 ]
   %lpad.loopexit.split-lp.i.i = landingpad { ptr, i32 }
           cleanup
   br label %163
@@ -33141,7 +33141,7 @@ define hidden void @"_ZN5tokio7runtime7context6scoped15Scoped$LT$T$GT$3set17he03
   br label %163
 
 .loopexit.split-lp.i.i:                           ; preds = %152, %.backedge.i.i
-  %.sroa.0.2.ph54.ph.i.i = phi ptr [ %.sroa.0.4131.i.i, %152 ], [ %.sroa.0.1.i.i, %.backedge.i.i ]
+  %.sroa.0.2.ph54.ph.i.i = phi ptr [ %.sroa.0.1.i.i, %.backedge.i.i ], [ %.sroa.0.4131.i.i, %152 ]
   %lpad.loopexit.split-lp.i.i = landingpad { ptr, i32 }
           cleanup
   br label %163
@@ -33709,7 +33709,7 @@ define hidden void @"_ZN5tokio7runtime7context6scoped15Scoped$LT$T$GT$3set17hf04
   br label %163
 
 .loopexit.split-lp.i.i:                           ; preds = %152, %.backedge.i.i
-  %.sroa.0.2.ph54.ph.i.i = phi ptr [ %.sroa.0.4131.i.i, %152 ], [ %.sroa.0.1.i.i, %.backedge.i.i ]
+  %.sroa.0.2.ph54.ph.i.i = phi ptr [ %.sroa.0.1.i.i, %.backedge.i.i ], [ %.sroa.0.4131.i.i, %152 ]
   %lpad.loopexit.split-lp.i.i = landingpad { ptr, i32 }
           cleanup
   br label %163

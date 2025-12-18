@@ -645,7 +645,7 @@ tailrecurse.backedge:                             ; preds = %.preheader, %tailre
   unreachable
 
 _ZN4leaneqERKNS_3natES2_.exit:                    ; preds = %tailrecurse.backedge, %12, %31, %63, %130, %147, %166, %160, %139, %143, %5, %.critedge.i.i.i87, %112, %.critedge.i.i.i, %42, %88, %93, %77, %82, %128, %57, %52, %47, %45
-  %.078 = phi i1 [ %58, %57 ], [ false, %77 ], [ false, %93 ], [ false, %88 ], [ %87, %82 ], [ %129, %128 ], [ %114, %.critedge.i.i.i87 ], [ %44, %.critedge.i.i.i ], [ %113, %112 ], [ %43, %42 ], [ %46, %45 ], [ %51, %47 ], [ %56, %52 ], [ true, %5 ], [ false, %139 ], [ false, %143 ], [ false, %147 ], [ false, %166 ], [ false, %12 ], [ false, %130 ], [ true, %63 ], [ false, %31 ], [ true, %tailrecurse.backedge ], [ false, %160 ]
+  %.078 = phi i1 [ %58, %57 ], [ %56, %52 ], [ false, %77 ], [ false, %93 ], [ %87, %82 ], [ %129, %128 ], [ false, %88 ], [ %44, %.critedge.i.i.i ], [ %43, %42 ], [ %114, %.critedge.i.i.i87 ], [ %113, %112 ], [ false, %139 ], [ %46, %45 ], [ %51, %47 ], [ true, %5 ], [ false, %143 ], [ false, %12 ], [ false, %130 ], [ false, %147 ], [ true, %63 ], [ false, %31 ], [ true, %tailrecurse.backedge ], [ false, %166 ], [ false, %160 ]
   ret i1 %.078
 }
 
@@ -1682,7 +1682,7 @@ tailrecurse.loopexit:                             ; preds = %.preheader
   unreachable
 
 _ZN4leaneqERKNS_3natES2_.exit:                    ; preds = %tailrecurse.loopexit, %13, %31, %63, %130, %140, %143, %5, %.critedge.i.i.i92, %112, %.critedge.i.i.i, %42, %171, %177, %183, %189, %147, %153, %159, %167, %88, %93, %77, %82, %128, %57, %52, %47, %45
-  %.083 = phi i1 [ %58, %57 ], [ false, %177 ], [ false, %171 ], [ %43, %42 ], [ %87, %82 ], [ %129, %128 ], [ %113, %112 ], [ %44, %.critedge.i.i.i ], [ %170, %167 ], [ %197, %189 ], [ %46, %45 ], [ %51, %47 ], [ %56, %52 ], [ false, %77 ], [ false, %93 ], [ false, %88 ], [ %114, %.critedge.i.i.i92 ], [ false, %159 ], [ false, %153 ], [ false, %147 ], [ false, %183 ], [ true, %5 ], [ false, %140 ], [ false, %143 ], [ false, %13 ], [ true, %63 ], [ false, %31 ], [ true, %tailrecurse.loopexit ], [ false, %130 ]
+  %.083 = phi i1 [ %58, %57 ], [ false, %147 ], [ false, %183 ], [ false, %177 ], [ %87, %82 ], [ %129, %128 ], [ false, %171 ], [ %44, %.critedge.i.i.i ], [ %113, %112 ], [ %170, %167 ], [ false, %140 ], [ %197, %189 ], [ %46, %45 ], [ %51, %47 ], [ %56, %52 ], [ false, %77 ], [ false, %93 ], [ false, %88 ], [ %43, %42 ], [ %114, %.critedge.i.i.i92 ], [ false, %159 ], [ false, %153 ], [ true, %5 ], [ false, %143 ], [ true, %63 ], [ false, %31 ], [ true, %tailrecurse.loopexit ], [ false, %13 ], [ false, %130 ]
   ret i1 %.083
 }
 

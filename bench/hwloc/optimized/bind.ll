@@ -1045,7 +1045,7 @@ hwloc_cpuset_from_nodeset.exit.sink.split:        ; preds = %19, %17
   br label %hwloc_cpuset_from_nodeset.exit
 
 hwloc_cpuset_from_nodeset.exit:                   ; preds = %38, %hwloc_get_next_obj_by_depth.exit.i, %28, %hwloc_cpuset_from_nodeset.exit.sink.split, %hwloc_get_proc_membind_by_nodeset.exit20
-  %.0.i1825 = phi i32 [ %22, %hwloc_get_proc_membind_by_nodeset.exit20 ], [ -1, %hwloc_cpuset_from_nodeset.exit.sink.split ], [ 0, %28 ], [ 0, %hwloc_get_next_obj_by_depth.exit.i ], [ 0, %38 ]
+  %.0.i1825 = phi i32 [ -1, %hwloc_cpuset_from_nodeset.exit.sink.split ], [ %22, %hwloc_get_proc_membind_by_nodeset.exit20 ], [ 0, %28 ], [ 0, %hwloc_get_next_obj_by_depth.exit.i ], [ 0, %38 ]
   tail call void @hwloc_bitmap_free(ptr noundef %18) #14
   br label %hwloc_get_proc_membind_by_nodeset.exit
 
@@ -1260,7 +1260,7 @@ hwloc_cpuset_from_nodeset.exit.sink.split:        ; preds = %23, %21
   br label %hwloc_cpuset_from_nodeset.exit
 
 hwloc_cpuset_from_nodeset.exit:                   ; preds = %42, %hwloc_get_next_obj_by_depth.exit.i, %32, %hwloc_cpuset_from_nodeset.exit.sink.split, %hwloc_get_area_membind_by_nodeset.exit23
-  %.0.i2029 = phi i32 [ %26, %hwloc_get_area_membind_by_nodeset.exit23 ], [ -1, %hwloc_cpuset_from_nodeset.exit.sink.split ], [ 0, %32 ], [ 0, %hwloc_get_next_obj_by_depth.exit.i ], [ 0, %42 ]
+  %.0.i2029 = phi i32 [ -1, %hwloc_cpuset_from_nodeset.exit.sink.split ], [ %26, %hwloc_get_area_membind_by_nodeset.exit23 ], [ 0, %32 ], [ 0, %hwloc_get_next_obj_by_depth.exit.i ], [ 0, %42 ]
   tail call void @hwloc_bitmap_free(ptr noundef %22) #14
   br label %hwloc_get_area_membind_by_nodeset.exit
 
@@ -1377,7 +1377,7 @@ hwloc_cpuset_from_nodeset.exit.sink.split:        ; preds = %21, %18
   br label %hwloc_cpuset_from_nodeset.exit
 
 hwloc_cpuset_from_nodeset.exit:                   ; preds = %39, %hwloc_get_next_obj_by_depth.exit.i, %29, %hwloc_cpuset_from_nodeset.exit.sink.split, %hwloc_get_area_memlocation_by_nodeset.exit21
-  %.0.i1827 = phi i32 [ %24, %hwloc_get_area_memlocation_by_nodeset.exit21 ], [ -1, %hwloc_cpuset_from_nodeset.exit.sink.split ], [ 0, %29 ], [ 0, %hwloc_get_next_obj_by_depth.exit.i ], [ 0, %39 ]
+  %.0.i1827 = phi i32 [ -1, %hwloc_cpuset_from_nodeset.exit.sink.split ], [ %24, %hwloc_get_area_memlocation_by_nodeset.exit21 ], [ 0, %29 ], [ 0, %hwloc_get_next_obj_by_depth.exit.i ], [ 0, %39 ]
   tail call void @hwloc_bitmap_free(ptr noundef %19) #14
   br label %hwloc_get_area_memlocation_by_nodeset.exit
 

@@ -1212,7 +1212,7 @@ json_dumper_setting_value_ok.exit:                ; preds = %json_dumper_get_pre
   tail call fastcc void @json_dumper_bad(ptr noundef %0, ptr noundef nonnull %.str.30.sink.i)
   br label %31
 
-26:                                               ; preds = %json_dumper_get_prev_state.exit.i, %json_dumper_get_prev_state.exit.thread.i, %16
+26:                                               ; preds = %16, %json_dumper_get_prev_state.exit.i, %json_dumper_get_prev_state.exit.thread.i
   tail call fastcc void @prepare_token(ptr noundef %0)
   tail call fastcc void @json_puts_string(ptr noundef %0, ptr noundef %1, i1 noundef zeroext false)
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1294,7 +1294,7 @@ json_dumper_setting_value_ok.exit:                ; preds = %json_dumper_get_pre
   tail call fastcc void @json_dumper_bad(ptr noundef %0, ptr noundef nonnull %.str.30.sink.i)
   br label %57
 
-27:                                               ; preds = %json_dumper_get_prev_state.exit.i, %json_dumper_get_prev_state.exit.thread.i, %17
+27:                                               ; preds = %17, %json_dumper_get_prev_state.exit.i, %json_dumper_get_prev_state.exit.thread.i
   tail call fastcc void @prepare_token(ptr noundef %0)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(39) %3, i8 0, i64 39, i1 false)
@@ -1434,7 +1434,7 @@ json_dumper_setting_value_ok.exit:                ; preds = %json_dumper_get_pre
   tail call fastcc void @json_dumper_bad(ptr noundef %0, ptr noundef nonnull %.str.30.sink.i)
   br label %39
 
-27:                                               ; preds = %json_dumper_get_prev_state.exit.i, %json_dumper_get_prev_state.exit.thread.i, %17
+27:                                               ; preds = %17, %json_dumper_get_prev_state.exit.i, %json_dumper_get_prev_state.exit.thread.i
   tail call fastcc void @prepare_token(ptr noundef %0)
   %28 = load ptr, ptr %0, align 8
   %.not.i9 = icmp eq ptr %28, null

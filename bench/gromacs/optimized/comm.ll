@@ -395,7 +395,7 @@ define noundef i32 @_Z15tMPI_Comm_allocPP10tmpi_comm_S0_i(ptr noundef writeonly 
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph130, %.preheader117, %.lr.ph133, %92, %81, %74, %.critedge116, %._crit_edge, %48, %6, %3, %125, %122, %107, %28, %22, %16
-  %.098 = phi i32 [ 1, %6 ], [ 1, %3 ], [ %18, %16 ], [ %24, %22 ], [ %30, %28 ], [ 1, %.critedge116 ], [ 1, %74 ], [ 1, %81 ], [ 1, %92 ], [ %108, %107 ], [ %124, %122 ], [ 0, %125 ], [ 1, %48 ], [ 1, %._crit_edge ], [ %91, %.preheader117 ], [ %102, %.lr.ph133 ], [ 1, %.lr.ph130 ]
+  %.098 = phi i32 [ 1, %6 ], [ 1, %3 ], [ %18, %16 ], [ %24, %22 ], [ %30, %28 ], [ 1, %._crit_edge ], [ 1, %.critedge116 ], [ 1, %74 ], [ 1, %81 ], [ %91, %.preheader117 ], [ 1, %92 ], [ %108, %107 ], [ %124, %122 ], [ 0, %125 ], [ %102, %.lr.ph133 ], [ 1, %48 ], [ 1, %.lr.ph130 ]
   ret i32 %.098
 }
 
@@ -985,7 +985,7 @@ _Z11tMPI_Comm_NP10tmpi_comm_.exit144:             ; preds = %43, %40
   br label %._crit_edge.thread95.i
 
 ._crit_edge.thread95.i:                           ; preds = %.thread.i, %._crit_edge.thread.i, %._crit_edge.i, %.lr.ph73.i
-  %.1159 = phi i32 [ %.0158, %.lr.ph73.i ], [ %148, %._crit_edge.thread.i ], [ %.0158, %._crit_edge.i ], [ %.0158, %.thread.i ]
+  %.1159 = phi i32 [ %.0158, %.lr.ph73.i ], [ %.0158, %._crit_edge.i ], [ %148, %._crit_edge.thread.i ], [ %.0158, %.thread.i ]
   %indvars.iv.next82.i = add nuw nsw i64 %indvars.iv81.i, 1
   %exitcond.not.i147 = icmp eq i64 %indvars.iv.next82.i, %.pre-phi
   br i1 %exitcond.not.i147, label %_ZL17tMPI_Split_colorsiPKiS0_PiS1_S1_S1_.exit, label %.lr.ph73.i, !llvm.loop !73

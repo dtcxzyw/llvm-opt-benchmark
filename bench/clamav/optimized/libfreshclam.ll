@@ -725,7 +725,7 @@ define range(i32 0, 11) i32 @fc_prune_database_directory(ptr noundef readonly ca
   br label %.thread48
 
 .thread48:                                        ; preds = %.thread.us, %.thread, %.preheader, %.split.us
-  %.02552 = phi i32 [ 10, %.split.us ], [ 0, %.preheader ], [ 0, %.thread ], [ 0, %.thread.us ]
+  %.02552 = phi i32 [ 10, %.split.us ], [ 0, %.thread ], [ 0, %.preheader ], [ 0, %.thread.us ]
   %44 = tail call i32 @closedir(ptr noundef nonnull %11)
   br label %.thread43
 
@@ -1397,8 +1397,8 @@ fc_strerror.exit.loopexit451:                     ; preds = %.lr.ph.split
   br label %fc_strerror.exit
 
 fc_strerror.exit:                                 ; preds = %.lr.ph.split.us, %.lr.ph.split, %fc_strerror.exit.loopexit451, %fc_strerror.exit.loopexit443, %fc_strerror.exit.loopexit365, %fc_strerror.exit.loopexit358, %fc_strerror.exit.loopexit279, %fc_strerror.exit.loopexit272, %fc_strerror.exit.loopexit184, %fc_strerror.exit.loopexit177, %fc_strerror.exit.loopexit, %.split113.us, %.split116.us, %.split101.us, %.split107.us, %.split119.us, %.split88.us, %.split.us
-  %122 = phi i32 [ %.us-phi, %.split.us ], [ 13, %.split101.us ], [ 15, %.split119.us ], [ 1, %fc_strerror.exit.loopexit ], [ %57, %fc_strerror.exit.loopexit184 ], [ %57, %fc_strerror.exit.loopexit279 ], [ %57, %fc_strerror.exit.loopexit365 ], [ 14, %.split107.us ], [ %57, %fc_strerror.exit.loopexit451 ], [ 9, %.split113.us ], [ 10, %.split116.us ], [ 16, %.split88.us ], [ %36, %fc_strerror.exit.loopexit177 ], [ %36, %fc_strerror.exit.loopexit272 ], [ %36, %fc_strerror.exit.loopexit358 ], [ %36, %fc_strerror.exit.loopexit443 ], [ 8, %.lr.ph.split ], [ 8, %.lr.ph.split.us ]
-  %.0.i = phi ptr [ @.str.19, %.split.us ], [ @.str.13, %.split101.us ], [ @.str.15, %.split119.us ], [ @.str.1, %fc_strerror.exit.loopexit ], [ @.str.2, %fc_strerror.exit.loopexit184 ], [ @.str.3, %fc_strerror.exit.loopexit279 ], [ @.str.4, %fc_strerror.exit.loopexit365 ], [ @.str.14, %.split107.us ], [ @.str.6, %fc_strerror.exit.loopexit451 ], [ @.str.9, %.split113.us ], [ @.str.10, %.split116.us ], [ @.str.16, %.split88.us ], [ @.str.2, %fc_strerror.exit.loopexit177 ], [ @.str.3, %fc_strerror.exit.loopexit272 ], [ @.str.4, %fc_strerror.exit.loopexit358 ], [ @.str.6, %fc_strerror.exit.loopexit443 ], [ @.str.8, %.lr.ph.split ], [ @.str.8, %.lr.ph.split.us ]
+  %122 = phi i32 [ %.us-phi, %.split.us ], [ 13, %.split101.us ], [ 15, %.split119.us ], [ 1, %fc_strerror.exit.loopexit ], [ %57, %fc_strerror.exit.loopexit184 ], [ %57, %fc_strerror.exit.loopexit279 ], [ 16, %.split88.us ], [ %57, %fc_strerror.exit.loopexit365 ], [ 14, %.split107.us ], [ %57, %fc_strerror.exit.loopexit451 ], [ 9, %.split113.us ], [ 10, %.split116.us ], [ %36, %fc_strerror.exit.loopexit177 ], [ %36, %fc_strerror.exit.loopexit272 ], [ %36, %fc_strerror.exit.loopexit358 ], [ %36, %fc_strerror.exit.loopexit443 ], [ 8, %.lr.ph.split ], [ 8, %.lr.ph.split.us ]
+  %.0.i = phi ptr [ @.str.19, %.split.us ], [ @.str.13, %.split101.us ], [ @.str.15, %.split119.us ], [ @.str.1, %fc_strerror.exit.loopexit ], [ @.str.2, %fc_strerror.exit.loopexit184 ], [ @.str.3, %fc_strerror.exit.loopexit279 ], [ @.str.16, %.split88.us ], [ @.str.4, %fc_strerror.exit.loopexit365 ], [ @.str.14, %.split107.us ], [ @.str.6, %fc_strerror.exit.loopexit451 ], [ @.str.9, %.split113.us ], [ @.str.10, %.split116.us ], [ @.str.2, %fc_strerror.exit.loopexit177 ], [ @.str.3, %fc_strerror.exit.loopexit272 ], [ @.str.4, %fc_strerror.exit.loopexit358 ], [ @.str.6, %fc_strerror.exit.loopexit443 ], [ @.str.8, %.lr.ph.split ], [ @.str.8, %.lr.ph.split.us ]
   %123 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.96, ptr noundef %0, ptr noundef nonnull %.0.i) #16
   br label %.loopexit
 
@@ -1410,13 +1410,13 @@ fc_strerror.exit:                                 ; preds = %.lr.ph.split.us, %.
   br i1 %.not56.not, label %.lr.ph.split, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %124, %49, %.preheader
-  %128 = phi i32 [ 0, %.preheader ], [ %51, %49 ], [ %126, %124 ]
+  %128 = phi i32 [ %51, %49 ], [ 0, %.preheader ], [ %126, %124 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %._crit_edge, %24, %62, %60, %.thread, %120, %103, %fc_strerror.exit, %.split122.us, %22, %16
-  %.043 = phi i32 [ 16, %16 ], [ 3, %22 ], [ %122, %fc_strerror.exit ], [ 19, %120 ], [ %36, %.split122.us ], [ %.144, %103 ], [ 0, %.thread ], [ 0, %60 ], [ 0, %62 ], [ 0, %24 ], [ 0, %._crit_edge ]
+  %.043 = phi i32 [ 16, %16 ], [ 3, %22 ], [ %122, %fc_strerror.exit ], [ 19, %120 ], [ %36, %.split122.us ], [ %.144, %103 ], [ 0, %.thread ], [ 0, %62 ], [ 0, %60 ], [ 0, %24 ], [ 0, %._crit_edge ]
   %129 = load ptr, ptr %9, align 8, !tbaa !16
   %.not59 = icmp eq ptr %129, null
   br i1 %.not59, label %131, label %130

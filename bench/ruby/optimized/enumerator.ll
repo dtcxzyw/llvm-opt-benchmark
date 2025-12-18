@@ -4627,7 +4627,7 @@ RB_FLOAT_TYPE_P.exit176.thread192:                ; preds = %137, %RB_FLOAT_TYPE
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.preheader, %.lr.ph215.preheader, %.lr.ph225, %rb_float_new_inline.exit183, %.lr.ph229, %99, %85, %rb_long2num_inline.exit, %208, %rb_float_new_inline.exit180, %182, %rb_float_new_inline.exit, %.critedge, %14, %.critedge165, %20, %25, %12, %RB_FLOAT_TYPE_P.exit176.thread192, %40
-  %.0140 = phi i64 [ %238, %RB_FLOAT_TYPE_P.exit176.thread192 ], [ 4, %20 ], [ 4, %12 ], [ %41, %40 ], [ %6, %14 ], [ %54, %.critedge ], [ 4, %25 ], [ %6, %.critedge165 ], [ %165, %rb_float_new_inline.exit ], [ %183, %182 ], [ %89, %85 ], [ %202, %rb_float_new_inline.exit180 ], [ %209, %208 ], [ %54, %rb_long2num_inline.exit ], [ %103, %99 ], [ %89, %.lr.ph215.preheader ], [ %202, %.lr.ph229 ], [ %209, %rb_float_new_inline.exit183 ], [ %54, %.lr.ph225 ], [ %103, %.lr.ph.preheader ]
+  %.0140 = phi i64 [ %238, %RB_FLOAT_TYPE_P.exit176.thread192 ], [ 4, %20 ], [ 4, %12 ], [ %41, %40 ], [ %6, %14 ], [ %54, %.critedge ], [ %54, %rb_long2num_inline.exit ], [ 4, %25 ], [ %6, %.critedge165 ], [ %202, %rb_float_new_inline.exit180 ], [ %209, %208 ], [ %89, %85 ], [ %183, %182 ], [ %165, %rb_float_new_inline.exit ], [ %103, %99 ], [ %209, %rb_float_new_inline.exit183 ], [ %54, %.lr.ph225 ], [ %89, %.lr.ph215.preheader ], [ %202, %.lr.ph229 ], [ %103, %.lr.ph.preheader ]
   ret i64 %.0140
 }
 

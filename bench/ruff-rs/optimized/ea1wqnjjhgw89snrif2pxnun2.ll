@@ -22918,7 +22918,7 @@ _ZN4core5slice4sort6shared17find_existing_run17hd0a2ecd0b44696ebE.exit.i.thread:
   br label %_ZN4core5slice4sort6stable5drift10create_run17hc7cfb01cae66fdd1E.exit
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17hb7b2eaebb951ff97E.exit": ; preds = %176, %_ZN4core5slice4sort6shared17find_existing_run17hd0a2ecd0b44696ebE.exit.i.thread, %85, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17ha094566015acb91eE.exit36", %166
-  %.sroa.0.0.i.i4952 = phi i64 [ %.sroa.0.0.i.i, %166 ], [ %.sroa.0.0.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17ha094566015acb91eE.exit36" ], [ %82, %85 ], [ 2, %_ZN4core5slice4sort6shared17find_existing_run17hd0a2ecd0b44696ebE.exit.i.thread ], [ %.sroa.0.0.i.i119126129, %176 ]
+  %.sroa.0.0.i.i4952 = phi i64 [ %82, %85 ], [ %.sroa.0.0.i.i, %166 ], [ %.sroa.0.0.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17ha094566015acb91eE.exit36" ], [ 2, %_ZN4core5slice4sort6shared17find_existing_run17hd0a2ecd0b44696ebE.exit.i.thread ], [ %.sroa.0.0.i.i119126129, %176 ]
   %171 = shl i64 %.sroa.0.0.i.i4952, 1
   %172 = or disjoint i64 %171, 1
   br label %_ZN4core5slice4sort6stable5drift10create_run17hc7cfb01cae66fdd1E.exit
@@ -23524,8 +23524,8 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17he737a8f9f2153283E(
   br i1 %182, label %237, label %238
 
 .outer._crit_edge:                                ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hff232aeb743cc02eE.exit", %719, %7
-  %.sroa.0.0.ph.lcssa107 = phi ptr [ %0, %7 ], [ %.sroa.0.0.ph116, %719 ], [ %712, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hff232aeb743cc02eE.exit" ]
-  %.sroa.12.0.lcssa = phi i64 [ %1, %7 ], [ %.sroa.27.2.lcssa.i, %719 ], [ %702, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hff232aeb743cc02eE.exit" ]
+  %.sroa.0.0.ph.lcssa107 = phi ptr [ %.sroa.0.0.ph116, %719 ], [ %0, %7 ], [ %712, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hff232aeb743cc02eE.exit" ]
+  %.sroa.12.0.lcssa = phi i64 [ %.sroa.27.2.lcssa.i, %719 ], [ %1, %7 ], [ %702, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hff232aeb743cc02eE.exit" ]
   call void @llvm.experimental.noalias.scope.decl(metadata !3813)
   call void @llvm.experimental.noalias.scope.decl(metadata !3816)
   %183 = icmp samesign ult i64 %.sroa.12.0.lcssa, 2

@@ -21909,7 +21909,7 @@ define void @_ZN7rocksdb6DBImpl10DelayWriteEmRNS_11WriteThreadERKNS_12WriteOptio
   br label %._crit_edge, !llvm.loop !1150
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph.preheader, %.._crit_edge.loopexit_crit_edge, %43
-  %.227.lcssa = phi i1 [ false, %43 ], [ true, %.._crit_edge.loopexit_crit_edge ], [ false, %.lr.ph.preheader ], [ true, %.lr.ph ]
+  %.227.lcssa = phi i1 [ false, %43 ], [ false, %.lr.ph.preheader ], [ true, %.._crit_edge.loopexit_crit_edge ], [ true, %.lr.ph ]
   tail call void @_ZN7rocksdb17InstrumentedMutex4LockEv(ptr noundef nonnull align 8 dereferenceable(60) %21)
   tail call void @_ZN7rocksdb11WriteThread13EndWriteStallEv(ptr noundef nonnull align 8 dereferenceable(432) %3)
   br label %64
@@ -29563,7 +29563,7 @@ _ZN7rocksdb10autovectorIPNS_16ColumnFamilyDataELm8EED2Ev.exit: ; preds = %_ZN7ro
   unreachable
 
 .body:                                            ; preds = %171, %.body27, %41, %38
-  %.pn.pn = phi { ptr, i32 } [ %39, %38 ], [ %39, %41 ], [ %.pn, %.body27 ], [ %.pn, %171 ]
+  %.pn.pn = phi { ptr, i32 } [ %39, %41 ], [ %39, %38 ], [ %.pn, %.body27 ], [ %.pn, %171 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %176

@@ -247,8 +247,8 @@ define dso_local void @do_sio(ptr noundef readonly byval(%struct.parameters_) al
   br label %80
 
 80:                                               ; preds = %.fold.split.i, %77, %76, %75, %73
-  %.not103.i = phi i1 [ false, %77 ], [ false, %73 ], [ true, %76 ], [ false, %75 ], [ false, %.fold.split.i ]
-  %.084.i = phi ptr [ @.str.16, %77 ], [ @.str.17, %73 ], [ null, %76 ], [ @.str.19, %75 ], [ @.str.18, %.fold.split.i ]
+  %.not103.i = phi i1 [ false, %77 ], [ false, %75 ], [ false, %73 ], [ true, %76 ], [ false, %.fold.split.i ]
+  %.084.i = phi ptr [ @.str.16, %77 ], [ @.str.19, %75 ], [ @.str.17, %73 ], [ null, %76 ], [ @.str.18, %.fold.split.i ]
   %81 = tail call ptr @getenv(ptr noundef nonnull @.str.20) #18
   %.not.i = icmp eq ptr %81, null
   br i1 %.not.i, label %121, label %82

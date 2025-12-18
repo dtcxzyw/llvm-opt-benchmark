@@ -540,8 +540,8 @@ find_add_q_ctx.exit.thread:                       ; preds = %31, %find_add_q_ctx
   br label %163
 
 163:                                              ; preds = %158, %149, %113, %107
-  %.085.i = phi i32 [ 0, %107 ], [ 0, %113 ], [ %162, %158 ], [ %142, %149 ]
-  %.0.i35 = phi ptr [ %106, %107 ], [ %106, %113 ], [ %157, %158 ], [ %131, %149 ]
+  %.085.i = phi i32 [ 0, %107 ], [ 0, %113 ], [ %142, %149 ], [ %162, %158 ]
+  %.0.i35 = phi ptr [ %106, %107 ], [ %106, %113 ], [ %131, %149 ], [ %157, %158 ]
   %164 = load i32, ptr @hf_nvmeof_read_from_host_resp, align 4
   %165 = tail call ptr @proto_tree_add_item(ptr noundef %93, i32 noundef %164, ptr noundef %0, i32 noundef 0, i32 noundef %7, i32 noundef 0)
   %166 = load i32, ptr @ett_data, align 4

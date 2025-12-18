@@ -1932,7 +1932,7 @@ define dso_local ptr @i915_gem_object_ggtt_pin_ww(ptr noundef %0, ptr noundef %1
   br i1 %135, label %.loopexit10, label %.split.split
 
 .split15.us:                                      ; preds = %120, %78, %46
-  %.us-phi16 = phi ptr [ %63, %78 ], [ %39, %46 ], [ %94, %120 ]
+  %.us-phi16 = phi ptr [ %39, %46 ], [ %63, %78 ], [ %94, %120 ]
   %136 = tail call i32 @i915_vma_unbind(ptr noundef %.us-phi16) #9
   %137 = icmp eq i32 %136, 0
   br i1 %137, label %.loopexit, label %138
@@ -1943,7 +1943,7 @@ define dso_local ptr @i915_gem_object_ggtt_pin_ww(ptr noundef %0, ptr noundef %1
   br label %.loopexit10
 
 .loopexit:                                        ; preds = %.split.split, %.split.split.us, %.split.us, %.split15.us
-  %141 = phi ptr [ %.us-phi16, %.split15.us ], [ %63, %.split.split.us ], [ %39, %.split.us ], [ %94, %.split.split ]
+  %141 = phi ptr [ %.us-phi16, %.split15.us ], [ %39, %.split.us ], [ %63, %.split.split.us ], [ %94, %.split.split ]
   %142 = or i64 %5, 1024
   %143 = tail call i32 @i915_vma_pin_ww(ptr noundef %141, ptr noundef %1, i64 noundef %3, i64 noundef %4, i64 noundef %142) #9
   %144 = icmp eq i32 %143, 0
@@ -1987,7 +1987,7 @@ define dso_local ptr @i915_gem_object_ggtt_pin_ww(ptr noundef %0, ptr noundef %1
   br label %.loopexit10
 
 .loopexit10:                                      ; preds = %133, %112, %105, %101, %96, %65, %70, %91, %60, %162, %159, %145, %138, %32, %26, %20
-  %166 = phi ptr [ %140, %138 ], [ %147, %145 ], [ %165, %162 ], [ %141, %159 ], [ inttoptr (i64 -7 to ptr), %20 ], [ inttoptr (i64 -28 to ptr), %26 ], [ %33, %32 ], [ inttoptr (i64 -28 to ptr), %65 ], [ %61, %60 ], [ %92, %91 ], [ inttoptr (i64 -28 to ptr), %70 ], [ %134, %133 ], [ inttoptr (i64 -28 to ptr), %101 ], [ inttoptr (i64 -28 to ptr), %96 ], [ inttoptr (i64 -28 to ptr), %112 ], [ inttoptr (i64 -28 to ptr), %105 ]
+  %166 = phi ptr [ %140, %138 ], [ %147, %145 ], [ %165, %162 ], [ %141, %159 ], [ inttoptr (i64 -7 to ptr), %20 ], [ inttoptr (i64 -28 to ptr), %26 ], [ %33, %32 ], [ %61, %60 ], [ inttoptr (i64 -28 to ptr), %65 ], [ %92, %91 ], [ inttoptr (i64 -28 to ptr), %70 ], [ %134, %133 ], [ inttoptr (i64 -28 to ptr), %101 ], [ inttoptr (i64 -28 to ptr), %96 ], [ inttoptr (i64 -28 to ptr), %112 ], [ inttoptr (i64 -28 to ptr), %105 ]
   ret ptr %166
 }
 

@@ -1374,7 +1374,7 @@ _ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i:           ; preds = %_ZN15ref_vector_cor
   br label %151
 
 ._crit_edge.i:                                    ; preds = %226, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5resetEv.exit.i
-  %66 = phi ptr [ %61, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i ], [ %61, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5resetEv.exit.i ], [ %228, %226 ]
+  %66 = phi ptr [ %61, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5resetEv.exit.i ], [ %61, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i ], [ %228, %226 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %67 = icmp eq ptr %66, null
   br i1 %67, label %_ZN12_GLOBAL__N_127lemma_inductive_generalizer15generalize_coreEj.exit.i, label %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5emptyEv.exit.i.i
@@ -1411,8 +1411,8 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit.i
   br i1 %.not33.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i14.i
 
 ._crit_edge.i.i.i:                                ; preds = %_ZN13ast_fast_markILj2EE4markEP3ast.exit.i.i.i, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit.i.i.i, %76
-  %84 = phi i32 [ 0, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit.i.i.i ], [ 0, %76 ], [ %119, %_ZN13ast_fast_markILj2EE4markEP3ast.exit.i.i.i ]
-  %85 = phi ptr [ %18, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit.i.i.i ], [ %18, %76 ], [ %120, %_ZN13ast_fast_markILj2EE4markEP3ast.exit.i.i.i ]
+  %84 = phi i32 [ 0, %76 ], [ 0, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit.i.i.i ], [ %119, %_ZN13ast_fast_markILj2EE4markEP3ast.exit.i.i.i ]
+  %85 = phi ptr [ %18, %76 ], [ %18, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit.i.i.i ], [ %120, %_ZN13ast_fast_markILj2EE4markEP3ast.exit.i.i.i ]
   %86 = load ptr, ptr %9, align 8, !tbaa !165
   %87 = icmp eq ptr %86, null
   br i1 %87, label %._crit_edge38.i.i.i, label %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i

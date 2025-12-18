@@ -1218,7 +1218,7 @@ define hidden i32 @lexbor_avl_foreach(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %.not77, label %.loopexit.backedge, label %35
 
 .loopexit.backedge:                               ; preds = %34, %35, %39
-  %.155.be = phi ptr [ %13, %34 ], [ %13, %35 ], [ %32, %39 ]
+  %.155.be = phi ptr [ %32, %39 ], [ %13, %35 ], [ %13, %34 ]
   br label %.loopexit
 
 35:                                               ; preds = %34

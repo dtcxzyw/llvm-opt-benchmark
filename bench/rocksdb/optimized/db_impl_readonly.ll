@@ -1801,7 +1801,7 @@ _ZNK7rocksdb12MergeContext11GetOperandsEv.exit:   ; preds = %_ZSt7reverseIN9__gn
   br label %.loopexit
 
 .loopexit:                                        ; preds = %476, %.loopexit.sink.split, %_ZNK7rocksdb12MergeContext11GetOperandsEv.exit, %437
-  %.059 = phi i64 [ 0, %_ZNK7rocksdb12MergeContext11GetOperandsEv.exit ], [ 0, %437 ], [ %489, %.loopexit.sink.split ], [ %482, %476 ]
+  %.059 = phi i64 [ 0, %_ZNK7rocksdb12MergeContext11GetOperandsEv.exit ], [ %489, %.loopexit.sink.split ], [ 0, %437 ], [ %482, %476 ]
   %490 = load ptr, ptr %126, align 64, !tbaa !443
   %.not.i185 = icmp eq ptr %490, null
   br i1 %.not.i185, label %_ZN7rocksdb17RecordInHistogramEPNS_10StatisticsEjm.exit, label %491

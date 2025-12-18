@@ -4737,7 +4737,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit291: ; preds = %5
   br i1 %.not433, label %.critedge15, label %_ZN4CGAL15Verbose_ostreamlsIA14_cEERS0_RKT_.exit176, !llvm.loop !182
 
 .critedge15:                                      ; preds = %.critedge117, %.critedge117.us, %526, %551
-  %.5409 = phi i64 [ %.44085631039, %551 ], [ %.44085631039, %526 ], [ %576, %.critedge117.us ], [ %603, %.critedge117 ]
+  %.5409 = phi i64 [ %.44085631039, %526 ], [ %.44085631039, %551 ], [ %576, %.critedge117.us ], [ %603, %.critedge117 ]
   %605 = add i64 %.04125621040, 1
   %.sroa.0323.0564.in = getelementptr inbounds nuw i8, ptr %.sroa.0323.05641041, i64 16
   %.sroa.0323.0564 = load ptr, ptr %.sroa.0323.0564.in, align 8, !tbaa !146
@@ -4868,7 +4868,7 @@ _ZN4CGAL15Verbose_ostreamlsIA37_cEERS0_RKT_.exit183: ; preds = %631, %_ZN4CGAL15
   br i1 %336, label %.critedge115.thread.thread, label %691
 
 .critedge115.thread.thread:                       ; preds = %.critedge111, %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit150, %.critedge115.thread, %661, %.critedge119
-  %667 = phi i1 [ %666, %.critedge119 ], [ %665, %661 ], [ false, %.critedge115.thread ], [ false, %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit150 ], [ false, %.critedge111 ]
+  %667 = phi i1 [ false, %.critedge115.thread ], [ %666, %.critedge119 ], [ %665, %661 ], [ false, %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit150 ], [ false, %.critedge111 ]
   br i1 %1, label %.thread864, label %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit185
 
 .thread864:                                       ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit261, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit251, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit281, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit291, %.critedge115.thread.thread
@@ -4920,7 +4920,7 @@ _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit185:    ; preds = %.critedge115.thread
   br label %691
 
 691:                                              ; preds = %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit150, %.critedge115.thread, %661, %689, %.critedge119
-  %.13 = phi i1 [ %666, %.critedge119 ], [ false, %.critedge115.thread ], [ %690, %689 ], [ %665, %661 ], [ false, %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit150 ]
+  %.13 = phi i1 [ %666, %.critedge119 ], [ %665, %661 ], [ %690, %689 ], [ false, %.critedge115.thread ], [ false, %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit150 ]
   %cond.fr = freeze i1 %.13
   br i1 %1, label %692, label %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit186
 
@@ -4936,9 +4936,9 @@ _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit185:    ; preds = %.critedge115.thread
   br label %696
 
 696:                                              ; preds = %694, %.sink.split, %692
-  %697 = phi ptr [ @.str.43, %.sink.split ], [ @.str.42, %692 ], [ @.str.43, %694 ]
-  %.13869877882 = phi i1 [ false, %.sink.split ], [ true, %692 ], [ false, %694 ]
-  %698 = phi i64 [ 10, %.sink.split ], [ 6, %692 ], [ 10, %694 ]
+  %697 = phi ptr [ @.str.43, %.sink.split ], [ @.str.43, %694 ], [ @.str.42, %692 ]
+  %.13869877882 = phi i1 [ false, %.sink.split ], [ false, %694 ], [ true, %692 ]
+  %698 = phi i64 [ 10, %.sink.split ], [ 10, %694 ], [ 6, %692 ]
   %699 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull %697, i64 noundef %698)
   %700 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !108
   %701 = getelementptr i8, ptr %700, i64 -24

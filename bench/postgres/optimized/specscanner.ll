@@ -713,9 +713,9 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i77, %284
   br label %.loopexit121.backedge
 
 .loopexit121.backedge:                            ; preds = %._crit_edge.i96, %305, %503
-  %.044.be = phi ptr [ %510, %503 ], [ %307, %305 ], [ %510, %._crit_edge.i96 ]
-  %.040.be = phi ptr [ %502, %503 ], [ %234, %305 ], [ %502, %._crit_edge.i96 ]
-  %.033.be = phi i32 [ %511, %503 ], [ %306, %305 ], [ %552, %._crit_edge.i96 ]
+  %.044.be = phi ptr [ %307, %305 ], [ %510, %503 ], [ %510, %._crit_edge.i96 ]
+  %.040.be = phi ptr [ %234, %305 ], [ %502, %503 ], [ %502, %._crit_edge.i96 ]
+  %.033.be = phi i32 [ %306, %305 ], [ %511, %503 ], [ %552, %._crit_edge.i96 ]
   br label %.loopexit121
 
 308:                                              ; preds = %yy_try_NUL_trans.exit

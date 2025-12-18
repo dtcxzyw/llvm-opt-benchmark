@@ -855,7 +855,7 @@ dissect_v3_report.exit.sink.split.i:              ; preds = %140, %133, %124
   br i1 %328, label %.lr.ph206.i, label %dissect_dvmrp_v3.exit, !llvm.loop !17
 
 dissect_dvmrp_v3.exit:                            ; preds = %.loopexit.i, %120, %.lr.ph159.i, %325, %193, %dissect_v3_report.exit.sink.split.i, %140, %133, %124, %59, %49, %.preheader.i, %42
-  %.0 = phi i32 [ %.0.ph.i, %dissect_v3_report.exit.sink.split.i ], [ 8, %42 ], [ 20, %124 ], [ 16, %133 ], [ 16, %140 ], [ 8, %59 ], [ 12, %49 ], [ 8, %.preheader.i ], [ 4, %193 ], [ %119, %120 ], [ %.1.i, %325 ], [ %56, %.lr.ph159.i ], [ %.3.lcssa.i, %.loopexit.i ]
+  %.0 = phi i32 [ %.0.ph.i, %dissect_v3_report.exit.sink.split.i ], [ 8, %42 ], [ %56, %.lr.ph159.i ], [ %.1.i, %325 ], [ 12, %49 ], [ 20, %124 ], [ 8, %.preheader.i ], [ 16, %133 ], [ %119, %120 ], [ 16, %140 ], [ 8, %59 ], [ 4, %193 ], [ %.3.lcssa.i, %.loopexit.i ]
   tail call void @proto_item_set_len(ptr noundef %9, i32 noundef %.0)
   ret i32 %.0
 }

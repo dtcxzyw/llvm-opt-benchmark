@@ -5587,7 +5587,7 @@ _ZN2cv3VecIhLi3EEC2ERKS1_.exit.us:                ; preds = %.preheader41.us, %_
   br i1 %exitcond65.not, label %.loopexit, label %.preheader.us, !llvm.loop !214
 
 .loopexit:                                        ; preds = %._crit_edge.us, %._crit_edge.us48, %.preheader.lr.ph, %.preheader41.lr.ph, %.preheader42, %.preheader40, %47, %48
-  %.0 = phi i32 [ 1, %47 ], [ 1, %48 ], [ 0, %.preheader40 ], [ 0, %.preheader42 ], [ 0, %.preheader.lr.ph ], [ 0, %.preheader41.lr.ph ], [ 0, %._crit_edge.us48 ], [ 0, %._crit_edge.us ]
+  %.0 = phi i32 [ 1, %48 ], [ 0, %.preheader40 ], [ 1, %47 ], [ 0, %.preheader42 ], [ 0, %.preheader.lr.ph ], [ 0, %.preheader41.lr.ph ], [ 0, %._crit_edge.us48 ], [ 0, %._crit_edge.us ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0

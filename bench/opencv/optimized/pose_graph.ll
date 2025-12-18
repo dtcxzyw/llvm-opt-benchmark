@@ -1023,9 +1023,9 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %106
 
 _ZNSt6vectorImSaImEE9push_backERKm.exit78:        ; preds = %78, %63, %73, %58, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i75, %85, %60
-  %.sroa.11.2 = phi ptr [ %.sroa.11.1218, %60 ], [ %86, %85 ], [ %.sroa.11.1218, %58 ], [ %103, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i75 ], [ %.sroa.11.1218, %73 ], [ %.sroa.11.1218, %63 ], [ %.sroa.11.1218, %78 ]
-  %.sroa.21.2 = phi ptr [ %.sroa.21.1219, %60 ], [ %.sroa.21.1219, %85 ], [ %.sroa.21.1219, %58 ], [ %104, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i75 ], [ %.sroa.21.1219, %73 ], [ %.sroa.21.1219, %63 ], [ %.sroa.21.1219, %78 ]
-  %.sroa.0126.4 = phi ptr [ %.sroa.0126.1220, %60 ], [ %.sroa.0126.1220, %85 ], [ %.sroa.0126.1220, %58 ], [ %99, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i75 ], [ %.sroa.0126.1220, %73 ], [ %.sroa.0126.1220, %63 ], [ %.sroa.0126.1220, %78 ]
+  %.sroa.11.2 = phi ptr [ %.sroa.11.1218, %60 ], [ %86, %85 ], [ %.sroa.11.1218, %58 ], [ %103, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i75 ], [ %.sroa.11.1218, %63 ], [ %.sroa.11.1218, %73 ], [ %.sroa.11.1218, %78 ]
+  %.sroa.21.2 = phi ptr [ %.sroa.21.1219, %60 ], [ %.sroa.21.1219, %85 ], [ %.sroa.21.1219, %58 ], [ %104, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i75 ], [ %.sroa.21.1219, %63 ], [ %.sroa.21.1219, %73 ], [ %.sroa.21.1219, %78 ]
+  %.sroa.0126.4 = phi ptr [ %.sroa.0126.1220, %60 ], [ %.sroa.0126.1220, %85 ], [ %.sroa.0126.1220, %58 ], [ %99, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i75 ], [ %.sroa.0126.1220, %63 ], [ %.sroa.0126.1220, %73 ], [ %.sroa.0126.1220, %78 ]
   %105 = add nuw i64 %.038221, 1
   %exitcond.not = icmp eq i64 %105, %14
   br i1 %exitcond.not, label %36, label %41, !llvm.loop !143
@@ -1375,7 +1375,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   br i1 %exitcond266.not, label %_ZNSt6vectorImSaImEED2Ev.exit, label %.split.split, !llvm.loop !162
 
 _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %.loopexit166, %209, %.thread148, %.lr.ph.i.i.i.i.i93, %.lr.ph.i.i.i.i.i107, %.loopexit.us, %196, %201, %..loopexit_crit_edge21.i.i.i.i.i111, %..loopexit_crit_edge21.i.i.i.i.i97
-  %247 = phi i1 [ false, %..loopexit_crit_edge21.i.i.i.i.i97 ], [ false, %..loopexit_crit_edge21.i.i.i.i.i111 ], [ false, %196 ], [ true, %.loopexit.us ], [ false, %.lr.ph.i.i.i.i.i107 ], [ false, %.lr.ph.i.i.i.i.i93 ], [ false, %201 ], [ true, %.loopexit166 ], [ false, %209 ], [ false, %.thread148 ]
+  %247 = phi i1 [ false, %196 ], [ false, %.lr.ph.i.i.i.i.i107 ], [ false, %201 ], [ true, %.loopexit.us ], [ false, %..loopexit_crit_edge21.i.i.i.i.i97 ], [ false, %..loopexit_crit_edge21.i.i.i.i.i111 ], [ false, %.lr.ph.i.i.i.i.i93 ], [ true, %.loopexit166 ], [ false, %209 ], [ false, %.thread148 ]
   %248 = and i1 %109, %247
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0126.4) #30
   %249 = load ptr, ptr %19, align 8, !tbaa !163
@@ -3211,8 +3211,8 @@ _ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_M
   resume { ptr, i32 } %43
 
 _ZNKSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE15_M_find_node_trImEEPNS1_10_Hash_nodeImLb0EEEmRKT_m.exit: ; preds = %31, %18, %.critedge, %26
-  %.sroa.031.1 = phi ptr [ %27, %26 ], [ %42, %.critedge ], [ %.sroa.028.0, %18 ], [ %33, %31 ]
-  %.sroa.432.1 = phi i8 [ 0, %26 ], [ 1, %.critedge ], [ 0, %18 ], [ 0, %31 ]
+  %.sroa.031.1 = phi ptr [ %.sroa.028.0, %18 ], [ %42, %.critedge ], [ %27, %26 ], [ %33, %31 ]
+  %.sroa.432.1 = phi i8 [ 0, %18 ], [ 1, %.critedge ], [ 0, %26 ], [ 0, %31 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.031.1, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.432.1, 1
   ret { ptr, i8 } %.fca.1.insert

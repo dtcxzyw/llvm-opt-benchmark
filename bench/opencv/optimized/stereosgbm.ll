@@ -1030,7 +1030,7 @@ define hidden void @_ZNK2cv16SGBM3WayMainLoop18getRawMatchingCostERKNS_14BufferS
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !90
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph204, %._crit_edge221, %._crit_edge232, %.preheader, %185, %._crit_edge217, %._crit_edge228
-  %209 = phi i32 [ %75, %._crit_edge228 ], [ %33, %.preheader ], [ %33, %185 ], [ %143, %._crit_edge217 ], [ %33, %.lr.ph204 ], [ %75, %._crit_edge232 ], [ %143, %._crit_edge221 ], [ %33, %.lr.ph ]
+  %209 = phi i32 [ %33, %.lr.ph204 ], [ %143, %._crit_edge221 ], [ %75, %._crit_edge232 ], [ %75, %._crit_edge228 ], [ %33, %.preheader ], [ %33, %185 ], [ %143, %._crit_edge217 ], [ %33, %.lr.ph ]
   %210 = add i32 %storemerge237, 1
   %exitcond283.not = icmp eq i32 %storemerge237, %17
   br i1 %exitcond283.not, label %._crit_edge240, label %32, !llvm.loop !91

@@ -10006,9 +10006,9 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit432: ; preds = %571
   br i1 %620, label %"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h73f6345230bc3281E.llvm.13580319295917089645.exit.sink.split.i.i.i.i463.invoke", label %"_ZN4core3ptr95drop_in_place$LT$rowan..api..SyntaxElementChildren$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h92fd4314e127b029E.exit466"
 
 .thread:                                          ; preds = %166, %172, %.body
-  %.pn216530 = phi { ptr, i32 } [ %.pn216, %.body ], [ %167, %172 ], [ %167, %166 ]
-  %.1529 = phi i8 [ %.1, %.body ], [ 1, %172 ], [ 1, %166 ]
-  %.1175528 = phi i8 [ %.1175, %.body ], [ 1, %172 ], [ 1, %166 ]
+  %.pn216530 = phi { ptr, i32 } [ %.pn216, %.body ], [ %167, %166 ], [ %167, %172 ]
+  %.1529 = phi i8 [ %.1, %.body ], [ 1, %166 ], [ 1, %172 ]
+  %.1175528 = phi i8 [ %.1175, %.body ], [ 1, %166 ], [ 1, %172 ]
   %621 = icmp eq i64 %105, 0
   br i1 %621, label %622, label %624
 

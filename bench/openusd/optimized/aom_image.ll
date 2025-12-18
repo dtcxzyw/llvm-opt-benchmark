@@ -451,7 +451,7 @@ define hidden range(i32 -1, 1) i32 @aom_img_set_rect(ptr noundef captures(none) 
   br label %94
 
 94:                                               ; preds = %.sink.split, %6, %10
-  %.0 = phi i32 [ -1, %10 ], [ -1, %6 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ -1, %6 ], [ -1, %10 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 

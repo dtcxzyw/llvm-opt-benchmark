@@ -6580,8 +6580,8 @@ _ZN4ncnn3MatD2Ev.exit422.i.us.i:                  ; preds = %.lr.ph160.i.i, %.lo
   br i1 %145, label %_ZN4ncnn3MatD2Ev.exit422.i.us.i, label %.preheader131.loopexit.i.i, !llvm.loop !277
 
 .preheader131.loopexit.i.i:                       ; preds = %.loopexit133.i.us145.i, %.loopexit133.i.loopexit.us.us.i, %_ZN4ncnn3MatD2Ev.exit423.i.us.preheader.i, %.loopexit133.i.preheader.i
-  %.us-phi.i = phi ptr [ %.val.i, %.loopexit133.i.preheader.i ], [ %.val.i, %_ZN4ncnn3MatD2Ev.exit423.i.us.preheader.i ], [ %84, %.loopexit133.i.loopexit.us.us.i ], [ %.6.i.us146.i, %.loopexit133.i.us145.i ]
-  %.us-phi141.i = phi i64 [ %50, %.loopexit133.i.preheader.i ], [ %52, %_ZN4ncnn3MatD2Ev.exit423.i.us.preheader.i ], [ %indvars.iv.next.i.us.us.i, %.loopexit133.i.loopexit.us.us.i ], [ %indvars.iv.next.i.us147.i, %.loopexit133.i.us145.i ]
+  %.us-phi.i = phi ptr [ %84, %.loopexit133.i.loopexit.us.us.i ], [ %.val.i, %.loopexit133.i.preheader.i ], [ %.val.i, %_ZN4ncnn3MatD2Ev.exit423.i.us.preheader.i ], [ %.6.i.us146.i, %.loopexit133.i.us145.i ]
+  %.us-phi141.i = phi i64 [ %indvars.iv.next.i.us.us.i, %.loopexit133.i.loopexit.us.us.i ], [ %50, %.loopexit133.i.preheader.i ], [ %52, %_ZN4ncnn3MatD2Ev.exit423.i.us.preheader.i ], [ %indvars.iv.next.i.us147.i, %.loopexit133.i.us145.i ]
   %146 = trunc nuw nsw i64 %.us-phi141.i to i32
   br label %.preheader131.i.i
 
@@ -6885,7 +6885,7 @@ _ZN4ncnn3MatD2Ev.exit420.i.i:                     ; preds = %194
   br i1 %exitcond275.not.i.i, label %.loopexit128.i.i, label %.lr.ph185.i.i, !llvm.loop !293
 
 .loopexit128.i.i:                                 ; preds = %.lr.ph185.i.i, %.lr.ph166.i.i, %.preheader127.i.i, %_ZN4ncnn3MatD2Ev.exit421.i.i, %194
-  %.13.i.i = phi ptr [ %.7188.i.i, %194 ], [ %.11.lcssa.i.i, %.preheader127.i.i ], [ %.7188.i.i, %_ZN4ncnn3MatD2Ev.exit421.i.i ], [ %214, %.lr.ph166.i.i ], [ %332, %.lr.ph185.i.i ]
+  %.13.i.i = phi ptr [ %.7188.i.i, %194 ], [ %.11.lcssa.i.i, %.preheader127.i.i ], [ %214, %.lr.ph166.i.i ], [ %.7188.i.i, %_ZN4ncnn3MatD2Ev.exit421.i.i ], [ %332, %.lr.ph185.i.i ]
   %indvars.iv.next277.i.i = add nuw nsw i64 %indvars.iv276.i.i, 4
   %335 = or disjoint i64 %indvars.iv.next277.i.i, 3
   %336 = icmp slt i64 %335, %169
@@ -7195,7 +7195,7 @@ _ZN4ncnn3MatD2Ev.exit418.i.i:                     ; preds = %407
   br i1 %exitcond280.not.i.i, label %.loopexit123.i.i, label %.lr.ph214.i.i, !llvm.loop !314
 
 .loopexit123.i.i:                                 ; preds = %.lr.ph214.i.i, %.lr.ph195.i.i, %.preheader122.i.i, %_ZN4ncnn3MatD2Ev.exit419.i.i, %407
-  %.20.i.i = phi ptr [ %.14217.i.i, %407 ], [ %.18.lcssa.i.i, %.preheader122.i.i ], [ %.14217.i.i, %_ZN4ncnn3MatD2Ev.exit419.i.i ], [ %427, %.lr.ph195.i.i ], [ %495, %.lr.ph214.i.i ]
+  %.20.i.i = phi ptr [ %.14217.i.i, %407 ], [ %.18.lcssa.i.i, %.preheader122.i.i ], [ %427, %.lr.ph195.i.i ], [ %.14217.i.i, %_ZN4ncnn3MatD2Ev.exit419.i.i ], [ %495, %.lr.ph214.i.i ]
   %indvars.iv.next282.i.i = add nuw nsw i64 %indvars.iv281.i.i, 2
   %498 = or disjoint i64 %indvars.iv.next282.i.i, 1
   %499 = icmp slt i64 %498, %192
@@ -7851,7 +7851,7 @@ _ZN17FastDivider_epu32C2Ej.exit1335.i.i:          ; preds = %552, %_ZN17FastDivi
   br i1 %exitcond315.not.i.i, label %.loopexit96.i.i, label %.lr.ph121.i.i, !llvm.loop !323
 
 .loopexit96.i.i:                                  ; preds = %.lr.ph121.i.i, %.lr.ph117.i.i, %.lr.ph139.i.i, %.lr.ph135.i.i, %.loopexit104.i.i, %.preheader103.i.i, %.loopexit98.i.i, %.preheader97.i.i
-  %.7.i.i = phi ptr [ %.0142.i.i, %.loopexit104.i.i ], [ %.0142.i.i, %.loopexit98.i.i ], [ %.3.lcssa.i56.i, %.preheader97.i.i ], [ %.10.lcssa.i53.i, %.preheader103.i.i ], [ %969, %.lr.ph117.i.i ], [ %780, %.lr.ph135.i.i ], [ %811, %.lr.ph139.i.i ], [ %1003, %.lr.ph121.i.i ]
+  %.7.i.i = phi ptr [ %.0142.i.i, %.loopexit104.i.i ], [ %.3.lcssa.i56.i, %.preheader97.i.i ], [ %.0142.i.i, %.loopexit98.i.i ], [ %811, %.lr.ph139.i.i ], [ %780, %.lr.ph135.i.i ], [ %.10.lcssa.i53.i, %.preheader103.i.i ], [ %969, %.lr.ph117.i.i ], [ %1003, %.lr.ph121.i.i ]
   %1005 = add nuw nsw i32 %.01293141.i.i, 8
   %1006 = or disjoint i32 %1005, 7
   %1007 = icmp slt i32 %1006, %3
@@ -8338,7 +8338,7 @@ _ZN17FastDivider_epu32C2Ej.exit1335.i.i:          ; preds = %552, %_ZN17FastDivi
   br i1 %exitcond319.not.i.i, label %.loopexit83.i.i, label %.lr.ph162.i.i, !llvm.loop !332
 
 .loopexit83.i.i:                                  ; preds = %.lr.ph162.i.i, %.lr.ph158.i.i, %.lr.ph180.i.i, %.lr.ph176.i.i, %.loopexit91.i.i, %.preheader90.i.i, %.loopexit85.i.i, %.preheader84.i.i
-  %.20.i50.i = phi ptr [ %.13183.i.i, %.loopexit91.i.i ], [ %.13183.i.i, %.loopexit85.i.i ], [ %.16.lcssa.i.i, %.preheader84.i.i ], [ %.23.lcssa.i.i, %.preheader90.i.i ], [ %1350, %.lr.ph158.i.i ], [ %1192, %.lr.ph176.i.i ], [ %1219, %.lr.ph180.i.i ], [ %1374, %.lr.ph162.i.i ]
+  %.20.i50.i = phi ptr [ %.13183.i.i, %.loopexit91.i.i ], [ %.16.lcssa.i.i, %.preheader84.i.i ], [ %.13183.i.i, %.loopexit85.i.i ], [ %1219, %.lr.ph180.i.i ], [ %1192, %.lr.ph176.i.i ], [ %.23.lcssa.i.i, %.preheader90.i.i ], [ %1350, %.lr.ph158.i.i ], [ %1374, %.lr.ph162.i.i ]
   %1376 = add nuw nsw i32 %.11294182.i.i, 4
   %1377 = or disjoint i32 %1376, 3
   %1378 = icmp slt i32 %1377, %3
@@ -8844,7 +8844,7 @@ _ZN17FastDivider_epu32C2Ej.exit1335.i.i:          ; preds = %552, %_ZN17FastDivi
   br i1 %exitcond323.not.i.i, label %.loopexit70.i.i, label %.lr.ph204.i.i, !llvm.loop !341
 
 .loopexit70.i.i:                                  ; preds = %.lr.ph204.i.i, %.lr.ph199.i.i, %.lr.ph222.i.i, %.lr.ph218.i49.i, %.loopexit78.i.i, %.preheader77.i.i, %.loopexit72.i.i, %.preheader71.i.i
-  %.33.i.i = phi ptr [ %.26225.i.i, %.loopexit72.i.i ], [ %.26225.i.i, %.loopexit78.i.i ], [ %.29.lcssa.i.i, %.preheader71.i.i ], [ %.36.lcssa.i.i, %.preheader77.i.i ], [ %1722, %.lr.ph199.i.i ], [ %1537, %.lr.ph218.i49.i ], [ %1557, %.lr.ph222.i.i ], [ %1752, %.lr.ph204.i.i ]
+  %.33.i.i = phi ptr [ %.26225.i.i, %.loopexit78.i.i ], [ %.26225.i.i, %.loopexit72.i.i ], [ %.29.lcssa.i.i, %.preheader71.i.i ], [ %1557, %.lr.ph222.i.i ], [ %1537, %.lr.ph218.i49.i ], [ %.36.lcssa.i.i, %.preheader77.i.i ], [ %1722, %.lr.ph199.i.i ], [ %1752, %.lr.ph204.i.i ]
   %1754 = add nuw nsw i32 %.21295224.i.i, 2
   %1755 = or disjoint i32 %1754, 1
   %1756 = icmp slt i32 %1755, %3
@@ -9060,7 +9060,7 @@ _ZN17FastDivider_epu32C2Ej.exit1335.i.i:          ; preds = %552, %_ZN17FastDivi
   br i1 %exitcond327.not.i.i, label %.loopexit.i46.i, label %.lr.ph245.i.i, !llvm.loop !346
 
 .loopexit.i46.i:                                  ; preds = %.lr.ph245.i.i, %.lr.ph241.i.i, %.loopexit65.i.i, %.preheader64.i.i
-  %.45.i.i = phi ptr [ %.40248.i.i, %.loopexit65.i.i ], [ %.43.lcssa.i.i, %.preheader64.i.i ], [ %1887, %.lr.ph241.i.i ], [ %1910, %.lr.ph245.i.i ]
+  %.45.i.i = phi ptr [ %.40248.i.i, %.loopexit65.i.i ], [ %1887, %.lr.ph241.i.i ], [ %.43.lcssa.i.i, %.preheader64.i.i ], [ %1910, %.lr.ph245.i.i ]
   %1912 = add nuw nsw i32 %.31296247.i.i, 1
   %exitcond328.not.i.i = icmp eq i32 %1912, %3
   br i1 %exitcond328.not.i.i, label %_ZN4ncnnL34convolution_im2col_input_tile_int8ERKNS_3MatERS0_iiiiiiiiii.exit, label %1757, !llvm.loop !347
@@ -14013,7 +14013,7 @@ define internal fastcc void @_ZN4ncnnL28gemm_transB_packed_tile_int8ERKNS_3MatES
   br i1 %1211, label %.lr.ph523, label %.preheader3, !llvm.loop !467
 
 ._crit_edge540:                                   ; preds = %._crit_edge533.us, %.lr.ph539.split.split.preheader, %.lr.ph539.split.split.us.preheader, %.preheader3
-  %.23.lcssa = phi ptr [ %.22.lcssa, %.preheader3 ], [ %scevgep769, %.lr.ph539.split.split.preheader ], [ %scevgep771, %.lr.ph539.split.split.us.preheader ], [ %1149, %._crit_edge533.us ]
+  %.23.lcssa = phi ptr [ %.22.lcssa, %.preheader3 ], [ %scevgep771, %.lr.ph539.split.split.us.preheader ], [ %scevgep769, %.lr.ph539.split.split.preheader ], [ %1149, %._crit_edge533.us ]
   %indvars.iv.next775 = add nuw nsw i64 %indvars.iv774, 1
   %exitcond778.not = icmp eq i64 %indvars.iv.next775, %wide.trip.count777
   br i1 %exitcond778.not, label %1031, label %1032, !llvm.loop !468

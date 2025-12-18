@@ -1144,8 +1144,8 @@ _ZN12_GLOBAL__N_118ImplicitNullChecks9canHandleEPKN4llvm12MachineInstrE.exit.i.l
   br label %_ZN12_GLOBAL__N_118ImplicitNullChecks9canHandleEPKN4llvm12MachineInstrE.exit.i
 
 _ZN12_GLOBAL__N_118ImplicitNullChecks9canHandleEPKN4llvm12MachineInstrE.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZN12_GLOBAL__N_118ImplicitNullChecks9canHandleEPKN4llvm12MachineInstrE.exit.i.loopexit.split.loop.exit, %_ZN12_GLOBAL__N_118ImplicitNullChecks9canHandleEPKN4llvm12MachineInstrE.exit.i.loopexit.split.loop.exit201, %_ZN12_GLOBAL__N_118ImplicitNullChecks9canHandleEPKN4llvm12MachineInstrE.exit.i.loopexit.split.loop.exit203, %245, %238, %231
-  %253 = phi ptr [ %230, %238 ], [ %230, %245 ], [ %230, %231 ], [ %200, %_ZN12_GLOBAL__N_118ImplicitNullChecks9canHandleEPKN4llvm12MachineInstrE.exit.i.loopexit.split.loop.exit203 ], [ %200, %_ZN12_GLOBAL__N_118ImplicitNullChecks9canHandleEPKN4llvm12MachineInstrE.exit.i.loopexit.split.loop.exit201 ], [ %200, %_ZN12_GLOBAL__N_118ImplicitNullChecks9canHandleEPKN4llvm12MachineInstrE.exit.i.loopexit.split.loop.exit ], [ %200, %.lr.ph.i.i.i.i.i.i.i ]
-  %.028.i.i.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i.i.i, %238 ], [ %.2.i.i.i.i.i.i.i, %245 ], [ %.029.lcssa.i.i.i.i.i.i.i, %231 ], [ %252, %_ZN12_GLOBAL__N_118ImplicitNullChecks9canHandleEPKN4llvm12MachineInstrE.exit.i.loopexit.split.loop.exit203 ], [ %251, %_ZN12_GLOBAL__N_118ImplicitNullChecks9canHandleEPKN4llvm12MachineInstrE.exit.i.loopexit.split.loop.exit201 ], [ %250, %_ZN12_GLOBAL__N_118ImplicitNullChecks9canHandleEPKN4llvm12MachineInstrE.exit.i.loopexit.split.loop.exit ], [ %.02968.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ]
+  %253 = phi ptr [ %230, %238 ], [ %230, %231 ], [ %230, %245 ], [ %200, %_ZN12_GLOBAL__N_118ImplicitNullChecks9canHandleEPKN4llvm12MachineInstrE.exit.i.loopexit.split.loop.exit ], [ %200, %_ZN12_GLOBAL__N_118ImplicitNullChecks9canHandleEPKN4llvm12MachineInstrE.exit.i.loopexit.split.loop.exit203 ], [ %200, %_ZN12_GLOBAL__N_118ImplicitNullChecks9canHandleEPKN4llvm12MachineInstrE.exit.i.loopexit.split.loop.exit201 ], [ %200, %.lr.ph.i.i.i.i.i.i.i ]
+  %.028.i.i.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i.i.i, %238 ], [ %.029.lcssa.i.i.i.i.i.i.i, %231 ], [ %.2.i.i.i.i.i.i.i, %245 ], [ %250, %_ZN12_GLOBAL__N_118ImplicitNullChecks9canHandleEPKN4llvm12MachineInstrE.exit.i.loopexit.split.loop.exit ], [ %252, %_ZN12_GLOBAL__N_118ImplicitNullChecks9canHandleEPKN4llvm12MachineInstrE.exit.i.loopexit.split.loop.exit203 ], [ %251, %_ZN12_GLOBAL__N_118ImplicitNullChecks9canHandleEPKN4llvm12MachineInstrE.exit.i.loopexit.split.loop.exit201 ], [ %.02968.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ]
   %254 = icmp eq ptr %253, %.028.i.i.i.i.i.i.i
   br i1 %254, label %_ZN12_GLOBAL__N_118ImplicitNullChecks9canHandleEPKN4llvm12MachineInstrE.exit.thread71.i, label %.thread.i
 
@@ -1445,8 +1445,8 @@ _ZN12_GLOBAL__N_118ImplicitNullChecks10canReorderEPKN4llvm12MachineInstrES4_.exi
   br i1 %372, label %_ZN12_GLOBAL__N_118ImplicitNullChecks18isSuitableMemoryOpERKN4llvm12MachineInstrEjNS1_8ArrayRefIPS2_EE.exit.thread, label %_ZN12_GLOBAL__N_118ImplicitNullChecks10canReorderEPKN4llvm12MachineInstrES4_.exit.thread.i.i
 
 _ZN12_GLOBAL__N_118ImplicitNullChecks10canReorderEPKN4llvm12MachineInstrES4_.exit.thread.i.i: ; preds = %.loopexit.i.i.i, %_ZN12_GLOBAL__N_118ImplicitNullChecks10canReorderEPKN4llvm12MachineInstrES4_.exit.i.i, %334
-  %.sroa.09.1.i.i = phi ptr [ %.sroa.09.019.i.i, %334 ], [ %.018.i.i, %_ZN12_GLOBAL__N_118ImplicitNullChecks10canReorderEPKN4llvm12MachineInstrES4_.exit.i.i ], [ %.sroa.09.019.i.i, %.loopexit.i.i.i ]
-  %.sroa.410.1.i.i = phi i8 [ %.sroa.410.020.i.i, %334 ], [ 1, %_ZN12_GLOBAL__N_118ImplicitNullChecks10canReorderEPKN4llvm12MachineInstrES4_.exit.i.i ], [ %.sroa.410.020.i.i, %.loopexit.i.i.i ]
+  %.sroa.09.1.i.i = phi ptr [ %.018.i.i, %_ZN12_GLOBAL__N_118ImplicitNullChecks10canReorderEPKN4llvm12MachineInstrES4_.exit.i.i ], [ %.sroa.09.019.i.i, %334 ], [ %.sroa.09.019.i.i, %.loopexit.i.i.i ]
+  %.sroa.410.1.i.i = phi i8 [ 1, %_ZN12_GLOBAL__N_118ImplicitNullChecks10canReorderEPKN4llvm12MachineInstrES4_.exit.i.i ], [ %.sroa.410.020.i.i, %334 ], [ %.sroa.410.020.i.i, %.loopexit.i.i.i ]
   %373 = getelementptr inbounds nuw i8, ptr %.018.i.i, i64 8
   %.not.i.i32 = icmp eq ptr %373, %331
   br i1 %.not.i.i32, label %374, label %334, !llvm.loop !383
@@ -1605,7 +1605,7 @@ _ZN12_GLOBAL__N_118ImplicitNullChecks10canReorderEPKN4llvm12MachineInstrES4_.exi
   br i1 %440, label %_ZN12_GLOBAL__N_118ImplicitNullChecks18isSuitableMemoryOpERKN4llvm12MachineInstrEjNS1_8ArrayRefIPS2_EE.exit.thread, label %_ZN12_GLOBAL__N_118ImplicitNullChecks10canReorderEPKN4llvm12MachineInstrES4_.exit.thread.i32.i
 
 _ZN12_GLOBAL__N_118ImplicitNullChecks10canReorderEPKN4llvm12MachineInstrES4_.exit.thread.i32.i: ; preds = %.loopexit.i.i30.i, %_ZN12_GLOBAL__N_118ImplicitNullChecks10canReorderEPKN4llvm12MachineInstrES4_.exit.i51.i, %.lr.ph.i20.i
-  %.sroa.410.1.i34.i = phi i8 [ %.sroa.410.020.i21.i, %.lr.ph.i20.i ], [ 1, %_ZN12_GLOBAL__N_118ImplicitNullChecks10canReorderEPKN4llvm12MachineInstrES4_.exit.i51.i ], [ %.sroa.410.020.i21.i, %.loopexit.i.i30.i ]
+  %.sroa.410.1.i34.i = phi i8 [ 1, %_ZN12_GLOBAL__N_118ImplicitNullChecks10canReorderEPKN4llvm12MachineInstrES4_.exit.i51.i ], [ %.sroa.410.020.i21.i, %.lr.ph.i20.i ], [ %.sroa.410.020.i21.i, %.loopexit.i.i30.i ]
   %441 = getelementptr inbounds nuw i8, ptr %.018.i23.i, i64 8
   %.not.i35.i = icmp eq ptr %441, %.sroa.09.1.i.i
   br i1 %.not.i35.i, label %442, label %.lr.ph.i20.i, !llvm.loop !383
@@ -1615,7 +1615,7 @@ _ZN12_GLOBAL__N_118ImplicitNullChecks10canReorderEPKN4llvm12MachineInstrES4_.exi
   br i1 %443, label %_ZN12_GLOBAL__N_118ImplicitNullChecks18isSuitableMemoryOpERKN4llvm12MachineInstrEjNS1_8ArrayRefIPS2_EE.exit.thread, label %_ZN12_GLOBAL__N_118ImplicitNullChecks12canHoistInstEPN4llvm12MachineInstrENS1_8ArrayRefIS3_EEPNS1_17MachineBasicBlockERS3_.exit
 
 _ZN12_GLOBAL__N_118ImplicitNullChecks12canHoistInstEPN4llvm12MachineInstrENS1_8ArrayRefIS3_EEPNS1_17MachineBasicBlockERS3_.exit: ; preds = %442, %.loopexit.i34, %374, %.loopexit
-  %.7 = phi ptr [ null, %374 ], [ null, %.loopexit ], [ %377, %.loopexit.i34 ], [ %377, %442 ]
+  %.7 = phi ptr [ null, %374 ], [ %377, %.loopexit.i34 ], [ null, %.loopexit ], [ %377, %442 ]
   %.val47.i = load ptr, ptr %68, align 8
   call fastcc void @_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_118ImplicitNullChecks9NullCheckEE12emplace_backIJPNS_12MachineInstrERS7_PNS_17MachineBasicBlockERSA_SB_S8_EEERS3_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr nonnull %.sroa.059.096.i, ptr %.val47.i, ptr nonnull align 8 dereferenceable(288) %.sroa.053.097, ptr %.068.i, ptr %storemerge.i, ptr %.7)
   br label %.thread.i
@@ -3256,7 +3256,7 @@ select.unfold:                                    ; preds = %208, %201
   br i1 %.not, label %select.unfold102, label %181
 
 select.unfold102:                                 ; preds = %._crit_edge, %201, %208, %.thread, %159, %_ZNK4llvm12MachineInstr11memoperandsEv.exit, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit72.thread, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit72, %152, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit65.thread, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit65, %120, %88, %42, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit60, %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit
-  %.0 = phi i32 [ 0, %88 ], [ 1, %120 ], [ 0, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit60 ], [ 1, %152 ], [ 0, %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit ], [ 0, %42 ], [ 2, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit65.thread ], [ 1, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit65 ], [ 2, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit72.thread ], [ 1, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit72 ], [ 0, %_ZNK4llvm12MachineInstr11memoperandsEv.exit ], [ 0, %159 ], [ 0, %.thread ], [ 1, %201 ], [ 1, %208 ], [ 0, %._crit_edge ]
+  %.0 = phi i32 [ 0, %88 ], [ 1, %120 ], [ 0, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit60 ], [ 1, %152 ], [ 0, %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit ], [ 0, %42 ], [ 2, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit65.thread ], [ 1, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit65 ], [ 2, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit72.thread ], [ 1, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit72 ], [ 0, %_ZNK4llvm12MachineInstr11memoperandsEv.exit ], [ 1, %201 ], [ 0, %.thread ], [ 0, %159 ], [ 1, %208 ], [ 0, %._crit_edge ]
   ret i32 %.0
 }
 

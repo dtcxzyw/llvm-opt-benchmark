@@ -275,7 +275,7 @@ define void @Extra_ThreshSortByChow(ptr noundef captures(address) %0, i32 nounde
   br i1 %exitcond74.not.i.us.us.us.us.us, label %Abc_TtSwapAdjacent.exit.us.us.us.us.us, label %54, !llvm.loop !17
 
 Abc_TtSwapAdjacent.exit.us.us.us.us.us:           ; preds = %._crit_edge.us.i.us.us.us.us.us, %.lr.ph.i.us.us.us.us.us, %54, %38, %.preheader.lr.ph.i.us.us.us.us.us, %.lr.ph.us.us.us
-  %.1.us.us.us.us.us = phi i32 [ %.02227.us.us.us.us.us, %.lr.ph.us.us.us ], [ 1, %38 ], [ 1, %.preheader.lr.ph.i.us.us.us.us.us ], [ 1, %.lr.ph.i.us.us.us.us.us ], [ 1, %54 ], [ 1, %._crit_edge.us.i.us.us.us.us.us ]
+  %.1.us.us.us.us.us = phi i32 [ %.02227.us.us.us.us.us, %.lr.ph.us.us.us ], [ 1, %.lr.ph.i.us.us.us.us.us ], [ 1, %54 ], [ 1, %38 ], [ 1, %.preheader.lr.ph.i.us.us.us.us.us ], [ 1, %._crit_edge.us.i.us.us.us.us.us ]
   %exitcond75.not = icmp eq i64 %indvars.iv.next72, %wide.trip.count74
   br i1 %exitcond75.not, label %._crit_edge.split.us.us.us.split.us.us, label %.lr.ph.us.us.us.backedge
 
@@ -462,7 +462,7 @@ define void @Extra_ThreshSortByChowInverted(ptr noundef captures(address) %0, i3
   br i1 %exitcond74.not.i.us.us.us.us.us, label %Abc_TtSwapAdjacent.exit.us.us.us.us.us, label %54, !llvm.loop !17
 
 Abc_TtSwapAdjacent.exit.us.us.us.us.us:           ; preds = %._crit_edge.us.i.us.us.us.us.us, %.lr.ph.i.us.us.us.us.us, %54, %38, %.preheader.lr.ph.i.us.us.us.us.us, %.lr.ph.us.us.us
-  %.1.us.us.us.us.us = phi i32 [ %.02227.us.us.us.us.us, %.lr.ph.us.us.us ], [ 1, %38 ], [ 1, %.preheader.lr.ph.i.us.us.us.us.us ], [ 1, %.lr.ph.i.us.us.us.us.us ], [ 1, %54 ], [ 1, %._crit_edge.us.i.us.us.us.us.us ]
+  %.1.us.us.us.us.us = phi i32 [ %.02227.us.us.us.us.us, %.lr.ph.us.us.us ], [ 1, %.lr.ph.i.us.us.us.us.us ], [ 1, %54 ], [ 1, %38 ], [ 1, %.preheader.lr.ph.i.us.us.us.us.us ], [ 1, %._crit_edge.us.i.us.us.us.us.us ]
   %exitcond75.not = icmp eq i64 %indvars.iv.next72, %wide.trip.count74
   br i1 %exitcond75.not, label %._crit_edge.split.us.us.us.split.us.us, label %.lr.ph.us.us.us.backedge
 
@@ -703,7 +703,7 @@ Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us: ; preds = %
   br label %.thread
 
 .thread:                                          ; preds = %.split114.us.split.us.split.us.us.us.us, %16, %3, %.lr.ph.split
-  %.0 = phi i32 [ 10000, %.lr.ph.split ], [ 0, %3 ], [ %.2.us.us.us.us.us.us.us.us.us.us, %16 ], [ 0, %.split114.us.split.us.split.us.us.us.us ]
+  %.0 = phi i32 [ %.2.us.us.us.us.us.us.us.us.us.us, %16 ], [ 10000, %.lr.ph.split ], [ 0, %3 ], [ 0, %.split114.us.split.us.split.us.us.us.us ]
   ret i32 %.0
 }
 
@@ -852,7 +852,7 @@ Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us: ; 
   br label %.thread
 
 .thread:                                          ; preds = %.split157.us.split.us.split.us.us.us.us, %17, %3, %.lr.ph.split
-  %.0 = phi i32 [ 10000, %.lr.ph.split ], [ 0, %3 ], [ %.2.us.us.us.us.us.us.us.us.us.us.us.us.us, %17 ], [ 0, %.split157.us.split.us.split.us.us.us.us ]
+  %.0 = phi i32 [ %.2.us.us.us.us.us.us.us.us.us.us.us.us.us, %17 ], [ 10000, %.lr.ph.split ], [ 0, %3 ], [ 0, %.split157.us.split.us.split.us.us.us.us ]
   ret i32 %.0
 }
 
@@ -1014,7 +1014,7 @@ Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.
   br label %.thread
 
 .thread:                                          ; preds = %.split209.us.split.us.split.us.us.us.us, %18, %3, %.lr.ph.split
-  %.0 = phi i32 [ 10000, %.lr.ph.split ], [ 0, %3 ], [ %.2.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %18 ], [ 0, %.split209.us.split.us.split.us.us.us.us ]
+  %.0 = phi i32 [ %.2.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %18 ], [ 10000, %.lr.ph.split ], [ 0, %3 ], [ 0, %.split209.us.split.us.split.us.us.us.us ]
   ret i32 %.0
 }
 
@@ -1288,7 +1288,7 @@ Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.
   br label %.thread
 
 .thread:                                          ; preds = %.split268.us.split.us.split.us.us.us.us, %22, %3, %..thread.loopexit84_crit_edge.split.us.split.split, %.lr.ph.split, %..thread.loopexit_crit_edge.split.split.split.us.split.us.split.us.split.us.split.us
-  %.0 = phi i32 [ 10000, %.lr.ph.split ], [ 0, %3 ], [ 10000, %..thread.loopexit_crit_edge.split.split.split.us.split.us.split.us.split.us.split.us ], [ 0, %..thread.loopexit84_crit_edge.split.us.split.split ], [ %.2.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %22 ], [ 0, %.split268.us.split.us.split.us.us.us.us ]
+  %.0 = phi i32 [ %.2.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %22 ], [ 10000, %.lr.ph.split ], [ 0, %3 ], [ 0, %..thread.loopexit84_crit_edge.split.us.split.split ], [ 10000, %..thread.loopexit_crit_edge.split.split.split.us.split.us.split.us.split.us.split.us ], [ 0, %.split268.us.split.us.split.us.us.us.us ]
   ret i32 %.0
 }
 
@@ -1586,7 +1586,7 @@ Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.
   br label %.thread
 
 .thread:                                          ; preds = %.split334.us.split.us.split.us.us.us.us, %23, %3, %..thread.loopexit92_crit_edge.split.us.split.split, %.lr.ph.split, %..thread.loopexit_crit_edge.split.split.split.us.split.us.split.us.split.us.split.us.split.us
-  %.0 = phi i32 [ 10000, %.lr.ph.split ], [ 0, %3 ], [ 10000, %..thread.loopexit_crit_edge.split.split.split.us.split.us.split.us.split.us.split.us.split.us ], [ 0, %..thread.loopexit92_crit_edge.split.us.split.split ], [ %.2.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %23 ], [ 0, %.split334.us.split.us.split.us.us.us.us ]
+  %.0 = phi i32 [ %.2.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %23 ], [ 10000, %.lr.ph.split ], [ 0, %3 ], [ 0, %..thread.loopexit92_crit_edge.split.us.split.split ], [ 10000, %..thread.loopexit_crit_edge.split.split.split.us.split.us.split.us.split.us.split.us.split.us ], [ 0, %.split334.us.split.us.split.us.us.us.us ]
   ret i32 %.0
 }
 
@@ -1829,7 +1829,7 @@ Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.
   br label %.thread
 
 .thread:                                          ; preds = %.split407.us.split.us.split.us.us.us.us, %22, %3, %..thread.loopexit100_crit_edge.split.us.split.split, %.lr.ph.split, %..thread.loopexit_crit_edge.split.split.split.us.split.us.split.us.split.us.split.us.split.us.split.us
-  %.0 = phi i32 [ 10000, %.lr.ph.split ], [ 0, %3 ], [ 10000, %..thread.loopexit_crit_edge.split.split.split.us.split.us.split.us.split.us.split.us.split.us.split.us ], [ 0, %..thread.loopexit100_crit_edge.split.us.split.split ], [ %.2.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %22 ], [ 0, %.split407.us.split.us.split.us.us.us.us ]
+  %.0 = phi i32 [ %.2.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %22 ], [ 10000, %.lr.ph.split ], [ 0, %3 ], [ 0, %..thread.loopexit100_crit_edge.split.us.split.split ], [ 10000, %..thread.loopexit_crit_edge.split.split.split.us.split.us.split.us.split.us.split.us.split.us.split.us ], [ 0, %.split407.us.split.us.split.us.us.us.us ]
   ret i32 %.0
 }
 
@@ -2245,7 +2245,7 @@ Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.
   br label %Extra_ThreshSelectWeights3.exit
 
 Extra_ThreshSelectWeights3.exit:                  ; preds = %.split209.us.split.us.split.us.us.us.us.i, %94, %.split157.us.split.us.split.us.us.us.us.i, %57, %.split114.us.split.us.split.us.us.us.us.i, %22, %10, %123, %121, %119, %5
-  %.0 = phi i32 [ %9, %5 ], [ 0, %10 ], [ %120, %119 ], [ %122, %121 ], [ %124, %123 ], [ %.2.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, %94 ], [ %.2.us.us.us.us.us.us.us.us.us.us.i, %22 ], [ 0, %.split114.us.split.us.split.us.us.us.us.i ], [ %.2.us.us.us.us.us.us.us.us.us.us.us.us.us.i, %57 ], [ 0, %.split157.us.split.us.split.us.us.us.us.i ], [ 0, %.split209.us.split.us.split.us.us.us.us.i ]
+  %.0 = phi i32 [ %9, %5 ], [ 0, %10 ], [ 0, %.split114.us.split.us.split.us.us.us.us.i ], [ 0, %.split157.us.split.us.split.us.us.us.us.i ], [ %120, %119 ], [ %122, %121 ], [ %124, %123 ], [ %.2.us.us.us.us.us.us.us.us.us.us.i, %22 ], [ %.2.us.us.us.us.us.us.us.us.us.us.us.us.us.i, %57 ], [ %.2.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, %94 ], [ 0, %.split209.us.split.us.split.us.us.us.us.i ]
   ret i32 %.0
 }
 
@@ -3031,7 +3031,7 @@ Extra_ThreshCubeWeightedSum2.exit.loopexit.us:    ; preds = %155
   br i1 %exitcond302.not, label %._crit_edge259, label %.lr.ph258, !llvm.loop !93
 
 ._crit_edge259:                                   ; preds = %.lr.ph258, %.lr.ph254, %.preheader
-  %.0140.lcssa316 = phi i32 [ %.0140.lcssa, %.preheader ], [ 0, %.lr.ph254 ], [ %.0140.lcssa, %.lr.ph258 ]
+  %.0140.lcssa316 = phi i32 [ 0, %.lr.ph254 ], [ %.0140.lcssa, %.preheader ], [ %.0140.lcssa, %.lr.ph258 ]
   tail call void @free(ptr noundef %12) #20
   %166 = icmp sgt i32 %.0139.lcssa, %.0140.lcssa316
   %.0 = select i1 %166, i32 %.0139.lcssa, i32 0
@@ -3379,13 +3379,13 @@ Abc_TtNegVar.exit.thread.us:                      ; preds = %Abc_TtPosVar.exit.u
   %85 = icmp ult ptr %84, %8
   br i1 %85, label %.preheader.us.i18, label %Abc_TtNegVar.exit.thread, !llvm.loop !103
 
-Abc_TtNegVar.exit.thread:                         ; preds = %._crit_edge.us.i, %32, %._crit_edge.us.i26, %62, %.preheader.lr.ph.i14, %56, %70, %.preheader.lr.ph.i, %26, %40
+Abc_TtNegVar.exit.thread:                         ; preds = %._crit_edge.us.i, %32, %._crit_edge.us.i26, %62, %56, %70, %.preheader.lr.ph.i14, %26, %40, %.preheader.lr.ph.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %Abc_TtPosVar.exit.thread38, label %.lr.ph.split, !llvm.loop !97
 
 Abc_TtPosVar.exit.thread38:                       ; preds = %Abc_TtNegVar.exit.thread, %63, %79, %Abc_TtPosVar.exit.us, %Abc_TtNegVar.exit.thread.us, %2
-  %.09 = phi i32 [ 1, %2 ], [ 0, %63 ], [ 0, %Abc_TtPosVar.exit.us ], [ 0, %79 ], [ 1, %Abc_TtNegVar.exit.thread.us ], [ 1, %Abc_TtNegVar.exit.thread ]
+  %.09 = phi i32 [ 0, %Abc_TtPosVar.exit.us ], [ 0, %63 ], [ 0, %79 ], [ 1, %2 ], [ 1, %Abc_TtNegVar.exit.thread.us ], [ 1, %Abc_TtNegVar.exit.thread ]
   ret i32 %.09
 }
 

@@ -967,7 +967,7 @@ while.end143:                                     ; preds = %while.cond77
   br i1 %cmp55.not, label %return, label %while.cond58.preheader
 
 return:                                           ; preds = %if.end48.i.i, %sw.bb17.i.i, %if.end32.i.i, %sw.epilog.i.i, %if.end.i.i, %if.end.i, %while.end143, %while.end71, %if.then84, %while.end40
-  %retval.0 = phi i32 [ %h.0.lcssa362, %while.end40 ], [ 0, %while.end143 ], [ -7, %if.then84 ], [ -7, %while.end71 ], [ -22, %if.end.i ], [ -22, %if.end.i.i ], [ -22, %sw.epilog.i.i ], [ -22, %if.end32.i.i ], [ -22, %sw.bb17.i.i ], [ -22, %if.end48.i.i ]
+  %retval.0 = phi i32 [ -7, %if.then84 ], [ 0, %while.end143 ], [ %h.0.lcssa362, %while.end40 ], [ -7, %while.end71 ], [ -22, %if.end.i ], [ -22, %if.end.i.i ], [ -22, %sw.epilog.i.i ], [ -22, %if.end32.i.i ], [ -22, %sw.bb17.i.i ], [ -22, %if.end48.i.i ]
   ret i32 %retval.0
 }
 

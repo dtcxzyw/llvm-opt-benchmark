@@ -1387,7 +1387,7 @@ _ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel13G
   br label %.body46.thread.i
 
 .body46.thread.i:                                 ; preds = %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel13GameParameterEED2Ev.exit85.i, %_ZN10open_spiel13GameParameterD2Ev.exit, %.body46.thread132.i, %.body.i.i
-  %.pn32.pn.pn.pn.pn131.i = phi { ptr, i32 } [ %eh.lpad-body.i49.i, %.body46.thread132.i ], [ %.pn32.pn.pn.i, %_ZN10open_spiel13GameParameterD2Ev.exit ], [ %eh.lpad-body.i.i, %.body.i.i ], [ %.pn32.pn.pn.pn244.i, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel13GameParameterEED2Ev.exit85.i ]
+  %.pn32.pn.pn.pn.pn131.i = phi { ptr, i32 } [ %eh.lpad-body.i49.i, %.body46.thread132.i ], [ %eh.lpad-body.i.i, %.body.i.i ], [ %.pn32.pn.pn.i, %_ZN10open_spiel13GameParameterD2Ev.exit ], [ %.pn32.pn.pn.pn244.i, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel13GameParameterEED2Ev.exit85.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %97) #17
   br label %.body.i
 

@@ -733,7 +733,7 @@ lbttcp_tag_find.exit.thread.sink.split:           ; preds = %68, %lbttcp_tag_fin
   br label %lbttcp_tag_find.exit.thread
 
 lbttcp_tag_find.exit.thread:                      ; preds = %50, %lbttcp_tag_find.exit.thread.sink.split, %.preheader.i.i, %lbttcp_tag_locate.exit.i, %68, %67, %lbttcp_tag_find.exit, %4, %7
-  %.0 = phi i1 [ false, %lbttcp_tag_find.exit ], [ false, %4 ], [ false, %67 ], [ false, %7 ], [ false, %68 ], [ false, %lbttcp_tag_locate.exit.i ], [ false, %.preheader.i.i ], [ true, %lbttcp_tag_find.exit.thread.sink.split ], [ false, %50 ]
+  %.0 = phi i1 [ false, %lbttcp_tag_find.exit ], [ true, %lbttcp_tag_find.exit.thread.sink.split ], [ false, %4 ], [ false, %lbttcp_tag_locate.exit.i ], [ false, %67 ], [ false, %7 ], [ false, %68 ], [ false, %.preheader.i.i ], [ false, %50 ]
   ret i1 %.0
 }
 

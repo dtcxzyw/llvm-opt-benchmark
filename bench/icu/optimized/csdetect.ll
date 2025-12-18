@@ -1591,7 +1591,7 @@ define internal noundef i32 @_ZL9enumCountP12UEnumerationP10UErrorCode(ptr nound
   br i1 %exitcond37.not, label %.loopexit, label %16, !llvm.loop !52
 
 .loopexit:                                        ; preds = %.lr.ph.split, %16, %.preheader23, %.preheader, %7
-  %.014 = phi i32 [ %8, %7 ], [ 0, %.preheader ], [ 0, %.preheader23 ], [ %spec.select22, %16 ], [ %spec.select, %.lr.ph.split ]
+  %.014 = phi i32 [ %8, %7 ], [ %spec.select22, %16 ], [ 0, %.preheader ], [ 0, %.preheader23 ], [ %spec.select, %.lr.ph.split ]
   ret i32 %.014
 }
 

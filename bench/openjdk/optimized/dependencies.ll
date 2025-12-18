@@ -5894,7 +5894,7 @@ _ZN14KlassDepChange16involves_contextEP5Klass.exit.thread: ; preds = %_ZN28Abstr
   br label %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit
 
 _ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit: ; preds = %_ZN14KlassDepChange16involves_contextEP5Klass.exit, %24, %._crit_edge, %21
-  %.08 = phi ptr [ %4, %21 ], [ null, %._crit_edge ], [ null, %24 ], [ null, %_ZN14KlassDepChange16involves_contextEP5Klass.exit ]
+  %.08 = phi ptr [ null, %24 ], [ %4, %21 ], [ null, %._crit_edge ], [ null, %_ZN14KlassDepChange16involves_contextEP5Klass.exit ]
   ret ptr %.08
 }
 
@@ -6319,7 +6319,7 @@ _ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit.sink.split: ; pre
   br label %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit
 
 _ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit: ; preds = %.lr.ph.i, %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit.sink.split, %121, %116, %124, %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit44.thread, %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit.thread57, %.loopexit, %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread
-  %.0 = phi i1 [ false, %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread ], [ false, %.loopexit ], [ true, %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit.thread57 ], [ true, %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit44.thread ], [ true, %124 ], [ false, %116 ], [ false, %121 ], [ false, %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit.sink.split ], [ false, %.lr.ph.i ]
+  %.0 = phi i1 [ false, %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread ], [ false, %121 ], [ false, %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit.sink.split ], [ false, %.loopexit ], [ false, %116 ], [ true, %124 ], [ true, %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit.thread57 ], [ true, %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit44.thread ], [ false, %.lr.ph.i ]
   ret i1 %.0
 }
 
@@ -6430,7 +6430,7 @@ define hidden noundef zeroext i1 @_ZN20ConcreteMethodFinder33witnessed_reabstrac
   br i1 %.not18, label %_ZN20ConcreteMethodFinder14record_witnessEP5KlassP6Method.exit, label %.lr.ph, !llvm.loop !51
 
 _ZN20ConcreteMethodFinder14record_witnessEP5KlassP6Method.exit: ; preds = %46, %16, %41, %33, %6, %27, %10, %2
-  %.016 = phi i1 [ false, %2 ], [ false, %6 ], [ false, %10 ], [ false, %27 ], [ false, %41 ], [ true, %33 ], [ true, %16 ], [ true, %46 ]
+  %.016 = phi i1 [ true, %33 ], [ false, %2 ], [ false, %6 ], [ false, %10 ], [ false, %27 ], [ false, %41 ], [ true, %16 ], [ true, %46 ]
   ret i1 %.016
 }
 
@@ -6599,7 +6599,7 @@ _ZN26LinkedConcreteMethodFinder13select_methodEP13InstanceKlass.exit: ; preds = 
   br label %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit
 
 _ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit: ; preds = %.lr.ph.i, %38, %14, %46, %._crit_edge.i, %.loopexit, %_ZN26LinkedConcreteMethodFinder17is_concrete_klassEP13InstanceKlass.exit
-  %.0 = phi i1 [ false, %_ZN26LinkedConcreteMethodFinder17is_concrete_klassEP13InstanceKlass.exit ], [ false, %.loopexit ], [ true, %._crit_edge.i ], [ false, %46 ], [ false, %14 ], [ false, %38 ], [ false, %.lr.ph.i ]
+  %.0 = phi i1 [ false, %_ZN26LinkedConcreteMethodFinder17is_concrete_klassEP13InstanceKlass.exit ], [ false, %14 ], [ false, %.loopexit ], [ false, %38 ], [ false, %46 ], [ true, %._crit_edge.i ], [ false, %.lr.ph.i ]
   ret i1 %.0
 }
 
@@ -8644,7 +8644,7 @@ _ZN12Dependencies17check_evol_methodEP6Method.exit.thread: ; preds = %_ZN12Depen
   br label %_ZN12Dependencies9DepStream21trace_and_log_witnessEP5Klass.exit
 
 _ZN12Dependencies17check_evol_methodEP6Method.exit: ; preds = %33, %_ZN12Dependencies9DepStream12context_typeEv.exit, %22, %_ZN12Dependencies35check_has_no_finalizable_subclassesEP13InstanceKlassP17NewKlassDepChange.exit, %_ZN12Dependencies9DepStream12context_typeEv.exit26, %_ZN12Dependencies9DepStream12context_typeEv.exit22, %_ZN12Dependencies9DepStream12context_typeEv.exit18, %_ZN12Dependencies43check_abstract_with_unique_concrete_subtypeEP13InstanceKlassP5KlassP17NewKlassDepChange.exit
-  %.0 = phi ptr [ %.lcssa.i.i, %_ZN12Dependencies35check_has_no_finalizable_subclassesEP13InstanceKlassP17NewKlassDepChange.exit ], [ %.0.i.i, %_ZN12Dependencies43check_abstract_with_unique_concrete_subtypeEP13InstanceKlassP5KlassP17NewKlassDepChange.exit ], [ %77, %_ZN12Dependencies9DepStream12context_typeEv.exit18 ], [ %82, %_ZN12Dependencies9DepStream12context_typeEv.exit22 ], [ %..i, %_ZN12Dependencies9DepStream12context_typeEv.exit26 ], [ %28, %22 ], [ %30, %_ZN12Dependencies9DepStream12context_typeEv.exit ], [ %34, %33 ]
+  %.0 = phi ptr [ %.lcssa.i.i, %_ZN12Dependencies35check_has_no_finalizable_subclassesEP13InstanceKlassP17NewKlassDepChange.exit ], [ %34, %33 ], [ %30, %_ZN12Dependencies9DepStream12context_typeEv.exit ], [ %.0.i.i, %_ZN12Dependencies43check_abstract_with_unique_concrete_subtypeEP13InstanceKlassP5KlassP17NewKlassDepChange.exit ], [ %77, %_ZN12Dependencies9DepStream12context_typeEv.exit18 ], [ %82, %_ZN12Dependencies9DepStream12context_typeEv.exit22 ], [ %..i, %_ZN12Dependencies9DepStream12context_typeEv.exit26 ], [ %28, %22 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %101 = load i8, ptr @_ZN12Dependencies19_verify_in_progressE, align 1
   %102 = trunc i8 %101 to i1
@@ -8992,7 +8992,7 @@ _ZN12Dependencies28check_call_site_target_valueEP7oopDescS1_P17CallSiteDepChange
   br label %_ZN12Dependencies9DepStream21trace_and_log_witnessEP5Klass.exit
 
 _ZN12Dependencies28check_call_site_target_valueEP7oopDescS1_P17CallSiteDepChange.exit: ; preds = %115, %105, %80, %70
-  %.0 = phi ptr [ %81, %80 ], [ %79, %70 ], [ %114, %105 ], [ %116, %115 ]
+  %.0 = phi ptr [ %116, %115 ], [ %114, %105 ], [ %81, %80 ], [ %79, %70 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %117 = load i8, ptr @_ZN12Dependencies19_verify_in_progressE, align 1
   %118 = trunc i8 %117 to i1
@@ -9182,7 +9182,7 @@ select.unfold:                                    ; preds = %2, %_ZN9DepChange13
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.preheader, %14, %16
-  %.sroa.22.1 = phi i32 [ %17, %16 ], [ 0, %14 ], [ %.sroa.22.0.ph.ph, %.preheader ]
+  %.sroa.22.1 = phi i32 [ 0, %14 ], [ %17, %16 ], [ %.sroa.22.0.ph.ph, %.preheader ]
   %18 = icmp slt i32 %.sroa.19.0.ph, %.sroa.22.1
   br i1 %18, label %25, label %_ZN9DepChange13ContextStream4nextEv.exit
 

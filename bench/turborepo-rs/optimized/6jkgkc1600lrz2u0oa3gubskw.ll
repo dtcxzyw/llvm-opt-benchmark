@@ -5626,9 +5626,9 @@ _RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionIBw_TNtNtCseG2FYMysgNb_3wax5token
   br label %.split13.us.i.i.i.i.i
 
 .split13.us.i.i.i.i.i:                            ; preds = %.noexc5.i.i, %.noexc6.i.i, %.split13.us.i.i.i.sink.split.i.i
-  %.sroa.1038.4.i.i = phi ptr [ %.sroa.1038.5.lcssa.sink.i.i, %.split13.us.i.i.i.sink.split.i.i ], [ %.sroa.625.0.copyload.i.i.i, %.noexc6.i.i ], [ %.sroa.625.0.copyload.i16.i.i, %.noexc5.i.i ]
-  %.sroa.6.i.i.i.sroa.5.3.i.i.i = phi ptr [ %.sroa.6.i.i.i.sroa.5.3.i.ph.i.i, %.split13.us.i.i.i.sink.split.i.i ], [ %.sroa.6.i.i.i.sroa.5.4.i.i.i, %.noexc6.i.i ], [ %.sroa.6.i.i.i.sroa.5.1.i.i.i, %.noexc5.i.i ]
-  %.us-phi.i.i.i.i.i = phi i64 [ %.us-phi.i.i.i.ph.i.i, %.split13.us.i.i.i.sink.split.i.i ], [ %.sroa.07.0.i.us15.i.i.i.i.i, %.noexc6.i.i ], [ %.sroa.07.0.i.us.i.i.i.i.i, %.noexc5.i.i ]
+  %.sroa.1038.4.i.i = phi ptr [ %.sroa.625.0.copyload.i.i.i, %.noexc6.i.i ], [ %.sroa.1038.5.lcssa.sink.i.i, %.split13.us.i.i.i.sink.split.i.i ], [ %.sroa.625.0.copyload.i16.i.i, %.noexc5.i.i ]
+  %.sroa.6.i.i.i.sroa.5.3.i.i.i = phi ptr [ %.sroa.6.i.i.i.sroa.5.4.i.i.i, %.noexc6.i.i ], [ %.sroa.6.i.i.i.sroa.5.3.i.ph.i.i, %.split13.us.i.i.i.sink.split.i.i ], [ %.sroa.6.i.i.i.sroa.5.1.i.i.i, %.noexc5.i.i ]
+  %.us-phi.i.i.i.i.i = phi i64 [ %.sroa.07.0.i.us15.i.i.i.i.i, %.noexc6.i.i ], [ %.us-phi.i.i.i.ph.i.i, %.split13.us.i.i.i.sink.split.i.i ], [ %.sroa.07.0.i.us.i.i.i.i.i, %.noexc5.i.i ]
   store i64 3, ptr %12, align 8, !alias.scope !1337, !noalias !1340
   br label %_RNvXs7_NtCslyFhtC9DD08_9itertools8adaptorsINtB5_8BatchingINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters8peekable8PeekableINtNtCseG2FYMysgNb_3wax5token4WalkTjjEEENCNvMsO_B1U_B1R_6ending0ENtNtNtB10_6traits8iterator8Iterator4nextB1W_.exit.i.i.i
 

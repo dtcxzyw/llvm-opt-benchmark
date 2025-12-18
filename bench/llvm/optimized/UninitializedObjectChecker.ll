@@ -1133,7 +1133,7 @@ _ZNK5clang4ento14FieldChainInfo8containsEPKNS0_11FieldRegionE.exit.sink.split: ;
   br label %_ZNK5clang4ento14FieldChainInfo8containsEPKNS0_11FieldRegionE.exit
 
 _ZNK5clang4ento14FieldChainInfo8containsEPKNS0_11FieldRegionE.exit: ; preds = %.lr.ph.i103, %221, %_ZNK5clang4ento14FieldChainInfo8containsEPKNS0_11FieldRegionE.exit.sink.split, %147, %_ZNK5clang4ento14FieldChainInfo8containsEPKNS0_11FieldRegionE.exit.thread177
-  %.0 = phi i1 [ %.076.lcssa, %_ZNK5clang4ento14FieldChainInfo8containsEPKNS0_11FieldRegionE.exit.thread177 ], [ %.076.lcssa, %147 ], [ %.not, %_ZNK5clang4ento14FieldChainInfo8containsEPKNS0_11FieldRegionE.exit.sink.split ], [ %spec.select90, %221 ], [ false, %.lr.ph.i103 ]
+  %.0 = phi i1 [ %.076.lcssa, %147 ], [ %spec.select90, %221 ], [ %.not, %_ZNK5clang4ento14FieldChainInfo8containsEPKNS0_11FieldRegionE.exit.sink.split ], [ %.076.lcssa, %_ZNK5clang4ento14FieldChainInfo8containsEPKNS0_11FieldRegionE.exit.thread177 ], [ false, %.lr.ph.i103 ]
   ret i1 %.0
 }
 
@@ -2883,7 +2883,7 @@ _ZN5clang11DeclContext22specific_decl_iteratorINS_13CXXMethodDeclEEppEv.exit.i: 
   br i1 %.not306.i, label %.critedge.i, label %643
 
 .critedge.i:                                      ; preds = %629, %_ZN5clang11DeclContext22specific_decl_iteratorINS_13CXXMethodDeclEEppEv.exit.i, %777, %_ZN5clang12ast_matchers8internal7MatcherINS_4StmtEED2Ev.exit117.i
-  %790 = phi i1 [ true, %_ZN5clang12ast_matchers8internal7MatcherINS_4StmtEED2Ev.exit117.i ], [ true, %_ZN5clang11DeclContext22specific_decl_iteratorINS_13CXXMethodDeclEEppEv.exit.i ], [ false, %777 ], [ true, %629 ]
+  %790 = phi i1 [ true, %_ZN5clang11DeclContext22specific_decl_iteratorINS_13CXXMethodDeclEEppEv.exit.i ], [ true, %_ZN5clang12ast_matchers8internal7MatcherINS_4StmtEED2Ev.exit117.i ], [ false, %777 ], [ true, %629 ]
   %791 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %792 = load ptr, ptr %791, align 8, !tbaa !572
   %.not.i.i.i.i161.i = icmp eq ptr %792, null

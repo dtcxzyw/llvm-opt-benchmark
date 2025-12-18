@@ -241,7 +241,7 @@ overlay_fixup_phandle.exit.thread.sink.split.i:   ; preds = %75, %70, %68, %63, 
   br label %overlay_fixup_phandle.exit.thread.i
 
 overlay_fixup_phandle.exit.thread.i:              ; preds = %39, %99, %overlay_fixup_phandle.exit.thread.sink.split.i
-  %.0.i.ph.i = phi i32 [ %.0.i.ph.ph.i, %overlay_fixup_phandle.exit.thread.sink.split.i ], [ %.0.i.i.i, %99 ], [ -13, %39 ]
+  %.0.i.ph.i = phi i32 [ %.0.i.i.i, %99 ], [ %.0.i.ph.ph.i, %overlay_fixup_phandle.exit.thread.sink.split.i ], [ -13, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %overlay_update_local_references.exit.thread43
@@ -268,7 +268,7 @@ overlay_fixup_phandles.exit:                      ; preds = %103, %32, %overlay_
   br i1 %.not40, label %.sink.split, label %overlay_update_local_references.exit.thread43
 
 overlay_update_local_references.exit.thread43:    ; preds = %overlay_fixup_phandle.exit.i, %overlay_fixup_phandle.exit.thread.i, %28, %30, %23, %107, %overlay_fixup_phandles.exit, %overlay_update_local_references.exit, %16, %14
-  %.026 = phi i32 [ %15, %14 ], [ %18, %16 ], [ %25, %overlay_update_local_references.exit ], [ %21, %23 ], [ %106, %overlay_fixup_phandles.exit ], [ %108, %107 ], [ %.0.i.ph.i, %overlay_fixup_phandle.exit.thread.i ], [ %26, %28 ], [ %31, %30 ], [ %38, %overlay_fixup_phandle.exit.i ]
+  %.026 = phi i32 [ %15, %14 ], [ %18, %16 ], [ %25, %overlay_update_local_references.exit ], [ %21, %23 ], [ %106, %overlay_fixup_phandles.exit ], [ %108, %107 ], [ %31, %30 ], [ %.0.i.ph.i, %overlay_fixup_phandle.exit.thread.i ], [ %26, %28 ], [ %38, %overlay_fixup_phandle.exit.i ]
   store i32 -1, ptr %1, align 4
   br label %.sink.split
 
@@ -1008,7 +1008,7 @@ define internal fastcc i32 @overlay_apply_node(ptr noundef %0, i32 noundef range
   br i1 %34, label %.lr.ph60, label %.thread53, !llvm.loop !15
 
 .thread53:                                        ; preds = %14, %30, %32, %28, %25, %._crit_edge, %.thread
-  %.2 = phi i32 [ %.1.ph, %.thread ], [ 0, %._crit_edge ], [ -13, %25 ], [ 0, %32 ], [ %.0, %28 ], [ %31, %30 ], [ %16, %14 ]
+  %.2 = phi i32 [ 0, %._crit_edge ], [ %.1.ph, %.thread ], [ -13, %25 ], [ 0, %32 ], [ %.0, %28 ], [ %31, %30 ], [ %16, %14 ]
   ret i32 %.2
 }
 

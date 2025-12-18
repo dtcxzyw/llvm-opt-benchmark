@@ -647,17 +647,17 @@ _ZN10ttf_parser9Transform10is_default17h310561374b706d35E.exit: ; preds = %193
   br label %311
 
 311:                                              ; preds = %309, %276
-  %.sroa.22.0 = phi i64 [ 0, %276 ], [ %300, %309 ]
-  %.sroa.29.0 = phi i64 [ 0, %276 ], [ %291, %309 ]
-  %312 = phi i64 [ 0, %276 ], [ %292, %309 ]
-  %.sroa.39111.0 = phi i16 [ 0, %276 ], [ %275, %309 ]
-  %313 = phi ptr [ @anon.66413a75bd3e97e6ca35092844b5d7ed.11, %276 ], [ %310, %309 ]
-  %314 = phi ptr [ @anon.66413a75bd3e97e6ca35092844b5d7ed.11, %276 ], [ %305, %309 ]
-  %.sroa.20108.0 = phi ptr [ @anon.66413a75bd3e97e6ca35092844b5d7ed.11, %276 ], [ %301, %309 ]
-  %.sroa.18.0 = phi i16 [ 0, %276 ], [ %297, %309 ]
-  %.sroa.16.0 = phi i16 [ 0, %276 ], [ 1, %309 ]
-  %.val12.i.i = phi i64 [ 0, %276 ], [ %265, %309 ]
-  %.val11.i.i = phi ptr [ @anon.66413a75bd3e97e6ca35092844b5d7ed.11, %276 ], [ %260, %309 ]
+  %.sroa.22.0 = phi i64 [ %300, %309 ], [ 0, %276 ]
+  %.sroa.29.0 = phi i64 [ %291, %309 ], [ 0, %276 ]
+  %312 = phi i64 [ %292, %309 ], [ 0, %276 ]
+  %.sroa.39111.0 = phi i16 [ %275, %309 ], [ 0, %276 ]
+  %313 = phi ptr [ %310, %309 ], [ @anon.66413a75bd3e97e6ca35092844b5d7ed.11, %276 ]
+  %314 = phi ptr [ %305, %309 ], [ @anon.66413a75bd3e97e6ca35092844b5d7ed.11, %276 ]
+  %.sroa.20108.0 = phi ptr [ %301, %309 ], [ @anon.66413a75bd3e97e6ca35092844b5d7ed.11, %276 ]
+  %.sroa.18.0 = phi i16 [ %297, %309 ], [ 0, %276 ]
+  %.sroa.16.0 = phi i16 [ 1, %309 ], [ 0, %276 ]
+  %.val12.i.i = phi i64 [ %265, %309 ], [ 0, %276 ]
+  %.val11.i.i = phi ptr [ %260, %309 ], [ @anon.66413a75bd3e97e6ca35092844b5d7ed.11, %276 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !158
   %.not.i92226 = icmp eq i16 %.sroa.39111.0, 0
   br i1 %.not.i92226, label %.loopexit, label %.lr.ph227
@@ -3571,10 +3571,10 @@ _ZN10ttf_parser6tables3svg16SvgDocumentsList4find17h603d677cde62fc58E.exit.threa
   br i1 %.not6.i.i, label %.loopexit223.i, label %299
 
 .loopexit223.i:                                   ; preds = %299, %296, %305, %.thread174.i
-  %.sroa.010.0242.i = phi ptr [ %.sroa.010.0.lcssa.i, %.thread174.i ], [ %.sroa.010.0249.i, %305 ], [ %.sroa.010.0249.i, %296 ], [ %.sroa.010.0249.i, %299 ]
-  %.sroa.028.0.i = phi i1 [ true, %.thread174.i ], [ %306, %305 ], [ true, %296 ], [ true, %299 ]
-  %.sroa.429.0.i = phi i64 [ undef, %.thread174.i ], [ %.sroa.8.i.sroa.8.0.copyload.i, %305 ], [ undef, %296 ], [ undef, %299 ]
-  %.sroa.530.0.i = phi i64 [ undef, %.thread174.i ], [ %.sroa.8.i.sroa.9.0.copyload.i, %305 ], [ undef, %296 ], [ undef, %299 ]
+  %.sroa.010.0242.i = phi ptr [ %.sroa.010.0249.i, %305 ], [ %.sroa.010.0.lcssa.i, %.thread174.i ], [ %.sroa.010.0249.i, %296 ], [ %.sroa.010.0249.i, %299 ]
+  %.sroa.028.0.i = phi i1 [ %306, %305 ], [ true, %.thread174.i ], [ true, %296 ], [ true, %299 ]
+  %.sroa.429.0.i = phi i64 [ %.sroa.8.i.sroa.8.0.copyload.i, %305 ], [ undef, %.thread174.i ], [ undef, %296 ], [ undef, %299 ]
+  %.sroa.530.0.i = phi i64 [ %.sroa.8.i.sroa.9.0.copyload.i, %305 ], [ undef, %.thread174.i ], [ undef, %296 ], [ undef, %299 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6146.sroa.0.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %27), !noalias !560
   %.not.i = icmp eq ptr %.sroa.010.0242.i, null
@@ -7050,7 +7050,7 @@ _ZN10ttf_parser6tables4glyf5Table7outline17h4ce9d5e6ee9deaa8E.exit.i.i: ; preds 
   br label %303
 
 299:                                              ; preds = %.noexc12.i, %.noexc10.i, %_ZN10ttf_parser6tables4glyf5Table7outline17h4ce9d5e6ee9deaa8E.exit.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf360a8afff34f752E.exit.i._crit_edge.i"
-  %300 = phi i16 [ %.pre.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf360a8afff34f752E.exit.i._crit_edge.i" ], [ %not.trunc.i.i, %.noexc12.i ], [ %not.trunc14.i.i, %.noexc10.i ], [ %279, %_ZN10ttf_parser6tables4glyf5Table7outline17h4ce9d5e6ee9deaa8E.exit.i.i ]
+  %300 = phi i16 [ %.pre.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf360a8afff34f752E.exit.i._crit_edge.i" ], [ %not.trunc.i.i, %.noexc12.i ], [ %279, %_ZN10ttf_parser6tables4glyf5Table7outline17h4ce9d5e6ee9deaa8E.exit.i.i ], [ %not.trunc14.i.i, %.noexc10.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !1447
   %trunc.i49 = trunc nuw i16 %300 to i1
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !1447

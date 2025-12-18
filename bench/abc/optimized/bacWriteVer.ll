@@ -2746,7 +2746,7 @@ Vec_StrPush.exit.i611:                            ; preds = %883, %Vec_StrGrow.e
   br i1 %exitcond.not.i613, label %.lr.ph.i210.sink.split.i, label %.lr.ph.i605, !llvm.loop !46
 
 .lr.ph.i210.sink.split.i:                         ; preds = %Vec_StrPush.exit.i203.i, %Vec_StrPush.exit.i190.i, %Vec_StrPush.exit.i177.i, %Vec_StrPush.exit.i164.i, %Vec_StrPush.exit.i611, %859, %Vec_StrPush.exit.i138.i, %684
-  %.sink280.i = phi i32 [ -1, %684 ], [ -1, %Vec_StrPush.exit.i138.i ], [ -2, %859 ], [ -2, %Vec_StrPush.exit.i190.i ], [ -2, %Vec_StrPush.exit.i611 ], [ -2, %Vec_StrPush.exit.i164.i ], [ -2, %Vec_StrPush.exit.i177.i ], [ -2, %Vec_StrPush.exit.i203.i ]
+  %.sink280.i = phi i32 [ -1, %684 ], [ -1, %Vec_StrPush.exit.i138.i ], [ -2, %Vec_StrPush.exit.i177.i ], [ -2, %Vec_StrPush.exit.i164.i ], [ -2, %Vec_StrPush.exit.i611 ], [ -2, %Vec_StrPush.exit.i190.i ], [ -2, %859 ], [ -2, %Vec_StrPush.exit.i203.i ]
   %890 = add nsw i32 %.sink280.i, %565
   tail call fastcc void @Bac_ManWriteSig(ptr noundef nonnull readonly %0, i32 noundef %890)
   br label %.lr.ph.i210.i.preheader
@@ -6076,7 +6076,7 @@ Vec_StrPrintStr.exit272:                          ; preds = %Vec_StrPrintStr.exi
   br i1 %exitcond454.not, label %.backedge, label %Vec_StrPrintStr.exit272, !llvm.loop !66
 
 .backedge:                                        ; preds = %Vec_StrPrintStr.exit272, %Vec_StrPrintStr.exit255, %Vec_StrPush.exit.i292, %Bac_ManFindRealIndex.exit, %Bac_ManFindRealIndex.exit378, %Bac_ObjGetRange.exit, %Vec_StrPrintStr.exit255.preheader, %Vec_StrPrintStr.exit272.preheader, %393
-  %.0145.be = phi i32 [ %320, %393 ], [ %.0143.lcssa, %Vec_StrPrintStr.exit272.preheader ], [ %.0143.lcssa, %Vec_StrPrintStr.exit255.preheader ], [ %.2.lcssa, %Bac_ObjGetRange.exit ], [ %.2.lcssa, %Bac_ManFindRealIndex.exit378 ], [ %320, %Bac_ManFindRealIndex.exit ], [ %.1144.lcssa, %Vec_StrPush.exit.i292 ], [ %.0143.lcssa, %Vec_StrPrintStr.exit255 ], [ %.0143.lcssa, %Vec_StrPrintStr.exit272 ]
+  %.0145.be = phi i32 [ %320, %Bac_ManFindRealIndex.exit ], [ %.1144.lcssa, %Vec_StrPush.exit.i292 ], [ %320, %393 ], [ %.0143.lcssa, %Vec_StrPrintStr.exit272.preheader ], [ %.0143.lcssa, %Vec_StrPrintStr.exit255 ], [ %.0143.lcssa, %Vec_StrPrintStr.exit255.preheader ], [ %.2.lcssa, %Bac_ObjGetRange.exit ], [ %.2.lcssa, %Bac_ManFindRealIndex.exit378 ], [ %.0143.lcssa, %Vec_StrPrintStr.exit272 ]
   %.not153 = icmp sgt i32 %.0145.be, %1
   br i1 %.not153, label %.lr.ph.i379, label %138, !llvm.loop !67
 
@@ -8461,7 +8461,7 @@ Vec_StrPush.exit.i443:                            ; preds = %722, %Vec_StrGrow.e
   br i1 %exitcond.not.i445, label %Vec_StrPrintStr.exit449, label %.lr.ph.i437, !llvm.loop !46
 
 Vec_StrPrintStr.exit449:                          ; preds = %Vec_StrPush.exit.i443, %Vec_StrPush.exit.i430, %Vec_StrPrintStr.exit436
-  %.2137515 = phi i32 [ %.1136552, %Vec_StrPrintStr.exit436 ], [ 7, %Vec_StrPush.exit.i430 ], [ %.1136552, %Vec_StrPush.exit.i443 ]
+  %.2137515 = phi i32 [ 7, %Vec_StrPush.exit.i430 ], [ %.1136552, %Vec_StrPrintStr.exit436 ], [ %.1136552, %Vec_StrPush.exit.i443 ]
   %.val.i.i.i = load ptr, ptr %649, align 8, !tbaa !42
   %729 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 %indvars.iv584
   %730 = load i8, ptr %729, align 1, !tbaa !43

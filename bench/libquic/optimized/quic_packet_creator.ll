@@ -4196,7 +4196,7 @@ _ZNSt10_HashtableIhSt4pairIKhmESaIS2_ENSt8__detail10_Select1stESt8equal_toIhESt4
   br label %common.resume
 
 _ZNSt13unordered_mapIhmSt4hashIhESt8equal_toIhESaISt4pairIKhmEEEixERS5_.exit: ; preds = %37, %32, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %33, %32 ], [ %48, %.loopexit.i.i ], [ %39, %37 ]
+  %.pn.i.i = phi ptr [ %48, %.loopexit.i.i ], [ %33, %32 ], [ %39, %37 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   store i64 %23, ptr %.1.i.i, align 8, !tbaa !102
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 280
@@ -4259,13 +4259,13 @@ _ZNSt13unordered_mapIhmSt4hashIhESt8equal_toIhESaISt4pairIKhmEEEixERS5_.exit: ; 
   br label %_ZNSt13unordered_mapIhmSt4hashIhESt8equal_toIhESaISt4pairIKhmEEE4findERS5_.exit.thread, !llvm.loop !210
 
 _ZNSt13unordered_mapIhmSt4hashIhESt8equal_toIhESaISt4pairIKhmEEE4findERS5_.exit: ; preds = %71, %55, %66
-  %.sroa.06.1.i.i = phi ptr [ %67, %66 ], [ %.sroa.06.0.i.i, %55 ], [ %73, %71 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %55 ], [ %67, %66 ], [ %73, %71 ]
   %79 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %80 = load i64, ptr %79, align 8, !tbaa !213
   br label %_ZNSt13unordered_mapIhmSt4hashIhESt8equal_toIhESaISt4pairIKhmEEE4findERS5_.exit.thread
 
 _ZNSt13unordered_mapIhmSt4hashIhESt8equal_toIhESaISt4pairIKhmEEE4findERS5_.exit.thread: ; preds = %.lr.ph.i.i.i.i11, %54, %59, %..loopexit_crit_edge21.i.i.i.i15, %_ZNSt13unordered_mapIhmSt4hashIhESt8equal_toIhESaISt4pairIKhmEEE4findERS5_.exit
-  %81 = phi i64 [ %80, %_ZNSt13unordered_mapIhmSt4hashIhESt8equal_toIhESaISt4pairIKhmEEE4findERS5_.exit ], [ 0, %..loopexit_crit_edge21.i.i.i.i15 ], [ 0, %59 ], [ 0, %54 ], [ 0, %.lr.ph.i.i.i.i11 ]
+  %81 = phi i64 [ %80, %_ZNSt13unordered_mapIhmSt4hashIhESt8equal_toIhESaISt4pairIKhmEEE4findERS5_.exit ], [ 0, %..loopexit_crit_edge21.i.i.i.i15 ], [ 0, %54 ], [ 0, %59 ], [ 0, %.lr.ph.i.i.i.i11 ]
   store i64 %81, ptr %22, align 8, !tbaa !100
   store i8 %1, ptr %6, align 4, !tbaa !185
   %82 = icmp ne i8 %1, 0

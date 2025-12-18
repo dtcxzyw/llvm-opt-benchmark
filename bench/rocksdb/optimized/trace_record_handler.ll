@@ -757,7 +757,7 @@ _ZNSt10unique_ptrIN7rocksdb17TraceRecordResultESt14default_deleteIS1_EE5resetEPS
   br label %156
 
 _ZNSt13unordered_mapIjPN7rocksdb18ColumnFamilyHandleESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit: ; preds = %43, %25, %38
-  %.sroa.06.1.i.i = phi ptr [ %39, %38 ], [ %.sroa.06.0.i.i, %25 ], [ %45, %43 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %25 ], [ %39, %38 ], [ %45, %43 ]
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %54 = load ptr, ptr %53, align 8, !tbaa !72
   %55 = load ptr, ptr %54, align 8, !tbaa !4
@@ -1215,7 +1215,7 @@ _ZNSt10unique_ptrIN7rocksdb17TraceRecordResultESt14default_deleteIS1_EE5resetEPS
   br label %386
 
 _ZNSt13unordered_mapIjPN7rocksdb18ColumnFamilyHandleESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit: ; preds = %53, %35, %48
-  %.sroa.06.1.i.i = phi ptr [ %49, %48 ], [ %.sroa.06.0.i.i, %35 ], [ %55, %53 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %35 ], [ %49, %48 ], [ %55, %53 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 104
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %9, ptr noundef nonnull align 8 dereferenceable(168) %63, i64 120, i1 false)
@@ -2286,7 +2286,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit62:                  ; preds = %82, %79, %77
   br label %150
 
 _ZNSt13unordered_mapIjPN7rocksdb18ColumnFamilyHandleESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit: ; preds = %109, %93, %104
-  %.sroa.06.1.i.i = phi ptr [ %105, %104 ], [ %.sroa.06.0.i.i, %93 ], [ %111, %109 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %93 ], [ %105, %104 ], [ %111, %109 ]
   %121 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %122 = load ptr, ptr %76, align 8, !tbaa !57
   %123 = load ptr, ptr %39, align 8, !tbaa !138
@@ -3950,7 +3950,7 @@ _ZNSt10_HashtableIjSt4pairIKjPN7rocksdb18ColumnFamilyHandleEESaIS5_ENSt8__detail
   resume { ptr, i32 } %45
 
 _ZNKSt10_HashtableIjSt4pairIKjPN7rocksdb18ColumnFamilyHandleEESaIS5_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS1_m.exit: ; preds = %34, %18, %29
-  %.sroa.042.0.ph = phi ptr [ %30, %29 ], [ %.sroa.034.0, %18 ], [ %36, %34 ]
+  %.sroa.042.0.ph = phi ptr [ %.sroa.034.0, %18 ], [ %30, %29 ], [ %36, %34 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 24) #20
   br label %_ZNSt10_HashtableIjSt4pairIKjPN7rocksdb18ColumnFamilyHandleEESaIS5_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 

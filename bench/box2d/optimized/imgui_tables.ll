@@ -10269,7 +10269,7 @@ define dso_local void @_ZN5ImGui22TableSortSpecsSanitizeEP10ImGuiTable(ptr nound
   br i1 %exitcond140.not, label %.thread84, label %94, !llvm.loop !553
 
 .thread84:                                        ; preds = %110, %._crit_edge105.us, %86, %88, %1, %102, %.loopexit
-  %.6 = phi i32 [ 0, %88 ], [ %.1, %.loopexit ], [ 1, %102 ], [ 0, %1 ], [ %.1, %._crit_edge105.us ], [ 1, %86 ], [ 0, %110 ]
+  %.6 = phi i32 [ 0, %88 ], [ %.1, %.loopexit ], [ 1, %102 ], [ 1, %86 ], [ 0, %1 ], [ %.1, %._crit_edge105.us ], [ 0, %110 ]
   %111 = trunc i32 %.6 to i16
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 512
   store i16 %111, ptr %112, align 8, !tbaa !372
@@ -10647,7 +10647,7 @@ _ZN5ImGui19TableGetColumnCountEv.exit:            ; preds = %99
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %146, %99, %_ZN5ImGui19TableGetColumnCountEv.exit
-  %106 = phi i32 [ %104, %_ZN5ImGui19TableGetColumnCountEv.exit ], [ 0, %99 ], [ %104, %146 ]
+  %106 = phi i32 [ 0, %99 ], [ %104, %_ZN5ImGui19TableGetColumnCountEv.exit ], [ %104, %146 ]
   %107 = tail call <2 x float> @_ZN5ImGui11GetMousePosEv()
   %108 = tail call noundef zeroext i1 @_ZN5ImGui15IsMouseReleasedEi(i32 noundef 1)
   br i1 %108, label %147, label %_ZN5ImGui20TableOpenContextMenuEi.exit
@@ -14566,8 +14566,8 @@ tailrecurse:                                      ; preds = %.split
   br label %.split31.us.sink.split
 
 .split31.us.sink.split:                           ; preds = %71, %tailrecurse, %115, %.thread.us35
-  %.sink = phi float [ %113, %.thread.us35 ], [ %1, %115 ], [ %1, %tailrecurse ], [ %.tr29.us, %71 ]
-  %.0.sink = phi i32 [ %.0.us36, %.thread.us35 ], [ %116, %115 ], [ %0, %tailrecurse ], [ %.0.us, %71 ]
+  %.sink = phi float [ %1, %tailrecurse ], [ %113, %.thread.us35 ], [ %1, %115 ], [ %.tr29.us, %71 ]
+  %.0.sink = phi i32 [ %0, %tailrecurse ], [ %.0.us36, %.thread.us35 ], [ %116, %115 ], [ %.0.us, %71 ]
   %117 = fsub float %.sink, %13
   %118 = fdiv float %117, %16
   %119 = sext i32 %.0.sink to i64

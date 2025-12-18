@@ -534,7 +534,7 @@ define dso_local void @llvm_emit_builtin_args_types3(ptr noundef %0, ptr noundef
   br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %17, %7, %13
-  %.054 = phi i32 [ 0, %13 ], [ 0, %7 ], [ %15, %17 ]
+  %.054 = phi i32 [ 0, %7 ], [ 0, %13 ], [ %15, %17 ]
   %.not42 = icmp eq ptr %4, null
   br i1 %.not42, label %24, label %22
 

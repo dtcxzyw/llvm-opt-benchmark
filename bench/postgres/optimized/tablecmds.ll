@@ -4235,9 +4235,9 @@ thread-pre-split.i.i:                             ; preds = %174, %172, %170
   br i1 %.not.i.i, label %.thread.i.i, label %.lr.ph.i.i.backedge
 
 .lr.ph.i.i.backedge:                              ; preds = %177, %.thread
-  %.0108.i.be = phi i32 [ %.1109.i, %177 ], [ 0, %.thread ]
-  %.0.i.be = phi i32 [ %.1.i, %177 ], [ %.3.i, %.thread ]
-  %.be = phi ptr [ %178, %177 ], [ %179, %.thread ]
+  %.0108.i.be = phi i32 [ 0, %.thread ], [ %.1109.i, %177 ]
+  %.0.i.be = phi i32 [ %.3.i, %.thread ], [ %.1.i, %177 ]
+  %.be = phi ptr [ %179, %.thread ], [ %178, %177 ]
   br label %.lr.ph.i.i
 
 .thread:                                          ; preds = %thread-pre-split.i.i
@@ -18587,7 +18587,7 @@ switch.lookup:                                    ; preds = %55
   ]
 
 .critedge61:                                      ; preds = %114, %76, %.lr.ph13.split.us.split, %.lr.ph13.split.split, %.critedge
-  %.051.lcssa = phi ptr [ null, %.critedge ], [ null, %.lr.ph13.split.us.split ], [ null, %.lr.ph13.split.split ], [ %.1.us, %76 ], [ %.1, %114 ]
+  %.051.lcssa = phi ptr [ null, %.critedge ], [ null, %.lr.ph13.split.split ], [ null, %.lr.ph13.split.us.split ], [ %.1.us, %76 ], [ %.1, %114 ]
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %87 = load ptr, ptr %86, align 8
   %88 = load ptr, ptr %8, align 8
@@ -20907,9 +20907,9 @@ define internal fastcc { i64, i32 } @ATExecSetNotNull(ptr noundef nonnull captur
   br i1 %143, label %.lr.ph134, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph134, %129, %.lr.ph.split, %86, %84, %128
-  %.sroa.687.1 = phi i32 [ 0, %128 ], [ 0, %86 ], [ %.sroa.687.0.copyload, %84 ], [ 0, %.lr.ph.split ], [ 0, %129 ], [ 0, %.lr.ph134 ]
-  %.sroa.085.sroa.0.1 = phi i64 [ 2606, %128 ], [ 2606, %86 ], [ %85, %84 ], [ 2606, %.lr.ph.split ], [ 2606, %129 ], [ 2606, %.lr.ph134 ]
-  %.sroa.085.sroa.4.1 = phi i32 [ %124, %128 ], [ %89, %86 ], [ %.sroa.085.sroa.4.0.extract.trunc, %84 ], [ %124, %.lr.ph.split ], [ %124, %129 ], [ %124, %.lr.ph134 ]
+  %.sroa.687.1 = phi i32 [ 0, %128 ], [ %.sroa.687.0.copyload, %84 ], [ 0, %86 ], [ 0, %129 ], [ 0, %.lr.ph.split ], [ 0, %.lr.ph134 ]
+  %.sroa.085.sroa.0.1 = phi i64 [ 2606, %128 ], [ %85, %84 ], [ 2606, %86 ], [ 2606, %129 ], [ 2606, %.lr.ph.split ], [ 2606, %.lr.ph134 ]
+  %.sroa.085.sroa.4.1 = phi i32 [ %124, %128 ], [ %.sroa.085.sroa.4.0.extract.trunc, %84 ], [ %89, %86 ], [ %124, %129 ], [ %124, %.lr.ph.split ], [ %124, %.lr.ph134 ]
   %.sroa.085.sroa.4.0.insert.ext = zext i32 %.sroa.085.sroa.4.1 to i64
   %.sroa.085.sroa.4.0.insert.shift = shl nuw i64 %.sroa.085.sroa.4.0.insert.ext, 32
   %.sroa.085.sroa.0.0.insert.insert = or disjoint i64 %.sroa.085.sroa.4.0.insert.shift, %.sroa.085.sroa.0.1
@@ -24325,11 +24325,11 @@ define internal fastcc range(i32 0, 33) i32 @transformColumnNameList(i32 noundef
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit115, %.critedge.loopexit111, %.critedge.loopexit107, %.critedge.loopexit, %.lr.ph.split.us.split.split, %.lr.ph.split.us.split.us.split, %.lr.ph.split.split.split, %.lr.ph.split.split.us.split, %5
-  %.026.lcssa = phi i32 [ 0, %5 ], [ 0, %.lr.ph.split.split.us.split ], [ %87, %.critedge.loopexit111 ], [ %85, %.critedge.loopexit ], [ 0, %.lr.ph.split.split.split ], [ %88, %.critedge.loopexit115 ], [ 0, %.lr.ph.split.us.split.us.split ], [ %86, %.critedge.loopexit107 ], [ 0, %.lr.ph.split.us.split.split ]
+  %.026.lcssa = phi i32 [ 0, %5 ], [ %86, %.critedge.loopexit107 ], [ 0, %.lr.ph.split.split.split ], [ 0, %.lr.ph.split.split.us.split ], [ 0, %.lr.ph.split.us.split.split ], [ %85, %.critedge.loopexit ], [ %87, %.critedge.loopexit111 ], [ %88, %.critedge.loopexit115 ], [ 0, %.lr.ph.split.us.split.us.split ]
   ret i32 %.026.lcssa
 
 .split.us:                                        ; preds = %.lr.ph72, %.lr.ph78, %.lr.ph95, %.lr.ph102
-  %.us-phi44 = phi ptr [ %59, %.lr.ph78 ], [ %14, %.lr.ph102 ], [ %35, %.lr.ph95 ], [ %83, %.lr.ph72 ]
+  %.us-phi44 = phi ptr [ %14, %.lr.ph102 ], [ %35, %.lr.ph95 ], [ %59, %.lr.ph78 ], [ %83, %.lr.ph72 ]
   %89 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
   %90 = tail call i32 @errcode(i32 noundef 50360452) #15
   %91 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.348, ptr noundef %.us-phi44) #15
@@ -27275,9 +27275,9 @@ define internal fastcc void @RemoveInheritance(ptr noundef readonly captures(non
   call void @heap_freetuple(ptr noundef nonnull %154) #15
   br label %.loopexit.thread
 
-.loopexit.thread:                                 ; preds = %153, %137, %.preheader137, %.lr.ph153, %.lr.ph165, %.preheader138, %173, %.lr.ph185
-  %.7113 = phi ptr [ %.3109182, %.lr.ph185 ], [ %.4110, %173 ], [ null, %.preheader137 ], [ %.3109182, %.lr.ph153 ], [ %.3109182, %.lr.ph165 ], [ %.3109182, %.preheader138 ], [ %.3109182, %137 ], [ %.3109182, %153 ]
-  %.7 = phi ptr [ %.3183, %.lr.ph185 ], [ %.6, %173 ], [ %.3183, %.preheader137 ], [ %.3183, %.lr.ph153 ], [ %.3183, %.lr.ph165 ], [ null, %.preheader138 ], [ %.3183, %137 ], [ %.3183, %153 ]
+.loopexit.thread:                                 ; preds = %153, %137, %.lr.ph165, %.lr.ph153, %.preheader137, %.preheader138, %173, %.lr.ph185
+  %.7113 = phi ptr [ %.3109182, %.lr.ph185 ], [ %.4110, %173 ], [ %.3109182, %137 ], [ %.3109182, %.preheader138 ], [ %.3109182, %.lr.ph165 ], [ %.3109182, %.lr.ph153 ], [ null, %.preheader137 ], [ %.3109182, %153 ]
+  %.7 = phi ptr [ %.3183, %.lr.ph185 ], [ %.6, %173 ], [ %.3183, %137 ], [ null, %.preheader138 ], [ %.3183, %.lr.ph165 ], [ %.3183, %.lr.ph153 ], [ %.3183, %.preheader137 ], [ %.3183, %153 ]
   %175 = call ptr @systable_getnext(ptr noundef %116) #15
   %.not125 = icmp eq ptr %175, null
   br i1 %.not125, label %._crit_edge186, label %.lr.ph185
@@ -29612,7 +29612,7 @@ slot_getallattrs.exit:                            ; preds = %194, %200
   br i1 %289, label %.lr.ph330, label %.critedge261
 
 .critedge261:                                     ; preds = %286, %.critedge259, %.lr.ph327, %191
-  %.0221 = phi ptr [ %.0216, %191 ], [ %.0217, %.lr.ph327 ], [ %.0217, %.critedge259 ], [ %.0217, %286 ]
+  %.0221 = phi ptr [ %.0216, %191 ], [ %.0217, %.critedge259 ], [ %.0217, %.lr.ph327 ], [ %.0217, %286 ]
   store ptr %.0221, ptr %178, align 8
   br i1 %.not247, label %.critedge263, label %.lr.ph332
 

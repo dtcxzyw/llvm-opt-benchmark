@@ -405,7 +405,7 @@ Abc_AigNodeIsChoice.exit.thread:                  ; preds = %53, %Vec_IntFree.ex
   br i1 %105, label %44, label %.critedge2.preheader, !llvm.loop !52
 
 .critedge4.preheader:                             ; preds = %.critedge6, %9, %.critedge.preheader, %.critedge2.preheader
-  %.0.lcssa189 = phi i1 [ %43, %.critedge2.preheader ], [ true, %.critedge.preheader ], [ true, %9 ], [ %43, %.critedge6 ]
+  %.0.lcssa189 = phi i1 [ true, %9 ], [ %43, %.critedge2.preheader ], [ true, %.critedge.preheader ], [ %43, %.critedge6 ]
   %106 = getelementptr i8, ptr %0, i64 64
   %.val130153 = load ptr, ptr %106, align 8, !tbaa !53
   %107 = getelementptr i8, ptr %.val130153, i64 4

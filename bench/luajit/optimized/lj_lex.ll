@@ -230,7 +230,7 @@ lex_newline.exit.thread:                          ; preds = %69
   unreachable
 
 .loopexit:                                        ; preds = %lex_next.exit41, %15, %19, %22, %lex_newline.exit, %lex_newline.exit.thread
-  %.036 = phi i32 [ 0, %lex_newline.exit.thread ], [ %.mux, %lex_newline.exit ], [ 0, %22 ], [ 0, %19 ], [ 0, %15 ], [ 0, %lex_next.exit41 ]
+  %.036 = phi i32 [ 0, %lex_newline.exit.thread ], [ %.mux, %lex_newline.exit ], [ 0, %15 ], [ 0, %22 ], [ 0, %19 ], [ 0, %lex_next.exit41 ]
   ret i32 %.036
 }
 

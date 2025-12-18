@@ -439,7 +439,7 @@ bitstring_skip.exit.i:                            ; preds = %188, %bitstring_loo
   br label %do_uncompress.exit
 
 do_uncompress.exit:                               ; preds = %152, %167, %176, %bitstring_skip.exit.i.i, %28, %PrefixCodeTreeRebuild.exit.thread.i, %.critedge.i
-  %.0.i = phi i8 [ 0, %28 ], [ 0, %PrefixCodeTreeRebuild.exit.thread.i ], [ 0, %.critedge.i ], [ 0, %bitstring_skip.exit.i.i ], [ 0, %167 ], [ 0, %176 ], [ 1, %152 ]
+  %.0.i = phi i8 [ 0, %28 ], [ 0, %.critedge.i ], [ 0, %PrefixCodeTreeRebuild.exit.thread.i ], [ 0, %bitstring_skip.exit.i.i ], [ 0, %167 ], [ 1, %152 ], [ 0, %176 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store volatile i8 %.0.i, ptr %8, align 1
   br label %204

@@ -996,8 +996,8 @@ define hidden range(i32 0, 2) i32 @timelib_timezone_id_is_valid(ptr noundef %0, 
   br label %22
 
 22:                                               ; preds = %20, %17
-  %.224.i = phi i32 [ %18, %17 ], [ %.022.i, %20 ]
-  %.220.i = phi i32 [ %.018.i, %17 ], [ %21, %20 ]
+  %.224.i = phi i32 [ %.022.i, %20 ], [ %18, %17 ]
+  %.220.i = phi i32 [ %21, %20 ], [ %.018.i, %17 ]
   %.not26.i = icmp sgt i32 %.220.i, %.224.i
   br i1 %.not26.i, label %seek_to_tz_position.exit, label %8
 
@@ -1047,8 +1047,8 @@ define hidden noundef ptr @timelib_parse_tzfile(ptr noundef %0, ptr noundef read
   br label %24
 
 24:                                               ; preds = %22, %19
-  %.224.i = phi i32 [ %20, %19 ], [ %.022.i, %22 ]
-  %.220.i = phi i32 [ %.018.i, %19 ], [ %23, %22 ]
+  %.224.i = phi i32 [ %.022.i, %22 ], [ %20, %19 ]
+  %.220.i = phi i32 [ %23, %22 ], [ %.018.i, %19 ]
   %.not26.i = icmp sgt i32 %.220.i, %.224.i
   br i1 %.not26.i, label %.loopexit93, label %10
 
@@ -1301,7 +1301,7 @@ skip_32bit_transitions.exit:                      ; preds = %read_preamble.exit
   br label %147
 
 .loopexit:                                        ; preds = %132, %121, %143
-  %.0102.i.ph = phi i32 [ 1, %143 ], [ 1, %121 ], [ 2, %132 ]
+  %.0102.i.ph = phi i32 [ 1, %121 ], [ 1, %143 ], [ 2, %132 ]
   store i32 %.0102.i.ph, ptr %2, align 4, !tbaa !73
   tail call void @timelib_tzinfo_dtor(ptr noundef %34)
   br label %308

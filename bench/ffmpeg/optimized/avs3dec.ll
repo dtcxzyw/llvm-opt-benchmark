@@ -92,7 +92,7 @@ define internal range(i32 0, 101) i32 @avs3video_probe(ptr noundef readonly capt
   br label %.loopexit
 
 .loopexit:                                        ; preds = %25, %20, %17, %1, %33, %._crit_edge
-  %.034 = phi i32 [ 0, %._crit_edge ], [ %spec.select, %33 ], [ 0, %1 ], [ 0, %17 ], [ 0, %20 ], [ 0, %25 ]
+  %.034 = phi i32 [ %spec.select, %33 ], [ 0, %._crit_edge ], [ 0, %1 ], [ 0, %17 ], [ 0, %20 ], [ 0, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.034
 }

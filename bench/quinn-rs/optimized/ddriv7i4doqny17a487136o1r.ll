@@ -2879,7 +2879,7 @@ select.unfold83.i:                                ; preds = %._crit_edge.i.i.i.i
   %cond = icmp eq i64 %474, 0
   br i1 %cond, label %478, label %.thread474
 
-.thread479:                                       ; preds = %select.unfold83.i, %.noexc449
+.thread479:                                       ; preds = %.noexc449, %select.unfold83.i
   %477 = invoke noundef align 8 dereferenceable_or_null(72) ptr @_ZN11quinn_proto6packet13PartialDecode14initial_header17hedbcd6e6ea799dc3E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %233)
           to label %509 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 

@@ -3939,7 +3939,7 @@ _ZN6Method13set_has_loopsEv.exit.sink.split:      ; preds = %_ZN20Bytecode_table
   br label %_ZN6Method13set_has_loopsEv.exit
 
 _ZN6Method13set_has_loopsEv.exit:                 ; preds = %194, %130, %86, %60, %201, %_ZN6Method13set_has_loopsEv.exit.sink.split
-  %.09 = phi i1 [ %204, %_ZN6Method13set_has_loopsEv.exit.sink.split ], [ true, %130 ], [ false, %201 ], [ true, %60 ], [ true, %86 ], [ true, %194 ]
+  %.09 = phi i1 [ true, %86 ], [ true, %130 ], [ true, %60 ], [ %204, %_ZN6Method13set_has_loopsEv.exit.sink.split ], [ false, %201 ], [ true, %194 ]
   %205 = getelementptr inbounds nuw i8, ptr %2, i64 8
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %205) #24
   ret i1 %.09
@@ -5913,25 +5913,25 @@ _ZNK6Method20is_always_compilableEv.exit.i:       ; preds = %10, %_ZNK6Method21n
 18:                                               ; preds = %_ZNK6Method20is_always_compilableEv.exit.i
   %19 = add i32 %1, -1
   %20 = icmp ult i32 %19, 3
-  br i1 %20, label %21, label %25
+  br i1 %20, label %_ZNK6Method17is_not_compilableEi.exit, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %23 = load i32, ptr %22, align 8
-  %24 = and i32 %23, 512
-  %.not14 = icmp ne i32 %24, 0
-  br label %_ZNK6Method17is_not_compilableEi.exit.thread7
-
-25:                                               ; preds = %18
   %cond = icmp eq i32 %1, 4
-  br i1 %cond, label %_ZNK6Method17is_not_compilableEi.exit, label %_ZNK6Method17is_not_compilableEi.exit.thread7
+  br i1 %cond, label %22, label %_ZNK6Method17is_not_compilableEi.exit.thread7
 
-_ZNK6Method17is_not_compilableEi.exit:            ; preds = %25
+22:                                               ; preds = %21
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %24 = load i32, ptr %23, align 8
+  %25 = and i32 %24, 256
+  %.not = icmp eq i32 %25, 0
+  br i1 %.not, label %.thread12, label %_ZNK6Method17is_not_compilableEi.exit.thread7
+
+_ZNK6Method17is_not_compilableEi.exit:            ; preds = %18
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %27 = load i32, ptr %26, align 8
-  %28 = and i32 %27, 256
-  %.not = icmp eq i32 %28, 0
-  br i1 %.not, label %.thread12, label %_ZNK6Method17is_not_compilableEi.exit.thread7
+  %28 = and i32 %27, 512
+  %.not14 = icmp ne i32 %28, 0
+  br label %_ZNK6Method17is_not_compilableEi.exit.thread7
 
 29:                                               ; preds = %10
   %30 = icmp eq i32 %1, -1
@@ -5970,14 +5970,14 @@ _ZNK6Method17is_not_compilableEi.exit:            ; preds = %25
   %.pre = load i32, ptr %.phi.trans.insert, align 8
   br label %.thread12
 
-.thread12:                                        ; preds = %..thread12_crit_edge, %_ZNK6Method17is_not_compilableEi.exit
-  %41 = phi i32 [ %.pre, %..thread12_crit_edge ], [ %27, %_ZNK6Method17is_not_compilableEi.exit ]
+.thread12:                                        ; preds = %..thread12_crit_edge, %22
+  %41 = phi i32 [ %.pre, %..thread12_crit_edge ], [ %24, %22 ]
   %42 = and i32 %41, 1024
   %43 = icmp ne i32 %42, 0
   br label %_ZNK6Method17is_not_compilableEi.exit.thread7
 
-_ZNK6Method17is_not_compilableEi.exit.thread7:    ; preds = %21, %25, %.thread..thread.thread_crit_edge, %14, %_ZNK6Method21number_of_breakpointsEv.exit.i, %39, %.thread10, %34, %_ZNK6Method17is_not_compilableEi.exit, %.thread12
-  %.0 = phi i1 [ %36, %34 ], [ true, %_ZNK6Method17is_not_compilableEi.exit ], [ true, %_ZNK6Method21number_of_breakpointsEv.exit.i ], [ %43, %.thread12 ], [ false, %.thread10 ], [ false, %39 ], [ %.not14, %21 ], [ true, %14 ], [ %38, %.thread..thread.thread_crit_edge ], [ false, %25 ]
+_ZNK6Method17is_not_compilableEi.exit.thread7:    ; preds = %_ZNK6Method17is_not_compilableEi.exit, %21, %.thread..thread.thread_crit_edge, %14, %_ZNK6Method21number_of_breakpointsEv.exit.i, %22, %39, %.thread10, %34, %.thread12
+  %.0 = phi i1 [ %36, %34 ], [ %.not14, %_ZNK6Method17is_not_compilableEi.exit ], [ true, %_ZNK6Method21number_of_breakpointsEv.exit.i ], [ %43, %.thread12 ], [ false, %.thread10 ], [ false, %39 ], [ true, %22 ], [ true, %14 ], [ %38, %.thread..thread.thread_crit_edge ], [ false, %21 ]
   ret i1 %.0
 }
 

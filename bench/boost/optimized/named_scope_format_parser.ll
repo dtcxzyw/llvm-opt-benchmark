@@ -514,7 +514,7 @@ _ZN5boost3log11v2_mt_posix11expressions3aux9anonymous11skip_spacesEPKcS6_.exit10
   br label %_ZN5boost3log11v2_mt_posix11expressions3aux9anonymous11skip_spacesEPKcS6_.exit102
 
 _ZN5boost3log11v2_mt_posix11expressions3aux9anonymous11skip_spacesEPKcS6_.exit102: ; preds = %.preheader112, %38, %.preheader, %33, %_ZN5boost3log11v2_mt_posix11expressions3aux9anonymous11skip_spacesEPKcS6_.exit102.sink.split, %13, %17, %_ZN5boost3log11v2_mt_posix11expressions3aux9anonymous11skip_spacesEPKcS6_.exit, %109, %105, %4, %9
-  %.084 = phi i1 [ false, %13 ], [ false, %4 ], [ false, %9 ], [ false, %_ZN5boost3log11v2_mt_posix11expressions3aux9anonymous11skip_spacesEPKcS6_.exit ], [ false, %109 ], [ false, %105 ], [ false, %17 ], [ true, %_ZN5boost3log11v2_mt_posix11expressions3aux9anonymous11skip_spacesEPKcS6_.exit102.sink.split ], [ false, %.preheader ], [ false, %33 ], [ false, %38 ], [ false, %.preheader112 ]
+  %.084 = phi i1 [ false, %13 ], [ false, %4 ], [ false, %9 ], [ false, %.preheader ], [ false, %105 ], [ false, %109 ], [ false, %_ZN5boost3log11v2_mt_posix11expressions3aux9anonymous11skip_spacesEPKcS6_.exit ], [ false, %17 ], [ true, %_ZN5boost3log11v2_mt_posix11expressions3aux9anonymous11skip_spacesEPKcS6_.exit102.sink.split ], [ false, %33 ], [ false, %38 ], [ false, %.preheader112 ]
   ret i1 %.084
 }
 
@@ -605,7 +605,7 @@ define hidden noundef zeroext i1 @_ZN5boost3log11v2_mt_posix11expressions3aux9an
   br i1 %30, label %22, label %.outer.i.i
 
 .outer.i.i:                                       ; preds = %29, %23, %27, %25
-  %.114.i.i = phi i32 [ %26, %25 ], [ %28, %27 ], [ %.013.ph21.i.i, %23 ], [ %.013.ph21.i.i, %29 ]
+  %.114.i.i = phi i32 [ %28, %27 ], [ %26, %25 ], [ %.013.ph21.i.i, %23 ], [ %.013.ph21.i.i, %29 ]
   %32 = getelementptr inbounds nuw i8, ptr %.012.i.i, i64 1
   %.not23.i.i = icmp eq i32 %.114.i.i, 0
   br i1 %.not23.i.i, label %_ZN5boost3log11v2_mt_posix11expressions3aux9anonymous24skip_template_parametersEPKcS6_.exit.i, label %.outer.split.i.i, !llvm.loop !11
@@ -776,7 +776,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost3log11v2_mt_posix11expressions3
   br i1 %22, label %14, label %.outer.i
 
 .outer.i:                                         ; preds = %21, %15, %19, %17
-  %.114.i = phi i32 [ %18, %17 ], [ %20, %19 ], [ %.013.ph21.i, %15 ], [ %.013.ph21.i, %21 ]
+  %.114.i = phi i32 [ %20, %19 ], [ %18, %17 ], [ %.013.ph21.i, %15 ], [ %.013.ph21.i, %21 ]
   %24 = getelementptr inbounds nuw i8, ptr %.012.i, i64 1
   %.not23.i = icmp eq i32 %.114.i, 0
   br i1 %.not23.i, label %_ZN5boost3log11v2_mt_posix11expressions3aux9anonymous24skip_template_parametersEPKcS6_.exit, label %.outer.split.i, !llvm.loop !11

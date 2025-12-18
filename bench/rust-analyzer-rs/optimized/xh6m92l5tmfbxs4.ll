@@ -3257,7 +3257,7 @@ define void @_ZN14proc_macro_api3msg4flat8FlatTree7new_raw17hc6ad1cb5cb885d82E(p
   br label %50
 
 .loopexit.split-lp:                               ; preds = %3, %.noexc, %53, %54
-  %.0.ph = phi i1 [ true, %.noexc ], [ true, %3 ], [ false, %53 ], [ false, %54 ]
+  %.0.ph = phi i1 [ true, %3 ], [ true, %.noexc ], [ false, %53 ], [ false, %54 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %50

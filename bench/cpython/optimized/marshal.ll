@@ -1295,8 +1295,8 @@ w_reserve.exit37:                                 ; preds = %93
   br label %w_reserve.exit37.thread
 
 w_reserve.exit37.thread:                          ; preds = %91, %110, %127, %w_reserve.exit37
-  %132 = phi ptr [ %122, %w_reserve.exit37 ], [ %.pre70.pre, %127 ], [ %89, %110 ], [ null, %91 ]
-  %133 = phi ptr [ %121, %w_reserve.exit37 ], [ %.pr65.pre, %127 ], [ %90, %110 ], [ %90, %91 ]
+  %132 = phi ptr [ null, %91 ], [ %122, %w_reserve.exit37 ], [ %.pre70.pre, %127 ], [ %89, %110 ]
+  %133 = phi ptr [ %90, %91 ], [ %121, %w_reserve.exit37 ], [ %.pr65.pre, %127 ], [ %90, %110 ]
   %.not24 = icmp eq ptr %133, %132
   br i1 %.not24, label %134, label %170
 
@@ -7114,7 +7114,7 @@ r_short.exit56.i43:                               ; preds = %92
   br i1 %.not.i48, label %.sink.split, label %109
 
 .sink.split:                                      ; preds = %97, %64, %.thread72.i47, %.thread72.i
-  %.str.30.sink = phi ptr [ @.str.30, %.thread72.i ], [ @.str.30, %.thread72.i47 ], [ @.str.29, %64 ], [ @.str.29, %97 ]
+  %.str.30.sink = phi ptr [ @.str.30, %.thread72.i47 ], [ @.str.29, %64 ], [ @.str.30, %.thread72.i ], [ @.str.29, %97 ]
   %108 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !29
   call void @PyErr_SetString(ptr noundef %108, ptr noundef nonnull %.str.30.sink) #12
   br label %109

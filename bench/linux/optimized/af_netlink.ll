@@ -1304,7 +1304,7 @@ define dso_local i32 @netlink_unicast(ptr noundef %0, ptr noundef %1, i32 nounde
   br label %.thread8
 
 .thread8:                                         ; preds = %.thread8.loopexit, %51, %53, %54, %42
-  %59 = phi i32 [ -111, %42 ], [ -111, %54 ], [ -111, %53 ], [ -111, %51 ], [ %58, %.thread8.loopexit ]
+  %59 = phi i32 [ -111, %51 ], [ -111, %42 ], [ -111, %54 ], [ -111, %53 ], [ %58, %.thread8.loopexit ]
   tail call void @kfree_skb_reason(ptr noundef %10, i32 noundef 2) #23
   br label %.thread10
 
@@ -1465,7 +1465,7 @@ define dso_local i32 @netlink_unicast(ptr noundef %0, ptr noundef %1, i32 nounde
   br label %.thread10
 
 .thread10:                                        ; preds = %138, %134, %136, %122, %124, %140, %137, %125, %.thread8
-  %142 = phi i32 [ %59, %.thread8 ], [ %141, %140 ], [ %119, %125 ], [ %119, %122 ], [ %131, %137 ], [ %119, %124 ], [ %131, %136 ], [ %131, %134 ], [ %139, %138 ]
+  %142 = phi i32 [ %59, %.thread8 ], [ %141, %140 ], [ %131, %134 ], [ %119, %125 ], [ %119, %122 ], [ %131, %137 ], [ %119, %124 ], [ %131, %136 ], [ %139, %138 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %142
 }
@@ -6173,7 +6173,7 @@ netlink_realloc_groups.exit:                      ; preds = %39, %50, %54, %63
   br label %129
 
 129:                                              ; preds = %22, %106, %120, %126, %127, %128
-  %130 = phi i64 [ 7, %128 ], [ 6, %127 ], [ 5, %126 ], [ 2, %106 ], [ 1, %22 ], [ 4, %120 ]
+  %130 = phi i64 [ 7, %128 ], [ 6, %127 ], [ 5, %126 ], [ 4, %120 ], [ 1, %22 ], [ 2, %106 ]
   %131 = getelementptr inbounds nuw i8, ptr %9, i64 744
   %132 = load i32, ptr %7, align 4
   %133 = icmp eq i32 %132, 0

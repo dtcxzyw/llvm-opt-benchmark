@@ -3918,7 +3918,7 @@ _ZNK5clang4Type13isIntegerTypeEv.exit.thread:     ; preds = %43, %36, %51, %_ZNK
   br label %59
 
 59:                                               ; preds = %1, %.fold.split, %_ZNK5clang4Type13isIntegerTypeEv.exit.thread, %4, %25, %_ZNK5clang4Type13isIntegerTypeEv.exit, %51, %36
-  %.0 = phi i32 [ 1, %1 ], [ 3, %_ZNK5clang4Type13isIntegerTypeEv.exit.thread ], [ 0, %4 ], [ 5, %25 ], [ 2, %_ZNK5clang4Type13isIntegerTypeEv.exit ], [ 2, %51 ], [ 2, %36 ], [ 4, %.fold.split ]
+  %.0 = phi i32 [ 2, %36 ], [ 1, %1 ], [ 3, %_ZNK5clang4Type13isIntegerTypeEv.exit.thread ], [ 0, %4 ], [ 5, %25 ], [ 2, %_ZNK5clang4Type13isIntegerTypeEv.exit ], [ 2, %51 ], [ 4, %.fold.split ]
   ret i32 %.0
 }
 
@@ -9505,7 +9505,7 @@ _ZNK5clang13ReferenceType14getPointeeTypeEv.exit: ; preds = %_ZNK5clang4Type6cas
   br label %.thread
 
 .thread:                                          ; preds = %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit, %8, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread, %_ZNK5clang13ReferenceType14getPointeeTypeEv.exit
-  %47 = phi i32 [ 1, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread ], [ %46, %_ZNK5clang13ReferenceType14getPointeeTypeEv.exit ], [ 0, %8 ], [ 0, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit ]
+  %47 = phi i32 [ %46, %_ZNK5clang13ReferenceType14getPointeeTypeEv.exit ], [ 1, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread ], [ 0, %8 ], [ 0, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit ]
   ret i32 %47
 }
 

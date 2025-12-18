@@ -2663,7 +2663,7 @@ define internal fastcc i32 @i2c_register_adapter(ptr noundef %0) unnamed_addr #1
   br i1 %151, label %152, label %154
 
 152:                                              ; preds = %136, %140, %148
-  %153 = phi ptr [ @.str.76, %140 ], [ @.str.76, %136 ], [ @.str.77, %148 ]
+  %153 = phi ptr [ @.str.77, %148 ], [ @.str.76, %140 ], [ @.str.76, %136 ]
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %50, ptr noundef nonnull @.str.78, ptr noundef nonnull %153) #24
   br label %.critedge
 
@@ -3247,7 +3247,7 @@ define dso_local ptr @i2c_get_adapter_by_fwnode(ptr noundef %0) #1 align 16 {
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %3, %1, %13
-  %16 = phi ptr [ %10, %13 ], [ null, %1 ], [ null, %3 ], [ null, %.thread.sink.split ]
+  %16 = phi ptr [ null, %3 ], [ %10, %13 ], [ null, %1 ], [ null, %.thread.sink.split ]
   ret ptr %16
 }
 

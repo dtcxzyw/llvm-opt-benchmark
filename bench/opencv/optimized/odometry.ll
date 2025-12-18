@@ -12572,7 +12572,7 @@ _ZNK2cv5Rect_IiE8containsIiEEbRKNS_6Point_IT_EE.exit.thread.us.i: ; preds = %261
   br i1 %278, label %.lr.ph.split.us.i, label %._crit_edge.i, !llvm.loop !362
 
 ._crit_edge.i:                                    ; preds = %_ZNK2cv5Rect_IiE8containsIiEEbRKNS_6Point_IT_EE.exit.thread.i, %_ZNK2cv5Rect_IiE8containsIiEEbRKNS_6Point_IT_EE.exit.thread.us.i, %.thread.i, %226
-  %279 = phi i32 [ %234, %.thread.i ], [ %232, %226 ], [ %276, %_ZNK2cv5Rect_IiE8containsIiEEbRKNS_6Point_IT_EE.exit.thread.us.i ], [ %328, %_ZNK2cv5Rect_IiE8containsIiEEbRKNS_6Point_IT_EE.exit.thread.i ]
+  %279 = phi i32 [ %276, %_ZNK2cv5Rect_IiE8containsIiEEbRKNS_6Point_IT_EE.exit.thread.us.i ], [ %234, %.thread.i ], [ %232, %226 ], [ %328, %_ZNK2cv5Rect_IiE8containsIiEEbRKNS_6Point_IT_EE.exit.thread.i ]
   %indvars.iv.next205.i = add nuw nsw i64 %indvars.iv204.i, 1
   %280 = load i32, ptr %164, align 8, !tbaa !113
   %281 = sext i32 %280 to i64
@@ -13338,7 +13338,7 @@ _ZNK2cv5Rect_IiE8containsIiEEbRKNS_6Point_IT_EE.exit.thread.us.i83: ; preds = %5
   br i1 %585, label %.lr.ph.split.us.i76, label %._crit_edge.i59, !llvm.loop !371
 
 ._crit_edge.i59:                                  ; preds = %_ZNK2cv5Rect_IiE8containsIiEEbRKNS_6Point_IT_EE.exit.thread.i71, %_ZNK2cv5Rect_IiE8containsIiEEbRKNS_6Point_IT_EE.exit.thread.us.i83, %.thread.i87, %534
-  %586 = phi i32 [ %542, %.thread.i87 ], [ %540, %534 ], [ %583, %_ZNK2cv5Rect_IiE8containsIiEEbRKNS_6Point_IT_EE.exit.thread.us.i83 ], [ %634, %_ZNK2cv5Rect_IiE8containsIiEEbRKNS_6Point_IT_EE.exit.thread.i71 ]
+  %586 = phi i32 [ %583, %_ZNK2cv5Rect_IiE8containsIiEEbRKNS_6Point_IT_EE.exit.thread.us.i83 ], [ %542, %.thread.i87 ], [ %540, %534 ], [ %634, %_ZNK2cv5Rect_IiE8containsIiEEbRKNS_6Point_IT_EE.exit.thread.i71 ]
   %indvars.iv.next205.i60 = add nuw nsw i64 %indvars.iv204.i58, 1
   %587 = load i32, ptr %472, align 8, !tbaa !113
   %588 = sext i32 %587 to i64

@@ -8265,14 +8265,14 @@ define hidden void @"_ZN96_$LT$$RF$mut$u20$csv..deserializer..DeRecordWrap$LT$T$
   br i1 %.not42.i, label %"_ZN4core3num21_$LT$impl$u20$u64$GT$16from_ascii_radix17h1058f2fa72d27353E.exit.thread85", label %.lr.ph.split.i
 
 "_ZN4core3num21_$LT$impl$u20$u64$GT$16from_ascii_radix17h1058f2fa72d27353E.exit.thread85": ; preds = %.preheader50.split.i, %124, %.preheader50.split.us.i, %79
-  %.sroa.16.090 = phi i64 [ %129, %124 ], [ %84, %79 ], [ %.sroa.013.0.us.i, %.preheader50.split.us.i ], [ %105, %.preheader50.split.i ]
+  %.sroa.16.090 = phi i64 [ %84, %79 ], [ %129, %124 ], [ %.sroa.013.0.us.i, %.preheader50.split.us.i ], [ %105, %.preheader50.split.i ]
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.16.090, ptr %130, align 8, !alias.scope !1402
   store i64 2, ptr %0, align 8, !alias.scope !1402
   br label %132
 
 "_ZN4core3num21_$LT$impl$u20$u64$GT$16from_ascii_radix17h1058f2fa72d27353E.exit.thread": ; preds = %115, %.lr.ph, %.lr.ph.split.i, %59, %67, %69, %.lr.ph.split.us.i, %95, %95, %85, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3f56ada1c4bf45b8E.exit.thread", %52, %52
-  %.sroa.3.083 = phi i8 [ 1, %52 ], [ 0, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3f56ada1c4bf45b8E.exit.thread" ], [ 1, %52 ], [ 1, %.lr.ph.split.us.i ], [ 0, %85 ], [ 1, %95 ], [ 1, %95 ], [ 2, %67 ], [ 1, %.lr.ph.split.i ], [ 2, %69 ], [ 1, %59 ], [ 1, %.lr.ph ], [ 2, %115 ]
+  %.sroa.3.083 = phi i8 [ 2, %67 ], [ 1, %52 ], [ 1, %52 ], [ 0, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3f56ada1c4bf45b8E.exit.thread" ], [ 1, %95 ], [ 1, %.lr.ph.split.i ], [ 1, %.lr.ph.split.us.i ], [ 0, %85 ], [ 1, %95 ], [ 2, %69 ], [ 1, %59 ], [ 1, %.lr.ph ], [ 2, %115 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %131 = getelementptr inbounds nuw i8, ptr %3, i64 1

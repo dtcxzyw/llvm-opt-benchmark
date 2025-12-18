@@ -1410,7 +1410,7 @@ define dso_local noundef zeroext i1 @_ZN5ImGui14ButtonBehaviorERK6ImRectjPbS3_i(
   br label %116
 
 116:                                              ; preds = %.sink.split285, %99, %101, %83, %82
-  %.3 = phi i8 [ %.0200, %101 ], [ %.0200, %99 ], [ %.0200, %83 ], [ %.0200, %82 ], [ 1, %.sink.split285 ]
+  %.3 = phi i8 [ %.0200, %82 ], [ %.0200, %83 ], [ %.0200, %101 ], [ %.0200, %99 ], [ 1, %.sink.split285 ]
   %117 = and i32 %.1, 128
   %118 = icmp ne i32 %117, 0
   %119 = icmp ne i32 %.1209, -1
@@ -8687,7 +8687,7 @@ define dso_local noundef zeroext i1 @_ZN5ImGui21DataTypeApplyFromTextEPKciPvS1_S
   br i1 %.not22.i.i, label %_Z20ImParseFormatFindEndPKc.exit.i, label %.preheader.i.i, !llvm.loop !346
 
 _Z20ImParseFormatFindEndPKc.exit.i:               ; preds = %.thread.i.i, %43, %34
-  %.019.i.i = phi ptr [ %35, %34 ], [ %44, %43 ], [ %45, %.thread.i.i ]
+  %.019.i.i = phi ptr [ %44, %43 ], [ %35, %34 ], [ %45, %.thread.i.i ]
   %47 = icmp ult ptr %3, %.019.i.i
   br i1 %47, label %.lr.ph.i, label %_Z32ImParseFormatSanitizeForScanningPKcPcm.exit
 
@@ -8861,7 +8861,7 @@ define dso_local noundef ptr @_Z32ImParseFormatSanitizeForScanningPKcPcm(ptr nou
   br i1 %.not22.i, label %_Z20ImParseFormatFindEndPKc.exit, label %.preheader.i, !llvm.loop !346
 
 _Z20ImParseFormatFindEndPKc.exit:                 ; preds = %.thread.i, %13, %22
-  %.019.i = phi ptr [ %14, %13 ], [ %23, %22 ], [ %24, %.thread.i ]
+  %.019.i = phi ptr [ %23, %22 ], [ %14, %13 ], [ %24, %.thread.i ]
   %26 = icmp ult ptr %0, %.019.i
   br i1 %26, label %.lr.ph, label %._crit_edge
 
@@ -9269,7 +9269,7 @@ define dso_local noundef zeroext i1 @_ZN5ImGui13DataTypeClampEiPvPKvS2_(i32 noun
   br label %_ZL14DataTypeClampTIaEbPT_PKS0_S3_.exit
 
 _ZL14DataTypeClampTIaEbPT_PKS0_S3_.exit:          ; preds = %.sink.split.i73, %101, %100, %.sink.split.i68, %91, %90, %.sink.split.i63, %81, %80, %.sink.split.i58, %71, %70, %.sink.split.i53, %61, %60, %.sink.split.i48, %51, %50, %.sink.split.i44, %41, %40, %.sink.split.i39, %31, %30, %.sink.split.i34, %21, %20, %.sink.split.i, %11, %10, %4
-  %.0 = phi i1 [ true, %.sink.split.i68 ], [ false, %4 ], [ true, %.sink.split.i ], [ true, %.sink.split.i34 ], [ true, %.sink.split.i39 ], [ true, %.sink.split.i44 ], [ true, %.sink.split.i48 ], [ true, %.sink.split.i53 ], [ true, %.sink.split.i58 ], [ true, %.sink.split.i63 ], [ false, %11 ], [ false, %10 ], [ false, %21 ], [ false, %20 ], [ false, %31 ], [ false, %30 ], [ false, %41 ], [ false, %40 ], [ false, %51 ], [ false, %50 ], [ false, %61 ], [ false, %60 ], [ false, %71 ], [ false, %70 ], [ false, %81 ], [ false, %80 ], [ false, %91 ], [ false, %90 ], [ false, %101 ], [ false, %100 ], [ true, %.sink.split.i73 ]
+  %.0 = phi i1 [ true, %.sink.split.i68 ], [ false, %4 ], [ true, %.sink.split.i ], [ true, %.sink.split.i34 ], [ true, %.sink.split.i39 ], [ true, %.sink.split.i44 ], [ true, %.sink.split.i48 ], [ true, %.sink.split.i53 ], [ true, %.sink.split.i58 ], [ true, %.sink.split.i63 ], [ false, %10 ], [ false, %11 ], [ false, %20 ], [ false, %21 ], [ false, %30 ], [ false, %31 ], [ false, %40 ], [ false, %41 ], [ false, %50 ], [ false, %51 ], [ false, %60 ], [ false, %61 ], [ false, %70 ], [ false, %71 ], [ false, %80 ], [ false, %81 ], [ false, %90 ], [ false, %91 ], [ false, %100 ], [ false, %101 ], [ true, %.sink.split.i73 ]
   ret i1 %.0
 }
 
@@ -9914,7 +9914,7 @@ _ZL6ImAtoiIiEPKcS1_PT_.exit.i:                    ; preds = %.lr.ph.i27.i, %73
   br label %_Z22ImParseFormatPrecisionPKci.exit
 
 _Z22ImParseFormatPrecisionPKci.exit:              ; preds = %67, %97, %96, %95, %90, %90, %61, %60
-  %98 = phi i32 [ 0, %60 ], [ -1, %90 ], [ -1, %90 ], [ 3, %61 ], [ -1, %96 ], [ %.031.i, %95 ], [ %spec.select, %97 ], [ 3, %67 ]
+  %98 = phi i32 [ 0, %60 ], [ -1, %90 ], [ %.031.i, %95 ], [ -1, %90 ], [ %spec.select, %97 ], [ 3, %61 ], [ -1, %96 ], [ 3, %67 ]
   %99 = getelementptr inbounds nuw i8, ptr %8, i64 7864
   %100 = load i32, ptr %99, align 8, !tbaa !202
   %101 = icmp eq i32 %100, 3
@@ -10136,7 +10136,7 @@ _ZL6ImAtoiIiEPKcS1_PT_.exit.i222:                 ; preds = %.lr.ph.i27.i226, %1
   br label %_Z22ImParseFormatPrecisionPKci.exit232
 
 _Z22ImParseFormatPrecisionPKci.exit232:           ; preds = %168, %162, %191, %191, %196, %197, %198
-  %.0.i204 = phi i32 [ -1, %191 ], [ -1, %191 ], [ %spec.select43.i214, %198 ], [ 3, %162 ], [ -1, %197 ], [ %.031.i211, %196 ], [ 3, %168 ]
+  %.0.i204 = phi i32 [ -1, %191 ], [ %.031.i211, %196 ], [ -1, %191 ], [ %spec.select43.i214, %198 ], [ 3, %162 ], [ -1, %197 ], [ 3, %168 ]
   %199 = sitofp i32 %.0.i204 to float
   br label %200
 
@@ -10461,7 +10461,7 @@ _ZL6ImAtoiIiEPKcS1_PT_.exit.i:                    ; preds = %.lr.ph.i27.i, %73
   br label %_Z22ImParseFormatPrecisionPKci.exit
 
 _Z22ImParseFormatPrecisionPKci.exit:              ; preds = %67, %97, %96, %95, %90, %90, %61, %60
-  %98 = phi i32 [ 0, %60 ], [ -1, %90 ], [ -1, %90 ], [ 3, %61 ], [ -1, %96 ], [ %.031.i, %95 ], [ %spec.select, %97 ], [ 3, %67 ]
+  %98 = phi i32 [ 0, %60 ], [ -1, %90 ], [ %.031.i, %95 ], [ -1, %90 ], [ %spec.select, %97 ], [ 3, %61 ], [ -1, %96 ], [ 3, %67 ]
   %99 = getelementptr inbounds nuw i8, ptr %8, i64 7864
   %100 = load i32, ptr %99, align 8, !tbaa !202
   %101 = icmp eq i32 %100, 3
@@ -10675,7 +10675,7 @@ _ZL6ImAtoiIiEPKcS1_PT_.exit.i223:                 ; preds = %.lr.ph.i27.i227, %1
   br label %_Z22ImParseFormatPrecisionPKci.exit233
 
 _Z22ImParseFormatPrecisionPKci.exit233:           ; preds = %164, %158, %187, %187, %192, %193, %194
-  %.0.i205 = phi i32 [ -1, %187 ], [ -1, %187 ], [ %spec.select43.i215, %194 ], [ 3, %158 ], [ -1, %193 ], [ %.031.i212, %192 ], [ 3, %164 ]
+  %.0.i205 = phi i32 [ -1, %187 ], [ %.031.i212, %192 ], [ -1, %187 ], [ %spec.select43.i215, %194 ], [ 3, %158 ], [ -1, %193 ], [ 3, %164 ]
   %195 = sitofp i32 %.0.i205 to float
   br label %196
 
@@ -11094,7 +11094,7 @@ _ZL6ImAtoiIiEPKcS1_PT_.exit.i:                    ; preds = %.lr.ph.i27.i, %74
   br label %_Z22ImParseFormatPrecisionPKci.exit
 
 _Z22ImParseFormatPrecisionPKci.exit:              ; preds = %68, %98, %97, %96, %91, %91, %62, %61
-  %99 = phi i32 [ 0, %61 ], [ -1, %91 ], [ -1, %91 ], [ 3, %62 ], [ -1, %97 ], [ %.031.i, %96 ], [ %spec.select, %98 ], [ 3, %68 ]
+  %99 = phi i32 [ 0, %61 ], [ -1, %91 ], [ %.031.i, %96 ], [ -1, %91 ], [ %spec.select, %98 ], [ 3, %62 ], [ -1, %97 ], [ 3, %68 ]
   %100 = getelementptr inbounds nuw i8, ptr %8, i64 7864
   %101 = load i32, ptr %100, align 8, !tbaa !202
   %102 = icmp eq i32 %101, 3
@@ -11316,7 +11316,7 @@ _ZL6ImAtoiIiEPKcS1_PT_.exit.i222:                 ; preds = %.lr.ph.i27.i226, %1
   br label %_Z22ImParseFormatPrecisionPKci.exit232
 
 _Z22ImParseFormatPrecisionPKci.exit232:           ; preds = %169, %163, %192, %192, %197, %198, %199
-  %.0.i204 = phi i32 [ -1, %192 ], [ -1, %192 ], [ %spec.select43.i214, %199 ], [ 3, %163 ], [ -1, %198 ], [ %.031.i211, %197 ], [ 3, %169 ]
+  %.0.i204 = phi i32 [ -1, %192 ], [ %.031.i211, %197 ], [ -1, %192 ], [ %spec.select43.i214, %199 ], [ 3, %163 ], [ -1, %198 ], [ 3, %169 ]
   %200 = sitofp i32 %.0.i204 to float
   br label %201
 
@@ -11645,7 +11645,7 @@ _ZL6ImAtoiIiEPKcS1_PT_.exit.i:                    ; preds = %.lr.ph.i27.i, %74
   br label %_Z22ImParseFormatPrecisionPKci.exit
 
 _Z22ImParseFormatPrecisionPKci.exit:              ; preds = %68, %98, %97, %96, %91, %91, %62, %61
-  %99 = phi i32 [ 0, %61 ], [ -1, %91 ], [ -1, %91 ], [ 3, %62 ], [ -1, %97 ], [ %.031.i, %96 ], [ %spec.select, %98 ], [ 3, %68 ]
+  %99 = phi i32 [ 0, %61 ], [ -1, %91 ], [ %.031.i, %96 ], [ -1, %91 ], [ %spec.select, %98 ], [ 3, %62 ], [ -1, %97 ], [ 3, %68 ]
   %100 = getelementptr inbounds nuw i8, ptr %8, i64 7864
   %101 = load i32, ptr %100, align 8, !tbaa !202
   %102 = icmp eq i32 %101, 3
@@ -11859,7 +11859,7 @@ _ZL6ImAtoiIiEPKcS1_PT_.exit.i223:                 ; preds = %.lr.ph.i27.i227, %1
   br label %_Z22ImParseFormatPrecisionPKci.exit233
 
 _Z22ImParseFormatPrecisionPKci.exit233:           ; preds = %165, %159, %188, %188, %193, %194, %195
-  %.0.i205 = phi i32 [ -1, %188 ], [ -1, %188 ], [ %spec.select43.i215, %195 ], [ 3, %159 ], [ -1, %194 ], [ %.031.i212, %193 ], [ 3, %165 ]
+  %.0.i205 = phi i32 [ -1, %188 ], [ %.031.i212, %193 ], [ -1, %188 ], [ %spec.select43.i215, %195 ], [ 3, %159 ], [ -1, %194 ], [ 3, %165 ]
   %196 = sitofp i32 %.0.i205 to float
   br label %197
 
@@ -12298,7 +12298,7 @@ _ZL6ImAtoiIiEPKcS1_PT_.exit.i:                    ; preds = %.lr.ph.i27.i, %75
   br label %_Z22ImParseFormatPrecisionPKci.exit
 
 _Z22ImParseFormatPrecisionPKci.exit:              ; preds = %69, %99, %98, %97, %92, %92, %63, %62
-  %100 = phi i32 [ 0, %62 ], [ -1, %92 ], [ -1, %92 ], [ 3, %63 ], [ -1, %98 ], [ %.031.i, %97 ], [ %spec.select, %99 ], [ 3, %69 ]
+  %100 = phi i32 [ 0, %62 ], [ -1, %92 ], [ %.031.i, %97 ], [ -1, %92 ], [ %spec.select, %99 ], [ 3, %63 ], [ -1, %98 ], [ 3, %69 ]
   %101 = getelementptr inbounds nuw i8, ptr %8, i64 7864
   %102 = load i32, ptr %101, align 8, !tbaa !202
   %103 = icmp eq i32 %102, 3
@@ -12521,7 +12521,7 @@ _ZL6ImAtoiIiEPKcS1_PT_.exit.i221:                 ; preds = %.lr.ph.i27.i225, %1
   br label %_Z22ImParseFormatPrecisionPKci.exit231
 
 _Z22ImParseFormatPrecisionPKci.exit231:           ; preds = %170, %164, %193, %193, %198, %199, %200
-  %.0.i203 = phi i32 [ -1, %193 ], [ -1, %193 ], [ %spec.select43.i213, %200 ], [ 3, %164 ], [ -1, %199 ], [ %.031.i210, %198 ], [ 3, %170 ]
+  %.0.i203 = phi i32 [ -1, %193 ], [ %.031.i210, %198 ], [ -1, %193 ], [ %spec.select43.i213, %200 ], [ 3, %164 ], [ -1, %199 ], [ 3, %170 ]
   %201 = sitofp i32 %.0.i203 to float
   br label %202
 
@@ -12848,7 +12848,7 @@ _ZL6ImAtoiIiEPKcS1_PT_.exit.i:                    ; preds = %.lr.ph.i27.i, %77
   br label %_Z22ImParseFormatPrecisionPKci.exit
 
 _Z22ImParseFormatPrecisionPKci.exit:              ; preds = %71, %101, %100, %99, %94, %94, %65, %64
-  %102 = phi i32 [ 0, %64 ], [ -1, %94 ], [ -1, %94 ], [ 3, %65 ], [ -1, %100 ], [ %.031.i, %99 ], [ %spec.select, %101 ], [ 3, %71 ]
+  %102 = phi i32 [ 0, %64 ], [ -1, %94 ], [ %.031.i, %99 ], [ -1, %94 ], [ %spec.select, %101 ], [ 3, %65 ], [ -1, %100 ], [ 3, %71 ]
   %103 = getelementptr inbounds nuw i8, ptr %8, i64 7864
   %104 = load i32, ptr %103, align 8, !tbaa !202
   %105 = icmp eq i32 %104, 3
@@ -13072,7 +13072,7 @@ _ZL6ImAtoiIiEPKcS1_PT_.exit.i221:                 ; preds = %.lr.ph.i27.i225, %1
   br label %_Z22ImParseFormatPrecisionPKci.exit231
 
 _Z22ImParseFormatPrecisionPKci.exit231:           ; preds = %173, %167, %196, %196, %201, %202, %203
-  %.0.i203 = phi i32 [ -1, %196 ], [ -1, %196 ], [ %spec.select43.i213, %203 ], [ 3, %167 ], [ -1, %202 ], [ %.031.i210, %201 ], [ 3, %173 ]
+  %.0.i203 = phi i32 [ -1, %196 ], [ %.031.i210, %201 ], [ -1, %196 ], [ %spec.select43.i213, %203 ], [ 3, %167 ], [ -1, %202 ], [ 3, %173 ]
   %204 = sitofp i32 %.0.i203 to float
   br label %205
 
@@ -13465,9 +13465,9 @@ _ZN5ImGui17TempInputIsActiveEj.exit.thread:       ; preds = %67, %63, %_ZN5ImGui
   %spec.select210 = select i1 %.not211, ptr null, ptr %5
   br label %.thread200
 
-.thread200:                                       ; preds = %.thread198, %.thread195, %131, %136, %127, %.thread189
-  %141 = phi ptr [ %spec.select, %.thread198 ], [ %4, %.thread195 ], [ null, %136 ], [ null, %.thread189 ], [ null, %127 ], [ %4, %131 ]
-  %142 = phi ptr [ %spec.select210, %.thread198 ], [ %5, %.thread195 ], [ null, %136 ], [ null, %.thread189 ], [ null, %127 ], [ %5, %131 ]
+.thread200:                                       ; preds = %.thread198, %131, %.thread195, %136, %127, %.thread189
+  %141 = phi ptr [ %spec.select, %.thread198 ], [ %4, %131 ], [ null, %136 ], [ null, %.thread189 ], [ null, %127 ], [ %4, %.thread195 ]
+  %142 = phi ptr [ %spec.select210, %.thread198 ], [ %5, %131 ], [ null, %136 ], [ null, %.thread189 ], [ null, %127 ], [ %5, %.thread195 ]
   %143 = call noundef zeroext i1 @_ZN5ImGui15TempInputScalarERK6ImRectjPKciPvS4_PKvS7_(ptr noundef nonnull align 4 dereferenceable(16) %10, i32 noundef %22, ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0149, ptr noundef %141, ptr noundef %142)
   br label %175
 
@@ -13629,7 +13629,7 @@ _Z20ImParseFormatFindEndPKc.exit.i:               ; preds = %33, %26
   br label %_Z28ImParseFormatTrimDecorationsPKcPcm.exit
 
 _Z28ImParseFormatTrimDecorationsPKcPcm.exit:      ; preds = %20, %.thread.i.i, %8, %_Z20ImParseFormatFindEndPKc.exit.i, %41
-  %.0.i = phi ptr [ %10, %41 ], [ %.01125.i.i, %_Z20ImParseFormatFindEndPKc.exit.i ], [ @.str, %8 ], [ %.01125.i.i, %.thread.i.i ], [ @.str, %20 ]
+  %.0.i = phi ptr [ %.01125.i.i, %.thread.i.i ], [ %10, %41 ], [ %.01125.i.i, %_Z20ImParseFormatFindEndPKc.exit.i ], [ @.str, %8 ], [ @.str, %20 ]
   %46 = load i8, ptr %.0.i, align 1, !tbaa !337
   %47 = icmp eq i8 %46, 0
   br i1 %47, label %48, label %51
@@ -14420,7 +14420,7 @@ _ZL6ImAtoiIiEPKcS1_PT_.exit.i:                    ; preds = %.lr.ph.i27.i, %56
   br label %_Z22ImParseFormatPrecisionPKci.exit
 
 _Z22ImParseFormatPrecisionPKci.exit:              ; preds = %50, %44, %73, %73, %78, %79, %80
-  %.0.i = phi i32 [ -1, %73 ], [ -1, %73 ], [ %spec.select43.i, %80 ], [ 3, %44 ], [ -1, %79 ], [ %.031.i, %78 ], [ 3, %50 ]
+  %.0.i = phi i32 [ -1, %73 ], [ %.031.i, %78 ], [ -1, %73 ], [ %spec.select43.i, %80 ], [ 3, %44 ], [ -1, %79 ], [ 3, %50 ]
   %81 = sitofp i32 %.0.i to float
   br label %82
 
@@ -15025,7 +15025,7 @@ _ZL6ImAtoiIiEPKcS1_PT_.exit.i:                    ; preds = %.lr.ph.i27.i, %57
   br label %_Z22ImParseFormatPrecisionPKci.exit
 
 _Z22ImParseFormatPrecisionPKci.exit:              ; preds = %51, %45, %74, %74, %79, %80, %81
-  %.0.i = phi i32 [ -1, %74 ], [ -1, %74 ], [ %spec.select43.i, %81 ], [ 3, %45 ], [ -1, %80 ], [ %.031.i, %79 ], [ 3, %51 ]
+  %.0.i = phi i32 [ -1, %74 ], [ %.031.i, %79 ], [ -1, %74 ], [ %spec.select43.i, %81 ], [ 3, %45 ], [ -1, %80 ], [ 3, %51 ]
   %82 = sitofp i32 %.0.i to float
   br label %83
 
@@ -15934,7 +15934,7 @@ _ZL6ImAtoiIiEPKcS1_PT_.exit.i:                    ; preds = %.lr.ph.i27.i, %56
   br label %_Z22ImParseFormatPrecisionPKci.exit
 
 _Z22ImParseFormatPrecisionPKci.exit:              ; preds = %50, %44, %73, %73, %78, %79, %80
-  %.0.i = phi i32 [ -1, %73 ], [ -1, %73 ], [ %spec.select43.i, %80 ], [ 3, %44 ], [ -1, %79 ], [ %.031.i, %78 ], [ 3, %50 ]
+  %.0.i = phi i32 [ -1, %73 ], [ %.031.i, %78 ], [ -1, %73 ], [ %spec.select43.i, %80 ], [ 3, %44 ], [ -1, %79 ], [ 3, %50 ]
   %81 = sitofp i32 %.0.i to float
   br label %82
 
@@ -16539,7 +16539,7 @@ _ZL6ImAtoiIiEPKcS1_PT_.exit.i:                    ; preds = %.lr.ph.i27.i, %57
   br label %_Z22ImParseFormatPrecisionPKci.exit
 
 _Z22ImParseFormatPrecisionPKci.exit:              ; preds = %51, %45, %74, %74, %79, %80, %81
-  %.0.i = phi i32 [ -1, %74 ], [ -1, %74 ], [ %spec.select43.i, %81 ], [ 3, %45 ], [ -1, %80 ], [ %.031.i, %79 ], [ 3, %51 ]
+  %.0.i = phi i32 [ -1, %74 ], [ %.031.i, %79 ], [ -1, %74 ], [ %spec.select43.i, %81 ], [ 3, %45 ], [ -1, %80 ], [ 3, %51 ]
   %82 = sitofp i32 %.0.i to float
   br label %83
 
@@ -17464,7 +17464,7 @@ _ZL6ImAtoiIiEPKcS1_PT_.exit.i:                    ; preds = %.lr.ph.i27.i, %58
   br label %_Z22ImParseFormatPrecisionPKci.exit
 
 _Z22ImParseFormatPrecisionPKci.exit:              ; preds = %52, %46, %75, %75, %80, %81, %82
-  %.0.i = phi i32 [ -1, %75 ], [ -1, %75 ], [ %spec.select43.i, %82 ], [ 3, %46 ], [ -1, %81 ], [ %.031.i, %80 ], [ 3, %52 ]
+  %.0.i = phi i32 [ -1, %75 ], [ %.031.i, %80 ], [ -1, %75 ], [ %spec.select43.i, %82 ], [ 3, %46 ], [ -1, %81 ], [ 3, %52 ]
   %83 = sitofp i32 %.0.i to float
   br label %84
 
@@ -18073,7 +18073,7 @@ _ZL6ImAtoiIiEPKcS1_PT_.exit.i:                    ; preds = %.lr.ph.i27.i, %59
   br label %_Z22ImParseFormatPrecisionPKci.exit
 
 _Z22ImParseFormatPrecisionPKci.exit:              ; preds = %53, %47, %76, %76, %81, %82, %83
-  %.0.i = phi i32 [ -1, %76 ], [ -1, %76 ], [ %spec.select43.i, %83 ], [ 3, %47 ], [ -1, %82 ], [ %.031.i, %81 ], [ 3, %53 ]
+  %.0.i = phi i32 [ -1, %76 ], [ %.031.i, %81 ], [ -1, %76 ], [ %spec.select43.i, %83 ], [ 3, %47 ], [ -1, %82 ], [ 3, %53 ]
   %84 = sitofp i32 %.0.i to float
   br label %85
 
@@ -19354,7 +19354,7 @@ _Z20ImParseFormatFindEndPKc.exit:                 ; preds = %22, %15
   br label %_Z22ImParseFormatFindStartPKc.exit.thread
 
 _Z22ImParseFormatFindStartPKc.exit.thread:        ; preds = %9, %.thread.i, %3, %30, %_Z20ImParseFormatFindEndPKc.exit
-  %.0 = phi ptr [ %1, %30 ], [ %.01125.i, %_Z20ImParseFormatFindEndPKc.exit ], [ @.str, %3 ], [ %.01125.i, %.thread.i ], [ @.str, %9 ]
+  %.0 = phi ptr [ %.01125.i, %.thread.i ], [ %1, %30 ], [ %.01125.i, %_Z20ImParseFormatFindEndPKc.exit ], [ @.str, %3 ], [ @.str, %9 ]
   ret ptr %.0
 }
 
@@ -19409,7 +19409,7 @@ define dso_local void @_Z32ImParseFormatSanitizeForPrintingPKcPcm(ptr noundef re
   br i1 %.not22.i, label %_Z20ImParseFormatFindEndPKc.exit, label %.preheader.i, !llvm.loop !346
 
 _Z20ImParseFormatFindEndPKc.exit:                 ; preds = %.thread.i, %13, %22
-  %.019.i = phi ptr [ %14, %13 ], [ %23, %22 ], [ %24, %.thread.i ]
+  %.019.i = phi ptr [ %23, %22 ], [ %14, %13 ], [ %24, %.thread.i ]
   %26 = icmp ult ptr %0, %.019.i
   br i1 %26, label %.lr.ph, label %._crit_edge
 
@@ -19545,7 +19545,7 @@ _ZL6ImAtoiIiEPKcS1_PT_.exit:                      ; preds = %.lr.ph.i27, %14
   br label %_Z22ImParseFormatFindStartPKc.exit.thread
 
 _Z22ImParseFormatFindStartPKc.exit.thread:        ; preds = %8, %38, %31, %31, %36, %37, %2
-  %.0 = phi i32 [ -1, %31 ], [ -1, %31 ], [ %spec.select43, %38 ], [ %1, %2 ], [ -1, %37 ], [ %.031, %36 ], [ %1, %8 ]
+  %.0 = phi i32 [ -1, %31 ], [ %.031, %36 ], [ -1, %31 ], [ %spec.select43, %38 ], [ %1, %2 ], [ -1, %37 ], [ %1, %8 ]
   ret i32 %.0
 }
 
@@ -37305,7 +37305,7 @@ _ZNK6ImRect8ContainsERK6ImVec2.exit.thread:       ; preds = %93, %97, %121, %126
   br i1 %exitcond238.not, label %.loopexit, label %.lr.ph230.split.split, !llvm.loop !657
 
 .loopexit:                                        ; preds = %.lr.ph230.split.split, %216, %.lr.ph230.split.us, %151, %79
-  %.0140 = phi i32 [ -1, %79 ], [ %.1141, %151 ], [ %.1141, %216 ], [ %.1141, %.lr.ph230.split.us ], [ %.1141, %.lr.ph230.split.split ]
+  %.0140 = phi i32 [ -1, %79 ], [ %.1141, %151 ], [ %.1141, %.lr.ph230.split.us ], [ %.1141, %216 ], [ %.1141, %.lr.ph230.split.split ]
   %.not151 = icmp eq ptr %6, null
   br i1 %.not151, label %236, label %229
 
@@ -45230,7 +45230,7 @@ define linkonce_odr dso_local noundef i32 @_ZN5ImGui22RoundScalarWithFormatTIiEE
   br i1 %.not22.i.i, label %_Z20ImParseFormatFindEndPKc.exit.i, label %.preheader.i.i, !llvm.loop !346
 
 _Z20ImParseFormatFindEndPKc.exit.i:               ; preds = %.thread.i.i, %32, %23
-  %.019.i.i = phi ptr [ %24, %23 ], [ %33, %32 ], [ %34, %.thread.i.i ]
+  %.019.i.i = phi ptr [ %33, %32 ], [ %24, %23 ], [ %34, %.thread.i.i ]
   %36 = icmp ult ptr %.01125.i, %.019.i.i
   br i1 %36, label %.lr.ph.i12, label %_Z32ImParseFormatSanitizeForPrintingPKcPcm.exit
 
@@ -45365,7 +45365,7 @@ define linkonce_odr dso_local noundef i32 @_ZN5ImGui22RoundScalarWithFormatTIjEE
   br i1 %.not22.i.i, label %_Z20ImParseFormatFindEndPKc.exit.i, label %.preheader.i.i, !llvm.loop !346
 
 _Z20ImParseFormatFindEndPKc.exit.i:               ; preds = %.thread.i.i, %32, %23
-  %.019.i.i = phi ptr [ %24, %23 ], [ %33, %32 ], [ %34, %.thread.i.i ]
+  %.019.i.i = phi ptr [ %33, %32 ], [ %24, %23 ], [ %34, %.thread.i.i ]
   %36 = icmp ult ptr %.01125.i, %.019.i.i
   br i1 %36, label %.lr.ph.i12, label %_Z32ImParseFormatSanitizeForPrintingPKcPcm.exit
 
@@ -45807,7 +45807,7 @@ define linkonce_odr dso_local noundef i64 @_ZN5ImGui22RoundScalarWithFormatTIxEE
   br i1 %.not22.i.i, label %_Z20ImParseFormatFindEndPKc.exit.i, label %.preheader.i.i, !llvm.loop !346
 
 _Z20ImParseFormatFindEndPKc.exit.i:               ; preds = %.thread.i.i, %32, %23
-  %.019.i.i = phi ptr [ %24, %23 ], [ %33, %32 ], [ %34, %.thread.i.i ]
+  %.019.i.i = phi ptr [ %33, %32 ], [ %24, %23 ], [ %34, %.thread.i.i ]
   %36 = icmp ult ptr %.01125.i, %.019.i.i
   br i1 %36, label %.lr.ph.i12, label %_Z32ImParseFormatSanitizeForPrintingPKcPcm.exit
 
@@ -45942,7 +45942,7 @@ define linkonce_odr dso_local noundef i64 @_ZN5ImGui22RoundScalarWithFormatTIyEE
   br i1 %.not22.i.i, label %_Z20ImParseFormatFindEndPKc.exit.i, label %.preheader.i.i, !llvm.loop !346
 
 _Z20ImParseFormatFindEndPKc.exit.i:               ; preds = %.thread.i.i, %32, %23
-  %.019.i.i = phi ptr [ %24, %23 ], [ %33, %32 ], [ %34, %.thread.i.i ]
+  %.019.i.i = phi ptr [ %33, %32 ], [ %24, %23 ], [ %34, %.thread.i.i ]
   %36 = icmp ult ptr %.01125.i, %.019.i.i
   br i1 %36, label %.lr.ph.i12, label %_Z32ImParseFormatSanitizeForPrintingPKcPcm.exit
 
@@ -46361,7 +46361,7 @@ define linkonce_odr dso_local noundef float @_ZN5ImGui22RoundScalarWithFormatTIf
   br i1 %.not22.i.i, label %_Z20ImParseFormatFindEndPKc.exit.i, label %.preheader.i.i, !llvm.loop !346
 
 _Z20ImParseFormatFindEndPKc.exit.i:               ; preds = %.thread.i.i, %32, %23
-  %.019.i.i = phi ptr [ %24, %23 ], [ %33, %32 ], [ %34, %.thread.i.i ]
+  %.019.i.i = phi ptr [ %33, %32 ], [ %24, %23 ], [ %34, %.thread.i.i ]
   %36 = icmp ult ptr %.01125.i, %.019.i.i
   br i1 %36, label %.lr.ph.i13, label %_Z32ImParseFormatSanitizeForPrintingPKcPcm.exit
 
@@ -46806,7 +46806,7 @@ define linkonce_odr dso_local noundef double @_ZN5ImGui22RoundScalarWithFormatTI
   br i1 %.not22.i.i, label %_Z20ImParseFormatFindEndPKc.exit.i, label %.preheader.i.i, !llvm.loop !346
 
 _Z20ImParseFormatFindEndPKc.exit.i:               ; preds = %.thread.i.i, %32, %23
-  %.019.i.i = phi ptr [ %24, %23 ], [ %33, %32 ], [ %34, %.thread.i.i ]
+  %.019.i.i = phi ptr [ %33, %32 ], [ %24, %23 ], [ %34, %.thread.i.i ]
   %36 = icmp ult ptr %.01125.i, %.019.i.i
   br i1 %36, label %.lr.ph.i13, label %_Z32ImParseFormatSanitizeForPrintingPKcPcm.exit
 

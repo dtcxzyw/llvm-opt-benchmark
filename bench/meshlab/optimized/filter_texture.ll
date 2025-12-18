@@ -4070,7 +4070,7 @@ _ZNSt7__cxx114listIiSaIiEE6spliceESt20_List_const_iteratorIiERS2_.exit: ; preds 
   br i1 %.not.i.i.i8, label %_ZNSt7__cxx114listIiSaIiEED2Ev.exit, label %.lr.ph.i.i.i6, !llvm.loop !20
 
 _ZNSt7__cxx114listIiSaIiEED2Ev.exit:              ; preds = %.lr.ph.i.i.i6, %4, %23
-  %.sroa.04.020 = phi ptr [ %.sroa.04.0, %23 ], [ %1, %4 ], [ %.sroa.04.0, %.lr.ph.i.i.i6 ]
+  %.sroa.04.020 = phi ptr [ %1, %4 ], [ %.sroa.04.0, %23 ], [ %.sroa.04.0, %.lr.ph.i.i.i6 ]
   ret ptr %.sroa.04.020
 }
 
@@ -7309,7 +7309,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_
   br i1 %780, label %.loopexit, label %777
 
 .loopexit:                                        ; preds = %761, %777, %.thread
-  %.pn191.pn.pn.pn.pn = phi { ptr, i32 } [ %653, %.thread ], [ %.pn191.pn.pn.pn, %777 ], [ %760, %761 ]
+  %.pn191.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn191.pn.pn.pn, %777 ], [ %653, %.thread ], [ %760, %761 ]
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %64) #36
   br label %781
 
@@ -17620,7 +17620,7 @@ _ZN3vcg3tri14UpdateTopologyINS0_12VoronoiAtlasI6CMeshOE8VoroMeshEE10VertexFaceER
   br label %.body102
 
 .loopexit.split-lp436.loopexit.split-lp.loopexit: ; preds = %._crit_edge, %1114, %_ZNSt6vectorIPN3vcg3tri12VoronoiAtlasI6CMeshOE8VoroMeshESaIS6_EE9push_backERKS6_.exit224, %._crit_edge756, %1173, %_ZN3vcg3tri15UpdateSelectionINS0_12VoronoiAtlasI6CMeshOE8VoroMeshEE19VertexFromFaceLooseERS5_b.exit.i205, %_ZNKSt6vectorIPN3vcg3tri12VoronoiAtlasI6CMeshOE8VoroMeshESaIS6_EE12_M_check_lenEmPKc.exit.i.i216
-  %.sroa.0367.2.ph.ph.ph = phi ptr [ %.sroa.0367.1.lcssa, %._crit_edge ], [ %.sroa.0367.1.lcssa, %1114 ], [ %.sroa.0367.1.lcssa, %_ZN3vcg3tri15UpdateSelectionINS0_12VoronoiAtlasI6CMeshOE8VoroMeshEE19VertexFromFaceLooseERS5_b.exit.i205 ], [ %.sroa.0367.1.lcssa, %_ZNKSt6vectorIPN3vcg3tri12VoronoiAtlasI6CMeshOE8VoroMeshESaIS6_EE12_M_check_lenEmPKc.exit.i.i216 ], [ %.sroa.0367.7, %_ZNSt6vectorIPN3vcg3tri12VoronoiAtlasI6CMeshOE8VoroMeshESaIS6_EE9push_backERKS6_.exit224 ], [ %.sroa.0367.7, %._crit_edge756 ], [ %.sroa.0367.7, %1173 ]
+  %.sroa.0367.2.ph.ph.ph = phi ptr [ %.sroa.0367.1.lcssa, %1114 ], [ %.sroa.0367.1.lcssa, %_ZN3vcg3tri15UpdateSelectionINS0_12VoronoiAtlasI6CMeshOE8VoroMeshEE19VertexFromFaceLooseERS5_b.exit.i205 ], [ %.sroa.0367.1.lcssa, %_ZNKSt6vectorIPN3vcg3tri12VoronoiAtlasI6CMeshOE8VoroMeshESaIS6_EE12_M_check_lenEmPKc.exit.i.i216 ], [ %.sroa.0367.7, %_ZNSt6vectorIPN3vcg3tri12VoronoiAtlasI6CMeshOE8VoroMeshESaIS6_EE9push_backERKS6_.exit224 ], [ %.sroa.0367.7, %._crit_edge756 ], [ %.sroa.0367.7, %1173 ], [ %.sroa.0367.1.lcssa, %._crit_edge ]
   %lpad.loopexit458 = landingpad { ptr, i32 }
           cleanup
   br label %.body102
@@ -17807,7 +17807,7 @@ _ZN3vcg3tri15UpdateSelectionINS0_12VoronoiAtlasI6CMeshOE8VoroMeshEE9FaceClearERS
   br i1 %.not.i92, label %_ZN3vcg3tri15UpdateSelectionINS0_12VoronoiAtlasI6CMeshOE8VoroMeshEE19FaceFromVertexLooseERS5_b.exit, label %.lr.ph.i90, !llvm.loop !97
 
 _ZN3vcg3tri15UpdateSelectionINS0_12VoronoiAtlasI6CMeshOE8VoroMeshEE19FaceFromVertexLooseERS5_b.exit: ; preds = %300, %_ZN3vcg3tri15UpdateSelectionINS0_12VoronoiAtlasI6CMeshOE8VoroMeshEE11VertexClearERS5_.exit.i, %._ZN3vcg3tri15UpdateSelectionINS0_12VoronoiAtlasI6CMeshOE8VoroMeshEE19FaceFromVertexLooseERS5_b.exit_crit_edge, %_ZN3vcg3tri15UpdateSelectionINS0_12VoronoiAtlasI6CMeshOE8VoroMeshEE9FaceClearERS5_.exit.i
-  %304 = phi ptr [ %.pre941, %._ZN3vcg3tri15UpdateSelectionINS0_12VoronoiAtlasI6CMeshOE8VoroMeshEE19FaceFromVertexLooseERS5_b.exit_crit_edge ], [ %285, %_ZN3vcg3tri15UpdateSelectionINS0_12VoronoiAtlasI6CMeshOE8VoroMeshEE9FaceClearERS5_.exit.i ], [ %260, %_ZN3vcg3tri15UpdateSelectionINS0_12VoronoiAtlasI6CMeshOE8VoroMeshEE11VertexClearERS5_.exit.i ], [ %301, %300 ]
+  %304 = phi ptr [ %.pre941, %._ZN3vcg3tri15UpdateSelectionINS0_12VoronoiAtlasI6CMeshOE8VoroMeshEE19FaceFromVertexLooseERS5_b.exit_crit_edge ], [ %260, %_ZN3vcg3tri15UpdateSelectionINS0_12VoronoiAtlasI6CMeshOE8VoroMeshEE11VertexClearERS5_.exit.i ], [ %285, %_ZN3vcg3tri15UpdateSelectionINS0_12VoronoiAtlasI6CMeshOE8VoroMeshEE9FaceClearERS5_.exit.i ], [ %301, %300 ]
   %305 = load ptr, ptr %106, align 8
   %.not21.i.i = icmp eq ptr %305, %304
   br i1 %.not21.i.i, label %_ZN3vcg3tri15UpdateSelectionINS0_12VoronoiAtlasI6CMeshOE8VoroMeshEE19VertexFromFaceLooseERS5_b.exit.i, label %.lr.ph.i.i99
@@ -20245,9 +20245,9 @@ _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit:   ; preds = %_ZNSt6vectorIPN3vcg
   br i1 %exitcond937.not, label %1247, label %1215, !llvm.loop !138
 
 .body102:                                         ; preds = %.loopexit.split-lp436.loopexit.split-lp.loopexit, %.loopexit.split-lp436.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp436.loopexit, %_ZNSt6vectorIPN3vcg3tri12VoronoiAtlasI6CMeshOE10VoroVertexESaIS6_EED2Ev.exit.i, %1157, %.body297, %246, %240
-  %.sroa.0367.4 = phi ptr [ %.sroa.0367.1.lcssa, %1157 ], [ %.sroa.0367.1742, %.body297 ], [ %.sroa.0367.1742, %246 ], [ %.sroa.0367.1742, %240 ], [ %.sroa.0367.1742, %_ZNSt6vectorIPN3vcg3tri12VoronoiAtlasI6CMeshOE10VoroVertexESaIS6_EED2Ev.exit.i ], [ %.sroa.0367.1742, %.loopexit.split-lp436.loopexit ], [ %.sroa.0367.2.ph.ph.ph, %.loopexit.split-lp436.loopexit.split-lp.loopexit ], [ %.sroa.0367.1.lcssa, %.loopexit.split-lp436.loopexit.split-lp.loopexit.split-lp ]
-  %.sroa.0385.5 = phi ptr [ %.sroa.0385.1.lcssa, %1157 ], [ %.sroa.0385.7, %.body297 ], [ %.sroa.0385.1747, %246 ], [ %.sroa.0385.1747, %240 ], [ %.sroa.0385.1747, %_ZNSt6vectorIPN3vcg3tri12VoronoiAtlasI6CMeshOE10VoroVertexESaIS6_EED2Ev.exit.i ], [ %.sroa.0385.1747, %.loopexit.split-lp436.loopexit ], [ %.sroa.0385.1.lcssa, %.loopexit.split-lp436.loopexit.split-lp.loopexit ], [ %.sroa.0385.1.lcssa, %.loopexit.split-lp436.loopexit.split-lp.loopexit.split-lp ]
-  %.pn62.pn = phi { ptr, i32 } [ %1158, %1157 ], [ %.pn62, %.body297 ], [ %.pn60, %246 ], [ %241, %240 ], [ %325, %_ZNSt6vectorIPN3vcg3tri12VoronoiAtlasI6CMeshOE10VoroVertexESaIS6_EED2Ev.exit.i ], [ %lpad.loopexit440, %.loopexit.split-lp436.loopexit ], [ %lpad.loopexit458, %.loopexit.split-lp436.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp459, %.loopexit.split-lp436.loopexit.split-lp.loopexit.split-lp ]
+  %.sroa.0367.4 = phi ptr [ %.sroa.0367.1.lcssa, %1157 ], [ %.sroa.0367.1742, %.body297 ], [ %.sroa.0367.1742, %246 ], [ %.sroa.0367.1742, %240 ], [ %.sroa.0367.1742, %_ZNSt6vectorIPN3vcg3tri12VoronoiAtlasI6CMeshOE10VoroVertexESaIS6_EED2Ev.exit.i ], [ %.sroa.0367.1.lcssa, %.loopexit.split-lp436.loopexit.split-lp.loopexit.split-lp ], [ %.sroa.0367.2.ph.ph.ph, %.loopexit.split-lp436.loopexit.split-lp.loopexit ], [ %.sroa.0367.1742, %.loopexit.split-lp436.loopexit ]
+  %.sroa.0385.5 = phi ptr [ %.sroa.0385.1.lcssa, %1157 ], [ %.sroa.0385.7, %.body297 ], [ %.sroa.0385.1747, %246 ], [ %.sroa.0385.1747, %240 ], [ %.sroa.0385.1747, %_ZNSt6vectorIPN3vcg3tri12VoronoiAtlasI6CMeshOE10VoroVertexESaIS6_EED2Ev.exit.i ], [ %.sroa.0385.1.lcssa, %.loopexit.split-lp436.loopexit.split-lp.loopexit.split-lp ], [ %.sroa.0385.1.lcssa, %.loopexit.split-lp436.loopexit.split-lp.loopexit ], [ %.sroa.0385.1747, %.loopexit.split-lp436.loopexit ]
+  %.pn62.pn = phi { ptr, i32 } [ %1158, %1157 ], [ %.pn62, %.body297 ], [ %.pn60, %246 ], [ %241, %240 ], [ %325, %_ZNSt6vectorIPN3vcg3tri12VoronoiAtlasI6CMeshOE10VoroVertexESaIS6_EED2Ev.exit.i ], [ %lpad.loopexit.split-lp459, %.loopexit.split-lp436.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit458, %.loopexit.split-lp436.loopexit.split-lp.loopexit ], [ %lpad.loopexit440, %.loopexit.split-lp436.loopexit ]
   %.not.i.i.i243 = icmp eq ptr %.sroa.0367.4, null
   br i1 %.not.i.i.i243, label %_ZNSt6vectorIPN3vcg3tri12VoronoiAtlasI6CMeshOE8VoroMeshESaIS6_EED2Ev.exit244, label %.body102.thread
 
@@ -32504,7 +32504,7 @@ _ZNSt6vectorImSaImEE6resizeEmRKm.exit:            ; preds = %4
   br i1 %.not.i.i148, label %_ZN3vcg3tri15UpdateSelectionI6CMeshOE11VertexCountERKS2_.exit, label %.lr.ph.i.i, !llvm.loop !276
 
 _ZN3vcg3tri15UpdateSelectionI6CMeshOE11VertexCountERKS2_.exit: ; preds = %.lr.ph.i.i, %.lr.ph25.i.i, %.preheader.i.i, %.preheader19.i.i
-  %.4.i = phi i64 [ 0, %.preheader.i.i ], [ 0, %.preheader19.i.i ], [ %spec.select.i, %.lr.ph25.i.i ], [ %spec.select4.i, %.lr.ph.i.i ]
+  %.4.i = phi i64 [ 0, %.preheader.i.i ], [ %spec.select.i, %.lr.ph25.i.i ], [ 0, %.preheader19.i.i ], [ %spec.select4.i, %.lr.ph.i.i ]
   %sext = shl i64 %.4.i, 32
   %61 = ashr exact i64 %sext, 32
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -32786,7 +32786,7 @@ _ZNSt6vectorImSaImEE6resizeEmRKm.exit158:         ; preds = %173, %171, %169, %1
   br i1 %.not.i.i167, label %_ZN3vcg3tri15UpdateSelectionI6CMeshOE9EdgeCountERKS2_.exit, label %.lr.ph.i.i161, !llvm.loop !280
 
 _ZN3vcg3tri15UpdateSelectionI6CMeshOE9EdgeCountERKS2_.exit: ; preds = %.lr.ph.i.i161, %.lr.ph25.i.i170, %.preheader.i.i169, %.preheader19.i.i160
-  %.4.i168 = phi i64 [ 0, %.preheader.i.i169 ], [ 0, %.preheader19.i.i160 ], [ %spec.select.i175, %.lr.ph25.i.i170 ], [ %spec.select4.i165, %.lr.ph.i.i161 ]
+  %.4.i168 = phi i64 [ 0, %.preheader.i.i169 ], [ %spec.select.i175, %.lr.ph25.i.i170 ], [ 0, %.preheader19.i.i160 ], [ %spec.select4.i165, %.lr.ph.i.i161 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(57) %10, i8 0, i64 57, i1 false)
   %197 = invoke ptr @_ZN3vcg3tri9AllocatorINS0_12VoronoiAtlasI6CMeshOE8VoroMeshEE8AddEdgesERS5_mRNS6_14PointerUpdaterIPNS4_8VoroEdgeEEE(ptr noundef nonnull align 8 dereferenceable(628) %0, i64 noundef %.4.i168, ptr noundef nonnull align 8 dereferenceable(57) %10)
@@ -33059,7 +33059,7 @@ _ZNSt6vectorImSaImEE6resizeEmRKm.exit207:         ; preds = %302, %300, %298, %2
   br i1 %.not.i.i216, label %_ZN3vcg3tri15UpdateSelectionI6CMeshOE9FaceCountERKS2_.exit, label %.lr.ph.i.i210, !llvm.loop !284
 
 _ZN3vcg3tri15UpdateSelectionI6CMeshOE9FaceCountERKS2_.exit: ; preds = %.lr.ph.i.i210, %.lr.ph25.i.i219, %.preheader.i.i218, %.preheader19.i.i209
-  %.4.i217 = phi i64 [ 0, %.preheader.i.i218 ], [ 0, %.preheader19.i.i209 ], [ %spec.select.i224, %.lr.ph25.i.i219 ], [ %spec.select4.i214, %.lr.ph.i.i210 ]
+  %.4.i217 = phi i64 [ 0, %.preheader.i.i218 ], [ %spec.select.i224, %.lr.ph25.i.i219 ], [ 0, %.preheader19.i.i209 ], [ %spec.select4.i214, %.lr.ph.i.i210 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(57) %8, i8 0, i64 57, i1 false)
   %328 = invoke ptr @_ZN3vcg3tri9AllocatorINS0_12VoronoiAtlasI6CMeshOE8VoroMeshEE8AddFacesERS5_mRNS6_14PointerUpdaterIPNS4_8VoroFaceEEE(ptr noundef nonnull align 8 dereferenceable(628) %0, i64 noundef %.4.i217, ptr noundef nonnull align 8 dereferenceable(57) %8)
@@ -39531,7 +39531,7 @@ _ZNKSt8__detail15_Hashtable_baseIN3vcg6Point3IiEESt4pairIKS3_PNS1_3tri12VoronoiA
   br label %_ZN3vcg3tri15SurfaceSamplingINS0_12VoronoiAtlasI6CMeshOE8VoroMeshENS0_14TrivialSamplerIS5_EEE34getBestPrecomputedMontecarloSampleERNS_6Point3IiEERNS_16SpatialHashTableINS4_10VoroVertexEfEEfRKNS8_16PoissonDiskParamE.exit
 
 _ZN3vcg3tri15SurfaceSamplingINS0_12VoronoiAtlasI6CMeshOE8VoroMeshENS0_14TrivialSamplerIS5_EEE34getBestPrecomputedMontecarloSampleERNS_6Point3IiEERNS_16SpatialHashTableINS4_10VoroVertexEfEEfRKNS8_16PoissonDiskParamE.exit: ; preds = %379, %_ZNKSt8__detail15_Hashtable_baseIN3vcg6Point3IiEESt4pairIKS3_PNS1_3tri12VoronoiAtlasI6CMeshOE10VoroVertexEENS_10_Select1stESt8equal_toIS3_ENS1_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb0EEEE9_M_equalsERS5_mRKNS_16_Hash_node_valueISC_Lb1EEE.exit.thread.i.i.i.i, %_ZNKSt8__detail15_Hashtable_baseIN3vcg6Point3IiEESt4pairIKS3_PNS1_3tri12VoronoiAtlasI6CMeshOE10VoroVertexEENS_10_Select1stESt8equal_toIS3_ENS1_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb0EEEE13_M_key_equalsERS5_RKNS_16_Hash_node_valueISC_Lb1EEE.exit.thread.i.i, %336, %347, %.noexc94, %.critedge.i, %424
-  %.016.lcssa44.i = phi ptr [ %spec.select24.i, %424 ], [ %spec.select24.i, %.critedge.i ], [ null, %.noexc94 ], [ null, %347 ], [ null, %336 ], [ null, %_ZNKSt8__detail15_Hashtable_baseIN3vcg6Point3IiEESt4pairIKS3_PNS1_3tri12VoronoiAtlasI6CMeshOE10VoroVertexEENS_10_Select1stESt8equal_toIS3_ENS1_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb0EEEE13_M_key_equalsERS5_RKNS_16_Hash_node_valueISC_Lb1EEE.exit.thread.i.i ], [ null, %_ZNKSt8__detail15_Hashtable_baseIN3vcg6Point3IiEESt4pairIKS3_PNS1_3tri12VoronoiAtlasI6CMeshOE10VoroVertexEENS_10_Select1stESt8equal_toIS3_ENS1_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb0EEEE9_M_equalsERS5_mRKNS_16_Hash_node_valueISC_Lb1EEE.exit.thread.i.i.i.i ], [ null, %379 ]
+  %.016.lcssa44.i = phi ptr [ %spec.select24.i, %424 ], [ %spec.select24.i, %.critedge.i ], [ null, %.noexc94 ], [ null, %_ZNKSt8__detail15_Hashtable_baseIN3vcg6Point3IiEESt4pairIKS3_PNS1_3tri12VoronoiAtlasI6CMeshOE10VoroVertexEENS_10_Select1stESt8equal_toIS3_ENS1_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb0EEEE13_M_key_equalsERS5_RKNS_16_Hash_node_valueISC_Lb1EEE.exit.thread.i.i ], [ null, %347 ], [ null, %336 ], [ null, %_ZNKSt8__detail15_Hashtable_baseIN3vcg6Point3IiEESt4pairIKS3_PNS1_3tri12VoronoiAtlasI6CMeshOE10VoroVertexEENS_10_Select1stESt8equal_toIS3_ENS1_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb0EEEE9_M_equalsERS5_mRKNS_16_Hash_node_valueISC_Lb1EEE.exit.thread.i.i.i.i ], [ null, %379 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %473
 
@@ -41754,10 +41754,10 @@ _ZNSt6vectorINSt8__detail14_Node_iteratorISt4pairIKN3vcg6Point3IiEEPNS3_3tri12Vo
   br i1 %.not89, label %._crit_edge, label %.lr.ph, !llvm.loop !420
 
 ._crit_edge:                                      ; preds = %_ZNKSt8__detail15_Hashtable_baseIN3vcg6Point3IiEESt4pairIKS3_PNS1_3tri12VoronoiAtlasI6CMeshOE10VoroVertexEENS_10_Select1stESt8equal_toIS3_ENS1_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb0EEEE9_M_equalsERS5_mRKNS_16_Hash_node_valueISC_Lb1EEE.exit.thread.i.i.i.i, %112, %_ZNKSt8__detail15_Hashtable_baseIN3vcg6Point3IiEESt4pairIKS3_PNS1_3tri12VoronoiAtlasI6CMeshOE10VoroVertexEENS_10_Select1stESt8equal_toIS3_ENS1_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb0EEEE13_M_key_equalsERS5_RKNS_16_Hash_node_valueISC_Lb1EEE.exit.thread.i.i, %_ZNSt6vectorINSt8__detail14_Node_iteratorISt4pairIKN3vcg6Point3IiEEPNS3_3tri12VoronoiAtlasI6CMeshOE10VoroVertexEELb0ELb1EEESaISE_EE9push_backERKSE_.exit, %73, %85, %.loopexit91
-  %.sroa.069.3.lcssa = phi ptr [ %.sroa.069.2141, %.loopexit91 ], [ %.sroa.069.2141, %85 ], [ %.sroa.069.2141, %73 ], [ %.sroa.069.2141, %_ZNKSt8__detail15_Hashtable_baseIN3vcg6Point3IiEESt4pairIKS3_PNS1_3tri12VoronoiAtlasI6CMeshOE10VoroVertexEENS_10_Select1stESt8equal_toIS3_ENS1_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb0EEEE13_M_key_equalsERS5_RKNS_16_Hash_node_valueISC_Lb1EEE.exit.thread.i.i ], [ %.sroa.069.4, %_ZNSt6vectorINSt8__detail14_Node_iteratorISt4pairIKN3vcg6Point3IiEEPNS3_3tri12VoronoiAtlasI6CMeshOE10VoroVertexEELb0ELb1EEESaISE_EE9push_backERKSE_.exit ], [ %.sroa.069.2141, %112 ], [ %.sroa.069.2141, %_ZNKSt8__detail15_Hashtable_baseIN3vcg6Point3IiEESt4pairIKS3_PNS1_3tri12VoronoiAtlasI6CMeshOE10VoroVertexEENS_10_Select1stESt8equal_toIS3_ENS1_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb0EEEE9_M_equalsERS5_mRKNS_16_Hash_node_valueISC_Lb1EEE.exit.thread.i.i.i.i ]
-  %.sroa.673.3.lcssa = phi ptr [ %.sroa.673.2142, %.loopexit91 ], [ %.sroa.673.2142, %85 ], [ %.sroa.673.2142, %73 ], [ %.sroa.673.2142, %_ZNKSt8__detail15_Hashtable_baseIN3vcg6Point3IiEESt4pairIKS3_PNS1_3tri12VoronoiAtlasI6CMeshOE10VoroVertexEENS_10_Select1stESt8equal_toIS3_ENS1_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb0EEEE13_M_key_equalsERS5_RKNS_16_Hash_node_valueISC_Lb1EEE.exit.thread.i.i ], [ %.sroa.673.4, %_ZNSt6vectorINSt8__detail14_Node_iteratorISt4pairIKN3vcg6Point3IiEEPNS3_3tri12VoronoiAtlasI6CMeshOE10VoroVertexEELb0ELb1EEESaISE_EE9push_backERKSE_.exit ], [ %.sroa.673.2142, %112 ], [ %.sroa.673.2142, %_ZNKSt8__detail15_Hashtable_baseIN3vcg6Point3IiEESt4pairIKS3_PNS1_3tri12VoronoiAtlasI6CMeshOE10VoroVertexEENS_10_Select1stESt8equal_toIS3_ENS1_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb0EEEE9_M_equalsERS5_mRKNS_16_Hash_node_valueISC_Lb1EEE.exit.thread.i.i.i.i ]
-  %.sroa.11.3.lcssa = phi ptr [ %.sroa.11.2143, %.loopexit91 ], [ %.sroa.11.2143, %85 ], [ %.sroa.11.2143, %73 ], [ %.sroa.11.2143, %_ZNKSt8__detail15_Hashtable_baseIN3vcg6Point3IiEESt4pairIKS3_PNS1_3tri12VoronoiAtlasI6CMeshOE10VoroVertexEENS_10_Select1stESt8equal_toIS3_ENS1_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb0EEEE13_M_key_equalsERS5_RKNS_16_Hash_node_valueISC_Lb1EEE.exit.thread.i.i ], [ %.sroa.11.4, %_ZNSt6vectorINSt8__detail14_Node_iteratorISt4pairIKN3vcg6Point3IiEEPNS3_3tri12VoronoiAtlasI6CMeshOE10VoroVertexEELb0ELb1EEESaISE_EE9push_backERKSE_.exit ], [ %.sroa.11.2143, %112 ], [ %.sroa.11.2143, %_ZNKSt8__detail15_Hashtable_baseIN3vcg6Point3IiEESt4pairIKS3_PNS1_3tri12VoronoiAtlasI6CMeshOE10VoroVertexEENS_10_Select1stESt8equal_toIS3_ENS1_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb0EEEE9_M_equalsERS5_mRKNS_16_Hash_node_valueISC_Lb1EEE.exit.thread.i.i.i.i ]
-  %.3.lcssa = phi i32 [ %.2144, %.loopexit91 ], [ %.2144, %85 ], [ %.2144, %73 ], [ %.2144, %_ZNKSt8__detail15_Hashtable_baseIN3vcg6Point3IiEESt4pairIKS3_PNS1_3tri12VoronoiAtlasI6CMeshOE10VoroVertexEENS_10_Select1stESt8equal_toIS3_ENS1_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb0EEEE13_M_key_equalsERS5_RKNS_16_Hash_node_valueISC_Lb1EEE.exit.thread.i.i ], [ %.4, %_ZNSt6vectorINSt8__detail14_Node_iteratorISt4pairIKN3vcg6Point3IiEEPNS3_3tri12VoronoiAtlasI6CMeshOE10VoroVertexEELb0ELb1EEESaISE_EE9push_backERKSE_.exit ], [ %.2144, %112 ], [ %.2144, %_ZNKSt8__detail15_Hashtable_baseIN3vcg6Point3IiEESt4pairIKS3_PNS1_3tri12VoronoiAtlasI6CMeshOE10VoroVertexEENS_10_Select1stESt8equal_toIS3_ENS1_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb0EEEE9_M_equalsERS5_mRKNS_16_Hash_node_valueISC_Lb1EEE.exit.thread.i.i.i.i ]
+  %.sroa.069.3.lcssa = phi ptr [ %.sroa.069.2141, %.loopexit91 ], [ %.sroa.069.4, %_ZNSt6vectorINSt8__detail14_Node_iteratorISt4pairIKN3vcg6Point3IiEEPNS3_3tri12VoronoiAtlasI6CMeshOE10VoroVertexEELb0ELb1EEESaISE_EE9push_backERKSE_.exit ], [ %.sroa.069.2141, %85 ], [ %.sroa.069.2141, %_ZNKSt8__detail15_Hashtable_baseIN3vcg6Point3IiEESt4pairIKS3_PNS1_3tri12VoronoiAtlasI6CMeshOE10VoroVertexEENS_10_Select1stESt8equal_toIS3_ENS1_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb0EEEE13_M_key_equalsERS5_RKNS_16_Hash_node_valueISC_Lb1EEE.exit.thread.i.i ], [ %.sroa.069.2141, %73 ], [ %.sroa.069.2141, %112 ], [ %.sroa.069.2141, %_ZNKSt8__detail15_Hashtable_baseIN3vcg6Point3IiEESt4pairIKS3_PNS1_3tri12VoronoiAtlasI6CMeshOE10VoroVertexEENS_10_Select1stESt8equal_toIS3_ENS1_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb0EEEE9_M_equalsERS5_mRKNS_16_Hash_node_valueISC_Lb1EEE.exit.thread.i.i.i.i ]
+  %.sroa.673.3.lcssa = phi ptr [ %.sroa.673.2142, %.loopexit91 ], [ %.sroa.673.4, %_ZNSt6vectorINSt8__detail14_Node_iteratorISt4pairIKN3vcg6Point3IiEEPNS3_3tri12VoronoiAtlasI6CMeshOE10VoroVertexEELb0ELb1EEESaISE_EE9push_backERKSE_.exit ], [ %.sroa.673.2142, %85 ], [ %.sroa.673.2142, %_ZNKSt8__detail15_Hashtable_baseIN3vcg6Point3IiEESt4pairIKS3_PNS1_3tri12VoronoiAtlasI6CMeshOE10VoroVertexEENS_10_Select1stESt8equal_toIS3_ENS1_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb0EEEE13_M_key_equalsERS5_RKNS_16_Hash_node_valueISC_Lb1EEE.exit.thread.i.i ], [ %.sroa.673.2142, %73 ], [ %.sroa.673.2142, %112 ], [ %.sroa.673.2142, %_ZNKSt8__detail15_Hashtable_baseIN3vcg6Point3IiEESt4pairIKS3_PNS1_3tri12VoronoiAtlasI6CMeshOE10VoroVertexEENS_10_Select1stESt8equal_toIS3_ENS1_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb0EEEE9_M_equalsERS5_mRKNS_16_Hash_node_valueISC_Lb1EEE.exit.thread.i.i.i.i ]
+  %.sroa.11.3.lcssa = phi ptr [ %.sroa.11.2143, %.loopexit91 ], [ %.sroa.11.4, %_ZNSt6vectorINSt8__detail14_Node_iteratorISt4pairIKN3vcg6Point3IiEEPNS3_3tri12VoronoiAtlasI6CMeshOE10VoroVertexEELb0ELb1EEESaISE_EE9push_backERKSE_.exit ], [ %.sroa.11.2143, %85 ], [ %.sroa.11.2143, %_ZNKSt8__detail15_Hashtable_baseIN3vcg6Point3IiEESt4pairIKS3_PNS1_3tri12VoronoiAtlasI6CMeshOE10VoroVertexEENS_10_Select1stESt8equal_toIS3_ENS1_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb0EEEE13_M_key_equalsERS5_RKNS_16_Hash_node_valueISC_Lb1EEE.exit.thread.i.i ], [ %.sroa.11.2143, %73 ], [ %.sroa.11.2143, %112 ], [ %.sroa.11.2143, %_ZNKSt8__detail15_Hashtable_baseIN3vcg6Point3IiEESt4pairIKS3_PNS1_3tri12VoronoiAtlasI6CMeshOE10VoroVertexEENS_10_Select1stESt8equal_toIS3_ENS1_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb0EEEE9_M_equalsERS5_mRKNS_16_Hash_node_valueISC_Lb1EEE.exit.thread.i.i.i.i ]
+  %.3.lcssa = phi i32 [ %.2144, %.loopexit91 ], [ %.4, %_ZNSt6vectorINSt8__detail14_Node_iteratorISt4pairIKN3vcg6Point3IiEEPNS3_3tri12VoronoiAtlasI6CMeshOE10VoroVertexEELb0ELb1EEESaISE_EE9push_backERKSE_.exit ], [ %.2144, %85 ], [ %.2144, %_ZNKSt8__detail15_Hashtable_baseIN3vcg6Point3IiEESt4pairIKS3_PNS1_3tri12VoronoiAtlasI6CMeshOE10VoroVertexEENS_10_Select1stESt8equal_toIS3_ENS1_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb0EEEE13_M_key_equalsERS5_RKNS_16_Hash_node_valueISC_Lb1EEE.exit.thread.i.i ], [ %.2144, %73 ], [ %.2144, %112 ], [ %.2144, %_ZNKSt8__detail15_Hashtable_baseIN3vcg6Point3IiEESt4pairIKS3_PNS1_3tri12VoronoiAtlasI6CMeshOE10VoroVertexEENS_10_Select1stESt8equal_toIS3_ENS1_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb0EEEE9_M_equalsERS5_mRKNS_16_Hash_node_valueISC_Lb1EEE.exit.thread.i.i.i.i ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %53, %lftr.wideiv
@@ -41867,7 +41867,7 @@ _ZNSt10_HashtableIN3vcg6Point3IiEESt4pairIKS2_PNS0_3tri12VoronoiAtlasI6CMeshOE10
   br label %_ZNSt6vectorINSt8__detail14_Node_iteratorISt4pairIKN3vcg6Point3IiEEPNS3_3tri12VoronoiAtlasI6CMeshOE10VoroVertexEELb0ELb1EEESaISE_EED2Ev.exit49
 
 _ZNSt6vectorINSt8__detail14_Node_iteratorISt4pairIKN3vcg6Point3IiEEPNS3_3tri12VoronoiAtlasI6CMeshOE10VoroVertexEELb0ELb1EEESaISE_EED2Ev.exit49: ; preds = %5, %.preheader96.lr.ph, %._crit_edge196, %253
-  %.036.lcssa242255 = phi i32 [ %.3.lcssa, %253 ], [ %.3.lcssa, %._crit_edge196 ], [ 0, %.preheader96.lr.ph ], [ 0, %5 ]
+  %.036.lcssa242255 = phi i32 [ %.3.lcssa, %253 ], [ %.3.lcssa, %._crit_edge196 ], [ 0, %5 ], [ 0, %.preheader96.lr.ph ]
   ret i32 %.036.lcssa242255
 
 _ZNSt6vectorINSt8__detail14_Node_iteratorISt4pairIKN3vcg6Point3IiEEPNS3_3tri12VoronoiAtlasI6CMeshOE10VoroVertexEELb0ELb1EEESaISE_EED2Ev.exit: ; preds = %213, %214
@@ -45024,7 +45024,7 @@ _ZNSt6vectorINSt8__detail14_Node_iteratorISt4pairIKN3vcg6Point3IiEEPNS3_3tri12Vo
   br i1 %.not66, label %._crit_edge, label %.lr.ph, !llvm.loop !443
 
 ._crit_edge:                                      ; preds = %_ZNKSt8__detail15_Hashtable_baseIN3vcg6Point3IiEESt4pairIKS3_PNS1_3tri12VoronoiAtlasI6CMeshOE10VoroVertexEENS_10_Select1stESt8equal_toIS3_ENS1_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb0EEEE9_M_equalsERS5_mRKNS_16_Hash_node_valueISC_Lb1EEE.exit.thread.i.i.i.i, %115, %_ZNKSt8__detail15_Hashtable_baseIN3vcg6Point3IiEESt4pairIKS3_PNS1_3tri12VoronoiAtlasI6CMeshOE10VoroVertexEENS_10_Select1stESt8equal_toIS3_ENS1_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb0EEEE13_M_key_equalsERS5_RKNS_16_Hash_node_valueISC_Lb1EEE.exit.thread.i.i, %_ZNSt6vectorINSt8__detail14_Node_iteratorISt4pairIKN3vcg6Point3IiEEPNS3_3tri12VoronoiAtlasI6CMeshOE10VoroVertexEELb0ELb1EEESaISE_EE9push_backERKSE_.exit, %76, %88, %.loopexit
-  %185 = phi ptr [ %74, %.loopexit ], [ %74, %88 ], [ %74, %76 ], [ %74, %_ZNKSt8__detail15_Hashtable_baseIN3vcg6Point3IiEESt4pairIKS3_PNS1_3tri12VoronoiAtlasI6CMeshOE10VoroVertexEENS_10_Select1stESt8equal_toIS3_ENS1_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb0EEEE13_M_key_equalsERS5_RKNS_16_Hash_node_valueISC_Lb1EEE.exit.thread.i.i ], [ %183, %_ZNSt6vectorINSt8__detail14_Node_iteratorISt4pairIKN3vcg6Point3IiEEPNS3_3tri12VoronoiAtlasI6CMeshOE10VoroVertexEELb0ELb1EEESaISE_EE9push_backERKSE_.exit ], [ %74, %115 ], [ %74, %_ZNKSt8__detail15_Hashtable_baseIN3vcg6Point3IiEESt4pairIKS3_PNS1_3tri12VoronoiAtlasI6CMeshOE10VoroVertexEENS_10_Select1stESt8equal_toIS3_ENS1_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb0EEEE9_M_equalsERS5_mRKNS_16_Hash_node_valueISC_Lb1EEE.exit.thread.i.i.i.i ]
+  %185 = phi ptr [ %183, %_ZNSt6vectorINSt8__detail14_Node_iteratorISt4pairIKN3vcg6Point3IiEEPNS3_3tri12VoronoiAtlasI6CMeshOE10VoroVertexEELb0ELb1EEESaISE_EE9push_backERKSE_.exit ], [ %74, %.loopexit ], [ %74, %88 ], [ %74, %_ZNKSt8__detail15_Hashtable_baseIN3vcg6Point3IiEESt4pairIKS3_PNS1_3tri12VoronoiAtlasI6CMeshOE10VoroVertexEENS_10_Select1stESt8equal_toIS3_ENS1_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb0EEEE13_M_key_equalsERS5_RKNS_16_Hash_node_valueISC_Lb1EEE.exit.thread.i.i ], [ %74, %76 ], [ %74, %115 ], [ %74, %_ZNKSt8__detail15_Hashtable_baseIN3vcg6Point3IiEESt4pairIKS3_PNS1_3tri12VoronoiAtlasI6CMeshOE10VoroVertexEENS_10_Select1stESt8equal_toIS3_ENS1_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb0EEEE9_M_equalsERS5_mRKNS_16_Hash_node_valueISC_Lb1EEE.exit.thread.i.i.i.i ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %57, %lftr.wideiv
@@ -45207,8 +45207,8 @@ _ZNKSt8__detail15_Hashtable_baseIN3vcg6Point3IiEESt4pairIKS3_PNS1_3tri12VoronoiA
   br i1 %85, label %69, label %.critedge, !llvm.loop !378
 
 .critedge:                                        ; preds = %61, %_ZNKSt8__detail15_Hashtable_baseIN3vcg6Point3IiEESt4pairIKS3_PNS1_3tri12VoronoiAtlasI6CMeshOE10VoroVertexEENS_10_Select1stESt8equal_toIS3_ENS1_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb0EEEE9_M_equalsERS5_mRKNS_16_Hash_node_valueISC_Lb1EEE.exit.thread.i.i.i, %_ZNKSt8__detail15_Hashtable_baseIN3vcg6Point3IiEESt4pairIKS3_PNS1_3tri12VoronoiAtlasI6CMeshOE10VoroVertexEENS_10_Select1stESt8equal_toIS3_ENS1_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb0EEEE13_M_key_equalsERS5_RKNS_16_Hash_node_valueISC_Lb1EEE.exit.thread.i, %_ZNKSt8__detail15_Hashtable_baseIN3vcg6Point3IiEESt4pairIKS3_PNS1_3tri12VoronoiAtlasI6CMeshOE10VoroVertexEENS_10_Select1stESt8equal_toIS3_ENS1_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb0EEEE14_M_node_equalsERKNS_16_Hash_node_valueISC_Lb1EEESP_.exit, %69, %70, %79, %75, %5, %23
-  %.sroa.08.0 = phi ptr [ null, %23 ], [ null, %5 ], [ null, %_ZNKSt8__detail15_Hashtable_baseIN3vcg6Point3IiEESt4pairIKS3_PNS1_3tri12VoronoiAtlasI6CMeshOE10VoroVertexEENS_10_Select1stESt8equal_toIS3_ENS1_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb0EEEE13_M_key_equalsERS5_RKNS_16_Hash_node_valueISC_Lb1EEE.exit.thread.i ], [ %.sroa.06.1.i, %_ZNKSt8__detail15_Hashtable_baseIN3vcg6Point3IiEESt4pairIKS3_PNS1_3tri12VoronoiAtlasI6CMeshOE10VoroVertexEENS_10_Select1stESt8equal_toIS3_ENS1_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb0EEEE14_M_node_equalsERKNS_16_Hash_node_valueISC_Lb1EEESP_.exit ], [ %.sroa.06.1.i, %75 ], [ %.sroa.06.1.i, %79 ], [ %.sroa.06.1.i, %70 ], [ %.sroa.06.1.i, %69 ], [ null, %_ZNKSt8__detail15_Hashtable_baseIN3vcg6Point3IiEESt4pairIKS3_PNS1_3tri12VoronoiAtlasI6CMeshOE10VoroVertexEENS_10_Select1stESt8equal_toIS3_ENS1_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb0EEEE9_M_equalsERS5_mRKNS_16_Hash_node_valueISC_Lb1EEE.exit.thread.i.i.i ], [ null, %61 ]
-  %.sroa.3.0 = phi ptr [ null, %23 ], [ null, %5 ], [ null, %_ZNKSt8__detail15_Hashtable_baseIN3vcg6Point3IiEESt4pairIKS3_PNS1_3tri12VoronoiAtlasI6CMeshOE10VoroVertexEENS_10_Select1stESt8equal_toIS3_ENS1_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb0EEEE13_M_key_equalsERS5_RKNS_16_Hash_node_valueISC_Lb1EEE.exit.thread.i ], [ %.sroa.04.0, %_ZNKSt8__detail15_Hashtable_baseIN3vcg6Point3IiEESt4pairIKS3_PNS1_3tri12VoronoiAtlasI6CMeshOE10VoroVertexEENS_10_Select1stESt8equal_toIS3_ENS1_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb0EEEE14_M_node_equalsERKNS_16_Hash_node_valueISC_Lb1EEESP_.exit ], [ null, %69 ], [ %.sroa.04.0, %70 ], [ %.sroa.04.0, %79 ], [ %.sroa.04.0, %75 ], [ null, %_ZNKSt8__detail15_Hashtable_baseIN3vcg6Point3IiEESt4pairIKS3_PNS1_3tri12VoronoiAtlasI6CMeshOE10VoroVertexEENS_10_Select1stESt8equal_toIS3_ENS1_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb0EEEE9_M_equalsERS5_mRKNS_16_Hash_node_valueISC_Lb1EEE.exit.thread.i.i.i ], [ null, %61 ]
+  %.sroa.08.0 = phi ptr [ %.sroa.06.1.i, %_ZNKSt8__detail15_Hashtable_baseIN3vcg6Point3IiEESt4pairIKS3_PNS1_3tri12VoronoiAtlasI6CMeshOE10VoroVertexEENS_10_Select1stESt8equal_toIS3_ENS1_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb0EEEE14_M_node_equalsERKNS_16_Hash_node_valueISC_Lb1EEESP_.exit ], [ null, %23 ], [ null, %_ZNKSt8__detail15_Hashtable_baseIN3vcg6Point3IiEESt4pairIKS3_PNS1_3tri12VoronoiAtlasI6CMeshOE10VoroVertexEENS_10_Select1stESt8equal_toIS3_ENS1_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb0EEEE13_M_key_equalsERS5_RKNS_16_Hash_node_valueISC_Lb1EEE.exit.thread.i ], [ null, %5 ], [ %.sroa.06.1.i, %75 ], [ %.sroa.06.1.i, %79 ], [ %.sroa.06.1.i, %70 ], [ %.sroa.06.1.i, %69 ], [ null, %_ZNKSt8__detail15_Hashtable_baseIN3vcg6Point3IiEESt4pairIKS3_PNS1_3tri12VoronoiAtlasI6CMeshOE10VoroVertexEENS_10_Select1stESt8equal_toIS3_ENS1_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb0EEEE9_M_equalsERS5_mRKNS_16_Hash_node_valueISC_Lb1EEE.exit.thread.i.i.i ], [ null, %61 ]
+  %.sroa.3.0 = phi ptr [ %.sroa.04.0, %_ZNKSt8__detail15_Hashtable_baseIN3vcg6Point3IiEESt4pairIKS3_PNS1_3tri12VoronoiAtlasI6CMeshOE10VoroVertexEENS_10_Select1stESt8equal_toIS3_ENS1_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb0EEEE14_M_node_equalsERKNS_16_Hash_node_valueISC_Lb1EEESP_.exit ], [ null, %23 ], [ null, %_ZNKSt8__detail15_Hashtable_baseIN3vcg6Point3IiEESt4pairIKS3_PNS1_3tri12VoronoiAtlasI6CMeshOE10VoroVertexEENS_10_Select1stESt8equal_toIS3_ENS1_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb0EEEE13_M_key_equalsERS5_RKNS_16_Hash_node_valueISC_Lb1EEE.exit.thread.i ], [ null, %5 ], [ null, %69 ], [ %.sroa.04.0, %70 ], [ %.sroa.04.0, %79 ], [ %.sroa.04.0, %75 ], [ null, %_ZNKSt8__detail15_Hashtable_baseIN3vcg6Point3IiEESt4pairIKS3_PNS1_3tri12VoronoiAtlasI6CMeshOE10VoroVertexEENS_10_Select1stESt8equal_toIS3_ENS1_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb0EEEE9_M_equalsERS5_mRKNS_16_Hash_node_valueISC_Lb1EEE.exit.thread.i.i.i ], [ null, %61 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.08.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.3.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -45761,14 +45761,14 @@ _ZNK3vcg6vertex20PointDistanceFunctorIfEclINS_3tri12VoronoiAtlasI6CMeshOE10VoroV
   br i1 %.not183, label %_ZNK3vcg4Box3IfE6IsInExERKNS_6Point3IfEE.exit.thread, label %.lr.ph, !llvm.loop !449
 
 _ZNK3vcg4Box3IfE6IsInExERKNS_6Point3IfEE.exit.thread: ; preds = %_ZNK3vcg6vertex20PointDistanceFunctorIfEclINS_3tri12VoronoiAtlasI6CMeshOE10VoroVertexEEEbRKT_RKNS_6Point3IfEERfRSD_.exit, %36, %6, %23
-  %.sroa.0138.0 = phi i32 [ 1, %23 ], [ 1, %6 ], [ %41, %36 ], [ %41, %_ZNK3vcg6vertex20PointDistanceFunctorIfEclINS_3tri12VoronoiAtlasI6CMeshOE10VoroVertexEEEbRKT_RKNS_6Point3IfEERfRSD_.exit ]
-  %.sroa.4139.0 = phi i32 [ 1, %23 ], [ 1, %6 ], [ %43, %36 ], [ %43, %_ZNK3vcg6vertex20PointDistanceFunctorIfEclINS_3tri12VoronoiAtlasI6CMeshOE10VoroVertexEEEbRKT_RKNS_6Point3IfEERfRSD_.exit ]
-  %.sroa.8140.0 = phi i32 [ 1, %23 ], [ 1, %6 ], [ %45, %36 ], [ %45, %_ZNK3vcg6vertex20PointDistanceFunctorIfEclINS_3tri12VoronoiAtlasI6CMeshOE10VoroVertexEEEbRKT_RKNS_6Point3IfEERfRSD_.exit ]
-  %.sroa.12.0 = phi i32 [ -1, %23 ], [ -1, %6 ], [ %41, %36 ], [ %41, %_ZNK3vcg6vertex20PointDistanceFunctorIfEclINS_3tri12VoronoiAtlasI6CMeshOE10VoroVertexEEEbRKT_RKNS_6Point3IfEERfRSD_.exit ]
-  %.sroa.16.0 = phi i32 [ -1, %23 ], [ -1, %6 ], [ %43, %36 ], [ %43, %_ZNK3vcg6vertex20PointDistanceFunctorIfEclINS_3tri12VoronoiAtlasI6CMeshOE10VoroVertexEEEbRKT_RKNS_6Point3IfEERfRSD_.exit ]
-  %.sroa.20.0 = phi i32 [ -1, %23 ], [ -1, %6 ], [ %45, %36 ], [ %45, %_ZNK3vcg6vertex20PointDistanceFunctorIfEclINS_3tri12VoronoiAtlasI6CMeshOE10VoroVertexEEEbRKT_RKNS_6Point3IfEERfRSD_.exit ]
-  %.050 = phi float [ %sqrt.i, %23 ], [ %sqrt.i, %6 ], [ %sqrt.i, %36 ], [ %.353, %_ZNK3vcg6vertex20PointDistanceFunctorIfEclINS_3tri12VoronoiAtlasI6CMeshOE10VoroVertexEEEbRKT_RKNS_6Point3IfEERfRSD_.exit ]
-  %.0 = phi ptr [ null, %23 ], [ null, %6 ], [ null, %36 ], [ %.3, %_ZNK3vcg6vertex20PointDistanceFunctorIfEclINS_3tri12VoronoiAtlasI6CMeshOE10VoroVertexEEEbRKT_RKNS_6Point3IfEERfRSD_.exit ]
+  %.sroa.0138.0 = phi i32 [ 1, %6 ], [ 1, %23 ], [ %41, %36 ], [ %41, %_ZNK3vcg6vertex20PointDistanceFunctorIfEclINS_3tri12VoronoiAtlasI6CMeshOE10VoroVertexEEEbRKT_RKNS_6Point3IfEERfRSD_.exit ]
+  %.sroa.4139.0 = phi i32 [ 1, %6 ], [ 1, %23 ], [ %43, %36 ], [ %43, %_ZNK3vcg6vertex20PointDistanceFunctorIfEclINS_3tri12VoronoiAtlasI6CMeshOE10VoroVertexEEEbRKT_RKNS_6Point3IfEERfRSD_.exit ]
+  %.sroa.8140.0 = phi i32 [ 1, %6 ], [ 1, %23 ], [ %45, %36 ], [ %45, %_ZNK3vcg6vertex20PointDistanceFunctorIfEclINS_3tri12VoronoiAtlasI6CMeshOE10VoroVertexEEEbRKT_RKNS_6Point3IfEERfRSD_.exit ]
+  %.sroa.12.0 = phi i32 [ -1, %6 ], [ -1, %23 ], [ %41, %36 ], [ %41, %_ZNK3vcg6vertex20PointDistanceFunctorIfEclINS_3tri12VoronoiAtlasI6CMeshOE10VoroVertexEEEbRKT_RKNS_6Point3IfEERfRSD_.exit ]
+  %.sroa.16.0 = phi i32 [ -1, %6 ], [ -1, %23 ], [ %43, %36 ], [ %43, %_ZNK3vcg6vertex20PointDistanceFunctorIfEclINS_3tri12VoronoiAtlasI6CMeshOE10VoroVertexEEEbRKT_RKNS_6Point3IfEERfRSD_.exit ]
+  %.sroa.20.0 = phi i32 [ -1, %6 ], [ -1, %23 ], [ %45, %36 ], [ %45, %_ZNK3vcg6vertex20PointDistanceFunctorIfEclINS_3tri12VoronoiAtlasI6CMeshOE10VoroVertexEEEbRKT_RKNS_6Point3IfEERfRSD_.exit ]
+  %.050 = phi float [ %sqrt.i, %6 ], [ %sqrt.i, %23 ], [ %sqrt.i, %36 ], [ %.353, %_ZNK3vcg6vertex20PointDistanceFunctorIfEclINS_3tri12VoronoiAtlasI6CMeshOE10VoroVertexEEEbRKT_RKNS_6Point3IfEERfRSD_.exit ]
+  %.0 = phi ptr [ null, %6 ], [ null, %23 ], [ null, %36 ], [ %.3, %_ZNK3vcg6vertex20PointDistanceFunctorIfEclINS_3tri12VoronoiAtlasI6CMeshOE10VoroVertexEEEbRKT_RKNS_6Point3IfEERfRSD_.exit ]
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %75 = load i32, ptr %74, align 4
   %76 = add nsw i32 %75, -1
@@ -46092,7 +46092,7 @@ _ZNK3vcg6vertex20PointDistanceFunctorIfEclINS_3tri12VoronoiAtlasI6CMeshOE10VoroV
   br i1 %.not184, label %.loopexit, label %.lr.ph203, !llvm.loop !450
 
 .loopexit:                                        ; preds = %_ZNKSt8__detail15_Hashtable_baseIN3vcg6Point3IiEESt4pairIKS3_PNS1_3tri12VoronoiAtlasI6CMeshOE10VoroVertexEENS_10_Select1stESt8equal_toIS3_ENS1_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb0EEEE9_M_equalsERS5_mRKNS_16_Hash_node_valueISC_Lb1EEE.exit.thread.i.i.i.i, %194, %_ZNKSt8__detail15_Hashtable_baseIN3vcg6Point3IiEESt4pairIKS3_PNS1_3tri12VoronoiAtlasI6CMeshOE10VoroVertexEENS_10_Select1stESt8equal_toIS3_ENS1_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb0EEEE13_M_key_equalsERS5_RKNS_16_Hash_node_valueISC_Lb1EEE.exit.thread.i.i, %_ZNK3vcg6vertex20PointDistanceFunctorIfEclINS_3tri12VoronoiAtlasI6CMeshOE10VoroVertexEEEbRKT_RKNS_6Point3IfEERfRSD_.exit80, %151, %165, %.loopexit187, %146
-  %.12 = phi ptr [ %.8209, %146 ], [ %.8209, %.loopexit187 ], [ %.8209, %165 ], [ %.8209, %151 ], [ %.8209, %_ZNKSt8__detail15_Hashtable_baseIN3vcg6Point3IiEESt4pairIKS3_PNS1_3tri12VoronoiAtlasI6CMeshOE10VoroVertexEENS_10_Select1stESt8equal_toIS3_ENS1_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb0EEEE13_M_key_equalsERS5_RKNS_16_Hash_node_valueISC_Lb1EEE.exit.thread.i.i ], [ %.11, %_ZNK3vcg6vertex20PointDistanceFunctorIfEclINS_3tri12VoronoiAtlasI6CMeshOE10VoroVertexEEEbRKT_RKNS_6Point3IfEERfRSD_.exit80 ], [ %.8209, %194 ], [ %.8209, %_ZNKSt8__detail15_Hashtable_baseIN3vcg6Point3IiEESt4pairIKS3_PNS1_3tri12VoronoiAtlasI6CMeshOE10VoroVertexEENS_10_Select1stESt8equal_toIS3_ENS1_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb0EEEE9_M_equalsERS5_mRKNS_16_Hash_node_valueISC_Lb1EEE.exit.thread.i.i.i.i ]
+  %.12 = phi ptr [ %.8209, %146 ], [ %.8209, %.loopexit187 ], [ %.11, %_ZNK3vcg6vertex20PointDistanceFunctorIfEclINS_3tri12VoronoiAtlasI6CMeshOE10VoroVertexEEEbRKT_RKNS_6Point3IfEERfRSD_.exit80 ], [ %.8209, %165 ], [ %.8209, %_ZNKSt8__detail15_Hashtable_baseIN3vcg6Point3IiEESt4pairIKS3_PNS1_3tri12VoronoiAtlasI6CMeshOE10VoroVertexEENS_10_Select1stESt8equal_toIS3_ENS1_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb0EEEE13_M_key_equalsERS5_RKNS_16_Hash_node_valueISC_Lb1EEE.exit.thread.i.i ], [ %.8209, %151 ], [ %.8209, %194 ], [ %.8209, %_ZNKSt8__detail15_Hashtable_baseIN3vcg6Point3IiEESt4pairIKS3_PNS1_3tri12VoronoiAtlasI6CMeshOE10VoroVertexEENS_10_Select1stESt8equal_toIS3_ENS1_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb0EEEE9_M_equalsERS5_mRKNS_16_Hash_node_valueISC_Lb1EEE.exit.thread.i.i.i.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %146, !llvm.loop !451
@@ -47970,7 +47970,7 @@ _ZNSt6vectorIN3vcg3tri8GeodesicINS1_12VoronoiAtlasI6CMeshOE8VoroMeshEE8VertDistE
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %53, %183, %453
-  %.sroa.0166.1.ph.ph.ph = phi ptr [ %.sroa.0166.2.ph391, %183 ], [ %.sroa.0166.4254, %453 ], [ %.sroa.0166.0249, %53 ]
+  %.sroa.0166.1.ph.ph.ph = phi ptr [ %.sroa.0166.0249, %53 ], [ %.sroa.0166.4254, %453 ], [ %.sroa.0166.2.ph391, %183 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -48818,8 +48818,8 @@ _ZSt9push_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg3tri8GeodesicINS3_12VoronoiA
   br i1 %.not69, label %..loopexit195_crit_edge, label %.preheader193, !llvm.loop !489
 
 .split:                                           ; preds = %.loopexit195, %.outer.split, %_ZSt9make_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg3tri8GeodesicINS3_12VoronoiAtlasI6CMeshOE8VoroMeshEE8VertDistESt6vectorISA_SaISA_EEEENS9_4predEEvT_SH_T0_.exit
-  %.sroa.0166.2.ph385 = phi ptr [ %.sroa.0166.0.lcssa, %_ZSt9make_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg3tri8GeodesicINS3_12VoronoiAtlasI6CMeshOE8VoroMeshEE8VertDistESt6vectorISA_SaISA_EEEENS9_4predEEvT_SH_T0_.exit ], [ %.sroa.0166.2.ph391, %.outer.split ], [ %.sroa.0166.3.lcssa, %.loopexit195 ]
-  %.054.ph379 = phi ptr [ null, %_ZSt9make_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg3tri8GeodesicINS3_12VoronoiAtlasI6CMeshOE8VoroMeshEE8VertDistESt6vectorISA_SaISA_EEEENS9_4predEEvT_SH_T0_.exit ], [ %.054.ph392, %.outer.split ], [ %.1.lcssa, %.loopexit195 ]
+  %.sroa.0166.2.ph385 = phi ptr [ %.sroa.0166.2.ph391, %.outer.split ], [ %.sroa.0166.0.lcssa, %_ZSt9make_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg3tri8GeodesicINS3_12VoronoiAtlasI6CMeshOE8VoroMeshEE8VertDistESt6vectorISA_SaISA_EEEENS9_4predEEvT_SH_T0_.exit ], [ %.sroa.0166.3.lcssa, %.loopexit195 ]
+  %.054.ph379 = phi ptr [ %.054.ph392, %.outer.split ], [ null, %_ZSt9make_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg3tri8GeodesicINS3_12VoronoiAtlasI6CMeshOE8VoroMeshEE8VertDistESt6vectorISA_SaISA_EEEENS9_4predEEvT_SH_T0_.exit ], [ %.1.lcssa, %.loopexit195 ]
   br i1 %.not, label %493, label %.preheader
 
 .preheader:                                       ; preds = %.split
@@ -51518,7 +51518,7 @@ _ZNSt6vectorImSaImEE6resizeEmRKm.exit:            ; preds = %4
   br i1 %.not.i.i148, label %_ZN3vcg3tri15UpdateSelectionINS0_12VoronoiAtlasI6CMeshOE8VoroMeshEE11VertexCountERKS5_.exit, label %.lr.ph.i.i, !llvm.loop !522
 
 _ZN3vcg3tri15UpdateSelectionINS0_12VoronoiAtlasI6CMeshOE8VoroMeshEE11VertexCountERKS5_.exit: ; preds = %.lr.ph.i.i, %.lr.ph25.i.i, %.preheader.i.i, %.preheader19.i.i
-  %.4.i = phi i64 [ 0, %.preheader.i.i ], [ 0, %.preheader19.i.i ], [ %spec.select.i, %.lr.ph25.i.i ], [ %spec.select4.i, %.lr.ph.i.i ]
+  %.4.i = phi i64 [ 0, %.preheader.i.i ], [ %spec.select.i, %.lr.ph25.i.i ], [ 0, %.preheader19.i.i ], [ %spec.select4.i, %.lr.ph.i.i ]
   %sext = shl i64 %.4.i, 32
   %60 = ashr exact i64 %sext, 32
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -51961,7 +51961,7 @@ _ZNSt6vectorImSaImEE6resizeEmRKm.exit178:         ; preds = %255, %253, %251, %2
   br i1 %.not.i.i187, label %_ZN3vcg3tri15UpdateSelectionINS0_12VoronoiAtlasI6CMeshOE8VoroMeshEE9FaceCountERKS5_.exit, label %.lr.ph.i.i181, !llvm.loop !528
 
 _ZN3vcg3tri15UpdateSelectionINS0_12VoronoiAtlasI6CMeshOE8VoroMeshEE9FaceCountERKS5_.exit: ; preds = %.lr.ph.i.i181, %.lr.ph25.i.i190, %.preheader.i.i189, %.preheader19.i.i180
-  %.4.i188 = phi i64 [ 0, %.preheader.i.i189 ], [ 0, %.preheader19.i.i180 ], [ %spec.select.i195, %.lr.ph25.i.i190 ], [ %spec.select4.i185, %.lr.ph.i.i181 ]
+  %.4.i188 = phi i64 [ 0, %.preheader.i.i189 ], [ %spec.select.i195, %.lr.ph25.i.i190 ], [ 0, %.preheader19.i.i180 ], [ %spec.select4.i185, %.lr.ph.i.i181 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(57) %8, i8 0, i64 57, i1 false)
   %281 = invoke ptr @_ZN3vcg3tri9AllocatorINS0_12VoronoiAtlasI6CMeshOE8VoroMeshEE8AddFacesERS5_mRNS6_14PointerUpdaterIPNS4_8VoroFaceEEE(ptr noundef nonnull align 8 dereferenceable(628) %0, i64 noundef %.4.i188, ptr noundef nonnull align 8 dereferenceable(57) %8)
@@ -62204,7 +62204,7 @@ _ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE13InnerIteratorC2ERKS
   br i1 %exitcond92.not.i.i.i, label %_ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE3sumEv.exit, label %.lr.ph85.i.i.i, !llvm.loop !654
 
 _ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE3sumEv.exit: ; preds = %.lr.ph80.i.i.i, %.lr.ph85.i.i.i, %123, %112, %._crit_edge141
-  %.0.i = phi i32 [ 0, %._crit_edge141 ], [ %124, %123 ], [ %117, %112 ], [ %128, %.lr.ph85.i.i.i ], [ %121, %.lr.ph80.i.i.i ]
+  %.0.i = phi i32 [ 0, %._crit_edge141 ], [ %128, %.lr.ph85.i.i.i ], [ %124, %123 ], [ %117, %112 ], [ %121, %.lr.ph80.i.i.i ]
   %130 = sext i32 %.0.i to i64
   %131 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %132 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -62775,7 +62775,7 @@ _ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin
   br i1 %exitcond102.not.i.i.i.i, label %_ZNK5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE8nonZerosEv.exit, label %.lr.ph94.i.i.i.i, !llvm.loop !665
 
 _ZNK5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE8nonZerosEv.exit: ; preds = %.lr.ph89.i.i.i.i, %.lr.ph94.i.i.i.i, %.preheader.i.i.i.i, %81, %14, %21
-  %.0.i = phi i32 [ %20, %14 ], [ 0, %21 ], [ %82, %81 ], [ %.075.lcssa.i.i.i.i, %.preheader.i.i.i.i ], [ %86, %.lr.ph94.i.i.i.i ], [ %78, %.lr.ph89.i.i.i.i ]
+  %.0.i = phi i32 [ %20, %14 ], [ 0, %21 ], [ %86, %.lr.ph94.i.i.i.i ], [ %.075.lcssa.i.i.i.i, %.preheader.i.i.i.i ], [ %82, %81 ], [ %78, %.lr.ph89.i.i.i.i ]
   %88 = add nsw i32 %5, 1
   %89 = sext i32 %88 to i64
   tail call void @_ZN5Eigen12DenseStorageIiLin1ELin1ELi1ELi0EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %89, i64 noundef %89, i64 noundef 1)
@@ -63057,9 +63057,9 @@ _ZN5Eigen8internalL9cs_wclearIiEET_S2_S2_PS2_S2_.exit: ; preds = %172
   br i1 %exitcond944.not, label %._crit_edge790, label %175, !llvm.loop !670
 
 ._crit_edge790:                                   ; preds = %212, %._crit_edge, %._crit_edge781, %_ZN5Eigen8internalL9cs_wclearIiEET_S2_S2_PS2_S2_.exit
-  %.not777107810801082 = phi i1 [ false, %_ZN5Eigen8internalL9cs_wclearIiEET_S2_S2_PS2_S2_.exit ], [ false, %._crit_edge781 ], [ true, %._crit_edge ], [ false, %212 ]
-  %213 = phi i64 [ %157, %_ZN5Eigen8internalL9cs_wclearIiEET_S2_S2_PS2_S2_.exit ], [ %157, %._crit_edge781 ], [ %155, %._crit_edge ], [ %157, %212 ]
-  %.0407.lcssa = phi i32 [ 0, %_ZN5Eigen8internalL9cs_wclearIiEET_S2_S2_PS2_S2_.exit ], [ 0, %._crit_edge781 ], [ 0, %._crit_edge ], [ %.1408, %212 ]
+  %.not777107810801082 = phi i1 [ false, %_ZN5Eigen8internalL9cs_wclearIiEET_S2_S2_PS2_S2_.exit ], [ true, %._crit_edge ], [ false, %._crit_edge781 ], [ false, %212 ]
+  %213 = phi i64 [ %157, %_ZN5Eigen8internalL9cs_wclearIiEET_S2_S2_PS2_S2_.exit ], [ %155, %._crit_edge ], [ %157, %._crit_edge781 ], [ %157, %212 ]
+  %.0407.lcssa = phi i32 [ 0, %_ZN5Eigen8internalL9cs_wclearIiEET_S2_S2_PS2_S2_.exit ], [ 0, %._crit_edge ], [ 0, %._crit_edge781 ], [ %.1408, %212 ]
   %214 = getelementptr inbounds i32, ptr %129, i64 %213
   store i32 -2, ptr %214, align 4
   %215 = getelementptr inbounds i32, ptr %141, i64 %213
@@ -66017,8 +66017,8 @@ _ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin
   br i1 %exitcond102.not.i.i.i.i, label %_ZNK5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE8nonZerosEv.exit, label %.lr.ph94.i.i.i.i, !llvm.loop !665
 
 _ZNK5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE8nonZerosEv.exit: ; preds = %.lr.ph89.i.i.i.i, %.lr.ph94.i.i.i.i, %.preheader.i.i.i.i, %110, %39
-  %117 = phi i64 [ %43, %39 ], [ %50, %110 ], [ %50, %.preheader.i.i.i.i ], [ %50, %.lr.ph94.i.i.i.i ], [ %50, %.lr.ph89.i.i.i.i ]
-  %.0.i.in = phi i32 [ %47, %39 ], [ %111, %110 ], [ %.075.lcssa.i.i.i.i, %.preheader.i.i.i.i ], [ %115, %.lr.ph94.i.i.i.i ], [ %107, %.lr.ph89.i.i.i.i ]
+  %117 = phi i64 [ %43, %39 ], [ %50, %.lr.ph94.i.i.i.i ], [ %50, %.preheader.i.i.i.i ], [ %50, %110 ], [ %50, %.lr.ph89.i.i.i.i ]
+  %.0.i.in = phi i32 [ %47, %39 ], [ %115, %.lr.ph94.i.i.i.i ], [ %.075.lcssa.i.i.i.i, %.preheader.i.i.i.i ], [ %111, %110 ], [ %107, %.lr.ph89.i.i.i.i ]
   %118 = icmp sgt i32 %.0.i.in, 0
   br i1 %118, label %119, label %_ZNK5Eigen18TriangularViewImplIKNS_12SparseMatrixIdLi0EiEELj5ENS_6SparseEE12solveInPlaceINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEEEvRNS_10MatrixBaseIT_EE.exit
 
@@ -66439,8 +66439,8 @@ _ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin
   br i1 %exitcond102.not.i.i.i.i64, label %_ZNK5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE8nonZerosEv.exit65, label %.lr.ph94.i.i.i.i61, !llvm.loop !665
 
 _ZNK5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE8nonZerosEv.exit65: ; preds = %.lr.ph89.i.i.i.i44, %.lr.ph94.i.i.i.i61, %.preheader.i.i.i.i39, %343, %272
-  %350 = phi i64 [ %276, %272 ], [ %283, %343 ], [ %283, %.preheader.i.i.i.i39 ], [ %283, %.lr.ph94.i.i.i.i61 ], [ %283, %.lr.ph89.i.i.i.i44 ]
-  %.0.i43.in = phi i32 [ %280, %272 ], [ %344, %343 ], [ %.075.lcssa.i.i.i.i40, %.preheader.i.i.i.i39 ], [ %348, %.lr.ph94.i.i.i.i61 ], [ %340, %.lr.ph89.i.i.i.i44 ]
+  %350 = phi i64 [ %276, %272 ], [ %283, %.lr.ph94.i.i.i.i61 ], [ %283, %.preheader.i.i.i.i39 ], [ %283, %343 ], [ %283, %.lr.ph89.i.i.i.i44 ]
+  %.0.i43.in = phi i32 [ %280, %272 ], [ %348, %.lr.ph94.i.i.i.i61 ], [ %.075.lcssa.i.i.i.i40, %.preheader.i.i.i.i39 ], [ %344, %343 ], [ %340, %.lr.ph89.i.i.i.i44 ]
   %351 = icmp sgt i32 %.0.i43.in, 0
   br i1 %351, label %352, label %_ZNK5Eigen18TriangularViewImplIKNS_9TransposeIKNS_12SparseMatrixIdLi0EiEEEELj6ENS_6SparseEE12solveInPlaceINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEEEvRNS_10MatrixBaseIT_EE.exit
 
@@ -66734,7 +66734,7 @@ define linkonce_odr void @_ZN5Eigen8internal26permutation_matrix_productINS_6Mat
   br i1 %.not39, label %.loopexit.loopexit, label %.lr.ph72, !llvm.loop !723
 
 .critedge:                                        ; preds = %.loopexit, %28, %14
-  %.sroa.053.06183 = phi ptr [ null, %14 ], [ %calloc, %28 ], [ %calloc, %.loopexit ]
+  %.sroa.053.06183 = phi ptr [ %calloc, %28 ], [ null, %14 ], [ %calloc, %.loopexit ]
   tail call void @free(ptr noundef %.sroa.053.06183) #36
   br label %.loopexit64
 
@@ -68703,11 +68703,11 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN3vcg10RectPackerI
   br i1 %or.cond256, label %.thread244, label %._crit_edge286
 
 .thread244:                                       ; preds = %.thread, %146, %.preheader._crit_edge
-  %.2150255 = phi i32 [ %143, %146 ], [ %.0148283, %.preheader._crit_edge ], [ %.0148283, %.thread ]
-  %.3254 = phi i32 [ %.sroa.speculated, %146 ], [ %.1152282, %.preheader._crit_edge ], [ %.1152282, %.thread ]
-  %.3157253 = phi i32 [ %.sroa.speculated202, %146 ], [ %.1155281, %.preheader._crit_edge ], [ %.1155281, %.thread ]
-  %.3161252 = phi i32 [ %148, %146 ], [ %.1159280, %.preheader._crit_edge ], [ %.1159280, %.thread ]
-  %.3165251 = phi i32 [ %.1139276, %146 ], [ %.1163279, %.preheader._crit_edge ], [ %.1163279, %.thread ]
+  %.2150255 = phi i32 [ %.0148283, %.preheader._crit_edge ], [ %143, %146 ], [ %.0148283, %.thread ]
+  %.3254 = phi i32 [ %.1152282, %.preheader._crit_edge ], [ %.sroa.speculated, %146 ], [ %.1152282, %.thread ]
+  %.3157253 = phi i32 [ %.1155281, %.preheader._crit_edge ], [ %.sroa.speculated202, %146 ], [ %.1155281, %.thread ]
+  %.3161252 = phi i32 [ %.1159280, %.preheader._crit_edge ], [ %148, %146 ], [ %.1159280, %.thread ]
+  %.3165251 = phi i32 [ %.1163279, %.preheader._crit_edge ], [ %.1139276, %146 ], [ %.1163279, %.thread ]
   %indvars.iv.next340 = add nuw nsw i64 %indvars.iv339, 1
   %exitcond343.not = icmp eq i64 %indvars.iv.next340, %wide.trip.count342
   br i1 %exitcond343.not, label %._crit_edge286, label %.preheader258, !llvm.loop !761
@@ -70007,7 +70007,7 @@ _ZNSt6vectorImSaImEE6resizeEmRKm.exit:            ; preds = %4
   br i1 %.not.i.i148, label %_ZN3vcg3tri15UpdateSelectionINS0_12VoronoiAtlasI6CMeshOE8VoroMeshEE11VertexCountERKS5_.exit, label %.lr.ph.i.i, !llvm.loop !522
 
 _ZN3vcg3tri15UpdateSelectionINS0_12VoronoiAtlasI6CMeshOE8VoroMeshEE11VertexCountERKS5_.exit: ; preds = %.lr.ph.i.i, %.lr.ph25.i.i, %.preheader.i.i, %.preheader19.i.i
-  %.4.i = phi i64 [ 0, %.preheader.i.i ], [ 0, %.preheader19.i.i ], [ %spec.select.i, %.lr.ph25.i.i ], [ %spec.select4.i, %.lr.ph.i.i ]
+  %.4.i = phi i64 [ 0, %.preheader.i.i ], [ %spec.select.i, %.lr.ph25.i.i ], [ 0, %.preheader19.i.i ], [ %spec.select4.i, %.lr.ph.i.i ]
   %sext = shl i64 %.4.i, 32
   %60 = ashr exact i64 %sext, 32
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -70454,7 +70454,7 @@ _ZNSt6vectorImSaImEE6resizeEmRKm.exit178:         ; preds = %259, %257, %255, %2
   br i1 %.not.i.i187, label %_ZN3vcg3tri15UpdateSelectionINS0_12VoronoiAtlasI6CMeshOE8VoroMeshEE9FaceCountERKS5_.exit, label %.lr.ph.i.i181, !llvm.loop !528
 
 _ZN3vcg3tri15UpdateSelectionINS0_12VoronoiAtlasI6CMeshOE8VoroMeshEE9FaceCountERKS5_.exit: ; preds = %.lr.ph.i.i181, %.lr.ph25.i.i190, %.preheader.i.i189, %.preheader19.i.i180
-  %.4.i188 = phi i64 [ 0, %.preheader.i.i189 ], [ 0, %.preheader19.i.i180 ], [ %spec.select.i195, %.lr.ph25.i.i190 ], [ %spec.select4.i185, %.lr.ph.i.i181 ]
+  %.4.i188 = phi i64 [ 0, %.preheader.i.i189 ], [ %spec.select.i195, %.lr.ph25.i.i190 ], [ 0, %.preheader19.i.i180 ], [ %spec.select4.i185, %.lr.ph.i.i181 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(57) %8, i8 0, i64 57, i1 false)
   %285 = invoke ptr @_ZN3vcg3tri9AllocatorI6CMeshOE8AddFacesERS2_mRNS3_14PointerUpdaterIP6CFaceOEE(ptr noundef nonnull align 8 dereferenceable(1196) %0, i64 noundef %.4.i188, ptr noundef nonnull align 8 dereferenceable(57) %8)
@@ -74319,7 +74319,7 @@ _ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE6UpdateERS6_.exit66: ; p
   br i1 %.not123, label %.loopexit, label %188, !llvm.loop !860
 
 .loopexit:                                        ; preds = %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE6UpdateERS6_.exit66, %._crit_edge145, %.loopexit130, %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE10NeedUpdateEv.exit, %11
-  %.sroa.0106.0 = phi ptr [ %13, %11 ], [ %42, %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE10NeedUpdateEv.exit ], [ %42, %.loopexit130 ], [ %42, %._crit_edge145 ], [ %42, %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE6UpdateERS6_.exit66 ]
+  %.sroa.0106.0 = phi ptr [ %13, %11 ], [ %42, %.loopexit130 ], [ %42, %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE10NeedUpdateEv.exit ], [ %42, %._crit_edge145 ], [ %42, %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE6UpdateERS6_.exit66 ]
   ret ptr %.sroa.0106.0
 }
 
@@ -83344,9 +83344,9 @@ _ZN3vcg23InterpolationParametersI6CFaceOfEEbT_iRKNS_6Point3IT0_EERS5_.exit.sink.
   br label %_ZN3vcg23InterpolationParametersI6CFaceOfEEbT_iRKNS_6Point3IT0_EERS5_.exit
 
 _ZN3vcg23InterpolationParametersI6CFaceOfEEbT_iRKNS_6Point3IT0_EERS5_.exit: ; preds = %_ZN3vcg23InterpolationParametersI6CFaceOfEEbT_iRKNS_6Point3IT0_EERS5_.exit.sink.split, %174, %144, %99, %56
-  %.sink54 = phi float [ %45, %56 ], [ %88, %99 ], [ %134, %144 ], [ %164, %174 ], [ 0x3FD5555560000000, %_ZN3vcg23InterpolationParametersI6CFaceOfEEbT_iRKNS_6Point3IT0_EERS5_.exit.sink.split ]
-  %.sink51 = phi float [ %52, %56 ], [ %95, %99 ], [ %140, %144 ], [ %170, %174 ], [ 0x3FD5555560000000, %_ZN3vcg23InterpolationParametersI6CFaceOfEEbT_iRKNS_6Point3IT0_EERS5_.exit.sink.split ]
-  %.sink48 = phi float [ %54, %56 ], [ %97, %99 ], [ %142, %144 ], [ %172, %174 ], [ 0x3FD5555560000000, %_ZN3vcg23InterpolationParametersI6CFaceOfEEbT_iRKNS_6Point3IT0_EERS5_.exit.sink.split ]
+  %.sink54 = phi float [ %164, %174 ], [ %134, %144 ], [ %88, %99 ], [ %45, %56 ], [ 0x3FD5555560000000, %_ZN3vcg23InterpolationParametersI6CFaceOfEEbT_iRKNS_6Point3IT0_EERS5_.exit.sink.split ]
+  %.sink51 = phi float [ %170, %174 ], [ %140, %144 ], [ %95, %99 ], [ %52, %56 ], [ 0x3FD5555560000000, %_ZN3vcg23InterpolationParametersI6CFaceOfEEbT_iRKNS_6Point3IT0_EERS5_.exit.sink.split ]
+  %.sink48 = phi float [ %172, %174 ], [ %142, %144 ], [ %97, %99 ], [ %54, %56 ], [ 0x3FD5555560000000, %_ZN3vcg23InterpolationParametersI6CFaceOfEEbT_iRKNS_6Point3IT0_EERS5_.exit.sink.split ]
   %178 = fcmp oge float %.sink54, 0xBF1A36E2E0000000
   %179 = fcmp ole float %.sink54, 0x3FF00068E0000000
   %narrow.i.i31.i21 = and i1 %178, %179
@@ -83514,14 +83514,14 @@ define linkonce_odr noundef ptr @_ZN3vcg11GridClosestINS_13GridStaticPtrI6CFaceO
   br i1 %.not, label %_ZNK3vcg4Box3IfE6IsInExERKNS_6Point3IfEE.exit.thread, label %70, !llvm.loop !997
 
 _ZNK3vcg4Box3IfE6IsInExERKNS_6Point3IfEE.exit.thread: ; preds = %94, %45, %6, %32
-  %.sroa.0146.0 = phi i32 [ 1, %32 ], [ 1, %6 ], [ %50, %45 ], [ %50, %94 ]
-  %.sroa.4147.0 = phi i32 [ 1, %32 ], [ 1, %6 ], [ %52, %45 ], [ %52, %94 ]
-  %.sroa.8148.0 = phi i32 [ 1, %32 ], [ 1, %6 ], [ %54, %45 ], [ %54, %94 ]
-  %.sroa.12.0 = phi i32 [ -1, %32 ], [ -1, %6 ], [ %50, %45 ], [ %50, %94 ]
-  %.sroa.16.0 = phi i32 [ -1, %32 ], [ -1, %6 ], [ %52, %45 ], [ %52, %94 ]
-  %.sroa.20.0 = phi i32 [ -1, %32 ], [ -1, %6 ], [ %54, %45 ], [ %54, %94 ]
-  %.059 = phi float [ %sqrt.i, %32 ], [ %sqrt.i, %6 ], [ %sqrt.i, %45 ], [ %.362, %94 ]
-  %.0 = phi ptr [ null, %32 ], [ null, %6 ], [ null, %45 ], [ %.3, %94 ]
+  %.sroa.0146.0 = phi i32 [ 1, %6 ], [ 1, %32 ], [ %50, %45 ], [ %50, %94 ]
+  %.sroa.4147.0 = phi i32 [ 1, %6 ], [ 1, %32 ], [ %52, %45 ], [ %52, %94 ]
+  %.sroa.8148.0 = phi i32 [ 1, %6 ], [ 1, %32 ], [ %54, %45 ], [ %54, %94 ]
+  %.sroa.12.0 = phi i32 [ -1, %6 ], [ -1, %32 ], [ %50, %45 ], [ %50, %94 ]
+  %.sroa.16.0 = phi i32 [ -1, %6 ], [ -1, %32 ], [ %52, %45 ], [ %52, %94 ]
+  %.sroa.20.0 = phi i32 [ -1, %6 ], [ -1, %32 ], [ %54, %45 ], [ %54, %94 ]
+  %.059 = phi float [ %sqrt.i, %6 ], [ %sqrt.i, %32 ], [ %sqrt.i, %45 ], [ %.362, %94 ]
+  %.0 = phi ptr [ null, %6 ], [ null, %32 ], [ null, %45 ], [ %.3, %94 ]
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %97 = load i32, ptr %96, align 4
   %98 = add nsw i32 %97, -1
@@ -84866,7 +84866,7 @@ _ZZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_ENKUlRK8CVertexOE
   br i1 %.not.i.i, label %_ZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_.exit, label %.lr.ph.i.i, !llvm.loop !1004
 
 _ZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_.exit: ; preds = %_ZZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_ENKUlRK8CVertexOE_clES8_.exit8.i.i, %.lr.ph27.i.i, %.preheader.i.i, %.preheader21.i.i
-  %.sroa.0.6.i = phi <2 x float> [ <float 0x47EFFFFFE0000000, float 0xC7EFFFFFE0000000>, %.preheader.i.i ], [ <float 0x47EFFFFFE0000000, float 0xC7EFFFFFE0000000>, %.preheader21.i.i ], [ %.sroa.0.5.i, %.lr.ph27.i.i ], [ %.sroa.0.1.i, %_ZZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_ENKUlRK8CVertexOE_clES8_.exit8.i.i ]
+  %.sroa.0.6.i = phi <2 x float> [ <float 0x47EFFFFFE0000000, float 0xC7EFFFFFE0000000>, %.preheader.i.i ], [ %.sroa.0.5.i, %.lr.ph27.i.i ], [ <float 0x47EFFFFFE0000000, float 0xC7EFFFFFE0000000>, %.preheader21.i.i ], [ %.sroa.0.1.i, %_ZZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_ENKUlRK8CVertexOE_clES8_.exit8.i.i ]
   %.sroa.0.0.vec.extract = extractelement <2 x float> %.sroa.0.6.i, i64 0
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 300
   store float %.sroa.0.0.vec.extract, ptr %79, align 4
@@ -87699,14 +87699,14 @@ _ZNK3vcg6vertex20PointDistanceFunctorIfEclI8CVertexOEEbRKT_RKNS_6Point3IfEERfRS9
   br i1 %.not, label %_ZNK3vcg4Box3IfE6IsInExERKNS_6Point3IfEE.exit.thread, label %.lr.ph, !llvm.loop !1036
 
 _ZNK3vcg4Box3IfE6IsInExERKNS_6Point3IfEE.exit.thread: ; preds = %_ZNK3vcg6vertex20PointDistanceFunctorIfEclI8CVertexOEEbRKT_RKNS_6Point3IfEERfRS9_.exit, %35, %6, %22
-  %.sroa.0139.0 = phi i32 [ 1, %22 ], [ 1, %6 ], [ %40, %35 ], [ %40, %_ZNK3vcg6vertex20PointDistanceFunctorIfEclI8CVertexOEEbRKT_RKNS_6Point3IfEERfRS9_.exit ]
-  %.sroa.4140.0 = phi i32 [ 1, %22 ], [ 1, %6 ], [ %42, %35 ], [ %42, %_ZNK3vcg6vertex20PointDistanceFunctorIfEclI8CVertexOEEbRKT_RKNS_6Point3IfEERfRS9_.exit ]
-  %.sroa.8141.0 = phi i32 [ 1, %22 ], [ 1, %6 ], [ %44, %35 ], [ %44, %_ZNK3vcg6vertex20PointDistanceFunctorIfEclI8CVertexOEEbRKT_RKNS_6Point3IfEERfRS9_.exit ]
-  %.sroa.12.0 = phi i32 [ -1, %22 ], [ -1, %6 ], [ %40, %35 ], [ %40, %_ZNK3vcg6vertex20PointDistanceFunctorIfEclI8CVertexOEEbRKT_RKNS_6Point3IfEERfRS9_.exit ]
-  %.sroa.16.0 = phi i32 [ -1, %22 ], [ -1, %6 ], [ %42, %35 ], [ %42, %_ZNK3vcg6vertex20PointDistanceFunctorIfEclI8CVertexOEEbRKT_RKNS_6Point3IfEERfRS9_.exit ]
-  %.sroa.20.0 = phi i32 [ -1, %22 ], [ -1, %6 ], [ %44, %35 ], [ %44, %_ZNK3vcg6vertex20PointDistanceFunctorIfEclI8CVertexOEEbRKT_RKNS_6Point3IfEERfRS9_.exit ]
-  %.059 = phi float [ %sqrt.i, %22 ], [ %sqrt.i, %6 ], [ %sqrt.i, %35 ], [ %.362, %_ZNK3vcg6vertex20PointDistanceFunctorIfEclI8CVertexOEEbRKT_RKNS_6Point3IfEERfRS9_.exit ]
-  %.0 = phi ptr [ null, %22 ], [ null, %6 ], [ null, %35 ], [ %.3, %_ZNK3vcg6vertex20PointDistanceFunctorIfEclI8CVertexOEEbRKT_RKNS_6Point3IfEERfRS9_.exit ]
+  %.sroa.0139.0 = phi i32 [ 1, %6 ], [ 1, %22 ], [ %40, %35 ], [ %40, %_ZNK3vcg6vertex20PointDistanceFunctorIfEclI8CVertexOEEbRKT_RKNS_6Point3IfEERfRS9_.exit ]
+  %.sroa.4140.0 = phi i32 [ 1, %6 ], [ 1, %22 ], [ %42, %35 ], [ %42, %_ZNK3vcg6vertex20PointDistanceFunctorIfEclI8CVertexOEEbRKT_RKNS_6Point3IfEERfRS9_.exit ]
+  %.sroa.8141.0 = phi i32 [ 1, %6 ], [ 1, %22 ], [ %44, %35 ], [ %44, %_ZNK3vcg6vertex20PointDistanceFunctorIfEclI8CVertexOEEbRKT_RKNS_6Point3IfEERfRS9_.exit ]
+  %.sroa.12.0 = phi i32 [ -1, %6 ], [ -1, %22 ], [ %40, %35 ], [ %40, %_ZNK3vcg6vertex20PointDistanceFunctorIfEclI8CVertexOEEbRKT_RKNS_6Point3IfEERfRS9_.exit ]
+  %.sroa.16.0 = phi i32 [ -1, %6 ], [ -1, %22 ], [ %42, %35 ], [ %42, %_ZNK3vcg6vertex20PointDistanceFunctorIfEclI8CVertexOEEbRKT_RKNS_6Point3IfEERfRS9_.exit ]
+  %.sroa.20.0 = phi i32 [ -1, %6 ], [ -1, %22 ], [ %44, %35 ], [ %44, %_ZNK3vcg6vertex20PointDistanceFunctorIfEclI8CVertexOEEbRKT_RKNS_6Point3IfEERfRS9_.exit ]
+  %.059 = phi float [ %sqrt.i, %6 ], [ %sqrt.i, %22 ], [ %sqrt.i, %35 ], [ %.362, %_ZNK3vcg6vertex20PointDistanceFunctorIfEclI8CVertexOEEbRKT_RKNS_6Point3IfEERfRS9_.exit ]
+  %.0 = phi ptr [ null, %6 ], [ null, %22 ], [ null, %35 ], [ %.3, %_ZNK3vcg6vertex20PointDistanceFunctorIfEclI8CVertexOEEbRKT_RKNS_6Point3IfEERfRS9_.exit ]
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %84 = load i32, ptr %83, align 4
   %85 = add nsw i32 %84, -1

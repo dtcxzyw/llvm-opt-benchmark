@@ -3423,7 +3423,7 @@ RARRAY_PTR.exit:                                  ; preds = %9, %11
   br i1 %exitcond60.not, label %.loopexit, label %.lr.ph51, !llvm.loop !87
 
 .loopexit:                                        ; preds = %19, %29, %RARRAY_PTR.exit
-  %32 = phi ptr [ @zip_ary, %RARRAY_PTR.exit ], [ @zip_i, %29 ], [ @zip_ary, %19 ]
+  %32 = phi ptr [ @zip_i, %29 ], [ @zip_ary, %RARRAY_PTR.exit ], [ @zip_ary, %19 ]
   %33 = tail call i32 @rb_block_given_p() #15
   %.not36 = icmp eq i32 %33, 0
   br i1 %.not36, label %34, label %36
@@ -4759,7 +4759,7 @@ rb_uniform_is_less.exit29.i:                      ; preds = %.preheader30.split.
   br label %.preheader30.split.i, !llvm.loop !102
 
 .loopexit.i:                                      ; preds = %rb_uniform_is_less.exit29.i, %41, %.critedge.i28.us.i, %.lr.ph36.i, %.preheader.i, %.preheader30.split.us.i
-  %.124.i = phi ptr [ %.040.i, %.preheader.i ], [ %.040.i, %.preheader30.split.us.i ], [ %28, %.critedge.i28.us.i ], [ %36, %.lr.ph36.i ], [ %.1.i, %41 ], [ %.1.i, %rb_uniform_is_less.exit29.i ]
+  %.124.i = phi ptr [ %36, %.lr.ph36.i ], [ %.040.i, %.preheader.i ], [ %28, %.critedge.i28.us.i ], [ %.040.i, %.preheader30.split.us.i ], [ %.1.i, %41 ], [ %.1.i, %rb_uniform_is_less.exit29.i ]
   store i64 %.sroa.0.0.copyload.i, ptr %.124.i, align 8, !tbaa !7
   %.sroa.6.0..0.12.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.124.i, i64 8
   store i64 %.sroa.6.0.copyload.i, ptr %.sroa.6.0..0.12.sroa_idx.i, align 8, !tbaa !7

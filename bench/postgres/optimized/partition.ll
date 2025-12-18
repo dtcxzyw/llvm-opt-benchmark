@@ -345,7 +345,7 @@ list_head.exit:                                   ; preds = %11, %15
   br i1 %exitcond.not, label %.critedge40, label %23, !llvm.loop !6
 
 .critedge40:                                      ; preds = %43, %list_head.exit, %38, %30, %31, %3, %6
-  %.0 = phi i1 [ false, %3 ], [ false, %6 ], [ true, %31 ], [ true, %30 ], [ true, %38 ], [ false, %list_head.exit ], [ false, %43 ]
+  %.0 = phi i1 [ false, %3 ], [ true, %38 ], [ false, %6 ], [ true, %31 ], [ true, %30 ], [ false, %list_head.exit ], [ false, %43 ]
   ret i1 %.0
 }
 

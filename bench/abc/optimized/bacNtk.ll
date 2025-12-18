@@ -388,8 +388,8 @@ Vec_IntPush.exit27.sink.split:                    ; preds = %53, %55, %45, %47
   br label %Vec_IntPush.exit27
 
 Vec_IntPush.exit27:                               ; preds = %Vec_IntPush.exit27.sink.split, %.critedge.preheader, %.critedge._crit_edge
-  %.014.lcssa46 = phi i32 [ %.115, %.critedge._crit_edge ], [ 0, %.critedge.preheader ], [ %.115, %Vec_IntPush.exit27.sink.split ]
-  %57 = phi ptr [ %.pre.i33, %.critedge._crit_edge ], [ @Bac_NameToRanges.pArray, %.critedge.preheader ], [ %.sink50, %Vec_IntPush.exit27.sink.split ]
+  %.014.lcssa46 = phi i32 [ 0, %.critedge.preheader ], [ %.115, %.critedge._crit_edge ], [ %.115, %Vec_IntPush.exit27.sink.split ]
+  %57 = phi ptr [ @Bac_NameToRanges.pArray, %.critedge.preheader ], [ %.pre.i33, %.critedge._crit_edge ], [ %.sink50, %Vec_IntPush.exit27.sink.split ]
   %58 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Bac_NameToRanges.Bits, i64 4), align 4, !tbaa !22
   %59 = add nsw i32 %58, 1
   store i32 %59, ptr getelementptr inbounds nuw (i8, ptr @Bac_NameToRanges.Bits, i64 4), align 4, !tbaa !22
@@ -1778,8 +1778,8 @@ Bac_ObjSetName.exit250:                           ; preds = %210, %._crit_edge.i
   br i1 %248, label %105, label %._crit_edge, !llvm.loop !55
 
 ._crit_edge:                                      ; preds = %246, %Abc_Base10Log.exit, %.preheader346, %.preheader345
-  %.val161445 = phi i32 [ %.val163, %.preheader345 ], [ %.val164, %.preheader346 ], [ %.val39.i, %Abc_Base10Log.exit ], [ %.val162, %246 ]
-  %.val8.i.i256 = phi ptr [ %.val172, %.preheader345 ], [ %.val172, %.preheader346 ], [ %.val172, %Abc_Base10Log.exit ], [ %.val.i.i206431, %246 ]
+  %.val161445 = phi i32 [ %.val39.i, %Abc_Base10Log.exit ], [ %.val163, %.preheader345 ], [ %.val164, %.preheader346 ], [ %.val162, %246 ]
+  %.val8.i.i256 = phi ptr [ %.val172, %Abc_Base10Log.exit ], [ %.val172, %.preheader345 ], [ %.val172, %.preheader346 ], [ %.val.i.i206431, %246 ]
   %249 = getelementptr i8, ptr %0, i64 68
   %.val183 = load i32, ptr %249, align 4, !tbaa !22
   %or.cond = icmp sgt i32 %.val183, 2
@@ -2311,11 +2311,11 @@ Bac_ObjNameType.exit324.thread:                   ; preds = %.lr.ph385.preheader
   br label %.critedge2, !llvm.loop !59
 
 .critedge2:                                       ; preds = %.lr.ph385, %.lr.ph385.preheader, %..critedge2.loopexit_crit_edge, %..critedge2_crit_edge, %Bac_ObjNameId.exit316
-  %indvars.iv.next418.pre-phi = phi i64 [ %.pre491, %..critedge2_crit_edge ], [ %453, %Bac_ObjNameId.exit316 ], [ %453, %..critedge2.loopexit_crit_edge ], [ %453, %.lr.ph385.preheader ], [ %453, %.lr.ph385 ]
-  %.val159 = phi i32 [ %.val159481, %..critedge2_crit_edge ], [ %.val158383, %Bac_ObjNameId.exit316 ], [ %.val158, %..critedge2.loopexit_crit_edge ], [ %.val158383, %.lr.ph385.preheader ], [ %.val158, %.lr.ph385 ]
-  %.val7.i.i320475 = phi ptr [ %.val7.i.i320474, %..critedge2_crit_edge ], [ %.val7.i.i320474, %Bac_ObjNameId.exit316 ], [ %.val7.i.i320478, %..critedge2.loopexit_crit_edge ], [ %.val7.i.i320474, %.lr.ph385.preheader ], [ %.val7.i.i320478, %.lr.ph385 ]
-  %.val8.i.i315471 = phi ptr [ %.val8.i.i315, %..critedge2_crit_edge ], [ %.val8.i.i315, %Bac_ObjNameId.exit316 ], [ %.val7.i.i320478, %..critedge2.loopexit_crit_edge ], [ %.val8.i.i315, %.lr.ph385.preheader ], [ %.val7.i.i320478, %.lr.ph385 ]
-  %.val7.i.i312465 = phi ptr [ %.val7.i.i312, %..critedge2_crit_edge ], [ %.val7.i.i312468, %Bac_ObjNameId.exit316 ], [ %.val7.i.i320478, %..critedge2.loopexit_crit_edge ], [ %.val7.i.i312468, %.lr.ph385.preheader ], [ %.val7.i.i320478, %.lr.ph385 ]
+  %indvars.iv.next418.pre-phi = phi i64 [ %.pre491, %..critedge2_crit_edge ], [ %453, %Bac_ObjNameId.exit316 ], [ %453, %.lr.ph385.preheader ], [ %453, %..critedge2.loopexit_crit_edge ], [ %453, %.lr.ph385 ]
+  %.val159 = phi i32 [ %.val159481, %..critedge2_crit_edge ], [ %.val158383, %Bac_ObjNameId.exit316 ], [ %.val158383, %.lr.ph385.preheader ], [ %.val158, %..critedge2.loopexit_crit_edge ], [ %.val158, %.lr.ph385 ]
+  %.val7.i.i320475 = phi ptr [ %.val7.i.i320474, %..critedge2_crit_edge ], [ %.val7.i.i320474, %Bac_ObjNameId.exit316 ], [ %.val7.i.i320474, %.lr.ph385.preheader ], [ %.val7.i.i320478, %..critedge2.loopexit_crit_edge ], [ %.val7.i.i320478, %.lr.ph385 ]
+  %.val8.i.i315471 = phi ptr [ %.val8.i.i315, %..critedge2_crit_edge ], [ %.val8.i.i315, %Bac_ObjNameId.exit316 ], [ %.val8.i.i315, %.lr.ph385.preheader ], [ %.val7.i.i320478, %..critedge2.loopexit_crit_edge ], [ %.val7.i.i320478, %.lr.ph385 ]
+  %.val7.i.i312465 = phi ptr [ %.val7.i.i312, %..critedge2_crit_edge ], [ %.val7.i.i312468, %Bac_ObjNameId.exit316 ], [ %.val7.i.i312468, %.lr.ph385.preheader ], [ %.val7.i.i320478, %..critedge2.loopexit_crit_edge ], [ %.val7.i.i320478, %.lr.ph385 ]
   %471 = sext i32 %.val159 to i64
   %472 = icmp slt i64 %indvars.iv.next418.pre-phi, %471
   %indvars.iv.next413 = add nuw nsw i64 %indvars.iv412, 1
@@ -4389,8 +4389,8 @@ Bac_ObjSetCopy.exit186..critedge2.loopexit_crit_edge: ; preds = %Bac_ObjSetCopy.
   br label %.critedge2, !llvm.loop !78
 
 .critedge2:                                       ; preds = %.lr.ph95.i, %.lr.ph246, %.lr.ph95.i.preheader, %..critedge2.loopexit392_crit_edge, %.lr.ph246.preheader, %Bac_ObjSetCopy.exit186..critedge2.loopexit_crit_edge, %..critedge2_crit_edge, %.preheader237, %Bac_BoxNtk.exit.thread.i
-  %indvars.iv.next283.pre-phi = phi i64 [ %.pre326, %..critedge2_crit_edge ], [ %188, %Bac_BoxNtk.exit.thread.i ], [ %97, %.preheader237 ], [ %97, %.lr.ph246.preheader ], [ %97, %Bac_ObjSetCopy.exit186..critedge2.loopexit_crit_edge ], [ %188, %..critedge2.loopexit392_crit_edge ], [ %188, %.lr.ph95.i.preheader ], [ %97, %.lr.ph246 ], [ %188, %.lr.ph95.i ]
-  %.val115 = phi i32 [ %.val115317, %..critedge2_crit_edge ], [ %.val93.i, %Bac_BoxNtk.exit.thread.i ], [ %.val115317, %.preheader237 ], [ %.val115317, %.lr.ph246.preheader ], [ %.val114, %Bac_ObjSetCopy.exit186..critedge2.loopexit_crit_edge ], [ %.val.i138, %..critedge2.loopexit392_crit_edge ], [ %.val93.i, %.lr.ph95.i.preheader ], [ %.val114, %.lr.ph246 ], [ %.val.i138, %.lr.ph95.i ]
+  %indvars.iv.next283.pre-phi = phi i64 [ %.pre326, %..critedge2_crit_edge ], [ %97, %.lr.ph246.preheader ], [ %188, %Bac_BoxNtk.exit.thread.i ], [ %97, %.preheader237 ], [ %188, %.lr.ph95.i.preheader ], [ %97, %Bac_ObjSetCopy.exit186..critedge2.loopexit_crit_edge ], [ %97, %.lr.ph246 ], [ %188, %..critedge2.loopexit392_crit_edge ], [ %188, %.lr.ph95.i ]
+  %.val115 = phi i32 [ %.val115317, %..critedge2_crit_edge ], [ %.val115317, %.lr.ph246.preheader ], [ %.val93.i, %Bac_BoxNtk.exit.thread.i ], [ %.val115317, %.preheader237 ], [ %.val93.i, %.lr.ph95.i.preheader ], [ %.val114, %Bac_ObjSetCopy.exit186..critedge2.loopexit_crit_edge ], [ %.val114, %.lr.ph246 ], [ %.val.i138, %..critedge2.loopexit392_crit_edge ], [ %.val.i138, %.lr.ph95.i ]
   %404 = sext i32 %.val115 to i64
   %405 = icmp slt i64 %indvars.iv.next283.pre-phi, %404
   %indvars.iv.next279 = add nuw nsw i64 %indvars.iv278, 1

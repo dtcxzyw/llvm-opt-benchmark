@@ -2395,7 +2395,7 @@ _ZSt4swapIdLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S1_S5
   br i1 %210, label %184, label %.critedge, !llvm.loop !78
 
 .loopexit:                                        ; preds = %.lr.ph.split, %.critedge, %24, %._crit_edge
-  %.0193.lcssa238 = phi i32 [ 1, %._crit_edge ], [ 0, %24 ], [ %97, %.critedge ], [ %97, %.lr.ph.split ]
+  %.0193.lcssa238 = phi i32 [ 0, %24 ], [ 1, %._crit_edge ], [ %97, %.critedge ], [ %97, %.lr.ph.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   call void @llvm.lifetime.end.p0(ptr nonnull %26)

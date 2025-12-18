@@ -1253,7 +1253,7 @@ _ZN10open_spiel10algorithms9CFRSolverC2ERKNS_4GameE.exit.i24: ; preds = %_ZN10op
   br i1 %389, label %.loopexit188.i, label %.preheader187.i
 
 .loopexit188.i:                                   ; preds = %.preheader187.i, %385, %.thread164.i, %.thread.i
-  %.pn.pn.pn.pn.pn.pn.pn163.i = phi { ptr, i32 } [ %366, %.thread.i ], [ %.pn.pn.pn.pn.pn.i, %385 ], [ %367, %.thread164.i ], [ %.pn.pn.pn.pn.pn.i, %.preheader187.i ]
+  %.pn.pn.pn.pn.pn.pn.pn163.i = phi { ptr, i32 } [ %366, %.thread.i ], [ %367, %.thread164.i ], [ %.pn.pn.pn.pn.pn.i, %385 ], [ %.pn.pn.pn.pn.pn.i, %.preheader187.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %113) #22
   br label %.body.i20
 
@@ -1856,7 +1856,7 @@ _ZN10open_spiel10algorithms9CFRSolverC2ERKNS_4GameE.exit133.i: ; preds = %_ZN10o
   br i1 %599, label %.loopexit180.i, label %.preheader.i
 
 .loopexit180.i:                                   ; preds = %.preheader.i, %595, %.thread175.i, %.thread169.i
-  %.pn71.pn.pn.pn.pn.pn.pn174.i = phi { ptr, i32 } [ %576, %.thread169.i ], [ %.pn71.pn.pn.pn.pn.i, %595 ], [ %577, %.thread175.i ], [ %.pn71.pn.pn.pn.pn.i, %.preheader.i ]
+  %.pn71.pn.pn.pn.pn.pn.pn174.i = phi { ptr, i32 } [ %576, %.thread169.i ], [ %577, %.thread175.i ], [ %.pn71.pn.pn.pn.pn.i, %595 ], [ %.pn71.pn.pn.pn.pn.i, %.preheader.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %129) #22
   br label %.body106.i
 
@@ -4565,7 +4565,7 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open
   br label %.body117.thread.i
 
 .body117.thread.i:                                ; preds = %.preheader.i103, %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel10algorithms18CFRInfoStateValuesESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S8_EEED2Ev.exit159, %.body171.i, %.body117.i, %923, %919, %917, %.body114.i
-  %.pn102.i = phi { ptr, i32 } [ %920, %919 ], [ %918, %917 ], [ %.pn99.pn.i, %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel10algorithms18CFRInfoStateValuesESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S8_EEED2Ev.exit159 ], [ %eh.lpad-body172.i, %.body171.i ], [ %.pn82.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %.body117.i ], [ %.pn80.i101, %.body114.i ], [ %924, %923 ], [ %.pn82.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %.preheader.i103 ]
+  %.pn102.i = phi { ptr, i32 } [ %920, %919 ], [ %918, %917 ], [ %.pn99.pn.i, %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel10algorithms18CFRInfoStateValuesESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S8_EEED2Ev.exit159 ], [ %eh.lpad-body172.i, %.body171.i ], [ %.pn82.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %.body117.i ], [ %924, %923 ], [ %.pn80.i101, %.body114.i ], [ %.pn82.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %.preheader.i103 ]
   %1597 = load ptr, ptr %884, align 8
   %.not5.i.i.i.i148 = icmp eq ptr %1597, null
   br i1 %.not5.i.i.i.i148, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel10algorithms18CFRInfoStateValuesEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i152, label %.lr.ph.i.i.i.i149

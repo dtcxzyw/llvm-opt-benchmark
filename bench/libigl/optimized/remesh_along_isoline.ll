@@ -810,7 +810,7 @@ _ZNSt13unordered_mapIiS_IiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEES1_S3_SaIS4_
   unreachable
 
 .loopexit555:                                     ; preds = %276, %263, %271
-  %.sroa.06.1.i.i.i = phi ptr [ %272, %271 ], [ %.sroa.06.0.i.i.i, %263 ], [ %278, %276 ]
+  %.sroa.06.1.i.i.i = phi ptr [ %.sroa.06.0.i.i.i, %263 ], [ %272, %271 ], [ %278, %276 ]
   %284 = add nsw i32 %230, 1
   %285 = srem i32 %284, 3
   %286 = sext i32 %285 to i64
@@ -1445,7 +1445,7 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   br label %.body
 
 .loopexit547:                                     ; preds = %551, %.noexc243, %546
-  %.pn.i.i241 = phi ptr [ %547, %546 ], [ %562, %.noexc243 ], [ %553, %551 ]
+  %.pn.i.i241 = phi ptr [ %562, %.noexc243 ], [ %547, %546 ], [ %553, %551 ]
   %.1.i.i242 = getelementptr inbounds nuw i8, ptr %.pn.i.i241, i64 12
   store i32 %.31028, ptr %.1.i.i242, align 4, !tbaa !40
   %564 = add nuw nsw i32 %.31028, 1
@@ -1645,7 +1645,7 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   br label %.body
 
 .loopexit563:                                     ; preds = %632, %.noexc259, %627
-  %.pn.i.i257 = phi ptr [ %628, %627 ], [ %643, %.noexc259 ], [ %634, %632 ]
+  %.pn.i.i257 = phi ptr [ %643, %.noexc259 ], [ %628, %627 ], [ %634, %632 ]
   %.1.i.i258 = getelementptr inbounds nuw i8, ptr %.pn.i.i257, i64 12
   %645 = load i32, ptr %.1.i.i258, align 4, !tbaa !40
   %646 = load i64, ptr %31, align 8, !tbaa !29
@@ -1782,7 +1782,7 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   br label %.body
 
 .loopexit561:                                     ; preds = %687, %.noexc275, %682
-  %.pn.i.i273 = phi ptr [ %683, %682 ], [ %698, %.noexc275 ], [ %689, %687 ]
+  %.pn.i.i273 = phi ptr [ %698, %.noexc275 ], [ %683, %682 ], [ %689, %687 ]
   %.1.i.i274 = getelementptr inbounds nuw i8, ptr %.pn.i.i273, i64 12
   %700 = load i32, ptr %.1.i.i274, align 4, !tbaa !40
   call void @llvm.lifetime.start.p0(ptr nonnull %23)

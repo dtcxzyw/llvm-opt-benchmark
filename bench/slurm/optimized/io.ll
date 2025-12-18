@@ -384,7 +384,7 @@ define internal noundef zeroext i1 @_client_writable(ptr noundef %0) #0 {
   br label %58
 
 58:                                               ; preds = %.sink.split, %55, %50, %52, %11
-  %.0 = phi i1 [ true, %50 ], [ false, %11 ], [ true, %52 ], [ false, %55 ], [ false, %.sink.split ]
+  %.0 = phi i1 [ true, %50 ], [ false, %11 ], [ false, %55 ], [ true, %52 ], [ false, %.sink.split ]
   ret i1 %.0
 }
 
@@ -1425,7 +1425,7 @@ _free_incoming_msg.exit35:                        ; preds = %82, %89
   br label %.loopexit
 
 .loopexit:                                        ; preds = %60, %78, %17, %20, %_free_incoming_msg.exit35, %_free_incoming_msg.exit34, %_free_incoming_msg.exit
-  %.0 = phi i32 [ 0, %_free_incoming_msg.exit35 ], [ 0, %_free_incoming_msg.exit ], [ 0, %17 ], [ -1, %_free_incoming_msg.exit34 ], [ 0, %20 ], [ 0, %78 ], [ 0, %60 ]
+  %.0 = phi i32 [ 0, %_free_incoming_msg.exit35 ], [ 0, %_free_incoming_msg.exit ], [ 0, %17 ], [ -1, %_free_incoming_msg.exit34 ], [ 0, %78 ], [ 0, %20 ], [ 0, %60 ]
   ret i32 %.0
 }
 

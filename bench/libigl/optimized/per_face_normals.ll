@@ -4072,7 +4072,7 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal18stable_norm_kernelINS_3R
   br label %_ZNK5Eigen9DenseBaseINS_12CwiseUnaryOpINS_8internal13scalar_abs_opIdEEKNS_3RefIKNS_6MatrixIdLin1ELi1ELi0ELi4096ELi1EEELi0ENS_11InnerStrideILi1EEEEEEEE8maxCoeffEv.exit
 
 _ZNK5Eigen9DenseBaseINS_12CwiseUnaryOpINS_8internal13scalar_abs_opIdEEKNS_3RefIKNS_6MatrixIdLin1ELi1ELi0ELi4096ELi1EEELi0ENS_11InnerStrideILi1EEEEEEEE8maxCoeffEv.exit: ; preds = %.lr.ph85.i.i.i.i, %38, %48
-  %.2.i.i.i.i = phi double [ %50, %48 ], [ %40, %38 ], [ %46, %.lr.ph85.i.i.i.i ]
+  %.2.i.i.i.i = phi double [ %40, %38 ], [ %50, %48 ], [ %46, %.lr.ph85.i.i.i.i ]
   %51 = load double, ptr %2, align 8, !tbaa !49
   %52 = fcmp ogt double %.2.i.i.i.i, %51
   br i1 %52, label %53, label %65
@@ -4207,7 +4207,7 @@ _ZNK5Eigen9DenseBaseINS_12CwiseUnaryOpINS_8internal13scalar_abs_opIdEEKNS_3RefIK
   br label %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_3RefIKNS_6MatrixIdLin1ELi1ELi0ELi4096ELi1EEELi0ENS_11InnerStrideILi1EEEEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEES8_EEEEE11squaredNormEv.exit
 
 _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_3RefIKNS_6MatrixIdLin1ELi1ELi0ELi4096ELi1EEELi0ENS_11InnerStrideILi1EEEEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEES8_EEEEE11squaredNormEv.exit: ; preds = %.lr.ph85.i.i.i.i32, %71, %107, %116
-  %.0.i.i = phi double [ 0.000000e+00, %71 ], [ %119, %116 ], [ %108, %107 ], [ %114, %.lr.ph85.i.i.i.i32 ]
+  %.0.i.i = phi double [ 0.000000e+00, %71 ], [ %108, %107 ], [ %119, %116 ], [ %114, %.lr.ph85.i.i.i.i32 ]
   %120 = load double, ptr %1, align 8, !tbaa !49
   %121 = fadd double %.0.i.i, %120
   store double %121, ptr %1, align 8, !tbaa !49
@@ -16181,7 +16181,7 @@ _ZN5Eigen5BlockINS_6MatrixIfLin1ELin1ELi1ELin1ELin1EEELi1ELin1ELb1EEaSINS1_IfLi1
   br i1 %exitcond96.not.i.i.i.i.i, label %_ZNK5Eigen10MatrixBaseINS_5BlockINS_6MatrixIfLin1ELin1ELi1ELin1ELin1EEELi1ELin1ELb1EEEE4normEv.exit, label %.lr.ph90.i.i.i.i.i, !llvm.loop !830
 
 _ZNK5Eigen10MatrixBaseINS_5BlockINS_6MatrixIfLin1ELin1ELi1ELin1ELin1EEELi1ELin1ELb1EEEE4normEv.exit: ; preds = %.lr.ph85.i.i.i.i.i, %.lr.ph90.i.i.i.i.i, %139, %149
-  %.0.i.i.i = phi float [ %151, %149 ], [ %142, %139 ], [ %156, %.lr.ph90.i.i.i.i.i ], [ %147, %.lr.ph85.i.i.i.i.i ]
+  %.0.i.i.i = phi float [ %156, %.lr.ph90.i.i.i.i.i ], [ %142, %139 ], [ %151, %149 ], [ %147, %.lr.ph85.i.i.i.i.i ]
   %158 = tail call noundef float @llvm.sqrt.f32(float %.0.i.i.i)
   %159 = fcmp oeq float %.0.i.i.i, 0.000000e+00
   br i1 %159, label %_ZNK5Eigen10MatrixBaseINS_5BlockINS_6MatrixIfLin1ELin1ELi1ELin1ELin1EEELi1ELin1ELb1EEEE4normEv.exit.thread, label %189

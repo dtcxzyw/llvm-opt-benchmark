@@ -516,7 +516,7 @@ define dso_local i32 @futex_wake_op(ptr noundef %0, i32 noundef %1, ptr noundef 
   br i1 %28, label %46, label %29
 
 .thread:                                          ; preds = %120, %108, %110, %112, %114, %116, %118
-  %.shrunk = phi i1 [ %109, %108 ], [ %111, %110 ], [ %113, %112 ], [ %115, %114 ], [ %117, %116 ], [ %119, %118 ], [ false, %120 ]
+  %.shrunk = phi i1 [ %119, %118 ], [ %109, %108 ], [ %111, %110 ], [ %113, %112 ], [ %115, %114 ], [ %117, %116 ], [ false, %120 ]
   %129 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %130 = load ptr, ptr %129, align 8
   %131 = icmp eq ptr %130, %129
@@ -903,7 +903,7 @@ select.unfold:                                    ; preds = %68
   br label %.thread4
 
 .thread4:                                         ; preds = %.split10.us, %69, %select.unfold, %66, %79, %28, %.critedge
-  %86 = phi i32 [ 0, %.critedge ], [ -14, %69 ], [ %33, %28 ], [ 0, %79 ], [ 1, %66 ], [ -11, %select.unfold ], [ %15, %.split10.us ]
+  %86 = phi i32 [ -14, %69 ], [ 0, %.critedge ], [ %33, %28 ], [ 0, %79 ], [ 1, %66 ], [ -11, %select.unfold ], [ %15, %.split10.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %86
 }
@@ -1131,7 +1131,7 @@ define dso_local i32 @futex_wait_multiple(ptr noundef %0, i32 noundef %1, ptr no
   br i1 %107, label %111, label %.split11.us
 
 .split11.us:                                      ; preds = %.split9.split.split, %.split9.split.split.us, %.split9.split.us.split, %.split9.split.us.split.us, %.split9.us
-  %.us-phi = phi i32 [ %85, %.split9.split.split.us ], [ %12, %.split9.us ], [ %54, %.split9.split.us.split.us ], [ %66, %.split9.split.us.split ], [ %106, %.split9.split.split ]
+  %.us-phi = phi i32 [ %12, %.split9.us ], [ %66, %.split9.split.us.split ], [ %54, %.split9.split.us.split.us ], [ %85, %.split9.split.split.us ], [ %106, %.split9.split.split ]
   %108 = icmp sgt i32 %.us-phi, 0
   %109 = load i32, ptr %4, align 4
   %110 = select i1 %108, i32 %109, i32 %.us-phi
@@ -1182,7 +1182,7 @@ define dso_local i32 @futex_wait_multiple(ptr noundef %0, i32 noundef %1, ptr no
   br i1 %135, label %.split9.split.split, label %.critedge, !llvm.loop !47
 
 .critedge:                                        ; preds = %.thread, %132, %128, %102, %.thread.us19, %81, %77, %.thread.us13, %62, %.thread.us13.us, %50, %46, %43, %41, %.split11.us
-  %136 = phi i32 [ %110, %.split11.us ], [ %38, %41 ], [ -512, %102 ], [ -512, %62 ], [ -110, %.thread.us13 ], [ -512, %46 ], [ -512, %50 ], [ -110, %43 ], [ -512, %.thread.us13.us ], [ -512, %77 ], [ -512, %81 ], [ -512, %.thread.us19 ], [ -512, %128 ], [ -512, %132 ], [ -110, %.thread ]
+  %136 = phi i32 [ %110, %.split11.us ], [ -512, %102 ], [ -512, %62 ], [ -110, %.thread.us13 ], [ %38, %41 ], [ -512, %46 ], [ -512, %50 ], [ -110, %43 ], [ -512, %.thread.us13.us ], [ -512, %81 ], [ -512, %77 ], [ -512, %.thread.us19 ], [ -512, %132 ], [ -110, %.thread ], [ -512, %128 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %136
 }

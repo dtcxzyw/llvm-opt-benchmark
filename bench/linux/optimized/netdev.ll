@@ -6308,7 +6308,7 @@ define dso_local i64 @e1000e_read_systim(ptr noundef readonly captures(none) %0,
   br i1 %127, label %.loopexit, label %.split.split, !llvm.loop !44
 
 .loopexit:                                        ; preds = %.split.split, %.split.split.us, %.thread8.us, %.thread8.us.us, %38
-  %128 = phi i64 [ %45, %38 ], [ %104, %.split.split.us ], [ %69, %.thread8.us.us ], [ %84, %.thread8.us ], [ %119, %.split.split ]
+  %128 = phi i64 [ %45, %38 ], [ %104, %.split.split.us ], [ %84, %.thread8.us ], [ %69, %.thread8.us.us ], [ %119, %.split.split ]
   ret i64 %128
 }
 

@@ -1202,7 +1202,7 @@ _ZN4llvm5APIntD2Ev.exit111:                       ; preds = %_ZN4llvm5APIntD2Ev.
   br label %169
 
 169:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit111, %105
-  %.386 = phi ptr [ %107, %105 ], [ %168, %_ZN4llvm5APIntD2Ev.exit111 ]
+  %.386 = phi ptr [ %168, %_ZN4llvm5APIntD2Ev.exit111 ], [ %107, %105 ]
   %170 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %171 = load ptr, ptr %170, align 8, !tbaa !92
   %172 = load ptr, ptr %171, align 8, !tbaa !95
@@ -2545,7 +2545,7 @@ _ZL33areNonOverlapSameBaseLoadAndStorePKN4llvm5ValueEPNS_4TypeES2_S4_RKNS_10Data
   br label %.thread71.sink.split
 
 .thread:                                          ; preds = %224, %_ZL33areNonOverlapSameBaseLoadAndStorePKN4llvm5ValueEPNS_4TypeES2_S4_RKNS_10DataLayoutE.exit, %80, %228, %231, %54
-  %.144 = phi i32 [ %.04388, %54 ], [ %66, %231 ], [ %66, %228 ], [ %66, %80 ], [ %66, %_ZL33areNonOverlapSameBaseLoadAndStorePKN4llvm5ValueEPNS_4TypeES2_S4_RKNS_10DataLayoutE.exit ], [ %66, %224 ]
+  %.144 = phi i32 [ %66, %228 ], [ %.04388, %54 ], [ %66, %231 ], [ %66, %80 ], [ %66, %_ZL33areNonOverlapSameBaseLoadAndStorePKN4llvm5ValueEPNS_4TypeES2_S4_RKNS_10DataLayoutE.exit ], [ %66, %224 ]
   %235 = load ptr, ptr %28, align 8, !tbaa !133
   %236 = load ptr, ptr %4, align 8, !tbaa !195
   %.not78 = icmp eq ptr %236, %235
@@ -2561,7 +2561,7 @@ _ZL33areNonOverlapSameBaseLoadAndStorePKN4llvm5ValueEPNS_4TypeES2_S4_RKNS_10Data
   br label %.thread71
 
 .thread71:                                        ; preds = %.thread, %68, %65, %.thread71.sink.split, %9
-  %.5 = phi ptr [ null, %9 ], [ null, %.thread71.sink.split ], [ null, %.thread ], [ %70, %68 ], [ null, %65 ]
+  %.5 = phi ptr [ null, %9 ], [ null, %.thread71.sink.split ], [ null, %65 ], [ %70, %68 ], [ null, %.thread ]
   ret ptr %.5
 }
 
@@ -2927,7 +2927,7 @@ _ZN4llvm5APIntD2Ev.exit133:                       ; preds = %174, %183, %186
   br label %_ZL26AreEquivalentAddressValuesPKN4llvm5ValueES2_.exit
 
 _ZL26AreEquivalentAddressValuesPKN4llvm5ValueES2_.exit: ; preds = %_ZN4llvm8dyn_castINS_10MemSetInstENS_11InstructionEEEDcPT0_.exit, %86, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %83, %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i, %89, %103, %122, %_ZN4llvm5APIntD2Ev.exit133, %_ZN4llvm5APIntD2Ev.exit132, %137, %133, %130, %58, %61, %81, %50, %65, %28, %31, %20, %38, %37, %41, %11
-  %.3 = phi ptr [ null, %86 ], [ null, %28 ], [ null, %11 ], [ null, %41 ], [ null, %_ZN4llvm5APIntD2Ev.exit132 ], [ %0, %37 ], [ null, %20 ], [ %0, %38 ], [ null, %31 ], [ %82, %81 ], [ null, %50 ], [ %67, %65 ], [ null, %61 ], [ null, %58 ], [ null, %130 ], [ null, %133 ], [ null, %137 ], [ null, %122 ], [ %., %_ZN4llvm5APIntD2Ev.exit133 ], [ null, %103 ], [ null, %89 ], [ null, %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i ], [ null, %83 ], [ null, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ null, %_ZN4llvm8dyn_castINS_10MemSetInstENS_11InstructionEEEDcPT0_.exit ]
+  %.3 = phi ptr [ null, %11 ], [ null, %41 ], [ null, %86 ], [ null, %28 ], [ null, %_ZN4llvm5APIntD2Ev.exit132 ], [ %0, %37 ], [ null, %20 ], [ %0, %38 ], [ null, %31 ], [ %82, %81 ], [ null, %50 ], [ %67, %65 ], [ null, %61 ], [ null, %58 ], [ null, %130 ], [ null, %133 ], [ null, %137 ], [ null, %122 ], [ %., %_ZN4llvm5APIntD2Ev.exit133 ], [ null, %103 ], [ null, %89 ], [ null, %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i ], [ null, %83 ], [ null, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ null, %_ZN4llvm8dyn_castINS_10MemSetInstENS_11InstructionEEEDcPT0_.exit ]
   ret ptr %.3
 }
 
@@ -3057,7 +3057,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit: ; 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %29, %49, %.loopexit.sink.split, %19
-  %.4 = phi ptr [ null, %19 ], [ %.4.ph, %.loopexit.sink.split ], [ null, %49 ], [ null, %29 ]
+  %.4 = phi ptr [ %.4.ph, %.loopexit.sink.split ], [ null, %19 ], [ null, %49 ], [ null, %29 ]
   %63 = load ptr, ptr %5, align 8, !tbaa !123
   %64 = icmp eq ptr %63, %23
   br i1 %64, label %_ZN4llvm11SmallVectorIPNS_11InstructionELj6EED2Ev.exit, label %65
@@ -3388,7 +3388,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm29isDereferenceableReadOnlyLoopEPNS
   br i1 %.not, label %.thread, label %.lr.ph61
 
 .thread:                                          ; preds = %._crit_edge, %17, %19, %21, %15, %5
-  %.not53 = phi i1 [ true, %5 ], [ false, %17 ], [ false, %15 ], [ false, %21 ], [ false, %19 ], [ true, %._crit_edge ]
+  %.not53 = phi i1 [ false, %17 ], [ true, %5 ], [ false, %15 ], [ false, %21 ], [ false, %19 ], [ true, %._crit_edge ]
   ret i1 %.not53
 }
 

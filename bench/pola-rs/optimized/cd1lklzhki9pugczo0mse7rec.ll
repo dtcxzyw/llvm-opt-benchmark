@@ -7748,7 +7748,7 @@ common.resume.i.i.i.i:                            ; preds = %187, %183, %173, %"
   br label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h6ad1c072bc174870E.exit.thread.i.i.i.i.i.i"
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h6ad1c072bc174870E.exit.thread.i.i.i.i.i.i": ; preds = %146, %142
-  %.sroa.3.0.i.i.ph.i.i.i.i.i.i.i = phi i64 [ %.sroa.4.19.i.i.i.i.i.i.i.i.i, %142 ], [ %152, %146 ]
+  %.sroa.3.0.i.i.ph.i.i.i.i.i.i.i = phi i64 [ %152, %146 ], [ %.sroa.4.19.i.i.i.i.i.i.i.i.i, %142 ]
   %153 = load ptr, ptr %1, align 8, !alias.scope !1378, !noalias !1379, !nonnull !3
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.015.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %.sroa.015.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !noalias !1396
@@ -14498,8 +14498,8 @@ _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit87.i.i.i: ; pre
   br label %.loopexit35.i
 
 244:                                              ; preds = %.sink.split.i.i, %222, %221, %220
-  %.sroa.02.1.i.i = phi i8 [ %.sroa.02.0.copyload.i.i, %220 ], [ %.sroa.02.0.copyload.i.i, %222 ], [ %.sroa.02.0.copyload.i.i, %221 ], [ %.sroa.02.0.copyload4.i.i, %.sink.split.i.i ]
-  %.sroa.11.1.i.i = phi i64 [ %.sroa.11.0.copyload.i.i, %220 ], [ %.sroa.11.0.copyload.i.i, %222 ], [ %.sroa.11.0.copyload.i.i, %221 ], [ %.sroa.11.0.copyload12.i.i, %.sink.split.i.i ]
+  %.sroa.02.1.i.i = phi i8 [ %.sroa.02.0.copyload.i.i, %220 ], [ %.sroa.02.0.copyload.i.i, %222 ], [ %.sroa.02.0.copyload4.i.i, %.sink.split.i.i ], [ %.sroa.02.0.copyload.i.i, %221 ]
+  %.sroa.11.1.i.i = phi i64 [ %.sroa.11.0.copyload.i.i, %220 ], [ %.sroa.11.0.copyload.i.i, %222 ], [ %.sroa.11.0.copyload12.i.i, %.sink.split.i.i ], [ %.sroa.11.0.copyload.i.i, %221 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %33), !noalias !2703
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !2711
   call void @llvm.lifetime.end.p0(ptr nonnull %21), !noalias !2711
@@ -15056,7 +15056,7 @@ common.resume.i.i:                                ; preds = %213, %207, %203, %1
   br label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hd8c76cf3e078f336E.exit.thread.i.i.i.i.i.i"
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hd8c76cf3e078f336E.exit.thread.i.i.i.i.i.i": ; preds = %166, %162
-  %.sroa.3.0.i.i.ph.i.i.i.i.i.i.i = phi i64 [ %.sroa.4.19.i.i.i.i.i.i.i.i.i, %162 ], [ %172, %166 ]
+  %.sroa.3.0.i.i.ph.i.i.i.i.i.i.i = phi i64 [ %172, %166 ], [ %.sroa.4.19.i.i.i.i.i.i.i.i.i, %162 ]
   %173 = load ptr, ptr %.val.i.i.i, align 8, !alias.scope !2884, !noalias !2885, !nonnull !3
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.019.i.sroa.0.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %.sroa.019.i.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false), !noalias !2875

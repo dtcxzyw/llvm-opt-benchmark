@@ -2527,7 +2527,7 @@ _ZNK17QArrayDataPointerIP17_dissector_info_tE11needsDetachEv.exit.thread.i.i.i30
   br i1 %505, label %.lr.ph.i.i.i.i.i, label %_ZSt13move_backwardIN5QListIP17_dissector_info_tE8iteratorES4_ET0_T_S6_S5_.exit.i.i.i.i, !llvm.loop !44
 
 _ZSt13move_backwardIN5QListIP17_dissector_info_tE8iteratorES4_ET0_T_S6_S5_.exit.i.i.i.i: ; preds = %.noexc316, %.lr.ph.i.i.i.i.i.i.i.i.i, %.noexc315, %487
-  %.sink.i.i.i.i = phi ptr [ %465, %487 ], [ %.sroa.0.020.i.i.i.i, %.noexc315 ], [ %465, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %.sroa.0.08.i.i.i.i.i, %.noexc316 ]
+  %.sink.i.i.i.i = phi ptr [ %465, %487 ], [ %465, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %.sroa.0.020.i.i.i.i, %.noexc315 ], [ %.sroa.0.08.i.i.i.i.i, %.noexc316 ]
   store ptr %486, ptr %.sink.i.i.i.i, align 8
   %.sroa.0.0.i.i.i.i = getelementptr i8, ptr %.sroa.0.020.i.i.i.i, i64 8
   %.not.i.i.i.i312 = icmp eq ptr %.sroa.0.0.i.i.i.i, %480
@@ -2634,7 +2634,7 @@ _ZSt13move_backwardIN5QListIP17_dissector_info_tE8iteratorES4_ET0_T_S6_S5_.exit.
   br i1 %539, label %.lr.ph.i.i29.i.i.i, label %_ZSt13move_backwardIN5QListIP17_dissector_info_tE8iteratorES4_ET0_T_S6_S5_.exit.i25.i.i.i, !llvm.loop !44
 
 _ZSt13move_backwardIN5QListIP17_dissector_info_tE8iteratorES4_ET0_T_S6_S5_.exit.i25.i.i.i: ; preds = %.noexc321, %.lr.ph.i.i.i.i.i.i34.i.i.i, %.noexc320, %521
-  %.sink.i26.i.i.i = phi ptr [ %465, %521 ], [ %.sroa.0.020.i23.i.i.i, %.noexc320 ], [ %465, %.lr.ph.i.i.i.i.i.i34.i.i.i ], [ %.sroa.0.08.i.i30.i.i.i, %.noexc321 ]
+  %.sink.i26.i.i.i = phi ptr [ %465, %521 ], [ %465, %.lr.ph.i.i.i.i.i.i34.i.i.i ], [ %.sroa.0.020.i23.i.i.i, %.noexc320 ], [ %.sroa.0.08.i.i30.i.i.i, %.noexc321 ]
   store ptr %520, ptr %.sink.i26.i.i.i, align 8
   %.sroa.0.0.i27.i.i.i = getelementptr i8, ptr %.sroa.0.020.i23.i.i.i, i64 8
   %.not.i28.i.i.i = icmp eq ptr %.sroa.0.0.i27.i.i.i, %470

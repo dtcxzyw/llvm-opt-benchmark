@@ -461,8 +461,8 @@ thread-pre-split.sink.split:                      ; preds = %8, %thread-pre-spli
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %.critedge.thread.i, %8, %thread-pre-split.sink.split, %1
-  %.pr8 = phi i32 [ %17, %thread-pre-split.sink.split ], [ %3, %1 ], [ %14, %.critedge.thread.i ], [ %.pr, %8 ]
-  %18 = phi i1 [ %.ph, %thread-pre-split.sink.split ], [ false, %1 ], [ false, %8 ], [ false, %.critedge.thread.i ]
+  %.pr8 = phi i32 [ %3, %1 ], [ %17, %thread-pre-split.sink.split ], [ %14, %.critedge.thread.i ], [ %.pr, %8 ]
+  %18 = phi i1 [ false, %1 ], [ %.ph, %thread-pre-split.sink.split ], [ false, %8 ], [ false, %.critedge.thread.i ]
   %19 = add i32 %.pr8, -58
   %or.cond = icmp ult i32 %19, -10
   br i1 %or.cond, label %20, label %.lr.ph
@@ -5046,7 +5046,7 @@ define linkonce_odr hidden void @_ZN3opb8parse_idEv(ptr dead_on_unwind noalias w
   br i1 %22, label %10, label %_ZN17opt_stream_buffer11parse_tokenEPKc.exit, !llvm.loop !12
 
 _ZN17opt_stream_buffer11parse_tokenEPKc.exit:     ; preds = %13, %.critedge.thread.i.i, %.lr.ph.i.preheader, %2
-  %.not.lcssa.i = phi i1 [ false, %2 ], [ true, %.lr.ph.i.preheader ], [ false, %.critedge.thread.i.i ], [ false, %13 ]
+  %.not.lcssa.i = phi i1 [ true, %.lr.ph.i.preheader ], [ false, %2 ], [ false, %.critedge.thread.i.i ], [ false, %13 ]
   %23 = load ptr, ptr %4, align 8, !tbaa !143
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load i32, ptr %24, align 8, !tbaa !3

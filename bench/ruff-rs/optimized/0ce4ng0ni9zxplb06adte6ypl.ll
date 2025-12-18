@@ -1516,7 +1516,7 @@ define noundef align 8 ptr @"_ZN99_$LT$ruff_formatter..printer..queue..FitsQueue
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17hfce5e6482a9cc5c7E.exit"
 
 "_ZN4core6option15Option$LT$T$GT$7or_else17hfce5e6482a9cc5c7E.exit": ; preds = %27, %13, %29
-  %.sroa.0.0.i2 = phi ptr [ %31, %29 ], [ %9, %13 ], [ %23, %27 ]
+  %.sroa.0.0.i2 = phi ptr [ %31, %29 ], [ %23, %27 ], [ %9, %13 ]
   ret ptr %.sroa.0.0.i2
 }
 
@@ -1677,7 +1677,7 @@ select.unfold:                                    ; preds = %15, %13, %1
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17hb003884e3cddc5fcE.exit"
 
 "_ZN4core6option15Option$LT$T$GT$7or_else17hb003884e3cddc5fcE.exit": ; preds = %5, %15, %select.unfold, %22
-  %.sroa.0.0.i2 = phi ptr [ null, %select.unfold ], [ %..i.i, %22 ], [ %10, %5 ], [ %17, %15 ]
+  %.sroa.0.0.i2 = phi ptr [ null, %select.unfold ], [ %..i.i, %22 ], [ %17, %15 ], [ %10, %5 ]
   ret ptr %.sroa.0.0.i2
 }
 

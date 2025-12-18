@@ -178,9 +178,9 @@ define internal range(i32 -2147483648, 1) i32 @fits_encode_frame(ptr noundef %0,
   br i1 %86, label %.lr.ph65.split, label %._crit_edge, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %.lr.ph65.split, %.loopexit.us, %.lr.ph65.split.us, %.preheader59
-  %87 = phi i32 [ %36, %.preheader59 ], [ %36, %.lr.ph65.split.us ], [ %67, %.loopexit.us ], [ %85, %.lr.ph65.split ]
-  %88 = phi i32 [ %37, %.preheader59 ], [ %37, %.lr.ph65.split.us ], [ %67, %.loopexit.us ], [ %85, %.lr.ph65.split ]
-  %.1.lcssa = phi ptr [ %.05868, %.preheader59 ], [ %.05868, %.lr.ph65.split.us ], [ %.2.lcssa.us, %.loopexit.us ], [ %83, %.lr.ph65.split ]
+  %87 = phi i32 [ %36, %.preheader59 ], [ %67, %.loopexit.us ], [ %36, %.lr.ph65.split.us ], [ %85, %.lr.ph65.split ]
+  %88 = phi i32 [ %37, %.preheader59 ], [ %67, %.loopexit.us ], [ %37, %.lr.ph65.split.us ], [ %85, %.lr.ph65.split ]
+  %.1.lcssa = phi ptr [ %.05868, %.preheader59 ], [ %.2.lcssa.us, %.loopexit.us ], [ %.05868, %.lr.ph65.split.us ], [ %83, %.lr.ph65.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.split71.us, label %.preheader59, !llvm.loop !39

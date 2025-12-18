@@ -2772,8 +2772,8 @@ define void @"_ZN104_$LT$jiff..fmt..strtime..BrokenDownTime$u20$as$u20$core..con
   br label %31
 
 31:                                               ; preds = %26, %23, %2
-  %.sroa.9.0.i = phi i64 [ 3, %2 ], [ %25, %23 ], [ %30, %26 ]
-  %.sroa.0.0.i = phi ptr [ @anon.e144535da28e22b2c0b740002851b875.191, %2 ], [ %12, %23 ], [ %28, %26 ]
+  %.sroa.9.0.i = phi i64 [ %30, %26 ], [ %25, %23 ], [ 3, %2 ]
+  %.sroa.0.0.i = phi ptr [ %28, %26 ], [ %12, %23 ], [ @anon.e144535da28e22b2c0b740002851b875.191, %2 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !147
   call void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$15try_allocate_in17h488acd270d0fe261E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, i64 noundef %.sroa.9.0.i, i1 noundef zeroext false, i64 noundef 1, i64 noundef 1), !noalias !147
   %32 = load i64, ptr %3, align 8, !range !20, !noalias !147, !noundef !3
@@ -5943,8 +5943,8 @@ define internal fastcc { i64, i64 } @_ZN4jiff2tz2db12concatenated5inner11CachedZ
   unreachable
 
 _ZN4jiff2tz2db12concatenated5inner14CachedTimeZone4name17hf35c0d3339cf5a12E.exit.i.i: ; preds = %26, %23, %._crit_edge.i
-  %.sroa.9.0.i.i.i.i = phi i64 [ 3, %._crit_edge.i ], [ %25, %23 ], [ %30, %26 ]
-  %.sroa.0.0.i.i.i.i = phi ptr [ @anon.e144535da28e22b2c0b740002851b875.191, %._crit_edge.i ], [ %12, %23 ], [ %28, %26 ]
+  %.sroa.9.0.i.i.i.i = phi i64 [ %30, %26 ], [ %25, %23 ], [ 3, %._crit_edge.i ]
+  %.sroa.0.0.i.i.i.i = phi ptr [ %28, %26 ], [ %12, %23 ], [ @anon.e144535da28e22b2c0b740002851b875.191, %._crit_edge.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !336)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !339)
   br label %32
@@ -6058,8 +6058,8 @@ _ZN4jiff2tz2db12concatenated5inner14CachedTimeZone4name17hf35c0d3339cf5a12E.exit
   unreachable
 
 _ZN4jiff2tz2db12concatenated5inner14CachedTimeZone4name17hf35c0d3339cf5a12E.exit.i26.i: ; preds = %78, %75, %.lr.ph.i
-  %.sroa.9.0.i.i.i27.i = phi i64 [ 3, %.lr.ph.i ], [ %77, %75 ], [ %82, %78 ]
-  %.sroa.0.0.i.i.i28.i = phi ptr [ @anon.e144535da28e22b2c0b740002851b875.191, %.lr.ph.i ], [ %64, %75 ], [ %80, %78 ]
+  %.sroa.9.0.i.i.i27.i = phi i64 [ %82, %78 ], [ %77, %75 ], [ 3, %.lr.ph.i ]
+  %.sroa.0.0.i.i.i28.i = phi ptr [ %80, %78 ], [ %64, %75 ], [ @anon.e144535da28e22b2c0b740002851b875.191, %.lr.ph.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !344)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !347)
   br label %83

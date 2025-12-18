@@ -1487,7 +1487,7 @@ Py_DECREF.exit:                                   ; preds = %most_significant_bi
   br i1 %.not56, label %Py_DECREF.exit.thread, label %.lr.ph.split
 
 Py_DECREF.exit.thread:                            ; preds = %Py_DECREF.exit, %Py_DECREF.exit.us, %71, %get_tools_for_instruction.exit, %138, %153, %151, %156, %140
-  %.150 = phi i32 [ -1, %151 ], [ -1, %140 ], [ -1, %153 ], [ -1, %156 ], [ 0, %get_tools_for_instruction.exit ], [ -1, %138 ], [ 0, %Py_DECREF.exit.us ], [ -1, %71 ], [ 0, %Py_DECREF.exit ]
+  %.150 = phi i32 [ -1, %151 ], [ -1, %140 ], [ -1, %153 ], [ -1, %156 ], [ 0, %Py_DECREF.exit.us ], [ 0, %get_tools_for_instruction.exit ], [ -1, %138 ], [ -1, %71 ], [ 0, %Py_DECREF.exit ]
   %160 = load i32, ptr %20, align 8, !tbaa !33
   %.not.i58 = icmp sgt i32 %160, -1
   br i1 %.not.i58, label %161, label %Py_DECREF.exit59
@@ -3022,16 +3022,16 @@ opcode_has_event.exit.thread.i.i:                 ; preds = %opcode_has_event.ex
   br i1 %155, label %95, label %initialize_tools.exit.i.loopexit, !llvm.loop !94
 
 initialize_tools.exit.i.loopexit:                 ; preds = %opcode_has_event.exit.thread.i.i
-  %.pre362.pre368.pre = load ptr, ptr %28, align 8, !tbaa !26
+  %.pre361.pre368.pre = load ptr, ptr %28, align 8, !tbaa !26
   br label %initialize_tools.exit.i
 
 initialize_tools.exit.i:                          ; preds = %initialize_tools.exit.i.loopexit, %91, %multiple_tools.exit.i
-  %.pre362.pre368 = phi ptr [ %.pre362.pre368.pre, %initialize_tools.exit.i.loopexit ], [ %86, %91 ], [ %46, %multiple_tools.exit.i ]
+  %.pre361.pre368 = phi ptr [ %.pre361.pre368.pre, %initialize_tools.exit.i.loopexit ], [ %86, %91 ], [ %46, %multiple_tools.exit.i ]
   %.not92.i = icmp eq i8 %64, 0
   br i1 %.not92.i, label %initialize_line_tools.exit.i, label %156
 
 156:                                              ; preds = %initialize_tools.exit.i
-  %157 = getelementptr inbounds nuw i8, ptr %.pre362.pre368, i64 96
+  %157 = getelementptr inbounds nuw i8, ptr %.pre361.pre368, i64 96
   %158 = load ptr, ptr %157, align 8, !tbaa !27
   %159 = icmp eq ptr %158, null
   br i1 %159, label %160, label %766
@@ -4136,15 +4136,15 @@ get_line_delta.exit216.i.i:                       ; preds = %.lr.ph.i211.i.i, %_
 .sink.split.i:                                    ; preds = %764, %._crit_edge244.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
-  %.pre362.pre367.pre = load ptr, ptr %28, align 8, !tbaa !26
+  %.pre361.pre367.pre = load ptr, ptr %28, align 8, !tbaa !26
   br label %766
 
 766:                                              ; preds = %.sink.split.i, %156
-  %.pre362.pre367 = phi ptr [ %.pre362.pre367.pre, %.sink.split.i ], [ %.pre362.pre368, %156 ]
+  %.pre361.pre367 = phi ptr [ %.pre361.pre367.pre, %.sink.split.i ], [ %.pre361.pre368, %156 ]
   br i1 %62, label %767, label %initialize_line_tools.exit.i
 
 767:                                              ; preds = %766
-  %768 = getelementptr inbounds nuw i8, ptr %.pre362.pre367, i64 104
+  %768 = getelementptr inbounds nuw i8, ptr %.pre361.pre367, i64 104
   %769 = load ptr, ptr %768, align 8, !tbaa !57
   %770 = icmp eq ptr %769, null
   br i1 %770, label %771, label %initialize_line_tools.exit.i
@@ -4172,17 +4172,17 @@ get_line_delta.exit216.i.i:                       ; preds = %.lr.ph.i211.i.i, %_
 .lr.ph.preheader.i121.i:                          ; preds = %779
   %782 = and i64 %.val99.i, 2147483647
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %773, i8 %64, i64 %782, i1 false), !tbaa !33
-  %.pre362.pre = load ptr, ptr %28, align 8, !tbaa !26
+  %.pre361.pre = load ptr, ptr %28, align 8, !tbaa !26
   br label %initialize_line_tools.exit.i
 
 initialize_line_tools.exit.i:                     ; preds = %.lr.ph.preheader.i121.i, %779, %767, %766, %initialize_tools.exit.i
-  %.pre362 = phi ptr [ %.pre362.pre, %.lr.ph.preheader.i121.i ], [ %774, %779 ], [ %.pre362.pre367, %767 ], [ %.pre362.pre367, %766 ], [ %.pre362.pre368, %initialize_tools.exit.i ]
+  %.pre361 = phi ptr [ %.pre361.pre, %.lr.ph.preheader.i121.i ], [ %774, %779 ], [ %.pre361.pre367, %767 ], [ %.pre361.pre367, %766 ], [ %.pre361.pre368, %initialize_tools.exit.i ]
   %783 = and i64 %.sroa.0.0.copyload.i.i, 71776119061217280
   %.not95.i = icmp eq i64 %783, 0
   br i1 %.not95.i, label %.loopexit323, label %784
 
 784:                                              ; preds = %initialize_line_tools.exit.i
-  %785 = getelementptr inbounds nuw i8, ptr %.pre362, i64 112
+  %785 = getelementptr inbounds nuw i8, ptr %.pre361, i64 112
   %786 = load ptr, ptr %785, align 8, !tbaa !34
   %787 = icmp eq ptr %786, null
   br i1 %787, label %788, label %.loopexit126.i
@@ -4227,15 +4227,15 @@ initialize_line_tools.exit.i:                     ; preds = %.lr.ph.preheader.i1
   br i1 %exitcond169.not.i, label %.loopexit126.i.loopexit, label %798, !llvm.loop !104
 
 .loopexit126.i.loopexit:                          ; preds = %798
-  %.pre361.pre = load ptr, ptr %28, align 8, !tbaa !26
+  %.pre362.pre = load ptr, ptr %28, align 8, !tbaa !26
   br label %.loopexit126.i
 
 .loopexit126.i:                                   ; preds = %.loopexit126.i.loopexit, %.preheader125.i, %784
-  %.pre361 = phi ptr [ %.pre361.pre, %.loopexit126.i.loopexit ], [ %791, %.preheader125.i ], [ %.pre362, %784 ]
+  %.pre362 = phi ptr [ %.pre362.pre, %.loopexit126.i.loopexit ], [ %791, %.preheader125.i ], [ %.pre361, %784 ]
   br i1 %62, label %808, label %.loopexit323
 
 808:                                              ; preds = %.loopexit126.i
-  %809 = getelementptr inbounds nuw i8, ptr %.pre361, i64 120
+  %809 = getelementptr inbounds nuw i8, ptr %.pre362, i64 120
   %810 = load ptr, ptr %809, align 8, !tbaa !73
   %811 = icmp eq ptr %810, null
   br i1 %811, label %812, label %.loopexit323
@@ -4281,8 +4281,8 @@ update_instrumentation_data.exit:                 ; preds = %89, %.thread.i, %77
   %.pre = load ptr, ptr %28, align 8, !tbaa !26
   br label %.loopexit323
 
-.loopexit323:                                     ; preds = %.loopexit323.loopexit, %.loopexit126.i, %808, %initialize_line_tools.exit.i, %.preheader.i
-  %825 = phi ptr [ %.pre, %.loopexit323.loopexit ], [ %.pre361, %.loopexit126.i ], [ %.pre361, %808 ], [ %.pre362, %initialize_line_tools.exit.i ], [ %815, %.preheader.i ]
+.loopexit323:                                     ; preds = %.loopexit323.loopexit, %initialize_line_tools.exit.i, %.loopexit126.i, %808, %.preheader.i
+  %825 = phi ptr [ %.pre, %.loopexit323.loopexit ], [ %.pre361, %initialize_line_tools.exit.i ], [ %.pre362, %.loopexit126.i ], [ %.pre362, %808 ], [ %815, %.preheader.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %826 = load i64, ptr %45, align 8
   %827 = load i64, ptr %48, align 8
@@ -6729,7 +6729,7 @@ Py_DECREF.exit:                                   ; preds = %most_significant_bi
   br i1 %.not49, label %.critedge, label %.lr.ph.split
 
 .critedge:                                        ; preds = %Py_DECREF.exit, %Py_DECREF.exit.us, %45, %.thread, %20, %67, %85, %82, %80, %69, %17, %14
-  %.0 = phi i32 [ -1, %14 ], [ -1, %82 ], [ -1, %17 ], [ -1, %69 ], [ -1, %85 ], [ -1, %80 ], [ 0, %20 ], [ -1, %67 ], [ 0, %.thread ], [ 0, %Py_DECREF.exit.us ], [ -1, %45 ], [ 0, %Py_DECREF.exit ]
+  %.0 = phi i32 [ -1, %14 ], [ -1, %82 ], [ -1, %17 ], [ -1, %69 ], [ -1, %85 ], [ -1, %80 ], [ 0, %.thread ], [ 0, %20 ], [ -1, %67 ], [ 0, %Py_DECREF.exit.us ], [ -1, %45 ], [ 0, %Py_DECREF.exit ]
   ret i32 %.0
 }
 
@@ -7156,7 +7156,7 @@ Py_DECREF.exit.us.i:                              ; preds = %42, %most_significa
   br i1 %.not49.us.i, label %capi_call_instrumentation.exit, label %.lr.ph.split.us.i
 
 capi_call_instrumentation.exit:                   ; preds = %40, %Py_DECREF.exit.us.i, %18, %20
-  %.0.i = phi i32 [ -1, %18 ], [ 0, %20 ], [ 0, %Py_DECREF.exit.us.i ], [ -1, %40 ]
+  %.0.i = phi i32 [ -1, %18 ], [ 0, %20 ], [ -1, %40 ], [ 0, %Py_DECREF.exit.us.i ]
   %46 = load i32, ptr %7, align 8, !tbaa !33
   %.not.i = icmp sgt i32 %46, -1
   br i1 %.not.i, label %47, label %Py_DECREF.exit
@@ -9192,7 +9192,7 @@ _Py_GetBaseCodeUnit.exit:                         ; preds = %18, %24, %58, %62
   br i1 %96, label %12, label %.thread, !llvm.loop !196
 
 .thread:                                          ; preds = %94, %1, %74, %84
-  %.2 = phi ptr [ %83, %74 ], [ %93, %84 ], [ null, %1 ], [ null, %94 ]
+  %.2 = phi ptr [ %93, %84 ], [ %83, %74 ], [ null, %1 ], [ null, %94 ]
   ret ptr %.2
 }
 

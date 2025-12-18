@@ -1115,7 +1115,7 @@ define hidden noalias noundef ptr @_ZN7datalog27explanation_relation_plugin11mk_
   br label %18
 
 18:                                               ; preds = %.sink.split, %4, %9
-  %.0 = phi ptr [ null, %9 ], [ null, %4 ], [ %16, %.sink.split ]
+  %.0 = phi ptr [ null, %4 ], [ null, %9 ], [ %16, %.sink.split ]
   ret ptr %.0
 }
 
@@ -1463,7 +1463,7 @@ _ZN7datalog27explanation_relation_plugin22intersection_filter_fnC2ERS0_.exit: ; 
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph.i, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit7.i.i, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit, %_ZNK7datalog18relation_signatureneERKS0_.exit, %_Z16containers_equalIPKjS1_EbRKT_S4_RKT0_S7_.exit, %6, %_ZN7datalog27explanation_relation_plugin22intersection_filter_fnC2ERS0_.exit
-  %.0 = phi ptr [ %.1, %_ZN7datalog27explanation_relation_plugin22intersection_filter_fnC2ERS0_.exit ], [ null, %6 ], [ null, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit7.i.i ], [ null, %_Z16containers_equalIPKjS1_EbRKT_S4_RKT0_S7_.exit ], [ null, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit ], [ null, %_ZNK7datalog18relation_signatureneERKS0_.exit ], [ null, %.lr.ph.i ]
+  %.0 = phi ptr [ %.1, %_ZN7datalog27explanation_relation_plugin22intersection_filter_fnC2ERS0_.exit ], [ null, %6 ], [ null, %_ZNK7datalog18relation_signatureneERKS0_.exit ], [ null, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit7.i.i ], [ null, %_Z16containers_equalIPKjS1_EbRKT_S4_RKT0_S7_.exit ], [ null, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit ], [ null, %.lr.ph.i ]
   ret ptr %.0
 }
 
@@ -5554,7 +5554,7 @@ _ZN14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE
   br i1 %.not27.old.i.i.i.i, label %_ZNK7datalog8rule_set8containsEP9func_decl.exit.thread, label %.lr.ph38.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.backedge:                        ; preds = %164, %161
-  %.137.i.i.i.i.be = phi ptr [ %.old.i.i.i.i, %164 ], [ %163, %161 ]
+  %.137.i.i.i.i.be = phi ptr [ %163, %161 ], [ %.old.i.i.i.i, %164 ]
   br label %.lr.ph38.i.i.i.i, !llvm.loop !411
 
 165:                                              ; preds = %_ZNK7datalog8rule_set8containsEP9func_decl.exit, %130, %127
@@ -7866,7 +7866,7 @@ _ZNK6vectorIP4sortLb0EjE4sizeEv.exit:             ; preds = %_ZN6vectorIP4sortLb
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN6vectorIP4sortLb0EjE9push_backERKS1_.exit, %_ZN6vectorIP4sortLb0EjE5resetEv.exit, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit
-  %14 = phi ptr [ %7, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit ], [ %7, %_ZN6vectorIP4sortLb0EjE5resetEv.exit ], [ %30, %_ZN6vectorIP4sortLb0EjE9push_backERKS1_.exit ]
+  %14 = phi ptr [ %7, %_ZN6vectorIP4sortLb0EjE5resetEv.exit ], [ %7, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit ], [ %30, %_ZN6vectorIP4sortLb0EjE9push_backERKS1_.exit ]
   %15 = load ptr, ptr %1, align 8, !tbaa !11
   %16 = icmp eq ptr %15, null
   br i1 %16, label %._crit_edge24, label %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit16

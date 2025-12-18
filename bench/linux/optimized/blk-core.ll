@@ -4914,7 +4914,7 @@ __blk_flush_plug.exit:                            ; preds = %62, %58, %19
   br label %.sink.split
 
 .sink.split:                                      ; preds = %80, %105, %107, %113, %69
-  %.ph = phi i32 [ 0, %69 ], [ %101, %113 ], [ %101, %107 ], [ %101, %105 ], [ 0, %80 ]
+  %.ph = phi i32 [ 0, %69 ], [ %101, %105 ], [ %101, %113 ], [ %101, %107 ], [ 0, %80 ]
   tail call void @__rcu_read_unlock() #19
   br label %117
 

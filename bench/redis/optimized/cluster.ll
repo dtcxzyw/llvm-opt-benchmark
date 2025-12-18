@@ -556,10 +556,10 @@ define dso_local void @restoreCommand(ptr noundef %0) local_unnamed_addr #0 {
   br label %.critedge
 
 60:                                               ; preds = %55, %22, %.lr.ph, %41
-  %.2103 = phi i32 [ %.0101146, %41 ], [ 1, %22 ], [ %.0101146, %.lr.ph ], [ %.0101146, %55 ]
-  %.2100 = phi i32 [ %.098147, %41 ], [ %.098147, %22 ], [ 1, %.lr.ph ], [ %.098147, %55 ]
-  %.297 = phi i32 [ %32, %41 ], [ %.095148, %22 ], [ %.095148, %.lr.ph ], [ %50, %55 ]
-  %.2 = phi i64 [ %43, %41 ], [ %.0149, %22 ], [ %.0149, %.lr.ph ], [ %.0149, %55 ]
+  %.2103 = phi i32 [ %.0101146, %55 ], [ %.0101146, %.lr.ph ], [ 1, %22 ], [ %.0101146, %41 ]
+  %.2100 = phi i32 [ %.098147, %55 ], [ 1, %.lr.ph ], [ %.098147, %22 ], [ %.098147, %41 ]
+  %.297 = phi i32 [ %50, %55 ], [ %.095148, %.lr.ph ], [ %.095148, %22 ], [ %32, %41 ]
+  %.2 = phi i64 [ %.0149, %55 ], [ %.0149, %.lr.ph ], [ %.0149, %22 ], [ %43, %41 ]
   %61 = add nsw i32 %.297, 1
   %62 = load i32, ptr %7, align 8, !tbaa !63
   %63 = icmp slt i32 %61, %62
@@ -1443,12 +1443,12 @@ sdslen.exit.thread:                               ; preds = %47, %sdslen.exit
   tail call void @redactClientCommandArgument(ptr noundef nonnull %0, i32 noundef %79) #16
   br label %85
 
-85:                                               ; preds = %.sink.split, %24, %13
-  %.3268.ph = phi ptr [ %.0265438, %24 ], [ %.0265438, %13 ], [ %84, %.sink.split ]
-  %.3260.ph = phi ptr [ %.0257439, %24 ], [ %.0257439, %13 ], [ %.3260.ph.ph, %.sink.split ]
-  %.2255.ph = phi i32 [ %.0253440, %24 ], [ %.0253440, %13 ], [ %79, %.sink.split ]
-  %.3249.ph = phi i32 [ 1, %24 ], [ %.0246441, %13 ], [ %.0246441, %.sink.split ]
-  %.3.ph = phi i32 [ %.0244442, %24 ], [ 1, %13 ], [ %.0244442, %.sink.split ]
+85:                                               ; preds = %.sink.split, %13, %24
+  %.3268.ph = phi ptr [ %.0265438, %13 ], [ %.0265438, %24 ], [ %84, %.sink.split ]
+  %.3260.ph = phi ptr [ %.0257439, %13 ], [ %.0257439, %24 ], [ %.3260.ph.ph, %.sink.split ]
+  %.2255.ph = phi i32 [ %.0253440, %13 ], [ %.0253440, %24 ], [ %79, %.sink.split ]
+  %.3249.ph = phi i32 [ %.0246441, %13 ], [ 1, %24 ], [ %.0246441, %.sink.split ]
+  %.3.ph = phi i32 [ 1, %13 ], [ %.0244442, %24 ], [ %.0244442, %.sink.split ]
   %86 = add nsw i32 %.2255.ph, 1
   %87 = load i32, ptr %9, align 8, !tbaa !63
   %88 = icmp slt i32 %86, %87
@@ -3865,8 +3865,8 @@ keyHashSlot.exit:                                 ; preds = %._crit_edge.thread.
   br label %136
 
 136:                                              ; preds = %132, %134, %125
-  %.2170 = phi i32 [ %.1169271, %125 ], [ %133, %132 ], [ %.1169271, %134 ]
-  %.2165 = phi i32 [ %.1164272, %125 ], [ %.1164272, %132 ], [ %135, %134 ]
+  %.2170 = phi i32 [ %.1169271, %134 ], [ %133, %132 ], [ %.1169271, %125 ]
+  %.2165 = phi i32 [ %135, %134 ], [ %.1164272, %132 ], [ %.1164272, %125 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.thread223, label %.lr.ph, !llvm.loop !135

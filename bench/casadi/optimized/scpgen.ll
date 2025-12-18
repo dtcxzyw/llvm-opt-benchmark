@@ -9671,7 +9671,7 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i1798: ; preds = %.noexc1801,
   br i1 %2842, label %.loopexit, label %2839
 
 .loopexit:                                        ; preds = %2839, %.loopexit.loopexit2427, %.thread
-  %.pn445.pn.pn = phi { ptr, i32 } [ %2771, %.thread ], [ %2833, %.loopexit.loopexit2427 ], [ %.pn445.pn, %2839 ]
+  %.pn445.pn.pn = phi { ptr, i32 } [ %2833, %.loopexit.loopexit2427 ], [ %2771, %.thread ], [ %.pn445.pn, %2839 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %172)
   call void @llvm.lifetime.end.p0(ptr nonnull %171)
   %2843 = load ptr, ptr %170, align 8, !tbaa !11
@@ -14080,9 +14080,9 @@ define void @_ZNK6casadi6Scpgen8set_workEPvRPPKdRPPdRPxRS6_(ptr noundef nonnull 
   br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %.thread, %27
-  %56 = phi ptr [ %39, %.thread ], [ %35, %27 ], [ %35, %.lr.ph.split.us ], [ %39, %.lr.ph.split ]
-  %57 = phi ptr [ %37, %.thread ], [ %33, %27 ], [ %33, %.lr.ph.split.us ], [ %37, %.lr.ph.split ]
-  %58 = phi ptr [ %23, %.thread ], [ %32, %27 ], [ %54, %.lr.ph.split.us ], [ %97, %.lr.ph.split ]
+  %56 = phi ptr [ %35, %.lr.ph.split.us ], [ %39, %.thread ], [ %35, %27 ], [ %39, %.lr.ph.split ]
+  %57 = phi ptr [ %33, %.lr.ph.split.us ], [ %37, %.thread ], [ %33, %27 ], [ %37, %.lr.ph.split ]
+  %58 = phi ptr [ %54, %.lr.ph.split.us ], [ %23, %.thread ], [ %32, %27 ], [ %97, %.lr.ph.split ]
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 520
   store ptr %58, ptr %59, align 8, !tbaa !413
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 2392

@@ -954,7 +954,7 @@ define void @_ZN4cvc58internal24IllegalArgumentException9constructEPKcS3_S3_S3_(
   br i1 %.not, label %.lr.ph, label %.split35.us
 
 .split35.us:                                      ; preds = %.lr.ph, %.lr.ph36, %.split, %.split.us
-  %.us-phi = phi ptr [ %9, %.split.us ], [ %9, %.split ], [ %16, %.lr.ph36 ], [ %24, %.lr.ph ]
+  %.us-phi = phi ptr [ %16, %.lr.ph36 ], [ %9, %.split.us ], [ %9, %.split ], [ %24, %.lr.ph ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %26, ptr %7, align 8, !tbaa !12
@@ -1077,7 +1077,7 @@ define void @_ZN4cvc58internal24IllegalArgumentException9constructEPKcS3_S3_(ptr
   br i1 %.not, label %.lr.ph, label %.split33.us
 
 .split33.us:                                      ; preds = %.lr.ph, %.lr.ph34, %.split, %.split.us
-  %.us-phi = phi ptr [ %8, %.split.us ], [ %8, %.split ], [ %15, %.lr.ph34 ], [ %23, %.lr.ph ]
+  %.us-phi = phi ptr [ %15, %.lr.ph34 ], [ %8, %.split.us ], [ %8, %.split ], [ %23, %.lr.ph ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %25, ptr %6, align 8, !tbaa !12

@@ -2020,7 +2020,7 @@ select.unfold.i130:                               ; preds = %select.unfold.i130,
   br i1 %206, label %select.unfold.i130, label %.critedge2, !llvm.loop !56
 
 .critedge2:                                       ; preds = %select.unfold.i, %select.unfold.i99, %select.unfold.i118, %Kit_TruthAndPhase.exit, %select.unfold.i130, %Kit_TruthClear.exit.thread, %Kit_TruthClear.exit, %Kit_TruthFill.exit104, %.critedge4, %.critedge6, %59, %52, %select.unfold.preheader.i, %32, %Kit_DsdNtkObj.exit.thread, %Kit_DsdNtkObj.exit
-  %207 = phi ptr [ %13, %Kit_DsdNtkObj.exit.thread ], [ %25, %.critedge4 ], [ %25, %select.unfold.preheader.i ], [ %25, %Kit_DsdNtkObj.exit ], [ %25, %32 ], [ %25, %52 ], [ %25, %59 ], [ %25, %.critedge6 ], [ %25, %Kit_TruthFill.exit104 ], [ %25, %Kit_TruthClear.exit ], [ %25, %Kit_TruthClear.exit.thread ], [ %25, %select.unfold.i99 ], [ %25, %select.unfold.i130 ], [ %25, %Kit_TruthAndPhase.exit ], [ %25, %select.unfold.i118 ], [ %25, %select.unfold.i ]
+  %207 = phi ptr [ %13, %Kit_DsdNtkObj.exit.thread ], [ %25, %.critedge4 ], [ %25, %Kit_TruthFill.exit104 ], [ %25, %select.unfold.i99 ], [ %25, %select.unfold.preheader.i ], [ %25, %Kit_TruthClear.exit.thread ], [ %25, %Kit_DsdNtkObj.exit ], [ %25, %select.unfold.i130 ], [ %25, %32 ], [ %25, %52 ], [ %25, %59 ], [ %25, %.critedge6 ], [ %25, %select.unfold.i118 ], [ %25, %Kit_TruthAndPhase.exit ], [ %25, %Kit_TruthClear.exit ], [ %25, %select.unfold.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %207
 }
@@ -2320,8 +2320,8 @@ Kit_DsdLitSupport.exit:                           ; preds = %69, %79, %81
   br label %.critedge
 
 .critedge:                                        ; preds = %95, %.critedge.loopexit, %.preheader188, %.preheader187
-  %or.cond = phi i1 [ false, %.preheader187 ], [ false, %.preheader188 ], [ %106, %.critedge.loopexit ], [ false, %95 ]
-  %107 = phi i32 [ %29, %.preheader187 ], [ %29, %.preheader188 ], [ %90, %.critedge.loopexit ], [ %102, %95 ]
+  %or.cond = phi i1 [ false, %.preheader188 ], [ false, %.preheader187 ], [ %106, %.critedge.loopexit ], [ false, %95 ]
+  %107 = phi i32 [ %29, %.preheader188 ], [ %29, %.preheader187 ], [ %90, %.critedge.loopexit ], [ %102, %95 ]
   %108 = lshr i32 %107, 6
   %109 = and i32 %108, 7
   switch i32 %109, label %187 [
@@ -2641,7 +2641,7 @@ select.unfold.i177:                               ; preds = %select.unfold.i177,
   br i1 %247, label %select.unfold.i177, label %.critedge4, !llvm.loop !56
 
 .critedge4:                                       ; preds = %select.unfold.i, %select.unfold.i145, %select.unfold.i165, %Kit_TruthAndPhase.exit, %select.unfold.i177, %Kit_TruthClear.exit, %Kit_TruthFill.exit150, %.critedge6, %.critedge11, %59, %52, %select.unfold.preheader.i, %32, %Kit_DsdNtkObj.exit.thread, %Kit_DsdNtkObj.exit, %.critedge9
-  %.0127 = phi ptr [ %14, %Kit_DsdNtkObj.exit.thread ], [ %26, %Kit_DsdNtkObj.exit ], [ %26, %select.unfold.preheader.i ], [ %196, %.critedge9 ], [ %26, %.critedge6 ], [ %26, %32 ], [ %26, %52 ], [ %26, %59 ], [ %26, %.critedge11 ], [ %26, %Kit_TruthFill.exit150 ], [ %26, %Kit_TruthClear.exit ], [ %26, %select.unfold.i145 ], [ %26, %select.unfold.i177 ], [ %26, %Kit_TruthAndPhase.exit ], [ %26, %select.unfold.i165 ], [ %26, %select.unfold.i ]
+  %.0127 = phi ptr [ %26, %select.unfold.i177 ], [ %14, %Kit_DsdNtkObj.exit.thread ], [ %26, %Kit_DsdNtkObj.exit ], [ %26, %select.unfold.preheader.i ], [ %26, %select.unfold.i145 ], [ %196, %.critedge9 ], [ %26, %Kit_TruthClear.exit ], [ %26, %Kit_TruthFill.exit150 ], [ %26, %.critedge6 ], [ %26, %32 ], [ %26, %52 ], [ %26, %59 ], [ %26, %.critedge11 ], [ %26, %select.unfold.i165 ], [ %26, %Kit_TruthAndPhase.exit ], [ %26, %select.unfold.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0127
 }
@@ -3773,7 +3773,7 @@ select.unfold.i319:                               ; preds = %select.unfold.i319,
   br i1 %403, label %select.unfold.i319, label %.critedge4, !llvm.loop !56
 
 .critedge4:                                       ; preds = %select.unfold.i221, %Kit_TruthAndPhase.exit, %select.unfold.i287, %Kit_TruthAndPhase.exit243, %select.unfold.i319, %Kit_TruthClear.exit272, %Kit_TruthClear.exit, %Kit_TruthFill.exit, %Kit_TruthFill.exit232, %.critedge12, %.critedge6, %.critedge16, %Kit_DsdNtkObj.exit.thread, %Kit_DsdNtkObj.exit, %.critedge.thread
-  %.0 = phi ptr [ %56, %.critedge.thread ], [ %29, %Kit_DsdNtkObj.exit ], [ %29, %.critedge6 ], [ %17, %Kit_DsdNtkObj.exit.thread ], [ %29, %.critedge12 ], [ %29, %.critedge16 ], [ %29, %Kit_TruthFill.exit ], [ %29, %Kit_TruthFill.exit232 ], [ %29, %Kit_TruthClear.exit ], [ %29, %Kit_TruthClear.exit272 ], [ %29, %Kit_TruthAndPhase.exit ], [ %29, %select.unfold.i319 ], [ %29, %Kit_TruthAndPhase.exit243 ], [ %29, %select.unfold.i287 ], [ %29, %select.unfold.i221 ]
+  %.0 = phi ptr [ %29, %Kit_TruthFill.exit ], [ %56, %.critedge.thread ], [ %29, %Kit_DsdNtkObj.exit ], [ %29, %Kit_TruthFill.exit232 ], [ %29, %select.unfold.i319 ], [ %29, %.critedge6 ], [ %17, %Kit_DsdNtkObj.exit.thread ], [ %29, %Kit_TruthClear.exit272 ], [ %29, %.critedge12 ], [ %29, %.critedge16 ], [ %29, %Kit_TruthClear.exit ], [ %29, %Kit_TruthAndPhase.exit ], [ %29, %Kit_TruthAndPhase.exit243 ], [ %29, %select.unfold.i287 ], [ %29, %select.unfold.i221 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.0
@@ -4194,7 +4194,7 @@ select.unfold.i82:                                ; preds = %select.unfold.i82, 
   br i1 %197, label %select.unfold.i82, label %Kit_DsdTruthCompute.exit, !llvm.loop !58
 
 Kit_DsdTruthCompute.exit:                         ; preds = %select.unfold.i82, %161, %159, %select.unfold.i18.i, %Kit_DsdTruthCompute.exit62, %186, %87, %._crit_edge.i, %._crit_edge
-  %.038 = phi ptr [ %183, %._crit_edge ], [ %84, %._crit_edge.i ], [ %84, %87 ], [ %183, %186 ], [ %133, %Kit_DsdTruthCompute.exit62 ], [ %133, %161 ], [ %84, %select.unfold.i18.i ], [ %133, %159 ], [ %183, %select.unfold.i82 ]
+  %.038 = phi ptr [ %183, %._crit_edge ], [ %84, %select.unfold.i18.i ], [ %133, %Kit_DsdTruthCompute.exit62 ], [ %84, %._crit_edge.i ], [ %84, %87 ], [ %133, %161 ], [ %183, %186 ], [ %133, %159 ], [ %183, %select.unfold.i82 ]
   ret ptr %.038
 }
 
@@ -6343,7 +6343,7 @@ Kit_DsdNtkObj.exit:                               ; preds = %2
   br i1 %exitcond.not, label %.critedge, label %29, !llvm.loop !112
 
 .critedge:                                        ; preds = %29, %27, %2, %13, %17, %Kit_DsdNtkObj.exit
-  %.021 = phi i32 [ 0, %17 ], [ 0, %Kit_DsdNtkObj.exit ], [ 0, %13 ], [ 0, %2 ], [ %.0, %27 ], [ %35, %29 ]
+  %.021 = phi i32 [ 0, %17 ], [ 0, %Kit_DsdNtkObj.exit ], [ 0, %2 ], [ 0, %13 ], [ %.0, %27 ], [ %35, %29 ]
   ret i32 %.021
 }
 

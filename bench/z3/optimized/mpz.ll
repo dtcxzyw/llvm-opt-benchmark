@@ -7691,10 +7691,10 @@ _ZN11mpz_managerILb1EE3remERK3mpzS3_RS1_.exit:    ; preds = %319, %_ZN11mpz_mana
   br i1 %403, label %._crit_edge, label %.lr.ph, !llvm.loop !64
 
 ._crit_edge:                                      ; preds = %.lr.ph, %395, %390
-  %.070.lcssa = phi i64 [ %.070171, %.lr.ph ], [ %.068173, %395 ], [ %.070171, %390 ]
-  %.069.lcssa = phi i64 [ %.069172, %.lr.ph ], [ %397, %395 ], [ %.069172, %390 ]
-  %.068.lcssa = phi i64 [ %.068173, %.lr.ph ], [ %399, %395 ], [ %.068173, %390 ]
-  %.067.lcssa = phi i64 [ %.067174, %.lr.ph ], [ %.069172, %395 ], [ %.067174, %390 ]
+  %.070.lcssa = phi i64 [ %.070171, %390 ], [ %.068173, %395 ], [ %.070171, %.lr.ph ]
+  %.069.lcssa = phi i64 [ %.069172, %390 ], [ %397, %395 ], [ %.069172, %.lr.ph ]
+  %.068.lcssa = phi i64 [ %.068173, %390 ], [ %399, %395 ], [ %.068173, %.lr.ph ]
+  %.067.lcssa = phi i64 [ %.067174, %390 ], [ %.069172, %395 ], [ %.067174, %.lr.ph ]
   %404 = icmp eq i64 %.070.lcssa, 0
   br i1 %404, label %._crit_edge.thread, label %429
 
@@ -14809,7 +14809,7 @@ _ZN11mpz_managerILb1EE15is_power_of_twoERK3mpzRj.exit.sink.split: ; preds = %.cr
   br label %_ZN11mpz_managerILb1EE15is_power_of_twoERK3mpzRj.exit
 
 _ZN11mpz_managerILb1EE15is_power_of_twoERK3mpzRj.exit: ; preds = %.lr.ph.i, %_ZN11mpz_managerILb1EE15is_power_of_twoERK3mpzRj.exit.sink.split, %2, %10, %.critedge.i
-  %.0.i = phi i1 [ false, %10 ], [ false, %2 ], [ false, %.critedge.i ], [ true, %_ZN11mpz_managerILb1EE15is_power_of_twoERK3mpzRj.exit.sink.split ], [ false, %.lr.ph.i ]
+  %.0.i = phi i1 [ false, %10 ], [ true, %_ZN11mpz_managerILb1EE15is_power_of_twoERK3mpzRj.exit.sink.split ], [ false, %2 ], [ false, %.critedge.i ], [ false, %.lr.ph.i ]
   ret i1 %.0.i
 }
 
@@ -14880,7 +14880,7 @@ _ZN11mpz_managerILb1EE4log2ERK3mpz.exit:          ; preds = %.critedge
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.loopexit.sink.split, %.critedge, %11, %3
-  %.0 = phi i1 [ false, %11 ], [ false, %3 ], [ false, %.critedge ], [ true, %.loopexit.sink.split ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ false, %11 ], [ true, %.loopexit.sink.split ], [ false, %3 ], [ false, %.critedge ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -24280,10 +24280,10 @@ _ZN11mpz_managerILb0EE3remERK3mpzS3_RS1_.exit:    ; preds = %319, %_ZN11mpz_mana
   br i1 %408, label %._crit_edge, label %.lr.ph, !llvm.loop !165
 
 ._crit_edge:                                      ; preds = %.lr.ph, %400, %395
-  %.070.lcssa = phi i64 [ %.070171, %.lr.ph ], [ %.068173, %400 ], [ %.070171, %395 ]
-  %.069.lcssa = phi i64 [ %.069172, %.lr.ph ], [ %402, %400 ], [ %.069172, %395 ]
-  %.068.lcssa = phi i64 [ %.068173, %.lr.ph ], [ %404, %400 ], [ %.068173, %395 ]
-  %.067.lcssa = phi i64 [ %.067174, %.lr.ph ], [ %.069172, %400 ], [ %.067174, %395 ]
+  %.070.lcssa = phi i64 [ %.070171, %395 ], [ %.068173, %400 ], [ %.070171, %.lr.ph ]
+  %.069.lcssa = phi i64 [ %.069172, %395 ], [ %402, %400 ], [ %.069172, %.lr.ph ]
+  %.068.lcssa = phi i64 [ %.068173, %395 ], [ %404, %400 ], [ %.068173, %.lr.ph ]
+  %.067.lcssa = phi i64 [ %.067174, %395 ], [ %.069172, %400 ], [ %.067174, %.lr.ph ]
   %409 = icmp eq i64 %.070.lcssa, 0
   br i1 %409, label %._crit_edge.thread, label %439
 
@@ -31567,7 +31567,7 @@ _ZN11mpz_managerILb0EE15is_power_of_twoERK3mpzRj.exit.sink.split: ; preds = %.cr
   br label %_ZN11mpz_managerILb0EE15is_power_of_twoERK3mpzRj.exit
 
 _ZN11mpz_managerILb0EE15is_power_of_twoERK3mpzRj.exit: ; preds = %.lr.ph.i, %_ZN11mpz_managerILb0EE15is_power_of_twoERK3mpzRj.exit.sink.split, %2, %10, %.critedge.i
-  %.0.i = phi i1 [ false, %10 ], [ false, %2 ], [ false, %.critedge.i ], [ true, %_ZN11mpz_managerILb0EE15is_power_of_twoERK3mpzRj.exit.sink.split ], [ false, %.lr.ph.i ]
+  %.0.i = phi i1 [ false, %10 ], [ true, %_ZN11mpz_managerILb0EE15is_power_of_twoERK3mpzRj.exit.sink.split ], [ false, %2 ], [ false, %.critedge.i ], [ false, %.lr.ph.i ]
   ret i1 %.0.i
 }
 
@@ -31638,7 +31638,7 @@ _ZN11mpz_managerILb0EE4log2ERK3mpz.exit:          ; preds = %.critedge
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.loopexit.sink.split, %.critedge, %11, %3
-  %.0 = phi i1 [ false, %11 ], [ false, %3 ], [ false, %.critedge ], [ true, %.loopexit.sink.split ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ false, %11 ], [ true, %.loopexit.sink.split ], [ false, %3 ], [ false, %.critedge ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 

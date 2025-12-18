@@ -4102,7 +4102,7 @@ _ZN5vcpkg4PathD2Ev.exit234:                       ; preds = %512, %_ZNKSt7__cxx1
   br i1 %520, label %.loopexit, label %512
 
 .loopexit:                                        ; preds = %_ZN5vcpkg4PathD2Ev.exit218, %_ZN5vcpkg4PathD2Ev.exit234, %.thread
-  %.pn64.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %232, %.thread ], [ %.pn64.pn.pn.pn.pn.pn.pn, %_ZN5vcpkg4PathD2Ev.exit234 ], [ %467, %_ZN5vcpkg4PathD2Ev.exit218 ]
+  %.pn64.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn64.pn.pn.pn.pn.pn.pn, %_ZN5vcpkg4PathD2Ev.exit234 ], [ %232, %.thread ], [ %467, %_ZN5vcpkg4PathD2Ev.exit218 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit237
@@ -5326,7 +5326,7 @@ _ZN5vcpkg4PathD2Ev.exit167:                       ; preds = %425, %_ZNKSt7__cxx1
   br i1 %433, label %.loopexit, label %425
 
 .loopexit:                                        ; preds = %_ZN5vcpkg4PathD2Ev.exit167, %390, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i148, %.thread
-  %.pn34.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %182, %.thread ], [ %391, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i148 ], [ %391, %390 ], [ %.pn34.pn.pn.pn.pn.pn, %_ZN5vcpkg4PathD2Ev.exit167 ]
+  %.pn34.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %391, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i148 ], [ %182, %.thread ], [ %391, %390 ], [ %.pn34.pn.pn.pn.pn.pn, %_ZN5vcpkg4PathD2Ev.exit167 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit170

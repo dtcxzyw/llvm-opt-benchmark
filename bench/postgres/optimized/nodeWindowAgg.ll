@@ -452,7 +452,7 @@ list_length.exit:                                 ; preds = %183, %187
   br i1 %222, label %.lr.ph161.i, label %.critedge.i
 
 .critedge.i:                                      ; preds = %.lr.ph161.i, %.lr.ph.i, %203
-  %223 = phi i32 [ %212, %.lr.ph.i ], [ 0, %203 ], [ %212, %.lr.ph161.i ]
+  %223 = phi i32 [ 0, %203 ], [ %212, %.lr.ph.i ], [ %212, %.lr.ph161.i ]
   %224 = load i32, ptr %172, align 4
   %225 = zext i32 %224 to i64
   %226 = call ptr @SearchSysCache1(i32 noundef 0, i64 noundef %225) #8

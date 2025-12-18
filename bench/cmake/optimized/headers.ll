@@ -411,8 +411,8 @@ define dso_local range(i32 0, 44) i32 @Curl_headers_push(ptr noundef %0, ptr nou
   br i1 %37, label %.lr.ph64.i, label %.critedge4.i, !llvm.loop !99
 
 .critedge4.i:                                     ; preds = %.critedge2.i, %.critedge6.i, %33, %.lr.ph64.i, %.critedge.i, %16
-  %.1.lcssa.i = phi i64 [ 1, %.critedge.i ], [ 0, %16 ], [ %.162.i, %33 ], [ 1, %.critedge6.i ], [ %.162.i, %.lr.ph64.i ], [ 0, %.critedge2.i ]
-  %.051.lcssa.i = phi ptr [ %1, %.critedge.i ], [ %1, %16 ], [ %.05163.i, %33 ], [ %30, %.critedge6.i ], [ %.05163.i, %.lr.ph64.i ], [ %1, %.critedge2.i ]
+  %.1.lcssa.i = phi i64 [ 1, %.critedge.i ], [ %.162.i, %33 ], [ 0, %16 ], [ 1, %.critedge6.i ], [ %.162.i, %.lr.ph64.i ], [ 0, %.critedge2.i ]
+  %.051.lcssa.i = phi ptr [ %1, %.critedge.i ], [ %.05163.i, %33 ], [ %1, %16 ], [ %30, %.critedge6.i ], [ %.05163.i, %.lr.ph64.i ], [ %1, %.critedge2.i ]
   tail call void @Curl_node_remove(ptr noundef nonnull %15) #5
   %38 = add i64 %19, 58
   %39 = add i64 %38, %23
@@ -557,7 +557,7 @@ namevalue.exit:                                   ; preds = %64, %60
   br label %.critedge61
 
 .critedge61:                                      ; preds = %.critedge2, %.preheader, %42, %.critedge4.i, %.loopexit, %namevalue.exit, %.critedge, %7, %3, %3
-  %.0 = phi i32 [ 0, %3 ], [ 27, %.critedge ], [ 27, %.critedge4.i ], [ 8, %7 ], [ 0, %3 ], [ 0, %.loopexit ], [ 43, %namevalue.exit ], [ 0, %42 ], [ 8, %.preheader ], [ 8, %.critedge2 ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %42 ], [ 27, %.critedge ], [ 27, %.critedge4.i ], [ 8, %7 ], [ 0, %3 ], [ 0, %.loopexit ], [ 43, %namevalue.exit ], [ 8, %.preheader ], [ 8, %.critedge2 ]
   ret i32 %.0
 }
 

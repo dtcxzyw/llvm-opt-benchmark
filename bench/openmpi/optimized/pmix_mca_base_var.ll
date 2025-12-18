@@ -1148,7 +1148,7 @@ append_filename_to_list.exit:                     ; preds = %19, %22
   br label %.loopexit
 
 .loopexit:                                        ; preds = %30, %5, %3, %._crit_edge
-  %.0 = phi i32 [ 0, %3 ], [ 0, %._crit_edge ], [ -29, %5 ], [ %.2, %30 ]
+  %.0 = phi i32 [ 0, %3 ], [ -29, %5 ], [ 0, %._crit_edge ], [ %.2, %30 ]
   ret i32 %.0
 }
 
@@ -3926,7 +3926,7 @@ var_get.exit185.thread:                           ; preds = %pmix_pointer_array_
   br label %var_get.exit.thread
 
 var_get.exit.thread:                              ; preds = %279, %209, %167, %.loopexit255, %130, %153, %122, %115, %183, %pmix_pointer_array_get_item.exit.i173, %36, %31, %pmix_pointer_array_get_item.exit.i, %14, %3, %322, %316, %296, %290, %258, %251, %239, %226, %112, %58, %23, %327, %320, %225, %110, %87
-  %.0 = phi i32 [ -29, %296 ], [ %26, %23 ], [ -1, %3 ], [ -29, %322 ], [ -29, %87 ], [ -29, %110 ], [ %59, %58 ], [ 0, %327 ], [ -1, %31 ], [ -29, %225 ], [ -29, %112 ], [ -29, %226 ], [ -29, %239 ], [ -29, %290 ], [ -29, %316 ], [ -29, %251 ], [ -29, %320 ], [ -29, %258 ], [ -27, %pmix_pointer_array_get_item.exit.i ], [ -27, %14 ], [ -27, %pmix_pointer_array_get_item.exit.i173 ], [ -27, %36 ], [ -29, %183 ], [ -29, %115 ], [ -29, %122 ], [ -29, %153 ], [ -29, %130 ], [ -29, %.loopexit255 ], [ -29, %167 ], [ -29, %209 ], [ -29, %279 ]
+  %.0 = phi i32 [ -29, %296 ], [ -29, %209 ], [ %26, %23 ], [ -1, %3 ], [ -29, %322 ], [ -29, %87 ], [ -29, %110 ], [ %59, %58 ], [ 0, %327 ], [ -1, %31 ], [ -29, %225 ], [ -29, %112 ], [ -29, %226 ], [ -29, %239 ], [ -29, %290 ], [ -29, %316 ], [ -29, %251 ], [ -29, %320 ], [ -29, %258 ], [ -27, %pmix_pointer_array_get_item.exit.i ], [ -27, %14 ], [ -27, %pmix_pointer_array_get_item.exit.i173 ], [ -27, %36 ], [ -29, %183 ], [ -29, %115 ], [ -29, %122 ], [ -29, %153 ], [ -29, %130 ], [ -29, %.loopexit255 ], [ -29, %167 ], [ -29, %279 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

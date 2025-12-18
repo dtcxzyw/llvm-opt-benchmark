@@ -31567,7 +31567,7 @@ _ZNK5Yosys7hashlib4poolINS0_4dictINS_5RTLIL6SigBitEbNS0_8hash_opsIS4_EEEENS5_IS7
   br i1 %118, label %85, label %.critedge, !llvm.loop !582
 
 .critedge:                                        ; preds = %.loopexit, %101, %102, %76, %3
-  %.011 = phi i32 [ -1, %3 ], [ %81, %76 ], [ %.017, %102 ], [ %117, %.loopexit ], [ %.017, %101 ]
+  %.011 = phi i32 [ -1, %3 ], [ %.017, %102 ], [ %81, %76 ], [ %117, %.loopexit ], [ %.017, %101 ]
   ret i32 %.011
 }
 
@@ -32998,7 +32998,7 @@ _ZNSt4pairIN5Yosys7hashlib4poolINS1_4dictINS0_5RTLIL6SigBitEbNS1_8hash_opsIS5_EE
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.noexc, %.loopexit.i.i, %93, %97
-  %101 = phi i1 [ false, %.loopexit.i.i ], [ %96, %93 ], [ %100, %97 ], [ false, %.noexc ]
+  %101 = phi i1 [ %100, %97 ], [ %96, %93 ], [ false, %.loopexit.i.i ], [ false, %.noexc ]
   %102 = xor i1 %101, true
   %.pre57 = load ptr, ptr %36, align 8, !tbaa !386
   %.pre58 = load ptr, ptr %41, align 8, !tbaa !385

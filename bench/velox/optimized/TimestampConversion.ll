@@ -1087,7 +1087,7 @@ if.end186:                                        ; preds = %while.body173, %whi
   br label %return
 
 return:                                           ; preds = %while.body, %land.rhs169, %if.end117, %land.lhs.true181, %if.end157, %if.then152, %if.end114, %if.then110, %if.then102, %if.end97, %if.end88, %if.end85, %if.end75, %if.else65, %if.then61, %if.end52, %_ZN8facebook5velox13checkedNegateIiEET_RKS2_.exit, %if.end21, %if.then15, %if.then7, %entry, %if.end186, %if.then105, %if.then82, %_ZN8facebook5velox4util22daysSinceEpochFromDateEiii.exit
-  %retval.0 = phi i1 [ false, %if.then7 ], [ false, %entry ], [ false, %if.then15 ], [ false, %if.end21 ], [ %spec.select.i115, %_ZN8facebook5velox4util22daysSinceEpochFromDateEiii.exit ], [ false, %_ZN8facebook5velox13checkedNegateIiEET_RKS2_.exit ], [ false, %if.end52 ], [ %spec.select.i116, %if.then82 ], [ false, %if.end75 ], [ false, %if.end85 ], [ false, %if.end88 ], [ %spec.select.i117, %if.then105 ], [ false, %if.end97 ], [ false, %if.then110 ], [ true, %if.end114 ], [ %switch.selectcmp, %if.end117 ], [ false, %if.then102 ], [ false, %if.then152 ], [ false, %if.end157 ], [ true, %if.end186 ], [ false, %land.lhs.true181 ], [ false, %if.else65 ], [ false, %if.then61 ], [ false, %land.rhs169 ], [ false, %while.body ]
+  %retval.0 = phi i1 [ false, %if.then7 ], [ false, %entry ], [ false, %if.then61 ], [ false, %if.end21 ], [ %spec.select.i115, %_ZN8facebook5velox4util22daysSinceEpochFromDateEiii.exit ], [ false, %_ZN8facebook5velox13checkedNegateIiEET_RKS2_.exit ], [ false, %if.end52 ], [ %spec.select.i116, %if.then82 ], [ false, %if.end75 ], [ false, %if.end85 ], [ false, %if.end88 ], [ %spec.select.i117, %if.then105 ], [ false, %if.end97 ], [ false, %if.then110 ], [ true, %if.end114 ], [ %switch.selectcmp, %if.end117 ], [ false, %if.then102 ], [ false, %if.then15 ], [ false, %if.then152 ], [ false, %if.end157 ], [ true, %if.end186 ], [ false, %land.rhs169 ], [ false, %land.lhs.true181 ], [ false, %if.else65 ], [ false, %while.body ]
   ret i1 %retval.0
 }
 
@@ -1295,8 +1295,8 @@ if.end66.loopexit:                                ; preds = %land.rhs56, %for.bo
   br label %if.end66
 
 if.end66:                                         ; preds = %if.end66.loopexit, %if.then53, %land.lhs.true, %if.end48
-  %pos.promoted78 = phi i64 [ %15, %land.lhs.true ], [ %15, %if.end48 ], [ %inc54, %if.then53 ], [ %pos.promoted7887, %if.end66.loopexit ]
-  %micros.0 = phi i64 [ 0, %land.lhs.true ], [ 0, %if.end48 ], [ 0, %if.then53 ], [ %21, %if.end66.loopexit ]
+  %pos.promoted78 = phi i64 [ %15, %if.end48 ], [ %15, %land.lhs.true ], [ %inc54, %if.then53 ], [ %pos.promoted7887, %if.end66.loopexit ]
+  %micros.0 = phi i64 [ 0, %if.end48 ], [ 0, %land.lhs.true ], [ 0, %if.then53 ], [ %21, %if.end66.loopexit ]
   %cmp6979 = icmp ult i64 %pos.promoted78, %len
   %or.cond81 = and i1 %strict, %cmp6979
   br i1 %or.cond81, label %land.rhs70, label %if.end80
@@ -1332,7 +1332,7 @@ if.end80:                                         ; preds = %while.body74, %if.e
   br label %return
 
 return:                                           ; preds = %while.body, %land.rhs70, %if.end40, %if.end34, %if.end31, %if.end23, %if.end18, %_ZN8facebook5velox4util12_GLOBAL__N_116parseDoubleDigitEPKcmRmRi.exit, %if.end4, %entry, %if.end80
-  %retval.0 = phi i1 [ false, %if.end34 ], [ false, %entry ], [ false, %_ZN8facebook5velox4util12_GLOBAL__N_116parseDoubleDigitEPKcmRmRi.exit ], [ false, %if.end23 ], [ false, %if.end4 ], [ false, %if.end31 ], [ false, %if.end40 ], [ false, %if.end18 ], [ true, %if.end80 ], [ false, %land.rhs70 ], [ false, %while.body ]
+  %retval.0 = phi i1 [ false, %if.end34 ], [ false, %entry ], [ false, %_ZN8facebook5velox4util12_GLOBAL__N_116parseDoubleDigitEPKcmRmRi.exit ], [ true, %if.end80 ], [ false, %land.rhs70 ], [ false, %if.end23 ], [ false, %if.end4 ], [ false, %if.end31 ], [ false, %if.end40 ], [ false, %if.end18 ], [ false, %while.body ]
   ret i1 %retval.0
 }
 
@@ -1498,9 +1498,9 @@ if.then23:                                        ; preds = %if.end44.i, %lor.lh
   %sub28 = sub nsw i64 %add.i, %conv27
   br label %if.end30
 
-if.end30:                                         ; preds = %if.end5.i, %lor.lhs.false.i, %if.then15, %if.end.i, %if.then23
-  %pos.promoted = phi i64 [ %add34.sink.i, %if.then23 ], [ %spec.select, %if.end.i ], [ %spec.select, %if.then15 ], [ %spec.select, %lor.lhs.false.i ], [ %spec.select, %if.end5.i ]
-  %retval.sroa.0.1 = phi i64 [ %sub28, %if.then23 ], [ %add.i, %if.end.i ], [ %add.i, %if.then15 ], [ %add.i, %lor.lhs.false.i ], [ %add.i, %if.end5.i ]
+if.end30:                                         ; preds = %lor.lhs.false.i, %if.end5.i, %if.then15, %if.end.i, %if.then23
+  %pos.promoted = phi i64 [ %add34.sink.i, %if.then23 ], [ %spec.select, %if.end.i ], [ %spec.select, %if.then15 ], [ %spec.select, %if.end5.i ], [ %spec.select, %lor.lhs.false.i ]
+  %retval.sroa.0.1 = phi i64 [ %sub28, %if.then23 ], [ %add.i, %if.end.i ], [ %add.i, %if.then15 ], [ %add.i, %if.end5.i ], [ %add.i, %lor.lhs.false.i ]
   %cmp3135 = icmp ult i64 %pos.promoted, %len
   br i1 %cmp3135, label %land.rhs, label %return
 

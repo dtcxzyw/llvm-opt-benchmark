@@ -2472,7 +2472,7 @@ _ZN6vectorIN3smt19conflict_resolution7tp_elemELb0EjE4backEv.exit: ; preds = %_ZN
   br i1 %.not27.old.i.i.i, label %.lr.ph.i.i.i59.preheader, label %.lr.ph37.i.i.i.backedge
 
 .lr.ph37.i.i.i.backedge:                          ; preds = %135, %132
-  %.136.i.i.i.be = phi ptr [ %.old.i.i.i, %135 ], [ %134, %132 ]
+  %.136.i.i.i.be = phi ptr [ %134, %132 ], [ %.old.i.i.i, %135 ]
   br label %.lr.ph37.i.i.i, !llvm.loop !698
 
 _ZNK12obj_pair_mapIN3smt5enodeES1_P3appE8containsEPS1_S5_.exit: ; preds = %110, %126
@@ -2608,7 +2608,7 @@ _ZN3smt19conflict_resolution21visit_eq_justicationsEPNS_5enodeES2_.exit: ; preds
   br i1 %.not27.old.i.i.i68, label %.loopexit140, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %195, %192
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i67, %195 ], [ %194, %192 ]
+  %.137.i.i.i.be = phi ptr [ %194, %192 ], [ %.old.i.i.i67, %195 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !703
 
 _ZNK7obj_mapIN3smt13justificationEP3appE8containsEPS1_.exit: ; preds = %176, %187
@@ -5764,7 +5764,7 @@ define hidden noundef ptr @_ZN3smt19conflict_resolution9get_proofEPNS_5enodeES2_
   br i1 %.not27.old.i.i.i, label %.loopexit9, label %.lr.ph37.i.i.i.backedge
 
 .lr.ph37.i.i.i.backedge:                          ; preds = %60, %57
-  %.136.i.i.i.be = phi ptr [ %.old.i.i.i, %60 ], [ %59, %57 ]
+  %.136.i.i.i.be = phi ptr [ %59, %57 ], [ %.old.i.i.i, %60 ]
   br label %.lr.ph37.i.i.i, !llvm.loop !698
 
 .loopexit:                                        ; preds = %35, %51
@@ -6914,7 +6914,7 @@ define hidden noundef ptr @_ZN3smt19conflict_resolution9get_proofEPNS_13justific
   br i1 %.not27.old.i.i.i, label %.loopexit7, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %36, %33
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %36 ], [ %35, %33 ]
+  %.137.i.i.i.be = phi ptr [ %35, %33 ], [ %.old.i.i.i, %36 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !703
 
 .loopexit:                                        ; preds = %17, %28
@@ -8466,7 +8466,7 @@ _ZNK3smt5enode12get_num_argsEv.exit.thread:       ; preds = %23
   br i1 %.not27.old.i.i.i.i, label %.loopexit9.i, label %.lr.ph37.i.i.i.i.backedge
 
 .lr.ph37.i.i.i.i.backedge:                        ; preds = %111, %108
-  %.136.i.i.i.i.be = phi ptr [ %.old.i.i.i.i, %111 ], [ %110, %108 ]
+  %.136.i.i.i.i.be = phi ptr [ %110, %108 ], [ %.old.i.i.i.i, %111 ]
   br label %.lr.ph37.i.i.i.i, !llvm.loop !698
 
 .loopexit.i:                                      ; preds = %86, %102
@@ -8526,7 +8526,7 @@ _ZN3smt19conflict_resolution9get_proofEPNS_5enodeES2_.exit: ; preds = %_ZN6vecto
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN3smt19conflict_resolution9get_proofEPNS_5enodeES2_.exit, %_ZNK3smt5enode12get_num_argsEv.exit.thread, %.preheader, %48, %18, %13, %47, %133, %7
-  %.1 = phi i1 [ %.03158, %133 ], [ %.03158, %7 ], [ %.2, %47 ], [ %spec.select, %13 ], [ %spec.select42, %18 ], [ %spec.select44, %48 ], [ %.03158, %.preheader ], [ %.03158, %_ZNK3smt5enode12get_num_argsEv.exit.thread ], [ %.6, %_ZN3smt19conflict_resolution9get_proofEPNS_5enodeES2_.exit ]
+  %.1 = phi i1 [ %.03158, %133 ], [ %.03158, %7 ], [ %.2, %47 ], [ %spec.select44, %48 ], [ %spec.select, %13 ], [ %spec.select42, %18 ], [ %.03158, %.preheader ], [ %.03158, %_ZNK3smt5enode12get_num_argsEv.exit.thread ], [ %.6, %_ZN3smt19conflict_resolution9get_proofEPNS_5enodeES2_.exit ]
   %134 = load ptr, ptr %8, align 8, !tbaa !124
   %.not = icmp eq ptr %134, %2
   br i1 %.not, label %._crit_edge, label %7, !llvm.loop !790

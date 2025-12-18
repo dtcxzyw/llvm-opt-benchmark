@@ -4987,7 +4987,7 @@ _ZNK5drjit6TensorINS_12DynamicArrayIfEEE5shapeEm.exit.us: ; preds = %.lr.ph.spli
   br i1 %or.cond125, label %_ZNK5drjit6TensorINS_12DynamicArrayIfEEE5shapeEm.exit56, label %.split.us.invoke
 
 .split.us.invoke:                                 ; preds = %.lr.ph.split.split, %.lr.ph.split.split.us.split, %.lr.ph.split.us.split.split
-  %43 = phi i64 [ %.070.us76, %.lr.ph.split.split.us.split ], [ %.070.us, %.lr.ph.split.us.split.split ], [ %.070, %.lr.ph.split.split ]
+  %43 = phi i64 [ %.070.us, %.lr.ph.split.us.split.split ], [ %.070.us76, %.lr.ph.split.split.us.split ], [ %.070, %.lr.ph.split.split ]
   invoke void (ptr, ...) @_ZN5drjit11drjit_raiseEPKcz(ptr noundef nonnull @.str.44, i64 noundef %43) #30
           to label %.split.us.cont unwind label %52
 

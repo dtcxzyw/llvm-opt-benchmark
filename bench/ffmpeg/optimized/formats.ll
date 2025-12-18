@@ -199,7 +199,7 @@ define ptr @ff_make_channel_layout_list(ptr noundef %0) local_unnamed_addr #2 {
   br label %.thread
 
 .thread:                                          ; preds = %13, %.thread.sink.split, %8, %.loopexit
-  %.020 = phi ptr [ null, %.loopexit ], [ %7, %8 ], [ null, %.thread.sink.split ], [ %7, %13 ]
+  %.020 = phi ptr [ null, %.loopexit ], [ null, %.thread.sink.split ], [ %7, %8 ], [ %7, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.020
 }
@@ -3894,7 +3894,7 @@ define range(i32 -22, 1) i32 @ff_formats_check_pixel_formats(ptr noundef %0, ptr
   br label %check_list.exit
 
 check_list.exit:                                  ; preds = %.loopexit.i, %2, %.loopexit21.sink.split.i
-  %.018.i = phi i32 [ 0, %2 ], [ -22, %.loopexit21.sink.split.i ], [ 0, %.loopexit.i ]
+  %.018.i = phi i32 [ -22, %.loopexit21.sink.split.i ], [ 0, %2 ], [ 0, %.loopexit.i ]
   ret i32 %.018.i
 }
 
@@ -3950,7 +3950,7 @@ define range(i32 -22, 1) i32 @ff_formats_check_sample_formats(ptr noundef %0, pt
   br label %check_list.exit
 
 check_list.exit:                                  ; preds = %.loopexit.i, %2, %.loopexit21.sink.split.i
-  %.018.i = phi i32 [ 0, %2 ], [ -22, %.loopexit21.sink.split.i ], [ 0, %.loopexit.i ]
+  %.018.i = phi i32 [ -22, %.loopexit21.sink.split.i ], [ 0, %2 ], [ 0, %.loopexit.i ]
   ret i32 %.018.i
 }
 
@@ -4083,7 +4083,7 @@ define range(i32 -22, 1) i32 @ff_formats_check_color_spaces(ptr noundef %0, ptr 
   br label %check_list.exit
 
 check_list.exit:                                  ; preds = %.loopexit.i, %2, %.loopexit21.sink.split.i, %.critedge
-  %.1 = phi i32 [ -22, %.critedge ], [ -22, %.loopexit21.sink.split.i ], [ 0, %2 ], [ 0, %.loopexit.i ]
+  %.1 = phi i32 [ -22, %.critedge ], [ 0, %2 ], [ -22, %.loopexit21.sink.split.i ], [ 0, %.loopexit.i ]
   ret i32 %.1
 }
 
@@ -4139,7 +4139,7 @@ define range(i32 -22, 1) i32 @ff_formats_check_color_ranges(ptr noundef %0, ptr 
   br label %check_list.exit
 
 check_list.exit:                                  ; preds = %.loopexit.i, %2, %.loopexit21.sink.split.i
-  %.018.i = phi i32 [ 0, %2 ], [ -22, %.loopexit21.sink.split.i ], [ 0, %.loopexit.i ]
+  %.018.i = phi i32 [ -22, %.loopexit21.sink.split.i ], [ 0, %2 ], [ 0, %.loopexit.i ]
   ret i32 %.018.i
 }
 
@@ -4269,7 +4269,7 @@ layouts_compatible.exit.thread:                   ; preds = %30, %.thread25.i, %
   br label %.loopexit30
 
 .loopexit30:                                      ; preds = %.loopexit, %.lr.ph33, %.loopexit30.sink.split, %13, %2
-  %.020 = phi i32 [ 0, %2 ], [ 0, %13 ], [ -22, %.loopexit30.sink.split ], [ 0, %.lr.ph33 ], [ 0, %.loopexit ]
+  %.020 = phi i32 [ -22, %.loopexit30.sink.split ], [ 0, %13 ], [ 0, %2 ], [ 0, %.lr.ph33 ], [ 0, %.loopexit ]
   ret i32 %.020
 }
 
@@ -4526,7 +4526,7 @@ define internal fastcc range(i32 -12, 2) i32 @merge_formats_internal(ptr noundef
   br label %.thread
 
 .thread:                                          ; preds = %76, %.preheader89, %.preheader.lr.ph, %.preheader88, %84, %._crit_edge117, %._crit_edge122, %.loopexit90, %4
-  %.059 = phi i32 [ 0, %.loopexit90 ], [ 1, %4 ], [ 1, %._crit_edge122 ], [ -12, %84 ], [ 0, %._crit_edge117 ], [ 0, %.preheader88 ], [ 0, %.preheader.lr.ph ], [ 0, %.preheader89 ], [ 1, %76 ]
+  %.059 = phi i32 [ 0, %.loopexit90 ], [ 1, %4 ], [ 1, %._crit_edge122 ], [ -12, %84 ], [ 0, %._crit_edge117 ], [ 0, %.preheader89 ], [ 0, %.preheader88 ], [ 0, %.preheader.lr.ph ], [ 1, %76 ]
   ret i32 %.059
 }
 
@@ -4657,7 +4657,7 @@ define internal fastcc range(i32 -12, 2) i32 @merge_generic_internal(ptr noundef
   br label %.thread
 
 .thread:                                          ; preds = %21, %.preheader.lr.ph, %.preheader46, %29, %._crit_edge, %._crit_edge57, %3
-  %.032 = phi i32 [ 1, %3 ], [ 1, %._crit_edge57 ], [ -12, %29 ], [ 0, %._crit_edge ], [ 0, %.preheader46 ], [ 0, %.preheader.lr.ph ], [ 1, %21 ]
+  %.032 = phi i32 [ 1, %3 ], [ 1, %._crit_edge57 ], [ -12, %29 ], [ 0, %._crit_edge ], [ 0, %.preheader.lr.ph ], [ 0, %.preheader46 ], [ 1, %21 ]
   ret i32 %.032
 }
 
@@ -4962,7 +4962,7 @@ define internal fastcc range(i32 -12, 2) i32 @merge_channel_layouts_internal(ptr
   br i1 %127, label %.lr.ph223.us.us, label %.loopexit182.us.us
 
 .loopexit182.us.us:                               ; preds = %141, %._crit_edge310, %124, %114
-  %.4135.ph.us.us = phi i32 [ %.3134227.us.us, %124 ], [ %.3134227.us.us, %114 ], [ %.3134227.us.us, %._crit_edge310 ], [ %.6.us.us.us, %141 ]
+  %.4135.ph.us.us = phi i32 [ %.3134227.us.us, %114 ], [ %.3134227.us.us, %124 ], [ %.3134227.us.us, %._crit_edge310 ], [ %.6.us.us.us, %141 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %indvars.iv.next294 = add nuw nsw i64 %indvars.iv293, 1
   %128 = load ptr, ptr %4, align 8, !tbaa !33
@@ -5223,7 +5223,7 @@ define internal fastcc range(i32 -12, 2) i32 @merge_channel_layouts_internal(ptr
   br i1 %255, label %.lr.ph242.split, label %.loopexit, !llvm.loop !145
 
 .loopexit:                                        ; preds = %252, %242, %.preheader, %223, %217
-  %.8 = phi i32 [ %.7246, %223 ], [ %.7246, %217 ], [ %.7246, %.preheader ], [ %.10.us, %242 ], [ %.7246, %252 ]
+  %.8 = phi i32 [ %.7246, %217 ], [ %.7246, %223 ], [ %.7246, %.preheader ], [ %.10.us, %242 ], [ %.7246, %252 ]
   %indvars.iv.next303 = add nuw nsw i64 %indvars.iv302, 1
   %256 = load ptr, ptr %4, align 8, !tbaa !33
   %257 = getelementptr inbounds nuw i8, ptr %256, i64 8
@@ -5317,7 +5317,7 @@ define internal fastcc range(i32 -12, 2) i32 @merge_channel_layouts_internal(ptr
   br label %.loopexit180
 
 .loopexit180:                                     ; preds = %60, %164, %.lr.ph242.split, %.preheader187, %._crit_edge210, %66, %.thread178, %211, %97, %._crit_edge, %3, %._crit_edge254, %261
-  %.0124 = phi i32 [ 0, %._crit_edge ], [ 0, %261 ], [ 1, %3 ], [ -12, %97 ], [ 1, %211 ], [ 1, %._crit_edge254 ], [ -12, %.thread178 ], [ -12, %66 ], [ 1, %._crit_edge210 ], [ 0, %.preheader187 ], [ 1, %164 ], [ 1, %.lr.ph242.split ], [ 1, %60 ]
+  %.0124 = phi i32 [ 1, %._crit_edge210 ], [ 0, %._crit_edge ], [ 0, %261 ], [ 1, %3 ], [ 0, %.preheader187 ], [ -12, %97 ], [ 1, %211 ], [ 1, %.lr.ph242.split ], [ 1, %._crit_edge254 ], [ -12, %.thread178 ], [ -12, %66 ], [ 1, %164 ], [ 1, %60 ]
   ret i32 %.0124
 }
 
@@ -5468,7 +5468,7 @@ define internal fastcc range(i32 -12, 2) i32 @merge_samplerates_internal(ptr nou
   br label %.thread65
 
 .thread65:                                        ; preds = %25, %.thread, %.thread60, %12, %._crit_edge, %._crit_edge79, %3
-  %.037 = phi i32 [ 1, %3 ], [ 1, %._crit_edge79 ], [ 1, %.thread ], [ -12, %.thread60 ], [ 1, %12 ], [ 0, %._crit_edge ], [ 1, %25 ]
+  %.037 = phi i32 [ 1, %3 ], [ 1, %._crit_edge79 ], [ 1, %.thread ], [ -12, %.thread60 ], [ 0, %._crit_edge ], [ 1, %12 ], [ 1, %25 ]
   ret i32 %.037
 }
 

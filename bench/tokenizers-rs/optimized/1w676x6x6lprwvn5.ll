@@ -7935,7 +7935,7 @@ define internal noundef i32 @"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$a
   br i1 %113, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h4869133a0241fd5dE.exit", label %._crit_edge, !prof !1883
 
 .loopexit:                                        ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h4869133a0241fd5dE.exit47", %35, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h4869133a0241fd5dE.exit47.us", %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h4869133a0241fd5dE.exit48.us", %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h4869133a0241fd5dE.exit53", %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h4869133a0241fd5dE.exit49"
-  %.1 = phi i32 [ %107, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h4869133a0241fd5dE.exit53" ], [ %.026, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h4869133a0241fd5dE.exit49" ], [ 0, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h4869133a0241fd5dE.exit48.us" ], [ %25, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h4869133a0241fd5dE.exit47.us" ], [ 0, %35 ], [ %54, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h4869133a0241fd5dE.exit47" ]
+  %.1 = phi i32 [ %107, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h4869133a0241fd5dE.exit53" ], [ %.026, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h4869133a0241fd5dE.exit49" ], [ 0, %35 ], [ 0, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h4869133a0241fd5dE.exit48.us" ], [ %25, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h4869133a0241fd5dE.exit47.us" ], [ %54, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h4869133a0241fd5dE.exit47" ]
   ret i32 %.1
 }
 
@@ -8456,7 +8456,7 @@ _ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hf3e45a3afb850229E.
   br i1 %73, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5bc4b26beda262ccE.exit", label %._crit_edge, !prof !1883
 
 .split.loop.exit43:                               ; preds = %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hf3e45a3afb850229E.exit, %32, %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hf3e45a3afb850229E.exit.us, %39
-  %.0 = phi i32 [ 0, %39 ], [ %41, %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hf3e45a3afb850229E.exit.us ], [ 0, %32 ], [ %.0.i, %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hf3e45a3afb850229E.exit ]
+  %.0 = phi i32 [ 0, %32 ], [ 0, %39 ], [ %41, %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hf3e45a3afb850229E.exit.us ], [ %.0.i, %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hf3e45a3afb850229E.exit ]
   ret i32 %.0
 }
 
@@ -21706,8 +21706,8 @@ _ZN10tokenizers9tokenizer8encoding8Encoding17token_to_sequence17h0cb3b7c611a0292
   br label %_ZN10tokenizers9tokenizer8encoding8Encoding13token_to_word17h150b709a80de6e66E.exit.thread
 
 _ZN10tokenizers9tokenizer8encoding8Encoding13token_to_word17h150b709a80de6e66E.exit.thread: ; preds = %22, %26, %_ZN10tokenizers9tokenizer8encoding8Encoding17token_to_sequence17h0cb3b7c611a0292dE.exit.thread12.i, %62, %_ZN10tokenizers9tokenizer8encoding8Encoding17token_to_sequence17h0cb3b7c611a0292dE.exit.thread16.i, %3, %12, %64
-  %.sroa.0.0 = phi i32 [ 1, %64 ], [ 0, %3 ], [ 0, %12 ], [ 0, %_ZN10tokenizers9tokenizer8encoding8Encoding17token_to_sequence17h0cb3b7c611a0292dE.exit.thread16.i ], [ 0, %62 ], [ 0, %_ZN10tokenizers9tokenizer8encoding8Encoding17token_to_sequence17h0cb3b7c611a0292dE.exit.thread12.i ], [ 0, %26 ], [ 0, %22 ]
-  %.sroa.3.0 = phi i32 [ %66, %64 ], [ undef, %3 ], [ undef, %12 ], [ undef, %_ZN10tokenizers9tokenizer8encoding8Encoding17token_to_sequence17h0cb3b7c611a0292dE.exit.thread16.i ], [ undef, %62 ], [ undef, %_ZN10tokenizers9tokenizer8encoding8Encoding17token_to_sequence17h0cb3b7c611a0292dE.exit.thread12.i ], [ undef, %26 ], [ undef, %22 ]
+  %.sroa.0.0 = phi i32 [ 1, %64 ], [ 0, %3 ], [ 0, %26 ], [ 0, %12 ], [ 0, %_ZN10tokenizers9tokenizer8encoding8Encoding17token_to_sequence17h0cb3b7c611a0292dE.exit.thread16.i ], [ 0, %62 ], [ 0, %_ZN10tokenizers9tokenizer8encoding8Encoding17token_to_sequence17h0cb3b7c611a0292dE.exit.thread12.i ], [ 0, %22 ]
+  %.sroa.3.0 = phi i32 [ %66, %64 ], [ undef, %3 ], [ undef, %26 ], [ undef, %12 ], [ undef, %_ZN10tokenizers9tokenizer8encoding8Encoding17token_to_sequence17h0cb3b7c611a0292dE.exit.thread16.i ], [ undef, %62 ], [ undef, %_ZN10tokenizers9tokenizer8encoding8Encoding17token_to_sequence17h0cb3b7c611a0292dE.exit.thread12.i ], [ undef, %22 ]
   %67 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0, 0
   %68 = insertvalue { i32, i32 } %67, i32 %.sroa.3.0, 1
   ret { i32, i32 } %68
@@ -23220,13 +23220,13 @@ define void @_ZN10tokenizers9tokenizer8encoding8Encoding10merge_with17ha260b1807
   br label %.thread
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hab2bc2a8bf91c6c0E.exit.i", %._crit_edge299, %130, %123, %117, %113, %94, %87, %80, %75
-  %.040.ph.ph = phi i1 [ false, %130 ], [ false, %87 ], [ false, %123 ], [ true, %._crit_edge299 ], [ false, %117 ], [ true, %80 ], [ false, %113 ], [ true, %75 ], [ false, %94 ], [ true, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hab2bc2a8bf91c6c0E.exit.i" ]
-  %.038.ph.ph = phi i1 [ false, %130 ], [ true, %87 ], [ false, %123 ], [ true, %._crit_edge299 ], [ false, %117 ], [ true, %80 ], [ false, %113 ], [ true, %75 ], [ false, %94 ], [ true, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hab2bc2a8bf91c6c0E.exit.i" ]
-  %.036.ph.ph = phi i1 [ false, %130 ], [ true, %87 ], [ false, %123 ], [ true, %._crit_edge299 ], [ false, %117 ], [ true, %80 ], [ false, %113 ], [ true, %75 ], [ true, %94 ], [ true, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hab2bc2a8bf91c6c0E.exit.i" ]
-  %.034.ph.ph = phi i1 [ false, %130 ], [ true, %87 ], [ false, %123 ], [ true, %._crit_edge299 ], [ true, %117 ], [ true, %80 ], [ true, %113 ], [ true, %75 ], [ true, %94 ], [ true, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hab2bc2a8bf91c6c0E.exit.i" ]
-  %.032.ph.ph = phi i1 [ false, %130 ], [ true, %87 ], [ true, %123 ], [ true, %._crit_edge299 ], [ true, %117 ], [ true, %80 ], [ true, %113 ], [ true, %75 ], [ true, %94 ], [ true, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hab2bc2a8bf91c6c0E.exit.i" ]
-  %.025.ph.ph = phi i1 [ false, %130 ], [ false, %87 ], [ false, %123 ], [ true, %._crit_edge299 ], [ false, %117 ], [ false, %80 ], [ false, %113 ], [ true, %75 ], [ false, %94 ], [ true, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hab2bc2a8bf91c6c0E.exit.i" ]
-  %.022.ph.ph = phi i1 [ false, %130 ], [ false, %87 ], [ false, %123 ], [ true, %._crit_edge299 ], [ false, %117 ], [ false, %80 ], [ false, %113 ], [ false, %75 ], [ false, %94 ], [ true, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hab2bc2a8bf91c6c0E.exit.i" ]
+  %.040.ph.ph = phi i1 [ false, %87 ], [ false, %123 ], [ true, %._crit_edge299 ], [ false, %117 ], [ true, %80 ], [ false, %113 ], [ true, %75 ], [ false, %130 ], [ true, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hab2bc2a8bf91c6c0E.exit.i" ], [ false, %94 ]
+  %.038.ph.ph = phi i1 [ true, %87 ], [ false, %123 ], [ true, %._crit_edge299 ], [ false, %117 ], [ true, %80 ], [ false, %113 ], [ true, %75 ], [ false, %130 ], [ true, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hab2bc2a8bf91c6c0E.exit.i" ], [ false, %94 ]
+  %.036.ph.ph = phi i1 [ true, %87 ], [ false, %123 ], [ true, %._crit_edge299 ], [ false, %117 ], [ true, %80 ], [ false, %113 ], [ true, %75 ], [ false, %130 ], [ true, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hab2bc2a8bf91c6c0E.exit.i" ], [ true, %94 ]
+  %.034.ph.ph = phi i1 [ true, %87 ], [ false, %123 ], [ true, %._crit_edge299 ], [ true, %117 ], [ true, %80 ], [ true, %113 ], [ true, %75 ], [ false, %130 ], [ true, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hab2bc2a8bf91c6c0E.exit.i" ], [ true, %94 ]
+  %.032.ph.ph = phi i1 [ true, %87 ], [ true, %123 ], [ true, %._crit_edge299 ], [ true, %117 ], [ true, %80 ], [ true, %113 ], [ true, %75 ], [ false, %130 ], [ true, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hab2bc2a8bf91c6c0E.exit.i" ], [ true, %94 ]
+  %.025.ph.ph = phi i1 [ false, %87 ], [ false, %123 ], [ true, %._crit_edge299 ], [ false, %117 ], [ false, %80 ], [ false, %113 ], [ true, %75 ], [ false, %130 ], [ true, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hab2bc2a8bf91c6c0E.exit.i" ], [ false, %94 ]
+  %.022.ph.ph = phi i1 [ false, %87 ], [ false, %123 ], [ true, %._crit_edge299 ], [ false, %117 ], [ false, %80 ], [ false, %113 ], [ false, %75 ], [ false, %130 ], [ true, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hab2bc2a8bf91c6c0E.exit.i" ], [ false, %94 ]
   %lpad.loopexit.split-lp289 = landingpad { ptr, i32 }
           cleanup
   br label %.thread

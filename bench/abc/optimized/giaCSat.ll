@@ -428,7 +428,7 @@ Cbs_QuePush.exit:                                 ; preds = %._crit_edge.i, %122
   br label %Cbs_ManPropagateOne.exit.thread
 
 Cbs_ManPropagateOne.exit:                         ; preds = %51, %55, %57, %82
-  %.0.i = phi i32 [ %52, %51 ], [ %56, %55 ], [ %58, %57 ], [ %83, %82 ]
+  %.0.i = phi i32 [ %83, %82 ], [ %52, %51 ], [ %56, %55 ], [ %58, %57 ]
   %.not43 = icmp eq i32 %.0.i, 0
   br i1 %.not43, label %Cbs_ManPropagateOne.exit.thread, label %.loopexit
 
@@ -600,7 +600,7 @@ Cbs_ManPropagateTwo.exit.thread..critedge2.loopexit_crit_edge: ; preds = %Cbs_Ma
   br label %9
 
 .loopexit:                                        ; preds = %.critedge2, %Cbs_ManPropagateOne.exit, %Cbs_ManPropagateTwo.exit
-  %.035 = phi i32 [ %.0.i, %Cbs_ManPropagateOne.exit ], [ %208, %Cbs_ManPropagateTwo.exit ], [ 0, %.critedge2 ]
+  %.035 = phi i32 [ %208, %Cbs_ManPropagateTwo.exit ], [ %.0.i, %Cbs_ManPropagateOne.exit ], [ 0, %.critedge2 ]
   ret i32 %.035
 }
 
@@ -1691,7 +1691,7 @@ Vec_IntPush.exit.i:                               ; preds = %58, %Vec_IntGrow.ex
   br i1 %68, label %23, label %Cbs_ManSaveModel.exit, !llvm.loop !89
 
 Cbs_ManSaveModel.exit:                            ; preds = %65, %23, %7, %14, %2, %Cbs_ManCheckLimits.exit
-  %.0 = phi i32 [ 1, %Cbs_ManCheckLimits.exit ], [ 1, %2 ], [ 0, %14 ], [ 1, %7 ], [ 0, %23 ], [ 0, %65 ]
+  %.0 = phi i32 [ 1, %7 ], [ 1, %Cbs_ManCheckLimits.exit ], [ 1, %2 ], [ 0, %14 ], [ 0, %23 ], [ 0, %65 ]
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 0, ptr %69, align 8, !tbaa !43
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1908,7 +1908,7 @@ Vec_IntPush.exit.i:                               ; preds = %66, %Vec_IntGrow.ex
   br i1 %75, label %27, label %Cbs_ManSaveModelAll.exit, !llvm.loop !92
 
 Cbs_ManSaveModelAll.exit:                         ; preds = %Vec_IntPush.exit.i, %27, %10, %17, %8, %Cbs_ManCheckLimits.exit
-  %.0 = phi i32 [ 1, %Cbs_ManCheckLimits.exit ], [ 1, %8 ], [ 0, %17 ], [ 1, %10 ], [ 0, %27 ], [ 0, %Vec_IntPush.exit.i ]
+  %.0 = phi i32 [ 1, %10 ], [ 1, %Cbs_ManCheckLimits.exit ], [ 1, %8 ], [ 0, %17 ], [ 0, %27 ], [ 0, %Vec_IntPush.exit.i ]
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 0, ptr %76, align 8, !tbaa !43
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 72

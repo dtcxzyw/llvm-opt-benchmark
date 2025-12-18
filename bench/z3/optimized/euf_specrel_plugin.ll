@@ -326,7 +326,7 @@ _ZNK22special_relations_util5is_acEPK9func_decl.exit: ; preds = %_ZNK4decl13get_
   br i1 %.not27.old.i.i.i, label %.loopexit, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %66, %63
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %66 ], [ %65, %63 ]
+  %.137.i.i.i.be = phi ptr [ %65, %63 ], [ %.old.i.i.i, %66 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !126
 
 .loopexit:                                        ; preds = %52, %63, %66, %.preheader.i.i.i

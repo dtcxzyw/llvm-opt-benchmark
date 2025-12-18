@@ -566,7 +566,7 @@ CloseTransientFile.exit65:                        ; preds = %.thread.i64, %75
   br label %.sink.split
 
 .sink.split:                                      ; preds = %21, %CloseTransientFile.exit, %77, %.sink.split.sink.split, %CloseTransientFile.exit65, %16, %11, %11
-  %.0 = phi i32 [ 0, %11 ], [ 0, %16 ], [ 0, %11 ], [ 0, %CloseTransientFile.exit65 ], [ -1, %.sink.split.sink.split ], [ -1, %77 ], [ -1, %CloseTransientFile.exit ], [ -1, %21 ]
+  %.0 = phi i32 [ 0, %CloseTransientFile.exit65 ], [ 0, %11 ], [ 0, %11 ], [ 0, %16 ], [ -1, %.sink.split.sink.split ], [ -1, %77 ], [ -1, %CloseTransientFile.exit ], [ -1, %21 ]
   ret i32 %.0
 }
 
@@ -1136,9 +1136,9 @@ select.unfold.i:                                  ; preds = %39, %37
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.i.loopexit, %.preheader.sink.split.i, %35, %31, %26, %22
-  %.us-phi.i = phi i32 [ %32, %31 ], [ %23, %22 ], [ %23, %26 ], [ %32, %35 ], [ %.038.lcssa.sink.i, %.preheader.sink.split.i ], [ %46, %.preheader.i.loopexit ]
-  %.us-phi51.i = phi i32 [ %.035.i, %31 ], [ %.035.us.i, %22 ], [ %.035.us.i, %26 ], [ %.035.i, %35 ], [ %.us-phi51.ph.i, %.preheader.sink.split.i ], [ %.035.us.i, %.preheader.i.loopexit ]
-  %.us-phi52.i = phi ptr [ %.030.i, %31 ], [ %.030.us.i, %22 ], [ %.030.us.i, %26 ], [ %.030.i, %35 ], [ %.us-phi52.ph.i, %.preheader.sink.split.i ], [ %.030.us.i, %.preheader.i.loopexit ]
+  %.us-phi.i = phi i32 [ %32, %31 ], [ %.038.lcssa.sink.i, %.preheader.sink.split.i ], [ %23, %22 ], [ %23, %26 ], [ %32, %35 ], [ %46, %.preheader.i.loopexit ]
+  %.us-phi51.i = phi i32 [ %.035.i, %31 ], [ %.us-phi51.ph.i, %.preheader.sink.split.i ], [ %.035.us.i, %22 ], [ %.035.us.i, %26 ], [ %.035.i, %35 ], [ %.035.us.i, %.preheader.i.loopexit ]
+  %.us-phi52.i = phi ptr [ %.030.i, %31 ], [ %.us-phi52.ph.i, %.preheader.sink.split.i ], [ %.030.us.i, %22 ], [ %.030.us.i, %26 ], [ %.030.i, %35 ], [ %.030.us.i, %.preheader.i.loopexit ]
   %47 = icmp sgt i32 %.us-phi.i, 0
   br i1 %47, label %.preheader.i..lr.ph.preheader.i_crit_edge, label %count_usable_fds.exit
 
@@ -2837,7 +2837,7 @@ define dso_local range(i32 -1, 1) i32 @FileFallocate(i32 noundef %0, i64 noundef
   br label %FileZero.exit
 
 FileZero.exit:                                    ; preds = %8, %32, %29, %28, %20, %17, %15, %4
-  %.0 = phi i32 [ -1, %15 ], [ -1, %4 ], [ -1, %29 ], [ -1, %17 ], [ -1, %20 ], [ -1, %32 ], [ 0, %28 ], [ %13, %8 ]
+  %.0 = phi i32 [ -1, %15 ], [ -1, %4 ], [ 0, %28 ], [ -1, %29 ], [ -1, %17 ], [ -1, %20 ], [ -1, %32 ], [ %13, %8 ]
   ret i32 %.0
 }
 
@@ -3126,7 +3126,7 @@ define internal fastcc noundef zeroext i1 @reserveAllocatedDesc() unnamed_addr #
   br label %23
 
 23:                                               ; preds = %.sink.split, %14, %18, %0
-  %.0 = phi i1 [ false, %18 ], [ true, %0 ], [ false, %14 ], [ true, %.sink.split ]
+  %.0 = phi i1 [ false, %18 ], [ false, %14 ], [ true, %0 ], [ true, %.sink.split ]
   ret i1 %.0
 }
 
@@ -3576,7 +3576,7 @@ define dso_local ptr @ReadDirExtended(ptr noundef %0, ptr noundef %1, i32 nounde
   br label %.sink.split
 
 .sink.split:                                      ; preds = %5, %12, %.sink.split.sink.split, %10, %7
-  %.0 = phi ptr [ %9, %7 ], [ null, %10 ], [ null, %.sink.split.sink.split ], [ null, %12 ], [ null, %5 ]
+  %.0 = phi ptr [ null, %10 ], [ %9, %7 ], [ null, %.sink.split.sink.split ], [ null, %12 ], [ null, %5 ]
   ret ptr %.0
 }
 

@@ -34495,7 +34495,7 @@ _ZN8GraphKit11set_controlEP4Node.exit:            ; preds = %_ZN4Node7del_outEPS
   br label %258
 
 258:                                              ; preds = %.sink.split, %255, %80, %72, %63, %58, %39, %1
-  %.028 = phi i1 [ true, %255 ], [ false, %1 ], [ false, %58 ], [ false, %63 ], [ false, %72 ], [ true, %80 ], [ false, %39 ], [ true, %.sink.split ]
+  %.028 = phi i1 [ true, %255 ], [ false, %1 ], [ false, %39 ], [ false, %58 ], [ false, %63 ], [ false, %72 ], [ true, %80 ], [ true, %.sink.split ]
   ret i1 %.028
 }
 
@@ -35979,7 +35979,7 @@ _ZN14LibraryCallKit28get_state_from_digest_objectEP4Node9BasicType.exit44: ; pre
   br label %100
 
 100:                                              ; preds = %.sink.split, %93, %_ZN14LibraryCallKit28get_state_from_digest_objectEP4Node9BasicType.exit44, %43, %2, %36
-  %.034 = phi i1 [ false, %43 ], [ false, %2 ], [ false, %_ZN14LibraryCallKit28get_state_from_digest_objectEP4Node9BasicType.exit44 ], [ false, %93 ], [ false, %36 ], [ true, %.sink.split ]
+  %.034 = phi i1 [ false, %43 ], [ false, %2 ], [ false, %36 ], [ false, %_ZN14LibraryCallKit28get_state_from_digest_objectEP4Node9BasicType.exit44 ], [ false, %93 ], [ true, %.sink.split ]
   ret i1 %.034
 }
 
@@ -36076,10 +36076,10 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit32inline_digestBase_implCom
   unreachable
 
 64:                                               ; preds = %60, %58, %56, %54, %52
-  %.029 = phi ptr [ @.str.119, %58 ], [ @.str.113, %52 ], [ @.str.115, %54 ], [ @.str.117, %56 ], [ @.str.121, %60 ]
-  %.028.in = phi ptr [ @_ZN12StubRoutines22_sha512_implCompressMBE, %58 ], [ @_ZN12StubRoutines19_md5_implCompressMBE, %52 ], [ @_ZN12StubRoutines20_sha1_implCompressMBE, %54 ], [ @_ZN12StubRoutines22_sha256_implCompressMBE, %56 ], [ @_ZN12StubRoutines20_sha3_implCompressMBE, %60 ]
-  %.027 = phi i8 [ 11, %58 ], [ 10, %52 ], [ 10, %54 ], [ 10, %56 ], [ 11, %60 ]
-  %.026 = phi ptr [ @.str.118, %58 ], [ @.str.112, %52 ], [ @.str.114, %54 ], [ @.str.116, %56 ], [ @.str.120, %60 ]
+  %.029 = phi ptr [ @.str.115, %54 ], [ @.str.119, %58 ], [ @.str.113, %52 ], [ @.str.117, %56 ], [ @.str.121, %60 ]
+  %.028.in = phi ptr [ @_ZN12StubRoutines20_sha1_implCompressMBE, %54 ], [ @_ZN12StubRoutines22_sha512_implCompressMBE, %58 ], [ @_ZN12StubRoutines19_md5_implCompressMBE, %52 ], [ @_ZN12StubRoutines22_sha256_implCompressMBE, %56 ], [ @_ZN12StubRoutines20_sha3_implCompressMBE, %60 ]
+  %.027 = phi i8 [ 10, %54 ], [ 11, %58 ], [ 10, %52 ], [ 10, %56 ], [ 11, %60 ]
+  %.026 = phi ptr [ @.str.114, %54 ], [ @.str.118, %58 ], [ @.str.112, %52 ], [ @.str.116, %56 ], [ @.str.120, %60 ]
   %.028 = load ptr, ptr %.028.in, align 8
   %65 = icmp eq ptr %.028, null
   br i1 %65, label %.critedge, label %66
@@ -46494,7 +46494,7 @@ _ZN14LibraryCallKit35get_uncommon_trap_from_success_projEP4Node.exit: ; preds = 
   br i1 %.not, label %_ZN17AllocateArrayNode22Ideal_array_allocationEP4Node.exit.thread, label %.lr.ph39, !llvm.loop !17
 
 _ZN17AllocateArrayNode22Ideal_array_allocationEP4Node.exit.thread: ; preds = %.lr.ph, %_ZN14LibraryCallKit35get_uncommon_trap_from_success_projEP4Node.exit, %.lr.ph39, %60, %88, %._crit_edge, %13, %10, %31, %37, %_ZN17AllocateArrayNode22Ideal_array_allocationEP4Node.exit, %23, %4, %2
-  %.022 = phi ptr [ null, %2 ], [ null, %4 ], [ null, %31 ], [ null, %13 ], [ null, %_ZN17AllocateArrayNode22Ideal_array_allocationEP4Node.exit ], [ %11, %._crit_edge ], [ null, %23 ], [ null, %37 ], [ null, %10 ], [ null, %60 ], [ null, %88 ], [ null, %.lr.ph39 ], [ %11, %_ZN14LibraryCallKit35get_uncommon_trap_from_success_projEP4Node.exit ], [ null, %.lr.ph ]
+  %.022 = phi ptr [ null, %2 ], [ null, %4 ], [ null, %31 ], [ null, %88 ], [ null, %13 ], [ null, %_ZN17AllocateArrayNode22Ideal_array_allocationEP4Node.exit ], [ null, %60 ], [ null, %23 ], [ null, %37 ], [ null, %10 ], [ %11, %._crit_edge ], [ null, %.lr.ph39 ], [ %11, %_ZN14LibraryCallKit35get_uncommon_trap_from_success_projEP4Node.exit ], [ null, %.lr.ph ]
   ret ptr %.022
 }
 
@@ -54624,7 +54624,7 @@ define hidden noundef ptr @_ZN14LibraryCallKit29arraycopy_restore_alloc_stateEP1
   br label %.loopexit48
 
 .loopexit48:                                      ; preds = %102, %107, %66, %71, %3, %20, %4, %.critedge
-  %.0 = phi ptr [ %120, %.critedge ], [ null, %4 ], [ null, %20 ], [ null, %3 ], [ null, %66 ], [ null, %71 ], [ null, %107 ], [ null, %102 ]
+  %.0 = phi ptr [ %120, %.critedge ], [ null, %3 ], [ null, %20 ], [ null, %66 ], [ null, %4 ], [ null, %71 ], [ null, %107 ], [ null, %102 ]
   ret ptr %.0
 }
 

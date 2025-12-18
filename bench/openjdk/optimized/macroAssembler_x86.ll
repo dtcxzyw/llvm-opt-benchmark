@@ -3645,7 +3645,7 @@ switch.lookup:                                    ; preds = %72
   br label %77
 
 77:                                               ; preds = %72, %switch.lookup
-  %.0 = phi i32 [ %switch.load, %switch.lookup ], [ 5, %72 ]
+  %.0 = phi i32 [ 5, %72 ], [ %switch.load, %switch.lookup ]
   %78 = load i32, ptr @_ZN9VMRegImpl14slots_per_wordE, align 4
   %79 = mul nsw i32 %78, %.0
   %80 = add nsw i32 %79, %2

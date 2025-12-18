@@ -585,7 +585,7 @@ Vec_IntDup.exit:                                  ; preds = %95, %100
   br i1 %153, label %.lr.ph133, label %.critedge9, !llvm.loop !63
 
 .critedge9:                                       ; preds = %.lr.ph133, %.preheader, %123, %126, %129, %3
-  %.087 = phi ptr [ null, %3 ], [ %8, %129 ], [ %8, %126 ], [ %8, %123 ], [ %8, %.preheader ], [ %8, %.lr.ph133 ]
+  %.087 = phi ptr [ null, %3 ], [ %8, %123 ], [ %8, %129 ], [ %8, %126 ], [ %8, %.preheader ], [ %8, %.lr.ph133 ]
   ret ptr %.087
 }
 
@@ -997,7 +997,7 @@ Vec_IntDup.exit:                                  ; preds = %92, %97
   br i1 %139, label %.lr.ph128, label %.critedge, !llvm.loop !71
 
 .critedge:                                        ; preds = %.lr.ph128, %.preheader, %106, %111, %114, %4
-  %.086 = phi ptr [ null, %4 ], [ %9, %114 ], [ %9, %111 ], [ %9, %106 ], [ %9, %.preheader ], [ %9, %.lr.ph128 ]
+  %.086 = phi ptr [ null, %4 ], [ %9, %106 ], [ %9, %114 ], [ %9, %111 ], [ %9, %.preheader ], [ %9, %.lr.ph128 ]
   ret ptr %.086
 }
 
@@ -8653,8 +8653,8 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   br i1 %.not37, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !206
 
 .outer._crit_edge:                                ; preds = %Vec_IntPush.exit, %.backedge, %Vec_IntAlloc.exit
-  %54 = phi ptr [ %16, %Vec_IntAlloc.exit ], [ %19, %.backedge ], [ %.pre.i46, %Vec_IntPush.exit ]
-  %.0.ph.lcssa36 = phi i32 [ -1, %Vec_IntAlloc.exit ], [ %.0.ph40, %.backedge ], [ %25, %Vec_IntPush.exit ]
+  %54 = phi ptr [ %19, %.backedge ], [ %16, %Vec_IntAlloc.exit ], [ %.pre.i46, %Vec_IntPush.exit ]
+  %.0.ph.lcssa36 = phi i32 [ %.0.ph40, %.backedge ], [ -1, %Vec_IntAlloc.exit ], [ %25, %Vec_IntPush.exit ]
   %55 = call i32 @fclose(ptr noundef nonnull %4)
   %.val = load i32, ptr %11, align 4, !tbaa !59
   %.not31 = icmp eq i32 %.val, %1
@@ -10647,9 +10647,9 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %exitcond.not, label %.critedge2, label %66, !llvm.loop !223
 
 .critedge2:                                       ; preds = %.critedge6, %16, %.critedge.preheader
-  %87 = phi i1 [ false, %.critedge.preheader ], [ false, %16 ], [ true, %.critedge6 ]
-  %.val578099 = phi i32 [ %.val5781, %.critedge.preheader ], [ 0, %16 ], [ %.val5781, %.critedge6 ]
-  %88 = phi i32 [ %62, %.critedge.preheader ], [ %17, %16 ], [ %62, %.critedge6 ]
+  %87 = phi i1 [ false, %16 ], [ false, %.critedge.preheader ], [ true, %.critedge6 ]
+  %.val578099 = phi i32 [ 0, %16 ], [ %.val5781, %.critedge.preheader ], [ %.val5781, %.critedge6 ]
+  %88 = phi i32 [ %17, %16 ], [ %62, %.critedge.preheader ], [ %62, %.critedge6 ]
   br i1 %.not, label %91, label %89
 
 89:                                               ; preds = %.critedge2

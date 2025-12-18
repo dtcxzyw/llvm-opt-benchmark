@@ -2577,7 +2577,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN3igl40collapse_edge_would_create_intersections
   br i1 %.not.us78, label %.loopexit, label %._crit_edge.i.i.i.i.i.us64, !llvm.loop !79
 
 .loopexit:                                        ; preds = %89, %83, %74, %54, %._crit_edge.i.i.i.i.i.preheader, %.preheader, %3
-  %.sroa.013.0 = phi ptr [ %5, %3 ], [ %5, %.preheader ], [ %scevgep, %._crit_edge.i.i.i.i.i.preheader ], [ %.sroa.013.2.us58, %83 ], [ %.sroa.013.2.us, %54 ], [ %.sroa.013.2.us40, %74 ], [ %.sroa.013.2.us76, %89 ]
+  %.sroa.013.0 = phi ptr [ %5, %3 ], [ %5, %.preheader ], [ %.sroa.013.2.us58, %83 ], [ %scevgep, %._crit_edge.i.i.i.i.i.preheader ], [ %.sroa.013.2.us, %54 ], [ %.sroa.013.2.us40, %74 ], [ %.sroa.013.2.us76, %89 ]
   ret ptr %.sroa.013.0
 }
 

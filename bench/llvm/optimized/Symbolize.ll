@@ -10722,7 +10722,7 @@ _ZNK4llvm9StringRef9ends_withES0_.exit.i:         ; preds = %_ZN4llvm6all_ofINS_
   br label %_ZN4llvm9symbolize12_GLOBAL__N_123demanglePE32ExternCFuncENS_9StringRefE.exit.thread
 
 .critedge19.i:                                    ; preds = %72, %_ZNK4llvm9StringRef9ends_withES0_.exit.i, %_ZN4llvm6all_ofINS_14iterator_rangeIPKcEEPFbcEEEbOT_T0_.exit.thread.i, %_ZN4llvm6all_ofINS_14iterator_rangeIPKcEEPFbcEEEbOT_T0_.exit.i
-  %.sroa.12.1.i = phi i64 [ %74, %_ZNK4llvm9StringRef9ends_withES0_.exit.i ], [ %2, %_ZN4llvm6all_ofINS_14iterator_rangeIPKcEEPFbcEEEbOT_T0_.exit.i ], [ 0, %_ZN4llvm6all_ofINS_14iterator_rangeIPKcEEPFbcEEEbOT_T0_.exit.thread.i ], [ %2, %72 ]
+  %.sroa.12.1.i = phi i64 [ 0, %_ZN4llvm6all_ofINS_14iterator_rangeIPKcEEPFbcEEEbOT_T0_.exit.thread.i ], [ %74, %_ZNK4llvm9StringRef9ends_withES0_.exit.i ], [ %2, %_ZN4llvm6all_ofINS_14iterator_rangeIPKcEEPFbcEEEbOT_T0_.exit.i ], [ %2, %72 ]
   switch i32 %71, label %_ZN4llvm9symbolize12_GLOBAL__N_123demanglePE32ExternCFuncENS_9StringRefE.exit [
     i32 95, label %130
     i32 64, label %130
@@ -10742,8 +10742,8 @@ _ZN4llvm9symbolize12_GLOBAL__N_123demanglePE32ExternCFuncENS_9StringRefE.exit.th
   br label %139
 
 _ZN4llvm9symbolize12_GLOBAL__N_123demanglePE32ExternCFuncENS_9StringRefE.exit: ; preds = %.critedge19.i, %130
-  %.sroa.027.0.i = phi ptr [ %1, %.critedge19.i ], [ %132, %130 ]
-  %.sroa.12.0.i = phi i64 [ %.sroa.12.1.i, %.critedge19.i ], [ %133, %130 ]
+  %.sroa.027.0.i = phi ptr [ %132, %130 ], [ %1, %.critedge19.i ]
+  %.sroa.12.0.i = phi i64 [ %133, %130 ], [ %.sroa.12.1.i, %.critedge19.i ]
   %135 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %135, ptr %10, align 8, !tbaa !74
   %136 = icmp eq ptr %.sroa.027.0.i, null

@@ -23214,8 +23214,8 @@ _ZN4Luau3getINS_9NeverTypeEPKNS_4TypeEEEPKT_St8optionalIT0_E.exit.thread230: ; p
   br label %_ZNSt8optionalIPKN4Luau4TypeEEaSESt9nullopt_t.exit
 
 _ZNSt8optionalIPKN4Luau4TypeEEaSESt9nullopt_t.exit: ; preds = %209, %213, %_ZN4Luau3getINS_9NeverTypeEPKNS_4TypeEEEPKT_St8optionalIT0_E.exit.thread230
-  %.sroa.0181.2 = phi ptr [ %202, %213 ], [ %.sroa.0181.0290, %_ZN4Luau3getINS_9NeverTypeEPKNS_4TypeEEEPKT_St8optionalIT0_E.exit.thread230 ], [ %.sroa.0181.0290, %209 ]
-  %.sroa.6.2 = phi i8 [ 1, %213 ], [ %.sroa.6.0291, %_ZN4Luau3getINS_9NeverTypeEPKNS_4TypeEEEPKT_St8optionalIT0_E.exit.thread230 ], [ 1, %209 ]
+  %.sroa.0181.2 = phi ptr [ %.sroa.0181.0290, %_ZN4Luau3getINS_9NeverTypeEPKNS_4TypeEEEPKT_St8optionalIT0_E.exit.thread230 ], [ %202, %213 ], [ %.sroa.0181.0290, %209 ]
+  %.sroa.6.2 = phi i8 [ %.sroa.6.0291, %_ZN4Luau3getINS_9NeverTypeEPKNS_4TypeEEEPKT_St8optionalIT0_E.exit.thread230 ], [ 1, %213 ], [ 1, %209 ]
   %214 = getelementptr inbounds nuw i8, ptr %.sroa.0178.0289, i64 8
   %.not247 = icmp eq ptr %.sroa.0178.0289, %.pn250
   br i1 %.not247, label %._crit_edge, label %.lr.ph292
@@ -24547,7 +24547,7 @@ define dso_local noundef zeroext i1 @_ZN4Luau13computeKeysOfEPKNS_4TypeERNS_3Set
   br label %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i
 
 _ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i: ; preds = %58, %.thread176, %.thread, %.loopexit.i.i, %44
-  %68 = phi i64 [ %.pre.i, %.loopexit.i.i ], [ %27, %44 ], [ %27, %.thread ], [ %48, %.thread176 ], [ %27, %58 ]
+  %68 = phi i64 [ %.pre.i, %.loopexit.i.i ], [ %27, %44 ], [ %48, %.thread176 ], [ %27, %.thread ], [ %27, %58 ]
   %69 = add i64 %68, -1
   %70 = ptrtoint ptr %0 to i64
   %71 = lshr i64 %70, 4
@@ -25249,7 +25249,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit149: ; preds = %32
   br label %_ZN4Luau3getINS_13PrimitiveTypeEEEPKT_PKNS_4TypeE.exit
 
 _ZN4Luau3getINS_13PrimitiveTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %35, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau8PropertyEED2Ev.exit, %187, %101, %212, %.critedge, %97, %_ZN4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EE6insertERKS3_.exit, %346, %15
-  %.0 = phi i1 [ false, %_ZN4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EE6insertERKS3_.exit ], [ false, %97 ], [ false, %15 ], [ %347, %346 ], [ false, %187 ], [ false, %212 ], [ %215, %.critedge ], [ true, %101 ], [ true, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau8PropertyEED2Ev.exit ], [ true, %35 ]
+  %.0 = phi i1 [ false, %_ZN4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EE6insertERKS3_.exit ], [ false, %97 ], [ false, %15 ], [ true, %101 ], [ %347, %346 ], [ false, %187 ], [ %215, %.critedge ], [ false, %212 ], [ true, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau8PropertyEED2Ev.exit ], [ true, %35 ]
   ret i1 %.0
 }
 
@@ -27947,7 +27947,7 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_
   br i1 %281, label %._crit_edge.i81, label %.lr.ph.i76
 
 _ZN4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EE6insertERKS3_.exit46: ; preds = %_ZN4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EE6insertERKS3_.exit, %.lr.ph.i38, %_ZN4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EE6insertERKS3_.exit66, %.lr.ph.i76, %_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit, %_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit48, %._crit_edge.i81, %._crit_edge.i43, %_ZN4Luau3getINS_15StringSingletonEEEPKT_PKNS_13SingletonTypeE.exit.thread, %158
-  %.1 = phi i1 [ true, %._crit_edge.i43 ], [ false, %_ZN4Luau3getINS_15StringSingletonEEEPKT_PKNS_13SingletonTypeE.exit.thread ], [ false, %158 ], [ true, %._crit_edge.i81 ], [ true, %_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit48 ], [ true, %_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit ], [ true, %.lr.ph.i38 ], [ true, %.lr.ph.i76 ], [ true, %_ZN4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EE6insertERKS3_.exit66 ], [ true, %_ZN4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EE6insertERKS3_.exit ]
+  %.1 = phi i1 [ true, %._crit_edge.i43 ], [ false, %_ZN4Luau3getINS_15StringSingletonEEEPKT_PKNS_13SingletonTypeE.exit.thread ], [ false, %158 ], [ true, %_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit48 ], [ true, %_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit ], [ true, %._crit_edge.i81 ], [ true, %.lr.ph.i76 ], [ true, %.lr.ph.i38 ], [ true, %_ZN4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EE6insertERKS3_.exit66 ], [ true, %_ZN4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EE6insertERKS3_.exit ]
   ret i1 %.1
 }
 
@@ -38388,7 +38388,7 @@ _ZN4Luau8VecDequeIPKNS_4TypeESaIS3_EE9push_backERKS3_.exit255: ; preds = %808, %
   br i1 %.not284, label %.critedge.thread, label %.lr.ph310
 
 .critedge.thread:                                 ; preds = %.lr.ph.i91, %825, %.lr.ph.i199, %.critedge, %_ZN4Luau8VecDequeIPKNS_4TypeESaIS3_EE9push_backERKS3_.exit255, %._crit_edge.i204, %._crit_edge.i92, %_ZN4Luau8VecDequeIPKNS_4TypeESaIS3_EE9push_backERKS3_.exit
-  %.3 = phi i1 [ false, %._crit_edge.i92 ], [ false, %_ZN4Luau8VecDequeIPKNS_4TypeESaIS3_EE9push_backERKS3_.exit ], [ false, %._crit_edge.i204 ], [ false, %_ZN4Luau8VecDequeIPKNS_4TypeESaIS3_EE9push_backERKS3_.exit255 ], [ true, %.critedge ], [ true, %825 ], [ false, %.lr.ph.i199 ], [ false, %.lr.ph.i91 ]
+  %.3 = phi i1 [ false, %._crit_edge.i92 ], [ false, %_ZN4Luau8VecDequeIPKNS_4TypeESaIS3_EE9push_backERKS3_.exit ], [ false, %.lr.ph.i199 ], [ false, %._crit_edge.i204 ], [ true, %825 ], [ false, %_ZN4Luau8VecDequeIPKNS_4TypeESaIS3_EE9push_backERKS3_.exit255 ], [ true, %.critedge ], [ false, %.lr.ph.i91 ]
   ret i1 %.3
 
 827:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit189, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit252, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit85, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit137
@@ -48169,7 +48169,7 @@ _ZN4Luau8VecDequeIPKNS_11TypePackVarESaIS3_EE9push_backERKS3_.exit255: ; preds =
   br i1 %.not284, label %.critedge.thread, label %.lr.ph310
 
 .critedge.thread:                                 ; preds = %.lr.ph.i90, %825, %.lr.ph.i199, %.critedge, %_ZN4Luau8VecDequeIPKNS_11TypePackVarESaIS3_EE9push_backERKS3_.exit255, %._crit_edge.i204, %._crit_edge.i91, %_ZN4Luau8VecDequeIPKNS_11TypePackVarESaIS3_EE9push_backERKS3_.exit
-  %.3 = phi i1 [ false, %._crit_edge.i91 ], [ false, %_ZN4Luau8VecDequeIPKNS_11TypePackVarESaIS3_EE9push_backERKS3_.exit ], [ false, %._crit_edge.i204 ], [ false, %_ZN4Luau8VecDequeIPKNS_11TypePackVarESaIS3_EE9push_backERKS3_.exit255 ], [ true, %.critedge ], [ true, %825 ], [ false, %.lr.ph.i199 ], [ false, %.lr.ph.i90 ]
+  %.3 = phi i1 [ false, %._crit_edge.i91 ], [ false, %_ZN4Luau8VecDequeIPKNS_11TypePackVarESaIS3_EE9push_backERKS3_.exit ], [ false, %.lr.ph.i199 ], [ false, %._crit_edge.i204 ], [ true, %825 ], [ false, %_ZN4Luau8VecDequeIPKNS_11TypePackVarESaIS3_EE9push_backERKS3_.exit255 ], [ true, %.critedge ], [ false, %.lr.ph.i90 ]
   ret i1 %.3
 
 827:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit189, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit252, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit84, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit136
@@ -55493,7 +55493,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau12visit_detail7hasSeen
   br label %_ZN4Luau6detail14DenseHashTableIPvS2_S2_NS0_16ItemInterfaceSetIS2_EENS_16DenseHashPointerESt8equal_toIS2_EE14rehash_if_fullERKS2_.exit.i
 
 _ZN4Luau6detail14DenseHashTableIPvS2_S2_NS0_16ItemInterfaceSetIS2_EENS_16DenseHashPointerESt8equal_toIS2_EE14rehash_if_fullERKS2_.exit.i: ; preds = %42, %.thread12, %.thread, %.loopexit.i.i, %28
-  %52 = phi i64 [ %.pre.i, %.loopexit.i.i ], [ %11, %28 ], [ %11, %.thread ], [ %32, %.thread12 ], [ %11, %42 ]
+  %52 = phi i64 [ %.pre.i, %.loopexit.i.i ], [ %11, %28 ], [ %32, %.thread12 ], [ %11, %.thread ], [ %11, %42 ]
   %53 = add i64 %52, -1
   %54 = ptrtoint ptr %1 to i64
   %55 = lshr i64 %54, 4
@@ -55536,7 +55536,7 @@ _ZN4Luau6detail14DenseHashTableIPvS2_S2_NS0_16ItemInterfaceSetIS2_EENS_16DenseHa
   br i1 %74, label %._crit_edge.i, label %.lr.ph.i
 
 _ZNK4Luau12DenseHashSetIPvNS_16DenseHashPointerESt8equal_toIS1_EE8containsERKS1_.exit: ; preds = %19, %.lr.ph.i, %._crit_edge.i
-  %.0.i.i9 = phi i1 [ false, %._crit_edge.i ], [ false, %.lr.ph.i ], [ true, %19 ]
+  %.0.i.i9 = phi i1 [ false, %.lr.ph.i ], [ false, %._crit_edge.i ], [ true, %19 ]
   ret i1 %.0.i.i9
 }
 
@@ -57397,7 +57397,7 @@ _ZN4Luau8VecDequeISt4pairIPKNS_9UnionTypeEmESaIS5_EE9pop_frontEv.exit.i: ; preds
   br label %_ZN4Luau6detail14DenseHashTableIPKNS_9UnionTypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i
 
 _ZN4Luau6detail14DenseHashTableIPKNS_9UnionTypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i: ; preds = %87, %.thread19, %.thread, %.loopexit.i.i, %74
-  %96 = phi i64 [ %.pre.i7, %.loopexit.i.i ], [ %29, %74 ], [ %29, %.thread ], [ %77, %.thread19 ], [ %29, %87 ]
+  %96 = phi i64 [ %.pre.i7, %.loopexit.i.i ], [ %29, %74 ], [ %77, %.thread19 ], [ %29, %.thread ], [ %29, %87 ]
   %97 = add i64 %96, -1
   %98 = ptrtoint ptr %23 to i64
   %99 = lshr i64 %98, 4

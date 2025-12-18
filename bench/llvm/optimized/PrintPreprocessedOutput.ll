@@ -6106,7 +6106,7 @@ _ZN12_GLOBAL__N_124PrintPPOutputPPCallbacks10MoveToLineERKN5clang5TokenEb.exit: 
   br label %_ZN4llvm11raw_ostreamlsEc.exit
 
 .lr.ph:                                           ; preds = %57, %53
-  %.039 = phi i32 [ %56, %53 ], [ 2, %57 ]
+  %.039 = phi i32 [ 2, %57 ], [ %56, %53 ]
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 496
   br label %75
 

@@ -2312,7 +2312,7 @@ define internal fastcc void @sd_revalidate_disk(ptr noundef %0) unnamed_addr #2 
   br label %296
 
 296:                                              ; preds = %.sink.split, %283, %280
-  %297 = phi i32 [ %275, %280 ], [ %275, %283 ], [ %.ph218, %.sink.split ]
+  %297 = phi i32 [ %275, %283 ], [ %275, %280 ], [ %.ph218, %.sink.split ]
   %298 = icmp eq i32 %297, 0
   br i1 %298, label %299, label %.thread72
 

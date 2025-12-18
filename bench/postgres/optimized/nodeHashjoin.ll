@@ -589,7 +589,7 @@ ExecHashJoinOuterGetTuple.exit:                   ; preds = %179, %.thread.i
   %.not163.i = icmp eq i16 %184, 0
   br i1 %.not163.i, label %188, label %ExecHashJoinOuterGetTuple.exit.thread
 
-ExecHashJoinOuterGetTuple.exit.thread:            ; preds = %144, %.lr.ph.i, %118, %152, %148, %ExecHashJoinGetSavedTuple.exit.i, %179, %ExecHashJoinGetSavedTuple.exit.thread.i, %ExecHashJoinOuterGetTuple.exit
+ExecHashJoinOuterGetTuple.exit.thread:            ; preds = %144, %.lr.ph.i, %118, %148, %ExecHashJoinGetSavedTuple.exit.i, %179, %ExecHashJoinGetSavedTuple.exit.thread.i, %152, %ExecHashJoinOuterGetTuple.exit
   %185 = load ptr, ptr %31, align 8
   %.not167.i = icmp eq ptr %185, null
   br i1 %.not167.i, label %187, label %186
@@ -1190,7 +1190,7 @@ ExecHashJoinGetSavedTuple.exit.i6:                ; preds = %443
   unreachable
 
 ExecHashJoinImpl.exit:                            ; preds = %399, %97, %425, %88, %253, %302, %344
-  %.1.i = phi ptr [ %351, %344 ], [ %260, %253 ], [ null, %88 ], [ %309, %302 ], [ null, %425 ], [ null, %97 ], [ null, %399 ]
+  %.1.i = phi ptr [ %351, %344 ], [ %260, %253 ], [ null, %425 ], [ null, %88 ], [ %309, %302 ], [ null, %97 ], [ null, %399 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret ptr %.1.i
 }
@@ -2417,7 +2417,7 @@ ExecHashJoinSaveTuple.exit:                       ; preds = %231, %241
   unreachable
 
 ExecHashJoinImpl.exit:                            ; preds = %148, %473, %.lr.ph, %74, %291, %340, %382
-  %.1.i = phi ptr [ %298, %291 ], [ %389, %382 ], [ %347, %340 ], [ null, %74 ], [ null, %473 ], [ null, %.lr.ph ], [ null, %148 ]
+  %.1.i = phi ptr [ null, %74 ], [ %298, %291 ], [ %389, %382 ], [ null, %473 ], [ %347, %340 ], [ null, %.lr.ph ], [ null, %148 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   ret ptr %.1.i

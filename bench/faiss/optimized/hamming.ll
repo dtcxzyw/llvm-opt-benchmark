@@ -27326,7 +27326,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %111, 
   resume { ptr, i32 } %.pn
 
 _ZN5faiss19hamming_count_thresILm64EEEvPKmS2_mmiPm.exit: ; preds = %._crit_edge.us.i69, %._crit_edge.us.i60, %._crit_edge.us.i44, %._crit_edge.us.i, %80, %44, %24, %12
-  %.015.lcssa.i70.sink = phi i64 [ 0, %12 ], [ 0, %24 ], [ 0, %44 ], [ 0, %80 ], [ %spec.select.us.i58, %._crit_edge.us.i60 ], [ %spec.select.us.i, %._crit_edge.us.i ], [ %spec.select.us.i42, %._crit_edge.us.i44 ], [ %spec.select.us.i67, %._crit_edge.us.i69 ]
+  %.015.lcssa.i70.sink = phi i64 [ %spec.select.us.i42, %._crit_edge.us.i44 ], [ %spec.select.us.i, %._crit_edge.us.i ], [ %spec.select.us.i58, %._crit_edge.us.i60 ], [ 0, %12 ], [ 0, %24 ], [ 0, %44 ], [ 0, %80 ], [ %spec.select.us.i67, %._crit_edge.us.i69 ]
   store i64 %.015.lcssa.i70.sink, ptr %6, align 8, !tbaa !4, !noalias !555
   ret void
 
@@ -27602,7 +27602,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %115, 
   resume { ptr, i32 } %.pn
 
 _ZN5faiss24crosshamming_count_thresILm64EEEvPKmmiPm.exit: ; preds = %._crit_edge.i56, %._crit_edge.i41, %.loopexit.i, %._crit_edge.i, %82, %45, %24, %10
-  %.017.lcssa.i58.sink = phi i64 [ 0, %10 ], [ 0, %24 ], [ 0, %45 ], [ 0, %82 ], [ %.1.lcssa.i42, %._crit_edge.i41 ], [ %.1.lcssa.i, %._crit_edge.i ], [ %.1.lcssa.i26, %.loopexit.i ], [ %.1.lcssa.i57, %._crit_edge.i56 ]
+  %.017.lcssa.i58.sink = phi i64 [ %.1.lcssa.i26, %.loopexit.i ], [ %.1.lcssa.i, %._crit_edge.i ], [ %.1.lcssa.i42, %._crit_edge.i41 ], [ 0, %10 ], [ 0, %24 ], [ 0, %45 ], [ 0, %82 ], [ %.1.lcssa.i57, %._crit_edge.i56 ]
   store i64 %.017.lcssa.i58.sink, ptr %4, align 8, !tbaa !4, !noalias !555
   ret void
 
@@ -27952,7 +27952,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %132, 
   resume { ptr, i32 } %.pn
 
 _ZN5faiss19match_hamming_thresILm64EEEmPKmS2_mmiPlPi.exit: ; preds = %._crit_edge.us.i89, %._crit_edge.us.i78, %._crit_edge.us.i56, %._crit_edge.us.i, %96, %55, %30, %13
-  %.035 = phi i64 [ 0, %13 ], [ 0, %30 ], [ 0, %55 ], [ 0, %96 ], [ %.2.us.i76, %._crit_edge.us.i78 ], [ %.2.us.i, %._crit_edge.us.i ], [ %.2.us.i54, %._crit_edge.us.i56 ], [ %.2.us.i87, %._crit_edge.us.i89 ]
+  %.035 = phi i64 [ %.2.us.i54, %._crit_edge.us.i56 ], [ %.2.us.i76, %._crit_edge.us.i78 ], [ %.2.us.i, %._crit_edge.us.i ], [ 0, %13 ], [ 0, %30 ], [ 0, %55 ], [ 0, %96 ], [ %.2.us.i87, %._crit_edge.us.i89 ]
   ret i64 %.035
 
 137:                                              ; preds = %127

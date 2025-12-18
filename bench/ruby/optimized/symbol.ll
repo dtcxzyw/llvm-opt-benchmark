@@ -1185,17 +1185,17 @@ enc_synmane_type_leading_chars.exit.thread:       ; preds = %76, %85, %85, %82, 
   %130 = getelementptr i8, ptr %0, i64 %.sroa.63.0.i.ph
   br label %.critedge
 
-enc_synmane_type_leading_chars.exit.thread78:     ; preds = %44, %79, %115, %13, %rb_sym_constant_char_p.exit.thread.i, %rb_sym_constant_char_p.exit.i, %127, %95, %is_special_global_name.exit.i, %30
-  %.sroa.32.0.i.ph76 = phi i64 [ 25769803778, %30 ], [ 25769803778, %is_special_global_name.exit.i ], [ 42949672962, %95 ], [ 42949672962, %127 ], [ 42949672962, %rb_sym_constant_char_p.exit.i ], [ 2, %rb_sym_constant_char_p.exit.thread.i ], [ 25769803778, %13 ], [ 42949672962, %115 ], [ 60129542146, %79 ], [ 25769803778, %44 ]
-  %.sroa.63.0.i.ph77 = phi i64 [ 1, %30 ], [ 1, %is_special_global_name.exit.i ], [ 0, %95 ], [ 0, %127 ], [ 0, %rb_sym_constant_char_p.exit.i ], [ 0, %rb_sym_constant_char_p.exit.thread.i ], [ 1, %13 ], [ 0, %115 ], [ 0, %79 ], [ 1, %44 ]
+enc_synmane_type_leading_chars.exit.thread78:     ; preds = %44, %79, %95, %13, %rb_sym_constant_char_p.exit.thread.i, %rb_sym_constant_char_p.exit.i, %127, %115, %is_special_global_name.exit.i, %30
+  %.sroa.32.0.i.ph76 = phi i64 [ 25769803778, %30 ], [ 25769803778, %is_special_global_name.exit.i ], [ 42949672962, %115 ], [ 42949672962, %127 ], [ 42949672962, %rb_sym_constant_char_p.exit.i ], [ 2, %rb_sym_constant_char_p.exit.thread.i ], [ 25769803778, %13 ], [ 42949672962, %95 ], [ 60129542146, %79 ], [ 25769803778, %44 ]
+  %.sroa.63.0.i.ph77 = phi i64 [ 1, %30 ], [ 1, %is_special_global_name.exit.i ], [ 0, %115 ], [ 0, %127 ], [ 0, %rb_sym_constant_char_p.exit.i ], [ 0, %rb_sym_constant_char_p.exit.thread.i ], [ 1, %13 ], [ 0, %95 ], [ 0, %79 ], [ 1, %44 ]
   %131 = getelementptr i8, ptr %0, i64 %.sroa.63.0.i.ph77
   %.sroa.0.4.extract.shift83 = lshr i64 %.sroa.32.0.i.ph76, 32
   %.sroa.0.4.extract.trunc84 = trunc nuw nsw i64 %.sroa.0.4.extract.shift83 to i32
   br label %133
 
 enc_synmane_type_leading_chars.exit:              ; preds = %54, %88
-  %.sroa.32.0.i = phi i64 [ %.36.i, %54 ], [ %.44.i, %88 ]
-  %.sroa.63.0.i = phi i64 [ %.37.i, %54 ], [ 1, %88 ]
+  %.sroa.32.0.i = phi i64 [ %.44.i, %88 ], [ %.36.i, %54 ]
+  %.sroa.63.0.i = phi i64 [ 1, %88 ], [ %.37.i, %54 ]
   %132 = getelementptr i8, ptr %0, i64 %.sroa.63.0.i
   %.sroa.0.4.extract.shift = lshr i64 %.sroa.32.0.i, 32
   %.sroa.0.4.extract.trunc = trunc nuw nsw i64 %.sroa.0.4.extract.shift to i32

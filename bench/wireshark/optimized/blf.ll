@@ -1656,7 +1656,7 @@ blf_read_log_object_header2.exit.thread.loopexit: ; preds = %blf_read_log_object
   br label %blf_read_log_object_header2.exit.thread
 
 blf_read_log_object_header2.exit.thread:          ; preds = %424, %424, %424, %424, %blf_read_log_object_header2.exit.thread.loopexit, %.thread326, %66, %blf_read_log_object_header3.exit.thread, %blf_read_log_object_header.exit.thread, %._crit_edge, %33, %432, %425, %281, %274, %267, %260, %253, %246, %239, %232, %225, %218, %211, %204, %197, %190, %183, %176, %169, %162, %155, %148, %141, %134, %127, %120, %113, %106, %99, %92, %90, %83
-  %.1 = phi i1 [ false, %83 ], [ false, %90 ], [ %98, %92 ], [ %105, %99 ], [ %112, %106 ], [ %119, %113 ], [ %126, %120 ], [ %133, %127 ], [ %140, %134 ], [ %147, %141 ], [ %154, %148 ], [ %161, %155 ], [ %168, %162 ], [ %175, %169 ], [ %182, %176 ], [ %189, %183 ], [ %196, %190 ], [ %203, %197 ], [ %210, %204 ], [ %217, %211 ], [ %224, %218 ], [ %231, %225 ], [ %238, %232 ], [ %245, %239 ], [ %252, %246 ], [ %259, %253 ], [ %266, %260 ], [ %273, %267 ], [ %280, %274 ], [ %287, %281 ], [ %431, %425 ], [ %438, %432 ], [ false, %._crit_edge ], [ false, %blf_read_log_object_header3.exit.thread ], [ false, %33 ], [ false, %blf_read_log_object_header.exit.thread ], [ false, %66 ], [ false, %blf_read_log_object_header2.exit.thread.loopexit ], [ true, %.thread326 ], [ true, %424 ], [ true, %424 ], [ true, %424 ], [ true, %424 ]
+  %.1 = phi i1 [ false, %83 ], [ false, %90 ], [ %98, %92 ], [ %105, %99 ], [ %112, %106 ], [ %119, %113 ], [ %126, %120 ], [ %133, %127 ], [ %140, %134 ], [ %147, %141 ], [ %154, %148 ], [ %161, %155 ], [ %168, %162 ], [ %175, %169 ], [ %182, %176 ], [ %189, %183 ], [ %196, %190 ], [ %203, %197 ], [ %210, %204 ], [ %217, %211 ], [ %224, %218 ], [ %231, %225 ], [ %238, %232 ], [ %245, %239 ], [ %252, %246 ], [ %259, %253 ], [ %266, %260 ], [ %273, %267 ], [ %280, %274 ], [ %287, %281 ], [ true, %.thread326 ], [ %431, %425 ], [ %438, %432 ], [ false, %._crit_edge ], [ false, %blf_read_log_object_header2.exit.thread.loopexit ], [ false, %blf_read_log_object_header3.exit.thread ], [ false, %33 ], [ false, %66 ], [ false, %blf_read_log_object_header.exit.thread ], [ true, %424 ], [ true, %424 ], [ true, %424 ], [ true, %424 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -1863,7 +1863,7 @@ define internal fastcc noundef zeroext i1 @blf_read_bytes_or_eof(ptr noundef rea
   br label %.loopexit
 
 .loopexit:                                        ; preds = %95, %89, %82, %74, %67, %65, %33, %19, %6, %._crit_edge, %111
-  %.0 = phi i1 [ false, %6 ], [ false, %19 ], [ false, %33 ], [ true, %111 ], [ false, %._crit_edge ], [ false, %74 ], [ false, %65 ], [ false, %67 ], [ false, %82 ], [ false, %89 ], [ false, %95 ]
+  %.0 = phi i1 [ false, %6 ], [ false, %19 ], [ false, %74 ], [ false, %._crit_edge ], [ false, %33 ], [ true, %111 ], [ false, %65 ], [ false, %67 ], [ false, %82 ], [ false, %89 ], [ false, %95 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i1 %.0
 }
@@ -5122,7 +5122,7 @@ define internal fastcc zeroext i1 @blf_pull_next_logcontainer(ptr noundef readon
   store ptr %111, ptr %126, align 8
   br label %143
 
-blf_find_next_logcontainer.exit.thread:           ; preds = %26, %55, %60, %67, %74, %47, %78, %124, %113
+blf_find_next_logcontainer.exit.thread:           ; preds = %26, %113, %55, %60, %67, %74, %47, %78, %124
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

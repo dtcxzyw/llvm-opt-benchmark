@@ -240,7 +240,7 @@ define hidden noundef zeroext i1 @_ZN13MethodMatcher12canonicalizeEPcRPKc(ptr no
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.thread65, %.thread65.us, %.loopexit.sink.split, %.loopexit67.thread, %.loopexit67
-  %.039 = phi i1 [ true, %.loopexit67 ], [ true, %.loopexit67.thread ], [ false, %.loopexit.sink.split ], [ true, %.thread65.us ], [ true, %.thread65 ]
+  %.039 = phi i1 [ true, %.thread65.us ], [ false, %.loopexit.sink.split ], [ true, %.loopexit67.thread ], [ true, %.loopexit67 ], [ true, %.thread65 ]
   ret i1 %.039
 }
 

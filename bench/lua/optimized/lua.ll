@@ -475,7 +475,7 @@ dolibrary.exit.i:                                 ; preds = %125
   br label %146
 
 146:                                              ; preds = %145, %dolibrary.exit.i, %dolibrary.exit.thread.i, %.lr.ph.i49
-  %.327.i = phi i32 [ %.02431.i, %.lr.ph.i49 ], [ %.02431.i, %145 ], [ %.226.i, %dolibrary.exit.i ], [ %.226.i, %dolibrary.exit.thread.i ]
+  %.327.i = phi i32 [ %.02431.i, %145 ], [ %.02431.i, %.lr.ph.i49 ], [ %.226.i, %dolibrary.exit.i ], [ %.226.i, %dolibrary.exit.thread.i ]
   %147 = add nsw i32 %.327.i, 1
   %148 = icmp slt i32 %147, %57
   br i1 %148, label %.lr.ph.i49, label %runargs.exit

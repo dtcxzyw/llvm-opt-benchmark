@@ -891,7 +891,7 @@ define dso_local i32 @e1000e_config_fc_after_link_up(ptr noundef %0) local_unnam
   br label %.thread7.thread
 
 .thread7.thread:                                  ; preds = %54, %.thread7, %125, %.thread9, %172, %15, %33, %129, %120, %110, %75, %71, %67, %63, %58
-  %192 = phi i32 [ -3, %172 ], [ -3, %33 ], [ %61, %58 ], [ %65, %63 ], [ 0, %67 ], [ %73, %71 ], [ %77, %75 ], [ %113, %110 ], [ %121, %120 ], [ 0, %129 ], [ -3, %15 ], [ 0, %.thread9 ], [ 0, %125 ], [ 0, %.thread7 ], [ 0, %54 ]
+  %192 = phi i32 [ -3, %172 ], [ -3, %15 ], [ %61, %58 ], [ %65, %63 ], [ 0, %67 ], [ %73, %71 ], [ %77, %75 ], [ %113, %110 ], [ %121, %120 ], [ 0, %129 ], [ -3, %33 ], [ 0, %.thread9 ], [ 0, %125 ], [ 0, %.thread7 ], [ 0, %54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

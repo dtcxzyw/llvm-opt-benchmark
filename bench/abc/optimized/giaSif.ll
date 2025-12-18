@@ -3693,7 +3693,7 @@ define i32 @Gia_ManSifArea_rec(ptr noundef readonly captures(none) %0, ptr nound
   br i1 %.not21.not, label %.lr.ph, label %Gia_ObjUpdateTravIdCurrent.exit, !llvm.loop !94
 
 Gia_ObjUpdateTravIdCurrent.exit:                  ; preds = %.lr.ph, %21, %4, %17
-  %.018 = phi i32 [ 0, %17 ], [ 0, %4 ], [ 1, %21 ], [ %34, %.lr.ph ]
+  %.018 = phi i32 [ 0, %4 ], [ 0, %17 ], [ 1, %21 ], [ %34, %.lr.ph ]
   ret i32 %.018
 }
 
@@ -4709,7 +4709,7 @@ define internal fastcc range(i32 0, 2) i32 @Gia_ManSifCutOne(ptr noundef readonl
   br label %Gia_ManSifCutMerge.exit
 
 Gia_ManSifCutMerge.exit:                          ; preds = %155, %173, %109, %127, %54, %76, %83, %._crit_edge.i116, %.lr.ph70.i119, %._crit_edge.i91, %.lr.ph70.i94, %._crit_edge.i
-  %.sink.i93.sink = phi i32 [ %94, %._crit_edge.i ], [ %143, %._crit_edge.i91 ], [ -1, %.lr.ph70.i94 ], [ %189, %._crit_edge.i116 ], [ -1, %.lr.ph70.i119 ], [ -1, %173 ], [ -1, %83 ], [ -1, %76 ], [ -1, %54 ], [ -1, %127 ], [ -1, %109 ], [ -1, %155 ]
+  %.sink.i93.sink = phi i32 [ -1, %109 ], [ -1, %83 ], [ %94, %._crit_edge.i ], [ -1, %127 ], [ -1, %54 ], [ %143, %._crit_edge.i91 ], [ -1, %173 ], [ -1, %.lr.ph70.i94 ], [ %189, %._crit_edge.i116 ], [ -1, %76 ], [ -1, %.lr.ph70.i119 ], [ -1, %155 ]
   store i32 %.sink.i93.sink, ptr %20, align 4, !tbaa !29
   %190 = icmp eq i32 %.sink.i93.sink, -1
   br i1 %190, label %.thread, label %193
@@ -4798,7 +4798,7 @@ Gia_ObjSibl.exit134:                              ; preds = %Gia_ObjSibl.exit
   br i1 %.not26.not.i, label %.lr.ph.i135, label %Gia_ManSifCutChoice.exit, !llvm.loop !107
 
 Gia_ManSifCutChoice.exit:                         ; preds = %.lr.ph.i135, %215, %._crit_edge, %217, %Gia_ObjSibl.exit134, %Gia_ObjSibl.exit
-  %.1 = phi i32 [ %.065.lcssa, %Gia_ObjSibl.exit ], [ %.065.lcssa, %Gia_ObjSibl.exit134 ], [ %.065.lcssa, %215 ], [ %213, %217 ], [ %.065.lcssa, %._crit_edge ], [ %213, %.lr.ph.i135 ]
+  %.1 = phi i32 [ %.065.lcssa, %._crit_edge ], [ %.065.lcssa, %Gia_ObjSibl.exit ], [ %.065.lcssa, %Gia_ObjSibl.exit134 ], [ %.065.lcssa, %215 ], [ %213, %217 ], [ %213, %.lr.ph.i135 ]
   %223 = load i32, ptr %27, align 4, !tbaa !29
   %224 = icmp slt i32 %223, %.1
   br i1 %224, label %225, label %Vec_IntUpdateEntry.exit
@@ -5139,7 +5139,7 @@ Vec_IntFill.exit:                                 ; preds = %55, %Vec_IntGrow.ex
   br i1 %125, label %90, label %.loopexit, !llvm.loop !122
 
 .loopexit:                                        ; preds = %.critedge12, %90, %97, %107, %118
-  %.0 = phi i32 [ 0, %118 ], [ 0, %107 ], [ 0, %97 ], [ 0, %.critedge12 ], [ 1, %90 ]
+  %.0 = phi i32 [ 0, %97 ], [ 0, %107 ], [ 0, %118 ], [ 0, %.critedge12 ], [ 1, %90 ]
   ret i32 %.0
 }
 

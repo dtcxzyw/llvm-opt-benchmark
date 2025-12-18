@@ -650,7 +650,7 @@ hwloc_append_diff.exit.i:                         ; preds = %299, %296
   br label %.critedge252
 
 .critedge252:                                     ; preds = %.lr.ph, %64, %.thread290, %.preheader292, %18, %hwloc_append_diff.exit.i, %.thread282, %16, %13
-  %.0 = phi i32 [ -1, %16 ], [ -1, %13 ], [ -1, %18 ], [ 1, %hwloc_append_diff.exit.i ], [ 1, %.thread282 ], [ 0, %.preheader292 ], [ -1, %64 ], [ 0, %.thread290 ], [ 1, %.lr.ph ]
+  %.0 = phi i32 [ -1, %16 ], [ -1, %13 ], [ 0, %.preheader292 ], [ -1, %18 ], [ -1, %64 ], [ 1, %hwloc_append_diff.exit.i ], [ 1, %.thread282 ], [ 0, %.thread290 ], [ 1, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -1095,7 +1095,7 @@ hwloc_append_diff.exit.i:                         ; preds = %206, %203
   br label %hwloc_append_diff_too_complex.exit
 
 hwloc_append_diff_too_complex.exit:               ; preds = %133, %.lr.ph36, %.lr.ph44, %.lr.ph53, %.lr.ph62, %hwloc_append_diff.exit.i, %.loopexit, %._crit_edge63, %84, %72
-  %.0 = phi i32 [ 0, %._crit_edge63 ], [ -1, %72 ], [ 0, %hwloc_append_diff.exit.i ], [ -1, %84 ], [ 0, %.loopexit ], [ -1, %.lr.ph36 ], [ -1, %.lr.ph62 ], [ -1, %.lr.ph53 ], [ -1, %.lr.ph44 ], [ -1, %133 ]
+  %.0 = phi i32 [ 0, %._crit_edge63 ], [ -1, %72 ], [ 0, %hwloc_append_diff.exit.i ], [ -1, %84 ], [ -1, %.lr.ph53 ], [ -1, %.lr.ph62 ], [ -1, %.lr.ph36 ], [ -1, %.lr.ph44 ], [ 0, %.loopexit ], [ -1, %133 ]
   ret i32 %.0
 }
 
@@ -1424,7 +1424,7 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc_apply_diff_one(ptr noundef %0
   br label %.critedge
 
 .critedge:                                        ; preds = %72, %36, %54, %50, %47, %29, %31, %23, %20, %42, %14, %73, %52, %3
-  %.5 = phi i32 [ -1, %3 ], [ 0, %73 ], [ 0, %52 ], [ -1, %14 ], [ -1, %42 ], [ -1, %20 ], [ -1, %23 ], [ -1, %31 ], [ -1, %29 ], [ -1, %47 ], [ -1, %50 ], [ -1, %54 ], [ 0, %36 ], [ -1, %72 ]
+  %.5 = phi i32 [ -1, %3 ], [ -1, %54 ], [ 0, %73 ], [ 0, %52 ], [ -1, %14 ], [ -1, %42 ], [ -1, %20 ], [ -1, %23 ], [ -1, %31 ], [ -1, %29 ], [ -1, %47 ], [ -1, %50 ], [ 0, %36 ], [ -1, %72 ]
   ret i32 %.5
 }
 

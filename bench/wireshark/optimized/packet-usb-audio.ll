@@ -2046,7 +2046,7 @@ define internal fastcc range(i32 -2147483648, 2147483646) i32 @dissect_ac_if_hdr
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %26, %3, %36
-  %.1 = phi i32 [ 6, %36 ], [ 2, %3 ], [ 5, %26 ], [ %44, %.loopexit.loopexit ]
+  %.1 = phi i32 [ 2, %3 ], [ 6, %36 ], [ 5, %26 ], [ %44, %.loopexit.loopexit ]
   ret i32 %.1
 }
 
@@ -2969,7 +2969,7 @@ define internal fastcc noundef i32 @dissect_as_if_format_type_body(ptr noundef %
   br i1 %.not115.i, label %dissect_as_if_format_type_ver1_body.exit, label %.preheader3.i, !llvm.loop !19
 
 dissect_as_if_format_type_ver1_body.exit:         ; preds = %.preheader3.i, %.preheader1.i, %.preheader.i, %7, %22, %40, %72
-  %.1.i = phi i32 [ 1, %7 ], [ 11, %22 ], [ 12, %40 ], [ 11, %72 ], [ %.28.i, %.preheader1.i ], [ %.010.i, %.preheader.i ], [ %.36.i, %.preheader3.i ]
+  %.1.i = phi i32 [ 1, %7 ], [ 11, %22 ], [ %.010.i, %.preheader.i ], [ 12, %40 ], [ %.28.i, %.preheader1.i ], [ 11, %72 ], [ %.36.i, %.preheader3.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -3235,11 +3235,11 @@ get_addressed_entity_type.exit:                   ; preds = %4, %13, %21, %24
 .fold.split:                                      ; preds = %43
   br label %46
 
-46:                                               ; preds = %.fold.split, %43, %45
-  %.061.ph = phi ptr [ @.str.819, %.fold.split ], [ @.str.822, %43 ], [ @.str.823, %45 ]
-  %.not70.ph = phi i1 [ true, %.fold.split ], [ false, %43 ], [ false, %45 ]
-  %.060.ph = phi ptr [ null, %.fold.split ], [ @hf_parameter_bmute, %43 ], [ @hf_parameter_wvolume, %45 ]
-  %.059.ph = phi i32 [ undef, %.fold.split ], [ 1, %43 ], [ 2, %45 ]
+46:                                               ; preds = %.fold.split, %45, %43
+  %.061.ph = phi ptr [ @.str.819, %.fold.split ], [ @.str.823, %45 ], [ @.str.822, %43 ]
+  %.not70.ph = phi i1 [ true, %.fold.split ], [ false, %45 ], [ false, %43 ]
+  %.060.ph = phi ptr [ null, %.fold.split ], [ @hf_parameter_wvolume, %45 ], [ @hf_parameter_bmute, %43 ]
+  %.059.ph = phi i32 [ undef, %.fold.split ], [ 2, %45 ], [ 1, %43 ]
   %47 = tail call ptr @try_val_to_str(i32 noundef %39, ptr noundef nonnull @v1_fu_cs_vals)
   %.not67 = icmp eq ptr %47, null
   br i1 %.not67, label %.thread88, label %48
@@ -3663,7 +3663,7 @@ has_data_stage.exit.i:                            ; preds = %90
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %152, %149, %140, %135, %123
-  %.3.i = phi i32 [ %156, %152 ], [ %151, %149 ], [ %126, %140 ], [ %126, %123 ], [ %126, %135 ], [ %146, %.lr.ph.i ]
+  %.3.i = phi i32 [ %156, %152 ], [ %151, %149 ], [ %126, %140 ], [ %126, %135 ], [ %126, %123 ], [ %146, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %dissect_v2_control_cur_range.exit

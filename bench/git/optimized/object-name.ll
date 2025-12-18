@@ -2125,7 +2125,7 @@ push_mark.exit:                                   ; preds = %.split.i
   store i8 0, ptr %133, align 1, !tbaa !16
   br label %interpret_branch_mark.exit92
 
-interpret_branch_mark.exit92.thread:              ; preds = %push_mark.exit, %116, %126, %128, %.split.i, %102
+interpret_branch_mark.exit92.thread:              ; preds = %push_mark.exit, %116, %126, %128, %102, %.split.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %137
 
@@ -2776,7 +2776,7 @@ reject_tree_in_index.exit:                        ; preds = %93
   br label %reject_tree_in_index.exit.thread
 
 reject_tree_in_index.exit.thread:                 ; preds = %119, %19, %96, %97, %149, %28, %reject_tree_in_index.exit, %108, %18
-  %.0140 = phi i32 [ 0, %18 ], [ %spec.select188, %149 ], [ %36, %28 ], [ -1, %108 ], [ 0, %reject_tree_in_index.exit ], [ -1, %97 ], [ -1, %96 ], [ %14, %19 ], [ %14, %119 ]
+  %.0140 = phi i32 [ 0, %18 ], [ -1, %96 ], [ %spec.select188, %149 ], [ %36, %28 ], [ -1, %108 ], [ 0, %reject_tree_in_index.exit ], [ -1, %97 ], [ %14, %19 ], [ %14, %119 ]
   ret i32 %.0140
 }
 
@@ -3162,7 +3162,7 @@ get_parent.exit.sink.split:                       ; preds = %53, %57
   br label %get_parent.exit
 
 get_parent.exit:                                  ; preds = %59, %get_parent.exit.sink.split, %54, %48, %50
-  %.017.i = phi i32 [ %49, %48 ], [ -1, %50 ], [ -1, %54 ], [ 0, %get_parent.exit.sink.split ], [ -1, %59 ]
+  %.017.i = phi i32 [ 0, %get_parent.exit.sink.split ], [ %49, %48 ], [ -1, %54 ], [ -1, %50 ], [ -1, %59 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.critedge
 
@@ -3385,7 +3385,7 @@ peel_onion.exit.thread:                           ; preds = %._crit_edge171, %.s
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %159
 
-peel_onion.exit.thread123:                        ; preds = %133, %140
+peel_onion.exit.thread123:                        ; preds = %140, %133
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %.critedge
 
@@ -3565,10 +3565,10 @@ push_mark.exit.i:                                 ; preds = %upstream_mark.exit.
   br i1 %.not292.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !134
 
 .loopexit.i:                                      ; preds = %225, %push_mark.exit.i, %.thread.i, %upstream_mark.exit.i, %209, %193
-  %.1112234.i = phi i32 [ 0, %upstream_mark.exit.i ], [ 0, %193 ], [ 1, %209 ], [ 0, %push_mark.exit.i ], [ 0, %.thread.i ], [ 0, %225 ]
-  %.1101231.i = phi i32 [ %211, %upstream_mark.exit.i ], [ %194, %193 ], [ -1, %209 ], [ %211, %push_mark.exit.i ], [ %211, %.thread.i ], [ -1, %225 ]
-  %.0107.i = phi i32 [ 0, %upstream_mark.exit.i ], [ 0, %193 ], [ 0, %209 ], [ %spec.select133, %push_mark.exit.i ], [ %222, %.thread.i ], [ 0, %225 ]
-  %.097.i = phi i32 [ %2, %upstream_mark.exit.i ], [ %2, %193 ], [ %2, %209 ], [ %spec.select134, %push_mark.exit.i ], [ %211, %.thread.i ], [ %2, %225 ]
+  %.1112234.i = phi i32 [ 0, %upstream_mark.exit.i ], [ 0, %push_mark.exit.i ], [ 0, %193 ], [ 1, %209 ], [ 0, %.thread.i ], [ 0, %225 ]
+  %.1101231.i = phi i32 [ %211, %upstream_mark.exit.i ], [ %211, %push_mark.exit.i ], [ %194, %193 ], [ -1, %209 ], [ %211, %.thread.i ], [ -1, %225 ]
+  %.0107.i = phi i32 [ 0, %upstream_mark.exit.i ], [ %spec.select133, %push_mark.exit.i ], [ 0, %193 ], [ 0, %209 ], [ %222, %.thread.i ], [ 0, %225 ]
+  %.097.i = phi i32 [ %2, %upstream_mark.exit.i ], [ %spec.select134, %push_mark.exit.i ], [ %2, %193 ], [ %2, %209 ], [ %211, %.thread.i ], [ %2, %225 ]
   %.not120.i = icmp eq i32 %.097.i, 0
   br i1 %.not120.i, label %233, label %.thread172.i
 
@@ -3606,7 +3606,7 @@ push_mark.exit.i:                                 ; preds = %upstream_mark.exit.
   br i1 %exitcond.not.i.i, label %ambiguous_path.exit.i, label %.lr.ph.i.i, !llvm.loop !135
 
 ambiguous_path.exit.i:                            ; preds = %231, %.lr.ph.i.i
-  %.05.lcssa.i.i = phi i32 [ %.058.i.i, %.lr.ph.i.i ], [ %.1.i.i, %231 ]
+  %.05.lcssa.i.i = phi i32 [ %.1.i.i, %231 ], [ %.058.i.i, %.lr.ph.i.i ]
   %.not121.i = icmp eq i32 %.05.lcssa.i.i, 0
   br i1 %.not121.i, label %233, label %.loopexit
 
@@ -3884,7 +3884,7 @@ get_oid_basic.exit:                               ; preds = %168, %184, %248, %3
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.critedge
 
-.loopexit:                                        ; preds = %229, %327, %ambiguous_path.exit.i, %257, %.thread172.i, %209
+.loopexit:                                        ; preds = %229, %209, %327, %ambiguous_path.exit.i, %257, %.thread172.i
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not44.i = icmp slt i32 %2, 3
@@ -3994,7 +3994,7 @@ get_describe_name.exit.thread:                    ; preds = %371, %.loopexit, %g
   br label %.critedge
 
 .critedge:                                        ; preds = %34, %.lr.ph, %get_oid_basic.exit, %peel_onion.exit.thread126, %peel_onion.exit.thread123, %get_describe_name.exit, %peel_onion.exit, %get_parent.exit, %get_nth_ancestor.exit, %45, %get_describe_name.exit.thread
-  %.3 = phi i32 [ %375, %get_describe_name.exit.thread ], [ 0, %get_oid_basic.exit ], [ 0, %peel_onion.exit ], [ -1, %45 ], [ %.0.i89, %get_nth_ancestor.exit ], [ %.017.i, %get_parent.exit ], [ 0, %get_describe_name.exit ], [ 0, %peel_onion.exit.thread123 ], [ 0, %peel_onion.exit.thread126 ], [ -1, %.lr.ph ], [ -1, %34 ]
+  %.3 = phi i32 [ 0, %peel_onion.exit.thread126 ], [ %375, %get_describe_name.exit.thread ], [ 0, %get_oid_basic.exit ], [ 0, %peel_onion.exit ], [ -1, %45 ], [ %.0.i89, %get_nth_ancestor.exit ], [ %.017.i, %get_parent.exit ], [ 0, %peel_onion.exit.thread123 ], [ 0, %get_describe_name.exit ], [ -1, %.lr.ph ], [ -1, %34 ]
   ret i32 %.3
 }
 
@@ -4826,7 +4826,7 @@ _.exit64:                                         ; preds = %169, %171
   br label %init_object_disambiguation.exit.thread
 
 init_object_disambiguation.exit.thread:           ; preds = %28, %finish_object_disambiguation.exit59.thread69, %120, %143, %5, %finish_object_disambiguation.exit59, %_.exit64
-  %.0 = phi i32 [ -2, %_.exit64 ], [ -2, %finish_object_disambiguation.exit59 ], [ -1, %5 ], [ -1, %120 ], [ 0, %143 ], [ 0, %finish_object_disambiguation.exit59.thread69 ], [ -1, %28 ]
+  %.0 = phi i32 [ 0, %finish_object_disambiguation.exit59.thread69 ], [ -2, %_.exit64 ], [ -2, %finish_object_disambiguation.exit59 ], [ -1, %5 ], [ -1, %120 ], [ 0, %143 ], [ -1, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }

@@ -722,7 +722,7 @@ _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit117: ; preds = %231, %_ZN4cvc58in
   br i1 %exitcond264.not.old, label %._crit_edge232, label %.lr.ph231.split.backedge
 
 .lr.ph231.split.backedge:                         ; preds = %244, %242
-  %.054229.be = phi i32 [ 1, %244 ], [ %243, %242 ]
+  %.054229.be = phi i32 [ %243, %242 ], [ 1, %244 ]
   br label %.lr.ph231.split, !llvm.loop !278
 
 ._crit_edge232:                                   ; preds = %214, %208, %204, %244, %242, %44

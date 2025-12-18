@@ -2831,7 +2831,7 @@ define hidden noundef zeroext i1 @_ZN13defined_names4impl7mk_nameEP4exprR7obj_re
   br i1 %.not27.old.i.i.i, label %.loopexit85, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %44, %41
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %44 ], [ %43, %41 ]
+  %.137.i.i.i.be = phi ptr [ %43, %41 ], [ %.old.i.i.i, %44 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !213
 
 .loopexit:                                        ; preds = %25, %36
@@ -2946,7 +2946,7 @@ _ZN7obj_refI3app11ast_managerEaSEPS0_.exit:       ; preds = %50, %52, %59
   br i1 %.not27.old.i.i.i34, label %_ZNK7obj_mapI4exprP3appE4findEPS0_RS2_.exit41.thread, label %.lr.ph38.i.i.i30.backedge
 
 .lr.ph38.i.i.i30.backedge:                        ; preds = %97, %94
-  %.137.i.i.i31.be = phi ptr [ %.old.i.i.i33, %97 ], [ %96, %94 ]
+  %.137.i.i.i31.be = phi ptr [ %96, %94 ], [ %.old.i.i.i33, %97 ]
   br label %.lr.ph38.i.i.i30, !llvm.loop !213
 
 _ZNK7obj_mapI4exprP3appE4findEPS0_RS2_.exit41:    ; preds = %78, %89
@@ -5567,7 +5567,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI4exprP3appE13obj_
   br i1 %.not32.old, label %.loopexit, label %.lr.ph48.backedge
 
 .lr.ph48.backedge:                                ; preds = %36, %33
-  %.247.be = phi ptr [ %.old, %36 ], [ %35, %33 ]
+  %.247.be = phi ptr [ %35, %33 ], [ %.old, %36 ]
   br label %.lr.ph48, !llvm.loop !244
 
 .loopexit38:                                      ; preds = %17, %28

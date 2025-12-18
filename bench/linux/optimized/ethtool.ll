@@ -2900,7 +2900,7 @@ reg_pattern_test.exit64.thread:                   ; preds = %.preheader.i63, %re
   br i1 %1009, label %.thread82, label %933
 
 .thread82:                                        ; preds = %1008, %933, %1006
-  %1010 = phi i64 [ 13, %1006 ], [ 14, %1008 ], [ %997, %933 ]
+  %1010 = phi i64 [ 13, %1006 ], [ %997, %933 ], [ 14, %1008 ]
   store i64 %1010, ptr %521, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i16 0, ptr %4, align 2, !annotation !5

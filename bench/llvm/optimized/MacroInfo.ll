@@ -604,7 +604,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit87..thread95_crit_
   br i1 %.not59, label %.thread, label %46, !llvm.loop !281
 
 .thread:                                          ; preds = %.lr.ph, %.thread95, %_ZNK5clang9MacroInfo15getParameterNumEPKNS_14IdentifierInfoE.exit84, %46, %58, %_ZNK5clang9MacroInfo15getParameterNumEPKNS_14IdentifierInfoE.exit, %_ZNK5clang5Token17getIdentifierInfoEv.exit76, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit87, %_ZNK5clang5Token17getIdentifierInfoEv.exit78, %139, %90, %109, %.critedge, %4, %11, %16
-  %.0 = phi i1 [ false, %11 ], [ false, %4 ], [ false, %16 ], [ true, %.critedge ], [ false, %_ZNK5clang5Token17getIdentifierInfoEv.exit78 ], [ false, %109 ], [ false, %90 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit87 ], [ false, %_ZNK5clang5Token17getIdentifierInfoEv.exit76 ], [ false, %139 ], [ false, %_ZNK5clang9MacroInfo15getParameterNumEPKNS_14IdentifierInfoE.exit ], [ false, %58 ], [ false, %46 ], [ false, %_ZNK5clang9MacroInfo15getParameterNumEPKNS_14IdentifierInfoE.exit84 ], [ true, %.thread95 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ false, %11 ], [ false, %4 ], [ false, %_ZNK5clang5Token17getIdentifierInfoEv.exit78 ], [ true, %.critedge ], [ false, %90 ], [ false, %16 ], [ false, %109 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit87 ], [ false, %_ZNK5clang5Token17getIdentifierInfoEv.exit76 ], [ false, %139 ], [ false, %_ZNK5clang9MacroInfo15getParameterNumEPKNS_14IdentifierInfoE.exit ], [ false, %58 ], [ false, %46 ], [ false, %_ZNK5clang9MacroInfo15getParameterNumEPKNS_14IdentifierInfoE.exit84 ], [ true, %.thread95 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -1370,8 +1370,8 @@ _ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit18: ; preds = %_ZNK5clang1
   br i1 %.not.i1.i, label %.thread, label %.preheader.i, !llvm.loop !296
 
 .thread:                                          ; preds = %19, %31, %42, %28, %30
-  %.sroa.6.1 = phi i64 [ 4294967296, %28 ], [ %.sroa.3.8.insert.insert.i.i34.lcssa, %30 ], [ 4294967296, %31 ], [ 4294967296, %42 ], [ 4294967296, %19 ]
-  %.sroa.045.1 = phi ptr [ null, %28 ], [ %.sroa.038.065.lcssa, %30 ], [ null, %31 ], [ null, %42 ], [ null, %19 ]
+  %.sroa.6.1 = phi i64 [ %.sroa.3.8.insert.insert.i.i34.lcssa, %30 ], [ 4294967296, %28 ], [ 4294967296, %42 ], [ 4294967296, %31 ], [ 4294967296, %19 ]
+  %.sroa.045.1 = phi ptr [ %.sroa.038.065.lcssa, %30 ], [ null, %28 ], [ null, %42 ], [ null, %31 ], [ null, %19 ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.045.1, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.6.1, 1
   ret { ptr, i64 } %.fca.1.insert

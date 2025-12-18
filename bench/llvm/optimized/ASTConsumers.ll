@@ -1667,7 +1667,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZN4l
   br label %.split
 
 .split:                                           ; preds = %.lr.ph.i57, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph.i, %219, %.thread27.i, %375, %373, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE28TraverseFunctionTemplateDeclEPNS_20FunctionTemplateDeclE.exit, %294, %292, %290, %288, %286, %284, %282, %280, %278, %276, %274, %272, %270, %268, %266, %264, %262, %199, %197, %195, %193, %191, %189, %187, %185, %183, %181, %179, %177, %175, %173, %171, %169, %167, %165, %163, %161, %159, %157, %155, %153, %151, %149, %147, %145, %143, %141, %139, %137, %135, %133, %131, %129, %127, %125, %123, %121, %119, %117, %115, %113, %111, %109, %107, %105, %103, %101, %99, %97, %95, %93, %91, %89, %87, %85, %83, %81, %79, %77, %75, %73, %71, %69, %67, %65, %63, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE40TraverseTemplateTypeParamDeclConstraintsEPKNS_20TemplateTypeParmDeclE.exit, %_ZN4llvm15isa_and_presentIJN5clang21TypeAliasTemplateDeclEEPNS1_12TemplateDeclEEEbRKT0_.exit, %2
-  %.0 = phi i1 [ true, %_ZN4llvm15isa_and_presentIJN5clang21TypeAliasTemplateDeclEEPNS1_12TemplateDeclEEEbRKT0_.exit ], [ true, %2 ], [ true, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE28TraverseFunctionTemplateDeclEPNS_20FunctionTemplateDeclE.exit ], [ false, %294 ], [ false, %63 ], [ false, %65 ], [ false, %67 ], [ false, %69 ], [ false, %71 ], [ false, %73 ], [ false, %75 ], [ false, %77 ], [ false, %79 ], [ false, %81 ], [ false, %83 ], [ false, %85 ], [ false, %87 ], [ false, %89 ], [ false, %91 ], [ false, %93 ], [ false, %95 ], [ false, %97 ], [ false, %99 ], [ false, %101 ], [ false, %103 ], [ false, %105 ], [ false, %107 ], [ false, %109 ], [ false, %111 ], [ false, %113 ], [ false, %115 ], [ false, %117 ], [ false, %119 ], [ false, %121 ], [ false, %123 ], [ false, %125 ], [ false, %127 ], [ false, %129 ], [ false, %131 ], [ false, %133 ], [ false, %135 ], [ false, %137 ], [ false, %139 ], [ false, %141 ], [ false, %143 ], [ false, %145 ], [ false, %147 ], [ false, %149 ], [ false, %151 ], [ false, %153 ], [ false, %155 ], [ false, %157 ], [ false, %159 ], [ false, %161 ], [ false, %163 ], [ false, %165 ], [ false, %167 ], [ false, %169 ], [ false, %171 ], [ false, %173 ], [ false, %175 ], [ false, %177 ], [ false, %179 ], [ false, %181 ], [ false, %183 ], [ false, %185 ], [ false, %187 ], [ false, %189 ], [ false, %191 ], [ false, %193 ], [ false, %195 ], [ false, %197 ], [ false, %199 ], [ true, %375 ], [ false, %262 ], [ false, %264 ], [ false, %266 ], [ false, %268 ], [ false, %270 ], [ false, %272 ], [ false, %274 ], [ false, %276 ], [ false, %278 ], [ false, %280 ], [ false, %282 ], [ false, %284 ], [ false, %286 ], [ false, %288 ], [ false, %290 ], [ false, %292 ], [ %spec.select.i, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE40TraverseTemplateTypeParamDeclConstraintsEPKNS_20TemplateTypeParmDeclE.exit ], [ true, %373 ], [ false, %.thread27.i ], [ false, %219 ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ false, %.lr.ph.i ], [ false, %.lr.ph.i57 ]
+  %.0 = phi i1 [ true, %_ZN4llvm15isa_and_presentIJN5clang21TypeAliasTemplateDeclEEPNS1_12TemplateDeclEEEbRKT0_.exit ], [ true, %2 ], [ true, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE28TraverseFunctionTemplateDeclEPNS_20FunctionTemplateDeclE.exit ], [ false, %294 ], [ false, %63 ], [ false, %65 ], [ false, %67 ], [ false, %69 ], [ false, %71 ], [ false, %73 ], [ false, %75 ], [ false, %77 ], [ false, %79 ], [ false, %81 ], [ false, %83 ], [ false, %85 ], [ false, %87 ], [ false, %89 ], [ false, %91 ], [ false, %93 ], [ false, %95 ], [ false, %97 ], [ false, %99 ], [ false, %101 ], [ false, %103 ], [ false, %105 ], [ false, %107 ], [ false, %109 ], [ false, %111 ], [ false, %113 ], [ false, %115 ], [ false, %117 ], [ false, %119 ], [ false, %121 ], [ false, %123 ], [ false, %125 ], [ false, %127 ], [ false, %129 ], [ false, %131 ], [ false, %133 ], [ false, %135 ], [ false, %137 ], [ false, %139 ], [ false, %141 ], [ false, %143 ], [ false, %145 ], [ false, %147 ], [ false, %149 ], [ false, %151 ], [ false, %153 ], [ false, %155 ], [ false, %157 ], [ false, %159 ], [ false, %161 ], [ false, %163 ], [ false, %165 ], [ false, %167 ], [ false, %169 ], [ false, %171 ], [ false, %173 ], [ false, %175 ], [ false, %177 ], [ false, %179 ], [ false, %181 ], [ false, %183 ], [ false, %185 ], [ false, %187 ], [ false, %189 ], [ false, %191 ], [ false, %193 ], [ false, %195 ], [ false, %197 ], [ false, %199 ], [ true, %375 ], [ false, %262 ], [ false, %264 ], [ false, %266 ], [ false, %268 ], [ false, %270 ], [ false, %272 ], [ false, %274 ], [ false, %276 ], [ false, %278 ], [ false, %280 ], [ false, %282 ], [ false, %284 ], [ false, %286 ], [ false, %288 ], [ false, %290 ], [ false, %292 ], [ %spec.select.i, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE40TraverseTemplateTypeParamDeclConstraintsEPKNS_20TemplateTypeParmDeclE.exit ], [ true, %373 ], [ false, %.thread27.i ], [ false, %219 ], [ false, %.lr.ph.i ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ false, %.lr.ph.i57 ]
   ret i1 %.0
 }
 
@@ -2102,7 +2102,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br label %.critedge47
 
 .critedge47:                                      ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph78, %_ZNSt6vectorIPN5clang4DeclESaIS2_EED2Ev.exit, %_ZNK5clang4Decl5attrsEv.exit, %78, %.critedge45
-  %.0 = phi i1 [ false, %.critedge45 ], [ false, %78 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZNSt6vectorIPN5clang4DeclESaIS2_EED2Ev.exit ], [ %76, %.lr.ph78 ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ false, %.critedge45 ], [ false, %78 ], [ %76, %.lr.ph78 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZNSt6vectorIPN5clang4DeclESaIS2_EED2Ev.exit ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -2197,7 +2197,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %.loopexit, %_ZNK5clang4Decl5attrsEv.exit, %2
-  %.0 = phi i1 [ false, %2 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ %40, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %40, %.lr.ph ], [ false, %2 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -2286,7 +2286,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %.loopexit, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ %36, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %36, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -2424,7 +2424,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %.loopexit, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ %36, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %36, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -2513,7 +2513,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %.loopexit, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ %36, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %36, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -2602,7 +2602,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %.loopexit, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ %36, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %36, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -2743,7 +2743,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph68, label %.critedge55
 
 .critedge55:                                      ; preds = %23, %.lr.ph68, %.critedge53, %_ZNK5clang4Decl5attrsEv.exit, %.critedge, %5
-  %.0 = phi i1 [ false, %.critedge ], [ false, %5 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.critedge53 ], [ %41, %.lr.ph68 ], [ false, %23 ]
+  %.0 = phi i1 [ false, %.critedge ], [ false, %5 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ %41, %.lr.ph68 ], [ true, %.critedge53 ], [ false, %23 ]
   ret i1 %.0
 }
 
@@ -2854,7 +2854,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_16StaticAssertDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit, %7, %2
-  %.0 = phi i1 [ false, %7 ], [ false, %2 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_16StaticAssertDeclEEEDcPT0_.exit.thread ], [ %47, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ false, %7 ], [ false, %2 ], [ %47, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_16StaticAssertDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -2951,7 +2951,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_24PragmaDetectMismatchDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_24PragmaDetectMismatchDeclEEEDcPT0_.exit.thread ], [ %38, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %38, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_24PragmaDetectMismatchDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -3048,7 +3048,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_17PragmaCommentDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_17PragmaCommentDeclEEEDcPT0_.exit.thread ], [ %38, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %38, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_17PragmaCommentDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -3145,7 +3145,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_20ObjCPropertyImplDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_20ObjCPropertyImplDeclEEEDcPT0_.exit.thread ], [ %38, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %38, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_20ObjCPropertyImplDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -3269,7 +3269,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph51, label %.critedge41
 
 .critedge41:                                      ; preds = %.lr.ph, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph51, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_20OMPThreadPrivateDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_20OMPThreadPrivateDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ %54, %.lr.ph51 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ %54, %.lr.ph51 ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_20OMPThreadPrivateDeclEEEDcPT0_.exit.thread ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -3388,7 +3388,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph51, label %.critedge41
 
 .critedge41:                                      ; preds = %.lr.ph, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph51, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_15OMPRequiresDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_15OMPRequiresDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ %48, %.lr.ph51 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ %48, %.lr.ph51 ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_15OMPRequiresDeclEEEDcPT0_.exit.thread ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -3537,7 +3537,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph77, label %.critedge59
 
 .critedge59:                                      ; preds = %.lr.ph, %.lr.ph74, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph77, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_15OMPAllocateDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_15OMPAllocateDeclEEEDcPT0_.exit.thread ], [ false, %.lr.ph74 ], [ %63, %.lr.ph77 ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ false, %.lr.ph74 ], [ %63, %.lr.ph77 ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_15OMPAllocateDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -3631,7 +3631,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph58, label %.critedge46
 
 .critedge46:                                      ; preds = %.lr.ph, %.lr.ph58, %30, %_ZNK5clang4Decl5attrsEv.exit, %24, %5
-  %.0 = phi i1 [ false, %5 ], [ false, %24 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %30 ], [ %46, %.lr.ph58 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ false, %5 ], [ false, %24 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ %46, %.lr.ph58 ], [ true, %30 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -3733,7 +3733,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph80, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph80, %.loopexit, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ %42, %.lr.ph80 ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %42, %.lr.ph80 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -3933,7 +3933,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph108, label %.critedge76
 
 .critedge76:                                      ; preds = %.lr.ph, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph108, %.loopexit, %_ZNK5clang4Decl5attrsEv.exit, %31
-  %.0 = phi i1 [ false, %31 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ %81, %.lr.ph108 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ false, %31 ], [ %81, %.lr.ph108 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ true, %.loopexit ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -4022,7 +4022,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %.loopexit, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ %36, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %36, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -4111,7 +4111,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %.loopexit, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ %36, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %36, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -4227,7 +4227,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph93, label %.critedge63
 
 .critedge63:                                      ; preds = %.lr.ph, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph93, %.loopexit, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ %48, %.lr.ph93 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ %48, %.lr.ph93 ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ true, %.loopexit ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -4316,7 +4316,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %.loopexit, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ %36, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %36, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -4405,7 +4405,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %.loopexit, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ %36, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %36, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -4681,7 +4681,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE27TraverseDeclarationNameInfoENS_19DeclarationNameInfoE.exit.thread, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_24UnresolvedUsingValueDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit, %2
-  %.0 = phi i1 [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE27TraverseDeclarationNameInfoENS_19DeclarationNameInfoE.exit.thread ], [ false, %2 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_24UnresolvedUsingValueDeclEEEDcPT0_.exit.thread ], [ %83, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE27TraverseDeclarationNameInfoENS_19DeclarationNameInfoE.exit.thread ], [ false, %2 ], [ %83, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_24UnresolvedUsingValueDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -4778,7 +4778,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_25UnnamedGlobalConstantDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_25UnnamedGlobalConstantDeclEEEDcPT0_.exit.thread ], [ %38, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %38, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_25UnnamedGlobalConstantDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -4875,7 +4875,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_23TemplateParamObjectDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_23TemplateParamObjectDeclEEEDcPT0_.exit.thread ], [ %38, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %38, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_23TemplateParamObjectDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -4972,7 +4972,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_10MSGuidDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_10MSGuidDeclEEEDcPT0_.exit.thread ], [ %38, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %38, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_10MSGuidDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -5069,7 +5069,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_17IndirectFieldDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_17IndirectFieldDeclEEEDcPT0_.exit.thread ], [ %38, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %38, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_17IndirectFieldDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -5172,7 +5172,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_16EnumConstantDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit, %2
-  %.0 = phi i1 [ false, %2 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_16EnumConstantDeclEEEDcPT0_.exit.thread ], [ %42, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %42, %.lr.ph ], [ false, %2 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_16EnumConstantDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -5579,7 +5579,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %13, %2, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_7VarDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ false, %2 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_7VarDeclEEEDcPT0_.exit.thread ], [ false, %13 ], [ %50, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ false, %2 ], [ %50, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_7VarDeclEEEDcPT0_.exit.thread ], [ false, %13 ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -5766,7 +5766,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph45, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit
 
 _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit: ; preds = %.lr.ph, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph45, %29, %18, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_29VarTemplateSpecializationDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit, %_ZNK5clang14DeclaratorDecl15getQualifierLocEv.exit
-  %.0 = phi i1 [ %38, %_ZNK5clang14DeclaratorDecl15getQualifierLocEv.exit ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_29VarTemplateSpecializationDeclEEEDcPT0_.exit.thread ], [ false, %18 ], [ false, %29 ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ %73, %.lr.ph45 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ %73, %.lr.ph45 ], [ %38, %_ZNK5clang14DeclaratorDecl15getQualifierLocEv.exit ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ false, %18 ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_29VarTemplateSpecializationDeclEEEDcPT0_.exit.thread ], [ false, %29 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -5972,7 +5972,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph40, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit
 
 _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit: ; preds = %.lr.ph.i, %.lr.ph, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph40, %45, %._crit_edge, %21, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_36VarTemplatePartialSpecializationDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ false, %21 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_36VarTemplatePartialSpecializationDeclEEEDcPT0_.exit.thread ], [ false, %._crit_edge ], [ false, %45 ], [ false, %.lr.ph ], [ %82, %.lr.ph40 ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ false, %.lr.ph.i ]
+  %.0 = phi i1 [ false, %21 ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ %82, %.lr.ph40 ], [ false, %._crit_edge ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_36VarTemplatePartialSpecializationDeclEEEDcPT0_.exit.thread ], [ false, %45 ], [ false, %.lr.ph ], [ false, %.lr.ph.i ]
   ret i1 %.0
 }
 
@@ -6125,7 +6125,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %13, %2, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_11ParmVarDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit, %31, %22
-  %.0 = phi i1 [ false, %22 ], [ false, %2 ], [ false, %31 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_11ParmVarDeclEEEDcPT0_.exit.thread ], [ false, %13 ], [ %69, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ false, %22 ], [ %69, %.lr.ph ], [ false, %2 ], [ false, %31 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_11ParmVarDeclEEEDcPT0_.exit.thread ], [ false, %13 ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -6244,7 +6244,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %13, %2, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_19OMPCapturedExprDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ false, %2 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_19OMPCapturedExprDeclEEEDcPT0_.exit.thread ], [ false, %13 ], [ %50, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ false, %2 ], [ %50, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_19OMPCapturedExprDeclEEEDcPT0_.exit.thread ], [ false, %13 ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -6363,7 +6363,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %13, %2, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_17ImplicitParamDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ false, %2 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_17ImplicitParamDeclEEEDcPT0_.exit.thread ], [ false, %13 ], [ %50, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ false, %2 ], [ %50, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_17ImplicitParamDeclEEEDcPT0_.exit.thread ], [ false, %13 ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -6503,7 +6503,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph52, label %.critedge42
 
 .critedge42:                                      ; preds = %.lr.ph, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph52, %13, %2, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_17DecompositionDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_17DecompositionDeclEEEDcPT0_.exit.thread ], [ false, %2 ], [ false, %13 ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ %59, %.lr.ph52 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ %59, %.lr.ph52 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ false, %2 ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_17DecompositionDeclEEEDcPT0_.exit.thread ], [ false, %13 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -6664,7 +6664,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond57.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_23NonTypeTemplateParmDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit, %_ZNK5clang23NonTypeTemplateParmDecl18getDefaultArgumentEv.exit, %2
-  %.0 = phi i1 [ false, %_ZNK5clang23NonTypeTemplateParmDecl18getDefaultArgumentEv.exit ], [ false, %2 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_23NonTypeTemplateParmDeclEEEDcPT0_.exit.thread ], [ %67, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ false, %_ZNK5clang23NonTypeTemplateParmDecl18getDefaultArgumentEv.exit ], [ false, %2 ], [ %67, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_23NonTypeTemplateParmDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -6765,7 +6765,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_14MSPropertyDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit, %2
-  %.0 = phi i1 [ false, %2 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_14MSPropertyDeclEEEDcPT0_.exit.thread ], [ %40, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %40, %.lr.ph ], [ false, %2 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_14MSPropertyDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -6904,7 +6904,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_9FieldDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit, %22, %_ZNK5clang9FieldDecl11getBitWidthEv.exit, %2
-  %.0 = phi i1 [ false, %_ZNK5clang9FieldDecl11getBitWidthEv.exit ], [ false, %2 ], [ false, %22 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_9FieldDeclEEEDcPT0_.exit.thread ], [ %61, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ false, %_ZNK5clang9FieldDecl11getBitWidthEv.exit ], [ false, %2 ], [ %61, %.lr.ph ], [ false, %22 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_9FieldDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -7026,7 +7026,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_12ObjCIvarDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit, %_ZNK5clang9FieldDecl11getBitWidthEv.exit, %2
-  %.0 = phi i1 [ false, %_ZNK5clang9FieldDecl11getBitWidthEv.exit ], [ false, %2 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_12ObjCIvarDeclEEEDcPT0_.exit.thread ], [ %54, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ false, %_ZNK5clang9FieldDecl11getBitWidthEv.exit ], [ false, %2 ], [ %54, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_12ObjCIvarDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -7148,7 +7148,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_19ObjCAtDefsFieldDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit, %_ZNK5clang9FieldDecl11getBitWidthEv.exit, %2
-  %.0 = phi i1 [ false, %_ZNK5clang9FieldDecl11getBitWidthEv.exit ], [ false, %2 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_19ObjCAtDefsFieldDeclEEEDcPT0_.exit.thread ], [ %54, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ false, %_ZNK5clang9FieldDecl11getBitWidthEv.exit ], [ false, %2 ], [ %54, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_19ObjCAtDefsFieldDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -7245,7 +7245,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_11BindingDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_11BindingDeclEEEDcPT0_.exit.thread ], [ %38, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %38, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_11BindingDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -7342,7 +7342,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_15UsingShadowDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_15UsingShadowDeclEEEDcPT0_.exit.thread ], [ %38, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %38, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_15UsingShadowDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -7439,7 +7439,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_26ConstructorUsingShadowDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_26ConstructorUsingShadowDeclEEEDcPT0_.exit.thread ], [ %38, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %38, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_26ConstructorUsingShadowDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -7536,7 +7536,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_13UsingPackDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_13UsingPackDeclEEEDcPT0_.exit.thread ], [ %38, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %38, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_13UsingPackDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -7641,7 +7641,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_18UsingDirectiveDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit, %2
-  %.0 = phi i1 [ false, %2 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_18UsingDirectiveDeclEEEDcPT0_.exit.thread ], [ %41, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %41, %.lr.ph ], [ false, %2 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_18UsingDirectiveDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -7738,7 +7738,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_27UnresolvedUsingIfExistsDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_27UnresolvedUsingIfExistsDeclEEEDcPT0_.exit.thread ], [ %38, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %38, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_27UnresolvedUsingIfExistsDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -7915,7 +7915,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph43, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph43, %.loopexit, %_ZNK5clang4Decl5attrsEv.exit, %_ZNK5clang7TagDecl15getQualifierLocEv.exit
-  %.0 = phi i1 [ false, %_ZNK5clang7TagDecl15getQualifierLocEv.exit ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ %71, %.lr.ph43 ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %71, %.lr.ph43 ], [ false, %_ZNK5clang7TagDecl15getQualifierLocEv.exit ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -8008,7 +8008,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %.loopexit, %_ZNK5clang4Decl5attrsEv.exit, %2
-  %.0 = phi i1 [ false, %2 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ %38, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %38, %.lr.ph ], [ false, %2 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -8169,7 +8169,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph45, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit
 
 _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit: ; preds = %.lr.ph, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph45, %.loopexit, %_ZNK5clang4Decl5attrsEv.exit, %_ZNK5clang7TagDecl15getQualifierLocEv.exit, %18
-  %.0 = phi i1 [ %26, %_ZNK5clang7TagDecl15getQualifierLocEv.exit ], [ false, %18 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ %61, %.lr.ph45 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ %61, %.lr.ph45 ], [ %26, %_ZNK5clang7TagDecl15getQualifierLocEv.exit ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ false, %18 ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ true, %.loopexit ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -8349,7 +8349,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph40, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit
 
 _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit: ; preds = %.lr.ph.i, %.lr.ph, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph40, %21, %.loopexit, %_ZNK5clang4Decl5attrsEv.exit, %._crit_edge
-  %.0 = phi i1 [ false, %21 ], [ false, %._crit_edge ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ false, %.lr.ph ], [ %70, %.lr.ph40 ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ false, %.lr.ph.i ]
+  %.0 = phi i1 [ false, %21 ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ false, %._crit_edge ], [ false, %.lr.ph ], [ true, %.loopexit ], [ %70, %.lr.ph40 ], [ false, %.lr.ph.i ]
   ret i1 %.0
 }
 
@@ -8544,7 +8544,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph62, label %.critedge37
 
 .critedge37:                                      ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph62, %.loopexit, %_ZNK5clang4Decl5attrsEv.exit, %41, %_ZNK5clang7TagDecl15getQualifierLocEv.exit
-  %.0 = phi i1 [ false, %41 ], [ false, %_ZNK5clang7TagDecl15getQualifierLocEv.exit ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ %79, %.lr.ph62 ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ false, %41 ], [ false, %_ZNK5clang7TagDecl15getQualifierLocEv.exit ], [ %79, %.lr.ph62 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -8649,7 +8649,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_27UnresolvedUsingTypenameDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit, %2
-  %.0 = phi i1 [ false, %2 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_27UnresolvedUsingTypenameDeclEEEDcPT0_.exit.thread ], [ %41, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %41, %.lr.ph ], [ false, %2 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_27UnresolvedUsingTypenameDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -8767,7 +8767,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_11TypedefDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit, %_ZNK5clang15TypedefNameDecl17getTypeSourceInfoEv.exit
-  %.0 = phi i1 [ false, %_ZNK5clang15TypedefNameDecl17getTypeSourceInfoEv.exit ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_11TypedefDeclEEEDcPT0_.exit.thread ], [ %49, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %49, %.lr.ph ], [ false, %_ZNK5clang15TypedefNameDecl17getTypeSourceInfoEv.exit ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_11TypedefDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -8885,7 +8885,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_13TypeAliasDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit, %_ZNK5clang15TypedefNameDecl17getTypeSourceInfoEv.exit
-  %.0 = phi i1 [ false, %_ZNK5clang15TypedefNameDecl17getTypeSourceInfoEv.exit ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_13TypeAliasDeclEEEDcPT0_.exit.thread ], [ %49, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %49, %.lr.ph ], [ false, %_ZNK5clang15TypedefNameDecl17getTypeSourceInfoEv.exit ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_13TypeAliasDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -9009,7 +9009,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_17ObjCTypeParamDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit, %_ZNK5clang15TypedefNameDecl17getTypeSourceInfoEv.exit
-  %.0 = phi i1 [ false, %_ZNK5clang15TypedefNameDecl17getTypeSourceInfoEv.exit ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_17ObjCTypeParamDeclEEEDcPT0_.exit.thread ], [ %52, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %52, %.lr.ph ], [ false, %_ZNK5clang15TypedefNameDecl17getTypeSourceInfoEv.exit ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_17ObjCTypeParamDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -9439,7 +9439,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond70.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph.i, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %52, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_24TemplateTemplateParmDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit, %_ZNK5clang24TemplateTemplateParmDecl18getDefaultArgumentEv.exit, %2
-  %.0 = phi i1 [ false, %_ZNK5clang24TemplateTemplateParmDecl18getDefaultArgumentEv.exit ], [ false, %2 ], [ false, %52 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_24TemplateTemplateParmDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ %89, %.lr.ph ], [ false, %.lr.ph.i ]
+  %.0 = phi i1 [ false, %_ZNK5clang24TemplateTemplateParmDecl18getDefaultArgumentEv.exit ], [ false, %2 ], [ false, %52 ], [ %89, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_24TemplateTemplateParmDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ false, %.lr.ph.i ]
   ret i1 %.0
 }
 
@@ -9591,7 +9591,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph.i, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %21, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_15VarTemplateDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit, %.thread27.i
-  %.0 = phi i1 [ false, %.thread27.i ], [ false, %21 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_15VarTemplateDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ %62, %.lr.ph ], [ false, %.lr.ph.i ]
+  %.0 = phi i1 [ false, %.thread27.i ], [ %62, %.lr.ph ], [ false, %21 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_15VarTemplateDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ false, %.lr.ph.i ]
   ret i1 %.0
 }
 
@@ -9743,7 +9743,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph.i, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %25, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_21TypeAliasTemplateDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %25 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_21TypeAliasTemplateDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ %62, %.lr.ph ], [ false, %.lr.ph.i ]
+  %.0 = phi i1 [ %62, %.lr.ph ], [ false, %2 ], [ false, %25 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_21TypeAliasTemplateDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ false, %.lr.ph.i ]
   ret i1 %.0
 }
 
@@ -9895,7 +9895,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph.i, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %21, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_17ClassTemplateDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit, %.thread27.i
-  %.0 = phi i1 [ false, %.thread27.i ], [ false, %21 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_17ClassTemplateDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ %62, %.lr.ph ], [ false, %.lr.ph.i ]
+  %.0 = phi i1 [ false, %.thread27.i ], [ %62, %.lr.ph ], [ false, %21 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_17ClassTemplateDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ false, %.lr.ph.i ]
   ret i1 %.0
 }
 
@@ -10047,7 +10047,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph.i, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %21, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_11ConceptDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit, %.thread27.i
-  %.0 = phi i1 [ false, %.thread27.i ], [ false, %21 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_11ConceptDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ %62, %.lr.ph ], [ false, %.lr.ph.i ]
+  %.0 = phi i1 [ false, %.thread27.i ], [ %62, %.lr.ph ], [ false, %21 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_11ConceptDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ false, %.lr.ph.i ]
   ret i1 %.0
 }
 
@@ -10193,7 +10193,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph.i, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %21, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_19BuiltinTemplateDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ false, %21 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_19BuiltinTemplateDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ %58, %.lr.ph ], [ false, %.lr.ph.i ]
+  %.0 = phi i1 [ false, %21 ], [ %58, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_19BuiltinTemplateDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ false, %.lr.ph.i ]
   ret i1 %.0
 }
 
@@ -10353,7 +10353,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_23ObjCCompatibleAliasDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_23ObjCCompatibleAliasDeclEEEDcPT0_.exit.thread ], [ %38, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %38, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_23ObjCCompatibleAliasDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -10502,7 +10502,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_9LabelDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_9LabelDeclEEEDcPT0_.exit.thread ], [ %38, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %38, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_9LabelDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -10608,7 +10608,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_13UsingEnumDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit, %2
-  %.0 = phi i1 [ false, %2 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_13UsingEnumDeclEEEDcPT0_.exit.thread ], [ %44, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %44, %.lr.ph ], [ false, %2 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_13UsingEnumDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -10822,7 +10822,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE27TraverseDeclarationNameInfoENS_19DeclarationNameInfoE.exit.thread, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_9UsingDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit, %2
-  %.0 = phi i1 [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE27TraverseDeclarationNameInfoENS_19DeclarationNameInfoE.exit.thread ], [ false, %2 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_9UsingDeclEEEDcPT0_.exit.thread ], [ %83, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE27TraverseDeclarationNameInfoENS_19DeclarationNameInfoE.exit.thread ], [ false, %2 ], [ %83, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_9UsingDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -10925,7 +10925,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_29LifetimeExtendedTemporaryDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit, %2
-  %.0 = phi i1 [ false, %2 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_29LifetimeExtendedTemporaryDeclEEEDcPT0_.exit.thread ], [ %42, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %42, %.lr.ph ], [ false, %2 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_29LifetimeExtendedTemporaryDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -11022,7 +11022,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_10ImportDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_10ImportDeclEEEDcPT0_.exit.thread ], [ %38, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %38, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_10ImportDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -11139,7 +11139,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph36, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE25TraverseTemplateArgumentsEN4llvm8ArrayRefINS_16TemplateArgumentEEE.exit
 
 _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE25TraverseTemplateArgumentsEN4llvm8ArrayRefINS_16TemplateArgumentEEE.exit: ; preds = %.lr.ph, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph36, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_33ImplicitConceptSpecializationDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_33ImplicitConceptSpecializationDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ %46, %.lr.ph36 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ %46, %.lr.ph36 ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_33ImplicitConceptSpecializationDeclEEEDcPT0_.exit.thread ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -11300,7 +11300,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph72, label %.critedge55
 
 .critedge55:                                      ; preds = %.lr.ph, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph72, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_18FriendTemplateDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit, %11, %7
-  %.0 = phi i1 [ false, %7 ], [ false, %11 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_18FriendTemplateDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ %65, %.lr.ph72 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ %65, %.lr.ph72 ], [ false, %7 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ false, %11 ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_18FriendTemplateDeclEEEDcPT0_.exit.thread ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -11467,7 +11467,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge37
 
 .critedge37:                                      ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_10FriendDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit, %36, %_ZNK5clang14ElaboratedType15getOwnedTagDeclEv.exit, %7
-  %.0 = phi i1 [ false, %7 ], [ false, %_ZNK5clang14ElaboratedType15getOwnedTagDeclEv.exit ], [ false, %36 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_10FriendDeclEEEDcPT0_.exit.thread ], [ %73, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ false, %7 ], [ false, %_ZNK5clang14ElaboratedType15getOwnedTagDeclEv.exit ], [ %73, %.lr.ph ], [ false, %36 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_10FriendDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -11570,7 +11570,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_16FileScopeAsmDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit, %2
-  %.0 = phi i1 [ false, %2 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_16FileScopeAsmDeclEEEDcPT0_.exit.thread ], [ %42, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %42, %.lr.ph ], [ false, %2 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_16FileScopeAsmDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -11667,7 +11667,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_9EmptyDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_9EmptyDeclEEEDcPT0_.exit.thread ], [ %38, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %38, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_9EmptyDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -11764,7 +11764,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_14AccessSpecDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_14AccessSpecDeclEEEDcPT0_.exit.thread ], [ %38, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %38, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_14AccessSpecDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -13727,7 +13727,7 @@ tailrecurse.backedge:                             ; preds = %_ZNK5clang7TypeLoc1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %tailrecurse.backedge, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit, %3, %159, %156, %142, %140, %135, %133, %130, %127, %124, %121, %118, %116, %113, %111, %108, %106, %104, %102, %99, %96, %94, %92, %90, %88, %86, %84, %78, %75, %73, %71, %69, %65, %62, %59, %56, %53, %50, %47, %44, %41, %38, %35, %32, %29, %26
-  %.0 = phi i1 [ %161, %159 ], [ %28, %26 ], [ %31, %29 ], [ %34, %32 ], [ %37, %35 ], [ %40, %38 ], [ %43, %41 ], [ %46, %44 ], [ %49, %47 ], [ %52, %50 ], [ %55, %53 ], [ %158, %156 ], [ %58, %56 ], [ %61, %59 ], [ %134, %133 ], [ %64, %62 ], [ %68, %65 ], [ %70, %69 ], [ %72, %71 ], [ %74, %73 ], [ %77, %75 ], [ %83, %78 ], [ %85, %84 ], [ %87, %86 ], [ %89, %88 ], [ %91, %90 ], [ %93, %92 ], [ %95, %94 ], [ %98, %96 ], [ %139, %135 ], [ %101, %99 ], [ %103, %102 ], [ %105, %104 ], [ %107, %106 ], [ %110, %108 ], [ %112, %111 ], [ %145, %142 ], [ %141, %140 ], [ %115, %113 ], [ %117, %116 ], [ %120, %118 ], [ %123, %121 ], [ %126, %124 ], [ %129, %127 ], [ %132, %130 ], [ true, %3 ], [ true, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit ], [ true, %tailrecurse.backedge ]
+  %.0 = phi i1 [ %161, %159 ], [ %132, %130 ], [ %129, %127 ], [ %28, %26 ], [ %31, %29 ], [ %34, %32 ], [ %37, %35 ], [ %40, %38 ], [ %43, %41 ], [ %46, %44 ], [ %49, %47 ], [ %52, %50 ], [ %55, %53 ], [ %158, %156 ], [ %58, %56 ], [ %61, %59 ], [ %134, %133 ], [ %64, %62 ], [ %68, %65 ], [ %70, %69 ], [ %72, %71 ], [ %74, %73 ], [ %77, %75 ], [ %83, %78 ], [ %85, %84 ], [ %87, %86 ], [ %89, %88 ], [ %91, %90 ], [ %93, %92 ], [ %95, %94 ], [ %98, %96 ], [ %139, %135 ], [ %101, %99 ], [ %103, %102 ], [ %105, %104 ], [ %107, %106 ], [ %110, %108 ], [ %112, %111 ], [ %145, %142 ], [ %141, %140 ], [ %115, %113 ], [ %117, %116 ], [ %120, %118 ], [ %123, %121 ], [ %126, %124 ], [ true, %3 ], [ true, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit ], [ true, %tailrecurse.backedge ]
   ret i1 %.0
 }
 
@@ -14765,7 +14765,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   br i1 %or.cond.not, label %38, label %.loopexit, !llvm.loop !763
 
 .loopexit:                                        ; preds = %38, %31, %8
-  %.0 = phi i1 [ false, %8 ], [ true, %31 ], [ %43, %38 ]
+  %.0 = phi i1 [ true, %31 ], [ false, %8 ], [ %43, %38 ]
   ret i1 %.0
 }
 
@@ -15167,7 +15167,7 @@ tailrecurse.backedge:                             ; preds = %.lr.ph, %.lr.ph, %.
   br label %.loopexit
 
 .loopexit:                                        ; preds = %tailrecurse.backedge, %.lr.ph, %2, %71, %67, %65, %60, %58, %56, %54, %52, %50, %48, %46, %43, %41, %39, %37, %33, %30, %28, %26, %24, %20, %18, %15, %13, %11, %9
-  %.0 = phi i1 [ %47, %46 ], [ %66, %65 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %61, %60 ], [ %16, %15 ], [ %59, %58 ], [ %57, %56 ], [ %70, %67 ], [ %53, %52 ], [ %49, %48 ], [ %19, %18 ], [ %72, %71 ], [ %51, %50 ], [ %23, %20 ], [ %25, %24 ], [ %27, %26 ], [ %29, %28 ], [ %32, %30 ], [ %36, %33 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %55, %54 ], [ true, %2 ], [ true, %.lr.ph ], [ true, %tailrecurse.backedge ]
+  %.0 = phi i1 [ %47, %46 ], [ %55, %54 ], [ %44, %43 ], [ %66, %65 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %61, %60 ], [ %16, %15 ], [ %59, %58 ], [ %57, %56 ], [ %70, %67 ], [ %53, %52 ], [ %49, %48 ], [ %19, %18 ], [ %72, %71 ], [ %51, %50 ], [ %23, %20 ], [ %25, %24 ], [ %27, %26 ], [ %29, %28 ], [ %32, %30 ], [ %36, %33 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ true, %2 ], [ true, %.lr.ph ], [ true, %tailrecurse.backedge ]
   ret i1 %.0
 }
 
@@ -17574,112 +17574,112 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %.04881 = phi ptr [ %79, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread ], [ %21, %.critedge ]
   %26 = load ptr, ptr %.04881, align 8, !tbaa !801
   %27 = load i32, ptr %26, align 4, !tbaa !803
-  switch i32 %27, label %75 [
+  switch i32 %27, label %72 [
     i32 0, label %28
-    i32 1, label %39
-    i32 2, label %39
-    i32 3, label %71
+    i32 1, label %32
+    i32 2, label %32
+    i32 3, label %64
   ]
 
 28:                                               ; preds = %.lr.ph82
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %29, align 8, !tbaa !806
   %31 = icmp eq i32 %30, 1
-  br i1 %31, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread, label %32
+  br i1 %31, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit
 
-32:                                               ; preds = %28
-  %33 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %.0.copyload.i.i.i.i.i.i.i.i.i58 = load i64, ptr %33, align 8
-  %34 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i58, -8
-  %35 = inttoptr i64 %34 to ptr
-  %.sroa.0.0.copyload.i.i = load i64, ptr %35, align 8, !tbaa !33
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %37 = inttoptr i64 %.sroa.0.0.copyload.i.i to ptr
-  %38 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE15TraverseTypeLocENS_7TypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr %37, ptr nonnull %36)
-  br i1 %38, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread71
+32:                                               ; preds = %.lr.ph82, %.lr.ph82
+  %33 = getelementptr inbounds nuw i8, ptr %26, i64 40
+  %34 = load i32, ptr %33, align 8, !tbaa !814
+  %35 = icmp eq i32 %34, 1
+  br i1 %35, label %41, label %36
 
-39:                                               ; preds = %.lr.ph82, %.lr.ph82
-  %40 = getelementptr inbounds nuw i8, ptr %26, i64 40
-  %41 = load i32, ptr %40, align 8, !tbaa !814
-  %42 = icmp eq i32 %41, 1
-  br i1 %42, label %48, label %43
+36:                                               ; preds = %32
+  %37 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %37, align 8
+  %38 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, -4
+  %39 = inttoptr i64 %38 to ptr
+  %40 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %39, ptr noundef null)
+  br i1 %40, label %41, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread71
 
-43:                                               ; preds = %39
-  %44 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %44, align 8
-  %45 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, -4
-  %46 = inttoptr i64 %45 to ptr
-  %47 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %46, ptr noundef null)
-  br i1 %47, label %48, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread71
-
-48:                                               ; preds = %43, %39
-  %49 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  %.0.copyload.i.i.i.i.i.i = load i64, ptr %49, align 8
+41:                                               ; preds = %36, %32
+  %42 = getelementptr inbounds nuw i8, ptr %26, i64 24
+  %.0.copyload.i.i.i.i.i.i = load i64, ptr %42, align 8
   %.not.i.i.i.i = icmp ugt i64 %.0.copyload.i.i.i.i.i.i, 7
-  %50 = and i64 %.0.copyload.i.i.i.i.i.i, 4
-  %51 = icmp eq i64 %50, 0
-  %52 = and i1 %.not.i.i.i.i, %51
-  br i1 %52, label %53, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread
+  %43 = and i64 %.0.copyload.i.i.i.i.i.i, 4
+  %44 = icmp eq i64 %43, 0
+  %45 = and i1 %.not.i.i.i.i, %44
+  br i1 %45, label %46, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread
 
-53:                                               ; preds = %48
-  %54 = tail call noundef ptr @_ZNK5clang8concepts15ExprRequirement21ReturnTypeRequirement17getTypeConstraintEv(ptr noundef nonnull align 8 dereferenceable(8) %49) #19
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  %56 = load ptr, ptr %55, align 8, !tbaa !447
-  %.sroa.0.0.copyload.i = load ptr, ptr %56, align 8, !tbaa !451
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %56, i64 8
+46:                                               ; preds = %41
+  %47 = tail call noundef ptr @_ZNK5clang8concepts15ExprRequirement21ReturnTypeRequirement17getTypeConstraintEv(ptr noundef nonnull align 8 dereferenceable(8) %42) #19
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  %49 = load ptr, ptr %48, align 8, !tbaa !447
+  %.sroa.0.0.copyload.i = load ptr, ptr %49, align 8, !tbaa !451
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %49, i64 8
   %.sroa.2.0.copyload.i = load ptr, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !452
-  %57 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE30TraverseNestedNameSpecifierLocENS_22NestedNameSpecifierLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr %.sroa.0.0.copyload.i, ptr %.sroa.2.0.copyload.i)
-  br i1 %57, label %58, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread71
+  %50 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE30TraverseNestedNameSpecifierLocENS_22NestedNameSpecifierLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr %.sroa.0.0.copyload.i, ptr %.sroa.2.0.copyload.i)
+  br i1 %50, label %51, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread71
 
-58:                                               ; preds = %53
-  %59 = getelementptr inbounds nuw i8, ptr %56, i64 24
-  %60 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE27TraverseDeclarationNameInfoENS_19DeclarationNameInfoE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull byval(%"struct.clang::DeclarationNameInfo") align 8 %59)
-  br i1 %60, label %61, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread71
+51:                                               ; preds = %46
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 24
+  %53 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE27TraverseDeclarationNameInfoENS_19DeclarationNameInfoE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull byval(%"struct.clang::DeclarationNameInfo") align 8 %52)
+  br i1 %53, label %54, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread71
 
-61:                                               ; preds = %58
-  %62 = getelementptr inbounds nuw i8, ptr %56, i64 64
-  %63 = load ptr, ptr %62, align 8, !tbaa !453
-  %.not73 = icmp eq ptr %63, null
-  br i1 %.not73, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread, label %64
+54:                                               ; preds = %51
+  %55 = getelementptr inbounds nuw i8, ptr %49, i64 64
+  %56 = load ptr, ptr %55, align 8, !tbaa !453
+  %.not73 = icmp eq ptr %56, null
+  br i1 %.not73, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread, label %57
 
-64:                                               ; preds = %61
-  %65 = getelementptr inbounds nuw i8, ptr %63, i64 16
-  %66 = getelementptr inbounds nuw i8, ptr %63, i64 8
-  %67 = load i32, ptr %66, align 8, !tbaa !460
-  %.not86 = icmp eq i32 %67, 0
+57:                                               ; preds = %54
+  %58 = getelementptr inbounds nuw i8, ptr %56, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  %60 = load i32, ptr %59, align 8, !tbaa !460
+  %.not86 = icmp eq i32 %60, 0
   br i1 %.not86, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread, label %.lr.ph79.preheader
 
-.lr.ph79.preheader:                               ; preds = %64
-  %wide.trip.count = zext i32 %67 to i64
+.lr.ph79.preheader:                               ; preds = %57
+  %wide.trip.count = zext i32 %60 to i64
   br label %.lr.ph79
 
-68:                                               ; preds = %.lr.ph79
+61:                                               ; preds = %.lr.ph79
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread, label %.lr.ph79, !llvm.loop !462
 
-.lr.ph79:                                         ; preds = %.lr.ph79.preheader, %68
-  %indvars.iv = phi i64 [ 0, %.lr.ph79.preheader ], [ %indvars.iv.next, %68 ]
-  %69 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %65, i64 %indvars.iv
-  %70 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE27TraverseTemplateArgumentLocERKNS_19TemplateArgumentLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(32) %69)
-  br i1 %70, label %68, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread71
+.lr.ph79:                                         ; preds = %.lr.ph79.preheader, %61
+  %indvars.iv = phi i64 [ 0, %.lr.ph79.preheader ], [ %indvars.iv.next, %61 ]
+  %62 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %58, i64 %indvars.iv
+  %63 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE27TraverseTemplateArgumentLocERKNS_19TemplateArgumentLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(32) %62)
+  br i1 %63, label %61, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread71
 
-71:                                               ; preds = %.lr.ph82
-  %72 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  %73 = load i8, ptr %72, align 8, !tbaa !826, !range !416, !noundef !417
-  %74 = trunc nuw i8 %73 to i1
-  br i1 %74, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit
+64:                                               ; preds = %.lr.ph82
+  %65 = getelementptr inbounds nuw i8, ptr %26, i64 24
+  %66 = load i8, ptr %65, align 8, !tbaa !826, !range !416, !noundef !417
+  %67 = trunc nuw i8 %66 to i1
+  br i1 %67, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread, label %68
 
-75:                                               ; preds = %.lr.ph82
+68:                                               ; preds = %64
+  %69 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %70 = load ptr, ptr %69, align 8, !tbaa !830
+  %71 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %70, ptr noundef null)
+  br i1 %71, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread71
+
+72:                                               ; preds = %.lr.ph82
   unreachable
 
-_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit: ; preds = %71
-  %76 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %77 = load ptr, ptr %76, align 8, !tbaa !830
-  %78 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %77, ptr noundef null)
+_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit: ; preds = %28
+  %73 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %.0.copyload.i.i.i.i.i.i.i.i.i58 = load i64, ptr %73, align 8
+  %74 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i58, -8
+  %75 = inttoptr i64 %74 to ptr
+  %.sroa.0.0.copyload.i.i = load i64, ptr %75, align 8, !tbaa !33
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
+  %77 = inttoptr i64 %.sroa.0.0.copyload.i.i to ptr
+  %78 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE15TraverseTypeLocENS_7TypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr %77, ptr nonnull %76)
   br i1 %78, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread71
 
-_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread: ; preds = %68, %61, %64, %71, %28, %48, %32, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit
+_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread: ; preds = %61, %54, %57, %64, %28, %41, %68, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit
   %79 = getelementptr inbounds nuw i8, ptr %.04881, i64 8
   %.not49 = icmp eq ptr %79, %25
   br i1 %.not49, label %.critedge51, label %.lr.ph82
@@ -17756,8 +17756,8 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE26TraverseConceptReq
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread71
 
-_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread71: ; preds = %.lr.ph, %43, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit, %32, %58, %53, %.lr.ph79, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread71.sink.split, %3
-  %.0 = phi i1 [ false, %3 ], [ %.0.ph, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread71.sink.split ], [ false, %43 ], [ false, %.lr.ph79 ], [ false, %53 ], [ false, %58 ], [ false, %32 ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit ], [ false, %.lr.ph ]
+_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread71: ; preds = %.lr.ph, %36, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit, %68, %51, %46, %.lr.ph79, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread71.sink.split, %3
+  %.0 = phi i1 [ false, %3 ], [ false, %36 ], [ false, %.lr.ph79 ], [ %.0.ph, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread71.sink.split ], [ false, %46 ], [ false, %51 ], [ false, %68 ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -18387,7 +18387,7 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE34TraverseTemplateAr
   br label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit
 
 _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit: ; preds = %.lr.ph, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit.sink.split, %3
-  %.0 = phi i1 [ false, %3 ], [ %.0.ph, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit.sink.split ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ %.0.ph, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit.sink.split ], [ false, %3 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -18516,7 +18516,7 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE34TraverseTemplateAr
   br label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit
 
 _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit: ; preds = %.lr.ph, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit.sink.split, %3
-  %.0 = phi i1 [ false, %3 ], [ %.0.ph, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit.sink.split ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ %.0.ph, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit.sink.split ], [ false, %3 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -21133,7 +21133,7 @@ _ZNK5clang15FunctionTypeLoc12getReturnLocEv.exit: ; preds = %147, %153
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %.lr.ph.i, %69, %.lr.ph119, %55, %173, %_ZNK5clang15FunctionTypeLoc12getReturnLocEv.exit, %143, %176
-  %.0.ph = phi i1 [ %178, %176 ], [ false, %143 ], [ false, %_ZNK5clang15FunctionTypeLoc12getReturnLocEv.exit ], [ false, %173 ], [ false, %55 ], [ false, %69 ], [ false, %.lr.ph119 ], [ false, %.lr.ph.i ]
+  %.0.ph = phi i1 [ %178, %176 ], [ false, %69 ], [ false, %55 ], [ false, %143 ], [ false, %_ZNK5clang15FunctionTypeLoc12getReturnLocEv.exit ], [ false, %173 ], [ false, %.lr.ph119 ], [ false, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit
 
@@ -28218,7 +28218,7 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE22VisitOpenACCClause
   br label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE22VisitOpenACCClauseListEN4llvm8ArrayRefIPKNS_13OpenACCClauseEEE.exit
 
 _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE22VisitOpenACCClauseListEN4llvm8ArrayRefIPKNS_13OpenACCClauseEEE.exit: ; preds = %.lr.ph, %.lr.ph52, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE22VisitOpenACCClauseListEN4llvm8ArrayRefIPKNS_13OpenACCClauseEEE.exit.sink.split, %8
-  %.0 = phi i1 [ false, %8 ], [ %.0.ph, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE22VisitOpenACCClauseListEN4llvm8ArrayRefIPKNS_13OpenACCClauseEEE.exit.sink.split ], [ false, %.lr.ph52 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ %.0.ph, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE22VisitOpenACCClauseListEN4llvm8ArrayRefIPKNS_13OpenACCClauseEEE.exit.sink.split ], [ false, %8 ], [ false, %.lr.ph52 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -37423,7 +37423,7 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE30TraverseOMPExecuta
   br label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE30TraverseOMPExecutableDirectiveEPNS_22OMPExecutableDirectiveE.exit
 
 _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE30TraverseOMPExecutableDirectiveEPNS_22OMPExecutableDirectiveE.exit: ; preds = %.lr.ph, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE30TraverseOMPExecutableDirectiveEPNS_22OMPExecutableDirectiveE.exit.sink.split, %3
-  %.0 = phi i1 [ false, %3 ], [ %.0.ph, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE30TraverseOMPExecutableDirectiveEPNS_22OMPExecutableDirectiveE.exit.sink.split ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ %.0.ph, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE30TraverseOMPExecutableDirectiveEPNS_22OMPExecutableDirectiveE.exit.sink.split ], [ false, %3 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -39292,7 +39292,7 @@ _ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit: ; preds = %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %16, %28, %37, %.loopexit.sink.split, %3
-  %.0 = phi i1 [ false, %3 ], [ %.0.ph, %.loopexit.sink.split ], [ false, %28 ], [ false, %37 ], [ false, %16 ]
+  %.0 = phi i1 [ false, %3 ], [ %.0.ph, %.loopexit.sink.split ], [ false, %37 ], [ false, %28 ], [ false, %16 ]
   ret i1 %.0
 }
 
@@ -40293,7 +40293,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   br i1 %or.cond.not, label %.lr.ph82, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE18VisitOMPClauseListINS_20OMPCopyprivateClauseEEEbPT_.exit
 
 _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE18VisitOMPClauseListINS_20OMPCopyprivateClauseEEEbPT_.exit: ; preds = %.lr.ph, %.lr.ph71, %.lr.ph76, %.lr.ph82, %2, %._crit_edge, %._crit_edge72, %._crit_edge77
-  %.0 = phi i1 [ true, %._crit_edge77 ], [ true, %._crit_edge ], [ true, %2 ], [ true, %._crit_edge72 ], [ false, %.lr.ph71 ], [ %33, %.lr.ph82 ], [ false, %.lr.ph76 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ %33, %.lr.ph82 ], [ true, %._crit_edge ], [ false, %.lr.ph76 ], [ true, %._crit_edge77 ], [ false, %.lr.ph71 ], [ true, %2 ], [ true, %._crit_edge72 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -40381,7 +40381,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   br i1 %or.cond.not, label %.lr.ph82, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE18VisitOMPClauseListINS_15OMPCopyinClauseEEEbPT_.exit
 
 _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE18VisitOMPClauseListINS_15OMPCopyinClauseEEEbPT_.exit: ; preds = %.lr.ph, %.lr.ph71, %.lr.ph76, %.lr.ph82, %2, %._crit_edge, %._crit_edge72, %._crit_edge77
-  %.0 = phi i1 [ true, %._crit_edge77 ], [ true, %._crit_edge ], [ true, %2 ], [ true, %._crit_edge72 ], [ false, %.lr.ph71 ], [ %33, %.lr.ph82 ], [ false, %.lr.ph76 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ %33, %.lr.ph82 ], [ true, %._crit_edge ], [ false, %.lr.ph76 ], [ true, %._crit_edge77 ], [ false, %.lr.ph71 ], [ true, %2 ], [ true, %._crit_edge72 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -40525,7 +40525,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   br i1 %or.cond.not, label %.lr.ph55, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE18VisitOMPClauseListINS_21OMPFirstprivateClauseEEEbPT_.exit
 
 _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE18VisitOMPClauseListINS_21OMPFirstprivateClauseEEEbPT_.exit: ; preds = %.lr.ph, %.lr.ph49, %.lr.ph55, %15, %._crit_edge50, %._crit_edge
-  %.0 = phi i1 [ false, %._crit_edge ], [ true, %._crit_edge50 ], [ true, %15 ], [ false, %.lr.ph49 ], [ %29, %.lr.ph55 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ false, %._crit_edge ], [ %29, %.lr.ph55 ], [ true, %15 ], [ true, %._crit_edge50 ], [ false, %.lr.ph49 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -40721,7 +40721,7 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE28VisitOMPClauseWith
   br i1 %or.cond.not, label %.lr.ph144, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE18VisitOMPClauseListINS_20OMPInReductionClauseEEEbPT_.exit
 
 _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE18VisitOMPClauseListINS_20OMPInReductionClauseEEEbPT_.exit: ; preds = %.lr.ph, %.lr.ph123, %.lr.ph128, %.lr.ph133, %.lr.ph138, %.lr.ph144, %24, %._crit_edge124, %._crit_edge129, %._crit_edge134, %._crit_edge139, %._crit_edge, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit, %5, %2
-  %.0 = phi i1 [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit ], [ false, %._crit_edge ], [ false, %2 ], [ false, %5 ], [ true, %._crit_edge139 ], [ true, %._crit_edge124 ], [ true, %24 ], [ true, %._crit_edge134 ], [ true, %._crit_edge129 ], [ false, %.lr.ph123 ], [ %68, %.lr.ph144 ], [ false, %.lr.ph138 ], [ false, %.lr.ph133 ], [ false, %.lr.ph128 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit ], [ false, %._crit_edge ], [ false, %.lr.ph133 ], [ false, %.lr.ph123 ], [ true, %._crit_edge124 ], [ false, %.lr.ph138 ], [ false, %2 ], [ false, %5 ], [ %68, %.lr.ph144 ], [ true, %._crit_edge139 ], [ false, %.lr.ph128 ], [ true, %24 ], [ true, %._crit_edge134 ], [ true, %._crit_edge129 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -40844,7 +40844,7 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE28VisitOMPClauseWith
   br i1 %or.cond.not, label %.lr.ph112, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE18VisitOMPClauseListINS_20OMPLastprivateClauseEEEbPT_.exit
 
 _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE18VisitOMPClauseListINS_20OMPLastprivateClauseEEEbPT_.exit: ; preds = %.lr.ph, %.lr.ph96, %.lr.ph101, %.lr.ph106, %.lr.ph112, %18, %._crit_edge97, %._crit_edge102, %._crit_edge107, %._crit_edge, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit
-  %.0 = phi i1 [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit ], [ false, %._crit_edge ], [ true, %._crit_edge107 ], [ true, %._crit_edge97 ], [ true, %18 ], [ true, %._crit_edge102 ], [ false, %.lr.ph96 ], [ %51, %.lr.ph112 ], [ false, %.lr.ph106 ], [ false, %.lr.ph101 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit ], [ false, %._crit_edge ], [ %51, %.lr.ph112 ], [ false, %.lr.ph101 ], [ false, %.lr.ph96 ], [ true, %._crit_edge97 ], [ true, %._crit_edge107 ], [ false, %.lr.ph106 ], [ true, %18 ], [ true, %._crit_edge102 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -40992,7 +40992,7 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE28VisitOMPClauseWith
   br i1 %or.cond.not, label %.lr.ph114, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE18VisitOMPClauseListINS_15OMPLinearClauseEEEbPT_.exit
 
 _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE18VisitOMPClauseListINS_15OMPLinearClauseEEEbPT_.exit: ; preds = %.lr.ph, %.lr.ph98, %.lr.ph103, %.lr.ph108, %.lr.ph114, %39, %._crit_edge99, %._crit_edge104, %._crit_edge109, %._crit_edge, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit, %14, %2
-  %.0 = phi i1 [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit ], [ false, %._crit_edge ], [ false, %2 ], [ false, %14 ], [ true, %._crit_edge109 ], [ true, %._crit_edge99 ], [ true, %39 ], [ true, %._crit_edge104 ], [ false, %.lr.ph98 ], [ %72, %.lr.ph114 ], [ false, %.lr.ph108 ], [ false, %.lr.ph103 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit ], [ false, %._crit_edge ], [ %72, %.lr.ph114 ], [ false, %.lr.ph103 ], [ false, %.lr.ph98 ], [ false, %2 ], [ false, %14 ], [ true, %._crit_edge99 ], [ true, %._crit_edge109 ], [ false, %.lr.ph108 ], [ true, %39 ], [ true, %._crit_edge104 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -41302,7 +41302,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   br i1 %or.cond.not, label %.lr.ph27, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE18VisitOMPClauseListINS_16OMPPrivateClauseEEEbPT_.exit
 
 _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE18VisitOMPClauseListINS_16OMPPrivateClauseEEEbPT_.exit: ; preds = %.lr.ph, %.lr.ph27, %2, %._crit_edge
-  %.0 = phi i1 [ true, %._crit_edge ], [ true, %2 ], [ %16, %.lr.ph27 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ %16, %.lr.ph27 ], [ true, %._crit_edge ], [ true, %2 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -41519,7 +41519,7 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE28VisitOMPClauseWith
   br i1 %or.cond.not, label %.lr.ph202, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE18VisitOMPClauseListINS_18OMPReductionClauseEEEbPT_.exit
 
 _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE18VisitOMPClauseListINS_18OMPReductionClauseEEEbPT_.exit: ; preds = %.lr.ph, %.lr.ph172, %.lr.ph177, %.lr.ph182, %.lr.ph187, %.lr.ph192, %.lr.ph197, %.lr.ph202, %63, %._crit_edge193, %._crit_edge198, %._crit_edge, %._crit_edge188, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit, %5, %2
-  %.0 = phi i1 [ false, %._crit_edge ], [ true, %._crit_edge188 ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit ], [ false, %5 ], [ false, %2 ], [ true, %._crit_edge198 ], [ true, %._crit_edge193 ], [ true, %63 ], [ false, %.lr.ph172 ], [ %98, %.lr.ph202 ], [ false, %.lr.ph197 ], [ false, %.lr.ph192 ], [ false, %.lr.ph187 ], [ false, %.lr.ph182 ], [ false, %.lr.ph177 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ false, %._crit_edge ], [ false, %.lr.ph177 ], [ true, %._crit_edge198 ], [ false, %.lr.ph197 ], [ true, %._crit_edge193 ], [ false, %.lr.ph192 ], [ false, %.lr.ph187 ], [ true, %._crit_edge188 ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit ], [ false, %5 ], [ false, %2 ], [ false, %.lr.ph182 ], [ false, %.lr.ph172 ], [ %98, %.lr.ph202 ], [ true, %63 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -41698,7 +41698,7 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE28VisitOMPClauseWith
   br i1 %or.cond.not, label %.lr.ph116, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE18VisitOMPClauseListINS_22OMPTaskReductionClauseEEEbPT_.exit
 
 _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE18VisitOMPClauseListINS_22OMPTaskReductionClauseEEEbPT_.exit: ; preds = %.lr.ph, %.lr.ph100, %.lr.ph105, %.lr.ph110, %.lr.ph116, %24, %._crit_edge101, %._crit_edge106, %._crit_edge111, %._crit_edge, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit, %5, %2
-  %.0 = phi i1 [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit ], [ false, %._crit_edge ], [ false, %2 ], [ false, %5 ], [ true, %._crit_edge111 ], [ true, %._crit_edge101 ], [ true, %24 ], [ true, %._crit_edge106 ], [ false, %.lr.ph100 ], [ %57, %.lr.ph116 ], [ false, %.lr.ph110 ], [ false, %.lr.ph105 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit ], [ false, %._crit_edge ], [ %57, %.lr.ph116 ], [ false, %.lr.ph105 ], [ false, %.lr.ph100 ], [ false, %2 ], [ false, %5 ], [ true, %._crit_edge101 ], [ true, %._crit_edge111 ], [ false, %.lr.ph110 ], [ true, %24 ], [ true, %._crit_edge106 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -43143,7 +43143,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   br i1 %or.cond.not, label %.lr.ph30, label %.loopexit, !llvm.loop !1208
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph30, %._crit_edge
-  %.0 = phi i1 [ true, %._crit_edge ], [ %20, %.lr.ph30 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ %20, %.lr.ph30 ], [ true, %._crit_edge ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -43191,7 +43191,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   br i1 %or.cond.not, label %.lr.ph30, label %.loopexit, !llvm.loop !1215
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph30, %._crit_edge
-  %.0 = phi i1 [ true, %._crit_edge ], [ %20, %.lr.ph30 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ %20, %.lr.ph30 ], [ true, %._crit_edge ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -43507,7 +43507,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   br i1 %or.cond.not, label %.lr.ph85, label %.loopexit, !llvm.loop !1266
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph69, %.lr.ph74, %.lr.ph79, %.lr.ph85, %._crit_edge80, %2
-  %.0 = phi i1 [ false, %2 ], [ true, %._crit_edge80 ], [ false, %.lr.ph69 ], [ %54, %.lr.ph85 ], [ false, %.lr.ph79 ], [ false, %.lr.ph74 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ false, %2 ], [ false, %.lr.ph69 ], [ %54, %.lr.ph85 ], [ false, %.lr.ph79 ], [ false, %.lr.ph74 ], [ true, %._crit_edge80 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -43561,7 +43561,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   br i1 %or.cond.not, label %.lr.ph31, label %.loopexit, !llvm.loop !1276
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph31, %._crit_edge, %2
-  %.0 = phi i1 [ false, %2 ], [ true, %._crit_edge ], [ %24, %.lr.ph31 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ false, %2 ], [ %24, %.lr.ph31 ], [ true, %._crit_edge ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -44638,7 +44638,7 @@ _ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread: ; preds = %199, %193, %_ZNK5cl
   br i1 %.not198, label %.critedge124, label %.lr.ph224
 
 .critedge124:                                     ; preds = %.lr.ph213, %.lr.ph216, %.thread, %143, %225, %.critedge132, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE27TraverseDeclarationNameInfoENS_19DeclarationNameInfoE.exit.thread, %217, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread, %_ZN5clang18declaresSameEntityEPKNS_4DeclES2_.exit.thread, %122, %113, %.thread190, %_ZNK5clang14DeclaratorDecl15getQualifierLocEv.exit
-  %.0 = phi i1 [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE27TraverseDeclarationNameInfoENS_19DeclarationNameInfoE.exit.thread ], [ false, %122 ], [ false, %113 ], [ false, %.thread190 ], [ false, %_ZNK5clang14DeclaratorDecl15getQualifierLocEv.exit ], [ true, %_ZN5clang18declaresSameEntityEPKNS_4DeclES2_.exit.thread ], [ true, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread ], [ true, %217 ], [ false, %.lr.ph216 ], [ true, %.critedge132 ], [ false, %.thread ], [ false, %225 ], [ false, %143 ], [ false, %.lr.ph213 ]
+  %.0 = phi i1 [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_110ASTPrinterEE27TraverseDeclarationNameInfoENS_19DeclarationNameInfoE.exit.thread ], [ false, %122 ], [ false, %113 ], [ false, %.lr.ph216 ], [ false, %.thread190 ], [ false, %_ZNK5clang14DeclaratorDecl15getQualifierLocEv.exit ], [ true, %_ZN5clang18declaresSameEntityEPKNS_4DeclES2_.exit.thread ], [ true, %.critedge132 ], [ true, %217 ], [ true, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread ], [ false, %.thread ], [ false, %225 ], [ false, %143 ], [ false, %.lr.ph213 ]
   ret i1 %.0
 }
 
@@ -45823,7 +45823,7 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE28TraverseFun
   br label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE28TraverseFunctionTemplateDeclEPNS_20FunctionTemplateDeclE.exit.thread
 
 _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE28TraverseFunctionTemplateDeclEPNS_20FunctionTemplateDeclE.exit.thread: ; preds = %.lr.ph.i138, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph.i, %211, %.thread27.i, %_ZN4llvm15isa_and_presentIJN5clang21TypeAliasTemplateDeclEEPNS1_12TemplateDeclEEEbRKT0_.exit, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE40TraverseTemplateTypeParamDeclConstraintsEPKNS_20TemplateTypeParmDeclE.exit, %286, %284, %282, %280, %278, %276, %274, %272, %270, %268, %266, %264, %262, %260, %258, %256, %254, %180, %178, %176, %174, %172, %170, %168, %166, %164, %162, %160, %158, %156, %154, %152, %150, %148, %146, %144, %142, %140, %138, %136, %134, %132, %130, %128, %126, %124, %122, %120, %118, %116, %114, %112, %110, %108, %106, %104, %102, %100, %98, %96, %94, %92, %90, %88, %86, %84, %82, %80, %78, %76, %74, %72, %70, %68, %66, %64, %62, %60, %58, %56, %54, %52, %50, %48, %46, %44, %2, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE28TraverseFunctionTemplateDeclEPNS_20FunctionTemplateDeclE.exit
-  %.0 = phi i1 [ true, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE28TraverseFunctionTemplateDeclEPNS_20FunctionTemplateDeclE.exit ], [ false, %286 ], [ false, %44 ], [ false, %46 ], [ false, %48 ], [ false, %50 ], [ false, %52 ], [ false, %54 ], [ false, %56 ], [ false, %58 ], [ false, %60 ], [ false, %62 ], [ false, %64 ], [ false, %66 ], [ false, %68 ], [ false, %70 ], [ false, %72 ], [ false, %74 ], [ false, %76 ], [ false, %78 ], [ false, %80 ], [ false, %82 ], [ false, %84 ], [ false, %86 ], [ false, %88 ], [ false, %90 ], [ false, %92 ], [ false, %94 ], [ false, %96 ], [ false, %98 ], [ false, %100 ], [ false, %102 ], [ false, %104 ], [ false, %106 ], [ false, %108 ], [ false, %110 ], [ false, %112 ], [ false, %114 ], [ false, %116 ], [ false, %118 ], [ false, %120 ], [ false, %122 ], [ false, %124 ], [ false, %126 ], [ false, %128 ], [ false, %130 ], [ false, %132 ], [ false, %134 ], [ false, %136 ], [ false, %138 ], [ false, %140 ], [ false, %142 ], [ false, %144 ], [ false, %146 ], [ false, %148 ], [ false, %150 ], [ false, %152 ], [ false, %154 ], [ false, %156 ], [ false, %158 ], [ false, %160 ], [ false, %162 ], [ false, %164 ], [ false, %166 ], [ false, %168 ], [ false, %170 ], [ false, %172 ], [ false, %174 ], [ false, %176 ], [ false, %178 ], [ false, %180 ], [ true, %_ZN4llvm15isa_and_presentIJN5clang21TypeAliasTemplateDeclEEPNS1_12TemplateDeclEEEbRKT0_.exit ], [ false, %254 ], [ false, %256 ], [ false, %258 ], [ false, %260 ], [ false, %262 ], [ false, %264 ], [ false, %266 ], [ false, %268 ], [ false, %270 ], [ false, %272 ], [ false, %274 ], [ false, %276 ], [ false, %278 ], [ false, %280 ], [ false, %282 ], [ false, %284 ], [ true, %2 ], [ %spec.select, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE40TraverseTemplateTypeParamDeclConstraintsEPKNS_20TemplateTypeParmDeclE.exit ], [ false, %.thread27.i ], [ false, %211 ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ false, %.lr.ph.i ], [ false, %.lr.ph.i138 ]
+  %.0 = phi i1 [ true, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE28TraverseFunctionTemplateDeclEPNS_20FunctionTemplateDeclE.exit ], [ false, %286 ], [ false, %44 ], [ false, %46 ], [ false, %48 ], [ false, %50 ], [ false, %52 ], [ false, %54 ], [ false, %56 ], [ false, %58 ], [ false, %60 ], [ false, %62 ], [ false, %64 ], [ false, %66 ], [ false, %68 ], [ false, %70 ], [ false, %72 ], [ false, %74 ], [ false, %76 ], [ false, %78 ], [ false, %80 ], [ false, %82 ], [ false, %84 ], [ false, %86 ], [ false, %88 ], [ false, %90 ], [ false, %92 ], [ false, %94 ], [ false, %96 ], [ false, %98 ], [ false, %100 ], [ false, %102 ], [ false, %104 ], [ false, %106 ], [ false, %108 ], [ false, %110 ], [ false, %112 ], [ false, %114 ], [ false, %116 ], [ false, %118 ], [ false, %120 ], [ false, %122 ], [ false, %124 ], [ false, %126 ], [ false, %128 ], [ false, %130 ], [ false, %132 ], [ false, %134 ], [ false, %136 ], [ false, %138 ], [ false, %140 ], [ false, %142 ], [ false, %144 ], [ false, %146 ], [ false, %148 ], [ false, %150 ], [ false, %152 ], [ false, %154 ], [ false, %156 ], [ false, %158 ], [ false, %160 ], [ false, %162 ], [ false, %164 ], [ false, %166 ], [ false, %168 ], [ false, %170 ], [ false, %172 ], [ false, %174 ], [ false, %176 ], [ false, %178 ], [ false, %180 ], [ true, %_ZN4llvm15isa_and_presentIJN5clang21TypeAliasTemplateDeclEEPNS1_12TemplateDeclEEEbRKT0_.exit ], [ false, %254 ], [ false, %256 ], [ false, %258 ], [ false, %260 ], [ false, %262 ], [ false, %264 ], [ false, %266 ], [ false, %268 ], [ false, %270 ], [ false, %272 ], [ false, %274 ], [ false, %276 ], [ false, %278 ], [ false, %280 ], [ false, %282 ], [ false, %284 ], [ true, %2 ], [ %spec.select, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE40TraverseTemplateTypeParamDeclConstraintsEPKNS_20TemplateTypeParmDeclE.exit ], [ false, %.thread27.i ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ false, %211 ], [ false, %.lr.ph.i ], [ false, %.lr.ph.i138 ]
   ret i1 %.0
 }
 
@@ -46018,7 +46018,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br label %.critedge47
 
 .critedge47:                                      ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph78, %_ZNSt6vectorIPN5clang4DeclESaIS2_EED2Ev.exit, %_ZNK5clang4Decl5attrsEv.exit, %78, %.critedge45
-  %.0 = phi i1 [ false, %.critedge45 ], [ false, %78 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZNSt6vectorIPN5clang4DeclESaIS2_EED2Ev.exit ], [ %76, %.lr.ph78 ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ false, %.critedge45 ], [ false, %78 ], [ %76, %.lr.ph78 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZNSt6vectorIPN5clang4DeclESaIS2_EED2Ev.exit ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -46113,7 +46113,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %.loopexit, %_ZNK5clang4Decl5attrsEv.exit, %2
-  %.0 = phi i1 [ false, %2 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ %40, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %40, %.lr.ph ], [ false, %2 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -46202,7 +46202,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %.loopexit, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ %36, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %36, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -46340,7 +46340,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %.loopexit, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ %36, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %36, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -46429,7 +46429,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %.loopexit, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ %36, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %36, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -46518,7 +46518,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %.loopexit, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ %36, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %36, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -46659,7 +46659,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph68, label %.critedge55
 
 .critedge55:                                      ; preds = %23, %.lr.ph68, %.critedge53, %_ZNK5clang4Decl5attrsEv.exit, %.critedge, %5
-  %.0 = phi i1 [ false, %.critedge ], [ false, %5 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.critedge53 ], [ %41, %.lr.ph68 ], [ false, %23 ]
+  %.0 = phi i1 [ false, %.critedge ], [ false, %5 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ %41, %.lr.ph68 ], [ true, %.critedge53 ], [ false, %23 ]
   ret i1 %.0
 }
 
@@ -46770,7 +46770,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_16StaticAssertDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit, %7, %2
-  %.0 = phi i1 [ false, %7 ], [ false, %2 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_16StaticAssertDeclEEEDcPT0_.exit.thread ], [ %47, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ false, %7 ], [ false, %2 ], [ %47, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_16StaticAssertDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -46867,7 +46867,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_24PragmaDetectMismatchDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_24PragmaDetectMismatchDeclEEEDcPT0_.exit.thread ], [ %38, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %38, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_24PragmaDetectMismatchDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -46964,7 +46964,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_17PragmaCommentDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_17PragmaCommentDeclEEEDcPT0_.exit.thread ], [ %38, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %38, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_17PragmaCommentDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -47061,7 +47061,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_20ObjCPropertyImplDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_20ObjCPropertyImplDeclEEEDcPT0_.exit.thread ], [ %38, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %38, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_20ObjCPropertyImplDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -47185,7 +47185,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph51, label %.critedge41
 
 .critedge41:                                      ; preds = %.lr.ph, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph51, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_20OMPThreadPrivateDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_20OMPThreadPrivateDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ %54, %.lr.ph51 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ %54, %.lr.ph51 ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_20OMPThreadPrivateDeclEEEDcPT0_.exit.thread ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -47304,7 +47304,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph51, label %.critedge41
 
 .critedge41:                                      ; preds = %.lr.ph, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph51, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_15OMPRequiresDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_15OMPRequiresDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ %48, %.lr.ph51 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ %48, %.lr.ph51 ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_15OMPRequiresDeclEEEDcPT0_.exit.thread ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -47453,7 +47453,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph77, label %.critedge59
 
 .critedge59:                                      ; preds = %.lr.ph, %.lr.ph74, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph77, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_15OMPAllocateDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_15OMPAllocateDeclEEEDcPT0_.exit.thread ], [ false, %.lr.ph74 ], [ %63, %.lr.ph77 ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ false, %.lr.ph74 ], [ %63, %.lr.ph77 ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_15OMPAllocateDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -47569,7 +47569,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph58, label %.critedge46
 
 .critedge46:                                      ; preds = %.lr.ph, %.lr.ph58, %41, %_ZNK5clang4Decl5attrsEv.exit, %35, %16
-  %.0 = phi i1 [ false, %16 ], [ false, %35 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %41 ], [ %57, %.lr.ph58 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ false, %16 ], [ false, %35 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ %57, %.lr.ph58 ], [ true, %41 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -47693,7 +47693,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph80, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph80, %.loopexit, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ %53, %.lr.ph80 ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %53, %.lr.ph80 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -47915,7 +47915,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph108, label %.critedge76
 
 .critedge76:                                      ; preds = %.lr.ph, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph108, %.loopexit, %_ZNK5clang4Decl5attrsEv.exit, %42
-  %.0 = phi i1 [ false, %42 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ %92, %.lr.ph108 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ false, %42 ], [ %92, %.lr.ph108 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ true, %.loopexit ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -48026,7 +48026,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %.loopexit, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ %47, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %47, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -48137,7 +48137,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %.loopexit, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ %47, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %47, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -48275,7 +48275,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph93, label %.critedge63
 
 .critedge63:                                      ; preds = %.lr.ph, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph93, %.loopexit, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ %59, %.lr.ph93 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ %59, %.lr.ph93 ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ true, %.loopexit ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -48386,7 +48386,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %.loopexit, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ %47, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %47, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -48497,7 +48497,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %.loopexit, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ %47, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %47, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -48839,7 +48839,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE27TraverseDeclarationNameInfoENS_19DeclarationNameInfoE.exit.thread, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_24UnresolvedUsingValueDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE34WalkUpFromUnresolvedUsingValueDeclEPNS_24UnresolvedUsingValueDeclE.exit
-  %.0 = phi i1 [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE27TraverseDeclarationNameInfoENS_19DeclarationNameInfoE.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE34WalkUpFromUnresolvedUsingValueDeclEPNS_24UnresolvedUsingValueDeclE.exit ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_24UnresolvedUsingValueDeclEEEDcPT0_.exit.thread ], [ %94, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE27TraverseDeclarationNameInfoENS_19DeclarationNameInfoE.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE34WalkUpFromUnresolvedUsingValueDeclEPNS_24UnresolvedUsingValueDeclE.exit ], [ %94, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_24UnresolvedUsingValueDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -48958,7 +48958,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_25UnnamedGlobalConstantDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_25UnnamedGlobalConstantDeclEEEDcPT0_.exit.thread ], [ %49, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %49, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_25UnnamedGlobalConstantDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -49077,7 +49077,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_23TemplateParamObjectDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_23TemplateParamObjectDeclEEEDcPT0_.exit.thread ], [ %49, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %49, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_23TemplateParamObjectDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -49196,7 +49196,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_10MSGuidDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_10MSGuidDeclEEEDcPT0_.exit.thread ], [ %49, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %49, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_10MSGuidDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -49315,7 +49315,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_17IndirectFieldDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_17IndirectFieldDeclEEEDcPT0_.exit.thread ], [ %49, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %49, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_17IndirectFieldDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -49440,7 +49440,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_16EnumConstantDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE26WalkUpFromEnumConstantDeclEPNS_16EnumConstantDeclE.exit
-  %.0 = phi i1 [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE26WalkUpFromEnumConstantDeclEPNS_16EnumConstantDeclE.exit ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_16EnumConstantDeclEEEDcPT0_.exit.thread ], [ %53, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %53, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE26WalkUpFromEnumConstantDeclEPNS_16EnumConstantDeclE.exit ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_16EnumConstantDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -50001,7 +50001,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %24, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE17WalkUpFromVarDeclEPNS_7VarDeclE.exit, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_7VarDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE17WalkUpFromVarDeclEPNS_7VarDeclE.exit ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_7VarDeclEEEDcPT0_.exit.thread ], [ false, %24 ], [ %61, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE17WalkUpFromVarDeclEPNS_7VarDeclE.exit ], [ %61, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_7VarDeclEEEDcPT0_.exit.thread ], [ false, %24 ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -50210,7 +50210,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph45, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit
 
 _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit: ; preds = %.lr.ph, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph45, %40, %29, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_29VarTemplateSpecializationDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit, %_ZNK5clang14DeclaratorDecl15getQualifierLocEv.exit
-  %.0 = phi i1 [ %49, %_ZNK5clang14DeclaratorDecl15getQualifierLocEv.exit ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_29VarTemplateSpecializationDeclEEEDcPT0_.exit.thread ], [ false, %29 ], [ false, %40 ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ %84, %.lr.ph45 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ %84, %.lr.ph45 ], [ %49, %_ZNK5clang14DeclaratorDecl15getQualifierLocEv.exit ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ false, %29 ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_29VarTemplateSpecializationDeclEEEDcPT0_.exit.thread ], [ false, %40 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -50438,7 +50438,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph40, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit
 
 _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit: ; preds = %.lr.ph.i, %.lr.ph, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph40, %56, %._crit_edge, %32, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_36VarTemplatePartialSpecializationDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ false, %32 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_36VarTemplatePartialSpecializationDeclEEEDcPT0_.exit.thread ], [ false, %._crit_edge ], [ false, %56 ], [ false, %.lr.ph ], [ %93, %.lr.ph40 ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ false, %.lr.ph.i ]
+  %.0 = phi i1 [ false, %32 ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ %93, %.lr.ph40 ], [ false, %._crit_edge ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_36VarTemplatePartialSpecializationDeclEEEDcPT0_.exit.thread ], [ false, %56 ], [ false, %.lr.ph ], [ false, %.lr.ph.i ]
   ret i1 %.0
 }
 
@@ -50613,7 +50613,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %24, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE21WalkUpFromParmVarDeclEPNS_11ParmVarDeclE.exit, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_11ParmVarDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit, %42, %33
-  %.0 = phi i1 [ false, %33 ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE21WalkUpFromParmVarDeclEPNS_11ParmVarDeclE.exit ], [ false, %42 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_11ParmVarDeclEEEDcPT0_.exit.thread ], [ false, %24 ], [ %80, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ false, %33 ], [ %80, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE21WalkUpFromParmVarDeclEPNS_11ParmVarDeclE.exit ], [ false, %42 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_11ParmVarDeclEEEDcPT0_.exit.thread ], [ false, %24 ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -50754,7 +50754,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %24, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE29WalkUpFromOMPCapturedExprDeclEPNS_19OMPCapturedExprDeclE.exit, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_19OMPCapturedExprDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE29WalkUpFromOMPCapturedExprDeclEPNS_19OMPCapturedExprDeclE.exit ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_19OMPCapturedExprDeclEEEDcPT0_.exit.thread ], [ false, %24 ], [ %61, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE29WalkUpFromOMPCapturedExprDeclEPNS_19OMPCapturedExprDeclE.exit ], [ %61, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_19OMPCapturedExprDeclEEEDcPT0_.exit.thread ], [ false, %24 ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -50895,7 +50895,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %24, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE27WalkUpFromImplicitParamDeclEPNS_17ImplicitParamDeclE.exit, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_17ImplicitParamDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE27WalkUpFromImplicitParamDeclEPNS_17ImplicitParamDeclE.exit ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_17ImplicitParamDeclEEEDcPT0_.exit.thread ], [ false, %24 ], [ %61, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE27WalkUpFromImplicitParamDeclEPNS_17ImplicitParamDeclE.exit ], [ %61, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_17ImplicitParamDeclEEEDcPT0_.exit.thread ], [ false, %24 ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -51057,7 +51057,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph52, label %.critedge42
 
 .critedge42:                                      ; preds = %.lr.ph, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph52, %24, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE27WalkUpFromDecompositionDeclEPNS_17DecompositionDeclE.exit, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_17DecompositionDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_17DecompositionDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE27WalkUpFromDecompositionDeclEPNS_17DecompositionDeclE.exit ], [ false, %24 ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ %70, %.lr.ph52 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ %70, %.lr.ph52 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE27WalkUpFromDecompositionDeclEPNS_17DecompositionDeclE.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_17DecompositionDeclEEEDcPT0_.exit.thread ], [ false, %24 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -51240,7 +51240,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond59.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_23NonTypeTemplateParmDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit, %_ZNK5clang23NonTypeTemplateParmDecl18getDefaultArgumentEv.exit, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE33WalkUpFromNonTypeTemplateParmDeclEPNS_23NonTypeTemplateParmDeclE.exit
-  %.0 = phi i1 [ false, %_ZNK5clang23NonTypeTemplateParmDecl18getDefaultArgumentEv.exit ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE33WalkUpFromNonTypeTemplateParmDeclEPNS_23NonTypeTemplateParmDeclE.exit ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_23NonTypeTemplateParmDeclEEEDcPT0_.exit.thread ], [ %78, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ false, %_ZNK5clang23NonTypeTemplateParmDecl18getDefaultArgumentEv.exit ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE33WalkUpFromNonTypeTemplateParmDeclEPNS_23NonTypeTemplateParmDeclE.exit ], [ %78, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_23NonTypeTemplateParmDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -51363,7 +51363,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_14MSPropertyDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE24WalkUpFromMSPropertyDeclEPNS_14MSPropertyDeclE.exit
-  %.0 = phi i1 [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE24WalkUpFromMSPropertyDeclEPNS_14MSPropertyDeclE.exit ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_14MSPropertyDeclEEEDcPT0_.exit.thread ], [ %51, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %51, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE24WalkUpFromMSPropertyDeclEPNS_14MSPropertyDeclE.exit ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_14MSPropertyDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -51524,7 +51524,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_9FieldDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit, %33, %_ZNK5clang9FieldDecl11getBitWidthEv.exit, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE19WalkUpFromFieldDeclEPNS_9FieldDeclE.exit
-  %.0 = phi i1 [ false, %_ZNK5clang9FieldDecl11getBitWidthEv.exit ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE19WalkUpFromFieldDeclEPNS_9FieldDeclE.exit ], [ false, %33 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_9FieldDeclEEEDcPT0_.exit.thread ], [ %72, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ false, %_ZNK5clang9FieldDecl11getBitWidthEv.exit ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE19WalkUpFromFieldDeclEPNS_9FieldDeclE.exit ], [ %72, %.lr.ph ], [ false, %33 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_9FieldDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -51668,7 +51668,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_12ObjCIvarDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit, %_ZNK5clang9FieldDecl11getBitWidthEv.exit, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE22WalkUpFromObjCIvarDeclEPNS_12ObjCIvarDeclE.exit
-  %.0 = phi i1 [ false, %_ZNK5clang9FieldDecl11getBitWidthEv.exit ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE22WalkUpFromObjCIvarDeclEPNS_12ObjCIvarDeclE.exit ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_12ObjCIvarDeclEEEDcPT0_.exit.thread ], [ %65, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ false, %_ZNK5clang9FieldDecl11getBitWidthEv.exit ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE22WalkUpFromObjCIvarDeclEPNS_12ObjCIvarDeclE.exit ], [ %65, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_12ObjCIvarDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -51812,7 +51812,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_19ObjCAtDefsFieldDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit, %_ZNK5clang9FieldDecl11getBitWidthEv.exit, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE29WalkUpFromObjCAtDefsFieldDeclEPNS_19ObjCAtDefsFieldDeclE.exit
-  %.0 = phi i1 [ false, %_ZNK5clang9FieldDecl11getBitWidthEv.exit ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE29WalkUpFromObjCAtDefsFieldDeclEPNS_19ObjCAtDefsFieldDeclE.exit ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_19ObjCAtDefsFieldDeclEEEDcPT0_.exit.thread ], [ %65, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ false, %_ZNK5clang9FieldDecl11getBitWidthEv.exit ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE29WalkUpFromObjCAtDefsFieldDeclEPNS_19ObjCAtDefsFieldDeclE.exit ], [ %65, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_19ObjCAtDefsFieldDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -51931,7 +51931,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_11BindingDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_11BindingDeclEEEDcPT0_.exit.thread ], [ %49, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %49, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_11BindingDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -52050,7 +52050,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_15UsingShadowDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_15UsingShadowDeclEEEDcPT0_.exit.thread ], [ %49, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %49, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_15UsingShadowDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -52169,7 +52169,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_26ConstructorUsingShadowDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_26ConstructorUsingShadowDeclEEEDcPT0_.exit.thread ], [ %49, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %49, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_26ConstructorUsingShadowDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -52288,7 +52288,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_13UsingPackDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_13UsingPackDeclEEEDcPT0_.exit.thread ], [ %49, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %49, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_13UsingPackDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -52415,7 +52415,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_18UsingDirectiveDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE28WalkUpFromUsingDirectiveDeclEPNS_18UsingDirectiveDeclE.exit
-  %.0 = phi i1 [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE28WalkUpFromUsingDirectiveDeclEPNS_18UsingDirectiveDeclE.exit ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_18UsingDirectiveDeclEEEDcPT0_.exit.thread ], [ %52, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %52, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE28WalkUpFromUsingDirectiveDeclEPNS_18UsingDirectiveDeclE.exit ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_18UsingDirectiveDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -52534,7 +52534,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_27UnresolvedUsingIfExistsDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_27UnresolvedUsingIfExistsDeclEEEDcPT0_.exit.thread ], [ %49, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %49, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_27UnresolvedUsingIfExistsDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -52733,7 +52733,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph43, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph43, %.loopexit, %_ZNK5clang4Decl5attrsEv.exit, %_ZNK5clang7TagDecl15getQualifierLocEv.exit
-  %.0 = phi i1 [ false, %_ZNK5clang7TagDecl15getQualifierLocEv.exit ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ %82, %.lr.ph43 ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %82, %.lr.ph43 ], [ false, %_ZNK5clang7TagDecl15getQualifierLocEv.exit ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -52848,7 +52848,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %.loopexit, %_ZNK5clang4Decl5attrsEv.exit, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE23WalkUpFromCXXRecordDeclEPNS_13CXXRecordDeclE.exit
-  %.0 = phi i1 [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE23WalkUpFromCXXRecordDeclEPNS_13CXXRecordDeclE.exit ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ %49, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %49, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE23WalkUpFromCXXRecordDeclEPNS_13CXXRecordDeclE.exit ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -53031,7 +53031,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph45, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit
 
 _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit: ; preds = %.lr.ph, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph45, %.loopexit, %_ZNK5clang4Decl5attrsEv.exit, %_ZNK5clang7TagDecl15getQualifierLocEv.exit, %29
-  %.0 = phi i1 [ %37, %_ZNK5clang7TagDecl15getQualifierLocEv.exit ], [ false, %29 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ %72, %.lr.ph45 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ %72, %.lr.ph45 ], [ %37, %_ZNK5clang7TagDecl15getQualifierLocEv.exit ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ false, %29 ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ true, %.loopexit ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -53233,7 +53233,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph40, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit
 
 _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit: ; preds = %.lr.ph.i, %.lr.ph, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph40, %32, %.loopexit, %_ZNK5clang4Decl5attrsEv.exit, %._crit_edge
-  %.0 = phi i1 [ false, %32 ], [ false, %._crit_edge ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ false, %.lr.ph ], [ %81, %.lr.ph40 ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ false, %.lr.ph.i ]
+  %.0 = phi i1 [ false, %32 ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ false, %._crit_edge ], [ false, %.lr.ph ], [ true, %.loopexit ], [ %81, %.lr.ph40 ], [ false, %.lr.ph.i ]
   ret i1 %.0
 }
 
@@ -53450,7 +53450,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph62, label %.critedge37
 
 .critedge37:                                      ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph62, %.loopexit, %_ZNK5clang4Decl5attrsEv.exit, %52, %_ZNK5clang7TagDecl15getQualifierLocEv.exit
-  %.0 = phi i1 [ false, %52 ], [ false, %_ZNK5clang7TagDecl15getQualifierLocEv.exit ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ %90, %.lr.ph62 ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ false, %52 ], [ false, %_ZNK5clang7TagDecl15getQualifierLocEv.exit ], [ %90, %.lr.ph62 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -53577,7 +53577,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_27UnresolvedUsingTypenameDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE37WalkUpFromUnresolvedUsingTypenameDeclEPNS_27UnresolvedUsingTypenameDeclE.exit
-  %.0 = phi i1 [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE37WalkUpFromUnresolvedUsingTypenameDeclEPNS_27UnresolvedUsingTypenameDeclE.exit ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_27UnresolvedUsingTypenameDeclEEEDcPT0_.exit.thread ], [ %52, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %52, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE37WalkUpFromUnresolvedUsingTypenameDeclEPNS_27UnresolvedUsingTypenameDeclE.exit ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_27UnresolvedUsingTypenameDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -53717,7 +53717,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_11TypedefDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit, %_ZNK5clang15TypedefNameDecl17getTypeSourceInfoEv.exit
-  %.0 = phi i1 [ false, %_ZNK5clang15TypedefNameDecl17getTypeSourceInfoEv.exit ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_11TypedefDeclEEEDcPT0_.exit.thread ], [ %60, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %60, %.lr.ph ], [ false, %_ZNK5clang15TypedefNameDecl17getTypeSourceInfoEv.exit ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_11TypedefDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -53857,7 +53857,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_13TypeAliasDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit, %_ZNK5clang15TypedefNameDecl17getTypeSourceInfoEv.exit
-  %.0 = phi i1 [ false, %_ZNK5clang15TypedefNameDecl17getTypeSourceInfoEv.exit ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_13TypeAliasDeclEEEDcPT0_.exit.thread ], [ %60, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %60, %.lr.ph ], [ false, %_ZNK5clang15TypedefNameDecl17getTypeSourceInfoEv.exit ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_13TypeAliasDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -54003,7 +54003,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_17ObjCTypeParamDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit, %_ZNK5clang15TypedefNameDecl17getTypeSourceInfoEv.exit
-  %.0 = phi i1 [ false, %_ZNK5clang15TypedefNameDecl17getTypeSourceInfoEv.exit ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_17ObjCTypeParamDeclEEEDcPT0_.exit.thread ], [ %63, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %63, %.lr.ph ], [ false, %_ZNK5clang15TypedefNameDecl17getTypeSourceInfoEv.exit ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_17ObjCTypeParamDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -54477,7 +54477,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond72.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph.i, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %63, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_24TemplateTemplateParmDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit, %_ZNK5clang24TemplateTemplateParmDecl18getDefaultArgumentEv.exit, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE34WalkUpFromTemplateTemplateParmDeclEPNS_24TemplateTemplateParmDeclE.exit
-  %.0 = phi i1 [ false, %_ZNK5clang24TemplateTemplateParmDecl18getDefaultArgumentEv.exit ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE34WalkUpFromTemplateTemplateParmDeclEPNS_24TemplateTemplateParmDeclE.exit ], [ false, %63 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_24TemplateTemplateParmDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ %100, %.lr.ph ], [ false, %.lr.ph.i ]
+  %.0 = phi i1 [ false, %_ZNK5clang24TemplateTemplateParmDecl18getDefaultArgumentEv.exit ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE34WalkUpFromTemplateTemplateParmDeclEPNS_24TemplateTemplateParmDeclE.exit ], [ false, %63 ], [ %100, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_24TemplateTemplateParmDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ false, %.lr.ph.i ]
   ret i1 %.0
 }
 
@@ -54651,7 +54651,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph.i, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %32, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_15VarTemplateDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit, %.thread27.i
-  %.0 = phi i1 [ false, %.thread27.i ], [ false, %32 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_15VarTemplateDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ %73, %.lr.ph ], [ false, %.lr.ph.i ]
+  %.0 = phi i1 [ false, %.thread27.i ], [ %73, %.lr.ph ], [ false, %32 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_15VarTemplateDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ false, %.lr.ph.i ]
   ret i1 %.0
 }
 
@@ -54825,7 +54825,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph.i, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %36, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_21TypeAliasTemplateDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE31WalkUpFromTypeAliasTemplateDeclEPNS_21TypeAliasTemplateDeclE.exit
-  %.0 = phi i1 [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE31WalkUpFromTypeAliasTemplateDeclEPNS_21TypeAliasTemplateDeclE.exit ], [ false, %36 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_21TypeAliasTemplateDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ %73, %.lr.ph ], [ false, %.lr.ph.i ]
+  %.0 = phi i1 [ %73, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE31WalkUpFromTypeAliasTemplateDeclEPNS_21TypeAliasTemplateDeclE.exit ], [ false, %36 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_21TypeAliasTemplateDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ false, %.lr.ph.i ]
   ret i1 %.0
 }
 
@@ -54999,7 +54999,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph.i, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %32, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_17ClassTemplateDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit, %.thread27.i
-  %.0 = phi i1 [ false, %.thread27.i ], [ false, %32 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_17ClassTemplateDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ %73, %.lr.ph ], [ false, %.lr.ph.i ]
+  %.0 = phi i1 [ false, %.thread27.i ], [ %73, %.lr.ph ], [ false, %32 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_17ClassTemplateDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ false, %.lr.ph.i ]
   ret i1 %.0
 }
 
@@ -55173,7 +55173,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph.i, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %32, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_11ConceptDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit, %.thread27.i
-  %.0 = phi i1 [ false, %.thread27.i ], [ false, %32 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_11ConceptDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ %73, %.lr.ph ], [ false, %.lr.ph.i ]
+  %.0 = phi i1 [ false, %.thread27.i ], [ %73, %.lr.ph ], [ false, %32 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_11ConceptDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ false, %.lr.ph.i ]
   ret i1 %.0
 }
 
@@ -55341,7 +55341,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph.i, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %32, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_19BuiltinTemplateDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ false, %32 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_19BuiltinTemplateDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ %69, %.lr.ph ], [ false, %.lr.ph.i ]
+  %.0 = phi i1 [ false, %32 ], [ %69, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_19BuiltinTemplateDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ false, %.lr.ph.i ]
   ret i1 %.0
 }
 
@@ -55545,7 +55545,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_23ObjCCompatibleAliasDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_23ObjCCompatibleAliasDeclEEEDcPT0_.exit.thread ], [ %49, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %49, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_23ObjCCompatibleAliasDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -55738,7 +55738,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_9LabelDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_9LabelDeclEEEDcPT0_.exit.thread ], [ %49, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %49, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_9LabelDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -55866,7 +55866,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_13UsingEnumDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE23WalkUpFromUsingEnumDeclEPNS_13UsingEnumDeclE.exit
-  %.0 = phi i1 [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE23WalkUpFromUsingEnumDeclEPNS_13UsingEnumDeclE.exit ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_13UsingEnumDeclEEEDcPT0_.exit.thread ], [ %55, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %55, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE23WalkUpFromUsingEnumDeclEPNS_13UsingEnumDeclE.exit ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_13UsingEnumDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -56102,7 +56102,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE27TraverseDeclarationNameInfoENS_19DeclarationNameInfoE.exit.thread, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_9UsingDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE19WalkUpFromUsingDeclEPNS_9UsingDeclE.exit
-  %.0 = phi i1 [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE27TraverseDeclarationNameInfoENS_19DeclarationNameInfoE.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE19WalkUpFromUsingDeclEPNS_9UsingDeclE.exit ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_9UsingDeclEEEDcPT0_.exit.thread ], [ %94, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE27TraverseDeclarationNameInfoENS_19DeclarationNameInfoE.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE19WalkUpFromUsingDeclEPNS_9UsingDeclE.exit ], [ %94, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_9UsingDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -56205,7 +56205,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_29LifetimeExtendedTemporaryDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit, %2
-  %.0 = phi i1 [ false, %2 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_29LifetimeExtendedTemporaryDeclEEEDcPT0_.exit.thread ], [ %42, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %42, %.lr.ph ], [ false, %2 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_29LifetimeExtendedTemporaryDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -56302,7 +56302,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_10ImportDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_10ImportDeclEEEDcPT0_.exit.thread ], [ %38, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %38, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_10ImportDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -56419,7 +56419,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph36, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE25TraverseTemplateArgumentsEN4llvm8ArrayRefINS_16TemplateArgumentEEE.exit
 
 _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE25TraverseTemplateArgumentsEN4llvm8ArrayRefINS_16TemplateArgumentEEE.exit: ; preds = %.lr.ph, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph36, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_33ImplicitConceptSpecializationDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_33ImplicitConceptSpecializationDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ %46, %.lr.ph36 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ %46, %.lr.ph36 ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_33ImplicitConceptSpecializationDeclEEEDcPT0_.exit.thread ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -56580,7 +56580,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph72, label %.critedge55
 
 .critedge55:                                      ; preds = %.lr.ph, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph72, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_18FriendTemplateDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit, %11, %7
-  %.0 = phi i1 [ false, %7 ], [ false, %11 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_18FriendTemplateDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ %65, %.lr.ph72 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ %65, %.lr.ph72 ], [ false, %7 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ false, %11 ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_18FriendTemplateDeclEEEDcPT0_.exit.thread ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -56747,7 +56747,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge37
 
 .critedge37:                                      ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_10FriendDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit, %36, %_ZNK5clang14ElaboratedType15getOwnedTagDeclEv.exit, %7
-  %.0 = phi i1 [ false, %7 ], [ false, %_ZNK5clang14ElaboratedType15getOwnedTagDeclEv.exit ], [ false, %36 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_10FriendDeclEEEDcPT0_.exit.thread ], [ %73, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ false, %7 ], [ false, %_ZNK5clang14ElaboratedType15getOwnedTagDeclEv.exit ], [ %73, %.lr.ph ], [ false, %36 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_10FriendDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -56850,7 +56850,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_16FileScopeAsmDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit, %2
-  %.0 = phi i1 [ false, %2 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_16FileScopeAsmDeclEEEDcPT0_.exit.thread ], [ %42, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %42, %.lr.ph ], [ false, %2 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_16FileScopeAsmDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -56947,7 +56947,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_9EmptyDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_9EmptyDeclEEEDcPT0_.exit.thread ], [ %38, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %38, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_9EmptyDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -57044,7 +57044,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_14AccessSpecDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_14AccessSpecDeclEEEDcPT0_.exit.thread ], [ %38, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %38, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_14AccessSpecDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -59005,7 +59005,7 @@ tailrecurse.backedge:                             ; preds = %_ZNK5clang7TypeLoc1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %tailrecurse.backedge, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit, %3, %159, %156, %142, %140, %135, %133, %130, %127, %124, %121, %118, %116, %113, %111, %108, %106, %104, %102, %99, %96, %94, %92, %90, %88, %86, %84, %78, %75, %73, %71, %69, %65, %62, %59, %56, %53, %50, %47, %44, %41, %38, %35, %32, %29, %26
-  %.0 = phi i1 [ %161, %159 ], [ %28, %26 ], [ %31, %29 ], [ %34, %32 ], [ %37, %35 ], [ %40, %38 ], [ %43, %41 ], [ %46, %44 ], [ %49, %47 ], [ %52, %50 ], [ %55, %53 ], [ %158, %156 ], [ %58, %56 ], [ %61, %59 ], [ %134, %133 ], [ %64, %62 ], [ %68, %65 ], [ %70, %69 ], [ %72, %71 ], [ %74, %73 ], [ %77, %75 ], [ %83, %78 ], [ %85, %84 ], [ %87, %86 ], [ %89, %88 ], [ %91, %90 ], [ %93, %92 ], [ %95, %94 ], [ %98, %96 ], [ %139, %135 ], [ %101, %99 ], [ %103, %102 ], [ %105, %104 ], [ %107, %106 ], [ %110, %108 ], [ %112, %111 ], [ %145, %142 ], [ %141, %140 ], [ %115, %113 ], [ %117, %116 ], [ %120, %118 ], [ %123, %121 ], [ %126, %124 ], [ %129, %127 ], [ %132, %130 ], [ true, %3 ], [ true, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit ], [ true, %tailrecurse.backedge ]
+  %.0 = phi i1 [ %161, %159 ], [ %132, %130 ], [ %129, %127 ], [ %28, %26 ], [ %31, %29 ], [ %34, %32 ], [ %37, %35 ], [ %40, %38 ], [ %43, %41 ], [ %46, %44 ], [ %49, %47 ], [ %52, %50 ], [ %55, %53 ], [ %158, %156 ], [ %58, %56 ], [ %61, %59 ], [ %134, %133 ], [ %64, %62 ], [ %68, %65 ], [ %70, %69 ], [ %72, %71 ], [ %74, %73 ], [ %77, %75 ], [ %83, %78 ], [ %85, %84 ], [ %87, %86 ], [ %89, %88 ], [ %91, %90 ], [ %93, %92 ], [ %95, %94 ], [ %98, %96 ], [ %139, %135 ], [ %101, %99 ], [ %103, %102 ], [ %105, %104 ], [ %107, %106 ], [ %110, %108 ], [ %112, %111 ], [ %145, %142 ], [ %141, %140 ], [ %115, %113 ], [ %117, %116 ], [ %120, %118 ], [ %123, %121 ], [ %126, %124 ], [ true, %3 ], [ true, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit ], [ true, %tailrecurse.backedge ]
   ret i1 %.0
 }
 
@@ -60041,7 +60041,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   br i1 %or.cond.not, label %38, label %.loopexit, !llvm.loop !1363
 
 .loopexit:                                        ; preds = %38, %31, %8
-  %.0 = phi i1 [ false, %8 ], [ true, %31 ], [ %43, %38 ]
+  %.0 = phi i1 [ true, %31 ], [ false, %8 ], [ %43, %38 ]
   ret i1 %.0
 }
 
@@ -60441,7 +60441,7 @@ tailrecurse.backedge:                             ; preds = %.lr.ph, %.lr.ph, %.
   br label %.loopexit
 
 .loopexit:                                        ; preds = %tailrecurse.backedge, %.lr.ph, %2, %71, %67, %65, %60, %58, %56, %54, %52, %50, %48, %46, %43, %41, %39, %37, %33, %30, %28, %26, %24, %20, %18, %15, %13, %11, %9
-  %.0 = phi i1 [ %47, %46 ], [ %66, %65 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %61, %60 ], [ %16, %15 ], [ %59, %58 ], [ %57, %56 ], [ %70, %67 ], [ %53, %52 ], [ %49, %48 ], [ %19, %18 ], [ %72, %71 ], [ %51, %50 ], [ %23, %20 ], [ %25, %24 ], [ %27, %26 ], [ %29, %28 ], [ %32, %30 ], [ %36, %33 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %55, %54 ], [ true, %2 ], [ true, %.lr.ph ], [ true, %tailrecurse.backedge ]
+  %.0 = phi i1 [ %47, %46 ], [ %55, %54 ], [ %44, %43 ], [ %66, %65 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %61, %60 ], [ %16, %15 ], [ %59, %58 ], [ %57, %56 ], [ %70, %67 ], [ %53, %52 ], [ %49, %48 ], [ %19, %18 ], [ %72, %71 ], [ %51, %50 ], [ %23, %20 ], [ %25, %24 ], [ %27, %26 ], [ %29, %28 ], [ %32, %30 ], [ %36, %33 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ true, %2 ], [ true, %.lr.ph ], [ true, %tailrecurse.backedge ]
   ret i1 %.0
 }
 
@@ -62834,112 +62834,112 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %.04881 = phi ptr [ %79, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread ], [ %21, %.critedge ]
   %26 = load ptr, ptr %.04881, align 8, !tbaa !801
   %27 = load i32, ptr %26, align 4, !tbaa !803
-  switch i32 %27, label %75 [
+  switch i32 %27, label %72 [
     i32 0, label %28
-    i32 1, label %39
-    i32 2, label %39
-    i32 3, label %71
+    i32 1, label %32
+    i32 2, label %32
+    i32 3, label %64
   ]
 
 28:                                               ; preds = %.lr.ph82
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %29, align 8, !tbaa !806
   %31 = icmp eq i32 %30, 1
-  br i1 %31, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread, label %32
+  br i1 %31, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit
 
-32:                                               ; preds = %28
-  %33 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %.0.copyload.i.i.i.i.i.i.i.i.i58 = load i64, ptr %33, align 8
-  %34 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i58, -8
-  %35 = inttoptr i64 %34 to ptr
-  %.sroa.0.0.copyload.i.i = load i64, ptr %35, align 8, !tbaa !33
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %37 = inttoptr i64 %.sroa.0.0.copyload.i.i to ptr
-  %38 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE15TraverseTypeLocENS_7TypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr %37, ptr nonnull %36)
-  br i1 %38, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread71
+32:                                               ; preds = %.lr.ph82, %.lr.ph82
+  %33 = getelementptr inbounds nuw i8, ptr %26, i64 40
+  %34 = load i32, ptr %33, align 8, !tbaa !814
+  %35 = icmp eq i32 %34, 1
+  br i1 %35, label %41, label %36
 
-39:                                               ; preds = %.lr.ph82, %.lr.ph82
-  %40 = getelementptr inbounds nuw i8, ptr %26, i64 40
-  %41 = load i32, ptr %40, align 8, !tbaa !814
-  %42 = icmp eq i32 %41, 1
-  br i1 %42, label %48, label %43
+36:                                               ; preds = %32
+  %37 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %37, align 8
+  %38 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, -4
+  %39 = inttoptr i64 %38 to ptr
+  %40 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %39, ptr noundef null)
+  br i1 %40, label %41, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread71
 
-43:                                               ; preds = %39
-  %44 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %44, align 8
-  %45 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, -4
-  %46 = inttoptr i64 %45 to ptr
-  %47 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %46, ptr noundef null)
-  br i1 %47, label %48, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread71
-
-48:                                               ; preds = %43, %39
-  %49 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  %.0.copyload.i.i.i.i.i.i = load i64, ptr %49, align 8
+41:                                               ; preds = %36, %32
+  %42 = getelementptr inbounds nuw i8, ptr %26, i64 24
+  %.0.copyload.i.i.i.i.i.i = load i64, ptr %42, align 8
   %.not.i.i.i.i = icmp ugt i64 %.0.copyload.i.i.i.i.i.i, 7
-  %50 = and i64 %.0.copyload.i.i.i.i.i.i, 4
-  %51 = icmp eq i64 %50, 0
-  %52 = and i1 %.not.i.i.i.i, %51
-  br i1 %52, label %53, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread
+  %43 = and i64 %.0.copyload.i.i.i.i.i.i, 4
+  %44 = icmp eq i64 %43, 0
+  %45 = and i1 %.not.i.i.i.i, %44
+  br i1 %45, label %46, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread
 
-53:                                               ; preds = %48
-  %54 = tail call noundef ptr @_ZNK5clang8concepts15ExprRequirement21ReturnTypeRequirement17getTypeConstraintEv(ptr noundef nonnull align 8 dereferenceable(8) %49) #19
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  %56 = load ptr, ptr %55, align 8, !tbaa !447
-  %.sroa.0.0.copyload.i = load ptr, ptr %56, align 8, !tbaa !451
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %56, i64 8
+46:                                               ; preds = %41
+  %47 = tail call noundef ptr @_ZNK5clang8concepts15ExprRequirement21ReturnTypeRequirement17getTypeConstraintEv(ptr noundef nonnull align 8 dereferenceable(8) %42) #19
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  %49 = load ptr, ptr %48, align 8, !tbaa !447
+  %.sroa.0.0.copyload.i = load ptr, ptr %49, align 8, !tbaa !451
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %49, i64 8
   %.sroa.2.0.copyload.i = load ptr, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !452
-  %57 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE30TraverseNestedNameSpecifierLocENS_22NestedNameSpecifierLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr %.sroa.0.0.copyload.i, ptr %.sroa.2.0.copyload.i)
-  br i1 %57, label %58, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread71
+  %50 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE30TraverseNestedNameSpecifierLocENS_22NestedNameSpecifierLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr %.sroa.0.0.copyload.i, ptr %.sroa.2.0.copyload.i)
+  br i1 %50, label %51, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread71
 
-58:                                               ; preds = %53
-  %59 = getelementptr inbounds nuw i8, ptr %56, i64 24
-  %60 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE27TraverseDeclarationNameInfoENS_19DeclarationNameInfoE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull byval(%"struct.clang::DeclarationNameInfo") align 8 %59)
-  br i1 %60, label %61, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread71
+51:                                               ; preds = %46
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 24
+  %53 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE27TraverseDeclarationNameInfoENS_19DeclarationNameInfoE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull byval(%"struct.clang::DeclarationNameInfo") align 8 %52)
+  br i1 %53, label %54, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread71
 
-61:                                               ; preds = %58
-  %62 = getelementptr inbounds nuw i8, ptr %56, i64 64
-  %63 = load ptr, ptr %62, align 8, !tbaa !453
-  %.not73 = icmp eq ptr %63, null
-  br i1 %.not73, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread, label %64
+54:                                               ; preds = %51
+  %55 = getelementptr inbounds nuw i8, ptr %49, i64 64
+  %56 = load ptr, ptr %55, align 8, !tbaa !453
+  %.not73 = icmp eq ptr %56, null
+  br i1 %.not73, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread, label %57
 
-64:                                               ; preds = %61
-  %65 = getelementptr inbounds nuw i8, ptr %63, i64 16
-  %66 = getelementptr inbounds nuw i8, ptr %63, i64 8
-  %67 = load i32, ptr %66, align 8, !tbaa !460
-  %.not86 = icmp eq i32 %67, 0
+57:                                               ; preds = %54
+  %58 = getelementptr inbounds nuw i8, ptr %56, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  %60 = load i32, ptr %59, align 8, !tbaa !460
+  %.not86 = icmp eq i32 %60, 0
   br i1 %.not86, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread, label %.lr.ph79.preheader
 
-.lr.ph79.preheader:                               ; preds = %64
-  %wide.trip.count = zext i32 %67 to i64
+.lr.ph79.preheader:                               ; preds = %57
+  %wide.trip.count = zext i32 %60 to i64
   br label %.lr.ph79
 
-68:                                               ; preds = %.lr.ph79
+61:                                               ; preds = %.lr.ph79
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread, label %.lr.ph79, !llvm.loop !1341
 
-.lr.ph79:                                         ; preds = %.lr.ph79.preheader, %68
-  %indvars.iv = phi i64 [ 0, %.lr.ph79.preheader ], [ %indvars.iv.next, %68 ]
-  %69 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %65, i64 %indvars.iv
-  %70 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE27TraverseTemplateArgumentLocERKNS_19TemplateArgumentLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(32) %69)
-  br i1 %70, label %68, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread71
+.lr.ph79:                                         ; preds = %.lr.ph79.preheader, %61
+  %indvars.iv = phi i64 [ 0, %.lr.ph79.preheader ], [ %indvars.iv.next, %61 ]
+  %62 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %58, i64 %indvars.iv
+  %63 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE27TraverseTemplateArgumentLocERKNS_19TemplateArgumentLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(32) %62)
+  br i1 %63, label %61, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread71
 
-71:                                               ; preds = %.lr.ph82
-  %72 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  %73 = load i8, ptr %72, align 8, !tbaa !826, !range !416, !noundef !417
-  %74 = trunc nuw i8 %73 to i1
-  br i1 %74, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit
+64:                                               ; preds = %.lr.ph82
+  %65 = getelementptr inbounds nuw i8, ptr %26, i64 24
+  %66 = load i8, ptr %65, align 8, !tbaa !826, !range !416, !noundef !417
+  %67 = trunc nuw i8 %66 to i1
+  br i1 %67, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread, label %68
 
-75:                                               ; preds = %.lr.ph82
+68:                                               ; preds = %64
+  %69 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %70 = load ptr, ptr %69, align 8, !tbaa !830
+  %71 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %70, ptr noundef null)
+  br i1 %71, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread71
+
+72:                                               ; preds = %.lr.ph82
   unreachable
 
-_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit: ; preds = %71
-  %76 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %77 = load ptr, ptr %76, align 8, !tbaa !830
-  %78 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %77, ptr noundef null)
+_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit: ; preds = %28
+  %73 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %.0.copyload.i.i.i.i.i.i.i.i.i58 = load i64, ptr %73, align 8
+  %74 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i58, -8
+  %75 = inttoptr i64 %74 to ptr
+  %.sroa.0.0.copyload.i.i = load i64, ptr %75, align 8, !tbaa !33
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
+  %77 = inttoptr i64 %.sroa.0.0.copyload.i.i to ptr
+  %78 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE15TraverseTypeLocENS_7TypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr %77, ptr nonnull %76)
   br i1 %78, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread71
 
-_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread: ; preds = %68, %61, %64, %71, %28, %48, %32, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit
+_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread: ; preds = %61, %54, %57, %64, %28, %41, %68, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit
   %79 = getelementptr inbounds nuw i8, ptr %.04881, i64 8
   %.not49 = icmp eq ptr %79, %25
   br i1 %.not49, label %.critedge51, label %.lr.ph82
@@ -63016,8 +63016,8 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE26TraverseCon
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread71
 
-_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread71: ; preds = %.lr.ph, %43, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit, %32, %58, %53, %.lr.ph79, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread71.sink.split, %3
-  %.0 = phi i1 [ false, %3 ], [ %.0.ph, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread71.sink.split ], [ false, %43 ], [ false, %.lr.ph79 ], [ false, %53 ], [ false, %58 ], [ false, %32 ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit ], [ false, %.lr.ph ]
+_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread71: ; preds = %.lr.ph, %36, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit, %68, %51, %46, %.lr.ph79, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread71.sink.split, %3
+  %.0 = phi i1 [ false, %3 ], [ false, %36 ], [ false, %.lr.ph79 ], [ %.0.ph, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread71.sink.split ], [ false, %46 ], [ false, %51 ], [ false, %68 ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -63647,7 +63647,7 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE34TraverseTem
   br label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit
 
 _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit: ; preds = %.lr.ph, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit.sink.split, %3
-  %.0 = phi i1 [ false, %3 ], [ %.0.ph, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit.sink.split ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ %.0.ph, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit.sink.split ], [ false, %3 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -63776,7 +63776,7 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE34TraverseTem
   br label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit
 
 _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit: ; preds = %.lr.ph, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit.sink.split, %3
-  %.0 = phi i1 [ false, %3 ], [ %.0.ph, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit.sink.split ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ %.0.ph, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit.sink.split ], [ false, %3 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -66393,7 +66393,7 @@ _ZNK5clang15FunctionTypeLoc12getReturnLocEv.exit: ; preds = %147, %153
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %.lr.ph.i, %69, %.lr.ph119, %55, %173, %_ZNK5clang15FunctionTypeLoc12getReturnLocEv.exit, %143, %176
-  %.0.ph = phi i1 [ %178, %176 ], [ false, %143 ], [ false, %_ZNK5clang15FunctionTypeLoc12getReturnLocEv.exit ], [ false, %173 ], [ false, %55 ], [ false, %69 ], [ false, %.lr.ph119 ], [ false, %.lr.ph.i ]
+  %.0.ph = phi i1 [ %178, %176 ], [ false, %69 ], [ false, %55 ], [ false, %143 ], [ false, %_ZNK5clang15FunctionTypeLoc12getReturnLocEv.exit ], [ false, %173 ], [ false, %.lr.ph119 ], [ false, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit
 
@@ -73478,7 +73478,7 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE22VisitOpenAC
   br label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE22VisitOpenACCClauseListEN4llvm8ArrayRefIPKNS_13OpenACCClauseEEE.exit
 
 _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE22VisitOpenACCClauseListEN4llvm8ArrayRefIPKNS_13OpenACCClauseEEE.exit: ; preds = %.lr.ph, %.lr.ph52, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE22VisitOpenACCClauseListEN4llvm8ArrayRefIPKNS_13OpenACCClauseEEE.exit.sink.split, %8
-  %.0 = phi i1 [ false, %8 ], [ %.0.ph, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE22VisitOpenACCClauseListEN4llvm8ArrayRefIPKNS_13OpenACCClauseEEE.exit.sink.split ], [ false, %.lr.ph52 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ %.0.ph, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE22VisitOpenACCClauseListEN4llvm8ArrayRefIPKNS_13OpenACCClauseEEE.exit.sink.split ], [ false, %8 ], [ false, %.lr.ph52 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -82683,7 +82683,7 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE30TraverseOMP
   br label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE30TraverseOMPExecutableDirectiveEPNS_22OMPExecutableDirectiveE.exit
 
 _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE30TraverseOMPExecutableDirectiveEPNS_22OMPExecutableDirectiveE.exit: ; preds = %.lr.ph, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE30TraverseOMPExecutableDirectiveEPNS_22OMPExecutableDirectiveE.exit.sink.split, %3
-  %.0 = phi i1 [ false, %3 ], [ %.0.ph, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE30TraverseOMPExecutableDirectiveEPNS_22OMPExecutableDirectiveE.exit.sink.split ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ %.0.ph, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE30TraverseOMPExecutableDirectiveEPNS_22OMPExecutableDirectiveE.exit.sink.split ], [ false, %3 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -84552,7 +84552,7 @@ _ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit: ; preds = %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %16, %28, %37, %.loopexit.sink.split, %3
-  %.0 = phi i1 [ false, %3 ], [ %.0.ph, %.loopexit.sink.split ], [ false, %28 ], [ false, %37 ], [ false, %16 ]
+  %.0 = phi i1 [ false, %3 ], [ %.0.ph, %.loopexit.sink.split ], [ false, %37 ], [ false, %28 ], [ false, %16 ]
   ret i1 %.0
 }
 
@@ -85232,7 +85232,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   br i1 %or.cond.not, label %.lr.ph82, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE18VisitOMPClauseListINS_20OMPCopyprivateClauseEEEbPT_.exit
 
 _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE18VisitOMPClauseListINS_20OMPCopyprivateClauseEEEbPT_.exit: ; preds = %.lr.ph, %.lr.ph71, %.lr.ph76, %.lr.ph82, %2, %._crit_edge, %._crit_edge72, %._crit_edge77
-  %.0 = phi i1 [ true, %._crit_edge77 ], [ true, %._crit_edge ], [ true, %2 ], [ true, %._crit_edge72 ], [ false, %.lr.ph71 ], [ %33, %.lr.ph82 ], [ false, %.lr.ph76 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ %33, %.lr.ph82 ], [ true, %._crit_edge ], [ false, %.lr.ph76 ], [ true, %._crit_edge77 ], [ false, %.lr.ph71 ], [ true, %2 ], [ true, %._crit_edge72 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -85320,7 +85320,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   br i1 %or.cond.not, label %.lr.ph82, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE18VisitOMPClauseListINS_15OMPCopyinClauseEEEbPT_.exit
 
 _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE18VisitOMPClauseListINS_15OMPCopyinClauseEEEbPT_.exit: ; preds = %.lr.ph, %.lr.ph71, %.lr.ph76, %.lr.ph82, %2, %._crit_edge, %._crit_edge72, %._crit_edge77
-  %.0 = phi i1 [ true, %._crit_edge77 ], [ true, %._crit_edge ], [ true, %2 ], [ true, %._crit_edge72 ], [ false, %.lr.ph71 ], [ %33, %.lr.ph82 ], [ false, %.lr.ph76 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ %33, %.lr.ph82 ], [ true, %._crit_edge ], [ false, %.lr.ph76 ], [ true, %._crit_edge77 ], [ false, %.lr.ph71 ], [ true, %2 ], [ true, %._crit_edge72 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -85464,7 +85464,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   br i1 %or.cond.not, label %.lr.ph55, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE18VisitOMPClauseListINS_21OMPFirstprivateClauseEEEbPT_.exit
 
 _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE18VisitOMPClauseListINS_21OMPFirstprivateClauseEEEbPT_.exit: ; preds = %.lr.ph, %.lr.ph49, %.lr.ph55, %15, %._crit_edge50, %._crit_edge
-  %.0 = phi i1 [ false, %._crit_edge ], [ true, %._crit_edge50 ], [ true, %15 ], [ false, %.lr.ph49 ], [ %29, %.lr.ph55 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ false, %._crit_edge ], [ %29, %.lr.ph55 ], [ true, %15 ], [ true, %._crit_edge50 ], [ false, %.lr.ph49 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -85660,7 +85660,7 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE28VisitOMPCla
   br i1 %or.cond.not, label %.lr.ph144, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE18VisitOMPClauseListINS_20OMPInReductionClauseEEEbPT_.exit
 
 _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE18VisitOMPClauseListINS_20OMPInReductionClauseEEEbPT_.exit: ; preds = %.lr.ph, %.lr.ph123, %.lr.ph128, %.lr.ph133, %.lr.ph138, %.lr.ph144, %24, %._crit_edge124, %._crit_edge129, %._crit_edge134, %._crit_edge139, %._crit_edge, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit, %5, %2
-  %.0 = phi i1 [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit ], [ false, %._crit_edge ], [ false, %2 ], [ false, %5 ], [ true, %._crit_edge139 ], [ true, %._crit_edge124 ], [ true, %24 ], [ true, %._crit_edge134 ], [ true, %._crit_edge129 ], [ false, %.lr.ph123 ], [ %68, %.lr.ph144 ], [ false, %.lr.ph138 ], [ false, %.lr.ph133 ], [ false, %.lr.ph128 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit ], [ false, %._crit_edge ], [ false, %.lr.ph133 ], [ false, %.lr.ph123 ], [ true, %._crit_edge124 ], [ false, %.lr.ph138 ], [ false, %2 ], [ false, %5 ], [ %68, %.lr.ph144 ], [ true, %._crit_edge139 ], [ false, %.lr.ph128 ], [ true, %24 ], [ true, %._crit_edge134 ], [ true, %._crit_edge129 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -85783,7 +85783,7 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE28VisitOMPCla
   br i1 %or.cond.not, label %.lr.ph112, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE18VisitOMPClauseListINS_20OMPLastprivateClauseEEEbPT_.exit
 
 _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE18VisitOMPClauseListINS_20OMPLastprivateClauseEEEbPT_.exit: ; preds = %.lr.ph, %.lr.ph96, %.lr.ph101, %.lr.ph106, %.lr.ph112, %18, %._crit_edge97, %._crit_edge102, %._crit_edge107, %._crit_edge, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit
-  %.0 = phi i1 [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit ], [ false, %._crit_edge ], [ true, %._crit_edge107 ], [ true, %._crit_edge97 ], [ true, %18 ], [ true, %._crit_edge102 ], [ false, %.lr.ph96 ], [ %51, %.lr.ph112 ], [ false, %.lr.ph106 ], [ false, %.lr.ph101 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit ], [ false, %._crit_edge ], [ %51, %.lr.ph112 ], [ false, %.lr.ph101 ], [ false, %.lr.ph96 ], [ true, %._crit_edge97 ], [ true, %._crit_edge107 ], [ false, %.lr.ph106 ], [ true, %18 ], [ true, %._crit_edge102 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -85931,7 +85931,7 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE28VisitOMPCla
   br i1 %or.cond.not, label %.lr.ph114, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE18VisitOMPClauseListINS_15OMPLinearClauseEEEbPT_.exit
 
 _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE18VisitOMPClauseListINS_15OMPLinearClauseEEEbPT_.exit: ; preds = %.lr.ph, %.lr.ph98, %.lr.ph103, %.lr.ph108, %.lr.ph114, %39, %._crit_edge99, %._crit_edge104, %._crit_edge109, %._crit_edge, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit, %14, %2
-  %.0 = phi i1 [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit ], [ false, %._crit_edge ], [ false, %2 ], [ false, %14 ], [ true, %._crit_edge109 ], [ true, %._crit_edge99 ], [ true, %39 ], [ true, %._crit_edge104 ], [ false, %.lr.ph98 ], [ %72, %.lr.ph114 ], [ false, %.lr.ph108 ], [ false, %.lr.ph103 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit ], [ false, %._crit_edge ], [ %72, %.lr.ph114 ], [ false, %.lr.ph103 ], [ false, %.lr.ph98 ], [ false, %2 ], [ false, %14 ], [ true, %._crit_edge99 ], [ true, %._crit_edge109 ], [ false, %.lr.ph108 ], [ true, %39 ], [ true, %._crit_edge104 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -86241,7 +86241,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   br i1 %or.cond.not, label %.lr.ph27, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE18VisitOMPClauseListINS_16OMPPrivateClauseEEEbPT_.exit
 
 _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE18VisitOMPClauseListINS_16OMPPrivateClauseEEEbPT_.exit: ; preds = %.lr.ph, %.lr.ph27, %2, %._crit_edge
-  %.0 = phi i1 [ true, %._crit_edge ], [ true, %2 ], [ %16, %.lr.ph27 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ %16, %.lr.ph27 ], [ true, %._crit_edge ], [ true, %2 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -86458,7 +86458,7 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE28VisitOMPCla
   br i1 %or.cond.not, label %.lr.ph202, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE18VisitOMPClauseListINS_18OMPReductionClauseEEEbPT_.exit
 
 _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE18VisitOMPClauseListINS_18OMPReductionClauseEEEbPT_.exit: ; preds = %.lr.ph, %.lr.ph172, %.lr.ph177, %.lr.ph182, %.lr.ph187, %.lr.ph192, %.lr.ph197, %.lr.ph202, %63, %._crit_edge193, %._crit_edge198, %._crit_edge, %._crit_edge188, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit, %5, %2
-  %.0 = phi i1 [ false, %._crit_edge ], [ true, %._crit_edge188 ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit ], [ false, %5 ], [ false, %2 ], [ true, %._crit_edge198 ], [ true, %._crit_edge193 ], [ true, %63 ], [ false, %.lr.ph172 ], [ %98, %.lr.ph202 ], [ false, %.lr.ph197 ], [ false, %.lr.ph192 ], [ false, %.lr.ph187 ], [ false, %.lr.ph182 ], [ false, %.lr.ph177 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ false, %._crit_edge ], [ false, %.lr.ph177 ], [ true, %._crit_edge198 ], [ false, %.lr.ph197 ], [ true, %._crit_edge193 ], [ false, %.lr.ph192 ], [ false, %.lr.ph187 ], [ true, %._crit_edge188 ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit ], [ false, %5 ], [ false, %2 ], [ false, %.lr.ph182 ], [ false, %.lr.ph172 ], [ %98, %.lr.ph202 ], [ true, %63 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -86637,7 +86637,7 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE28VisitOMPCla
   br i1 %or.cond.not, label %.lr.ph116, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE18VisitOMPClauseListINS_22OMPTaskReductionClauseEEEbPT_.exit
 
 _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE18VisitOMPClauseListINS_22OMPTaskReductionClauseEEEbPT_.exit: ; preds = %.lr.ph, %.lr.ph100, %.lr.ph105, %.lr.ph110, %.lr.ph116, %24, %._crit_edge101, %._crit_edge106, %._crit_edge111, %._crit_edge, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit, %5, %2
-  %.0 = phi i1 [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit ], [ false, %._crit_edge ], [ false, %2 ], [ false, %5 ], [ true, %._crit_edge111 ], [ true, %._crit_edge101 ], [ true, %24 ], [ true, %._crit_edge106 ], [ false, %.lr.ph100 ], [ %57, %.lr.ph116 ], [ false, %.lr.ph110 ], [ false, %.lr.ph105 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit ], [ false, %._crit_edge ], [ %57, %.lr.ph116 ], [ false, %.lr.ph105 ], [ false, %.lr.ph100 ], [ false, %2 ], [ false, %5 ], [ true, %._crit_edge101 ], [ true, %._crit_edge111 ], [ false, %.lr.ph110 ], [ true, %24 ], [ true, %._crit_edge106 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -88063,7 +88063,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   br i1 %or.cond.not, label %.lr.ph30, label %.loopexit, !llvm.loop !1406
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph30, %._crit_edge
-  %.0 = phi i1 [ true, %._crit_edge ], [ %20, %.lr.ph30 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ %20, %.lr.ph30 ], [ true, %._crit_edge ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -88111,7 +88111,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   br i1 %or.cond.not, label %.lr.ph30, label %.loopexit, !llvm.loop !1408
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph30, %._crit_edge
-  %.0 = phi i1 [ true, %._crit_edge ], [ %20, %.lr.ph30 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ %20, %.lr.ph30 ], [ true, %._crit_edge ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -88427,7 +88427,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   br i1 %or.cond.not, label %.lr.ph85, label %.loopexit, !llvm.loop !1418
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph69, %.lr.ph74, %.lr.ph79, %.lr.ph85, %._crit_edge80, %2
-  %.0 = phi i1 [ false, %2 ], [ true, %._crit_edge80 ], [ false, %.lr.ph69 ], [ %54, %.lr.ph85 ], [ false, %.lr.ph79 ], [ false, %.lr.ph74 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ false, %2 ], [ false, %.lr.ph69 ], [ %54, %.lr.ph85 ], [ false, %.lr.ph79 ], [ false, %.lr.ph74 ], [ true, %._crit_edge80 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -88481,7 +88481,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   br i1 %or.cond.not, label %.lr.ph31, label %.loopexit, !llvm.loop !1420
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph31, %._crit_edge, %2
-  %.0 = phi i1 [ false, %2 ], [ true, %._crit_edge ], [ %24, %.lr.ph31 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ false, %2 ], [ %24, %.lr.ph31 ], [ true, %._crit_edge ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -89142,7 +89142,7 @@ _ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread: ; preds = %199, %193, %_ZNK5cl
   br i1 %.not198, label %.critedge124, label %.lr.ph224
 
 .critedge124:                                     ; preds = %.lr.ph213, %.lr.ph216, %.thread, %143, %225, %.critedge132, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE27TraverseDeclarationNameInfoENS_19DeclarationNameInfoE.exit.thread, %217, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread, %_ZN5clang18declaresSameEntityEPKNS_4DeclES2_.exit.thread, %122, %113, %.thread190, %_ZNK5clang14DeclaratorDecl15getQualifierLocEv.exit
-  %.0 = phi i1 [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE27TraverseDeclarationNameInfoENS_19DeclarationNameInfoE.exit.thread ], [ false, %122 ], [ false, %113 ], [ false, %.thread190 ], [ false, %_ZNK5clang14DeclaratorDecl15getQualifierLocEv.exit ], [ true, %_ZN5clang18declaresSameEntityEPKNS_4DeclES2_.exit.thread ], [ true, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread ], [ true, %217 ], [ false, %.lr.ph216 ], [ true, %.critedge132 ], [ false, %.thread ], [ false, %225 ], [ false, %143 ], [ false, %.lr.ph213 ]
+  %.0 = phi i1 [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117ASTDeclNodeListerEE27TraverseDeclarationNameInfoENS_19DeclarationNameInfoE.exit.thread ], [ false, %122 ], [ false, %113 ], [ false, %.lr.ph216 ], [ false, %.thread190 ], [ false, %_ZNK5clang14DeclaratorDecl15getQualifierLocEv.exit ], [ true, %_ZN5clang18declaresSameEntityEPKNS_4DeclES2_.exit.thread ], [ true, %.critedge132 ], [ true, %217 ], [ true, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread ], [ false, %.thread ], [ false, %225 ], [ false, %143 ], [ false, %.lr.ph213 ]
   ret i1 %.0
 }
 

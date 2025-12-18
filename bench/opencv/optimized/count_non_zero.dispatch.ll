@@ -751,7 +751,7 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit109.thread:   ; preds = %40
   br i1 %exitcond189.not, label %.loopexit129, label %.lr.ph153, !llvm.loop !69
 
 .loopexit129:                                     ; preds = %95, %86, %104, %77, %68
-  %.291 = phi i32 [ %.6, %86 ], [ %.190, %68 ], [ %.493, %77 ], [ %.10, %104 ], [ %.8, %95 ]
+  %.291 = phi i32 [ %.190, %68 ], [ %.10, %104 ], [ %.6, %86 ], [ %.493, %77 ], [ %.8, %95 ]
   %105 = icmp sgt i32 %.291, 0
   br i1 %105, label %106, label %.loopexit
 
@@ -876,9 +876,9 @@ _ZNSt12_Vector_baseIN2cv6Point_IiEESaIS2_EE13_M_deallocateEPS2_m.exit36.i.i: ; p
   br label %185
 
 .loopexit:                                        ; preds = %142, %.preheader136, %.preheader134, %.preheader132, %.preheader130, %.preheader, %.loopexit129
-  %.sroa.21.1 = phi ptr [ %.sroa.21.0165, %.loopexit129 ], [ %.sroa.21.0165, %.preheader ], [ %.sroa.21.0165, %.preheader130 ], [ %.sroa.21.0165, %.preheader132 ], [ %.sroa.21.0165, %.preheader134 ], [ %.sroa.21.0165, %.preheader136 ], [ %.sroa.21.2, %142 ]
-  %.sroa.13.1 = phi ptr [ %.sroa.13.0166, %.loopexit129 ], [ %.sroa.13.0166, %.preheader ], [ %.sroa.13.0166, %.preheader130 ], [ %.sroa.13.0166, %.preheader132 ], [ %.sroa.13.0166, %.preheader134 ], [ %.sroa.13.0166, %.preheader136 ], [ %.sroa.13.2, %142 ]
-  %.sroa.0112.2 = phi ptr [ %.sroa.0112.0167, %.loopexit129 ], [ %.sroa.0112.0167, %.preheader ], [ %.sroa.0112.0167, %.preheader130 ], [ %.sroa.0112.0167, %.preheader132 ], [ %.sroa.0112.0167, %.preheader134 ], [ %.sroa.0112.0167, %.preheader136 ], [ %.sroa.0112.3, %142 ]
+  %.sroa.21.1 = phi ptr [ %.sroa.21.0165, %.loopexit129 ], [ %.sroa.21.0165, %.preheader136 ], [ %.sroa.21.0165, %.preheader ], [ %.sroa.21.0165, %.preheader130 ], [ %.sroa.21.0165, %.preheader132 ], [ %.sroa.21.0165, %.preheader134 ], [ %.sroa.21.2, %142 ]
+  %.sroa.13.1 = phi ptr [ %.sroa.13.0166, %.loopexit129 ], [ %.sroa.13.0166, %.preheader136 ], [ %.sroa.13.0166, %.preheader ], [ %.sroa.13.0166, %.preheader130 ], [ %.sroa.13.0166, %.preheader132 ], [ %.sroa.13.0166, %.preheader134 ], [ %.sroa.13.2, %142 ]
+  %.sroa.0112.2 = phi ptr [ %.sroa.0112.0167, %.loopexit129 ], [ %.sroa.0112.0167, %.preheader136 ], [ %.sroa.0112.0167, %.preheader ], [ %.sroa.0112.0167, %.preheader130 ], [ %.sroa.0112.0167, %.preheader132 ], [ %.sroa.0112.0167, %.preheader134 ], [ %.sroa.0112.3, %142 ]
   %indvars.iv.next206 = add nuw nsw i64 %indvars.iv205, 1
   %exitcond209.not = icmp eq i64 %indvars.iv.next206, %wide.trip.count208
   br i1 %exitcond209.not, label %._crit_edge, label %55, !llvm.loop !77

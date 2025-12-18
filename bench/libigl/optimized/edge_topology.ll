@@ -2358,7 +2358,7 @@ _ZNSt6vectorIiSaIiEEaSEOS1_.exit:                 ; preds = %_ZNK9__gnu_cxx5__op
   br i1 %43, label %8, label %.critedge, !llvm.loop !139
 
 .critedge:                                        ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPSt6vectorIiSaIiEES4_IS6_SaIS6_EEEES6_EEbT_RT0_.exit, %_ZNSt6vectorIiSaIiEEaSEOS1_.exit, %27, %5
-  %.023 = phi i64 [ %1, %5 ], [ %.026, %27 ], [ %.026, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPSt6vectorIiSaIiEES4_IS6_SaIS6_EEEES6_EEbT_RT0_.exit ], [ %.0927, %_ZNSt6vectorIiSaIiEEaSEOS1_.exit ]
+  %.023 = phi i64 [ %.026, %27 ], [ %1, %5 ], [ %.026, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPSt6vectorIiSaIiEES4_IS6_SaIS6_EEEES6_EEbT_RT0_.exit ], [ %.0927, %_ZNSt6vectorIiSaIiEEaSEOS1_.exit ]
   %44 = getelementptr inbounds %"class.std::vector.19", ptr %0, i64 %.023
   %45 = load ptr, ptr %44, align 8, !tbaa !39
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 8

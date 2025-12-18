@@ -1021,7 +1021,7 @@ _job_name_test.exit36:                            ; preds = %18
   br label %_job_name_test.exit.thread
 
 _job_name_test.exit.thread:                       ; preds = %2, %18, %15, %12, %9, %6, %33, %31, %29, %27, %25, %23, %21, %_job_name_test.exit36, %_job_name_test.exit31, %_job_name_test.exit26, %_job_name_test.exit21, %_job_name_test.exit
-  %.017 = phi i32 [ 8388608, %31 ], [ 32768, %_job_name_test.exit ], [ 16384, %_job_name_test.exit21 ], [ 8192, %_job_name_test.exit26 ], [ 2097152, %_job_name_test.exit31 ], [ 1024, %_job_name_test.exit36 ], [ 1048576, %21 ], [ 2048, %23 ], [ 524288, %25 ], [ 4194304, %27 ], [ 4096, %29 ], [ %., %33 ], [ 2097152, %15 ], [ 32768, %6 ], [ 16384, %9 ], [ 8192, %12 ], [ 1024, %18 ], [ %.043, %2 ]
+  %.017 = phi i32 [ 8388608, %31 ], [ 1024, %18 ], [ 32768, %_job_name_test.exit ], [ 16384, %_job_name_test.exit21 ], [ 8192, %_job_name_test.exit26 ], [ 2097152, %_job_name_test.exit31 ], [ 1024, %_job_name_test.exit36 ], [ 1048576, %21 ], [ 2048, %23 ], [ 524288, %25 ], [ 4194304, %27 ], [ 4096, %29 ], [ %., %33 ], [ 2097152, %15 ], [ 32768, %6 ], [ 16384, %9 ], [ 8192, %12 ], [ %.043, %2 ]
   ret i32 %.017
 }
 
@@ -3511,7 +3511,7 @@ define dso_local i32 @slurm_parse_char_list(ptr noundef %0, ptr noundef %1, ptr 
   br label %.sink.split
 
 .sink.split:                                      ; preds = %40, %15, %60, %.loopexit
-  %.044.ph = phi i32 [ %spec.select, %60 ], [ %.03960, %.loopexit ], [ -1, %15 ], [ -1, %40 ]
+  %.044.ph = phi i32 [ %.03960, %.loopexit ], [ %spec.select, %60 ], [ -1, %15 ], [ -1, %40 ]
   call void @slurm_xfree(ptr noundef nonnull %5) #25
   br label %64
 
@@ -3820,7 +3820,7 @@ define internal range(i32 -1, 2) i32 @_slurm_addto_id_char_list_internal(ptr nou
   br label %_convert_to_id.exit.thread
 
 _convert_to_id.exit:                              ; preds = %.thread.i, %.thread16.i
-  %21 = phi ptr [ %12, %.thread.i ], [ %18, %.thread16.i ]
+  %21 = phi ptr [ %18, %.thread16.i ], [ %12, %.thread.i ]
   store ptr %21, ptr %6, align 8
   %.not = icmp eq ptr %21, null
   br i1 %.not, label %_convert_to_id.exit.thread, label %23
@@ -4693,7 +4693,7 @@ thread-pre-split:                                 ; preds = %46, %59
   br label %.thread
 
 .thread:                                          ; preds = %44, %41, %37, %37, %38, %.thread99, %.thread95, %134, %132, %130, %128, %126, %122, %118, %116, %111, %109, %107, %105, %88, %84, %27, %24, %22, %20, %16, %3, %14, %81, %136, %115, %87
-  %.057 = phi i32 [ 2136, %3 ], [ 2137, %16 ], [ 2138, %20 ], [ 2139, %22 ], [ 2140, %24 ], [ -1, %27 ], [ 2140, %87 ], [ 0, %84 ], [ -1, %109 ], [ 2153, %115 ], [ 0, %111 ], [ 2159, %116 ], [ 0, %118 ], [ 2154, %122 ], [ 2155, %126 ], [ 2156, %128 ], [ 2157, %130 ], [ -1, %132 ], [ 0, %136 ], [ %.5.ph, %.thread99 ], [ 2150, %88 ], [ 2151, %105 ], [ 2152, %107 ], [ 2145, %81 ], [ %.3.ph, %.thread95 ], [ 2136, %14 ], [ 2158, %134 ], [ 2144, %44 ], [ 2144, %41 ], [ 2140, %37 ], [ 2140, %37 ], [ 2144, %38 ]
+  %.057 = phi i32 [ 2136, %3 ], [ 2137, %16 ], [ 2138, %20 ], [ 2139, %22 ], [ 2140, %24 ], [ -1, %27 ], [ 2140, %87 ], [ 0, %84 ], [ -1, %109 ], [ 2153, %115 ], [ 0, %111 ], [ 2159, %116 ], [ 0, %118 ], [ 2154, %122 ], [ 2155, %126 ], [ 2156, %128 ], [ 2157, %130 ], [ -1, %132 ], [ 0, %136 ], [ %.5.ph, %.thread99 ], [ 2150, %88 ], [ 2151, %105 ], [ 2152, %107 ], [ 2145, %81 ], [ 2144, %38 ], [ %.3.ph, %.thread95 ], [ 2136, %14 ], [ 2158, %134 ], [ 2144, %44 ], [ 2144, %41 ], [ 2140, %37 ], [ 2140, %37 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -13310,7 +13310,7 @@ define dso_local range(i32 0, 2116) i32 @slurm_get_next_tres(ptr noundef %0, ptr
   br label %175
 
 .loopexit171:                                     ; preds = %158, %._crit_edge, %35, %141, %64
-  %.1139.ph = phi i64 [ 0, %35 ], [ %142, %141 ], [ 0, %64 ], [ 0, %._crit_edge ], [ %.3141, %158 ]
+  %.1139.ph = phi i64 [ 0, %35 ], [ 0, %._crit_edge ], [ %142, %141 ], [ 0, %64 ], [ %.3141, %158 ]
   store i64 %.1139.ph, ptr %4, align 8
   %169 = load ptr, ptr %10, align 8
   store ptr %169, ptr %3, align 8

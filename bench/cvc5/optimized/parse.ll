@@ -5691,7 +5691,7 @@ _ZNSt13unordered_mapIN4cvc58internal16FiniteFieldValueENS1_12NodeTemplateILb1EEE
   br label %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit290, !llvm.loop !126
 
 _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit290: ; preds = %.lr.ph.i.i.i.i.i228, %184, %..loopexit_crit_edge21.i.i.i.i.i232, %.noexc239
-  %216 = phi ptr [ %.pre, %.noexc239 ], [ %.pre, %..loopexit_crit_edge21.i.i.i.i.i232 ], [ %183, %184 ], [ %.pre, %.lr.ph.i.i.i.i.i228 ]
+  %216 = phi ptr [ %183, %184 ], [ %.pre, %.noexc239 ], [ %.pre, %..loopexit_crit_edge21.i.i.i.i.i232 ], [ %.pre, %.lr.ph.i.i.i.i.i228 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %216, ptr %12, align 8, !tbaa !75
   invoke fastcc void @"_ZZN4cvc58internal6theory2ff5parse7bitSumsERKNS0_12NodeTemplateILb1EEESt13unordered_setIS5_St4hashIS5_ESt8equal_toIS5_ESaIS5_EEENK3$_0clENS4_ILb0EEERKNS0_16FiniteFieldValueE"(ptr dead_on_unwind noalias writable align 8 %11, ptr %38, ptr noundef %12, ptr noundef nonnull align 8 dereferenceable(32) %59)

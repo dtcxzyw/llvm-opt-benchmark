@@ -1798,7 +1798,7 @@ Q_.exit34:                                        ; preds = %35, %38
   br i1 %46, label %.lr.ph, label %.thread, !llvm.loop !42
 
 .thread:                                          ; preds = %.lr.ph, %.lr.ph38, %Q_.exit34, %Q_.exit, %10, %11, %29, %_.exit
-  %.024 = phi i32 [ -1, %_.exit ], [ 0, %29 ], [ 0, %10 ], [ 0, %11 ], [ -1, %Q_.exit ], [ -1, %Q_.exit34 ], [ -1, %.lr.ph38 ], [ -1, %.lr.ph ]
+  %.024 = phi i32 [ -1, %_.exit ], [ -1, %Q_.exit ], [ 0, %11 ], [ 0, %29 ], [ 0, %10 ], [ -1, %Q_.exit34 ], [ -1, %.lr.ph38 ], [ -1, %.lr.ph ]
   ret i32 %.024
 }
 
@@ -2091,7 +2091,7 @@ _.exit61.i:                                       ; preds = %96, %94
   store i32 %104, ptr %105, align 4, !tbaa !55
   br label %106
 
-106:                                              ; preds = %103, %34, %49, %.critedge.i, %99
+106:                                              ; preds = %103, %99, %.critedge.i, %34, %49
   %107 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %108 = tail call ptr @string_list_append(ptr noundef nonnull %107, ptr noundef nonnull %scevgep) #25
   br label %read_worktree_config.exit
@@ -3081,7 +3081,7 @@ get_device_or_die.exit123:                        ; preds = %134
   br i1 %.not102, label %.critedge, label %.critedge.thread5
 
 .critedge.thread5:                                ; preds = %81, %117, %get_device_or_die.exit123, %.preheader, %100, %116, %is_implicit_bare_repo.exit, %is_implicit_bare_repo.exit.thread
-  %.2.ph = phi i32 [ 3, %116 ], [ %.070, %100 ], [ -4, %is_implicit_bare_repo.exit.thread ], [ -5, %is_implicit_bare_repo.exit ], [ -1, %.preheader ], [ -3, %81 ], [ -1, %117 ], [ -2, %get_device_or_die.exit123 ]
+  %.2.ph = phi i32 [ %.070, %100 ], [ -5, %is_implicit_bare_repo.exit ], [ 3, %116 ], [ -4, %is_implicit_bare_repo.exit.thread ], [ -1, %.preheader ], [ -3, %81 ], [ -1, %117 ], [ -2, %get_device_or_die.exit123 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %140
 
@@ -3792,7 +3792,7 @@ set_git_dir.exit.i41:                             ; preds = %175, %strbuf_setlen
   unreachable
 
 setup_discovered_git_dir.exit:                    ; preds = %176, %set_git_dir.exit.i41, %151, %128, %strbuf_addch.exit.i, %98, %set_git_dir.exit.i, %64, %42, %26
-  %.0 = phi ptr [ %29, %26 ], [ null, %98 ], [ %115, %strbuf_addch.exit.i ], [ %65, %64 ], [ null, %42 ], [ null, %set_git_dir.exit.i ], [ null, %128 ], [ %153, %151 ], [ null, %176 ], [ null, %set_git_dir.exit.i41 ]
+  %.0 = phi ptr [ %29, %26 ], [ null, %set_git_dir.exit.i41 ], [ null, %98 ], [ null, %176 ], [ %153, %151 ], [ null, %128 ], [ %115, %strbuf_addch.exit.i ], [ %65, %64 ], [ null, %42 ], [ null, %set_git_dir.exit.i ]
   br i1 %.not, label %203, label %setup_discovered_git_dir.exit.thread
 
 setup_discovered_git_dir.exit.thread:             ; preds = %setup_discovered_git_dir.exit
@@ -6320,7 +6320,7 @@ define internal range(i32 -1, 1) i32 @allowed_bare_repo_cb(ptr noundef readonly 
   br label %10
 
 10:                                               ; preds = %.sink.split, %8, %4
-  %.0 = phi i32 [ 0, %4 ], [ -1, %8 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ -1, %8 ], [ 0, %4 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 
@@ -6437,7 +6437,7 @@ define internal i32 @read_default_format_config(ptr noundef %0, ptr noundef %1, 
   br label %28
 
 28:                                               ; preds = %.sink.split, %15, %19, %17, %9, %7
-  %.0 = phi i32 [ 0, %9 ], [ %18, %17 ], [ 0, %19 ], [ %8, %7 ], [ 0, %15 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 0, %9 ], [ %18, %17 ], [ 0, %15 ], [ 0, %19 ], [ %8, %7 ], [ 0, %.sink.split ]
   %29 = load ptr, ptr %5, align 8, !tbaa !58
   call void @free(ptr noundef %29) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

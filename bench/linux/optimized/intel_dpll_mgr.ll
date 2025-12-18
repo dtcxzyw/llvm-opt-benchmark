@@ -980,8 +980,8 @@ define dso_local void @intel_shared_dpll_init(ptr noundef %0) local_unnamed_addr
   %49 = icmp ult i32 %48, -2
   br i1 %49, label %.critedge, label %.thread
 
-.thread:                                          ; preds = %39, %37, %33, %31, %28, %26, %23, %20, %17, %14, %45
-  %50 = phi ptr [ @pch_pll_mgr, %45 ], [ @hsw_pll_mgr, %39 ], [ @skl_pll_mgr, %37 ], [ @bxt_pll_mgr, %33 ], [ @icl_pll_mgr, %31 ], [ @ehl_pll_mgr, %28 ], [ @tgl_pll_mgr, %26 ], [ @rkl_pll_mgr, %23 ], [ @dg1_pll_mgr, %20 ], [ @adls_pll_mgr, %17 ], [ @adlp_pll_mgr, %14 ]
+.thread:                                          ; preds = %37, %33, %31, %28, %26, %23, %20, %17, %14, %39, %45
+  %50 = phi ptr [ @pch_pll_mgr, %45 ], [ @skl_pll_mgr, %37 ], [ @bxt_pll_mgr, %33 ], [ @icl_pll_mgr, %31 ], [ @ehl_pll_mgr, %28 ], [ @tgl_pll_mgr, %26 ], [ @rkl_pll_mgr, %23 ], [ @dg1_pll_mgr, %20 ], [ @adls_pll_mgr, %17 ], [ @adlp_pll_mgr, %14 ], [ @hsw_pll_mgr, %39 ]
   %51 = load ptr, ptr %50, align 8
   %52 = load ptr, ptr %51, align 8
   %53 = icmp eq ptr %52, null
@@ -7065,7 +7065,7 @@ define internal noundef range(i32 -22, 1) i32 @skl_compute_dpll(ptr noundef read
   %123 = select i1 %122, i32 3, i32 %121
   br label %137
 
-.thread18:                                        ; preds = %99, %110
+.thread18:                                        ; preds = %110, %99
   %124 = icmp eq i64 %72, 9000000000
   %125 = zext i1 %124 to i32
   %126 = icmp eq i64 %72, 8400000000
@@ -7093,11 +7093,11 @@ define internal noundef range(i32 -22, 1) i32 @skl_compute_dpll(ptr noundef read
   br label %137
 
 137:                                              ; preds = %.thread16, %.thread12, %.thread, %133
-  %138 = phi i32 [ %134, %133 ], [ %115, %.thread ], [ %119, %.thread12 ], [ %123, %.thread16 ]
-  %139 = phi i32 [ %135, %133 ], [ %.ph8, %.thread ], [ %.ph11, %.thread12 ], [ %.ph15, %.thread16 ]
-  %140 = phi i32 [ %135, %133 ], [ %.ph, %.thread ], [ %.ph10, %.thread12 ], [ %.ph14, %.thread16 ]
-  %141 = phi i32 [ %136, %133 ], [ 2, %.thread ], [ 3, %.thread12 ], [ 7, %.thread16 ]
-  %142 = phi i32 [ 0, %133 ], [ 4, %.thread ], [ 8, %.thread12 ], [ 16, %.thread16 ]
+  %138 = phi i32 [ %134, %133 ], [ %123, %.thread16 ], [ %119, %.thread12 ], [ %115, %.thread ]
+  %139 = phi i32 [ %135, %133 ], [ %.ph15, %.thread16 ], [ %.ph11, %.thread12 ], [ %.ph8, %.thread ]
+  %140 = phi i32 [ %135, %133 ], [ %.ph14, %.thread16 ], [ %.ph10, %.thread12 ], [ %.ph, %.thread ]
+  %141 = phi i32 [ %136, %133 ], [ 7, %.thread16 ], [ 3, %.thread12 ], [ 2, %.thread ]
+  %142 = phi i32 [ 0, %133 ], [ 16, %.thread16 ], [ 8, %.thread12 ], [ 4, %.thread ]
   switch i32 %139, label %146 [
     i32 5, label %.thread21
     i32 2, label %143

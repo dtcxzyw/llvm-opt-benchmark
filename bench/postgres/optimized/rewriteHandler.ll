@@ -1995,7 +1995,7 @@ define dso_local ptr @QueryRewrite(ptr noundef %0) local_unnamed_addr #0 {
   br label %.critedge50.thread
 
 .critedge50.thread:                               ; preds = %25, %.lr.ph, %1, %.lr.ph66, %.critedge, %36, %.critedge50
-  %.0.lcssa84 = phi ptr [ %14, %36 ], [ %14, %.critedge50 ], [ null, %.critedge ], [ %14, %.lr.ph66 ], [ null, %1 ], [ null, %.lr.ph ], [ %14, %25 ]
+  %.0.lcssa84 = phi ptr [ null, %.lr.ph ], [ %14, %36 ], [ %14, %.critedge50 ], [ null, %.critedge ], [ %14, %.lr.ph66 ], [ null, %1 ], [ %14, %25 ]
   ret ptr %.0.lcssa84
 }
 
@@ -2565,7 +2565,7 @@ view_has_instead_trigger.exit.thread.i:           ; preds = %.critedge125.i, %18
   br i1 %283, label %.lr.ph531, label %.critedge129.i
 
 rewriteValuesRTE.exit:                            ; preds = %.critedge.i.i, %114, %.lr.ph10.i.i, %.critedge127.i
-  %.0.i = phi i1 [ %.097.lcssa.i, %.critedge127.i ], [ false, %114 ], [ false, %.lr.ph10.i.i ], [ false, %.critedge.i.i ]
+  %.0.i = phi i1 [ %.097.lcssa.i, %.critedge127.i ], [ false, %.lr.ph10.i.i ], [ false, %114 ], [ false, %.critedge.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %290
 
@@ -2680,8 +2680,8 @@ rewriteValuesRTE.exit:                            ; preds = %.critedge.i.i, %114
   unreachable
 
 .critedge313:                                     ; preds = %338, %315, %.lr.ph502, %68, %308, %305
-  %.2257 = phi i1 [ %.1256, %305 ], [ false, %308 ], [ false, %68 ], [ false, %.lr.ph502 ], [ false, %315 ], [ false, %338 ]
-  %.3254 = phi i64 [ %307, %305 ], [ -1, %308 ], [ -1, %68 ], [ -1, %.lr.ph502 ], [ -1, %315 ], [ -1, %338 ]
+  %.2257 = phi i1 [ %.1256, %305 ], [ false, %308 ], [ false, %68 ], [ false, %315 ], [ false, %.lr.ph502 ], [ false, %338 ]
+  %.3254 = phi i64 [ %307, %305 ], [ -1, %308 ], [ -1, %68 ], [ -1, %315 ], [ -1, %.lr.ph502 ], [ -1, %338 ]
   %345 = call fastcc ptr @matchLocks(i32 noundef %12, ptr noundef %80, i32 noundef %70, ptr noundef %0, ptr noundef %9)
   %346 = load ptr, ptr %71, align 8
   %.not.i328 = icmp eq ptr %346, null
@@ -6080,10 +6080,10 @@ process_matched_tle.exit:                         ; preds = %59, %156
   br label %230
 
 230:                                              ; preds = %.thread189, %216, %.fold.split, %222, %212
-  %231 = phi ptr [ %213, %212 ], [ %213, %222 ], [ %213, %216 ], [ %213, %.fold.split ], [ %187, %.thread189 ]
-  %.0136192 = phi i32 [ %.0136, %212 ], [ %.0136, %222 ], [ %.0136, %216 ], [ %.0136, %.fold.split ], [ 0, %.thread189 ]
-  %.3151 = phi ptr [ %.0148228, %212 ], [ %.5153, %222 ], [ %.0148228, %216 ], [ %.0148228, %.fold.split ], [ %.0148228, %.thread189 ]
-  %.1139.shrunk = phi i1 [ %196, %212 ], [ true, %222 ], [ true, %216 ], [ false, %.fold.split ], [ true, %.thread189 ]
+  %231 = phi ptr [ %213, %212 ], [ %213, %216 ], [ %213, %222 ], [ %213, %.fold.split ], [ %187, %.thread189 ]
+  %.0136192 = phi i32 [ %.0136, %212 ], [ %.0136, %216 ], [ %.0136, %222 ], [ %.0136, %.fold.split ], [ 0, %.thread189 ]
+  %.3151 = phi ptr [ %.0148228, %212 ], [ %.0148228, %216 ], [ %.5153, %222 ], [ %.0148228, %.fold.split ], [ %.0148228, %.thread189 ]
+  %.1139.shrunk = phi i1 [ %196, %212 ], [ true, %216 ], [ true, %222 ], [ false, %.fold.split ], [ true, %.thread189 ]
   %232 = load i8, ptr %231, align 1
   %233 = icmp eq i8 %232, 100
   %or.cond7 = and i1 %37, %233
@@ -6378,8 +6378,8 @@ define internal fastcc ptr @findDefaultOnlyColumns(ptr readonly captures(address
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph63, label %.critedge
 
-.critedge51.thread55:                             ; preds = %.lr.ph, %.preheader1, %.critedge51
-  %.458 = phi ptr [ %.4, %.critedge51 ], [ %.02862, %.preheader1 ], [ %.02862, %.lr.ph ]
+.critedge51.thread55:                             ; preds = %.preheader1, %.lr.ph, %.critedge51
+  %.458 = phi ptr [ %.4, %.critedge51 ], [ %.02862, %.lr.ph ], [ %.02862, %.preheader1 ]
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv4461, 1
   %5 = load i32, ptr %1, align 4
   %6 = sext i32 %5 to i64

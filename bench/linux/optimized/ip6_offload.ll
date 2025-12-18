@@ -1365,7 +1365,7 @@ define internal ptr @ipv6_gso_segment(ptr noundef initializes((180, 182)) %0, i6
   br i1 %432, label %.thread18, label %.split.split, !llvm.loop !20
 
 .thread18:                                        ; preds = %430, %.split.split.us.split, %.split.split.us.split.us, %324, %.thread16, %227, %241, %.split38.us, %245, %108, %106, %65
-  %433 = phi ptr [ inttoptr (i64 -22 to ptr), %108 ], [ %239, %245 ], [ inttoptr (i64 -22 to ptr), %106 ], [ inttoptr (i64 -1 to ptr), %65 ], [ %423, %.split38.us ], [ inttoptr (i64 -93 to ptr), %.thread16 ], [ inttoptr (i64 -93 to ptr), %227 ], [ null, %241 ], [ %239, %.split.split.us.split ], [ %239, %324 ], [ %239, %.split.split.us.split.us ], [ %239, %430 ]
+  %433 = phi ptr [ inttoptr (i64 -22 to ptr), %108 ], [ %239, %245 ], [ inttoptr (i64 -22 to ptr), %106 ], [ inttoptr (i64 -1 to ptr), %65 ], [ %423, %.split38.us ], [ null, %241 ], [ inttoptr (i64 -93 to ptr), %.thread16 ], [ inttoptr (i64 -93 to ptr), %227 ], [ %239, %324 ], [ %239, %.split.split.us.split ], [ %239, %.split.split.us.split.us ], [ %239, %430 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %433
 }

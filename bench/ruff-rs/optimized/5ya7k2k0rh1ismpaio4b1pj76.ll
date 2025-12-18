@@ -497,7 +497,7 @@ _ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread16.i.i.i.i: ; preds 
   br i1 %.not12.i.i.i.i, label %51, label %49
 
 _ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread.i.i.i.i: ; preds = %.preheader.i.i.i.i.i, %38, %_ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit._ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread.loopexit20_crit_edge.i.i.i.i
-  %48 = phi i64 [ %.pre46.pre.i.i.i.i, %_ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit._ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread.loopexit20_crit_edge.i.i.i.i ], [ %24, %38 ], [ %24, %.preheader.i.i.i.i.i ]
+  %48 = phi i64 [ %24, %38 ], [ %.pre46.pre.i.i.i.i, %_ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit._ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread.loopexit20_crit_edge.i.i.i.i ], [ %24, %.preheader.i.i.i.i.i ]
   store i64 %48, ptr %11, align 8, !alias.scope !72, !noalias !75
   br label %.loopexit.i.i.i
 
@@ -563,8 +563,8 @@ _ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread.i.i.i.i: ; preds = 
   br label %71
 
 71:                                               ; preds = %._crit_edge.i.i.i.i, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h1631b02891b11fa6E.exit.i.i.i"
-  %.sroa.4.0.i.i.i = phi i64 [ %62, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h1631b02891b11fa6E.exit.i.i.i" ], [ %69, %._crit_edge.i.i.i.i ]
-  %.sroa.0.0.i.i.i = phi ptr [ %63, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h1631b02891b11fa6E.exit.i.i.i" ], [ %70, %._crit_edge.i.i.i.i ]
+  %.sroa.4.0.i.i.i = phi i64 [ %69, %._crit_edge.i.i.i.i ], [ %62, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h1631b02891b11fa6E.exit.i.i.i" ]
+  %.sroa.0.0.i.i.i = phi ptr [ %70, %._crit_edge.i.i.i.i ], [ %63, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h1631b02891b11fa6E.exit.i.i.i" ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !86
   call void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$15try_allocate_in17he80f339f7f35c1ffE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, i64 noundef %.sroa.4.0.i.i.i, i1 noundef zeroext false, i64 noundef 1, i64 noundef 1), !noalias !98
   %72 = load i64, ptr %4, align 8, !range !36, !noalias !86, !noundef !8

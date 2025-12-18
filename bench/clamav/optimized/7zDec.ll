@@ -389,9 +389,9 @@ IS_MAIN_METHOD.exit.i:                            ; preds = %182, %182, %182, %1
   br label %211
 
 211:                                              ; preds = %208, %202
-  %.0178.i = phi ptr [ %199, %202 ], [ %210, %208 ]
-  %.1157.i = phi ptr [ %.0156434.i, %202 ], [ %210, %208 ]
-  %.1150.i = phi i64 [ %.0149435.i, %202 ], [ %193, %208 ]
+  %.0178.i = phi ptr [ %210, %208 ], [ %199, %202 ]
+  %.1157.i = phi ptr [ %210, %208 ], [ %.0156434.i, %202 ]
+  %.1150.i = phi i64 [ %193, %208 ], [ %.0149435.i, %202 ]
   br i1 %.not207293.i, label %SzFolder_Decode2.exit, label %212
 
 .thread286.i:                                     ; preds = %IS_MAIN_METHOD.exit.i
@@ -581,7 +581,7 @@ SzDecodeLzma.exit.thread318.i:                    ; preds = %241, %265
   br label %SzFolder_Decode2.exit
 
 SzDecodeLzma.exit.thread323.i:                    ; preds = %259, %262, %.lr.ph.i224.i
-  %.134.ph.i.ph.i = phi i32 [ %264, %262 ], [ %247, %.lr.ph.i224.i ], [ 1, %259 ]
+  %.134.ph.i.ph.i = phi i32 [ %247, %.lr.ph.i224.i ], [ %264, %262 ], [ 1, %259 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
@@ -937,8 +937,8 @@ SzDecodeCopy.exit273.i:                           ; preds = %369, %366, %.lr.ph.
   br label %SzDecodeCopy.exit.thread.i
 
 SzDecodeCopy.exit.thread.i:                       ; preds = %233, %385, %383, %.loopexit.i, %SzDecodePpmd.exit.i, %SzDecodeLzma2.exit.i, %SzDecodeLzma.exit.i, %SzDecodeLzma.exit.i, %223
-  %.5161.ph.i = phi ptr [ %.0156434.i, %385 ], [ %.1157297308.i, %SzDecodeLzma.exit.i ], [ %.1157297308.i, %SzDecodePpmd.exit.i ], [ %.1157297308.i, %SzDecodeLzma2.exit.i ], [ %.0156434.i, %383 ], [ %.1157297308.i, %223 ], [ %.0156434.i, %.loopexit.i ], [ %.1157297308.i, %SzDecodeLzma.exit.i ], [ %.1157297308.i, %233 ]
-  %.5154.ph.i = phi i64 [ %.0149435.i, %385 ], [ %.1150298307.i, %SzDecodeLzma.exit.i ], [ %.1150298307.i, %SzDecodePpmd.exit.i ], [ %.1150298307.i, %SzDecodeLzma2.exit.i ], [ %.0149435.i, %383 ], [ %.1150298307.i, %223 ], [ %.0149435.i, %.loopexit.i ], [ %.1150298307.i, %SzDecodeLzma.exit.i ], [ %.1150298307.i, %233 ]
+  %.5161.ph.i = phi ptr [ %.1157297308.i, %SzDecodeLzma.exit.i ], [ %.0156434.i, %385 ], [ %.1157297308.i, %SzDecodeLzma.exit.i ], [ %.1157297308.i, %SzDecodePpmd.exit.i ], [ %.1157297308.i, %SzDecodeLzma2.exit.i ], [ %.0156434.i, %383 ], [ %.1157297308.i, %223 ], [ %.0156434.i, %.loopexit.i ], [ %.1157297308.i, %233 ]
+  %.5154.ph.i = phi i64 [ %.1150298307.i, %SzDecodeLzma.exit.i ], [ %.0149435.i, %385 ], [ %.1150298307.i, %SzDecodeLzma.exit.i ], [ %.1150298307.i, %SzDecodePpmd.exit.i ], [ %.1150298307.i, %SzDecodeLzma2.exit.i ], [ %.0149435.i, %383 ], [ %.1150298307.i, %223 ], [ %.0149435.i, %.loopexit.i ], [ %.1150298307.i, %233 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %387 = load i32, ptr %28, align 8, !tbaa !3
   %388 = zext i32 %387 to i64

@@ -622,9 +622,9 @@ define internal range(i32 0, 2) i32 @test_pkey_delete() #0 {
   br i1 %.not36, label %.loopexit, label %.preheader, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.preheader, %43, %38, %35, %31, %.critedge, %28, %12, %8, %4, %0
-  %.024 = phi ptr [ null, %0 ], [ %6, %38 ], [ %6, %35 ], [ %6, %31 ], [ %6, %28 ], [ %6, %.critedge ], [ %6, %12 ], [ %6, %8 ], [ %6, %4 ], [ %6, %43 ], [ %6, %.preheader ]
-  %.023 = phi i32 [ 0, %0 ], [ 0, %38 ], [ 0, %35 ], [ 0, %31 ], [ 0, %28 ], [ 0, %.critedge ], [ 0, %12 ], [ 0, %8 ], [ 0, %4 ], [ 1, %.preheader ], [ 0, %43 ]
-  %.0 = phi ptr [ null, %0 ], [ %40, %38 ], [ %14, %35 ], [ %14, %31 ], [ %14, %28 ], [ %14, %.critedge ], [ %14, %12 ], [ null, %8 ], [ null, %4 ], [ %40, %43 ], [ %40, %.preheader ]
+  %.024 = phi ptr [ %6, %4 ], [ null, %0 ], [ %6, %38 ], [ %6, %35 ], [ %6, %31 ], [ %6, %28 ], [ %6, %.critedge ], [ %6, %12 ], [ %6, %8 ], [ %6, %43 ], [ %6, %.preheader ]
+  %.023 = phi i32 [ 0, %4 ], [ 0, %0 ], [ 0, %38 ], [ 0, %35 ], [ 0, %31 ], [ 0, %28 ], [ 0, %.critedge ], [ 0, %12 ], [ 0, %8 ], [ 1, %.preheader ], [ 0, %43 ]
+  %.0 = phi ptr [ null, %4 ], [ null, %0 ], [ %40, %38 ], [ %14, %35 ], [ %14, %31 ], [ %14, %28 ], [ %14, %.critedge ], [ %14, %12 ], [ null, %8 ], [ %40, %43 ], [ %40, %.preheader ]
   tail call void @fake_rsa_finish(ptr noundef %.024) #3
   %46 = tail call i32 @OSSL_PROVIDER_unload(ptr noundef %2) #3
   %47 = tail call i32 @OSSL_STORE_close(ptr noundef %.0) #3

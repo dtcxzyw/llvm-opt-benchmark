@@ -195,9 +195,9 @@ define dso_local i32 @usArrayToRLEString(ptr noundef readonly captures(none) %0,
   br label %encodeRunShort.exit
 
 encodeRunShort.exit:                              ; preds = %43, %37, %74, %72, %.preheader.i, %22
-  %.140 = phi i16 [ %.03968, %22 ], [ %19, %.preheader.i ], [ %19, %72 ], [ %19, %74 ], [ %19, %37 ], [ %19, %43 ]
-  %.138 = phi i32 [ %23, %22 ], [ 1, %.preheader.i ], [ 1, %72 ], [ 1, %74 ], [ 1, %37 ], [ 1, %43 ]
-  %.1 = phi ptr [ %.071, %22 ], [ %.071, %.preheader.i ], [ %73, %72 ], [ %.8.i, %74 ], [ %.2.us.i, %37 ], [ %.2.i, %43 ]
+  %.140 = phi i16 [ %.03968, %22 ], [ %19, %.preheader.i ], [ %19, %74 ], [ %19, %37 ], [ %19, %72 ], [ %19, %43 ]
+  %.138 = phi i32 [ %23, %22 ], [ 1, %.preheader.i ], [ 1, %74 ], [ 1, %37 ], [ 1, %72 ], [ 1, %43 ]
+  %.1 = phi ptr [ %.071, %22 ], [ %.071, %.preheader.i ], [ %.8.i, %74 ], [ %.2.us.i, %37 ], [ %73, %72 ], [ %.2.i, %43 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
@@ -827,7 +827,7 @@ appendEncodedByte.exit73.thread:                  ; preds = %.thread118
   br label %appendEncodedByte.exit78
 
 appendEncodedByte.exit78:                         ; preds = %appendEncodedByte.exit53, %appendEncodedByte.exit53.us, %appendEncodedByte.exit73.thread, %.thread118, %.preheader, %appendEncodedByte.exit63, %appendEncodedByte.exit58, %107, %138, %137, %appendEncodedByte.exit73, %6, %7
-  %.043 = phi ptr [ null, %6 ], [ null, %7 ], [ %.016.i71, %138 ], [ %.016.i76, %137 ], [ null, %appendEncodedByte.exit73 ], [ null, %107 ], [ null, %appendEncodedByte.exit58 ], [ null, %appendEncodedByte.exit63 ], [ %0, %.preheader ], [ null, %appendEncodedByte.exit73.thread ], [ null, %.thread118 ], [ %.0.i52.us, %appendEncodedByte.exit53.us ], [ %.0.i52, %appendEncodedByte.exit53 ]
+  %.043 = phi ptr [ null, %6 ], [ null, %7 ], [ null, %appendEncodedByte.exit63 ], [ %.016.i71, %138 ], [ %.016.i76, %137 ], [ null, %appendEncodedByte.exit73 ], [ null, %107 ], [ null, %appendEncodedByte.exit58 ], [ %0, %.preheader ], [ %.0.i52.us, %appendEncodedByte.exit53.us ], [ null, %appendEncodedByte.exit73.thread ], [ null, %.thread118 ], [ %.0.i52, %appendEncodedByte.exit53 ]
   ret ptr %.043
 }
 
@@ -944,7 +944,7 @@ define dso_local i32 @rleStringToUCharArray(ptr noundef %0, i32 noundef %1, ptr 
   br label %56
 
 56:                                               ; preds = %.sink.split, %._crit_edge, %15, %13, %5, %6
-  %.041 = phi i32 [ %22, %15 ], [ 0, %5 ], [ 2, %13 ], [ 0, %6 ], [ %22, %._crit_edge ], [ %22, %.sink.split ]
+  %.041 = phi i32 [ %22, %15 ], [ 0, %5 ], [ 2, %13 ], [ %22, %._crit_edge ], [ 0, %6 ], [ %22, %.sink.split ]
   ret i32 %.041
 }
 
@@ -1188,8 +1188,8 @@ default.unreachable:                              ; preds = %55
   br i1 %47, label %.outer._crit_edge.thread245, label %.sink.split
 
 .outer._crit_edge.thread245:                      ; preds = %34, %..loopexit_crit_edge.us, %.preheader85, %.outer._crit_edge
-  %.051.lcssa244 = phi i32 [ %.3, %.outer._crit_edge ], [ 0, %.preheader85 ], [ %61, %..loopexit_crit_edge.us ], [ %.051.ph192, %34 ]
-  %.053.lcssa243 = phi i32 [ %.154108, %.outer._crit_edge ], [ 2, %.preheader85 ], [ %.154.us, %..loopexit_crit_edge.us ], [ %.154, %34 ]
+  %.051.lcssa244 = phi i32 [ %61, %..loopexit_crit_edge.us ], [ %.3, %.outer._crit_edge ], [ 0, %.preheader85 ], [ %.051.ph192, %34 ]
+  %.053.lcssa243 = phi i32 [ %.154.us, %..loopexit_crit_edge.us ], [ %.154108, %.outer._crit_edge ], [ 2, %.preheader85 ], [ %.154, %34 ]
   %.not78 = icmp eq i32 %.053.lcssa243, %.070
   br i1 %.not78, label %72, label %.sink.split
 

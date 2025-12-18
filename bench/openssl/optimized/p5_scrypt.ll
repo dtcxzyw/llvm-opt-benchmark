@@ -486,7 +486,7 @@ define i32 @PKCS5_v2_scrypt_keyivgen_ex(ptr noundef %0, ptr noundef %1, i32 noun
   br label %71
 
 71:                                               ; preds = %34, %57, %69, %56
-  %.031 = phi i32 [ 0, %56 ], [ 0, %57 ], [ %70, %69 ], [ 0, %34 ]
+  %.031 = phi i32 [ 0, %34 ], [ %70, %69 ], [ 0, %57 ], [ 0, %56 ]
   %.not37 = icmp eq i32 %23, 0
   br i1 %.not37, label %.thread40, label %72
 

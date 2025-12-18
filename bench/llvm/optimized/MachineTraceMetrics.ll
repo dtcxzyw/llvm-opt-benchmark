@@ -905,7 +905,7 @@ _ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit: ; preds = %44
   br i1 %.not39, label %_ZNK4llvm12MachineInstr11isTransientEv.exit.thread, label %75, !llvm.loop !315
 
 _ZNK4llvm12MachineInstr11isTransientEv.exit.thread: ; preds = %75, %62, %36, %36, %36, %36, %36, %36, %58, %56, %_ZNK4llvm12MachineInstr11isTransientEv.exit
-  %.1 = phi i32 [ %.03852, %_ZNK4llvm12MachineInstr11isTransientEv.exit ], [ %45, %56 ], [ %45, %58 ], [ %.03852, %36 ], [ %.03852, %36 ], [ %.03852, %36 ], [ %.03852, %36 ], [ %.03852, %36 ], [ %.03852, %36 ], [ %45, %62 ], [ %45, %75 ]
+  %.1 = phi i32 [ %.03852, %_ZNK4llvm12MachineInstr11isTransientEv.exit ], [ %45, %56 ], [ %.03852, %36 ], [ %45, %58 ], [ %.03852, %36 ], [ %.03852, %36 ], [ %.03852, %36 ], [ %.03852, %36 ], [ %.03852, %36 ], [ %45, %62 ], [ %45, %75 ]
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.040.053, align 8
   %85 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i = icmp eq i64 %85, 0
@@ -2359,7 +2359,7 @@ _ZNK4llvm15SmallPtrSetImplIPvE5countEPKv.exit.thread.thread.i17: ; preds = %71, 
   br label %_ZN4llvm17PreservedAnalyses24PreservedAnalysisChecker9preservedEv.exit.thread37
 
 _ZN4llvm17PreservedAnalyses24PreservedAnalysisChecker9preservedEv.exit.thread37: ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i.i.i, %.lr.ph.i.i4.i, %.lr.ph.i.i.i8, %.lr.ph.i.i5.i, %.lr.ph.i.i.i25, %.lr.ph.i.i5.i20, %.thread43.thread, %83, %_ZNK4llvm15SmallPtrSetImplIPvE5countEPKv.exit.thread.thread.i17, %_ZNK4llvm15SmallPtrSetImplIPvE5countEPKv.exit.i11, %_ZNK4llvm17PreservedAnalyses10getCheckerINS_27MachineTraceMetricsAnalysisEEENS0_24PreservedAnalysisCheckerEv.exit, %_ZNK4llvm15SmallPtrSetImplIPvE5countEPKv.exit.i1, %_ZNK4llvm15SmallPtrSetImplIPvE5countEPKv.exit.i, %_ZN4llvm17PreservedAnalyses24PreservedAnalysisChecker12preservedSetINS_13AllAnalysesOnINS_15MachineFunctionEEEEEbv.exit, %_ZN4llvm17PreservedAnalyses24PreservedAnalysisChecker9preservedEv.exit
-  %86 = phi i1 [ false, %_ZN4llvm17PreservedAnalyses24PreservedAnalysisChecker12preservedSetINS_13AllAnalysesOnINS_15MachineFunctionEEEEEbv.exit ], [ false, %_ZN4llvm17PreservedAnalyses24PreservedAnalysisChecker9preservedEv.exit ], [ false, %_ZNK4llvm15SmallPtrSetImplIPvE5countEPKv.exit.i ], [ false, %_ZNK4llvm15SmallPtrSetImplIPvE5countEPKv.exit.i1 ], [ false, %_ZNK4llvm15SmallPtrSetImplIPvE5countEPKv.exit.i11 ], [ %85, %83 ], [ true, %_ZNK4llvm15SmallPtrSetImplIPvE5countEPKv.exit.thread.thread.i17 ], [ true, %_ZNK4llvm17PreservedAnalyses10getCheckerINS_27MachineTraceMetricsAnalysisEEENS0_24PreservedAnalysisCheckerEv.exit ], [ true, %.thread43.thread ], [ false, %.lr.ph.i.i.i ], [ %.not91, %.lr.ph.i.i5.i20 ], [ false, %.lr.ph.i.i.i25 ], [ false, %.lr.ph.i.i5.i ], [ false, %.lr.ph.i.i.i8 ], [ false, %.lr.ph.i.i4.i ], [ true, %.lr.ph.i.i.i.i ]
+  %86 = phi i1 [ false, %_ZN4llvm17PreservedAnalyses24PreservedAnalysisChecker12preservedSetINS_13AllAnalysesOnINS_15MachineFunctionEEEEEbv.exit ], [ false, %_ZN4llvm17PreservedAnalyses24PreservedAnalysisChecker9preservedEv.exit ], [ false, %.lr.ph.i.i4.i ], [ true, %.thread43.thread ], [ false, %.lr.ph.i.i.i25 ], [ false, %_ZNK4llvm15SmallPtrSetImplIPvE5countEPKv.exit.i ], [ %.not91, %.lr.ph.i.i5.i20 ], [ false, %_ZNK4llvm15SmallPtrSetImplIPvE5countEPKv.exit.i1 ], [ false, %.lr.ph.i.i5.i ], [ false, %_ZNK4llvm15SmallPtrSetImplIPvE5countEPKv.exit.i11 ], [ false, %.lr.ph.i.i.i8 ], [ %85, %83 ], [ true, %_ZNK4llvm15SmallPtrSetImplIPvE5countEPKv.exit.thread.thread.i17 ], [ true, %_ZNK4llvm17PreservedAnalyses10getCheckerINS_27MachineTraceMetricsAnalysisEEENS0_24PreservedAnalysisCheckerEv.exit ], [ false, %.lr.ph.i.i.i ], [ true, %.lr.ph.i.i.i.i ]
   ret i1 %86
 }
 
@@ -4505,7 +4505,7 @@ define internal fastcc void @_ZL10getPHIDepsRKN4llvm12MachineInstrERNS_15SmallVe
   br label %_ZNK4llvm19MachineRegisterInfo9def_beginENS_8RegisterE.exit.i.i
 
 _ZNK4llvm19MachineRegisterInfo9def_beginENS_8RegisterE.exit.i.i: ; preds = %29, %11
-  %.sroa.0.0.i.i.i = phi ptr [ %.0.i.i.i.i, %11 ], [ %31, %29 ]
+  %.sroa.0.0.i.i.i = phi ptr [ %31, %29 ], [ %.0.i.i.i.i, %11 ]
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i, i64 24
   %33 = load ptr, ptr %32, align 8, !tbaa !485
   %.not.i.i3.i.i = icmp eq ptr %33, null
@@ -4640,7 +4640,7 @@ _ZNK4llvm14MachineOperand8readsRegEv.exit.thread: ; preds = %27
   br label %_ZNK4llvm19MachineRegisterInfo9def_beginENS_8RegisterE.exit.i.i
 
 _ZNK4llvm19MachineRegisterInfo9def_beginENS_8RegisterE.exit.i.i: ; preds = %42, %_ZNK4llvm14MachineOperand8readsRegEv.exit.thread
-  %.sroa.0.0.i.i.i = phi ptr [ %.0.i.i.i.i, %_ZNK4llvm14MachineOperand8readsRegEv.exit.thread ], [ %44, %42 ]
+  %.sroa.0.0.i.i.i = phi ptr [ %44, %42 ], [ %.0.i.i.i.i, %_ZNK4llvm14MachineOperand8readsRegEv.exit.thread ]
   %45 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i, i64 24
   %46 = load ptr, ptr %45, align 8, !tbaa !485
   %.not.i.i3.i.i = icmp eq ptr %46, null
@@ -5584,7 +5584,7 @@ _ZNK4llvm19MachineTraceMetrics8Ensemble10getLoopForEPKNS_17MachineBasicBlockE.ex
   br label %_ZNK4llvm19MachineRegisterInfo9def_beginENS_8RegisterE.exit.i.i.i
 
 _ZNK4llvm19MachineRegisterInfo9def_beginENS_8RegisterE.exit.i.i.i: ; preds = %197, %179
-  %.sroa.0.0.i.i.i.i = phi ptr [ %.0.i.i.i.i.i, %179 ], [ %199, %197 ]
+  %.sroa.0.0.i.i.i.i = phi ptr [ %199, %197 ], [ %.0.i.i.i.i.i, %179 ]
   %200 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i, i64 24
   %201 = load ptr, ptr %200, align 8, !tbaa !485
   %.not.i.i3.i.i.i = icmp eq ptr %201, null
@@ -6178,7 +6178,7 @@ _ZNK4llvm14MachineOperand8readsRegEv.exit.thread.i: ; preds = %482
   br label %_ZNK4llvm19MachineRegisterInfo9def_beginENS_8RegisterE.exit.i.i.i157
 
 _ZNK4llvm19MachineRegisterInfo9def_beginENS_8RegisterE.exit.i.i.i157: ; preds = %497, %_ZNK4llvm14MachineOperand8readsRegEv.exit.thread.i
-  %.sroa.0.0.i.i.i.i158 = phi ptr [ %.0.i.i.i.i.i155, %_ZNK4llvm14MachineOperand8readsRegEv.exit.thread.i ], [ %499, %497 ]
+  %.sroa.0.0.i.i.i.i158 = phi ptr [ %499, %497 ], [ %.0.i.i.i.i.i155, %_ZNK4llvm14MachineOperand8readsRegEv.exit.thread.i ]
   %500 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i158, i64 24
   %501 = load ptr, ptr %500, align 8, !tbaa !485
   %.not.i.i3.i.i.i159 = icmp eq ptr %501, null
@@ -6226,7 +6226,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_17DataDepELb1EE9push_backES2_.ex
   br label %_ZNK4llvm14MachineOperand8readsRegEv.exit.thread25.i
 
 _ZNK4llvm14MachineOperand8readsRegEv.exit.thread25.i: ; preds = %477, %473, %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_17DataDepELb1EE9push_backES2_.exit.i169, %482
-  %.val128488 = phi i32 [ %.val128489.ph, %482 ], [ %516, %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_17DataDepELb1EE9push_backES2_.exit.i169 ], [ %.val128489.ph, %473 ], [ %.val128489.ph, %477 ]
+  %.val128488 = phi i32 [ %516, %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_17DataDepELb1EE9push_backES2_.exit.i169 ], [ %.val128489.ph, %482 ], [ %.val128489.ph, %473 ], [ %.val128489.ph, %477 ]
   %517 = getelementptr inbounds nuw i8, ptr %.01828.i, i64 32
   %.not.i150 = icmp eq ptr %517, %470
   br i1 %.not.i150, label %_ZL11getDataDepsRKN4llvm12MachineInstrERNS_15SmallVectorImplIN12_GLOBAL__N_17DataDepEEEPKNS_19MachineRegisterInfoE.exit, label %.outer
@@ -6667,7 +6667,7 @@ _ZL21updatePhysDepsUpwardsRKN4llvm12MachineInstrEjRNS_9SparseSetINS_11LiveRegUni
   br i1 %.not124424, label %._crit_edge, label %.lr.ph426
 
 ._crit_edge:                                      ; preds = %_ZN4llvm19MachineTraceMetrics8Ensemble10addLiveInsEPKNS_12MachineInstrEjNS_8ArrayRefIPKNS_17MachineBasicBlockEEE.exit213, %464, %460, %457, %457, %.critedge126
-  %.1109608 = phi i32 [ %.1109, %.critedge126 ], [ %.0108, %457 ], [ %.0108, %457 ], [ %.0108, %460 ], [ %.0108, %464 ], [ %.1109, %_ZN4llvm19MachineTraceMetrics8Ensemble10addLiveInsEPKNS_12MachineInstrEjNS_8ArrayRefIPKNS_17MachineBasicBlockEEE.exit213 ]
+  %.1109608 = phi i32 [ %.0108, %464 ], [ %.1109, %.critedge126 ], [ %.0108, %457 ], [ %.0108, %457 ], [ %.0108, %460 ], [ %.1109, %_ZN4llvm19MachineTraceMetrics8Ensemble10addLiveInsEPKNS_12MachineInstrEjNS_8ArrayRefIPKNS_17MachineBasicBlockEEE.exit213 ]
   %702 = load ptr, ptr %95, align 8, !tbaa !358
   %703 = load i32, ptr %96, align 8, !tbaa !359
   %704 = icmp eq i32 %703, 0
@@ -9701,7 +9701,7 @@ _ZNK4llvm19MachineTraceMetrics8Ensemble10getLoopForEPKNS_17MachineBasicBlockE.ex
   br i1 %.not, label %.loopexit, label %.lr.ph.split.split
 
 .loopexit:                                        ; preds = %_ZNK4llvm19MachineTraceMetrics8Ensemble10getLoopForEPKNS_17MachineBasicBlockE.exit45, %_ZNK4llvm19MachineTraceMetrics8Ensemble10getLoopForEPKNS_17MachineBasicBlockE.exit45.us, %_ZNK4llvm19MachineTraceMetrics8Ensemble10getLoopForEPKNS_17MachineBasicBlockE.exit45.us.us, %.lr.ph.split.us.split.us, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %.lr.ph.split.us.split.us ], [ %.1.us, %_ZNK4llvm19MachineTraceMetrics8Ensemble10getLoopForEPKNS_17MachineBasicBlockE.exit45.us ], [ %.1.us.us, %_ZNK4llvm19MachineTraceMetrics8Ensemble10getLoopForEPKNS_17MachineBasicBlockE.exit45.us.us ], [ %.1, %_ZNK4llvm19MachineTraceMetrics8Ensemble10getLoopForEPKNS_17MachineBasicBlockE.exit45 ]
+  %.0 = phi ptr [ null, %2 ], [ null, %.lr.ph.split.us.split.us ], [ %.1.us.us, %_ZNK4llvm19MachineTraceMetrics8Ensemble10getLoopForEPKNS_17MachineBasicBlockE.exit45.us.us ], [ %.1.us, %_ZNK4llvm19MachineTraceMetrics8Ensemble10getLoopForEPKNS_17MachineBasicBlockE.exit45.us ], [ %.1, %_ZNK4llvm19MachineTraceMetrics8Ensemble10getLoopForEPKNS_17MachineBasicBlockE.exit45 ]
   ret ptr %.0
 }
 
@@ -11076,7 +11076,7 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i: ; preds = %._crit_edge.i.i
   br label %_ZL13isExitingLoopPKN4llvm11MachineLoopES2_.exit
 
 _ZL13isExitingLoopPKN4llvm11MachineLoopES2_.exit: ; preds = %.lr.ph.i.i, %.lr.ph.i.i20, %98, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i, %51, %12, %15
-  %.0 = phi i1 [ false, %12 ], [ false, %15 ], [ false, %51 ], [ %102, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ true, %98 ], [ false, %.lr.ph.i.i20 ], [ false, %.lr.ph.i.i ]
+  %.0 = phi i1 [ false, %12 ], [ false, %.lr.ph.i.i20 ], [ false, %15 ], [ false, %51 ], [ %102, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ true, %98 ], [ false, %.lr.ph.i.i ]
   ret i1 %.0
 }
 

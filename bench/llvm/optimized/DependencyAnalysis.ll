@@ -327,7 +327,7 @@ _ZNK4llvm4User8operandsEv.exit:                   ; preds = %64, %67
   br i1 %.not69, label %.thread, label %.lr.ph102
 
 .thread:                                          ; preds = %23, %.critedge, %79, %77, %_ZN4llvm8dyn_castINS_8CallBaseEKNS_11InstructionEEEDcPT0_.exit, %_ZNK4llvm4User8operandsEv.exit, %_ZN4llvm7objcarc20GetUnderlyingObjCPtrEPKNS_5ValueE.exit, %58, %8, %4
-  %.0 = phi i1 [ false, %4 ], [ false, %8 ], [ false, %_ZN4llvm7objcarc20GetUnderlyingObjCPtrEPKNS_5ValueE.exit ], [ %59, %58 ], [ false, %_ZN4llvm8dyn_castINS_8CallBaseEKNS_11InstructionEEEDcPT0_.exit ], [ true, %77 ], [ false, %_ZNK4llvm4User8operandsEv.exit ], [ false, %79 ], [ true, %23 ], [ false, %.critedge ]
+  %.0 = phi i1 [ false, %_ZN4llvm8dyn_castINS_8CallBaseEKNS_11InstructionEEEDcPT0_.exit ], [ false, %4 ], [ false, %8 ], [ %59, %58 ], [ false, %_ZN4llvm7objcarc20GetUnderlyingObjCPtrEPKNS_5ValueE.exit ], [ true, %77 ], [ false, %_ZNK4llvm4User8operandsEv.exit ], [ false, %79 ], [ true, %23 ], [ false, %.critedge ]
   ret i1 %.0
 }
 
@@ -613,7 +613,7 @@ switch.lookup:                                    ; preds = %13
   br label %_ZN4llvm7objcarc16CanAlterRefCountEPKNS_11InstructionEPKNS_5ValueERNS0_18ProvenanceAnalysisENS0_11ARCInstKindE.exit
 
 _ZN4llvm7objcarc16CanAlterRefCountEPKNS_11InstructionEPKNS_5ValueERNS0_18ProvenanceAnalysisENS0_11ARCInstKindE.exit: ; preds = %.critedge.i, %40, %switch.lookup, %29, %27, %_ZNK4llvm17MemoryEffectsBaseINS_13IRMemLocationEE15onlyReadsMemoryEv.exit.i, %_ZN4llvm7objcarc20GetArgRCIdentityRootEPNS_5ValueE.exit38, %_ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit31.thread, %_ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit, %_ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit, %9, %7, %7, %7, %4, %_ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit.thread, %_ZN4llvm7objcarc20GetArgRCIdentityRootEPNS_5ValueE.exit, %11
-  %.0 = phi i1 [ true, %_ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit ], [ true, %4 ], [ %switch, %11 ], [ false, %7 ], [ false, %_ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit.thread ], [ %switch.masked, %switch.lookup ], [ %85, %_ZN4llvm7objcarc20GetArgRCIdentityRootEPNS_5ValueE.exit ], [ %10, %9 ], [ false, %7 ], [ false, %7 ], [ %130, %_ZN4llvm7objcarc20GetArgRCIdentityRootEPNS_5ValueE.exit38 ], [ false, %29 ], [ true, %_ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit ], [ %131, %_ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit31.thread ], [ true, %27 ], [ false, %_ZNK4llvm17MemoryEffectsBaseINS_13IRMemLocationEE15onlyReadsMemoryEv.exit.i ], [ false, %.critedge.i ], [ true, %40 ]
+  %.0 = phi i1 [ true, %_ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit ], [ true, %4 ], [ %switch, %11 ], [ false, %7 ], [ false, %_ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit.thread ], [ %switch.masked, %switch.lookup ], [ %85, %_ZN4llvm7objcarc20GetArgRCIdentityRootEPNS_5ValueE.exit ], [ %10, %9 ], [ false, %7 ], [ false, %7 ], [ %130, %_ZN4llvm7objcarc20GetArgRCIdentityRootEPNS_5ValueE.exit38 ], [ false, %29 ], [ true, %_ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit ], [ %131, %_ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit31.thread ], [ false, %_ZNK4llvm17MemoryEffectsBaseINS_13IRMemLocationEE15onlyReadsMemoryEv.exit.i ], [ true, %27 ], [ true, %40 ], [ false, %.critedge.i ]
   ret i1 %.0
 }
 
@@ -1005,7 +1005,7 @@ _ZN4llvm19SmallPtrSetIteratorIPKNS_10BasicBlockEEppEv.exit.i: ; preds = %.crited
   br i1 %.not174.i, label %.thread.i, label %.lr.ph194.i
 
 .thread.i:                                        ; preds = %36, %44, %_ZN4llvm19SmallPtrSetIteratorIPKNS_10BasicBlockEEppEv.exit.i, %_ZNK4llvm15SmallPtrSetImplIPKNS_10BasicBlockEE5countES3_.exit.i, %152, %157, %_ZNK4llvm15SmallPtrSetImplIPKNS_10BasicBlockEE5beginEv.exit.i
-  %.2.i = phi i1 [ true, %_ZNK4llvm15SmallPtrSetImplIPKNS_10BasicBlockEE5beginEv.exit.i ], [ false, %44 ], [ false, %157 ], [ false, %_ZNK4llvm15SmallPtrSetImplIPKNS_10BasicBlockEE5countES3_.exit.i ], [ true, %_ZN4llvm19SmallPtrSetIteratorIPKNS_10BasicBlockEEppEv.exit.i ], [ false, %152 ], [ false, %36 ]
+  %.2.i = phi i1 [ true, %_ZN4llvm19SmallPtrSetIteratorIPKNS_10BasicBlockEEppEv.exit.i ], [ false, %44 ], [ false, %_ZNK4llvm15SmallPtrSetImplIPKNS_10BasicBlockEE5countES3_.exit.i ], [ false, %157 ], [ true, %_ZNK4llvm15SmallPtrSetImplIPKNS_10BasicBlockEE5beginEv.exit.i ], [ false, %152 ], [ false, %36 ]
   %166 = load ptr, ptr %7, align 8, !tbaa !59
   %167 = icmp eq ptr %166, %21
   br i1 %167, label %_ZN4llvm11SmallVectorISt4pairIPNS_10BasicBlockENS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ES2_EELb0ELb0EEEELj4EED2Ev.exit.i, label %168

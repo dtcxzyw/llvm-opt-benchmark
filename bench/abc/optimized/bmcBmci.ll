@@ -168,7 +168,7 @@ define void @Bmc_BmciUnfold(ptr noundef %0, ptr noundef readonly captures(none) 
   br label %.critedge2, !llvm.loop !34
 
 .critedge2:                                       ; preds = %.critedge.us96, %.lr.ph90.split.us, %.lr.ph90.split.us.preheader, %.critedge.us..critedge2.loopexit_crit_edge, %.critedge.preheader
-  %.val57105136 = phi i32 [ %.val56, %.critedge.preheader ], [ %.val56, %.lr.ph90.split.us.preheader ], [ %.val60.us, %.critedge.us..critedge2.loopexit_crit_edge ], [ %.val60.us, %.lr.ph90.split.us ], [ %.val56, %.critedge.us96 ]
+  %.val57105136 = phi i32 [ %.val56, %.critedge.preheader ], [ %.val60.us, %.lr.ph90.split.us ], [ %.val56, %.lr.ph90.split.us.preheader ], [ %.val60.us, %.critedge.us..critedge2.loopexit_crit_edge ], [ %.val56, %.critedge.us96 ]
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %61 = load i32, ptr %60, align 8, !tbaa !38
   %62 = icmp sgt i32 %61, 0
@@ -2067,7 +2067,7 @@ Abc_Clock.exit252:                                ; preds = %379, %403
   br i1 %exitcond327.not, label %.thread, label %151, !llvm.loop !89
 
 .thread:                                          ; preds = %417, %.critedge2, %238, %415, %368, %237
-  %.2 = phi i32 [ 1, %238 ], [ 1, %415 ], [ 0, %368 ], [ 1, %237 ], [ 1, %.critedge2 ], [ 1, %417 ]
+  %.2 = phi i32 [ 1, %237 ], [ 1, %238 ], [ 1, %415 ], [ 0, %368 ], [ 1, %.critedge2 ], [ 1, %417 ]
   call void @sat_solver_delete(ptr noundef %14) #16
   call void @Gia_ManStopP(ptr noundef nonnull %12) #16
   %418 = load ptr, ptr %50, align 8, !tbaa !33

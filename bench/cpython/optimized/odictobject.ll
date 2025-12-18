@@ -1237,7 +1237,7 @@ define internal i32 @odict_traverse(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %11, %6, %._crit_edge
-  %.1 = phi i32 [ %16, %._crit_edge ], [ %7, %6 ], [ %12, %11 ]
+  %.1 = phi i32 [ %7, %6 ], [ %16, %._crit_edge ], [ %12, %11 ]
   ret i32 %.1
 }
 
@@ -1684,7 +1684,7 @@ _odict_add_tail.exit.i:                           ; preds = %54, %52
   br label %_odict_add_new_node.exit
 
 _odict_add_new_node.exit:                         ; preds = %_odict_add_tail.exit.i, %34, %31, %29, %61, %4
-  %.0 = phi i32 [ -1, %61 ], [ %5, %4 ], [ 0, %_odict_add_tail.exit.i ], [ 0, %29 ], [ 0, %31 ], [ 0, %34 ]
+  %.0 = phi i32 [ -1, %61 ], [ %5, %4 ], [ 0, %_odict_add_tail.exit.i ], [ 0, %34 ], [ 0, %31 ], [ 0, %29 ]
   ret i32 %.0
 }
 
@@ -3698,7 +3698,7 @@ PyODict_SetItem.exit.i:                           ; preds = %28
   br label %OrderedDict_setdefault_impl.exit
 
 OrderedDict_setdefault_impl.exit:                 ; preds = %55, %52, %49, %47, %43, %41, %38, %36, %33, %PyODict_SetItem.exit.i, %28, %26, %12
-  %.023 = phi ptr [ null, %12 ], [ %24, %41 ], [ null, %43 ], [ null, %26 ], [ %.0, %55 ], [ null, %PyODict_SetItem.exit.i ], [ %.0, %36 ], [ %.0, %33 ], [ %24, %38 ], [ %48, %47 ], [ null, %49 ], [ %.0, %52 ], [ null, %28 ]
+  %.023 = phi ptr [ null, %12 ], [ %24, %41 ], [ null, %43 ], [ null, %26 ], [ %.0, %55 ], [ null, %PyODict_SetItem.exit.i ], [ %.0, %36 ], [ %.0, %33 ], [ %24, %38 ], [ null, %49 ], [ %48, %47 ], [ %.0, %52 ], [ null, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.023
 }
@@ -4173,7 +4173,7 @@ Py_DECREF.exit48:                                 ; preds = %44, %48, %51
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %39, %25, %38, %24, %56, %53, %.thread, %_PyObject_CallNoArgs.exit
-  %.0 = phi ptr [ null, %_PyObject_CallNoArgs.exit ], [ null, %.thread ], [ null, %53 ], [ null, %56 ], [ %.032, %24 ], [ %.032, %38 ], [ %.032, %25 ], [ %.032, %39 ]
+  %.0 = phi ptr [ null, %56 ], [ null, %_PyObject_CallNoArgs.exit ], [ %.032, %24 ], [ null, %.thread ], [ null, %53 ], [ %.032, %38 ], [ %.032, %25 ], [ %.032, %39 ]
   ret ptr %.0
 }
 

@@ -212,7 +212,7 @@ _ZN7MinisatL5matchIPcEEbRT_PKc.exit:              ; preds = %67, %.critedge
   br label %.critedge31
 
 .critedge31:                                      ; preds = %_ZN7Minisat6Option13getOptionListEv.exit63, %.lr.ph.i52, %_ZN7MinisatL5matchIPcEEbRT_PKc.exit
-  %.1 = phi i32 [ %74, %_ZN7MinisatL5matchIPcEEbRT_PKc.exit ], [ %.02895, %.lr.ph.i52 ], [ %.02895, %_ZN7Minisat6Option13getOptionListEv.exit63 ]
+  %.1 = phi i32 [ %.02895, %.lr.ph.i52 ], [ %74, %_ZN7MinisatL5matchIPcEEbRT_PKc.exit ], [ %.02895, %_ZN7Minisat6Option13getOptionListEv.exit63 ]
   %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
   %77 = load i32, ptr %0, align 4, !tbaa !6
   %78 = sext i32 %77 to i64

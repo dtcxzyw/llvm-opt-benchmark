@@ -148,8 +148,8 @@ define internal range(i32 -2147483648, 1) i32 @argo_cvg_read_header(ptr noundef 
   %.pre = load i32, ptr %20, align 4, !tbaa !34
   br label %47
 
-argo_cvg_read_checksum.exit.thread:               ; preds = %31, %37, %40, %41
-  %.0.i.ph = phi i32 [ %43, %41 ], [ -5, %40 ], [ %38, %37 ], [ %35, %31 ]
+argo_cvg_read_checksum.exit.thread:               ; preds = %41, %31, %37, %40
+  %.0.i.ph = phi i32 [ -5, %40 ], [ %38, %37 ], [ %35, %31 ], [ %43, %41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %110
 
@@ -563,7 +563,7 @@ define internal range(i32 -22, 1) i32 @argo_cvg_write_init(ptr noundef %0) #0 {
   br label %26
 
 26:                                               ; preds = %.sink.split, %20, %11
-  %.0 = phi i32 [ -22, %11 ], [ 0, %20 ], [ -22, %.sink.split ]
+  %.0 = phi i32 [ 0, %20 ], [ -22, %11 ], [ -22, %.sink.split ]
   ret i32 %.0
 }
 

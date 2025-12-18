@@ -1593,7 +1593,7 @@ _ZNK5clang16CXXBaseSpecifier7getTypeEv.exit:      ; preds = %15, %23
   br label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %55, %48
-  %.0.i.be = phi ptr [ %56, %55 ], [ %54, %48 ]
+  %.0.i.be = phi ptr [ %54, %48 ], [ %56, %55 ]
   br label %.preheader, !llvm.loop !176
 
 _ZNK5clang13CXXRecordDecl22isCurrentInstantiationEPKNS_11DeclContextE.exit: ; preds = %44
@@ -1642,7 +1642,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKN5clang13CXXRecordDeclELb1EE9push_backES4_.e
   br label %8, !llvm.loop !177
 
 .critedge:                                        ; preds = %.critedge31, %_ZNK5clang13CXXRecordDecl22isCurrentInstantiationEPKNS_11DeclContextE.exit, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang13CXXRecordDeclELb1EE9push_backES4_.exit, %35, %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit, %.preheader, %.preheader
-  %.not40 = phi i1 [ false, %_ZNK5clang13CXXRecordDecl22isCurrentInstantiationEPKNS_11DeclContextE.exit ], [ false, %.preheader ], [ false, %.preheader ], [ false, %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit ], [ false, %35 ], [ false, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang13CXXRecordDeclELb1EE9push_backES4_.exit ], [ true, %.critedge31 ]
+  %.not40 = phi i1 [ false, %.preheader ], [ false, %_ZNK5clang13CXXRecordDecl22isCurrentInstantiationEPKNS_11DeclContextE.exit ], [ false, %.preheader ], [ false, %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit ], [ false, %35 ], [ false, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang13CXXRecordDeclELb1EE9push_backES4_.exit ], [ true, %.critedge31 ]
   %79 = load ptr, ptr %4, align 8, !tbaa !27
   %80 = icmp eq ptr %79, %5
   br i1 %80, label %_ZN4llvm11SmallVectorIPKN5clang13CXXRecordDeclELj8EED2Ev.exit, label %81
@@ -1902,7 +1902,7 @@ _ZNK5clang16CXXBaseSpecifier7getTypeEv.exit110:   ; preds = %59, %66
   br label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %89, %82
-  %.0.i.be = phi ptr [ %90, %89 ], [ %88, %82 ]
+  %.0.i.be = phi ptr [ %88, %82 ], [ %90, %89 ]
   br label %.preheader, !llvm.loop !176
 
 _ZNK5clang13CXXRecordDecl22isCurrentInstantiationEPKNS_11DeclContextE.exit: ; preds = %.preheader, %.preheader, %78
@@ -4683,7 +4683,7 @@ _ZN5clang13CXXMethodDecl9getParentEv.exit.i.i108.i.i.i.i.i.i: ; preds = %294, %2
   br i1 %.not17.i.i111.i.i.i.i.i.i, label %"_ZN4llvm8erase_ifINS_15SmallVectorImplIN5clang19UniqueVirtualMethodEEEZNKS2_13CXXRecordDecl18getFinalOverridersERNS2_20CXXFinalOverriderMapEE3$_0EEvRT_T0_.exit", label %.lr.ph.i.i104.i.i.i.i.i.i
 
 "_ZSt9__find_ifIPN5clang19UniqueVirtualMethodEN9__gnu_cxx5__ops10_Iter_predIZNKS0_13CXXRecordDecl18getFinalOverridersERNS0_20CXXFinalOverriderMapEE3$_0EEET_SB_SB_T0_.exit.i.i.i.i": ; preds = %_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i82.i.i.i.i.i.i, %_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i95.i.i.i.i.i.i, %_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i108.i.i.i.i.i.i, %_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i.i.i.i.i.i.i, %_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i43.i.i.i.i.i.i, %_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i56.i.i.i.i.i.i, %_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i69.i.i.i.i.i.i
-  %.028.i.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i.i, %_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i95.i.i.i.i.i.i ], [ %202, %_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i69.i.i.i.i.i.i ], [ %179, %_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i56.i.i.i.i.i.i ], [ %156, %_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i43.i.i.i.i.i.i ], [ %.029141.i.i.i.i.i.i, %_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i.i.i.i.i.i.i ], [ %.2.i.i.i.i.i.i, %_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i108.i.i.i.i.i.i ], [ %.029.lcssa.i.i.i.i.i.i, %_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i82.i.i.i.i.i.i ]
+  %.028.i.i.i.i.i.i = phi ptr [ %156, %_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i43.i.i.i.i.i.i ], [ %179, %_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i56.i.i.i.i.i.i ], [ %.1.i.i.i.i.i.i, %_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i95.i.i.i.i.i.i ], [ %.2.i.i.i.i.i.i, %_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i108.i.i.i.i.i.i ], [ %202, %_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i69.i.i.i.i.i.i ], [ %.029141.i.i.i.i.i.i, %_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i.i.i.i.i.i.i ], [ %.029.lcssa.i.i.i.i.i.i, %_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i82.i.i.i.i.i.i ]
   %300 = icmp eq ptr %.028.i.i.i.i.i.i, %131
   br i1 %300, label %"_ZN4llvm8erase_ifINS_15SmallVectorImplIN5clang19UniqueVirtualMethodEEEZNKS2_13CXXRecordDecl18getFinalOverridersERNS2_20CXXFinalOverriderMapEE3$_0EEvRT_T0_.exit", label %.preheader.i.i.i.i
 
@@ -4755,7 +4755,7 @@ _ZN5clang13CXXMethodDecl9getParentEv.exit.i.i.i.i.i.i: ; preds = %317, %308
   br i1 %.not.i.i.i.i26, label %"_ZN4llvm8erase_ifINS_15SmallVectorImplIN5clang19UniqueVirtualMethodEEEZNKS2_13CXXRecordDecl18getFinalOverridersERNS2_20CXXFinalOverriderMapEE3$_0EEvRT_T0_.exit", label %.lr.ph.i.i.i.i25, !llvm.loop !269
 
 "_ZN4llvm8erase_ifINS_15SmallVectorImplIN5clang19UniqueVirtualMethodEEEZNKS2_13CXXRecordDecl18getFinalOverridersERNS2_20CXXFinalOverriderMapEE3$_0EEvRT_T0_.exit": ; preds = %.critedge.i.i110.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang13CXXRecordDecl18getFinalOverridersERNS2_20CXXFinalOverriderMapEE3$_0EclIPNS2_19UniqueVirtualMethodEEEbT_.exit.i.i.i.i", %._crit_edge.i.i.i.i.i.i, %277, %280, %"_ZSt9__find_ifIPN5clang19UniqueVirtualMethodEN9__gnu_cxx5__ops10_Iter_predIZNKS0_13CXXRecordDecl18getFinalOverridersERNS0_20CXXFinalOverriderMapEE3$_0EEET_SB_SB_T0_.exit.i.i.i.i", %.preheader.i.i.i.i
-  %.016.i.i.i.i = phi ptr [ %131, %"_ZSt9__find_ifIPN5clang19UniqueVirtualMethodEN9__gnu_cxx5__ops10_Iter_predIZNKS0_13CXXRecordDecl18getFinalOverridersERNS0_20CXXFinalOverriderMapEE3$_0EEET_SB_SB_T0_.exit.i.i.i.i" ], [ %131, %280 ], [ %131, %._crit_edge.i.i.i.i.i.i ], [ %131, %277 ], [ %.028.i.i.i.i.i.i, %.preheader.i.i.i.i ], [ %.1.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang13CXXRecordDecl18getFinalOverridersERNS2_20CXXFinalOverriderMapEE3$_0EclIPNS2_19UniqueVirtualMethodEEEbT_.exit.i.i.i.i" ], [ %131, %.critedge.i.i110.i.i.i.i.i.i ]
+  %.016.i.i.i.i = phi ptr [ %131, %"_ZSt9__find_ifIPN5clang19UniqueVirtualMethodEN9__gnu_cxx5__ops10_Iter_predIZNKS0_13CXXRecordDecl18getFinalOverridersERNS0_20CXXFinalOverriderMapEE3$_0EEET_SB_SB_T0_.exit.i.i.i.i" ], [ %.1.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang13CXXRecordDecl18getFinalOverridersERNS2_20CXXFinalOverriderMapEE3$_0EclIPNS2_19UniqueVirtualMethodEEEbT_.exit.i.i.i.i" ], [ %131, %280 ], [ %131, %._crit_edge.i.i.i.i.i.i ], [ %131, %277 ], [ %.028.i.i.i.i.i.i, %.preheader.i.i.i.i ], [ %131, %.critedge.i.i110.i.i.i.i.i.i ]
   %324 = load ptr, ptr %125, align 8, !tbaa !27
   %325 = ptrtoint ptr %.016.i.i.i.i to i64
   %326 = ptrtoint ptr %324 to i64

@@ -191,7 +191,7 @@ mbedtls_pk_get_type.exit:                         ; preds = %3, %6, %9
   ]
 
 .thread:                                          ; preds = %12, %11, %mbedtls_pk_get_type.exit, %13
-  %15 = phi i32 [ %14, %13 ], [ 3075, %mbedtls_pk_get_type.exit ], [ 771, %12 ], [ 12291, %11 ]
+  %15 = phi i32 [ %14, %13 ], [ 771, %12 ], [ 12291, %11 ], [ 3075, %mbedtls_pk_get_type.exit ]
   br label %switch.edge
 
 switch.edge:                                      ; preds = %13, %13, %13, %.thread

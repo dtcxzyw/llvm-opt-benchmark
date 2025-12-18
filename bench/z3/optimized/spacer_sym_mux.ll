@@ -1189,7 +1189,7 @@ define hidden noundef zeroext i1 @_ZNK6spacer7sym_mux8find_idxEP9func_declRj(ptr
   br i1 %.not27.old.i.i.i, label %_ZNK7obj_mapI9func_declSt4pairIPN6spacer7sym_mux13sym_mux_entryEjEE4findEPS0_RS6_.exit.thread, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %37, %34
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %37 ], [ %36, %34 ]
+  %.137.i.i.i.be = phi ptr [ %36, %34 ], [ %.old.i.i.i, %37 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !75
 
 .loopexit:                                        ; preds = %18, %29
@@ -1276,7 +1276,7 @@ define hidden noundef ptr @_ZNK6spacer7sym_mux12find_by_declEP9func_declj(ptr no
   br i1 %.not27.old.i.i.i, label %_ZNK7obj_mapI9func_declPN6spacer7sym_mux13sym_mux_entryEE4findEPS0_RS4_.exit.thread, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %37, %34
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %37 ], [ %36, %34 ]
+  %.137.i.i.i.be = phi ptr [ %36, %34 ], [ %.old.i.i.i, %37 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !78
 
 .loopexit:                                        ; preds = %18, %29
@@ -1369,7 +1369,7 @@ define hidden noundef ptr @_ZNK6spacer7sym_mux10shift_declEP9func_decljj(ptr nou
   br i1 %.not27.old.i.i.i, label %.loopexit6, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %38, %35
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %38 ], [ %37, %35 ]
+  %.137.i.i.i.be = phi ptr [ %37, %35 ], [ %.old.i.i.i, %38 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !75
 
 .loopexit:                                        ; preds = %19, %30
@@ -1437,8 +1437,8 @@ define hidden noundef zeroext i1 @_ZNK6spacer7sym_mux21is_homogenous_formulaEP4e
   br label %.preheader.i.i
 
 thread-pre-split.i.i:                             ; preds = %287, %301, %298, %171, %185, %182, %.thread-pre-split_crit_edge.i.i, %.loopexit.i199.i.i, %.preheader.i.i.i.i.i190.i.i, %262, %260, %.loopexit.i155.i.i, %.preheader.i.i.i.i.i146.i.i, %146, %._crit_edge.i.i, %_ZN12_GLOBAL__N_115formula_checkerclEP4expr.exit.i.i
-  %.sroa.11.3 = phi i8 [ %.sroa.11.1, %.thread-pre-split_crit_edge.i.i ], [ %.sroa.11.1, %_ZN12_GLOBAL__N_115formula_checkerclEP4expr.exit.i.i ], [ 1, %._crit_edge.i.i ], [ 0, %.preheader.i.i.i.i.i146.i.i ], [ %189, %.loopexit.i155.i.i ], [ 0, %146 ], [ 1, %260 ], [ 0, %.preheader.i.i.i.i.i190.i.i ], [ %305, %.loopexit.i199.i.i ], [ 0, %262 ], [ 0, %301 ], [ 0, %185 ], [ 0, %171 ], [ 0, %182 ], [ 0, %298 ], [ 0, %287 ]
-  %.pr.i.i = phi i32 [ %.pr.pre.i.i, %.thread-pre-split_crit_edge.i.i ], [ %21, %_ZN12_GLOBAL__N_115formula_checkerclEP4expr.exit.i.i ], [ %.pre-phi362.i.i, %._crit_edge.i.i ], [ %.pre-phi362.i.i, %.preheader.i.i.i.i.i146.i.i ], [ %.pre-phi362.i.i, %.loopexit.i155.i.i ], [ %.pre-phi362.i.i, %146 ], [ %21, %260 ], [ %21, %.preheader.i.i.i.i.i190.i.i ], [ %21, %.loopexit.i199.i.i ], [ %21, %262 ], [ %21, %301 ], [ %.pre-phi362.i.i, %185 ], [ %.pre-phi362.i.i, %171 ], [ %.pre-phi362.i.i, %182 ], [ %21, %298 ], [ %21, %287 ]
+  %.sroa.11.3 = phi i8 [ %.sroa.11.1, %.thread-pre-split_crit_edge.i.i ], [ %.sroa.11.1, %_ZN12_GLOBAL__N_115formula_checkerclEP4expr.exit.i.i ], [ 1, %._crit_edge.i.i ], [ 0, %.preheader.i.i.i.i.i146.i.i ], [ 0, %262 ], [ %189, %.loopexit.i155.i.i ], [ 0, %301 ], [ 0, %185 ], [ 0, %146 ], [ 1, %260 ], [ 0, %.preheader.i.i.i.i.i190.i.i ], [ 0, %171 ], [ %305, %.loopexit.i199.i.i ], [ 0, %182 ], [ 0, %298 ], [ 0, %287 ]
+  %.pr.i.i = phi i32 [ %.pr.pre.i.i, %.thread-pre-split_crit_edge.i.i ], [ %21, %_ZN12_GLOBAL__N_115formula_checkerclEP4expr.exit.i.i ], [ %.pre-phi362.i.i, %._crit_edge.i.i ], [ %.pre-phi362.i.i, %.preheader.i.i.i.i.i146.i.i ], [ %21, %262 ], [ %.pre-phi362.i.i, %.loopexit.i155.i.i ], [ %21, %301 ], [ %.pre-phi362.i.i, %185 ], [ %.pre-phi362.i.i, %146 ], [ %21, %260 ], [ %21, %.preheader.i.i.i.i.i190.i.i ], [ %.pre-phi362.i.i, %171 ], [ %21, %.loopexit.i199.i.i ], [ %.pre-phi362.i.i, %182 ], [ %21, %298 ], [ %21, %287 ]
   %17 = icmp eq i32 %.pr.i.i, 0
   br i1 %17, label %312, label %.preheader.i.i
 
@@ -1689,7 +1689,7 @@ _ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i94.i.i: ; preds = %.noexc99
   br i1 %.not27.old.i.i.i.i.i113.i.i, label %_ZN12_GLOBAL__N_115formula_checkerclEP4expr.exit81.i.i, label %.lr.ph38.i.i.i.i.i109.i.i.backedge
 
 .lr.ph38.i.i.i.i.i109.i.i.backedge:               ; preds = %120, %117
-  %.137.i.i.i.i.i110.i.i.be = phi ptr [ %.old.i.i.i.i.i112.i.i, %120 ], [ %119, %117 ]
+  %.137.i.i.i.i.i110.i.i.be = phi ptr [ %119, %117 ], [ %.old.i.i.i.i.i112.i.i, %120 ]
   br label %.lr.ph38.i.i.i.i.i109.i.i, !llvm.loop !75
 
 .loopexit.i116.i.i:                               ; preds = %101, %112
@@ -1770,7 +1770,7 @@ _ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i133.i.i: ; preds = %.noexc1
           to label %_ZN12_GLOBAL__N_115formula_checkerclEP4expr.exit81.i.i unwind label %54
 
 _ZN12_GLOBAL__N_115formula_checkerclEP4expr.exit81.i.i: ; preds = %106, %120, %117, %142, %.loopexit.i116.i.i, %.preheader.i.i.i.i.i107.i.i, %84, %.thread228.i.i, %_ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit58.i.i
-  %.sroa.11.6 = phi i8 [ %.sroa.11.5, %142 ], [ %.sroa.11.5, %.thread228.i.i ], [ 1, %84 ], [ 0, %.preheader.i.i.i.i.i107.i.i ], [ %124, %.loopexit.i116.i.i ], [ %.sroa.11.5, %_ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit58.i.i ], [ 0, %120 ], [ 0, %117 ], [ 0, %106 ]
+  %.sroa.11.6 = phi i8 [ %.sroa.11.5, %142 ], [ %.sroa.11.5, %.thread228.i.i ], [ 1, %84 ], [ 0, %.preheader.i.i.i.i.i107.i.i ], [ %.sroa.11.5, %_ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit58.i.i ], [ %124, %.loopexit.i116.i.i ], [ 0, %120 ], [ 0, %117 ], [ 0, %106 ]
   %143 = load i32, ptr %33, align 8, !tbaa !96
   %144 = icmp ult i32 %143, %32
   br i1 %144, label %37, label %._crit_edge293.i.i
@@ -1865,7 +1865,7 @@ _ZN12_GLOBAL__N_115formula_checkerclEP4expr.exit81.i.i: ; preds = %106, %120, %1
   br i1 %.not27.old.i.i.i.i.i152.i.i, label %thread-pre-split.i.i, label %.lr.ph38.i.i.i.i.i148.i.i.backedge
 
 .lr.ph38.i.i.i.i.i148.i.i.backedge:               ; preds = %185, %182
-  %.137.i.i.i.i.i149.i.i.be = phi ptr [ %.old.i.i.i.i.i151.i.i, %185 ], [ %184, %182 ]
+  %.137.i.i.i.i.i149.i.i.be = phi ptr [ %184, %182 ], [ %.old.i.i.i.i.i151.i.i, %185 ]
   br label %.lr.ph38.i.i.i.i.i148.i.i, !llvm.loop !75
 
 .loopexit.i155.i.i:                               ; preds = %166, %177
@@ -2119,7 +2119,7 @@ _ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i177.i.i: ; preds = %.noexc1
   br i1 %.not27.old.i.i.i.i.i196.i.i, label %thread-pre-split.i.i, label %.lr.ph38.i.i.i.i.i192.i.i.backedge
 
 .lr.ph38.i.i.i.i.i192.i.i.backedge:               ; preds = %301, %298
-  %.137.i.i.i.i.i193.i.i.be = phi ptr [ %.old.i.i.i.i.i195.i.i, %301 ], [ %300, %298 ]
+  %.137.i.i.i.i.i193.i.i.be = phi ptr [ %300, %298 ], [ %.old.i.i.i.i.i195.i.i, %301 ]
   br label %.lr.ph38.i.i.i.i.i192.i.i, !llvm.loop !75
 
 .loopexit.i199.i.i:                               ; preds = %282, %293
@@ -10578,7 +10578,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117conv_rewriter_cfg9
   br i1 %.not27.old.i.i.i.i.i, label %_ZNK6spacer7sym_mux9has_indexEP9func_declj.exit.thread, label %.lr.ph38.i.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.i.backedge:                      ; preds = %48, %45
-  %.137.i.i.i.i.i.be = phi ptr [ %.old.i.i.i.i.i, %48 ], [ %47, %45 ]
+  %.137.i.i.i.i.i.be = phi ptr [ %47, %45 ], [ %.old.i.i.i.i.i, %48 ]
   br label %.lr.ph38.i.i.i.i.i, !llvm.loop !75
 
 _ZNK6spacer7sym_mux9has_indexEP9func_declj.exit:  ; preds = %29, %40

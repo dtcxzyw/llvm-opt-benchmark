@@ -280,7 +280,7 @@ define dso_local range(i32 -1, 1) i32 @uid_from_string(ptr noundef %0, ptr nound
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %60, %53, %56, %47
-  %.0.ph = phi i32 [ -1, %53 ], [ -1, %47 ], [ -1, %56 ], [ -1, %60 ], [ 0, %.sink.split.sink.split ]
+  %.0.ph = phi i32 [ -1, %53 ], [ -1, %60 ], [ -1, %56 ], [ -1, %47 ], [ 0, %.sink.split.sink.split ]
   call void @slurm_xfree(ptr noundef nonnull %10) #10
   br label %63
 
@@ -784,8 +784,8 @@ define dso_local range(i32 -1, 1) i32 @gid_from_string(ptr noundef %0, ptr nound
   br label %.loopexit96
 
 30:                                               ; preds = %.lr.ph, %19
-  %.173 = phi i64 [ %20, %19 ], [ %.072113, %.lr.ph ]
-  %.1 = phi ptr [ %21, %19 ], [ %.069114, %.lr.ph ]
+  %.173 = phi i64 [ %.072113, %.lr.ph ], [ %20, %19 ]
+  %.1 = phi ptr [ %.069114, %.lr.ph ], [ %21, %19 ]
   %31 = call i32 @getgrnam_r(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef %.1, i64 noundef %.173, ptr noundef nonnull %8) #10
   %32 = icmp eq i32 %31, 0
   %33 = load ptr, ptr %8, align 8
@@ -884,8 +884,8 @@ define dso_local range(i32 -1, 1) i32 @gid_from_string(ptr noundef %0, ptr nound
   br label %.loopexit
 
 73:                                               ; preds = %.lr.ph119, %62
-  %.375 = phi i64 [ %63, %62 ], [ %.274117, %.lr.ph119 ]
-  %.3 = phi ptr [ %64, %62 ], [ %.2118, %.lr.ph119 ]
+  %.375 = phi i64 [ %.274117, %.lr.ph119 ], [ %63, %62 ]
+  %.3 = phi ptr [ %.2118, %.lr.ph119 ], [ %64, %62 ]
   %74 = call i32 @getgrgid_r(i32 noundef %56, ptr noundef nonnull %7, ptr noundef %.3, i64 noundef %.375, ptr noundef nonnull %8) #10
   %75 = icmp eq i32 %74, 0
   %76 = load ptr, ptr %8, align 8
@@ -1005,8 +1005,8 @@ define dso_local ptr @gid_to_string_or_null(i32 noundef %0) local_unnamed_addr #
   br label %.loopexit
 
 27:                                               ; preds = %.lr.ph, %16
-  %.129 = phi ptr [ %18, %16 ], [ %.02838, %.lr.ph ]
-  %.1 = phi i64 [ %17, %16 ], [ %.02639, %.lr.ph ]
+  %.129 = phi ptr [ %.02838, %.lr.ph ], [ %18, %16 ]
+  %.1 = phi i64 [ %.02639, %.lr.ph ], [ %17, %16 ]
   %28 = call i32 @getgrgid_r(i32 noundef %0, ptr noundef nonnull %6, ptr noundef %.129, i64 noundef %.1, ptr noundef nonnull %7) #10
   %29 = icmp eq i32 %28, 0
   %30 = load ptr, ptr %7, align 8

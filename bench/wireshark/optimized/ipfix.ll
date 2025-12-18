@@ -154,7 +154,7 @@ define hidden range(i32 -1, 2) i32 @ipfix_open(ptr noundef %0, ptr noundef %1, p
   br label %.loopexit
 
 .loopexit:                                        ; preds = %24, %45, %40, %36, %.loopexit48, %33, %22, %18, %59, %20
-  %.037 = phi i32 [ 0, %22 ], [ -1, %18 ], [ -1, %.loopexit48 ], [ %., %33 ], [ 0, %20 ], [ 1, %59 ], [ -1, %45 ], [ 0, %36 ], [ 0, %40 ], [ 0, %24 ]
+  %.037 = phi i32 [ 0, %22 ], [ -1, %18 ], [ -1, %.loopexit48 ], [ %., %33 ], [ -1, %45 ], [ 0, %20 ], [ 1, %59 ], [ 0, %36 ], [ 0, %40 ], [ 0, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

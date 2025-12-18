@@ -773,7 +773,7 @@ define internal fastcc noundef zeroext i1 @parseNameAndArgTypes(ptr noundef %0, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %90, %95, %97, %72, %74, %50, %52, %35, %37, %23, %18, %20, %106
-  %.0 = phi i1 [ false, %72 ], [ false, %18 ], [ false, %23 ], [ false, %35 ], [ true, %106 ], [ false, %50 ], [ false, %20 ], [ false, %37 ], [ false, %52 ], [ false, %74 ], [ false, %97 ], [ false, %95 ], [ false, %90 ]
+  %.0 = phi i1 [ false, %72 ], [ false, %18 ], [ false, %23 ], [ false, %35 ], [ true, %106 ], [ false, %50 ], [ false, %95 ], [ false, %20 ], [ false, %37 ], [ false, %52 ], [ false, %74 ], [ false, %97 ], [ false, %90 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i1 %.0

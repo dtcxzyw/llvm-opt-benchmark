@@ -682,7 +682,7 @@ _ZN9metaspace19FreeChunkListVector6removeEPNS_9MetachunkE.exit: ; preds = %89, %
   br i1 %133, label %.thread, label %33, !llvm.loop !8
 
 .thread:                                          ; preds = %123, %51, %._crit_edge
-  %.14957 = phi ptr [ %.048.lcssa, %._crit_edge ], [ %.048.lcssa, %51 ], [ %.045., %123 ]
+  %.14957 = phi ptr [ %.048.lcssa, %51 ], [ %.048.lcssa, %._crit_edge ], [ %.045., %123 ]
   ret ptr %.14957
 }
 

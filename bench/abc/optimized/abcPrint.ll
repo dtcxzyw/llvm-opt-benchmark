@@ -649,7 +649,7 @@ define float @Abc_NtkGetArea(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %exitcond.not, label %.critedge, label %13, !llvm.loop !61
 
 .critedge:                                        ; preds = %26, %.preheader, %3, %1
-  %.013 = phi float [ 0.000000e+00, %3 ], [ 0.000000e+00, %1 ], [ 0.000000e+00, %.preheader ], [ %.2, %26 ]
+  %.013 = phi float [ 0.000000e+00, %1 ], [ 0.000000e+00, %3 ], [ 0.000000e+00, %.preheader ], [ %.2, %26 ]
   ret float %.013
 }
 
@@ -1161,7 +1161,7 @@ Abc_NtkGetArea.exit.loopexit:                     ; preds = %148
   br label %Abc_NtkGetArea.exit
 
 Abc_NtkGetArea.exit:                              ; preds = %Abc_NtkGetArea.exit.loopexit, %123, %125, %.preheader.i
-  %.013.i = phi double [ 0.000000e+00, %125 ], [ 0.000000e+00, %123 ], [ 0.000000e+00, %.preheader.i ], [ %149, %Abc_NtkGetArea.exit.loopexit ]
+  %.013.i = phi double [ 0.000000e+00, %123 ], [ 0.000000e+00, %125 ], [ 0.000000e+00, %.preheader.i ], [ %149, %Abc_NtkGetArea.exit.loopexit ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.28, double noundef %.013.i)
   br label %.critedge138
 
@@ -6667,7 +6667,7 @@ define void @Abc_NodePrintSop(ptr noundef captures(none) %0, ptr noundef %1, i32
   br i1 %.not56, label %._crit_edge, label %.lr.ph.split, !llvm.loop !144
 
 ._crit_edge:                                      ; preds = %.loopexit70, %.loopexit.us, %36
-  %.04679 = phi ptr [ %38, %36 ], [ null, %.loopexit.us ], [ %38, %.loopexit70 ]
+  %.04679 = phi ptr [ null, %.loopexit.us ], [ %38, %36 ], [ %38, %.loopexit70 ]
   %fputc57 = tail call i32 @fputc(i32 10, ptr %0)
   %.not58 = icmp eq ptr %.04679, null
   br i1 %.not58, label %84, label %83

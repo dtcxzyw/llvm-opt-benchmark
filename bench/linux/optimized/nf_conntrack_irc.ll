@@ -502,7 +502,7 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
   br i1 %192, label %82, label %97, !llvm.loop !15
 
 .thread25:                                        ; preds = %91, %82, %88, %54, %52, %187, %161, %.loopexit39, %70, %57
-  %193 = phi i32 [ 1, %57 ], [ 1, %70 ], [ 0, %161 ], [ %188, %187 ], [ 1, %.loopexit39 ], [ 1, %52 ], [ 1, %54 ], [ 1, %88 ], [ 1, %82 ], [ 1, %91 ]
+  %193 = phi i32 [ 1, %57 ], [ 1, %70 ], [ 0, %161 ], [ %188, %187 ], [ 1, %.loopexit39 ], [ 1, %54 ], [ 1, %52 ], [ 1, %88 ], [ 1, %82 ], [ 1, %91 ]
   call void @_raw_spin_unlock_bh(ptr noundef nonnull @irc_buffer_lock) #11
   br label %.thread
 

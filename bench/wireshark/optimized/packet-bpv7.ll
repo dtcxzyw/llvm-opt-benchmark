@@ -2590,9 +2590,9 @@ cmp_address.exit:                                 ; preds = %620
   %spec.select550 = select i1 %628, ptr %551, ptr %555
   br label %.thread524
 
-.thread524:                                       ; preds = %cmp_address.exit, %618, %610, %608, %612, %620
-  %629 = phi ptr [ %551, %612 ], [ %spec.select549, %cmp_address.exit ], [ %551, %608 ], [ %551, %620 ], [ %555, %610 ], [ %555, %618 ]
-  %630 = phi ptr [ %555, %612 ], [ %spec.select550, %cmp_address.exit ], [ %555, %608 ], [ %555, %620 ], [ %551, %610 ], [ %551, %618 ]
+.thread524:                                       ; preds = %cmp_address.exit, %610, %618, %608, %612, %620
+  %629 = phi ptr [ %551, %612 ], [ %spec.select549, %cmp_address.exit ], [ %551, %608 ], [ %551, %620 ], [ %555, %618 ], [ %555, %610 ]
+  %630 = phi ptr [ %555, %612 ], [ %spec.select550, %cmp_address.exit ], [ %555, %608 ], [ %555, %620 ], [ %551, %618 ], [ %551, %610 ]
   %.pn330 = load ptr, ptr %630, align 8
   %.0283 = getelementptr inbounds nuw i8, ptr %.pn330, i64 16
   %.pn = load ptr, ptr %629, align 8
@@ -3852,7 +3852,7 @@ proto_item_set_generated.exit158:                 ; preds = %119, %126, %129
   br label %138
 
 138:                                              ; preds = %proto_item_set_generated.exit158, %proto_item_set_generated.exit152
-  %.0 = phi ptr [ %73, %proto_item_set_generated.exit152 ], [ %137, %proto_item_set_generated.exit158 ]
+  %.0 = phi ptr [ %137, %proto_item_set_generated.exit158 ], [ %73, %proto_item_set_generated.exit152 ]
   %.not144 = icmp eq ptr %.0, null
   br i1 %.not144, label %.thread162, label %139
 

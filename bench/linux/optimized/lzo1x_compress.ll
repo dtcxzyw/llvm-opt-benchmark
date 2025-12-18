@@ -592,10 +592,10 @@ define internal fastcc void @lzogeneric1x_1_compress(ptr noundef %0, i64 noundef
   br i1 %379, label %.preheader74, label %.loopexit12, !prof !14
 
 .loopexit12:                                      ; preds = %375, %.lr.ph68.i, %78, %28
-  %.4 = phi i8 [ %.064, %28 ], [ %.3, %.lr.ph68.i ], [ %.3, %78 ], [ %376, %375 ]
-  %380 = phi ptr [ %17, %28 ], [ %38, %.lr.ph68.i ], [ %38, %78 ], [ %378, %375 ]
-  %381 = phi ptr [ %18, %28 ], [ %37, %.lr.ph68.i ], [ %37, %78 ], [ %377, %375 ]
-  %382 = phi i64 [ %20, %28 ], [ %35, %.lr.ph68.i ], [ %35, %78 ], [ 0, %375 ]
+  %.4 = phi i8 [ %.3, %78 ], [ %.064, %28 ], [ %.3, %.lr.ph68.i ], [ %376, %375 ]
+  %380 = phi ptr [ %38, %78 ], [ %17, %28 ], [ %38, %.lr.ph68.i ], [ %378, %375 ]
+  %381 = phi ptr [ %37, %78 ], [ %18, %28 ], [ %37, %.lr.ph68.i ], [ %377, %375 ]
+  %382 = phi i64 [ %35, %78 ], [ %20, %28 ], [ %35, %.lr.ph68.i ], [ 0, %375 ]
   %383 = ptrtoint ptr %381 to i64
   %384 = ptrtoint ptr %18 to i64
   %385 = sub i64 %383, %384

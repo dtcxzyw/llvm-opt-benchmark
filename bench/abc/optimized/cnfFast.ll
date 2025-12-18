@@ -2690,7 +2690,7 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
   br i1 %58, label %50, label %.critedge, !llvm.loop !67
 
 .critedge:                                        ; preds = %50, %32, %41, %.preheader, %Vec_IntStartFull.exit
-  %.0 = phi i32 [ 1, %Vec_IntStartFull.exit ], [ 1, %.preheader ], [ 1, %41 ], [ %36, %32 ], [ %54, %50 ]
+  %.0 = phi i32 [ 1, %Vec_IntStartFull.exit ], [ %36, %32 ], [ 1, %.preheader ], [ 1, %41 ], [ %54, %50 ]
   %59 = icmp sgt i32 %.val194.val, 0
   br i1 %59, label %.lr.ph322, label %.critedge4.preheader
 

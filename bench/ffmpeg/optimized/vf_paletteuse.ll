@@ -735,7 +735,7 @@ load_palette.exit:                                ; preds = %125, %load_colormap
   br label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %.thread.loopexit207.i.i, %.critedge3.i.i
-  %.1173.i.i = phi i32 [ 0, %.critedge3.i.i ], [ %229, %.thread.loopexit207.i.i ]
+  %.1173.i.i = phi i32 [ %229, %.thread.loopexit207.i.i ], [ 0, %.critedge3.i.i ]
   %230 = icmp sgt i32 %155, %.1173.i.i
   br i1 %230, label %.preheader166.lr.ph.i.i, label %.thread162.i.i
 
@@ -785,8 +785,8 @@ load_palette.exit:                                ; preds = %125, %load_colormap
   br label %.thread162.i.i
 
 .thread162.i.i:                                   ; preds = %._crit_edge.i.i, %._crit_edge190.i.i, %.thread162.loopexit205.i.i, %.preheader166.lr.ph.i.i, %.thread.i.i, %.preheader168.lr.ph.i.i
-  %.1173254.i.i = phi i32 [ %.1173.i.i, %.thread.i.i ], [ %.1173.i.i, %.preheader166.lr.ph.i.i ], [ %.1173.i.i, %.thread162.loopexit205.i.i ], [ %155, %.preheader168.lr.ph.i.i ], [ %.1173.i.i, %._crit_edge190.i.i ], [ %155, %._crit_edge.i.i ]
-  %.0137171.i.i = phi i32 [ %155, %.thread.i.i ], [ %.1173.i.i, %.preheader166.lr.ph.i.i ], [ %244, %.thread162.loopexit205.i.i ], [ %155, %.preheader168.lr.ph.i.i ], [ %.1173.i.i, %._crit_edge190.i.i ], [ %155, %._crit_edge.i.i ]
+  %.1173254.i.i = phi i32 [ %.1173.i.i, %.preheader166.lr.ph.i.i ], [ %.1173.i.i, %.thread.i.i ], [ %.1173.i.i, %.thread162.loopexit205.i.i ], [ %.1173.i.i, %._crit_edge190.i.i ], [ %155, %.preheader168.lr.ph.i.i ], [ %155, %._crit_edge.i.i ]
+  %.0137171.i.i = phi i32 [ %.1173.i.i, %.preheader166.lr.ph.i.i ], [ %155, %.thread.i.i ], [ %244, %.thread162.loopexit205.i.i ], [ %.1173.i.i, %._crit_edge190.i.i ], [ %155, %.preheader168.lr.ph.i.i ], [ %155, %._crit_edge.i.i ]
   %reass.sub204.i.i = sub i32 %.0137171.i.i, %.1173254.i.i
   %245 = add i32 %reass.sub204.i.i, 1
   %.not151.i.i = icmp eq i32 %.1173254.i.i, 0

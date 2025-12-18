@@ -884,8 +884,8 @@ read_encint.exit110:                              ; preds = %116, %121
   br i1 %.not86, label %130, label %read_encint.exit.thread
 
 .loopexit:                                        ; preds = %71, %61, %32, %65
-  %.1114.ph = phi i32 [ %67, %65 ], [ 0, %32 ], [ 0, %61 ], [ 0, %71 ]
-  %.066.ph = phi i32 [ %.167, %65 ], [ %34, %32 ], [ %69, %71 ], [ %.167, %61 ]
+  %.1114.ph = phi i32 [ 0, %32 ], [ %67, %65 ], [ 0, %61 ], [ 0, %71 ]
+  %.066.ph = phi i32 [ %34, %32 ], [ %.167, %65 ], [ %.167, %61 ], [ %69, %71 ]
   %129 = icmp slt i32 %.066.ph, 0
   %spec.select = select i1 %129, i32 8, i32 %.1114.ph
   br label %130
@@ -1659,14 +1659,14 @@ read_encint.exit289.i:                            ; preds = %287, %284
   br label %352
 
 352:                                              ; preds = %351, %350, %347, %312, %304, %298, %296, %294
-  %.2215.i = phi ptr [ %317, %350 ], [ %.1214347.i, %294 ], [ %.1214347.i, %312 ], [ %.1214347.i, %304 ], [ %.1214347.i, %298 ], [ %.1214347.i, %296 ], [ %.1214347.i, %347 ], [ %317, %351 ]
+  %.2215.i = phi ptr [ %.1214347.i, %296 ], [ %317, %350 ], [ %317, %351 ], [ %.1214347.i, %294 ], [ %.1214347.i, %312 ], [ %.1214347.i, %304 ], [ %.1214347.i, %347 ], [ %.1214347.i, %298 ]
   %.not254.i = icmp eq i32 %244, 0
   br i1 %.not254.i, label %.thread.i, label %.preheader.i
 
 .thread.i:                                        ; preds = %352, %read_encint.exit289.i, %256, %read_encint.exit.i, %247, %286, %235
-  %.0220340.i = phi i32 [ 0, %235 ], [ %.0220346.i, %247 ], [ %.0220346.i, %286 ], [ %.0220346.i, %256 ], [ %.0220346.i, %read_encint.exit289.i ], [ %.0220346.i, %read_encint.exit.i ], [ 0, %352 ]
-  %.1214336.i = phi ptr [ %.0213.ph.i, %235 ], [ %.1214347.i, %247 ], [ %.1214347.i, %286 ], [ %.1214347.i, %256 ], [ %.1214347.i, %read_encint.exit289.i ], [ %.1214347.i, %read_encint.exit.i ], [ %.2215.i, %352 ]
-  %.3297.i = phi i32 [ %.0296.ph.i, %235 ], [ 1, %247 ], [ 1, %286 ], [ 0, %256 ], [ 1, %read_encint.exit289.i ], [ 1, %read_encint.exit.i ], [ 0, %352 ]
+  %.0220340.i = phi i32 [ %.0220346.i, %286 ], [ %.0220346.i, %247 ], [ 0, %235 ], [ %.0220346.i, %read_encint.exit289.i ], [ %.0220346.i, %read_encint.exit.i ], [ 0, %352 ], [ %.0220346.i, %256 ]
+  %.1214336.i = phi ptr [ %.1214347.i, %286 ], [ %.1214347.i, %247 ], [ %.0213.ph.i, %235 ], [ %.1214347.i, %read_encint.exit289.i ], [ %.1214347.i, %read_encint.exit.i ], [ %.2215.i, %352 ], [ %.1214347.i, %256 ]
+  %.3297.i = phi i32 [ 1, %286 ], [ 1, %247 ], [ %.0296.ph.i, %235 ], [ 1, %read_encint.exit289.i ], [ 1, %read_encint.exit.i ], [ 0, %352 ], [ 0, %256 ]
   %353 = icmp sgt i32 %.0220340.i, 0
   %354 = zext i1 %353 to i32
   %spec.select.i = add i32 %.0210.ph.i, %354
@@ -2252,7 +2252,7 @@ read_encint.exit.thread.sink.split:               ; preds = %160, %123, %.crited
   br label %read_encint.exit.thread
 
 read_encint.exit.thread:                          ; preds = %read_encint.exit, %83, %65, %read_encint.exit142, %147, %read_encint.exit142.us, %110, %._crit_edge, %read_encint.exit.thread.sink.split, %4
-  %.097 = phi i32 [ -1, %4 ], [ 1, %read_encint.exit.thread.sink.split ], [ %spec.select, %._crit_edge ], [ -1, %147 ], [ -1, %read_encint.exit142 ], [ -1, %65 ], [ -1, %110 ], [ -1, %read_encint.exit142.us ], [ 0, %83 ], [ -1, %read_encint.exit ]
+  %.097 = phi i32 [ -1, %147 ], [ -1, %4 ], [ 1, %read_encint.exit.thread.sink.split ], [ -1, %65 ], [ -1, %read_encint.exit142.us ], [ -1, %read_encint.exit142 ], [ -1, %110 ], [ %spec.select, %._crit_edge ], [ 0, %83 ], [ -1, %read_encint.exit ]
   ret i32 %.097
 }
 
@@ -2577,7 +2577,7 @@ define internal fastcc i32 @chmd_init_decomp(ptr noundef nonnull %0, ptr noundef
   br label %33
 
 31:                                               ; preds = %20, %13
-  %.0.i = phi i32 [ 8, %13 ], [ 6, %20 ]
+  %.0.i = phi i32 [ 6, %20 ], [ 8, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 %.0.i, ptr %32, align 8, !tbaa !20
@@ -2624,7 +2624,7 @@ define internal fastcc i32 @chmd_init_decomp(ptr noundef nonnull %0, ptr noundef
   br label %57
 
 55:                                               ; preds = %44, %37
-  %.0.i103 = phi i32 [ 8, %37 ], [ 6, %44 ]
+  %.0.i103 = phi i32 [ 6, %44 ], [ 8, %37 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 %.0.i103, ptr %56, align 8, !tbaa !20
@@ -3102,7 +3102,7 @@ read_sys_file.exit:                               ; preds = %69
   br label %123
 
 123:                                              ; preds = %.sink.split, %85, %104, %115
-  %124 = phi i32 [ 0, %115 ], [ 0, %104 ], [ 0, %85 ], [ 1, %.sink.split ]
+  %124 = phi i32 [ 0, %115 ], [ 0, %85 ], [ 0, %104 ], [ 1, %.sink.split ]
   %125 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %126 = load ptr, ptr %125, align 8, !tbaa !35
   call void %126(ptr noundef nonnull %47) #13

@@ -9366,7 +9366,7 @@ define void @_ZN14SequenceDialog18goToAdjacentPacketEb(ptr noundef readonly alig
   br i1 %58, label %.thread89, label %59
 
 59:                                               ; preds = %43, %56, %52, %33
-  %.0 = phi double [ %40, %33 ], [ %50, %43 ], [ %storemerge, %52 ], [ %storemerge, %56 ]
+  %.0 = phi double [ %40, %33 ], [ %50, %43 ], [ %storemerge, %56 ], [ %storemerge, %52 ]
   %60 = fcmp ogt double %.0, 0.000000e+00
   br i1 %60, label %61, label %67
 

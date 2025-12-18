@@ -2069,7 +2069,7 @@ Vec_PtrPush.exit52:                               ; preds = %.Vec_PtrGrow.exit11
   br i1 %exitcond.not, label %Ver_ParsePrintErrorMessage.exit, label %.lr.ph, !llvm.loop !99
 
 Ver_ParsePrintErrorMessage.exit:                  ; preds = %145, %52, %79, %76, %51, %48, %28, %25
-  %.030 = phi i32 [ 0, %28 ], [ 0, %51 ], [ 0, %25 ], [ 0, %48 ], [ 0, %76 ], [ 0, %79 ], [ 1, %52 ], [ 1, %145 ]
+  %.030 = phi i32 [ 0, %79 ], [ 0, %28 ], [ 0, %51 ], [ 0, %25 ], [ 0, %48 ], [ 0, %76 ], [ 1, %52 ], [ 1, %145 ]
   ret i32 %.030
 }
 
@@ -2186,7 +2186,7 @@ define i32 @Ver_FindGateInput(ptr noundef %0, ptr noundef readonly captures(none
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %15, %13, %._crit_edge
-  %.015 = phi i32 [ %.0.lcssa, %._crit_edge ], [ -1, %13 ], [ %spec.select, %15 ], [ %.020, %.lr.ph ]
+  %.015 = phi i32 [ %.0.lcssa, %._crit_edge ], [ %spec.select, %15 ], [ -1, %13 ], [ %.020, %.lr.ph ]
   ret i32 %.015
 }
 
@@ -3286,7 +3286,7 @@ Ver_ParseConnectBox.exit:                         ; preds = %Ver_ParseConnectBox
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge2, %.critedge.sink.split, %1, %394, %268, %142, %80
-  %.022 = phi i32 [ 0, %80 ], [ 0, %142 ], [ 0, %268 ], [ 0, %394 ], [ 1, %1 ], [ 0, %.critedge.sink.split ], [ %.1.lcssa, %.critedge2 ]
+  %.022 = phi i32 [ 0, %.critedge.sink.split ], [ 1, %1 ], [ 0, %394 ], [ 0, %268 ], [ 0, %80 ], [ 0, %142 ], [ %.1.lcssa, %.critedge2 ]
   ret i32 %.022
 }
 
@@ -4154,7 +4154,7 @@ Ver_ParseFormalNetsAreDriven.exit.us.us:          ; preds = %55, %26
   br i1 %exitcond.not, label %.critedge2.us, label %26, !llvm.loop !84
 
 .critedge:                                        ; preds = %.critedge2.us, %.critedge4.i.us.us, %2
-  %.023 = phi ptr [ null, %2 ], [ %19, %.critedge4.i.us.us ], [ null, %.critedge2.us ]
+  %.023 = phi ptr [ %19, %.critedge4.i.us.us ], [ null, %2 ], [ null, %.critedge2.us ]
   ret ptr %.023
 }
 
@@ -4765,7 +4765,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge12, %142
   br i1 %148, label %7, label %.critedge, !llvm.loop !150
 
 .critedge:                                        ; preds = %.critedge10, %2, %54, %51
-  %.0102 = phi i32 [ 0, %51 ], [ 0, %54 ], [ 1, %2 ], [ 1, %.critedge10 ]
+  %.0102 = phi i32 [ 0, %54 ], [ 0, %51 ], [ 1, %2 ], [ 1, %.critedge10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0102
 }
@@ -5034,8 +5034,8 @@ Ver_NtkIsDefined.exit.thread:                     ; preds = %.lr.ph253, %Ver_Ntk
   br i1 %exitcond302.not, label %.critedge8, label %.critedge6, !llvm.loop !156
 
 .critedge8:                                       ; preds = %.critedge6, %.critedge2, %.critedge6.preheader
-  %.val184.lcssa337 = phi i32 [ %.val184, %.critedge6.preheader ], [ %.val184250, %.critedge2 ], [ %.val184, %.critedge6 ]
-  %.0153.lcssa336 = phi i32 [ %85, %.critedge6.preheader ], [ 0, %.critedge2 ], [ %85, %.critedge6 ]
+  %.val184.lcssa337 = phi i32 [ %.val184250, %.critedge2 ], [ %.val184, %.critedge6.preheader ], [ %.val184, %.critedge6 ]
+  %.0153.lcssa336 = phi i32 [ 0, %.critedge2 ], [ %85, %.critedge6.preheader ], [ %85, %.critedge6 ]
   %95 = uitofp nneg i32 %.0153.lcssa336 to double
   %96 = fmul double %95, 1.000000e+02
   %97 = sitofp i32 %.val184.lcssa337 to double
@@ -5971,7 +5971,7 @@ default.unreachable:                              ; preds = %146
   br label %Ver_ParsePrintErrorMessage.exit
 
 Ver_ParsePrintErrorMessage.exit:                  ; preds = %98, %29, %159, %145, %142, %97, %94, %64, %61, %28, %25, %161, %3, %106
-  %.0 = phi i32 [ 1, %161 ], [ 0, %3 ], [ 0, %28 ], [ 0, %106 ], [ 0, %97 ], [ 0, %64 ], [ 1, %159 ], [ 0, %25 ], [ 0, %61 ], [ 0, %94 ], [ 0, %142 ], [ 0, %145 ], [ 0, %29 ], [ 0, %98 ]
+  %.0 = phi i32 [ 1, %161 ], [ 0, %3 ], [ 0, %28 ], [ 0, %106 ], [ 0, %97 ], [ 0, %145 ], [ 0, %64 ], [ 1, %159 ], [ 0, %25 ], [ 0, %61 ], [ 0, %94 ], [ 0, %142 ], [ 0, %29 ], [ 0, %98 ]
   ret i32 %.0
 }
 
@@ -6980,8 +6980,8 @@ Ver_ParseFindNet.exit256.thread:                  ; preds = %304, %Ver_ParseFind
   store ptr null, ptr %323, align 8, !tbaa !33
   br label %Ver_ParsePrintErrorMessage.exit
 
-Ver_ParseFindNet.exit256.thread300:               ; preds = %298, %296, %292, %Ver_ParseFindNet.exit256
-  %.1160302 = phi ptr [ %306, %Ver_ParseFindNet.exit256 ], [ %299, %298 ], [ %297, %296 ], [ %293, %292 ]
+Ver_ParseFindNet.exit256.thread300:               ; preds = %296, %298, %292, %Ver_ParseFindNet.exit256
+  %.1160302 = phi ptr [ %306, %Ver_ParseFindNet.exit256 ], [ %297, %296 ], [ %299, %298 ], [ %293, %292 ]
   call void @Abc_ObjAddFanin(ptr noundef %277, ptr noundef nonnull %.1160302) #22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %326 = load ptr, ptr %14, align 8, !tbaa !24
@@ -8018,7 +8018,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br i1 %exitcond192.not, label %Ver_ParsePrintErrorMessage.exit, label %196, !llvm.loop !176
 
 Ver_ParsePrintErrorMessage.exit:                  ; preds = %89, %73, %182, %196, %.critedge.preheader, %.preheader148, %54, %51, %26, %23, %29, %27, %178, %167, %154, %105, %Ver_ParseFindNet.exit.thread, %85, %79, %._crit_edge
-  %.0 = phi i32 [ 0, %54 ], [ 0, %27 ], [ 0, %26 ], [ 0, %._crit_edge ], [ 0, %29 ], [ 0, %79 ], [ 0, %85 ], [ 0, %Ver_ParseFindNet.exit.thread ], [ 0, %105 ], [ 0, %178 ], [ 0, %167 ], [ 0, %154 ], [ 0, %23 ], [ 0, %51 ], [ 1, %.preheader148 ], [ 1, %.critedge.preheader ], [ 1, %182 ], [ 1, %196 ], [ 0, %73 ], [ 0, %89 ]
+  %.0 = phi i32 [ 0, %54 ], [ 0, %27 ], [ 0, %26 ], [ 0, %._crit_edge ], [ 0, %29 ], [ 0, %79 ], [ 0, %85 ], [ 1, %182 ], [ 0, %Ver_ParseFindNet.exit.thread ], [ 0, %105 ], [ 0, %178 ], [ 0, %51 ], [ 0, %167 ], [ 0, %154 ], [ 1, %.preheader148 ], [ 0, %23 ], [ 1, %196 ], [ 1, %.critedge.preheader ], [ 0, %73 ], [ 0, %89 ]
   ret i32 %.0
 }
 
@@ -9128,7 +9128,7 @@ Vec_PtrPush.exit323:                              ; preds = %.Vec_PtrGrow.exit11
   br label %.loopexit350
 
 .loopexit350:                                     ; preds = %Vec_PtrPush.exit316, %347, %118, %.loopexit, %.critedge, %Vec_PtrPush.exit291, %Vec_PtrPush.exit323
-  %.0191 = phi ptr [ %355, %Vec_PtrPush.exit291 ], [ %355, %.critedge ], [ %355, %Vec_PtrPush.exit323 ], [ %110, %347 ], [ %110, %.loopexit ], [ %110, %118 ], [ %355, %Vec_PtrPush.exit316 ]
+  %.0191 = phi ptr [ %355, %Vec_PtrPush.exit323 ], [ %355, %.critedge ], [ %110, %347 ], [ %355, %Vec_PtrPush.exit291 ], [ %110, %.loopexit ], [ %110, %118 ], [ %355, %Vec_PtrPush.exit316 ]
   br i1 %.not234, label %516, label %525
 
 516:                                              ; preds = %.loopexit350
@@ -9180,7 +9180,7 @@ Vec_PtrPush.exit323:                              ; preds = %.Vec_PtrGrow.exit11
   br label %Ver_ParsePrintErrorMessage.exit
 
 Ver_ParsePrintErrorMessage.exit:                  ; preds = %354, %91, %123, %108, %311, %308, %160, %157, %38, %35, %533, %3, %536, %527, %519, %445, %423, %350, %239, %97, %87
-  %.0190 = phi i32 [ 0, %445 ], [ 1, %533 ], [ 0, %87 ], [ 0, %3 ], [ 0, %97 ], [ 0, %519 ], [ 0, %536 ], [ 0, %527 ], [ 0, %38 ], [ 0, %350 ], [ 0, %239 ], [ 0, %160 ], [ 0, %423 ], [ 0, %35 ], [ 0, %157 ], [ 0, %308 ], [ 0, %311 ], [ 0, %123 ], [ 0, %108 ], [ 0, %91 ], [ 0, %354 ]
+  %.0190 = phi i32 [ 0, %445 ], [ 1, %533 ], [ 0, %87 ], [ 0, %3 ], [ 0, %97 ], [ 0, %123 ], [ 0, %519 ], [ 0, %536 ], [ 0, %157 ], [ 0, %527 ], [ 0, %38 ], [ 0, %350 ], [ 0, %311 ], [ 0, %239 ], [ 0, %160 ], [ 0, %308 ], [ 0, %423 ], [ 0, %35 ], [ 0, %108 ], [ 0, %91 ], [ 0, %354 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

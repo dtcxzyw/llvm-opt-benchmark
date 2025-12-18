@@ -679,7 +679,7 @@ filter.exit137.thread:                            ; preds = %60, %._crit_edge, %
   br i1 %exitcond194.not, label %.loopexit, label %230, !llvm.loop !33
 
 .loopexit:                                        ; preds = %207, %230, %211, %11, %4
-  %.0 = phi i32 [ 1, %4 ], [ 0, %11 ], [ 1, %211 ], [ 1, %230 ], [ 0, %207 ]
+  %.0 = phi i32 [ 1, %230 ], [ 1, %4 ], [ 0, %11 ], [ 1, %211 ], [ 0, %207 ]
   ret i32 %.0
 }
 

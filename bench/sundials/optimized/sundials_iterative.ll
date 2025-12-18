@@ -501,7 +501,7 @@ define i32 @SUNQRfact(i32 noundef %0, ptr noundef readonly captures(none) %1, pt
   br label %.loopexit
 
 .loopexit:                                        ; preds = %53, %.preheader159, %112, %121
-  %.2 = phi i32 [ %0, %121 ], [ 0, %112 ], [ 0, %.preheader159 ], [ %.1, %53 ]
+  %.2 = phi i32 [ 0, %112 ], [ %0, %121 ], [ 0, %.preheader159 ], [ %.1, %53 ]
   ret i32 %.2
 }
 

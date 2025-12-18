@@ -801,7 +801,7 @@ define dso_local noundef i32 @_ZN20Sample_TempObstacles19rasterizeTileLayersEiiR
   br label %.loopexit
 
 .loopexit:                                        ; preds = %131, %306, %.invoke, %.loopexit.loopexit, %.preheader, %100
-  %.1 = phi i32 [ 0, %100 ], [ 0, %.invoke ], [ 0, %.preheader ], [ %316, %.loopexit.loopexit ], [ 0, %306 ], [ 0, %131 ]
+  %.1 = phi i32 [ 0, %100 ], [ 0, %.preheader ], [ %316, %.loopexit.loopexit ], [ 0, %.invoke ], [ 0, %306 ], [ 0, %131 ]
   %317 = load ptr, ptr %8, align 8
   invoke void @_Z17rcFreeHeightFieldP13rcHeightfield(ptr noundef %317)
           to label %318 unwind label %.loopexit.split-lp.i

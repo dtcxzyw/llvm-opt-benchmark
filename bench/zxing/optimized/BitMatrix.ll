@@ -767,7 +767,7 @@ define noundef zeroext i1 @_ZNK5ZXing9BitMatrix15findBoundingBoxERiS1_S1_S1_i(pt
   br label %"_ZSt7find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEEEN5ZXing3$_0EET_SC_SC_T0_.exit.i"
 
 "_ZSt7find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEEEN5ZXing3$_0EET_SC_SC_T0_.exit.i": ; preds = %.lr.ph.i.i.i.i35, %100, %91, %84, %._crit_edge.i.i.i.i33, %75, %70, %65
-  %.sink.i.i.i.i = phi i64 [ %spec.select.i.i.i, %100 ], [ %93, %91 ], [ %81, %84 ], [ %.cast22.i.i.i.i, %75 ], [ %.cast20.i.i.i.i, %70 ], [ %.cast.i.i.i.i, %65 ], [ %12, %._crit_edge.i.i.i.i33 ], [ %58, %.lr.ph.i.i.i.i35 ]
+  %.sink.i.i.i.i = phi i64 [ %spec.select.i.i.i, %100 ], [ %93, %91 ], [ %81, %84 ], [ %12, %._crit_edge.i.i.i.i33 ], [ %.cast22.i.i.i.i, %75 ], [ %.cast20.i.i.i.i, %70 ], [ %.cast.i.i.i.i, %65 ], [ %58, %.lr.ph.i.i.i.i35 ]
   %105 = sub i64 %11, %.sink.i.i.i.i
   %106 = trunc i64 %105 to i32
   %107 = xor i32 %106, -1
@@ -1175,7 +1175,7 @@ define noundef zeroext i1 @_ZNK5ZXing9BitMatrix19getBottomRightOnBitERiS1_(ptr n
   br label %"_ZSt7find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEEEN5ZXing3$_0EET_SC_SC_T0_.exit"
 
 "_ZSt7find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEEEN5ZXing3$_0EET_SC_SC_T0_.exit": ; preds = %.lr.ph.i.i.i, %25, %30, %35, %._crit_edge.i.i.i, %44, %51, %60
-  %.sink.i.i.i = phi i64 [ %spec.select.i.i, %60 ], [ %53, %51 ], [ %41, %44 ], [ %.cast22.i.i.i, %35 ], [ %.cast20.i.i.i, %30 ], [ %.cast.i.i.i, %25 ], [ %9, %._crit_edge.i.i.i ], [ %18, %.lr.ph.i.i.i ]
+  %.sink.i.i.i = phi i64 [ %spec.select.i.i, %60 ], [ %53, %51 ], [ %41, %44 ], [ %9, %._crit_edge.i.i.i ], [ %.cast22.i.i.i, %35 ], [ %.cast20.i.i.i, %30 ], [ %.cast.i.i.i, %25 ], [ %18, %.lr.ph.i.i.i ]
   %65 = sub i64 %8, %.sink.i.i.i
   %66 = trunc i64 %65 to i32
   %67 = xor i32 %66, -1

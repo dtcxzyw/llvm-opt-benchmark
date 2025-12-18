@@ -5675,7 +5675,7 @@ define noundef ptr @_ZN6icu_779TZDBNames14createInstanceEP15UResourceBundlePKc(p
   br label %.critedge101
 
 .critedge101:                                     ; preds = %.critedge101.sink.split, %14, %60, %63, %55, %10
-  %.1 = phi ptr [ null, %10 ], [ null, %14 ], [ null, %55 ], [ null, %60 ], [ %61, %63 ], [ null, %.critedge101.sink.split ]
+  %.1 = phi ptr [ null, %10 ], [ null, %14 ], [ %61, %63 ], [ null, %55 ], [ null, %60 ], [ null, %.critedge101.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %66
@@ -6967,7 +6967,7 @@ define linkonce_odr void @_ZN6icu_776ZNames12ZNamesLoader3putEPKcRNS_13ResourceV
   br label %_ZN6icu_776ZNames12ZNamesLoader15nameTypeFromKeyEPKc.exit.i
 
 _ZN6icu_776ZNames12ZNamesLoader15nameTypeFromKeyEPKc.exit.i: ; preds = %45, %39, %33
-  %.0.i.i = phi i32 [ %38, %33 ], [ %44, %39 ], [ %..i.i, %45 ]
+  %.0.i.i = phi i32 [ %..i.i, %45 ], [ %38, %33 ], [ %44, %39 ]
   %48 = icmp eq i32 %.0.i.i, -1
   br i1 %48, label %_ZN6icu_776ZNames12ZNamesLoader14setNameIfEmptyEPKcPKNS_13ResourceValueER10UErrorCode.exit, label %_ZN6icu_776ZNames12ZNamesLoader15nameTypeFromKeyEPKc.exit.thread11.i
 
@@ -7028,7 +7028,7 @@ _ZN6icu_776ZNames12ZNamesLoader15nameTypeFromKeyEPKc.exit.thread11.i: ; preds = 
   br label %_ZN6icu_776ZNames12ZNamesLoader15nameTypeFromKeyEPKc.exit.i13
 
 _ZN6icu_776ZNames12ZNamesLoader15nameTypeFromKeyEPKc.exit.i13: ; preds = %75, %69, %63
-  %.0.i.i14 = phi i32 [ %68, %63 ], [ %74, %69 ], [ %..i.i18, %75 ]
+  %.0.i.i14 = phi i32 [ %..i.i18, %75 ], [ %68, %63 ], [ %74, %69 ]
   %78 = icmp eq i32 %.0.i.i14, -1
   br i1 %78, label %_ZN6icu_776ZNames12ZNamesLoader14setNameIfEmptyEPKcPKNS_13ResourceValueER10UErrorCode.exit, label %_ZN6icu_776ZNames12ZNamesLoader15nameTypeFromKeyEPKc.exit.thread11.i15
 
@@ -7318,7 +7318,7 @@ _ZN6icu_7717TimeZoneNamesImpl17ZoneStringsLoader10isMetaZoneEPKc.exit: ; preds =
   br label %_ZN6icu_77L18deleteZNamesLoaderEPv.exit
 
 37:                                               ; preds = %35, %29
-  %.2 = phi ptr [ %33, %35 ], [ @_ZN6icu_77L12DUMMY_LOADERE, %29 ]
+  %.2 = phi ptr [ @_ZN6icu_77L12DUMMY_LOADERE, %29 ], [ %33, %35 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %86
@@ -7428,7 +7428,7 @@ _ZN6icu_7717TimeZoneNamesImpl17ZoneStringsLoader11tzIDFromKeyEPKc.exit: ; preds 
   br label %_ZN6icu_77L18deleteZNamesLoaderEPv.exit
 
 85:                                               ; preds = %83, %77
-  %.5 = phi ptr [ %81, %83 ], [ @_ZN6icu_77L12DUMMY_LOADERE, %77 ]
+  %.5 = phi ptr [ @_ZN6icu_77L12DUMMY_LOADERE, %77 ], [ %81, %83 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %86

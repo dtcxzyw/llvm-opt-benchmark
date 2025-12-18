@@ -10028,7 +10028,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZN9grpc_coremiENS_9TimestampES0_.exit.i
 
 _ZN9grpc_coremiENS_9TimestampES0_.exit.i:         ; preds = %156, %153, %145, %141
-  %.sroa.04.0.i.i = phi i64 [ %spec.select.i.i, %141 ], [ -9223372036854775808, %145 ], [ -9223372036854775808, %153 ], [ %157, %156 ]
+  %.sroa.04.0.i.i = phi i64 [ %spec.select.i.i, %141 ], [ %157, %156 ], [ -9223372036854775808, %145 ], [ -9223372036854775808, %153 ]
   %.sroa.05.0.copyload.i = load i64, ptr %16, align 8, !tbaa !46
   %.not.i = icmp slt i64 %.sroa.04.0.i.i, %.sroa.05.0.copyload.i
   br i1 %.not.i, label %221, label %_ZN9grpc_coremiENS_9TimestampES0_.exit.thread.i
@@ -10277,7 +10277,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135.i: ; preds = %
   br label %_ZN9grpc_coremiENS_9TimestampES0_.exit143.i
 
 _ZN9grpc_coremiENS_9TimestampES0_.exit143.i:      ; preds = %242, %239, %231, %227
-  %.sroa.04.0.i138.i = phi i64 [ %spec.select.i137.i, %227 ], [ -9223372036854775808, %231 ], [ -9223372036854775808, %239 ], [ %243, %242 ]
+  %.sroa.04.0.i138.i = phi i64 [ %spec.select.i137.i, %227 ], [ %243, %242 ], [ -9223372036854775808, %231 ], [ -9223372036854775808, %239 ]
   %244 = icmp slt i64 %.sroa.04.0.i138.i, %222
   br i1 %244, label %245, label %.critedge.i
 
@@ -10434,8 +10434,8 @@ _ZNSt6vectorIfSaIfEE9push_backERKf.exit:          ; preds = %_ZNSt6vectorIfSaIfE
   br label %.body
 
 .loopexit.split-lp306.loopexit:                   ; preds = %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i.i, %79, %_ZNSt6vectorIfSaIfEE9push_backERKf.exit
-  %.sroa.19.2.ph.ph = phi ptr [ %.sroa.19.6, %_ZNSt6vectorIfSaIfEE9push_backERKf.exit ], [ %.sroa.12.0462, %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i.i ], [ %.sroa.19.0461, %79 ]
-  %.sroa.0273.2.ph.ph = phi ptr [ %.sroa.0273.6, %_ZNSt6vectorIfSaIfEE9push_backERKf.exit ], [ %.sroa.0273.0463, %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i.i ], [ %.sroa.0273.0463, %79 ]
+  %.sroa.19.2.ph.ph = phi ptr [ %.sroa.19.0461, %79 ], [ %.sroa.19.6, %_ZNSt6vectorIfSaIfEE9push_backERKf.exit ], [ %.sroa.12.0462, %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i.i ]
+  %.sroa.0273.2.ph.ph = phi ptr [ %.sroa.0273.0463, %79 ], [ %.sroa.0273.6, %_ZNSt6vectorIfSaIfEE9push_backERKf.exit ], [ %.sroa.0273.0463, %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i.i ]
   %lpad.loopexit311 = landingpad { ptr, i32 }
           cleanup
   br label %.body

@@ -510,9 +510,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit: ; preds = %74,
   br i1 %exitcond303.not, label %._crit_edge257, label %.lr.ph256.split.split.us, !llvm.loop !20
 
 ._crit_edge257:                                   ; preds = %.lr.ph256.split.split, %.lr.ph256.split.split.us, %.lr.ph256.split.us.split, %.lr.ph256.split.us.split.us, %183
-  %.sroa.14.0.lcssa = phi double [ %160, %183 ], [ %217, %.lr.ph256.split.split.us ], [ %199, %.lr.ph256.split.us.split.us ], [ %160, %.lr.ph256.split.us.split ], [ %160, %.lr.ph256.split.split ]
-  %.sroa.010.0.lcssa = phi double [ %158, %183 ], [ %158, %.lr.ph256.split.split.us ], [ %193, %.lr.ph256.split.us.split.us ], [ %208, %.lr.ph256.split.us.split ], [ %158, %.lr.ph256.split.split ]
-  %.0115.lcssa = phi double [ 0.000000e+00, %183 ], [ %219, %.lr.ph256.split.split.us ], [ %201, %.lr.ph256.split.us.split.us ], [ %210, %.lr.ph256.split.us.split ], [ %226, %.lr.ph256.split.split ]
+  %.sroa.14.0.lcssa = phi double [ %160, %183 ], [ %217, %.lr.ph256.split.split.us ], [ %160, %.lr.ph256.split.us.split ], [ %199, %.lr.ph256.split.us.split.us ], [ %160, %.lr.ph256.split.split ]
+  %.sroa.010.0.lcssa = phi double [ %158, %183 ], [ %158, %.lr.ph256.split.split.us ], [ %208, %.lr.ph256.split.us.split ], [ %193, %.lr.ph256.split.us.split.us ], [ %158, %.lr.ph256.split.split ]
+  %.0115.lcssa = phi double [ 0.000000e+00, %183 ], [ %219, %.lr.ph256.split.split.us ], [ %210, %.lr.ph256.split.us.split ], [ %201, %.lr.ph256.split.us.split.us ], [ %226, %.lr.ph256.split.split ]
   %221 = call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #14
   %222 = call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #14
   br i1 %185, label %.lr.ph281, label %._crit_edge282

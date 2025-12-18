@@ -15318,7 +15318,7 @@ define hidden void @"_ZN4core3ptr49drop_in_place$LT$just..expression..Expression
           to label %22 unwind label %27
 
 common.resume:                                    ; preds = %22, %59, %55, %.body, %.body14, %.body24, %.critedge, %.body30, %98, %37, %160, %156, %137, %119, %45, %32
-  %common.resume.op = phi { ptr, i32 } [ %161, %160 ], [ %33, %32 ], [ %46, %45 ], [ %38, %37 ], [ %90, %.body30 ], [ %120, %119 ], [ %138, %137 ], [ %69, %.critedge ], [ %157, %156 ], [ %90, %98 ], [ %109, %.body ], [ %.pn2, %.body14 ], [ %126, %.body24 ], [ %56, %55 ], [ %56, %59 ], [ %20, %22 ]
+  %common.resume.op = phi { ptr, i32 } [ %161, %160 ], [ %33, %32 ], [ %46, %45 ], [ %126, %.body24 ], [ %38, %37 ], [ %56, %59 ], [ %90, %.body30 ], [ %120, %119 ], [ %138, %137 ], [ %69, %.critedge ], [ %157, %156 ], [ %90, %98 ], [ %109, %.body ], [ %.pn2, %.body14 ], [ %56, %55 ], [ %20, %22 ]
   resume { ptr, i32 } %common.resume.op
 
 27:                                               ; preds = %24

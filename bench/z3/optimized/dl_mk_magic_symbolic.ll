@@ -1305,7 +1305,7 @@ _ZN7obj_refI3app11ast_managerED2Ev.exit126:       ; preds = %448, %449, %455
   br i1 %.not27.old.i.i.i, label %_ZNK7datalog8rule_set19is_output_predicateEP9func_decl.exit.thread, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %494, %491
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %494 ], [ %493, %491 ]
+  %.137.i.i.i.be = phi ptr [ %493, %491 ], [ %.old.i.i.i, %494 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !264
 
 .loopexit:                                        ; preds = %475, %486
@@ -1451,7 +1451,7 @@ _ZN7obj_refI3app11ast_managerED2Ev.exit137:       ; preds = %529, %530, %536
   br label %.body
 
 _ZNK7datalog8rule_set19is_output_predicateEP9func_decl.exit.thread: ; preds = %480, %494, %491, %.preheader.i.i.i, %_ZN7obj_refI3app11ast_managerED2Ev.exit137
-  %550 = phi ptr [ %524, %_ZN7obj_refI3app11ast_managerED2Ev.exit137 ], [ %441, %.preheader.i.i.i ], [ %441, %494 ], [ %441, %491 ], [ %441, %480 ]
+  %550 = phi ptr [ %441, %494 ], [ %524, %_ZN7obj_refI3app11ast_managerED2Ev.exit137 ], [ %441, %.preheader.i.i.i ], [ %441, %491 ], [ %441, %480 ]
   br i1 %.not220, label %._crit_edge215, label %.lr.ph214
 
 .lr.ph214:                                        ; preds = %_ZNK7datalog8rule_set19is_output_predicateEP9func_decl.exit.thread

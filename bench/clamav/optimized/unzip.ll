@@ -1342,7 +1342,7 @@ select.unfold:                                    ; preds = %104, %128, %110, %1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %170, %175, %188, %185, %180
-  %.0103 = phi i32 [ 19, %180 ], [ %193, %188 ], [ 12, %185 ], [ 14, %175 ], [ 14, %170 ]
+  %.0103 = phi i32 [ 19, %180 ], [ 14, %175 ], [ %193, %188 ], [ 12, %185 ], [ 14, %170 ]
   %196 = call i32 @close(i32 noundef %138) #13
   %197 = load ptr, ptr %15, align 8, !tbaa !12
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 40

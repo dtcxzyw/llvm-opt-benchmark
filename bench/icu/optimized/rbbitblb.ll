@@ -1392,7 +1392,7 @@ define void @_ZN6icu_7716RBBITableBuilder15buildStateTableEv(ptr noundef nonnull
   store i32 7, ptr %.sink.sink, align 4, !tbaa !17
   br label %.thread164
 
-.thread164:                                       ; preds = %94, %.thread164.sink.split, %45, %59, %56
+.thread164:                                       ; preds = %94, %.thread164.sink.split, %45, %56, %59
   tail call void @_ZN6icu_7719RBBIStateDescriptorD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %39) #13
   tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %39) #13
   br label %.thread170
@@ -2811,7 +2811,7 @@ _ZNK6icu_779UVector3210elementAtiEi.exit40.us.us: ; preds = %48, %_ZNK6icu_779UV
   br i1 %74, label %.lr.ph.split.split, label %.loopexit, !llvm.loop !111
 
 .loopexit:                                        ; preds = %.critedge.split, %.critedge.split.us.us, %._crit_edge.us.us, %2
-  %75 = phi i1 [ false, %2 ], [ false, %.critedge.split.us.us ], [ true, %._crit_edge.us.us ], [ false, %.critedge.split ]
+  %75 = phi i1 [ true, %._crit_edge.us.us ], [ false, %2 ], [ false, %.critedge.split.us.us ], [ false, %.critedge.split ]
   ret i1 %75
 }
 
@@ -3050,7 +3050,7 @@ _ZNK6icu_779UVector3210elementAtiEi.exit54.us.us: ; preds = %47, %_ZNK6icu_779UV
   br i1 %99, label %.lr.ph.split, label %.thread, !llvm.loop !113
 
 .thread:                                          ; preds = %._crit_edge.split, %94, %._crit_edge.split.us.us, %65, %2
-  %100 = phi i1 [ false, %2 ], [ true, %94 ], [ true, %65 ], [ false, %._crit_edge.split.us.us ], [ false, %._crit_edge.split ]
+  %100 = phi i1 [ false, %._crit_edge.split.us.us ], [ true, %65 ], [ false, %2 ], [ true, %94 ], [ false, %._crit_edge.split ]
   ret i1 %100
 }
 
@@ -3221,7 +3221,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit48:       ; preds = %_ZNK6icu_7713Unicod
   br i1 %87, label %11, label %.critedge52, !llvm.loop !121
 
 .critedge52:                                      ; preds = %.critedge, %.lr.ph110, %84, %63, %2
-  %88 = phi i1 [ false, %2 ], [ true, %.lr.ph110 ], [ true, %63 ], [ true, %84 ], [ false, %.critedge ]
+  %88 = phi i1 [ true, %.lr.ph110 ], [ true, %63 ], [ true, %84 ], [ false, %2 ], [ false, %.critedge ]
   ret i1 %88
 }
 

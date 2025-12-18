@@ -506,9 +506,9 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit38.i: ; preds = %_Z
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %.thread27.i, %19
   %.2 = phi ptr [ %.0, %19 ], [ %.1, %.thread27.i ]
-  %.pn.i = phi i64 [ %20, %19 ], [ %34, %.thread27.i ]
-  %.sroa.11.1.i = getelementptr inbounds nuw i8, ptr %.sroa.11.049.i, i64 %.pn.i
-  %.sroa.06.1.i = sub nuw i64 %.sroa.06.048.i, %.pn.i
+  %.0.i31.pn.i = phi i64 [ %20, %19 ], [ %34, %.thread27.i ]
+  %.sroa.11.1.i = getelementptr inbounds nuw i8, ptr %.sroa.11.049.i, i64 %.0.i31.pn.i
+  %.sroa.06.1.i = sub nuw i64 %.sroa.06.048.i, %.0.i31.pn.i
   %.not37.i = icmp eq i64 %.sroa.06.1.i, 0
   br i1 %.not37.i, label %"_ZNK5folly35format_string_for_each_named_arg_fnclIcSt11char_traitsIcEZNKS_35fmt_vformat_mangle_format_string_fnclB5cxx11ESt17basic_string_viewIcS3_EE3$_0EEvS5_IT_T0_ET1_.exit.loopexit", label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i
 

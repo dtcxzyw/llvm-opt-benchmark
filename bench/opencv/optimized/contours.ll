@@ -3522,7 +3522,7 @@ _Z19findEndContourPointPh6CvSizei.exit.i:         ; preds = %155, %.critedge.loo
   br i1 %179, label %.lr.ph.preheader.i.i, label %_Z21findStartContourPointPh6CvSizei.exit._crit_edge.i, !llvm.loop !129
 
 _Z21findStartContourPointPh6CvSizei.exit._crit_edge.i: ; preds = %174, %_Z21findStartContourPointPh6CvSizei.exit.i, %132, %115
-  %.0222.lcssa.i = phi ptr [ %125, %115 ], [ %.0222452.i, %132 ], [ %178, %174 ], [ %.0222452.i, %_Z21findStartContourPointPh6CvSizei.exit.i ]
+  %.0222.lcssa.i = phi ptr [ %125, %115 ], [ %.0222452.i, %132 ], [ %.0222452.i, %_Z21findStartContourPointPh6CvSizei.exit.i ], [ %178, %174 ]
   invoke void @cvFlushSeqWriter(ptr noundef nonnull %13)
           to label %180 unwind label %.loopexit.split-lp402.i
 
@@ -3705,7 +3705,7 @@ _Z19findEndContourPointPh6CvSizei.exit377.i:      ; preds = %223, %.critedge.loo
   br i1 %239, label %.lr.ph.preheader.i354.i, label %_Z21findStartContourPointPh6CvSizei.exit362._crit_edge.i, !llvm.loop !131
 
 _Z21findStartContourPointPh6CvSizei.exit362._crit_edge.i: ; preds = %228, %_Z21findStartContourPointPh6CvSizei.exit362.i, %200, %194
-  %.2224.lcssa.i = phi ptr [ %.1223488.i, %194 ], [ %.2224455.i, %200 ], [ %237, %228 ], [ %.2224455.i, %_Z21findStartContourPointPh6CvSizei.exit362.i ]
+  %.2224.lcssa.i = phi ptr [ %.1223488.i, %194 ], [ %.2224455.i, %200 ], [ %.2224455.i, %_Z21findStartContourPointPh6CvSizei.exit362.i ], [ %237, %228 ]
   invoke void @cvFlushSeqWriter(ptr noundef nonnull %13)
           to label %240 unwind label %.loopexit.split-lp391.loopexit.split-lp.loopexit.split-lp.i
 

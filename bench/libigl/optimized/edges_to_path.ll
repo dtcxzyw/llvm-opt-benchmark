@@ -277,7 +277,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit11
   br i1 %exitcond92.not.i.i.i.i, label %.loopexit195, label %.lr.ph85.i.i.i.i, !llvm.loop !25
 
 .loopexit195:                                     ; preds = %.lr.ph80.i.i.i.i, %.lr.ph85.i.i.i.i, %98, %105
-  %.2.i.i.i.i = phi i32 [ %106, %105 ], [ %99, %98 ], [ %110, %.lr.ph85.i.i.i.i ], [ %103, %.lr.ph80.i.i.i.i ]
+  %.2.i.i.i.i = phi i32 [ %110, %.lr.ph85.i.i.i.i ], [ %106, %105 ], [ %99, %98 ], [ %103, %.lr.ph80.i.i.i.i ]
   %112 = add nsw i32 %.2.i.i.i.i, 1
   %113 = sext i32 %112 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
@@ -1428,7 +1428,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit11
   br i1 %exitcond92.not.i.i.i.i, label %.loopexit193, label %.lr.ph85.i.i.i.i, !llvm.loop !25
 
 .loopexit193:                                     ; preds = %.lr.ph80.i.i.i.i, %.lr.ph85.i.i.i.i, %98, %105
-  %.2.i.i.i.i = phi i32 [ %106, %105 ], [ %99, %98 ], [ %110, %.lr.ph85.i.i.i.i ], [ %103, %.lr.ph80.i.i.i.i ]
+  %.2.i.i.i.i = phi i32 [ %110, %.lr.ph85.i.i.i.i ], [ %106, %105 ], [ %99, %98 ], [ %103, %.lr.ph80.i.i.i.i ]
   %112 = add nsw i32 %.2.i.i.i.i, 1
   %113 = sext i32 %112 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)

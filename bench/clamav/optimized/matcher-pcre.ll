@@ -794,7 +794,7 @@ define i32 @cli_pcre_build(ptr noundef readonly captures(none) %0, i64 noundef %
   br i1 %.not34, label %.split.us, label %58
 
 .split.us:                                        ; preds = %.lr.ph.split.us.split, %.lr.ph.split, %.lr.ph.split.us.split.us
-  %.us-phi.in = phi i64 [ %indvars.iv, %.lr.ph.split ], [ %indvars.iv69, %.lr.ph.split.us.split.us ], [ %indvars.iv66, %.lr.ph.split.us.split ]
+  %.us-phi.in = phi i64 [ %indvars.iv69, %.lr.ph.split.us.split.us ], [ %indvars.iv, %.lr.ph.split ], [ %indvars.iv66, %.lr.ph.split.us.split ]
   %.us-phi = trunc nuw i64 %.us-phi.in to i32
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.28, i32 noundef %.us-phi) #13
   br label %.loopexit
@@ -822,7 +822,7 @@ define i32 @cli_pcre_build(ptr noundef readonly captures(none) %0, i64 noundef %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %52, %58, %26, %.thread, %7, %.split44.us, %.split.us
-  %.030 = phi i32 [ %.us-phi48, %.split44.us ], [ 2, %.split.us ], [ 0, %7 ], [ 0, %.thread ], [ 0, %58 ], [ 0, %26 ], [ 0, %52 ]
+  %.030 = phi i32 [ %.us-phi48, %.split44.us ], [ 2, %.split.us ], [ 0, %.thread ], [ 0, %7 ], [ 0, %58 ], [ 0, %26 ], [ 0, %52 ]
   ret i32 %.030
 }
 

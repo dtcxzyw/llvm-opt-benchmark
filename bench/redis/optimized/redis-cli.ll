@@ -1863,7 +1863,7 @@ define dso_local void @cliLoadPreferences() local_unnamed_addr #0 {
   br label %getDotfilePath.exit
 
 getDotfilePath.exit:                              ; preds = %8, %14
-  %.0.i = phi ptr [ %9, %8 ], [ %16, %14 ]
+  %.0.i = phi ptr [ %16, %14 ], [ %9, %8 ]
   %17 = icmp eq ptr %.0.i, null
   br i1 %17, label %getDotfilePath.exit.thread, label %18
 
@@ -3859,7 +3859,7 @@ clusterManagerShowReshardTable.exit:              ; preds = %.lr.ph.i, %._crit_e
   br label %clusterManagerReleaseReshardTable.exit
 
 .loopexit:                                        ; preds = %242, %230, %.thread264, %.thread260
-  %.4111 = phi i32 [ 0, %.thread264 ], [ 0, %.thread260 ], [ 1, %230 ], [ 1, %242 ]
+  %.4111 = phi i32 [ 0, %.thread260 ], [ 0, %.thread264 ], [ 1, %230 ], [ 1, %242 ]
   call void @listRelease(ptr noundef nonnull %94) #34
   %.not.i200 = icmp eq ptr %204, null
   br i1 %.not.i200, label %clusterManagerReleaseReshardTable.exit, label %244
@@ -4628,7 +4628,7 @@ clusterManagerNodeWithLeastReplicas.exit:         ; preds = %._crit_edge15.i
   br label %71
 
 71:                                               ; preds = %49, %clusterManagerNodeWithLeastReplicas.exit, %44
-  %.076 = phi ptr [ null, %44 ], [ %50, %49 ], [ %.1.i144, %clusterManagerNodeWithLeastReplicas.exit ]
+  %.076 = phi ptr [ null, %44 ], [ %.1.i144, %clusterManagerNodeWithLeastReplicas.exit ], [ %50, %49 ]
   %72 = call noalias dereferenceable_or_null(16520) ptr @zmalloc(i64 noundef 16520) #38
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %72, i8 0, i64 16, i1 false)
@@ -4923,10 +4923,10 @@ clusterManagerCheckRedisReply.exit:               ; preds = %181
   br label %.thread233
 
 clusterManagerCheckRedisReply.exit.thread:        ; preds = %166, %198, %187, %145, %138, %141
-  %.082.ph = phi ptr [ %136, %141 ], [ %136, %138 ], [ %136, %145 ], [ %.183182, %166 ], [ %.183182, %187 ], [ %.183182, %198 ]
-  %.080.ph = phi ptr [ null, %141 ], [ null, %138 ], [ null, %145 ], [ %.181183, %166 ], [ %.181183, %187 ], [ %.181183, %198 ]
-  %.074.ph = phi ptr [ %128, %141 ], [ %128, %138 ], [ %128, %145 ], [ %.175184, %166 ], [ %196, %187 ], [ %.3, %198 ]
-  %.072.ph = phi i32 [ 0, %141 ], [ 0, %138 ], [ 0, %145 ], [ 0, %166 ], [ 0, %187 ], [ 1, %198 ]
+  %.082.ph = phi ptr [ %.183182, %166 ], [ %.183182, %198 ], [ %136, %141 ], [ %136, %138 ], [ %136, %145 ], [ %.183182, %187 ]
+  %.080.ph = phi ptr [ %.181183, %166 ], [ %.181183, %198 ], [ null, %141 ], [ null, %138 ], [ null, %145 ], [ %.181183, %187 ]
+  %.074.ph = phi ptr [ %.175184, %166 ], [ %.3, %198 ], [ %128, %141 ], [ %128, %138 ], [ %128, %145 ], [ %196, %187 ]
+  %.072.ph = phi i32 [ 0, %166 ], [ 1, %198 ], [ 0, %141 ], [ 0, %138 ], [ 0, %145 ], [ 0, %187 ]
   %.not129 = icmp eq ptr %.074.ph, null
   br i1 %.not129, label %clusterManagerCheckRedisReply.exit.thread.thread, label %.thread216
 
@@ -10167,7 +10167,7 @@ parseEnv.exit:                                    ; preds = %875, %sub_0.i44, %.
   br i1 %or.cond21.i, label %.critedge.i51, label %913
 
 913:                                              ; preds = %909, %904
-  %.217.i = phi ptr [ %.01523.i, %904 ], [ %.sroa.4.0.copyload.i, %909 ]
+  %.217.i = phi ptr [ %.sroa.4.0.copyload.i, %909 ], [ %.01523.i, %904 ]
   %indvars.iv.next.i47 = add nuw nsw i64 %indvars.iv.i46, 1
   %exitcond.not.i48 = icmp eq i64 %indvars.iv.next.i47, 13
   br i1 %exitcond.not.i48, label %914, label %904, !llvm.loop !292
@@ -15343,7 +15343,7 @@ define internal fastcc void @repl() unnamed_addr #0 {
   br label %getDotfilePath.exit
 
 getDotfilePath.exit:                              ; preds = %27, %33
-  %.0.i = phi ptr [ %28, %27 ], [ %35, %33 ]
+  %.0.i = phi ptr [ %35, %33 ], [ %28, %27 ]
   %.not67 = icmp eq ptr %.0.i, null
   br i1 %.not67, label %getDotfilePath.exit.thread, label %36
 
@@ -16709,8 +16709,8 @@ matchOneOptionalArg.exit:                         ; preds = %33
   br i1 %.not.i, label %matchOptionalArgs.exit, label %.lr.ph72
 
 matchOptionalArgs.exit:                           ; preds = %40, %.thread, %.preheader, %._crit_edge
-  %.0.lcssa109 = phi i32 [ %.0.lcssa, %._crit_edge ], [ %.03383, %.preheader ], [ %.0.lcssa, %.thread ], [ %.0.lcssa, %40 ]
-  %.015.i65 = phi i32 [ 0, %._crit_edge ], [ 0, %.preheader ], [ %.015.i78, %.thread ], [ %23, %40 ]
+  %.0.lcssa109 = phi i32 [ %.0.lcssa, %._crit_edge ], [ %.0.lcssa, %.thread ], [ %.03383, %.preheader ], [ %.0.lcssa, %40 ]
+  %.015.i65 = phi i32 [ 0, %._crit_edge ], [ %.015.i78, %.thread ], [ 0, %.preheader ], [ %23, %40 ]
   %42 = add nsw i32 %.0.lcssa109, -1
   br label %49
 
@@ -19212,10 +19212,10 @@ clusterManagerCheckRedisReply.exit.i.i:           ; preds = %28
   br label %46
 
 46:                                               ; preds = %.fold.split.i.i, %45, %44, %43, %.lr.ph.i.i
-  %.268.i.i = phi ptr [ %.066111.i.i, %43 ], [ %.066111.i.i, %44 ], [ %.066111.i.i, %45 ], [ %.055115.i.i, %.lr.ph.i.i ], [ %.066111.i.i, %.fold.split.i.i ]
-  %.264.i.i = phi ptr [ %.055115.i.i, %43 ], [ %.062112.i.i, %44 ], [ %.062112.i.i, %45 ], [ %.062112.i.i, %.lr.ph.i.i ], [ %.062112.i.i, %.fold.split.i.i ]
-  %.260.i.i = phi ptr [ %.058113.i.i, %43 ], [ %.055115.i.i, %44 ], [ %.058113.i.i, %45 ], [ %.058113.i.i, %.lr.ph.i.i ], [ %.058113.i.i, %.fold.split.i.i ]
-  %.2.i.i = phi ptr [ %.056114.i.i, %43 ], [ %.056114.i.i, %44 ], [ %.055115.i.i, %45 ], [ %.056114.i.i, %.lr.ph.i.i ], [ %.056114.i.i, %.fold.split.i.i ]
+  %.268.i.i = phi ptr [ %.055115.i.i, %.lr.ph.i.i ], [ %.066111.i.i, %43 ], [ %.066111.i.i, %44 ], [ %.066111.i.i, %45 ], [ %.066111.i.i, %.fold.split.i.i ]
+  %.264.i.i = phi ptr [ %.062112.i.i, %.lr.ph.i.i ], [ %.055115.i.i, %43 ], [ %.062112.i.i, %44 ], [ %.062112.i.i, %45 ], [ %.062112.i.i, %.fold.split.i.i ]
+  %.260.i.i = phi ptr [ %.058113.i.i, %.lr.ph.i.i ], [ %.058113.i.i, %43 ], [ %.055115.i.i, %44 ], [ %.058113.i.i, %45 ], [ %.058113.i.i, %.fold.split.i.i ]
+  %.2.i.i = phi ptr [ %.056114.i.i, %.lr.ph.i.i ], [ %.056114.i.i, %43 ], [ %.056114.i.i, %44 ], [ %.055115.i.i, %45 ], [ %.056114.i.i, %.fold.split.i.i ]
   %47 = add nuw nsw i32 %.070110.i.i, 1
   %48 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %42, i32 noundef 32) #36
   %.not78.i.i = icmp eq ptr %48, null
@@ -20975,7 +20975,7 @@ clusterManagerClearSlotStatus.exit495.i:          ; preds = %597
   br label %.thread656.i
 
 .thread656.i:                                     ; preds = %584, %579, %clusterManagerClearSlotStatus.exit495.i, %.lr.ph805.i, %.thread656.i.sink.split, %._crit_edge795.thread.i, %590, %573, %563
-  %.16.ph.i = phi i32 [ 1, %573 ], [ 0, %563 ], [ 1, %590 ], [ 0, %._crit_edge795.thread.i ], [ 1, %clusterManagerClearSlotStatus.exit495.i ], [ 0, %.thread656.i.sink.split ], [ 0, %.lr.ph805.i ], [ 1, %584 ], [ 0, %579 ]
+  %.16.ph.i = phi i32 [ 0, %._crit_edge795.thread.i ], [ 1, %clusterManagerClearSlotStatus.exit495.i ], [ 1, %573 ], [ 0, %563 ], [ 0, %.thread656.i.sink.split ], [ 1, %590 ], [ 0, %.lr.ph805.i ], [ 0, %579 ], [ 1, %584 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %clusterManagerFixOpenSlot.exit
 
@@ -21061,9 +21061,9 @@ clusterManagerClearSlotStatus.exit495.i:          ; preds = %597
   br label %clusterManagerFixOpenSlot.exit
 
 clusterManagerFixOpenSlot.exit:                   ; preds = %180, %269, %396, %398, %412, %476, %478, %507, %519, %608, %.thread519.i, %.thread579.i, %350, %351, %clusterManagerClearSlotStatus.exit.thread604.i, %364, %clusterManagerSetSlot.exit.thread609.i, %clusterManagerSetSlot.exit468.thread614.i, %450, %clusterManagerClearSlotStatus.exit478.thread678.i, %._crit_edge777.i, %clusterManagerSetSlot.exit482.thread686.i, %.thread656.i, %.thread920.i, %.thread664.thread.i, %634, %.thread669.i
-  %.0288.i = phi ptr [ %.1289.lcssa.i, %.thread664.thread.i ], [ %.1289.lcssa.i, %350 ], [ %.1289.lcssa.i, %351 ], [ %.1289.lcssa.i, %450 ], [ %.1289.lcssa.i, %clusterManagerSetSlot.exit482.thread686.i ], [ %.1289.lcssa.i, %.thread669.i ], [ %.1289.lcssa.i, %.thread656.i ], [ %.1289.lcssa.i, %clusterManagerClearSlotStatus.exit.thread604.i ], [ %.1289.lcssa.i, %364 ], [ %.1289.lcssa.i, %634 ], [ %163, %.thread519.i ], [ %.1289759.i, %.thread579.i ], [ %.1289.lcssa.i, %clusterManagerSetSlot.exit.thread609.i ], [ %.1289.lcssa.i, %clusterManagerSetSlot.exit468.thread614.i ], [ %.1289.lcssa.i, %clusterManagerClearSlotStatus.exit478.thread678.i ], [ %.1289.lcssa.i, %.thread920.i ], [ %.1289.lcssa.i, %._crit_edge777.i ], [ %.1289.lcssa.i, %608 ], [ %.1289759.i, %269 ], [ %.1289.lcssa.i, %507 ], [ %.1289.lcssa.i, %476 ], [ %.1289.lcssa.i, %396 ], [ %.1289.lcssa.i, %519 ], [ %.1289.lcssa.i, %478 ], [ %.1289.lcssa.i, %412 ], [ %.1289.lcssa.i, %398 ], [ %163, %180 ]
-  %.0281.i = phi ptr [ %.1282.lcssa.i, %.thread664.thread.i ], [ %.1282.lcssa.i, %350 ], [ %.1282.lcssa.i, %351 ], [ %.1282.lcssa.i, %450 ], [ %.1282.lcssa.i, %clusterManagerSetSlot.exit482.thread686.i ], [ %.1282.lcssa.i, %.thread669.i ], [ %.1282.lcssa.i, %.thread656.i ], [ %.1282.lcssa.i, %clusterManagerClearSlotStatus.exit.thread604.i ], [ %.1282.lcssa.i, %364 ], [ %.1282.lcssa.i, %634 ], [ %162, %.thread519.i ], [ %.1282760.i, %.thread579.i ], [ %.1282.lcssa.i, %clusterManagerSetSlot.exit.thread609.i ], [ %.1282.lcssa.i, %clusterManagerSetSlot.exit468.thread614.i ], [ %.1282.lcssa.i, %clusterManagerClearSlotStatus.exit478.thread678.i ], [ %.1282.lcssa.i, %.thread920.i ], [ %.1282.lcssa.i, %._crit_edge777.i ], [ %.1282.lcssa.i, %608 ], [ %.1282760.i, %269 ], [ %.1282.lcssa.i, %507 ], [ %.1282.lcssa.i, %476 ], [ %.1282.lcssa.i, %396 ], [ %.1282.lcssa.i, %519 ], [ %.1282.lcssa.i, %478 ], [ %.1282.lcssa.i, %412 ], [ %.1282.lcssa.i, %398 ], [ %162, %180 ]
-  %.3.i = phi i32 [ 0, %.thread664.thread.i ], [ 0, %350 ], [ 0, %351 ], [ %462, %450 ], [ 0, %clusterManagerSetSlot.exit482.thread686.i ], [ 0, %.thread669.i ], [ %.16.ph.i, %.thread656.i ], [ 0, %clusterManagerClearSlotStatus.exit.thread604.i ], [ 0, %364 ], [ %.012.i498.ph.i, %634 ], [ 0, %.thread519.i ], [ 0, %.thread579.i ], [ 0, %clusterManagerSetSlot.exit.thread609.i ], [ 0, %clusterManagerSetSlot.exit468.thread614.i ], [ 0, %clusterManagerClearSlotStatus.exit478.thread678.i ], [ 0, %.thread920.i ], [ 1, %._crit_edge777.i ], [ 0, %608 ], [ 0, %269 ], [ 0, %507 ], [ 0, %476 ], [ 0, %396 ], [ 1, %519 ], [ 0, %478 ], [ 0, %412 ], [ 0, %398 ], [ 0, %180 ]
+  %.0288.i = phi ptr [ %.1289.lcssa.i, %.thread664.thread.i ], [ %.1289.lcssa.i, %507 ], [ %.1289.lcssa.i, %350 ], [ %.1289.lcssa.i, %351 ], [ %.1289.lcssa.i, %450 ], [ %.1289.lcssa.i, %._crit_edge777.i ], [ %.1289.lcssa.i, %clusterManagerSetSlot.exit482.thread686.i ], [ %.1289.lcssa.i, %.thread920.i ], [ %.1289.lcssa.i, %.thread669.i ], [ %.1289.lcssa.i, %.thread656.i ], [ %.1289.lcssa.i, %396 ], [ %.1289.lcssa.i, %clusterManagerClearSlotStatus.exit.thread604.i ], [ %.1289.lcssa.i, %364 ], [ %.1289.lcssa.i, %476 ], [ %.1289.lcssa.i, %634 ], [ %163, %.thread519.i ], [ %.1289759.i, %.thread579.i ], [ %.1289.lcssa.i, %clusterManagerSetSlot.exit.thread609.i ], [ %.1289.lcssa.i, %clusterManagerClearSlotStatus.exit478.thread678.i ], [ %.1289.lcssa.i, %clusterManagerSetSlot.exit468.thread614.i ], [ %.1289.lcssa.i, %608 ], [ %.1289759.i, %269 ], [ %.1289.lcssa.i, %519 ], [ %.1289.lcssa.i, %478 ], [ %.1289.lcssa.i, %412 ], [ %.1289.lcssa.i, %398 ], [ %163, %180 ]
+  %.0281.i = phi ptr [ %.1282.lcssa.i, %.thread664.thread.i ], [ %.1282.lcssa.i, %507 ], [ %.1282.lcssa.i, %350 ], [ %.1282.lcssa.i, %351 ], [ %.1282.lcssa.i, %450 ], [ %.1282.lcssa.i, %._crit_edge777.i ], [ %.1282.lcssa.i, %clusterManagerSetSlot.exit482.thread686.i ], [ %.1282.lcssa.i, %.thread920.i ], [ %.1282.lcssa.i, %.thread669.i ], [ %.1282.lcssa.i, %.thread656.i ], [ %.1282.lcssa.i, %396 ], [ %.1282.lcssa.i, %clusterManagerClearSlotStatus.exit.thread604.i ], [ %.1282.lcssa.i, %364 ], [ %.1282.lcssa.i, %476 ], [ %.1282.lcssa.i, %634 ], [ %162, %.thread519.i ], [ %.1282760.i, %.thread579.i ], [ %.1282.lcssa.i, %clusterManagerSetSlot.exit.thread609.i ], [ %.1282.lcssa.i, %clusterManagerClearSlotStatus.exit478.thread678.i ], [ %.1282.lcssa.i, %clusterManagerSetSlot.exit468.thread614.i ], [ %.1282.lcssa.i, %608 ], [ %.1282760.i, %269 ], [ %.1282.lcssa.i, %519 ], [ %.1282.lcssa.i, %478 ], [ %.1282.lcssa.i, %412 ], [ %.1282.lcssa.i, %398 ], [ %162, %180 ]
+  %.3.i = phi i32 [ 0, %.thread664.thread.i ], [ 0, %507 ], [ 0, %350 ], [ 0, %351 ], [ %462, %450 ], [ 1, %._crit_edge777.i ], [ 0, %clusterManagerSetSlot.exit482.thread686.i ], [ 0, %.thread920.i ], [ 0, %.thread669.i ], [ %.16.ph.i, %.thread656.i ], [ 0, %396 ], [ 0, %clusterManagerClearSlotStatus.exit.thread604.i ], [ 0, %364 ], [ 0, %476 ], [ %.012.i498.ph.i, %634 ], [ 0, %.thread519.i ], [ 0, %.thread579.i ], [ 0, %clusterManagerSetSlot.exit.thread609.i ], [ 0, %clusterManagerClearSlotStatus.exit478.thread678.i ], [ 0, %clusterManagerSetSlot.exit468.thread614.i ], [ 0, %608 ], [ 0, %269 ], [ 1, %519 ], [ 0, %478 ], [ 0, %412 ], [ 0, %398 ], [ 0, %180 ]
   call void @listRelease(ptr noundef %159) #34
   call void @listRelease(ptr noundef %160) #34
   call void @listRelease(ptr noundef %161) #34
@@ -21742,7 +21742,7 @@ clusterManagerClearSlotStatus.exit.thread.i:      ; preds = %913
   br label %.thread276.i
 
 .thread276.i:                                     ; preds = %910, %908, %902, %896, %.thread276.sink.split.i, %884
-  %.19.ph.i = phi i32 [ -1, %884 ], [ %.19.ph.ph.i, %.thread276.sink.split.i ], [ -1, %896 ], [ -1, %902 ], [ -1, %908 ], [ -1, %910 ]
+  %.19.ph.i = phi i32 [ %.19.ph.ph.i, %.thread276.sink.split.i ], [ -1, %884 ], [ -1, %896 ], [ -1, %902 ], [ -1, %908 ], [ -1, %910 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.thread272.i
 
@@ -22041,7 +22041,7 @@ clusterManagerFixMultipleSlotOwners.exit:         ; preds = %.backedge.i
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %1041, label %clusterManagerFixMultipleSlotOwners.exit.thread, label %1042
 
-clusterManagerFixMultipleSlotOwners.exit.thread.sink.split: ; preds = %1003, %1024, %1015, %clusterManagerCountKeysInSlot.exit.i187, %1032, %.thread.sink.split.i
+clusterManagerFixMultipleSlotOwners.exit.thread.sink.split: ; preds = %1003, %1015, %clusterManagerCountKeysInSlot.exit.i187, %1032, %1024, %.thread.sink.split.i
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %clusterManagerFixMultipleSlotOwners.exit.thread
 
@@ -22404,7 +22404,7 @@ hi_sdslen.exit:                                   ; preds = %65, %68, %72, %76, 
   br i1 %.not79, label %.thread, label %.lr.ph94
 
 .thread:                                          ; preds = %110, %90, %107, %105
-  %.5 = phi ptr [ %106, %105 ], [ %106, %107 ], [ %.26196, %90 ], [ %.26196, %110 ]
+  %.5 = phi ptr [ %106, %107 ], [ %106, %105 ], [ %.26196, %90 ], [ %.26196, %110 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %hi_sdslen.exit.thread
 
@@ -23545,8 +23545,8 @@ clusterManagerCheckRedisReply.exit42.i:           ; preds = %71
   br i1 %90, label %65, label %clusterManagerExecTransaction.exit.sink.split, !llvm.loop !483
 
 clusterManagerExecTransaction.exit.sink.split:    ; preds = %clusterManagerCheckRedisReply.exit42.thread13.i, %87, %.thread.i, %52, %clusterManagerCheckRedisReply.exit.thread.thread24.i, %.preheader.i, %84, %clusterManagerStartTransaction.exit.thread30
-  %.sink = phi ptr [ %5, %clusterManagerStartTransaction.exit.thread30 ], [ %51, %84 ], [ %51, %.preheader.i ], [ %51, %clusterManagerCheckRedisReply.exit.thread.thread24.i ], [ %51, %52 ], [ %51, %.thread.i ], [ %51, %87 ], [ %51, %clusterManagerCheckRedisReply.exit42.thread13.i ]
-  %.0.ph = phi i32 [ 0, %clusterManagerStartTransaction.exit.thread30 ], [ 0, %84 ], [ 1, %.preheader.i ], [ 0, %clusterManagerCheckRedisReply.exit.thread.thread24.i ], [ 0, %52 ], [ 0, %clusterManagerCheckRedisReply.exit42.thread13.i ], [ 0, %87 ], [ 1, %.thread.i ]
+  %.sink = phi ptr [ %5, %clusterManagerStartTransaction.exit.thread30 ], [ %51, %52 ], [ %51, %clusterManagerCheckRedisReply.exit.thread.thread24.i ], [ %51, %.preheader.i ], [ %51, %84 ], [ %51, %.thread.i ], [ %51, %87 ], [ %51, %clusterManagerCheckRedisReply.exit42.thread13.i ]
+  %.0.ph = phi i32 [ 0, %clusterManagerStartTransaction.exit.thread30 ], [ 0, %52 ], [ 0, %clusterManagerCheckRedisReply.exit.thread.thread24.i ], [ 1, %.preheader.i ], [ 0, %84 ], [ 0, %clusterManagerCheckRedisReply.exit42.thread13.i ], [ 0, %87 ], [ 1, %.thread.i ]
   tail call void @freeReplyObject(ptr noundef nonnull %.sink) #34
   br label %clusterManagerExecTransaction.exit
 
@@ -24153,8 +24153,8 @@ clusterManagerSetSlot.exit.i:                     ; preds = %210, %108, %95, %94
   br label %.thread179.i
 
 .thread179.i:                                     ; preds = %229, %228, %.thread190.i, %._crit_edge.i, %.critedge.i
-  %233 = phi i1 [ true, %.thread190.i ], [ false, %228 ], [ false, %229 ], [ true, %._crit_edge.i ], [ true, %.critedge.i ]
-  %.0104184.i = phi ptr [ %.3107157161.i, %.thread190.i ], [ %.1105.i, %228 ], [ %.1105.i, %229 ], [ %74, %._crit_edge.i ], [ %74, %.critedge.i ]
+  %233 = phi i1 [ true, %.thread190.i ], [ false, %229 ], [ false, %228 ], [ true, %._crit_edge.i ], [ true, %.critedge.i ]
+  %.0104184.i = phi ptr [ %.3107157161.i, %.thread190.i ], [ %.1105.i, %229 ], [ %.1105.i, %228 ], [ %74, %._crit_edge.i ], [ %74, %.critedge.i ]
   call void @freeReplyObject(ptr noundef nonnull %48) #34
   br label %.thread187.i
 
@@ -24192,7 +24192,7 @@ clusterManagerMigrateKeysInSlot.exit.sink.split:  ; preds = %65, %52, %51
   br label %clusterManagerMigrateKeysInSlot.exit
 
 clusterManagerMigrateKeysInSlot.exit:             ; preds = %235, %.backedge, %234, %clusterManagerMigrateKeysInSlot.exit.sink.split, %37
-  %.not81 = phi i1 [ true, %37 ], [ %50, %clusterManagerMigrateKeysInSlot.exit.sink.split ], [ true, %234 ], [ true, %.backedge ], [ true, %235 ]
+  %.not81 = phi i1 [ %50, %clusterManagerMigrateKeysInSlot.exit.sink.split ], [ true, %37 ], [ true, %234 ], [ true, %.backedge ], [ true, %235 ]
   br i1 %.not, label %238, label %239
 
 238:                                              ; preds = %clusterManagerMigrateKeysInSlot.exit
@@ -25395,7 +25395,7 @@ hi_sdslen.exit59:                                 ; preds = %hi_sdslen.exit57, %
   unreachable
 
 .loopexit:                                        ; preds = %hi_sdslen.exit59, %hi_sdslen.exit, %.preheader, %43, %26, %22, %21, %39, %35, %30, %7, %1
-  %.051 = phi ptr [ %2, %1 ], [ %13, %7 ], [ %2, %21 ], [ %25, %22 ], [ %29, %26 ], [ %34, %30 ], [ %38, %35 ], [ %42, %39 ], [ %2, %43 ], [ %2, %.preheader ], [ %78, %hi_sdslen.exit ], [ %142, %hi_sdslen.exit59 ]
+  %.051 = phi ptr [ %2, %1 ], [ %13, %7 ], [ %2, %21 ], [ %25, %22 ], [ %29, %26 ], [ %34, %30 ], [ %38, %35 ], [ %42, %39 ], [ %78, %hi_sdslen.exit ], [ %2, %43 ], [ %2, %.preheader ], [ %142, %hi_sdslen.exit59 ]
   ret ptr %.051
 }
 

@@ -4943,7 +4943,7 @@ define internal fastcc ptr @_build_menu_from_actions(ptr noundef %0, ptr noundef
   br i1 %.not126161, label %.outer._crit_edge, label %.lr.ph
 
 .outer._crit_edge:                                ; preds = %.outer, %.backedge, %6
-  %.0108.ph.lcssa = phi ptr [ null, %6 ], [ %.0108.ph165, %.backedge ], [ %.1109, %.outer ]
+  %.0108.ph.lcssa = phi ptr [ %.0108.ph165, %.backedge ], [ null, %6 ], [ %.1109, %.outer ]
   ret ptr %.0108.ph.lcssa
 }
 

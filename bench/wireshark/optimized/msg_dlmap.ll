@@ -2534,7 +2534,7 @@ Macro_MIMO_DL_Basic_IE.exit:                      ; preds = %329, %335
   br i1 %909, label %.lr.ph.split.split.i.i, label %._crit_edge.i.i, !llvm.loop !13
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.split.split.i.i, %.lr.ph.split.split.us.i.i, %873, %860
-  %.3.lcssa.i.i = phi i32 [ %863, %860 ], [ %894, %.lr.ph.split.split.us.i.i ], [ %885, %873 ], [ %906, %.lr.ph.split.split.i.i ]
+  %.3.lcssa.i.i = phi i32 [ %863, %860 ], [ %885, %873 ], [ %894, %.lr.ph.split.split.us.i.i ], [ %906, %.lr.ph.split.split.i.i ]
   %910 = add nuw nsw i32 %.0103119.i.i, 1
   %exitcond.not.i163.i = icmp eq i32 %.0103119.i.i, %815
   br i1 %exitcond.not.i163.i, label %911, label %822, !llvm.loop !14
@@ -2899,7 +2899,7 @@ Macro_MIMO_DL_Basic_IE.exit:                      ; preds = %329, %335
   br i1 %1157, label %.lr.ph.split.split.i184.i, label %._crit_edge.i178.i, !llvm.loop !17
 
 ._crit_edge.i178.i:                               ; preds = %.lr.ph.split.split.i184.i, %.lr.ph.split.split.us.i185.i, %1118, %1105
-  %.3.lcssa.i179.i = phi i32 [ %1108, %1105 ], [ %1142, %.lr.ph.split.split.us.i185.i ], [ %1133, %1118 ], [ %1154, %.lr.ph.split.split.i184.i ]
+  %.3.lcssa.i179.i = phi i32 [ %1108, %1105 ], [ %1133, %1118 ], [ %1142, %.lr.ph.split.split.us.i185.i ], [ %1154, %.lr.ph.split.split.i184.i ]
   %1158 = add nuw nsw i32 %.096107.i.i, 1
   %exitcond.not.i180.i = icmp eq i32 %.096107.i.i, %1060
   br i1 %exitcond.not.i180.i, label %1159, label %1067, !llvm.loop !18

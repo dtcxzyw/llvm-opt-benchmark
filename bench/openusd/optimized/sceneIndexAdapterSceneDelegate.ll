@@ -34322,7 +34322,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit231: ; preds = %885, %891
   br i1 %895, label %.loopexit, label %885
 
 .loopexit:                                        ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit231, %872, %867, %.thread
-  %.pn105.pn.pn = phi { ptr, i32 } [ %805, %.thread ], [ %868, %872 ], [ %868, %867 ], [ %.pn105.pn, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit231 ]
+  %.pn105.pn.pn = phi { ptr, i32 } [ %868, %872 ], [ %805, %.thread ], [ %868, %867 ], [ %.pn105.pn, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit231 ]
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN32pxrInternal_v0_24__pxrReserved__32HdSceneIndexAdapterSceneDelegate3GetERKNS_7SdfPathERKNS_7TfTokenEE7nameKey) #28
   br label %.body
 
@@ -69607,8 +69607,8 @@ _ZNSt8__detail12_NodeBuilderINS_9_IdentityEE8_S_buildIRKN32pxrInternal_v0_24__px
   resume { ptr, i32 } %72
 
 _ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ENS1_4HashENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS1_EEPNS3_10_Hash_nodeIS1_Lb1EEEmRKT_m.exit: ; preds = %14, %44, %_ZNSt8__detail12_NodeBuilderINS_9_IdentityEE8_S_buildIRKN32pxrInternal_v0_24__pxrReserved__7SdfPathES7_NS_10_AllocNodeISaINS_10_Hash_nodeIS5_Lb1EEEEEEEEPNT1_11__node_typeEOT_OT0_RKSD_.exit, %36
-  %.sroa.023.0 = phi ptr [ %37, %36 ], [ %70, %_ZNSt8__detail12_NodeBuilderINS_9_IdentityEE8_S_buildIRKN32pxrInternal_v0_24__pxrReserved__7SdfPathES7_NS_10_AllocNodeISaINS_10_Hash_nodeIS5_Lb1EEEEEEEEPNT1_11__node_typeEOT_OT0_RKSD_.exit ], [ %49, %44 ], [ %.sroa.020.0, %14 ]
-  %.sroa.4.0 = phi i8 [ 0, %36 ], [ 1, %_ZNSt8__detail12_NodeBuilderINS_9_IdentityEE8_S_buildIRKN32pxrInternal_v0_24__pxrReserved__7SdfPathES7_NS_10_AllocNodeISaINS_10_Hash_nodeIS5_Lb1EEEEEEEEPNT1_11__node_typeEOT_OT0_RKSD_.exit ], [ 0, %44 ], [ 0, %14 ]
+  %.sroa.023.0 = phi ptr [ %49, %44 ], [ %70, %_ZNSt8__detail12_NodeBuilderINS_9_IdentityEE8_S_buildIRKN32pxrInternal_v0_24__pxrReserved__7SdfPathES7_NS_10_AllocNodeISaINS_10_Hash_nodeIS5_Lb1EEEEEEEEPNT1_11__node_typeEOT_OT0_RKSD_.exit ], [ %37, %36 ], [ %.sroa.020.0, %14 ]
+  %.sroa.4.0 = phi i8 [ 0, %44 ], [ 1, %_ZNSt8__detail12_NodeBuilderINS_9_IdentityEE8_S_buildIRKN32pxrInternal_v0_24__pxrReserved__7SdfPathES7_NS_10_AllocNodeISaINS_10_Hash_nodeIS5_Lb1EEEEEEEEPNT1_11__node_typeEOT_OT0_RKSD_.exit ], [ 0, %36 ], [ 0, %14 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.023.0, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.4.0, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -78267,9 +78267,9 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_trai
   br label %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsINSt6thread2idESt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS7_16HdSceneIndexPrimEESt4hashIS5_ESt8equal_toIS5_ENS1_13tbb_allocatorIS6_IKS5_SA_EEELb0EEEE17adjust_table_sizeEmm.exit
 
 _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsINSt6thread2idESt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS7_16HdSceneIndexPrimEESt4hashIS5_ESt8equal_toIS5_ENS1_13tbb_allocatorIS6_IKS5_SA_EEELb0EEEE17adjust_table_sizeEmm.exit: ; preds = %31, %48, %64, %._crit_edge
-  %.sink79 = phi ptr [ null, %._crit_edge ], [ null, %64 ], [ %38, %48 ], [ null, %31 ]
-  %.sink77 = phi ptr [ %38, %._crit_edge ], [ %38, %64 ], [ %.025.i36, %48 ], [ %.025.i, %31 ]
-  %.sink = phi i8 [ 1, %._crit_edge ], [ 1, %64 ], [ 0, %48 ], [ 0, %31 ]
+  %.sink79 = phi ptr [ null, %64 ], [ %38, %48 ], [ null, %._crit_edge ], [ null, %31 ]
+  %.sink77 = phi ptr [ %38, %64 ], [ %.025.i36, %48 ], [ %38, %._crit_edge ], [ %.025.i, %31 ]
+  %.sink = phi i8 [ 1, %64 ], [ 0, %48 ], [ 1, %._crit_edge ], [ 0, %31 ]
   store ptr %.sink79, ptr %0, align 8
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink77, ptr %67, align 8
@@ -86426,9 +86426,9 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_set_trai
   br label %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsIPN32pxrInternal_v0_24__pxrReserved__15HdSceneDelegateESt4hashIS6_ESt8equal_toIS6_ENS1_13tbb_allocatorIS6_EELb0EEEE17adjust_table_sizeEmm.exit
 
 _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsIPN32pxrInternal_v0_24__pxrReserved__15HdSceneDelegateESt4hashIS6_ESt8equal_toIS6_ENS1_13tbb_allocatorIS6_EELb0EEEE17adjust_table_sizeEmm.exit: ; preds = %30, %50, %68, %._crit_edge
-  %.sink77 = phi ptr [ null, %._crit_edge ], [ null, %68 ], [ %37, %50 ], [ null, %30 ]
-  %.sink75 = phi ptr [ %37, %._crit_edge ], [ %37, %68 ], [ %.025.i36, %50 ], [ %.025.i, %30 ]
-  %.sink = phi i8 [ 1, %._crit_edge ], [ 1, %68 ], [ 0, %50 ], [ 0, %30 ]
+  %.sink77 = phi ptr [ null, %68 ], [ %37, %50 ], [ null, %._crit_edge ], [ null, %30 ]
+  %.sink75 = phi ptr [ %37, %68 ], [ %.025.i36, %50 ], [ %37, %._crit_edge ], [ %.025.i, %30 ]
+  %.sink = phi i8 [ 1, %68 ], [ 0, %50 ], [ 1, %._crit_edge ], [ 0, %30 ]
   store ptr %.sink77, ptr %0, align 8
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink75, ptr %71, align 8
@@ -87113,7 +87113,7 @@ _ZN3tbb6detail2d115solist_iteratorINS1_25concurrent_unordered_baseINS1_31concurr
   br i1 %.not.i.i.i.i.i29, label %_ZSt4copyIN3tbb6detail2d115solist_iteratorINS2_25concurrent_unordered_baseINS2_31concurrent_unordered_set_traitsIPN32pxrInternal_v0_24__pxrReserved__15HdSceneDelegateESt4hashIS8_ESt8equal_toIS8_ENS2_13tbb_allocatorIS8_EELb0EEEEES8_EEPS8_ET0_T_SK_SJ_.exit33, label %.lr.ph.i.i.i.i.i20, !llvm.loop !596
 
 _ZSt4copyIN3tbb6detail2d115solist_iteratorINS2_25concurrent_unordered_baseINS2_31concurrent_unordered_set_traitsIPN32pxrInternal_v0_24__pxrReserved__15HdSceneDelegateESt4hashIS8_ESt8equal_toIS8_ENS2_13tbb_allocatorIS8_EELb0EEEEES8_EEPS8_ET0_T_SK_SJ_.exit33: ; preds = %_ZN3tbb6detail2d115solist_iteratorINS1_25concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsIPN32pxrInternal_v0_24__pxrReserved__15HdSceneDelegateESt4hashIS7_ESt8equal_toIS7_ENS1_13tbb_allocatorIS7_EELb0EEEEES7_EppEv.exit.i.i.i.i.i27, %69, %_ZSt7advanceIN3tbb6detail2d115solist_iteratorINS2_25concurrent_unordered_baseINS2_31concurrent_unordered_set_traitsIPN32pxrInternal_v0_24__pxrReserved__15HdSceneDelegateESt4hashIS8_ESt8equal_toIS8_ENS2_13tbb_allocatorIS8_EELb0EEEEES8_EEmEvRT_T0_.exit
-  %.sroa.039.075 = phi ptr [ %.0.lcssa.i.i.i15, %_ZSt7advanceIN3tbb6detail2d115solist_iteratorINS2_25concurrent_unordered_baseINS2_31concurrent_unordered_set_traitsIPN32pxrInternal_v0_24__pxrReserved__15HdSceneDelegateESt4hashIS8_ESt8equal_toIS8_ENS2_13tbb_allocatorIS8_EELb0EEEEES8_EEmEvRT_T0_.exit ], [ %.pre58, %69 ], [ %.0.lcssa.i.i.i15, %_ZN3tbb6detail2d115solist_iteratorINS1_25concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsIPN32pxrInternal_v0_24__pxrReserved__15HdSceneDelegateESt4hashIS7_ESt8equal_toIS7_ENS1_13tbb_allocatorIS7_EELb0EEEEES7_EppEv.exit.i.i.i.i.i27 ]
+  %.sroa.039.075 = phi ptr [ %.pre58, %69 ], [ %.0.lcssa.i.i.i15, %_ZSt7advanceIN3tbb6detail2d115solist_iteratorINS2_25concurrent_unordered_baseINS2_31concurrent_unordered_set_traitsIPN32pxrInternal_v0_24__pxrReserved__15HdSceneDelegateESt4hashIS8_ESt8equal_toIS8_ENS2_13tbb_allocatorIS8_EELb0EEEEES8_EEmEvRT_T0_.exit ], [ %.0.lcssa.i.i.i15, %_ZN3tbb6detail2d115solist_iteratorINS1_25concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsIPN32pxrInternal_v0_24__pxrReserved__15HdSceneDelegateESt4hashIS7_ESt8equal_toIS7_ENS1_13tbb_allocatorIS7_EELb0EEEEES7_EppEv.exit.i.i.i.i.i27 ]
   %89 = load ptr, ptr %50, align 8
   %90 = load ptr, ptr %2, align 8
   %.not3.i.i.i.i.i.i.i.i = icmp eq ptr %.sroa.039.075, %90

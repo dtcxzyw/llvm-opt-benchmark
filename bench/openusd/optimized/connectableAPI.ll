@@ -1665,7 +1665,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7GetPathEv.exit69: ; preds = %.i
   br label %.loopexit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit61: ; preds = %304, %291, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EED2Ev.exit, %182, %_ZNK32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandlecvbEv.exit.i.i, %179, %430, %417, %415, %368, %355, %353, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread75, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
-  %.1 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit ], [ %414, %430 ], [ %352, %368 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread75 ], [ %352, %353 ], [ %352, %355 ], [ %414, %415 ], [ %414, %417 ], [ false, %179 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandlecvbEv.exit.i.i ], [ false, %182 ], [ %259, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EED2Ev.exit ], [ %259, %291 ], [ %259, %304 ]
+  %.1 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit ], [ %414, %430 ], [ %352, %368 ], [ false, %182 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread75 ], [ %352, %353 ], [ %352, %355 ], [ %414, %415 ], [ %414, %417 ], [ false, %179 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandlecvbEv.exit.i.i ], [ %259, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EED2Ev.exit ], [ %259, %291 ], [ %259, %304 ]
   %436 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %437 = load ptr, ptr %436, align 8
   %438 = ptrtoint ptr %437 to i64
@@ -1729,7 +1729,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i: ; preds = %459, %4
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit37
 
 .loopexit:                                        ; preds = %.body, %308, %434, %372, %198
-  %.pn27.pn = phi { ptr, i32 } [ %309, %308 ], [ %435, %434 ], [ %373, %372 ], [ %199, %198 ], [ %.pn27, %.body ]
+  %.pn27.pn = phi { ptr, i32 } [ %199, %198 ], [ %309, %308 ], [ %435, %434 ], [ %373, %372 ], [ %.pn27, %.body ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #20
   br label %469
 

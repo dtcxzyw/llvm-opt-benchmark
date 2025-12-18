@@ -250,7 +250,7 @@ define noundef zeroext i1 @_ZN5arrow4util16IsFixedWidthLikeERKNS_9ArraySpanEbb(p
   br label %"_ZN5arrow4util16IsFixedWidthLikeIZNS0_16IsFixedWidthLikeERKNS_9ArraySpanEbbE3$_0EEbS4_bT_.exit"
 
 "_ZN5arrow4util16IsFixedWidthLikeIZNS0_16IsFixedWidthLikeERKNS_9ArraySpanEbbE3$_0EEbS4_bT_.exit": ; preds = %.lr.ph.i, %20, %.lr.ph11.i, %10, %3, %.preheader.split.us.i, %.preheader.split.i, %16, %"_ZZN5arrow4util16IsFixedWidthLikeERKNS_9ArraySpanEbbENK3$_0clERKNS_8DataTypeE.exit.i", %.split.us.i, %25
-  %.015.i = phi i1 [ true, %16 ], [ false, %3 ], [ %switch.selectcmp.not.i, %"_ZZN5arrow4util16IsFixedWidthLikeERKNS_9ArraySpanEbbENK3$_0clERKNS_8DataTypeE.exit.i" ], [ %spec.select.i21.i, %25 ], [ true, %.split.us.i ], [ false, %.preheader.split.i ], [ false, %.preheader.split.us.i ], [ false, %.lr.ph11.i ], [ false, %10 ], [ false, %20 ], [ false, %.lr.ph.i ]
+  %.015.i = phi i1 [ true, %16 ], [ false, %3 ], [ true, %.split.us.i ], [ %spec.select.i21.i, %25 ], [ %switch.selectcmp.not.i, %"_ZZN5arrow4util16IsFixedWidthLikeERKNS_9ArraySpanEbbENK3$_0clERKNS_8DataTypeE.exit.i" ], [ false, %.preheader.split.i ], [ false, %.lr.ph11.i ], [ false, %.preheader.split.us.i ], [ false, %10 ], [ false, %20 ], [ false, %.lr.ph.i ]
   ret i1 %.015.i
 }
 

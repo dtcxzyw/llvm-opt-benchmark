@@ -7017,7 +7017,7 @@ return.sink.split:                                ; preds = %invoke.cont92, %inv
   br label %return
 
 return:                                           ; preds = %return.sink.split, %cond.true78, %cond.true, %if.end68, %cond.end82, %cond.end
-  %retval.0 = phi i8 [ 1, %cond.true78 ], [ 1, %cond.true ], [ 1, %cond.end ], [ 1, %cond.end82 ], [ 0, %if.end68 ], [ 1, %return.sink.split ]
+  %retval.0 = phi i8 [ 1, %cond.true78 ], [ 1, %cond.true ], [ 1, %cond.end ], [ 0, %if.end68 ], [ 1, %cond.end82 ], [ 1, %return.sink.split ]
   ret i8 %retval.0
 }
 
@@ -11510,7 +11510,7 @@ cleanup.sink.split:                               ; preds = %invoke.cont300, %in
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %cond.false286, %cond.false241, %cond.false143, %cond.false95, %cond.false49, %for.end, %if.then328, %cond.end288, %cond.end243, %cond.end145, %cond.end97, %cond.end51
-  %retval.0 = phi i8 [ 1, %cond.false286 ], [ 1, %cond.false49 ], [ 1, %cond.false95 ], [ 1, %cond.false143 ], [ 1, %cond.false241 ], [ 1, %cond.end51 ], [ 1, %cond.end97 ], [ 1, %cond.end145 ], [ 1, %cond.end243 ], [ 1, %cond.end288 ], [ 0, %if.then328 ], [ 0, %for.end ], [ 1, %cleanup.sink.split ]
+  %retval.0 = phi i8 [ 1, %cond.false286 ], [ 1, %cond.false49 ], [ 1, %cond.false95 ], [ 1, %cond.false143 ], [ 1, %cond.false241 ], [ 1, %cond.end51 ], [ 0, %for.end ], [ 1, %cond.end97 ], [ 0, %if.then328 ], [ 1, %cond.end145 ], [ 1, %cond.end288 ], [ 1, %cond.end243 ], [ 1, %cleanup.sink.split ]
   %55 = load ptr, ptr %settingsList, align 8
   %tobool.not.i.i.i63 = icmp eq ptr %55, null
   br i1 %tobool.not.i.i.i63, label %_ZNSt6vectorIN8proxygen11HTTPSettingESaIS1_EED2Ev.exit, label %if.then.i.i.i64
@@ -12735,7 +12735,7 @@ cleanup.sink.split:                               ; preds = %invoke.cont154, %in
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %cond.false138, %cond.false99, %invoke.cont128, %cond.end140, %cond.end101
-  %retval.2 = phi i1 [ false, %cond.false138 ], [ false, %cond.false99 ], [ false, %cond.end101 ], [ false, %cond.end140 ], [ true, %invoke.cont128 ], [ false, %cleanup.sink.split ]
+  %retval.2 = phi i1 [ false, %cond.false138 ], [ false, %cond.false99 ], [ false, %cond.end101 ], [ true, %invoke.cont128 ], [ false, %cond.end140 ], [ false, %cleanup.sink.split ]
   %48 = load ptr, ptr %settings, align 8
   %tobool.not.i.i22 = icmp eq ptr %48, null
   br i1 %tobool.not.i.i22, label %_ZNSt5dequeISt4pairIN8proxygen10SettingsIdEjESaIS3_EED2Ev.exit, label %if.then.i.i23
@@ -21288,7 +21288,7 @@ _ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_M
   br label %return
 
 return:                                           ; preds = %if.end3.i, %if.end4.i, %lor.lhs.false.return.loopexit_crit_edge.i, %if.else, %if.then, %_ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE8_M_eraseEmPNS1_15_Hash_node_baseEPNS1_10_Hash_nodeImLb0EEE.exit
-  %retval.0 = phi i64 [ 1, %_ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE8_M_eraseEmPNS1_15_Hash_node_baseEPNS1_10_Hash_nodeImLb0EEE.exit ], [ 0, %if.then ], [ 0, %if.else ], [ 0, %lor.lhs.false.return.loopexit_crit_edge.i ], [ 0, %if.end4.i ], [ 0, %if.end3.i ]
+  %retval.0 = phi i64 [ 1, %_ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE8_M_eraseEmPNS1_15_Hash_node_baseEPNS1_10_Hash_nodeImLb0EEE.exit ], [ 0, %if.end4.i ], [ 0, %if.then ], [ 0, %if.else ], [ 0, %lor.lhs.false.return.loopexit_crit_edge.i ], [ 0, %if.end3.i ]
   ret i64 %retval.0
 }
 
@@ -22583,8 +22583,8 @@ _ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_M
   resume { ptr, i32 } %13
 
 return:                                           ; preds = %for.cond.i.i, %for.body, %if.end25, %if.end.i.i
-  %retval.sroa.0.0 = phi ptr [ %8, %if.end.i.i ], [ %call28, %if.end25 ], [ %__it.sroa.0.0, %for.body ], [ %10, %for.cond.i.i ]
-  %retval.sroa.4.0 = phi i8 [ 0, %if.end.i.i ], [ 1, %if.end25 ], [ 0, %for.body ], [ 0, %for.cond.i.i ]
+  %retval.sroa.0.0 = phi ptr [ %__it.sroa.0.0, %for.body ], [ %call28, %if.end25 ], [ %8, %if.end.i.i ], [ %10, %for.cond.i.i ]
+  %retval.sroa.4.0 = phi i8 [ 0, %for.body ], [ 1, %if.end25 ], [ 0, %if.end.i.i ], [ 0, %for.cond.i.i ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %retval.sroa.4.0, 1
   ret { ptr, i8 } %.fca.1.insert

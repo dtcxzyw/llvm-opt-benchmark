@@ -2612,8 +2612,8 @@ define dso_local noundef i32 @dm_table_set_restrictions(ptr noundef readonly cap
   br i1 %168, label %.preheader105, label %.thread85, !llvm.loop !53
 
 .thread85:                                        ; preds = %137, %161, %150, %164, %.critedge67, %41, %.critedge69, %._crit_edge122
-  %169 = phi i1 [ true, %._crit_edge122 ], [ false, %41 ], [ false, %.critedge69 ], [ false, %.critedge67 ], [ true, %161 ], [ true, %164 ], [ true, %150 ], [ false, %137 ]
-  %170 = phi i1 [ false, %._crit_edge122 ], [ false, %41 ], [ false, %.critedge69 ], [ false, %.critedge67 ], [ true, %161 ], [ true, %150 ], [ false, %164 ], [ false, %137 ]
+  %169 = phi i1 [ true, %161 ], [ true, %._crit_edge122 ], [ false, %41 ], [ false, %.critedge69 ], [ false, %.critedge67 ], [ true, %164 ], [ true, %150 ], [ false, %137 ]
+  %170 = phi i1 [ true, %161 ], [ false, %._crit_edge122 ], [ false, %41 ], [ false, %.critedge69 ], [ false, %.critedge67 ], [ true, %150 ], [ false, %164 ], [ false, %137 ]
   tail call void @blk_queue_write_cache(ptr noundef %1, i1 noundef zeroext %169, i1 noundef zeroext %170) #22
   %171 = load i32, ptr %6, align 8
   %172 = icmp eq i32 %171, 0
@@ -3306,7 +3306,7 @@ define dso_local i32 @dm_table_resume_targets(ptr noundef readonly captures(none
   br i1 %49, label %.preheader, label %.thread, !llvm.loop !58
 
 .thread:                                          ; preds = %45, %1, %22, %7
-  %50 = phi i32 [ 0, %7 ], [ %20, %22 ], [ 0, %1 ], [ 0, %45 ]
+  %50 = phi i32 [ 0, %7 ], [ 0, %1 ], [ %20, %22 ], [ 0, %45 ]
   ret i32 %50
 }
 

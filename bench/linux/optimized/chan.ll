@@ -780,8 +780,8 @@ define dso_local void @ieee80211_recalc_chanctx_chantype(ptr noundef %0, ptr nou
   br i1 %40, label %43, label %.preheader13.backedge
 
 .preheader13.backedge:                            ; preds = %.loopexit, %.loopexit.thread
-  %.be = phi ptr [ %39, %.loopexit ], [ %41, %.loopexit.thread ]
-  %.be35 = phi ptr [ %38, %.loopexit ], [ null, %.loopexit.thread ]
+  %.be = phi ptr [ %41, %.loopexit.thread ], [ %39, %.loopexit ]
+  %.be35 = phi ptr [ null, %.loopexit.thread ], [ %38, %.loopexit ]
   br label %.preheader13, !llvm.loop !45
 
 .loopexit.thread:                                 ; preds = %29
@@ -3347,11 +3347,11 @@ define internal fastcc i32 @ieee80211_vif_use_reserved_switch(ptr noundef %0) un
   br i1 %116, label %.loopexit97, label %.preheader95, !llvm.loop !158
 
 .loopexit97:                                      ; preds = %114, %8, %.thread
-  %.ph59 = phi i32 [ %14, %.thread ], [ %14, %8 ], [ %107, %114 ]
-  %.ph60 = phi i32 [ %13, %.thread ], [ %13, %8 ], [ %108, %114 ]
-  %.ph61 = phi i32 [ %12, %.thread ], [ %12, %8 ], [ %109, %114 ]
-  %.ph62 = phi i32 [ %27, %.thread ], [ %11, %8 ], [ %27, %114 ]
-  %.ph63 = phi ptr [ %26, %.thread ], [ %10, %8 ], [ %26, %114 ]
+  %.ph59 = phi i32 [ %14, %8 ], [ %14, %.thread ], [ %107, %114 ]
+  %.ph60 = phi i32 [ %13, %8 ], [ %13, %.thread ], [ %108, %114 ]
+  %.ph61 = phi i32 [ %12, %8 ], [ %12, %.thread ], [ %109, %114 ]
+  %.ph62 = phi i32 [ %11, %8 ], [ %27, %.thread ], [ %27, %114 ]
+  %.ph63 = phi ptr [ %10, %8 ], [ %26, %.thread ], [ %26, %114 ]
   %117 = load ptr, ptr %9, align 8
   %118 = icmp eq ptr %117, %3
   br i1 %118, label %119, label %8, !llvm.loop !159

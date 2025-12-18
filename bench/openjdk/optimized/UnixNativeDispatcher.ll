@@ -703,7 +703,7 @@ define i32 @Java_sun_nio_fs_UnixNativeDispatcher_openat0(ptr noundef %0, ptr nou
   br label %.critedge10
 
 .critedge10:                                      ; preds = %.preheader, %19, %.critedge, %10
-  %.0 = phi i32 [ -1, %10 ], [ -1, %.critedge ], [ -1, %19 ], [ %12, %.preheader ]
+  %.0 = phi i32 [ -1, %10 ], [ -1, %19 ], [ -1, %.critedge ], [ %12, %.preheader ]
   ret i32 %.0
 }
 

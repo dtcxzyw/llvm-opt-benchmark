@@ -4359,8 +4359,8 @@ arraydestroy.body431:                             ; preds = %arraydestroy.body43
   br i1 %arraydestroy.done434, label %ehcleanup436, label %arraydestroy.body431
 
 ehcleanup436:                                     ; preds = %arraydestroy.body431, %lpad409, %lpad.i358
-  %.pn39 = phi { ptr, i32 } [ %219, %lpad409 ], [ %210, %lpad.i358 ], [ %220, %arraydestroy.body431 ]
-  %221 = phi i1 [ false, %lpad409 ], [ false, %lpad.i358 ], [ true, %arraydestroy.body431 ]
+  %.pn39 = phi { ptr, i32 } [ %210, %lpad.i358 ], [ %219, %lpad409 ], [ %220, %arraydestroy.body431 ]
+  %221 = phi i1 [ false, %lpad.i358 ], [ false, %lpad409 ], [ true, %arraydestroy.body431 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp404) #28
   br label %ehcleanup437
 
@@ -4510,7 +4510,7 @@ _ZN6google8protobuf8compiler3cpp9Formatter14ScopedIndenterD2Ev.exit367.invoke: ;
           to label %invoke.cont473 unwind label %lpad49
 
 ehcleanup469:                                     ; preds = %arraydestroy.body453, %ehcleanup448.thread, %ehcleanup448, %lpad463, %lpad322, %lpad311, %lpad302, %lpad293, %lpad284, %lpad270
-  %.pn53 = phi { ptr, i32 } [ %146, %lpad270 ], [ %153, %lpad284 ], [ %157, %lpad293 ], [ %161, %lpad302 ], [ %165, %lpad311 ], [ %170, %lpad322 ], [ %.pn39.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup448 ], [ %225, %lpad463 ], [ %.pn39.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %ehcleanup448.thread ], [ %.pn39.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %arraydestroy.body453 ]
+  %.pn53 = phi { ptr, i32 } [ %146, %lpad270 ], [ %153, %lpad284 ], [ %157, %lpad293 ], [ %161, %lpad302 ], [ %165, %lpad311 ], [ %170, %lpad322 ], [ %.pn39.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup448 ], [ %.pn39.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %ehcleanup448.thread ], [ %225, %lpad463 ], [ %.pn39.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %arraydestroy.body453 ]
   call void @_ZN6google8protobuf8compiler3cpp9Formatter14ScopedIndenterD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %aux_scope) #28
   br label %ehcleanup478
 
@@ -4904,7 +4904,7 @@ arraydestroy.body33:                              ; preds = %arraydestroy.body33
   br i1 %arraydestroy.done36, label %eh.resume, label %arraydestroy.body33
 
 eh.resume:                                        ; preds = %arraydestroy.body, %arraydestroy.body33, %lpad.body.thread
-  %.pn = phi { ptr, i32 } [ %7, %lpad.body.thread ], [ %20, %arraydestroy.body33 ], [ %eh.lpad-body, %arraydestroy.body ]
+  %.pn = phi { ptr, i32 } [ %20, %arraydestroy.body33 ], [ %7, %lpad.body.thread ], [ %eh.lpad-body, %arraydestroy.body ]
   resume { ptr, i32 } %.pn
 }
 
@@ -5278,7 +5278,7 @@ arraydestroy.body19:                              ; preds = %arraydestroy.body19
   br i1 %arraydestroy.done22, label %eh.resume, label %arraydestroy.body19
 
 eh.resume:                                        ; preds = %arraydestroy.body19, %lpad.i5, %lpad.body.thread
-  %.pn = phi { ptr, i32 } [ %8, %lpad.body.thread ], [ %16, %lpad.i5 ], [ %18, %arraydestroy.body19 ]
+  %.pn = phi { ptr, i32 } [ %16, %lpad.i5 ], [ %8, %lpad.body.thread ], [ %18, %arraydestroy.body19 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -6710,7 +6710,7 @@ arraydestroy.body21:                              ; preds = %arraydestroy.body21
   br i1 %arraydestroy.done24, label %eh.resume, label %arraydestroy.body21
 
 eh.resume:                                        ; preds = %arraydestroy.body, %arraydestroy.body21, %lpad.body.thread
-  %.pn = phi { ptr, i32 } [ %8, %lpad.body.thread ], [ %15, %arraydestroy.body21 ], [ %eh.lpad-body, %arraydestroy.body ]
+  %.pn = phi { ptr, i32 } [ %15, %arraydestroy.body21 ], [ %8, %lpad.body.thread ], [ %eh.lpad-body, %arraydestroy.body ]
   resume { ptr, i32 } %.pn
 }
 
@@ -6928,7 +6928,7 @@ arraydestroy.body31:                              ; preds = %arraydestroy.body31
   br i1 %arraydestroy.done34, label %eh.resume, label %arraydestroy.body31
 
 eh.resume:                                        ; preds = %arraydestroy.body, %arraydestroy.body31, %lpad.body.thread
-  %.pn = phi { ptr, i32 } [ %8, %lpad.body.thread ], [ %25, %arraydestroy.body31 ], [ %eh.lpad-body, %arraydestroy.body ]
+  %.pn = phi { ptr, i32 } [ %25, %arraydestroy.body31 ], [ %8, %lpad.body.thread ], [ %eh.lpad-body, %arraydestroy.body ]
   resume { ptr, i32 } %.pn
 }
 

@@ -9816,7 +9816,7 @@ switch.lookup:                                    ; preds = %29
   br label %_ZN11wasi_common4sync4file13filetype_from17hd53e7a46c3969dfaE.exit
 
 _ZN11wasi_common4sync4file13filetype_from17hd53e7a46c3969dfaE.exit: ; preds = %switch.lookup, %31, %26
-  %.0.i = phi i8 [ 3, %26 ], [ %switch.masked, %switch.lookup ], [ %.5.i, %31 ]
+  %.0.i = phi i8 [ 3, %26 ], [ %.5.i, %31 ], [ %switch.masked, %switch.lookup ]
   %.val = load ptr, ptr %10, align 8, !nonnull !28, !noundef !28
   %.val60 = load i64, ptr %.sroa.4.0..sroa_idx, align 8, !noundef !28
   %34 = add i64 %.val60, -1

@@ -341,7 +341,7 @@ _ZN8rawspeed10Array2DRefItE6createISaItEEES1_RSt6vectorItT_Eii.exit:
   br i1 %87, label %.preheader355.us, label %._crit_edge365, !llvm.loop !112
 
 ._crit_edge365:                                   ; preds = %._crit_edge.us, %._crit_edge.us371, %.preheader356, %.preheader355.lr.ph, %68
-  %.pn353 = phi i32 [ %26, %.preheader356 ], [ %35, %68 ], [ %35, %.preheader355.lr.ph ], [ %35, %._crit_edge.us371 ], [ %26, %._crit_edge.us ]
+  %.pn353 = phi i32 [ %26, %.preheader356 ], [ %35, %._crit_edge.us371 ], [ %35, %.preheader355.lr.ph ], [ %35, %68 ], [ %26, %._crit_edge.us ]
   %.pn = mul i32 %.pn353, %43
   %.299 = add i32 %.pn, %.097373
   %88 = getelementptr inbounds nuw i8, ptr %.sroa.0211.0372, i64 12

@@ -505,7 +505,7 @@ fb_ffs.exit37.i:                                  ; preds = %88, %78
   br i1 %95, label %54, label %eset_first_fit.exit, !llvm.loop !26
 
 eset_first_fit.exit:                              ; preds = %.lr.ph.i.i, %54, %76, %fb_ffs.exit37.i, %.lr.ph.i35.i, %30, %34, %fb_ffs.exit.i
-  %.0.i = phi ptr [ null, %30 ], [ %35, %34 ], [ null, %fb_ffs.exit.i ], [ %.2.i, %fb_ffs.exit37.i ], [ %.2.i, %.lr.ph.i35.i ], [ %.02742.i, %54 ], [ %.2.i, %76 ], [ null, %.lr.ph.i.i ]
+  %.0.i = phi ptr [ null, %30 ], [ %35, %34 ], [ null, %fb_ffs.exit.i ], [ %.2.i, %.lr.ph.i35.i ], [ %.2.i, %fb_ffs.exit37.i ], [ %.02742.i, %54 ], [ %.2.i, %76 ], [ null, %.lr.ph.i.i ]
   %96 = icmp ugt i64 %2, 4096
   %97 = icmp eq ptr %.0.i, null
   %or.cond = select i1 %96, i1 %97, i1 false

@@ -390,7 +390,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   %67 = icmp eq ptr %66, null
   br i1 %67, label %253, label %255
 
-68:                                               ; preds = %49, %52
+68:                                               ; preds = %52, %49
   %69 = load ptr, ptr %27, align 8, !nonnull !5, !align !24, !noundef !5
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %71 = load ptr, ptr %70, align 8, !nonnull !5, !noundef !5
@@ -1103,8 +1103,8 @@ define hidden { i64, ptr } @"_ZN12futures_util6stream17futures_unordered18ready_
   br label %16
 
 16:                                               ; preds = %.sink.split, %22, %19, %9
-  %.sroa.6.0 = phi ptr [ undef, %9 ], [ undef, %19 ], [ undef, %22 ], [ %.sroa.09.0, %.sink.split ]
-  %.sroa.0.0 = phi i64 [ 1, %9 ], [ 2, %19 ], [ 2, %22 ], [ 0, %.sink.split ]
+  %.sroa.6.0 = phi ptr [ undef, %22 ], [ undef, %9 ], [ undef, %19 ], [ %.sroa.09.0, %.sink.split ]
+  %.sroa.0.0 = phi i64 [ 2, %22 ], [ 1, %9 ], [ 2, %19 ], [ 0, %.sink.split ]
   %17 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %18 = insertvalue { i64, ptr } %17, ptr %.sroa.6.0, 1
   ret { i64, ptr } %18
@@ -17761,7 +17761,7 @@ define hidden void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %21, %._crit_edge, %16
-  %.sroa.04.0.in.in124.lcssa.sink = phi i64 [ %.sroa.04.0.lcssa, %21 ], [ %.sroa.04.0.in.in.lcssa, %16 ], [ %.sroa.04.0.in.in.lcssa, %._crit_edge ], [ %.sroa.04.0.in.in124, %.lr.ph ]
+  %.sroa.04.0.in.in124.lcssa.sink = phi i64 [ %.sroa.04.0.in.in.lcssa, %._crit_edge ], [ %.sroa.04.0.lcssa, %21 ], [ %.sroa.04.0.in.in.lcssa, %16 ], [ %.sroa.04.0.in.in124, %.lr.ph ]
   %23 = getelementptr inbounds { ptr, i64 }, ptr %5, i64 %.sroa.04.0.in.in124.lcssa.sink
   store ptr %10, ptr %23, align 8
   %.sroa.20.16..sroa_idx111 = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -28509,7 +28509,7 @@ define internal fastcc noalias noundef ptr @"_ZN8sum_tree16SumTree$LT$T$GT$19pus
   br label %.thread328
 
 .thread365.loopexit.split-lp.loopexit.split-lp:   ; preds = %231, %"_ZN4core3ptr116drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$sum_tree..SumTree$LT$text..InsertionFragment$GT$$C$12_usize$GT$$GT$17hbe8a9fc4f3d0dfbfE.exit"
-  %.sroa.037.0.ph.ph = phi i1 [ true, %231 ], [ false, %"_ZN4core3ptr116drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$sum_tree..SumTree$LT$text..InsertionFragment$GT$$C$12_usize$GT$$GT$17hbe8a9fc4f3d0dfbfE.exit" ]
+  %.sroa.037.0.ph.ph = phi i1 [ false, %"_ZN4core3ptr116drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$sum_tree..SumTree$LT$text..InsertionFragment$GT$$C$12_usize$GT$$GT$17hbe8a9fc4f3d0dfbfE.exit" ], [ true, %231 ]
   %lpad.loopexit.split-lp526 = landingpad { ptr, i32 }
           cleanup
   br label %.thread328
@@ -30302,9 +30302,9 @@ define internal fastcc noalias noundef ptr @"_ZN8sum_tree16SumTree$LT$T$GT$19pus
   invoke void @"_ZN4core3ptr70drop_in_place$LT$$u5b$sum_tree..SumTree$LT$text..Fragment$GT$$u5d$$GT$17hebef58f8d77a2035E.llvm.10608672275479804670"(ptr noalias noundef nonnull align 8 %338, i64 noundef %337)
           to label %.thread346 unwind label %229
 
-.thread346.thread403:                             ; preds = %265, %268, %.thread346
-  %.sroa.037.1332410 = phi i1 [ %.sroa.037.1333, %.thread346 ], [ true, %268 ], [ true, %265 ]
-  %.pn78338408 = phi { ptr, i32 } [ %.pn78339, %.thread346 ], [ %266, %268 ], [ %266, %265 ]
+.thread346.thread403:                             ; preds = %268, %265, %.thread346
+  %.sroa.037.1332410 = phi i1 [ %.sroa.037.1333, %.thread346 ], [ true, %265 ], [ true, %268 ]
+  %.pn78338408 = phi { ptr, i32 } [ %.pn78339, %.thread346 ], [ %266, %265 ], [ %266, %268 ]
   %339 = load i32, ptr %47, align 8, !alias.scope !6704, !noundef !5
   %.not.i.i179 = icmp eq i32 %339, 0
   br i1 %.not.i.i179, label %.thread412, label %340
@@ -31390,7 +31390,7 @@ common.resume:                                    ; preds = %792, %793, %75, %79
   br label %.thread161
 
 126:                                              ; preds = %123, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8d4e582b89b5759aE.exit.thread"
-  %.sroa.03.3.ph = phi i1 [ false, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8d4e582b89b5759aE.exit.thread" ], [ true, %123 ]
+  %.sroa.03.3.ph = phi i1 [ true, %123 ], [ false, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8d4e582b89b5759aE.exit.thread" ]
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.thread

@@ -30943,7 +30943,7 @@ _ZN5arrow5DatumD2Ev.exit248:                      ; preds = %_ZNSt12__shared_ptr
   br i1 %1001, label %.loopexit, label %998
 
 .loopexit:                                        ; preds = %998, %.loopexit.loopexit307, %.thread303
-  %.pn68.pn = phi { ptr, i32 } [ %757, %.thread303 ], [ %992, %.loopexit.loopexit307 ], [ %.pn68, %998 ]
+  %.pn68.pn = phi { ptr, i32 } [ %992, %.loopexit.loopexit307 ], [ %757, %.thread303 ], [ %.pn68, %998 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
   call void @_ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %35) #25
   br label %1002
@@ -33968,7 +33968,7 @@ _ZN5arrow5DatumD2Ev.exit248:                      ; preds = %_ZNSt12__shared_ptr
   br i1 %1001, label %.loopexit, label %998
 
 .loopexit:                                        ; preds = %998, %.loopexit.loopexit307, %.thread303
-  %.pn68.pn = phi { ptr, i32 } [ %757, %.thread303 ], [ %992, %.loopexit.loopexit307 ], [ %.pn68, %998 ]
+  %.pn68.pn = phi { ptr, i32 } [ %992, %.loopexit.loopexit307 ], [ %757, %.thread303 ], [ %.pn68, %998 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
   call void @_ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %35) #25
   br label %1002
@@ -36966,7 +36966,7 @@ _ZN5arrow5DatumD2Ev.exit255:                      ; preds = %_ZNSt12__shared_ptr
   br i1 %1100, label %.loopexit, label %1097
 
 .loopexit:                                        ; preds = %1097, %.loopexit.loopexit318, %.thread313
-  %.pn68.pn = phi { ptr, i32 } [ %856, %.thread313 ], [ %1091, %.loopexit.loopexit318 ], [ %.pn68, %1097 ]
+  %.pn68.pn = phi { ptr, i32 } [ %1091, %.loopexit.loopexit318 ], [ %856, %.thread313 ], [ %.pn68, %1097 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
   call void @_ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %37) #25
   br label %1101
@@ -38964,7 +38964,7 @@ _ZN5arrow6StatusD2Ev.exit47.i:                    ; preds = %179, %175, %_ZN5arr
   br i1 %exitcond.not.i, label %_ZN5arrow7compute8internal12_GLOBAL__N_118CastVarToFixedListINS_8ListTypeEE15ValidateLengthsERKNS_9ArraySpanEi.exit.thread, label %.lr.ph.i, !llvm.loop !896
 
 _ZN5arrow7compute8internal12_GLOBAL__N_118CastVarToFixedListINS_8ListTypeEE15ValidateLengthsERKNS_9ArraySpanEi.exit.thread: ; preds = %180, %103, %156, %.preheader50.i, %.preheader.i
-  %.3.i = phi i8 [ 1, %.preheader.i ], [ 1, %.preheader50.i ], [ %.249.us.i, %103 ], [ %.249.i, %156 ], [ 1, %180 ]
+  %.3.i = phi i8 [ 1, %.preheader50.i ], [ 1, %.preheader.i ], [ %.249.us.i, %103 ], [ %.249.i, %156 ], [ 1, %180 ]
   store ptr null, ptr %20, align 8, !tbaa !93, !alias.scope !879
   %183 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i8 %.3.i, ptr %183, align 8, !tbaa !897, !alias.scope !879
@@ -45065,7 +45065,7 @@ _ZN5arrow6StatusD2Ev.exit47.i:                    ; preds = %179, %175, %_ZN5arr
   br i1 %exitcond.not.i, label %_ZN5arrow7compute8internal12_GLOBAL__N_118CastVarToFixedListINS_12ListViewTypeEE15ValidateLengthsERKNS_9ArraySpanEi.exit.thread, label %.lr.ph.i, !llvm.loop !1126
 
 _ZN5arrow7compute8internal12_GLOBAL__N_118CastVarToFixedListINS_12ListViewTypeEE15ValidateLengthsERKNS_9ArraySpanEi.exit.thread: ; preds = %180, %103, %156, %.preheader50.i, %.preheader.i
-  %.3.i = phi i8 [ 1, %.preheader.i ], [ 1, %.preheader50.i ], [ %.249.us.i, %103 ], [ %.249.i, %156 ], [ 1, %180 ]
+  %.3.i = phi i8 [ 1, %.preheader50.i ], [ 1, %.preheader.i ], [ %.249.us.i, %103 ], [ %.249.i, %156 ], [ 1, %180 ]
   store ptr null, ptr %20, align 8, !tbaa !93, !alias.scope !1111
   %183 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i8 %.3.i, ptr %183, align 8, !tbaa !897, !alias.scope !1111
@@ -47434,7 +47434,7 @@ _ZN5arrow6StatusD2Ev.exit47.i:                    ; preds = %180, %176, %_ZN5arr
   br i1 %exitcond.not.i, label %_ZN5arrow7compute8internal12_GLOBAL__N_118CastVarToFixedListINS_13LargeListTypeEE15ValidateLengthsERKNS_9ArraySpanEi.exit.thread, label %.lr.ph.i, !llvm.loop !1188
 
 _ZN5arrow7compute8internal12_GLOBAL__N_118CastVarToFixedListINS_13LargeListTypeEE15ValidateLengthsERKNS_9ArraySpanEi.exit.thread: ; preds = %181, %104, %157, %.preheader50.i, %.preheader.i
-  %.3.i = phi i8 [ 1, %.preheader.i ], [ 1, %.preheader50.i ], [ %.249.us.i, %104 ], [ %.249.i, %157 ], [ 1, %181 ]
+  %.3.i = phi i8 [ 1, %.preheader50.i ], [ 1, %.preheader.i ], [ %.249.us.i, %104 ], [ %.249.i, %157 ], [ 1, %181 ]
   store ptr null, ptr %20, align 8, !tbaa !93, !alias.scope !1173
   %184 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i8 %.3.i, ptr %184, align 8, !tbaa !897, !alias.scope !1173
@@ -49799,7 +49799,7 @@ _ZN5arrow6StatusD2Ev.exit47.i:                    ; preds = %180, %176, %_ZN5arr
   br i1 %exitcond.not.i, label %_ZN5arrow7compute8internal12_GLOBAL__N_118CastVarToFixedListINS_17LargeListViewTypeEE15ValidateLengthsERKNS_9ArraySpanEi.exit.thread, label %.lr.ph.i, !llvm.loop !1250
 
 _ZN5arrow7compute8internal12_GLOBAL__N_118CastVarToFixedListINS_17LargeListViewTypeEE15ValidateLengthsERKNS_9ArraySpanEi.exit.thread: ; preds = %181, %104, %157, %.preheader50.i, %.preheader.i
-  %.3.i = phi i8 [ 1, %.preheader.i ], [ 1, %.preheader50.i ], [ %.249.us.i, %104 ], [ %.249.i, %157 ], [ 1, %181 ]
+  %.3.i = phi i8 [ 1, %.preheader50.i ], [ 1, %.preheader.i ], [ %.249.us.i, %104 ], [ %.249.i, %157 ], [ 1, %181 ]
   store ptr null, ptr %20, align 8, !tbaa !93, !alias.scope !1235
   %184 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i8 %.3.i, ptr %184, align 8, !tbaa !897, !alias.scope !1235

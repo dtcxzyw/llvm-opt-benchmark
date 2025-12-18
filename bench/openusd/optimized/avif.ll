@@ -1132,7 +1132,7 @@ avifGetPixelFormatInfo.exit:                      ; preds = %24, %.sink.split.i
   br label %.loopexit63
 
 .loopexit63:                                      ; preds = %57, %66, %30, %9, %2, %5, %70
-  %.048 = phi i32 [ 26, %30 ], [ 24, %9 ], [ 24, %2 ], [ 0, %70 ], [ 24, %5 ], [ 26, %66 ], [ 26, %57 ]
+  %.048 = phi i32 [ 26, %30 ], [ 24, %9 ], [ 24, %2 ], [ 0, %70 ], [ 26, %66 ], [ 24, %5 ], [ 26, %57 ]
   ret i32 %.048
 }
 
@@ -1678,7 +1678,7 @@ define hidden range(i32 0, 2) i32 @avifImageIsOpaque(ptr noundef readonly captur
   br i1 %exitcond53.not, label %.loopexit30, label %.preheader31.us, !llvm.loop !10
 
 .loopexit30:                                      ; preds = %..loopexit32_crit_edge.us, %23, %..loopexit_crit_edge.us.us, %14, %.lr.ph41.split, %.lr.ph41.split.us, %4, %1
-  %.023 = phi i32 [ 1, %1 ], [ 1, %4 ], [ 1, %.lr.ph41.split ], [ 1, %.lr.ph41.split.us ], [ 0, %23 ], [ 0, %14 ], [ 1, %..loopexit_crit_edge.us.us ], [ 1, %..loopexit32_crit_edge.us ]
+  %.023 = phi i32 [ 1, %1 ], [ 1, %.lr.ph41.split.us ], [ 0, %23 ], [ 1, %4 ], [ 1, %.lr.ph41.split ], [ 0, %14 ], [ 1, %..loopexit_crit_edge.us.us ], [ 1, %..loopexit32_crit_edge.us ]
   ret i32 %.023
 }
 
@@ -2137,7 +2137,7 @@ define internal fastcc range(i32 0, 2) i32 @avifCropRectIsValid(ptr noundef read
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %33, %26, %32
-  %.0 = phi i32 [ 1, %33 ], [ 1, %32 ], [ 1, %26 ], [ 0, %.thread.sink.split ]
+  %.0 = phi i32 [ 1, %26 ], [ 1, %32 ], [ 1, %33 ], [ 0, %.thread.sink.split ]
   ret i32 %.0
 }
 
@@ -2202,7 +2202,7 @@ avifCropRectIsValid.exit:                         ; preds = %6, %12, %16, %22, %
   tail call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %5, ptr noundef nonnull %.str.63.sink.i) #14
   br label %89
 
-39:                                               ; preds = %36, %35, %29
+39:                                               ; preds = %29, %35, %36
   %40 = or i32 %3, %2
   %or.cond.not = icmp sgt i32 %40, -1
   br i1 %or.cond.not, label %42, label %41

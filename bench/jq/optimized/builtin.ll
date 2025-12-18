@@ -6674,8 +6674,8 @@ define internal { i64, ptr } @f_match(ptr readnone captures(none) %0, i64 %1, pt
   br label %.loopexit
 
 .loopexit:                                        ; preds = %431, %.split534.us, %520, %515
-  %.sroa.0353.2 = phi i64 [ %517, %515 ], [ %.us-phi, %.split534.us ], [ %532, %520 ], [ %.sroa.0353.3.us, %431 ]
-  %.sroa.12.2 = phi ptr [ %518, %515 ], [ %.us-phi535, %.split534.us ], [ %533, %520 ], [ %.sroa.12.3.us, %431 ]
+  %.sroa.0353.2 = phi i64 [ %517, %515 ], [ %532, %520 ], [ %.us-phi, %.split534.us ], [ %.sroa.0353.3.us, %431 ]
+  %.sroa.12.2 = phi ptr [ %518, %515 ], [ %533, %520 ], [ %.us-phi535, %.split534.us ], [ %.sroa.12.3.us, %431 ]
   call void @onig_region_free(ptr noundef %144, i32 noundef 1) #14
   %534 = load ptr, ptr %11, align 8, !tbaa !41
   call void @onig_free(ptr noundef %534) #14

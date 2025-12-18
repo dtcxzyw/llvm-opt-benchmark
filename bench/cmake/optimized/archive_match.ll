@@ -464,7 +464,7 @@ match_path_inclusion.exit58.thread:               ; preds = %53, %46, %match_pat
   br label %.loopexit
 
 .loopexit:                                        ; preds = %26, %match_path_exclusion.exit, %.preheader, %._crit_edge89.loopexit, %61, %.thread74, %match_path_exclusion.exit.thread, %.thread, %44, %2
-  %.037 = phi i32 [ 0, %2 ], [ -30, %match_path_exclusion.exit.thread ], [ 0, %44 ], [ -30, %.thread ], [ %spec.select, %61 ], [ -30, %.thread74 ], [ 0, %.preheader ], [ %63, %._crit_edge89.loopexit ], [ %.116.i, %match_path_exclusion.exit ], [ %25, %26 ]
+  %.037 = phi i32 [ %.116.i, %match_path_exclusion.exit ], [ 0, %2 ], [ 0, %.preheader ], [ -30, %.thread74 ], [ -30, %match_path_exclusion.exit.thread ], [ 0, %44 ], [ -30, %.thread ], [ %spec.select, %61 ], [ %63, %._crit_edge89.loopexit ], [ %25, %26 ]
   ret i32 %.037
 }
 
@@ -1016,7 +1016,7 @@ match_owner_name_mbs.exit48.thread:               ; preds = %91, %71, %75, %.pre
   br label %match_owner_id.exit.thread
 
 match_owner_id.exit.thread:                       ; preds = %20, %39, %26, %7, %68, %92, %.thread58, %match_owner_name_mbs.exit48.thread, %.thread, %match_owner_name_mbs.exit.thread
-  %.0 = phi i32 [ 1, %match_owner_name_mbs.exit.thread ], [ 1, %match_owner_name_mbs.exit48.thread ], [ -30, %.thread58 ], [ -30, %.thread ], [ 0, %68 ], [ 0, %92 ], [ 1, %7 ], [ 1, %26 ], [ 1, %39 ], [ 1, %20 ]
+  %.0 = phi i32 [ 1, %match_owner_name_mbs.exit.thread ], [ 1, %match_owner_name_mbs.exit48.thread ], [ -30, %.thread58 ], [ -30, %.thread ], [ 1, %39 ], [ 0, %68 ], [ 0, %92 ], [ 1, %7 ], [ 1, %26 ], [ 1, %20 ]
   ret i32 %.0
 }
 

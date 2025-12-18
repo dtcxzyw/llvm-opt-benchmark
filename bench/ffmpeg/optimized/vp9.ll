@@ -1690,8 +1690,8 @@ vpx_rac_is_end.exit.i:                            ; preds = %750, %746, %.thread
   br i1 %834, label %.lr.ph247.i, label %.loopexit197.i, !llvm.loop !177
 
 decode_tiles.exit:                                ; preds = %.loopexit197.i, %577, %.thread386
-  %.6301 = phi i32 [ %.1296.lcssa, %.thread386 ], [ %.0295, %577 ], [ %.0295, %.loopexit197.i ]
-  %.6294 = phi ptr [ %.1289.lcssa, %.thread386 ], [ %.0288, %577 ], [ %.0288, %.loopexit197.i ]
+  %.6301 = phi i32 [ %.0295, %577 ], [ %.1296.lcssa, %.thread386 ], [ %.0295, %.loopexit197.i ]
+  %.6294 = phi ptr [ %.0288, %577 ], [ %.1289.lcssa, %.thread386 ], [ %.0288, %.loopexit197.i ]
   %835 = load i32, ptr %249, align 8, !tbaa !77
   %836 = icmp eq i32 %835, 2
   br i1 %836, label %.preheader398, label %.loopexit
@@ -1823,8 +1823,8 @@ thread-pre-split:                                 ; preds = %858, %860, %856
   %891 = load i32, ptr %8, align 8, !tbaa !80
   br label %vp9_frame_alloc.exit.thread
 
-decode_tiles.exit.thread:                         ; preds = %652, %659, %vpx_rac_is_end.exit.i, %vpx_rac_get_prob_branchy.exit.i, %875, %868
-  %.0302 = phi i32 [ -1094995529, %868 ], [ %876, %875 ], [ -1094995529, %vpx_rac_get_prob_branchy.exit.i ], [ -1094995529, %vpx_rac_is_end.exit.i ], [ %663, %659 ], [ -1094995529, %652 ]
+decode_tiles.exit.thread:                         ; preds = %659, %652, %vpx_rac_is_end.exit.i, %vpx_rac_get_prob_branchy.exit.i, %875, %868
+  %.0302 = phi i32 [ -1094995529, %868 ], [ %876, %875 ], [ -1094995529, %vpx_rac_get_prob_branchy.exit.i ], [ -1094995529, %vpx_rac_is_end.exit.i ], [ -1094995529, %652 ], [ %663, %659 ]
   tail call void @ff_progress_frame_report(ptr noundef nonnull %12, i32 noundef 2147483647) #12
   br label %vp9_frame_alloc.exit.thread
 
@@ -8994,11 +8994,11 @@ define internal fastcc void @decode_sb_mem(ptr noundef %0, i32 noundef %1, i32 n
   br label %17
 
 tailrecurse.outer._crit_edge:                     ; preds = %tailrecurse.outer.backedge, %tailrecurse, %7
-  %.tr161.ph.lcssa211 = phi i32 [ %1, %7 ], [ %.tr161.ph231, %tailrecurse ], [ %.tr161.ph.be, %tailrecurse.outer.backedge ]
-  %.tr162.lcssa = phi i32 [ %2, %7 ], [ %123, %tailrecurse ], [ %.tr162.ph.be, %tailrecurse.outer.backedge ]
-  %.tr164.lcssa = phi i64 [ %4, %7 ], [ %117, %tailrecurse ], [ %.tr164.ph.be, %tailrecurse.outer.backedge ]
-  %.tr165.lcssa = phi i64 [ %5, %7 ], [ %122, %tailrecurse ], [ %.tr165.ph.be, %tailrecurse.outer.backedge ]
-  %.lcssa182 = phi ptr [ %9, %7 ], [ %124, %tailrecurse ], [ %112, %tailrecurse.outer.backedge ]
+  %.tr161.ph.lcssa211 = phi i32 [ %.tr161.ph231, %tailrecurse ], [ %1, %7 ], [ %.tr161.ph.be, %tailrecurse.outer.backedge ]
+  %.tr162.lcssa = phi i32 [ %123, %tailrecurse ], [ %2, %7 ], [ %.tr162.ph.be, %tailrecurse.outer.backedge ]
+  %.tr164.lcssa = phi i64 [ %117, %tailrecurse ], [ %4, %7 ], [ %.tr164.ph.be, %tailrecurse.outer.backedge ]
+  %.tr165.lcssa = phi i64 [ %122, %tailrecurse ], [ %5, %7 ], [ %.tr165.ph.be, %tailrecurse.outer.backedge ]
+  %.lcssa182 = phi ptr [ %124, %tailrecurse ], [ %9, %7 ], [ %112, %tailrecurse.outer.backedge ]
   %13 = getelementptr inbounds nuw i8, ptr %.lcssa182, i64 60
   %14 = load i32, ptr %13, align 4, !tbaa !318
   %15 = getelementptr inbounds nuw i8, ptr %.lcssa182, i64 64

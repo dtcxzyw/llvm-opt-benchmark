@@ -69043,7 +69043,7 @@ _ZN5tokio7runtime7context14with_scheduler17hb7cbef031c3c93e2E.exit.thread: ; pre
   %23 = trunc nuw i8 %.pre to i1
   br i1 %23, label %_ZN5tokio7runtime7context14with_scheduler17hb7cbef031c3c93e2E.exit.thread.thread, label %_ZN5tokio7runtime7context14with_scheduler17hb7cbef031c3c93e2E.exit.thread.thread27
 
-_ZN5tokio7runtime7context14with_scheduler17hb7cbef031c3c93e2E.exit.thread.thread27: ; preds = %15, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h5e6ef94efa31d9b6E.exit.i", %_ZN5tokio7runtime7context14with_scheduler17hb7cbef031c3c93e2E.exit.thread
+_ZN5tokio7runtime7context14with_scheduler17hb7cbef031c3c93e2E.exit.thread.thread27: ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h5e6ef94efa31d9b6E.exit.i", %15, %_ZN5tokio7runtime7context14with_scheduler17hb7cbef031c3c93e2E.exit.thread
   %.sroa.010.0.copyload = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   %.sroa.411.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.411.0.copyload = load ptr, ptr %.sroa.411.0..sroa_idx, align 8, !nonnull !3, !noundef !3

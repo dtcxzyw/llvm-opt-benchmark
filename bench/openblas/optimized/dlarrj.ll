@@ -225,9 +225,9 @@ define void @dlarrj_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br label %.split.us
 
 .split.us:                                        ; preds = %._crit_edge293, %.split.us.loopexit, %.preheader270.split295.us
-  %.us-phi377 = phi double [ %.us-phi378, %.preheader270.split295.us ], [ %.us-phi378, %.split.us.loopexit ], [ %.1255, %._crit_edge293 ]
-  %.us-phi296 = phi double [ %48, %.preheader270.split295.us ], [ %102, %.split.us.loopexit ], [ %.1235, %._crit_edge293 ]
-  %.us-phi297 = phi i32 [ %.3.us298, %.preheader270.split295.us ], [ %.3.us, %.split.us.loopexit ], [ %.5, %._crit_edge293 ]
+  %.us-phi377 = phi double [ %.us-phi378, %.split.us.loopexit ], [ %.us-phi378, %.preheader270.split295.us ], [ %.1255, %._crit_edge293 ]
+  %.us-phi296 = phi double [ %102, %.split.us.loopexit ], [ %48, %.preheader270.split295.us ], [ %.1235, %._crit_edge293 ]
+  %.us-phi297 = phi i32 [ %.3.us, %.split.us.loopexit ], [ %.3.us298, %.preheader270.split295.us ], [ %.5, %._crit_edge293 ]
   %128 = add nsw i32 %.0248305, 1
   %129 = add nuw nsw i64 %indvars.iv352, 1
   %130 = sext i32 %39 to i64

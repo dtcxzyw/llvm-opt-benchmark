@@ -2449,7 +2449,7 @@ define internal fastcc noundef zeroext i1 @_ZL16set_numeric_flagP7JVMFlagPKc13JV
   br label %38
 
 38:                                               ; preds = %33, %29, %25, %24, %19
-  %39 = phi i32 [ 10, %25 ], [ 10, %24 ], [ 16, %29 ], [ %37, %33 ], [ %23, %19 ]
+  %39 = phi i32 [ %23, %19 ], [ %37, %33 ], [ 10, %25 ], [ 10, %24 ], [ 16, %29 ]
   %40 = tail call ptr @__errno_location() #33
   store i32 0, ptr %40, align 4
   %41 = call i64 @strtoll(ptr noundef nonnull %1, ptr noundef nonnull %5, i32 noundef %39) #32
@@ -2600,7 +2600,7 @@ _ZL13parse_integerIiEbPKcPT_.exit:                ; preds = %50, %63
   br label %102
 
 102:                                              ; preds = %97, %93, %89, %88, %83
-  %103 = phi i32 [ 10, %89 ], [ 10, %88 ], [ 16, %93 ], [ %101, %97 ], [ %87, %83 ]
+  %103 = phi i32 [ %87, %83 ], [ %101, %97 ], [ 10, %89 ], [ 10, %88 ], [ 16, %93 ]
   %104 = tail call ptr @__errno_location() #33
   store i32 0, ptr %104, align 4
   %105 = call i64 @strtoll(ptr noundef nonnull %1, ptr noundef nonnull %4, i32 noundef %103) #32
@@ -6461,20 +6461,20 @@ sub_1289:                                         ; preds = %519
 636:                                              ; preds = %632
   %637 = load i8, ptr %617, align 1
   switch i8 %637, label %.critedge [
-    i8 0, label %638
-    i8 58, label %640
+    i8 0, label %641
+    i8 58, label %638
   ]
 
 638:                                              ; preds = %636
-  %639 = call noundef zeroext i1 @_ZN16LogConfiguration28parse_command_line_argumentsEPKc(ptr noundef nonnull @.str.216) #32
-  br i1 %639, label %.critedge159, label %.critedge
+  %639 = getelementptr inbounds nuw i8, ptr %617, i64 1
+  %640 = call noundef zeroext i1 @_ZN16LogConfiguration28parse_command_line_argumentsEPKc(ptr noundef nonnull %639) #32
+  br i1 %640, label %.critedge159, label %.critedge
 
-640:                                              ; preds = %636
-  %641 = getelementptr inbounds nuw i8, ptr %617, i64 1
-  %642 = call noundef zeroext i1 @_ZN16LogConfiguration28parse_command_line_argumentsEPKc(ptr noundef nonnull %641) #32
+641:                                              ; preds = %636
+  %642 = call noundef zeroext i1 @_ZN16LogConfiguration28parse_command_line_argumentsEPKc(ptr noundef nonnull @.str.216) #32
   br i1 %642, label %.critedge159, label %.critedge
 
-.critedge:                                        ; preds = %638, %636, %640, %620
+.critedge:                                        ; preds = %638, %636, %641, %620
   %643 = load i8, ptr @DisplayVMOutputToStdout, align 1
   %644 = trunc i8 %643 to i1
   %645 = load ptr, ptr @_ZN13defaultStream14_output_streamE, align 8
@@ -6916,7 +6916,7 @@ sub_1289:                                         ; preds = %519
   %831 = call noundef zeroext i1 @_ZN9Arguments13is_bad_optionEPK12JavaVMOptionh(ptr noundef %829, i8 noundef zeroext %830)
   br i1 %831, label %.loopexit293, label %.critedge159
 
-.critedge159:                                     ; preds = %638, %631, %635, %102, %109, %111, %105, %108, %99, %_ZL12match_optionPK12JavaVMOptionPPKcS4_b.exit242, %158, %193, %203, %217, %231, %241, %266, %301, %286, %318, %325, %363, %408, %443, %480, %489, %552, %558, %564, %570, %605, %640, %663, %673, %690, %723, %735, %753, %749, %811, %802, %825, %823, %820, %828, %766, %741, %729, %712, %716, %682, %668, %655, %656, %611, %581, %597, %598, %588, %567, %561, %555, %539, %546, %484, %476, %_ZN9Arguments17parse_memory_sizeEPKcPmmm.exit261, %433, %_ZN9Arguments17parse_memory_sizeEPKcPmmm.exit258, %344, %321, %305, %307, %277, %247, %235, %224, %210, %196, %127, %129, %795, %538
+.critedge159:                                     ; preds = %638, %631, %635, %102, %109, %111, %105, %108, %99, %_ZL12match_optionPK12JavaVMOptionPPKcS4_b.exit242, %158, %193, %203, %217, %231, %241, %266, %301, %286, %318, %325, %363, %408, %443, %480, %489, %552, %558, %564, %570, %605, %641, %663, %673, %690, %723, %735, %753, %749, %811, %802, %825, %823, %820, %828, %766, %741, %729, %712, %716, %682, %668, %655, %656, %611, %581, %597, %598, %588, %567, %561, %555, %539, %546, %484, %476, %_ZN9Arguments17parse_memory_sizeEPKcPmmm.exit261, %433, %_ZN9Arguments17parse_memory_sizeEPKcPmmm.exit258, %344, %321, %305, %307, %277, %247, %235, %224, %210, %196, %127, %129, %795, %538
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %832 = load i32, ptr %58, align 4
   %833 = sext i32 %832 to i64
@@ -7714,9 +7714,9 @@ _ZN26GrowableArrayWithAllocatorI12JavaVMOption18GrowableArrayCHeapIS0_L8MEMFLAGS
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %.critedge.thread.loopexit111, %.critedge.thread.loopexit, %4
-  %.sroa.054.086 = phi i32 [ 0, %4 ], [ %62, %.critedge.thread.loopexit ], [ %63, %.critedge.thread.loopexit111 ]
-  %.sroa.10.083 = phi i32 [ 2, %4 ], [ %.sroa.10.0103, %.critedge.thread.loopexit ], [ %.sroa.10.1, %.critedge.thread.loopexit111 ]
-  %.sroa.17.079 = phi ptr [ %5, %4 ], [ %.sroa.17.0104, %.critedge.thread.loopexit ], [ %.sroa.17.1, %.critedge.thread.loopexit111 ]
+  %.sroa.054.086 = phi i32 [ %62, %.critedge.thread.loopexit ], [ 0, %4 ], [ %63, %.critedge.thread.loopexit111 ]
+  %.sroa.10.083 = phi i32 [ %.sroa.10.0103, %.critedge.thread.loopexit ], [ 2, %4 ], [ %.sroa.10.1, %.critedge.thread.loopexit111 ]
+  %.sroa.17.079 = phi ptr [ %.sroa.17.0104, %.critedge.thread.loopexit ], [ %5, %4 ], [ %.sroa.17.1, %.critedge.thread.loopexit111 ]
   %64 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i8 1, ptr %64, align 8
   %65 = zext nneg i32 %.sroa.054.086 to i64

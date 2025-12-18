@@ -1058,9 +1058,9 @@ _ZN6hermes13platform_intl17LanguageTagParser10nextSubtagEv.exit65.if.end18_crit_
   br label %if.end18
 
 if.end18:                                         ; preds = %_ZN6hermes13platform_intl17LanguageTagParser10nextSubtagEv.exit65.if.end18_crit_edge, %if.end9
-  %call19.val7 = phi i64 [ %call10.val6, %if.end9 ], [ %call19.val7.pre, %_ZN6hermes13platform_intl17LanguageTagParser10nextSubtagEv.exit65.if.end18_crit_edge ]
-  %call19.val = phi ptr [ %call10.val, %if.end9 ], [ %call19.val.pre, %_ZN6hermes13platform_intl17LanguageTagParser10nextSubtagEv.exit65.if.end18_crit_edge ]
-  %43 = phi ptr [ %12, %if.end9 ], [ %41, %_ZN6hermes13platform_intl17LanguageTagParser10nextSubtagEv.exit65.if.end18_crit_edge ]
+  %call19.val7 = phi i64 [ %call19.val7.pre, %_ZN6hermes13platform_intl17LanguageTagParser10nextSubtagEv.exit65.if.end18_crit_edge ], [ %call10.val6, %if.end9 ]
+  %call19.val = phi ptr [ %call19.val.pre, %_ZN6hermes13platform_intl17LanguageTagParser10nextSubtagEv.exit65.if.end18_crit_edge ], [ %call10.val, %if.end9 ]
+  %43 = phi ptr [ %41, %_ZN6hermes13platform_intl17LanguageTagParser10nextSubtagEv.exit65.if.end18_crit_edge ], [ %12, %if.end9 ]
   %add.ptr.i.i.i67 = getelementptr inbounds i8, ptr %43, i64 -32
   switch i64 %call19.val7, label %if.end27 [
     i64 2, label %for.end.i.i.i.i.i.i.thread.i
@@ -2153,7 +2153,7 @@ while.end40.return.loopexit_crit_edge:            ; preds = %while.end40
   br label %return, !llvm.loop !14
 
 return:                                           ; preds = %_ZN6hermes13platform_intl17LanguageTagParser10nextSubtagEv.exit, %land.rhs, %land.lhs.true.i, %_ZN6hermes13platform_intl12_GLOBAL__N_121isUnicodeExtensionKeyERKNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEE.exit, %land.rhs.lr.ph, %while.end40.return.loopexit_crit_edge, %while.cond13.preheader, %entry, %lor.lhs.false
-  %retval.0 = phi i1 [ false, %entry ], [ false, %lor.lhs.false ], [ %hasKeywordOrAttribute.0.lcssa, %while.cond13.preheader ], [ true, %while.end40.return.loopexit_crit_edge ], [ %hasKeywordOrAttribute.0.lcssa, %land.rhs.lr.ph ], [ %hasKeywordOrAttribute.176135, %_ZN6hermes13platform_intl12_GLOBAL__N_121isUnicodeExtensionKeyERKNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEE.exit ], [ %hasKeywordOrAttribute.176135, %land.lhs.true.i ], [ true, %land.rhs ], [ true, %_ZN6hermes13platform_intl17LanguageTagParser10nextSubtagEv.exit ]
+  %retval.0 = phi i1 [ false, %entry ], [ true, %while.end40.return.loopexit_crit_edge ], [ false, %lor.lhs.false ], [ %hasKeywordOrAttribute.0.lcssa, %while.cond13.preheader ], [ %hasKeywordOrAttribute.0.lcssa, %land.rhs.lr.ph ], [ %hasKeywordOrAttribute.176135, %_ZN6hermes13platform_intl12_GLOBAL__N_121isUnicodeExtensionKeyERKNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEE.exit ], [ %hasKeywordOrAttribute.176135, %land.lhs.true.i ], [ true, %land.rhs ], [ true, %_ZN6hermes13platform_intl17LanguageTagParser10nextSubtagEv.exit ]
   ret i1 %retval.0
 }
 
@@ -2474,7 +2474,7 @@ land.rhs37:                                       ; preds = %_ZN6hermes13platfor
   br i1 %call39, label %do.body, label %land.rhs.loopexit, !llvm.loop !16
 
 return:                                           ; preds = %land.rhs.loopexit, %land.lhs.true.i, %_ZN6hermes13platform_intl12_GLOBAL__N_125isTransformedExtensionKeyERKNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEE.exit, %if.end23, %_ZN6hermes13platform_intl17LanguageTagParser10nextSubtagEv.exit, %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEED2Ev.exit, %_ZN6hermes13platform_intl17LanguageTagParser10nextSubtagEv.exit45, %land.rhs.lr.ph, %if.end10, %if.then6, %entry, %lor.lhs.false
-  %retval.0 = phi i1 [ false, %lor.lhs.false ], [ false, %entry ], [ false, %if.then6 ], [ %call5, %if.end10 ], [ %call5, %land.rhs.lr.ph ], [ true, %_ZN6hermes13platform_intl17LanguageTagParser10nextSubtagEv.exit45 ], [ false, %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEED2Ev.exit ], [ %hasExtension.14979, %land.lhs.true.i ], [ true, %land.rhs.loopexit ], [ %hasExtension.14979, %_ZN6hermes13platform_intl12_GLOBAL__N_125isTransformedExtensionKeyERKNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEE.exit ], [ false, %if.end23 ], [ false, %_ZN6hermes13platform_intl17LanguageTagParser10nextSubtagEv.exit ]
+  %retval.0 = phi i1 [ false, %lor.lhs.false ], [ false, %entry ], [ false, %if.then6 ], [ %call5, %if.end10 ], [ %call5, %land.rhs.lr.ph ], [ true, %_ZN6hermes13platform_intl17LanguageTagParser10nextSubtagEv.exit45 ], [ %hasExtension.14979, %land.lhs.true.i ], [ true, %land.rhs.loopexit ], [ %hasExtension.14979, %_ZN6hermes13platform_intl12_GLOBAL__N_125isTransformedExtensionKeyERKNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEE.exit ], [ false, %if.end23 ], [ false, %_ZN6hermes13platform_intl17LanguageTagParser10nextSubtagEv.exit ], [ false, %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEED2Ev.exit ]
   ret i1 %retval.0
 }
 

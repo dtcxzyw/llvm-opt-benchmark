@@ -385,7 +385,7 @@ process_shared_options.exit:                      ; preds = %4
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %._crit_edge159
 
-.loopexit131:                                     ; preds = %4, %20, %14, %10, %53, %63, %70
+.loopexit131:                                     ; preds = %4, %20, %14, %10, %70, %63, %53
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %._crit_edge159
 

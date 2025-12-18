@@ -453,7 +453,7 @@ _ZNKSt8functionIFbSt17basic_string_viewIcSt11char_traitsIcEERK10Elf64_ShdrEEclES
   br i1 %exitcond.not, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit39.thread, label %66, !llvm.loop !27
 
 _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit39.thread: ; preds = %42, %120, %.preheader.split, %.thread, %.thread118, %.thread39.i.i35
-  %.1 = phi i1 [ true, %.preheader.split ], [ false, %.thread39.i.i35 ], [ %119, %.thread118 ], [ false, %.thread ], [ true, %120 ], [ false, %42 ]
+  %.1 = phi i1 [ true, %.preheader.split ], [ false, %.thread ], [ false, %.thread39.i.i35 ], [ %119, %.thread118 ], [ true, %120 ], [ false, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit.thread
 
@@ -791,7 +791,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit48.thread
 
 _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit48.thread: ; preds = %45, %113, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit, %115, %72, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit48.thread.sink.split, %.preheader
-  %.2 = phi i1 [ false, %.preheader ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit48.thread.sink.split ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit ], [ false, %72 ], [ false, %115 ], [ true, %113 ], [ false, %45 ]
+  %.2 = phi i1 [ false, %72 ], [ true, %113 ], [ false, %.preheader ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit48.thread.sink.split ], [ false, %115 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit ], [ false, %45 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit.thread
 
@@ -1444,9 +1444,9 @@ _ZN4absl18debugging_internalL22MaybeOpenFdFromSelfExeEPNS0_12_GLOBAL__N_17ObjFil
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit96.i.i.i
 
 _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit96.i.i.i: ; preds = %.outer.i.i87.i.i.i, %114, %.thread39.i.i92.i.i.i
-  %.sroa.30.15.i.i.i = phi i64 [ 0, %.thread39.i.i92.i.i.i ], [ 0, %114 ], [ %.sroa.30.14.i.i.i, %.outer.i.i87.i.i.i ]
-  %.sroa.17.15.i.i.i = phi i64 [ 0, %.thread39.i.i92.i.i.i ], [ 0, %114 ], [ %.sroa.17.14.i.i.i, %.outer.i.i87.i.i.i ]
-  %.2.i.i91.i.i.i = phi i64 [ -1, %.thread39.i.i92.i.i.i ], [ %.030.ph70.i.i80.i.i.i, %114 ], [ %128, %.outer.i.i87.i.i.i ]
+  %.sroa.30.15.i.i.i = phi i64 [ 0, %114 ], [ 0, %.thread39.i.i92.i.i.i ], [ %.sroa.30.14.i.i.i, %.outer.i.i87.i.i.i ]
+  %.sroa.17.15.i.i.i = phi i64 [ 0, %114 ], [ 0, %.thread39.i.i92.i.i.i ], [ %.sroa.17.14.i.i.i, %.outer.i.i87.i.i.i ]
+  %.2.i.i91.i.i.i = phi i64 [ %.030.ph70.i.i80.i.i.i, %114 ], [ -1, %.thread39.i.i92.i.i.i ], [ %128, %.outer.i.i87.i.i.i ]
   %131 = icmp ne i64 %.2.i.i91.i.i.i, 64
   %lhsv.i.i.i.i = load i32, ptr %8, align 8
   %.not.i56.i.i.i = icmp ne i32 %lhsv.i.i.i.i, 1179403647
@@ -2947,11 +2947,11 @@ _ZN4absl13base_internal8SpinLock7TryLockEv.exit.i: ; preds = %._crit_edge
   br i1 %exitcond.not.i78, label %.loopexit.i, label %140, !llvm.loop !42
 
 .loopexit.i:                                      ; preds = %151, %146, %.preheader.i
-  %.2 = phi ptr [ %150, %146 ], [ %storemerge43.lcssa, %.preheader.i ], [ %storemerge43.lcssa, %151 ]
-  %.033 = phi ptr [ %142, %146 ], [ %.025.lcssa.i.i, %.preheader.i ], [ %.025.lcssa.i.i, %151 ]
-  %.031 = phi ptr [ %145, %146 ], [ %.025.lcssa.i.i60, %.preheader.i ], [ %.025.lcssa.i.i60, %151 ]
-  %.029 = phi i64 [ %148, %146 ], [ %.025.lcssa.i, %.preheader.i ], [ %.025.lcssa.i, %151 ]
-  %152 = phi i1 [ true, %146 ], [ false, %.preheader.i ], [ false, %151 ]
+  %.2 = phi ptr [ %storemerge43.lcssa, %.preheader.i ], [ %150, %146 ], [ %storemerge43.lcssa, %151 ]
+  %.033 = phi ptr [ %.025.lcssa.i.i, %.preheader.i ], [ %142, %146 ], [ %.025.lcssa.i.i, %151 ]
+  %.031 = phi ptr [ %.025.lcssa.i.i60, %.preheader.i ], [ %145, %146 ], [ %.025.lcssa.i.i60, %151 ]
+  %.029 = phi i64 [ %.025.lcssa.i, %.preheader.i ], [ %148, %146 ], [ %.025.lcssa.i, %151 ]
+  %152 = phi i1 [ false, %.preheader.i ], [ true, %146 ], [ false, %151 ]
   %153 = load atomic i32, ptr @_ZN4absl18debugging_internal12_GLOBAL__N_117g_file_mapping_muE monotonic, align 4
   %154 = and i32 %153, 2
   %155 = atomicrmw xchg ptr @_ZN4absl18debugging_internal12_GLOBAL__N_117g_file_mapping_muE, i32 %154 release, align 4
@@ -2998,7 +2998,7 @@ _ZN4absl18debugging_internal18GetFileMappingHintEPPKvS3_PmPPKc.exit.thread: ; pr
   br label %.critedge, !llvm.loop !111
 
 _ZN4absl18debugging_internal12_GLOBAL__N_110LineReader8ReadLineEPPKcS5_.exit.thread: ; preds = %165, %.noexc, %34, %.noexc57, %63, %88, %.critedge2.thread
-  %.0 = phi i1 [ false, %63 ], [ false, %88 ], [ false, %.critedge2.thread ], [ true, %.noexc57 ], [ true, %34 ], [ true, %.noexc ], [ true, %165 ]
+  %.0 = phi i1 [ false, %.critedge2.thread ], [ false, %88 ], [ false, %63 ], [ true, %.noexc57 ], [ true, %34 ], [ true, %.noexc ], [ true, %165 ]
   %166 = invoke i32 @close(i32 noundef %7)
           to label %_ZN4absl18debugging_internal12_GLOBAL__N_114FileDescriptorD2Ev.exit unwind label %167
 
@@ -3528,7 +3528,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exi
   br i1 %.not56, label %13, label %.thread
 
 .thread:                                          ; preds = %61, %6, %50, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit.thread, %.thread63
-  %.not5682 = phi i1 [ true, %.thread63 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit.thread ], [ false, %50 ], [ false, %6 ], [ false, %61 ]
+  %.not5682 = phi i1 [ true, %.thread63 ], [ false, %50 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit.thread ], [ false, %6 ], [ false, %61 ]
   ret i1 %.not5682
 }
 

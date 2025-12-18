@@ -902,9 +902,9 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i282: ; preds = %140
   br i1 %.not, label %._crit_edge.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i
 
 ._crit_edge.i.i.i.i.i.i.i.i:                      ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %._crit_edge453.thread490, %._crit_edge453.thread489, %._crit_edge453
-  %147 = phi i64 [ %139, %._crit_edge453.thread490 ], [ %146, %._crit_edge453 ], [ 0, %._crit_edge453.thread489 ], [ %146, %.lr.ph.i.i.i.i.i.i.i.i ]
-  %148 = phi ptr [ null, %._crit_edge453.thread490 ], [ %143, %._crit_edge453 ], [ null, %._crit_edge453.thread489 ], [ %143, %.lr.ph.i.i.i.i.i.i.i.i ]
-  %.pre-phi488 = phi i64 [ %135, %._crit_edge453.thread490 ], [ 1, %._crit_edge453 ], [ 0, %._crit_edge453.thread489 ], [ %135, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %147 = phi i64 [ 0, %._crit_edge453.thread489 ], [ %139, %._crit_edge453.thread490 ], [ %146, %._crit_edge453 ], [ %146, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %148 = phi ptr [ null, %._crit_edge453.thread489 ], [ null, %._crit_edge453.thread490 ], [ %143, %._crit_edge453 ], [ %143, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.pre-phi488 = phi i64 [ 0, %._crit_edge453.thread489 ], [ %135, %._crit_edge453.thread490 ], [ 1, %._crit_edge453 ], [ %135, %.lr.ph.i.i.i.i.i.i.i.i ]
   %149 = icmp slt i64 %147, %.pre-phi488
   br i1 %149, label %.lr.ph.i.i.i.i.i.i.i.i.i, label %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEaSERKS1_.exit
 
@@ -4424,7 +4424,7 @@ _ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin
   br i1 %exitcond102.not.i.i.i.i, label %_ZNK5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE8nonZerosEv.exit, label %.lr.ph94.i.i.i.i, !llvm.loop !302
 
 _ZNK5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE8nonZerosEv.exit: ; preds = %.lr.ph89.i.i.i.i, %.lr.ph94.i.i.i.i, %.preheader.i.i.i.i, %140, %69
-  %.0.i.in = phi i32 [ %77, %69 ], [ %141, %140 ], [ %.075.lcssa.i.i.i.i, %.preheader.i.i.i.i ], [ %145, %.lr.ph94.i.i.i.i ], [ %137, %.lr.ph89.i.i.i.i ]
+  %.0.i.in = phi i32 [ %77, %69 ], [ %145, %.lr.ph94.i.i.i.i ], [ %.075.lcssa.i.i.i.i, %.preheader.i.i.i.i ], [ %141, %140 ], [ %137, %.lr.ph89.i.i.i.i ]
   %147 = icmp sgt i32 %.0.i.in, 0
   br i1 %147, label %148, label %_ZNK5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE8nonZerosEv.exit.thread
 
@@ -4600,7 +4600,7 @@ _ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin
   br i1 %exitcond102.not.i.i.i.i45, label %_ZNK5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE8nonZerosEv.exit46, label %.lr.ph94.i.i.i.i42, !llvm.loop !302
 
 _ZNK5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE8nonZerosEv.exit46: ; preds = %.lr.ph89.i.i.i.i25, %.lr.ph94.i.i.i.i42, %.preheader.i.i.i.i20, %230, %159
-  %.0.i24.in = phi i32 [ %167, %159 ], [ %231, %230 ], [ %.075.lcssa.i.i.i.i21, %.preheader.i.i.i.i20 ], [ %235, %.lr.ph94.i.i.i.i42 ], [ %227, %.lr.ph89.i.i.i.i25 ]
+  %.0.i24.in = phi i32 [ %167, %159 ], [ %235, %.lr.ph94.i.i.i.i42 ], [ %.075.lcssa.i.i.i.i21, %.preheader.i.i.i.i20 ], [ %231, %230 ], [ %227, %.lr.ph89.i.i.i.i25 ]
   %237 = icmp sgt i32 %.0.i24.in, 0
   br i1 %237, label %238, label %_ZNK5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE8nonZerosEv.exit46.thread
 
@@ -4838,7 +4838,7 @@ _ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0
   br i1 %.not44, label %.loopexit, label %_ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEE4swapIS4_EEvRKNS0_IT_EE.exit, !llvm.loop !317
 
 .critedge:                                        ; preds = %.loopexit, %64, %.loopexit.us, %47, %30
-  %.sroa.068.076109 = phi ptr [ null, %30 ], [ %calloc, %.loopexit.us ], [ %calloc, %47 ], [ %calloc, %64 ], [ %calloc, %.loopexit ]
+  %.sroa.068.076109 = phi ptr [ %calloc, %.loopexit.us ], [ null, %30 ], [ %calloc, %47 ], [ %calloc, %64 ], [ %calloc, %.loopexit ]
   tail call void @free(ptr noundef %.sroa.068.076109) #26
   br label %.loopexit79
 
@@ -5435,7 +5435,7 @@ _ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin
   br i1 %exitcond102.not.i.i.i.i, label %_ZNK5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE8nonZerosEv.exit, label %.lr.ph94.i.i.i.i, !llvm.loop !302
 
 _ZNK5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE8nonZerosEv.exit: ; preds = %.lr.ph89.i.i.i.i, %.lr.ph94.i.i.i.i, %.preheader.i.i.i.i, %140, %69
-  %.0.i.in = phi i32 [ %77, %69 ], [ %141, %140 ], [ %.075.lcssa.i.i.i.i, %.preheader.i.i.i.i ], [ %145, %.lr.ph94.i.i.i.i ], [ %137, %.lr.ph89.i.i.i.i ]
+  %.0.i.in = phi i32 [ %77, %69 ], [ %145, %.lr.ph94.i.i.i.i ], [ %.075.lcssa.i.i.i.i, %.preheader.i.i.i.i ], [ %141, %140 ], [ %137, %.lr.ph89.i.i.i.i ]
   %147 = icmp sgt i32 %.0.i.in, 0
   br i1 %147, label %148, label %_ZNK5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE8nonZerosEv.exit.thread
 
@@ -5611,7 +5611,7 @@ _ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin
   br i1 %exitcond102.not.i.i.i.i45, label %_ZNK5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE8nonZerosEv.exit46, label %.lr.ph94.i.i.i.i42, !llvm.loop !302
 
 _ZNK5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE8nonZerosEv.exit46: ; preds = %.lr.ph89.i.i.i.i25, %.lr.ph94.i.i.i.i42, %.preheader.i.i.i.i20, %230, %159
-  %.0.i24.in = phi i32 [ %167, %159 ], [ %231, %230 ], [ %.075.lcssa.i.i.i.i21, %.preheader.i.i.i.i20 ], [ %235, %.lr.ph94.i.i.i.i42 ], [ %227, %.lr.ph89.i.i.i.i25 ]
+  %.0.i24.in = phi i32 [ %167, %159 ], [ %235, %.lr.ph94.i.i.i.i42 ], [ %.075.lcssa.i.i.i.i21, %.preheader.i.i.i.i20 ], [ %231, %230 ], [ %227, %.lr.ph89.i.i.i.i25 ]
   %237 = icmp sgt i32 %.0.i24.in, 0
   br i1 %237, label %238, label %_ZNK5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE8nonZerosEv.exit46.thread
 
@@ -16397,7 +16397,7 @@ _ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin
   br i1 %exitcond102.not.i.i.i.i.i, label %_ZNK5Eigen9DenseBaseINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEE3sumEv.exit.i.i, label %.lr.ph94.i.i.i.i.i, !llvm.loop !302
 
 _ZNK5Eigen9DenseBaseINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEE3sumEv.exit.i.i: ; preds = %.lr.ph89.i.i.i.i.i, %.lr.ph94.i.i.i.i.i, %118, %.preheader.i.i.i.i.i
-  %.0.i.i.i = phi i32 [ %119, %118 ], [ %.075.lcssa.i.i.i.i.i, %.preheader.i.i.i.i.i ], [ %123, %.lr.ph94.i.i.i.i.i ], [ %115, %.lr.ph89.i.i.i.i.i ]
+  %.0.i.i.i = phi i32 [ %123, %.lr.ph94.i.i.i.i.i ], [ %.075.lcssa.i.i.i.i.i, %.preheader.i.i.i.i.i ], [ %119, %118 ], [ %115, %.lr.ph89.i.i.i.i.i ]
   %125 = sext i32 %.0.i.i.i to i64
   br label %_ZNK5Eigen8internal9evaluatorINS_20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEEEE16nonZerosEstimateEv.exit
 
@@ -16549,7 +16549,7 @@ _ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin
   br i1 %exitcond102.not.i.i.i.i.i182, label %_ZNK5Eigen9DenseBaseINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEE3sumEv.exit.i.i159, label %.lr.ph94.i.i.i.i.i179, !llvm.loop !302
 
 _ZNK5Eigen9DenseBaseINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEE3sumEv.exit.i.i159: ; preds = %.lr.ph89.i.i.i.i.i162, %.lr.ph94.i.i.i.i.i179, %197, %.preheader.i.i.i.i.i157
-  %.0.i.i.i160 = phi i32 [ %198, %197 ], [ %.075.lcssa.i.i.i.i.i158, %.preheader.i.i.i.i.i157 ], [ %202, %.lr.ph94.i.i.i.i.i179 ], [ %194, %.lr.ph89.i.i.i.i.i162 ]
+  %.0.i.i.i160 = phi i32 [ %202, %.lr.ph94.i.i.i.i.i179 ], [ %.075.lcssa.i.i.i.i.i158, %.preheader.i.i.i.i.i157 ], [ %198, %197 ], [ %194, %.lr.ph89.i.i.i.i.i162 ]
   %204 = sext i32 %.0.i.i.i160 to i64
   br label %_ZNK5Eigen8internal9evaluatorINS_20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEEEE16nonZerosEstimateEv.exit183
 

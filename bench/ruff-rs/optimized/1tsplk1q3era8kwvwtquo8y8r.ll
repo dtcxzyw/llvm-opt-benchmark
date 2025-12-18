@@ -966,7 +966,7 @@ define hidden { i64, ptr } @"_ZN81_$LT$zstd..stream..zio..writer..Writer$LT$W$C$
   br i1 %.not26, label %45, label %.split
 
 .split:                                           ; preds = %43, %28, %26
-  %.us-phi25 = phi i64 [ %24, %26 ], [ %24, %28 ], [ %35, %43 ]
+  %.us-phi25 = phi i64 [ %24, %28 ], [ %24, %26 ], [ %35, %43 ]
   %44 = inttoptr i64 %.us-phi25 to ptr
   br label %.loopexit17
 

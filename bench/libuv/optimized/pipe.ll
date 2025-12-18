@@ -743,7 +743,7 @@ define dso_local i32 @uv_pipe_chmod(ptr noundef %0, i32 noundef %1) local_unname
   br label %40
 
 uv_pipe_getsockname.exit:                         ; preds = %32, %14
-  %.0.i.i = phi i32 [ %15, %14 ], [ -105, %32 ]
+  %.0.i.i = phi i32 [ -105, %32 ], [ %15, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %61

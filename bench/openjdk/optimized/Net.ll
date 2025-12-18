@@ -538,7 +538,7 @@ define range(i32 -5, 2) i32 @Java_sun_nio_ch_Net_accept(ptr noundef %0, ptr noun
   br label %33
 
 33:                                               ; preds = %13, %.loopexit, %20, %17, %29, %16
-  %.0 = phi i32 [ 1, %29 ], [ -2, %.loopexit ], [ -5, %16 ], [ -5, %17 ], [ -5, %20 ], [ -3, %13 ]
+  %.0 = phi i32 [ 1, %29 ], [ -2, %.loopexit ], [ -5, %16 ], [ -5, %20 ], [ -5, %17 ], [ -3, %13 ]
   ret i32 %.0
 }
 

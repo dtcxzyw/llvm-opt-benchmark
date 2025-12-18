@@ -19721,8 +19721,8 @@ _ZNK20btAlignedObjectArrayIPN10btSoftBody7ClusterEE16findLinearSearchERKS2_.exit
   br label %_ZN10btSoftBody14releaseClusterEi.exit
 
 _ZN10btSoftBody14releaseClusterEi.exit:           ; preds = %605, %608, %_ZNK20btAlignedObjectArrayIPN10btSoftBody7ClusterEE16findLinearSearchERKS2_.exit.i.i, %.noexc372, %584
-  %616 = phi i32 [ %585, %584 ], [ %598, %.noexc372 ], [ %598, %_ZNK20btAlignedObjectArrayIPN10btSoftBody7ClusterEE16findLinearSearchERKS2_.exit.i.i ], [ %609, %608 ], [ %598, %605 ]
-  %.4148 = phi i32 [ %.3147673, %584 ], [ %594, %.noexc372 ], [ %594, %_ZNK20btAlignedObjectArrayIPN10btSoftBody7ClusterEE16findLinearSearchERKS2_.exit.i.i ], [ %594, %608 ], [ %594, %605 ]
+  %616 = phi i32 [ %585, %584 ], [ %598, %.noexc372 ], [ %609, %608 ], [ %598, %_ZNK20btAlignedObjectArrayIPN10btSoftBody7ClusterEE16findLinearSearchERKS2_.exit.i.i ], [ %598, %605 ]
+  %.4148 = phi i32 [ %.3147673, %584 ], [ %594, %.noexc372 ], [ %594, %608 ], [ %594, %_ZNK20btAlignedObjectArrayIPN10btSoftBody7ClusterEE16findLinearSearchERKS2_.exit.i.i ], [ %594, %605 ]
   %617 = add nsw i32 %.4148, 1
   %618 = icmp slt i32 %617, %616
   br i1 %618, label %584, label %._crit_edge676, !llvm.loop !666
@@ -28097,9 +28097,9 @@ _ZNK20btAlignedObjectArrayIPN10btSoftBody5JointEE16findLinearSearchERKS2_.exit.i
   br label %_ZN20btAlignedObjectArrayIPN10btSoftBody5JointEE6removeERKS2_.exit.i
 
 _ZN20btAlignedObjectArrayIPN10btSoftBody5JointEE6removeERKS2_.exit.i: ; preds = %89, %92, %_ZNK20btAlignedObjectArrayIPN10btSoftBody5JointEE16findLinearSearchERKS2_.exit.i.i, %79, %._ZN20btAlignedObjectArrayIPN10btSoftBody5JointEE6removeERKS2_.exit_crit_edge.i
-  %100 = phi i32 [ %.pre9.i, %._ZN20btAlignedObjectArrayIPN10btSoftBody5JointEE6removeERKS2_.exit_crit_edge.i ], [ %81, %79 ], [ %81, %_ZNK20btAlignedObjectArrayIPN10btSoftBody5JointEE16findLinearSearchERKS2_.exit.i.i ], [ %93, %92 ], [ %81, %89 ]
-  %101 = phi ptr [ %72, %._ZN20btAlignedObjectArrayIPN10btSoftBody5JointEE6removeERKS2_.exit_crit_edge.i ], [ %80, %79 ], [ %80, %_ZNK20btAlignedObjectArrayIPN10btSoftBody5JointEE16findLinearSearchERKS2_.exit.i.i ], [ %80, %92 ], [ %80, %89 ]
-  %.1.i = phi i32 [ %78, %._ZN20btAlignedObjectArrayIPN10btSoftBody5JointEE6removeERKS2_.exit_crit_edge.i ], [ %.07.i, %79 ], [ %.07.i, %_ZNK20btAlignedObjectArrayIPN10btSoftBody5JointEE16findLinearSearchERKS2_.exit.i.i ], [ %.07.i, %92 ], [ %.07.i, %89 ]
+  %100 = phi i32 [ %.pre9.i, %._ZN20btAlignedObjectArrayIPN10btSoftBody5JointEE6removeERKS2_.exit_crit_edge.i ], [ %81, %79 ], [ %93, %92 ], [ %81, %_ZNK20btAlignedObjectArrayIPN10btSoftBody5JointEE16findLinearSearchERKS2_.exit.i.i ], [ %81, %89 ]
+  %101 = phi ptr [ %72, %._ZN20btAlignedObjectArrayIPN10btSoftBody5JointEE6removeERKS2_.exit_crit_edge.i ], [ %80, %79 ], [ %80, %92 ], [ %80, %_ZNK20btAlignedObjectArrayIPN10btSoftBody5JointEE16findLinearSearchERKS2_.exit.i.i ], [ %80, %89 ]
+  %.1.i = phi i32 [ %78, %._ZN20btAlignedObjectArrayIPN10btSoftBody5JointEE6removeERKS2_.exit_crit_edge.i ], [ %.07.i, %79 ], [ %.07.i, %92 ], [ %.07.i, %_ZNK20btAlignedObjectArrayIPN10btSoftBody5JointEE16findLinearSearchERKS2_.exit.i.i ], [ %.07.i, %89 ]
   %102 = icmp slt i32 %.1.i, %100
   br i1 %102, label %63, label %_ZN10btSoftBody15cleanupClustersEv.exit, !llvm.loop !852
 
@@ -28260,9 +28260,9 @@ _ZNK20btAlignedObjectArrayIPN10btSoftBody5JointEE16findLinearSearchERKS2_.exit.i
   br label %_ZN20btAlignedObjectArrayIPN10btSoftBody5JointEE6removeERKS2_.exit
 
 _ZN20btAlignedObjectArrayIPN10btSoftBody5JointEE6removeERKS2_.exit: ; preds = %33, %._ZN20btAlignedObjectArrayIPN10btSoftBody5JointEE6removeERKS2_.exit_crit_edge, %36, %_ZNK20btAlignedObjectArrayIPN10btSoftBody5JointEE16findLinearSearchERKS2_.exit.i, %23
-  %44 = phi i32 [ %.pre9, %._ZN20btAlignedObjectArrayIPN10btSoftBody5JointEE6removeERKS2_.exit_crit_edge ], [ %25, %23 ], [ %25, %_ZNK20btAlignedObjectArrayIPN10btSoftBody5JointEE16findLinearSearchERKS2_.exit.i ], [ %37, %36 ], [ %25, %33 ]
-  %45 = phi ptr [ %16, %._ZN20btAlignedObjectArrayIPN10btSoftBody5JointEE6removeERKS2_.exit_crit_edge ], [ %24, %23 ], [ %24, %_ZNK20btAlignedObjectArrayIPN10btSoftBody5JointEE16findLinearSearchERKS2_.exit.i ], [ %24, %36 ], [ %24, %33 ]
-  %.1 = phi i32 [ %22, %._ZN20btAlignedObjectArrayIPN10btSoftBody5JointEE6removeERKS2_.exit_crit_edge ], [ %.07, %23 ], [ %.07, %_ZNK20btAlignedObjectArrayIPN10btSoftBody5JointEE16findLinearSearchERKS2_.exit.i ], [ %.07, %36 ], [ %.07, %33 ]
+  %44 = phi i32 [ %.pre9, %._ZN20btAlignedObjectArrayIPN10btSoftBody5JointEE6removeERKS2_.exit_crit_edge ], [ %25, %23 ], [ %37, %36 ], [ %25, %_ZNK20btAlignedObjectArrayIPN10btSoftBody5JointEE16findLinearSearchERKS2_.exit.i ], [ %25, %33 ]
+  %45 = phi ptr [ %16, %._ZN20btAlignedObjectArrayIPN10btSoftBody5JointEE6removeERKS2_.exit_crit_edge ], [ %24, %23 ], [ %24, %36 ], [ %24, %_ZNK20btAlignedObjectArrayIPN10btSoftBody5JointEE16findLinearSearchERKS2_.exit.i ], [ %24, %33 ]
+  %.1 = phi i32 [ %22, %._ZN20btAlignedObjectArrayIPN10btSoftBody5JointEE6removeERKS2_.exit_crit_edge ], [ %.07, %23 ], [ %.07, %36 ], [ %.07, %_ZNK20btAlignedObjectArrayIPN10btSoftBody5JointEE16findLinearSearchERKS2_.exit.i ], [ %.07, %33 ]
   %46 = icmp slt i32 %.1, %44
   br i1 %46, label %7, label %._crit_edge, !llvm.loop !852
 }
@@ -30502,7 +30502,7 @@ define dso_local void @_ZN10btSoftBody15rebuildNodeTreeEv(ptr noundef nonnull al
   br i1 %92, label %85, label %.preheader122, !llvm.loop !891
 
 .preheader:                                       ; preds = %98, %.loopexit.thread, %.loopexit, %.preheader122
-  %93 = phi ptr [ %72, %.preheader122 ], [ null, %.loopexit.thread ], [ %72, %.loopexit ], [ %72, %98 ]
+  %93 = phi ptr [ %72, %.loopexit ], [ %72, %.preheader122 ], [ null, %.loopexit.thread ], [ %72, %98 ]
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 996
   %95 = load i32, ptr %94, align 4, !tbaa !146
   %96 = icmp sgt i32 %95, 0
@@ -38442,7 +38442,7 @@ _ZN20btAlignedObjectArrayIN6btDbvt6sStkNNEE8allocateEi.exit.i.i: ; preds = %30
   br i1 %exitcond.not.i.i.i76, label %_ZNK20btAlignedObjectArrayIN6btDbvt6sStkNNEE4copyEiiPS1_.exit.i.i68, label %35, !llvm.loop !1046
 
 _ZNK20btAlignedObjectArrayIN6btDbvt6sStkNNEE4copyEiiPS1_.exit.i.i68: ; preds = %35, %29, %_ZN20btAlignedObjectArrayIN6btDbvt6sStkNNEE8allocateEi.exit.i.i
-  %.0.i.i.i117 = phi ptr [ %33, %_ZN20btAlignedObjectArrayIN6btDbvt6sStkNNEE8allocateEi.exit.i.i ], [ null, %29 ], [ %33, %35 ]
+  %.0.i.i.i117 = phi ptr [ null, %29 ], [ %33, %_ZN20btAlignedObjectArrayIN6btDbvt6sStkNNEE8allocateEi.exit.i.i ], [ %33, %35 ]
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %20)
           to label %_ZN20btAlignedObjectArrayIN6btDbvt6sStkNNEE10deallocateEv.exit.i.i71 unwind label %49
 
@@ -38904,7 +38904,7 @@ _ZN20btAlignedObjectArrayIN6btDbvt7sStknNNEE8allocateEi.exit.i.i: ; preds = %27
   br i1 %exitcond.not.i.i.i75, label %_ZNK20btAlignedObjectArrayIN6btDbvt7sStknNNEE4copyEiiPS1_.exit.i.i67, label %32, !llvm.loop !1057
 
 _ZNK20btAlignedObjectArrayIN6btDbvt7sStknNNEE4copyEiiPS1_.exit.i.i67: ; preds = %32, %26, %_ZN20btAlignedObjectArrayIN6btDbvt7sStknNNEE8allocateEi.exit.i.i
-  %.0.i.i.i115 = phi ptr [ %30, %_ZN20btAlignedObjectArrayIN6btDbvt7sStknNNEE8allocateEi.exit.i.i ], [ null, %26 ], [ %30, %32 ]
+  %.0.i.i.i115 = phi ptr [ null, %26 ], [ %30, %_ZN20btAlignedObjectArrayIN6btDbvt7sStknNNEE8allocateEi.exit.i.i ], [ %30, %32 ]
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %17)
           to label %_ZN20btAlignedObjectArrayIN6btDbvt7sStknNNEE10deallocateEv.exit.i.i70 unwind label %46
 

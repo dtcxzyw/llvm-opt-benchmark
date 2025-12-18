@@ -496,7 +496,7 @@ esc_read.exit108:                                 ; preds = %100
   br label %esc_read.exit116
 
 esc_read.exit116:                                 ; preds = %171, %13, %18, %10, %166, %161, %158, %144, %.critedge
-  %.0 = phi i1 [ false, %.critedge ], [ false, %158 ], [ false, %166 ], [ false, %161 ], [ true, %144 ], [ false, %10 ], [ false, %18 ], [ false, %13 ], [ true, %171 ]
+  %.0 = phi i1 [ false, %.critedge ], [ false, %13 ], [ false, %158 ], [ false, %166 ], [ false, %161 ], [ true, %144 ], [ false, %10 ], [ false, %18 ], [ true, %171 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0
 }

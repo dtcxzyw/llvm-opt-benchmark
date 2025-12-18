@@ -923,7 +923,7 @@ thread-pre-split:                                 ; preds = %"_ZN106_$LT$core..o
   br i1 %137, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3339510d2e021967E.exit.thread", label %154
 
 138:                                              ; preds = %122, %92
-  %.0.i = phi ptr [ %93, %92 ], [ %105, %122 ]
+  %.0.i = phi ptr [ %105, %122 ], [ %93, %92 ]
   %139 = ptrtoint ptr %.0.i to i64
   %140 = and i64 %139, 3
   switch i64 %140, label %default.unreachable [

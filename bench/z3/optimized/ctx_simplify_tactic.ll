@@ -428,7 +428,7 @@ _ZNK11ast_manager6is_notEPK4expr.exit.i:          ; preds = %.lr.ph
   br i1 %.not27.old.i.i.i.i.i, label %_ZNK19ctx_simplify_tactic10simplifier6sharedEP4expr.exit.thread, label %.lr.ph38.i.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.i.backedge:                      ; preds = %70, %67
-  %.137.i.i.i.i.i.be = phi ptr [ %.old.i.i.i.i.i, %70 ], [ %69, %67 ]
+  %.137.i.i.i.i.i.be = phi ptr [ %69, %67 ], [ %.old.i.i.i.i.i, %70 ]
   br label %.lr.ph38.i.i.i.i.i, !llvm.loop !51
 
 _ZNK19ctx_simplify_tactic10simplifier6sharedEP4expr.exit: ; preds = %51, %62
@@ -517,7 +517,7 @@ _ZNK19ctx_simplify_tactic10simplifier6sharedEP4expr.exit.thread: ; preds = %56, 
   br i1 %.not27.old.i.i.i.i.i20, label %_ZNK19ctx_simplify_tactic10simplifier6sharedEP4expr.exit27.thread, label %.lr.ph38.i.i.i.i.i16.backedge
 
 .lr.ph38.i.i.i.i.i16.backedge:                    ; preds = %113, %110
-  %.137.i.i.i.i.i17.be = phi ptr [ %.old.i.i.i.i.i19, %113 ], [ %112, %110 ]
+  %.137.i.i.i.i.i17.be = phi ptr [ %112, %110 ], [ %.old.i.i.i.i.i19, %113 ]
   br label %.lr.ph38.i.i.i.i.i16, !llvm.loop !51
 
 _ZNK19ctx_simplify_tactic10simplifier6sharedEP4expr.exit27: ; preds = %94, %105
@@ -716,7 +716,7 @@ define hidden noundef zeroext i1 @_ZNK19ctx_simplify_tactic10simplifier6sharedEP
   br i1 %.not27.old.i.i.i.i, label %_ZNK10num_occurs12get_num_occsEP4expr.exit, label %.lr.ph38.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.backedge:                        ; preds = %42, %39
-  %.137.i.i.i.i.be = phi ptr [ %.old.i.i.i.i, %42 ], [ %41, %39 ]
+  %.137.i.i.i.i.be = phi ptr [ %41, %39 ], [ %.old.i.i.i.i, %42 ]
   br label %.lr.ph38.i.i.i.i, !llvm.loop !51
 
 .loopexit.i:                                      ; preds = %23, %34
@@ -850,7 +850,7 @@ define hidden void @_ZN24ctx_propagate_assertions14assert_eq_coreEP4exprP3app(pt
   br i1 %.not27.old.i.i.i, label %.loopexit, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %37, %34
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %37 ], [ %36, %34 ]
+  %.137.i.i.i.be = phi ptr [ %36, %34 ], [ %.old.i.i.i, %37 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !75
 
 .loopexit:                                        ; preds = %23, %34, %37, %.preheader.i.i.i
@@ -988,7 +988,7 @@ define hidden void @_ZN24ctx_propagate_assertions13assert_eq_valEP4exprP3appb(pt
   br i1 %.not27.old.i.i.i.i.i, label %_ZNK19ctx_simplify_tactic10simplifier6sharedEP4expr.exit.thread, label %.lr.ph38.i.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.i.backedge:                      ; preds = %44, %41
-  %.137.i.i.i.i.i.be = phi ptr [ %.old.i.i.i.i.i, %44 ], [ %43, %41 ]
+  %.137.i.i.i.i.i.be = phi ptr [ %43, %41 ], [ %.old.i.i.i.i.i, %44 ]
   br label %.lr.ph38.i.i.i.i.i, !llvm.loop !51
 
 _ZNK19ctx_simplify_tactic10simplifier6sharedEP4expr.exit: ; preds = %25, %36
@@ -1125,7 +1125,7 @@ define hidden noundef zeroext i1 @_ZN24ctx_propagate_assertions8simplifyEP4exprR
   br i1 %.not27.old.i.i.i, label %_ZNK7obj_mapI4exprPS0_E4findES1_RS1_.exit.thread, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %37, %34
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %37 ], [ %36, %34 ]
+  %.137.i.i.i.be = phi ptr [ %36, %34 ], [ %.old.i.i.i, %37 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !75
 
 .loopexit:                                        ; preds = %18, %29
@@ -6664,7 +6664,7 @@ _ZN19ctx_simplify_tactic3imp3popEj.exit:          ; preds = %.noexc72, %.noexc71
   br i1 %.not27.old.i.i.i.i.i.i, label %_ZN19ctx_simplify_tactic3imp5cacheEP4exprS2_.exit, label %.lr.ph38.i.i.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.i.i.backedge:                    ; preds = %200, %197
-  %.137.i.i.i.i.i.i.be = phi ptr [ %.old.i.i.i.i.i.i, %200 ], [ %199, %197 ]
+  %.137.i.i.i.i.i.i.be = phi ptr [ %199, %197 ], [ %.old.i.i.i.i.i.i, %200 ]
   br label %.lr.ph38.i.i.i.i.i.i, !llvm.loop !51
 
 _ZNK19ctx_simplify_tactic3imp6sharedEP4expr.exit.i: ; preds = %181, %192
@@ -6757,8 +6757,8 @@ _ZN15ref_buffer_coreI4expr19ref_manager_wrapperIS0_11ast_managerELj16EE9push_bac
   br label %_ZN19ctx_simplify_tactic3imp5cacheEP4exprS2_.exit
 
 _ZN19ctx_simplify_tactic3imp5cacheEP4exprS2_.exit: ; preds = %186, %200, %197, %_ZNK19ctx_simplify_tactic3imp6sharedEP4expr.exit.i, %.preheader.i.i.i.i.i.i, %_ZN19ctx_simplify_tactic3imp3popEj.exit, %204, %_ZN15ref_buffer_coreI4expr19ref_manager_wrapperIS0_11ast_managerELj16EE9push_backEPS0_.exit, %thread-pre-split
-  %.353 = phi i1 [ %spec.select, %_ZN15ref_buffer_coreI4expr19ref_manager_wrapperIS0_11ast_managerELj16EE9push_backEPS0_.exit ], [ true, %thread-pre-split ], [ %spec.select, %204 ], [ %spec.select, %_ZN19ctx_simplify_tactic3imp3popEj.exit ], [ %spec.select, %.preheader.i.i.i.i.i.i ], [ %spec.select, %_ZNK19ctx_simplify_tactic3imp6sharedEP4expr.exit.i ], [ %spec.select, %200 ], [ %spec.select, %197 ], [ %spec.select, %186 ]
-  %.147 = phi i32 [ 0, %_ZN15ref_buffer_coreI4expr19ref_manager_wrapperIS0_11ast_managerELj16EE9push_backEPS0_.exit ], [ 4, %thread-pre-split ], [ 1, %204 ], [ 1, %_ZN19ctx_simplify_tactic3imp3popEj.exit ], [ 1, %.preheader.i.i.i.i.i.i ], [ 1, %_ZNK19ctx_simplify_tactic3imp6sharedEP4expr.exit.i ], [ 1, %200 ], [ 1, %197 ], [ 1, %186 ]
+  %.353 = phi i1 [ %spec.select, %_ZN15ref_buffer_coreI4expr19ref_manager_wrapperIS0_11ast_managerELj16EE9push_backEPS0_.exit ], [ true, %thread-pre-split ], [ %spec.select, %204 ], [ %spec.select, %_ZN19ctx_simplify_tactic3imp3popEj.exit ], [ %spec.select, %.preheader.i.i.i.i.i.i ], [ %spec.select, %200 ], [ %spec.select, %_ZNK19ctx_simplify_tactic3imp6sharedEP4expr.exit.i ], [ %spec.select, %197 ], [ %spec.select, %186 ]
+  %.147 = phi i32 [ 0, %_ZN15ref_buffer_coreI4expr19ref_manager_wrapperIS0_11ast_managerELj16EE9push_backEPS0_.exit ], [ 4, %thread-pre-split ], [ 1, %204 ], [ 1, %_ZN19ctx_simplify_tactic3imp3popEj.exit ], [ 1, %.preheader.i.i.i.i.i.i ], [ 1, %200 ], [ 1, %_ZNK19ctx_simplify_tactic3imp6sharedEP4expr.exit.i ], [ 1, %197 ], [ 1, %186 ]
   %229 = load ptr, ptr %5, align 8, !tbaa !78
   %.not.i.i77 = icmp eq ptr %229, null
   br i1 %.not.i.i77, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit, label %230
@@ -7152,7 +7152,7 @@ _ZN19ctx_simplify_tactic3imp3popEj.exit112:       ; preds = %.noexc111, %_ZNK19c
   br i1 %.not27.old.i.i.i.i.i.i125, label %_ZN19ctx_simplify_tactic3imp5cacheEP4exprS2_.exit133, label %.lr.ph38.i.i.i.i.i.i121.backedge
 
 .lr.ph38.i.i.i.i.i.i121.backedge:                 ; preds = %390, %387
-  %.137.i.i.i.i.i.i122.be = phi ptr [ %.old.i.i.i.i.i.i124, %390 ], [ %389, %387 ]
+  %.137.i.i.i.i.i.i122.be = phi ptr [ %389, %387 ], [ %.old.i.i.i.i.i.i124, %390 ]
   br label %.lr.ph38.i.i.i.i.i.i121, !llvm.loop !51
 
 _ZNK19ctx_simplify_tactic3imp6sharedEP4expr.exit.i128: ; preds = %371, %382
@@ -7245,8 +7245,8 @@ _ZN15ref_buffer_coreI4expr19ref_manager_wrapperIS0_11ast_managerELj16EE9push_bac
   br label %_ZN19ctx_simplify_tactic3imp5cacheEP4exprS2_.exit133
 
 _ZN19ctx_simplify_tactic3imp5cacheEP4exprS2_.exit133: ; preds = %376, %390, %387, %_ZNK19ctx_simplify_tactic3imp6sharedEP4expr.exit.i128, %.preheader.i.i.i.i.i.i119, %_ZN19ctx_simplify_tactic3imp3popEj.exit112, %394, %_ZN15ref_buffer_coreI4expr19ref_manager_wrapperIS0_11ast_managerELj16EE9push_backEPS0_.exit154, %thread-pre-split230
-  %.6 = phi i1 [ %spec.select65, %_ZN15ref_buffer_coreI4expr19ref_manager_wrapperIS0_11ast_managerELj16EE9push_backEPS0_.exit154 ], [ true, %thread-pre-split230 ], [ %spec.select65, %394 ], [ %spec.select65, %_ZN19ctx_simplify_tactic3imp3popEj.exit112 ], [ %spec.select65, %.preheader.i.i.i.i.i.i119 ], [ %spec.select65, %_ZNK19ctx_simplify_tactic3imp6sharedEP4expr.exit.i128 ], [ %spec.select65, %390 ], [ %spec.select65, %387 ], [ %spec.select65, %376 ]
-  %.248 = phi i32 [ 0, %_ZN15ref_buffer_coreI4expr19ref_manager_wrapperIS0_11ast_managerELj16EE9push_backEPS0_.exit154 ], [ 5, %thread-pre-split230 ], [ 1, %394 ], [ 1, %_ZN19ctx_simplify_tactic3imp3popEj.exit112 ], [ 1, %.preheader.i.i.i.i.i.i119 ], [ 1, %_ZNK19ctx_simplify_tactic3imp6sharedEP4expr.exit.i128 ], [ 1, %390 ], [ 1, %387 ], [ 1, %376 ]
+  %.6 = phi i1 [ %spec.select65, %_ZN15ref_buffer_coreI4expr19ref_manager_wrapperIS0_11ast_managerELj16EE9push_backEPS0_.exit154 ], [ true, %thread-pre-split230 ], [ %spec.select65, %394 ], [ %spec.select65, %_ZN19ctx_simplify_tactic3imp3popEj.exit112 ], [ %spec.select65, %.preheader.i.i.i.i.i.i119 ], [ %spec.select65, %390 ], [ %spec.select65, %_ZNK19ctx_simplify_tactic3imp6sharedEP4expr.exit.i128 ], [ %spec.select65, %387 ], [ %spec.select65, %376 ]
+  %.248 = phi i32 [ 0, %_ZN15ref_buffer_coreI4expr19ref_manager_wrapperIS0_11ast_managerELj16EE9push_backEPS0_.exit154 ], [ 5, %thread-pre-split230 ], [ 1, %394 ], [ 1, %_ZN19ctx_simplify_tactic3imp3popEj.exit112 ], [ 1, %.preheader.i.i.i.i.i.i119 ], [ 1, %390 ], [ 1, %_ZNK19ctx_simplify_tactic3imp6sharedEP4expr.exit.i128 ], [ 1, %387 ], [ 1, %376 ]
   %419 = load ptr, ptr %7, align 8, !tbaa !78
   %.not.i.i155 = icmp eq ptr %419, null
   br i1 %.not.i.i155, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit157, label %420
@@ -7549,7 +7549,7 @@ _ZN7obj_refI4expr11ast_managerEaSEPS0_.exit184:   ; preds = %497, %488, %490
   br i1 %.not27.old.i.i.i.i.i.i197, label %_ZN19ctx_simplify_tactic3imp5cacheEP4exprS2_.exit205, label %.lr.ph38.i.i.i.i.i.i193.backedge
 
 .lr.ph38.i.i.i.i.i.i193.backedge:                 ; preds = %547, %544
-  %.137.i.i.i.i.i.i194.be = phi ptr [ %.old.i.i.i.i.i.i196, %547 ], [ %546, %544 ]
+  %.137.i.i.i.i.i.i194.be = phi ptr [ %546, %544 ], [ %.old.i.i.i.i.i.i196, %547 ]
   br label %.lr.ph38.i.i.i.i.i.i193, !llvm.loop !51
 
 _ZNK19ctx_simplify_tactic3imp6sharedEP4expr.exit.i200: ; preds = %528, %539
@@ -8142,7 +8142,7 @@ _ZN19ctx_simplify_tactic3imp3popEj.exit:          ; preds = %.noexc72, %.noexc71
   br i1 %.not27.old.i.i.i.i.i.i, label %_ZN19ctx_simplify_tactic3imp5cacheEP4exprS2_.exit, label %.lr.ph38.i.i.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.i.i.backedge:                    ; preds = %200, %197
-  %.137.i.i.i.i.i.i.be = phi ptr [ %.old.i.i.i.i.i.i, %200 ], [ %199, %197 ]
+  %.137.i.i.i.i.i.i.be = phi ptr [ %199, %197 ], [ %.old.i.i.i.i.i.i, %200 ]
   br label %.lr.ph38.i.i.i.i.i.i, !llvm.loop !51
 
 _ZNK19ctx_simplify_tactic3imp6sharedEP4expr.exit.i: ; preds = %181, %192
@@ -8235,8 +8235,8 @@ _ZN15ref_buffer_coreI4expr19ref_manager_wrapperIS0_11ast_managerELj16EE9push_bac
   br label %_ZN19ctx_simplify_tactic3imp5cacheEP4exprS2_.exit
 
 _ZN19ctx_simplify_tactic3imp5cacheEP4exprS2_.exit: ; preds = %186, %200, %197, %_ZNK19ctx_simplify_tactic3imp6sharedEP4expr.exit.i, %.preheader.i.i.i.i.i.i, %_ZN19ctx_simplify_tactic3imp3popEj.exit, %204, %_ZN15ref_buffer_coreI4expr19ref_manager_wrapperIS0_11ast_managerELj16EE9push_backEPS0_.exit, %thread-pre-split
-  %.353 = phi i1 [ %spec.select, %_ZN15ref_buffer_coreI4expr19ref_manager_wrapperIS0_11ast_managerELj16EE9push_backEPS0_.exit ], [ true, %thread-pre-split ], [ %spec.select, %204 ], [ %spec.select, %_ZN19ctx_simplify_tactic3imp3popEj.exit ], [ %spec.select, %.preheader.i.i.i.i.i.i ], [ %spec.select, %_ZNK19ctx_simplify_tactic3imp6sharedEP4expr.exit.i ], [ %spec.select, %200 ], [ %spec.select, %197 ], [ %spec.select, %186 ]
-  %.147 = phi i32 [ 0, %_ZN15ref_buffer_coreI4expr19ref_manager_wrapperIS0_11ast_managerELj16EE9push_backEPS0_.exit ], [ 4, %thread-pre-split ], [ 1, %204 ], [ 1, %_ZN19ctx_simplify_tactic3imp3popEj.exit ], [ 1, %.preheader.i.i.i.i.i.i ], [ 1, %_ZNK19ctx_simplify_tactic3imp6sharedEP4expr.exit.i ], [ 1, %200 ], [ 1, %197 ], [ 1, %186 ]
+  %.353 = phi i1 [ %spec.select, %_ZN15ref_buffer_coreI4expr19ref_manager_wrapperIS0_11ast_managerELj16EE9push_backEPS0_.exit ], [ true, %thread-pre-split ], [ %spec.select, %204 ], [ %spec.select, %_ZN19ctx_simplify_tactic3imp3popEj.exit ], [ %spec.select, %.preheader.i.i.i.i.i.i ], [ %spec.select, %200 ], [ %spec.select, %_ZNK19ctx_simplify_tactic3imp6sharedEP4expr.exit.i ], [ %spec.select, %197 ], [ %spec.select, %186 ]
+  %.147 = phi i32 [ 0, %_ZN15ref_buffer_coreI4expr19ref_manager_wrapperIS0_11ast_managerELj16EE9push_backEPS0_.exit ], [ 4, %thread-pre-split ], [ 1, %204 ], [ 1, %_ZN19ctx_simplify_tactic3imp3popEj.exit ], [ 1, %.preheader.i.i.i.i.i.i ], [ 1, %200 ], [ 1, %_ZNK19ctx_simplify_tactic3imp6sharedEP4expr.exit.i ], [ 1, %197 ], [ 1, %186 ]
   %229 = load ptr, ptr %5, align 8, !tbaa !78
   %.not.i.i77 = icmp eq ptr %229, null
   br i1 %.not.i.i77, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit, label %230
@@ -8630,7 +8630,7 @@ _ZN19ctx_simplify_tactic3imp3popEj.exit112:       ; preds = %.noexc111, %_ZNK19c
   br i1 %.not27.old.i.i.i.i.i.i125, label %_ZN19ctx_simplify_tactic3imp5cacheEP4exprS2_.exit133, label %.lr.ph38.i.i.i.i.i.i121.backedge
 
 .lr.ph38.i.i.i.i.i.i121.backedge:                 ; preds = %390, %387
-  %.137.i.i.i.i.i.i122.be = phi ptr [ %.old.i.i.i.i.i.i124, %390 ], [ %389, %387 ]
+  %.137.i.i.i.i.i.i122.be = phi ptr [ %389, %387 ], [ %.old.i.i.i.i.i.i124, %390 ]
   br label %.lr.ph38.i.i.i.i.i.i121, !llvm.loop !51
 
 _ZNK19ctx_simplify_tactic3imp6sharedEP4expr.exit.i128: ; preds = %371, %382
@@ -8723,8 +8723,8 @@ _ZN15ref_buffer_coreI4expr19ref_manager_wrapperIS0_11ast_managerELj16EE9push_bac
   br label %_ZN19ctx_simplify_tactic3imp5cacheEP4exprS2_.exit133
 
 _ZN19ctx_simplify_tactic3imp5cacheEP4exprS2_.exit133: ; preds = %376, %390, %387, %_ZNK19ctx_simplify_tactic3imp6sharedEP4expr.exit.i128, %.preheader.i.i.i.i.i.i119, %_ZN19ctx_simplify_tactic3imp3popEj.exit112, %394, %_ZN15ref_buffer_coreI4expr19ref_manager_wrapperIS0_11ast_managerELj16EE9push_backEPS0_.exit154, %thread-pre-split230
-  %.6 = phi i1 [ %spec.select65, %_ZN15ref_buffer_coreI4expr19ref_manager_wrapperIS0_11ast_managerELj16EE9push_backEPS0_.exit154 ], [ true, %thread-pre-split230 ], [ %spec.select65, %394 ], [ %spec.select65, %_ZN19ctx_simplify_tactic3imp3popEj.exit112 ], [ %spec.select65, %.preheader.i.i.i.i.i.i119 ], [ %spec.select65, %_ZNK19ctx_simplify_tactic3imp6sharedEP4expr.exit.i128 ], [ %spec.select65, %390 ], [ %spec.select65, %387 ], [ %spec.select65, %376 ]
-  %.248 = phi i32 [ 0, %_ZN15ref_buffer_coreI4expr19ref_manager_wrapperIS0_11ast_managerELj16EE9push_backEPS0_.exit154 ], [ 5, %thread-pre-split230 ], [ 1, %394 ], [ 1, %_ZN19ctx_simplify_tactic3imp3popEj.exit112 ], [ 1, %.preheader.i.i.i.i.i.i119 ], [ 1, %_ZNK19ctx_simplify_tactic3imp6sharedEP4expr.exit.i128 ], [ 1, %390 ], [ 1, %387 ], [ 1, %376 ]
+  %.6 = phi i1 [ %spec.select65, %_ZN15ref_buffer_coreI4expr19ref_manager_wrapperIS0_11ast_managerELj16EE9push_backEPS0_.exit154 ], [ true, %thread-pre-split230 ], [ %spec.select65, %394 ], [ %spec.select65, %_ZN19ctx_simplify_tactic3imp3popEj.exit112 ], [ %spec.select65, %.preheader.i.i.i.i.i.i119 ], [ %spec.select65, %390 ], [ %spec.select65, %_ZNK19ctx_simplify_tactic3imp6sharedEP4expr.exit.i128 ], [ %spec.select65, %387 ], [ %spec.select65, %376 ]
+  %.248 = phi i32 [ 0, %_ZN15ref_buffer_coreI4expr19ref_manager_wrapperIS0_11ast_managerELj16EE9push_backEPS0_.exit154 ], [ 5, %thread-pre-split230 ], [ 1, %394 ], [ 1, %_ZN19ctx_simplify_tactic3imp3popEj.exit112 ], [ 1, %.preheader.i.i.i.i.i.i119 ], [ 1, %390 ], [ 1, %_ZNK19ctx_simplify_tactic3imp6sharedEP4expr.exit.i128 ], [ 1, %387 ], [ 1, %376 ]
   %419 = load ptr, ptr %7, align 8, !tbaa !78
   %.not.i.i155 = icmp eq ptr %419, null
   br i1 %.not.i.i155, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit157, label %420
@@ -9027,7 +9027,7 @@ _ZN7obj_refI4expr11ast_managerEaSEPS0_.exit184:   ; preds = %497, %488, %490
   br i1 %.not27.old.i.i.i.i.i.i197, label %_ZN19ctx_simplify_tactic3imp5cacheEP4exprS2_.exit205, label %.lr.ph38.i.i.i.i.i.i193.backedge
 
 .lr.ph38.i.i.i.i.i.i193.backedge:                 ; preds = %547, %544
-  %.137.i.i.i.i.i.i194.be = phi ptr [ %.old.i.i.i.i.i.i196, %547 ], [ %546, %544 ]
+  %.137.i.i.i.i.i.i194.be = phi ptr [ %546, %544 ], [ %.old.i.i.i.i.i.i196, %547 ]
   br label %.lr.ph38.i.i.i.i.i.i193, !llvm.loop !51
 
 _ZNK19ctx_simplify_tactic3imp6sharedEP4expr.exit.i200: ; preds = %528, %539
@@ -9340,7 +9340,7 @@ _ZN19ctx_simplify_tactic3imp11assert_exprEP4exprb.exit: ; preds = %35
   br i1 %.not27.old.i.i.i.i.i.i, label %.critedge, label %.lr.ph38.i.i.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.i.i.backedge:                    ; preds = %83, %80
-  %.137.i.i.i.i.i.i.be = phi ptr [ %.old.i.i.i.i.i.i, %83 ], [ %82, %80 ]
+  %.137.i.i.i.i.i.i.be = phi ptr [ %82, %80 ], [ %.old.i.i.i.i.i.i, %83 ]
   br label %.lr.ph38.i.i.i.i.i.i, !llvm.loop !51
 
 _ZNK19ctx_simplify_tactic3imp6sharedEP4expr.exit.i: ; preds = %64, %75
@@ -9541,7 +9541,7 @@ _ZN7obj_refI4expr11ast_managerEaSERKS2_.exit:     ; preds = %_ZN11ast_manager7in
   br i1 %.not27.old.i.i.i.i.i.i58, label %.critedge, label %.lr.ph38.i.i.i.i.i.i54.backedge
 
 .lr.ph38.i.i.i.i.i.i54.backedge:                  ; preds = %168, %165
-  %.137.i.i.i.i.i.i55.be = phi ptr [ %.old.i.i.i.i.i.i57, %168 ], [ %167, %165 ]
+  %.137.i.i.i.i.i.i55.be = phi ptr [ %167, %165 ], [ %.old.i.i.i.i.i.i57, %168 ]
   br label %.lr.ph38.i.i.i.i.i.i54, !llvm.loop !51
 
 _ZNK19ctx_simplify_tactic3imp6sharedEP4expr.exit.i61: ; preds = %149, %160
@@ -9828,7 +9828,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit88:       ; preds = %_ZN7obj_refI4expr11
   br i1 %.not27.old.i.i.i.i.i.i101, label %_ZN19ctx_simplify_tactic3imp5cacheEP4exprS2_.exit109, label %.lr.ph38.i.i.i.i.i.i97.backedge
 
 .lr.ph38.i.i.i.i.i.i97.backedge:                  ; preds = %289, %286
-  %.137.i.i.i.i.i.i98.be = phi ptr [ %.old.i.i.i.i.i.i100, %289 ], [ %288, %286 ]
+  %.137.i.i.i.i.i.i98.be = phi ptr [ %288, %286 ], [ %.old.i.i.i.i.i.i100, %289 ]
   br label %.lr.ph38.i.i.i.i.i.i97, !llvm.loop !51
 
 _ZNK19ctx_simplify_tactic3imp6sharedEP4expr.exit.i104: ; preds = %270, %281
@@ -12940,7 +12940,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI4exprPS1_E13obj_m
   br i1 %.not32.old, label %.loopexit, label %.lr.ph48.backedge
 
 .lr.ph48.backedge:                                ; preds = %36, %33
-  %.247.be = phi ptr [ %.old, %36 ], [ %35, %33 ]
+  %.247.be = phi ptr [ %35, %33 ], [ %.old, %36 ]
   br label %.lr.ph48, !llvm.loop !308
 
 .loopexit38:                                      ; preds = %17, %28

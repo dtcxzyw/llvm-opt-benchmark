@@ -604,9 +604,9 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %58, %60, 
   br i1 %385, label %.lr.ph41.split.i.i, label %._crit_edge42.i.i, !llvm.loop !290
 
 ._crit_edge42.i.i:                                ; preds = %.lr.ph41.split.i.i, %226, %.preheader.i.i
-  %386 = phi ptr [ %219, %.preheader.i.i ], [ %219, %226 ], [ %370, %.lr.ph41.split.i.i ]
-  %387 = phi ptr [ %220, %.preheader.i.i ], [ %220, %226 ], [ %382, %.lr.ph41.split.i.i ]
-  %388 = phi i32 [ %221, %.preheader.i.i ], [ %301, %226 ], [ %383, %.lr.ph41.split.i.i ]
+  %386 = phi ptr [ %219, %226 ], [ %219, %.preheader.i.i ], [ %370, %.lr.ph41.split.i.i ]
+  %387 = phi ptr [ %220, %226 ], [ %220, %.preheader.i.i ], [ %382, %.lr.ph41.split.i.i ]
+  %388 = phi i32 [ %301, %226 ], [ %221, %.preheader.i.i ], [ %383, %.lr.ph41.split.i.i ]
   %389 = getelementptr inbounds nuw i8, ptr %386, i64 72
   %390 = load ptr, ptr %389, align 8, !tbaa !275
   %391 = getelementptr inbounds nuw ptr, ptr %390, i64 %indvars.iv61.i.i
@@ -1725,7 +1725,7 @@ _ZL11correctEkinPA3_fRK14SystemMomentum.exit31.i: ; preds = %1034
   br i1 %.not43.i, label %.sink.split, label %1029
 
 .sink.split:                                      ; preds = %_ZL11correctEkinPA3_fRK14SystemMomentum.exit31.i, %_ZL11correctEkinPA3_fRK14SystemMomentum.exit.i, %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit117, %973, %1000, %.loopexit46.i, %802
-  %.sink = phi i8 [ 1, %802 ], [ 0, %.loopexit46.i ], [ 0, %1000 ], [ 0, %973 ], [ 0, %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit117 ], [ 0, %_ZL11correctEkinPA3_fRK14SystemMomentum.exit.i ], [ 0, %_ZL11correctEkinPA3_fRK14SystemMomentum.exit31.i ]
+  %.sink = phi i8 [ 1, %802 ], [ 0, %_ZL11correctEkinPA3_fRK14SystemMomentum.exit.i ], [ 0, %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit117 ], [ 0, %.loopexit46.i ], [ 0, %1000 ], [ 0, %973 ], [ 0, %_ZL11correctEkinPA3_fRK14SystemMomentum.exit31.i ]
   store i8 %.sink, ptr %19, align 1, !tbaa !358
   br label %1046
 

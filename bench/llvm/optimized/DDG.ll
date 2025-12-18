@@ -9183,7 +9183,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_10BasicBlockELb1EE18uninitialized_moveIPS2
   br i1 %.not31, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !345
 
 _ZSt4copyISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKPN4llvm10BasicBlockESt6vectorIS5_SaIS5_EEEEEPS5_ET0_T_SF_SE_.exit: ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i, %._crit_edge, %_ZSt13move_backwardIPPN4llvm10BasicBlockES3_ET0_T_S5_S4_.exit, %_ZN4llvm15SmallVectorImplIPNS_10BasicBlockEE6appendISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKS2_St6vectorIS2_SaIS2_EEEEEvEEvT_SF_.exit
-  %.029 = phi ptr [ %39, %_ZN4llvm15SmallVectorImplIPNS_10BasicBlockEE6appendISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKS2_St6vectorIS2_SaIS2_EEEEEvEEvT_SF_.exit ], [ %51, %_ZSt13move_backwardIPPN4llvm10BasicBlockES3_ET0_T_S5_S4_.exit ], [ %51, %._crit_edge ], [ %51, %.lr.ph.i.i.i.i.i.i.i.i ], [ %51, %.lr.ph.i.i.i.i.i ]
+  %.029 = phi ptr [ %39, %_ZN4llvm15SmallVectorImplIPNS_10BasicBlockEE6appendISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKS2_St6vectorIS2_SaIS2_EEEEEvEEvT_SF_.exit ], [ %51, %.lr.ph.i.i.i.i.i.i.i.i ], [ %51, %_ZSt13move_backwardIPPN4llvm10BasicBlockES3_ET0_T_S5_S4_.exit ], [ %51, %._crit_edge ], [ %51, %.lr.ph.i.i.i.i.i ]
   ret ptr %.029
 }
 

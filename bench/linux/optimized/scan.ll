@@ -2956,7 +2956,7 @@ define internal fastcc noundef range(i32 0, 16391) i32 @acpi_bus_check_add(ptr n
   br i1 %96, label %.loopexit7, label %.preheader, !llvm.loop !28
 
 .loopexit:                                        ; preds = %.loopexit7, %82, %.preheader, %72
-  %97 = phi ptr [ null, %72 ], [ %78, %.preheader ], [ %78, %82 ], [ null, %.loopexit7 ]
+  %97 = phi ptr [ null, %72 ], [ %78, %.preheader ], [ null, %.loopexit7 ], [ %78, %82 ]
   %98 = icmp eq ptr %97, null
   br i1 %98, label %68, label %99
 

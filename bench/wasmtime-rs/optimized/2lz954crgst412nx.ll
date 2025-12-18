@@ -4425,7 +4425,7 @@ common.resume:                                    ; preds = %101, %24
   invoke void @"_ZN4core3ptr127drop_in_place$LT$std..sync..mutex..MutexGuard$LT$wasmtime_runtime..instance..allocator..pooling..index_allocator..Inner$GT$$GT$17h1ceae46c47e0e1c0E.llvm.2708031191408783576"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10) #32
           to label %common.resume unwind label %167
 
-.loopexit:                                        ; preds = %76, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb50d937726762180E.llvm.2708031191408783576.exit", %33, %95
+.loopexit:                                        ; preds = %76, %95, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb50d937726762180E.llvm.2708031191408783576.exit", %33
   br i1 %3, label %103, label %137
 
 103:                                              ; preds = %.loopexit

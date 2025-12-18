@@ -579,7 +579,7 @@ _ZNK14ShenandoahHeap21is_stw_gc_in_progressEv.exit85.thread: ; preds = %63, %_ZN
   br label %71
 
 71:                                               ; preds = %_ZNK14ShenandoahHeap21is_stw_gc_in_progressEv.exit85.thread, %_ZNK14ShenandoahHeap21is_stw_gc_in_progressEv.exit85, %_ZNK14ShenandoahHeap21is_stw_gc_in_progressEv.exit.thread, %_ZNK14ShenandoahHeap21is_stw_gc_in_progressEv.exit, %62, %53
-  %.0 = phi i8 [ 0, %62 ], [ 21, %_ZNK14ShenandoahHeap21is_stw_gc_in_progressEv.exit ], [ 1, %53 ], [ 5, %_ZNK14ShenandoahHeap21is_stw_gc_in_progressEv.exit.thread ], [ 0, %_ZNK14ShenandoahHeap21is_stw_gc_in_progressEv.exit85.thread ], [ 16, %_ZNK14ShenandoahHeap21is_stw_gc_in_progressEv.exit85 ]
+  %.0 = phi i8 [ 1, %53 ], [ 0, %62 ], [ 21, %_ZNK14ShenandoahHeap21is_stw_gc_in_progressEv.exit ], [ 5, %_ZNK14ShenandoahHeap21is_stw_gc_in_progressEv.exit.thread ], [ 0, %_ZNK14ShenandoahHeap21is_stw_gc_in_progressEv.exit85.thread ], [ 16, %_ZNK14ShenandoahHeap21is_stw_gc_in_progressEv.exit85 ]
   %72 = load ptr, ptr %0, align 8
   %73 = call noundef signext i8 @_ZNK14ShenandoahHeap8gc_stateEv(ptr noundef nonnull align 8 dereferenceable(2657) %72) #13
   %.not = icmp eq i8 %73, %.0
@@ -961,8 +961,8 @@ _ZNK14ShenandoahHeap10get_regionEm.exit:          ; preds = %.preheader, %216
   unreachable
 
 .loopexit:                                        ; preds = %216, %146, %.preheader, %208
-  %.075172 = phi i64 [ %.075, %208 ], [ %.075, %.preheader ], [ 0, %146 ], [ %.075, %216 ]
-  %.073161171 = phi i64 [ %176, %208 ], [ %176, %.preheader ], [ 0, %146 ], [ %176, %216 ]
+  %.075172 = phi i64 [ 0, %146 ], [ %.075, %208 ], [ %.075, %.preheader ], [ %.075, %216 ]
+  %.073161171 = phi i64 [ 0, %146 ], [ %176, %208 ], [ %176, %.preheader ], [ %176, %216 ]
   %256 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not139 = icmp eq ptr %256, null
   br i1 %.not139, label %259, label %257

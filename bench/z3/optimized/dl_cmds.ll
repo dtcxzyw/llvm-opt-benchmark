@@ -3368,7 +3368,7 @@ _ZNK4decl13get_family_idEv.exit.thread:           ; preds = %3, %_ZNK4decl13get_
   br i1 %.not27.old.i.i, label %.loopexit, label %.lr.ph38.i.i.backedge
 
 .lr.ph38.i.i.backedge:                            ; preds = %50, %47
-  %.137.i.i.be = phi ptr [ %.old.i.i, %50 ], [ %49, %47 ]
+  %.137.i.i.be = phi ptr [ %49, %47 ], [ %.old.i.i, %50 ]
   br label %.lr.ph38.i.i, !llvm.loop !454
 
 .loopexit:                                        ; preds = %36, %50, %47, %.preheader.i.i

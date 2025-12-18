@@ -905,8 +905,8 @@ Wlc_NtkRemoveFromAbstraction.exit:                ; preds = %Wlc_NtkMarkMffc.exi
   br i1 %378, label %47, label %.thread, !llvm.loop !75
 
 .thread:                                          ; preds = %375, %Vec_BitStart.exit, %325, %Vec_IntFree.exit
-  %.060114 = phi i32 [ %.060126, %Vec_IntFree.exit ], [ %.060126, %325 ], [ 1, %Vec_BitStart.exit ], [ %376, %375 ]
-  %.163 = phi i32 [ %194, %Vec_IntFree.exit ], [ %194, %325 ], [ -1, %Vec_BitStart.exit ], [ %194, %375 ]
+  %.060114 = phi i32 [ %.060126, %325 ], [ %.060126, %Vec_IntFree.exit ], [ 1, %Vec_BitStart.exit ], [ %376, %375 ]
+  %.163 = phi i32 [ %194, %325 ], [ %194, %Vec_IntFree.exit ], [ -1, %Vec_BitStart.exit ], [ %194, %375 ]
   %379 = load ptr, ptr %26, align 8, !tbaa !24
   %.not.i97 = icmp eq ptr %379, null
   br i1 %.not.i97, label %Vec_BitFree.exit, label %380

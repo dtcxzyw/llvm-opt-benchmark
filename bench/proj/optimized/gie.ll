@@ -494,7 +494,7 @@ define internal fastcc noundef range(i32 -128, 256) i32 @_ZL11opt_ordinalP7OPTAR
   br i1 %exitcond100.not, label %.thread77, label %.thread73.split.split, !llvm.loop !28
 
 .thread77:                                        ; preds = %87, %.thread73.split.split, %59, %.thread73.split, %65, %79, %30, %44, %15, %5, %2
-  %.0 = phi i32 [ %32, %30 ], [ 0, %2 ], [ %., %15 ], [ 0, %5 ], [ %spec.select, %44 ], [ %67, %65 ], [ %spec.select68, %79 ], [ 0, %.thread73.split ], [ 0, %59 ], [ 0, %.thread73.split.split ], [ 0, %87 ]
+  %.0 = phi i32 [ %32, %30 ], [ 0, %2 ], [ %spec.select68, %79 ], [ %., %15 ], [ 0, %5 ], [ %spec.select, %44 ], [ %67, %65 ], [ 0, %.thread73.split ], [ 0, %59 ], [ 0, %.thread73.split.split ], [ 0, %87 ]
   ret i32 %.0
 }
 

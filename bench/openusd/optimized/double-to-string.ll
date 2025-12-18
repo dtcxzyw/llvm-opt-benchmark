@@ -100,7 +100,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_co
   br label %34
 
 34:                                               ; preds = %.sink.split, %19, %6
-  %.0 = phi i1 [ true, %.sink.split ], [ false, %6 ], [ false, %19 ]
+  %.0 = phi i1 [ true, %.sink.split ], [ false, %19 ], [ false, %6 ]
   ret i1 %.0
 }
 
@@ -616,7 +616,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_co
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE.exit: ; preds = %.sink.split.i, %26, %13, %61, %64
-  %.0 = phi i1 [ true, %61 ], [ true, %64 ], [ true, %.sink.split.i ], [ false, %13 ], [ false, %26 ]
+  %.0 = phi i1 [ true, %61 ], [ true, %64 ], [ true, %.sink.split.i ], [ false, %26 ], [ false, %13 ]
   ret i1 %.0
 }
 
@@ -811,7 +811,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConv
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE.exit: ; preds = %.sink.split.i, %27, %14, %42, %66
-  %.0 = phi i1 [ false, %42 ], [ true, %66 ], [ true, %.sink.split.i ], [ false, %14 ], [ false, %27 ]
+  %.0 = phi i1 [ false, %42 ], [ true, %66 ], [ true, %.sink.split.i ], [ false, %27 ], [ false, %14 ]
   ret i1 %.0
 }
 
@@ -989,7 +989,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConv
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE.exit: ; preds = %.sink.split.i, %27, %14, %42, %83
-  %.0 = phi i1 [ false, %42 ], [ true, %83 ], [ true, %.sink.split.i ], [ false, %14 ], [ false, %27 ]
+  %.0 = phi i1 [ false, %42 ], [ true, %83 ], [ true, %.sink.split.i ], [ false, %27 ], [ false, %14 ]
   ret i1 %.0
 }
 
@@ -1223,7 +1223,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConv
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE.exit: ; preds = %.sink.split.i, %27, %14, %._crit_edge, %._crit_edge63, %42
-  %.021 = phi i1 [ true, %._crit_edge ], [ false, %42 ], [ true, %._crit_edge63 ], [ true, %.sink.split.i ], [ false, %14 ], [ false, %27 ]
+  %.021 = phi i1 [ true, %._crit_edge ], [ false, %42 ], [ true, %._crit_edge63 ], [ true, %.sink.split.i ], [ false, %27 ], [ false, %14 ]
   ret i1 %.021
 }
 

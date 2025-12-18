@@ -8198,7 +8198,7 @@ define internal fastcc void @_ZN16uv_build_backend5wheel12write_record17h3c15fbe
   unreachable
 
 .body:                                            ; preds = %136, %93, %68, %44, %76
-  %.pn54 = phi { ptr, i32 } [ %77, %76 ], [ %.pn52, %68 ], [ %45, %44 ], [ %96, %93 ], [ %139, %136 ]
+  %.pn54 = phi { ptr, i32 } [ %96, %93 ], [ %77, %76 ], [ %.pn52, %68 ], [ %45, %44 ], [ %139, %136 ]
   invoke void @"_ZN4core3ptr82drop_in_place$LT$csv..writer..Writer$LT$$RF$mut$u20$dyn$u20$std..io..Write$GT$$GT$17hcec5a7494dc5ab4dE"(ptr noalias noundef nonnull align 8 dereferenceable(368) %31) #22
           to label %.thread unwind label %145
 

@@ -306,7 +306,7 @@ define internal noundef i64 @"_ZN106_$LT$core..iter..adapters..flatten..Flatten$
   br label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$10advance_by17hd14b55d5fbfb09d8E.exit"
 
 "_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$10advance_by17hd14b55d5fbfb09d8E.exit": ; preds = %"_ZN109_$LT$core..iter..adapters..scan..Scan$LT$I$C$St$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold4scan28_$u7b$$u7b$closure$u7d$$u7d$17he297ccc56ee95088E.exit.i.i.i.i", %2, %10, %.loopexit.i.i
-  %.sroa.0.0.i = phi i64 [ %.sroa.01.0.i.i.i.i, %.loopexit.i.i ], [ %1, %10 ], [ 0, %2 ], [ 0, %"_ZN109_$LT$core..iter..adapters..scan..Scan$LT$I$C$St$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold4scan28_$u7b$$u7b$closure$u7d$$u7d$17he297ccc56ee95088E.exit.i.i.i.i" ]
+  %.sroa.0.0.i = phi i64 [ 0, %2 ], [ %.sroa.01.0.i.i.i.i, %.loopexit.i.i ], [ %1, %10 ], [ 0, %"_ZN109_$LT$core..iter..adapters..scan..Scan$LT$I$C$St$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold4scan28_$u7b$$u7b$closure$u7d$$u7d$17he297ccc56ee95088E.exit.i.i.i.i" ]
   ret i64 %.sroa.0.0.i
 }
 
@@ -1815,8 +1815,8 @@ define hidden { i64, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$4find17h486b679c
   br i1 %54, label %"_ZN95_$LT$core..str..pattern..CharArraySearcher$LT$_$GT$$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h0f644a4434890b51E.llvm.18100663947958318789.exit", label %52
 
 "_ZN95_$LT$core..str..pattern..CharArraySearcher$LT$_$GT$$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h0f644a4434890b51E.llvm.18100663947958318789.exit": ; preds = %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h50f6ed65c5422184E.llvm.18100663947958318789.exit.loopexit.i.i", %53, %3
-  %not. = phi i64 [ 0, %3 ], [ 1, %53 ], [ 0, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h50f6ed65c5422184E.llvm.18100663947958318789.exit.loopexit.i.i" ]
-  %55 = phi i64 [ undef, %3 ], [ %8, %53 ], [ undef, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h50f6ed65c5422184E.llvm.18100663947958318789.exit.loopexit.i.i" ]
+  %not. = phi i64 [ 1, %53 ], [ 0, %3 ], [ 0, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h50f6ed65c5422184E.llvm.18100663947958318789.exit.loopexit.i.i" ]
+  %55 = phi i64 [ %8, %53 ], [ undef, %3 ], [ undef, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h50f6ed65c5422184E.llvm.18100663947958318789.exit.loopexit.i.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %56 = insertvalue { i64, i64 } poison, i64 %not., 0
   %57 = insertvalue { i64, i64 } %56, i64 %55, 1
@@ -2860,7 +2860,7 @@ _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread19: ; preds = %.lr.p
   br i1 %or.cond, label %49, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17ha07a3b104a41255bE.exit"
 
 _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread: ; preds = %.preheader.i, %_ZN4core5slice6memchr6memchr17h6928691f02359212E.exit, %41, %_ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.us, %.preheader.i.us, %28
-  %.sroa.0.0.i18 = phi i64 [ 0, %28 ], [ 0, %41 ], [ %22, %_ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.us ], [ 0, %.preheader.i.us ], [ %44, %_ZN4core5slice6memchr6memchr17h6928691f02359212E.exit ], [ 0, %.preheader.i ]
+  %.sroa.0.0.i18 = phi i64 [ 0, %41 ], [ 0, %28 ], [ %22, %_ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.us ], [ 0, %.preheader.i.us ], [ %44, %_ZN4core5slice6memchr6memchr17h6928691f02359212E.exit ], [ 0, %.preheader.i ]
   store i64 %6, ptr %4, align 8
   br label %.loopexit
 
@@ -2887,7 +2887,7 @@ _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread: ; preds = %.prehea
   br label %.loopexit
 
 .loopexit:                                        ; preds = %49, %32, %2, %_ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread, %.split.us65
-  %storemerge = phi i64 [ 1, %.split.us65 ], [ %.sroa.0.0.i18, %_ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread ], [ 0, %2 ], [ 0, %32 ], [ 0, %49 ]
+  %storemerge = phi i64 [ %.sroa.0.0.i18, %_ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread ], [ 1, %.split.us65 ], [ 0, %2 ], [ 0, %32 ], [ 0, %49 ]
   store i64 %storemerge, ptr %0, align 8
   ret void
 }
@@ -15409,8 +15409,8 @@ switch.lookup:                                    ; preds = %110
   br label %333
 
 333:                                              ; preds = %328, %324
-  %.sroa.8.0 = phi i64 [ %332, %328 ], [ %327, %324 ]
-  %.sroa.04.0 = phi ptr [ %330, %328 ], [ inttoptr (i64 1 to ptr), %324 ]
+  %.sroa.8.0 = phi i64 [ %327, %324 ], [ %332, %328 ]
+  %.sroa.04.0 = phi ptr [ inttoptr (i64 1 to ptr), %324 ], [ %330, %328 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !2719
   store i64 0, ptr %14, align 8, !noalias !2719
   store i64 %.sroa.8.0, ptr %.sroa.49.0..sroa_idx.i, align 8, !noalias !2719

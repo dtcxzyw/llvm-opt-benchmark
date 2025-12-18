@@ -2291,7 +2291,7 @@ _PyFrame_IsIncomplete.exit.thread.i44:            ; preds = %_PyFrame_IsIncomple
   br i1 %.not.i45, label %Py_DECREF.exit.thread48, label %.lr.ph.i38, !llvm.loop !130
 
 Py_DECREF.exit.thread48:                          ; preds = %52, %_PyFrame_IsIncomplete.exit.i41, %_PyFrame_IsIncomplete.exit.thread.i44, %45
-  %.22950 = phi ptr [ null, %45 ], [ null, %_PyFrame_IsIncomplete.exit.thread.i44 ], [ %.08.i39, %52 ], [ %.08.i39, %_PyFrame_IsIncomplete.exit.i41 ]
+  %.22950 = phi ptr [ null, %45 ], [ %.08.i39, %52 ], [ null, %_PyFrame_IsIncomplete.exit.thread.i44 ], [ %.08.i39, %_PyFrame_IsIncomplete.exit.i41 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %26
   br i1 %exitcond.not, label %Py_DECREF.exit.thread, label %31, !llvm.loop !135

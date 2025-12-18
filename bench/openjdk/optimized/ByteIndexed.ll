@@ -4734,7 +4734,7 @@ define hidden void @ByteIndexedNrstNbrTransformHelper(ptr noundef readonly captu
   br label %66
 
 66:                                               ; preds = %28, %.fold.split, %40
-  %.041 = phi i32 [ %65, %40 ], [ 0, %28 ], [ %38, %.fold.split ]
+  %.041 = phi i32 [ 0, %28 ], [ %65, %40 ], [ %38, %.fold.split ]
   store i32 %.041, ptr %.045, align 4
   %67 = getelementptr inbounds nuw i8, ptr %.045, i64 4
   %68 = add nsw i64 %.03944, %4
@@ -4849,7 +4849,7 @@ define hidden void @ByteIndexedBilinearTransformHelper(ptr noundef readonly capt
   br label %85
 
 85:                                               ; preds = %29, %.fold.split, %59
-  %.0133 = phi i32 [ %84, %59 ], [ 0, %29 ], [ %57, %.fold.split ]
+  %.0133 = phi i32 [ 0, %29 ], [ %84, %59 ], [ %57, %.fold.split ]
   store i32 %.0133, ptr %.0155, align 4
   %86 = add nsw i32 %38, %43
   %87 = sext i32 %86 to i64
@@ -4897,7 +4897,7 @@ define hidden void @ByteIndexedBilinearTransformHelper(ptr noundef readonly capt
   br label %120
 
 120:                                              ; preds = %85, %.fold.split144, %94
-  %.0135 = phi i32 [ %119, %94 ], [ 0, %85 ], [ %92, %.fold.split144 ]
+  %.0135 = phi i32 [ 0, %85 ], [ %119, %94 ], [ %92, %.fold.split144 ]
   %121 = getelementptr inbounds nuw i8, ptr %.0155, i64 4
   store i32 %.0135, ptr %121, align 4
   %122 = sext i32 %42 to i64
@@ -4947,7 +4947,7 @@ define hidden void @ByteIndexedBilinearTransformHelper(ptr noundef readonly capt
   br label %157
 
 157:                                              ; preds = %120, %.fold.split145, %131
-  %.0134 = phi i32 [ %156, %131 ], [ 0, %120 ], [ %129, %.fold.split145 ]
+  %.0134 = phi i32 [ 0, %120 ], [ %156, %131 ], [ %129, %.fold.split145 ]
   %158 = getelementptr inbounds nuw i8, ptr %.0155, i64 8
   store i32 %.0134, ptr %158, align 4
   %159 = getelementptr inbounds i8, ptr %124, i64 %87
@@ -4994,7 +4994,7 @@ define hidden void @ByteIndexedBilinearTransformHelper(ptr noundef readonly capt
   br label %191
 
 191:                                              ; preds = %157, %.fold.split146, %165
-  %.0132 = phi i32 [ %190, %165 ], [ 0, %157 ], [ %163, %.fold.split146 ]
+  %.0132 = phi i32 [ 0, %157 ], [ %190, %165 ], [ %163, %.fold.split146 ]
   %192 = getelementptr inbounds nuw i8, ptr %.0155, i64 12
   store i32 %.0132, ptr %192, align 4
   %193 = getelementptr inbounds nuw i8, ptr %.0155, i64 16
@@ -5125,7 +5125,7 @@ define hidden void @ByteIndexedBicubicTransformHelper(ptr noundef readonly captu
   br label %101
 
 101:                                              ; preds = %30, %.fold.split, %75
-  %.0412 = phi i32 [ %100, %75 ], [ 0, %30 ], [ %73, %.fold.split ]
+  %.0412 = phi i32 [ 0, %30 ], [ %100, %75 ], [ %73, %.fold.split ]
   store i32 %.0412, ptr %.0489, align 4
   %102 = sext i32 %56 to i64
   %103 = getelementptr inbounds i8, ptr %66, i64 %102
@@ -5172,7 +5172,7 @@ define hidden void @ByteIndexedBicubicTransformHelper(ptr noundef readonly captu
   br label %135
 
 135:                                              ; preds = %101, %.fold.split457, %109
-  %.0413 = phi i32 [ %134, %109 ], [ 0, %101 ], [ %107, %.fold.split457 ]
+  %.0413 = phi i32 [ 0, %101 ], [ %134, %109 ], [ %107, %.fold.split457 ]
   %136 = getelementptr inbounds nuw i8, ptr %.0489, i64 4
   store i32 %.0413, ptr %136, align 4
   %137 = add i32 %45, %56
@@ -5221,7 +5221,7 @@ define hidden void @ByteIndexedBicubicTransformHelper(ptr noundef readonly captu
   br label %171
 
 171:                                              ; preds = %135, %.fold.split458, %145
-  %.0414 = phi i32 [ %170, %145 ], [ 0, %135 ], [ %143, %.fold.split458 ]
+  %.0414 = phi i32 [ 0, %135 ], [ %170, %145 ], [ %143, %.fold.split458 ]
   %172 = getelementptr inbounds nuw i8, ptr %.0489, i64 8
   store i32 %.0414, ptr %172, align 4
   %173 = add i32 %137, %42
@@ -5270,7 +5270,7 @@ define hidden void @ByteIndexedBicubicTransformHelper(ptr noundef readonly captu
   br label %207
 
 207:                                              ; preds = %171, %.fold.split459, %181
-  %.0415 = phi i32 [ %206, %181 ], [ 0, %171 ], [ %179, %.fold.split459 ]
+  %.0415 = phi i32 [ 0, %171 ], [ %206, %181 ], [ %179, %.fold.split459 ]
   %208 = getelementptr inbounds nuw i8, ptr %.0489, i64 12
   store i32 %.0415, ptr %208, align 4
   %209 = sub nsw i32 0, %47
@@ -5321,7 +5321,7 @@ define hidden void @ByteIndexedBicubicTransformHelper(ptr noundef readonly captu
   br label %245
 
 245:                                              ; preds = %207, %.fold.split460, %219
-  %.0417 = phi i32 [ %244, %219 ], [ 0, %207 ], [ %217, %.fold.split460 ]
+  %.0417 = phi i32 [ 0, %207 ], [ %244, %219 ], [ %217, %.fold.split460 ]
   %246 = getelementptr inbounds nuw i8, ptr %.0489, i64 16
   store i32 %.0417, ptr %246, align 4
   %247 = getelementptr inbounds i8, ptr %212, i64 %102
@@ -5368,7 +5368,7 @@ define hidden void @ByteIndexedBicubicTransformHelper(ptr noundef readonly captu
   br label %279
 
 279:                                              ; preds = %245, %.fold.split461, %253
-  %.0418 = phi i32 [ %278, %253 ], [ 0, %245 ], [ %251, %.fold.split461 ]
+  %.0418 = phi i32 [ 0, %245 ], [ %278, %253 ], [ %251, %.fold.split461 ]
   %280 = getelementptr inbounds nuw i8, ptr %.0489, i64 20
   store i32 %.0418, ptr %280, align 4
   %281 = getelementptr inbounds i8, ptr %212, i64 %138
@@ -5415,7 +5415,7 @@ define hidden void @ByteIndexedBicubicTransformHelper(ptr noundef readonly captu
   br label %313
 
 313:                                              ; preds = %279, %.fold.split462, %287
-  %.0419 = phi i32 [ %312, %287 ], [ 0, %279 ], [ %285, %.fold.split462 ]
+  %.0419 = phi i32 [ 0, %279 ], [ %312, %287 ], [ %285, %.fold.split462 ]
   %314 = getelementptr inbounds nuw i8, ptr %.0489, i64 24
   store i32 %.0419, ptr %314, align 4
   %315 = getelementptr inbounds i8, ptr %212, i64 %174
@@ -5462,7 +5462,7 @@ define hidden void @ByteIndexedBicubicTransformHelper(ptr noundef readonly captu
   br label %347
 
 347:                                              ; preds = %313, %.fold.split463, %321
-  %.0420 = phi i32 [ %346, %321 ], [ 0, %313 ], [ %319, %.fold.split463 ]
+  %.0420 = phi i32 [ 0, %313 ], [ %346, %321 ], [ %319, %.fold.split463 ]
   %348 = getelementptr inbounds nuw i8, ptr %.0489, i64 28
   store i32 %.0420, ptr %348, align 4
   %349 = sext i32 %55 to i64
@@ -5512,7 +5512,7 @@ define hidden void @ByteIndexedBicubicTransformHelper(ptr noundef readonly captu
   br label %384
 
 384:                                              ; preds = %347, %.fold.split464, %358
-  %.0422 = phi i32 [ %383, %358 ], [ 0, %347 ], [ %356, %.fold.split464 ]
+  %.0422 = phi i32 [ 0, %347 ], [ %383, %358 ], [ %356, %.fold.split464 ]
   %385 = getelementptr inbounds nuw i8, ptr %.0489, i64 32
   store i32 %.0422, ptr %385, align 4
   %386 = getelementptr inbounds i8, ptr %351, i64 %102
@@ -5559,7 +5559,7 @@ define hidden void @ByteIndexedBicubicTransformHelper(ptr noundef readonly captu
   br label %418
 
 418:                                              ; preds = %384, %.fold.split465, %392
-  %.0423 = phi i32 [ %417, %392 ], [ 0, %384 ], [ %390, %.fold.split465 ]
+  %.0423 = phi i32 [ 0, %384 ], [ %417, %392 ], [ %390, %.fold.split465 ]
   %419 = getelementptr inbounds nuw i8, ptr %.0489, i64 36
   store i32 %.0423, ptr %419, align 4
   %420 = getelementptr inbounds i8, ptr %351, i64 %138
@@ -5606,7 +5606,7 @@ define hidden void @ByteIndexedBicubicTransformHelper(ptr noundef readonly captu
   br label %452
 
 452:                                              ; preds = %418, %.fold.split466, %426
-  %.0424 = phi i32 [ %451, %426 ], [ 0, %418 ], [ %424, %.fold.split466 ]
+  %.0424 = phi i32 [ 0, %418 ], [ %451, %426 ], [ %424, %.fold.split466 ]
   %453 = getelementptr inbounds nuw i8, ptr %.0489, i64 40
   store i32 %.0424, ptr %453, align 4
   %454 = getelementptr inbounds i8, ptr %351, i64 %174
@@ -5653,7 +5653,7 @@ define hidden void @ByteIndexedBicubicTransformHelper(ptr noundef readonly captu
   br label %486
 
 486:                                              ; preds = %452, %.fold.split467, %460
-  %.0425 = phi i32 [ %485, %460 ], [ 0, %452 ], [ %458, %.fold.split467 ]
+  %.0425 = phi i32 [ 0, %452 ], [ %485, %460 ], [ %458, %.fold.split467 ]
   %487 = getelementptr inbounds nuw i8, ptr %.0489, i64 44
   store i32 %.0425, ptr %487, align 4
   %488 = sext i32 %53 to i64
@@ -5703,7 +5703,7 @@ define hidden void @ByteIndexedBicubicTransformHelper(ptr noundef readonly captu
   br label %523
 
 523:                                              ; preds = %486, %.fold.split468, %497
-  %.0421 = phi i32 [ %522, %497 ], [ 0, %486 ], [ %495, %.fold.split468 ]
+  %.0421 = phi i32 [ 0, %486 ], [ %522, %497 ], [ %495, %.fold.split468 ]
   %524 = getelementptr inbounds nuw i8, ptr %.0489, i64 48
   store i32 %.0421, ptr %524, align 4
   %525 = getelementptr inbounds i8, ptr %490, i64 %102
@@ -5750,7 +5750,7 @@ define hidden void @ByteIndexedBicubicTransformHelper(ptr noundef readonly captu
   br label %557
 
 557:                                              ; preds = %523, %.fold.split469, %531
-  %.0416 = phi i32 [ %556, %531 ], [ 0, %523 ], [ %529, %.fold.split469 ]
+  %.0416 = phi i32 [ 0, %523 ], [ %556, %531 ], [ %529, %.fold.split469 ]
   %558 = getelementptr inbounds nuw i8, ptr %.0489, i64 52
   store i32 %.0416, ptr %558, align 4
   %559 = getelementptr inbounds i8, ptr %490, i64 %138
@@ -5797,7 +5797,7 @@ define hidden void @ByteIndexedBicubicTransformHelper(ptr noundef readonly captu
   br label %591
 
 591:                                              ; preds = %557, %.fold.split470, %565
-  %.0411 = phi i32 [ %590, %565 ], [ 0, %557 ], [ %563, %.fold.split470 ]
+  %.0411 = phi i32 [ 0, %557 ], [ %590, %565 ], [ %563, %.fold.split470 ]
   %592 = getelementptr inbounds nuw i8, ptr %.0489, i64 56
   store i32 %.0411, ptr %592, align 4
   %593 = getelementptr inbounds i8, ptr %490, i64 %174
@@ -5844,7 +5844,7 @@ define hidden void @ByteIndexedBicubicTransformHelper(ptr noundef readonly captu
   br label %625
 
 625:                                              ; preds = %591, %.fold.split471, %599
-  %.0410 = phi i32 [ %624, %599 ], [ 0, %591 ], [ %597, %.fold.split471 ]
+  %.0410 = phi i32 [ 0, %591 ], [ %624, %599 ], [ %597, %.fold.split471 ]
   %626 = getelementptr inbounds nuw i8, ptr %.0489, i64 60
   store i32 %.0410, ptr %626, align 4
   %627 = getelementptr inbounds nuw i8, ptr %.0489, i64 64

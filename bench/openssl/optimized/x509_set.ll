@@ -49,7 +49,7 @@ define range(i32 0, 2) i32 @X509_set_version(ptr noundef captures(address_is_nul
   br label %21
 
 21:                                               ; preds = %.sink.split, %17, %14, %4, %2
-  %.0 = phi i32 [ 0, %14 ], [ 0, %2 ], [ 1, %4 ], [ 0, %17 ], [ 1, %.sink.split ]
+  %.0 = phi i32 [ 0, %14 ], [ 0, %2 ], [ 0, %17 ], [ 1, %4 ], [ 1, %.sink.split ]
   ret i32 %.0
 }
 

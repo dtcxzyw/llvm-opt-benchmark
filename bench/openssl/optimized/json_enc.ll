@@ -2312,7 +2312,7 @@ json_write_char.exit37:                           ; preds = %72, %.lr.ph.split, 
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %json_write_char.exit
-  %111 = phi i8 [ %.pre, %._crit_edge.loopexit ], [ %.pre62, %json_write_char.exit ]
+  %111 = phi i8 [ %.pre62, %json_write_char.exit ], [ %.pre, %._crit_edge.loopexit ]
   %.not.i38 = icmp eq i8 %111, 0
   br i1 %.not.i38, label %112, label %json_write_char.exit49
 

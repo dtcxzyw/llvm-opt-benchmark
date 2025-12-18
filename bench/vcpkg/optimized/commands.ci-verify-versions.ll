@@ -2731,7 +2731,7 @@ _ZN5vcpkg15LocalizedStringD2Ev.exit230.i:         ; preds = %986, %_ZNKSt7__cxx1
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN5vcpkg17GitVersionDbEntryESt6vectorIS3_SaIS3_EEEEZN12_GLOBAL__N_142verify_local_port_matches_version_databaseERNS2_11MessageSinkESC_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS2_28SourceControlFileAndLocationERNS2_23FullGitVersionsDatabaseESK_E3$_0ET_SR_SR_T0_.exit.i"
 
 "_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN5vcpkg17GitVersionDbEntryESt6vectorIS3_SaIS3_EEEEZN12_GLOBAL__N_142verify_local_port_matches_version_databaseERNS2_11MessageSinkESC_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS2_28SourceControlFileAndLocationERNS2_23FullGitVersionsDatabaseESK_E3$_0ET_SR_SR_T0_.exit.i": ; preds = %.lr.ph.i.i.i.i320, %.loopexit.split.loop.exit46.i.i.i.i, %.loopexit.split.loop.exit44.i.i.i.i, %.loopexit.split.loop.exit42.i.i.i.i, %1033, %1028, %1023
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.032.1.i.i.i.i, %1028 ], [ %spec.select.i.i.i.i, %1033 ], [ %.sroa.032.0.lcssa.i.i.i.i, %1023 ], [ %1037, %.loopexit.split.loop.exit44.i.i.i.i ], [ %1036, %.loopexit.split.loop.exit42.i.i.i.i ], [ %1038, %.loopexit.split.loop.exit46.i.i.i.i ], [ %.sroa.032.051.i.i.i.i, %.lr.ph.i.i.i.i320 ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.032.1.i.i.i.i, %1028 ], [ %spec.select.i.i.i.i, %1033 ], [ %1038, %.loopexit.split.loop.exit46.i.i.i.i ], [ %.sroa.032.0.lcssa.i.i.i.i, %1023 ], [ %1037, %.loopexit.split.loop.exit44.i.i.i.i ], [ %1036, %.loopexit.split.loop.exit42.i.i.i.i ], [ %.sroa.032.051.i.i.i.i, %.lr.ph.i.i.i.i320 ]
   %1039 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i, %999
   br i1 %1039, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN5vcpkg17GitVersionDbEntryESt6vectorIS3_SaIS3_EEEEZN12_GLOBAL__N_142verify_local_port_matches_version_databaseERNS2_11MessageSinkESC_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS2_28SourceControlFileAndLocationERNS2_23FullGitVersionsDatabaseESK_E3$_0ET_SR_SR_T0_.exit.thread.i", label %1113
 
@@ -5038,7 +5038,7 @@ _ZN5vcpkg15LocalizedStringD2Ev.exit80.i:          ; preds = %1708, %_ZNKSt7__cxx
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %1722, %.loopexit.split.loop.exit46.i.i.i.i.i.i, %.loopexit.split.loop.exit44.i.i.i.i.i.i, %.loopexit.split.loop.exit42.i.i.i.i.i.i, %1751, %1745, %1739
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i = phi ptr [ %.sroa.032.1.i.i.i.i.i.i, %1745 ], [ %spec.select.i.i.i.i.i.i, %1751 ], [ %.sroa.032.0.lcssa.i.i.i.i.i.i, %1739 ], [ %1756, %.loopexit.split.loop.exit44.i.i.i.i.i.i ], [ %1755, %.loopexit.split.loop.exit42.i.i.i.i.i.i ], [ %1757, %.loopexit.split.loop.exit46.i.i.i.i.i.i ], [ %.sroa.032.051.i.i.i.i.i.i, %1722 ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i = phi ptr [ %.sroa.032.1.i.i.i.i.i.i, %1745 ], [ %spec.select.i.i.i.i.i.i, %1751 ], [ %1757, %.loopexit.split.loop.exit46.i.i.i.i.i.i ], [ %.sroa.032.0.lcssa.i.i.i.i.i.i, %1739 ], [ %1756, %.loopexit.split.loop.exit44.i.i.i.i.i.i ], [ %1755, %.loopexit.split.loop.exit42.i.i.i.i.i.i ], [ %.sroa.032.051.i.i.i.i.i.i, %1722 ]
   %1758 = icmp eq ptr %.val77.i, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i
   br i1 %1758, label %.thread.i402, label %1795
 
@@ -10445,7 +10445,7 @@ _ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail13width_checkerEE
   unreachable
 
 _ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail13width_checkerEEEDTclfp_Li0EEEOT_.exit: ; preds = %18, %12, %9, %16, %22
-  %.0.i = phi i64 [ %.sroa.011.0.extract.trunc.i, %18 ], [ %11, %9 ], [ %17, %16 ], [ %13, %12 ], [ %.sroa.05.0.extract.trunc.i, %22 ]
+  %.0.i = phi i64 [ %.sroa.05.0.extract.trunc.i, %22 ], [ %13, %12 ], [ %.sroa.011.0.extract.trunc.i, %18 ], [ %11, %9 ], [ %17, %16 ]
   %34 = icmp ugt i64 %.0.i, 2147483647
   br i1 %34, label %_ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail13width_checkerEEEDTclfp_Li0EEEOT_.exit.thread11, label %35
 
@@ -10670,7 +10670,7 @@ _ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail17precision_check
   unreachable
 
 _ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail17precision_checkerEEEDTclfp_Li0EEEOT_.exit: ; preds = %18, %12, %9, %16, %22
-  %.0.i = phi i64 [ %.sroa.011.0.extract.trunc.i, %18 ], [ %11, %9 ], [ %17, %16 ], [ %13, %12 ], [ %.sroa.05.0.extract.trunc.i, %22 ]
+  %.0.i = phi i64 [ %.sroa.05.0.extract.trunc.i, %22 ], [ %13, %12 ], [ %.sroa.011.0.extract.trunc.i, %18 ], [ %11, %9 ], [ %17, %16 ]
   %34 = icmp ugt i64 %.0.i, 2147483647
   br i1 %34, label %_ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail17precision_checkerEEEDTclfp_Li0EEEOT_.exit.thread11, label %35
 
@@ -11970,7 +11970,7 @@ _ZN5vcpkg15LocalizedStringD2Ev.exit81:            ; preds = %88, %_ZNKSt7__cxx11
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i, %.loopexit.split.loop.exit46.i.i.i.i.i, %.loopexit.split.loop.exit44.i.i.i.i.i, %.loopexit.split.loop.exit42.i.i.i.i.i, %142, %137, %132
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %.sroa.032.1.i.i.i.i.i, %137 ], [ %spec.select.i.i.i.i.i, %142 ], [ %.sroa.032.0.lcssa.i.i.i.i.i, %132 ], [ %146, %.loopexit.split.loop.exit44.i.i.i.i.i ], [ %145, %.loopexit.split.loop.exit42.i.i.i.i.i ], [ %147, %.loopexit.split.loop.exit46.i.i.i.i.i ], [ %.sroa.032.051.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %.sroa.032.1.i.i.i.i.i, %137 ], [ %spec.select.i.i.i.i.i, %142 ], [ %147, %.loopexit.split.loop.exit46.i.i.i.i.i ], [ %.sroa.032.0.lcssa.i.i.i.i.i, %132 ], [ %146, %.loopexit.split.loop.exit44.i.i.i.i.i ], [ %145, %.loopexit.split.loop.exit42.i.i.i.i.i ], [ %.sroa.032.051.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %148 = icmp eq ptr %.val70, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i
   br i1 %148, label %.thread, label %235
 

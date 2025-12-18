@@ -674,7 +674,7 @@ _ZN6bufferIjLb0ELj16EED2Ev.exit93:                ; preds = %_ZN6bufferIjLb0ELj1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %23, %46, %29, %_ZN6bufferIjLb0ELj16EED2Ev.exit93
-  %.0 = phi i1 [ false, %29 ], [ true, %_ZN6bufferIjLb0ELj16EED2Ev.exit93 ], [ false, %46 ], [ false, %23 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ false, %46 ], [ false, %29 ], [ true, %_ZN6bufferIjLb0ELj16EED2Ev.exit93 ], [ false, %23 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -980,7 +980,7 @@ _ZN6bufferIjLb0ELj16EE6resizeEjRKj.exit91:        ; preds = %_ZN6bufferIjLb0ELj1
   br i1 %.not69, label %._crit_edge106, label %113, !llvm.loop !30
 
 .loopexit:                                        ; preds = %84, %.preheader, %88, %._crit_edge106
-  %.1 = phi i32 [ %.062.lcssa, %._crit_edge106 ], [ 0, %88 ], [ 0, %.preheader ], [ 0, %84 ]
+  %.1 = phi i32 [ 0, %88 ], [ %.062.lcssa, %._crit_edge106 ], [ 0, %.preheader ], [ 0, %84 ]
   ret i32 %.1
 }
 

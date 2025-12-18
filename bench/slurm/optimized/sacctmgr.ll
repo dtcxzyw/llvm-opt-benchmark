@@ -590,8 +590,8 @@ _get_command.exit.thread:                         ; preds = %141
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %168, %.loopexit.loopexit.split.loop.exit.i, %165, %146, %134
-  %.157 = phi i32 [ %147, %165 ], [ %147, %.loopexit.loopexit.split.loop.exit.i ], [ %147, %146 ], [ %.056, %134 ], [ %147, %168 ]
-  %.146.ph.i = phi i32 [ %167, %165 ], [ %169, %.loopexit.loopexit.split.loop.exit.i ], [ %.267.i, %146 ], [ %.04573.i, %134 ], [ %.044.i, %168 ]
+  %.157 = phi i32 [ %.056, %134 ], [ %147, %165 ], [ %147, %.loopexit.loopexit.split.loop.exit.i ], [ %147, %146 ], [ %147, %168 ]
+  %.146.ph.i = phi i32 [ %.04573.i, %134 ], [ %167, %165 ], [ %169, %.loopexit.loopexit.split.loop.exit.i ], [ %.267.i, %146 ], [ %.044.i, %168 ]
   %170 = add nsw i32 %.146.ph.i, 1
   %171 = icmp slt i32 %170, %.044.i
   br i1 %171, label %.lr.ph74.i, label %_get_command.exit, !llvm.loop !12

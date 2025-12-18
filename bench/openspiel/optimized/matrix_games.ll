@@ -995,9 +995,9 @@ _ZN10open_spiel8GameTypeD2Ev.exit:                ; preds = %_ZNSt3mapINSt7__cxx
   br label %.loopexit151
 
 .body64:                                          ; preds = %187, %72, %171
-  %191 = phi i1 [ false, %72 ], [ false, %171 ], [ true, %187 ]
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %73, %72 ], [ %172, %171 ], [ %.pn.pn.pn, %187 ]
-  %.7 = phi i1 [ true, %72 ], [ true, %171 ], [ %.8, %187 ]
+  %191 = phi i1 [ false, %171 ], [ false, %72 ], [ true, %187 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %172, %171 ], [ %73, %72 ], [ %.pn.pn.pn, %187 ]
+  %.7 = phi i1 [ true, %171 ], [ true, %72 ], [ %.8, %187 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #19
   br i1 %191, label %.loopexit151, label %.preheader150.preheader
@@ -1030,9 +1030,9 @@ _ZN10open_spiel8GameTypeD2Ev.exit:                ; preds = %_ZNSt3mapINSt7__cxx
   br label %.loopexit
 
 .body:                                            ; preds = %192, %40, %167
-  %196 = phi i1 [ false, %40 ], [ false, %167 ], [ true, %192 ]
-  %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %41, %40 ], [ %168, %167 ], [ %.pn.pn.pn.pn.pn.pn, %192 ]
-  %.4 = phi i1 [ true, %40 ], [ true, %167 ], [ %.5, %192 ]
+  %196 = phi i1 [ false, %167 ], [ false, %40 ], [ true, %192 ]
+  %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %168, %167 ], [ %41, %40 ], [ %.pn.pn.pn.pn.pn.pn, %192 ]
+  %.4 = phi i1 [ true, %167 ], [ true, %40 ], [ %.5, %192 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #19
   br i1 %196, label %.loopexit, label %.preheader.preheader
@@ -2106,9 +2106,9 @@ _ZN10open_spiel8GameTypeD2Ev.exit:                ; preds = %_ZNSt3mapINSt7__cxx
   br i1 %204, label %.body89, label %201
 
 .body89:                                          ; preds = %201, %185, %82
-  %205 = phi i1 [ false, %82 ], [ false, %185 ], [ true, %201 ]
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %83, %82 ], [ %186, %185 ], [ %.pn.pn.pn, %201 ]
-  %.9 = phi i1 [ true, %82 ], [ true, %185 ], [ %.10, %201 ]
+  %205 = phi i1 [ false, %185 ], [ false, %82 ], [ true, %201 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %186, %185 ], [ %83, %82 ], [ %.pn.pn.pn, %201 ]
+  %.9 = phi i1 [ true, %185 ], [ true, %82 ], [ %.10, %201 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #19
   br label %.body79
 
@@ -2152,9 +2152,9 @@ _ZN10open_spiel8GameTypeD2Ev.exit:                ; preds = %_ZNSt3mapINSt7__cxx
   br i1 %212, label %.body72, label %209
 
 .body72:                                          ; preds = %209, %179, %46
-  %213 = phi i1 [ false, %46 ], [ false, %179 ], [ true, %209 ]
-  %.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %47, %46 ], [ %180, %179 ], [ %.pn.pn.pn.pn.pn.pn.pn, %209 ]
-  %.5 = phi i1 [ true, %46 ], [ true, %179 ], [ %.6, %209 ]
+  %213 = phi i1 [ false, %179 ], [ false, %46 ], [ true, %209 ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %180, %179 ], [ %47, %46 ], [ %.pn.pn.pn.pn.pn.pn.pn, %209 ]
+  %.5 = phi i1 [ true, %179 ], [ true, %46 ], [ %.6, %209 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #19
   br label %.body
 
@@ -2825,9 +2825,9 @@ _ZN10open_spiel8GameTypeD2Ev.exit:                ; preds = %_ZNSt3mapINSt7__cxx
   br i1 %204, label %.body89, label %201
 
 .body89:                                          ; preds = %201, %185, %82
-  %205 = phi i1 [ false, %82 ], [ false, %185 ], [ true, %201 ]
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %83, %82 ], [ %186, %185 ], [ %.pn.pn.pn, %201 ]
-  %.9 = phi i1 [ true, %82 ], [ true, %185 ], [ %.10, %201 ]
+  %205 = phi i1 [ false, %185 ], [ false, %82 ], [ true, %201 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %186, %185 ], [ %83, %82 ], [ %.pn.pn.pn, %201 ]
+  %.9 = phi i1 [ true, %185 ], [ true, %82 ], [ %.10, %201 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #19
   br label %.body79
 
@@ -2871,9 +2871,9 @@ _ZN10open_spiel8GameTypeD2Ev.exit:                ; preds = %_ZNSt3mapINSt7__cxx
   br i1 %212, label %.body72, label %209
 
 .body72:                                          ; preds = %209, %179, %46
-  %213 = phi i1 [ false, %46 ], [ false, %179 ], [ true, %209 ]
-  %.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %47, %46 ], [ %180, %179 ], [ %.pn.pn.pn.pn.pn.pn.pn, %209 ]
-  %.5 = phi i1 [ true, %46 ], [ true, %179 ], [ %.6, %209 ]
+  %213 = phi i1 [ false, %179 ], [ false, %46 ], [ true, %209 ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %180, %179 ], [ %47, %46 ], [ %.pn.pn.pn.pn.pn.pn.pn, %209 ]
+  %.5 = phi i1 [ true, %179 ], [ true, %46 ], [ %.6, %209 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #19
   br label %.body
 
@@ -3598,9 +3598,9 @@ _ZN10open_spiel8GameTypeD2Ev.exit:                ; preds = %_ZNSt3mapINSt7__cxx
   br i1 %218, label %.body109, label %215
 
 .body109:                                         ; preds = %215, %199, %92
-  %219 = phi i1 [ false, %92 ], [ false, %199 ], [ true, %215 ]
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %93, %92 ], [ %200, %199 ], [ %.pn.pn.pn, %215 ]
-  %.11 = phi i1 [ true, %92 ], [ true, %199 ], [ %.12, %215 ]
+  %219 = phi i1 [ false, %199 ], [ false, %92 ], [ true, %215 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %200, %199 ], [ %93, %92 ], [ %.pn.pn.pn, %215 ]
+  %.11 = phi i1 [ true, %199 ], [ true, %92 ], [ %.12, %215 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #19
   br label %.body104
 
@@ -3652,9 +3652,9 @@ _ZN10open_spiel8GameTypeD2Ev.exit:                ; preds = %_ZNSt3mapINSt7__cxx
   br i1 %226, label %.body87, label %223
 
 .body87:                                          ; preds = %223, %191, %52
-  %227 = phi i1 [ false, %52 ], [ false, %191 ], [ true, %223 ]
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %53, %52 ], [ %192, %191 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn, %223 ]
-  %.6 = phi i1 [ true, %52 ], [ true, %191 ], [ %.7, %223 ]
+  %227 = phi i1 [ false, %191 ], [ false, %52 ], [ true, %223 ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %192, %191 ], [ %53, %52 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn, %223 ]
+  %.6 = phi i1 [ true, %191 ], [ true, %52 ], [ %.7, %223 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #19
   br label %.body82
 
@@ -4333,9 +4333,9 @@ _ZN10open_spiel8GameTypeD2Ev.exit:                ; preds = %_ZNSt3mapINSt7__cxx
   br i1 %204, label %.body89, label %201
 
 .body89:                                          ; preds = %201, %185, %82
-  %205 = phi i1 [ false, %82 ], [ false, %185 ], [ true, %201 ]
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %83, %82 ], [ %186, %185 ], [ %.pn.pn.pn, %201 ]
-  %.9 = phi i1 [ true, %82 ], [ true, %185 ], [ %.10, %201 ]
+  %205 = phi i1 [ false, %185 ], [ false, %82 ], [ true, %201 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %186, %185 ], [ %83, %82 ], [ %.pn.pn.pn, %201 ]
+  %.9 = phi i1 [ true, %185 ], [ true, %82 ], [ %.10, %201 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #19
   br label %.body79
 
@@ -4379,9 +4379,9 @@ _ZN10open_spiel8GameTypeD2Ev.exit:                ; preds = %_ZNSt3mapINSt7__cxx
   br i1 %212, label %.body72, label %209
 
 .body72:                                          ; preds = %209, %179, %46
-  %213 = phi i1 [ false, %46 ], [ false, %179 ], [ true, %209 ]
-  %.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %47, %46 ], [ %180, %179 ], [ %.pn.pn.pn.pn.pn.pn.pn, %209 ]
-  %.5 = phi i1 [ true, %46 ], [ true, %179 ], [ %.6, %209 ]
+  %213 = phi i1 [ false, %179 ], [ false, %46 ], [ true, %209 ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %180, %179 ], [ %47, %46 ], [ %.pn.pn.pn.pn.pn.pn.pn, %209 ]
+  %.5 = phi i1 [ true, %179 ], [ true, %46 ], [ %.6, %209 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #19
   br label %.body
 
@@ -5003,9 +5003,9 @@ _ZN10open_spiel8GameTypeD2Ev.exit:                ; preds = %_ZNSt3mapINSt7__cxx
   br label %.loopexit151
 
 .body64:                                          ; preds = %187, %72, %171
-  %191 = phi i1 [ false, %72 ], [ false, %171 ], [ true, %187 ]
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %73, %72 ], [ %172, %171 ], [ %.pn.pn.pn, %187 ]
-  %.7 = phi i1 [ true, %72 ], [ true, %171 ], [ %.8, %187 ]
+  %191 = phi i1 [ false, %171 ], [ false, %72 ], [ true, %187 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %172, %171 ], [ %73, %72 ], [ %.pn.pn.pn, %187 ]
+  %.7 = phi i1 [ true, %171 ], [ true, %72 ], [ %.8, %187 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #19
   br i1 %191, label %.loopexit151, label %.preheader150.preheader
@@ -5038,9 +5038,9 @@ _ZN10open_spiel8GameTypeD2Ev.exit:                ; preds = %_ZNSt3mapINSt7__cxx
   br label %.loopexit
 
 .body:                                            ; preds = %192, %40, %167
-  %196 = phi i1 [ false, %40 ], [ false, %167 ], [ true, %192 ]
-  %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %41, %40 ], [ %168, %167 ], [ %.pn.pn.pn.pn.pn.pn, %192 ]
-  %.4 = phi i1 [ true, %40 ], [ true, %167 ], [ %.5, %192 ]
+  %196 = phi i1 [ false, %167 ], [ false, %40 ], [ true, %192 ]
+  %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %168, %167 ], [ %41, %40 ], [ %.pn.pn.pn.pn.pn.pn, %192 ]
+  %.4 = phi i1 [ true, %167 ], [ true, %40 ], [ %.5, %192 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #19
   br i1 %196, label %.loopexit, label %.preheader.preheader
@@ -5646,9 +5646,9 @@ _ZN10open_spiel8GameTypeD2Ev.exit:                ; preds = %_ZNSt3mapINSt7__cxx
   br label %.loopexit151
 
 .body64:                                          ; preds = %187, %72, %171
-  %191 = phi i1 [ false, %72 ], [ false, %171 ], [ true, %187 ]
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %73, %72 ], [ %172, %171 ], [ %.pn.pn.pn, %187 ]
-  %.7 = phi i1 [ true, %72 ], [ true, %171 ], [ %.8, %187 ]
+  %191 = phi i1 [ false, %171 ], [ false, %72 ], [ true, %187 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %172, %171 ], [ %73, %72 ], [ %.pn.pn.pn, %187 ]
+  %.7 = phi i1 [ true, %171 ], [ true, %72 ], [ %.8, %187 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #19
   br i1 %191, label %.loopexit151, label %.preheader150.preheader
@@ -5681,9 +5681,9 @@ _ZN10open_spiel8GameTypeD2Ev.exit:                ; preds = %_ZNSt3mapINSt7__cxx
   br label %.loopexit
 
 .body:                                            ; preds = %192, %40, %167
-  %196 = phi i1 [ false, %40 ], [ false, %167 ], [ true, %192 ]
-  %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %41, %40 ], [ %168, %167 ], [ %.pn.pn.pn.pn.pn.pn, %192 ]
-  %.4 = phi i1 [ true, %40 ], [ true, %167 ], [ %.5, %192 ]
+  %196 = phi i1 [ false, %167 ], [ false, %40 ], [ true, %192 ]
+  %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %168, %167 ], [ %41, %40 ], [ %.pn.pn.pn.pn.pn.pn, %192 ]
+  %.4 = phi i1 [ true, %167 ], [ true, %40 ], [ %.5, %192 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #19
   br i1 %196, label %.loopexit, label %.preheader.preheader
@@ -6289,9 +6289,9 @@ _ZN10open_spiel8GameTypeD2Ev.exit:                ; preds = %_ZNSt3mapINSt7__cxx
   br label %.loopexit151
 
 .body64:                                          ; preds = %187, %72, %171
-  %191 = phi i1 [ false, %72 ], [ false, %171 ], [ true, %187 ]
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %73, %72 ], [ %172, %171 ], [ %.pn.pn.pn, %187 ]
-  %.7 = phi i1 [ true, %72 ], [ true, %171 ], [ %.8, %187 ]
+  %191 = phi i1 [ false, %171 ], [ false, %72 ], [ true, %187 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %172, %171 ], [ %73, %72 ], [ %.pn.pn.pn, %187 ]
+  %.7 = phi i1 [ true, %171 ], [ true, %72 ], [ %.8, %187 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #19
   br i1 %191, label %.loopexit151, label %.preheader150.preheader
@@ -6324,9 +6324,9 @@ _ZN10open_spiel8GameTypeD2Ev.exit:                ; preds = %_ZNSt3mapINSt7__cxx
   br label %.loopexit
 
 .body:                                            ; preds = %192, %40, %167
-  %196 = phi i1 [ false, %40 ], [ false, %167 ], [ true, %192 ]
-  %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %41, %40 ], [ %168, %167 ], [ %.pn.pn.pn.pn.pn.pn, %192 ]
-  %.4 = phi i1 [ true, %40 ], [ true, %167 ], [ %.5, %192 ]
+  %196 = phi i1 [ false, %167 ], [ false, %40 ], [ true, %192 ]
+  %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %168, %167 ], [ %41, %40 ], [ %.pn.pn.pn.pn.pn.pn, %192 ]
+  %.4 = phi i1 [ true, %167 ], [ true, %40 ], [ %.5, %192 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #19
   br i1 %196, label %.loopexit, label %.preheader.preheader
@@ -6932,9 +6932,9 @@ _ZN10open_spiel8GameTypeD2Ev.exit:                ; preds = %_ZNSt3mapINSt7__cxx
   br label %.loopexit151
 
 .body64:                                          ; preds = %187, %72, %171
-  %191 = phi i1 [ false, %72 ], [ false, %171 ], [ true, %187 ]
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %73, %72 ], [ %172, %171 ], [ %.pn.pn.pn, %187 ]
-  %.7 = phi i1 [ true, %72 ], [ true, %171 ], [ %.8, %187 ]
+  %191 = phi i1 [ false, %171 ], [ false, %72 ], [ true, %187 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %172, %171 ], [ %73, %72 ], [ %.pn.pn.pn, %187 ]
+  %.7 = phi i1 [ true, %171 ], [ true, %72 ], [ %.8, %187 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #19
   br i1 %191, label %.loopexit151, label %.preheader150.preheader
@@ -6967,9 +6967,9 @@ _ZN10open_spiel8GameTypeD2Ev.exit:                ; preds = %_ZNSt3mapINSt7__cxx
   br label %.loopexit
 
 .body:                                            ; preds = %192, %40, %167
-  %196 = phi i1 [ false, %40 ], [ false, %167 ], [ true, %192 ]
-  %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %41, %40 ], [ %168, %167 ], [ %.pn.pn.pn.pn.pn.pn, %192 ]
-  %.4 = phi i1 [ true, %40 ], [ true, %167 ], [ %.5, %192 ]
+  %196 = phi i1 [ false, %167 ], [ false, %40 ], [ true, %192 ]
+  %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %168, %167 ], [ %41, %40 ], [ %.pn.pn.pn.pn.pn.pn, %192 ]
+  %.4 = phi i1 [ true, %167 ], [ true, %40 ], [ %.5, %192 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #19
   br i1 %196, label %.loopexit, label %.preheader.preheader
@@ -7575,9 +7575,9 @@ _ZN10open_spiel8GameTypeD2Ev.exit:                ; preds = %_ZNSt3mapINSt7__cxx
   br label %.loopexit151
 
 .body64:                                          ; preds = %187, %72, %171
-  %191 = phi i1 [ false, %72 ], [ false, %171 ], [ true, %187 ]
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %73, %72 ], [ %172, %171 ], [ %.pn.pn.pn, %187 ]
-  %.7 = phi i1 [ true, %72 ], [ true, %171 ], [ %.8, %187 ]
+  %191 = phi i1 [ false, %171 ], [ false, %72 ], [ true, %187 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %172, %171 ], [ %73, %72 ], [ %.pn.pn.pn, %187 ]
+  %.7 = phi i1 [ true, %171 ], [ true, %72 ], [ %.8, %187 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #19
   br i1 %191, label %.loopexit151, label %.preheader150.preheader
@@ -7610,9 +7610,9 @@ _ZN10open_spiel8GameTypeD2Ev.exit:                ; preds = %_ZNSt3mapINSt7__cxx
   br label %.loopexit
 
 .body:                                            ; preds = %192, %40, %167
-  %196 = phi i1 [ false, %40 ], [ false, %167 ], [ true, %192 ]
-  %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %41, %40 ], [ %168, %167 ], [ %.pn.pn.pn.pn.pn.pn, %192 ]
-  %.4 = phi i1 [ true, %40 ], [ true, %167 ], [ %.5, %192 ]
+  %196 = phi i1 [ false, %167 ], [ false, %40 ], [ true, %192 ]
+  %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %168, %167 ], [ %41, %40 ], [ %.pn.pn.pn.pn.pn.pn, %192 ]
+  %.4 = phi i1 [ true, %167 ], [ true, %40 ], [ %.5, %192 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #19
   br i1 %196, label %.loopexit, label %.preheader.preheader

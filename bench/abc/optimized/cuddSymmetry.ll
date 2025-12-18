@@ -1106,7 +1106,7 @@ define internal fastcc range(i32 0, 2) i32 @ddSymmSiftingAux(ptr noundef %0, i32
   br label %.loopexit352
 
 .loopexit352:                                     ; preds = %.thread424.thread, %.preheader351, %..loopexit352_crit_edge, %.loopexit, %.thread424, %91, %85, %59, %57
-  %.0293 = phi i32 [ 1, %85 ], [ 1, %57 ], [ 1, %91 ], [ 1, %59 ], [ 0, %.thread424 ], [ 0, %.loopexit ], [ 1, %..loopexit352_crit_edge ], [ 1, %.preheader351 ], [ 0, %.thread424.thread ]
+  %.0293 = phi i32 [ 1, %85 ], [ 0, %.loopexit ], [ 1, %57 ], [ 1, %91 ], [ 1, %59 ], [ 0, %.thread424 ], [ 1, %..loopexit352_crit_edge ], [ 1, %.preheader351 ], [ 0, %.thread424.thread ]
   ret i32 %.0293
 }
 
@@ -2231,7 +2231,7 @@ define internal fastcc ptr @ddSymmSiftingDown(ptr noundef %0, i32 noundef %1, i3
   br label %.loopexit183
 
 .loopexit183:                                     ; preds = %98, %170, %..loopexit_crit_edge, %._crit_edge, %.critedge.loopexit, %138
-  %.0139 = phi ptr [ null, %._crit_edge ], [ %139, %138 ], [ inttoptr (i64 1 to ptr), %170 ], [ %.pre, %.critedge.loopexit ], [ inttoptr (i64 1 to ptr), %..loopexit_crit_edge ], [ %96, %98 ]
+  %.0139 = phi ptr [ inttoptr (i64 1 to ptr), %170 ], [ null, %._crit_edge ], [ %139, %138 ], [ %.pre, %.critedge.loopexit ], [ inttoptr (i64 1 to ptr), %..loopexit_crit_edge ], [ %96, %98 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0139
 }
@@ -2414,7 +2414,7 @@ ddSymmGroupMoveBackward.exit:                     ; preds = %23
   br i1 %.not31, label %ddSymmGroupMoveBackward.exit.thread, label %9, !llvm.loop !115
 
 ddSymmGroupMoveBackward.exit.thread:              ; preds = %9, %ddSymmGroupMoveBackward.exit, %74, %46, %3
-  %.027 = phi i32 [ 1, %3 ], [ 0, %46 ], [ 1, %9 ], [ 1, %74 ], [ 0, %ddSymmGroupMoveBackward.exit ]
+  %.027 = phi i32 [ 0, %46 ], [ 1, %3 ], [ 0, %ddSymmGroupMoveBackward.exit ], [ 1, %9 ], [ 1, %74 ]
   ret i32 %.027
 }
 

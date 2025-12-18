@@ -690,7 +690,7 @@ fmap_unneed_page.exit:                            ; preds = %52, %56, %57, %58
   br i1 %.not95, label %.thread, label %44
 
 .thread:                                          ; preds = %35, %fmap_unneed_page.exit, %.loopexit, %._crit_edge, %14
-  %.071 = phi ptr [ null, %._crit_edge ], [ null, %14 ], [ null, %.loopexit ], [ null, %fmap_unneed_page.exit ], [ %8, %35 ]
+  %.071 = phi ptr [ null, %.loopexit ], [ null, %._crit_edge ], [ null, %14 ], [ null, %fmap_unneed_page.exit ], [ %8, %35 ]
   ret ptr %.071
 }
 
@@ -2065,7 +2065,7 @@ define internal fastcc range(i32 0, 2) i32 @fmap_readpage(ptr noundef captures(n
   br i1 %.not, label %.thread166, label %37
 
 .thread166:                                       ; preds = %39, %.loopexit, %101, %103, %51, %82, %16
-  %.0 = phi i32 [ 1, %16 ], [ 1, %51 ], [ 1, %82 ], [ 1, %103 ], [ 1, %101 ], [ 0, %.loopexit ], [ 0, %39 ]
+  %.0 = phi i32 [ 1, %16 ], [ 1, %101 ], [ 1, %51 ], [ 1, %103 ], [ 1, %82 ], [ 0, %.loopexit ], [ 0, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }

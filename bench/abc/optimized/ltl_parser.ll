@@ -1238,7 +1238,7 @@ Vec_PtrPush.exit61:                               ; preds = %.Vec_PtrGrow.exit11
   unreachable
 
 .loopexit.sink.split:                             ; preds = %122, %68, %Vec_PtrPush.exit61, %._crit_edge.loopexit.split.loop.exit12.i68, %Vec_PtrFind.exit54, %Vec_PtrPush.exit, %._crit_edge.loopexit.split.loop.exit12.i45, %Vec_PtrFind.exit
-  %.0.sink = phi i32 [ %30, %Vec_PtrFind.exit ], [ -1, %Vec_PtrPush.exit ], [ %69, %._crit_edge.loopexit.split.loop.exit12.i45 ], [ %84, %Vec_PtrFind.exit54 ], [ -1, %Vec_PtrPush.exit61 ], [ %123, %._crit_edge.loopexit.split.loop.exit12.i68 ], [ -1, %68 ], [ -1, %122 ]
+  %.0.sink = phi i32 [ -1, %68 ], [ %30, %Vec_PtrFind.exit ], [ -1, %Vec_PtrPush.exit ], [ %69, %._crit_edge.loopexit.split.loop.exit12.i45 ], [ %84, %Vec_PtrFind.exit54 ], [ -1, %Vec_PtrPush.exit61 ], [ %123, %._crit_edge.loopexit.split.loop.exit12.i68 ], [ -1, %122 ]
   tail call fastcc void @Vec_VecPush(ptr noundef %3, i32 noundef %.0.sink, ptr noundef nonnull %.tr72)
   br label %.loopexit
 
@@ -1605,7 +1605,7 @@ tailrecurse.backedge:                             ; preds = %3, %tailrecurse
   br label %.loopexit
 
 .loopexit:                                        ; preds = %3, %tailrecurse, %.loopexit.loopexit, %8, %12
-  %.0 = phi i32 [ %15, %12 ], [ 0, %8 ], [ 1, %.loopexit.loopexit ], [ 0, %tailrecurse ], [ 0, %3 ]
+  %.0 = phi i32 [ 1, %.loopexit.loopexit ], [ %15, %12 ], [ 0, %8 ], [ 0, %tailrecurse ], [ 0, %3 ]
   ret i32 %.0
 }
 
@@ -1888,7 +1888,7 @@ tailrecurse.backedge:                             ; preds = %10, %tailrecurse, %
   unreachable
 
 .loopexit:                                        ; preds = %10, %3, %6
-  %.0 = phi i32 [ 0, %6 ], [ 1, %3 ], [ 0, %10 ]
+  %.0 = phi i32 [ 1, %3 ], [ 0, %6 ], [ 0, %10 ]
   ret i32 %.0
 }
 

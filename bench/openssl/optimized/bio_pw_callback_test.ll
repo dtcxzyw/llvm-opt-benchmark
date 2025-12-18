@@ -131,7 +131,7 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %1, %9, %5, %12
-  %.0 = phi i32 [ 1, %12 ], [ 0, %5 ], [ 0, %9 ], [ 0, %1 ]
+  %.0 = phi i32 [ 0, %9 ], [ 1, %12 ], [ 0, %5 ], [ 0, %1 ]
   ret i32 %.0
 }
 
@@ -360,8 +360,8 @@ define internal fastcc range(i32 0, 2) i32 @full_cycle_test(i32 noundef range(i3
   br i1 %.not.i7, label %decrypt_key.exit, label %48
 
 re_encrypt_key.exit:                              ; preds = %4, %12, %14, %26, %28, %31, %34
-  %46 = phi ptr [ %.pre.i, %34 ], [ null, %31 ], [ null, %28 ], [ null, %26 ], [ null, %14 ], [ null, %12 ], [ null, %4 ]
-  %.012.i = phi ptr [ %16, %34 ], [ %16, %31 ], [ %16, %28 ], [ %16, %26 ], [ %16, %14 ], [ null, %12 ], [ null, %4 ]
+  %46 = phi ptr [ null, %4 ], [ %.pre.i, %34 ], [ null, %31 ], [ null, %28 ], [ null, %26 ], [ null, %14 ], [ null, %12 ]
+  %.012.i = phi ptr [ null, %4 ], [ %16, %34 ], [ %16, %31 ], [ %16, %28 ], [ %16, %26 ], [ %16, %14 ], [ null, %12 ]
   call void @BUF_MEM_free(ptr noundef %46) #7
   %47 = call i32 @BIO_free(ptr noundef %.012.i) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

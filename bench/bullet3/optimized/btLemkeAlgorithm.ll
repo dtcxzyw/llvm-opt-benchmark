@@ -1005,8 +1005,8 @@ _ZN16btLemkeAlgorithm10validBasisERK20btAlignedObjectArrayIiE.exit.thread: ; pre
   br i1 %exitcond260.not, label %_ZN16btLemkeAlgorithm10validBasisERK20btAlignedObjectArrayIiE.exit, label %328, !llvm.loop !62
 
 _ZN16btLemkeAlgorithm10validBasisERK20btAlignedObjectArrayIiE.exit: ; preds = %317, %328, %_ZN16btLemkeAlgorithm10validBasisERK20btAlignedObjectArrayIiE.exit.thread, %.loopexit
-  %.sink = phi i32 [ 0, %.loopexit ], [ 0, %_ZN16btLemkeAlgorithm10validBasisERK20btAlignedObjectArrayIiE.exit.thread ], [ 0, %328 ], [ -1, %317 ]
-  %335 = phi ptr [ %184, %.loopexit ], [ %320, %_ZN16btLemkeAlgorithm10validBasisERK20btAlignedObjectArrayIiE.exit.thread ], [ %320, %328 ], [ %184, %317 ]
+  %.sink = phi i32 [ 0, %328 ], [ 0, %_ZN16btLemkeAlgorithm10validBasisERK20btAlignedObjectArrayIiE.exit.thread ], [ 0, %.loopexit ], [ -1, %317 ]
+  %335 = phi ptr [ %320, %328 ], [ %320, %_ZN16btLemkeAlgorithm10validBasisERK20btAlignedObjectArrayIiE.exit.thread ], [ %184, %.loopexit ], [ %184, %317 ]
   %336 = getelementptr inbounds nuw i8, ptr %1, i64 136
   store i32 %.sink, ptr %336, align 8, !tbaa !63
   call void @llvm.lifetime.end.p0(ptr nonnull %10)

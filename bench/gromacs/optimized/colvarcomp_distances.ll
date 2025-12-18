@@ -3582,8 +3582,8 @@ _ZN12colvarmodule13integer_powerERKdi.exit25:     ; preds = %156, %._crit_edge.i
   br i1 %.not94, label %._crit_edge.loopexit, label %156, !llvm.loop !263
 
 .loopexit:                                        ; preds = %._crit_edge.split, %._crit_edge.split.us.us, %._crit_edge, %.lr.ph112, %.lr.ph102, %15, %130
-  %205 = phi double [ 0.000000e+00, %130 ], [ 0.000000e+00, %.lr.ph112 ], [ 0.000000e+00, %.lr.ph102 ], [ 0.000000e+00, %15 ], [ %52, %._crit_edge.split.us.us ], [ %.pre127, %._crit_edge ], [ %107, %._crit_edge.split ]
-  %206 = phi ptr [ %10, %130 ], [ %10, %.lr.ph112 ], [ %10, %.lr.ph102 ], [ %10, %15 ], [ %10, %._crit_edge.split.us.us ], [ %151, %._crit_edge ], [ %10, %._crit_edge.split ]
+  %205 = phi double [ %52, %._crit_edge.split.us.us ], [ %.pre127, %._crit_edge ], [ 0.000000e+00, %130 ], [ 0.000000e+00, %.lr.ph112 ], [ 0.000000e+00, %.lr.ph102 ], [ 0.000000e+00, %15 ], [ %107, %._crit_edge.split ]
+  %206 = phi ptr [ %10, %._crit_edge.split.us.us ], [ %151, %._crit_edge ], [ %10, %130 ], [ %10, %.lr.ph112 ], [ %10, %.lr.ph102 ], [ %10, %15 ], [ %10, %._crit_edge.split ]
   %207 = getelementptr inbounds nuw i8, ptr %206, i64 504
   %208 = getelementptr inbounds nuw i8, ptr %206, i64 512
   %209 = load ptr, ptr %208, align 8, !tbaa !264
@@ -11332,7 +11332,7 @@ define void @_ZN6colvar4rmsd10calc_valueEv(ptr noundef nonnull align 8 captures(
   br i1 %exitcond.not, label %.thread, label %50, !llvm.loop !491
 
 ._crit_edge38:                                    ; preds = %23, %14, %.thread
-  %73 = phi double [ %71, %.thread ], [ 0.000000e+00, %14 ], [ %.014.lcssa33.us, %23 ]
+  %73 = phi double [ 0.000000e+00, %14 ], [ %71, %.thread ], [ %.014.lcssa33.us, %23 ]
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 600
   %75 = uitofp i64 %11 to double
   %76 = fdiv double %73, %75

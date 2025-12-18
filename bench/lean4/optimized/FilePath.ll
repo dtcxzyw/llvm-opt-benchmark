@@ -494,9 +494,6 @@ lean_dec.exit45:                                  ; preds = %30, %29, %27, %21
   %.not72 = icmp eq i64 %32, 0
   br i1 %.not72, label %33, label %lean_inc.exit.outer.backedge
 
-lean_inc.exit.outer.backedge:                     ; preds = %lean_dec.exit45, %38, %37, %35
-  br label %lean_inc.exit.outer
-
 33:                                               ; preds = %lean_dec.exit45
   %.val.i = load i32, ptr %17, align 4, !tbaa !8
   %34 = icmp sgt i32 %.val.i, 0
@@ -506,6 +503,9 @@ lean_inc.exit.outer.backedge:                     ; preds = %lean_dec.exit45, %3
   %36 = add nuw i32 %.val.i, 1
   store i32 %36, ptr %17, align 4, !tbaa !8
   br label %lean_inc.exit.outer.backedge
+
+lean_inc.exit.outer.backedge:                     ; preds = %35, %lean_dec.exit45, %38, %37
+  br label %lean_inc.exit.outer
 
 37:                                               ; preds = %33
   %.not.i57 = icmp eq i32 %.val.i, 0

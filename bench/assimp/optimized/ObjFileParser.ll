@@ -2218,7 +2218,7 @@ _ZN6AssimpL10isNanOrInfEPKc.exit.fold.split:      ; preds = %switch.early.test
   br label %_ZN6AssimpL10isNanOrInfEPKc.exit
 
 _ZN6AssimpL10isNanOrInfEPKc.exit:                 ; preds = %switch.early.test, %switch.early.test, %_ZN6AssimpL10isNanOrInfEPKc.exit.fold.split, %21, %27, %26, %23
-  %31 = phi i64 [ 1, %switch.early.test ], [ 1, %23 ], [ 0, %26 ], [ %30, %27 ], [ 1, %21 ], [ 1, %switch.early.test ], [ 0, %_ZN6AssimpL10isNanOrInfEPKc.exit.fold.split ]
+  %31 = phi i64 [ 1, %switch.early.test ], [ 1, %23 ], [ 0, %26 ], [ %30, %27 ], [ 1, %switch.early.test ], [ 1, %21 ], [ 0, %_ZN6AssimpL10isNanOrInfEPKc.exit.fold.split ]
   %32 = ptrtoint ptr %.0.lcssa.i.i to i64
   %33 = sub i64 %5, %32
   %scevgep.i.i.i = getelementptr i8, ptr %.0.lcssa.i.i, i64 %33
@@ -11761,7 +11761,7 @@ define linkonce_odr hidden void @_ZSt9__find_ifISt16reverse_iteratorIN9__gnu_cxx
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %._crit_edge, %78, %70, %59, %50, %38, %30, %22
-  %.sink = phi i64 [ %72, %70 ], [ %61, %59 ], [ %47, %50 ], [ %.cast17, %38 ], [ %.cast16, %30 ], [ %.cast, %22 ], [ %.pre, %78 ], [ %46, %._crit_edge ], [ %10, %.lr.ph ]
+  %.sink = phi i64 [ %72, %70 ], [ %61, %59 ], [ %47, %50 ], [ %46, %._crit_edge ], [ %.cast17, %38 ], [ %.cast16, %30 ], [ %.cast, %22 ], [ %.pre, %78 ], [ %10, %.lr.ph ]
   store i64 %.sink, ptr %0, align 8
   ret void
 }

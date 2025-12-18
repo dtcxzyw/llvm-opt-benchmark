@@ -1285,10 +1285,10 @@ _ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.e
   br i1 %exitcond553.not, label %.loopexit406, label %228, !llvm.loop !64
 
 .loopexit406:                                     ; preds = %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit257, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit247, %.preheader407, %.preheader405
-  %.sroa.8393.1 = phi float [ 0.000000e+00, %.preheader405 ], [ 0.000000e+00, %.preheader407 ], [ %202, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit247 ], [ %259, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit257 ]
-  %.sroa.0390.1 = phi float [ 0.000000e+00, %.preheader405 ], [ 0.000000e+00, %.preheader407 ], [ %201, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit247 ], [ %258, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit257 ]
-  %.sroa.8387.1 = phi float [ 0.000000e+00, %.preheader405 ], [ 0.000000e+00, %.preheader407 ], [ %227, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit247 ], [ %284, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit257 ]
-  %.sroa.0384.1 = phi float [ 0.000000e+00, %.preheader405 ], [ 0.000000e+00, %.preheader407 ], [ %226, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit247 ], [ %283, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit257 ]
+  %.sroa.8393.1 = phi float [ %202, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit247 ], [ 0.000000e+00, %.preheader405 ], [ 0.000000e+00, %.preheader407 ], [ %259, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit257 ]
+  %.sroa.0390.1 = phi float [ %201, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit247 ], [ 0.000000e+00, %.preheader405 ], [ 0.000000e+00, %.preheader407 ], [ %258, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit257 ]
+  %.sroa.8387.1 = phi float [ %227, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit247 ], [ 0.000000e+00, %.preheader405 ], [ 0.000000e+00, %.preheader407 ], [ %284, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit257 ]
+  %.sroa.0384.1 = phi float [ %226, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit247 ], [ 0.000000e+00, %.preheader405 ], [ 0.000000e+00, %.preheader407 ], [ %283, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit257 ]
   %285 = fadd float %.sroa.0390.1, 0.000000e+00
   %286 = fadd float %.sroa.8393.1, 0.000000e+00
   %287 = fsub float %285, %.sroa.0384.1
@@ -1563,10 +1563,10 @@ _ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.e
   br i1 %exitcond568.not, label %.loopexit, label %396, !llvm.loop !67
 
 .loopexit:                                        ; preds = %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit277, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit267, %.preheader402, %.preheader401
-  %.sroa.8375.1 = phi float [ 0.000000e+00, %.preheader401 ], [ 0.000000e+00, %.preheader402 ], [ %372, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit267 ], [ %426, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit277 ]
-  %.sroa.0372.1 = phi float [ 0.000000e+00, %.preheader401 ], [ 0.000000e+00, %.preheader402 ], [ %371, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit267 ], [ %425, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit277 ]
-  %.sroa.8369.1 = phi float [ 0.000000e+00, %.preheader401 ], [ 0.000000e+00, %.preheader402 ], [ %395, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit267 ], [ %449, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit277 ]
-  %.sroa.0366.1 = phi float [ 0.000000e+00, %.preheader401 ], [ 0.000000e+00, %.preheader402 ], [ %394, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit267 ], [ %448, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit277 ]
+  %.sroa.8375.1 = phi float [ %372, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit267 ], [ 0.000000e+00, %.preheader401 ], [ 0.000000e+00, %.preheader402 ], [ %426, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit277 ]
+  %.sroa.0372.1 = phi float [ %371, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit267 ], [ 0.000000e+00, %.preheader401 ], [ 0.000000e+00, %.preheader402 ], [ %425, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit277 ]
+  %.sroa.8369.1 = phi float [ %395, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit267 ], [ 0.000000e+00, %.preheader401 ], [ 0.000000e+00, %.preheader402 ], [ %449, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit277 ]
+  %.sroa.0366.1 = phi float [ %394, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit267 ], [ 0.000000e+00, %.preheader401 ], [ 0.000000e+00, %.preheader402 ], [ %448, %_ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.exit277 ]
   %450 = fadd float %.sroa.0372.1, 0.000000e+00
   %451 = fadd float %.sroa.8375.1, 0.000000e+00
   %452 = fsub float %450, %.sroa.0366.1
@@ -2301,7 +2301,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %50
   br i1 %86, label %.loopexit, label %83
 
 .loopexit:                                        ; preds = %83, %.loopexit.loopexit57, %.thread
-  %.pn35.pn = phi { ptr, i32 } [ %59, %.thread ], [ %79, %.loopexit.loopexit57 ], [ %81, %83 ]
+  %.pn35.pn = phi { ptr, i32 } [ %79, %.loopexit.loopexit57 ], [ %59, %.thread ], [ %81, %83 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #21
   br label %87

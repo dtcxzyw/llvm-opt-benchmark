@@ -720,7 +720,7 @@ define dso_local range(i32 0, 2) i32 @ww_mutex_trylock(ptr noundef %0, ptr nound
   br label %.thread3
 
 .thread3:                                         ; preds = %41, %12, %18, %63, %56
-  %65 = phi i32 [ 1, %63 ], [ 1, %56 ], [ 1, %18 ], [ 0, %12 ], [ 0, %41 ]
+  %65 = phi i32 [ 1, %18 ], [ 1, %63 ], [ 1, %56 ], [ 0, %12 ], [ 0, %41 ]
   ret i32 %65
 }
 
@@ -3241,7 +3241,7 @@ __ww_mutex_check_waiters.exit:                    ; preds = %259, %.loopexit.sin
   br label %669
 
 .loopexit80.loopexit111:                          ; preds = %445, %440, %425, %429
-  %.ph71.ph = phi i32 [ -35, %445 ], [ -35, %440 ], [ -4, %425 ], [ -4, %429 ]
+  %.ph71.ph = phi i32 [ -35, %440 ], [ -4, %429 ], [ -4, %425 ], [ -35, %445 ]
   %.pre = load ptr, ptr %399, align 8
   br label %.loopexit80
 

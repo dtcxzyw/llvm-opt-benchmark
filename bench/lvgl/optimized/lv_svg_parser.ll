@@ -1195,7 +1195,7 @@ _skip_space.exit.i:                               ; preds = %295, %289, %285
   br label %_process_preserve_aspect_ratio.exit
 
 _process_preserve_aspect_ratio.exit:              ; preds = %276, %.thread36.i, %_skip_space.exit.i, %299
-  %.1.i = phi i32 [ %.03141.i, %_skip_space.exit.i ], [ %spec.select.i118, %299 ], [ %.03141.i, %.thread36.i ], [ 0, %276 ]
+  %.1.i = phi i32 [ %.03141.i, %.thread36.i ], [ %.03141.i, %_skip_space.exit.i ], [ %spec.select.i118, %299 ], [ 0, %276 ]
   %303 = getelementptr inbounds nuw i8, ptr %267, i64 8
   store i32 %.1.i, ptr %303, align 8, !tbaa !36
   br label %_process_view_box.exit
@@ -2541,13 +2541,13 @@ _parse_number.exit479.i:                          ; preds = %710, %.critedge.i46
   br label %.thread570.i
 
 718:                                              ; preds = %_parse_number.exit479.i, %642, %603, %555, %_parse_number.exit343.i, %_parse_number.exit326.i, %_parse_number.exit309.i, %_parse_number.exit275.i
-  %.3242.i = phi ptr [ %.0.i263.i, %_parse_number.exit275.i ], [ %.0.i297.i, %_parse_number.exit309.i ], [ %.0.i314.i, %_parse_number.exit326.i ], [ %.0.i331.i, %_parse_number.exit343.i ], [ %.0.i365.i, %555 ], [ %.0.i399.i, %603 ], [ %.0.i433.i, %642 ], [ %.0.i467.i, %_parse_number.exit479.i ]
-  %.sroa.5.2.i = phi float [ %.0536.i, %_parse_number.exit275.i ], [ %.sroa.5.0614.i, %_parse_number.exit309.i ], [ %.sroa.5.0614.i, %_parse_number.exit326.i ], [ %.sroa.5.0614.i, %_parse_number.exit343.i ], [ %.sroa.5.0614.i, %555 ], [ %.sroa.5.0614.i, %603 ], [ %.sroa.5.0614.i, %642 ], [ %.sroa.5.0614.i, %_parse_number.exit479.i ]
-  %.sroa.0.2.i = phi float [ %.0538.i, %_parse_number.exit275.i ], [ %.sroa.0.0615.i, %_parse_number.exit309.i ], [ %.sroa.0.0615.i, %_parse_number.exit326.i ], [ %.sroa.0.0615.i, %_parse_number.exit343.i ], [ %.sroa.0.0615.i, %555 ], [ %.sroa.0.0615.i, %603 ], [ %.sroa.0.0615.i, %642 ], [ %.sroa.0.0615.i, %_parse_number.exit479.i ]
-  %.sroa.9.2.i = phi float [ %.sroa.9.0616.i, %_parse_number.exit275.i ], [ %.sroa.9.0616.i, %_parse_number.exit309.i ], [ %.sroa.9.0616.i, %_parse_number.exit326.i ], [ %.sroa.9.0616.i, %_parse_number.exit343.i ], [ %559, %555 ], [ %607, %603 ], [ %645, %642 ], [ %716, %_parse_number.exit479.i ]
-  %.sroa.0128.2.i = phi float [ %.sroa.0128.0617.i, %_parse_number.exit275.i ], [ %.sroa.0128.0617.i, %_parse_number.exit309.i ], [ %.sroa.0128.0617.i, %_parse_number.exit326.i ], [ %.sroa.0128.0617.i, %_parse_number.exit343.i ], [ %557, %555 ], [ %605, %603 ], [ %643, %642 ], [ %715, %_parse_number.exit479.i ]
-  %.sroa.23.2.i = phi float [ %.0536.i, %_parse_number.exit275.i ], [ %.0532.i, %_parse_number.exit309.i ], [ %.sroa.23.0618.i, %_parse_number.exit326.i ], [ %.0528.i, %_parse_number.exit343.i ], [ %563, %555 ], [ %611, %603 ], [ %649, %642 ], [ %.0.i164, %_parse_number.exit479.i ]
-  %.sroa.0131.2.i = phi float [ %.0538.i, %_parse_number.exit275.i ], [ %.0534.i, %_parse_number.exit309.i ], [ %.0530.i, %_parse_number.exit326.i ], [ %.sroa.0131.0619.i, %_parse_number.exit343.i ], [ %561, %555 ], [ %609, %603 ], [ %647, %642 ], [ %.0514.i, %_parse_number.exit479.i ]
+  %.3242.i = phi ptr [ %.0.i467.i, %_parse_number.exit479.i ], [ %.0.i263.i, %_parse_number.exit275.i ], [ %.0.i297.i, %_parse_number.exit309.i ], [ %.0.i314.i, %_parse_number.exit326.i ], [ %.0.i331.i, %_parse_number.exit343.i ], [ %.0.i365.i, %555 ], [ %.0.i399.i, %603 ], [ %.0.i433.i, %642 ]
+  %.sroa.5.2.i = phi float [ %.sroa.5.0614.i, %_parse_number.exit479.i ], [ %.0536.i, %_parse_number.exit275.i ], [ %.sroa.5.0614.i, %_parse_number.exit309.i ], [ %.sroa.5.0614.i, %_parse_number.exit326.i ], [ %.sroa.5.0614.i, %_parse_number.exit343.i ], [ %.sroa.5.0614.i, %555 ], [ %.sroa.5.0614.i, %603 ], [ %.sroa.5.0614.i, %642 ]
+  %.sroa.0.2.i = phi float [ %.sroa.0.0615.i, %_parse_number.exit479.i ], [ %.0538.i, %_parse_number.exit275.i ], [ %.sroa.0.0615.i, %_parse_number.exit309.i ], [ %.sroa.0.0615.i, %_parse_number.exit326.i ], [ %.sroa.0.0615.i, %_parse_number.exit343.i ], [ %.sroa.0.0615.i, %555 ], [ %.sroa.0.0615.i, %603 ], [ %.sroa.0.0615.i, %642 ]
+  %.sroa.9.2.i = phi float [ %716, %_parse_number.exit479.i ], [ %.sroa.9.0616.i, %_parse_number.exit275.i ], [ %.sroa.9.0616.i, %_parse_number.exit309.i ], [ %.sroa.9.0616.i, %_parse_number.exit326.i ], [ %.sroa.9.0616.i, %_parse_number.exit343.i ], [ %559, %555 ], [ %607, %603 ], [ %645, %642 ]
+  %.sroa.0128.2.i = phi float [ %715, %_parse_number.exit479.i ], [ %.sroa.0128.0617.i, %_parse_number.exit275.i ], [ %.sroa.0128.0617.i, %_parse_number.exit309.i ], [ %.sroa.0128.0617.i, %_parse_number.exit326.i ], [ %.sroa.0128.0617.i, %_parse_number.exit343.i ], [ %557, %555 ], [ %605, %603 ], [ %643, %642 ]
+  %.sroa.23.2.i = phi float [ %.0.i164, %_parse_number.exit479.i ], [ %.0536.i, %_parse_number.exit275.i ], [ %.0532.i, %_parse_number.exit309.i ], [ %.sroa.23.0618.i, %_parse_number.exit326.i ], [ %.0528.i, %_parse_number.exit343.i ], [ %563, %555 ], [ %611, %603 ], [ %649, %642 ]
+  %.sroa.0131.2.i = phi float [ %.0514.i, %_parse_number.exit479.i ], [ %.0538.i, %_parse_number.exit275.i ], [ %.0534.i, %_parse_number.exit309.i ], [ %.0530.i, %_parse_number.exit326.i ], [ %.sroa.0131.0619.i, %_parse_number.exit343.i ], [ %561, %555 ], [ %609, %603 ], [ %647, %642 ]
   %.not250.i = icmp eq ptr %.3242.i, null
   br i1 %.not250.i, label %_process_path_value.exit, label %.thread570.i
 

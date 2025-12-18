@@ -349,7 +349,7 @@ define dso_local i32 @hex_dump_to_buffer(ptr noundef readonly captures(none) %0,
   br label %.loopexit17
 
 .loopexit17:                                      ; preds = %.preheader22, %.preheader19, %.preheader16, %137, %50, %44, %37
-  %141 = phi i32 [ %140, %137 ], [ 0, %50 ], [ 0, %44 ], [ 0, %37 ], [ %83, %.preheader19 ], [ %68, %.preheader16 ], [ %99, %.preheader22 ]
+  %141 = phi i32 [ %68, %.preheader16 ], [ %83, %.preheader19 ], [ 0, %37 ], [ %140, %137 ], [ 0, %50 ], [ 0, %44 ], [ %99, %.preheader22 ]
   br i1 %6, label %142, label %.loopexit14
 
 142:                                              ; preds = %.loopexit17
@@ -427,7 +427,7 @@ define dso_local i32 @hex_dump_to_buffer(ptr noundef readonly captures(none) %0,
   br label %.loopexit
 
 .loopexit:                                        ; preds = %122, %108, %.preheader, %.loopexit67, %185
-  %187 = phi i32 [ %186, %185 ], [ %158, %.loopexit67 ], [ %105, %122 ], [ %116, %108 ], [ %103, %.preheader ]
+  %187 = phi i32 [ %186, %185 ], [ %158, %.loopexit67 ], [ %116, %108 ], [ %103, %.preheader ], [ %105, %122 ]
   %188 = sext i32 %187 to i64
   %189 = getelementptr i8, ptr %4, i64 %188
   store i8 0, ptr %189, align 1

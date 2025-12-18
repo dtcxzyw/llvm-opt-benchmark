@@ -461,7 +461,7 @@ _ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread16.i.i: ; preds = %.
   br i1 %.not44.i129, label %.thread217, label %.lr.ph.i125
 
 .loopexit227:                                     ; preds = %96, %85, %94, %.lr.ph.i, %73, %76, %76
-  %.sroa.8.0.i.ph = phi i8 [ 0, %73 ], [ 1, %76 ], [ 1, %76 ], [ 1, %.lr.ph.i ], [ 2, %96 ], [ 1, %85 ], [ 2, %94 ]
+  %.sroa.8.0.i.ph = phi i8 [ 1, %76 ], [ 1, %.lr.ph.i ], [ 0, %73 ], [ 1, %76 ], [ 2, %96 ], [ 1, %85 ], [ 2, %94 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i8 %.sroa.8.0.i.ph, ptr %17, align 1
@@ -597,7 +597,7 @@ _ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread16.i.i: ; preds = %.
   br i1 %.not44.i153, label %.thread207, label %.lr.ph.i149
 
 .loopexit224:                                     ; preds = %171, %160, %169, %.lr.ph.i149, %.thread197, %151, %151
-  %.sroa.8.0.i144.ph = phi i8 [ 0, %.thread197 ], [ 1, %151 ], [ 1, %151 ], [ 1, %.lr.ph.i149 ], [ 2, %171 ], [ 1, %160 ], [ 2, %169 ]
+  %.sroa.8.0.i144.ph = phi i8 [ 1, %151 ], [ 1, %.lr.ph.i149 ], [ 0, %.thread197 ], [ 1, %151 ], [ 2, %171 ], [ 1, %160 ], [ 2, %169 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i8 %.sroa.8.0.i144.ph, ptr %13, align 1
@@ -675,7 +675,7 @@ _ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread16.i.i: ; preds = %.
   br label %201
 
 .loopexit:                                        ; preds = %133, %122, %131, %.lr.ph.i125, %.loopexit230, %113, %113
-  %.sroa.8.0.i120.ph = phi i8 [ 0, %.loopexit230 ], [ 1, %113 ], [ 1, %113 ], [ 1, %.lr.ph.i125 ], [ 2, %133 ], [ 1, %122 ], [ 2, %131 ]
+  %.sroa.8.0.i120.ph = phi i8 [ 1, %113 ], [ 1, %.lr.ph.i125 ], [ 0, %.loopexit230 ], [ 1, %113 ], [ 2, %133 ], [ 1, %122 ], [ 2, %131 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 %.sroa.8.0.i120.ph, ptr %9, align 1
@@ -1079,7 +1079,7 @@ _ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread16.i.i: ; preds = %.
   br i1 %.not44.i129, label %.thread220, label %.lr.ph.i125
 
 .loopexit230:                                     ; preds = %91, %80, %89, %.lr.ph.i, %68, %71, %71
-  %.sroa.8.0.i.ph = phi i8 [ 0, %68 ], [ 1, %71 ], [ 1, %71 ], [ 1, %.lr.ph.i ], [ 2, %91 ], [ 1, %80 ], [ 2, %89 ]
+  %.sroa.8.0.i.ph = phi i8 [ 1, %71 ], [ 1, %.lr.ph.i ], [ 0, %68 ], [ 1, %71 ], [ 2, %91 ], [ 1, %80 ], [ 2, %89 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i8 %.sroa.8.0.i.ph, ptr %17, align 1
@@ -1218,7 +1218,7 @@ _ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread16.i.i: ; preds = %.
   br i1 %.not44.i153, label %.thread210, label %.lr.ph.i149
 
 .loopexit227:                                     ; preds = %166, %155, %164, %.lr.ph.i149, %.thread200, %146, %146
-  %.sroa.8.0.i144.ph = phi i8 [ 0, %.thread200 ], [ 1, %146 ], [ 1, %146 ], [ 1, %.lr.ph.i149 ], [ 2, %166 ], [ 1, %155 ], [ 2, %164 ]
+  %.sroa.8.0.i144.ph = phi i8 [ 1, %146 ], [ 1, %.lr.ph.i149 ], [ 0, %.thread200 ], [ 1, %146 ], [ 2, %166 ], [ 1, %155 ], [ 2, %164 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i8 %.sroa.8.0.i144.ph, ptr %13, align 1
@@ -1289,7 +1289,7 @@ _ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread16.i.i: ; preds = %.
   br label %195
 
 .loopexit:                                        ; preds = %128, %117, %126, %.lr.ph.i125, %.loopexit233, %108, %108
-  %.sroa.8.0.i120.ph = phi i8 [ 0, %.loopexit233 ], [ 1, %108 ], [ 1, %108 ], [ 1, %.lr.ph.i125 ], [ 2, %128 ], [ 1, %117 ], [ 2, %126 ]
+  %.sroa.8.0.i120.ph = phi i8 [ 1, %108 ], [ 1, %.lr.ph.i125 ], [ 0, %.loopexit233 ], [ 1, %108 ], [ 2, %128 ], [ 1, %117 ], [ 2, %126 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 %.sroa.8.0.i120.ph, ptr %9, align 1
@@ -1729,7 +1729,7 @@ _ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread16.i.i: ; preds = %.
   br i1 %.not44.i129, label %.thread217, label %.lr.ph.i125
 
 .loopexit227:                                     ; preds = %99, %88, %97, %.lr.ph.i, %76, %79, %79
-  %.sroa.8.0.i.ph = phi i8 [ 0, %76 ], [ 1, %79 ], [ 1, %79 ], [ 1, %.lr.ph.i ], [ 2, %99 ], [ 1, %88 ], [ 2, %97 ]
+  %.sroa.8.0.i.ph = phi i8 [ 1, %79 ], [ 1, %.lr.ph.i ], [ 0, %76 ], [ 1, %79 ], [ 2, %99 ], [ 1, %88 ], [ 2, %97 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i8 %.sroa.8.0.i.ph, ptr %19, align 1
@@ -1865,7 +1865,7 @@ _ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread16.i.i: ; preds = %.
   br i1 %.not44.i153, label %.thread207, label %.lr.ph.i149
 
 .loopexit224:                                     ; preds = %174, %163, %172, %.lr.ph.i149, %.thread197, %154, %154
-  %.sroa.8.0.i144.ph = phi i8 [ 0, %.thread197 ], [ 1, %154 ], [ 1, %154 ], [ 1, %.lr.ph.i149 ], [ 2, %174 ], [ 1, %163 ], [ 2, %172 ]
+  %.sroa.8.0.i144.ph = phi i8 [ 1, %154 ], [ 1, %.lr.ph.i149 ], [ 0, %.thread197 ], [ 1, %154 ], [ 2, %174 ], [ 1, %163 ], [ 2, %172 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i8 %.sroa.8.0.i144.ph, ptr %15, align 1
@@ -1943,7 +1943,7 @@ _ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread16.i.i: ; preds = %.
   br label %204
 
 .loopexit:                                        ; preds = %136, %125, %134, %.lr.ph.i125, %.loopexit230, %116, %116
-  %.sroa.8.0.i120.ph = phi i8 [ 0, %.loopexit230 ], [ 1, %116 ], [ 1, %116 ], [ 1, %.lr.ph.i125 ], [ 2, %136 ], [ 1, %125 ], [ 2, %134 ]
+  %.sroa.8.0.i120.ph = phi i8 [ 1, %116 ], [ 1, %.lr.ph.i125 ], [ 0, %.loopexit230 ], [ 1, %116 ], [ 2, %136 ], [ 1, %125 ], [ 2, %134 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i8 %.sroa.8.0.i120.ph, ptr %11, align 1

@@ -1054,8 +1054,8 @@ define internal fastcc i32 @read_local_xlog_page_guts(ptr noundef %0, i64 nounde
   br label %.loopexit
 
 .loopexit:                                        ; preds = %21, %36, %.split41.us, %37
-  %.1 = phi i64 [ %.029, %37 ], [ %41, %.split41.us ], [ %.029, %36 ], [ %.029.us, %21 ]
-  %.028 = phi i32 [ %32, %37 ], [ %.us-phi, %.split41.us ], [ %32, %36 ], [ %17, %21 ]
+  %.1 = phi i64 [ %41, %.split41.us ], [ %.029, %37 ], [ %.029, %36 ], [ %.029.us, %21 ]
+  %.028 = phi i32 [ %.us-phi, %.split41.us ], [ %32, %37 ], [ %32, %36 ], [ %17, %21 ]
   %42 = add i64 %1, 8192
   %.not32 = icmp ugt i64 %42, %.1
   br i1 %.not32, label %43, label %48

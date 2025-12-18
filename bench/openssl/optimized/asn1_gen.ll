@@ -833,8 +833,8 @@ sub_1:                                            ; preds = %sub_0
   br i1 %exitcond.not.i22, label %asn1_str2tag.exit.thread, label %.split13, !llvm.loop !41
 
 asn1_str2tag.exit:                                ; preds = %31, %15
-  %.017.i.pn = phi ptr [ %.017.i, %15 ], [ %.017.i20, %31 ]
-  %phi.call.in = getelementptr inbounds nuw i8, ptr %.017.i.pn, i64 12
+  %.017.i20.pn = phi ptr [ %.017.i, %15 ], [ %.017.i20, %31 ]
+  %phi.call.in = getelementptr inbounds nuw i8, ptr %.017.i20.pn, i64 12
   %phi.call = load i32, ptr %phi.call.in, align 4, !tbaa !42
   %.not = icmp ne i32 %phi.call, 0
   %38 = and i32 %phi.call, 65536
@@ -855,7 +855,7 @@ asn1_str2tag.exit.thread.sink.split:              ; preds = %39, %.tail
   br label %asn1_str2tag.exit.thread
 
 asn1_str2tag.exit.thread:                         ; preds = %35, %19, %asn1_str2tag.exit.thread.sink.split, %39, %asn1_str2tag.exit, %3
-  %.0 = phi i32 [ 0, %asn1_str2tag.exit ], [ 0, %3 ], [ 0, %39 ], [ 1, %asn1_str2tag.exit.thread.sink.split ], [ 0, %19 ], [ 0, %35 ]
+  %.0 = phi i32 [ 0, %asn1_str2tag.exit ], [ 0, %19 ], [ 0, %3 ], [ 1, %asn1_str2tag.exit.thread.sink.split ], [ 0, %39 ], [ 0, %35 ]
   ret i32 %.0
 }
 
@@ -1482,7 +1482,7 @@ define internal range(i32 0, 2) i32 @bitstr_cb(ptr noundef %0, i32 noundef %1, p
   br label %17
 
 17:                                               ; preds = %.sink.split, %14, %8, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %8 ], [ 1, %14 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 0, %3 ], [ 1, %14 ], [ 0, %8 ], [ 0, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }

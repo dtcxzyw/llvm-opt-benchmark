@@ -1916,7 +1916,7 @@ define i32 @Aig_ManReduceLachesCount(ptr noundef readonly captures(none) %0) loc
   br i1 %53, label %.lr.ph61, label %.critedge4, !llvm.loop !74
 
 .critedge4:                                       ; preds = %.lr.ph61, %.critedge, %.critedge2
-  %.038.lcssa73 = phi i32 [ %.1, %.critedge2 ], [ 0, %.critedge ], [ %.1, %.lr.ph61 ]
+  %.038.lcssa73 = phi i32 [ 0, %.critedge ], [ %.1, %.critedge2 ], [ %.1, %.lr.ph61 ]
   ret i32 %.038.lcssa73
 }
 

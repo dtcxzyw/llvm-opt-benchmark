@@ -16890,8 +16890,8 @@ _ZN4lean10object_refD2Ev.exit84:                  ; preds = %.loopexit92, %173, 
   br label %187
 
 _ZN4leanL18has_fixed_inst_argERKNS_6bufferINS_13spec_arg_kindELm16EEE.exit.thread: ; preds = %23, %29, %_ZN4leanL18has_fixed_inst_argERKNS_6bufferINS_13spec_arg_kindELm16EEE.exit, %21, %.loopexit
-  %183 = phi ptr [ %.pre, %.loopexit ], [ %.val49.pre, %21 ], [ %.val49.pre, %_ZN4leanL18has_fixed_inst_argERKNS_6bufferINS_13spec_arg_kindELm16EEE.exit ], [ %.val49.pre, %29 ], [ %.val49.pre, %23 ]
-  %.0 = phi i1 [ %or.cond.not.not106, %.loopexit ], [ false, %21 ], [ false, %_ZN4leanL18has_fixed_inst_argERKNS_6bufferINS_13spec_arg_kindELm16EEE.exit ], [ false, %29 ], [ false, %23 ]
+  %183 = phi ptr [ %.pre, %.loopexit ], [ %.val49.pre, %29 ], [ %.val49.pre, %21 ], [ %.val49.pre, %_ZN4leanL18has_fixed_inst_argERKNS_6bufferINS_13spec_arg_kindELm16EEE.exit ], [ %.val49.pre, %23 ]
+  %.0 = phi i1 [ %or.cond.not.not106, %.loopexit ], [ false, %29 ], [ false, %21 ], [ false, %_ZN4leanL18has_fixed_inst_argERKNS_6bufferINS_13spec_arg_kindELm16EEE.exit ], [ false, %23 ]
   %.not.i.i.i85 = icmp eq ptr %183, %11
   br i1 %.not.i.i.i85, label %_ZN4lean6bufferINS_13spec_arg_kindELm16EED2Ev.exit, label %184
 
@@ -28263,8 +28263,8 @@ _ZN4lean6bufferIbLm16EE6shrinkEm.exit.us.sink.split: ; preds = %21, %17
   br label %_ZN4lean6bufferIbLm16EE6shrinkEm.exit.us
 
 _ZN4lean6bufferIbLm16EE6shrinkEm.exit.us:         ; preds = %_ZN4lean6bufferIbLm16EE6shrinkEm.exit.us.sink.split, %21, %17, %.lr.ph.split.us
-  %25 = phi i64 [ %13, %.lr.ph.split.us ], [ %13, %17 ], [ %13, %21 ], [ %indvars.iv30, %_ZN4lean6bufferIbLm16EE6shrinkEm.exit.us.sink.split ]
-  %.1.us = phi i8 [ %.028.us, %.lr.ph.split.us ], [ 0, %17 ], [ 0, %21 ], [ 0, %_ZN4lean6bufferIbLm16EE6shrinkEm.exit.us.sink.split ]
+  %25 = phi i64 [ %13, %.lr.ph.split.us ], [ %13, %21 ], [ %13, %17 ], [ %indvars.iv30, %_ZN4lean6bufferIbLm16EE6shrinkEm.exit.us.sink.split ]
+  %.1.us = phi i8 [ %.028.us, %.lr.ph.split.us ], [ 0, %21 ], [ 0, %17 ], [ 0, %_ZN4lean6bufferIbLm16EE6shrinkEm.exit.us.sink.split ]
   %.not.us.wide = icmp eq i64 %14, 0
   br i1 %.not.us.wide, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !425
 

@@ -325,7 +325,7 @@ define hidden range(i32 0, 2) i32 @simple_ogg_page__set_at(ptr noundef %0, i64 n
   br label %22
 
 22:                                               ; preds = %.sink.split, %15, %8, %6
-  %.0 = phi i32 [ 0, %6 ], [ 0, %8 ], [ 1, %15 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 1, %15 ], [ 0, %6 ], [ 0, %8 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 

@@ -111,7 +111,7 @@ switch.early.test:                                ; preds = %15
   br label %.loopexit
 
 .loopexit:                                        ; preds = %25, %._crit_edge.loopexit, %1
-  %.059 = phi i32 [ 0, %1 ], [ %40, %._crit_edge.loopexit ], [ 0, %25 ]
+  %.059 = phi i32 [ %40, %._crit_edge.loopexit ], [ 0, %1 ], [ 0, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.059
 }

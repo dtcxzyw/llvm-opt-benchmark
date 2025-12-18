@@ -6824,7 +6824,7 @@ _ZNK6vectorIP4sortLb0EjE4sizeEv.exit:             ; preds = %_ZN6vectorIP4sortLb
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN6vectorIP4sortLb0EjE9push_backERKS1_.exit, %_ZN6vectorIP4sortLb0EjE5resetEv.exit, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit
-  %14 = phi ptr [ %7, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit ], [ %7, %_ZN6vectorIP4sortLb0EjE5resetEv.exit ], [ %30, %_ZN6vectorIP4sortLb0EjE9push_backERKS1_.exit ]
+  %14 = phi ptr [ %7, %_ZN6vectorIP4sortLb0EjE5resetEv.exit ], [ %7, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit ], [ %30, %_ZN6vectorIP4sortLb0EjE9push_backERKS1_.exit ]
   %15 = load ptr, ptr %1, align 8, !tbaa !10
   %16 = icmp eq ptr %15, null
   br i1 %16, label %._crit_edge24, label %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit16
@@ -10831,24 +10831,24 @@ _ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i.i.i.i: ; preds = %104, %95
   %119 = load i8, ptr %118, align 4
   %120 = and i8 %119, 1
   %121 = icmp eq i8 %120, 0
-  br i1 %121, label %122, label %_ZneRK8rationalS1_.exit.i
+  br i1 %121, label %122, label %127
 
 122:                                              ; preds = %115
   %123 = getelementptr inbounds nuw i8, ptr %98, i64 20
   %124 = load i8, ptr %123, align 4
   %125 = and i8 %124, 1
   %126 = icmp eq i8 %125, 0
-  br i1 %126, label %127, label %_ZneRK8rationalS1_.exit.i
+  br i1 %126, label %_ZneRK8rationalS1_.exit.i, label %127
 
-127:                                              ; preds = %122
-  %128 = load i32, ptr %116, align 8, !tbaa !70
-  %129 = load i32, ptr %117, align 8, !tbaa !70
-  %130 = icmp eq i32 %128, %129
-  br i1 %130, label %.backedge.i, label %_ZNK7datalog13karr_relation8same_rowERK6vectorI8rationalLb1EjES5_.exit.thread
+127:                                              ; preds = %122, %115
+  %128 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %99, ptr noundef nonnull align 8 dereferenceable(16) %116, ptr noundef nonnull align 8 dereferenceable(16) %117)
+  %129 = icmp eq i32 %128, 0
+  br i1 %129, label %.backedge.i, label %_ZNK7datalog13karr_relation8same_rowERK6vectorI8rationalLb1EjES5_.exit.thread
 
-_ZneRK8rationalS1_.exit.i:                        ; preds = %122, %115
-  %131 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %99, ptr noundef nonnull align 8 dereferenceable(16) %116, ptr noundef nonnull align 8 dereferenceable(16) %117)
-  %132 = icmp eq i32 %131, 0
+_ZneRK8rationalS1_.exit.i:                        ; preds = %122
+  %130 = load i32, ptr %116, align 8, !tbaa !70
+  %131 = load i32, ptr %117, align 8, !tbaa !70
+  %132 = icmp eq i32 %130, %131
   br i1 %132, label %.backedge.i, label %_ZNK7datalog13karr_relation8same_rowERK6vectorI8rationalLb1EjES5_.exit.thread
 
 .backedge.i:                                      ; preds = %_ZneRK8rationalS1_.exit.i, %127
@@ -10894,24 +10894,24 @@ _ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i.i:     ; preds = %144, %_ZNK7datalog1
   %159 = load i8, ptr %158, align 4
   %160 = and i8 %159, 1
   %161 = icmp eq i8 %160, 0
-  br i1 %161, label %162, label %_ZeqRK8rationalS1_.exit
+  br i1 %161, label %162, label %167
 
 162:                                              ; preds = %155
   %163 = getelementptr inbounds nuw i8, ptr %138, i64 20
   %164 = load i8, ptr %163, align 4
   %165 = and i8 %164, 1
   %166 = icmp eq i8 %165, 0
-  br i1 %166, label %167, label %_ZeqRK8rationalS1_.exit
+  br i1 %166, label %_ZeqRK8rationalS1_.exit, label %167
 
-167:                                              ; preds = %162
-  %168 = load i32, ptr %156, align 8, !tbaa !70
-  %169 = load i32, ptr %157, align 8, !tbaa !70
-  %170 = icmp eq i32 %168, %169
-  br i1 %170, label %173, label %_ZNK7datalog13karr_relation8same_rowERK6vectorI8rationalLb1EjES5_.exit.thread
+167:                                              ; preds = %162, %155
+  %168 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %139, ptr noundef nonnull align 8 dereferenceable(16) %156, ptr noundef nonnull align 8 dereferenceable(16) %157)
+  %169 = icmp eq i32 %168, 0
+  br i1 %169, label %173, label %_ZNK7datalog13karr_relation8same_rowERK6vectorI8rationalLb1EjES5_.exit.thread
 
-_ZeqRK8rationalS1_.exit:                          ; preds = %155, %162
-  %171 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %139, ptr noundef nonnull align 8 dereferenceable(16) %156, ptr noundef nonnull align 8 dereferenceable(16) %157)
-  %172 = icmp eq i32 %171, 0
+_ZeqRK8rationalS1_.exit:                          ; preds = %162
+  %170 = load i32, ptr %156, align 8, !tbaa !70
+  %171 = load i32, ptr %157, align 8, !tbaa !70
+  %172 = icmp eq i32 %170, %171
   br i1 %172, label %173, label %_ZNK7datalog13karr_relation8same_rowERK6vectorI8rationalLb1EjES5_.exit.thread
 
 173:                                              ; preds = %167, %_ZeqRK8rationalS1_.exit
@@ -10925,7 +10925,7 @@ _ZeqRK8rationalS1_.exit:                          ; preds = %155, %162
   br label %_ZNK7datalog13karr_relation8same_rowERK6vectorI8rationalLb1EjES5_.exit.thread
 
 _ZNK7datalog13karr_relation8same_rowERK6vectorI8rationalLb1EjES5_.exit.thread: ; preds = %_ZneRK8rationalS1_.exit.i, %_ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i.i.i.i, %109, %127, %149, %_ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i.i, %167, %173, %_ZeqRK8rationalS1_.exit
-  %181 = phi i1 [ false, %_ZeqRK8rationalS1_.exit ], [ false, %167 ], [ %180, %173 ], [ false, %_ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i.i ], [ false, %149 ], [ false, %127 ], [ false, %109 ], [ false, %_ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i.i.i.i ], [ false, %_ZneRK8rationalS1_.exit.i ]
+  %181 = phi i1 [ false, %_ZeqRK8rationalS1_.exit ], [ false, %167 ], [ %180, %173 ], [ false, %149 ], [ false, %_ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i.i ], [ false, %127 ], [ false, %109 ], [ false, %_ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i.i.i.i ], [ false, %_ZneRK8rationalS1_.exit.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %182 = icmp samesign uge i64 %indvars.iv.next, %70
   %.not45 = select i1 %181, i1 true, i1 %182

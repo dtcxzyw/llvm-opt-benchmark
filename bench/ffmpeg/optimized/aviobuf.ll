@@ -3447,7 +3447,7 @@ read_string_to_bprint.exit.thread:                ; preds = %avio_feof.exit73.i
   br label %134
 
 read_string_to_bprint.exit:                       ; preds = %avio_r8.exit65.i, %avio_feof.exit.i, %avio_feof.exit.thread.i, %122, %.thread91.i, %125
-  %.0.i = phi i64 [ %126, %125 ], [ %110, %.thread91.i ], [ %110, %122 ], [ %110, %avio_feof.exit.thread.i ], [ %110, %avio_feof.exit.i ], [ %110, %avio_r8.exit65.i ]
+  %.0.i = phi i64 [ %126, %125 ], [ %110, %avio_r8.exit65.i ], [ %110, %avio_feof.exit.i ], [ %110, %.thread91.i ], [ %110, %122 ], [ %110, %avio_feof.exit.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %129 = icmp slt i64 %.0.i, 0
   br i1 %129, label %134, label %130

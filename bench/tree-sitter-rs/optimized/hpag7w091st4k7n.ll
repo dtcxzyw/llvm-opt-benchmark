@@ -1791,9 +1791,9 @@ common.resume:                                    ; preds = %918, %.thread409
   br i1 %364, label %.invoke, label %371
 
 .invoke1927:                                      ; preds = %329, %316, %359
-  %365 = phi i64 [ %360, %359 ], [ %.fca.0.extract47, %329 ], [ %.0168, %316 ]
-  %366 = phi i64 [ %361, %359 ], [ %.fca.1.extract49, %329 ], [ %.fca.0.extract47, %316 ]
-  %367 = phi ptr [ @anon.2708f3209dc9abdfb53689fa666b84a7.66, %359 ], [ @anon.2708f3209dc9abdfb53689fa666b84a7.65, %329 ], [ @anon.2708f3209dc9abdfb53689fa666b84a7.64, %316 ]
+  %365 = phi i64 [ %360, %359 ], [ %.0168, %316 ], [ %.fca.0.extract47, %329 ]
+  %366 = phi i64 [ %361, %359 ], [ %.fca.0.extract47, %316 ], [ %.fca.1.extract49, %329 ]
+  %367 = phi ptr [ @anon.2708f3209dc9abdfb53689fa666b84a7.66, %359 ], [ @anon.2708f3209dc9abdfb53689fa666b84a7.64, %316 ], [ @anon.2708f3209dc9abdfb53689fa666b84a7.65, %329 ]
   invoke void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef %365, i64 noundef %366, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %367) #16
           to label %.cont1928 unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -1801,9 +1801,9 @@ common.resume:                                    ; preds = %918, %.thread409
   unreachable
 
 .invoke:                                          ; preds = %333, %319, %363
-  %368 = phi i64 [ %361, %363 ], [ %.fca.1.extract49, %333 ], [ %.fca.0.extract47, %319 ]
-  %369 = phi i64 [ %289, %363 ], [ %334, %333 ], [ %320, %319 ]
-  %370 = phi ptr [ @anon.2708f3209dc9abdfb53689fa666b84a7.66, %363 ], [ @anon.2708f3209dc9abdfb53689fa666b84a7.65, %333 ], [ @anon.2708f3209dc9abdfb53689fa666b84a7.64, %319 ]
+  %368 = phi i64 [ %361, %363 ], [ %.fca.0.extract47, %319 ], [ %.fca.1.extract49, %333 ]
+  %369 = phi i64 [ %289, %363 ], [ %320, %319 ], [ %334, %333 ]
+  %370 = phi ptr [ @anon.2708f3209dc9abdfb53689fa666b84a7.66, %363 ], [ @anon.2708f3209dc9abdfb53689fa666b84a7.64, %319 ], [ @anon.2708f3209dc9abdfb53689fa666b84a7.65, %333 ]
   invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %368, i64 noundef %369, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %370) #16
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp
 

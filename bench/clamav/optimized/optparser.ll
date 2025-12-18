@@ -1180,9 +1180,9 @@ define ptr @optparse(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef
   br label %.loopexit
 
 .split480.us:                                     ; preds = %126, %99, %20
-  %.not378636 = phi i1 [ false, %99 ], [ true, %20 ], [ false, %126 ]
-  %.us-phi = phi i32 [ 0, %99 ], [ %.0272.us, %20 ], [ 0, %126 ]
-  %.us-phi481 = phi i32 [ 1, %99 ], [ %.0270.us, %20 ], [ 1, %126 ]
+  %.not378636 = phi i1 [ true, %20 ], [ false, %99 ], [ false, %126 ]
+  %.us-phi = phi i32 [ %.0272.us, %20 ], [ 0, %99 ], [ 0, %126 ]
+  %.us-phi481 = phi i32 [ %.0270.us, %20 ], [ 1, %99 ], [ 1, %126 ]
   %139 = icmp ne ptr %0, null
   br i1 %139, label %140, label %144
 
@@ -1956,7 +1956,7 @@ sub_0:                                            ; preds = %434
   br label %.critedge391
 
 .critedge391:                                     ; preds = %231, %163, %379, %382, %409, %421, %418, %.thread413, %.thread409, %350, %362, %359, %302, %304, %.loopexit421, %267, %227, %228, %222, %223, %.critedge8.thread641, %212, %189, %190, %183, %184, %341, %251, %.thread, %233
-  %.not371 = phi i1 [ false, %.loopexit421 ], [ false, %341 ], [ false, %302 ], [ false, %.thread413 ], [ false, %350 ], [ false, %227 ], [ false, %251 ], [ false, %222 ], [ false, %.critedge8.thread641 ], [ false, %189 ], [ false, %183 ], [ false, %.thread ], [ false, %233 ], [ false, %184 ], [ false, %190 ], [ false, %212 ], [ false, %223 ], [ false, %228 ], [ false, %267 ], [ false, %304 ], [ false, %359 ], [ false, %362 ], [ false, %.thread409 ], [ false, %418 ], [ false, %421 ], [ false, %409 ], [ false, %382 ], [ false, %379 ], [ true, %163 ], [ true, %231 ]
+  %.not371 = phi i1 [ false, %.loopexit421 ], [ false, %341 ], [ false, %302 ], [ false, %.thread413 ], [ false, %350 ], [ false, %227 ], [ false, %251 ], [ false, %222 ], [ false, %.critedge8.thread641 ], [ false, %189 ], [ false, %183 ], [ false, %.thread ], [ false, %379 ], [ false, %382 ], [ false, %233 ], [ false, %184 ], [ false, %190 ], [ false, %212 ], [ false, %223 ], [ false, %228 ], [ false, %267 ], [ false, %304 ], [ false, %359 ], [ false, %362 ], [ false, %.thread409 ], [ false, %418 ], [ false, %421 ], [ false, %409 ], [ true, %163 ], [ true, %231 ]
   %.not370 = icmp eq ptr %.0267, null
   br i1 %.not370, label %460, label %458
 
@@ -2025,7 +2025,7 @@ sub_0:                                            ; preds = %434
   br label %.loopexit
 
 .loopexit:                                        ; preds = %477, %462, %464, %483, %474, %461, %147, %143, %.split487.us, %.split485.us, %.split483.us
-  %.0261 = phi ptr [ null, %.split485.us ], [ null, %.split487.us ], [ null, %.split483.us ], [ null, %143 ], [ null, %461 ], [ null, %483 ], [ null, %147 ], [ null, %474 ], [ %160, %464 ], [ %160, %462 ], [ %160, %477 ]
+  %.0261 = phi ptr [ null, %.split485.us ], [ null, %.split487.us ], [ null, %.split483.us ], [ null, %143 ], [ null, %461 ], [ null, %483 ], [ null, %147 ], [ null, %474 ], [ %160, %462 ], [ %160, %464 ], [ %160, %477 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -2499,7 +2499,7 @@ define ptr @optadditem(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 nound
   br i1 %.not106, label %.preheader, label %56
 
 .preheader:                                       ; preds = %45, %15, %52, %22
-  %.not133199 = phi i1 [ true, %15 ], [ true, %22 ], [ false, %52 ], [ false, %45 ]
+  %.not133199 = phi i1 [ false, %52 ], [ true, %15 ], [ true, %22 ], [ false, %45 ]
   %.not107 = icmp eq ptr %0, null
   %.pre185.pre = load ptr, ptr %7, align 8, !tbaa !19
   br i1 %.not107, label %._crit_edge, label %.lr.ph
@@ -2586,7 +2586,7 @@ define ptr @optadditem(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 nound
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i.backedge
 
 .lr.ph.i.backedge:                                ; preds = %90, %.backedge.sink.split, %109, %115, %104
-  %.01018.i.be = phi ptr [ %92, %90 ], [ %.pre185.pre, %.backedge.sink.split ], [ %.pre185.pre, %109 ], [ %.pre185.pre, %115 ], [ %.pre185.pre, %104 ]
+  %.01018.i.be = phi ptr [ %92, %90 ], [ %.pre185.pre, %104 ], [ %.pre185.pre, %.backedge.sink.split ], [ %.pre185.pre, %109 ], [ %.pre185.pre, %115 ]
   br label %.lr.ph.i
 
 .loopexit:                                        ; preds = %90, %.lr.ph
@@ -2801,8 +2801,8 @@ sub_0:                                            ; preds = %169
   br label %176
 
 176:                                              ; preds = %.thread143, %.thread145, %.tail.thread, %134, %138, %137, %141, %142, %145, %169, %.tail
-  %.088 = phi ptr [ %1, %134 ], [ %1, %137 ], [ %140, %138 ], [ null, %145 ], [ null, %.tail.thread ], [ null, %142 ], [ null, %141 ], [ null, %169 ], [ null, %.tail ], [ null, %.thread145 ], [ null, %.thread143 ]
-  %.086 = phi i64 [ -1, %134 ], [ -1, %137 ], [ -1, %138 ], [ 0, %145 ], [ %spec.select139, %.tail.thread ], [ %144, %142 ], [ 0, %141 ], [ 1, %169 ], [ 1, %.tail ], [ 4294967295, %.thread145 ], [ %spec.select149, %.thread143 ]
+  %.088 = phi ptr [ %1, %134 ], [ %1, %137 ], [ %140, %138 ], [ null, %145 ], [ null, %.tail.thread ], [ null, %.tail ], [ null, %142 ], [ null, %141 ], [ null, %169 ], [ null, %.thread145 ], [ null, %.thread143 ]
+  %.086 = phi i64 [ -1, %134 ], [ -1, %137 ], [ -1, %138 ], [ 0, %145 ], [ %spec.select139, %.tail.thread ], [ 1, %.tail ], [ %144, %142 ], [ 0, %141 ], [ 1, %169 ], [ 4294967295, %.thread145 ], [ %spec.select149, %.thread143 ]
   %177 = call fastcc i32 @optaddarg(ptr noundef nonnull %.pre185.pre, ptr noundef nonnull %0, ptr noundef %.088, i64 noundef %.086)
   %178 = icmp slt i32 %177, 0
   br i1 %178, label %179, label %184

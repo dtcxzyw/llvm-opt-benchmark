@@ -749,7 +749,7 @@ ObtainPhysicalAudioDeviceObj.exit:                ; preds = %1
   br label %52
 
 52:                                               ; preds = %._crit_edge, %47
-  %.0 = phi ptr [ %38, %47 ], [ %.1.lcssa, %._crit_edge ]
+  %.0 = phi ptr [ %.1.lcssa, %._crit_edge ], [ %38, %47 ]
   tail call fastcc void @ReleaseAudioDevice(ptr noundef nonnull %0)
   %53 = load ptr, ptr %3, align 8
   %.not43 = icmp eq ptr %53, null
@@ -2482,7 +2482,7 @@ define internal fastcc ptr @ObtainPhysicalAudioDeviceDefaultAllowed(i32 noundef 
   br i1 %33, label %._crit_edge, label %.lr.ph.split.split
 
 .thread30:                                        ; preds = %24, %.lr.ph.split.split, %.lr.ph.split.us.split, %10, %._crit_edge, %20
-  %.018 = phi ptr [ %21, %20 ], [ null, %._crit_edge ], [ null, %.lr.ph.split.us.split ], [ %9, %10 ], [ null, %.lr.ph.split.split ], [ %23, %24 ]
+  %.018 = phi ptr [ %21, %20 ], [ null, %._crit_edge ], [ null, %.lr.ph.split.us.split ], [ %9, %10 ], [ %23, %24 ], [ null, %.lr.ph.split.split ]
   ret ptr %.018
 }
 
@@ -3902,7 +3902,7 @@ define hidden zeroext i1 @SDL_BindAudioStreams_REAL(i32 noundef %0, ptr noundef 
   br i1 %exitcond107.not, label %.thread67, label %49, !llvm.loop !24
 
 .thread67:                                        ; preds = %61, %._crit_edge, %47, %17, %23
-  %.05169 = phi i1 [ false, %23 ], [ false, %17 ], [ false, %47 ], [ false, %._crit_edge ], [ true, %61 ]
+  %.05169 = phi i1 [ false, %23 ], [ false, %._crit_edge ], [ false, %17 ], [ false, %47 ], [ true, %61 ]
   %62 = load ptr, ptr %4, align 8
   tail call fastcc void @UpdateAudioStreamFormatsPhysical(ptr noundef %62)
   tail call fastcc void @ReleaseAudioDevice(ptr noundef %62)

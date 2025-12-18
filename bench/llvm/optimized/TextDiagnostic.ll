@@ -771,8 +771,8 @@ _ZL25applyTemplateHighlightingRN4llvm11raw_ostreamENS_9StringRefERbb.exit73.i: ;
   br i1 %136, label %.lr.ph.preheader.i.i, label %_ZL14skipWhitespacejN4llvm9StringRefEj.exit.thread.i, !llvm.loop !39
 
 _ZL14skipWhitespacejN4llvm9StringRefEj.exit.thread.i: ; preds = %135, %_ZL14skipWhitespacejN4llvm9StringRefEj.exit.i, %31, %_ZNK4llvm9StringRef4findEcm.exit.i, %14
-  %.0.i.i142.i = phi i64 [ %20, %_ZNK4llvm9StringRef4findEcm.exit.i ], [ 0, %14 ], [ %20, %31 ], [ %20, %_ZL14skipWhitespacejN4llvm9StringRefEj.exit.i ], [ %20, %135 ]
-  %.0112122.i = phi i8 [ 1, %_ZNK4llvm9StringRef4findEcm.exit.i ], [ 1, %14 ], [ %.0112123.i, %31 ], [ %.1113.i, %135 ], [ %.0112123.i, %_ZL14skipWhitespacejN4llvm9StringRefEj.exit.i ]
+  %.0.i.i142.i = phi i64 [ %20, %31 ], [ %20, %_ZNK4llvm9StringRef4findEcm.exit.i ], [ 0, %14 ], [ %20, %_ZL14skipWhitespacejN4llvm9StringRefEj.exit.i ], [ %20, %135 ]
+  %.0112122.i = phi i8 [ %.0112123.i, %31 ], [ 1, %_ZNK4llvm9StringRef4findEcm.exit.i ], [ 1, %14 ], [ %.0112123.i, %_ZL14skipWhitespacejN4llvm9StringRefEj.exit.i ], [ %.1113.i, %135 ]
   %137 = and i64 %.0.i.i142.i, 4294967295
   %.sroa.speculated4.i74.i = tail call i64 @llvm.umin.i64(i64 %3, i64 %137)
   %138 = getelementptr inbounds nuw i8, ptr %2, i64 %.sroa.speculated4.i74.i
@@ -2581,7 +2581,7 @@ _ZL18getNumDisplayWidthj.exit:                    ; preds = %130
   br label %_ZL18getNumDisplayWidthj.exit.thread266
 
 _ZL18getNumDisplayWidthj.exit.thread266:          ; preds = %.lr.ph.i, %_ZL18getNumDisplayWidthj.exit, %127, %._crit_edge
-  %132 = phi i32 [ 0, %._crit_edge ], [ %spec.select, %_ZL18getNumDisplayWidthj.exit ], [ 4, %127 ], [ 10, %.lr.ph.i ]
+  %132 = phi i32 [ 0, %._crit_edge ], [ 4, %127 ], [ %spec.select, %_ZL18getNumDisplayWidthj.exit ], [ 10, %.lr.ph.i ]
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %134 = load ptr, ptr %133, align 8, !tbaa !10
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4253,7 +4253,7 @@ _ZNK12_GLOBAL__N_115SourceColumnMap21startOfPreviousColumnEi.exit199.i..critedge
   br label %.critedge4.i172.preheader, !llvm.loop !245
 
 .critedge4.i172.preheader:                        ; preds = %.lr.ph308.i, %.lr.ph308.i.preheader, %_ZNK12_GLOBAL__N_115SourceColumnMap21startOfPreviousColumnEi.exit199.i..critedge4.i172.loopexit_crit_edge, %_ZNK12_GLOBAL__N_115SourceColumnMap21startOfPreviousColumnEi.exit.preheader.i
-  %.1138.i.ph = phi i32 [ 0, %_ZNK12_GLOBAL__N_115SourceColumnMap21startOfPreviousColumnEi.exit199.i..critedge4.i172.loopexit_crit_edge ], [ %.0137304.i, %.lr.ph308.i.preheader ], [ 0, %_ZNK12_GLOBAL__N_115SourceColumnMap21startOfPreviousColumnEi.exit.preheader.i ], [ %.0137.i, %.lr.ph308.i ]
+  %.1138.i.ph = phi i32 [ 0, %_ZNK12_GLOBAL__N_115SourceColumnMap21startOfPreviousColumnEi.exit.preheader.i ], [ 0, %_ZNK12_GLOBAL__N_115SourceColumnMap21startOfPreviousColumnEi.exit199.i..critedge4.i172.loopexit_crit_edge ], [ %.0137304.i, %.lr.ph308.i.preheader ], [ %.0137.i, %.lr.ph308.i ]
   br label %.critedge4.i172
 
 .critedge4.i172:                                  ; preds = %.critedge4.i172.preheader, %_ZNK12_GLOBAL__N_115SourceColumnMap21startOfPreviousColumnEi.exit202.i
@@ -6560,7 +6560,7 @@ _ZL23findMatchingPunctuationc.exit49:             ; preds = %_ZL23findMatchingPu
   br label %.critedge4
 
 .critedge4:                                       ; preds = %_ZL23findMatchingPunctuationc.exit49, %65, %.critedge4.loopexit.split.loop.exit101, %.critedge2
-  %.241.lcssa = phi i32 [ %.140.lcssa, %.critedge2 ], [ %66, %.critedge4.loopexit.split.loop.exit101 ], [ %3, %65 ], [ %3, %_ZL23findMatchingPunctuationc.exit49 ]
+  %.241.lcssa = phi i32 [ %.140.lcssa, %.critedge2 ], [ %3, %65 ], [ %66, %.critedge4.loopexit.split.loop.exit101 ], [ %3, %_ZL23findMatchingPunctuationc.exit49 ]
   %67 = sub i32 %.241.lcssa, %0
   %68 = add i32 %67, %4
   %.not45 = icmp ule i32 %68, %5

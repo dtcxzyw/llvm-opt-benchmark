@@ -860,7 +860,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit374:       ; preds = %_ZNSt10filesystem7_
   br i1 %324, label %304, label %._crit_edge570, !llvm.loop !74
 
 ._crit_edge570:                                   ; preds = %304, %294, %.loopexit527
-  %.1291787 = phi i32 [ %.1291, %.loopexit527 ], [ %295, %294 ], [ %.1291, %304 ]
+  %.1291787 = phi i32 [ %295, %294 ], [ %.1291, %.loopexit527 ], [ %.1291, %304 ]
   %325 = load float, ptr %246, align 4, !tbaa !66
   %326 = load ptr, ptr %16, align 8, !tbaa !64
   %327 = load ptr, ptr %14, align 8, !tbaa !75

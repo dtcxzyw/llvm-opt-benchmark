@@ -668,7 +668,7 @@ define internal range(i32 0, 2) i32 @DBus_MessageFilter(ptr readnone captures(no
   %112 = icmp eq i32 %111, 114
   br i1 %112, label %.lr.ph88.i, label %Fcitx_GetPreeditString.exit.thread31, !llvm.loop !6
 
-Fcitx_GetPreeditString.exit.thread:               ; preds = %26, %84, %._crit_edge.i, %34
+Fcitx_GetPreeditString.exit.thread:               ; preds = %26, %._crit_edge.i, %84, %34
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

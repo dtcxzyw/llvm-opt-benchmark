@@ -1053,7 +1053,7 @@ define internal fastcc void @HIDAPI_UpdateDeviceList() unnamed_addr #0 {
   br label %.split.i.backedge
 
 .split.i.backedge:                                ; preds = %.splitthread-pre-split.i.loopexit, %._crit_edge.i
-  %.01013.pr.i114.be = phi ptr [ %.01013.pr.i.pre, %.splitthread-pre-split.i.loopexit ], [ null, %._crit_edge.i ]
+  %.01013.pr.i114.be = phi ptr [ null, %._crit_edge.i ], [ %.01013.pr.i.pre, %.splitthread-pre-split.i.loopexit ]
   br label %.split.i, !llvm.loop !22
 
 .split.i:                                         ; preds = %18, %.split.i.backedge
@@ -3624,7 +3624,7 @@ switch.lookup:                                    ; preds = %switch.lookup.prehe
   br label %131
 
 .thread64:                                        ; preds = %112, %31, %89
-  %.0.i51 = phi ptr [ @SDL_HIDAPI_DriverCombined, %89 ], [ @SDL_HIDAPI_DriverCombined, %31 ], [ %108, %112 ]
+  %.0.i51 = phi ptr [ @SDL_HIDAPI_DriverCombined, %31 ], [ @SDL_HIDAPI_DriverCombined, %89 ], [ %108, %112 ]
   store ptr %.0.i51, ptr %3, align 8
   %126 = getelementptr inbounds nuw i8, ptr %.0.i51, i64 48
   %127 = load ptr, ptr %126, align 8

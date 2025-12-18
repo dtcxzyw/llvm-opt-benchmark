@@ -345,7 +345,7 @@ define hidden noundef zeroext i1 @_ZNK7datalog14mk_synchronize12is_recursiveERNS
   br i1 %.not27.old.i.i, label %_ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit, label %.lr.ph38.i.i.backedge
 
 .lr.ph38.i.i.backedge:                            ; preds = %49, %46
-  %.137.i.i.be = phi ptr [ %.old.i.i, %49 ], [ %48, %46 ]
+  %.137.i.i.be = phi ptr [ %48, %46 ], [ %.old.i.i, %49 ]
   br label %.lr.ph38.i.i, !llvm.loop !244
 
 _ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit: ; preds = %35, %30, %49, %46, %41, %.preheader.i.i, %3
@@ -431,7 +431,7 @@ define hidden noundef zeroext i1 @_ZNK7datalog14mk_synchronize21has_recursive_pr
   br i1 %.not27.old.i.i, label %.loopexit, label %.lr.ph38.i.i.backedge
 
 .lr.ph38.i.i.backedge:                            ; preds = %39, %36
-  %.137.i.i.be = phi ptr [ %.old.i.i, %39 ], [ %38, %36 ]
+  %.137.i.i.be = phi ptr [ %38, %36 ], [ %.old.i.i, %39 ]
   br label %.lr.ph38.i.i, !llvm.loop !244
 
 .loopexit:                                        ; preds = %25, %39, %36, %.preheader.i.i
@@ -1048,7 +1048,7 @@ _ZNK6vectorIP4sortLb0EjE4sizeEv.exit:             ; preds = %.loopexit, %190
   br label %217
 
 _ZNK9table2mapI17default_map_entryI6symbolP9func_declE16symbol_hash_proc14symbol_eq_procE8containsERKS1_.exit: ; preds = %168, %179, %197
-  %202 = phi ptr [ %.pre86, %197 ], [ %134, %179 ], [ %134, %168 ]
+  %202 = phi ptr [ %134, %179 ], [ %.pre86, %197 ], [ %134, %168 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %.not.i.i = icmp eq ptr %202, null
   br i1 %.not.i.i, label %_ZN6vectorIP4sortLb0EjED2Ev.exit, label %203
@@ -1568,7 +1568,7 @@ _ZNK6vectorIP3appLb0EjE3endEv.exit.i.us:          ; preds = %.lr.ph.split, %_ZNK
   br i1 %exitcond105.not, label %.preheader64, label %_ZNK6vectorIP3appLb0EjE3endEv.exit.i.us, !llvm.loop !292
 
 .preheader64:                                     ; preds = %_ZNK6vectorIP3appLb0EjE8containsERKS1_.exit, %_ZNK6vectorIP3appLb0EjE3endEv.exit.i.us, %_ZNK6vectorIP3appLb0EjE8containsERKS1_.exit.us, %_ZN6vectorIbLb0EjE6resizeEj.exit
-  %.040.lcssa = phi i32 [ 0, %_ZN6vectorIbLb0EjE6resizeEj.exit ], [ %46, %_ZNK6vectorIP3appLb0EjE3endEv.exit.i.us ], [ %46, %_ZNK6vectorIP3appLb0EjE8containsERKS1_.exit.us ], [ %.1, %_ZNK6vectorIP3appLb0EjE8containsERKS1_.exit ]
+  %.040.lcssa = phi i32 [ 0, %_ZN6vectorIbLb0EjE6resizeEj.exit ], [ %46, %_ZNK6vectorIP3appLb0EjE8containsERKS1_.exit.us ], [ %46, %_ZNK6vectorIP3appLb0EjE3endEv.exit.i.us ], [ %.1, %_ZNK6vectorIP3appLb0EjE8containsERKS1_.exit ]
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %70 = load i32, ptr %69, align 4, !tbaa !293
   %71 = icmp ult i32 %46, %70
@@ -3418,9 +3418,9 @@ thread-pre-split.i.preheader:                     ; preds = %_ZNK6vectorIP3appLb
   br label %thread-pre-split.i
 
 thread-pre-split.i:                               ; preds = %thread-pre-split.i.backedge, %thread-pre-split.i.preheader
-  %39 = phi ptr [ %35, %thread-pre-split.i.preheader ], [ %.be105, %thread-pre-split.i.backedge ]
-  %40 = phi ptr [ %36, %thread-pre-split.i.preheader ], [ %.be105, %thread-pre-split.i.backedge ]
-  %41 = phi ptr [ %.ph, %thread-pre-split.i.preheader ], [ %.be105, %thread-pre-split.i.backedge ]
+  %39 = phi ptr [ %35, %thread-pre-split.i.preheader ], [ %.be104, %thread-pre-split.i.backedge ]
+  %40 = phi ptr [ %36, %thread-pre-split.i.preheader ], [ %.be104, %thread-pre-split.i.backedge ]
+  %41 = phi ptr [ %.ph, %thread-pre-split.i.preheader ], [ %.be104, %thread-pre-split.i.backedge ]
   %42 = icmp eq ptr %41, null
   br i1 %42, label %_ZNK6vectorIP3appLb0EjE8capacityEv.exit.thread.i, label %_ZNK6vectorIP3appLb0EjE8capacityEv.exit.i
 
@@ -3447,7 +3447,7 @@ _ZNK6vectorIP3appLb0EjE8capacityEv.exit.thread.i: ; preds = %_ZNK6vectorIP3appLb
   br label %thread-pre-split.i.backedge
 
 thread-pre-split.i.backedge:                      ; preds = %.noexc49, %.noexc50
-  %.be105 = phi ptr [ %90, %.noexc50 ], [ %50, %.noexc49 ]
+  %.be104 = phi ptr [ %50, %.noexc49 ], [ %90, %.noexc50 ]
   br label %thread-pre-split.i, !llvm.loop !322
 
 51:                                               ; preds = %_ZNK6vectorIP3appLb0EjE8capacityEv.exit.thread.i
@@ -3563,9 +3563,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i: ; preds
   br label %102
 
 ._crit_edge61:                                    ; preds = %_ZNK6vectorIP3appLb0EjE4sizeEv.exit43, %_ZNK6vectorIP3appLb0EjE4sizeEv.exit.thread.i, %92, %_ZNK6vectorIP3appLb0EjE4sizeEv.exit.i
-  %95 = phi ptr [ %39, %92 ], [ %35, %_ZNK6vectorIP3appLb0EjE4sizeEv.exit.thread.i ], [ %35, %_ZNK6vectorIP3appLb0EjE4sizeEv.exit.i ], [ %39, %_ZNK6vectorIP3appLb0EjE4sizeEv.exit43 ]
-  %96 = phi ptr [ %40, %92 ], [ %36, %_ZNK6vectorIP3appLb0EjE4sizeEv.exit.thread.i ], [ %36, %_ZNK6vectorIP3appLb0EjE4sizeEv.exit.i ], [ %39, %_ZNK6vectorIP3appLb0EjE4sizeEv.exit43 ]
-  %97 = phi ptr [ %41, %92 ], [ %37, %_ZNK6vectorIP3appLb0EjE4sizeEv.exit.thread.i ], [ null, %_ZNK6vectorIP3appLb0EjE4sizeEv.exit.i ], [ %39, %_ZNK6vectorIP3appLb0EjE4sizeEv.exit43 ]
+  %95 = phi ptr [ %35, %_ZNK6vectorIP3appLb0EjE4sizeEv.exit.i ], [ %39, %92 ], [ %35, %_ZNK6vectorIP3appLb0EjE4sizeEv.exit.thread.i ], [ %39, %_ZNK6vectorIP3appLb0EjE4sizeEv.exit43 ]
+  %96 = phi ptr [ %36, %_ZNK6vectorIP3appLb0EjE4sizeEv.exit.i ], [ %40, %92 ], [ %36, %_ZNK6vectorIP3appLb0EjE4sizeEv.exit.thread.i ], [ %39, %_ZNK6vectorIP3appLb0EjE4sizeEv.exit43 ]
+  %97 = phi ptr [ null, %_ZNK6vectorIP3appLb0EjE4sizeEv.exit.i ], [ %41, %92 ], [ %37, %_ZNK6vectorIP3appLb0EjE4sizeEv.exit.thread.i ], [ %39, %_ZNK6vectorIP3appLb0EjE4sizeEv.exit43 ]
   %98 = load i32, ptr %4, align 4, !tbaa !247
   %99 = add i32 %98, 1
   store i32 %99, ptr %4, align 4, !tbaa !247
@@ -3794,7 +3794,7 @@ define hidden void @_ZN7datalog14mk_synchronize16add_non_rec_tailERNS_4ruleER10r
   br i1 %.not27.old.i.i.i.i, label %.loopexit, label %.lr.ph38.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.backedge:                        ; preds = %75, %72
-  %.137.i.i.i.i.be = phi ptr [ %.old.i.i.i.i, %75 ], [ %74, %72 ]
+  %.137.i.i.i.i.be = phi ptr [ %74, %72 ], [ %.old.i.i.i.i, %75 ]
   br label %.lr.ph38.i.i.i.i, !llvm.loop !244
 
 .loopexit:                                        ; preds = %61, %75, %72, %19, %.preheader.i.i.i.i
@@ -4374,7 +4374,7 @@ _ZNK6vectorIP3appLb0EjE5emptyEv.exit:             ; preds = %._crit_edge174
   br i1 %.not27.old.i.i.i.i, label %_ZNK7datalog14mk_synchronize12is_recursiveERNS_4ruleER4expr.exit.thread, label %.lr.ph38.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.backedge:                        ; preds = %164, %161
-  %.137.i.i.i.i.be = phi ptr [ %.old.i.i.i.i, %164 ], [ %163, %161 ]
+  %.137.i.i.i.i.be = phi ptr [ %163, %161 ], [ %.old.i.i.i.i, %164 ]
   br label %.lr.ph38.i.i.i.i, !llvm.loop !244
 
 _ZNK7datalog14mk_synchronize12is_recursiveERNS_4ruleER4expr.exit: ; preds = %145, %156, %118
@@ -5465,7 +5465,7 @@ _ZN13obj_hashtableI3appEC2Ej.exit:                ; preds = %3
   br i1 %.not27.old.i.i.i.i, label %.loopexit78, label %.lr.ph38.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.backedge:                        ; preds = %80, %77
-  %.137.i.i.i.i.be = phi ptr [ %.old.i.i.i.i, %80 ], [ %79, %77 ]
+  %.137.i.i.i.i.be = phi ptr [ %79, %77 ], [ %.old.i.i.i.i, %80 ]
   br label %.lr.ph38.i.i.i.i, !llvm.loop !244
 
 .loopexit78:                                      ; preds = %66, %80, %77, %24, %.preheader.i.i.i.i

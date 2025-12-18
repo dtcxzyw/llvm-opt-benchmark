@@ -3350,7 +3350,7 @@ _ZNK5arrow5Datum5tableEv.exit:                    ; preds = %44
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN5arrow23DeviceAllocationTypeSet3addENS_20DeviceAllocationTypeE.exit, %.preheader, %_ZNK5arrow5Datum5tableEv.exit, %_ZNK5arrow5Datum12record_batchEv.exit, %1, %61, %_ZNK5arrow5Datum13chunked_arrayEv.exit, %_ZN5arrow23DeviceAllocationTypeSetC2ENS_20DeviceAllocationTypeE.exit
-  %.sroa.021.0 = phi i64 [ 0, %61 ], [ 2, %_ZNK5arrow5Datum5tableEv.exit ], [ 2, %_ZNK5arrow5Datum12record_batchEv.exit ], [ %14, %_ZN5arrow23DeviceAllocationTypeSetC2ENS_20DeviceAllocationTypeE.exit ], [ %20, %_ZNK5arrow5Datum13chunked_arrayEv.exit ], [ 2, %1 ], [ %59, %.preheader ], [ %42, %_ZN5arrow23DeviceAllocationTypeSet3addENS_20DeviceAllocationTypeE.exit ]
+  %.sroa.021.0 = phi i64 [ 0, %61 ], [ %59, %.preheader ], [ 2, %_ZNK5arrow5Datum5tableEv.exit ], [ 2, %_ZNK5arrow5Datum12record_batchEv.exit ], [ %14, %_ZN5arrow23DeviceAllocationTypeSetC2ENS_20DeviceAllocationTypeE.exit ], [ %20, %_ZNK5arrow5Datum13chunked_arrayEv.exit ], [ 2, %1 ], [ %42, %_ZN5arrow23DeviceAllocationTypeSet3addENS_20DeviceAllocationTypeE.exit ]
   ret i64 %.sroa.021.0
 }
 

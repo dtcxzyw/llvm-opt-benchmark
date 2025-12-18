@@ -1492,7 +1492,7 @@ put_tt.exit353:                                   ; preds = %get_v_length.exit.i
   br i1 %245, label %.lr.ph440, label %.thread426, !llvm.loop !135
 
 .thread426:                                       ; preds = %._crit_edge438, %.preheader432, %77, %220, %211, %66
-  %.8 = phi i32 [ %.0269, %66 ], [ %.0269, %77 ], [ %218, %220 ], [ %140, %211 ], [ %218, %.preheader432 ], [ %218, %._crit_edge438 ]
+  %.8 = phi i32 [ %.0269, %66 ], [ %.0269, %77 ], [ %140, %211 ], [ %218, %220 ], [ %218, %.preheader432 ], [ %218, %._crit_edge438 ]
   %246 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %247 = load i64, ptr %246, align 8, !tbaa !136
   %.not303 = icmp eq i64 %247, -9223372036854775808
@@ -2079,7 +2079,7 @@ put_v.exit415:                                    ; preds = %get_v_length.exit.i
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph440, %._crit_edge, %215, %.thread, %501, %510, %44
-  %.2271 = phi i32 [ %45, %44 ], [ %.8, %510 ], [ %.8, %501 ], [ %40, %.thread ], [ %140, %._crit_edge ], [ %218, %215 ], [ -12, %.lr.ph440 ]
+  %.2271 = phi i32 [ %45, %44 ], [ %.8, %510 ], [ %.8, %501 ], [ %40, %.thread ], [ %218, %215 ], [ %140, %._crit_edge ], [ -12, %.lr.ph440 ]
   call void @av_freep(ptr noundef nonnull %5) #13
   br label %515
 
@@ -5272,8 +5272,8 @@ get_v_length.exit.i.i98:                          ; preds = %get_v_length.exit.p
   br i1 %247, label %.lr.ph307.split, label %.thread, !llvm.loop !197
 
 .thread:                                          ; preds = %.loopexit298, %203, %205, %.lr.ph, %189, %.preheader299
-  %.7 = phi i32 [ 0, %.preheader299 ], [ %.158.ph.us, %189 ], [ %.259304, %.lr.ph ], [ %.158.ph, %.loopexit298 ], [ %.057305, %203 ], [ %.057305, %205 ]
-  %.5 = phi i32 [ %8, %.preheader299 ], [ %8, %189 ], [ -22, %.lr.ph ], [ %8, %.loopexit298 ], [ -22, %203 ], [ -22, %205 ]
+  %.7 = phi i32 [ %.259304, %.lr.ph ], [ 0, %.preheader299 ], [ %.158.ph.us, %189 ], [ %.057305, %203 ], [ %.057305, %205 ], [ %.158.ph, %.loopexit298 ]
+  %.5 = phi i32 [ -22, %.lr.ph ], [ %8, %.preheader299 ], [ %8, %189 ], [ -22, %203 ], [ -22, %205 ], [ %8, %.loopexit298 ]
   %248 = sext i32 %.7 to i64
   br label %249
 

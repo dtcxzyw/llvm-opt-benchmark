@@ -715,7 +715,7 @@ verify_cache.exit:                                ; preds = %68
   %.not28 = icmp eq i32 %.7.i, 0
   br i1 %.not28, label %verify_cache.exit.thread25, label %verify_cache.exit.thread
 
-verify_cache.exit.thread25:                       ; preds = %2, %.preheader.i, %verify_cache.exit
+verify_cache.exit.thread25:                       ; preds = %.preheader.i, %2, %verify_cache.exit
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %73 = load ptr, ptr %72, align 8, !tbaa !23
   %.not17 = icmp eq ptr %73, null
@@ -1254,7 +1254,7 @@ must_check_existence.exit.thread:                 ; preds = %173
   br label %213
 
 213:                                              ; preds = %200, %197, %205, %194
-  %.2149 = phi i32 [ %.3150, %194 ], [ 1, %197 ], [ %.3150, %205 ], [ %.3150, %200 ]
+  %.2149 = phi i32 [ %.3150, %200 ], [ %.3150, %205 ], [ 1, %197 ], [ %.3150, %194 ]
   %214 = icmp slt i32 %.6159, %2
   br i1 %214, label %114, label %.thread217
 
@@ -1889,8 +1889,8 @@ write_index_as_tree_internal.exit:                ; preds = %21, %.preheader.i.i
   %72 = call i32 @write_locked_index(ptr noundef %1, ptr noundef nonnull %6, i32 noundef 1) #19
   br label %write_index_as_tree_internal.exit.thread
 
-write_index_as_tree_internal.exit.thread:         ; preds = %cache_tree_subtree_pos.exit.i.i.i, %find_subtree.exit.i.i, %25, %cache_tree_find.exit.i, %.thread19, %5, %write_index_as_tree_internal.exit, %71
-  %.0 = phi i32 [ 0, %71 ], [ 0, %write_index_as_tree_internal.exit ], [ -1, %5 ], [ -3, %25 ], [ -3, %cache_tree_find.exit.i ], [ -2, %.thread19 ], [ -3, %find_subtree.exit.i.i ], [ -3, %cache_tree_subtree_pos.exit.i.i.i ]
+write_index_as_tree_internal.exit.thread:         ; preds = %find_subtree.exit.i.i, %cache_tree_subtree_pos.exit.i.i.i, %cache_tree_find.exit.i, %25, %.thread19, %5, %write_index_as_tree_internal.exit, %71
+  %.0 = phi i32 [ 0, %71 ], [ 0, %write_index_as_tree_internal.exit ], [ -1, %5 ], [ -3, %cache_tree_find.exit.i ], [ -3, %25 ], [ -2, %.thread19 ], [ -3, %cache_tree_subtree_pos.exit.i.i.i ], [ -3, %find_subtree.exit.i.i ]
   %73 = call i32 @delete_tempfile(ptr noundef nonnull %6) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
@@ -2216,7 +2216,7 @@ cache_tree_find.exit.thread14:                    ; preds = %.preheader.i, %cach
   br label %cache_tree_find.exit.thread
 
 cache_tree_find.exit.thread:                      ; preds = %cache_tree_subtree_pos.exit.i.i, %find_subtree.exit.i, %50, %3, %cache_tree_find.exit, %cache_tree_find.exit.thread14
-  %.0 = phi i32 [ %spec.select, %50 ], [ 0, %cache_tree_find.exit.thread14 ], [ 0, %cache_tree_find.exit ], [ 0, %3 ], [ 0, %find_subtree.exit.i ], [ 0, %cache_tree_subtree_pos.exit.i.i ]
+  %.0 = phi i32 [ 0, %3 ], [ %spec.select, %50 ], [ 0, %cache_tree_find.exit.thread14 ], [ 0, %cache_tree_find.exit ], [ 0, %find_subtree.exit.i ], [ 0, %cache_tree_subtree_pos.exit.i.i ]
   ret i32 %.0
 }
 
@@ -2742,7 +2742,7 @@ _.exit124:                                        ; preds = %180, %182
   br label %verify_one_sparse.exit.thread
 
 verify_one_sparse.exit.thread:                    ; preds = %16, %_.exit120, %_.exit116, %_.exit.i, %67, %63, %._crit_edge155, %._crit_edge, %lookup_replace_object.exit, %_.exit124, %_.exit
-  %.188 = phi i32 [ 0, %._crit_edge155 ], [ -1, %_.exit ], [ 1, %63 ], [ 0, %._crit_edge ], [ -1, %_.exit124 ], [ 0, %lookup_replace_object.exit ], [ 0, %67 ], [ -1, %_.exit.i ], [ -1, %_.exit116 ], [ -1, %_.exit120 ], [ %25, %16 ]
+  %.188 = phi i32 [ -1, %_.exit120 ], [ 0, %._crit_edge155 ], [ -1, %_.exit ], [ 1, %63 ], [ 0, %._crit_edge ], [ -1, %_.exit124 ], [ 0, %lookup_replace_object.exit ], [ 0, %67 ], [ -1, %_.exit.i ], [ -1, %_.exit116 ], [ %25, %16 ]
   %sext108 = shl i64 %8, 32
   %189 = ashr exact i64 %sext108, 32
   %190 = load i64, ptr %3, align 8, !tbaa !97

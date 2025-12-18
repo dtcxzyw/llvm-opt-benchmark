@@ -1029,7 +1029,7 @@ sgi_rle_encode.exit.thread:                       ; preds = %sgi_rle_encode.exit
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge278.split.us.split.split.us303.us, %._crit_edge278.split.us.split.split.us.us.us.us, %._crit_edge278.split.us.split.us.us.us.us, %.preheader231, %.split.us
-  %463 = phi ptr [ %173, %.preheader231 ], [ %.pre350, %.split.us ], [ %239, %._crit_edge278.split.us.split.split.us.us.us.us ], [ %206, %._crit_edge278.split.us.split.us.us.us.us ], [ %273, %._crit_edge278.split.us.split.split.us303.us ]
+  %463 = phi ptr [ %.pre350, %.split.us ], [ %206, %._crit_edge278.split.us.split.us.us.us.us ], [ %239, %._crit_edge278.split.us.split.split.us.us.us.us ], [ %173, %.preheader231 ], [ %273, %._crit_edge278.split.us.split.split.us303.us ]
   %464 = load ptr, ptr %42, align 8, !tbaa !37
   %465 = ptrtoint ptr %463 to i64
   %466 = ptrtoint ptr %464 to i64

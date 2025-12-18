@@ -1100,16 +1100,16 @@ _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %37
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %53 = load i32, ptr %52, align 8, !tbaa !6
   %54 = icmp ult i32 %53, 65
-  br i1 %54, label %55, label %_ZNK4llvm13ConstantRangeeqERKS0_.exit
+  br i1 %54, label %_ZNK4llvm13ConstantRangeeqERKS0_.exit, label %55
 
 55:                                               ; preds = %49
-  %56 = load i64, ptr %50, align 8, !tbaa !3
-  %57 = load i64, ptr %51, align 8, !tbaa !3
-  %58 = icmp eq i64 %56, %57
-  br i1 %58, label %60, label %_ZNK4llvm13ConstantRangeeqERKS0_.exit.thread
+  %56 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %50, ptr noundef nonnull align 8 dereferenceable(12) %51) #11
+  br i1 %56, label %60, label %_ZNK4llvm13ConstantRangeeqERKS0_.exit.thread
 
 _ZNK4llvm13ConstantRangeeqERKS0_.exit:            ; preds = %49
-  %59 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %50, ptr noundef nonnull align 8 dereferenceable(12) %51) #11
+  %57 = load i64, ptr %50, align 8, !tbaa !3
+  %58 = load i64, ptr %51, align 8, !tbaa !3
+  %59 = icmp eq i64 %57, %58
   br i1 %59, label %60, label %_ZNK4llvm13ConstantRangeeqERKS0_.exit.thread
 
 60:                                               ; preds = %55, %_ZNK4llvm13ConstantRangeeqERKS0_.exit

@@ -1533,7 +1533,7 @@ define internal fastcc void @rtpproxy_add_parameter(ptr noundef %0, ptr noundef 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %17, %.lr.ph173, %50, %67, %158, %138, %132, %126, %124, %87, %85
-  %.3 = phi i32 [ %13, %.lr.ph173 ], [ %68, %67 ], [ %13, %50 ], [ %86, %85 ], [ %101, %87 ], [ %125, %124 ], [ %131, %126 ], [ %137, %132 ], [ %157, %138 ], [ %163, %158 ], [ %13, %17 ], [ %spec.select, %.lr.ph ]
+  %.3 = phi i32 [ %13, %.lr.ph173 ], [ %163, %158 ], [ %68, %67 ], [ %13, %50 ], [ %86, %85 ], [ %101, %87 ], [ %125, %124 ], [ %131, %126 ], [ %137, %132 ], [ %157, %138 ], [ %13, %17 ], [ %spec.select, %.lr.ph ]
   %164 = icmp ult i32 %.3, %4
   br i1 %164, label %.lr.ph173, label %._crit_edge, !llvm.loop !11
 

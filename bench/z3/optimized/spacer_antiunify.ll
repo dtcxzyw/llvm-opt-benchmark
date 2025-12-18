@@ -1355,7 +1355,7 @@ _ZN6bufferIP4exprLb0ELj16EE9push_backERKS1_.exit: ; preds = %._crit_edge.i, %_ZN
   br i1 %.not27.old.i.i.i, label %.loopexit239, label %.lr.ph37.i.i.i.backedge
 
 .lr.ph37.i.i.i.backedge:                          ; preds = %245, %242
-  %.136.i.i.i.be = phi ptr [ %.old.i.i.i, %245 ], [ %244, %242 ]
+  %.136.i.i.i.be = phi ptr [ %244, %242 ], [ %.old.i.i.i, %245 ]
   br label %.lr.ph37.i.i.i, !llvm.loop !67
 
 .loopexit238:                                     ; preds = %220, %236
@@ -1764,7 +1764,7 @@ _ZNK6vectorISt4pairIP4exprS2_ELb0EjE5emptyEv.exit.thread: ; preds = %_ZNK6vector
   br i1 %.not27.old.i.i.i127, label %.thread, label %.lr.ph37.i.i.i124.backedge
 
 .lr.ph37.i.i.i124.backedge:                       ; preds = %418, %415
-  %.136.i.i.i125.be = phi ptr [ %.old.i.i.i126, %418 ], [ %417, %415 ]
+  %.136.i.i.i125.be = phi ptr [ %417, %415 ], [ %.old.i.i.i126, %418 ]
   br label %.lr.ph37.i.i.i124, !llvm.loop !67
 
 .thread:                                          ; preds = %399, %418, %415, %.preheader.i.i.i122
@@ -15527,7 +15527,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK13rewriter_core10is_blockedEP
   br i1 %.not27.old.i.i, label %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit, label %.lr.ph38.i.i.backedge
 
 .lr.ph38.i.i.backedge:                            ; preds = %35, %32
-  %.137.i.i.be = phi ptr [ %.old.i.i, %35 ], [ %34, %32 ]
+  %.137.i.i.be = phi ptr [ %34, %32 ], [ %.old.i.i, %35 ]
   br label %.lr.ph38.i.i, !llvm.loop !311
 
 _ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit: ; preds = %16, %21, %27, %32, %35, %.preheader.i.i

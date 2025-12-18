@@ -2253,7 +2253,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0
   br i1 %.not66, label %.loopexit, label %.lr.ph151
 
 .loopexit:                                        ; preds = %294, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit105, %211, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit91
-  %.not61137.ph = phi i1 [ true, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit105 ], [ false, %211 ], [ false, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit91 ], [ true, %294 ]
+  %.not61137.ph = phi i1 [ false, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit91 ], [ true, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit105 ], [ false, %211 ], [ true, %294 ]
   %.pr = load ptr, ptr %84, align 8, !tbaa !87
   %296 = icmp eq ptr %.pr, null
   br i1 %296, label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit, label %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i108
@@ -10799,7 +10799,7 @@ define linkonce_odr hidden noundef ptr @_ZNK7obj_mapI4expr8rationalE9find_coreEP
   br i1 %.not27.old.i, label %_ZNK14core_hashtableIN7obj_mapI4expr8rationalE13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE9find_coreERKS6_.exit, label %.lr.ph38.i.backedge
 
 .lr.ph38.i.backedge:                              ; preds = %39, %36
-  %.137.i.be = phi ptr [ %.old.i, %39 ], [ %38, %36 ]
+  %.137.i.be = phi ptr [ %38, %36 ], [ %.old.i, %39 ]
   br label %.lr.ph38.i, !llvm.loop !458
 
 _ZNK14core_hashtableIN7obj_mapI4expr8rationalE13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE9find_coreERKS6_.exit: ; preds = %25, %20, %39, %36, %31, %.preheader.i
@@ -10896,7 +10896,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI4expr8rationalE13
   br i1 %.not32.old, label %.loopexit, label %.lr.ph48.backedge
 
 .lr.ph48.backedge:                                ; preds = %36, %33
-  %.247.be = phi ptr [ %.old, %36 ], [ %35, %33 ]
+  %.247.be = phi ptr [ %35, %33 ], [ %.old, %36 ]
   br label %.lr.ph48, !llvm.loop !460
 
 .loopexit38:                                      ; preds = %17, %28
@@ -13023,7 +13023,7 @@ _ZNK6vectorIN5arith14theory_checker3rowELb1EjE4sizeEv.exit38: ; preds = %_ZNK7ob
   br i1 %.not27.old.i.i, label %_ZNK14core_hashtableIN7obj_mapI4expr8rationalE13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE9find_coreERKS6_.exit.i, label %.lr.ph38.i.i.backedge
 
 .lr.ph38.i.i.backedge:                            ; preds = %145, %142
-  %.137.i.i.be = phi ptr [ %.old.i.i, %145 ], [ %144, %142 ]
+  %.137.i.i.be = phi ptr [ %144, %142 ], [ %.old.i.i, %145 ]
   br label %.lr.ph38.i.i, !llvm.loop !458
 
 _ZNK14core_hashtableIN7obj_mapI4expr8rationalE13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE9find_coreERKS6_.exit.i: ; preds = %131, %126, %145, %142, %137, %.preheader.i.i
@@ -18507,7 +18507,7 @@ _ZNK16basic_union_find12get_num_varsEv.exit.i.i:  ; preds = %.lr.ph183
   br i1 %.not17.i.i, label %_ZNK16basic_union_find4findEj.exit.i, label %.preheader.i.i
 
 _ZNK16basic_union_find4findEj.exit.i:             ; preds = %.preheader.i.i, %_ZNK16basic_union_find12get_num_varsEv.exit.i.i, %.lr.ph183
-  %.09.i.i = phi i32 [ %274, %_ZNK16basic_union_find12get_num_varsEv.exit.i.i ], [ %274, %.lr.ph183 ], [ %.010.i.i, %.preheader.i.i ]
+  %.09.i.i = phi i32 [ %274, %.lr.ph183 ], [ %274, %_ZNK16basic_union_find12get_num_varsEv.exit.i.i ], [ %.010.i.i, %.preheader.i.i ]
   %282 = call noundef i32 @_ZN3euf17eq_theory_checker7expr2idEP4expr(ptr noundef nonnull align 8 dereferenceable(100) %0, ptr noundef %273)
   %283 = load ptr, ptr %50, align 8, !tbaa !410
   %284 = icmp eq ptr %283, null
@@ -18528,7 +18528,7 @@ _ZNK16basic_union_find12get_num_varsEv.exit.i3.i: ; preds = %_ZNK16basic_union_f
   br i1 %.not17.i8.i, label %_ZN3euf17eq_theory_checker9are_equalEP4exprS2_.exit, label %.preheader.i6.i
 
 _ZN3euf17eq_theory_checker9are_equalEP4exprS2_.exit: ; preds = %.preheader.i6.i, %_ZNK16basic_union_find4findEj.exit.i, %_ZNK16basic_union_find12get_num_varsEv.exit.i3.i
-  %.09.i5.i = phi i32 [ %282, %_ZNK16basic_union_find12get_num_varsEv.exit.i3.i ], [ %282, %_ZNK16basic_union_find4findEj.exit.i ], [ %.010.i7.i, %.preheader.i6.i ]
+  %.09.i5.i = phi i32 [ %282, %_ZNK16basic_union_find4findEj.exit.i ], [ %282, %_ZNK16basic_union_find12get_num_varsEv.exit.i3.i ], [ %.010.i7.i, %.preheader.i6.i ]
   %290 = icmp eq i32 %.09.i.i, %.09.i5.i
   br i1 %290, label %.critedge97, label %265
 
@@ -18599,7 +18599,7 @@ _ZNK16basic_union_find12get_num_varsEv.exit.i113: ; preds = %305
   br i1 %319, label %.critedge97, label %_ZNK16basic_union_find12get_num_varsEv.exit.thread, !llvm.loop !532
 
 .critedge97:                                      ; preds = %166, %159, %_ZNK11ast_manager5is_eqEPK4expr.exit.i105, %177, %200, %181, %195, %156, %_ZN3euf17eq_theory_checker9are_equalEP4exprS2_.exit, %_ZNK16basic_union_find12get_num_varsEv.exit.thread, %.loopexit, %302, %.preheader171, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit110, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit109, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit107, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit108
-  %.6 = phi i1 [ false, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit108 ], [ false, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit107 ], [ false, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit109 ], [ false, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit110 ], [ false, %.preheader171 ], [ true, %_ZN3euf17eq_theory_checker9are_equalEP4exprS2_.exit ], [ true, %302 ], [ false, %_ZNK16basic_union_find12get_num_varsEv.exit.thread ], [ false, %.loopexit ], [ false, %156 ], [ false, %195 ], [ false, %181 ], [ false, %200 ], [ false, %177 ], [ false, %_ZNK11ast_manager5is_eqEPK4expr.exit.i105 ], [ false, %159 ], [ false, %166 ]
+  %.6 = phi i1 [ true, %302 ], [ false, %.preheader171 ], [ false, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit110 ], [ false, %_ZNK16basic_union_find12get_num_varsEv.exit.thread ], [ false, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit109 ], [ false, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit108 ], [ false, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit107 ], [ true, %_ZN3euf17eq_theory_checker9are_equalEP4exprS2_.exit ], [ false, %.loopexit ], [ false, %156 ], [ false, %195 ], [ false, %181 ], [ false, %200 ], [ false, %177 ], [ false, %_ZNK11ast_manager5is_eqEPK4expr.exit.i105 ], [ false, %159 ], [ false, %166 ]
   ret i1 %.6
 
 320:                                              ; preds = %243, %254, %230, %219, %34, %23
@@ -18766,8 +18766,8 @@ _ZNK16basic_union_find12get_num_varsEv.exit.i4.i: ; preds = %.preheader.i.i, %_Z
   br i1 %.not17.i9.i, label %_ZNK16basic_union_find4findEj.exit10.i, label %.preheader.i7.i
 
 _ZNK16basic_union_find4findEj.exit10.i:           ; preds = %.preheader.i7.i, %_ZNK16basic_union_find12get_num_varsEv.exit.i4.i, %3
-  %.09.i30.i = phi i32 [ %.09.i.ph.i, %_ZNK16basic_union_find12get_num_varsEv.exit.i4.i ], [ %5, %3 ], [ %.09.i.ph.i, %.preheader.i7.i ]
-  %.09.i6.i = phi i32 [ %6, %_ZNK16basic_union_find12get_num_varsEv.exit.i4.i ], [ %6, %3 ], [ %.010.i8.i, %.preheader.i7.i ]
+  %.09.i30.i = phi i32 [ %5, %3 ], [ %.09.i.ph.i, %_ZNK16basic_union_find12get_num_varsEv.exit.i4.i ], [ %.09.i.ph.i, %.preheader.i7.i ]
+  %.09.i6.i = phi i32 [ %6, %3 ], [ %6, %_ZNK16basic_union_find12get_num_varsEv.exit.i4.i ], [ %.010.i8.i, %.preheader.i7.i ]
   %17 = icmp eq i32 %.09.i30.i, %.09.i6.i
   br i1 %17, label %_ZN16basic_union_find5mergeEjj.exit, label %.preheader.i
 
@@ -18937,7 +18937,7 @@ _ZNK16basic_union_find12get_num_varsEv.exit.i.i:  ; preds = %19
   br i1 %.not17.i.i, label %_ZNK16basic_union_find4findEj.exit.i, label %.preheader.i.i
 
 _ZNK16basic_union_find4findEj.exit.i:             ; preds = %.preheader.i.i, %_ZNK16basic_union_find12get_num_varsEv.exit.i.i, %19
-  %.09.i.i = phi i32 [ %26, %_ZNK16basic_union_find12get_num_varsEv.exit.i.i ], [ %26, %19 ], [ %.010.i.i, %.preheader.i.i ]
+  %.09.i.i = phi i32 [ %26, %19 ], [ %26, %_ZNK16basic_union_find12get_num_varsEv.exit.i.i ], [ %.010.i.i, %.preheader.i.i ]
   %34 = tail call noundef i32 @_ZN3euf17eq_theory_checker7expr2idEP4expr(ptr noundef nonnull align 8 dereferenceable(100) %0, ptr noundef %24)
   %35 = load ptr, ptr %25, align 8, !tbaa !410
   %36 = icmp eq ptr %35, null
@@ -18958,7 +18958,7 @@ _ZNK16basic_union_find12get_num_varsEv.exit.i3.i: ; preds = %_ZNK16basic_union_f
   br i1 %.not17.i8.i, label %_ZN3euf17eq_theory_checker9are_equalEP4exprS2_.exit, label %.preheader.i6.i
 
 _ZN3euf17eq_theory_checker9are_equalEP4exprS2_.exit: ; preds = %.preheader.i6.i, %_ZNK16basic_union_find4findEj.exit.i, %_ZNK16basic_union_find12get_num_varsEv.exit.i3.i
-  %.09.i5.i = phi i32 [ %34, %_ZNK16basic_union_find12get_num_varsEv.exit.i3.i ], [ %34, %_ZNK16basic_union_find4findEj.exit.i ], [ %.010.i7.i, %.preheader.i6.i ]
+  %.09.i5.i = phi i32 [ %34, %_ZNK16basic_union_find4findEj.exit.i ], [ %34, %_ZNK16basic_union_find12get_num_varsEv.exit.i3.i ], [ %.010.i7.i, %.preheader.i6.i ]
   %42 = icmp eq i32 %.09.i.i, %.09.i5.i
   br i1 %42, label %43, label %.loopexit
 
@@ -18986,7 +18986,7 @@ _ZNK16basic_union_find12get_num_varsEv.exit.i.i31: ; preds = %43
   br i1 %.not17.i.i43, label %_ZNK16basic_union_find4findEj.exit.i33, label %.preheader.i.i41
 
 _ZNK16basic_union_find4findEj.exit.i33:           ; preds = %.preheader.i.i41, %_ZNK16basic_union_find12get_num_varsEv.exit.i.i31, %43
-  %.09.i.i34 = phi i32 [ %47, %_ZNK16basic_union_find12get_num_varsEv.exit.i.i31 ], [ %47, %43 ], [ %.010.i.i42, %.preheader.i.i41 ]
+  %.09.i.i34 = phi i32 [ %47, %43 ], [ %47, %_ZNK16basic_union_find12get_num_varsEv.exit.i.i31 ], [ %.010.i.i42, %.preheader.i.i41 ]
   %55 = tail call noundef i32 @_ZN3euf17eq_theory_checker7expr2idEP4expr(ptr noundef nonnull align 8 dereferenceable(100) %0, ptr noundef %46)
   %56 = load ptr, ptr %25, align 8, !tbaa !410
   %57 = icmp eq ptr %56, null
@@ -19007,7 +19007,7 @@ _ZNK16basic_union_find12get_num_varsEv.exit.i3.i35: ; preds = %_ZNK16basic_union
   br i1 %.not17.i8.i40, label %_ZN3euf17eq_theory_checker9are_equalEP4exprS2_.exit44, label %.preheader.i6.i38
 
 _ZN3euf17eq_theory_checker9are_equalEP4exprS2_.exit44: ; preds = %.preheader.i6.i38, %_ZNK16basic_union_find4findEj.exit.i33, %_ZNK16basic_union_find12get_num_varsEv.exit.i3.i35
-  %.09.i5.i37 = phi i32 [ %55, %_ZNK16basic_union_find12get_num_varsEv.exit.i3.i35 ], [ %55, %_ZNK16basic_union_find4findEj.exit.i33 ], [ %.010.i7.i39, %.preheader.i6.i38 ]
+  %.09.i5.i37 = phi i32 [ %55, %_ZNK16basic_union_find4findEj.exit.i33 ], [ %55, %_ZNK16basic_union_find12get_num_varsEv.exit.i3.i35 ], [ %.010.i7.i39, %.preheader.i6.i38 ]
   %63 = icmp eq i32 %.09.i.i34, %.09.i5.i37
   br i1 %63, label %._crit_edge, label %.loopexit
 
@@ -19044,7 +19044,7 @@ _ZNK16basic_union_find12get_num_varsEv.exit.i.i45: ; preds = %68
   br i1 %.not17.i.i57, label %_ZNK16basic_union_find4findEj.exit.i47, label %.preheader.i.i55
 
 _ZNK16basic_union_find4findEj.exit.i47:           ; preds = %.preheader.i.i55, %_ZNK16basic_union_find12get_num_varsEv.exit.i.i45, %68
-  %.09.i.i48 = phi i32 [ %73, %_ZNK16basic_union_find12get_num_varsEv.exit.i.i45 ], [ %73, %68 ], [ %.010.i.i56, %.preheader.i.i55 ]
+  %.09.i.i48 = phi i32 [ %73, %68 ], [ %73, %_ZNK16basic_union_find12get_num_varsEv.exit.i.i45 ], [ %.010.i.i56, %.preheader.i.i55 ]
   %81 = tail call noundef i32 @_ZN3euf17eq_theory_checker7expr2idEP4expr(ptr noundef nonnull align 8 dereferenceable(100) %0, ptr noundef %72)
   %82 = load ptr, ptr %17, align 8, !tbaa !410
   %83 = icmp eq ptr %82, null
@@ -19065,7 +19065,7 @@ _ZNK16basic_union_find12get_num_varsEv.exit.i3.i49: ; preds = %_ZNK16basic_union
   br i1 %.not17.i8.i54, label %_ZN3euf17eq_theory_checker9are_equalEP4exprS2_.exit58, label %.preheader.i6.i52
 
 _ZN3euf17eq_theory_checker9are_equalEP4exprS2_.exit58: ; preds = %.preheader.i6.i52, %_ZNK16basic_union_find4findEj.exit.i47, %_ZNK16basic_union_find12get_num_varsEv.exit.i3.i49
-  %.09.i5.i51 = phi i32 [ %81, %_ZNK16basic_union_find12get_num_varsEv.exit.i3.i49 ], [ %81, %_ZNK16basic_union_find4findEj.exit.i47 ], [ %.010.i7.i53, %.preheader.i6.i52 ]
+  %.09.i5.i51 = phi i32 [ %81, %_ZNK16basic_union_find4findEj.exit.i47 ], [ %81, %_ZNK16basic_union_find12get_num_varsEv.exit.i3.i49 ], [ %.010.i7.i53, %.preheader.i6.i52 ]
   %89 = icmp eq i32 %.09.i.i48, %.09.i5.i51
   br i1 %89, label %64, label %.loopexit
 
@@ -19721,8 +19721,8 @@ _ZNK16basic_union_find12get_num_varsEv.exit.i4.i: ; preds = %.preheader.i.i, %_Z
   br i1 %.not17.i9.i, label %_ZNK16basic_union_find4findEj.exit10.i, label %.preheader.i7.i
 
 _ZNK16basic_union_find4findEj.exit10.i:           ; preds = %.preheader.i7.i, %_ZNK16basic_union_find12get_num_varsEv.exit.i4.i, %110
-  %.09.i30.i = phi i32 [ %.09.i.ph.i, %_ZNK16basic_union_find12get_num_varsEv.exit.i4.i ], [ %107, %110 ], [ %.09.i.ph.i, %.preheader.i7.i ]
-  %.09.i6.i = phi i32 [ %109, %_ZNK16basic_union_find12get_num_varsEv.exit.i4.i ], [ %109, %110 ], [ %.010.i8.i, %.preheader.i7.i ]
+  %.09.i30.i = phi i32 [ %107, %110 ], [ %.09.i.ph.i, %_ZNK16basic_union_find12get_num_varsEv.exit.i4.i ], [ %.09.i.ph.i, %.preheader.i7.i ]
+  %.09.i6.i = phi i32 [ %109, %110 ], [ %109, %_ZNK16basic_union_find12get_num_varsEv.exit.i4.i ], [ %.010.i8.i, %.preheader.i7.i ]
   %121 = icmp eq i32 %.09.i30.i, %.09.i6.i
   br i1 %121, label %_ZN16basic_union_find5mergeEjj.exit, label %.preheader.i
 

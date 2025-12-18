@@ -1255,7 +1255,7 @@ select.unfold289.i:                               ; preds = %579, %._crit_edge.i
   br label %filter_have_queued.exit.thread.i
 
 filter_have_queued.exit.thread.i:                 ; preds = %132, %158, %select.unfold289.i, %168, %.preheader.i166.i, %.preheader.i.i
-  %.1125.ph.i = phi i32 [ %583, %select.unfold289.i ], [ %.0124339.i, %.preheader.i166.i ], [ %.0124339.i, %168 ], [ %.0124339.i, %.preheader.i.i ], [ %.0124339.i, %158 ], [ %.0124339.i, %132 ]
+  %.1125.ph.i = phi i32 [ %583, %select.unfold289.i ], [ %.0124339.i, %.preheader.i166.i ], [ %.0124339.i, %168 ], [ %.0124339.i, %158 ], [ %.0124339.i, %.preheader.i.i ], [ %.0124339.i, %132 ]
   %indvars.iv.next366.i = add nuw nsw i64 %indvars.iv365.i, 1
   %584 = load ptr, ptr %100, align 8, !tbaa !64
   %585 = getelementptr inbounds nuw i8, ptr %584, i64 16
@@ -1589,8 +1589,8 @@ define internal fastcc range(i32 -12, 1) i32 @draw_items(ptr %.72.val, ptr nound
   br i1 %.not36.i, label %drawtext.exit, label %53, !llvm.loop !81
 
 drawtext.exit:                                    ; preds = %90, %38, %45, %6
-  %.0236 = phi i32 [ %2, %6 ], [ %44, %45 ], [ %44, %38 ], [ %44, %90 ]
-  %.0234 = phi i32 [ 0, %6 ], [ %.1235, %45 ], [ %.1235, %38 ], [ %.1235, %90 ]
+  %.0236 = phi i32 [ %2, %6 ], [ %44, %38 ], [ %44, %45 ], [ %44, %90 ]
+  %.0234 = phi i32 [ 0, %6 ], [ %.1235, %38 ], [ %.1235, %45 ], [ %.1235, %90 ]
   %93 = and i32 %22, 128
   %.not246 = icmp eq i32 %93, 0
   br i1 %.not246, label %drawtext.exit303, label %94

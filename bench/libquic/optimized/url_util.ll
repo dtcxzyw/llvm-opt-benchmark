@@ -2901,10 +2901,10 @@ _ZN3url12CanonOutputTIcE9push_backEc.exit.sink.split: ; preds = %.noexc53, %80, 
   br label %_ZN3url12CanonOutputTIcE9push_backEc.exit
 
 _ZN3url12CanonOutputTIcE9push_backEc.exit:        ; preds = %select.unfold.i.i46, %select.unfold.i.i, %select.unfold.i.i35, %_ZN3url12CanonOutputTIcE9push_backEc.exit.sink.split
-  %98 = phi i32 [ %97, %_ZN3url12CanonOutputTIcE9push_backEc.exit.sink.split ], [ %17, %select.unfold.i.i ], [ %17, %select.unfold.i.i35 ], [ %17, %select.unfold.i.i46 ]
-  %99 = phi i32 [ %97, %_ZN3url12CanonOutputTIcE9push_backEc.exit.sink.split ], [ %18, %select.unfold.i.i ], [ %17, %select.unfold.i.i35 ], [ %18, %select.unfold.i.i46 ]
-  %100 = phi i32 [ %97, %_ZN3url12CanonOutputTIcE9push_backEc.exit.sink.split ], [ %18, %select.unfold.i.i ], [ %17, %select.unfold.i.i35 ], [ %19, %select.unfold.i.i46 ]
-  %.097 = phi i32 [ %.097.ph, %_ZN3url12CanonOutputTIcE9push_backEc.exit.sink.split ], [ %54, %select.unfold.i.i ], [ %storemerge135, %select.unfold.i.i35 ], [ %storemerge135, %select.unfold.i.i46 ]
+  %98 = phi i32 [ %17, %select.unfold.i.i35 ], [ %97, %_ZN3url12CanonOutputTIcE9push_backEc.exit.sink.split ], [ %17, %select.unfold.i.i ], [ %17, %select.unfold.i.i46 ]
+  %99 = phi i32 [ %17, %select.unfold.i.i35 ], [ %97, %_ZN3url12CanonOutputTIcE9push_backEc.exit.sink.split ], [ %18, %select.unfold.i.i ], [ %18, %select.unfold.i.i46 ]
+  %100 = phi i32 [ %17, %select.unfold.i.i35 ], [ %97, %_ZN3url12CanonOutputTIcE9push_backEc.exit.sink.split ], [ %18, %select.unfold.i.i ], [ %19, %select.unfold.i.i46 ]
+  %.097 = phi i32 [ %storemerge135, %select.unfold.i.i35 ], [ %.097.ph, %_ZN3url12CanonOutputTIcE9push_backEc.exit.sink.split ], [ %54, %select.unfold.i.i ], [ %storemerge135, %select.unfold.i.i46 ]
   %101 = add nsw i32 %.097, 1
   %102 = icmp slt i32 %101, %1
   br i1 %102, label %16, label %.preheader123, !llvm.loop !54

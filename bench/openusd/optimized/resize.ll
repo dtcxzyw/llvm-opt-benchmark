@@ -2578,7 +2578,7 @@ define hidden void @av1_upscale_normative_rows(ptr noundef %0, ptr noundef %1, i
   br i1 %exitcond94.not.i, label %highbd_upscale_normative_rect.exit.sink.split, label %.lr.ph77.i76, !llvm.loop !73
 
 highbd_upscale_normative_rect.exit.sink.split:    ; preds = %.lr.ph79.i, %.lr.ph77.i76, %.preheader.i74, %.preheader.i
-  %.067.i138155157.sink = phi ptr [ %.069.i104, %.preheader.i ], [ %.067.i138, %.preheader.i74 ], [ %.067.i138155158, %.lr.ph77.i76 ], [ %.069.i104121124, %.lr.ph79.i ]
+  %.067.i138155157.sink = phi ptr [ %.067.i138155158, %.lr.ph77.i76 ], [ %.069.i104, %.preheader.i ], [ %.067.i138, %.preheader.i74 ], [ %.069.i104121124, %.lr.ph79.i ]
   call void @aom_free(ptr noundef %.067.i138155157.sink) #11
   br label %highbd_upscale_normative_rect.exit
 

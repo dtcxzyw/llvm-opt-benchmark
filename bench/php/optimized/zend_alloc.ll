@@ -2685,7 +2685,7 @@ define dso_local noundef zeroext i1 @is_zend_ptr(ptr noundef %0) local_unnamed_a
   br i1 %.not30.not, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %.preheader, %30, %25, %.thread, %8, %14
-  %.121 = phi i1 [ false, %14 ], [ true, %8 ], [ false, %.thread ], [ true, %25 ], [ false, %30 ], [ true, %.preheader ]
+  %.121 = phi i1 [ false, %14 ], [ true, %8 ], [ true, %25 ], [ false, %.thread ], [ false, %30 ], [ true, %.preheader ]
   ret i1 %.121
 }
 
@@ -8973,7 +8973,7 @@ zend_mm_chunk_truncate.exit.thread108:            ; preds = %81, %78, %30, %zend
   br label %zend_mm_change_huge_block_size.exit
 
 zend_mm_change_huge_block_size.exit:              ; preds = %99, %54, %24, %97, %84, %52, %zend_mm_chunk_truncate.exit.thread, %22, %zend_mm_chunk_truncate.exit.thread108
-  %.0 = phi ptr [ %102, %zend_mm_chunk_truncate.exit.thread108 ], [ %1, %22 ], [ %1, %zend_mm_chunk_truncate.exit.thread ], [ %1, %52 ], [ %1, %84 ], [ %1, %97 ], [ %1, %54 ], [ %1, %24 ], [ %1, %99 ]
+  %.0 = phi ptr [ %1, %54 ], [ %1, %24 ], [ %102, %zend_mm_chunk_truncate.exit.thread108 ], [ %1, %22 ], [ %1, %zend_mm_chunk_truncate.exit.thread ], [ %1, %52 ], [ %1, %84 ], [ %1, %97 ], [ %1, %99 ]
   ret ptr %.0
 }
 
@@ -9574,11 +9574,11 @@ zend_mm_chunk_alloc.exit172:                      ; preds = %102, %110
   br label %5
 
 .thread:                                          ; preds = %40, %19, %50, %38, %128
-  %148 = phi i32 [ 1, %128 ], [ %39, %38 ], [ %11, %50 ], [ %28, %40 ], [ %11, %19 ]
-  %149 = phi i32 [ 511, %128 ], [ %7, %38 ], [ %7, %50 ], [ %7, %19 ], [ %7, %40 ]
-  %150 = phi ptr [ %129, %128 ], [ %4, %38 ], [ %4, %50 ], [ %4, %19 ], [ %4, %40 ]
-  %.4 = phi i32 [ 1, %128 ], [ %28, %38 ], [ %28, %50 ], [ %.0141, %19 ], [ %.0141, %40 ]
-  %.1 = phi ptr [ %.2, %128 ], [ %.0124, %38 ], [ %.0124, %50 ], [ %.0124, %19 ], [ %.0124, %40 ]
+  %148 = phi i32 [ 1, %128 ], [ %11, %50 ], [ %39, %38 ], [ %11, %19 ], [ %28, %40 ]
+  %149 = phi i32 [ 511, %128 ], [ %7, %50 ], [ %7, %38 ], [ %7, %19 ], [ %7, %40 ]
+  %150 = phi ptr [ %129, %128 ], [ %4, %50 ], [ %4, %38 ], [ %4, %19 ], [ %4, %40 ]
+  %.4 = phi i32 [ 1, %128 ], [ %28, %50 ], [ %28, %38 ], [ %.0141, %19 ], [ %.0141, %40 ]
+  %.1 = phi ptr [ %.2, %128 ], [ %.0124, %50 ], [ %.0124, %38 ], [ %.0124, %19 ], [ %.0124, %40 ]
   %151 = icmp samesign ugt i32 %.0143, 2
   %152 = icmp ult i32 %1, 8
   %or.cond4 = and i1 %152, %151

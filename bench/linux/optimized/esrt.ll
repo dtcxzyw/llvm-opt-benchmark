@@ -434,7 +434,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @register_entries() unnamed
   br label %.loopexit
 
 .loopexit:                                        ; preds = %12, %44, %.thread, %9, %0
-  %48 = phi i32 [ 0, %0 ], [ 0, %9 ], [ %46, %.thread ], [ -22, %44 ], [ 0, %12 ]
+  %48 = phi i32 [ 0, %0 ], [ 0, %9 ], [ -22, %44 ], [ %46, %.thread ], [ 0, %12 ]
   ret i32 %48
 }
 

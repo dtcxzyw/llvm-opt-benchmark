@@ -2101,7 +2101,7 @@ define internal fastcc range(i32 -34, 2) i32 @perform_atomic_semop(ptr noundef c
   %100 = icmp ult ptr %99, %14
   br i1 %100, label %63, label %.critedge, !llvm.loop !42
 
-101:                                              ; preds = %24, %42
+101:                                              ; preds = %42, %24
   %102 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store ptr %25, ptr %102, align 8
   %103 = getelementptr inbounds nuw i8, ptr %25, i64 4
@@ -2279,7 +2279,7 @@ do_smart_wakeup_zero.exit.thread:                 ; preds = %7
   br i1 %106, label %.thread5, label %91, !llvm.loop !47
 
 .thread5:                                         ; preds = %103, %.preheader, %do_smart_wakeup_zero.exit.thread3, %do_smart_wakeup_zero.exit.thread, %.thread4, %78, %73
-  %107 = phi i32 [ %76, %73 ], [ %63, %.thread4 ], [ %63, %78 ], [ %3, %do_smart_wakeup_zero.exit.thread ], [ %3, %do_smart_wakeup_zero.exit.thread3 ], [ %87, %.preheader ], [ %104, %103 ]
+  %107 = phi i32 [ %76, %73 ], [ %63, %.thread4 ], [ %63, %78 ], [ %3, %do_smart_wakeup_zero.exit.thread ], [ %87, %.preheader ], [ %3, %do_smart_wakeup_zero.exit.thread3 ], [ %104, %103 ]
   %108 = icmp eq i32 %107, 0
   br i1 %108, label %120, label %109
 
@@ -4069,9 +4069,9 @@ define internal fastcc i32 @semctl_main(ptr noundef %0, i32 noundef range(i32 0,
   call void @wake_up_q(ptr noundef nonnull %7) #12
   br label %.thread24
 
-.thread24:                                        ; preds = %105, %99, %74, %73, %222
-  %225 = phi ptr [ %223, %222 ], [ %56, %74 ], [ %56, %73 ], [ %89, %99 ], [ %89, %105 ]
-  %226 = phi i32 [ %224, %222 ], [ %77, %74 ], [ -14, %73 ], [ -14, %99 ], [ -34, %105 ]
+.thread24:                                        ; preds = %105, %99, %73, %74, %222
+  %225 = phi ptr [ %223, %222 ], [ %56, %73 ], [ %56, %74 ], [ %89, %99 ], [ %89, %105 ]
+  %226 = phi i32 [ %224, %222 ], [ -14, %73 ], [ %77, %74 ], [ -14, %99 ], [ -34, %105 ]
   %227 = icmp eq ptr %225, %6
   br i1 %227, label %229, label %228
 
@@ -4854,7 +4854,7 @@ define internal fastcc range(i32 -34, 2) i32 @perform_atomic_semop_slow(ptr noun
   %93 = icmp ult ptr %92, %4
   br i1 %93, label %.loopexit, label %.split, !llvm.loop !66
 
-94:                                               ; preds = %16, %34
+94:                                               ; preds = %34, %16
   %95 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store ptr %17, ptr %95, align 8
   %96 = getelementptr inbounds nuw i8, ptr %17, i64 4

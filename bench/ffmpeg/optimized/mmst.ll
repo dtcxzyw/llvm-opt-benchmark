@@ -237,7 +237,7 @@ define internal i32 @mms_read(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0
   br i1 %.not31, label %9, label %.thread34, !llvm.loop !34
 
 .thread34:                                        ; preds = %33, %27, %28, %31, %32
-  %.3 = phi i32 [ 0, %32 ], [ 0, %31 ], [ %29, %28 ], [ -5, %27 ], [ %.4, %33 ]
+  %.3 = phi i32 [ -5, %27 ], [ 0, %32 ], [ 0, %31 ], [ %29, %28 ], [ %.4, %33 ]
   ret i32 %.3
 }
 

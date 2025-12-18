@@ -3365,7 +3365,7 @@ _ZNSt3mapIPK9StatementSt6vectorIPK4FactSaIS6_EESt4lessIS2_ESaISt4pairIKS2_S8_EEE
   br i1 %166, label %25, label %.critedge45, !llvm.loop !242
 
 .critedge45:                                      ; preds = %_ZNSt3mapIPK9StatementSt6vectorIPK4FactSaIS6_EESt4lessIS2_ESaISt4pairIKS2_S8_EEEixERSC_.exit60, %40, %.critedge46, %153, %1
-  %167 = phi i1 [ false, %1 ], [ true, %153 ], [ true, %_ZNSt3mapIPK9StatementSt6vectorIPK4FactSaIS6_EESt4lessIS2_ESaISt4pairIKS2_S8_EEEixERSC_.exit60 ], [ true, %40 ], [ false, %.critedge46 ]
+  %167 = phi i1 [ true, %153 ], [ false, %1 ], [ true, %_ZNSt3mapIPK9StatementSt6vectorIPK4FactSaIS6_EESt4lessIS2_ESaISt4pairIKS2_S8_EEEixERSC_.exit60 ], [ true, %40 ], [ false, %.critedge46 ]
   ret i1 %167
 }
 
@@ -5350,7 +5350,7 @@ _ZNSt3mapIPK9Statement6EffectSt4lessIS2_ESaISt4pairIKS2_S3_EEE11lower_boundERS7_
   br label %.loopexit
 
 .loopexit:                                        ; preds = %115, %.loopexit.sink.split, %.preheader84
-  %122 = phi ptr [ %60, %.preheader84 ], [ null, %.loopexit.sink.split ], [ %116, %115 ]
+  %122 = phi ptr [ null, %.loopexit.sink.split ], [ %60, %.preheader84 ], [ %116, %115 ]
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %124 = load ptr, ptr %123, align 8, !tbaa !141
   %.not.i40 = icmp eq ptr %124, null
@@ -5562,7 +5562,7 @@ _ZNSt3mapIPK9Statement6EffectSt4lessIS2_ESaISt4pairIKS2_S3_EEE11lower_boundERS7_
   br i1 %210, label %161, label %_ZNK9Statement11has_edge_inEbb.exit48.thread, !llvm.loop !305
 
 _ZNK9Statement11has_edge_inEbb.exit48.thread:     ; preds = %.critedge.i44, %204, %.preheader, %.noexc47, %.loopexit
-  %211 = phi ptr [ %122, %.loopexit ], [ %153, %.preheader ], [ %122, %.noexc47 ], [ %205, %204 ], [ %122, %.critedge.i44 ]
+  %211 = phi ptr [ %205, %204 ], [ %122, %.loopexit ], [ %153, %.preheader ], [ %122, %.noexc47 ], [ %122, %.critedge.i44 ]
   %212 = invoke noundef zeroext i1 @_ZNK9Statement25validate_and_update_factsERSt6vectorIPK4FactSaIS3_EER9CGContext(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(216) %2)
           to label %213 unwind label %111
 

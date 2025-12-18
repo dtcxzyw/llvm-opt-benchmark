@@ -467,15 +467,15 @@ uv__fs_close.exit:                                ; preds = %159, %163
   br i1 %cond, label %.thread, label %.lr.ph
 
 250:                                              ; preds = %245, %238, %224, %215, %206, %193, %176
-  %.067.i = phi i32 [ -1, %176 ], [ %185, %193 ], [ %185, %206 ], [ %185, %215 ], [ %185, %224 ], [ %185, %238 ], [ %185, %245 ]
-  %.062.i = phi i32 [ %178, %176 ], [ %195, %193 ], [ %208, %206 ], [ %217, %215 ], [ %226, %224 ], [ %240, %238 ], [ %246, %245 ]
+  %.067.i = phi i32 [ -1, %176 ], [ %185, %238 ], [ %185, %193 ], [ %185, %245 ], [ %185, %206 ], [ %185, %215 ], [ %185, %224 ]
+  %.062.i = phi i32 [ %178, %176 ], [ %240, %238 ], [ %195, %193 ], [ %246, %245 ], [ %208, %206 ], [ %217, %215 ], [ %226, %224 ]
   %.062.i.fr = freeze i32 %.062.i
   %spec.select161 = call i32 @llvm.smin.i32(i32 %.062.i.fr, i32 0)
   br label %.thread
 
 .thread:                                          ; preds = %247, %241, %250, %179, %227, %232, %200
-  %.067.i137 = phi i32 [ %185, %179 ], [ %.067.i, %250 ], [ %185, %200 ], [ %185, %232 ], [ %185, %227 ], [ %185, %241 ], [ %185, %247 ]
-  %251 = phi i32 [ %185, %179 ], [ %spec.select161, %250 ], [ 0, %200 ], [ 0, %232 ], [ -1, %227 ], [ 0, %241 ], [ 0, %247 ]
+  %.067.i137 = phi i32 [ %185, %179 ], [ %.067.i, %250 ], [ %185, %227 ], [ %185, %200 ], [ %185, %232 ], [ %185, %241 ], [ %185, %247 ]
+  %251 = phi i32 [ %185, %179 ], [ %spec.select161, %250 ], [ -1, %227 ], [ 0, %200 ], [ 0, %232 ], [ 0, %241 ], [ 0, %247 ]
   %252 = call i32 @uv__close_nocheckstdio(i32 noundef %170) #15
   %253 = icmp ne i32 %252, 0
   %254 = icmp eq i32 %251, 0
@@ -1190,7 +1190,7 @@ sub_0.i:                                          ; preds = %538
   br i1 %exitcond.not.i, label %uv__fs_readdir.exit, label %.lr.ph21.i
 
 uv__fs_readdir.exit:                              ; preds = %.outer.i, %.lr.ph21.i, %551, %533, %542, %.loopexit6.i
-  %.024.i = phi i32 [ %.023.ph18.i, %542 ], [ -1, %.loopexit6.i ], [ 0, %533 ], [ -1, %.lr.ph21.i ], [ %.023.ph18.i, %551 ], [ %561, %.outer.i ]
+  %.024.i = phi i32 [ -1, %.loopexit6.i ], [ %.023.ph18.i, %542 ], [ %.023.ph18.i, %551 ], [ -1, %.lr.ph21.i ], [ 0, %533 ], [ %561, %.outer.i ]
   %570 = sext i32 %.024.i to i64
   br label %uv__fs_readlink.exit
 
@@ -1547,7 +1547,7 @@ thread-pre-split.i:                               ; preds = %uv__is_cifs_or_smb.
   br label %uv__fs_sendfile_emul.exit.i
 
 uv__fs_sendfile_emul.exit.i:                      ; preds = %666, %675, %.loopexit.thread.i.i, %.loopexit.i.i, %.critedge6.i.i, %.split122.us.i.i
-  %.161.i.i = phi i64 [ -1, %.loopexit.i.i ], [ %.04881.i.i, %.loopexit.thread.i.i ], [ -1, %.critedge6.i.i ], [ -1, %.split122.us.i.i ], [ -1, %675 ], [ -1, %666 ]
+  %.161.i.i = phi i64 [ -1, %.loopexit.i.i ], [ %.04881.i.i, %.loopexit.thread.i.i ], [ -1, %.critedge6.i.i ], [ -1, %675 ], [ -1, %.split122.us.i.i ], [ -1, %666 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %uv__fs_sendfile.exit
@@ -1834,7 +1834,7 @@ uv__pwritev.exit.i.i:                             ; preds = %819, %810
   br label %uv__fs_write.exit.i
 
 uv__fs_write.exit.i:                              ; preds = %uv__pwritev.exit.i.i, %805, %802, %797
-  %.0.i.i = phi i64 [ %801, %797 ], [ %803, %802 ], [ %809, %805 ], [ %823, %uv__pwritev.exit.i.i ]
+  %.0.i.i = phi i64 [ %801, %797 ], [ %803, %802 ], [ %823, %uv__pwritev.exit.i.i ], [ %809, %805 ]
   %824 = icmp slt i64 %.0.i.i, 0
   br i1 %824, label %825, label %.critedge.i121
 
@@ -1924,14 +1924,14 @@ uv__fs_write_all.exit:                            ; preds = %.loopexit.i, %854
   unreachable
 
 .thread159:                                       ; preds = %602, %596, %uv__fs_closedir.exit
-  %.lcssa396.sink = phi ptr [ null, %uv__fs_closedir.exit ], [ %.0.i98, %596 ], [ %603, %602 ]
-  store ptr %.lcssa396.sink, ptr %42, align 8
+  %.0.i98.sink = phi ptr [ %.0.i98, %596 ], [ null, %uv__fs_closedir.exit ], [ %603, %602 ]
+  store ptr %.0.i98.sink, ptr %42, align 8
   %856 = getelementptr inbounds i8, ptr %0, i64 -248
   store i64 0, ptr %856, align 8
   br label %866
 
 uv__fs_readlink.exit:                             ; preds = %143, %148, %153, %uv__fs_close.exit, %uv__fs_copyfile.exit, %265, %270, %276, %282, %uv__fs_fstat.exit, %318, %321, %326, %354, %uv__fs_lstat.exit, %415, %420, %425, %uv__fs_mkstemp.exit, %469, %uv__fs_read.exit, %uv__fs_scandir.exit, %uv__fs_opendir.exit, %uv__fs_readdir.exit, %606, %611, %uv__fs_sendfile.exit, %uv__fs_stat.exit, %uv__fs_statfs.exit, %748, %753, %757, %uv__fs_write_all.exit
-  %.0 = phi i64 [ %147, %143 ], [ %152, %148 ], [ %158, %153 ], [ %166, %uv__fs_close.exit ], [ %.059.i, %uv__fs_copyfile.exit ], [ %269, %265 ], [ %275, %270 ], [ %281, %276 ], [ %284, %282 ], [ %317, %uv__fs_fstat.exit ], [ %320, %318 ], [ %325, %321 ], [ %353, %326 ], [ %381, %354 ], [ %414, %uv__fs_lstat.exit ], [ %419, %415 ], [ %424, %420 ], [ %427, %425 ], [ %468, %uv__fs_mkstemp.exit ], [ %475, %469 ], [ %.032.i, %uv__fs_read.exit ], [ %.0.i93, %uv__fs_scandir.exit ], [ %.0.i94, %uv__fs_opendir.exit ], [ %570, %uv__fs_readdir.exit ], [ %.1.i120, %uv__fs_write_all.exit ], [ %610, %606 ], [ %614, %611 ], [ %.0.i102, %uv__fs_sendfile.exit ], [ %726, %uv__fs_stat.exit ], [ %.0.i107, %uv__fs_statfs.exit ], [ %752, %748 ], [ %756, %753 ], [ %784, %757 ]
+  %.0 = phi i64 [ %147, %143 ], [ %152, %148 ], [ %158, %153 ], [ %166, %uv__fs_close.exit ], [ %.059.i, %uv__fs_copyfile.exit ], [ %269, %265 ], [ %275, %270 ], [ %281, %276 ], [ %284, %282 ], [ %317, %uv__fs_fstat.exit ], [ %320, %318 ], [ %325, %321 ], [ %353, %326 ], [ %381, %354 ], [ %414, %uv__fs_lstat.exit ], [ %419, %415 ], [ %424, %420 ], [ %427, %425 ], [ %468, %uv__fs_mkstemp.exit ], [ %475, %469 ], [ %.032.i, %uv__fs_read.exit ], [ %.0.i93, %uv__fs_scandir.exit ], [ %.0.i94, %uv__fs_opendir.exit ], [ %570, %uv__fs_readdir.exit ], [ %784, %757 ], [ %.1.i120, %uv__fs_write_all.exit ], [ %756, %753 ], [ %610, %606 ], [ %614, %611 ], [ %.0.i102, %uv__fs_sendfile.exit ], [ %726, %uv__fs_stat.exit ], [ %.0.i107, %uv__fs_statfs.exit ], [ %752, %748 ]
   %857 = icmp eq i64 %.0, -1
   br i1 %857, label %uv__fs_readlink.exit.thread, label %863
 

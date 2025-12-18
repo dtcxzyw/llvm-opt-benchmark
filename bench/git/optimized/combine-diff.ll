@@ -1292,7 +1292,7 @@ st_add.exit188.i.i:                               ; preds = %st_add.exit188.i.i,
   br label %match_string_spaces.exit.i.i
 
 match_string_spaces.exit.i.i:                     ; preds = %.critedge10.i.i.i, %384
-  %.0.shrunk.i.in.i.i = phi i32 [ %bcmp.i.i.i, %384 ], [ %468, %.critedge10.i.i.i ]
+  %.0.shrunk.i.in.i.i = phi i32 [ %468, %.critedge10.i.i.i ], [ %bcmp.i.i.i, %384 ]
   %.0.shrunk.i.not.i.i = icmp eq i32 %.0.shrunk.i.in.i.i, 0
   br i1 %.0.shrunk.i.not.i.i, label %469, label %match_string_spaces.exit.thread.i.i
 
@@ -1699,7 +1699,7 @@ adjust_hunk_tail.exit.i:                          ; preds = %596, %595
   br i1 %.not129.i.not, label %.lr.ph.i254, label %.critedge2.thread154.i, !llvm.loop !167
 
 .critedge2.thread154.i:                           ; preds = %.critedge2.i, %603, %602, %.critedge.preheader.i
-  %.0105178.i = phi i64 [ %589, %.critedge.preheader.i ], [ %.0105185.i, %603 ], [ %.0105185.i, %602 ], [ %.0105.i, %.critedge2.i ]
+  %.0105178.i = phi i64 [ %.0105185.i, %603 ], [ %589, %.critedge.preheader.i ], [ %.0105185.i, %602 ], [ %.0105.i, %.critedge2.i ]
   %610 = icmp ult i64 %.2103182.i, %.0105178.i
   br i1 %610, label %.lr.ph194.i, label %.thread161.i
 
@@ -3128,7 +3128,7 @@ handle_combined_callback.exit:                    ; preds = %.lr.ph23.i
   br label %.loopexit154
 
 .loopexit154:                                     ; preds = %.lr.ph172, %.preheader, %269, %handle_combined_callback.exit, %271
-  %.not140 = phi i1 [ true, %271 ], [ true, %handle_combined_callback.exit ], [ false, %269 ], [ false, %.preheader ], [ false, %.lr.ph172 ]
+  %.not140 = phi i1 [ true, %271 ], [ false, %269 ], [ true, %handle_combined_callback.exit ], [ false, %.preheader ], [ false, %.lr.ph172 ]
   %379 = load i32, ptr %265, align 4, !tbaa !4
   %380 = and i32 %379, 16
   %.not139 = icmp eq i32 %380, 0

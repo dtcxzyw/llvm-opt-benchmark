@@ -1673,7 +1673,7 @@ lpad17:                                           ; preds = %invoke.cont13
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad17, %lpad10, %lpad.i6
-  %.pn = phi { ptr, i32 } [ %8, %lpad10 ], [ %6, %lpad.i6 ], [ %9, %lpad17 ]
+  %.pn = phi { ptr, i32 } [ %6, %lpad.i6 ], [ %8, %lpad10 ], [ %9, %lpad17 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp6) #27
   br label %ehcleanup26
 

@@ -1829,8 +1829,8 @@ is_intra_more_likely.exit.thread752:              ; preds = %367, %365, %is_intr
   br i1 %exitcond968.not, label %._crit_edge873, label %.preheader771.us, !llvm.loop !114
 
 ._crit_edge873:                                   ; preds = %._crit_edge871.us, %.preheader773, %.preheader771.lr.ph, %.loopexit
-  %816 = phi i32 [ %708, %.loopexit ], [ %708, %.preheader771.lr.ph ], [ %614, %.preheader773 ], [ %708, %._crit_edge871.us ]
-  %.pre9921057 = phi i32 [ %.pre992, %.loopexit ], [ %.pre992, %.preheader771.lr.ph ], [ %.pre992.pre995, %.preheader773 ], [ %.pre992, %._crit_edge871.us ]
+  %816 = phi i32 [ %614, %.preheader773 ], [ %708, %.loopexit ], [ %708, %.preheader771.lr.ph ], [ %708, %._crit_edge871.us ]
+  %.pre9921057 = phi i32 [ %.pre992.pre995, %.preheader773 ], [ %.pre992, %.loopexit ], [ %.pre992, %.preheader771.lr.ph ], [ %.pre992, %._crit_edge871.us ]
   %817 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %818 = load ptr, ptr %817, align 8, !tbaa !69
   %819 = shl nsw i32 %.pre9921057, 1

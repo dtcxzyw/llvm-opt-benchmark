@@ -524,9 +524,9 @@ bytestream2_get_be16.exit415:                     ; preds = %205, %209
   unreachable
 
 .loopexit:                                        ; preds = %bytestream2_get_be16.exit413, %.preheader558, %bytestream2_get_be16.exit415, %bytestream2_get_be16.exit407, %127, %192, %235, %232, %224, %180, %186, %174
-  %.0323 = phi ptr [ @put_lines_bytes, %235 ], [ @put_lines_bits, %127 ], [ @put_lines_bytes, %174 ], [ @put_lines_bytes, %180 ], [ @put_lines_bytes, %186 ], [ @put_lines_bits, %192 ], [ @put_lines_bits, %224 ], [ @put_lines_bytes, %232 ], [ @put_lines_bits, %.preheader558 ], [ @put_lines_bits, %bytestream2_get_be16.exit407 ], [ @put_lines_bits, %bytestream2_get_be16.exit415 ], [ @put_lines_bits, %bytestream2_get_be16.exit413 ]
-  %.0321 = phi i32 [ %237, %235 ], [ %55, %127 ], [ %179, %174 ], [ %185, %180 ], [ %188, %186 ], [ %55, %192 ], [ %55, %224 ], [ %234, %232 ], [ %55, %.preheader558 ], [ %55, %bytestream2_get_be16.exit407 ], [ %55, %bytestream2_get_be16.exit415 ], [ %55, %bytestream2_get_be16.exit413 ]
-  %.1 = phi i32 [ 1, %235 ], [ 15, %127 ], [ 1, %174 ], [ 1, %180 ], [ 1, %186 ], [ 1, %192 ], [ %.0309485491, %224 ], [ 1, %232 ], [ 8, %.preheader558 ], [ 4, %bytestream2_get_be16.exit407 ], [ %.0309485491, %bytestream2_get_be16.exit415 ], [ %.0309485491, %bytestream2_get_be16.exit413 ]
+  %.0323 = phi ptr [ @put_lines_bytes, %235 ], [ @put_lines_bits, %127 ], [ @put_lines_bits, %bytestream2_get_be16.exit415 ], [ @put_lines_bytes, %174 ], [ @put_lines_bytes, %180 ], [ @put_lines_bytes, %186 ], [ @put_lines_bits, %192 ], [ @put_lines_bits, %.preheader558 ], [ @put_lines_bits, %224 ], [ @put_lines_bits, %bytestream2_get_be16.exit407 ], [ @put_lines_bytes, %232 ], [ @put_lines_bits, %bytestream2_get_be16.exit413 ]
+  %.0321 = phi i32 [ %237, %235 ], [ %55, %127 ], [ %55, %bytestream2_get_be16.exit415 ], [ %179, %174 ], [ %185, %180 ], [ %188, %186 ], [ %55, %192 ], [ %55, %.preheader558 ], [ %55, %224 ], [ %55, %bytestream2_get_be16.exit407 ], [ %234, %232 ], [ %55, %bytestream2_get_be16.exit413 ]
+  %.1 = phi i32 [ 1, %235 ], [ 15, %127 ], [ %.0309485491, %bytestream2_get_be16.exit415 ], [ 1, %174 ], [ 1, %180 ], [ 1, %186 ], [ 1, %192 ], [ 8, %.preheader558 ], [ %.0309485491, %224 ], [ 4, %bytestream2_get_be16.exit407 ], [ 1, %232 ], [ %.0309485491, %bytestream2_get_be16.exit413 ]
   %239 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %240 = zext nneg i32 %.1 to i64
   %241 = sext i32 %.0321 to i64
@@ -905,8 +905,8 @@ define internal void @put_lines_bits(ptr noundef readonly captures(none) %0, i32
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph, %.critedge.loopexit, %7
-  %57 = phi i32 [ %9, %7 ], [ %9, %.lr.ph ], [ %.pre, %.critedge.loopexit ]
-  %.lcssa = phi i32 [ %13, %7 ], [ %13, %.lr.ph ], [ %55, %.critedge.loopexit ]
+  %57 = phi i32 [ %9, %7 ], [ %.pre, %.critedge.loopexit ], [ %9, %.lr.ph ]
+  %.lcssa = phi i32 [ %13, %7 ], [ %55, %.critedge.loopexit ], [ %13, %.lr.ph ]
   %58 = add nsw i32 %57, 1
   store i32 %58, ptr %8, align 4, !tbaa !49
   %.not = icmp slt i32 %58, %1

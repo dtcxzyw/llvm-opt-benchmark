@@ -121,9 +121,9 @@ define hidden void @pm_integer_parse(ptr noundef captures(none) %0, i32 noundef 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %19, %17, %14, %27, %33, %45, %43, %41, %39, %38, %36, %25, %12, %4
-  %.146 = phi ptr [ %spec.select, %4 ], [ %13, %12 ], [ %spec.select, %27 ], [ %18, %17 ], [ %15, %14 ], [ %spec.select57, %19 ], [ %26, %25 ], [ %spec.select, %33 ], [ %37, %36 ], [ %34, %38 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %46, %45 ], [ %.2, %.preheader ]
-  %47 = phi i1 [ true, %4 ], [ false, %12 ], [ true, %27 ], [ false, %17 ], [ false, %14 ], [ true, %19 ], [ false, %25 ], [ true, %33 ], [ false, %36 ], [ false, %38 ], [ false, %39 ], [ false, %41 ], [ true, %43 ], [ false, %45 ], [ true, %.preheader ]
-  %.044 = phi i32 [ 10, %4 ], [ 2, %12 ], [ 10, %27 ], [ 8, %17 ], [ 8, %14 ], [ 10, %19 ], [ 16, %25 ], [ 10, %33 ], [ 8, %36 ], [ 8, %38 ], [ 2, %39 ], [ 8, %41 ], [ 10, %43 ], [ 16, %45 ], [ 10, %.preheader ]
+  %.146 = phi ptr [ %spec.select, %4 ], [ %46, %45 ], [ %13, %12 ], [ %spec.select, %27 ], [ %18, %17 ], [ %15, %14 ], [ %spec.select57, %19 ], [ %26, %25 ], [ %spec.select, %33 ], [ %37, %36 ], [ %34, %38 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %.2, %.preheader ]
+  %47 = phi i1 [ true, %4 ], [ false, %45 ], [ false, %12 ], [ true, %27 ], [ false, %17 ], [ false, %14 ], [ true, %19 ], [ false, %25 ], [ true, %33 ], [ false, %36 ], [ false, %38 ], [ false, %39 ], [ false, %41 ], [ true, %43 ], [ true, %.preheader ]
+  %.044 = phi i32 [ 10, %4 ], [ 16, %45 ], [ 2, %12 ], [ 10, %27 ], [ 8, %17 ], [ 8, %14 ], [ 10, %19 ], [ 16, %25 ], [ 10, %33 ], [ 8, %36 ], [ 8, %38 ], [ 2, %39 ], [ 8, %41 ], [ 10, %43 ], [ 10, %.preheader ]
   %.14664 = ptrtoint ptr %.146 to i64
   %.not = icmp ult ptr %.146, %3
   br i1 %.not, label %48, label %152

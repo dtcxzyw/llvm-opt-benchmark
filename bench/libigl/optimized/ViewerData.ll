@@ -768,9 +768,9 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i102: ; preds = %65
   br i1 %.not, label %._crit_edge.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i
 
 ._crit_edge.i.i.i.i.i.i.i.i:                      ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %._crit_edge.thread170, %._crit_edge.thread169, %._crit_edge
-  %75 = phi i64 [ %64, %._crit_edge.thread170 ], [ %74, %._crit_edge ], [ 0, %._crit_edge.thread169 ], [ %74, %.lr.ph.i.i.i.i.i.i.i.i ]
-  %76 = phi ptr [ null, %._crit_edge.thread170 ], [ %70, %._crit_edge ], [ null, %._crit_edge.thread169 ], [ %70, %.lr.ph.i.i.i.i.i.i.i.i ]
-  %.pre-phi168 = phi i64 [ %60, %._crit_edge.thread170 ], [ 1, %._crit_edge ], [ 0, %._crit_edge.thread169 ], [ %60, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %75 = phi i64 [ 0, %._crit_edge.thread169 ], [ %64, %._crit_edge.thread170 ], [ %74, %._crit_edge ], [ %74, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %76 = phi ptr [ null, %._crit_edge.thread169 ], [ null, %._crit_edge.thread170 ], [ %70, %._crit_edge ], [ %70, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.pre-phi168 = phi i64 [ 0, %._crit_edge.thread169 ], [ %60, %._crit_edge.thread170 ], [ 1, %._crit_edge ], [ %60, %.lr.ph.i.i.i.i.i.i.i.i ]
   %77 = icmp slt i64 %75, %.pre-phi168
   br i1 %77, label %.lr.ph.i.i.i.i.i.i.i.i.i, label %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEaSERKS1_.exit
 
@@ -2182,8 +2182,8 @@ define dso_local void @_ZN3igl6opengl10ViewerData10set_colorsERKN5Eigen6MatrixId
   br label %.noexc61
 
 .noexc61:                                         ; preds = %.lr.ph82.i.i.i.i, %87, %79
-  %.2.i.i.i.i176329 = phi double [ %88, %87 ], [ %.2.i.i.i.i176.ph, %79 ], [ %.2.i.i.i.i176.ph, %.lr.ph82.i.i.i.i ]
-  %.2.i.i.i.i = phi double [ %88, %87 ], [ %81, %79 ], [ %85, %.lr.ph82.i.i.i.i ]
+  %.2.i.i.i.i176329 = phi double [ %.2.i.i.i.i176.ph, %79 ], [ %88, %87 ], [ %.2.i.i.i.i176.ph, %.lr.ph82.i.i.i.i ]
+  %.2.i.i.i.i = phi double [ %81, %79 ], [ %88, %87 ], [ %85, %.lr.ph82.i.i.i.i ]
   invoke void @_ZN3igl6opengl10ViewerData8set_dataERKN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEEddNS_12ColorMapTypeEi(ptr noundef nonnull align 8 dereferenceable(1488) %0, ptr noundef nonnull align 8 dereferenceable(16) %7, double noundef %.2.i.i.i.i176329, double noundef %.2.i.i.i.i, i32 noundef 5, i32 noundef 21)
           to label %_ZN3igl6opengl10ViewerData8set_dataERKN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEENS_12ColorMapTypeEi.exit unwind label %90
 
@@ -3237,8 +3237,8 @@ define dso_local void @_ZN3igl6opengl10ViewerData8set_dataERKN5Eigen6MatrixIdLin
   br label %_ZNK5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE8maxCoeffEv.exit
 
 _ZNK5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE8maxCoeffEv.exit: ; preds = %.lr.ph82.i.i.i.i13, %60, %68
-  %.2.i.i.i.i27 = phi double [ %69, %68 ], [ %.2.i.i.i.i.ph, %60 ], [ %.2.i.i.i.i.ph, %.lr.ph82.i.i.i.i13 ]
-  %.2.i.i.i.i12 = phi double [ %69, %68 ], [ %62, %60 ], [ %66, %.lr.ph82.i.i.i.i13 ]
+  %.2.i.i.i.i27 = phi double [ %.2.i.i.i.i.ph, %60 ], [ %69, %68 ], [ %.2.i.i.i.i.ph, %.lr.ph82.i.i.i.i13 ]
+  %.2.i.i.i.i12 = phi double [ %62, %60 ], [ %69, %68 ], [ %66, %.lr.ph82.i.i.i.i13 ]
   tail call void @_ZN3igl6opengl10ViewerData8set_dataERKN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEEddNS_12ColorMapTypeEi(ptr noundef nonnull align 8 dereferenceable(1488) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, double noundef %.2.i.i.i.i27, double noundef %.2.i.i.i.i12, i32 noundef %2, i32 noundef %3)
   ret void
 }
@@ -4330,7 +4330,7 @@ _ZN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEC2INS_9ReplicateINS_14CwiseNullaryOpI
   br label %_ZN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEC2INS_9ReplicateINS_14CwiseNullaryOpINS_8internal12linspaced_opIiEENS0_IiLin1ELi1ELi0ELin1ELi1EEEEELin1ELin1EEEEERKNS_9EigenBaseIT_EE.exit
 
 _ZN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEC2INS_9ReplicateINS_14CwiseNullaryOpINS_8internal12linspaced_opIiEENS0_IiLin1ELi1ELi0ELin1ELi1EEEEELin1ELin1EEEEERKNS_9EigenBaseIT_EE.exit: ; preds = %._crit_edge.split.us15.i.i, %._crit_edge.split.us.us.us.i.i, %_ZN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEC2INS_9ReplicateINS_14CwiseNullaryOpINS_8internal12linspaced_opIiEENS0_IiLin1ELi1ELi0ELin1ELi1EEEEELin1ELin1EEEEERKNS_9EigenBaseIT_EE.exit.sink.split
-  %159 = phi ptr [ null, %_ZN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEC2INS_9ReplicateINS_14CwiseNullaryOpINS_8internal12linspaced_opIiEENS0_IiLin1ELi1ELi0ELin1ELi1EEEEELin1ELin1EEEEERKNS_9EigenBaseIT_EE.exit.sink.split ], [ %145, %._crit_edge.split.us.us.us.i.i ], [ %145, %._crit_edge.split.us15.i.i ]
+  %159 = phi ptr [ %145, %._crit_edge.split.us.us.us.i.i ], [ null, %_ZN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEC2INS_9ReplicateINS_14CwiseNullaryOpINS_8internal12linspaced_opIiEENS0_IiLin1ELi1ELi0ELin1ELi1EEEEELin1ELin1EEEEERKNS_9EigenBaseIT_EE.exit.sink.split ], [ %145, %._crit_edge.split.us15.i.i ]
   invoke void @_ZN3igl6opengl10ViewerData6set_uvERKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEERKNS3_IiLin1ELin1ELi0ELin1ELin1EEE(ptr noundef nonnull align 8 dereferenceable(1488) %0, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %12)
           to label %160 unwind label %161
 
@@ -4830,9 +4830,9 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i46: ; preds = %61
   br i1 %.not, label %._crit_edge.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i
 
 ._crit_edge.i.i.i.i.i.i.i.i:                      ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %._crit_edge.thread89, %._crit_edge.thread88, %._crit_edge
-  %68 = phi i64 [ %60, %._crit_edge.thread89 ], [ %67, %._crit_edge ], [ 0, %._crit_edge.thread88 ], [ %67, %.lr.ph.i.i.i.i.i.i.i.i ]
-  %69 = phi ptr [ null, %._crit_edge.thread89 ], [ %64, %._crit_edge ], [ null, %._crit_edge.thread88 ], [ %64, %.lr.ph.i.i.i.i.i.i.i.i ]
-  %.pre-phi87 = phi i64 [ %56, %._crit_edge.thread89 ], [ 1, %._crit_edge ], [ 0, %._crit_edge.thread88 ], [ %56, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %68 = phi i64 [ 0, %._crit_edge.thread88 ], [ %60, %._crit_edge.thread89 ], [ %67, %._crit_edge ], [ %67, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %69 = phi ptr [ null, %._crit_edge.thread88 ], [ null, %._crit_edge.thread89 ], [ %64, %._crit_edge ], [ %64, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.pre-phi87 = phi i64 [ 0, %._crit_edge.thread88 ], [ %56, %._crit_edge.thread89 ], [ 1, %._crit_edge ], [ %56, %.lr.ph.i.i.i.i.i.i.i.i ]
   %70 = icmp slt i64 %68, %.pre-phi87
   br i1 %70, label %.lr.ph.i.i.i.i.i.i.i.i.i, label %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEaSERKS1_.exit
 
@@ -5945,9 +5945,9 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i103: ; preds = %102
   br i1 %.not, label %._crit_edge.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i
 
 ._crit_edge.i.i.i.i.i.i.i.i:                      ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %._crit_edge.thread195, %._crit_edge.thread194, %._crit_edge
-  %108 = phi i64 [ %101, %._crit_edge.thread195 ], [ %107, %._crit_edge ], [ 0, %._crit_edge.thread194 ], [ %107, %.lr.ph.i.i.i.i.i.i.i.i ]
-  %109 = phi ptr [ null, %._crit_edge.thread195 ], [ %105, %._crit_edge ], [ null, %._crit_edge.thread194 ], [ %105, %.lr.ph.i.i.i.i.i.i.i.i ]
-  %.pre-phi193 = phi i64 [ %97, %._crit_edge.thread195 ], [ 1, %._crit_edge ], [ 0, %._crit_edge.thread194 ], [ %97, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %108 = phi i64 [ 0, %._crit_edge.thread194 ], [ %101, %._crit_edge.thread195 ], [ %107, %._crit_edge ], [ %107, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %109 = phi ptr [ null, %._crit_edge.thread194 ], [ null, %._crit_edge.thread195 ], [ %105, %._crit_edge ], [ %105, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.pre-phi193 = phi i64 [ 0, %._crit_edge.thread194 ], [ %97, %._crit_edge.thread195 ], [ 1, %._crit_edge ], [ %97, %.lr.ph.i.i.i.i.i.i.i.i ]
   %110 = icmp slt i64 %108, %.pre-phi193
   br i1 %110, label %.lr.ph.i.i.i.i.i.i.i.i.i, label %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEaSERKS1_.exit
 
@@ -6188,9 +6188,9 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE18conservative
   br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i.i, label %._crit_edge.i.thread, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i82, !llvm.loop !359
 
 ._crit_edge.i.thread:                             ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i82, %.loopexit, %._crit_edge.i
-  %214 = phi i64 [ %.mux152, %._crit_edge.i ], [ %173, %.loopexit ], [ %.mux152, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i82 ]
-  %215 = phi i64 [ %180, %._crit_edge.i ], [ 0, %.loopexit ], [ %180, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i82 ]
-  %.sroa.6127.0146 = phi i64 [ %.mux, %._crit_edge.i ], [ 0, %.loopexit ], [ %.mux, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i82 ]
+  %214 = phi i64 [ %173, %.loopexit ], [ %.mux152, %._crit_edge.i ], [ %.mux152, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i82 ]
+  %215 = phi i64 [ 0, %.loopexit ], [ %180, %._crit_edge.i ], [ %180, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i82 ]
+  %.sroa.6127.0146 = phi i64 [ 0, %.loopexit ], [ %.mux, %._crit_edge.i ], [ %.mux, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i82 ]
   %216 = add nsw i64 %215, %214
   %217 = icmp sgt i64 %186, %indvars.iv
   %218 = load ptr, ptr %3, align 8

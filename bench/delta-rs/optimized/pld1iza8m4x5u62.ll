@@ -766,7 +766,7 @@ define hidden void @"_ZN129_$LT$futures_util..stream..futures_unordered..ready_t
 38:                                               ; preds = %12
   ret void
 
-39:                                               ; preds = %19, %21
+39:                                               ; preds = %21, %19
   call void @_ZN12futures_util6stream17futures_unordered5abort5abort17h6f0ff703dd1c4fc5E(ptr noalias noundef nonnull readonly align 1 @anon.4510ddae74091c29b60bab8190c2434b.7.llvm.7909737541732249412, i64 noundef 20) #28
   unreachable
 }
@@ -852,7 +852,7 @@ define hidden void @"_ZN129_$LT$futures_util..stream..futures_unordered..ready_t
 38:                                               ; preds = %12
   ret void
 
-39:                                               ; preds = %19, %21
+39:                                               ; preds = %21, %19
   call void @_ZN12futures_util6stream17futures_unordered5abort5abort17h6f0ff703dd1c4fc5E(ptr noalias noundef nonnull readonly align 1 @anon.4510ddae74091c29b60bab8190c2434b.7.llvm.7909737541732249412, i64 noundef 20) #28
   unreachable
 }
@@ -938,7 +938,7 @@ define hidden void @"_ZN129_$LT$futures_util..stream..futures_unordered..ready_t
 38:                                               ; preds = %12
   ret void
 
-39:                                               ; preds = %19, %21
+39:                                               ; preds = %21, %19
   call void @_ZN12futures_util6stream17futures_unordered5abort5abort17h6f0ff703dd1c4fc5E(ptr noalias noundef nonnull readonly align 1 @anon.4510ddae74091c29b60bab8190c2434b.7.llvm.7909737541732249412, i64 noundef 20) #28
   unreachable
 }
@@ -1024,7 +1024,7 @@ define hidden void @"_ZN129_$LT$futures_util..stream..futures_unordered..ready_t
 38:                                               ; preds = %12
   ret void
 
-39:                                               ; preds = %19, %21
+39:                                               ; preds = %21, %19
   call void @_ZN12futures_util6stream17futures_unordered5abort5abort17h6f0ff703dd1c4fc5E(ptr noalias noundef nonnull readonly align 1 @anon.4510ddae74091c29b60bab8190c2434b.7.llvm.7909737541732249412, i64 noundef 20) #28
   unreachable
 }
@@ -1110,7 +1110,7 @@ define hidden void @"_ZN129_$LT$futures_util..stream..futures_unordered..ready_t
 38:                                               ; preds = %12
   ret void
 
-39:                                               ; preds = %19, %21
+39:                                               ; preds = %21, %19
   call void @_ZN12futures_util6stream17futures_unordered5abort5abort17h6f0ff703dd1c4fc5E(ptr noalias noundef nonnull readonly align 1 @anon.4510ddae74091c29b60bab8190c2434b.7.llvm.7909737541732249412, i64 noundef 20) #28
   unreachable
 }
@@ -1196,7 +1196,7 @@ define hidden void @"_ZN129_$LT$futures_util..stream..futures_unordered..ready_t
 38:                                               ; preds = %12
   ret void
 
-39:                                               ; preds = %19, %21
+39:                                               ; preds = %21, %19
   call void @_ZN12futures_util6stream17futures_unordered5abort5abort17h6f0ff703dd1c4fc5E(ptr noalias noundef nonnull readonly align 1 @anon.4510ddae74091c29b60bab8190c2434b.7.llvm.7909737541732249412, i64 noundef 20) #28
   unreachable
 }
@@ -1282,7 +1282,7 @@ define hidden void @"_ZN129_$LT$futures_util..stream..futures_unordered..ready_t
 38:                                               ; preds = %12
   ret void
 
-39:                                               ; preds = %19, %21
+39:                                               ; preds = %21, %19
   call void @_ZN12futures_util6stream17futures_unordered5abort5abort17h6f0ff703dd1c4fc5E(ptr noalias noundef nonnull readonly align 1 @anon.4510ddae74091c29b60bab8190c2434b.7.llvm.7909737541732249412, i64 noundef 20) #28
   unreachable
 }

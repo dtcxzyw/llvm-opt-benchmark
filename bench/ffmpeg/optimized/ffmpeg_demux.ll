@@ -2915,7 +2915,7 @@ dump_attachment.exit:                             ; preds = %921, %949
   br i1 %.not369, label %.preheader, label %demux_alloc.exit.thread, !llvm.loop !283
 
 demux_alloc.exit.thread:                          ; preds = %._crit_edge480, %.preheader.lr.ph, %.preheader423, %.thread420, %3, %.thread412, %.thread403, %.thread401, %63, %292, %._crit_edge476, %310, %293, %296, %83, %45, %499, %488, %470, %386, %err_merge.exit385.thread, %69
-  %.0 = phi i32 [ -1330794744, %296 ], [ %.3267397, %err_merge.exit385.thread ], [ -12, %83 ], [ %290, %293 ], [ -22, %386 ], [ -22, %470 ], [ -22, %488 ], [ -22, %499 ], [ %318, %310 ], [ %889, %._crit_edge476 ], [ -12, %3 ], [ %.0244.i.ph, %.thread412 ], [ %.7.ph, %.thread403 ], [ %333, %.thread401 ], [ %51, %45 ], [ -22, %69 ], [ -22, %63 ], [ -1414092869, %292 ], [ %.0.i391.ph, %.thread420 ], [ 0, %.preheader423 ], [ 0, %.preheader.lr.ph ], [ 0, %._crit_edge480 ]
+  %.0 = phi i32 [ -1330794744, %296 ], [ %.3267397, %err_merge.exit385.thread ], [ -12, %83 ], [ %290, %293 ], [ -22, %386 ], [ -22, %470 ], [ -22, %488 ], [ -22, %499 ], [ %318, %310 ], [ %889, %._crit_edge476 ], [ -12, %3 ], [ %.0244.i.ph, %.thread412 ], [ %.7.ph, %.thread403 ], [ %333, %.thread401 ], [ %51, %45 ], [ -22, %69 ], [ -22, %63 ], [ -1414092869, %292 ], [ %.0.i391.ph, %.thread420 ], [ 0, %.preheader.lr.ph ], [ 0, %.preheader423 ], [ 0, %._crit_edge480 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   ret i32 %.0
@@ -4850,7 +4850,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @demux_send(ptr noundef %0,
   br label %.thread84
 
 .thread84:                                        ; preds = %34, %63, %84, %70, %71, %82, %.thread87
-  %.3 = phi i32 [ %61, %.thread87 ], [ %66, %71 ], [ %80, %82 ], [ %85, %84 ], [ -541478725, %70 ], [ 0, %63 ], [ %42, %34 ]
+  %.3 = phi i32 [ %61, %.thread87 ], [ %66, %71 ], [ 0, %63 ], [ %80, %82 ], [ %85, %84 ], [ -541478725, %70 ], [ %42, %34 ]
   ret i32 %.3
 }
 

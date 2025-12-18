@@ -526,9 +526,9 @@ _ZN14num_bigint_dig7biguint7BigUint10normalized17h0033912b23334545E.exit: ; pred
   br i1 %258, label %924, label %522
 
 ._crit_edge834:                                   ; preds = %509, %.backedge, %._crit_edge
-  %259 = phi ptr [ %254, %._crit_edge ], [ %251, %.backedge ], [ %254, %509 ]
-  %260 = phi ptr [ %.pre989, %._crit_edge ], [ %251, %.backedge ], [ %.pre989, %509 ]
-  %261 = phi i64 [ 0, %._crit_edge ], [ 0, %.backedge ], [ %.pre990, %509 ]
+  %259 = phi ptr [ %251, %.backedge ], [ %254, %._crit_edge ], [ %254, %509 ]
+  %260 = phi ptr [ %251, %.backedge ], [ %.pre989, %._crit_edge ], [ %.pre989, %509 ]
+  %261 = phi i64 [ 0, %.backedge ], [ 0, %._crit_edge ], [ %.pre990, %509 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %101)
   invoke void @_ZN3rsa10algorithms3rsa15compute_modulus17h0b9a24b37cccbb3eE(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %101, ptr noalias noundef nonnull readonly align 8 %260, i64 noundef %261)
           to label %264 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit

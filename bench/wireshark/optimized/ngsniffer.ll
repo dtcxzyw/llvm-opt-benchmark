@@ -594,7 +594,7 @@ process_rec_header2_v145.exit.thread:             ; preds = %process_rec_header2
   br i1 %126, label %.lr.ph.split, label %._crit_edge
 
 process_rec_header2_v145.exit:                    ; preds = %41, %44, %23, %26, %65, %74, %113, %119, %86, %82, %109, %103, %91, %.split.us, %._crit_edge
-  %.0 = phi i32 [ %.72, %.split.us ], [ %., %._crit_edge ], [ -1, %109 ], [ -1, %91 ], [ -1, %103 ], [ -1, %82 ], [ -1, %86 ], [ -1, %23 ], [ -1, %65 ], [ -1, %119 ], [ -1, %113 ], [ -1, %74 ], [ -1, %26 ], [ -1, %44 ], [ -1, %41 ]
+  %.0 = phi i32 [ %.72, %.split.us ], [ %., %._crit_edge ], [ -1, %86 ], [ -1, %82 ], [ -1, %109 ], [ -1, %103 ], [ -1, %91 ], [ -1, %65 ], [ -1, %23 ], [ -1, %119 ], [ -1, %113 ], [ -1, %74 ], [ -1, %26 ], [ -1, %44 ], [ -1, %41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1903,7 +1903,7 @@ ng_read_bytes.exit130:                            ; preds = %325
   br label %fix_pseudo_header.exit
 
 fix_pseudo_header.exit:                           ; preds = %369, %ng_read_bytes.exit130, %.critedge.i.i, %372, %378, %382, %383, %384, %396, %398, %402
-  %.0.i = phi i32 [ %343, %ng_read_bytes.exit130 ], [ 13, %384 ], [ %.019.i.ph.i, %382 ], [ %.019.i.ph.i, %383 ], [ 13, %396 ], [ 13, %402 ], [ 13, %398 ], [ 12, %378 ], [ 27, %372 ], [ 12, %.critedge.i.i ], [ 12, %369 ]
+  %.0.i = phi i32 [ %343, %ng_read_bytes.exit130 ], [ 13, %384 ], [ %.019.i.ph.i, %382 ], [ %.019.i.ph.i, %383 ], [ 12, %.critedge.i.i ], [ 13, %396 ], [ 13, %402 ], [ 13, %398 ], [ 12, %378 ], [ 27, %372 ], [ 12, %369 ]
   %403 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store i32 %.0.i, ptr %403, align 8
   %404 = zext i8 %.091 to i64

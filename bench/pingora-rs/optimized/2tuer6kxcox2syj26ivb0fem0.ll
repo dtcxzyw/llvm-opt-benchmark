@@ -3170,8 +3170,8 @@ select.unfold705.i.i.i.i.i.i.i.i:                 ; preds = %453, %select.unfold
   br label %490
 
 490:                                              ; preds = %.sink.split, %419, %418
-  %.sroa.10632.0.i.i.i.i.i.i.i.i = phi i8 [ %.sroa.7.0.ph.i.i.i.i.i.i.i.i, %418 ], [ undef, %419 ], [ undef, %.sink.split ]
-  %.sroa.0631.0.i.i.i.i.i.i.i.i = phi i8 [ 2, %418 ], [ 1, %419 ], [ 1, %.sink.split ]
+  %.sroa.10632.0.i.i.i.i.i.i.i.i = phi i8 [ undef, %419 ], [ %.sroa.7.0.ph.i.i.i.i.i.i.i.i, %418 ], [ undef, %.sink.split ]
+  %.sroa.0631.0.i.i.i.i.i.i.i.i = phi i8 [ 1, %419 ], [ 2, %418 ], [ 1, %.sink.split ]
   store i8 %.sroa.0631.0.i.i.i.i.i.i.i.i, ptr %13, align 8, !alias.scope !744, !noalias !745
   store i8 %.sroa.4.0.ph.i.i.i.i.i.i.i.i, ptr %.sroa.2565.0..sroa_idx.i.i.i.i.i.i.i.i, align 1, !alias.scope !744, !noalias !745
   store i8 %.sroa.10632.0.i.i.i.i.i.i.i.i, ptr %.sroa.2565.sroa.2.0..sroa.2565.0..sroa_idx.sroa_idx.i.i.i.i.i.i.i.i, align 2, !alias.scope !744, !noalias !745
@@ -5564,8 +5564,8 @@ select.unfold705.i.i.i.i.i.i.i.i:                 ; preds = %463, %select.unfold
   br label %500
 
 500:                                              ; preds = %.sink.split1206, %429, %428
-  %.sroa.10632.0.i.i.i.i.i.i.i.i = phi i8 [ %.sroa.7.0.ph.i.i.i.i.i.i.i.i, %428 ], [ undef, %429 ], [ undef, %.sink.split1206 ]
-  %.sroa.0631.0.i.i.i.i.i.i.i.i = phi i8 [ 2, %428 ], [ 1, %429 ], [ 1, %.sink.split1206 ]
+  %.sroa.10632.0.i.i.i.i.i.i.i.i = phi i8 [ undef, %429 ], [ %.sroa.7.0.ph.i.i.i.i.i.i.i.i, %428 ], [ undef, %.sink.split1206 ]
+  %.sroa.0631.0.i.i.i.i.i.i.i.i = phi i8 [ 1, %429 ], [ 2, %428 ], [ 1, %.sink.split1206 ]
   store i8 %.sroa.0631.0.i.i.i.i.i.i.i.i, ptr %13, align 8, !alias.scope !1444, !noalias !1445
   store i8 %.sroa.4.0.ph.i.i.i.i.i.i.i.i, ptr %.sroa.2565.0..sroa_idx.i.i.i.i.i.i.i.i, align 1, !alias.scope !1444, !noalias !1445
   store i8 %.sroa.10632.0.i.i.i.i.i.i.i.i, ptr %.sroa.2565.sroa.2.0..sroa.2565.0..sroa_idx.sroa_idx.i.i.i.i.i.i.i.i, align 2, !alias.scope !1444, !noalias !1445
@@ -6017,7 +6017,7 @@ _ZN9byteorder2io12ReadBytesExt8read_u3217h88116941649160f3E.exit629.i.i.i.i.i.i.
   br label %628
 
 .loopexit.split-lp.i:                             ; preds = %703, %689, %654, %641
-  %.sroa.056.1.ph.i = phi i8 [ 1, %689 ], [ %.sroa.056.5.i1179, %703 ], [ 1, %654 ], [ 1, %641 ]
+  %.sroa.056.1.ph.i = phi i8 [ %.sroa.056.5.i1179, %703 ], [ 1, %654 ], [ 1, %689 ], [ 1, %641 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %628
@@ -7983,8 +7983,8 @@ select.unfold708.i.i.i.i.i.i.i.i:                 ; preds = %490, %select.unfold
   br label %523
 
 523:                                              ; preds = %.sink.split, %456, %455
-  %.sroa.10634.0.i.i.i.i.i.i.i.i = phi i8 [ %.sroa.7.0.ph.i.i.i.i.i.i.i.i, %455 ], [ undef, %456 ], [ undef, %.sink.split ]
-  %.sroa.0633.0.i.i.i.i.i.i.i.i = phi i8 [ 2, %455 ], [ 1, %456 ], [ 1, %.sink.split ]
+  %.sroa.10634.0.i.i.i.i.i.i.i.i = phi i8 [ undef, %456 ], [ %.sroa.7.0.ph.i.i.i.i.i.i.i.i, %455 ], [ undef, %.sink.split ]
+  %.sroa.0633.0.i.i.i.i.i.i.i.i = phi i8 [ 1, %456 ], [ 2, %455 ], [ 1, %.sink.split ]
   store i8 %.sroa.0633.0.i.i.i.i.i.i.i.i, ptr %11, align 8, !alias.scope !2267, !noalias !2268
   store i8 %.sroa.4.0.ph.i.i.i.i.i.i.i.i, ptr %.sroa.2565.0..sroa_idx.i.i.i.i.i.i.i.i, align 1, !alias.scope !2267, !noalias !2268
   store i8 %.sroa.10634.0.i.i.i.i.i.i.i.i, ptr %.sroa.2565.sroa.2.0..sroa.2565.0..sroa_idx.sroa_idx.i.i.i.i.i.i.i.i, align 2, !alias.scope !2267, !noalias !2268
@@ -11067,8 +11067,8 @@ select.unfold708.i.i.i.i.i.i.i.i:                 ; preds = %564, %select.unfold
   br label %597
 
 597:                                              ; preds = %.sink.split, %530, %529
-  %.sroa.10634.0.i.i.i.i.i.i.i.i = phi i8 [ %.sroa.7.0.ph.i.i.i.i.i.i.i.i, %529 ], [ undef, %530 ], [ undef, %.sink.split ]
-  %.sroa.0633.0.i.i.i.i.i.i.i.i = phi i8 [ 2, %529 ], [ 1, %530 ], [ 1, %.sink.split ]
+  %.sroa.10634.0.i.i.i.i.i.i.i.i = phi i8 [ undef, %530 ], [ %.sroa.7.0.ph.i.i.i.i.i.i.i.i, %529 ], [ undef, %.sink.split ]
+  %.sroa.0633.0.i.i.i.i.i.i.i.i = phi i8 [ 1, %530 ], [ 2, %529 ], [ 1, %.sink.split ]
   store i8 %.sroa.0633.0.i.i.i.i.i.i.i.i, ptr %11, align 8, !alias.scope !3206, !noalias !3207
   store i8 %.sroa.4.0.ph.i.i.i.i.i.i.i.i, ptr %.sroa.2565.0..sroa_idx.i.i.i.i.i.i.i.i, align 1, !alias.scope !3206, !noalias !3207
   store i8 %.sroa.10634.0.i.i.i.i.i.i.i.i, ptr %.sroa.2565.sroa.2.0..sroa.2565.0..sroa_idx.sroa_idx.i.i.i.i.i.i.i.i, align 2, !alias.scope !3206, !noalias !3207
@@ -14173,8 +14173,8 @@ select.unfold708.i.i.i.i.i.i.i.i:                 ; preds = %536, %select.unfold
   br label %569
 
 569:                                              ; preds = %.sink.split, %502, %501
-  %.sroa.10634.0.i.i.i.i.i.i.i.i = phi i8 [ %.sroa.7.0.ph.i.i.i.i.i.i.i.i, %501 ], [ undef, %502 ], [ undef, %.sink.split ]
-  %.sroa.0633.0.i.i.i.i.i.i.i.i = phi i8 [ 2, %501 ], [ 1, %502 ], [ 1, %.sink.split ]
+  %.sroa.10634.0.i.i.i.i.i.i.i.i = phi i8 [ undef, %502 ], [ %.sroa.7.0.ph.i.i.i.i.i.i.i.i, %501 ], [ undef, %.sink.split ]
+  %.sroa.0633.0.i.i.i.i.i.i.i.i = phi i8 [ 1, %502 ], [ 2, %501 ], [ 1, %.sink.split ]
   store i8 %.sroa.0633.0.i.i.i.i.i.i.i.i, ptr %11, align 8, !alias.scope !4187, !noalias !4188
   store i8 %.sroa.4.0.ph.i.i.i.i.i.i.i.i, ptr %.sroa.2565.0..sroa_idx.i.i.i.i.i.i.i.i, align 1, !alias.scope !4187, !noalias !4188
   store i8 %.sroa.10634.0.i.i.i.i.i.i.i.i, ptr %.sroa.2565.sroa.2.0..sroa.2565.0..sroa_idx.sroa_idx.i.i.i.i.i.i.i.i, align 2, !alias.scope !4187, !noalias !4188
@@ -15871,7 +15871,7 @@ _ZN9rmp_serde6decode13read_str_data17h9fa78b8c0a54b0e8E.exit: ; preds = %207, %2
   br i1 %.not.i.i.i.i.i, label %143, label %.loopexit7.i.i.i
 
 .loopexit7.i.i.i:                                 ; preds = %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hfc2a5c4e4a09948dE.exit.i.i.i.i.i", %.loopexit.i.i.i, %"_ZN99_$LT$rmp_serde..decode..Error$u20$as$u20$core..convert..From$LT$rmp..decode..ValueReadError$GT$$GT$4from17hb0307a1577cf86baE.exit.i.i.i.i.i.i.i.i.i"
-  %157 = phi i8 [ 1, %.loopexit.i.i.i ], [ 1, %"_ZN99_$LT$rmp_serde..decode..Error$u20$as$u20$core..convert..From$LT$rmp..decode..ValueReadError$GT$$GT$4from17hb0307a1577cf86baE.exit.i.i.i.i.i.i.i.i.i" ], [ %.pr.i.i.i.i.i, %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hfc2a5c4e4a09948dE.exit.i.i.i.i.i" ]
+  %157 = phi i8 [ 1, %"_ZN99_$LT$rmp_serde..decode..Error$u20$as$u20$core..convert..From$LT$rmp..decode..ValueReadError$GT$$GT$4from17hb0307a1577cf86baE.exit.i.i.i.i.i.i.i.i.i" ], [ 1, %.loopexit.i.i.i ], [ %.pr.i.i.i.i.i, %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hfc2a5c4e4a09948dE.exit.i.i.i.i.i" ]
   %.sroa.5.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 1
   %.sroa.7.1.copyload.i.i.i = load i8, ptr %.sroa.5.0..sroa_idx.i.i.i.i.i, align 1, !noalias !4819
   %.sroa.11.1..sroa.5.0..sroa_idx.i.i.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 2
@@ -16269,8 +16269,8 @@ _ZN9byteorder2io12ReadBytesExt8read_u3217h88116941649160f3E.exit616: ; preds = %
   br i1 %.not.i.i620, label %._crit_edge942.loopexit, label %.lr.ph941
 
 284:                                              ; preds = %282, %279
-  %.sroa.0681.0 = phi i8 [ %281, %282 ], [ %278, %279 ]
-  %.sroa.10684.0 = phi i8 [ %.sroa.4706.0.copyload, %282 ], [ %.sroa.5708.0.copyload, %279 ]
+  %.sroa.0681.0 = phi i8 [ %278, %279 ], [ %281, %282 ]
+  %.sroa.10684.0 = phi i8 [ %.sroa.5708.0.copyload, %279 ], [ %.sroa.4706.0.copyload, %282 ]
   store i8 %.sroa.0681.0, ptr %0, align 8
   %.sroa.2453.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sroa.10684.0, ptr %.sroa.2453.0..sroa_idx, align 1
@@ -26723,7 +26723,7 @@ select.unfold748:                                 ; preds = %79, %select.unfold7
   br i1 %.not.i.i.i.i.i, label %133, label %.loopexit.i.i.i
 
 .loopexit.i.i.i:                                  ; preds = %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h4b213de9271a71aeE.exit.i.i.i.i.i", %136, %"_ZN99_$LT$rmp_serde..decode..Error$u20$as$u20$core..convert..From$LT$rmp..decode..ValueReadError$GT$$GT$4from17hb0307a1577cf86baE.exit.i.i.i.i.i.i.i.i.i"
-  %141 = phi i8 [ 1, %136 ], [ 1, %"_ZN99_$LT$rmp_serde..decode..Error$u20$as$u20$core..convert..From$LT$rmp..decode..ValueReadError$GT$$GT$4from17hb0307a1577cf86baE.exit.i.i.i.i.i.i.i.i.i" ], [ %.pr.i.i.i.i.i, %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h4b213de9271a71aeE.exit.i.i.i.i.i" ]
+  %141 = phi i8 [ 1, %"_ZN99_$LT$rmp_serde..decode..Error$u20$as$u20$core..convert..From$LT$rmp..decode..ValueReadError$GT$$GT$4from17hb0307a1577cf86baE.exit.i.i.i.i.i.i.i.i.i" ], [ 1, %136 ], [ %.pr.i.i.i.i.i, %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h4b213de9271a71aeE.exit.i.i.i.i.i" ]
   %.sroa.5.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 1
   %.sroa.7.1.copyload.i.i.i = load i8, ptr %.sroa.5.0..sroa_idx.i.i.i.i.i, align 1, !noalias !7657
   %.sroa.11.1..sroa.5.0..sroa_idx.i.i.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 2
@@ -27108,8 +27108,8 @@ _ZN9byteorder2io12ReadBytesExt8read_u3217ha761aa3e98eaf128E.exit618: ; preds = %
   br i1 %.not.i.i, label %._crit_edge937.loopexit, label %.lr.ph936
 
 262:                                              ; preds = %260, %257
-  %.sroa.0683.0 = phi i8 [ %259, %260 ], [ %256, %257 ]
-  %.sroa.10686.0 = phi i8 [ %.sroa.4708.0.copyload, %260 ], [ %.sroa.5710.0.copyload, %257 ]
+  %.sroa.0683.0 = phi i8 [ %256, %257 ], [ %259, %260 ]
+  %.sroa.10686.0 = phi i8 [ %.sroa.5710.0.copyload, %257 ], [ %.sroa.4708.0.copyload, %260 ]
   store i8 %.sroa.0683.0, ptr %0, align 8
   %.sroa.2453.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sroa.10686.0, ptr %.sroa.2453.0..sroa_idx, align 1

@@ -598,7 +598,7 @@ av_image_fill_plane_sizes.exit:                   ; preds = %36, %51, %27
   br i1 %exitcond51.not, label %.critedge, label %65, !llvm.loop !27
 
 .critedge:                                        ; preds = %54, %65, %69, %av_image_fill_plane_sizes.exit.thread, %63
-  %.030 = phi i32 [ -22, %av_image_fill_plane_sizes.exit.thread ], [ %62, %63 ], [ %62, %65 ], [ %62, %69 ], [ -22, %54 ]
+  %.030 = phi i32 [ %62, %65 ], [ -22, %av_image_fill_plane_sizes.exit.thread ], [ %62, %63 ], [ %62, %69 ], [ -22, %54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.030
@@ -704,7 +704,7 @@ define range(i32 -22, 1) i32 @avpriv_set_systematic_pal2(ptr noundef writeonly c
   br i1 %exitcond.not, label %.split28, label %.critedge, !llvm.loop !28
 
 .split28:                                         ; preds = %.critedge, %.critedge.us49, %.critedge.us41, %.critedge.us33, %.critedge.us, %2
-  %.2.split = phi i32 [ -22, %2 ], [ 0, %.critedge.us49 ], [ 0, %.critedge.us ], [ 0, %.critedge.us33 ], [ 0, %.critedge.us41 ], [ 0, %.critedge ]
+  %.2.split = phi i32 [ -22, %2 ], [ 0, %.critedge.us ], [ 0, %.critedge.us33 ], [ 0, %.critedge.us41 ], [ 0, %.critedge.us49 ], [ 0, %.critedge ]
   ret i32 %.2.split
 }
 
@@ -929,7 +929,7 @@ av_image_fill_plane_sizes.exit.thread:            ; preds = %59, %32, %30, %36
   br label %.loopexit
 
 .loopexit:                                        ; preds = %71, %84, %av_image_fill_plane_sizes.exit.thread, %94, %96, %99, %108, %78, %14, %11, %6, %93, %83
-  %.0 = phi i32 [ -22, %6 ], [ %12, %11 ], [ %19, %14 ], [ -22, %av_image_fill_plane_sizes.exit.thread ], [ %81, %83 ], [ -22, %93 ], [ -12, %78 ], [ %81, %108 ], [ %81, %99 ], [ %81, %96 ], [ %81, %94 ], [ %81, %84 ], [ -22, %71 ]
+  %.0 = phi i32 [ -22, %6 ], [ %12, %11 ], [ %19, %14 ], [ -22, %av_image_fill_plane_sizes.exit.thread ], [ %81, %83 ], [ -22, %93 ], [ -12, %78 ], [ %81, %94 ], [ %81, %108 ], [ %81, %99 ], [ %81, %96 ], [ %81, %84 ], [ -22, %71 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
@@ -2271,7 +2271,7 @@ memset_bytes.exit:                                ; preds = %.thread.i.loopexit,
   br i1 %exitcond154.not, label %.loopexit, label %127, !llvm.loop !57
 
 .loopexit:                                        ; preds = %33, %av_image_get_linesize.exit, %._crit_edge115, %.preheader95, %av_image_get_linesize.exit.thread, %._crit_edge, %80, %7, %21
-  %.076 = phi i32 [ -22, %80 ], [ -22, %7 ], [ 0, %._crit_edge ], [ -22, %21 ], [ -22, %av_image_get_linesize.exit.thread ], [ 0, %.preheader95 ], [ -22, %av_image_get_linesize.exit ], [ 0, %._crit_edge115 ], [ -22, %33 ]
+  %.076 = phi i32 [ 0, %._crit_edge115 ], [ 0, %.preheader95 ], [ -22, %80 ], [ -22, %7 ], [ 0, %._crit_edge ], [ -22, %21 ], [ -22, %av_image_get_linesize.exit.thread ], [ -22, %av_image_get_linesize.exit ], [ -22, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -2597,7 +2597,7 @@ switch.early.test104:                             ; preds = %114
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph.split.split.us, %41, %switch.early.test104.us, %49, %switch.early.test.us, %75, %switch.early.test104.us125, %66, %.lr.ph.split.split.split.us, %101, %.lr.ph.split.split.split, %90, %switch.early.test, %switch.early.test104, %112, %.lr.ph.split.us, %6, %13, %.critedge105
-  %.097 = phi i32 [ -22, %6 ], [ %122, %.critedge105 ], [ -22, %13 ], [ -22, %75 ], [ -22, %.lr.ph.split.us ], [ -22, %101 ], [ -22, %112 ], [ -22, %switch.early.test104 ], [ -22, %switch.early.test ], [ -22, %90 ], [ -22, %.lr.ph.split.split.split ], [ -22, %.lr.ph.split.split.split.us ], [ -22, %66 ], [ -22, %switch.early.test104.us125 ], [ -22, %switch.early.test.us ], [ -22, %49 ], [ -22, %switch.early.test104.us ], [ -22, %41 ], [ -22, %.lr.ph.split.split.us ]
+  %.097 = phi i32 [ -22, %6 ], [ %122, %.critedge105 ], [ -22, %13 ], [ -22, %101 ], [ -22, %.lr.ph.split.us ], [ -22, %75 ], [ -22, %112 ], [ -22, %switch.early.test104 ], [ -22, %switch.early.test ], [ -22, %90 ], [ -22, %.lr.ph.split.split.split ], [ -22, %.lr.ph.split.split.split.us ], [ -22, %66 ], [ -22, %switch.early.test104.us125 ], [ -22, %switch.early.test.us ], [ -22, %49 ], [ -22, %switch.early.test104.us ], [ -22, %41 ], [ -22, %.lr.ph.split.split.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.097
 }

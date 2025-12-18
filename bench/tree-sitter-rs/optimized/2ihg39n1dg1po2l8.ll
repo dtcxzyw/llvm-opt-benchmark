@@ -1345,7 +1345,7 @@ _ZN4core3str7pattern14small_slice_eq17h61b6ae8bf6d09e5eE.exit.thread: ; preds = 
   br i1 %.not, label %_ZN4core3str7pattern14small_slice_eq17h61b6ae8bf6d09e5eE.exit.thread14, label %.preheader17.split
 
 _ZN4core3str7pattern14small_slice_eq17h61b6ae8bf6d09e5eE.exit.thread14: ; preds = %_ZN4core3str7pattern14small_slice_eq17h61b6ae8bf6d09e5eE.exit.thread, %_ZN4core3str7pattern14small_slice_eq17h61b6ae8bf6d09e5eE.exit, %_ZN4core3str7pattern14small_slice_eq17h61b6ae8bf6d09e5eE.exit.thread.loopexit.us, %18, %4
-  %.0 = phi i1 [ false, %4 ], [ false, %_ZN4core3str7pattern14small_slice_eq17h61b6ae8bf6d09e5eE.exit.thread.loopexit.us ], [ true, %18 ], [ true, %_ZN4core3str7pattern14small_slice_eq17h61b6ae8bf6d09e5eE.exit ], [ false, %_ZN4core3str7pattern14small_slice_eq17h61b6ae8bf6d09e5eE.exit.thread ]
+  %.0 = phi i1 [ false, %4 ], [ true, %18 ], [ false, %_ZN4core3str7pattern14small_slice_eq17h61b6ae8bf6d09e5eE.exit.thread.loopexit.us ], [ true, %_ZN4core3str7pattern14small_slice_eq17h61b6ae8bf6d09e5eE.exit ], [ false, %_ZN4core3str7pattern14small_slice_eq17h61b6ae8bf6d09e5eE.exit.thread ]
   ret i1 %.0
 }
 
@@ -1543,7 +1543,7 @@ define internal fastcc noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..s
   br i1 %9, label %15, label %11
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hdaef701dec81f19dE.exit": ; preds = %.critedge.backedge.us.i.i, %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17hff579463f7667b07E.exit.us.i.i", %.lr.ph.split.us.i.i, %95, %12, %11, %_ZN4core3str7pattern13simd_contains17h767cb99dfc05c893E.exit
-  %.036 = phi i8 [ 0, %11 ], [ %103, %_ZN4core3str7pattern13simd_contains17h767cb99dfc05c893E.exit ], [ %14, %12 ], [ 1, %.lr.ph.split.us.i.i ], [ %.4.i, %95 ], [ 1, %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17hff579463f7667b07E.exit.us.i.i" ], [ 0, %.critedge.backedge.us.i.i ]
+  %.036 = phi i8 [ 0, %11 ], [ %103, %_ZN4core3str7pattern13simd_contains17h767cb99dfc05c893E.exit ], [ %14, %12 ], [ %.4.i, %95 ], [ 1, %.lr.ph.split.us.i.i ], [ 1, %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17hff579463f7667b07E.exit.us.i.i" ], [ 0, %.critedge.backedge.us.i.i ]
   %10 = trunc nuw i8 %.036 to i1
   ret i1 %10
 
@@ -4301,9 +4301,9 @@ define void @_ZN18tree_sitter_loader6Loader32language_configuration_for_scope17h
   br i1 %19, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.backedge, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17heb6845901671f11aE.llvm.2523804239324124153.exit.i", %4, %40
-  %.sink31 = phi i64 [ 16, %40 ], [ 16, %4 ], [ 8, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17heb6845901671f11aE.llvm.2523804239324124153.exit.i" ], [ 16, %.backedge ]
-  %.sroa.018.022.lcssa.sink = phi ptr [ %.sroa.018.022, %40 ], [ null, %4 ], [ %37, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17heb6845901671f11aE.llvm.2523804239324124153.exit.i" ], [ null, %.backedge ]
-  %storemerge = phi i64 [ 0, %40 ], [ 0, %4 ], [ %36, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17heb6845901671f11aE.llvm.2523804239324124153.exit.i" ], [ 0, %.backedge ]
+  %.sink31 = phi i64 [ 16, %40 ], [ 8, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17heb6845901671f11aE.llvm.2523804239324124153.exit.i" ], [ 16, %4 ], [ 16, %.backedge ]
+  %.sroa.018.022.lcssa.sink = phi ptr [ %.sroa.018.022, %40 ], [ %37, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17heb6845901671f11aE.llvm.2523804239324124153.exit.i" ], [ null, %4 ], [ null, %.backedge ]
+  %storemerge = phi i64 [ 0, %40 ], [ %36, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17heb6845901671f11aE.llvm.2523804239324124153.exit.i" ], [ 0, %4 ], [ 0, %.backedge ]
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink31
   store ptr %.sroa.018.022.lcssa.sink, ptr %20, align 8
   store i64 %storemerge, ptr %0, align 8
@@ -6713,7 +6713,7 @@ _ZN18tree_sitter_loader5mtime17h2c85b39d6424743eE.exit.i: ; preds = %.noexc328, 
   br i1 %340, label %.loopexit525, label %318
 
 341:                                              ; preds = %.noexc329, %.noexc333
-  %.sroa.8468.0 = phi ptr [ %312, %.noexc329 ], [ %.sroa.033.0.ph.in.i, %.noexc333 ]
+  %.sroa.8468.0 = phi ptr [ %.sroa.033.0.ph.in.i, %.noexc333 ], [ %312, %.noexc329 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %46)
   %342 = icmp ne ptr %.sroa.8468.0, null
   call void @llvm.assume(i1 %342)

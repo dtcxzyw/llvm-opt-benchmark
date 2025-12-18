@@ -287,7 +287,7 @@ define hidden { i64, ptr } @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$
   br i1 %19, label %.lr.ph196, label %._crit_edge
 
 .thread92:                                        ; preds = %.outer.backedge, %81, %2
-  %.0.ph.lcssa125 = phi ptr [ null, %2 ], [ %.0.ph129, %81 ], [ %.0.ph.be, %.outer.backedge ]
+  %.0.ph.lcssa125 = phi ptr [ %.0.ph129, %81 ], [ null, %2 ], [ %.0.ph.be, %.outer.backedge ]
   %20 = load ptr, ptr %5, align 8, !nonnull !5, !noundef !5
   br label %92
 

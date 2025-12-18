@@ -3403,11 +3403,11 @@ do.body:                                          ; preds = %if.end139, %do.body
   br i1 %or.cond69, label %do.body, label %end, !llvm.loop !47
 
 end:                                              ; preds = %do.body, %while.end120, %while.end, %if.end88
-  %radix.3 = phi i32 [ %radix.1, %while.end120 ], [ %radix.0347, %if.end88 ], [ %radix.0347, %while.end ], [ %radix.2, %do.body ]
-  %legacyOctal.3 = phi i8 [ %legacyOctal.1, %while.end120 ], [ %legacyOctal.0349, %if.end88 ], [ 0, %while.end ], [ %legacyOctal.2, %do.body ]
-  %seenSeparator.3 = phi i8 [ %seenSeparator.4.lcssa, %while.end120 ], [ %.us-phi, %if.end88 ], [ %.us-phi, %while.end ], [ %or15158, %do.body ]
-  %start.3 = phi ptr [ %start.1, %while.end120 ], [ %start.0351, %if.end88 ], [ %start.0351, %while.end ], [ %start.2, %do.body ]
-  %real.0 = phi i1 [ true, %while.end120 ], [ false, %if.end88 ], [ false, %while.end ], [ true, %do.body ]
+  %radix.3 = phi i32 [ %radix.0347, %while.end ], [ %radix.0347, %if.end88 ], [ %radix.1, %while.end120 ], [ %radix.2, %do.body ]
+  %legacyOctal.3 = phi i8 [ 0, %while.end ], [ %legacyOctal.0349, %if.end88 ], [ %legacyOctal.1, %while.end120 ], [ %legacyOctal.2, %do.body ]
+  %seenSeparator.3 = phi i8 [ %.us-phi, %while.end ], [ %.us-phi, %if.end88 ], [ %seenSeparator.4.lcssa, %while.end120 ], [ %or15158, %do.body ]
+  %start.3 = phi ptr [ %start.0351, %while.end ], [ %start.0351, %if.end88 ], [ %start.1, %while.end120 ], [ %start.2, %do.body ]
+  %real.0 = phi i1 [ false, %while.end ], [ false, %if.end88 ], [ true, %while.end120 ], [ true, %do.body ]
   %call167 = tail call noundef zeroext i1 @_ZN6hermes6parser7JSLexer22consumeIdentifierStartEv(ptr noundef nonnull align 8 dereferenceable(1128) %this)
   br i1 %call167, label %if.then168, label %if.else210
 
@@ -6745,7 +6745,7 @@ return.loopexit91:                                ; preds = %sw.bb34
   br label %return
 
 return:                                           ; preds = %for.cond, %for.cond, %for.cond, %for.cond, %sw.default, %if.then48, %sw.bb34, %return.loopexit91, %land.rhs.i, %sw.bb9, %sw.bb, %entry
-  %retval.0 = phi i1 [ %cmp4, %sw.bb ], [ false, %entry ], [ %spec.select.i, %land.rhs.i ], [ false, %sw.bb9 ], [ true, %return.loopexit91 ], [ false, %sw.default ], [ false, %sw.bb34 ], [ false, %if.then48 ], [ true, %for.cond ], [ true, %for.cond ], [ true, %for.cond ], [ true, %for.cond ]
+  %retval.0 = phi i1 [ true, %return.loopexit91 ], [ false, %sw.default ], [ %cmp4, %sw.bb ], [ false, %entry ], [ %spec.select.i, %land.rhs.i ], [ false, %sw.bb9 ], [ false, %sw.bb34 ], [ false, %if.then48 ], [ true, %for.cond ], [ true, %for.cond ], [ true, %for.cond ], [ true, %for.cond ]
   ret i1 %retval.0
 }
 
@@ -7371,8 +7371,8 @@ return.sink.split:                                ; preds = %if.else.i, %if.else
   br label %return
 
 return:                                           ; preds = %if.end15.i, %return.sink.split, %_ZN6hermes6parser7JSLexer22consumeBracedCodePointEb.exit
-  %retval.sroa.0.0 = phi i32 [ %cp.1.us.i, %_ZN6hermes6parser7JSLexer22consumeBracedCodePointEb.exit ], [ undef, %return.sink.split ], [ %add.i, %if.end15.i ]
-  %retval.sroa.3.0 = phi i64 [ 4294967296, %_ZN6hermes6parser7JSLexer22consumeBracedCodePointEb.exit ], [ 0, %return.sink.split ], [ 4294967296, %if.end15.i ]
+  %retval.sroa.0.0 = phi i32 [ undef, %return.sink.split ], [ %cp.1.us.i, %_ZN6hermes6parser7JSLexer22consumeBracedCodePointEb.exit ], [ %add.i, %if.end15.i ]
+  %retval.sroa.3.0 = phi i64 [ 0, %return.sink.split ], [ 4294967296, %_ZN6hermes6parser7JSLexer22consumeBracedCodePointEb.exit ], [ 4294967296, %if.end15.i ]
   %retval.sroa.0.0.insert.ext = zext i32 %retval.sroa.0.0 to i64
   %retval.sroa.0.0.insert.insert = or disjoint i64 %retval.sroa.3.0, %retval.sroa.0.0.insert.ext
   ret i64 %retval.sroa.0.0.insert.insert
@@ -8338,8 +8338,8 @@ sw.bb66:                                          ; preds = %for.end
   br label %return
 
 return:                                           ; preds = %if.else23.i, %if.end.i, %entry, %if.end, %sw.bb66, %sw.bb59, %for.end
-  %retval.sroa.0.0 = phi double [ %result.4, %if.end ], [ %result.1.ph, %for.end ], [ %mul71, %sw.bb66 ], [ %mul65, %sw.bb59 ], [ 0.000000e+00, %entry ], [ 0.000000e+00, %if.end.i ], [ 0.000000e+00, %if.else23.i ]
-  %retval.sroa.3.0 = phi i8 [ 1, %if.end ], [ 1, %for.end ], [ 1, %sw.bb66 ], [ 1, %sw.bb59 ], [ 1, %entry ], [ 0, %if.end.i ], [ 0, %if.else23.i ]
+  %retval.sroa.0.0 = phi double [ 0.000000e+00, %entry ], [ %mul65, %sw.bb59 ], [ %result.4, %if.end ], [ %result.1.ph, %for.end ], [ %mul71, %sw.bb66 ], [ 0.000000e+00, %if.end.i ], [ 0.000000e+00, %if.else23.i ]
+  %retval.sroa.3.0 = phi i8 [ 1, %entry ], [ 1, %sw.bb59 ], [ 1, %if.end ], [ 1, %for.end ], [ 1, %sw.bb66 ], [ 0, %if.end.i ], [ 0, %if.else23.i ]
   %.fca.0.insert = insertvalue { double, i8 } poison, double %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { double, i8 } %.fca.0.insert, i8 %retval.sroa.3.0, 1
   ret { double, i8 } %.fca.1.insert
@@ -8581,7 +8581,7 @@ if.end.i.i.i:                                     ; preds = %if.end.i.i369.i
   br i1 %43, label %_ZN6hermes6parserL17matchReservedWordEPKcj.exit, label %if.end
 
 _ZN6hermes6parserL17matchReservedWordEPKcj.exit:  ; preds = %if.end.i.i1594.i, %if.end.i.i1559.i, %if.end.i.i1524.i, %if.end.i.i1489.i, %if.end.i.i1454.i, %if.end.i.i1419.i, %if.end.i.i1384.i, %if.end.i.i1349.i, %if.end.i.i1314.i, %if.end.i.i1279.i, %if.end.i.i1244.i, %if.end.i.i1209.i, %if.end.i.i1174.i, %if.end.i.i1139.i, %if.end.i.i1104.i, %if.end.i.i1069.i, %if.end.i.i1034.i, %if.end.i.i999.i, %if.end.i.i964.i, %if.end.i.i929.i, %if.end.i.i894.i, %if.end.i.i859.i, %if.end.i.i824.i, %if.end.i.i789.i, %if.end.i.i754.i, %if.end.i.i719.i, %if.end.i.i684.i, %if.end.i.i649.i, %if.end.i.i614.i, %if.end.i.i579.i, %if.end.i.i544.i, %if.end.i.i509.i, %if.end.i.i474.i, %if.end.i.i439.i, %if.end.i.i404.i, %if.end.i.i369.i, %if.end.i.i334.i, %if.end.i.i299.i, %if.end.i.i264.i, %if.end.i.i229.i, %if.end.i.i194.i, %if.end.i.i159.i, %if.end.i.i124.i, %if.end.i.i.i
-  %retval.i.0.i = phi i32 [ 47, %if.end.i.i.i ], [ 46, %if.end.i.i124.i ], [ 44, %if.end.i.i194.i ], [ 45, %if.end.i.i159.i ], [ 42, %if.end.i.i264.i ], [ 43, %if.end.i.i229.i ], [ 40, %if.end.i.i334.i ], [ 41, %if.end.i.i299.i ], [ 38, %if.end.i.i404.i ], [ 39, %if.end.i.i369.i ], [ 36, %if.end.i.i474.i ], [ 37, %if.end.i.i439.i ], [ 34, %if.end.i.i544.i ], [ 35, %if.end.i.i509.i ], [ 32, %if.end.i.i614.i ], [ 33, %if.end.i.i579.i ], [ 30, %if.end.i.i684.i ], [ 31, %if.end.i.i649.i ], [ 28, %if.end.i.i754.i ], [ 29, %if.end.i.i719.i ], [ 26, %if.end.i.i824.i ], [ 27, %if.end.i.i789.i ], [ 24, %if.end.i.i894.i ], [ 25, %if.end.i.i859.i ], [ 22, %if.end.i.i964.i ], [ 23, %if.end.i.i929.i ], [ 20, %if.end.i.i1034.i ], [ 21, %if.end.i.i999.i ], [ 18, %if.end.i.i1104.i ], [ 19, %if.end.i.i1069.i ], [ 16, %if.end.i.i1174.i ], [ 17, %if.end.i.i1139.i ], [ 14, %if.end.i.i1244.i ], [ 15, %if.end.i.i1209.i ], [ 12, %if.end.i.i1314.i ], [ 13, %if.end.i.i1279.i ], [ 10, %if.end.i.i1384.i ], [ 11, %if.end.i.i1349.i ], [ 8, %if.end.i.i1454.i ], [ 9, %if.end.i.i1419.i ], [ 6, %if.end.i.i1524.i ], [ 7, %if.end.i.i1489.i ], [ 4, %if.end.i.i1594.i ], [ 5, %if.end.i.i1559.i ]
+  %retval.i.0.i = phi i32 [ 47, %if.end.i.i.i ], [ 46, %if.end.i.i124.i ], [ 44, %if.end.i.i194.i ], [ 45, %if.end.i.i159.i ], [ 42, %if.end.i.i264.i ], [ 43, %if.end.i.i229.i ], [ 40, %if.end.i.i334.i ], [ 41, %if.end.i.i299.i ], [ 38, %if.end.i.i404.i ], [ 39, %if.end.i.i369.i ], [ 36, %if.end.i.i474.i ], [ 37, %if.end.i.i439.i ], [ 34, %if.end.i.i544.i ], [ 35, %if.end.i.i509.i ], [ 32, %if.end.i.i614.i ], [ 33, %if.end.i.i579.i ], [ 30, %if.end.i.i684.i ], [ 31, %if.end.i.i649.i ], [ 28, %if.end.i.i754.i ], [ 29, %if.end.i.i719.i ], [ 26, %if.end.i.i824.i ], [ 27, %if.end.i.i789.i ], [ 24, %if.end.i.i894.i ], [ 25, %if.end.i.i859.i ], [ 22, %if.end.i.i964.i ], [ 23, %if.end.i.i929.i ], [ 20, %if.end.i.i1034.i ], [ 21, %if.end.i.i999.i ], [ 18, %if.end.i.i1104.i ], [ 19, %if.end.i.i1069.i ], [ 16, %if.end.i.i1174.i ], [ 17, %if.end.i.i1139.i ], [ 14, %if.end.i.i1244.i ], [ 15, %if.end.i.i1209.i ], [ 12, %if.end.i.i1314.i ], [ 13, %if.end.i.i1279.i ], [ 10, %if.end.i.i1384.i ], [ 11, %if.end.i.i1349.i ], [ 8, %if.end.i.i1454.i ], [ 9, %if.end.i.i1419.i ], [ 6, %if.end.i.i1524.i ], [ 7, %if.end.i.i1489.i ], [ 5, %if.end.i.i1559.i ], [ 4, %if.end.i.i1594.i ]
   %strictMode_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %44 = load i8, ptr %strictMode_, align 8
   %tobool = trunc i8 %44 to i1
@@ -15074,8 +15074,8 @@ _ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27: ; preds = %while.b
   br i1 %cmp7.i20, label %if.then15, label %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit40
 
 if.then15:                                        ; preds = %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us100, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us66, %while.body.us50, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us.us
-  %.us-phi46 = phi ptr [ %FoundTombstone.0.us86, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us100 ], [ %FoundTombstone.0.us.us, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us.us ], [ %FoundTombstone.0.us, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us ], [ %FoundTombstone.0.us53, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us66 ], [ %FoundTombstone.0.us53, %while.body.us50 ], [ %FoundTombstone.0, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27 ]
-  %.us-phi47 = phi ptr [ %add.ptr.us89, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us100 ], [ %add.ptr.us.us, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us.us ], [ %add.ptr.us, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us ], [ %add.ptr.us56, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us66 ], [ %add.ptr.us56, %while.body.us50 ], [ %add.ptr, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27 ]
+  %.us-phi46 = phi ptr [ %FoundTombstone.0.us, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us ], [ %FoundTombstone.0.us.us, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us.us ], [ %FoundTombstone.0.us86, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us100 ], [ %FoundTombstone.0.us53, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us66 ], [ %FoundTombstone.0.us53, %while.body.us50 ], [ %FoundTombstone.0, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27 ]
+  %.us-phi47 = phi ptr [ %add.ptr.us, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us ], [ %add.ptr.us.us, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us.us ], [ %add.ptr.us89, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us100 ], [ %add.ptr.us56, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us66 ], [ %add.ptr.us56, %while.body.us50 ], [ %add.ptr, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27 ]
   %tobool.not = icmp eq ptr %.us-phi46, null
   %cond = select i1 %tobool.not, ptr %.us-phi47, ptr %.us-phi46
   br label %return
@@ -15090,8 +15090,8 @@ _ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit40: ; preds = %_ZN4llv
   br label %while.body, !llvm.loop !1375
 
 return:                                           ; preds = %land.rhs.i.i, %land.rhs.i.i.us98, %while.body.us83, %while.body.us50, %land.rhs.i.i.us65, %if.then.i.us, %if.end19.i.us, %if.then.i.us.us, %while.body.us.us, %if.end19.i.us.us, %entry, %if.then15
-  %cond.sink = phi ptr [ %cond, %if.then15 ], [ null, %entry ], [ %add.ptr.us89, %land.rhs.i.i.us98 ], [ %add.ptr.us.us, %if.then.i.us.us ], [ %add.ptr.us, %if.then.i.us ], [ %add.ptr.us56, %while.body.us50 ], [ %add.ptr.us.us, %if.end19.i.us.us ], [ %add.ptr.us.us, %while.body.us.us ], [ %add.ptr.us, %if.end19.i.us ], [ %add.ptr.us56, %land.rhs.i.i.us65 ], [ %add.ptr.us89, %while.body.us83 ], [ %add.ptr, %land.rhs.i.i ]
-  %retval.0 = phi i1 [ false, %if.then15 ], [ false, %entry ], [ true, %land.rhs.i.i.us98 ], [ true, %if.then.i.us.us ], [ true, %if.then.i.us ], [ true, %while.body.us50 ], [ true, %if.end19.i.us.us ], [ true, %while.body.us.us ], [ true, %if.end19.i.us ], [ true, %land.rhs.i.i.us65 ], [ true, %while.body.us83 ], [ true, %land.rhs.i.i ]
+  %cond.sink = phi ptr [ %cond, %if.then15 ], [ null, %entry ], [ %add.ptr.us, %if.then.i.us ], [ %add.ptr.us56, %while.body.us50 ], [ %add.ptr.us89, %land.rhs.i.i.us98 ], [ %add.ptr.us.us, %if.then.i.us.us ], [ %add.ptr.us.us, %if.end19.i.us.us ], [ %add.ptr.us.us, %while.body.us.us ], [ %add.ptr.us, %if.end19.i.us ], [ %add.ptr.us56, %land.rhs.i.i.us65 ], [ %add.ptr.us89, %while.body.us83 ], [ %add.ptr, %land.rhs.i.i ]
+  %retval.0 = phi i1 [ false, %if.then15 ], [ false, %entry ], [ true, %if.then.i.us ], [ true, %while.body.us50 ], [ true, %land.rhs.i.i.us98 ], [ true, %if.then.i.us.us ], [ true, %if.end19.i.us.us ], [ true, %while.body.us.us ], [ true, %if.end19.i.us ], [ true, %land.rhs.i.i.us65 ], [ true, %while.body.us83 ], [ true, %land.rhs.i.i ]
   store ptr %cond.sink, ptr %FoundBucket, align 8
   ret i1 %retval.0
 }
@@ -19322,7 +19322,7 @@ if.end13.i.i64:                                   ; preds = %if.end9.i.i58
   br i1 %cmp.i.i.i74, label %if.end12, label %if.end9.i.i58, !llvm.loop !85
 
 if.end12:                                         ; preds = %if.end13.i.i, %if.end13.i.i64, %if.then.i.i37, %if.then.i.i, %if.then12.i.i77, %if.end.i.i51, %_ZN4llvh12DenseMapBaseINS_8DenseMapIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS7_EEEEjS7_S9_SC_E4growEj.exit48, %if.then12.i.i, %if.end.i.i9, %_ZN4llvh12DenseMapBaseINS_8DenseMapIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS7_EEEEjS7_S9_SC_E4growEj.exit, %if.else
-  %TheBucket.addr.0 = phi ptr [ %TheBucket, %if.else ], [ null, %if.then.i.i ], [ %cond.i.i, %if.then12.i.i ], [ null, %_ZN4llvh12DenseMapBaseINS_8DenseMapIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS7_EEEEjS7_S9_SC_E4growEj.exit ], [ %add.ptr21.i.i, %if.end.i.i9 ], [ %cond.i.i79, %if.then12.i.i77 ], [ null, %_ZN4llvh12DenseMapBaseINS_8DenseMapIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS7_EEEEjS7_S9_SC_E4growEj.exit48 ], [ %add.ptr21.i.i56, %if.end.i.i51 ], [ null, %if.then.i.i37 ], [ %add.ptr.i.i73, %if.end13.i.i64 ], [ %add.ptr.i.i12, %if.end13.i.i ]
+  %TheBucket.addr.0 = phi ptr [ %TheBucket, %if.else ], [ null, %if.then.i.i ], [ %cond.i.i, %if.then12.i.i ], [ null, %_ZN4llvh12DenseMapBaseINS_8DenseMapIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS7_EEEEjS7_S9_SC_E4growEj.exit ], [ %add.ptr21.i.i, %if.end.i.i9 ], [ %add.ptr.i.i73, %if.end13.i.i64 ], [ %cond.i.i79, %if.then12.i.i77 ], [ null, %_ZN4llvh12DenseMapBaseINS_8DenseMapIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS7_EEEEjS7_S9_SC_E4growEj.exit48 ], [ %add.ptr21.i.i56, %if.end.i.i51 ], [ null, %if.then.i.i37 ], [ %add.ptr.i.i12, %if.end13.i.i ]
   %19 = load i32, ptr %NumEntries.i.i, align 8
   %add.i = add i32 %19, 1
   store i32 %add.i, ptr %NumEntries.i.i, align 8
@@ -19654,8 +19654,8 @@ _ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27: ; preds = %while.b
   br i1 %cmp7.i20, label %if.then15, label %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit40
 
 if.then15:                                        ; preds = %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us100, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us66, %while.body.us50, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us.us
-  %.us-phi46 = phi ptr [ %FoundTombstone.0.us86, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us100 ], [ %FoundTombstone.0.us.us, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us.us ], [ %FoundTombstone.0.us, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us ], [ %FoundTombstone.0.us53, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us66 ], [ %FoundTombstone.0.us53, %while.body.us50 ], [ %FoundTombstone.0, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27 ]
-  %.us-phi47 = phi ptr [ %add.ptr.us89, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us100 ], [ %add.ptr.us.us, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us.us ], [ %add.ptr.us, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us ], [ %add.ptr.us56, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us66 ], [ %add.ptr.us56, %while.body.us50 ], [ %add.ptr, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27 ]
+  %.us-phi46 = phi ptr [ %FoundTombstone.0.us, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us ], [ %FoundTombstone.0.us.us, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us.us ], [ %FoundTombstone.0.us86, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us100 ], [ %FoundTombstone.0.us53, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us66 ], [ %FoundTombstone.0.us53, %while.body.us50 ], [ %FoundTombstone.0, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27 ]
+  %.us-phi47 = phi ptr [ %add.ptr.us, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us ], [ %add.ptr.us.us, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us.us ], [ %add.ptr.us89, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us100 ], [ %add.ptr.us56, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us66 ], [ %add.ptr.us56, %while.body.us50 ], [ %add.ptr, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27 ]
   %tobool.not = icmp eq ptr %.us-phi46, null
   %cond = select i1 %tobool.not, ptr %.us-phi47, ptr %.us-phi46
   br label %return
@@ -19670,8 +19670,8 @@ _ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit40: ; preds = %_ZN4llv
   br label %while.body, !llvm.loop !1437
 
 return:                                           ; preds = %land.rhs.i.i, %land.rhs.i.i.us98, %while.body.us83, %while.body.us50, %land.rhs.i.i.us65, %if.then.i.us, %if.end19.i.us, %if.then.i.us.us, %while.body.us.us, %if.end19.i.us.us, %entry, %if.then15
-  %cond.sink = phi ptr [ %cond, %if.then15 ], [ null, %entry ], [ %add.ptr.us89, %land.rhs.i.i.us98 ], [ %add.ptr.us.us, %if.then.i.us.us ], [ %add.ptr.us, %if.then.i.us ], [ %add.ptr.us56, %while.body.us50 ], [ %add.ptr.us.us, %if.end19.i.us.us ], [ %add.ptr.us.us, %while.body.us.us ], [ %add.ptr.us, %if.end19.i.us ], [ %add.ptr.us56, %land.rhs.i.i.us65 ], [ %add.ptr.us89, %while.body.us83 ], [ %add.ptr, %land.rhs.i.i ]
-  %retval.0 = phi i1 [ false, %if.then15 ], [ false, %entry ], [ true, %land.rhs.i.i.us98 ], [ true, %if.then.i.us.us ], [ true, %if.then.i.us ], [ true, %while.body.us50 ], [ true, %if.end19.i.us.us ], [ true, %while.body.us.us ], [ true, %if.end19.i.us ], [ true, %land.rhs.i.i.us65 ], [ true, %while.body.us83 ], [ true, %land.rhs.i.i ]
+  %cond.sink = phi ptr [ %cond, %if.then15 ], [ null, %entry ], [ %add.ptr.us, %if.then.i.us ], [ %add.ptr.us56, %while.body.us50 ], [ %add.ptr.us89, %land.rhs.i.i.us98 ], [ %add.ptr.us.us, %if.then.i.us.us ], [ %add.ptr.us.us, %if.end19.i.us.us ], [ %add.ptr.us.us, %while.body.us.us ], [ %add.ptr.us, %if.end19.i.us ], [ %add.ptr.us56, %land.rhs.i.i.us65 ], [ %add.ptr.us89, %while.body.us83 ], [ %add.ptr, %land.rhs.i.i ]
+  %retval.0 = phi i1 [ false, %if.then15 ], [ false, %entry ], [ true, %if.then.i.us ], [ true, %while.body.us50 ], [ true, %land.rhs.i.i.us98 ], [ true, %if.then.i.us.us ], [ true, %if.end19.i.us.us ], [ true, %while.body.us.us ], [ true, %if.end19.i.us ], [ true, %land.rhs.i.i.us65 ], [ true, %while.body.us83 ], [ true, %land.rhs.i.i ]
   store ptr %cond.sink, ptr %FoundBucket, align 8
   ret i1 %retval.0
 }

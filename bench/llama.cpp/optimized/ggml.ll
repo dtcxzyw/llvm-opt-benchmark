@@ -2247,7 +2247,7 @@ ggml_get_first_tensor.exit:                       ; preds = %.lr.ph.i
   br i1 %.not18, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %8, %ggml_nbytes.exit, %49, %1, %ggml_get_first_tensor.exit
-  %.0.lcssa = phi i64 [ 0, %ggml_get_first_tensor.exit ], [ 0, %1 ], [ %44, %ggml_nbytes.exit ], [ %44, %49 ], [ 0, %8 ]
+  %.0.lcssa = phi i64 [ 0, %ggml_get_first_tensor.exit ], [ %44, %49 ], [ %44, %ggml_nbytes.exit ], [ 0, %1 ], [ 0, %8 ]
   ret i64 %.0.lcssa
 
 .lr.ph:                                           ; preds = %.lr.ph.i11, %ggml_get_first_tensor.exit

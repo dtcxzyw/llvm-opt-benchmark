@@ -1449,7 +1449,7 @@ define hidden ptr @_PyPegen_soft_keyword_token(ptr noundef %0) local_unnamed_add
   br label %_PyPegen_name_from_token.exit
 
 _PyPegen_name_from_token.exit:                    ; preds = %32, %22, %49, %47, %42
-  %spec.select = phi ptr [ %60, %49 ], [ null, %42 ], [ null, %47 ], [ null, %22 ], [ null, %32 ]
+  %spec.select = phi ptr [ null, %47 ], [ %60, %49 ], [ null, %42 ], [ null, %22 ], [ null, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_PyPegen_expect_token.exit.thread

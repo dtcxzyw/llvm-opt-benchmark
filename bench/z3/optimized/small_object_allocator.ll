@@ -1256,8 +1256,8 @@ _ZNK6vectorIPcLb0EjE4sizeEv.exit130:              ; preds = %_ZNK6vectorIPN22sma
   br i1 %exitcond.not, label %_Z7deallocIN22small_object_allocator5chunkEEvPT_.exit, label %.lr.ph238, !llvm.loop !75
 
 _Z7deallocIN22small_object_allocator5chunkEEvPT_.exit: ; preds = %.lr.ph238, %381, %376, %378
-  %.159 = phi ptr [ %.058241, %378 ], [ %.058241, %376 ], [ %.058241, %381 ], [ %384, %.lr.ph238 ]
-  %.154 = phi ptr [ %.053242, %378 ], [ %.053242, %376 ], [ %363, %381 ], [ %363, %.lr.ph238 ]
+  %.159 = phi ptr [ %.058241, %376 ], [ %.058241, %378 ], [ %.058241, %381 ], [ %384, %.lr.ph238 ]
+  %.154 = phi ptr [ %.053242, %376 ], [ %.053242, %378 ], [ %363, %381 ], [ %363, %.lr.ph238 ]
   %indvars.iv.next256 = add nuw nsw i64 %indvars.iv255, 1
   %exitcond259.not = icmp eq i64 %indvars.iv.next256, %wide.trip.count258
   br i1 %exitcond259.not, label %._crit_edge244, label %.lr.ph243, !llvm.loop !76

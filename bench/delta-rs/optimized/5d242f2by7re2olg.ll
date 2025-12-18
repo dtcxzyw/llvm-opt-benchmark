@@ -25023,8 +25023,8 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   store i64 0, ptr %0, align 8, !alias.scope !3697
   br label %40
 
-38:                                               ; preds = %36, %29
-  %.0.i.ph = phi ptr [ %37, %36 ], [ %30, %29 ]
+38:                                               ; preds = %29, %36
+  %.0.i.ph = phi ptr [ %30, %29 ], [ %37, %36 ]
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.0.i.ph, ptr %39, align 8
   store i64 2, ptr %0, align 8
@@ -25152,8 +25152,8 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   store i32 0, ptr %0, align 8, !alias.scope !3744
   br label %47
 
-45:                                               ; preds = %42, %35
-  %.0.i.ph = phi ptr [ %43, %42 ], [ %36, %35 ]
+45:                                               ; preds = %35, %42
+  %.0.i.ph = phi ptr [ %36, %35 ], [ %43, %42 ]
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.0.i.ph, ptr %46, align 8
   store i32 1, ptr %0, align 8

@@ -5095,7 +5095,7 @@ define hidden noundef zeroext i1 @_ZN2cv8ximgproc20FastLineDetectorImpl13getPoin
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %37, %.critedge.thread.sink.split, %.critedge
-  %.1 = phi i1 [ false, %.critedge ], [ true, %.critedge.thread.sink.split ], [ false, %37 ]
+  %.1 = phi i1 [ true, %.critedge.thread.sink.split ], [ false, %.critedge ], [ false, %37 ]
   ret i1 %.1
 }
 

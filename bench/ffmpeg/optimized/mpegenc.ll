@@ -700,7 +700,7 @@ define internal noundef range(i32 -1163346256, 1) i32 @mpeg_mux_init(ptr noundef
   br i1 %exitcond.not.i, label %get_system_header_size.exit, label %286, !llvm.loop !83
 
 get_system_header_size.exit:                      ; preds = %297, %._crit_edge321, %._crit_edge321.thread
-  %.0.i = phi i32 [ %spec.select402, %._crit_edge321 ], [ 18, %._crit_edge321.thread ], [ %.1.i, %297 ]
+  %.0.i = phi i32 [ 18, %._crit_edge321.thread ], [ %spec.select402, %._crit_edge321 ], [ %.1.i, %297 ]
   %298 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 %.0.i, ptr %298, align 8, !tbaa !84
   %299 = getelementptr inbounds nuw i8, ptr %3, i64 64
@@ -708,7 +708,7 @@ get_system_header_size.exit:                      ; preds = %297, %._crit_edge32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %182, %39, %135, %get_system_header_size.exit, %179, %138, %136, %85, %81, %23
-  %.0 = phi i32 [ -22, %23 ], [ -22, %179 ], [ -22, %81 ], [ -22, %85 ], [ -22, %135 ], [ -1163346256, %136 ], [ -22, %138 ], [ 0, %get_system_header_size.exit ], [ -12, %39 ], [ -12, %182 ]
+  %.0 = phi i32 [ -22, %23 ], [ -22, %179 ], [ 0, %get_system_header_size.exit ], [ -22, %81 ], [ -22, %85 ], [ -22, %135 ], [ -1163346256, %136 ], [ -22, %138 ], [ -12, %39 ], [ -12, %182 ]
   ret i32 %.0
 }
 
@@ -1654,7 +1654,7 @@ get_vcd_padding_size.exit:                        ; preds = %191, %198
   br i1 %288, label %.lr.ph26.i197, label %.critedge195, !llvm.loop !114
 
 .critedge195:                                     ; preds = %136, %remove_decoded_packets.exit, %.preheader221, %43, %.critedge.i201, %2, %252
-  %.3 = phi i32 [ 1, %252 ], [ 0, %2 ], [ 0, %43 ], [ 1, %.critedge.i201 ], [ 0, %.preheader221 ], [ 0, %remove_decoded_packets.exit ], [ 0, %136 ]
+  %.3 = phi i32 [ 0, %2 ], [ 0, %43 ], [ 1, %252 ], [ 1, %.critedge.i201 ], [ 0, %.preheader221 ], [ 0, %remove_decoded_packets.exit ], [ 0, %136 ]
   ret i32 %.3
 }
 
@@ -3069,7 +3069,7 @@ flush_put_bits.exit.loopexit:                     ; preds = %207
   br label %flush_put_bits.exit
 
 flush_put_bits.exit:                              ; preds = %flush_put_bits.exit.loopexit, %.preheader, %put_bits.exit206, %put_bits.exit222
-  %.sroa.188.94 = phi ptr [ %.sroa.188.7.ptr, %put_bits.exit222 ], [ %.sroa.188.4.ptr, %.preheader ], [ %95, %put_bits.exit206 ], [ %.ptr, %flush_put_bits.exit.loopexit ]
+  %.sroa.188.94 = phi ptr [ %.sroa.188.7.ptr, %put_bits.exit222 ], [ %95, %put_bits.exit206 ], [ %.sroa.188.4.ptr, %.preheader ], [ %.ptr, %flush_put_bits.exit.loopexit ]
   %213 = ptrtoint ptr %1 to i64
   %214 = ptrtoint ptr %.sroa.188.94 to i64
   %215 = sub i64 %214, %213

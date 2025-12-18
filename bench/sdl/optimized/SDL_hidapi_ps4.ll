@@ -842,8 +842,8 @@ HIDAPI_DriverPS4_IsPacketValid.exit:              ; preds = %41, %.thread.i, %73
   br label %.outer._crit_edge
 
 .outer._crit_edge:                                ; preds = %.outer._crit_edge.loopexit, %17
-  %.068.ph.lcssa = phi i1 [ true, %17 ], [ %105, %.outer._crit_edge.loopexit ]
-  %.lcssa81 = phi i32 [ %20, %17 ], [ %92, %.outer._crit_edge.loopexit ]
+  %.068.ph.lcssa = phi i1 [ %105, %.outer._crit_edge.loopexit ], [ true, %17 ]
+  %.lcssa81 = phi i32 [ %92, %.outer._crit_edge.loopexit ], [ %20, %17 ]
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %107 = load i8, ptr %106, align 4, !range !5, !noundef !6
   %108 = trunc nuw i8 %107 to i1

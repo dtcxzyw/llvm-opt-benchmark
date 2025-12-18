@@ -1226,7 +1226,7 @@ _ZN9hashbrown3map9make_hash17hb81cc2a482abb44fE.exit.i: ; preds = %_ZN8foldhash4
   br label %64
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$5entry17hf447c3ffaee94d9eE.exit": ; preds = %.lr.ph.us.i.i, %167, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hc996faec5ced131aE.exit.us.us.i.i"
-  %.pre-phi.i = phi i64 [ %163, %167 ], [ %149, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hc996faec5ced131aE.exit.us.us.i.i" ], [ %137, %.lr.ph.us.i.i ]
+  %.pre-phi.i = phi i64 [ %149, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hc996faec5ced131aE.exit.us.us.i.i" ], [ %163, %167 ], [ %137, %.lr.ph.us.i.i ]
   %178 = getelementptr inbounds { ptr, { ptr, i32, i32 } }, ptr %122, i64 %.pre-phi.i
   br label %252
 
@@ -2497,7 +2497,7 @@ _ZN9hashbrown3map9make_hash17ha18b6473f8575c09E.exit.i: ; preds = %_ZN8foldhash4
   br label %64
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$5entry17hae4dec99d0e8239fE.exit": ; preds = %.lr.ph.us.i.i, %167, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h86baf48d546555c7E.exit.us.us.i.i"
-  %.pre-phi.i = phi i64 [ %163, %167 ], [ %149, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h86baf48d546555c7E.exit.us.us.i.i" ], [ %137, %.lr.ph.us.i.i ]
+  %.pre-phi.i = phi i64 [ %149, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h86baf48d546555c7E.exit.us.us.i.i" ], [ %163, %167 ], [ %137, %.lr.ph.us.i.i ]
   %178 = getelementptr inbounds { ptr, { ptr, i32, i32 } }, ptr %122, i64 %.pre-phi.i
   br label %252
 
@@ -3180,7 +3180,7 @@ _ZN9hashbrown3map9make_hash17h0e9db1d07af3c39aE.exit.i: ; preds = %_ZN8foldhash4
   br label %64
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$5entry17h1ed963dad6ba2525E.exit": ; preds = %.lr.ph.us.i.i, %164, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hcba3a083ed20d153E.exit.us.us.i.i"
-  %.pre-phi.i = phi i64 [ %160, %164 ], [ %146, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hcba3a083ed20d153E.exit.us.us.i.i" ], [ %134, %.lr.ph.us.i.i ]
+  %.pre-phi.i = phi i64 [ %146, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hcba3a083ed20d153E.exit.us.us.i.i" ], [ %160, %164 ], [ %134, %.lr.ph.us.i.i ]
   %175 = getelementptr inbounds { ptr, { ptr, i32, i32 } }, ptr %119, i64 %.pre-phi.i
   br label %249
 
@@ -4832,7 +4832,7 @@ _ZN9hashbrown3map9make_hash17he84c09d983e5b19fE.exit.i: ; preds = %_ZN8foldhash4
   br label %64
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$5entry17hec3a789d70cefd1eE.exit": ; preds = %.lr.ph.us.i.i, %164, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hdae7db544925c61eE.exit.us.us.i.i"
-  %.pre-phi.i = phi i64 [ %160, %164 ], [ %146, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hdae7db544925c61eE.exit.us.us.i.i" ], [ %134, %.lr.ph.us.i.i ]
+  %.pre-phi.i = phi i64 [ %146, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hdae7db544925c61eE.exit.us.us.i.i" ], [ %160, %164 ], [ %134, %.lr.ph.us.i.i ]
   %175 = getelementptr inbounds { ptr, { ptr, i32, i32 } }, ptr %119, i64 %.pre-phi.i
   br label %249
 
@@ -16729,7 +16729,7 @@ _ZN9hashbrown3raw13RawTableInner16find_insert_slot17hacf9389ee4557603E.exit.i.i:
   unreachable
 
 .loopexit.i:                                      ; preds = %.lr.ph.us.i.i.i, %136, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hc996faec5ced131aE.exit.us.us.i.i.i"
-  %.pre-phi.i.i = phi i64 [ %132, %136 ], [ %118, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hc996faec5ced131aE.exit.us.us.i.i.i" ], [ %106, %.lr.ph.us.i.i.i ]
+  %.pre-phi.i.i = phi i64 [ %118, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hc996faec5ced131aE.exit.us.us.i.i.i" ], [ %132, %136 ], [ %106, %.lr.ph.us.i.i.i ]
   %203 = getelementptr inbounds { ptr, { ptr, i32, i32 } }, ptr %91, i64 %.pre-phi.i.i
   %204 = getelementptr inbounds i8, ptr %203, i64 -16
   %205 = getelementptr inbounds i8, ptr %203, i64 -8
@@ -17731,7 +17731,7 @@ _ZN9hashbrown3raw13RawTableInner16find_insert_slot17hacf9389ee4557603E.exit.i.i:
   unreachable
 
 .loopexit.i:                                      ; preds = %.lr.ph.us.i.i.i, %137, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h86baf48d546555c7E.exit.us.us.i.i.i"
-  %.pre-phi.i.i = phi i64 [ %133, %137 ], [ %119, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h86baf48d546555c7E.exit.us.us.i.i.i" ], [ %107, %.lr.ph.us.i.i.i ]
+  %.pre-phi.i.i = phi i64 [ %119, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h86baf48d546555c7E.exit.us.us.i.i.i" ], [ %133, %137 ], [ %107, %.lr.ph.us.i.i.i ]
   %204 = getelementptr inbounds { ptr, { ptr, i32, i32 } }, ptr %92, i64 %.pre-phi.i.i
   %205 = getelementptr inbounds i8, ptr %204, i64 -16
   %206 = getelementptr inbounds i8, ptr %204, i64 -8
@@ -18463,7 +18463,7 @@ _ZN9hashbrown3raw13RawTableInner16find_insert_slot17hacf9389ee4557603E.exit.i.i:
   unreachable
 
 .loopexit.i:                                      ; preds = %.lr.ph.us.i.i.i, %134, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hdae7db544925c61eE.exit.us.us.i.i.i"
-  %.pre-phi.i.i = phi i64 [ %130, %134 ], [ %116, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hdae7db544925c61eE.exit.us.us.i.i.i" ], [ %104, %.lr.ph.us.i.i.i ]
+  %.pre-phi.i.i = phi i64 [ %116, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hdae7db544925c61eE.exit.us.us.i.i.i" ], [ %130, %134 ], [ %104, %.lr.ph.us.i.i.i ]
   %201 = getelementptr inbounds { ptr, { ptr, i32, i32 } }, ptr %89, i64 %.pre-phi.i.i
   %202 = getelementptr inbounds i8, ptr %201, i64 -16
   %203 = getelementptr inbounds i8, ptr %201, i64 -8
@@ -22363,7 +22363,7 @@ _ZN9hashbrown3raw13RawTableInner16find_insert_slot17hacf9389ee4557603E.exit.i.i:
   unreachable
 
 .loopexit.i:                                      ; preds = %.lr.ph.us.i.i.i, %133, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hcba3a083ed20d153E.exit.us.us.i.i.i"
-  %.pre-phi.i.i = phi i64 [ %129, %133 ], [ %115, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hcba3a083ed20d153E.exit.us.us.i.i.i" ], [ %103, %.lr.ph.us.i.i.i ]
+  %.pre-phi.i.i = phi i64 [ %115, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hcba3a083ed20d153E.exit.us.us.i.i.i" ], [ %129, %133 ], [ %103, %.lr.ph.us.i.i.i ]
   %200 = getelementptr inbounds { ptr, { ptr, i32, i32 } }, ptr %88, i64 %.pre-phi.i.i
   %201 = getelementptr inbounds i8, ptr %200, i64 -16
   %202 = getelementptr inbounds i8, ptr %200, i64 -8

@@ -312,7 +312,7 @@ for.body29:                                       ; preds = %for.body29.lr.ph, %
   br i1 %call32, label %return, label %for.cond26
 
 return:                                           ; preds = %for.body, %for.body12, %for.body29, %for.cond26, %for.cond26.preheader
-  %retval.0 = phi i1 [ false, %for.cond26.preheader ], [ true, %for.body12 ], [ %call32, %for.body29 ], [ %call32, %for.cond26 ], [ true, %for.body ]
+  %retval.0 = phi i1 [ true, %for.body12 ], [ false, %for.cond26.preheader ], [ %call32, %for.body29 ], [ %call32, %for.cond26 ], [ true, %for.body ]
   ret i1 %retval.0
 }
 
@@ -536,7 +536,7 @@ for.body15:                                       ; preds = %for.cond12.preheade
   br i1 %cmp22, label %return, label %for.cond12
 
 return:                                           ; preds = %for.body, %for.body15, %for.cond12, %for.cond12.preheader, %entry
-  %retval.0 = phi i1 [ true, %entry ], [ false, %for.cond12.preheader ], [ %cmp22, %for.body15 ], [ %cmp22, %for.cond12 ], [ true, %for.body ]
+  %retval.0 = phi i1 [ false, %for.cond12.preheader ], [ true, %entry ], [ %cmp22, %for.body15 ], [ %cmp22, %for.cond12 ], [ true, %for.body ]
   ret i1 %retval.0
 }
 

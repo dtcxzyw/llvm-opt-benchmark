@@ -3717,7 +3717,7 @@ define linkonce_odr dso_local void @_ZN7testing19exceptions_internal18Constructo
   br label %_ZNSt13unordered_mapIPvN7testing19exceptions_internal14TrackedAddressESt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_S3_EEE4findERS9_.exit.thread, !llvm.loop !59
 
 _ZNSt13unordered_mapIPvN7testing19exceptions_internal14TrackedAddressESt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_S3_EEE4findERS9_.exit: ; preds = %31, %14, %26
-  %.sroa.06.1.i.i = phi ptr [ %27, %26 ], [ %.sroa.06.0.i.i, %14 ], [ %33, %31 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %14 ], [ %27, %26 ], [ %33, %31 ]
   %39 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %40 = load i8, ptr %39, align 8, !tbaa !70, !range !71, !noundef !72
   %41 = trunc nuw i8 %40 to i1
@@ -43286,7 +43286,7 @@ _ZNSt10unique_ptrIN7testing12_GLOBAL__N_113ExampleStructESt14default_deleteIS2_E
           to label %.loopexit62 unwind label %82
 
 .loopexit62:                                      ; preds = %36, %76, %78
-  %.merged39 = phi { ptr, i32 } [ %77, %76 ], [ %.pn34.pn, %78 ], [ %37, %36 ]
+  %.merged39 = phi { ptr, i32 } [ %.pn34.pn, %78 ], [ %77, %76 ], [ %37, %36 ]
   %79 = load ptr, ptr %6, align 8, !tbaa !443
   %.not.i55 = icmp eq ptr %79, null
   br i1 %.not.i55, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_113ExampleStructESt14default_deleteIS2_EED2Ev.exit57, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_113ExampleStructEEclEPS2_.exit.i56
@@ -44611,7 +44611,7 @@ _ZNSt10unique_ptrIN7testing12_GLOBAL__N_119FailsBasicGuaranteeESt14default_delet
           to label %.loopexit62 unwind label %82
 
 .loopexit62:                                      ; preds = %36, %76, %78
-  %.merged39 = phi { ptr, i32 } [ %77, %76 ], [ %.pn34.pn, %78 ], [ %37, %36 ]
+  %.merged39 = phi { ptr, i32 } [ %.pn34.pn, %78 ], [ %77, %76 ], [ %37, %36 ]
   %79 = load ptr, ptr %6, align 8, !tbaa !523
   %.not.i55 = icmp eq ptr %79, null
   br i1 %.not.i55, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_119FailsBasicGuaranteeESt14default_deleteIS2_EED2Ev.exit57, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_119FailsBasicGuaranteeEEclEPS2_.exit.i56
@@ -45703,7 +45703,7 @@ _ZNSt10unique_ptrIN7testing12_GLOBAL__N_121FollowsBasicGuaranteeESt14default_del
           to label %.loopexit62 unwind label %82
 
 .loopexit62:                                      ; preds = %36, %76, %78
-  %.merged39 = phi { ptr, i32 } [ %77, %76 ], [ %.pn34.pn, %78 ], [ %37, %36 ]
+  %.merged39 = phi { ptr, i32 } [ %.pn34.pn, %78 ], [ %77, %76 ], [ %37, %36 ]
   %79 = load ptr, ptr %6, align 8, !tbaa !573
   %.not.i55 = icmp eq ptr %79, null
   br i1 %.not.i55, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_121FollowsBasicGuaranteeESt14default_deleteIS2_EED2Ev.exit57, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_121FollowsBasicGuaranteeEEclEPS2_.exit.i56
@@ -48364,7 +48364,7 @@ _ZNSt10unique_ptrIN7testing12_GLOBAL__N_132BasicGuaranteeWithExtraContractsESt14
           to label %.loopexit62 unwind label %82
 
 .loopexit62:                                      ; preds = %36, %76, %78
-  %.merged39 = phi { ptr, i32 } [ %77, %76 ], [ %.pn34.pn, %78 ], [ %37, %36 ]
+  %.merged39 = phi { ptr, i32 } [ %.pn34.pn, %78 ], [ %77, %76 ], [ %37, %36 ]
   %79 = load ptr, ptr %6, align 8, !tbaa !697
   %.not.i55 = icmp eq ptr %79, null
   br i1 %.not.i55, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_132BasicGuaranteeWithExtraContractsESt14default_deleteIS2_EED2Ev.exit57, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEclEPS2_.exit.i56
@@ -50173,7 +50173,7 @@ _ZNSt10unique_ptrIN7testing12_GLOBAL__N_122FollowsStrongGuaranteeESt14default_de
           to label %.loopexit62 unwind label %82
 
 .loopexit62:                                      ; preds = %36, %76, %78
-  %.merged39 = phi { ptr, i32 } [ %77, %76 ], [ %.pn34.pn, %78 ], [ %37, %36 ]
+  %.merged39 = phi { ptr, i32 } [ %.pn34.pn, %78 ], [ %77, %76 ], [ %37, %36 ]
   %79 = load ptr, ptr %6, align 8, !tbaa !771
   %.not.i55 = icmp eq ptr %79, null
   br i1 %.not.i55, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_122FollowsStrongGuaranteeESt14default_deleteIS2_EED2Ev.exit57, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_122FollowsStrongGuaranteeEEclEPS2_.exit.i56
@@ -51889,7 +51889,7 @@ _ZNSt10unique_ptrIN7testing12_GLOBAL__N_18HasResetESt14default_deleteIS2_EED2Ev.
           to label %.loopexit62.i.i.i unwind label %451
 
 .loopexit62.i.i.i:                                ; preds = %405, %447, %445
-  %.merged39.i.i.i = phi { ptr, i32 } [ %446, %445 ], [ %.pn34.pn.i.i.i, %447 ], [ %406, %405 ]
+  %.merged39.i.i.i = phi { ptr, i32 } [ %.pn34.pn.i.i.i, %447 ], [ %446, %445 ], [ %406, %405 ]
   %448 = load ptr, ptr %5, align 8, !tbaa !864, !noalias !858
   %.not.i55.i.i.i = icmp eq ptr %448, null
   br i1 %.not.i55.i.i.i, label %.body.i.i, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_18HasResetEEclEPS2_.exit.i56.i.i.i
@@ -53722,7 +53722,7 @@ _ZNKSt8functionIFSt10unique_ptrIN7testing13ThrowingValueILNS1_8TypeSpecE0EEESt14
           to label %.loopexit52 unwind label %89
 
 .loopexit52:                                      ; preds = %39, %79, %81
-  %.merged39 = phi { ptr, i32 } [ %80, %79 ], [ %.pn34.pn, %81 ], [ %40, %39 ]
+  %.merged39 = phi { ptr, i32 } [ %.pn34.pn, %81 ], [ %80, %79 ], [ %40, %39 ]
   call void @_ZNSt10unique_ptrIN7testing13ThrowingValueILNS0_8TypeSpecE0EEESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #29
   br label %82
 
@@ -55289,7 +55289,7 @@ _ZNSt10unique_ptrIN7testing12_GLOBAL__N_111NonCopyableESt14default_deleteIS2_EED
           to label %.loopexit62 unwind label %82
 
 .loopexit62:                                      ; preds = %36, %76, %78
-  %.merged39 = phi { ptr, i32 } [ %77, %76 ], [ %.pn34.pn, %78 ], [ %37, %36 ]
+  %.merged39 = phi { ptr, i32 } [ %.pn34.pn, %78 ], [ %77, %76 ], [ %37, %36 ]
   %79 = load ptr, ptr %6, align 8, !tbaa !1005
   %.not.i55 = icmp eq ptr %79, null
   br i1 %.not.i55, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_111NonCopyableESt14default_deleteIS2_EED2Ev.exit57, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_111NonCopyableEEclEPS2_.exit.i56
@@ -57030,7 +57030,7 @@ _ZNSt10unique_ptrIN7testing12_GLOBAL__N_121NonEqualityComparableESt14default_del
           to label %.loopexit62 unwind label %82
 
 .loopexit62:                                      ; preds = %36, %76, %78
-  %.merged39 = phi { ptr, i32 } [ %77, %76 ], [ %.pn34.pn, %78 ], [ %37, %36 ]
+  %.merged39 = phi { ptr, i32 } [ %.pn34.pn, %78 ], [ %77, %76 ], [ %37, %36 ]
   %79 = load ptr, ptr %6, align 8, !tbaa !1080
   %.not.i55 = icmp eq ptr %79, null
   br i1 %.not.i55, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_121NonEqualityComparableESt14default_deleteIS2_EED2Ev.exit57, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_121NonEqualityComparableEEclEPS2_.exit.i56
@@ -57740,7 +57740,7 @@ _ZNSt10unique_ptrIN7testing12_GLOBAL__N_120ExhaustivenessTesterIiEESt14default_d
           to label %.loopexit62.i.i.i.i unwind label %123
 
 .loopexit62.i.i.i.i:                              ; preds = %77, %119, %117
-  %.merged39.i.i.i.i = phi { ptr, i32 } [ %118, %117 ], [ %.pn34.pn.i.i.i.i, %119 ], [ %78, %77 ]
+  %.merged39.i.i.i.i = phi { ptr, i32 } [ %.pn34.pn.i.i.i.i, %119 ], [ %118, %117 ], [ %78, %77 ]
   %120 = load ptr, ptr %17, align 8, !tbaa !1136, !noalias !1130
   %.not.i55.i.i.i.i = icmp eq ptr %120, null
   br i1 %.not.i55.i.i.i.i, label %.body.i.i.i, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_120ExhaustivenessTesterIiEEEclEPS3_.exit.i56.i.i.i.i
@@ -58665,7 +58665,7 @@ _ZNSt10unique_ptrIN7testing12_GLOBAL__N_120ExhaustivenessTesterINS0_13ThrowingVa
           to label %.loopexit62.i.i.i.i60 unwind label %415
 
 .loopexit62.i.i.i.i60:                            ; preds = %369, %411, %409
-  %.merged39.i.i.i.i61 = phi { ptr, i32 } [ %410, %409 ], [ %.pn34.pn.i.i.i.i68, %411 ], [ %370, %369 ]
+  %.merged39.i.i.i.i61 = phi { ptr, i32 } [ %.pn34.pn.i.i.i.i68, %411 ], [ %410, %409 ], [ %370, %369 ]
   %412 = load ptr, ptr %5, align 8, !tbaa !1184, !noalias !1177
   %.not.i55.i.i.i.i62 = icmp eq ptr %412, null
   br i1 %.not.i55.i.i.i.i62, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_120ExhaustivenessTesterINS0_13ThrowingValueILNS0_8TypeSpecE0EEEEESt14default_deleteIS6_EED2Ev.exit57.i.i.i.i, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_120ExhaustivenessTesterINS0_13ThrowingValueILNS0_8TypeSpecE0EEEEEEclEPS6_.exit.i56.i.i.i.i

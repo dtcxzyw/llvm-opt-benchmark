@@ -1579,7 +1579,7 @@ decode_loudness_set.exit.thread:                  ; preds = %.loopexit.i, %.preh
   br label %decode_usac_element_pair.exit.thread260
 
 decode_usac_element_pair.exit.thread260:          ; preds = %332, %282, %get_escaped_value.exit.thread351, %897, %240, %.critedge, %156, %._crit_edge292, %get_escaped_value.exit.thread, %get_escaped_value.exit, %37, %5, %.thread270, %674, %217
-  %.0175 = phi i32 [ -22, %217 ], [ %672, %674 ], [ -1163346256, %5 ], [ 0, %.thread270 ], [ -1163346256, %897 ], [ %161, %.critedge ], [ -22, %240 ], [ -22, %37 ], [ -22, %get_escaped_value.exit ], [ %132, %get_escaped_value.exit.thread ], [ %137, %._crit_edge292 ], [ %158, %156 ], [ -22, %get_escaped_value.exit.thread351 ], [ %283, %282 ], [ %333, %332 ]
+  %.0175 = phi i32 [ -22, %217 ], [ %672, %674 ], [ -1163346256, %5 ], [ 0, %.thread270 ], [ -1163346256, %897 ], [ %161, %.critedge ], [ -22, %240 ], [ -22, %37 ], [ -22, %get_escaped_value.exit ], [ %132, %get_escaped_value.exit.thread ], [ %137, %._crit_edge292 ], [ %158, %156 ], [ -22, %get_escaped_value.exit.thread351 ], [ %333, %332 ], [ %283, %282 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0175
 }
@@ -3662,7 +3662,7 @@ decode_usac_scale_factors.exit:                   ; preds = %582
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %591, i32 noundef 16, ptr noundef nonnull @.str.14, i32 noundef %586) #13
   br label %decode_usac_stereo_info.exit
 
-.loopexit250:                                     ; preds = %._crit_edge.us.i207, %510, %.preheader.lr.ph.i
+.loopexit250:                                     ; preds = %._crit_edge.us.i207, %.preheader.lr.ph.i, %510
   %592 = getelementptr inbounds nuw i8, ptr %337, i64 170
   %593 = load i8, ptr %592, align 2, !tbaa !143
   %.not190 = icmp eq i8 %593, 0
@@ -3991,7 +3991,7 @@ select.unfold236:                                 ; preds = %743, %.thread232, %
   br label %759
 
 759:                                              ; preds = %755, %753
-  %.0 = phi i32 [ %758, %755 ], [ 1, %753 ]
+  %.0 = phi i32 [ 1, %753 ], [ %758, %755 ]
   %760 = call i32 @ff_aac_sbr_decode_usac_data(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %2, ptr noundef %4, i32 noundef %.0, i32 noundef %5) #13
   %761 = icmp sgt i32 %760, -1
   br i1 %761, label %762, label %decode_usac_stereo_info.exit
@@ -4853,7 +4853,7 @@ spectrum_decode.exit:                             ; preds = %1133
   br label %decode_usac_stereo_info.exit
 
 decode_usac_stereo_info.exit:                     ; preds = %743, %594, %340, %485, %decode_usac_scale_factors.exit, %729, %507, %293, %242, %185, %184, %spectrum_decode.exit, %1138, %759, %765
-  %.0159 = phi i32 [ -1094995529, %decode_usac_scale_factors.exit ], [ -1163346256, %765 ], [ 0, %spectrum_decode.exit ], [ %760, %759 ], [ 0, %1138 ], [ %186, %185 ], [ %182, %184 ], [ -1163346256, %242 ], [ %295, %293 ], [ -1163346256, %507 ], [ -22, %729 ], [ %596, %594 ], [ %749, %743 ], [ %486, %485 ], [ %341, %340 ]
+  %.0159 = phi i32 [ -1094995529, %decode_usac_scale_factors.exit ], [ -1163346256, %765 ], [ 0, %spectrum_decode.exit ], [ %760, %759 ], [ 0, %1138 ], [ %186, %185 ], [ %182, %184 ], [ %295, %293 ], [ -1163346256, %242 ], [ -1163346256, %507 ], [ -22, %729 ], [ %596, %594 ], [ %749, %743 ], [ %486, %485 ], [ %341, %340 ]
   ret i32 %.0159
 }
 

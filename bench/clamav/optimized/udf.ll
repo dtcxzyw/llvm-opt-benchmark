@@ -782,7 +782,7 @@ getAnchorVolumeDescriptorPointer.exit:            ; preds = %314
   br i1 %.not.i304, label %getFileSetDescriptor.exit, label %.loopexit
 
 .loopexit:                                        ; preds = %.critedge.i.i311, %340, %346, %getAnchorVolumeDescriptorPointer.exit
-  %.0.i309.ph = phi i64 [ %.01523.i.i283, %getAnchorVolumeDescriptorPointer.exit ], [ %.01523.i.i300, %346 ], [ %.01523.i.i300, %340 ], [ %.01523.i.i283, %.critedge.i.i311 ]
+  %.0.i309.ph = phi i64 [ %.01523.i.i283, %getAnchorVolumeDescriptorPointer.exit ], [ %.01523.i.i300, %340 ], [ %.01523.i.i300, %346 ], [ %.01523.i.i283, %.critedge.i.i311 ]
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.20) #7
   br label %357
 
@@ -1275,14 +1275,14 @@ parseFileEntryDescriptor.exit:                    ; preds = %extractFile.exit.i,
   br label %findFileIdentifiers.exit.thread
 
 findFileIdentifiers.exit.thread:                  ; preds = %419, %435, %379, %403, %406, %366, %364, %364, %364, %._crit_edge
-  %.sroa.0361.4 = phi ptr [ %.sroa.0361.2, %._crit_edge ], [ %.sroa.0361.2, %364 ], [ %.sroa.0361.2, %364 ], [ %.sroa.0361.2, %364 ], [ %.sroa.0361.2, %366 ], [ %.sroa.0361.2, %406 ], [ %.sroa.0361.6, %379 ], [ %.sroa.0361.6, %403 ], [ %.sroa.0361.2, %435 ], [ %.sroa.0361.2, %419 ]
-  %.sroa.10364.4 = phi i64 [ %.sroa.10364.2, %._crit_edge ], [ %.sroa.10364.2, %364 ], [ %.sroa.10364.2, %364 ], [ %.sroa.10364.2, %364 ], [ %.sroa.10364.2, %366 ], [ %.sroa.10364.2, %406 ], [ %.sroa.10364.8.insert.insert, %379 ], [ %.sroa.10364.8.insert.insert, %403 ], [ %.sroa.10364.2, %435 ], [ %.sroa.10364.2, %419 ]
-  %.sroa.0.4 = phi ptr [ %.sroa.0.2, %._crit_edge ], [ %.sroa.0.2, %364 ], [ %.sroa.0.2, %364 ], [ %.sroa.0.2, %364 ], [ %.sroa.0.2, %366 ], [ %.sroa.0.2, %406 ], [ %.sroa.0.2, %379 ], [ %.sroa.0.2, %403 ], [ %.sroa.0.6, %435 ], [ %.sroa.0.6, %419 ]
-  %.sroa.10.4 = phi i64 [ %.sroa.10.2, %._crit_edge ], [ %.sroa.10.2, %364 ], [ %.sroa.10.2, %364 ], [ %.sroa.10.2, %364 ], [ %.sroa.10.2, %366 ], [ %.sroa.10.2, %406 ], [ %.sroa.10.2, %379 ], [ %.sroa.10.2, %403 ], [ %.sroa.10.8.insert.insert, %435 ], [ %.sroa.10.8.insert.insert, %419 ]
-  %.4116 = phi ptr [ null, %._crit_edge ], [ %.2114, %364 ], [ %.2114, %364 ], [ %.2114, %364 ], [ %.2114, %366 ], [ %.2114, %406 ], [ %.2114, %379 ], [ %.2114, %403 ], [ %.2114, %435 ], [ %.2114, %419 ]
-  %.4110 = phi ptr [ null, %._crit_edge ], [ %.2108, %364 ], [ %.2108, %364 ], [ %.2108, %364 ], [ %.2108, %366 ], [ %.2108, %406 ], [ %.2108, %379 ], [ %.2108, %403 ], [ %.2108, %435 ], [ %.2108, %419 ]
-  %.3102 = phi ptr [ null, %._crit_edge ], [ %361, %364 ], [ %361, %364 ], [ %361, %364 ], [ %361, %366 ], [ %361, %406 ], [ %361, %379 ], [ %361, %403 ], [ %361, %435 ], [ %361, %419 ]
-  %.397 = phi i1 [ false, %._crit_edge ], [ true, %364 ], [ true, %364 ], [ true, %364 ], [ true, %366 ], [ true, %406 ], [ true, %379 ], [ true, %403 ], [ true, %435 ], [ true, %419 ]
+  %.sroa.0361.4 = phi ptr [ %.sroa.0361.2, %._crit_edge ], [ %.sroa.0361.2, %364 ], [ %.sroa.0361.6, %379 ], [ %.sroa.0361.2, %364 ], [ %.sroa.0361.2, %364 ], [ %.sroa.0361.2, %366 ], [ %.sroa.0361.2, %406 ], [ %.sroa.0361.6, %403 ], [ %.sroa.0361.2, %435 ], [ %.sroa.0361.2, %419 ]
+  %.sroa.10364.4 = phi i64 [ %.sroa.10364.2, %._crit_edge ], [ %.sroa.10364.2, %364 ], [ %.sroa.10364.8.insert.insert, %379 ], [ %.sroa.10364.2, %364 ], [ %.sroa.10364.2, %364 ], [ %.sroa.10364.2, %366 ], [ %.sroa.10364.2, %406 ], [ %.sroa.10364.8.insert.insert, %403 ], [ %.sroa.10364.2, %435 ], [ %.sroa.10364.2, %419 ]
+  %.sroa.0.4 = phi ptr [ %.sroa.0.2, %._crit_edge ], [ %.sroa.0.2, %364 ], [ %.sroa.0.2, %379 ], [ %.sroa.0.2, %364 ], [ %.sroa.0.2, %364 ], [ %.sroa.0.2, %366 ], [ %.sroa.0.2, %406 ], [ %.sroa.0.2, %403 ], [ %.sroa.0.6, %435 ], [ %.sroa.0.6, %419 ]
+  %.sroa.10.4 = phi i64 [ %.sroa.10.2, %._crit_edge ], [ %.sroa.10.2, %364 ], [ %.sroa.10.2, %379 ], [ %.sroa.10.2, %364 ], [ %.sroa.10.2, %364 ], [ %.sroa.10.2, %366 ], [ %.sroa.10.2, %406 ], [ %.sroa.10.2, %403 ], [ %.sroa.10.8.insert.insert, %435 ], [ %.sroa.10.8.insert.insert, %419 ]
+  %.4116 = phi ptr [ null, %._crit_edge ], [ %.2114, %364 ], [ %.2114, %379 ], [ %.2114, %364 ], [ %.2114, %364 ], [ %.2114, %366 ], [ %.2114, %406 ], [ %.2114, %403 ], [ %.2114, %435 ], [ %.2114, %419 ]
+  %.4110 = phi ptr [ null, %._crit_edge ], [ %.2108, %364 ], [ %.2108, %379 ], [ %.2108, %364 ], [ %.2108, %364 ], [ %.2108, %366 ], [ %.2108, %406 ], [ %.2108, %403 ], [ %.2108, %435 ], [ %.2108, %419 ]
+  %.3102 = phi ptr [ null, %._crit_edge ], [ %361, %364 ], [ %361, %379 ], [ %361, %364 ], [ %361, %364 ], [ %361, %366 ], [ %361, %406 ], [ %361, %403 ], [ %361, %435 ], [ %361, %419 ]
+  %.397 = phi i1 [ false, %._crit_edge ], [ true, %364 ], [ true, %379 ], [ true, %364 ], [ true, %364 ], [ true, %366 ], [ true, %406 ], [ true, %403 ], [ true, %435 ], [ true, %419 ]
   %563 = add i64 %.2415, 2048
   br label %44
 

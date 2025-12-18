@@ -1892,7 +1892,7 @@ pmix_obj_run_destructors.exit750:                 ; preds = %.lr.ph.i747, %684
   br i1 %.not.i755, label %pmix_obj_run_destructors.exit756, label %.lr.ph.i753, !llvm.loop !71
 
 pmix_obj_run_destructors.exit756:                 ; preds = %552, %.lr.ph.i753, %.preheader888, %._crit_edge949, %547
-  %.5501 = phi i1 [ true, %547 ], [ true, %._crit_edge949 ], [ false, %.preheader888 ], [ true, %.lr.ph.i753 ], [ false, %552 ]
+  %.5501 = phi i1 [ true, %547 ], [ false, %.preheader888 ], [ true, %._crit_edge949 ], [ true, %.lr.ph.i753 ], [ false, %552 ]
   %708 = add nuw i64 %.1491951, 1
   %exitcond975.not = icmp eq i64 %708, %3
   br i1 %exitcond975.not, label %._crit_edge954, label %299, !llvm.loop !126

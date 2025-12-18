@@ -11292,9 +11292,9 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_trai
   br label %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__26UsdImagingPrimvarDescCache3KeyESt6vectorINS4_19HdPrimvarDescriptorESaIS8_EENS6_4HashESt8equal_toIS6_ENS1_13tbb_allocatorISt4pairIKS6_SA_EEELb0EEEE17adjust_table_sizeEmm.exit
 
 _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__26UsdImagingPrimvarDescCache3KeyESt6vectorINS4_19HdPrimvarDescriptorESaIS8_EENS6_4HashESt8equal_toIS6_ENS1_13tbb_allocatorISt4pairIKS6_SA_EEELb0EEEE17adjust_table_sizeEmm.exit: ; preds = %52, %77, %101, %._crit_edge
-  %.sink79 = phi ptr [ null, %._crit_edge ], [ null, %101 ], [ %67, %77 ], [ null, %52 ]
-  %.sink77 = phi ptr [ %67, %._crit_edge ], [ %67, %101 ], [ %.025.i36, %77 ], [ %.025.i, %52 ]
-  %.sink = phi i8 [ 1, %._crit_edge ], [ 1, %101 ], [ 0, %77 ], [ 0, %52 ]
+  %.sink79 = phi ptr [ null, %101 ], [ %67, %77 ], [ null, %._crit_edge ], [ null, %52 ]
+  %.sink77 = phi ptr [ %67, %101 ], [ %.025.i36, %77 ], [ %67, %._crit_edge ], [ %.025.i, %52 ]
+  %.sink = phi i8 [ 1, %101 ], [ 0, %77 ], [ 1, %._crit_edge ], [ 0, %52 ]
   store ptr %.sink79, ptr %0, align 8
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink77, ptr %104, align 8

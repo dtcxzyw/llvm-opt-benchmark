@@ -145,8 +145,8 @@ _ZN12_GLOBAL__N_122MCRegAliasIteratorImplC2EN4llvm10MCRegisterEPKNS1_14MCRegiste
   br label %144
 
 ._crit_edge:                                      ; preds = %._crit_edge28.i, %_ZN12_GLOBAL__N_122MCRegAliasIteratorImplppEv.exit, %191, %_ZN12_GLOBAL__N_122MCRegAliasIteratorImplC2EN4llvm10MCRegisterEPKNS1_14MCRegisterInfoE.exit
-  %52 = phi ptr [ %9, %_ZN12_GLOBAL__N_122MCRegAliasIteratorImplC2EN4llvm10MCRegisterEPKNS1_14MCRegisterInfoE.exit ], [ %170, %_ZN12_GLOBAL__N_122MCRegAliasIteratorImplppEv.exit ], [ %170, %191 ], [ %9, %._crit_edge28.i ]
-  %53 = phi ptr [ %7, %_ZN12_GLOBAL__N_122MCRegAliasIteratorImplC2EN4llvm10MCRegisterEPKNS1_14MCRegisterInfoE.exit ], [ %.pre118, %_ZN12_GLOBAL__N_122MCRegAliasIteratorImplppEv.exit ], [ %.pre118, %191 ], [ %7, %._crit_edge28.i ]
+  %52 = phi ptr [ %170, %191 ], [ %9, %_ZN12_GLOBAL__N_122MCRegAliasIteratorImplC2EN4llvm10MCRegisterEPKNS1_14MCRegisterInfoE.exit ], [ %170, %_ZN12_GLOBAL__N_122MCRegAliasIteratorImplppEv.exit ], [ %9, %._crit_edge28.i ]
+  %53 = phi ptr [ %.pre118, %191 ], [ %7, %_ZN12_GLOBAL__N_122MCRegAliasIteratorImplC2EN4llvm10MCRegisterEPKNS1_14MCRegisterInfoE.exit ], [ %.pre118, %_ZN12_GLOBAL__N_122MCRegAliasIteratorImplppEv.exit ], [ %7, %._crit_edge28.i ]
   %.not.i.i.i.i = icmp eq ptr %53, %52
   br i1 %.not.i.i.i.i, label %_ZN4llvm4sortIRSt6vectorItSaItEEEEvOT_.exit, label %54
 

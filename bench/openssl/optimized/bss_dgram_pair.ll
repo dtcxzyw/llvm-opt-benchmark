@@ -1066,7 +1066,7 @@ compute_rbuf_growth.exit.thread36:                ; preds = %safe_muldiv_size_t.
   br i1 %.not, label %.thread43, label %11
 
 .thread43:                                        ; preds = %79, %42, %48, %50, %compute_rbuf_growth.exit, %20, %.lr.ph.i, %3
-  %.02250 = phi i64 [ 0, %3 ], [ %.02253, %.lr.ph.i ], [ %83, %79 ], [ %.02253, %42 ], [ %.02253, %48 ], [ %.02253, %50 ], [ %.02253, %compute_rbuf_growth.exit ], [ %.02253, %20 ]
+  %.02250 = phi i64 [ %.02253, %.lr.ph.i ], [ 0, %3 ], [ %83, %79 ], [ %.02253, %42 ], [ %.02253, %48 ], [ %.02253, %50 ], [ %.02253, %compute_rbuf_growth.exit ], [ %.02253, %20 ]
   ret i64 %.02250
 }
 

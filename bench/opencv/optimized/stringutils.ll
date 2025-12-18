@@ -408,20 +408,20 @@ define hidden void @_ZN5zxing6common11StringUtils18guessEncodingZXingB5cxx11EPci
   br label %46
 
 .outer33._crit_edge.i:                            ; preds = %.outer.i, %.outer33.i, %50, %22
-  %.0.lcssa431 = phi i1 [ true, %22 ], [ %37, %.outer33.i ], [ %37, %50 ], [ %37, %.outer.i ]
-  %.0154.lcssa430 = phi i1 [ true, %22 ], [ %36, %.outer33.i ], [ %36, %50 ], [ %36, %.outer.i ]
-  %.0156.lcssa429 = phi i1 [ true, %22 ], [ %35, %.outer33.i ], [ %35, %50 ], [ %35, %.outer.i ]
-  %.0165.lcssa428 = phi i1 [ false, %22 ], [ %39, %.outer33.i ], [ %39, %50 ], [ %39, %.outer.i ]
-  %.0167.lcssa427 = phi i32 [ 0, %22 ], [ %.1168, %.outer33.i ], [ %.1168, %50 ], [ %.1168, %.outer.i ]
-  %.0169.lcssa426 = phi i32 [ 0, %22 ], [ %.1170, %.outer33.i ], [ %.1170, %50 ], [ %.1170, %.outer.i ]
-  %.0175.lcssa425 = phi i32 [ 0, %22 ], [ %.1176, %.outer33.i ], [ %.1176, %50 ], [ %.1176, %.outer.i ]
-  %.0179.lcssa424 = phi i32 [ 0, %22 ], [ %.1180, %.outer33.i ], [ %.1180, %50 ], [ %.1180, %.outer.i ]
-  %.0181.lcssa423 = phi i32 [ 0, %22 ], [ %.1182, %.outer33.i ], [ %.1182, %50 ], [ %.1182, %.outer.i ]
-  %.0183.lcssa422 = phi i32 [ 0, %22 ], [ %.1184, %.outer33.i ], [ %.1184, %50 ], [ %.1184, %.outer.i ]
-  %42 = phi i1 [ false, %22 ], [ %24, %.outer33.i ], [ %24, %50 ], [ %24, %.outer.i ]
-  %43 = phi i1 [ false, %22 ], [ true, %.outer33.i ], [ true, %50 ], [ true, %.outer.i ]
-  %.031.ph.lcssa.i = phi i32 [ 0, %22 ], [ %.031.ph50.i, %.outer33.i ], [ %.031.ph50.i, %50 ], [ %60, %.outer.i ]
-  %.030.ph34.lcssa38.i = phi i32 [ 0, %22 ], [ %63, %.outer33.i ], [ %.030.ph3444.i, %50 ], [ %.030.ph3444.i, %.outer.i ]
+  %.0.lcssa431 = phi i1 [ %37, %50 ], [ true, %22 ], [ %37, %.outer33.i ], [ %37, %.outer.i ]
+  %.0154.lcssa430 = phi i1 [ %36, %50 ], [ true, %22 ], [ %36, %.outer33.i ], [ %36, %.outer.i ]
+  %.0156.lcssa429 = phi i1 [ %35, %50 ], [ true, %22 ], [ %35, %.outer33.i ], [ %35, %.outer.i ]
+  %.0165.lcssa428 = phi i1 [ %39, %50 ], [ false, %22 ], [ %39, %.outer33.i ], [ %39, %.outer.i ]
+  %.0167.lcssa427 = phi i32 [ %.1168, %50 ], [ 0, %22 ], [ %.1168, %.outer33.i ], [ %.1168, %.outer.i ]
+  %.0169.lcssa426 = phi i32 [ %.1170, %50 ], [ 0, %22 ], [ %.1170, %.outer33.i ], [ %.1170, %.outer.i ]
+  %.0175.lcssa425 = phi i32 [ %.1176, %50 ], [ 0, %22 ], [ %.1176, %.outer33.i ], [ %.1176, %.outer.i ]
+  %.0179.lcssa424 = phi i32 [ %.1180, %50 ], [ 0, %22 ], [ %.1180, %.outer33.i ], [ %.1180, %.outer.i ]
+  %.0181.lcssa423 = phi i32 [ %.1182, %50 ], [ 0, %22 ], [ %.1182, %.outer33.i ], [ %.1182, %.outer.i ]
+  %.0183.lcssa422 = phi i32 [ %.1184, %50 ], [ 0, %22 ], [ %.1184, %.outer33.i ], [ %.1184, %.outer.i ]
+  %42 = phi i1 [ %24, %50 ], [ false, %22 ], [ %24, %.outer33.i ], [ %24, %.outer.i ]
+  %43 = phi i1 [ true, %50 ], [ false, %22 ], [ true, %.outer33.i ], [ true, %.outer.i ]
+  %.031.ph.lcssa.i = phi i32 [ %.031.ph50.i, %50 ], [ 0, %22 ], [ %.031.ph50.i, %.outer33.i ], [ %60, %.outer.i ]
+  %.030.ph34.lcssa38.i = phi i32 [ %.030.ph3444.i, %50 ], [ 0, %22 ], [ %63, %.outer33.i ], [ %.030.ph3444.i, %.outer.i ]
   %44 = add nsw i32 %.030.ph34.lcssa38.i, %.031.ph.lcssa.i
   %45 = icmp sgt i32 %44, 0
   br i1 %45, label %66, label %_ZN5zxing6common11StringUtils14is_gb2312_codeEPci.exit
@@ -492,8 +492,8 @@ _ZN5zxing6common11StringUtils14is_gb2312_codeEPci.exit: ; preds = %.outer33._cri
   br label %74
 
 .outer39._crit_edge.i:                            ; preds = %.outer.i221, %.outer39.i, %78, %_ZN5zxing6common11StringUtils14is_gb2312_codeEPci.exit
-  %.036.ph.lcssa.i = phi i32 [ 0, %_ZN5zxing6common11StringUtils14is_gb2312_codeEPci.exit ], [ %.036.ph56.i, %.outer39.i ], [ %.036.ph56.i, %78 ], [ %89, %.outer.i221 ]
-  %.035.ph40.lcssa44.i = phi i32 [ 0, %_ZN5zxing6common11StringUtils14is_gb2312_codeEPci.exit ], [ %92, %.outer39.i ], [ %.035.ph4050.i, %78 ], [ %.035.ph4050.i, %.outer.i221 ]
+  %.036.ph.lcssa.i = phi i32 [ %.036.ph56.i, %.outer39.i ], [ %.036.ph56.i, %78 ], [ 0, %_ZN5zxing6common11StringUtils14is_gb2312_codeEPci.exit ], [ %89, %.outer.i221 ]
+  %.035.ph40.lcssa44.i = phi i32 [ %92, %.outer39.i ], [ %.035.ph4050.i, %78 ], [ 0, %_ZN5zxing6common11StringUtils14is_gb2312_codeEPci.exit ], [ %.035.ph4050.i, %.outer.i221 ]
   %72 = add nsw i32 %.035.ph40.lcssa44.i, %.036.ph.lcssa.i
   %73 = icmp sgt i32 %72, 0
   br i1 %73, label %95, label %_ZN5zxing6common11StringUtils12is_big5_codeEPci.exit
@@ -569,8 +569,8 @@ _ZN5zxing6common11StringUtils12is_big5_codeEPci.exit: ; preds = %.outer39._crit_
   br label %105
 
 .outer32._crit_edge.i:                            ; preds = %.outer.i229, %.outer32.i, %109, %_ZN5zxing6common11StringUtils12is_big5_codeEPci.exit
-  %.030.ph.lcssa.i = phi i32 [ 0, %_ZN5zxing6common11StringUtils12is_big5_codeEPci.exit ], [ %.030.ph49.i, %.outer32.i ], [ %.030.ph49.i, %109 ], [ %118, %.outer.i229 ]
-  %.029.ph33.lcssa37.i = phi i32 [ 0, %_ZN5zxing6common11StringUtils12is_big5_codeEPci.exit ], [ %121, %.outer32.i ], [ %.029.ph3343.i, %109 ], [ %.029.ph3343.i, %.outer.i229 ]
+  %.030.ph.lcssa.i = phi i32 [ %.030.ph49.i, %.outer32.i ], [ %.030.ph49.i, %109 ], [ 0, %_ZN5zxing6common11StringUtils12is_big5_codeEPci.exit ], [ %118, %.outer.i229 ]
+  %.029.ph33.lcssa37.i = phi i32 [ %121, %.outer32.i ], [ %.029.ph3343.i, %109 ], [ 0, %_ZN5zxing6common11StringUtils12is_big5_codeEPci.exit ], [ %.029.ph3343.i, %.outer.i229 ]
   %103 = add nsw i32 %.029.ph33.lcssa37.i, %.030.ph.lcssa.i
   %104 = icmp sgt i32 %103, 0
   br i1 %104, label %124, label %_ZN5zxing6common11StringUtils11is_gbk_codeEPci.exit
@@ -994,8 +994,8 @@ define hidden noundef i32 @_ZN5zxing6common11StringUtils14is_gb2312_codeEPci(ptr
   br label %8
 
 .outer33._crit_edge:                              ; preds = %.outer, %.outer33, %12, %2
-  %.031.ph.lcssa = phi i32 [ 0, %2 ], [ %.031.ph50, %.outer33 ], [ %.031.ph50, %12 ], [ %22, %.outer ]
-  %.030.ph34.lcssa38 = phi i32 [ 0, %2 ], [ %25, %.outer33 ], [ %.030.ph3444, %12 ], [ %.030.ph3444, %.outer ]
+  %.031.ph.lcssa = phi i32 [ %.031.ph50, %.outer33 ], [ %.031.ph50, %12 ], [ 0, %2 ], [ %22, %.outer ]
+  %.030.ph34.lcssa38 = phi i32 [ %25, %.outer33 ], [ %.030.ph3444, %12 ], [ 0, %2 ], [ %.030.ph3444, %.outer ]
   %6 = add nsw i32 %.030.ph34.lcssa38, %.031.ph.lcssa
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %28, label %32
@@ -1072,8 +1072,8 @@ define hidden noundef i32 @_ZN5zxing6common11StringUtils12is_big5_codeEPci(ptr n
   br label %8
 
 .outer39._crit_edge:                              ; preds = %.outer, %.outer39, %12, %2
-  %.036.ph.lcssa = phi i32 [ 0, %2 ], [ %.036.ph56, %.outer39 ], [ %.036.ph56, %12 ], [ %23, %.outer ]
-  %.035.ph40.lcssa44 = phi i32 [ 0, %2 ], [ %26, %.outer39 ], [ %.035.ph4050, %12 ], [ %.035.ph4050, %.outer ]
+  %.036.ph.lcssa = phi i32 [ %.036.ph56, %.outer39 ], [ %.036.ph56, %12 ], [ 0, %2 ], [ %23, %.outer ]
+  %.035.ph40.lcssa44 = phi i32 [ %26, %.outer39 ], [ %.035.ph4050, %12 ], [ 0, %2 ], [ %.035.ph4050, %.outer ]
   %6 = add nsw i32 %.035.ph40.lcssa44, %.036.ph.lcssa
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %29, label %33
@@ -1153,8 +1153,8 @@ define hidden noundef range(i32 0, 2) i32 @_ZN5zxing6common11StringUtils11is_gbk
   br label %8
 
 .outer32._crit_edge:                              ; preds = %.outer, %.outer32, %12, %2
-  %.030.ph.lcssa = phi i32 [ 0, %2 ], [ %.030.ph49, %.outer32 ], [ %.030.ph49, %12 ], [ %21, %.outer ]
-  %.029.ph33.lcssa37 = phi i32 [ 0, %2 ], [ %24, %.outer32 ], [ %.029.ph3343, %12 ], [ %.029.ph3343, %.outer ]
+  %.030.ph.lcssa = phi i32 [ %.030.ph49, %.outer32 ], [ %.030.ph49, %12 ], [ 0, %2 ], [ %21, %.outer ]
+  %.029.ph33.lcssa37 = phi i32 [ %24, %.outer32 ], [ %.029.ph3343, %12 ], [ 0, %2 ], [ %.029.ph3343, %.outer ]
   %6 = add nsw i32 %.029.ph33.lcssa37, %.030.ph.lcssa
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %27, label %31
@@ -1268,8 +1268,8 @@ define hidden noundef range(i32 0, 2) i32 @_ZN5zxing6common11StringUtils12is_utf
   br label %7
 
 .outer122._crit_edge:                             ; preds = %.outer.backedge, %.outer122, %11, %2
-  %.082.ph.lcssa = phi i32 [ 0, %2 ], [ %.082.ph148, %.outer122 ], [ %.082.ph148, %11 ], [ %.082.ph.be, %.outer.backedge ]
-  %.081.ph123.lcssa135 = phi i32 [ 0, %2 ], [ %82, %.outer122 ], [ %.081.ph123142, %11 ], [ %.081.ph123142, %.outer.backedge ]
+  %.082.ph.lcssa = phi i32 [ %.082.ph148, %.outer122 ], [ %.082.ph148, %11 ], [ 0, %2 ], [ %.082.ph.be, %.outer.backedge ]
+  %.081.ph123.lcssa135 = phi i32 [ %82, %.outer122 ], [ %.081.ph123142, %11 ], [ 0, %2 ], [ %.081.ph123142, %.outer.backedge ]
   %6 = add nsw i32 %.081.ph123.lcssa135, %.082.ph.lcssa
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %89, label %85

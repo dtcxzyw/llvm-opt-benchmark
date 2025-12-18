@@ -598,10 +598,10 @@ define internal fastcc noundef zeroext i1 @nettl_read_rec(ptr noundef captures(n
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %115, %130, %58, %95, %173
-  %.0172197 = phi i32 [ %.0172, %173 ], [ 0, %95 ], [ 0, %58 ], [ 0, %130 ], [ 0, %115 ], [ 0, %.thread.sink.split ]
-  %.0173196 = phi i1 [ false, %173 ], [ true, %95 ], [ false, %58 ], [ false, %130 ], [ false, %115 ], [ false, %.thread.sink.split ]
-  %.0174195 = phi i32 [ %.0174, %173 ], [ %94, %95 ], [ %94, %58 ], [ %127, %130 ], [ %127, %115 ], [ %213, %.thread.sink.split ]
-  %.0175194 = phi i32 [ %.0175, %173 ], [ %76, %95 ], [ %76, %58 ], [ %121, %130 ], [ %121, %115 ], [ %195, %.thread.sink.split ]
+  %.0172197 = phi i32 [ %.0172, %173 ], [ 0, %115 ], [ 0, %130 ], [ 0, %95 ], [ 0, %58 ], [ 0, %.thread.sink.split ]
+  %.0173196 = phi i1 [ false, %173 ], [ false, %115 ], [ false, %130 ], [ true, %95 ], [ false, %58 ], [ false, %.thread.sink.split ]
+  %.0174195 = phi i32 [ %.0174, %173 ], [ %127, %115 ], [ %127, %130 ], [ %94, %95 ], [ %94, %58 ], [ %213, %.thread.sink.split ]
+  %.0175194 = phi i32 [ %.0175, %173 ], [ %121, %115 ], [ %121, %130 ], [ %76, %95 ], [ %76, %58 ], [ %195, %.thread.sink.split ]
   store i32 0, ptr %2, align 8
   %214 = call ptr @wtap_block_create(i32 noundef 5)
   %215 = getelementptr inbounds nuw i8, ptr %2, i64 232

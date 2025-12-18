@@ -524,7 +524,7 @@ define dso_local ptr @ip_tunnel_lookup(ptr noundef %0, i32 noundef %1, i16 nound
   br label %.loopexit
 
 .loopexit:                                        ; preds = %49, %98, %157, %231, %200, %262, %259, %252, %.loopexit11
-  %269 = phi ptr [ %246, %.loopexit11 ], [ %250, %252 ], [ null, %259 ], [ %268, %262 ], [ %71, %98 ], [ %180, %200 ], [ %215, %231 ], [ %129, %157 ], [ %22, %49 ]
+  %269 = phi ptr [ %246, %.loopexit11 ], [ %250, %252 ], [ null, %259 ], [ %268, %262 ], [ %129, %157 ], [ %71, %98 ], [ %215, %231 ], [ %180, %200 ], [ %22, %49 ]
   ret ptr %269
 }
 

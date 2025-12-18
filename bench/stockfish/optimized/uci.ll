@@ -1943,7 +1943,7 @@ _ZNSt6vectorIN9Stockfish4MoveESaIS1_EE9push_backEOS1_.exit: ; preds = %45, %_ZNS
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZNSt6vectorIN9Stockfish4MoveESaIS1_EE9push_backEOS1_.exit, %.preheader, %128, %77, %87, %97, %107, %117, %127, %122, %112, %102, %92, %82
-  %.1 = phi i1 [ %.022, %77 ], [ %.022, %82 ], [ %.022, %87 ], [ %.022, %92 ], [ %.022, %97 ], [ %.022, %102 ], [ %.022, %107 ], [ %.022, %112 ], [ %.022, %117 ], [ %.022, %122 ], [ %.022, %127 ], [ %spec.select, %128 ], [ %.022, %.preheader ], [ %.022, %_ZNSt6vectorIN9Stockfish4MoveESaIS1_EE9push_backEOS1_.exit ]
+  %.1 = phi i1 [ %spec.select, %128 ], [ %.022, %77 ], [ %.022, %82 ], [ %.022, %87 ], [ %.022, %92 ], [ %.022, %97 ], [ %.022, %102 ], [ %.022, %107 ], [ %.022, %112 ], [ %.022, %117 ], [ %.022, %122 ], [ %.022, %127 ], [ %.022, %.preheader ], [ %.022, %_ZNSt6vectorIN9Stockfish4MoveESaIS1_EE9push_backEOS1_.exit ]
   %131 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZStrsIcSt11char_traitsIcESaIcEERSt13basic_istreamIT_T0_ES7_RNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %6) #22
   %132 = load ptr, ptr %131, align 8
   %133 = getelementptr i8, ptr %132, i64 -24
@@ -3142,7 +3142,7 @@ define linkonce_odr dso_local noundef i64 @_ZN9Stockfish5perftILb1EEEmRNS_8Posit
   br i1 %.not, label %._crit_edge, label %.lr.ph.split.split
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.split, %.lr.ph.split.split.us, %.lr.ph.split.us, %2
-  %.025.lcssa = phi i64 [ 0, %2 ], [ %30, %.lr.ph.split.split.us ], [ %15, %.lr.ph.split.us ], [ %42, %.lr.ph.split.split ]
+  %.025.lcssa = phi i64 [ 0, %2 ], [ %15, %.lr.ph.split.us ], [ %30, %.lr.ph.split.split.us ], [ %42, %.lr.ph.split.split ]
   ret i64 %.025.lcssa
 }
 
@@ -3634,8 +3634,8 @@ _ZNSt10_HashtableIN9Stockfish4Eval4NNUE7NetSizeESt4pairIKS3_NS1_8EvalFileEESaIS7
   br label %_ZNKSt10_HashtableIN9Stockfish4Eval4NNUE7NetSizeESt4pairIKS3_NS1_8EvalFileEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE15_M_find_node_trIS3_EEPNS9_10_Hash_nodeIS7_Lb0EEEmRKT_m.exit
 
 _ZNKSt10_HashtableIN9Stockfish4Eval4NNUE7NetSizeESt4pairIKS3_NS1_8EvalFileEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE15_M_find_node_trIS3_EEPNS9_10_Hash_nodeIS7_Lb0EEEmRKT_m.exit: ; preds = %33, %19, %28, %_ZNSt10_HashtableIN9Stockfish4Eval4NNUE7NetSizeESt4pairIKS3_NS1_8EvalFileEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
-  %.sroa.025.0 = phi ptr [ %45, %_ZNSt10_HashtableIN9Stockfish4Eval4NNUE7NetSizeESt4pairIKS3_NS1_8EvalFileEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit ], [ %29, %28 ], [ %.sroa.022.0, %19 ], [ %35, %33 ]
-  %.sroa.4.0 = phi i8 [ 1, %_ZNSt10_HashtableIN9Stockfish4Eval4NNUE7NetSizeESt4pairIKS3_NS1_8EvalFileEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit ], [ 0, %28 ], [ 0, %19 ], [ 0, %33 ]
+  %.sroa.025.0 = phi ptr [ %45, %_ZNSt10_HashtableIN9Stockfish4Eval4NNUE7NetSizeESt4pairIKS3_NS1_8EvalFileEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit ], [ %.sroa.022.0, %19 ], [ %29, %28 ], [ %35, %33 ]
+  %.sroa.4.0 = phi i8 [ 1, %_ZNSt10_HashtableIN9Stockfish4Eval4NNUE7NetSizeESt4pairIKS3_NS1_8EvalFileEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit ], [ 0, %19 ], [ 0, %28 ], [ 0, %33 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.025.0, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.4.0, 1
   ret { ptr, i8 } %.fca.1.insert

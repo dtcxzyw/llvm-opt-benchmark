@@ -2138,8 +2138,8 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   %115 = trunc nuw i8 %114 to i1
   br i1 %115, label %214, label %209
 
-116:                                              ; preds = %55, %62
-  %.sroa.0.0.i.ph = phi ptr [ %63, %62 ], [ %56, %55 ]
+116:                                              ; preds = %62, %55
+  %.sroa.0.0.i.ph = phi ptr [ %56, %55 ], [ %63, %62 ]
   store ptr %.sroa.0.0.i.ph, ptr %0, align 8
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 11
   store i8 1, ptr %117, align 1
@@ -2164,8 +2164,8 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br label %122
 
-124:                                              ; preds = %71, %78
-  %.sroa.0.0.i98.ph = phi ptr [ %79, %78 ], [ %72, %71 ]
+124:                                              ; preds = %78, %71
+  %.sroa.0.0.i98.ph = phi ptr [ %72, %71 ], [ %79, %78 ]
   store ptr %.sroa.0.0.i98.ph, ptr %0, align 8
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 11
   store i8 1, ptr %125, align 1
@@ -2185,8 +2185,8 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br label %122
 
-131:                                              ; preds = %87, %94
-  %.sroa.0.0.i103.ph = phi ptr [ %95, %94 ], [ %88, %87 ]
+131:                                              ; preds = %94, %87
+  %.sroa.0.0.i103.ph = phi ptr [ %88, %87 ], [ %95, %94 ]
   store ptr %.sroa.0.0.i103.ph, ptr %0, align 8
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 11
   store i8 1, ptr %132, align 1

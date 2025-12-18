@@ -1384,8 +1384,8 @@ _ZN6icu_7715MeasureUnitImplD2Ev.exit:             ; preds = %._crit_edge.i.i, %7
   br i1 %107, label %.lr.ph.i, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %120, %_ZN6icu_7715MeasureUnitImplD2Ev.exit, %._crit_edge
-  %.498 = phi i1 [ %.4.ph, %._crit_edge ], [ %.175, %_ZN6icu_7715MeasureUnitImplD2Ev.exit ], [ %.4.ph, %120 ]
-  %.not50.not.lcssa97 = phi i1 [ %106, %._crit_edge ], [ false, %_ZN6icu_7715MeasureUnitImplD2Ev.exit ], [ %106, %120 ]
+  %.498 = phi i1 [ %.175, %_ZN6icu_7715MeasureUnitImplD2Ev.exit ], [ %.4.ph, %._crit_edge ], [ %.4.ph, %120 ]
+  %.not50.not.lcssa97 = phi i1 [ false, %_ZN6icu_7715MeasureUnitImplD2Ev.exit ], [ %106, %._crit_edge ], [ %106, %120 ]
   %108 = load i8, ptr %31, align 4, !tbaa !46
   %.not.i.i.i = icmp eq i8 %108, 0
   br i1 %.not.i.i.i, label %124, label %109
@@ -1734,7 +1734,7 @@ _ZN6icu_775units12_GLOBAL__N_126checkAllDimensionsAreZerosERKNS_16MaybeStackVect
   br i1 %.not.i31, label %42, label %_ZN6icu_775units12_GLOBAL__N_126checkAllDimensionsAreZerosERKNS_16MaybeStackVectorINS1_21UnitIndexAndDimensionELi8EEE.exit34
 
 _ZN6icu_775units12_GLOBAL__N_126checkAllDimensionsAreZerosERKNS_16MaybeStackVectorINS1_21UnitIndexAndDimensionELi8EEE.exit34: ; preds = %34, %42, %.lr.ph.i29, %32
-  %.217.ph = phi i32 [ 1, %32 ], [ 0, %42 ], [ 2, %.lr.ph.i29 ], [ 1, %34 ]
+  %.217.ph = phi i32 [ 0, %42 ], [ 1, %32 ], [ 2, %.lr.ph.i29 ], [ 1, %34 ]
   %.pr = load i32, ptr %8, align 8, !tbaa !58
   %47 = icmp sgt i32 %.pr, 0
   br i1 %47, label %.lr.ph.i35, label %._crit_edge.i

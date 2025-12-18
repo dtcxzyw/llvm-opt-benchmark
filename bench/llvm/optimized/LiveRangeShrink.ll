@@ -1264,8 +1264,8 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjSt4pairIjPNS_12MachineInstrEENS_12DenseMapI
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph.i.i.i.i, %275, %272, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjSt4pairIjPNS_12MachineInstrEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EEEEjS5_S7_SA_EixEOj.exit, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjSt4pairIjPNS_12MachineInstrEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EEEEjS5_S7_SA_EixEOj.exit194, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjSt4pairIjPNS_12MachineInstrEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EEEEjS5_S7_SA_EixEOj.exit240, %.lr.ph
-  %.1133 = phi ptr [ %.0132523, %.lr.ph ], [ %.0132523, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjSt4pairIjPNS_12MachineInstrEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EEEEjS5_S7_SA_EixEOj.exit ], [ %509, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjSt4pairIjPNS_12MachineInstrEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EEEEjS5_S7_SA_EixEOj.exit240 ], [ %.0132523, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjSt4pairIjPNS_12MachineInstrEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EEEEjS5_S7_SA_EixEOj.exit194 ], [ %.0132523, %272 ], [ %.0132523, %275 ], [ %.0132523, %.lr.ph.i.i.i.i ]
-  %.1130 = phi i32 [ %.0129524, %.lr.ph ], [ %.0129524, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjSt4pairIjPNS_12MachineInstrEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EEEEjS5_S7_SA_EixEOj.exit ], [ %507, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjSt4pairIjPNS_12MachineInstrEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EEEEjS5_S7_SA_EixEOj.exit240 ], [ %.0129524, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjSt4pairIjPNS_12MachineInstrEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EEEEjS5_S7_SA_EixEOj.exit194 ], [ %.0129524, %272 ], [ %.0129524, %275 ], [ %.0129524, %.lr.ph.i.i.i.i ]
+  %.1133 = phi ptr [ %.0132523, %.lr.ph ], [ %.0132523, %275 ], [ %.0132523, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjSt4pairIjPNS_12MachineInstrEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EEEEjS5_S7_SA_EixEOj.exit ], [ %509, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjSt4pairIjPNS_12MachineInstrEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EEEEjS5_S7_SA_EixEOj.exit240 ], [ %.0132523, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjSt4pairIjPNS_12MachineInstrEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EEEEjS5_S7_SA_EixEOj.exit194 ], [ %.0132523, %272 ], [ %.0132523, %.lr.ph.i.i.i.i ]
+  %.1130 = phi i32 [ %.0129524, %.lr.ph ], [ %.0129524, %275 ], [ %.0129524, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjSt4pairIjPNS_12MachineInstrEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EEEEjS5_S7_SA_EixEOj.exit ], [ %507, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjSt4pairIjPNS_12MachineInstrEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EEEEjS5_S7_SA_EixEOj.exit240 ], [ %.0129524, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjSt4pairIjPNS_12MachineInstrEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EEEEjS5_S7_SA_EixEOj.exit194 ], [ %.0129524, %272 ], [ %.0129524, %.lr.ph.i.i.i.i ]
   %510 = getelementptr inbounds nuw i8, ptr %.0135522, i64 32
   %.not = icmp eq ptr %510, %193
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -1365,7 +1365,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjSt4pairIjPNS_12MachineInstrEENS_12DenseMapI
   br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm17MachineBasicBlock6spliceENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEPS0_S3_S3_.exit, label %.lr.ph.i.i.i.preheader.i.i
 
 .lr.ph.i.i.i.preheader.i.i:                       ; preds = %552, %546
-  %.sroa.0.0.i.i.i244 = phi ptr [ %.0.i.i.i.i243, %546 ], [ %551, %552 ]
+  %.sroa.0.0.i.i.i244 = phi ptr [ %551, %552 ], [ %.0.i.i.i.i243, %546 ]
   %555 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i244, i64 24
   %556 = load ptr, ptr %555, align 8, !tbaa !225
   %.not.i.i.i.i.i.i.i = icmp eq ptr %556, null
@@ -1378,7 +1378,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjSt4pairIjPNS_12MachineInstrEENS_12DenseMapI
   br label %_ZNK4llvm19MachineRegisterInfo9hasOneDefENS_8RegisterE.exit
 
 _ZNK4llvm19MachineRegisterInfo9hasOneDefENS_8RegisterE.exit: ; preds = %.lr.ph.i.i.i.preheader.i.i, %557
-  %560 = phi i1 [ true, %.lr.ph.i.i.i.preheader.i.i ], [ %.not.i.i.i.i.i.i.i.i, %557 ]
+  %560 = phi i1 [ %.not.i.i.i.i.i.i.i.i, %557 ], [ true, %.lr.ph.i.i.i.preheader.i.i ]
   %561 = icmp ne ptr %.0136529, null
   %or.cond = select i1 %560, i1 %561, i1 false
   br i1 %or.cond, label %562, label %_ZN4llvm17MachineBasicBlock6spliceENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEPS0_S3_S3_.exit

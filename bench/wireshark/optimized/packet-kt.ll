@@ -1014,7 +1014,7 @@ proto_item_set_generated.exit155.i:               ; preds = %507, %504, %501, %p
   br i1 %.not.i62, label %dissect_kt_get_bulk.exit, label %.lr.ph.i61, !llvm.loop !14
 
 dissect_kt_get_bulk.exit:                         ; preds = %proto_item_set_generated.exit155.i, %proto_item_set_generated.exit143.i, %proto_item_set_generated.exit.i66, %proto_item_set_generated.exit146.i, %proto_item_set_generated.exit149.i
-  %.1.i63 = phi i32 [ %388, %proto_item_set_generated.exit146.i ], [ %406, %proto_item_set_generated.exit.i66 ], [ %461, %proto_item_set_generated.exit149.i ], [ %432, %proto_item_set_generated.exit143.i ], [ %511, %proto_item_set_generated.exit155.i ]
+  %.1.i63 = phi i32 [ %432, %proto_item_set_generated.exit143.i ], [ %388, %proto_item_set_generated.exit146.i ], [ %406, %proto_item_set_generated.exit.i66 ], [ %461, %proto_item_set_generated.exit149.i ], [ %511, %proto_item_set_generated.exit155.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %dissect_kt_play_script.exit
 
@@ -1025,7 +1025,7 @@ dissect_kt_get_bulk.exit:                         ; preds = %proto_item_set_gene
   br label %dissect_kt_play_script.exit
 
 dissect_kt_play_script.exit:                      ; preds = %proto_item_set_generated.exit70.i, %proto_item_set_generated.exit95.i, %proto_item_set_generated.exit174.i, %proto_item_set_generated.exit162.i, %proto_item_set_generated.exit73.i, %proto_item_set_generated.exit.i58, %proto_item_set_generated.exit98.i, %proto_item_set_generated.exit.i52, %proto_item_set_generated.exit168.i, %proto_item_set_generated.exit165.i, %proto_item_set_generated.exit.i48, %514, %dissect_kt_get_bulk.exit, %dissect_kt_replication.exit, %27, %19
-  %.1 = phi i32 [ %.04577, %19 ], [ %37, %27 ], [ %.0.i, %dissect_kt_replication.exit ], [ %517, %514 ], [ %.1.i63, %dissect_kt_get_bulk.exit ], [ %90, %proto_item_set_generated.exit165.i ], [ %115, %proto_item_set_generated.exit.i48 ], [ %186, %proto_item_set_generated.exit168.i ], [ %236, %proto_item_set_generated.exit98.i ], [ %254, %proto_item_set_generated.exit.i52 ], [ %322, %proto_item_set_generated.exit73.i ], [ %340, %proto_item_set_generated.exit.i58 ], [ %302, %proto_item_set_generated.exit95.i ], [ %157, %proto_item_set_generated.exit162.i ], [ %228, %proto_item_set_generated.exit174.i ], [ %366, %proto_item_set_generated.exit70.i ]
+  %.1 = phi i32 [ %.04577, %19 ], [ %37, %27 ], [ %.0.i, %dissect_kt_replication.exit ], [ %517, %514 ], [ %157, %proto_item_set_generated.exit162.i ], [ %228, %proto_item_set_generated.exit174.i ], [ %.1.i63, %dissect_kt_get_bulk.exit ], [ %302, %proto_item_set_generated.exit95.i ], [ %90, %proto_item_set_generated.exit165.i ], [ %115, %proto_item_set_generated.exit.i48 ], [ %186, %proto_item_set_generated.exit168.i ], [ %236, %proto_item_set_generated.exit98.i ], [ %254, %proto_item_set_generated.exit.i52 ], [ %322, %proto_item_set_generated.exit73.i ], [ %340, %proto_item_set_generated.exit.i58 ], [ %366, %proto_item_set_generated.exit70.i ]
   %518 = sub i32 %.1, %.04577
   call void @proto_item_set_len(ptr noundef %24, i32 noundef %518)
   %519 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1)

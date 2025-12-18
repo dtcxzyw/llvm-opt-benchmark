@@ -1003,9 +1003,9 @@ H5HG__alloc.exit.thread:                          ; preds = %267, %226, %H5HG__a
   br label %373
 
 373:                                              ; preds = %H5HG__alloc.exit.thread, %370
-  %374 = phi i64 [ %.pre, %H5HG__alloc.exit.thread ], [ %371, %370 ]
-  %.046 = phi i32 [ %.14753, %H5HG__alloc.exit.thread ], [ 2, %370 ]
-  %.1 = phi i32 [ -1, %H5HG__alloc.exit.thread ], [ 0, %370 ]
+  %374 = phi i64 [ %371, %370 ], [ %.pre, %H5HG__alloc.exit.thread ]
+  %.046 = phi i32 [ 2, %370 ], [ %.14753, %H5HG__alloc.exit.thread ]
+  %.1 = phi i32 [ 0, %370 ], [ -1, %H5HG__alloc.exit.thread ]
   %375 = call i32 @H5AC_unprotect(ptr noundef %0, ptr noundef nonnull @H5AC_GHEAP, i64 noundef %374, ptr noundef nonnull %216, i32 noundef %.046) #8
   %376 = icmp slt i32 %375, 0
   br i1 %376, label %377, label %.thread54

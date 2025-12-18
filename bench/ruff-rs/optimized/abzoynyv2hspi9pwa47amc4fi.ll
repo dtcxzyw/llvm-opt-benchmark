@@ -1443,7 +1443,7 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17h6b7fb7782072aa81E.exit: ; preds = 
   br label %"_ZN15crossbeam_queue9seg_queue14Block$LT$T$GT$7destroy17h2c29e4d611f3c186E.exit"
 
 "_ZN15crossbeam_queue9seg_queue14Block$LT$T$GT$7destroy17h2c29e4d611f3c186E.exit": ; preds = %21, %103, %91, %"_ZN15crossbeam_queue9seg_queue14Block$LT$T$GT$7destroy17h2c29e4d611f3c186E.exit.sink.split", %82
-  %.sroa.0.0 = phi i32 [ %63, %82 ], [ %63, %"_ZN15crossbeam_queue9seg_queue14Block$LT$T$GT$7destroy17h2c29e4d611f3c186E.exit.sink.split" ], [ %63, %103 ], [ %63, %91 ], [ 0, %21 ]
+  %.sroa.0.0 = phi i32 [ %63, %"_ZN15crossbeam_queue9seg_queue14Block$LT$T$GT$7destroy17h2c29e4d611f3c186E.exit.sink.split" ], [ %63, %82 ], [ %63, %103 ], [ %63, %91 ], [ 0, %21 ]
   ret i32 %.sroa.0.0
 
 29:                                               ; preds = %27
@@ -28398,7 +28398,7 @@ define hidden noundef zeroext i1 @"_ZN90_$LT$std..collections..hash..set..HashSe
   br label %22
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17hfca9cef3b70f09d1E.exit: ; preds = %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17he8cc309a6685a081E.exit.loopexit.i", %._crit_edge.i.i.i.i.i, %8
-  %.not10.i = phi i1 [ %.not11.i, %8 ], [ true, %._crit_edge.i.i.i.i.i ], [ false, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17he8cc309a6685a081E.exit.loopexit.i" ]
+  %.not10.i = phi i1 [ true, %._crit_edge.i.i.i.i.i ], [ %.not11.i, %8 ], [ false, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17he8cc309a6685a081E.exit.loopexit.i" ]
   %43 = xor i1 %.not10.i, true
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %44
@@ -28492,7 +28492,7 @@ define hidden noundef zeroext i1 @"_ZN90_$LT$std..collections..hash..set..HashSe
   br label %22
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h8e13d72bf62937e1E.exit: ; preds = %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h63aec2a4a1a61b53E.exit.loopexit.i", %._crit_edge.i.i.i.i.i, %8
-  %.not10.i = phi i1 [ %.not11.i, %8 ], [ true, %._crit_edge.i.i.i.i.i ], [ false, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h63aec2a4a1a61b53E.exit.loopexit.i" ]
+  %.not10.i = phi i1 [ true, %._crit_edge.i.i.i.i.i ], [ %.not11.i, %8 ], [ false, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h63aec2a4a1a61b53E.exit.loopexit.i" ]
   %43 = xor i1 %.not10.i, true
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %44
@@ -28594,7 +28594,7 @@ define hidden noundef zeroext i1 @"_ZN90_$LT$std..collections..hash..set..HashSe
   br label %23
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h8ad6bb248b9bfc0cE.exit: ; preds = %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h4fbc9530018d90cbE.exit.loopexit.i", %._crit_edge.i.i.i.i.i, %.lr.ph.i, %8
-  %46 = phi i1 [ true, %8 ], [ false, %.lr.ph.i ], [ false, %._crit_edge.i.i.i.i.i ], [ true, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h4fbc9530018d90cbE.exit.loopexit.i" ]
+  %46 = phi i1 [ false, %.lr.ph.i ], [ false, %._crit_edge.i.i.i.i.i ], [ true, %8 ], [ true, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h4fbc9530018d90cbE.exit.loopexit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %47
 
@@ -28687,7 +28687,7 @@ define hidden noundef zeroext i1 @"_ZN90_$LT$std..collections..hash..set..HashSe
   br label %22
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h2e2f1fbac2ab35c4E.exit: ; preds = %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17hb0225705d92524dcE.exit.loopexit.i", %._crit_edge.i.i.i.i.i, %8
-  %.not10.i = phi i1 [ %.not11.i, %8 ], [ true, %._crit_edge.i.i.i.i.i ], [ false, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17hb0225705d92524dcE.exit.loopexit.i" ]
+  %.not10.i = phi i1 [ true, %._crit_edge.i.i.i.i.i ], [ %.not11.i, %8 ], [ false, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17hb0225705d92524dcE.exit.loopexit.i" ]
   %43 = xor i1 %.not10.i, true
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %44
@@ -32655,7 +32655,7 @@ _ZN18ty_python_semantic14semantic_index22visibility_constraints21VisibilityConst
   br label %35
 
 _ZN18ty_python_semantic14semantic_index22visibility_constraints21VisibilityConstraints14analyze_single17hc84c87495ebbceb1E.exit: ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h7d54fa858dd05f3bE.exit.i", %58, %65
-  %.sroa.0.0.i = phi i8 [ %64, %58 ], [ %..i, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h7d54fa858dd05f3bE.exit.i" ], [ %68, %65 ]
+  %.sroa.0.0.i = phi i8 [ %64, %58 ], [ %68, %65 ], [ %..i, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h7d54fa858dd05f3bE.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   switch i8 %.sroa.0.0.i, label %default.unreachable48 [
     i8 0, label %_ZN18ty_python_semantic14semantic_index22visibility_constraints21VisibilityConstraints14analyze_single17hc84c87495ebbceb1E.exit.thread9

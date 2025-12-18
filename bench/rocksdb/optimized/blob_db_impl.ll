@@ -6787,7 +6787,7 @@ _ZN7rocksdb22ColumnFamilyDescriptorD2Ev.exit:     ; preds = %_ZNSt6vectorIN7rock
   br label %.body156
 
 .body156:                                         ; preds = %573, %.body158, %657, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i151
-  %.pn50.pn = phi { ptr, i32 } [ %658, %657 ], [ %574, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i151 ], [ %.pn50, %.body158 ], [ %574, %573 ]
+  %.pn50.pn = phi { ptr, i32 } [ %.pn50, %.body158 ], [ %658, %657 ], [ %574, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i151 ], [ %574, %573 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
@@ -10132,8 +10132,8 @@ _ZNSt8_Rb_treeImSt4pairIKmSt10shared_ptrIN7rocksdb7blob_db8BlobFileEEESt10_Selec
   br i1 %.not.i.i.i95, label %.loopexit, label %.lr.ph.i.i.i, !llvm.loop !486
 
 .loopexit:                                        ; preds = %124, %.lr.ph.i25.i.i.i, %_ZNSt8_Rb_treeImSt4pairIKmSt10shared_ptrIN7rocksdb7blob_db8BlobFileEEESt10_Select1stIS7_ESt4lessImESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i, %_ZN7rocksdb9WriteLockC2EPNS_4port7RWMutexE.exit93
-  %.sroa.037.0.i.i.i = phi ptr [ %.08.lcssa.i.i.i.i, %_ZNSt8_Rb_treeImSt4pairIKmSt10shared_ptrIN7rocksdb7blob_db8BlobFileEEESt10_Select1stIS7_ESt4lessImESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i ], [ %45, %_ZN7rocksdb9WriteLockC2EPNS_4port7RWMutexE.exit93 ], [ %.08.lcssa.i.i.i.i, %.lr.ph.i25.i.i.i ], [ %.123.i.i.i, %124 ]
-  %.sroa.3.0.i.i.i = phi ptr [ %.02243.i.i.i, %_ZNSt8_Rb_treeImSt4pairIKmSt10shared_ptrIN7rocksdb7blob_db8BlobFileEEESt10_Select1stIS7_ESt4lessImESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i ], [ %45, %_ZN7rocksdb9WriteLockC2EPNS_4port7RWMutexE.exit93 ], [ %.19.i28.i.i.i, %.lr.ph.i25.i.i.i ], [ %.123.i.i.i, %124 ]
+  %.sroa.037.0.i.i.i = phi ptr [ %.08.lcssa.i.i.i.i, %.lr.ph.i25.i.i.i ], [ %.08.lcssa.i.i.i.i, %_ZNSt8_Rb_treeImSt4pairIKmSt10shared_ptrIN7rocksdb7blob_db8BlobFileEEESt10_Select1stIS7_ESt4lessImESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i ], [ %45, %_ZN7rocksdb9WriteLockC2EPNS_4port7RWMutexE.exit93 ], [ %.123.i.i.i, %124 ]
+  %.sroa.3.0.i.i.i = phi ptr [ %.19.i28.i.i.i, %.lr.ph.i25.i.i.i ], [ %.02243.i.i.i, %_ZNSt8_Rb_treeImSt4pairIKmSt10shared_ptrIN7rocksdb7blob_db8BlobFileEEESt10_Select1stIS7_ESt4lessImESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i ], [ %45, %_ZN7rocksdb9WriteLockC2EPNS_4port7RWMutexE.exit93 ], [ %.123.i.i.i, %124 ]
   call void @_ZNSt8_Rb_treeImSt4pairIKmSt10shared_ptrIN7rocksdb7blob_db8BlobFileEEESt10_Select1stIS7_ESt4lessImESaIS7_EE12_M_erase_auxESt23_Rb_tree_const_iteratorIS7_ESF_(ptr noundef nonnull align 8 dereferenceable(48) %43, ptr %.sroa.037.0.i.i.i, ptr %.sroa.3.0.i.i.i)
   invoke void @_ZN7rocksdb4port7RWMutex11WriteUnlockEv(ptr noundef nonnull align 8 dereferenceable(56) %25)
           to label %_ZN7rocksdb9WriteLockD2Ev.exit96 unwind label %126
@@ -15551,8 +15551,8 @@ _ZNK7rocksdb7blob_db21BlobFileComparatorTTLclERKSt10shared_ptrINS0_8BlobFileEES6
   br i1 %.not.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !645
 
 .loopexit:                                        ; preds = %_ZNK7rocksdb7blob_db21BlobFileComparatorTTLclERKSt10shared_ptrINS0_8BlobFileEES6_.exit.thread.i.i, %.lr.ph.i27.i.i, %_ZNKSt8_Rb_treeISt10shared_ptrIN7rocksdb7blob_db8BlobFileEES4_St9_IdentityIS4_ENS2_21BlobFileComparatorTTLESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRKS4_.exit.i.i
-  %.sroa.041.0.i.i = phi ptr [ %.08.lcssa.i.i.i, %_ZNKSt8_Rb_treeISt10shared_ptrIN7rocksdb7blob_db8BlobFileEES4_St9_IdentityIS4_ENS2_21BlobFileComparatorTTLESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRKS4_.exit.i.i ], [ %.08.lcssa.i.i.i, %.lr.ph.i27.i.i ], [ %.123.i.i, %_ZNK7rocksdb7blob_db21BlobFileComparatorTTLclERKSt10shared_ptrINS0_8BlobFileEES6_.exit.thread.i.i ]
-  %.sroa.3.0.i.i = phi ptr [ %.02252.i.i, %_ZNKSt8_Rb_treeISt10shared_ptrIN7rocksdb7blob_db8BlobFileEES4_St9_IdentityIS4_ENS2_21BlobFileComparatorTTLESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRKS4_.exit.i.i ], [ %.19.i34.i.i, %.lr.ph.i27.i.i ], [ %.123.i.i, %_ZNK7rocksdb7blob_db21BlobFileComparatorTTLclERKSt10shared_ptrINS0_8BlobFileEES6_.exit.thread.i.i ]
+  %.sroa.041.0.i.i = phi ptr [ %.08.lcssa.i.i.i, %.lr.ph.i27.i.i ], [ %.08.lcssa.i.i.i, %_ZNKSt8_Rb_treeISt10shared_ptrIN7rocksdb7blob_db8BlobFileEES4_St9_IdentityIS4_ENS2_21BlobFileComparatorTTLESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRKS4_.exit.i.i ], [ %.123.i.i, %_ZNK7rocksdb7blob_db21BlobFileComparatorTTLclERKSt10shared_ptrINS0_8BlobFileEES6_.exit.thread.i.i ]
+  %.sroa.3.0.i.i = phi ptr [ %.19.i34.i.i, %.lr.ph.i27.i.i ], [ %.02252.i.i, %_ZNKSt8_Rb_treeISt10shared_ptrIN7rocksdb7blob_db8BlobFileEES4_St9_IdentityIS4_ENS2_21BlobFileComparatorTTLESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRKS4_.exit.i.i ], [ %.123.i.i, %_ZNK7rocksdb7blob_db21BlobFileComparatorTTLclERKSt10shared_ptrINS0_8BlobFileEES6_.exit.thread.i.i ]
   %51 = icmp eq ptr %.sroa.041.0.i.i, %20
   br i1 %51, label %.thread, label %97
 
@@ -22995,7 +22995,7 @@ _ZNSt13unordered_setImSt4hashImESt8equal_toImESaImEE5clearEv.exit.i: ; preds = %
   br i1 %.not.i.i, label %_ZSt7advanceISt17_Rb_tree_iteratorISt4pairIKmSt10shared_ptrIN7rocksdb7blob_db8BlobFileEEEEdEvRT_T0_.exit, label %.lr.ph.i.i, !llvm.loop !826
 
 _ZSt7advanceISt17_Rb_tree_iteratorISt4pairIKmSt10shared_ptrIN7rocksdb7blob_db8BlobFileEEEEdEvRT_T0_.exit: ; preds = %.lr.ph.i.i, %.preheader.i.i, %.preheader7.i.i
-  %.sroa.07.0 = phi ptr [ %34, %.preheader7.i.i ], [ %43, %.preheader.i.i ], [ %46, %.lr.ph.i.i ]
+  %.sroa.07.0 = phi ptr [ %43, %.preheader.i.i ], [ %34, %.preheader7.i.i ], [ %46, %.lr.ph.i.i ]
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 2088
   %.not = icmp eq ptr %.sroa.07.0, %47
   br i1 %.not, label %51, label %48
@@ -41359,8 +41359,8 @@ _ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_M
   resume { ptr, i32 } %43
 
 _ZNKSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE15_M_find_node_trImEEPNS1_10_Hash_nodeImLb0EEEmRKT_m.exit: ; preds = %31, %18, %.critedge, %26
-  %.sroa.031.1 = phi ptr [ %27, %26 ], [ %42, %.critedge ], [ %.sroa.028.0, %18 ], [ %33, %31 ]
-  %.sroa.432.1 = phi i8 [ 0, %26 ], [ 1, %.critedge ], [ 0, %18 ], [ 0, %31 ]
+  %.sroa.031.1 = phi ptr [ %.sroa.028.0, %18 ], [ %42, %.critedge ], [ %27, %26 ], [ %33, %31 ]
+  %.sroa.432.1 = phi i8 [ 0, %18 ], [ 1, %.critedge ], [ 0, %26 ], [ 0, %31 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.031.1, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.432.1, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -45464,8 +45464,8 @@ _ZNK7rocksdb7blob_db21BlobFileComparatorTTLclERKSt10shared_ptrINS0_8BlobFileEES6
   br i1 %.not.i, label %_ZNSt8_Rb_treeISt10shared_ptrIN7rocksdb7blob_db8BlobFileEES4_St9_IdentityIS4_ENS2_21BlobFileComparatorTTLESaIS4_EE11equal_rangeERKS4_.exit, label %9, !llvm.loop !1219
 
 _ZNSt8_Rb_treeISt10shared_ptrIN7rocksdb7blob_db8BlobFileEES4_St9_IdentityIS4_ENS2_21BlobFileComparatorTTLESaIS4_EE11equal_rangeERKS4_.exit: ; preds = %_ZNK7rocksdb7blob_db21BlobFileComparatorTTLclERKSt10shared_ptrINS0_8BlobFileEES6_.exit.thread.i, %_ZNK7rocksdb7blob_db21BlobFileComparatorTTLclERKSt10shared_ptrINS0_8BlobFileEES6_.exit.thread.i32.i, %2, %_ZNSt8_Rb_treeISt10shared_ptrIN7rocksdb7blob_db8BlobFileEES4_St9_IdentityIS4_ENS2_21BlobFileComparatorTTLESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRKS4_.exit.i
-  %.sroa.041.0.i = phi ptr [ %.08.lcssa.i.i, %_ZNSt8_Rb_treeISt10shared_ptrIN7rocksdb7blob_db8BlobFileEES4_St9_IdentityIS4_ENS2_21BlobFileComparatorTTLESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRKS4_.exit.i ], [ %4, %2 ], [ %.08.lcssa.i.i, %_ZNK7rocksdb7blob_db21BlobFileComparatorTTLclERKSt10shared_ptrINS0_8BlobFileEES6_.exit.thread.i32.i ], [ %.123.i, %_ZNK7rocksdb7blob_db21BlobFileComparatorTTLclERKSt10shared_ptrINS0_8BlobFileEES6_.exit.thread.i ]
-  %.sroa.3.0.i = phi ptr [ %.02252.i, %_ZNSt8_Rb_treeISt10shared_ptrIN7rocksdb7blob_db8BlobFileEES4_St9_IdentityIS4_ENS2_21BlobFileComparatorTTLESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRKS4_.exit.i ], [ %4, %2 ], [ %.19.i34.i, %_ZNK7rocksdb7blob_db21BlobFileComparatorTTLclERKSt10shared_ptrINS0_8BlobFileEES6_.exit.thread.i32.i ], [ %.123.i, %_ZNK7rocksdb7blob_db21BlobFileComparatorTTLclERKSt10shared_ptrINS0_8BlobFileEES6_.exit.thread.i ]
+  %.sroa.041.0.i = phi ptr [ %.08.lcssa.i.i, %_ZNK7rocksdb7blob_db21BlobFileComparatorTTLclERKSt10shared_ptrINS0_8BlobFileEES6_.exit.thread.i32.i ], [ %.08.lcssa.i.i, %_ZNSt8_Rb_treeISt10shared_ptrIN7rocksdb7blob_db8BlobFileEES4_St9_IdentityIS4_ENS2_21BlobFileComparatorTTLESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRKS4_.exit.i ], [ %4, %2 ], [ %.123.i, %_ZNK7rocksdb7blob_db21BlobFileComparatorTTLclERKSt10shared_ptrINS0_8BlobFileEES6_.exit.thread.i ]
+  %.sroa.3.0.i = phi ptr [ %.19.i34.i, %_ZNK7rocksdb7blob_db21BlobFileComparatorTTLclERKSt10shared_ptrINS0_8BlobFileEES6_.exit.thread.i32.i ], [ %.02252.i, %_ZNSt8_Rb_treeISt10shared_ptrIN7rocksdb7blob_db8BlobFileEES4_St9_IdentityIS4_ENS2_21BlobFileComparatorTTLESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRKS4_.exit.i ], [ %4, %2 ], [ %.123.i, %_ZNK7rocksdb7blob_db21BlobFileComparatorTTLclERKSt10shared_ptrINS0_8BlobFileEES6_.exit.thread.i ]
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %51 = load i64, ptr %50, align 8, !tbaa !242
   tail call void @_ZNSt8_Rb_treeISt10shared_ptrIN7rocksdb7blob_db8BlobFileEES4_St9_IdentityIS4_ENS2_21BlobFileComparatorTTLESaIS4_EE12_M_erase_auxESt23_Rb_tree_const_iteratorIS4_ESB_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %.sroa.041.0.i, ptr %.sroa.3.0.i)

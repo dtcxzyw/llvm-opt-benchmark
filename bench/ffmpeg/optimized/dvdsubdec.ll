@@ -1371,7 +1371,7 @@ is_transp.exit109.i:                              ; preds = %521
   br label %.critedge2.i
 
 .critedge2.i:                                     ; preds = %is_transp.exit109.i, %.critedge2.loopexit.i, %.preheader134.i
-  %.087144.i = phi i32 [ 0, %.preheader134.i ], [ %525, %.critedge2.loopexit.i ], [ 0, %is_transp.exit109.i ]
+  %.087144.i = phi i32 [ %525, %.critedge2.loopexit.i ], [ 0, %.preheader134.i ], [ 0, %is_transp.exit109.i ]
   %526 = add nsw i32 %467, -1
   %.not166.i = icmp eq i32 %467, 1
   br i1 %.not166.i, label %.critedge6.i, label %.lr.ph.i111.lr.ph.i

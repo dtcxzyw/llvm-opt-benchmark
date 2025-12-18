@@ -1274,7 +1274,7 @@ _ZL20allocateEigenvectorsiiib.exit248:            ; preds = %399
   br i1 %exitcond89.not.i, label %_ZL16nma_full_hessianPfibPK10t_topologyN3gmx8ArrayRefIKiEEiiS_S_.exit, label %.preheader.us.i252, !llvm.loop !96
 
 _ZL16nma_full_hessianPfibPK10t_topologyN3gmx8ArrayRefIKiEEiiS_S_.exit: ; preds = %._crit_edge.us.i, %._crit_edge71.us.i, %.noexc259, %.preheader.lr.ph.i, %.noexc242
-  %.0142 = phi ptr [ %318, %.noexc242 ], [ %318, %.preheader.lr.ph.i ], [ %400, %.noexc259 ], [ %400, %._crit_edge71.us.i ], [ %318, %._crit_edge.us.i ]
+  %.0142 = phi ptr [ %400, %._crit_edge71.us.i ], [ %318, %.noexc242 ], [ %318, %.preheader.lr.ph.i ], [ %400, %.noexc259 ], [ %318, %._crit_edge.us.i ]
   %480 = load i32, ptr @_ZZ9gmx_nmeigiPPcE5begin, align 4, !tbaa !4
   %481 = icmp slt i32 %480, 7
   br i1 %481, label %.lr.ph442.preheader, label %.critedge

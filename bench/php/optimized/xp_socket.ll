@@ -211,8 +211,8 @@ php_pollfd_for.exit:                              ; preds = %76
   br i1 %78, label %php_pollfd_for.exit, label %.thread
 
 .thread:                                          ; preds = %.lr.ph110.split, %76, %.lr.ph110.split.us, %47, %.split98
-  %79 = phi i64 [ %.us-phi99, %.split98 ], [ %58, %76 ], [ %26, %47 ], [ %26, %.lr.ph110.split.us ], [ %58, %.lr.ph110.split ]
-  %.051 = phi i32 [ %.us-phi100, %.split98 ], [ %77, %76 ], [ %48, %47 ], [ %27, %.lr.ph110.split.us ], [ %59, %.lr.ph110.split ]
+  %79 = phi i64 [ %26, %47 ], [ %.us-phi99, %.split98 ], [ %26, %.lr.ph110.split.us ], [ %58, %76 ], [ %58, %.lr.ph110.split ]
+  %.051 = phi i32 [ %48, %47 ], [ %.us-phi100, %.split98 ], [ %27, %.lr.ph110.split.us ], [ %77, %76 ], [ %59, %.lr.ph110.split ]
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %81 = load i32, ptr %80, align 4, !tbaa !34
   %82 = and i32 %81, 256
@@ -262,7 +262,7 @@ php_pollfd_for.exit:                              ; preds = %76
   br label %.critedge
 
 .critedge:                                        ; preds = %61, %29, %83, %.thread, %98, %94, %92, %88, %.thread82, %3, %7
-  %.0 = phi i64 [ 0, %3 ], [ 0, %7 ], [ %.lcssa86, %.thread82 ], [ %.lcssa86, %88 ], [ %.lcssa86, %92 ], [ %.lcssa86, %94 ], [ %.lcssa86, %98 ], [ %79, %.thread ], [ %79, %83 ], [ 0, %29 ], [ 0, %61 ]
+  %.0 = phi i64 [ 0, %3 ], [ %79, %83 ], [ 0, %7 ], [ %.lcssa86, %.thread82 ], [ %.lcssa86, %88 ], [ %.lcssa86, %92 ], [ %.lcssa86, %94 ], [ %.lcssa86, %98 ], [ %79, %.thread ], [ 0, %29 ], [ 0, %61 ]
   ret i64 %.0
 }
 

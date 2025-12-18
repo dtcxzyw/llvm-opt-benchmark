@@ -2715,9 +2715,9 @@ _ZN5arrow6StatusD2Ev.exit77.i.i.i.i:              ; preds = %_ZN5arrow6StatusD2E
   br i1 %exitcond.not.i.i.i.i, label %.critedge56.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !299
 
 .critedge56.i.i.i.i:                              ; preds = %_ZN5arrow6StatusD2Ev.exit77.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit68.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit70.lr.ph.i.i.i.i, %.preheader119.i.i.i.i, %.preheader121.i.i.i.i, %.preheader.i.i.i.i
-  %.127.i.i.i = phi ptr [ %.026.i.i.i, %.preheader.i.i.i.i ], [ %scevgep46.i.i.i, %_ZN5arrow6StatusD2Ev.exit70.lr.ph.i.i.i.i ], [ %.026.i.i.i, %.preheader119.i.i.i.i ], [ %.026.i.i.i, %.preheader121.i.i.i.i ], [ %64, %_ZN5arrow6StatusD2Ev.exit68.i.i.i.i ], [ %.329.i.i.i, %_ZN5arrow6StatusD2Ev.exit77.i.i.i.i ]
-  %.1.i.i.i = phi i32 [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %75, %_ZN5arrow6StatusD2Ev.exit70.lr.ph.i.i.i.i ], [ %.0.i.i.i, %.preheader119.i.i.i.i ], [ %.0.i.i.i, %.preheader121.i.i.i.i ], [ %61, %_ZN5arrow6StatusD2Ev.exit68.i.i.i.i ], [ %.3.i.i.i, %_ZN5arrow6StatusD2Ev.exit77.i.i.i.i ]
-  %.351.i.i.i.i = phi i64 [ %.048138.i.i.i.i, %.preheader.i.i.i.i ], [ %77, %_ZN5arrow6StatusD2Ev.exit70.lr.ph.i.i.i.i ], [ %.048138.i.i.i.i, %.preheader119.i.i.i.i ], [ %.048138.i.i.i.i, %.preheader121.i.i.i.i ], [ %58, %_ZN5arrow6StatusD2Ev.exit68.i.i.i.i ], [ %73, %_ZN5arrow6StatusD2Ev.exit77.i.i.i.i ]
+  %.127.i.i.i = phi ptr [ %.026.i.i.i, %.preheader121.i.i.i.i ], [ %.026.i.i.i, %.preheader.i.i.i.i ], [ %scevgep46.i.i.i, %_ZN5arrow6StatusD2Ev.exit70.lr.ph.i.i.i.i ], [ %.026.i.i.i, %.preheader119.i.i.i.i ], [ %64, %_ZN5arrow6StatusD2Ev.exit68.i.i.i.i ], [ %.329.i.i.i, %_ZN5arrow6StatusD2Ev.exit77.i.i.i.i ]
+  %.1.i.i.i = phi i32 [ %.0.i.i.i, %.preheader121.i.i.i.i ], [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %75, %_ZN5arrow6StatusD2Ev.exit70.lr.ph.i.i.i.i ], [ %.0.i.i.i, %.preheader119.i.i.i.i ], [ %61, %_ZN5arrow6StatusD2Ev.exit68.i.i.i.i ], [ %.3.i.i.i, %_ZN5arrow6StatusD2Ev.exit77.i.i.i.i ]
+  %.351.i.i.i.i = phi i64 [ %.048138.i.i.i.i, %.preheader121.i.i.i.i ], [ %.048138.i.i.i.i, %.preheader.i.i.i.i ], [ %77, %_ZN5arrow6StatusD2Ev.exit70.lr.ph.i.i.i.i ], [ %.048138.i.i.i.i, %.preheader119.i.i.i.i ], [ %58, %_ZN5arrow6StatusD2Ev.exit68.i.i.i.i ], [ %73, %_ZN5arrow6StatusD2Ev.exit77.i.i.i.i ]
   %102 = icmp slt i64 %.351.i.i.i.i, %39
   br i1 %102, label %.lr.ph139.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !300
 
@@ -3044,7 +3044,7 @@ _ZN5arrow6StatusD2Ev.exit79.i.i.i.i:              ; preds = %_ZN5arrow6StatusD2E
   br i1 %exitcond.not.i.i.i.i122, label %.critedge56.i.i.i.i114, label %.lr.ph.i.i.i.i117, !llvm.loop !366
 
 .critedge56.i.i.i.i114:                           ; preds = %_ZN5arrow6StatusD2Ev.exit79.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit69.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit71.lr.ph.i.i.i.i, %.preheader10.i.i.i.i, %.preheader12.i.i.i.i, %.preheader.i.i.i.i123
-  %.351.i.i.i.i115 = phi i64 [ %.04829.i.i.i.i, %.preheader10.i.i.i.i ], [ %.04829.i.i.i.i, %.preheader.i.i.i.i123 ], [ %176, %_ZN5arrow6StatusD2Ev.exit71.lr.ph.i.i.i.i ], [ %.04829.i.i.i.i, %.preheader12.i.i.i.i ], [ %169, %_ZN5arrow6StatusD2Ev.exit69.i.i.i.i ], [ %173, %_ZN5arrow6StatusD2Ev.exit79.i.i.i.i ]
+  %.351.i.i.i.i115 = phi i64 [ %169, %_ZN5arrow6StatusD2Ev.exit69.i.i.i.i ], [ %.04829.i.i.i.i, %.preheader10.i.i.i.i ], [ %.04829.i.i.i.i, %.preheader.i.i.i.i123 ], [ %176, %_ZN5arrow6StatusD2Ev.exit71.lr.ph.i.i.i.i ], [ %.04829.i.i.i.i, %.preheader12.i.i.i.i ], [ %173, %_ZN5arrow6StatusD2Ev.exit79.i.i.i.i ]
   %217 = icmp slt i64 %.351.i.i.i.i115, %136
   br i1 %217, label %.lr.ph30.i.i.i.i, label %._crit_edge.i.i.i.i100, !llvm.loop !367
 
@@ -3356,9 +3356,9 @@ _ZN5arrow6StatusD2Ev.exit77.i.i.i.i179:           ; preds = %_ZN5arrow6StatusD2E
   br label %.critedge56.i.i.i.i162
 
 .critedge56.i.i.i.i162:                           ; preds = %_ZN5arrow6StatusD2Ev.exit77.i.i.i.i179, %_ZN5arrow6StatusD2Ev.exit68.i.i.i.i200, %..critedge56.loopexit120_crit_edge.i.i.i.i, %.preheader119.i.i.i.i185, %.preheader121.i.i.i.i161, %.preheader.i.i.i.i187
-  %.127.i.i.i163 = phi ptr [ %.026.i.i.i151, %.preheader.i.i.i.i187 ], [ %scevgep.i.i.i186, %..critedge56.loopexit120_crit_edge.i.i.i.i ], [ %.026.i.i.i151, %.preheader119.i.i.i.i185 ], [ %.026.i.i.i151, %.preheader121.i.i.i.i161 ], [ %262, %_ZN5arrow6StatusD2Ev.exit68.i.i.i.i200 ], [ %.329.i.i.i181, %_ZN5arrow6StatusD2Ev.exit77.i.i.i.i179 ]
-  %.1.i.i.i164 = phi i64 [ %.0.i.i.i152, %.preheader.i.i.i.i187 ], [ %275, %..critedge56.loopexit120_crit_edge.i.i.i.i ], [ %.0.i.i.i152, %.preheader119.i.i.i.i185 ], [ %.0.i.i.i152, %.preheader121.i.i.i.i161 ], [ %260, %_ZN5arrow6StatusD2Ev.exit68.i.i.i.i200 ], [ %.3.i.i.i180, %_ZN5arrow6StatusD2Ev.exit77.i.i.i.i179 ]
-  %.351.i.i.i.i165 = phi i64 [ %.048138.i.i.i.i153, %.preheader.i.i.i.i187 ], [ %301, %..critedge56.loopexit120_crit_edge.i.i.i.i ], [ %.048138.i.i.i.i153, %.preheader119.i.i.i.i185 ], [ %.048138.i.i.i.i153, %.preheader121.i.i.i.i161 ], [ %258, %_ZN5arrow6StatusD2Ev.exit68.i.i.i.i200 ], [ %271, %_ZN5arrow6StatusD2Ev.exit77.i.i.i.i179 ]
+  %.127.i.i.i163 = phi ptr [ %.026.i.i.i151, %.preheader121.i.i.i.i161 ], [ %.026.i.i.i151, %.preheader.i.i.i.i187 ], [ %scevgep.i.i.i186, %..critedge56.loopexit120_crit_edge.i.i.i.i ], [ %.026.i.i.i151, %.preheader119.i.i.i.i185 ], [ %262, %_ZN5arrow6StatusD2Ev.exit68.i.i.i.i200 ], [ %.329.i.i.i181, %_ZN5arrow6StatusD2Ev.exit77.i.i.i.i179 ]
+  %.1.i.i.i164 = phi i64 [ %.0.i.i.i152, %.preheader121.i.i.i.i161 ], [ %.0.i.i.i152, %.preheader.i.i.i.i187 ], [ %275, %..critedge56.loopexit120_crit_edge.i.i.i.i ], [ %.0.i.i.i152, %.preheader119.i.i.i.i185 ], [ %260, %_ZN5arrow6StatusD2Ev.exit68.i.i.i.i200 ], [ %.3.i.i.i180, %_ZN5arrow6StatusD2Ev.exit77.i.i.i.i179 ]
+  %.351.i.i.i.i165 = phi i64 [ %.048138.i.i.i.i153, %.preheader121.i.i.i.i161 ], [ %.048138.i.i.i.i153, %.preheader.i.i.i.i187 ], [ %301, %..critedge56.loopexit120_crit_edge.i.i.i.i ], [ %.048138.i.i.i.i153, %.preheader119.i.i.i.i185 ], [ %258, %_ZN5arrow6StatusD2Ev.exit68.i.i.i.i200 ], [ %271, %_ZN5arrow6StatusD2Ev.exit77.i.i.i.i179 ]
   %302 = icmp slt i64 %.351.i.i.i.i165, %239
   br i1 %302, label %.lr.ph139.i.i.i.i150, label %._crit_edge.i.i.i.i140, !llvm.loop !433
 
@@ -6532,7 +6532,7 @@ _ZN5arrow6StatusD2Ev.exit87.i.i.i:                ; preds = %_ZN5arrow6StatusD2E
   br i1 %exitcond.not.i.i.i, label %.critedge56.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !653
 
 .critedge56.i.i.i:                                ; preds = %_ZN5arrow6StatusD2Ev.exit87.i.i.i, %_ZN5arrow6StatusD2Ev.exit71.i.i.i, %_ZN5arrow6StatusD2Ev.exit73.lr.ph.i.i.i, %.preheader10.i.i.i, %.preheader12.i.i.i, %.preheader.i.i.i
-  %.351.i.i.i = phi i64 [ %.04832.i.i.i, %.preheader.i.i.i ], [ %.04832.i.i.i, %.preheader10.i.i.i ], [ %.04832.i.i.i, %.preheader12.i.i.i ], [ %80, %_ZN5arrow6StatusD2Ev.exit73.lr.ph.i.i.i ], [ %74, %_ZN5arrow6StatusD2Ev.exit71.i.i.i ], [ %78, %_ZN5arrow6StatusD2Ev.exit87.i.i.i ]
+  %.351.i.i.i = phi i64 [ %80, %_ZN5arrow6StatusD2Ev.exit73.lr.ph.i.i.i ], [ %74, %_ZN5arrow6StatusD2Ev.exit71.i.i.i ], [ %.04832.i.i.i, %.preheader.i.i.i ], [ %.04832.i.i.i, %.preheader10.i.i.i ], [ %.04832.i.i.i, %.preheader12.i.i.i ], [ %78, %_ZN5arrow6StatusD2Ev.exit87.i.i.i ]
   %108 = icmp slt i64 %.351.i.i.i, %41
   br i1 %108, label %46, label %._crit_edge.i.i.i, !llvm.loop !654
 
@@ -6961,7 +6961,7 @@ _ZN5arrow6StatusD2Ev.exit84.i.i.i:                ; preds = %_ZN5arrow6StatusD2E
   br i1 %exitcond.not.i.i.i, label %.critedge56.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !722
 
 .critedge56.i.i.i:                                ; preds = %_ZN5arrow6StatusD2Ev.exit84.i.i.i, %_ZN5arrow6StatusD2Ev.exit71.i.i.i, %_ZN5arrow6StatusD2Ev.exit73.lr.ph.i.i.i, %.preheader10.i.i.i, %.preheader12.i.i.i, %.preheader.i.i.i
-  %.351.i.i.i = phi i64 [ %.04831.i.i.i, %.preheader.i.i.i ], [ %.04831.i.i.i, %.preheader10.i.i.i ], [ %.04831.i.i.i, %.preheader12.i.i.i ], [ %91, %_ZN5arrow6StatusD2Ev.exit73.lr.ph.i.i.i ], [ %85, %_ZN5arrow6StatusD2Ev.exit71.i.i.i ], [ %89, %_ZN5arrow6StatusD2Ev.exit84.i.i.i ]
+  %.351.i.i.i = phi i64 [ %91, %_ZN5arrow6StatusD2Ev.exit73.lr.ph.i.i.i ], [ %85, %_ZN5arrow6StatusD2Ev.exit71.i.i.i ], [ %.04831.i.i.i, %.preheader.i.i.i ], [ %.04831.i.i.i, %.preheader10.i.i.i ], [ %.04831.i.i.i, %.preheader12.i.i.i ], [ %89, %_ZN5arrow6StatusD2Ev.exit84.i.i.i ]
   %112 = icmp slt i64 %.351.i.i.i, %44
   br i1 %112, label %49, label %._crit_edge.i.i.i, !llvm.loop !723
 
@@ -7388,7 +7388,7 @@ _ZN5arrow6StatusD2Ev.exit84.i.i.i:                ; preds = %_ZN5arrow6StatusD2E
   br i1 %exitcond.not.i.i.i, label %.critedge56.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !786
 
 .critedge56.i.i.i:                                ; preds = %_ZN5arrow6StatusD2Ev.exit84.i.i.i, %_ZN5arrow6StatusD2Ev.exit71.i.i.i, %_ZN5arrow6StatusD2Ev.exit73.lr.ph.i.i.i, %.preheader10.i.i.i, %.preheader12.i.i.i, %.preheader.i.i.i
-  %.351.i.i.i = phi i64 [ %.04831.i.i.i, %.preheader.i.i.i ], [ %.04831.i.i.i, %.preheader10.i.i.i ], [ %.04831.i.i.i, %.preheader12.i.i.i ], [ %91, %_ZN5arrow6StatusD2Ev.exit73.lr.ph.i.i.i ], [ %85, %_ZN5arrow6StatusD2Ev.exit71.i.i.i ], [ %89, %_ZN5arrow6StatusD2Ev.exit84.i.i.i ]
+  %.351.i.i.i = phi i64 [ %91, %_ZN5arrow6StatusD2Ev.exit73.lr.ph.i.i.i ], [ %85, %_ZN5arrow6StatusD2Ev.exit71.i.i.i ], [ %.04831.i.i.i, %.preheader.i.i.i ], [ %.04831.i.i.i, %.preheader10.i.i.i ], [ %.04831.i.i.i, %.preheader12.i.i.i ], [ %89, %_ZN5arrow6StatusD2Ev.exit84.i.i.i ]
   %112 = icmp slt i64 %.351.i.i.i, %44
   br i1 %112, label %49, label %._crit_edge.i.i.i, !llvm.loop !787
 
@@ -7913,8 +7913,8 @@ _ZN5arrow6StatusD2Ev.exit94.i.i.i.i:              ; preds = %_ZN5arrow6StatusD2E
   br i1 %exitcond.not.i.i.i.i, label %.critedge56.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !862
 
 .critedge56.i.i.i.i:                              ; preds = %_ZN5arrow6StatusD2Ev.exit94.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit71.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit73.lr.ph.i.i.i.i, %.preheader10.i.i.i.i, %.preheader12.i.i.i.i, %.preheader.i.i.i.i
-  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit73.lr.ph.i.i.i.i ], [ %.0.i.i.i, %.preheader10.i.i.i.i ], [ %.0.i.i.i, %.preheader12.i.i.i.i ], [ %64, %_ZN5arrow6StatusD2Ev.exit71.i.i.i.i ], [ %.3.i.i.i, %_ZN5arrow6StatusD2Ev.exit94.i.i.i.i ]
-  %.351.i.i.i.i = phi i64 [ %.04834.i.i.i.i, %.preheader.i.i.i.i ], [ %106, %_ZN5arrow6StatusD2Ev.exit73.lr.ph.i.i.i.i ], [ %.04834.i.i.i.i, %.preheader10.i.i.i.i ], [ %.04834.i.i.i.i, %.preheader12.i.i.i.i ], [ %63, %_ZN5arrow6StatusD2Ev.exit71.i.i.i.i ], [ %103, %_ZN5arrow6StatusD2Ev.exit94.i.i.i.i ]
+  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader12.i.i.i.i ], [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit73.lr.ph.i.i.i.i ], [ %.0.i.i.i, %.preheader10.i.i.i.i ], [ %64, %_ZN5arrow6StatusD2Ev.exit71.i.i.i.i ], [ %.3.i.i.i, %_ZN5arrow6StatusD2Ev.exit94.i.i.i.i ]
+  %.351.i.i.i.i = phi i64 [ %.04834.i.i.i.i, %.preheader12.i.i.i.i ], [ %.04834.i.i.i.i, %.preheader.i.i.i.i ], [ %106, %_ZN5arrow6StatusD2Ev.exit73.lr.ph.i.i.i.i ], [ %.04834.i.i.i.i, %.preheader10.i.i.i.i ], [ %63, %_ZN5arrow6StatusD2Ev.exit71.i.i.i.i ], [ %103, %_ZN5arrow6StatusD2Ev.exit94.i.i.i.i ]
   %144 = icmp slt i64 %.351.i.i.i.i, %49
   br i1 %144, label %59, label %._crit_edge.i.i.i.i, !llvm.loop !863
 
@@ -8439,8 +8439,8 @@ _ZN5arrow6StatusD2Ev.exit94.i.i.i.i:              ; preds = %_ZN5arrow6StatusD2E
   br i1 %exitcond.not.i.i.i.i, label %.critedge56.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !934
 
 .critedge56.i.i.i.i:                              ; preds = %_ZN5arrow6StatusD2Ev.exit94.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit71.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit73.lr.ph.i.i.i.i, %.preheader10.i.i.i.i, %.preheader12.i.i.i.i, %.preheader.i.i.i.i
-  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit73.lr.ph.i.i.i.i ], [ %.0.i.i.i, %.preheader10.i.i.i.i ], [ %.0.i.i.i, %.preheader12.i.i.i.i ], [ %64, %_ZN5arrow6StatusD2Ev.exit71.i.i.i.i ], [ %.3.i.i.i, %_ZN5arrow6StatusD2Ev.exit94.i.i.i.i ]
-  %.351.i.i.i.i = phi i64 [ %.04834.i.i.i.i, %.preheader.i.i.i.i ], [ %106, %_ZN5arrow6StatusD2Ev.exit73.lr.ph.i.i.i.i ], [ %.04834.i.i.i.i, %.preheader10.i.i.i.i ], [ %.04834.i.i.i.i, %.preheader12.i.i.i.i ], [ %63, %_ZN5arrow6StatusD2Ev.exit71.i.i.i.i ], [ %103, %_ZN5arrow6StatusD2Ev.exit94.i.i.i.i ]
+  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader12.i.i.i.i ], [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit73.lr.ph.i.i.i.i ], [ %.0.i.i.i, %.preheader10.i.i.i.i ], [ %64, %_ZN5arrow6StatusD2Ev.exit71.i.i.i.i ], [ %.3.i.i.i, %_ZN5arrow6StatusD2Ev.exit94.i.i.i.i ]
+  %.351.i.i.i.i = phi i64 [ %.04834.i.i.i.i, %.preheader12.i.i.i.i ], [ %.04834.i.i.i.i, %.preheader.i.i.i.i ], [ %106, %_ZN5arrow6StatusD2Ev.exit73.lr.ph.i.i.i.i ], [ %.04834.i.i.i.i, %.preheader10.i.i.i.i ], [ %63, %_ZN5arrow6StatusD2Ev.exit71.i.i.i.i ], [ %103, %_ZN5arrow6StatusD2Ev.exit94.i.i.i.i ]
   %144 = icmp slt i64 %.351.i.i.i.i, %49
   br i1 %144, label %59, label %._crit_edge.i.i.i.i, !llvm.loop !935
 
@@ -8963,8 +8963,8 @@ _ZN5arrow6StatusD2Ev.exit94.i.i.i.i:              ; preds = %_ZN5arrow6StatusD2E
   br i1 %exitcond.not.i.i.i.i, label %.critedge56.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !1006
 
 .critedge56.i.i.i.i:                              ; preds = %_ZN5arrow6StatusD2Ev.exit94.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit71.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit73.lr.ph.i.i.i.i, %.preheader10.i.i.i.i, %.preheader12.i.i.i.i, %.preheader.i.i.i.i
-  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit73.lr.ph.i.i.i.i ], [ %.0.i.i.i, %.preheader10.i.i.i.i ], [ %.0.i.i.i, %.preheader12.i.i.i.i ], [ %64, %_ZN5arrow6StatusD2Ev.exit71.i.i.i.i ], [ %.3.i.i.i, %_ZN5arrow6StatusD2Ev.exit94.i.i.i.i ]
-  %.351.i.i.i.i = phi i64 [ %.04834.i.i.i.i, %.preheader.i.i.i.i ], [ %105, %_ZN5arrow6StatusD2Ev.exit73.lr.ph.i.i.i.i ], [ %.04834.i.i.i.i, %.preheader10.i.i.i.i ], [ %.04834.i.i.i.i, %.preheader12.i.i.i.i ], [ %63, %_ZN5arrow6StatusD2Ev.exit71.i.i.i.i ], [ %102, %_ZN5arrow6StatusD2Ev.exit94.i.i.i.i ]
+  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader12.i.i.i.i ], [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit73.lr.ph.i.i.i.i ], [ %.0.i.i.i, %.preheader10.i.i.i.i ], [ %64, %_ZN5arrow6StatusD2Ev.exit71.i.i.i.i ], [ %.3.i.i.i, %_ZN5arrow6StatusD2Ev.exit94.i.i.i.i ]
+  %.351.i.i.i.i = phi i64 [ %.04834.i.i.i.i, %.preheader12.i.i.i.i ], [ %.04834.i.i.i.i, %.preheader.i.i.i.i ], [ %105, %_ZN5arrow6StatusD2Ev.exit73.lr.ph.i.i.i.i ], [ %.04834.i.i.i.i, %.preheader10.i.i.i.i ], [ %63, %_ZN5arrow6StatusD2Ev.exit71.i.i.i.i ], [ %102, %_ZN5arrow6StatusD2Ev.exit94.i.i.i.i ]
   %142 = icmp slt i64 %.351.i.i.i.i, %49
   br i1 %142, label %59, label %._crit_edge.i.i.i.i, !llvm.loop !1007
 
@@ -9487,8 +9487,8 @@ _ZN5arrow6StatusD2Ev.exit94.i.i.i.i:              ; preds = %_ZN5arrow6StatusD2E
   br i1 %exitcond.not.i.i.i.i, label %.critedge56.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !1078
 
 .critedge56.i.i.i.i:                              ; preds = %_ZN5arrow6StatusD2Ev.exit94.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit71.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit73.lr.ph.i.i.i.i, %.preheader10.i.i.i.i, %.preheader12.i.i.i.i, %.preheader.i.i.i.i
-  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit73.lr.ph.i.i.i.i ], [ %.0.i.i.i, %.preheader10.i.i.i.i ], [ %.0.i.i.i, %.preheader12.i.i.i.i ], [ %64, %_ZN5arrow6StatusD2Ev.exit71.i.i.i.i ], [ %.3.i.i.i, %_ZN5arrow6StatusD2Ev.exit94.i.i.i.i ]
-  %.351.i.i.i.i = phi i64 [ %.04834.i.i.i.i, %.preheader.i.i.i.i ], [ %105, %_ZN5arrow6StatusD2Ev.exit73.lr.ph.i.i.i.i ], [ %.04834.i.i.i.i, %.preheader10.i.i.i.i ], [ %.04834.i.i.i.i, %.preheader12.i.i.i.i ], [ %63, %_ZN5arrow6StatusD2Ev.exit71.i.i.i.i ], [ %102, %_ZN5arrow6StatusD2Ev.exit94.i.i.i.i ]
+  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader12.i.i.i.i ], [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit73.lr.ph.i.i.i.i ], [ %.0.i.i.i, %.preheader10.i.i.i.i ], [ %64, %_ZN5arrow6StatusD2Ev.exit71.i.i.i.i ], [ %.3.i.i.i, %_ZN5arrow6StatusD2Ev.exit94.i.i.i.i ]
+  %.351.i.i.i.i = phi i64 [ %.04834.i.i.i.i, %.preheader12.i.i.i.i ], [ %.04834.i.i.i.i, %.preheader.i.i.i.i ], [ %105, %_ZN5arrow6StatusD2Ev.exit73.lr.ph.i.i.i.i ], [ %.04834.i.i.i.i, %.preheader10.i.i.i.i ], [ %63, %_ZN5arrow6StatusD2Ev.exit71.i.i.i.i ], [ %102, %_ZN5arrow6StatusD2Ev.exit94.i.i.i.i ]
   %142 = icmp slt i64 %.351.i.i.i.i, %49
   br i1 %142, label %59, label %._crit_edge.i.i.i.i, !llvm.loop !1079
 
@@ -13687,7 +13687,7 @@ _ZN5arrow6StatusD2Ev.exit85.i.i.i.i.i.i:          ; preds = %_ZN5arrow6StatusD2E
   br i1 %exitcond.not.i.i.i.i.i.i, label %.critedge56.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !1435
 
 .critedge56.i.i.i.i.i.i:                          ; preds = %_ZN5arrow6StatusD2Ev.exit85.i.i.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit75.i.i.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit77.lr.ph.i.i.i.i.i.i, %.preheader10.i.i.i.i.i.i, %.preheader12.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i
-  %.351.i.i.i.i.i.i = phi i64 [ %.04831.i.i.i.i.i.i, %.preheader10.i.i.i.i.i.i ], [ %.04831.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i ], [ %208, %_ZN5arrow6StatusD2Ev.exit77.lr.ph.i.i.i.i.i.i ], [ %.04831.i.i.i.i.i.i, %.preheader12.i.i.i.i.i.i ], [ %201, %_ZN5arrow6StatusD2Ev.exit75.i.i.i.i.i.i ], [ %205, %_ZN5arrow6StatusD2Ev.exit85.i.i.i.i.i.i ]
+  %.351.i.i.i.i.i.i = phi i64 [ %201, %_ZN5arrow6StatusD2Ev.exit75.i.i.i.i.i.i ], [ %.04831.i.i.i.i.i.i, %.preheader10.i.i.i.i.i.i ], [ %.04831.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i ], [ %208, %_ZN5arrow6StatusD2Ev.exit77.lr.ph.i.i.i.i.i.i ], [ %.04831.i.i.i.i.i.i, %.preheader12.i.i.i.i.i.i ], [ %205, %_ZN5arrow6StatusD2Ev.exit85.i.i.i.i.i.i ]
   %243 = icmp slt i64 %.351.i.i.i.i.i.i, %171
   br i1 %243, label %175, label %._crit_edge.i.i.i.i.i.i, !llvm.loop !1436
 
@@ -14037,7 +14037,7 @@ _ZN5arrow6StatusD2Ev.exit85.i.i.i.i128.i.i:       ; preds = %_ZN5arrow6StatusD2E
   br label %.critedge56.i.i.i.i119.i.i
 
 .critedge56.i.i.i.i119.i.i:                       ; preds = %.critedge56.i.i.i.i119.i.i.loopexit327, %.critedge56.i.i.i.i119.i.i.loopexit, %_ZN5arrow6StatusD2Ev.exit77.lr.ph.i.i.i.i143.i.i, %.preheader10.i.i.i.i142.i.i, %.preheader12.i.i.i.i118.i.i, %.preheader.i.i.i.i145.i.i
-  %.351.i.i.i.i120.i.i = phi i64 [ %.04831.i.i.i.i110.i.i, %.preheader10.i.i.i.i142.i.i ], [ %.04831.i.i.i.i110.i.i, %.preheader.i.i.i.i145.i.i ], [ %306, %_ZN5arrow6StatusD2Ev.exit77.lr.ph.i.i.i.i143.i.i ], [ %.04831.i.i.i.i110.i.i, %.preheader12.i.i.i.i118.i.i ], [ %299, %.critedge56.i.i.i.i119.i.i.loopexit ], [ %303, %.critedge56.i.i.i.i119.i.i.loopexit327 ]
+  %.351.i.i.i.i120.i.i = phi i64 [ %299, %.critedge56.i.i.i.i119.i.i.loopexit ], [ %.04831.i.i.i.i110.i.i, %.preheader10.i.i.i.i142.i.i ], [ %.04831.i.i.i.i110.i.i, %.preheader.i.i.i.i145.i.i ], [ %306, %_ZN5arrow6StatusD2Ev.exit77.lr.ph.i.i.i.i143.i.i ], [ %.04831.i.i.i.i110.i.i, %.preheader12.i.i.i.i118.i.i ], [ %303, %.critedge56.i.i.i.i119.i.i.loopexit327 ]
   %343 = icmp slt i64 %.351.i.i.i.i120.i.i, %269
   br i1 %343, label %273, label %._crit_edge.i.i.i.i99.i.i, !llvm.loop !1496
 
@@ -14397,7 +14397,7 @@ _ZN5arrow6StatusD2Ev.exit85.i.i.i.i201.i.i:       ; preds = %_ZN5arrow6StatusD2E
   br label %.critedge56.i.i.i.i192.i.i
 
 .critedge56.i.i.i.i192.i.i:                       ; preds = %.critedge56.i.i.i.i192.i.i.loopexit330, %.critedge56.i.i.i.i192.i.i.loopexit, %_ZN5arrow6StatusD2Ev.exit77.lr.ph.i.i.i.i216.i.i, %.preheader10.i.i.i.i215.i.i, %.preheader12.i.i.i.i191.i.i, %.preheader.i.i.i.i218.i.i
-  %.351.i.i.i.i193.i.i = phi i64 [ %.04831.i.i.i.i183.i.i, %.preheader10.i.i.i.i215.i.i ], [ %.04831.i.i.i.i183.i.i, %.preheader.i.i.i.i218.i.i ], [ %406, %_ZN5arrow6StatusD2Ev.exit77.lr.ph.i.i.i.i216.i.i ], [ %.04831.i.i.i.i183.i.i, %.preheader12.i.i.i.i191.i.i ], [ %399, %.critedge56.i.i.i.i192.i.i.loopexit ], [ %403, %.critedge56.i.i.i.i192.i.i.loopexit330 ]
+  %.351.i.i.i.i193.i.i = phi i64 [ %399, %.critedge56.i.i.i.i192.i.i.loopexit ], [ %.04831.i.i.i.i183.i.i, %.preheader10.i.i.i.i215.i.i ], [ %.04831.i.i.i.i183.i.i, %.preheader.i.i.i.i218.i.i ], [ %406, %_ZN5arrow6StatusD2Ev.exit77.lr.ph.i.i.i.i216.i.i ], [ %.04831.i.i.i.i183.i.i, %.preheader12.i.i.i.i191.i.i ], [ %403, %.critedge56.i.i.i.i192.i.i.loopexit330 ]
   %443 = icmp slt i64 %.351.i.i.i.i193.i.i, %369
   br i1 %443, label %373, label %._crit_edge.i.i.i.i172.i.i, !llvm.loop !1557
 
@@ -14757,7 +14757,7 @@ _ZN5arrow6StatusD2Ev.exit85.i.i.i.i274.i.i:       ; preds = %_ZN5arrow6StatusD2E
   br label %.critedge56.i.i.i.i265.i.i
 
 .critedge56.i.i.i.i265.i.i:                       ; preds = %.critedge56.i.i.i.i265.i.i.loopexit333, %.critedge56.i.i.i.i265.i.i.loopexit, %_ZN5arrow6StatusD2Ev.exit77.lr.ph.i.i.i.i289.i.i, %.preheader10.i.i.i.i288.i.i, %.preheader12.i.i.i.i264.i.i, %.preheader.i.i.i.i291.i.i
-  %.351.i.i.i.i266.i.i = phi i64 [ %.04831.i.i.i.i256.i.i, %.preheader10.i.i.i.i288.i.i ], [ %.04831.i.i.i.i256.i.i, %.preheader.i.i.i.i291.i.i ], [ %506, %_ZN5arrow6StatusD2Ev.exit77.lr.ph.i.i.i.i289.i.i ], [ %.04831.i.i.i.i256.i.i, %.preheader12.i.i.i.i264.i.i ], [ %499, %.critedge56.i.i.i.i265.i.i.loopexit ], [ %503, %.critedge56.i.i.i.i265.i.i.loopexit333 ]
+  %.351.i.i.i.i266.i.i = phi i64 [ %499, %.critedge56.i.i.i.i265.i.i.loopexit ], [ %.04831.i.i.i.i256.i.i, %.preheader10.i.i.i.i288.i.i ], [ %.04831.i.i.i.i256.i.i, %.preheader.i.i.i.i291.i.i ], [ %506, %_ZN5arrow6StatusD2Ev.exit77.lr.ph.i.i.i.i289.i.i ], [ %.04831.i.i.i.i256.i.i, %.preheader12.i.i.i.i264.i.i ], [ %503, %.critedge56.i.i.i.i265.i.i.loopexit333 ]
   %543 = icmp slt i64 %.351.i.i.i.i266.i.i, %469
   br i1 %543, label %473, label %._crit_edge.i.i.i.i245.i.i, !llvm.loop !1617
 
@@ -15117,7 +15117,7 @@ _ZN5arrow6StatusD2Ev.exit85.i.i.i.i347.i.i:       ; preds = %_ZN5arrow6StatusD2E
   br label %.critedge56.i.i.i.i338.i.i
 
 .critedge56.i.i.i.i338.i.i:                       ; preds = %.critedge56.i.i.i.i338.i.i.loopexit336, %.critedge56.i.i.i.i338.i.i.loopexit, %_ZN5arrow6StatusD2Ev.exit77.lr.ph.i.i.i.i362.i.i, %.preheader10.i.i.i.i361.i.i, %.preheader12.i.i.i.i337.i.i, %.preheader.i.i.i.i364.i.i
-  %.351.i.i.i.i339.i.i = phi i64 [ %.04831.i.i.i.i329.i.i, %.preheader10.i.i.i.i361.i.i ], [ %.04831.i.i.i.i329.i.i, %.preheader.i.i.i.i364.i.i ], [ %606, %_ZN5arrow6StatusD2Ev.exit77.lr.ph.i.i.i.i362.i.i ], [ %.04831.i.i.i.i329.i.i, %.preheader12.i.i.i.i337.i.i ], [ %599, %.critedge56.i.i.i.i338.i.i.loopexit ], [ %603, %.critedge56.i.i.i.i338.i.i.loopexit336 ]
+  %.351.i.i.i.i339.i.i = phi i64 [ %599, %.critedge56.i.i.i.i338.i.i.loopexit ], [ %.04831.i.i.i.i329.i.i, %.preheader10.i.i.i.i361.i.i ], [ %.04831.i.i.i.i329.i.i, %.preheader.i.i.i.i364.i.i ], [ %606, %_ZN5arrow6StatusD2Ev.exit77.lr.ph.i.i.i.i362.i.i ], [ %.04831.i.i.i.i329.i.i, %.preheader12.i.i.i.i337.i.i ], [ %603, %.critedge56.i.i.i.i338.i.i.loopexit336 ]
   %643 = icmp slt i64 %.351.i.i.i.i339.i.i, %569
   br i1 %643, label %573, label %._crit_edge.i.i.i.i318.i.i, !llvm.loop !1677
 
@@ -15477,7 +15477,7 @@ _ZN5arrow6StatusD2Ev.exit85.i.i.i.i420.i.i:       ; preds = %_ZN5arrow6StatusD2E
   br label %.critedge56.i.i.i.i411.i.i
 
 .critedge56.i.i.i.i411.i.i:                       ; preds = %.critedge56.i.i.i.i411.i.i.loopexit339, %.critedge56.i.i.i.i411.i.i.loopexit, %_ZN5arrow6StatusD2Ev.exit77.lr.ph.i.i.i.i435.i.i, %.preheader10.i.i.i.i434.i.i, %.preheader12.i.i.i.i410.i.i, %.preheader.i.i.i.i437.i.i
-  %.351.i.i.i.i412.i.i = phi i64 [ %.04831.i.i.i.i402.i.i, %.preheader10.i.i.i.i434.i.i ], [ %.04831.i.i.i.i402.i.i, %.preheader.i.i.i.i437.i.i ], [ %706, %_ZN5arrow6StatusD2Ev.exit77.lr.ph.i.i.i.i435.i.i ], [ %.04831.i.i.i.i402.i.i, %.preheader12.i.i.i.i410.i.i ], [ %699, %.critedge56.i.i.i.i411.i.i.loopexit ], [ %703, %.critedge56.i.i.i.i411.i.i.loopexit339 ]
+  %.351.i.i.i.i412.i.i = phi i64 [ %699, %.critedge56.i.i.i.i411.i.i.loopexit ], [ %.04831.i.i.i.i402.i.i, %.preheader10.i.i.i.i434.i.i ], [ %.04831.i.i.i.i402.i.i, %.preheader.i.i.i.i437.i.i ], [ %706, %_ZN5arrow6StatusD2Ev.exit77.lr.ph.i.i.i.i435.i.i ], [ %.04831.i.i.i.i402.i.i, %.preheader12.i.i.i.i410.i.i ], [ %703, %.critedge56.i.i.i.i411.i.i.loopexit339 ]
   %743 = icmp slt i64 %.351.i.i.i.i412.i.i, %669
   br i1 %743, label %673, label %._crit_edge.i.i.i.i391.i.i, !llvm.loop !1737
 
@@ -15835,7 +15835,7 @@ _ZN5arrow6StatusD2Ev.exit85.i.i.i.i493.i.i:       ; preds = %_ZN5arrow6StatusD2E
   br label %.critedge56.i.i.i.i484.i.i
 
 .critedge56.i.i.i.i484.i.i:                       ; preds = %.critedge56.i.i.i.i484.i.i.loopexit342, %.critedge56.i.i.i.i484.i.i.loopexit, %_ZN5arrow6StatusD2Ev.exit77.lr.ph.i.i.i.i508.i.i, %.preheader10.i.i.i.i507.i.i, %.preheader12.i.i.i.i483.i.i, %.preheader.i.i.i.i510.i.i
-  %.351.i.i.i.i485.i.i = phi i64 [ %.04831.i.i.i.i475.i.i, %.preheader10.i.i.i.i507.i.i ], [ %.04831.i.i.i.i475.i.i, %.preheader.i.i.i.i510.i.i ], [ %805, %_ZN5arrow6StatusD2Ev.exit77.lr.ph.i.i.i.i508.i.i ], [ %.04831.i.i.i.i475.i.i, %.preheader12.i.i.i.i483.i.i ], [ %798, %.critedge56.i.i.i.i484.i.i.loopexit ], [ %802, %.critedge56.i.i.i.i484.i.i.loopexit342 ]
+  %.351.i.i.i.i485.i.i = phi i64 [ %798, %.critedge56.i.i.i.i484.i.i.loopexit ], [ %.04831.i.i.i.i475.i.i, %.preheader10.i.i.i.i507.i.i ], [ %.04831.i.i.i.i475.i.i, %.preheader.i.i.i.i510.i.i ], [ %805, %_ZN5arrow6StatusD2Ev.exit77.lr.ph.i.i.i.i508.i.i ], [ %.04831.i.i.i.i475.i.i, %.preheader12.i.i.i.i483.i.i ], [ %802, %.critedge56.i.i.i.i484.i.i.loopexit342 ]
   %841 = icmp slt i64 %.351.i.i.i.i485.i.i, %769
   br i1 %841, label %773, label %._crit_edge.i.i.i.i464.i.i, !llvm.loop !1797
 
@@ -16193,7 +16193,7 @@ _ZN5arrow6StatusD2Ev.exit85.i.i.i.i566.i.i:       ; preds = %_ZN5arrow6StatusD2E
   br label %.critedge56.i.i.i.i557.i.i
 
 .critedge56.i.i.i.i557.i.i:                       ; preds = %.critedge56.i.i.i.i557.i.i.loopexit345, %.critedge56.i.i.i.i557.i.i.loopexit, %_ZN5arrow6StatusD2Ev.exit77.lr.ph.i.i.i.i581.i.i, %.preheader10.i.i.i.i580.i.i, %.preheader12.i.i.i.i556.i.i, %.preheader.i.i.i.i583.i.i
-  %.351.i.i.i.i558.i.i = phi i64 [ %.04831.i.i.i.i548.i.i, %.preheader10.i.i.i.i580.i.i ], [ %.04831.i.i.i.i548.i.i, %.preheader.i.i.i.i583.i.i ], [ %903, %_ZN5arrow6StatusD2Ev.exit77.lr.ph.i.i.i.i581.i.i ], [ %.04831.i.i.i.i548.i.i, %.preheader12.i.i.i.i556.i.i ], [ %896, %.critedge56.i.i.i.i557.i.i.loopexit ], [ %900, %.critedge56.i.i.i.i557.i.i.loopexit345 ]
+  %.351.i.i.i.i558.i.i = phi i64 [ %896, %.critedge56.i.i.i.i557.i.i.loopexit ], [ %.04831.i.i.i.i548.i.i, %.preheader10.i.i.i.i580.i.i ], [ %.04831.i.i.i.i548.i.i, %.preheader.i.i.i.i583.i.i ], [ %903, %_ZN5arrow6StatusD2Ev.exit77.lr.ph.i.i.i.i581.i.i ], [ %.04831.i.i.i.i548.i.i, %.preheader12.i.i.i.i556.i.i ], [ %900, %.critedge56.i.i.i.i557.i.i.loopexit345 ]
   %939 = icmp slt i64 %.351.i.i.i.i558.i.i, %867
   br i1 %939, label %871, label %._crit_edge.i.i.i.i537.i.i, !llvm.loop !1857
 

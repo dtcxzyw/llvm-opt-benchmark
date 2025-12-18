@@ -1576,7 +1576,7 @@ _ZN6Assimp10SkipSpacesIcEEbPPKT_S3_.exit:         ; preds = %364, %366
           to label %_ZN6Assimp11TokenMatchIERPKcS1_j.exit164.thread unwind label %.loopexit299
 
 _ZN6Assimp11TokenMatchIERPKcS1_j.exit164.thread:  ; preds = %.loopexit, %_ZN6Assimp15ASSIMP_strincmpEPKcS1_j.exit.thread.i163, %356, %338, %373, %383, %380, %370
-  %.6 = phi ptr [ %.0.lcssa.i.i169, %370 ], [ %.0.lcssa.i.i169, %373 ], [ %.0.lcssa.i.i169, %380 ], [ %.0.lcssa.i.i169, %383 ], [ %339, %338 ], [ %.0.lcssa.i.i82, %356 ], [ %.0.lcssa.i.i82, %_ZN6Assimp15ASSIMP_strincmpEPKcS1_j.exit.thread.i163 ], [ %.0.lcssa.i.i88, %.loopexit ]
+  %.6 = phi ptr [ %.0.lcssa.i.i169, %370 ], [ %.0.lcssa.i.i169, %373 ], [ %.0.lcssa.i.i169, %380 ], [ %.0.lcssa.i.i169, %383 ], [ %.0.lcssa.i.i82, %_ZN6Assimp15ASSIMP_strincmpEPKcS1_j.exit.thread.i163 ], [ %339, %338 ], [ %.0.lcssa.i.i82, %356 ], [ %.0.lcssa.i.i88, %.loopexit ]
   %384 = ptrtoint ptr %.6 to i64
   %385 = sub i64 %58, %384
   %scevgep.i.i175 = getelementptr i8, ptr %.6, i64 %385

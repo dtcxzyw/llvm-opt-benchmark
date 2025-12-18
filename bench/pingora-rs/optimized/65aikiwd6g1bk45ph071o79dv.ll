@@ -790,23 +790,27 @@ _ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit: ; preds = %24, %23, %
 
 34:                                               ; preds = %.thread105
   switch i16 %31, label %.thread110 [
-    i16 23, label %35
-    i16 30, label %53
+    i16 23, label %53
+    i16 30, label %35
     i16 31, label %41
   ]
 
 35:                                               ; preds = %34
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 26
-  %37 = load i16, ptr %36, align 2, !alias.scope !39, !noalias !42, !noundef !4
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 26
-  %39 = load i16, ptr %38, align 2, !alias.scope !42, !noalias !39, !noundef !4
-  %40 = icmp eq i16 %37, %39
-  br i1 %40, label %.thread110, label %.thread106.thread119
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %.val5.i = load ptr, ptr %36, align 8, !alias.scope !39, !noalias !42, !nonnull !4, !align !3, !noundef !4
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %.val6.i = load i64, ptr %38, align 8, !alias.scope !39, !noalias !42, !noundef !4
+  %.val7.i = load ptr, ptr %37, align 8, !alias.scope !42, !noalias !39, !nonnull !4, !align !3, !noundef !4
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %.val8.i = load i64, ptr %39, align 8, !alias.scope !42, !noalias !39, !noundef !4
+  %40 = call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd55dddaa9f57be38E"(ptr noalias noundef nonnull readonly align 1 %.val5.i, i64 noundef %.val6.i, ptr noalias noundef nonnull readonly align 1 %.val7.i, i64 noundef %.val8.i), !noalias !44
+  br i1 %40, label %.thread110, label %.thread106.thread120
 
-.thread106.thread119:                             ; preds = %35
+.thread106.thread120:                             ; preds = %35
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  br label %82
+  br label %89
 
 41:                                               ; preds = %34
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -829,21 +833,17 @@ _ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit: ; preds = %24, %23, %
   br i1 %52, label %.thread110, label %.thread106.thread
 
 53:                                               ; preds = %34
-  %54 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.val5.i = load ptr, ptr %54, align 8, !alias.scope !39, !noalias !42, !nonnull !4, !align !3, !noundef !4
-  %56 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %.val6.i = load i64, ptr %56, align 8, !alias.scope !39, !noalias !42, !noundef !4
-  %.val7.i = load ptr, ptr %55, align 8, !alias.scope !42, !noalias !39, !nonnull !4, !align !3, !noundef !4
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %.val8.i = load i64, ptr %57, align 8, !alias.scope !42, !noalias !39, !noundef !4
-  %58 = call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd55dddaa9f57be38E"(ptr noalias noundef nonnull readonly align 1 %.val5.i, i64 noundef %.val6.i, ptr noalias noundef nonnull readonly align 1 %.val7.i, i64 noundef %.val8.i), !noalias !44
-  br i1 %58, label %.thread110, label %.thread106.thread120
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 26
+  %55 = load i16, ptr %54, align 2, !alias.scope !39, !noalias !42, !noundef !4
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 26
+  %57 = load i16, ptr %56, align 2, !alias.scope !42, !noalias !39, !noundef !4
+  %58 = icmp eq i16 %55, %57
+  br i1 %58, label %.thread110, label %.thread106.thread119
 
-.thread106.thread120:                             ; preds = %53
+.thread106.thread119:                             ; preds = %53
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  br label %89
+  br label %82
 
 .thread106.thread:                                ; preds = %41, %47
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
@@ -1018,7 +1018,7 @@ _ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit63: ; preds = %94, %89,
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br i1 %101, label %108, label %.thread110
 
-.thread110:                                       ; preds = %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit63, %47, %35, %34, %53
+.thread110:                                       ; preds = %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit63, %35, %47, %34, %53
   %102 = load i64, ptr %0, align 8, !range !48, !noundef !4
   %.not40 = icmp eq i64 %102, 2
   br i1 %.not40, label %105, label %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit68

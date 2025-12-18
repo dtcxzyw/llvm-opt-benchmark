@@ -2065,8 +2065,8 @@ _ZNK5clang13SourceManager17getFileEntryForIDENS_6FileIDE.exit: ; preds = %.prehe
   %38 = and i64 %37, 8589934591
   br label %_ZNK5clang13SourceManager17getFileEntryForIDENS_6FileIDE.exit.thread
 
-_ZNK5clang13SourceManager17getFileEntryForIDENS_6FileIDE.exit.thread: ; preds = %32, %19, %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit.i, %_ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit, %_ZNK5clang13SourceManager17getFileEntryForIDENS_6FileIDE.exit, %2
-  %.sroa.2.0 = phi i64 [ 0, %2 ], [ 0, %_ZNK5clang13SourceManager17getFileEntryForIDENS_6FileIDE.exit ], [ 0, %_ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit ], [ 0, %19 ], [ %38, %32 ], [ 0, %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit.i ]
+_ZNK5clang13SourceManager17getFileEntryForIDENS_6FileIDE.exit.thread: ; preds = %32, %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit.i, %19, %_ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit, %_ZNK5clang13SourceManager17getFileEntryForIDENS_6FileIDE.exit, %2
+  %.sroa.2.0 = phi i64 [ 0, %2 ], [ 0, %_ZNK5clang13SourceManager17getFileEntryForIDENS_6FileIDE.exit ], [ 0, %_ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit ], [ 0, %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit.i ], [ %38, %32 ], [ 0, %19 ]
   ret i64 %.sroa.2.0
 }
 
@@ -2838,7 +2838,7 @@ _ZNK5clang4Decl14getDeclContextEv.exit:           ; preds = %10, %16
   br i1 %.not.i.i.i.i.i, label %_ZN5clangneENS_22specific_attr_iteratorINS_8WeakAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !551
 
 _ZN5clangneENS_22specific_attr_iteratorINS_8WeakAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i: ; preds = %51, %.lr.ph.i.i.i.i.i
-  %.sroa.07.0.i.i.ph.i.i = phi ptr [ %46, %51 ], [ %.sroa.07.1.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+  %.sroa.07.0.i.i.ph.i.i = phi ptr [ %.sroa.07.1.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %46, %51 ]
   %.not25 = icmp eq ptr %.sroa.07.0.i.i.ph.i.i, %46
   %53 = select i1 %.not25, i8 0, i8 2
   br label %_ZNK5clang4Decl7hasAttrINS_8WeakAttrEEEbv.exit
@@ -3118,7 +3118,7 @@ _ZNK5clang13CXXMethodDecl9getParentEv.exit:       ; preds = %14, %22
   br i1 %.not.i.i.i.i.i, label %_ZN5clangneENS_22specific_attr_iteratorINS_8WeakAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !551
 
 _ZN5clangneENS_22specific_attr_iteratorINS_8WeakAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i: ; preds = %72, %.lr.ph.i.i.i.i.i
-  %.sroa.07.0.i.i.ph.i.i = phi ptr [ %67, %72 ], [ %.sroa.07.1.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+  %.sroa.07.0.i.i.ph.i.i = phi ptr [ %.sroa.07.1.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %67, %72 ]
   %.not61 = icmp eq ptr %.sroa.07.0.i.i.ph.i.i, %67
   %74 = select i1 %.not61, i8 0, i8 2
   br label %_ZNK5clang4Decl7hasAttrINS_8WeakAttrEEEbv.exit
@@ -3341,7 +3341,7 @@ _ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.thread.us: ; preds
   br i1 %44, label %.thread40, label %_ZNK5clang4Decl7hasAttrINS_13GNUInlineAttrEEEbv.exit.thread35.us
 
 _ZNK5clang4Decl7hasAttrINS_13GNUInlineAttrEEEbv.exit.thread35.us: ; preds = %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.thread.us, %34, %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.us, %_ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit.split.us
-  %.218.ph.us = phi i1 [ true, %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.us ], [ %.01649.us, %_ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit.split.us ], [ true, %34 ], [ true, %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.thread.us ]
+  %.218.ph.us = phi i1 [ true, %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.thread.us ], [ true, %34 ], [ %.01649.us, %_ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit.split.us ], [ true, %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.us ]
   %45 = getelementptr inbounds nuw i8, ptr %.sroa.028.047.us, i64 104
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.us = load i64, ptr %45, align 8
   %46 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.us, 3
@@ -3431,7 +3431,7 @@ _ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.thread: ; preds = 
   br i1 %82, label %.thread40, label %_ZNK5clang4Decl7hasAttrINS_13GNUInlineAttrEEEbv.exit.thread35
 
 _ZNK5clang4Decl7hasAttrINS_13GNUInlineAttrEEEbv.exit.thread35: ; preds = %67, %72, %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit, %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.thread, %56, %52, %_ZNK5clang4Decl7hasAttrINS_13GNUInlineAttrEEEbv.exit, %_ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit.split
-  %.218.ph = phi i1 [ true, %_ZNK5clang4Decl7hasAttrINS_13GNUInlineAttrEEEbv.exit ], [ %.01649, %_ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit.split ], [ true, %56 ], [ true, %52 ], [ true, %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.thread ], [ true, %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit ], [ true, %72 ], [ true, %67 ]
+  %.218.ph = phi i1 [ true, %_ZNK5clang4Decl7hasAttrINS_13GNUInlineAttrEEEbv.exit ], [ true, %72 ], [ %.01649, %_ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit.split ], [ true, %56 ], [ true, %52 ], [ true, %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.thread ], [ true, %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit ], [ true, %67 ]
   %83 = getelementptr inbounds nuw i8, ptr %.sroa.028.047, i64 104
   %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %83, align 8
   %84 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, 3
@@ -5444,7 +5444,7 @@ _ZNK5clang7VarDecl18isStaticDataMemberEv.exit.thread: ; preds = %293, %308, %_ZN
   br i1 %.not.i.i.i.i.i, label %_ZN5clangneENS_22specific_attr_iteratorINS_8WeakAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !551
 
 _ZN5clangneENS_22specific_attr_iteratorINS_8WeakAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i: ; preds = %331, %.lr.ph.i.i.i.i.i
-  %.sroa.07.0.i.i.ph.i.i = phi ptr [ %326, %331 ], [ %.sroa.07.1.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+  %.sroa.07.0.i.i.ph.i.i = phi ptr [ %.sroa.07.1.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %326, %331 ]
   %333 = icmp ne ptr %.sroa.07.0.i.i.ph.i.i, %326
   %334 = or i1 %.090, %333
   br label %_ZNK5clang4Decl7hasAttrINS_8WeakAttrEEEbv.exit
@@ -6873,7 +6873,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br label %.critedge47
 
 .critedge47:                                      ; preds = %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph78, %_ZNSt6vectorIPN5clang4DeclESaIS2_EED2Ev.exit, %_ZNK5clang4Decl5attrsEv.exit, %78, %.critedge45
-  %.0 = phi i1 [ false, %.critedge45 ], [ false, %78 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZNSt6vectorIPN5clang4DeclESaIS2_EED2Ev.exit ], [ %76, %.lr.ph78 ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ false, %.critedge45 ], [ %76, %.lr.ph78 ], [ false, %78 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZNSt6vectorIPN5clang4DeclESaIS2_EED2Ev.exit ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -6968,7 +6968,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %.loopexit, %_ZNK5clang4Decl5attrsEv.exit, %2
-  %.0 = phi i1 [ false, %2 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ %40, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ false, %2 ], [ %40, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -7061,7 +7061,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %.loopexit, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ %38, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %38, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -7203,7 +7203,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %.loopexit, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ %38, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %38, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -7296,7 +7296,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %.loopexit, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ %38, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %38, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -7389,7 +7389,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %.loopexit, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ %38, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %38, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -7530,7 +7530,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph68, label %.critedge55
 
 .critedge55:                                      ; preds = %23, %.lr.ph68, %.critedge53, %_ZNK5clang4Decl5attrsEv.exit, %.critedge, %5
-  %.0 = phi i1 [ false, %5 ], [ false, %.critedge ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.critedge53 ], [ %41, %.lr.ph68 ], [ false, %23 ]
+  %.0 = phi i1 [ false, %5 ], [ false, %.critedge ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ %41, %.lr.ph68 ], [ true, %.critedge53 ], [ false, %23 ]
   ret i1 %.0
 }
 
@@ -7641,7 +7641,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_16StaticAssertDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit, %7, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %7 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_16StaticAssertDeclEEEDcPT0_.exit.thread ], [ %47, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ false, %2 ], [ %47, %.lr.ph ], [ false, %7 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_16StaticAssertDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -7738,7 +7738,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_24PragmaDetectMismatchDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_24PragmaDetectMismatchDeclEEEDcPT0_.exit.thread ], [ %38, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %38, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_24PragmaDetectMismatchDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -7835,7 +7835,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_17PragmaCommentDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_17PragmaCommentDeclEEEDcPT0_.exit.thread ], [ %38, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %38, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_17PragmaCommentDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -7932,7 +7932,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_20ObjCPropertyImplDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_20ObjCPropertyImplDeclEEEDcPT0_.exit.thread ], [ %38, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %38, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_20ObjCPropertyImplDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -8056,7 +8056,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph51, label %.critedge41
 
 .critedge41:                                      ; preds = %.lr.ph, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph51, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_20OMPThreadPrivateDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_20OMPThreadPrivateDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ %54, %.lr.ph51 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ %54, %.lr.ph51 ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_20OMPThreadPrivateDeclEEEDcPT0_.exit.thread ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -8175,7 +8175,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph51, label %.critedge41
 
 .critedge41:                                      ; preds = %.lr.ph, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph51, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_15OMPRequiresDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_15OMPRequiresDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ %48, %.lr.ph51 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ %48, %.lr.ph51 ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_15OMPRequiresDeclEEEDcPT0_.exit.thread ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -8324,7 +8324,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph77, label %.critedge59
 
 .critedge59:                                      ; preds = %.lr.ph, %.lr.ph74, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph77, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_15OMPAllocateDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_15OMPAllocateDeclEEEDcPT0_.exit.thread ], [ false, %.lr.ph74 ], [ %63, %.lr.ph77 ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ false, %.lr.ph74 ], [ %63, %.lr.ph77 ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_15OMPAllocateDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -8418,7 +8418,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph58, label %.critedge46
 
 .critedge46:                                      ; preds = %.lr.ph, %.lr.ph58, %30, %_ZNK5clang4Decl5attrsEv.exit, %24, %5
-  %.0 = phi i1 [ false, %5 ], [ false, %24 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %30 ], [ %46, %.lr.ph58 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ false, %5 ], [ false, %24 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ %46, %.lr.ph58 ], [ true, %30 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -8520,7 +8520,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph82, label %.critedge39
 
 .critedge39:                                      ; preds = %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph82, %.loopexit, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ %42, %.lr.ph82 ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %42, %.lr.ph82 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -8721,7 +8721,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph110, label %.critedge78
 
 .critedge78:                                      ; preds = %.lr.ph, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph110, %.loopexit, %_ZNK5clang4Decl5attrsEv.exit, %32
-  %.0 = phi i1 [ false, %32 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ %82, %.lr.ph110 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ %82, %.lr.ph110 ], [ false, %32 ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ true, %.loopexit ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -8814,7 +8814,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %.loopexit, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ %38, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %38, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -8907,7 +8907,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %.loopexit, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ %38, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %38, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -9024,7 +9024,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph95, label %.critedge65
 
 .critedge65:                                      ; preds = %.lr.ph, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph95, %.loopexit, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ %49, %.lr.ph95 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ %49, %.lr.ph95 ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ true, %.loopexit ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -9117,7 +9117,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %.loopexit, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ %38, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %38, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -9210,7 +9210,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %.loopexit, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ %38, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %38, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -9394,7 +9394,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_24UnresolvedUsingValueDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit, %6, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %6 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_24UnresolvedUsingValueDeclEEEDcPT0_.exit.thread ], [ %49, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ false, %2 ], [ %49, %.lr.ph ], [ false, %6 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_24UnresolvedUsingValueDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -9491,7 +9491,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_25UnnamedGlobalConstantDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_25UnnamedGlobalConstantDeclEEEDcPT0_.exit.thread ], [ %38, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %38, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_25UnnamedGlobalConstantDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -9588,7 +9588,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_23TemplateParamObjectDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_23TemplateParamObjectDeclEEEDcPT0_.exit.thread ], [ %38, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %38, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_23TemplateParamObjectDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -9685,7 +9685,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_10MSGuidDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_10MSGuidDeclEEEDcPT0_.exit.thread ], [ %38, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %38, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_10MSGuidDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -9782,7 +9782,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_17IndirectFieldDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_17IndirectFieldDeclEEEDcPT0_.exit.thread ], [ %38, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %38, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_17IndirectFieldDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -9885,7 +9885,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_16EnumConstantDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit, %2
-  %.0 = phi i1 [ false, %2 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_16EnumConstantDeclEEEDcPT0_.exit.thread ], [ %42, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ false, %2 ], [ %42, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_16EnumConstantDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -10299,7 +10299,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %14, %2, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_7VarDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ false, %2 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_7VarDeclEEEDcPT0_.exit.thread ], [ false, %14 ], [ %51, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %51, %.lr.ph ], [ false, %2 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_7VarDeclEEEDcPT0_.exit.thread ], [ false, %14 ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -10461,7 +10461,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph45, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit
 
 _ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit: ; preds = %.lr.ph, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph45, %27, %.critedge, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_29VarTemplateSpecializationDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_29VarTemplateSpecializationDeclEEEDcPT0_.exit.thread ], [ false, %.critedge ], [ false, %27 ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ %64, %.lr.ph45 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ %64, %.lr.ph45 ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ false, %.critedge ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_29VarTemplateSpecializationDeclEEEDcPT0_.exit.thread ], [ false, %27 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -10668,7 +10668,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph40, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit
 
 _ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit: ; preds = %.lr.ph.i, %.lr.ph, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph40, %46, %._crit_edge, %22, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_36VarTemplatePartialSpecializationDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ false, %22 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_36VarTemplatePartialSpecializationDeclEEEDcPT0_.exit.thread ], [ false, %._crit_edge ], [ false, %46 ], [ false, %.lr.ph ], [ %83, %.lr.ph40 ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ false, %.lr.ph.i ]
+  %.0 = phi i1 [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ false, %22 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ %83, %.lr.ph40 ], [ false, %._crit_edge ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_36VarTemplatePartialSpecializationDeclEEEDcPT0_.exit.thread ], [ false, %46 ], [ false, %.lr.ph ], [ false, %.lr.ph.i ]
   ret i1 %.0
 }
 
@@ -10822,7 +10822,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %14, %2, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_11ParmVarDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit, %32, %23
-  %.0 = phi i1 [ false, %2 ], [ false, %23 ], [ false, %32 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_11ParmVarDeclEEEDcPT0_.exit.thread ], [ false, %14 ], [ %70, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %70, %.lr.ph ], [ false, %2 ], [ false, %23 ], [ false, %32 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_11ParmVarDeclEEEDcPT0_.exit.thread ], [ false, %14 ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -10942,7 +10942,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %14, %2, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_19OMPCapturedExprDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ false, %2 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_19OMPCapturedExprDeclEEEDcPT0_.exit.thread ], [ false, %14 ], [ %51, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %51, %.lr.ph ], [ false, %2 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_19OMPCapturedExprDeclEEEDcPT0_.exit.thread ], [ false, %14 ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -11062,7 +11062,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %14, %2, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_17ImplicitParamDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ false, %2 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_17ImplicitParamDeclEEEDcPT0_.exit.thread ], [ false, %14 ], [ %51, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %51, %.lr.ph ], [ false, %2 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_17ImplicitParamDeclEEEDcPT0_.exit.thread ], [ false, %14 ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -11203,7 +11203,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph52, label %.critedge42
 
 .critedge42:                                      ; preds = %.lr.ph, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph52, %14, %2, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_17DecompositionDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_17DecompositionDeclEEEDcPT0_.exit.thread ], [ false, %2 ], [ false, %14 ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ %60, %.lr.ph52 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ %60, %.lr.ph52 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ false, %2 ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_17DecompositionDeclEEEDcPT0_.exit.thread ], [ false, %14 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -11364,7 +11364,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond57.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_23NonTypeTemplateParmDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit, %_ZNK5clang23NonTypeTemplateParmDecl18getDefaultArgumentEv.exit, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %_ZNK5clang23NonTypeTemplateParmDecl18getDefaultArgumentEv.exit ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_23NonTypeTemplateParmDeclEEEDcPT0_.exit.thread ], [ %67, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ false, %2 ], [ %67, %.lr.ph ], [ false, %_ZNK5clang23NonTypeTemplateParmDecl18getDefaultArgumentEv.exit ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_23NonTypeTemplateParmDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -11465,7 +11465,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_14MSPropertyDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit, %2
-  %.0 = phi i1 [ false, %2 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_14MSPropertyDeclEEEDcPT0_.exit.thread ], [ %40, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ false, %2 ], [ %40, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_14MSPropertyDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -11604,7 +11604,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_9FieldDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit, %22, %_ZNK5clang9FieldDecl11getBitWidthEv.exit, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %_ZNK5clang9FieldDecl11getBitWidthEv.exit ], [ false, %22 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_9FieldDeclEEEDcPT0_.exit.thread ], [ %61, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ false, %2 ], [ %61, %.lr.ph ], [ false, %_ZNK5clang9FieldDecl11getBitWidthEv.exit ], [ false, %22 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_9FieldDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -11726,7 +11726,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_12ObjCIvarDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit, %_ZNK5clang9FieldDecl11getBitWidthEv.exit, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %_ZNK5clang9FieldDecl11getBitWidthEv.exit ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_12ObjCIvarDeclEEEDcPT0_.exit.thread ], [ %54, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ false, %2 ], [ %54, %.lr.ph ], [ false, %_ZNK5clang9FieldDecl11getBitWidthEv.exit ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_12ObjCIvarDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -11848,7 +11848,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_19ObjCAtDefsFieldDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit, %_ZNK5clang9FieldDecl11getBitWidthEv.exit, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %_ZNK5clang9FieldDecl11getBitWidthEv.exit ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_19ObjCAtDefsFieldDeclEEEDcPT0_.exit.thread ], [ %54, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ false, %2 ], [ %54, %.lr.ph ], [ false, %_ZNK5clang9FieldDecl11getBitWidthEv.exit ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_19ObjCAtDefsFieldDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -11946,7 +11946,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge34
 
 .critedge34:                                      ; preds = %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_11BindingDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_11BindingDeclEEEDcPT0_.exit.thread ], [ %37, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %37, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_11BindingDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -12043,7 +12043,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_15UsingShadowDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_15UsingShadowDeclEEEDcPT0_.exit.thread ], [ %38, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %38, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_15UsingShadowDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -12140,7 +12140,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_26ConstructorUsingShadowDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_26ConstructorUsingShadowDeclEEEDcPT0_.exit.thread ], [ %38, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %38, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_26ConstructorUsingShadowDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -12237,7 +12237,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_13UsingPackDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_13UsingPackDeclEEEDcPT0_.exit.thread ], [ %38, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %38, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_13UsingPackDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -12342,7 +12342,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_18UsingDirectiveDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit, %2
-  %.0 = phi i1 [ false, %2 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_18UsingDirectiveDeclEEEDcPT0_.exit.thread ], [ %41, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ false, %2 ], [ %41, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_18UsingDirectiveDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -12439,7 +12439,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_27UnresolvedUsingIfExistsDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_27UnresolvedUsingIfExistsDeclEEEDcPT0_.exit.thread ], [ %38, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %38, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_27UnresolvedUsingIfExistsDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -12616,7 +12616,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph44, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph44, %.loopexit, %_ZNK5clang4Decl5attrsEv.exit, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE20TraverseRecordHelperEPNS_10RecordDeclE.exit
-  %.0 = phi i1 [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE20TraverseRecordHelperEPNS_10RecordDeclE.exit ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ %71, %.lr.ph44 ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE20TraverseRecordHelperEPNS_10RecordDeclE.exit ], [ %71, %.lr.ph44 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -12714,7 +12714,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %.loopexit, %_ZNK5clang4Decl5attrsEv.exit, %2
-  %.0 = phi i1 [ false, %2 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ %41, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ false, %2 ], [ %41, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -12850,7 +12850,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph45, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit
 
 _ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit: ; preds = %.lr.ph, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph45, %.loopexit, %_ZNK5clang4Decl5attrsEv.exit, %.critedge
-  %.0 = phi i1 [ false, %.critedge ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ %52, %.lr.ph45 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ %52, %.lr.ph45 ], [ false, %.critedge ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ true, %.loopexit ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -13031,7 +13031,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph40, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit
 
 _ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit: ; preds = %.lr.ph.i, %.lr.ph, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph40, %22, %.loopexit, %_ZNK5clang4Decl5attrsEv.exit, %._crit_edge
-  %.0 = phi i1 [ false, %22 ], [ false, %._crit_edge ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ false, %.lr.ph ], [ %71, %.lr.ph40 ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ false, %.lr.ph.i ]
+  %.0 = phi i1 [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ false, %22 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ false, %._crit_edge ], [ false, %.lr.ph ], [ true, %.loopexit ], [ %71, %.lr.ph40 ], [ false, %.lr.ph.i ]
   ret i1 %.0
 }
 
@@ -13226,7 +13226,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph62, label %.critedge37
 
 .critedge37:                                      ; preds = %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph62, %.loopexit, %_ZNK5clang4Decl5attrsEv.exit, %41, %_ZNK5clang7TagDecl15getQualifierLocEv.exit
-  %.0 = phi i1 [ false, %_ZNK5clang7TagDecl15getQualifierLocEv.exit ], [ false, %41 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ %79, %.lr.ph62 ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ false, %_ZNK5clang7TagDecl15getQualifierLocEv.exit ], [ %79, %.lr.ph62 ], [ false, %41 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.loopexit ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -13331,7 +13331,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_27UnresolvedUsingTypenameDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit, %2
-  %.0 = phi i1 [ false, %2 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_27UnresolvedUsingTypenameDeclEEEDcPT0_.exit.thread ], [ %41, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ false, %2 ], [ %41, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_27UnresolvedUsingTypenameDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -13449,7 +13449,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_11TypedefDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit, %_ZNK5clang15TypedefNameDecl17getTypeSourceInfoEv.exit
-  %.0 = phi i1 [ false, %_ZNK5clang15TypedefNameDecl17getTypeSourceInfoEv.exit ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_11TypedefDeclEEEDcPT0_.exit.thread ], [ %49, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ false, %_ZNK5clang15TypedefNameDecl17getTypeSourceInfoEv.exit ], [ %49, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_11TypedefDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -13567,7 +13567,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_13TypeAliasDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit, %_ZNK5clang15TypedefNameDecl17getTypeSourceInfoEv.exit
-  %.0 = phi i1 [ false, %_ZNK5clang15TypedefNameDecl17getTypeSourceInfoEv.exit ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_13TypeAliasDeclEEEDcPT0_.exit.thread ], [ %49, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ false, %_ZNK5clang15TypedefNameDecl17getTypeSourceInfoEv.exit ], [ %49, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_13TypeAliasDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -13691,7 +13691,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_17ObjCTypeParamDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit, %_ZNK5clang15TypedefNameDecl17getTypeSourceInfoEv.exit
-  %.0 = phi i1 [ false, %_ZNK5clang15TypedefNameDecl17getTypeSourceInfoEv.exit ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_17ObjCTypeParamDeclEEEDcPT0_.exit.thread ], [ %52, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ false, %_ZNK5clang15TypedefNameDecl17getTypeSourceInfoEv.exit ], [ %52, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_17ObjCTypeParamDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -14121,7 +14121,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond70.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph.i, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %52, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_24TemplateTemplateParmDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit, %_ZNK5clang24TemplateTemplateParmDecl18getDefaultArgumentEv.exit, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %52 ], [ false, %_ZNK5clang24TemplateTemplateParmDecl18getDefaultArgumentEv.exit ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_24TemplateTemplateParmDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ %89, %.lr.ph ], [ false, %.lr.ph.i ]
+  %.0 = phi i1 [ false, %2 ], [ false, %52 ], [ false, %_ZNK5clang24TemplateTemplateParmDecl18getDefaultArgumentEv.exit ], [ %89, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_24TemplateTemplateParmDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ false, %.lr.ph.i ]
   ret i1 %.0
 }
 
@@ -14285,7 +14285,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph.i, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %21, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_15VarTemplateDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit, %32, %.thread27.i
-  %.0 = phi i1 [ false, %21 ], [ false, %.thread27.i ], [ false, %32 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_15VarTemplateDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ %70, %.lr.ph ], [ false, %.lr.ph.i ]
+  %.0 = phi i1 [ %70, %.lr.ph ], [ false, %21 ], [ false, %.thread27.i ], [ false, %32 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_15VarTemplateDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ false, %.lr.ph.i ]
   ret i1 %.0
 }
 
@@ -14437,7 +14437,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph.i, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %25, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_21TypeAliasTemplateDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %25 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_21TypeAliasTemplateDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ %62, %.lr.ph ], [ false, %.lr.ph.i ]
+  %.0 = phi i1 [ false, %2 ], [ false, %25 ], [ %62, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_21TypeAliasTemplateDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ false, %.lr.ph.i ]
   ret i1 %.0
 }
 
@@ -14601,7 +14601,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph.i, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %21, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_20FunctionTemplateDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit, %32, %.thread27.i
-  %.0 = phi i1 [ false, %21 ], [ false, %.thread27.i ], [ false, %32 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_20FunctionTemplateDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ %70, %.lr.ph ], [ false, %.lr.ph.i ]
+  %.0 = phi i1 [ %70, %.lr.ph ], [ false, %21 ], [ false, %.thread27.i ], [ false, %32 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_20FunctionTemplateDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ false, %.lr.ph.i ]
   ret i1 %.0
 }
 
@@ -14765,7 +14765,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph.i, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %21, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_17ClassTemplateDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit, %32, %.thread27.i
-  %.0 = phi i1 [ false, %21 ], [ false, %.thread27.i ], [ false, %32 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_17ClassTemplateDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ %70, %.lr.ph ], [ false, %.lr.ph.i ]
+  %.0 = phi i1 [ %70, %.lr.ph ], [ false, %21 ], [ false, %.thread27.i ], [ false, %32 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_17ClassTemplateDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ false, %.lr.ph.i ]
   ret i1 %.0
 }
 
@@ -14917,7 +14917,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph.i, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %21, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_11ConceptDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit, %.thread27.i
-  %.0 = phi i1 [ false, %21 ], [ false, %.thread27.i ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_11ConceptDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ %62, %.lr.ph ], [ false, %.lr.ph.i ]
+  %.0 = phi i1 [ %62, %.lr.ph ], [ false, %21 ], [ false, %.thread27.i ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_11ConceptDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ false, %.lr.ph.i ]
   ret i1 %.0
 }
 
@@ -15063,7 +15063,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph.i, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %21, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_19BuiltinTemplateDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ false, %21 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_19BuiltinTemplateDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ %58, %.lr.ph ], [ false, %.lr.ph.i ]
+  %.0 = phi i1 [ %58, %.lr.ph ], [ false, %21 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_19BuiltinTemplateDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ false, %.lr.ph.i ]
   ret i1 %.0
 }
 
@@ -15223,7 +15223,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_23ObjCCompatibleAliasDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_23ObjCCompatibleAliasDeclEEEDcPT0_.exit.thread ], [ %38, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %38, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_23ObjCCompatibleAliasDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -15372,7 +15372,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_9LabelDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_9LabelDeclEEEDcPT0_.exit.thread ], [ %38, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %38, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_9LabelDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -15478,7 +15478,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_13UsingEnumDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit, %2
-  %.0 = phi i1 [ false, %2 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_13UsingEnumDeclEEEDcPT0_.exit.thread ], [ %44, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ false, %2 ], [ %44, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_13UsingEnumDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -15600,7 +15600,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_9UsingDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit, %6, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %6 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_9UsingDeclEEEDcPT0_.exit.thread ], [ %49, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ false, %2 ], [ %49, %.lr.ph ], [ false, %6 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_9UsingDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -15703,7 +15703,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_29LifetimeExtendedTemporaryDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit, %2
-  %.0 = phi i1 [ false, %2 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_29LifetimeExtendedTemporaryDeclEEEDcPT0_.exit.thread ], [ %42, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ false, %2 ], [ %42, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_29LifetimeExtendedTemporaryDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -15800,7 +15800,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_10ImportDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_10ImportDeclEEEDcPT0_.exit.thread ], [ %38, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %38, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_10ImportDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -15917,7 +15917,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph36, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE25TraverseTemplateArgumentsEN4llvm8ArrayRefINS_16TemplateArgumentEEE.exit
 
 _ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE25TraverseTemplateArgumentsEN4llvm8ArrayRefINS_16TemplateArgumentEEE.exit: ; preds = %.lr.ph, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph36, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_33ImplicitConceptSpecializationDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_33ImplicitConceptSpecializationDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ %46, %.lr.ph36 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ %46, %.lr.ph36 ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_33ImplicitConceptSpecializationDeclEEEDcPT0_.exit.thread ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -16078,7 +16078,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph72, label %.critedge55
 
 .critedge55:                                      ; preds = %.lr.ph, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph72, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_18FriendTemplateDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit, %11, %7
-  %.0 = phi i1 [ false, %7 ], [ false, %11 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_18FriendTemplateDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ %65, %.lr.ph72 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ false, %7 ], [ %65, %.lr.ph72 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ false, %11 ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_18FriendTemplateDeclEEEDcPT0_.exit.thread ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -16245,7 +16245,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge37
 
 .critedge37:                                      ; preds = %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_10FriendDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit, %36, %_ZNK5clang14ElaboratedType15getOwnedTagDeclEv.exit, %7
-  %.0 = phi i1 [ false, %7 ], [ false, %_ZNK5clang14ElaboratedType15getOwnedTagDeclEv.exit ], [ false, %36 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_10FriendDeclEEEDcPT0_.exit.thread ], [ %73, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ false, %7 ], [ %73, %.lr.ph ], [ false, %_ZNK5clang14ElaboratedType15getOwnedTagDeclEv.exit ], [ false, %36 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_10FriendDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -16348,7 +16348,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_16FileScopeAsmDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit, %2
-  %.0 = phi i1 [ false, %2 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_16FileScopeAsmDeclEEEDcPT0_.exit.thread ], [ %42, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ false, %2 ], [ %42, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_16FileScopeAsmDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -16445,7 +16445,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_9EmptyDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_9EmptyDeclEEEDcPT0_.exit.thread ], [ %38, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %38, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_9EmptyDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -16542,7 +16542,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br i1 %or.cond.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_14AccessSpecDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_14AccessSpecDeclEEEDcPT0_.exit.thread ], [ %38, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+  %.0 = phi i1 [ %38, %.lr.ph ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_14AccessSpecDeclEEEDcPT0_.exit.thread ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -17162,7 +17162,7 @@ tailrecurse.backedge:                             ; preds = %_ZNK5clang7TypeLoc1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %tailrecurse.backedge, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit, %3, %138, %135, %121, %119, %114, %112, %110, %108, %106, %104, %102, %100, %98, %96, %94, %92, %90, %88, %86, %84, %82, %80, %78, %76, %74, %72, %66, %63, %61, %59, %57, %53, %50, %48, %46, %44, %42, %40, %38, %36, %34, %32, %30, %28, %26
-  %.0 = phi i1 [ %140, %138 ], [ %27, %26 ], [ %29, %28 ], [ %31, %30 ], [ %33, %32 ], [ %35, %34 ], [ %37, %36 ], [ %39, %38 ], [ %41, %40 ], [ %43, %42 ], [ %45, %44 ], [ %137, %135 ], [ %47, %46 ], [ %49, %48 ], [ %113, %112 ], [ %52, %50 ], [ %56, %53 ], [ %58, %57 ], [ %60, %59 ], [ %62, %61 ], [ %65, %63 ], [ %71, %66 ], [ %73, %72 ], [ %75, %74 ], [ %77, %76 ], [ %79, %78 ], [ %81, %80 ], [ %83, %82 ], [ %85, %84 ], [ %118, %114 ], [ %87, %86 ], [ %89, %88 ], [ %91, %90 ], [ %93, %92 ], [ %95, %94 ], [ %97, %96 ], [ %124, %121 ], [ %120, %119 ], [ %99, %98 ], [ %101, %100 ], [ %103, %102 ], [ %105, %104 ], [ %107, %106 ], [ %109, %108 ], [ %111, %110 ], [ true, %3 ], [ true, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit ], [ true, %tailrecurse.backedge ]
+  %.0 = phi i1 [ %140, %138 ], [ %111, %110 ], [ %109, %108 ], [ %27, %26 ], [ %29, %28 ], [ %31, %30 ], [ %33, %32 ], [ %35, %34 ], [ %37, %36 ], [ %39, %38 ], [ %41, %40 ], [ %43, %42 ], [ %45, %44 ], [ %137, %135 ], [ %47, %46 ], [ %49, %48 ], [ %113, %112 ], [ %52, %50 ], [ %56, %53 ], [ %58, %57 ], [ %60, %59 ], [ %62, %61 ], [ %65, %63 ], [ %71, %66 ], [ %73, %72 ], [ %75, %74 ], [ %77, %76 ], [ %79, %78 ], [ %81, %80 ], [ %83, %82 ], [ %85, %84 ], [ %118, %114 ], [ %87, %86 ], [ %89, %88 ], [ %91, %90 ], [ %93, %92 ], [ %95, %94 ], [ %97, %96 ], [ %124, %121 ], [ %120, %119 ], [ %99, %98 ], [ %101, %100 ], [ %103, %102 ], [ %105, %104 ], [ %107, %106 ], [ true, %3 ], [ true, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit ], [ true, %tailrecurse.backedge ]
   ret i1 %.0
 }
 
@@ -18644,7 +18644,7 @@ tailrecurse.backedge:                             ; preds = %.lr.ph, %.lr.ph, %.
   br label %.loopexit
 
 .loopexit:                                        ; preds = %tailrecurse.backedge, %.lr.ph, %2, %71, %67, %65, %60, %58, %56, %54, %52, %50, %48, %46, %43, %41, %39, %37, %33, %30, %28, %26, %24, %20, %18, %15, %13, %11, %9
-  %.0 = phi i1 [ %47, %46 ], [ %66, %65 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %61, %60 ], [ %16, %15 ], [ %59, %58 ], [ %57, %56 ], [ %70, %67 ], [ %53, %52 ], [ %49, %48 ], [ %19, %18 ], [ %72, %71 ], [ %51, %50 ], [ %23, %20 ], [ %25, %24 ], [ %27, %26 ], [ %29, %28 ], [ %32, %30 ], [ %36, %33 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %55, %54 ], [ true, %2 ], [ true, %.lr.ph ], [ true, %tailrecurse.backedge ]
+  %.0 = phi i1 [ %47, %46 ], [ %55, %54 ], [ %44, %43 ], [ %66, %65 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %61, %60 ], [ %16, %15 ], [ %59, %58 ], [ %57, %56 ], [ %70, %67 ], [ %53, %52 ], [ %49, %48 ], [ %19, %18 ], [ %72, %71 ], [ %51, %50 ], [ %23, %20 ], [ %25, %24 ], [ %27, %26 ], [ %29, %28 ], [ %32, %30 ], [ %36, %33 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ true, %2 ], [ true, %.lr.ph ], [ true, %tailrecurse.backedge ]
   ret i1 %.0
 }
 
@@ -22362,7 +22362,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10inst
   %.not4965 = icmp eq i32 %23, 0
   br i1 %.not4965, label %.critedge51, label %.lr.ph67
 
-_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread: ; preds = %35, %29, %39, %33, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit
+_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread: ; preds = %40, %29, %33, %44, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit
   %26 = getelementptr inbounds nuw i8, ptr %.04866, i64 8
   %.not49 = icmp eq ptr %26, %25
   br i1 %.not49, label %.critedge51, label %.lr.ph67
@@ -22371,47 +22371,47 @@ _ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE26TraverseCon
   %.04866 = phi ptr [ %26, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread ], [ %21, %.critedge ]
   %27 = load ptr, ptr %.04866, align 8, !tbaa !1006
   %28 = load i32, ptr %27, align 4, !tbaa !1008
-  switch i32 %28, label %43 [
+  switch i32 %28, label %48 [
     i32 0, label %29
-    i32 1, label %33
-    i32 2, label %33
-    i32 3, label %35
+    i32 1, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit
+    i32 2, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit
+    i32 3, label %40
   ]
 
 29:                                               ; preds = %.lr.ph67
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %31 = load i32, ptr %30, align 8, !tbaa !1011
   %32 = icmp eq i32 %31, 1
-  br i1 %32, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit
+  br i1 %32, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread, label %33
 
-33:                                               ; preds = %.lr.ph67, %.lr.ph67
-  %34 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE30TraverseConceptExprRequirementEPNS_8concepts15ExprRequirementE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %27)
-  br i1 %34, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread, label %.loopexit
+33:                                               ; preds = %29
+  %34 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %34, align 8
+  %35 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, -8
+  %36 = inttoptr i64 %35 to ptr
+  %.sroa.0.0.copyload.i.i = load i64, ptr %36, align 8, !tbaa !465
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  %38 = inttoptr i64 %.sroa.0.0.copyload.i.i to ptr
+  %39 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE15TraverseTypeLocENS_7TypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr %38, ptr nonnull %37)
+  br i1 %39, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread, label %.loopexit
 
-35:                                               ; preds = %.lr.ph67
-  %36 = getelementptr inbounds nuw i8, ptr %27, i64 24
-  %37 = load i8, ptr %36, align 8, !tbaa !1019, !range !54, !noundef !55
-  %38 = trunc nuw i8 %37 to i1
-  br i1 %38, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread, label %39
+40:                                               ; preds = %.lr.ph67
+  %41 = getelementptr inbounds nuw i8, ptr %27, i64 24
+  %42 = load i8, ptr %41, align 8, !tbaa !1019, !range !54, !noundef !55
+  %43 = trunc nuw i8 %42 to i1
+  br i1 %43, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread, label %44
 
-39:                                               ; preds = %35
-  %40 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %41 = load ptr, ptr %40, align 8, !tbaa !1022
-  %42 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %41, ptr noundef null)
-  br i1 %42, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread, label %.loopexit
+44:                                               ; preds = %40
+  %45 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %46 = load ptr, ptr %45, align 8, !tbaa !1022
+  %47 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %46, ptr noundef null)
+  br i1 %47, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread, label %.loopexit
 
-43:                                               ; preds = %.lr.ph67
+48:                                               ; preds = %.lr.ph67
   unreachable
 
-_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit: ; preds = %29
-  %44 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %44, align 8
-  %45 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, -8
-  %46 = inttoptr i64 %45 to ptr
-  %.sroa.0.0.copyload.i.i = load i64, ptr %46, align 8, !tbaa !465
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %48 = inttoptr i64 %.sroa.0.0.copyload.i.i to ptr
-  %49 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE15TraverseTypeLocENS_7TypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr %48, ptr nonnull %47)
+_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit: ; preds = %.lr.ph67, %.lr.ph67
+  %49 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE30TraverseConceptExprRequirementEPNS_8concepts15ExprRequirementE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %27)
   br i1 %49, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread, label %.loopexit
 
 .critedge51:                                      ; preds = %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread, %.critedge
@@ -22486,8 +22486,8 @@ _ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit: ; preds = %
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %39, %33, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit, %.loopexit.sink.split, %3
-  %.0 = phi i1 [ false, %3 ], [ %.0.ph, %.loopexit.sink.split ], [ false, %39 ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit ], [ false, %33 ], [ false, %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph, %33, %44, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit, %.loopexit.sink.split, %3
+  %.0 = phi i1 [ %.0.ph, %.loopexit.sink.split ], [ false, %3 ], [ false, %33 ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit ], [ false, %44 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -25771,7 +25771,7 @@ _ZNK5clang15FunctionTypeLoc12getReturnLocEv.exit: ; preds = %147, %153
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %.lr.ph.i, %69, %.lr.ph119, %55, %173, %_ZNK5clang15FunctionTypeLoc12getReturnLocEv.exit, %143, %176
-  %.0.ph = phi i1 [ %178, %176 ], [ false, %143 ], [ false, %_ZNK5clang15FunctionTypeLoc12getReturnLocEv.exit ], [ false, %173 ], [ false, %55 ], [ false, %69 ], [ false, %.lr.ph119 ], [ false, %.lr.ph.i ]
+  %.0.ph = phi i1 [ %178, %176 ], [ false, %69 ], [ false, %55 ], [ false, %143 ], [ false, %_ZNK5clang15FunctionTypeLoc12getReturnLocEv.exit ], [ false, %173 ], [ false, %.lr.ph119 ], [ false, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit
 
@@ -33478,7 +33478,7 @@ _ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE38TraverseOpe
   br label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE38TraverseOpenACCAssociatedStmtConstructEPNS_30OpenACCAssociatedStmtConstructE.exit.thread
 
 _ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE38TraverseOpenACCAssociatedStmtConstructEPNS_30OpenACCAssociatedStmtConstructE.exit.thread: ; preds = %.lr.ph, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE38TraverseOpenACCAssociatedStmtConstructEPNS_30OpenACCAssociatedStmtConstructE.exit.thread.sink.split, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE38TraverseOpenACCAssociatedStmtConstructEPNS_30OpenACCAssociatedStmtConstructE.exit
-  %.0 = phi i1 [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE38TraverseOpenACCAssociatedStmtConstructEPNS_30OpenACCAssociatedStmtConstructE.exit ], [ %.0.ph, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE38TraverseOpenACCAssociatedStmtConstructEPNS_30OpenACCAssociatedStmtConstructE.exit.thread.sink.split ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ %.0.ph, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE38TraverseOpenACCAssociatedStmtConstructEPNS_30OpenACCAssociatedStmtConstructE.exit.thread.sink.split ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE38TraverseOpenACCAssociatedStmtConstructEPNS_30OpenACCAssociatedStmtConstructE.exit ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -33585,7 +33585,7 @@ _ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE38TraverseOpe
   br label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE38TraverseOpenACCAssociatedStmtConstructEPNS_30OpenACCAssociatedStmtConstructE.exit.thread
 
 _ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE38TraverseOpenACCAssociatedStmtConstructEPNS_30OpenACCAssociatedStmtConstructE.exit.thread: ; preds = %.lr.ph, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE38TraverseOpenACCAssociatedStmtConstructEPNS_30OpenACCAssociatedStmtConstructE.exit.thread.sink.split, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE38TraverseOpenACCAssociatedStmtConstructEPNS_30OpenACCAssociatedStmtConstructE.exit
-  %.0 = phi i1 [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE38TraverseOpenACCAssociatedStmtConstructEPNS_30OpenACCAssociatedStmtConstructE.exit ], [ %.0.ph, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE38TraverseOpenACCAssociatedStmtConstructEPNS_30OpenACCAssociatedStmtConstructE.exit.thread.sink.split ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ %.0.ph, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE38TraverseOpenACCAssociatedStmtConstructEPNS_30OpenACCAssociatedStmtConstructE.exit.thread.sink.split ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE38TraverseOpenACCAssociatedStmtConstructEPNS_30OpenACCAssociatedStmtConstructE.exit ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -33692,7 +33692,7 @@ _ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE38TraverseOpe
   br label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE38TraverseOpenACCAssociatedStmtConstructEPNS_30OpenACCAssociatedStmtConstructE.exit.thread
 
 _ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE38TraverseOpenACCAssociatedStmtConstructEPNS_30OpenACCAssociatedStmtConstructE.exit.thread: ; preds = %.lr.ph, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE38TraverseOpenACCAssociatedStmtConstructEPNS_30OpenACCAssociatedStmtConstructE.exit.thread.sink.split, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE38TraverseOpenACCAssociatedStmtConstructEPNS_30OpenACCAssociatedStmtConstructE.exit
-  %.0 = phi i1 [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE38TraverseOpenACCAssociatedStmtConstructEPNS_30OpenACCAssociatedStmtConstructE.exit ], [ %.0.ph, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE38TraverseOpenACCAssociatedStmtConstructEPNS_30OpenACCAssociatedStmtConstructE.exit.thread.sink.split ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ %.0.ph, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE38TraverseOpenACCAssociatedStmtConstructEPNS_30OpenACCAssociatedStmtConstructE.exit.thread.sink.split ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE38TraverseOpenACCAssociatedStmtConstructEPNS_30OpenACCAssociatedStmtConstructE.exit ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -33799,7 +33799,7 @@ _ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE38TraverseOpe
   br label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE38TraverseOpenACCAssociatedStmtConstructEPNS_30OpenACCAssociatedStmtConstructE.exit.thread
 
 _ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE38TraverseOpenACCAssociatedStmtConstructEPNS_30OpenACCAssociatedStmtConstructE.exit.thread: ; preds = %.lr.ph, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE38TraverseOpenACCAssociatedStmtConstructEPNS_30OpenACCAssociatedStmtConstructE.exit.thread.sink.split, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE38TraverseOpenACCAssociatedStmtConstructEPNS_30OpenACCAssociatedStmtConstructE.exit
-  %.0 = phi i1 [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE38TraverseOpenACCAssociatedStmtConstructEPNS_30OpenACCAssociatedStmtConstructE.exit ], [ %.0.ph, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE38TraverseOpenACCAssociatedStmtConstructEPNS_30OpenACCAssociatedStmtConstructE.exit.thread.sink.split ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ %.0.ph, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE38TraverseOpenACCAssociatedStmtConstructEPNS_30OpenACCAssociatedStmtConstructE.exit.thread.sink.split ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE38TraverseOpenACCAssociatedStmtConstructEPNS_30OpenACCAssociatedStmtConstructE.exit ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -33906,7 +33906,7 @@ _ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE38TraverseOpe
   br label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE38TraverseOpenACCAssociatedStmtConstructEPNS_30OpenACCAssociatedStmtConstructE.exit.thread
 
 _ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE38TraverseOpenACCAssociatedStmtConstructEPNS_30OpenACCAssociatedStmtConstructE.exit.thread: ; preds = %.lr.ph, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE38TraverseOpenACCAssociatedStmtConstructEPNS_30OpenACCAssociatedStmtConstructE.exit.thread.sink.split, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE38TraverseOpenACCAssociatedStmtConstructEPNS_30OpenACCAssociatedStmtConstructE.exit
-  %.0 = phi i1 [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE38TraverseOpenACCAssociatedStmtConstructEPNS_30OpenACCAssociatedStmtConstructE.exit ], [ %.0.ph, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE38TraverseOpenACCAssociatedStmtConstructEPNS_30OpenACCAssociatedStmtConstructE.exit.thread.sink.split ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ %.0.ph, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE38TraverseOpenACCAssociatedStmtConstructEPNS_30OpenACCAssociatedStmtConstructE.exit.thread.sink.split ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE38TraverseOpenACCAssociatedStmtConstructEPNS_30OpenACCAssociatedStmtConstructE.exit ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -34013,7 +34013,7 @@ _ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE38TraverseOpe
   br label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE38TraverseOpenACCAssociatedStmtConstructEPNS_30OpenACCAssociatedStmtConstructE.exit.thread
 
 _ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE38TraverseOpenACCAssociatedStmtConstructEPNS_30OpenACCAssociatedStmtConstructE.exit.thread: ; preds = %.lr.ph, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE38TraverseOpenACCAssociatedStmtConstructEPNS_30OpenACCAssociatedStmtConstructE.exit.thread.sink.split, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE38TraverseOpenACCAssociatedStmtConstructEPNS_30OpenACCAssociatedStmtConstructE.exit
-  %.0 = phi i1 [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE38TraverseOpenACCAssociatedStmtConstructEPNS_30OpenACCAssociatedStmtConstructE.exit ], [ %.0.ph, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE38TraverseOpenACCAssociatedStmtConstructEPNS_30OpenACCAssociatedStmtConstructE.exit.thread.sink.split ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ %.0.ph, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE38TraverseOpenACCAssociatedStmtConstructEPNS_30OpenACCAssociatedStmtConstructE.exit.thread.sink.split ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE38TraverseOpenACCAssociatedStmtConstructEPNS_30OpenACCAssociatedStmtConstructE.exit ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -43839,7 +43839,7 @@ _ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit: ; preds = %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %16, %28, %37, %.loopexit.sink.split, %3
-  %.0 = phi i1 [ false, %3 ], [ %.0.ph, %.loopexit.sink.split ], [ false, %28 ], [ false, %37 ], [ false, %16 ]
+  %.0 = phi i1 [ %.0.ph, %.loopexit.sink.split ], [ false, %3 ], [ false, %37 ], [ false, %28 ], [ false, %16 ]
   ret i1 %.0
 }
 
@@ -44910,7 +44910,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10inst
   br i1 %or.cond.not, label %.lr.ph82, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE18VisitOMPClauseListINS_20OMPCopyprivateClauseEEEbPT_.exit
 
 _ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE18VisitOMPClauseListINS_20OMPCopyprivateClauseEEEbPT_.exit: ; preds = %.lr.ph, %.lr.ph71, %.lr.ph76, %.lr.ph82, %2, %._crit_edge, %._crit_edge72, %._crit_edge77
-  %.0 = phi i1 [ true, %._crit_edge77 ], [ true, %._crit_edge ], [ true, %2 ], [ true, %._crit_edge72 ], [ false, %.lr.ph71 ], [ %33, %.lr.ph82 ], [ false, %.lr.ph76 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ %33, %.lr.ph82 ], [ true, %._crit_edge ], [ false, %.lr.ph76 ], [ true, %._crit_edge77 ], [ false, %.lr.ph71 ], [ true, %2 ], [ true, %._crit_edge72 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -44998,7 +44998,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10inst
   br i1 %or.cond.not, label %.lr.ph82, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE18VisitOMPClauseListINS_15OMPCopyinClauseEEEbPT_.exit
 
 _ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE18VisitOMPClauseListINS_15OMPCopyinClauseEEEbPT_.exit: ; preds = %.lr.ph, %.lr.ph71, %.lr.ph76, %.lr.ph82, %2, %._crit_edge, %._crit_edge72, %._crit_edge77
-  %.0 = phi i1 [ true, %._crit_edge77 ], [ true, %._crit_edge ], [ true, %2 ], [ true, %._crit_edge72 ], [ false, %.lr.ph71 ], [ %33, %.lr.ph82 ], [ false, %.lr.ph76 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ %33, %.lr.ph82 ], [ true, %._crit_edge ], [ false, %.lr.ph76 ], [ true, %._crit_edge77 ], [ false, %.lr.ph71 ], [ true, %2 ], [ true, %._crit_edge72 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -45142,7 +45142,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10inst
   br i1 %or.cond.not, label %.lr.ph56, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE18VisitOMPClauseListINS_21OMPFirstprivateClauseEEEbPT_.exit
 
 _ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE18VisitOMPClauseListINS_21OMPFirstprivateClauseEEEbPT_.exit: ; preds = %.lr.ph, %.lr.ph50, %.lr.ph56, %15, %._crit_edge51, %._crit_edge
-  %.0 = phi i1 [ false, %._crit_edge ], [ true, %._crit_edge51 ], [ true, %15 ], [ false, %.lr.ph50 ], [ %29, %.lr.ph56 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ false, %._crit_edge ], [ %29, %.lr.ph56 ], [ true, %15 ], [ true, %._crit_edge51 ], [ false, %.lr.ph50 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -45338,7 +45338,7 @@ _ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE28VisitOMPCla
   br i1 %or.cond.not, label %.lr.ph144, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE18VisitOMPClauseListINS_20OMPInReductionClauseEEEbPT_.exit
 
 _ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE18VisitOMPClauseListINS_20OMPInReductionClauseEEEbPT_.exit: ; preds = %.lr.ph, %.lr.ph123, %.lr.ph128, %.lr.ph133, %.lr.ph138, %.lr.ph144, %24, %._crit_edge124, %._crit_edge129, %._crit_edge134, %._crit_edge139, %._crit_edge, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit, %5, %2
-  %.0 = phi i1 [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit ], [ false, %._crit_edge ], [ false, %2 ], [ false, %5 ], [ true, %._crit_edge139 ], [ true, %._crit_edge124 ], [ true, %24 ], [ true, %._crit_edge134 ], [ true, %._crit_edge129 ], [ false, %.lr.ph123 ], [ %68, %.lr.ph144 ], [ false, %.lr.ph138 ], [ false, %.lr.ph133 ], [ false, %.lr.ph128 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit ], [ false, %._crit_edge ], [ false, %.lr.ph133 ], [ false, %.lr.ph123 ], [ true, %._crit_edge124 ], [ false, %.lr.ph138 ], [ false, %2 ], [ false, %5 ], [ %68, %.lr.ph144 ], [ true, %._crit_edge139 ], [ false, %.lr.ph128 ], [ true, %24 ], [ true, %._crit_edge134 ], [ true, %._crit_edge129 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -45461,7 +45461,7 @@ _ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE28VisitOMPCla
   br i1 %or.cond.not, label %.lr.ph113, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE18VisitOMPClauseListINS_20OMPLastprivateClauseEEEbPT_.exit
 
 _ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE18VisitOMPClauseListINS_20OMPLastprivateClauseEEEbPT_.exit: ; preds = %.lr.ph, %.lr.ph97, %.lr.ph102, %.lr.ph107, %.lr.ph113, %18, %._crit_edge98, %._crit_edge103, %._crit_edge108, %._crit_edge, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit
-  %.0 = phi i1 [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit ], [ false, %._crit_edge ], [ true, %._crit_edge108 ], [ true, %._crit_edge98 ], [ true, %18 ], [ true, %._crit_edge103 ], [ false, %.lr.ph97 ], [ %51, %.lr.ph113 ], [ false, %.lr.ph107 ], [ false, %.lr.ph102 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit ], [ false, %._crit_edge ], [ %51, %.lr.ph113 ], [ false, %.lr.ph102 ], [ false, %.lr.ph97 ], [ true, %._crit_edge98 ], [ true, %._crit_edge108 ], [ false, %.lr.ph107 ], [ true, %18 ], [ true, %._crit_edge103 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -45609,7 +45609,7 @@ _ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE28VisitOMPCla
   br i1 %or.cond.not, label %.lr.ph114, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE18VisitOMPClauseListINS_15OMPLinearClauseEEEbPT_.exit
 
 _ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE18VisitOMPClauseListINS_15OMPLinearClauseEEEbPT_.exit: ; preds = %.lr.ph, %.lr.ph98, %.lr.ph103, %.lr.ph108, %.lr.ph114, %39, %._crit_edge99, %._crit_edge104, %._crit_edge109, %._crit_edge, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit, %14, %2
-  %.0 = phi i1 [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit ], [ false, %._crit_edge ], [ false, %2 ], [ false, %14 ], [ true, %._crit_edge109 ], [ true, %._crit_edge99 ], [ true, %39 ], [ true, %._crit_edge104 ], [ false, %.lr.ph98 ], [ %72, %.lr.ph114 ], [ false, %.lr.ph108 ], [ false, %.lr.ph103 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit ], [ false, %._crit_edge ], [ %72, %.lr.ph114 ], [ false, %.lr.ph103 ], [ false, %.lr.ph98 ], [ false, %2 ], [ false, %14 ], [ true, %._crit_edge99 ], [ true, %._crit_edge109 ], [ false, %.lr.ph108 ], [ true, %39 ], [ true, %._crit_edge104 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -45919,7 +45919,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10inst
   br i1 %or.cond.not, label %.lr.ph27, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE18VisitOMPClauseListINS_16OMPPrivateClauseEEEbPT_.exit
 
 _ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE18VisitOMPClauseListINS_16OMPPrivateClauseEEEbPT_.exit: ; preds = %.lr.ph, %.lr.ph27, %2, %._crit_edge
-  %.0 = phi i1 [ true, %._crit_edge ], [ true, %2 ], [ %16, %.lr.ph27 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ %16, %.lr.ph27 ], [ true, %._crit_edge ], [ true, %2 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -46136,7 +46136,7 @@ _ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE28VisitOMPCla
   br i1 %or.cond.not, label %.lr.ph202, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE18VisitOMPClauseListINS_18OMPReductionClauseEEEbPT_.exit
 
 _ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE18VisitOMPClauseListINS_18OMPReductionClauseEEEbPT_.exit: ; preds = %.lr.ph, %.lr.ph172, %.lr.ph177, %.lr.ph182, %.lr.ph187, %.lr.ph192, %.lr.ph197, %.lr.ph202, %63, %._crit_edge193, %._crit_edge198, %._crit_edge, %._crit_edge188, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit, %5, %2
-  %.0 = phi i1 [ false, %._crit_edge ], [ true, %._crit_edge188 ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit ], [ false, %5 ], [ false, %2 ], [ true, %._crit_edge198 ], [ true, %._crit_edge193 ], [ true, %63 ], [ false, %.lr.ph172 ], [ %98, %.lr.ph202 ], [ false, %.lr.ph197 ], [ false, %.lr.ph192 ], [ false, %.lr.ph187 ], [ false, %.lr.ph182 ], [ false, %.lr.ph177 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ false, %._crit_edge ], [ false, %.lr.ph177 ], [ true, %._crit_edge198 ], [ false, %.lr.ph197 ], [ true, %._crit_edge193 ], [ false, %.lr.ph192 ], [ false, %.lr.ph187 ], [ true, %._crit_edge188 ], [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit ], [ false, %5 ], [ false, %2 ], [ false, %.lr.ph182 ], [ false, %.lr.ph172 ], [ %98, %.lr.ph202 ], [ true, %63 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -46315,7 +46315,7 @@ _ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE28VisitOMPCla
   br i1 %or.cond.not, label %.lr.ph116, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE18VisitOMPClauseListINS_22OMPTaskReductionClauseEEEbPT_.exit
 
 _ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE18VisitOMPClauseListINS_22OMPTaskReductionClauseEEEbPT_.exit: ; preds = %.lr.ph, %.lr.ph100, %.lr.ph105, %.lr.ph110, %.lr.ph116, %24, %._crit_edge101, %._crit_edge106, %._crit_edge111, %._crit_edge, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit, %5, %2
-  %.0 = phi i1 [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit ], [ false, %._crit_edge ], [ false, %2 ], [ false, %5 ], [ true, %._crit_edge111 ], [ true, %._crit_edge101 ], [ true, %24 ], [ true, %._crit_edge106 ], [ false, %.lr.ph100 ], [ %57, %.lr.ph116 ], [ false, %.lr.ph110 ], [ false, %.lr.ph105 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ false, %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit ], [ false, %._crit_edge ], [ %57, %.lr.ph116 ], [ false, %.lr.ph105 ], [ false, %.lr.ph100 ], [ false, %2 ], [ false, %5 ], [ true, %._crit_edge101 ], [ true, %._crit_edge111 ], [ false, %.lr.ph110 ], [ true, %24 ], [ true, %._crit_edge106 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -47753,7 +47753,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10inst
   br i1 %or.cond.not, label %.lr.ph30, label %.loopexit, !llvm.loop !1411
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph30, %._crit_edge
-  %.0 = phi i1 [ true, %._crit_edge ], [ %20, %.lr.ph30 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ %20, %.lr.ph30 ], [ true, %._crit_edge ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -47801,7 +47801,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10inst
   br i1 %or.cond.not, label %.lr.ph30, label %.loopexit, !llvm.loop !1418
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph30, %._crit_edge
-  %.0 = phi i1 [ true, %._crit_edge ], [ %20, %.lr.ph30 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ %20, %.lr.ph30 ], [ true, %._crit_edge ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -48117,7 +48117,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10inst
   br i1 %or.cond.not, label %.lr.ph85, label %.loopexit, !llvm.loop !1469
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph69, %.lr.ph74, %.lr.ph79, %.lr.ph85, %._crit_edge80, %2
-  %.0 = phi i1 [ false, %2 ], [ true, %._crit_edge80 ], [ false, %.lr.ph69 ], [ %54, %.lr.ph85 ], [ false, %.lr.ph79 ], [ false, %.lr.ph74 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ false, %2 ], [ false, %.lr.ph69 ], [ %54, %.lr.ph85 ], [ false, %.lr.ph79 ], [ false, %.lr.ph74 ], [ true, %._crit_edge80 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -48171,7 +48171,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10inst
   br i1 %or.cond.not, label %.lr.ph31, label %.loopexit, !llvm.loop !1479
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph31, %._crit_edge, %2
-  %.0 = phi i1 [ false, %2 ], [ true, %._crit_edge ], [ %24, %.lr.ph31 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ false, %2 ], [ %24, %.lr.ph31 ], [ true, %._crit_edge ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -49055,7 +49055,7 @@ _ZN5clang18declaresSameEntityEPKNS_4DeclES2_.exit.thread: ; preds = %169, %_ZN5c
   br i1 %.not191, label %.critedge125, label %.lr.ph208
 
 .critedge125:                                     ; preds = %.lr.ph.i, %.lr.ph.i237, %111, %.thread, %194, %.critedge133, %186, %180, %_ZN5clang18declaresSameEntityEPKNS_4DeclES2_.exit.thread, %_ZN5clang18declaresSameEntityEPKNS_4DeclES2_.exit.thread180, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread, %90, %81, %.thread182, %38, %_ZNK5clang14DeclaratorDecl15getQualifierLocEv.exit
-  %.0 = phi i1 [ false, %38 ], [ false, %90 ], [ false, %81 ], [ false, %_ZNK5clang14DeclaratorDecl15getQualifierLocEv.exit ], [ false, %.thread182 ], [ true, %_ZN5clang18declaresSameEntityEPKNS_4DeclES2_.exit.thread ], [ true, %180 ], [ true, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread ], [ true, %_ZN5clang18declaresSameEntityEPKNS_4DeclES2_.exit.thread180 ], [ true, %186 ], [ false, %.lr.ph.i237 ], [ true, %.critedge133 ], [ false, %111 ], [ false, %194 ], [ false, %.thread ], [ false, %.lr.ph.i ]
+  %.0 = phi i1 [ false, %38 ], [ false, %90 ], [ false, %81 ], [ true, %.critedge133 ], [ true, %186 ], [ false, %_ZNK5clang14DeclaratorDecl15getQualifierLocEv.exit ], [ false, %.thread182 ], [ true, %_ZN5clang18declaresSameEntityEPKNS_4DeclES2_.exit.thread ], [ false, %.lr.ph.i237 ], [ true, %180 ], [ true, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread ], [ true, %_ZN5clang18declaresSameEntityEPKNS_4DeclES2_.exit.thread180 ], [ false, %111 ], [ false, %194 ], [ false, %.thread ], [ false, %.lr.ph.i ]
   ret i1 %.0
 }
 
@@ -49557,7 +49557,7 @@ _ZNK5clang12RedeclarableINS_7VarDeclEE8DeclLink11getPreviousEPKS1_.exit: ; preds
   br i1 %.not, label %.thread, label %.lr.ph45
 
 .thread:                                          ; preds = %._crit_edge, %20, %2
-  %.not36 = phi i1 [ true, %2 ], [ false, %20 ], [ true, %._crit_edge ]
+  %.not36 = phi i1 [ false, %20 ], [ true, %2 ], [ true, %._crit_edge ]
   ret i1 %.not36
 }
 
@@ -49848,7 +49848,7 @@ _ZNK5clang12RedeclarableINS_12FunctionDeclEE8DeclLink11getPreviousEPKS1_.exit: ;
   br i1 %.not, label %.thread, label %.lr.ph46
 
 .thread:                                          ; preds = %._crit_edge, %23, %21, %2
-  %.not37 = phi i1 [ true, %2 ], [ false, %23 ], [ false, %21 ], [ true, %._crit_edge ]
+  %.not37 = phi i1 [ false, %23 ], [ true, %2 ], [ false, %21 ], [ true, %._crit_edge ]
   ret i1 %.not37
 }
 
@@ -50035,7 +50035,7 @@ _ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.thread: ; preds 
   br i1 %.not, label %.thread, label %.lr.ph
 
 .thread:                                          ; preds = %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.thread, %26, %2
-  %.not53 = phi i1 [ true, %2 ], [ false, %26 ], [ true, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.thread ]
+  %.not53 = phi i1 [ false, %26 ], [ true, %2 ], [ true, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.thread ]
   ret i1 %.not53
 }
 

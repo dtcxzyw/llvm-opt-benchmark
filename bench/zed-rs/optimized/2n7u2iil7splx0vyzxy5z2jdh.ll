@@ -17050,8 +17050,8 @@ common.resume.i.i:                                ; preds = %186, %171, %167, %1
   br label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hcf326affa0bd20a7E.exit.thread.i.i.i.i.i"
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hcf326affa0bd20a7E.exit.thread.i.i.i.i.i": ; preds = %138, %134
-  %145 = phi i8 [ %136, %134 ], [ %.pre.i.i.i.i.i.i, %138 ]
-  %.sroa.3.0.i.ph.i.i.i.i.i.i.i = phi i64 [ %.sroa.6.1.i.i.i.i.i.i.i.i, %134 ], [ %144, %138 ]
+  %145 = phi i8 [ %.pre.i.i.i.i.i.i, %138 ], [ %136, %134 ]
+  %.sroa.3.0.i.ph.i.i.i.i.i.i.i = phi i64 [ %144, %138 ], [ %.sroa.6.1.i.i.i.i.i.i.i.i, %134 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !2423)
   %146 = getelementptr inbounds i8, ptr %101, i64 %.sroa.3.0.i.ph.i.i.i.i.i.i.i
   %147 = and i8 %145, 1
@@ -18231,8 +18231,8 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
   br label %56
 
 56:                                               ; preds = %49, %45
-  %57 = phi i8 [ %47, %45 ], [ %.pre, %49 ]
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.1.i.i, %45 ], [ %55, %49 ]
+  %57 = phi i8 [ %.pre, %49 ], [ %47, %45 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %55, %49 ], [ %.sroa.6.1.i.i, %45 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2766)
   %58 = getelementptr inbounds i8, ptr %14, i64 %.sroa.3.0.i.ph.i
   %59 = and i8 %57, 1
@@ -18405,7 +18405,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h4d
   ret void
 
 80:                                               ; preds = %56, %60
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.1.i.i, %56 ], [ %66, %60 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %66, %60 ], [ %.sroa.6.1.i.i, %56 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %81 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -18593,8 +18593,8 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17ha7
   ret void
 
 69:                                               ; preds = %54, %58
-  %70 = phi i8 [ %56, %54 ], [ %.pre, %58 ]
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.1.i.i, %54 ], [ %64, %58 ]
+  %70 = phi i8 [ %.pre, %58 ], [ %56, %54 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %64, %58 ], [ %.sroa.6.1.i.i, %54 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2864)
   %71 = getelementptr inbounds i8, ptr %21, i64 %.sroa.3.0.i.ph.i
   %72 = and i8 %70, 1
@@ -18805,7 +18805,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hab
   ret void
 
 80:                                               ; preds = %61, %65
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.1.i.i, %61 ], [ %71, %65 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %71, %65 ], [ %.sroa.6.1.i.i, %61 ]
   %81 = load ptr, ptr %9, align 8, !nonnull !7, !noundef !7
   %82 = load i64, ptr %10, align 8, !noundef !7
   call void @llvm.experimental.noalias.scope.decl(metadata !2932)
@@ -19005,8 +19005,8 @@ define hidden { ptr, ptr } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   ret { ptr, ptr } %69
 
 70:                                               ; preds = %51, %55
-  %71 = phi i8 [ %53, %51 ], [ %.pre, %55 ]
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.1.i.i, %51 ], [ %61, %55 ]
+  %71 = phi i8 [ %.pre, %55 ], [ %53, %51 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %61, %55 ], [ %.sroa.6.1.i.i, %51 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2988)
   %72 = getelementptr inbounds i8, ptr %19, i64 %.sroa.3.0.i.ph.i
   %73 = and i8 %71, 1
@@ -19175,8 +19175,8 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hd8
   ret void
 
 64:                                               ; preds = %50, %54
-  %65 = phi i8 [ %52, %50 ], [ %.pre, %54 ]
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.1.i.i, %50 ], [ %60, %54 ]
+  %65 = phi i8 [ %.pre, %54 ], [ %52, %50 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %60, %54 ], [ %.sroa.6.1.i.i, %50 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 1 dereferenceable(32) %2, i64 32, i1 false)
   %66 = getelementptr inbounds nuw i8, ptr %6, i64 32
@@ -20097,8 +20097,8 @@ define hidden { i64, i64 } @_ZN9hashbrown3raw13RawTableInner30find_or_find_inser
   br i1 %25, label %._crit_edge, label %.lr.ph
 
 _ZN9hashbrown3raw13RawTableInner15fix_insert_slot17hc6d54d5516b1859cE.exit: ; preds = %.lr.ph, %45, %41
-  %.sroa.3.0 = phi i64 [ %51, %45 ], [ %.sroa.6.1, %41 ], [ %20, %.lr.ph ]
-  %.sroa.0.0 = phi i64 [ 1, %45 ], [ 1, %41 ], [ 0, %.lr.ph ]
+  %.sroa.3.0 = phi i64 [ %.sroa.6.1, %41 ], [ %51, %45 ], [ %20, %.lr.ph ]
+  %.sroa.0.0 = phi i64 [ 1, %41 ], [ 1, %45 ], [ 0, %.lr.ph ]
   %26 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %27 = insertvalue { i64, i64 } %26, i64 %.sroa.3.0, 1
   ret { i64, i64 } %27
@@ -20279,8 +20279,8 @@ define hidden { i64, ptr } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_f
   %56 = zext nneg i16 %55 to i64
   br label %_ZN9hashbrown3raw13RawTableInner30find_or_find_insert_slot_inner17h8a34f073cb252b20E.llvm.11139456252434311722.exit.thread
 
-_ZN9hashbrown3raw13RawTableInner30find_or_find_insert_slot_inner17h8a34f073cb252b20E.llvm.11139456252434311722.exit.thread: ; preds = %50, %46
-  %.sroa.3.0.i.ph = phi i64 [ %.sroa.6.1.i, %46 ], [ %56, %50 ]
+_ZN9hashbrown3raw13RawTableInner30find_or_find_insert_slot_inner17h8a34f073cb252b20E.llvm.11139456252434311722.exit.thread: ; preds = %46, %50
+  %.sroa.3.0.i.ph = phi i64 [ %56, %50 ], [ %.sroa.6.1.i, %46 ]
   %57 = inttoptr i64 %.sroa.3.0.i.ph to ptr
   br label %.loopexit
 

@@ -1105,8 +1105,8 @@ define range(i32 -1, 9) i32 @cl_validate_certificate_chain_ts_dir(ptr noundef %0
   br i1 %.not5879, label %.outer._crit_edge, label %.lr.ph
 
 .outer._crit_edge:                                ; preds = %.outer, %.backedge, %.preheader72
-  %.053.ph.lcssa78 = phi i64 [ 0, %.preheader72 ], [ %.053.ph84, %.backedge ], [ %15, %.outer ]
-  %.052.ph.lcssa76 = phi ptr [ null, %.preheader72 ], [ %.052.ph85, %.backedge ], [ %17, %.outer ]
+  %.053.ph.lcssa78 = phi i64 [ %.053.ph84, %.backedge ], [ 0, %.preheader72 ], [ %15, %.outer ]
+  %.052.ph.lcssa76 = phi ptr [ %.052.ph85, %.backedge ], [ null, %.preheader72 ], [ %17, %.outer ]
   %42 = tail call i32 @closedir(ptr noundef nonnull %3)
   %43 = shl i64 %.053.ph.lcssa78, 3
   %44 = add i64 %43, 8

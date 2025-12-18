@@ -1762,9 +1762,9 @@ define hidden void @"_ZN3zip4read61_$LT$impl$u20$zip..read..zip_archive..ZipArch
   br label %"_ZN3zip4read61_$LT$impl$u20$zip..read..zip_archive..ZipArchive$LT$R$GT$$GT$30by_name_with_optional_password17hed40f942a38b13b7E.exit.thread"
 
 "_ZN3zip4read61_$LT$impl$u20$zip..read..zip_archive..ZipArchive$LT$R$GT$$GT$30by_name_with_optional_password17hed40f942a38b13b7E.exit.thread": ; preds = %._crit_edge.i.i.i, %"_ZN3zip4read61_$LT$impl$u20$zip..read..zip_archive..ZipArchive$LT$R$GT$$GT$30by_name_with_optional_password17hed40f942a38b13b7E.exit.thread.sink.split", %4
-  %.sroa.11.254 = phi i64 [ 3, %4 ], [ %.sroa.11.254.ph, %"_ZN3zip4read61_$LT$impl$u20$zip..read..zip_archive..ZipArchive$LT$R$GT$$GT$30by_name_with_optional_password17hed40f942a38b13b7E.exit.thread.sink.split" ], [ 3, %._crit_edge.i.i.i ]
-  %.sroa.19.253 = phi ptr [ undef, %4 ], [ %.sroa.19.253.ph, %"_ZN3zip4read61_$LT$impl$u20$zip..read..zip_archive..ZipArchive$LT$R$GT$$GT$30by_name_with_optional_password17hed40f942a38b13b7E.exit.thread.sink.split" ], [ undef, %._crit_edge.i.i.i ]
-  %.sroa.20.252 = phi i64 [ undef, %4 ], [ %.sroa.20.252.ph, %"_ZN3zip4read61_$LT$impl$u20$zip..read..zip_archive..ZipArchive$LT$R$GT$$GT$30by_name_with_optional_password17hed40f942a38b13b7E.exit.thread.sink.split" ], [ undef, %._crit_edge.i.i.i ]
+  %.sroa.11.254 = phi i64 [ %.sroa.11.254.ph, %"_ZN3zip4read61_$LT$impl$u20$zip..read..zip_archive..ZipArchive$LT$R$GT$$GT$30by_name_with_optional_password17hed40f942a38b13b7E.exit.thread.sink.split" ], [ 3, %4 ], [ 3, %._crit_edge.i.i.i ]
+  %.sroa.19.253 = phi ptr [ %.sroa.19.253.ph, %"_ZN3zip4read61_$LT$impl$u20$zip..read..zip_archive..ZipArchive$LT$R$GT$$GT$30by_name_with_optional_password17hed40f942a38b13b7E.exit.thread.sink.split" ], [ undef, %4 ], [ undef, %._crit_edge.i.i.i ]
+  %.sroa.20.252 = phi i64 [ %.sroa.20.252.ph, %"_ZN3zip4read61_$LT$impl$u20$zip..read..zip_archive..ZipArchive$LT$R$GT$$GT$30by_name_with_optional_password17hed40f942a38b13b7E.exit.thread.sink.split" ], [ undef, %4 ], [ undef, %._crit_edge.i.i.i ]
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.11.254, ptr %77, align 8
   %.sroa.240.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3677,13 +3677,13 @@ define internal fastcc void @_ZN5salsa5table4memo21MemoTableWithTypesMut4drop17h
   br label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h5d71278e23a4ff06E.exit"
 
 "_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h5d71278e23a4ff06E.exit": ; preds = %.loopexit.i.i.i.i, %10, %27, %31
-  %.sroa.12.1 = phi i64 [ %.sroa.12.0, %10 ], [ %28, %27 ], [ %28, %31 ], [ %.sroa.12.0, %.loopexit.i.i.i.i ]
-  %.sroa.9.3 = phi i64 [ %.sroa.9.0, %10 ], [ %20, %27 ], [ %20, %31 ], [ 0, %.loopexit.i.i.i.i ]
-  %.sroa.7.2 = phi i64 [ %.sroa.7.0, %10 ], [ %.sroa.7.1, %27 ], [ %.sroa.7.1, %31 ], [ %.sroa.7.1, %.loopexit.i.i.i.i ]
-  %.sroa.4.2 = phi i64 [ %.sroa.4.0, %10 ], [ %.sroa.4.1, %27 ], [ %.sroa.4.1, %31 ], [ 59, %.loopexit.i.i.i.i ]
-  %.sroa.17.1 = phi ptr [ %.sroa.17.0, %10 ], [ %.sroa.17.0, %27 ], [ %32, %31 ], [ %.sroa.17.0, %.loopexit.i.i.i.i ]
-  %.sink25.i.sroa.phi = phi ptr [ %.sroa.49, %10 ], [ %.sroa.49, %27 ], [ %.sroa.10, %31 ], [ %.sroa.49, %.loopexit.i.i.i.i ]
-  %.sink.i = phi ptr [ null, %10 ], [ null, %27 ], [ %.sroa.17.0, %31 ], [ null, %.loopexit.i.i.i.i ]
+  %.sroa.12.1 = phi i64 [ %.sroa.12.0, %10 ], [ %28, %31 ], [ %28, %27 ], [ %.sroa.12.0, %.loopexit.i.i.i.i ]
+  %.sroa.9.3 = phi i64 [ %.sroa.9.0, %10 ], [ %20, %31 ], [ %20, %27 ], [ 0, %.loopexit.i.i.i.i ]
+  %.sroa.7.2 = phi i64 [ %.sroa.7.0, %10 ], [ %.sroa.7.1, %31 ], [ %.sroa.7.1, %27 ], [ %.sroa.7.1, %.loopexit.i.i.i.i ]
+  %.sroa.4.2 = phi i64 [ %.sroa.4.0, %10 ], [ %.sroa.4.1, %31 ], [ %.sroa.4.1, %27 ], [ 59, %.loopexit.i.i.i.i ]
+  %.sroa.17.1 = phi ptr [ %.sroa.17.0, %10 ], [ %32, %31 ], [ %.sroa.17.0, %27 ], [ %.sroa.17.0, %.loopexit.i.i.i.i ]
+  %.sink25.i.sroa.phi = phi ptr [ %.sroa.49, %10 ], [ %.sroa.10, %31 ], [ %.sroa.49, %27 ], [ %.sroa.49, %.loopexit.i.i.i.i ]
+  %.sink.i = phi ptr [ null, %10 ], [ %.sroa.17.0, %31 ], [ null, %27 ], [ null, %.loopexit.i.i.i.i ]
   store ptr %.sink.i, ptr %.sink25.i.sroa.phi, align 8, !alias.scope !214, !noalias !226
   %.sroa.49.0..sroa.49.0..sroa.49.0..sroa.49.8. = load i64, ptr %.sroa.49, align 8, !noundef !6
   %34 = inttoptr i64 %.sroa.49.0..sroa.49.0..sroa.49.0..sroa.49.8. to ptr

@@ -5048,7 +5048,7 @@ dissect_kafka_array.exit.sink.split:              ; preds = %.lr.ph.i.i20.i, %20
   br label %dissect_kafka_array.exit
 
 dissect_kafka_array.exit:                         ; preds = %24, %dissect_kafka_array.exit.sink.split, %.preheader.i.i15.i
-  %.0.i = phi i32 [ %18, %.preheader.i.i15.i ], [ %.0.i.ph, %dissect_kafka_array.exit.sink.split ], [ %27, %24 ]
+  %.0.i = phi i32 [ %.0.i.ph, %dissect_kafka_array.exit.sink.split ], [ %18, %.preheader.i.i15.i ], [ %27, %24 ]
   %31 = load ptr, ptr %5, align 8
   call void @proto_item_set_end(ptr noundef %31, ptr noundef %0, i32 noundef %.0.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -7428,7 +7428,7 @@ switch.lookup:                                    ; preds = %111
   br i1 %.not57.i, label %.critedge.i38.thread, label %121
 
 .critedge.i38:                                    ; preds = %137, %.lr.ph.i37, %121
-  %.044.i = phi ptr [ %.172.i, %.lr.ph.i37 ], [ %.2.i39, %121 ], [ %.172.i, %137 ]
+  %.044.i = phi ptr [ %.172.i, %137 ], [ %.2.i39, %121 ], [ %.172.i, %.lr.ph.i37 ]
   %.not58.i = icmp eq ptr %.044.i, null
   br i1 %.not58.i, label %.sink.split, label %154
 
@@ -9496,7 +9496,7 @@ dissect_kafka_array.exit.sink.split:              ; preds = %19, %5
   br label %dissect_kafka_array.exit
 
 dissect_kafka_array.exit:                         ; preds = %.preheader, %dissect_kafka_array.exit.sink.split, %.preheader.i.i15.i
-  %.0.i = phi i32 [ %17, %.preheader.i.i15.i ], [ %17, %dissect_kafka_array.exit.sink.split ], [ %25, %.preheader ]
+  %.0.i = phi i32 [ %17, %dissect_kafka_array.exit.sink.split ], [ %17, %.preheader.i.i15.i ], [ %25, %.preheader ]
   %29 = load ptr, ptr %9, align 8
   call void @proto_item_set_end(ptr noundef %29, ptr noundef %0, i32 noundef %.0.i)
   %30 = load ptr, ptr %8, align 8
@@ -9596,7 +9596,7 @@ dissect_kafka_array.exit.sink.split:              ; preds = %19, %5
   br label %dissect_kafka_array.exit
 
 dissect_kafka_array.exit:                         ; preds = %.preheader, %dissect_kafka_array.exit.sink.split, %.preheader.i.i15.i
-  %.0.i = phi i32 [ %17, %.preheader.i.i15.i ], [ %17, %dissect_kafka_array.exit.sink.split ], [ %25, %.preheader ]
+  %.0.i = phi i32 [ %17, %dissect_kafka_array.exit.sink.split ], [ %17, %.preheader.i.i15.i ], [ %25, %.preheader ]
   %29 = load ptr, ptr %9, align 8
   call void @proto_item_set_end(ptr noundef %29, ptr noundef %0, i32 noundef %.0.i)
   %30 = load ptr, ptr %8, align 8
@@ -9948,7 +9948,7 @@ dissect_kafka_array.exit.sink.split:              ; preds = %19, %5
   br label %dissect_kafka_array.exit
 
 dissect_kafka_array.exit:                         ; preds = %.preheader, %dissect_kafka_array.exit.sink.split, %.preheader.i.i15.i
-  %.0.i = phi i32 [ %17, %.preheader.i.i15.i ], [ %17, %dissect_kafka_array.exit.sink.split ], [ %25, %.preheader ]
+  %.0.i = phi i32 [ %17, %dissect_kafka_array.exit.sink.split ], [ %17, %.preheader.i.i15.i ], [ %25, %.preheader ]
   %29 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %29, ptr noundef %0, i32 noundef %.0.i)
   %30 = load ptr, ptr %6, align 8
@@ -10011,7 +10011,7 @@ dissect_kafka_array.exit.sink.split:              ; preds = %19, %5
   br label %dissect_kafka_array.exit
 
 dissect_kafka_array.exit:                         ; preds = %.preheader, %dissect_kafka_array.exit.sink.split, %.preheader.i.i15.i
-  %.0.i = phi i32 [ %17, %.preheader.i.i15.i ], [ %17, %dissect_kafka_array.exit.sink.split ], [ %25, %.preheader ]
+  %.0.i = phi i32 [ %17, %dissect_kafka_array.exit.sink.split ], [ %17, %.preheader.i.i15.i ], [ %25, %.preheader ]
   %29 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %29, ptr noundef %0, i32 noundef %.0.i)
   %30 = load ptr, ptr %6, align 8
@@ -10311,7 +10311,7 @@ dissect_kafka_array.exit.sink.split:              ; preds = %19, %5
   br label %dissect_kafka_array.exit
 
 dissect_kafka_array.exit:                         ; preds = %.preheader, %dissect_kafka_array.exit.sink.split, %.preheader.i.i15.i
-  %.0.i = phi i32 [ %17, %.preheader.i.i15.i ], [ %17, %dissect_kafka_array.exit.sink.split ], [ %25, %.preheader ]
+  %.0.i = phi i32 [ %17, %dissect_kafka_array.exit.sink.split ], [ %17, %.preheader.i.i15.i ], [ %25, %.preheader ]
   %29 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %29, ptr noundef %0, i32 noundef %.0.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -10392,7 +10392,7 @@ dissect_kafka_array.exit.sink.split:              ; preds = %17, %5
   br label %dissect_kafka_array.exit
 
 dissect_kafka_array.exit:                         ; preds = %.preheader, %dissect_kafka_array.exit.sink.split, %.preheader.i.i15.i
-  %.0.i = phi i32 [ %15, %.preheader.i.i15.i ], [ %15, %dissect_kafka_array.exit.sink.split ], [ %23, %.preheader ]
+  %.0.i = phi i32 [ %15, %dissect_kafka_array.exit.sink.split ], [ %15, %.preheader.i.i15.i ], [ %23, %.preheader ]
   %27 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %27, ptr noundef %0, i32 noundef %.0.i)
   %28 = load ptr, ptr %7, align 8

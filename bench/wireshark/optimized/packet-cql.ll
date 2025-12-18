@@ -2546,7 +2546,7 @@ define internal fastcc i32 @parse_option(ptr noundef %0, ptr noundef %1, ptr nou
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph73, %.loopexit.sink.split, %48, %15, %4
-  %.066 = phi i32 [ %11, %4 ], [ %51, %48 ], [ %34, %15 ], [ %57, %.loopexit.sink.split ], [ %44, %.lr.ph73 ], [ %53, %.lr.ph ]
+  %.066 = phi i32 [ %11, %4 ], [ %34, %15 ], [ %51, %48 ], [ %44, %.lr.ph73 ], [ %57, %.loopexit.sink.split ], [ %53, %.lr.ph ]
   call void @decrement_dissection_depth(ptr noundef %1)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -3216,7 +3216,7 @@ proto_item_set_hidden.exit260:                    ; preds = %326, %330, %333
   br i1 %343, label %.lr.ph282, label %.loopexit, !llvm.loop !27
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph270, %.lr.ph274, %proto_item_set_hidden.exit257, %.lr.ph282, %186, %proto_item_set_hidden.exit251, %proto_item_set_hidden.exit260, %45, %229, %208, %173, %170, %add_cql_uuid.exit236, %add_varint_item.exit231, %121, %add_cql_uuid.exit, %97, %93, %89, %85, %add_varint_item.exit, %69, %63, %59, %53, %47
-  %.0220 = phi i32 [ %20, %45 ], [ %52, %47 ], [ %58, %53 ], [ %62, %59 ], [ %68, %63 ], [ %72, %69 ], [ %84, %add_varint_item.exit ], [ %88, %85 ], [ %92, %89 ], [ %96, %93 ], [ %100, %97 ], [ %120, %add_cql_uuid.exit ], [ %126, %121 ], [ %134, %add_varint_item.exit231 ], [ %154, %add_cql_uuid.exit236 ], [ %177, %173 ], [ %.1, %170 ], [ %220, %229 ], [ %198, %208 ], [ %20, %proto_item_set_hidden.exit260 ], [ %20, %proto_item_set_hidden.exit251 ], [ %187, %186 ], [ %211, %.lr.ph270 ], [ %340, %.lr.ph282 ], [ %322, %proto_item_set_hidden.exit257 ], [ %231, %.lr.ph274 ], [ %189, %.lr.ph ]
+  %.0220 = phi i32 [ %20, %45 ], [ %52, %47 ], [ %58, %53 ], [ %62, %59 ], [ %68, %63 ], [ %72, %69 ], [ %231, %.lr.ph274 ], [ %84, %add_varint_item.exit ], [ %88, %85 ], [ %92, %89 ], [ %96, %93 ], [ %100, %97 ], [ %120, %add_cql_uuid.exit ], [ %126, %121 ], [ %134, %add_varint_item.exit231 ], [ %154, %add_cql_uuid.exit236 ], [ %177, %173 ], [ %.1, %170 ], [ %211, %.lr.ph270 ], [ %220, %229 ], [ %340, %.lr.ph282 ], [ %198, %208 ], [ %322, %proto_item_set_hidden.exit257 ], [ %20, %proto_item_set_hidden.exit260 ], [ %20, %proto_item_set_hidden.exit251 ], [ %187, %186 ], [ %189, %.lr.ph ]
   call void @decrement_dissection_depth(ptr noundef %1)
   br label %344
 

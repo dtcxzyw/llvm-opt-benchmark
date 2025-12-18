@@ -1119,7 +1119,7 @@ parse_pubkey.exit:                                ; preds = %.loopexit.i
   br label %vector_decode_12.exit
 
 vector_decode_12.exit:                            ; preds = %14, %47, %.loopexit.i, %86, %parse_pubkey.exit, %90
-  %.0 = phi i32 [ 0, %parse_pubkey.exit ], [ 1, %90 ], [ 0, %86 ], [ 0, %.loopexit.i ], [ 0, %47 ], [ 0, %14 ]
+  %.0 = phi i32 [ 0, %parse_pubkey.exit ], [ 1, %90 ], [ 0, %86 ], [ 0, %47 ], [ 0, %.loopexit.i ], [ 0, %14 ]
   ret i32 %.0
 }
 
@@ -2872,7 +2872,7 @@ sample_scalar.exit:                               ; preds = %24
   br label %.loopexit25
 
 .loopexit25:                                      ; preds = %._crit_edge.us, %21, %17, %2, %sample_scalar.exit
-  %.017 = phi i32 [ 0, %sample_scalar.exit ], [ 1, %2 ], [ 0, %21 ], [ 0, %17 ], [ 1, %._crit_edge.us ]
+  %.017 = phi i32 [ 1, %2 ], [ 0, %sample_scalar.exit ], [ 0, %21 ], [ 0, %17 ], [ 1, %._crit_edge.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.017
 }

@@ -1146,7 +1146,7 @@ switch.lookup:                                    ; preds = %325
   br label %579
 
 579:                                              ; preds = %567, %.fold.split, %576
-  %.0220 = phi i1 [ true, %576 ], [ false, %567 ], [ %578, %.fold.split ]
+  %.0220 = phi i1 [ false, %567 ], [ true, %576 ], [ %578, %.fold.split ]
   %580 = getelementptr inbounds nuw i8, ptr %2, i64 1008
   %581 = load i64, ptr %580, align 8, !tbaa !41
   switch i64 %581, label %582 [
@@ -1161,7 +1161,7 @@ switch.lookup:                                    ; preds = %325
   br label %583
 
 583:                                              ; preds = %579, %.fold.split385, %582
-  %.0219 = phi i64 [ %581, %582 ], [ 0, %579 ], [ %568, %.fold.split385 ]
+  %.0219 = phi i64 [ 0, %579 ], [ %581, %582 ], [ %568, %.fold.split385 ]
   %584 = call i32 @H5Pset_file_space_strategy(i64 noundef %.4, i32 noundef %.0221, i1 noundef zeroext %.0220, i64 noundef %.0219) #15
   %585 = icmp slt i32 %584, 0
   br i1 %585, label %586, label %602
@@ -1713,7 +1713,7 @@ switch.lookup:                                    ; preds = %325
   br label %902
 
 902:                                              ; preds = %851, %853, %856, %832, %901
-  %.0216418 = phi i32 [ -1, %901 ], [ 0, %832 ], [ 0, %856 ], [ 0, %853 ], [ 0, %851 ]
+  %.0216418 = phi i32 [ -1, %901 ], [ 0, %851 ], [ 0, %853 ], [ 0, %856 ], [ 0, %832 ]
   %903 = load ptr, ptr %4, align 8, !tbaa !4
   %.not383 = icmp eq ptr %903, null
   br i1 %.not383, label %905, label %904
@@ -6011,7 +6011,7 @@ define internal fastcc range(i32 -1, 1) i32 @get_hyperslab(i64 noundef range(i64
   br label %109
 
 .loopexit:                                        ; preds = %.preheader113, %.lr.ph123, %.preheader, %._crit_edge
-  %.2 = phi i64 [ %3, %._crit_edge ], [ %55, %.lr.ph123 ], [ %.1, %.preheader ], [ %.3, %.preheader113 ]
+  %.2 = phi i64 [ %3, %._crit_edge ], [ %.1, %.preheader ], [ %55, %.lr.ph123 ], [ %.3, %.preheader113 ]
   store i64 %.2, ptr %5, align 8, !tbaa !9
   br label %109
 

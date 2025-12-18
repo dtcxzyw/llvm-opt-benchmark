@@ -2988,7 +2988,7 @@ define hidden void @_ZN4ncnn36pack_A_tile_fp32_to_int8_avxvnniint8ERKNS_3MatERS0
   br i1 %exitcond351.not.i, label %.loopexit140.i, label %.lr.ph206.i, !llvm.loop !96
 
 .loopexit140.i:                                   ; preds = %.lr.ph206.i, %.lr.ph186.i, %.lr.ph166.i, %.preheader139.i, %.preheader143.i, %.preheader147.i, %250
-  %.9.i = phi ptr [ %.0209.i, %250 ], [ %.11.lcssa.i, %.preheader139.i ], [ %.7.lcssa.i, %.preheader143.i ], [ %.3.lcssa.i, %.preheader147.i ], [ %466, %.lr.ph186.i ], [ %357, %.lr.ph166.i ], [ %586, %.lr.ph206.i ]
+  %.9.i = phi ptr [ %.0209.i, %250 ], [ %.11.lcssa.i, %.preheader139.i ], [ %357, %.lr.ph166.i ], [ %466, %.lr.ph186.i ], [ %.7.lcssa.i, %.preheader143.i ], [ %.3.lcssa.i, %.preheader147.i ], [ %586, %.lr.ph206.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 8
   %589 = or disjoint i64 %indvars.iv.next.i, 7
   %590 = icmp samesign ult i64 %589, %41
@@ -3562,8 +3562,8 @@ define hidden void @_ZN4ncnn46transpose_pack_A_tile_fp32_to_int8_avxvnniint8ERKN
   br i1 %209, label %.loopexit165.i.us.us46, label %.preheader158.loopexit.i, !llvm.loop !108
 
 .preheader158.loopexit.i:                         ; preds = %.loopexit160.i.loopexit13, %.loopexit160.i.us.us49, %.loopexit160.i.us.us, %.loopexit165.i.us.preheader
-  %.us-phi = phi ptr [ %.val, %.loopexit165.i.us.preheader ], [ %.5.i.us.us50, %.loopexit160.i.us.us49 ], [ %.5.i.us.us, %.loopexit160.i.us.us ], [ %353, %.loopexit160.i.loopexit13 ]
-  %.us-phi42 = phi i64 [ %38, %.loopexit165.i.us.preheader ], [ %indvars.iv.next.i.us.us51, %.loopexit160.i.us.us49 ], [ %indvars.iv.next.i.us.us, %.loopexit160.i.us.us ], [ %indvars.iv.next.i, %.loopexit160.i.loopexit13 ]
+  %.us-phi = phi ptr [ %.5.i.us.us, %.loopexit160.i.us.us ], [ %.val, %.loopexit165.i.us.preheader ], [ %.5.i.us.us50, %.loopexit160.i.us.us49 ], [ %353, %.loopexit160.i.loopexit13 ]
+  %.us-phi42 = phi i64 [ %indvars.iv.next.i.us.us, %.loopexit160.i.us.us ], [ %38, %.loopexit165.i.us.preheader ], [ %indvars.iv.next.i.us.us51, %.loopexit160.i.us.us49 ], [ %indvars.iv.next.i, %.loopexit160.i.loopexit13 ]
   %210 = trunc nuw nsw i64 %.us-phi42 to i32
   br label %.preheader158.i
 
@@ -4049,7 +4049,7 @@ define hidden void @_ZN4ncnn46transpose_pack_A_tile_fp32_to_int8_avxvnniint8ERKN
   br i1 %exitcond344.not.i, label %.loopexit154.i, label %.lr.ph229.i, !llvm.loop !117
 
 .loopexit154.i:                                   ; preds = %.lr.ph229.i, %.lr.ph209.i, %.lr.ph203.i, %.preheader153.i, %458, %387, %381
-  %.14.i = phi ptr [ %.9232.i, %381 ], [ %.16.lcssa.i, %.preheader153.i ], [ %.9232.i, %458 ], [ %.9232.i, %387 ], [ %506, %.lr.ph209.i ], [ %453, %.lr.ph203.i ], [ %590, %.lr.ph229.i ]
+  %.14.i = phi ptr [ %.9232.i, %381 ], [ %.16.lcssa.i, %.preheader153.i ], [ %453, %.lr.ph203.i ], [ %506, %.lr.ph209.i ], [ %.9232.i, %458 ], [ %.9232.i, %387 ], [ %590, %.lr.ph229.i ]
   %indvars.iv.next346.i = add nuw nsw i64 %indvars.iv345.i, 4
   %593 = or disjoint i64 %indvars.iv.next346.i, 3
   %594 = icmp slt i64 %593, %229
@@ -4316,7 +4316,7 @@ define hidden void @_ZN4ncnn46transpose_pack_A_tile_fp32_to_int8_avxvnniint8ERKN
   br i1 %exitcond348.not.i, label %.loopexit148.i, label %.lr.ph265.i, !llvm.loop !123
 
 .loopexit148.i:                                   ; preds = %.lr.ph265.i, %.lr.ph245.i, %.lr.ph239.i, %.preheader147.i, %654, %619, %613
-  %.23.i = phi ptr [ %.18268.i, %613 ], [ %.25.lcssa.i, %.preheader147.i ], [ %.18268.i, %654 ], [ %.18268.i, %619 ], [ %681, %.lr.ph245.i ], [ %649, %.lr.ph239.i ], [ %771, %.lr.ph265.i ]
+  %.23.i = phi ptr [ %.18268.i, %613 ], [ %.25.lcssa.i, %.preheader147.i ], [ %649, %.lr.ph239.i ], [ %681, %.lr.ph245.i ], [ %.18268.i, %654 ], [ %.18268.i, %619 ], [ %771, %.lr.ph265.i ]
   %indvars.iv.next350.i = add nuw nsw i64 %indvars.iv349.i, 2
   %774 = or disjoint i64 %indvars.iv.next350.i, 1
   %775 = icmp slt i64 %774, %378
@@ -4452,7 +4452,7 @@ define hidden void @_ZN4ncnn46transpose_pack_A_tile_fp32_to_int8_avxvnniint8ERKN
   br i1 %exitcond352.not.i, label %.loopexit.i, label %.lr.ph294.i, !llvm.loop !128
 
 .loopexit.i:                                      ; preds = %.lr.ph294.i, %.lr.ph281.i, %.lr.ph275.i, %.preheader.i, %807, %785, %776
-  %.32.i = phi ptr [ %.27297.i, %776 ], [ %.33.lcssa.i, %.preheader.i ], [ %.27297.i, %807 ], [ %.27297.i, %785 ], [ %821, %.lr.ph281.i ], [ %802, %.lr.ph275.i ], [ %850, %.lr.ph294.i ]
+  %.32.i = phi ptr [ %.27297.i, %776 ], [ %.33.lcssa.i, %.preheader.i ], [ %802, %.lr.ph275.i ], [ %821, %.lr.ph281.i ], [ %.27297.i, %807 ], [ %.27297.i, %785 ], [ %850, %.lr.ph294.i ]
   %indvars.iv.next354.i = add nsw i64 %indvars.iv353.i, 1
   %exitcond356.not.i = icmp eq i64 %indvars.iv.next354.i, %wide.trip.count.i
   br i1 %exitcond356.not.i, label %_ZN4ncnnL34transpose_pack_A_tile_fp32_to_int8ERKNS_3MatERS0_iiiiS2_.exit, label %776, !llvm.loop !129
@@ -5231,7 +5231,7 @@ define hidden void @_ZN4ncnn36pack_B_tile_fp32_to_int8_avxvnniint8ERKNS_3MatERS0
   br i1 %exitcond338.not.i, label %.loopexit127.i, label %.lr.ph193.i, !llvm.loop !145
 
 .loopexit127.i:                                   ; preds = %.lr.ph193.i, %.lr.ph173.i, %.lr.ph153.i, %.preheader126.i, %.preheader130.i, %.preheader134.i, %237
-  %.9.i = phi ptr [ %.0196.i, %237 ], [ %.11.lcssa.i, %.preheader126.i ], [ %.7.lcssa.i, %.preheader130.i ], [ %.3.lcssa.i, %.preheader134.i ], [ %437, %.lr.ph173.i ], [ %340, %.lr.ph153.i ], [ %541, %.lr.ph193.i ]
+  %.9.i = phi ptr [ %.0196.i, %237 ], [ %.11.lcssa.i, %.preheader126.i ], [ %340, %.lr.ph153.i ], [ %437, %.lr.ph173.i ], [ %.7.lcssa.i, %.preheader130.i ], [ %.3.lcssa.i, %.preheader134.i ], [ %541, %.lr.ph193.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 8
   %544 = or disjoint i64 %indvars.iv.next.i, 7
   %545 = icmp samesign ult i64 %544, %42

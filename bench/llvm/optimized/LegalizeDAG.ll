@@ -1368,7 +1368,7 @@ _ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit.i: ; preds = %2
   br label %_ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit268thread-pre-split
 
 _ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit268thread-pre-split: ; preds = %_ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit352, %_ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit343, %200, %188, %135, %493, %_ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit386, %_ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit374, %_ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit277, %_ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit281, %_ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit365, %_ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit, %18, %21, %39, %50, %59, %69, %78, %89, %98, %104, %111, %122, %172, %175, %180, %181, %212, %215, %284, %287, %296, %_ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit.i, %319, %325, %336, %343, %354, %361, %372, %379, %390, %397, %408, %415, %425, %434, %445, %454, %464, %473, %484, %500, %503
-  %.0245.ph = phi i8 [ 2, %500 ], [ %511, %503 ], [ %490, %484 ], [ %472, %464 ], [ %453, %445 ], [ %433, %425 ], [ %414, %408 ], [ %396, %390 ], [ %378, %372 ], [ %360, %354 ], [ %342, %336 ], [ %318, %_ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit.i ], [ %324, %319 ], [ %295, %287 ], [ %221, %215 ], [ 2, %473 ], [ %spec.select579, %_ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit352 ], [ %spec.select, %_ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit343 ], [ 2, %200 ], [ %187, %181 ], [ %179, %175 ], [ %128, %122 ], [ %110, %104 ], [ %97, %89 ], [ %77, %69 ], [ %58, %50 ], [ %27, %21 ], [ 2, %111 ], [ 2, %434 ], [ 2, %415 ], [ 2, %397 ], [ 2, %379 ], [ 2, %361 ], [ 2, %343 ], [ 2, %325 ], [ 2, %296 ], [ 2, %284 ], [ 2, %212 ], [ %264, %_ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit386 ], [ %236, %_ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit374 ], [ 2, %172 ], [ %227, %_ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit365 ], [ 2, %188 ], [ %499, %493 ], [ 2, %180 ], [ %168, %135 ], [ 2, %454 ], [ 2, %98 ], [ 2, %78 ], [ 2, %59 ], [ 2, %39 ], [ 2, %18 ], [ 1, %_ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit277 ], [ %38, %_ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit281 ], [ %17, %_ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit ]
+  %.0245.ph = phi i8 [ 2, %500 ], [ %511, %503 ], [ %490, %484 ], [ %472, %464 ], [ %453, %445 ], [ %433, %425 ], [ %414, %408 ], [ %396, %390 ], [ %378, %372 ], [ %360, %354 ], [ %342, %336 ], [ %318, %_ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit.i ], [ %324, %319 ], [ %295, %287 ], [ %221, %215 ], [ 2, %473 ], [ %spec.select579, %_ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit352 ], [ %spec.select, %_ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit343 ], [ 2, %200 ], [ %187, %181 ], [ %179, %175 ], [ %128, %122 ], [ %110, %104 ], [ %97, %89 ], [ %77, %69 ], [ %58, %50 ], [ %27, %21 ], [ 2, %434 ], [ 2, %415 ], [ 2, %397 ], [ 2, %379 ], [ 2, %361 ], [ 2, %343 ], [ 2, %325 ], [ 2, %296 ], [ 2, %284 ], [ 2, %212 ], [ %264, %_ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit386 ], [ %236, %_ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit374 ], [ 2, %111 ], [ %227, %_ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit365 ], [ 2, %188 ], [ %499, %493 ], [ 2, %180 ], [ 2, %172 ], [ %168, %135 ], [ 2, %454 ], [ 2, %98 ], [ 2, %78 ], [ 2, %59 ], [ 2, %39 ], [ 2, %18 ], [ 1, %_ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit277 ], [ %38, %_ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit281 ], [ %17, %_ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit ]
   %.pr = load i32, ptr %9, align 8, !tbaa !152
   br label %_ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit268
 
@@ -1512,7 +1512,7 @@ _ZNK4llvm3EVT8isVectorEv.exit518:                 ; preds = %538
   br label %564
 
 564:                                              ; preds = %561, %535
-  %.0250 = phi ptr [ %537, %535 ], [ %563, %561 ]
+  %.0250 = phi ptr [ %563, %561 ], [ %537, %535 ]
   %.not257 = icmp eq ptr %.0250, %1
   br i1 %.not257, label %.thread, label %565
 
@@ -15121,10 +15121,10 @@ _ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit.thread1017: ; p
   br label %126
 
 126:                                              ; preds = %116, %106, %117
-  %.sroa.9969.0 = phi i32 [ %.sroa.9969.0.copyload, %106 ], [ 1, %117 ], [ 1, %116 ]
-  %.sroa.0967.0 = phi ptr [ %.sroa.0967.0.copyload, %106 ], [ %.fca.0.extract414, %117 ], [ %.fca.0.extract431, %116 ]
-  %.sroa.9.0 = phi i32 [ %.sroa.9.0.copyload, %106 ], [ %.fca.1.extract407, %117 ], [ %.fca.1.extract432, %116 ]
-  %.sroa.0.0 = phi ptr [ %.sroa.0.0.copyload965, %106 ], [ %.fca.0.extract406, %117 ], [ %.fca.0.extract431, %116 ]
+  %.sroa.9969.0 = phi i32 [ 1, %116 ], [ %.sroa.9969.0.copyload, %106 ], [ 1, %117 ]
+  %.sroa.0967.0 = phi ptr [ %.fca.0.extract431, %116 ], [ %.sroa.0967.0.copyload, %106 ], [ %.fca.0.extract414, %117 ]
+  %.sroa.9.0 = phi i32 [ %.fca.1.extract432, %116 ], [ %.sroa.9.0.copyload, %106 ], [ %.fca.1.extract407, %117 ]
+  %.sroa.0.0 = phi ptr [ %.fca.0.extract431, %116 ], [ %.sroa.0.0.copyload965, %106 ], [ %.fca.0.extract406, %117 ]
   %.not572 = icmp eq ptr %.sroa.0967.0, %1
   br i1 %.not572, label %.thread, label %127
 
@@ -16250,10 +16250,10 @@ _ZNK4llvm3EVTeqES0_.exit783:                      ; preds = %_ZNK4llvm3EVT8isVec
   br label %_ZNK4llvm3EVTeqES0_.exit.thread1034
 
 _ZNK4llvm3EVTeqES0_.exit.thread1034:              ; preds = %241, %_ZNK4llvm3EVTeqES0_.exit.thread, %250, %251, %470, %_ZNK4llvm18MachinePointerInfo13getWithOffsetEl.exit, %_ZNK4llvm18MachinePointerInfo13getWithOffsetEl.exit705, %566, %471
-  %.sroa.15.0 = phi i32 [ %.fca.1.extract131, %470 ], [ %.fca.1.extract139, %_ZNK4llvm18MachinePointerInfo13getWithOffsetEl.exit705 ], [ %.sroa.15.0.copyload, %471 ], [ %.sroa.15.3, %566 ], [ %.fca.1.extract216, %_ZNK4llvm18MachinePointerInfo13getWithOffsetEl.exit ], [ %.fca.1.extract342, %241 ], [ %.fca.1.extract324, %_ZNK4llvm3EVTeqES0_.exit.thread ], [ %.fca.1.extract365, %251 ], [ %.fca.1.extract365, %250 ]
-  %.sroa.0970.0 = phi ptr [ %.fca.0.extract130, %470 ], [ %.fca.0.extract138, %_ZNK4llvm18MachinePointerInfo13getWithOffsetEl.exit705 ], [ %.sroa.0970.0.copyload, %471 ], [ %.sroa.0970.3, %566 ], [ %.fca.0.extract215, %_ZNK4llvm18MachinePointerInfo13getWithOffsetEl.exit ], [ %.fca.0.extract341, %241 ], [ %.fca.0.extract323, %_ZNK4llvm3EVTeqES0_.exit.thread ], [ %.fca.0.extract364, %251 ], [ %.fca.0.extract364, %250 ]
-  %.sroa.0971.0 = phi ptr [ %.fca.0.extract130, %470 ], [ %.fca.0.extract164, %_ZNK4llvm18MachinePointerInfo13getWithOffsetEl.exit705 ], [ %.sroa.0971.0.copyload981, %471 ], [ %.sroa.0971.2.pre-phi, %566 ], [ %.fca.0.extract241, %_ZNK4llvm18MachinePointerInfo13getWithOffsetEl.exit ], [ %.fca.0.extract364, %241 ], [ %.fca.0.extract364, %_ZNK4llvm3EVTeqES0_.exit.thread ], [ %.fca.0.extract364, %251 ], [ %.fca.0.extract364, %250 ]
-  %.sroa.24.0 = phi i32 [ 1, %470 ], [ %.fca.1.extract165, %_ZNK4llvm18MachinePointerInfo13getWithOffsetEl.exit705 ], [ %.sroa.24.0.copyload999, %471 ], [ 1, %566 ], [ %.fca.1.extract242, %_ZNK4llvm18MachinePointerInfo13getWithOffsetEl.exit ], [ 1, %241 ], [ 1, %_ZNK4llvm3EVTeqES0_.exit.thread ], [ 1, %251 ], [ 1, %250 ]
+  %.sroa.15.0 = phi i32 [ %.fca.1.extract216, %_ZNK4llvm18MachinePointerInfo13getWithOffsetEl.exit ], [ %.fca.1.extract139, %_ZNK4llvm18MachinePointerInfo13getWithOffsetEl.exit705 ], [ %.fca.1.extract131, %470 ], [ %.sroa.15.0.copyload, %471 ], [ %.sroa.15.3, %566 ], [ %.fca.1.extract342, %241 ], [ %.fca.1.extract324, %_ZNK4llvm3EVTeqES0_.exit.thread ], [ %.fca.1.extract365, %251 ], [ %.fca.1.extract365, %250 ]
+  %.sroa.0970.0 = phi ptr [ %.fca.0.extract215, %_ZNK4llvm18MachinePointerInfo13getWithOffsetEl.exit ], [ %.fca.0.extract138, %_ZNK4llvm18MachinePointerInfo13getWithOffsetEl.exit705 ], [ %.fca.0.extract130, %470 ], [ %.sroa.0970.0.copyload, %471 ], [ %.sroa.0970.3, %566 ], [ %.fca.0.extract341, %241 ], [ %.fca.0.extract323, %_ZNK4llvm3EVTeqES0_.exit.thread ], [ %.fca.0.extract364, %251 ], [ %.fca.0.extract364, %250 ]
+  %.sroa.0971.0 = phi ptr [ %.fca.0.extract241, %_ZNK4llvm18MachinePointerInfo13getWithOffsetEl.exit ], [ %.fca.0.extract164, %_ZNK4llvm18MachinePointerInfo13getWithOffsetEl.exit705 ], [ %.fca.0.extract130, %470 ], [ %.sroa.0971.0.copyload981, %471 ], [ %.sroa.0971.2.pre-phi, %566 ], [ %.fca.0.extract364, %241 ], [ %.fca.0.extract364, %_ZNK4llvm3EVTeqES0_.exit.thread ], [ %.fca.0.extract364, %251 ], [ %.fca.0.extract364, %250 ]
+  %.sroa.24.0 = phi i32 [ %.fca.1.extract242, %_ZNK4llvm18MachinePointerInfo13getWithOffsetEl.exit ], [ %.fca.1.extract165, %_ZNK4llvm18MachinePointerInfo13getWithOffsetEl.exit705 ], [ 1, %470 ], [ %.sroa.24.0.copyload999, %471 ], [ 1, %566 ], [ 1, %241 ], [ 1, %_ZNK4llvm3EVTeqES0_.exit.thread ], [ 1, %251 ], [ 1, %250 ]
   %.not = icmp eq ptr %.sroa.0971.0, %1
   br i1 %.not, label %.thread1050, label %567
 
@@ -17934,8 +17934,8 @@ _ZN4llvm12is_containedIRNS_11SmallVectorIPNS_6SDNodeELj16EEES3_EEbOT_RKT0_.exit.
   br label %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_6SDNodeELj16EEES3_EEbOT_RKT0_.exit
 
 _ZN4llvm12is_containedIRNS_11SmallVectorIPNS_6SDNodeELj16EEES3_EEbOT_RKT0_.exit: ; preds = %20, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_6SDNodeELj16EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_6SDNodeELj16EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit38, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_6SDNodeELj16EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit40, %40, %46, %52
-  %59 = phi ptr [ %47, %46 ], [ %41, %40 ], [ %53, %52 ], [ %18, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_6SDNodeELj16EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit40 ], [ %18, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_6SDNodeELj16EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit38 ], [ %18, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_6SDNodeELj16EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %18, %20 ]
-  %.028.i.i.i.i = phi ptr [ %.1.i.i.i.i, %46 ], [ %.029.lcssa.i.i.i.i, %40 ], [ %.2.i.i.i.i, %52 ], [ %58, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_6SDNodeELj16EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit40 ], [ %57, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_6SDNodeELj16EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit38 ], [ %56, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_6SDNodeELj16EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %.02946.i.i.i.i, %20 ]
+  %59 = phi ptr [ %47, %46 ], [ %41, %40 ], [ %53, %52 ], [ %18, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_6SDNodeELj16EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %18, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_6SDNodeELj16EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit40 ], [ %18, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_6SDNodeELj16EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit38 ], [ %18, %20 ]
+  %.028.i.i.i.i = phi ptr [ %.1.i.i.i.i, %46 ], [ %.029.lcssa.i.i.i.i, %40 ], [ %.2.i.i.i.i, %52 ], [ %56, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_6SDNodeELj16EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %58, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_6SDNodeELj16EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit40 ], [ %57, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_6SDNodeELj16EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit38 ], [ %.02946.i.i.i.i, %20 ]
   %.not = icmp eq ptr %.028.i.i.i.i, %16
   br i1 %.not, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_6SDNodeELj16EEES3_EEbOT_RKT0_.exit.thread, label %_ZN4llvm9SetVectorIPNS_6SDNodeENS_11SmallVectorIS2_Lj16EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj16EE7makeBigEv.exit
 
@@ -34135,7 +34135,7 @@ _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i: ; preds = %.split
   br i1 %.not.i, label %.split.backedge, label %_ZNK4llvm18TargetLoweringBase24isOperationLegalOrCustomEjNS_3EVTEb.exit.thread
 
 _ZNK4llvm18TargetLoweringBase24isOperationLegalOrCustomEjNS_3EVTEb.exit.thread: ; preds = %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i, %.split, %_ZNK4llvm3EVTeqES0_.exit.thread.i.us
-  %.us-phi = phi i16 [ %14, %_ZNK4llvm3EVTeqES0_.exit.thread.i.us ], [ %20, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i ], [ 1, %.split ]
+  %.us-phi = phi i16 [ %14, %_ZNK4llvm3EVTeqES0_.exit.thread.i.us ], [ 1, %.split ], [ %20, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i ]
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %25 = load ptr, ptr %24, align 8, !tbaa !166
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 40

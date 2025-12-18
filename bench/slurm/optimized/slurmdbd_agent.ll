@@ -435,7 +435,7 @@ define internal fastcc void @_load_dbd_state() unnamed_addr #0 {
   br i1 %63, label %.loopexit, label %.lr.ph, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.lr.ph.us, %.thread.split, %56, %.thread, %34, %21
-  %.125 = phi i32 [ 0, %21 ], [ 0, %34 ], [ 0, %.thread ], [ %61, %.thread.split ], [ %.024.ph39, %56 ], [ %45, %.lr.ph.us ]
+  %.125 = phi i32 [ 0, %21 ], [ %.024.ph39, %56 ], [ 0, %34 ], [ 0, %.thread ], [ %61, %.thread.split ], [ %45, %.lr.ph.us ]
   %64 = call i32 @slurm_get_log_level() #13
   %65 = icmp sgt i32 %64, 3
   br i1 %65, label %66, label %67
@@ -2225,7 +2225,7 @@ _save_dbd_rec.exit48:                             ; preds = %64, %82, %76, %78
   br i1 %.not3465, label %.loopexit, label %.lr.ph, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.outer, %.backedge, %.preheader, %49, %_save_dbd_rec.exit48
-  %.0 = phi i32 [ 0, %49 ], [ %.1.ph68, %_save_dbd_rec.exit48 ], [ 0, %.preheader ], [ %.1.ph68, %.backedge ], [ %85, %.outer ]
+  %.0 = phi i32 [ 0, %49 ], [ %.1.ph68, %_save_dbd_rec.exit48 ], [ %.1.ph68, %.backedge ], [ 0, %.preheader ], [ %85, %.outer ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread
 

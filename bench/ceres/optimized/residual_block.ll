@@ -432,7 +432,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit141: ; preds = %10
   br label %_ZNK5Eigen10MatrixBaseINS_3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEE11squaredNormEv.exit
 
 _ZNK5Eigen10MatrixBaseINS_3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEE11squaredNormEv.exit: ; preds = %.lr.ph85.i.i.i.i, %155, %147, %113
-  %.0.i.i = phi double [ 0.000000e+00, %113 ], [ %157, %155 ], [ %148, %147 ], [ %153, %.lr.ph85.i.i.i.i ]
+  %.0.i.i = phi double [ 0.000000e+00, %113 ], [ %148, %147 ], [ %157, %155 ], [ %153, %.lr.ph85.i.i.i.i ]
   %or.cond174 = and i1 %48, %34
   br i1 %or.cond174, label %.lr.ph171, label %.loopexit161
 

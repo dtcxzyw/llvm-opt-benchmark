@@ -5684,7 +5684,7 @@ ReorderBufferCopySnap.exit310:                    ; preds = %786, %._crit_edge.l
   unreachable
 
 ReorderBufferExecuteInvalidations.exit:           ; preds = %.lr.ph.i282, %.lr.ph376, %._crit_edge.thread, %._crit_edge, %670, %778, %827, %619, %620, %610, %611, %776, %661, %614, %SetupCheckXidLive.exit
-  %.0 = phi ptr [ %190, %SetupCheckXidLive.exit ], [ %.1, %611 ], [ %.1, %610 ], [ %190, %614 ], [ %190, %620 ], [ %190, %619 ], [ %190, %778 ], [ %190, %661 ], [ %190, %776 ], [ %190, %827 ], [ %190, %670 ], [ %190, %._crit_edge ], [ %190, %._crit_edge.thread ], [ %190, %.lr.ph376 ], [ %190, %.lr.ph.i282 ]
+  %.0 = phi ptr [ %190, %SetupCheckXidLive.exit ], [ %.1, %611 ], [ %.1, %610 ], [ %190, %614 ], [ %190, %620 ], [ %190, %619 ], [ %190, %778 ], [ %190, %661 ], [ %190, %._crit_edge ], [ %190, %776 ], [ %190, %827 ], [ %190, %670 ], [ %190, %._crit_edge.thread ], [ %190, %.lr.ph376 ], [ %190, %.lr.ph.i282 ]
   %833 = add i32 %.0227378, 1
   %834 = icmp sgt i32 %833, 99
   br i1 %834, label %835, label %838

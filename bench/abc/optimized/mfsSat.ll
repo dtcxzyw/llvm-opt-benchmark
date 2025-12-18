@@ -368,7 +368,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br label %.thread60
 
 .thread60:                                        ; preds = %85, %.thread60.sink.split, %110, %107
-  %.053 = phi i32 [ 1, %107 ], [ 1, %110 ], [ 1, %.thread60.sink.split ], [ 0, %85 ]
+  %.053 = phi i32 [ 1, %107 ], [ 1, %.thread60.sink.split ], [ 1, %110 ], [ 0, %85 ]
   ret i32 %.053
 }
 

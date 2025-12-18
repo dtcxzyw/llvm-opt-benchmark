@@ -1982,9 +1982,9 @@ _ZNK4llvm20iterator_facade_baseINS_22VarStreamArrayIteratorINS_8codeview17Inline
   br label %225
 
 .loopexit.i:                                      ; preds = %_ZNK4llvm20iterator_facade_baseINS_22VarStreamArrayIteratorINS_8codeview17InlineeSourceLineENS_23VarStreamArrayExtractorIS3_EEEESt20forward_iterator_tagKS3_lPS8_RS8_EneERKS6_.exit.i, %242, %239, %245, %250, %253
-  %.sroa.6.4 = phi ptr [ %246, %253 ], [ %246, %250 ], [ null, %245 ], [ %.sroa.6.0, %239 ], [ %.sroa.6.0, %242 ], [ %.sroa.6.0, %_ZNK4llvm20iterator_facade_baseINS_22VarStreamArrayIteratorINS_8codeview17InlineeSourceLineENS_23VarStreamArrayExtractorIS3_EEEESt20forward_iterator_tagKS3_lPS8_RS8_EneERKS6_.exit.i ]
-  %.sroa.048.4 = phi ptr [ %243, %253 ], [ %243, %250 ], [ %243, %245 ], [ %.sroa.048.0, %239 ], [ %.sroa.048.0, %242 ], [ %.sroa.048.0, %_ZNK4llvm20iterator_facade_baseINS_22VarStreamArrayIteratorINS_8codeview17InlineeSourceLineENS_23VarStreamArrayExtractorIS3_EEEESt20forward_iterator_tagKS3_lPS8_RS8_EneERKS6_.exit.i ]
-  %spec.store.select.i = phi i32 [ 1, %253 ], [ 1, %250 ], [ 1, %245 ], [ 0, %239 ], [ 0, %242 ], [ 0, %_ZNK4llvm20iterator_facade_baseINS_22VarStreamArrayIteratorINS_8codeview17InlineeSourceLineENS_23VarStreamArrayExtractorIS3_EEEESt20forward_iterator_tagKS3_lPS8_RS8_EneERKS6_.exit.i ]
+  %.sroa.6.4 = phi ptr [ null, %245 ], [ %246, %250 ], [ %246, %253 ], [ %.sroa.6.0, %239 ], [ %.sroa.6.0, %242 ], [ %.sroa.6.0, %_ZNK4llvm20iterator_facade_baseINS_22VarStreamArrayIteratorINS_8codeview17InlineeSourceLineENS_23VarStreamArrayExtractorIS3_EEEESt20forward_iterator_tagKS3_lPS8_RS8_EneERKS6_.exit.i ]
+  %.sroa.048.4 = phi ptr [ %243, %245 ], [ %243, %250 ], [ %243, %253 ], [ %.sroa.048.0, %239 ], [ %.sroa.048.0, %242 ], [ %.sroa.048.0, %_ZNK4llvm20iterator_facade_baseINS_22VarStreamArrayIteratorINS_8codeview17InlineeSourceLineENS_23VarStreamArrayExtractorIS3_EEEESt20forward_iterator_tagKS3_lPS8_RS8_EneERKS6_.exit.i ]
+  %spec.store.select.i = phi i32 [ 1, %245 ], [ 1, %250 ], [ 1, %253 ], [ 0, %239 ], [ 0, %242 ], [ 0, %_ZNK4llvm20iterator_facade_baseINS_22VarStreamArrayIteratorINS_8codeview17InlineeSourceLineENS_23VarStreamArrayExtractorIS3_EEEESt20forward_iterator_tagKS3_lPS8_RS8_EneERKS6_.exit.i ]
   call void @_ZN4llvm22VarStreamArrayIteratorINS_8codeview17InlineeSourceLineENS_23VarStreamArrayExtractorIS2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %18) #15, !noalias !129
   call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !129
   call void @_ZN4llvm22VarStreamArrayIteratorINS_8codeview17InlineeSourceLineENS_23VarStreamArrayExtractorIS2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %17) #15, !noalias !129
@@ -3534,9 +3534,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm8codeview24BinaryAnnotati
   br label %_ZN4llvm8codeview24BinaryAnnotationIterator23GetCompressedAnnotationERNS_8ArrayRefIhEE.exit
 
 _ZN4llvm8codeview24BinaryAnnotationIterator23GetCompressedAnnotationERNS_8ArrayRefIhEE.exit: ; preds = %11, %26, %44
-  %55 = phi ptr [ %15, %11 ], [ %23, %26 ], [ %41, %44 ]
-  %56 = phi i64 [ %14, %11 ], [ %22, %26 ], [ %40, %44 ]
-  %.0.i = phi i32 [ %16, %11 ], [ %30, %26 ], [ %54, %44 ]
+  %55 = phi ptr [ %41, %44 ], [ %23, %26 ], [ %15, %11 ]
+  %56 = phi i64 [ %40, %44 ], [ %22, %26 ], [ %14, %11 ]
+  %.0.i = phi i32 [ %54, %44 ], [ %30, %26 ], [ %16, %11 ]
   switch i32 %.0.i, label %702 [
     i32 0, label %57
     i32 1, label %58

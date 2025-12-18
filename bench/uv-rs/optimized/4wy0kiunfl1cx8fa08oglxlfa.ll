@@ -1227,7 +1227,7 @@ define internal fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h021
   br label %.loopexit
 
 .critedge:                                        ; preds = %193, %74, %30, %.sink.split.i.us, %135, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17hba17f5cd1071aaf8E.exit.split"
-  %.sroa.07.0181 = phi i64 [ 0, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17hba17f5cd1071aaf8E.exit.split" ], [ %.sroa.07.0.us, %74 ], [ %.sroa.07.0.us, %135 ], [ %.sroa.07.0.us, %.sink.split.i.us ], [ %.sroa.07.0.us, %30 ], [ %.sroa.07.0217, %193 ]
+  %.sroa.07.0181 = phi i64 [ %.sroa.07.0.us, %74 ], [ 0, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17hba17f5cd1071aaf8E.exit.split" ], [ %.sroa.07.0.us, %135 ], [ %.sroa.07.0.us, %.sink.split.i.us ], [ %.sroa.07.0.us, %30 ], [ %.sroa.07.0217, %193 ]
   %gepdiff136 = sub nsw i64 %2, %.sroa.07.0181
   %208 = load i64, ptr %.sroa.515.0..sroa_idx, align 8, !alias.scope !160, !noundef !4
   %209 = load i64, ptr %10, align 8, !range !92, !alias.scope !160, !noundef !4
@@ -2745,8 +2745,8 @@ _ZN3std4path4Path4join17h66515b1cdb1e6563E.exit504: ; preds = %518
           cleanup
   br label %.thread730
 
-.loopexit.split-lp.thread:                        ; preds = %569, %570, %555, %551, %585, %589, %590, %591, %557, %595, %_ZN3std4path4Path4join17h66515b1cdb1e6563E.exit520, %546, %556, %624, %_ZN3std4path4Path4join17h66515b1cdb1e6563E.exit522, %561, %565, %981, %567, %874, %637
-  %.sroa.0244.3.ph.ph = phi i8 [ 1, %637 ], [ %.sroa.0244.7, %874 ], [ 1, %567 ], [ 1, %981 ], [ 1, %565 ], [ 1, %561 ], [ 1, %_ZN3std4path4Path4join17h66515b1cdb1e6563E.exit522 ], [ 1, %624 ], [ 1, %556 ], [ 1, %546 ], [ 1, %_ZN3std4path4Path4join17h66515b1cdb1e6563E.exit520 ], [ 1, %595 ], [ 1, %557 ], [ 1, %591 ], [ 1, %590 ], [ 1, %589 ], [ 1, %585 ], [ 1, %551 ], [ 1, %555 ], [ 1, %570 ], [ 1, %569 ]
+.loopexit.split-lp.thread:                        ; preds = %585, %589, %590, %591, %557, %595, %_ZN3std4path4Path4join17h66515b1cdb1e6563E.exit520, %546, %556, %624, %_ZN3std4path4Path4join17h66515b1cdb1e6563E.exit522, %561, %565, %551, %555, %570, %981, %569, %567, %874, %637
+  %.sroa.0244.3.ph.ph = phi i8 [ 1, %637 ], [ %.sroa.0244.7, %874 ], [ 1, %567 ], [ 1, %569 ], [ 1, %981 ], [ 1, %570 ], [ 1, %555 ], [ 1, %551 ], [ 1, %565 ], [ 1, %561 ], [ 1, %_ZN3std4path4Path4join17h66515b1cdb1e6563E.exit522 ], [ 1, %624 ], [ 1, %556 ], [ 1, %546 ], [ 1, %_ZN3std4path4Path4join17h66515b1cdb1e6563E.exit520 ], [ 1, %595 ], [ 1, %557 ], [ 1, %591 ], [ 1, %590 ], [ 1, %589 ], [ 1, %585 ]
   %lpad.thr_comm849 = landingpad { ptr, i32 }
           cleanup
   br label %.thread730

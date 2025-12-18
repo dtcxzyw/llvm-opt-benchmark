@@ -225,7 +225,7 @@ aes_ctr_encrypt_counter.exit59:                   ; preds = %aes_ctr_increase_co
   br label %.loopexit
 
 .loopexit:                                        ; preds = %aes_ctr_encrypt_counter.exit, %aes_ctr_encrypt_counter.exit59, %aes_ctr_encrypt_counter.exit59.thread, %aes_ctr_encrypt_counter.exit.thread, %._crit_edge
-  %.039 = phi i32 [ 0, %._crit_edge ], [ -1, %aes_ctr_encrypt_counter.exit.thread ], [ -1, %aes_ctr_encrypt_counter.exit59.thread ], [ -1, %aes_ctr_encrypt_counter.exit59 ], [ -1, %aes_ctr_encrypt_counter.exit ]
+  %.039 = phi i32 [ 0, %._crit_edge ], [ -1, %aes_ctr_encrypt_counter.exit59 ], [ -1, %aes_ctr_encrypt_counter.exit59.thread ], [ -1, %aes_ctr_encrypt_counter.exit.thread ], [ -1, %aes_ctr_encrypt_counter.exit ]
   ret i32 %.039
 }
 

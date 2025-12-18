@@ -1629,9 +1629,9 @@ define internal i64 @relay_file_read(ptr noundef readonly captures(none) %0, ptr
   %57 = icmp ugt i64 %56, %41
   br i1 %57, label %.critedge8, label %.critedge.thread
 
-.critedge8:                                       ; preds = %..critedge8_crit_edge, %55, %39
-  %58 = phi i64 [ %40, %55 ], [ %40, %39 ], [ %.pre15, %..critedge8_crit_edge ]
-  %59 = phi i64 [ %41, %55 ], [ %41, %39 ], [ %29, %..critedge8_crit_edge ]
+.critedge8:                                       ; preds = %..critedge8_crit_edge, %39, %55
+  %58 = phi i64 [ %40, %39 ], [ %40, %55 ], [ %.pre15, %..critedge8_crit_edge ]
+  %59 = phi i64 [ %41, %39 ], [ %41, %55 ], [ %29, %..critedge8_crit_edge ]
   %60 = load ptr, ptr %12, align 8
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %62 = load i64, ptr %61, align 8

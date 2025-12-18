@@ -858,9 +858,9 @@ define dso_local void @free_pgtables(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %.loopexit11, !llvm.loop !24
 
 .loopexit11:                                      ; preds = %98, %89, %67, %48, %35, %..loopexit_crit_edge, %.preheader, %33
-  %.ph.pn = phi ptr [ %9, %33 ], [ %9, %35 ], [ %9, %.preheader ], [ %.us-phi19, %..loopexit_crit_edge ], [ %45, %67 ], [ %45, %48 ], [ %94, %89 ], [ %94, %98 ]
-  %102 = phi ptr [ null, %33 ], [ %15, %35 ], [ %15, %.preheader ], [ %.us-phi20, %..loopexit_crit_edge ], [ null, %67 ], [ %55, %48 ], [ null, %98 ], [ %99, %89 ]
-  %103 = phi i64 [ %4, %33 ], [ %36, %35 ], [ %36, %.preheader ], [ %101, %..loopexit_crit_edge ], [ %4, %67 ], [ %70, %48 ], [ %4, %98 ], [ %84, %89 ]
+  %.ph.pn = phi ptr [ %45, %67 ], [ %9, %33 ], [ %.us-phi19, %..loopexit_crit_edge ], [ %9, %35 ], [ %9, %.preheader ], [ %45, %48 ], [ %94, %89 ], [ %94, %98 ]
+  %102 = phi ptr [ null, %67 ], [ null, %33 ], [ %.us-phi20, %..loopexit_crit_edge ], [ %15, %35 ], [ %15, %.preheader ], [ %55, %48 ], [ null, %98 ], [ %99, %89 ]
+  %103 = phi i64 [ %4, %67 ], [ %4, %33 ], [ %101, %..loopexit_crit_edge ], [ %36, %35 ], [ %36, %.preheader ], [ %70, %48 ], [ %4, %98 ], [ %84, %89 ]
   %.in = getelementptr inbounds nuw i8, ptr %.ph.pn, i64 8
   %104 = load i64, ptr %.in, align 8
   tail call void @free_pgd_range(ptr noundef %0, i64 noundef %10, i64 noundef %104, i64 noundef %3, i64 noundef %103)
@@ -1407,7 +1407,7 @@ define dso_local ptr @vm_normal_folio(ptr noundef %0, i64 noundef %1, i64 %2) lo
   br label %vm_normal_page.exit
 
 vm_normal_page.exit:                              ; preds = %22, %39
-  %43 = phi ptr [ %42, %39 ], [ %23, %22 ]
+  %43 = phi ptr [ %23, %22 ], [ %42, %39 ]
   %44 = icmp eq ptr %43, null
   br i1 %44, label %vm_normal_page.exit.thread, label %45
 
@@ -2118,7 +2118,7 @@ define dso_local i32 @copy_page_range(ptr noundef %0, ptr noundef %1) local_unna
   br label %vm_normal_page.exit
 
 vm_normal_page.exit:                              ; preds = %398, %413
-  %417 = phi ptr [ %416, %413 ], [ %399, %398 ]
+  %417 = phi ptr [ %399, %398 ], [ %416, %413 ]
   %418 = icmp eq ptr %417, null
   br i1 %418, label %.critedge, label %419
 
@@ -4696,8 +4696,8 @@ define dso_local range(i32 -22, 1) i32 @vm_insert_pages(ptr noundef %0, i64 noun
   br i1 %183, label %.thread17, label %57
 
 .thread17:                                        ; preds = %74, %._crit_edge, %71, %57, %.lr.ph, %.thread11
-  %184 = phi i64 [ %170, %.thread11 ], [ %78, %.lr.ph ], [ 0, %74 ], [ %59, %57 ], [ %59, %71 ], [ 0, %._crit_edge ]
-  %185 = phi i32 [ %168, %.thread11 ], [ -14, %.lr.ph ], [ 0, %74 ], [ -14, %57 ], [ -12, %71 ], [ 0, %._crit_edge ]
+  %184 = phi i64 [ %78, %.lr.ph ], [ %170, %.thread11 ], [ 0, %._crit_edge ], [ %59, %57 ], [ %59, %71 ], [ 0, %74 ]
+  %185 = phi i32 [ -14, %.lr.ph ], [ %168, %.thread11 ], [ 0, %._crit_edge ], [ -14, %57 ], [ -12, %71 ], [ 0, %74 ]
   store i64 %184, ptr %3, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %186
@@ -5169,7 +5169,7 @@ define dso_local noundef range(i32 1, 257) i32 @vmf_insert_pfn_prot(ptr noundef 
   br label %78
 
 78:                                               ; preds = %75, %67
-  %79 = phi i32 [ %68, %67 ], [ %77, %75 ]
+  %79 = phi i32 [ %77, %75 ], [ %68, %67 ]
   %80 = icmp eq i32 %79, 0
   br i1 %80, label %.thread, label %81, !prof !92
 
@@ -5980,7 +5980,7 @@ define dso_local range(i32 -22, 1) i32 @remap_pfn_range_notrack(ptr noundef %0, 
   br i1 %331, label %.thread27, label %.split46, !llvm.loop !110
 
 .thread27:                                        ; preds = %.split45, %225, %209, %243, %240, %268, %265, %.split34, %.split45.us.us, %92, %76, %107, %110, %135, %132, %.split34.us.us.us.us.us, %.thread19, %25, %22, %16
-  %332 = phi i32 [ -22, %16 ], [ -22, %25 ], [ -22, %22 ], [ -12, %.thread19 ], [ -12, %243 ], [ %187, %.split34.us.us.us.us.us ], [ -12, %135 ], [ 0, %.split45.us.us ], [ %321, %.split34 ], [ -12, %268 ], [ -12, %107 ], [ -12, %132 ], [ -12, %110 ], [ -12, %76 ], [ -12, %92 ], [ -12, %265 ], [ -12, %240 ], [ -12, %209 ], [ -12, %225 ], [ 0, %.split45 ]
+  %332 = phi i32 [ -22, %16 ], [ -22, %25 ], [ -22, %22 ], [ 0, %.split45.us.us ], [ -12, %.thread19 ], [ %187, %.split34.us.us.us.us.us ], [ -12, %135 ], [ -12, %268 ], [ -12, %243 ], [ -12, %107 ], [ %321, %.split34 ], [ -12, %132 ], [ -12, %110 ], [ -12, %76 ], [ -12, %92 ], [ -12, %265 ], [ -12, %240 ], [ -12, %209 ], [ -12, %225 ], [ 0, %.split45 ]
   ret i32 %332
 }
 
@@ -6624,7 +6624,7 @@ define internal fastcc i32 @__apply_to_page_range(ptr noundef %0, i64 noundef %1
   br i1 %301, label %.thread37, label %23, !llvm.loop !141
 
 .thread37:                                        ; preds = %49, %65, %.loopexit44, %106, %109, %167, %170, %291, %.thread28, %212, %145, %11
-  %302 = phi i32 [ -22, %11 ], [ -22, %145 ], [ %.ph, %.thread28 ], [ -22, %212 ], [ -12, %106 ], [ %288, %291 ], [ -12, %167 ], [ -12, %170 ], [ -12, %109 ], [ -12, %49 ], [ -12, %65 ], [ 0, %.loopexit44 ]
+  %302 = phi i32 [ -22, %11 ], [ %.ph, %.thread28 ], [ %288, %291 ], [ -12, %106 ], [ -12, %167 ], [ -22, %212 ], [ -22, %145 ], [ -12, %170 ], [ -12, %109 ], [ -12, %49 ], [ -12, %65 ], [ 0, %.loopexit44 ]
   ret i32 %302
 }
 
@@ -7903,7 +7903,7 @@ vm_normal_page.exit.thread:                       ; preds = %vm_normal_page.exit
   br label %87
 
 vm_normal_page.exit:                              ; preds = %39, %54
-  %59 = phi ptr [ %57, %54 ], [ %40, %39 ]
+  %59 = phi ptr [ %40, %39 ], [ %57, %54 ]
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %59, ptr %60, align 8
   %61 = icmp eq ptr %59, null
@@ -10307,7 +10307,7 @@ define dso_local i32 @handle_mm_fault(ptr noundef %0, i64 noundef %1, i32 nounde
   br i1 %405, label %.loopexit, label %.preheader, !llvm.loop !180
 
 .loopexit:                                        ; preds = %.preheader, %.thread31, %263, %415, %409, %388, %271, %267
-  %.ph34 = phi i32 [ 0, %.thread31 ], [ 0, %263 ], [ %410, %415 ], [ %410, %409 ], [ 0, %388 ], [ 0, %267 ], [ %277, %271 ], [ 0, %.preheader ]
+  %.ph34 = phi i32 [ 0, %.thread31 ], [ 0, %263 ], [ %277, %271 ], [ %410, %415 ], [ %410, %409 ], [ 0, %388 ], [ 0, %267 ], [ 0, %.preheader ]
   %.pr35 = load ptr, ptr %121, align 8
   %406 = icmp eq ptr %.pr35, null
   br i1 %406, label %.thread23, label %407
@@ -10972,7 +10972,7 @@ define dso_local i32 @handle_mm_fault(ptr noundef %0, i64 noundef %1, i32 nounde
   br label %824
 
 801:                                              ; preds = %.thread23, %88
-  %802 = phi i32 [ %90, %88 ], [ %800, %.thread23 ]
+  %802 = phi i32 [ %800, %.thread23 ], [ %90, %88 ]
   %803 = and i32 %802, 1024
   %804 = icmp eq i32 %803, 0
   br i1 %804, label %805, label %824
@@ -12191,7 +12191,7 @@ define internal fastcc i32 @__access_remote_vm(ptr noundef %0, i64 noundef %1, p
   br label %45
 
 45:                                               ; preds = %43, %36
-  %46 = phi ptr [ %39, %36 ], [ %44, %43 ]
+  %46 = phi ptr [ %44, %43 ], [ %39, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %47 = icmp ugt ptr %46, inttoptr (i64 -4096 to ptr)
   br i1 %47, label %97, label %48

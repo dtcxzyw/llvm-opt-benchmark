@@ -2830,8 +2830,8 @@ _ZN9grpc_coremiENS_8DurationES0_.exit.thread:     ; preds = %53, %49, %_ZN9grpc_
   call void @_ZN9grpc_core5CrashESt17basic_string_viewIcSt11char_traitsIcEENS_14SourceLocationE(i64 47, ptr nonnull @.str.9, ptr nonnull @.str.10, i32 48) #32
   unreachable
 
-_ZN9grpc_coremiENS_8DurationES0_.exit.thread43:   ; preds = %53, %51, %_ZN9grpc_coremiENS_9TimestampES0_.exit, %_ZN9grpc_coremiENS_8DurationES0_.exit
-  %.0.i.i45 = phi i64 [ %.old, %_ZN9grpc_coremiENS_8DurationES0_.exit ], [ 9223372036854775807, %_ZN9grpc_coremiENS_9TimestampES0_.exit ], [ 9223372036854775807, %51 ], [ %55, %53 ]
+_ZN9grpc_coremiENS_8DurationES0_.exit.thread43:   ; preds = %53, %_ZN9grpc_coremiENS_9TimestampES0_.exit, %51, %_ZN9grpc_coremiENS_8DurationES0_.exit
+  %.0.i.i45 = phi i64 [ %.old, %_ZN9grpc_coremiENS_8DurationES0_.exit ], [ 9223372036854775807, %51 ], [ 9223372036854775807, %_ZN9grpc_coremiENS_9TimestampES0_.exit ], [ %55, %53 ]
   %57 = icmp sgt i64 %.sroa.04.0.i, 1999
   br i1 %57, label %.preheader47, label %.critedge
 

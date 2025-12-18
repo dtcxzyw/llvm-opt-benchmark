@@ -2182,7 +2182,7 @@ dissect_asam_cmp_status_interface_support_mask.exit.i: ; preds = %393, %390, %38
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %424, %.lr.ph10.i, %475, %470, %467, %455, %435, %430, %427, %318, %313, %308
-  %.4.i = phi i32 [ %477, %475 ], [ %317, %313 ], [ %311, %308 ], [ %434, %430 ], [ %216, %427 ], [ %454, %435 ], [ %466, %455 ], [ %474, %470 ], [ %216, %467 ], [ %216, %318 ], [ %.58.i, %.lr.ph10.i ], [ %.8.i, %424 ]
+  %.4.i = phi i32 [ %477, %475 ], [ %317, %313 ], [ %311, %308 ], [ %216, %467 ], [ %474, %470 ], [ %434, %430 ], [ %216, %427 ], [ %454, %435 ], [ %466, %455 ], [ %216, %318 ], [ %.58.i, %.lr.ph10.i ], [ %.8.i, %424 ]
   %478 = load i32, ptr %25, align 4
   %479 = add i32 %478, 16
   %480 = sub i32 %.4.i, %.0103
@@ -3062,7 +3062,7 @@ proto_item_set_hidden.exit494.i:                  ; preds = %966, %963, %proto_i
   br i1 %972, label %943, label %.loopexit496.i, !llvm.loop !15
 
 .loopexit496.i:                                   ; preds = %proto_item_set_hidden.exit494.i, %proto_item_set_hidden.exit.i, %.preheader495.i, %.preheader497.i, %903, %875
-  %.7.i = phi i32 [ %899, %903 ], [ %899, %875 ], [ %899, %.preheader495.i ], [ %899, %.preheader497.i ], [ %941, %proto_item_set_hidden.exit.i ], [ %971, %proto_item_set_hidden.exit494.i ]
+  %.7.i = phi i32 [ %899, %903 ], [ %899, %875 ], [ %941, %proto_item_set_hidden.exit.i ], [ %899, %.preheader495.i ], [ %899, %.preheader497.i ], [ %971, %proto_item_set_hidden.exit494.i ]
   call void @proto_item_set_end(ptr noundef %567, ptr noundef %0, i32 noundef %.7.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)

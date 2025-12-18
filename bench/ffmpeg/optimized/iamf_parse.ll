@@ -473,9 +473,9 @@ define i32 @ff_iamfdec_read_descriptors(ptr noundef captures(none) %0, ptr nound
   br label %.thread94.i
 
 .thread94.i:                                      ; preds = %72, %114, %80, %._crit_edge.i, %57
-  %.sink.i = phi ptr [ %116, %114 ], [ %56, %._crit_edge.i ], [ %56, %80 ], [ %56, %57 ], [ %56, %72 ]
-  %.068.ph99.i = phi i32 [ %.068.ph.i, %114 ], [ -12, %._crit_edge.i ], [ -12, %80 ], [ %58, %57 ], [ -1094995529, %72 ]
-  %.070.ph98.i = phi ptr [ %81, %114 ], [ null, %._crit_edge.i ], [ null, %80 ], [ null, %57 ], [ null, %72 ]
+  %.sink.i = phi ptr [ %116, %114 ], [ %56, %57 ], [ %56, %._crit_edge.i ], [ %56, %80 ], [ %56, %72 ]
+  %.068.ph99.i = phi i32 [ %.068.ph.i, %114 ], [ %58, %57 ], [ -12, %._crit_edge.i ], [ -12, %80 ], [ -1094995529, %72 ]
+  %.070.ph98.i = phi ptr [ %81, %114 ], [ null, %57 ], [ null, %._crit_edge.i ], [ null, %80 ], [ null, %72 ]
   call void @av_free(ptr noundef %.sink.i) #10
   br label %.sink.split.i
 
@@ -829,7 +829,7 @@ ff_iamf_get_codec_config.exit.thread.i:           ; preds = %ff_iamf_get_codec_c
   br label %audio_element_obu.exit
 
 .thread197.i:                                     ; preds = %200, %182, %250, %242, %238, %236, %257, %252, %233, %227, %170, %163, %161, %155, %ff_iamf_get_codec_config.exit.thread.i, %135, %120
-  %.0132199.i = phi i32 [ -1094995529, %ff_iamf_get_codec_config.exit.thread.i ], [ -1094995529, %135 ], [ -12, %155 ], [ -12, %161 ], [ -12, %163 ], [ %121, %120 ], [ %258, %257 ], [ -12, %170 ], [ %253, %252 ], [ -1094995529, %233 ], [ -1094995529, %227 ], [ -1094995529, %236 ], [ %.7.i, %250 ], [ -1094995529, %242 ], [ -1094995529, %238 ], [ -12, %182 ], [ -12, %200 ]
+  %.0132199.i = phi i32 [ -1094995529, %236 ], [ -1094995529, %227 ], [ -1094995529, %ff_iamf_get_codec_config.exit.thread.i ], [ -1094995529, %135 ], [ -12, %155 ], [ -12, %161 ], [ -12, %163 ], [ %121, %120 ], [ %258, %257 ], [ -12, %170 ], [ %253, %252 ], [ -1094995529, %233 ], [ %.7.i, %250 ], [ -1094995529, %242 ], [ -1094995529, %238 ], [ -12, %182 ], [ -12, %200 ]
   call void @av_free(ptr noundef nonnull %119) #10
   call void @ff_iamf_free_audio_element(ptr noundef nonnull %10) #10
   br label %audio_element_obu.exit
@@ -1348,7 +1348,7 @@ label_string.exit250.i:                           ; preds = %364
   br label %mix_presentation_obu.exit
 
 .thread360.i:                                     ; preds = %label_string.exit.i, %334, %label_string.exit244.i, %._crit_edge409.i, %.lr.ph418.i, %._crit_edge405.i, %.lr.ph408.i, %410, %.lr.ph415.i, %372, %label_string.exit250.i, %407, %label_string.exit250.thread.i, %.critedge.i, %label_string.exit244.thread.i, %label_string.exit.thread.i, %306, %295, %293, %._crit_edge.i65, %289, %274
-  %.0172362.i = phi i32 [ -1094995529, %.critedge.i ], [ -1094995529, %289 ], [ -12, %._crit_edge.i65 ], [ -12, %293 ], [ -12, %306 ], [ %275, %274 ], [ -12, %295 ], [ %.0.i.ph.i, %label_string.exit.thread.i ], [ %.0.i240.ph.i, %label_string.exit244.thread.i ], [ -1094995529, %407 ], [ %.0.i246.ph.i, %label_string.exit250.thread.i ], [ %366, %label_string.exit250.i ], [ -12, %.lr.ph408.i ], [ %338, %334 ], [ -12, %.lr.ph415.i ], [ %393, %._crit_edge409.i ], [ %376, %372 ], [ -1094995529, %410 ], [ %385, %._crit_edge405.i ], [ -12, %.lr.ph418.i ], [ %328, %label_string.exit244.i ], [ %312, %label_string.exit.i ]
+  %.0172362.i = phi i32 [ %393, %._crit_edge409.i ], [ -1094995529, %.critedge.i ], [ %328, %label_string.exit244.i ], [ %366, %label_string.exit250.i ], [ -1094995529, %289 ], [ -12, %._crit_edge.i65 ], [ -12, %293 ], [ -12, %306 ], [ %275, %274 ], [ -12, %295 ], [ %.0.i.ph.i, %label_string.exit.thread.i ], [ %.0.i240.ph.i, %label_string.exit244.thread.i ], [ %.0.i246.ph.i, %label_string.exit250.thread.i ], [ -12, %.lr.ph415.i ], [ -1094995529, %407 ], [ -12, %.lr.ph408.i ], [ %376, %372 ], [ -1094995529, %410 ], [ %385, %._crit_edge405.i ], [ -12, %.lr.ph418.i ], [ %338, %334 ], [ %312, %label_string.exit.i ]
   call void @av_free(ptr noundef nonnull %273) #10
   call void @ff_iamf_free_mix_presentation(ptr noundef nonnull %8) #10
   br label %mix_presentation_obu.exit
@@ -1954,8 +1954,8 @@ av_iamf_param_definition_get_subblock.exit:       ; preds = %.lr.ph145.split.spl
   br i1 %exitcond194.not, label %._crit_edge146, label %.lr.ph145.split.split, !llvm.loop !119
 
 ._crit_edge146:                                   ; preds = %118, %96, %72, %58, %.preheader
-  %.0109224234 = phi i32 [ 0, %.preheader ], [ %.0109, %96 ], [ %.0109, %58 ], [ %.0109, %72 ], [ %.0109, %118 ]
-  %.1116.lcssa = phi i32 [ %.0115, %.preheader ], [ %86, %96 ], [ %59, %58 ], [ %.0115, %72 ], [ %.0115, %118 ]
+  %.0109224234 = phi i32 [ 0, %.preheader ], [ %.0109, %58 ], [ %.0109, %72 ], [ %.0109, %96 ], [ %.0109, %118 ]
+  %.1116.lcssa = phi i32 [ %.0115, %.preheader ], [ %59, %58 ], [ %.0115, %72 ], [ %86, %96 ], [ %.0115, %118 ]
   %or.cond.not = icmp ne i32 %30, 0
   %.not130 = icmp eq i32 %.1116.lcssa, %27
   %or.cond = select i1 %or.cond.not, i1 true, i1 %.not130
@@ -2230,7 +2230,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @scalable_channel_layout_co
   br i1 %exitcond32.not, label %.thread4, label %16, !llvm.loop !142
 
 .thread4:                                         ; preds = %27, %16, %._crit_edge, %.lr.ph, %11, %7, %2
-  %.0 = phi i32 [ -1094995529, %2 ], [ -12, %7 ], [ 0, %11 ], [ %81, %.lr.ph ], [ -1094995529, %27 ], [ -12, %16 ], [ 0, %._crit_edge ]
+  %.0 = phi i32 [ -1094995529, %2 ], [ -12, %7 ], [ %81, %.lr.ph ], [ 0, %11 ], [ -1094995529, %27 ], [ -12, %16 ], [ 0, %._crit_edge ]
   ret i32 %.0
 }
 
@@ -2429,7 +2429,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @ambisonics_config(ptr noun
   br i1 %83, label %69, label %.thread
 
 .thread:                                          ; preds = %69, %71, %33, %.lr.ph21, %.preheader7, %.preheader, %52, %._crit_edge, %23, %20, %12, %5, %2
-  %.0 = phi i32 [ -1094995529, %12 ], [ -1094995529, %2 ], [ -1094995529, %5 ], [ -12, %._crit_edge ], [ -12, %23 ], [ -12, %20 ], [ 0, %.preheader ], [ -12, %52 ], [ 0, %.preheader7 ], [ %40, %33 ], [ 0, %.lr.ph21 ], [ 0, %69 ], [ %82, %71 ]
+  %.0 = phi i32 [ -1094995529, %12 ], [ -1094995529, %2 ], [ -1094995529, %5 ], [ -12, %._crit_edge ], [ -12, %23 ], [ -12, %52 ], [ %40, %33 ], [ -12, %20 ], [ 0, %.preheader ], [ 0, %.preheader7 ], [ 0, %.lr.ph21 ], [ 0, %69 ], [ %82, %71 ]
   ret i32 %.0
 }
 

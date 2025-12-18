@@ -133,40 +133,40 @@ contain_dml.exit:                                 ; preds = %44
 
 56:                                               ; preds = %53
   %57 = load i32, ptr %54, align 4
-  switch i32 %57, label %66 [
+  switch i32 %57, label %64 [
     i32 101, label %58
-    i32 67, label %contain_outer_selfref.exit
+    i32 67, label %62
   ]
 
 58:                                               ; preds = %56
   %59 = getelementptr inbounds nuw i8, ptr %54, i64 24
   %60 = load i32, ptr %59, align 8
   %61 = icmp eq i32 %60, 6
-  br i1 %61, label %62, label %contain_outer_selfref.exit.thread
+  br i1 %61, label %contain_outer_selfref.exit, label %contain_outer_selfref.exit.thread
 
-62:                                               ; preds = %58
-  %63 = getelementptr inbounds nuw i8, ptr %54, i64 156
-  %64 = load i8, ptr %63, align 4, !range !4, !noundef !5
-  %65 = trunc nuw i8 %64 to i1
+62:                                               ; preds = %56
+  store i32 1, ptr %3, align 4
+  %63 = call zeroext i1 @query_tree_walker_impl(ptr noundef nonnull %54, ptr noundef nonnull @contain_outer_selfref_walker, ptr noundef nonnull %3, i32 noundef 16) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  br i1 %63, label %contain_dml.exit.thread, label %69
+
+64:                                               ; preds = %56
+  %65 = call zeroext i1 @expression_tree_walker_impl(ptr noundef nonnull %54, ptr noundef nonnull @contain_outer_selfref_walker, ptr noundef nonnull %3) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %65, label %contain_dml.exit.thread, label %69
-
-66:                                               ; preds = %56
-  %67 = call zeroext i1 @expression_tree_walker_impl(ptr noundef nonnull %54, ptr noundef nonnull @contain_outer_selfref_walker, ptr noundef nonnull %3) #9
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %67, label %contain_dml.exit.thread, label %69
 
 contain_outer_selfref.exit.thread:                ; preds = %53, %58
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %69
 
-contain_outer_selfref.exit:                       ; preds = %56
-  store i32 1, ptr %3, align 4
-  %68 = call zeroext i1 @query_tree_walker_impl(ptr noundef nonnull %54, ptr noundef nonnull @contain_outer_selfref_walker, ptr noundef nonnull %3, i32 noundef 16) #9
+contain_outer_selfref.exit:                       ; preds = %58
+  %66 = getelementptr inbounds nuw i8, ptr %54, i64 156
+  %67 = load i8, ptr %66, align 4, !range !4, !noundef !5
+  %68 = trunc nuw i8 %67 to i1
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %68, label %contain_dml.exit.thread, label %69
 
-69:                                               ; preds = %62, %66, %contain_outer_selfref.exit.thread, %contain_outer_selfref.exit, %50
+69:                                               ; preds = %62, %64, %contain_outer_selfref.exit.thread, %contain_outer_selfref.exit, %50
   %70 = load ptr, ptr %21, align 8
   %71 = call zeroext i1 @contain_volatile_functions(ptr noundef %70) #9
   br i1 %71, label %contain_dml.exit.thread, label %72
@@ -187,7 +187,7 @@ contain_outer_selfref.exit:                       ; preds = %56
   store ptr %76, ptr %12, align 8
   br label %156
 
-contain_dml.exit.thread:                          ; preds = %44, %62, %66, %47, %32, %69, %contain_outer_selfref.exit, %contain_dml.exit, %37, %35
+contain_dml.exit.thread:                          ; preds = %44, %62, %64, %47, %32, %69, %contain_outer_selfref.exit, %contain_dml.exit, %37, %35
   %77 = load ptr, ptr %21, align 8
   %78 = call ptr @copyObjectImpl(ptr noundef %77) #9
   %79 = load ptr, ptr %13, align 8
@@ -760,7 +760,7 @@ define internal fastcc noundef zeroext i1 @simplify_EXISTS_query(ptr noundef %0,
   br label %.critedge55
 
 .critedge55:                                      ; preds = %63, %51, %.lr.ph, %.split, %39, %47, %2, %5, %8, %12, %15, %19, %23, %27, %30, %33
-  %.0 = phi i1 [ false, %2 ], [ false, %39 ], [ false, %33 ], [ false, %30 ], [ false, %27 ], [ false, %23 ], [ false, %19 ], [ false, %15 ], [ false, %12 ], [ false, %8 ], [ false, %5 ], [ false, %47 ], [ true, %.split ], [ true, %.lr.ph ], [ true, %51 ], [ true, %63 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %39 ], [ false, %33 ], [ false, %30 ], [ false, %27 ], [ false, %23 ], [ false, %19 ], [ false, %15 ], [ false, %12 ], [ false, %8 ], [ false, %5 ], [ false, %47 ], [ true, %.split ], [ true, %51 ], [ true, %.lr.ph ], [ true, %63 ]
   ret i1 %.0
 }
 
@@ -1054,11 +1054,11 @@ define internal ptr @process_sublinks_mutator(ptr noundef %0, ptr noundef readon
   br label %98
 
 98:                                               ; preds = %.thread173.i, %89, %74
-  %.4118184.i = phi ptr [ %.0114206.i116, %.thread173.i ], [ %90, %89 ], [ %75, %74 ]
-  %.4123183.i = phi ptr [ %.0119205.i117, %.thread173.i ], [ %91, %89 ], [ %76, %74 ]
-  %.4128182.i = phi ptr [ %.0124204.i118, %.thread173.i ], [ %93, %89 ], [ %78, %74 ]
-  %.4133181.i = phi ptr [ %.0129203.i119, %.thread173.i ], [ %96, %89 ], [ %81, %74 ]
-  %.2136180.i = phi ptr [ %97, %.thread173.i ], [ %.0134202.i120, %89 ], [ %.0134202.i120, %74 ]
+  %.4118184.i = phi ptr [ %.0114206.i116, %.thread173.i ], [ %75, %74 ], [ %90, %89 ]
+  %.4123183.i = phi ptr [ %.0119205.i117, %.thread173.i ], [ %76, %74 ], [ %91, %89 ]
+  %.4128182.i = phi ptr [ %.0124204.i118, %.thread173.i ], [ %78, %74 ], [ %93, %89 ]
+  %.4133181.i = phi ptr [ %.0129203.i119, %.thread173.i ], [ %81, %74 ], [ %96, %89 ]
+  %.2136180.i = phi ptr [ %97, %.thread173.i ], [ %.0134202.i120, %74 ], [ %.0134202.i120, %89 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i115, 1
   %99 = load i32, ptr %54, align 4
   %100 = sext i32 %99 to i64
@@ -1854,10 +1854,10 @@ define internal fastcc ptr @finalize_plan(ptr noundef %0, ptr noundef %1, i32 no
   %52 = tail call ptr @bms_union(ptr noundef %3, ptr noundef nonnull %.1263.lcssa) #9
   br label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %.lr.ph340, %10, %51, %.critedge
-  %.0261.lcssa458 = phi ptr [ %34, %51 ], [ %34, %.critedge ], [ null, %10 ], [ null, %.lr.ph340 ]
-  %.0262.lcssa457 = phi ptr [ %.1263.lcssa, %51 ], [ null, %.critedge ], [ null, %10 ], [ null, %.lr.ph340 ]
-  %.0256 = phi ptr [ %52, %51 ], [ %3, %.critedge ], [ %3, %10 ], [ %3, %.lr.ph340 ]
+.critedge.thread:                                 ; preds = %10, %.lr.ph340, %51, %.critedge
+  %.0261.lcssa458 = phi ptr [ %34, %51 ], [ %34, %.critedge ], [ null, %.lr.ph340 ], [ null, %10 ]
+  %.0262.lcssa457 = phi ptr [ %.1263.lcssa, %51 ], [ null, %.critedge ], [ null, %.lr.ph340 ], [ null, %10 ]
+  %.0256 = phi ptr [ %52, %51 ], [ %3, %.critedge ], [ %3, %.lr.ph340 ], [ %3, %10 ]
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %54 = load ptr, ptr %53, align 8
   %55 = call zeroext i1 @finalize_primnode(ptr noundef %54, ptr noundef nonnull %6)
@@ -2505,11 +2505,11 @@ list_length.exit.thread:                          ; preds = %191, %list_length.e
   unreachable
 
 .critedge312:                                     ; preds = %.lr.ph368, %.lr.ph374, %.lr.ph379, %.lr.ph384, %.lr.ph389, %.lr.ph394, %331, %.lr.ph360, %315, %.lr.ph371, %299, %.lr.ph376, %283, %.lr.ph381, %267, %.lr.ph386, %230, %.lr.ph391, %387, %391, %70, %70, %70, %70, %70, %70, %70, %413, %417, %406, %410, %420, %399, %380, %375, %368, %364, %357, %350, %251, %221, %218, %212, %201, %181, %175, %.critedge310, %140, %122, %116, %110, %106, %94, %85, %79, %76, %72
-  %.0259 = phi ptr [ null, %72 ], [ null, %76 ], [ null, %79 ], [ null, %85 ], [ null, %94 ], [ null, %106 ], [ null, %110 ], [ null, %116 ], [ null, %122 ], [ null, %140 ], [ null, %.critedge310 ], [ null, %175 ], [ null, %181 ], [ null, %201 ], [ null, %212 ], [ null, %218 ], [ null, %221 ], [ null, %387 ], [ null, %251 ], [ null, %350 ], [ null, %357 ], [ null, %364 ], [ null, %368 ], [ null, %375 ], [ null, %380 ], [ null, %70 ], [ null, %399 ], [ null, %410 ], [ null, %406 ], [ null, %417 ], [ null, %413 ], [ null, %420 ], [ null, %70 ], [ null, %70 ], [ null, %70 ], [ null, %70 ], [ null, %70 ], [ null, %70 ], [ null, %391 ], [ null, %315 ], [ null, %230 ], [ null, %267 ], [ null, %283 ], [ null, %299 ], [ null, %.lr.ph391 ], [ null, %.lr.ph386 ], [ null, %.lr.ph381 ], [ null, %.lr.ph376 ], [ null, %.lr.ph371 ], [ null, %331 ], [ null, %.lr.ph360 ], [ null, %.lr.ph374 ], [ null, %.lr.ph394 ], [ null, %.lr.ph389 ], [ null, %.lr.ph384 ], [ null, %.lr.ph379 ], [ %346, %.lr.ph368 ]
-  %.0258 = phi i32 [ -1, %72 ], [ -1, %76 ], [ -1, %79 ], [ -1, %85 ], [ -1, %94 ], [ -1, %106 ], [ -1, %110 ], [ -1, %116 ], [ -1, %122 ], [ -1, %140 ], [ -1, %.critedge310 ], [ -1, %175 ], [ -1, %181 ], [ -1, %201 ], [ -1, %212 ], [ -1, %218 ], [ -1, %221 ], [ -1, %387 ], [ %253, %251 ], [ -1, %350 ], [ -1, %357 ], [ -1, %364 ], [ -1, %368 ], [ %377, %375 ], [ %382, %380 ], [ -1, %70 ], [ -1, %399 ], [ %408, %410 ], [ %408, %406 ], [ %415, %417 ], [ %415, %413 ], [ -1, %420 ], [ -1, %70 ], [ -1, %70 ], [ -1, %70 ], [ -1, %70 ], [ -1, %70 ], [ -1, %70 ], [ -1, %391 ], [ -1, %315 ], [ -1, %230 ], [ -1, %267 ], [ -1, %283 ], [ -1, %299 ], [ -1, %.lr.ph391 ], [ -1, %.lr.ph386 ], [ -1, %.lr.ph381 ], [ -1, %.lr.ph376 ], [ -1, %.lr.ph371 ], [ -1, %331 ], [ -1, %.lr.ph360 ], [ -1, %.lr.ph374 ], [ -1, %.lr.ph394 ], [ -1, %.lr.ph389 ], [ -1, %.lr.ph384 ], [ -1, %.lr.ph379 ], [ -1, %.lr.ph368 ]
-  %.0257 = phi ptr [ %4, %72 ], [ %4, %76 ], [ %4, %79 ], [ %4, %85 ], [ %4, %94 ], [ %4, %106 ], [ %4, %110 ], [ %4, %116 ], [ %4, %122 ], [ %4, %140 ], [ %4, %.critedge310 ], [ %4, %175 ], [ %4, %181 ], [ %4, %201 ], [ %4, %212 ], [ %4, %218 ], [ %4, %221 ], [ %4, %387 ], [ %257, %251 ], [ %4, %350 ], [ %4, %357 ], [ %4, %364 ], [ %4, %368 ], [ %4, %375 ], [ %386, %380 ], [ %4, %70 ], [ %4, %399 ], [ %4, %410 ], [ %4, %406 ], [ %4, %417 ], [ %4, %413 ], [ %4, %420 ], [ %4, %70 ], [ %4, %70 ], [ %4, %70 ], [ %4, %70 ], [ %4, %70 ], [ %4, %70 ], [ %4, %391 ], [ %4, %315 ], [ %4, %230 ], [ %4, %267 ], [ %4, %283 ], [ %4, %299 ], [ %4, %.lr.ph391 ], [ %4, %.lr.ph386 ], [ %4, %.lr.ph381 ], [ %4, %.lr.ph376 ], [ %4, %.lr.ph371 ], [ %4, %331 ], [ %4, %.lr.ph360 ], [ %4, %.lr.ph374 ], [ %4, %.lr.ph394 ], [ %4, %.lr.ph389 ], [ %4, %.lr.ph384 ], [ %4, %.lr.ph379 ], [ %4, %.lr.ph368 ]
-  %.1 = phi ptr [ %.0256, %72 ], [ %.0256, %76 ], [ %.0256, %79 ], [ %.0256, %85 ], [ %.0256, %94 ], [ %.0256, %106 ], [ %.0256, %110 ], [ %.0256, %116 ], [ %.0256, %122 ], [ %.0256, %140 ], [ %.0256, %.critedge310 ], [ %.0256, %175 ], [ %.0256, %181 ], [ %.0256, %201 ], [ %.0256, %212 ], [ %.0256, %218 ], [ %.0256, %221 ], [ %.0256, %387 ], [ %255, %251 ], [ %.0256, %350 ], [ %.0256, %357 ], [ %.0256, %364 ], [ %.0256, %368 ], [ %379, %375 ], [ %384, %380 ], [ %.0256, %70 ], [ %.0256, %399 ], [ %412, %410 ], [ %.0256, %406 ], [ %419, %417 ], [ %.0256, %413 ], [ %.0256, %420 ], [ %.0256, %70 ], [ %.0256, %70 ], [ %.0256, %70 ], [ %.0256, %70 ], [ %.0256, %70 ], [ %.0256, %70 ], [ %.0256, %391 ], [ %.0256, %315 ], [ %.0256, %230 ], [ %.0256, %267 ], [ %.0256, %283 ], [ %.0256, %299 ], [ %.0256, %.lr.ph391 ], [ %.0256, %.lr.ph386 ], [ %.0256, %.lr.ph381 ], [ %.0256, %.lr.ph376 ], [ %.0256, %.lr.ph371 ], [ %.0256, %331 ], [ %.0256, %.lr.ph360 ], [ %.0256, %.lr.ph374 ], [ %.0256, %.lr.ph394 ], [ %.0256, %.lr.ph389 ], [ %.0256, %.lr.ph384 ], [ %.0256, %.lr.ph379 ], [ %.0256, %.lr.ph368 ]
-  %.0255 = phi i32 [ %2, %72 ], [ %2, %76 ], [ %2, %79 ], [ %2, %85 ], [ %2, %94 ], [ %2, %106 ], [ %2, %110 ], [ %2, %116 ], [ %2, %122 ], [ %2, %140 ], [ %2, %.critedge310 ], [ %2, %175 ], [ %2, %181 ], [ %2, %201 ], [ %2, %212 ], [ %2, %218 ], [ %2, %221 ], [ %2, %387 ], [ %2, %251 ], [ %2, %350 ], [ %2, %357 ], [ %2, %364 ], [ %2, %368 ], [ %2, %375 ], [ %2, %380 ], [ %2, %70 ], [ %2, %399 ], [ %408, %410 ], [ %2, %406 ], [ %415, %417 ], [ %2, %413 ], [ %2, %420 ], [ %2, %70 ], [ %2, %70 ], [ %2, %70 ], [ %2, %70 ], [ %2, %70 ], [ %2, %70 ], [ %2, %391 ], [ %2, %315 ], [ %2, %230 ], [ %2, %267 ], [ %2, %283 ], [ %2, %299 ], [ %2, %.lr.ph391 ], [ %2, %.lr.ph386 ], [ %2, %.lr.ph381 ], [ %2, %.lr.ph376 ], [ %2, %.lr.ph371 ], [ %2, %331 ], [ %2, %.lr.ph360 ], [ %2, %.lr.ph374 ], [ %2, %.lr.ph394 ], [ %2, %.lr.ph389 ], [ %2, %.lr.ph384 ], [ %2, %.lr.ph379 ], [ %2, %.lr.ph368 ]
+  %.0259 = phi ptr [ null, %72 ], [ null, %76 ], [ null, %79 ], [ null, %85 ], [ null, %94 ], [ null, %106 ], [ null, %110 ], [ null, %116 ], [ null, %122 ], [ null, %140 ], [ null, %.critedge310 ], [ null, %175 ], [ null, %181 ], [ null, %201 ], [ null, %212 ], [ null, %218 ], [ null, %221 ], [ null, %387 ], [ null, %251 ], [ null, %299 ], [ null, %315 ], [ null, %230 ], [ null, %267 ], [ null, %283 ], [ null, %350 ], [ null, %357 ], [ null, %364 ], [ null, %368 ], [ null, %375 ], [ null, %380 ], [ null, %70 ], [ null, %399 ], [ null, %410 ], [ null, %406 ], [ null, %417 ], [ null, %413 ], [ null, %420 ], [ null, %70 ], [ null, %70 ], [ null, %70 ], [ null, %70 ], [ null, %70 ], [ null, %70 ], [ null, %391 ], [ null, %.lr.ph384 ], [ null, %.lr.ph391 ], [ null, %.lr.ph379 ], [ null, %.lr.ph386 ], [ null, %.lr.ph374 ], [ null, %.lr.ph381 ], [ null, %.lr.ph394 ], [ null, %.lr.ph376 ], [ null, %.lr.ph389 ], [ null, %.lr.ph371 ], [ null, %331 ], [ null, %.lr.ph360 ], [ %346, %.lr.ph368 ]
+  %.0258 = phi i32 [ -1, %72 ], [ -1, %76 ], [ -1, %79 ], [ -1, %85 ], [ -1, %94 ], [ -1, %106 ], [ -1, %110 ], [ -1, %116 ], [ -1, %122 ], [ -1, %140 ], [ -1, %.critedge310 ], [ -1, %175 ], [ -1, %181 ], [ -1, %201 ], [ -1, %212 ], [ -1, %218 ], [ -1, %221 ], [ -1, %387 ], [ %253, %251 ], [ -1, %299 ], [ -1, %315 ], [ -1, %230 ], [ -1, %267 ], [ -1, %283 ], [ -1, %350 ], [ -1, %357 ], [ -1, %364 ], [ -1, %368 ], [ %377, %375 ], [ %382, %380 ], [ -1, %70 ], [ -1, %399 ], [ %408, %410 ], [ %408, %406 ], [ %415, %417 ], [ %415, %413 ], [ -1, %420 ], [ -1, %70 ], [ -1, %70 ], [ -1, %70 ], [ -1, %70 ], [ -1, %70 ], [ -1, %70 ], [ -1, %391 ], [ -1, %.lr.ph384 ], [ -1, %.lr.ph391 ], [ -1, %.lr.ph379 ], [ -1, %.lr.ph386 ], [ -1, %.lr.ph374 ], [ -1, %.lr.ph381 ], [ -1, %.lr.ph394 ], [ -1, %.lr.ph376 ], [ -1, %.lr.ph389 ], [ -1, %.lr.ph371 ], [ -1, %331 ], [ -1, %.lr.ph360 ], [ -1, %.lr.ph368 ]
+  %.0257 = phi ptr [ %4, %72 ], [ %4, %76 ], [ %4, %79 ], [ %4, %85 ], [ %4, %94 ], [ %4, %106 ], [ %4, %110 ], [ %4, %116 ], [ %4, %122 ], [ %4, %140 ], [ %4, %.critedge310 ], [ %4, %175 ], [ %4, %181 ], [ %4, %201 ], [ %4, %212 ], [ %4, %218 ], [ %4, %221 ], [ %4, %387 ], [ %257, %251 ], [ %4, %299 ], [ %4, %315 ], [ %4, %230 ], [ %4, %267 ], [ %4, %283 ], [ %4, %350 ], [ %4, %357 ], [ %4, %364 ], [ %4, %368 ], [ %4, %375 ], [ %386, %380 ], [ %4, %70 ], [ %4, %399 ], [ %4, %410 ], [ %4, %406 ], [ %4, %417 ], [ %4, %413 ], [ %4, %420 ], [ %4, %70 ], [ %4, %70 ], [ %4, %70 ], [ %4, %70 ], [ %4, %70 ], [ %4, %70 ], [ %4, %391 ], [ %4, %.lr.ph384 ], [ %4, %.lr.ph391 ], [ %4, %.lr.ph379 ], [ %4, %.lr.ph386 ], [ %4, %.lr.ph374 ], [ %4, %.lr.ph381 ], [ %4, %.lr.ph394 ], [ %4, %.lr.ph376 ], [ %4, %.lr.ph389 ], [ %4, %.lr.ph371 ], [ %4, %331 ], [ %4, %.lr.ph360 ], [ %4, %.lr.ph368 ]
+  %.1 = phi ptr [ %.0256, %72 ], [ %.0256, %76 ], [ %.0256, %79 ], [ %.0256, %85 ], [ %.0256, %94 ], [ %.0256, %106 ], [ %.0256, %110 ], [ %.0256, %116 ], [ %.0256, %122 ], [ %.0256, %140 ], [ %.0256, %.critedge310 ], [ %.0256, %175 ], [ %.0256, %181 ], [ %.0256, %201 ], [ %.0256, %212 ], [ %.0256, %218 ], [ %.0256, %221 ], [ %.0256, %387 ], [ %255, %251 ], [ %.0256, %299 ], [ %.0256, %315 ], [ %.0256, %230 ], [ %.0256, %267 ], [ %.0256, %283 ], [ %.0256, %350 ], [ %.0256, %357 ], [ %.0256, %364 ], [ %.0256, %368 ], [ %379, %375 ], [ %384, %380 ], [ %.0256, %70 ], [ %.0256, %399 ], [ %412, %410 ], [ %.0256, %406 ], [ %419, %417 ], [ %.0256, %413 ], [ %.0256, %420 ], [ %.0256, %70 ], [ %.0256, %70 ], [ %.0256, %70 ], [ %.0256, %70 ], [ %.0256, %70 ], [ %.0256, %70 ], [ %.0256, %391 ], [ %.0256, %.lr.ph384 ], [ %.0256, %.lr.ph391 ], [ %.0256, %.lr.ph379 ], [ %.0256, %.lr.ph386 ], [ %.0256, %.lr.ph374 ], [ %.0256, %.lr.ph381 ], [ %.0256, %.lr.ph394 ], [ %.0256, %.lr.ph376 ], [ %.0256, %.lr.ph389 ], [ %.0256, %.lr.ph371 ], [ %.0256, %331 ], [ %.0256, %.lr.ph360 ], [ %.0256, %.lr.ph368 ]
+  %.0255 = phi i32 [ %2, %72 ], [ %2, %76 ], [ %2, %79 ], [ %2, %85 ], [ %2, %94 ], [ %2, %106 ], [ %2, %110 ], [ %2, %116 ], [ %2, %122 ], [ %2, %140 ], [ %2, %.critedge310 ], [ %2, %175 ], [ %2, %181 ], [ %2, %201 ], [ %2, %212 ], [ %2, %218 ], [ %2, %221 ], [ %2, %387 ], [ %2, %251 ], [ %2, %299 ], [ %2, %315 ], [ %2, %230 ], [ %2, %267 ], [ %2, %283 ], [ %2, %350 ], [ %2, %357 ], [ %2, %364 ], [ %2, %368 ], [ %2, %375 ], [ %2, %380 ], [ %2, %70 ], [ %2, %399 ], [ %408, %410 ], [ %2, %406 ], [ %415, %417 ], [ %2, %413 ], [ %2, %420 ], [ %2, %70 ], [ %2, %70 ], [ %2, %70 ], [ %2, %70 ], [ %2, %70 ], [ %2, %70 ], [ %2, %391 ], [ %2, %.lr.ph384 ], [ %2, %.lr.ph391 ], [ %2, %.lr.ph379 ], [ %2, %.lr.ph386 ], [ %2, %.lr.ph374 ], [ %2, %.lr.ph381 ], [ %2, %.lr.ph394 ], [ %2, %.lr.ph376 ], [ %2, %.lr.ph389 ], [ %2, %.lr.ph371 ], [ %2, %331 ], [ %2, %.lr.ph360 ], [ %2, %.lr.ph368 ]
   %428 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %429 = load ptr, ptr %428, align 8
   %430 = call fastcc ptr @finalize_plan(ptr noundef %0, ptr noundef %429, i32 noundef %.0255, ptr noundef %.1, ptr noundef %.0257)

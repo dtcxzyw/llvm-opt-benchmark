@@ -2113,8 +2113,8 @@ Lf_CutGetSign.exit.us.us:                         ; preds = %480, %477
   br label %Lf_CutMergeOrderMux.exit.thread.us.us
 
 Lf_CutMergeOrderMux.exit.thread.us.us:            ; preds = %403, %439, %466, %451, %461, %514, %495, %355, %351
-  %.8.us.us = phi i32 [ %.7676.us.us, %355 ], [ %.7676.us.us, %495 ], [ %515, %514 ], [ %.7676.us.us, %351 ], [ %.7676.us.us, %439 ], [ %.7676.us.us, %461 ], [ %.7676.us.us, %451 ], [ %.7676.us.us, %466 ], [ %.7676.us.us, %403 ]
-  %.3326.us.us = phi ptr [ %.1322678.us.us, %355 ], [ %.1322678.us.us, %495 ], [ %.1322678.us.us, %514 ], [ %.2325677.us.us, %351 ], [ %.1322678.us.us, %439 ], [ %.1322678.us.us, %461 ], [ %.1322678.us.us, %451 ], [ %.1322678.us.us, %466 ], [ %.1322678.us.us, %403 ]
+  %.8.us.us = phi i32 [ %.7676.us.us, %355 ], [ %.7676.us.us, %466 ], [ %.7676.us.us, %495 ], [ %515, %514 ], [ %.7676.us.us, %351 ], [ %.7676.us.us, %439 ], [ %.7676.us.us, %451 ], [ %.7676.us.us, %461 ], [ %.7676.us.us, %403 ]
+  %.3326.us.us = phi ptr [ %.1322678.us.us, %355 ], [ %.1322678.us.us, %466 ], [ %.1322678.us.us, %495 ], [ %.1322678.us.us, %514 ], [ %.2325677.us.us, %351 ], [ %.1322678.us.us, %439 ], [ %.1322678.us.us, %451 ], [ %.1322678.us.us, %461 ], [ %.1322678.us.us, %403 ]
   %516 = getelementptr inbounds i64, ptr %.1322678.us.us, i64 %341
   %517 = add nuw nsw i32 %.1343675.us.us, 1
   %exitcond789.not = icmp eq i32 %517, %.0.i449
@@ -2430,7 +2430,7 @@ Lf_CutGetSign.exit519:                            ; preds = %658, %655
   br label %Lf_CutMergeOrderMux.exit481.thread
 
 Lf_CutMergeOrderMux.exit481.thread:               ; preds = %581, %632, %610, %644, %626, %535, %665
-  %.14 = phi i32 [ %666, %665 ], [ %.13710, %535 ], [ %.13710, %632 ], [ %.13710, %626 ], [ %.13710, %644 ], [ %.13710, %610 ], [ %.13710, %581 ]
+  %.14 = phi i32 [ %.13710, %610 ], [ %666, %665 ], [ %.13710, %535 ], [ %.13710, %632 ], [ %.13710, %644 ], [ %.13710, %626 ], [ %.13710, %581 ]
   %667 = getelementptr inbounds i64, ptr %.1319711, i64 %529
   %668 = add nuw nsw i32 %.1345709, 1
   %exitcond792.not = icmp eq i32 %668, %.0.i424
@@ -3448,7 +3448,7 @@ Abc_TtExpand.exit77.i:                            ; preds = %1120, %Abc_TtExpand
   br i1 %exitcond29.not.i100.i, label %Lf_CutComputeTruth.exit, label %.lr.ph22.i97.i, !llvm.loop !125
 
 Lf_CutComputeTruth.exit:                          ; preds = %.lr.ph.i81.i, %.lr.ph22.i.i, %.lr.ph.i90.i, %.lr.ph22.i97.i, %.preheader18.i.i, %.preheader.i85.i, %.preheader18.i87.i, %.preheader.i94.i
-  %.046.i563 = phi i32 [ 1, %.preheader18.i.i ], [ 0, %.preheader.i85.i ], [ 1, %.preheader18.i87.i ], [ 0, %.preheader.i94.i ], [ 0, %.lr.ph22.i.i ], [ 0, %.lr.ph22.i97.i ], [ 1, %.lr.ph.i90.i ], [ 1, %.lr.ph.i81.i ]
+  %.046.i563 = phi i32 [ 1, %.lr.ph.i90.i ], [ 1, %.preheader18.i.i ], [ 0, %.preheader.i85.i ], [ 0, %.lr.ph22.i.i ], [ 1, %.preheader18.i87.i ], [ 0, %.preheader.i94.i ], [ 0, %.lr.ph22.i97.i ], [ 1, %.lr.ph.i81.i ]
   %1158 = call fastcc i32 @Abc_TtMinBase(ptr noundef %4, ptr noundef nonnull %731, i32 noundef %1038, i32 noundef %864)
   %1159 = load i32, ptr %1036, align 4
   %1160 = shl i32 %1158, 24
@@ -3540,8 +3540,8 @@ Lf_CutGetSign.exit579:                            ; preds = %1174, %1171
   %1210 = call fastcc i32 @Lf_SetAddCut(ptr noundef %8, i32 noundef %.18720, i32 noundef %33)
   br label %Lf_CutMergeOrder.exit.thread
 
-Lf_CutMergeOrder.exit.thread:                     ; preds = %771, %.lr.ph136.i, %842, %820, %854, %836, %.preheader120.i, %.loopexit122.i, %.loopexit123.i, %704, %1209, %1190, %713
-  %.19 = phi i32 [ %.18720, %713 ], [ %.18720, %1190 ], [ %1210, %1209 ], [ %.18720, %704 ], [ %.18720, %.loopexit123.i ], [ %.18720, %.loopexit122.i ], [ %.18720, %.preheader120.i ], [ %.18720, %.lr.ph136.i ], [ %.18720, %836 ], [ %.18720, %854 ], [ %.18720, %820 ], [ %.18720, %842 ], [ %.18720, %771 ]
+Lf_CutMergeOrder.exit.thread:                     ; preds = %771, %.lr.ph136.i, %842, %820, %854, %836, %.preheader120.i, %.loopexit123.i, %.loopexit122.i, %704, %1209, %1190, %713
+  %.19 = phi i32 [ %.18720, %713 ], [ %.18720, %.preheader120.i ], [ %.18720, %1190 ], [ %1210, %1209 ], [ %.18720, %704 ], [ %.18720, %.loopexit122.i ], [ %.18720, %836 ], [ %.18720, %.loopexit123.i ], [ %.18720, %.lr.ph136.i ], [ %.18720, %854 ], [ %.18720, %842 ], [ %.18720, %820 ], [ %.18720, %771 ]
   %1211 = getelementptr inbounds i64, ptr %.2320722, i64 %697
   %1212 = add nuw nsw i32 %.2346719, 1
   %exitcond800.not = icmp eq i32 %1212, %.0.i424
@@ -3555,7 +3555,7 @@ Lf_CutMergeOrder.exit.thread:                     ; preds = %771, %.lr.ph136.i, 
   br i1 %exitcond801.not, label %.loopexit622, label %698, !llvm.loop !127
 
 .loopexit622:                                     ; preds = %.loopexit630, %.loopexit621, %Lf_ManPrepareSet.exit454, %Gia_ObjIsXor.exit, %._crit_edge697
-  %.16 = phi i32 [ %.5340.lcssa, %._crit_edge697 ], [ %.2337, %Gia_ObjIsXor.exit ], [ %.2337, %Lf_ManPrepareSet.exit454 ], [ %.20, %.loopexit621 ], [ %.15, %.loopexit630 ]
+  %.16 = phi i32 [ %.5340.lcssa, %._crit_edge697 ], [ %.20, %.loopexit621 ], [ %.2337, %Gia_ObjIsXor.exit ], [ %.2337, %Lf_ManPrepareSet.exit454 ], [ %.15, %.loopexit630 ]
   %1215 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %1216 = getelementptr inbounds nuw i8, ptr %18, i64 28
   %1217 = load i32, ptr %1216, align 4
@@ -4613,7 +4613,7 @@ Lf_SetLastCutContainsArea.exit:                   ; preds = %5, %._crit_edge.i, 
   %or.cond = and i1 %98, %100
   br i1 %or.cond, label %Lf_CutCompareDelay.exit.thread39, label %Lf_CutCompareDelay.exit.thread
 
-Lf_CutCompareDelay.exit.thread39:                 ; preds = %90, %88, %78
+Lf_CutCompareDelay.exit.thread39:                 ; preds = %90, %78, %88
   store ptr %72, ptr %0, align 8, !tbaa !85
   store ptr %69, ptr %71, align 8, !tbaa !85
   %101 = load ptr, ptr %0, align 8, !tbaa !85
@@ -5701,7 +5701,7 @@ Abc_TtHasVar.exit.thread13.i:                     ; preds = %72, %86
   br label %Abc_TtHasVar.exit.thread.i
 
 Abc_TtHasVar.exit.thread.i:                       ; preds = %._crit_edge.us.i.i, %71, %Abc_TtHasVar.exit.thread13.i, %.preheader.lr.ph.i.i
-  %93 = phi i32 [ %92, %Abc_TtHasVar.exit.thread13.i ], [ %.024.i, %.preheader.lr.ph.i.i ], [ %.024.i, %71 ], [ %.024.i, %._crit_edge.us.i.i ]
+  %93 = phi i32 [ %92, %Abc_TtHasVar.exit.thread13.i ], [ %.024.i, %71 ], [ %.024.i, %.preheader.lr.ph.i.i ], [ %.024.i, %._crit_edge.us.i.i ]
   %indvars.iv.next.i18 = add nuw nsw i64 %indvars.iv.i17, 1
   %exitcond.not.i19 = icmp eq i64 %indvars.iv.next.i18, %wide.trip.count.i16
   br i1 %exitcond.not.i19, label %Abc_TtSupportSize.exit, label %.lr.ph.split.split.split.i, !llvm.loop !143
@@ -5901,7 +5901,7 @@ Abc_TtHasVar.exit.thread13.i54:                   ; preds = %155, %169
   br label %Abc_TtHasVar.exit.thread.i55
 
 Abc_TtHasVar.exit.thread.i55:                     ; preds = %._crit_edge.us.i.i61, %154, %Abc_TtHasVar.exit.thread13.i54, %.preheader.lr.ph.i.i44
-  %176 = phi i32 [ %175, %Abc_TtHasVar.exit.thread13.i54 ], [ %.024.i43, %.preheader.lr.ph.i.i44 ], [ %.024.i43, %154 ], [ %.024.i43, %._crit_edge.us.i.i61 ]
+  %176 = phi i32 [ %175, %Abc_TtHasVar.exit.thread13.i54 ], [ %.024.i43, %154 ], [ %.024.i43, %.preheader.lr.ph.i.i44 ], [ %.024.i43, %._crit_edge.us.i.i61 ]
   %indvars.iv.next.i56 = add nuw nsw i64 %indvars.iv.i42, 1
   %exitcond.not.i57 = icmp eq i64 %indvars.iv.next.i56, %wide.trip.count.i16
   br i1 %exitcond.not.i57, label %Abc_TtSupportSize.exit79, label %.lr.ph.split.split.split.i41, !llvm.loop !143
@@ -9802,7 +9802,7 @@ Vec_IntGrow.exit.i:                               ; preds = %34, %Vec_IntAlloc.e
   %39 = icmp sgt i32 %.val33, 0
   br i1 %39, label %Vec_IntFill.exit, label %Vec_IntFill.exit.thread
 
-Vec_IntFill.exit.thread:                          ; preds = %Vec_IntGrow.exit.i, %Vec_IntAlloc.exit.thread
+Vec_IntFill.exit.thread:                          ; preds = %Vec_IntAlloc.exit.thread, %Vec_IntGrow.exit.i
   store i32 %.val33, ptr %17, align 4, !tbaa !50
   br label %._crit_edge61
 
@@ -10107,8 +10107,8 @@ Vec_IntGrow.exit.i:                               ; preds = %64, %Vec_IntAlloc.e
   br label %Vec_IntFill.exit
 
 Vec_IntFill.exit:                                 ; preds = %.lr.ph.i, %Vec_IntAlloc.exit.thread, %Vec_IntGrow.exit.i
-  %72 = phi i32 [ %.val86, %Vec_IntGrow.exit.i ], [ %.val86, %Vec_IntAlloc.exit.thread ], [ %.pre, %.lr.ph.i ]
-  %73 = phi ptr [ %69, %Vec_IntGrow.exit.i ], [ %51, %Vec_IntAlloc.exit.thread ], [ %69, %.lr.ph.i ]
+  %72 = phi i32 [ %.val86, %Vec_IntAlloc.exit.thread ], [ %.val86, %Vec_IntGrow.exit.i ], [ %.pre, %.lr.ph.i ]
+  %73 = phi ptr [ %51, %Vec_IntAlloc.exit.thread ], [ %69, %Vec_IntGrow.exit.i ], [ %69, %.lr.ph.i ]
   store i32 %25, ptr %44, align 4, !tbaa !50
   %74 = getelementptr i8, ptr %2, i64 32
   %.val99 = load ptr, ptr %74, align 8, !tbaa !22
@@ -15702,7 +15702,7 @@ Abc_TtHasVar.exit.thread30:                       ; preds = %48, %62
   br label %Abc_TtHasVar.exit.thread
 
 Abc_TtHasVar.exit.thread:                         ; preds = %._crit_edge.us.i, %47, %.preheader.lr.ph.i, %77
-  %.1 = phi i32 [ %78, %77 ], [ %.038, %.preheader.lr.ph.i ], [ %.038, %47 ], [ %.038, %._crit_edge.us.i ]
+  %.1 = phi i32 [ %78, %77 ], [ %.038, %47 ], [ %.038, %.preheader.lr.ph.i ], [ %.038, %._crit_edge.us.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !280

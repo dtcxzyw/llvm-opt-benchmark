@@ -895,7 +895,7 @@ _ZNK10model_core17get_num_functionsEv.exit:       ; preds = %._crit_edge
   br i1 %.not27.old.i.i.i.i, label %_ZNK10model_core16get_const_interpEP9func_decl.exit, label %.lr.ph38.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.backedge:                        ; preds = %53, %50
-  %.137.i.i.i.i.be = phi ptr [ %.old.i.i.i.i, %53 ], [ %52, %50 ]
+  %.137.i.i.i.i.be = phi ptr [ %52, %50 ], [ %.old.i.i.i.i, %53 ]
   br label %.lr.ph38.i.i.i.i, !llvm.loop !113
 
 .loopexit.i:                                      ; preds = %34, %45

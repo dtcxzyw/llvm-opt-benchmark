@@ -376,8 +376,8 @@ define dso_local noundef zeroext i1 @_ZN4absl18debugging_internal8DemangleEPKcPc
   br i1 %62, label %58, label %.loopexit.i.i, !llvm.loop !20
 
 .loopexit.i.i:                                    ; preds = %58, %.loopexit32.thread.i.i, %.loopexit32.i.i
-  %.3.i.i = phi i64 [ %.12636.i.i, %.loopexit32.thread.i.i ], [ %.2.i.i, %.loopexit32.i.i ], [ %.4.i.i, %58 ]
-  %.1.i.i = phi i1 [ %or.cond.i22.i, %.loopexit32.thread.i.i ], [ true, %.loopexit32.i.i ], [ true, %58 ]
+  %.3.i.i = phi i64 [ %.2.i.i, %.loopexit32.i.i ], [ %.12636.i.i, %.loopexit32.thread.i.i ], [ %.4.i.i, %58 ]
+  %.1.i.i = phi i1 [ true, %.loopexit32.i.i ], [ %or.cond.i22.i, %.loopexit32.thread.i.i ], [ true, %58 ]
   br i1 %.1.i.i, label %.preheader.i, label %_ZN4absl18debugging_internalL21IsFunctionCloneSuffixEPKc.exit.thread.i, !llvm.loop !21
 
 _ZN4absl18debugging_internalL21IsFunctionCloneSuffixEPKc.exit.thread.i: ; preds = %.loopexit.i.i, %.preheader.i
@@ -3007,7 +3007,7 @@ _ZN4absl18debugging_internalL20MaybeAppendSeparatorEPNS0_5StateE.exit: ; preds =
   br label %.loopexit.body
 
 .sink.split:                                      ; preds = %63, %77, %71, %54, %58, %49, %44
-  %.sink = phi i32 [ %39, %54 ], [ %39, %49 ], [ %39, %44 ], [ %39, %58 ], [ %storemerge.in.pre.pre, %71 ], [ %storemerge.in.pre.pre, %77 ], [ %39, %63 ]
+  %.sink = phi i32 [ %39, %54 ], [ %39, %49 ], [ %39, %44 ], [ %storemerge.in.pre.pre, %77 ], [ %39, %58 ], [ %storemerge.in.pre.pre, %71 ], [ %39, %63 ]
   store i32 %.sink, ptr %4, align 4, !tbaa !17
   br label %87
 
@@ -4119,7 +4119,7 @@ _ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit17: ; preds =
   resume { ptr, i32 } %52
 
 .sink.split:                                      ; preds = %31, %45, %39, %22, %26, %17, %11
-  %.pre.pre.pre.sink = phi i32 [ %5, %22 ], [ %5, %17 ], [ %5, %11 ], [ %5, %26 ], [ %.pre.pre.pre, %39 ], [ %.pre.pre.pre, %45 ], [ %5, %31 ]
+  %.pre.pre.pre.sink = phi i32 [ %5, %22 ], [ %5, %17 ], [ %5, %11 ], [ %.pre.pre.pre, %45 ], [ %5, %26 ], [ %.pre.pre.pre, %39 ], [ %5, %31 ]
   store i32 %.pre.pre.pre.sink, ptr %3, align 4, !tbaa !17
   br label %55
 
@@ -6499,7 +6499,7 @@ _ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit45: ; preds =
   br label %146
 
 146:                                              ; preds = %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit66, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit45, %_ZN4absl18debugging_internalL19ParseThreeCharTokenEPNS0_5StateEPKc.exit, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit, %.sink.split, %94
-  %.1 = phi i1 [ true, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit ], [ true, %_ZN4absl18debugging_internalL19ParseThreeCharTokenEPNS0_5StateEPKc.exit ], [ true, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit66 ], [ true, %94 ], [ true, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit45 ], [ false, %.sink.split ]
+  %.1 = phi i1 [ true, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit45 ], [ true, %94 ], [ true, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit ], [ true, %_ZN4absl18debugging_internalL19ParseThreeCharTokenEPNS0_5StateEPKc.exit ], [ true, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit66 ], [ false, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.pre56 = load i32, ptr %3, align 4, !tbaa !17
   %147 = add nsw i32 %.pre56, -1
@@ -7173,8 +7173,8 @@ _ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit: ; preds = %.thr
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(16) %7, i64 16, i1 false)
   br label %.sink.split201
 
-.sink.split201:                                   ; preds = %164, %147, %.critedge.i, %212, %66, %291
-  %292 = phi i32 [ %.pre.i, %291 ], [ %.pre-phi, %66 ], [ %213, %212 ], [ %.pre-phi, %.critedge.i ], [ %.pre161, %147 ], [ %152, %164 ]
+.sink.split201:                                   ; preds = %147, %164, %.critedge.i, %212, %66, %291
+  %292 = phi i32 [ %.pre.i, %291 ], [ %.pre-phi, %66 ], [ %213, %212 ], [ %.pre-phi, %.critedge.i ], [ %152, %164 ], [ %.pre161, %147 ]
   store i32 %292, ptr %8, align 4, !tbaa !17
   %293 = load i32, ptr %11, align 8, !tbaa !15
   %294 = add nsw i32 %293, 1
@@ -8885,7 +8885,7 @@ _ZN4absl18debugging_internalL14ParseCharClassEPNS0_5StateEPKc.exit: ; preds = %.
   br label %.loopexit111
 
 .loopexit111:                                     ; preds = %_ZN4absl18debugging_internalL14ParseCharClassEPNS0_5StateEPKc.exit, %.loopexit111.loopexit172.split.loop.exit, %.loopexit111.loopexit, %42
-  %.val27.i = phi i32 [ %.val29.i, %42 ], [ %indvars157.le177, %.loopexit111.loopexit ], [ %indvars157.le, %.loopexit111.loopexit172.split.loop.exit ], [ %indvars, %_ZN4absl18debugging_internalL14ParseCharClassEPNS0_5StateEPKc.exit ]
+  %.val27.i = phi i32 [ %indvars157.le177, %.loopexit111.loopexit ], [ %.val29.i, %42 ], [ %indvars157.le, %.loopexit111.loopexit172.split.loop.exit ], [ %indvars, %_ZN4absl18debugging_internalL14ParseCharClassEPNS0_5StateEPKc.exit ]
   store i32 %38, ptr %4, align 4, !tbaa !17
   %56 = getelementptr inbounds i8, ptr %.val28.i, i64 %.pre134
   %57 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL9ParseTypeEPNS0_5StateE(ptr noundef nonnull %0)

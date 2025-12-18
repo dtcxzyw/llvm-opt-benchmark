@@ -1484,8 +1484,8 @@ _ZNSt10unique_ptrI9aiTextureSt14default_deleteIS0_EE5resetEPS0_.exit142: ; preds
   br label %349
 
 .loopexit212:                                     ; preds = %86, %100, %50
-  %106 = phi ptr [ %37, %50 ], [ %75, %100 ], [ %75, %86 ]
-  %.0107 = phi ptr [ %45, %50 ], [ %103, %100 ], [ %1, %86 ]
+  %106 = phi ptr [ %75, %100 ], [ %37, %50 ], [ %75, %86 ]
+  %.0107 = phi ptr [ %103, %100 ], [ %45, %50 ], [ %1, %86 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 4

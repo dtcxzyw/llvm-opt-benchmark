@@ -1286,7 +1286,7 @@ _ZNK4llvm11GlobalValue27isStrongDefinitionForLinkerEv.exit.fold.split: ; preds =
   br label %_ZNK4llvm11GlobalValue27isStrongDefinitionForLinkerEv.exit
 
 _ZNK4llvm11GlobalValue27isStrongDefinitionForLinkerEv.exit: ; preds = %switch.lookup, %9, %_ZNK4llvm11GlobalValue27isStrongDefinitionForLinkerEv.exit.fold.split, %_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit.i, %35, %33, %29, %_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit.thread, %12, %5, %2
-  %.0 = phi i1 [ false, %2 ], [ true, %5 ], [ false, %12 ], [ %32, %29 ], [ false, %_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit.thread ], [ true, %33 ], [ true, %9 ], [ false, %_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit.i ], [ false, %35 ], [ %switch.masked, %switch.lookup ], [ false, %_ZNK4llvm11GlobalValue27isStrongDefinitionForLinkerEv.exit.fold.split ]
+  %.0 = phi i1 [ false, %2 ], [ true, %5 ], [ false, %12 ], [ %32, %29 ], [ false, %_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit.thread ], [ true, %33 ], [ true, %9 ], [ %switch.masked, %switch.lookup ], [ false, %_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit.i ], [ false, %35 ], [ false, %_ZNK4llvm11GlobalValue27isStrongDefinitionForLinkerEv.exit.fold.split ]
   ret i1 %.0
 }
 

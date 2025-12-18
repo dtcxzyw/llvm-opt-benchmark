@@ -1993,7 +1993,7 @@ while.end34.i:                                    ; preds = %while.end34.loopexi
   br label %invoke.cont429
 
 invoke.cont429:                                   ; preds = %.noexc673, %.noexc674, %while.end34.i, %while.end.i, %call.i.noexc
-  %retval.0.i667 = phi i1 [ false, %call.i.noexc ], [ false, %while.end.i ], [ %cmp36.not.i, %while.end34.i ], [ false, %.noexc674 ], [ false, %.noexc673 ]
+  %retval.0.i667 = phi i1 [ false, %call.i.noexc ], [ false, %.noexc674 ], [ false, %while.end.i ], [ %cmp36.not.i, %while.end34.i ], [ false, %.noexc673 ]
   %call432 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i667, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.1, i32 noundef 209, ptr noundef nonnull @.str.36)
           to label %invoke.cont431 unwind label %lpad387.loopexit.split-lp.loopexit.split-lp
 
@@ -2180,7 +2180,7 @@ while.end34:                                      ; preds = %if.end31, %if.end14
   br label %return
 
 return:                                           ; preds = %while.end.i.i, %land.rhs.i.i, %while.end.i.i23, %land.rhs.i.i25, %while.body.lr.ph, %while.body19.lr.ph, %while.end34, %while.end, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %while.end ], [ %cmp36.not, %while.end34 ], [ false, %while.body19.lr.ph ], [ false, %while.body.lr.ph ], [ false, %while.end.i.i23 ], [ false, %land.rhs.i.i25 ], [ false, %land.rhs.i.i ], [ false, %while.end.i.i ]
+  %retval.0 = phi i1 [ false, %entry ], [ false, %while.body19.lr.ph ], [ false, %while.end ], [ %cmp36.not, %while.end34 ], [ false, %while.body.lr.ph ], [ false, %while.end.i.i23 ], [ false, %land.rhs.i.i25 ], [ false, %land.rhs.i.i ], [ false, %while.end.i.i ]
   ret i1 %retval.0
 }
 

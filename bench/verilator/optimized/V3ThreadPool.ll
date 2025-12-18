@@ -4338,7 +4338,7 @@ _ZN10V3MutexImpISt5mutexE8try_lockEv.exit5.i.i.i.i.i.i.i.i.i: ; preds = %.prehea
   br label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit.i.i.i.i.i.i.i
 
 _ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit.i.i.i.i.i.i.i: ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit5.i.i.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i.i.i.i, %24, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i.i.i.i.i.i.i.i, %_ZN10V3MutexImpISt5mutexE6unlockEv.exit.i.i.i.i.i.i.i, %_ZN10V3MutexImpISt5mutexE4lockEv.exit.i.i.i.i.i.i.i
-  %25 = phi ptr [ %.pre.i.i.i.i.i.i.i, %24 ], [ %.pre.i.i.i.i.i.i.i, %_ZN10V3MutexImpISt5mutexE6unlockEv.exit.i.i.i.i.i.i.i ], [ %.pre.i.i.i.i.i.i.i, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i.i.i.i.i.i.i.i ], [ %.pre5.i.i.i.i.i.i.i, %_ZN10V3MutexImpISt5mutexE4lockEv.exit.i.i.i.i.i.i.i ], [ %.pre.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i.i.i.i ], [ %.pre.i.i.i.i.i.i.i, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit5.i.i.i.i.i.i.i.i.i ]
+  %25 = phi ptr [ %.pre5.i.i.i.i.i.i.i, %_ZN10V3MutexImpISt5mutexE4lockEv.exit.i.i.i.i.i.i.i ], [ %.pre.i.i.i.i.i.i.i, %24 ], [ %.pre.i.i.i.i.i.i.i, %_ZN10V3MutexImpISt5mutexE6unlockEv.exit.i.i.i.i.i.i.i ], [ %.pre.i.i.i.i.i.i.i, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i.i.i.i.i.i.i.i ], [ %.pre.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i.i.i.i ], [ %.pre.i.i.i.i.i.i.i, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit5.i.i.i.i.i.i.i.i.i ]
   %26 = icmp slt i32 %.val.i.i.i.i, 1
   br i1 %26, label %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000EEEEvRKNSt6chrono8durationIT_T0_EE.exit.i.i.i.i.i.i.i, label %27
 

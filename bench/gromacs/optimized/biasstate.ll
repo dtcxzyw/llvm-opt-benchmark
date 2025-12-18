@@ -1780,7 +1780,7 @@ _ZN3gmx10PointState18updateTargetWeightERKNS_10BiasParamsEd.exit.us47: ; preds =
   br i1 %.not31.us48, label %._crit_edge, label %_ZN3gmx10PointState18updateTargetWeightERKNS_10BiasParamsEd.exit.us47
 
 ._crit_edge:                                      ; preds = %_ZN3gmx10PointState18updateTargetWeightERKNS_10BiasParamsEd.exit.us47, %_ZN3gmx10PointState18updateTargetWeightERKNS_10BiasParamsEd.exit.us40, %_ZN3gmx10PointState18updateTargetWeightERKNS_10BiasParamsEd.exit.us, %_ZN3gmx10PointState18updateTargetWeightERKNS_10BiasParamsEd.exit
-  %.019.lcssa = phi double [ %45, %_ZN3gmx10PointState18updateTargetWeightERKNS_10BiasParamsEd.exit.us40 ], [ %64, %_ZN3gmx10PointState18updateTargetWeightERKNS_10BiasParamsEd.exit ], [ %33, %_ZN3gmx10PointState18updateTargetWeightERKNS_10BiasParamsEd.exit.us ], [ %55, %_ZN3gmx10PointState18updateTargetWeightERKNS_10BiasParamsEd.exit.us47 ]
+  %.019.lcssa = phi double [ %64, %_ZN3gmx10PointState18updateTargetWeightERKNS_10BiasParamsEd.exit ], [ %45, %_ZN3gmx10PointState18updateTargetWeightERKNS_10BiasParamsEd.exit.us40 ], [ %33, %_ZN3gmx10PointState18updateTargetWeightERKNS_10BiasParamsEd.exit.us ], [ %55, %_ZN3gmx10PointState18updateTargetWeightERKNS_10BiasParamsEd.exit.us47 ]
   %57 = fcmp ogt double %.019.lcssa, 0.000000e+00
   br i1 %57, label %67, label %._crit_edge.thread
 
@@ -6932,7 +6932,7 @@ _ZNSt6vectorIdN3gmx9AllocatorIdNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit: 
   br label %_ZNK3gmx8BiasGrid13hasLambdaAxisEv.exit
 
 _ZNK3gmx8BiasGrid13hasLambdaAxisEv.exit:          ; preds = %.lr.ph.i.i.i.i.i.i, %160, %166, %172, %.loopexit.split.loop.exit35.i.i.i.i.i.i, %.loopexit.split.loop.exit37.i.i.i.i.i.i, %.loopexit.split.loop.exit39.i.i.i.i.i.i
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i = phi ptr [ %.sroa.025.1.i.i.i.i.i.i, %166 ], [ %spec.select.i.i.i.i.i.i, %172 ], [ %.sroa.025.0.lcssa.i.i.i.i.i.i, %160 ], [ %177, %.loopexit.split.loop.exit37.i.i.i.i.i.i ], [ %176, %.loopexit.split.loop.exit35.i.i.i.i.i.i ], [ %178, %.loopexit.split.loop.exit39.i.i.i.i.i.i ], [ %.sroa.025.044.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i = phi ptr [ %.sroa.025.1.i.i.i.i.i.i, %166 ], [ %spec.select.i.i.i.i.i.i, %172 ], [ %178, %.loopexit.split.loop.exit39.i.i.i.i.i.i ], [ %.sroa.025.0.lcssa.i.i.i.i.i.i, %160 ], [ %177, %.loopexit.split.loop.exit37.i.i.i.i.i.i ], [ %176, %.loopexit.split.loop.exit35.i.i.i.i.i.i ], [ %.sroa.025.044.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
   %.not = icmp eq ptr %132, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i
   br i1 %.not, label %_ZNK3gmx8BiasGrid13hasLambdaAxisEv.exit.thread, label %179
 

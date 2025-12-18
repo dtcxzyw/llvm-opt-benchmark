@@ -1067,7 +1067,7 @@ proto_item_set_generated.exit.i.i:                ; preds = %287, %284, %276
   br label %detect_cc_drops.exit.i
 
 detect_cc_drops.exit.i:                           ; preds = %296, %293, %proto_item_set_generated.exit.i.i, %275
-  %.062.i.i = phi i32 [ %.092.i.i, %275 ], [ %.198.i.i, %proto_item_set_generated.exit.i.i ], [ %.198.i.i, %293 ], [ %.198.i.i, %296 ]
+  %.062.i.i = phi i32 [ %.198.i.i, %296 ], [ %.198.i.i, %293 ], [ %.092.i.i, %275 ], [ %.198.i.i, %proto_item_set_generated.exit.i.i ]
   %.not.i = icmp eq i32 %.062.i.i, 0
   br i1 %.not.i, label %detect_cc_drops.exit.thread.i, label %300
 
@@ -1593,10 +1593,10 @@ dissect_mp2t_adaptation_field.exit.i:             ; preds = %438, %435, %303, %d
   br label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %566, %.thread264.i.i, %.critedge.i.i, %587, %576, %571, %564, %540
-  %.2214.i.i = phi i32 [ 0, %571 ], [ 0, %576 ], [ 0, %587 ], [ %.pre-phi.i.i, %.critedge.i.i ], [ %.5230.i.i, %564 ], [ 0, %540 ], [ 0, %.thread264.i.i ], [ 0, %566 ]
-  %.3210.i.i = phi i32 [ %562, %571 ], [ 0, %576 ], [ 0, %587 ], [ %.2209291.i.i, %.critedge.i.i ], [ %562, %564 ], [ 0, %540 ], [ 0, %.thread264.i.i ], [ 0, %566 ]
-  %.1206.i.i = phi i8 [ 0, %571 ], [ 0, %576 ], [ 0, %587 ], [ 1, %.critedge.i.i ], [ 1, %564 ], [ 0, %540 ], [ 0, %.thread264.i.i ], [ 0, %566 ]
-  %.3.i126.i = phi i32 [ %.4308.i.i, %571 ], [ %580, %576 ], [ %588, %587 ], [ %.1295.i.i, %.critedge.i.i ], [ %.4308.i.i, %564 ], [ %.2.i125.i, %540 ], [ %570, %566 ], [ %.4308.i.i, %.thread264.i.i ]
+  %.2214.i.i = phi i32 [ 0, %540 ], [ 0, %571 ], [ 0, %576 ], [ 0, %587 ], [ %.pre-phi.i.i, %.critedge.i.i ], [ %.5230.i.i, %564 ], [ 0, %.thread264.i.i ], [ 0, %566 ]
+  %.3210.i.i = phi i32 [ 0, %540 ], [ %562, %571 ], [ 0, %576 ], [ 0, %587 ], [ %.2209291.i.i, %.critedge.i.i ], [ %562, %564 ], [ 0, %.thread264.i.i ], [ 0, %566 ]
+  %.1206.i.i = phi i8 [ 0, %540 ], [ 0, %571 ], [ 0, %576 ], [ 0, %587 ], [ 1, %.critedge.i.i ], [ 1, %564 ], [ 0, %.thread264.i.i ], [ 0, %566 ]
+  %.3.i126.i = phi i32 [ %.2.i125.i, %540 ], [ %.4308.i.i, %571 ], [ %580, %576 ], [ %588, %587 ], [ %.1295.i.i, %.critedge.i.i ], [ %.4308.i.i, %564 ], [ %570, %566 ], [ %.4308.i.i, %.thread264.i.i ]
   %589 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
   store i8 %.1206.i.i, ptr %589, align 8
   %590 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 20

@@ -795,8 +795,8 @@ define void @_ZN6LibRaw21lossless_dng_load_rawEv(ptr noundef nonnull align 8 der
   br i1 %exitcond.not, label %.loopexit154, label %.lr.ph.split, !llvm.loop !98
 
 .loopexit154:                                     ; preds = %.loopexit.i121, %.loopexit.i121.us, %.loopexit.i101, %.loopexit.i101.us, %227, %.preheader153
-  %.569 = phi i32 [ %.064181, %.preheader153 ], [ %.064181, %227 ], [ %.468.us, %.loopexit.i121.us ], [ %.266.us, %.loopexit.i101.us ], [ %.266, %.loopexit.i101 ], [ %.468, %.loopexit.i121 ]
-  %.5 = phi i32 [ %.062182, %.preheader153 ], [ %.062182, %227 ], [ %.4.us, %.loopexit.i121.us ], [ %.2.us, %.loopexit.i101.us ], [ %.2, %.loopexit.i101 ], [ %.4, %.loopexit.i121 ]
+  %.569 = phi i32 [ %.468.us, %.loopexit.i121.us ], [ %.064181, %.preheader153 ], [ %.266, %.loopexit.i101 ], [ %.064181, %227 ], [ %.266.us, %.loopexit.i101.us ], [ %.468, %.loopexit.i121 ]
+  %.5 = phi i32 [ %.4.us, %.loopexit.i121.us ], [ %.062182, %.preheader153 ], [ %.2, %.loopexit.i101 ], [ %.062182, %227 ], [ %.2.us, %.loopexit.i101.us ], [ %.4, %.loopexit.i121 ]
   %284 = add nuw i32 %.174180, 1
   %285 = load i32, ptr %20, align 8, !tbaa !91
   %286 = icmp ult i32 %284, %285

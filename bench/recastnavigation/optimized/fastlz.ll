@@ -1155,10 +1155,10 @@ define dso_local i32 @fastlz_decompress(ptr noundef readonly captures(address) %
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.lr.ph120.i, %79, %56, %.lr.ph126.preheader.i, %53
-  %.488.i = phi ptr [ %.387.lcssa.i, %79 ], [ %55, %53 ], [ %61, %56 ], [ %35, %.lr.ph126.preheader.i ], [ %65, %.lr.ph120.i ]
-  %.383.i = phi i32 [ %82, %79 ], [ %.181.i, %53 ], [ %.181.i, %56 ], [ %.181.i, %.lr.ph126.preheader.i ], [ %.181.i, %.lr.ph120.i ]
-  %.279.i = phi i32 [ 1, %79 ], [ %.178.i, %53 ], [ %.178.i, %56 ], [ %.178.i, %.lr.ph126.preheader.i ], [ %.178.i, %.lr.ph120.i ]
-  %.4.i = phi ptr [ %80, %79 ], [ %.2.i, %53 ], [ %.2.i, %56 ], [ %.2.i, %.lr.ph126.preheader.i ], [ %.2.i, %.lr.ph120.i ]
+  %.488.i = phi ptr [ %.387.lcssa.i, %79 ], [ %35, %.lr.ph126.preheader.i ], [ %55, %53 ], [ %61, %56 ], [ %65, %.lr.ph120.i ]
+  %.383.i = phi i32 [ %82, %79 ], [ %.181.i, %.lr.ph126.preheader.i ], [ %.181.i, %53 ], [ %.181.i, %56 ], [ %.181.i, %.lr.ph120.i ]
+  %.279.i = phi i32 [ 1, %79 ], [ %.178.i, %.lr.ph126.preheader.i ], [ %.178.i, %53 ], [ %.178.i, %56 ], [ %.178.i, %.lr.ph120.i ]
+  %.4.i = phi ptr [ %80, %79 ], [ %.2.i, %.lr.ph126.preheader.i ], [ %.2.i, %53 ], [ %.2.i, %56 ], [ %.2.i, %.lr.ph120.i ]
   %.not97.i = icmp eq i32 %.279.i, 0
   br i1 %.not97.i, label %.thread.i, label %15, !llvm.loop !20
 
@@ -1355,10 +1355,10 @@ define dso_local i32 @fastlz_decompress(ptr noundef readonly captures(address) %
   br label %.loopexit.i17
 
 .loopexit.i17:                                    ; preds = %.lr.ph134.i, %173, %150, %.lr.ph140.preheader.i, %145
-  %.4100.i = phi ptr [ %.399.lcssa.i, %173 ], [ %147, %145 ], [ %155, %150 ], [ %scevgep148.i, %.lr.ph140.preheader.i ], [ %159, %.lr.ph134.i ]
-  %.6.i = phi ptr [ %174, %173 ], [ %.4.i19, %145 ], [ %.4.i19, %150 ], [ %.4.i19, %.lr.ph140.preheader.i ], [ %.4.i19, %.lr.ph134.i ]
-  %.391.i = phi i32 [ %176, %173 ], [ %.189.i, %145 ], [ %.189.i, %150 ], [ %.189.i, %.lr.ph140.preheader.i ], [ %.189.i, %.lr.ph134.i ]
-  %.287.i = phi i32 [ 1, %173 ], [ %.186.i, %145 ], [ %.186.i, %150 ], [ %.186.i, %.lr.ph140.preheader.i ], [ %.186.i, %.lr.ph134.i ]
+  %.4100.i = phi ptr [ %.399.lcssa.i, %173 ], [ %scevgep148.i, %.lr.ph140.preheader.i ], [ %147, %145 ], [ %155, %150 ], [ %159, %.lr.ph134.i ]
+  %.6.i = phi ptr [ %174, %173 ], [ %.4.i19, %.lr.ph140.preheader.i ], [ %.4.i19, %145 ], [ %.4.i19, %150 ], [ %.4.i19, %.lr.ph134.i ]
+  %.391.i = phi i32 [ %176, %173 ], [ %.189.i, %.lr.ph140.preheader.i ], [ %.189.i, %145 ], [ %.189.i, %150 ], [ %.189.i, %.lr.ph134.i ]
+  %.287.i = phi i32 [ 1, %173 ], [ %.186.i, %.lr.ph140.preheader.i ], [ %.186.i, %145 ], [ %.186.i, %150 ], [ %.186.i, %.lr.ph134.i ]
   %.not108.i = icmp eq i32 %.287.i, 0
   br i1 %.not108.i, label %.thread.i15, label %95, !llvm.loop !24
 
@@ -1371,7 +1371,7 @@ define dso_local i32 @fastlz_decompress(ptr noundef readonly captures(address) %
   br label %fastlz1_decompress.exit
 
 fastlz1_decompress.exit:                          ; preds = %161, %132, %127, %67, %37, %28, %.thread.i15, %.thread.i, %4
-  %.0 = phi i32 [ 0, %4 ], [ %86, %.thread.i ], [ %180, %.thread.i15 ], [ 0, %67 ], [ 0, %28 ], [ 0, %37 ], [ 0, %127 ], [ 0, %132 ], [ 0, %161 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %67 ], [ %86, %.thread.i ], [ %180, %.thread.i15 ], [ 0, %28 ], [ 0, %37 ], [ 0, %127 ], [ 0, %132 ], [ 0, %161 ]
   ret i32 %.0
 }
 

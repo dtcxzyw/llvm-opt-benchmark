@@ -1334,7 +1334,7 @@ define dso_local ptr @drm_atomic_get_old_crtc_for_encoder(ptr noundef readonly c
   br label %.thread
 
 .thread:                                          ; preds = %21, %24, %2, %33, %28
-  %36 = phi ptr [ %35, %33 ], [ null, %28 ], [ null, %2 ], [ null, %24 ], [ null, %21 ]
+  %36 = phi ptr [ %35, %33 ], [ null, %24 ], [ null, %28 ], [ null, %2 ], [ null, %21 ]
   ret ptr %36
 }
 
@@ -1391,7 +1391,7 @@ define dso_local ptr @drm_atomic_get_new_crtc_for_encoder(ptr noundef readonly c
   br label %.thread
 
 .thread:                                          ; preds = %21, %24, %2, %33, %28
-  %36 = phi ptr [ %35, %33 ], [ null, %28 ], [ null, %2 ], [ null, %24 ], [ null, %21 ]
+  %36 = phi ptr [ %35, %33 ], [ null, %24 ], [ null, %28 ], [ null, %2 ], [ null, %21 ]
   ret ptr %36
 }
 

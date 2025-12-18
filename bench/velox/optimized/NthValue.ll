@@ -6271,8 +6271,8 @@ for.inc.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i.i
   br i1 %exitcond.not.i.i.i.i.i.i, label %_ZZN8facebook5velox9functions6window12_GLOBAL__N_116NthValueFunction22setRowNumbersApplyLoopILb1EiEEvRKNS0_17SelectivityVectorEPKiSA_iENKUlT_E_clIiEEDaSB_.exit.i.i.i.i, label %for.body.i.i.i.i.i33.i, !llvm.loop !59
 
 _ZZN8facebook5velox9functions6window12_GLOBAL__N_116NthValueFunction22setRowNumbersApplyLoopILb1EiEEvRKNS0_17SelectivityVectorEPKiSA_iENKUlT_E_clIiEEDaSB_.exit.i.i.i.i: ; preds = %for.inc.i.i.i.i.i.i, %if.then5.i.i.i.i.i.i, %if.end.i4.i.i.i.i, %if.then.i.i.i.i40.i
-  %.sink43.i.i.i.i = phi ptr [ %188, %if.then.i.i.i.i40.i ], [ %.val.i.i.i.i.i, %if.then5.i.i.i.i.i.i ], [ %.val.i.i.i.i.i, %if.end.i4.i.i.i.i ], [ %.val.i.i.i.i.i, %for.inc.i.i.i.i.i.i ]
-  %.sink.i.i.i.i = phi i32 [ -1, %if.then.i.i.i.i40.i ], [ %202, %if.then5.i.i.i.i.i.i ], [ -1, %if.end.i4.i.i.i.i ], [ -1, %for.inc.i.i.i.i.i.i ]
+  %.sink43.i.i.i.i = phi ptr [ %188, %if.then.i.i.i.i40.i ], [ %.val.i.i.i.i.i, %if.end.i4.i.i.i.i ], [ %.val.i.i.i.i.i, %if.then5.i.i.i.i.i.i ], [ %.val.i.i.i.i.i, %for.inc.i.i.i.i.i.i ]
+  %.sink.i.i.i.i = phi i32 [ -1, %if.then.i.i.i.i40.i ], [ -1, %if.end.i4.i.i.i.i ], [ %202, %if.then5.i.i.i.i.i.i ], [ -1, %for.inc.i.i.i.i.i.i ]
   %add.ptr.i.i.i.i.i36.i = getelementptr inbounds i32, ptr %.sink43.i.i.i.i, i64 %indvars.iv.i.i.i30.i
   store i32 %.sink.i.i.i.i, ptr %add.ptr.i.i.i.i.i36.i, align 4
   %indvars.iv.next.i.i.i37.i = add nsw i64 %indvars.iv.i.i.i30.i, 1
@@ -6562,8 +6562,8 @@ for.inc.i.i40.i.i.i.i.i.i.i.i:                    ; preds = %if.then.i.i48.i.i.i
   br i1 %exitcond.not.i.i44.i.i.i.i.i.i.i.i, label %_ZZN8facebook5velox9functions6window12_GLOBAL__N_116NthValueFunction22setRowNumbersApplyLoopILb1EiEEvRKNS0_17SelectivityVectorEPKiSA_iENKUlT_E_clIiEEDaSB_.exit.i.i.i.i.i.i.i.i, label %for.body.i.i31.i.i.i.i.i.i.i.i, !llvm.loop !59
 
 _ZZN8facebook5velox9functions6window12_GLOBAL__N_116NthValueFunction22setRowNumbersApplyLoopILb1EiEEvRKNS0_17SelectivityVectorEPKiSA_iENKUlT_E_clIiEEDaSB_.exit.i.i.i.i.i.i.i.i: ; preds = %for.inc.i.i40.i.i.i.i.i.i.i.i, %if.then5.i.i51.i.i.i.i.i.i.i.i, %if.end.i25.i.i.i.i.i.i.i.i, %if.then.i52.i.i.i.i.i.i.i.i
-  %.sink76.i.i.i.i.i.i.i.i = phi ptr [ %233, %if.then.i52.i.i.i.i.i.i.i.i ], [ %.val.i26.i.i.i.i.i.i.i.i, %if.then5.i.i51.i.i.i.i.i.i.i.i ], [ %.val.i26.i.i.i.i.i.i.i.i, %if.end.i25.i.i.i.i.i.i.i.i ], [ %.val.i26.i.i.i.i.i.i.i.i, %for.inc.i.i40.i.i.i.i.i.i.i.i ]
-  %.sink.i.i.i.i.i.i.i.i = phi i32 [ -1, %if.then.i52.i.i.i.i.i.i.i.i ], [ %247, %if.then5.i.i51.i.i.i.i.i.i.i.i ], [ -1, %if.end.i25.i.i.i.i.i.i.i.i ], [ -1, %for.inc.i.i40.i.i.i.i.i.i.i.i ]
+  %.sink76.i.i.i.i.i.i.i.i = phi ptr [ %233, %if.then.i52.i.i.i.i.i.i.i.i ], [ %.val.i26.i.i.i.i.i.i.i.i, %if.end.i25.i.i.i.i.i.i.i.i ], [ %.val.i26.i.i.i.i.i.i.i.i, %if.then5.i.i51.i.i.i.i.i.i.i.i ], [ %.val.i26.i.i.i.i.i.i.i.i, %for.inc.i.i40.i.i.i.i.i.i.i.i ]
+  %.sink.i.i.i.i.i.i.i.i = phi i32 [ -1, %if.then.i52.i.i.i.i.i.i.i.i ], [ -1, %if.end.i25.i.i.i.i.i.i.i.i ], [ %247, %if.then5.i.i51.i.i.i.i.i.i.i.i ], [ -1, %for.inc.i.i40.i.i.i.i.i.i.i.i ]
   %add.ptr.i.i54.i.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %.sink76.i.i.i.i.i.i.i.i, i64 %.pre.i13.i.i.i.i.i.i.i.i
   store i32 %.sink.i.i.i.i.i.i.i.i, ptr %add.ptr.i.i54.i.i.i.i.i.i.i.i, align 4
   %sub.i32.i.i.i.i.i.i.i = add i64 %word.059.i.i.i.i.i.i.i.i, -1
@@ -6781,8 +6781,8 @@ for.inc.i.i.i.i237.i.i:                           ; preds = %if.then.i.i.i.i247.
   br i1 %exitcond.not.i.i.i.i241.i.i, label %_ZZN8facebook5velox9functions6window12_GLOBAL__N_116NthValueFunction22setRowNumbersApplyLoopILb1ElEEvRKNS0_17SelectivityVectorEPKiSA_iENKUlT_E_clIiEEDaSB_.exit.i.i.i.i, label %for.body.i.i.i.i228.i.i, !llvm.loop !50
 
 _ZZN8facebook5velox9functions6window12_GLOBAL__N_116NthValueFunction22setRowNumbersApplyLoopILb1ElEEvRKNS0_17SelectivityVectorEPKiSA_iENKUlT_E_clIiEEDaSB_.exit.i.i.i.i: ; preds = %for.inc.i.i.i.i237.i.i, %if.then5.i.i.i.i250.i.i, %if.end.i4.i.i222.i.i, %if.then.i.i.i252.i.i
-  %.sink43.i.i242.i.i = phi ptr [ %270, %if.then.i.i.i252.i.i ], [ %.val.i.i.i223.i.i, %if.then5.i.i.i.i250.i.i ], [ %.val.i.i.i223.i.i, %if.end.i4.i.i222.i.i ], [ %.val.i.i.i223.i.i, %for.inc.i.i.i.i237.i.i ]
-  %.sink.i.i243.i.i = phi i32 [ -1, %if.then.i.i.i252.i.i ], [ %284, %if.then5.i.i.i.i250.i.i ], [ -1, %if.end.i4.i.i222.i.i ], [ -1, %for.inc.i.i.i.i237.i.i ]
+  %.sink43.i.i242.i.i = phi ptr [ %270, %if.then.i.i.i252.i.i ], [ %.val.i.i.i223.i.i, %if.end.i4.i.i222.i.i ], [ %.val.i.i.i223.i.i, %if.then5.i.i.i.i250.i.i ], [ %.val.i.i.i223.i.i, %for.inc.i.i.i.i237.i.i ]
+  %.sink.i.i243.i.i = phi i32 [ -1, %if.then.i.i.i252.i.i ], [ -1, %if.end.i4.i.i222.i.i ], [ %284, %if.then5.i.i.i.i250.i.i ], [ -1, %for.inc.i.i.i.i237.i.i ]
   %add.ptr.i.i.i.i244.i.i = getelementptr inbounds i32, ptr %.sink43.i.i242.i.i, i64 %indvars.iv.i.i208.i.i
   store i32 %.sink.i.i243.i.i, ptr %add.ptr.i.i.i.i244.i.i, align 4
   %indvars.iv.next.i.i245.i.i = add nsw i64 %indvars.iv.i.i208.i.i, 1
@@ -7072,8 +7072,8 @@ for.inc.i.i40.i.i.i.i.i.i170.i.i:                 ; preds = %if.then.i.i48.i.i.i
   br i1 %exitcond.not.i.i44.i.i.i.i.i.i174.i.i, label %_ZZN8facebook5velox9functions6window12_GLOBAL__N_116NthValueFunction22setRowNumbersApplyLoopILb1ElEEvRKNS0_17SelectivityVectorEPKiSA_iENKUlT_E_clIiEEDaSB_.exit.i.i.i.i.i.i.i.i, label %for.body.i.i31.i.i.i.i.i.i161.i.i, !llvm.loop !50
 
 _ZZN8facebook5velox9functions6window12_GLOBAL__N_116NthValueFunction22setRowNumbersApplyLoopILb1ElEEvRKNS0_17SelectivityVectorEPKiSA_iENKUlT_E_clIiEEDaSB_.exit.i.i.i.i.i.i.i.i: ; preds = %for.inc.i.i40.i.i.i.i.i.i170.i.i, %if.then5.i.i51.i.i.i.i.i.i184.i.i, %if.end.i25.i.i.i.i.i.i155.i.i, %if.then.i52.i.i.i.i.i.i186.i.i
-  %.sink76.i.i.i.i.i.i175.i.i = phi ptr [ %315, %if.then.i52.i.i.i.i.i.i186.i.i ], [ %.val.i26.i.i.i.i.i.i156.i.i, %if.then5.i.i51.i.i.i.i.i.i184.i.i ], [ %.val.i26.i.i.i.i.i.i156.i.i, %if.end.i25.i.i.i.i.i.i155.i.i ], [ %.val.i26.i.i.i.i.i.i156.i.i, %for.inc.i.i40.i.i.i.i.i.i170.i.i ]
-  %.sink.i.i.i.i.i.i176.i.i = phi i32 [ -1, %if.then.i52.i.i.i.i.i.i186.i.i ], [ %329, %if.then5.i.i51.i.i.i.i.i.i184.i.i ], [ -1, %if.end.i25.i.i.i.i.i.i155.i.i ], [ -1, %for.inc.i.i40.i.i.i.i.i.i170.i.i ]
+  %.sink76.i.i.i.i.i.i175.i.i = phi ptr [ %315, %if.then.i52.i.i.i.i.i.i186.i.i ], [ %.val.i26.i.i.i.i.i.i156.i.i, %if.end.i25.i.i.i.i.i.i155.i.i ], [ %.val.i26.i.i.i.i.i.i156.i.i, %if.then5.i.i51.i.i.i.i.i.i184.i.i ], [ %.val.i26.i.i.i.i.i.i156.i.i, %for.inc.i.i40.i.i.i.i.i.i170.i.i ]
+  %.sink.i.i.i.i.i.i176.i.i = phi i32 [ -1, %if.then.i52.i.i.i.i.i.i186.i.i ], [ -1, %if.end.i25.i.i.i.i.i.i155.i.i ], [ %329, %if.then5.i.i51.i.i.i.i.i.i184.i.i ], [ -1, %for.inc.i.i40.i.i.i.i.i.i170.i.i ]
   %add.ptr.i.i54.i.i.i.i.i.i177.i.i = getelementptr inbounds i32, ptr %.sink76.i.i.i.i.i.i175.i.i, i64 %.pre.i13.i.i.i.i.i.i143.i.i
   store i32 %.sink.i.i.i.i.i.i176.i.i, ptr %add.ptr.i.i54.i.i.i.i.i.i177.i.i, align 4
   %sub.i32.i.i.i.i.i178.i.i = add i64 %word.059.i.i.i.i.i.i138.i.i, -1
@@ -9148,8 +9148,8 @@ for.inc.i.i:                                      ; preds = %if.then.i.i, %for.b
   br i1 %exitcond.not.i.i, label %_ZZN8facebook5velox9functions6window12_GLOBAL__N_116NthValueFunction22setRowNumbersApplyLoopILb1EiEEvRKNS0_17SelectivityVectorEPKiSA_iENKUlT_E_clIiEEDaSB_.exit, label %for.body.i.i, !llvm.loop !59
 
 _ZZN8facebook5velox9functions6window12_GLOBAL__N_116NthValueFunction22setRowNumbersApplyLoopILb1EiEEvRKNS0_17SelectivityVectorEPKiSA_iENKUlT_E_clIiEEDaSB_.exit: ; preds = %for.inc.i.i, %if.end.i, %if.then5.i.i, %if.then.i
-  %.sink14 = phi ptr [ %19, %if.then.i ], [ %.val.i, %if.then5.i.i ], [ %.val.i, %if.end.i ], [ %.val.i, %for.inc.i.i ]
-  %.sink = phi i32 [ -1, %if.then.i ], [ %38, %if.then5.i.i ], [ -1, %if.end.i ], [ -1, %for.inc.i.i ]
+  %.sink14 = phi ptr [ %19, %if.then.i ], [ %.val.i, %if.end.i ], [ %.val.i, %if.then5.i.i ], [ %.val.i, %for.inc.i.i ]
+  %.sink = phi i32 [ -1, %if.then.i ], [ -1, %if.end.i ], [ %38, %if.then5.i.i ], [ -1, %for.inc.i.i ]
   %add.ptr.i.i = getelementptr inbounds i32, ptr %.sink14, i64 %.pre.i
   store i32 %.sink, ptr %add.ptr.i.i, align 4
   %sub = add i64 %word.0, -1
@@ -9284,8 +9284,8 @@ for.inc.i.i:                                      ; preds = %if.then.i.i, %for.b
   br i1 %exitcond.not.i.i, label %_ZZN8facebook5velox9functions6window12_GLOBAL__N_116NthValueFunction22setRowNumbersApplyLoopILb1ElEEvRKNS0_17SelectivityVectorEPKiSA_iENKUlT_E_clIiEEDaSB_.exit, label %for.body.i.i, !llvm.loop !50
 
 _ZZN8facebook5velox9functions6window12_GLOBAL__N_116NthValueFunction22setRowNumbersApplyLoopILb1ElEEvRKNS0_17SelectivityVectorEPKiSA_iENKUlT_E_clIiEEDaSB_.exit: ; preds = %for.inc.i.i, %if.end.i, %if.then5.i.i, %if.then.i
-  %.sink14 = phi ptr [ %19, %if.then.i ], [ %.val.i, %if.then5.i.i ], [ %.val.i, %if.end.i ], [ %.val.i, %for.inc.i.i ]
-  %.sink = phi i32 [ -1, %if.then.i ], [ %38, %if.then5.i.i ], [ -1, %if.end.i ], [ -1, %for.inc.i.i ]
+  %.sink14 = phi ptr [ %19, %if.then.i ], [ %.val.i, %if.end.i ], [ %.val.i, %if.then5.i.i ], [ %.val.i, %for.inc.i.i ]
+  %.sink = phi i32 [ -1, %if.then.i ], [ -1, %if.end.i ], [ %38, %if.then5.i.i ], [ -1, %for.inc.i.i ]
   %add.ptr.i.i = getelementptr inbounds i32, ptr %.sink14, i64 %.pre.i
   store i32 %.sink, ptr %add.ptr.i.i, align 4
   %sub = add i64 %word.0, -1
@@ -9826,7 +9826,7 @@ return.sink.split:                                ; preds = %if.then.i, %_ZZN8fa
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.then27, %if.then3, %for.end, %entry
-  %retval.0 = phi i1 [ true, %entry ], [ true, %for.end ], [ true, %if.then3 ], [ true, %if.then27 ], [ false, %return.sink.split ]
+  %retval.0 = phi i1 [ true, %entry ], [ true, %for.end ], [ true, %if.then27 ], [ true, %if.then3 ], [ false, %return.sink.split ]
   ret i1 %retval.0
 }
 

@@ -148,7 +148,7 @@ switch.edge18:                                    ; preds = %16
   br label %27
 
 27:                                               ; preds = %.sink.split, %23, %12
-  %.0 = phi i32 [ 0, %12 ], [ 1, %23 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 1, %23 ], [ 0, %12 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 

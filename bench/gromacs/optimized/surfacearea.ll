@@ -2862,9 +2862,9 @@ _ZL6divarcffffffiiPfS_S_.exit282.us.us.us.i.i:    ; preds = %1501, %1414
   br i1 %exitcond448.not.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit.i, label %.preheader354.us.i.i, !llvm.loop !47
 
 _ZNSt6vectorIfSaIfEED2Ev.exit.i:                  ; preds = %.split.us.us.i.i, %.loopexit250.us.i.i, %.preheader355.i.i, %1119, %.preheader251.i.i, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i
-  %.sink299.i = phi ptr [ %32, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i ], [ %32, %.preheader251.i.i ], [ %1083, %.preheader355.i.i ], [ %1083, %1119 ], [ %32, %.loopexit250.us.i.i ], [ %1083, %.split.us.us.i.i ]
-  %.sink297.i = phi ptr [ %35, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i ], [ %35, %.preheader251.i.i ], [ %1121, %.preheader355.i.i ], [ %1121, %1119 ], [ %35, %.loopexit250.us.i.i ], [ %1121, %.split.us.us.i.i ]
-  %.sink.i = phi ptr [ %33, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i ], [ %33, %.preheader251.i.i ], [ %1120, %.preheader355.i.i ], [ %1120, %1119 ], [ %33, %.loopexit250.us.i.i ], [ %1120, %.split.us.us.i.i ]
+  %.sink299.i = phi ptr [ %32, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i ], [ %1083, %1119 ], [ %32, %.preheader251.i.i ], [ %32, %.loopexit250.us.i.i ], [ %1083, %.preheader355.i.i ], [ %1083, %.split.us.us.i.i ]
+  %.sink297.i = phi ptr [ %35, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i ], [ %1121, %1119 ], [ %35, %.preheader251.i.i ], [ %35, %.loopexit250.us.i.i ], [ %1121, %.preheader355.i.i ], [ %1121, %.split.us.us.i.i ]
+  %.sink.i = phi ptr [ %33, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i ], [ %1120, %1119 ], [ %33, %.preheader251.i.i ], [ %33, %.loopexit250.us.i.i ], [ %1120, %.preheader355.i.i ], [ %1120, %.split.us.us.i.i ]
   %2201 = ptrtoint ptr %.sink297.i to i64
   %2202 = ptrtoint ptr %.sink299.i to i64
   %2203 = sub i64 %2201, %2202

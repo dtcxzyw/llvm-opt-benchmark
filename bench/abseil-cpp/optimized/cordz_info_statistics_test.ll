@@ -10977,7 +10977,7 @@ _ZSt8_DestroyISt6threadEvPT_.exit.i.i.i.i:        ; preds = %._crit_edge, %35
   unreachable
 
 _ZSt8_DestroyIPSt6threadS0_EvT_S2_RSaIT0_E.exit.i: ; preds = %35, %_ZN4absl9MutexLockD2Ev.exit, %._crit_edge
-  %38 = phi ptr [ %.pre21, %._crit_edge ], [ %15, %_ZN4absl9MutexLockD2Ev.exit ], [ %.pre21, %35 ]
+  %38 = phi ptr [ %15, %_ZN4absl9MutexLockD2Ev.exit ], [ %.pre21, %._crit_edge ], [ %.pre21, %35 ]
   %.not.i.i.i5 = icmp eq ptr %38, null
   br i1 %.not.i.i.i5, label %_ZNSt6vectorISt6threadSaIS0_EED2Ev.exit, label %39
 

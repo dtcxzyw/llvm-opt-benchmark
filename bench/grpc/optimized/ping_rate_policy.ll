@@ -299,7 +299,7 @@ _ZN9grpc_core31IsMaxPingsWoDataThrottleEnabledEv.exit.thread46.sink.split: ; pre
   br label %_ZN9grpc_core31IsMaxPingsWoDataThrottleEnabledEv.exit.thread46
 
 _ZN9grpc_core31IsMaxPingsWoDataThrottleEnabledEv.exit.thread46: ; preds = %_ZN9grpc_core31IsMaxPingsWoDataThrottleEnabledEv.exit.thread46.sink.split, %49, %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit26, %_ZN9grpc_core31IsMaxPingsWoDataThrottleEnabledEv.exit.thread, %_ZN9grpc_core31IsMaxPingsWoDataThrottleEnabledEv.exit, %57, %4
-  %.sink = phi i8 [ 1, %4 ], [ 1, %_ZN9grpc_core31IsMaxPingsWoDataThrottleEnabledEv.exit ], [ 1, %57 ], [ 0, %_ZN9grpc_core31IsMaxPingsWoDataThrottleEnabledEv.exit.thread ], [ 0, %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit26 ], [ 0, %49 ], [ 2, %_ZN9grpc_core31IsMaxPingsWoDataThrottleEnabledEv.exit.thread46.sink.split ]
+  %.sink = phi i8 [ 0, %49 ], [ 1, %4 ], [ 1, %_ZN9grpc_core31IsMaxPingsWoDataThrottleEnabledEv.exit ], [ 0, %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit26 ], [ 1, %57 ], [ 0, %_ZN9grpc_core31IsMaxPingsWoDataThrottleEnabledEv.exit.thread ], [ 2, %_ZN9grpc_core31IsMaxPingsWoDataThrottleEnabledEv.exit.thread46.sink.split ]
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 %.sink, ptr %75, align 8, !tbaa !24
   ret void

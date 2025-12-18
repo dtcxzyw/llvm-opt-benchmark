@@ -233,7 +233,7 @@ gz_load.exit.thread:                              ; preds = %92, %97, %104, %60
   br i1 %.not57, label %gz_skip.exit, label %58, !llvm.loop !31
 
 gz_skip.exit:                                     ; preds = %44, %112, %69, %101, %79, %gz_load.exit, %13, %5, %7, %3, %12
-  %.0 = phi i32 [ -1, %gz_load.exit ], [ -1, %3 ], [ -1, %12 ], [ -1, %5 ], [ 0, %13 ], [ -1, %7 ], [ -1, %101 ], [ %.2, %112 ], [ -1, %79 ], [ %.045, %69 ], [ -1, %44 ]
+  %.0 = phi i32 [ -1, %gz_load.exit ], [ -1, %3 ], [ -1, %12 ], [ -1, %5 ], [ 0, %13 ], [ -1, %101 ], [ -1, %7 ], [ %.2, %112 ], [ -1, %79 ], [ %.045, %69 ], [ -1, %44 ]
   ret i32 %.0
 }
 
@@ -907,7 +907,7 @@ gz_skip.exit.thread:                              ; preds = %44, %38, %15, %12
   br label %gz_skip.exit
 
 gz_skip.exit:                                     ; preds = %41, %52, %58, %7, %9, %3, %.loopexit
-  %.0 = phi ptr [ %1, %.loopexit ], [ null, %3 ], [ null, %7 ], [ null, %58 ], [ null, %9 ], [ null, %52 ], [ null, %41 ]
+  %.0 = phi ptr [ %1, %.loopexit ], [ null, %3 ], [ null, %7 ], [ null, %58 ], [ null, %52 ], [ null, %9 ], [ null, %41 ]
   ret ptr %.0
 }
 

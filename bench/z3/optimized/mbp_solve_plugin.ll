@@ -1659,7 +1659,7 @@ _ZNK11ast_manager5is_eqEPK4exprRPS0_S4_.exit.thread.sink.split: ; preds = %127, 
   br label %_ZNK11ast_manager5is_eqEPK4exprRPS0_S4_.exit.thread
 
 _ZNK11ast_manager5is_eqEPK4exprRPS0_S4_.exit.thread: ; preds = %_ZNK11ast_manager5is_eqEPK4exprRPS0_S4_.exit.thread.sink.split, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i, %63, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.thread, %28, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i, %13, %7, %_ZNK11ast_manager5is_eqEPK4expr.exit.i, %24, %_ZNK17arith_recognizers6is_intEPK4expr.exit, %_ZNK17arith_recognizers6is_mulEPK4expr.exit6, %95, %_ZNK10arith_util6pluginEv.exit11, %4
-  %.0 = phi i1 [ false, %4 ], [ false, %28 ], [ false, %_ZNK17arith_recognizers6is_intEPK4expr.exit ], [ false, %95 ], [ false, %_ZNK17arith_recognizers6is_mulEPK4expr.exit6 ], [ false, %13 ], [ false, %63 ], [ false, %_ZNK10arith_util6pluginEv.exit11 ], [ false, %24 ], [ false, %_ZNK11ast_manager5is_eqEPK4expr.exit.i ], [ false, %7 ], [ false, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i ], [ false, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.thread ], [ false, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i ], [ true, %_ZNK11ast_manager5is_eqEPK4exprRPS0_S4_.exit.thread.sink.split ]
+  %.0 = phi i1 [ false, %4 ], [ false, %28 ], [ false, %_ZNK17arith_recognizers6is_intEPK4expr.exit ], [ false, %95 ], [ false, %_ZNK17arith_recognizers6is_mulEPK4expr.exit6 ], [ false, %13 ], [ false, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i ], [ false, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.thread ], [ false, %63 ], [ false, %_ZNK10arith_util6pluginEv.exit11 ], [ false, %24 ], [ false, %_ZNK11ast_manager5is_eqEPK4expr.exit.i ], [ false, %7 ], [ false, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i ], [ true, %_ZNK11ast_manager5is_eqEPK4exprRPS0_S4_.exit.thread.sink.split ]
   ret i1 %.0
 }
 
@@ -2368,7 +2368,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %302, %295, %.crited
   br label %.loopexit.split-lp
 
 .loopexit139:                                     ; preds = %160, %113, %94, %138, %188, %324
-  %335 = phi ptr [ %.pre, %324 ], [ %68, %94 ], [ %141, %138 ], [ %191, %188 ], [ %118, %113 ], [ %165, %160 ]
+  %335 = phi ptr [ %118, %113 ], [ %.pre, %324 ], [ %68, %94 ], [ %141, %138 ], [ %191, %188 ], [ %165, %160 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %336 = icmp eq ptr %335, null
   br i1 %336, label %_ZNK6vectorISt4pairIbP4exprELb0EjE5emptyEv.exit.thread, label %_ZNK6vectorISt4pairIbP4exprELb0EjE5emptyEv.exit, !llvm.loop !66

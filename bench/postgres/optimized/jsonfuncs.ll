@@ -4936,7 +4936,7 @@ define dso_local i64 @jsonb_strip_nulls(ptr noundef readonly captures(none) %0) 
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %16, %18
-  %.0.be = phi i1 [ true, %16 ], [ false, %18 ]
+  %.0.be = phi i1 [ false, %18 ], [ true, %16 ]
   br label %.backedge, !llvm.loop !19
 
 17:                                               ; preds = %.backedge
@@ -5174,7 +5174,7 @@ define dso_local i64 @jsonb_concat(ptr noundef readonly captures(none) %0) local
   br label %IteratorConcat.exit
 
 IteratorConcat.exit:                              ; preds = %.lr.ph82.i, %.lr.ph93.i, %.preheader.i, %.preheader71.i, %.loopexit.sink.split.i
-  %.1.i = phi ptr [ null, %.preheader.i ], [ null, %.preheader71.i ], [ %80, %.loopexit.sink.split.i ], [ %45, %.lr.ph93.i ], [ %68, %.lr.ph82.i ]
+  %.1.i = phi ptr [ null, %.preheader71.i ], [ %45, %.lr.ph93.i ], [ %80, %.loopexit.sink.split.i ], [ null, %.preheader.i ], [ %68, %.lr.ph82.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %81 = call ptr @JsonbValueToJsonb(ptr noundef %.1.i) #14
@@ -5317,7 +5317,7 @@ define dso_local i64 @jsonb_delete(ptr noundef readonly captures(none) %0) local
   br i1 %.not3744, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !28
 
 .outer._crit_edge:                                ; preds = %.outer, %67, %46
-  %.031.ph.lcssa = phi ptr [ null, %46 ], [ %.031.ph47, %67 ], [ %70, %.outer ]
+  %.031.ph.lcssa = phi ptr [ %.031.ph47, %67 ], [ null, %46 ], [ %70, %.outer ]
   %72 = call ptr @JsonbValueToJsonb(ptr noundef %.031.ph.lcssa) #14
   br label %73
 
@@ -5510,7 +5510,7 @@ define dso_local i64 @jsonb_delete_array(ptr noundef readonly captures(none) %0)
   br i1 %.not4984, label %.outer._crit_edge, label %.lr.ph85, !llvm.loop !30
 
 .outer._crit_edge:                                ; preds = %.thread, %94, %37
-  %.039.ph.lcssa = phi ptr [ null, %37 ], [ %.039.ph89, %94 ], [ %97, %.thread ]
+  %.039.ph.lcssa = phi ptr [ %.039.ph89, %94 ], [ null, %37 ], [ %97, %.thread ]
   %99 = call ptr @JsonbValueToJsonb(ptr noundef %.039.ph.lcssa) #14
   br label %100
 
@@ -8855,7 +8855,7 @@ populate_array_assign_ndims.exit.thread.sink.split: ; preds = %22, %10
   br label %populate_array_assign_ndims.exit.thread
 
 populate_array_assign_ndims.exit.thread:          ; preds = %19, %populate_array_assign_ndims.exit.thread.sink.split, %22
-  %.0 = phi i32 [ 0, %22 ], [ 23, %populate_array_assign_ndims.exit.thread.sink.split ], [ 0, %19 ]
+  %.0 = phi i32 [ 23, %populate_array_assign_ndims.exit.thread.sink.split ], [ 0, %22 ], [ 0, %19 ]
   ret i32 %.0
 }
 

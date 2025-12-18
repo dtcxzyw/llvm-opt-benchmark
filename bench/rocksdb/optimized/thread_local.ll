@@ -464,13 +464,13 @@ _ZN7rocksdb14ThreadLocalPtr10StaticMeta5MutexEv.exit: ; preds = %2, %5, %10
   br label %_ZNSt13unordered_mapIjPFvPvESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit.thread, !llvm.loop !50
 
 _ZNSt13unordered_mapIjPFvPvESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit: ; preds = %41, %23, %36
-  %.sroa.06.1.i.i = phi ptr [ %37, %36 ], [ %.sroa.06.0.i.i, %23 ], [ %43, %41 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %23 ], [ %37, %36 ], [ %43, %41 ]
   %49 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %50 = load ptr, ptr %49, align 8, !tbaa !51
   br label %_ZNSt13unordered_mapIjPFvPvESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit.thread
 
 _ZNSt13unordered_mapIjPFvPvESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %22, %27, %..loopexit_crit_edge21.i.i.i.i, %_ZNSt13unordered_mapIjPFvPvESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit
-  %.0 = phi ptr [ %50, %_ZNSt13unordered_mapIjPFvPvESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit ], [ null, %..loopexit_crit_edge21.i.i.i.i ], [ null, %27 ], [ null, %22 ], [ null, %.lr.ph.i.i.i.i ]
+  %.0 = phi ptr [ %50, %_ZNSt13unordered_mapIjPFvPvESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit ], [ null, %..loopexit_crit_edge21.i.i.i.i ], [ null, %22 ], [ null, %27 ], [ null, %.lr.ph.i.i.i.i ]
   ret ptr %.0
 }
 
@@ -1773,7 +1773,7 @@ _ZNSt10_HashtableIjSt4pairIKjPFvPvEESaIS5_ENSt8__detail10_Select1stESt8equal_toI
   br label %.body
 
 .loopexit:                                        ; preds = %32, %.noexc, %27
-  %.pn.i.i3 = phi ptr [ %28, %27 ], [ %43, %.noexc ], [ %34, %32 ]
+  %.pn.i.i3 = phi ptr [ %43, %.noexc ], [ %28, %27 ], [ %34, %32 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i3, i64 16
   store ptr %2, ptr %.1.i.i, align 8, !tbaa !75
   invoke void @_ZN7rocksdb4port5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(40) %18)
@@ -2094,7 +2094,7 @@ _ZNSt10_HashtableIjSt4pairIKjPFvPvEESaIS5_ENSt8__detail10_Select1stESt8equal_toI
   br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !93
 
 .loopexit:                                        ; preds = %47, %.noexc, %42
-  %.pn.i.i16 = phi ptr [ %43, %42 ], [ %58, %.noexc ], [ %49, %47 ]
+  %.pn.i.i16 = phi ptr [ %58, %.noexc ], [ %43, %42 ], [ %49, %47 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i16, i64 16
   store ptr null, ptr %.1.i.i, align 8, !tbaa !75
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 8

@@ -572,7 +572,7 @@ _ZNSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS1_EED2Ev.exit: ; preds = %
   br label %54
 
 _ZNSt13unordered_mapImSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS2_EESt4hashImESt8equal_toImESaISt4pairIKmS5_EEE4findERSB_.exit: ; preds = %35, %19, %30
-  %.sroa.06.1.i.i = phi ptr [ %31, %30 ], [ %.sroa.06.0.i.i, %19 ], [ %37, %35 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %19 ], [ %31, %30 ], [ %37, %35 ]
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %53 = load ptr, ptr %52, align 8, !tbaa !10
   br label %54
@@ -965,7 +965,7 @@ _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKmSt10unique_ptrIN4l
   br label %_ZNSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt13unordered_mapImSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS2_EESt4hashImESt8equal_toImESaISt4pairIKmS5_EEE4findERSB_.exit: ; preds = %54, %39, %49
-  %.sroa.06.1.i.i = phi ptr [ %50, %49 ], [ %.sroa.06.0.i.i, %39 ], [ %56, %54 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %39 ], [ %50, %49 ], [ %56, %54 ]
   %156 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %157 = load ptr, ptr %156, align 8, !tbaa !10
   br label %_ZNSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS1_EED2Ev.exit
@@ -1102,7 +1102,7 @@ define dso_local i64 @_ZNK4llvm16OutlinedHashTree4findERKNS_11SmallVectorImLj6EE
   br label %.thread30, !llvm.loop !50
 
 .loopexit:                                        ; preds = %31, %14, %26
-  %.sroa.06.1.i.i = phi ptr [ %27, %26 ], [ %.sroa.06.0.i.i, %14 ], [ %33, %31 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %14 ], [ %27, %26 ], [ %33, %31 ]
   %38 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %39 = load ptr, ptr %38, align 8, !tbaa !10
   %40 = getelementptr inbounds nuw i8, ptr %.01742, i64 8
@@ -1116,7 +1116,7 @@ define dso_local i64 @_ZNK4llvm16OutlinedHashTree4findERKNS_11SmallVectorImLj6EE
   br label %.thread30
 
 .thread30:                                        ; preds = %18, %.lr.ph.i.i.i.i, %13, %..loopexit_crit_edge21.i.i.i.i, %.thread27
-  %.sroa.4.sroa.0.0 = phi i64 [ %42, %.thread27 ], [ 4294967296, %..loopexit_crit_edge21.i.i.i.i ], [ 4294967296, %.lr.ph.i.i.i.i ], [ 4294967296, %13 ], [ 4294967296, %18 ]
+  %.sroa.4.sroa.0.0 = phi i64 [ %42, %.thread27 ], [ 4294967296, %13 ], [ 4294967296, %..loopexit_crit_edge21.i.i.i.i ], [ 4294967296, %.lr.ph.i.i.i.i ], [ 4294967296, %18 ]
   ret i64 %.sroa.4.sroa.0.0
 }
 
@@ -2466,7 +2466,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableImSt4pairIKmSt10unique_ptrIN4l
   br label %_ZNSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 
 _ZNKSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS1_m.exit: ; preds = %33, %21, %28
-  %.sroa.032.0.ph = phi ptr [ %29, %28 ], [ %.sroa.025.0, %21 ], [ %35, %33 ]
+  %.sroa.032.0.ph = phi ptr [ %.sroa.025.0, %21 ], [ %29, %28 ], [ %35, %33 ]
   %.not.i.i.i.i = icmp eq i64 %8, 0
   br i1 %.not.i.i.i.i, label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEEE18_M_deallocate_nodeEPSB_.exit.i, label %_ZNKSt14default_deleteIN4llvm8HashNodeEEclEPS1_.exit.i.i.i.i
 

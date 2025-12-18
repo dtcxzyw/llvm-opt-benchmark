@@ -1608,7 +1608,7 @@ define i32 @Cba_BlastReduction(ptr noundef %0, ptr noundef readonly captures(non
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !53
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph42, %.lr.ph46, %.preheader36, %.preheader34, %.preheader, %4
-  %.032 = phi i32 [ -1, %4 ], [ 1, %.preheader ], [ 0, %.preheader34 ], [ 0, %.preheader36 ], [ %13, %.lr.ph42 ], [ %10, %.lr.ph46 ], [ %16, %.lr.ph ]
+  %.032 = phi i32 [ %10, %.lr.ph46 ], [ -1, %4 ], [ %13, %.lr.ph42 ], [ 1, %.preheader ], [ 0, %.preheader34 ], [ 0, %.preheader36 ], [ %16, %.lr.ph ]
   ret i32 %.032
 }
 
@@ -8091,7 +8091,7 @@ Vec_IntFill.exit.i1356:                           ; preds = %.lr.ph.i.i1357, %Ve
   br label %Cba_VecLoadFanins.exit1360
 
 Cba_VecLoadFanins.exit1360:                       ; preds = %Vec_IntPush.exit.i1347, %.thread1524, %1895, %Vec_IntFill.exit.i1356
-  %1916 = phi i32 [ %1817, %.thread1524 ], [ %1900, %1895 ], [ %1817, %Vec_IntFill.exit.i1356 ], [ %1817, %Vec_IntPush.exit.i1347 ]
+  %1916 = phi i32 [ %1817, %.thread1524 ], [ %1817, %Vec_IntFill.exit.i1356 ], [ %1900, %1895 ], [ %1817, %Vec_IntPush.exit.i1347 ]
   %.val.i1340 = load ptr, ptr %58, align 8, !tbaa !10
   switch i32 %.211678, label %.critedge39.loopexit1559 [
     i32 0, label %.preheader

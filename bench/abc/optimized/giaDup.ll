@@ -14257,8 +14257,8 @@ Abc_UtilStrsav.exit110:                           ; preds = %Abc_UtilStrsav.exit
   br i1 %exitcond.not, label %.critedge4, label %67, !llvm.loop !250
 
 .critedge4:                                       ; preds = %.lr.ph123, %67, %.critedge, %.lr.ph130, %.critedge2
-  %83 = phi ptr [ %47, %.critedge ], [ %61, %.lr.ph130 ], [ %61, %.critedge2 ], [ %61, %67 ], [ %50, %.lr.ph123 ]
-  %.val105.pre172 = phi ptr [ %.val107, %.critedge ], [ null, %.lr.ph130 ], [ %.val105.pre.pre.pre, %.critedge2 ], [ %.val105.pre.pre.pre, %67 ], [ null, %.lr.ph123 ]
+  %83 = phi ptr [ %61, %67 ], [ %47, %.critedge ], [ %61, %.lr.ph130 ], [ %61, %.critedge2 ], [ %50, %.lr.ph123 ]
+  %.val105.pre172 = phi ptr [ %.val105.pre.pre.pre, %67 ], [ %.val107, %.critedge ], [ null, %.lr.ph130 ], [ %.val105.pre.pre.pre, %.critedge2 ], [ null, %.lr.ph123 ]
   %.val106 = load ptr, ptr %23, align 8, !tbaa !45
   %84 = getelementptr i8, ptr %.val106, i64 8
   %.val106.val = load ptr, ptr %84, align 8, !tbaa !10
@@ -41749,7 +41749,7 @@ Vec_IntPush.exit.i:                               ; preds = %Vec_IntPush.exit.i.
   br i1 %50, label %24, label %Vec_IntAppend.exit, !llvm.loop !333
 
 Vec_IntAppend.exit:                               ; preds = %Vec_IntPush.exit.i, %2, %.critedge
-  %.pre.i79 = phi ptr [ %5, %.critedge ], [ %5, %2 ], [ %.pre.i.i75, %Vec_IntPush.exit.i ]
+  %.pre.i79 = phi ptr [ %5, %2 ], [ %5, %.critedge ], [ %.pre.i.i75, %Vec_IntPush.exit.i ]
   %51 = getelementptr i8, ptr %0, i64 32
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %53 = load i32, ptr %52, align 8, !tbaa !36

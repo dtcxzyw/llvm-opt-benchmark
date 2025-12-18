@@ -3585,9 +3585,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i167: ; preds = %
   br i1 %exitcond.not.i173, label %._crit_edge.i174, label %950, !llvm.loop !105
 
 .loopexit.i175:                                   ; preds = %._crit_edge.i174, %._crit_edge114.i, %.preheader89.lr.ph.i, %938, %.preheader.lr.ph.i, %917
-  %.sroa.0.2.i = phi double [ 0.000000e+00, %917 ], [ 0.000000e+00, %938 ], [ 0.000000e+00, %.preheader89.lr.ph.i ], [ 0.000000e+00, %.preheader.lr.ph.i ], [ %935, %._crit_edge114.i ], [ %955, %._crit_edge.i174 ]
-  %.sroa.8.2.i = phi double [ 0.000000e+00, %917 ], [ 0.000000e+00, %938 ], [ 0.000000e+00, %.preheader89.lr.ph.i ], [ 0.000000e+00, %.preheader.lr.ph.i ], [ %936, %._crit_edge114.i ], [ %956, %._crit_edge.i174 ]
-  %.2.i = phi double [ 0.000000e+00, %917 ], [ 0.000000e+00, %938 ], [ 0.000000e+00, %.preheader89.lr.ph.i ], [ 0.000000e+00, %.preheader.lr.ph.i ], [ %937, %._crit_edge114.i ], [ %957, %._crit_edge.i174 ]
+  %.sroa.0.2.i = phi double [ %935, %._crit_edge114.i ], [ 0.000000e+00, %917 ], [ 0.000000e+00, %.preheader.lr.ph.i ], [ 0.000000e+00, %938 ], [ 0.000000e+00, %.preheader89.lr.ph.i ], [ %955, %._crit_edge.i174 ]
+  %.sroa.8.2.i = phi double [ %936, %._crit_edge114.i ], [ 0.000000e+00, %917 ], [ 0.000000e+00, %.preheader.lr.ph.i ], [ 0.000000e+00, %938 ], [ 0.000000e+00, %.preheader89.lr.ph.i ], [ %956, %._crit_edge.i174 ]
+  %.2.i = phi double [ %937, %._crit_edge114.i ], [ 0.000000e+00, %917 ], [ 0.000000e+00, %.preheader.lr.ph.i ], [ 0.000000e+00, %938 ], [ 0.000000e+00, %.preheader89.lr.ph.i ], [ %957, %._crit_edge.i174 ]
   %.not83.i = icmp eq ptr %3, null
   br i1 %.not83.i, label %.critedge, label %958
 

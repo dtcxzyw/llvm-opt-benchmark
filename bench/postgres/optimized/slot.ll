@@ -367,7 +367,7 @@ define dso_local noundef zeroext i1 @ReplicationSlotValidateName(ptr noundef %0,
   br label %.loopexit
 
 .loopexit:                                        ; preds = %29, %5, %13, %23, %.loopexit.sink.split.sink.split, %.preheader
-  %.042 = phi i1 [ true, %.preheader ], [ false, %.loopexit.sink.split.sink.split ], [ false, %23 ], [ false, %13 ], [ false, %5 ], [ true, %29 ]
+  %.042 = phi i1 [ false, %5 ], [ true, %.preheader ], [ false, %.loopexit.sink.split.sink.split ], [ false, %23 ], [ false, %13 ], [ true, %29 ]
   ret i1 %.042
 }
 
@@ -2521,7 +2521,7 @@ define dso_local noundef zeroext i1 @InvalidateObsoleteReplicationSlots(i32 noun
   switch i32 %0, label %.thread.thread.i [
     i32 1, label %51
     i32 2, label %53
-    i32 3, label %59
+    i32 3, label %61
   ]
 
 .thread.thread.i:                                 ; preds = %50
@@ -2553,16 +2553,16 @@ define dso_local noundef zeroext i1 @InvalidateObsoleteReplicationSlots(i32 noun
 
 58:                                               ; preds = %56, %55
   %.not93.i = icmp eq i32 %.371.i, 0
-  br i1 %.not93.i, label %.thread.i, label %61
+  br i1 %.not93.i, label %.thread.i, label %59
 
-59:                                               ; preds = %50
-  %60 = load i32, ptr %33, align 8
-  %.not88.i = icmp eq i32 %60, 0
+59:                                               ; preds = %58
+  %60 = call zeroext i1 @TransactionIdPrecedesOrEquals(i32 noundef %.371.i, i32 noundef %3) #16
+  br i1 %60, label %.thread108.i, label %.thread.i
+
+61:                                               ; preds = %50
+  %62 = load i32, ptr %33, align 8
+  %.not88.i = icmp eq i32 %62, 0
   br i1 %.not88.i, label %.thread.i, label %.thread108.i
-
-61:                                               ; preds = %58
-  %62 = call zeroext i1 @TransactionIdPrecedesOrEquals(i32 noundef %.371.i, i32 noundef %3) #16
-  br i1 %62, label %.thread108.i, label %.thread.i
 
 .thread.i:                                        ; preds = %61, %59, %58, %53, %51, %42
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !40
@@ -3386,7 +3386,7 @@ validate_sync_standby_slots.exit.thread:          ; preds = %8
   br label %.split39.us.i
 
 .split39.us.i:                                    ; preds = %32, %.lr.ph.split.i, %.lr.ph.split.us.split.i, %.split39.us.sink.split.i, %16
-  %.us-phi40.i = phi i1 [ true, %16 ], [ true, %.lr.ph.split.us.split.i ], [ true, %.lr.ph.split.i ], [ false, %.split39.us.sink.split.i ], [ true, %32 ]
+  %.us-phi40.i = phi i1 [ true, %16 ], [ false, %.split39.us.sink.split.i ], [ true, %.lr.ph.split.i ], [ true, %.lr.ph.split.us.split.i ], [ true, %32 ]
   %22 = load ptr, ptr @MainLWLockArray, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 4736
   call void @LWLockRelease(ptr noundef nonnull %23) #16
@@ -3762,8 +3762,8 @@ SearchNamedReplicationSlot.exit:                  ; preds = %26
   br label %.thread
 
 .thread:                                          ; preds = %57, %.loopexit, %34, %48, %55, %.thread.sink.split.sink.split, %10, %53
-  %.081127 = phi i64 [ 0, %10 ], [ %.081133, %53 ], [ %.081133, %.thread.sink.split.sink.split ], [ %.081133, %55 ], [ %.081133, %48 ], [ %.081133, %34 ], [ %.081133, %.loopexit ], [ %.3, %57 ]
-  %.079120 = phi i32 [ 0, %10 ], [ %.079134, %53 ], [ %.079134, %.thread.sink.split.sink.split ], [ %.079134, %55 ], [ %.079134, %48 ], [ %.079134, %34 ], [ %.079134, %.loopexit ], [ %59, %57 ]
+  %.081127 = phi i64 [ 0, %10 ], [ %.081133, %53 ], [ %.081133, %.loopexit ], [ %.081133, %.thread.sink.split.sink.split ], [ %.081133, %55 ], [ %.081133, %48 ], [ %.081133, %34 ], [ %.3, %57 ]
+  %.079120 = phi i32 [ 0, %10 ], [ %.079134, %53 ], [ %.079134, %.loopexit ], [ %.079134, %.thread.sink.split.sink.split ], [ %.079134, %55 ], [ %.079134, %48 ], [ %.079134, %34 ], [ %59, %57 ]
   %70 = load ptr, ptr @MainLWLockArray, align 8
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 4736
   tail call void @LWLockRelease(ptr noundef nonnull %71) #16

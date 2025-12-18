@@ -991,7 +991,7 @@ _ZNK10model_core17get_num_functionsEv.exit:       ; preds = %156
   br i1 %.not27.old.i.i.i.i, label %_ZNK10model_core15get_func_interpEP9func_decl.exit, label %.lr.ph38.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.backedge:                        ; preds = %213, %210
-  %.137.i.i.i.i.be = phi ptr [ %.old.i.i.i.i, %213 ], [ %212, %210 ]
+  %.137.i.i.i.i.be = phi ptr [ %212, %210 ], [ %.old.i.i.i.i, %213 ]
   br label %.lr.ph38.i.i.i.i, !llvm.loop !476
 
 .loopexit.i:                                      ; preds = %194, %205
@@ -1840,7 +1840,7 @@ define hidden noundef ptr @_ZN1q11model_fixerclEP10quantifier(ptr noundef nonnul
   br i1 %.not27.old.i.i.i, label %.noexc, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %37, %34
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %37 ], [ %36, %34 ]
+  %.137.i.i.i.be = phi ptr [ %36, %34 ], [ %.old.i.i.i, %37 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !553
 
 _ZNK7obj_mapI10quantifierP21quantifier_macro_infoE4findEPS0_RS2_.exit: ; preds = %18, %29
@@ -2543,7 +2543,7 @@ define hidden void @_ZN1q11model_fixer24add_projection_functionsER5modelP9func_d
   br i1 %.not27.old.i.i.i.i, label %_ZNK10model_core15get_func_interpEP9func_decl.exit.thread, label %.lr.ph38.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.backedge:                        ; preds = %40, %37
-  %.137.i.i.i.i.be = phi ptr [ %.old.i.i.i.i, %40 ], [ %39, %37 ]
+  %.137.i.i.i.i.be = phi ptr [ %39, %37 ], [ %.old.i.i.i.i, %40 ]
   br label %.lr.ph38.i.i.i.i, !llvm.loop !476
 
 _ZNK10model_core15get_func_interpEP9func_decl.exit: ; preds = %21, %32
@@ -3173,7 +3173,7 @@ _ZNK6vectorIPN3euf5enodeELb0EjE3endEv.exit:       ; preds = %55
   br label %.loopexit.split-lp171
 
 .critedge:                                        ; preds = %138, %55, %_ZNK6vectorIPN3euf5enodeELb0EjE3endEv.exit
-  %142 = phi ptr [ %30, %_ZNK6vectorIPN3euf5enodeELb0EjE3endEv.exit ], [ %30, %55 ], [ %126, %138 ]
+  %142 = phi ptr [ %30, %55 ], [ %30, %_ZNK6vectorIPN3euf5enodeELb0EjE3endEv.exit ], [ %126, %138 ]
   %143 = load ptr, ptr %34, align 8, !tbaa !437
   %144 = icmp eq ptr %143, null
   br i1 %144, label %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5emptyEv.exit.thread, label %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5emptyEv.exit
@@ -4068,7 +4068,7 @@ define hidden noundef ptr @_ZN1q11model_fixer14get_projectionEP4sort(ptr noundef
   br i1 %.not27.old.i.i.i, label %.loopexit33, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %39, %36
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %39 ], [ %38, %36 ]
+  %.137.i.i.i.be = phi ptr [ %38, %36 ], [ %.old.i.i.i, %39 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !625
 
 .loopexit:                                        ; preds = %20, %31
@@ -4474,7 +4474,7 @@ define hidden noundef ptr @_ZN1q11model_fixer10invert_appEP3appP4expr(ptr nounde
   br i1 %.not27.old.i.i.i, label %_ZNK7obj_mapI4exprPN3euf5enodeEE4findEPS0_RS3_.exit.thread, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %39, %36
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %39 ], [ %38, %36 ]
+  %.137.i.i.i.be = phi ptr [ %38, %36 ], [ %.old.i.i.i, %39 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !643
 
 .loopexit:                                        ; preds = %20, %31
@@ -7960,7 +7960,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI10quantifierP21qu
   br i1 %.not32.old, label %.loopexit, label %.lr.ph48.backedge
 
 .lr.ph48.backedge:                                ; preds = %36, %33
-  %.247.be = phi ptr [ %.old, %36 ], [ %35, %33 ]
+  %.247.be = phi ptr [ %35, %33 ], [ %.old, %36 ]
   br label %.lr.ph48, !llvm.loop !752
 
 .loopexit38:                                      ; preds = %17, %28
@@ -8895,7 +8895,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI4sortPN1q19projec
   br i1 %.not32.old, label %.loopexit, label %.lr.ph48.backedge
 
 .lr.ph48.backedge:                                ; preds = %36, %33
-  %.247.be = phi ptr [ %.old, %36 ], [ %35, %33 ]
+  %.247.be = phi ptr [ %35, %33 ], [ %.old, %36 ]
   br label %.lr.ph48, !llvm.loop !772
 
 .loopexit38:                                      ; preds = %17, %28

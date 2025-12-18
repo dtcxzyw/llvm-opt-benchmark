@@ -2031,7 +2031,7 @@ ZDICT_dictSize.exit224.thread.critedge.i:         ; preds = %395
   br label %.thread233.sink.split.i
 
 .thread233.sink.split.i:                          ; preds = %.lr.ph.i24, %.lr.ph270.i, %._crit_edge271.i, %ZDICT_dictSize.exit224.thread.critedge.i, %ZDICT_dictSize.exit224.i, %.critedge179.i, %42, %40
-  %.0.ph.i = phi i64 [ -34, %ZDICT_dictSize.exit224.i ], [ -34, %42 ], [ %529, %._crit_edge271.i ], [ -70, %40 ], [ -34, %ZDICT_dictSize.exit224.thread.critedge.i ], [ -34, %.critedge179.i ], [ -1, %.lr.ph270.i ], [ -1, %.lr.ph.i24 ]
+  %.0.ph.i = phi i64 [ -1, %.lr.ph270.i ], [ -34, %ZDICT_dictSize.exit224.i ], [ -34, %42 ], [ %529, %._crit_edge271.i ], [ -70, %40 ], [ -34, %ZDICT_dictSize.exit224.thread.critedge.i ], [ -34, %.critedge179.i ], [ -1, %.lr.ph.i24 ]
   tail call void @free(ptr noundef nonnull %31) #16
   br label %ZDICT_trainFromBuffer_unsafe_legacy.exit
 

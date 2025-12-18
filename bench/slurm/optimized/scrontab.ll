@@ -699,8 +699,8 @@ _entry_to_job.exit.i:                             ; preds = %223, %220
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %155, %155, %_entry_to_job.exit.i, %.thread.i, %168, %166
-  %.2106.i = phi i1 [ false, %166 ], [ true, %_entry_to_job.exit.i ], [ false, %.thread.i ], [ false, %168 ], [ false, %155 ], [ false, %155 ]
-  %.1101.i = phi i32 [ %spec.select.i, %166 ], [ -1, %_entry_to_job.exit.i ], [ %.0100185.i, %.thread.i ], [ %.0100185.i, %168 ], [ %.0100185.i, %155 ], [ %.0100185.i, %155 ]
+  %.2106.i = phi i1 [ false, %.thread.i ], [ false, %168 ], [ false, %166 ], [ true, %_entry_to_job.exit.i ], [ false, %155 ], [ false, %155 ]
+  %.1101.i = phi i32 [ %.0100185.i, %.thread.i ], [ %.0100185.i, %168 ], [ %spec.select.i, %166 ], [ -1, %_entry_to_job.exit.i ], [ %.0100185.i, %155 ], [ %.0100185.i, %155 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %228 = load ptr, ptr %5, align 8
   %229 = getelementptr inbounds nuw ptr, ptr %228, i64 %indvars.iv.next.i

@@ -4177,8 +4177,8 @@ _ZN11duckdb_zstdL36ZSTD_buildBlockEntropyStats_literalsEPvmPKNS_17ZSTD_hufCTable
   store i64 0, ptr %73, align 8, !tbaa !235
   br label %78
 
-_ZN11duckdb_zstdL36ZSTD_buildBlockEntropyStats_literalsEPvmPKNS_17ZSTD_hufCTables_tEPS1_PNS_25ZSTD_hufCTablesMetadata_tEiS0_mi.exit.thread48: ; preds = %50, %.critedge.i
-  %.0.i34.ph = phi i64 [ %38, %.critedge.i ], [ %54, %50 ]
+_ZN11duckdb_zstdL36ZSTD_buildBlockEntropyStats_literalsEPvmPKNS_17ZSTD_hufCTables_tEPS1_PNS_25ZSTD_hufCTablesMetadata_tEiS0_mi.exit.thread48: ; preds = %.critedge.i, %50
+  %.0.i34.ph = phi i64 [ %54, %50 ], [ %38, %.critedge.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %74 = getelementptr inbounds nuw i8, ptr %4, i64 136
   store i64 %.0.i34.ph, ptr %74, align 8, !tbaa !235
@@ -11187,8 +11187,8 @@ _ZN11duckdb_zstdL21ZSTD_rleCompressBlockEPvmhmj.exit.thread.i: ; preds = %.threa
   %.not.i = icmp eq i64 %.1133.i, 0
   br i1 %.not.i, label %_ZN11duckdb_zstdL31ZSTD_compressSequences_internalEPNS_11ZSTD_CCtx_sEPvmPKNS_13ZSTD_SequenceEmPKvm.exit, label %43
 
-_ZN11duckdb_zstdL31ZSTD_compressSequences_internalEPNS_11ZSTD_CCtx_sEPvmPKNS_13ZSTD_SequenceEmPKvm.exit.thread: ; preds = %.thread.i, %80, %_ZN11duckdb_zstdL27blockSize_explicitDelimiterEPKNS_13ZSTD_SequenceEmNS_21ZSTD_sequencePositionE.exit.i.i, %62, %_ZN11duckdb_zstdL19determine_blockSizeENS_21ZSTD_sequenceFormat_eEmmPKNS_13ZSTD_SequenceEmNS_21ZSTD_sequencePositionE.exit.i, %90, %47, %_ZN11duckdb_zstdL20ZSTD_noCompressBlockEPvmPKvmj.exit166.i, %92, %69, %118, %49, %29
-  %.2.i.ph = phi i64 [ -70, %29 ], [ -107, %49 ], [ -70, %.thread.i ], [ -70, %80 ], [ %spec.select.i.i.i, %_ZN11duckdb_zstdL27blockSize_explicitDelimiterEPKNS_13ZSTD_SequenceEmNS_21ZSTD_sequencePositionE.exit.i.i ], [ -107, %62 ], [ %66, %_ZN11duckdb_zstdL19determine_blockSizeENS_21ZSTD_sequenceFormat_eEmmPKNS_13ZSTD_SequenceEmNS_21ZSTD_sequencePositionE.exit.i ], [ -70, %90 ], [ -107, %47 ], [ %119, %_ZN11duckdb_zstdL20ZSTD_noCompressBlockEPvmPKvmj.exit166.i ], [ %99, %92 ], [ %75, %69 ], [ -70, %118 ]
+_ZN11duckdb_zstdL31ZSTD_compressSequences_internalEPNS_11ZSTD_CCtx_sEPvmPKNS_13ZSTD_SequenceEmPKvm.exit.thread: ; preds = %.thread.i, %_ZN11duckdb_zstdL27blockSize_explicitDelimiterEPKNS_13ZSTD_SequenceEmNS_21ZSTD_sequencePositionE.exit.i.i, %62, %80, %_ZN11duckdb_zstdL19determine_blockSizeENS_21ZSTD_sequenceFormat_eEmmPKNS_13ZSTD_SequenceEmNS_21ZSTD_sequencePositionE.exit.i, %90, %47, %_ZN11duckdb_zstdL20ZSTD_noCompressBlockEPvmPKvmj.exit166.i, %92, %69, %118, %49, %29
+  %.2.i.ph = phi i64 [ -107, %49 ], [ -70, %29 ], [ -70, %.thread.i ], [ %spec.select.i.i.i, %_ZN11duckdb_zstdL27blockSize_explicitDelimiterEPKNS_13ZSTD_SequenceEmNS_21ZSTD_sequencePositionE.exit.i.i ], [ -107, %62 ], [ -70, %80 ], [ %66, %_ZN11duckdb_zstdL19determine_blockSizeENS_21ZSTD_sequenceFormat_eEmmPKNS_13ZSTD_SequenceEmNS_21ZSTD_sequencePositionE.exit.i ], [ -70, %90 ], [ -107, %47 ], [ %119, %_ZN11duckdb_zstdL20ZSTD_noCompressBlockEPvmPKvmj.exit166.i ], [ %99, %92 ], [ %75, %69 ], [ -70, %118 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %170
 
@@ -14499,7 +14499,7 @@ _ZN11duckdb_zstdL24ZSTD_matchState_dictModeEPKNS_17ZSTD_matchState_tE.exit: ; pr
   br label %_ZN11duckdb_zstdL38ZSTD_postProcessSequenceProducerResultEPNS_13ZSTD_SequenceEmmm.exit
 
 _ZN11duckdb_zstdL38ZSTD_postProcessSequenceProducerResultEPNS_13ZSTD_SequenceEmmm.exit: ; preds = %114, %122
-  %.0.i = phi i64 [ %123, %122 ], [ %111, %114 ]
+  %.0.i = phi i64 [ %111, %114 ], [ %123, %122 ]
   %124 = icmp ult i64 %.0.i, -119
   br i1 %124, label %125, label %_ZN11duckdb_zstdL38ZSTD_postProcessSequenceProducerResultEPNS_13ZSTD_SequenceEmmm.exit.thread
 

@@ -595,7 +595,7 @@ define range(i32 -12, 1) i32 @ff_h264_alloc_tables(ptr noundef initializes((7308
   br i1 %191, label %.lr.ph168, label %.thread, !llvm.loop !137
 
 .thread:                                          ; preds = %.lr.ph168, %._crit_edge163, %130, %134, %138, %._crit_edge158, %1, %17, %21, %25, %28, %31, %34, %37, %42, %45, %48
-  %.0127 = phi i32 [ -12, %1 ], [ -12, %17 ], [ -12, %48 ], [ -12, %45 ], [ -12, %42 ], [ -12, %37 ], [ -12, %34 ], [ -12, %31 ], [ -12, %28 ], [ -12, %25 ], [ -12, %21 ], [ -12, %._crit_edge158 ], [ -12, %138 ], [ -12, %134 ], [ -12, %130 ], [ 0, %._crit_edge163 ], [ 0, %.lr.ph168 ]
+  %.0127 = phi i32 [ -12, %1 ], [ -12, %17 ], [ -12, %48 ], [ -12, %45 ], [ -12, %42 ], [ -12, %37 ], [ -12, %34 ], [ -12, %31 ], [ -12, %28 ], [ -12, %25 ], [ -12, %21 ], [ -12, %130 ], [ -12, %._crit_edge158 ], [ -12, %138 ], [ -12, %134 ], [ 0, %._crit_edge163 ], [ 0, %.lr.ph168 ]
   ret i32 %.0127
 }
 
@@ -1106,8 +1106,8 @@ thread-pre-split.thread:                          ; preds = %114, %thread-pre-sp
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.21) #11
   br label %h264_init_context.exit.thread
 
-h264_init_context.exit.thread:                    ; preds = %h264_init_pic.exit.i, %51, %64, %h264_init_pic.exit60.i, %56, %49, %59, %33, %.thread, %thread-pre-split, %thread-pre-split.thread, %119, %92, %72
-  %.0 = phi i32 [ %90, %92 ], [ -1313558101, %72 ], [ 0, %.thread ], [ 0, %119 ], [ 0, %thread-pre-split.thread ], [ 0, %thread-pre-split ], [ -12, %33 ], [ -12, %59 ], [ -12, %49 ], [ -12, %56 ], [ -12, %h264_init_pic.exit60.i ], [ -12, %64 ], [ -12, %51 ], [ -12, %h264_init_pic.exit.i ]
+h264_init_context.exit.thread:                    ; preds = %h264_init_pic.exit.i, %51, %56, %h264_init_pic.exit60.i, %49, %59, %64, %33, %.thread, %thread-pre-split, %thread-pre-split.thread, %119, %92, %72
+  %.0 = phi i32 [ %90, %92 ], [ -1313558101, %72 ], [ 0, %.thread ], [ 0, %119 ], [ 0, %thread-pre-split.thread ], [ 0, %thread-pre-split ], [ -12, %33 ], [ -12, %64 ], [ -12, %59 ], [ -12, %49 ], [ -12, %h264_init_pic.exit60.i ], [ -12, %56 ], [ -12, %51 ], [ -12, %h264_init_pic.exit.i ]
   ret i32 %.0
 }
 
@@ -1363,7 +1363,7 @@ is_avcc_extradata.exit:                           ; preds = %133
   %139 = call i32 @ff_h264_decode_extradata(ptr noundef nonnull %9, i32 noundef %11, ptr noundef nonnull %135, ptr noundef nonnull %78, ptr noundef nonnull %136, i32 noundef %138, ptr noundef %0) #11
   br label %send_next_delayed_frame.exit
 
-is_avcc_extradata.exit.thread:                    ; preds = %110, %101, %120, %129, %93, %116, %89, %85, %82, %77
+is_avcc_extradata.exit.thread:                    ; preds = %110, %101, %120, %129, %116, %93, %89, %85, %82, %77
   %140 = load ptr, ptr %3, align 8, !tbaa !212
   %141 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %142 = load ptr, ptr %141, align 8, !tbaa !79

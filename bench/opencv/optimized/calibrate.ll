@@ -3500,7 +3500,7 @@ _ZN2cv3Mat2atINS_3VecIfLi3EEEEERT_i.exit.us:      ; preds = %.preheader205.split
   br label %621
 
 .split.us:                                        ; preds = %_ZN2cv3Mat2atINS_3VecIfLi3EEEEERT_i.exit, %_ZN2cv3Mat2atINS_3VecIfLi3EEEEERT_i.exit.us, %_ZN2cv3Mat2atINS_3VecIfLi3EEEEERT_i.exit.us.us211, %_ZN2cv3Mat2atINS_3VecIfLi3EEEEERT_i.exit.us.us
-  %.us-phi = phi ptr [ %199, %_ZN2cv3Mat2atINS_3VecIfLi3EEEEERT_i.exit.us ], [ %175, %_ZN2cv3Mat2atINS_3VecIfLi3EEEEERT_i.exit.us.us ], [ %186, %_ZN2cv3Mat2atINS_3VecIfLi3EEEEERT_i.exit.us.us211 ], [ %218, %_ZN2cv3Mat2atINS_3VecIfLi3EEEEERT_i.exit ]
+  %.us-phi = phi ptr [ %175, %_ZN2cv3Mat2atINS_3VecIfLi3EEEEERT_i.exit.us.us ], [ %186, %_ZN2cv3Mat2atINS_3VecIfLi3EEEEERT_i.exit.us.us211 ], [ %199, %_ZN2cv3Mat2atINS_3VecIfLi3EEEEERT_i.exit.us ], [ %218, %_ZN2cv3Mat2atINS_3VecIfLi3EEEEERT_i.exit ]
   %211 = add nuw i64 %.099, 1
   %.pre = load ptr, ptr %6, align 8, !tbaa !78
   br label %154, !llvm.loop !152
@@ -3975,8 +3975,8 @@ _ZN2cv3Mat2atIfEERT_i.exit.us227:                 ; preds = %427, %418
   br label %561
 
 .split221.us:                                     ; preds = %_ZN2cv3Mat2atIfEERT_i.exit, %_ZN2cv3Mat2atIfEERT_i.exit.us227, %_ZN2cv3Mat2atIfEERT_i.exit.us227.us, %_ZN2cv3Mat2atINS_3VecIfLi3EEEEERT_i.exit175.us
-  %.us-phi222 = phi ptr [ %439, %_ZN2cv3Mat2atIfEERT_i.exit.us227 ], [ %401, %_ZN2cv3Mat2atINS_3VecIfLi3EEEEERT_i.exit175.us ], [ %413, %_ZN2cv3Mat2atIfEERT_i.exit.us227.us ], [ %461, %_ZN2cv3Mat2atIfEERT_i.exit ]
-  %.us-phi223 = phi ptr [ %440, %_ZN2cv3Mat2atIfEERT_i.exit.us227 ], [ %402, %_ZN2cv3Mat2atINS_3VecIfLi3EEEEERT_i.exit175.us ], [ %414, %_ZN2cv3Mat2atIfEERT_i.exit.us227.us ], [ %462, %_ZN2cv3Mat2atIfEERT_i.exit ]
+  %.us-phi222 = phi ptr [ %413, %_ZN2cv3Mat2atIfEERT_i.exit.us227.us ], [ %401, %_ZN2cv3Mat2atINS_3VecIfLi3EEEEERT_i.exit175.us ], [ %439, %_ZN2cv3Mat2atIfEERT_i.exit.us227 ], [ %461, %_ZN2cv3Mat2atIfEERT_i.exit ]
+  %.us-phi223 = phi ptr [ %414, %_ZN2cv3Mat2atIfEERT_i.exit.us227.us ], [ %402, %_ZN2cv3Mat2atINS_3VecIfLi3EEEEERT_i.exit175.us ], [ %440, %_ZN2cv3Mat2atIfEERT_i.exit.us227 ], [ %462, %_ZN2cv3Mat2atIfEERT_i.exit ]
   %452 = add i64 %.090, 1
   %.pre329 = load ptr, ptr %6, align 8, !tbaa !78
   br label %330, !llvm.loop !163

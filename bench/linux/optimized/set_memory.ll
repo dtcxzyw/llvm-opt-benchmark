@@ -1974,7 +1974,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__change_page_attr_set_clr
   br label %.thread
 
 .loopexit:                                        ; preds = %165, %227, %304
-  %316 = phi i32 [ 0, %304 ], [ 0, %227 ], [ -22, %165 ]
+  %316 = phi i32 [ 0, %304 ], [ -22, %165 ], [ 0, %227 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @_raw_spin_unlock(ptr noundef nonnull @pgd_lock) #11
   br label %535
@@ -3670,7 +3670,7 @@ define internal fastcc range(i64 -1, 4294967296) i64 @populate_pmd(ptr noundef c
   br i1 %267, label %.split19, label %.critedge, !llvm.loop !73
 
 .critedge:                                        ; preds = %133, %.split19, %.split19.us, %40, %209, %197, %.loopexit, %.loopexit17
-  %268 = phi i64 [ %113, %.loopexit17 ], [ %114, %.loopexit ], [ %114, %209 ], [ -1, %197 ], [ -1, %40 ], [ %114, %.split19 ], [ %114, %.split19.us ], [ -1, %133 ]
+  %268 = phi i64 [ %114, %.split19.us ], [ %113, %.loopexit17 ], [ %114, %.loopexit ], [ %114, %209 ], [ -1, %197 ], [ -1, %40 ], [ %114, %.split19 ], [ -1, %133 ]
   ret i64 %268
 }
 

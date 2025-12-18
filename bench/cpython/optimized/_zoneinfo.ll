@@ -4427,11 +4427,11 @@ Py_DECREF.exit:                                   ; preds = %203, %200, %_Py_New
   br label %262
 
 .loopexit328:                                     ; preds = %70, %65, %.lr.ph, %67, %99, %94, %.lr.ph339, %96, %.lr.ph343, %129, %216, %77, %164, %._crit_edge344, %118, %111, %._crit_edge340, %._crit_edge, %48, %39, %36, %33, %30, %27, %24, %21, %18, %3, %169, %15
-  %.0227.ph = phi i64 [ %.1228.lcssa, %216 ], [ 0, %18 ], [ 0, %15 ], [ 0, %77 ], [ %.1228.lcssa, %169 ], [ 0, %3 ], [ %.1228.lcssa, %164 ], [ %.1228.lcssa, %._crit_edge344 ], [ 0, %118 ], [ 0, %111 ], [ 0, %._crit_edge340 ], [ 0, %._crit_edge ], [ 0, %48 ], [ 0, %39 ], [ 0, %36 ], [ 0, %33 ], [ 0, %30 ], [ 0, %27 ], [ 0, %24 ], [ 0, %21 ], [ 0, %99 ], [ %.1228342, %.lr.ph343 ], [ %130, %129 ], [ 0, %96 ], [ 0, %.lr.ph339 ], [ 0, %94 ], [ 0, %67 ], [ 0, %.lr.ph ], [ 0, %65 ], [ 0, %70 ]
-  %.0225.ph = phi ptr [ %84, %216 ], [ null, %18 ], [ null, %15 ], [ null, %77 ], [ %84, %169 ], [ null, %3 ], [ %84, %164 ], [ %84, %._crit_edge344 ], [ %84, %118 ], [ %84, %111 ], [ %84, %._crit_edge340 ], [ %84, %._crit_edge ], [ null, %48 ], [ null, %39 ], [ null, %36 ], [ null, %33 ], [ null, %30 ], [ null, %27 ], [ null, %24 ], [ null, %21 ], [ %84, %99 ], [ %84, %.lr.ph343 ], [ %84, %129 ], [ %84, %96 ], [ %84, %.lr.ph339 ], [ %84, %94 ], [ null, %67 ], [ null, %.lr.ph ], [ null, %65 ], [ null, %70 ]
-  %.0222.ph = phi ptr [ %51, %216 ], [ null, %18 ], [ null, %15 ], [ %51, %77 ], [ %51, %169 ], [ null, %3 ], [ %51, %164 ], [ %51, %._crit_edge344 ], [ %51, %118 ], [ %51, %111 ], [ %51, %._crit_edge340 ], [ %51, %._crit_edge ], [ null, %48 ], [ null, %39 ], [ null, %36 ], [ null, %33 ], [ null, %30 ], [ null, %27 ], [ null, %24 ], [ null, %21 ], [ %51, %99 ], [ %51, %.lr.ph343 ], [ %51, %129 ], [ %51, %96 ], [ %51, %.lr.ph339 ], [ %51, %94 ], [ %51, %67 ], [ %51, %.lr.ph ], [ %51, %65 ], [ %51, %70 ]
-  %.0218.ph = phi ptr [ %109, %216 ], [ null, %18 ], [ null, %15 ], [ null, %77 ], [ %109, %169 ], [ null, %3 ], [ %109, %164 ], [ %109, %._crit_edge344 ], [ %109, %118 ], [ %109, %111 ], [ null, %._crit_edge340 ], [ null, %._crit_edge ], [ null, %48 ], [ null, %39 ], [ null, %36 ], [ null, %33 ], [ null, %30 ], [ null, %27 ], [ null, %24 ], [ null, %21 ], [ null, %99 ], [ %109, %.lr.ph343 ], [ %109, %129 ], [ null, %96 ], [ null, %.lr.ph339 ], [ null, %94 ], [ null, %67 ], [ null, %.lr.ph ], [ null, %65 ], [ null, %70 ]
-  %.0217.ph = phi ptr [ %82, %216 ], [ null, %18 ], [ null, %15 ], [ null, %77 ], [ %82, %169 ], [ null, %3 ], [ %82, %164 ], [ %82, %._crit_edge344 ], [ %82, %118 ], [ %82, %111 ], [ %82, %._crit_edge340 ], [ %82, %._crit_edge ], [ null, %48 ], [ null, %39 ], [ null, %36 ], [ null, %33 ], [ null, %30 ], [ null, %27 ], [ null, %24 ], [ null, %21 ], [ %82, %99 ], [ %82, %.lr.ph343 ], [ %82, %129 ], [ %82, %96 ], [ %82, %.lr.ph339 ], [ %82, %94 ], [ null, %67 ], [ null, %.lr.ph ], [ null, %65 ], [ null, %70 ]
+  %.0227.ph = phi i64 [ %.1228.lcssa, %216 ], [ 0, %18 ], [ 0, %99 ], [ 0, %21 ], [ 0, %24 ], [ %.1228342, %.lr.ph343 ], [ 0, %30 ], [ 0, %33 ], [ 0, %36 ], [ 0, %15 ], [ 0, %77 ], [ 0, %27 ], [ %.1228.lcssa, %169 ], [ 0, %3 ], [ %.1228.lcssa, %164 ], [ %.1228.lcssa, %._crit_edge344 ], [ 0, %118 ], [ 0, %111 ], [ 0, %._crit_edge340 ], [ 0, %._crit_edge ], [ 0, %48 ], [ 0, %39 ], [ %130, %129 ], [ 0, %96 ], [ 0, %.lr.ph339 ], [ 0, %94 ], [ 0, %67 ], [ 0, %.lr.ph ], [ 0, %65 ], [ 0, %70 ]
+  %.0225.ph = phi ptr [ %84, %216 ], [ null, %18 ], [ %84, %99 ], [ null, %21 ], [ null, %24 ], [ %84, %.lr.ph343 ], [ null, %30 ], [ null, %33 ], [ null, %36 ], [ null, %15 ], [ null, %77 ], [ null, %27 ], [ %84, %169 ], [ null, %3 ], [ %84, %164 ], [ %84, %._crit_edge344 ], [ %84, %118 ], [ %84, %111 ], [ %84, %._crit_edge340 ], [ %84, %._crit_edge ], [ null, %48 ], [ null, %39 ], [ %84, %129 ], [ %84, %96 ], [ %84, %.lr.ph339 ], [ %84, %94 ], [ null, %67 ], [ null, %.lr.ph ], [ null, %65 ], [ null, %70 ]
+  %.0222.ph = phi ptr [ %51, %216 ], [ null, %18 ], [ %51, %99 ], [ null, %21 ], [ null, %24 ], [ %51, %.lr.ph343 ], [ null, %30 ], [ null, %33 ], [ null, %36 ], [ null, %15 ], [ %51, %77 ], [ null, %27 ], [ %51, %169 ], [ null, %3 ], [ %51, %164 ], [ %51, %._crit_edge344 ], [ %51, %118 ], [ %51, %111 ], [ %51, %._crit_edge340 ], [ %51, %._crit_edge ], [ null, %48 ], [ null, %39 ], [ %51, %129 ], [ %51, %96 ], [ %51, %.lr.ph339 ], [ %51, %94 ], [ %51, %67 ], [ %51, %.lr.ph ], [ %51, %65 ], [ %51, %70 ]
+  %.0218.ph = phi ptr [ %109, %216 ], [ null, %18 ], [ null, %99 ], [ null, %21 ], [ null, %24 ], [ %109, %.lr.ph343 ], [ null, %30 ], [ null, %33 ], [ null, %36 ], [ null, %15 ], [ null, %77 ], [ null, %27 ], [ %109, %169 ], [ null, %3 ], [ %109, %164 ], [ %109, %._crit_edge344 ], [ %109, %118 ], [ %109, %111 ], [ null, %._crit_edge340 ], [ null, %._crit_edge ], [ null, %48 ], [ null, %39 ], [ %109, %129 ], [ null, %96 ], [ null, %.lr.ph339 ], [ null, %94 ], [ null, %67 ], [ null, %.lr.ph ], [ null, %65 ], [ null, %70 ]
+  %.0217.ph = phi ptr [ %82, %216 ], [ null, %18 ], [ %82, %99 ], [ null, %21 ], [ null, %24 ], [ %82, %.lr.ph343 ], [ null, %30 ], [ null, %33 ], [ null, %36 ], [ null, %15 ], [ null, %77 ], [ null, %27 ], [ %82, %169 ], [ null, %3 ], [ %82, %164 ], [ %82, %._crit_edge344 ], [ %82, %118 ], [ %82, %111 ], [ %82, %._crit_edge340 ], [ %82, %._crit_edge ], [ null, %48 ], [ null, %39 ], [ %82, %129 ], [ %82, %96 ], [ %82, %.lr.ph339 ], [ %82, %94 ], [ null, %67 ], [ null, %.lr.ph ], [ null, %65 ], [ null, %70 ]
   %.pr = load ptr, ptr %4, align 8, !tbaa !71
   %.not278 = icmp eq ptr %.pr, null
   br i1 %.not278, label %.thread312, label %222
@@ -4838,7 +4838,7 @@ define internal fastcc range(i32 -1, 1) i32 @ts_to_local(ptr noundef nonnull rea
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !128
 
 .loopexit:                                        ; preds = %9, %.lr.ph, %22, %6
-  %.053 = phi i32 [ 0, %6 ], [ 0, %22 ], [ 0, %.lr.ph ], [ -1, %9 ]
+  %.053 = phi i32 [ 0, %22 ], [ 0, %6 ], [ 0, %.lr.ph ], [ -1, %9 ]
   ret i32 %.053
 }
 
@@ -5475,11 +5475,11 @@ parse_transition_time.exit.i:                     ; preds = %parse_digits.exit24
   br label %278
 
 .loopexit.sink.split:                             ; preds = %155, %264, %269
-  %.lcssa179.sink = phi ptr [ %259, %269 ], [ %259, %264 ], [ %153, %155 ]
+  %.lcssa179.sink = phi ptr [ %259, %264 ], [ %259, %269 ], [ %153, %155 ]
   call void @PyMem_Free(ptr noundef nonnull %.lcssa179.sink) #9
   br label %.loopexit
 
-.loopexit:                                        ; preds = %149, %152, %.preheader79.i, %parse_digits.exit37.thread.i, %108, %parse_digits.exit.thread.i, %191, %254, %.preheader.i57, %162, %216, %235, %.loopexit.sink.split
+.loopexit:                                        ; preds = %149, %152, %.preheader79.i, %parse_digits.exit37.thread.i, %108, %parse_digits.exit.thread.i, %.preheader.i57, %254, %162, %191, %216, %235, %.loopexit.sink.split
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -6878,7 +6878,7 @@ strong_cache_node_free.exit.i.i:                  ; preds = %124, %121, %119, %P
   br i1 %.not.i25.i, label %.critedge, label %.lr.ph.i.i50, !llvm.loop !33
 
 .critedge:                                        ; preds = %move_strong_cache_node_to_front.exit.i49, %strong_cache_node_free.exit.i.i, %.critedge.i, %73, %71, %32, %move_strong_cache_node_to_front.exit.i, %get_weak_cache.exit, %Py_DECREF.exit, %Py_DECREF.exit38, %.loopexit
-  %.0 = phi ptr [ null, %Py_DECREF.exit38 ], [ null, %.loopexit ], [ null, %get_weak_cache.exit ], [ %29, %move_strong_cache_node_to_front.exit.i ], [ null, %Py_DECREF.exit ], [ %29, %32 ], [ %.029, %71 ], [ %.029, %73 ], [ %.029, %.critedge.i ], [ %.029, %strong_cache_node_free.exit.i.i ], [ %.029, %move_strong_cache_node_to_front.exit.i49 ]
+  %.0 = phi ptr [ null, %Py_DECREF.exit38 ], [ null, %.loopexit ], [ null, %get_weak_cache.exit ], [ %29, %32 ], [ null, %Py_DECREF.exit ], [ %29, %move_strong_cache_node_to_front.exit.i ], [ %.029, %71 ], [ %.029, %73 ], [ %.029, %strong_cache_node_free.exit.i.i ], [ %.029, %.critedge.i ], [ %.029, %move_strong_cache_node_to_front.exit.i49 ]
   ret ptr %.0
 }
 

@@ -2927,7 +2927,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm3rdf12RegisterAggr10hasAliasOfENS0
   br i1 %.not.i.i.i, label %_ZNK4llvm9BitVector9anyCommonERKS0_.exit, label %47, !llvm.loop !223
 
 _ZNK4llvm9BitVector9anyCommonERKS0_.exit:         ; preds = %.critedge, %50, %20, %26, %7
-  %.0 = phi i1 [ false, %26 ], [ false, %7 ], [ %.not11.not.i.not, %20 ], [ false, %.critedge ], [ true, %50 ]
+  %.0 = phi i1 [ false, %26 ], [ false, %7 ], [ %.not11.not.i.not, %20 ], [ true, %50 ], [ false, %.critedge ]
   ret i1 %.0
 }
 

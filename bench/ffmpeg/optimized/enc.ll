@@ -311,7 +311,7 @@ ff_bufqueue_peek.exit:                            ; preds = %ff_bufqueue_add.exi
   br i1 %exitcond120.not, label %ff_bufqueue_peek.exit.thread, label %131, !llvm.loop !75
 
 ff_bufqueue_peek.exit.thread:                     ; preds = %67, %131, %.preheader, %ff_bufqueue_add.exit, %120, %109, %104, %ff_bufqueue_peek.exit, %53, %36, %32
-  %.091 = phi i32 [ -12, %32 ], [ -12, %ff_bufqueue_peek.exit ], [ -12, %120 ], [ -12, %109 ], [ %108, %104 ], [ -12, %53 ], [ %51, %36 ], [ -12, %ff_bufqueue_add.exit ], [ 0, %.preheader ], [ 0, %131 ], [ -12, %67 ]
+  %.091 = phi i32 [ -12, %32 ], [ -12, %ff_bufqueue_peek.exit ], [ -12, %120 ], [ -12, %109 ], [ %108, %104 ], [ -12, %53 ], [ -12, %ff_bufqueue_add.exit ], [ %51, %36 ], [ 0, %.preheader ], [ 0, %131 ], [ -12, %67 ]
   ret i32 %.091
 }
 
@@ -1862,7 +1862,7 @@ define internal fastcc ptr @spawn_empty_frame(ptr noundef readonly captures(none
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %23, %._crit_edge.sink.split, %.preheader, %1
-  %.0 = phi ptr [ null, %1 ], [ %3, %.preheader ], [ null, %._crit_edge.sink.split ], [ %3, %23 ]
+  %.0 = phi ptr [ null, %._crit_edge.sink.split ], [ %3, %.preheader ], [ null, %1 ], [ %3, %23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
 }

@@ -37539,7 +37539,7 @@ lean_array_uset.exit152:                          ; preds = %lean_ensure_exclusi
   br label %227
 
 227:                                              ; preds = %lean_array_uset.exit152, %lean_array_uset.exit140
-  %.188 = phi ptr [ %.0.i.i149, %lean_array_uset.exit152 ], [ %.0.i.i137, %lean_array_uset.exit140 ]
+  %.188 = phi ptr [ %.0.i.i137, %lean_array_uset.exit140 ], [ %.0.i.i149, %lean_array_uset.exit152 ]
   %.184 = add nuw i64 %.083173, 1
   %exitcond.not = icmp eq i64 %.184, %4
   br i1 %exitcond.not, label %._crit_edge, label %38
@@ -38075,7 +38075,7 @@ lean_array_uset.exit143:                          ; preds = %lean_ensure_exclusi
   br label %210
 
 210:                                              ; preds = %lean_array_uset.exit143, %lean_array_uset.exit132
-  %.186 = phi ptr [ %.0.i.i140, %lean_array_uset.exit143 ], [ %.0.i.i129, %lean_array_uset.exit132 ]
+  %.186 = phi ptr [ %.0.i.i129, %lean_array_uset.exit132 ], [ %.0.i.i140, %lean_array_uset.exit143 ]
   %.182 = add nuw i64 %.081162, 1
   %exitcond.not = icmp eq i64 %.182, %3
   br i1 %exitcond.not, label %._crit_edge, label %28
@@ -38658,7 +38658,7 @@ lean_array_uset.exit152:                          ; preds = %lean_ensure_exclusi
   br label %227
 
 227:                                              ; preds = %lean_array_uset.exit152, %lean_array_uset.exit140
-  %.188 = phi ptr [ %.0.i.i149, %lean_array_uset.exit152 ], [ %.0.i.i137, %lean_array_uset.exit140 ]
+  %.188 = phi ptr [ %.0.i.i137, %lean_array_uset.exit140 ], [ %.0.i.i149, %lean_array_uset.exit152 ]
   %.184 = add nuw i64 %.083173, 1
   %exitcond.not = icmp eq i64 %.184, %4
   br i1 %exitcond.not, label %._crit_edge, label %38
@@ -39194,7 +39194,7 @@ lean_array_uset.exit143:                          ; preds = %lean_ensure_exclusi
   br label %210
 
 210:                                              ; preds = %lean_array_uset.exit143, %lean_array_uset.exit132
-  %.186 = phi ptr [ %.0.i.i140, %lean_array_uset.exit143 ], [ %.0.i.i129, %lean_array_uset.exit132 ]
+  %.186 = phi ptr [ %.0.i.i129, %lean_array_uset.exit132 ], [ %.0.i.i140, %lean_array_uset.exit143 ]
   %.182 = add nuw i64 %.081162, 1
   %exitcond.not = icmp eq i64 %.182, %3
   br i1 %exitcond.not, label %._crit_edge, label %28

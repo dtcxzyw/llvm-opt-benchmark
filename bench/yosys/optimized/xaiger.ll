@@ -10520,7 +10520,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEPNS2_4WireENS0_8hash_opsIS3_EEE7do_ha
   br i1 %3324, label %.lr.ph.split.i2536, label %.noexc2067, !llvm.loop !383
 
 .noexc2067:                                       ; preds = %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEPNS2_4WireENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.i2539, %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEPNS2_4WireENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.us.i, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i2533
-  %3325 = phi ptr [ %3269, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i2533 ], [ %3269, %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEPNS2_4WireENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.us.i ], [ %3311, %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEPNS2_4WireENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.i2539 ]
+  %3325 = phi ptr [ %3269, %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEPNS2_4WireENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.us.i ], [ %3269, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i2533 ], [ %3311, %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEPNS2_4WireENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.i2539 ]
   %3326 = load ptr, ptr %3158, align 8, !tbaa !136
   %3327 = load ptr, ptr %3159, align 8, !tbaa !136
   %3328 = icmp eq ptr %3326, %3327
@@ -20451,7 +20451,7 @@ _ZNSt4pairIN5Yosys5RTLIL7SigSpecEmED2Ev.exit:     ; preds = %_ZSt8_DestroyIPN5Yo
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader.preheader, %.thread1300, %.thread826, %.thread820
-  %.pn236.pn825 = phi { ptr, i32 } [ %1300, %.thread820 ], [ %lpad.loopexit1302, %.thread1300 ], [ %1302, %.thread826 ], [ %lpad.phi1299, %.preheader.preheader ]
+  %.pn236.pn825 = phi { ptr, i32 } [ %1300, %.thread820 ], [ %1302, %.thread826 ], [ %lpad.loopexit1302, %.thread1300 ], [ %lpad.phi1299, %.preheader.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
   br label %1364
 

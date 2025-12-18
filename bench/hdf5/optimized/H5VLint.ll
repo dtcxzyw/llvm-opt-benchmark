@@ -1466,7 +1466,7 @@ H5VL_conn_inc_rc.exit:                            ; preds = %48, %52, %55
   br label %.thread64
 
 .thread64:                                        ; preds = %28, %21, %13, %60, %H5VL_conn_inc_rc.exit, %81, %17
-  %.1 = phi ptr [ null, %81 ], [ %26, %H5VL_conn_inc_rc.exit ], [ null, %17 ], [ %61, %60 ], [ null, %13 ], [ null, %21 ], [ null, %28 ]
+  %.1 = phi ptr [ null, %81 ], [ %61, %60 ], [ null, %17 ], [ %26, %H5VL_conn_inc_rc.exit ], [ null, %13 ], [ null, %21 ], [ null, %28 ]
   ret ptr %.1
 }
 

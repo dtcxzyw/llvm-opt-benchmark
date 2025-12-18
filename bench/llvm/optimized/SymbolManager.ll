@@ -2700,7 +2700,7 @@ define dso_local noundef zeroext i1 @_ZN5clang4ento12SymbolReaper12isLiveRegionE
   br label %_ZNK4llvm6detail12DenseSetImplIPKN5clang4ento9MemRegionENS_8DenseMapIS6_NS0_13DenseSetEmptyENS_12DenseMapInfoIS6_vEENS0_12DenseSetPairIS6_EEEESA_E5countES6_.exit
 
 _ZNK4llvm6detail12DenseSetImplIPKN5clang4ento9MemRegionENS_8DenseMapIS6_NS0_13DenseSetEmptyENS_12DenseMapInfoIS6_vEENS0_12DenseSetPairIS6_EEEESA_E5countES6_.exit: ; preds = %22, %42, %41, %41, %39, %32, %9
-  %.0 = phi i1 [ %35, %32 ], [ %40, %39 ], [ true, %9 ], [ true, %41 ], [ true, %41 ], [ %45, %42 ], [ true, %22 ]
+  %.0 = phi i1 [ %35, %32 ], [ %45, %42 ], [ %40, %39 ], [ true, %9 ], [ true, %41 ], [ true, %41 ], [ true, %22 ]
   ret i1 %.0
 }
 

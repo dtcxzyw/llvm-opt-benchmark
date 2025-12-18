@@ -825,7 +825,7 @@ fdt_get_alias_namelen.exit:                       ; preds = %15
   br i1 %70, label %.thread, label %55, !llvm.loop !9
 
 .thread:                                          ; preds = %62, %55, %59, %11, %fdt_get_alias_namelen.exit, %3
-  %.155 = phi i32 [ -5, %11 ], [ %7, %3 ], [ -5, %fdt_get_alias_namelen.exit ], [ %.249, %59 ], [ %69, %62 ], [ %.249, %55 ]
+  %.155 = phi i32 [ -5, %11 ], [ %7, %3 ], [ %.249, %59 ], [ -5, %fdt_get_alias_namelen.exit ], [ %69, %62 ], [ %.249, %55 ]
   ret i32 %.155
 }
 
@@ -1367,7 +1367,7 @@ fdt_next_property_offset.exit:                    ; preds = %60
   br label %.thread55.thread
 
 .thread55.thread:                                 ; preds = %30, %55, %54, %.thread55, %.thread55.thread61
-  %.2 = phi ptr [ null, %.thread55 ], [ null, %.thread55.thread61 ], [ %48, %54 ], [ %48, %55 ], [ null, %30 ]
+  %.2 = phi ptr [ null, %.thread55 ], [ null, %.thread55.thread61 ], [ %48, %55 ], [ %48, %54 ], [ null, %30 ]
   ret ptr %.2
 }
 

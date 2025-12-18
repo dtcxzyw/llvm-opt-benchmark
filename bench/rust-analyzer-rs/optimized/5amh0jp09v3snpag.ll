@@ -1592,7 +1592,7 @@ _ZN5salsa7runtime11ActiveQuery25remove_cycle_participants17h41eb729bc2502d11E.ex
   br label %196
 
 .loopexit.split-lp:                               ; preds = %126, %123, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit129", %157, %_ZN5salsa7runtime11ActiveQuery25remove_cycle_participants17h41eb729bc2502d11E.exit, %176, %178, %152
-  %.3.ph.ph = phi i1 [ true, %152 ], [ false, %178 ], [ true, %176 ], [ true, %_ZN5salsa7runtime11ActiveQuery25remove_cycle_participants17h41eb729bc2502d11E.exit ], [ true, %157 ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit129" ], [ true, %123 ], [ true, %126 ]
+  %.3.ph.ph = phi i1 [ false, %178 ], [ true, %176 ], [ true, %_ZN5salsa7runtime11ActiveQuery25remove_cycle_participants17h41eb729bc2502d11E.exit ], [ true, %152 ], [ true, %157 ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit129" ], [ true, %123 ], [ true, %126 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %196

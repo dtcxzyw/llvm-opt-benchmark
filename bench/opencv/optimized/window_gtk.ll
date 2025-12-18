@@ -7863,7 +7863,7 @@ _ZL13getGTKWindowsv.exit50:                       ; preds = %.lr.ph.split, %128,
   br i1 %or.cond3, label %.critedge, label %.lr.ph.split, !llvm.loop !165
 
 .critedge:                                        ; preds = %.critedge5, %.critedge5.us, %113
-  %141 = phi i32 [ %118, %113 ], [ %124, %.critedge5.us ], [ %139, %.critedge5 ]
+  %141 = phi i32 [ %124, %.critedge5.us ], [ %118, %113 ], [ %139, %.critedge5 ]
   %142 = icmp slt i32 %0, 1
   %143 = icmp ne i32 %141, 0
   %or.cond7 = select i1 %142, i1 true, i1 %143

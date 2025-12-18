@@ -1047,8 +1047,8 @@ _ZNK7mitsuba4util7VersiongeERKS1_.exit790:        ; preds = %.lr.ph1516
   br label %.loopexit1425
 
 .loopexit1425:                                    ; preds = %271, %_ZNK7mitsuba4util7VersiongeERKS1_.exit790, %.loopexit1425.sink.split, %.preheader1426, %_ZNK7mitsuba4util7VersiongeERKS1_.exit790.preheader
-  %288 = phi i1 [ true, %_ZNK7mitsuba4util7VersiongeERKS1_.exit790.preheader ], [ true, %.preheader1426 ], [ false, %.loopexit1425.sink.split ], [ true, %_ZNK7mitsuba4util7VersiongeERKS1_.exit790 ], [ true, %271 ]
-  %289 = phi i1 [ %.ph, %_ZNK7mitsuba4util7VersiongeERKS1_.exit790.preheader ], [ false, %.preheader1426 ], [ %.ph1778, %.loopexit1425.sink.split ], [ %.ph, %_ZNK7mitsuba4util7VersiongeERKS1_.exit790 ], [ false, %271 ]
+  %288 = phi i1 [ true, %_ZNK7mitsuba4util7VersiongeERKS1_.exit790 ], [ true, %_ZNK7mitsuba4util7VersiongeERKS1_.exit790.preheader ], [ false, %.loopexit1425.sink.split ], [ true, %.preheader1426 ], [ true, %271 ]
+  %289 = phi i1 [ %.ph, %_ZNK7mitsuba4util7VersiongeERKS1_.exit790 ], [ %.ph, %_ZNK7mitsuba4util7VersiongeERKS1_.exit790.preheader ], [ %.ph1778, %.loopexit1425.sink.split ], [ false, %.preheader1426 ], [ false, %271 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %38, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %39, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %40, i8 0, i64 24, i1 false)
@@ -1956,7 +1956,7 @@ _ZNK7mitsuba4util7VersionleERKS1_.exit848.thread: ; preds = %714, %710
   %718 = getelementptr inbounds %"struct.blender::MLoopUV", ptr %.0693, i64 %.0697
   br label %.sink.split1783
 
-_ZNK7mitsuba4util7VersionleERKS1_.exit848.thread1349: ; preds = %714, %711, %708
+_ZNK7mitsuba4util7VersionleERKS1_.exit848.thread1349: ; preds = %714, %708, %711
   %719 = getelementptr inbounds [2 x float], ptr %.0693, i64 %.0697
   br label %.sink.split1783
 
@@ -3180,7 +3180,7 @@ _ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_I
   br label %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEED2B8ne190000Ev.exit996
 
 _ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEED2B8ne190000Ev.exit996: ; preds = %90, %94, %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE7__clearB8ne190000Ev.exit.i.i995, %_ZNSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPKN7blender8MLoopColEEENS5_ISC_EEED2B8ne190000Ev.exit987, %.thread
-  %.pn754.pn = phi { ptr, i32 } [ %48, %.thread ], [ %.pn754, %_ZNSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPKN7blender8MLoopColEEENS5_ISC_EEED2B8ne190000Ev.exit987 ], [ %.pn754, %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE7__clearB8ne190000Ev.exit.i.i995 ], [ %eh.lpad-body.i, %94 ], [ %89, %90 ]
+  %.pn754.pn = phi { ptr, i32 } [ %eh.lpad-body.i, %94 ], [ %.pn754, %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE7__clearB8ne190000Ev.exit.i.i995 ], [ %48, %.thread ], [ %.pn754, %_ZNSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPKN7blender8MLoopColEEENS5_ISC_EEED2B8ne190000Ev.exit987 ], [ %89, %90 ]
   call void @_ZN7mitsuba4MeshIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEED2Ev(ptr noundef nonnull align 16 dereferenceable(832) %0) #22
   resume { ptr, i32 } %.pn754.pn
 }

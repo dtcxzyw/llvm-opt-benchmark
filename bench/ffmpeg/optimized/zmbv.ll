@@ -883,7 +883,7 @@ define internal noundef i32 @zmbv_decode_xor_8(ptr noundef captures(none) %0) #1
   br i1 %exitcond201.not, label %._crit_edge, label %.lr.ph156.split.split, !llvm.loop !79
 
 ._crit_edge:                                      ; preds = %.loopexit.us162, %.loopexit, %..loopexit_crit_edge.us
-  %121 = phi i32 [ %116, %.loopexit ], [ %91, %..loopexit_crit_edge.us ], [ %104, %.loopexit.us162 ]
+  %121 = phi i32 [ %91, %..loopexit_crit_edge.us ], [ %116, %.loopexit ], [ %104, %.loopexit.us162 ]
   %122 = and i8 %.fr, 1
   %.not139 = icmp ne i8 %122, 0
   %brmerge.not252 = select i1 %.not139, i1 %43, i1 false
@@ -1210,8 +1210,8 @@ define internal noundef i32 @zmbv_decode_xor_16(ptr noundef readonly captures(no
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph145.split.split, !llvm.loop !88
 
 ._crit_edge:                                      ; preds = %.loopexit.us151, %.loopexit, %..loopexit_crit_edge.us
-  %113 = phi i32 [ %108, %.loopexit ], [ %83, %..loopexit_crit_edge.us ], [ %96, %.loopexit.us151 ]
-  %114 = phi i32 [ %109, %.loopexit ], [ %83, %..loopexit_crit_edge.us ], [ %96, %.loopexit.us151 ]
+  %113 = phi i32 [ %83, %..loopexit_crit_edge.us ], [ %108, %.loopexit ], [ %96, %.loopexit.us151 ]
+  %114 = phi i32 [ %83, %..loopexit_crit_edge.us ], [ %109, %.loopexit ], [ %96, %.loopexit.us151 ]
   %115 = and i8 %.fr, 1
   %.not132 = icmp eq i8 %115, 0
   %brmerge = select i1 %.not132, i1 true, i1 %33
@@ -1539,7 +1539,7 @@ define internal noundef i32 @zmbv_decode_xor_32(ptr noundef readonly captures(no
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph145.split.split, !llvm.loop !94
 
 ._crit_edge:                                      ; preds = %.loopexit.us151, %.loopexit, %..loopexit_crit_edge.us
-  %114 = phi i32 [ %109, %.loopexit ], [ %84, %..loopexit_crit_edge.us ], [ %97, %.loopexit.us151 ]
+  %114 = phi i32 [ %84, %..loopexit_crit_edge.us ], [ %109, %.loopexit ], [ %97, %.loopexit.us151 ]
   %115 = and i8 %.fr, 1
   %.not132 = icmp ne i8 %115, 0
   %brmerge.not235 = select i1 %.not132, i1 %33, i1 false

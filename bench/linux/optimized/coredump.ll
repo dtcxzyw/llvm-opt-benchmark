@@ -643,7 +643,7 @@ thread-pre-split:                                 ; preds = %.preheader64.split.
   br i1 %274, label %160, label %286, !llvm.loop !14
 
 .loopexit65:                                      ; preds = %211, %160, %.lr.ph, %176
-  %275 = phi i32 [ %161, %.lr.ph ], [ %161, %176 ], [ %204, %211 ], [ %161, %160 ]
+  %275 = phi i32 [ %161, %.lr.ph ], [ %161, %176 ], [ %161, %160 ], [ %204, %211 ]
   %276 = icmp eq i32 %163, 0
   %277 = select i1 %128, i1 %276, i1 false
   %278 = load i32, ptr @core_uses_pid, align 4

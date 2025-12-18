@@ -1428,12 +1428,12 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__nla_validate_parse(ptr n
   br i1 %612, label %.lr.ph.split, label %.critedge, !llvm.loop !16
 
 .critedge:                                        ; preds = %604, %.thread49.us, %99, %.thread49.us.us, %52, %._crit_edge216
-  %.lcssa92 = phi i32 [ %1, %._crit_edge216 ], [ %127, %.thread49.us ], [ %55, %52 ], [ %78, %.thread49.us.us ], [ %102, %99 ], [ %609, %604 ]
+  %.lcssa92 = phi i32 [ %1, %._crit_edge216 ], [ %127, %.thread49.us ], [ %78, %.thread49.us.us ], [ %55, %52 ], [ %102, %99 ], [ %609, %604 ]
   %613 = icmp sgt i32 %.lcssa92, 0
   br i1 %613, label %.critedge.thread, label %627, !prof !26
 
 .critedge.thread:                                 ; preds = %.lr.ph.split, %.lr.ph.split.us.split.split, %.lr.ph.split.us.split.split.us, %.lr.ph.split.us.split.us.split, %.lr.ph.split.us.split.us.split.us, %.critedge
-  %614 = phi i32 [ %.lcssa92, %.critedge ], [ %107, %.lr.ph.split.us.split.split ], [ %38, %.lr.ph.split.us.split.us.split.us ], [ %60, %.lr.ph.split.us.split.us.split ], [ %83, %.lr.ph.split.us.split.split.us ], [ %132, %.lr.ph.split ]
+  %614 = phi i32 [ %.lcssa92, %.critedge ], [ %107, %.lr.ph.split.us.split.split ], [ %60, %.lr.ph.split.us.split.us.split ], [ %38, %.lr.ph.split.us.split.us.split.us ], [ %83, %.lr.ph.split.us.split.split.us ], [ %132, %.lr.ph.split ]
   %615 = tail call i32 @___ratelimit(ptr noundef nonnull @__nla_validate_parse._rs, ptr noundef nonnull @__func__.__nla_validate_parse) #14
   %616 = icmp eq i32 %615, 0
   br i1 %616, label %622, label %617

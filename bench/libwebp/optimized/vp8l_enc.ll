@@ -616,8 +616,8 @@ GetHistoBits.exit.i:                              ; preds = %78, %75
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %348, %351, %.preheader
-  %.3204 = phi i32 [ %357, %351 ], [ %.2203, %.preheader ], [ %.5, %348 ]
-  %358 = phi i32 [ %357, %351 ], [ %337, %.preheader ], [ %349, %348 ]
+  %.3204 = phi i32 [ %.2203, %.preheader ], [ %357, %351 ], [ %.5, %348 ]
+  %358 = phi i32 [ %337, %.preheader ], [ %357, %351 ], [ %349, %348 ]
   %359 = add nuw nsw i32 %.0110131.i, 1
   %exitcond136.not.i = icmp eq i32 %359, 6
   br i1 %exitcond136.not.i, label %.loopexit127.i, label %.preheader, !llvm.loop !48
@@ -2756,10 +2756,10 @@ ClearHuffmanTreeIfOnlyOneSymbol.exit.i:           ; preds = %764, %766, %.lr.ph3
   br label %.thread274.i
 
 .thread274.i:                                     ; preds = %._crit_edge345.i, %VP8LPutBits.exit272.i, %670, %.thread274.sink.split.i
-  %.5238.ph.i = phi ptr [ null, %.thread274.sink.split.i ], [ %774, %._crit_edge345.i ], [ null, %670 ], [ null, %VP8LPutBits.exit272.i ]
-  %.5232.ph.i = phi ptr [ %.5232.ph.ph.i, %.thread274.sink.split.i ], [ %680, %._crit_edge345.i ], [ null, %670 ], [ %680, %VP8LPutBits.exit272.i ]
-  %.5220.ph.i = phi ptr [ %.5220.ph.ph.i, %.thread274.sink.split.i ], [ null, %._crit_edge345.i ], [ %667, %670 ], [ null, %VP8LPutBits.exit272.i ]
-  %.5214.ph.i = phi ptr [ %.5214.ph.ph.i, %.thread274.sink.split.i ], [ null, %._crit_edge345.i ], [ %666, %670 ], [ null, %VP8LPutBits.exit272.i ]
+  %.5238.ph.i = phi ptr [ null, %.thread274.sink.split.i ], [ null, %VP8LPutBits.exit272.i ], [ null, %670 ], [ %774, %._crit_edge345.i ]
+  %.5232.ph.i = phi ptr [ %.5232.ph.ph.i, %.thread274.sink.split.i ], [ %680, %VP8LPutBits.exit272.i ], [ null, %670 ], [ %680, %._crit_edge345.i ]
+  %.5220.ph.i = phi ptr [ %.5220.ph.ph.i, %.thread274.sink.split.i ], [ null, %VP8LPutBits.exit272.i ], [ %667, %670 ], [ null, %._crit_edge345.i ]
+  %.5214.ph.i = phi ptr [ %.5214.ph.ph.i, %.thread274.sink.split.i ], [ null, %VP8LPutBits.exit272.i ], [ %666, %670 ], [ null, %._crit_edge345.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit317.i
 

@@ -4823,8 +4823,8 @@ Vec_QuePrio.exit46.i.i:                           ; preds = %165, %Vec_QuePrio.e
   br i1 %177, label %.lr.ph.split.i8.i, label %Vec_QueMoveDown.exit.i, !llvm.loop !117
 
 Vec_QueMoveDown.exit.i:                           ; preds = %172, %Vec_QuePrio.exit46.i.i, %142, %Vec_QuePrio.exit46.us.i.i, %Vec_QuePrio.exit.thread.i6.i, %Vec_QuePrio.exit.i9.i
-  %178 = phi ptr [ %.sink87, %Vec_QuePrio.exit.i9.i ], [ %.pre52.i.i.sink, %Vec_QuePrio.exit.thread.i6.i ], [ %.sink87, %142 ], [ %.sink87, %Vec_QuePrio.exit46.us.i.i ], [ %.pre52.i.i.sink, %Vec_QuePrio.exit46.i.i ], [ %.pre52.i.i.sink, %172 ]
-  %.035.lcssa.i.i = phi i32 [ %63, %Vec_QuePrio.exit.i9.i ], [ %63, %Vec_QuePrio.exit.thread.i6.i ], [ %.1.us.i.i, %142 ], [ %.03548.us.i.i, %Vec_QuePrio.exit46.us.i.i ], [ %.1.i.i, %172 ], [ %.03548.i.i, %Vec_QuePrio.exit46.i.i ]
+  %178 = phi ptr [ %.sink87, %142 ], [ %.sink87, %Vec_QuePrio.exit.i9.i ], [ %.pre52.i.i.sink, %Vec_QuePrio.exit.thread.i6.i ], [ %.sink87, %Vec_QuePrio.exit46.us.i.i ], [ %.pre52.i.i.sink, %Vec_QuePrio.exit46.i.i ], [ %.pre52.i.i.sink, %172 ]
+  %.035.lcssa.i.i = phi i32 [ %.1.us.i.i, %142 ], [ %63, %Vec_QuePrio.exit.i9.i ], [ %63, %Vec_QuePrio.exit.thread.i6.i ], [ %.03548.us.i.i, %Vec_QuePrio.exit46.us.i.i ], [ %.1.i.i, %172 ], [ %.03548.i.i, %Vec_QuePrio.exit46.i.i ]
   %179 = sext i32 %.035.lcssa.i.i to i64
   %180 = getelementptr inbounds i32, ptr %178, i64 %179
   store i32 %1, ptr %180, align 4, !tbaa !22
@@ -5061,7 +5061,7 @@ Vec_QuePrio.exit30.i.i39:                         ; preds = %.lr.ph43.i.i36
   br i1 %309, label %Vec_QuePrio.exit30.i.i39, label %Vec_QuePush.exit, !llvm.loop !116
 
 Vec_QuePush.exit:                                 ; preds = %Vec_QuePrio.exit30.i.i39, %.lr.ph43.i.i36, %Vec_QuePrio.exit30.us.i.i47, %.lr.ph48.i.i44, %Vec_QuePrio.exit.i.i41, %Vec_QuePrio.exit.thread.i.i33, %.lr.ph.split.us.i.i42, %.lr.ph.split.i.i34
-  %.027.lcssa.i.i = phi i32 [ %268, %.lr.ph.split.us.i.i42 ], [ %272, %.lr.ph.split.i.i34 ], [ %272, %Vec_QuePrio.exit.thread.i.i33 ], [ %268, %Vec_QuePrio.exit.i.i41 ], [ %.02634.us46.i.i46, %Vec_QuePrio.exit30.us.i.i47 ], [ %.02634.us46.i.i46, %.lr.ph48.i.i44 ], [ %.0263441.i.i38, %.lr.ph43.i.i36 ], [ %.0263441.i.i38, %Vec_QuePrio.exit30.i.i39 ]
+  %.027.lcssa.i.i = phi i32 [ %.02634.us46.i.i46, %Vec_QuePrio.exit30.us.i.i47 ], [ %268, %Vec_QuePrio.exit.i.i41 ], [ %268, %.lr.ph.split.us.i.i42 ], [ %272, %.lr.ph.split.i.i34 ], [ %272, %Vec_QuePrio.exit.thread.i.i33 ], [ %.02634.us46.i.i46, %.lr.ph48.i.i44 ], [ %.0263441.i.i38, %.lr.ph43.i.i36 ], [ %.0263441.i.i38, %Vec_QuePrio.exit30.i.i39 ]
   %310 = sext i32 %.027.lcssa.i.i to i64
   %311 = getelementptr inbounds i32, ptr %262, i64 %310
   store i32 %1, ptr %311, align 4, !tbaa !22
@@ -11094,9 +11094,9 @@ Vec_PtrFreeData.exit.i:                           ; preds = %42
   br i1 %.not.i160, label %Vec_PtrFreeFree.exit.sink.split, label %Vec_PtrFreeFree.exit.sink.split.sink.split
 
 Vec_PtrFreeFree.exit.sink.split.sink.split:       ; preds = %52, %._crit_edge173, %._crit_edge176, %Vec_PtrFreeData.exit.i
-  %.sink256 = phi ptr [ %.val14.i.i, %Vec_PtrFreeData.exit.i ], [ %.val143, %._crit_edge176 ], [ %.val143, %._crit_edge173 ], [ %.val14.i.i, %52 ]
-  %.sink.ph = phi ptr [ %18, %Vec_PtrFreeData.exit.i ], [ %54, %._crit_edge176 ], [ %54, %._crit_edge173 ], [ %18, %52 ]
-  %.1131.ph.ph = phi i32 [ %.0130.lcssa248, %Vec_PtrFreeData.exit.i ], [ 0, %._crit_edge176 ], [ %60, %._crit_edge173 ], [ %.0130.lcssa248, %52 ]
+  %.sink256 = phi ptr [ %.val143, %._crit_edge173 ], [ %.val14.i.i, %Vec_PtrFreeData.exit.i ], [ %.val143, %._crit_edge176 ], [ %.val14.i.i, %52 ]
+  %.sink.ph = phi ptr [ %54, %._crit_edge173 ], [ %18, %Vec_PtrFreeData.exit.i ], [ %54, %._crit_edge176 ], [ %18, %52 ]
+  %.1131.ph.ph = phi i32 [ %60, %._crit_edge173 ], [ %.0130.lcssa248, %Vec_PtrFreeData.exit.i ], [ 0, %._crit_edge176 ], [ %.0130.lcssa248, %52 ]
   tail call void @free(ptr noundef nonnull %.sink256) #29
   br label %Vec_PtrFreeFree.exit.sink.split
 

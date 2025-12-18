@@ -16671,7 +16671,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit38.i: ; preds
   br i1 %.not18.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit38.i
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit: ; preds = %.lr.ph.i.i, %.lr.ph.i25.i, %.lr.ph.i31.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit38.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit38.i.us, %_ZNK5clang4ento9CallEvent16isInSystemHeaderEv.exit
-  %.sroa.012.2 = phi ptr [ %12, %_ZNK5clang4ento9CallEvent16isInSystemHeaderEv.exit ], [ %12, %.lr.ph.i25.i ], [ %.sroa.012.1.us, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit38.i.us ], [ %110, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit38.i ], [ %12, %.lr.ph.i31.i ], [ %12, %.lr.ph.i.i ]
+  %.sroa.012.2 = phi ptr [ %12, %_ZNK5clang4ento9CallEvent16isInSystemHeaderEv.exit ], [ %12, %.lr.ph.i31.i ], [ %12, %.lr.ph.i25.i ], [ %110, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit38.i ], [ %.sroa.012.1.us, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit38.i.us ], [ %12, %.lr.ph.i.i ]
   store ptr %.sroa.012.2, ptr %0, align 8, !tbaa !98, !alias.scope !455
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)

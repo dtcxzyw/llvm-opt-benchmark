@@ -5016,7 +5016,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1196: ; preds = %1
   br label %1758
 
 _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit862, %1712, %1710, %1708, %1706, %.thread1245, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit875
-  %.5 = phi i32 [ %1529, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit875 ], [ %.8, %.thread1245 ], [ 0, %1706 ], [ 0, %1708 ], [ 0, %1710 ], [ 0, %1712 ], [ %.3, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit862 ]
+  %.5 = phi i32 [ 0, %1712 ], [ %1529, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit875 ], [ %.8, %.thread1245 ], [ 0, %1706 ], [ 0, %1708 ], [ 0, %1710 ], [ %.3, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit862 ]
   %1715 = load ptr, ptr %47, align 8, !tbaa !108
   %1716 = load ptr, ptr %912, align 8, !tbaa !87
   %.not4.i.i.i.i = icmp eq ptr %1715, %1716

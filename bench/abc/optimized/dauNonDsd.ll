@@ -306,7 +306,7 @@ define range(i32 0, 2) i32 @Dau_DecCheckSetTop5(ptr noundef readonly captures(no
   br label %.loopexit
 
 .loopexit:                                        ; preds = %51, %136, %139
-  %.0 = phi i32 [ 1, %139 ], [ 1, %136 ], [ 0, %51 ]
+  %.0 = phi i32 [ 1, %136 ], [ 1, %139 ], [ 0, %51 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -558,7 +558,7 @@ define range(i32 0, 2) i32 @Dau_DecCheckSetTop6(ptr noundef %0, i32 %1, i32 noun
   br label %.loopexit117
 
 .loopexit117:                                     ; preds = %49, %.loopexit, %101
-  %.0 = phi i32 [ 1, %101 ], [ 1, %.loopexit ], [ 0, %49 ]
+  %.0 = phi i32 [ 1, %.loopexit ], [ 1, %101 ], [ 0, %49 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -950,10 +950,10 @@ define internal fastcc range(i32 0, 2) i32 @Dau_DecCheckSetAny(ptr noundef reado
   br label %62
 
 62:                                               ; preds = %.sink.split.i.us, %31, %21, %.lr.ph.split.i.us
-  %.156.i.us = phi i32 [ %.05589.i.us, %31 ], [ %.05589.i.us, %21 ], [ %.05589.i.us, %.lr.ph.split.i.us ], [ 1, %.sink.split.i.us ]
-  %.154.i.us = phi i32 [ 1, %31 ], [ 1, %21 ], [ %.05390.i.us, %.lr.ph.split.i.us ], [ 1, %.sink.split.i.us ]
-  %.152.i.us = phi i64 [ %.05191.i.us, %31 ], [ %30, %21 ], [ %.05191.i.us, %.lr.ph.split.i.us ], [ %.05191.i.us, %.sink.split.i.us ]
-  %.1.i.us = phi i64 [ %.05092.i.us, %31 ], [ %.05092.i.us, %21 ], [ %.05092.i.us, %.lr.ph.split.i.us ], [ %.1.ph.i.us, %.sink.split.i.us ]
+  %.156.i.us = phi i32 [ %.05589.i.us, %31 ], [ %.05589.i.us, %.lr.ph.split.i.us ], [ %.05589.i.us, %21 ], [ 1, %.sink.split.i.us ]
+  %.154.i.us = phi i32 [ 1, %31 ], [ %.05390.i.us, %.lr.ph.split.i.us ], [ 1, %21 ], [ 1, %.sink.split.i.us ]
+  %.152.i.us = phi i64 [ %.05191.i.us, %31 ], [ %.05191.i.us, %.lr.ph.split.i.us ], [ %30, %21 ], [ %.05191.i.us, %.sink.split.i.us ]
+  %.1.i.us = phi i64 [ %.05092.i.us, %31 ], [ %.05092.i.us, %.lr.ph.split.i.us ], [ %.05092.i.us, %21 ], [ %.1.ph.i.us, %.sink.split.i.us ]
   %63 = add nuw nsw i32 %.05787.i.us, 1
   %exitcond.not.i.us = icmp eq i32 %63, %smax.i
   br i1 %exitcond.not.i.us, label %._crit_edge.i, label %.lr.ph.split.i.us, !llvm.loop !25
@@ -1047,18 +1047,18 @@ define internal fastcc range(i32 0, 2) i32 @Dau_DecCheckSetAny(ptr noundef reado
   br label %100
 
 100:                                              ; preds = %.sink.split.i, %95, %85, %.lr.ph.split.i
-  %.156.i = phi i32 [ %.05589.i, %95 ], [ %.05589.i, %85 ], [ %.05589.i, %.lr.ph.split.i ], [ 1, %.sink.split.i ]
-  %.154.i = phi i32 [ 1, %95 ], [ 1, %85 ], [ %.05390.i, %.lr.ph.split.i ], [ 1, %.sink.split.i ]
-  %.152.i = phi i64 [ %.05191.i, %95 ], [ %94, %85 ], [ %.05191.i, %.lr.ph.split.i ], [ %.05191.i, %.sink.split.i ]
-  %.1.i = phi i64 [ %.05092.i, %95 ], [ %.05092.i, %85 ], [ %.05092.i, %.lr.ph.split.i ], [ %.1.ph.i, %.sink.split.i ]
+  %.156.i = phi i32 [ %.05589.i, %95 ], [ %.05589.i, %.lr.ph.split.i ], [ %.05589.i, %85 ], [ 1, %.sink.split.i ]
+  %.154.i = phi i32 [ 1, %95 ], [ %.05390.i, %.lr.ph.split.i ], [ 1, %85 ], [ 1, %.sink.split.i ]
+  %.152.i = phi i64 [ %.05191.i, %95 ], [ %.05191.i, %.lr.ph.split.i ], [ %94, %85 ], [ %.05191.i, %.sink.split.i ]
+  %.1.i = phi i64 [ %.05092.i, %95 ], [ %.05092.i, %.lr.ph.split.i ], [ %.05092.i, %85 ], [ %.1.ph.i, %.sink.split.i ]
   %101 = add nuw nsw i32 %.05787.i, 1
   %exitcond.not.i = icmp eq i32 %101, %smax.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.split.i, !llvm.loop !25
 
 ._crit_edge.i:                                    ; preds = %100, %62, %81, %.thread.i, %17
-  %.055.lcssa.i = phi i32 [ 0, %17 ], [ 0, %.thread.i ], [ %.156.i.us, %62 ], [ %.156.us.i, %81 ], [ %.156.i, %100 ]
-  %.051.lcssa.i = phi i64 [ 0, %17 ], [ 0, %.thread.i ], [ %.152.i.us, %62 ], [ %.152.us.i, %81 ], [ %.152.i, %100 ]
-  %.050.lcssa.i = phi i64 [ 0, %17 ], [ 0, %.thread.i ], [ %.1.i.us, %62 ], [ %.1.us.i, %81 ], [ %.1.i, %100 ]
+  %.055.lcssa.i = phi i32 [ 0, %17 ], [ 0, %.thread.i ], [ %.156.us.i, %81 ], [ %.156.i.us, %62 ], [ %.156.i, %100 ]
+  %.051.lcssa.i = phi i64 [ 0, %17 ], [ 0, %.thread.i ], [ %.152.us.i, %81 ], [ %.152.i.us, %62 ], [ %.152.i, %100 ]
+  %.050.lcssa.i = phi i64 [ 0, %17 ], [ 0, %.thread.i ], [ %.1.us.i, %81 ], [ %.1.i.us, %62 ], [ %.1.i, %100 ]
   %.not63.i = icmp eq ptr %5, null
   br i1 %.not63.i, label %Dau_DecCheckSet5.exit, label %102
 
@@ -1226,8 +1226,8 @@ define internal fastcc range(i32 0, 2) i32 @Dau_DecCheckSetAny(ptr noundef reado
   br i1 %exitcond.not.i77.i, label %.sink.split.i28, label %.lr.ph.i70.i, !llvm.loop !24
 
 .sink.split.i28:                                  ; preds = %174, %162, %166, %154
-  %.013.lcssa.i.sink104.i = phi i32 [ 0, %154 ], [ 0, %166 ], [ %.2.i.i35, %162 ], [ %.2.i75.i, %174 ]
-  %.1.ph.i29 = phi ptr [ %150, %154 ], [ %.089.i, %166 ], [ %150, %162 ], [ %.089.i, %174 ]
+  %.013.lcssa.i.sink104.i = phi i32 [ %.2.i.i35, %162 ], [ 0, %154 ], [ 0, %166 ], [ %.2.i75.i, %174 ]
+  %.1.ph.i29 = phi ptr [ %150, %162 ], [ %150, %154 ], [ %.089.i, %166 ], [ %.089.i, %174 ]
   %176 = and i32 %.013.lcssa.i.sink104.i, 63
   %177 = zext nneg i32 %176 to i64
   %178 = shl nuw i64 1, %177
@@ -1240,10 +1240,10 @@ define internal fastcc range(i32 0, 2) i32 @Dau_DecCheckSetAny(ptr noundef reado
   br label %184
 
 184:                                              ; preds = %.sink.split.i28, %165, %153, %151, %147, %144
-  %.158.i = phi i32 [ 1, %165 ], [ 1, %153 ], [ %.05784.i, %151 ], [ %.05784.i, %144 ], [ %.05784.i, %147 ], [ 1, %.sink.split.i28 ]
-  %.155.i = phi i32 [ 1, %165 ], [ 1, %153 ], [ 1, %151 ], [ %.05487.i, %144 ], [ 1, %147 ], [ 1, %.sink.split.i28 ]
-  %.152.i20 = phi ptr [ %.05188.i, %165 ], [ %.05188.i, %153 ], [ %.05188.i, %151 ], [ %.05188.i, %144 ], [ %150, %147 ], [ %.05188.i, %.sink.split.i28 ]
-  %.1.i21 = phi ptr [ %.089.i, %165 ], [ %150, %153 ], [ %.089.i, %151 ], [ %.089.i, %144 ], [ %.089.i, %147 ], [ %.1.ph.i29, %.sink.split.i28 ]
+  %.158.i = phi i32 [ %.05784.i, %147 ], [ 1, %165 ], [ %.05784.i, %144 ], [ 1, %153 ], [ %.05784.i, %151 ], [ 1, %.sink.split.i28 ]
+  %.155.i = phi i32 [ 1, %147 ], [ 1, %165 ], [ %.05487.i, %144 ], [ 1, %153 ], [ 1, %151 ], [ 1, %.sink.split.i28 ]
+  %.152.i20 = phi ptr [ %150, %147 ], [ %.05188.i, %165 ], [ %.05188.i, %144 ], [ %.05188.i, %153 ], [ %.05188.i, %151 ], [ %.05188.i, %.sink.split.i28 ]
+  %.1.i21 = phi ptr [ %.089.i, %147 ], [ %.089.i, %165 ], [ %.089.i, %144 ], [ %150, %153 ], [ %.089.i, %151 ], [ %.1.ph.i29, %.sink.split.i28 ]
   %185 = add nuw nsw i32 %.05685.i, 1
   %exitcond.not.i22 = icmp eq i32 %185, %smax.i19
   br i1 %exitcond.not.i22, label %._crit_edge.loopexit.i, label %144, !llvm.loop !26
@@ -1267,7 +1267,7 @@ define internal fastcc range(i32 0, 2) i32 @Dau_DecCheckSetAny(ptr noundef reado
   br label %Dau_DecCheckSet5.exit
 
 Dau_DecCheckSet5.exit:                            ; preds = %164, %98, %34, %79, %188, %._crit_edge.i23, %102, %._crit_edge.i
-  %.0 = phi i32 [ 1, %102 ], [ 1, %._crit_edge.i ], [ 1, %188 ], [ 1, %._crit_edge.i23 ], [ 0, %98 ], [ 0, %79 ], [ 0, %34 ], [ 0, %164 ]
+  %.0 = phi i32 [ 0, %98 ], [ 1, %._crit_edge.i ], [ 1, %102 ], [ 0, %34 ], [ 1, %._crit_edge.i23 ], [ 1, %188 ], [ 0, %79 ], [ 0, %164 ]
   ret i32 %.0
 }
 

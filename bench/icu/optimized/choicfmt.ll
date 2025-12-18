@@ -335,7 +335,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7712ChoiceFormat
   br label %.critedge.thread.preheader
 
 .critedge.thread.preheader:                       ; preds = %6, %.critedge, %.critedge, %11
-  %.2.ph = phi ptr [ %.033, %.critedge ], [ %.033, %.critedge ], [ %12, %11 ], [ %.033, %6 ]
+  %.2.ph = phi ptr [ %12, %11 ], [ %.033, %.critedge ], [ %.033, %.critedge ], [ %.033, %6 ]
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %.critedge.thread.preheader, %14

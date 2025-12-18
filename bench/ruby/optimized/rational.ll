@@ -462,7 +462,7 @@ i_gcd.exit58:                                     ; preds = %74, %78, %100
   br label %68
 
 rb_long2num_inline.exit:                          ; preds = %70, %106, %103, %38, %35, %64, %66, %58, %60
-  %.0 = phi i64 [ %39, %38 ], [ %.027, %58 ], [ %.028, %64 ], [ %.027, %60 ], [ %.028, %66 ], [ %37, %35 ], [ %105, %103 ], [ %107, %106 ], [ %.1, %70 ]
+  %.0 = phi i64 [ %107, %106 ], [ %39, %38 ], [ %.027, %58 ], [ %.028, %64 ], [ %.027, %60 ], [ %.028, %66 ], [ %37, %35 ], [ %105, %103 ], [ %.1, %70 ]
   ret i64 %.0
 }
 
@@ -5481,7 +5481,7 @@ rb_integer_type_p.exit21.thread33.i:              ; preds = %rb_integer_type_p.e
   br label %f_mul.exit
 
 f_mul.exit:                                       ; preds = %f_div.exit, %.thread.i, %rb_integer_type_p.exit21.thread.i, %rb_integer_type_p.exit21.thread33.i
-  %.0.i14 = phi i64 [ %97, %rb_integer_type_p.exit21.thread33.i ], [ %.0.i, %f_div.exit ], [ %96, %rb_integer_type_p.exit21.thread.i ], [ %1, %.thread.i ]
+  %.0.i14 = phi i64 [ %97, %rb_integer_type_p.exit21.thread33.i ], [ %1, %.thread.i ], [ %.0.i, %f_div.exit ], [ %96, %rb_integer_type_p.exit21.thread.i ]
   %98 = and i64 %.0.i14, 1
   %.not.i.i17 = icmp eq i64 %98, 0
   br i1 %.not.i.i17, label %99, label %rb_integer_type_p.exit.thread.i18

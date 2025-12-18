@@ -309,8 +309,8 @@ define internal range(i32 0, 522) i32 @dissect_enttec_udp(ptr noundef %0, ptr no
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.loopexit.loopexit.i, %87, %78, %59
-  %.1153.i = phi i16 [ %85, %78 ], [ %92, %87 ], [ %66, %59 ], [ %66, %.loopexit.loopexit.i ]
-  %.2.i = phi i16 [ %86, %78 ], [ %91, %87 ], [ %.0151175.i, %59 ], [ %93, %.loopexit.loopexit.i ]
+  %.1153.i = phi i16 [ %92, %87 ], [ %85, %78 ], [ %66, %59 ], [ %66, %.loopexit.loopexit.i ]
+  %.2.i = phi i16 [ %91, %87 ], [ %86, %78 ], [ %.0151175.i, %59 ], [ %93, %.loopexit.loopexit.i ]
   %94 = icmp ult i16 %.1153.i, %spec.store.select.i
   %95 = icmp ult i16 %.2.i, 512
   %96 = select i1 %94, i1 %95, i1 false
@@ -331,8 +331,8 @@ define internal range(i32 0, 522) i32 @dissect_enttec_udp(ptr noundef %0, ptr no
   br i1 %exitcond.not.i, label %._crit_edge177.i, label %.lr.ph.i, !llvm.loop !9
 
 ._crit_edge177.i:                                 ; preds = %.lr.ph.i, %.loopexit.i, %.preheader165.i, %.preheader166.i
-  %.4.lcssa.sink218.i = phi i16 [ 0, %.preheader165.i ], [ 0, %.preheader166.i ], [ %.2.i, %.loopexit.i ], [ %spec.store.select.i, %.lr.ph.i ]
-  %.4.lcssa.sink.i = phi i16 [ 0, %.preheader165.i ], [ 0, %.preheader166.i ], [ %.1153.i, %.loopexit.i ], [ %spec.store.select.i, %.lr.ph.i ]
+  %.4.lcssa.sink218.i = phi i16 [ %.2.i, %.loopexit.i ], [ 0, %.preheader165.i ], [ 0, %.preheader166.i ], [ %spec.store.select.i, %.lr.ph.i ]
+  %.4.lcssa.sink.i = phi i16 [ %.1153.i, %.loopexit.i ], [ 0, %.preheader165.i ], [ 0, %.preheader166.i ], [ %spec.store.select.i, %.lr.ph.i ]
   %103 = zext i16 %.4.lcssa.sink218.i to i64
   %104 = getelementptr i16, ptr %44, i64 %103
   store i16 %.4.lcssa.sink.i, ptr %104, align 2

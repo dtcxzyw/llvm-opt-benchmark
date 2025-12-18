@@ -2583,7 +2583,7 @@ _ZN5clang8comments12_GLOBAL__N_111skipNewlineEPKcS3_.exit.i: ; preds = %22, %19,
   br label %_ZN5clang8comments5Lexer27skipLineStartingDecorationsEv.exit.i
 
 _ZN5clang8comments5Lexer27skipLineStartingDecorationsEv.exit.i: ; preds = %94, %99, %97, %79
-  %101 = phi ptr [ %84, %79 ], [ %100, %99 ], [ %84, %97 ], [ %84, %94 ]
+  %101 = phi ptr [ %84, %79 ], [ %84, %97 ], [ %100, %99 ], [ %84, %94 ]
   %102 = icmp eq ptr %101, %86
   br i1 %102, label %_ZN5clang8comments5Lexer27skipLineStartingDecorationsEv.exit.thread.i, label %117
 
@@ -3460,7 +3460,7 @@ define dso_local void @_ZN5clang8comments5Lexer20lexVerbatimBlockBodyERNS0_5Toke
   br label %_ZN5clang8comments5Lexer27skipLineStartingDecorationsEv.exit
 
 _ZN5clang8comments5Lexer27skipLineStartingDecorationsEv.exit: ; preds = %17, %2, %22, %20
-  %24 = phi ptr [ %7, %2 ], [ %23, %22 ], [ %7, %20 ], [ %7, %17 ]
+  %24 = phi ptr [ %7, %2 ], [ %7, %20 ], [ %23, %22 ], [ %7, %17 ]
   %25 = icmp eq ptr %24, %9
   br i1 %25, label %_ZN5clang8comments5Lexer27skipLineStartingDecorationsEv.exit.thread, label %40
 
@@ -4252,7 +4252,7 @@ _ZN5clang8comments12_GLOBAL__N_127skipNamedCharacterReferenceEPKcS3_.exit: ; pre
   br i1 %or.cond152, label %123, label %_ZN5clang8comments12_GLOBAL__N_127skipNamedCharacterReferenceEPKcS3_.exit.thread
 
 _ZN5clang8comments12_GLOBAL__N_127skipNamedCharacterReferenceEPKcS3_.exit.thread: ; preds = %35, %66, %77, %70, %_ZN5clang8comments12_GLOBAL__N_127skipNamedCharacterReferenceEPKcS3_.exit
-  %.0102 = phi ptr [ %.0, %_ZN5clang8comments12_GLOBAL__N_127skipNamedCharacterReferenceEPKcS3_.exit ], [ %9, %70 ], [ %9, %66 ], [ %9, %77 ], [ %9, %35 ]
+  %.0102 = phi ptr [ %.0, %_ZN5clang8comments12_GLOBAL__N_127skipNamedCharacterReferenceEPKcS3_.exit ], [ %9, %66 ], [ %9, %70 ], [ %9, %77 ], [ %9, %35 ]
   %108 = ptrtoint ptr %.0102 to i64
   %109 = ptrtoint ptr %6 to i64
   %110 = sub i64 %108, %109
@@ -4631,8 +4631,8 @@ _ZN5clang8comments12_GLOBAL__N_114skipWhitespaceEPKcS3_.exit: ; preds = %.lr.ph.
   br i1 %.not.i17, label %_ZN5clang8comments12_GLOBAL__N_118skipHTMLIdentifierEPKcS3_.exit, label %.lr.ph.i14, !llvm.loop !91
 
 _ZN5clang8comments12_GLOBAL__N_118skipHTMLIdentifierEPKcS3_.exit: ; preds = %13, %.lr.ph.i14, %20, %2, %_ZN5clang8comments12_GLOBAL__N_114skipWhitespaceEPKcS3_.exit
-  %.0.i29 = phi ptr [ %.0711.i, %_ZN5clang8comments12_GLOBAL__N_114skipWhitespaceEPKcS3_.exit ], [ %7, %2 ], [ %.0711.i, %.lr.ph.i14 ], [ %.0711.i, %20 ], [ %7, %13 ]
-  %.0.i18 = phi ptr [ %7, %_ZN5clang8comments12_GLOBAL__N_114skipWhitespaceEPKcS3_.exit ], [ %7, %2 ], [ %.0711.i15, %.lr.ph.i14 ], [ %7, %20 ], [ %7, %13 ]
+  %.0.i29 = phi ptr [ %.0711.i, %_ZN5clang8comments12_GLOBAL__N_114skipWhitespaceEPKcS3_.exit ], [ %.0711.i, %.lr.ph.i14 ], [ %7, %2 ], [ %.0711.i, %20 ], [ %7, %13 ]
+  %.0.i18 = phi ptr [ %7, %_ZN5clang8comments12_GLOBAL__N_114skipWhitespaceEPKcS3_.exit ], [ %.0711.i15, %.lr.ph.i14 ], [ %7, %2 ], [ %7, %20 ], [ %7, %13 ]
   %22 = ptrtoint ptr %.0.i18 to i64
   %23 = ptrtoint ptr %.0.i29 to i64
   %24 = sub i64 %22, %23
@@ -5251,13 +5251,13 @@ define dso_local void @_ZN5clang8comments5Lexer3lexERNS0_5TokenE(ptr noundef non
   br label %_ZN5clang8comments12_GLOBAL__N_111skipNewlineEPKcS3_.exit.i
 
 _ZN5clang8comments12_GLOBAL__N_111skipNewlineEPKcS3_.exit.i: ; preds = %76, %73, %71
-  %.2.i = phi ptr [ %.1.i, %71 ], [ %spec.select.i.i, %76 ], [ %75, %73 ]
+  %.2.i = phi ptr [ %75, %73 ], [ %spec.select.i.i, %76 ], [ %.1.i, %71 ]
   %.not.i = icmp eq ptr %.2.i, %7
   br i1 %.not.i, label %.backedge.outer.backedge, label %.preheader38.i.backedge
 
 .backedge.outer.backedge:                         ; preds = %100, %44, %51, %_ZN5clang8comments12_GLOBAL__N_111skipNewlineEPKcS3_.exit.i, %68, %64, %61
   %.ph.be = phi i8 [ %45, %44 ], [ %45, %61 ], [ %45, %64 ], [ %45, %68 ], [ %45, %_ZN5clang8comments12_GLOBAL__N_111skipNewlineEPKcS3_.exit.i ], [ %45, %51 ], [ 0, %100 ]
-  %.ph97.be = phi ptr [ %7, %51 ], [ %7, %44 ], [ %.1.i, %64 ], [ %7, %_ZN5clang8comments12_GLOBAL__N_111skipNewlineEPKcS3_.exit.i ], [ %.1.i, %61 ], [ %.1.i, %68 ], [ %.0.i33, %100 ]
+  %.ph97.be = phi ptr [ %7, %51 ], [ %7, %44 ], [ %.1.i, %64 ], [ %.1.i, %68 ], [ %7, %_ZN5clang8comments12_GLOBAL__N_111skipNewlineEPKcS3_.exit.i ], [ %.1.i, %61 ], [ %.0.i33, %100 ]
   %.ph98.be = phi ptr [ %42, %44 ], [ %42, %61 ], [ %42, %64 ], [ %42, %68 ], [ %42, %_ZN5clang8comments12_GLOBAL__N_111skipNewlineEPKcS3_.exit.i ], [ %42, %51 ], [ %95, %100 ]
   %.ph99.be = phi i8 [ 1, %44 ], [ 1, %61 ], [ 1, %64 ], [ 1, %68 ], [ 1, %_ZN5clang8comments12_GLOBAL__N_111skipNewlineEPKcS3_.exit.i ], [ 1, %51 ], [ 2, %100 ]
   store ptr %.ph97.be, ptr %5, align 8, !tbaa !61

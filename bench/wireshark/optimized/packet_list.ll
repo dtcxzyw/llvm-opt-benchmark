@@ -21399,7 +21399,7 @@ _ZN7QStringD2Ev.exit187:                          ; preds = %_ZN7QStringD2Ev.exi
   br i1 %402, label %.loopexit, label %399
 
 .loopexit:                                        ; preds = %259, %399, %.thread
-  %.pn47.pn.pn = phi { ptr, i32 } [ %164, %.thread ], [ %.pn47.pn, %399 ], [ %258, %259 ]
+  %.pn47.pn.pn = phi { ptr, i32 } [ %.pn47.pn, %399 ], [ %164, %.thread ], [ %258, %259 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %403
 
@@ -21770,7 +21770,7 @@ define noundef zeroext i1 @_ZN10PacketList15haveNextHistoryEb(ptr noundef align 
   br label %.thread
 
 .thread:                                          ; preds = %13, %24, %25, %2, %6
-  %.08 = phi i1 [ false, %6 ], [ false, %2 ], [ true, %25 ], [ true, %24 ], [ false, %13 ]
+  %.08 = phi i1 [ false, %6 ], [ false, %2 ], [ true, %24 ], [ true, %25 ], [ false, %13 ]
   ret i1 %.08
 }
 
@@ -21820,7 +21820,7 @@ define noundef zeroext i1 @_ZN10PacketList19havePreviousHistoryEb(ptr noundef al
   br label %.thread
 
 .thread:                                          ; preds = %13, %22, %23, %2, %6
-  %.08 = phi i1 [ false, %6 ], [ false, %2 ], [ true, %23 ], [ true, %22 ], [ false, %13 ]
+  %.08 = phi i1 [ false, %6 ], [ false, %2 ], [ true, %22 ], [ true, %23 ], [ false, %13 ]
   ret i1 %.08
 }
 

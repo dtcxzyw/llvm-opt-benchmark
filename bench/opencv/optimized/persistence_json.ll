@@ -2038,8 +2038,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %23, %
   br i1 %.not87, label %.thread, label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %50, %52
-  %.be = phi i8 [ %51, %50 ], [ %.pre.pre, %52 ]
-  %.354.be = phi ptr [ %49, %50 ], [ %53, %52 ]
+  %.be = phi i8 [ %.pre.pre, %52 ], [ %51, %50 ]
+  %.354.be = phi ptr [ %53, %52 ], [ %49, %50 ]
   br label %.preheader, !llvm.loop !58
 
 52:                                               ; preds = %.preheader
@@ -2170,7 +2170,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit93: ; preds = %94,
   br i1 %.not75, label %.thread, label %.lr.ph.backedge
 
 .lr.ph.backedge:                                  ; preds = %.preheader, %.preheader, %107, %81, %99
-  %.051114172.be = phi ptr [ %100, %99 ], [ %82, %81 ], [ %106, %107 ], [ %.354, %.preheader ], [ %.354, %.preheader ]
+  %.051114172.be = phi ptr [ %106, %107 ], [ %100, %99 ], [ %82, %81 ], [ %.354, %.preheader ], [ %.354, %.preheader ]
   br label %.lr.ph, !llvm.loop !57
 
 109:                                              ; preds = %.lr.ph

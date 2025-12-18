@@ -260,7 +260,7 @@ define range(i32 -2147483648, 2147483647) i32 @Ga2_ManBreakTree_rec(ptr noundef 
   br label %37
 
 37:                                               ; preds = %.sink.split, %33, %23, %8, %4
-  %.032 = phi i32 [ 1, %4 ], [ %19, %8 ], [ %31, %23 ], [ -1, %33 ], [ 1, %.sink.split ]
+  %.032 = phi i32 [ 1, %4 ], [ -1, %33 ], [ %19, %8 ], [ %31, %23 ], [ 1, %.sink.split ]
   ret i32 %.032
 }
 
@@ -813,7 +813,7 @@ define i32 @Ga2_ManMarkup(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_
   br label %.critedge, !llvm.loop !40
 
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph252, %.lr.ph.preheader, %..critedge.loopexit334_crit_edge, %.lr.ph252.preheader, %..critedge.loopexit_crit_edge, %.preheader, %.critedge2, %.preheader241, %.critedge4
-  %.val163287 = phi i32 [ %83, %.critedge2 ], [ %10, %.preheader241 ], [ %110, %.critedge4 ], [ %10, %.preheader ], [ %110, %.lr.ph252.preheader ], [ %123, %..critedge.loopexit_crit_edge ], [ %19, %..critedge.loopexit334_crit_edge ], [ %10, %.lr.ph.preheader ], [ %123, %.lr.ph252 ], [ %19, %.lr.ph ]
+  %.val163287 = phi i32 [ %83, %.critedge2 ], [ %123, %.lr.ph252 ], [ %10, %.preheader241 ], [ %110, %.critedge4 ], [ %10, %.preheader ], [ %110, %.lr.ph252.preheader ], [ %123, %..critedge.loopexit_crit_edge ], [ %19, %..critedge.loopexit334_crit_edge ], [ %10, %.lr.ph.preheader ], [ %19, %.lr.ph ]
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %127 = load ptr, ptr %126, align 8, !tbaa !44
   %128 = icmp eq ptr %127, null
@@ -2846,7 +2846,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br i1 %exitcond163.not, label %.critedge5, label %137, !llvm.loop !133
 
 .critedge5:                                       ; preds = %137, %.critedge.thread, %.lr.ph136, %133
-  %.092182 = phi i32 [ %.092183, %.lr.ph136 ], [ %.092, %133 ], [ %28, %.critedge.thread ], [ %.092183, %137 ]
+  %.092182 = phi i32 [ %28, %.critedge.thread ], [ %.092183, %.lr.ph136 ], [ %.092, %133 ], [ %.092183, %137 ]
   ret i32 %.092182
 }
 
@@ -7522,7 +7522,7 @@ Gia_ObjIsRo.exit:                                 ; preds = %13, %19
   br i1 %exitcond54.not, label %.critedge, label %37, !llvm.loop !201
 
 .critedge:                                        ; preds = %Gia_ObjIsRo.exit, %37, %.preheader35, %.lr.ph, %.preheader, %.lr.ph43, %29
-  %.1 = phi i32 [ 0, %29 ], [ 0, %.preheader ], [ 0, %.lr.ph43 ], [ 0, %.preheader35 ], [ 0, %.lr.ph ], [ %46, %37 ], [ %28, %Gia_ObjIsRo.exit ]
+  %.1 = phi i32 [ 0, %.lr.ph ], [ 0, %29 ], [ 0, %.preheader ], [ 0, %.lr.ph43 ], [ 0, %.preheader35 ], [ %46, %37 ], [ %28, %Gia_ObjIsRo.exit ]
   ret i32 %.1
 }
 
@@ -7632,7 +7632,7 @@ Gia_ObjIsRo.exit.i:                               ; preds = %53, %47
   br i1 %exitcond.not.i, label %Ga2_GlaAbsCount.exit, label %47, !llvm.loop !200
 
 Ga2_GlaAbsCount.exit:                             ; preds = %Gia_ObjIsRo.exit.i, %18, %.lr.ph.i
-  %.1.i = phi i32 [ 0, %18 ], [ 0, %.lr.ph.i ], [ %62, %Gia_ObjIsRo.exit.i ]
+  %.1.i = phi i32 [ 0, %.lr.ph.i ], [ 0, %18 ], [ %62, %Gia_ObjIsRo.exit.i ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.39, i32 noundef %.1.i)
   %63 = load ptr, ptr %22, align 8, !tbaa !81
   %64 = getelementptr i8, ptr %63, i64 4
@@ -10091,7 +10091,7 @@ Vec_IntFreeP.exit:                                ; preds = %996, %1004
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.62, i32 noundef %.val474, i32 noundef %.val464.pre, i32 noundef %1057)
   br label %.loopexit
 
-1070:                                             ; preds = %1059, %1056, %337, %341, %345, %._crit_edge841
+1070:                                             ; preds = %1059, %1056, %337, %341, %._crit_edge841, %345
   %.3371.ph659 = phi i32 [ %.1369766, %345 ], [ %.6374, %1056 ], [ %.1369766, %337 ], [ %.6374, %1059 ], [ %.6374, %._crit_edge841 ], [ %.1369766, %341 ]
   %.3364.ph660 = phi i32 [ %.1362767, %345 ], [ %.6367, %1056 ], [ %.1362767, %337 ], [ %.6367, %1059 ], [ %.6367, %._crit_edge841 ], [ %.1362767, %341 ]
   %indvars.iv.next821 = add nuw nsw i64 %indvars.iv820, 1
@@ -10113,10 +10113,10 @@ Vec_IntFreeP.exit:                                ; preds = %996, %1004
   br i1 %or.cond456, label %.critedge4, label %.thread669
 
 .thread669:                                       ; preds = %.loopexit, %Abc_Clock.exit573, %Abc_Clock.exit594, %987, %1008, %Abc_Clock.exit571, %730, %208, %457, %Abc_Clock.exit549
-  %.2380 = phi i32 [ %257, %Abc_Clock.exit549 ], [ %257, %457 ], [ 0, %208 ], [ %257, %Abc_Clock.exit573 ], [ %257, %730 ], [ %257, %Abc_Clock.exit571 ], [ %257, %1008 ], [ %257, %987 ], [ %257, %Abc_Clock.exit594 ], [ %.1379732, %.loopexit ]
-  %.9 = phi i32 [ %.5366, %Abc_Clock.exit549 ], [ %.5366, %457 ], [ -1, %208 ], [ %.4365757, %Abc_Clock.exit573 ], [ %.5366, %730 ], [ %.4365757, %Abc_Clock.exit594 ], [ %.4365697, %987 ], [ %.4365697, %1008 ], [ %.4365757, %Abc_Clock.exit571 ], [ %.8, %.loopexit ]
-  %1076 = phi i1 [ false, %Abc_Clock.exit549 ], [ false, %457 ], [ false, %208 ], [ false, %Abc_Clock.exit573 ], [ false, %730 ], [ false, %Abc_Clock.exit594 ], [ true, %987 ], [ false, %1008 ], [ false, %Abc_Clock.exit571 ], [ false, %.loopexit ]
-  %.5 = phi i32 [ -1, %Abc_Clock.exit549 ], [ -1, %457 ], [ -1, %208 ], [ -1, %Abc_Clock.exit573 ], [ -1, %730 ], [ -1, %Abc_Clock.exit594 ], [ 1, %987 ], [ -1, %1008 ], [ -1, %Abc_Clock.exit571 ], [ -1, %.loopexit ]
+  %.2380 = phi i32 [ %257, %730 ], [ %257, %Abc_Clock.exit549 ], [ %257, %Abc_Clock.exit573 ], [ %257, %457 ], [ 0, %208 ], [ %257, %Abc_Clock.exit571 ], [ %257, %1008 ], [ %257, %987 ], [ %257, %Abc_Clock.exit594 ], [ %.1379732, %.loopexit ]
+  %.9 = phi i32 [ %.5366, %730 ], [ %.5366, %Abc_Clock.exit549 ], [ %.4365757, %Abc_Clock.exit573 ], [ %.5366, %457 ], [ -1, %208 ], [ %.4365757, %Abc_Clock.exit594 ], [ %.4365697, %987 ], [ %.4365697, %1008 ], [ %.4365757, %Abc_Clock.exit571 ], [ %.8, %.loopexit ]
+  %1076 = phi i1 [ false, %730 ], [ false, %Abc_Clock.exit549 ], [ false, %Abc_Clock.exit573 ], [ false, %457 ], [ false, %208 ], [ false, %Abc_Clock.exit594 ], [ true, %987 ], [ false, %1008 ], [ false, %Abc_Clock.exit571 ], [ false, %.loopexit ]
+  %.5 = phi i32 [ -1, %730 ], [ -1, %Abc_Clock.exit549 ], [ -1, %Abc_Clock.exit573 ], [ -1, %457 ], [ -1, %208 ], [ -1, %Abc_Clock.exit594 ], [ 1, %987 ], [ -1, %1008 ], [ -1, %Abc_Clock.exit571 ], [ -1, %.loopexit ]
   %1077 = getelementptr inbounds nuw i8, ptr %91, i64 96
   %1078 = load ptr, ptr %1077, align 8, !tbaa !94
   %1079 = getelementptr inbounds nuw i8, ptr %1078, i64 488

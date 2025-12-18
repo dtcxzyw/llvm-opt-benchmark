@@ -2517,7 +2517,7 @@ KINFullNewton.exit.thread:                        ; preds = %554, %550, %514, %4
   br label %455
 
 KINStop.exit.thread:                              ; preds = %KINFullNewton.exit.thread, %911, %.thread99.i, %950, %948, %953, %912, %898, %901, %896, %900, %878, %905, %952, %866
-  %.4 = phi i32 [ -999, %911 ], [ -999, %.thread99.i ], [ -999, %950 ], [ -999, %948 ], [ -999, %953 ], [ -999, %912 ], [ 2, %898 ], [ -6, %901 ], [ 2, %896 ], [ -999, %900 ], [ 0, %878 ], [ -7, %905 ], [ -999, %952 ], [ %..i, %866 ], [ %.3, %KINFullNewton.exit.thread ]
+  %.4 = phi i32 [ %..i, %866 ], [ -999, %911 ], [ -999, %.thread99.i ], [ -999, %950 ], [ -999, %948 ], [ -999, %953 ], [ -999, %912 ], [ 2, %898 ], [ -6, %901 ], [ 2, %896 ], [ -999, %900 ], [ 0, %878 ], [ -7, %905 ], [ -999, %952 ], [ %.3, %KINFullNewton.exit.thread ]
   %963 = load ptr, ptr %283, align 8, !tbaa !61
   %964 = load ptr, ptr %14, align 8, !tbaa !78
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %963, ptr noundef %964) #14
@@ -2544,7 +2544,7 @@ KINStop.exit.thread:                              ; preds = %KINFullNewton.exit.
   br label %442
 
 KINLinSolDrv.exit.thread:                         ; preds = %971, %814, %851, %577, %579, %564, %575, %479, %481, %466, %477, %626, %624, %707, %.preheader.i, %532, %530, %.critedge2.i
-  %.2 = phi i32 [ -13, %.preheader.i ], [ -13, %.critedge2.i ], [ -15, %532 ], [ -13, %707 ], [ -12, %477 ], [ -15, %626 ], [ -13, %530 ], [ -13, %624 ], [ -13, %814 ], [ -9, %577 ], [ -9, %579 ], [ -11, %564 ], [ -11, %466 ], [ -9, %481 ], [ -9, %479 ], [ -12, %575 ], [ -8, %851 ], [ %.4, %971 ]
+  %.2 = phi i32 [ -13, %707 ], [ -13, %.preheader.i ], [ -15, %626 ], [ -13, %.critedge2.i ], [ -13, %530 ], [ -9, %577 ], [ -15, %532 ], [ -13, %624 ], [ -9, %579 ], [ -12, %575 ], [ -11, %466 ], [ -9, %481 ], [ -9, %479 ], [ -12, %477 ], [ -8, %851 ], [ -11, %564 ], [ -13, %814 ], [ %.4, %971 ]
   %975 = load i32, ptr %161, align 4, !tbaa !83
   %976 = icmp sgt i32 %975, 0
   br i1 %976, label %977, label %978
@@ -3444,7 +3444,7 @@ define internal fastcc void @AndersenAcc(ptr noundef nonnull readonly captures(n
   br i1 %180, label %.lr.ph233, label %.loopexit217, !llvm.loop !131
 
 .loopexit219:                                     ; preds = %.loopexit217, %138, %.preheader220, %.preheader218, %._crit_edge, %37
-  %.pre-phi = phi i64 [ %60, %.preheader218 ], [ %60, %._crit_edge ], [ 1, %37 ], [ %60, %.preheader220 ], [ %60, %138 ], [ %60, %.loopexit217 ]
+  %.pre-phi = phi i64 [ %60, %.preheader220 ], [ %60, %.preheader218 ], [ %60, %._crit_edge ], [ 1, %37 ], [ %60, %138 ], [ %60, %.loopexit217 ]
   %181 = load i64, ptr %9, align 8, !tbaa !66
   %spec.select215 = tail call i64 @llvm.smin.i64(i64 %181, i64 %.pre-phi)
   %spec.select = trunc i64 %spec.select215 to i32

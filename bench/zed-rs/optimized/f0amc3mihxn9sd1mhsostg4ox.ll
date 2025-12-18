@@ -10613,13 +10613,13 @@ _ZN3std4path4Path12canonicalize17hdb0295b9d3983fefE.exit.i: ; preds = %1074
   br label %.body.i.i319
 
 .thread.i.i:                                      ; preds = %.noexc.i.i.i, %1459, %1395, %1366
-  %1553 = phi ptr [ %1326, %1366 ], [ %1374, %1395 ], [ %1438, %1459 ], [ %1275, %.noexc.i.i.i ]
-  %1554 = phi ptr [ %1327, %1366 ], [ %1375, %1395 ], [ %1439, %1459 ], [ %1276, %.noexc.i.i.i ]
-  %.sroa.0406.5849 = phi i64 [ %.sroa.0406.5831, %1366 ], [ %.sroa.0406.5830, %1395 ], [ %.sroa.0406.5827, %1459 ], [ %.sroa.0406.5833, %.noexc.i.i.i ]
-  %.sroa.25.5799 = phi ptr [ %.sroa.25.5781, %1366 ], [ %.sroa.25.5780, %1395 ], [ %.sroa.25.5777, %1459 ], [ %.sroa.25.5783, %.noexc.i.i.i ]
-  %1555 = phi ptr [ %1328, %1366 ], [ %1376, %1395 ], [ %1440, %1459 ], [ %1277, %.noexc.i.i.i ]
-  %1556 = phi ptr [ %1330, %1366 ], [ %1378, %1395 ], [ %1442, %1459 ], [ %1279, %.noexc.i.i.i ]
-  %.sink.i.ph.i.i = phi i8 [ 4, %1366 ], [ 5, %1395 ], [ 6, %1459 ], [ 3, %.noexc.i.i.i ]
+  %1553 = phi ptr [ %1438, %1459 ], [ %1326, %1366 ], [ %1374, %1395 ], [ %1275, %.noexc.i.i.i ]
+  %1554 = phi ptr [ %1439, %1459 ], [ %1327, %1366 ], [ %1375, %1395 ], [ %1276, %.noexc.i.i.i ]
+  %.sroa.0406.5849 = phi i64 [ %.sroa.0406.5827, %1459 ], [ %.sroa.0406.5831, %1366 ], [ %.sroa.0406.5830, %1395 ], [ %.sroa.0406.5833, %.noexc.i.i.i ]
+  %.sroa.25.5799 = phi ptr [ %.sroa.25.5777, %1459 ], [ %.sroa.25.5781, %1366 ], [ %.sroa.25.5780, %1395 ], [ %.sroa.25.5783, %.noexc.i.i.i ]
+  %1555 = phi ptr [ %1440, %1459 ], [ %1328, %1366 ], [ %1376, %1395 ], [ %1277, %.noexc.i.i.i ]
+  %1556 = phi ptr [ %1442, %1459 ], [ %1330, %1366 ], [ %1378, %1395 ], [ %1279, %.noexc.i.i.i ]
+  %.sink.i.ph.i.i = phi i8 [ 6, %1459 ], [ 4, %1366 ], [ 5, %1395 ], [ 3, %.noexc.i.i.i ]
   store i8 %.sink.i.ph.i.i, ptr %1556, align 1, !noalias !2142
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.018.sroa.0.sroa.0.sroa.8.i.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %24), !noalias !2138
@@ -24884,7 +24884,7 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread19: ; preds = %.lr.p
   br i1 %or.cond, label %49, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6b015cef719af1a5E.exit"
 
 _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread: ; preds = %.preheader.i, %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit, %41, %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.us, %.preheader.i.us, %28
-  %.sroa.0.0.i18 = phi i64 [ 0, %28 ], [ 0, %41 ], [ %22, %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.us ], [ 0, %.preheader.i.us ], [ %44, %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit ], [ 0, %.preheader.i ]
+  %.sroa.0.0.i18 = phi i64 [ 0, %41 ], [ 0, %28 ], [ %22, %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.us ], [ 0, %.preheader.i.us ], [ %44, %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit ], [ 0, %.preheader.i ]
   store i64 %6, ptr %4, align 8
   br label %.loopexit
 
@@ -24911,7 +24911,7 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread: ; preds = %.prehea
   br label %.loopexit
 
 .loopexit:                                        ; preds = %49, %32, %2, %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread, %.split.us65
-  %storemerge = phi i64 [ 1, %.split.us65 ], [ %.sroa.0.0.i18, %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread ], [ 0, %2 ], [ 0, %32 ], [ 0, %49 ]
+  %storemerge = phi i64 [ %.sroa.0.0.i18, %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread ], [ 1, %.split.us65 ], [ 0, %2 ], [ 0, %32 ], [ 0, %49 ]
   store i64 %storemerge, ptr %0, align 8
   ret void
 }
@@ -36737,10 +36737,10 @@ _ZN8blocking8Executor5spawn17h1256deb9a47b16f2E.exit.i.i.i: ; preds = %.noexc27.
   br label %.body342
 
 1261:                                             ; preds = %.thread280.i, %964, %"_ZN4core3ptr258drop_in_place$LT$alloc..vec..drain..Drain$LT$async_tar..entry..EntryIo$LT$async_tar..archive..Archive$LT$async_compression..futures..bufread..GzipDecoder$LT$futures_lite..io..BufReader$LT$$RF$mut$u20$http_client..async_body..AsyncBody$GT$$GT$$GT$$GT$$GT$$GT$17hf2e0fa82516ceecaE.exit.i", %"_ZN4core3ptr258drop_in_place$LT$alloc..vec..drain..Drain$LT$async_tar..entry..EntryIo$LT$async_tar..archive..Archive$LT$async_compression..futures..bufread..GzipDecoder$LT$futures_lite..io..BufReader$LT$$RF$mut$u20$http_client..async_body..AsyncBody$GT$$GT$$GT$$GT$$GT$$GT$17hf2e0fa82516ceecaE.exit117.i"
-  %1262 = phi ptr [ %1153, %"_ZN4core3ptr258drop_in_place$LT$alloc..vec..drain..Drain$LT$async_tar..entry..EntryIo$LT$async_tar..archive..Archive$LT$async_compression..futures..bufread..GzipDecoder$LT$futures_lite..io..BufReader$LT$$RF$mut$u20$http_client..async_body..AsyncBody$GT$$GT$$GT$$GT$$GT$$GT$17hf2e0fa82516ceecaE.exit117.i" ], [ %989, %"_ZN4core3ptr258drop_in_place$LT$alloc..vec..drain..Drain$LT$async_tar..entry..EntryIo$LT$async_tar..archive..Archive$LT$async_compression..futures..bufread..GzipDecoder$LT$futures_lite..io..BufReader$LT$$RF$mut$u20$http_client..async_body..AsyncBody$GT$$GT$$GT$$GT$$GT$$GT$17hf2e0fa82516ceecaE.exit.i" ], [ %871, %964 ], [ %737, %.thread280.i ]
-  %1263 = phi ptr [ %1154, %"_ZN4core3ptr258drop_in_place$LT$alloc..vec..drain..Drain$LT$async_tar..entry..EntryIo$LT$async_tar..archive..Archive$LT$async_compression..futures..bufread..GzipDecoder$LT$futures_lite..io..BufReader$LT$$RF$mut$u20$http_client..async_body..AsyncBody$GT$$GT$$GT$$GT$$GT$$GT$17hf2e0fa82516ceecaE.exit117.i" ], [ %990, %"_ZN4core3ptr258drop_in_place$LT$alloc..vec..drain..Drain$LT$async_tar..entry..EntryIo$LT$async_tar..archive..Archive$LT$async_compression..futures..bufread..GzipDecoder$LT$futures_lite..io..BufReader$LT$$RF$mut$u20$http_client..async_body..AsyncBody$GT$$GT$$GT$$GT$$GT$$GT$17hf2e0fa82516ceecaE.exit.i" ], [ %872, %964 ], [ %738, %.thread280.i ]
-  %.sroa.6591.0 = phi ptr [ null, %"_ZN4core3ptr258drop_in_place$LT$alloc..vec..drain..Drain$LT$async_tar..entry..EntryIo$LT$async_tar..archive..Archive$LT$async_compression..futures..bufread..GzipDecoder$LT$futures_lite..io..BufReader$LT$$RF$mut$u20$http_client..async_body..AsyncBody$GT$$GT$$GT$$GT$$GT$$GT$17hf2e0fa82516ceecaE.exit117.i" ], [ %1128, %"_ZN4core3ptr258drop_in_place$LT$alloc..vec..drain..Drain$LT$async_tar..entry..EntryIo$LT$async_tar..archive..Archive$LT$async_compression..futures..bufread..GzipDecoder$LT$futures_lite..io..BufReader$LT$$RF$mut$u20$http_client..async_body..AsyncBody$GT$$GT$$GT$$GT$$GT$$GT$17hf2e0fa82516ceecaE.exit.i" ], [ null, %964 ], [ null, %.thread280.i ]
-  %.sroa.8592.0 = phi ptr [ %.sroa.7212.1.i, %"_ZN4core3ptr258drop_in_place$LT$alloc..vec..drain..Drain$LT$async_tar..entry..EntryIo$LT$async_tar..archive..Archive$LT$async_compression..futures..bufread..GzipDecoder$LT$futures_lite..io..BufReader$LT$$RF$mut$u20$http_client..async_body..AsyncBody$GT$$GT$$GT$$GT$$GT$$GT$17hf2e0fa82516ceecaE.exit117.i" ], [ %1130, %"_ZN4core3ptr258drop_in_place$LT$alloc..vec..drain..Drain$LT$async_tar..entry..EntryIo$LT$async_tar..archive..Archive$LT$async_compression..futures..bufread..GzipDecoder$LT$futures_lite..io..BufReader$LT$$RF$mut$u20$http_client..async_body..AsyncBody$GT$$GT$$GT$$GT$$GT$$GT$17hf2e0fa82516ceecaE.exit.i" ], [ %.sroa.6171.2.i, %964 ], [ %771, %.thread280.i ]
+  %1262 = phi ptr [ %737, %.thread280.i ], [ %871, %964 ], [ %989, %"_ZN4core3ptr258drop_in_place$LT$alloc..vec..drain..Drain$LT$async_tar..entry..EntryIo$LT$async_tar..archive..Archive$LT$async_compression..futures..bufread..GzipDecoder$LT$futures_lite..io..BufReader$LT$$RF$mut$u20$http_client..async_body..AsyncBody$GT$$GT$$GT$$GT$$GT$$GT$17hf2e0fa82516ceecaE.exit.i" ], [ %1153, %"_ZN4core3ptr258drop_in_place$LT$alloc..vec..drain..Drain$LT$async_tar..entry..EntryIo$LT$async_tar..archive..Archive$LT$async_compression..futures..bufread..GzipDecoder$LT$futures_lite..io..BufReader$LT$$RF$mut$u20$http_client..async_body..AsyncBody$GT$$GT$$GT$$GT$$GT$$GT$17hf2e0fa82516ceecaE.exit117.i" ]
+  %1263 = phi ptr [ %738, %.thread280.i ], [ %872, %964 ], [ %990, %"_ZN4core3ptr258drop_in_place$LT$alloc..vec..drain..Drain$LT$async_tar..entry..EntryIo$LT$async_tar..archive..Archive$LT$async_compression..futures..bufread..GzipDecoder$LT$futures_lite..io..BufReader$LT$$RF$mut$u20$http_client..async_body..AsyncBody$GT$$GT$$GT$$GT$$GT$$GT$17hf2e0fa82516ceecaE.exit.i" ], [ %1154, %"_ZN4core3ptr258drop_in_place$LT$alloc..vec..drain..Drain$LT$async_tar..entry..EntryIo$LT$async_tar..archive..Archive$LT$async_compression..futures..bufread..GzipDecoder$LT$futures_lite..io..BufReader$LT$$RF$mut$u20$http_client..async_body..AsyncBody$GT$$GT$$GT$$GT$$GT$$GT$17hf2e0fa82516ceecaE.exit117.i" ]
+  %.sroa.6591.0 = phi ptr [ null, %.thread280.i ], [ null, %964 ], [ %1128, %"_ZN4core3ptr258drop_in_place$LT$alloc..vec..drain..Drain$LT$async_tar..entry..EntryIo$LT$async_tar..archive..Archive$LT$async_compression..futures..bufread..GzipDecoder$LT$futures_lite..io..BufReader$LT$$RF$mut$u20$http_client..async_body..AsyncBody$GT$$GT$$GT$$GT$$GT$$GT$17hf2e0fa82516ceecaE.exit.i" ], [ null, %"_ZN4core3ptr258drop_in_place$LT$alloc..vec..drain..Drain$LT$async_tar..entry..EntryIo$LT$async_tar..archive..Archive$LT$async_compression..futures..bufread..GzipDecoder$LT$futures_lite..io..BufReader$LT$$RF$mut$u20$http_client..async_body..AsyncBody$GT$$GT$$GT$$GT$$GT$$GT$17hf2e0fa82516ceecaE.exit117.i" ]
+  %.sroa.8592.0 = phi ptr [ %771, %.thread280.i ], [ %.sroa.6171.2.i, %964 ], [ %1130, %"_ZN4core3ptr258drop_in_place$LT$alloc..vec..drain..Drain$LT$async_tar..entry..EntryIo$LT$async_tar..archive..Archive$LT$async_compression..futures..bufread..GzipDecoder$LT$futures_lite..io..BufReader$LT$$RF$mut$u20$http_client..async_body..AsyncBody$GT$$GT$$GT$$GT$$GT$$GT$17hf2e0fa82516ceecaE.exit.i" ], [ %.sroa.7212.1.i, %"_ZN4core3ptr258drop_in_place$LT$alloc..vec..drain..Drain$LT$async_tar..entry..EntryIo$LT$async_tar..archive..Archive$LT$async_compression..futures..bufread..GzipDecoder$LT$futures_lite..io..BufReader$LT$$RF$mut$u20$http_client..async_body..AsyncBody$GT$$GT$$GT$$GT$$GT$$GT$17hf2e0fa82516ceecaE.exit117.i" ]
   store i8 1, ptr %1262, align 2, !noalias !9646
   invoke fastcc void @"_ZN4core3ptr296drop_in_place$LT$async_tar..entry..EntryFields$LT$async_tar..archive..Archive$LT$async_compression..futures..bufread..GzipDecoder$LT$futures_lite..io..BufReader$LT$$RF$mut$u20$http_client..async_body..AsyncBody$GT$$GT$$GT$$GT$..unpack..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5a836c1c2f4cf7e6E"(ptr noundef nonnull align 8 %1263)
           to label %1268 unwind label %1266
@@ -42870,7 +42870,7 @@ common.ret:                                       ; preds = %336, %18
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.582.i)
   br label %336
 
-.thread45:                                        ; preds = %305, %"_ZN4core3ptr41drop_in_place$LT$std..process..Output$GT$17hfba98a952c7c156eE.exit64.i"
+.thread45:                                        ; preds = %"_ZN4core3ptr41drop_in_place$LT$std..process..Output$GT$17hfba98a952c7c156eE.exit64.i", %305
   store i8 1, ptr %48, align 8, !noalias !11175
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.582.i)
   br label %335

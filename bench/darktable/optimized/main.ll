@@ -416,8 +416,8 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br label %parse_csv.exit.i
 
 164:                                              ; preds = %151, %141
-  %.1117.i.i = phi i32 [ %163, %151 ], [ %.01167.i.i, %141 ]
-  %.3.i.i = phi i32 [ %162, %151 ], [ %.11138.i.i, %141 ]
+  %.1117.i.i = phi i32 [ %.01167.i.i, %141 ], [ %163, %151 ]
+  %.3.i.i = phi i32 [ %.11138.i.i, %141 ], [ %162, %151 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %165 = add nsw i32 %.1117.i.i, 1
   %166 = icmp slt i32 %165, %.3.i.i

@@ -127,8 +127,8 @@ _ZN4core5slice6memchr6memchr17h2d5411a4e6c78ad8E.exit.thread16.i: ; preds = %.lr
   br label %36
 
 "_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17hbd7d807cf085a09fE.exit": ; preds = %36, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h1b3c76876c588794E.exit.i", %_ZN4core5slice6memchr6memchr17h2d5411a4e6c78ad8E.exit.i, %.preheader.i.i, %24
-  %.sink.i26 = phi i64 [ 0, %24 ], [ 0, %_ZN4core5slice6memchr6memchr17h2d5411a4e6c78ad8E.exit.i ], [ 0, %.preheader.i.i ], [ 0, %36 ], [ 1, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h1b3c76876c588794E.exit.i" ]
-  %46 = phi i64 [ undef, %24 ], [ undef, %_ZN4core5slice6memchr6memchr17h2d5411a4e6c78ad8E.exit.i ], [ undef, %.preheader.i.i ], [ undef, %36 ], [ %35, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h1b3c76876c588794E.exit.i" ]
+  %.sink.i26 = phi i64 [ 0, %24 ], [ 0, %.preheader.i.i ], [ 1, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h1b3c76876c588794E.exit.i" ], [ 0, %36 ], [ 0, %_ZN4core5slice6memchr6memchr17h2d5411a4e6c78ad8E.exit.i ]
+  %46 = phi i64 [ undef, %24 ], [ undef, %.preheader.i.i ], [ %35, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h1b3c76876c588794E.exit.i" ], [ undef, %36 ], [ undef, %_ZN4core5slice6memchr6memchr17h2d5411a4e6c78ad8E.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %47 = insertvalue { i64, i64 } poison, i64 %.sink.i26, 0
   %48 = insertvalue { i64, i64 } %47, i64 %46, 1

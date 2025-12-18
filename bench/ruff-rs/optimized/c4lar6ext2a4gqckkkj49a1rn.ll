@@ -5559,7 +5559,7 @@ _ZN4core3ops8function6FnOnce9call_once17hd3967ede5d618261E.exit: ; preds = %"_ZN
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
   ret void
 
-.loopexit:                                        ; preds = %60, %"_ZN81_$LT$core..str..iter..Lines$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he509d84123846c53E.exit.i.i.i.i", %"_ZN99_$LT$core..str..iter..SplitInclusive$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha18f91b1627ed14fE.exit.thread6.i.i.i.i.i.i", %10
+.loopexit:                                        ; preds = %60, %"_ZN81_$LT$core..str..iter..Lines$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he509d84123846c53E.exit.i.i.i.i", %10, %"_ZN99_$LT$core..str..iter..SplitInclusive$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha18f91b1627ed14fE.exit.thread6.i.i.i.i.i.i"
   store i32 1114112, ptr %8, align 4
   br label %65
 
@@ -13531,178 +13531,178 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
   %17 = icmp eq i64 %12, %16
   br i1 %17, label %18, label %_ZN4core3cmp9PartialEq2ne17hf3e78d69a4afd692E.exit.thread
 
-_ZN4core3cmp9PartialEq2ne17hf3e78d69a4afd692E.exit.thread: ; preds = %87, %75, %53, %41, %34, %23, %5, %59, %65, %71, %81, %93, %99, %105, %111, %19, %47, %129, %"_ZN101_$LT$ruff_python_parser..semantic_errors..SemanticSyntaxErrorKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h383a629dcb6fbf1bE.exit.i.i", %"_ZN101_$LT$ruff_python_parser..semantic_errors..SemanticSyntaxErrorKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h383a629dcb6fbf1bE.exit.thread3.i.i", %123, %_ZN4core3cmp9PartialEq2ne17hf3e78d69a4afd692E.exit, %.preheader.split, %4
-  %.sroa.0.0 = phi i1 [ false, %4 ], [ %exitcond.not, %.preheader.split ], [ %exitcond.not, %_ZN4core3cmp9PartialEq2ne17hf3e78d69a4afd692E.exit ], [ %exitcond.not, %123 ], [ %exitcond.not, %"_ZN101_$LT$ruff_python_parser..semantic_errors..SemanticSyntaxErrorKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h383a629dcb6fbf1bE.exit.thread3.i.i" ], [ %exitcond.not, %"_ZN101_$LT$ruff_python_parser..semantic_errors..SemanticSyntaxErrorKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h383a629dcb6fbf1bE.exit.i.i" ], [ %exitcond.not, %129 ], [ %exitcond.not, %47 ], [ %exitcond.not, %19 ], [ %exitcond.not, %111 ], [ %exitcond.not, %105 ], [ %exitcond.not, %99 ], [ %exitcond.not, %93 ], [ %exitcond.not, %81 ], [ %exitcond.not, %71 ], [ %exitcond.not, %65 ], [ %exitcond.not, %59 ], [ %exitcond.not, %5 ], [ %exitcond.not, %23 ], [ %exitcond.not, %34 ], [ %exitcond.not, %41 ], [ %exitcond.not, %53 ], [ %exitcond.not, %75 ], [ %exitcond.not, %87 ]
+_ZN4core3cmp9PartialEq2ne17hf3e78d69a4afd692E.exit.thread: ; preds = %85, %73, %51, %39, %32, %19, %5, %30, %79, %45, %69, %97, %63, %57, %91, %109, %103, %129, %"_ZN101_$LT$ruff_python_parser..semantic_errors..SemanticSyntaxErrorKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h383a629dcb6fbf1bE.exit.i.i", %"_ZN101_$LT$ruff_python_parser..semantic_errors..SemanticSyntaxErrorKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h383a629dcb6fbf1bE.exit.thread3.i.i", %123, %_ZN4core3cmp9PartialEq2ne17hf3e78d69a4afd692E.exit, %.preheader.split, %4
+  %.sroa.0.0 = phi i1 [ false, %4 ], [ %exitcond.not, %.preheader.split ], [ %exitcond.not, %_ZN4core3cmp9PartialEq2ne17hf3e78d69a4afd692E.exit ], [ %exitcond.not, %123 ], [ %exitcond.not, %"_ZN101_$LT$ruff_python_parser..semantic_errors..SemanticSyntaxErrorKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h383a629dcb6fbf1bE.exit.thread3.i.i" ], [ %exitcond.not, %"_ZN101_$LT$ruff_python_parser..semantic_errors..SemanticSyntaxErrorKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h383a629dcb6fbf1bE.exit.i.i" ], [ %exitcond.not, %129 ], [ %exitcond.not, %103 ], [ %exitcond.not, %109 ], [ %exitcond.not, %91 ], [ %exitcond.not, %57 ], [ %exitcond.not, %63 ], [ %exitcond.not, %97 ], [ %exitcond.not, %69 ], [ %exitcond.not, %45 ], [ %exitcond.not, %79 ], [ %exitcond.not, %30 ], [ %exitcond.not, %5 ], [ %exitcond.not, %19 ], [ %exitcond.not, %32 ], [ %exitcond.not, %39 ], [ %exitcond.not, %51 ], [ %exitcond.not, %73 ], [ %exitcond.not, %85 ]
   ret i1 %.sroa.0.0
 
 18:                                               ; preds = %5
   switch i64 %12, label %"_ZN101_$LT$ruff_python_parser..semantic_errors..SemanticSyntaxErrorKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h383a629dcb6fbf1bE.exit.thread3.i.i" [
-    i64 3, label %19
-    i64 4, label %23
-    i64 6, label %34
-    i64 7, label %53
-    i64 8, label %65
-    i64 9, label %71
-    i64 10, label %75
-    i64 12, label %87
-    i64 13, label %99
-    i64 15, label %105
-    i64 16, label %111
+    i64 3, label %"_ZN101_$LT$ruff_python_parser..semantic_errors..SemanticSyntaxErrorKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h383a629dcb6fbf1bE.exit.i.i"
+    i64 4, label %19
+    i64 6, label %32
+    i64 7, label %51
+    i64 8, label %63
+    i64 9, label %69
+    i64 10, label %73
+    i64 12, label %85
+    i64 13, label %97
+    i64 15, label %103
+    i64 16, label %109
   ]
 
 19:                                               ; preds = %18
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %21 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %22 = tail call noundef zeroext i1 @"_ZN76_$LT$compact_str..CompactString$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h271ba70efa51fb16E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %21)
-  br i1 %22, label %"_ZN101_$LT$ruff_python_parser..semantic_errors..SemanticSyntaxErrorKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h383a629dcb6fbf1bE.exit.thread3.i.i", label %_ZN4core3cmp9PartialEq2ne17hf3e78d69a4afd692E.exit.thread
-
-23:                                               ; preds = %18
-  %24 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %25 = getelementptr inbounds nuw i8, ptr %7, i64 31
-  %26 = load i8, ptr %25, align 1, !range !167, !alias.scope !1133, !noalias !1134, !noundef !7
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 31
+  %22 = load i8, ptr %21, align 1, !range !167, !alias.scope !1133, !noalias !1134, !noundef !7
+  %23 = icmp eq i8 %22, -38
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %8, i64 31
+  %26 = load i8, ptr %25, align 1, !range !167, !alias.scope !1134, !noalias !1133, !noundef !7
   %27 = icmp eq i8 %26, -38
-  %28 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %29 = getelementptr inbounds nuw i8, ptr %8, i64 31
-  %30 = load i8, ptr %29, align 1, !range !167, !alias.scope !1134, !noalias !1133, !noundef !7
-  %31 = icmp eq i8 %30, -38
-  %32 = xor i1 %27, %31
-  br i1 %32, label %_ZN4core3cmp9PartialEq2ne17hf3e78d69a4afd692E.exit.thread, label %33
+  %28 = xor i1 %23, %27
+  br i1 %28, label %_ZN4core3cmp9PartialEq2ne17hf3e78d69a4afd692E.exit.thread, label %29
 
-33:                                               ; preds = %23
-  %brmerge.i.i.i = or i1 %27, %31
-  br i1 %brmerge.i.i.i, label %"_ZN101_$LT$ruff_python_parser..semantic_errors..SemanticSyntaxErrorKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h383a629dcb6fbf1bE.exit.thread3.i.i", label %"_ZN101_$LT$ruff_python_parser..semantic_errors..SemanticSyntaxErrorKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h383a629dcb6fbf1bE.exit.i.i"
+29:                                               ; preds = %19
+  %brmerge.i.i.i = or i1 %23, %27
+  br i1 %brmerge.i.i.i, label %"_ZN101_$LT$ruff_python_parser..semantic_errors..SemanticSyntaxErrorKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h383a629dcb6fbf1bE.exit.thread3.i.i", label %30
 
-34:                                               ; preds = %18
-  %35 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %36 = load i8, ptr %35, align 8, !range !131, !alias.scope !1133, !noalias !1134, !noundef !7
-  %37 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %38 = load i8, ptr %37, align 8, !range !131, !alias.scope !1134, !noalias !1133, !noundef !7
-  %39 = icmp eq i8 %36, %38
-  br i1 %39, label %40, label %_ZN4core3cmp9PartialEq2ne17hf3e78d69a4afd692E.exit.thread
+30:                                               ; preds = %29
+  %31 = tail call noundef zeroext i1 @"_ZN76_$LT$compact_str..CompactString$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h271ba70efa51fb16E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %24)
+  br i1 %31, label %"_ZN101_$LT$ruff_python_parser..semantic_errors..SemanticSyntaxErrorKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h383a629dcb6fbf1bE.exit.thread3.i.i", label %_ZN4core3cmp9PartialEq2ne17hf3e78d69a4afd692E.exit.thread
 
-40:                                               ; preds = %34
-  %.not.i.i.i = icmp eq i8 %36, 0
-  br i1 %.not.i.i.i, label %"_ZN101_$LT$ruff_python_parser..semantic_errors..SemanticSyntaxErrorKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h383a629dcb6fbf1bE.exit.thread3.i.i", label %41
+32:                                               ; preds = %18
+  %33 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %34 = load i8, ptr %33, align 8, !range !131, !alias.scope !1133, !noalias !1134, !noundef !7
+  %35 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %36 = load i8, ptr %35, align 8, !range !131, !alias.scope !1134, !noalias !1133, !noundef !7
+  %37 = icmp eq i8 %34, %36
+  br i1 %37, label %38, label %_ZN4core3cmp9PartialEq2ne17hf3e78d69a4afd692E.exit.thread
 
-41:                                               ; preds = %40
-  %42 = getelementptr inbounds nuw i8, ptr %7, i64 9
-  %43 = load i8, ptr %42, align 1, !alias.scope !1133, !noalias !1134, !noundef !7
-  %44 = getelementptr inbounds nuw i8, ptr %8, i64 9
-  %45 = load i8, ptr %44, align 1, !alias.scope !1134, !noalias !1133, !noundef !7
-  %46 = icmp eq i8 %43, %45
-  br i1 %46, label %47, label %_ZN4core3cmp9PartialEq2ne17hf3e78d69a4afd692E.exit.thread
+38:                                               ; preds = %32
+  %.not.i.i.i = icmp eq i8 %34, 0
+  br i1 %.not.i.i.i, label %"_ZN101_$LT$ruff_python_parser..semantic_errors..SemanticSyntaxErrorKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h383a629dcb6fbf1bE.exit.thread3.i.i", label %39
 
-47:                                               ; preds = %41
-  %48 = getelementptr inbounds nuw i8, ptr %7, i64 10
-  %49 = load i8, ptr %48, align 2, !alias.scope !1133, !noalias !1134, !noundef !7
-  %50 = getelementptr inbounds nuw i8, ptr %8, i64 10
-  %51 = load i8, ptr %50, align 2, !alias.scope !1134, !noalias !1133, !noundef !7
-  %52 = icmp eq i8 %49, %51
-  br i1 %52, label %"_ZN101_$LT$ruff_python_parser..semantic_errors..SemanticSyntaxErrorKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h383a629dcb6fbf1bE.exit.thread3.i.i", label %_ZN4core3cmp9PartialEq2ne17hf3e78d69a4afd692E.exit.thread
+39:                                               ; preds = %38
+  %40 = getelementptr inbounds nuw i8, ptr %7, i64 9
+  %41 = load i8, ptr %40, align 1, !alias.scope !1133, !noalias !1134, !noundef !7
+  %42 = getelementptr inbounds nuw i8, ptr %8, i64 9
+  %43 = load i8, ptr %42, align 1, !alias.scope !1134, !noalias !1133, !noundef !7
+  %44 = icmp eq i8 %41, %43
+  br i1 %44, label %45, label %_ZN4core3cmp9PartialEq2ne17hf3e78d69a4afd692E.exit.thread
 
-53:                                               ; preds = %18
-  %54 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %55 = load i8, ptr %54, align 8, !range !6, !alias.scope !1133, !noalias !1134, !noundef !7
-  %56 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %57 = load i8, ptr %56, align 8, !range !6, !alias.scope !1134, !noalias !1133, !noundef !7
-  %58 = icmp eq i8 %55, %57
-  br i1 %58, label %59, label %_ZN4core3cmp9PartialEq2ne17hf3e78d69a4afd692E.exit.thread
+45:                                               ; preds = %39
+  %46 = getelementptr inbounds nuw i8, ptr %7, i64 10
+  %47 = load i8, ptr %46, align 2, !alias.scope !1133, !noalias !1134, !noundef !7
+  %48 = getelementptr inbounds nuw i8, ptr %8, i64 10
+  %49 = load i8, ptr %48, align 2, !alias.scope !1134, !noalias !1133, !noundef !7
+  %50 = icmp eq i8 %47, %49
+  br i1 %50, label %"_ZN101_$LT$ruff_python_parser..semantic_errors..SemanticSyntaxErrorKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h383a629dcb6fbf1bE.exit.thread3.i.i", label %_ZN4core3cmp9PartialEq2ne17hf3e78d69a4afd692E.exit.thread
 
-59:                                               ; preds = %53
-  %60 = getelementptr inbounds nuw i8, ptr %7, i64 9
-  %61 = load i8, ptr %60, align 1, !range !94, !alias.scope !1133, !noalias !1134, !noundef !7
-  %62 = getelementptr inbounds nuw i8, ptr %8, i64 9
-  %63 = load i8, ptr %62, align 1, !range !94, !alias.scope !1134, !noalias !1133, !noundef !7
-  %64 = icmp eq i8 %61, %63
-  br i1 %64, label %"_ZN101_$LT$ruff_python_parser..semantic_errors..SemanticSyntaxErrorKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h383a629dcb6fbf1bE.exit.thread3.i.i", label %_ZN4core3cmp9PartialEq2ne17hf3e78d69a4afd692E.exit.thread
+51:                                               ; preds = %18
+  %52 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %53 = load i8, ptr %52, align 8, !range !6, !alias.scope !1133, !noalias !1134, !noundef !7
+  %54 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %55 = load i8, ptr %54, align 8, !range !6, !alias.scope !1134, !noalias !1133, !noundef !7
+  %56 = icmp eq i8 %53, %55
+  br i1 %56, label %57, label %_ZN4core3cmp9PartialEq2ne17hf3e78d69a4afd692E.exit.thread
 
-65:                                               ; preds = %18
-  %66 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %.val.i.i.i = load ptr, ptr %66, align 8, !alias.scope !1133, !noalias !1134, !nonnull !7, !noundef !7
-  %67 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %.val6.i.i.i = load i64, ptr %67, align 8, !alias.scope !1133, !noalias !1134, !noundef !7
-  %68 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %.val7.i.i.i = load ptr, ptr %68, align 8, !alias.scope !1134, !noalias !1133, !nonnull !7, !noundef !7
-  %69 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %.val8.i.i.i = load i64, ptr %69, align 8, !alias.scope !1134, !noalias !1133, !noundef !7
-  %70 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hef0b185e0d94a1c6E"(ptr noalias noundef nonnull readonly align 1 %.val.i.i.i, i64 noundef %.val6.i.i.i, ptr noalias noundef nonnull readonly align 1 %.val7.i.i.i, i64 noundef %.val8.i.i.i), !noalias !1135
-  br i1 %70, label %"_ZN101_$LT$ruff_python_parser..semantic_errors..SemanticSyntaxErrorKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h383a629dcb6fbf1bE.exit.thread3.i.i", label %_ZN4core3cmp9PartialEq2ne17hf3e78d69a4afd692E.exit.thread
+57:                                               ; preds = %51
+  %58 = getelementptr inbounds nuw i8, ptr %7, i64 9
+  %59 = load i8, ptr %58, align 1, !range !94, !alias.scope !1133, !noalias !1134, !noundef !7
+  %60 = getelementptr inbounds nuw i8, ptr %8, i64 9
+  %61 = load i8, ptr %60, align 1, !range !94, !alias.scope !1134, !noalias !1133, !noundef !7
+  %62 = icmp eq i8 %59, %61
+  br i1 %62, label %"_ZN101_$LT$ruff_python_parser..semantic_errors..SemanticSyntaxErrorKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h383a629dcb6fbf1bE.exit.thread3.i.i", label %_ZN4core3cmp9PartialEq2ne17hf3e78d69a4afd692E.exit.thread
 
-71:                                               ; preds = %18
-  %72 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %73 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %74 = tail call noundef zeroext i1 @"_ZN76_$LT$compact_str..CompactString$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h271ba70efa51fb16E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %72, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %73)
-  br i1 %74, label %"_ZN101_$LT$ruff_python_parser..semantic_errors..SemanticSyntaxErrorKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h383a629dcb6fbf1bE.exit.thread3.i.i", label %_ZN4core3cmp9PartialEq2ne17hf3e78d69a4afd692E.exit.thread
+63:                                               ; preds = %18
+  %64 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %.val.i.i.i = load ptr, ptr %64, align 8, !alias.scope !1133, !noalias !1134, !nonnull !7, !noundef !7
+  %65 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %.val6.i.i.i = load i64, ptr %65, align 8, !alias.scope !1133, !noalias !1134, !noundef !7
+  %66 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %.val7.i.i.i = load ptr, ptr %66, align 8, !alias.scope !1134, !noalias !1133, !nonnull !7, !noundef !7
+  %67 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %.val8.i.i.i = load i64, ptr %67, align 8, !alias.scope !1134, !noalias !1133, !noundef !7
+  %68 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hef0b185e0d94a1c6E"(ptr noalias noundef nonnull readonly align 1 %.val.i.i.i, i64 noundef %.val6.i.i.i, ptr noalias noundef nonnull readonly align 1 %.val7.i.i.i, i64 noundef %.val8.i.i.i), !noalias !1135
+  br i1 %68, label %"_ZN101_$LT$ruff_python_parser..semantic_errors..SemanticSyntaxErrorKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h383a629dcb6fbf1bE.exit.thread3.i.i", label %_ZN4core3cmp9PartialEq2ne17hf3e78d69a4afd692E.exit.thread
 
-75:                                               ; preds = %18
-  %76 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.val9.i.i.i = load ptr, ptr %76, align 8, !alias.scope !1133, !noalias !1134, !nonnull !7, !noundef !7
-  %77 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %.val10.i.i.i = load i64, ptr %77, align 8, !alias.scope !1133, !noalias !1134, !noundef !7
-  %78 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.val11.i.i.i = load ptr, ptr %78, align 8, !alias.scope !1134, !noalias !1133, !nonnull !7, !noundef !7
-  %79 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %.val12.i.i.i = load i64, ptr %79, align 8, !alias.scope !1134, !noalias !1133, !noundef !7
-  %80 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hef0b185e0d94a1c6E"(ptr noalias noundef nonnull readonly align 1 %.val9.i.i.i, i64 noundef %.val10.i.i.i, ptr noalias noundef nonnull readonly align 1 %.val11.i.i.i, i64 noundef %.val12.i.i.i), !noalias !1135
-  br i1 %80, label %81, label %_ZN4core3cmp9PartialEq2ne17hf3e78d69a4afd692E.exit.thread
+69:                                               ; preds = %18
+  %70 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %72 = tail call noundef zeroext i1 @"_ZN76_$LT$compact_str..CompactString$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h271ba70efa51fb16E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %70, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %71)
+  br i1 %72, label %"_ZN101_$LT$ruff_python_parser..semantic_errors..SemanticSyntaxErrorKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h383a629dcb6fbf1bE.exit.thread3.i.i", label %_ZN4core3cmp9PartialEq2ne17hf3e78d69a4afd692E.exit.thread
 
-81:                                               ; preds = %75
-  %82 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %83 = load i32, ptr %82, align 8, !alias.scope !1133, !noalias !1134, !noundef !7
-  %84 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %85 = load i32, ptr %84, align 8, !alias.scope !1134, !noalias !1133, !noundef !7
-  %86 = icmp eq i32 %83, %85
-  br i1 %86, label %"_ZN101_$LT$ruff_python_parser..semantic_errors..SemanticSyntaxErrorKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h383a629dcb6fbf1bE.exit.thread3.i.i", label %_ZN4core3cmp9PartialEq2ne17hf3e78d69a4afd692E.exit.thread
+73:                                               ; preds = %18
+  %74 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.val9.i.i.i = load ptr, ptr %74, align 8, !alias.scope !1133, !noalias !1134, !nonnull !7, !noundef !7
+  %75 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %.val10.i.i.i = load i64, ptr %75, align 8, !alias.scope !1133, !noalias !1134, !noundef !7
+  %76 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %.val11.i.i.i = load ptr, ptr %76, align 8, !alias.scope !1134, !noalias !1133, !nonnull !7, !noundef !7
+  %77 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %.val12.i.i.i = load i64, ptr %77, align 8, !alias.scope !1134, !noalias !1133, !noundef !7
+  %78 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hef0b185e0d94a1c6E"(ptr noalias noundef nonnull readonly align 1 %.val9.i.i.i, i64 noundef %.val10.i.i.i, ptr noalias noundef nonnull readonly align 1 %.val11.i.i.i, i64 noundef %.val12.i.i.i), !noalias !1135
+  br i1 %78, label %79, label %_ZN4core3cmp9PartialEq2ne17hf3e78d69a4afd692E.exit.thread
 
-87:                                               ; preds = %18
-  %88 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %89 = load i8, ptr %88, align 8, !alias.scope !1133, !noalias !1134, !noundef !7
-  %90 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %91 = load i8, ptr %90, align 8, !alias.scope !1134, !noalias !1133, !noundef !7
-  %92 = icmp eq i8 %89, %91
-  br i1 %92, label %93, label %_ZN4core3cmp9PartialEq2ne17hf3e78d69a4afd692E.exit.thread
+79:                                               ; preds = %73
+  %80 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %81 = load i32, ptr %80, align 8, !alias.scope !1133, !noalias !1134, !noundef !7
+  %82 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %83 = load i32, ptr %82, align 8, !alias.scope !1134, !noalias !1133, !noundef !7
+  %84 = icmp eq i32 %81, %83
+  br i1 %84, label %"_ZN101_$LT$ruff_python_parser..semantic_errors..SemanticSyntaxErrorKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h383a629dcb6fbf1bE.exit.thread3.i.i", label %_ZN4core3cmp9PartialEq2ne17hf3e78d69a4afd692E.exit.thread
 
-93:                                               ; preds = %87
-  %94 = getelementptr inbounds nuw i8, ptr %7, i64 9
-  %95 = load i8, ptr %94, align 1, !alias.scope !1133, !noalias !1134, !noundef !7
-  %96 = getelementptr inbounds nuw i8, ptr %8, i64 9
-  %97 = load i8, ptr %96, align 1, !alias.scope !1134, !noalias !1133, !noundef !7
-  %98 = icmp eq i8 %95, %97
-  br i1 %98, label %"_ZN101_$LT$ruff_python_parser..semantic_errors..SemanticSyntaxErrorKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h383a629dcb6fbf1bE.exit.thread3.i.i", label %_ZN4core3cmp9PartialEq2ne17hf3e78d69a4afd692E.exit.thread
+85:                                               ; preds = %18
+  %86 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %87 = load i8, ptr %86, align 8, !alias.scope !1133, !noalias !1134, !noundef !7
+  %88 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %89 = load i8, ptr %88, align 8, !alias.scope !1134, !noalias !1133, !noundef !7
+  %90 = icmp eq i8 %87, %89
+  br i1 %90, label %91, label %_ZN4core3cmp9PartialEq2ne17hf3e78d69a4afd692E.exit.thread
 
-99:                                               ; preds = %18
-  %100 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %101 = load i8, ptr %100, align 8, !range !6, !alias.scope !1133, !noalias !1134, !noundef !7
-  %102 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %103 = load i8, ptr %102, align 8, !range !6, !alias.scope !1134, !noalias !1133, !noundef !7
-  %104 = icmp eq i8 %101, %103
-  br i1 %104, label %"_ZN101_$LT$ruff_python_parser..semantic_errors..SemanticSyntaxErrorKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h383a629dcb6fbf1bE.exit.thread3.i.i", label %_ZN4core3cmp9PartialEq2ne17hf3e78d69a4afd692E.exit.thread
+91:                                               ; preds = %85
+  %92 = getelementptr inbounds nuw i8, ptr %7, i64 9
+  %93 = load i8, ptr %92, align 1, !alias.scope !1133, !noalias !1134, !noundef !7
+  %94 = getelementptr inbounds nuw i8, ptr %8, i64 9
+  %95 = load i8, ptr %94, align 1, !alias.scope !1134, !noalias !1133, !noundef !7
+  %96 = icmp eq i8 %93, %95
+  br i1 %96, label %"_ZN101_$LT$ruff_python_parser..semantic_errors..SemanticSyntaxErrorKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h383a629dcb6fbf1bE.exit.thread3.i.i", label %_ZN4core3cmp9PartialEq2ne17hf3e78d69a4afd692E.exit.thread
 
-105:                                              ; preds = %18
-  %106 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %107 = load i8, ptr %106, align 8, !range !139, !alias.scope !1133, !noalias !1134, !noundef !7
-  %108 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %109 = load i8, ptr %108, align 8, !range !139, !alias.scope !1134, !noalias !1133, !noundef !7
-  %110 = icmp eq i8 %107, %109
-  br i1 %110, label %"_ZN101_$LT$ruff_python_parser..semantic_errors..SemanticSyntaxErrorKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h383a629dcb6fbf1bE.exit.thread3.i.i", label %_ZN4core3cmp9PartialEq2ne17hf3e78d69a4afd692E.exit.thread
+97:                                               ; preds = %18
+  %98 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %99 = load i8, ptr %98, align 8, !range !6, !alias.scope !1133, !noalias !1134, !noundef !7
+  %100 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %101 = load i8, ptr %100, align 8, !range !6, !alias.scope !1134, !noalias !1133, !noundef !7
+  %102 = icmp eq i8 %99, %101
+  br i1 %102, label %"_ZN101_$LT$ruff_python_parser..semantic_errors..SemanticSyntaxErrorKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h383a629dcb6fbf1bE.exit.thread3.i.i", label %_ZN4core3cmp9PartialEq2ne17hf3e78d69a4afd692E.exit.thread
 
-111:                                              ; preds = %18
-  %112 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %.val13.i.i.i = load ptr, ptr %112, align 8, !alias.scope !1133, !noalias !1134, !nonnull !7, !noundef !7
-  %113 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %.val14.i.i.i = load i64, ptr %113, align 8, !alias.scope !1133, !noalias !1134, !noundef !7
-  %114 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %.val15.i.i.i = load ptr, ptr %114, align 8, !alias.scope !1134, !noalias !1133, !nonnull !7, !noundef !7
-  %115 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %.val16.i.i.i = load i64, ptr %115, align 8, !alias.scope !1134, !noalias !1133, !noundef !7
-  %116 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hef0b185e0d94a1c6E"(ptr noalias noundef nonnull readonly align 1 %.val13.i.i.i, i64 noundef %.val14.i.i.i, ptr noalias noundef nonnull readonly align 1 %.val15.i.i.i, i64 noundef %.val16.i.i.i), !noalias !1135
-  br i1 %116, label %"_ZN101_$LT$ruff_python_parser..semantic_errors..SemanticSyntaxErrorKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h383a629dcb6fbf1bE.exit.thread3.i.i", label %_ZN4core3cmp9PartialEq2ne17hf3e78d69a4afd692E.exit.thread
+103:                                              ; preds = %18
+  %104 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %105 = load i8, ptr %104, align 8, !range !139, !alias.scope !1133, !noalias !1134, !noundef !7
+  %106 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %107 = load i8, ptr %106, align 8, !range !139, !alias.scope !1134, !noalias !1133, !noundef !7
+  %108 = icmp eq i8 %105, %107
+  br i1 %108, label %"_ZN101_$LT$ruff_python_parser..semantic_errors..SemanticSyntaxErrorKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h383a629dcb6fbf1bE.exit.thread3.i.i", label %_ZN4core3cmp9PartialEq2ne17hf3e78d69a4afd692E.exit.thread
 
-"_ZN101_$LT$ruff_python_parser..semantic_errors..SemanticSyntaxErrorKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h383a629dcb6fbf1bE.exit.i.i": ; preds = %33
-  %117 = tail call noundef zeroext i1 @"_ZN76_$LT$compact_str..CompactString$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h271ba70efa51fb16E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %28)
+109:                                              ; preds = %18
+  %110 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %.val13.i.i.i = load ptr, ptr %110, align 8, !alias.scope !1133, !noalias !1134, !nonnull !7, !noundef !7
+  %111 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %.val14.i.i.i = load i64, ptr %111, align 8, !alias.scope !1133, !noalias !1134, !noundef !7
+  %112 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %.val15.i.i.i = load ptr, ptr %112, align 8, !alias.scope !1134, !noalias !1133, !nonnull !7, !noundef !7
+  %113 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %.val16.i.i.i = load i64, ptr %113, align 8, !alias.scope !1134, !noalias !1133, !noundef !7
+  %114 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hef0b185e0d94a1c6E"(ptr noalias noundef nonnull readonly align 1 %.val13.i.i.i, i64 noundef %.val14.i.i.i, ptr noalias noundef nonnull readonly align 1 %.val15.i.i.i, i64 noundef %.val16.i.i.i), !noalias !1135
+  br i1 %114, label %"_ZN101_$LT$ruff_python_parser..semantic_errors..SemanticSyntaxErrorKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h383a629dcb6fbf1bE.exit.thread3.i.i", label %_ZN4core3cmp9PartialEq2ne17hf3e78d69a4afd692E.exit.thread
+
+"_ZN101_$LT$ruff_python_parser..semantic_errors..SemanticSyntaxErrorKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h383a629dcb6fbf1bE.exit.i.i": ; preds = %18
+  %115 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %116 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %117 = tail call noundef zeroext i1 @"_ZN76_$LT$compact_str..CompactString$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h271ba70efa51fb16E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %115, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %116)
   br i1 %117, label %"_ZN101_$LT$ruff_python_parser..semantic_errors..SemanticSyntaxErrorKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h383a629dcb6fbf1bE.exit.thread3.i.i", label %_ZN4core3cmp9PartialEq2ne17hf3e78d69a4afd692E.exit.thread
 
-"_ZN101_$LT$ruff_python_parser..semantic_errors..SemanticSyntaxErrorKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h383a629dcb6fbf1bE.exit.thread3.i.i": ; preds = %"_ZN101_$LT$ruff_python_parser..semantic_errors..SemanticSyntaxErrorKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h383a629dcb6fbf1bE.exit.i.i", %111, %105, %99, %93, %81, %71, %65, %59, %47, %40, %33, %19, %18
+"_ZN101_$LT$ruff_python_parser..semantic_errors..SemanticSyntaxErrorKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h383a629dcb6fbf1bE.exit.thread3.i.i": ; preds = %"_ZN101_$LT$ruff_python_parser..semantic_errors..SemanticSyntaxErrorKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h383a629dcb6fbf1bE.exit.i.i", %109, %103, %97, %91, %79, %69, %63, %57, %45, %38, %30, %29, %18
   %118 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %119 = load i32, ptr %118, align 8, !alias.scope !1136, !noalias !1137, !noundef !7
   %120 = getelementptr inbounds nuw i8, ptr %8, i64 32
@@ -14042,7 +14042,7 @@ _ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread16: ; preds = %.lr.p
   br i1 %.not12, label %40, label %38
 
 _ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread: ; preds = %.preheader.i, %27, %_ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit._ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread.loopexit20_crit_edge
-  %37 = phi i64 [ %.pre46.pre, %_ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit._ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread.loopexit20_crit_edge ], [ %13, %27 ], [ %13, %.preheader.i ]
+  %37 = phi i64 [ %13, %27 ], [ %.pre46.pre, %_ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit._ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread.loopexit20_crit_edge ], [ %13, %.preheader.i ]
   store i64 %37, ptr %4, align 8
   br label %._crit_edge
 
@@ -15385,7 +15385,7 @@ define noundef zeroext i1 @_ZN18ty_python_semantic4lint13RuleSelection10is_enabl
   br label %15
 
 _ZN18ty_python_semantic4lint13RuleSelection8severity17hed2ceabb78a8521aE.exit: ; preds = %._crit_edge.i.i.i, %.lr.ph.i.i.i, %2
-  %.sroa.0.0.i = phi i1 [ false, %2 ], [ true, %.lr.ph.i.i.i ], [ false, %._crit_edge.i.i.i ]
+  %.sroa.0.0.i = phi i1 [ true, %.lr.ph.i.i.i ], [ false, %2 ], [ false, %._crit_edge.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.sroa.0.0.i
 }
@@ -23408,7 +23408,7 @@ default.unreachable1328:                          ; preds = %513
   invoke void @"_ZN4core3ptr80drop_in_place$LT$alloc..vec..Vec$LT$ruff_db..system..path..SystemPathBuf$GT$$GT$17hea42cc232bc1ed24E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %138) #29
           to label %.thread1086 unwind label %427
 
-.thread1086:                                      ; preds = %1025, %1175, %.thread1165, %850, %.thread1141, %832, %847, %422, %511, %944, %1023
+.thread1086:                                      ; preds = %1175, %1025, %.thread1165, %850, %.thread1141, %832, %847, %422, %511, %944, %1023
   %.pn9001089 = phi { ptr, i32 } [ %.pn, %850 ], [ %945, %944 ], [ %945, %1023 ], [ %423, %422 ], [ %512, %511 ], [ %840, %832 ], [ %.pn2.i, %847 ], [ %.pn8961171, %.thread1165 ], [ %942, %.thread1141 ], [ %lpad.thr_comm1158, %1175 ], [ %lpad.thr_comm.split-lp1159, %1025 ]
   invoke void @"_ZN4core3ptr84drop_in_place$LT$ty_python_semantic..module_resolver..typeshed..TypeshedVersions$GT$17h5fd1d53e0a462d6cE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %168) #29
           to label %.loopexit.split-lp1242 unwind label %427
@@ -23636,7 +23636,7 @@ default.unreachable1328:                          ; preds = %513
   br label %1259
 
 .invoke:                                          ; preds = %1190, %1220, %449, %481
-  %1258 = phi ptr [ @anon.19ec47a0cd6498475602c63e96b7a42a.257, %449 ], [ @anon.19ec47a0cd6498475602c63e96b7a42a.257, %481 ], [ @anon.19ec47a0cd6498475602c63e96b7a42a.287, %1220 ], [ @anon.19ec47a0cd6498475602c63e96b7a42a.287, %1190 ]
+  %1258 = phi ptr [ @anon.19ec47a0cd6498475602c63e96b7a42a.257, %481 ], [ @anon.19ec47a0cd6498475602c63e96b7a42a.257, %449 ], [ @anon.19ec47a0cd6498475602c63e96b7a42a.287, %1220 ], [ @anon.19ec47a0cd6498475602c63e96b7a42a.287, %1190 ]
   invoke void @_ZN4core6option13expect_failed17h8456634a3dada3e4E(ptr noalias noundef nonnull readonly align 1 @anon.19ec47a0cd6498475602c63e96b7a42a.251, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) %1258) #31
           to label %.cont1336 unwind label %.loopexit.split-lp1242.loopexit.split-lp
 
@@ -27402,8 +27402,8 @@ _ZN18ty_python_semantic15module_resolver8resolver17RelaxedModuleName15to_stub_pa
   br label %.invoke675.i.i
 
 .invoke675.i.i:                                   ; preds = %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hd1733f0c544cfd70E.exit.i.i.i.i.i", %542, %523, %504, %503, %468, %425, %406, %387, %386, %311
-  %.sroa.11.0.i = phi i8 [ %.sroa.5528.0.extract.trunc.le.i.i, %311 ], [ 2, %386 ], [ %.sroa.5533.0.extract.trunc.le.i.i, %468 ], [ 2, %425 ], [ 2, %406 ], [ 2, %387 ], [ 2, %542 ], [ 2, %523 ], [ 2, %504 ], [ 2, %503 ], [ 2, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hd1733f0c544cfd70E.exit.i.i.i.i.i" ]
-  %426 = phi ptr [ %314, %311 ], [ undef, %386 ], [ %470, %468 ], [ undef, %425 ], [ undef, %406 ], [ undef, %387 ], [ undef, %542 ], [ undef, %523 ], [ undef, %504 ], [ undef, %503 ], [ undef, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hd1733f0c544cfd70E.exit.i.i.i.i.i" ]
+  %.sroa.11.0.i = phi i8 [ %.sroa.5528.0.extract.trunc.le.i.i, %311 ], [ 2, %386 ], [ %.sroa.5533.0.extract.trunc.le.i.i, %468 ], [ 2, %503 ], [ 2, %425 ], [ 2, %406 ], [ 2, %387 ], [ 2, %542 ], [ 2, %523 ], [ 2, %504 ], [ 2, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hd1733f0c544cfd70E.exit.i.i.i.i.i" ]
+  %426 = phi ptr [ %314, %311 ], [ undef, %386 ], [ %470, %468 ], [ undef, %503 ], [ undef, %425 ], [ undef, %406 ], [ undef, %387 ], [ undef, %542 ], [ undef, %523 ], [ undef, %504 ], [ undef, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hd1733f0c544cfd70E.exit.i.i.i.i.i" ]
   invoke void @"_ZN4core3ptr85drop_in_place$LT$ty_python_semantic..module_resolver..resolver..RelaxedModuleName$GT$17h12c84c764a293aceE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %70)
           to label %286 unwind label %214, !noalias !2188
 
@@ -32788,7 +32788,7 @@ default.unreachable:                              ; preds = %25
   br label %"_ZN80_$LT$ty_python_semantic..unpack..UnpackKind$u20$as$u20$salsa..update..Update$GT$12maybe_update17hd3bcde7bb5f1a2ffE.exit.i"
 
 "_ZN80_$LT$ty_python_semantic..unpack..UnpackKind$u20$as$u20$salsa..update..Update$GT$12maybe_update17hd3bcde7bb5f1a2ffE.exit.i": ; preds = %.sink.split.i.i, %35, %33, %31
-  %.sroa.0.0.i.i = phi i1 [ false, %31 ], [ false, %33 ], [ false, %35 ], [ true, %.sink.split.i.i ]
+  %.sroa.0.0.i.i = phi i1 [ false, %35 ], [ false, %33 ], [ false, %31 ], [ true, %.sink.split.i.i ]
   %37 = invoke noundef zeroext i1 @"_ZN18ty_python_semantic14semantic_index10expression1_110_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..semantic_index..expression..Expression$GT$12maybe_update17h78b4a1909c00be54E"(ptr noundef nonnull %2, i32 noundef range(i32 1, 0) %26)
           to label %38 unwind label %48
 
@@ -33016,7 +33016,7 @@ default.unreachable:                              ; preds = %3
   br label %"_ZN80_$LT$ty_python_semantic..unpack..UnpackKind$u20$as$u20$salsa..update..Update$GT$12maybe_update17hd3bcde7bb5f1a2ffE.exit"
 
 "_ZN80_$LT$ty_python_semantic..unpack..UnpackKind$u20$as$u20$salsa..update..Update$GT$12maybe_update17hd3bcde7bb5f1a2ffE.exit": ; preds = %6, %8, %10, %.sink.split.i
-  %.sroa.0.0.i = phi i1 [ false, %6 ], [ false, %8 ], [ false, %10 ], [ true, %.sink.split.i ]
+  %.sroa.0.0.i = phi i1 [ false, %10 ], [ false, %8 ], [ false, %6 ], [ true, %.sink.split.i ]
   %12 = tail call noundef zeroext i1 @"_ZN18ty_python_semantic14semantic_index10expression1_110_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..semantic_index..expression..Expression$GT$12maybe_update17h78b4a1909c00be54E"(ptr noundef nonnull %0, i32 noundef %1)
   %13 = or i1 %.sroa.0.0.i, %12
   ret i1 %13
@@ -33051,7 +33051,7 @@ default.unreachable1:                             ; preds = %2
   br label %10
 
 10:                                               ; preds = %.sink.split, %8, %6, %4
-  %.sroa.0.0 = phi i1 [ false, %4 ], [ false, %6 ], [ false, %8 ], [ true, %.sink.split ]
+  %.sroa.0.0 = phi i1 [ false, %8 ], [ false, %6 ], [ false, %4 ], [ true, %.sink.split ]
   ret i1 %.sroa.0.0
 }
 

@@ -1993,7 +1993,7 @@ define hidden void @_ZN4cvc58internal6theory17assertToSubsolverERNS0_12SolverEng
   br label %_ZNKSt13unordered_setIN4cvc58internal12NodeTemplateILb1EEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EE4findERKS3_.exit38.thread, !llvm.loop !66
 
 _ZNKSt13unordered_setIN4cvc58internal12NodeTemplateILb1EEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EE4findERKS3_.exit38: ; preds = %79, %58, %69
-  %90 = phi ptr [ %71, %69 ], [ %56, %58 ], [ %71, %79 ]
+  %90 = phi ptr [ %56, %58 ], [ %71, %69 ], [ %71, %79 ]
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %92 = load i64, ptr %91, align 8
   %93 = and i64 %92, 1023
@@ -2563,7 +2563,7 @@ _ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_J
           to label %_ZNKSt13unordered_setIN4cvc58internal12NodeTemplateILb1EEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EE4findERKS3_.exit unwind label %113
 
 _ZNKSt13unordered_setIN4cvc58internal12NodeTemplateILb1EEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EE4findERKS3_.exit: ; preds = %62, %41, %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i, %98, %52
-  %.110 = phi i1 [ true, %52 ], [ %.09, %98 ], [ %.09, %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i ], [ true, %41 ], [ true, %62 ]
+  %.110 = phi i1 [ %.09, %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i ], [ true, %41 ], [ true, %52 ], [ %.09, %98 ], [ true, %62 ]
   %99 = load ptr, ptr %5, align 8, !tbaa !15
   %100 = load i64, ptr %99, align 8
   %101 = and i64 %100, 1152920405095219200

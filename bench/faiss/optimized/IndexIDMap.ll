@@ -1843,7 +1843,7 @@ _ZNSt10_HashtableIlSt4pairIKllESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4
   resume { ptr, i32 } %37
 
 _ZNSt13unordered_mapIllSt4hashIlESt8equal_toIlESaISt4pairIKllEEEixERS5_.exit: ; preds = %26, %21, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %22, %21 ], [ %36, %.loopexit.i.i ], [ %28, %26 ]
+  %.pn.i.i = phi ptr [ %36, %.loopexit.i.i ], [ %22, %21 ], [ %28, %26 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   store i64 %.010, ptr %.1.i.i, align 8, !tbaa !29
   %38 = add nuw i64 %.010, 1
@@ -1931,7 +1931,7 @@ define weak_odr void @_ZNK5faiss19IndexIDMap2TemplateINS_5IndexEE11reconstructEl
   unreachable
 
 .loopexit:                                        ; preds = %29, %12, %24
-  %.sroa.06.1.i.i.i = phi ptr [ %25, %24 ], [ %.sroa.06.0.i.i.i, %12 ], [ %31, %29 ]
+  %.sroa.06.1.i.i.i = phi ptr [ %.sroa.06.0.i.i.i, %12 ], [ %25, %24 ], [ %31, %29 ]
   %36 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 16
   %37 = load i64, ptr %36, align 8, !tbaa !29
   %38 = load ptr, ptr %6, align 8, !tbaa !21
@@ -2116,7 +2116,7 @@ _ZNSt10_HashtableIlSt4pairIKllESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4
   resume { ptr, i32 } %44
 
 _ZNSt13unordered_mapIllSt4hashIlESt8equal_toIlESaISt4pairIKllEEEixERS5_.exit: ; preds = %33, %28, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %29, %28 ], [ %43, %.loopexit.i.i ], [ %35, %33 ]
+  %.pn.i.i = phi ptr [ %43, %.loopexit.i.i ], [ %29, %28 ], [ %35, %33 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   store i64 %.010, ptr %.1.i.i, align 8, !tbaa !29
   %45 = add nuw i64 %.010, 1
@@ -2207,7 +2207,7 @@ _ZNSt10_HashtableIlSt4pairIKllESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4
   resume { ptr, i32 } %37
 
 _ZNSt13unordered_mapIllSt4hashIlESt8equal_toIlESaISt4pairIKllEEEixERS5_.exit: ; preds = %26, %21, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %22, %21 ], [ %36, %.loopexit.i.i ], [ %28, %26 ]
+  %.pn.i.i = phi ptr [ %36, %.loopexit.i.i ], [ %22, %21 ], [ %28, %26 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   store i64 %.010, ptr %.1.i.i, align 8, !tbaa !29
   %38 = add nuw i64 %.010, 1
@@ -2295,7 +2295,7 @@ define weak_odr void @_ZNK5faiss19IndexIDMap2TemplateINS_11IndexBinaryEE11recons
   unreachable
 
 .loopexit:                                        ; preds = %29, %12, %24
-  %.sroa.06.1.i.i.i = phi ptr [ %25, %24 ], [ %.sroa.06.0.i.i.i, %12 ], [ %31, %29 ]
+  %.sroa.06.1.i.i.i = phi ptr [ %.sroa.06.0.i.i.i, %12 ], [ %25, %24 ], [ %31, %29 ]
   %36 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 16
   %37 = load i64, ptr %36, align 8, !tbaa !29
   %38 = load ptr, ptr %6, align 8, !tbaa !21
@@ -2480,7 +2480,7 @@ _ZNSt10_HashtableIlSt4pairIKllESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4
   resume { ptr, i32 } %44
 
 _ZNSt13unordered_mapIllSt4hashIlESt8equal_toIlESaISt4pairIKllEEEixERS5_.exit: ; preds = %33, %28, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %29, %28 ], [ %43, %.loopexit.i.i ], [ %35, %33 ]
+  %.pn.i.i = phi ptr [ %43, %.loopexit.i.i ], [ %29, %28 ], [ %35, %33 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   store i64 %.010, ptr %.1.i.i, align 8, !tbaa !29
   %45 = add nuw i64 %.010, 1
@@ -3533,7 +3533,7 @@ _ZNSt10_HashtableIlSt4pairIKllESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4
   resume { ptr, i32 } %38
 
 _ZNSt13unordered_mapIllSt4hashIlESt8equal_toIlESaISt4pairIKllEEEixERS5_.exit: ; preds = %27, %22, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %23, %22 ], [ %37, %.loopexit.i.i ], [ %29, %27 ]
+  %.pn.i.i = phi ptr [ %37, %.loopexit.i.i ], [ %23, %22 ], [ %29, %27 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   store i64 %.06, ptr %.1.i.i, align 8, !tbaa !29
   %39 = add nuw i64 %.06, 1
@@ -4218,7 +4218,7 @@ _ZNSt10_HashtableIlSt4pairIKllESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4
   resume { ptr, i32 } %38
 
 _ZNSt13unordered_mapIllSt4hashIlESt8equal_toIlESaISt4pairIKllEEEixERS5_.exit: ; preds = %27, %22, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %23, %22 ], [ %37, %.loopexit.i.i ], [ %29, %27 ]
+  %.pn.i.i = phi ptr [ %37, %.loopexit.i.i ], [ %23, %22 ], [ %29, %27 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   store i64 %.06, ptr %.1.i.i, align 8, !tbaa !29
   %39 = add nuw i64 %.06, 1

@@ -4052,7 +4052,7 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit230:           ; preds = %_ZN10HandleArea15al
   unreachable
 
 567:                                              ; preds = %147, %131
-  %.0141 = phi i1 [ false, %131 ], [ %150, %147 ]
+  %.0141 = phi i1 [ %150, %147 ], [ false, %131 ]
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %18) #15
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %96) #15
   %568 = or i1 %134, %.0141

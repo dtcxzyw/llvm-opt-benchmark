@@ -3118,7 +3118,7 @@ _ZN6casadi6MatrixINS_6SXElemEED2Ev.exit467:       ; preds = %_ZNSt6vectorIN6casa
   br i1 %822, label %.loopexit527, label %819
 
 .loopexit527:                                     ; preds = %819, %.loopexit527.loopexit541, %.thread
-  %.pn77.pn = phi { ptr, i32 } [ %175, %.thread ], [ %812, %.loopexit527.loopexit541 ], [ %.pn77, %819 ]
+  %.pn77.pn = phi { ptr, i32 } [ %812, %.loopexit527.loopexit541 ], [ %175, %.thread ], [ %.pn77, %819 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @_ZN6casadi6MatrixINS_6SXElemEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %20) #26
   br label %.loopexit526
@@ -3282,7 +3282,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit479: ; preds = %.b
   br i1 %872, label %.loopexit524, label %869
 
 .loopexit524:                                     ; preds = %865, %869, %.thread521
-  %.pn95 = phi { ptr, i32 } [ %347, %.thread521 ], [ %eh.lpad-body506721, %869 ], [ %864, %865 ]
+  %.pn95 = phi { ptr, i32 } [ %eh.lpad-body506721, %869 ], [ %347, %.thread521 ], [ %864, %865 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
   br label %915
 

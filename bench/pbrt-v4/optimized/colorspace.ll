@@ -383,9 +383,9 @@ _ZNK4pbrt3XYZixEi.exit.us23.i.i:                  ; preds = %99, %98, %_ZN4pbrt3
   br i1 %exitcond.not.i.i, label %.split.i.i, label %_ZN4pbrt3XYZixEi.exit.split.us21.i.i, !llvm.loop !37
 
 .split.i.i:                                       ; preds = %_ZNK4pbrt3XYZixEi.exit.us23.i.i, %_ZNK4pbrt3XYZixEi.exit.us.i.i, %_ZNK4pbrt3XYZixEi.exit.i.i
-  %102 = phi float [ %81, %_ZNK4pbrt3XYZixEi.exit.us.i.i ], [ %112, %_ZNK4pbrt3XYZixEi.exit.i.i ], [ %81, %_ZNK4pbrt3XYZixEi.exit.us23.i.i ]
-  %103 = phi float [ %93, %_ZNK4pbrt3XYZixEi.exit.us.i.i ], [ %82, %_ZNK4pbrt3XYZixEi.exit.i.i ], [ %82, %_ZNK4pbrt3XYZixEi.exit.us23.i.i ]
-  %104 = phi float [ %83, %_ZNK4pbrt3XYZixEi.exit.us.i.i ], [ %83, %_ZNK4pbrt3XYZixEi.exit.i.i ], [ %101, %_ZNK4pbrt3XYZixEi.exit.us23.i.i ]
+  %102 = phi float [ %112, %_ZNK4pbrt3XYZixEi.exit.i.i ], [ %81, %_ZNK4pbrt3XYZixEi.exit.us.i.i ], [ %81, %_ZNK4pbrt3XYZixEi.exit.us23.i.i ]
+  %103 = phi float [ %82, %_ZNK4pbrt3XYZixEi.exit.i.i ], [ %93, %_ZNK4pbrt3XYZixEi.exit.us.i.i ], [ %82, %_ZNK4pbrt3XYZixEi.exit.us23.i.i ]
+  %104 = phi float [ %83, %_ZNK4pbrt3XYZixEi.exit.i.i ], [ %83, %_ZNK4pbrt3XYZixEi.exit.us.i.i ], [ %101, %_ZNK4pbrt3XYZixEi.exit.us23.i.i ]
   %indvars.iv.next43.i.i = add nuw nsw i64 %indvars.iv42.i.i, 1
   %exitcond45.not.i.i = icmp eq i64 %indvars.iv.next43.i.i, 3
   br i1 %exitcond45.not.i.i, label %113, label %80, !llvm.loop !38

@@ -6046,8 +6046,8 @@ _ZN4ncnn3MatD2Ev.exit321.us:                      ; preds = %162
   br i1 %128, label %_ZN4ncnn3MatD2Ev.exit.lr.ph.split.us923, label %._crit_edge.us
 
 ._crit_edge.us:                                   ; preds = %_ZN4ncnn3MatD2Ev.exit.us916, %_ZN4ncnn3MatD2Ev.exit.us873.us, %453, %.thread.us.thread, %.thread.us
-  %.3.lcssa.us = phi <8 x float> [ %.2864889.us, %.thread.us ], [ %.2864889.us, %.thread.us.thread ], [ %500, %_ZN4ncnn3MatD2Ev.exit.us873.us ], [ %476, %453 ], [ %269, %_ZN4ncnn3MatD2Ev.exit.us916 ]
-  %.2.lcssa.us = phi ptr [ %.1891.us, %.thread.us ], [ %.1891.us, %.thread.us.thread ], [ %501, %_ZN4ncnn3MatD2Ev.exit.us873.us ], [ %477, %453 ], [ %270, %_ZN4ncnn3MatD2Ev.exit.us916 ]
+  %.3.lcssa.us = phi <8 x float> [ %.2864889.us, %.thread.us ], [ %500, %_ZN4ncnn3MatD2Ev.exit.us873.us ], [ %.2864889.us, %.thread.us.thread ], [ %476, %453 ], [ %269, %_ZN4ncnn3MatD2Ev.exit.us916 ]
+  %.2.lcssa.us = phi ptr [ %.1891.us, %.thread.us ], [ %501, %_ZN4ncnn3MatD2Ev.exit.us873.us ], [ %.1891.us, %.thread.us.thread ], [ %477, %453 ], [ %270, %_ZN4ncnn3MatD2Ev.exit.us916 ]
   %indvars.iv.next949 = add nuw nsw i64 %indvars.iv948, 1
   %exitcond952.not = icmp eq i64 %indvars.iv.next949, %wide.trip.count951
   br i1 %exitcond952.not, label %._crit_edge892.us, label %141, !llvm.loop !158
@@ -7629,8 +7629,8 @@ _ZN4ncnn3MatD2Ev.exit281.us:                      ; preds = %162
   br i1 %128, label %_ZN4ncnn3MatD2Ev.exit.lr.ph.split.us784, label %._crit_edge.us
 
 ._crit_edge.us:                                   ; preds = %_ZN4ncnn3MatD2Ev.exit.us777, %_ZN4ncnn3MatD2Ev.exit.us738.us, %357, %.thread.us.thread, %.thread.us
-  %.3.lcssa.us = phi <8 x float> [ %.2729750.us, %.thread.us ], [ %.2729750.us, %.thread.us.thread ], [ %380, %_ZN4ncnn3MatD2Ev.exit.us738.us ], [ %368, %357 ], [ %257, %_ZN4ncnn3MatD2Ev.exit.us777 ]
-  %.2.lcssa.us = phi ptr [ %.1752.us, %.thread.us ], [ %.1752.us, %.thread.us.thread ], [ %381, %_ZN4ncnn3MatD2Ev.exit.us738.us ], [ %369, %357 ], [ %258, %_ZN4ncnn3MatD2Ev.exit.us777 ]
+  %.3.lcssa.us = phi <8 x float> [ %.2729750.us, %.thread.us ], [ %380, %_ZN4ncnn3MatD2Ev.exit.us738.us ], [ %.2729750.us, %.thread.us.thread ], [ %368, %357 ], [ %257, %_ZN4ncnn3MatD2Ev.exit.us777 ]
+  %.2.lcssa.us = phi ptr [ %.1752.us, %.thread.us ], [ %381, %_ZN4ncnn3MatD2Ev.exit.us738.us ], [ %.1752.us, %.thread.us.thread ], [ %369, %357 ], [ %258, %_ZN4ncnn3MatD2Ev.exit.us777 ]
   %indvars.iv.next810 = add nuw nsw i64 %indvars.iv809, 1
   %exitcond813.not = icmp eq i64 %indvars.iv.next810, %wide.trip.count812
   br i1 %exitcond813.not, label %._crit_edge753.us, label %141, !llvm.loop !194
@@ -9099,8 +9099,8 @@ _ZN4ncnn3MatD2Ev.exit301.us:                      ; preds = %162
   br i1 %128, label %_ZN4ncnn3MatD2Ev.exit.lr.ph.split.us874, label %._crit_edge.us
 
 ._crit_edge.us:                                   ; preds = %_ZN4ncnn3MatD2Ev.exit.us867, %_ZN4ncnn3MatD2Ev.exit.us824.us, %453, %.thread.us.thread, %.thread.us
-  %.3.lcssa.us = phi <4 x float> [ %.2815840.us, %.thread.us ], [ %.2815840.us, %.thread.us.thread ], [ %500, %_ZN4ncnn3MatD2Ev.exit.us824.us ], [ %476, %453 ], [ %269, %_ZN4ncnn3MatD2Ev.exit.us867 ]
-  %.2.lcssa.us = phi ptr [ %.1842.us, %.thread.us ], [ %.1842.us, %.thread.us.thread ], [ %501, %_ZN4ncnn3MatD2Ev.exit.us824.us ], [ %477, %453 ], [ %270, %_ZN4ncnn3MatD2Ev.exit.us867 ]
+  %.3.lcssa.us = phi <4 x float> [ %.2815840.us, %.thread.us ], [ %500, %_ZN4ncnn3MatD2Ev.exit.us824.us ], [ %.2815840.us, %.thread.us.thread ], [ %476, %453 ], [ %269, %_ZN4ncnn3MatD2Ev.exit.us867 ]
+  %.2.lcssa.us = phi ptr [ %.1842.us, %.thread.us ], [ %501, %_ZN4ncnn3MatD2Ev.exit.us824.us ], [ %.1842.us, %.thread.us.thread ], [ %477, %453 ], [ %270, %_ZN4ncnn3MatD2Ev.exit.us867 ]
   %indvars.iv.next900 = add nuw nsw i64 %indvars.iv899, 1
   %exitcond903.not = icmp eq i64 %indvars.iv.next900, %wide.trip.count902
   br i1 %exitcond903.not, label %._crit_edge843.us, label %141, !llvm.loop !223
@@ -10032,8 +10032,8 @@ _ZN4ncnn3MatD2Ev.exit261.us:                      ; preds = %162
   br i1 %128, label %_ZN4ncnn3MatD2Ev.exit.lr.ph.split.us735, label %._crit_edge.us
 
 ._crit_edge.us:                                   ; preds = %_ZN4ncnn3MatD2Ev.exit.us728, %_ZN4ncnn3MatD2Ev.exit.us689.us, %357, %.thread.us.thread, %.thread.us
-  %.3.lcssa.us = phi <4 x float> [ %.2680701.us, %.thread.us ], [ %.2680701.us, %.thread.us.thread ], [ %380, %_ZN4ncnn3MatD2Ev.exit.us689.us ], [ %368, %357 ], [ %257, %_ZN4ncnn3MatD2Ev.exit.us728 ]
-  %.2.lcssa.us = phi ptr [ %.1703.us, %.thread.us ], [ %.1703.us, %.thread.us.thread ], [ %381, %_ZN4ncnn3MatD2Ev.exit.us689.us ], [ %369, %357 ], [ %258, %_ZN4ncnn3MatD2Ev.exit.us728 ]
+  %.3.lcssa.us = phi <4 x float> [ %.2680701.us, %.thread.us ], [ %380, %_ZN4ncnn3MatD2Ev.exit.us689.us ], [ %.2680701.us, %.thread.us.thread ], [ %368, %357 ], [ %257, %_ZN4ncnn3MatD2Ev.exit.us728 ]
+  %.2.lcssa.us = phi ptr [ %.1703.us, %.thread.us ], [ %381, %_ZN4ncnn3MatD2Ev.exit.us689.us ], [ %.1703.us, %.thread.us.thread ], [ %369, %357 ], [ %258, %_ZN4ncnn3MatD2Ev.exit.us728 ]
   %indvars.iv.next761 = add nuw nsw i64 %indvars.iv760, 1
   %exitcond764.not = icmp eq i64 %indvars.iv.next761, %wide.trip.count763
   br i1 %exitcond764.not, label %._crit_edge704.us, label %141, !llvm.loop !241

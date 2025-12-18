@@ -1996,8 +1996,8 @@ _ZNSt10_HashtableIN4cvc516ProofRewriteRuleES1_SaIS1_ENSt8__detail9_IdentityESt8e
   resume { ptr, i32 } %47
 
 _ZNKSt10_HashtableIN4cvc516ProofRewriteRuleES1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ESt4hashIS1_ENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS1_EEPNS3_10_Hash_nodeIS1_Lb1EEEmRKT_m.exit: ; preds = %10, %32, %.critedge, %23
-  %.sroa.031.1 = phi ptr [ %24, %23 ], [ %46, %.critedge ], [ %38, %32 ], [ %.sroa.028.0, %10 ]
-  %.sroa.432.1 = phi i8 [ 0, %23 ], [ 1, %.critedge ], [ 0, %32 ], [ 0, %10 ]
+  %.sroa.031.1 = phi ptr [ %46, %.critedge ], [ %38, %32 ], [ %24, %23 ], [ %.sroa.028.0, %10 ]
+  %.sroa.432.1 = phi i8 [ 1, %.critedge ], [ 0, %32 ], [ 0, %23 ], [ 0, %10 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.031.1, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.432.1, 1
   ret { ptr, i8 } %.fca.1.insert

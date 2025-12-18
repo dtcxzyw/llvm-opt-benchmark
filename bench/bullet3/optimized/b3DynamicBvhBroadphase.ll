@@ -310,7 +310,7 @@ _ZN20b3AlignedObjectArrayI11b3DbvtProxyE10deallocateEv.exit.i.i: ; preds = %61, 
   br i1 %70, label %.loopexit33, label %69
 
 .loopexit33:                                      ; preds = %.preheader, %69, %38
-  %.pn.pn.pn = phi { ptr, i32 } [ %39, %38 ], [ %.pn, %69 ], [ %39, %.preheader ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn, %69 ], [ %39, %38 ], [ %39, %.preheader ]
   resume { ptr, i32 } %.pn.pn.pn
 }
 

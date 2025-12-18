@@ -2877,7 +2877,7 @@ _ZL10_Py_DECREFP7_object.exit.sink.split:         ; preds = %.thread131, %15, %1
   br label %_ZL10_Py_DECREFP7_object.exit
 
 _ZL10_Py_DECREFP7_object.exit:                    ; preds = %_ZL10_Py_DECREFP7_object.exit.sink.split, %.thread131, %15, %10, %.thread133, %3
-  %.0 = phi ptr [ null, %3 ], [ %14, %.thread133 ], [ null, %10 ], [ null, %15 ], [ null, %.thread131 ], [ null, %_ZL10_Py_DECREFP7_object.exit.sink.split ]
+  %.0 = phi ptr [ null, %3 ], [ %14, %.thread133 ], [ null, %.thread131 ], [ null, %15 ], [ null, %10 ], [ null, %_ZL10_Py_DECREFP7_object.exit.sink.split ]
   ret ptr %.0
 }
 
@@ -3762,7 +3762,7 @@ _Z14nb_try_inc_refP7_object.exit37:               ; preds = %66, %65
   br label %"_ZZN8nanobind6detail11nb_type_putEPKSt9type_infoPvNS_9rv_policyEPNS0_12cleanup_listEPbENK3$_0clEv.exit43"
 
 "_ZZN8nanobind6detail11nb_type_putEPKSt9type_infoPvNS_9rv_policyEPNS0_12cleanup_listEPbENK3$_0clEv.exit43": ; preds = %.noexc, %_Z14nb_try_inc_refP7_object.exit37.thread, %_Z14nb_try_inc_refP7_object.exit.thread, %70, %.thread.i41, %.noexc42, %6
-  %.030 = phi ptr [ @_Py_NoneStruct, %6 ], [ %74, %.thread.i41 ], [ null, %.noexc42 ], [ %.sroa.0.1, %_Z14nb_try_inc_refP7_object.exit37.thread ], [ null, %70 ], [ %.sroa.0.1, %_Z14nb_try_inc_refP7_object.exit.thread ], [ null, %.noexc ]
+  %.030 = phi ptr [ @_Py_NoneStruct, %6 ], [ %74, %.thread.i41 ], [ null, %.noexc42 ], [ %.sroa.0.1, %_Z14nb_try_inc_refP7_object.exit37.thread ], [ %.sroa.0.1, %_Z14nb_try_inc_refP7_object.exit.thread ], [ null, %70 ], [ null, %.noexc ]
   ret ptr %.030
 
 .loopexit:                                        ; preds = %.thread.i, %60
@@ -4278,7 +4278,7 @@ _Z14nb_try_inc_refP7_object.exit48:               ; preds = %95, %94, %89
   br label %"_ZZN8nanobind6detail13nb_type_put_pEPKSt9type_infoS3_PvNS_9rv_policyEPNS0_12cleanup_listEPbENK3$_0clEv.exit57"
 
 "_ZZN8nanobind6detail13nb_type_put_pEPKSt9type_infoS3_PvNS_9rv_policyEPNS0_12cleanup_listEPbENK3$_0clEv.exit57": ; preds = %.noexc, %.noexc.us, %_Z14nb_try_inc_refP7_object.exit48.thread, %_Z14nb_try_inc_refP7_object.exit.thread, %99, %.loopexit144, %.noexc55, %7
-  %.035 = phi ptr [ @_Py_NoneStruct, %7 ], [ %107, %.loopexit144 ], [ null, %.noexc55 ], [ %.us-phi154, %_Z14nb_try_inc_refP7_object.exit48.thread ], [ null, %99 ], [ %.us-phi, %_Z14nb_try_inc_refP7_object.exit.thread ], [ null, %.noexc.us ], [ null, %.noexc ]
+  %.035 = phi ptr [ @_Py_NoneStruct, %7 ], [ %107, %.loopexit144 ], [ null, %.noexc55 ], [ %.us-phi154, %_Z14nb_try_inc_refP7_object.exit48.thread ], [ %.us-phi, %_Z14nb_try_inc_refP7_object.exit.thread ], [ null, %99 ], [ null, %.noexc.us ], [ null, %.noexc ]
   ret ptr %.035
 
 .loopexit.split:                                  ; preds = %84, %90, %80, %82

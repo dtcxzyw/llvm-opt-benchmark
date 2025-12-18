@@ -567,7 +567,7 @@ define i32 @agcountuniqedges(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32
   br i1 %.not20, label %.loopexit, label %.lr.ph, !llvm.loop !63
 
 .loopexit:                                        ; preds = %.lr.ph, %22, %.thread, %14, %6
-  %.1 = phi i32 [ %20, %14 ], [ 0, %6 ], [ %12, %.thread ], [ %12, %22 ], [ %spec.select, %.lr.ph ]
+  %.1 = phi i32 [ %12, %.thread ], [ %20, %14 ], [ 0, %6 ], [ %12, %22 ], [ %spec.select, %.lr.ph ]
   ret i32 %.1
 }
 

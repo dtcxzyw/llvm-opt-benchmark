@@ -1119,7 +1119,7 @@ define dso_local i32 @fib6_add(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   store volatile ptr %141, ptr %153, align 8
   br label %.thread56
 
-154:                                              ; preds = %87, %._crit_edge
+154:                                              ; preds = %._crit_edge, %87
   %155 = load ptr, ptr %.lcssa138, align 8
   br label %157
 
@@ -2198,7 +2198,7 @@ define dso_local i32 @fib6_add(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   br label %.thread96
 
 .thread76:                                        ; preds = %328, %620, %612, %547, %.loopexit101, %378, %392, %403, %409
-  %.ph90 = phi i32 [ -17, %409 ], [ -17, %403 ], [ -17, %392 ], [ -17, %378 ], [ %545, %547 ], [ %545, %.loopexit101 ], [ %628, %620 ], [ -2, %612 ], [ -17, %328 ]
+  %.ph90 = phi i32 [ -17, %409 ], [ -17, %403 ], [ -17, %392 ], [ -17, %378 ], [ %545, %547 ], [ -2, %612 ], [ %545, %.loopexit101 ], [ %628, %620 ], [ -17, %328 ]
   %796 = icmp eq ptr %268, null
   br i1 %796, label %.thread96, label %797
 
@@ -3522,7 +3522,7 @@ define internal i32 @inet6_dump_fib(ptr noundef %0, ptr noundef %1) #0 align 16 
   br label %114
 
 114:                                              ; preds = %111, %74
-  %115 = phi i32 [ %76, %74 ], [ %113, %111 ]
+  %115 = phi i32 [ %113, %111 ], [ %76, %74 ]
   %116 = icmp slt i32 %115, 0
   br i1 %116, label %.thread12, label %.thread
 

@@ -390,7 +390,7 @@ sdslen.exit49:                                    ; preds = %sdslen.exit47, %88,
   br label %.thread55
 
 .thread55:                                        ; preds = %.loopexit, %3, %44, %.thread52
-  %108 = phi i32 [ 0, %44 ], [ %107, %.thread52 ], [ 1, %3 ], [ 1, %.loopexit ]
+  %108 = phi i32 [ %107, %.thread52 ], [ 0, %44 ], [ 1, %3 ], [ 1, %.loopexit ]
   ret i32 %108
 }
 
@@ -1727,7 +1727,7 @@ define dso_local ptr @trackingBuildBroadcastReply(ptr noundef readnone captures(
   br i1 %.not28.us, label %.split.us, label %.split35.us, !llvm.loop !113
 
 .split.us:                                        ; preds = %43, %.split35.us, %.split36
-  %.us-phi = phi ptr [ %25, %.split36 ], [ %55, %.split35.us ], [ %.0.ph.us, %43 ]
+  %.us-phi = phi ptr [ %55, %.split35.us ], [ %25, %.split36 ], [ %.0.ph.us, %43 ]
   call void @raxStop(ptr noundef nonnull %3) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %57

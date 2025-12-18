@@ -1029,7 +1029,7 @@ _ZN5salsa5zalsa5Zalsa17lookup_ingredient17hf45899e34c1ffe83E.exit.i.i: ; preds =
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #17
   unreachable
 
-"_ZN5salsa8function19maybe_changed_after58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$27validate_may_be_provisional17h73ca520ac151c7b0E.exit.thread9": ; preds = %.split.split.i.i.i.i, %.split.us.i.i.i.i, %.split.split.us.i.i.i.i
+"_ZN5salsa8function19maybe_changed_after58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$27validate_may_be_provisional17h73ca520ac151c7b0E.exit.thread9": ; preds = %.split.split.i.i.i.i, %.split.split.us.i.i.i.i, %.split.us.i.i.i.i
   call void @"_ZN4core3ptr75drop_in_place$LT$core..cell..Ref$LT$salsa..active_query..QueryStack$GT$$GT$17had207c0b18ed71d0E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !20
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
@@ -2100,7 +2100,7 @@ _ZN5salsa5zalsa5Zalsa17lookup_ingredient17hf45899e34c1ffe83E.exit.i.i: ; preds =
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #17
   unreachable
 
-"_ZN5salsa8function19maybe_changed_after58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$27validate_may_be_provisional17h11c3f6aad50ea1feE.exit.thread9": ; preds = %.split.split.i.i.i.i, %.split.us.i.i.i.i, %.split.split.us.i.i.i.i
+"_ZN5salsa8function19maybe_changed_after58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$27validate_may_be_provisional17h11c3f6aad50ea1feE.exit.thread9": ; preds = %.split.split.i.i.i.i, %.split.split.us.i.i.i.i, %.split.us.i.i.i.i
   call void @"_ZN4core3ptr75drop_in_place$LT$core..cell..Ref$LT$salsa..active_query..QueryStack$GT$$GT$17had207c0b18ed71d0E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !69
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
@@ -3171,7 +3171,7 @@ _ZN5salsa5zalsa5Zalsa17lookup_ingredient17hf45899e34c1ffe83E.exit.i.i: ; preds =
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #17
   unreachable
 
-"_ZN5salsa8function19maybe_changed_after58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$27validate_may_be_provisional17h6953ec81f211c460E.exit.thread9": ; preds = %.split.split.i.i.i.i, %.split.us.i.i.i.i, %.split.split.us.i.i.i.i
+"_ZN5salsa8function19maybe_changed_after58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$27validate_may_be_provisional17h6953ec81f211c460E.exit.thread9": ; preds = %.split.split.i.i.i.i, %.split.split.us.i.i.i.i, %.split.us.i.i.i.i
   call void @"_ZN4core3ptr75drop_in_place$LT$core..cell..Ref$LT$salsa..active_query..QueryStack$GT$$GT$17had207c0b18ed71d0E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !114
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
@@ -15394,7 +15394,7 @@ _ZN5salsa5zalsa5Zalsa28unwind_if_revision_cancelled17haa0efb5c5af470c5E.exit.i: 
   br label %68
 
 "_ZN5salsa8function19maybe_changed_after58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$19maybe_changed_after17h022982b86325109aE.exit": ; preds = %122, %155, %172, %177
-  %.sroa.0.1.i = phi i8 [ 2, %172 ], [ %180, %177 ], [ %157, %155 ], [ 2, %122 ]
+  %.sroa.0.1.i = phi i8 [ %180, %177 ], [ 2, %172 ], [ %157, %155 ], [ 2, %122 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %25), !noalias !726
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
@@ -15791,7 +15791,7 @@ _ZN5salsa5zalsa5Zalsa28unwind_if_revision_cancelled17haa0efb5c5af470c5E.exit.i: 
   br label %68
 
 "_ZN5salsa8function19maybe_changed_after58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$19maybe_changed_after17h6d255478d11dac4aE.exit": ; preds = %122, %155, %172, %177
-  %.sroa.0.1.i = phi i8 [ 2, %172 ], [ %180, %177 ], [ %157, %155 ], [ 2, %122 ]
+  %.sroa.0.1.i = phi i8 [ %180, %177 ], [ 2, %172 ], [ %157, %155 ], [ 2, %122 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %25), !noalias !744
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
@@ -16188,7 +16188,7 @@ _ZN5salsa5zalsa5Zalsa28unwind_if_revision_cancelled17haa0efb5c5af470c5E.exit.i: 
   br label %68
 
 "_ZN5salsa8function19maybe_changed_after58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$19maybe_changed_after17hcff4a0a6a42890f2E.exit": ; preds = %122, %155, %172, %177
-  %.sroa.0.1.i = phi i8 [ 2, %172 ], [ %180, %177 ], [ %157, %155 ], [ 2, %122 ]
+  %.sroa.0.1.i = phi i8 [ %180, %177 ], [ 2, %172 ], [ %157, %155 ], [ 2, %122 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %25), !noalias !762
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %26)

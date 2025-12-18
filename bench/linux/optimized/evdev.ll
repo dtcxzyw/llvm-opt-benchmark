@@ -790,7 +790,7 @@ define internal i64 @evdev_read(ptr noundef readonly captures(none) %0, ptr noun
   br label %.thread8.thread
 
 .thread8.thread:                                  ; preds = %90, %.critedge.backedge, %44, %.loopexit, %.thread8thread-pre-split, %87, %58, %25, %117, %113, %21, %12
-  %119 = phi i64 [ %114, %113 ], [ -22, %12 ], [ %118, %117 ], [ -19, %21 ], [ -19, %25 ], [ -14, %58 ], [ -19, %90 ], [ -19, %.thread8thread-pre-split ], [ %77, %.loopexit ], [ 0, %44 ], [ -19, %.critedge.backedge ], [ -19, %87 ]
+  %119 = phi i64 [ %114, %113 ], [ -22, %12 ], [ %118, %117 ], [ -19, %21 ], [ -14, %58 ], [ -19, %25 ], [ -19, %87 ], [ %77, %.loopexit ], [ 0, %44 ], [ -19, %.critedge.backedge ], [ -19, %.thread8thread-pre-split ], [ -19, %90 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %119
 }
@@ -1042,7 +1042,7 @@ define internal i32 @evdev_open(ptr noundef %0, ptr noundef %1) #2 align 16 {
   br label %53
 
 53:                                               ; preds = %38, %50
-  %54 = phi i32 [ %48, %50 ], [ -19, %38 ]
+  %54 = phi i32 [ -19, %38 ], [ %48, %50 ]
   tail call void @mutex_unlock(ptr noundef %35) #14
   br label %.thread
 
@@ -1556,9 +1556,9 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @evdev_ioctl_handl
   br i1 %222, label %209, label %.loopexit
 
 .loopexit26:                                      ; preds = %209, %.thread, %201, %183, %167
-  %223 = phi i64 [ 0, %.thread ], [ %175, %201 ], [ 0, %183 ], [ %175, %167 ], [ %175, %209 ]
-  %224 = phi i64 [ %166, %.thread ], [ %174, %201 ], [ %174, %183 ], [ %174, %167 ], [ %174, %209 ]
-  %225 = phi i64 [ 0, %.thread ], [ %173, %201 ], [ %173, %183 ], [ %173, %167 ], [ %173, %209 ]
+  %223 = phi i64 [ 0, %.thread ], [ %175, %167 ], [ %175, %201 ], [ 0, %183 ], [ %175, %209 ]
+  %224 = phi i64 [ %166, %.thread ], [ %174, %167 ], [ %174, %201 ], [ %174, %183 ], [ %174, %209 ]
+  %225 = phi i64 [ 0, %.thread ], [ %173, %167 ], [ %173, %201 ], [ %173, %183 ], [ %173, %209 ]
   %226 = icmp samesign ult i64 %225, %224
   br i1 %226, label %227, label %243
 

@@ -486,7 +486,7 @@ define internal fastcc noundef zeroext i1 @io_wq_activate_free_worker(ptr nounde
   br i1 %60, label %.preheader11, label %.thread10, !llvm.loop !24
 
 .thread10:                                        ; preds = %.thread8, %52, %54, %55, %2
-  %61 = phi i1 [ true, %55 ], [ false, %2 ], [ true, %54 ], [ true, %52 ], [ false, %.thread8 ]
+  %61 = phi i1 [ true, %55 ], [ true, %52 ], [ false, %2 ], [ true, %54 ], [ false, %.thread8 ]
   ret i1 %61
 }
 

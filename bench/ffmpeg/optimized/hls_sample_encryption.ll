@@ -656,7 +656,7 @@ decrypt_sync_frame.exit.i:                        ; preds = %214
   br i1 %225, label %.lr.ph.split.split.i, label %decrypt_video_frame.exit, !llvm.loop !57
 
 decrypt_video_frame.exit:                         ; preds = %222, %214, %190, %180, %.thread.i.i, %30, %get_next_ac3_eac3_sync_frame.exit.i.thread.i, %get_next_ac3_eac3_sync_frame.exit.i.thread52.i, %get_next_adts_frame.exit.i.us.thread.i, %.lr.ph.i14, %147, %._crit_edge.i, %decrypt_nal_unit.exit.i, %3
-  %.0 = phi i32 [ -1094995529, %3 ], [ 0, %._crit_edge.i ], [ %83, %decrypt_nal_unit.exit.i ], [ 0, %147 ], [ -1094995529, %.lr.ph.i14 ], [ %.0.i.i.us.ph.i, %get_next_adts_frame.exit.i.us.thread.i ], [ -1, %get_next_ac3_eac3_sync_frame.exit.i.thread.i ], [ %206, %get_next_ac3_eac3_sync_frame.exit.i.thread52.i ], [ -1, %.thread.i.i ], [ %182, %180 ], [ -1, %30 ], [ 0, %190 ], [ 0, %222 ], [ %216, %214 ]
+  %.0 = phi i32 [ -1094995529, %3 ], [ %206, %get_next_ac3_eac3_sync_frame.exit.i.thread52.i ], [ 0, %._crit_edge.i ], [ %83, %decrypt_nal_unit.exit.i ], [ -1, %.thread.i.i ], [ 0, %147 ], [ %182, %180 ], [ -1094995529, %.lr.ph.i14 ], [ %.0.i.i.us.ph.i, %get_next_adts_frame.exit.i.us.thread.i ], [ -1, %get_next_ac3_eac3_sync_frame.exit.i.thread.i ], [ -1, %30 ], [ 0, %190 ], [ 0, %222 ], [ %216, %214 ]
   ret i32 %.0
 }
 

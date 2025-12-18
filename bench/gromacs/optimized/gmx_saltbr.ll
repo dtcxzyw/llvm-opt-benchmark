@@ -317,8 +317,8 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %_ZNSt10filesystem7_
   br i1 %exitcond.not.i, label %.loopexit311, label %.lr.ph43.i, !llvm.loop !55
 
 .loopexit311:                                     ; preds = %.lr.ph43.i, %._crit_edge.i, %_ZNSt10filesystem7__cxx114pathD2Ev.exit
-  %.0 = phi i32 [ %.129.i, %._crit_edge.i ], [ 0, %_ZNSt10filesystem7__cxx114pathD2Ev.exit ], [ %.129.i, %.lr.ph43.i ]
-  %.035.lcssa53.i = phi ptr [ %.136.i, %._crit_edge.i ], [ null, %_ZNSt10filesystem7__cxx114pathD2Ev.exit ], [ %.136.i, %.lr.ph43.i ]
+  %.0 = phi i32 [ 0, %_ZNSt10filesystem7__cxx114pathD2Ev.exit ], [ %.129.i, %._crit_edge.i ], [ %.129.i, %.lr.ph43.i ]
+  %.035.lcssa53.i = phi ptr [ null, %_ZNSt10filesystem7__cxx114pathD2Ev.exit ], [ %.136.i, %._crit_edge.i ], [ %.136.i, %.lr.ph43.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %107 = sext i32 %.0 to i64
   %108 = invoke noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21, i32 noundef 170, i64 noundef range(i64 -2147483648, 2147483648) %107, i64 noundef 8)

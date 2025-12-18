@@ -5298,7 +5298,7 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i176, %217
   br label %.thread
 
 .thread:                                          ; preds = %Abc_Clock.exit170, %Abc_Clock.exit172, %227, %229
-  %.7.ph = phi i32 [ 0, %227 ], [ 0, %229 ], [ %.3130215, %Abc_Clock.exit172 ], [ %.3130215, %Abc_Clock.exit170 ]
+  %.7.ph = phi i32 [ 0, %229 ], [ 0, %227 ], [ %.3130215, %Abc_Clock.exit172 ], [ %.3130215, %Abc_Clock.exit170 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %.val.pre = load i32, ptr %20, align 8, !tbaa !34
   %.val148.pre = load ptr, ptr %21, align 8, !tbaa !36
@@ -5351,10 +5351,10 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i176, %217
   br i1 %246, label %._crit_edge239, label %.loopexit203
 
 .loopexit203:                                     ; preds = %._crit_edge230, %.preheader202, %45, %._crit_edge
-  %247 = phi i32 [ %245, %._crit_edge ], [ %.pre267, %45 ], [ %.pre267, %.preheader202 ], [ %58, %._crit_edge230 ]
-  %.1134.ph = phi i32 [ %64, %._crit_edge ], [ %.0133235, %45 ], [ %.0133235, %.preheader202 ], [ %.0133235, %._crit_edge230 ]
-  %.2129.ph = phi i32 [ %.4131, %._crit_edge ], [ %.0127236, %45 ], [ %.0127236, %.preheader202 ], [ %.0127236, %._crit_edge230 ]
-  %.4.ph = phi i32 [ %.5.lcssa, %._crit_edge ], [ %.0122237, %45 ], [ 0, %.preheader202 ], [ %59, %._crit_edge230 ]
+  %247 = phi i32 [ %.pre267, %45 ], [ %245, %._crit_edge ], [ %.pre267, %.preheader202 ], [ %58, %._crit_edge230 ]
+  %.1134.ph = phi i32 [ %.0133235, %45 ], [ %64, %._crit_edge ], [ %.0133235, %.preheader202 ], [ %.0133235, %._crit_edge230 ]
+  %.2129.ph = phi i32 [ %.0127236, %45 ], [ %.4131, %._crit_edge ], [ %.0127236, %.preheader202 ], [ %.0127236, %._crit_edge230 ]
+  %.4.ph = phi i32 [ %.0122237, %45 ], [ %.5.lcssa, %._crit_edge ], [ 0, %.preheader202 ], [ %59, %._crit_edge230 ]
   %248 = add nsw i32 %247, %.0238
   %249 = load i32, ptr %23, align 4, !tbaa !125
   %.not = icmp eq i32 %249, 0

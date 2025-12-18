@@ -2433,7 +2433,7 @@ _ZN5folly8settings6detail14getSavedValuesEv.exit: ; preds = %19, %22, %24
   br label %_ZNSt13unordered_mapImSt4pairImS_IlN5folly8settings6detail10BoxedValueESt4hashIlESt8equal_toIlESaIS0_IKlS4_EEEES5_ImES7_ImESaIS0_IKmSD_EEE5eraseERSG_.exit, !llvm.loop !147
 
 _ZNSt13unordered_mapImSt4pairImS_IlN5folly8settings6detail10BoxedValueESt4hashIlESt8equal_toIlESaIS0_IKlS4_EEEES5_ImES7_ImESaIS0_IKmSD_EEE4findERSG_.exit: ; preds = %43, %28, %38
-  %.sroa.06.1.i.i = phi ptr [ %39, %38 ], [ %.sroa.06.0.i.i, %28 ], [ %45, %43 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %28 ], [ %39, %38 ], [ %45, %43 ]
   %50 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %51 = load i64, ptr %50, align 8, !tbaa !148
   %52 = add i64 %51, -1
@@ -6936,12 +6936,12 @@ _ZN5folly8settings6detail14getSavedValuesEv.exit9: ; preds = %_ZNSt13unordered_m
   br label %.loopexit, !llvm.loop !261
 
 .thread:                                          ; preds = %82, %65, %77
-  %.sroa.06.1.i.i17 = phi ptr [ %78, %77 ], [ %.sroa.06.0.i.i19, %65 ], [ %84, %82 ]
+  %.sroa.06.1.i.i17 = phi ptr [ %.sroa.06.0.i.i19, %65 ], [ %78, %77 ], [ %84, %82 ]
   %89 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i17, i64 16
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i12, %64, %_ZN5folly8settings6detail14getSavedValuesEv.exit9, %..loopexit_crit_edge21.i.i.i.i16, %69, %.thread
-  %.1 = phi ptr [ %89, %.thread ], [ null, %69 ], [ null, %..loopexit_crit_edge21.i.i.i.i16 ], [ null, %_ZN5folly8settings6detail14getSavedValuesEv.exit9 ], [ null, %64 ], [ null, %.lr.ph.i.i.i.i12 ]
+  %.1 = phi ptr [ %89, %.thread ], [ null, %64 ], [ null, %69 ], [ null, %_ZN5folly8settings6detail14getSavedValuesEv.exit9 ], [ null, %..loopexit_crit_edge21.i.i.i.i16 ], [ null, %.lr.ph.i.i.i.i12 ]
   %90 = load i16, ptr %13, align 8, !tbaa !56
   %.not.i21 = icmp eq i16 %90, 0
   br i1 %.not.i21, label %_ZNSt11shared_lockIN5folly15SharedMutexImplILb0EvSt6atomicNS0_24SharedMutexPolicyDefaultEEEED2Ev.exit, label %91
@@ -7290,7 +7290,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableImSt4pairIKmS0_ImSt13unordered
   resume { ptr, i32 } %53
 
 _ZNKSt10_HashtableImSt4pairIKmS0_ImSt13unordered_mapIlN5folly8settings6detail10BoxedValueESt4hashIlESt8equal_toIlESaIS0_IKlS6_EEEEESaISG_ENSt8__detail10_Select1stES9_ImES7_ImENSI_18_Mod_range_hashingENSI_20_Default_ranged_hashENSI_20_Prime_rehash_policyENSI_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS1_m.exit: ; preds = %43, %30, %38
-  %.sroa.038.0.ph = phi ptr [ %39, %38 ], [ %.sroa.034.0, %30 ], [ %45, %43 ]
+  %.sroa.038.0.ph = phi ptr [ %.sroa.034.0, %30 ], [ %39, %38 ], [ %45, %43 ]
   tail call void @_ZNSt10_HashtableIlSt4pairIKlN5folly8settings6detail10BoxedValueEESaIS6_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %13) #17
   tail call void @_ZdlPvm(ptr noundef nonnull %7, i64 noundef 80) #30
   br label %_ZNSt10_HashtableImSt4pairIKmS0_ImSt13unordered_mapIlN5folly8settings6detail10BoxedValueESt4hashIlESt8equal_toIlESaIS0_IKlS6_EEEEESaISG_ENSt8__detail10_Select1stES9_ImES7_ImENSI_18_Mod_range_hashingENSI_20_Default_ranged_hashENSI_20_Prime_rehash_policyENSI_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
@@ -7771,7 +7771,7 @@ _ZNSt10_HashtableImSt4pairIKmS0_ImSt13unordered_mapIlN5folly8settings6detail10Bo
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph.i, %.lr.ph, %..loopexit_crit_edge21.i, %21, %5, %_ZNSt10_HashtableImSt4pairIKmS0_ImSt13unordered_mapIlN5folly8settings6detail10BoxedValueESt4hashIlESt8equal_toIlESaIS0_IKlS6_EEEEESaISG_ENSt8__detail10_Select1stES9_ImES7_ImENSI_18_Mod_range_hashingENSI_20_Default_ranged_hashENSI_20_Prime_rehash_policyENSI_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNSI_15_Hash_node_baseEPNSI_10_Hash_nodeISG_Lb0EEE.exit
-  %.0 = phi i64 [ 1, %_ZNSt10_HashtableImSt4pairIKmS0_ImSt13unordered_mapIlN5folly8settings6detail10BoxedValueESt4hashIlESt8equal_toIlESaIS0_IKlS6_EEEEESaISG_ENSt8__detail10_Select1stES9_ImES7_ImENSI_18_Mod_range_hashingENSI_20_Default_ranged_hashENSI_20_Prime_rehash_policyENSI_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNSI_15_Hash_node_baseEPNSI_10_Hash_nodeISG_Lb0EEE.exit ], [ 0, %5 ], [ 0, %21 ], [ 0, %..loopexit_crit_edge21.i ], [ 0, %.lr.ph ], [ 0, %.lr.ph.i ]
+  %.0 = phi i64 [ 1, %_ZNSt10_HashtableImSt4pairIKmS0_ImSt13unordered_mapIlN5folly8settings6detail10BoxedValueESt4hashIlESt8equal_toIlESaIS0_IKlS6_EEEEESaISG_ENSt8__detail10_Select1stES9_ImES7_ImENSI_18_Mod_range_hashingENSI_20_Default_ranged_hashENSI_20_Prime_rehash_policyENSI_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNSI_15_Hash_node_baseEPNSI_10_Hash_nodeISG_Lb0EEE.exit ], [ 0, %.lr.ph ], [ 0, %5 ], [ 0, %21 ], [ 0, %..loopexit_crit_edge21.i ], [ 0, %.lr.ph.i ]
   ret i64 %.0
 }
 

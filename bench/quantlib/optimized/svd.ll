@@ -141,10 +141,10 @@ lpad12:                                           ; preds = %cond.true.i.i455
   br label %_ZN8QuantLib6MatrixD2Ev.exit879
 
 if.end:                                           ; preds = %invoke.cont8.loopexit.us.i, %invoke.cont6.lr.ph.i, %_ZN8QuantLib6MatrixC2Emm.exit.i, %cond.end.i.i, %if.then.i.i.i.i.i.i.i, %if.then
-  %.sink = phi i8 [ 0, %cond.end.i.i ], [ 0, %if.then ], [ 0, %if.then.i.i.i.i.i.i.i ], [ 1, %_ZN8QuantLib6MatrixC2Emm.exit.i ], [ 1, %invoke.cont6.lr.ph.i ], [ 1, %invoke.cont8.loopexit.us.i ]
-  %A.sroa.31.0 = phi i64 [ %1, %cond.end.i.i ], [ %1, %if.then ], [ %1, %if.then.i.i.i.i.i.i.i ], [ %0, %_ZN8QuantLib6MatrixC2Emm.exit.i ], [ %0, %invoke.cont6.lr.ph.i ], [ %0, %invoke.cont8.loopexit.us.i ]
-  %A.sroa.27.0 = phi i64 [ %0, %cond.end.i.i ], [ %0, %if.then ], [ %0, %if.then.i.i.i.i.i.i.i ], [ %1, %_ZN8QuantLib6MatrixC2Emm.exit.i ], [ %1, %invoke.cont6.lr.ph.i ], [ %1, %invoke.cont8.loopexit.us.i ]
-  %A.sroa.0.0 = phi ptr [ %call2.i.i452, %cond.end.i.i ], [ null, %if.then ], [ %call2.i.i452, %if.then.i.i.i.i.i.i.i ], [ %cond.i.i456, %_ZN8QuantLib6MatrixC2Emm.exit.i ], [ %cond.i.i456, %invoke.cont6.lr.ph.i ], [ %cond.i.i456, %invoke.cont8.loopexit.us.i ]
+  %.sink = phi i8 [ 0, %cond.end.i.i ], [ 0, %if.then ], [ 0, %if.then.i.i.i.i.i.i.i ], [ 1, %invoke.cont6.lr.ph.i ], [ 1, %_ZN8QuantLib6MatrixC2Emm.exit.i ], [ 1, %invoke.cont8.loopexit.us.i ]
+  %A.sroa.31.0 = phi i64 [ %1, %cond.end.i.i ], [ %1, %if.then ], [ %1, %if.then.i.i.i.i.i.i.i ], [ %0, %invoke.cont6.lr.ph.i ], [ %0, %_ZN8QuantLib6MatrixC2Emm.exit.i ], [ %0, %invoke.cont8.loopexit.us.i ]
+  %A.sroa.27.0 = phi i64 [ %0, %cond.end.i.i ], [ %0, %if.then ], [ %0, %if.then.i.i.i.i.i.i.i ], [ %1, %invoke.cont6.lr.ph.i ], [ %1, %_ZN8QuantLib6MatrixC2Emm.exit.i ], [ %1, %invoke.cont8.loopexit.us.i ]
+  %A.sroa.0.0 = phi ptr [ %call2.i.i452, %cond.end.i.i ], [ null, %if.then ], [ %call2.i.i452, %if.then.i.i.i.i.i.i.i ], [ %cond.i.i456, %invoke.cont6.lr.ph.i ], [ %cond.i.i456, %_ZN8QuantLib6MatrixC2Emm.exit.i ], [ %cond.i.i456, %invoke.cont8.loopexit.us.i ]
   %transpose_15 = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i8 %.sink, ptr %transpose_15, align 8, !tbaa !25
   %conv = trunc i64 %A.sroa.27.0 to i32

@@ -1354,7 +1354,7 @@ CheckFrameBounds.exit:                            ; preds = %86, %81, %.thread91
   br i1 %.not50, label %.critedge, label %29, !llvm.loop !96
 
 .critedge:                                        ; preds = %CheckFrameBounds.exit, %86, %81, %84, %80, %54, %65, %58, %.thread, %69, %47, %43, %33, %.preheader, %22, %18, %10, %14, %1
-  %.0 = phi i32 [ 1, %1 ], [ 0, %10 ], [ 0, %18 ], [ 0, %22 ], [ 0, %14 ], [ 1, %.preheader ], [ 1, %CheckFrameBounds.exit ], [ 0, %81 ], [ 0, %84 ], [ 0, %80 ], [ 0, %54 ], [ 0, %65 ], [ 0, %58 ], [ 0, %.thread ], [ 0, %69 ], [ 0, %47 ], [ 0, %43 ], [ 0, %33 ], [ 0, %86 ]
+  %.0 = phi i32 [ 1, %.preheader ], [ 1, %1 ], [ 0, %10 ], [ 0, %18 ], [ 0, %22 ], [ 0, %14 ], [ 1, %CheckFrameBounds.exit ], [ 0, %81 ], [ 0, %84 ], [ 0, %80 ], [ 0, %54 ], [ 0, %65 ], [ 0, %58 ], [ 0, %.thread ], [ 0, %69 ], [ 0, %47 ], [ 0, %43 ], [ 0, %33 ], [ 0, %86 ]
   ret i32 %.0
 }
 

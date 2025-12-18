@@ -478,7 +478,7 @@ define void @Acb_VerilogRemoveComments(ptr noundef captures(none) %0) local_unna
   br label %.preheader, !llvm.loop !17
 
 .critedge:                                        ; preds = %.preheader, %.preheader, %2, %4
-  %.2 = phi ptr [ %.0, %4 ], [ %.0, %2 ], [ %.1, %.preheader ], [ %.1, %.preheader ]
+  %.2 = phi ptr [ %.0, %2 ], [ %.0, %4 ], [ %.1, %.preheader ], [ %.1, %.preheader ]
   %11 = getelementptr inbounds nuw i8, ptr %.2, i64 1
   br label %2, !llvm.loop !18
 
@@ -529,7 +529,7 @@ define noalias noundef ptr @Acb_VerilogSimpleLex(ptr noundef %0, ptr noundef %1)
   br label %.preheader.i, !llvm.loop !17
 
 .critedge.i:                                      ; preds = %.preheader.i, %.preheader.i, %12, %10
-  %.2.i = phi ptr [ %.0.i, %12 ], [ %.0.i, %10 ], [ %.1.i, %.preheader.i ], [ %.1.i, %.preheader.i ]
+  %.2.i = phi ptr [ %.0.i, %10 ], [ %.0.i, %12 ], [ %.1.i, %.preheader.i ], [ %.1.i, %.preheader.i ]
   %19 = getelementptr inbounds nuw i8, ptr %.2.i, i64 1
   br label %10, !llvm.loop !18
 
@@ -727,9 +727,9 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br i1 %.not, label %.outer._crit_edge, label %.lr.ph74.split.split
 
 .thread:                                          ; preds = %50, %52, %35, %33, %27, %25
-  %.us-phi76 = phi ptr [ %.149.us, %25 ], [ %.149.us, %27 ], [ %.149.us80, %35 ], [ %.149.us80, %33 ], [ %.149, %52 ], [ %.149, %50 ]
-  %.us-phi77 = phi i32 [ 6, %25 ], [ %28, %27 ], [ %36, %35 ], [ 6, %33 ], [ 6, %50 ], [ %53, %52 ]
-  %.us-phi78 = phi i32 [ -1, %25 ], [ %spec.select, %27 ], [ -1, %35 ], [ -1, %33 ], [ -1, %52 ], [ -1, %50 ]
+  %.us-phi76 = phi ptr [ %.149.us, %25 ], [ %.149.us80, %35 ], [ %.149.us, %27 ], [ %.149.us80, %33 ], [ %.149, %52 ], [ %.149, %50 ]
+  %.us-phi77 = phi i32 [ 6, %25 ], [ %36, %35 ], [ %28, %27 ], [ 6, %33 ], [ 6, %50 ], [ %53, %52 ]
+  %.us-phi78 = phi i32 [ -1, %25 ], [ -1, %35 ], [ %spec.select, %27 ], [ -1, %33 ], [ -1, %52 ], [ -1, %50 ]
   %87 = load i32, ptr %5, align 4, !tbaa !19
   %88 = load i32, ptr %4, align 8, !tbaa !22
   %89 = icmp eq i32 %87, %88
@@ -1949,7 +1949,7 @@ define i32 @Gia_FileSimpleParse_rec(ptr noundef %0, i32 noundef %1, ptr noundef 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph106, %.lr.ph113, %.loopexit.loopexit115, %.preheader98, %.preheader96, %.preheader, %._crit_edge.thread
-  %.2 = phi i32 [ %49, %._crit_edge.thread ], [ %49, %.preheader ], [ %49, %.preheader96 ], [ %49, %.preheader98 ], [ %72, %.loopexit.loopexit115 ], [ %57, %.lr.ph113 ], [ %71, %.lr.ph106 ]
+  %.2 = phi i32 [ %49, %._crit_edge.thread ], [ %57, %.lr.ph113 ], [ %72, %.loopexit.loopexit115 ], [ %49, %.preheader ], [ %49, %.preheader96 ], [ %49, %.preheader98 ], [ %71, %.lr.ph106 ]
   %73 = and i32 %20, -3
   %or.cond7 = icmp eq i32 %73, 9
   %74 = icmp eq i32 %20, 13
@@ -10206,7 +10206,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   br label %201
 
 201:                                              ; preds = %.thread, %.critedge2
-  %.2 = phi ptr [ %.3, %.critedge2 ], [ %13, %.thread ]
+  %.2 = phi ptr [ %13, %.thread ], [ %.3, %.critedge2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %202
 
@@ -10232,7 +10232,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   br label %.loopexit
 
 .loopexit:                                        ; preds = %30, %46, %202, %203, %.critedge179, %65, %60, %53, %37
-  %.0 = phi ptr [ null, %37 ], [ null, %65 ], [ null, %.critedge179 ], [ null, %60 ], [ null, %53 ], [ %.0150, %203 ], [ null, %202 ], [ null, %46 ], [ null, %30 ]
+  %.0 = phi ptr [ null, %46 ], [ null, %37 ], [ null, %65 ], [ null, %.critedge179 ], [ null, %60 ], [ null, %53 ], [ null, %202 ], [ %.0150, %203 ], [ null, %30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret ptr %.0
 }
@@ -10573,7 +10573,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   br label %.loopexit
 
 .loopexit:                                        ; preds = %32, %52, %.thread, %77, %73, %64, %44, %167
-  %.0 = phi ptr [ null, %44 ], [ %12, %167 ], [ null, %.thread ], [ null, %73 ], [ null, %64 ], [ null, %77 ], [ null, %52 ], [ null, %32 ]
+  %.0 = phi ptr [ null, %52 ], [ null, %44 ], [ %12, %167 ], [ null, %.thread ], [ null, %73 ], [ null, %64 ], [ null, %77 ], [ null, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret ptr %.0
 }
@@ -12043,7 +12043,7 @@ Vec_StrFree.exit:                                 ; preds = %Vec_IntFree.exit, %
   br i1 %82, label %77, label %.critedge4, !llvm.loop !250
 
 .critedge4:                                       ; preds = %32, %71, %77, %.preheader93, %.preheader, %Vec_StrFree.exit, %39
-  %.0 = phi ptr [ null, %39 ], [ null, %Vec_StrFree.exit ], [ %61, %.preheader93 ], [ %61, %.preheader ], [ %61, %71 ], [ %61, %77 ], [ null, %32 ]
+  %.0 = phi ptr [ %61, %.preheader ], [ null, %39 ], [ null, %Vec_StrFree.exit ], [ %61, %.preheader93 ], [ %61, %77 ], [ %61, %71 ], [ null, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.0
 }
@@ -12093,7 +12093,7 @@ define range(i32 0, 2) i32 @Acb_CheckMiter(ptr noundef readonly captures(none) %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %12, %19, %22
-  %.0 = phi i32 [ %25, %22 ], [ 1, %19 ], [ 1, %12 ]
+  %.0 = phi i32 [ 1, %19 ], [ %25, %22 ], [ 1, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -19281,7 +19281,7 @@ Vec_IntStartNatural.exit265:                      ; preds = %.lr.ph.i261, %Vec_I
   br i1 %exitcond.not.i275, label %Vec_PtrReverseOrder.exit, label %487, !llvm.loop !322
 
 Vec_PtrReverseOrder.exit:                         ; preds = %465, %487, %475, %Vec_IntStartNatural.exit265
-  %.1158 = phi ptr [ null, %Vec_IntStartNatural.exit265 ], [ %480, %475 ], [ %480, %487 ], [ null, %465 ]
+  %.1158 = phi ptr [ %480, %487 ], [ null, %Vec_IntStartNatural.exit265 ], [ %480, %475 ], [ null, %465 ]
   %497 = load ptr, ptr %18, align 8, !tbaa !315
   %498 = call ptr @Acb_GenerateInstance(ptr noundef %0, ptr noundef nonnull %101, ptr noundef %497, ptr noundef nonnull %35)
   %499 = call ptr @Acb_GeneratePatch(ptr noundef %0, ptr noundef nonnull %101, ptr noundef %497, ptr noundef %.1158, ptr noundef %137, ptr noundef nonnull %35)

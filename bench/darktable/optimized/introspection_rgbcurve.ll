@@ -4189,8 +4189,8 @@ define internal range(i32 0, 2) i32 @_area_key_press_callback(ptr noundef %0, pt
   br label %27
 
 27:                                               ; preds = %25, %26, %24, %21, %21
-  %.020 = phi nsz float [ 0.000000e+00, %24 ], [ 0x3F50624DE0000000, %25 ], [ 0xBF50624DE0000000, %26 ], [ 0.000000e+00, %21 ], [ 0.000000e+00, %21 ]
-  %.0 = phi nsz float [ 0xBF50624DE0000000, %24 ], [ 0.000000e+00, %25 ], [ 0.000000e+00, %26 ], [ 0x3F50624DE0000000, %21 ], [ 0x3F50624DE0000000, %21 ]
+  %.020 = phi nsz float [ 0.000000e+00, %21 ], [ 0.000000e+00, %24 ], [ 0x3F50624DE0000000, %25 ], [ 0xBF50624DE0000000, %26 ], [ 0.000000e+00, %21 ]
+  %.0 = phi nsz float [ 0x3F50624DE0000000, %21 ], [ 0xBF50624DE0000000, %24 ], [ 0.000000e+00, %25 ], [ 0.000000e+00, %26 ], [ 0x3F50624DE0000000, %21 ]
   tail call void @dt_iop_color_picker_reset(ptr noundef nonnull %2, i32 noundef 1) #26
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %29 = load i32, ptr %28, align 8, !tbaa !213

@@ -116,7 +116,7 @@ define i32 @av_int_list_length_for_size(i32 noundef %0, ptr noundef readonly cap
   unreachable
 
 .loopexit:                                        ; preds = %.preheader36, %22, %15, %10, %3
-  %.0 = phi i32 [ 0, %3 ], [ %.3, %22 ], [ %.027, %10 ], [ %.2, %15 ], [ %.4, %.preheader36 ]
+  %.0 = phi i32 [ 0, %3 ], [ %.2, %15 ], [ %.3, %22 ], [ %.027, %10 ], [ %.4, %.preheader36 ]
   ret i32 %.0
 }
 

@@ -9568,7 +9568,7 @@ _ZN6icu_7711MeasureUnit5setToEii.exit:            ; preds = %37, %_ZN6icu_7715Me
   br i1 %exitcond.not, label %_ZN6icu_77L12binarySearchEPKPKciiNS_11StringPieceE.exit.thread, label %37, !llvm.loop !55
 
 _ZN6icu_77L12binarySearchEPKPKciiNS_11StringPieceE.exit.thread: ; preds = %24, %_ZN6icu_7711MeasureUnit5setToEii.exit, %.preheader, %_ZN6icu_77L12binarySearchEPKPKciiNS_11StringPieceE.exit, %36, %4
-  %.017 = phi i32 [ 0, %4 ], [ 0, %_ZN6icu_77L12binarySearchEPKPKciiNS_11StringPieceE.exit ], [ %32, %36 ], [ %32, %.preheader ], [ %32, %_ZN6icu_7711MeasureUnit5setToEii.exit ], [ 0, %24 ]
+  %.017 = phi i32 [ 0, %4 ], [ 0, %_ZN6icu_77L12binarySearchEPKPKciiNS_11StringPieceE.exit ], [ %32, %.preheader ], [ %32, %36 ], [ %32, %_ZN6icu_7711MeasureUnit5setToEii.exit ], [ 0, %24 ]
   ret i32 %.017
 }
 

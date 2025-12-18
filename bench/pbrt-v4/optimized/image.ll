@@ -1983,7 +1983,7 @@ _ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE.exit: ; preds = %_ZN
   br i1 %110, label %.preheader64, label %.loopexit, !llvm.loop !76
 
 .loopexit:                                        ; preds = %._crit_edge, %_ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE.exit, %.preheader64.lr.ph, %.preheader65, %1
-  %.017 = phi i1 [ false, %1 ], [ false, %.preheader65 ], [ false, %.preheader64.lr.ph ], [ true, %_ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE.exit ], [ false, %._crit_edge ]
+  %.017 = phi i1 [ false, %1 ], [ false, %.preheader65 ], [ true, %_ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE.exit ], [ false, %.preheader64.lr.ph ], [ false, %._crit_edge ]
   ret i1 %.017
 }
 
@@ -2395,7 +2395,7 @@ _ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE.exit._crit_edge: ; p
   br i1 %112, label %.preheader65, label %.loopexit, !llvm.loop !80
 
 .loopexit:                                        ; preds = %._crit_edge, %_ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE.exit, %.preheader65.lr.ph, %.preheader66, %1
-  %.017 = phi i1 [ false, %1 ], [ false, %.preheader66 ], [ false, %.preheader65.lr.ph ], [ true, %_ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE.exit ], [ false, %._crit_edge ]
+  %.017 = phi i1 [ false, %1 ], [ false, %.preheader66 ], [ true, %_ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE.exit ], [ false, %.preheader65.lr.ph ], [ false, %._crit_edge ]
   ret i1 %.017
 }
 
@@ -8824,7 +8824,7 @@ _ZN4pstd6vectorIN4pbrt4HalfENS_3pmr21polymorphic_allocatorIS2_EEE7reserveEm.exit
   br i1 %exitcond.not.i, label %.loopexit61, label %102, !llvm.loop !237
 
 .loopexit61:                                      ; preds = %102, %_ZN4pstd6vectorIN4pbrt4HalfENS_3pmr21polymorphic_allocatorIS2_EEE7reserveEm.exit.i, %.loopexit62
-  %107 = phi i64 [ 0, %_ZN4pstd6vectorIN4pbrt4HalfENS_3pmr21polymorphic_allocatorIS2_EEE7reserveEm.exit.i ], [ 0, %.loopexit62 ], [ %.pre11.i54, %102 ]
+  %107 = phi i64 [ 0, %.loopexit62 ], [ 0, %_ZN4pstd6vectorIN4pbrt4HalfENS_3pmr21polymorphic_allocatorIS2_EEE7reserveEm.exit.i ], [ %.pre11.i54, %102 ]
   store i64 %107, ptr %81, align 8, !tbaa !116
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %109 = call noundef ptr @_ZN4pstd3pmr19new_delete_resourceEv() #38
@@ -8911,7 +8911,7 @@ _ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE7reserveEm.exit.i: ; preds =
   br i1 %exitcond.not.i43, label %.loopexit, label %134, !llvm.loop !238
 
 .loopexit:                                        ; preds = %134, %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE7reserveEm.exit.i, %.loopexit61
-  %139 = phi i64 [ 0, %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE7reserveEm.exit.i ], [ 0, %.loopexit61 ], [ %.pre11.i3959, %134 ]
+  %139 = phi i64 [ 0, %.loopexit61 ], [ 0, %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE7reserveEm.exit.i ], [ %.pre11.i3959, %134 ]
   store i64 %139, ptr %113, align 8, !tbaa !111
   ret void
 
@@ -26328,9 +26328,9 @@ _ZN4pbrt3RGBixEi.exit12.us22.i:                   ; preds = %655, %_ZN4pbrt3RGBi
   br i1 %exitcond.not.i, label %.split.i, label %_ZN4pbrt3RGBixEi.exit12.us22.i, !llvm.loop !478
 
 .split.i:                                         ; preds = %_ZN4pbrt3RGBixEi.exit12.us22.i, %_ZN4pbrt3RGBixEi.exit12.us.i, %_ZN4pbrt3RGBixEi.exit12.i
-  %675 = phi float [ %656, %_ZN4pbrt3RGBixEi.exit12.us.i ], [ %684, %_ZN4pbrt3RGBixEi.exit12.i ], [ %656, %_ZN4pbrt3RGBixEi.exit12.us22.i ]
-  %676 = phi float [ %667, %_ZN4pbrt3RGBixEi.exit12.us.i ], [ %657, %_ZN4pbrt3RGBixEi.exit12.i ], [ %657, %_ZN4pbrt3RGBixEi.exit12.us22.i ]
-  %677 = phi float [ %658, %_ZN4pbrt3RGBixEi.exit12.us.i ], [ %658, %_ZN4pbrt3RGBixEi.exit12.i ], [ %674, %_ZN4pbrt3RGBixEi.exit12.us22.i ]
+  %675 = phi float [ %684, %_ZN4pbrt3RGBixEi.exit12.i ], [ %656, %_ZN4pbrt3RGBixEi.exit12.us.i ], [ %656, %_ZN4pbrt3RGBixEi.exit12.us22.i ]
+  %676 = phi float [ %657, %_ZN4pbrt3RGBixEi.exit12.i ], [ %667, %_ZN4pbrt3RGBixEi.exit12.us.i ], [ %657, %_ZN4pbrt3RGBixEi.exit12.us22.i ]
+  %677 = phi float [ %658, %_ZN4pbrt3RGBixEi.exit12.i ], [ %658, %_ZN4pbrt3RGBixEi.exit12.us.i ], [ %674, %_ZN4pbrt3RGBixEi.exit12.us22.i ]
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond41.not.i = icmp eq i64 %indvars.iv.next39.i, 3
   br i1 %exitcond41.not.i, label %685, label %655, !llvm.loop !479
@@ -80254,7 +80254,7 @@ _ZN4pbrt13InlinedVectorIfLi4EN4pstd3pmr21polymorphic_allocatorIfEEED2Ev.exit94.i
   br i1 %exitcond205.not.i.i.i, label %.loopexit122.i.i.i, label %229, !llvm.loop !2017
 
 .loopexit122.i.i.i:                               ; preds = %229, %._crit_edge184.i.i.i, %.loopexit123.i.i.i
-  %233 = phi ptr [ %225, %._crit_edge184.i.i.i ], [ %61, %.loopexit123.i.i.i ], [ %70, %229 ]
+  %233 = phi ptr [ %61, %.loopexit123.i.i.i ], [ %225, %._crit_edge184.i.i.i ], [ %70, %229 ]
   %234 = load ptr, ptr %35, align 8, !tbaa !2018
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %48, ptr %4, align 8, !tbaa !24

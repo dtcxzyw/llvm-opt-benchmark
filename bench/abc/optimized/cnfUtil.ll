@@ -451,7 +451,7 @@ Vec_IntFreeP.exit:                                ; preds = %Vec_IntFreeP.exit.s
   br i1 %exitcond86.not, label %Cnf_RunSolverArray.exit, label %.lr.ph73, !llvm.loop !32
 
 Cnf_RunSolverArray.exit:                          ; preds = %Vec_IntFreeP.exit, %.lr.ph.i.preheader, %12
-  %.0 = phi ptr [ null, %12 ], [ %14, %.lr.ph.i.preheader ], [ %.15059, %Vec_IntFreeP.exit ]
+  %.0 = phi ptr [ %14, %.lr.ph.i.preheader ], [ null, %12 ], [ %.15059, %Vec_IntFreeP.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
@@ -693,7 +693,7 @@ Aig_ManObj.exit:                                  ; preds = %94, %97
   br i1 %110, label %94, label %.critedge2, !llvm.loop !57
 
 .critedge2:                                       ; preds = %Aig_ManObj.exit, %Dar_ObjBestCut.exit, %11, %Vec_PtrFree.exit, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %11 ], [ %.038.lcssa, %Vec_PtrFree.exit ], [ %92, %Dar_ObjBestCut.exit ], [ %106, %Aig_ManObj.exit ]
+  %.0 = phi i32 [ 0, %3 ], [ %.038.lcssa, %Vec_PtrFree.exit ], [ 0, %11 ], [ %92, %Dar_ObjBestCut.exit ], [ %106, %Aig_ManObj.exit ]
   ret i32 %.0
 }
 
@@ -1896,10 +1896,10 @@ Vec_IntPush.exit93:                               ; preds = %.Vec_IntGrow.exit10
   br label %.critedge
 
 .outer._crit_edge:                                ; preds = %Vec_IntAlloc.exit, %.backedge, %6
-  %.0122.ph.lcssa147 = phi ptr [ null, %6 ], [ %.0122.ph161, %.backedge ], [ %30, %Vec_IntAlloc.exit ]
-  %.0121.ph.lcssa140 = phi ptr [ null, %6 ], [ %.0121.ph162, %.backedge ], [ %38, %Vec_IntAlloc.exit ]
-  %.059.ph.lcssa136 = phi i32 [ -1, %6 ], [ %.059.ph163, %.backedge ], [ %23, %Vec_IntAlloc.exit ]
-  %.058.ph.lcssa132 = phi i32 [ -1, %6 ], [ %.058.ph164, %.backedge ], [ %26, %Vec_IntAlloc.exit ]
+  %.0122.ph.lcssa147 = phi ptr [ %.0122.ph161, %.backedge ], [ null, %6 ], [ %30, %Vec_IntAlloc.exit ]
+  %.0121.ph.lcssa140 = phi ptr [ %.0121.ph162, %.backedge ], [ null, %6 ], [ %38, %Vec_IntAlloc.exit ]
+  %.059.ph.lcssa136 = phi i32 [ %.059.ph163, %.backedge ], [ -1, %6 ], [ %23, %Vec_IntAlloc.exit ]
+  %.058.ph.lcssa132 = phi i32 [ %.058.ph164, %.backedge ], [ -1, %6 ], [ %26, %Vec_IntAlloc.exit ]
   %128 = getelementptr i8, ptr %.0122.ph.lcssa147, i64 4
   %.val77 = load i32, ptr %128, align 4, !tbaa !71
   %.not70 = icmp eq i32 %.val77, %.058.ph.lcssa132
@@ -3047,8 +3047,8 @@ Abc_Clock.exit27:                                 ; preds = %Cnf_SplitCnfCleanup
   br i1 %69, label %.lr.ph41.split, label %._crit_edge42, !llvm.loop !128
 
 ._crit_edge42:                                    ; preds = %Abc_Clock.exit27, %.lr.ph41.split.us.split, %Cnf_SplitCnfCleanup.exit.loopexit.us.us
-  %.032.lcssa = phi ptr [ %42, %.lr.ph41.split.us.split ], [ %34, %Cnf_SplitCnfCleanup.exit.loopexit.us.us ], [ %51, %Abc_Clock.exit27 ]
-  %.not.lcssa = phi i1 [ %.not.us, %.lr.ph41.split.us.split ], [ %.not.us.us, %Cnf_SplitCnfCleanup.exit.loopexit.us.us ], [ %.not, %Abc_Clock.exit27 ]
+  %.032.lcssa = phi ptr [ %34, %Cnf_SplitCnfCleanup.exit.loopexit.us.us ], [ %42, %.lr.ph41.split.us.split ], [ %51, %Abc_Clock.exit27 ]
+  %.not.lcssa = phi i1 [ %.not.us.us, %Cnf_SplitCnfCleanup.exit.loopexit.us.us ], [ %.not.us, %.lr.ph41.split.us.split ], [ %.not, %Abc_Clock.exit27 ]
   %cond.fr = freeze i1 %.not.lcssa
   %spec.select = select i1 %cond.fr, ptr @.str.41, ptr @.str.40
   br label %._crit_edge42.thread

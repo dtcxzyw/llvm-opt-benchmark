@@ -815,8 +815,8 @@ define internal fastcc i32 @setImageHints(ptr noundef readonly captures(none) %0
   br label %.loopexit
 
 .loopexit:                                        ; preds = %90, %83, %105, %107, %110, %113, %103, %100
-  %.1 = phi i32 [ %.0100, %100 ], [ %.0100, %103 ], [ %68, %107 ], [ 2, %113 ], [ %68, %110 ], [ %68, %105 ], [ %68, %83 ], [ %68, %90 ]
-  %.099 = phi i32 [ %70, %100 ], [ 2, %103 ], [ %70, %107 ], [ %70, %113 ], [ %70, %110 ], [ %70, %105 ], [ %70, %83 ], [ %70, %90 ]
+  %.1 = phi i32 [ %.0100, %100 ], [ %.0100, %103 ], [ %68, %105 ], [ %68, %107 ], [ 2, %113 ], [ %68, %110 ], [ %68, %83 ], [ %68, %90 ]
+  %.099 = phi i32 [ %70, %100 ], [ 2, %103 ], [ %70, %105 ], [ %70, %107 ], [ %70, %113 ], [ %70, %110 ], [ %70, %83 ], [ %70, %90 ]
   %114 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %114, align 4
   %115 = icmp eq i32 %.1, %.099
@@ -6056,7 +6056,7 @@ define internal fastcc range(i32 0, 2) i32 @lookupShortData(ptr noundef readonly
   br i1 %139, label %22, label %.loopexit, !llvm.loop !94
 
 .loopexit:                                        ; preds = %._crit_edge109, %.lr.ph, %.lr.ph108, %49, %.preheader85, %3, %8
-  %.0 = phi i32 [ 0, %3 ], [ 0, %8 ], [ 1, %.preheader85 ], [ 0, %.lr.ph ], [ 0, %49 ], [ 0, %.lr.ph108 ], [ 1, %._crit_edge109 ]
+  %.0 = phi i32 [ 0, %49 ], [ 0, %3 ], [ 1, %.preheader85 ], [ 0, %.lr.ph ], [ 0, %8 ], [ 0, %.lr.ph108 ], [ 1, %._crit_edge109 ]
   ret i32 %.0
 }
 

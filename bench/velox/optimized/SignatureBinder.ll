@@ -328,7 +328,7 @@ for.inc65:                                        ; preds = %if.then54, %for.bod
   br i1 %exitcond.not, label %return, label %land.rhs, !llvm.loop !6
 
 return:                                           ; preds = %land.lhs.true, %for.inc65, %land.rhs, %if.end41, %if.else, %if.then
-  %retval.0 = phi i1 [ false, %if.else ], [ false, %if.then ], [ true, %if.end41 ], [ %allBound.055, %land.rhs ], [ %allBound.1, %for.inc65 ], [ false, %land.lhs.true ]
+  %retval.0 = phi i1 [ %allBound.055, %land.rhs ], [ false, %if.else ], [ false, %if.then ], [ true, %if.end41 ], [ %allBound.1, %for.inc65 ], [ false, %land.lhs.true ]
   ret i1 %retval.0
 }
 

@@ -5220,7 +5220,7 @@ define hidden { ptr, ptr } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   ret { ptr, ptr } %117
 
 118:                                              ; preds = %.split16.us.i, %97
-  %.sroa.3.0.i.i = phi i64 [ %103, %97 ], [ %.us-phi17.i, %.split16.us.i ]
+  %.sroa.3.0.i.i = phi i64 [ %.us-phi17.i, %.split16.us.i ], [ %103, %97 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.016)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.016, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   call void @llvm.experimental.noalias.scope.decl(metadata !892)

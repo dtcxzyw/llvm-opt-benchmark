@@ -3146,8 +3146,8 @@ _ZN13ast_fast_markILj1EE4markEP3ast.exit.i:       ; preds = %_ZN6bufferIP3astLb0
   br label %.preheader.i
 
 thread-pre-splitthread-pre-split.sink.split.i:    ; preds = %.lr.ph.i.i.i240.i, %.lr.ph.i.i.i179.i, %544, %496, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i229.i, %395, %347, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i168.i
-  %.val58.sink.i = phi i32 [ %.val58.i, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i168.i ], [ %.val58.i, %395 ], [ %.val58.i, %347 ], [ %.val59.i, %544 ], [ %.val59.i, %496 ], [ %.val59.i, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i229.i ], [ %.val58.i, %.lr.ph.i.i.i179.i ], [ %.val59.i, %.lr.ph.i.i.i240.i ]
-  %.sink540.i = phi ptr [ %341, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i168.i ], [ %348, %395 ], [ %341, %347 ], [ %497, %544 ], [ %490, %496 ], [ %490, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i229.i ], [ %348, %.lr.ph.i.i.i179.i ], [ %497, %.lr.ph.i.i.i240.i ]
+  %.val58.sink.i = phi i32 [ %.val58.i, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i168.i ], [ %.val59.i, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i229.i ], [ %.val58.i, %395 ], [ %.val58.i, %347 ], [ %.val58.i, %.lr.ph.i.i.i179.i ], [ %.val59.i, %544 ], [ %.val59.i, %496 ], [ %.val59.i, %.lr.ph.i.i.i240.i ]
+  %.sink540.i = phi ptr [ %341, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i168.i ], [ %490, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i229.i ], [ %348, %395 ], [ %341, %347 ], [ %348, %.lr.ph.i.i.i179.i ], [ %497, %544 ], [ %490, %496 ], [ %497, %.lr.ph.i.i.i240.i ]
   %54 = load i32, ptr %53, align 8, !tbaa !41
   %55 = zext i32 %.val58.sink.i to i64
   %56 = getelementptr inbounds nuw i32, ptr %.sink540.i, i64 %55
@@ -3986,8 +3986,8 @@ _ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i161.i: ; preds = %.noexc166
           to label %337 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .sink.split.i:                                    ; preds = %.lr.ph.i.i.i140.i, %.lr.ph.i.i.i101.i, %309, %261, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i129.i, %226, %187, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i90.i
-  %.val57.sink.i = phi i32 [ %.val56.i, %226 ], [ %.val56.i, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i90.i ], [ %.val56.i, %187 ], [ %.val57.i, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i129.i ], [ %.val57.i, %261 ], [ %.val57.i, %309 ], [ %.val56.i, %.lr.ph.i.i.i101.i ], [ %.val57.i, %.lr.ph.i.i.i140.i ]
-  %.sink543.i = phi ptr [ %188, %226 ], [ %181, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i90.i ], [ %181, %187 ], [ %255, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i129.i ], [ %255, %261 ], [ %262, %309 ], [ %188, %.lr.ph.i.i.i101.i ], [ %262, %.lr.ph.i.i.i140.i ]
+  %.val57.sink.i = phi i32 [ %.val56.i, %226 ], [ %.val57.i, %309 ], [ %.val56.i, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i90.i ], [ %.val56.i, %187 ], [ %.val56.i, %.lr.ph.i.i.i101.i ], [ %.val57.i, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i129.i ], [ %.val57.i, %261 ], [ %.val57.i, %.lr.ph.i.i.i140.i ]
+  %.sink543.i = phi ptr [ %188, %226 ], [ %262, %309 ], [ %181, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i90.i ], [ %181, %187 ], [ %188, %.lr.ph.i.i.i101.i ], [ %255, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i129.i ], [ %255, %261 ], [ %262, %.lr.ph.i.i.i140.i ]
   %334 = load i32, ptr %53, align 8, !tbaa !41
   %335 = zext i32 %.val57.sink.i to i64
   %336 = getelementptr inbounds nuw i32, ptr %.sink543.i, i64 %335

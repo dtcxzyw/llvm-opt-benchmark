@@ -27920,7 +27920,7 @@ _ZN7AstNode9privateIsI18AstAssocArrayDTypeP12AstNodeDTypeEEbPKS_.exit.i: ; preds
   br i1 %.not.i, label %_ZN11EmitCHeader16getNodeAttributeEPK14AstMemberDTypeNS_13AttributeTypeE.exit, label %.lr.ph.i, !llvm.loop !627
 
 _ZN11EmitCHeader16getNodeAttributeEPK14AstMemberDTypeNS_13AttributeTypeE.exit: ; preds = %.lr.ph.i, %_ZN7AstNode9privateIsI18AstAssocArrayDTypeP12AstNodeDTypeEEbPKS_.exit.i, %46, %.preheader.i
-  %.0.pn = phi ptr [ %48, %.preheader.i ], [ %.080, %46 ], [ %.080, %_ZN7AstNode9privateIsI18AstAssocArrayDTypeP12AstNodeDTypeEEbPKS_.exit.i ], [ %58, %.lr.ph.i ]
+  %.0.pn = phi ptr [ %.080, %_ZN7AstNode9privateIsI18AstAssocArrayDTypeP12AstNodeDTypeEEbPKS_.exit.i ], [ %48, %.preheader.i ], [ %.080, %46 ], [ %58, %.lr.ph.i ]
   %.0.i.in = getelementptr inbounds nuw i8, ptr %.0.pn, i64 152
   %.0.i = load i32, ptr %.0.i.in, align 8, !tbaa !220
   call void @llvm.experimental.noalias.scope.decl(metadata !628)
@@ -30406,7 +30406,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPK8AstCFuncSt6vectorIS4_SaIS
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !655
 
 _ZSt11swap_rangesIN9__gnu_cxx17__normal_iteratorIPPK8AstCFuncSt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit: ; preds = %._crit_edge, %._crit_edge101, %.lr.ph.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPK8AstCFuncSt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPK8AstCFuncSt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit, %5, %3
-  %.sroa.024.0 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %23, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPK8AstCFuncSt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit ], [ %23, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPK8AstCFuncSt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit ], [ %1, %.lr.ph.i ], [ %23, %._crit_edge101 ], [ %23, %._crit_edge ]
+  %.sroa.024.0 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %23, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPK8AstCFuncSt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit ], [ %1, %.lr.ph.i ], [ %23, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPK8AstCFuncSt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit ], [ %23, %._crit_edge101 ], [ %23, %._crit_edge ]
   ret ptr %.sroa.024.0
 }
 

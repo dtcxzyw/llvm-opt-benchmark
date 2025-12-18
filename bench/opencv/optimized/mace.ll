@@ -1838,7 +1838,7 @@ define linkonce_odr hidden void @_ZNK2cv4face8MACEImpl8dftImageENS_3MatE(ptr dea
   br i1 %133, label %.loopexit, label %130
 
 .loopexit:                                        ; preds = %130, %.loopexit.loopexit64, %.thread
-  %.pn52.pn.pn.pn.pn = phi { ptr, i32 } [ %109, %.thread ], [ %110, %.loopexit.loopexit64 ], [ %.pn52.pn.pn.pn, %130 ]
+  %.pn52.pn.pn.pn.pn = phi { ptr, i32 } [ %110, %.loopexit.loopexit64 ], [ %109, %.thread ], [ %.pn52.pn.pn.pn, %130 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %134
 

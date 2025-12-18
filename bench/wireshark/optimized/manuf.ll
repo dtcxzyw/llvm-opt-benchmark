@@ -61128,7 +61128,7 @@ define noundef zeroext i1 @ws_manuf_iter_next(ptr noundef %0, ptr noundef %1) lo
   br label %68
 
 68:                                               ; preds = %.sink.split, %35, %53, %44, %22
-  %69 = phi i1 [ true, %35 ], [ true, %53 ], [ true, %44 ], [ false, %22 ], [ true, %.sink.split ]
+  %69 = phi i1 [ false, %22 ], [ true, %35 ], [ true, %44 ], [ true, %53 ], [ true, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %69
 }

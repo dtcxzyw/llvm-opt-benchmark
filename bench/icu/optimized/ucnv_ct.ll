@@ -481,8 +481,8 @@ _ZL11findNextEscPKcS0_.exit:                      ; preds = %.lr.ph.i91, %98, %9
   br label %.loopexit100
 
 .loopexit:                                        ; preds = %85, %.lr.ph, %.preheader99, %89, %_ZL11findNextEscPKcS0_.exit, %90
-  %.384 = phi ptr [ %.283125, %89 ], [ %110, %_ZL11findNextEscPKcS0_.exit ], [ %.081131, %90 ], [ %.081131, %.preheader99 ], [ %88, %85 ], [ %.283125, %.lr.ph ]
-  %.6 = phi ptr [ %.5126, %89 ], [ %109, %_ZL11findNextEscPKcS0_.exit ], [ %.2, %90 ], [ %.2, %.preheader99 ], [ %86, %85 ], [ %.5126, %.lr.ph ]
+  %.384 = phi ptr [ %.081131, %90 ], [ %.283125, %89 ], [ %110, %_ZL11findNextEscPKcS0_.exit ], [ %.081131, %.preheader99 ], [ %88, %85 ], [ %.283125, %.lr.ph ]
+  %.6 = phi ptr [ %.2, %90 ], [ %.5126, %89 ], [ %109, %_ZL11findNextEscPKcS0_.exit ], [ %.2, %.preheader99 ], [ %86, %85 ], [ %.5126, %.lr.ph ]
   %129 = icmp ult ptr %.6, %9
   br i1 %129, label %25, label %.loopexit100, !llvm.loop !44
 
@@ -530,9 +530,9 @@ define internal void @_ZL43UConverter_fromUnicode_CompoundText_OFFSETSP25UConver
   br label %.loopexit, !llvm.loop !53
 
 .loopexit:                                        ; preds = %.preheader, %..loopexit_crit_edge, %thread-pre-split, %2
-  %.1117 = phi i32 [ %.6, %thread-pre-split ], [ %20, %2 ], [ %.6, %..loopexit_crit_edge ], [ %.6, %.preheader ]
-  %.1105 = phi ptr [ %.3107, %thread-pre-split ], [ %12, %2 ], [ %.3107, %..loopexit_crit_edge ], [ %.3107, %.preheader ]
-  %.1 = phi ptr [ %.4.lcssa, %thread-pre-split ], [ %8, %2 ], [ %.4162, %..loopexit_crit_edge ], [ %.4162, %.preheader ]
+  %.1117 = phi i32 [ %20, %2 ], [ %.6, %thread-pre-split ], [ %.6, %..loopexit_crit_edge ], [ %.6, %.preheader ]
+  %.1105 = phi ptr [ %12, %2 ], [ %.3107, %thread-pre-split ], [ %.3107, %..loopexit_crit_edge ], [ %.3107, %.preheader ]
+  %.1 = phi ptr [ %8, %2 ], [ %.4.lcssa, %thread-pre-split ], [ %.4162, %..loopexit_crit_edge ], [ %.4162, %.preheader ]
   %24 = icmp ult ptr %.1105, %14
   br i1 %24, label %25, label %174
 
@@ -882,8 +882,8 @@ _ZL8getStatei.exit.thread.loopexit:               ; preds = %.lr.ph
   br label %_ZL8getStatei.exit.thread
 
 _ZL8getStatei.exit.thread:                        ; preds = %_ZL8getStatei.exit.thread.loopexit, %_ZL8getStatei.exit
-  %.0.i152 = phi i32 [ %.3119, %_ZL8getStatei.exit ], [ %.0.i, %_ZL8getStatei.exit.thread.loopexit ]
-  %.0121 = phi i32 [ 0, %_ZL8getStatei.exit ], [ %110, %_ZL8getStatei.exit.thread.loopexit ]
+  %.0.i152 = phi i32 [ %.0.i, %_ZL8getStatei.exit.thread.loopexit ], [ %.3119, %_ZL8getStatei.exit ]
+  %.0121 = phi i32 [ %110, %_ZL8getStatei.exit.thread.loopexit ], [ 0, %_ZL8getStatei.exit ]
   %cond = icmp eq i32 %.0.i152, 0
   br i1 %cond, label %132, label %137
 
@@ -990,8 +990,8 @@ _ZL8getStatei.exit.thread:                        ; preds = %_ZL8getStatei.exit.
   br label %.loopexit154
 
 .loopexit154:                                     ; preds = %131, %.loopexit154.loopexit187, %.loopexit154.loopexit, %132, %137
-  %.5126 = phi i32 [ %134, %132 ], [ %.0121, %137 ], [ %151, %.loopexit154.loopexit ], [ %152, %.loopexit154.loopexit187 ], [ 0, %131 ]
-  %.6 = phi i32 [ %.0.i152, %132 ], [ %.0.i152, %137 ], [ %.0.i152, %.loopexit154.loopexit ], [ %.5, %.loopexit154.loopexit187 ], [ %.3119, %131 ]
+  %.5126 = phi i32 [ %151, %.loopexit154.loopexit ], [ %152, %.loopexit154.loopexit187 ], [ %134, %132 ], [ %.0121, %137 ], [ 0, %131 ]
+  %.6 = phi i32 [ %.0.i152, %.loopexit154.loopexit ], [ %.5, %.loopexit154.loopexit187 ], [ %.0.i152, %132 ], [ %.0.i152, %137 ], [ %.3119, %131 ]
   %153 = icmp sgt i32 %.5126, 0
   br i1 %153, label %.lr.ph182.preheader, label %thread-pre-split
 

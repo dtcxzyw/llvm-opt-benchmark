@@ -594,7 +594,7 @@ Py_DECREF.exit42:                                 ; preds = %Py_DECREF.exit, %30
   br label %.loopexit
 
 .loopexit:                                        ; preds = %Py_DECREF.exit42, %36, %38, %.loopexit.sink.split, %5
-  %.0 = phi i32 [ 0, %5 ], [ -1, %.loopexit.sink.split ], [ 0, %36 ], [ -1, %Py_DECREF.exit42 ], [ 0, %38 ]
+  %.0 = phi i32 [ 0, %5 ], [ -1, %.loopexit.sink.split ], [ 0, %38 ], [ -1, %Py_DECREF.exit42 ], [ 0, %36 ]
   ret i32 %.0
 }
 
@@ -910,7 +910,7 @@ define internal fastcc noundef ptr @heapify_internal(ptr noundef %0, ptr noundef
   br i1 %.not, label %30, label %cache_friendly_heapify.exit, !llvm.loop !33
 
 cache_friendly_heapify.exit:                      ; preds = %30, %32, %.preheader34.i, %17, %.preheader.i, %.loopexit31.i, %24, %.preheader32.i
-  %.0 = phi ptr [ null, %.preheader.i ], [ @_Py_NoneStruct, %.preheader32.i ], [ null, %.preheader34.i ], [ null, %17 ], [ null, %24 ], [ @_Py_NoneStruct, %.loopexit31.i ], [ null, %32 ], [ @_Py_NoneStruct, %30 ]
+  %.0 = phi ptr [ null, %.preheader.i ], [ null, %.preheader34.i ], [ @_Py_NoneStruct, %.preheader32.i ], [ null, %17 ], [ null, %24 ], [ @_Py_NoneStruct, %.loopexit31.i ], [ @_Py_NoneStruct, %30 ], [ null, %32 ]
   ret ptr %.0
 }
 
@@ -1115,14 +1115,14 @@ Py_DECREF.exit.i:                                 ; preds = %76, %73, %Py_DECREF
   br i1 %87, label %.lr.ph.i, label %.critedge, !llvm.loop !35
 
 .critedge.sink.split:                             ; preds = %38, %78, %._crit_edge, %2
-  %PyExc_RuntimeError.sink.i.sink = phi ptr [ @PyExc_IndexError, %2 ], [ @PyExc_IndexError, %._crit_edge ], [ @PyExc_RuntimeError, %78 ], [ @PyExc_RuntimeError, %38 ]
-  %.str.13.sink.i.sink = phi ptr [ @.str.12, %2 ], [ @.str.12, %._crit_edge ], [ @.str.13, %78 ], [ @.str.13, %38 ]
+  %PyExc_RuntimeError.sink.i.sink = phi ptr [ @PyExc_RuntimeError, %78 ], [ @PyExc_IndexError, %2 ], [ @PyExc_IndexError, %._crit_edge ], [ @PyExc_RuntimeError, %38 ]
+  %.str.13.sink.i.sink = phi ptr [ @.str.13, %78 ], [ @.str.12, %2 ], [ @.str.12, %._crit_edge ], [ @.str.13, %38 ]
   %88 = load ptr, ptr %PyExc_RuntimeError.sink.i.sink, align 8, !tbaa !3
   tail call void @PyErr_SetString(ptr noundef %88, ptr noundef nonnull %.str.13.sink.i.sink) #2
   br label %.critedge
 
 .critedge:                                        ; preds = %Py_DECREF.exit, %81, %79, %Py_DECREF.exit.i, %.critedge.sink.split, %50
-  %.0 = phi i32 [ 0, %50 ], [ -1, %.critedge.sink.split ], [ 0, %79 ], [ 0, %81 ], [ -1, %Py_DECREF.exit.i ], [ -1, %Py_DECREF.exit ]
+  %.0 = phi i32 [ 0, %81 ], [ 0, %50 ], [ -1, %.critedge.sink.split ], [ -1, %Py_DECREF.exit.i ], [ 0, %79 ], [ -1, %Py_DECREF.exit ]
   ret i32 %.0
 }
 

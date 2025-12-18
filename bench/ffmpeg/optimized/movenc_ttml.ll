@@ -151,7 +151,7 @@ mov_write_ttml_document_from_queue.exit:          ; preds = %._crit_edge.i
   br label %84
 
 .loopexit:                                        ; preds = %68, %47, %._crit_edge.i
-  %.034.i.ph = phi i32 [ %80, %._crit_edge.i ], [ %49, %47 ], [ %76, %68 ]
+  %.034.i.ph = phi i32 [ %49, %47 ], [ %80, %._crit_edge.i ], [ %76, %68 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %6, i8 0, i64 64, i1 false)
   %83 = call i32 @av_strerror(i32 noundef range(i32 -2147483648, 0) %.034.i.ph, ptr noundef nonnull %6, i64 noundef 64) #5
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.1, ptr noundef nonnull %6) #5

@@ -811,7 +811,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__select_io(ptr noundef %0, ptr 
   br i1 %.not, label %.loopexit, label %144, !llvm.loop !42
 
 .loopexit:                                        ; preds = %187, %140, %183, %175, %161, %150, %136
-  %.3 = phi i32 [ -1, %136 ], [ -1, %150 ], [ -1, %161 ], [ -1, %175 ], [ -1, %183 ], [ 0, %140 ], [ 0, %187 ]
+  %.3 = phi i32 [ -1, %136 ], [ -1, %183 ], [ -1, %175 ], [ -1, %161 ], [ -1, %150 ], [ 0, %140 ], [ 0, %187 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %190 = call i32 @H5S_select_iter_release(ptr noundef nonnull %120) #4
@@ -860,12 +860,12 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__select_io(ptr noundef %0, ptr 
   br label %.thread
 
 209:                                              ; preds = %.thread275, %200
-  %.098156178197 = phi ptr [ %.199.ph.ph, %.thread275 ], [ %99, %200 ]
-  %.0100155179196 = phi ptr [ %.1101.ph.ph, %.thread275 ], [ %85, %200 ]
-  %.0102154180195 = phi ptr [ %.1103.ph.ph, %.thread275 ], [ %106, %200 ]
-  %.0104153181194 = phi ptr [ %.1105.ph.ph, %.thread275 ], [ %92, %200 ]
-  %.0112150183193 = phi ptr [ %.1113.ph.ph, %.thread275 ], [ %113, %200 ]
-  %.5 = phi i32 [ -1, %.thread275 ], [ %.4, %200 ]
+  %.098156178197 = phi ptr [ %99, %200 ], [ %.199.ph.ph, %.thread275 ]
+  %.0100155179196 = phi ptr [ %85, %200 ], [ %.1101.ph.ph, %.thread275 ]
+  %.0102154180195 = phi ptr [ %106, %200 ], [ %.1103.ph.ph, %.thread275 ]
+  %.0104153181194 = phi ptr [ %92, %200 ], [ %.1105.ph.ph, %.thread275 ]
+  %.0112150183193 = phi ptr [ %113, %200 ], [ %.1113.ph.ph, %.thread275 ]
+  %.5 = phi i32 [ %.4, %200 ], [ -1, %.thread275 ]
   %.not135 = icmp eq ptr %.0112150183193, null
   br i1 %.not135, label %211, label %.thread
 

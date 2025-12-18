@@ -362,7 +362,7 @@ define internal void @alps_register_bare_ps2_mouse(ptr noundef %0) #0 align 16 {
   br label %39
 
 39:                                               ; preds = %10, %35
-  %40 = phi i64 [ %38, %35 ], [ -12, %10 ]
+  %40 = phi i64 [ -12, %10 ], [ %38, %35 ]
   %41 = inttoptr i64 %40 to ptr
   br label %.thread.sink.split
 
@@ -6394,7 +6394,7 @@ alps_command_mode_read_reg.exit:                  ; preds = %72
   br label %alps_command_mode_read_reg.exit.thread
 
 alps_command_mode_read_reg.exit.thread:           ; preds = %.preheader.i, %44, %alps_command_mode_read_reg.exit.thread2, %97, %alps_command_mode_read_reg.exit
-  %113 = phi i32 [ -5, %alps_command_mode_read_reg.exit ], [ %112, %97 ], [ -5, %alps_command_mode_read_reg.exit.thread2 ], [ -5, %44 ], [ -5, %.preheader.i ]
+  %113 = phi i32 [ -5, %44 ], [ -5, %alps_command_mode_read_reg.exit ], [ %112, %97 ], [ -5, %alps_command_mode_read_reg.exit.thread2 ], [ -5, %.preheader.i ]
   %114 = call i32 @ps2_command(ptr noundef nonnull %11, ptr noundef null, i32 noundef 234) #14
   %115 = icmp eq i32 %114, 0
   %116 = select i1 %115, i32 %113, i32 -5
@@ -6789,7 +6789,7 @@ alps_command_mode_read_reg.exit:                  ; preds = %39
   br label %alps_command_mode_read_reg.exit.thread
 
 alps_command_mode_read_reg.exit.thread:           ; preds = %.preheader.i, %10, %alps_command_mode_read_reg.exit.thread2, %64, %alps_command_mode_read_reg.exit
-  %81 = phi i32 [ -1, %alps_command_mode_read_reg.exit ], [ %80, %64 ], [ -1, %alps_command_mode_read_reg.exit.thread2 ], [ -1, %10 ], [ -1, %.preheader.i ]
+  %81 = phi i32 [ -1, %10 ], [ -1, %alps_command_mode_read_reg.exit ], [ %80, %64 ], [ -1, %alps_command_mode_read_reg.exit.thread2 ], [ -1, %.preheader.i ]
   %82 = call i32 @ps2_command(ptr noundef nonnull %12, ptr noundef null, i32 noundef 234) #14
   %83 = icmp eq i32 %82, 0
   %84 = select i1 %83, i32 %81, i32 -1

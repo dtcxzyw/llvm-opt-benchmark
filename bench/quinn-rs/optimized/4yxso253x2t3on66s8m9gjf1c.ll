@@ -2987,8 +2987,8 @@ define void @"_ZN92_$LT$quinn_proto..connection..spaces..Retransmits$u20$as$u20$
   br label %16
 
 .loopexit.split-lp:                               ; preds = %2, %26, %32, %40, %42, %53, %54, %62, %71
-  %.sroa.03.0.ph = phi i1 [ true, %26 ], [ true, %32 ], [ true, %40 ], [ true, %42 ], [ false, %53 ], [ false, %54 ], [ false, %62 ], [ false, %71 ], [ true, %2 ]
-  %.sroa.02.0.ph = phi i1 [ true, %26 ], [ true, %32 ], [ true, %40 ], [ true, %42 ], [ true, %53 ], [ true, %54 ], [ false, %62 ], [ false, %71 ], [ true, %2 ]
+  %.sroa.03.0.ph = phi i1 [ true, %32 ], [ true, %40 ], [ true, %42 ], [ false, %53 ], [ false, %54 ], [ true, %26 ], [ false, %62 ], [ false, %71 ], [ true, %2 ]
+  %.sroa.02.0.ph = phi i1 [ true, %32 ], [ true, %40 ], [ true, %42 ], [ true, %53 ], [ true, %54 ], [ true, %26 ], [ false, %62 ], [ false, %71 ], [ true, %2 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %16
@@ -5965,9 +5965,9 @@ define hidden void @_ZN11quinn_proto10connection7streams4send4Send5write17h85608
   br label %18
 
 18:                                               ; preds = %.sink.split, %4, %23
-  %.sink56 = phi i64 [ 8, %23 ], [ 8, %4 ], [ 16, %.sink.split ]
-  %.lcssa54.sink = phi i64 [ 0, %23 ], [ 2, %4 ], [ %.lcssa54.sink.ph, %.sink.split ]
-  %.sink = phi i64 [ 1, %23 ], [ 1, %4 ], [ %.sink.ph, %.sink.split ]
+  %.sink56 = phi i64 [ 8, %4 ], [ 8, %23 ], [ 16, %.sink.split ]
+  %.lcssa54.sink = phi i64 [ 2, %4 ], [ 0, %23 ], [ %.lcssa54.sink.ph, %.sink.split ]
+  %.sink = phi i64 [ 1, %4 ], [ 1, %23 ], [ %.sink.ph, %.sink.split ]
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink56
   store i64 %.lcssa54.sink, ptr %19, align 8
   store i64 %.sink, ptr %0, align 8
@@ -6135,9 +6135,9 @@ define hidden void @_ZN11quinn_proto10connection7streams4send4Send5write17hfb1b2
   br label %17
 
 17:                                               ; preds = %.sink.split, %4, %22
-  %.sink21 = phi i64 [ 8, %22 ], [ 8, %4 ], [ 16, %.sink.split ]
-  %.lcssa9.sink = phi i64 [ 0, %22 ], [ 2, %4 ], [ %.lcssa9.sink.ph, %.sink.split ]
-  %.sink = phi i64 [ 1, %22 ], [ 1, %4 ], [ %.sink.ph, %.sink.split ]
+  %.sink21 = phi i64 [ 8, %4 ], [ 8, %22 ], [ 16, %.sink.split ]
+  %.lcssa9.sink = phi i64 [ 2, %4 ], [ 0, %22 ], [ %.lcssa9.sink.ph, %.sink.split ]
+  %.sink = phi i64 [ 1, %4 ], [ 1, %22 ], [ %.sink.ph, %.sink.split ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink21
   store i64 %.lcssa9.sink, ptr %18, align 8
   store i64 %.sink, ptr %0, align 8

@@ -1168,13 +1168,13 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17hfcb599ca43577d94E
   br label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h12351cde917ebfeaE.exit.i.i"
 
 "_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h12351cde917ebfeaE.exit.i.i": ; preds = %.loopexit.i.i.i.i.i.i, %40, %36, %19
-  %.sroa.12.1.i.i = phi i64 [ %.sroa.12.0.i.i, %19 ], [ %37, %36 ], [ %37, %40 ], [ %.sroa.12.0.i.i, %.loopexit.i.i.i.i.i.i ]
-  %.sroa.9.3.i.i = phi i64 [ %.sroa.9.0.i.i, %19 ], [ %29, %36 ], [ %29, %40 ], [ 0, %.loopexit.i.i.i.i.i.i ]
-  %.sroa.7.2.i.i = phi i64 [ %.sroa.7.0.i.i, %19 ], [ %.sroa.7.1.i.i, %36 ], [ %.sroa.7.1.i.i, %40 ], [ %.sroa.7.1.i.i, %.loopexit.i.i.i.i.i.i ]
-  %.sroa.4.2.i.i = phi i64 [ %.sroa.4.0.i.i, %19 ], [ %.sroa.4.1.i.i, %36 ], [ %.sroa.4.1.i.i, %40 ], [ 59, %.loopexit.i.i.i.i.i.i ]
-  %.sroa.17.1.i.i = phi ptr [ %.sroa.17.0.i.i, %19 ], [ %.sroa.17.0.i.i, %36 ], [ %41, %40 ], [ %.sroa.17.0.i.i, %.loopexit.i.i.i.i.i.i ]
-  %.sink25.i.sroa.phi.i.i = phi ptr [ %.sroa.49.i.i, %19 ], [ %.sroa.49.i.i, %36 ], [ %.sroa.10.i.i, %40 ], [ %.sroa.49.i.i, %.loopexit.i.i.i.i.i.i ]
-  %.sink.i.i.i = phi ptr [ null, %19 ], [ null, %36 ], [ %.sroa.17.0.i.i, %40 ], [ null, %.loopexit.i.i.i.i.i.i ]
+  %.sroa.12.1.i.i = phi i64 [ %.sroa.12.0.i.i, %19 ], [ %37, %40 ], [ %37, %36 ], [ %.sroa.12.0.i.i, %.loopexit.i.i.i.i.i.i ]
+  %.sroa.9.3.i.i = phi i64 [ %.sroa.9.0.i.i, %19 ], [ %29, %40 ], [ %29, %36 ], [ 0, %.loopexit.i.i.i.i.i.i ]
+  %.sroa.7.2.i.i = phi i64 [ %.sroa.7.0.i.i, %19 ], [ %.sroa.7.1.i.i, %40 ], [ %.sroa.7.1.i.i, %36 ], [ %.sroa.7.1.i.i, %.loopexit.i.i.i.i.i.i ]
+  %.sroa.4.2.i.i = phi i64 [ %.sroa.4.0.i.i, %19 ], [ %.sroa.4.1.i.i, %40 ], [ %.sroa.4.1.i.i, %36 ], [ 59, %.loopexit.i.i.i.i.i.i ]
+  %.sroa.17.1.i.i = phi ptr [ %.sroa.17.0.i.i, %19 ], [ %41, %40 ], [ %.sroa.17.0.i.i, %36 ], [ %.sroa.17.0.i.i, %.loopexit.i.i.i.i.i.i ]
+  %.sink25.i.sroa.phi.i.i = phi ptr [ %.sroa.49.i.i, %19 ], [ %.sroa.10.i.i, %40 ], [ %.sroa.49.i.i, %36 ], [ %.sroa.49.i.i, %.loopexit.i.i.i.i.i.i ]
+  %.sink.i.i.i = phi ptr [ null, %19 ], [ %.sroa.17.0.i.i, %40 ], [ null, %36 ], [ null, %.loopexit.i.i.i.i.i.i ]
   store ptr %.sink.i.i.i, ptr %.sink25.i.sroa.phi.i.i, align 8, !alias.scope !64, !noalias !76
   %.sroa.49.i.i.0..sroa.49.i.i.0..sroa.49.i.i.0..sroa.49.i.0..sroa.49.i.0..sroa.49.0..sroa.49.0..sroa.49.8..i.i = load i64, ptr %.sroa.49.i.i, align 8, !noundef !7
   %43 = inttoptr i64 %.sroa.49.i.i.0..sroa.49.i.i.0..sroa.49.i.i.0..sroa.49.i.0..sroa.49.i.0..sroa.49.0..sroa.49.0..sroa.49.8..i.i to ptr
@@ -5579,8 +5579,8 @@ define hidden { i64, i1 } @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$11in
   br label %65
 
 65:                                               ; preds = %54, %58
-  %66 = phi i8 [ %56, %54 ], [ %.pre, %58 ]
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.113.i.i, %54 ], [ %64, %58 ]
+  %66 = phi i8 [ %.pre, %58 ], [ %56, %54 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %64, %58 ], [ %.sroa.4.113.i.i, %54 ]
   %67 = load i64, ptr %7, align 8, !noundef !7
   %68 = icmp ult i64 %67, 576460752303423488
   tail call void @llvm.assume(i1 %68)

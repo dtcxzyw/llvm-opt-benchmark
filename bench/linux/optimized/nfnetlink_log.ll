@@ -1216,7 +1216,7 @@ define internal ptr @seq_start(ptr noundef readonly captures(none) %0, ptr nound
   br label %.thread12
 
 .thread12:                                        ; preds = %._crit_edge, %.lr.ph, %.thread7
-  %57 = phi ptr [ %spec.select, %.thread7 ], [ null, %.lr.ph ], [ %.lcssa, %._crit_edge ]
+  %57 = phi ptr [ null, %.lr.ph ], [ %spec.select, %.thread7 ], [ %.lcssa, %._crit_edge ]
   ret ptr %57
 }
 

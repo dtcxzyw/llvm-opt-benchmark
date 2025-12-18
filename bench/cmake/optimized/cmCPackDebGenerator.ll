@@ -2811,7 +2811,7 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit96: ; preds
   br i1 %.not136, label %.loopexit, label %173
 
 .loopexit:                                        ; preds = %247, %63, %._crit_edge, %49
-  %.0 = phi i32 [ 1, %49 ], [ %.134.lcssa, %._crit_edge ], [ %64, %63 ], [ %.336, %247 ]
+  %.0 = phi i32 [ %64, %63 ], [ 1, %49 ], [ %.134.lcssa, %._crit_edge ], [ %.336, %247 ]
   %249 = load ptr, ptr %5, align 8, !tbaa !13
   %250 = icmp eq ptr %249, %29
   br i1 %250, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit102, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i100

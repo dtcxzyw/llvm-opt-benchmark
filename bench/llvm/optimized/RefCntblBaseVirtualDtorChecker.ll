@@ -5486,8 +5486,8 @@ _ZN5clang11DeclContext22specific_decl_iteratorINS_13CXXMethodDeclEEppEv.exit80: 
   br i1 %.not106, label %.critedge29, label %117
 
 .critedge29:                                      ; preds = %107, %_ZN5clang11DeclContext22specific_decl_iteratorINS_13CXXMethodDeclEEppEv.exit80, %_ZN12_GLOBAL__N_126DerefFuncDeleteExprVisitor20HasSpecializedDeleteEPN5clang13CXXMethodDeclE.exit74, %27, %_ZN5clang11DeclContext22specific_decl_iteratorINS_13CXXMethodDeclEEppEv.exit, %_ZN12_GLOBAL__N_126DerefFuncDeleteExprVisitor20HasSpecializedDeleteEPN5clang13CXXMethodDeclE.exit, %.critedge29.thread, %20
-  %.sroa.089.1 = phi i16 [ %.sroa.3.1.i72, %_ZN12_GLOBAL__N_126DerefFuncDeleteExprVisitor20HasSpecializedDeleteEPN5clang13CXXMethodDeclE.exit74 ], [ 0, %_ZN5clang11DeclContext22specific_decl_iteratorINS_13CXXMethodDeclEEppEv.exit ], [ 0, %20 ], [ 0, %.critedge29.thread ], [ 0, %27 ], [ %.sroa.3.1.i, %_ZN12_GLOBAL__N_126DerefFuncDeleteExprVisitor20HasSpecializedDeleteEPN5clang13CXXMethodDeclE.exit ], [ 0, %_ZN5clang11DeclContext22specific_decl_iteratorINS_13CXXMethodDeclEEppEv.exit80 ], [ 0, %107 ]
-  %.sroa.7.1 = phi i16 [ %.sroa.7.0.extract.shift93, %_ZN12_GLOBAL__N_126DerefFuncDeleteExprVisitor20HasSpecializedDeleteEPN5clang13CXXMethodDeclE.exit74 ], [ 1, %_ZN5clang11DeclContext22specific_decl_iteratorINS_13CXXMethodDeclEEppEv.exit ], [ 1, %20 ], [ 1, %.critedge29.thread ], [ 1, %27 ], [ %.sroa.7.0.extract.shift, %_ZN12_GLOBAL__N_126DerefFuncDeleteExprVisitor20HasSpecializedDeleteEPN5clang13CXXMethodDeclE.exit ], [ 1, %_ZN5clang11DeclContext22specific_decl_iteratorINS_13CXXMethodDeclEEppEv.exit80 ], [ 1, %107 ]
+  %.sroa.089.1 = phi i16 [ 0, %.critedge29.thread ], [ 0, %27 ], [ %.sroa.3.1.i72, %_ZN12_GLOBAL__N_126DerefFuncDeleteExprVisitor20HasSpecializedDeleteEPN5clang13CXXMethodDeclE.exit74 ], [ 0, %_ZN5clang11DeclContext22specific_decl_iteratorINS_13CXXMethodDeclEEppEv.exit ], [ 0, %20 ], [ %.sroa.3.1.i, %_ZN12_GLOBAL__N_126DerefFuncDeleteExprVisitor20HasSpecializedDeleteEPN5clang13CXXMethodDeclE.exit ], [ 0, %_ZN5clang11DeclContext22specific_decl_iteratorINS_13CXXMethodDeclEEppEv.exit80 ], [ 0, %107 ]
+  %.sroa.7.1 = phi i16 [ 1, %.critedge29.thread ], [ 1, %27 ], [ %.sroa.7.0.extract.shift93, %_ZN12_GLOBAL__N_126DerefFuncDeleteExprVisitor20HasSpecializedDeleteEPN5clang13CXXMethodDeclE.exit74 ], [ 1, %_ZN5clang11DeclContext22specific_decl_iteratorINS_13CXXMethodDeclEEppEv.exit ], [ 1, %20 ], [ %.sroa.7.0.extract.shift, %_ZN12_GLOBAL__N_126DerefFuncDeleteExprVisitor20HasSpecializedDeleteEPN5clang13CXXMethodDeclE.exit ], [ 1, %_ZN5clang11DeclContext22specific_decl_iteratorINS_13CXXMethodDeclEEppEv.exit80 ], [ 1, %107 ]
   %.sroa.7.0.insert.ext = shl nuw nsw i16 %.sroa.7.1, 8
   %.sroa.089.0.insert.ext = and i16 %.sroa.089.1, 255
   %.sroa.089.0.insert.insert = or disjoint i16 %.sroa.7.0.insert.ext, %.sroa.089.0.insert.ext
@@ -7994,7 +7994,7 @@ _ZN12_GLOBAL__N_126DerefFuncDeleteExprVisitor9VisitBodyEPKN5clang4StmtE.exit: ; 
   br i1 %51, label %.thread56, label %42
 
 .thread56:                                        ; preds = %16, %19, %42, %45, %.preheader, %.loopexit, %_ZN12_GLOBAL__N_126DerefFuncDeleteExprVisitor9VisitBodyEPKN5clang4StmtE.exit
-  %.2 = phi i1 [ true, %_ZN12_GLOBAL__N_126DerefFuncDeleteExprVisitor9VisitBodyEPKN5clang4StmtE.exit ], [ false, %.loopexit ], [ false, %.preheader ], [ %51, %42 ], [ %51, %45 ], [ false, %19 ], [ false, %16 ]
+  %.2 = phi i1 [ %51, %42 ], [ true, %_ZN12_GLOBAL__N_126DerefFuncDeleteExprVisitor9VisitBodyEPKN5clang4StmtE.exit ], [ false, %.loopexit ], [ false, %.preheader ], [ %51, %45 ], [ false, %19 ], [ false, %16 ]
   ret i1 %.2
 }
 

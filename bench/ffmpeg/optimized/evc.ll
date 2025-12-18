@@ -105,7 +105,7 @@ evc_get_nalu_type.exit:                           ; preds = %33
   br label %41
 
 41:                                               ; preds = %evc_get_nalu_type.exit, %38, %39, %40
-  %.046 = phi i64 [ 3, %40 ], [ 1, %38 ], [ 2, %39 ], [ 0, %evc_get_nalu_type.exit ]
+  %.046 = phi i64 [ 0, %evc_get_nalu_type.exit ], [ 3, %40 ], [ 1, %38 ], [ 2, %39 ]
   %42 = trunc nuw nsw i32 %37 to i8
   %43 = getelementptr inbounds nuw %struct.EVCNALUnitArray, ptr %12, i64 %.046
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 2
@@ -970,7 +970,7 @@ get_ue_golomb_long.exit106.i:                     ; preds = %504, %502
   br i1 %exitcond104.not.i, label %evcc_write.exit, label %617, !llvm.loop !40
 
 evcc_write.exit:                                  ; preds = %evc_get_nalu_type.exit, %get_ue_golomb_long.exit106.i, %79, %get_ue_golomb_long.exit38.i, %get_ue_golomb_long.exit.i, %73, %41, %51, %32, %33, %.loopexit.i, %get_ue_golomb_long.exit106.i.thread, %get_ue_golomb_long.exit38.thread.i, %560
-  %.0 = phi i32 [ -1094995529, %get_ue_golomb_long.exit106.i.thread ], [ -1094995529, %get_ue_golomb_long.exit38.thread.i ], [ -1094995529, %560 ], [ 0, %.loopexit.i ], [ -1094995529, %get_ue_golomb_long.exit106.i ], [ -1094995529, %79 ], [ -1094995529, %get_ue_golomb_long.exit38.i ], [ -1094995529, %get_ue_golomb_long.exit.i ], [ -1094995529, %73 ], [ %49, %41 ], [ -1094995529, %33 ], [ -1094995529, %evc_get_nalu_type.exit ], [ -1094995529, %32 ], [ %53, %51 ]
+  %.0 = phi i32 [ -1094995529, %560 ], [ 0, %.loopexit.i ], [ -1094995529, %get_ue_golomb_long.exit106.i.thread ], [ -1094995529, %get_ue_golomb_long.exit38.thread.i ], [ -1094995529, %79 ], [ -1094995529, %get_ue_golomb_long.exit38.i ], [ -1094995529, %get_ue_golomb_long.exit.i ], [ -1094995529, %73 ], [ %49, %41 ], [ -1094995529, %33 ], [ -1094995529, %evc_get_nalu_type.exit ], [ -1094995529, %32 ], [ %53, %51 ], [ -1094995529, %get_ue_golomb_long.exit106.i ]
   %650 = getelementptr inbounds nuw i8, ptr %5, i64 24
   br label %651
 

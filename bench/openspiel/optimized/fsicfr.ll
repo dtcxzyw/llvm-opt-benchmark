@@ -3407,9 +3407,9 @@ _ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt4p
   br i1 %227, label %203, label %._crit_edge, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %203, %_ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit.thread, %_ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit, %.preheader
-  %.sroa.12.2147156 = phi i64 [ %72, %.preheader ], [ 0, %_ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit.thread ], [ %72, %_ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit ], [ %72, %203 ]
-  %.sroa.080.2149155 = phi ptr [ %65, %.preheader ], [ null, %_ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit.thread ], [ %65, %_ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit ], [ %65, %203 ]
-  %228 = phi ptr [ %73, %.preheader ], [ %64, %_ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit.thread ], [ %73, %_ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit ], [ %73, %203 ]
+  %.sroa.12.2147156 = phi i64 [ %72, %_ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit ], [ %72, %.preheader ], [ 0, %_ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit.thread ], [ %72, %203 ]
+  %.sroa.080.2149155 = phi ptr [ %65, %_ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit ], [ %65, %.preheader ], [ null, %_ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit.thread ], [ %65, %203 ]
+  %228 = phi ptr [ %73, %_ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit ], [ %73, %.preheader ], [ %64, %_ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit.thread ], [ %73, %203 ]
   %229 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 64
   %230 = load i32, ptr %229, align 8
   %231 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 60
@@ -4932,7 +4932,7 @@ _ZNSt10_HashtableIlSt4pairIKldESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4
   br label %.body
 
 .loopexit:                                        ; preds = %39, %.noexc, %34
-  %.0.i.pn.i.i = phi ptr [ %35, %34 ], [ %49, %.noexc ], [ %41, %39 ]
+  %.0.i.pn.i.i = phi ptr [ %49, %.noexc ], [ %35, %34 ], [ %41, %39 ]
   %.0.i.i = getelementptr inbounds nuw i8, ptr %.0.i.pn.i.i, i64 16
   store double %27, ptr %.0.i.i, align 8
   %51 = getelementptr inbounds nuw i8, ptr %.sroa.012.018, i64 16
@@ -5077,7 +5077,7 @@ _ZNSt10_HashtableIlSt4pairIKldESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4
   br label %.body
 
 .loopexit:                                        ; preds = %39, %.noexc, %34
-  %.0.i.pn.i.i = phi ptr [ %35, %34 ], [ %49, %.noexc ], [ %41, %39 ]
+  %.0.i.pn.i.i = phi ptr [ %49, %.noexc ], [ %35, %34 ], [ %41, %39 ]
   %.0.i.i = getelementptr inbounds nuw i8, ptr %.0.i.pn.i.i, i64 16
   store double %27, ptr %.0.i.i, align 8
   %51 = getelementptr inbounds nuw i8, ptr %.sroa.012.018, i64 16

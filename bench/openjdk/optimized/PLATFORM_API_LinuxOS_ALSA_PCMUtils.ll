@@ -290,8 +290,8 @@ define hidden i32 @iteratePCMDevices(ptr noundef readonly captures(address_is_nu
   br i1 %146, label %.loopexit54.split, label %.lr.ph128, !llvm.loop !8
 
 .loopexit54.split:                                ; preds = %.loopexit, %.lr.ph, %.split, %103
-  %.331 = phi i32 [ %.12969, %103 ], [ %.12969, %.split ], [ %142, %.lr.ph ], [ %.533, %.loopexit ]
-  %.4 = phi i32 [ %.270, %103 ], [ %.270, %.split ], [ 0, %.lr.ph ], [ %.6, %.loopexit ]
+  %.331 = phi i32 [ %.12969, %103 ], [ %142, %.lr.ph ], [ %.12969, %.split ], [ %.533, %.loopexit ]
+  %.4 = phi i32 [ %.270, %103 ], [ 0, %.lr.ph ], [ %.270, %.split ], [ %.6, %.loopexit ]
   %147 = load ptr, ptr %6, align 8
   %148 = call i32 @snd_ctl_close(ptr noundef %147) #5
   br label %149
@@ -303,7 +303,7 @@ define hidden i32 @iteratePCMDevices(ptr noundef readonly captures(address_is_nu
   br i1 %.not49, label %._crit_edge, label %.lr.ph71.split, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %149, %.lr.ph71.split, %62, %.lr.ph71.split.us.split, %40
-  %.129.lcssa = phi i32 [ 1, %40 ], [ %.028.ph108, %.lr.ph71.split.us.split ], [ %.230.us, %62 ], [ %.12969, %.lr.ph71.split ], [ %.230, %149 ]
+  %.129.lcssa = phi i32 [ 1, %40 ], [ %.028.ph108, %.lr.ph71.split.us.split ], [ %.230.us, %62 ], [ %.230, %149 ], [ %.12969, %.lr.ph71.split ]
   %150 = load ptr, ptr %9, align 8
   call void @snd_ctl_card_info_free(ptr noundef %150) #5
   %151 = load ptr, ptr %8, align 8

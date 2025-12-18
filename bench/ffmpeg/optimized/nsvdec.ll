@@ -375,8 +375,8 @@ nsv_parse_NSVf_header.exit:                       ; preds = %nsv_parse_NSVf_head
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 56, ptr noundef nonnull @.str.3) #8
   br label %nsv_parse_NSVf_header.exit.thread
 
-nsv_parse_NSVf_header.exit.thread:                ; preds = %68, %72, %85, %27, %63, %.loopexit.i, %24, %40, %11, %.lr.ph.i, %.loopexit, %100, %106
-  %.021 = phi i32 [ %107, %106 ], [ -1094995529, %.loopexit ], [ %101, %100 ], [ -1094995529, %.lr.ph.i ], [ -12, %40 ], [ -1, %24 ], [ -1, %.loopexit.i ], [ -1, %63 ], [ -1, %27 ], [ -12, %85 ], [ -12, %72 ], [ -1, %68 ], [ -1, %11 ]
+nsv_parse_NSVf_header.exit.thread:                ; preds = %72, %85, %68, %27, %63, %.loopexit.i, %24, %40, %11, %.lr.ph.i, %.loopexit, %100, %106
+  %.021 = phi i32 [ %107, %106 ], [ -1094995529, %.lr.ph.i ], [ -1094995529, %.loopexit ], [ %101, %100 ], [ -1, %24 ], [ -1, %.loopexit.i ], [ -1, %63 ], [ -1, %27 ], [ -1, %68 ], [ -12, %85 ], [ -12, %72 ], [ -12, %40 ], [ -1, %11 ]
   ret i32 %.021
 }
 

@@ -4834,14 +4834,14 @@ _ZL20print_finish_messagePKcb.exit.sink.split:    ; preds = %91, %80, %43
   br label %_ZL20print_finish_messagePKcb.exit
 
 _ZL20print_finish_messagePKcb.exit:               ; preds = %93, %_ZL20print_finish_messagePKcb.exit.sink.split, %37, %91, %80, %43
-  %.sroa.3.0124 = phi i32 [ 0, %37 ], [ %.sroa.3.0127, %43 ], [ %.sroa.3.0127, %80 ], [ %.sroa.3.0127, %91 ], [ %.sroa.3.0127, %_ZL20print_finish_messagePKcb.exit.sink.split ], [ %94, %93 ]
-  %.065120 = phi double [ 0.000000e+00, %37 ], [ %.065128, %43 ], [ %.065128, %80 ], [ %.065128, %91 ], [ %.065128, %_ZL20print_finish_messagePKcb.exit.sink.split ], [ %.166, %93 ]
-  %.063116 = phi double [ 0.000000e+00, %37 ], [ %.063129, %43 ], [ %.063129, %80 ], [ %.063129, %91 ], [ %.063129, %_ZL20print_finish_messagePKcb.exit.sink.split ], [ %.164, %93 ]
-  %.061112 = phi i32 [ 0, %37 ], [ %.061130, %43 ], [ %.061130, %80 ], [ %.061130, %91 ], [ %.061130, %_ZL20print_finish_messagePKcb.exit.sink.split ], [ %.162, %93 ]
-  %.059108 = phi i32 [ 0, %37 ], [ %.059131, %43 ], [ %.059131, %80 ], [ %.059131, %91 ], [ %.059131, %_ZL20print_finish_messagePKcb.exit.sink.split ], [ %.160, %93 ]
-  %.057104 = phi i32 [ 0, %37 ], [ %.057132, %43 ], [ %.057132, %80 ], [ %.057132, %91 ], [ %.057132, %_ZL20print_finish_messagePKcb.exit.sink.split ], [ %.158, %93 ]
-  %.055100 = phi i32 [ 0, %37 ], [ %.055133, %43 ], [ %.055133, %80 ], [ %.055133, %91 ], [ %.055133, %_ZL20print_finish_messagePKcb.exit.sink.split ], [ %.156, %93 ]
-  %.1 = phi double [ %2, %37 ], [ %.0134, %43 ], [ %70, %80 ], [ 0.000000e+00, %91 ], [ %.1.ph, %_ZL20print_finish_messagePKcb.exit.sink.split ], [ %.2, %93 ]
+  %.sroa.3.0124 = phi i32 [ %.sroa.3.0127, %91 ], [ 0, %37 ], [ %.sroa.3.0127, %_ZL20print_finish_messagePKcb.exit.sink.split ], [ %.sroa.3.0127, %43 ], [ %.sroa.3.0127, %80 ], [ %94, %93 ]
+  %.065120 = phi double [ %.065128, %91 ], [ 0.000000e+00, %37 ], [ %.065128, %_ZL20print_finish_messagePKcb.exit.sink.split ], [ %.065128, %43 ], [ %.065128, %80 ], [ %.166, %93 ]
+  %.063116 = phi double [ %.063129, %91 ], [ 0.000000e+00, %37 ], [ %.063129, %_ZL20print_finish_messagePKcb.exit.sink.split ], [ %.063129, %43 ], [ %.063129, %80 ], [ %.164, %93 ]
+  %.061112 = phi i32 [ %.061130, %91 ], [ 0, %37 ], [ %.061130, %_ZL20print_finish_messagePKcb.exit.sink.split ], [ %.061130, %43 ], [ %.061130, %80 ], [ %.162, %93 ]
+  %.059108 = phi i32 [ %.059131, %91 ], [ 0, %37 ], [ %.059131, %_ZL20print_finish_messagePKcb.exit.sink.split ], [ %.059131, %43 ], [ %.059131, %80 ], [ %.160, %93 ]
+  %.057104 = phi i32 [ %.057132, %91 ], [ 0, %37 ], [ %.057132, %_ZL20print_finish_messagePKcb.exit.sink.split ], [ %.057132, %43 ], [ %.057132, %80 ], [ %.158, %93 ]
+  %.055100 = phi i32 [ %.055133, %91 ], [ 0, %37 ], [ %.055133, %_ZL20print_finish_messagePKcb.exit.sink.split ], [ %.055133, %43 ], [ %.055133, %80 ], [ %.156, %93 ]
+  %.1 = phi double [ 0.000000e+00, %91 ], [ %2, %37 ], [ %.1.ph, %_ZL20print_finish_messagePKcb.exit.sink.split ], [ %.0134, %43 ], [ %70, %80 ], [ %.2, %93 ]
   %96 = load i32, ptr %1, align 4
   %97 = icmp eq i32 %.sroa.3.0124, %96
   br i1 %97, label %98, label %101

@@ -1198,13 +1198,13 @@ define internal noundef ptr @H5FD__family_open(ptr noundef %0, i32 noundef %1, i
   br label %.preheader
 
 .thread205:                                       ; preds = %181, %191, %169, %207, %204
-  %.1132.ph = phi ptr [ %28, %204 ], [ %28, %207 ], [ null, %181 ], [ null, %169 ], [ null, %191 ]
+  %.1132.ph = phi ptr [ %28, %204 ], [ %28, %207 ], [ null, %191 ], [ null, %181 ], [ null, %169 ]
   %210 = tail call ptr @H5MM_xfree(ptr noundef nonnull %121) #15
   %211 = tail call ptr @H5MM_xfree(ptr noundef nonnull %.1140) #15
   %212 = icmp eq ptr %.1132.ph, null
   br i1 %212, label %.preheader, label %.thread205.thread
 
-.preheader:                                       ; preds = %.thread185, %123, %46, %.thread213, %.thread205.thread254, %.thread205
+.preheader:                                       ; preds = %.thread185, %46, %123, %.thread213, %.thread205.thread254, %.thread205
   %213 = getelementptr inbounds nuw i8, ptr %28, i64 104
   %214 = load i32, ptr %213, align 8, !tbaa !37
   %.not228 = icmp eq i32 %214, 0
@@ -2292,7 +2292,7 @@ define internal range(i32 -1, 1) i32 @H5FD__family_delete(ptr noundef %0, i64 no
   %89 = add i32 %.045, 1
   br label %75
 
-.thread76:                                        ; preds = %54, %67
+.thread76:                                        ; preds = %67, %54
   %90 = tail call ptr @H5MM_xfree(ptr noundef nonnull %45) #15
   br label %.thread70
 

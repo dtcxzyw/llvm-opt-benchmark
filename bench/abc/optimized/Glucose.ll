@@ -2804,9 +2804,9 @@ _ZN5Gluco8OccListsINS_3LitENS_3vecINS_6Solver7WatcherEEENS3_14WatcherDeletedEE8c
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph288, %324, %206, %331, %267, %308, %180
-  %.1117 = phi ptr [ %182, %180 ], [ %207, %206 ], [ %314, %331 ], [ %.0116292, %267 ], [ %.0116292, %308 ], [ %314, %324 ], [ %328, %.lr.ph288 ]
-  %.1111 = phi ptr [ %181, %180 ], [ %197, %206 ], [ %197, %331 ], [ %197, %267 ], [ %197, %308 ], [ %197, %324 ], [ %327, %.lr.ph288 ]
-  %.3107 = phi i32 [ %.2106295, %180 ], [ %.2106295, %206 ], [ %.2106295, %331 ], [ %.2106295, %267 ], [ %.2106295, %308 ], [ %185, %324 ], [ %185, %.lr.ph288 ]
+  %.1117 = phi ptr [ %182, %180 ], [ %207, %206 ], [ %.0116292, %308 ], [ %314, %331 ], [ %.0116292, %267 ], [ %314, %324 ], [ %328, %.lr.ph288 ]
+  %.1111 = phi ptr [ %181, %180 ], [ %197, %206 ], [ %197, %308 ], [ %197, %331 ], [ %197, %267 ], [ %197, %324 ], [ %327, %.lr.ph288 ]
+  %.3107 = phi i32 [ %.2106295, %180 ], [ %.2106295, %206 ], [ %.2106295, %308 ], [ %.2106295, %331 ], [ %.2106295, %267 ], [ %185, %324 ], [ %185, %.lr.ph288 ]
   %.not132 = icmp eq ptr %.1111, %168
   br i1 %.not132, label %._crit_edge299, label %170
 
@@ -4834,8 +4834,8 @@ _ZN5Gluco6Solver15claBumpActivityERNS_6ClauseE.exit: ; preds = %._crit_edge.i, %
   br i1 %176, label %159, label %_ZN5Gluco6Solver10computeLBDERKNS_6ClauseE.exit, !llvm.loop !173
 
 _ZN5Gluco6Solver10computeLBDERKNS_6ClauseE.exit:  ; preds = %154, %173, %.preheader36.i, %.preheader.i204
-  %177 = phi i64 [ %126, %.preheader.i204 ], [ %118, %.preheader36.i ], [ %174, %173 ], [ %156, %154 ]
-  %.3.i = phi i32 [ 0, %.preheader.i204 ], [ 0, %.preheader36.i ], [ %.5.i, %173 ], [ %.1.i, %154 ]
+  %177 = phi i64 [ %174, %173 ], [ %126, %.preheader.i204 ], [ %118, %.preheader36.i ], [ %156, %154 ]
+  %.3.i = phi i32 [ %.5.i, %173 ], [ 0, %.preheader.i204 ], [ 0, %.preheader36.i ], [ %.1.i, %154 ]
   %178 = add i32 %.3.i, 1
   %179 = trunc i64 %177 to i32
   %180 = lshr i32 %179, 5
@@ -5443,9 +5443,9 @@ _ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit218:       ; preds = %.lr.ph329, %._ZN5Gl
   br label %.loopexit289
 
 .loopexit289:                                     ; preds = %._crit_edge, %.preheader290, %.loopexit289.loopexit365, %.loopexit289.loopexit, %.preheader292
-  %486 = phi i32 [ %409, %.preheader290 ], [ %481, %.loopexit289.loopexit365 ], [ %409, %.preheader292 ], [ %445, %.loopexit289.loopexit ], [ %409, %._crit_edge ]
-  %.2180 = phi i32 [ 1, %.preheader290 ], [ %.4182, %.loopexit289.loopexit365 ], [ 1, %.preheader292 ], [ %.1179, %.loopexit289.loopexit ], [ %409, %._crit_edge ]
-  %.3 = phi i32 [ 1, %.preheader290 ], [ %485, %.loopexit289.loopexit365 ], [ 1, %.preheader292 ], [ %484, %.loopexit289.loopexit ], [ %409, %._crit_edge ]
+  %486 = phi i32 [ %409, %.preheader290 ], [ %445, %.loopexit289.loopexit ], [ %481, %.loopexit289.loopexit365 ], [ %409, %.preheader292 ], [ %409, %._crit_edge ]
+  %.2180 = phi i32 [ 1, %.preheader290 ], [ %.1179, %.loopexit289.loopexit ], [ %.4182, %.loopexit289.loopexit365 ], [ 1, %.preheader292 ], [ %409, %._crit_edge ]
+  %.3 = phi i32 [ 1, %.preheader290 ], [ %484, %.loopexit289.loopexit ], [ %485, %.loopexit289.loopexit365 ], [ 1, %.preheader292 ], [ %409, %._crit_edge ]
   %487 = sext i32 %486 to i64
   %488 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %489 = load i64, ptr %488, align 8, !tbaa !185
@@ -5708,7 +5708,7 @@ _ZN5Gluco3vecINS_3LitEE6shrinkEi.exit:            ; preds = %.loopexit289, %.lr.
   br i1 %614, label %597, label %_ZN5Gluco6Solver10computeLBDERKNS_3vecINS_3LitEEEi.exit, !llvm.loop !162
 
 _ZN5Gluco6Solver10computeLBDERKNS_3vecINS_3LitEEEi.exit: ; preds = %593, %611, %.preheader.i231, %565
-  %.3.i223 = phi i32 [ 0, %.preheader.i231 ], [ 0, %565 ], [ %.5.i236, %611 ], [ %.1.i228, %593 ]
+  %.3.i223 = phi i32 [ %.5.i236, %611 ], [ 0, %.preheader.i231 ], [ 0, %565 ], [ %.1.i228, %593 ]
   store i32 %.3.i223, ptr %5, align 4, !tbaa !48
   %615 = load i32, ptr %59, align 8, !tbaa !99
   %616 = icmp sgt i32 %615, 0
@@ -10981,7 +10981,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5Gluco12DoubleOption5parseEPKc(ptr no
   br label %_ZN5GlucoL5matchIPKcEEbRT_S2_.exit
 
 _ZN5GlucoL5matchIPKcEEbRT_S2_.exit:               ; preds = %.lr.ph.i15, %.lr.ph.i, %.loopexit, %50
-  %.0 = phi i1 [ %21, %50 ], [ false, %.loopexit ], [ false, %.lr.ph.i ], [ false, %.lr.ph.i15 ]
+  %.0 = phi i1 [ %21, %50 ], [ false, %.lr.ph.i ], [ false, %.loopexit ], [ false, %.lr.ph.i15 ]
   ret i1 %.0
 }
 
@@ -11114,7 +11114,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5Gluco9IntOption5parseEPKc(ptr nounde
   br label %_ZN5GlucoL5matchIPKcEEbRT_S2_.exit
 
 _ZN5GlucoL5matchIPKcEEbRT_S2_.exit:               ; preds = %.lr.ph.i7, %.lr.ph.i, %.loopexit, %41
-  %.0 = phi i1 [ %22, %41 ], [ false, %.loopexit ], [ false, %.lr.ph.i ], [ false, %.lr.ph.i7 ]
+  %.0 = phi i1 [ %22, %41 ], [ false, %.lr.ph.i ], [ false, %.loopexit ], [ false, %.lr.ph.i7 ]
   ret i1 %.0
 }
 
@@ -11230,7 +11230,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5Gluco12StringOption5parseEPKc(ptr no
   br label %_ZN5GlucoL5matchIPKcEEbRT_S2_.exit
 
 _ZN5GlucoL5matchIPKcEEbRT_S2_.exit:               ; preds = %.lr.ph.i4, %.lr.ph.i, %.loopexit, %16
-  %.0 = phi i1 [ true, %16 ], [ false, %.loopexit ], [ false, %.lr.ph.i ], [ false, %.lr.ph.i4 ]
+  %.0 = phi i1 [ true, %16 ], [ false, %.lr.ph.i ], [ false, %.loopexit ], [ false, %.lr.ph.i4 ]
   ret i1 %.0
 }
 

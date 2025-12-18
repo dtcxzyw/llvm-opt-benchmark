@@ -2482,7 +2482,7 @@ vp6_build_huff_tree.exit215:                      ; preds = %.lr.ph.i211
   br i1 %506, label %.preheader228, label %.loopexit, !llvm.loop !124
 
 .loopexit:                                        ; preds = %vp6_build_huff_tree.exit210, %vp6_build_huff_tree.exit, %vp6_build_huff_tree.exit215, %528, %504
-  %.1132 = phi i32 [ 0, %504 ], [ %500, %vp6_build_huff_tree.exit215 ], [ 0, %528 ], [ %435, %vp6_build_huff_tree.exit ], [ %465, %vp6_build_huff_tree.exit210 ]
+  %.1132 = phi i32 [ %500, %vp6_build_huff_tree.exit215 ], [ 0, %528 ], [ 0, %504 ], [ %435, %vp6_build_huff_tree.exit ], [ %465, %vp6_build_huff_tree.exit210 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.1132
 }
@@ -4111,22 +4111,22 @@ vpx_rac_renorm.exit152:                           ; preds = %398, %410, %412
   br label %.loopexit
 
 .loopexit:                                        ; preds = %vpx_rac_renorm.exit149, %vpx_rac_get_prob_branchy.exit120.thread, %vpx_rac_get_prob_branchy.exit128.thread, %vpx_rac_renorm.exit152
-  %442 = phi ptr [ %382, %vpx_rac_get_prob_branchy.exit120.thread ], [ %420, %vpx_rac_renorm.exit152 ], [ %158, %vpx_rac_get_prob_branchy.exit128.thread ], [ %333, %vpx_rac_renorm.exit149 ]
-  %443 = phi i32 [ %.0.i166, %vpx_rac_get_prob_branchy.exit120.thread ], [ %440, %vpx_rac_renorm.exit152 ], [ %.0.i160, %vpx_rac_get_prob_branchy.exit128.thread ], [ %355, %vpx_rac_renorm.exit149 ]
-  %444 = phi i32 [ %.018.i165, %vpx_rac_get_prob_branchy.exit120.thread ], [ %.018.i150, %vpx_rac_renorm.exit152 ], [ %.018.i159, %vpx_rac_get_prob_branchy.exit128.thread ], [ %.018.i147, %vpx_rac_renorm.exit149 ]
-  %445 = phi i32 [ %396, %vpx_rac_get_prob_branchy.exit120.thread ], [ %439, %vpx_rac_renorm.exit152 ], [ %172, %vpx_rac_get_prob_branchy.exit128.thread ], [ %353, %vpx_rac_renorm.exit149 ]
-  %446 = phi ptr [ %383, %vpx_rac_get_prob_branchy.exit120.thread ], [ %421, %vpx_rac_renorm.exit152 ], [ %159, %vpx_rac_get_prob_branchy.exit128.thread ], [ %334, %vpx_rac_renorm.exit149 ]
-  %447 = phi ptr [ %384, %vpx_rac_get_prob_branchy.exit120.thread ], [ %422, %vpx_rac_renorm.exit152 ], [ %160, %vpx_rac_get_prob_branchy.exit128.thread ], [ %335, %vpx_rac_renorm.exit149 ]
-  %448 = phi ptr [ %385, %vpx_rac_get_prob_branchy.exit120.thread ], [ %423, %vpx_rac_renorm.exit152 ], [ %161, %vpx_rac_get_prob_branchy.exit128.thread ], [ %336, %vpx_rac_renorm.exit149 ]
-  %449 = phi ptr [ %386, %vpx_rac_get_prob_branchy.exit120.thread ], [ %424, %vpx_rac_renorm.exit152 ], [ %162, %vpx_rac_get_prob_branchy.exit128.thread ], [ %337, %vpx_rac_renorm.exit149 ]
-  %450 = phi ptr [ %387, %vpx_rac_get_prob_branchy.exit120.thread ], [ %425, %vpx_rac_renorm.exit152 ], [ %163, %vpx_rac_get_prob_branchy.exit128.thread ], [ %338, %vpx_rac_renorm.exit149 ]
-  %451 = phi ptr [ %388, %vpx_rac_get_prob_branchy.exit120.thread ], [ %426, %vpx_rac_renorm.exit152 ], [ %164, %vpx_rac_get_prob_branchy.exit128.thread ], [ %339, %vpx_rac_renorm.exit149 ]
-  %452 = phi ptr [ %389, %vpx_rac_get_prob_branchy.exit120.thread ], [ %427, %vpx_rac_renorm.exit152 ], [ %165, %vpx_rac_get_prob_branchy.exit128.thread ], [ %340, %vpx_rac_renorm.exit149 ]
-  %453 = phi ptr [ %390, %vpx_rac_get_prob_branchy.exit120.thread ], [ %428, %vpx_rac_renorm.exit152 ], [ %166, %vpx_rac_get_prob_branchy.exit128.thread ], [ %341, %vpx_rac_renorm.exit149 ]
-  %454 = phi ptr [ %391, %vpx_rac_get_prob_branchy.exit120.thread ], [ %429, %vpx_rac_renorm.exit152 ], [ %167, %vpx_rac_get_prob_branchy.exit128.thread ], [ %342, %vpx_rac_renorm.exit149 ]
-  %455 = phi ptr [ %392, %vpx_rac_get_prob_branchy.exit120.thread ], [ %430, %vpx_rac_renorm.exit152 ], [ %168, %vpx_rac_get_prob_branchy.exit128.thread ], [ %343, %vpx_rac_renorm.exit149 ]
-  %.2106 = phi i32 [ 2, %vpx_rac_get_prob_branchy.exit120.thread ], [ %441, %vpx_rac_renorm.exit152 ], [ 1, %vpx_rac_get_prob_branchy.exit128.thread ], [ %358, %vpx_rac_renorm.exit149 ]
-  %.192 = phi i32 [ 2, %vpx_rac_get_prob_branchy.exit120.thread ], [ 2, %vpx_rac_renorm.exit152 ], [ 1, %vpx_rac_get_prob_branchy.exit128.thread ], [ 2, %vpx_rac_renorm.exit149 ]
+  %442 = phi ptr [ %382, %vpx_rac_get_prob_branchy.exit120.thread ], [ %158, %vpx_rac_get_prob_branchy.exit128.thread ], [ %420, %vpx_rac_renorm.exit152 ], [ %333, %vpx_rac_renorm.exit149 ]
+  %443 = phi i32 [ %.0.i166, %vpx_rac_get_prob_branchy.exit120.thread ], [ %.0.i160, %vpx_rac_get_prob_branchy.exit128.thread ], [ %440, %vpx_rac_renorm.exit152 ], [ %355, %vpx_rac_renorm.exit149 ]
+  %444 = phi i32 [ %.018.i165, %vpx_rac_get_prob_branchy.exit120.thread ], [ %.018.i159, %vpx_rac_get_prob_branchy.exit128.thread ], [ %.018.i150, %vpx_rac_renorm.exit152 ], [ %.018.i147, %vpx_rac_renorm.exit149 ]
+  %445 = phi i32 [ %396, %vpx_rac_get_prob_branchy.exit120.thread ], [ %172, %vpx_rac_get_prob_branchy.exit128.thread ], [ %439, %vpx_rac_renorm.exit152 ], [ %353, %vpx_rac_renorm.exit149 ]
+  %446 = phi ptr [ %383, %vpx_rac_get_prob_branchy.exit120.thread ], [ %159, %vpx_rac_get_prob_branchy.exit128.thread ], [ %421, %vpx_rac_renorm.exit152 ], [ %334, %vpx_rac_renorm.exit149 ]
+  %447 = phi ptr [ %384, %vpx_rac_get_prob_branchy.exit120.thread ], [ %160, %vpx_rac_get_prob_branchy.exit128.thread ], [ %422, %vpx_rac_renorm.exit152 ], [ %335, %vpx_rac_renorm.exit149 ]
+  %448 = phi ptr [ %385, %vpx_rac_get_prob_branchy.exit120.thread ], [ %161, %vpx_rac_get_prob_branchy.exit128.thread ], [ %423, %vpx_rac_renorm.exit152 ], [ %336, %vpx_rac_renorm.exit149 ]
+  %449 = phi ptr [ %386, %vpx_rac_get_prob_branchy.exit120.thread ], [ %162, %vpx_rac_get_prob_branchy.exit128.thread ], [ %424, %vpx_rac_renorm.exit152 ], [ %337, %vpx_rac_renorm.exit149 ]
+  %450 = phi ptr [ %387, %vpx_rac_get_prob_branchy.exit120.thread ], [ %163, %vpx_rac_get_prob_branchy.exit128.thread ], [ %425, %vpx_rac_renorm.exit152 ], [ %338, %vpx_rac_renorm.exit149 ]
+  %451 = phi ptr [ %388, %vpx_rac_get_prob_branchy.exit120.thread ], [ %164, %vpx_rac_get_prob_branchy.exit128.thread ], [ %426, %vpx_rac_renorm.exit152 ], [ %339, %vpx_rac_renorm.exit149 ]
+  %452 = phi ptr [ %389, %vpx_rac_get_prob_branchy.exit120.thread ], [ %165, %vpx_rac_get_prob_branchy.exit128.thread ], [ %427, %vpx_rac_renorm.exit152 ], [ %340, %vpx_rac_renorm.exit149 ]
+  %453 = phi ptr [ %390, %vpx_rac_get_prob_branchy.exit120.thread ], [ %166, %vpx_rac_get_prob_branchy.exit128.thread ], [ %428, %vpx_rac_renorm.exit152 ], [ %341, %vpx_rac_renorm.exit149 ]
+  %454 = phi ptr [ %391, %vpx_rac_get_prob_branchy.exit120.thread ], [ %167, %vpx_rac_get_prob_branchy.exit128.thread ], [ %429, %vpx_rac_renorm.exit152 ], [ %342, %vpx_rac_renorm.exit149 ]
+  %455 = phi ptr [ %392, %vpx_rac_get_prob_branchy.exit120.thread ], [ %168, %vpx_rac_get_prob_branchy.exit128.thread ], [ %430, %vpx_rac_renorm.exit152 ], [ %343, %vpx_rac_renorm.exit149 ]
+  %.2106 = phi i32 [ 2, %vpx_rac_get_prob_branchy.exit120.thread ], [ 1, %vpx_rac_get_prob_branchy.exit128.thread ], [ %441, %vpx_rac_renorm.exit152 ], [ %358, %vpx_rac_renorm.exit149 ]
+  %.192 = phi i32 [ 2, %vpx_rac_get_prob_branchy.exit120.thread ], [ 1, %vpx_rac_get_prob_branchy.exit128.thread ], [ 2, %vpx_rac_renorm.exit152 ], [ 2, %vpx_rac_renorm.exit149 ]
   %456 = sext i32 %445 to i64
   %457 = getelementptr inbounds i8, ptr @ff_vpx_norm_shift, i64 %456
   %458 = load i8, ptr %457, align 1, !tbaa !61

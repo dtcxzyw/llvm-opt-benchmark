@@ -1252,7 +1252,7 @@ free_cmds.exit72.i.i:                             ; preds = %._crit_edge.i.i
   br i1 %exitcond150.not.i.i, label %batch_objects_command.exit.i, label %.lr.ph.i74.i.i, !llvm.loop !85
 
 batch_objects_command.exit.i:                     ; preds = %.lr.ph.i74.i.i, %.lr.ph.i70.i.i, %free_cmds.exit72.i.i, %376
-  %.040.lcssa159.i.i = phi ptr [ %.141.i.i, %free_cmds.exit72.i.i ], [ null, %376 ], [ %.141.i.i, %.lr.ph.i70.i.i ], [ %.141.i.i, %.lr.ph.i74.i.i ]
+  %.040.lcssa159.i.i = phi ptr [ null, %376 ], [ %.141.i.i, %.lr.ph.i70.i.i ], [ %.141.i.i, %free_cmds.exit72.i.i ], [ %.141.i.i, %.lr.ph.i74.i.i ]
   call void @free(ptr noundef %.040.lcssa159.i.i) #14
   call void @strbuf_release(ptr noundef nonnull %19) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %19)

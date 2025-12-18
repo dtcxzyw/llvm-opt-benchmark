@@ -497,7 +497,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread.i.i:     ; preds = %_ZN4llvmeqENS_9Stri
   br label %_ZSteqIJRKN4llvm9StringRefERKNS0_5MachO10EncodeKindERKNS0_11SmallVectorINS4_6TargetELj5EEERNS4_11SymbolFlagsEEJS3_S7_SC_SE_EEbRKSt5tupleIJDpT_EERKSF_IJDpT0_EE.exit
 
 _ZSteqIJRKN4llvm9StringRefERKNS0_5MachO10EncodeKindERKNS0_11SmallVectorINS4_6TargetELj5EEERNS4_11SymbolFlagsEEJS3_S7_SC_SE_EEbRKSt5tupleIJDpT_EERKSF_IJDpT0_EE.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %"_ZZNK4llvm5MachO6SymboleqERKS1_ENK3$_0clES3_RNS0_11SymbolFlagsE.exit", %_ZN4llvmeqENS_9StringRefES0_.exit.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i.i, %24, %.loopexit.i.i.i.i
-  %47 = phi i1 [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i.i ], [ %46, %.loopexit.i.i.i.i ], [ false, %24 ], [ false, %"_ZZNK4llvm5MachO6SymboleqERKS1_ENK3$_0clES3_RNS0_11SymbolFlagsE.exit" ], [ false, %.lr.ph.i.i.i.i.i.i.i.i.i ]
+  %47 = phi i1 [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ], [ false, %"_ZZNK4llvm5MachO6SymboleqERKS1_ENK3$_0clES3_RNS0_11SymbolFlagsE.exit" ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i.i ], [ %46, %.loopexit.i.i.i.i ], [ false, %24 ], [ false, %.lr.ph.i.i.i.i.i.i.i.i.i ]
   ret i1 %47
 }
 

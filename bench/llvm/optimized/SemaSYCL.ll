@@ -1151,7 +1151,7 @@ _ZL16isZeroSizedArrayRN5clang8SemaSYCLENS_8QualTypeE.exit: ; preds = %20
   %32 = icmp eq i64 %31, 0
   br i1 %32, label %33, label %.critedge
 
-33:                                               ; preds = %28, %25, %_ZL16isZeroSizedArrayRN5clang8SemaSYCLENS_8QualTypeE.exit
+33:                                               ; preds = %25, %28, %_ZL16isZeroSizedArrayRN5clang8SemaSYCLENS_8QualTypeE.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = load ptr, ptr %34, align 8, !tbaa !705
@@ -1753,8 +1753,8 @@ _ZN5clang8SemaSYCL16DiagIfDeviceCodeENS_14SourceLocationEj.exit33: ; preds = %32
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %9) #20
   br label %.critedge
 
-.critedge:                                        ; preds = %3, %13, %28, %25, %_ZL16isZeroSizedArrayRN5clang8SemaSYCLENS_8QualTypeE.exit, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_8QualTypeEvEERKS1_OT_.exit, %_ZN5clang8SemaSYCL16DiagIfDeviceCodeENS_14SourceLocationEj.exit33, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit
-  %344 = phi i1 [ false, %28 ], [ false, %_ZL16isZeroSizedArrayRN5clang8SemaSYCLENS_8QualTypeE.exit ], [ true, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_8QualTypeEvEERKS1_OT_.exit ], [ true, %_ZN5clang8SemaSYCL16DiagIfDeviceCodeENS_14SourceLocationEj.exit33 ], [ true, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit ], [ false, %25 ], [ false, %13 ], [ false, %3 ]
+.critedge:                                        ; preds = %3, %13, %25, %28, %_ZL16isZeroSizedArrayRN5clang8SemaSYCLENS_8QualTypeE.exit, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_8QualTypeEvEERKS1_OT_.exit, %_ZN5clang8SemaSYCL16DiagIfDeviceCodeENS_14SourceLocationEj.exit33, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit
+  %344 = phi i1 [ false, %25 ], [ false, %_ZL16isZeroSizedArrayRN5clang8SemaSYCLENS_8QualTypeE.exit ], [ true, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_8QualTypeEvEERKS1_OT_.exit ], [ true, %_ZN5clang8SemaSYCL16DiagIfDeviceCodeENS_14SourceLocationEj.exit33 ], [ true, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit ], [ false, %28 ], [ false, %13 ], [ false, %3 ]
   ret i1 %344
 }
 
@@ -3742,7 +3742,7 @@ _ZN5clanglsIPNS_12FunctionDeclEEERKNS_8SemaBase21SemaDiagnosticBuilderES6_RKT_.e
   store i8 1, ptr %735, align 8, !tbaa !813
   br label %_ZN5clang12RedeclarableINS_12FunctionDeclEE15getPreviousDeclEv.exit.thread
 
-_ZN5clang12RedeclarableINS_12FunctionDeclEE15getPreviousDeclEv.exit.thread: ; preds = %460, %449, %_ZN5clangneENS_22specific_attr_iteratorINS_24SYCLKernelEntryPointAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, %.critedge, %_ZNK5clang4Decl7getAttrINS_24SYCLKernelEntryPointAttrEEEPT_v.exit, %_ZN5clanglsIPNS_12FunctionDeclEEERKNS_8SemaBase21SemaDiagnosticBuilderES6_RKT_.exit, %477, %445, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15getPreviousDeclEv.exit
+_ZN5clang12RedeclarableINS_12FunctionDeclEE15getPreviousDeclEv.exit.thread: ; preds = %460, %_ZN5clangneENS_22specific_attr_iteratorINS_24SYCLKernelEntryPointAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, %449, %.critedge, %_ZNK5clang4Decl7getAttrINS_24SYCLKernelEntryPointAttrEEEPT_v.exit, %_ZN5clanglsIPNS_12FunctionDeclEEERKNS_8SemaBase21SemaDiagnosticBuilderES6_RKT_.exit, %477, %445, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15getPreviousDeclEv.exit
   %736 = load i32, ptr %36, align 4
   %737 = and i32 %736, 127
   %738 = add nsw i32 %737, -37
@@ -5293,7 +5293,7 @@ _ZN5clangneENS_22specific_attr_iteratorINS_24SYCLKernelEntryPointAttrEN4llvm11Sm
   br i1 %33, label %_ZNK5clang4Decl7getAttrINS_24SYCLKernelEntryPointAttrEEEPT_v.exit, label %.lr.ph.i.i.i.i, !llvm.loop !812
 
 _ZNK5clang4Decl7getAttrINS_24SYCLKernelEntryPointAttrEEEPT_v.exit: ; preds = %21, %.lr.ph.i.i.i.i, %3, %10, %_ZN5clangneENS_22specific_attr_iteratorINS_24SYCLKernelEntryPointAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, %23
-  %34 = phi ptr [ null, %3 ], [ null, %_ZN5clangneENS_22specific_attr_iteratorINS_24SYCLKernelEntryPointAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i ], [ %24, %23 ], [ null, %10 ], [ %30, %.lr.ph.i.i.i.i ], [ null, %21 ]
+  %34 = phi ptr [ null, %3 ], [ null, %10 ], [ null, %_ZN5clangneENS_22specific_attr_iteratorINS_24SYCLKernelEntryPointAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i ], [ %24, %23 ], [ %30, %.lr.ph.i.i.i.i ], [ null, %21 ]
   %35 = tail call noundef nonnull align 8 dereferenceable(23216) ptr @_ZNK5clang8SemaBase13getASTContextEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #20
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 40
   %37 = load ptr, ptr %36, align 8, !tbaa !806
@@ -9734,7 +9734,7 @@ _ZN5clang13ObjCAtTryStmt14getFinallyStmtEv.exit.thread: ; preds = %_ZN5clang13Ob
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %_ZN5clang13ObjCAtTryStmt14getFinallyStmtEv.exit.thread, %_ZN5clang13ObjCAtTryStmt14getFinallyStmtEv.exit28
-  %.sroa.036.3 = phi i64 [ %53, %_ZN5clang13ObjCAtTryStmt14getFinallyStmtEv.exit.thread ], [ 1, %_ZN5clang13ObjCAtTryStmt14getFinallyStmtEv.exit28 ], [ 1, %.lr.ph ]
+  %.sroa.036.3 = phi i64 [ 1, %_ZN5clang13ObjCAtTryStmt14getFinallyStmtEv.exit28 ], [ %53, %_ZN5clang13ObjCAtTryStmt14getFinallyStmtEv.exit.thread ], [ 1, %.lr.ph ]
   %54 = load ptr, ptr %3, align 8, !tbaa !683
   %55 = icmp eq ptr %54, %9
   br i1 %55, label %_ZN4llvm11SmallVectorIPN5clang4StmtELj8EED2Ev.exit, label %56
@@ -16377,7 +16377,7 @@ _ZN4llvm11SmallVectorIPN5clang4ExprELj8EED2Ev.exit: ; preds = %133, %136
   br label %.loopexit
 
 .loopexit:                                        ; preds = %tailrecurse.backedge, %137, %_ZN4llvm11SmallVectorIPN5clang4ExprELj8EED2Ev.exit, %3, %54, %61, %66, %58
-  %.sroa.0102.0 = phi i64 [ %55, %54 ], [ %62, %61 ], [ %67, %66 ], [ %60, %58 ], [ 0, %3 ], [ %.sroa.0102.3, %_ZN4llvm11SmallVectorIPN5clang4ExprELj8EED2Ev.exit ], [ %.sroa.0102.3, %137 ], [ 0, %tailrecurse.backedge ]
+  %.sroa.0102.0 = phi i64 [ %55, %54 ], [ %60, %58 ], [ %62, %61 ], [ %67, %66 ], [ %.sroa.0102.3, %137 ], [ 0, %3 ], [ %.sroa.0102.3, %_ZN4llvm11SmallVectorIPN5clang4ExprELj8EED2Ev.exit ], [ 0, %tailrecurse.backedge ]
   ret i64 %.sroa.0102.0
 }
 
@@ -17167,7 +17167,7 @@ _ZSt9__find_ifIPPN5clang4ExprEN9__gnu_cxx5__ops10_Iter_predIZNS0_12_GLOBAL__N_12
   br i1 %.not.i.i.i667, label %_ZN4llvm15SmallVectorImplIPN5clang4ExprEE5eraseEPKS3_S6_.exit.i638, label %.lr.ph.i.i.i658, !llvm.loop !1286
 
 _ZN4llvm15SmallVectorImplIPN5clang4ExprEE5eraseEPKS3_S6_.exit.i638: ; preds = %268, %190, %._crit_edge.i.i.i.i.i627, %256, %_ZSt9__find_ifIPPN5clang4ExprEN9__gnu_cxx5__ops10_Iter_predIZNS0_12_GLOBAL__N_122OpenACCClauseTransformIN12_GLOBAL__N_136OutlinedFunctionDeclBodyInstantiatorEE17VisitAttachClauseERKNS0_19OpenACCAttachClauseEEUlS2_E_EEET_SH_SH_T0_.exit.i.i.i
-  %.016.i.i.i635 = phi ptr [ %.028.i.i.i.i.i654, %_ZSt9__find_ifIPPN5clang4ExprEN9__gnu_cxx5__ops10_Iter_predIZNS0_12_GLOBAL__N_122OpenACCClauseTransformIN12_GLOBAL__N_136OutlinedFunctionDeclBodyInstantiatorEE17VisitAttachClauseERKNS0_19OpenACCAttachClauseEEUlS2_E_EEET_SH_SH_T0_.exit.i.i.i ], [ %224, %._crit_edge.i.i.i.i.i627 ], [ %224, %256 ], [ %103, %190 ], [ %.1.i.i.i665, %268 ]
+  %.016.i.i.i635 = phi ptr [ %.028.i.i.i.i.i654, %_ZSt9__find_ifIPPN5clang4ExprEN9__gnu_cxx5__ops10_Iter_predIZNS0_12_GLOBAL__N_122OpenACCClauseTransformIN12_GLOBAL__N_136OutlinedFunctionDeclBodyInstantiatorEE17VisitAttachClauseERKNS0_19OpenACCAttachClauseEEUlS2_E_EEET_SH_SH_T0_.exit.i.i.i ], [ %224, %256 ], [ %224, %._crit_edge.i.i.i.i.i627 ], [ %103, %190 ], [ %.1.i.i.i665, %268 ]
   %269 = load ptr, ptr %7, align 8, !tbaa !683
   %270 = ptrtoint ptr %.016.i.i.i635 to i64
   %271 = ptrtoint ptr %269 to i64
@@ -17973,7 +17973,7 @@ _ZSt9__find_ifIPPN5clang4ExprEN9__gnu_cxx5__ops10_Iter_predIZNS0_12_GLOBAL__N_12
   br i1 %.not.i.i.i526, label %_ZN4llvm15SmallVectorImplIPN5clang4ExprEE5eraseEPKS3_S6_.exit.i497, label %.lr.ph.i.i.i517, !llvm.loop !1313
 
 _ZN4llvm15SmallVectorImplIPN5clang4ExprEE5eraseEPKS3_S6_.exit.i497: ; preds = %595, %517, %._crit_edge.i.i.i.i.i486, %583, %_ZSt9__find_ifIPPN5clang4ExprEN9__gnu_cxx5__ops10_Iter_predIZNS0_12_GLOBAL__N_122OpenACCClauseTransformIN12_GLOBAL__N_136OutlinedFunctionDeclBodyInstantiatorEE17VisitDetachClauseERKNS0_19OpenACCDetachClauseEEUlS2_E_EEET_SH_SH_T0_.exit.i.i.i
-  %.016.i.i.i494 = phi ptr [ %.028.i.i.i.i.i513, %_ZSt9__find_ifIPPN5clang4ExprEN9__gnu_cxx5__ops10_Iter_predIZNS0_12_GLOBAL__N_122OpenACCClauseTransformIN12_GLOBAL__N_136OutlinedFunctionDeclBodyInstantiatorEE17VisitDetachClauseERKNS0_19OpenACCDetachClauseEEUlS2_E_EEET_SH_SH_T0_.exit.i.i.i ], [ %551, %._crit_edge.i.i.i.i.i486 ], [ %551, %583 ], [ %93, %517 ], [ %.1.i.i.i524, %595 ]
+  %.016.i.i.i494 = phi ptr [ %.028.i.i.i.i.i513, %_ZSt9__find_ifIPPN5clang4ExprEN9__gnu_cxx5__ops10_Iter_predIZNS0_12_GLOBAL__N_122OpenACCClauseTransformIN12_GLOBAL__N_136OutlinedFunctionDeclBodyInstantiatorEE17VisitDetachClauseERKNS0_19OpenACCDetachClauseEEUlS2_E_EEET_SH_SH_T0_.exit.i.i.i ], [ %551, %583 ], [ %551, %._crit_edge.i.i.i.i.i486 ], [ %93, %517 ], [ %.1.i.i.i524, %595 ]
   %596 = load ptr, ptr %10, align 8, !tbaa !683
   %597 = ptrtoint ptr %.016.i.i.i494 to i64
   %598 = ptrtoint ptr %596 to i64
@@ -18465,7 +18465,7 @@ _ZSt9__find_ifIPPN5clang4ExprEN9__gnu_cxx5__ops10_Iter_predIZNS0_12_GLOBAL__N_12
   br i1 %.not.i.i.i, label %_ZN4llvm15SmallVectorImplIPN5clang4ExprEE5eraseEPKS3_S6_.exit.i, label %.lr.ph.i.i.i, !llvm.loop !1321
 
 _ZN4llvm15SmallVectorImplIPN5clang4ExprEE5eraseEPKS3_S6_.exit.i: ; preds = %797, %719, %._crit_edge.i.i.i.i.i, %785, %_ZSt9__find_ifIPPN5clang4ExprEN9__gnu_cxx5__ops10_Iter_predIZNS0_12_GLOBAL__N_122OpenACCClauseTransformIN12_GLOBAL__N_136OutlinedFunctionDeclBodyInstantiatorEE20VisitDevicePtrClauseERKNS0_22OpenACCDevicePtrClauseEEUlS2_E_EEET_SH_SH_T0_.exit.i.i.i
-  %.016.i.i.i = phi ptr [ %.028.i.i.i.i.i, %_ZSt9__find_ifIPPN5clang4ExprEN9__gnu_cxx5__ops10_Iter_predIZNS0_12_GLOBAL__N_122OpenACCClauseTransformIN12_GLOBAL__N_136OutlinedFunctionDeclBodyInstantiatorEE20VisitDevicePtrClauseERKNS0_22OpenACCDevicePtrClauseEEUlS2_E_EEET_SH_SH_T0_.exit.i.i.i ], [ %753, %._crit_edge.i.i.i.i.i ], [ %753, %785 ], [ %90, %719 ], [ %.1.i.i.i, %797 ]
+  %.016.i.i.i = phi ptr [ %.028.i.i.i.i.i, %_ZSt9__find_ifIPPN5clang4ExprEN9__gnu_cxx5__ops10_Iter_predIZNS0_12_GLOBAL__N_122OpenACCClauseTransformIN12_GLOBAL__N_136OutlinedFunctionDeclBodyInstantiatorEE20VisitDevicePtrClauseERKNS0_22OpenACCDevicePtrClauseEEUlS2_E_EEET_SH_SH_T0_.exit.i.i.i ], [ %753, %785 ], [ %753, %._crit_edge.i.i.i.i.i ], [ %90, %719 ], [ %.1.i.i.i, %797 ]
   %798 = load ptr, ptr %13, align 8, !tbaa !683
   %799 = ptrtoint ptr %.016.i.i.i to i64
   %800 = ptrtoint ptr %798 to i64
@@ -20937,7 +20937,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit.i: ; pr
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %.lr.ph, %1857, %1836, %1839, %.critedge40.i
-  %1880 = phi i1 [ true, %.critedge40.i ], [ false, %1839 ], [ false, %1836 ], [ false, %1857 ], [ false, %.lr.ph ]
+  %1880 = phi i1 [ true, %.critedge40.i ], [ false, %1836 ], [ false, %1839 ], [ false, %1857 ], [ false, %.lr.ph ]
   %1881 = load ptr, ptr %35, align 8, !tbaa !683
   %1882 = icmp eq ptr %1881, %52
   br i1 %1882, label %_ZN4llvm11SmallVectorIPN5clang4ExprELj6EED2Ev.exit.i, label %1883
@@ -26128,7 +26128,7 @@ _ZNK5clang17ElaboratedTypeLoc7isEmptyEv.exit.thread.i: ; preds = %_ZNK5clang17El
   br i1 %.not57.i, label %_ZN5clang13TreeTransformIN12_GLOBAL__N_136OutlinedFunctionDeclBodyInstantiatorEE44TransformDependentTemplateSpecializationTypeERNS_14TypeLocBuilderENS_38DependentTemplateSpecializationTypeLocENS_22NestedNameSpecifierLocE.exit, label %180, !llvm.loop !1471
 
 _ZN5clang13TreeTransformIN12_GLOBAL__N_136OutlinedFunctionDeclBodyInstantiatorEE44TransformDependentTemplateSpecializationTypeERNS_14TypeLocBuilderENS_38DependentTemplateSpecializationTypeLocENS_22NestedNameSpecifierLocE.exit: ; preds = %180, %155, %160, %133, %_ZN5clang13TreeTransformIN12_GLOBAL__N_136OutlinedFunctionDeclBodyInstantiatorEE42RebuildDependentTemplateSpecializationTypeENS_21ElaboratedTypeKeywordENS_22NestedNameSpecifierLocENS_14SourceLocationEPKNS_14IdentifierInfoES6_RNS_24TemplateArgumentListInfoEb.exit, %_ZNK5clang17ElaboratedTypeLoc7isEmptyEv.exit.thread.i, %_ZNK5clang17ElaboratedTypeLoc7isEmptyEv.exit.i, %_ZNK5clang38DependentTemplateSpecializationTypeLoc15getQualifierLocEv.exit.thread
-  %.sroa.085.1 = phi i64 [ 0, %_ZNK5clang38DependentTemplateSpecializationTypeLoc15getQualifierLocEv.exit.thread ], [ 0, %_ZN5clang13TreeTransformIN12_GLOBAL__N_136OutlinedFunctionDeclBodyInstantiatorEE42RebuildDependentTemplateSpecializationTypeENS_21ElaboratedTypeKeywordENS_22NestedNameSpecifierLocENS_14SourceLocationEPKNS_14IdentifierInfoES6_RNS_24TemplateArgumentListInfoEb.exit ], [ %.sroa.023.0.i, %_ZNK5clang17ElaboratedTypeLoc7isEmptyEv.exit.thread.i ], [ %.sroa.023.0.i, %_ZNK5clang17ElaboratedTypeLoc7isEmptyEv.exit.i ], [ %.sroa.023.0.i, %133 ], [ %.sroa.023.0.i, %160 ], [ %.sroa.023.0.i, %155 ], [ %.sroa.023.0.i, %180 ]
+  %.sroa.085.1 = phi i64 [ 0, %_ZNK5clang38DependentTemplateSpecializationTypeLoc15getQualifierLocEv.exit.thread ], [ 0, %_ZN5clang13TreeTransformIN12_GLOBAL__N_136OutlinedFunctionDeclBodyInstantiatorEE42RebuildDependentTemplateSpecializationTypeENS_21ElaboratedTypeKeywordENS_22NestedNameSpecifierLocENS_14SourceLocationEPKNS_14IdentifierInfoES6_RNS_24TemplateArgumentListInfoEb.exit ], [ %.sroa.023.0.i, %133 ], [ %.sroa.023.0.i, %_ZNK5clang17ElaboratedTypeLoc7isEmptyEv.exit.i ], [ %.sroa.023.0.i, %_ZNK5clang17ElaboratedTypeLoc7isEmptyEv.exit.thread.i ], [ %.sroa.023.0.i, %160 ], [ %.sroa.023.0.i, %155 ], [ %.sroa.023.0.i, %180 ]
   %185 = load ptr, ptr %10, align 8, !tbaa !683
   %186 = icmp eq ptr %185, %19
   br i1 %186, label %_ZN5clang24TemplateArgumentListInfoD2Ev.exit, label %187
@@ -27778,7 +27778,7 @@ _ZZN5clang13TreeTransformIN12_GLOBAL__N_136OutlinedFunctionDeclBodyInstantiatorE
   br label %_ZZN5clang13TreeTransformIN12_GLOBAL__N_136OutlinedFunctionDeclBodyInstantiatorEE26TransformFunctionProtoTypeERNS_14TypeLocBuilderENS_20FunctionProtoTypeLocEENKUlRNS_17FunctionProtoType17ExceptionSpecInfoERbE_clES9_SA_.exit
 
 _ZZN5clang13TreeTransformIN12_GLOBAL__N_136OutlinedFunctionDeclBodyInstantiatorEE26TransformFunctionProtoTypeERNS_14TypeLocBuilderENS_20FunctionProtoTypeLocEENKUlRNS_17FunctionProtoType17ExceptionSpecInfoERbE_clES9_SA_.exit: ; preds = %_ZN4llvm11SmallVectorISt4pairINS_12PointerUnionIJPKN5clang20TemplateTypeParmTypeEPNS3_9NamedDeclEPNS3_26ResolvedUnexpandedPackExprEEEENS3_14SourceLocationEELj2EED2Ev.exit, %_ZZN5clang13TreeTransformIN12_GLOBAL__N_136OutlinedFunctionDeclBodyInstantiatorEE26TransformFunctionProtoTypeERNS_14TypeLocBuilderENS_20FunctionProtoTypeLocEENKUlRNS_17FunctionProtoType17ExceptionSpecInfoERbE_clES9_SA_.exit.critedge236, %_ZZN5clang13TreeTransformIN12_GLOBAL__N_136OutlinedFunctionDeclBodyInstantiatorEE26TransformFunctionProtoTypeERNS_14TypeLocBuilderENS_20FunctionProtoTypeLocEENKUlRNS_17FunctionProtoType17ExceptionSpecInfoERbE_clES9_SA_.exit.critedge, %.thread221, %_ZNSt14_Optional_baseIN5clang17FunctionEffectSetELb0ELb0EED2Ev.exit
-  %.sroa.0168.3 = phi i64 [ %.sroa.0168.2, %_ZNSt14_Optional_baseIN5clang17FunctionEffectSetELb0ELb0EED2Ev.exit ], [ 0, %_ZZN5clang13TreeTransformIN12_GLOBAL__N_136OutlinedFunctionDeclBodyInstantiatorEE26TransformFunctionProtoTypeERNS_14TypeLocBuilderENS_20FunctionProtoTypeLocEENKUlRNS_17FunctionProtoType17ExceptionSpecInfoERbE_clES9_SA_.exit.critedge236 ], [ 0, %.thread221 ], [ 0, %_ZZN5clang13TreeTransformIN12_GLOBAL__N_136OutlinedFunctionDeclBodyInstantiatorEE26TransformFunctionProtoTypeERNS_14TypeLocBuilderENS_20FunctionProtoTypeLocEENKUlRNS_17FunctionProtoType17ExceptionSpecInfoERbE_clES9_SA_.exit.critedge ], [ 0, %_ZN4llvm11SmallVectorISt4pairINS_12PointerUnionIJPKN5clang20TemplateTypeParmTypeEPNS3_9NamedDeclEPNS3_26ResolvedUnexpandedPackExprEEEENS3_14SourceLocationEELj2EED2Ev.exit ]
+  %.sroa.0168.3 = phi i64 [ %.sroa.0168.2, %_ZNSt14_Optional_baseIN5clang17FunctionEffectSetELb0ELb0EED2Ev.exit ], [ 0, %_ZZN5clang13TreeTransformIN12_GLOBAL__N_136OutlinedFunctionDeclBodyInstantiatorEE26TransformFunctionProtoTypeERNS_14TypeLocBuilderENS_20FunctionProtoTypeLocEENKUlRNS_17FunctionProtoType17ExceptionSpecInfoERbE_clES9_SA_.exit.critedge236 ], [ 0, %_ZZN5clang13TreeTransformIN12_GLOBAL__N_136OutlinedFunctionDeclBodyInstantiatorEE26TransformFunctionProtoTypeERNS_14TypeLocBuilderENS_20FunctionProtoTypeLocEENKUlRNS_17FunctionProtoType17ExceptionSpecInfoERbE_clES9_SA_.exit.critedge ], [ 0, %.thread221 ], [ 0, %_ZN4llvm11SmallVectorISt4pairINS_12PointerUnionIJPKN5clang20TemplateTypeParmTypeEPNS3_9NamedDeclEPNS3_26ResolvedUnexpandedPackExprEEEENS3_14SourceLocationEELj2EED2Ev.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %_ZN5clang13TreeTransformIN12_GLOBAL__N_136OutlinedFunctionDeclBodyInstantiatorEE26TransformFunctionProtoTypeIZNS3_26TransformFunctionProtoTypeERNS_14TypeLocBuilderENS_20FunctionProtoTypeLocEEUlRNS_17FunctionProtoType17ExceptionSpecInfoERbE_EENS_8QualTypeES6_S7_PNS_13CXXRecordDeclENS_10QualifiersET_.exit
 
@@ -28809,7 +28809,7 @@ _ZN5clang14TypeLocBuilderD2Ev.exit124:            ; preds = %173, %176
   br i1 %.not77, label %._crit_edge204, label %241, !llvm.loop !1553
 
 .loopexit:                                        ; preds = %177, %._crit_edge204, %.critedge
-  %.sroa.0185.9 = phi i64 [ %200, %._crit_edge204 ], [ 0, %.critedge ], [ 0, %177 ]
+  %.sroa.0185.9 = phi i64 [ 0, %.critedge ], [ %200, %._crit_edge204 ], [ 0, %177 ]
   %254 = load ptr, ptr %8, align 8, !tbaa !683
   %255 = icmp eq ptr %254, %39
   br i1 %255, label %_ZN4llvm11SmallVectorIPN5clang14TypeSourceInfoELj4EED2Ev.exit, label %256
@@ -32415,7 +32415,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclES4_NS_12DenseMapInfoIS4_vEENS_
   br label %_ZN5clang13TreeTransformIN12_GLOBAL__N_136OutlinedFunctionDeclBodyInstantiatorEE13TransformDeclENS_14SourceLocationEPNS_4DeclE.exit
 
 _ZN5clang13TreeTransformIN12_GLOBAL__N_136OutlinedFunctionDeclBodyInstantiatorEE13TransformDeclENS_14SourceLocationEPNS_4DeclE.exit: ; preds = %56, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclES4_NS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E4findEPKS3_.exit.i
-  %59 = phi ptr [ %58, %56 ], [ %27, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclES4_NS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E4findEPKS3_.exit.i ]
+  %59 = phi ptr [ %27, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclES4_NS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E4findEPKS3_.exit.i ], [ %58, %56 ]
   %60 = icmp eq ptr %59, null
   br i1 %60, label %_ZN5clang13TreeTransformIN12_GLOBAL__N_136OutlinedFunctionDeclBodyInstantiatorEE13TransformTypeENS_8QualTypeE.exit.thread, label %_ZN5clang13TreeTransformIN12_GLOBAL__N_136OutlinedFunctionDeclBodyInstantiatorEE13TransformDeclENS_14SourceLocationEPNS_4DeclE.exit.thread
 
@@ -34086,7 +34086,7 @@ _ZN5clang13TreeTransformIN12_GLOBAL__N_136OutlinedFunctionDeclBodyInstantiatorEE
   br i1 %.not, label %.loopexit, label %164, !llvm.loop !1611
 
 .loopexit:                                        ; preds = %110, %164, %142, %_ZN5clang13TreeTransformIN12_GLOBAL__N_136OutlinedFunctionDeclBodyInstantiatorEE26TransformTemplateArgumentsINS_36TemplateArgumentLocContainerIteratorINS_29TemplateSpecializationTypeLocEEEEEbT_S8_RNS_24TemplateArgumentListInfoEb.exit.thread, %147, %123, %_ZN5clang13TreeTransformIN12_GLOBAL__N_136OutlinedFunctionDeclBodyInstantiatorEE26TransformTemplateArgumentsINS_36TemplateArgumentLocContainerIteratorINS_29TemplateSpecializationTypeLocEEEEEbT_S8_RNS_24TemplateArgumentListInfoEb.exit.thread128
-  %.sroa.089.0 = phi i64 [ %39, %_ZN5clang13TreeTransformIN12_GLOBAL__N_136OutlinedFunctionDeclBodyInstantiatorEE26TransformTemplateArgumentsINS_36TemplateArgumentLocContainerIteratorINS_29TemplateSpecializationTypeLocEEEEEbT_S8_RNS_24TemplateArgumentListInfoEb.exit.thread128 ], [ %39, %123 ], [ %39, %147 ], [ 0, %_ZN5clang13TreeTransformIN12_GLOBAL__N_136OutlinedFunctionDeclBodyInstantiatorEE26TransformTemplateArgumentsINS_36TemplateArgumentLocContainerIteratorINS_29TemplateSpecializationTypeLocEEEEEbT_S8_RNS_24TemplateArgumentListInfoEb.exit.thread ], [ %39, %164 ], [ %39, %142 ], [ 0, %110 ]
+  %.sroa.089.0 = phi i64 [ %39, %123 ], [ %39, %_ZN5clang13TreeTransformIN12_GLOBAL__N_136OutlinedFunctionDeclBodyInstantiatorEE26TransformTemplateArgumentsINS_36TemplateArgumentLocContainerIteratorINS_29TemplateSpecializationTypeLocEEEEEbT_S8_RNS_24TemplateArgumentListInfoEb.exit.thread128 ], [ %39, %164 ], [ 0, %_ZN5clang13TreeTransformIN12_GLOBAL__N_136OutlinedFunctionDeclBodyInstantiatorEE26TransformTemplateArgumentsINS_36TemplateArgumentLocContainerIteratorINS_29TemplateSpecializationTypeLocEEEEEbT_S8_RNS_24TemplateArgumentListInfoEb.exit.thread ], [ %39, %147 ], [ %39, %142 ], [ 0, %110 ]
   %169 = load ptr, ptr %14, align 8, !tbaa !683
   %170 = icmp eq ptr %169, %15
   br i1 %170, label %_ZN5clang24TemplateArgumentListInfoD2Ev.exit, label %171
@@ -38860,7 +38860,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit: ; pred
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph, %39, %.critedge27
-  %.3 = phi ptr [ %49, %39 ], [ null, %.critedge27 ], [ null, %.lr.ph ]
+  %.3 = phi ptr [ null, %.critedge27 ], [ %49, %39 ], [ null, %.lr.ph ]
   %50 = load ptr, ptr %3, align 8, !tbaa !683
   %51 = icmp eq ptr %50, %4
   br i1 %51, label %_ZN4llvm11SmallVectorIPN5clang4ExprELj16EED2Ev.exit, label %52
@@ -40444,7 +40444,7 @@ _ZN5clang34transformOMPMappableExprListClauseIN12_GLOBAL__N_136OutlinedFunctionD
   br label %_ZN5clang34transformOMPMappableExprListClauseIN12_GLOBAL__N_136OutlinedFunctionDeclBodyInstantiatorENS_13OMPFromClauseEEEbRNS_13TreeTransformIT_EEPNS_25OMPMappableExprListClauseIT0_EERN4llvm15SmallVectorImplIPNS_4ExprEEERNS_12CXXScopeSpecERNS_19DeclarationNameInfoESH_.exit.thread
 
 _ZN5clang34transformOMPMappableExprListClauseIN12_GLOBAL__N_136OutlinedFunctionDeclBodyInstantiatorENS_13OMPFromClauseEEEbRNS_13TreeTransformIT_EEPNS_25OMPMappableExprListClauseIT0_EERN4llvm15SmallVectorImplIPNS_4ExprEEERNS_12CXXScopeSpecERNS_19DeclarationNameInfoESH_.exit.thread: ; preds = %.lr.ph, %57, %51, %_ZN5clang34transformOMPMappableExprListClauseIN12_GLOBAL__N_136OutlinedFunctionDeclBodyInstantiatorENS_13OMPFromClauseEEEbRNS_13TreeTransformIT_EEPNS_25OMPMappableExprListClauseIT0_EERN4llvm15SmallVectorImplIPNS_4ExprEEERNS_12CXXScopeSpecERNS_19DeclarationNameInfoESH_.exit
-  %.0 = phi ptr [ %177, %_ZN5clang34transformOMPMappableExprListClauseIN12_GLOBAL__N_136OutlinedFunctionDeclBodyInstantiatorENS_13OMPFromClauseEEEbRNS_13TreeTransformIT_EEPNS_25OMPMappableExprListClauseIT0_EERN4llvm15SmallVectorImplIPNS_4ExprEEERNS_12CXXScopeSpecERNS_19DeclarationNameInfoESH_.exit ], [ null, %51 ], [ null, %57 ], [ null, %.lr.ph ]
+  %.0 = phi ptr [ %177, %_ZN5clang34transformOMPMappableExprListClauseIN12_GLOBAL__N_136OutlinedFunctionDeclBodyInstantiatorENS_13OMPFromClauseEEEbRNS_13TreeTransformIT_EEPNS_25OMPMappableExprListClauseIT0_EERN4llvm15SmallVectorImplIPNS_4ExprEEERNS_12CXXScopeSpecERNS_19DeclarationNameInfoESH_.exit ], [ null, %57 ], [ null, %51 ], [ null, %.lr.ph ]
   %178 = load ptr, ptr %11, align 8, !tbaa !683
   %179 = icmp eq ptr %178, %21
   br i1 %179, label %_ZN4llvm11SmallVectorIPN5clang4ExprELj16EED2Ev.exit, label %180
@@ -41633,7 +41633,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit: ; pred
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph, %43, %.critedge32
-  %.3 = phi ptr [ %57, %43 ], [ null, %.critedge32 ], [ null, %.lr.ph ]
+  %.3 = phi ptr [ null, %.critedge32 ], [ %57, %43 ], [ null, %.lr.ph ]
   %58 = load ptr, ptr %3, align 8, !tbaa !683
   %59 = icmp eq ptr %58, %4
   br i1 %59, label %_ZN4llvm11SmallVectorIPN5clang4ExprELj16EED2Ev.exit, label %60
@@ -42069,7 +42069,7 @@ _ZN5clang34transformOMPMappableExprListClauseIN12_GLOBAL__N_136OutlinedFunctionD
   br label %_ZN5clang12CXXScopeSpecD2Ev.exit
 
 _ZN5clang12CXXScopeSpecD2Ev.exit:                 ; preds = %.lr.ph, %72, %66, %206, %_ZN5clang34transformOMPMappableExprListClauseIN12_GLOBAL__N_136OutlinedFunctionDeclBodyInstantiatorENS_12OMPMapClauseEEEbRNS_13TreeTransformIT_EEPNS_25OMPMappableExprListClauseIT0_EERN4llvm15SmallVectorImplIPNS_4ExprEEERNS_12CXXScopeSpecERNS_19DeclarationNameInfoESH_.exit
-  %.2 = phi ptr [ %203, %206 ], [ %203, %_ZN5clang34transformOMPMappableExprListClauseIN12_GLOBAL__N_136OutlinedFunctionDeclBodyInstantiatorENS_12OMPMapClauseEEEbRNS_13TreeTransformIT_EEPNS_25OMPMappableExprListClauseIT0_EERN4llvm15SmallVectorImplIPNS_4ExprEEERNS_12CXXScopeSpecERNS_19DeclarationNameInfoESH_.exit ], [ null, %66 ], [ null, %72 ], [ null, %.lr.ph ]
+  %.2 = phi ptr [ %203, %206 ], [ %203, %_ZN5clang34transformOMPMappableExprListClauseIN12_GLOBAL__N_136OutlinedFunctionDeclBodyInstantiatorENS_12OMPMapClauseEEEbRNS_13TreeTransformIT_EEPNS_25OMPMappableExprListClauseIT0_EERN4llvm15SmallVectorImplIPNS_4ExprEEERNS_12CXXScopeSpecERNS_19DeclarationNameInfoESH_.exit ], [ null, %72 ], [ null, %66 ], [ null, %.lr.ph ]
   %209 = load ptr, ptr %12, align 8, !tbaa !683
   %210 = icmp eq ptr %209, %39
   br i1 %210, label %_ZN4llvm11SmallVectorIPN5clang4ExprELj16EED2Ev.exit, label %211
@@ -44452,7 +44452,7 @@ _ZN5clang34transformOMPMappableExprListClauseIN12_GLOBAL__N_136OutlinedFunctionD
   br label %_ZN5clang34transformOMPMappableExprListClauseIN12_GLOBAL__N_136OutlinedFunctionDeclBodyInstantiatorENS_11OMPToClauseEEEbRNS_13TreeTransformIT_EEPNS_25OMPMappableExprListClauseIT0_EERN4llvm15SmallVectorImplIPNS_4ExprEEERNS_12CXXScopeSpecERNS_19DeclarationNameInfoESH_.exit.thread
 
 _ZN5clang34transformOMPMappableExprListClauseIN12_GLOBAL__N_136OutlinedFunctionDeclBodyInstantiatorENS_11OMPToClauseEEEbRNS_13TreeTransformIT_EEPNS_25OMPMappableExprListClauseIT0_EERN4llvm15SmallVectorImplIPNS_4ExprEEERNS_12CXXScopeSpecERNS_19DeclarationNameInfoESH_.exit.thread: ; preds = %.lr.ph, %57, %51, %_ZN5clang34transformOMPMappableExprListClauseIN12_GLOBAL__N_136OutlinedFunctionDeclBodyInstantiatorENS_11OMPToClauseEEEbRNS_13TreeTransformIT_EEPNS_25OMPMappableExprListClauseIT0_EERN4llvm15SmallVectorImplIPNS_4ExprEEERNS_12CXXScopeSpecERNS_19DeclarationNameInfoESH_.exit
-  %.0 = phi ptr [ %177, %_ZN5clang34transformOMPMappableExprListClauseIN12_GLOBAL__N_136OutlinedFunctionDeclBodyInstantiatorENS_11OMPToClauseEEEbRNS_13TreeTransformIT_EEPNS_25OMPMappableExprListClauseIT0_EERN4llvm15SmallVectorImplIPNS_4ExprEEERNS_12CXXScopeSpecERNS_19DeclarationNameInfoESH_.exit ], [ null, %51 ], [ null, %57 ], [ null, %.lr.ph ]
+  %.0 = phi ptr [ %177, %_ZN5clang34transformOMPMappableExprListClauseIN12_GLOBAL__N_136OutlinedFunctionDeclBodyInstantiatorENS_11OMPToClauseEEEbRNS_13TreeTransformIT_EEPNS_25OMPMappableExprListClauseIT0_EERN4llvm15SmallVectorImplIPNS_4ExprEEERNS_12CXXScopeSpecERNS_19DeclarationNameInfoESH_.exit ], [ null, %57 ], [ null, %51 ], [ null, %.lr.ph ]
   %178 = load ptr, ptr %11, align 8, !tbaa !683
   %179 = icmp eq ptr %178, %21
   br i1 %179, label %_ZN4llvm11SmallVectorIPN5clang4ExprELj16EED2Ev.exit, label %180
@@ -45699,8 +45699,8 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4StmtELb1EE9push_backES3_.exit: ; pred
   br label %.loopexit
 
 .loopexit:                                        ; preds = %126, %136, %._crit_edge, %.critedge
-  %162 = phi ptr [ %156, %.critedge ], [ %108, %._crit_edge ], [ %108, %136 ], [ %108, %126 ]
-  %.sroa.054.3 = phi i64 [ %161, %.critedge ], [ 1, %._crit_edge ], [ 1, %136 ], [ 1, %126 ]
+  %162 = phi ptr [ %108, %._crit_edge ], [ %156, %.critedge ], [ %108, %136 ], [ %108, %126 ]
+  %.sroa.054.3 = phi i64 [ 1, %._crit_edge ], [ %161, %.critedge ], [ 1, %136 ], [ 1, %126 ]
   %163 = load ptr, ptr %7, align 8, !tbaa !683
   %164 = icmp eq ptr %163, %162
   br i1 %164, label %_ZN4llvm11SmallVectorIPN5clang4StmtELj8EED2Ev.exit, label %165
@@ -45827,7 +45827,7 @@ define internal fastcc i64 @_ZN5clang13TreeTransformIN12_GLOBAL__N_136OutlinedFu
   br label %.critedge
 
 .critedge:                                        ; preds = %30, %55, %49, %59
-  %.sroa.037.5 = phi i64 [ %60, %59 ], [ 1, %49 ], [ 1, %30 ], [ %58, %55 ]
+  %.sroa.037.5 = phi i64 [ %60, %59 ], [ 1, %30 ], [ 1, %49 ], [ %58, %55 ]
   ret i64 %.sroa.037.5
 }
 
@@ -47432,7 +47432,7 @@ _ZNSt8optionalIN5clang8concepts15ExprRequirement21ReturnTypeRequirementEE7emplac
   br label %_ZN5clang13TreeTransformIN12_GLOBAL__N_136OutlinedFunctionDeclBodyInstantiatorEE24TransformTypeRequirementEPNS_8concepts15TypeRequirementE.exit
 
 _ZN5clang13TreeTransformIN12_GLOBAL__N_136OutlinedFunctionDeclBodyInstantiatorEE24TransformTypeRequirementEPNS_8concepts15TypeRequirementE.exit: ; preds = %145, %155, %.critedge30.i, %87, %83
-  %.022.i = phi ptr [ %84, %83 ], [ %88, %87 ], [ %.5.i, %.critedge30.i ], [ %149, %145 ], [ %158, %155 ]
+  %.022.i = phi ptr [ %158, %155 ], [ %149, %145 ], [ %84, %83 ], [ %88, %87 ], [ %.5.i, %.critedge30.i ]
   %.not30.not.i = icmp eq ptr %.022.i, null
   br i1 %.not30.not.i, label %_ZN5clang13TreeTransformIN12_GLOBAL__N_136OutlinedFunctionDeclBodyInstantiatorEE24TransformTypeRequirementEPNS_8concepts15TypeRequirementE.exit.thread, label %159
 
@@ -49806,7 +49806,7 @@ _ZNK5clang14DeclaratorDecl17getTypeSourceInfoEv.exit75: ; preds = %66, %71
   br i1 %exitcond107.not, label %.loopexit, label %119, !llvm.loop !2328
 
 .loopexit:                                        ; preds = %.thread, %119, %115, %.critedge
-  %.sroa.090.0 = phi i64 [ %113, %.critedge ], [ %113, %115 ], [ %113, %119 ], [ 1, %.thread ]
+  %.sroa.090.0 = phi i64 [ %113, %.critedge ], [ %113, %119 ], [ %113, %115 ], [ 1, %.thread ]
   %124 = load ptr, ptr %5, align 8, !tbaa !683
   %125 = icmp eq ptr %124, %10
   br i1 %125, label %_ZN4llvm11SmallVectorIN5clang10SemaOpenMP15OMPIteratorDataELj4EED2Ev.exit, label %126
@@ -53126,8 +53126,8 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit96: ; pr
   store i32 %210, ptr %27, align 8, !tbaa !685
   br label %.thread135
 
-.thread135:                                       ; preds = %_ZN5clang13TreeTransformIN12_GLOBAL__N_136OutlinedFunctionDeclBodyInstantiatorEE13TransformDeclENS_14SourceLocationEPNS_4DeclE.exit, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit96, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit, %_ZN5clang11Designation13AddDesignatorENS_10DesignatorE.exit
-  %.357140 = phi i8 [ %.458, %_ZN5clang11Designation13AddDesignatorENS_10DesignatorE.exit ], [ %135, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit ], [ %189, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit96 ], [ %spec.select, %_ZN5clang13TreeTransformIN12_GLOBAL__N_136OutlinedFunctionDeclBodyInstantiatorEE13TransformDeclENS_14SourceLocationEPNS_4DeclE.exit ]
+.thread135:                                       ; preds = %_ZN5clang13TreeTransformIN12_GLOBAL__N_136OutlinedFunctionDeclBodyInstantiatorEE13TransformDeclENS_14SourceLocationEPNS_4DeclE.exit, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit96, %_ZN5clang11Designation13AddDesignatorENS_10DesignatorE.exit
+  %.357140 = phi i8 [ %.458, %_ZN5clang11Designation13AddDesignatorENS_10DesignatorE.exit ], [ %189, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit96 ], [ %135, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit ], [ %spec.select, %_ZN5clang13TreeTransformIN12_GLOBAL__N_136OutlinedFunctionDeclBodyInstantiatorEE13TransformDeclENS_14SourceLocationEPNS_4DeclE.exit ]
   %211 = getelementptr inbounds nuw i8, ptr %.060143, i64 24
   %.not = icmp eq ptr %211, %35
   br i1 %.not, label %.critedge.loopexit, label %43
@@ -60707,7 +60707,7 @@ _ZNK5clang13ReferenceType14getPointeeTypeEv.exit: ; preds = %_ZNK5clang4Type6cas
   br label %.thread
 
 .thread:                                          ; preds = %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit, %8, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread, %_ZNK5clang13ReferenceType14getPointeeTypeEv.exit
-  %47 = phi i32 [ 1, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread ], [ %46, %_ZNK5clang13ReferenceType14getPointeeTypeEv.exit ], [ 0, %8 ], [ 0, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit ]
+  %47 = phi i32 [ %46, %_ZNK5clang13ReferenceType14getPointeeTypeEv.exit ], [ 1, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread ], [ 0, %8 ], [ 0, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit ]
   ret i32 %47
 }
 

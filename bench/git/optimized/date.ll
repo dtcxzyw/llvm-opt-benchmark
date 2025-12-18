@@ -3735,9 +3735,9 @@ skip_prefix.exit74.i:                             ; preds = %76
   unreachable
 
 parse_date_type.exit:                             ; preds = %15, %skip_prefix.exit.i, %skip_prefix.exit30.i, %skip_prefix.exit34.i, %skip_prefix.exit38.i, %skip_prefix.exit42.i, %skip_prefix.exit46.i, %skip_prefix.exit50.i, %skip_prefix.exit54.i, %skip_prefix.exit58.i, %skip_prefix.exit62.i, %skip_prefix.exit66.i, %skip_prefix.exit70.i
-  %scevgep123.sink.i = phi ptr [ %scevgep101.i, %skip_prefix.exit.i ], [ %scevgep123.i, %skip_prefix.exit70.i ], [ %scevgep121.i, %skip_prefix.exit66.i ], [ %scevgep107.i, %skip_prefix.exit62.i ], [ %scevgep113.i, %skip_prefix.exit58.i ], [ %scevgep105.i, %skip_prefix.exit54.i ], [ %scevgep113.i, %skip_prefix.exit50.i ], [ %scevgep107.i, %skip_prefix.exit46.i ], [ %scevgep105.i, %skip_prefix.exit42.i ], [ %scevgep107.i, %skip_prefix.exit38.i ], [ %scevgep105.i, %skip_prefix.exit34.i ], [ %scevgep103.i, %skip_prefix.exit30.i ], [ %scevgep.i, %15 ]
-  %81 = phi i1 [ false, %skip_prefix.exit.i ], [ true, %skip_prefix.exit70.i ], [ false, %skip_prefix.exit66.i ], [ false, %skip_prefix.exit62.i ], [ false, %skip_prefix.exit58.i ], [ false, %skip_prefix.exit54.i ], [ false, %skip_prefix.exit50.i ], [ false, %skip_prefix.exit46.i ], [ false, %skip_prefix.exit42.i ], [ false, %skip_prefix.exit38.i ], [ false, %skip_prefix.exit34.i ], [ false, %skip_prefix.exit30.i ], [ false, %15 ]
-  %.0.i = phi i32 [ 5, %skip_prefix.exit.i ], [ 7, %skip_prefix.exit70.i ], [ 9, %skip_prefix.exit66.i ], [ 8, %skip_prefix.exit62.i ], [ 1, %skip_prefix.exit58.i ], [ 0, %skip_prefix.exit54.i ], [ 3, %skip_prefix.exit50.i ], [ 6, %skip_prefix.exit46.i ], [ 6, %skip_prefix.exit42.i ], [ 4, %skip_prefix.exit38.i ], [ 4, %skip_prefix.exit34.i ], [ 5, %skip_prefix.exit30.i ], [ 2, %15 ]
+  %scevgep123.sink.i = phi ptr [ %scevgep113.i, %skip_prefix.exit58.i ], [ %scevgep105.i, %skip_prefix.exit54.i ], [ %scevgep113.i, %skip_prefix.exit50.i ], [ %scevgep107.i, %skip_prefix.exit46.i ], [ %scevgep105.i, %skip_prefix.exit42.i ], [ %scevgep107.i, %skip_prefix.exit38.i ], [ %scevgep105.i, %skip_prefix.exit34.i ], [ %scevgep103.i, %skip_prefix.exit30.i ], [ %scevgep101.i, %skip_prefix.exit.i ], [ %scevgep123.i, %skip_prefix.exit70.i ], [ %scevgep121.i, %skip_prefix.exit66.i ], [ %scevgep107.i, %skip_prefix.exit62.i ], [ %scevgep.i, %15 ]
+  %81 = phi i1 [ false, %skip_prefix.exit58.i ], [ false, %skip_prefix.exit54.i ], [ false, %skip_prefix.exit50.i ], [ false, %skip_prefix.exit46.i ], [ false, %skip_prefix.exit42.i ], [ false, %skip_prefix.exit38.i ], [ false, %skip_prefix.exit34.i ], [ false, %skip_prefix.exit30.i ], [ false, %skip_prefix.exit.i ], [ true, %skip_prefix.exit70.i ], [ false, %skip_prefix.exit66.i ], [ false, %skip_prefix.exit62.i ], [ false, %15 ]
+  %.0.i = phi i32 [ 1, %skip_prefix.exit58.i ], [ 0, %skip_prefix.exit54.i ], [ 3, %skip_prefix.exit50.i ], [ 6, %skip_prefix.exit46.i ], [ 6, %skip_prefix.exit42.i ], [ 4, %skip_prefix.exit38.i ], [ 4, %skip_prefix.exit34.i ], [ 5, %skip_prefix.exit30.i ], [ 5, %skip_prefix.exit.i ], [ 7, %skip_prefix.exit70.i ], [ 9, %skip_prefix.exit66.i ], [ 8, %skip_prefix.exit62.i ], [ 2, %15 ]
   store i32 %.0.i, ptr %1, align 8, !tbaa !54
   %82 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 0, ptr %82, align 4, !tbaa !56
@@ -4352,7 +4352,7 @@ tm_to_time_t.exit:                                ; preds = %.cont114.cont
   br label %.cont96
 
 .cont96:                                          ; preds = %.cont96.sink.split, %23, %tm_to_time_t.exit, %.cont107.cont, %.thread178, %.cont111.cont, %6
-  %.1 = phi i32 [ -1, %6 ], [ -1, %.thread178 ], [ -1, %tm_to_time_t.exit ], [ -1, %23 ], [ 0, %.cont107.cont ], [ 1, %.cont111.cont ], [ 0, %.cont96.sink.split ]
+  %.1 = phi i32 [ -1, %6 ], [ -1, %.thread178 ], [ -1, %tm_to_time_t.exit ], [ -1, %23 ], [ 1, %.cont111.cont ], [ 0, %.cont107.cont ], [ 0, %.cont96.sink.split ]
   ret i32 %.1
 }
 

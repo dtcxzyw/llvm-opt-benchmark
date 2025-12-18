@@ -363,7 +363,7 @@ _ZNK4llvm9StringRef4findEcm.exit:                 ; preds = %_ZNK4llvm9StringRef
   %.not155 = icmp eq i8 %23, %182
   br i1 %.not155, label %.critedge5, label %.thread214
 
-.critedge5:                                       ; preds = %86, %33, %.thread, %30, %177
+.critedge5:                                       ; preds = %33, %86, %.thread, %30, %177
   %183 = phi ptr [ %.pre, %177 ], [ %16, %33 ], [ %16, %86 ], [ %180, %.thread ], [ %16, %30 ]
   %184 = phi ptr [ %.pre, %177 ], [ %17, %33 ], [ %17, %86 ], [ %180, %.thread ], [ %17, %30 ]
   %.1124209 = phi i32 [ %.0123257, %177 ], [ %.0123257, %33 ], [ %87, %86 ], [ %.0123257, %.thread ], [ %.0123257, %30 ]
@@ -403,8 +403,8 @@ _ZNK4llvm9StringRef4findEcm.exit:                 ; preds = %_ZNK4llvm9StringRef
   %199 = icmp eq i64 %1, %.lcssa
   br label %.thread214
 
-.thread214:                                       ; preds = %85, %74, %177, %.thread, %26, %30, %142, %33, %15, %.critedge7, %.lr.ph272.split, %115, %.critedge7.us, %.loopexit.thread, %68, %92, %.loopexit, %.critedge9, %4
-  %.1 = phi i1 [ false, %4 ], [ %199, %.critedge9 ], [ false, %.loopexit.thread ], [ %70, %68 ], [ %93, %92 ], [ false, %.loopexit ], [ true, %.critedge7 ], [ %111, %.critedge7.us ], [ false, %.lr.ph272.split ], [ false, %115 ], [ false, %15 ], [ false, %33 ], [ false, %142 ], [ false, %30 ], [ false, %26 ], [ false, %.thread ], [ false, %177 ], [ false, %74 ], [ false, %85 ]
+.thread214:                                       ; preds = %177, %85, %74, %.thread, %26, %30, %142, %33, %15, %.critedge7, %.lr.ph272.split, %115, %.critedge7.us, %.loopexit.thread, %92, %68, %.loopexit, %.critedge9, %4
+  %.1 = phi i1 [ false, %4 ], [ %199, %.critedge9 ], [ %111, %.critedge7.us ], [ false, %.loopexit ], [ true, %.critedge7 ], [ %70, %68 ], [ %93, %92 ], [ false, %.loopexit.thread ], [ false, %.lr.ph272.split ], [ false, %115 ], [ false, %15 ], [ false, %33 ], [ false, %142 ], [ false, %30 ], [ false, %26 ], [ false, %.thread ], [ false, %74 ], [ false, %85 ], [ false, %177 ]
   ret i1 %.1
 }
 

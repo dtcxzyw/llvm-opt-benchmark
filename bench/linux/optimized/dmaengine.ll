@@ -777,7 +777,7 @@ define internal fastcc nonnull ptr @find_candidate(ptr noundef %0, ptr noundef r
   br label %.thread
 
 .thread:                                          ; preds = %29, %53, %43, %.loopexit, %6, %74, %57, %.split10
-  %77 = phi ptr [ %76, %74 ], [ %.us-phi, %57 ], [ null, %.split10 ], [ null, %6 ], [ null, %.loopexit ], [ null, %53 ], [ null, %43 ], [ null, %29 ]
+  %77 = phi ptr [ %76, %74 ], [ %.us-phi, %57 ], [ null, %.split10 ], [ null, %6 ], [ null, %.loopexit ], [ null, %43 ], [ null, %53 ], [ null, %29 ]
   %78 = icmp eq ptr %77, null
   %79 = select i1 %78, ptr inttoptr (i64 -517 to ptr), ptr %77
   ret ptr %79
@@ -2246,7 +2246,7 @@ define dso_local range(i32 -2147483648, 1) i32 @dma_async_device_register(ptr no
   br i1 %184, label %.loopexit, label %.preheader, !llvm.loop !63
 
 .loopexit:                                        ; preds = %182, %106, %170, %167, %156, %105, %100, %95, %86, %77, %68, %59, %50, %41, %32, %23, %7, %1
-  %185 = phi i32 [ %163, %170 ], [ 0, %156 ], [ -5, %105 ], [ -5, %100 ], [ -5, %95 ], [ -5, %86 ], [ -5, %77 ], [ -5, %68 ], [ -5, %59 ], [ -5, %50 ], [ -5, %41 ], [ -5, %32 ], [ -5, %23 ], [ -5, %7 ], [ -19, %1 ], [ %163, %167 ], [ %108, %106 ], [ %163, %182 ]
+  %185 = phi i32 [ %163, %170 ], [ 0, %156 ], [ -5, %105 ], [ -5, %100 ], [ -5, %95 ], [ -5, %86 ], [ -5, %77 ], [ -5, %68 ], [ -5, %59 ], [ -5, %50 ], [ -5, %41 ], [ -5, %32 ], [ -5, %23 ], [ -5, %7 ], [ -19, %1 ], [ %108, %106 ], [ %163, %167 ], [ %163, %182 ]
   ret i32 %185
 }
 
@@ -2625,7 +2625,7 @@ define dso_local ptr @dmaengine_desc_get_metadata_ptr(ptr noundef %0, ptr nounde
   br i1 %21, label %31, label %25
 
 22:                                               ; preds = %5, %8, %12
-  %23 = phi i64 [ -524, %12 ], [ -524, %8 ], [ -22, %5 ]
+  %23 = phi i64 [ -22, %5 ], [ -524, %12 ], [ -524, %8 ]
   %24 = inttoptr i64 %23 to ptr
   br label %31
 

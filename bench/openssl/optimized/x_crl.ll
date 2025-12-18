@@ -1127,7 +1127,7 @@ crl_revoked_issuer_match.exit:                    ; preds = %53
   br i1 %72, label %.lr.ph.i, label %crl_revoked_issuer_match.exit.thread, !llvm.loop !80
 
 crl_revoked_issuer_match.exit.thread34:           ; preds = %crl_revoked_issuer_match.exit, %64, %30, %40
-  %73 = phi ptr [ %51, %64 ], [ %28, %40 ], [ %28, %30 ], [ %51, %crl_revoked_issuer_match.exit ]
+  %73 = phi ptr [ %28, %40 ], [ %28, %30 ], [ %51, %64 ], [ %51, %crl_revoked_issuer_match.exit ]
   %.not30 = icmp eq ptr %1, null
   br i1 %.not30, label %75, label %74
 

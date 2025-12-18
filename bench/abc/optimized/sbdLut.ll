@@ -203,7 +203,7 @@ define range(i32 0, 2) i32 @Sbd_ProblemAddClauses(ptr noundef %0, i32 noundef %1
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit96, %.critedge.loopexit, %23, %.preheader75
-  %.364 = phi i32 [ %.06193, %.preheader75 ], [ %.06193, %23 ], [ %83, %.critedge.loopexit ], [ %84, %.critedge.loopexit96 ]
+  %.364 = phi i32 [ %83, %.critedge.loopexit ], [ %.06193, %.preheader75 ], [ %.06193, %23 ], [ %84, %.critedge.loopexit96 ]
   %85 = getelementptr inbounds nuw i8, ptr %.06689, i64 56
   %indvars.iv.next112 = add nsw i64 %indvars.iv111, 1
   %86 = icmp ult ptr %85, %8

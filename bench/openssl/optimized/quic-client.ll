@@ -298,9 +298,9 @@ define dso_local noundef i32 @FuzzerTestOneInput(ptr noundef %0, i64 noundef %1)
   br label %.thread
 
 114:                                              ; preds = %84, %81, %78, %77
-  %.5 = phi i32 [ %.4, %77 ], [ %spec.select, %78 ], [ %spec.select155, %81 ], [ %spec.select157, %84 ]
-  %.2118 = phi i32 [ %.1117, %77 ], [ %.1117, %78 ], [ %spec.select156, %81 ], [ %.1117, %84 ]
-  %.1105 = phi i32 [ %.0104, %77 ], [ %79, %78 ], [ %82, %81 ], [ %85, %84 ]
+  %.5 = phi i32 [ %.4, %77 ], [ %spec.select157, %84 ], [ %spec.select155, %81 ], [ %spec.select, %78 ]
+  %.2118 = phi i32 [ %.1117, %77 ], [ %.1117, %84 ], [ %spec.select156, %81 ], [ %.1117, %78 ]
+  %.1105 = phi i32 [ %.0104, %77 ], [ %85, %84 ], [ %82, %81 ], [ %79, %78 ]
   %115 = icmp slt i32 %.1105, 1
   br i1 %115, label %116, label %.thread
 
@@ -400,8 +400,8 @@ ossl_time_from_timeval.exit:                      ; preds = %122, %125
   br label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph.preheader.sink.split, %21, %41, %16, %39, %37, %23, %18, %13, %9, %.loopexit
-  %.0124225 = phi ptr [ %19, %.loopexit ], [ %19, %21 ], [ %19, %41 ], [ null, %16 ], [ %19, %39 ], [ %19, %37 ], [ %19, %23 ], [ null, %18 ], [ null, %13 ], [ null, %9 ], [ %19, %.lr.ph.preheader.sink.split ]
-  %.0125224 = phi i64 [ %.4129.ph, %.loopexit ], [ 1, %21 ], [ 1, %41 ], [ 1, %16 ], [ 1, %39 ], [ 1, %37 ], [ 1, %23 ], [ 1, %18 ], [ 1, %13 ], [ 1, %9 ], [ 1, %.lr.ph.preheader.sink.split ]
+  %.0124225 = phi ptr [ %19, %.loopexit ], [ %19, %21 ], [ null, %9 ], [ %19, %41 ], [ null, %16 ], [ %19, %39 ], [ %19, %37 ], [ null, %13 ], [ %19, %23 ], [ null, %18 ], [ %19, %.lr.ph.preheader.sink.split ]
+  %.0125224 = phi i64 [ %.4129.ph, %.loopexit ], [ 1, %21 ], [ 1, %9 ], [ 1, %41 ], [ 1, %16 ], [ 1, %39 ], [ 1, %37 ], [ 1, %13 ], [ 1, %23 ], [ 1, %18 ], [ 1, %.lr.ph.preheader.sink.split ]
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph

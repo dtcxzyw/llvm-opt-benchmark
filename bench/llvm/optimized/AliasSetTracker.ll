@@ -1161,7 +1161,7 @@ _ZN4llvm8dyn_castINS_8CallBaseEKNS_11InstructionEEEDcPT0_.exit: ; preds = %_ZN4l
   br i1 %42, label %.thread, label %36
 
 .thread:                                          ; preds = %_ZN4llvm8dyn_castINS_8CallBaseENS_11InstructionEEEDcPT0_.exit, %.critedge, %23, %_ZN4llvm8dyn_castINS_8CallBaseEKNS_11InstructionEEEDcPT0_.exit, %36, %38, %._crit_edge, %_ZNK4llvm11Instruction20mayReadOrWriteMemoryEv.exit, %3
-  %.0 = phi i8 [ 3, %3 ], [ 0, %_ZNK4llvm11Instruction20mayReadOrWriteMemoryEv.exit ], [ 0, %._crit_edge ], [ %41, %36 ], [ 3, %38 ], [ 3, %_ZN4llvm8dyn_castINS_8CallBaseEKNS_11InstructionEEEDcPT0_.exit ], [ 3, %23 ], [ 3, %.critedge ], [ 3, %_ZN4llvm8dyn_castINS_8CallBaseENS_11InstructionEEEDcPT0_.exit ]
+  %.0 = phi i8 [ 3, %3 ], [ %41, %36 ], [ 0, %_ZNK4llvm11Instruction20mayReadOrWriteMemoryEv.exit ], [ 0, %._crit_edge ], [ 3, %38 ], [ 3, %_ZN4llvm8dyn_castINS_8CallBaseEKNS_11InstructionEEEDcPT0_.exit ], [ 3, %23 ], [ 3, %.critedge ], [ 3, %_ZN4llvm8dyn_castINS_8CallBaseENS_11InstructionEEEDcPT0_.exit ]
   ret i8 %.0
 }
 
@@ -1447,8 +1447,8 @@ _ZN4llvm12is_containedIRNS_11SmallVectorIPKNS_5ValueELj8EEES4_EEbOT_RKT0_.exit.l
   br label %_ZN4llvm12is_containedIRNS_11SmallVectorIPKNS_5ValueELj8EEES4_EEbOT_RKT0_.exit
 
 _ZN4llvm12is_containedIRNS_11SmallVectorIPKNS_5ValueELj8EEES4_EEbOT_RKT0_.exit: ; preds = %20, %_ZN4llvm12is_containedIRNS_11SmallVectorIPKNS_5ValueELj8EEES4_EEbOT_RKT0_.exit.loopexit.split.loop.exit, %_ZN4llvm12is_containedIRNS_11SmallVectorIPKNS_5ValueELj8EEES4_EEbOT_RKT0_.exit.loopexit.split.loop.exit38, %_ZN4llvm12is_containedIRNS_11SmallVectorIPKNS_5ValueELj8EEES4_EEbOT_RKT0_.exit.loopexit.split.loop.exit40, %40, %46, %52
-  %59 = phi ptr [ %47, %46 ], [ %41, %40 ], [ %53, %52 ], [ %18, %_ZN4llvm12is_containedIRNS_11SmallVectorIPKNS_5ValueELj8EEES4_EEbOT_RKT0_.exit.loopexit.split.loop.exit40 ], [ %18, %_ZN4llvm12is_containedIRNS_11SmallVectorIPKNS_5ValueELj8EEES4_EEbOT_RKT0_.exit.loopexit.split.loop.exit38 ], [ %18, %_ZN4llvm12is_containedIRNS_11SmallVectorIPKNS_5ValueELj8EEES4_EEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %18, %20 ]
-  %.028.i.i.i.i = phi ptr [ %.1.i.i.i.i, %46 ], [ %.029.lcssa.i.i.i.i, %40 ], [ %.2.i.i.i.i, %52 ], [ %58, %_ZN4llvm12is_containedIRNS_11SmallVectorIPKNS_5ValueELj8EEES4_EEbOT_RKT0_.exit.loopexit.split.loop.exit40 ], [ %57, %_ZN4llvm12is_containedIRNS_11SmallVectorIPKNS_5ValueELj8EEES4_EEbOT_RKT0_.exit.loopexit.split.loop.exit38 ], [ %56, %_ZN4llvm12is_containedIRNS_11SmallVectorIPKNS_5ValueELj8EEES4_EEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %.02946.i.i.i.i, %20 ]
+  %59 = phi ptr [ %47, %46 ], [ %41, %40 ], [ %53, %52 ], [ %18, %_ZN4llvm12is_containedIRNS_11SmallVectorIPKNS_5ValueELj8EEES4_EEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %18, %_ZN4llvm12is_containedIRNS_11SmallVectorIPKNS_5ValueELj8EEES4_EEbOT_RKT0_.exit.loopexit.split.loop.exit40 ], [ %18, %_ZN4llvm12is_containedIRNS_11SmallVectorIPKNS_5ValueELj8EEES4_EEbOT_RKT0_.exit.loopexit.split.loop.exit38 ], [ %18, %20 ]
+  %.028.i.i.i.i = phi ptr [ %.1.i.i.i.i, %46 ], [ %.029.lcssa.i.i.i.i, %40 ], [ %.2.i.i.i.i, %52 ], [ %56, %_ZN4llvm12is_containedIRNS_11SmallVectorIPKNS_5ValueELj8EEES4_EEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %58, %_ZN4llvm12is_containedIRNS_11SmallVectorIPKNS_5ValueELj8EEES4_EEbOT_RKT0_.exit.loopexit.split.loop.exit40 ], [ %57, %_ZN4llvm12is_containedIRNS_11SmallVectorIPKNS_5ValueELj8EEES4_EEbOT_RKT0_.exit.loopexit.split.loop.exit38 ], [ %.02946.i.i.i.i, %20 ]
   %.not = icmp eq ptr %.028.i.i.i.i, %16
   br i1 %.not, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPKNS_5ValueELj8EEES4_EEbOT_RKT0_.exit.thread, label %_ZN4llvm9SetVectorIPKNS_5ValueENS_11SmallVectorIS3_Lj8EEENS_8DenseSetIS3_NS_12DenseMapInfoIS3_vEEEELj8EE7makeBigEv.exit
 
@@ -3330,8 +3330,8 @@ _ZNK4llvm8AliasSet21aliasesMemoryLocationERKNS_14MemoryLocationERNS_14BatchAARes
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %164, %171, %170, %_ZNK4llvm8AliasSet21aliasesMemoryLocationERKNS_14MemoryLocationERNS_14BatchAAResultsE.exit.i, %._crit_edge.i.i, %.lr.ph.i
-  %.1 = phi i1 [ %.2, %170 ], [ %.2, %171 ], [ %.041, %._crit_edge.i.i ], [ %.041, %_ZNK4llvm8AliasSet21aliasesMemoryLocationERKNS_14MemoryLocationERNS_14BatchAAResultsE.exit.i ], [ %.041, %.lr.ph.i ], [ %.041, %164 ]
-  %.1.i = phi ptr [ %.sroa.022.029.i, %170 ], [ %.030.i, %171 ], [ %.030.i, %._crit_edge.i.i ], [ %.030.i, %_ZNK4llvm8AliasSet21aliasesMemoryLocationERKNS_14MemoryLocationERNS_14BatchAAResultsE.exit.i ], [ %.030.i, %.lr.ph.i ], [ %.030.i, %164 ]
+  %.1 = phi i1 [ %.2, %170 ], [ %.2, %171 ], [ %.041, %._crit_edge.i.i ], [ %.041, %.lr.ph.i ], [ %.041, %_ZNK4llvm8AliasSet21aliasesMemoryLocationERKNS_14MemoryLocationERNS_14BatchAAResultsE.exit.i ], [ %.041, %164 ]
+  %.1.i = phi ptr [ %.sroa.022.029.i, %170 ], [ %.030.i, %171 ], [ %.030.i, %._crit_edge.i.i ], [ %.030.i, %.lr.ph.i ], [ %.030.i, %_ZNK4llvm8AliasSet21aliasesMemoryLocationERKNS_14MemoryLocationERNS_14BatchAAResultsE.exit.i ], [ %.030.i, %164 ]
   %.not24.i22 = icmp eq ptr %136, %14
   br i1 %.not24.i22, label %_ZN4llvm15AliasSetTracker31mergeAliasSetsForMemoryLocationERKNS_14MemoryLocationEPNS_8AliasSetERb.exit, label %.lr.ph.i
 

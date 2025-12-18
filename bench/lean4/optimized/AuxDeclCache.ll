@@ -214,7 +214,7 @@ lean_inc.exit.thread:                             ; preds = %lean_array_fget.exi
   br label %lean_dec.exit32.backedge
 
 lean_dec.exit32.backedge:                         ; preds = %59, %63, %69, %71, %72
-  %.026.be = phi ptr [ %66, %72 ], [ %66, %69 ], [ %66, %71 ], [ %64, %63 ], [ %62, %59 ]
+  %.026.be = phi ptr [ %66, %72 ], [ %66, %71 ], [ %66, %69 ], [ %64, %63 ], [ %62, %59 ]
   br label %lean_dec.exit32
 
 63:                                               ; preds = %56
@@ -3367,7 +3367,7 @@ lean_dec.exit91:                                  ; preds = %116, %115, %113, %l
   br label %lean_dec.exit90.backedge
 
 lean_dec.exit90.backedge:                         ; preds = %120, %124, %130, %132, %133
-  %.079.be = phi ptr [ %127, %133 ], [ %127, %130 ], [ %127, %132 ], [ %125, %124 ], [ %123, %120 ]
+  %.079.be = phi ptr [ %127, %133 ], [ %127, %132 ], [ %127, %130 ], [ %125, %124 ], [ %123, %120 ]
   br label %lean_dec.exit90
 
 124:                                              ; preds = %117

@@ -130,7 +130,7 @@ define hidden void @_ZN7datalog22rule_subsumption_index25handle_unconditioned_ru
   br i1 %.not27.old.i.i.i, label %.loopexit, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %42, %39
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %42 ], [ %41, %39 ]
+  %.137.i.i.i.be = phi ptr [ %41, %39 ], [ %.old.i.i.i, %42 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !34
 
 _ZNK7obj_mapI9func_declP13obj_hashtableI3appEE4findEPS0_RS4_.exit: ; preds = %23, %34
@@ -296,7 +296,7 @@ define hidden noundef zeroext i1 @_ZN7datalog22rule_subsumption_index11is_subsum
   br i1 %.not27.old.i.i.i, label %_ZNK14core_hashtableI14obj_hash_entryI3appE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %38, %35
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %38 ], [ %37, %35 ]
+  %.137.i.i.i.be = phi ptr [ %37, %35 ], [ %.old.i.i.i, %38 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !34
 
 .loopexit:                                        ; preds = %19, %30
@@ -372,11 +372,11 @@ define hidden noundef zeroext i1 @_ZN7datalog22rule_subsumption_index11is_subsum
   br i1 %.not27.old.i.i, label %_ZNK14core_hashtableI14obj_hash_entryI3appE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit, label %.lr.ph38.i.i.backedge
 
 .lr.ph38.i.i.backedge:                            ; preds = %72, %69
-  %.137.i.i.be = phi ptr [ %.old.i.i, %72 ], [ %71, %69 ]
+  %.137.i.i.be = phi ptr [ %71, %69 ], [ %.old.i.i, %72 ]
   br label %.lr.ph38.i.i, !llvm.loop !57
 
 _ZNK14core_hashtableI14obj_hash_entryI3appE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit: ; preds = %24, %38, %35, %58, %53, %69, %72, %64, %.preheader.i.i, %.preheader.i.i.i
-  %.0 = phi i1 [ false, %.preheader.i.i ], [ false, %.preheader.i.i.i ], [ false, %38 ], [ true, %64 ], [ %.not.i.not.not, %58 ], [ false, %69 ], [ false, %72 ], [ %.not.i.not.not, %53 ], [ false, %35 ], [ false, %24 ]
+  %.0 = phi i1 [ false, %.preheader.i.i ], [ %.not.i.not.not, %58 ], [ false, %38 ], [ false, %.preheader.i.i.i ], [ true, %64 ], [ false, %69 ], [ false, %72 ], [ %.not.i.not.not, %53 ], [ false, %35 ], [ false, %24 ]
   ret i1 %.0
 }
 

@@ -1566,7 +1566,7 @@ define dso_local void @intel_psr_compute_config(ptr noundef %0, ptr noundef %1, 
   br label %.critedge
 
 110:                                              ; preds = %82, %102
-  %111 = phi i8 [ 1, %102 ], [ 0, %82 ]
+  %111 = phi i8 [ 0, %82 ], [ 1, %102 ]
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 3440
   store i8 %111, ptr %112, align 8
   br label %119
@@ -4512,9 +4512,9 @@ define dso_local i32 @intel_psr2_sel_fetch_update(ptr noundef %0, ptr noundef %1
   br i1 %372, label %286, label %.thread19, !llvm.loop !99
 
 .thread19:                                        ; preds = %366, %.loopexit.thread, %.thread17, %199, %.thread24, %264, %17
-  %373 = phi i32 [ -1, %17 ], [ %270, %264 ], [ %270, %.thread24 ], [ -1, %199 ], [ -1, %.thread17 ], [ %35, %.loopexit.thread ], [ %270, %366 ]
-  %374 = phi i32 [ -1, %17 ], [ %276, %264 ], [ %276, %.thread24 ], [ %192, %199 ], [ %192, %.thread17 ], [ %34, %.loopexit.thread ], [ %276, %366 ]
-  %375 = phi i1 [ false, %17 ], [ true, %264 ], [ false, %.thread24 ], [ false, %199 ], [ false, %.thread17 ], [ false, %.loopexit.thread ], [ true, %366 ]
+  %373 = phi i32 [ %35, %.loopexit.thread ], [ -1, %17 ], [ %270, %264 ], [ %270, %.thread24 ], [ -1, %.thread17 ], [ -1, %199 ], [ %270, %366 ]
+  %374 = phi i32 [ %34, %.loopexit.thread ], [ -1, %17 ], [ %276, %264 ], [ %276, %.thread24 ], [ %192, %.thread17 ], [ %192, %199 ], [ %276, %366 ]
+  %375 = phi i1 [ false, %.loopexit.thread ], [ false, %17 ], [ true, %264 ], [ false, %.thread24 ], [ false, %.thread17 ], [ false, %199 ], [ true, %366 ]
   %376 = load ptr, ptr %13, align 8
   %377 = load ptr, ptr %376, align 8
   %378 = getelementptr i8, ptr %377, i64 7188

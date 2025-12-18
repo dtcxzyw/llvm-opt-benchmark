@@ -1489,7 +1489,7 @@ _ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread2.i.i: ; preds
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_9StringRefEPN12_GLOBAL__N_19Hierarchy8NodeTypeENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S6_EEEES2_S6_S8_SB_E4findERKS2_.exit
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapINS_9StringRefEPN12_GLOBAL__N_19Hierarchy8NodeTypeENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S6_EEEES2_S6_S8_SB_E4findERKS2_.exit: ; preds = %55, %.split.split.split.us.i, %46, %.split.split.us.split.i, %37, %29, %.split.us.split.split.us.i, %22, %.split.us.split.us.split.i, %15, %.loopexit.i
-  %.sroa.0.1.i = phi ptr [ %62, %.loopexit.i ], [ %44, %.split.split.split.us.i ], [ %14, %.split.us.split.us.split.i ], [ %21, %.split.us.split.split.us.i ], [ %28, %29 ], [ %35, %.split.split.us.split.i ], [ %14, %15 ], [ %21, %22 ], [ %35, %37 ], [ %44, %46 ], [ %53, %55 ]
+  %.sroa.0.1.i = phi ptr [ %62, %.loopexit.i ], [ %21, %.split.us.split.split.us.i ], [ %35, %.split.split.us.split.i ], [ %28, %29 ], [ %44, %.split.split.split.us.i ], [ %14, %.split.us.split.us.split.i ], [ %14, %15 ], [ %21, %22 ], [ %35, %37 ], [ %44, %46 ], [ %53, %55 ]
   %63 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i, i64 16
   %64 = load ptr, ptr %63, align 8, !tbaa !126
   ret ptr %64

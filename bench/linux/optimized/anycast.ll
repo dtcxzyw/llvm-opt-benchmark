@@ -521,8 +521,8 @@ define dso_local noundef range(i32 -2, 1) i32 @ipv6_sock_ac_drop(ptr noundef %0,
   br i1 %65, label %.loopexit, label %.split, !llvm.loop !29
 
 .split9.us:                                       ; preds = %53, %37, %.split.us
-  %.us-phi = phi ptr [ %24, %.split.us ], [ %46, %37 ], [ %48, %53 ]
-  %.us-phi10 = phi ptr [ null, %.split.us ], [ %44, %37 ], [ %49, %53 ]
+  %.us-phi = phi ptr [ %46, %37 ], [ %24, %.split.us ], [ %48, %53 ]
+  %.us-phi10 = phi ptr [ %44, %37 ], [ null, %.split.us ], [ %49, %53 ]
   %66 = icmp eq ptr %.us-phi10, null
   %67 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 24
   %68 = load ptr, ptr %67, align 8

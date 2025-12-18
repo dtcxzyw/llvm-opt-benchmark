@@ -1677,8 +1677,8 @@ define hidden noundef ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6inse
   ret ptr %.sroa.0.0
 
 106:                                              ; preds = %84, %88
-  %107 = phi i8 [ %86, %84 ], [ %.pre, %88 ]
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.1.i.i, %84 ], [ %94, %88 ]
+  %107 = phi i8 [ %.pre, %88 ], [ %86, %84 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %94, %88 ], [ %.sroa.6.1.i.i, %84 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(88) %1, i64 88, i1 false)
   call void @llvm.experimental.noalias.scope.decl(metadata !336)

@@ -1665,7 +1665,7 @@ bytestream2_get_be16.exit.i:                      ; preds = %84, %88
   br i1 %113, label %amf_get_field_value2.exit, label %37
 
 amf_get_field_value2.exit:                        ; preds = %30, %bytestream2_peek_byte.exit.thread.i, %106, %103, %48, %bytestream2_get_be16.exit62.i, %37, %95, %bytestream2_get_be16.exit.i, %81, %bytestream2_get_be64.exit.i, %bytestream2_get_byte.exit56.i, %.critedge.thread.i, %5
-  %.0 = phi i32 [ -1, %5 ], [ -1, %.critedge.thread.i ], [ 0, %bytestream2_get_be64.exit.i ], [ 0, %81 ], [ 0, %95 ], [ -1, %bytestream2_get_byte.exit56.i ], [ -1, %bytestream2_get_be16.exit.i ], [ -1, %106 ], [ -1, %37 ], [ -1, %bytestream2_get_be16.exit62.i ], [ -1, %48 ], [ -1, %103 ], [ -1, %bytestream2_peek_byte.exit.thread.i ], [ -1, %30 ]
+  %.0 = phi i32 [ -1, %5 ], [ -1, %106 ], [ -1, %.critedge.thread.i ], [ 0, %95 ], [ -1, %bytestream2_get_byte.exit56.i ], [ -1, %bytestream2_get_be16.exit.i ], [ 0, %bytestream2_get_be64.exit.i ], [ 0, %81 ], [ -1, %37 ], [ -1, %bytestream2_get_be16.exit62.i ], [ -1, %48 ], [ -1, %103 ], [ -1, %bytestream2_peek_byte.exit.thread.i ], [ -1, %30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }

@@ -386,7 +386,7 @@ define internal fastcc void @find_placeholders_recurse(ptr noundef %0, ptr nound
   unreachable
 
 .sink.split:                                      ; preds = %58, %34, %.lr.ph.i27, %38, %.lr.ph.i, %.critedge
-  %.sink = phi ptr [ %21, %.lr.ph.i ], [ %21, %.critedge ], [ %45, %38 ], [ %45, %.lr.ph.i27 ], [ %21, %34 ], [ %45, %58 ]
+  %.sink = phi ptr [ %21, %.lr.ph.i ], [ %45, %.lr.ph.i27 ], [ %21, %.critedge ], [ %21, %34 ], [ %45, %38 ], [ %45, %58 ]
   tail call void @list_free(ptr noundef %.sink) #4
   br label %66
 

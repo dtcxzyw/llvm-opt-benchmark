@@ -5426,7 +5426,7 @@ common.resume:                                    ; preds = %264, %43, %103, %_Z
   br i1 %exitcond.not.i55, label %_ZN6duckdb17DictionaryDecoder19ConvertDictToSelVecEPjRKNS_15SelectionVectorEm.exit, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i, !llvm.loop !352
 
 _ZN6duckdb17DictionaryDecoder19ConvertDictToSelVecEPjRKNS_15SelectionVectorEm.exit: ; preds = %193, %183, %96, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.us.preheader, %_ZN6duckdb12RleBpDecoder8GetBatchIjEEvPhj.exit.thread, %_ZN6duckdb12RleBpDecoder8GetBatchIjEEvPhj.exit, %105
-  %.013.i63 = phi i64 [ 0, %105 ], [ 0, %_ZN6duckdb12RleBpDecoder8GetBatchIjEEvPhj.exit ], [ 0, %_ZN6duckdb12RleBpDecoder8GetBatchIjEEvPhj.exit.thread ], [ %2, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.us.preheader ], [ %37, %183 ], [ %2, %96 ], [ %37, %193 ]
+  %.013.i63 = phi i64 [ %2, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.us.preheader ], [ 0, %105 ], [ 0, %_ZN6duckdb12RleBpDecoder8GetBatchIjEEvPhj.exit ], [ %2, %96 ], [ 0, %_ZN6duckdb12RleBpDecoder8GetBatchIjEEvPhj.exit.thread ], [ %37, %183 ], [ %37, %193 ]
   %199 = icmp eq i64 %4, 0
   %200 = call noundef nonnull align 8 dereferenceable(104) ptr @_ZNK6duckdb10unique_ptrINS_6VectorESt14default_deleteIS1_ELb1EEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %10)
   br i1 %199, label %201, label %268
@@ -5884,7 +5884,7 @@ define noundef zeroext i1 @_ZN6duckdb24DictionarySupportsFilterERKNS_11TableFilt
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph41, %13, %4, %1, %1, %22
-  %.4 = phi i1 [ false, %22 ], [ true, %1 ], [ true, %1 ], [ true, %13 ], [ true, %4 ], [ %11, %.lr.ph41 ], [ %20, %.lr.ph ]
+  %.4 = phi i1 [ false, %22 ], [ true, %1 ], [ true, %13 ], [ true, %1 ], [ true, %4 ], [ %11, %.lr.ph41 ], [ %20, %.lr.ph ]
   ret i1 %.4
 }
 

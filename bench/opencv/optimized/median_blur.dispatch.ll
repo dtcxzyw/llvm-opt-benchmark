@@ -10182,7 +10182,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit380.i: ; preds = %
   br i1 %exitcond549.not.i, label %6241, label %6244, !llvm.loop !124
 
 ._crit_edge.i645:                                 ; preds = %6218, %6241, %6228, %6206
-  %storemerge.i = phi i16 [ %6208, %6206 ], [ %6203, %6228 ], [ %6242, %6241 ], [ %6219, %6218 ]
+  %storemerge.i = phi i16 [ %6242, %6241 ], [ %6208, %6206 ], [ %6203, %6228 ], [ %6219, %6218 ]
   store i16 %storemerge.i, ptr %6202, align 2
   %6251 = add nsw i64 %6204, %6165
   %.idx588.i = shl nsw i64 %6251, 5

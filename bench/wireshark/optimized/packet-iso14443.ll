@@ -818,7 +818,7 @@ iso14443_get_cmd_type.exit.i:                     ; preds = %145, %137, %126, %1
   br label %dissect_iso14443_msg.exit
 
 dissect_iso14443_msg.exit:                        ; preds = %iso14443_get_cmd_type.exit.i, %154
-  %.028.i = phi i32 [ %157, %154 ], [ %152, %iso14443_get_cmd_type.exit.i ]
+  %.028.i = phi i32 [ %152, %iso14443_get_cmd_type.exit.i ], [ %157, %154 ]
   %.028.i.fr = freeze i32 %.028.i
   %158 = call i32 @llvm.smax.i32(i32 %.028.i.fr, i32 0)
   %spec.select = add nuw i32 %158, 4
@@ -945,8 +945,8 @@ define internal range(i32 0, 3) i32 @dissect_iso14443_cmd_type_wupa(ptr noundef 
 default.unreachable:                              ; preds = %17
   unreachable
 
-30:                                               ; preds = %28, %29, %17
-  %.046.ph = phi i32 [ 4, %17 ], [ 10, %29 ], [ 7, %28 ]
+30:                                               ; preds = %17, %28, %29
+  %.046.ph = phi i32 [ 10, %29 ], [ 7, %28 ], [ 4, %17 ]
   %31 = load i32, ptr @hf_iso14443_uid_bits, align 4
   %32 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %31, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef -2147483648)
   %33 = load i32, ptr @hf_iso14443_uid_size, align 4

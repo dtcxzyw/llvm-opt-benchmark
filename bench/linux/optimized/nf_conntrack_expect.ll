@@ -772,7 +772,7 @@ nf_ct_expect_dst_hash.exit:                       ; preds = %16, %20
   br label %.thread
 
 .thread:                                          ; preds = %.loopexit, %175, %177, %nf_ct_expect_dst_hash.exit, %178, %169, %168, %163, %159, %158, %147, %127, %120, %4
-  %179 = phi ptr [ %52, %168 ], [ null, %4 ], [ null, %175 ], [ null, %120 ], [ null, %147 ], [ null, %127 ], [ %52, %158 ], [ %52, %159 ], [ %52, %163 ], [ null, %169 ], [ null, %178 ], [ null, %nf_ct_expect_dst_hash.exit ], [ null, %177 ], [ null, %.loopexit ]
+  %179 = phi ptr [ %52, %168 ], [ null, %4 ], [ null, %177 ], [ null, %120 ], [ null, %147 ], [ null, %127 ], [ %52, %158 ], [ %52, %159 ], [ %52, %163 ], [ null, %169 ], [ null, %175 ], [ null, %178 ], [ null, %nf_ct_expect_dst_hash.exit ], [ null, %.loopexit ]
   ret ptr %179
 }
 

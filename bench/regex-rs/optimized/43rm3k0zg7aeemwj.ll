@@ -2378,7 +2378,7 @@ _ZN12regex_syntax3hir7visitor5Frame5child17h7989d29082ddd62fE.exit31: ; preds = 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6559da0a4fc85048E.exit", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6559da0a4fc85048E.exit33", %_ZN12regex_syntax3hir7visitor11HeapVisitor6induct17hcc11919c1d8feaaaE.exit, %49, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17ha7298382b4c38916E.exit", %.preheader, %3, %71
-  %.017 = phi i1 [ true, %71 ], [ true, %3 ], [ true, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6559da0a4fc85048E.exit33" ], [ false, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17ha7298382b4c38916E.exit" ], [ false, %.preheader ], [ true, %49 ], [ true, %_ZN12regex_syntax3hir7visitor11HeapVisitor6induct17hcc11919c1d8feaaaE.exit ], [ true, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6559da0a4fc85048E.exit" ]
+  %.017 = phi i1 [ true, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6559da0a4fc85048E.exit33" ], [ true, %71 ], [ true, %49 ], [ true, %3 ], [ false, %.preheader ], [ false, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17ha7298382b4c38916E.exit" ], [ true, %_ZN12regex_syntax3hir7visitor11HeapVisitor6induct17hcc11919c1d8feaaaE.exit ], [ true, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6559da0a4fc85048E.exit" ]
   ret i1 %.017
 }
 

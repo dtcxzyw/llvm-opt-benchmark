@@ -858,7 +858,7 @@ define dso_local range(i32 0, 2) i32 @zipmapExists(ptr noundef readonly captures
   br label %.split.split.us.i, !llvm.loop !10
 
 zipmapLookupRaw.exit:                             ; preds = %.split.split.us.i, %15, %3
-  %.2.i = phi i32 [ 0, %3 ], [ 0, %.split.split.us.i ], [ 1, %15 ]
+  %.2.i = phi i32 [ 0, %3 ], [ 1, %15 ], [ 0, %.split.split.us.i ]
   ret i32 %.2.i
 }
 

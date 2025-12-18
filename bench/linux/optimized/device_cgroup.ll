@@ -839,7 +839,7 @@ define internal noundef i64 @devcgroup_access_write(ptr noundef %0, ptr noundef 
   br label %187
 
 .thread13:                                        ; preds = %153, %47, %4, %22, %26, %32, %57, %21, %19, %76, %108, %92, %111, %138, %122, %142, %168, %171, %180, %.thread, %42
-  %.ph = phi i32 [ %40, %42 ], [ -22, %.thread ], [ %181, %180 ], [ -1, %171 ], [ -1, %168 ], [ -22, %142 ], [ -22, %122 ], [ -22, %138 ], [ -22, %111 ], [ -22, %92 ], [ -22, %108 ], [ -22, %76 ], [ -22, %19 ], [ -22, %21 ], [ -22, %57 ], [ %36, %32 ], [ -1, %26 ], [ -22, %22 ], [ -1, %4 ], [ %40, %47 ], [ -22, %153 ]
+  %.ph = phi i32 [ %40, %47 ], [ -1, %4 ], [ %40, %42 ], [ -22, %.thread ], [ %181, %180 ], [ -1, %171 ], [ -1, %168 ], [ -22, %142 ], [ -22, %122 ], [ -22, %138 ], [ -22, %111 ], [ -22, %92 ], [ -22, %108 ], [ -22, %76 ], [ -22, %19 ], [ -22, %21 ], [ -22, %57 ], [ %36, %32 ], [ -1, %26 ], [ -22, %22 ], [ -22, %153 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -855,7 +855,7 @@ define internal noundef i64 @devcgroup_access_write(ptr noundef %0, ptr noundef 
   br label %190
 
 187:                                              ; preds = %183, %174
-  %.fr = phi i32 [ %175, %174 ], [ %185, %183 ]
+  %.fr = phi i32 [ %185, %183 ], [ %175, %174 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

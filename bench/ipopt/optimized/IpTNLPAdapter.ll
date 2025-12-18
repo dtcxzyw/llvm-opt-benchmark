@@ -9774,7 +9774,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1068: ; preds = %_
   br label %.loopexit2084
 
 .loopexit2084:                                    ; preds = %874, %.loopexit2084.loopexit, %851, %.preheader2083
-  %.1773 = phi i32 [ %.07722163, %.preheader2083 ], [ %853, %851 ], [ %875, %.loopexit2084.loopexit ], [ %.27741914, %874 ]
+  %.1773 = phi i32 [ %875, %.loopexit2084.loopexit ], [ %.07722163, %.preheader2083 ], [ %853, %851 ], [ %.27741914, %874 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %69)
   store double 0.000000e+00, ptr %69, align 8, !tbaa !123
   %876 = load i32, ptr %406, align 4, !tbaa !110
@@ -14916,8 +14916,8 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit1476:      ; preds = %2804, %_ZNSt6vector
   br label %.loopexit1991
 
 .loopexit1991:                                    ; preds = %2917, %.loopexit1991.loopexit2324, %2771, %.preheader1990
-  %2918 = phi i32 [ %2748, %.preheader1990 ], [ %2748, %2771 ], [ %.pre2615, %.loopexit1991.loopexit2324 ], [ %2748, %2917 ]
-  %.2714 = phi i32 [ 0, %.preheader1990 ], [ 0, %2771 ], [ %.1713, %.loopexit1991.loopexit2324 ], [ %.4716, %2917 ]
+  %2918 = phi i32 [ %.pre2615, %.loopexit1991.loopexit2324 ], [ %2748, %.preheader1990 ], [ %2748, %2771 ], [ %2748, %2917 ]
+  %.2714 = phi i32 [ %.1713, %.loopexit1991.loopexit2324 ], [ 0, %.preheader1990 ], [ 0, %2771 ], [ %.4716, %2917 ]
   %2919 = getelementptr inbounds nuw i8, ptr %0, i64 172
   store i32 %.2714, ptr %2919, align 4, !tbaa !196
   %switch1002 = icmp ult i32 %2918, 2
@@ -15161,7 +15161,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit1476:      ; preds = %2804, %_ZNSt6vector
   br i1 %3050, label %3025, label %.loopexit1987, !llvm.loop !200
 
 .loopexit1987:                                    ; preds = %3021, %3047, %2975, %.preheader1986
-  %.8720 = phi i32 [ 0, %.preheader1986 ], [ 0, %2975 ], [ %.10722, %3047 ], [ %.7719, %3021 ]
+  %.8720 = phi i32 [ %.10722, %3047 ], [ 0, %.preheader1986 ], [ 0, %2975 ], [ %.7719, %3021 ]
   %3051 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store i32 %.8720, ptr %3051, align 8, !tbaa !201
   %3052 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
@@ -15483,7 +15483,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1488: ; preds = %_
   br label %.loopexit
 
 .loopexit:                                        ; preds = %3184, %.lr.ph2320.preheader, %3153, %3185
-  %.13725 = phi i32 [ %3187, %3185 ], [ 0, %3153 ], [ %3187, %.lr.ph2320.preheader ], [ %.12724, %3184 ]
+  %.13725 = phi i32 [ %3187, %.lr.ph2320.preheader ], [ %3187, %3185 ], [ 0, %3153 ], [ %.12724, %3184 ]
   %3191 = getelementptr inbounds nuw i8, ptr %0, i64 188
   store i32 %.13725, ptr %3191, align 4, !tbaa !204
   %3192 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
@@ -23220,7 +23220,7 @@ _ZN5Ipopt11TNLPAdapter19update_local_lambdaERKNS_6VectorES3_.exit: ; preds = %58
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph46.preheader, %36, %.loopexit41, %166
-  %.031 = phi i1 [ %154, %.loopexit41 ], [ %182, %166 ], [ true, %36 ], [ true, %.lr.ph46.preheader ]
+  %.031 = phi i1 [ %182, %166 ], [ %154, %.loopexit41 ], [ true, %36 ], [ true, %.lr.ph46.preheader ]
   ret i1 %.031
 }
 
@@ -28603,7 +28603,7 @@ _ZN5Ipopt11TNLPAdapter14update_local_xERKNS_6VectorE.exit: ; preds = %77, %90
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph.split.split, %.lr.ph.split.split.us, %.lr.ph.split.us.split, %.lr.ph108.split.split, %.lr.ph108.split.split.us, %.lr.ph108.split.us.split, %.thread.sink.split, %.lr.ph108.split.us, %.lr.ph.split.us, %55, %24, %12, %8
-  %.0 = phi i1 [ true, %12 ], [ true, %8 ], [ true, %24 ], [ true, %55 ], [ true, %.lr.ph.split.us ], [ true, %.lr.ph108.split.us ], [ %.0.ph, %.thread.sink.split ], [ true, %.lr.ph.split.split.us ], [ true, %.lr.ph108.split.us.split ], [ true, %.lr.ph108.split.split.us ], [ true, %.lr.ph108.split.split ], [ true, %.lr.ph.split.us.split ], [ true, %.lr.ph.split.split ]
+  %.0 = phi i1 [ true, %12 ], [ true, %8 ], [ true, %.lr.ph.split.split.us ], [ true, %.lr.ph.split.us ], [ true, %.lr.ph108.split.split.us ], [ true, %24 ], [ %.0.ph, %.thread.sink.split ], [ true, %.lr.ph108.split.split ], [ true, %.lr.ph108.split.us.split ], [ true, %.lr.ph.split.us.split ], [ true, %55 ], [ true, %.lr.ph108.split.us ], [ true, %.lr.ph.split.split ]
   ret i1 %.0
 }
 

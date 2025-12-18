@@ -102,8 +102,8 @@ eatquote.exit.i:                                  ; preds = %21, %36, %34, %23, 
   br i1 %37, label %.lr.ph.i, label %csv_parse.exit
 
 csv_parse.exit:                                   ; preds = %17, %eatquote.exit.i, %select.unfold.i.i
-  %.151.i = phi i64 [ %.036.i, %select.unfold.i.i ], [ %.1.i, %eatquote.exit.i ], [ %.036.i, %17 ]
-  %.11950.i = phi i64 [ %.01835.i, %select.unfold.i.i ], [ %.119.i, %eatquote.exit.i ], [ %.01835.i, %17 ]
+  %.151.i = phi i64 [ %.036.i, %select.unfold.i.i ], [ %.036.i, %17 ], [ %.1.i, %eatquote.exit.i ]
+  %.11950.i = phi i64 [ %.01835.i, %select.unfold.i.i ], [ %.01835.i, %17 ], [ %.119.i, %eatquote.exit.i ]
   %38 = icmp ugt i64 %.11950.i, 1
   %39 = icmp ugt i64 %.151.i, 1
   %40 = select i1 %38, i1 %39, i1 false

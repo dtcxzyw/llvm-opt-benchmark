@@ -2351,10 +2351,10 @@ _ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i: ; preds = %_ZN
   br label %thread-pre-split207
 
 _ZN4absl7debian211string_viewC2EPKc.exit57.invoke: ; preds = %157, %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.i, %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i87, %_ZN4absl7debian211string_viewC2EPKc.exit50.loopexit
-  %161 = phi ptr [ @.str.44, %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i87 ], [ @.str.44, %_ZN4absl7debian211string_viewC2EPKc.exit50.loopexit ], [ @.str.43, %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.i ], [ @.str.43, %157 ]
-  %162 = phi i64 [ 16, %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i87 ], [ 16, %_ZN4absl7debian211string_viewC2EPKc.exit50.loopexit ], [ 12, %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.i ], [ 12, %157 ]
-  %163 = phi ptr [ %122, %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i87 ], [ %.sroa.0.0.copyload.i42.pre, %_ZN4absl7debian211string_viewC2EPKc.exit50.loopexit ], [ %.sroa.01.0.copyload.i, %157 ], [ %.sroa.01.0.copyload.i450, %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.i ]
-  %164 = phi i64 [ 0, %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i87 ], [ 0, %_ZN4absl7debian211string_viewC2EPKc.exit50.loopexit ], [ 0, %157 ], [ %.pr208452, %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.i ]
+  %161 = phi ptr [ @.str.44, %_ZN4absl7debian211string_viewC2EPKc.exit50.loopexit ], [ @.str.44, %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i87 ], [ @.str.43, %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.i ], [ @.str.43, %157 ]
+  %162 = phi i64 [ 16, %_ZN4absl7debian211string_viewC2EPKc.exit50.loopexit ], [ 16, %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i87 ], [ 12, %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.i ], [ 12, %157 ]
+  %163 = phi ptr [ %.sroa.0.0.copyload.i42.pre, %_ZN4absl7debian211string_viewC2EPKc.exit50.loopexit ], [ %122, %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i87 ], [ %.sroa.01.0.copyload.i, %157 ], [ %.sroa.01.0.copyload.i450, %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.i ]
+  %164 = phi i64 [ 0, %_ZN4absl7debian211string_viewC2EPKc.exit50.loopexit ], [ 0, %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i87 ], [ 0, %157 ], [ %.pr208452, %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.i ]
   invoke fastcc void @_ZN10open_spiel4json12_GLOBAL__N_110ParseErrorEN4absl7debian211string_viewES4_(ptr nonnull %161, i64 %162, ptr %163, i64 %164)
           to label %_ZN10open_spiel4json12_GLOBAL__N_113ParseConstantINS0_4NullEEEN4absl7debian28optionalINS0_5ValueEEEPNS5_11string_viewES9_T_.exit.critedge unwind label %.loopexit.split-lp
 

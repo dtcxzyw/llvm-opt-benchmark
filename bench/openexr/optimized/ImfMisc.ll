@@ -4499,8 +4499,8 @@ _ZN7Imf_3_43Xdr5writeINS_9CharPtrIOEPcEEvRT0_f.exit: ; preds = %.lr.ph.i.i.i59
   br label %59
 
 .loopexit:                                        ; preds = %47, %.lr.ph, %37, %_ZN7Imf_3_43Xdr5writeINS_9CharPtrIOEPcEEvRT0_f.exit, %_ZN7Imf_3_43Xdr5writeINS_9CharPtrIOEPcEEvRT0_N9Imath_3_24halfE.exit, %_ZN7Imf_3_43Xdr5writeINS_9CharPtrIOEPcEEvRT0_j.exit, %.preheader86, %.preheader83, %.preheader81, %.preheader78, %.preheader76, %.preheader
-  %.372 = phi ptr [ %10, %.preheader ], [ %10, %.preheader76 ], [ %10, %.preheader78 ], [ %10, %.preheader81 ], [ %10, %.preheader83 ], [ %10, %.preheader86 ], [ %45, %.lr.ph ], [ %18, %_ZN7Imf_3_43Xdr5writeINS_9CharPtrIOEPcEEvRT0_j.exit ], [ %23, %_ZN7Imf_3_43Xdr5writeINS_9CharPtrIOEPcEEvRT0_N9Imath_3_24halfE.exit ], [ %29, %_ZN7Imf_3_43Xdr5writeINS_9CharPtrIOEPcEEvRT0_f.exit ], [ %42, %37 ], [ %52, %47 ]
-  %.3 = phi ptr [ %11, %.preheader ], [ %11, %.preheader76 ], [ %11, %.preheader78 ], [ %11, %.preheader81 ], [ %11, %.preheader83 ], [ %11, %.preheader86 ], [ %46, %.lr.ph ], [ %19, %_ZN7Imf_3_43Xdr5writeINS_9CharPtrIOEPcEEvRT0_j.exit ], [ %24, %_ZN7Imf_3_43Xdr5writeINS_9CharPtrIOEPcEEvRT0_N9Imath_3_24halfE.exit ], [ %30, %_ZN7Imf_3_43Xdr5writeINS_9CharPtrIOEPcEEvRT0_f.exit ], [ %38, %37 ], [ %48, %47 ]
+  %.372 = phi ptr [ %18, %_ZN7Imf_3_43Xdr5writeINS_9CharPtrIOEPcEEvRT0_j.exit ], [ %23, %_ZN7Imf_3_43Xdr5writeINS_9CharPtrIOEPcEEvRT0_N9Imath_3_24halfE.exit ], [ %29, %_ZN7Imf_3_43Xdr5writeINS_9CharPtrIOEPcEEvRT0_f.exit ], [ %42, %37 ], [ %45, %.lr.ph ], [ %10, %.preheader ], [ %10, %.preheader76 ], [ %10, %.preheader78 ], [ %10, %.preheader81 ], [ %10, %.preheader83 ], [ %10, %.preheader86 ], [ %52, %47 ]
+  %.3 = phi ptr [ %19, %_ZN7Imf_3_43Xdr5writeINS_9CharPtrIOEPcEEvRT0_j.exit ], [ %24, %_ZN7Imf_3_43Xdr5writeINS_9CharPtrIOEPcEEvRT0_N9Imath_3_24halfE.exit ], [ %30, %_ZN7Imf_3_43Xdr5writeINS_9CharPtrIOEPcEEvRT0_f.exit ], [ %38, %37 ], [ %46, %.lr.ph ], [ %11, %.preheader ], [ %11, %.preheader76 ], [ %11, %.preheader78 ], [ %11, %.preheader81 ], [ %11, %.preheader83 ], [ %11, %.preheader86 ], [ %48, %47 ]
   store ptr %.372, ptr %0, align 8, !tbaa !45
   store ptr %.3, ptr %1, align 8, !tbaa !45
   ret void
@@ -5248,7 +5248,7 @@ define noundef zeroext i1 @_ZN7Imf_3_413usesLongNamesERKNS_6HeaderE(ptr noundef 
   br i1 %.not18, label %.critedge, label %.lr.ph25, !llvm.loop !156
 
 .critedge:                                        ; preds = %.lr.ph, %7, %.lr.ph25, %25, %._crit_edge
-  %.1 = phi i1 [ false, %._crit_edge ], [ %24, %.lr.ph25 ], [ %24, %25 ], [ true, %7 ], [ true, %.lr.ph ]
+  %.1 = phi i1 [ %24, %.lr.ph25 ], [ false, %._crit_edge ], [ %24, %25 ], [ true, %7 ], [ true, %.lr.ph ]
   ret i1 %.1
 }
 

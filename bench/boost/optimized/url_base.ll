@@ -1955,7 +1955,7 @@ define noundef nonnull align 8 dereferenceable(216) ptr @_ZN5boost4urls8url_base
   br i1 %.not.i, label %_ZN5boost4urls12encoded_sizeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_NS0_13encoding_optsE.exit, label %.lr.ph32.i, !llvm.loop !75
 
 _ZN5boost4urls12encoded_sizeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_NS0_13encoding_optsE.exit: ; preds = %.lr.ph.i, %.lr.ph32.i, %10, %11
-  %.2.i = phi i64 [ 0, %10 ], [ 0, %11 ], [ %32, %.lr.ph32.i ], [ %.1.i, %.lr.ph.i ]
+  %.2.i = phi i64 [ %32, %.lr.ph32.i ], [ 0, %10 ], [ 0, %11 ], [ %.1.i, %.lr.ph.i ]
   %34 = invoke noundef ptr @_ZN5boost4urls8url_base17set_userinfo_implEmRNS1_4op_tE(ptr noundef nonnull align 8 dereferenceable(216) %0, i64 noundef %.2.i, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %35 unwind label %56
 
@@ -2131,7 +2131,7 @@ define linkonce_odr hidden noundef i64 @_ZN5boost4urls6encodeINS0_7grammar9lut_c
   br label %.backedge65
 
 .backedge65:                                      ; preds = %26, %34
-  %.059.be = phi ptr [ %27, %26 ], [ %46, %34 ]
+  %.059.be = phi ptr [ %46, %34 ], [ %27, %26 ]
   %.031.be = getelementptr inbounds nuw i8, ptr %.03173, i64 1
   %.not = icmp eq ptr %.031.be, %12
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !76
@@ -2204,7 +2204,7 @@ define linkonce_odr hidden noundef i64 @_ZN5boost4urls6encodeINS0_7grammar9lut_c
   br label %.backedge
 
 .backedge:                                        ; preds = %64, %70, %78
-  %.160.be = phi ptr [ %65, %64 ], [ %71, %70 ], [ %90, %78 ]
+  %.160.be = phi ptr [ %90, %78 ], [ %65, %64 ], [ %71, %70 ]
   %.1.be = getelementptr inbounds nuw i8, ptr %.176, i64 1
   %.not40 = icmp eq ptr %.1.be, %12
   br i1 %.not40, label %.loopexit, label %.lr.ph77, !llvm.loop !77
@@ -2258,7 +2258,7 @@ define linkonce_odr hidden noundef i64 @_ZN5boost4urls6encodeINS0_7grammar9lut_c
   br label %.loopexit87
 
 .loopexit87:                                      ; preds = %24, %68, %62, %.loopexit, %74, %._crit_edge, %30
-  %.0 = phi i64 [ %93, %.loopexit ], [ %77, %74 ], [ %49, %._crit_edge ], [ %33, %30 ], [ %1, %68 ], [ %1, %62 ], [ %1, %24 ]
+  %.0 = phi i64 [ %93, %.loopexit ], [ %1, %68 ], [ %33, %30 ], [ %77, %74 ], [ %49, %._crit_edge ], [ %1, %62 ], [ %1, %24 ]
   ret i64 %.0
 }
 
@@ -2826,7 +2826,7 @@ define noundef nonnull align 8 dereferenceable(216) ptr @_ZN5boost4urls8url_base
   br i1 %.not.i, label %_ZN5boost4urls12encoded_sizeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_NS0_13encoding_optsE.exit, label %.lr.ph32.i, !llvm.loop !75
 
 _ZN5boost4urls12encoded_sizeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_NS0_13encoding_optsE.exit: ; preds = %.lr.ph.i, %.lr.ph32.i, %10, %11
-  %.2.i = phi i64 [ 0, %10 ], [ 0, %11 ], [ %32, %.lr.ph32.i ], [ %.1.i, %.lr.ph.i ]
+  %.2.i = phi i64 [ %32, %.lr.ph32.i ], [ 0, %10 ], [ 0, %11 ], [ %.1.i, %.lr.ph.i ]
   %34 = invoke noundef ptr @_ZN5boost4urls8url_base13set_user_implEmRNS1_4op_tE(ptr noundef nonnull align 8 dereferenceable(216) %0, i64 noundef %.2.i, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %35 unwind label %96
 
@@ -3238,7 +3238,7 @@ define noundef nonnull align 8 dereferenceable(216) ptr @_ZN5boost4urls8url_base
   br i1 %.not.i, label %_ZN5boost4urls12encoded_sizeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_NS0_13encoding_optsE.exit, label %.lr.ph32.i, !llvm.loop !75
 
 _ZN5boost4urls12encoded_sizeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_NS0_13encoding_optsE.exit: ; preds = %.lr.ph.i, %.lr.ph32.i, %10, %11
-  %.2.i = phi i64 [ 0, %10 ], [ 0, %11 ], [ %32, %.lr.ph32.i ], [ %.1.i, %.lr.ph.i ]
+  %.2.i = phi i64 [ %32, %.lr.ph32.i ], [ 0, %10 ], [ 0, %11 ], [ %.1.i, %.lr.ph.i ]
   %34 = invoke noundef ptr @_ZN5boost4urls8url_base17set_password_implEmRNS1_4op_tE(ptr noundef nonnull align 8 dereferenceable(216) %0, i64 noundef %.2.i, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %35 unwind label %96
 
@@ -3896,7 +3896,7 @@ _ZN5boost4urls7grammar5parseINS0_6detail16ipvfuture_rule_tEEENS_6system6resultIN
   br i1 %.not.i33, label %_ZN5boost4urls12encoded_sizeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_NS0_13encoding_optsE.exit, label %.lr.ph32.i, !llvm.loop !75
 
 _ZN5boost4urls12encoded_sizeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_NS0_13encoding_optsE.exit: ; preds = %.lr.ph.i, %.lr.ph32.i, %90, %91
-  %.2.i = phi i64 [ 0, %90 ], [ 0, %91 ], [ %112, %.lr.ph32.i ], [ %.1.i, %.lr.ph.i ]
+  %.2.i = phi i64 [ %112, %.lr.ph32.i ], [ 0, %90 ], [ 0, %91 ], [ %.1.i, %.lr.ph.i ]
   %114 = invoke noundef ptr @_ZN5boost4urls8url_base13set_host_implEmRNS1_4op_tE(ptr noundef nonnull align 8 dereferenceable(216) %0, i64 noundef %.2.i, ptr noundef nonnull align 8 dereferenceable(32) %13)
           to label %115 unwind label %126
 
@@ -4861,7 +4861,7 @@ _ZN5boost4urls7grammar5parseINS0_6detail16ipvfuture_rule_tEEENS_6system6resultIN
   br i1 %.not.i29, label %_ZN5boost4urls12encoded_sizeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_NS0_13encoding_optsE.exit, label %.lr.ph32.i, !llvm.loop !75
 
 _ZN5boost4urls12encoded_sizeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_NS0_13encoding_optsE.exit: ; preds = %.lr.ph.i, %.lr.ph32.i, %80, %81
-  %.2.i = phi i64 [ 0, %80 ], [ 0, %81 ], [ %102, %.lr.ph32.i ], [ %.1.i, %.lr.ph.i ]
+  %.2.i = phi i64 [ %102, %.lr.ph32.i ], [ 0, %80 ], [ 0, %81 ], [ %.1.i, %.lr.ph.i ]
   %104 = invoke noundef ptr @_ZN5boost4urls8url_base13set_host_implEmRNS1_4op_tE(ptr noundef nonnull align 8 dereferenceable(216) %0, i64 noundef %.2.i, ptr noundef nonnull align 8 dereferenceable(32) %13)
           to label %105 unwind label %116
 
@@ -5335,7 +5335,7 @@ define noundef nonnull align 8 dereferenceable(216) ptr @_ZN5boost4urls8url_base
   br i1 %.not.i, label %_ZN5boost4urls12encoded_sizeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_NS0_13encoding_optsE.exit, label %.lr.ph32.i, !llvm.loop !75
 
 _ZN5boost4urls12encoded_sizeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_NS0_13encoding_optsE.exit: ; preds = %.lr.ph.i, %.lr.ph32.i, %.preheader.i, %20
-  %.2.i = phi i64 [ 0, %.preheader.i ], [ 0, %20 ], [ %41, %.lr.ph32.i ], [ %.1.i, %.lr.ph.i ]
+  %.2.i = phi i64 [ %41, %.lr.ph32.i ], [ 0, %.preheader.i ], [ 0, %20 ], [ %.1.i, %.lr.ph.i ]
   %43 = invoke noundef ptr @_ZN5boost4urls8url_base13set_host_implEmRNS1_4op_tE(ptr noundef nonnull align 8 dereferenceable(216) %0, i64 noundef %.2.i, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %44 unwind label %106
 
@@ -6238,7 +6238,7 @@ define noundef nonnull align 8 dereferenceable(216) ptr @_ZN5boost4urls8url_base
   br i1 %.not.i, label %_ZN5boost4urls12encoded_sizeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_NS0_13encoding_optsE.exit, label %.lr.ph32.i, !llvm.loop !75
 
 _ZN5boost4urls12encoded_sizeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_NS0_13encoding_optsE.exit: ; preds = %.lr.ph.i, %.lr.ph32.i, %13, %14
-  %.2.i = phi i64 [ 0, %13 ], [ 0, %14 ], [ %35, %.lr.ph32.i ], [ %.1.i, %.lr.ph.i ]
+  %.2.i = phi i64 [ %35, %.lr.ph32.i ], [ 0, %13 ], [ 0, %14 ], [ %.1.i, %.lr.ph.i ]
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = call noundef zeroext i1 @_ZNK5boost4urls13url_view_base10has_schemeEv(ptr noundef nonnull align 8 dereferenceable(192) %37) #30
   br i1 %38, label %_ZSt5countIPKccENSt15iterator_traitsIT_E15difference_typeES3_S3_RKT0_.exit, label %39
@@ -6509,7 +6509,7 @@ _ZN5boost4urls8url_base13set_path_implEmRNS1_4op_tE.exit: ; preds = %72
   br i1 %.not17.i, label %.loopexit123, label %.lr.ph48.i, !llvm.loop !81
 
 .loopexit123:                                     ; preds = %127, %155, %.preheader.i, %.preheader40.i
-  %.236.i = phi ptr [ %.043, %.preheader.i ], [ %.043, %.preheader40.i ], [ %.4.i, %155 ], [ %.135.i, %127 ]
+  %.236.i = phi ptr [ %.4.i, %155 ], [ %.043, %.preheader.i ], [ %.043, %.preheader40.i ], [ %.135.i, %127 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %156 = call { ptr, i64 } @_ZNK5boost4urls6detail8url_impl3getEi(ptr noundef nonnull align 8 dereferenceable(171) %79, i32 noundef 5) #30
   %157 = load i64, ptr %10, align 8, !tbaa !51
@@ -8021,7 +8021,7 @@ define noundef nonnull align 8 dereferenceable(216) ptr @_ZN5boost4urls8url_base
   br i1 %.not.i, label %_ZN5boost4urls12encoded_sizeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_NS0_13encoding_optsE.exit, label %.lr.ph32.i, !llvm.loop !75
 
 _ZN5boost4urls12encoded_sizeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_NS0_13encoding_optsE.exit: ; preds = %.lr.ph.i, %.lr.ph32.i, %10, %11
-  %.2.i = phi i64 [ 0, %10 ], [ 0, %11 ], [ %32, %.lr.ph32.i ], [ %.1.i, %.lr.ph.i ]
+  %.2.i = phi i64 [ %32, %.lr.ph32.i ], [ 0, %10 ], [ 0, %11 ], [ %.1.i, %.lr.ph.i ]
   %34 = add i64 %.2.i, 1
   %35 = invoke noundef ptr @_ZN5boost4urls8url_base11resize_implEiimRNS1_4op_tE(ptr noundef nonnull align 8 dereferenceable(216) %0, i32 noundef 6, i32 noundef 7, i64 noundef %34, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %_ZN5boost4urls8url_base11resize_implEimRNS1_4op_tE.exit unwind label %97
@@ -9275,11 +9275,11 @@ _ZN5boost4coreeqENS0_17basic_string_viewIcEEPKc.exit: ; preds = %_ZN5boost4coree
   br label %_ZNK5boost4core17basic_string_viewIcE8containsEc.exit.thread
 
 _ZNK5boost4core17basic_string_viewIcE8containsEc.exit.thread: ; preds = %66, %77, %_ZNK5boost4core17basic_string_viewIcE11starts_withEPKc.exit116, %_ZNK5boost4core17basic_string_viewIcE11starts_withEPKc.exit119.thread, %_ZNK5boost4core17basic_string_viewIcE11starts_withEPKc.exit149.thread247, %_ZNK5boost4core17basic_string_viewIcE11starts_withEPKc.exit139, %_ZNK5boost4core17basic_string_viewIcE11starts_withEPKc.exit106.thread241, %.preheader.i169, %.preheader.i, %39, %_ZNK5boost4core17basic_string_viewIcE11starts_withEPKc.exit.thread, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i160, %130, %_ZNK5boost4core17basic_string_viewIcE8containsEc.exit
-  %.sroa.0216.0 = phi ptr [ %132, %130 ], [ %11, %_ZNK5boost4core17basic_string_viewIcE8containsEc.exit ], [ %11, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i160 ], [ %11, %_ZNK5boost4core17basic_string_viewIcE11starts_withEPKc.exit.thread ], [ %11, %39 ], [ %11, %_ZNK5boost4core17basic_string_viewIcE11starts_withEPKc.exit149.thread247 ], [ %11, %_ZNK5boost4core17basic_string_viewIcE11starts_withEPKc.exit116 ], [ %11, %.preheader.i ], [ %11, %.preheader.i169 ], [ %11, %_ZNK5boost4core17basic_string_viewIcE11starts_withEPKc.exit106.thread241 ], [ %11, %_ZNK5boost4core17basic_string_viewIcE11starts_withEPKc.exit119.thread ], [ %11, %_ZNK5boost4core17basic_string_viewIcE11starts_withEPKc.exit139 ], [ %11, %77 ], [ %11, %66 ]
-  %.sroa.20.0 = phi i64 [ %133, %130 ], [ %12, %_ZNK5boost4core17basic_string_viewIcE8containsEc.exit ], [ %12, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i160 ], [ %12, %_ZNK5boost4core17basic_string_viewIcE11starts_withEPKc.exit.thread ], [ %12, %39 ], [ %12, %_ZNK5boost4core17basic_string_viewIcE11starts_withEPKc.exit149.thread247 ], [ %12, %_ZNK5boost4core17basic_string_viewIcE11starts_withEPKc.exit116 ], [ %12, %.preheader.i ], [ %12, %.preheader.i169 ], [ %12, %_ZNK5boost4core17basic_string_viewIcE11starts_withEPKc.exit106.thread241 ], [ 0, %_ZNK5boost4core17basic_string_viewIcE11starts_withEPKc.exit119.thread ], [ %12, %_ZNK5boost4core17basic_string_viewIcE11starts_withEPKc.exit139 ], [ %12, %77 ], [ %12, %66 ]
-  %.4 = phi i64 [ 0, %130 ], [ 0, %_ZNK5boost4core17basic_string_viewIcE8containsEc.exit ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i160 ], [ 0, %_ZNK5boost4core17basic_string_viewIcE11starts_withEPKc.exit.thread ], [ 0, %39 ], [ 0, %_ZNK5boost4core17basic_string_viewIcE11starts_withEPKc.exit149.thread247 ], [ %spec.select, %_ZNK5boost4core17basic_string_viewIcE11starts_withEPKc.exit116 ], [ 0, %.preheader.i ], [ 0, %.preheader.i169 ], [ 0, %_ZNK5boost4core17basic_string_viewIcE11starts_withEPKc.exit106.thread241 ], [ 0, %_ZNK5boost4core17basic_string_viewIcE11starts_withEPKc.exit119.thread ], [ 2, %_ZNK5boost4core17basic_string_viewIcE11starts_withEPKc.exit139 ], [ 0, %77 ], [ 0, %66 ]
-  %.073 = phi ptr [ %139, %130 ], [ %19, %_ZNK5boost4core17basic_string_viewIcE8containsEc.exit ], [ %19, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i160 ], [ %19, %_ZNK5boost4core17basic_string_viewIcE11starts_withEPKc.exit.thread ], [ %19, %39 ], [ %19, %_ZNK5boost4core17basic_string_viewIcE11starts_withEPKc.exit149.thread247 ], [ %19, %_ZNK5boost4core17basic_string_viewIcE11starts_withEPKc.exit116 ], [ %19, %.preheader.i ], [ %19, %.preheader.i169 ], [ %19, %_ZNK5boost4core17basic_string_viewIcE11starts_withEPKc.exit106.thread241 ], [ %19, %_ZNK5boost4core17basic_string_viewIcE11starts_withEPKc.exit119.thread ], [ %19, %_ZNK5boost4core17basic_string_viewIcE11starts_withEPKc.exit139 ], [ %19, %77 ], [ %19, %66 ]
-  %.0 = phi ptr [ %136, %130 ], [ %16, %_ZNK5boost4core17basic_string_viewIcE8containsEc.exit ], [ %16, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i160 ], [ %16, %_ZNK5boost4core17basic_string_viewIcE11starts_withEPKc.exit.thread ], [ %16, %39 ], [ %16, %_ZNK5boost4core17basic_string_viewIcE11starts_withEPKc.exit149.thread247 ], [ %16, %_ZNK5boost4core17basic_string_viewIcE11starts_withEPKc.exit116 ], [ %16, %.preheader.i ], [ %16, %.preheader.i169 ], [ %16, %_ZNK5boost4core17basic_string_viewIcE11starts_withEPKc.exit106.thread241 ], [ %16, %_ZNK5boost4core17basic_string_viewIcE11starts_withEPKc.exit119.thread ], [ %16, %_ZNK5boost4core17basic_string_viewIcE11starts_withEPKc.exit139 ], [ %16, %77 ], [ %16, %66 ]
+  %.sroa.0216.0 = phi ptr [ %132, %130 ], [ %11, %_ZNK5boost4core17basic_string_viewIcE8containsEc.exit ], [ %11, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i160 ], [ %11, %_ZNK5boost4core17basic_string_viewIcE11starts_withEPKc.exit.thread ], [ %11, %39 ], [ %11, %_ZNK5boost4core17basic_string_viewIcE11starts_withEPKc.exit149.thread247 ], [ %11, %77 ], [ %11, %_ZNK5boost4core17basic_string_viewIcE11starts_withEPKc.exit116 ], [ %11, %.preheader.i ], [ %11, %.preheader.i169 ], [ %11, %_ZNK5boost4core17basic_string_viewIcE11starts_withEPKc.exit139 ], [ %11, %_ZNK5boost4core17basic_string_viewIcE11starts_withEPKc.exit106.thread241 ], [ %11, %_ZNK5boost4core17basic_string_viewIcE11starts_withEPKc.exit119.thread ], [ %11, %66 ]
+  %.sroa.20.0 = phi i64 [ %133, %130 ], [ %12, %_ZNK5boost4core17basic_string_viewIcE8containsEc.exit ], [ %12, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i160 ], [ %12, %_ZNK5boost4core17basic_string_viewIcE11starts_withEPKc.exit.thread ], [ %12, %39 ], [ %12, %_ZNK5boost4core17basic_string_viewIcE11starts_withEPKc.exit149.thread247 ], [ %12, %77 ], [ %12, %_ZNK5boost4core17basic_string_viewIcE11starts_withEPKc.exit116 ], [ %12, %.preheader.i ], [ %12, %.preheader.i169 ], [ %12, %_ZNK5boost4core17basic_string_viewIcE11starts_withEPKc.exit139 ], [ %12, %_ZNK5boost4core17basic_string_viewIcE11starts_withEPKc.exit106.thread241 ], [ 0, %_ZNK5boost4core17basic_string_viewIcE11starts_withEPKc.exit119.thread ], [ %12, %66 ]
+  %.4 = phi i64 [ 0, %130 ], [ 0, %_ZNK5boost4core17basic_string_viewIcE8containsEc.exit ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i160 ], [ 0, %_ZNK5boost4core17basic_string_viewIcE11starts_withEPKc.exit.thread ], [ 0, %39 ], [ 0, %_ZNK5boost4core17basic_string_viewIcE11starts_withEPKc.exit149.thread247 ], [ 0, %77 ], [ %spec.select, %_ZNK5boost4core17basic_string_viewIcE11starts_withEPKc.exit116 ], [ 0, %.preheader.i ], [ 0, %.preheader.i169 ], [ 2, %_ZNK5boost4core17basic_string_viewIcE11starts_withEPKc.exit139 ], [ 0, %_ZNK5boost4core17basic_string_viewIcE11starts_withEPKc.exit106.thread241 ], [ 0, %_ZNK5boost4core17basic_string_viewIcE11starts_withEPKc.exit119.thread ], [ 0, %66 ]
+  %.073 = phi ptr [ %139, %130 ], [ %19, %_ZNK5boost4core17basic_string_viewIcE8containsEc.exit ], [ %19, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i160 ], [ %19, %_ZNK5boost4core17basic_string_viewIcE11starts_withEPKc.exit.thread ], [ %19, %39 ], [ %19, %_ZNK5boost4core17basic_string_viewIcE11starts_withEPKc.exit149.thread247 ], [ %19, %77 ], [ %19, %_ZNK5boost4core17basic_string_viewIcE11starts_withEPKc.exit116 ], [ %19, %.preheader.i ], [ %19, %.preheader.i169 ], [ %19, %_ZNK5boost4core17basic_string_viewIcE11starts_withEPKc.exit139 ], [ %19, %_ZNK5boost4core17basic_string_viewIcE11starts_withEPKc.exit106.thread241 ], [ %19, %_ZNK5boost4core17basic_string_viewIcE11starts_withEPKc.exit119.thread ], [ %19, %66 ]
+  %.0 = phi ptr [ %136, %130 ], [ %16, %_ZNK5boost4core17basic_string_viewIcE8containsEc.exit ], [ %16, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i160 ], [ %16, %_ZNK5boost4core17basic_string_viewIcE11starts_withEPKc.exit.thread ], [ %16, %39 ], [ %16, %_ZNK5boost4core17basic_string_viewIcE11starts_withEPKc.exit149.thread247 ], [ %16, %77 ], [ %16, %_ZNK5boost4core17basic_string_viewIcE11starts_withEPKc.exit116 ], [ %16, %.preheader.i ], [ %16, %.preheader.i169 ], [ %16, %_ZNK5boost4core17basic_string_viewIcE11starts_withEPKc.exit139 ], [ %16, %_ZNK5boost4core17basic_string_viewIcE11starts_withEPKc.exit106.thread241 ], [ %16, %_ZNK5boost4core17basic_string_viewIcE11starts_withEPKc.exit119.thread ], [ %16, %66 ]
   %140 = getelementptr inbounds nuw i8, ptr %.sroa.0216.0, i64 %.4
   %141 = sub i64 %.sroa.20.0, %.4
   %142 = getelementptr inbounds nuw i8, ptr %.0, i64 %.4

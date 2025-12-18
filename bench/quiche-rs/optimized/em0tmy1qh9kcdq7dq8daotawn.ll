@@ -157,8 +157,8 @@ _ZN8smallvec10infallible17h4191d5613d5470eeE.exit:
   ret void
 
 .loopexit66:                                      ; preds = %.preheader.i.i.i, %15, %.critedge.i.i.i, %9
-  %.sroa.5.1 = phi ptr [ null, %9 ], [ null, %.critedge.i.i.i ], [ %16, %15 ], [ %.sroa.08.0.i.i.i, %.preheader.i.i.i ]
-  %.sroa.8.1 = phi ptr [ null, %9 ], [ %.sroa.8.072, %15 ], [ %.sroa.8.072, %.critedge.i.i.i ], [ %.sroa.8.072, %.preheader.i.i.i ]
+  %.sroa.5.1 = phi ptr [ null, %.critedge.i.i.i ], [ null, %9 ], [ %16, %15 ], [ %.sroa.08.0.i.i.i, %.preheader.i.i.i ]
+  %.sroa.8.1 = phi ptr [ %.sroa.8.072, %15 ], [ null, %9 ], [ %.sroa.8.072, %.critedge.i.i.i ], [ %.sroa.8.072, %.preheader.i.i.i ]
   %38 = getelementptr inbounds i8, ptr %.sroa.5.071, i64 -32
   %.val.i11 = load i64, ptr %38, align 8, !noalias !33, !noundef !12
   %39 = getelementptr inbounds nuw i64, ptr %.sink10.i, i64 %storemerge73
@@ -305,8 +305,8 @@ _ZN8smallvec10infallible17h4191d5613d5470eeE.exit:
   ret void
 
 .loopexit66:                                      ; preds = %.preheader.i.i.i, %15, %.critedge.i.i.i, %9
-  %.sroa.5.1 = phi ptr [ null, %9 ], [ null, %.critedge.i.i.i ], [ %16, %15 ], [ %.sroa.08.0.i.i.i, %.preheader.i.i.i ]
-  %.sroa.8.1 = phi ptr [ null, %9 ], [ %.sroa.8.072, %15 ], [ %.sroa.8.072, %.critedge.i.i.i ], [ %.sroa.8.072, %.preheader.i.i.i ]
+  %.sroa.5.1 = phi ptr [ null, %.critedge.i.i.i ], [ null, %9 ], [ %16, %15 ], [ %.sroa.08.0.i.i.i, %.preheader.i.i.i ]
+  %.sroa.8.1 = phi ptr [ %.sroa.8.072, %15 ], [ null, %9 ], [ %.sroa.8.072, %.critedge.i.i.i ], [ %.sroa.8.072, %.preheader.i.i.i ]
   %38 = getelementptr inbounds i8, ptr %.sroa.5.071, i64 -8
   %.val.i11 = load i64, ptr %38, align 8, !noalias !62, !noundef !12
   %39 = getelementptr inbounds nuw i64, ptr %.sink10.i, i64 %storemerge73

@@ -399,7 +399,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %16
   br i1 %.not.i.i30, label %.lr.ph.i.i37.preheader, label %.lr.ph.i.i27, !llvm.loop !34
 
 pmix_cmd_line_is_taken.exit34.sink.split:         ; preds = %.lr.ph.i.i, %.lr.ph.i.i17, %.lr.ph.i.i27
-  %.sink = phi i8 [ 0, %.lr.ph.i.i17 ], [ 0, %.lr.ph.i.i27 ], [ 1, %.lr.ph.i.i ]
+  %.sink = phi i8 [ 0, %.lr.ph.i.i27 ], [ 0, %.lr.ph.i.i17 ], [ 1, %.lr.ph.i.i ]
   store i8 %.sink, ptr @pmix_info_pretty, align 1, !tbaa !35
   br label %.lr.ph.i.i37.preheader
 
@@ -1044,8 +1044,8 @@ pmix_cmd_line_get_param.exit:                     ; preds = %.lr.ph
   br i1 %47, label %.critedge, label %pmix_cmd_line_get_param.exit
 
 pmix_cmd_line_get_param.exit.thread:              ; preds = %41, %pmix_cmd_line_get_param.exit, %pmix_cmd_line_get_param.exit.preheader, %1
-  %.not96 = phi i1 [ true, %1 ], [ false, %pmix_cmd_line_get_param.exit.preheader ], [ false, %pmix_cmd_line_get_param.exit ], [ true, %41 ]
-  %.08.i95 = phi ptr [ null, %1 ], [ %.011.i, %pmix_cmd_line_get_param.exit.preheader ], [ %.011.i, %pmix_cmd_line_get_param.exit ], [ null, %41 ]
+  %.not96 = phi i1 [ false, %pmix_cmd_line_get_param.exit.preheader ], [ true, %1 ], [ false, %pmix_cmd_line_get_param.exit ], [ true, %41 ]
+  %.08.i95 = phi ptr [ %.011.i, %pmix_cmd_line_get_param.exit.preheader ], [ null, %1 ], [ %.011.i, %pmix_cmd_line_get_param.exit ], [ null, %41 ]
   br i1 %0, label %.critedge, label %301
 
 .critedge:                                        ; preds = %.lr.ph, %pmix_cmd_line_get_param.exit.thread
@@ -3401,7 +3401,7 @@ define dso_local ptr @pmix_info_make_version_str(ptr noundef readonly captures(n
   br label %49
 
 49:                                               ; preds = %47, %41, %17, %23
-  %.0 = phi ptr [ %24, %23 ], [ %19, %17 ], [ %42, %41 ], [ %48, %47 ]
+  %.0 = phi ptr [ %24, %23 ], [ %19, %17 ], [ %48, %47 ], [ %42, %41 ]
   %50 = icmp eq ptr %.0, null
   br i1 %50, label %.thread, label %53
 

@@ -337,7 +337,7 @@ unix_madvise.exit:                                ; preds = %unix_madvise.exit.l
   br label %.critedge11
 
 .critedge11:                                      ; preds = %9, %unix_madvise.exit, %2, %17, %14, %.critedge
-  %.0 = phi i32 [ %8, %.critedge ], [ 0, %14 ], [ %18, %17 ], [ 0, %2 ], [ 0, %9 ], [ %8, %unix_madvise.exit ]
+  %.0 = phi i32 [ %18, %17 ], [ %8, %.critedge ], [ 0, %14 ], [ 0, %2 ], [ 0, %9 ], [ %8, %unix_madvise.exit ]
   ret i32 %.0
 }
 

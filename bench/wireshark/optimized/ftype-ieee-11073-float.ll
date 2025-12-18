@@ -273,7 +273,7 @@ define internal noundef zeroext i1 @sfloat_ieee_11073_val_from_literal(ptr nound
   br label %.loopexit149
 
 .loopexit149:                                     ; preds = %.loopexit, %.preheader148, %61, %31, %.loopexit149.sink.split, %7, %7, %.critedge, %21, %17, %13, %10, %4, %4
-  %.0 = phi i1 [ false, %4 ], [ false, %4 ], [ false, %7 ], [ false, %10 ], [ false, %13 ], [ false, %17 ], [ false, %21 ], [ false, %7 ], [ false, %.critedge ], [ true, %.loopexit149.sink.split ], [ false, %31 ], [ false, %61 ], [ false, %.preheader148 ], [ false, %.loopexit ]
+  %.0 = phi i1 [ false, %.critedge ], [ false, %4 ], [ false, %4 ], [ false, %7 ], [ true, %.loopexit149.sink.split ], [ false, %10 ], [ false, %21 ], [ false, %13 ], [ false, %7 ], [ false, %17 ], [ false, %31 ], [ false, %61 ], [ false, %.preheader148 ], [ false, %.loopexit ]
   ret i1 %.0
 }
 
@@ -735,8 +735,8 @@ sfloat_to_normal_form.exit90.i:                   ; preds = %._crit_edge.thread.
   br i1 %.not65.i, label %sfloat_ieee_11073_cmp_lt.exit, label %.lr.ph.i, !llvm.loop !33
 
 sfloat_ieee_11073_cmp_lt.exit:                    ; preds = %.lr.ph.i, %.lr.ph17.i, %.preheader.i, %.preheader4.i
-  %.150.i = phi i16 [ %spec.select.i, %.preheader.i ], [ %spec.select.i, %.preheader4.i ], [ %spec.select.i, %.lr.ph17.i ], [ %88, %.lr.ph.i ]
-  %.3.i = phi i16 [ %.047.i, %.preheader.i ], [ %.047.i, %.preheader4.i ], [ %83, %.lr.ph17.i ], [ %.047.i, %.lr.ph.i ]
+  %.150.i = phi i16 [ %spec.select.i, %.preheader.i ], [ %spec.select.i, %.lr.ph17.i ], [ %spec.select.i, %.preheader4.i ], [ %88, %.lr.ph.i ]
+  %.3.i = phi i16 [ %.047.i, %.preheader.i ], [ %83, %.lr.ph17.i ], [ %.047.i, %.preheader4.i ], [ %.047.i, %.lr.ph.i ]
   %89 = icmp slt i16 %.150.i, %.3.i
   br i1 %89, label %sfloat_ieee_11073_cmp_lt.exit.thread, label %sfloat_ieee_11073_cmp_lt.exit.thread29
 
@@ -1123,7 +1123,7 @@ define internal noundef zeroext i1 @float_ieee_11073_val_from_literal(ptr nounde
   br label %.loopexit149
 
 .loopexit149:                                     ; preds = %.loopexit, %.preheader148, %61, %31, %.loopexit149.sink.split, %7, %7, %.critedge, %21, %17, %13, %10, %4, %4
-  %.0 = phi i1 [ false, %4 ], [ false, %4 ], [ false, %7 ], [ false, %10 ], [ false, %13 ], [ false, %17 ], [ false, %21 ], [ false, %7 ], [ false, %.critedge ], [ true, %.loopexit149.sink.split ], [ false, %31 ], [ false, %61 ], [ false, %.preheader148 ], [ false, %.loopexit ]
+  %.0 = phi i1 [ false, %.critedge ], [ false, %4 ], [ false, %4 ], [ false, %7 ], [ true, %.loopexit149.sink.split ], [ false, %10 ], [ false, %21 ], [ false, %13 ], [ false, %7 ], [ false, %17 ], [ false, %31 ], [ false, %61 ], [ false, %.preheader148 ], [ false, %.loopexit ]
   ret i1 %.0
 }
 
@@ -1537,8 +1537,8 @@ float_to_normal_form.exit76.i:                    ; preds = %._crit_edge.i66.i, 
   br i1 %.not57.i, label %float_ieee_11073_cmp_lt.exit, label %.lr.ph.i, !llvm.loop !60
 
 float_ieee_11073_cmp_lt.exit:                     ; preds = %.lr.ph.i, %.lr.ph11.i, %.preheader.i, %.preheader2.i
-  %.349.i = phi i32 [ %.046.i, %.preheader.i ], [ %.046.i, %.preheader2.i ], [ %69, %.lr.ph11.i ], [ %.046.i, %.lr.ph.i ]
-  %.144.i = phi i32 [ %spec.select.i, %.preheader.i ], [ %spec.select.i, %.preheader2.i ], [ %spec.select.i, %.lr.ph11.i ], [ %76, %.lr.ph.i ]
+  %.349.i = phi i32 [ %.046.i, %.preheader2.i ], [ %.046.i, %.preheader.i ], [ %69, %.lr.ph11.i ], [ %.046.i, %.lr.ph.i ]
+  %.144.i = phi i32 [ %spec.select.i, %.preheader2.i ], [ %spec.select.i, %.preheader.i ], [ %spec.select.i, %.lr.ph11.i ], [ %76, %.lr.ph.i ]
   %77 = icmp slt i32 %.144.i, %.349.i
   br i1 %77, label %float_ieee_11073_cmp_lt.exit.thread, label %float_ieee_11073_cmp_lt.exit.thread24
 

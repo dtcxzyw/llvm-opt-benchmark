@@ -28616,7 +28616,7 @@ define internal void @"_ZN14ide_completion11completions4type18complete_type_path
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %"_ZN4core3ptr43drop_in_place$LT$hir_expand..name..Name$GT$17h852c0cc8bc06109eE.exit"
 
-29:                                               ; preds = %23, %4, %10
+29:                                               ; preds = %23, %10, %4
   invoke void @"_ZN4core3ptr61drop_in_place$LT$alloc..vec..Vec$LT$smol_str..SmolStr$GT$$GT$17hfb7f5bedd34d2becE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
           to label %32 unwind label %30
 

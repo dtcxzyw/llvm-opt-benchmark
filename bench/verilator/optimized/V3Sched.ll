@@ -3246,7 +3246,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit94.i: ; preds = %6
   unreachable
 
 _ZNSt13unordered_mapIPK10AstSenTreePS0_St4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S3_EEE2atERS9_.exit.i.i: ; preds = %657, %641, %652
-  %.sroa.06.1.i.i.i.i.i = phi ptr [ %653, %652 ], [ %.sroa.06.0.i.i.i.i.i, %641 ], [ %659, %657 ]
+  %.sroa.06.1.i.i.i.i.i = phi ptr [ %.sroa.06.0.i.i.i.i.i, %641 ], [ %653, %652 ], [ %659, %657 ]
   %665 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i.i, i64 16
   %666 = load ptr, ptr %665, align 8, !tbaa !161
   store ptr %666, ptr %636, align 8, !tbaa !158
@@ -5458,7 +5458,7 @@ _ZN7V3Sched12_GLOBAL__N_130addVirtIfaceTriggerAssignmentsERKNS_17VirtIfaceTrigge
   unreachable
 
 _ZNSt13unordered_mapIPK10AstSenTreePS0_St4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S3_EEE2atERS9_.exit.i.i597: ; preds = %1425, %1409, %1420
-  %.sroa.06.1.i.i.i.i.i598 = phi ptr [ %1421, %1420 ], [ %.sroa.06.0.i.i.i.i.i628, %1409 ], [ %1427, %1425 ]
+  %.sroa.06.1.i.i.i.i.i598 = phi ptr [ %.sroa.06.0.i.i.i.i.i628, %1409 ], [ %1421, %1420 ], [ %1427, %1425 ]
   %1433 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i.i598, i64 16
   %1434 = load ptr, ptr %1433, align 8, !tbaa !161
   store ptr %1434, ptr %1404, align 8, !tbaa !158
@@ -7073,7 +7073,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit728: ; preds = %19
   unreachable
 
 _ZNSt13unordered_mapIPK10AstSenTreePS0_St4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S3_EEE2atERS9_.exit.i: ; preds = %1993, %1977, %1988
-  %.sroa.06.1.i.i.i.i = phi ptr [ %1989, %1988 ], [ %.sroa.06.0.i.i.i.i, %1977 ], [ %1995, %1993 ]
+  %.sroa.06.1.i.i.i.i = phi ptr [ %.sroa.06.0.i.i.i.i, %1977 ], [ %1989, %1988 ], [ %1995, %1993 ]
   %2001 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i, i64 16
   %2002 = load ptr, ptr %2001, align 8, !tbaa !161
   store ptr %2002, ptr %1972, align 8, !tbaa !158
@@ -7217,7 +7217,7 @@ _ZNSt13unordered_mapIPK10AstSenTreePS0_St4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS
   unreachable
 
 _ZNSt13unordered_mapIPK10AstSenTreePS0_St4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S3_EEE2atERS9_.exit.i752: ; preds = %2050, %2034, %2045
-  %.sroa.06.1.i.i.i.i753 = phi ptr [ %2046, %2045 ], [ %.sroa.06.0.i.i.i.i758, %2034 ], [ %2052, %2050 ]
+  %.sroa.06.1.i.i.i.i753 = phi ptr [ %.sroa.06.0.i.i.i.i758, %2034 ], [ %2046, %2045 ], [ %2052, %2050 ]
   %2058 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i753, i64 16
   %2059 = load ptr, ptr %2058, align 8, !tbaa !161
   store ptr %2059, ptr %2029, align 8, !tbaa !158
@@ -7359,7 +7359,7 @@ _ZNSt13unordered_mapIPK10AstSenTreePS0_St4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS
   unreachable
 
 _ZNSt13unordered_mapIPK10AstSenTreePS0_St4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S3_EEE2atERS9_.exit.i782: ; preds = %2105, %2089, %2100
-  %.sroa.06.1.i.i.i.i783 = phi ptr [ %2101, %2100 ], [ %.sroa.06.0.i.i.i.i788, %2089 ], [ %2107, %2105 ]
+  %.sroa.06.1.i.i.i.i783 = phi ptr [ %.sroa.06.0.i.i.i.i788, %2089 ], [ %2101, %2100 ], [ %2107, %2105 ]
   %2113 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i783, i64 16
   %2114 = load ptr, ptr %2113, align 8, !tbaa !161
   store ptr %2114, ptr %2084, align 8, !tbaa !158
@@ -7500,7 +7500,7 @@ _ZNSt13unordered_mapIPK10AstSenTreePS0_St4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS
   unreachable
 
 _ZNSt13unordered_mapIPK10AstSenTreePS0_St4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S3_EEE2atERS9_.exit.i812: ; preds = %2159, %2143, %2154
-  %.sroa.06.1.i.i.i.i813 = phi ptr [ %2155, %2154 ], [ %.sroa.06.0.i.i.i.i818, %2143 ], [ %2161, %2159 ]
+  %.sroa.06.1.i.i.i.i813 = phi ptr [ %.sroa.06.0.i.i.i.i818, %2143 ], [ %2155, %2154 ], [ %2161, %2159 ]
   %2167 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i813, i64 16
   %2168 = load ptr, ptr %2167, align 8, !tbaa !161
   store ptr %2168, ptr %2138, align 8, !tbaa !158
@@ -11091,9 +11091,9 @@ define internal fastcc void @_ZN7V3Sched12_GLOBAL__N_114createTriggersEP10AstNet
   br i1 %.not.i.i.i.i, label %_ZNSt10_HashtableI5VNRefIK10AstSenItemES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE5clearEv.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !350
 
 _ZNSt10_HashtableI5VNRefIK10AstSenItemES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE5clearEv.exit.i.i: ; preds = %.lr.ph.i.i.i.i, %8, %._crit_edge1402
-  %.sroa.0829.0.lcssa1934 = phi ptr [ %.sroa.0829.1.lcssa, %._crit_edge1402 ], [ null, %8 ], [ %.sroa.0829.1.lcssa, %.lr.ph.i.i.i.i ]
-  %.sroa.12.0.lcssa1933 = phi ptr [ %.sroa.12.1.lcssa, %._crit_edge1402 ], [ null, %8 ], [ %.sroa.12.1.lcssa, %.lr.ph.i.i.i.i ]
-  %.sroa.19.0.lcssa1910 = phi ptr [ %.sroa.19.1.lcssa, %._crit_edge1402 ], [ null, %8 ], [ %.sroa.19.1.lcssa, %.lr.ph.i.i.i.i ]
+  %.sroa.0829.0.lcssa1934 = phi ptr [ null, %8 ], [ %.sroa.0829.1.lcssa, %._crit_edge1402 ], [ %.sroa.0829.1.lcssa, %.lr.ph.i.i.i.i ]
+  %.sroa.12.0.lcssa1933 = phi ptr [ null, %8 ], [ %.sroa.12.1.lcssa, %._crit_edge1402 ], [ %.sroa.12.1.lcssa, %.lr.ph.i.i.i.i ]
+  %.sroa.19.0.lcssa1910 = phi ptr [ null, %8 ], [ %.sroa.19.1.lcssa, %._crit_edge1402 ], [ %.sroa.19.1.lcssa, %.lr.ph.i.i.i.i ]
   %66 = load ptr, ptr %54, align 8, !tbaa !340
   %67 = load i64, ptr %56, align 8, !tbaa !348
   %68 = shl i64 %67, 3
@@ -11942,7 +11942,7 @@ _ZNSt6vectorIPK10AstSenItemSaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vecto
   unreachable
 
 .loopexit924:                                     ; preds = %353, %337, %348
-  %.sroa.06.1.i.i.i = phi ptr [ %349, %348 ], [ %.sroa.06.0.i.i.i, %337 ], [ %355, %353 ]
+  %.sroa.06.1.i.i.i = phi ptr [ %.sroa.06.0.i.i.i, %337 ], [ %349, %348 ], [ %355, %353 ]
   %361 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
           to label %.noexc685 unwind label %.loopexit947
 
@@ -13744,7 +13744,7 @@ _ZN7AstNode9privateAsI10AstSenItemPS_EEPT_S2_.exit438: ; preds = %958, %955
   unreachable
 
 .loopexit896:                                     ; preds = %987, %971, %982
-  %.sroa.06.1.i.i.i447 = phi ptr [ %983, %982 ], [ %.sroa.06.0.i.i.i449, %971 ], [ %989, %987 ]
+  %.sroa.06.1.i.i.i447 = phi ptr [ %.sroa.06.0.i.i.i449, %971 ], [ %983, %982 ], [ %989, %987 ]
   %995 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i447, i64 16
   %996 = load i64, ptr %995, align 8, !tbaa !68
   %.not.i.i453 = icmp ult i64 %996, %823
@@ -13862,7 +13862,7 @@ _ZNSt10_HashtableIPK10AstSenTreeSt4pairIKS2_PS0_ESaIS6_ENSt8__detail10_Select1st
   br label %.body464
 
 .loopexit899:                                     ; preds = %1021, %.noexc463, %1016
-  %.pn.i.i = phi ptr [ %1017, %1016 ], [ %1032, %.noexc463 ], [ %1023, %1021 ]
+  %.pn.i.i = phi ptr [ %1032, %.noexc463 ], [ %1017, %1016 ], [ %1023, %1021 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   store ptr %943, ptr %.1.i.i, align 8, !tbaa !161
   %1034 = getelementptr inbounds nuw i8, ptr %.sroa.0785.01427, i64 8
@@ -16433,7 +16433,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit74: ; preds = %_ZN
   unreachable
 
 _ZNSt13unordered_mapIPK10AstSenTreePS0_St4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S3_EEE2atERS9_.exit.i: ; preds = %164, %148, %159
-  %.sroa.06.1.i.i.i.i = phi ptr [ %160, %159 ], [ %.sroa.06.0.i.i.i.i, %148 ], [ %166, %164 ]
+  %.sroa.06.1.i.i.i.i = phi ptr [ %.sroa.06.0.i.i.i.i, %148 ], [ %160, %159 ], [ %166, %164 ]
   %172 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i, i64 16
   %173 = load ptr, ptr %172, align 8, !tbaa !161
   store ptr %173, ptr %143, align 8, !tbaa !158
@@ -38886,7 +38886,7 @@ _ZNSt10_HashtableIPK10AstSenTreeSt4pairIKS2_S2_ESaIS5_ENSt8__detail10_Select1stE
   resume { ptr, i32 } %46
 
 _ZNKSt10_HashtableIPK10AstSenTreeSt4pairIKS2_S2_ESaIS5_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS4_m.exit: ; preds = %35, %21, %30
-  %.sroa.043.0.ph = phi ptr [ %31, %30 ], [ %.sroa.035.0, %21 ], [ %37, %35 ]
+  %.sroa.043.0.ph = phi ptr [ %.sroa.035.0, %21 ], [ %31, %30 ], [ %37, %35 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 24) #30
   br label %_ZNSt10_HashtableIPK10AstSenTreeSt4pairIKS2_S2_ESaIS5_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 

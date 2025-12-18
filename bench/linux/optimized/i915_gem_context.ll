@@ -549,7 +549,7 @@ define internal fastcc ptr @i915_gem_create_context(ptr noundef %0, ptr noundef 
   br i1 %209, label %.preheader, label %.thread71, !llvm.loop !23
 
 .thread71:                                        ; preds = %._crit_edge, %.loopexit91, %171
-  %210 = phi i32 [ %165, %171 ], [ %165, %.loopexit91 ], [ %146, %._crit_edge ]
+  %210 = phi i32 [ %165, %.loopexit91 ], [ %165, %171 ], [ %146, %._crit_edge ]
   %211 = sext i32 %210 to i64
   %212 = inttoptr i64 %211 to ptr
   br label %.loopexit93
@@ -560,7 +560,7 @@ define internal fastcc ptr @i915_gem_create_context(ptr noundef %0, ptr noundef 
   br i1 %215, label %.loopexit95, label %78, !llvm.loop !24
 
 .loopexit93:                                      ; preds = %105, %113, %127, %.thread71
-  %.ph74 = phi ptr [ %212, %.thread71 ], [ %129, %127 ], [ %115, %113 ], [ %106, %105 ]
+  %.ph74 = phi ptr [ %115, %113 ], [ %212, %.thread71 ], [ %129, %127 ], [ %106, %105 ]
   %216 = load i32, ptr %73, align 8
   %217 = icmp eq i32 %216, 0
   br i1 %217, label %.loopexit90, label %218
@@ -724,7 +724,7 @@ define internal fastcc ptr @i915_gem_create_context(ptr noundef %0, ptr noundef 
   br label %.loopexit95
 
 .loopexit95:                                      ; preds = %281, %213, %.loopexit90, %244, %71
-  %312 = phi ptr [ %69, %71 ], [ %242, %244 ], [ %311, %.loopexit90 ], [ %69, %213 ], [ %242, %281 ]
+  %312 = phi ptr [ %311, %.loopexit90 ], [ %69, %71 ], [ %69, %213 ], [ %242, %244 ], [ %242, %281 ]
   %313 = icmp ugt ptr %312, inttoptr (i64 -4096 to ptr)
   br i1 %313, label %.thread85, label %317
 

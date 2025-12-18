@@ -863,8 +863,8 @@ _find_child_switches.exit:                        ; preds = %.loopexit.i, %229
   br i1 %352, label %.preheader184, label %._crit_edge267
 
 .preheader183:                                    ; preds = %._crit_edge267, %221, %.preheader189, %.preheader188, %.preheader186
-  %.0124.lcssa386388391 = phi i1 [ %spec.select, %.preheader186 ], [ %spec.select, %.preheader188 ], [ %spec.select, %.preheader189 ], [ false, %221 ], [ %spec.select, %._crit_edge267 ]
-  %353 = phi i32 [ %306, %.preheader186 ], [ %303, %.preheader188 ], [ %284, %.preheader189 ], [ %223, %221 ], [ %398, %._crit_edge267 ]
+  %.0124.lcssa386388391 = phi i1 [ %spec.select, %.preheader186 ], [ false, %221 ], [ %spec.select, %.preheader188 ], [ %spec.select, %.preheader189 ], [ %spec.select, %._crit_edge267 ]
+  %353 = phi i32 [ %306, %.preheader186 ], [ %223, %221 ], [ %303, %.preheader188 ], [ %284, %.preheader189 ], [ %398, %._crit_edge267 ]
   %354 = load i32, ptr @switch_levels, align 4
   %.not153272 = icmp sgt i32 %354, 0
   %355 = icmp sgt i32 %353, 0

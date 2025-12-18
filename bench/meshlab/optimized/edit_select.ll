@@ -2662,8 +2662,8 @@ _ZNSt6vectorI7QPointFSaIS0_EE9push_backEOS0_.exit: ; preds = %_ZNSt6vectorI7QPoi
   br i1 %231, label %.lr.ph139, label %._crit_edge140.invoke, !llvm.loop !30
 
 ._crit_edge140.invoke:                            ; preds = %305, %.critedge, %.preheader, %.preheader114
-  %232 = phi i1 [ false, %.preheader114 ], [ true, %.preheader ], [ true, %.critedge ], [ false, %305 ]
-  %233 = phi i1 [ true, %.preheader114 ], [ false, %.preheader ], [ false, %.critedge ], [ true, %305 ]
+  %232 = phi i1 [ false, %.preheader114 ], [ true, %.critedge ], [ true, %.preheader ], [ false, %305 ]
+  %233 = phi i1 [ true, %.preheader114 ], [ false, %.critedge ], [ false, %.preheader ], [ true, %305 ]
   %234 = getelementptr inbounds nuw i8, ptr %1, i64 1224
   %235 = load i32, ptr %234, align 8
   invoke void @_ZN6GLArea15updateSelectionEibb(ptr noundef nonnull align 8 dereferenceable(1676) %2, i32 noundef %235, i1 noundef zeroext %232, i1 noundef zeroext %233)

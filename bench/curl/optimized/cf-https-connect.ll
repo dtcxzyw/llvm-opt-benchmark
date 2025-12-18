@@ -1001,8 +1001,8 @@ cf_hc_baller_is_active.exit.thread:               ; preds = %14, %32, %24, %cf_h
   br i1 %exitcond72.not, label %.loopexit, label %.lr.ph66, !llvm.loop !125
 
 .loopexit:                                        ; preds = %.lr.ph66, %._crit_edge, %._crit_edge.thread, %._crit_edge63
-  %52 = phi i8 [ %45, %._crit_edge63 ], [ 1, %._crit_edge.thread ], [ 1, %._crit_edge ], [ 1, %.lr.ph66 ]
-  %.2 = phi i32 [ 0, %._crit_edge63 ], [ 0, %._crit_edge.thread ], [ 0, %._crit_edge ], [ %spec.select, %.lr.ph66 ]
+  %52 = phi i8 [ %45, %._crit_edge63 ], [ 1, %._crit_edge ], [ 1, %._crit_edge.thread ], [ 1, %.lr.ph66 ]
+  %.2 = phi i32 [ 0, %._crit_edge63 ], [ 0, %._crit_edge ], [ 0, %._crit_edge.thread ], [ %spec.select, %.lr.ph66 ]
   %.not52 = icmp eq ptr %1, null
   br i1 %.not52, label %73, label %53
 

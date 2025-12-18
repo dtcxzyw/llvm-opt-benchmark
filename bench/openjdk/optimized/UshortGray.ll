@@ -1218,8 +1218,8 @@ define hidden void @UshortGraySrcMaskFill(ptr noundef %0, ptr noundef %1, i32 no
   br label %30
 
 30:                                               ; preds = %10, %.fold.split, %27
-  %.072 = phi i32 [ %29, %27 ], [ 0, %10 ], [ %24, %.fold.split ]
-  %.069 = phi i16 [ %25, %27 ], [ 0, %10 ], [ %25, %.fold.split ]
+  %.072 = phi i32 [ 0, %10 ], [ %29, %27 ], [ %24, %.fold.split ]
+  %.069 = phi i16 [ 0, %10 ], [ %25, %27 ], [ %25, %.fold.split ]
   %31 = shl nsw i32 %4, 1
   %32 = sub nsw i32 %12, %31
   %.not80 = icmp eq ptr %1, null

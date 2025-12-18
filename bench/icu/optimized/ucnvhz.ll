@@ -441,8 +441,8 @@ define internal void @_ZL37UConverter_toUnicode_HZ_OFFSETS_LOGICP23UConverterToU
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.outer.backedge, %.backedge.us, %.lr.ph.split, %.thread143.thread321, %.thread143.thread316, %2, %90, %.split224.us
-  %.0111.ph196.sink = phi ptr [ %.0111.ph248, %.split224.us ], [ %.0111.ph248, %90 ], [ %.0111.ph248, %.thread143.thread316 ], [ %.0111.ph248, %.thread143.thread321 ], [ %.0111.ph248, %.lr.ph.split ], [ %7, %2 ], [ %.0111.ph248, %.backedge.us ], [ %.0111.ph.be, %.outer.backedge ]
-  %.1.sink = phi ptr [ %27, %.split224.us ], [ %.2, %90 ], [ %27, %.thread143.thread316 ], [ %.4137148153, %.thread143.thread321 ], [ %.0.ph249, %.lr.ph.split ], [ %5, %2 ], [ %27, %.backedge.us ], [ %27, %.outer.backedge ]
+  %.0111.ph196.sink = phi ptr [ %.0111.ph248, %.split224.us ], [ %.0111.ph248, %90 ], [ %.0111.ph248, %.thread143.thread316 ], [ %.0111.ph248, %.thread143.thread321 ], [ %.0111.ph248, %.lr.ph.split ], [ %.0111.ph248, %.backedge.us ], [ %7, %2 ], [ %.0111.ph.be, %.outer.backedge ]
+  %.1.sink = phi ptr [ %27, %.split224.us ], [ %.2, %90 ], [ %27, %.thread143.thread316 ], [ %.4137148153, %.thread143.thread321 ], [ %.0.ph249, %.lr.ph.split ], [ %27, %.backedge.us ], [ %5, %2 ], [ %27, %.outer.backedge ]
   store ptr %.0111.ph196.sink, ptr %6, align 8, !tbaa !32
   store ptr %.1.sink, ptr %4, align 8, !tbaa !28
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -927,9 +927,9 @@ define internal void @_ZL39UConverter_fromUnicode_HZ_OFFSETS_LOGICP25UConverterF
   br label %.loopexit199
 
 .loopexit199:                                     ; preds = %.outer, %.loopexit199.loopexit, %.preheader198, %241, %238
-  %.2162 = phi i8 [ %.3163, %238 ], [ %.1161.ph237, %241 ], [ %28, %.preheader198 ], [ %.1161.ph237, %.loopexit199.loopexit ], [ %93, %.outer ]
-  %.2150 = phi i32 [ %.10158, %238 ], [ %.1149223, %241 ], [ 0, %.preheader198 ], [ %.4152, %.loopexit199.loopexit ], [ %.11159, %.outer ]
-  %.2139 = phi i32 [ %.4141, %238 ], [ %242, %241 ], [ 0, %.preheader198 ], [ %244, %.loopexit199.loopexit ], [ %68, %.outer ]
+  %.2162 = phi i8 [ %.3163, %238 ], [ %.1161.ph237, %241 ], [ %.1161.ph237, %.loopexit199.loopexit ], [ %28, %.preheader198 ], [ %93, %.outer ]
+  %.2150 = phi i32 [ %.10158, %238 ], [ %.1149223, %241 ], [ %.4152, %.loopexit199.loopexit ], [ 0, %.preheader198 ], [ %.11159, %.outer ]
+  %.2139 = phi i32 [ %.4141, %238 ], [ %242, %241 ], [ %244, %.loopexit199.loopexit ], [ 0, %.preheader198 ], [ %68, %.outer ]
   %245 = load ptr, ptr %6, align 8, !tbaa !49
   %246 = sext i32 %.2150 to i64
   %247 = getelementptr inbounds i8, ptr %245, i64 %246

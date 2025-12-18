@@ -819,7 +819,7 @@ vmd_decode.exit:                                  ; preds = %362, %235, %229, %.
   br label %vmd_decode.exit.thread
 
 vmd_decode.exit.thread:                           ; preds = %bytestream2_peek_byte.exit.thread.i, %337, %bytestream2_get_byte.exit258.thread.i, %bytestream2_get_byte.exit.thread.i, %204, %.preheader.split.us.i, %bytestream2_get_byte.exit.us.i, %184, %136, %123, %360, %227, %.thread.i, %138, %70, %61, %vmd_decode.exit, %14, %4, %374
-  %.0 = phi i32 [ %8, %374 ], [ -1094995529, %4 ], [ %15, %14 ], [ %372, %vmd_decode.exit ], [ -1094995529, %136 ], [ -1094995529, %123 ], [ -1094995529, %360 ], [ -1094995529, %227 ], [ -1094995529, %.thread.i ], [ %144, %138 ], [ -1094995529, %70 ], [ -1094995529, %61 ], [ -1094995529, %bytestream2_get_byte.exit.thread.i ], [ -1094995529, %.preheader.split.us.i ], [ -1094995529, %184 ], [ -1094995529, %bytestream2_get_byte.exit.us.i ], [ -1094995529, %204 ], [ -1094995529, %bytestream2_get_byte.exit258.thread.i ], [ -1094995529, %337 ], [ -1094995529, %bytestream2_peek_byte.exit.thread.i ]
+  %.0 = phi i32 [ %8, %374 ], [ -1094995529, %4 ], [ %15, %14 ], [ %372, %vmd_decode.exit ], [ -1094995529, %.preheader.split.us.i ], [ -1094995529, %227 ], [ -1094995529, %bytestream2_get_byte.exit.thread.i ], [ -1094995529, %61 ], [ -1094995529, %70 ], [ -1094995529, %.thread.i ], [ %144, %138 ], [ -1094995529, %136 ], [ -1094995529, %123 ], [ -1094995529, %360 ], [ -1094995529, %184 ], [ -1094995529, %bytestream2_get_byte.exit.us.i ], [ -1094995529, %204 ], [ -1094995529, %bytestream2_get_byte.exit258.thread.i ], [ -1094995529, %337 ], [ -1094995529, %bytestream2_peek_byte.exit.thread.i ]
   ret i32 %.0
 }
 

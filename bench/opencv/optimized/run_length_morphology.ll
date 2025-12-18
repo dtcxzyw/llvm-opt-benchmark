@@ -3027,8 +3027,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit166.thread:          ; preds = %31
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit166
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit145
-  %.sroa.0198.0339 = phi ptr [ %32, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit145 ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ], [ %32, %.lr.ph ]
-  %.sroa.0210.0221337 = phi ptr [ %27, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit145 ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ], [ %27, %.lr.ph ]
+  %.sroa.0198.0339 = phi ptr [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ], [ %32, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit145 ], [ %32, %.lr.ph ]
+  %.sroa.0210.0221337 = phi ptr [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ], [ %27, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit145 ], [ %27, %.lr.ph ]
   store i32 0, ptr %.sroa.0210.0221337, align 4, !tbaa !46
   %39 = trunc i64 %15 to i32
   %40 = sext i32 %22 to i64
@@ -3191,8 +3191,8 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit154.thread:     ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %exitcond301.not, label %.preheader, label %.lr.ph258.backedge
 
 .lr.ph258.backedge:                               ; preds = %.lr.ph258, %._crit_edge276
-  %indvars.iv297.be = phi i64 [ %indvars.iv.next298, %.lr.ph258 ], [ 0, %._crit_edge276 ]
-  %.0256.be = phi i32 [ %.sroa.speculated, %.lr.ph258 ], [ -2147483648, %._crit_edge276 ]
+  %indvars.iv297.be = phi i64 [ 0, %._crit_edge276 ], [ %indvars.iv.next298, %.lr.ph258 ]
+  %.0256.be = phi i32 [ -2147483648, %._crit_edge276 ], [ %.sroa.speculated, %.lr.ph258 ]
   br label %.lr.ph258, !llvm.loop !129
 
 .preheader:                                       ; preds = %.lr.ph258, %143

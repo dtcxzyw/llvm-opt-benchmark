@@ -310,7 +310,7 @@ define dso_local void @ExecInitGenerated(ptr noundef %0, ptr noundef %1, i32 nou
   br i1 %exitcond93.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.split._crit_edge, %.lr.ph.split.split.us._crit_edge, %.lr.ph.split.us.split._crit_edge, %.lr.ph.split.us.split.us._crit_edge
-  %.052.lcssa = phi i32 [ %.4.us72, %.lr.ph.split.split.us._crit_edge ], [ %.4.us.us, %.lr.ph.split.us.split.us._crit_edge ], [ %.4.us, %.lr.ph.split.us.split._crit_edge ], [ %.4, %.lr.ph.split.split._crit_edge ]
+  %.052.lcssa = phi i32 [ %.4.us.us, %.lr.ph.split.us.split.us._crit_edge ], [ %.4.us72, %.lr.ph.split.split.us._crit_edge ], [ %.4.us, %.lr.ph.split.us.split._crit_edge ], [ %.4, %.lr.ph.split.split._crit_edge ]
   %105 = icmp eq i32 %.052.lcssa, 0
   br i1 %105, label %._crit_edge.thread, label %130
 
@@ -335,7 +335,7 @@ define dso_local void @ExecInitGenerated(ptr noundef %0, ptr noundef %1, i32 nou
   br i1 %116, label %.split.us, label %122
 
 .split.us:                                        ; preds = %113, %87, %70, %48
-  %.us-phi = phi i32 [ %88, %87 ], [ %49, %48 ], [ %71, %70 ], [ %114, %113 ]
+  %.us-phi = phi i32 [ %88, %87 ], [ %71, %70 ], [ %49, %48 ], [ %114, %113 ]
   %117 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   %118 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %119 = load ptr, ptr %118, align 8
@@ -2108,7 +2108,7 @@ ExecGetJunkAttribute.exit:                        ; preds = %136, %slot_getsomea
   br label %.thread
 
 .thread:                                          ; preds = %134, %160, %167
-  %.1132 = phi ptr [ %.0131.ph, %160 ], [ %168, %167 ], [ %.0131.ph, %134 ]
+  %.1132 = phi ptr [ %168, %167 ], [ %.0131.ph, %160 ], [ %.0131.ph, %134 ]
   %169 = getelementptr inbounds nuw i8, ptr %.1132, i64 176
   %170 = load i8, ptr %169, align 8, !range !4, !noundef !5
   %171 = trunc nuw i8 %170 to i1
@@ -3300,7 +3300,7 @@ ExecProcessReturning.exit.i.i:                    ; preds = %758, %753
   br i1 %.not176.i.i, label %.critedge.thread.i.i, label %.lr.ph.split.i.i
 
 .critedge.thread.i.i:                             ; preds = %.critedge.i.i, %.lr.ph.split.i.i, %788, %.critedge.thread225.i.i, %441
-  %.2.i = phi i8 [ 1, %441 ], [ %.3.i, %.critedge.thread225.i.i ], [ %.115.i, %788 ], [ %.4.i, %.critedge.i.i ], [ %.115.i, %.lr.ph.split.i.i ]
+  %.2.i = phi i8 [ 1, %441 ], [ %.3.i, %.critedge.thread225.i.i ], [ %.115.i, %788 ], [ %.115.i, %.lr.ph.split.i.i ], [ %.4.i, %.critedge.i.i ]
   %.2164223.i.i = phi ptr [ null, %441 ], [ %.3165.ph.ph.i.i, %.critedge.thread225.i.i ], [ null, %788 ], [ null, %.lr.ph.split.i.i ], [ null, %.critedge.i.i ]
   %.val191.i.i = load i16, ptr %101, align 2
   %.not233.i.i = icmp eq i16 %.val191.i.i, 0
@@ -3798,7 +3798,7 @@ ExecQual.exit:                                    ; preds = %.lr.ph16
   unreachable
 
 .critedge:                                        ; preds = %18, %2, %.lr.ph, %.loopexit, %37
-  %.1 = phi ptr [ null, %.loopexit ], [ %66, %37 ], [ null, %.lr.ph ], [ null, %2 ], [ null, %18 ]
+  %.1 = phi ptr [ %66, %37 ], [ null, %.loopexit ], [ null, %2 ], [ null, %.lr.ph ], [ null, %18 ]
   ret ptr %.1
 }
 
@@ -5990,7 +5990,7 @@ ExecProcessReturning.exit:                        ; preds = %202, %207
   br label %.critedge
 
 .critedge:                                        ; preds = %98, %103, %87, %150, %109, %108, %156, %186, %ExecProcessReturning.exit, %121, %71, %37, %17, %26
-  %.0 = phi ptr [ null, %121 ], [ %215, %ExecProcessReturning.exit ], [ null, %26 ], [ null, %17 ], [ null, %37 ], [ null, %156 ], [ null, %71 ], [ null, %186 ], [ null, %108 ], [ null, %109 ], [ null, %150 ], [ null, %87 ], [ null, %103 ], [ null, %98 ]
+  %.0 = phi ptr [ null, %121 ], [ %215, %ExecProcessReturning.exit ], [ null, %26 ], [ null, %17 ], [ null, %37 ], [ null, %156 ], [ null, %71 ], [ null, %186 ], [ null, %109 ], [ null, %108 ], [ null, %150 ], [ null, %87 ], [ null, %103 ], [ null, %98 ]
   ret ptr %.0
 }
 

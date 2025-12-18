@@ -20145,7 +20145,7 @@ _ZN6duckdb17IsForeignKeyIndexERKNS_6vectorINS_13PhysicalIndexELb1EEERNS_5IndexEN
   br i1 %.not, label %.loopexit, label %.lr.ph.split
 
 _ZN6duckdb17IsForeignKeyIndexERKNS_6vectorINS_13PhysicalIndexELb1EEERNS_5IndexENS_14ForeignKeyTypeE.exit.thread13: ; preds = %_ZN6duckdb17IsForeignKeyIndexERKNS_6vectorINS_13PhysicalIndexELb1EEERNS_5IndexENS_14ForeignKeyTypeE.exit, %57, %_ZN6duckdb17IsForeignKeyIndexERKNS_6vectorINS_13PhysicalIndexELb1EEERNS_5IndexENS_14ForeignKeyTypeE.exit.us, %35
-  %.sroa.08.020 = phi ptr [ %.sroa.08.022, %57 ], [ %.sroa.08.022.us, %35 ], [ %.sroa.08.022.us, %_ZN6duckdb17IsForeignKeyIndexERKNS_6vectorINS_13PhysicalIndexELb1EEERNS_5IndexENS_14ForeignKeyTypeE.exit.us ], [ %.sroa.08.022, %_ZN6duckdb17IsForeignKeyIndexERKNS_6vectorINS_13PhysicalIndexELb1EEERNS_5IndexENS_14ForeignKeyTypeE.exit ]
+  %.sroa.08.020 = phi ptr [ %.sroa.08.022.us, %35 ], [ %.sroa.08.022.us, %_ZN6duckdb17IsForeignKeyIndexERKNS_6vectorINS_13PhysicalIndexELb1EEERNS_5IndexENS_14ForeignKeyTypeE.exit.us ], [ %.sroa.08.022, %57 ], [ %.sroa.08.022, %_ZN6duckdb17IsForeignKeyIndexERKNS_6vectorINS_13PhysicalIndexELb1EEERNS_5IndexENS_14ForeignKeyTypeE.exit ]
   %65 = load ptr, ptr %.sroa.08.020, align 8, !tbaa !649
   br label %.loopexit
 
@@ -21124,7 +21124,7 @@ _ZNK6duckdb16ManagedSelection19IndexMapsToLocationEmm.exit.i: ; preds = %.lr.ph3
   br label %_ZNK6duckdb16ManagedSelectionixEm.exit
 
 _ZNK6duckdb16ManagedSelectionixEm.exit:           ; preds = %_ZNK6duckdb16ManagedSelection19IndexMapsToLocationEmm.exit.i, %.thread.i, %.lr.ph.split.i, %6, %3
-  %.0 = phi i64 [ 0, %3 ], [ %8, %6 ], [ %spec.select.i, %.thread.i ], [ 0, %.lr.ph.split.i ], [ %25, %_ZNK6duckdb16ManagedSelection19IndexMapsToLocationEmm.exit.i ]
+  %.0 = phi i64 [ 0, %3 ], [ %8, %6 ], [ 0, %.lr.ph.split.i ], [ %spec.select.i, %.thread.i ], [ %25, %_ZNK6duckdb16ManagedSelection19IndexMapsToLocationEmm.exit.i ]
   ret i64 %.0
 }
 
@@ -22704,7 +22704,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
           to label %_ZN6duckdb14TableIndexList4FindERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i unwind label %.loopexit.split-lp.i
 
 _ZN6duckdb14TableIndexList4FindERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i: ; preds = %.critedge.i.i.i, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i.i, %.noexc11.i
-  %.sroa.010.1.i.i.i = phi ptr [ null, %.noexc11.i ], [ %77, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i.i ], [ null, %.critedge.i.i.i ]
+  %.sroa.010.1.i.i.i = phi ptr [ %77, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i.i ], [ null, %.noexc11.i ], [ null, %.critedge.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 0, ptr %7, align 8, !tbaa !1200
   store ptr %.sroa.010.1.i.i.i, ptr %19, align 8, !tbaa !1017
@@ -22899,7 +22899,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
           to label %.sink.split.i.i unwind label %.loopexit.split-lp.i17
 
 .sink.split.i.i:                                  ; preds = %.critedge.i.i.i32, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i.i37, %.noexc12.i25, %125
-  %.sroa.010.1.i.sink.i.i = phi ptr [ null, %125 ], [ null, %.noexc12.i25 ], [ %154, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i.i37 ], [ null, %.critedge.i.i.i32 ]
+  %.sroa.010.1.i.sink.i.i = phi ptr [ %154, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i.i37 ], [ null, %125 ], [ null, %.noexc12.i25 ], [ null, %.critedge.i.i.i32 ]
   invoke void @_ZNK6duckdb12optional_ptrINS_15ConflictManagerELb1EE10CheckValidEv(ptr noundef nonnull align 8 dereferenceable(8) %10)
           to label %.noexc16.i34 unwind label %.loopexit.split-lp.i17
 
@@ -23095,7 +23095,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
           to label %_ZN6duckdb14TableIndexList4FindERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i60 unwind label %.loopexit.split-lp.i41
 
 _ZN6duckdb14TableIndexList4FindERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i60: ; preds = %.critedge.i.i.i58, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i.i64, %.noexc13.i50
-  %.sroa.010.1.i.i.i61 = phi ptr [ null, %.noexc13.i50 ], [ %233, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i.i64 ], [ null, %.critedge.i.i.i58 ]
+  %.sroa.010.1.i.i.i61 = phi ptr [ %233, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i.i64 ], [ null, %.noexc13.i50 ], [ null, %.critedge.i.i.i58 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 0, ptr %5, align 8, !tbaa !1200
   store ptr %.sroa.010.1.i.i.i61, ptr %172, align 8, !tbaa !1017
@@ -40956,13 +40956,13 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %2
   br label %_ZNKSt13unordered_mapISt17reference_wrapperIN6duckdb9DataTableEENS1_10shared_ptrINS1_17LocalTableStorageELb1EEENS1_21ReferenceHashFunctionIS2_EENS1_17ReferenceEqualityIS2_EESaISt4pairIKS3_S6_EEE4findERSC_.exit.thread, !llvm.loop !1672
 
 _ZNKSt13unordered_mapISt17reference_wrapperIN6duckdb9DataTableEENS1_10shared_ptrINS1_17LocalTableStorageELb1EEENS1_21ReferenceHashFunctionIS2_EENS1_17ReferenceEqualityIS2_EESaISt4pairIKS3_S6_EEE4findERSC_.exit: ; preds = %32, %10, %23
-  %.sroa.06.1.i.i = phi ptr [ %24, %23 ], [ %.sroa.06.0.i.i, %10 ], [ %38, %32 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %10 ], [ %24, %23 ], [ %38, %32 ]
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %44 = load ptr, ptr %43, align 8, !tbaa !1064
   br label %_ZNKSt13unordered_mapISt17reference_wrapperIN6duckdb9DataTableEENS1_10shared_ptrINS1_17LocalTableStorageELb1EEENS1_21ReferenceHashFunctionIS2_EENS1_17ReferenceEqualityIS2_EESaISt4pairIKS3_S6_EEE4findERSC_.exit.thread
 
 _ZNKSt13unordered_mapISt17reference_wrapperIN6duckdb9DataTableEENS1_10shared_ptrINS1_17LocalTableStorageELb1EEENS1_21ReferenceHashFunctionIS2_EENS1_17ReferenceEqualityIS2_EESaISt4pairIKS3_S6_EEE4findERSC_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %9, %14, %..loopexit_crit_edge21.i.i.i.i, %_ZNKSt13unordered_mapISt17reference_wrapperIN6duckdb9DataTableEENS1_10shared_ptrINS1_17LocalTableStorageELb1EEENS1_21ReferenceHashFunctionIS2_EENS1_17ReferenceEqualityIS2_EESaISt4pairIKS3_S6_EEE4findERSC_.exit
-  %45 = phi ptr [ %44, %_ZNKSt13unordered_mapISt17reference_wrapperIN6duckdb9DataTableEENS1_10shared_ptrINS1_17LocalTableStorageELb1EEENS1_21ReferenceHashFunctionIS2_EENS1_17ReferenceEqualityIS2_EESaISt4pairIKS3_S6_EEE4findERSC_.exit ], [ null, %..loopexit_crit_edge21.i.i.i.i ], [ null, %14 ], [ null, %9 ], [ null, %.lr.ph.i.i.i.i ]
+  %45 = phi ptr [ %44, %_ZNKSt13unordered_mapISt17reference_wrapperIN6duckdb9DataTableEENS1_10shared_ptrINS1_17LocalTableStorageELb1EEENS1_21ReferenceHashFunctionIS2_EENS1_17ReferenceEqualityIS2_EESaISt4pairIKS3_S6_EEE4findERSC_.exit ], [ null, %..loopexit_crit_edge21.i.i.i.i ], [ null, %9 ], [ null, %14 ], [ null, %.lr.ph.i.i.i.i ]
   %46 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #42
   ret ptr %45
 }
@@ -41271,7 +41271,7 @@ _ZN6duckdb10shared_ptrINS_17LocalTableStorageELb1EED2Ev.exit: ; preds = %_ZNSt4p
   resume { ptr, i32 } %.pn.pn
 
 _ZNSt13unordered_mapISt17reference_wrapperIN6duckdb9DataTableEENS1_10shared_ptrINS1_17LocalTableStorageELb1EEENS1_21ReferenceHashFunctionIS2_EENS1_17ReferenceEqualityIS2_EESaISt4pairIKS3_S6_EEE4findERSC_.exit: ; preds = %35, %14, %26
-  %.sroa.06.1.i.i = phi ptr [ %27, %26 ], [ %.sroa.06.0.i.i, %14 ], [ %41, %35 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %14 ], [ %27, %26 ], [ %41, %35 ]
   %134 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %135 = load ptr, ptr %134, align 8, !tbaa !1064
   br label %136
@@ -46467,7 +46467,7 @@ define ptr @_ZN6duckdb28SingleFileStorageCommitState15GetRowGroupDataERNS_9DataT
   br label %.loopexit, !llvm.loop !1845
 
 _ZNSt13unordered_mapISt17reference_wrapperIN6duckdb9DataTableEES_ImNS1_33OptimisticallyWrittenRowGroupDataESt4hashImESt8equal_toImESaISt4pairIKmS4_EEENS1_21ReferenceHashFunctionIS2_EENS1_17ReferenceEqualityIS2_EESaIS9_IKS3_SD_EEE4findERSI_.exit: ; preds = %32, %10, %23
-  %.sroa.06.1.i.i = phi ptr [ %24, %23 ], [ %.sroa.06.0.i.i, %10 ], [ %38, %32 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %10 ], [ %24, %23 ], [ %38, %32 ]
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 40
   %44 = load i64, ptr %43, align 8, !tbaa !1821
   %.not.not.i.i5 = icmp eq i64 %44, 0
@@ -46528,7 +46528,7 @@ _ZNSt13unordered_mapISt17reference_wrapperIN6duckdb9DataTableEES_ImNS1_33Optimis
   br label %.loopexit, !llvm.loop !1826
 
 _ZNSt13unordered_mapImN6duckdb33OptimisticallyWrittenRowGroupDataESt4hashImESt8equal_toImESaISt4pairIKmS1_EEE4findERS7_.exit: ; preds = %65, %48, %60
-  %.sroa.06.1.i.i12 = phi ptr [ %61, %60 ], [ %.sroa.06.0.i.i14, %48 ], [ %67, %65 ]
+  %.sroa.06.1.i.i12 = phi ptr [ %.sroa.06.0.i.i14, %48 ], [ %61, %60 ], [ %67, %65 ]
   %72 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i12, i64 24
   %73 = load i64, ptr %72, align 8, !tbaa !1846
   store i64 %73, ptr %3, align 8, !tbaa !62
@@ -46537,7 +46537,7 @@ _ZNSt13unordered_mapImN6duckdb33OptimisticallyWrittenRowGroupDataESt4hashImESt8e
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %9, %.lr.ph.i.i.i.i7, %47, %_ZNSt13unordered_mapImN6duckdb33OptimisticallyWrittenRowGroupDataESt4hashImESt8equal_toImESaISt4pairIKmS1_EEE4findERS7_.exit, %..loopexit_crit_edge21.i.i.i.i11, %52, %14, %..loopexit_crit_edge21.i.i.i.i
-  %.sroa.025.0 = phi ptr [ null, %..loopexit_crit_edge21.i.i.i.i ], [ null, %14 ], [ %75, %_ZNSt13unordered_mapImN6duckdb33OptimisticallyWrittenRowGroupDataESt4hashImESt8equal_toImESaISt4pairIKmS1_EEE4findERS7_.exit ], [ null, %..loopexit_crit_edge21.i.i.i.i11 ], [ null, %52 ], [ null, %9 ], [ null, %47 ], [ null, %.lr.ph.i.i.i.i7 ], [ null, %.lr.ph.i.i.i.i ]
+  %.sroa.025.0 = phi ptr [ null, %9 ], [ null, %..loopexit_crit_edge21.i.i.i.i ], [ null, %.lr.ph.i.i.i.i7 ], [ null, %14 ], [ %75, %_ZNSt13unordered_mapImN6duckdb33OptimisticallyWrittenRowGroupDataESt4hashImESt8equal_toImESaISt4pairIKmS1_EEE4findERS7_.exit ], [ null, %..loopexit_crit_edge21.i.i.i.i11 ], [ null, %47 ], [ null, %52 ], [ null, %.lr.ph.i.i.i.i ]
   ret ptr %.sroa.025.0
 }
 
@@ -51411,7 +51411,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit23:          ; preds = %.critedge, %61, %63
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %71
 
-.critedge19:                                      ; preds = %41, %24
+.critedge19:                                      ; preds = %24, %41
   %65 = load i8, ptr %8, align 8, !tbaa !817, !range !191, !noundef !557
   %66 = trunc nuw i8 %65 to i1
   br i1 %66, label %67, label %_ZNSt11unique_lockISt5mutexED2Ev.exit25
@@ -53848,13 +53848,13 @@ define void @_ZN6duckdb20TemporaryFileManager19ReadTemporaryBufferElNS_10unique_
   br label %_ZN6duckdb20TemporaryFileManager13GetFileHandleERNS0_24TemporaryFileManagerLockERKNS_23TemporaryFileIdentifierE.exit, !llvm.loop !2038
 
 _ZNSt13unordered_mapImN6duckdb10unique_ptrINS0_19TemporaryFileHandleESt14default_deleteIS2_ELb1EEESt4hashImESt8equal_toImESaISt4pairIKmS5_EEE4findERSB_.exit.i.i: ; preds = %42, %26, %37
-  %.sroa.06.1.i.i.i.i = phi ptr [ %38, %37 ], [ %.sroa.06.0.i.i.i.i, %26 ], [ %44, %42 ]
+  %.sroa.06.1.i.i.i.i = phi ptr [ %.sroa.06.0.i.i.i.i, %26 ], [ %38, %37 ], [ %44, %42 ]
   %49 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i, i64 16
   %50 = load ptr, ptr %49, align 8, !tbaa !2010
   br label %_ZN6duckdb20TemporaryFileManager13GetFileHandleERNS0_24TemporaryFileManagerLockERKNS_23TemporaryFileIdentifierE.exit
 
 _ZN6duckdb20TemporaryFileManager13GetFileHandleERNS0_24TemporaryFileManagerLockERKNS_23TemporaryFileIdentifierE.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %25, %_ZNSt13unordered_mapImN6duckdb10unique_ptrINS0_19TemporaryFileHandleESt14default_deleteIS2_ELb1EEESt4hashImESt8equal_toImESaISt4pairIKmS5_EEE4findERSB_.exit.i.i, %..loopexit_crit_edge21.i.i.i.i.i.i, %30
-  %51 = phi ptr [ %50, %_ZNSt13unordered_mapImN6duckdb10unique_ptrINS0_19TemporaryFileHandleESt14default_deleteIS2_ELb1EEESt4hashImESt8equal_toImESaISt4pairIKmS5_EEE4findERSB_.exit.i.i ], [ null, %..loopexit_crit_edge21.i.i.i.i.i.i ], [ null, %30 ], [ null, %25 ], [ null, %.lr.ph.i.i.i.i.i.i ]
+  %51 = phi ptr [ %50, %_ZNSt13unordered_mapImN6duckdb10unique_ptrINS0_19TemporaryFileHandleESt14default_deleteIS2_ELb1EEESt4hashImESt8equal_toImESaISt4pairIKmS5_EEE4findERSB_.exit.i.i ], [ null, %..loopexit_crit_edge21.i.i.i.i.i.i ], [ null, %25 ], [ null, %30 ], [ null, %.lr.ph.i.i.i.i.i.i ]
   store ptr %51, ptr %8, align 8, !tbaa !2010
   %52 = load ptr, ptr %9, align 8, !tbaa !2012
   %53 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %52) #42
@@ -54336,13 +54336,13 @@ define void @_ZN6duckdb20TemporaryFileManager21DeleteTemporaryBufferEl(ptr nound
   br label %_ZN6duckdb20TemporaryFileManager13GetFileHandleERNS0_24TemporaryFileManagerLockERKNS_23TemporaryFileIdentifierE.exit, !llvm.loop !2038
 
 _ZNSt13unordered_mapImN6duckdb10unique_ptrINS0_19TemporaryFileHandleESt14default_deleteIS2_ELb1EEESt4hashImESt8equal_toImESaISt4pairIKmS5_EEE4findERSB_.exit.i.i: ; preds = %38, %22, %33
-  %.sroa.06.1.i.i.i.i = phi ptr [ %34, %33 ], [ %.sroa.06.0.i.i.i.i, %22 ], [ %40, %38 ]
+  %.sroa.06.1.i.i.i.i = phi ptr [ %.sroa.06.0.i.i.i.i, %22 ], [ %34, %33 ], [ %40, %38 ]
   %45 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i, i64 16
   %46 = load ptr, ptr %45, align 8, !tbaa !2010
   br label %_ZN6duckdb20TemporaryFileManager13GetFileHandleERNS0_24TemporaryFileManagerLockERKNS_23TemporaryFileIdentifierE.exit
 
 _ZN6duckdb20TemporaryFileManager13GetFileHandleERNS0_24TemporaryFileManagerLockERKNS_23TemporaryFileIdentifierE.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %21, %_ZNSt13unordered_mapImN6duckdb10unique_ptrINS0_19TemporaryFileHandleESt14default_deleteIS2_ELb1EEESt4hashImESt8equal_toImESaISt4pairIKmS5_EEE4findERSB_.exit.i.i, %..loopexit_crit_edge21.i.i.i.i.i.i, %26
-  %47 = phi ptr [ %46, %_ZNSt13unordered_mapImN6duckdb10unique_ptrINS0_19TemporaryFileHandleESt14default_deleteIS2_ELb1EEESt4hashImESt8equal_toImESaISt4pairIKmS5_EEE4findERSB_.exit.i.i ], [ null, %..loopexit_crit_edge21.i.i.i.i.i.i ], [ null, %26 ], [ null, %21 ], [ null, %.lr.ph.i.i.i.i.i.i ]
+  %47 = phi ptr [ %46, %_ZNSt13unordered_mapImN6duckdb10unique_ptrINS0_19TemporaryFileHandleESt14default_deleteIS2_ELb1EEESt4hashImESt8equal_toImESaISt4pairIKmS5_EEE4findERSB_.exit.i.i ], [ null, %..loopexit_crit_edge21.i.i.i.i.i.i ], [ null, %21 ], [ null, %26 ], [ null, %.lr.ph.i.i.i.i.i.i ]
   store ptr %47, ptr %7, align 8
   invoke void @_ZNK6duckdb12optional_ptrINS_19TemporaryFileHandleELb1EE10CheckValidEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
           to label %48 unwind label %55
@@ -56808,13 +56808,13 @@ define ptr @_ZN6duckdb16TemporaryFileMap7GetFileERKNS_23TemporaryFileIdentifierE
   br label %_ZNSt13unordered_mapImN6duckdb10unique_ptrINS0_19TemporaryFileHandleESt14default_deleteIS2_ELb1EEESt4hashImESt8equal_toImESaISt4pairIKmS5_EEE4findERSB_.exit.thread, !llvm.loop !2038
 
 _ZNSt13unordered_mapImN6duckdb10unique_ptrINS0_19TemporaryFileHandleESt14default_deleteIS2_ELb1EEESt4hashImESt8equal_toImESaISt4pairIKmS5_EEE4findERSB_.exit: ; preds = %30, %14, %25
-  %.sroa.06.1.i.i = phi ptr [ %26, %25 ], [ %.sroa.06.0.i.i, %14 ], [ %32, %30 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %14 ], [ %26, %25 ], [ %32, %30 ]
   %37 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %38 = load ptr, ptr %37, align 8, !tbaa !2010
   br label %_ZNSt13unordered_mapImN6duckdb10unique_ptrINS0_19TemporaryFileHandleESt14default_deleteIS2_ELb1EEESt4hashImESt8equal_toImESaISt4pairIKmS5_EEE4findERSB_.exit.thread
 
 _ZNSt13unordered_mapImN6duckdb10unique_ptrINS0_19TemporaryFileHandleESt14default_deleteIS2_ELb1EEESt4hashImESt8equal_toImESaISt4pairIKmS5_EEE4findERSB_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %13, %18, %..loopexit_crit_edge21.i.i.i.i, %_ZNSt13unordered_mapImN6duckdb10unique_ptrINS0_19TemporaryFileHandleESt14default_deleteIS2_ELb1EEESt4hashImESt8equal_toImESaISt4pairIKmS5_EEE4findERSB_.exit
-  %39 = phi ptr [ %38, %_ZNSt13unordered_mapImN6duckdb10unique_ptrINS0_19TemporaryFileHandleESt14default_deleteIS2_ELb1EEESt4hashImESt8equal_toImESaISt4pairIKmS5_EEE4findERSB_.exit ], [ null, %..loopexit_crit_edge21.i.i.i.i ], [ null, %18 ], [ null, %13 ], [ null, %.lr.ph.i.i.i.i ]
+  %39 = phi ptr [ %38, %_ZNSt13unordered_mapImN6duckdb10unique_ptrINS0_19TemporaryFileHandleESt14default_deleteIS2_ELb1EEESt4hashImESt8equal_toImESaISt4pairIKmS5_EEE4findERSB_.exit ], [ null, %..loopexit_crit_edge21.i.i.i.i ], [ null, %13 ], [ null, %18 ], [ null, %.lr.ph.i.i.i.i ]
   ret ptr %39
 }
 
@@ -58138,13 +58138,13 @@ define ptr @_ZN6duckdb20TemporaryFileManager13GetFileHandleERNS0_24TemporaryFile
   br label %_ZN6duckdb16TemporaryFileMap7GetFileERKNS_23TemporaryFileIdentifierE.exit, !llvm.loop !2038
 
 _ZNSt13unordered_mapImN6duckdb10unique_ptrINS0_19TemporaryFileHandleESt14default_deleteIS2_ELb1EEESt4hashImESt8equal_toImESaISt4pairIKmS5_EEE4findERSB_.exit.i: ; preds = %31, %15, %26
-  %.sroa.06.1.i.i.i = phi ptr [ %27, %26 ], [ %.sroa.06.0.i.i.i, %15 ], [ %33, %31 ]
+  %.sroa.06.1.i.i.i = phi ptr [ %.sroa.06.0.i.i.i, %15 ], [ %27, %26 ], [ %33, %31 ]
   %38 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 16
   %39 = load ptr, ptr %38, align 8, !tbaa !2010
   br label %_ZN6duckdb16TemporaryFileMap7GetFileERKNS_23TemporaryFileIdentifierE.exit
 
 _ZN6duckdb16TemporaryFileMap7GetFileERKNS_23TemporaryFileIdentifierE.exit: ; preds = %.lr.ph.i.i.i.i.i, %14, %19, %..loopexit_crit_edge21.i.i.i.i.i, %_ZNSt13unordered_mapImN6duckdb10unique_ptrINS0_19TemporaryFileHandleESt14default_deleteIS2_ELb1EEESt4hashImESt8equal_toImESaISt4pairIKmS5_EEE4findERSB_.exit.i
-  %40 = phi ptr [ %39, %_ZNSt13unordered_mapImN6duckdb10unique_ptrINS0_19TemporaryFileHandleESt14default_deleteIS2_ELb1EEESt4hashImESt8equal_toImESaISt4pairIKmS5_EEE4findERSB_.exit.i ], [ null, %..loopexit_crit_edge21.i.i.i.i.i ], [ null, %19 ], [ null, %14 ], [ null, %.lr.ph.i.i.i.i.i ]
+  %40 = phi ptr [ %39, %_ZNSt13unordered_mapImN6duckdb10unique_ptrINS0_19TemporaryFileHandleESt14default_deleteIS2_ELb1EEESt4hashImESt8equal_toImESaISt4pairIKmS5_EEE4findERSB_.exit.i ], [ null, %..loopexit_crit_edge21.i.i.i.i.i ], [ null, %14 ], [ null, %19 ], [ null, %.lr.ph.i.i.i.i.i ]
   ret ptr %40
 }
 
@@ -68945,7 +68945,7 @@ _ZNSt10_HashtableIlSt4pairIKljESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4
   br label %.body
 
 .loopexit:                                        ; preds = %115, %.noexc52, %110
-  %.pn.i.i = phi ptr [ %111, %110 ], [ %125, %.noexc52 ], [ %117, %115 ]
+  %.pn.i.i = phi ptr [ %125, %.noexc52 ], [ %111, %110 ], [ %117, %115 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   store i32 %104, ptr %.1.i.i, align 4, !tbaa !554
   %127 = add nuw i64 %.064, 1
@@ -69959,7 +69959,7 @@ define void @_ZN6duckdb22SingleFileBlockManager35IncreaseBlockReferenceCountInte
   br label %.loopexit, !llvm.loop !2262
 
 _ZNSt13unordered_mapIljSt4hashIlESt8equal_toIlESaISt4pairIKljEEE4findERS5_.exit: ; preds = %25, %9, %20
-  %.sroa.06.1.i.i = phi ptr [ %21, %20 ], [ %.sroa.06.0.i.i, %9 ], [ %27, %25 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %9 ], [ %21, %20 ], [ %27, %25 ]
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %33 = load i32, ptr %32, align 8, !tbaa !2265
   %34 = add i32 %33, 1
@@ -69976,9 +69976,9 @@ _ZNSt13unordered_mapIljSt4hashIlESt8equal_toIlESaISt4pairIKljEEE4findERS5_.exit:
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %.loopexit.loopexit, %..loopexit_crit_edge21.i.i.i.i
-  %35 = phi ptr [ %.pre29, %.loopexit.loopexit ], [ %19, %..loopexit_crit_edge21.i.i.i.i ], [ %19, %.lr.ph.i.i.i.i ]
-  %.pre-phi = phi i64 [ %.pre27, %.loopexit.loopexit ], [ %16, %..loopexit_crit_edge21.i.i.i.i ], [ %16, %.lr.ph.i.i.i.i ]
-  %36 = phi i64 [ %.pre, %.loopexit.loopexit ], [ %15, %..loopexit_crit_edge21.i.i.i.i ], [ %15, %.lr.ph.i.i.i.i ]
+  %35 = phi ptr [ %19, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre29, %.loopexit.loopexit ], [ %19, %.lr.ph.i.i.i.i ]
+  %.pre-phi = phi i64 [ %16, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre27, %.loopexit.loopexit ], [ %16, %.lr.ph.i.i.i.i ]
+  %36 = phi i64 [ %15, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre, %.loopexit.loopexit ], [ %15, %.lr.ph.i.i.i.i ]
   %.not.i.i.i.i1 = icmp eq ptr %35, null
   br i1 %.not.i.i.i.i1, label %.loopexit.i.i, label %37
 
@@ -70010,7 +70010,7 @@ _ZNSt13unordered_mapIljSt4hashIlESt8equal_toIlESaISt4pairIKljEEE4findERS5_.exit:
   br label %.loopexit.i.i, !llvm.loop !2262
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i2, %13, %..loopexit_crit_edge21.i.i.i.i6, %.loopexit
-  %.pre-phi37 = phi i64 [ %.pre-phi, %.loopexit ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i6 ], [ %16, %13 ], [ %.pre-phi, %.lr.ph.i.i.i.i2 ]
+  %.pre-phi37 = phi i64 [ %16, %13 ], [ %.pre-phi, %.loopexit ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i6 ], [ %.pre-phi, %.lr.ph.i.i.i.i2 ]
   %49 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #45
   store ptr null, ptr %49, align 8, !tbaa !669
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
@@ -70027,7 +70027,7 @@ _ZNSt10_HashtableIlSt4pairIKljESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4
   resume { ptr, i32 } %53
 
 _ZNSt13unordered_mapIljSt4hashIlESt8equal_toIlESaISt4pairIKljEEEixERS5_.exit: ; preds = %42, %37, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %38, %37 ], [ %52, %.loopexit.i.i ], [ %44, %42 ]
+  %.pn.i.i = phi ptr [ %52, %.loopexit.i.i ], [ %38, %37 ], [ %44, %42 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   store i32 2, ptr %.1.i.i, align 4, !tbaa !554
   br label %54
@@ -70111,7 +70111,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %2
   br label %.loopexit, !llvm.loop !2262
 
 _ZNSt13unordered_mapIljSt4hashIlESt8equal_toIlESaISt4pairIKljEEE4findERS5_.exit: ; preds = %30, %14, %25
-  %.sroa.06.1.i.i = phi ptr [ %26, %25 ], [ %.sroa.06.0.i.i, %14 ], [ %32, %30 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %14 ], [ %26, %25 ], [ %32, %30 ]
   %37 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %38 = load i32, ptr %37, align 8, !tbaa !2265
   %39 = add i32 %38, -1
@@ -70515,7 +70515,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit76: ; preds = %117
   br label %314
 
 _ZNSt13unordered_mapIljSt4hashIlESt8equal_toIlESaISt4pairIKljEEE4findERS5_.exit: ; preds = %101, %86, %96
-  %.sroa.06.1.i.i = phi ptr [ %97, %96 ], [ %.sroa.06.0.i.i, %86 ], [ %103, %101 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %86 ], [ %97, %96 ], [ %103, %101 ]
   %123 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %124 = load i32, ptr %123, align 8, !tbaa !2265
   %125 = zext i32 %124 to i64
@@ -100443,7 +100443,7 @@ _ZNSt10_HashtableISt17reference_wrapperIN6duckdb20TemporaryMemoryStateEES3_SaIS3
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph.i, %.lr.ph, %..loopexit_crit_edge21.i, %23, %5, %_ZNSt10_HashtableISt17reference_wrapperIN6duckdb20TemporaryMemoryStateEES3_SaIS3_ENSt8__detail9_IdentityENS1_17ReferenceEqualityIS2_EENS1_21ReferenceHashFunctionIS2_EENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE8_M_eraseEmPNS5_15_Hash_node_baseEPNS5_10_Hash_nodeIS3_Lb1EEE.exit
-  %.0 = phi i64 [ 1, %_ZNSt10_HashtableISt17reference_wrapperIN6duckdb20TemporaryMemoryStateEES3_SaIS3_ENSt8__detail9_IdentityENS1_17ReferenceEqualityIS2_EENS1_21ReferenceHashFunctionIS2_EENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE8_M_eraseEmPNS5_15_Hash_node_baseEPNS5_10_Hash_nodeIS3_Lb1EEE.exit ], [ 0, %5 ], [ 0, %23 ], [ 0, %..loopexit_crit_edge21.i ], [ 0, %.lr.ph ], [ 0, %.lr.ph.i ]
+  %.0 = phi i64 [ 1, %_ZNSt10_HashtableISt17reference_wrapperIN6duckdb20TemporaryMemoryStateEES3_SaIS3_ENSt8__detail9_IdentityENS1_17ReferenceEqualityIS2_EENS1_21ReferenceHashFunctionIS2_EENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE8_M_eraseEmPNS5_15_Hash_node_baseEPNS5_10_Hash_nodeIS3_Lb1EEE.exit ], [ 0, %.lr.ph ], [ 0, %5 ], [ 0, %23 ], [ 0, %..loopexit_crit_edge21.i ], [ 0, %.lr.ph.i ]
   ret i64 %.0
 }
 
@@ -100801,8 +100801,8 @@ _ZNSt10_HashtableISt17reference_wrapperIN6duckdb20TemporaryMemoryStateEES3_SaIS3
   resume { ptr, i32 } %53
 
 _ZNKSt10_HashtableISt17reference_wrapperIN6duckdb20TemporaryMemoryStateEES3_SaIS3_ENSt8__detail9_IdentityENS1_17ReferenceEqualityIS2_EENS1_21ReferenceHashFunctionIS2_EENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS3_EEPNS5_10_Hash_nodeIS3_Lb1EEEmRKT_m.exit: ; preds = %37, %20, %.critedge, %28
-  %.sroa.031.1 = phi ptr [ %29, %28 ], [ %52, %.critedge ], [ %.sroa.028.0, %20 ], [ %43, %37 ]
-  %.sroa.432.1 = phi i8 [ 0, %28 ], [ 1, %.critedge ], [ 0, %20 ], [ 0, %37 ]
+  %.sroa.031.1 = phi ptr [ %.sroa.028.0, %20 ], [ %52, %.critedge ], [ %29, %28 ], [ %43, %37 ]
+  %.sroa.432.1 = phi i8 [ 0, %20 ], [ 1, %.critedge ], [ 0, %28 ], [ 0, %37 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.031.1, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.432.1, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -106113,8 +106113,8 @@ _ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_M
   resume { ptr, i32 } %43
 
 _ZNKSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE15_M_find_node_trImEEPNS1_10_Hash_nodeImLb0EEEmRKT_m.exit: ; preds = %31, %18, %.critedge, %26
-  %.sroa.031.1 = phi ptr [ %27, %26 ], [ %42, %.critedge ], [ %.sroa.028.0, %18 ], [ %33, %31 ]
-  %.sroa.432.1 = phi i8 [ 0, %26 ], [ 1, %.critedge ], [ 0, %18 ], [ 0, %31 ]
+  %.sroa.031.1 = phi ptr [ %.sroa.028.0, %18 ], [ %42, %.critedge ], [ %27, %26 ], [ %33, %31 ]
+  %.sroa.432.1 = phi i8 [ 0, %18 ], [ 1, %.critedge ], [ 0, %26 ], [ 0, %31 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.031.1, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.432.1, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -107382,7 +107382,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableISt17reference_wrapperIN6duckd
   resume { ptr, i32 } %59
 
 _ZNKSt10_HashtableISt17reference_wrapperIN6duckdb9DataTableEESt4pairIKS3_NS1_10shared_ptrINS1_17LocalTableStorageELb1EEEESaIS9_ENSt8__detail10_Select1stENS1_17ReferenceEqualityIS2_EENS1_21ReferenceHashFunctionIS2_EENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS5_m.exit: ; preds = %44, %26, %35
-  %.sroa.036.0.ph = phi ptr [ %36, %35 ], [ %.sroa.032.0, %26 ], [ %50, %44 ]
+  %.sroa.036.0.ph = phi ptr [ %.sroa.032.0, %26 ], [ %36, %35 ], [ %50, %44 ]
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %13, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKSt17reference_wrapperIN6duckdb9DataTableEENS4_10shared_ptrINS4_17LocalTableStorageELb1EEEELb1EEEEE18_M_deallocate_nodeEPSC_.exit.i, label %60
 
@@ -109802,7 +109802,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableImSt4pairIKmN6duckdb33Optimist
   resume { ptr, i32 } %48
 
 _ZNKSt10_HashtableImSt4pairIKmN6duckdb33OptimisticallyWrittenRowGroupDataEESaIS4_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS1_m.exit: ; preds = %38, %25, %33
-  %.sroa.036.0.ph = phi ptr [ %34, %33 ], [ %.sroa.032.0, %25 ], [ %40, %38 ]
+  %.sroa.036.0.ph = phi ptr [ %.sroa.032.0, %25 ], [ %34, %33 ], [ %40, %38 ]
   %.not.i.i.i.i.i.i.i = icmp eq i64 %12, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKmN6duckdb33OptimisticallyWrittenRowGroupDataEELb0EEEEE18_M_deallocate_nodeEPS7_.exit.i, label %_ZNKSt14default_deleteIN6duckdb24PersistentCollectionDataEEclEPS1_.exit.i.i.i.i.i.i.i
 
@@ -111136,8 +111136,8 @@ _ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE14_M_lower_boundEPSt13_Rb_tree_n
   br i1 %.not.i, label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE11equal_rangeERKm.exit, label %6, !llvm.loop !3149
 
 _ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE11equal_rangeERKm.exit: ; preds = %23, %.lr.ph.i25.i, %2, %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE14_M_lower_boundEPSt13_Rb_tree_nodeImEPSt18_Rb_tree_node_baseRKm.exit.i
-  %.sroa.037.0.i = phi ptr [ %.08.lcssa.i.i, %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE14_M_lower_boundEPSt13_Rb_tree_nodeImEPSt18_Rb_tree_node_baseRKm.exit.i ], [ %4, %2 ], [ %.08.lcssa.i.i, %.lr.ph.i25.i ], [ %.123.i, %23 ]
-  %.sroa.3.0.i = phi ptr [ %.02243.i, %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE14_M_lower_boundEPSt13_Rb_tree_nodeImEPSt18_Rb_tree_node_baseRKm.exit.i ], [ %4, %2 ], [ %.19.i28.i, %.lr.ph.i25.i ], [ %.123.i, %23 ]
+  %.sroa.037.0.i = phi ptr [ %.08.lcssa.i.i, %.lr.ph.i25.i ], [ %.08.lcssa.i.i, %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE14_M_lower_boundEPSt13_Rb_tree_nodeImEPSt18_Rb_tree_node_baseRKm.exit.i ], [ %4, %2 ], [ %.123.i, %23 ]
+  %.sroa.3.0.i = phi ptr [ %.19.i28.i, %.lr.ph.i25.i ], [ %.02243.i, %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE14_M_lower_boundEPSt13_Rb_tree_nodeImEPSt18_Rb_tree_node_baseRKm.exit.i ], [ %4, %2 ], [ %.123.i, %23 ]
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %26 = load i64, ptr %25, align 8, !tbaa !718
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -111684,7 +111684,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableImSt4pairIKmN6duckdb10unique_p
   resume { ptr, i32 } %46
 
 _ZNKSt10_HashtableImSt4pairIKmN6duckdb10unique_ptrINS2_19TemporaryFileHandleESt14default_deleteIS4_ELb1EEEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS1_m.exit: ; preds = %36, %23, %31
-  %.sroa.037.0.ph = phi ptr [ %32, %31 ], [ %.sroa.033.0, %23 ], [ %38, %36 ]
+  %.sroa.037.0.ph = phi ptr [ %.sroa.033.0, %23 ], [ %32, %31 ], [ %38, %36 ]
   %.not.i.i.i.i.i.i = icmp eq i64 %10, 0
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKmN6duckdb10unique_ptrINS4_19TemporaryFileHandleESt14default_deleteIS6_ELb1EEEELb0EEEEE18_M_deallocate_nodeEPSB_.exit.i, label %47
 
@@ -112099,7 +112099,7 @@ _ZNSt10_HashtableImSt4pairIKmN6duckdb10unique_ptrINS2_19TemporaryFileHandleESt14
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph.i, %.lr.ph, %..loopexit_crit_edge21.i, %21, %5, %_ZNSt10_HashtableImSt4pairIKmN6duckdb10unique_ptrINS2_19TemporaryFileHandleESt14default_deleteIS4_ELb1EEEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNSA_15_Hash_node_baseEPNSA_10_Hash_nodeIS8_Lb0EEE.exit
-  %.0 = phi i64 [ 1, %_ZNSt10_HashtableImSt4pairIKmN6duckdb10unique_ptrINS2_19TemporaryFileHandleESt14default_deleteIS4_ELb1EEEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNSA_15_Hash_node_baseEPNSA_10_Hash_nodeIS8_Lb0EEE.exit ], [ 0, %5 ], [ 0, %21 ], [ 0, %..loopexit_crit_edge21.i ], [ 0, %.lr.ph ], [ 0, %.lr.ph.i ]
+  %.0 = phi i64 [ 1, %_ZNSt10_HashtableImSt4pairIKmN6duckdb10unique_ptrINS2_19TemporaryFileHandleESt14default_deleteIS4_ELb1EEEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNSA_15_Hash_node_baseEPNSA_10_Hash_nodeIS8_Lb0EEE.exit ], [ 0, %.lr.ph ], [ 0, %5 ], [ 0, %21 ], [ 0, %..loopexit_crit_edge21.i ], [ 0, %.lr.ph.i ]
   ret i64 %.0
 }
 
@@ -112978,7 +112978,7 @@ _ZNSt10_HashtableIlSt4pairIKlN6duckdb18TemporaryFileIndexEESaIS4_ENSt8__detail10
   br label %common.resume
 
 _ZNSt10_HashtableIlSt4pairIKlN6duckdb18TemporaryFileIndexEESaIS4_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit: ; preds = %15, %_ZNSt10_HashtableIlSt4pairIKlN6duckdb18TemporaryFileIndexEESaIS4_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeC2IJRKSt21piecewise_construct_tSt5tupleIJRS1_EESN_IJEEEEEPNS6_16_Hashtable_allocISaINS6_10_Hash_nodeIS4_Lb0EEEEEEDpOT_.exit, %10
-  %.pn = phi ptr [ %11, %10 ], [ %35, %_ZNSt10_HashtableIlSt4pairIKlN6duckdb18TemporaryFileIndexEESaIS4_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeC2IJRKSt21piecewise_construct_tSt5tupleIJRS1_EESN_IJEEEEEPNS6_16_Hashtable_allocISaINS6_10_Hash_nodeIS4_Lb0EEEEEEDpOT_.exit ], [ %17, %15 ]
+  %.pn = phi ptr [ %35, %_ZNSt10_HashtableIlSt4pairIKlN6duckdb18TemporaryFileIndexEESaIS4_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeC2IJRKSt21piecewise_construct_tSt5tupleIJRS1_EESN_IJEEEEEPNS6_16_Hashtable_allocISaINS6_10_Hash_nodeIS4_Lb0EEEEEEDpOT_.exit ], [ %11, %10 ], [ %17, %15 ]
   %.1 = getelementptr inbounds nuw i8, ptr %.pn, i64 16
   ret ptr %.1
 }
@@ -114881,8 +114881,8 @@ _ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_M
   resume { ptr, i32 } %43
 
 _ZNKSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE15_M_find_node_trIlEEPNS1_10_Hash_nodeIlLb0EEEmRKT_m.exit: ; preds = %31, %18, %.critedge, %26
-  %.sroa.031.1 = phi ptr [ %27, %26 ], [ %42, %.critedge ], [ %.sroa.028.0, %18 ], [ %33, %31 ]
-  %.sroa.432.1 = phi i8 [ 0, %26 ], [ 1, %.critedge ], [ 0, %18 ], [ 0, %31 ]
+  %.sroa.031.1 = phi ptr [ %.sroa.028.0, %18 ], [ %42, %.critedge ], [ %27, %26 ], [ %33, %31 ]
+  %.sroa.432.1 = phi i8 [ 0, %18 ], [ 1, %.critedge ], [ 0, %26 ], [ 0, %31 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.031.1, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.432.1, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -116713,8 +116713,8 @@ _ZNSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEE14_M_lower_boundEPSt13_Rb_tree_n
   br i1 %.not.i, label %_ZNSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEE11equal_rangeERKl.exit, label %6, !llvm.loop !3240
 
 _ZNSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEE11equal_rangeERKl.exit: ; preds = %23, %.lr.ph.i25.i, %2, %_ZNSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEE14_M_lower_boundEPSt13_Rb_tree_nodeIlEPSt18_Rb_tree_node_baseRKl.exit.i
-  %.sroa.037.0.i = phi ptr [ %.08.lcssa.i.i, %_ZNSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEE14_M_lower_boundEPSt13_Rb_tree_nodeIlEPSt18_Rb_tree_node_baseRKl.exit.i ], [ %4, %2 ], [ %.08.lcssa.i.i, %.lr.ph.i25.i ], [ %.123.i, %23 ]
-  %.sroa.3.0.i = phi ptr [ %.02243.i, %_ZNSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEE14_M_lower_boundEPSt13_Rb_tree_nodeIlEPSt18_Rb_tree_node_baseRKl.exit.i ], [ %4, %2 ], [ %.19.i28.i, %.lr.ph.i25.i ], [ %.123.i, %23 ]
+  %.sroa.037.0.i = phi ptr [ %.08.lcssa.i.i, %.lr.ph.i25.i ], [ %.08.lcssa.i.i, %_ZNSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEE14_M_lower_boundEPSt13_Rb_tree_nodeIlEPSt18_Rb_tree_node_baseRKl.exit.i ], [ %4, %2 ], [ %.123.i, %23 ]
+  %.sroa.3.0.i = phi ptr [ %.19.i28.i, %.lr.ph.i25.i ], [ %.02243.i, %_ZNSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEE14_M_lower_boundEPSt13_Rb_tree_nodeIlEPSt18_Rb_tree_node_baseRKl.exit.i ], [ %4, %2 ], [ %.123.i, %23 ]
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %26 = load i64, ptr %25, align 8, !tbaa !718
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -116932,7 +116932,7 @@ _ZNSt10_HashtableIlSt4pairIKljESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph.i, %.lr.ph, %..loopexit_crit_edge21.i, %21, %5, %_ZNSt10_HashtableIlSt4pairIKljESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNS4_15_Hash_node_baseEPNS4_10_Hash_nodeIS2_Lb0EEE.exit
-  %.0 = phi i64 [ 1, %_ZNSt10_HashtableIlSt4pairIKljESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNS4_15_Hash_node_baseEPNS4_10_Hash_nodeIS2_Lb0EEE.exit ], [ 0, %5 ], [ 0, %21 ], [ 0, %..loopexit_crit_edge21.i ], [ 0, %.lr.ph ], [ 0, %.lr.ph.i ]
+  %.0 = phi i64 [ 1, %_ZNSt10_HashtableIlSt4pairIKljESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNS4_15_Hash_node_baseEPNS4_10_Hash_nodeIS2_Lb0EEE.exit ], [ 0, %.lr.ph ], [ 0, %5 ], [ 0, %21 ], [ 0, %..loopexit_crit_edge21.i ], [ 0, %.lr.ph.i ]
   ret i64 %.0
 }
 

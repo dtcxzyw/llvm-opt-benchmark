@@ -440,8 +440,8 @@ define ptr @arrow_strptime(ptr noalias noundef %0, ptr noalias noundef %1, ptr n
   br label %.critedge2
 
 .critedge2:                                       ; preds = %80, %74, %71, %187, %145, %.critedge7, %119, %112, %109, %105, %103, %100, %64, %57, %95, %87
-  %.3 = phi ptr [ %188, %187 ], [ %59, %57 ], [ %.7.lcssa, %.critedge7 ], [ %.5.lcssa.ph, %145 ], [ %65, %64 ], [ %99, %95 ], [ %90, %87 ], [ %102, %100 ], [ %104, %103 ], [ %106, %105 ], [ %111, %109 ], [ %114, %112 ], [ %120, %119 ], [ %.0154, %71 ], [ %81, %80 ], [ %.4214, %74 ]
-  %.1 = phi i32 [ %.0.ph, %187 ], [ %.0.ph, %57 ], [ %.2, %.critedge7 ], [ %.0.ph, %145 ], [ %.0.ph, %64 ], [ %.0.ph, %95 ], [ %.0.ph, %87 ], [ %.0.ph, %100 ], [ %.0.ph, %103 ], [ %.0.ph, %105 ], [ %.0.ph, %109 ], [ %.0.ph, %112 ], [ %.0.ph, %119 ], [ %.0.ph, %71 ], [ %.0.ph, %74 ], [ %.0.ph, %80 ]
+  %.3 = phi ptr [ %188, %187 ], [ %59, %57 ], [ %.7.lcssa, %.critedge7 ], [ %.5.lcssa.ph, %145 ], [ %65, %64 ], [ %120, %119 ], [ %114, %112 ], [ %99, %95 ], [ %90, %87 ], [ %102, %100 ], [ %104, %103 ], [ %106, %105 ], [ %111, %109 ], [ %.0154, %71 ], [ %81, %80 ], [ %.4214, %74 ]
+  %.1 = phi i32 [ %.0.ph, %187 ], [ %.0.ph, %57 ], [ %.2, %.critedge7 ], [ %.0.ph, %145 ], [ %.0.ph, %64 ], [ %.0.ph, %119 ], [ %.0.ph, %112 ], [ %.0.ph, %95 ], [ %.0.ph, %87 ], [ %.0.ph, %100 ], [ %.0.ph, %103 ], [ %.0.ph, %105 ], [ %.0.ph, %109 ], [ %.0.ph, %71 ], [ %.0.ph, %74 ], [ %.0.ph, %80 ]
   br label %.outer, !llvm.loop !15
 
 190:                                              ; preds = %15
@@ -476,7 +476,7 @@ define ptr @arrow_strptime(ptr noalias noundef %0, ptr noalias noundef %1, ptr n
   br label %.thread
 
 .thread:                                          ; preds = %153, %.critedge5, %122, %53, %119, %112, %109, %105, %103, %100, %91, %64, %57, %33, %180, %.thread.sink.split, %190, %197
-  %.0150 = phi ptr [ %.0154, %190 ], [ %.0154, %197 ], [ %.0154, %.thread.sink.split ], [ null, %33 ], [ null, %180 ], [ null, %57 ], [ null, %64 ], [ null, %91 ], [ null, %100 ], [ null, %103 ], [ null, %105 ], [ null, %109 ], [ null, %112 ], [ null, %119 ], [ null, %53 ], [ null, %122 ], [ null, %.critedge5 ], [ null, %153 ]
+  %.0150 = phi ptr [ %.0154, %190 ], [ null, %33 ], [ %.0154, %197 ], [ null, %180 ], [ %.0154, %.thread.sink.split ], [ null, %57 ], [ null, %64 ], [ null, %91 ], [ null, %100 ], [ null, %103 ], [ null, %105 ], [ null, %109 ], [ null, %112 ], [ null, %119 ], [ null, %53 ], [ null, %122 ], [ null, %.critedge5 ], [ null, %153 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

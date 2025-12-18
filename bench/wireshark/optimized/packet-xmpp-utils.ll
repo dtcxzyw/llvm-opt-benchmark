@@ -2073,7 +2073,7 @@ xmpp_get_attr_ext.exit134.us:                     ; preds = %60, %66, %48, %51
   br label %130
 
 130:                                              ; preds = %.sink.split, %121, %26
-  %.3.us = phi i1 [ %.2.us, %121 ], [ %.1143.us, %26 ], [ %.2.us, %.sink.split ]
+  %.3.us = phi i1 [ %.1143.us, %26 ], [ %.2.us, %121 ], [ %.2.us, %.sink.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %131 = icmp samesign ult i64 %indvars.iv.next, %25
   br i1 %131, label %26, label %._crit_edge.us, !llvm.loop !17

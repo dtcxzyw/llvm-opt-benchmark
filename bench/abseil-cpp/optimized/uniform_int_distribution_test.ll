@@ -1345,8 +1345,8 @@ define internal void @_ZN12_GLOBAL__N_145UniformIntDistributionTest_StabilityTes
   br i1 %61, label %.lr.ph.i.i.i, label %.loopexit320, !llvm.loop !40
 
 .loopexit320:                                     ; preds = %.lr.ph.i.i.i, %51, %42
-  %.sroa.0265.3 = phi i64 [ %43, %51 ], [ %43, %42 ], [ %54, %.lr.ph.i.i.i ]
-  %.018.i.i.i = phi i64 [ %48, %51 ], [ %48, %42 ], [ %59, %.lr.ph.i.i.i ]
+  %.sroa.0265.3 = phi i64 [ %43, %42 ], [ %43, %51 ], [ %54, %.lr.ph.i.i.i ]
+  %.018.i.i.i = phi i64 [ %48, %42 ], [ %48, %51 ], [ %59, %.lr.ph.i.i.i ]
   %62 = lshr i64 %.018.i.i.i, 32
   %.0.i.i.i = trunc nuw nsw i64 %62 to i32
   store i32 %.0.i.i.i, ptr %.sroa.0259.0.ptr328, align 4, !tbaa !37
@@ -1684,8 +1684,8 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br i1 %165, label %.lr.ph.i.i.i94, label %.loopexit319, !llvm.loop !40
 
 .loopexit319:                                     ; preds = %.lr.ph.i.i.i94, %155, %.lr.ph
-  %.sroa.0265.5 = phi i64 [ %147, %155 ], [ %147, %.lr.ph ], [ %158, %.lr.ph.i.i.i94 ]
-  %.018.i.i.i90 = phi i64 [ %152, %155 ], [ %152, %.lr.ph ], [ %163, %.lr.ph.i.i.i94 ]
+  %.sroa.0265.5 = phi i64 [ %147, %.lr.ph ], [ %147, %155 ], [ %158, %.lr.ph.i.i.i94 ]
+  %.018.i.i.i90 = phi i64 [ %152, %.lr.ph ], [ %152, %155 ], [ %163, %.lr.ph.i.i.i94 ]
   %166 = lshr i64 %.018.i.i.i90, 32
   %.0.i.i.i92 = trunc nuw nsw i64 %166 to i32
   store i32 %.0.i.i.i92, ptr %.sroa.0229.0330, align 4, !tbaa !37
@@ -2023,8 +2023,8 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br i1 %270, label %.lr.ph.i.i.i144, label %.loopexit, !llvm.loop !40
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i144, %260, %.lr.ph336
-  %.sroa.0265.7 = phi i64 [ %252, %260 ], [ %252, %.lr.ph336 ], [ %263, %.lr.ph.i.i.i144 ]
-  %.018.i.i.i140 = phi i64 [ %257, %260 ], [ %257, %.lr.ph336 ], [ %268, %.lr.ph.i.i.i144 ]
+  %.sroa.0265.7 = phi i64 [ %252, %.lr.ph336 ], [ %252, %260 ], [ %263, %.lr.ph.i.i.i144 ]
+  %.018.i.i.i140 = phi i64 [ %257, %.lr.ph336 ], [ %257, %260 ], [ %268, %.lr.ph.i.i.i144 ]
   %271 = lshr i64 %.018.i.i.i140, 32
   %.0.i.i.i142 = trunc nuw nsw i64 %271 to i32
   store i32 %.0.i.i.i142, ptr %.sroa.0199.0333, align 4, !tbaa !37
@@ -6795,7 +6795,7 @@ _ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcE
   br i1 %.not49, label %_ZN7testing8internal15PrintIfNotEmptyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSo.exit, label %.lr.ph206, !llvm.loop !321
 
 _ZN7testing8internal15PrintIfNotEmptyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSo.exit: ; preds = %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit, %_ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit, %_ZN7testing19MatchResultListenerlsIA16_cEERS0_RKT_.exit, %242, %_ZN7testing19MatchResultListenerlsIA15_cEERS0_RKT_.exit, %.noexc87, %261, %241, %178, %_ZN7testing7MessageD2Ev.exit
-  %.0 = phi i1 [ false, %241 ], [ false, %178 ], [ false, %_ZN7testing7MessageD2Ev.exit ], [ true, %261 ], [ false, %_ZN7testing19MatchResultListenerlsIA15_cEERS0_RKT_.exit ], [ false, %.noexc87 ], [ false, %_ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit ], [ false, %242 ], [ false, %_ZN7testing19MatchResultListenerlsIA16_cEERS0_RKT_.exit ], [ true, %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit ]
+  %.0 = phi i1 [ false, %241 ], [ false, %178 ], [ false, %_ZN7testing7MessageD2Ev.exit ], [ true, %261 ], [ false, %_ZN7testing19MatchResultListenerlsIA15_cEERS0_RKT_.exit ], [ false, %.noexc87 ], [ false, %_ZN7testing19MatchResultListenerlsIA16_cEERS0_RKT_.exit ], [ false, %_ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit ], [ false, %242 ], [ true, %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit ]
   %289 = load ptr, ptr %9, align 8, !tbaa !4
   %290 = load ptr, ptr %33, align 8, !tbaa !10
   %.not4.i.i.i.i = icmp eq ptr %289, %290

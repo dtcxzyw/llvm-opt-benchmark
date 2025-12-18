@@ -190,7 +190,7 @@ _ZN3ue2L17state_has_reportsERKNS_7raw_dfaEt.exit.i: ; preds = %.preheader57.i
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %44, %_ZN3ue2L17state_has_reportsERKNS_7raw_dfaEt.exit.i, %.preheader57.i, %.critedge.i.loopexit17, %.critedge.i.loopexit16, %1
-  %.03463.i = phi i32 [ 1, %1 ], [ %48, %.critedge.i.loopexit16 ], [ %.03463.i.ph18, %.critedge.i.loopexit17 ], [ %.03467.i, %_ZN3ue2L17state_has_reportsERKNS_7raw_dfaEt.exit.i ], [ %.03467.i, %.preheader57.i ], [ %45, %44 ]
+  %.03463.i = phi i32 [ %.03463.i.ph18, %.critedge.i.loopexit17 ], [ 1, %1 ], [ %48, %.critedge.i.loopexit16 ], [ %.03467.i, %_ZN3ue2L17state_has_reportsERKNS_7raw_dfaEt.exit.i ], [ %.03467.i, %.preheader57.i ], [ %45, %44 ]
   %49 = add i32 %.03463.i, -1
   %50 = zext i32 %.03463.i to i64
   %51 = icmp ugt i64 %9, %50
@@ -568,7 +568,7 @@ _ZN3ue2L17state_has_reportsERKNS_7raw_dfaEt.exit: ; preds = %27
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i, %.loopexit.split.loop.exit69.i.i.i.i.i, %.loopexit.split.loop.exit67.i.i.i.i.i, %.loopexit.split.loop.exit65.i.i.i.i.i, %82, %77, %72
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %.sroa.055.1.i.i.i.i.i, %77 ], [ %spec.select.i.i.i.i.i, %82 ], [ %.sroa.055.0.lcssa.i.i.i.i.i, %72 ], [ %86, %.loopexit.split.loop.exit67.i.i.i.i.i ], [ %85, %.loopexit.split.loop.exit65.i.i.i.i.i ], [ %87, %.loopexit.split.loop.exit69.i.i.i.i.i ], [ %.sroa.055.074.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %.sroa.055.1.i.i.i.i.i, %77 ], [ %spec.select.i.i.i.i.i, %82 ], [ %87, %.loopexit.split.loop.exit69.i.i.i.i.i ], [ %.sroa.055.0.lcssa.i.i.i.i.i, %72 ], [ %86, %.loopexit.split.loop.exit67.i.i.i.i.i ], [ %85, %.loopexit.split.loop.exit65.i.i.i.i.i ], [ %.sroa.055.074.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %88 = icmp eq ptr %50, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i
   br i1 %88, label %.thread, label %.critedge
 

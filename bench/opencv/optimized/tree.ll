@@ -3928,7 +3928,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit75:             ; preds = %118, %116, %114, %1
   store i32 %172, ptr %174, align 8, !tbaa !174
   br label %.critedge70
 
-.critedge70:                                      ; preds = %159, %161, %134, %131, %173, %._crit_edge
+.critedge70:                                      ; preds = %159, %161, %131, %134, %173, %._crit_edge
   %175 = getelementptr inbounds i8, ptr %43, i64 -64
   %176 = load i32, ptr %175, align 8, !tbaa !174
   %177 = icmp sgt i32 %176, -1
@@ -5743,7 +5743,7 @@ _ZN2cv3RNG7uniformEii.exit:                       ; preds = %45, %.lr.ph169.spli
   br i1 %exitcond229.not, label %_ZN2cv3RNG7uniformEii.exit152.preheader, label %.lr.ph169.split, !llvm.loop !249
 
 _ZN2cv3RNG7uniformEii.exit152.preheader:          ; preds = %._crit_edge, %.lr.ph169.split.us.split, %._crit_edge.us.us
-  %.sroa.0.2172.ph = phi i64 [ -1, %.lr.ph169.split.us.split ], [ -1, %._crit_edge.us.us ], [ %.sroa.0.1, %._crit_edge ]
+  %.sroa.0.2172.ph = phi i64 [ -1, %._crit_edge.us.us ], [ -1, %.lr.ph169.split.us.split ], [ %.sroa.0.1, %._crit_edge ]
   br label %_ZN2cv3RNG7uniformEii.exit152
 
 .preheader163:                                    ; preds = %_ZN2cv3RNG7uniformEii.exit152, %_ZN2cv10AutoBufferIdLm136EEC2Em.exit
@@ -7156,8 +7156,8 @@ _ZSt4sortIPPdN2cv2ml10cmp_lt_ptrIdEEEvT_S6_T0_.exit: ; preds = %.noexc
   br i1 %exitcond200.not, label %._crit_edge175, label %107, !llvm.loop !278
 
 ._crit_edge175:                                   ; preds = %134, %._crit_edge, %_ZSt4sortIPPdN2cv2ml10cmp_lt_ptrIdEEEvT_S6_T0_.exit, %.preheader
-  %.0134.lcssa = phi i32 [ -1, %.preheader ], [ -1, %_ZSt4sortIPPdN2cv2ml10cmp_lt_ptrIdEEEvT_S6_T0_.exit ], [ -1, %._crit_edge ], [ %.1135, %134 ]
-  %.0125.lcssa = phi double [ %4, %.preheader ], [ %4, %_ZSt4sortIPPdN2cv2ml10cmp_lt_ptrIdEEEvT_S6_T0_.exit ], [ %4, %._crit_edge ], [ %.1126, %134 ]
+  %.0134.lcssa = phi i32 [ -1, %.preheader ], [ -1, %._crit_edge ], [ -1, %_ZSt4sortIPPdN2cv2ml10cmp_lt_ptrIdEEEvT_S6_T0_.exit ], [ %.1135, %134 ]
+  %.0125.lcssa = phi double [ %4, %.preheader ], [ %4, %._crit_edge ], [ %4, %_ZSt4sortIPPdN2cv2ml10cmp_lt_ptrIdEEEvT_S6_T0_.exit ], [ %.1126, %134 ]
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 0, ptr %135, align 4, !tbaa !247
   store i32 0, ptr %0, align 4, !tbaa !181
@@ -7825,8 +7825,8 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit125:       ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %exitcond176.not, label %.loopexit, label %.lr.ph167, !llvm.loop !284
 
 .loopexit:                                        ; preds = %167, %252, %101, %180
-  %.474 = phi double [ 0.000000e+00, %180 ], [ 0.000000e+00, %101 ], [ %.373, %252 ], [ %.171, %167 ]
-  %.469 = phi double [ 0.000000e+00, %180 ], [ 0.000000e+00, %101 ], [ %.368, %252 ], [ %.166, %167 ]
+  %.474 = phi double [ %.373, %252 ], [ 0.000000e+00, %180 ], [ 0.000000e+00, %101 ], [ %.171, %167 ]
+  %.469 = phi double [ %.368, %252 ], [ 0.000000e+00, %180 ], [ 0.000000e+00, %101 ], [ %.166, %167 ]
   %253 = load ptr, ptr %70, align 8, !tbaa !64
   %254 = load ptr, ptr %3, align 8, !tbaa !66
   %255 = ptrtoint ptr %253 to i64
@@ -8799,8 +8799,8 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit:             ; preds = %27, %72
   br label %.thread
 
 .thread:                                          ; preds = %._crit_edge, %.lr.ph227.preheader, %.preheader211, %111, %107
-  %118 = phi i1 [ false, %._crit_edge ], [ false, %107 ], [ false, %111 ], [ true, %.preheader211 ], [ true, %.lr.ph227.preheader ]
-  %.0135202 = phi i32 [ %28, %._crit_edge ], [ 256, %107 ], [ 256, %111 ], [ 512, %.preheader211 ], [ 512, %.lr.ph227.preheader ]
+  %118 = phi i1 [ false, %._crit_edge ], [ false, %111 ], [ false, %107 ], [ true, %.preheader211 ], [ true, %.lr.ph227.preheader ]
+  %.0135202 = phi i32 [ %28, %._crit_edge ], [ 256, %111 ], [ 256, %107 ], [ 512, %.preheader211 ], [ 512, %.lr.ph227.preheader ]
   %119 = load i32, ptr %1, align 4, !tbaa !303
   %120 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %121 = load i32, ptr %120, align 4, !tbaa !305
@@ -9783,7 +9783,7 @@ _ZN2cv3Mat2atIfEERT_i.exit.us:                    ; preds = %184, %178, %166
   br label %207
 
 ._crit_edge:                                      ; preds = %_ZN2cv3Mat2atIfEERT_i.exit.us, %_ZN2cv3Mat2atIiEERT_i.exit.us.us, %._crit_edge.loopexit91, %.thread, %79
-  %.034.lcssa = phi float [ 0.000000e+00, %79 ], [ 0.000000e+00, %.thread ], [ %204, %._crit_edge.loopexit91 ], [ %.135.us.us, %_ZN2cv3Mat2atIiEERT_i.exit.us.us ], [ %.135.us, %_ZN2cv3Mat2atIfEERT_i.exit.us ]
+  %.034.lcssa = phi float [ 0.000000e+00, %79 ], [ 0.000000e+00, %.thread ], [ %.135.us.us, %_ZN2cv3Mat2atIiEERT_i.exit.us.us ], [ %204, %._crit_edge.loopexit91 ], [ %.135.us, %_ZN2cv3Mat2atIfEERT_i.exit.us ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #27

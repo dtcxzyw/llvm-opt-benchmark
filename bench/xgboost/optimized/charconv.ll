@@ -422,7 +422,7 @@ tailrecurse.i18.preheader.i.i:                    ; preds = %tailrecurse.i14.pre
   br label %_ZN7xgboost6detail15ShortestDigit10Em.exit
 
 _ZN7xgboost6detail15ShortestDigit10Em.exit:       ; preds = %tailrecurse.i18.preheader.i.i, %3, %7, %10, %15
-  %17 = phi i32 [ %8, %7 ], [ %11, %10 ], [ %16, %15 ], [ 1, %3 ], [ %13, %tailrecurse.i18.preheader.i.i ]
+  %17 = phi i32 [ %16, %15 ], [ %8, %7 ], [ %11, %10 ], [ 1, %3 ], [ %13, %tailrecurse.i18.preheader.i.i ]
   %18 = icmp eq ptr %1, %0
   br i1 %18, label %47, label %19, !prof !13
 
@@ -616,12 +616,12 @@ select.unfold:                                    ; preds = %13, %19
   br i1 %exitcond309.not, label %.loopexit.thread, label %.lr.ph283, !llvm.loop !15
 
 .loopexit:                                        ; preds = %5, %39, %24
-  %.0169266 = phi i32 [ %.0169273, %24 ], [ %.0169273, %39 ], [ 0, %5 ]
-  %.0160263 = phi i32 [ %.0160274, %24 ], [ %.0160274, %39 ], [ %1, %5 ]
-  %.0260 = phi i32 [ %.0275, %24 ], [ %.0275, %39 ], [ 0, %5 ]
-  %.0176 = phi i1 [ false, %24 ], [ %.1177, %39 ], [ false, %5 ]
-  %.2174 = phi i32 [ %25, %24 ], [ %.3175, %39 ], [ %spec.select, %5 ]
-  %.0166 = phi i32 [ %1, %24 ], [ %25, %39 ], [ %1, %5 ]
+  %.0169266 = phi i32 [ %.0169273, %39 ], [ %.0169273, %24 ], [ 0, %5 ]
+  %.0160263 = phi i32 [ %.0160274, %39 ], [ %.0160274, %24 ], [ %1, %5 ]
+  %.0260 = phi i32 [ %.0275, %39 ], [ %.0275, %24 ], [ 0, %5 ]
+  %.0176 = phi i1 [ %.1177, %39 ], [ false, %24 ], [ false, %5 ]
+  %.2174 = phi i32 [ %.3175, %39 ], [ %25, %24 ], [ %spec.select, %5 ]
+  %.0166 = phi i32 [ %25, %39 ], [ %1, %24 ], [ %1, %5 ]
   %52 = icmp slt i32 %.2174, %1
   br i1 %52, label %53, label %.loopexit.thread
 
@@ -844,8 +844,8 @@ _ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit: ; preds = %130, 
   br label %.thread
 
 .thread:                                          ; preds = %.thread.loopexit343, %.thread.loopexit, %53, %64, %69, %73, %158, %140, %3
-  %.sroa.0.0 = phi ptr [ %0, %3 ], [ null, %140 ], [ %55, %53 ], [ null, %64 ], [ null, %69 ], [ null, %73 ], [ null, %158 ], [ %170, %.thread.loopexit ], [ %171, %.thread.loopexit343 ]
-  %.sroa.12.0 = phi i32 [ 22, %3 ], [ 0, %140 ], [ 22, %53 ], [ 0, %64 ], [ 0, %69 ], [ 0, %73 ], [ 0, %158 ], [ %.sroa.12.0.ph, %.thread.loopexit ], [ %.sroa.12.0.ph344, %.thread.loopexit343 ]
+  %.sroa.0.0 = phi ptr [ %0, %3 ], [ null, %140 ], [ %170, %.thread.loopexit ], [ %55, %53 ], [ null, %64 ], [ null, %69 ], [ null, %73 ], [ null, %158 ], [ %171, %.thread.loopexit343 ]
+  %.sroa.12.0 = phi i32 [ 22, %3 ], [ 0, %140 ], [ %.sroa.12.0.ph, %.thread.loopexit ], [ 22, %53 ], [ 0, %64 ], [ 0, %69 ], [ 0, %73 ], [ 0, %158 ], [ %.sroa.12.0.ph344, %.thread.loopexit343 ]
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %.sroa.12.0, 1
   ret { ptr, i32 } %.fca.1.insert

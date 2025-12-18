@@ -2768,7 +2768,7 @@ copywithendian.exit75:                            ; preds = %.preheader93, %69
   br i1 %120, label %.lr.ph46.split.i, label %unpackint.exit
 
 unpackint.exit:                                   ; preds = %118, %113, %._crit_edge.i.thread, %._crit_edge.i
-  %.0.lcssa.i105 = phi i64 [ %100, %._crit_edge.i.thread ], [ %94, %._crit_edge.i ], [ %94, %113 ], [ %100, %118 ]
+  %.0.lcssa.i105 = phi i64 [ %100, %._crit_edge.i.thread ], [ %94, %113 ], [ %94, %._crit_edge.i ], [ %100, %118 ]
   %121 = load i64, ptr %4, align 8, !tbaa !4
   %122 = add i64 %43, %36
   %123 = sub i64 %121, %122
@@ -3578,7 +3578,7 @@ matchbracketclass.exit:                           ; preds = %182, %192, %194, %1
   br i1 %223, label %.lr.ph.i115, label %matchbracketclass.exit121
 
 matchbracketclass.exit121:                        ; preds = %208, %217, %219, %221
-  %.022.in.i112 = phi i1 [ %173, %221 ], [ %not..i, %217 ], [ %not..i, %219 ], [ %not..i, %208 ]
+  %.022.in.i112 = phi i1 [ %not..i, %208 ], [ %173, %221 ], [ %not..i, %217 ], [ %not..i, %219 ]
   br i1 %.022.in.i112, label %20, label %start_capture.exit
 
 224:                                              ; preds = %92, %92, %92, %92, %92, %92, %92, %92, %92, %92
@@ -3937,7 +3937,7 @@ matchbracketclass.exit.i145.loopexit.us.us:       ; preds = %368, %365, %363, %3
   br label %.critedge.preheader
 
 .critedge.preheader:                              ; preds = %singlematch.exit154.thread.us294.us, %matchbracketclass.exit.i145.loopexit.us.us, %singlematch.exit154.thread.us284, %singlematch.exit154.us282, %singlematch.exit154.thread, %singlematch.exit154, %.lr.ph276.split.us290.split, %singlematch.exit154.thread.us.preheader, %.loopexit
-  %.016.i.lcssa = phi i64 [ 0, %.loopexit ], [ %spec.select, %.lr.ph276.split.us290.split ], [ %.016.i275, %singlematch.exit154 ], [ %.016.i275.us281, %singlematch.exit154.us282 ], [ %331, %singlematch.exit154.thread.us.preheader ], [ %332, %singlematch.exit154.thread ], [ %335, %singlematch.exit154.thread.us284 ], [ %346, %singlematch.exit154.thread.us294.us ], [ %.016.i275.us291.us, %matchbracketclass.exit.i145.loopexit.us.us ]
+  %.016.i.lcssa = phi i64 [ 0, %.loopexit ], [ %331, %singlematch.exit154.thread.us.preheader ], [ %335, %singlematch.exit154.thread.us284 ], [ %spec.select, %.lr.ph276.split.us290.split ], [ %.016.i275, %singlematch.exit154 ], [ %332, %singlematch.exit154.thread ], [ %.016.i275.us281, %singlematch.exit154.us282 ], [ %.016.i275.us291.us, %matchbracketclass.exit.i145.loopexit.us.us ], [ %346, %singlematch.exit154.thread.us294.us ]
   %372 = getelementptr inbounds nuw i8, ptr %.018.i128, i64 1
   br label %.critedge
 
@@ -4062,7 +4062,7 @@ singlematch.exit168.thread192:                    ; preds = %matchbracketclass.e
   br label %.outer.outer.backedge
 
 start_capture.exit:                               ; preds = %singlematch.exit.thread, %325, %247, %check_capture.exit.i, %105, %102, %169, %matchbracketclass.exit121, %matchbracketclass.exit, %20, %119, %singlematch.exit168.thread192, %singlematch.exit168, %381, %386, %417, %matchbracketclass.exit.i159.loopexit, %.critedge, %377, %.preheader, %86, %capture_to_close.exit, %58, %51, %42, %35, %88
-  %.1 = phi ptr [ null, %86 ], [ null, %42 ], [ null, %58 ], [ %91, %88 ], [ null, %.critedge ], [ %.0.ph.ph, %20 ], [ %40, %35 ], [ %56, %51 ], [ %84, %capture_to_close.exit ], [ null, %matchbracketclass.exit.i159.loopexit ], [ %323, %.preheader ], [ null, %119 ], [ %379, %377 ], [ null, %417 ], [ null, %386 ], [ null, %381 ], [ %419, %singlematch.exit168.thread192 ], [ null, %singlematch.exit168 ], [ null, %169 ], [ null, %matchbracketclass.exit ], [ null, %matchbracketclass.exit121 ], [ %327, %325 ], [ null, %singlematch.exit.thread ], [ null, %247 ], [ null, %check_capture.exit.i ], [ null, %105 ], [ null, %102 ]
+  %.1 = phi ptr [ null, %119 ], [ %84, %capture_to_close.exit ], [ null, %42 ], [ null, %58 ], [ %91, %88 ], [ null, %86 ], [ %323, %.preheader ], [ null, %matchbracketclass.exit121 ], [ %40, %35 ], [ %56, %51 ], [ null, %matchbracketclass.exit.i159.loopexit ], [ null, %.critedge ], [ %379, %377 ], [ null, %417 ], [ null, %386 ], [ null, %381 ], [ %419, %singlematch.exit168.thread192 ], [ null, %singlematch.exit168 ], [ null, %169 ], [ null, %matchbracketclass.exit ], [ %.0.ph.ph, %20 ], [ %327, %325 ], [ null, %singlematch.exit.thread ], [ null, %247 ], [ null, %check_capture.exit.i ], [ null, %105 ], [ null, %102 ]
   %422 = load i32, ptr %4, align 8, !tbaa !29
   %423 = add nsw i32 %422, 1
   store i32 %423, ptr %4, align 8, !tbaa !29

@@ -42789,8 +42789,8 @@ define hidden void @_ZN9languages11LanguageDir3get17h8cf7f543b20b18acE.llvm.3114
   br i1 %.not63.us.i, label %.loopexit.i.us.i, label %.split131.us.invoke.i
 
 .loopexit.i.us.i:                                 ; preds = %.preheader66.us.i, %.preheader.us.i.us, %.preheader.us.i.preheader.split
-  %.sroa.307.3.us.i = phi i64 [ -1, %.preheader.us.i.preheader.split ], [ -1, %.preheader.us.i.us ], [ 0, %.preheader66.us.i ]
-  %.sroa.743.4.us.i = phi i64 [ %67, %.preheader.us.i.preheader.split ], [ %67, %.preheader.us.i.us ], [ %24, %.preheader66.us.i ]
+  %.sroa.307.3.us.i = phi i64 [ -1, %.preheader.us.i.us ], [ -1, %.preheader.us.i.preheader.split ], [ 0, %.preheader66.us.i ]
+  %.sroa.743.4.us.i = phi i64 [ %67, %.preheader.us.i.us ], [ %67, %.preheader.us.i.preheader.split ], [ %24, %.preheader66.us.i ]
   %.sroa.18.3.us.i = add i64 %.sroa.743.4.us.i, %.sroa.15.0.copyload.i.fr
   %86 = getelementptr inbounds i8, ptr %1, i64 %.sroa.0.0.us.i
   %gepdiff.us.i = sub nsw i64 %.sroa.743.4.us.i, %.sroa.0.0.us.i
@@ -43008,9 +43008,9 @@ define hidden void @_ZN9languages11LanguageDir3get17h8cf7f543b20b18acE.llvm.3114
   br label %.split131.us.invoke.i
 
 .split131.us.invoke.i:                            ; preds = %.preheader.us.i.preheader.split, %39, %36, %76, %.split138.us.i, %.split126.us.i
-  %191 = phi i64 [ %umax.i33.i, %.split126.us.i ], [ %umax.i.i, %.split138.us.i ], [ %40, %39 ], [ %78, %76 ], [ %37, %36 ], [ %15, %.preheader.us.i.preheader.split ]
-  %192 = phi i64 [ %.sroa.1341.0.copyload.i, %.split126.us.i ], [ %.sroa.1341.0.copyload.i, %.split138.us.i ], [ %.sroa.1341.0.copyload.i, %39 ], [ %.sroa.1341.0.copyload.i, %76 ], [ %.sroa.15.0.copyload.i.fr, %36 ], [ %.sroa.15.0.copyload.i.fr, %.preheader.us.i.preheader.split ]
-  %193 = phi ptr [ @anon.47b9bf00d99e324cf6cc5e3d2a10edd9.92, %.split126.us.i ], [ @anon.47b9bf00d99e324cf6cc5e3d2a10edd9.92, %.split138.us.i ], [ @anon.47b9bf00d99e324cf6cc5e3d2a10edd9.90, %39 ], [ @anon.47b9bf00d99e324cf6cc5e3d2a10edd9.90, %76 ], [ @anon.47b9bf00d99e324cf6cc5e3d2a10edd9.89, %36 ], [ @anon.47b9bf00d99e324cf6cc5e3d2a10edd9.89, %.preheader.us.i.preheader.split ]
+  %191 = phi i64 [ %umax.i33.i, %.split126.us.i ], [ %78, %76 ], [ %umax.i.i, %.split138.us.i ], [ %40, %39 ], [ %37, %36 ], [ %15, %.preheader.us.i.preheader.split ]
+  %192 = phi i64 [ %.sroa.1341.0.copyload.i, %.split126.us.i ], [ %.sroa.1341.0.copyload.i, %76 ], [ %.sroa.1341.0.copyload.i, %.split138.us.i ], [ %.sroa.1341.0.copyload.i, %39 ], [ %.sroa.15.0.copyload.i.fr, %36 ], [ %.sroa.15.0.copyload.i.fr, %.preheader.us.i.preheader.split ]
+  %193 = phi ptr [ @anon.47b9bf00d99e324cf6cc5e3d2a10edd9.92, %.split126.us.i ], [ @anon.47b9bf00d99e324cf6cc5e3d2a10edd9.90, %76 ], [ @anon.47b9bf00d99e324cf6cc5e3d2a10edd9.92, %.split138.us.i ], [ @anon.47b9bf00d99e324cf6cc5e3d2a10edd9.90, %39 ], [ @anon.47b9bf00d99e324cf6cc5e3d2a10edd9.89, %36 ], [ @anon.47b9bf00d99e324cf6cc5e3d2a10edd9.89, %.preheader.us.i.preheader.split ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %191, i64 noundef %192, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %193) #38
           to label %.split131.us.cont.i unwind label %.loopexit.split-lp.i, !noalias !11866
 
@@ -43033,8 +43033,8 @@ define hidden void @_ZN9languages11LanguageDir3get17h8cf7f543b20b18acE.llvm.3114
   br label %.loopexit69.i
 
 .loopexit.i:                                      ; preds = %180, %65, %21, %.sink.split.i.us.i, %120, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h24a4dd86c1d01abfE.exit.split.i"
-  %195 = phi i64 [ 0, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h24a4dd86c1d01abfE.exit.split.i" ], [ %17, %65 ], [ %17, %120 ], [ %17, %.sink.split.i.us.i ], [ %17, %21 ], [ %126, %180 ]
-  %.sroa.0.0110.i = phi i64 [ 0, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h24a4dd86c1d01abfE.exit.split.i" ], [ %.sroa.0.0.us.i, %65 ], [ %.sroa.0.0.us.i, %120 ], [ %.sroa.0.0.us.i, %.sink.split.i.us.i ], [ %.sroa.0.0.us.i, %21 ], [ %.sroa.0.0146.i, %180 ]
+  %195 = phi i64 [ %17, %65 ], [ 0, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h24a4dd86c1d01abfE.exit.split.i" ], [ %17, %120 ], [ %17, %.sink.split.i.us.i ], [ %17, %21 ], [ %126, %180 ]
+  %.sroa.0.0110.i = phi i64 [ %.sroa.0.0.us.i, %65 ], [ 0, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h24a4dd86c1d01abfE.exit.split.i" ], [ %.sroa.0.0.us.i, %120 ], [ %.sroa.0.0.us.i, %.sink.split.i.us.i ], [ %.sroa.0.0.us.i, %21 ], [ %.sroa.0.0146.i, %180 ]
   %gepdiff64.i = sub nsw i64 %2, %.sroa.0.0110.i
   %196 = load i64, ptr %5, align 8, !alias.scope !11922, !noalias !11862, !noundef !9
   %197 = sub i64 %196, %195

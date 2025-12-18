@@ -258,7 +258,7 @@ define dso_local i32 @php_random_range32(ptr readonly captures(none) %0, ptr %1,
   br label %.loopexit
 
 .loopexit:                                        ; preds = %5, %.preheader, %32, %._crit_edge, %18, %24
-  %.2 = phi i32 [ %25, %24 ], [ %14, %18 ], [ 0, %32 ], [ %46, %._crit_edge ], [ 0, %.preheader ], [ 0, %5 ]
+  %.2 = phi i32 [ 0, %.preheader ], [ %25, %24 ], [ %14, %18 ], [ 0, %32 ], [ %46, %._crit_edge ], [ 0, %5 ]
   ret i32 %.2
 }
 
@@ -348,7 +348,7 @@ define dso_local i64 @php_random_range64(ptr readonly captures(none) %0, ptr %1,
   br label %.loopexit
 
 .loopexit:                                        ; preds = %5, %.preheader, %31, %._crit_edge, %17, %23
-  %.2 = phi i64 [ %24, %23 ], [ %13, %17 ], [ 0, %31 ], [ %44, %._crit_edge ], [ 0, %.preheader ], [ 0, %5 ]
+  %.2 = phi i64 [ 0, %.preheader ], [ %24, %23 ], [ %13, %17 ], [ 0, %31 ], [ %44, %._crit_edge ], [ 0, %5 ]
   ret i64 %.2
 }
 
@@ -582,7 +582,7 @@ define dso_local i64 @php_random_range(ptr readonly captures(none) %0, ptr %1, i
   br label %php_random_range64.exit
 
 php_random_range64.exit:                          ; preds = %9, %.preheader.i, %21, %27, %35, %._crit_edge.i
-  %.2.i = phi i64 [ %28, %27 ], [ %17, %21 ], [ 0, %35 ], [ %48, %._crit_edge.i ], [ 0, %.preheader.i ], [ 0, %9 ]
+  %.2.i = phi i64 [ 0, %.preheader.i ], [ %28, %27 ], [ %17, %21 ], [ 0, %35 ], [ %48, %._crit_edge.i ], [ 0, %9 ]
   %49 = add i64 %.2.i, %2
   br label %97
 
@@ -674,7 +674,7 @@ php_random_range64.exit:                          ; preds = %9, %.preheader.i, %
   br label %php_random_range32.exit
 
 php_random_range32.exit:                          ; preds = %53, %.preheader.i20, %66, %72, %80, %._crit_edge.i15
-  %.2.i14 = phi i32 [ %73, %72 ], [ %62, %66 ], [ 0, %80 ], [ %94, %._crit_edge.i15 ], [ 0, %.preheader.i20 ], [ 0, %53 ]
+  %.2.i14 = phi i32 [ 0, %.preheader.i20 ], [ %73, %72 ], [ %62, %66 ], [ 0, %80 ], [ %94, %._crit_edge.i15 ], [ 0, %53 ]
   %95 = zext i32 %.2.i14 to i64
   %96 = add nsw i64 %2, %95
   br label %97

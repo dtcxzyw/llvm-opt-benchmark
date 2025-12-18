@@ -1740,7 +1740,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit27: ; preds = %186, %192
   br i1 %196, label %.loopexit, label %186
 
 .loopexit:                                        ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit25, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit27, %.thread
-  %.pn = phi { ptr, i32 } [ %lpad.thr_comm, %.thread ], [ %184, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit27 ], [ %lpad.thr_comm.split-lp, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit25 ]
+  %.pn = phi { ptr, i32 } [ %184, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit27 ], [ %lpad.thr_comm, %.thread ], [ %lpad.thr_comm.split-lp, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit25 ]
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN32pxrInternal_v0_24__pxrReserved__18UsdPhysicsDriveAPI24IsSchemaPropertyBaseNameERKNS_7TfTokenEE12attrsAndRels) #17
   resume { ptr, i32 } %.pn
 }
@@ -5465,8 +5465,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit31: ; preds = %123, %129
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit29, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit31, %.thread, %134
-  %_ZGVZN32pxrInternal_v0_24__pxrReserved__18UsdPhysicsDriveAPI23GetSchemaAttributeNamesEbE8allNames.sink = phi ptr [ @_ZGVZN32pxrInternal_v0_24__pxrReserved__18UsdPhysicsDriveAPI23GetSchemaAttributeNamesEbE8allNames, %134 ], [ @_ZGVZN32pxrInternal_v0_24__pxrReserved__18UsdPhysicsDriveAPI23GetSchemaAttributeNamesEbE10localNames, %.thread ], [ @_ZGVZN32pxrInternal_v0_24__pxrReserved__18UsdPhysicsDriveAPI23GetSchemaAttributeNamesEbE10localNames, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit31 ], [ @_ZGVZN32pxrInternal_v0_24__pxrReserved__18UsdPhysicsDriveAPI23GetSchemaAttributeNamesEbE10localNames, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit29 ]
-  %.pn10 = phi { ptr, i32 } [ %135, %134 ], [ %10, %.thread ], [ %121, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit31 ], [ %108, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit29 ]
+  %_ZGVZN32pxrInternal_v0_24__pxrReserved__18UsdPhysicsDriveAPI23GetSchemaAttributeNamesEbE8allNames.sink = phi ptr [ @_ZGVZN32pxrInternal_v0_24__pxrReserved__18UsdPhysicsDriveAPI23GetSchemaAttributeNamesEbE8allNames, %134 ], [ @_ZGVZN32pxrInternal_v0_24__pxrReserved__18UsdPhysicsDriveAPI23GetSchemaAttributeNamesEbE10localNames, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit31 ], [ @_ZGVZN32pxrInternal_v0_24__pxrReserved__18UsdPhysicsDriveAPI23GetSchemaAttributeNamesEbE10localNames, %.thread ], [ @_ZGVZN32pxrInternal_v0_24__pxrReserved__18UsdPhysicsDriveAPI23GetSchemaAttributeNamesEbE10localNames, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit29 ]
+  %.pn10 = phi { ptr, i32 } [ %135, %134 ], [ %121, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit31 ], [ %10, %.thread ], [ %108, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit29 ]
   call void @__cxa_guard_abort(ptr nonnull %_ZGVZN32pxrInternal_v0_24__pxrReserved__18UsdPhysicsDriveAPI23GetSchemaAttributeNamesEbE8allNames.sink) #17
   resume { ptr, i32 } %.pn10
 }

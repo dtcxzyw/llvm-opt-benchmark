@@ -6319,12 +6319,12 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc72
   br label %912
 
 ._crit_edge.i.i:                                  ; preds = %887, %836, %_ZNSt6vectorIS_IN2cv7Point3_IfEESaIS2_EESaIS4_EE6resizeEmRKS4_.exit203.i
-  %.sroa.15.0342 = phi ptr [ null, %_ZNSt6vectorIS_IN2cv7Point3_IfEESaIS2_EESaIS4_EE6resizeEmRKS4_.exit203.i ], [ %781, %836 ], [ %781, %887 ]
-  %.sroa.0.6326 = phi ptr [ null, %_ZNSt6vectorIS_IN2cv7Point3_IfEESaIS2_EESaIS4_EE6resizeEmRKS4_.exit203.i ], [ %777, %836 ], [ %777, %887 ]
-  %862 = phi ptr [ %768, %_ZNSt6vectorIS_IN2cv7Point3_IfEESaIS2_EESaIS4_EE6resizeEmRKS4_.exit203.i ], [ %854, %836 ], [ %905, %887 ]
-  %863 = phi ptr [ %768, %_ZNSt6vectorIS_IN2cv7Point3_IfEESaIS2_EESaIS4_EE6resizeEmRKS4_.exit203.i ], [ %837, %836 ], [ %888, %887 ]
-  %.057.lcssa.i.i = phi double [ 0.000000e+00, %_ZNSt6vectorIS_IN2cv7Point3_IfEESaIS2_EESaIS4_EE6resizeEmRKS4_.exit203.i ], [ %851, %836 ], [ %902, %887 ]
-  %.0.lcssa.i.i = phi i64 [ 0, %_ZNSt6vectorIS_IN2cv7Point3_IfEESaIS2_EESaIS4_EE6resizeEmRKS4_.exit203.i ], [ %852, %836 ], [ %903, %887 ]
+  %.sroa.15.0342 = phi ptr [ %781, %836 ], [ null, %_ZNSt6vectorIS_IN2cv7Point3_IfEESaIS2_EESaIS4_EE6resizeEmRKS4_.exit203.i ], [ %781, %887 ]
+  %.sroa.0.6326 = phi ptr [ %777, %836 ], [ null, %_ZNSt6vectorIS_IN2cv7Point3_IfEESaIS2_EESaIS4_EE6resizeEmRKS4_.exit203.i ], [ %777, %887 ]
+  %862 = phi ptr [ %854, %836 ], [ %768, %_ZNSt6vectorIS_IN2cv7Point3_IfEESaIS2_EESaIS4_EE6resizeEmRKS4_.exit203.i ], [ %905, %887 ]
+  %863 = phi ptr [ %837, %836 ], [ %768, %_ZNSt6vectorIS_IN2cv7Point3_IfEESaIS2_EESaIS4_EE6resizeEmRKS4_.exit203.i ], [ %888, %887 ]
+  %.057.lcssa.i.i = phi double [ %851, %836 ], [ 0.000000e+00, %_ZNSt6vectorIS_IN2cv7Point3_IfEESaIS2_EESaIS4_EE6resizeEmRKS4_.exit203.i ], [ %902, %887 ]
+  %.0.lcssa.i.i = phi i64 [ %852, %836 ], [ 0, %_ZNSt6vectorIS_IN2cv7Point3_IfEESaIS2_EESaIS4_EE6resizeEmRKS4_.exit203.i ], [ %903, %887 ]
   %864 = uitofp i64 %.0.lcssa.i.i to double
   %865 = fdiv double %.057.lcssa.i.i, %864
   %866 = call double @sqrt(double noundef %865) #25, !tbaa !70

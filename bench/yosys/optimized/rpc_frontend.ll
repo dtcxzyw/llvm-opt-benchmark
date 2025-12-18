@@ -10814,7 +10814,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit119: ; preds = %35
   br i1 %368, label %.loopexit270, label %365
 
 .loopexit270:                                     ; preds = %365, %.loopexit270.loopexit384, %.thread
-  %.pn67.pn.pn.pn = phi { ptr, i32 } [ %170, %.thread ], [ %355, %.loopexit270.loopexit384 ], [ %.pn67.pn.pn, %365 ]
+  %.pn67.pn.pn.pn = phi { ptr, i32 } [ %355, %.loopexit270.loopexit384 ], [ %170, %.thread ], [ %.pn67.pn.pn, %365 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -11153,7 +11153,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit160: ; preds = %_Z
   br i1 %494, label %.loopexit, label %491
 
 .loopexit:                                        ; preds = %482, %491, %.thread266
-  %.pn.pn.pn = phi { ptr, i32 } [ %63, %.thread266 ], [ %.pn.pn, %491 ], [ %481, %482 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %491 ], [ %63, %.thread266 ], [ %481, %482 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)

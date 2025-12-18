@@ -78,7 +78,7 @@ define ptr @av_tree_find(ptr noundef readonly captures(address_is_null) %0, ptr 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.split.split.us, %.split25, %4, %.split46.thread
-  %.1 = phi ptr [ %27, %.split46.thread ], [ null, %4 ], [ null, %.split25 ], [ null, %.split.split.us ]
+  %.1 = phi ptr [ %27, %.split46.thread ], [ null, %.split25 ], [ null, %4 ], [ null, %.split.split.us ]
   ret ptr %.1
 }
 

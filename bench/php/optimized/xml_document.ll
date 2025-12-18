@@ -75,7 +75,7 @@ define hidden void @dom_mark_namespaces_as_attributes_too(ptr noundef %0, ptr no
   br i1 %.not.i, label %.thread, label %.lr.ph.backedge
 
 .lr.ph.backedge:                                  ; preds = %18, %10, %.thread
-  %.07.be = phi ptr [ %14, %.thread ], [ %12, %10 ], [ %20, %18 ]
+  %.07.be = phi ptr [ %12, %10 ], [ %14, %.thread ], [ %20, %18 ]
   br label %.lr.ph
 
 .thread:                                          ; preds = %.lr.ph, %10, %8
@@ -247,7 +247,7 @@ define hidden void @dom_document_convert_to_modern(ptr noundef writeonly capture
   br i1 %.not17.i.i, label %.preheader.i, label %.lr.ph.i.backedge
 
 .lr.ph.i.backedge:                                ; preds = %22, %.thread.i, %14
-  %.07.i.be = phi ptr [ %18, %.thread.i ], [ %16, %14 ], [ %24, %22 ]
+  %.07.i.be = phi ptr [ %16, %14 ], [ %18, %.thread.i ], [ %24, %22 ]
   br label %.lr.ph.i
 
 .preheader.i:                                     ; preds = %.thread.i, %22
@@ -532,7 +532,7 @@ php_is_stream_path.exit.thread:                   ; preds = %64, %66, %php_is_st
   br i1 %.not17.i.i.i, label %.preheader.i.i, label %.lr.ph.i.i.backedge
 
 .lr.ph.i.i.backedge:                              ; preds = %113, %.thread.i.i, %105
-  %.07.i.i.be = phi ptr [ %109, %.thread.i.i ], [ %107, %105 ], [ %115, %113 ]
+  %.07.i.i.be = phi ptr [ %107, %105 ], [ %109, %.thread.i.i ], [ %115, %113 ]
   br label %.lr.ph.i.i
 
 .preheader.i.i:                                   ; preds = %.thread.i.i, %113

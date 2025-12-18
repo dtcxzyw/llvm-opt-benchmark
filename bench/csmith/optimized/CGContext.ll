@@ -1021,7 +1021,7 @@ define dso_local noundef zeroext i1 @_ZNK9CGContext14is_nonwritableEPK8Variable(
   br i1 %.not22, label %.thread, label %.lr.ph28, !llvm.loop !84
 
 .thread:                                          ; preds = %.lr.ph, %.critedge, %31, %.lr.ph28, %.loopexit
-  %.3 = phi i1 [ false, %.loopexit ], [ %30, %31 ], [ %30, %.lr.ph28 ], [ true, %.critedge ], [ true, %.lr.ph ]
+  %.3 = phi i1 [ %30, %31 ], [ false, %.loopexit ], [ %30, %.lr.ph28 ], [ true, %.critedge ], [ true, %.lr.ph ]
   ret i1 %.3
 }
 
@@ -1387,7 +1387,7 @@ _ZNSt6vectorIPK4FactSaIS2_EEC2ERKS4_.exit:        ; preds = %.noexc36.thread, %_
           to label %.loopexit unwind label %46
 
 .loopexit:                                        ; preds = %50, %._crit_edge, %53
-  %.2 = phi i1 [ %54, %53 ], [ true, %._crit_edge ], [ false, %50 ]
+  %.2 = phi i1 [ true, %._crit_edge ], [ %54, %53 ], [ false, %50 ]
   %55 = load ptr, ptr %4, align 8, !tbaa !135
   %.not.i.i.i = icmp eq ptr %55, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit, label %56
@@ -3372,7 +3372,7 @@ _ZNK9CGContext14is_nonwritableEPK8Variable.exit:  ; preds = %85, %.loopexit.i
   br i1 %109, label %56, label %.critedge, !llvm.loop !190
 
 .critedge:                                        ; preds = %.loopexit, %42, %.lr.ph.i, %101, %96, %_ZNK9CGContext14is_nonwritableEPK8Variable.exit, %88, %91, %.lr.ph.i32, %.critedge.i, %.lr.ph28.i, %.preheader
-  %.2 = phi i1 [ false, %.preheader ], [ true, %.lr.ph28.i ], [ true, %.lr.ph.i ], [ true, %.lr.ph.i32 ], [ true, %91 ], [ true, %.critedge.i ], [ true, %_ZNK9CGContext14is_nonwritableEPK8Variable.exit ], [ true, %96 ], [ false, %101 ], [ true, %88 ], [ true, %42 ], [ true, %.loopexit ]
+  %.2 = phi i1 [ true, %.lr.ph.i ], [ true, %91 ], [ true, %.lr.ph.i32 ], [ true, %.lr.ph28.i ], [ false, %.preheader ], [ true, %.critedge.i ], [ true, %_ZNK9CGContext14is_nonwritableEPK8Variable.exit ], [ true, %96 ], [ false, %101 ], [ true, %88 ], [ true, %42 ], [ true, %.loopexit ]
   ret i1 %.2
 }
 

@@ -681,7 +681,7 @@ hex_ascii_to_binary.exit16:                       ; preds = %hex_ascii_to_binary
   br i1 %58, label %check_valid_key_string.exit.preheader, label %check_valid_key_string.exit.thread, !llvm.loop !8
 
 check_valid_key_string.exit.thread:               ; preds = %hex_ascii_to_binary.exit16, %.sink.split.i, %10
-  %storemerge = phi i8 [ 0, %10 ], [ 0, %.sink.split.i ], [ 1, %hex_ascii_to_binary.exit16 ]
+  %storemerge = phi i8 [ 0, %.sink.split.i ], [ 0, %10 ], [ 1, %hex_ascii_to_binary.exit16 ]
   store i8 %storemerge, ptr %2, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
@@ -2332,7 +2332,7 @@ proto_item_set_generated.exit433:                 ; preds = %proto_item_set_gene
   %.0499.ph = phi i32 [ %.sink729, %.thread522 ], [ 2, %478 ]
   %579 = load i32, ptr @global_pdcp_check_sequence_numbers, align 4
   switch i32 %579, label %.critedge421 [
-    i32 2, label %587
+    i32 2, label %584
     i32 1, label %580
   ]
 
@@ -2341,22 +2341,22 @@ proto_item_set_generated.exit433:                 ; preds = %proto_item_set_gene
   %582 = load i32, ptr @proto_rlc_nr, align 4
   %583 = call ptr @p_get_proto_data(ptr noundef %581, ptr noundef %1, i32 noundef %582, i32 noundef 0)
   %.not409 = icmp eq ptr %583, null
-  br i1 %.not409, label %.critedge421, label %584
+  br i1 %.not409, label %.critedge421, label %589
 
-584:                                              ; preds = %580
-  %585 = getelementptr inbounds nuw i8, ptr %.0345, i64 48
-  %586 = load i8, ptr %585, align 8
-  %.not410 = icmp eq i8 %586, 0
+584:                                              ; preds = %578
+  %585 = call ptr @wmem_file_scope()
+  %586 = load i32, ptr @proto_rlc_nr, align 4
+  %587 = call ptr @p_get_proto_data(ptr noundef %585, ptr noundef %1, i32 noundef %586, i32 noundef 0)
+  %588 = icmp eq ptr %587, null
+  br i1 %588, label %592, label %.critedge421
+
+589:                                              ; preds = %580
+  %590 = getelementptr inbounds nuw i8, ptr %.0345, i64 48
+  %591 = load i8, ptr %590, align 8
+  %.not410 = icmp eq i8 %591, 0
   br i1 %.not410, label %592, label %.critedge421
 
-587:                                              ; preds = %578
-  %588 = call ptr @wmem_file_scope()
-  %589 = load i32, ptr @proto_rlc_nr, align 4
-  %590 = call ptr @p_get_proto_data(ptr noundef %588, ptr noundef %1, i32 noundef %589, i32 noundef 0)
-  %591 = icmp eq ptr %590, null
-  br i1 %591, label %592, label %.critedge421
-
-592:                                              ; preds = %584, %587
+592:                                              ; preds = %584, %589
   %593 = load i32, ptr %14, align 4
   %594 = load ptr, ptr %365, align 8
   %595 = getelementptr inbounds nuw i8, ptr %594, i64 57
@@ -3114,7 +3114,7 @@ proto_item_set_generated.exit194.i:               ; preds = %940, %937, %930
   br i1 %1017, label %look_up_keys_record.exit.i, label %1013
 
 look_up_keys_record.exit.i:                       ; preds = %1011, %1014, %953
-  %.0.i.i = phi ptr [ %955, %953 ], [ %1015, %1014 ], [ %955, %1011 ]
+  %.0.i.i = phi ptr [ %1015, %1014 ], [ %955, %953 ], [ %955, %1011 ]
   %.not161.i = icmp eq ptr %.0.i.i, null
   br i1 %.not161.i, label %look_up_keys_record.exit.thread.i, label %1018
 
@@ -3297,15 +3297,15 @@ look_up_keys_record.exit.thread.i:                ; preds = %1013, %proto_item_s
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge421
 
-.critedge421:                                     ; preds = %899, %598, %look_up_keys_record.exit.thread.i, %584, %.thread514, %587, %580, %578
-  %.sroa.10.0 = phi ptr [ null, %578 ], [ null, %899 ], [ %.sroa.10.4, %look_up_keys_record.exit.thread.i ], [ null, %598 ], [ null, %587 ], [ null, %580 ], [ null, %584 ], [ null, %.thread514 ]
-  %.sroa.13.0 = phi ptr [ null, %578 ], [ null, %899 ], [ %.sroa.13.3, %look_up_keys_record.exit.thread.i ], [ null, %598 ], [ null, %587 ], [ null, %580 ], [ null, %584 ], [ null, %.thread514 ]
-  %.sroa.15.0 = phi i1 [ false, %578 ], [ false, %899 ], [ %.sroa.15.4, %look_up_keys_record.exit.thread.i ], [ false, %598 ], [ false, %587 ], [ false, %580 ], [ false, %584 ], [ false, %.thread514 ]
-  %.sroa.18.0 = phi i1 [ false, %578 ], [ false, %899 ], [ %.sroa.18.3, %look_up_keys_record.exit.thread.i ], [ false, %598 ], [ false, %587 ], [ false, %580 ], [ false, %584 ], [ false, %.thread514 ]
-  %.sroa.20583.0 = phi i32 [ 0, %578 ], [ 0, %899 ], [ %934, %look_up_keys_record.exit.thread.i ], [ 0, %598 ], [ 0, %587 ], [ 0, %580 ], [ 0, %584 ], [ 0, %.thread514 ]
-  %.sroa.23.0 = phi i8 [ 0, %578 ], [ 0, %899 ], [ %915, %look_up_keys_record.exit.thread.i ], [ 0, %598 ], [ 0, %587 ], [ 0, %580 ], [ 0, %584 ], [ 0, %.thread514 ]
-  %.sroa.26.0 = phi i8 [ 0, %578 ], [ 0, %899 ], [ %.sroa.26.2, %look_up_keys_record.exit.thread.i ], [ 0, %598 ], [ 0, %587 ], [ 0, %580 ], [ 0, %584 ], [ 0, %.thread514 ]
-  %.0499528.ph = phi i32 [ %.0499.ph, %578 ], [ %.0499.ph, %899 ], [ %.0499.ph, %look_up_keys_record.exit.thread.i ], [ %.0499.ph, %598 ], [ %.0499.ph, %587 ], [ %.0499.ph, %580 ], [ %.0499.ph, %584 ], [ %.3, %.thread514 ]
+.critedge421:                                     ; preds = %899, %598, %look_up_keys_record.exit.thread.i, %584, %.thread514, %589, %580, %578
+  %.sroa.10.0 = phi ptr [ null, %578 ], [ null, %899 ], [ %.sroa.10.4, %look_up_keys_record.exit.thread.i ], [ null, %598 ], [ null, %584 ], [ null, %580 ], [ null, %589 ], [ null, %.thread514 ]
+  %.sroa.13.0 = phi ptr [ null, %578 ], [ null, %899 ], [ %.sroa.13.3, %look_up_keys_record.exit.thread.i ], [ null, %598 ], [ null, %584 ], [ null, %580 ], [ null, %589 ], [ null, %.thread514 ]
+  %.sroa.15.0 = phi i1 [ false, %578 ], [ false, %899 ], [ %.sroa.15.4, %look_up_keys_record.exit.thread.i ], [ false, %598 ], [ false, %584 ], [ false, %580 ], [ false, %589 ], [ false, %.thread514 ]
+  %.sroa.18.0 = phi i1 [ false, %578 ], [ false, %899 ], [ %.sroa.18.3, %look_up_keys_record.exit.thread.i ], [ false, %598 ], [ false, %584 ], [ false, %580 ], [ false, %589 ], [ false, %.thread514 ]
+  %.sroa.20583.0 = phi i32 [ 0, %578 ], [ 0, %899 ], [ %934, %look_up_keys_record.exit.thread.i ], [ 0, %598 ], [ 0, %584 ], [ 0, %580 ], [ 0, %589 ], [ 0, %.thread514 ]
+  %.sroa.23.0 = phi i8 [ 0, %578 ], [ 0, %899 ], [ %915, %look_up_keys_record.exit.thread.i ], [ 0, %598 ], [ 0, %584 ], [ 0, %580 ], [ 0, %589 ], [ 0, %.thread514 ]
+  %.sroa.26.0 = phi i8 [ 0, %578 ], [ 0, %899 ], [ %.sroa.26.2, %look_up_keys_record.exit.thread.i ], [ 0, %598 ], [ 0, %584 ], [ 0, %580 ], [ 0, %589 ], [ 0, %.thread514 ]
+  %.0499528.ph = phi i32 [ %.0499.ph, %578 ], [ %.0499.ph, %899 ], [ %.0499.ph, %look_up_keys_record.exit.thread.i ], [ %.0499.ph, %598 ], [ %.0499.ph, %584 ], [ %.0499.ph, %580 ], [ %.0499.ph, %589 ], [ %.3, %.thread514 ]
   %.pr = load i32, ptr %33, align 4
   %1090 = icmp eq i32 %.pr, 2
   br i1 %1090, label %1091, label %.thread532

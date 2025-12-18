@@ -1848,7 +1848,7 @@ define range(i32 0, 2097152) i32 @Ivy_ManSetLevels(ptr noundef readonly captures
   br i1 %100, label %.lr.ph115, label %.critedge8, !llvm.loop !68
 
 .critedge8:                                       ; preds = %.critedge6, %.preheader, %.critedge, %.critedge2.preheader, %.critedge4.preheader, %.critedge6.preheader
-  %.2.lcssa154 = phi i32 [ %.3, %.critedge6.preheader ], [ %.1, %.critedge4.preheader ], [ 0, %.critedge2.preheader ], [ 0, %.critedge ], [ 0, %.preheader ], [ %.3, %.critedge6 ]
+  %.2.lcssa154 = phi i32 [ 0, %.preheader ], [ %.3, %.critedge6.preheader ], [ %.1, %.critedge4.preheader ], [ 0, %.critedge2.preheader ], [ 0, %.critedge ], [ %.3, %.critedge6 ]
   ret i32 %.2.lcssa154
 }
 

@@ -654,7 +654,7 @@ select.unfold:                                    ; preds = %..thread_crit_edge.
   br label %.thread250
 
 .thread250:                                       ; preds = %333, %pack.exit.us, %2, %.thread252.thread
-  %.0162 = phi i32 [ 0, %.thread252.thread ], [ %13, %2 ], [ 1, %pack.exit.us ], [ 1, %333 ]
+  %.0162 = phi i32 [ 1, %pack.exit.us ], [ 0, %.thread252.thread ], [ %13, %2 ], [ 1, %333 ]
   ret i32 %.0162
 }
 
@@ -1266,7 +1266,7 @@ select.unfold:                                    ; preds = %._crit_edge.us, %.l
   br label %.thread222
 
 .thread222:                                       ; preds = %269, %71, %64, %311, %.critedge203
-  %.6 = phi i32 [ 0, %.critedge203 ], [ 1, %71 ], [ 1, %311 ], [ 1, %64 ], [ 1, %269 ]
+  %.6 = phi i32 [ 0, %.critedge203 ], [ 1, %311 ], [ 1, %71 ], [ 1, %64 ], [ 1, %269 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.6
 }

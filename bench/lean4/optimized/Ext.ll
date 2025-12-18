@@ -11413,8 +11413,8 @@ lean_dec.exit:                                    ; preds = %220, %219, %217, %l
   unreachable
 
 lean_dec.exit98:                                  ; preds = %lean_inc.exit104, %132, %134, %135, %lean_inc.exit105, %107, %109, %110, %lean_alloc_ctor.exit154
-  %.184 = phi ptr [ %95, %lean_inc.exit105 ], [ %145, %lean_alloc_ctor.exit154 ], [ %95, %110 ], [ %95, %109 ], [ %95, %107 ], [ %120, %135 ], [ %120, %134 ], [ %120, %132 ], [ %120, %lean_inc.exit104 ]
-  %.180 = phi ptr [ %.079196, %lean_inc.exit105 ], [ %167, %lean_alloc_ctor.exit154 ], [ %.079196, %110 ], [ %.079196, %109 ], [ %.079196, %107 ], [ %.079196, %135 ], [ %.079196, %134 ], [ %.079196, %132 ], [ %.079196, %lean_inc.exit104 ]
+  %.184 = phi ptr [ %145, %lean_alloc_ctor.exit154 ], [ %95, %lean_inc.exit105 ], [ %95, %110 ], [ %95, %109 ], [ %95, %107 ], [ %120, %135 ], [ %120, %134 ], [ %120, %132 ], [ %120, %lean_inc.exit104 ]
+  %.180 = phi ptr [ %167, %lean_alloc_ctor.exit154 ], [ %.079196, %lean_inc.exit105 ], [ %.079196, %110 ], [ %.079196, %109 ], [ %.079196, %107 ], [ %.079196, %135 ], [ %.079196, %134 ], [ %.079196, %132 ], [ %.079196, %lean_inc.exit104 ]
   %.176 = add nuw i64 %.075197, 1
   %exitcond.not = icmp eq i64 %.176, %1
   br i1 %exitcond.not, label %._crit_edge, label %23
@@ -77803,8 +77803,8 @@ lean_inc.exit311:                                 ; preds = %407, %406, %404, %l
   br label %lean_dec.exit292
 
 lean_dec.exit295:                                 ; preds = %551, %lean_alloc_ctor.exit517, %287, %lean_alloc_ctor.exit477
-  %.6248 = phi ptr [ %289, %287 ], [ %298, %lean_alloc_ctor.exit477 ], [ %558, %lean_alloc_ctor.exit517 ], [ %553, %551 ]
-  %.6239 = phi ptr [ %275, %287 ], [ %322, %lean_alloc_ctor.exit477 ], [ %584, %lean_alloc_ctor.exit517 ], [ %549, %551 ]
+  %.6248 = phi ptr [ %298, %lean_alloc_ctor.exit477 ], [ %289, %287 ], [ %558, %lean_alloc_ctor.exit517 ], [ %553, %551 ]
+  %.6239 = phi ptr [ %322, %lean_alloc_ctor.exit477 ], [ %275, %287 ], [ %584, %lean_alloc_ctor.exit517 ], [ %549, %551 ]
   %415 = ptrtoint ptr %.6239 to i64
   %416 = and i64 %415, 1
   %.not.i496 = icmp eq i64 %416, 0

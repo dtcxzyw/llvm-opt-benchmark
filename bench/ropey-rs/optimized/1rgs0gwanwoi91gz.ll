@@ -576,7 +576,7 @@ define noundef i64 @_ZN5ropey9str_utils27byte_to_utf16_surrogate_idx17h1e1aeb5c0
   br i1 %62, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.llvm.12620698079031950665.exit.thread", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.llvm.12620698079031950665.exit"
 
 _ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.llvm.12620698079031950665.exit: ; preds = %11, %.lr.ph72, %3, %._crit_edge, %"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$5index17h66d5095e8283f190E.llvm.12620698079031950665.exit"
-  %.sroa.0.1.i = phi i64 [ 0, %"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$5index17h66d5095e8283f190E.llvm.12620698079031950665.exit" ], [ %.sroa.0.2.i.lcssa, %._crit_edge ], [ 0, %3 ], [ %50, %.lr.ph72 ], [ 0, %11 ]
+  %.sroa.0.1.i = phi i64 [ 0, %3 ], [ 0, %"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$5index17h66d5095e8283f190E.llvm.12620698079031950665.exit" ], [ %.sroa.0.2.i.lcssa, %._crit_edge ], [ %50, %.lr.ph72 ], [ 0, %11 ]
   ret i64 %.sroa.0.1.i
 }
 

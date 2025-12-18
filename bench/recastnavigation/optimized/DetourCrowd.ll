@@ -371,7 +371,7 @@ _ZN12dtCrowdAgentC2Ev.exit:                       ; preds = %.lr.ph
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN12dtCrowdAgentC2Ev.exit, %89, %._crit_edge, %56, %50, %44, %40, %36, %21, %18, %13, %4
-  %.028 = phi i1 [ false, %56 ], [ %91, %89 ], [ false, %._crit_edge ], [ false, %50 ], [ false, %44 ], [ false, %40 ], [ false, %36 ], [ false, %21 ], [ false, %18 ], [ false, %13 ], [ false, %4 ], [ false, %_ZN12dtCrowdAgentC2Ev.exit ]
+  %.028 = phi i1 [ false, %56 ], [ %91, %89 ], [ false, %._crit_edge ], [ false, %4 ], [ false, %50 ], [ false, %44 ], [ false, %40 ], [ false, %36 ], [ false, %21 ], [ false, %18 ], [ false, %13 ], [ false, %_ZN12dtCrowdAgentC2Ev.exit ]
   ret i1 %.028
 }
 

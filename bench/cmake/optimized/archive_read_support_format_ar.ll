@@ -283,7 +283,7 @@ thread-pre-split.thread.i:                        ; preds = %30, %21
   br i1 %or.cond.i.i, label %.lr.ph.i.i, label %ar_atol10.exit.i, !llvm.loop !35
 
 ar_atol10.exit.i:                                 ; preds = %67, %.lr.ph.i.i
-  %.127.i.i = phi i64 [ %.02635.i.i, %.lr.ph.i.i ], [ %70, %67 ]
+  %.127.i.i = phi i64 [ %70, %67 ], [ %.02635.i.i, %.lr.ph.i.i ]
   %74 = icmp ugt i64 %.127.i.i, 1073741824
   br i1 %74, label %ar_atol10.exit.thread.i, label %75
 
@@ -518,7 +518,7 @@ ar_atol10.exit190.i:                              ; preds = %114, %111, %109, %.
   br i1 %or.cond.i216.i, label %.lr.ph.i205.i, label %ar_atol10.exit217.i, !llvm.loop !35
 
 ar_atol10.exit217.i:                              ; preds = %148, %.lr.ph.i205.i
-  %.127.i204.i = phi i64 [ %.02635.i210.i, %.lr.ph.i205.i ], [ %151, %148 ]
+  %.127.i204.i = phi i64 [ %151, %148 ], [ %.02635.i210.i, %.lr.ph.i205.i ]
   %155 = icmp ugt i64 %.127.i204.i, 1048576
   br i1 %155, label %ar_atol10.exit217.thread.i, label %ar_atol10.exit217.thread226.i
 

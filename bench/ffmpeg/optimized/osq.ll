@@ -1301,7 +1301,7 @@ do_decode.exit.sink.split.i:                      ; preds = %get_urice.exit56.i.
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull %.str.3.sink.i) #9
   br label %osq_decode_block.exit
 
-.loopexit:                                        ; preds = %._crit_edge.us.i, %._crit_edge.us105.i, %._crit_edge.us110.i, %.preheader92.i, %.preheader.i, %.preheader90.i, %.lr.ph109.i, %.lr.ph104.i, %.lr.ph100.i
+.loopexit:                                        ; preds = %._crit_edge.us.i, %._crit_edge.us105.i, %._crit_edge.us110.i, %.preheader.i, %.preheader92.i, %.preheader90.i, %.lr.ph109.i, %.lr.ph104.i, %.lr.ph100.i
   %666 = load i32, ptr %63, align 8, !tbaa !59
   %667 = sext i32 %666 to i64
   %668 = load i64, ptr %59, align 8, !tbaa !39
@@ -1325,7 +1325,7 @@ do_decode.exit.sink.split.i:                      ; preds = %get_urice.exit56.i.
   br label %.thread
 
 osq_decode_block.exit:                            ; preds = %23, %399, %do_decode.exit.sink.split.i, %align_get_bits.exit.i, %.loopexit, %68, %65
-  %.3 = phi i32 [ %66, %65 ], [ -1094995529, %68 ], [ -1094995529, %.loopexit ], [ -1094995529, %do_decode.exit.sink.split.i ], [ -558323010, %align_get_bits.exit.i ], [ -1094995529, %399 ], [ %20, %23 ]
+  %.3 = phi i32 [ %66, %65 ], [ -1094995529, %68 ], [ -1094995529, %.loopexit ], [ -558323010, %align_get_bits.exit.i ], [ -1094995529, %399 ], [ -1094995529, %do_decode.exit.sink.split.i ], [ %20, %23 ]
   store i64 0, ptr %5, align 8, !tbaa !54
   %680 = getelementptr inbounds nuw i8, ptr %4, i64 216
   store i32 0, ptr %680, align 8, !tbaa !58

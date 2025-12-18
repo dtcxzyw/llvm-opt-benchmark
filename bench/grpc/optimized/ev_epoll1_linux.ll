@@ -1284,7 +1284,7 @@ define internal void @_ZL12pollset_workP12grpc_pollsetPP19grpc_pollset_workerN9g
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.noexc40, %74, %73, %67, %60, %.noexc36
-  %.07290.i = phi ptr [ %.07291.i, %74 ], [ %.07291.i, %60 ], [ %.07291.i, %67 ], [ %.07291.i, %73 ], [ %51, %.noexc36 ], [ %57, %.noexc40 ]
+  %.07290.i = phi ptr [ %.07291.i, %74 ], [ %.07291.i, %60 ], [ %51, %.noexc36 ], [ %.07291.i, %67 ], [ %.07291.i, %73 ], [ %57, %.noexc40 ]
   br i1 %41, label %86, label %82
 
 82:                                               ; preds = %.loopexit.i

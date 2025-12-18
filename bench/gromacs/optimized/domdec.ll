@@ -16461,7 +16461,7 @@ define noundef zeroext i1 @_Z16change_dd_cutoffP9t_commrecPA3_KfN3gmx8ArrayRefIK
   br i1 %exitcond86.not.i, label %.critedge52.i, label %.lr.ph.split.split.split.i, !llvm.loop !866
 
 .critedge52.i:                                    ; preds = %79, %59, %199, %164, %126, %..critedge52_crit_edge.i
-  %.val.i = phi i32 [ %.val.pre.i, %..critedge52_crit_edge.i ], [ %.val53.fr.i, %59 ], [ %.val53.fr.i, %126 ], [ %.val53.fr.i, %164 ], [ %.val53.fr.i, %199 ], [ %.val53.fr.i, %79 ]
+  %.val.i = phi i32 [ %.val.pre.i, %..critedge52_crit_edge.i ], [ %.val53.fr.i, %199 ], [ %.val53.fr.i, %164 ], [ %.val53.fr.i, %59 ], [ %.val53.fr.i, %126 ], [ %.val53.fr.i, %79 ]
   %spec.select.i55.i = icmp ult i32 %.val.i, 2
   br i1 %spec.select.i55.i, label %208, label %200
 

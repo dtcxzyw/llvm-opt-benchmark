@@ -2952,7 +2952,7 @@ _ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit77: ; preds = %_ZNK9rcCont
   br label %.loopexit
 
 .loopexit:                                        ; preds = %197, %342, %180, %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit77, %492, %386, %367, %360, %355, %350, %340, %334, %329, %323, %316, %309, %277, %265, %259, %178, %171, %20
-  %.055 = phi ptr [ null, %180 ], [ null, %386 ], [ %532, %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit77 ], [ null, %492 ], [ null, %367 ], [ null, %360 ], [ null, %355 ], [ null, %350 ], [ null, %340 ], [ null, %334 ], [ null, %316 ], [ null, %309 ], [ null, %323 ], [ null, %329 ], [ null, %277 ], [ null, %265 ], [ null, %259 ], [ null, %171 ], [ null, %20 ], [ null, %178 ], [ null, %342 ], [ null, %197 ]
+  %.055 = phi ptr [ null, %180 ], [ null, %342 ], [ null, %386 ], [ %532, %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit77 ], [ null, %492 ], [ null, %367 ], [ null, %360 ], [ null, %355 ], [ null, %350 ], [ null, %340 ], [ null, %334 ], [ null, %316 ], [ null, %309 ], [ null, %323 ], [ null, %329 ], [ null, %277 ], [ null, %265 ], [ null, %259 ], [ null, %171 ], [ null, %20 ], [ null, %178 ], [ null, %197 ]
   ret ptr %.055
 }
 

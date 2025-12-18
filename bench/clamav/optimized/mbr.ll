@@ -635,7 +635,7 @@ default.unreachable:                              ; preds = %138, %134, %131
   br i1 %163, label %93, label %mbr_scanextprtn.exit
 
 mbr_scanextprtn.exit.thread:                      ; preds = %148, %fmap_readn.exit.thread.i, %147, %155, %137, %mbr_check_ebr.exit.i
-  %.058.i.ph = phi i32 [ 26, %mbr_check_ebr.exit.i ], [ 26, %137 ], [ 26, %155 ], [ 26, %147 ], [ 26, %fmap_readn.exit.thread.i ], [ %150, %148 ]
+  %.058.i.ph = phi i32 [ 26, %fmap_readn.exit.thread.i ], [ 26, %mbr_check_ebr.exit.i ], [ 26, %137 ], [ 26, %155 ], [ 26, %147 ], [ %150, %148 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit
 
@@ -670,7 +670,7 @@ mbr_scanextprtn.exit:                             ; preds = %158, %159
   br label %.loopexit
 
 .loopexit:                                        ; preds = %164, %mbr_scanextprtn.exit.thread, %mbr_check_mbr.exit, %.critedge, %.critedge.thread, %58, %43, %fmap_readn.exit.thread, %15, %8
-  %.0 = phi i32 [ 26, %15 ], [ 26, %fmap_readn.exit.thread ], [ 26, %mbr_check_mbr.exit ], [ %45, %43 ], [ %59, %58 ], [ %.058.i.ph, %mbr_scanextprtn.exit.thread ], [ 0, %.critedge.thread ], [ 0, %.critedge ], [ 2, %8 ], [ %167, %164 ]
+  %.0 = phi i32 [ 26, %15 ], [ 26, %fmap_readn.exit.thread ], [ 26, %mbr_check_mbr.exit ], [ %45, %43 ], [ %59, %58 ], [ %.058.i.ph, %mbr_scanextprtn.exit.thread ], [ 2, %8 ], [ 0, %.critedge.thread ], [ 0, %.critedge ], [ %167, %164 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }

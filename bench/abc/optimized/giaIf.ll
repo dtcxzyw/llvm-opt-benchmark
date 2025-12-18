@@ -10817,7 +10817,7 @@ Abc_TtHasVar.exit.thread29.i:                     ; preds = %176, %190
   br label %Abc_TtHasVar.exit.thread.i
 
 Abc_TtHasVar.exit.thread.i:                       ; preds = %._crit_edge.us.i.i, %175, %203, %.preheader.lr.ph.i.i
-  %.1.i = phi i32 [ %204, %203 ], [ %.037.i, %.preheader.lr.ph.i.i ], [ %.037.i, %175 ], [ %.037.i, %._crit_edge.us.i.i ]
+  %.1.i = phi i32 [ %204, %203 ], [ %.037.i, %175 ], [ %.037.i, %.preheader.lr.ph.i.i ], [ %.037.i, %._crit_edge.us.i.i ]
   %indvars.iv.next.i129 = add nuw nsw i64 %indvars.iv.i126, 1
   %exitcond.not.i130 = icmp eq i64 %indvars.iv.next.i129, %wide.trip.count.i125
   br i1 %exitcond.not.i130, label %Abc_TtMinBase.exit, label %.lr.ph.split.split.split.i, !llvm.loop !232

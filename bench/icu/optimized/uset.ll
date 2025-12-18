@@ -1378,7 +1378,7 @@ define signext range(i8 0, 2) i8 @uset_getSerializedRange_77(ptr noundef readonl
   br label %73
 
 73:                                               ; preds = %.sink.split, %43, %4
-  %.0 = phi i8 [ 0, %4 ], [ 0, %43 ], [ 1, %.sink.split ]
+  %.0 = phi i8 [ 0, %43 ], [ 0, %4 ], [ 1, %.sink.split ]
   ret i8 %.0
 }
 

@@ -28187,11 +28187,11 @@ _ZN11polars_pipe9executors5sinks8group_by6string17StringGroupbySink8sink_ooc17h4
           to label %340 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .body93:                                          ; preds = %540, %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %626, %603, %605, %558, %555, %552, %549
-  %.sroa.033.3 = phi i8 [ 1, %549 ], [ 0, %558 ], [ 1, %555 ], [ 1, %552 ], [ 1, %603 ], [ 1, %605 ], [ 1, %626 ], [ 1, %.loopexit.split-lp.loopexit ], [ 1, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ 1, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ 1, %.loopexit ], [ 1, %540 ]
-  %.sroa.034.3 = phi i8 [ 1, %549 ], [ 0, %558 ], [ 0, %555 ], [ 1, %552 ], [ 1, %603 ], [ 1, %605 ], [ 1, %626 ], [ 1, %.loopexit.split-lp.loopexit ], [ 1, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ 1, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ 1, %.loopexit ], [ 1, %540 ]
-  %.sroa.035.3 = phi i8 [ 1, %549 ], [ 0, %558 ], [ 0, %555 ], [ 0, %552 ], [ 1, %603 ], [ 1, %605 ], [ 1, %626 ], [ 1, %.loopexit.split-lp.loopexit ], [ 1, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ 1, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ 1, %.loopexit ], [ 1, %540 ]
-  %.sroa.036.3 = phi i8 [ 0, %549 ], [ 0, %558 ], [ 0, %555 ], [ 0, %552 ], [ 1, %603 ], [ 1, %605 ], [ 1, %626 ], [ 1, %.loopexit.split-lp.loopexit ], [ 1, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ 1, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ 1, %.loopexit ], [ 1, %540 ]
-  %.pn = phi { ptr, i32 } [ %550, %549 ], [ %559, %558 ], [ %556, %555 ], [ %553, %552 ], [ %604, %603 ], [ %604, %605 ], [ %627, %626 ], [ %lpad.loopexit211, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit214, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit, %.loopexit ], [ %543, %540 ]
+  %.sroa.033.3 = phi i8 [ 1, %549 ], [ 0, %558 ], [ 1, %555 ], [ 1, %552 ], [ 1, %626 ], [ 1, %603 ], [ 1, %.loopexit ], [ 1, %605 ], [ 1, %.loopexit.split-lp.loopexit ], [ 1, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ 1, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ 1, %540 ]
+  %.sroa.034.3 = phi i8 [ 1, %549 ], [ 0, %558 ], [ 0, %555 ], [ 1, %552 ], [ 1, %626 ], [ 1, %603 ], [ 1, %.loopexit ], [ 1, %605 ], [ 1, %.loopexit.split-lp.loopexit ], [ 1, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ 1, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ 1, %540 ]
+  %.sroa.035.3 = phi i8 [ 1, %549 ], [ 0, %558 ], [ 0, %555 ], [ 0, %552 ], [ 1, %626 ], [ 1, %603 ], [ 1, %.loopexit ], [ 1, %605 ], [ 1, %.loopexit.split-lp.loopexit ], [ 1, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ 1, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ 1, %540 ]
+  %.sroa.036.3 = phi i8 [ 0, %549 ], [ 0, %558 ], [ 0, %555 ], [ 0, %552 ], [ 1, %626 ], [ 1, %603 ], [ 1, %.loopexit ], [ 1, %605 ], [ 1, %.loopexit.split-lp.loopexit ], [ 1, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ 1, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ 1, %540 ]
+  %.pn = phi { ptr, i32 } [ %550, %549 ], [ %559, %558 ], [ %556, %555 ], [ %553, %552 ], [ %627, %626 ], [ %604, %603 ], [ %lpad.loopexit, %.loopexit ], [ %604, %605 ], [ %lpad.loopexit211, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit214, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %543, %540 ]
   invoke void @"_ZN4core3ptr84drop_in_place$LT$polars_arrow..array..binview..BinaryViewArrayGeneric$LT$str$GT$$GT$17ha1d789b5f79ac4abE"(ptr noalias noundef nonnull align 8 dereferenceable(120) %29) #28
           to label %.body unwind label %635
 
@@ -34295,7 +34295,7 @@ define hidden void @_ZN11polars_pipe9executors5sinks4sort3ooc8sort_ooc17h25b7b9b
           to label %.body100.thread unwind label %130
 
 .loopexit.i:                                      ; preds = %113, %111, %102, %.lr.ph.i.i, %93, %93, %88
-  %.sroa.4.0.ph.i = phi i8 [ 1, %93 ], [ 0, %88 ], [ 1, %93 ], [ 1, %.lr.ph.i.i ], [ 2, %111 ], [ 1, %102 ], [ 2, %113 ]
+  %.sroa.4.0.ph.i = phi i8 [ 1, %93 ], [ 1, %93 ], [ 0, %88 ], [ 1, %.lr.ph.i.i ], [ 1, %102 ], [ 2, %113 ], [ 2, %111 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %27), !noalias !3611
   store i8 %.sroa.4.0.ph.i, ptr %27, align 1, !noalias !3611
   invoke void @_ZN4core6result13unwrap_failed17h730db56f15e0885aE(ptr noalias noundef nonnull readonly align 1 @anon.175472dbae0abe43f9f5cb397fafcc69.333, i64 noundef 7, ptr noundef nonnull align 1 %27, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.175472dbae0abe43f9f5cb397fafcc69.187, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.175472dbae0abe43f9f5cb397fafcc69.334) #30
@@ -37852,7 +37852,7 @@ define void @_ZN11polars_pipe9executors5sinks4sort13sink_multiple16SortSinkMulti
   br label %"_ZN4core3ptr122drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$$u5b$polars_core..datatypes..dtype..DataType$u5d$$GT$$GT$$GT$17h1c7a0b4c70c2762bE.exit"
 
 .loopexit.split-lp:                               ; preds = %298, %137, %138, %._crit_edge, %.noexc51
-  %.sroa.09.2.ph = phi i8 [ 0, %._crit_edge ], [ 1, %138 ], [ 1, %137 ], [ 0, %.noexc51 ], [ 1, %298 ]
+  %.sroa.09.2.ph = phi i8 [ 1, %137 ], [ 0, %.noexc51 ], [ 1, %138 ], [ 1, %298 ], [ 0, %._crit_edge ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr122drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$$u5b$polars_core..datatypes..dtype..DataType$u5d$$GT$$GT$$GT$17h1c7a0b4c70c2762bE.exit"
@@ -40832,7 +40832,7 @@ _ZN11polars_pipe9executors5sinks4sort6source10SortSource13print_verbose17h119f2c
   br label %243
 
 .loopexit.split-lp:                               ; preds = %87, %181, %187, %198, %.loopexit135, %229, %230, %133, %138, %_ZN11polars_pipe9executors5sinks6memory10MemTracker14refresh_memory17h2a17790b6deb0de2E.exit.i
-  %.sroa.023.2.ph = phi i1 [ true, %133 ], [ true, %87 ], [ true, %_ZN11polars_pipe9executors5sinks6memory10MemTracker14refresh_memory17h2a17790b6deb0de2E.exit.i ], [ true, %138 ], [ true, %.loopexit135 ], [ false, %229 ], [ false, %230 ], [ true, %198 ], [ true, %187 ], [ true, %181 ]
+  %.sroa.023.2.ph = phi i1 [ true, %138 ], [ true, %_ZN11polars_pipe9executors5sinks6memory10MemTracker14refresh_memory17h2a17790b6deb0de2E.exit.i ], [ true, %87 ], [ true, %133 ], [ true, %.loopexit135 ], [ false, %229 ], [ false, %230 ], [ true, %198 ], [ true, %187 ], [ true, %181 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %243

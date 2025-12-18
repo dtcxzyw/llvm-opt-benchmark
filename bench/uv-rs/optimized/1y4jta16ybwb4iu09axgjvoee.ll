@@ -27402,8 +27402,8 @@ define hidden void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$
   br label %"_ZN4core3ptr154drop_in_place$LT$rmp_serde..encode..MaybeUnknownLengthCompound$LT$$RF$mut$u20$rmp_serde..encode..FallibleWriter$C$rmp_serde..config..DefaultConfig$GT$$GT$17h3a1a58579ab81769E.exit"
 
 .loopexit128:                                     ; preds = %101, %72, %60, %58
-  %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx174 = phi ptr [ %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx, %58 ], [ %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx173, %60 ], [ %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx173, %72 ], [ %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx173, %101 ]
-  %.sroa.413.0..sroa_idx167 = phi ptr [ %.sroa.413.0..sroa_idx, %58 ], [ %.sroa.413.0..sroa_idx168, %60 ], [ %.sroa.413.0..sroa_idx168, %72 ], [ %.sroa.413.0..sroa_idx168, %101 ]
+  %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx174 = phi ptr [ %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx173, %72 ], [ %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx, %58 ], [ %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx173, %60 ], [ %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx173, %101 ]
+  %.sroa.413.0..sroa_idx167 = phi ptr [ %.sroa.413.0..sroa_idx168, %72 ], [ %.sroa.413.0..sroa_idx, %58 ], [ %.sroa.413.0..sroa_idx168, %60 ], [ %.sroa.413.0..sroa_idx168, %101 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.680)
   %.sroa.077.0.copyload = load i64, ptr %18, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.680, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.413.0..sroa_idx167, i64 32, i1 false)
@@ -27579,8 +27579,8 @@ define hidden void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$
           to label %.body.thread unwind label %159, !noalias !5671
 
 173:                                              ; preds = %.split.us.i.i, %108
-  %.sroa.413.sroa.4.0..sroa.413.0..sroa_idx.sroa_idx169 = phi ptr [ %.sroa.413.sroa.4.0..sroa.413.0..sroa_idx.sroa_idx, %108 ], [ %.sroa.413.sroa.4.0..sroa.413.0..sroa_idx.sroa_idx170, %.split.us.i.i ]
-  %.sroa.075.0 = phi i64 [ %.pr.i, %108 ], [ %.us-phi.i.i, %.split.us.i.i ]
+  %.sroa.413.sroa.4.0..sroa.413.0..sroa_idx.sroa_idx169 = phi ptr [ %.sroa.413.sroa.4.0..sroa.413.0..sroa_idx.sroa_idx170, %.split.us.i.i ], [ %.sroa.413.sroa.4.0..sroa.413.0..sroa_idx.sroa_idx, %108 ]
+  %.sroa.075.0 = phi i64 [ %.us-phi.i.i, %.split.us.i.i ], [ %.pr.i, %108 ]
   store i64 %.sroa.075.0, ptr %0, align 8
   %.sroa.2110.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.2110.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.876, i64 16, i1 false)
@@ -27789,8 +27789,8 @@ _ZN3rmp6encode4uint10write_uint17hdb153a0ad94f1e5eE.llvm.7725695193857395179.exi
   br label %"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$C$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_u6417h91d43117a1e7f8acE.exit"
 
 _ZN3rmp6encode4uint10write_uint17hdb153a0ad94f1e5eE.llvm.7725695193857395179.exit.thread4.i: ; preds = %_ZN3rmp6encode4uint10write_uint17hdb153a0ad94f1e5eE.llvm.7725695193857395179.exit._ZN3rmp6encode4uint10write_uint17hdb153a0ad94f1e5eE.llvm.7725695193857395179.exit.thread4_crit_edge.i, %19, %17
-  %23 = phi ptr [ %.pre.i, %_ZN3rmp6encode4uint10write_uint17hdb153a0ad94f1e5eE.llvm.7725695193857395179.exit._ZN3rmp6encode4uint10write_uint17hdb153a0ad94f1e5eE.llvm.7725695193857395179.exit.thread4_crit_edge.i ], [ %20, %19 ], [ %18, %17 ]
-  %24 = phi i64 [ %.pr.i, %_ZN3rmp6encode4uint10write_uint17hdb153a0ad94f1e5eE.llvm.7725695193857395179.exit._ZN3rmp6encode4uint10write_uint17hdb153a0ad94f1e5eE.llvm.7725695193857395179.exit.thread4_crit_edge.i ], [ %10, %19 ], [ %15, %17 ]
+  %23 = phi ptr [ %.pre.i, %_ZN3rmp6encode4uint10write_uint17hdb153a0ad94f1e5eE.llvm.7725695193857395179.exit._ZN3rmp6encode4uint10write_uint17hdb153a0ad94f1e5eE.llvm.7725695193857395179.exit.thread4_crit_edge.i ], [ %18, %17 ], [ %20, %19 ]
+  %24 = phi i64 [ %.pr.i, %_ZN3rmp6encode4uint10write_uint17hdb153a0ad94f1e5eE.llvm.7725695193857395179.exit._ZN3rmp6encode4uint10write_uint17hdb153a0ad94f1e5eE.llvm.7725695193857395179.exit.thread4_crit_edge.i ], [ %15, %17 ], [ %10, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !5774
   store i64 -9223372036854775808, ptr %0, align 8, !alias.scope !5771, !noalias !5779
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -27867,9 +27867,9 @@ _ZN3rmp6encode4uint10write_uint17hdb153a0ad94f1e5eE.llvm.7725695193857395179.exi
   store i64 -9223372036854775804, ptr %0, align 8
   br label %34
 
-_ZN3rmp6encode4uint10write_uint17hdb153a0ad94f1e5eE.llvm.7725695193857395179.exit.thread4: ; preds = %_ZN3rmp6encode4uint10write_uint17hdb153a0ad94f1e5eE.llvm.7725695193857395179.exit._ZN3rmp6encode4uint10write_uint17hdb153a0ad94f1e5eE.llvm.7725695193857395179.exit.thread4_crit_edge, %28, %21, %15
-  %32 = phi ptr [ %.pre, %_ZN3rmp6encode4uint10write_uint17hdb153a0ad94f1e5eE.llvm.7725695193857395179.exit._ZN3rmp6encode4uint10write_uint17hdb153a0ad94f1e5eE.llvm.7725695193857395179.exit.thread4_crit_edge ], [ %29, %28 ], [ %22, %21 ], [ %16, %15 ]
-  %33 = phi i64 [ %.pr, %_ZN3rmp6encode4uint10write_uint17hdb153a0ad94f1e5eE.llvm.7725695193857395179.exit._ZN3rmp6encode4uint10write_uint17hdb153a0ad94f1e5eE.llvm.7725695193857395179.exit.thread4_crit_edge ], [ %26, %28 ], [ %19, %21 ], [ %13, %15 ]
+_ZN3rmp6encode4uint10write_uint17hdb153a0ad94f1e5eE.llvm.7725695193857395179.exit.thread4: ; preds = %_ZN3rmp6encode4uint10write_uint17hdb153a0ad94f1e5eE.llvm.7725695193857395179.exit._ZN3rmp6encode4uint10write_uint17hdb153a0ad94f1e5eE.llvm.7725695193857395179.exit.thread4_crit_edge, %21, %28, %15
+  %32 = phi ptr [ %.pre, %_ZN3rmp6encode4uint10write_uint17hdb153a0ad94f1e5eE.llvm.7725695193857395179.exit._ZN3rmp6encode4uint10write_uint17hdb153a0ad94f1e5eE.llvm.7725695193857395179.exit.thread4_crit_edge ], [ %22, %21 ], [ %29, %28 ], [ %16, %15 ]
+  %33 = phi i64 [ %.pr, %_ZN3rmp6encode4uint10write_uint17hdb153a0ad94f1e5eE.llvm.7725695193857395179.exit._ZN3rmp6encode4uint10write_uint17hdb153a0ad94f1e5eE.llvm.7725695193857395179.exit.thread4_crit_edge ], [ %19, %21 ], [ %26, %28 ], [ %13, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store i64 -9223372036854775808, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -28675,7 +28675,7 @@ _ZN3std4path4Path4join17h69e3f6b484ec3542E.exit:  ; preds = %4
   unreachable
 
 .thread:                                          ; preds = %58, %.body, %69
-  %.pn10 = phi { ptr, i32 } [ %70, %69 ], [ %eh.lpad-body, %.body ], [ %61, %58 ]
+  %.pn10 = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %70, %69 ], [ %61, %58 ]
   resume { ptr, i32 } %.pn10
 
 69:                                               ; preds = %4

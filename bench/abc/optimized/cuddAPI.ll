@@ -155,7 +155,7 @@ define ptr @Cudd_addNewVarAtLevel(ptr noundef %0, i32 noundef %1) local_unnamed_
   br i1 %30, label %23, label %Cudd_addIthVar.exit, !llvm.loop !30
 
 Cudd_addIthVar.exit:                              ; preds = %12, %23, %7, %18, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %18 ], [ null, %7 ], [ %28, %23 ], [ %15, %12 ]
+  %.0 = phi ptr [ null, %2 ], [ %28, %23 ], [ null, %18 ], [ null, %7 ], [ %15, %12 ]
   ret ptr %.0
 }
 

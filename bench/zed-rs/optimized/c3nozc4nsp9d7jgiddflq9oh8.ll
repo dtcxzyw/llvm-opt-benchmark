@@ -1233,7 +1233,7 @@ _ZN4core3ops8function6FnOnce9call_once17h2da87b67e2d4591fE.exit.thread.i5.i.i.i.
   %.sroa.0.0.ph.i = load ptr, ptr %.sroa.0.0.ph.in.i, align 8, !alias.scope !353, !noalias !352, !nonnull !11, !align !74, !noundef !11
   br label %135
 
-"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6bb30d656acc2033E.exit.thread17": ; preds = %"_ZN4core3ptr138drop_in_place$LT$core..option..IntoIter$LT$$LP$$RF$project..task_inventory..TaskSourceKind$C$task..task_template..TaskTemplate$RP$$GT$$GT$17h1c7a7a4cde5fd0e9E.exit3.i.i.i.i.i", %90, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17he361eb4c7b60fbc2E.exit.i.i.i.i.i", %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17he361eb4c7b60fbc2E.exit.thread23.i.i.i.i.i"
+"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6bb30d656acc2033E.exit.thread17": ; preds = %"_ZN4core3ptr138drop_in_place$LT$core..option..IntoIter$LT$$LP$$RF$project..task_inventory..TaskSourceKind$C$task..task_template..TaskTemplate$RP$$GT$$GT$17h1c7a7a4cde5fd0e9E.exit3.i.i.i.i.i", %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17he361eb4c7b60fbc2E.exit.thread23.i.i.i.i.i", %90, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17he361eb4c7b60fbc2E.exit.i.i.i.i.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10.i.i.i.i.i)
   br label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6bb30d656acc2033E.exit.thread"
 
@@ -9974,7 +9974,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   br label %58
 
 .loopexit22:                                      ; preds = %22, %36, %49
-  %.sroa.0.0.i.i.i.i.i.ph = phi ptr [ %34, %36 ], [ %47, %49 ], [ %20, %22 ]
+  %.sroa.0.0.i.i.i.i.i.ph = phi ptr [ %47, %49 ], [ %34, %36 ], [ %20, %22 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17h79129c77374b25c6E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %9, i64 noundef 4, i1 noundef zeroext false)
   %54 = load i64, ptr %9, align 8, !range !124, !noundef !11
@@ -10121,7 +10121,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   br i1 %100, label %.loopexit9.i.i, label %95
 
 .loopexit9.i.i:                                   ; preds = %.noexc, %.noexc7, %.noexc8
-  %.sroa.0.0.i.i.i.i.i.ph.i.i = phi ptr [ %85, %.noexc7 ], [ %96, %.noexc8 ], [ %73, %.noexc ]
+  %.sroa.0.0.i.i.i.i.i.ph.i.i = phi ptr [ %96, %.noexc8 ], [ %85, %.noexc7 ], [ %73, %.noexc ]
   %101 = load i64, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !3218, !noalias !3219, !noundef !11
   %102 = load i64, ptr %11, align 8, !alias.scope !3218, !noalias !3219, !noundef !11
   %103 = icmp eq i64 %101, %102
@@ -55947,8 +55947,8 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17h360d575d1ddbe
   br i1 %.not.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h1c868533e314eab1E.llvm.1342728808529887919.exit._crit_edge", label %7
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h5a55bf56690a4099E.llvm.1342728808529887919.exit": ; preds = %20, %16, %13, %2
-  %.sroa.7.2 = phi i64 [ 0, %2 ], [ %12, %13 ], [ %12, %20 ], [ %12, %16 ]
-  %.sroa.16.1 = phi i64 [ 0, %2 ], [ 1, %13 ], [ 1, %20 ], [ 1, %16 ]
+  %.sroa.7.2 = phi i64 [ 0, %2 ], [ %12, %16 ], [ %12, %13 ], [ %12, %20 ]
+  %.sroa.16.1 = phi i64 [ 0, %2 ], [ 1, %16 ], [ 1, %13 ], [ 1, %20 ]
   %.not1.i = icmp eq i64 %.sroa.7.2, %4
   br i1 %.not1.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h1c868533e314eab1E.llvm.1342728808529887919.exit", label %.lr.ph.i2.preheader
 
@@ -67096,7 +67096,7 @@ _ZN10serde_json5value8to_value17h9ed5a30fabf54fd9E.exit.i.i.i.i.i.i: ; preds = %
   br label %116
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h3784a26c8fc0dcc7E.exit: ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h531ecdb68341e8fdE.exit.thread.i.i", %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h531ecdb68341e8fdE.exit.thread11.i.i"
-  %.sroa.0.0.i.i = phi ptr [ %57, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h531ecdb68341e8fdE.exit.thread.i.i" ], [ %106, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h531ecdb68341e8fdE.exit.thread11.i.i" ]
+  %.sroa.0.0.i.i = phi ptr [ %106, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h531ecdb68341e8fdE.exit.thread11.i.i" ], [ %57, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h531ecdb68341e8fdE.exit.thread.i.i" ]
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.0.0.i.i, ptr %115, align 8
   store i64 -9223372036854775803, ptr %0, align 8
@@ -86387,7 +86387,7 @@ _ZN10serde_json3ser9Formatter9end_array17h61d6e9988537a26dE.exit.i15.i.i.i.i: ; 
   unreachable
 
 "_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17h621d95c1c335c088E.exit": ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hb050a9d11b103487E.exit.i.i.i.i.i.i", %.split.i.i._crit_edge.thread.i.i.i.i, %_ZN10serde_json3ser9Formatter9end_array17h61d6e9988537a26dE.exit.i15.i.i.i.i, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_none17hbbb53878731b5348E.exit.i"
-  %.sroa.0.1 = phi ptr [ null, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_none17hbbb53878731b5348E.exit.i" ], [ null, %_ZN10serde_json3ser9Formatter9end_array17h61d6e9988537a26dE.exit.i15.i.i.i.i ], [ null, %.split.i.i._crit_edge.thread.i.i.i.i ], [ %74, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hb050a9d11b103487E.exit.i.i.i.i.i.i" ]
+  %.sroa.0.1 = phi ptr [ null, %.split.i.i._crit_edge.thread.i.i.i.i ], [ null, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_none17hbbb53878731b5348E.exit.i" ], [ null, %_ZN10serde_json3ser9Formatter9end_array17h61d6e9988537a26dE.exit.i15.i.i.i.i ], [ %74, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hb050a9d11b103487E.exit.i.i.i.i.i.i" ]
   ret ptr %.sroa.0.1
 }
 
@@ -86872,7 +86872,7 @@ _ZN10serde_json3ser9Formatter9end_array17h61d6e9988537a26dE.exit.i15.i.i: ; pred
   unreachable
 
 "_ZN5serde3ser5impls76_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$9serialize17h3317ca9e617a4e98E.exit": ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h87195a48b5c3425bE.exit.i.i.i.i", %.split.i.i._crit_edge.thread.i.i, %_ZN10serde_json3ser9Formatter9end_array17h61d6e9988537a26dE.exit.i15.i.i
-  %.sroa.0.1 = phi ptr [ null, %_ZN10serde_json3ser9Formatter9end_array17h61d6e9988537a26dE.exit.i15.i.i ], [ null, %.split.i.i._crit_edge.thread.i.i ], [ %.sroa.0.0.i.i.i.i.i.i.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h87195a48b5c3425bE.exit.i.i.i.i" ]
+  %.sroa.0.1 = phi ptr [ null, %.split.i.i._crit_edge.thread.i.i ], [ null, %_ZN10serde_json3ser9Formatter9end_array17h61d6e9988537a26dE.exit.i15.i.i ], [ %.sroa.0.0.i.i.i.i.i.i.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h87195a48b5c3425bE.exit.i.i.i.i" ]
   ret ptr %.sroa.0.1
 }
 
@@ -88616,7 +88616,7 @@ _ZN10serde_json3ser9Formatter10end_object17h3699f35297da766cE.exit.i12.i.i.i.i: 
   store i64 %109, ptr %99, align 8, !alias.scope !25199, !noalias !25208
   br label %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17hec3e202f8f86bd59E.exit.thread9"
 
-"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17hec3e202f8f86bd59E.exit.thread9": ; preds = %._crit_edge.i.i.i, %_ZN10serde_json3ser9Formatter10end_object17h3699f35297da766cE.exit.i12.i.i.i.i, %._crit_edge.thread.i.i.i
+"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17hec3e202f8f86bd59E.exit.thread9": ; preds = %_ZN10serde_json3ser9Formatter10end_object17h3699f35297da766cE.exit.i12.i.i.i.i, %._crit_edge.i.i.i, %._crit_edge.thread.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !25079
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !25079
   br label %111
@@ -89569,7 +89569,7 @@ _ZN10serde_json3ser9Formatter9end_array17h61d6e9988537a26dE.exit.i15.i.i: ; pred
   unreachable
 
 "_ZN5serde3ser5impls76_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$9serialize17h9c0277d1d36ad431E.exit": ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hf376430fc12b13cbE.exit.i.i.i.i", %.split.i.i._crit_edge.thread.i.i, %_ZN10serde_json3ser9Formatter9end_array17h61d6e9988537a26dE.exit.i15.i.i
-  %.sroa.0.1 = phi ptr [ null, %_ZN10serde_json3ser9Formatter9end_array17h61d6e9988537a26dE.exit.i15.i.i ], [ null, %.split.i.i._crit_edge.thread.i.i ], [ %58, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hf376430fc12b13cbE.exit.i.i.i.i" ]
+  %.sroa.0.1 = phi ptr [ null, %.split.i.i._crit_edge.thread.i.i ], [ null, %_ZN10serde_json3ser9Formatter9end_array17h61d6e9988537a26dE.exit.i15.i.i ], [ %58, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hf376430fc12b13cbE.exit.i.i.i.i" ]
   ret ptr %.sroa.0.1
 }
 
@@ -90024,7 +90024,7 @@ _ZN10serde_json3ser9Formatter9end_array17h61d6e9988537a26dE.exit.i15.i.i: ; pred
   unreachable
 
 "_ZN5serde3ser5impls76_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$9serialize17h2b3be569b107f714E.exit": ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h1da590c81c6ac4e1E.exit.i.i.i.i", %.split.i.i._crit_edge.thread.i.i, %_ZN10serde_json3ser9Formatter9end_array17h61d6e9988537a26dE.exit.i15.i.i
-  %.sroa.0.1 = phi ptr [ null, %_ZN10serde_json3ser9Formatter9end_array17h61d6e9988537a26dE.exit.i15.i.i ], [ null, %.split.i.i._crit_edge.thread.i.i ], [ %58, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h1da590c81c6ac4e1E.exit.i.i.i.i" ]
+  %.sroa.0.1 = phi ptr [ null, %.split.i.i._crit_edge.thread.i.i ], [ null, %_ZN10serde_json3ser9Formatter9end_array17h61d6e9988537a26dE.exit.i15.i.i ], [ %58, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h1da590c81c6ac4e1E.exit.i.i.i.i" ]
   ret ptr %.sroa.0.1
 }
 
@@ -91979,7 +91979,7 @@ _ZN10serde_json3ser9Formatter10end_object17h3699f35297da766cE.exit.i12.i.i.i.i: 
   store i64 %109, ptr %99, align 8, !alias.scope !27203, !noalias !27212
   br label %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17h9f57688308414abbE.exit.thread9"
 
-"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17h9f57688308414abbE.exit.thread9": ; preds = %._crit_edge.i.i.i, %_ZN10serde_json3ser9Formatter10end_object17h3699f35297da766cE.exit.i12.i.i.i.i, %._crit_edge.thread.i.i.i
+"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17h9f57688308414abbE.exit.thread9": ; preds = %_ZN10serde_json3ser9Formatter10end_object17h3699f35297da766cE.exit.i12.i.i.i.i, %._crit_edge.i.i.i, %._crit_edge.thread.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !27083
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !27083
   br label %111
@@ -92345,7 +92345,7 @@ _ZN10serde_json3ser9Formatter9end_array17h61d6e9988537a26dE.exit.i15.i.i: ; pred
   unreachable
 
 "_ZN5serde3ser5impls76_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$9serialize17h7863f71d6d6a7c37E.exit": ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h772ba3682967c6c9E.exit.i.i.i.i", %.split.i.i._crit_edge.thread.i.i, %_ZN10serde_json3ser9Formatter9end_array17h61d6e9988537a26dE.exit.i15.i.i
-  %.sroa.0.1 = phi ptr [ null, %_ZN10serde_json3ser9Formatter9end_array17h61d6e9988537a26dE.exit.i15.i.i ], [ null, %.split.i.i._crit_edge.thread.i.i ], [ %58, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h772ba3682967c6c9E.exit.i.i.i.i" ]
+  %.sroa.0.1 = phi ptr [ null, %.split.i.i._crit_edge.thread.i.i ], [ null, %_ZN10serde_json3ser9Formatter9end_array17h61d6e9988537a26dE.exit.i15.i.i ], [ %58, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h772ba3682967c6c9E.exit.i.i.i.i" ]
   ret ptr %.sroa.0.1
 }
 
@@ -92747,7 +92747,7 @@ _ZN10serde_json3ser9Formatter9end_array17h61d6e9988537a26dE.exit.i15.i.i: ; pred
   unreachable
 
 "_ZN5serde3ser5impls76_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$9serialize17h775718867b3749d3E.exit": ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h307dd8ab4891d8e7E.exit.i.i.i.i", %.split.i.i._crit_edge.thread.i.i, %_ZN10serde_json3ser9Formatter9end_array17h61d6e9988537a26dE.exit.i15.i.i
-  %.sroa.0.1 = phi ptr [ null, %_ZN10serde_json3ser9Formatter9end_array17h61d6e9988537a26dE.exit.i15.i.i ], [ null, %.split.i.i._crit_edge.thread.i.i ], [ %61, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h307dd8ab4891d8e7E.exit.i.i.i.i" ]
+  %.sroa.0.1 = phi ptr [ null, %.split.i.i._crit_edge.thread.i.i ], [ null, %_ZN10serde_json3ser9Formatter9end_array17h61d6e9988537a26dE.exit.i15.i.i ], [ %61, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h307dd8ab4891d8e7E.exit.i.i.i.i" ]
   ret ptr %.sroa.0.1
 }
 
@@ -93666,7 +93666,7 @@ _ZN10serde_json3ser9Formatter9end_array17h61d6e9988537a26dE.exit.i15.i.i.i.i: ; 
   unreachable
 
 "_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17hc414fc8e5fdb0415E.exit": ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h291f4d36daa8a5caE.exit.i.i.i.i.i.i", %.split.i.i._crit_edge.thread.i.i.i.i, %_ZN10serde_json3ser9Formatter9end_array17h61d6e9988537a26dE.exit.i15.i.i.i.i, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_none17hbbb53878731b5348E.exit.i"
-  %.sroa.0.1 = phi ptr [ null, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_none17hbbb53878731b5348E.exit.i" ], [ null, %_ZN10serde_json3ser9Formatter9end_array17h61d6e9988537a26dE.exit.i15.i.i.i.i ], [ null, %.split.i.i._crit_edge.thread.i.i.i.i ], [ %74, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h291f4d36daa8a5caE.exit.i.i.i.i.i.i" ]
+  %.sroa.0.1 = phi ptr [ null, %.split.i.i._crit_edge.thread.i.i.i.i ], [ null, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_none17hbbb53878731b5348E.exit.i" ], [ null, %_ZN10serde_json3ser9Formatter9end_array17h61d6e9988537a26dE.exit.i15.i.i.i.i ], [ %74, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h291f4d36daa8a5caE.exit.i.i.i.i.i.i" ]
   ret ptr %.sroa.0.1
 }
 
@@ -93927,7 +93927,7 @@ _ZN10serde_json3ser9Formatter9end_array17h61d6e9988537a26dE.exit.i15.i.i.i.i.i.i
   unreachable
 
 "_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17h5ae8e6aef54a35e9E.exit": ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h59588dbb49673f87E.exit.i.i.i.i.i.i.i.i", %.split.i.i._crit_edge.thread.i.i.i.i.i.i, %_ZN10serde_json3ser9Formatter9end_array17h61d6e9988537a26dE.exit.i15.i.i.i.i.i.i, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_none17hbbb53878731b5348E.exit.i.i.i", %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_none17hbbb53878731b5348E.exit.i"
-  %.sroa.0.1 = phi ptr [ null, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_none17hbbb53878731b5348E.exit.i" ], [ null, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_none17hbbb53878731b5348E.exit.i.i.i" ], [ null, %_ZN10serde_json3ser9Formatter9end_array17h61d6e9988537a26dE.exit.i15.i.i.i.i.i.i ], [ null, %.split.i.i._crit_edge.thread.i.i.i.i.i.i ], [ %89, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h59588dbb49673f87E.exit.i.i.i.i.i.i.i.i" ]
+  %.sroa.0.1 = phi ptr [ null, %.split.i.i._crit_edge.thread.i.i.i.i.i.i ], [ null, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_none17hbbb53878731b5348E.exit.i" ], [ null, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_none17hbbb53878731b5348E.exit.i.i.i" ], [ null, %_ZN10serde_json3ser9Formatter9end_array17h61d6e9988537a26dE.exit.i15.i.i.i.i.i.i ], [ %89, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h59588dbb49673f87E.exit.i.i.i.i.i.i.i.i" ]
   ret ptr %.sroa.0.1
 }
 

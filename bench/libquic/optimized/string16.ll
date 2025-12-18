@@ -6145,7 +6145,7 @@ define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char
   br i1 %exitcond.not.i, label %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE13find_first_ofEPKtmm.exit, label %11, !llvm.loop !32
 
 _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE13find_first_ofEPKtmm.exit: ; preds = %19, %.lr.ph.i.i.i, %3
-  %.2.i = phi i64 [ -1, %3 ], [ %.01123.i, %.lr.ph.i.i.i ], [ -1, %19 ]
+  %.2.i = phi i64 [ %.01123.i, %.lr.ph.i.i.i ], [ -1, %3 ], [ -1, %19 ]
   ret i64 %.2.i
 }
 
@@ -6187,7 +6187,7 @@ define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char
   br i1 %exitcond.not, label %.critedge, label %9, !llvm.loop !32
 
 .critedge:                                        ; preds = %17, %.lr.ph.i.i, %4
-  %.2 = phi i64 [ -1, %4 ], [ %.01123, %.lr.ph.i.i ], [ -1, %17 ]
+  %.2 = phi i64 [ %.01123, %.lr.ph.i.i ], [ -1, %4 ], [ -1, %17 ]
   ret i64 %.2
 }
 
@@ -6243,7 +6243,7 @@ _ZN4base20string16_char_traits6lengthEPKt.exit:   ; preds = %4
   br i1 %exitcond.not.i, label %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE13find_first_ofEPKtmm.exit, label %15, !llvm.loop !32
 
 _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE13find_first_ofEPKtmm.exit: ; preds = %23, %.lr.ph.i.i.i, %_ZN4base20string16_char_traits6lengthEPKt.exit
-  %.2.i = phi i64 [ -1, %_ZN4base20string16_char_traits6lengthEPKt.exit ], [ %.01123.i, %.lr.ph.i.i.i ], [ -1, %23 ]
+  %.2.i = phi i64 [ %.01123.i, %.lr.ph.i.i.i ], [ -1, %_ZN4base20string16_char_traits6lengthEPKt.exit ], [ -1, %23 ]
   ret i64 %.2.i
 }
 
@@ -6509,7 +6509,7 @@ _ZN4base20string16_char_traits4findEPKtmRS1_.exit.i: ; preds = %.lr.ph.i.i.i
   br i1 %exitcond.not.i, label %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE17find_first_not_ofEPKtmm.exit, label %.lr.ph.i.i.preheader.i, !llvm.loop !34
 
 _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE17find_first_not_ofEPKtmm.exit: ; preds = %_ZN4base20string16_char_traits4findEPKtmRS1_.exit.i, %15, %3, %.lr.ph.i
-  %.0.i = phi i64 [ -1, %3 ], [ %2, %.lr.ph.i ], [ %.0712.i, %15 ], [ -1, %_ZN4base20string16_char_traits4findEPKtmRS1_.exit.i ]
+  %.0.i = phi i64 [ %2, %.lr.ph.i ], [ %.0712.i, %15 ], [ -1, %3 ], [ -1, %_ZN4base20string16_char_traits4findEPKtmRS1_.exit.i ]
   ret i64 %.0.i
 }
 
@@ -6550,7 +6550,7 @@ _ZN4base20string16_char_traits4findEPKtmRS1_.exit: ; preds = %.lr.ph.i.i
   br i1 %exitcond.not, label %_ZN4base20string16_char_traits4findEPKtmRS1_.exit.thread, label %.lr.ph.i.i.preheader, !llvm.loop !34
 
 _ZN4base20string16_char_traits4findEPKtmRS1_.exit.thread: ; preds = %_ZN4base20string16_char_traits4findEPKtmRS1_.exit, %13, %.lr.ph, %4
-  %.0 = phi i64 [ -1, %4 ], [ %2, %.lr.ph ], [ %.0712, %13 ], [ -1, %_ZN4base20string16_char_traits4findEPKtmRS1_.exit ]
+  %.0 = phi i64 [ %2, %.lr.ph ], [ %.0712, %13 ], [ -1, %4 ], [ -1, %_ZN4base20string16_char_traits4findEPKtmRS1_.exit ]
   ret i64 %.0
 }
 
@@ -6605,7 +6605,7 @@ _ZN4base20string16_char_traits4findEPKtmRS1_.exit.i: ; preds = %.lr.ph.i.i.i
   br i1 %exitcond.not.i, label %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE17find_first_not_ofEPKtmm.exit, label %.lr.ph.i.i.preheader.i, !llvm.loop !34
 
 _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE17find_first_not_ofEPKtmm.exit: ; preds = %_ZN4base20string16_char_traits4findEPKtmRS1_.exit.i, %19, %_ZN4base20string16_char_traits6lengthEPKt.exit, %.lr.ph.i
-  %.0.i = phi i64 [ -1, %_ZN4base20string16_char_traits6lengthEPKt.exit ], [ %2, %.lr.ph.i ], [ %.0712.i, %19 ], [ -1, %_ZN4base20string16_char_traits4findEPKtmRS1_.exit.i ]
+  %.0.i = phi i64 [ %2, %.lr.ph.i ], [ %.0712.i, %19 ], [ -1, %_ZN4base20string16_char_traits6lengthEPKt.exit ], [ -1, %_ZN4base20string16_char_traits4findEPKtmRS1_.exit.i ]
   ret i64 %.0.i
 }
 

@@ -1594,8 +1594,8 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZNK5clang4Decl7get
   %86 = and i64 %78, 4294967295
   br label %_ZNK5clang4Decl7getAttrINS_27AMDGPUFlatWorkGroupSizeAttrEEEPT_v.exit.thread
 
-_ZNK5clang4Decl7getAttrINS_27AMDGPUFlatWorkGroupSizeAttrEEEPT_v.exit.thread: ; preds = %60, %49, %_ZN5clangneENS_22specific_attr_iteratorINS_27AMDGPUFlatWorkGroupSizeAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, %42, %_ZN4llvm5APIntD2Ev.exit
-  %.0.in = phi i64 [ %86, %_ZN4llvm5APIntD2Ev.exit ], [ %46, %42 ], [ %46, %_ZN5clangneENS_22specific_attr_iteratorINS_27AMDGPUFlatWorkGroupSizeAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i ], [ %46, %49 ], [ %46, %60 ]
+_ZNK5clang4Decl7getAttrINS_27AMDGPUFlatWorkGroupSizeAttrEEEPT_v.exit.thread: ; preds = %60, %_ZN5clangneENS_22specific_attr_iteratorINS_27AMDGPUFlatWorkGroupSizeAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, %49, %42, %_ZN4llvm5APIntD2Ev.exit
+  %.0.in = phi i64 [ %86, %_ZN4llvm5APIntD2Ev.exit ], [ %46, %42 ], [ %46, %49 ], [ %46, %_ZN5clangneENS_22specific_attr_iteratorINS_27AMDGPUFlatWorkGroupSizeAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i ], [ %46, %60 ]
   %87 = getelementptr inbounds nuw i8, ptr %3, i64 232
   %88 = load ptr, ptr %87, align 8, !tbaa !779
   %89 = call noundef ptr @_ZN4llvm4Type10getInt32TyERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(8) %88) #13

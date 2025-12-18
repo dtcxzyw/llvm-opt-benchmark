@@ -874,7 +874,7 @@ switch.early.test.i.i:                            ; preds = %202
   call void @errsave_finish(ptr noundef %19, ptr noundef nonnull @.str.2, i32 noundef 783, ptr noundef nonnull @__func__.ReadArrayStr) #19
   br label %ReadArrayStr.exit.thread
 
-ReadArrayStr.exit.thread:                         ; preds = %340, %365, %360, %361, %366, %261, %269, %287, %310, %319, %328, %263, %271, %289, %312, %321, %330, %221, %206, %215, %208, %217, %223, %254, %.loopexit.i.i
+ReadArrayStr.exit.thread:                         ; preds = %340, %365, %360, %361, %366, %261, %269, %287, %310, %319, %.loopexit.i.i, %328, %263, %271, %289, %312, %321, %330, %221, %206, %215, %208, %217, %223, %254
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.thread189
@@ -1377,9 +1377,9 @@ define dso_local void @CopyArrayEls(ptr noundef captures(address) %0, ptr nounde
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %92, %73, %54, %42
-  %.039.lcssa = phi ptr [ %.140.us80, %73 ], [ %.140.us.us, %42 ], [ %.140.us, %54 ], [ %.140, %92 ]
-  %.037.lcssa = phi i32 [ %.2.us81, %73 ], [ %.2.us.us, %42 ], [ %.2.us, %54 ], [ %.2, %92 ]
-  %.036.lcssa = phi i32 [ %.1.us82, %73 ], [ %.1.us.us, %42 ], [ %.1.us, %54 ], [ %.1, %92 ]
+  %.039.lcssa = phi ptr [ %.140.us.us, %42 ], [ %.140.us80, %73 ], [ %.140.us, %54 ], [ %.140, %92 ]
+  %.037.lcssa = phi i32 [ %.2.us.us, %42 ], [ %.2.us81, %73 ], [ %.2.us, %54 ], [ %.2, %92 ]
+  %.036.lcssa = phi i32 [ %.1.us.us, %42 ], [ %.1.us82, %73 ], [ %.1.us, %54 ], [ %.1, %92 ]
   %93 = icmp ne ptr %.039.lcssa, null
   %94 = icmp ne i32 %.036.lcssa, 1
   %or.cond = select i1 %93, i1 %94, i1 false
@@ -2788,8 +2788,8 @@ define dso_local noundef i64 @array_recv(ptr noundef readonly captures(none) %0)
   br i1 %exitcond122.not.i, label %ReadArrayBinary.exit, label %.lr.ph96.split.split.i, !llvm.loop !25
 
 ReadArrayBinary.exit:                             ; preds = %247, %183, %161
-  %.075.lcssa.i = phi i1 [ %.176.us106.i, %183 ], [ %.176.us.i, %161 ], [ %.176.i, %247 ]
-  %.073.lcssa.i = phi i32 [ %.174.us107.i, %183 ], [ %.174.us.i, %161 ], [ %.174.i, %247 ]
+  %.075.lcssa.i = phi i1 [ %.176.us.i, %161 ], [ %.176.us106.i, %183 ], [ %.176.i, %247 ]
+  %.073.lcssa.i = phi i32 [ %.174.us.i, %161 ], [ %.174.us107.i, %183 ], [ %.174.i, %247 ]
   br i1 %.075.lcssa.i, label %248, label %ReadArrayBinary.exit.thread
 
 248:                                              ; preds = %ReadArrayBinary.exit
@@ -4162,7 +4162,7 @@ define internal fastcc ptr @array_seek(ptr noundef %0, i32 noundef %1, ptr nound
   br i1 %exitcond158.not, label %.loopexit, label %.lr.ph.split.split.split, !llvm.loop !53
 
 .loopexit:                                        ; preds = %.lr.ph.split.split.split.us116, %.lr.ph.split.split.split.us111, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split, %79, %.lr.ph.split.us.split.us127, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split, %163, %.lr.ph.split.us.split.us122.preheader, %.preheader, %103, %17
-  %.072 = phi ptr [ %20, %17 ], [ %0, %103 ], [ %0, %.preheader ], [ %scevgep, %.lr.ph.split.us.split.us122.preheader ], [ %93, %.lr.ph.split.split.split.us111 ], [ %.174, %163 ], [ %43, %.lr.ph.split.us.split ], [ %31, %.lr.ph.split.us.split.us ], [ %37, %.lr.ph.split.us.split.us127 ], [ %81, %79 ], [ %173, %.lr.ph.split.split.split ], [ %89, %.lr.ph.split.split.split.us ], [ %101, %.lr.ph.split.split.split.us116 ]
+  %.072 = phi ptr [ %20, %17 ], [ %173, %.lr.ph.split.split.split ], [ %0, %103 ], [ %0, %.preheader ], [ %43, %.lr.ph.split.us.split ], [ %31, %.lr.ph.split.us.split.us ], [ %37, %.lr.ph.split.us.split.us127 ], [ %scevgep, %.lr.ph.split.us.split.us122.preheader ], [ %81, %79 ], [ %89, %.lr.ph.split.split.split.us ], [ %93, %.lr.ph.split.split.split.us111 ], [ %.174, %163 ], [ %101, %.lr.ph.split.split.split.us116 ]
   ret ptr %.072
 }
 
@@ -5989,7 +5989,7 @@ array_bitmap_copy.exit304:                        ; preds = %597, %616, %583, %.
   br label %array_bitmap_copy.exit
 
 array_bitmap_copy.exit:                           ; preds = %556, %575, %514, %array_bitmap_copy.exit304, %624, %537, %._crit_edge.i266, %._crit_edge95.thread.sink.split.i, %._crit_edge, %array_set_element_expanded.exit, %37
-  %.0.in = phi ptr [ %39, %37 ], [ %256, %array_set_element_expanded.exit ], [ %267, %._crit_edge ], [ %494, %._crit_edge95.thread.sink.split.i ], [ %494, %._crit_edge.i266 ], [ %494, %537 ], [ %494, %624 ], [ %494, %array_bitmap_copy.exit304 ], [ %494, %514 ], [ %494, %575 ], [ %494, %556 ]
+  %.0.in = phi ptr [ %39, %37 ], [ %256, %array_set_element_expanded.exit ], [ %267, %._crit_edge ], [ %494, %._crit_edge95.thread.sink.split.i ], [ %494, %514 ], [ %494, %._crit_edge.i266 ], [ %494, %575 ], [ %494, %537 ], [ %494, %624 ], [ %494, %array_bitmap_copy.exit304 ], [ %494, %556 ]
   %.0 = ptrtoint ptr %.0.in to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -6308,8 +6308,8 @@ define dso_local noundef ptr @construct_md_array(ptr noundef captures(none) %0, 
   br label %163
 
 .split108.us:                                     ; preds = %154, %98, %75
-  %.us-phi = phi i1 [ %.187.us117, %98 ], [ %.187.us, %75 ], [ %.187, %154 ]
-  %.us-phi109 = phi i32 [ %.1.us118, %98 ], [ %.1.us, %75 ], [ %.1, %154 ]
+  %.us-phi = phi i1 [ %.187.us, %75 ], [ %.187.us117, %98 ], [ %.187, %154 ]
+  %.us-phi109 = phi i32 [ %.1.us, %75 ], [ %.1.us118, %98 ], [ %.1, %154 ]
   br i1 %.us-phi, label %156, label %163
 
 156:                                              ; preds = %.split108.us
@@ -9527,7 +9527,7 @@ select.unfold:                                    ; preds = %225, %217
   br i1 %exitcond.not, label %.loopexit, label %217, !llvm.loop !76
 
 .loopexit:                                        ; preds = %select.unfold, %array_iter_setup.exit123, %.thread127, %67, %68, %71
-  %.2 = phi i64 [ 0, %.thread127 ], [ 0, %71 ], [ 0, %68 ], [ 0, %67 ], [ 1, %array_iter_setup.exit123 ], [ 1, %select.unfold ]
+  %.2 = phi i64 [ 0, %67 ], [ 0, %.thread127 ], [ 0, %71 ], [ 0, %68 ], [ 1, %array_iter_setup.exit123 ], [ 1, %select.unfold ]
   %233 = load i32, ptr %9, align 4
   %234 = icmp eq i32 %233, -1
   br i1 %234, label %239, label %235
@@ -11086,7 +11086,7 @@ array_iter_setup.exit:                            ; preds = %80, %104, %123
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph104.split.split.split, %168, %141, %array_iter_setup.exit, %.thread98
-  %.1 = phi i1 [ %.us-phi, %.thread98 ], [ %3, %array_iter_setup.exit ], [ %3, %168 ], [ %3, %141 ], [ false, %.lr.ph104.split.split.split ]
+  %.1 = phi i1 [ %.us-phi, %.thread98 ], [ %3, %168 ], [ %3, %array_iter_setup.exit ], [ %3, %141 ], [ false, %.lr.ph104.split.split.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -14361,7 +14361,7 @@ fetch_att.exit:                                   ; preds = %108, %111, %114, %1
   store i8 0, ptr %182, align 1
   br label %189
 
-.thread252:                                       ; preds = %103, %105
+.thread252:                                       ; preds = %105, %103
   %183 = sext i32 %.0203274 to i64
   %184 = getelementptr inbounds i8, ptr %71, i64 %183
   store i8 1, ptr %184, align 1

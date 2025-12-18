@@ -4784,7 +4784,7 @@ _ZN3ue212is_triggeredENS_8nfa_kindE.exit.thread:  ; preds = %99, %99, %99, %_ZN3
   br i1 %exitcond15.not.i, label %_ZN3ue2L14is_cyclic_nearERKNS_7raw_dfaEt.exit, label %1069, !llvm.loop !171
 
 _ZN3ue2L14is_cyclic_nearERKNS_7raw_dfaEt.exit:    ; preds = %.loopexit.i56, %1078, %_ZN3ue212is_triggeredENS_8nfa_kindE.exit.thread
-  %.not304.i = phi i1 [ false, %_ZN3ue212is_triggeredENS_8nfa_kindE.exit.thread ], [ true, %1078 ], [ false, %.loopexit.i56 ]
+  %.not304.i = phi i1 [ true, %1078 ], [ false, %_ZN3ue212is_triggeredENS_8nfa_kindE.exit.thread ], [ false, %.loopexit.i56 ]
   %1083 = load i16, ptr %70, align 8
   %1084 = icmp ugt i16 %1083, 16
   %.pre533 = load ptr, ptr %48, align 8, !noalias !185

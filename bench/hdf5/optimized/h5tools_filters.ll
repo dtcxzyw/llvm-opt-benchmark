@@ -190,7 +190,7 @@ define range(i32 -1, 2) i32 @h5tools_canreadf(ptr noundef %0, i64 noundef %1) lo
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split.split.split, !llvm.loop !12
 
 .loopexit:                                        ; preds = %72, %30, %60, %64, %.split45.us, %41, %45, %.split.us, %21, %13, %17, %5
-  %.0 = phi i32 [ -1, %13 ], [ 1, %21 ], [ -1, %41 ], [ -1, %5 ], [ -1, %17 ], [ -1, %.split.us ], [ -1, %45 ], [ -1, %.split45.us ], [ -1, %64 ], [ -1, %60 ], [ %.2.us, %30 ], [ %.2, %72 ]
+  %.0 = phi i32 [ -1, %13 ], [ 1, %21 ], [ -1, %41 ], [ -1, %60 ], [ -1, %5 ], [ -1, %17 ], [ -1, %.split.us ], [ -1, %45 ], [ -1, %.split45.us ], [ -1, %64 ], [ %.2.us, %30 ], [ %.2, %72 ]
   ret i32 %.0
 }
 

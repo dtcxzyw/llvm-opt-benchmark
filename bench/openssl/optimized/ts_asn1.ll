@@ -519,8 +519,8 @@ ts_resp_set_tst_info.exit:                        ; preds = %17, %18, %23
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 47, i32 noundef %.sink.i, ptr noundef null) #4
   br label %ts_resp_set_tst_info.exit.thread
 
-ts_resp_set_tst_info.exit.thread:                 ; preds = %18, %23, %6, %8, %4, %ts_resp_set_tst_info.exit
-  %.0 = phi i32 [ 0, %ts_resp_set_tst_info.exit ], [ 1, %6 ], [ 1, %4 ], [ 1, %8 ], [ 1, %23 ], [ 1, %18 ]
+ts_resp_set_tst_info.exit.thread:                 ; preds = %23, %18, %6, %8, %4, %ts_resp_set_tst_info.exit
+  %.0 = phi i32 [ 0, %ts_resp_set_tst_info.exit ], [ 1, %6 ], [ 1, %4 ], [ 1, %8 ], [ 1, %18 ], [ 1, %23 ]
   ret i32 %.0
 }
 

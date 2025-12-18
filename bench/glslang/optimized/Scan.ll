@@ -1865,7 +1865,7 @@ _ZN7glslang13TInputScanner4peekEv.exit39.thread:  ; preds = %69, %60, %_ZN7glsla
   br label %_ZN7glslang13TInputScanner4peekEv.exit.thread
 
 _ZN7glslang13TInputScanner4peekEv.exit.thread:    ; preds = %17, %_ZN7glslang13TInputScanner3getEv.exit148, %428, %.preheader, %6, %344, %_ZN7glslang13TInputScanner4peekEv.exit, %_ZN7glslang13TInputScanner4peekEv.exit39.thread
-  %.027 = phi i1 [ false, %_ZN7glslang13TInputScanner4peekEv.exit39.thread ], [ false, %_ZN7glslang13TInputScanner4peekEv.exit ], [ true, %344 ], [ false, %6 ], [ true, %_ZN7glslang13TInputScanner3getEv.exit148 ], [ true, %.preheader ], [ true, %428 ], [ false, %17 ]
+  %.027 = phi i1 [ false, %_ZN7glslang13TInputScanner4peekEv.exit39.thread ], [ false, %_ZN7glslang13TInputScanner4peekEv.exit ], [ true, %344 ], [ true, %_ZN7glslang13TInputScanner3getEv.exit148 ], [ false, %6 ], [ true, %.preheader ], [ true, %428 ], [ false, %17 ]
   ret i1 %.027
 }
 
@@ -2851,9 +2851,9 @@ _ZN7glslang13TInputScanner4peekEv.exit.i139:      ; preds = %365
   br label %_ZN7glslang13TInputScanner24consumeWhitespaceCommentERb.exit, !llvm.loop !12
 
 _ZN7glslang13TInputScanner24consumeWhitespaceCommentERb.exit: ; preds = %_ZN7glslang13TInputScanner4peekEv.exit.i139, %368, %._ZN7glslang13TInputScanner24consumeWhitespaceCommentERb.exit.loopexit437_crit_edge, %360
-  %376 = phi i32 [ %230, %360 ], [ %.pre514.pre, %._ZN7glslang13TInputScanner24consumeWhitespaceCommentERb.exit.loopexit437_crit_edge ], [ %230, %368 ], [ %230, %_ZN7glslang13TInputScanner4peekEv.exit.i139 ]
-  %377 = phi i32 [ %231, %360 ], [ %.pre513.pre, %._ZN7glslang13TInputScanner24consumeWhitespaceCommentERb.exit.loopexit437_crit_edge ], [ %231, %368 ], [ %231, %_ZN7glslang13TInputScanner4peekEv.exit.i139 ]
-  %.2290 = phi i1 [ %.3, %360 ], [ true, %._ZN7glslang13TInputScanner24consumeWhitespaceCommentERb.exit.loopexit437_crit_edge ], [ %.3, %368 ], [ %.3, %_ZN7glslang13TInputScanner4peekEv.exit.i139 ]
+  %376 = phi i32 [ %230, %360 ], [ %230, %368 ], [ %.pre514.pre, %._ZN7glslang13TInputScanner24consumeWhitespaceCommentERb.exit.loopexit437_crit_edge ], [ %230, %_ZN7glslang13TInputScanner4peekEv.exit.i139 ]
+  %377 = phi i32 [ %231, %360 ], [ %231, %368 ], [ %.pre513.pre, %._ZN7glslang13TInputScanner24consumeWhitespaceCommentERb.exit.loopexit437_crit_edge ], [ %231, %_ZN7glslang13TInputScanner4peekEv.exit.i139 ]
+  %.2290 = phi i1 [ %.3, %360 ], [ %.3, %368 ], [ true, %._ZN7glslang13TInputScanner24consumeWhitespaceCommentERb.exit.loopexit437_crit_edge ], [ %.3, %_ZN7glslang13TInputScanner4peekEv.exit.i139 ]
   %.not.i.i141 = icmp slt i32 %377, %376
   br i1 %.not.i.i141, label %379, label %378
 
@@ -3741,7 +3741,7 @@ _ZN7glslang13TInputScanner3getEv.exit240:         ; preds = %_ZN7glslang13TInput
   br i1 %844, label %.lr.ph425, label %._crit_edge426, !llvm.loop !15
 
 ._crit_edge426:                                   ; preds = %_ZN7glslang13TInputScanner3getEv.exit240, %767, %814, %806, %.preheader330._crit_edge, %_ZN7glslang13TInputScanner3getEv.exit230.thread616, %_ZN7glslang13TInputScanner3getEv.exit240.thread620, %.preheader329
-  %.068.lcssa = phi i32 [ %797, %.preheader329 ], [ 10, %_ZN7glslang13TInputScanner3getEv.exit240.thread620 ], [ 10, %_ZN7glslang13TInputScanner3getEv.exit230.thread616 ], [ -1, %.preheader330._crit_edge ], [ -1, %806 ], [ -1, %767 ], [ -1, %814 ], [ %842, %_ZN7glslang13TInputScanner3getEv.exit240 ]
+  %.068.lcssa = phi i32 [ %797, %.preheader329 ], [ 10, %_ZN7glslang13TInputScanner3getEv.exit240.thread620 ], [ -1, %767 ], [ -1, %814 ], [ 10, %_ZN7glslang13TInputScanner3getEv.exit230.thread616 ], [ -1, %.preheader330._crit_edge ], [ -1, %806 ], [ %842, %_ZN7glslang13TInputScanner3getEv.exit240 ]
   %845 = load i32, ptr %1, align 4
   %846 = icmp eq i32 %845, 0
   br i1 %846, label %_ZN7glslang13TInputScanner3getEv.exit150.thread, label %.preheader328

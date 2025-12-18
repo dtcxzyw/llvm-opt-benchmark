@@ -1774,9 +1774,9 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %.thread1196
 
 .loopexit1284:                                    ; preds = %._crit_edge1427, %._crit_edge1476, %._crit_edge1409, %._crit_edge1460, %213, %.loopexit1287, %.loopexit1290, %._crit_edge1318, %._crit_edge1361, %816
-  %.01007 = phi i32 [ undef, %816 ], [ %.161023.lcssa, %._crit_edge1361 ], [ %.131020.lcssa, %.loopexit1290 ], [ undef, %213 ], [ %.131020.lcssa, %._crit_edge1318 ], [ %.161023.lcssa, %.loopexit1287 ], [ %.81015.lcssa, %._crit_edge1460 ], [ %.11008.lcssa, %._crit_edge1409 ], [ %.121019.lcssa, %._crit_edge1476 ], [ %.61013.lcssa, %._crit_edge1427 ]
-  %.0997 = phi i32 [ undef, %816 ], [ undef, %._crit_edge1361 ], [ %.16.lcssa, %.loopexit1290 ], [ undef, %213 ], [ %.13.lcssa, %._crit_edge1318 ], [ %.17.lcssa, %.loopexit1287 ], [ %.81005.lcssa, %._crit_edge1460 ], [ %.1998.lcssa, %._crit_edge1409 ], [ %.11.lcssa, %._crit_edge1476 ], [ %.51002.lcssa, %._crit_edge1427 ]
-  %.0945 = phi i32 [ 0, %816 ], [ %.3948, %._crit_edge1361 ], [ %.0979.1179, %.loopexit1290 ], [ %or.cond13, %213 ], [ %.2947, %._crit_edge1318 ], [ %.0979.1181, %.loopexit1287 ], [ %.0979., %._crit_edge1460 ], [ %.0979., %._crit_edge1409 ], [ %.0979., %._crit_edge1476 ], [ %.0979., %._crit_edge1427 ]
+  %.01007 = phi i32 [ undef, %816 ], [ %.161023.lcssa, %._crit_edge1361 ], [ %.121019.lcssa, %._crit_edge1476 ], [ %.161023.lcssa, %.loopexit1287 ], [ %.131020.lcssa, %.loopexit1290 ], [ undef, %213 ], [ %.131020.lcssa, %._crit_edge1318 ], [ %.81015.lcssa, %._crit_edge1460 ], [ %.11008.lcssa, %._crit_edge1409 ], [ %.61013.lcssa, %._crit_edge1427 ]
+  %.0997 = phi i32 [ undef, %816 ], [ undef, %._crit_edge1361 ], [ %.11.lcssa, %._crit_edge1476 ], [ %.17.lcssa, %.loopexit1287 ], [ %.16.lcssa, %.loopexit1290 ], [ undef, %213 ], [ %.13.lcssa, %._crit_edge1318 ], [ %.81005.lcssa, %._crit_edge1460 ], [ %.1998.lcssa, %._crit_edge1409 ], [ %.51002.lcssa, %._crit_edge1427 ]
+  %.0945 = phi i32 [ 0, %816 ], [ %.3948, %._crit_edge1361 ], [ %.0979., %._crit_edge1476 ], [ %.0979.1181, %.loopexit1287 ], [ %.0979.1179, %.loopexit1290 ], [ %or.cond13, %213 ], [ %.2947, %._crit_edge1318 ], [ %.0979., %._crit_edge1460 ], [ %.0979., %._crit_edge1409 ], [ %.0979., %._crit_edge1427 ]
   %.not1147 = icmp eq i32 %.0979, %.0945
   br i1 %.not1147, label %.thread1196, label %819
 
@@ -2082,8 +2082,8 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %exitcond1687.not, label %.loopexit1278, label %924, !llvm.loop !45
 
 .loopexit1278:                                    ; preds = %._crit_edge1501, %885, %868, %.lr.ph1533, %.loopexit, %._crit_edge1495, %839, %820
-  %.191026 = phi i32 [ %.01007, %820 ], [ %.01007, %839 ], [ %.01007, %._crit_edge1495 ], [ %spec.select1184, %885 ], [ %.01007, %.loopexit ], [ %.01007, %.lr.ph1533 ], [ %spec.select1182, %868 ], [ %.01007, %._crit_edge1501 ]
-  %.18 = phi i32 [ %.0997, %820 ], [ %.0997, %839 ], [ %.0997, %._crit_edge1495 ], [ %spec.select1185, %885 ], [ %.0997, %.loopexit ], [ %.0997, %.lr.ph1533 ], [ %spec.select1183, %868 ], [ %.0997, %._crit_edge1501 ]
+  %.191026 = phi i32 [ %spec.select1182, %868 ], [ %spec.select1184, %885 ], [ %.01007, %820 ], [ %.01007, %839 ], [ %.01007, %._crit_edge1495 ], [ %.01007, %.loopexit ], [ %.01007, %.lr.ph1533 ], [ %.01007, %._crit_edge1501 ]
+  %.18 = phi i32 [ %spec.select1183, %868 ], [ %spec.select1185, %885 ], [ %.0997, %820 ], [ %.0997, %839 ], [ %.0997, %._crit_edge1495 ], [ %.0997, %.loopexit ], [ %.0997, %.lr.ph1533 ], [ %.0997, %._crit_edge1501 ]
   %or.cond19 = or i1 %94, %95
   br i1 %or.cond19, label %.loopexit1278.thread, label %957
 

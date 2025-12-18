@@ -3745,7 +3745,7 @@ _ZNSt10_HashtableIN4cvc58internal4prop10SatLiteralES3_SaIS3_ENSt8__detail9_Ident
   resume { ptr, i32 } %47
 
 _ZNKSt10_HashtableIN4cvc58internal4prop10SatLiteralES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ENS2_22SatLiteralHashFunctionENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_find_nodeEmRKS3_m.exit: ; preds = %34, %17, %25
-  %.sroa.042.0.ph = phi ptr [ %26, %25 ], [ %.sroa.034.0, %17 ], [ %40, %34 ]
+  %.sroa.042.0.ph = phi ptr [ %.sroa.034.0, %17 ], [ %26, %25 ], [ %40, %34 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 24) #34
   br label %_ZNSt10_HashtableIN4cvc58internal4prop10SatLiteralES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ENS2_22SatLiteralHashFunctionENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit
 

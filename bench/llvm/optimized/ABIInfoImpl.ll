@@ -142,7 +142,7 @@ _ZNK5clang4Decl7hasAttrINS_20TransparentUnionAttrEEEbv.exit.i: ; preds = %.lr.ph
   br label %_ZN5clang7CodeGen31useFirstFieldIfTransparentUnionENS_8QualTypeE.exit
 
 _ZN5clang7CodeGen31useFirstFieldIfTransparentUnionENS_8QualTypeE.exit: ; preds = %24, %3, %8, %13, %_ZNK5clang4Decl7hasAttrINS_20TransparentUnionAttrEEEbv.exit.i, %26
-  %29 = phi i64 [ %.sroa.0.0.copyload.i.i, %26 ], [ %2, %3 ], [ %2, %_ZNK5clang4Decl7hasAttrINS_20TransparentUnionAttrEEEbv.exit.i ], [ %2, %8 ], [ %2, %13 ], [ %2, %24 ]
+  %29 = phi i64 [ %.sroa.0.0.copyload.i.i, %26 ], [ %2, %3 ], [ %2, %_ZNK5clang4Decl7hasAttrINS_20TransparentUnionAttrEEEbv.exit.i ], [ %2, %13 ], [ %2, %8 ], [ %2, %24 ]
   %30 = tail call noundef i32 @_ZN5clang7CodeGen15CodeGenFunction17getEvaluationKindENS_8QualTypeE(i64 %29) #12
   %31 = icmp eq i32 %30, 0
   %32 = and i64 %29, -16
@@ -452,7 +452,7 @@ _ZNK5clang4Decl7hasAttrINS_20TransparentUnionAttrEEEbv.exit: ; preds = %.lr.ph.i
   br label %_ZNK5clang4Decl7hasAttrINS_20TransparentUnionAttrEEEbv.exit.thread9
 
 _ZNK5clang4Decl7hasAttrINS_20TransparentUnionAttrEEEbv.exit.thread9: ; preds = %22, %11, %6, %_ZNK5clang4Decl7hasAttrINS_20TransparentUnionAttrEEEbv.exit, %1, %24
-  %27 = phi i64 [ %.sroa.0.0.copyload.i, %24 ], [ %0, %1 ], [ %0, %_ZNK5clang4Decl7hasAttrINS_20TransparentUnionAttrEEEbv.exit ], [ %0, %6 ], [ %0, %11 ], [ %0, %22 ]
+  %27 = phi i64 [ %.sroa.0.0.copyload.i, %24 ], [ %0, %1 ], [ %0, %_ZNK5clang4Decl7hasAttrINS_20TransparentUnionAttrEEEbv.exit ], [ %0, %11 ], [ %0, %6 ], [ %0, %22 ]
   ret i64 %27
 }
 
@@ -2135,7 +2135,7 @@ _ZNK5clang4Decl7hasAttrINS_19NoUniqueAddressAttrEEEbv.exit: ; preds = %.lr.ph.i.
   br label %.critedge2
 
 .critedge2:                                       ; preds = %30, %33, %_ZNK5clang17ConstantArrayType10isZeroSizeEv.exit, %75, %64, %60, %_ZNK5clang4Decl7hasAttrINS_19NoUniqueAddressAttrEEEbv.exit, %.thread38, %.critedge, %58, %4
-  %.0 = phi i1 [ true, %4 ], [ false, %58 ], [ false, %.thread38 ], [ %77, %.critedge ], [ false, %_ZNK5clang4Decl7hasAttrINS_19NoUniqueAddressAttrEEEbv.exit ], [ false, %60 ], [ false, %64 ], [ false, %75 ], [ true, %_ZNK5clang17ConstantArrayType10isZeroSizeEv.exit ], [ true, %33 ], [ true, %30 ]
+  %.0 = phi i1 [ true, %4 ], [ false, %58 ], [ false, %.thread38 ], [ %77, %.critedge ], [ false, %75 ], [ false, %_ZNK5clang4Decl7hasAttrINS_19NoUniqueAddressAttrEEEbv.exit ], [ false, %64 ], [ false, %60 ], [ true, %_ZNK5clang17ConstantArrayType10isZeroSizeEv.exit ], [ true, %33 ], [ true, %30 ]
   ret i1 %.0
 }
 
@@ -2487,7 +2487,7 @@ _ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit: ; preds
   br i1 %.not57, label %.critedge39, label %.lr.ph63
 
 .critedge39:                                      ; preds = %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit, %54, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit, %_ZN5clang7CodeGen21isEmptyFieldForLayoutERKNS_10ASTContextEPKNS_9FieldDeclE.exit, %.critedge, %20, %_ZNK5clang13CXXRecordDecl14isDynamicClassEv.exit, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %_ZNK5clang13CXXRecordDecl14isDynamicClassEv.exit ], [ true, %.critedge ], [ false, %_ZN5clang7CodeGen21isEmptyFieldForLayoutERKNS_10ASTContextEPKNS_9FieldDeclE.exit ], [ true, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit ], [ false, %54 ], [ false, %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit ]
+  %.0 = phi i1 [ false, %2 ], [ false, %_ZN5clang7CodeGen21isEmptyFieldForLayoutERKNS_10ASTContextEPKNS_9FieldDeclE.exit ], [ false, %20 ], [ false, %_ZNK5clang13CXXRecordDecl14isDynamicClassEv.exit ], [ true, %.critedge ], [ true, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit ], [ false, %54 ], [ false, %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit ]
   ret i1 %.0
 }
 
@@ -2777,7 +2777,7 @@ _ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit: ; preds
   br label %select.unfold
 
 select.unfold:                                    ; preds = %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit94, %39, %_ZN5clang7CodeGen21isAggregateTypeForABIENS_8QualTypeE.exit.thread137, %56, %126, %._crit_edge, %13, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %13 ], [ %spec.select, %126 ], [ null, %._crit_edge ], [ null, %_ZN5clang7CodeGen21isAggregateTypeForABIENS_8QualTypeE.exit.thread137 ], [ null, %56 ], [ null, %39 ], [ null, %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit94 ]
+  %.0 = phi ptr [ null, %2 ], [ null, %13 ], [ null, %._crit_edge ], [ null, %_ZN5clang7CodeGen21isAggregateTypeForABIENS_8QualTypeE.exit.thread137 ], [ %spec.select, %126 ], [ null, %56 ], [ null, %39 ], [ null, %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit94 ]
   ret ptr %.0
 }
 
@@ -3063,7 +3063,7 @@ _ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit: ; preds
   br i1 %.not59, label %.thread, label %.lr.ph66
 
 .thread:                                          ; preds = %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit, %_ZN5clang7CodeGen16isSIMDVectorTypeERNS_10ASTContextENS_8QualTypeE.exit, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit, %_ZN5clang7CodeGen16isSIMDVectorTypeERNS_10ASTContextENS_8QualTypeE.exit.thread, %.critedge45, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %.critedge45 ], [ true, %_ZN5clang7CodeGen16isSIMDVectorTypeERNS_10ASTContextENS_8QualTypeE.exit.thread ], [ true, %_ZN5clang7CodeGen16isSIMDVectorTypeERNS_10ASTContextENS_8QualTypeE.exit ], [ false, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit ], [ false, %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit ]
+  %.0 = phi i1 [ false, %2 ], [ true, %_ZN5clang7CodeGen16isSIMDVectorTypeERNS_10ASTContextENS_8QualTypeE.exit.thread ], [ false, %.critedge45 ], [ true, %_ZN5clang7CodeGen16isSIMDVectorTypeERNS_10ASTContextENS_8QualTypeE.exit ], [ false, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit ], [ false, %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit ]
   ret i1 %.0
 }
 

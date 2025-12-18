@@ -3361,7 +3361,7 @@ _ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit518.i:    ; preds = %1166, %_ZL13gmx_sne
   br i1 %exitcond780.not.i, label %.loopexit613.i, label %.preheader614.i, !llvm.loop !103
 
 .loopexit613.i:                                   ; preds = %.loopexit608.i, %.loopexit.us.us.i, %.loopexit.us.i, %.preheader612.i
-  %.7.i = phi i32 [ 0, %.preheader612.i ], [ %.pre865.i, %.loopexit.us.us.i ], [ %.pre865.i, %.loopexit.us.i ], [ %707, %.loopexit608.i ]
+  %.7.i = phi i32 [ %.pre865.i, %.loopexit.us.i ], [ 0, %.preheader612.i ], [ %.pre865.i, %.loopexit.us.us.i ], [ %707, %.loopexit608.i ]
   %fputc391.i = call i32 @fputc(i32 10, ptr %753)
   br i1 %.not.i90, label %1337, label %.sink.split999.i
 
@@ -4859,8 +4859,8 @@ define internal fastcc void @_ZL9calc_distfb7PbcTypePA3_fS1_iiPiS2_bPfS3_S2_S2_S
   br i1 %exitcond157.not, label %._crit_edge109, label %.lr.ph108.split.split, !llvm.loop !112
 
 ._crit_edge109:                                   ; preds = %._crit_edge.split, %.thread228, %._crit_edge.split.us.us, %.thread, %.preheader
-  %.075.lcssa = phi float [ 0x426D1A94A0000000, %.preheader ], [ %.176.lcssa.us126225233, %.thread228 ], [ %.176.lcssa.us.us211218, %.thread ], [ %.176.lcssa.us, %._crit_edge.split.us.us ], [ %.176.lcssa, %._crit_edge.split ]
-  %.073.lcssa = phi float [ 0xC26D1A94A0000000, %.preheader ], [ %.174.lcssa.us127226232, %.thread228 ], [ %.174.lcssa.us.us212217, %.thread ], [ %.174.lcssa.us, %._crit_edge.split.us.us ], [ %.174.lcssa, %._crit_edge.split ]
+  %.075.lcssa = phi float [ 0x426D1A94A0000000, %.preheader ], [ %.176.lcssa.us.us211218, %.thread ], [ %.176.lcssa.us126225233, %.thread228 ], [ %.176.lcssa.us, %._crit_edge.split.us.us ], [ %.176.lcssa, %._crit_edge.split ]
+  %.073.lcssa = phi float [ 0xC26D1A94A0000000, %.preheader ], [ %.174.lcssa.us.us212217, %.thread ], [ %.174.lcssa.us127226232, %.thread228 ], [ %.174.lcssa.us, %._crit_edge.split.us.us ], [ %.174.lcssa, %._crit_edge.split ]
   %198 = call noundef float @sqrtf(float noundef %.075.lcssa) #20, !tbaa !4
   store float %198, ptr %10, align 4, !tbaa !10
   %199 = call noundef float @sqrtf(float noundef %.073.lcssa) #20, !tbaa !4

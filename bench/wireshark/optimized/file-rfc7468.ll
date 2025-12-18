@@ -159,9 +159,9 @@ define internal i32 @dissect_rfc7468(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %43, label %.lr.ph, label %line_is_eb.exit, !llvm.loop !8
 
 line_is_eb.exit:                                  ; preds = %.loopexit141, %27, %33, %35, %4
-  %.098157 = phi i32 [ 0, %4 ], [ %.098162, %35 ], [ %42, %.loopexit141 ], [ %.098162, %27 ], [ %.098162, %33 ]
-  %.1127 = phi ptr [ null, %4 ], [ %28, %35 ], [ %.2128.ph, %.loopexit141 ], [ %28, %27 ], [ %28, %33 ]
-  %.1124 = phi i32 [ 0, %4 ], [ %29, %35 ], [ %.4.ph, %.loopexit141 ], [ 0, %27 ], [ %29, %33 ]
+  %.098157 = phi i32 [ %.098162, %35 ], [ 0, %4 ], [ %42, %.loopexit141 ], [ %.098162, %27 ], [ %.098162, %33 ]
+  %.1127 = phi ptr [ %28, %35 ], [ null, %4 ], [ %.2128.ph, %.loopexit141 ], [ %28, %27 ], [ %28, %33 ]
+  %.1124 = phi i32 [ %29, %35 ], [ 0, %4 ], [ %.4.ph, %.loopexit141 ], [ 0, %27 ], [ %29, %33 ]
   %44 = load i32, ptr %5, align 4
   %45 = sub i32 %44, %.098157
   %46 = call ptr @proto_tree_add_format_text(ptr noundef %11, ptr noundef %0, i32 noundef %.098157, i32 noundef %45)
@@ -219,7 +219,7 @@ line_is_eb.exit:                                  ; preds = %.loopexit141, %27, 
   br i1 %71, label %.lr.ph175, label %line_is_blank.exit, !llvm.loop !10
 
 line_is_blank.exit:                               ; preds = %.loopexit139, %.lr.ph.i106, %line_is_eb.exit
-  %.199154 = phi i32 [ %.199173, %line_is_eb.exit ], [ %.199174, %.lr.ph.i106 ], [ %.199, %.loopexit139 ]
+  %.199154 = phi i32 [ %.199174, %.lr.ph.i106 ], [ %.199173, %line_is_eb.exit ], [ %.199, %.loopexit139 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %7)

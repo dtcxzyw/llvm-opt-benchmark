@@ -324,7 +324,7 @@ hw_device_add.exit.thread95:                      ; preds = %86
   ret i32 %.1
 
 hw_device_get_by_name.exit:                       ; preds = %26, %68, %63, %35, %78, %50, %11
-  %.055 = phi ptr [ @.str.6, %78 ], [ @.str.1, %11 ], [ @.str.8, %35 ], [ @.str.6, %50 ], [ @.str.7, %63 ], [ @.str.7, %68 ], [ @.str.3, %26 ]
+  %.055 = phi ptr [ @.str.6, %78 ], [ @.str.1, %11 ], [ @.str.8, %35 ], [ @.str.6, %50 ], [ @.str.7, %68 ], [ @.str.7, %63 ], [ @.str.3, %26 ]
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.9, ptr noundef %0, ptr noundef nonnull %.055) #8
   br label %105
 

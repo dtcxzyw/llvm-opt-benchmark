@@ -1726,9 +1726,9 @@ define internal fastcc range(i64 -9223372036854775808, 2147483648) i64 @keyctl_i
   %78 = tail call i32 @commit_creds(ptr noundef nonnull %73) #11
   br label %.thread14
 
-.thread14:                                        ; preds = %50, %48, %75, %72, %.thread11, %65, %35
-  %79 = phi ptr [ %37, %65 ], [ %37, %.thread11 ], [ %30, %35 ], [ %37, %72 ], [ %37, %75 ], [ %37, %48 ], [ %37, %50 ]
-  %80 = phi i64 [ %44, %65 ], [ %70, %.thread11 ], [ -14, %35 ], [ 0, %72 ], [ 0, %75 ], [ -22, %48 ], [ -126, %50 ]
+.thread14:                                        ; preds = %48, %50, %75, %72, %.thread11, %65, %35
+  %79 = phi ptr [ %37, %65 ], [ %37, %.thread11 ], [ %30, %35 ], [ %37, %72 ], [ %37, %75 ], [ %37, %50 ], [ %37, %48 ]
+  %80 = phi i64 [ %44, %65 ], [ %70, %.thread11 ], [ -14, %35 ], [ 0, %72 ], [ 0, %75 ], [ -126, %50 ], [ -22, %48 ]
   tail call void @kvfree_sensitive(ptr noundef %79, i64 noundef %15) #11
   br label %81
 
@@ -1881,8 +1881,8 @@ define dso_local range(i64 -9223372036854775808, 2147483648) i64 @keyctl_reject_
   tail call fastcc void @keyctl_change_reqkey_auth(ptr noundef null)
   br label %.thread7
 
-.thread7:                                         ; preds = %11, %38, %36, %60, %.thread, %53, %17, %13, %4
-  %61 = phi i64 [ %58, %.thread ], [ -22, %36 ], [ -126, %38 ], [ -1, %13 ], [ -22, %4 ], [ -1, %17 ], [ %32, %53 ], [ 0, %60 ], [ -22, %11 ]
+.thread7:                                         ; preds = %11, %36, %38, %60, %.thread, %53, %17, %13, %4
+  %61 = phi i64 [ %58, %.thread ], [ -126, %38 ], [ -22, %36 ], [ -1, %13 ], [ -22, %4 ], [ -1, %17 ], [ %32, %53 ], [ 0, %60 ], [ -22, %11 ]
   ret i64 %61
 }
 

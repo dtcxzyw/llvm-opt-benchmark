@@ -330,7 +330,7 @@ findRootNode.exit114.us:                          ; preds = %.lr.ph.split.us.spl
   br i1 %84, label %.lr.ph.split.us.split, label %._crit_edge, !llvm.loop !67
 
 ._crit_edge:                                      ; preds = %110, %findRootNode.exit114.us, %findRootNode.exit114.us.us.us, %findRootNode.exit114.us.us, %54
-  %.4.lcssa = phi ptr [ %.083, %54 ], [ %spec.select128, %findRootNode.exit114.us ], [ null, %findRootNode.exit114.us.us ], [ %.083, %findRootNode.exit114.us.us.us ], [ %spec.select107, %110 ]
+  %.4.lcssa = phi ptr [ %.083, %54 ], [ null, %findRootNode.exit114.us.us ], [ %.083, %findRootNode.exit114.us.us.us ], [ %spec.select128, %findRootNode.exit114.us ], [ %spec.select107, %110 ]
   %85 = call ptr @agfstnode(ptr noundef %0) #8
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 16
   %87 = load ptr, ptr %86, align 8, !tbaa !3

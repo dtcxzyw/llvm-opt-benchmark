@@ -362,7 +362,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit: ; preds = %.lr.ph.
   br label %.loopexit
 
 .loopexit:                                        ; preds = %63, %39, %2, %.split.us, %.split72.us
-  %storemerge23 = phi i64 [ 0, %.split.us ], [ 1, %.split72.us ], [ 0, %2 ], [ 0, %39 ], [ 0, %63 ]
+  %storemerge23 = phi i64 [ 1, %.split72.us ], [ 0, %.split.us ], [ 0, %2 ], [ 0, %39 ], [ 0, %63 ]
   store i64 %storemerge23, ptr %0, align 8
   ret void
 }
@@ -1784,7 +1784,7 @@ define void @_ZN5uu_dd9parseargs6Parser5parse17he48aabd7178d284dE(ptr noalias no
   br label %_ZN5uu_dd9parseargs6Parser4read17h4273c84f79c6e53bE.exit.thread
 
 .loopexit306.i:                                   ; preds = %415, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h8ed495e3c6eb4d76E.exit.thread20.i.i", %.noexc38.i, %411
-  %.sroa.6193.0.ph.i = phi i64 [ 0, %411 ], [ 0, %.noexc38.i ], [ 1, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h8ed495e3c6eb4d76E.exit.thread20.i.i" ], [ 0, %415 ]
+  %.sroa.6193.0.ph.i = phi i64 [ 1, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h8ed495e3c6eb4d76E.exit.thread20.i.i" ], [ 0, %411 ], [ 0, %.noexc38.i ], [ 0, %415 ]
   store i64 %.sroa.6193.0.ph.i, ptr %65, align 8, !alias.scope !105, !noalias !106
   store i64 %408, ptr %66, align 8, !alias.scope !105, !noalias !106
   br label %463
@@ -1798,7 +1798,7 @@ define void @_ZN5uu_dd9parseargs6Parser5parse17he48aabd7178d284dE(ptr noalias no
   br label %_ZN5uu_dd9parseargs6Parser4read17h4273c84f79c6e53bE.exit.thread
 
 .loopexit305.i:                                   ; preds = %398, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h8ed495e3c6eb4d76E.exit.thread20.i46.i", %.noexc52.i, %394
-  %.sroa.6190.0.ph.i = phi i64 [ 0, %394 ], [ 0, %.noexc52.i ], [ 1, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h8ed495e3c6eb4d76E.exit.thread20.i46.i" ], [ 0, %398 ]
+  %.sroa.6190.0.ph.i = phi i64 [ 1, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h8ed495e3c6eb4d76E.exit.thread20.i46.i" ], [ 0, %394 ], [ 0, %.noexc52.i ], [ 0, %398 ]
   store i64 %.sroa.6190.0.ph.i, ptr %68, align 8, !alias.scope !105, !noalias !106
   store i64 %391, ptr %69, align 8, !alias.scope !105, !noalias !106
   br label %463

@@ -275,8 +275,8 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit: ; preds = %31, %25, 
   br label %_ZNK4cvc57context15CDInsertHashMapINS_8internal12NodeTemplateILb1EEENS2_4prop8SatValueESt4hashIS4_EE4findERKS4_.exit, !llvm.loop !49
 
 _ZNK4cvc57context15CDInsertHashMapINS_8internal12NodeTemplateILb1EEENS2_4prop8SatValueESt4hashIS4_EE4findERKS4_.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %65, %43, %42, %..loopexit_crit_edge21.i.i.i.i.i.i, %56, %.noexc23
-  %76 = phi ptr [ %.pre, %..loopexit_crit_edge21.i.i.i.i.i.i ], [ %.pre, %56 ], [ %.pre, %.noexc23 ], [ %41, %43 ], [ %41, %42 ], [ %.pre, %65 ], [ %.pre, %.lr.ph.i.i.i.i.i.i ]
-  %.sroa.06.1.i.i.i.i = phi ptr [ null, %..loopexit_crit_edge21.i.i.i.i.i.i ], [ %57, %56 ], [ null, %.noexc23 ], [ %.sroa.06.0.i.i.i.i, %43 ], [ null, %42 ], [ null, %.lr.ph.i.i.i.i.i.i ], [ %71, %65 ]
+  %76 = phi ptr [ %.pre, %..loopexit_crit_edge21.i.i.i.i.i.i ], [ %41, %43 ], [ %.pre, %56 ], [ %.pre, %.noexc23 ], [ %41, %42 ], [ %.pre, %65 ], [ %.pre, %.lr.ph.i.i.i.i.i.i ]
+  %.sroa.06.1.i.i.i.i = phi ptr [ null, %..loopexit_crit_edge21.i.i.i.i.i.i ], [ %.sroa.06.0.i.i.i.i, %43 ], [ %57, %56 ], [ null, %.noexc23 ], [ null, %42 ], [ null, %.lr.ph.i.i.i.i.i.i ], [ %71, %65 ]
   %77 = load i64, ptr %76, align 8
   %78 = and i64 %77, 1152920405095219200
   %.not.i.i = icmp eq i64 %78, 1152920405095219200
@@ -638,8 +638,8 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit: ; preds = %10, %16, 
   br label %_ZNK4cvc57context15CDInsertHashMapINS_8internal12NodeTemplateILb1EEENS2_4prop8SatValueESt4hashIS4_EE4findERKS4_.exit, !llvm.loop !49
 
 _ZNK4cvc57context15CDInsertHashMapINS_8internal12NodeTemplateILb1EEENS2_4prop8SatValueESt4hashIS4_EE4findERKS4_.exit: ; preds = %49, %.lr.ph.i.i.i.i.i.i, %26, %27, %.noexc, %40, %..loopexit_crit_edge21.i.i.i.i.i.i
-  %60 = phi ptr [ %.pre, %..loopexit_crit_edge21.i.i.i.i.i.i ], [ %.pre, %40 ], [ %.pre, %.noexc ], [ %4, %26 ], [ %4, %27 ], [ %.pre, %.lr.ph.i.i.i.i.i.i ], [ %.pre, %49 ]
-  %.sroa.06.1.i.i.i.i = phi ptr [ null, %..loopexit_crit_edge21.i.i.i.i.i.i ], [ %41, %40 ], [ null, %.noexc ], [ null, %26 ], [ %.sroa.06.0.i.i.i.i, %27 ], [ %55, %49 ], [ null, %.lr.ph.i.i.i.i.i.i ]
+  %60 = phi ptr [ %.pre, %..loopexit_crit_edge21.i.i.i.i.i.i ], [ %4, %26 ], [ %.pre, %40 ], [ %.pre, %.noexc ], [ %4, %27 ], [ %.pre, %.lr.ph.i.i.i.i.i.i ], [ %.pre, %49 ]
+  %.sroa.06.1.i.i.i.i = phi ptr [ null, %..loopexit_crit_edge21.i.i.i.i.i.i ], [ null, %26 ], [ %41, %40 ], [ null, %.noexc ], [ %.sroa.06.0.i.i.i.i, %27 ], [ %55, %49 ], [ null, %.lr.ph.i.i.i.i.i.i ]
   %61 = load i64, ptr %60, align 8
   %62 = and i64 %61, 1152920405095219200
   %.not.i.i = icmp eq i64 %62, 1152920405095219200
@@ -1210,7 +1210,7 @@ _ZNKSt10_HashtableIKN4cvc58internal12NodeTemplateILb1EEESt4pairIS4_KNS1_4prop8Sa
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph.i, %.lr.ph, %..loopexit_crit_edge21.i, %23, %5, %_ZNKSt10_HashtableIKN4cvc58internal12NodeTemplateILb1EEESt4pairIS4_KNS1_4prop8SatValueEESaIS9_ENSt8__detail10_Select1stESt8equal_toIS4_ESt4hashIS3_ENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_find_before_nodeEmRS4_m.exit
-  %.0 = phi i64 [ 1, %_ZNKSt10_HashtableIKN4cvc58internal12NodeTemplateILb1EEESt4pairIS4_KNS1_4prop8SatValueEESaIS9_ENSt8__detail10_Select1stESt8equal_toIS4_ESt4hashIS3_ENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_find_before_nodeEmRS4_m.exit ], [ 0, %5 ], [ 0, %23 ], [ 0, %..loopexit_crit_edge21.i ], [ 0, %.lr.ph ], [ 0, %.lr.ph.i ]
+  %.0 = phi i64 [ 1, %_ZNKSt10_HashtableIKN4cvc58internal12NodeTemplateILb1EEESt4pairIS4_KNS1_4prop8SatValueEESaIS9_ENSt8__detail10_Select1stESt8equal_toIS4_ESt4hashIS3_ENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_find_before_nodeEmRS4_m.exit ], [ 0, %.lr.ph ], [ 0, %5 ], [ 0, %23 ], [ 0, %..loopexit_crit_edge21.i ], [ 0, %.lr.ph.i ]
   ret i64 %.0
 }
 

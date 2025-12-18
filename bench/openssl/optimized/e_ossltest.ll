@@ -1487,7 +1487,7 @@ fill_known_data.exit:                             ; preds = %18
   br i1 %.not60, label %52, label %.critedge
 
 .critedge:                                        ; preds = %52, %.lr.ph68, %.lr.ph.preheader, %fill_known_data.exit, %47, %.thread, %32, %37, %39, %15, %27, %12, %4
-  %.0 = phi i32 [ 0, %12 ], [ 0, %4 ], [ 0, %32 ], [ 1, %27 ], [ 1, %15 ], [ 1, %.thread ], [ 0, %39 ], [ 0, %37 ], [ 1, %fill_known_data.exit ], [ 1, %47 ], [ 1, %.lr.ph.preheader ], [ 0, %.lr.ph68 ], [ 1, %52 ]
+  %.0 = phi i32 [ 1, %.lr.ph.preheader ], [ 0, %12 ], [ 0, %4 ], [ 0, %32 ], [ 1, %27 ], [ 1, %15 ], [ 1, %.thread ], [ 0, %39 ], [ 0, %37 ], [ 1, %fill_known_data.exit ], [ 1, %47 ], [ 0, %.lr.ph68 ], [ 1, %52 ]
   ret i32 %.0
 }
 

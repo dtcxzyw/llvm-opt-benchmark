@@ -1356,8 +1356,8 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit.split.i:          ; preds = %_ZNK6vectorIjLb0EjE
   br i1 %.not.i.i175, label %357, label %.split.us.i
 
 .split.us.i:                                      ; preds = %_ZN3sat10lut_finder15set_combinationEj.exit.us.i, %357, %_ZNK6vectorIjLb0EjE4sizeEv.exit.split.i
-  %332 = phi i64 [ %.promoted28.i, %_ZNK6vectorIjLb0EjE4sizeEv.exit.split.i ], [ %359, %357 ], [ %310, %_ZN3sat10lut_finder15set_combinationEj.exit.us.i ]
-  %333 = phi i32 [ %.promoted1929.i, %_ZNK6vectorIjLb0EjE4sizeEv.exit.split.i ], [ %358, %357 ], [ %309, %_ZN3sat10lut_finder15set_combinationEj.exit.us.i ]
+  %332 = phi i64 [ %359, %357 ], [ %.promoted28.i, %_ZNK6vectorIjLb0EjE4sizeEv.exit.split.i ], [ %310, %_ZN3sat10lut_finder15set_combinationEj.exit.us.i ]
+  %333 = phi i32 [ %358, %357 ], [ %.promoted1929.i, %_ZNK6vectorIjLb0EjE4sizeEv.exit.split.i ], [ %309, %_ZN3sat10lut_finder15set_combinationEj.exit.us.i ]
   %334 = icmp eq ptr %298, null
   br i1 %334, label %_ZNK6vectorIjLb0EjE4sizeEv.exit15.i, label %335
 
@@ -1915,8 +1915,8 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit.split.i213:       ; preds = %_ZNK6vectorIjLb0EjE
   br i1 %.not.i.i216, label %618, label %.split.us.i203
 
 .split.us.i203:                                   ; preds = %_ZN3sat10lut_finder15set_combinationEj.exit.us.i201, %618, %_ZNK6vectorIjLb0EjE4sizeEv.exit.split.i213
-  %593 = phi i64 [ %.promoted28.i215, %_ZNK6vectorIjLb0EjE4sizeEv.exit.split.i213 ], [ %620, %618 ], [ %571, %_ZN3sat10lut_finder15set_combinationEj.exit.us.i201 ]
-  %594 = phi i32 [ %.promoted1929.i214, %_ZNK6vectorIjLb0EjE4sizeEv.exit.split.i213 ], [ %619, %618 ], [ %570, %_ZN3sat10lut_finder15set_combinationEj.exit.us.i201 ]
+  %593 = phi i64 [ %620, %618 ], [ %.promoted28.i215, %_ZNK6vectorIjLb0EjE4sizeEv.exit.split.i213 ], [ %571, %_ZN3sat10lut_finder15set_combinationEj.exit.us.i201 ]
+  %594 = phi i32 [ %619, %618 ], [ %.promoted1929.i214, %_ZNK6vectorIjLb0EjE4sizeEv.exit.split.i213 ], [ %570, %_ZN3sat10lut_finder15set_combinationEj.exit.us.i201 ]
   %595 = icmp eq ptr %559, null
   br i1 %595, label %_ZNK6vectorIjLb0EjE4sizeEv.exit15.i204, label %596
 
@@ -2311,8 +2311,8 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit.split.i258:       ; preds = %_ZNK6vectorIjLb0EjE
   br i1 %.not.i.i261, label %803, label %.split.us.i248
 
 .split.us.i248:                                   ; preds = %_ZN3sat10lut_finder15set_combinationEj.exit.us.i246, %803, %_ZNK6vectorIjLb0EjE4sizeEv.exit.split.i258
-  %778 = phi i64 [ %.promoted28.i260, %_ZNK6vectorIjLb0EjE4sizeEv.exit.split.i258 ], [ %805, %803 ], [ %756, %_ZN3sat10lut_finder15set_combinationEj.exit.us.i246 ]
-  %779 = phi i32 [ %.promoted1929.i259, %_ZNK6vectorIjLb0EjE4sizeEv.exit.split.i258 ], [ %804, %803 ], [ %755, %_ZN3sat10lut_finder15set_combinationEj.exit.us.i246 ]
+  %778 = phi i64 [ %805, %803 ], [ %.promoted28.i260, %_ZNK6vectorIjLb0EjE4sizeEv.exit.split.i258 ], [ %756, %_ZN3sat10lut_finder15set_combinationEj.exit.us.i246 ]
+  %779 = phi i32 [ %804, %803 ], [ %.promoted1929.i259, %_ZNK6vectorIjLb0EjE4sizeEv.exit.split.i258 ], [ %755, %_ZN3sat10lut_finder15set_combinationEj.exit.us.i246 ]
   %780 = icmp eq ptr %744, null
   br i1 %780, label %_ZNK6vectorIjLb0EjE4sizeEv.exit15.i249, label %781
 
@@ -3048,8 +3048,8 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit.split:            ; preds = %_ZNK6vectorIjLb0EjE
   br i1 %.not.i, label %71, label %.split.us
 
 .split.us:                                        ; preds = %_ZN3sat10lut_finder15set_combinationEj.exit.us, %71, %_ZNK6vectorIjLb0EjE4sizeEv.exit.split
-  %43 = phi i64 [ %.promoted28, %_ZNK6vectorIjLb0EjE4sizeEv.exit.split ], [ %73, %71 ], [ %19, %_ZN3sat10lut_finder15set_combinationEj.exit.us ]
-  %44 = phi i32 [ %.promoted1929, %_ZNK6vectorIjLb0EjE4sizeEv.exit.split ], [ %72, %71 ], [ %18, %_ZN3sat10lut_finder15set_combinationEj.exit.us ]
+  %43 = phi i64 [ %73, %71 ], [ %.promoted28, %_ZNK6vectorIjLb0EjE4sizeEv.exit.split ], [ %19, %_ZN3sat10lut_finder15set_combinationEj.exit.us ]
+  %44 = phi i32 [ %72, %71 ], [ %.promoted1929, %_ZNK6vectorIjLb0EjE4sizeEv.exit.split ], [ %18, %_ZN3sat10lut_finder15set_combinationEj.exit.us ]
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %46 = load ptr, ptr %45, align 8, !tbaa !31
   %47 = icmp eq ptr %46, null
@@ -3293,7 +3293,7 @@ _ZSt4findIPjjET_S1_S1_RKT0_.exit.loopexit.split.loop.exit39: ; preds = %24
   br label %_ZN6vectorIjLb0EjE3endEv.exit5.thread
 
 _ZN6vectorIjLb0EjE3endEv.exit5.thread:            ; preds = %13, %39, %33, %._crit_edge.i.i.i, %_ZSt4findIPjjET_S1_S1_RKT0_.exit.loopexit.split.loop.exit39, %_ZSt4findIPjjET_S1_S1_RKT0_.exit.loopexit.split.loop.exit37, %_ZSt4findIPjjET_S1_S1_RKT0_.exit.loopexit.split.loop.exit, %45
-  %.028.i.i.i = phi ptr [ %.1.i.i.i, %39 ], [ %8, %._crit_edge.i.i.i ], [ %.029.lcssa.i.i.i, %33 ], [ %spec.select, %45 ], [ %51, %_ZSt4findIPjjET_S1_S1_RKT0_.exit.loopexit.split.loop.exit39 ], [ %49, %_ZSt4findIPjjET_S1_S1_RKT0_.exit.loopexit.split.loop.exit ], [ %50, %_ZSt4findIPjjET_S1_S1_RKT0_.exit.loopexit.split.loop.exit37 ], [ %.02946.i.i.i, %13 ]
+  %.028.i.i.i = phi ptr [ %.1.i.i.i, %39 ], [ %8, %._crit_edge.i.i.i ], [ %50, %_ZSt4findIPjjET_S1_S1_RKT0_.exit.loopexit.split.loop.exit37 ], [ %.029.lcssa.i.i.i, %33 ], [ %spec.select, %45 ], [ %51, %_ZSt4findIPjjET_S1_S1_RKT0_.exit.loopexit.split.loop.exit39 ], [ %49, %_ZSt4findIPjjET_S1_S1_RKT0_.exit.loopexit.split.loop.exit ], [ %.02946.i.i.i, %13 ]
   %52 = getelementptr inbounds i8, ptr %3, i64 -4
   %53 = load i32, ptr %52, align 4, !tbaa !10
   %54 = zext i32 %53 to i64

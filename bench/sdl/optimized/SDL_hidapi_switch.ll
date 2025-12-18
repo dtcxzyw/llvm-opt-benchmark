@@ -4749,31 +4749,31 @@ define internal zeroext i1 @HIDAPI_DriverSwitch_RumbleJoystick(ptr noundef reado
 29:                                               ; preds = %23
   %30 = load i8, ptr %20, align 8, !range !3, !noundef !4
   %31 = trunc nuw i8 %30 to i1
-  br i1 %31, label %32, label %39
+  br i1 %31, label %HIDAPI_DriverSwitch_SendPendingRumble.exit, label %32
 
 32:                                               ; preds = %29
-  %33 = getelementptr inbounds nuw i8, ptr %6, i64 148
-  %34 = load i32, ptr %33, align 4
-  %35 = lshr i32 %34, 16
-  %36 = trunc nuw i32 %35 to i16
-  %37 = trunc i32 %34 to i16
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 145
+  %34 = load i8, ptr %33, align 1, !range !3, !noundef !4
+  %35 = trunc nuw i8 %34 to i1
+  br i1 %35, label %36, label %HIDAPI_DriverSwitch_SendPendingRumble.exit.thread
+
+36:                                               ; preds = %32
+  store i8 0, ptr %33, align 1
+  %37 = tail call fastcc zeroext i1 @HIDAPI_DriverSwitch_ActuallyRumbleJoystick(ptr noundef nonnull %6, i16 noundef zeroext 0, i16 noundef zeroext 0)
+  br i1 %37, label %HIDAPI_DriverSwitch_SendPendingRumble.exit.thread, label %66
+
+HIDAPI_DriverSwitch_SendPendingRumble.exit:       ; preds = %29
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 148
+  %39 = load i32, ptr %38, align 4
+  %40 = lshr i32 %39, 16
+  %41 = trunc nuw i32 %40 to i16
+  %42 = trunc i32 %39 to i16
   store i8 0, ptr %20, align 8
-  store i32 0, ptr %33, align 4
-  %38 = tail call fastcc zeroext i1 @HIDAPI_DriverSwitch_ActuallyRumbleJoystick(ptr noundef nonnull %6, i16 noundef zeroext %36, i16 noundef zeroext %37)
-  br i1 %38, label %HIDAPI_DriverSwitch_SendPendingRumble.exit.thread, label %66
-
-39:                                               ; preds = %29
-  %40 = getelementptr inbounds nuw i8, ptr %6, i64 145
-  %41 = load i8, ptr %40, align 1, !range !3, !noundef !4
-  %42 = trunc nuw i8 %41 to i1
-  br i1 %42, label %HIDAPI_DriverSwitch_SendPendingRumble.exit, label %HIDAPI_DriverSwitch_SendPendingRumble.exit.thread
-
-HIDAPI_DriverSwitch_SendPendingRumble.exit:       ; preds = %39
-  store i8 0, ptr %40, align 1
-  %43 = tail call fastcc zeroext i1 @HIDAPI_DriverSwitch_ActuallyRumbleJoystick(ptr noundef nonnull %6, i16 noundef zeroext 0, i16 noundef zeroext 0)
+  store i32 0, ptr %38, align 4
+  %43 = tail call fastcc zeroext i1 @HIDAPI_DriverSwitch_ActuallyRumbleJoystick(ptr noundef nonnull %6, i16 noundef zeroext %41, i16 noundef zeroext %42)
   br i1 %43, label %HIDAPI_DriverSwitch_SendPendingRumble.exit.thread, label %66
 
-HIDAPI_DriverSwitch_SendPendingRumble.exit.thread: ; preds = %39, %23, %32, %HIDAPI_DriverSwitch_SendPendingRumble.exit, %19
+HIDAPI_DriverSwitch_SendPendingRumble.exit.thread: ; preds = %32, %23, %36, %HIDAPI_DriverSwitch_SendPendingRumble.exit, %19
   %44 = tail call i64 @SDL_GetTicks_REAL() #9
   %45 = getelementptr inbounds nuw i8, ptr %6, i64 136
   %46 = load i64, ptr %45, align 8
@@ -4815,8 +4815,8 @@ HIDAPI_DriverSwitch_SendPendingRumble.exit.thread: ; preds = %39, %23, %32, %HID
   %65 = tail call fastcc zeroext i1 @HIDAPI_DriverSwitch_ActuallyRumbleJoystick(ptr noundef nonnull %6, i16 noundef zeroext %.024, i16 noundef zeroext %.025)
   br label %66
 
-66:                                               ; preds = %32, %60, %62, %HIDAPI_DriverSwitch_SendPendingRumble.exit, %64, %10
-  %.0 = phi i1 [ %11, %10 ], [ false, %HIDAPI_DriverSwitch_SendPendingRumble.exit ], [ %65, %64 ], [ true, %62 ], [ true, %60 ], [ false, %32 ]
+66:                                               ; preds = %36, %60, %62, %HIDAPI_DriverSwitch_SendPendingRumble.exit, %64, %10
+  %.0 = phi i1 [ %11, %10 ], [ false, %HIDAPI_DriverSwitch_SendPendingRumble.exit ], [ %65, %64 ], [ true, %62 ], [ true, %60 ], [ false, %36 ]
   ret i1 %.0
 }
 
@@ -5149,7 +5149,7 @@ UpdateEnhancedModeOnApplicationUsage.exit:        ; preds = %3, %12
   br label %GetSensorInputMode.exit.i
 
 GetSensorInputMode.exit.i:                        ; preds = %.thread.fold.split.i.i, %.thread15.i.i, %47, %41, %32, %31, %31
-  %.0.i = phi i8 [ 48, %31 ], [ %.val.i, %32 ], [ 48, %31 ], [ %spec.select.i.i, %.thread15.i.i ], [ 48, %41 ], [ 48, %47 ], [ %.0.i4.i, %.thread.fold.split.i.i ]
+  %.0.i = phi i8 [ 48, %31 ], [ %.val.i, %32 ], [ 48, %31 ], [ %spec.select.i.i, %.thread15.i.i ], [ 48, %47 ], [ 48, %41 ], [ %.0.i4.i, %.thread.fold.split.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 %.0.i, ptr %5, align 1
   %57 = getelementptr inbounds nuw i8, ptr %8, i64 37
@@ -5385,7 +5385,7 @@ ReadJoyConControllerType.exit.thread:             ; preds = %53, %62
   br label %.thread
 
 ReadJoyConControllerType.exit:                    ; preds = %CalculateControllerType.exit.i, %55, %.thread.i23.i, %66
-  %.3.i = phi i32 [ %.2.i, %CalculateControllerType.exit.i ], [ %..i22.i, %66 ], [ %58, %55 ], [ %spec.select.i24.i, %.thread.i23.i ]
+  %.3.i = phi i32 [ %.2.i, %CalculateControllerType.exit.i ], [ %spec.select.i24.i, %.thread.i23.i ], [ %..i22.i, %66 ], [ %58, %55 ]
   call void @SDL_free_REAL(ptr noundef nonnull %20) #9
   %70 = add nsw i32 %.3.i, -3
   %or.cond3 = icmp ult i32 %70, -2
@@ -6045,7 +6045,7 @@ default.unreachable7:                             ; preds = %2
   br label %GetSensorInputMode.exit.i
 
 GetSensorInputMode.exit.i:                        ; preds = %.thread.fold.split.i.i, %.thread15.i.i, %31, %25, %16, %15, %15
-  %.0.i = phi i8 [ 48, %15 ], [ %.val.i, %16 ], [ 48, %15 ], [ %spec.select.i.i, %.thread15.i.i ], [ 48, %25 ], [ 48, %31 ], [ %.0.i4.i, %.thread.fold.split.i.i ]
+  %.0.i = phi i8 [ 48, %15 ], [ %.val.i, %16 ], [ 48, %15 ], [ %spec.select.i.i, %.thread15.i.i ], [ 48, %31 ], [ 48, %25 ], [ %.0.i4.i, %.thread.fold.split.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 %.0.i, ptr %3, align 1
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 37

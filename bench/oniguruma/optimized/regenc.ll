@@ -941,7 +941,7 @@ define dso_local range(i32 0, 5) i32 @onigenc_get_case_fold_codes_by_str_with_ma
   br label %.thread
 
 .thread:                                          ; preds = %92, %46, %.thread.sink.split, %89
-  %.097 = phi i32 [ 0, %89 ], [ %.097.ph, %.thread.sink.split ], [ 4, %46 ], [ 0, %92 ]
+  %.097 = phi i32 [ 0, %89 ], [ 4, %46 ], [ %.097.ph, %.thread.sink.split ], [ 0, %92 ]
   ret i32 %.097
 }
 

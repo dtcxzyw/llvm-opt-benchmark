@@ -1508,7 +1508,7 @@ define dso_local range(i32 0, 3) i32 @JoinWaitQueue(ptr noundef readonly capture
   br label %110
 
 .thread115:                                       ; preds = %76, %46, %34, %68, %71, %31, %.loopexit
-  %.071 = phi ptr [ null, %31 ], [ null, %.loopexit ], [ %.us-phi133, %71 ], [ %.us-phi133, %68 ], [ null, %34 ], [ null, %46 ], [ null, %76 ]
+  %.071 = phi ptr [ null, %31 ], [ null, %.loopexit ], [ %.us-phi133, %68 ], [ %.us-phi133, %71 ], [ null, %34 ], [ null, %46 ], [ null, %76 ]
   br i1 %2, label %110, label %80
 
 80:                                               ; preds = %.thread115

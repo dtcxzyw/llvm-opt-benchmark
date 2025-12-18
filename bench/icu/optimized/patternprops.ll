@@ -222,27 +222,27 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %_ZNK6icu_7713Unicod
   %20 = getelementptr inbounds i16, ptr %17, i64 %indvars.iv
   %21 = load i16, ptr %20, align 2, !tbaa !8
   %22 = icmp ult i16 %21, 256
-  br i1 %22, label %23, label %29
+  br i1 %22, label %_ZN6icu_7712PatternProps12isWhiteSpaceEi.exit, label %23
 
 23:                                               ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit
-  %24 = zext nneg i16 %21 to i64
-  %25 = getelementptr inbounds nuw i8, ptr @_ZN6icu_77L6latin1E, i64 %24
-  %26 = load i8, ptr %25, align 1, !tbaa !3
-  %27 = and i8 %26, 4
-  %28 = icmp eq i8 %27, 0
-  br i1 %28, label %.critedge.loopexit.split.loop.exit, label %33
+  %24 = add i16 %21, -8206
+  %or.cond.i = icmp ult i16 %24, 28
+  br i1 %or.cond.i, label %25, label %.critedge.loopexit.split.loop.exit19
 
-29:                                               ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit
-  %30 = add i16 %21, -8206
-  %or.cond.i = icmp ult i16 %30, 28
-  br i1 %or.cond.i, label %_ZN6icu_7712PatternProps12isWhiteSpaceEi.exit, label %.critedge.loopexit.split.loop.exit19
+25:                                               ; preds = %23
+  %26 = add nsw i16 %21, -8208
+  %27 = icmp ult i16 %26, 24
+  br i1 %27, label %.critedge.loopexit.split.loop.exit, label %33
 
-_ZN6icu_7712PatternProps12isWhiteSpaceEi.exit:    ; preds = %29
-  %31 = add nsw i16 %21, -8208
-  %32 = icmp ult i16 %31, 24
+_ZN6icu_7712PatternProps12isWhiteSpaceEi.exit:    ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit
+  %28 = zext nneg i16 %21 to i64
+  %29 = getelementptr inbounds nuw i8, ptr @_ZN6icu_77L6latin1E, i64 %28
+  %30 = load i8, ptr %29, align 1, !tbaa !3
+  %31 = and i8 %30, 4
+  %32 = icmp eq i8 %31, 0
   br i1 %32, label %.critedge.loopexit.split.loop.exit23, label %33
 
-33:                                               ; preds = %23, %_ZN6icu_7712PatternProps12isWhiteSpaceEi.exit
+33:                                               ; preds = %25, %_ZN6icu_7712PatternProps12isWhiteSpaceEi.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %34 = icmp slt i64 %indvars.iv.next, %19
   %35 = trunc nsw i64 %indvars.iv.next to i32
@@ -250,11 +250,11 @@ _ZN6icu_7712PatternProps12isWhiteSpaceEi.exit:    ; preds = %29
   %or.cond = and i1 %34, %36
   br i1 %or.cond, label %_ZNK6icu_7713UnicodeString6charAtEi.exit, label %.critedge, !llvm.loop !12
 
-.critedge.loopexit.split.loop.exit:               ; preds = %23
+.critedge.loopexit.split.loop.exit:               ; preds = %25
   %37 = trunc nsw i64 %indvars.iv to i32
   br label %.critedge
 
-.critedge.loopexit.split.loop.exit19:             ; preds = %29
+.critedge.loopexit.split.loop.exit19:             ; preds = %23
   %38 = trunc nsw i64 %indvars.iv to i32
   br label %.critedge
 
@@ -460,7 +460,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7712PatternProps12isIdentifier
   br label %_ZN6icu_7712PatternProps20isSyntaxOrWhiteSpaceEi.exit
 
 _ZN6icu_7712PatternProps20isSyntaxOrWhiteSpaceEi.exit: ; preds = %11, %20, %35
-  %.0.i = phi i8 [ %15, %11 ], [ %32, %20 ], [ %38, %35 ]
+  %.0.i = phi i8 [ %38, %35 ], [ %15, %11 ], [ %32, %20 ]
   %.not = icmp eq i8 %.0.i, 0
   br i1 %.not, label %_ZN6icu_7712PatternProps20isSyntaxOrWhiteSpaceEi.exit.thread, label %.loopexit
 
@@ -529,7 +529,7 @@ define noundef ptr @_ZN6icu_7712PatternProps14skipIdentifierEPKDsi(ptr noundef r
   br label %_ZN6icu_7712PatternProps20isSyntaxOrWhiteSpaceEi.exit
 
 _ZN6icu_7712PatternProps20isSyntaxOrWhiteSpaceEi.exit: ; preds = %7, %16, %31
-  %.0.i = phi i8 [ %11, %7 ], [ %28, %16 ], [ %34, %31 ]
+  %.0.i = phi i8 [ %34, %31 ], [ %11, %7 ], [ %28, %16 ]
   %.not = icmp eq i8 %.0.i, 0
   br i1 %.not, label %_ZN6icu_7712PatternProps20isSyntaxOrWhiteSpaceEi.exit.thread, label %.critedge
 

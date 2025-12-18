@@ -869,7 +869,7 @@ define hidden noundef zeroext i1 @phar_archive_delref(ptr noundef %0) local_unna
   br label %41
 
 41:                                               ; preds = %.sink.split, %32, %19, %35, %13, %1
-  %.0 = phi i1 [ true, %13 ], [ false, %1 ], [ true, %35 ], [ false, %19 ], [ false, %32 ], [ true, %.sink.split ]
+  %.0 = phi i1 [ true, %13 ], [ false, %1 ], [ true, %35 ], [ false, %32 ], [ false, %19 ], [ true, %.sink.split ]
   ret i1 %.0
 }
 
@@ -1891,8 +1891,8 @@ define hidden range(i32 -1, 1) i32 @phar_detect_phar_fname_ext(ptr noundef %0, i
   br i1 %.not.i, label %56, label %.thread221
 
 .thread221:                                       ; preds = %79, %79, %77, %100, %102, %102, %39, %59
-  %.0152244.lcssa.sink = phi ptr [ %60, %59 ], [ %40, %39 ], [ %.0152244, %100 ], [ %.0152244, %102 ], [ %.0152244, %102 ], [ %.0161242, %77 ], [ %.0161242, %79 ], [ %.0161242, %79 ]
-  %.lcssa.sink = phi i64 [ %1, %59 ], [ %1, %39 ], [ %1, %100 ], [ %96, %102 ], [ %96, %102 ], [ %73, %79 ], [ %73, %79 ], [ %1, %77 ]
+  %.0152244.lcssa.sink = phi ptr [ %.0152244, %100 ], [ %60, %59 ], [ %40, %39 ], [ %.0152244, %102 ], [ %.0152244, %102 ], [ %.0161242, %77 ], [ %.0161242, %79 ], [ %.0161242, %79 ]
+  %.lcssa.sink = phi i64 [ %1, %100 ], [ %1, %59 ], [ %1, %39 ], [ %96, %102 ], [ %96, %102 ], [ %73, %79 ], [ %73, %79 ], [ %1, %77 ]
   %41 = load ptr, ptr %.0152244.lcssa.sink, align 8, !tbaa !29
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
   %43 = load i32, ptr %42, align 8, !tbaa !108
@@ -2103,7 +2103,7 @@ define hidden range(i32 -1, 1) i32 @phar_detect_phar_fname_ext(ptr noundef %0, i
   br label %.preheader.backedge
 
 .loopexit:                                        ; preds = %123, %128, %.critedge5, %.thread229, %55, %47, %.thread221, %51, %7, %120, %32, %26, %24
-  %.0 = phi i32 [ 0, %47 ], [ -1, %24 ], [ -1, %26 ], [ -1, %32 ], [ 0, %.thread221 ], [ %122, %120 ], [ -1, %7 ], [ 0, %51 ], [ -1, %55 ], [ -1, %.thread229 ], [ 0, %123 ], [ -1, %128 ], [ -1, %.critedge5 ]
+  %.0 = phi i32 [ -1, %55 ], [ -1, %24 ], [ -1, %26 ], [ -1, %32 ], [ 0, %47 ], [ 0, %.thread221 ], [ -1, %.thread229 ], [ %122, %120 ], [ -1, %7 ], [ 0, %51 ], [ -1, %128 ], [ 0, %123 ], [ -1, %.critedge5 ]
   ret i32 %.0
 }
 
@@ -4713,7 +4713,7 @@ phar_parse_pharfile.exit:                         ; preds = %169, %171, %175, %1
   br i1 %993, label %.outer._crit_edge, label %.lr.ph
 
 .outer._crit_edge:                                ; preds = %.outer, %.backedge, %30
-  %.0156.lcssa = phi ptr [ %0, %30 ], [ %.0156.be, %.backedge ], [ %.0156348, %.outer ]
+  %.0156.lcssa = phi ptr [ %.0156.be, %.backedge ], [ %0, %30 ], [ %.0156348, %.outer ]
   %994 = call i32 @_php_stream_free(ptr noundef nonnull %.0156.lcssa, i32 noundef 3) #24
   br i1 %.not, label %.thread215, label %995
 
@@ -7493,8 +7493,8 @@ smart_str_free_ex.exit:                           ; preds = %413, %441, %zend_st
   %769 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %3, i64 noundef 0, ptr noundef nonnull %.str.34.sink, ptr noundef nonnull %767, ptr noundef %768) #24
   br label %.sink.split938
 
-.sink.split938:                                   ; preds = %764, %325, %337, %.thread765.sink.split, %313, %312
-  %.sink = phi ptr [ %56, %313 ], [ %56, %312 ], [ %.0537.lcssa, %764 ], [ %.2539709, %325 ], [ %.2539709, %337 ], [ %.2539709, %.thread765.sink.split ]
+.sink.split938:                                   ; preds = %764, %337, %325, %.thread765.sink.split, %313, %312
+  %.sink = phi ptr [ %56, %313 ], [ %56, %312 ], [ %.0537.lcssa, %764 ], [ %.2539709, %337 ], [ %.2539709, %325 ], [ %.2539709, %.thread765.sink.split ]
   %770 = call i32 @_php_stream_free(ptr noundef nonnull %.sink, i32 noundef 3) #24
   br label %771
 

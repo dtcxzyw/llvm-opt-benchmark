@@ -268,7 +268,7 @@ define hidden void @dissect_sscop_and_payload(ptr noundef %0, ptr noundef %1, pt
   br i1 %exitcond.not.i87, label %dissect_stat_list.exitthread-pre-split, label %.lr.ph.i85, !llvm.loop !6
 
 dissect_stat_list.exitthread-pre-split:           ; preds = %.lr.ph.i85, %.lr.ph.i, %23, %57, %53, %49, %45, %40, %33, %64, %77, %87, %97
-  %.079.ph = phi ptr [ %29, %97 ], [ %29, %87 ], [ %29, %77 ], [ %29, %64 ], [ null, %23 ], [ %29, %57 ], [ %29, %53 ], [ %29, %49 ], [ %29, %45 ], [ %29, %40 ], [ %29, %33 ], [ %29, %.lr.ph.i ], [ %29, %.lr.ph.i85 ]
+  %.079.ph = phi ptr [ %29, %.lr.ph.i ], [ %29, %97 ], [ %29, %87 ], [ %29, %77 ], [ %29, %64 ], [ %29, %33 ], [ null, %23 ], [ %29, %57 ], [ %29, %53 ], [ %29, %49 ], [ %29, %45 ], [ %29, %40 ], [ %29, %.lr.ph.i85 ]
   %.pr = load i8, ptr @sscop_info.0, align 4
   br label %dissect_stat_list.exit
 

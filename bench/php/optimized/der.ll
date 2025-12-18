@@ -190,7 +190,7 @@ getlength.exit.thread37:                          ; preds = %29, %._crit_edge.i
   br label %gettag.exit.thread
 
 gettag.exit.thread:                               ; preds = %15, %._crit_edge.i, %22, %gettag.exit.thread31, %3, %11, %69, %58, %gettag.exit
-  %.0 = phi i32 [ -1, %gettag.exit ], [ %70, %69 ], [ -1, %._crit_edge.i ], [ -1, %58 ], [ -1, %11 ], [ -1, %3 ], [ -1, %gettag.exit.thread31 ], [ -1, %22 ], [ -1, %15 ]
+  %.0 = phi i32 [ -1, %gettag.exit ], [ %70, %69 ], [ -1, %._crit_edge.i ], [ -1, %58 ], [ -1, %22 ], [ -1, %11 ], [ -1, %3 ], [ -1, %gettag.exit.thread31 ], [ -1, %15 ]
   ret i32 %.0
 }
 
@@ -517,7 +517,7 @@ sub_1:                                            ; preds = %sub_0
   br label %gettag.exit.thread
 
 gettag.exit.thread:                               ; preds = %17, %74, %135, %159, %._crit_edge.i, %25, %24, %2, %13, %173, %68, %.tail, %gettag.exit
-  %.036 = phi i32 [ -1, %._crit_edge.i ], [ -1, %gettag.exit ], [ 1, %173 ], [ -1, %2 ], [ -1, %24 ], [ 0, %68 ], [ -1, %25 ], [ 0, %.tail ], [ -1, %13 ], [ 0, %135 ], [ 0, %159 ], [ 1, %74 ], [ -1, %17 ]
+  %.036 = phi i32 [ -1, %._crit_edge.i ], [ -1, %gettag.exit ], [ 1, %173 ], [ -1, %2 ], [ -1, %24 ], [ 0, %68 ], [ -1, %25 ], [ 0, %.tail ], [ 0, %135 ], [ -1, %13 ], [ 0, %159 ], [ 1, %74 ], [ -1, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.036
 }

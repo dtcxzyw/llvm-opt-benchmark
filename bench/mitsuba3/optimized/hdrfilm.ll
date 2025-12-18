@@ -2913,7 +2913,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSB8ne190000EPKc.
           to label %243 unwind label %.loopexit.split-lp
 
 .loopexitthread-pre-split:                        ; preds = %222, %229, %199, %206, %177, %184, %155, %162, %.thread, %.thread136, %.thread139, %.thread142, %.loopexit160
-  %.pn86.ph = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit160 ], [ %215, %.thread142 ], [ %192, %.thread139 ], [ %170, %.thread136 ], [ %148, %.thread ], [ %228, %229 ], [ %161, %162 ], [ %lpad.phi171, %155 ], [ %183, %184 ], [ %lpad.phi165, %177 ], [ %205, %206 ], [ %lpad.phi183, %199 ], [ %lpad.phi177, %222 ]
+  %.pn86.ph = phi { ptr, i32 } [ %lpad.phi171, %155 ], [ %lpad.loopexit, %.loopexit160 ], [ %215, %.thread142 ], [ %lpad.phi165, %177 ], [ %183, %184 ], [ %192, %.thread139 ], [ %lpad.phi183, %199 ], [ %161, %162 ], [ %170, %.thread136 ], [ %228, %229 ], [ %148, %.thread ], [ %205, %206 ], [ %lpad.phi177, %222 ]
   %.pr = load ptr, ptr %0, align 8
   br label %.loopexit
 
@@ -8679,7 +8679,7 @@ _ZNKSt3__110__equal_toclB8ne190000INS_12basic_stringIcNS_11char_traitsIcEENS_9al
   br i1 %.not.i, label %_ZNSt3__115__adjacent_findB8ne190000INS_11__wrap_iterIPNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEES9_RNS_10__equal_toEEET_SC_T0_OT1_.exit, label %.lr.ph.i, !llvm.loop !66
 
 _ZNSt3__115__adjacent_findB8ne190000INS_11__wrap_iterIPNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEES9_RNS_10__equal_toEEET_SC_T0_OT1_.exit: ; preds = %.preheader.i.i.i, %_ZNKSt3__110__equal_toclB8ne190000INS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES7_EEbRKT_RKT0_.exit.i, %_ZNKSt3__110__equal_toclB8ne190000INS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES7_EEbRKT_RKT0_.exit.thread13.i, %28, %3, %.preheader.i
-  %.sroa.0.0.in.sroa.speculated.i = phi ptr [ %0, %3 ], [ %5, %.preheader.i ], [ %.sroa.09.018.i, %28 ], [ %.sroa.09.018.i, %.preheader.i.i.i ], [ %.sroa.09.018.i, %_ZNKSt3__110__equal_toclB8ne190000INS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES7_EEbRKT_RKT0_.exit.i ], [ %34, %_ZNKSt3__110__equal_toclB8ne190000INS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES7_EEbRKT_RKT0_.exit.thread13.i ]
+  %.sroa.0.0.in.sroa.speculated.i = phi ptr [ %.sroa.09.018.i, %28 ], [ %0, %3 ], [ %5, %.preheader.i ], [ %.sroa.09.018.i, %_ZNKSt3__110__equal_toclB8ne190000INS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES7_EEbRKT_RKT0_.exit.i ], [ %34, %_ZNKSt3__110__equal_toclB8ne190000INS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES7_EEbRKT_RKT0_.exit.thread13.i ], [ %.sroa.09.018.i, %.preheader.i.i.i ]
   %.not = icmp eq ptr %.sroa.0.0.in.sroa.speculated.i, %1
   br i1 %.not, label %75, label %35
 

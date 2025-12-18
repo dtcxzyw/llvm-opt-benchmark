@@ -12042,7 +12042,7 @@ _ZN5Yosys9DriverMap13DriveBitGraph5countENS0_10DriveBitIdE.exit135: ; preds = %.
   br i1 %.not1515, label %._crit_edge1518, label %.lr.ph1517
 
 .lr.ph1517:                                       ; preds = %1366, %1509, %1370, %._crit_edge.i.i190, %1212, %._crit_edge.i.i195, %_ZN5Yosys9DriverMap13DriveBitGraph5countENS0_10DriveBitIdE.exit135
-  %.0.i1342028 = phi i32 [ %1522, %_ZN5Yosys9DriverMap13DriveBitGraph5countENS0_10DriveBitIdE.exit135 ], [ 2, %1370 ], [ 2, %._crit_edge.i.i190 ], [ 1, %1212 ], [ 1, %._crit_edge.i.i195 ], [ 2, %1509 ], [ 1, %1366 ]
+  %.0.i1342028 = phi i32 [ %1522, %_ZN5Yosys9DriverMap13DriveBitGraph5countENS0_10DriveBitIdE.exit135 ], [ 2, %1370 ], [ 2, %._crit_edge.i.i190 ], [ 1, %1212 ], [ 2, %1509 ], [ 1, %._crit_edge.i.i195 ], [ 1, %1366 ]
   %1523 = mul i32 %.sroa.017.0.copyload, 33
   %.sroa.2.0.insert.ext.i.i257 = zext i32 %.sroa.017.0.copyload to i64
   %.sroa.2.0.insert.shift.i.i258 = shl nuw i64 %.sroa.2.0.insert.ext.i.i257, 32
@@ -19715,7 +19715,7 @@ _ZNK5Yosys7hashlib4poolINS_10DriveChunkENS0_8hash_opsIS2_EEE5countERKS2_.exit.i:
   unreachable
 
 _ZNK5Yosys14DriveChunkWireeqERKS0_.exit:          ; preds = %95, %._crit_edge.i, %_ZNK5Yosys7hashlib4poolINS_10DriveChunkENS0_8hash_opsIS2_EEE5countERKS2_.exit.i, %_ZNK5Yosys7hashlib4poolINS_10DriveChunkENS0_8hash_opsIS2_EEE9do_lookupERKS2_Rj.exit, %146, %92, %70, %77, %64, %58, %52, %46, %40, %34, %28, %22, %16, %10, %5, %2, %6
-  %.0 = phi i1 [ %69, %64 ], [ false, %2 ], [ %9, %6 ], [ true, %5 ], [ %27, %22 ], [ %51, %46 ], [ false, %16 ], [ false, %10 ], [ false, %40 ], [ false, %34 ], [ false, %28 ], [ false, %58 ], [ false, %52 ], [ false, %70 ], [ false, %77 ], [ true, %92 ], [ false, %146 ], [ false, %95 ], [ false, %._crit_edge.i ], [ false, %_ZNK5Yosys7hashlib4poolINS_10DriveChunkENS0_8hash_opsIS2_EEE5countERKS2_.exit.i ], [ true, %_ZNK5Yosys7hashlib4poolINS_10DriveChunkENS0_8hash_opsIS2_EEE9do_lookupERKS2_Rj.exit ]
+  %.0 = phi i1 [ %69, %64 ], [ false, %2 ], [ %9, %6 ], [ true, %5 ], [ %27, %22 ], [ %51, %46 ], [ false, %16 ], [ false, %10 ], [ false, %40 ], [ false, %34 ], [ false, %28 ], [ false, %58 ], [ false, %52 ], [ false, %70 ], [ false, %77 ], [ true, %92 ], [ false, %146 ], [ true, %_ZNK5Yosys7hashlib4poolINS_10DriveChunkENS0_8hash_opsIS2_EEE9do_lookupERKS2_Rj.exit ], [ false, %._crit_edge.i ], [ false, %_ZNK5Yosys7hashlib4poolINS_10DriveChunkENS0_8hash_opsIS2_EEE5countERKS2_.exit.i ], [ false, %95 ]
   ret i1 %.0
 }
 
@@ -23086,7 +23086,7 @@ _ZNK5Yosys7hashlib4poolINS_8DriveBitENS0_8hash_opsIS2_EEE7do_hashERKS2_.exit: ; 
   unreachable
 
 _ZNK5Yosys12DriveBitPorteqERKS0_.exit:            ; preds = %73, %._crit_edge.i, %_ZNK5Yosys7hashlib4poolINS_8DriveBitENS0_8hash_opsIS2_EEE7do_hashERKS2_.exit, %_ZNK5Yosys7hashlib4poolINS_8DriveBitENS0_8hash_opsIS2_EEE9do_lookupERKS2_Rj.exit, %124, %70, %54, %36, %30, %24, %5, %2, %42, %12, %6
-  %.0 = phi i1 [ %41, %36 ], [ false, %2 ], [ %11, %6 ], [ %23, %12 ], [ true, %5 ], [ %53, %42 ], [ false, %30 ], [ false, %24 ], [ false, %54 ], [ true, %70 ], [ false, %124 ], [ false, %73 ], [ false, %._crit_edge.i ], [ false, %_ZNK5Yosys7hashlib4poolINS_8DriveBitENS0_8hash_opsIS2_EEE7do_hashERKS2_.exit ], [ true, %_ZNK5Yosys7hashlib4poolINS_8DriveBitENS0_8hash_opsIS2_EEE9do_lookupERKS2_Rj.exit ]
+  %.0 = phi i1 [ %41, %36 ], [ false, %2 ], [ %11, %6 ], [ %23, %12 ], [ true, %5 ], [ %53, %42 ], [ false, %30 ], [ false, %24 ], [ false, %54 ], [ true, %70 ], [ false, %124 ], [ true, %_ZNK5Yosys7hashlib4poolINS_8DriveBitENS0_8hash_opsIS2_EEE9do_lookupERKS2_Rj.exit ], [ false, %._crit_edge.i ], [ false, %_ZNK5Yosys7hashlib4poolINS_8DriveBitENS0_8hash_opsIS2_EEE7do_hashERKS2_.exit ], [ false, %73 ]
   ret i1 %.0
 }
 

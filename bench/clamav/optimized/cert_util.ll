@@ -452,8 +452,8 @@ define range(i32 0, 9) i32 @cert_store_export_pem(ptr noundef captures(address_i
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us, %.lr.ph82.split, %.lr.ph82.split.us, %78, %80, %16
-  %.ph = phi i1 [ true, %16 ], [ false, %80 ], [ true, %78 ], [ true, %.lr.ph.split.us ], [ true, %.lr.ph82.split.us ], [ true, %.lr.ph82.split ], [ true, %.lr.ph.split ]
-  %.047.ph = phi i32 [ 8, %16 ], [ 0, %80 ], [ 8, %78 ], [ 8, %.lr.ph.split.us ], [ 8, %.lr.ph82.split.us ], [ 8, %.lr.ph82.split ], [ 8, %.lr.ph.split ]
+  %.ph = phi i1 [ true, %16 ], [ false, %80 ], [ true, %78 ], [ true, %.lr.ph82.split.us ], [ true, %.lr.ph.split.us ], [ true, %.lr.ph82.split ], [ true, %.lr.ph.split ]
+  %.047.ph = phi i32 [ 8, %16 ], [ 0, %80 ], [ 8, %78 ], [ 8, %.lr.ph82.split.us ], [ 8, %.lr.ph.split.us ], [ 8, %.lr.ph82.split ], [ 8, %.lr.ph.split ]
   %81 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @_cert_store) #15
   %.not67 = icmp eq i32 %81, 0
   br i1 %.not67, label %84, label %82

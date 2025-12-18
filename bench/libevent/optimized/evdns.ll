@@ -3157,7 +3157,7 @@ define i32 @evdns_base_get_nameserver_addr(ptr noundef readonly captures(none) %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %24, %28, %._crit_edge
-  %.021 = phi i32 [ -1, %._crit_edge ], [ %31, %28 ], [ %26, %24 ], [ -1, %.lr.ph ]
+  %.021 = phi i32 [ %26, %24 ], [ -1, %._crit_edge ], [ %31, %28 ], [ -1, %.lr.ph ]
   %32 = load ptr, ptr %5, align 8
   %.not26 = icmp eq ptr %32, null
   br i1 %.not26, label %36, label %33
@@ -3216,7 +3216,7 @@ define i32 @evdns_base_get_nameserver_fd(ptr noundef readonly captures(none) %0,
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %22, %._crit_edge
-  %.015 = phi i32 [ %23, %22 ], [ -1, %._crit_edge ], [ -1, %.lr.ph ]
+  %.015 = phi i32 [ -1, %._crit_edge ], [ %23, %22 ], [ -1, %.lr.ph ]
   %24 = load ptr, ptr %3, align 8
   %.not19 = icmp eq ptr %24, null
   br i1 %.not19, label %28, label %25
@@ -6296,7 +6296,7 @@ find_hosts_entry.exit54.us87.i:                   ; preds = %92
   br label %.lr.ph.split.split.us.i, !llvm.loop !28
 
 ._crit_edge.i:                                    ; preds = %37, %73, %91, %51
-  %.036.lcssa.i = phi ptr [ %.137.ph.us.i, %73 ], [ %50, %51 ], [ %.137.ph.us82.i, %91 ], [ null, %37 ]
+  %.036.lcssa.i = phi ptr [ %.137.ph.us.i, %73 ], [ %.137.ph.us82.i, %91 ], [ %50, %51 ], [ null, %37 ]
   %95 = load ptr, ptr %30, align 8
   %.not44.i = icmp eq ptr %95, null
   br i1 %.not44.i, label %99, label %96
@@ -7524,9 +7524,9 @@ define hidden void @evdns_tree_SPLAY_MINMAX(ptr noundef captures(none) %0, i32 n
   br i1 %38, label %.split43.us, label %.lr.ph
 
 .split43.us:                                      ; preds = %31, %.lr.ph, %.lr.ph53, %15, %.split.split, %.split.us
-  %39 = phi ptr [ %5, %.split.us ], [ %20, %.split.split ], [ %17, %15 ], [ %8, %.lr.ph53 ], [ %35, %31 ], [ %24, %.lr.ph ]
-  %.us-phi = phi ptr [ %3, %.split.us ], [ %3, %.split.split ], [ %3, %.lr.ph53 ], [ %3, %15 ], [ %33, %31 ], [ %.03747, %.lr.ph ]
-  %.us-phi44 = phi ptr [ %3, %.split.us ], [ %3, %.split.split ], [ %16, %15 ], [ %.0.us52, %.lr.ph53 ], [ %3, %.lr.ph ], [ %3, %31 ]
+  %39 = phi ptr [ %20, %.split.split ], [ %17, %15 ], [ %5, %.split.us ], [ %8, %.lr.ph53 ], [ %24, %.lr.ph ], [ %35, %31 ]
+  %.us-phi = phi ptr [ %3, %.split.split ], [ %3, %.lr.ph53 ], [ %3, %.split.us ], [ %3, %15 ], [ %.03747, %.lr.ph ], [ %33, %31 ]
+  %.us-phi44 = phi ptr [ %3, %.split.split ], [ %16, %15 ], [ %3, %.split.us ], [ %.0.us52, %.lr.ph53 ], [ %3, %.lr.ph ], [ %3, %31 ]
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %41 = load ptr, ptr %39, align 8
   %42 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 8
@@ -8180,7 +8180,7 @@ evdns_tree_SPLAY_FIND.exit.thread:                ; preds = %70, %95, %45, %evdn
   br label %106
 
 .thread75:                                        ; preds = %57, %82, %35, %102
-  %.35079 = phi ptr [ %.451, %102 ], [ %.04783.us108, %82 ], [ %.04783.us, %35 ], [ %.04783.us91, %57 ]
+  %.35079 = phi ptr [ %.451, %102 ], [ %.04783.us, %35 ], [ %.04783.us108, %82 ], [ %.04783.us91, %57 ]
   %.not62 = icmp eq ptr %.35079, null
   br i1 %.not62, label %106, label %105
 
@@ -10015,8 +10015,8 @@ dnslabel_table_get_pos.exit.thread:               ; preds = %27, %.preheader.spl
   br i1 %.not83, label %.split.us, label %65
 
 .split.us:                                        ; preds = %dnslabel_table_get_pos.exit.thread, %dnslabel_table_get_pos.exit.thread.us, %.preheader.split.us
-  %.us-phi = phi ptr [ %3, %.preheader.split.us ], [ %23, %dnslabel_table_get_pos.exit.thread.us ], [ %.068, %dnslabel_table_get_pos.exit.thread ]
-  %.us-phi112 = phi i64 [ %2, %.preheader.split.us ], [ %18, %dnslabel_table_get_pos.exit.thread.us ], [ %.063, %dnslabel_table_get_pos.exit.thread ]
+  %.us-phi = phi ptr [ %23, %dnslabel_table_get_pos.exit.thread.us ], [ %3, %.preheader.split.us ], [ %.068, %dnslabel_table_get_pos.exit.thread ]
+  %.us-phi112 = phi i64 [ %18, %dnslabel_table_get_pos.exit.thread.us ], [ %2, %.preheader.split.us ], [ %.063, %dnslabel_table_get_pos.exit.thread ]
   %44 = ptrtoint ptr %7 to i64
   %45 = ptrtoint ptr %.us-phi to i64
   %46 = sub i64 %44, %45
@@ -11209,10 +11209,10 @@ select.unfold.i283:                               ; preds = %108, %91
   br label %.thread324
 
 .thread324:                                       ; preds = %168, %219, %188, %.thread312, %226, %235, %175
-  %238 = phi ptr [ %135, %188 ], [ %135, %175 ], [ %135, %235 ], [ %135, %226 ], [ %206, %.thread312 ], [ %135, %168 ], [ %135, %219 ]
-  %239 = phi i8 [ %136, %188 ], [ 1, %175 ], [ %136, %235 ], [ 1, %226 ], [ %136, %.thread312 ], [ %136, %168 ], [ %136, %219 ]
-  %240 = phi i32 [ %137, %188 ], [ %183, %175 ], [ %137, %235 ], [ %234, %226 ], [ %137, %.thread312 ], [ %137, %168 ], [ %137, %219 ]
-  %.2327 = phi i32 [ %.0203384, %188 ], [ %176, %175 ], [ %.0203384, %235 ], [ %227, %226 ], [ %.0203384, %.thread312 ], [ %.0203384, %168 ], [ %.0203384, %219 ]
+  %238 = phi ptr [ %135, %235 ], [ %135, %226 ], [ %135, %188 ], [ %135, %175 ], [ %206, %.thread312 ], [ %135, %168 ], [ %135, %219 ]
+  %239 = phi i8 [ %136, %235 ], [ 1, %226 ], [ %136, %188 ], [ 1, %175 ], [ %136, %.thread312 ], [ %136, %168 ], [ %136, %219 ]
+  %240 = phi i32 [ %137, %235 ], [ %234, %226 ], [ %137, %188 ], [ %183, %175 ], [ %137, %.thread312 ], [ %137, %168 ], [ %137, %219 ]
+  %.2327 = phi i32 [ %.0203384, %235 ], [ %227, %226 ], [ %.0203384, %188 ], [ %176, %175 ], [ %.0203384, %.thread312 ], [ %.0203384, %168 ], [ %.0203384, %219 ]
   %241 = add nuw nsw i32 %.1207383, 1
   %exitcond443.not = icmp eq i32 %241, %128
   br i1 %exitcond443.not, label %.loopexit356, label %134, !llvm.loop !49
@@ -11376,7 +11376,7 @@ name_parse.exit.thread.loopexit360:               ; preds = %118, %79, %49, %111
   br label %name_parse.exit.thread
 
 name_parse.exit.thread:                           ; preds = %290, %287, %284, %281, %277, %274, %271, %260, %255, %250, %246, %.lr.ph405, %name_parse.exit.thread.loopexit360, %name_parse.exit.thread.loopexit359, %name_parse.exit.thread.loopexit358, %name_parse.exit.thread.loopexit357, %213, %._crit_edge
-  %306 = phi ptr [ null, %name_parse.exit.thread.loopexit360 ], [ null, %name_parse.exit.thread.loopexit359 ], [ null, %name_parse.exit.thread.loopexit358 ], [ %126, %name_parse.exit.thread.loopexit357 ], [ %126, %213 ], [ null, %._crit_edge ], [ %126, %.lr.ph405 ], [ %126, %246 ], [ %126, %250 ], [ %126, %255 ], [ %126, %260 ], [ %126, %271 ], [ %126, %274 ], [ %126, %277 ], [ %126, %281 ], [ %126, %284 ], [ %126, %287 ], [ %126, %290 ]
+  %306 = phi ptr [ null, %._crit_edge ], [ null, %name_parse.exit.thread.loopexit360 ], [ null, %name_parse.exit.thread.loopexit359 ], [ null, %name_parse.exit.thread.loopexit358 ], [ %126, %name_parse.exit.thread.loopexit357 ], [ %126, %213 ], [ %126, %.lr.ph405 ], [ %126, %246 ], [ %126, %250 ], [ %126, %255 ], [ %126, %260 ], [ %126, %271 ], [ %126, %274 ], [ %126, %277 ], [ %126, %281 ], [ %126, %284 ], [ %126, %287 ], [ %126, %290 ]
   %.not256 = icmp eq ptr %.013.i, null
   br i1 %.not256, label %.thread342, label %.thread346
 
@@ -11386,7 +11386,7 @@ name_parse.exit.thread:                           ; preds = %290, %287, %284, %2
   br label %.thread342
 
 .thread342:                                       ; preds = %.thread346, %name_parse.exit.thread
-  %308 = phi ptr [ %307, %.thread346 ], [ %306, %name_parse.exit.thread ]
+  %308 = phi ptr [ %306, %name_parse.exit.thread ], [ %307, %.thread346 ]
   %.not257 = icmp eq ptr %308, null
   br i1 %.not257, label %request_find_from_trans_id.exit.thread, label %request_find_from_trans_id.exit.thread.sink.split
 

@@ -182,7 +182,7 @@ define i32 @wai_getModulePath(ptr noundef captures(none) %0, i32 noundef %1, ptr
   %.not39 = icmp eq ptr %43, null
   br i1 %.not39, label %.thread.thread, label %.lr.ph
 
-.thread.thread:                                   ; preds = %42, %25, %.preheader55
+.thread.thread:                                   ; preds = %42, %.preheader55, %25
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)

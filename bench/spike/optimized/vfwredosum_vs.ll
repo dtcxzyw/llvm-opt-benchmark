@@ -619,7 +619,7 @@ _ZTW24softfloat_exceptionFlags.exit195.us234:     ; preds = %_ZTW24softfloat_exc
   br i1 %exitcond247.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !163
 
 ._crit_edge:                                      ; preds = %.thread225, %266, %247, %.critedge183
-  %.sroa.021.0.lcssa = phi i64 [ %.sroa.021.0.copyload, %.critedge183 ], [ %.sroa.021.1.us236, %266 ], [ %.sroa.021.1.us, %247 ], [ %271, %.thread225 ]
+  %.sroa.021.0.lcssa = phi i64 [ %.sroa.021.0.copyload, %.critedge183 ], [ %.sroa.021.1.us, %247 ], [ %.sroa.021.1.us236, %266 ], [ %271, %.thread225 ]
   %268 = load ptr, ptr %74, align 8, !tbaa !145
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %268, i64 noundef 0) #16
   %.not167 = icmp eq i64 %154, 0
@@ -1346,7 +1346,7 @@ _ZTW24softfloat_exceptionFlags.exit195.us234:     ; preds = %_ZTW24softfloat_exc
   br i1 %exitcond247.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !172
 
 ._crit_edge:                                      ; preds = %.thread225, %266, %247, %.critedge183
-  %.sroa.021.0.lcssa = phi i64 [ %.sroa.021.0.copyload, %.critedge183 ], [ %.sroa.021.1.us236, %266 ], [ %.sroa.021.1.us, %247 ], [ %271, %.thread225 ]
+  %.sroa.021.0.lcssa = phi i64 [ %.sroa.021.0.copyload, %.critedge183 ], [ %.sroa.021.1.us, %247 ], [ %.sroa.021.1.us236, %266 ], [ %271, %.thread225 ]
   %268 = load ptr, ptr %74, align 8, !tbaa !145
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %268, i64 noundef 0) #16
   %.not167 = icmp eq i64 %154, 0
@@ -1941,7 +1941,7 @@ _ZTW24softfloat_exceptionFlags.exit195.us234:     ; preds = %_ZTW24softfloat_exc
   br i1 %exitcond247.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !174
 
 ._crit_edge:                                      ; preds = %.thread225, %266, %247, %.critedge183
-  %.sroa.021.0.lcssa = phi i64 [ %.sroa.021.0.copyload, %.critedge183 ], [ %.sroa.021.1.us236, %266 ], [ %.sroa.021.1.us, %247 ], [ %271, %.thread225 ]
+  %.sroa.021.0.lcssa = phi i64 [ %.sroa.021.0.copyload, %.critedge183 ], [ %.sroa.021.1.us, %247 ], [ %.sroa.021.1.us236, %266 ], [ %271, %.thread225 ]
   %268 = load ptr, ptr %74, align 8, !tbaa !145
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %268, i64 noundef 0) #16
   %.not167 = icmp eq i64 %154, 0
@@ -2538,7 +2538,7 @@ _ZTW24softfloat_exceptionFlags.exit195.us234:     ; preds = %_ZTW24softfloat_exc
   br i1 %exitcond247.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !176
 
 ._crit_edge:                                      ; preds = %.thread225, %266, %247, %.critedge183
-  %.sroa.021.0.lcssa = phi i64 [ %.sroa.021.0.copyload, %.critedge183 ], [ %.sroa.021.1.us236, %266 ], [ %.sroa.021.1.us, %247 ], [ %271, %.thread225 ]
+  %.sroa.021.0.lcssa = phi i64 [ %.sroa.021.0.copyload, %.critedge183 ], [ %.sroa.021.1.us, %247 ], [ %.sroa.021.1.us236, %266 ], [ %271, %.thread225 ]
   %268 = load ptr, ptr %74, align 8, !tbaa !145
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %268, i64 noundef 0) #16
   %.not167 = icmp eq i64 %154, 0
@@ -3133,7 +3133,7 @@ _ZTW24softfloat_exceptionFlags.exit195.us234:     ; preds = %_ZTW24softfloat_exc
   br i1 %exitcond247.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !178
 
 ._crit_edge:                                      ; preds = %.thread225, %266, %247, %.critedge183
-  %.sroa.021.0.lcssa = phi i64 [ %.sroa.021.0.copyload, %.critedge183 ], [ %.sroa.021.1.us236, %266 ], [ %.sroa.021.1.us, %247 ], [ %271, %.thread225 ]
+  %.sroa.021.0.lcssa = phi i64 [ %.sroa.021.0.copyload, %.critedge183 ], [ %.sroa.021.1.us, %247 ], [ %.sroa.021.1.us236, %266 ], [ %271, %.thread225 ]
   %268 = load ptr, ptr %74, align 8, !tbaa !145
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %268, i64 noundef 0) #16
   %.not167 = icmp eq i64 %154, 0
@@ -3730,7 +3730,7 @@ _ZTW24softfloat_exceptionFlags.exit195.us234:     ; preds = %_ZTW24softfloat_exc
   br i1 %exitcond247.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !180
 
 ._crit_edge:                                      ; preds = %.thread225, %266, %247, %.critedge183
-  %.sroa.021.0.lcssa = phi i64 [ %.sroa.021.0.copyload, %.critedge183 ], [ %.sroa.021.1.us236, %266 ], [ %.sroa.021.1.us, %247 ], [ %271, %.thread225 ]
+  %.sroa.021.0.lcssa = phi i64 [ %.sroa.021.0.copyload, %.critedge183 ], [ %.sroa.021.1.us, %247 ], [ %.sroa.021.1.us236, %266 ], [ %271, %.thread225 ]
   %268 = load ptr, ptr %74, align 8, !tbaa !145
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %268, i64 noundef 0) #16
   %.not167 = icmp eq i64 %154, 0
@@ -4325,7 +4325,7 @@ _ZTW24softfloat_exceptionFlags.exit195.us234:     ; preds = %_ZTW24softfloat_exc
   br i1 %exitcond247.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !182
 
 ._crit_edge:                                      ; preds = %.thread225, %266, %247, %.critedge183
-  %.sroa.021.0.lcssa = phi i64 [ %.sroa.021.0.copyload, %.critedge183 ], [ %.sroa.021.1.us236, %266 ], [ %.sroa.021.1.us, %247 ], [ %271, %.thread225 ]
+  %.sroa.021.0.lcssa = phi i64 [ %.sroa.021.0.copyload, %.critedge183 ], [ %.sroa.021.1.us, %247 ], [ %.sroa.021.1.us236, %266 ], [ %271, %.thread225 ]
   %268 = load ptr, ptr %74, align 8, !tbaa !145
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %268, i64 noundef 0) #16
   %.not167 = icmp eq i64 %154, 0
@@ -4922,7 +4922,7 @@ _ZTW24softfloat_exceptionFlags.exit195.us234:     ; preds = %_ZTW24softfloat_exc
   br i1 %exitcond247.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !184
 
 ._crit_edge:                                      ; preds = %.thread225, %266, %247, %.critedge183
-  %.sroa.021.0.lcssa = phi i64 [ %.sroa.021.0.copyload, %.critedge183 ], [ %.sroa.021.1.us236, %266 ], [ %.sroa.021.1.us, %247 ], [ %271, %.thread225 ]
+  %.sroa.021.0.lcssa = phi i64 [ %.sroa.021.0.copyload, %.critedge183 ], [ %.sroa.021.1.us, %247 ], [ %.sroa.021.1.us236, %266 ], [ %271, %.thread225 ]
   %268 = load ptr, ptr %74, align 8, !tbaa !145
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %268, i64 noundef 0) #16
   %.not167 = icmp eq i64 %154, 0

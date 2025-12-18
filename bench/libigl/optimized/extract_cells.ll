@@ -1136,7 +1136,7 @@ _ZN5Eigen12DenseStorageIiLin1ELin1ELin1ELi0EE6resizeElll.exit: ; preds = %58, %6
   br i1 %exitcond92.not.i.i.i.i, label %_ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE8maxCoeffEv.exit, label %.lr.ph85.i.i.i.i, !llvm.loop !31
 
 _ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE8maxCoeffEv.exit: ; preds = %.lr.ph80.i.i.i.i, %.lr.ph85.i.i.i.i, %108, %115
-  %.2.i.i.i.i = phi i32 [ %116, %115 ], [ %109, %108 ], [ %120, %.lr.ph85.i.i.i.i ], [ %113, %.lr.ph80.i.i.i.i ]
+  %.2.i.i.i.i = phi i32 [ %120, %.lr.ph85.i.i.i.i ], [ %116, %115 ], [ %109, %108 ], [ %113, %.lr.ph80.i.i.i.i ]
   %122 = add i32 %.2.i.i.i.i, 1
   %123 = sext i32 %122 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
@@ -3997,7 +3997,7 @@ _ZNSt6vectorImSaImEEC2EmRKmRKS0_.exit:            ; preds = %.noexc486, %_ZNSt6v
   br i1 %exitcond1770.not, label %.loopexit, label %1223, !llvm.loop !159
 
 .loopexit:                                        ; preds = %1239, %1209, %1235
-  %.sink = phi i64 [ %1238, %1235 ], [ %265, %1209 ], [ -1, %1239 ]
+  %.sink = phi i64 [ %265, %1209 ], [ %1238, %1235 ], [ -1, %1239 ]
   %1241 = getelementptr inbounds nuw i64, ptr %.sroa.0814.0, i64 %1212
   store i64 %.sink, ptr %1241, align 8, !tbaa !35
   %1242 = add nuw i64 %.01931681, 1
@@ -5518,7 +5518,7 @@ _ZN5Eigen12DenseStorageIiLin1ELin1ELin1ELi0EE6resizeElll.exit: ; preds = %58, %6
   br i1 %exitcond92.not.i.i.i.i, label %_ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE8maxCoeffEv.exit, label %.lr.ph85.i.i.i.i, !llvm.loop !31
 
 _ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE8maxCoeffEv.exit: ; preds = %.lr.ph80.i.i.i.i, %.lr.ph85.i.i.i.i, %108, %115
-  %.2.i.i.i.i = phi i32 [ %116, %115 ], [ %109, %108 ], [ %120, %.lr.ph85.i.i.i.i ], [ %113, %.lr.ph80.i.i.i.i ]
+  %.2.i.i.i.i = phi i32 [ %120, %.lr.ph85.i.i.i.i ], [ %116, %115 ], [ %109, %108 ], [ %113, %.lr.ph80.i.i.i.i ]
   %122 = add i32 %.2.i.i.i.i, 1
   %123 = sext i32 %122 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
@@ -8361,7 +8361,7 @@ _ZNSt6vectorImSaImEEC2EmRKmRKS0_.exit:            ; preds = %.noexc489, %_ZNSt6v
   br i1 %exitcond1771.not, label %.loopexit, label %1206, !llvm.loop !222
 
 .loopexit:                                        ; preds = %1222, %1192, %1218
-  %.sink = phi i64 [ %1221, %1218 ], [ %265, %1192 ], [ -1, %1222 ]
+  %.sink = phi i64 [ %265, %1192 ], [ %1221, %1218 ], [ -1, %1222 ]
   %1224 = getelementptr inbounds nuw i64, ptr %.sroa.0817.0, i64 %1195
   store i64 %.sink, ptr %1224, align 8, !tbaa !35
   %1225 = add nuw i64 %.01931682, 1
@@ -21305,7 +21305,7 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
   br label %454
 
 454:                                              ; preds = %.sink.split, %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE6resizeEmm.exit235, %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE6resizeEmm.exit242
-  %.2 = phi i64 [ %404, %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE6resizeEmm.exit235 ], [ %433, %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE6resizeEmm.exit242 ], [ %.sink289, %.sink.split ]
+  %.2 = phi i64 [ %433, %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE6resizeEmm.exit242 ], [ %404, %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE6resizeEmm.exit235 ], [ %.sink289, %.sink.split ]
   %.not138 = icmp eq i64 %.2, 0
   br i1 %.not138, label %.thread, label %.critedge.outer.backedge
 

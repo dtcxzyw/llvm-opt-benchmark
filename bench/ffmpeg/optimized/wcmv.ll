@@ -641,7 +641,7 @@ bytestream2_get_le16.exit230:                     ; preds = %bytestream2_get_le1
   br label %.critedge
 
 .critedge:                                        ; preds = %bytestream2_get_le16.exit222, %bytestream2_get_le16.exit218, %261, %258, %265, %293, %bytestream2_get_le24.exit, %84, %81, %304, %199, %bytestream2_get_le16.exit, %310, %11
-  %.0161 = phi i32 [ -542398533, %11 ], [ %308, %304 ], [ -1094995529, %199 ], [ %311, %310 ], [ -1094995529, %293 ], [ %30, %bytestream2_get_le16.exit ], [ -1094995529, %bytestream2_get_le24.exit ], [ -542398533, %84 ], [ -1094995529, %81 ], [ -1094995529, %bytestream2_get_le16.exit218 ], [ -1094995529, %261 ], [ -1094995529, %265 ], [ -1094995529, %258 ], [ -1094995529, %bytestream2_get_le16.exit222 ]
+  %.0161 = phi i32 [ -542398533, %11 ], [ -1094995529, %bytestream2_get_le16.exit218 ], [ %308, %304 ], [ -1094995529, %199 ], [ %311, %310 ], [ -1094995529, %293 ], [ -1094995529, %261 ], [ %30, %bytestream2_get_le16.exit ], [ -1094995529, %bytestream2_get_le24.exit ], [ -542398533, %84 ], [ -1094995529, %81 ], [ -1094995529, %265 ], [ -1094995529, %258 ], [ -1094995529, %bytestream2_get_le16.exit222 ]
   ret i32 %.0161
 }
 

@@ -1217,7 +1217,7 @@ event_changelist_get_or_construct.exit.thread.sink.split: ; preds = %47
   br label %event_changelist_get_or_construct.exit.thread
 
 event_changelist_get_or_construct.exit.thread:    ; preds = %event_changelist_get_or_construct.exit.thread.sink.split, %18, %47, %event_changelist_get_or_construct.exit
-  %.0 = phi i32 [ -1, %event_changelist_get_or_construct.exit ], [ 0, %47 ], [ -1, %18 ], [ 0, %event_changelist_get_or_construct.exit.thread.sink.split ]
+  %.0 = phi i32 [ -1, %event_changelist_get_or_construct.exit ], [ -1, %18 ], [ 0, %47 ], [ 0, %event_changelist_get_or_construct.exit.thread.sink.split ]
   ret i32 %.0
 }
 
@@ -1321,7 +1321,7 @@ select.unfold.i13:                                ; preds = %27, %.select.unfold
   br i1 %33, label %.lr.ph.i7, label %evmap_io_foreach_fd.exit, !llvm.loop !11
 
 evmap_io_foreach_fd.exit:                         ; preds = %.lr.ph.i15, %select.unfold.i13, %.lr.ph.i19, %.loopexit
-  %.0 = phi i32 [ 0, %.loopexit ], [ 0, %select.unfold.i13 ], [ %30, %.lr.ph.i19 ], [ %15, %.lr.ph.i15 ]
+  %.0 = phi i32 [ %30, %.lr.ph.i19 ], [ 0, %.loopexit ], [ 0, %select.unfold.i13 ], [ %15, %.lr.ph.i15 ]
   ret i32 %.0
 }
 

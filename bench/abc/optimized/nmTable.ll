@@ -465,7 +465,7 @@ Nm_HashString.exit:                               ; preds = %.lr.ph.i, %3
   br i1 %.not, label %.loopexit29, label %.lr.ph40.split.split, !llvm.loop !32
 
 .loopexit29:                                      ; preds = %40, %.loopexit, %49, %.lr.ph40.split.us, %.loopexit.us, %.lr.ph.us, %Nm_HashString.exit
-  %.023 = phi ptr [ null, %Nm_HashString.exit ], [ %.033.us.us, %.lr.ph.us ], [ %.033, %49 ], [ %.02237.us, %.lr.ph40.split.us ], [ null, %.loopexit.us ], [ %.02237, %40 ], [ null, %.loopexit ]
+  %.023 = phi ptr [ %.033, %49 ], [ %.033.us.us, %.lr.ph.us ], [ %.02237.us, %.lr.ph40.split.us ], [ null, %Nm_HashString.exit ], [ null, %.loopexit.us ], [ %.02237, %40 ], [ null, %.loopexit ]
   ret ptr %.023
 }
 

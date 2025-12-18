@@ -1650,7 +1650,7 @@ Min_LitIsNode.exit138.thread:                     ; preds = %126, %131, %Min_Lit
   br label %157
 
 157:                                              ; preds = %109, %76, %81, %71, %141, %151, %154, %145, %107, %90, %96, %112
-  %.0110 = phi i32 [ %74, %71 ], [ %79, %76 ], [ %84, %81 ], [ %156, %154 ], [ %92, %90 ], [ %98, %96 ], [ %108, %107 ], [ %153, %151 ], [ %113, %112 ], [ %143, %141 ], [ %147, %145 ], [ %110, %109 ]
+  %.0110 = phi i32 [ %147, %145 ], [ %74, %71 ], [ %79, %76 ], [ %84, %81 ], [ %156, %154 ], [ %92, %90 ], [ %98, %96 ], [ %153, %151 ], [ %108, %107 ], [ %113, %112 ], [ %143, %141 ], [ %110, %109 ]
   %.not130 = icmp eq i32 %.0110, 0
   br i1 %.not130, label %.thread, label %.thread145
 
@@ -3104,10 +3104,10 @@ Vec_IntAppend.exit167.us:                         ; preds = %Vec_IntPush.exit.i1
   br i1 %472, label %.lr.ph214.split.split.split, label %._crit_edge, !llvm.loop !74
 
 ._crit_edge:                                      ; preds = %.loopexit, %.lr.ph214.split.split.split.us, %451, %436, %423, %Hsh_VecManStart.exit
-  %.sroa.0.0.lcssa = phi i32 [ 0, %Hsh_VecManStart.exit ], [ 0, %.lr.ph214.split.split.split.us ], [ %.sroa.0.2.us, %423 ], [ 0, %436 ], [ 0, %451 ], [ 0, %.loopexit ]
-  %.sroa.031.0.lcssa = phi i32 [ 0, %Hsh_VecManStart.exit ], [ 0, %.lr.ph214.split.split.split.us ], [ %.sroa.031.4.us, %423 ], [ 0, %436 ], [ 0, %451 ], [ 0, %.loopexit ]
-  %.088.lcssa = phi i32 [ 0, %Hsh_VecManStart.exit ], [ %spec.select, %.lr.ph214.split.split.split.us ], [ %.290.us, %423 ], [ %.290.us230.us, %436 ], [ %.290.us230, %451 ], [ %.290, %.loopexit ]
-  %.081.lcssa = phi i32 [ 0, %Hsh_VecManStart.exit ], [ 0, %.lr.ph214.split.split.split.us ], [ %.2.us, %423 ], [ 0, %436 ], [ 0, %451 ], [ 0, %.loopexit ]
+  %.sroa.0.0.lcssa = phi i32 [ 0, %Hsh_VecManStart.exit ], [ %.sroa.0.2.us, %423 ], [ 0, %451 ], [ 0, %436 ], [ 0, %.lr.ph214.split.split.split.us ], [ 0, %.loopexit ]
+  %.sroa.031.0.lcssa = phi i32 [ 0, %Hsh_VecManStart.exit ], [ %.sroa.031.4.us, %423 ], [ 0, %451 ], [ 0, %436 ], [ 0, %.lr.ph214.split.split.split.us ], [ 0, %.loopexit ]
+  %.088.lcssa = phi i32 [ 0, %Hsh_VecManStart.exit ], [ %.290.us, %423 ], [ %.290.us230, %451 ], [ %.290.us230.us, %436 ], [ %spec.select, %.lr.ph214.split.split.split.us ], [ %.290, %.loopexit ]
+  %.081.lcssa = phi i32 [ 0, %Hsh_VecManStart.exit ], [ %.2.us, %423 ], [ 0, %451 ], [ 0, %436 ], [ 0, %.lr.ph214.split.split.split.us ], [ 0, %.loopexit ]
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %.critedge97, label %.critedge
 
@@ -6292,7 +6292,7 @@ define range(i32 0, 2) i32 @Min_ManBitPackTry(ptr noundef readonly captures(none
   br i1 %63, label %41, label %.critedge2, !llvm.loop !139
 
 .critedge2:                                       ; preds = %34, %.critedge, %4
-  %.2 = phi i32 [ 1, %4 ], [ 1, %.critedge ], [ 0, %34 ]
+  %.2 = phi i32 [ 1, %.critedge ], [ 1, %4 ], [ 0, %34 ]
   ret i32 %.2
 }
 
@@ -9028,9 +9028,9 @@ define void @Gia_GenerateCexesDumpFile(ptr noundef %0, ptr noundef readonly capt
   br i1 %161, label %138, label %.critedge, !llvm.loop !176
 
 .critedge:                                        ; preds = %138, %157, %109, %130, %71, %90, %37, %64, %.lr.ph113.split.us, %.lr.ph113.split, %9
-  %.sroa.0.0.lcssa = phi i32 [ 0, %9 ], [ 0, %.lr.ph113.split.us ], [ 0, %.lr.ph113.split ], [ %.sroa.0.1.us144, %109 ], [ %.sroa.0.1.us.us, %37 ], [ %.sroa.0.1.us, %71 ], [ %.sroa.0.1.us.us, %64 ], [ %.sroa.0.1.us, %90 ], [ %.sroa.0.1.us144, %130 ], [ %.sroa.0.1, %157 ], [ %.sroa.0.1, %138 ]
-  %.sroa.7.0.lcssa = phi i32 [ 0, %9 ], [ 0, %.lr.ph113.split.us ], [ 0, %.lr.ph113.split ], [ %.sroa.7.1.us145, %109 ], [ %.sroa.7.1.us.us, %37 ], [ %.sroa.7.1.us, %71 ], [ %.sroa.7.1.us.us, %64 ], [ %.sroa.7.1.us, %90 ], [ %.sroa.7.1.us145, %130 ], [ %.sroa.7.1, %157 ], [ %.sroa.7.1, %138 ]
-  %.val79.lcssa = phi i32 [ %.val87.val.fr, %9 ], [ %.val87.val.fr, %.lr.ph113.split.us ], [ %.val87.val.fr, %.lr.ph113.split ], [ %.val79.us146, %109 ], [ %.val79.us.us, %37 ], [ %.val79.us, %71 ], [ %.val79.us.us, %64 ], [ %.val79.us, %90 ], [ %.val79.us146, %130 ], [ %.val79, %157 ], [ %.val79, %138 ]
+  %.sroa.0.0.lcssa = phi i32 [ 0, %9 ], [ %.sroa.0.1.us, %71 ], [ %.sroa.0.1.us144, %109 ], [ 0, %.lr.ph113.split.us ], [ %.sroa.0.1.us.us, %37 ], [ 0, %.lr.ph113.split ], [ %.sroa.0.1.us.us, %64 ], [ %.sroa.0.1.us, %90 ], [ %.sroa.0.1.us144, %130 ], [ %.sroa.0.1, %157 ], [ %.sroa.0.1, %138 ]
+  %.sroa.7.0.lcssa = phi i32 [ 0, %9 ], [ %.sroa.7.1.us, %71 ], [ %.sroa.7.1.us145, %109 ], [ 0, %.lr.ph113.split.us ], [ %.sroa.7.1.us.us, %37 ], [ 0, %.lr.ph113.split ], [ %.sroa.7.1.us.us, %64 ], [ %.sroa.7.1.us, %90 ], [ %.sroa.7.1.us145, %130 ], [ %.sroa.7.1, %157 ], [ %.sroa.7.1, %138 ]
+  %.val79.lcssa = phi i32 [ %.val87.val.fr, %9 ], [ %.val79.us, %71 ], [ %.val79.us146, %109 ], [ %.val87.val.fr, %.lr.ph113.split.us ], [ %.val79.us.us, %37 ], [ %.val87.val.fr, %.lr.ph113.split ], [ %.val79.us.us, %64 ], [ %.val79.us, %90 ], [ %.val79.us146, %130 ], [ %.val79, %157 ], [ %.val79, %138 ]
   %162 = add i32 %.sroa.7.0.lcssa, %.sroa.0.0.lcssa
   %163 = sub i32 %.val79.lcssa, %162
   %164 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.54, i32 noundef %.sroa.7.0.lcssa, i32 noundef %.sroa.0.0.lcssa, i32 noundef %163, ptr noundef %0)

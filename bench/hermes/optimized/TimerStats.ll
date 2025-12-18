@@ -4913,7 +4913,7 @@ arraydestroy.body18:                              ; preds = %arraydestroy.body18
   br i1 %arraydestroy.done21, label %eh.resume, label %arraydestroy.body18
 
 eh.resume:                                        ; preds = %arraydestroy.body, %arraydestroy.body18, %lpad.body.thread
-  %.pn = phi { ptr, i32 } [ %2, %lpad.body.thread ], [ %10, %arraydestroy.body18 ], [ %eh.lpad-body, %arraydestroy.body ]
+  %.pn = phi { ptr, i32 } [ %10, %arraydestroy.body18 ], [ %2, %lpad.body.thread ], [ %eh.lpad-body, %arraydestroy.body ]
   resume { ptr, i32 } %.pn
 }
 

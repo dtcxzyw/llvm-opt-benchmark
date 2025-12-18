@@ -373,7 +373,7 @@ _ZNKSt4lessISt5tupleIJibmEEEclERKS1_S4_.exit.thread.i: ; preds = %_ZNKSt4lessISt
   br i1 %.not.i, label %._crit_edge.thread.i, label %.lr.ph.i.backedge
 
 .lr.ph.i.backedge:                                ; preds = %_ZNKSt4lessISt5tupleIJibmEEEclERKS1_S4_.exit.thread.i, %_ZNKSt4lessISt5tupleIJibmEEEclERKS1_S4_.exit.thread.i.thread
-  %.02128.i.be = phi ptr [ %.021.i, %_ZNKSt4lessISt5tupleIJibmEEEclERKS1_S4_.exit.thread.i ], [ %.021.i20, %_ZNKSt4lessISt5tupleIJibmEEEclERKS1_S4_.exit.thread.i.thread ]
+  %.02128.i.be = phi ptr [ %.021.i20, %_ZNKSt4lessISt5tupleIJibmEEEclERKS1_S4_.exit.thread.i.thread ], [ %.021.i, %_ZNKSt4lessISt5tupleIJibmEEEclERKS1_S4_.exit.thread.i ]
   br label %.lr.ph.i, !llvm.loop !55
 
 _ZNKSt4lessISt5tupleIJibmEEEclERKS1_S4_.exit.thread.i.thread: ; preds = %18, %24, %_ZNKSt4lessISt5tupleIJibmEEEclERKS1_S4_.exit.i

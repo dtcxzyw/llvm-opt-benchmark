@@ -972,7 +972,7 @@ _ZN4core5slice6memchr12memchr_naive17h481c51c45c886aadE.exit.i.i.i: ; preds = %6
   unreachable
 
 "_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h0eeb938c61540f57E.exit.i.i": ; preds = %79, %55, %.split.us.i.i.i, %.lr.ph.split.split
-  %.promoted.i.i.i32 = phi i64 [ %.promoted.i.i.i, %.lr.ph.split.split ], [ %9, %.split.us.i.i.i ], [ %53, %55 ], [ %77, %79 ]
+  %.promoted.i.i.i32 = phi i64 [ %53, %55 ], [ %.promoted.i.i.i, %.lr.ph.split.split ], [ %9, %.split.us.i.i.i ], [ %77, %79 ]
   store i8 1, ptr %3, align 1, !alias.scope !158
   %.not.i6.i.i = icmp ne i64 %.pre5.i.i.i, %.lcssa111617
   %or.cond.not.i.i.i = select i1 %19, i1 true, i1 %.not.i6.i.i

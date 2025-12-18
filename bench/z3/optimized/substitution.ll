@@ -1872,7 +1872,7 @@ _ZN6vectorIN14var_offset_mapI11expr_offsetE4dataELb0EjE3endEv.exit.i.i.i: ; pred
   br i1 %.not.i.i.i159, label %_ZN12substitution7reserveEjj.exit.sink.split, label %.lr.ph.i9.i.i, !llvm.loop !55
 
 _ZN12substitution7reserveEjj.exit.sink.split:     ; preds = %.lr.ph.i9.i.i, %482, %_ZN6vectorIN14var_offset_mapI11expr_offsetE4dataELb0EjE3endEv.exit.i.i.i, %457
-  %.sink = phi i32 [ 2, %457 ], [ 1, %_ZN6vectorIN14var_offset_mapI11expr_offsetE4dataELb0EjE3endEv.exit.i.i.i ], [ 1, %482 ], [ 1, %.lr.ph.i9.i.i ]
+  %.sink = phi i32 [ 2, %457 ], [ 1, %482 ], [ 1, %_ZN6vectorIN14var_offset_mapI11expr_offsetE4dataELb0EjE3endEv.exit.i.i.i ], [ 1, %.lr.ph.i9.i.i ]
   store i32 %.sink, ptr %115, align 8, !tbaa !8
   br label %_ZN12substitution7reserveEjj.exit
 
@@ -4081,7 +4081,7 @@ _ZN12substitution5visitERK11expr_offsetRb.exit20: ; preds = %_ZNK12substitution9
   br label %_ZNK12substitution4findE11expr_offsetRS0_.exit
 
 _ZNK12substitution4findE11expr_offsetRS0_.exit:   ; preds = %_ZN12substitution5visitERK11expr_offsetRb.exit20, %66, %_ZN6vectorI11expr_offsetLb0EjE9push_backERKS0_.exit.i, %_ZNK12substitution9get_colorERK11expr_offset.exit.i, %6, %22, %117
-  %.029 = phi i1 [ true, %117 ], [ true, %6 ], [ true, %22 ], [ false, %_ZN6vectorI11expr_offsetLb0EjE9push_backERKS0_.exit.i ], [ true, %_ZNK12substitution9get_colorERK11expr_offset.exit.i ], [ true, %66 ], [ %.3, %_ZN12substitution5visitERK11expr_offsetRb.exit20 ]
+  %.029 = phi i1 [ true, %117 ], [ true, %6 ], [ true, %22 ], [ true, %_ZNK12substitution9get_colorERK11expr_offset.exit.i ], [ false, %_ZN6vectorI11expr_offsetLb0EjE9push_backERKS0_.exit.i ], [ true, %66 ], [ %.3, %_ZN12substitution5visitERK11expr_offsetRb.exit20 ]
   ret i1 %.029
 }
 

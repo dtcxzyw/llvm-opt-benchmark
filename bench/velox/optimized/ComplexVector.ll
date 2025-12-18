@@ -1364,9 +1364,9 @@ for.end:                                          ; preds = %for.inc.us, %for.in
   br label %return
 
 return:                                           ; preds = %if.end55, %if.end.i, %if.then19.i, %if.then12, %if.then.i, %land.lhs.true, %for.end, %if.then76, %if.then47
-  %retval.sroa.0.0 = phi i64 [ %.us-phi103, %if.then76 ], [ 1, %land.lhs.true ], [ %cond, %if.then47 ], [ %sub, %for.end ], [ %cond23.i, %if.then19.i ], [ 0, %if.then12 ], [ %cond.i, %if.end.i ], [ 0, %if.then.i ], [ 0, %if.end55 ]
-  %retval.sroa.6.0 = phi i64 [ %34, %if.then76 ], [ 4294967296, %land.lhs.true ], [ 4294967296, %if.then47 ], [ 4294967296, %for.end ], [ 4294967296, %if.then19.i ], [ 0, %if.then12 ], [ 4294967296, %if.end.i ], [ 4294967296, %if.then.i ], [ 0, %if.end55 ]
-  %retval.sroa.10.sroa.0.0 = phi i64 [ %retval.sroa.10.0.extract.shift91, %if.then76 ], [ 0, %land.lhs.true ], [ 0, %if.then47 ], [ 0, %for.end ], [ 0, %if.then19.i ], [ 0, %if.then12 ], [ 0, %if.end.i ], [ 0, %if.then.i ], [ 0, %if.end55 ]
+  %retval.sroa.0.0 = phi i64 [ 0, %if.then.i ], [ %.us-phi103, %if.then76 ], [ 1, %land.lhs.true ], [ %cond, %if.then47 ], [ %sub, %for.end ], [ %cond23.i, %if.then19.i ], [ 0, %if.then12 ], [ %cond.i, %if.end.i ], [ 0, %if.end55 ]
+  %retval.sroa.6.0 = phi i64 [ 4294967296, %if.then.i ], [ %34, %if.then76 ], [ 4294967296, %land.lhs.true ], [ 4294967296, %if.then47 ], [ 4294967296, %for.end ], [ 4294967296, %if.then19.i ], [ 0, %if.then12 ], [ 4294967296, %if.end.i ], [ 0, %if.end55 ]
+  %retval.sroa.10.sroa.0.0 = phi i64 [ 0, %if.then.i ], [ %retval.sroa.10.0.extract.shift91, %if.then76 ], [ 0, %land.lhs.true ], [ 0, %if.then47 ], [ 0, %for.end ], [ 0, %if.then19.i ], [ 0, %if.then12 ], [ 0, %if.end.i ], [ 0, %if.end55 ]
   %retval.sroa.0.0.insert.ext = and i64 %retval.sroa.0.0, 4294967295
   %retval.sroa.6.0.insert.insert = or disjoint i64 %retval.sroa.6.0, %retval.sroa.0.0.insert.ext
   %retval.sroa.0.0.insert.insert = or disjoint i64 %retval.sroa.6.0.insert.insert, %retval.sroa.10.sroa.0.0
@@ -4162,8 +4162,8 @@ lpad80.body:                                      ; preds = %lpad80.body.loopexi
   br label %ehcleanup
 
 if.end93:                                         ; preds = %while.body.i80.i.i.i.i, %while.body.i.i.i.i.i646, %for.body.i659, %if.then19.i.i.i.i608, %for.end.i.i.i7.i, %if.then3.i.i.i.i628, %if.else.i571, %if.then.i655, %invoke.cont76
-  %311 = phi ptr [ null, %invoke.cont76 ], [ %265, %if.then.i655 ], [ %265, %if.else.i571 ], [ %265, %if.then3.i.i.i.i628 ], [ %265, %for.end.i.i.i7.i ], [ %265, %if.then19.i.i.i.i608 ], [ %265, %while.body.i.i.i.i.i646 ], [ %265, %for.body.i659 ], [ %265, %while.body.i80.i.i.i.i ]
-  %rawMappedIndices.0 = phi ptr [ null, %invoke.cont76 ], [ %267, %if.then.i655 ], [ %267, %if.else.i571 ], [ %267, %if.then3.i.i.i.i628 ], [ %267, %for.end.i.i.i7.i ], [ %267, %if.then19.i.i.i.i608 ], [ %267, %while.body.i.i.i.i.i646 ], [ %267, %for.body.i659 ], [ %267, %while.body.i80.i.i.i.i ]
+  %311 = phi ptr [ null, %invoke.cont76 ], [ %265, %if.then.i655 ], [ %265, %for.body.i659 ], [ %265, %if.else.i571 ], [ %265, %if.then3.i.i.i.i628 ], [ %265, %while.body.i.i.i.i.i646 ], [ %265, %for.end.i.i.i7.i ], [ %265, %if.then19.i.i.i.i608 ], [ %265, %while.body.i80.i.i.i.i ]
+  %rawMappedIndices.0 = phi ptr [ null, %invoke.cont76 ], [ %267, %if.then.i655 ], [ %267, %for.body.i659 ], [ %267, %if.else.i571 ], [ %267, %if.then3.i.i.i.i628 ], [ %267, %while.body.i.i.i.i.i646 ], [ %267, %for.end.i.i.i7.i ], [ %267, %if.then19.i.i.i.i608 ], [ %267, %while.body.i80.i.i.i.i ]
   %childrenSize_101 = getelementptr inbounds nuw i8, ptr %this, i64 104
   %312 = load i64, ptr %childrenSize_101, align 8
   %cmp102913.not = icmp eq i64 %312, 0
@@ -7712,7 +7712,7 @@ lpad.loopexit:                                    ; preds = %for.body4.i, %if.th
   br label %lpad
 
 lpad.loopexit.split-lp:                           ; preds = %invoke.cont100, %invoke.cont107, %if.then112, %invoke.cont119, %if.then.i.i.i.i.i.i
-  %outRanges.sroa.0.0.ph.ph = phi ptr [ %outRanges.sroa.0.7, %invoke.cont119 ], [ %outRanges.sroa.0.7, %if.then112 ], [ %outRanges.sroa.0.7, %invoke.cont107 ], [ %outRanges.sroa.0.7, %invoke.cont100 ], [ %outRanges.sroa.0.4, %if.then.i.i.i.i.i.i ]
+  %outRanges.sroa.0.0.ph.ph = phi ptr [ %outRanges.sroa.0.7, %invoke.cont100 ], [ %outRanges.sroa.0.4, %if.then.i.i.i.i.i.i ], [ %outRanges.sroa.0.7, %invoke.cont107 ], [ %outRanges.sroa.0.7, %if.then112 ], [ %outRanges.sroa.0.7, %invoke.cont119 ]
   %lpad.loopexit.split-lp141 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
@@ -7811,7 +7811,7 @@ _ZZN8facebook5velox4bits11findLastBitEPKmiibENKUliE_clEi.exit.thread.i: ; preds 
   br label %if.end
 
 if.end:                                           ; preds = %for.cond.i, %if.then, %_ZZN8facebook5velox4bits11findLastBitEPKmiibENKUliE_clEi.exit.thread.i, %_ZZN8facebook5velox4bits11findLastBitEPKmiibENKUlimE_clEim.exit42.i, %entry
-  %lastNonNullIndex.0 = phi i32 [ %0, %entry ], [ -1, %if.then ], [ %sub.i41.i, %_ZZN8facebook5velox4bits11findLastBitEPKmiibENKUlimE_clEim.exit42.i ], [ %sub.i52.i, %_ZZN8facebook5velox4bits11findLastBitEPKmiibENKUliE_clEi.exit.thread.i ], [ -1, %for.cond.i ]
+  %lastNonNullIndex.0 = phi i32 [ %0, %entry ], [ -1, %if.then ], [ %sub.i52.i, %_ZZN8facebook5velox4bits11findLastBitEPKmiibENKUliE_clEi.exit.thread.i ], [ %sub.i41.i, %_ZZN8facebook5velox4bits11findLastBitEPKmiibENKUlimE_clEim.exit42.i ], [ -1, %for.cond.i ]
   %children_ = getelementptr inbounds nuw i8, ptr %this, i64 112
   %9 = load ptr, ptr %children_, align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 120
@@ -11220,7 +11220,7 @@ if.else.i.i.i:                                    ; preds = %.noexc44
           to label %for.inc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 for.inc:                                          ; preds = %for.cond.i, %"_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_1EEEvT_T0_.exit.i.i.i.i", %if.end.i, %call.i.noexc, %if.else, %if.else.i.i.i, %if.end15.i.i, %if.then23
-  %indicesRange.1 = phi ptr [ %indicesRange.2, %if.end15.i.i ], [ %indicesRange.2, %if.then23 ], [ %indicesRange.2, %if.else.i.i.i ], [ %indicesRange.2, %if.else ], [ %indicesRange.0208, %call.i.noexc ], [ %indicesRange.0208, %if.end.i ], [ %indicesRange.2, %"_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_1EEEvT_T0_.exit.i.i.i.i" ], [ %indicesRange.0208, %for.cond.i ]
+  %indicesRange.1 = phi ptr [ %indicesRange.0208, %if.end.i ], [ %indicesRange.2, %if.end15.i.i ], [ %indicesRange.2, %if.then23 ], [ %indicesRange.2, %if.else.i.i.i ], [ %indicesRange.2, %if.else ], [ %indicesRange.2, %"_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_1EEEvT_T0_.exit.i.i.i.i" ], [ %indicesRange.0208, %call.i.noexc ], [ %indicesRange.0208, %for.cond.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %37 = load ptr, ptr %map, align 8
   %length_ = getelementptr inbounds nuw i8, ptr %37, i64 56
@@ -15127,7 +15127,7 @@ return.sink.split:                                ; preds = %if.then.i, %_ZZN8fa
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.then27, %if.then3, %for.end, %entry
-  %retval.0 = phi i1 [ true, %entry ], [ true, %for.end ], [ true, %if.then3 ], [ true, %if.then27 ], [ false, %return.sink.split ]
+  %retval.0 = phi i1 [ true, %entry ], [ true, %for.end ], [ true, %if.then27 ], [ true, %if.then3 ], [ false, %return.sink.split ]
   ret i1 %retval.0
 }
 
@@ -19476,7 +19476,7 @@ for.cond.backedge:                                ; preds = %for.end59, %if.end3
   br label %for.cond, !llvm.loop !143
 
 return:                                           ; preds = %for.end59, %for.end, %for.body.i, %if.else, %entry, %_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit
-  %retval.0 = phi ptr [ %__last, %entry ], [ %add.ptr, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit ], [ %__first, %if.else ], [ %add.ptr, %_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit ], [ %__middle, %for.body.i ], [ %add.ptr, %for.end ], [ %add.ptr, %for.end59 ]
+  %retval.0 = phi ptr [ %__middle, %for.body.i ], [ %__last, %entry ], [ %add.ptr, %_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit ], [ %add.ptr, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit ], [ %__first, %if.else ], [ %add.ptr, %for.end ], [ %add.ptr, %for.end59 ]
   ret ptr %retval.0
 }
 

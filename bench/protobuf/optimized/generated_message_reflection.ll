@@ -39377,7 +39377,7 @@ for.inc.i29.i.i.i:                                ; preds = %while.body.i.i33.i.
   br i1 %cmp.i1.not.i32.i.i.i, label %invoke.cont58, label %for.body.i20.i.i.i, !llvm.loop !114
 
 invoke.cont58:                                    ; preds = %for.inc.i29.i.i.i, %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIZNKS3_10Reflection18CreateTcParseTableEvE3$_0EEEvT_T0_.exit.i.i.i.i", %for.end50.thread, %if.else.i.i.i, %"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_10Reflection18CreateTcParseTableEvE3$_0EEEvT_SH_T0_.exit.i.i.i", %for.end50
-  %_M_finish.i105322 = phi ptr [ %_M_finish.i105320, %for.end50.thread ], [ %_M_finish.i105, %for.end50 ], [ %_M_finish.i105, %if.else.i.i.i ], [ %_M_finish.i105, %"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_10Reflection18CreateTcParseTableEvE3$_0EEEvT_SH_T0_.exit.i.i.i" ], [ %_M_finish.i105, %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIZNKS3_10Reflection18CreateTcParseTableEvE3$_0EEEvT_T0_.exit.i.i.i.i" ], [ %_M_finish.i105, %for.inc.i29.i.i.i ]
+  %_M_finish.i105322 = phi ptr [ %_M_finish.i105320, %for.end50.thread ], [ %_M_finish.i105, %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIZNKS3_10Reflection18CreateTcParseTableEvE3$_0EEEvT_T0_.exit.i.i.i.i" ], [ %_M_finish.i105, %for.end50 ], [ %_M_finish.i105, %if.else.i.i.i ], [ %_M_finish.i105, %"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_10Reflection18CreateTcParseTableEvE3$_0EEEvT_SH_T0_.exit.i.i.i" ], [ %_M_finish.i105, %for.inc.i29.i.i.i ]
   %73 = load ptr, ptr %this, align 8
   store i8 0, ptr %ref.tmp60, align 1
   %uses_codegen = getelementptr inbounds nuw i8, ptr %ref.tmp60, i64 1
@@ -40842,7 +40842,7 @@ if.then.i.i93:                                    ; preds = %ehcleanup
   br label %ehcleanup75
 
 cleanup74thread-pre-split:                        ; preds = %for.inc71, %invoke.cont11, %invoke.cont14, %invoke.cont32, %invoke.cont28, %_ZN6google8protobuf11MapIteratorD2Ev.exit75, %if.then.i.i78
-  %cmp.i115.ph = phi i1 [ true, %if.then.i.i78 ], [ true, %_ZN6google8protobuf11MapIteratorD2Ev.exit75 ], [ true, %invoke.cont32 ], [ true, %invoke.cont28 ], [ false, %for.inc71 ], [ true, %invoke.cont11 ], [ true, %invoke.cont14 ]
+  %cmp.i115.ph = phi i1 [ true, %_ZN6google8protobuf11MapIteratorD2Ev.exit75 ], [ true, %if.then.i.i78 ], [ true, %invoke.cont32 ], [ true, %invoke.cont28 ], [ true, %invoke.cont14 ], [ true, %invoke.cont11 ], [ false, %for.inc71 ]
   %.pr = load ptr, ptr %fields, align 8
   br label %cleanup74
 

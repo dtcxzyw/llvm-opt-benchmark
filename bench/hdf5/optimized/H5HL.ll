@@ -541,7 +541,7 @@ define range(i32 -1, 1) i32 @H5HL_unprotect(ptr noundef captures(none) %0) local
   br label %32
 
 32:                                               ; preds = %.sink.split, %19, %24, %10, %7
-  %.0 = phi i32 [ 0, %19 ], [ 0, %24 ], [ 0, %10 ], [ 0, %7 ], [ -1, %.sink.split ]
+  %.0 = phi i32 [ 0, %7 ], [ 0, %19 ], [ 0, %10 ], [ 0, %24 ], [ -1, %.sink.split ]
   ret i32 %.0
 }
 

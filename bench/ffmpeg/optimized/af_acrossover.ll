@@ -588,7 +588,7 @@ filter_frame.exit:                                ; preds = %.lr.ph63.i, %.threa
   br i1 %.not57, label %107, label %.loopexit, !llvm.loop !73
 
 .loopexit:                                        ; preds = %.lr.ph78, %103, %118, %.preheader64, %.preheader62, %.preheader, %117, %filter_frame.exit, %.critedge60
-  %.3 = phi i32 [ %26, %.critedge60 ], [ %.1.i, %filter_frame.exit ], [ 0, %117 ], [ -1497649742, %.preheader62 ], [ 0, %.preheader ], [ 0, %.preheader64 ], [ 0, %103 ], [ -1497649742, %118 ], [ 0, %.lr.ph78 ]
+  %.3 = phi i32 [ 0, %117 ], [ %26, %.critedge60 ], [ %.1.i, %filter_frame.exit ], [ 0, %.preheader ], [ -1497649742, %.preheader62 ], [ -1497649742, %118 ], [ 0, %.preheader64 ], [ 0, %103 ], [ 0, %.lr.ph78 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)

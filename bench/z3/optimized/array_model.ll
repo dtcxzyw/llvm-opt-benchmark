@@ -2815,7 +2815,7 @@ define hidden noundef ptr @_ZN5array6solver14get_select_setEPN3euf5enodeE(ptr no
   br i1 %.not27.old.i.i.i, label %_ZNK7obj_mapIN3euf5enodeEP13ptr_hashtableIS1_N5array6solver8sel_hashENS4_6sel_eqEEE4findEPS1_RS8_.exit.thread, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %39, %36
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %39 ], [ %38, %36 ]
+  %.137.i.i.i.be = phi ptr [ %38, %36 ], [ %.old.i.i.i, %39 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !169
 
 _ZNK7obj_mapIN3euf5enodeEP13ptr_hashtableIS1_N5array6solver8sel_hashENS4_6sel_eqEEE4findEPS1_RS8_.exit: ; preds = %20, %31
@@ -3581,7 +3581,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3getEjPS0_.ex
   br i1 %.not27.old.i.i.i, label %_ZNK7obj_mapI4exprjE4findEPS0_Rj.exit, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %327, %324
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %327 ], [ %326, %324 ]
+  %.137.i.i.i.be = phi ptr [ %326, %324 ], [ %.old.i.i.i, %327 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !206
 
 _ZNK7obj_mapI4exprjE9find_coreEPS0_.exit.i:       ; preds = %308, %319
@@ -3592,7 +3592,7 @@ _ZNK7obj_mapI4exprjE9find_coreEPS0_.exit.i:       ; preds = %308, %319
   br label %_ZNK7obj_mapI4exprjE4findEPS0_Rj.exit
 
 _ZNK7obj_mapI4exprjE4findEPS0_Rj.exit:            ; preds = %313, %327, %324, %_ZNK7obj_mapI4exprjE9find_coreEPS0_.exit.i, %.preheader.i.i.i185
-  %.0246 = phi i32 [ 1, %.preheader.i.i.i185 ], [ %330, %_ZNK7obj_mapI4exprjE9find_coreEPS0_.exit.i ], [ 1, %327 ], [ 1, %324 ], [ 1, %313 ]
+  %.0246 = phi i32 [ 1, %.preheader.i.i.i185 ], [ 1, %327 ], [ %330, %_ZNK7obj_mapI4exprjE9find_coreEPS0_.exit.i ], [ 1, %324 ], [ 1, %313 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %.pre.i.then.val, ptr %7, align 8, !tbaa !192
   store i32 %.0246, ptr %254, align 8, !tbaa !194
@@ -6844,7 +6844,7 @@ _ZNK14core_hashtableI14ptr_hash_entryIN3euf5enodeEEN5array6solver8sel_hashENS5_6
   br label %.backedge, !llvm.loop !229
 
 _ZNK14core_hashtableI14ptr_hash_entryIN3euf5enodeEEN5array6solver8sel_hashENS5_6sel_eqEE6equalsERKPS2_SB_.exit.thread: ; preds = %30, %44, %34, %67, %_ZNK14core_hashtableI14ptr_hash_entryIN3euf5enodeEEN5array6solver8sel_hashENS5_6sel_eqEE6equalsERKPS2_SB_.exit38, %53, %57, %.preheader
-  %.026 = phi ptr [ null, %.preheader ], [ %.152, %57 ], [ %.152, %53 ], [ %.050, %34 ], [ null, %_ZNK14core_hashtableI14ptr_hash_entryIN3euf5enodeEEN5array6solver8sel_hashENS5_6sel_eqEE6equalsERKPS2_SB_.exit38 ], [ null, %67 ], [ null, %44 ], [ %.050, %30 ]
+  %.026 = phi ptr [ %.050, %34 ], [ %.152, %57 ], [ null, %.preheader ], [ %.152, %53 ], [ null, %_ZNK14core_hashtableI14ptr_hash_entryIN3euf5enodeEEN5array6solver8sel_hashENS5_6sel_eqEE6equalsERKPS2_SB_.exit38 ], [ null, %67 ], [ null, %44 ], [ %.050, %30 ]
   ret ptr %.026
 }
 

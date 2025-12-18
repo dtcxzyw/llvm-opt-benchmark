@@ -5469,8 +5469,8 @@ define internal fastcc void @update_stat(ptr noundef readonly captures(none) %0,
   br label %calc_noise_floor.exit
 
 calc_noise_floor.exit:                            ; preds = %.lr.ph.i, %.lr.ph88.i, %198, %215, %.preheader.i, %.critedge.i
-  %.259103.i = phi i32 [ %.05778.i, %.critedge.i ], [ %207, %.preheader.i ], [ %206, %198 ], [ %207, %215 ], [ %.05778.i, %.lr.ph88.i ], [ %207, %.lr.ph.i ]
-  %.156.i = phi i32 [ %spec.select71.i, %.critedge.i ], [ %207, %.preheader.i ], [ %206, %198 ], [ %207, %215 ], [ %.05778.i, %.lr.ph88.i ], [ %207, %.lr.ph.i ]
+  %.259103.i = phi i32 [ %.05778.i, %.critedge.i ], [ %207, %215 ], [ %.05778.i, %.lr.ph88.i ], [ %207, %.preheader.i ], [ %206, %198 ], [ %207, %.lr.ph.i ]
+  %.156.i = phi i32 [ %spec.select71.i, %.critedge.i ], [ %207, %215 ], [ %.05778.i, %.lr.ph88.i ], [ %207, %.preheader.i ], [ %206, %198 ], [ %207, %.lr.ph.i ]
   %239 = sext i32 %.156.i to i64
   %240 = getelementptr inbounds double, ptr %201, i64 %239
   store double %205, ptr %240, align 8, !tbaa !88
@@ -5726,7 +5726,7 @@ define internal range(i32 -12, 1) i32 @config_output(ptr noundef readonly captur
   br i1 %exitcond.not.i, label %._crit_edge.i, label %92, !llvm.loop !89
 
 .critedge:                                        ; preds = %31, %.lr.ph, %._crit_edge.i, %.critedge47, %1
-  %.0 = phi i32 [ -12, %1 ], [ 0, %.critedge47 ], [ 0, %._crit_edge.i ], [ -12, %.lr.ph ], [ -12, %31 ]
+  %.0 = phi i32 [ 0, %._crit_edge.i ], [ -12, %1 ], [ 0, %.critedge47 ], [ -12, %.lr.ph ], [ -12, %31 ]
   ret i32 %.0
 }
 

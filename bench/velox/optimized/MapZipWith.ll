@@ -11249,7 +11249,7 @@ _ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction15makeWrapCapture
   br i1 %tobool7.not.i.i.i.i.i.i, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_9functions12_GLOBAL__N_118MapZipWithFunction15makeWrapCaptureERKNS0_17SelectivityVectorEiPiPNS0_6memory10MemoryPoolEEUlT_E_EEvPKmiibSD_ENKUliE_clEi.exit.i.i.i.i.i, label %while.body.i86.i.i.i.i.i, !llvm.loop !146
 
 _ZZN8facebook5velox4bits10forEachBitIZNS0_9functions12_GLOBAL__N_118MapZipWithFunction15makeWrapCaptureERKNS0_17SelectivityVectorEiPiPNS0_6memory10MemoryPoolEEUlT_E_EEvPKmiibSD_ENKUliE_clEi.exit.i.i.i.i.i: ; preds = %_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction15makeWrapCaptureERKNS0_17SelectivityVectorEiPiPNS0_6memory10MemoryPoolEENKUlT_E_clImEEDaSB_.exit.i.i.i.i.i.i, %_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction15makeWrapCaptureERKNS0_17SelectivityVectorEiPiPNS0_6memory10MemoryPoolEENKUlT_E_clIiEEDaSB_.exit.i90.i.i.i.i.i, %if.then.i.i.i.i.i.i657, %for.body.i.i.i6.i.i648
-  %offset.3.i = phi i32 [ %offset.2.i, %if.then.i.i.i.i.i.i657 ], [ %offset.2.i, %for.body.i.i.i6.i.i648 ], [ %add.i24.i.i.i.i.i.i, %_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction15makeWrapCaptureERKNS0_17SelectivityVectorEiPiPNS0_6memory10MemoryPoolEENKUlT_E_clIiEEDaSB_.exit.i90.i.i.i.i.i ], [ %add.i.i85.i.i.i.i.i, %_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction15makeWrapCaptureERKNS0_17SelectivityVectorEiPiPNS0_6memory10MemoryPoolEENKUlT_E_clImEEDaSB_.exit.i.i.i.i.i.i ]
+  %offset.3.i = phi i32 [ %offset.2.i, %for.body.i.i.i6.i.i648 ], [ %offset.2.i, %if.then.i.i.i.i.i.i657 ], [ %add.i24.i.i.i.i.i.i, %_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction15makeWrapCaptureERKNS0_17SelectivityVectorEiPiPNS0_6memory10MemoryPoolEENKUlT_E_clIiEEDaSB_.exit.i90.i.i.i.i.i ], [ %add.i.i85.i.i.i.i.i, %_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction15makeWrapCaptureERKNS0_17SelectivityVectorEiPiPNS0_6memory10MemoryPoolEENKUlT_E_clImEEDaSB_.exit.i.i.i.i.i.i ]
   %add.i.i.i.i.i650 = add nsw i32 %add134.i.i.i.i.i, 64
   %cmp15.not.i.i.i.i.i651 = icmp sgt i32 %add.i.i.i.i.i650, %838
   br i1 %cmp15.not.i.i.i.i.i651, label %for.end.i.i.i7.i.i652, label %for.body.i.i.i6.i.i648, !llvm.loop !147
@@ -53669,7 +53669,7 @@ return.sink.split:                                ; preds = %if.then.i, %_ZZN8fa
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.then27, %if.then3, %for.end, %entry
-  %retval.0 = phi i1 [ true, %entry ], [ true, %for.end ], [ true, %if.then3 ], [ true, %if.then27 ], [ false, %return.sink.split ]
+  %retval.0 = phi i1 [ true, %entry ], [ true, %for.end ], [ true, %if.then27 ], [ true, %if.then3 ], [ false, %return.sink.split ]
   ret i1 %retval.0
 }
 

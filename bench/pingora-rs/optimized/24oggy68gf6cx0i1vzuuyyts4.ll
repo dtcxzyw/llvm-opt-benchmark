@@ -7050,7 +7050,7 @@ _ZN6brotli3enc6encode22UpdateLastProcessedPos17h1d6b33cb0ce96c90E.exit215: ; pre
   br label %648
 
 648:                                              ; preds = %.sink.split, %5, %28
-  %.sroa.0.1 = phi i32 [ 0, %5 ], [ 0, %28 ], [ 1, %.sink.split ]
+  %.sroa.0.1 = phi i32 [ 0, %28 ], [ 0, %5 ], [ 1, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   ret i32 %.sroa.0.1
 
@@ -8709,7 +8709,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZN6brotli3enc6encode31Brotl
   br label %.thread76
 
 .thread87.loopexit.split-lp:                      ; preds = %.invoke179, %.invoke, %64, %74, %43, %67, %51, %88, %259, %232, %241
-  %.sroa.032.2.ph.ph = phi i1 [ true, %241 ], [ true, %232 ], [ false, %259 ], [ true, %88 ], [ true, %51 ], [ true, %64 ], [ true, %.invoke ], [ true, %43 ], [ true, %74 ], [ true, %.invoke179 ], [ true, %67 ]
+  %.sroa.032.2.ph.ph = phi i1 [ true, %241 ], [ true, %74 ], [ true, %43 ], [ true, %.invoke179 ], [ true, %232 ], [ true, %67 ], [ true, %51 ], [ true, %88 ], [ true, %64 ], [ true, %.invoke ], [ false, %259 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.thread76
@@ -10037,7 +10037,7 @@ _ZN6brotli3enc6encode19WriteMetadataHeader17h76654ff57e157083E.exit.i.i: ; preds
   br label %_ZN6brotli3enc6encode27BrotliEncoderCompressStream17h936adb956088624eE.exit
 
 _ZN6brotli3enc6encode27BrotliEncoderCompressStream17h936adb956088624eE.exit: ; preds = %148, %58, %67, %40, %45, %55, %108, %131, %149, %162, %166
-  %.sroa.0.0.i = phi i1 [ true, %40 ], [ true, %45 ], [ false, %166 ], [ true, %162 ], [ false, %108 ], [ %133, %131 ], [ false, %149 ], [ true, %55 ], [ %60, %58 ], [ %60, %67 ], [ false, %148 ]
+  %.sroa.0.0.i = phi i1 [ true, %40 ], [ true, %45 ], [ false, %166 ], [ true, %162 ], [ true, %55 ], [ %133, %131 ], [ false, %149 ], [ %60, %58 ], [ false, %108 ], [ %60, %67 ], [ false, %148 ]
   %167 = load i64, ptr %7, align 8, !noundef !7
   %.not = icmp eq i64 %167, 0
   br i1 %.not, label %_ZN6brotli3enc6writer9write_all17h6fe6a1f16fdfdcd7E.exit.thread, label %168
@@ -10417,8 +10417,8 @@ _ZN6flate22gz11read_to_nul17hd5a831464164d9fdE.exit.thread.loopexit212: ; preds 
   store ptr %239, ptr %1, align 8, !alias.scope !708, !noalias !713
   br label %_ZN6flate22gz11read_to_nul17hd5a831464164d9fdE.exit.thread
 
-_ZN6flate22gz11read_to_nul17hd5a831464164d9fdE.exit.thread: ; preds = %.backedge, %_ZN6flate22gz11read_to_nul17hd5a831464164d9fdE.exit.thread.loopexit212, %_ZN6flate22gz11read_to_nul17hd5a831464164d9fdE.exit.thread.loopexit210, %_ZN6flate22gz11read_to_nul17hd5a831464164d9fdE.exit.thread.loopexit208, %_ZN6flate22gz11read_to_nul17hd5a831464164d9fdE.exit.thread.loopexit, %215, %._crit_edge.i177, %189, %._crit_edge.i, %227, %58, %65, %86
-  %.sroa.0.0 = phi ptr [ %66, %65 ], [ %59, %58 ], [ %87, %86 ], [ inttoptr (i64 158913789955 to ptr), %._crit_edge.i ], [ %228, %227 ], [ %190, %189 ], [ %216, %215 ], [ inttoptr (i64 158913789955 to ptr), %._crit_edge.i177 ], [ inttoptr (i64 158913789955 to ptr), %_ZN6flate22gz11read_to_nul17hd5a831464164d9fdE.exit.thread.loopexit ], [ inttoptr (i64 158913789955 to ptr), %_ZN6flate22gz11read_to_nul17hd5a831464164d9fdE.exit.thread.loopexit208 ], [ inttoptr (i64 158913789955 to ptr), %_ZN6flate22gz11read_to_nul17hd5a831464164d9fdE.exit.thread.loopexit210 ], [ inttoptr (i64 158913789955 to ptr), %_ZN6flate22gz11read_to_nul17hd5a831464164d9fdE.exit.thread.loopexit212 ], [ null, %.backedge ]
+_ZN6flate22gz11read_to_nul17hd5a831464164d9fdE.exit.thread: ; preds = %.backedge, %_ZN6flate22gz11read_to_nul17hd5a831464164d9fdE.exit.thread.loopexit212, %_ZN6flate22gz11read_to_nul17hd5a831464164d9fdE.exit.thread.loopexit210, %_ZN6flate22gz11read_to_nul17hd5a831464164d9fdE.exit.thread.loopexit208, %_ZN6flate22gz11read_to_nul17hd5a831464164d9fdE.exit.thread.loopexit, %._crit_edge.i177, %215, %._crit_edge.i, %189, %227, %58, %65, %86
+  %.sroa.0.0 = phi ptr [ inttoptr (i64 158913789955 to ptr), %_ZN6flate22gz11read_to_nul17hd5a831464164d9fdE.exit.thread.loopexit212 ], [ %66, %65 ], [ %59, %58 ], [ %87, %86 ], [ inttoptr (i64 158913789955 to ptr), %_ZN6flate22gz11read_to_nul17hd5a831464164d9fdE.exit.thread.loopexit210 ], [ inttoptr (i64 158913789955 to ptr), %_ZN6flate22gz11read_to_nul17hd5a831464164d9fdE.exit.thread.loopexit ], [ inttoptr (i64 158913789955 to ptr), %_ZN6flate22gz11read_to_nul17hd5a831464164d9fdE.exit.thread.loopexit208 ], [ %216, %215 ], [ %190, %189 ], [ %228, %227 ], [ inttoptr (i64 158913789955 to ptr), %._crit_edge.i ], [ inttoptr (i64 158913789955 to ptr), %._crit_edge.i177 ], [ null, %.backedge ]
   ret ptr %.sroa.0.0
 
 "_ZN4core3ptr46drop_in_place$LT$flate2..gz..GzHeaderState$GT$17hc097b68549538482E.exit147": ; preds = %27
@@ -11040,7 +11040,7 @@ define hidden { i64, ptr } @"_ZN81_$LT$zstd..stream..zio..writer..Writer$LT$W$C$
   br i1 %.not, label %81, label %.split
 
 .split:                                           ; preds = %79, %47, %45
-  %.us-phi22 = phi i64 [ %43, %45 ], [ %43, %47 ], [ %71, %79 ]
+  %.us-phi22 = phi i64 [ %43, %47 ], [ %43, %45 ], [ %71, %79 ]
   %80 = inttoptr i64 %.us-phi22 to ptr
   br label %.loopexit16
 

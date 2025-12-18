@@ -857,7 +857,7 @@ _ZNK5clang11DeclContext9getParentEv.exit.i11:     ; preds = %73, %66
   br i1 %.not52, label %.critedge, label %.lr.ph, !llvm.loop !458
 
 .critedge:                                        ; preds = %_ZNK5clang11DeclContext9getParentEv.exit.i, %_ZNK5clang11DeclContext9getParentEv.exit, %"_ZZNK5clang4ento15CallDescription23matchQualifiedNamePartsEPKNS_4DeclEENK3$_0clEPKNS_11DeclContextE.exit15", %_ZNK5clang11DeclContext9getParentEv.exit.i11, %_ZNK5clang4Decl14getDeclContextEv.exit, %"_ZZNK5clang4ento15CallDescription23matchQualifiedNamePartsEPKNS_4DeclEENK3$_0clEPKNS_11DeclContextE.exit"
-  %.sroa.017.0.lcssa = phi ptr [ %5, %"_ZZNK5clang4ento15CallDescription23matchQualifiedNamePartsEPKNS_4DeclEENK3$_0clEPKNS_11DeclContextE.exit" ], [ %5, %_ZNK5clang4Decl14getDeclContextEv.exit ], [ %.sroa.017.1, %_ZNK5clang11DeclContext9getParentEv.exit ], [ %.sroa.017.1, %_ZNK5clang11DeclContext9getParentEv.exit.i11 ], [ %.sroa.017.1, %"_ZZNK5clang4ento15CallDescription23matchQualifiedNamePartsEPKNS_4DeclEENK3$_0clEPKNS_11DeclContextE.exit15" ], [ %5, %_ZNK5clang11DeclContext9getParentEv.exit.i ]
+  %.sroa.017.0.lcssa = phi ptr [ %5, %"_ZZNK5clang4ento15CallDescription23matchQualifiedNamePartsEPKNS_4DeclEENK3$_0clEPKNS_11DeclContextE.exit" ], [ %.sroa.017.1, %_ZNK5clang11DeclContext9getParentEv.exit ], [ %.sroa.017.1, %_ZNK5clang11DeclContext9getParentEv.exit.i11 ], [ %5, %_ZNK5clang4Decl14getDeclContextEv.exit ], [ %.sroa.017.1, %"_ZZNK5clang4ento15CallDescription23matchQualifiedNamePartsEPKNS_4DeclEENK3$_0clEPKNS_11DeclContextE.exit15" ], [ %5, %_ZNK5clang11DeclContext9getParentEv.exit.i ]
   %75 = icmp eq ptr %.sroa.017.0.lcssa, %7
   ret i1 %75
 }

@@ -3548,8 +3548,8 @@ Curl_setup_conn.exit:                             ; preds = %887, %904, %.thread
   br label %909
 
 909:                                              ; preds = %create_conn.exit.thread, %Curl_setup_conn.exit, %create_conn.exit
-  %.127 = phi ptr [ %.1, %create_conn.exit ], [ %.1, %Curl_setup_conn.exit ], [ %.1.ph, %create_conn.exit.thread ]
-  %.0 = phi i32 [ %.0194.i, %create_conn.exit ], [ %.0.i, %Curl_setup_conn.exit ], [ %.0194.i.ph, %create_conn.exit.thread ]
+  %.127 = phi ptr [ %.1, %create_conn.exit ], [ %.1.ph, %create_conn.exit.thread ], [ %.1, %Curl_setup_conn.exit ]
+  %.0 = phi i32 [ %.0194.i, %create_conn.exit ], [ %.0194.i.ph, %create_conn.exit.thread ], [ %.0.i, %Curl_setup_conn.exit ]
   %910 = icmp eq i32 %.0, 89
   br i1 %910, label %.thread33, label %911
 
@@ -4386,7 +4386,7 @@ sub_2.i.i:                                        ; preds = %sub_1.i.i
   br label %104
 
 .critedge4.thread.i.i:                            ; preds = %.critedge2.i.i, %.critedge6.i.i, %.critedge4.i.i, %83, %56
-  %.1141.i.i = phi ptr [ %.1.ph.i.i, %.critedge4.i.i ], [ %63, %83 ], [ %57, %56 ], [ %.2.i.i, %.critedge6.i.i ], [ %61, %.critedge2.i.i ]
+  %.1141.i.i = phi ptr [ %.1.ph.i.i, %.critedge4.i.i ], [ %.2.i.i, %.critedge6.i.i ], [ %63, %83 ], [ %57, %56 ], [ %61, %.critedge2.i.i ]
   br i1 %.not121.i.i, label %104, label %94
 
 94:                                               ; preds = %.critedge4.thread.i.i

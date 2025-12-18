@@ -11951,8 +11951,8 @@ select.unfold:                                    ; preds = %39, %1
   br label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h6aa75ede57a373ceE.exit"
 
 126:                                              ; preds = %117, %113
-  %127 = phi i8 [ %115, %113 ], [ %.pre.i, %117 ]
-  %.sroa.3.0.i.ph.i.i = phi i64 [ %.sroa.4.128.i.i.i, %113 ], [ %123, %117 ]
+  %127 = phi i8 [ %.pre.i, %117 ], [ %115, %113 ]
+  %.sroa.3.0.i.ph.i.i = phi i64 [ %123, %117 ], [ %.sroa.4.128.i.i.i, %113 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2877)
   %128 = getelementptr inbounds i8, ptr %.val.i.i, i64 %.sroa.3.0.i.ph.i.i
   %129 = and i8 %127, 1
@@ -26791,7 +26791,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17he920aa21de7dbb0fE.llvm.35
   unreachable
 
 _ZN4core4iter8adapters5chain17and_then_or_clear17he7aa38d0bca88ed3E.exit: ; preds = %38, %.sink.split.i.i.i.i, %47
-  %.sroa.02.0.i.ph = phi ptr [ %42, %47 ], [ %26, %.sink.split.i.i.i.i ], [ %33, %38 ]
+  %.sroa.02.0.i.ph = phi ptr [ %42, %47 ], [ %33, %38 ], [ %26, %.sink.split.i.i.i.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6332)
   %268 = load ptr, ptr %.sroa.02.0.i.ph, align 8, !alias.scope !6332, !nonnull !3, !noundef !3
   %269 = load i64, ptr %268, align 8, !noalias !6332, !noundef !3
@@ -28304,7 +28304,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17he920aa21de7dbb0fE.llvm.35
   br label %253
 
 _ZN4core4iter8adapters5chain17and_then_or_clear17hd0e7346f12d8a823E.exit75: ; preds = %70, %.sink.split.i.i.i.i70, %79
-  %.sroa.02.0.i76.ph = phi ptr [ %74, %79 ], [ %58, %.sink.split.i.i.i.i70 ], [ %65, %70 ]
+  %.sroa.02.0.i76.ph = phi ptr [ %74, %79 ], [ %65, %70 ], [ %58, %.sink.split.i.i.i.i70 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6893)
   %520 = load ptr, ptr %.sroa.02.0.i76.ph, align 8, !alias.scope !6893, !nonnull !3, !noundef !3
   %521 = load i64, ptr %520, align 8, !noalias !6893, !noundef !3

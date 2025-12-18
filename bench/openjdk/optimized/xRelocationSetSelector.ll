@@ -210,7 +210,7 @@ _ZN18GrowableArrayCHeapIP5XPageL8MEMFLAGS5EE8allocateEiS2_.exit.i: ; preds = %26
   br label %_ZN18GrowableArrayCHeapIP5XPageL8MEMFLAGS5EEC2EiiRKS1_.exit
 
 _ZN18GrowableArrayCHeapIP5XPageL8MEMFLAGS5EEC2EiiRKS1_.exit: ; preds = %.lr.ph.preheader.i.i, %_ZN18GrowableArrayCHeapIP5XPageL8MEMFLAGS5EE8allocateEiS2_.exit.i, %26
-  %.0.i.i3740 = phi ptr [ %27, %_ZN18GrowableArrayCHeapIP5XPageL8MEMFLAGS5EE8allocateEiS2_.exit.i ], [ null, %26 ], [ %27, %.lr.ph.preheader.i.i ]
+  %.0.i.i3740 = phi ptr [ null, %26 ], [ %27, %_ZN18GrowableArrayCHeapIP5XPageL8MEMFLAGS5EE8allocateEiS2_.exit.i ], [ %27, %.lr.ph.preheader.i.i ]
   %30 = load i32, ptr %6, align 8
   %31 = icmp eq i32 %30, 0
   %32 = load ptr, ptr %9, align 8

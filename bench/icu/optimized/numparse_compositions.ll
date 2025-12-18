@@ -210,10 +210,6 @@ _ZN6icu_778numparse4impl12ParsedNumberC2ERKS2_.exit: ; preds = %11
   %67 = icmp ult ptr %61, %65
   br i1 %67, label %68, label %.preheader.outer.backedge
 
-.preheader.outer.backedge:                        ; preds = %66, %73, %75, %70
-  %.051.ph.be = phi ptr [ %61, %70 ], [ %76, %75 ], [ %61, %73 ], [ %61, %66 ]
-  br label %.preheader.outer, !llvm.loop !11
-
 68:                                               ; preds = %66
   %69 = invoke noundef i32 @_ZNK6icu_7713StringSegment9getOffsetEv(ptr noundef nonnull align 8 dereferenceable(17) %1)
           to label %70 unwind label %.loopexit71.loopexit.split-lp
@@ -224,6 +220,10 @@ _ZN6icu_778numparse4impl12ParsedNumberC2ERKS2_.exit: ; preds = %11
   %72 = icmp sgt i32 %71, %37
   %or.cond64 = and i1 %.not58, %72
   br i1 %or.cond64, label %73, label %.preheader.outer.backedge
+
+.preheader.outer.backedge:                        ; preds = %70, %66, %73, %75
+  %.051.ph.be = phi ptr [ %76, %75 ], [ %61, %73 ], [ %61, %66 ], [ %61, %70 ]
+  br label %.preheader.outer, !llvm.loop !11
 
 73:                                               ; preds = %70
   invoke void @_ZN6icu_7713StringSegment9setOffsetEi(ptr noundef nonnull align 8 dereferenceable(17) %1, i32 noundef %71)

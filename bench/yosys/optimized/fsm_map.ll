@@ -4219,8 +4219,8 @@ _ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE14_M_lower_boundEPSt13_Rb_tree_n
   br i1 %.not.i.i993, label %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE11equal_rangeERKi.exit.i, label %1396, !llvm.loop !138
 
 _ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE11equal_rangeERKi.exit.i: ; preds = %1413, %.lr.ph.i25.i.i, %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE14_M_lower_boundEPSt13_Rb_tree_nodeIiEPSt18_Rb_tree_node_baseRKi.exit.i.i, %1394
-  %.sroa.037.0.i.i = phi ptr [ %.08.lcssa.i.i.i, %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE14_M_lower_boundEPSt13_Rb_tree_nodeIiEPSt18_Rb_tree_node_baseRKi.exit.i.i ], [ %1287, %1394 ], [ %.08.lcssa.i.i.i, %.lr.ph.i25.i.i ], [ %.123.i.i, %1413 ]
-  %.sroa.3.0.i.i992 = phi ptr [ %.02243.i.i, %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE14_M_lower_boundEPSt13_Rb_tree_nodeIiEPSt18_Rb_tree_node_baseRKi.exit.i.i ], [ %1287, %1394 ], [ %.19.i28.i.i, %.lr.ph.i25.i.i ], [ %.123.i.i, %1413 ]
+  %.sroa.037.0.i.i = phi ptr [ %.08.lcssa.i.i.i, %.lr.ph.i25.i.i ], [ %.08.lcssa.i.i.i, %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE14_M_lower_boundEPSt13_Rb_tree_nodeIiEPSt18_Rb_tree_node_baseRKi.exit.i.i ], [ %1287, %1394 ], [ %.123.i.i, %1413 ]
+  %.sroa.3.0.i.i992 = phi ptr [ %.19.i28.i.i, %.lr.ph.i25.i.i ], [ %.02243.i.i, %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE14_M_lower_boundEPSt13_Rb_tree_nodeIiEPSt18_Rb_tree_node_baseRKi.exit.i.i ], [ %1287, %1394 ], [ %.123.i.i, %1413 ]
   %1415 = load ptr, ptr %1289, align 8, !tbaa !121
   %1416 = icmp eq ptr %.sroa.037.0.i.i, %1415
   %1417 = icmp eq ptr %.sroa.3.0.i.i992, %1287
@@ -6226,8 +6226,8 @@ _ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE14_M_lower_boundEPSt13_Rb_tree_n
   br i1 %.not.i.i1032, label %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE11equal_rangeERKi.exit.i1019, label %2183, !llvm.loop !138
 
 _ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE11equal_rangeERKi.exit.i1019: ; preds = %2200, %.lr.ph.i25.i.i1011, %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE14_M_lower_boundEPSt13_Rb_tree_nodeIiEPSt18_Rb_tree_node_baseRKi.exit.i.i1008, %2181
-  %.sroa.037.0.i.i1020 = phi ptr [ %.08.lcssa.i.i.i1009, %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE14_M_lower_boundEPSt13_Rb_tree_nodeIiEPSt18_Rb_tree_node_baseRKi.exit.i.i1008 ], [ %2087, %2181 ], [ %.08.lcssa.i.i.i1009, %.lr.ph.i25.i.i1011 ], [ %.123.i.i1030, %2200 ]
-  %.sroa.3.0.i.i1021 = phi ptr [ %.02243.i.i998, %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE14_M_lower_boundEPSt13_Rb_tree_nodeIiEPSt18_Rb_tree_node_baseRKi.exit.i.i1008 ], [ %2087, %2181 ], [ %.19.i28.i.i1014, %.lr.ph.i25.i.i1011 ], [ %.123.i.i1030, %2200 ]
+  %.sroa.037.0.i.i1020 = phi ptr [ %.08.lcssa.i.i.i1009, %.lr.ph.i25.i.i1011 ], [ %.08.lcssa.i.i.i1009, %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE14_M_lower_boundEPSt13_Rb_tree_nodeIiEPSt18_Rb_tree_node_baseRKi.exit.i.i1008 ], [ %2087, %2181 ], [ %.123.i.i1030, %2200 ]
+  %.sroa.3.0.i.i1021 = phi ptr [ %.19.i28.i.i1014, %.lr.ph.i25.i.i1011 ], [ %.02243.i.i998, %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE14_M_lower_boundEPSt13_Rb_tree_nodeIiEPSt18_Rb_tree_node_baseRKi.exit.i.i1008 ], [ %2087, %2181 ], [ %.123.i.i1030, %2200 ]
   %2202 = load ptr, ptr %2089, align 8, !tbaa !121
   %2203 = icmp eq ptr %.sroa.037.0.i.i1020, %2202
   %2204 = icmp eq ptr %.sroa.3.0.i.i1021, %2087

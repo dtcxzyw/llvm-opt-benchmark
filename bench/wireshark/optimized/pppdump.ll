@@ -691,7 +691,7 @@ define internal fastcc noundef zeroext i1 @collate(ptr noundef %0, ptr noundef %
   br label %.loopexit114
 
 .loopexit114:                                     ; preds = %122, %94, %75, %._crit_edge, %.loopexit, %144, %142, %15, %138, %73, %21
-  %.0 = phi i1 [ true, %21 ], [ false, %138 ], [ false, %15 ], [ true, %73 ], [ false, %142 ], [ false, %144 ], [ false, %.loopexit ], [ false, %._crit_edge ], [ false, %75 ], [ false, %94 ], [ false, %122 ]
+  %.0 = phi i1 [ false, %.loopexit ], [ true, %21 ], [ false, %138 ], [ false, %144 ], [ false, %15 ], [ true, %73 ], [ false, %142 ], [ false, %._crit_edge ], [ false, %75 ], [ false, %94 ], [ false, %122 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i1 %.0
@@ -848,7 +848,7 @@ define internal fastcc range(i32 -1, 8193) i32 @process_data(ptr noundef capture
   br i1 %74, label %14, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %72, %8, %63, %49, %28, %17
-  %.0 = phi i32 [ -1, %17 ], [ -1, %63 ], [ -1, %28 ], [ %24, %49 ], [ 0, %8 ], [ 0, %72 ]
+  %.0 = phi i32 [ -1, %17 ], [ -1, %63 ], [ %24, %49 ], [ -1, %28 ], [ 0, %8 ], [ 0, %72 ]
   ret i32 %.0
 }
 

@@ -7358,7 +7358,7 @@ _ZN3std4path4Path4join17h230704d4999bc971E.exit.i: ; preds = %719, %.noexc599
   br label %.body379.i
 
 .loopexit.split-lp1110:                           ; preds = %807, %1037
-  %.sroa.0181.5.i.ph = phi i8 [ 1, %807 ], [ %.sroa.0181.11.i, %1037 ]
+  %.sroa.0181.5.i.ph = phi i8 [ %.sroa.0181.11.i, %1037 ], [ 1, %807 ]
   %lpad.loopexit.split-lp1112 = landingpad { ptr, i32 }
           cleanup
   br label %.body379.i
@@ -8326,8 +8326,8 @@ _ZN3std4path4Path12strip_prefix17heff6e00afa4a65a3E.exit.i: ; preds = %902
           to label %1072 unwind label %.loopexit1072.loopexit.split-lp
 
 .loopexit1087:                                    ; preds = %.noexc591, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hd8ef124757832bc6E.exit367.i", %1049, %676, %779
-  %.sroa.21.10.ph = phi ptr [ %.sroa.21.8.copyload698, %779 ], [ %.sroa.21.8.copyload699, %676 ], [ %.sroa.21.5, %1049 ], [ %.sroa.21.8.copyload697, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hd8ef124757832bc6E.exit367.i" ], [ %655, %.noexc591 ]
-  %.sroa.0695.7.ph = phi i64 [ 2, %779 ], [ 2, %676 ], [ %.sroa.0695.2, %1049 ], [ 2, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hd8ef124757832bc6E.exit367.i" ], [ 0, %.noexc591 ]
+  %.sroa.21.10.ph = phi ptr [ %.sroa.21.8.copyload697, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hd8ef124757832bc6E.exit367.i" ], [ %.sroa.21.8.copyload698, %779 ], [ %.sroa.21.8.copyload699, %676 ], [ %.sroa.21.5, %1049 ], [ %655, %.noexc591 ]
+  %.sroa.0695.7.ph = phi i64 [ 2, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hd8ef124757832bc6E.exit367.i" ], [ 2, %779 ], [ 2, %676 ], [ %.sroa.0695.2, %1049 ], [ 0, %.noexc591 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %77)
   %.sroa.2352.sroa.2.0..sroa.2352.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.2352.sroa.2.0..sroa.2352.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.39, i64 48, i1 false)

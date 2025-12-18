@@ -2558,10 +2558,10 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %1164, %_ZN13duckdb_
   br i1 %1276, label %1257, label %_ZN13duckdb_brotliL12StoreRangeH5EPNS_2H5EPKhmmm.exit, !llvm.loop !170
 
 _ZN13duckdb_brotliL12StoreRangeH5EPNS_2H5EPKhmmm.exit: ; preds = %1257, %1230, %1198, %1250, %1223, %1193, %1216
-  %.1190 = phi i64 [ %.0189912, %1216 ], [ %.0189912, %1223 ], [ %1011, %1193 ], [ %.0189912, %1250 ], [ %.0189912, %1230 ], [ %1011, %1198 ], [ %.0189912, %1257 ]
-  %.4186 = phi i64 [ %1217, %1216 ], [ %1217, %1223 ], [ 0, %1193 ], [ %1217, %1250 ], [ %1247, %1230 ], [ 0, %1198 ], [ %1274, %1257 ]
-  %.1181 = phi ptr [ %.0180914, %1216 ], [ %.0180914, %1223 ], [ %1071, %1193 ], [ %.0180914, %1250 ], [ %.0180914, %1230 ], [ %1071, %1198 ], [ %.0180914, %1257 ]
-  %.4 = phi i64 [ %1218, %1216 ], [ %1218, %1223 ], [ %1184, %1193 ], [ %1218, %1250 ], [ %1248, %1230 ], [ %1184, %1198 ], [ %1275, %1257 ]
+  %.1190 = phi i64 [ %1011, %1193 ], [ %.0189912, %1216 ], [ %.0189912, %1223 ], [ %.0189912, %1250 ], [ %.0189912, %1230 ], [ %1011, %1198 ], [ %.0189912, %1257 ]
+  %.4186 = phi i64 [ 0, %1193 ], [ %1217, %1216 ], [ %1217, %1223 ], [ %1217, %1250 ], [ %1247, %1230 ], [ 0, %1198 ], [ %1274, %1257 ]
+  %.1181 = phi ptr [ %1071, %1193 ], [ %.0180914, %1216 ], [ %.0180914, %1223 ], [ %.0180914, %1250 ], [ %.0180914, %1230 ], [ %1071, %1198 ], [ %.0180914, %1257 ]
+  %.4 = phi i64 [ %1184, %1193 ], [ %1218, %1216 ], [ %1218, %1223 ], [ %1218, %1250 ], [ %1248, %1230 ], [ %1184, %1198 ], [ %1275, %1257 ]
   %1277 = add i64 %.4, 4
   %1278 = icmp ult i64 %1277, %21
   br i1 %1278, label %103, label %._crit_edge917, !llvm.loop !171
@@ -5017,10 +5017,10 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %1168, %_ZN13duckdb_
   br i1 %1275, label %1258, label %_ZN13duckdb_brotliL12StoreRangeH6EPNS_2H6EPKhmmm.exit, !llvm.loop !276
 
 _ZN13duckdb_brotliL12StoreRangeH6EPNS_2H6EPKhmmm.exit: ; preds = %1258, %1233, %1203, %1251, %1226, %1197, %1219
-  %.1190 = phi i64 [ %.0189889, %1219 ], [ %.0189889, %1226 ], [ %1015, %1197 ], [ %.0189889, %1251 ], [ %.0189889, %1233 ], [ %1015, %1203 ], [ %.0189889, %1258 ]
-  %.4186 = phi i64 [ %1220, %1219 ], [ %1220, %1226 ], [ 0, %1197 ], [ %1220, %1251 ], [ %1248, %1233 ], [ 0, %1203 ], [ %1273, %1258 ]
-  %.1181 = phi ptr [ %.0180891, %1219 ], [ %.0180891, %1226 ], [ %1075, %1197 ], [ %.0180891, %1251 ], [ %.0180891, %1233 ], [ %1075, %1203 ], [ %.0180891, %1258 ]
-  %.4 = phi i64 [ %1221, %1219 ], [ %1221, %1226 ], [ %1188, %1197 ], [ %1221, %1251 ], [ %1249, %1233 ], [ %1188, %1203 ], [ %1274, %1258 ]
+  %.1190 = phi i64 [ %1015, %1197 ], [ %.0189889, %1219 ], [ %.0189889, %1226 ], [ %.0189889, %1251 ], [ %.0189889, %1233 ], [ %1015, %1203 ], [ %.0189889, %1258 ]
+  %.4186 = phi i64 [ 0, %1197 ], [ %1220, %1219 ], [ %1220, %1226 ], [ %1220, %1251 ], [ %1248, %1233 ], [ 0, %1203 ], [ %1273, %1258 ]
+  %.1181 = phi ptr [ %1075, %1197 ], [ %.0180891, %1219 ], [ %.0180891, %1226 ], [ %.0180891, %1251 ], [ %.0180891, %1233 ], [ %1075, %1203 ], [ %.0180891, %1258 ]
+  %.4 = phi i64 [ %1188, %1197 ], [ %1221, %1219 ], [ %1221, %1226 ], [ %1221, %1251 ], [ %1249, %1233 ], [ %1188, %1203 ], [ %1274, %1258 ]
   %1276 = add i64 %.4, 8
   %1277 = icmp ult i64 %1276, %21
   br i1 %1277, label %102, label %._crit_edge894, !llvm.loop !277
@@ -7395,10 +7395,10 @@ _ZN13duckdb_brotliL13StoreRangeH40EPNS_3H40EPKhmmm.exit.sink.split: ; preds = %1
   br label %_ZN13duckdb_brotliL13StoreRangeH40EPNS_3H40EPKhmmm.exit
 
 _ZN13duckdb_brotliL13StoreRangeH40EPNS_3H40EPKhmmm.exit: ; preds = %_ZN13duckdb_brotliL13StoreRangeH40EPNS_3H40EPKhmmm.exit.sink.split, %1188, %1155, %1119, %1148
-  %.1190 = phi i64 [ %.0189891, %1148 ], [ %.0189891, %1155 ], [ %954, %1119 ], [ %.0189891, %1188 ], [ %.1190.ph, %_ZN13duckdb_brotliL13StoreRangeH40EPNS_3H40EPKhmmm.exit.sink.split ]
-  %.4186 = phi i64 [ %1149, %1148 ], [ %1149, %1155 ], [ 0, %1119 ], [ %1149, %1188 ], [ %.4186.ph, %_ZN13duckdb_brotliL13StoreRangeH40EPNS_3H40EPKhmmm.exit.sink.split ]
-  %.1181 = phi ptr [ %.0180893, %1148 ], [ %.0180893, %1155 ], [ %997, %1119 ], [ %.0180893, %1188 ], [ %.1181.ph, %_ZN13duckdb_brotliL13StoreRangeH40EPNS_3H40EPKhmmm.exit.sink.split ]
-  %.4 = phi i64 [ %1150, %1148 ], [ %1150, %1155 ], [ %1110, %1119 ], [ %1150, %1188 ], [ %.4.ph, %_ZN13duckdb_brotliL13StoreRangeH40EPNS_3H40EPKhmmm.exit.sink.split ]
+  %.1190 = phi i64 [ %954, %1119 ], [ %.0189891, %1148 ], [ %.0189891, %1155 ], [ %.0189891, %1188 ], [ %.1190.ph, %_ZN13duckdb_brotliL13StoreRangeH40EPNS_3H40EPKhmmm.exit.sink.split ]
+  %.4186 = phi i64 [ 0, %1119 ], [ %1149, %1148 ], [ %1149, %1155 ], [ %1149, %1188 ], [ %.4186.ph, %_ZN13duckdb_brotliL13StoreRangeH40EPNS_3H40EPKhmmm.exit.sink.split ]
+  %.1181 = phi ptr [ %997, %1119 ], [ %.0180893, %1148 ], [ %.0180893, %1155 ], [ %.0180893, %1188 ], [ %.1181.ph, %_ZN13duckdb_brotliL13StoreRangeH40EPNS_3H40EPKhmmm.exit.sink.split ]
+  %.4 = phi i64 [ %1110, %1119 ], [ %1150, %1148 ], [ %1150, %1155 ], [ %1150, %1188 ], [ %.4.ph, %_ZN13duckdb_brotliL13StoreRangeH40EPNS_3H40EPKhmmm.exit.sink.split ]
   %1221 = add i64 %.4, 4
   %1222 = icmp ult i64 %1221, %22
   br i1 %1222, label %54, label %._crit_edge, !llvm.loop !386
@@ -9804,10 +9804,10 @@ _ZN13duckdb_brotliL13StoreRangeH41EPNS_3H41EPKhmmm.exit.sink.split: ; preds = %1
   br label %_ZN13duckdb_brotliL13StoreRangeH41EPNS_3H41EPKhmmm.exit
 
 _ZN13duckdb_brotliL13StoreRangeH41EPNS_3H41EPKhmmm.exit: ; preds = %_ZN13duckdb_brotliL13StoreRangeH41EPNS_3H41EPKhmmm.exit.sink.split, %1207, %1174, %1138, %1167
-  %.1190 = phi i64 [ %.0189891, %1167 ], [ %.0189891, %1174 ], [ %967, %1138 ], [ %.0189891, %1207 ], [ %.1190.ph, %_ZN13duckdb_brotliL13StoreRangeH41EPNS_3H41EPKhmmm.exit.sink.split ]
-  %.4186 = phi i64 [ %1168, %1167 ], [ %1168, %1174 ], [ 0, %1138 ], [ %1168, %1207 ], [ %.4186.ph, %_ZN13duckdb_brotliL13StoreRangeH41EPNS_3H41EPKhmmm.exit.sink.split ]
-  %.1181 = phi ptr [ %.0180893, %1167 ], [ %.0180893, %1174 ], [ %1016, %1138 ], [ %.0180893, %1207 ], [ %.1181.ph, %_ZN13duckdb_brotliL13StoreRangeH41EPNS_3H41EPKhmmm.exit.sink.split ]
-  %.4 = phi i64 [ %1169, %1167 ], [ %1169, %1174 ], [ %1129, %1138 ], [ %1169, %1207 ], [ %.4.ph, %_ZN13duckdb_brotliL13StoreRangeH41EPNS_3H41EPKhmmm.exit.sink.split ]
+  %.1190 = phi i64 [ %967, %1138 ], [ %.0189891, %1167 ], [ %.0189891, %1174 ], [ %.0189891, %1207 ], [ %.1190.ph, %_ZN13duckdb_brotliL13StoreRangeH41EPNS_3H41EPKhmmm.exit.sink.split ]
+  %.4186 = phi i64 [ 0, %1138 ], [ %1168, %1167 ], [ %1168, %1174 ], [ %1168, %1207 ], [ %.4186.ph, %_ZN13duckdb_brotliL13StoreRangeH41EPNS_3H41EPKhmmm.exit.sink.split ]
+  %.1181 = phi ptr [ %1016, %1138 ], [ %.0180893, %1167 ], [ %.0180893, %1174 ], [ %.0180893, %1207 ], [ %.1181.ph, %_ZN13duckdb_brotliL13StoreRangeH41EPNS_3H41EPKhmmm.exit.sink.split ]
+  %.4 = phi i64 [ %1129, %1138 ], [ %1169, %1167 ], [ %1169, %1174 ], [ %1169, %1207 ], [ %.4.ph, %_ZN13duckdb_brotliL13StoreRangeH41EPNS_3H41EPKhmmm.exit.sink.split ]
   %1240 = add i64 %.4, 4
   %1241 = icmp ult i64 %1240, %22
   br i1 %1241, label %67, label %._crit_edge, !llvm.loop !503
@@ -12253,10 +12253,10 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %1137, %_ZN13duckdb_
   br i1 %1279, label %1251, label %_ZN13duckdb_brotliL13StoreRangeH42EPNS_3H42EPKhmmm.exit, !llvm.loop !619
 
 _ZN13duckdb_brotliL13StoreRangeH42EPNS_3H42EPKhmmm.exit: ; preds = %1251, %1214, %1172, %1243, %1206, %1166, %1199
-  %.1190 = phi i64 [ %.0189885, %1199 ], [ %.0189885, %1206 ], [ %989, %1166 ], [ %.0189885, %1243 ], [ %.0189885, %1214 ], [ %989, %1172 ], [ %.0189885, %1251 ]
-  %.4186 = phi i64 [ %1200, %1199 ], [ %1200, %1206 ], [ 0, %1166 ], [ %1200, %1243 ], [ %1240, %1214 ], [ 0, %1172 ], [ %1277, %1251 ]
-  %.1181 = phi ptr [ %.0180887, %1199 ], [ %.0180887, %1206 ], [ %1044, %1166 ], [ %.0180887, %1243 ], [ %.0180887, %1214 ], [ %1044, %1172 ], [ %.0180887, %1251 ]
-  %.4 = phi i64 [ %1201, %1199 ], [ %1201, %1206 ], [ %1157, %1166 ], [ %1201, %1243 ], [ %1241, %1214 ], [ %1157, %1172 ], [ %1278, %1251 ]
+  %.1190 = phi i64 [ %989, %1166 ], [ %.0189885, %1199 ], [ %.0189885, %1206 ], [ %.0189885, %1243 ], [ %.0189885, %1214 ], [ %989, %1172 ], [ %.0189885, %1251 ]
+  %.4186 = phi i64 [ 0, %1166 ], [ %1200, %1199 ], [ %1200, %1206 ], [ %1200, %1243 ], [ %1240, %1214 ], [ 0, %1172 ], [ %1277, %1251 ]
+  %.1181 = phi ptr [ %1044, %1166 ], [ %.0180887, %1199 ], [ %.0180887, %1206 ], [ %.0180887, %1243 ], [ %.0180887, %1214 ], [ %1044, %1172 ], [ %.0180887, %1251 ]
+  %.4 = phi i64 [ %1157, %1166 ], [ %1201, %1199 ], [ %1201, %1206 ], [ %1201, %1243 ], [ %1241, %1214 ], [ %1157, %1172 ], [ %1278, %1251 ]
   %1280 = add i64 %.4, 4
   %1281 = icmp ult i64 %1280, %22
   br i1 %1281, label %80, label %._crit_edge, !llvm.loop !620
@@ -14308,10 +14308,10 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %930, %_ZN13duckdb_b
   br i1 %1009, label %.lr.ph686, label %_ZN13duckdb_brotliL13StoreRangeH54EPNS_3H54EPKhmmm.exit, !llvm.loop !708
 
 _ZN13duckdb_brotliL13StoreRangeH54EPNS_3H54EPKhmmm.exit: ; preds = %.lr.ph686, %.lr.ph692, %.lr.ph821, %994, %978, %959, %971
-  %.1190 = phi i64 [ %.0189822, %971 ], [ %.0189822, %978 ], [ %783, %959 ], [ %.0189822, %994 ], [ %.0189822, %.lr.ph692 ], [ %783, %.lr.ph821 ], [ %.0189822, %.lr.ph686 ]
-  %.4186 = phi i64 [ %972, %971 ], [ %972, %978 ], [ 0, %959 ], [ %972, %994 ], [ %991, %.lr.ph692 ], [ 0, %.lr.ph821 ], [ %1007, %.lr.ph686 ]
-  %.1181 = phi ptr [ %.0180824, %971 ], [ %.0180824, %978 ], [ %868, %959 ], [ %.0180824, %994 ], [ %.0180824, %.lr.ph692 ], [ %868, %.lr.ph821 ], [ %.0180824, %.lr.ph686 ]
-  %.4 = phi i64 [ %973, %971 ], [ %973, %978 ], [ %950, %959 ], [ %973, %994 ], [ %992, %.lr.ph692 ], [ %950, %.lr.ph821 ], [ %1008, %.lr.ph686 ]
+  %.1190 = phi i64 [ %783, %959 ], [ %.0189822, %971 ], [ %.0189822, %978 ], [ %.0189822, %994 ], [ %.0189822, %.lr.ph692 ], [ %783, %.lr.ph821 ], [ %.0189822, %.lr.ph686 ]
+  %.4186 = phi i64 [ 0, %959 ], [ %972, %971 ], [ %972, %978 ], [ %972, %994 ], [ %991, %.lr.ph692 ], [ 0, %.lr.ph821 ], [ %1007, %.lr.ph686 ]
+  %.1181 = phi ptr [ %868, %959 ], [ %.0180824, %971 ], [ %.0180824, %978 ], [ %.0180824, %994 ], [ %.0180824, %.lr.ph692 ], [ %868, %.lr.ph821 ], [ %.0180824, %.lr.ph686 ]
+  %.4 = phi i64 [ %950, %959 ], [ %973, %971 ], [ %973, %978 ], [ %973, %994 ], [ %992, %.lr.ph692 ], [ %950, %.lr.ph821 ], [ %1008, %.lr.ph686 ]
   %1010 = add i64 %.4, 8
   %1011 = icmp ult i64 %1010, %22
   br i1 %1011, label %.thread, label %._crit_edge826, !llvm.loop !709
@@ -17127,10 +17127,10 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %1318, %_ZN13duckdb_
   br i1 %1425, label %1408, label %_ZN13duckdb_brotliL13StoreRangeH65EPNS_3H65EPKhmmm.exit, !llvm.loop !882
 
 _ZN13duckdb_brotliL13StoreRangeH65EPNS_3H65EPKhmmm.exit: ; preds = %1408, %1383, %1353, %1401, %1376, %1347, %1369
-  %.1190 = phi i64 [ %.0189996, %1369 ], [ %.0189996, %1376 ], [ %1165, %1347 ], [ %.0189996, %1401 ], [ %.0189996, %1383 ], [ %1165, %1353 ], [ %.0189996, %1408 ]
-  %.4186 = phi i64 [ %1370, %1369 ], [ %1370, %1376 ], [ 0, %1347 ], [ %1370, %1401 ], [ %1398, %1383 ], [ 0, %1353 ], [ %1423, %1408 ]
-  %.1181 = phi ptr [ %.0180998, %1369 ], [ %.0180998, %1376 ], [ %1225, %1347 ], [ %.0180998, %1401 ], [ %.0180998, %1383 ], [ %1225, %1353 ], [ %.0180998, %1408 ]
-  %.4 = phi i64 [ %1371, %1369 ], [ %1371, %1376 ], [ %1338, %1347 ], [ %1371, %1401 ], [ %1399, %1383 ], [ %1338, %1353 ], [ %1424, %1408 ]
+  %.1190 = phi i64 [ %1165, %1347 ], [ %.0189996, %1369 ], [ %.0189996, %1376 ], [ %.0189996, %1401 ], [ %.0189996, %1383 ], [ %1165, %1353 ], [ %.0189996, %1408 ]
+  %.4186 = phi i64 [ 0, %1347 ], [ %1370, %1369 ], [ %1370, %1376 ], [ %1370, %1401 ], [ %1398, %1383 ], [ 0, %1353 ], [ %1423, %1408 ]
+  %.1181 = phi ptr [ %1225, %1347 ], [ %.0180998, %1369 ], [ %.0180998, %1376 ], [ %.0180998, %1401 ], [ %.0180998, %1383 ], [ %1225, %1353 ], [ %.0180998, %1408 ]
+  %.4 = phi i64 [ %1338, %1347 ], [ %1371, %1369 ], [ %1371, %1376 ], [ %1371, %1401 ], [ %1399, %1383 ], [ %1338, %1353 ], [ %1424, %1408 ]
   %1426 = add i64 %.4, 8
   %1427 = icmp ult i64 %1426, %21
   br i1 %1427, label %107, label %._crit_edge1001, !llvm.loop !883
@@ -18410,10 +18410,10 @@ _ZN13duckdb_brotliL18FindLongestMatchH2EPNS_2H2EPKNS_23BrotliEncoderDictionaryEP
   br i1 %702, label %.lr.ph457, label %_ZN13duckdb_brotliL12StoreRangeH2EPNS_2H2EPKhmmm.exit, !llvm.loop !923
 
 _ZN13duckdb_brotliL12StoreRangeH2EPNS_2H2EPKhmmm.exit: ; preds = %.lr.ph457, %.lr.ph462, %.lr.ph517, %690, %677, %662, %_ZN13duckdb_brotliL18FindLongestMatchH2EPNS_2H2EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread
-  %.1174 = phi i64 [ %.0173518, %_ZN13duckdb_brotliL18FindLongestMatchH2EPNS_2H2EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %.0173518, %677 ], [ %497, %662 ], [ %.0173518, %690 ], [ %.0173518, %.lr.ph462 ], [ %497, %.lr.ph517 ], [ %.0173518, %.lr.ph457 ]
-  %.4170 = phi i64 [ %671, %_ZN13duckdb_brotliL18FindLongestMatchH2EPNS_2H2EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %671, %677 ], [ 0, %662 ], [ %671, %690 ], [ %687, %.lr.ph462 ], [ 0, %.lr.ph517 ], [ %700, %.lr.ph457 ]
-  %.1165 = phi ptr [ %.0164520, %_ZN13duckdb_brotliL18FindLongestMatchH2EPNS_2H2EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %.0164520, %677 ], [ %540, %662 ], [ %.0164520, %690 ], [ %.0164520, %.lr.ph462 ], [ %540, %.lr.ph517 ], [ %.0164520, %.lr.ph457 ]
-  %.4 = phi i64 [ %672, %_ZN13duckdb_brotliL18FindLongestMatchH2EPNS_2H2EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %672, %677 ], [ %653, %662 ], [ %672, %690 ], [ %688, %.lr.ph462 ], [ %653, %.lr.ph517 ], [ %701, %.lr.ph457 ]
+  %.1174 = phi i64 [ %497, %662 ], [ %.0173518, %_ZN13duckdb_brotliL18FindLongestMatchH2EPNS_2H2EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %.0173518, %677 ], [ %.0173518, %690 ], [ %.0173518, %.lr.ph462 ], [ %497, %.lr.ph517 ], [ %.0173518, %.lr.ph457 ]
+  %.4170 = phi i64 [ 0, %662 ], [ %671, %_ZN13duckdb_brotliL18FindLongestMatchH2EPNS_2H2EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %671, %677 ], [ %671, %690 ], [ %687, %.lr.ph462 ], [ 0, %.lr.ph517 ], [ %700, %.lr.ph457 ]
+  %.1165 = phi ptr [ %540, %662 ], [ %.0164520, %_ZN13duckdb_brotliL18FindLongestMatchH2EPNS_2H2EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %.0164520, %677 ], [ %.0164520, %690 ], [ %.0164520, %.lr.ph462 ], [ %540, %.lr.ph517 ], [ %.0164520, %.lr.ph457 ]
+  %.4 = phi i64 [ %653, %662 ], [ %672, %_ZN13duckdb_brotliL18FindLongestMatchH2EPNS_2H2EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %672, %677 ], [ %672, %690 ], [ %688, %.lr.ph462 ], [ %653, %.lr.ph517 ], [ %701, %.lr.ph457 ]
   %703 = add i64 %.4, 8
   %704 = icmp ult i64 %703, %22
   br i1 %704, label %49, label %._crit_edge, !llvm.loop !924
@@ -19396,10 +19396,10 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %433, %_ZN13duckdb_b
   br i1 %512, label %.lr.ph385, label %_ZN13duckdb_brotliL12StoreRangeH3EPNS_2H3EPKhmmm.exit, !llvm.loop !962
 
 _ZN13duckdb_brotliL12StoreRangeH3EPNS_2H3EPKhmmm.exit: ; preds = %.lr.ph385, %.lr.ph390, %.lr.ph432, %497, %481, %462, %474
-  %.1174 = phi i64 [ %.0173433, %474 ], [ %.0173433, %481 ], [ %284, %462 ], [ %.0173433, %497 ], [ %.0173433, %.lr.ph390 ], [ %284, %.lr.ph432 ], [ %.0173433, %.lr.ph385 ]
-  %.4170 = phi i64 [ %475, %474 ], [ %475, %481 ], [ 0, %462 ], [ %475, %497 ], [ %494, %.lr.ph390 ], [ 0, %.lr.ph432 ], [ %510, %.lr.ph385 ]
-  %.1165 = phi ptr [ %.0164435, %474 ], [ %.0164435, %481 ], [ %371, %462 ], [ %.0164435, %497 ], [ %.0164435, %.lr.ph390 ], [ %371, %.lr.ph432 ], [ %.0164435, %.lr.ph385 ]
-  %.4 = phi i64 [ %476, %474 ], [ %476, %481 ], [ %453, %462 ], [ %476, %497 ], [ %495, %.lr.ph390 ], [ %453, %.lr.ph432 ], [ %511, %.lr.ph385 ]
+  %.1174 = phi i64 [ %284, %462 ], [ %.0173433, %474 ], [ %.0173433, %481 ], [ %.0173433, %497 ], [ %.0173433, %.lr.ph390 ], [ %284, %.lr.ph432 ], [ %.0173433, %.lr.ph385 ]
+  %.4170 = phi i64 [ 0, %462 ], [ %475, %474 ], [ %475, %481 ], [ %475, %497 ], [ %494, %.lr.ph390 ], [ 0, %.lr.ph432 ], [ %510, %.lr.ph385 ]
+  %.1165 = phi ptr [ %371, %462 ], [ %.0164435, %474 ], [ %.0164435, %481 ], [ %.0164435, %497 ], [ %.0164435, %.lr.ph390 ], [ %371, %.lr.ph432 ], [ %.0164435, %.lr.ph385 ]
+  %.4 = phi i64 [ %453, %462 ], [ %476, %474 ], [ %476, %481 ], [ %476, %497 ], [ %495, %.lr.ph390 ], [ %453, %.lr.ph432 ], [ %511, %.lr.ph385 ]
   %513 = add i64 %.4, 8
   %514 = icmp ult i64 %513, %22
   br i1 %514, label %.thread, label %._crit_edge, !llvm.loop !963
@@ -20814,10 +20814,10 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %692, %_ZN13duckdb_b
   br i1 %773, label %.lr.ph534, label %_ZN13duckdb_brotliL12StoreRangeH4EPNS_2H4EPKhmmm.exit, !llvm.loop !1005
 
 _ZN13duckdb_brotliL12StoreRangeH4EPNS_2H4EPKhmmm.exit: ; preds = %.lr.ph531, %.lr.ph534, %.lr.ph539, %721, %758, %742, %735
-  %.1174 = phi i64 [ %.0173542, %735 ], [ %.0173542, %758 ], [ %.0173542, %742 ], [ %556, %721 ], [ %.0173542, %.lr.ph534 ], [ %.0173542, %.lr.ph539 ], [ %556, %.lr.ph531 ]
-  %.4170 = phi i64 [ %736, %735 ], [ %736, %758 ], [ %736, %742 ], [ 0, %721 ], [ %771, %.lr.ph534 ], [ %755, %.lr.ph539 ], [ 0, %.lr.ph531 ]
-  %.1165 = phi ptr [ %.0164544, %735 ], [ %.0164544, %758 ], [ %.0164544, %742 ], [ %599, %721 ], [ %.0164544, %.lr.ph534 ], [ %.0164544, %.lr.ph539 ], [ %599, %.lr.ph531 ]
-  %.4 = phi i64 [ %737, %735 ], [ %737, %758 ], [ %737, %742 ], [ %712, %721 ], [ %772, %.lr.ph534 ], [ %756, %.lr.ph539 ], [ %712, %.lr.ph531 ]
+  %.1174 = phi i64 [ %.0173542, %758 ], [ %.0173542, %735 ], [ %.0173542, %742 ], [ %556, %721 ], [ %.0173542, %.lr.ph534 ], [ %.0173542, %.lr.ph539 ], [ %556, %.lr.ph531 ]
+  %.4170 = phi i64 [ %736, %758 ], [ %736, %735 ], [ %736, %742 ], [ 0, %721 ], [ %771, %.lr.ph534 ], [ %755, %.lr.ph539 ], [ 0, %.lr.ph531 ]
+  %.1165 = phi ptr [ %.0164544, %758 ], [ %.0164544, %735 ], [ %.0164544, %742 ], [ %599, %721 ], [ %.0164544, %.lr.ph534 ], [ %.0164544, %.lr.ph539 ], [ %599, %.lr.ph531 ]
+  %.4 = phi i64 [ %737, %758 ], [ %737, %735 ], [ %737, %742 ], [ %712, %721 ], [ %772, %.lr.ph534 ], [ %756, %.lr.ph539 ], [ %712, %.lr.ph531 ]
   %774 = add i64 %.4, 8
   %775 = icmp ult i64 %774, %24
   br i1 %775, label %51, label %._crit_edge, !llvm.loop !1006
@@ -22559,10 +22559,10 @@ _ZN13duckdb_brotliL18FindLongestMatchH5EPNS_2H5EPKNS_23BrotliEncoderDictionaryEP
   br i1 %945, label %926, label %_ZN13duckdb_brotliL12StoreRangeH5EPNS_2H5EPKhmmm.exit, !llvm.loop !1064
 
 _ZN13duckdb_brotliL12StoreRangeH5EPNS_2H5EPKhmmm.exit: ; preds = %868, %926, %899, %863, %919, %892, %_ZN13duckdb_brotliL18FindLongestMatchH5EPNS_2H5EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread
-  %.1174 = phi i64 [ %.0173641, %_ZN13duckdb_brotliL18FindLongestMatchH5EPNS_2H5EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %.0173641, %919 ], [ %.0173641, %892 ], [ %681, %863 ], [ %.0173641, %926 ], [ %.0173641, %899 ], [ %681, %868 ]
-  %.4170 = phi i64 [ %886, %_ZN13duckdb_brotliL18FindLongestMatchH5EPNS_2H5EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %886, %919 ], [ %886, %892 ], [ 0, %863 ], [ %943, %926 ], [ %916, %899 ], [ 0, %868 ]
-  %.1165 = phi ptr [ %.0164643, %_ZN13duckdb_brotliL18FindLongestMatchH5EPNS_2H5EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %.0164643, %919 ], [ %.0164643, %892 ], [ %741, %863 ], [ %.0164643, %926 ], [ %.0164643, %899 ], [ %741, %868 ]
-  %.4 = phi i64 [ %887, %_ZN13duckdb_brotliL18FindLongestMatchH5EPNS_2H5EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %887, %919 ], [ %887, %892 ], [ %854, %863 ], [ %944, %926 ], [ %917, %899 ], [ %854, %868 ]
+  %.1174 = phi i64 [ %.0173641, %919 ], [ %.0173641, %_ZN13duckdb_brotliL18FindLongestMatchH5EPNS_2H5EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %.0173641, %892 ], [ %681, %863 ], [ %.0173641, %926 ], [ %.0173641, %899 ], [ %681, %868 ]
+  %.4170 = phi i64 [ %886, %919 ], [ %886, %_ZN13duckdb_brotliL18FindLongestMatchH5EPNS_2H5EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %886, %892 ], [ 0, %863 ], [ %943, %926 ], [ %916, %899 ], [ 0, %868 ]
+  %.1165 = phi ptr [ %.0164643, %919 ], [ %.0164643, %_ZN13duckdb_brotliL18FindLongestMatchH5EPNS_2H5EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %.0164643, %892 ], [ %741, %863 ], [ %.0164643, %926 ], [ %.0164643, %899 ], [ %741, %868 ]
+  %.4 = phi i64 [ %887, %919 ], [ %887, %_ZN13duckdb_brotliL18FindLongestMatchH5EPNS_2H5EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %887, %892 ], [ %854, %863 ], [ %944, %926 ], [ %917, %899 ], [ %854, %868 ]
   %946 = add i64 %.4, 4
   %947 = icmp ult i64 %946, %21
   br i1 %947, label %100, label %._crit_edge646, !llvm.loop !1065
@@ -24309,10 +24309,10 @@ _ZN13duckdb_brotliL18FindLongestMatchH6EPNS_2H6EPKNS_23BrotliEncoderDictionaryEP
   br i1 %944, label %927, label %_ZN13duckdb_brotliL12StoreRangeH6EPNS_2H6EPKhmmm.exit, !llvm.loop !1132
 
 _ZN13duckdb_brotliL12StoreRangeH6EPNS_2H6EPKhmmm.exit: ; preds = %873, %927, %902, %867, %920, %895, %_ZN13duckdb_brotliL18FindLongestMatchH6EPNS_2H6EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread
-  %.1174 = phi i64 [ %.0173619, %_ZN13duckdb_brotliL18FindLongestMatchH6EPNS_2H6EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %.0173619, %920 ], [ %.0173619, %895 ], [ %685, %867 ], [ %.0173619, %927 ], [ %.0173619, %902 ], [ %685, %873 ]
-  %.4170 = phi i64 [ %889, %_ZN13duckdb_brotliL18FindLongestMatchH6EPNS_2H6EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %889, %920 ], [ %889, %895 ], [ 0, %867 ], [ %942, %927 ], [ %917, %902 ], [ 0, %873 ]
-  %.1165 = phi ptr [ %.0164621, %_ZN13duckdb_brotliL18FindLongestMatchH6EPNS_2H6EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %.0164621, %920 ], [ %.0164621, %895 ], [ %745, %867 ], [ %.0164621, %927 ], [ %.0164621, %902 ], [ %745, %873 ]
-  %.4 = phi i64 [ %890, %_ZN13duckdb_brotliL18FindLongestMatchH6EPNS_2H6EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %890, %920 ], [ %890, %895 ], [ %858, %867 ], [ %943, %927 ], [ %918, %902 ], [ %858, %873 ]
+  %.1174 = phi i64 [ %.0173619, %920 ], [ %.0173619, %_ZN13duckdb_brotliL18FindLongestMatchH6EPNS_2H6EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %.0173619, %895 ], [ %685, %867 ], [ %.0173619, %927 ], [ %.0173619, %902 ], [ %685, %873 ]
+  %.4170 = phi i64 [ %889, %920 ], [ %889, %_ZN13duckdb_brotliL18FindLongestMatchH6EPNS_2H6EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %889, %895 ], [ 0, %867 ], [ %942, %927 ], [ %917, %902 ], [ 0, %873 ]
+  %.1165 = phi ptr [ %.0164621, %920 ], [ %.0164621, %_ZN13duckdb_brotliL18FindLongestMatchH6EPNS_2H6EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %.0164621, %895 ], [ %745, %867 ], [ %.0164621, %927 ], [ %.0164621, %902 ], [ %745, %873 ]
+  %.4 = phi i64 [ %890, %920 ], [ %890, %_ZN13duckdb_brotliL18FindLongestMatchH6EPNS_2H6EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %890, %895 ], [ %858, %867 ], [ %943, %927 ], [ %918, %902 ], [ %858, %873 ]
   %945 = add i64 %.4, 8
   %946 = icmp ult i64 %945, %21
   br i1 %946, label %99, label %._crit_edge624, !llvm.loop !1133
@@ -25974,10 +25974,10 @@ _ZN13duckdb_brotliL13StoreRangeH40EPNS_3H40EPKhmmm.exit.sink.split: ; preds = %7
   br label %_ZN13duckdb_brotliL13StoreRangeH40EPNS_3H40EPKhmmm.exit
 
 _ZN13duckdb_brotliL13StoreRangeH40EPNS_3H40EPKhmmm.exit: ; preds = %_ZN13duckdb_brotliL13StoreRangeH40EPNS_3H40EPKhmmm.exit.sink.split, %786, %854, %821, %_ZN13duckdb_brotliL19FindLongestMatchH40EPNS_3H40EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread
-  %.1174 = phi i64 [ %.0173620, %_ZN13duckdb_brotliL19FindLongestMatchH40EPNS_3H40EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %.0173620, %854 ], [ %.0173620, %821 ], [ %621, %786 ], [ %.1174.ph, %_ZN13duckdb_brotliL13StoreRangeH40EPNS_3H40EPKhmmm.exit.sink.split ]
-  %.4170 = phi i64 [ %815, %_ZN13duckdb_brotliL19FindLongestMatchH40EPNS_3H40EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %815, %854 ], [ %815, %821 ], [ 0, %786 ], [ %.4170.ph, %_ZN13duckdb_brotliL13StoreRangeH40EPNS_3H40EPKhmmm.exit.sink.split ]
-  %.1165 = phi ptr [ %.0164622, %_ZN13duckdb_brotliL19FindLongestMatchH40EPNS_3H40EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %.0164622, %854 ], [ %.0164622, %821 ], [ %664, %786 ], [ %.1165.ph, %_ZN13duckdb_brotliL13StoreRangeH40EPNS_3H40EPKhmmm.exit.sink.split ]
-  %.4 = phi i64 [ %816, %_ZN13duckdb_brotliL19FindLongestMatchH40EPNS_3H40EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %816, %854 ], [ %816, %821 ], [ %777, %786 ], [ %.4.ph, %_ZN13duckdb_brotliL13StoreRangeH40EPNS_3H40EPKhmmm.exit.sink.split ]
+  %.1174 = phi i64 [ %.0173620, %854 ], [ %.0173620, %_ZN13duckdb_brotliL19FindLongestMatchH40EPNS_3H40EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %.0173620, %821 ], [ %621, %786 ], [ %.1174.ph, %_ZN13duckdb_brotliL13StoreRangeH40EPNS_3H40EPKhmmm.exit.sink.split ]
+  %.4170 = phi i64 [ %815, %854 ], [ %815, %_ZN13duckdb_brotliL19FindLongestMatchH40EPNS_3H40EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %815, %821 ], [ 0, %786 ], [ %.4170.ph, %_ZN13duckdb_brotliL13StoreRangeH40EPNS_3H40EPKhmmm.exit.sink.split ]
+  %.1165 = phi ptr [ %.0164622, %854 ], [ %.0164622, %_ZN13duckdb_brotliL19FindLongestMatchH40EPNS_3H40EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %.0164622, %821 ], [ %664, %786 ], [ %.1165.ph, %_ZN13duckdb_brotliL13StoreRangeH40EPNS_3H40EPKhmmm.exit.sink.split ]
+  %.4 = phi i64 [ %816, %854 ], [ %816, %_ZN13duckdb_brotliL19FindLongestMatchH40EPNS_3H40EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %816, %821 ], [ %777, %786 ], [ %.4.ph, %_ZN13duckdb_brotliL13StoreRangeH40EPNS_3H40EPKhmmm.exit.sink.split ]
   %887 = add i64 %.4, 4
   %888 = icmp ult i64 %887, %22
   br i1 %888, label %51, label %._crit_edge, !llvm.loop !1205
@@ -27670,10 +27670,10 @@ _ZN13duckdb_brotliL13StoreRangeH41EPNS_3H41EPKhmmm.exit.sink.split: ; preds = %8
   br label %_ZN13duckdb_brotliL13StoreRangeH41EPNS_3H41EPKhmmm.exit
 
 _ZN13duckdb_brotliL13StoreRangeH41EPNS_3H41EPKhmmm.exit: ; preds = %_ZN13duckdb_brotliL13StoreRangeH41EPNS_3H41EPKhmmm.exit.sink.split, %805, %873, %840, %_ZN13duckdb_brotliL19FindLongestMatchH41EPNS_3H41EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread
-  %.1174 = phi i64 [ %.0173620, %_ZN13duckdb_brotliL19FindLongestMatchH41EPNS_3H41EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %.0173620, %873 ], [ %.0173620, %840 ], [ %634, %805 ], [ %.1174.ph, %_ZN13duckdb_brotliL13StoreRangeH41EPNS_3H41EPKhmmm.exit.sink.split ]
-  %.4170 = phi i64 [ %834, %_ZN13duckdb_brotliL19FindLongestMatchH41EPNS_3H41EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %834, %873 ], [ %834, %840 ], [ 0, %805 ], [ %.4170.ph, %_ZN13duckdb_brotliL13StoreRangeH41EPNS_3H41EPKhmmm.exit.sink.split ]
-  %.1165 = phi ptr [ %.0164622, %_ZN13duckdb_brotliL19FindLongestMatchH41EPNS_3H41EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %.0164622, %873 ], [ %.0164622, %840 ], [ %683, %805 ], [ %.1165.ph, %_ZN13duckdb_brotliL13StoreRangeH41EPNS_3H41EPKhmmm.exit.sink.split ]
-  %.4 = phi i64 [ %835, %_ZN13duckdb_brotliL19FindLongestMatchH41EPNS_3H41EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %835, %873 ], [ %835, %840 ], [ %796, %805 ], [ %.4.ph, %_ZN13duckdb_brotliL13StoreRangeH41EPNS_3H41EPKhmmm.exit.sink.split ]
+  %.1174 = phi i64 [ %.0173620, %873 ], [ %.0173620, %_ZN13duckdb_brotliL19FindLongestMatchH41EPNS_3H41EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %.0173620, %840 ], [ %634, %805 ], [ %.1174.ph, %_ZN13duckdb_brotliL13StoreRangeH41EPNS_3H41EPKhmmm.exit.sink.split ]
+  %.4170 = phi i64 [ %834, %873 ], [ %834, %_ZN13duckdb_brotliL19FindLongestMatchH41EPNS_3H41EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %834, %840 ], [ 0, %805 ], [ %.4170.ph, %_ZN13duckdb_brotliL13StoreRangeH41EPNS_3H41EPKhmmm.exit.sink.split ]
+  %.1165 = phi ptr [ %.0164622, %873 ], [ %.0164622, %_ZN13duckdb_brotliL19FindLongestMatchH41EPNS_3H41EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %.0164622, %840 ], [ %683, %805 ], [ %.1165.ph, %_ZN13duckdb_brotliL13StoreRangeH41EPNS_3H41EPKhmmm.exit.sink.split ]
+  %.4 = phi i64 [ %835, %873 ], [ %835, %_ZN13duckdb_brotliL19FindLongestMatchH41EPNS_3H41EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %835, %840 ], [ %796, %805 ], [ %.4.ph, %_ZN13duckdb_brotliL13StoreRangeH41EPNS_3H41EPKhmmm.exit.sink.split ]
   %906 = add i64 %.4, 4
   %907 = icmp ult i64 %906, %22
   br i1 %907, label %64, label %._crit_edge, !llvm.loop !1287
@@ -29406,10 +29406,10 @@ _ZN13duckdb_brotliL19FindLongestMatchH42EPNS_3H42EPKNS_23BrotliEncoderDictionary
   br i1 %945, label %917, label %_ZN13duckdb_brotliL13StoreRangeH42EPNS_3H42EPKhmmm.exit, !llvm.loop !1368
 
 _ZN13duckdb_brotliL13StoreRangeH42EPNS_3H42EPKhmmm.exit: ; preds = %839, %917, %880, %833, %909, %872, %_ZN13duckdb_brotliL19FindLongestMatchH42EPNS_3H42EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread
-  %.1174 = phi i64 [ %.0173614, %_ZN13duckdb_brotliL19FindLongestMatchH42EPNS_3H42EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %.0173614, %909 ], [ %.0173614, %872 ], [ %656, %833 ], [ %.0173614, %917 ], [ %.0173614, %880 ], [ %656, %839 ]
-  %.4170 = phi i64 [ %866, %_ZN13duckdb_brotliL19FindLongestMatchH42EPNS_3H42EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %866, %909 ], [ %866, %872 ], [ 0, %833 ], [ %943, %917 ], [ %906, %880 ], [ 0, %839 ]
-  %.1165 = phi ptr [ %.0164616, %_ZN13duckdb_brotliL19FindLongestMatchH42EPNS_3H42EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %.0164616, %909 ], [ %.0164616, %872 ], [ %711, %833 ], [ %.0164616, %917 ], [ %.0164616, %880 ], [ %711, %839 ]
-  %.4 = phi i64 [ %867, %_ZN13duckdb_brotliL19FindLongestMatchH42EPNS_3H42EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %867, %909 ], [ %867, %872 ], [ %824, %833 ], [ %944, %917 ], [ %907, %880 ], [ %824, %839 ]
+  %.1174 = phi i64 [ %.0173614, %909 ], [ %.0173614, %_ZN13duckdb_brotliL19FindLongestMatchH42EPNS_3H42EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %.0173614, %872 ], [ %656, %833 ], [ %.0173614, %917 ], [ %.0173614, %880 ], [ %656, %839 ]
+  %.4170 = phi i64 [ %866, %909 ], [ %866, %_ZN13duckdb_brotliL19FindLongestMatchH42EPNS_3H42EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %866, %872 ], [ 0, %833 ], [ %943, %917 ], [ %906, %880 ], [ 0, %839 ]
+  %.1165 = phi ptr [ %.0164616, %909 ], [ %.0164616, %_ZN13duckdb_brotliL19FindLongestMatchH42EPNS_3H42EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %.0164616, %872 ], [ %711, %833 ], [ %.0164616, %917 ], [ %.0164616, %880 ], [ %711, %839 ]
+  %.4 = phi i64 [ %867, %909 ], [ %867, %_ZN13duckdb_brotliL19FindLongestMatchH42EPNS_3H42EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %867, %872 ], [ %824, %833 ], [ %944, %917 ], [ %907, %880 ], [ %824, %839 ]
   %946 = add i64 %.4, 4
   %947 = icmp ult i64 %946, %22
   br i1 %947, label %77, label %._crit_edge, !llvm.loop !1369
@@ -30412,10 +30412,10 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %445, %_ZN13duckdb_b
   br i1 %524, label %.lr.ph385, label %_ZN13duckdb_brotliL13StoreRangeH54EPNS_3H54EPKhmmm.exit, !llvm.loop !1403
 
 _ZN13duckdb_brotliL13StoreRangeH54EPNS_3H54EPKhmmm.exit: ; preds = %.lr.ph385, %.lr.ph390, %.lr.ph432, %509, %493, %474, %486
-  %.1174 = phi i64 [ %.0173433, %486 ], [ %.0173433, %493 ], [ %296, %474 ], [ %.0173433, %509 ], [ %.0173433, %.lr.ph390 ], [ %296, %.lr.ph432 ], [ %.0173433, %.lr.ph385 ]
-  %.4170 = phi i64 [ %487, %486 ], [ %487, %493 ], [ 0, %474 ], [ %487, %509 ], [ %506, %.lr.ph390 ], [ 0, %.lr.ph432 ], [ %522, %.lr.ph385 ]
-  %.1165 = phi ptr [ %.0164435, %486 ], [ %.0164435, %493 ], [ %383, %474 ], [ %.0164435, %509 ], [ %.0164435, %.lr.ph390 ], [ %383, %.lr.ph432 ], [ %.0164435, %.lr.ph385 ]
-  %.4 = phi i64 [ %488, %486 ], [ %488, %493 ], [ %465, %474 ], [ %488, %509 ], [ %507, %.lr.ph390 ], [ %465, %.lr.ph432 ], [ %523, %.lr.ph385 ]
+  %.1174 = phi i64 [ %296, %474 ], [ %.0173433, %486 ], [ %.0173433, %493 ], [ %.0173433, %509 ], [ %.0173433, %.lr.ph390 ], [ %296, %.lr.ph432 ], [ %.0173433, %.lr.ph385 ]
+  %.4170 = phi i64 [ 0, %474 ], [ %487, %486 ], [ %487, %493 ], [ %487, %509 ], [ %506, %.lr.ph390 ], [ 0, %.lr.ph432 ], [ %522, %.lr.ph385 ]
+  %.1165 = phi ptr [ %383, %474 ], [ %.0164435, %486 ], [ %.0164435, %493 ], [ %.0164435, %509 ], [ %.0164435, %.lr.ph390 ], [ %383, %.lr.ph432 ], [ %.0164435, %.lr.ph385 ]
+  %.4 = phi i64 [ %465, %474 ], [ %488, %486 ], [ %488, %493 ], [ %488, %509 ], [ %507, %.lr.ph390 ], [ %465, %.lr.ph432 ], [ %523, %.lr.ph385 ]
   %525 = add i64 %.4, 8
   %526 = icmp ult i64 %525, %22
   br i1 %526, label %.thread, label %._crit_edge, !llvm.loop !1404
@@ -31752,10 +31752,10 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %587, %_ZN13duckdb_b
   br i1 %666, label %.lr.ph461, label %_ZN13duckdb_brotliL13StoreRangeH35EPNS_3H35EPKhmmm.exit, !llvm.loop !1485
 
 _ZN13duckdb_brotliL13StoreRangeH35EPNS_3H35EPKhmmm.exit: ; preds = %.lr.ph461, %.lr.ph467, %.lr.ph539, %651, %635, %616, %628
-  %.1174 = phi i64 [ %.0173540, %628 ], [ %.0173540, %635 ], [ %438, %616 ], [ %.0173540, %651 ], [ %.0173540, %.lr.ph467 ], [ %438, %.lr.ph539 ], [ %.0173540, %.lr.ph461 ]
-  %.4170 = phi i64 [ %629, %628 ], [ %629, %635 ], [ 0, %616 ], [ %629, %651 ], [ %648, %.lr.ph467 ], [ 0, %.lr.ph539 ], [ %664, %.lr.ph461 ]
-  %.1165 = phi ptr [ %.0164542, %628 ], [ %.0164542, %635 ], [ %525, %616 ], [ %.0164542, %651 ], [ %.0164542, %.lr.ph467 ], [ %525, %.lr.ph539 ], [ %.0164542, %.lr.ph461 ]
-  %.4 = phi i64 [ %630, %628 ], [ %630, %635 ], [ %607, %616 ], [ %630, %651 ], [ %649, %.lr.ph467 ], [ %607, %.lr.ph539 ], [ %665, %.lr.ph461 ]
+  %.1174 = phi i64 [ %438, %616 ], [ %.0173540, %628 ], [ %.0173540, %635 ], [ %.0173540, %651 ], [ %.0173540, %.lr.ph467 ], [ %438, %.lr.ph539 ], [ %.0173540, %.lr.ph461 ]
+  %.4170 = phi i64 [ 0, %616 ], [ %629, %628 ], [ %629, %635 ], [ %629, %651 ], [ %648, %.lr.ph467 ], [ 0, %.lr.ph539 ], [ %664, %.lr.ph461 ]
+  %.1165 = phi ptr [ %525, %616 ], [ %.0164542, %628 ], [ %.0164542, %635 ], [ %.0164542, %651 ], [ %.0164542, %.lr.ph467 ], [ %525, %.lr.ph539 ], [ %.0164542, %.lr.ph461 ]
+  %.4 = phi i64 [ %607, %616 ], [ %630, %628 ], [ %630, %635 ], [ %630, %651 ], [ %649, %.lr.ph467 ], [ %607, %.lr.ph539 ], [ %665, %.lr.ph461 ]
   %667 = add i64 %.4, 8
   %668 = icmp ult i64 %667, %22
   br i1 %668, label %.thread, label %._crit_edge544, !llvm.loop !1486
@@ -33103,10 +33103,10 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %598, %_ZN13duckdb_b
   br i1 %677, label %.lr.ph481, label %_ZN13duckdb_brotliL13StoreRangeH54EPNS_3H54EPKhmmm.exit, !llvm.loop !1536
 
 _ZN13duckdb_brotliL13StoreRangeH54EPNS_3H54EPKhmmm.exit: ; preds = %.lr.ph481, %.lr.ph487, %.lr.ph559, %662, %646, %627, %639
-  %.1174 = phi i64 [ %.0173560, %639 ], [ %.0173560, %646 ], [ %449, %627 ], [ %.0173560, %662 ], [ %.0173560, %.lr.ph487 ], [ %449, %.lr.ph559 ], [ %.0173560, %.lr.ph481 ]
-  %.4170 = phi i64 [ %640, %639 ], [ %640, %646 ], [ 0, %627 ], [ %640, %662 ], [ %659, %.lr.ph487 ], [ 0, %.lr.ph559 ], [ %675, %.lr.ph481 ]
-  %.1165 = phi ptr [ %.0164562, %639 ], [ %.0164562, %646 ], [ %536, %627 ], [ %.0164562, %662 ], [ %.0164562, %.lr.ph487 ], [ %536, %.lr.ph559 ], [ %.0164562, %.lr.ph481 ]
-  %.4 = phi i64 [ %641, %639 ], [ %641, %646 ], [ %618, %627 ], [ %641, %662 ], [ %660, %.lr.ph487 ], [ %618, %.lr.ph559 ], [ %676, %.lr.ph481 ]
+  %.1174 = phi i64 [ %449, %627 ], [ %.0173560, %639 ], [ %.0173560, %646 ], [ %.0173560, %662 ], [ %.0173560, %.lr.ph487 ], [ %449, %.lr.ph559 ], [ %.0173560, %.lr.ph481 ]
+  %.4170 = phi i64 [ 0, %627 ], [ %640, %639 ], [ %640, %646 ], [ %640, %662 ], [ %659, %.lr.ph487 ], [ 0, %.lr.ph559 ], [ %675, %.lr.ph481 ]
+  %.1165 = phi ptr [ %536, %627 ], [ %.0164562, %639 ], [ %.0164562, %646 ], [ %.0164562, %662 ], [ %.0164562, %.lr.ph487 ], [ %536, %.lr.ph559 ], [ %.0164562, %.lr.ph481 ]
+  %.4 = phi i64 [ %618, %627 ], [ %641, %639 ], [ %641, %646 ], [ %641, %662 ], [ %660, %.lr.ph487 ], [ %618, %.lr.ph559 ], [ %676, %.lr.ph481 ]
   %678 = add i64 %.4, 8
   %679 = icmp ult i64 %678, %22
   br i1 %679, label %.thread, label %._crit_edge564, !llvm.loop !1537
@@ -35213,10 +35213,10 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %987, %_ZN13duckdb_b
   br i1 %1094, label %1077, label %_ZN13duckdb_brotliL13StoreRangeH65EPNS_3H65EPKhmmm.exit, !llvm.loop !1677
 
 _ZN13duckdb_brotliL13StoreRangeH65EPNS_3H65EPKhmmm.exit: ; preds = %1077, %1052, %1022, %1070, %1045, %1016, %1038
-  %.1174 = phi i64 [ %.0173726, %1038 ], [ %.0173726, %1045 ], [ %834, %1016 ], [ %.0173726, %1070 ], [ %.0173726, %1052 ], [ %834, %1022 ], [ %.0173726, %1077 ]
-  %.4170 = phi i64 [ %1039, %1038 ], [ %1039, %1045 ], [ 0, %1016 ], [ %1039, %1070 ], [ %1067, %1052 ], [ 0, %1022 ], [ %1092, %1077 ]
-  %.1165 = phi ptr [ %.0164728, %1038 ], [ %.0164728, %1045 ], [ %894, %1016 ], [ %.0164728, %1070 ], [ %.0164728, %1052 ], [ %894, %1022 ], [ %.0164728, %1077 ]
-  %.4 = phi i64 [ %1040, %1038 ], [ %1040, %1045 ], [ %1007, %1016 ], [ %1040, %1070 ], [ %1068, %1052 ], [ %1007, %1022 ], [ %1093, %1077 ]
+  %.1174 = phi i64 [ %834, %1016 ], [ %.0173726, %1038 ], [ %.0173726, %1045 ], [ %.0173726, %1070 ], [ %.0173726, %1052 ], [ %834, %1022 ], [ %.0173726, %1077 ]
+  %.4170 = phi i64 [ 0, %1016 ], [ %1039, %1038 ], [ %1039, %1045 ], [ %1039, %1070 ], [ %1067, %1052 ], [ 0, %1022 ], [ %1092, %1077 ]
+  %.1165 = phi ptr [ %894, %1016 ], [ %.0164728, %1038 ], [ %.0164728, %1045 ], [ %.0164728, %1070 ], [ %.0164728, %1052 ], [ %894, %1022 ], [ %.0164728, %1077 ]
+  %.4 = phi i64 [ %1007, %1016 ], [ %1040, %1038 ], [ %1040, %1045 ], [ %1040, %1070 ], [ %1068, %1052 ], [ %1007, %1022 ], [ %1093, %1077 ]
   %1095 = add i64 %.4, 8
   %1096 = icmp ult i64 %1095, %21
   br i1 %1096, label %104, label %._crit_edge731, !llvm.loop !1678

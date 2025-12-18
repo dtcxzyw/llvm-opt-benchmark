@@ -914,7 +914,7 @@ define range(i32 0, -1) i32 @Gia_Sim2HashKey(ptr noundef readonly captures(none)
   br i1 %exitcond33.not, label %.loopexit, label %.lr.ph24, !llvm.loop !63
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph24, %.preheader18, %.preheader
-  %.117 = phi i32 [ 0, %.preheader ], [ 0, %.preheader18 ], [ %21, %.lr.ph24 ], [ %14, %.lr.ph ]
+  %.117 = phi i32 [ %21, %.lr.ph24 ], [ 0, %.preheader ], [ 0, %.preheader18 ], [ %14, %.lr.ph ]
   %22 = urem i32 %.117, %2
   ret i32 %22
 }
@@ -1029,7 +1029,7 @@ Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %10
   br i1 %exitcond33.not.i, label %Gia_Sim2HashKey.exit, label %.lr.ph24.i, !llvm.loop !63
 
 Gia_Sim2HashKey.exit:                             ; preds = %.lr.ph.i50, %.lr.ph24.i, %.preheader18.i, %.preheader.i51
-  %.117.i = phi i32 [ 0, %.preheader.i51 ], [ 0, %.preheader18.i ], [ %44, %.lr.ph24.i ], [ %37, %.lr.ph.i50 ]
+  %.117.i = phi i32 [ %44, %.lr.ph24.i ], [ 0, %.preheader.i51 ], [ 0, %.preheader18.i ], [ %37, %.lr.ph.i50 ]
   %45 = urem i32 %.117.i, %8
   %46 = sext i32 %45 to i64
   %47 = getelementptr inbounds i32, ptr %16, i64 %46
@@ -2155,8 +2155,8 @@ Gia_Sim2InfoTransfer.exit:                        ; preds = %Gia_Sim2InfoTransfe
   br i1 %313, label %83, label %.loopexit, !llvm.loop !105
 
 .loopexit:                                        ; preds = %Gia_Sim2InfoTransfer.exit, %.critedge, %257, %250, %272
-  %.054 = phi i32 [ 0, %272 ], [ 1, %250 ], [ 1, %257 ], [ 0, %.critedge ], [ 0, %Gia_Sim2InfoTransfer.exit ]
-  %.2 = phi i32 [ %273, %272 ], [ %.1135, %250 ], [ %.1135, %257 ], [ 0, %.critedge ], [ %312, %Gia_Sim2InfoTransfer.exit ]
+  %.054 = phi i32 [ 1, %257 ], [ 0, %272 ], [ 1, %250 ], [ 0, %.critedge ], [ 0, %Gia_Sim2InfoTransfer.exit ]
+  %.2 = phi i32 [ %.1135, %257 ], [ %273, %272 ], [ %.1135, %250 ], [ 0, %.critedge ], [ %312, %Gia_Sim2InfoTransfer.exit ]
   call void @Gia_Sim2Delete(ptr noundef nonnull %38)
   %314 = load ptr, ptr %34, align 8, !tbaa !82
   %315 = icmp eq ptr %314, null

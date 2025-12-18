@@ -73,7 +73,7 @@ define dso_local i32 @php_exec(i32 noundef %0, ptr noundef %1, ptr noundef %2, p
   br i1 %20, label %80, label %.split
 
 .split:                                           ; preds = %58, %39, %19
-  %.us-phi = phi ptr [ %.05281.us, %39 ], [ %.05281, %19 ], [ %.05281.us88, %58 ]
+  %.us-phi = phi ptr [ %.05281, %19 ], [ %.05281.us, %39 ], [ %.05281.us88, %58 ]
   %21 = load i64, ptr %5, align 8, !tbaa !4
   %22 = ptrtoint ptr %.us-phi to i64
   %23 = sub i64 %22, %34
@@ -246,8 +246,8 @@ handle_line.exit:                                 ; preds = %80, %81
   br label %.outer._crit_edge
 
 .outer._crit_edge:                                ; preds = %strip_trailing_whitespace.exit.i.us, %handle_line.exit.us, %handle_line.exit, %.outer._crit_edge.loopexit112, %.preheader78
-  %.0.ph.lcssa = phi ptr [ %11, %.preheader78 ], [ %.1, %.outer._crit_edge.loopexit112 ], [ %.0.ph103, %handle_line.exit.us ], [ %.0.ph103, %handle_line.exit ], [ %.0.ph103, %strip_trailing_whitespace.exit.i.us ]
-  %.052.lcssa = phi i1 [ true, %.preheader78 ], [ %87, %.outer._crit_edge.loopexit112 ], [ true, %handle_line.exit.us ], [ true, %handle_line.exit ], [ true, %strip_trailing_whitespace.exit.i.us ]
+  %.0.ph.lcssa = phi ptr [ %.0.ph103, %handle_line.exit.us ], [ %11, %.preheader78 ], [ %.1, %.outer._crit_edge.loopexit112 ], [ %.0.ph103, %handle_line.exit ], [ %.0.ph103, %strip_trailing_whitespace.exit.i.us ]
+  %.052.lcssa = phi i1 [ true, %handle_line.exit.us ], [ true, %.preheader78 ], [ %87, %.outer._crit_edge.loopexit112 ], [ true, %handle_line.exit ], [ true, %strip_trailing_whitespace.exit.i.us ]
   %88 = load i64, ptr %5, align 8, !tbaa !4
   %.not63 = icmp eq i64 %88, 0
   br i1 %.not63, label %133, label %89
@@ -377,7 +377,7 @@ strip_trailing_whitespace.exit:                   ; preds = %.critedge.i, %123
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph107, %.loopexit.sink.split, %.preheader
-  %.2 = phi ptr [ %11, %.preheader ], [ %.0.ph.lcssa, %.loopexit.sink.split ], [ %11, %.lr.ph107 ]
+  %.2 = phi ptr [ %.0.ph.lcssa, %.loopexit.sink.split ], [ %11, %.preheader ], [ %11, %.lr.ph107 ]
   %140 = call i32 @_php_stream_free(ptr noundef %10, i32 noundef 3) #11
   call void @_efree(ptr noundef %.2) #11
   br label %141

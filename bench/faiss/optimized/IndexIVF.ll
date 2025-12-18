@@ -601,7 +601,7 @@ _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit: ; preds = %170, %_Z
   br i1 %exitcond66.not, label %.loopexit, label %.lr.ph58.split, !llvm.loop !24
 
 .loopexit:                                        ; preds = %121, %35, %179, %63, %.preheader48, %.preheader
-  %.2 = phi i64 [ 0, %.preheader ], [ 0, %.preheader48 ], [ %.134.us, %35 ], [ %.4.us, %63 ], [ %.4, %179 ], [ %.134, %121 ]
+  %.2 = phi i64 [ %.134.us, %35 ], [ 0, %.preheader ], [ %.4, %179 ], [ 0, %.preheader48 ], [ %.4.us, %63 ], [ %.134, %121 ]
   ret i64 %.2
 }
 
@@ -928,7 +928,7 @@ _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit: ; preds = %165, %_Z
   br i1 %183, label %.lr.ph41.split, label %.loopexit, !llvm.loop !28
 
 .loopexit:                                        ; preds = %115, %30, %174, %56, %.preheader37, %.preheader
-  %.2 = phi i64 [ 0, %.preheader ], [ 0, %.preheader37 ], [ %.1.us, %30 ], [ %.4.us, %56 ], [ %.4, %174 ], [ %.1, %115 ]
+  %.2 = phi i64 [ %.1.us, %30 ], [ 0, %.preheader ], [ %.4, %174 ], [ 0, %.preheader37 ], [ %.4.us, %56 ], [ %.1, %115 ]
   ret i64 %.2
 }
 

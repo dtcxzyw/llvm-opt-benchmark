@@ -769,8 +769,8 @@ for.end56:                                        ; preds = %for.body50, %if.end
   br label %cleanup
 
 cleanup:                                          ; preds = %for.body, %for.end, %_ZN4llvh15SmallVectorImplIdE7reserveEm.exit, %if.end36, %for.end56
-  %retval.sroa.0.0 = phi i32 [ 1, %for.end56 ], [ 1, %_ZN4llvh15SmallVectorImplIdE7reserveEm.exit ], [ 1, %if.end36 ], [ 1, %for.end ], [ 0, %for.body ]
-  %retval.sroa.6.0 = phi i64 [ %retval.sroa.0.0.i, %for.end56 ], [ 0, %_ZN4llvh15SmallVectorImplIdE7reserveEm.exit ], [ 0, %if.end36 ], [ %., %for.end ], [ undef, %for.body ]
+  %retval.sroa.0.0 = phi i32 [ 1, %for.end56 ], [ 1, %if.end36 ], [ 1, %for.end ], [ 1, %_ZN4llvh15SmallVectorImplIdE7reserveEm.exit ], [ 0, %for.body ]
+  %retval.sroa.6.0 = phi i64 [ %retval.sroa.0.0.i, %for.end56 ], [ 0, %if.end36 ], [ %., %for.end ], [ 0, %_ZN4llvh15SmallVectorImplIdE7reserveEm.exit ], [ undef, %for.body ]
   %27 = load ptr, ptr %coerced, align 8
   %cmp.i.i.i32 = icmp eq ptr %27, %add.ptr.i.i.i.i.i
   br i1 %cmp.i.i.i32, label %_ZN4llvh11SmallVectorIdLj4EED2Ev.exit, label %if.then.i.i

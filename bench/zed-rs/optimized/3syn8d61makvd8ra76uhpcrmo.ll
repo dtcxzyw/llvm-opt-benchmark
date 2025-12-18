@@ -5378,13 +5378,13 @@ _ZN7similar10algorithms5utils17common_suffix_len17hab0d03a85e25104bE.exit.i: ; p
   br label %36
 
 _ZN7similar10algorithms5myers17find_middle_snake17h9a5c4a39818ab546E.exit: ; preds = %168, %131
-  %.sroa.4.0 = phi i64 [ %132, %131 ], [ %169, %168 ]
-  %.sroa.6.0 = phi i64 [ %133, %131 ], [ %170, %168 ]
+  %.sroa.4.0 = phi i64 [ %169, %168 ], [ %132, %131 ]
+  %.sroa.6.0 = phi i64 [ %170, %168 ], [ %133, %131 ]
   call void @_ZN7similar10algorithms5myers7conquer17h578e6ed0fe33a5c4E.llvm.3131922965131222458(ptr noalias noundef nonnull align 8 dereferenceable(200) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef %20, i64 noundef %.sroa.4.0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4, i64 noundef %21, i64 noundef %.sroa.6.0, ptr noalias noundef nonnull align 8 dereferenceable(32) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %8, i64 %9, i32 noundef %10)
   call void @_ZN7similar10algorithms5myers7conquer17h578e6ed0fe33a5c4E.llvm.3131922965131222458(ptr noalias noundef nonnull align 8 dereferenceable(200) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef %.sroa.4.0, i64 noundef %29, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4, i64 noundef %.sroa.6.0, i64 noundef %30, ptr noalias noundef nonnull align 8 dereferenceable(32) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %8, i64 %9, i32 noundef %10)
   br label %36
 
-.loopexit:                                        ; preds = %69, %._crit_edge135.i, %.preheader.i
+.loopexit:                                        ; preds = %._crit_edge135.i, %69, %.preheader.i
   %179 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.sroa.0.0.copyload.i.i47 = load i64, ptr %179, align 8, !alias.scope !1653
   %.sroa.4.0..sroa_idx.i.i48 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -6459,13 +6459,13 @@ _ZN7similar10algorithms5utils17common_suffix_len17h39818cca41be917eE.exit.i: ; p
   br label %36
 
 _ZN7similar10algorithms5myers17find_middle_snake17hf2d8c683c6b0e29bE.exit: ; preds = %168, %131
-  %.sroa.4.0 = phi i64 [ %132, %131 ], [ %169, %168 ]
-  %.sroa.6.0 = phi i64 [ %133, %131 ], [ %170, %168 ]
+  %.sroa.4.0 = phi i64 [ %169, %168 ], [ %132, %131 ]
+  %.sroa.6.0 = phi i64 [ %170, %168 ], [ %133, %131 ]
   call void @_ZN7similar10algorithms5myers7conquer17hb51380b256121c48E.llvm.3131922965131222458(ptr noalias noundef nonnull align 8 dereferenceable(216) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef %20, i64 noundef %.sroa.4.0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4, i64 noundef %21, i64 noundef %.sroa.6.0, ptr noalias noundef nonnull align 8 dereferenceable(32) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %8, i64 %9, i32 noundef %10)
   call void @_ZN7similar10algorithms5myers7conquer17hb51380b256121c48E.llvm.3131922965131222458(ptr noalias noundef nonnull align 8 dereferenceable(216) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef %.sroa.4.0, i64 noundef %29, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4, i64 noundef %.sroa.6.0, i64 noundef %30, ptr noalias noundef nonnull align 8 dereferenceable(32) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %8, i64 %9, i32 noundef %10)
   br label %36
 
-.loopexit:                                        ; preds = %69, %._crit_edge135.i, %.preheader.i
+.loopexit:                                        ; preds = %._crit_edge135.i, %69, %.preheader.i
   %179 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.sroa.0.0.copyload.i.i47 = load i64, ptr %179, align 8, !alias.scope !1772
   %.sroa.4.0..sroa_idx.i.i48 = getelementptr inbounds nuw i8, ptr %0, i64 72

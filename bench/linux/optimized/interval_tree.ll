@@ -412,7 +412,7 @@ define dso_local ptr @interval_tree_iter_first(ptr noundef readonly captures(non
   br i1 %39, label %.loopexit, label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %36, %20
-  %.be = phi ptr [ %18, %20 ], [ %34, %36 ]
+  %.be = phi ptr [ %34, %36 ], [ %18, %20 ]
   br label %.preheader, !llvm.loop !9
 
 .loopexit:                                        ; preds = %36, %32, %28, %24, %10, %6, %3
@@ -479,7 +479,7 @@ define dso_local ptr @interval_tree_iter_next(ptr noundef readonly captures(addr
   br i1 %37, label %.loopexit, label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %34, %18
-  %.be = phi ptr [ %16, %18 ], [ %32, %34 ]
+  %.be = phi ptr [ %32, %34 ], [ %16, %18 ]
   br label %.preheader, !llvm.loop !9
 
 .thread:                                          ; preds = %.thread.preheader, %42

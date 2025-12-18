@@ -1792,7 +1792,7 @@ patmatch.exit.thread.fold.split.i:                ; preds = %168
   br label %patmatch.exit.thread.i
 
 patmatch.exit.thread.i:                           ; preds = %patmatch.exit.thread.fold.split.i, %168, %165
-  %171 = phi i1 [ true, %165 ], [ false, %168 ], [ true, %patmatch.exit.thread.fold.split.i ]
+  %171 = phi i1 [ false, %168 ], [ true, %165 ], [ true, %patmatch.exit.thread.fold.split.i ]
   %172 = load i32, ptr %5, align 4
   %173 = icmp slt i32 %172, 0
   %or.cond.i = select i1 %171, i1 true, i1 %173
@@ -1852,10 +1852,10 @@ look_ahead.exit:                                  ; preds = %168
   br label %194
 
 194:                                              ; preds = %.thread, %look_ahead.exit
-  %.1290 = phi ptr [ %.0289376, %look_ahead.exit ], [ %.050.i, %.thread ]
-  %.1286 = phi i64 [ %.0285377, %look_ahead.exit ], [ %193, %.thread ]
-  %.1282 = phi i32 [ %.0281378, %look_ahead.exit ], [ %.048.lcssa.i, %.thread ]
-  %.1144 = phi i32 [ 0, %look_ahead.exit ], [ 1, %.thread ]
+  %.1290 = phi ptr [ %.050.i, %.thread ], [ %.0289376, %look_ahead.exit ]
+  %.1286 = phi i64 [ %193, %.thread ], [ %.0285377, %look_ahead.exit ]
+  %.1282 = phi i32 [ %.048.lcssa.i, %.thread ], [ %.0281378, %look_ahead.exit ]
+  %.1144 = phi i32 [ 1, %.thread ], [ 0, %look_ahead.exit ]
   %.not9.i220 = icmp eq i64 %.1286, 0
   br i1 %.not9.i220, label %end_of_line.exit, label %.lr.ph.preheader.i
 
@@ -3790,8 +3790,8 @@ grep_next_match.exit117:                          ; preds = %183
   br i1 %or.cond136, label %._crit_edge, label %123, !llvm.loop !150
 
 ._crit_edge:                                      ; preds = %.split, %163, %grep_next_match.exit117, %.split78, %95, %grep_next_match.exit
-  %.175.lcssa = phi i32 [ %13, %grep_next_match.exit ], [ %13, %.split78 ], [ %13, %95 ], [ %158, %grep_next_match.exit117 ], [ %158, %163 ], [ %158, %.split ]
-  %.1.lcssa = phi ptr [ %1, %grep_next_match.exit ], [ %1, %.split78 ], [ %1, %95 ], [ %161, %grep_next_match.exit117 ], [ %161, %163 ], [ %161, %.split ]
+  %.175.lcssa = phi i32 [ %13, %grep_next_match.exit ], [ %13, %95 ], [ %13, %.split78 ], [ %158, %grep_next_match.exit117 ], [ %158, %163 ], [ %158, %.split ]
+  %.1.lcssa = phi ptr [ %1, %grep_next_match.exit ], [ %1, %95 ], [ %1, %.split78 ], [ %161, %grep_next_match.exit117 ], [ %161, %163 ], [ %161, %.split ]
   %.pr = load i32, ptr %77, align 8, !tbaa !149
   %.not93 = icmp eq i32 %.pr, 0
   br i1 %.not93, label %._crit_edge..thread128_crit_edge, label %204

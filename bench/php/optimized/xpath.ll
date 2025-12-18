@@ -593,8 +593,8 @@ define internal fastcc void @php_xpath_eval(ptr %.32.val, i32 %.44.val, ptr noun
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.critedge, %.critedge.us, %93, %91, %.thread12, %87, %129
-  %.sroa.6.0 = phi i32 [ 775, %129 ], [ 7, %87 ], [ 7, %.thread12 ], [ 7, %91 ], [ 775, %93 ], [ 775, %.critedge.us ], [ 775, %.critedge ]
-  %.sroa.0.0 = phi ptr [ %94, %129 ], [ @zend_empty_array, %87 ], [ @zend_empty_array, %.thread12 ], [ @zend_empty_array, %91 ], [ %94, %93 ], [ %94, %.critedge.us ], [ %94, %.critedge ]
+  %.sroa.6.0 = phi i32 [ 7, %91 ], [ 775, %129 ], [ 7, %87 ], [ 7, %.thread12 ], [ 775, %93 ], [ 775, %.critedge.us ], [ 775, %.critedge ]
+  %.sroa.0.0 = phi ptr [ @zend_empty_array, %91 ], [ %94, %129 ], [ @zend_empty_array, %87 ], [ @zend_empty_array, %.thread12 ], [ %94, %93 ], [ %94, %.critedge.us ], [ %94, %.critedge ]
   %130 = load ptr, ptr @dom_modern_nodelist_class_entry, align 8
   %131 = load ptr, ptr @dom_nodelist_class_entry, align 8
   %132 = select i1 %2, ptr %130, ptr %131

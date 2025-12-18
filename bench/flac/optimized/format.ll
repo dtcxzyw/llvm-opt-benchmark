@@ -628,7 +628,7 @@ define range(i32 0, 2) i32 @FLAC__format_vorbiscomment_entry_is_legal(ptr nounde
   br label %.loopexit
 
 .loopexit:                                        ; preds = %6, %16, %20, %.critedge
-  %.0 = phi i32 [ 0, %.critedge ], [ %., %20 ], [ 0, %16 ], [ 0, %6 ]
+  %.0 = phi i32 [ 0, %.critedge ], [ 0, %16 ], [ %., %20 ], [ 0, %6 ]
   ret i32 %.0
 }
 
@@ -876,7 +876,7 @@ define range(i32 0, 2) i32 @FLAC__format_cuesheet_is_legal(ptr noundef readonly 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge.split, %._crit_edge.split.us.us, %.loopexit.sink.split, %.split.us, %92, %.split112.us, %.split110.us, %.split108, %.split106, %.split104.us, %28, %19, %11, %8
-  %.069 = phi i32 [ 0, %.split.us ], [ 0, %8 ], [ 0, %11 ], [ 0, %19 ], [ 0, %28 ], [ 0, %.split106 ], [ 0, %.split108 ], [ 0, %.split110.us ], [ 0, %.split112.us ], [ 0, %92 ], [ 0, %.split104.us ], [ 0, %.loopexit.sink.split ], [ 1, %._crit_edge.split.us.us ], [ 1, %._crit_edge.split ]
+  %.069 = phi i32 [ 0, %.split.us ], [ 0, %8 ], [ 0, %11 ], [ 0, %19 ], [ 0, %28 ], [ 0, %.split106 ], [ 0, %.split108 ], [ 0, %.split110.us ], [ 0, %.split112.us ], [ 0, %92 ], [ 0, %.split104.us ], [ 1, %._crit_edge.split.us.us ], [ 0, %.loopexit.sink.split ], [ 1, %._crit_edge.split ]
   ret i32 %.069
 }
 
@@ -935,7 +935,7 @@ define range(i32 0, 2) i32 @FLAC__format_picture_is_legal(ptr noundef readonly c
   br label %.thread
 
 .thread:                                          ; preds = %17, %.thread.sink.split, %._crit_edge, %16, %11
-  %.0 = phi i32 [ 0, %11 ], [ 0, %16 ], [ 1, %._crit_edge ], [ 0, %.thread.sink.split ], [ 1, %17 ]
+  %.0 = phi i32 [ 0, %11 ], [ 0, %.thread.sink.split ], [ 1, %._crit_edge ], [ 0, %16 ], [ 1, %17 ]
   ret i32 %.0
 }
 

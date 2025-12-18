@@ -9445,8 +9445,8 @@ Abc_Clock.exit447:                                ; preds = %785, %793
   br label %.thread476
 
 .thread476:                                       ; preds = %.thread476.loopexit, %768, %Abc_Clock.exit447, %394, %395
-  %803 = phi ptr [ %334, %395 ], [ %334, %394 ], [ %539, %Abc_Clock.exit447 ], [ %539, %768 ], [ %.pre657, %.thread476.loopexit ]
-  %.4466 = phi ptr [ %.2464, %395 ], [ %.2464, %394 ], [ %.3465.ph, %Abc_Clock.exit447 ], [ %.3465.ph, %768 ], [ %.3465.ph, %.thread476.loopexit ]
+  %803 = phi ptr [ %539, %768 ], [ %539, %Abc_Clock.exit447 ], [ %334, %395 ], [ %334, %394 ], [ %.pre657, %.thread476.loopexit ]
+  %.4466 = phi ptr [ %.3465.ph, %768 ], [ %.3465.ph, %Abc_Clock.exit447 ], [ %.2464, %395 ], [ %.2464, %394 ], [ %.3465.ph, %.thread476.loopexit ]
   %804 = load ptr, ptr %20, align 8, !tbaa !161
   call void @sat_solver_delete(ptr noundef %804) #24
   %805 = load ptr, ptr %19, align 8, !tbaa !159

@@ -948,7 +948,7 @@ copy_samples.exit.i:                              ; preds = %._crit_edge41.us.i1
   br i1 %exitcond.not.i154.i, label %try_push_frame.exit, label %.lr.ph.i151.i, !llvm.loop !68
 
 try_push_frame.exit.thread:                       ; preds = %.lr.ph.i.i, %.lr.ph.i53.i, %free_frames.exit64.i, %58, %68
-  %.0.i.ph = phi i32 [ -12, %68 ], [ %56, %58 ], [ %89, %free_frames.exit64.i ], [ -12, %.lr.ph.i53.i ], [ %56, %.lr.ph.i.i ]
+  %.0.i.ph = phi i32 [ -12, %.lr.ph.i53.i ], [ -12, %68 ], [ %56, %58 ], [ %89, %free_frames.exit64.i ], [ %56, %.lr.ph.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)

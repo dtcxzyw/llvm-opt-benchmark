@@ -218,7 +218,7 @@ define hidden ptr @lexbor_mraw_alloc(ptr noundef captures(none) %0, i64 noundef 
   br label %lexbor_mraw_mem_alloc.exit
 
 lexbor_mraw_mem_alloc.exit:                       ; preds = %33, %60
-  %.0.i = phi ptr [ %65, %60 ], [ %36, %33 ]
+  %.0.i = phi ptr [ %36, %33 ], [ %65, %60 ]
   %66 = icmp eq ptr %.0.i, null
   br i1 %66, label %lexbor_mraw_mem_alloc.exit.thread, label %67
 

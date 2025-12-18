@@ -3823,7 +3823,7 @@ _ZL22XXH3_accumulate_avx512PmPKhS1_m.exit40.i:    ; preds = %.preheader
   br i1 %exitcond36.not, label %_ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit, label %.lr.ph28, !llvm.loop !29
 
 _ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit: ; preds = %.lr.ph, %.lr.ph28, %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit40.i, %80
-  %storemerge = phi <8 x i64> [ %.promoted25, %80 ], [ %60, %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit40.i ], [ %95, %.lr.ph28 ], [ %78, %.lr.ph ]
+  %storemerge = phi <8 x i64> [ %95, %.lr.ph28 ], [ %.promoted25, %80 ], [ %60, %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit40.i ], [ %78, %.lr.ph ]
   %97 = zext i32 %14 to i64
   %98 = getelementptr inbounds nuw i8, ptr %24, i64 %97
   %99 = getelementptr inbounds i8, ptr %98, i64 -64
@@ -7318,7 +7318,7 @@ _ZL22XXH3_accumulate_avx512PmPKhS1_m.exit40.i:    ; preds = %.preheader
   br i1 %exitcond49.not, label %_ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit, label %.lr.ph40, !llvm.loop !29
 
 _ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit: ; preds = %.lr.ph, %.lr.ph40, %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit40.i, %80
-  %storemerge = phi <8 x i64> [ %.promoted37, %80 ], [ %60, %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit40.i ], [ %95, %.lr.ph40 ], [ %78, %.lr.ph ]
+  %storemerge = phi <8 x i64> [ %95, %.lr.ph40 ], [ %.promoted37, %80 ], [ %60, %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit40.i ], [ %78, %.lr.ph ]
   %97 = zext i32 %14 to i64
   %98 = getelementptr inbounds nuw i8, ptr %24, i64 %97
   %99 = getelementptr inbounds i8, ptr %98, i64 -64

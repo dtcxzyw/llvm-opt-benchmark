@@ -31,7 +31,7 @@ define noundef i32 @_ZNK6icu_7713CollationData15getIndirectCE32Ej(ptr noundef no
   br label %15
 
 15:                                               ; preds = %2, %.fold.split, %11, %4
-  %.0 = phi i32 [ %10, %4 ], [ %14, %11 ], [ -1, %2 ], [ %1, %.fold.split ]
+  %.0 = phi i32 [ %10, %4 ], [ -1, %2 ], [ %14, %11 ], [ %1, %.fold.split ]
   ret i32 %.0
 }
 
@@ -68,7 +68,7 @@ define noundef i32 @_ZNK6icu_7713CollationData12getFinalCE32Ej(ptr noundef nonnu
   br label %_ZNK6icu_7713CollationData15getIndirectCE32Ej.exit
 
 _ZNK6icu_7713CollationData15getIndirectCE32Ej.exit: ; preds = %.fold.split.i, %13, %6, %4, %2
-  %.0 = phi i32 [ %1, %2 ], [ %12, %6 ], [ %16, %13 ], [ -1, %4 ], [ %1, %.fold.split.i ]
+  %.0 = phi i32 [ %1, %2 ], [ %12, %6 ], [ -1, %4 ], [ %16, %13 ], [ %1, %.fold.split.i ]
   ret i32 %.0
 }
 
@@ -431,7 +431,7 @@ define noundef range(i32 0, -65535) i32 @_ZNK6icu_7713CollationData23getFirstPri
   br label %_ZNK6icu_7713CollationData14getScriptIndexEi.exit
 
 _ZNK6icu_7713CollationData14getScriptIndexEi.exit: ; preds = %8, %15
-  %.0.shrunk.i.in = phi ptr [ %12, %8 ], [ %21, %15 ]
+  %.0.shrunk.i.in = phi ptr [ %21, %15 ], [ %12, %8 ]
   %.0.shrunk.i = load i16, ptr %.0.shrunk.i.in, align 2, !tbaa !29
   %22 = icmp eq i16 %.0.shrunk.i, 0
   br i1 %22, label %_ZNK6icu_7713CollationData14getScriptIndexEi.exit.thread, label %23
@@ -524,7 +524,7 @@ define noundef range(i32 -1, -65536) i32 @_ZNK6icu_7713CollationData22getLastPri
   br label %_ZNK6icu_7713CollationData14getScriptIndexEi.exit
 
 _ZNK6icu_7713CollationData14getScriptIndexEi.exit: ; preds = %8, %15
-  %.0.shrunk.i.in = phi ptr [ %12, %8 ], [ %21, %15 ]
+  %.0.shrunk.i.in = phi ptr [ %21, %15 ], [ %12, %8 ]
   %.0.shrunk.i = load i16, ptr %.0.shrunk.i.in, align 2, !tbaa !29
   %22 = icmp eq i16 %.0.shrunk.i, 0
   br i1 %22, label %_ZNK6icu_7713CollationData14getScriptIndexEi.exit.thread, label %23
@@ -633,7 +633,7 @@ define noundef i32 @_ZNK6icu_7713CollationData18getGroupForPrimaryEj(ptr noundef
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.critedge, %.loopexit.loopexit36, %36, %2, %10
-  %.023 = phi i32 [ -1, %2 ], [ -1, %10 ], [ %38, %36 ], [ %39, %.loopexit.loopexit36 ], [ -1, %.critedge ]
+  %.023 = phi i32 [ -1, %2 ], [ -1, %10 ], [ %39, %.loopexit.loopexit36 ], [ %38, %36 ], [ -1, %.critedge ]
   ret i32 %.023
 }
 
@@ -673,8 +673,8 @@ define noundef i32 @_ZNK6icu_7713CollationData20getEquivalentScriptsEiPiiR10UErr
   br label %_ZNK6icu_7713CollationData14getScriptIndexEi.exit
 
 _ZNK6icu_7713CollationData14getScriptIndexEi.exit: ; preds = %13, %20
-  %27 = phi ptr [ %15, %13 ], [ %23, %20 ]
-  %.0.shrunk.i.in = phi ptr [ %17, %13 ], [ %26, %20 ]
+  %27 = phi ptr [ %23, %20 ], [ %15, %13 ]
+  %.0.shrunk.i.in = phi ptr [ %26, %20 ], [ %17, %13 ]
   %.0.shrunk.i = load i16, ptr %.0.shrunk.i.in, align 2, !tbaa !29
   %28 = icmp eq i16 %.0.shrunk.i, 0
   br i1 %28, label %_ZNK6icu_7713CollationData14getScriptIndexEi.exit.thread, label %29
@@ -985,7 +985,7 @@ define void @_ZNK6icu_7713CollationData17makeReorderRangesEPKiiaRNS_9UVector32ER
   br label %_ZNK6icu_7713CollationData14getScriptIndexEi.exit
 
 _ZNK6icu_7713CollationData14getScriptIndexEi.exit: ; preds = %114, %118
-  %.pn = phi i64 [ %115, %114 ], [ %120, %118 ]
+  %.pn = phi i64 [ %120, %118 ], [ %115, %114 ]
   %.0.shrunk.i.in = getelementptr inbounds i16, ptr %16, i64 %.pn
   %.0.shrunk.i = load i16, ptr %.0.shrunk.i.in, align 2, !tbaa !29
   %121 = icmp eq i16 %.0.shrunk.i, 0
@@ -1058,7 +1058,7 @@ _ZNK6icu_7713CollationData14getScriptIndexEi.exit.thread: ; preds = %110, %116, 
   br label %_ZNK6icu_7713CollationData14getScriptIndexEi.exit173
 
 _ZNK6icu_7713CollationData14getScriptIndexEi.exit173: ; preds = %151, %155
-  %.pn198 = phi i64 [ %152, %151 ], [ %157, %155 ]
+  %.pn198 = phi i64 [ %157, %155 ], [ %152, %151 ]
   %.0.shrunk.i171.in = getelementptr inbounds i16, ptr %16, i64 %.pn198
   %.0.shrunk.i171 = load i16, ptr %.0.shrunk.i171.in, align 2, !tbaa !29
   %158 = icmp eq i16 %.0.shrunk.i171, 0
@@ -1105,9 +1105,9 @@ _ZNK6icu_7713CollationData14getScriptIndexEi.exit173.thread: ; preds = %147, %15
   br i1 %exitcond263.not, label %.thread182, label %99
 
 .thread182:                                       ; preds = %_ZNK6icu_7713CollationData14getScriptIndexEi.exit173.thread, %_ZNK6icu_7713CollationData14getScriptIndexEi.exit.thread, %97, %.preheader201
-  %.3122213 = phi i32 [ %.3122223, %.preheader201 ], [ %.2121, %97 ], [ %.3122223, %_ZNK6icu_7713CollationData14getScriptIndexEi.exit.thread ], [ %.5, %_ZNK6icu_7713CollationData14getScriptIndexEi.exit173.thread ]
-  %.not209 = phi i1 [ true, %.preheader201 ], [ false, %97 ], [ true, %_ZNK6icu_7713CollationData14getScriptIndexEi.exit.thread ], [ false, %_ZNK6icu_7713CollationData14getScriptIndexEi.exit173.thread ]
-  %.1125 = phi i32 [ %44, %.preheader201 ], [ %44, %97 ], [ %.4128, %_ZNK6icu_7713CollationData14getScriptIndexEi.exit.thread ], [ %44, %_ZNK6icu_7713CollationData14getScriptIndexEi.exit173.thread ]
+  %.3122213 = phi i32 [ %.3122223, %.preheader201 ], [ %.3122223, %_ZNK6icu_7713CollationData14getScriptIndexEi.exit.thread ], [ %.2121, %97 ], [ %.5, %_ZNK6icu_7713CollationData14getScriptIndexEi.exit173.thread ]
+  %.not209 = phi i1 [ true, %.preheader201 ], [ true, %_ZNK6icu_7713CollationData14getScriptIndexEi.exit.thread ], [ false, %97 ], [ false, %_ZNK6icu_7713CollationData14getScriptIndexEi.exit173.thread ]
+  %.1125 = phi i32 [ %44, %.preheader201 ], [ %.4128, %_ZNK6icu_7713CollationData14getScriptIndexEi.exit.thread ], [ %44, %97 ], [ %44, %_ZNK6icu_7713CollationData14getScriptIndexEi.exit173.thread ]
   %184 = icmp sgt i32 %39, 2
   br i1 %184, label %.lr.ph234.preheader, label %._crit_edge
 

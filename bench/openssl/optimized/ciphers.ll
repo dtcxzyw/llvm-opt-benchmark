@@ -435,10 +435,10 @@ define dso_local range(i32 0, 2) i32 @ciphers_main(i32 noundef %0, ptr noundef %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %26, %143, %93, %80, %.preheader122, %._crit_edge, %149, %37, %10, %.loopexit123
-  %.072 = phi i32 [ 1, %.loopexit123 ], [ 0, %10 ], [ 0, %37 ], [ 1, %149 ], [ 0, %._crit_edge ], [ 0, %.preheader122 ], [ 0, %143 ], [ 0, %80 ], [ 0, %93 ], [ 1, %26 ]
-  %.070 = phi ptr [ null, %.loopexit123 ], [ null, %10 ], [ null, %37 ], [ null, %149 ], [ %.171, %._crit_edge ], [ %.171, %.preheader122 ], [ %.171, %143 ], [ %.171, %80 ], [ %.171, %93 ], [ null, %26 ]
-  %.069 = phi ptr [ null, %.loopexit123 ], [ null, %10 ], [ null, %37 ], [ null, %149 ], [ %65, %._crit_edge ], [ %65, %.preheader122 ], [ %65, %143 ], [ %65, %80 ], [ %65, %93 ], [ null, %26 ]
-  %.0 = phi ptr [ null, %.loopexit123 ], [ null, %10 ], [ null, %37 ], [ %44, %149 ], [ %44, %._crit_edge ], [ %44, %.preheader122 ], [ %44, %143 ], [ %44, %80 ], [ %44, %93 ], [ null, %26 ]
+  %.072 = phi i32 [ 1, %.loopexit123 ], [ 0, %10 ], [ 0, %.preheader122 ], [ 0, %37 ], [ 1, %149 ], [ 0, %._crit_edge ], [ 0, %143 ], [ 0, %93 ], [ 0, %80 ], [ 1, %26 ]
+  %.070 = phi ptr [ null, %.loopexit123 ], [ null, %10 ], [ %.171, %.preheader122 ], [ null, %37 ], [ null, %149 ], [ %.171, %._crit_edge ], [ %.171, %143 ], [ %.171, %93 ], [ %.171, %80 ], [ null, %26 ]
+  %.069 = phi ptr [ null, %.loopexit123 ], [ null, %10 ], [ %65, %.preheader122 ], [ null, %37 ], [ null, %149 ], [ %65, %._crit_edge ], [ %65, %143 ], [ %65, %93 ], [ %65, %80 ], [ null, %26 ]
+  %.0 = phi ptr [ null, %.loopexit123 ], [ null, %10 ], [ %44, %.preheader122 ], [ null, %37 ], [ %44, %149 ], [ %44, %._crit_edge ], [ %44, %143 ], [ %44, %93 ], [ %44, %80 ], [ null, %26 ]
   %.not120 = icmp eq i32 %.084, 0
   br i1 %.not120, label %152, label %151
 

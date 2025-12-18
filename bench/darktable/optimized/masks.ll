@@ -240,7 +240,7 @@ define hidden range(i32 0, 2) i32 @_find_mask_iter_by_values(ptr noundef %0, ptr
   br label %.loopexit
 
 .loopexit:                                        ; preds = %33, %19, %.loopexit.sink.split
-  %.3 = phi i32 [ 1, %.loopexit.sink.split ], [ 0, %19 ], [ 0, %33 ]
+  %.3 = phi i32 [ 0, %19 ], [ 1, %.loopexit.sink.split ], [ 0, %33 ]
   ret i32 %.3
 }
 
@@ -4547,7 +4547,7 @@ define internal void @_tree_operation(ptr readnone captures(none) %0, ptr nounde
   br label %.thread
 
 .thread:                                          ; preds = %35, %.preheader, %._crit_edge60, %41, %30, %26
-  %.2 = phi i32 [ %.057, %26 ], [ %.057, %30 ], [ 1, %._crit_edge60 ], [ %.057, %41 ], [ %.057, %.preheader ], [ %.057, %35 ]
+  %.2 = phi i32 [ %.057, %26 ], [ %.057, %30 ], [ %.057, %41 ], [ 1, %._crit_edge60 ], [ %.057, %.preheader ], [ %.057, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %54
@@ -4856,7 +4856,7 @@ select.unfold:                                    ; preds = %35, %33
   br label %.loopexit
 
 .loopexit:                                        ; preds = %select.unfold, %select.unfold.us, %.loopexit.sink.split
-  %.11829 = phi i32 [ 1, %.loopexit.sink.split ], [ 0, %select.unfold.us ], [ 0, %select.unfold ]
+  %.11829 = phi i32 [ 0, %select.unfold.us ], [ 1, %.loopexit.sink.split ], [ 0, %select.unfold ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.11829
 }

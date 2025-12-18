@@ -363,7 +363,7 @@ merge_bases_many.exit:                            ; preds = %.lr.ph49.i, %48, %1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %merge_bases_many.exit.thread, %59, %60, %._crit_edge60, %72
-  %.0 = phi i32 [ -1, %merge_bases_many.exit.thread ], [ -1, %72 ], [ 0, %._crit_edge60 ], [ 0, %60 ], [ 0, %59 ], [ 0, %.lr.ph ]
+  %.0 = phi i32 [ 0, %59 ], [ -1, %merge_bases_many.exit.thread ], [ -1, %72 ], [ 0, %._crit_edge60 ], [ 0, %60 ], [ 0, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
@@ -1615,7 +1615,7 @@ define dso_local range(i32 0, 2) i32 @ref_newer(ptr noundef %0, ptr noundef %1) 
   br i1 %.not18.not.i, label %.preheader.i, label %repo_is_descendant_of.exit
 
 repo_is_descendant_of.exit.thread:                ; preds = %.preheader.i, %29, %23
-  %.012.i.ph = phi i32 [ 1, %23 ], [ %32, %29 ], [ 0, %.preheader.i ]
+  %.012.i.ph = phi i32 [ %32, %29 ], [ 1, %23 ], [ 0, %.preheader.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %42
 
@@ -2194,8 +2194,8 @@ sane_qsort.exit:                                  ; preds = %._crit_edge
   br i1 %.not83, label %.loopexit, label %51
 
 .loopexit:                                        ; preds = %37, %33, %51, %._crit_edge119, %st_mult.exit, %sane_qsort.exit
-  %.072108 = phi i64 [ 0, %sane_qsort.exit ], [ 0, %st_mult.exit ], [ %.072.lcssa148154, %51 ], [ %.072.lcssa148154, %._crit_edge119 ], [ %.072110, %33 ], [ %.072110, %37 ]
-  %.2 = phi i32 [ 1, %sane_qsort.exit ], [ 1, %st_mult.exit ], [ 1, %51 ], [ 0, %._crit_edge119 ], [ 0, %33 ], [ 0, %37 ]
+  %.072108 = phi i64 [ 0, %sane_qsort.exit ], [ %.072.lcssa148154, %51 ], [ 0, %st_mult.exit ], [ %.072.lcssa148154, %._crit_edge119 ], [ %.072110, %33 ], [ %.072110, %37 ]
+  %.2 = phi i32 [ 1, %sane_qsort.exit ], [ 1, %51 ], [ 1, %st_mult.exit ], [ 0, %._crit_edge119 ], [ 0, %33 ], [ 0, %37 ]
   %115 = or i32 %2, 524288
   call void @clear_commit_marks_many(i64 noundef %.072108, ptr noundef %9, i32 noundef %115) #13
   call void @free(ptr noundef %9) #13

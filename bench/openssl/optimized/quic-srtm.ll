@@ -361,7 +361,7 @@ default.unreachable147:                           ; preds = %10
   unreachable
 
 PACKET_buf_init.exit.thread:                      ; preds = %.lr.ph, %PACKET_buf_init.exit.backedge, %6, %2
-  %.012 = phi i32 [ -1, %2 ], [ 0, %6 ], [ 0, %PACKET_buf_init.exit.backedge ], [ 0, %.lr.ph ]
+  %.012 = phi i32 [ 0, %6 ], [ -1, %2 ], [ 0, %PACKET_buf_init.exit.backedge ], [ 0, %.lr.ph ]
   call void @ossl_quic_srtm_free(ptr noundef %4) #4
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.012

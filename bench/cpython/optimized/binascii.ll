@@ -381,7 +381,7 @@ Py_DECREF.exit.sink.split.i:                      ; preds = %57, %26
   br label %binascii_a2b_uu_impl.exit
 
 binascii_a2b_uu_impl.exit:                        ; preds = %.backedge.i, %Py_DECREF.exit.sink.split.i, %57, %54, %51, %26, %23, %20, %.preheader.i, %5, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %51 ], [ null, %5 ], [ null, %20 ], [ null, %23 ], [ null, %26 ], [ null, %54 ], [ null, %57 ], [ %11, %.preheader.i ], [ null, %Py_DECREF.exit.sink.split.i ], [ %11, %.backedge.i ]
+  %.0 = phi ptr [ null, %2 ], [ null, %51 ], [ null, %5 ], [ null, %Py_DECREF.exit.sink.split.i ], [ null, %20 ], [ %11, %.preheader.i ], [ null, %23 ], [ null, %26 ], [ null, %54 ], [ null, %57 ], [ %11, %.backedge.i ]
   %60 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %61 = load ptr, ptr %60, align 8, !tbaa !21
   %.not3 = icmp eq ptr %61, null
@@ -1483,7 +1483,7 @@ define internal ptr @binascii_crc_hqx(ptr readnone captures(none) %0, ptr nounde
   br i1 %50, label %.lr.ph.i18, label %.sink.split, !llvm.loop !33
 
 .sink.split:                                      ; preds = %.lr.ph.i, %.lr.ph.i18, %.split, %.split9
-  %.sink.shrunk = phi i32 [ 65535, %.split9 ], [ %17, %.split ], [ %49, %.lr.ph.i18 ], [ %31, %.lr.ph.i ]
+  %.sink.shrunk = phi i32 [ %49, %.lr.ph.i18 ], [ 65535, %.split9 ], [ %17, %.split ], [ %31, %.lr.ph.i ]
   %.sink = zext i32 %.sink.shrunk to i64
   %51 = call ptr @PyLong_FromUnsignedLong(i64 noundef %.sink) #5
   br label %52
@@ -2620,7 +2620,7 @@ define internal fastcc ptr @binascii_a2b_hex_impl(ptr noundef %0, ptr readonly c
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %29, %11, %26, %42, %39, %36, %8, %3, %6
-  %.0 = phi ptr [ null, %3 ], [ null, %6 ], [ null, %42 ], [ null, %8 ], [ null, %36 ], [ null, %39 ], [ null, %26 ], [ %10, %11 ], [ %10, %29 ]
+  %.0 = phi ptr [ null, %3 ], [ null, %6 ], [ null, %42 ], [ null, %26 ], [ null, %8 ], [ null, %36 ], [ null, %39 ], [ %10, %11 ], [ %10, %29 ]
   ret ptr %.0
 }
 

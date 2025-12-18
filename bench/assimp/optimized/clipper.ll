@@ -3617,7 +3617,7 @@ _ZN10ClipperLib21Pt2IsBetweenPt1AndPt3ENS_8IntPointES0_S0_.exit.thread.split.us:
   br i1 %253, label %.thread289, label %.outer.split, !llvm.loop !39
 
 .loopexit:                                        ; preds = %.split, %194, %.thread287, %.thread287.us, %215
-  %.1173 = phi ptr [ %.0172, %194 ], [ %.0172.us, %215 ], [ %207, %.thread287.us ], [ %175, %.thread287 ], [ %.us-phi333, %.split ]
+  %.1173 = phi ptr [ %.0172.us, %215 ], [ %175, %.thread287 ], [ %207, %.thread287.us ], [ %.0172, %194 ], [ %.us-phi333, %.split ]
   br i1 %3, label %.critedge203, label %.thread289
 
 .thread289:                                       ; preds = %.thread, %250, %.loopexit
@@ -4262,7 +4262,7 @@ _ZNSt6vectorIN10ClipperLib12LocalMinimumESaIS1_EE9push_backERKS1_.exit255: ; pre
   br label %439, !llvm.loop !42
 
 _ZNSt6vectorIPN10ClipperLib5TEdgeESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZN10ClipperLib14FindNextLocMinEPNS_5TEdgeE.exit, %262, %308, %368, %_ZNSt6vectorIPN10ClipperLib5TEdgeESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %.critedge3
-  %.0157 = phi i1 [ false, %.critedge3 ], [ false, %308 ], [ false, %262 ], [ true, %368 ], [ true, %_ZNSt6vectorIPN10ClipperLib5TEdgeESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ true, %_ZN10ClipperLib14FindNextLocMinEPNS_5TEdgeE.exit ]
+  %.0157 = phi i1 [ false, %.critedge3 ], [ false, %308 ], [ true, %_ZNSt6vectorIPN10ClipperLib5TEdgeESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ false, %262 ], [ true, %368 ], [ true, %_ZN10ClipperLib14FindNextLocMinEPNS_5TEdgeE.exit ]
   ret i1 %.0157
 
 566:                                              ; preds = %171, %9
@@ -7093,24 +7093,24 @@ _ZNSt7__cxx1110_List_baseIxSaIxEED2Ev.exit:       ; preds = %_ZNSt7__cxx114listI
   %31 = load i64, ptr %30, align 8
   %32 = getelementptr inbounds i8, ptr %0, i64 %31
   %33 = call noundef zeroext i1 @_ZN10ClipperLib11ClipperBase11PopScanbeamERx(ptr noundef nonnull align 8 dereferenceable(144) %32, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  br i1 %33, label %48, label %.critedge28
+  br i1 %33, label %43, label %.critedge28
 
 34:                                               ; preds = %1
   %35 = landingpad { ptr, i32 }
           catch ptr null
   br label %.thread
 
-.loopexit:                                        ; preds = %79
+.loopexit:                                        ; preds = %74
   %lpad.loopexit = landingpad { ptr, i32 }
           catch ptr null
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit:                      ; preds = %104, %103, %_ZN10ClipperLib7Clipper15ClearGhostJoinsEv.exit
+.loopexit.split-lp.loopexit:                      ; preds = %99, %98, %_ZN10ClipperLib7Clipper15ClearGhostJoinsEv.exit
   %lpad.loopexit56 = landingpad { ptr, i32 }
           catch ptr null
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit.split-lp:             ; preds = %48
+.loopexit.split-lp.loopexit.split-lp:             ; preds = %43
   %lpad.loopexit.split-lp57 = landingpad { ptr, i32 }
           catch ptr null
   br label %.loopexit.split-lp
@@ -7128,166 +7128,161 @@ _ZNSt7__cxx1110_List_baseIxSaIxEED2Ev.exit:       ; preds = %_ZNSt7__cxx114listI
   call void @__cxa_end_catch()
   br label %231
 
-.critedge55:                                      ; preds = %58
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %37 = getelementptr inbounds nuw i8, ptr %62, i64 80
-  %38 = getelementptr inbounds nuw i8, ptr %62, i64 88
+._crit_edge:                                      ; preds = %_ZN10ClipperLib18ReversePolyPtLinksEPNS_5OutPtE.exit, %100
+  %37 = phi ptr [ %54, %100 ], [ %147, %_ZN10ClipperLib18ReversePolyPtLinksEPNS_5OutPtE.exit ]
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %39 = load ptr, ptr %38, align 8
-  %40 = load ptr, ptr %37, align 8
-  %.not70 = icmp eq ptr %39, %40
-  br i1 %.not70, label %._crit_edge, label %.lr.ph
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %41 = load ptr, ptr %40, align 8
+  %42 = icmp eq ptr %39, %41
+  br i1 %42, label %162, label %161
 
-.lr.ph:                                           ; preds = %.critedge55
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  br label %106
-
-._crit_edge:                                      ; preds = %_ZN10ClipperLib18ReversePolyPtLinksEPNS_5OutPtE.exit, %.critedge55
-  %42 = phi ptr [ %59, %.critedge55 ], [ %147, %_ZN10ClipperLib18ReversePolyPtLinksEPNS_5OutPtE.exit ]
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %46 = load ptr, ptr %45, align 8
-  %47 = icmp eq ptr %44, %46
-  br i1 %47, label %162, label %161
-
-48:                                               ; preds = %_ZNSt7__cxx1110_List_baseIxSaIxEED2Ev.exit
-  %49 = load i64, ptr %3, align 8
-  invoke void @_ZN10ClipperLib7Clipper24InsertLocalMinimaIntoAELEx(ptr noundef nonnull align 8 dereferenceable(135) %0, i64 noundef %49)
+43:                                               ; preds = %_ZNSt7__cxx1110_List_baseIxSaIxEED2Ev.exit
+  %44 = load i64, ptr %3, align 8
+  invoke void @_ZN10ClipperLib7Clipper24InsertLocalMinimaIntoAELEx(ptr noundef nonnull align 8 dereferenceable(135) %0, i64 noundef %44)
           to label %.preheader unwind label %.loopexit.split-lp.loopexit.split-lp
 
-.preheader:                                       ; preds = %48
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  br label %52
+.preheader:                                       ; preds = %43
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  br label %47
 
-52:                                               ; preds = %.preheader, %104
-  %53 = load ptr, ptr %0, align 8
-  %54 = getelementptr i8, ptr %53, i64 -24
-  %55 = load i64, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %0, i64 %55
-  %57 = call noundef zeroext i1 @_ZN10ClipperLib11ClipperBase11PopScanbeamERx(ptr noundef nonnull align 8 dereferenceable(144) %56, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  br i1 %57, label %.critedge, label %58
+47:                                               ; preds = %.preheader, %99
+  %48 = load ptr, ptr %0, align 8
+  %49 = getelementptr i8, ptr %48, i64 -24
+  %50 = load i64, ptr %49, align 8
+  %51 = getelementptr inbounds i8, ptr %0, i64 %50
+  %52 = call noundef zeroext i1 @_ZN10ClipperLib11ClipperBase11PopScanbeamERx(ptr noundef nonnull align 8 dereferenceable(144) %51, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  br i1 %52, label %.critedge, label %53
 
-58:                                               ; preds = %52
-  %59 = load ptr, ptr %0, align 8
-  %60 = getelementptr i8, ptr %59, i64 -24
-  %61 = load i64, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %0, i64 %61
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %64 = getelementptr inbounds nuw i8, ptr %62, i64 24
-  %65 = load ptr, ptr %64, align 8
-  %66 = load ptr, ptr %63, align 8
-  %.not53 = icmp eq ptr %66, %65
-  br i1 %.not53, label %.critedge55, label %.critedge
+53:                                               ; preds = %47
+  %54 = load ptr, ptr %0, align 8
+  %55 = getelementptr i8, ptr %54, i64 -24
+  %56 = load i64, ptr %55, align 8
+  %57 = getelementptr inbounds i8, ptr %0, i64 %56
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %57, i64 24
+  %60 = load ptr, ptr %59, align 8
+  %61 = load ptr, ptr %58, align 8
+  %.not53 = icmp eq ptr %61, %60
+  br i1 %.not53, label %100, label %.critedge
 
-.critedge:                                        ; preds = %52, %58
-  %67 = load ptr, ptr %28, align 8
-  %.not.i.not3.i = icmp eq ptr %67, null
+.critedge:                                        ; preds = %47, %53
+  %62 = load ptr, ptr %28, align 8
+  %.not.i.not3.i = icmp eq ptr %62, null
   br i1 %.not.i.not3.i, label %_ZN10ClipperLib7Clipper18ProcessHorizontalsEv.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.critedge, %.noexc
-  %68 = phi ptr [ %80, %.noexc ], [ %67, %.critedge ]
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 128
-  %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds nuw i8, ptr %68, i64 120
-  %72 = load ptr, ptr %71, align 8
-  %.not4.i.i = icmp eq ptr %70, null
-  %.not5.i.i = icmp eq ptr %72, null
-  br i1 %.not4.i.i, label %75, label %73
+  %63 = phi ptr [ %75, %.noexc ], [ %62, %.critedge ]
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 128
+  %65 = load ptr, ptr %64, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %63, i64 120
+  %67 = load ptr, ptr %66, align 8
+  %.not4.i.i = icmp eq ptr %65, null
+  %.not5.i.i = icmp eq ptr %67, null
+  br i1 %.not4.i.i, label %70, label %68
 
-73:                                               ; preds = %.lr.ph.i
-  %74 = getelementptr inbounds nuw i8, ptr %70, i64 120
-  store ptr %72, ptr %74, align 8
-  br label %76
+68:                                               ; preds = %.lr.ph.i
+  %69 = getelementptr inbounds nuw i8, ptr %65, i64 120
+  store ptr %67, ptr %69, align 8
+  br label %71
 
-75:                                               ; preds = %.lr.ph.i
-  store ptr %72, ptr %28, align 8
-  br label %76
+70:                                               ; preds = %.lr.ph.i
+  store ptr %67, ptr %28, align 8
+  br label %71
 
-76:                                               ; preds = %75, %73
-  br i1 %.not5.i.i, label %79, label %77
+71:                                               ; preds = %70, %68
+  br i1 %.not5.i.i, label %74, label %72
 
-77:                                               ; preds = %76
-  %78 = getelementptr inbounds nuw i8, ptr %72, i64 128
-  store ptr %70, ptr %78, align 8
-  br label %79
+72:                                               ; preds = %71
+  %73 = getelementptr inbounds nuw i8, ptr %67, i64 128
+  store ptr %65, ptr %73, align 8
+  br label %74
 
-79:                                               ; preds = %77, %76
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %71, i8 0, i64 16, i1 false)
-  invoke void @_ZN10ClipperLib7Clipper17ProcessHorizontalEPNS_5TEdgeE(ptr noundef nonnull align 8 dereferenceable(135) %0, ptr noundef nonnull %68)
+74:                                               ; preds = %72, %71
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %66, i8 0, i64 16, i1 false)
+  invoke void @_ZN10ClipperLib7Clipper17ProcessHorizontalEPNS_5TEdgeE(ptr noundef nonnull align 8 dereferenceable(135) %0, ptr noundef nonnull %63)
           to label %.noexc unwind label %.loopexit
 
-.noexc:                                           ; preds = %79
-  %80 = load ptr, ptr %28, align 8
-  %.not.i.not.i = icmp eq ptr %80, null
+.noexc:                                           ; preds = %74
+  %75 = load ptr, ptr %28, align 8
+  %.not.i.not.i = icmp eq ptr %75, null
   br i1 %.not.i.not.i, label %_ZN10ClipperLib7Clipper18ProcessHorizontalsEv.exit, label %.lr.ph.i, !llvm.loop !81
 
 _ZN10ClipperLib7Clipper18ProcessHorizontalsEv.exit: ; preds = %.noexc, %.critedge
-  %81 = load ptr, ptr %51, align 8
-  %82 = load ptr, ptr %50, align 8
-  %.not.i = icmp eq ptr %81, %82
+  %76 = load ptr, ptr %46, align 8
+  %77 = load ptr, ptr %45, align 8
+  %.not.i = icmp eq ptr %76, %77
   br i1 %.not.i, label %_ZN10ClipperLib7Clipper15ClearGhostJoinsEv.exit, label %.lr.ph.i29
 
-._crit_edge.i:                                    ; preds = %91
-  %83 = icmp eq ptr %93, %92
-  br i1 %83, label %_ZN10ClipperLib7Clipper15ClearGhostJoinsEv.exit, label %84
+._crit_edge.i:                                    ; preds = %86
+  %78 = icmp eq ptr %88, %87
+  br i1 %78, label %_ZN10ClipperLib7Clipper15ClearGhostJoinsEv.exit, label %79
 
-84:                                               ; preds = %._crit_edge.i
-  store ptr %92, ptr %51, align 8
+79:                                               ; preds = %._crit_edge.i
+  store ptr %87, ptr %46, align 8
   br label %_ZN10ClipperLib7Clipper15ClearGhostJoinsEv.exit
 
-.lr.ph.i29:                                       ; preds = %_ZN10ClipperLib7Clipper18ProcessHorizontalsEv.exit, %91
-  %85 = phi ptr [ %92, %91 ], [ %82, %_ZN10ClipperLib7Clipper18ProcessHorizontalsEv.exit ]
-  %86 = phi ptr [ %93, %91 ], [ %81, %_ZN10ClipperLib7Clipper18ProcessHorizontalsEv.exit ]
-  %.06.i = phi i64 [ %94, %91 ], [ 0, %_ZN10ClipperLib7Clipper18ProcessHorizontalsEv.exit ]
-  %87 = getelementptr inbounds nuw ptr, ptr %85, i64 %.06.i
-  %88 = load ptr, ptr %87, align 8
-  %89 = icmp eq ptr %88, null
-  br i1 %89, label %91, label %90
+.lr.ph.i29:                                       ; preds = %_ZN10ClipperLib7Clipper18ProcessHorizontalsEv.exit, %86
+  %80 = phi ptr [ %87, %86 ], [ %77, %_ZN10ClipperLib7Clipper18ProcessHorizontalsEv.exit ]
+  %81 = phi ptr [ %88, %86 ], [ %76, %_ZN10ClipperLib7Clipper18ProcessHorizontalsEv.exit ]
+  %.06.i = phi i64 [ %89, %86 ], [ 0, %_ZN10ClipperLib7Clipper18ProcessHorizontalsEv.exit ]
+  %82 = getelementptr inbounds nuw ptr, ptr %80, i64 %.06.i
+  %83 = load ptr, ptr %82, align 8
+  %84 = icmp eq ptr %83, null
+  br i1 %84, label %86, label %85
 
-90:                                               ; preds = %.lr.ph.i29
-  call void @_ZdlPvm(ptr noundef nonnull %88, i64 noundef 32) #36
-  %.pre.i = load ptr, ptr %51, align 8
-  %.pre10.i = load ptr, ptr %50, align 8
-  br label %91
+85:                                               ; preds = %.lr.ph.i29
+  call void @_ZdlPvm(ptr noundef nonnull %83, i64 noundef 32) #36
+  %.pre.i = load ptr, ptr %46, align 8
+  %.pre10.i = load ptr, ptr %45, align 8
+  br label %86
 
-91:                                               ; preds = %90, %.lr.ph.i29
-  %92 = phi ptr [ %85, %.lr.ph.i29 ], [ %.pre10.i, %90 ]
-  %93 = phi ptr [ %86, %.lr.ph.i29 ], [ %.pre.i, %90 ]
-  %94 = add nuw i64 %.06.i, 1
-  %95 = ptrtoint ptr %93 to i64
-  %96 = ptrtoint ptr %92 to i64
-  %97 = sub i64 %95, %96
-  %98 = ashr exact i64 %97, 3
-  %99 = icmp ult i64 %94, %98
-  br i1 %99, label %.lr.ph.i29, label %._crit_edge.i, !llvm.loop !82
+86:                                               ; preds = %85, %.lr.ph.i29
+  %87 = phi ptr [ %80, %.lr.ph.i29 ], [ %.pre10.i, %85 ]
+  %88 = phi ptr [ %81, %.lr.ph.i29 ], [ %.pre.i, %85 ]
+  %89 = add nuw i64 %.06.i, 1
+  %90 = ptrtoint ptr %88 to i64
+  %91 = ptrtoint ptr %87 to i64
+  %92 = sub i64 %90, %91
+  %93 = ashr exact i64 %92, 3
+  %94 = icmp ult i64 %89, %93
+  br i1 %94, label %.lr.ph.i29, label %._crit_edge.i, !llvm.loop !82
 
-_ZN10ClipperLib7Clipper15ClearGhostJoinsEv.exit:  ; preds = %84, %._crit_edge.i, %_ZN10ClipperLib7Clipper18ProcessHorizontalsEv.exit
-  %100 = load i64, ptr %4, align 8
-  %101 = invoke noundef zeroext i1 @_ZN10ClipperLib7Clipper20ProcessIntersectionsEx(ptr noundef nonnull align 8 dereferenceable(135) %0, i64 noundef %100)
-          to label %102 unwind label %.loopexit.split-lp.loopexit
+_ZN10ClipperLib7Clipper15ClearGhostJoinsEv.exit:  ; preds = %79, %._crit_edge.i, %_ZN10ClipperLib7Clipper18ProcessHorizontalsEv.exit
+  %95 = load i64, ptr %4, align 8
+  %96 = invoke noundef zeroext i1 @_ZN10ClipperLib7Clipper20ProcessIntersectionsEx(ptr noundef nonnull align 8 dereferenceable(135) %0, i64 noundef %95)
+          to label %97 unwind label %.loopexit.split-lp.loopexit
 
-102:                                              ; preds = %_ZN10ClipperLib7Clipper15ClearGhostJoinsEv.exit
-  br i1 %101, label %103, label %105
+97:                                               ; preds = %_ZN10ClipperLib7Clipper15ClearGhostJoinsEv.exit
+  br i1 %96, label %98, label %.critedge55
 
-103:                                              ; preds = %102
-  invoke void @_ZN10ClipperLib7Clipper27ProcessEdgesAtTopOfScanbeamEx(ptr noundef nonnull align 8 dereferenceable(135) %0, i64 noundef %100)
-          to label %104 unwind label %.loopexit.split-lp.loopexit
+98:                                               ; preds = %97
+  invoke void @_ZN10ClipperLib7Clipper27ProcessEdgesAtTopOfScanbeamEx(ptr noundef nonnull align 8 dereferenceable(135) %0, i64 noundef %95)
+          to label %99 unwind label %.loopexit.split-lp.loopexit
 
-104:                                              ; preds = %103
-  store i64 %100, ptr %3, align 8
-  invoke void @_ZN10ClipperLib7Clipper24InsertLocalMinimaIntoAELEx(ptr noundef nonnull align 8 dereferenceable(135) %0, i64 noundef %100)
-          to label %52 unwind label %.loopexit.split-lp.loopexit, !llvm.loop !83
+99:                                               ; preds = %98
+  store i64 %95, ptr %3, align 8
+  invoke void @_ZN10ClipperLib7Clipper24InsertLocalMinimaIntoAELEx(ptr noundef nonnull align 8 dereferenceable(135) %0, i64 noundef %95)
+          to label %47 unwind label %.loopexit.split-lp.loopexit, !llvm.loop !83
 
-105:                                              ; preds = %102
+100:                                              ; preds = %53
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %231
+  %101 = getelementptr inbounds nuw i8, ptr %57, i64 80
+  %102 = getelementptr inbounds nuw i8, ptr %57, i64 88
+  %103 = load ptr, ptr %102, align 8
+  %104 = load ptr, ptr %101, align 8
+  %.not70 = icmp eq ptr %103, %104
+  br i1 %.not70, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %100
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 132
+  br label %106
 
 106:                                              ; preds = %.lr.ph, %_ZN10ClipperLib18ReversePolyPtLinksEPNS_5OutPtE.exit
-  %107 = phi ptr [ %59, %.lr.ph ], [ %147, %_ZN10ClipperLib18ReversePolyPtLinksEPNS_5OutPtE.exit ]
-  %108 = phi ptr [ %40, %.lr.ph ], [ %155, %_ZN10ClipperLib18ReversePolyPtLinksEPNS_5OutPtE.exit ]
+  %107 = phi ptr [ %54, %.lr.ph ], [ %147, %_ZN10ClipperLib18ReversePolyPtLinksEPNS_5OutPtE.exit ]
+  %108 = phi ptr [ %104, %.lr.ph ], [ %155, %_ZN10ClipperLib18ReversePolyPtLinksEPNS_5OutPtE.exit ]
   %.02365 = phi i64 [ 0, %.lr.ph ], [ %148, %_ZN10ClipperLib18ReversePolyPtLinksEPNS_5OutPtE.exit ]
   %109 = getelementptr inbounds nuw ptr, ptr %108, i64 %.02365
   %110 = load ptr, ptr %109, align 8
@@ -7305,7 +7300,7 @@ _ZN10ClipperLib7Clipper15ClearGhostJoinsEv.exit:  ; preds = %84, %._crit_edge.i,
 117:                                              ; preds = %113
   %118 = getelementptr inbounds nuw i8, ptr %110, i64 4
   %119 = load i8, ptr %118, align 4, !range !6, !noundef !7
-  %120 = load i8, ptr %41, align 4, !range !6, !noundef !7
+  %120 = load i8, ptr %105, align 4, !range !6, !noundef !7
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %117, %.preheader.i.i
@@ -7377,7 +7372,7 @@ _ZN10ClipperLib18ReversePolyPtLinksEPNS_5OutPtE.exit: ; preds = %_ZN10ClipperLib
   br label %162
 
 162:                                              ; preds = %161, %._crit_edge
-  %163 = phi ptr [ %.pre79, %161 ], [ %42, %._crit_edge ]
+  %163 = phi ptr [ %.pre79, %161 ], [ %37, %._crit_edge ]
   %164 = getelementptr i8, ptr %163, i64 -24
   %165 = load i64, ptr %164, align 8
   %166 = getelementptr inbounds i8, ptr %0, i64 %165
@@ -7507,8 +7502,13 @@ _ZN10ClipperLib7Clipper16FixupOutPolylineERNS_6OutRecE.exit: ; preds = %_ZN10Cli
   call void @_ZN10ClipperLib7Clipper16DoSimplePolygonsEv(ptr noundef nonnull align 8 dereferenceable(135) %0)
   br label %231
 
-231:                                              ; preds = %105, %.thread, %._crit_edge69, %230
-  %.12252 = phi i1 [ false, %.thread ], [ true, %._crit_edge69 ], [ true, %230 ], [ false, %105 ]
+.critedge55:                                      ; preds = %97
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  br label %231
+
+231:                                              ; preds = %.critedge55, %.thread, %._crit_edge69, %230
+  %.12252 = phi i1 [ false, %.thread ], [ true, %._crit_edge69 ], [ true, %230 ], [ false, %.critedge55 ]
   %232 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %233 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %234 = load ptr, ptr %233, align 8
@@ -13443,7 +13443,7 @@ define hidden void @_ZN10ClipperLib7Clipper17ProcessHorizontalEPNS_5TEdgeE(ptr n
   br label %.critedge
 
 .critedge:                                        ; preds = %16, %50, %47, %34
-  %.0108 = phi ptr [ null, %50 ], [ %22, %34 ], [ %39, %47 ], [ null, %16 ]
+  %.0108 = phi ptr [ %39, %47 ], [ null, %50 ], [ %22, %34 ], [ null, %16 ]
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %53 = load i64, ptr %52, align 8
@@ -13758,8 +13758,8 @@ _ZN10ClipperLib7Clipper8AddOutPtEPNS_5TEdgeERKNS_8IntPointE.exit163: ; preds = %
   br i1 %.not322, label %.critedge10, label %.lr.ph.split, !llvm.loop !121
 
 .critedge10:                                      ; preds = %.lr.ph.split, %_ZN10ClipperLib7Clipper8AddOutPtEPNS_5TEdgeERKNS_8IntPointE.exit163, %94, %_ZN10ClipperLib7Clipper8AddOutPtEPNS_5TEdgeERKNS_8IntPointE.exit163.us, %.lr.ph353.split, %_ZN10ClipperLib7Clipper8AddOutPtEPNS_5TEdgeERKNS_8IntPointE.exit, %105, %_ZN10ClipperLib7Clipper8AddOutPtEPNS_5TEdgeERKNS_8IntPointE.exit.us, %.lr.ph371
-  %.sroa.0276.5 = phi ptr [ %.sroa.0276.3365, %.lr.ph371 ], [ %.sroa.0276.6347.us, %94 ], [ %.sroa.0276.3365, %105 ], [ %.sroa.0276.3365, %.lr.ph353.split ], [ %.sroa.0276.3365, %_ZN10ClipperLib7Clipper8AddOutPtEPNS_5TEdgeERKNS_8IntPointE.exit.us ], [ %.sroa.0276.3365, %_ZN10ClipperLib7Clipper8AddOutPtEPNS_5TEdgeERKNS_8IntPointE.exit ], [ %96, %_ZN10ClipperLib7Clipper8AddOutPtEPNS_5TEdgeERKNS_8IntPointE.exit163.us ], [ %211, %_ZN10ClipperLib7Clipper8AddOutPtEPNS_5TEdgeERKNS_8IntPointE.exit163 ], [ %.sroa.0276.6347, %.lr.ph.split ]
-  %.sroa.0282.5 = phi ptr [ %.sroa.0282.3366, %.lr.ph371 ], [ %.sroa.0282.3366, %94 ], [ %.sroa.0282.6352.us, %105 ], [ %.sroa.0282.6352, %.lr.ph353.split ], [ %109, %_ZN10ClipperLib7Clipper8AddOutPtEPNS_5TEdgeERKNS_8IntPointE.exit.us ], [ %159, %_ZN10ClipperLib7Clipper8AddOutPtEPNS_5TEdgeERKNS_8IntPointE.exit ], [ %.sroa.0282.3366, %_ZN10ClipperLib7Clipper8AddOutPtEPNS_5TEdgeERKNS_8IntPointE.exit163.us ], [ %.sroa.0282.3366, %_ZN10ClipperLib7Clipper8AddOutPtEPNS_5TEdgeERKNS_8IntPointE.exit163 ], [ %.sroa.0282.3366, %.lr.ph.split ]
+  %.sroa.0276.5 = phi ptr [ %.sroa.0276.3365, %.lr.ph371 ], [ %.sroa.0276.3365, %.lr.ph353.split ], [ %.sroa.0276.3365, %105 ], [ %96, %_ZN10ClipperLib7Clipper8AddOutPtEPNS_5TEdgeERKNS_8IntPointE.exit163.us ], [ %.sroa.0276.3365, %_ZN10ClipperLib7Clipper8AddOutPtEPNS_5TEdgeERKNS_8IntPointE.exit.us ], [ %.sroa.0276.3365, %_ZN10ClipperLib7Clipper8AddOutPtEPNS_5TEdgeERKNS_8IntPointE.exit ], [ %.sroa.0276.6347.us, %94 ], [ %.sroa.0276.6347, %.lr.ph.split ], [ %211, %_ZN10ClipperLib7Clipper8AddOutPtEPNS_5TEdgeERKNS_8IntPointE.exit163 ]
+  %.sroa.0282.5 = phi ptr [ %.sroa.0282.3366, %.lr.ph371 ], [ %.sroa.0282.6352, %.lr.ph353.split ], [ %.sroa.0282.6352.us, %105 ], [ %.sroa.0282.3366, %94 ], [ %109, %_ZN10ClipperLib7Clipper8AddOutPtEPNS_5TEdgeERKNS_8IntPointE.exit.us ], [ %159, %_ZN10ClipperLib7Clipper8AddOutPtEPNS_5TEdgeERKNS_8IntPointE.exit ], [ %.sroa.0282.3366, %_ZN10ClipperLib7Clipper8AddOutPtEPNS_5TEdgeERKNS_8IntPointE.exit163.us ], [ %.sroa.0282.3366, %_ZN10ClipperLib7Clipper8AddOutPtEPNS_5TEdgeERKNS_8IntPointE.exit163 ], [ %.sroa.0282.3366, %.lr.ph.split ]
   br i1 %.0297.in, label %.critedge10.thread, label %.critedge10.thread493
 
 .critedge10.thread:                               ; preds = %.preheader, %.critedge10
@@ -18276,7 +18276,7 @@ _ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit46: ; preds = %._crit_edg
   br i1 %or.cond41, label %.sink.split, label %195
 
 .sink.split:                                      ; preds = %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit.thread, %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit61.thread, %192, %_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit46, %_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit
-  %.sink = phi ptr [ %1, %_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit ], [ %2, %_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit46 ], [ %5, %192 ], [ %2, %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit61.thread ], [ %1, %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit.thread ]
+  %.sink = phi ptr [ %1, %_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit ], [ %2, %_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit46 ], [ %2, %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit61.thread ], [ %5, %192 ], [ %1, %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit.thread ]
   store ptr %.sink, ptr %25, align 8
   br label %195
 
@@ -20515,7 +20515,7 @@ _ZNSt6vectorIN10ClipperLib8IntPointESaIS1_EE9push_backEOS1_.exit195: ; preds = %
   br i1 %exitcond526.not, label %.loopexit442, label %.preheader443, !llvm.loop !192
 
 .loopexit442:                                     ; preds = %306, %_ZNSt6vectorIN10ClipperLib8IntPointESaIS1_EE9push_backEOS1_.exit, %.preheader
-  %308 = phi ptr [ %215, %.preheader ], [ %256, %_ZNSt6vectorIN10ClipperLib8IntPointESaIS1_EE9push_backEOS1_.exit ], [ %302, %306 ]
+  %308 = phi ptr [ %256, %_ZNSt6vectorIN10ClipperLib8IntPointESaIS1_EE9push_backEOS1_.exit ], [ %215, %.preheader ], [ %302, %306 ]
   %309 = load ptr, ptr %9, align 8
   %310 = load ptr, ptr %147, align 8
   %.not.i196 = icmp eq ptr %309, %310
@@ -26056,8 +26056,8 @@ _ZNSt6vectorIN10ClipperLib8IntPointESaIS1_EE6resizeEm.exit.i: ; preds = %_ZNKSt6
   br i1 %88, label %.lr.ph.i19, label %_ZN10ClipperLib13TranslatePathERKSt6vectorINS_8IntPointESaIS1_EERS3_S1_.exit, !llvm.loop !309
 
 _ZN10ClipperLib13TranslatePathERKSt6vectorINS_8IntPointESaIS1_EERS3_S1_.exit: ; preds = %.lr.ph.i19, %57, %_ZNSt6vectorIN10ClipperLib8IntPointESaIS1_EE6resizeEm.exit.i
-  %89 = phi ptr [ %70, %_ZNSt6vectorIN10ClipperLib8IntPointESaIS1_EE6resizeEm.exit.i ], [ null, %57 ], [ %70, %.lr.ph.i19 ]
-  %90 = phi ptr [ %71, %_ZNSt6vectorIN10ClipperLib8IntPointESaIS1_EE6resizeEm.exit.i ], [ null, %57 ], [ %71, %.lr.ph.i19 ]
+  %89 = phi ptr [ null, %57 ], [ %70, %_ZNSt6vectorIN10ClipperLib8IntPointESaIS1_EE6resizeEm.exit.i ], [ %70, %.lr.ph.i19 ]
+  %90 = phi ptr [ null, %57 ], [ %71, %_ZNSt6vectorIN10ClipperLib8IntPointESaIS1_EE6resizeEm.exit.i ], [ %71, %.lr.ph.i19 ]
   %91 = load ptr, ptr %5, align 8
   %92 = getelementptr i8, ptr %91, i64 -24
   %93 = load i64, ptr %92, align 8

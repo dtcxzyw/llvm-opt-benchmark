@@ -1573,7 +1573,7 @@ _ZL28Shell_CharIsMakeVariableNamec.exit.thread.i: ; preds = %_ZL28Shell_CharIsMa
   br i1 %85, label %.critedge24.i, label %_ZN17cmOutputConverter23Shell_SkipMakeVariablesEPKcS1_.exit
 
 _ZN17cmOutputConverter23Shell_SkipMakeVariablesEPKcS1_.exit: ; preds = %.critedge2.i, %77, %74, %72, %.critedge24.i, %_ZL28Shell_CharIsMakeVariableNamec.exit.thread.i, %.lr.ph.i
-  %.019.i258 = phi ptr [ %.019.i, %_ZL28Shell_CharIsMakeVariableNamec.exit.thread.i ], [ %.019.i, %.lr.ph.i ], [ %.019.i, %.critedge2.i ], [ %.019.i, %77 ], [ %.019.i, %74 ], [ %.019.i, %72 ], [ %62, %.critedge24.i ]
+  %.019.i258 = phi ptr [ %.019.i, %_ZL28Shell_CharIsMakeVariableNamec.exit.thread.i ], [ %.019.i, %.lr.ph.i ], [ %.019.i, %74 ], [ %.019.i, %72 ], [ %62, %.critedge24.i ], [ %.019.i, %77 ], [ %.019.i, %.critedge2.i ]
   %.not77 = icmp eq ptr %.019.i258, %.055242
   br i1 %.not77, label %.thread, label %.preheader227
 
@@ -2841,7 +2841,7 @@ _ZL28Shell_CharIsMakeVariableNamec.exit.thread.i: ; preds = %_ZL28Shell_CharIsMa
   br label %.critedge24.i, !llvm.loop !55
 
 _ZN17cmOutputConverter23Shell_SkipMakeVariablesEPKcS1_.exit.thread: ; preds = %_ZL28Shell_CharIsMakeVariableNamec.exit.thread.i, %.lr.ph.i, %.critedge2.i, %15, %13
-  %25 = phi i8 [ %.pre.pre, %.critedge2.i ], [ %.pre.pre, %13 ], [ 36, %15 ], [ 36, %.lr.ph.i ], [ 36, %_ZL28Shell_CharIsMakeVariableNamec.exit.thread.i ]
+  %25 = phi i8 [ 36, %15 ], [ %.pre.pre, %13 ], [ %.pre.pre, %.critedge2.i ], [ 36, %.lr.ph.i ], [ 36, %_ZL28Shell_CharIsMakeVariableNamec.exit.thread.i ]
   %26 = tail call noundef zeroext i1 @_ZN17cmOutputConverter21Shell_CharNeedsQuotesEci(i8 noundef signext %25, i32 noundef %2)
   br i1 %26, label %.loopexit, label %.critedge24.i.backedge
 

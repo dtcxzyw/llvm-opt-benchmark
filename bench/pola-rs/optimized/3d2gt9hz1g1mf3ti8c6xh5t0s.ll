@@ -7570,7 +7570,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h421158f5a55f612fE"
   unreachable
 
 .body:                                            ; preds = %"_ZN4core3ptr88drop_in_place$LT$$LP$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$C$u64$RP$$GT$17h171558e966d9031eE.exit8.i", %64, %51
-  %eh.lpad-body = phi { ptr, i32 } [ %.pn.i39, %51 ], [ %65, %64 ], [ %65, %"_ZN4core3ptr88drop_in_place$LT$$LP$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$C$u64$RP$$GT$17h171558e966d9031eE.exit8.i" ]
+  %eh.lpad-body = phi { ptr, i32 } [ %65, %64 ], [ %.pn.i39, %51 ], [ %65, %"_ZN4core3ptr88drop_in_place$LT$$LP$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$C$u64$RP$$GT$17h171558e966d9031eE.exit8.i" ]
   %75 = load i64, ptr %2, align 8, !range !104
   %76 = icmp eq i64 %75, -9223372036854775808
   %or.cond = select i1 %.not, i1 true, i1 %76
@@ -7802,7 +7802,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h434b8f54a7bb9b9cE"
   unreachable
 
 .body:                                            ; preds = %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17hff326e9d22068c4dE.exit8.i", %62, %49
-  %eh.lpad-body = phi { ptr, i32 } [ %.pn.i39, %49 ], [ %63, %62 ], [ %63, %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17hff326e9d22068c4dE.exit8.i" ]
+  %eh.lpad-body = phi { ptr, i32 } [ %63, %62 ], [ %.pn.i39, %49 ], [ %63, %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17hff326e9d22068c4dE.exit8.i" ]
   %73 = load i64, ptr %2, align 8, !range !104
   %74 = icmp eq i64 %73, -9223372036854775808
   %or.cond = select i1 %.not, i1 true, i1 %74
@@ -41063,9 +41063,9 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
   br label %110
 
 110:                                              ; preds = %.thread20.i, %"_ZN130_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha0519445a1df3a94E.exit.thread12.i"
-  %.sroa.15.0.copyload.i = phi i64 [ %.sroa.15.0.copyload.i8, %.thread20.i ], [ %15, %"_ZN130_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha0519445a1df3a94E.exit.thread12.i" ]
-  %.sroa.8.0.copyload.i = phi i64 [ %.sroa.8.0.copyload.i5, %.thread20.i ], [ %.sroa.8.0.copyload.i6, %"_ZN130_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha0519445a1df3a94E.exit.thread12.i" ]
-  %.sroa.3.0.i = phi i64 [ %109, %.thread20.i ], [ 0, %"_ZN130_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha0519445a1df3a94E.exit.thread12.i" ]
+  %.sroa.15.0.copyload.i = phi i64 [ %15, %"_ZN130_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha0519445a1df3a94E.exit.thread12.i" ], [ %.sroa.15.0.copyload.i8, %.thread20.i ]
+  %.sroa.8.0.copyload.i = phi i64 [ %.sroa.8.0.copyload.i6, %"_ZN130_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha0519445a1df3a94E.exit.thread12.i" ], [ %.sroa.8.0.copyload.i5, %.thread20.i ]
+  %.sroa.3.0.i = phi i64 [ 0, %"_ZN130_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha0519445a1df3a94E.exit.thread12.i" ], [ %109, %.thread20.i ]
   %..i.i.i = select i1 %.not.i.i, i64 16, i64 8
   %.7.i.i.i = select i1 %.not.i.i, i64 24, i64 16
   %111 = getelementptr inbounds nuw i8, ptr %9, i64 %..i.i.i

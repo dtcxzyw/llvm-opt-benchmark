@@ -1423,7 +1423,7 @@ _ZN4llvm16DenseMapIteratorIPNS_11InstructionENS_11SmallVectorISt4pairIS2_jELj4EE
   br i1 %.not51.i.i.i.i, label %.loopexit.i.i.i, label %410, !llvm.loop !186
 
 .critedge.i16.i.i.i:                              ; preds = %410, %451, %447, %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE26findNearestCommonDominatorEPS1_S3_.exit.thread.i.i.i.i
-  %.328.sink.i.i.i.i = phi ptr [ %325, %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE26findNearestCommonDominatorEPS1_S3_.exit.thread.i.i.i.i ], [ null, %447 ], [ %spec.select.i.i.i.i.i.i, %451 ], [ %325, %410 ]
+  %.328.sink.i.i.i.i = phi ptr [ %spec.select.i.i.i.i.i.i, %451 ], [ %325, %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE26findNearestCommonDominatorEPS1_S3_.exit.thread.i.i.i.i ], [ null, %447 ], [ %325, %410 ]
   %461 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i, i64 8
   %462 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i, i64 16
   %463 = load i32, ptr %462, align 8, !tbaa !26
@@ -2580,7 +2580,7 @@ _ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IR
   br i1 %.not.i.i.i.i.i148.i.i, label %_ZN4llvm13IRBuilderBase25AddOrRemoveMetadataToCopyEjPNS_6MDNodeE.exit.thread.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !233
 
 _ZN4llvm13IRBuilderBase25AddOrRemoveMetadataToCopyEjPNS_6MDNodeE.exit.thread.i.i: ; preds = %975, %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i.i.i.i, %961, %._crit_edge.i.i.i.i.i.i.i.i.i
-  %.016.i.i.i.i.i.i.i = phi ptr [ %.028.i.i.i.i.i.i.i.i.i, %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i.i.i.i ], [ %926, %._crit_edge.i.i.i.i.i.i.i.i.i ], [ %926, %961 ], [ %.1.i.i.i.i.i.i.i, %975 ]
+  %.016.i.i.i.i.i.i.i = phi ptr [ %.028.i.i.i.i.i.i.i.i.i, %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i.i.i.i ], [ %926, %961 ], [ %926, %._crit_edge.i.i.i.i.i.i.i.i.i ], [ %.1.i.i.i.i.i.i.i, %975 ]
   %976 = ptrtoint ptr %.016.i.i.i.i.i.i.i to i64
   %977 = ptrtoint ptr %929 to i64
   %978 = sub i64 %976, %977
@@ -3462,7 +3462,7 @@ tailrecurse:                                      ; preds = %.lr.ph
   br i1 %spec.select.i, label %.thread, label %.lr.ph
 
 .thread:                                          ; preds = %tailrecurse, %.lr.ph, %12, %1, %7
-  %.011 = phi i1 [ true, %1 ], [ false, %7 ], [ %15, %12 ], [ false, %.lr.ph ], [ true, %tailrecurse ]
+  %.011 = phi i1 [ true, %1 ], [ false, %7 ], [ %15, %12 ], [ true, %tailrecurse ], [ false, %.lr.ph ]
   ret i1 %.011
 }
 

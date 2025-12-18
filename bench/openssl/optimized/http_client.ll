@@ -1242,8 +1242,8 @@ check_max_len.exit.thread:                        ; preds = %162
   br label %parse_http_line1.exit
 
 .critedge.thread.i:                               ; preds = %187, %194, %200, %203, %.critedge4.i, %.critedge2.i, %.critedge.i, %180, %177
-  %.5272 = phi i32 [ %183, %180 ], [ %183, %.critedge.i ], [ %183, %.critedge2.i ], [ %183, %.critedge4.i ], [ %183, %203 ], [ %.3270.ph, %177 ], [ %183, %194 ], [ %183, %200 ], [ %183, %187 ]
-  %.056.i = phi ptr [ %137, %180 ], [ %137, %.critedge.i ], [ %137, %.critedge2.i ], [ %137, %.critedge4.i ], [ %137, %203 ], [ %35, %177 ], [ %137, %194 ], [ %137, %200 ], [ %137, %187 ]
+  %.5272 = phi i32 [ %183, %180 ], [ %183, %200 ], [ %183, %.critedge.i ], [ %183, %.critedge2.i ], [ %.3270.ph, %177 ], [ %183, %.critedge4.i ], [ %183, %203 ], [ %183, %194 ], [ %183, %187 ]
+  %.056.i = phi ptr [ %137, %180 ], [ %137, %200 ], [ %137, %.critedge.i ], [ %137, %.critedge2.i ], [ %35, %177 ], [ %137, %.critedge4.i ], [ %137, %203 ], [ %137, %194 ], [ %137, %187 ]
   br label %226
 
 226:                                              ; preds = %233, %.critedge.thread.i
@@ -1651,7 +1651,7 @@ check_max_len.exit.outer.backedge:                ; preds = %parse_http_line1.ex
   br label %.loopexit
 
 .loopexit:                                        ; preds = %370, %72, %69, %306, %.thread297, %287, %check_max_len.exit.thread, %.thread, %132, %118, %65, %380, %356, %347, %337, %334, %330, %323, %319, %260, %174, %170, %158, %148, %135, %121, %77, %68, %63, %20, %7
-  %.0 = phi i32 [ 0, %7 ], [ 0, %20 ], [ 0, %63 ], [ 0, %287 ], [ 0, %68 ], [ -1, %65 ], [ 1, %380 ], [ 0, %77 ], [ %.4.ph, %.thread ], [ -1, %118 ], [ 0, %135 ], [ 0, %121 ], [ 0, %148 ], [ 0, %158 ], [ -1, %132 ], [ 0, %170 ], [ 0, %174 ], [ 0, %260 ], [ 0, %323 ], [ 0, %334 ], [ 0, %347 ], [ 0, %356 ], [ 0, %check_max_len.exit.thread ], [ 1, %337 ], [ 0, %330 ], [ 0, %319 ], [ 0, %.thread297 ], [ 0, %306 ], [ 0, %69 ], [ 0, %72 ], [ 0, %370 ]
+  %.0 = phi i32 [ 0, %7 ], [ 0, %20 ], [ 0, %63 ], [ 0, %287 ], [ 0, %68 ], [ -1, %65 ], [ 0, %306 ], [ 1, %380 ], [ 0, %77 ], [ %.4.ph, %.thread ], [ -1, %118 ], [ 0, %135 ], [ 0, %.thread297 ], [ 0, %121 ], [ 0, %148 ], [ 0, %158 ], [ -1, %132 ], [ 0, %170 ], [ 0, %174 ], [ 0, %260 ], [ 0, %323 ], [ 0, %334 ], [ 0, %347 ], [ 0, %356 ], [ 0, %check_max_len.exit.thread ], [ 1, %337 ], [ 0, %330 ], [ 0, %319 ], [ 0, %69 ], [ 0, %72 ], [ 0, %370 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -1826,7 +1826,7 @@ define ptr @OSSL_HTTP_REQ_CTX_exchange(ptr noundef %0) local_unnamed_addr #0 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %8, %14, %23, %22, %24, %6
-  %.0 = phi ptr [ null, %6 ], [ %27, %24 ], [ null, %22 ], [ null, %23 ], [ null, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ null, %6 ], [ null, %14 ], [ %27, %24 ], [ null, %22 ], [ null, %23 ], [ null, %8 ]
   ret ptr %.0
 }
 
@@ -2032,7 +2032,7 @@ http_new_bio.exit:                                ; preds = %explict_or_default_
   br label %75
 
 75:                                               ; preds = %.split, %.split69
-  %.060 = phi ptr [ %66, %.split ], [ %74, %.split69 ]
+  %.060 = phi ptr [ %74, %.split69 ], [ %66, %.split ]
   %.not83 = icmp eq ptr %.060, null
   br i1 %.not83, label %.thread105, label %76
 
@@ -2517,7 +2517,7 @@ redirection_ok.exit:                              ; preds = %49, %57
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink4.i, ptr noundef nonnull @__func__.redirection_ok) #9
   br label %103
 
-60:                                               ; preds = %51, %57, %54
+60:                                               ; preds = %54, %57, %51
   %61 = call i64 @time(ptr noundef null) #9
   br i1 %.not.i, label %68, label %62
 
@@ -3035,7 +3035,7 @@ sub_0132:                                         ; preds = %.tail
   br i1 %.not118, label %126, label %.thread126
 
 .thread126:                                       ; preds = %.preheader, %82, %97, %.tail.thread, %46, %base64encode.exit.thread, %.loopexit
-  %.097129 = phi i32 [ 0, %.loopexit ], [ 0, %base64encode.exit.thread ], [ 0, %46 ], [ 0, %97 ], [ 0, %.tail.thread ], [ 0, %82 ], [ 1, %.preheader ]
+  %.097129 = phi i32 [ 0, %.loopexit ], [ 0, %base64encode.exit.thread ], [ 0, %46 ], [ 0, %82 ], [ 0, %.tail.thread ], [ 0, %97 ], [ 1, %.preheader ]
   %123 = tail call i64 @BIO_ctrl(ptr noundef nonnull %11, i32 noundef 11, i64 noundef 0, ptr noundef null) #9
   %124 = tail call ptr @BIO_pop(ptr noundef nonnull %11) #9
   %125 = tail call i32 @BIO_free(ptr noundef nonnull %11) #9

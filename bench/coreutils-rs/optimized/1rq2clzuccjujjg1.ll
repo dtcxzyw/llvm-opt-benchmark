@@ -1603,8 +1603,8 @@ define void @_ZN11uu_unexpand16expand_shortcuts17h269854bfd6d57fe4E(ptr noalias 
   br label %_ZN4core4iter6traits8iterator8Iterator4fold17h5e6bc508209b4221E.exit
 
 _ZN4core4iter6traits8iterator8Iterator4fold17h5e6bc508209b4221E.exit: ; preds = %.noexc83, %115, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he97c5dc8e1592776E.exit", %.noexc79, %123, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he97c5dc8e1592776E.exit75"
-  %.156 = phi i1 [ %.055121, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he97c5dc8e1592776E.exit75" ], [ %.055121, %123 ], [ true, %.noexc79 ], [ %.055121, %115 ], [ %.055121, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he97c5dc8e1592776E.exit" ], [ true, %.noexc83 ]
-  %.1 = phi i1 [ %.0122, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he97c5dc8e1592776E.exit75" ], [ true, %123 ], [ %.0122, %.noexc79 ], [ %.0122, %115 ], [ %.0122, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he97c5dc8e1592776E.exit" ], [ %.0122, %.noexc83 ]
+  %.156 = phi i1 [ %.055121, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he97c5dc8e1592776E.exit75" ], [ %.055121, %123 ], [ %.055121, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he97c5dc8e1592776E.exit" ], [ true, %.noexc79 ], [ %.055121, %115 ], [ true, %.noexc83 ]
+  %.1 = phi i1 [ %.0122, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he97c5dc8e1592776E.exit75" ], [ true, %123 ], [ %.0122, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he97c5dc8e1592776E.exit" ], [ %.0122, %.noexc79 ], [ %.0122, %115 ], [ %.0122, %.noexc83 ]
   %124 = icmp eq ptr %44, %17
   br i1 %124, label %._crit_edge, label %43
 
@@ -3250,9 +3250,9 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit21.i: ; preds = %.noexc
   ret { ptr, ptr } %139
 
 _ZN11uu_unexpand4open17hd359cbb5c6c43d80E.exit:   ; preds = %"_ZN3std2io8buffered9bufreader18BufReader$LT$R$GT$13with_capacity17h461ccb031fb81592E.exit.i", %"_ZN3std2io8buffered9bufreader18BufReader$LT$R$GT$13with_capacity17h461ccb031fb81592E.exit29.i"
-  %.sroa.21.1 = phi ptr [ @anon.dda54dbbfc38043c1c797e6ccdd1c9eb.80, %"_ZN3std2io8buffered9bufreader18BufReader$LT$R$GT$13with_capacity17h461ccb031fb81592E.exit.i" ], [ @anon.dda54dbbfc38043c1c797e6ccdd1c9eb.79, %"_ZN3std2io8buffered9bufreader18BufReader$LT$R$GT$13with_capacity17h461ccb031fb81592E.exit29.i" ]
-  %.sroa.1989.1 = phi ptr [ %102, %"_ZN3std2io8buffered9bufreader18BufReader$LT$R$GT$13with_capacity17h461ccb031fb81592E.exit.i" ], [ %115, %"_ZN3std2io8buffered9bufreader18BufReader$LT$R$GT$13with_capacity17h461ccb031fb81592E.exit29.i" ]
-  %.sroa.088.0 = phi ptr [ %110, %"_ZN3std2io8buffered9bufreader18BufReader$LT$R$GT$13with_capacity17h461ccb031fb81592E.exit.i" ], [ %128, %"_ZN3std2io8buffered9bufreader18BufReader$LT$R$GT$13with_capacity17h461ccb031fb81592E.exit29.i" ]
+  %.sroa.21.1 = phi ptr [ @anon.dda54dbbfc38043c1c797e6ccdd1c9eb.79, %"_ZN3std2io8buffered9bufreader18BufReader$LT$R$GT$13with_capacity17h461ccb031fb81592E.exit29.i" ], [ @anon.dda54dbbfc38043c1c797e6ccdd1c9eb.80, %"_ZN3std2io8buffered9bufreader18BufReader$LT$R$GT$13with_capacity17h461ccb031fb81592E.exit.i" ]
+  %.sroa.1989.1 = phi ptr [ %115, %"_ZN3std2io8buffered9bufreader18BufReader$LT$R$GT$13with_capacity17h461ccb031fb81592E.exit29.i" ], [ %102, %"_ZN3std2io8buffered9bufreader18BufReader$LT$R$GT$13with_capacity17h461ccb031fb81592E.exit.i" ]
+  %.sroa.088.0 = phi ptr [ %128, %"_ZN3std2io8buffered9bufreader18BufReader$LT$R$GT$13with_capacity17h461ccb031fb81592E.exit29.i" ], [ %110, %"_ZN3std2io8buffered9bufreader18BufReader$LT$R$GT$13with_capacity17h461ccb031fb81592E.exit.i" ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.19, i8 0, i64 16, i1 false), !alias.scope !572, !noalias !575
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.692.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.19, i64 16, i1 false)
   store ptr %.sroa.088.0, ptr %20, align 8

@@ -4821,7 +4821,7 @@ _ZN6icu_7722TransliteratorRegistry17findInStaticStoreERKNS_18TransliteratorSpecE
           to label %_ZN6icu_7718TransliteratorSpec4nextEv.exit65 unwind label %.loopexit.split-lp73.loopexit
 
 _ZN6icu_7722TransliteratorRegistry17findInStaticStoreERKNS_18TransliteratorSpecES3_RKNS_13UnicodeStringE.exit: ; preds = %100, %77, %_ZN6icu_7722TransliteratorRegistry17findInStaticStoreERKNS_18TransliteratorSpecES3_RKNS_13UnicodeStringE.exit60, %52, %41, %_ZNK6icu_779Hashtable3getERKNS_13UnicodeStringE.exit
-  %.026 = phi ptr [ %83, %_ZN6icu_7722TransliteratorRegistry17findInStaticStoreERKNS_18TransliteratorSpecES3_RKNS_13UnicodeStringE.exit60 ], [ %17, %_ZNK6icu_779Hashtable3getERKNS_13UnicodeStringE.exit ], [ %35, %41 ], [ %51, %52 ], [ %72, %77 ], [ null, %100 ]
+  %.026 = phi ptr [ %83, %_ZN6icu_7722TransliteratorRegistry17findInStaticStoreERKNS_18TransliteratorSpecES3_RKNS_13UnicodeStringE.exit60 ], [ %17, %_ZNK6icu_779Hashtable3getERKNS_13UnicodeStringE.exit ], [ %35, %41 ], [ %72, %77 ], [ %51, %52 ], [ null, %100 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @_ZN6icu_7718TransliteratorSpecD1Ev(ptr noundef nonnull align 8 dereferenceable(280) %8) #18

@@ -1867,7 +1867,7 @@ define hidden range(i32 -1, 1) i32 @phar_get_entry_data(ptr noundef captures(add
   br i1 %114, label %.split162.us, label %.split153.us
 
 .split162.us:                                     ; preds = %91, %.preheader.split.split.us.split.us, %111
-  %.us-phi = phi ptr [ %105, %111 ], [ %73, %.preheader.split.split.us.split.us ], [ %83, %91 ]
+  %.us-phi = phi ptr [ %73, %.preheader.split.split.us.split.us ], [ %105, %111 ], [ %83, %91 ]
   br i1 %.not122, label %122, label %115
 
 115:                                              ; preds = %.split162.us
@@ -1886,7 +1886,7 @@ define hidden range(i32 -1, 1) i32 @phar_get_entry_data(ptr noundef captures(add
   br label %234
 
 .split151.us:                                     ; preds = %52, %.preheader.split.us.split.us.split.us, %69
-  %.us-phi167 = phi ptr [ %63, %69 ], [ %34, %.preheader.split.us.split.us.split.us ], [ %44, %52 ]
+  %.us-phi167 = phi ptr [ %34, %.preheader.split.us.split.us.split.us ], [ %63, %69 ], [ %44, %52 ]
   br i1 %.not122, label %130, label %123
 
 123:                                              ; preds = %.split151.us
@@ -1932,8 +1932,8 @@ define hidden range(i32 -1, 1) i32 @phar_get_entry_data(ptr noundef captures(add
   br label %234
 
 .split156.us:                                     ; preds = %95, %76, %56, %37
-  %142 = phi ptr [ %73, %76 ], [ %34, %37 ], [ %44, %56 ], [ %83, %95 ]
-  %.us-phi157 = phi ptr [ %74, %76 ], [ %35, %37 ], [ %54, %56 ], [ %93, %95 ]
+  %142 = phi ptr [ %73, %76 ], [ %44, %56 ], [ %34, %37 ], [ %83, %95 ]
+  %.us-phi157 = phi ptr [ %74, %76 ], [ %54, %56 ], [ %35, %37 ], [ %93, %95 ]
   %143 = getelementptr inbounds nuw i8, ptr %.us-phi157, i64 146
   %144 = load i16, ptr %143, align 2
   %145 = getelementptr inbounds nuw i8, ptr %.us-phi157, i64 104

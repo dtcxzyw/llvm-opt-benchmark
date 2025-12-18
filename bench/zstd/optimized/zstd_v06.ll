@@ -187,10 +187,10 @@ define i64 @FSEv06_readNCount(ptr noundef writeonly captures(none) %0, ptr nound
   br label %62
 
 62:                                               ; preds = %60, %._crit_edge185._crit_edge, %22
-  %.1132 = phi ptr [ %.0131194, %22 ], [ %57, %._crit_edge185._crit_edge ], [ %.2133.lcssa, %60 ]
-  %.1120 = phi i32 [ %.0119198, %22 ], [ %59, %._crit_edge185._crit_edge ], [ %61, %60 ]
-  %.1116 = phi i32 [ %.0115199, %22 ], [ %58, %._crit_edge185._crit_edge ], [ %44, %60 ]
-  %.1112 = phi i32 [ %.0111200, %22 ], [ %.3114.lcssa, %._crit_edge185._crit_edge ], [ %.3114.lcssa, %60 ]
+  %.1132 = phi ptr [ %.0131194, %22 ], [ %.2133.lcssa, %60 ], [ %57, %._crit_edge185._crit_edge ]
+  %.1120 = phi i32 [ %.0119198, %22 ], [ %61, %60 ], [ %59, %._crit_edge185._crit_edge ]
+  %.1116 = phi i32 [ %.0115199, %22 ], [ %44, %60 ], [ %58, %._crit_edge185._crit_edge ]
+  %.1112 = phi i32 [ %.0111200, %22 ], [ %.3114.lcssa, %60 ], [ %.3114.lcssa, %._crit_edge185._crit_edge ]
   %63 = shl nsw i32 %.0126197, 1
   %64 = add nsw i32 %63, -1
   %65 = sub nsw i32 %64, %.0128196
@@ -729,7 +729,7 @@ FSEv06_initDState.exit27:                         ; preds = %FSEv06_initDState.e
   %.038.i543 = phi ptr [ %194, %142 ], [ %0, %FSEv06_initDState.exit27 ]
   %.sroa.0.0542 = phi i64 [ %192, %142 ], [ %108, %FSEv06_initDState.exit27 ]
   %.sroa.0209.0541 = phi i64 [ %178, %142 ], [ %87, %FSEv06_initDState.exit27 ]
-  %.sroa.64220.0.idx540 = phi i64 [ %.sroa.64220.0.add.pn, %142 ], [ %.sroa.64220.6.idx, %FSEv06_initDState.exit27 ]
+  %.sroa.64220.0.idx540 = phi i64 [ %.sroa.64220.7.idx, %142 ], [ %.sroa.64220.6.idx, %FSEv06_initDState.exit27 ]
   %.sroa.29.0539 = phi i32 [ %190, %142 ], [ %.sroa.29.6, %FSEv06_initDState.exit27 ]
   %.sroa.0217.0538 = phi i64 [ %.sroa.0217.6, %142 ], [ %.sroa.0217.5, %FSEv06_initDState.exit27 ]
   %.not.i28 = icmp slt i64 %.sroa.64220.0.idx540, 8
@@ -757,11 +757,11 @@ FSEv06_initDState.exit27:                         ; preds = %FSEv06_initDState.e
   br label %BITv06_reloadDStream.exit
 
 BITv06_reloadDStream.exit:                        ; preds = %125, %131
-  %.pn = phi i64 [ %127, %125 ], [ %135, %131 ]
-  %.sroa.29.7 = phi i32 [ %128, %125 ], [ %137, %131 ]
-  %.025.i = phi i1 [ true, %125 ], [ %134, %131 ]
-  %.sroa.64220.0.add.pn = sub nsw i64 %.sroa.64220.0.idx540, %.pn
-  %.sroa.0217.6.in = getelementptr inbounds i8, ptr %2, i64 %.sroa.64220.0.add.pn
+  %.sroa.29.7 = phi i32 [ %137, %131 ], [ %128, %125 ]
+  %.pn = phi i64 [ %135, %131 ], [ %127, %125 ]
+  %.025.i = phi i1 [ %134, %131 ], [ true, %125 ]
+  %.sroa.64220.7.idx = sub nsw i64 %.sroa.64220.0.idx540, %.pn
+  %.sroa.0217.6.in = getelementptr inbounds i8, ptr %2, i64 %.sroa.64220.7.idx
   %.sroa.0217.6 = load i64, ptr %.sroa.0217.6.in, align 1
   %138 = icmp ult ptr %.038.i543, %9
   %139 = select i1 %.025.i, i1 %138, i1 false
@@ -771,7 +771,7 @@ BITv06_reloadDStream.exit:                        ; preds = %125, %131
   %.sroa.0209.0.lcssa = phi i64 [ %87, %FSEv06_initDState.exit27 ], [ %.sroa.0209.0541, %BITv06_reloadDStream.exit ], [ %178, %142 ], [ %.sroa.0209.0541, %129 ]
   %.sroa.0.0.lcssa = phi i64 [ %108, %FSEv06_initDState.exit27 ], [ %.sroa.0.0542, %BITv06_reloadDStream.exit ], [ %192, %142 ], [ %.sroa.0.0542, %129 ]
   %.038.i.lcssa = phi ptr [ %0, %FSEv06_initDState.exit27 ], [ %.038.i543, %BITv06_reloadDStream.exit ], [ %194, %142 ], [ %.038.i543, %129 ]
-  %.sroa.64220.7.idx485 = phi i64 [ %.sroa.64220.6.idx, %FSEv06_initDState.exit27 ], [ %.sroa.64220.0.add.pn, %BITv06_reloadDStream.exit ], [ %.sroa.64220.0.add.pn, %142 ], [ 0, %129 ]
+  %.sroa.64220.7.idx485 = phi i64 [ %.sroa.64220.6.idx, %FSEv06_initDState.exit27 ], [ %.sroa.64220.7.idx, %BITv06_reloadDStream.exit ], [ %.sroa.64220.7.idx, %142 ], [ 0, %129 ]
   %.sroa.29.7484 = phi i32 [ %.sroa.29.6, %FSEv06_initDState.exit27 ], [ %.sroa.29.7, %BITv06_reloadDStream.exit ], [ %190, %142 ], [ %.sroa.29.0539, %129 ]
   %.sroa.0217.6483 = phi i64 [ %.sroa.0217.5, %FSEv06_initDState.exit27 ], [ %.sroa.0217.6, %BITv06_reloadDStream.exit ], [ %.sroa.0217.6, %142 ], [ %.sroa.0217.0538, %129 ]
   %140 = getelementptr inbounds i8, ptr %8, i64 -2
@@ -1506,7 +1506,7 @@ BITv06_reloadDStream.exit195:                     ; preds = %505, %501, %507
   br label %FSEv06_decompress_usingDTable_generic.exit
 
 FSEv06_decompress_usingDTable_generic.exit:       ; preds = %BITv06_reloadDStream.exit92, %225, %BITv06_reloadDStream.exit195, %482, %.preheader399, %.preheader, %263, %266, %314, %11, %14, %62, %517, %BITv06_initDStream.exit103, %259, %BITv06_initDStream.exit
-  %.0 = phi i64 [ -1, %62 ], [ %3, %BITv06_initDStream.exit ], [ %262, %259 ], [ %3, %BITv06_initDStream.exit103 ], [ %520, %517 ], [ -72, %11 ], [ -1, %14 ], [ -72, %263 ], [ -1, %266 ], [ -1, %314 ], [ -70, %.preheader ], [ -70, %.preheader399 ], [ -70, %BITv06_reloadDStream.exit195 ], [ -70, %482 ], [ -70, %225 ], [ -70, %BITv06_reloadDStream.exit92 ]
+  %.0 = phi i64 [ -1, %62 ], [ %3, %BITv06_initDStream.exit ], [ %262, %259 ], [ -70, %.preheader ], [ -72, %263 ], [ %3, %BITv06_initDStream.exit103 ], [ %520, %517 ], [ -1, %314 ], [ -1, %266 ], [ -72, %11 ], [ -1, %14 ], [ -70, %.preheader399 ], [ -70, %BITv06_reloadDStream.exit195 ], [ -70, %482 ], [ -70, %225 ], [ -70, %BITv06_reloadDStream.exit92 ]
   ret i64 %.0
 }
 

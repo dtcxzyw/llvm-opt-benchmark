@@ -1273,7 +1273,7 @@ common.resume:                                    ; preds = %45, %92, %.body.i50
   br label %"_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17h072acbf96fe3b4cdE.llvm.16669866392210250976.exit"
 
 "_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17h072acbf96fe3b4cdE.llvm.16669866392210250976.exit": ; preds = %32, %79, %"_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17h072acbf96fe3b4cdE.llvm.16669866392210250976.exit.sink.split", %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17hee84bb38d82be597E.exit63", %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17hee84bb38d82be597E.exit57", %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17hee84bb38d82be597E.exit48", %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17hee84bb38d82be597E.exit"
-  %.sroa.0.0 = phi ptr [ %99, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17hee84bb38d82be597E.exit57" ], [ %67, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17hee84bb38d82be597E.exit48" ], [ %52, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17hee84bb38d82be597E.exit" ], [ %108, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17hee84bb38d82be597E.exit63" ], [ %.sink139, %"_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17h072acbf96fe3b4cdE.llvm.16669866392210250976.exit.sink.split" ], [ null, %79 ], [ null, %32 ]
+  %.sroa.0.0 = phi ptr [ %99, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17hee84bb38d82be597E.exit57" ], [ null, %79 ], [ %67, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17hee84bb38d82be597E.exit48" ], [ %52, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17hee84bb38d82be597E.exit" ], [ %108, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17hee84bb38d82be597E.exit63" ], [ %.sink139, %"_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17h072acbf96fe3b4cdE.llvm.16669866392210250976.exit.sink.split" ], [ null, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.sroa.0.0
 
@@ -1587,7 +1587,7 @@ common.resume:                                    ; preds = %45, %92, %.body.i50
   br label %"_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17h072acbf96fe3b4cdE.llvm.16669866392210250976.exit"
 
 "_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17h072acbf96fe3b4cdE.llvm.16669866392210250976.exit": ; preds = %32, %79, %"_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17h072acbf96fe3b4cdE.llvm.16669866392210250976.exit.sink.split", %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17he21b37fb30b1f6fbE.exit63", %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17he21b37fb30b1f6fbE.exit57", %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17he21b37fb30b1f6fbE.exit48", %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17he21b37fb30b1f6fbE.exit"
-  %.sroa.0.0 = phi ptr [ %99, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17he21b37fb30b1f6fbE.exit57" ], [ %67, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17he21b37fb30b1f6fbE.exit48" ], [ %52, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17he21b37fb30b1f6fbE.exit" ], [ %108, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17he21b37fb30b1f6fbE.exit63" ], [ %.sink139, %"_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17h072acbf96fe3b4cdE.llvm.16669866392210250976.exit.sink.split" ], [ null, %79 ], [ null, %32 ]
+  %.sroa.0.0 = phi ptr [ %99, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17he21b37fb30b1f6fbE.exit57" ], [ null, %79 ], [ %67, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17he21b37fb30b1f6fbE.exit48" ], [ %52, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17he21b37fb30b1f6fbE.exit" ], [ %108, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17he21b37fb30b1f6fbE.exit63" ], [ %.sink139, %"_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17h072acbf96fe3b4cdE.llvm.16669866392210250976.exit.sink.split" ], [ null, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.sroa.0.0
 
@@ -1901,7 +1901,7 @@ common.resume:                                    ; preds = %45, %92, %.body.i50
   br label %"_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17h072acbf96fe3b4cdE.llvm.16669866392210250976.exit"
 
 "_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17h072acbf96fe3b4cdE.llvm.16669866392210250976.exit": ; preds = %32, %79, %"_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17h072acbf96fe3b4cdE.llvm.16669866392210250976.exit.sink.split", %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h6c2c1860947aeef2E.exit63", %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h6c2c1860947aeef2E.exit57", %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h6c2c1860947aeef2E.exit48", %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h6c2c1860947aeef2E.exit"
-  %.sroa.0.0 = phi ptr [ %99, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h6c2c1860947aeef2E.exit57" ], [ %67, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h6c2c1860947aeef2E.exit48" ], [ %52, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h6c2c1860947aeef2E.exit" ], [ %108, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h6c2c1860947aeef2E.exit63" ], [ %.sink139, %"_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17h072acbf96fe3b4cdE.llvm.16669866392210250976.exit.sink.split" ], [ null, %79 ], [ null, %32 ]
+  %.sroa.0.0 = phi ptr [ %99, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h6c2c1860947aeef2E.exit57" ], [ null, %79 ], [ %67, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h6c2c1860947aeef2E.exit48" ], [ %52, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h6c2c1860947aeef2E.exit" ], [ %108, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h6c2c1860947aeef2E.exit63" ], [ %.sink139, %"_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17h072acbf96fe3b4cdE.llvm.16669866392210250976.exit.sink.split" ], [ null, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.sroa.0.0
 
@@ -2215,7 +2215,7 @@ common.resume:                                    ; preds = %45, %92, %.body.i50
   br label %"_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17h072acbf96fe3b4cdE.llvm.16669866392210250976.exit"
 
 "_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17h072acbf96fe3b4cdE.llvm.16669866392210250976.exit": ; preds = %32, %79, %"_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17h072acbf96fe3b4cdE.llvm.16669866392210250976.exit.sink.split", %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h5c907f426ae2d062E.exit63", %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h5c907f426ae2d062E.exit57", %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h5c907f426ae2d062E.exit48", %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h5c907f426ae2d062E.exit"
-  %.sroa.0.0 = phi ptr [ %99, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h5c907f426ae2d062E.exit57" ], [ %67, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h5c907f426ae2d062E.exit48" ], [ %52, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h5c907f426ae2d062E.exit" ], [ %108, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h5c907f426ae2d062E.exit63" ], [ %.sink139, %"_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17h072acbf96fe3b4cdE.llvm.16669866392210250976.exit.sink.split" ], [ null, %79 ], [ null, %32 ]
+  %.sroa.0.0 = phi ptr [ %99, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h5c907f426ae2d062E.exit57" ], [ null, %79 ], [ %67, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h5c907f426ae2d062E.exit48" ], [ %52, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h5c907f426ae2d062E.exit" ], [ %108, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h5c907f426ae2d062E.exit63" ], [ %.sink139, %"_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17h072acbf96fe3b4cdE.llvm.16669866392210250976.exit.sink.split" ], [ null, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.sroa.0.0
 
@@ -2530,7 +2530,7 @@ common.resume:                                    ; preds = %43, %90, %.body.i50
   br label %"_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17h072acbf96fe3b4cdE.llvm.16669866392210250976.exit"
 
 "_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17h072acbf96fe3b4cdE.llvm.16669866392210250976.exit": ; preds = %30, %77, %"_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17h072acbf96fe3b4cdE.llvm.16669866392210250976.exit.sink.split", %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h905570f280354421E.exit63", %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h905570f280354421E.exit57", %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h905570f280354421E.exit48", %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h905570f280354421E.exit"
-  %.sroa.0.0 = phi ptr [ %97, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h905570f280354421E.exit57" ], [ %65, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h905570f280354421E.exit48" ], [ %50, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h905570f280354421E.exit" ], [ %106, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h905570f280354421E.exit63" ], [ %.sink76, %"_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17h072acbf96fe3b4cdE.llvm.16669866392210250976.exit.sink.split" ], [ null, %77 ], [ null, %30 ]
+  %.sroa.0.0 = phi ptr [ %97, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h905570f280354421E.exit57" ], [ null, %77 ], [ %65, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h905570f280354421E.exit48" ], [ %50, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h905570f280354421E.exit" ], [ %106, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h905570f280354421E.exit63" ], [ %.sink76, %"_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17h072acbf96fe3b4cdE.llvm.16669866392210250976.exit.sink.split" ], [ null, %30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.sroa.0.0
 
@@ -2845,7 +2845,7 @@ common.resume:                                    ; preds = %45, %92, %.body.i50
   br label %"_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17h072acbf96fe3b4cdE.llvm.16669866392210250976.exit"
 
 "_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17h072acbf96fe3b4cdE.llvm.16669866392210250976.exit": ; preds = %32, %79, %"_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17h072acbf96fe3b4cdE.llvm.16669866392210250976.exit.sink.split", %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17ha5b2b6ac1adc3a46E.exit63", %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17ha5b2b6ac1adc3a46E.exit57", %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17ha5b2b6ac1adc3a46E.exit48", %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17ha5b2b6ac1adc3a46E.exit"
-  %.sroa.0.0 = phi ptr [ %99, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17ha5b2b6ac1adc3a46E.exit57" ], [ %67, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17ha5b2b6ac1adc3a46E.exit48" ], [ %52, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17ha5b2b6ac1adc3a46E.exit" ], [ %108, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17ha5b2b6ac1adc3a46E.exit63" ], [ %.sink139, %"_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17h072acbf96fe3b4cdE.llvm.16669866392210250976.exit.sink.split" ], [ null, %79 ], [ null, %32 ]
+  %.sroa.0.0 = phi ptr [ %99, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17ha5b2b6ac1adc3a46E.exit57" ], [ null, %79 ], [ %67, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17ha5b2b6ac1adc3a46E.exit48" ], [ %52, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17ha5b2b6ac1adc3a46E.exit" ], [ %108, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17ha5b2b6ac1adc3a46E.exit63" ], [ %.sink139, %"_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17h072acbf96fe3b4cdE.llvm.16669866392210250976.exit.sink.split" ], [ null, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.sroa.0.0
 
@@ -3159,7 +3159,7 @@ common.resume:                                    ; preds = %45, %92, %.body.i50
   br label %"_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17h072acbf96fe3b4cdE.llvm.16669866392210250976.exit"
 
 "_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17h072acbf96fe3b4cdE.llvm.16669866392210250976.exit": ; preds = %32, %79, %"_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17h072acbf96fe3b4cdE.llvm.16669866392210250976.exit.sink.split", %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h305c0293b5758425E.exit63", %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h305c0293b5758425E.exit57", %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h305c0293b5758425E.exit48", %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h305c0293b5758425E.exit"
-  %.sroa.0.0 = phi ptr [ %99, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h305c0293b5758425E.exit57" ], [ %67, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h305c0293b5758425E.exit48" ], [ %52, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h305c0293b5758425E.exit" ], [ %108, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h305c0293b5758425E.exit63" ], [ %.sink139, %"_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17h072acbf96fe3b4cdE.llvm.16669866392210250976.exit.sink.split" ], [ null, %79 ], [ null, %32 ]
+  %.sroa.0.0 = phi ptr [ %99, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h305c0293b5758425E.exit57" ], [ null, %79 ], [ %67, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h305c0293b5758425E.exit48" ], [ %52, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h305c0293b5758425E.exit" ], [ %108, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h305c0293b5758425E.exit63" ], [ %.sink139, %"_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17h072acbf96fe3b4cdE.llvm.16669866392210250976.exit.sink.split" ], [ null, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.sroa.0.0
 
@@ -3473,7 +3473,7 @@ common.resume:                                    ; preds = %45, %92, %.body.i50
   br label %"_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17h072acbf96fe3b4cdE.llvm.16669866392210250976.exit"
 
 "_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17h072acbf96fe3b4cdE.llvm.16669866392210250976.exit": ; preds = %32, %79, %"_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17h072acbf96fe3b4cdE.llvm.16669866392210250976.exit.sink.split", %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17hde98b89b2ac4a188E.exit63", %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17hde98b89b2ac4a188E.exit57", %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17hde98b89b2ac4a188E.exit48", %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17hde98b89b2ac4a188E.exit"
-  %.sroa.0.0 = phi ptr [ %99, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17hde98b89b2ac4a188E.exit57" ], [ %67, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17hde98b89b2ac4a188E.exit48" ], [ %52, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17hde98b89b2ac4a188E.exit" ], [ %108, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17hde98b89b2ac4a188E.exit63" ], [ %.sink139, %"_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17h072acbf96fe3b4cdE.llvm.16669866392210250976.exit.sink.split" ], [ null, %79 ], [ null, %32 ]
+  %.sroa.0.0 = phi ptr [ %99, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17hde98b89b2ac4a188E.exit57" ], [ null, %79 ], [ %67, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17hde98b89b2ac4a188E.exit48" ], [ %52, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17hde98b89b2ac4a188E.exit" ], [ %108, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17hde98b89b2ac4a188E.exit63" ], [ %.sink139, %"_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17h072acbf96fe3b4cdE.llvm.16669866392210250976.exit.sink.split" ], [ null, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.sroa.0.0
 
@@ -3787,7 +3787,7 @@ common.resume:                                    ; preds = %45, %92, %.body.i50
   br label %"_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17h072acbf96fe3b4cdE.llvm.16669866392210250976.exit"
 
 "_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17h072acbf96fe3b4cdE.llvm.16669866392210250976.exit": ; preds = %32, %79, %"_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17h072acbf96fe3b4cdE.llvm.16669866392210250976.exit.sink.split", %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h4eaa8b94530a17f0E.exit63", %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h4eaa8b94530a17f0E.exit57", %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h4eaa8b94530a17f0E.exit48", %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h4eaa8b94530a17f0E.exit"
-  %.sroa.0.0 = phi ptr [ %99, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h4eaa8b94530a17f0E.exit57" ], [ %67, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h4eaa8b94530a17f0E.exit48" ], [ %52, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h4eaa8b94530a17f0E.exit" ], [ %108, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h4eaa8b94530a17f0E.exit63" ], [ %.sink139, %"_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17h072acbf96fe3b4cdE.llvm.16669866392210250976.exit.sink.split" ], [ null, %79 ], [ null, %32 ]
+  %.sroa.0.0 = phi ptr [ %99, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h4eaa8b94530a17f0E.exit57" ], [ null, %79 ], [ %67, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h4eaa8b94530a17f0E.exit48" ], [ %52, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h4eaa8b94530a17f0E.exit" ], [ %108, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h4eaa8b94530a17f0E.exit63" ], [ %.sink139, %"_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17h072acbf96fe3b4cdE.llvm.16669866392210250976.exit.sink.split" ], [ null, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.sroa.0.0
 
@@ -17491,10 +17491,10 @@ _ZN4core3ops8function6FnOnce9call_once17h04b3e2920b2c5cf6E.exit.i: ; preds = %2
           to label %36 unwind label %113
 
 102:                                              ; preds = %52, %96
-  %.sroa.8.0 = phi i64 [ %94, %96 ], [ 21, %52 ]
-  %.sroa.7.1 = phi i64 [ %.sroa.3.sroa.2.0.copyload.i.i, %96 ], [ %.sroa.7.0, %52 ]
-  %.sroa.6.1 = phi ptr [ %.sroa.3.sroa.0.0.copyload.i.i, %96 ], [ %.sroa.6.0, %52 ]
-  %.sroa.0.1 = phi i64 [ %.sroa.0.0.copyload.i.i, %96 ], [ %.sroa.0.0, %52 ]
+  %.sroa.8.0 = phi i64 [ 21, %52 ], [ %94, %96 ]
+  %.sroa.7.1 = phi i64 [ %.sroa.7.0, %52 ], [ %.sroa.3.sroa.2.0.copyload.i.i, %96 ]
+  %.sroa.6.1 = phi ptr [ %.sroa.6.0, %52 ], [ %.sroa.3.sroa.0.0.copyload.i.i, %96 ]
+  %.sroa.0.1 = phi i64 [ %.sroa.0.0, %52 ], [ %.sroa.0.0.copyload.i.i, %96 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !4613
   %103 = icmp eq i64 %.sroa.8.0, 21
   br i1 %103, label %110, label %105
@@ -98879,7 +98879,7 @@ define hidden void @"_ZN74_$LT$zvariant..value..ValueSeed$LT$T$GT$$u20$as$u20$se
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %.loopexit85
 
-.thread81:                                        ; preds = %107, %108, %111
+.thread81:                                        ; preds = %111, %108, %107
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.578)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -99587,7 +99587,7 @@ define internal fastcc void @"_ZN74_$LT$zvariant..value..ValueSeed$LT$T$GT$$u20$
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %.loopexit74
 
-.thread70:                                        ; preds = %129, %130, %133
+.thread70:                                        ; preds = %133, %130, %129
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.567)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %152
@@ -101184,7 +101184,7 @@ define internal fastcc void @"_ZN74_$LT$zvariant..value..ValueSeed$LT$T$GT$$u20$
   br label %440
 
 438:                                              ; preds = %"_ZN4core3ptr51drop_in_place$LT$zvariant..value..SignatureSeed$GT$17h9b0ff37b1fdf768cE.exit.sink.split.i", %166, %"_ZN4core3ptr51drop_in_place$LT$zvariant..signature..Signature$GT$17h975e78ca3ab0678aE.exit27.i"
-  %.sroa.0.2 = phi i64 [ %.sroa.0.0.copyload57, %166 ], [ %.sroa.0.0.copyload57, %"_ZN4core3ptr51drop_in_place$LT$zvariant..signature..Signature$GT$17h975e78ca3ab0678aE.exit27.i" ], [ %.sroa.0.1, %"_ZN4core3ptr51drop_in_place$LT$zvariant..value..SignatureSeed$GT$17h9b0ff37b1fdf768cE.exit.sink.split.i" ]
+  %.sroa.0.2 = phi i64 [ %.sroa.0.1, %"_ZN4core3ptr51drop_in_place$LT$zvariant..value..SignatureSeed$GT$17h9b0ff37b1fdf768cE.exit.sink.split.i" ], [ %.sroa.0.0.copyload57, %166 ], [ %.sroa.0.0.copyload57, %"_ZN4core3ptr51drop_in_place$LT$zvariant..signature..Signature$GT$17h975e78ca3ab0678aE.exit27.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
   %439 = icmp eq i64 %.sroa.0.2, 3
@@ -102585,7 +102585,7 @@ define hidden void @"_ZN74_$LT$zvariant..value..ValueSeed$LT$T$GT$$u20$as$u20$se
   br label %399
 
 397:                                              ; preds = %"_ZN4core3ptr51drop_in_place$LT$zvariant..value..SignatureSeed$GT$17h9b0ff37b1fdf768cE.exit.sink.split.i", %146, %"_ZN4core3ptr51drop_in_place$LT$zvariant..signature..Signature$GT$17h975e78ca3ab0678aE.exit26.i"
-  %.sroa.0.2 = phi i64 [ %.sroa.0.0.copyload56, %146 ], [ %.sroa.0.0.copyload56, %"_ZN4core3ptr51drop_in_place$LT$zvariant..signature..Signature$GT$17h975e78ca3ab0678aE.exit26.i" ], [ %.sroa.0.1, %"_ZN4core3ptr51drop_in_place$LT$zvariant..value..SignatureSeed$GT$17h9b0ff37b1fdf768cE.exit.sink.split.i" ]
+  %.sroa.0.2 = phi i64 [ %.sroa.0.1, %"_ZN4core3ptr51drop_in_place$LT$zvariant..value..SignatureSeed$GT$17h9b0ff37b1fdf768cE.exit.sink.split.i" ], [ %.sroa.0.0.copyload56, %146 ], [ %.sroa.0.0.copyload56, %"_ZN4core3ptr51drop_in_place$LT$zvariant..signature..Signature$GT$17h975e78ca3ab0678aE.exit26.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   %398 = icmp eq i64 %.sroa.0.2, 3
@@ -103982,7 +103982,7 @@ define internal fastcc void @"_ZN74_$LT$zvariant..value..ValueSeed$LT$T$GT$$u20$
   br label %396
 
 394:                                              ; preds = %"_ZN4core3ptr51drop_in_place$LT$zvariant..value..SignatureSeed$GT$17h9b0ff37b1fdf768cE.exit.sink.split.i", %143, %"_ZN4core3ptr51drop_in_place$LT$zvariant..signature..Signature$GT$17h975e78ca3ab0678aE.exit26.i"
-  %.sroa.0.2 = phi i64 [ %.sroa.0.0.copyload56, %143 ], [ %.sroa.0.0.copyload56, %"_ZN4core3ptr51drop_in_place$LT$zvariant..signature..Signature$GT$17h975e78ca3ab0678aE.exit26.i" ], [ %.sroa.0.1, %"_ZN4core3ptr51drop_in_place$LT$zvariant..value..SignatureSeed$GT$17h9b0ff37b1fdf768cE.exit.sink.split.i" ]
+  %.sroa.0.2 = phi i64 [ %.sroa.0.1, %"_ZN4core3ptr51drop_in_place$LT$zvariant..value..SignatureSeed$GT$17h9b0ff37b1fdf768cE.exit.sink.split.i" ], [ %.sroa.0.0.copyload56, %143 ], [ %.sroa.0.0.copyload56, %"_ZN4core3ptr51drop_in_place$LT$zvariant..signature..Signature$GT$17h975e78ca3ab0678aE.exit26.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   %395 = icmp eq i64 %.sroa.0.2, 3
@@ -105383,7 +105383,7 @@ define hidden void @"_ZN74_$LT$zvariant..value..ValueSeed$LT$T$GT$$u20$as$u20$se
   br label %399
 
 397:                                              ; preds = %"_ZN4core3ptr51drop_in_place$LT$zvariant..value..SignatureSeed$GT$17h9b0ff37b1fdf768cE.exit.sink.split.i", %146, %"_ZN4core3ptr51drop_in_place$LT$zvariant..signature..Signature$GT$17h975e78ca3ab0678aE.exit26.i"
-  %.sroa.0.2 = phi i64 [ %.sroa.0.0.copyload56, %146 ], [ %.sroa.0.0.copyload56, %"_ZN4core3ptr51drop_in_place$LT$zvariant..signature..Signature$GT$17h975e78ca3ab0678aE.exit26.i" ], [ %.sroa.0.1, %"_ZN4core3ptr51drop_in_place$LT$zvariant..value..SignatureSeed$GT$17h9b0ff37b1fdf768cE.exit.sink.split.i" ]
+  %.sroa.0.2 = phi i64 [ %.sroa.0.1, %"_ZN4core3ptr51drop_in_place$LT$zvariant..value..SignatureSeed$GT$17h9b0ff37b1fdf768cE.exit.sink.split.i" ], [ %.sroa.0.0.copyload56, %146 ], [ %.sroa.0.0.copyload56, %"_ZN4core3ptr51drop_in_place$LT$zvariant..signature..Signature$GT$17h975e78ca3ab0678aE.exit26.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   %398 = icmp eq i64 %.sroa.0.2, 3
@@ -106957,7 +106957,7 @@ define hidden void @"_ZN74_$LT$zvariant..value..ValueSeed$LT$T$GT$$u20$as$u20$se
   br label %445
 
 443:                                              ; preds = %"_ZN4core3ptr51drop_in_place$LT$zvariant..value..SignatureSeed$GT$17h9b0ff37b1fdf768cE.exit32.sink.split.i", %173, %"_ZN4core3ptr86drop_in_place$LT$zvariant..gvariant..de..ArrayDeserializer$LT$zvariant..fd..Fd$GT$$GT$17h062b80dcfb481ad4E.exit.i"
-  %.sroa.0.2 = phi i64 [ %.sroa.0.0.copyload69, %173 ], [ %.sroa.0.0.copyload69, %"_ZN4core3ptr86drop_in_place$LT$zvariant..gvariant..de..ArrayDeserializer$LT$zvariant..fd..Fd$GT$$GT$17h062b80dcfb481ad4E.exit.i" ], [ %.sroa.0.1, %"_ZN4core3ptr51drop_in_place$LT$zvariant..value..SignatureSeed$GT$17h9b0ff37b1fdf768cE.exit32.sink.split.i" ]
+  %.sroa.0.2 = phi i64 [ %.sroa.0.1, %"_ZN4core3ptr51drop_in_place$LT$zvariant..value..SignatureSeed$GT$17h9b0ff37b1fdf768cE.exit32.sink.split.i" ], [ %.sroa.0.0.copyload69, %173 ], [ %.sroa.0.0.copyload69, %"_ZN4core3ptr86drop_in_place$LT$zvariant..gvariant..de..ArrayDeserializer$LT$zvariant..fd..Fd$GT$$GT$17h062b80dcfb481ad4E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   %444 = icmp eq i64 %.sroa.0.2, 3
@@ -143378,8 +143378,8 @@ define internal fastcc void @"_ZN8zvariant4dbus2de26ArrayDeserializer$LT$F$GT$4n
   call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17he5e2a034a6116eaaE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %112)
   br label %"_ZN4core3ptr77drop_in_place$LT$zvariant..value..ValueSeed$LT$zvariant..value..Value$GT$$GT$17ha05ad376eb54817dE.exit"
 
-"_ZN4core3ptr77drop_in_place$LT$zvariant..value..ValueSeed$LT$zvariant..value..Value$GT$$GT$17ha05ad376eb54817dE.exit61": ; preds = %58, %56, %63, %118, %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.thread", %123
-  %.pn4083 = phi { ptr, i32 } [ %.pn4084, %118 ], [ %.pn38, %58 ], [ %.pn4084, %123 ], [ %.pn4084, %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.thread" ], [ %.pn38, %63 ], [ %.pn38, %56 ]
+"_ZN4core3ptr77drop_in_place$LT$zvariant..value..ValueSeed$LT$zvariant..value..Value$GT$$GT$17ha05ad376eb54817dE.exit61": ; preds = %63, %56, %58, %118, %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.thread", %123
+  %.pn4083 = phi { ptr, i32 } [ %.pn4084, %118 ], [ %.pn38, %63 ], [ %.pn4084, %123 ], [ %.pn4084, %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.thread" ], [ %.pn38, %58 ], [ %.pn38, %56 ]
   resume { ptr, i32 } %.pn4083
 
 "_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit.thread": ; preds = %30, %38, %33, %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hb162a350888b1dddE.exit"
@@ -159017,7 +159017,7 @@ define hidden void @"_ZN97_$LT$$RF$mut$u20$zvariant..dbus..de..Deserializer$LT$F
   br label %436
 
 .noexc200:                                        ; preds = %"_ZN4core3ptr51drop_in_place$LT$zvariant..value..SignatureSeed$GT$17h9b0ff37b1fdf768cE.exit.sink.split.i.i", %184, %"_ZN4core3ptr51drop_in_place$LT$zvariant..signature..Signature$GT$17h975e78ca3ab0678aE.exit26.i.i"
-  %.sroa.0.2.i = phi i64 [ %.sroa.0.0.copyload56.i, %184 ], [ %.sroa.0.0.copyload56.i, %"_ZN4core3ptr51drop_in_place$LT$zvariant..signature..Signature$GT$17h975e78ca3ab0678aE.exit26.i.i" ], [ %.sroa.0.1.i, %"_ZN4core3ptr51drop_in_place$LT$zvariant..value..SignatureSeed$GT$17h9b0ff37b1fdf768cE.exit.sink.split.i.i" ]
+  %.sroa.0.2.i = phi i64 [ %.sroa.0.0.copyload56.i, %"_ZN4core3ptr51drop_in_place$LT$zvariant..signature..Signature$GT$17h975e78ca3ab0678aE.exit26.i.i" ], [ %.sroa.0.0.copyload56.i, %184 ], [ %.sroa.0.1.i, %"_ZN4core3ptr51drop_in_place$LT$zvariant..value..SignatureSeed$GT$17h9b0ff37b1fdf768cE.exit.sink.split.i.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %35), !noalias !41845
   %435 = icmp eq i64 %.sroa.0.2.i, 3
@@ -161154,10 +161154,10 @@ common.resume:                                    ; preds = %208, %200, %203, %2
   resume { ptr, i32 } %common.resume.op
 
 _ZN5serde2de9SeqAccess12next_element17ha54bf7bef280f4f8E.exit.thread44.loopexit.i: ; preds = %"_ZN4core3ptr77drop_in_place$LT$zvariant..dbus..de..Deserializer$LT$zvariant..fd..Fd$GT$$GT$17habfb7aa50c2028abE.exit152.i.i.i", %65
-  %.sroa.15.sroa.13.sroa.0.3.in.in.i = phi i32 [ %.sroa.15.0.copyload7.i, %65 ], [ %.sroa.15.0.copyload5.i, %"_ZN4core3ptr77drop_in_place$LT$zvariant..dbus..de..Deserializer$LT$zvariant..fd..Fd$GT$$GT$17habfb7aa50c2028abE.exit152.i.i.i" ]
-  %.sroa.22.1.i = phi i64 [ %.sroa.22.0.copyload18.i, %65 ], [ %.sroa.22.0.copyload16.i, %"_ZN4core3ptr77drop_in_place$LT$zvariant..dbus..de..Deserializer$LT$zvariant..fd..Fd$GT$$GT$17habfb7aa50c2028abE.exit152.i.i.i" ]
-  %.sroa.2110.1.i = phi i64 [ %.sroa.2110.0.copyload14.i, %65 ], [ %.sroa.2110.0.copyload12.i, %"_ZN4core3ptr77drop_in_place$LT$zvariant..dbus..de..Deserializer$LT$zvariant..fd..Fd$GT$$GT$17habfb7aa50c2028abE.exit152.i.i.i" ]
-  %.sroa.0.2.i = phi i64 [ %.sroa.0.0.copyload3.i, %65 ], [ %.sroa.0.0.copyload2.i, %"_ZN4core3ptr77drop_in_place$LT$zvariant..dbus..de..Deserializer$LT$zvariant..fd..Fd$GT$$GT$17habfb7aa50c2028abE.exit152.i.i.i" ]
+  %.sroa.15.sroa.13.sroa.0.3.in.in.i = phi i32 [ %.sroa.15.0.copyload5.i, %"_ZN4core3ptr77drop_in_place$LT$zvariant..dbus..de..Deserializer$LT$zvariant..fd..Fd$GT$$GT$17habfb7aa50c2028abE.exit152.i.i.i" ], [ %.sroa.15.0.copyload7.i, %65 ]
+  %.sroa.22.1.i = phi i64 [ %.sroa.22.0.copyload16.i, %"_ZN4core3ptr77drop_in_place$LT$zvariant..dbus..de..Deserializer$LT$zvariant..fd..Fd$GT$$GT$17habfb7aa50c2028abE.exit152.i.i.i" ], [ %.sroa.22.0.copyload18.i, %65 ]
+  %.sroa.2110.1.i = phi i64 [ %.sroa.2110.0.copyload12.i, %"_ZN4core3ptr77drop_in_place$LT$zvariant..dbus..de..Deserializer$LT$zvariant..fd..Fd$GT$$GT$17habfb7aa50c2028abE.exit152.i.i.i" ], [ %.sroa.2110.0.copyload14.i, %65 ]
+  %.sroa.0.2.i = phi i64 [ %.sroa.0.0.copyload2.i, %"_ZN4core3ptr77drop_in_place$LT$zvariant..dbus..de..Deserializer$LT$zvariant..fd..Fd$GT$$GT$17habfb7aa50c2028abE.exit152.i.i.i" ], [ %.sroa.0.0.copyload3.i, %65 ]
   %.sroa.15.sroa.13.sroa.0.3.in.i = and i32 %.sroa.15.sroa.13.sroa.0.3.in.in.i, -256
   %.sroa.15.sroa.0.3.le.i = trunc i32 %.sroa.15.sroa.13.sroa.0.3.in.in.i to i8
   br label %_ZN5serde2de9SeqAccess12next_element17ha54bf7bef280f4f8E.exit.thread44.i

@@ -289,7 +289,7 @@ define range(i32 0, -1) i32 @If_CluHashKey2(ptr noundef readonly captures(none) 
   br i1 %exitcond.not, label %.loopexit, label %18, !llvm.loop !25
 
 .loopexit:                                        ; preds = %18, %.lr.ph, %.preheader
-  %.1 = phi i32 [ 0, %.preheader ], [ %17, %.lr.ph ], [ %27, %18 ]
+  %.1 = phi i32 [ %17, %.lr.ph ], [ 0, %.preheader ], [ %27, %18 ]
   %28 = urem i32 %.1, %2
   ret i32 %28
 }
@@ -478,7 +478,7 @@ If_CluPrimeCudd2.exit151:                         ; preds = %.preheader.i146, %5
   br i1 %exitcond.not.i, label %If_CluHashKey2.exit, label %85, !llvm.loop !25
 
 If_CluHashKey2.exit:                              ; preds = %85, %.lr.ph.i153, %.preheader.i152
-  %.1.i = phi i32 [ 0, %.preheader.i152 ], [ %84, %.lr.ph.i153 ], [ %94, %85 ]
+  %.1.i = phi i32 [ %84, %.lr.ph.i153 ], [ 0, %.preheader.i152 ], [ %94, %85 ]
   %95 = urem i32 %.1.i, %68
   %96 = sext i32 %95 to i64
   %97 = getelementptr inbounds ptr, ptr %67, i64 %96
@@ -713,7 +713,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %exitcond.not.i160, label %If_CluHashKey2.exit170, label %.preheader22.i155, !llvm.loop !25
 
 If_CluHashKey2.exit170:                           ; preds = %.preheader22.i155, %.lr.ph.i165, %.preheader.i162
-  %.1.i161 = phi i32 [ 0, %.preheader.i162 ], [ %192, %.lr.ph.i165 ], [ %201, %.preheader22.i155 ]
+  %.1.i161 = phi i32 [ %192, %.lr.ph.i165 ], [ 0, %.preheader.i162 ], [ %201, %.preheader22.i155 ]
   %202 = urem i32 %.1.i161, %175
   %203 = load ptr, ptr %23, align 8, !tbaa !15
   %204 = sext i32 %202 to i64
@@ -1507,7 +1507,7 @@ Abc_TtSwapVars.exit.i:                            ; preds = %._crit_edge124.spli
   br label %Abc_TtHasVar.exit.thread.i
 
 Abc_TtHasVar.exit.thread.i:                       ; preds = %._crit_edge.us.i.i, %81, %Abc_TtSwapVars.exit.i, %.preheader.lr.ph.i.i, %88, %75
-  %.1.i = phi i32 [ %178, %Abc_TtSwapVars.exit.i ], [ %.019.i, %88 ], [ %.019.i, %75 ], [ %.019.i, %.preheader.lr.ph.i.i ], [ %.019.i, %81 ], [ %.019.i, %._crit_edge.us.i.i ]
+  %.1.i = phi i32 [ %178, %Abc_TtSwapVars.exit.i ], [ %.019.i, %81 ], [ %.019.i, %.preheader.lr.ph.i.i ], [ %.019.i, %88 ], [ %.019.i, %75 ], [ %.019.i, %._crit_edge.us.i.i ]
   %indvars.iv.next.i30 = add nuw nsw i64 %indvars.iv.i29, 1
   %exitcond.not.i31 = icmp eq i64 %indvars.iv.next.i30, %wide.trip.count.i
   br i1 %exitcond.not.i31, label %Abc_TtMinBase.exit, label %.lr.ph.split.i, !llvm.loop !74

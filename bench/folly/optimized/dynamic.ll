@@ -5345,7 +5345,7 @@ _ZN5folly3f146detail21NodeContainerIteratorIPKSt4pairIKNS_7dynamicES4_EEppEv.exi
   unreachable
 
 _ZSteqIN5folly7dynamicESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit: ; preds = %_ZN5folly3f146detail21NodeContainerIteratorIPKSt4pairIKNS_7dynamicES4_EEppEv.exit.i, %.critedge.i.i.i, %.lr.ph, %.lr.ph.preheader.i, %89, %83, %.preheader, %140, %138, %130, %46, %45, %6, %77, %71, %65, %_ZNK5folly7dynamic8asDoubleEv.exit
-  %.0 = phi i1 [ %44, %_ZNK5folly7dynamic8asDoubleEv.exit ], [ false, %130 ], [ false, %6 ], [ true, %45 ], [ %70, %65 ], [ %76, %71 ], [ %82, %77 ], [ true, %138 ], [ false, %46 ], [ %143, %140 ], [ true, %.preheader ], [ false, %83 ], [ true, %89 ], [ false, %.lr.ph.preheader.i ], [ true, %.critedge.i.i.i ], [ %62, %.lr.ph ], [ false, %_ZN5folly3f146detail21NodeContainerIteratorIPKSt4pairIKNS_7dynamicES4_EEppEv.exit.i ]
+  %.0 = phi i1 [ %44, %_ZNK5folly7dynamic8asDoubleEv.exit ], [ false, %130 ], [ false, %6 ], [ true, %45 ], [ %70, %65 ], [ %76, %71 ], [ %82, %77 ], [ true, %.critedge.i.i.i ], [ true, %138 ], [ false, %46 ], [ %143, %140 ], [ true, %.preheader ], [ %62, %.lr.ph ], [ false, %83 ], [ true, %89 ], [ false, %.lr.ph.preheader.i ], [ false, %_ZN5folly3f146detail21NodeContainerIteratorIPKSt4pairIKNS_7dynamicES4_EEppEv.exit.i ]
   ret i1 %.0
 }
 
@@ -5645,7 +5645,7 @@ _ZNKR5folly7dynamic9getStringB5cxx11Ev.exit:      ; preds = %1
   unreachable
 
 "_ZSt10accumulateIN5folly7dynamic19const_item_iteratorEmZNKS1_4hashEvE3$_0ET0_T_S5_S4_T1_.exit": ; preds = %.lr.ph, %.critedge.i.i.i.i, %_ZNK5folly7dynamic3endEv.exit, %_ZNK5folly7dynamic5itemsEv.exit7, %89, %102, %104, %1, %_ZNKR5folly7dynamic9getStringB5cxx11Ev.exit, %_ZNKR5folly7dynamic7getBoolEv.exit, %_ZNKR5folly7dynamic6getIntEv.exit
-  %.0 = phi i64 [ %126, %_ZNKR5folly7dynamic9getStringB5cxx11Ev.exit ], [ 3131746989, %1 ], [ %83, %_ZNKR5folly7dynamic6getIntEv.exit ], [ %121, %_ZNKR5folly7dynamic7getBoolEv.exit ], [ %101, %89 ], [ %117, %104 ], [ 0, %102 ], [ 728775, %_ZNK5folly7dynamic5itemsEv.exit7 ], [ 0, %_ZNK5folly7dynamic3endEv.exit ], [ %27, %.critedge.i.i.i.i ], [ %68, %.lr.ph ]
+  %.0 = phi i64 [ %126, %_ZNKR5folly7dynamic9getStringB5cxx11Ev.exit ], [ 3131746989, %1 ], [ 0, %102 ], [ %83, %_ZNKR5folly7dynamic6getIntEv.exit ], [ %27, %.critedge.i.i.i.i ], [ %121, %_ZNKR5folly7dynamic7getBoolEv.exit ], [ %101, %89 ], [ %117, %104 ], [ 728775, %_ZNK5folly7dynamic5itemsEv.exit7 ], [ 0, %_ZNK5folly7dynamic3endEv.exit ], [ %68, %.lr.ph ]
   ret i64 %.0
 }
 
@@ -7206,7 +7206,7 @@ _ZN5folly3f146detail8F14TableINS1_19NodeContainerPolicyINS_7dynamicES4_NS_6detai
   br i1 %.not135, label %.loopexit, label %.lr.ph194
 
 .loopexit:                                        ; preds = %_ZN5folly3f146detail8F14TableINS1_19NodeContainerPolicyINS_7dynamicES4_NS_6detail13DynamicHasherENS5_15DynamicKeyEqualEvEEE13insertAtBlankIJRKSt4pairIKS4_S4_EEEEvNS1_11F14ItemIterIPNS1_8F14ChunkIPSD_EEEESB_ImmEDpOT_.exit87, %118, %26
-  %209 = phi i64 [ %27, %26 ], [ %123, %118 ], [ %208, %_ZN5folly3f146detail8F14TableINS1_19NodeContainerPolicyINS_7dynamicES4_NS_6detail13DynamicHasherENS5_15DynamicKeyEqualEvEEE13insertAtBlankIJRKSt4pairIKS4_S4_EEEEvNS1_11F14ItemIterIPNS1_8F14ChunkIPSD_EEEESB_ImmEDpOT_.exit87 ]
+  %209 = phi i64 [ %123, %118 ], [ %27, %26 ], [ %208, %_ZN5folly3f146detail8F14TableINS1_19NodeContainerPolicyINS_7dynamicES4_NS_6detail13DynamicHasherENS5_15DynamicKeyEqualEvEEE13insertAtBlankIJRKSt4pairIKS4_S4_EEEEvNS1_11F14ItemIterIPNS1_8F14ChunkIPSD_EEEESB_ImmEDpOT_.exit87 ]
   %210 = icmp eq i64 %.0123, 0
   br i1 %210, label %213, label %211
 
@@ -12500,10 +12500,10 @@ _ZNK5folly3f146detail19NodeContainerPolicyINS_7dynamicES3_NS_6detail13DynamicHas
   br label %.thread250
 
 .thread199:                                       ; preds = %35, %_ZNKR5folly8ExpectedImNS_14ConversionCodeEE5valueEv.exit64, %_ZNK5folly3f146detail19NodeContainerPolicyINS_7dynamicES3_NS_6detail13DynamicHasherENS4_15DynamicKeyEqualEvE14keyMatchesItemINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT_RKPSt4pairIKS3_S3_E.exit.thread
-  %.sroa.5171.2 = phi ptr [ %.sroa.5171.0341447, %35 ], [ %.sroa.5171.0341447, %_ZNKR5folly8ExpectedImNS_14ConversionCodeEE5valueEv.exit64 ], [ %126, %_ZNK5folly3f146detail19NodeContainerPolicyINS_7dynamicES3_NS_6detail13DynamicHasherENS4_15DynamicKeyEqualEvE14keyMatchesItemINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT_RKPSt4pairIKS3_S3_E.exit.thread ]
-  %.sroa.0170.2 = phi ptr [ %.sroa.0170.0342446, %35 ], [ %.sroa.0170.0342446, %_ZNKR5folly8ExpectedImNS_14ConversionCodeEE5valueEv.exit64 ], [ %110, %_ZNK5folly3f146detail19NodeContainerPolicyINS_7dynamicES3_NS_6detail13DynamicHasherENS4_15DynamicKeyEqualEvE14keyMatchesItemINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT_RKPSt4pairIKS3_S3_E.exit.thread ]
-  %.244 = phi i64 [ %.042343445, %35 ], [ %53, %_ZNKR5folly8ExpectedImNS_14ConversionCodeEE5valueEv.exit64 ], [ %.042343445, %_ZNK5folly3f146detail19NodeContainerPolicyINS_7dynamicES3_NS_6detail13DynamicHasherENS4_15DynamicKeyEqualEvE14keyMatchesItemINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT_RKPSt4pairIKS3_S3_E.exit.thread ]
-  %.235 = phi ptr [ null, %35 ], [ %68, %_ZNKR5folly8ExpectedImNS_14ConversionCodeEE5valueEv.exit64 ], [ %125, %_ZNK5folly3f146detail19NodeContainerPolicyINS_7dynamicES3_NS_6detail13DynamicHasherENS4_15DynamicKeyEqualEvE14keyMatchesItemINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT_RKPSt4pairIKS3_S3_E.exit.thread ]
+  %.sroa.5171.2 = phi ptr [ %126, %_ZNK5folly3f146detail19NodeContainerPolicyINS_7dynamicES3_NS_6detail13DynamicHasherENS4_15DynamicKeyEqualEvE14keyMatchesItemINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT_RKPSt4pairIKS3_S3_E.exit.thread ], [ %.sroa.5171.0341447, %_ZNKR5folly8ExpectedImNS_14ConversionCodeEE5valueEv.exit64 ], [ %.sroa.5171.0341447, %35 ]
+  %.sroa.0170.2 = phi ptr [ %110, %_ZNK5folly3f146detail19NodeContainerPolicyINS_7dynamicES3_NS_6detail13DynamicHasherENS4_15DynamicKeyEqualEvE14keyMatchesItemINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT_RKPSt4pairIKS3_S3_E.exit.thread ], [ %.sroa.0170.0342446, %_ZNKR5folly8ExpectedImNS_14ConversionCodeEE5valueEv.exit64 ], [ %.sroa.0170.0342446, %35 ]
+  %.244 = phi i64 [ %.042343445, %_ZNK5folly3f146detail19NodeContainerPolicyINS_7dynamicES3_NS_6detail13DynamicHasherENS4_15DynamicKeyEqualEvE14keyMatchesItemINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT_RKPSt4pairIKS3_S3_E.exit.thread ], [ %53, %_ZNKR5folly8ExpectedImNS_14ConversionCodeEE5valueEv.exit64 ], [ %.042343445, %35 ]
+  %.235 = phi ptr [ %125, %_ZNK5folly3f146detail19NodeContainerPolicyINS_7dynamicES3_NS_6detail13DynamicHasherENS4_15DynamicKeyEqualEvE14keyMatchesItemINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT_RKPSt4pairIKS3_S3_E.exit.thread ], [ %68, %_ZNKR5folly8ExpectedImNS_14ConversionCodeEE5valueEv.exit64 ], [ null, %35 ]
   %129 = getelementptr inbounds nuw i8, ptr %.sroa.0164.0338450, i64 32
   %.not280 = icmp eq ptr %129, %10
   br i1 %.not280, label %.thread256, label %15

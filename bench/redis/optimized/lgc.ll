@@ -1858,7 +1858,7 @@ traversetable.exit:                               ; preds = %removeentry.exit.i,
   br i1 %221, label %210, label %traverseclosure.exit, !llvm.loop !90
 
 traverseclosure.exit:                             ; preds = %195, %218, %.preheader.i, %206
-  %222 = phi i8 [ 0, %206 ], [ 0, %.preheader.i ], [ %219, %218 ], [ %196, %195 ]
+  %222 = phi i8 [ %219, %218 ], [ 0, %206 ], [ 0, %.preheader.i ], [ %196, %195 ]
   %223 = load i8, ptr %178, align 2, !tbaa !28
   %.not = icmp eq i8 %223, 0
   %224 = zext i8 %222 to i64

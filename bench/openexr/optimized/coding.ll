@@ -185,7 +185,7 @@ compute_sampled_width.exit.us:                    ; preds = %85, %compute_sample
   br i1 %exitcond61.not, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %compute_sampled_width.exit, %compute_sampled_width.exit.us, %compute_sampled_height.exit.us.us, %24
-  %.04677 = phi ptr [ %2, %24 ], [ %.04676, %compute_sampled_width.exit.us ], [ %.04676, %compute_sampled_height.exit.us.us ], [ %.04676, %compute_sampled_width.exit ]
+  %.04677 = phi ptr [ %.04676, %compute_sampled_width.exit.us ], [ %.04676, %compute_sampled_height.exit.us.us ], [ %2, %24 ], [ %.04676, %compute_sampled_width.exit ]
   store ptr %.04677, ptr %0, align 8, !tbaa !51
   %103 = trunc i32 %11 to i16
   store i16 %103, ptr %1, align 2, !tbaa !52
@@ -550,7 +550,7 @@ compute_sampled_width.exit:                       ; preds = %compute_sampled_hei
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split.split, !llvm.loop !53
 
 .loopexit:                                        ; preds = %compute_sampled_width.exit, %compute_sampled_height.exit.us41, %compute_sampled_width.exit.us, %compute_sampled_height.exit.us.us, %.preheader, %119
-  %.0 = phi i32 [ %122, %119 ], [ 0, %.preheader ], [ 0, %compute_sampled_height.exit.us41 ], [ 0, %compute_sampled_height.exit.us.us ], [ 0, %compute_sampled_width.exit.us ], [ 0, %compute_sampled_width.exit ]
+  %.0 = phi i32 [ %122, %119 ], [ 0, %compute_sampled_height.exit.us41 ], [ 0, %.preheader ], [ 0, %compute_sampled_width.exit.us ], [ 0, %compute_sampled_height.exit.us.us ], [ 0, %compute_sampled_width.exit ]
   ret i32 %.0
 }
 

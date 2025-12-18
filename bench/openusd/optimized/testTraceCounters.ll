@@ -3132,7 +3132,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_13Trace
   br label %.invoke
 
 .loopexit22:                                      ; preds = %56, %27, %45
-  %.sroa.06.1.i.i = phi ptr [ %46, %45 ], [ %.sroa.06.0.i.i, %27 ], [ %64, %56 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %27 ], [ %46, %45 ], [ %64, %56 ]
   %69 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %70 = load double, ptr %69, align 8
   %71 = fcmp oeq double %70, %1
@@ -3762,7 +3762,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_13Trace
   br label %.invoke
 
 .loopexit53:                                      ; preds = %59, %31, %48
-  %.sroa.06.1.i.i = phi ptr [ %49, %48 ], [ %.sroa.06.0.i.i, %31 ], [ %67, %59 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %31 ], [ %49, %48 ], [ %67, %59 ]
   %72 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %74 = load ptr, ptr %73, align 8

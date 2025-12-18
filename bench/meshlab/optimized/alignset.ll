@@ -4773,7 +4773,7 @@ _ZN10QByteArrayD2Ev.exit38.sink.split:            ; preds = %128, %_ZN9QtPrivate
   br label %_ZN10QByteArrayD2Ev.exit38
 
 _ZN10QByteArrayD2Ev.exit38:                       ; preds = %_ZN10QByteArrayD2Ev.exit38.sink.split, %_ZN9QtPrivate8RefCount5derefEv.exit.i57, %128, %_ZN9QtPrivate8RefCount5derefEv.exit.i34, %69, %136
-  %.0 = phi i32 [ %137, %136 ], [ 0, %69 ], [ 0, %_ZN9QtPrivate8RefCount5derefEv.exit.i34 ], [ 0, %128 ], [ 0, %_ZN9QtPrivate8RefCount5derefEv.exit.i57 ], [ 0, %_ZN10QByteArrayD2Ev.exit38.sink.split ]
+  %.0 = phi i32 [ %137, %136 ], [ 0, %_ZN9QtPrivate8RefCount5derefEv.exit.i57 ], [ 0, %69 ], [ 0, %_ZN9QtPrivate8RefCount5derefEv.exit.i34 ], [ 0, %128 ], [ 0, %_ZN10QByteArrayD2Ev.exit38.sink.split ]
   %138 = load ptr, ptr %5, align 8
   %139 = load atomic i32, ptr %138 monotonic, align 4
   switch i32 %139, label %_ZN9QtPrivate8RefCount5derefEv.exit.i63 [

@@ -450,7 +450,7 @@ opj_pi_update_decode_poc.exit.sink.split:         ; preds = %65, %50, %26, %32
   br label %opj_pi_update_decode_poc.exit
 
 opj_pi_update_decode_poc.exit:                    ; preds = %160, %190, %opj_pi_update_decode_poc.exit.sink.split, %186, %157, %4
-  %.0154 = phi ptr [ null, %4 ], [ %31, %157 ], [ %31, %186 ], [ null, %opj_pi_update_decode_poc.exit.sink.split ], [ %31, %190 ], [ %31, %160 ]
+  %.0154 = phi ptr [ null, %4 ], [ %31, %190 ], [ %31, %186 ], [ %31, %157 ], [ null, %opj_pi_update_decode_poc.exit.sink.split ], [ %31, %160 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -677,7 +677,7 @@ define internal fastcc ptr @opj_pi_create(ptr noundef readonly captures(none) %0
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge, %.loopexit.sink.split, %.preheader, %3
-  %.0 = phi ptr [ null, %3 ], [ %10, %.preheader ], [ null, %.loopexit.sink.split ], [ %10, %._crit_edge ]
+  %.0 = phi ptr [ null, %.loopexit.sink.split ], [ %10, %.preheader ], [ null, %3 ], [ %10, %._crit_edge ]
   ret ptr %.0
 }
 
@@ -1592,7 +1592,7 @@ opj_pi_update_encode_poc_and_final.exit.sink.split: ; preds = %68, %53, %27, %33
   br label %opj_pi_update_encode_poc_and_final.exit
 
 opj_pi_update_encode_poc_and_final.exit:          ; preds = %.lr.ph.i182, %246, %opj_pi_update_encode_poc_and_final.exit.sink.split, %237, %172, %5
-  %.0163 = phi ptr [ null, %5 ], [ %32, %172 ], [ %32, %237 ], [ null, %opj_pi_update_encode_poc_and_final.exit.sink.split ], [ %32, %246 ], [ %32, %.lr.ph.i182 ]
+  %.0163 = phi ptr [ null, %5 ], [ %32, %246 ], [ %32, %237 ], [ %32, %172 ], [ null, %opj_pi_update_encode_poc_and_final.exit.sink.split ], [ %32, %.lr.ph.i182 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -2110,7 +2110,7 @@ tailrecurse.backedge.i:                           ; preds = %289, %281, %274, %2
   %295 = icmp sgt i32 %294, 0
   br i1 %295, label %262, label %opj_pi_check_next_level.exit, !llvm.loop !144
 
-296:                                              ; preds = %265, %274, %270, %281, %289, %285
+296:                                              ; preds = %274, %270, %265, %281, %289, %285
   %297 = load i32, ptr %150, align 4, !tbaa !116
   store i32 %297, ptr %21, align 8, !tbaa !72
   %298 = add i32 %297, 1
@@ -2226,7 +2226,7 @@ tailrecurse.backedge.i409:                        ; preds = %352, %344, %337, %3
   %358 = icmp sgt i32 %357, 0
   br i1 %358, label %325, label %opj_pi_check_next_level.exit, !llvm.loop !144
 
-359:                                              ; preds = %328, %337, %333, %344, %352, %348
+359:                                              ; preds = %337, %333, %328, %344, %352, %348
   %360 = load i32, ptr %148, align 4, !tbaa !114
   store i32 %360, ptr %137, align 4, !tbaa !74
   %361 = add i32 %360, 1
@@ -2342,7 +2342,7 @@ tailrecurse.backedge.i420:                        ; preds = %415, %407, %400, %3
   %421 = icmp sgt i32 %420, 0
   br i1 %421, label %388, label %opj_pi_check_next_level.exit, !llvm.loop !144
 
-422:                                              ; preds = %391, %400, %396, %407, %415, %411
+422:                                              ; preds = %400, %396, %391, %407, %415, %411
   %423 = load i32, ptr %146, align 4, !tbaa !119
   store i32 %423, ptr %132, align 4, !tbaa !75
   %424 = add i32 %423, 1
@@ -2461,7 +2461,7 @@ tailrecurse.backedge.i431:                        ; preds = %479, %471, %464, %4
   %485 = icmp sgt i32 %484, 0
   br i1 %485, label %452, label %opj_pi_check_next_level.exit, !llvm.loop !144
 
-486:                                              ; preds = %455, %464, %460, %471, %479, %475
+486:                                              ; preds = %464, %460, %455, %471, %479, %475
   %487 = load i32, ptr %144, align 4, !tbaa !121
   store i32 %487, ptr %129, align 8, !tbaa !76
   %488 = add i32 %487, 1
@@ -2583,7 +2583,7 @@ tailrecurse.backedge.i442:                        ; preds = %544, %536, %529, %5
   %550 = icmp sgt i32 %549, 0
   br i1 %550, label %517, label %opj_pi_check_next_level.exit, !llvm.loop !144
 
-551:                                              ; preds = %520, %529, %525, %536, %544, %540
+551:                                              ; preds = %529, %525, %520, %536, %544, %540
   %552 = load i32, ptr %141, align 4, !tbaa !125
   br label %opj_pi_check_next_level.exit446
 
@@ -2618,7 +2618,7 @@ opj_pi_check_next_level.exit446:                  ; preds = %494, %551
   br label %opj_pi_check_next_level.exit
 
 opj_pi_check_next_level.exit:                     ; preds = %tailrecurse.backedge.i442, %tailrecurse.backedge.i431, %tailrecurse.backedge.i420, %tailrecurse.backedge.i409, %tailrecurse.backedge.i, %548, %483, %419, %356, %293, %234, %486, %489, %opj_pi_check_next_level.exit446, %562, %425, %422, %362, %359, %299, %296, %236
-  %.2378 = phi i32 [ 1, %236 ], [ 1, %296 ], [ 0, %234 ], [ 0, %299 ], [ 1, %359 ], [ 0, %362 ], [ 1, %422 ], [ 0, %425 ], [ %.1377, %opj_pi_check_next_level.exit446 ], [ 0, %562 ], [ 1, %486 ], [ 0, %489 ], [ 0, %tailrecurse.backedge.i431 ], [ 0, %293 ], [ 0, %356 ], [ 0, %419 ], [ 0, %483 ], [ 0, %548 ], [ 0, %tailrecurse.backedge.i ], [ 0, %tailrecurse.backedge.i409 ], [ 0, %tailrecurse.backedge.i420 ], [ 0, %tailrecurse.backedge.i442 ]
+  %.2378 = phi i32 [ 1, %236 ], [ 1, %296 ], [ 0, %234 ], [ 0, %299 ], [ 1, %359 ], [ 0, %356 ], [ 0, %362 ], [ 1, %422 ], [ 0, %tailrecurse.backedge.i409 ], [ 0, %425 ], [ %.1377, %opj_pi_check_next_level.exit446 ], [ 0, %419 ], [ 0, %562 ], [ 1, %486 ], [ 0, %293 ], [ 0, %489 ], [ 0, %483 ], [ 0, %548 ], [ 0, %tailrecurse.backedge.i431 ], [ 0, %tailrecurse.backedge.i ], [ 0, %tailrecurse.backedge.i420 ], [ 0, %tailrecurse.backedge.i442 ]
   %indvars.iv.next550 = add nsw i64 %indvars.iv549, -1
   %567 = icmp sgt i64 %indvars.iv549, 0
   br i1 %567, label %207, label %.loopexit, !llvm.loop !145

@@ -2107,8 +2107,8 @@ _.exit60:                                         ; preds = %71, %73
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %_.exit60, %85, %_.exit
-  %.147 = phi i32 [ 0, %85 ], [ -1, %_.exit ], [ -1, %_.exit60 ], [ -1, %.lr.ph ]
-  %.1 = phi ptr [ %88, %85 ], [ null, %_.exit ], [ null, %_.exit60 ], [ null, %.lr.ph ]
+  %.147 = phi i32 [ -1, %_.exit ], [ 0, %85 ], [ -1, %_.exit60 ], [ -1, %.lr.ph ]
+  %.1 = phi ptr [ null, %_.exit ], [ %88, %85 ], [ null, %_.exit60 ], [ null, %.lr.ph ]
   %89 = getelementptr inbounds nuw i8, ptr %12, i64 8
   call void @string_list_clear(ptr noundef nonnull %89, i32 noundef 0) #19
   %90 = getelementptr inbounds nuw i8, ptr %12, i64 48
@@ -3492,7 +3492,7 @@ abbrev_ref.exit.i:                                ; preds = %96, %95
   br i1 %106, label %.lr.ph54.i, label %.critedge2.i
 
 .critedge2.i:                                     ; preds = %abbrev_ref.exit.i, %abbrev_ref.exit45.us.i, %.thread.i, %65
-  %.02069.i = phi i32 [ 0, %.thread.i ], [ %68, %65 ], [ %68, %abbrev_ref.exit45.us.i ], [ 0, %abbrev_ref.exit.i ]
+  %.02069.i = phi i32 [ 0, %.thread.i ], [ %68, %abbrev_ref.exit45.us.i ], [ %68, %65 ], [ 0, %abbrev_ref.exit.i ]
   %107 = load ptr, ptr @the_repository, align 8, !tbaa !26
   %108 = call ptr @get_main_ref_store(ptr noundef %107) #19
   %109 = load ptr, ptr @stdout, align 8, !tbaa !87

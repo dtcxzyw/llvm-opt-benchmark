@@ -2772,7 +2772,7 @@ if.end5.i:                                        ; preds = %if.end.i822
   %cmp7.i.not = icmp eq i64 %shr.i.mask, 21474836480
   br i1 %cmp7.i.not, label %lor.lhs.false.i405, label %do.body104
 
-do.body104:                                       ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit434, %if.end.i822, %if.end5.i
+do.body104:                                       ; preds = %if.end.i822, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit434, %if.end5.i
   tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node10contextify17ContextifyContext11MakeContextERKN2v820FunctionCallbackInfoINS2_5ValueEEEE4args_3) #22
   tail call void @abort() #23
   unreachable
@@ -3759,7 +3759,7 @@ if.end.i.i.i.i.i:                                 ; preds = %if.then.i130
   br label %_ZN4node10contextify17ContextifyContext30ContextFromContextifiedSandboxEPNS_11EnvironmentERKN2v85LocalINS4_6ObjectEEE.exit
 
 _ZN4node10contextify17ContextifyContext30ContextFromContextifiedSandboxEPNS_11EnvironmentERKN2v85LocalINS4_6ObjectEEE.exit: ; preds = %if.then.i.i.i.i.i, %if.end.i.i.i.i.i
-  %retval.0.i = phi ptr [ %137, %if.then.i.i.i.i.i ], [ %call7.i.i.i.i.i, %if.end.i.i.i.i.i ]
+  %retval.0.i = phi ptr [ %call7.i.i.i.i.i, %if.end.i.i.i.i.i ], [ %137, %if.then.i.i.i.i.i ]
   %cmp.not = icmp eq ptr %retval.0.i, null
   br i1 %cmp.not, label %do.body205, label %do.end208
 
@@ -4470,7 +4470,7 @@ if.then.i.i.i200:                                 ; preds = %cleanup471
   br label %cleanup472
 
 cleanup472:                                       ; preds = %for.body, %if.then.i.i.i200, %cleanup471
-  %context_extensions.sroa.0.2 = phi ptr [ %context_extensions.sroa.0.0, %cleanup471 ], [ %context_extensions.sroa.0.0, %if.then.i.i.i200 ], [ %context_extensions.sroa.0.1257, %for.body ]
+  %context_extensions.sroa.0.2 = phi ptr [ %context_extensions.sroa.0.0, %if.then.i.i.i200 ], [ %context_extensions.sroa.0.0, %cleanup471 ], [ %context_extensions.sroa.0.1257, %for.body ]
   %tobool.not.i.i.i202 = icmp eq ptr %context_extensions.sroa.0.2, null
   br i1 %tobool.not.i.i.i202, label %_ZNSt6vectorIN2v85LocalINS0_6ObjectEEESaIS3_EED2Ev.exit204, label %if.then.i.i.i203
 
@@ -6813,7 +6813,7 @@ if.end.i.i.i.i.i:                                 ; preds = %if.then.i147
   br label %_ZN4node10contextify17ContextifyContext30ContextFromContextifiedSandboxEPNS_11EnvironmentERKN2v85LocalINS4_6ObjectEEE.exit
 
 _ZN4node10contextify17ContextifyContext30ContextFromContextifiedSandboxEPNS_11EnvironmentERKN2v85LocalINS4_6ObjectEEE.exit: ; preds = %if.then.i.i.i.i.i, %if.end.i.i.i.i.i
-  %retval.0.i = phi ptr [ %126, %if.then.i.i.i.i.i ], [ %call7.i.i.i.i.i, %if.end.i.i.i.i.i ]
+  %retval.0.i = phi ptr [ %call7.i.i.i.i.i, %if.end.i.i.i.i.i ], [ %126, %if.then.i.i.i.i.i ]
   %cmp233.not = icmp eq ptr %retval.0.i, null
   br i1 %cmp233.not, label %do.body238, label %do.end241
 
@@ -7378,7 +7378,7 @@ cleanup523:                                       ; preds = %_ZNSt10unique_ptrIN
   call void @llvm.lifetime.end.p0(ptr nonnull %arg_convertibles.i.i237)
   br label %if.then.i.i261
 
-if.then.i.i261:                                   ; preds = %_ZNSt10unique_ptrIN2v814ScriptCompiler10CachedDataESt14default_deleteIS2_EED2Ev.exit, %if.end468, %if.end514, %_ZNKSt14default_deleteIN2v814ScriptCompiler10CachedDataEEclEPS2_.exit.i258, %cleanup, %cleanup523
+if.then.i.i261:                                   ; preds = %_ZNSt10unique_ptrIN2v814ScriptCompiler10CachedDataESt14default_deleteIS2_EED2Ev.exit, %if.end468, %if.end514, %cleanup, %_ZNKSt14default_deleteIN2v814ScriptCompiler10CachedDataEEclEPS2_.exit.i258, %cleanup523
   call void @_ZN2v87Context4ExitEv(ptr noundef nonnull align 1 dereferenceable(1) %parsing_context.sroa.0.0) #22
   %211 = load i32, ptr %should_not_abort_scope_counter_.i.i, align 8
   %dec.i.i.i = add nsw i32 %211, -1
@@ -7694,7 +7694,7 @@ if.end5.i:                                        ; preds = %if.end.i854
   %cmp7.i.not = icmp eq i64 %shr.i.i.mask, 12884901888
   br i1 %cmp7.i.not, label %lor.lhs.false.i388, label %do.body40
 
-do.body40:                                        ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit417, %if.end.i854, %if.end5.i
+do.body40:                                        ; preds = %if.end.i854, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit417, %if.end5.i
   tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node10contextify16ContextifyScript12RunInContextERKN2v820FunctionCallbackInfoINS2_5ValueEEEE4args_0) #22
   tail call void @abort() #23
   unreachable
@@ -7785,7 +7785,7 @@ if.end.i.i.i.i.i:                                 ; preds = %if.then.i73
   br label %_ZN4node10contextify17ContextifyContext30ContextFromContextifiedSandboxEPNS_11EnvironmentERKN2v85LocalINS4_6ObjectEEE.exit
 
 _ZN4node10contextify17ContextifyContext30ContextFromContextifiedSandboxEPNS_11EnvironmentERKN2v85LocalINS4_6ObjectEEE.exit: ; preds = %if.then.i.i.i.i.i, %if.end.i.i.i.i.i
-  %retval.0.i = phi ptr [ %61, %if.then.i.i.i.i.i ], [ %call7.i.i.i.i.i, %if.end.i.i.i.i.i ]
+  %retval.0.i = phi ptr [ %call7.i.i.i.i.i, %if.end.i.i.i.i.i ], [ %61, %if.then.i.i.i.i.i ]
   %cmp63.not = icmp eq ptr %retval.0.i, null
   br i1 %cmp63.not, label %do.body68, label %do.body72
 

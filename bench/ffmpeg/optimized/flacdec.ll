@@ -1201,7 +1201,7 @@ decode_subframe.exit.i:                           ; preds = %567, %565, %561, %.
   br label %get_metadata_size.exit
 
 get_metadata_size.exit:                           ; preds = %92, %88, %17, %113, %598, %590, %117, %25, %636, %628, %.loopexit, %81, %22, %14
-  %.0 = phi i32 [ %9, %22 ], [ %9, %14 ], [ %.0.i.ph, %81 ], [ %9, %25 ], [ %.0.i91.ph, %.loopexit ], [ -1094995529, %117 ], [ -1094995529, %590 ], [ -1094995529, %628 ], [ %581, %636 ], [ %601, %598 ], [ %116, %113 ], [ %9, %17 ], [ -1094995529, %88 ], [ -1094995529, %92 ]
+  %.0 = phi i32 [ %9, %22 ], [ %9, %14 ], [ %9, %17 ], [ %.0.i.ph, %81 ], [ %9, %25 ], [ %.0.i91.ph, %.loopexit ], [ -1094995529, %117 ], [ -1094995529, %590 ], [ -1094995529, %628 ], [ %581, %636 ], [ %601, %598 ], [ %116, %113 ], [ -1094995529, %88 ], [ -1094995529, %92 ]
   ret i32 %.0
 }
 
@@ -1667,7 +1667,7 @@ get_bits_long.exit.i:                             ; preds = %.lr.ph.split, %get_
   br label %.thread107.thread
 
 .thread107.thread:                                ; preds = %.lr.ph138, %.lr.ph147, %.lr.ph134, %.lr.ph141, %._crit_edge.thread, %._crit_edge, %.preheader126, %.preheader124, %.preheader122, %.preheader, %104
-  %.0 = phi i32 [ %58, %._crit_edge ], [ -1094995529, %104 ], [ 0, %.preheader124 ], [ 0, %.preheader ], [ 0, %.preheader122 ], [ 0, %.preheader126 ], [ %60, %._crit_edge.thread ], [ 0, %.lr.ph147 ], [ 0, %.lr.ph141 ], [ 0, %.lr.ph134 ], [ 0, %.lr.ph138 ]
+  %.0 = phi i32 [ %58, %._crit_edge ], [ -1094995529, %104 ], [ 0, %.lr.ph147 ], [ 0, %.preheader122 ], [ 0, %.preheader ], [ 0, %.preheader124 ], [ 0, %.preheader126 ], [ 0, %.lr.ph134 ], [ 0, %.lr.ph141 ], [ %60, %._crit_edge.thread ], [ 0, %.lr.ph138 ]
   ret i32 %.0
 }
 
@@ -1888,7 +1888,7 @@ get_bits_long.exit.i:                             ; preds = %.lr.ph.split, %get_
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph99, %.lr.ph101, %.lr.ph103, %.lr.ph105, %60, %.preheader94, %.preheader92, %.preheader90, %.preheader88, %._crit_edge, %94
-  %.079 = phi i32 [ %31, %._crit_edge ], [ -1094995529, %94 ], [ 0, %.preheader92 ], [ 0, %.preheader88 ], [ 0, %.preheader90 ], [ 0, %.preheader94 ], [ %2, %60 ], [ 0, %.lr.ph101 ], [ 0, %.lr.ph105 ], [ 0, %.lr.ph103 ], [ 0, %.lr.ph99 ]
+  %.079 = phi i32 [ %31, %._crit_edge ], [ -1094995529, %94 ], [ 0, %.preheader90 ], [ 0, %.preheader88 ], [ 0, %.preheader94 ], [ 0, %.preheader92 ], [ 0, %.lr.ph101 ], [ %2, %60 ], [ 0, %.lr.ph105 ], [ 0, %.lr.ph103 ], [ 0, %.lr.ph99 ]
   ret i32 %.079
 }
 
@@ -2111,7 +2111,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_subframe_fixed_33bp
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph97, %.lr.ph99, %.lr.ph101, %.lr.ph103, %.lr.ph105, %.preheader93, %.preheader91, %.preheader89, %.preheader87, %.preheader, %._crit_edge, %101
-  %.078 = phi i32 [ %12, %._crit_edge ], [ -1094995529, %101 ], [ 0, %.preheader91 ], [ 0, %.preheader ], [ 0, %.preheader87 ], [ 0, %.preheader89 ], [ 0, %.preheader93 ], [ 0, %.lr.ph99 ], [ 0, %.lr.ph105 ], [ 0, %.lr.ph103 ], [ 0, %.lr.ph101 ], [ 0, %.lr.ph97 ]
+  %.078 = phi i32 [ %12, %._crit_edge ], [ -1094995529, %101 ], [ 0, %.preheader89 ], [ 0, %.preheader87 ], [ 0, %.preheader ], [ 0, %.preheader91 ], [ 0, %.preheader93 ], [ 0, %.lr.ph103 ], [ 0, %.lr.ph101 ], [ 0, %.lr.ph99 ], [ 0, %.lr.ph105 ], [ 0, %.lr.ph97 ]
   ret i32 %.078
 }
 
@@ -2205,7 +2205,7 @@ get_bits_long.exit.i:                             ; preds = %.split, %get_bits_l
   br i1 %exitcond.not, label %.split62.us, label %get_bits_long.exit.i, !llvm.loop !111
 
 .split62.us:                                      ; preds = %get_bits_long.exit.i, %get_bits_long.exit.i.us, %get_sbits_long.exit.us.preheader
-  %57 = phi ptr [ %.pre, %get_sbits_long.exit.us.preheader ], [ %14, %get_bits_long.exit.i.us ], [ %14, %get_bits_long.exit.i ]
+  %57 = phi ptr [ %14, %get_bits_long.exit.i.us ], [ %.pre, %get_sbits_long.exit.us.preheader ], [ %14, %get_bits_long.exit.i ]
   %58 = load i32, ptr %6, align 8, !tbaa !53
   %59 = load i32, ptr %7, align 8, !tbaa !51
   %60 = lshr i32 %58, 3
@@ -2951,8 +2951,8 @@ get_bits_long.exit.i:                             ; preds = %.lr.ph117.split, %g
   br label %get_sr_golomb_flac.exit
 
 get_sr_golomb_flac.exit:                          ; preds = %.lr.ph.i.i, %153, %216, %219, %221
-  %storemerge123.i.i = phi i32 [ %..i.i, %153 ], [ %.2.i.i, %216 ], [ %224, %221 ], [ %186, %219 ], [ %.0110130.i.i, %.lr.ph.i.i ]
-  %.0106.i.i = phi i32 [ %157, %153 ], [ %218, %216 ], [ %225, %221 ], [ -1, %219 ], [ -1, %.lr.ph.i.i ]
+  %storemerge123.i.i = phi i32 [ %..i.i, %153 ], [ %186, %219 ], [ %.2.i.i, %216 ], [ %224, %221 ], [ %.0110130.i.i, %.lr.ph.i.i ]
+  %.0106.i.i = phi i32 [ %157, %153 ], [ -1, %219 ], [ %218, %216 ], [ %225, %221 ], [ -1, %.lr.ph.i.i ]
   %226 = lshr i32 %.0106.i.i, 1
   %227 = and i32 %.0106.i.i, 1
   %228 = sub nsw i32 0, %227
@@ -2974,8 +2974,8 @@ get_sr_golomb_flac.exit:                          ; preds = %.lr.ph.i.i, %153, %
   br label %239
 
 .thread98:                                        ; preds = %230, %get_bits_long.exit.i, %get_bits_long.exit.i.us, %get_sbits_long.exit.us.preheader, %119, %59
-  %.sroa.1078.2 = phi i32 [ %69, %59 ], [ %56, %119 ], [ %69, %get_sbits_long.exit.us.preheader ], [ %113, %get_bits_long.exit.i ], [ %88, %get_bits_long.exit.i.us ], [ %storemerge123.i.i, %230 ]
-  %.250 = phi ptr [ %.048131, %59 ], [ %.048131, %119 ], [ %scevgep149, %get_sbits_long.exit.us.preheader ], [ %117, %get_bits_long.exit.i ], [ %91, %get_bits_long.exit.i.us ], [ %231, %230 ]
+  %.sroa.1078.2 = phi i32 [ %113, %get_bits_long.exit.i ], [ %69, %59 ], [ %88, %get_bits_long.exit.i.us ], [ %69, %get_sbits_long.exit.us.preheader ], [ %56, %119 ], [ %storemerge123.i.i, %230 ]
+  %.250 = phi ptr [ %117, %get_bits_long.exit.i ], [ %.048131, %59 ], [ %91, %get_bits_long.exit.i.us ], [ %scevgep149, %get_sbits_long.exit.us.preheader ], [ %.048131, %119 ], [ %231, %230 ]
   %236 = add nuw nsw i32 %.059129, 1
   %.059.highbits = lshr i32 %236, %22
   %237 = icmp eq i32 %.059.highbits, 0

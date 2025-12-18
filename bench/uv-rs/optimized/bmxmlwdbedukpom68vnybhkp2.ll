@@ -1290,7 +1290,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator12is_sor
   br i1 %.not17.i.i.i.i, label %_ZN4core4iter6traits8iterator8Iterator3all17h1b82c85cb560ce4cE.llvm.11232471732095940569.exit, label %.lr.ph.i.i.i.i
 
 _ZN4core4iter6traits8iterator8Iterator3all17h1b82c85cb560ce4cE.llvm.11232471732095940569.exit: ; preds = %4, %"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8d11f8e1b6eeb242E.exit.i.i.i.i", %26, %13
-  %.sroa.0.0 = phi i1 [ true, %13 ], [ true, %"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8d11f8e1b6eeb242E.exit.i.i.i.i" ], [ false, %26 ], [ true, %4 ]
+  %.sroa.0.0 = phi i1 [ true, %"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8d11f8e1b6eeb242E.exit.i.i.i.i" ], [ true, %13 ], [ false, %26 ], [ true, %4 ]
   ret i1 %.sroa.0.0
 }
 

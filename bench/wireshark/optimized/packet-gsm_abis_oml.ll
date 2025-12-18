@@ -1826,7 +1826,7 @@ find_tlv_tag.exit:                                ; preds = %19, %.thread.i
   br label %ipacc_tr_ie_chan_usage.exit.i
 
 ipacc_tr_ie_chan_usage.exit.i:                    ; preds = %.lr.ph.i.i, %202, %200, %140, %.lr.ph.i
-  %.1.i = phi i32 [ %139, %.lr.ph.i ], [ %139, %140 ], [ %205, %202 ], [ %.2.i.i, %200 ], [ %149, %.lr.ph.i.i ]
+  %.1.i = phi i32 [ %139, %.lr.ph.i ], [ %.2.i.i, %200 ], [ %139, %140 ], [ %205, %202 ], [ %149, %.lr.ph.i.i ]
   %206 = tail call i32 @tvb_reported_length_remaining(ptr noundef %55, i32 noundef %.1.i)
   %207 = icmp sgt i32 %206, 0
   br i1 %207, label %.lr.ph.i, label %dissect_ipacc_test_rep.exit, !llvm.loop !10

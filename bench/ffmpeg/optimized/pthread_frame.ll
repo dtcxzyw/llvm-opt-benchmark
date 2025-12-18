@@ -1451,7 +1451,7 @@ define range(i32 -2147483648, 1) i32 @ff_frame_thread_init(ptr noundef %0) local
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %27, %16, %.loopexit49, %24, %14
-  %.0 = phi i32 [ 0, %14 ], [ %22, %24 ], [ %.039, %.loopexit49 ], [ -12, %27 ], [ -12, %16 ], [ 0, %.preheader ]
+  %.0 = phi i32 [ 0, %14 ], [ %22, %24 ], [ -12, %16 ], [ %.039, %.loopexit49 ], [ -12, %27 ], [ 0, %.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }

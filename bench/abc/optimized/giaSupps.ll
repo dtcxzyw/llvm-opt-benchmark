@@ -3678,7 +3678,7 @@ Vec_IntClearAppend.exit:                          ; preds = %Vec_IntPush.exit.i
   br i1 %103, label %96, label %Supp_SetConvert.exit, !llvm.loop !97
 
 Supp_SetConvert.exit:                             ; preds = %96, %Supp_ArrayWeight.exit, %Vec_IntClearAppend.exit
-  %104 = phi ptr [ %.pre, %Vec_IntClearAppend.exit ], [ %54, %Supp_ArrayWeight.exit ], [ %.pre, %96 ]
+  %104 = phi ptr [ %54, %Supp_ArrayWeight.exit ], [ %.pre, %Vec_IntClearAppend.exit ], [ %.pre, %96 ]
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %106 = load ptr, ptr %105, align 8, !tbaa !70
   tail call void @Supp_PrintNodes(ptr noundef %106, ptr noundef nonnull %104, i32 noundef 0, i32 noundef 6)
@@ -4786,7 +4786,7 @@ Vec_WrdPush.exit161:                              ; preds = %.Vec_WrdGrow.exit10
   br i1 %327, label %.lr.ph200, label %.loopexit, !llvm.loop !126
 
 .loopexit:                                        ; preds = %Vec_WrdPush.exit147, %Vec_WrdPush.exit133, %Vec_WrdPush.exit161
-  %328 = phi i32 [ %160, %Vec_WrdPush.exit133 ], [ %325, %Vec_WrdPush.exit161 ], [ %242, %Vec_WrdPush.exit147 ]
+  %328 = phi i32 [ %325, %Vec_WrdPush.exit161 ], [ %160, %Vec_WrdPush.exit133 ], [ %242, %Vec_WrdPush.exit147 ]
   %329 = icmp sgt i32 %328, 0
   br i1 %329, label %.lr.ph.preheader.i, label %Abc_TtCountOnesVec.exit172.thread
 
@@ -4878,9 +4878,9 @@ Abc_TtCountOnesVec.exit172:                       ; preds = %Abc_TtCountOnes2.ex
   br label %386
 
 Abc_TtCountOnesVec.exit172.thread:                ; preds = %.preheader184, %.preheader182, %.preheader179, %.preheader, %.loopexit, %Abc_TtCountOnesVec.exit172
-  %381 = phi i32 [ %328, %Abc_TtCountOnesVec.exit172 ], [ %328, %.loopexit ], [ %245, %.preheader ], [ %201, %.preheader182 ], [ %80, %.preheader179 ], [ %68, %.preheader184 ]
-  %382 = phi i32 [ %328, %Abc_TtCountOnesVec.exit172 ], [ %328, %.loopexit ], [ %245, %.preheader ], [ %201, %.preheader182 ], [ %80, %.preheader179 ], [ %67, %.preheader184 ]
-  %383 = phi i32 [ %328, %Abc_TtCountOnesVec.exit172 ], [ %328, %.loopexit ], [ %245, %.preheader ], [ %201, %.preheader182 ], [ %79, %.preheader179 ], [ %66, %.preheader184 ]
+  %381 = phi i32 [ %328, %Abc_TtCountOnesVec.exit172 ], [ %328, %.loopexit ], [ %201, %.preheader182 ], [ %80, %.preheader179 ], [ %245, %.preheader ], [ %68, %.preheader184 ]
+  %382 = phi i32 [ %328, %Abc_TtCountOnesVec.exit172 ], [ %328, %.loopexit ], [ %201, %.preheader182 ], [ %80, %.preheader179 ], [ %245, %.preheader ], [ %67, %.preheader184 ]
+  %383 = phi i32 [ %328, %Abc_TtCountOnesVec.exit172 ], [ %328, %.loopexit ], [ %201, %.preheader182 ], [ %79, %.preheader179 ], [ %245, %.preheader ], [ %66, %.preheader184 ]
   %384 = load ptr, ptr %24, align 8, !tbaa !29
   %385 = getelementptr inbounds nuw i8, ptr %384, i64 4
   store i32 %.val110, ptr %385, align 4, !tbaa !3
@@ -5709,7 +5709,7 @@ define i32 @Supp_ComputePair1(ptr noundef readonly captures(none) %0, i32 nounde
   br label %Abc_TtFindFirstBit2.exit
 
 Abc_TtFindFirstBit2.exit:                         ; preds = %63, %66, %73, %37, %33
-  %93 = phi i32 [ %62, %37 ], [ -1, %33 ], [ %92, %73 ], [ -1, %66 ], [ -1, %63 ]
+  %93 = phi i32 [ -1, %66 ], [ %62, %37 ], [ -1, %33 ], [ %92, %73 ], [ -1, %63 ]
   %94 = and i32 %3, 131072
   %.not33 = icmp eq i32 %94, 0
   br i1 %.not33, label %126, label %95
@@ -5825,7 +5825,7 @@ Abc_TtFindFirstBit2.exit:                         ; preds = %63, %66, %73, %37, 
   br label %Abc_TtFindFirstBit2.exit72
 
 Abc_TtFindFirstBit2.exit72:                       ; preds = %125, %128, %135, %99, %95
-  %155 = phi i32 [ %124, %99 ], [ -1, %95 ], [ %154, %135 ], [ -1, %128 ], [ -1, %125 ]
+  %155 = phi i32 [ -1, %128 ], [ %124, %99 ], [ -1, %95 ], [ %154, %135 ], [ -1, %125 ]
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %157 = load ptr, ptr %156, align 8, !tbaa !19
   %158 = icmp ne i32 %1, -1
@@ -6006,7 +6006,7 @@ define i32 @Supp_ComputePair(ptr noundef readonly captures(none) %0, i32 noundef
   br label %Abc_TtFindFirstBit2.exit
 
 Abc_TtFindFirstBit2.exit:                         ; preds = %63, %66, %73, %37, %33
-  %93 = phi i32 [ %62, %37 ], [ -1, %33 ], [ %92, %73 ], [ -1, %66 ], [ -1, %63 ]
+  %93 = phi i32 [ -1, %66 ], [ %62, %37 ], [ -1, %33 ], [ %92, %73 ], [ -1, %63 ]
   %94 = and i32 %3, 131072
   %.not43 = icmp eq i32 %94, 0
   br i1 %.not43, label %126, label %95
@@ -6122,7 +6122,7 @@ Abc_TtFindFirstBit2.exit:                         ; preds = %63, %66, %73, %37, 
   br label %Abc_TtFindFirstBit2.exit82
 
 Abc_TtFindFirstBit2.exit82:                       ; preds = %125, %128, %135, %99, %95
-  %155 = phi i32 [ %124, %99 ], [ -1, %95 ], [ %154, %135 ], [ -1, %128 ], [ -1, %125 ]
+  %155 = phi i32 [ -1, %128 ], [ %124, %99 ], [ -1, %95 ], [ %154, %135 ], [ -1, %125 ]
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %157 = load ptr, ptr %156, align 8, !tbaa !19
   %158 = icmp ne i32 %1, -1
@@ -7983,7 +7983,7 @@ Abc_TtIsConst0.exit.loopexit:                     ; preds = %.lr.ph.i26
   br i1 %.not.i, label %43, label %Abc_TtIsConst0.exit.loopexit
 
 Abc_TtIsConst0.exit.thread:                       ; preds = %Abc_TtIsConst0.exit.loopexit, %.lr.ph, %43, %27
-  %.1 = phi i32 [ 0, %27 ], [ %38, %43 ], [ %38, %.lr.ph ], [ %38, %Abc_TtIsConst0.exit.loopexit ]
+  %.1 = phi i32 [ %38, %43 ], [ 0, %27 ], [ %38, %.lr.ph ], [ %38, %Abc_TtIsConst0.exit.loopexit ]
   br i1 %.not, label %.split, label %.split19
 
 .split19:                                         ; preds = %Abc_TtIsConst0.exit.thread

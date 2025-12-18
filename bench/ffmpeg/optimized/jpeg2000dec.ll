@@ -815,9 +815,9 @@ bytestream2_get_be16.exit240.i:                   ; preds = %290, %289
   br label %.thread.i
 
 .thread.i:                                        ; preds = %300, %247, %373, %368, %363, %303, %269, %192, %146, %142
-  %.pre-phi279.i = phi i64 [ %128, %303 ], [ %128, %269 ], [ %128, %192 ], [ %128, %363 ], [ %128, %368 ], [ %.pre278.i, %373 ], [ %128, %142 ], [ %128, %146 ], [ %128, %247 ], [ %128, %300 ]
-  %.pre-phi277.i = phi i64 [ %115, %303 ], [ %115, %269 ], [ %115, %192 ], [ %115, %363 ], [ %115, %368 ], [ %.pre276.i, %373 ], [ %115, %142 ], [ %115, %146 ], [ %115, %247 ], [ %115, %300 ]
-  %381 = phi ptr [ %126, %303 ], [ %126, %269 ], [ %126, %192 ], [ %126, %363 ], [ %126, %368 ], [ %.pre271.i, %373 ], [ %126, %142 ], [ %126, %146 ], [ %126, %247 ], [ %126, %300 ]
+  %.pre-phi279.i = phi i64 [ %128, %247 ], [ %128, %303 ], [ %128, %269 ], [ %128, %192 ], [ %128, %363 ], [ %128, %368 ], [ %.pre278.i, %373 ], [ %128, %142 ], [ %128, %146 ], [ %128, %300 ]
+  %.pre-phi277.i = phi i64 [ %115, %247 ], [ %115, %303 ], [ %115, %269 ], [ %115, %192 ], [ %115, %363 ], [ %115, %368 ], [ %.pre276.i, %373 ], [ %115, %142 ], [ %115, %146 ], [ %115, %300 ]
+  %381 = phi ptr [ %126, %247 ], [ %126, %303 ], [ %126, %269 ], [ %126, %192 ], [ %126, %363 ], [ %126, %368 ], [ %.pre271.i, %373 ], [ %126, %142 ], [ %126, %146 ], [ %126, %300 ]
   %382 = sub i64 %.pre-phi277.i, %.pre-phi279.i
   %383 = trunc i64 %382 to i32
   %384 = icmp slt i32 %132, 0
@@ -876,9 +876,9 @@ jp2_find_codestream.exit:                         ; preds = %.loopexit.i, %104, 
   br label %jp2_find_codestream.exit.thread
 
 jp2_find_codestream.exit.thread:                  ; preds = %86, %100, %69, %74, %88, %137, %401
-  %.pre-phi = phi i64 [ %402, %401 ], [ %115, %137 ], [ %52, %88 ], [ %52, %74 ], [ %52, %69 ], [ %52, %100 ], [ %52, %86 ]
-  %.promoted = phi ptr [ %15, %401 ], [ %124, %137 ], [ %61, %86 ], [ %102, %100 ], [ %70, %69 ], [ %70, %74 ], [ %61, %88 ]
-  %403 = phi ptr [ %22, %401 ], [ %113, %137 ], [ %50, %88 ], [ %50, %74 ], [ %50, %69 ], [ %50, %100 ], [ %50, %86 ]
+  %.pre-phi = phi i64 [ %115, %137 ], [ %402, %401 ], [ %52, %88 ], [ %52, %74 ], [ %52, %69 ], [ %52, %100 ], [ %52, %86 ]
+  %.promoted = phi ptr [ %124, %137 ], [ %15, %401 ], [ %102, %100 ], [ %70, %69 ], [ %70, %74 ], [ %61, %88 ], [ %61, %86 ]
+  %403 = phi ptr [ %113, %137 ], [ %22, %401 ], [ %50, %88 ], [ %50, %74 ], [ %50, %69 ], [ %50, %100 ], [ %50, %86 ]
   %404 = ptrtoint ptr %.promoted to i64
   %405 = sub i64 %.pre-phi, %404
   %406 = trunc i64 %405 to i32
@@ -2455,12 +2455,12 @@ bytestream2_get_byte.exit13.i.i:                  ; preds = %1112, %1111
   br label %get_coc.exit.i
 
 get_coc.exit.i:                                   ; preds = %bytestream2_get_byte.exit13.i.i, %1139, %1136, %1134, %1122, %1092, %.loopexit.loopexit91.i.i, %.loopexit.loopexit90.i.i, %.loopexit.loopexit89.i.i, %.loopexit.loopexit88.i.i, %.loopexit.loopexit87.i.i, %.loopexit.loopexit.i.i, %1030, %1028, %1013, %1011, %1005, %get_sot.exit.i, %967, %963, %943, %941, %get_poc.exit.i, %get_qcd.exit.i, %821, %819, %812, %800, %get_rgn.exit.i, %get_cod.exit.i, %685, %674, %672, %665, %get_cap.exit.i, %592, %589
-  %.2183.i = phi i8 [ %.0181443.i, %1139 ], [ %.0181443.i, %589 ], [ %.0181443.i, %592 ], [ %.0181443.i, %get_cap.exit.i ], [ %.0181443.i, %get_cod.exit.i ], [ %.0181443.i, %get_rgn.exit.i ], [ %.0181443.i, %800 ], [ %.0181443.i, %685 ], [ %.0181443.i, %get_qcd.exit.i ], [ %.0181443.i, %get_poc.exit.i ], [ %.0181443.i, %1136 ], [ 1, %get_sot.exit.i ], [ %.0181443.i, %1005 ], [ %.0181443.i, %821 ], [ %.0181443.i, %1013 ], [ %.0181443.i, %.loopexit.loopexit91.i.i ], [ 0, %1122 ], [ %.0181443.i, %1134 ], [ %.0181443.i, %665 ], [ %.0181443.i, %672 ], [ %.0181443.i, %674 ], [ %.0181443.i, %812 ], [ %.0181443.i, %819 ], [ %.0181443.i, %1011 ], [ %.0181443.i, %1028 ], [ %.0181443.i, %1030 ], [ %.0181443.i, %.loopexit.loopexit.i.i ], [ %.0181443.i, %.loopexit.loopexit87.i.i ], [ %.0181443.i, %.loopexit.loopexit88.i.i ], [ %.0181443.i, %.loopexit.loopexit89.i.i ], [ %.0181443.i, %.loopexit.loopexit90.i.i ], [ %.0181443.i, %1092 ], [ 1, %967 ], [ 1, %943 ], [ 1, %941 ], [ 1, %963 ], [ %.0181443.i, %bytestream2_get_byte.exit13.i.i ]
-  %.0180.i = phi i32 [ 0, %1139 ], [ %590, %589 ], [ %590, %592 ], [ %.038.i.i, %get_cap.exit.i ], [ %.0.i230.i, %get_cod.exit.i ], [ %.0.i235.i, %get_rgn.exit.i ], [ %.0.i235.i, %800 ], [ 0, %685 ], [ %.0.i238.i, %get_qcd.exit.i ], [ %.0.i249.i, %get_poc.exit.i ], [ 0, %1136 ], [ 0, %get_sot.exit.i ], [ 0, %1005 ], [ %828, %821 ], [ 0, %1013 ], [ 0, %.loopexit.loopexit91.i.i ], [ %1123, %1122 ], [ %1135, %1134 ], [ -1094995529, %665 ], [ -1094995529, %672 ], [ %683, %674 ], [ -1094995529, %812 ], [ -1094995529, %819 ], [ -1094995529, %1011 ], [ -1094995529, %1028 ], [ 0, %1030 ], [ 0, %.loopexit.loopexit.i.i ], [ 0, %.loopexit.loopexit87.i.i ], [ 0, %.loopexit.loopexit88.i.i ], [ 0, %.loopexit.loopexit89.i.i ], [ 0, %.loopexit.loopexit90.i.i ], [ -1094995529, %1092 ], [ -1163346256, %967 ], [ -1094995529, %943 ], [ -1094995529, %941 ], [ -1094995529, %963 ], [ %.0.i12.i.i, %bytestream2_get_byte.exit13.i.i ]
-  %.2179.i = phi ptr [ %.0177444.i, %1139 ], [ %.0177444.i, %589 ], [ %.0177444.i, %592 ], [ %.0177444.i, %get_cap.exit.i ], [ %.0177444.i, %get_cod.exit.i ], [ %.0177444.i, %get_rgn.exit.i ], [ %.0177444.i, %800 ], [ %.0177444.i, %685 ], [ %.0177444.i, %get_qcd.exit.i ], [ %.0177444.i, %get_poc.exit.i ], [ %.0177444.i, %1136 ], [ %1004, %get_sot.exit.i ], [ %.0177444.i, %1005 ], [ %.0177444.i, %821 ], [ %.0177444.i, %1013 ], [ %.0177444.i, %.loopexit.loopexit91.i.i ], [ %.0177444.i, %1122 ], [ %.0177444.i, %1134 ], [ %.0177444.i, %665 ], [ %.0177444.i, %672 ], [ %.0177444.i, %674 ], [ %.0177444.i, %812 ], [ %.0177444.i, %819 ], [ %.0177444.i, %1011 ], [ %.0177444.i, %1028 ], [ %.0177444.i, %1030 ], [ %.0177444.i, %.loopexit.loopexit.i.i ], [ %.0177444.i, %.loopexit.loopexit87.i.i ], [ %.0177444.i, %.loopexit.loopexit88.i.i ], [ %.0177444.i, %.loopexit.loopexit89.i.i ], [ %.0177444.i, %.loopexit.loopexit90.i.i ], [ %.0177444.i, %1092 ], [ %.0177444.i, %967 ], [ %.0177444.i, %943 ], [ %.0177444.i, %941 ], [ %.0177444.i, %963 ], [ %.0177444.i, %bytestream2_get_byte.exit13.i.i ]
-  %.2176.i = phi ptr [ %.0174445.i, %1139 ], [ %.0174445.i, %589 ], [ %.0174445.i, %592 ], [ %.0174445.i, %get_cap.exit.i ], [ %.0174445.i, %get_cod.exit.i ], [ %.0174445.i, %get_rgn.exit.i ], [ %.0174445.i, %800 ], [ %.0174445.i, %685 ], [ %.0174445.i, %get_qcd.exit.i ], [ %.0174445.i, %get_poc.exit.i ], [ %.0174445.i, %1136 ], [ %1003, %get_sot.exit.i ], [ %.0174445.i, %1005 ], [ %.0174445.i, %821 ], [ %.0174445.i, %1013 ], [ %.0174445.i, %.loopexit.loopexit91.i.i ], [ %.0174445.i, %1122 ], [ %.0174445.i, %1134 ], [ %.0174445.i, %665 ], [ %.0174445.i, %672 ], [ %.0174445.i, %674 ], [ %.0174445.i, %812 ], [ %.0174445.i, %819 ], [ %.0174445.i, %1011 ], [ %.0174445.i, %1028 ], [ %.0174445.i, %1030 ], [ %.0174445.i, %.loopexit.loopexit.i.i ], [ %.0174445.i, %.loopexit.loopexit87.i.i ], [ %.0174445.i, %.loopexit.loopexit88.i.i ], [ %.0174445.i, %.loopexit.loopexit89.i.i ], [ %.0174445.i, %.loopexit.loopexit90.i.i ], [ %.0174445.i, %1092 ], [ %.0174445.i, %967 ], [ %.0174445.i, %943 ], [ %.0174445.i, %941 ], [ %.0174445.i, %963 ], [ %.0174445.i, %bytestream2_get_byte.exit13.i.i ]
-  %.2170.i = phi ptr [ %.0168446.i, %1139 ], [ %.0168446.i, %589 ], [ %.0168446.i, %592 ], [ %.0168446.i, %get_cap.exit.i ], [ %.0168446.i, %get_cod.exit.i ], [ %.0168446.i, %get_rgn.exit.i ], [ %.0168446.i, %800 ], [ %.0168446.i, %685 ], [ %.0168446.i, %get_qcd.exit.i ], [ %.0168446.i, %get_poc.exit.i ], [ %.0168446.i, %1136 ], [ %1002, %get_sot.exit.i ], [ %.0168446.i, %1005 ], [ %.0168446.i, %821 ], [ %.0168446.i, %1013 ], [ %.0168446.i, %.loopexit.loopexit91.i.i ], [ %.0168446.i, %1122 ], [ %.0168446.i, %1134 ], [ %.0168446.i, %665 ], [ %.0168446.i, %672 ], [ %.0168446.i, %674 ], [ %.0168446.i, %812 ], [ %.0168446.i, %819 ], [ %.0168446.i, %1011 ], [ %.0168446.i, %1028 ], [ %.0168446.i, %1030 ], [ %.0168446.i, %.loopexit.loopexit.i.i ], [ %.0168446.i, %.loopexit.loopexit87.i.i ], [ %.0168446.i, %.loopexit.loopexit88.i.i ], [ %.0168446.i, %.loopexit.loopexit89.i.i ], [ %.0168446.i, %.loopexit.loopexit90.i.i ], [ %.0168446.i, %1092 ], [ %.0168446.i, %967 ], [ %.0168446.i, %943 ], [ %.0168446.i, %941 ], [ %.0168446.i, %963 ], [ %.0168446.i, %bytestream2_get_byte.exit13.i.i ]
-  %.2167.i = phi ptr [ %.0165447.i, %1139 ], [ %.0165447.i, %589 ], [ %.0165447.i, %592 ], [ %.0165447.i, %get_cap.exit.i ], [ %.0165447.i, %get_cod.exit.i ], [ %.0165447.i, %get_rgn.exit.i ], [ %.0165447.i, %800 ], [ %.0165447.i, %685 ], [ %.0165447.i, %get_qcd.exit.i ], [ %.0165447.i, %get_poc.exit.i ], [ %.0165447.i, %1136 ], [ %1001, %get_sot.exit.i ], [ %.0165447.i, %1005 ], [ %.0165447.i, %821 ], [ %.0165447.i, %1013 ], [ %.0165447.i, %.loopexit.loopexit91.i.i ], [ %.0165447.i, %1122 ], [ %.0165447.i, %1134 ], [ %.0165447.i, %665 ], [ %.0165447.i, %672 ], [ %.0165447.i, %674 ], [ %.0165447.i, %812 ], [ %.0165447.i, %819 ], [ %.0165447.i, %1011 ], [ %.0165447.i, %1028 ], [ %.0165447.i, %1030 ], [ %.0165447.i, %.loopexit.loopexit.i.i ], [ %.0165447.i, %.loopexit.loopexit87.i.i ], [ %.0165447.i, %.loopexit.loopexit88.i.i ], [ %.0165447.i, %.loopexit.loopexit89.i.i ], [ %.0165447.i, %.loopexit.loopexit90.i.i ], [ %.0165447.i, %1092 ], [ %.0165447.i, %967 ], [ %.0165447.i, %943 ], [ %.0165447.i, %941 ], [ %.0165447.i, %963 ], [ %.0165447.i, %bytestream2_get_byte.exit13.i.i ]
+  %.2183.i = phi i8 [ %.0181443.i, %1139 ], [ %.0181443.i, %589 ], [ %.0181443.i, %592 ], [ %.0181443.i, %get_cap.exit.i ], [ 1, %967 ], [ %.0181443.i, %get_cod.exit.i ], [ %.0181443.i, %get_rgn.exit.i ], [ %.0181443.i, %800 ], [ %.0181443.i, %685 ], [ %.0181443.i, %get_qcd.exit.i ], [ %.0181443.i, %get_poc.exit.i ], [ %.0181443.i, %1136 ], [ 1, %get_sot.exit.i ], [ %.0181443.i, %1005 ], [ %.0181443.i, %821 ], [ %.0181443.i, %1013 ], [ %.0181443.i, %.loopexit.loopexit91.i.i ], [ 0, %1122 ], [ %.0181443.i, %1134 ], [ %.0181443.i, %665 ], [ %.0181443.i, %672 ], [ %.0181443.i, %674 ], [ %.0181443.i, %812 ], [ %.0181443.i, %819 ], [ %.0181443.i, %1011 ], [ %.0181443.i, %1028 ], [ %.0181443.i, %1030 ], [ %.0181443.i, %.loopexit.loopexit.i.i ], [ %.0181443.i, %.loopexit.loopexit87.i.i ], [ %.0181443.i, %.loopexit.loopexit88.i.i ], [ %.0181443.i, %.loopexit.loopexit89.i.i ], [ %.0181443.i, %.loopexit.loopexit90.i.i ], [ %.0181443.i, %1092 ], [ 1, %963 ], [ 1, %943 ], [ 1, %941 ], [ %.0181443.i, %bytestream2_get_byte.exit13.i.i ]
+  %.0180.i = phi i32 [ 0, %1139 ], [ %590, %589 ], [ %590, %592 ], [ %.038.i.i, %get_cap.exit.i ], [ -1163346256, %967 ], [ %.0.i230.i, %get_cod.exit.i ], [ %.0.i235.i, %get_rgn.exit.i ], [ %.0.i235.i, %800 ], [ 0, %685 ], [ %.0.i238.i, %get_qcd.exit.i ], [ %.0.i249.i, %get_poc.exit.i ], [ 0, %1136 ], [ 0, %get_sot.exit.i ], [ 0, %1005 ], [ %828, %821 ], [ 0, %1013 ], [ 0, %.loopexit.loopexit91.i.i ], [ %1123, %1122 ], [ %1135, %1134 ], [ -1094995529, %665 ], [ -1094995529, %672 ], [ %683, %674 ], [ -1094995529, %812 ], [ -1094995529, %819 ], [ -1094995529, %1011 ], [ -1094995529, %1028 ], [ 0, %1030 ], [ 0, %.loopexit.loopexit.i.i ], [ 0, %.loopexit.loopexit87.i.i ], [ 0, %.loopexit.loopexit88.i.i ], [ 0, %.loopexit.loopexit89.i.i ], [ 0, %.loopexit.loopexit90.i.i ], [ -1094995529, %1092 ], [ -1094995529, %963 ], [ -1094995529, %943 ], [ -1094995529, %941 ], [ %.0.i12.i.i, %bytestream2_get_byte.exit13.i.i ]
+  %.2179.i = phi ptr [ %.0177444.i, %1139 ], [ %.0177444.i, %589 ], [ %.0177444.i, %592 ], [ %.0177444.i, %get_cap.exit.i ], [ %.0177444.i, %967 ], [ %.0177444.i, %get_cod.exit.i ], [ %.0177444.i, %get_rgn.exit.i ], [ %.0177444.i, %800 ], [ %.0177444.i, %685 ], [ %.0177444.i, %get_qcd.exit.i ], [ %.0177444.i, %get_poc.exit.i ], [ %.0177444.i, %1136 ], [ %1004, %get_sot.exit.i ], [ %.0177444.i, %1005 ], [ %.0177444.i, %821 ], [ %.0177444.i, %1013 ], [ %.0177444.i, %.loopexit.loopexit91.i.i ], [ %.0177444.i, %1122 ], [ %.0177444.i, %1134 ], [ %.0177444.i, %665 ], [ %.0177444.i, %672 ], [ %.0177444.i, %674 ], [ %.0177444.i, %812 ], [ %.0177444.i, %819 ], [ %.0177444.i, %1011 ], [ %.0177444.i, %1028 ], [ %.0177444.i, %1030 ], [ %.0177444.i, %.loopexit.loopexit.i.i ], [ %.0177444.i, %.loopexit.loopexit87.i.i ], [ %.0177444.i, %.loopexit.loopexit88.i.i ], [ %.0177444.i, %.loopexit.loopexit89.i.i ], [ %.0177444.i, %.loopexit.loopexit90.i.i ], [ %.0177444.i, %1092 ], [ %.0177444.i, %963 ], [ %.0177444.i, %943 ], [ %.0177444.i, %941 ], [ %.0177444.i, %bytestream2_get_byte.exit13.i.i ]
+  %.2176.i = phi ptr [ %.0174445.i, %1139 ], [ %.0174445.i, %589 ], [ %.0174445.i, %592 ], [ %.0174445.i, %get_cap.exit.i ], [ %.0174445.i, %967 ], [ %.0174445.i, %get_cod.exit.i ], [ %.0174445.i, %get_rgn.exit.i ], [ %.0174445.i, %800 ], [ %.0174445.i, %685 ], [ %.0174445.i, %get_qcd.exit.i ], [ %.0174445.i, %get_poc.exit.i ], [ %.0174445.i, %1136 ], [ %1003, %get_sot.exit.i ], [ %.0174445.i, %1005 ], [ %.0174445.i, %821 ], [ %.0174445.i, %1013 ], [ %.0174445.i, %.loopexit.loopexit91.i.i ], [ %.0174445.i, %1122 ], [ %.0174445.i, %1134 ], [ %.0174445.i, %665 ], [ %.0174445.i, %672 ], [ %.0174445.i, %674 ], [ %.0174445.i, %812 ], [ %.0174445.i, %819 ], [ %.0174445.i, %1011 ], [ %.0174445.i, %1028 ], [ %.0174445.i, %1030 ], [ %.0174445.i, %.loopexit.loopexit.i.i ], [ %.0174445.i, %.loopexit.loopexit87.i.i ], [ %.0174445.i, %.loopexit.loopexit88.i.i ], [ %.0174445.i, %.loopexit.loopexit89.i.i ], [ %.0174445.i, %.loopexit.loopexit90.i.i ], [ %.0174445.i, %1092 ], [ %.0174445.i, %963 ], [ %.0174445.i, %943 ], [ %.0174445.i, %941 ], [ %.0174445.i, %bytestream2_get_byte.exit13.i.i ]
+  %.2170.i = phi ptr [ %.0168446.i, %1139 ], [ %.0168446.i, %589 ], [ %.0168446.i, %592 ], [ %.0168446.i, %get_cap.exit.i ], [ %.0168446.i, %967 ], [ %.0168446.i, %get_cod.exit.i ], [ %.0168446.i, %get_rgn.exit.i ], [ %.0168446.i, %800 ], [ %.0168446.i, %685 ], [ %.0168446.i, %get_qcd.exit.i ], [ %.0168446.i, %get_poc.exit.i ], [ %.0168446.i, %1136 ], [ %1002, %get_sot.exit.i ], [ %.0168446.i, %1005 ], [ %.0168446.i, %821 ], [ %.0168446.i, %1013 ], [ %.0168446.i, %.loopexit.loopexit91.i.i ], [ %.0168446.i, %1122 ], [ %.0168446.i, %1134 ], [ %.0168446.i, %665 ], [ %.0168446.i, %672 ], [ %.0168446.i, %674 ], [ %.0168446.i, %812 ], [ %.0168446.i, %819 ], [ %.0168446.i, %1011 ], [ %.0168446.i, %1028 ], [ %.0168446.i, %1030 ], [ %.0168446.i, %.loopexit.loopexit.i.i ], [ %.0168446.i, %.loopexit.loopexit87.i.i ], [ %.0168446.i, %.loopexit.loopexit88.i.i ], [ %.0168446.i, %.loopexit.loopexit89.i.i ], [ %.0168446.i, %.loopexit.loopexit90.i.i ], [ %.0168446.i, %1092 ], [ %.0168446.i, %963 ], [ %.0168446.i, %943 ], [ %.0168446.i, %941 ], [ %.0168446.i, %bytestream2_get_byte.exit13.i.i ]
+  %.2167.i = phi ptr [ %.0165447.i, %1139 ], [ %.0165447.i, %589 ], [ %.0165447.i, %592 ], [ %.0165447.i, %get_cap.exit.i ], [ %.0165447.i, %967 ], [ %.0165447.i, %get_cod.exit.i ], [ %.0165447.i, %get_rgn.exit.i ], [ %.0165447.i, %800 ], [ %.0165447.i, %685 ], [ %.0165447.i, %get_qcd.exit.i ], [ %.0165447.i, %get_poc.exit.i ], [ %.0165447.i, %1136 ], [ %1001, %get_sot.exit.i ], [ %.0165447.i, %1005 ], [ %.0165447.i, %821 ], [ %.0165447.i, %1013 ], [ %.0165447.i, %.loopexit.loopexit91.i.i ], [ %.0165447.i, %1122 ], [ %.0165447.i, %1134 ], [ %.0165447.i, %665 ], [ %.0165447.i, %672 ], [ %.0165447.i, %674 ], [ %.0165447.i, %812 ], [ %.0165447.i, %819 ], [ %.0165447.i, %1011 ], [ %.0165447.i, %1028 ], [ %.0165447.i, %1030 ], [ %.0165447.i, %.loopexit.loopexit.i.i ], [ %.0165447.i, %.loopexit.loopexit87.i.i ], [ %.0165447.i, %.loopexit.loopexit88.i.i ], [ %.0165447.i, %.loopexit.loopexit89.i.i ], [ %.0165447.i, %.loopexit.loopexit90.i.i ], [ %.0165447.i, %1092 ], [ %.0165447.i, %963 ], [ %.0165447.i, %943 ], [ %.0165447.i, %941 ], [ %.0165447.i, %bytestream2_get_byte.exit13.i.i ]
   %1151 = load ptr, ptr %13, align 8, !tbaa !39
   %1152 = load ptr, ptr %20, align 8, !tbaa !40
   %1153 = ptrtoint ptr %1151 to i64
@@ -3002,7 +3002,7 @@ jpeg2000_read_bitstream_packets.exit:             ; preds = %1212, %1187
   br label %1477
 
 jpeg2000_read_main_headers.exit.thread:           ; preds = %bytestream2_get_be32.exit.i, %1218, %.loopexit.i101, %init_tile.exit.i, %1349, %1160, %.thread28.i, %.thread122.sink.split.i.i, %578, %587, %595, %661, %696, %802, %741, %810, %835, %858, %1120, %1126, %474, %487, %1132, %469, %bytestream2_init.exit, %1184, %419, %jp2_find_codestream.exit
-  %.071 = phi i32 [ -1094995529, %jp2_find_codestream.exit ], [ -1094995529, %419 ], [ -1094995529, %bytestream2_init.exit ], [ %1185, %1184 ], [ -1094995529, %469 ], [ -1094995529, %.thread122.sink.split.i.i ], [ -1094995529, %578 ], [ %spec.select, %1160 ], [ -1094995529, %587 ], [ -1094995529, %595 ], [ -1094995529, %661 ], [ -1094995529, %696 ], [ -1094995529, %802 ], [ -1094995529, %741 ], [ -1094995529, %810 ], [ -1094995529, %835 ], [ -1094995529, %858 ], [ -1094995529, %1120 ], [ -1094995529, %1126 ], [ -1094995529, %474 ], [ -1094995529, %487 ], [ -1094995529, %1132 ], [ -12, %1218 ], [ %1406, %.thread28.i ], [ -1094995529, %1349 ], [ %1371, %init_tile.exit.i ], [ %.134.i.i, %.loopexit.i101 ], [ -1094995529, %bytestream2_get_be32.exit.i ]
+  %.071 = phi i32 [ -1094995529, %jp2_find_codestream.exit ], [ -1094995529, %419 ], [ -1094995529, %bytestream2_init.exit ], [ %1185, %1184 ], [ -1094995529, %469 ], [ -1094995529, %.thread122.sink.split.i.i ], [ -1094995529, %1349 ], [ -1094995529, %578 ], [ %spec.select, %1160 ], [ -1094995529, %587 ], [ -1094995529, %595 ], [ -1094995529, %661 ], [ -1094995529, %696 ], [ -1094995529, %802 ], [ -1094995529, %741 ], [ -1094995529, %810 ], [ -1094995529, %835 ], [ -1094995529, %858 ], [ -1094995529, %1120 ], [ -1094995529, %1126 ], [ -1094995529, %474 ], [ -1094995529, %487 ], [ -1094995529, %1132 ], [ -12, %1218 ], [ %1406, %.thread28.i ], [ %1371, %init_tile.exit.i ], [ %.134.i.i, %.loopexit.i101 ], [ -1094995529, %bytestream2_get_be32.exit.i ]
   tail call fastcc void @jpeg2000_dec_cleanup(ptr noundef nonnull %11)
   br label %1477
 
@@ -4372,7 +4372,7 @@ decode_cblk.exit.thread.i:                        ; preds = %._crit_edge181.spli
   br i1 %exitcond85.not.i.i, label %..loopexit51_crit_edge.us.us.i.i, label %.preheader.us.us.i.i, !llvm.loop !197
 
 dequantization_float.exit.i:                      ; preds = %._crit_edge.us.i131.i, %._crit_edge.us.i.i, %..loopexit51_crit_edge.us.us.i.i, %.lr.ph56.i.i, %686, %.lr.ph47.i.i, %638, %.lr.ph4.i.i, %607, %decode_cblk.exit.i, %139
-  %.5113.i = phi i32 [ %.4112183.i, %decode_cblk.exit.i ], [ 1, %607 ], [ 1, %.lr.ph4.i.i ], [ 1, %638 ], [ 1, %.lr.ph47.i.i ], [ 1, %686 ], [ %.4112183.i, %139 ], [ 1, %.lr.ph56.i.i ], [ 1, %._crit_edge.us.i.i ], [ 1, %..loopexit51_crit_edge.us.us.i.i ], [ 1, %._crit_edge.us.i131.i ]
+  %.5113.i = phi i32 [ %.4112183.i, %decode_cblk.exit.i ], [ 1, %..loopexit51_crit_edge.us.us.i.i ], [ 1, %._crit_edge.us.i.i ], [ 1, %.lr.ph56.i.i ], [ 1, %607 ], [ 1, %.lr.ph4.i.i ], [ 1, %638 ], [ 1, %.lr.ph47.i.i ], [ 1, %686 ], [ %.4112183.i, %139 ], [ 1, %._crit_edge.us.i131.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %734 = load i32, ptr %97, align 8, !tbaa !156
   %735 = load i32, ptr %98, align 4, !tbaa !160
@@ -4392,8 +4392,8 @@ dequantization_float.exit.i:                      ; preds = %._crit_edge.us.i131
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.loopexit.loopexit.i, %83, %72, %57
-  %739 = phi i8 [ %58, %72 ], [ %58, %57 ], [ %58, %83 ], [ %.pre.i, %.loopexit.loopexit.i ]
-  %.2110.ph.i = phi i32 [ %.1109191.i, %72 ], [ %.1109191.i, %57 ], [ %.1109191.i, %83 ], [ %.4112.lcssa.i, %.loopexit.loopexit.i ]
+  %739 = phi i8 [ %58, %57 ], [ %58, %72 ], [ %58, %83 ], [ %.pre.i, %.loopexit.loopexit.i ]
+  %.2110.ph.i = phi i32 [ %.1109191.i, %57 ], [ %.1109191.i, %72 ], [ %.1109191.i, %83 ], [ %.4112.lcssa.i, %.loopexit.loopexit.i ]
   %indvars.iv.next222.i = add nuw nsw i64 %indvars.iv221.i, 1
   %indvars.iv.next224.i = add nsw i64 %indvars.iv223.i, 1
   %740 = zext i8 %739 to i64
@@ -4732,8 +4732,8 @@ mct_decode.exit:                                  ; preds = %771, %779, %793
   br i1 %932, label %.lr.ph.i35, label %.loopexit.i33, !llvm.loop !212
 
 .loopexit.i33:                                    ; preds = %.lr.ph.i35, %.lr.ph109.i, %.preheader.i36, %.preheader101.i
-  %.194.i = phi ptr [ %.093111.i, %.preheader.i36 ], [ %.093111.i, %.preheader101.i ], [ %.093111.i, %.lr.ph109.i ], [ %929, %.lr.ph.i35 ]
-  %.2.i = phi ptr [ %.091112.i, %.preheader.i36 ], [ %.091112.i, %.preheader101.i ], [ %920, %.lr.ph109.i ], [ %.091112.i, %.lr.ph.i35 ]
+  %.194.i = phi ptr [ %.093111.i, %.preheader.i36 ], [ %.093111.i, %.lr.ph109.i ], [ %.093111.i, %.preheader101.i ], [ %929, %.lr.ph.i35 ]
+  %.2.i = phi ptr [ %.091112.i, %.preheader.i36 ], [ %920, %.lr.ph109.i ], [ %.091112.i, %.preheader101.i ], [ %.091112.i, %.lr.ph.i35 ]
   %933 = load i32, ptr %876, align 4, !tbaa !47
   %934 = sext i32 %933 to i64
   %935 = getelementptr inbounds nuw i8, ptr %.090113.i, i64 %934
@@ -4962,7 +4962,7 @@ mct_decode.exit:                                  ; preds = %771, %779, %793
   br i1 %exitcond.not.i46, label %write_frame_8.exit, label %978, !llvm.loop !219
 
 write_frame_8.exit:                               ; preds = %._crit_edge.i44, %._crit_edge.i31, %959, %820, %tile_codeblocks.exit
-  %.0 = phi i32 [ -1163346256, %tile_codeblocks.exit ], [ 0, %820 ], [ 0, %959 ], [ 0, %._crit_edge.i31 ], [ 0, %._crit_edge.i44 ]
+  %.0 = phi i32 [ -1163346256, %tile_codeblocks.exit ], [ 0, %._crit_edge.i31 ], [ 0, %820 ], [ 0, %959 ], [ 0, %._crit_edge.i44 ]
   ret i32 %.0
 }
 
@@ -5743,7 +5743,7 @@ switch.lookup:                                    ; preds = %271
   br label %.loopexit350
 
 .loopexit350:                                     ; preds = %.lr.ph359, %._crit_edge366, %.critedge, %.critedge331.thread, %.thread338, %202, %195, %126, %109, %103, %97, %71, %65, %61, %11
-  %.0 = phi i32 [ -1094995529, %11 ], [ -1163346256, %61 ], [ -1094995529, %65 ], [ -1163346256, %71 ], [ -1094995529, %97 ], [ -1094995529, %103 ], [ -1163346256, %109 ], [ %265, %._crit_edge366 ], [ -1094995529, %126 ], [ -1094995529, %.critedge ], [ -22, %195 ], [ -12, %202 ], [ -1163346256, %.thread338 ], [ 0, %.critedge331.thread ], [ -12, %.lr.ph359 ]
+  %.0 = phi i32 [ -1094995529, %11 ], [ -1163346256, %61 ], [ -1094995529, %65 ], [ -1163346256, %71 ], [ -1094995529, %97 ], [ -1094995529, %103 ], [ -1163346256, %109 ], [ 0, %.critedge331.thread ], [ -1094995529, %126 ], [ -1094995529, %.critedge ], [ -22, %195 ], [ %265, %._crit_edge366 ], [ -12, %202 ], [ -1163346256, %.thread338 ], [ -12, %.lr.ph359 ]
   ret i32 %.0
 }
 
@@ -5991,8 +5991,8 @@ define internal fastcc range(i32 0, 2) i32 @pix_fmt_match(i32 noundef %0, i32 no
 default.unreachable58:                            ; preds = %10
   unreachable
 
-.critedge46:                                      ; preds = %32, %.critedge43, %.critedge42, %11, %.critedge, %18, %48, %.critedge45, %.critedge44, %5
-  %.0 = phi i32 [ 0, %5 ], [ %55, %48 ], [ 0, %.critedge44 ], [ 0, %.critedge45 ], [ 0, %18 ], [ 0, %.critedge ], [ 0, %32 ], [ 0, %11 ], [ 0, %.critedge42 ], [ 0, %.critedge43 ]
+.critedge46:                                      ; preds = %11, %32, %.critedge43, %.critedge42, %.critedge, %18, %48, %.critedge45, %.critedge44, %5
+  %.0 = phi i32 [ 0, %5 ], [ %55, %48 ], [ 0, %.critedge44 ], [ 0, %.critedge45 ], [ 0, %18 ], [ 0, %.critedge ], [ 0, %11 ], [ 0, %.critedge42 ], [ 0, %.critedge43 ], [ 0, %32 ]
   ret i32 %.0
 }
 
@@ -6365,7 +6365,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @get_qcx(ptr noundef captur
   br i1 %exitcond78.not, label %.loopexit, label %64, !llvm.loop !239
 
 .loopexit:                                        ; preds = %47, %.lr.ph, %64, %.preheader60, %.preheader, %53, %33, %20, %3
-  %.0 = phi i32 [ -1094995529, %33 ], [ -1094995529, %3 ], [ -1094995529, %53 ], [ -1094995529, %20 ], [ 0, %.preheader60 ], [ 0, %.preheader ], [ 0, %.lr.ph ], [ 0, %64 ], [ 0, %47 ]
+  %.0 = phi i32 [ -1094995529, %33 ], [ -1094995529, %3 ], [ -1094995529, %53 ], [ -1094995529, %20 ], [ 0, %.preheader ], [ 0, %.preheader60 ], [ 0, %64 ], [ 0, %.lr.ph ], [ 0, %47 ]
   ret i32 %.0
 }
 
@@ -7106,7 +7106,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @jpeg2000_decode_packets_po
   br i1 %exitcond936.not, label %.loopexit737.us, label %419, !llvm.loop !258
 
 .loopexit737.us:                                  ; preds = %417, %.preheader736.us, %._crit_edge979, %379, %377, %363, %361, %334
-  %.13572.ph.us = phi i32 [ %.12571800.us, %379 ], [ %.12571800.us, %363 ], [ %.12571800.us, %334 ], [ %.12571800.us, %361 ], [ %.12571800.us, %377 ], [ 1, %._crit_edge979 ], [ 1, %.preheader736.us ], [ 1, %417 ]
+  %.13572.ph.us = phi i32 [ 1, %._crit_edge979 ], [ %.12571800.us, %379 ], [ %.12571800.us, %363 ], [ %.12571800.us, %334 ], [ %.12571800.us, %361 ], [ %.12571800.us, %377 ], [ 1, %.preheader736.us ], [ 1, %417 ]
   %indvars.iv.next938 = add nuw nsw i64 %indvars.iv937, 1
   %exitcond941.not = icmp eq i64 %indvars.iv.next938, %wide.trip.count940
   br i1 %exitcond941.not, label %._crit_edge803.us, label %320, !llvm.loop !259
@@ -7482,7 +7482,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @jpeg2000_decode_packets_po
   br i1 %625, label %.lr.ph790.split, label %.thread695, !llvm.loop !269
 
 .thread695:                                       ; preds = %._crit_edge786, %506, %499, %601, %.lr.ph816, %._crit_edge795, %._crit_edge817, %331, %320, %419, %.loopexit733, %237, %._crit_edge850.split.us.us.us, %89, %.preheader724.us, %._crit_edge871.us, %47, %.lr.ph790, %.preheader728.lr.ph, %.preheader724.lr.ph, %473, %259, %100, %55, %10, %139, %9, %._crit_edge772.thread
-  %.6 = phi i32 [ -1163346256, %139 ], [ -1163346256, %._crit_edge772.thread ], [ 0, %9 ], [ 0, %10 ], [ 0, %55 ], [ 0, %100 ], [ 0, %259 ], [ 0, %473 ], [ 0, %.lr.ph790 ], [ 0, %.preheader728.lr.ph ], [ 0, %.preheader724.lr.ph ], [ -1094995529, %506 ], [ %50, %47 ], [ 0, %.preheader724.us ], [ %92, %89 ], [ 0, %._crit_edge850.split.us.us.us ], [ %240, %237 ], [ 0, %.loopexit733 ], [ %422, %419 ], [ -1094995529, %331 ], [ 0, %.lr.ph816 ], [ %604, %601 ], [ 0, %._crit_edge871.us ], [ -1094995529, %320 ], [ 0, %._crit_edge817 ], [ 0, %._crit_edge795 ], [ -1094995529, %499 ], [ 0, %._crit_edge786 ]
+  %.6 = phi i32 [ -1163346256, %139 ], [ 0, %.preheader724.us ], [ 0, %259 ], [ 0, %.preheader724.lr.ph ], [ 0, %473 ], [ -1163346256, %._crit_edge772.thread ], [ 0, %9 ], [ %92, %89 ], [ 0, %10 ], [ 0, %55 ], [ %604, %601 ], [ 0, %100 ], [ -1094995529, %506 ], [ %240, %237 ], [ %422, %419 ], [ 0, %.lr.ph790 ], [ -1094995529, %331 ], [ 0, %.loopexit733 ], [ 0, %.preheader728.lr.ph ], [ 0, %.lr.ph816 ], [ 0, %._crit_edge850.split.us.us.us ], [ %50, %47 ], [ 0, %._crit_edge871.us ], [ -1094995529, %320 ], [ 0, %._crit_edge817 ], [ 0, %._crit_edge795 ], [ -1094995529, %499 ], [ 0, %._crit_edge786 ]
   ret i32 %.6
 }
 
@@ -9001,9 +9001,9 @@ bytestream2_peek_byte.exit.i726:                  ; preds = %686, %679
   br label %.loopexit898
 
 .loopexit898:                                     ; preds = %697, %701, %704
-  %.6480 = phi i8 [ %708, %704 ], [ 0, %701 ], [ %.5479, %697 ]
-  %.3469 = phi i32 [ %spec.select557, %704 ], [ 1, %701 ], [ %spec.select, %697 ]
-  %.2462 = phi i8 [ 1, %704 ], [ 2, %701 ], [ 2, %697 ]
+  %.6480 = phi i8 [ 0, %701 ], [ %708, %704 ], [ %.5479, %697 ]
+  %.3469 = phi i32 [ 1, %701 ], [ %spec.select557, %704 ], [ %spec.select, %697 ]
+  %.2462 = phi i8 [ 2, %701 ], [ 1, %704 ], [ 2, %697 ]
   %709 = add i8 %.6480, %416
   %.not17.i736 = icmp eq i8 %709, 0
   br i1 %.not17.i736, label %get_bits.exit719, label %.lr.ph.i737
@@ -9069,10 +9069,10 @@ bytestream2_peek_byte.exit.i742:                  ; preds = %732, %725
   br i1 %738, label %713, label %get_bits.exit719, !llvm.loop !279
 
 get_bits.exit719:                                 ; preds = %bytestream2_peek_byte.exit.i663, %bytestream2_peek_byte.exit.i726, %bytestream2_peek_byte.exit.i742, %bytestream2_peek_byte.exit.i710, %525, %._crit_edge979, %.loopexit898, %663, %628, %get_bits.exit703, %475, %477, %get_bits.exit641, %get_bits.exit657.thread, %575, %577, %573, %514, %523
-  %.not553 = phi i1 [ true, %475 ], [ true, %477 ], [ true, %get_bits.exit641 ], [ true, %523 ], [ true, %514 ], [ true, %575 ], [ true, %577 ], [ true, %573 ], [ true, %get_bits.exit657.thread ], [ true, %get_bits.exit703 ], [ true, %628 ], [ true, %663 ], [ false, %.loopexit898 ], [ true, %._crit_edge979 ], [ true, %525 ], [ true, %bytestream2_peek_byte.exit.i726 ], [ true, %bytestream2_peek_byte.exit.i710 ], [ false, %bytestream2_peek_byte.exit.i742 ], [ true, %bytestream2_peek_byte.exit.i663 ]
-  %.2473 = phi i32 [ %472, %475 ], [ %472, %477 ], [ 0, %get_bits.exit641 ], [ %507, %523 ], [ %507, %514 ], [ %571, %575 ], [ %571, %577 ], [ 0, %573 ], [ 0, %get_bits.exit657.thread ], [ %.0.lcssa.i697, %get_bits.exit703 ], [ 0, %628 ], [ 0, %663 ], [ 0, %.loopexit898 ], [ 0, %._crit_edge979 ], [ %507, %525 ], [ %691, %bytestream2_peek_byte.exit.i726 ], [ %659, %bytestream2_peek_byte.exit.i710 ], [ %737, %bytestream2_peek_byte.exit.i742 ], [ %547, %bytestream2_peek_byte.exit.i663 ]
-  %.0466 = phi i32 [ %.0.i614851, %475 ], [ %.0.i614851, %477 ], [ %.0.i614851, %get_bits.exit641 ], [ %441, %523 ], [ %441, %514 ], [ %.0.i614851, %575 ], [ %.0.i614851, %577 ], [ %.0.i614851, %573 ], [ %.0.i614851, %get_bits.exit657.thread ], [ %.1467, %get_bits.exit703 ], [ %.0.i614851, %628 ], [ 1, %663 ], [ %.3469, %.loopexit898 ], [ %.0.i614851, %._crit_edge979 ], [ %.0.i614851, %525 ], [ 1, %bytestream2_peek_byte.exit.i726 ], [ %.0.i614851, %bytestream2_peek_byte.exit.i710 ], [ %.3469, %bytestream2_peek_byte.exit.i742 ], [ %.0.i614851, %bytestream2_peek_byte.exit.i663 ]
-  %.0460 = phi i8 [ 0, %475 ], [ 0, %477 ], [ 0, %get_bits.exit641 ], [ 2, %523 ], [ 2, %514 ], [ 0, %575 ], [ 0, %577 ], [ 0, %573 ], [ 0, %get_bits.exit657.thread ], [ %.1461, %get_bits.exit703 ], [ 0, %628 ], [ 1, %663 ], [ %.2462, %.loopexit898 ], [ 0, %._crit_edge979 ], [ 0, %525 ], [ 1, %bytestream2_peek_byte.exit.i726 ], [ 0, %bytestream2_peek_byte.exit.i710 ], [ %.2462, %bytestream2_peek_byte.exit.i742 ], [ 0, %bytestream2_peek_byte.exit.i663 ]
+  %.not553 = phi i1 [ true, %475 ], [ true, %477 ], [ true, %get_bits.exit641 ], [ true, %523 ], [ true, %bytestream2_peek_byte.exit.i726 ], [ true, %514 ], [ true, %575 ], [ true, %577 ], [ true, %573 ], [ true, %get_bits.exit657.thread ], [ true, %get_bits.exit703 ], [ true, %._crit_edge979 ], [ true, %525 ], [ true, %bytestream2_peek_byte.exit.i710 ], [ true, %628 ], [ true, %663 ], [ false, %.loopexit898 ], [ false, %bytestream2_peek_byte.exit.i742 ], [ true, %bytestream2_peek_byte.exit.i663 ]
+  %.2473 = phi i32 [ %472, %475 ], [ %472, %477 ], [ 0, %get_bits.exit641 ], [ %507, %523 ], [ %691, %bytestream2_peek_byte.exit.i726 ], [ %507, %514 ], [ %571, %575 ], [ %571, %577 ], [ 0, %573 ], [ 0, %get_bits.exit657.thread ], [ %.0.lcssa.i697, %get_bits.exit703 ], [ 0, %._crit_edge979 ], [ %507, %525 ], [ %659, %bytestream2_peek_byte.exit.i710 ], [ 0, %628 ], [ 0, %663 ], [ 0, %.loopexit898 ], [ %737, %bytestream2_peek_byte.exit.i742 ], [ %547, %bytestream2_peek_byte.exit.i663 ]
+  %.0466 = phi i32 [ %.0.i614851, %475 ], [ %.0.i614851, %477 ], [ %.0.i614851, %get_bits.exit641 ], [ %441, %523 ], [ 1, %bytestream2_peek_byte.exit.i726 ], [ %441, %514 ], [ %.0.i614851, %575 ], [ %.0.i614851, %577 ], [ %.0.i614851, %573 ], [ %.0.i614851, %get_bits.exit657.thread ], [ %.1467, %get_bits.exit703 ], [ %.0.i614851, %._crit_edge979 ], [ %.0.i614851, %525 ], [ %.0.i614851, %bytestream2_peek_byte.exit.i710 ], [ %.0.i614851, %628 ], [ 1, %663 ], [ %.3469, %.loopexit898 ], [ %.3469, %bytestream2_peek_byte.exit.i742 ], [ %.0.i614851, %bytestream2_peek_byte.exit.i663 ]
+  %.0460 = phi i8 [ 0, %475 ], [ 0, %477 ], [ 0, %get_bits.exit641 ], [ 2, %523 ], [ 1, %bytestream2_peek_byte.exit.i726 ], [ 2, %514 ], [ 0, %575 ], [ 0, %577 ], [ 0, %573 ], [ 0, %get_bits.exit657.thread ], [ %.1461, %get_bits.exit703 ], [ 0, %._crit_edge979 ], [ 0, %525 ], [ 0, %bytestream2_peek_byte.exit.i710 ], [ 0, %628 ], [ 1, %663 ], [ %.2462, %.loopexit898 ], [ %.2462, %bytestream2_peek_byte.exit.i742 ], [ 0, %bytestream2_peek_byte.exit.i663 ]
   %739 = load i8, ptr %177, align 8, !tbaa !166
   %740 = trunc i32 %.0466 to i8
   %741 = add i8 %739, %740
@@ -9327,8 +9327,8 @@ get_bits.exit783:                                 ; preds = %get_bits.exit783.lo
   br i1 %869, label %.lr.ph990, label %.loopexit895, !llvm.loop !291
 
 .loopexit895:                                     ; preds = %get_bits.exit767, %get_bits.exit783, %753, %808
-  %870 = phi ptr [ %743, %808 ], [ %743, %753 ], [ %864, %get_bits.exit783 ], [ %743, %get_bits.exit767 ]
-  %871 = phi i8 [ %745, %808 ], [ %745, %753 ], [ %866, %get_bits.exit783 ], [ %804, %get_bits.exit767 ]
+  %870 = phi ptr [ %864, %get_bits.exit783 ], [ %743, %808 ], [ %743, %753 ], [ %743, %get_bits.exit767 ]
+  %871 = phi i8 [ %866, %get_bits.exit783 ], [ %745, %808 ], [ %745, %753 ], [ %804, %get_bits.exit767 ]
   %.not1015 = icmp eq i8 %871, 0
   br i1 %.not1015, label %.thread846, label %.lr.ph994
 
@@ -10279,7 +10279,7 @@ bytestream2_peek_byte.exit.i:                     ; preds = %50, %43
   br i1 %64, label %25, label %.thread, !llvm.loop !305
 
 .thread:                                          ; preds = %.loopexit, %.loopexit.thread, %.critedge, %5
-  %.0 = phi i32 [ -1094995529, %5 ], [ %.029, %.critedge ], [ %2, %.loopexit.thread ], [ %.33256, %.loopexit ]
+  %.0 = phi i32 [ %.029, %.critedge ], [ -1094995529, %5 ], [ %2, %.loopexit.thread ], [ %.33256, %.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }

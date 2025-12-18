@@ -2560,7 +2560,7 @@ Vec_IntFind.exit.loopexit.us:                     ; preds = %9
   br i1 %.not.not.us, label %.lr.ph.i.us, label %Vec_IntFind.exit.thread, !llvm.loop !68
 
 Vec_IntFind.exit.thread:                          ; preds = %Vec_IntFind.exit.loopexit.us, %13, %3, %.lr.ph
-  %.07 = phi i32 [ -1, %3 ], [ %.011, %.lr.ph ], [ %.013.us, %13 ], [ -1, %Vec_IntFind.exit.loopexit.us ]
+  %.07 = phi i32 [ %.011, %.lr.ph ], [ -1, %3 ], [ %.013.us, %13 ], [ -1, %Vec_IntFind.exit.loopexit.us ]
   ret i32 %.07
 }
 
@@ -4398,7 +4398,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br i1 %331, label %.lr.ph181.split, label %.critedge6, !llvm.loop !108
 
 .critedge6:                                       ; preds = %.critedge8, %.critedge8.us, %98, %.critedge.preheader
-  %.0.lcssa257 = phi i32 [ %.1.lcssa, %.critedge.preheader ], [ 0, %98 ], [ %.1.lcssa, %.critedge8.us ], [ %.1.lcssa, %.critedge8 ]
+  %.0.lcssa257 = phi i32 [ %.1.lcssa, %.critedge8.us ], [ 0, %98 ], [ %.1.lcssa, %.critedge.preheader ], [ %.1.lcssa, %.critedge8 ]
   ret i32 %.0.lcssa257
 }
 
@@ -8209,8 +8209,8 @@ Vec_IntPush.exit59:                               ; preds = %Vec_IntPush.exit59.
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.split78.us, label %.lr.ph.split, !llvm.loop !153
 
-.split78.us:                                      ; preds = %.preheaderthread-pre-split, %.lr.ph, %76, %2
-  %.us-phi = phi i32 [ 1, %2 ], [ %.3, %76 ], [ 1, %.lr.ph ], [ 1, %.preheaderthread-pre-split ]
+.split78.us:                                      ; preds = %.lr.ph, %.preheaderthread-pre-split, %76, %2
+  %.us-phi = phi i32 [ 1, %2 ], [ %.3, %76 ], [ 1, %.preheaderthread-pre-split ], [ 1, %.lr.ph ]
   ret i32 %.us-phi
 }
 
@@ -8485,7 +8485,7 @@ Gia_RsbFindFaninAdd.exit74:                       ; preds = %42, %Gia_RsbFindFan
   br i1 %exitcond107.not, label %.loopexit, label %75, !llvm.loop !158
 
 .loopexit:                                        ; preds = %74, %91, %.preheader76, %.preheader
-  %.244 = phi i32 [ -1, %.preheader ], [ -1, %.preheader76 ], [ %.4, %91 ], [ %.143, %74 ]
+  %.244 = phi i32 [ %.4, %91 ], [ -1, %.preheader ], [ -1, %.preheader76 ], [ %.143, %74 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.244

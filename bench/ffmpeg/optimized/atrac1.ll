@@ -640,7 +640,7 @@ at1_imdct.exit.i:                                 ; preds = %.lr.ph.i, %at1_imdc
   br label %.thread
 
 .thread:                                          ; preds = %54, %38, %209, %at1_unpack_dequant.exit.thread, %20, %._crit_edge, %19
-  %.0 = phi i32 [ -1094995529, %19 ], [ %305, %._crit_edge ], [ %22, %20 ], [ -1094995529, %at1_unpack_dequant.exit.thread ], [ -1094995529, %38 ], [ -1094995529, %209 ], [ -1094995529, %54 ]
+  %.0 = phi i32 [ -1094995529, %19 ], [ %305, %._crit_edge ], [ %22, %20 ], [ -1094995529, %at1_unpack_dequant.exit.thread ], [ -1094995529, %209 ], [ -1094995529, %38 ], [ -1094995529, %54 ]
   ret i32 %.0
 }
 

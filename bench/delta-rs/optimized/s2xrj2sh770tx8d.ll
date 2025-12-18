@@ -50949,9 +50949,9 @@ define hidden void @_ZN15datafusion_expr12logical_plan7builder18LogicalPlanBuild
   br label %416
 
 .body288:                                         ; preds = %.loopexit.split-lp, %.body290, %194
-  %.0252 = phi i8 [ %.4244, %.body290 ], [ %.4244, %194 ], [ 1, %.loopexit.split-lp ]
-  %.1247 = phi i8 [ %.4244, %.body290 ], [ %.4244, %194 ], [ %.0246.ph, %.loopexit.split-lp ]
-  %.pn269 = phi { ptr, i32 } [ %.pn, %.body290 ], [ %.pn, %194 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.0252 = phi i8 [ %.4244, %194 ], [ %.4244, %.body290 ], [ 1, %.loopexit.split-lp ]
+  %.1247 = phi i8 [ %.4244, %194 ], [ %.4244, %.body290 ], [ %.0246.ph, %.loopexit.split-lp ]
+  %.pn269 = phi { ptr, i32 } [ %.pn, %194 ], [ %.pn, %.body290 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %103 = trunc nuw i8 %.1247 to i1
   br i1 %103, label %.thread435, label %.thread447
 
@@ -51919,10 +51919,10 @@ define hidden void @_ZN15datafusion_expr12logical_plan7builder18LogicalPlanBuild
           to label %410 unwind label %413
 
 .thread447:                                       ; preds = %420, %.thread435, %.body288
-  %.1253 = phi i8 [ %.0252442, %420 ], [ %.0252442, %.thread435 ], [ %.0252, %.body288 ]
-  %.13230 = phi i8 [ %.12229444, %420 ], [ %.12229444, %.thread435 ], [ 0, %.body288 ]
-  %.13 = phi i8 [ %.12445, %420 ], [ %.12445, %.thread435 ], [ 0, %.body288 ]
-  %.pn271 = phi { ptr, i32 } [ %.pn269446, %420 ], [ %.pn269446, %.thread435 ], [ %.pn269, %.body288 ]
+  %.1253 = phi i8 [ %.0252, %.body288 ], [ %.0252442, %420 ], [ %.0252442, %.thread435 ]
+  %.13230 = phi i8 [ 0, %.body288 ], [ %.12229444, %420 ], [ %.12229444, %.thread435 ]
+  %.13 = phi i8 [ 0, %.body288 ], [ %.12445, %420 ], [ %.12445, %.thread435 ]
+  %.pn271 = phi { ptr, i32 } [ %.pn269, %.body288 ], [ %.pn269446, %420 ], [ %.pn269446, %.thread435 ]
   %412 = trunc nuw i8 %.1253 to i1
   br i1 %412, label %.thread447.thread, label %87
 
@@ -95281,8 +95281,8 @@ define hidden void @"_ZN99_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$a
           to label %common.resume unwind label %129
 
 "_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h4a2147a16a932a4fE.exit": ; preds = %.noexc3, %77
-  %.sroa.8.1 = phi ptr [ null, %77 ], [ %75, %.noexc3 ]
-  %.sroa.9.1 = phi i64 [ undef, %77 ], [ %76, %.noexc3 ]
+  %.sroa.8.1 = phi ptr [ %75, %.noexc3 ], [ null, %77 ]
+  %.sroa.9.1 = phi i64 [ %76, %.noexc3 ], [ undef, %77 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6.i)
   %79 = icmp eq ptr %.sroa.4.0.ph.i, null
   br i1 %79, label %106, label %80

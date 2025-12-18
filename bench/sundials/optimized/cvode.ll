@@ -4432,8 +4432,8 @@ cvHandleNFlag.exit.thread.loopexit201.i.loopexit659: ; preds = %940
 cvHandleNFlag.exit.thread.loopexit201.i.loopexit697: ; preds = %940
   br label %cvHandleNFlag.exit.thread.loopexit201.i
 
-cvHandleNFlag.exit.thread.loopexit201.i:          ; preds = %1044, %cvRestore.exit.i85.i, %1033, %984, %955, %940, %cvHandleNFlag.exit.thread.loopexit201.i.loopexit697, %cvHandleNFlag.exit.thread.loopexit201.i.loopexit659, %928
-  %.043.i.ph = phi i32 [ %spec.select.i, %928 ], [ -4, %cvHandleNFlag.exit.thread.loopexit201.i.loopexit659 ], [ -15, %cvHandleNFlag.exit.thread.loopexit201.i.loopexit697 ], [ -10, %940 ], [ %956, %955 ], [ -11, %1044 ], [ -3, %cvRestore.exit.i85.i ], [ -8, %1033 ], [ -3, %984 ]
+cvHandleNFlag.exit.thread.loopexit201.i:          ; preds = %cvRestore.exit.i85.i, %1033, %984, %1044, %955, %940, %cvHandleNFlag.exit.thread.loopexit201.i.loopexit697, %cvHandleNFlag.exit.thread.loopexit201.i.loopexit659, %928
+  %.043.i.ph = phi i32 [ -10, %940 ], [ -15, %cvHandleNFlag.exit.thread.loopexit201.i.loopexit697 ], [ %956, %955 ], [ %spec.select.i, %928 ], [ -4, %cvHandleNFlag.exit.thread.loopexit201.i.loopexit659 ], [ -3, %cvRestore.exit.i85.i ], [ -8, %1033 ], [ -3, %984 ], [ -11, %1044 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %1628 = call fastcc i32 @cvHandleFailure(ptr noundef %0, i32 noundef %.043.i.ph)
@@ -4935,7 +4935,7 @@ cvYddNorm.exit.sink.split:                        ; preds = %99, %.loopexit, %10
   br label %cvYddNorm.exit
 
 cvYddNorm.exit:                                   ; preds = %102, %70, %cvYddNorm.exit.sink.split, %.critedge, %7, %2
-  %.071 = phi i32 [ -10, %.critedge ], [ -27, %2 ], [ -27, %7 ], [ 0, %cvYddNorm.exit.sink.split ], [ -8, %70 ], [ -8, %102 ]
+  %.071 = phi i32 [ -10, %.critedge ], [ -27, %2 ], [ -27, %7 ], [ -8, %70 ], [ 0, %cvYddNorm.exit.sink.split ], [ -8, %102 ]
   ret i32 %.071
 }
 

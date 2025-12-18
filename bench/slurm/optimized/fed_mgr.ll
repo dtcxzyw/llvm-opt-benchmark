@@ -2737,7 +2737,7 @@ _is_fed_job.exit:                                 ; preds = %12
   br i1 %.not2934, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !21
 
 .outer._crit_edge:                                ; preds = %.split, %.backedge, %.split.us.us, %.backedge.us.us, %49
-  %.025.ph.lcssa = phi i32 [ 0, %49 ], [ %.025.ph39, %.backedge ], [ %.025.ph39.us, %.backedge.us.us ], [ %66, %.split.us.us ], [ %86, %.split ]
+  %.025.ph.lcssa = phi i32 [ %66, %.split.us.us ], [ 0, %49 ], [ %.025.ph39, %.backedge ], [ %.025.ph39.us, %.backedge.us.us ], [ %86, %.split ]
   call void @list_iterator_destroy(ptr noundef %53) #16
   br label %_is_fed_job.exit.thread
 
@@ -4998,8 +4998,8 @@ _get_all_sibling_bits.exit83:                     ; preds = %._crit_edge.i80, %3
   br label %.thread
 
 .thread:                                          ; preds = %94, %60, %_get_all_sibling_bits.exit83, %.split.us, %.split103.us
-  %.5 = phi i64 [ 0, %.split103.us ], [ %.us-phi101, %.split.us ], [ %.052, %_get_all_sibling_bits.exit83 ], [ %.3.us.us, %60 ], [ %.3, %94 ]
-  %.2 = phi i32 [ -1, %.split103.us ], [ -1, %.split.us ], [ 0, %_get_all_sibling_bits.exit83 ], [ 0, %60 ], [ 0, %94 ]
+  %.5 = phi i64 [ %.us-phi101, %.split.us ], [ 0, %.split103.us ], [ %.052, %_get_all_sibling_bits.exit83 ], [ %.3.us.us, %60 ], [ %.3, %94 ]
+  %.2 = phi i32 [ -1, %.split.us ], [ -1, %.split103.us ], [ 0, %_get_all_sibling_bits.exit83 ], [ 0, %60 ], [ 0, %94 ]
   tail call void @list_iterator_destroy(ptr noundef %32) #16
   tail call void @list_iterator_destroy(ptr noundef %28) #16
   %.not = icmp eq ptr %26, null
@@ -13712,7 +13712,7 @@ define internal fastcc ptr @_load_fed_job_list(ptr noundef nonnull %0, i16 nound
   br label %.thread
 
 .thread:                                          ; preds = %35, %11, %6, %.loopexit, %42, %39
-  %.013 = phi ptr [ null, %39 ], [ null, %6 ], [ null, %42 ], [ null, %.loopexit ], [ %12, %11 ], [ %12, %35 ]
+  %.013 = phi ptr [ null, %39 ], [ null, %.loopexit ], [ null, %6 ], [ null, %42 ], [ %12, %11 ], [ %12, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.013
 }
@@ -13837,7 +13837,7 @@ define internal fastcc ptr @_load_remote_dep_job_list(ptr noundef nonnull %0, i1
   br label %.thread
 
 .thread:                                          ; preds = %50, %13, %8, %54, %57, %58
-  %.013 = phi ptr [ null, %54 ], [ null, %58 ], [ null, %57 ], [ null, %8 ], [ %14, %13 ], [ %14, %50 ]
+  %.013 = phi ptr [ null, %54 ], [ null, %8 ], [ null, %58 ], [ null, %57 ], [ %14, %13 ], [ %14, %50 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.013
 }

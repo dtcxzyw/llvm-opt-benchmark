@@ -317,7 +317,7 @@ define void @dlasrt_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge, %._crit_edge247, %33, %41, %49, %133, %134, %103, %104
-  %.1 = phi i32 [ %97, %103 ], [ %97, %104 ], [ %127, %133 ], [ %127, %134 ], [ %29, %49 ], [ %29, %41 ], [ %29, %33 ], [ %29, %._crit_edge247 ], [ %29, %._crit_edge ]
+  %.1 = phi i32 [ %29, %41 ], [ %29, %49 ], [ %97, %103 ], [ %97, %104 ], [ %127, %133 ], [ %127, %134 ], [ %29, %33 ], [ %29, %._crit_edge247 ], [ %29, %._crit_edge ]
   %135 = icmp sgt i32 %.1, 0
   br i1 %135, label %21, label %.loopexit222
 

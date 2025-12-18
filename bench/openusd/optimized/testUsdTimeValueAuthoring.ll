@@ -3845,9 +3845,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEED2Ev.exit: ; preds 
   br i1 %1288, label %.thread499, label %.preheader521
 
 .thread499:                                       ; preds = %.preheader521, %.thread505, %1285, %1255
-  %.6129 = phi ptr [ %559, %1285 ], [ %556, %1255 ], [ %559, %.thread505 ], [ %559, %.preheader521 ]
-  %.494 = phi i1 [ %.797, %1285 ], [ true, %1255 ], [ true, %.thread505 ], [ %.696578, %.preheader521 ]
-  %.pn148.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn148.pn.pn.pn.pn.pn, %1285 ], [ %1256, %1255 ], [ %1257, %.thread505 ], [ %.pn148.pn.pn.pn.pn.pn.pn579, %.preheader521 ]
+  %.6129 = phi ptr [ %559, %1285 ], [ %559, %.thread505 ], [ %556, %1255 ], [ %559, %.preheader521 ]
+  %.494 = phi i1 [ %.797, %1285 ], [ true, %.thread505 ], [ true, %1255 ], [ %.696578, %.preheader521 ]
+  %.pn148.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn148.pn.pn.pn.pn.pn, %1285 ], [ %1257, %.thread505 ], [ %1256, %1255 ], [ %.pn148.pn.pn.pn.pn.pn.pn579, %.preheader521 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %54) #20
   %1289 = xor i1 %.494, true
   br label %1290
@@ -3985,7 +3985,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEED2Ev.exit: ; preds 
   br label %.body193
 
 .body193:                                         ; preds = %.preheader, %.preheader523.preheader, %229, %.thread516, %.thread496, %.body205.thread486, %.thread479, %142, %363, %453, %495, %509, %1210, %464, %438, %217, %1291, %.body205, %.body345, %1248, %1246
-  %.pn166.pn = phi { ptr, i32 } [ %.pn166, %.body345 ], [ %.pn148.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1291 ], [ %.pn144, %.thread496 ], [ %1249, %1248 ], [ %1247, %1246 ], [ %1222, %.body205.thread486 ], [ %.pn134, %.thread479 ], [ %.pn138.pn.pn, %.body205 ], [ %230, %229 ], [ %143, %142 ], [ %218, %217 ], [ %364, %363 ], [ %439, %438 ], [ %454, %453 ], [ %465, %464 ], [ %496, %495 ], [ %1211, %1210 ], [ %510, %509 ], [ %1250, %.thread516 ], [ %.pn138.pn.pn, %.preheader523.preheader ], [ %.pn148.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader ]
+  %.pn166.pn = phi { ptr, i32 } [ %.pn166, %.body345 ], [ %.pn148.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1291 ], [ %1250, %.thread516 ], [ %.pn144, %.thread496 ], [ %1249, %1248 ], [ %1247, %1246 ], [ %1222, %.body205.thread486 ], [ %.pn134, %.thread479 ], [ %.pn138.pn.pn, %.body205 ], [ %.pn138.pn.pn, %.preheader523.preheader ], [ %230, %229 ], [ %143, %142 ], [ %218, %217 ], [ %364, %363 ], [ %439, %438 ], [ %454, %453 ], [ %465, %464 ], [ %496, %495 ], [ %1211, %1210 ], [ %510, %509 ], [ %.pn148.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader ]
   %1351 = load ptr, ptr %17, align 8
   %1352 = ptrtoint ptr %1351 to i64
   %1353 = and i64 %1352, 7
@@ -7778,9 +7778,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEED2Ev.exit: ; preds 
   br i1 %1581, label %.thread667, label %.preheader714
 
 .thread667:                                       ; preds = %.preheader714, %.thread673, %1578, %1548
-  %.4174 = phi i1 [ %.7177, %1578 ], [ true, %1548 ], [ true, %.thread673 ], [ %.6176787, %.preheader714 ]
-  %.6158 = phi ptr [ %576, %1578 ], [ %573, %1548 ], [ %576, %.thread673 ], [ %576, %.preheader714 ]
-  %.pn201.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn201.pn.pn.pn.pn.pn, %1578 ], [ %1549, %1548 ], [ %1550, %.thread673 ], [ %.pn201.pn.pn.pn.pn.pn.pn789, %.preheader714 ]
+  %.4174 = phi i1 [ %.7177, %1578 ], [ true, %.thread673 ], [ true, %1548 ], [ %.6176787, %.preheader714 ]
+  %.6158 = phi ptr [ %576, %1578 ], [ %576, %.thread673 ], [ %573, %1548 ], [ %576, %.preheader714 ]
+  %.pn201.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn201.pn.pn.pn.pn.pn, %1578 ], [ %1550, %.thread673 ], [ %1549, %1548 ], [ %.pn201.pn.pn.pn.pn.pn.pn789, %.preheader714 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %58) #20
   %1582 = xor i1 %.4174, true
   br label %1583
@@ -8019,9 +8019,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEED2Ev.exit: ; preds 
   br label %.thread689
 
 .thread689:                                       ; preds = %.preheader711.preheader, %.thread695, %1674, %1647
-  %.4148 = phi ptr [ %1011, %1674 ], [ %994, %1647 ], [ %1011, %.thread695 ], [ %1011, %.preheader711.preheader ]
-  %.pn219.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn219.pn.pn.pn.pn, %1674 ], [ %1648, %1647 ], [ %1649, %.thread695 ], [ %.pn219.pn.pn.pn.pn.pn794, %.preheader711.preheader ]
-  %.3 = phi i1 [ %.6, %1674 ], [ true, %1647 ], [ true, %.thread695 ], [ %.5795, %.preheader711.preheader ]
+  %.4148 = phi ptr [ %1011, %1674 ], [ %1011, %.thread695 ], [ %994, %1647 ], [ %1011, %.preheader711.preheader ]
+  %.pn219.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn219.pn.pn.pn.pn, %1674 ], [ %1649, %.thread695 ], [ %1648, %1647 ], [ %.pn219.pn.pn.pn.pn.pn794, %.preheader711.preheader ]
+  %.3 = phi i1 [ %.6, %1674 ], [ true, %.thread695 ], [ true, %1647 ], [ %.5795, %.preheader711.preheader ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %84) #20
   %1675 = xor i1 %.3, true
   br label %1676
@@ -8075,12 +8075,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
   br label %.body412
 
 .body412:                                         ; preds = %.preheader, %.thread706, %1640, %1635, %1631, %.body461, %1622, %1617, %1613, %1608, %1604, %.body429, %1595, %1590, %788, %826, %899, %1588, %972, %922, %876, %803, %1676, %.body536
-  %.pn231.pn = phi { ptr, i32 } [ %.pn231, %.body536 ], [ %.pn219.pn.pn.pn.pn.pn.pn.pn.pn, %1676 ], [ %.pn217, %1631 ], [ %973, %972 ], [ %1618, %1622 ], [ %1609, %1613 ], [ %.pn215, %1604 ], [ %1591, %1595 ], [ %789, %788 ], [ %804, %803 ], [ %827, %826 ], [ %877, %876 ], [ %900, %899 ], [ %923, %922 ], [ %1589, %1588 ], [ %1591, %1590 ], [ %.pn215, %.body429 ], [ %1609, %1608 ], [ %1618, %1617 ], [ %.pn217, %.body461 ], [ %1636, %1635 ], [ %1636, %1640 ], [ %1644, %.thread706 ], [ %.pn219.pn.pn.pn.pn.pn.pn.pn.pn.pn801, %.preheader ]
+  %.pn231.pn = phi { ptr, i32 } [ %.pn231, %.body536 ], [ %.pn219.pn.pn.pn.pn.pn.pn.pn.pn, %1676 ], [ %1644, %.thread706 ], [ %.pn217, %1631 ], [ %973, %972 ], [ %1618, %1622 ], [ %1609, %1613 ], [ %.pn215, %1604 ], [ %1591, %1595 ], [ %789, %788 ], [ %804, %803 ], [ %827, %826 ], [ %877, %876 ], [ %900, %899 ], [ %923, %922 ], [ %1589, %1588 ], [ %1591, %1590 ], [ %.pn215, %.body429 ], [ %1609, %1608 ], [ %1618, %1617 ], [ %.pn217, %.body461 ], [ %1636, %1635 ], [ %1636, %1640 ], [ %.pn219.pn.pn.pn.pn.pn.pn.pn.pn.pn801, %.preheader ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__12VtDictionaryD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %52) #20
   br label %.body260
 
 .body260:                                         ; preds = %.preheader713, %.preheader717.preheader, %246, %.thread684, %.thread664, %.body272.thread654, %.thread647, %159, %380, %470, %512, %526, %1503, %481, %455, %234, %1584, %.body272, %.body412, %1541, %1539
-  %.pn231.pn.pn = phi { ptr, i32 } [ %.pn231.pn, %.body412 ], [ %.pn201.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1584 ], [ %.pn197, %.thread664 ], [ %1542, %1541 ], [ %1540, %1539 ], [ %1515, %.body272.thread654 ], [ %.pn187, %.thread647 ], [ %.pn191.pn.pn, %.body272 ], [ %247, %246 ], [ %160, %159 ], [ %235, %234 ], [ %381, %380 ], [ %456, %455 ], [ %471, %470 ], [ %482, %481 ], [ %513, %512 ], [ %1504, %1503 ], [ %527, %526 ], [ %1543, %.thread684 ], [ %.pn191.pn.pn, %.preheader717.preheader ], [ %.pn201.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader713 ]
+  %.pn231.pn.pn = phi { ptr, i32 } [ %.pn231.pn, %.body412 ], [ %.pn201.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1584 ], [ %1543, %.thread684 ], [ %.pn197, %.thread664 ], [ %1542, %1541 ], [ %1540, %1539 ], [ %1515, %.body272.thread654 ], [ %.pn187, %.thread647 ], [ %.pn191.pn.pn, %.body272 ], [ %.pn191.pn.pn, %.preheader717.preheader ], [ %247, %246 ], [ %160, %159 ], [ %235, %234 ], [ %381, %380 ], [ %456, %455 ], [ %471, %470 ], [ %482, %481 ], [ %513, %512 ], [ %1504, %1503 ], [ %527, %526 ], [ %.pn201.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader713 ]
   %1689 = load ptr, ptr %21, align 8
   %1690 = ptrtoint ptr %1689 to i64
   %1691 = and i64 %1690, 7
@@ -17095,7 +17095,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
   br i1 %3933, label %.body1085, label %3930
 
 .body1085:                                        ; preds = %3924, %3930, %.body1087.thread, %371
-  %.pn864.pn.pn = phi { ptr, i32 } [ %372, %371 ], [ %375, %.body1087.thread ], [ %.pn864, %3930 ], [ %eh.lpad-body1088, %3924 ]
+  %.pn864.pn.pn = phi { ptr, i32 } [ %372, %371 ], [ %.pn864, %3930 ], [ %375, %.body1087.thread ], [ %eh.lpad-body1088, %3924 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %27) #20
   %.not.i.i.i.i2095 = icmp eq ptr %368, null
   br i1 %.not.i.i.i.i2095, label %.body1064, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i2096
@@ -17270,9 +17270,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
   br i1 %3987, label %.thread, label %.preheader2647
 
 .thread:                                          ; preds = %.preheader2647, %.thread2262, %3984, %3954
-  %.4518 = phi i1 [ %.7521, %3984 ], [ true, %3954 ], [ true, %.thread2262 ], [ %.65202918, %.preheader2647 ]
-  %.6502 = phi ptr [ %560, %3984 ], [ %555, %3954 ], [ %560, %.thread2262 ], [ %560, %.preheader2647 ]
-  %.pn870.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn870.pn.pn.pn.pn.pn, %3984 ], [ %3955, %3954 ], [ %3956, %.thread2262 ], [ %.pn870.pn.pn.pn.pn.pn.pn2920, %.preheader2647 ]
+  %.4518 = phi i1 [ %.7521, %3984 ], [ true, %.thread2262 ], [ true, %3954 ], [ %.65202918, %.preheader2647 ]
+  %.6502 = phi ptr [ %560, %3984 ], [ %560, %.thread2262 ], [ %555, %3954 ], [ %560, %.preheader2647 ]
+  %.pn870.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn870.pn.pn.pn.pn.pn, %3984 ], [ %3956, %.thread2262 ], [ %3955, %3954 ], [ %.pn870.pn.pn.pn.pn.pn.pn2920, %.preheader2647 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %44) #20
   %3988 = xor i1 %.4518, true
   br label %3989
@@ -17638,9 +17638,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
   br label %.thread2284
 
 .thread2284:                                      ; preds = %.preheader2636.preheader, %.thread2290, %.loopexit2637, %4064
-  %.16641 = phi i1 [ %.20645, %.loopexit2637 ], [ true, %4064 ], [ true, %.thread2290 ], [ %.20645, %.preheader2636.preheader ]
-  %.16567 = phi ptr [ %1077, %.loopexit2637 ], [ %1061, %4064 ], [ %1077, %.thread2290 ], [ %1077, %.preheader2636.preheader ]
-  %.pn902.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn902.pn.pn.pn.pn.pn, %.loopexit2637 ], [ %4065, %4064 ], [ %4066, %.thread2290 ], [ %.pn902.pn.pn.pn.pn.pn, %.preheader2636.preheader ]
+  %.16641 = phi i1 [ %.20645, %.loopexit2637 ], [ true, %.thread2290 ], [ true, %4064 ], [ %.20645, %.preheader2636.preheader ]
+  %.16567 = phi ptr [ %1077, %.loopexit2637 ], [ %1077, %.thread2290 ], [ %1061, %4064 ], [ %1077, %.preheader2636.preheader ]
+  %.pn902.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn902.pn.pn.pn.pn.pn, %.loopexit2637 ], [ %4066, %.thread2290 ], [ %4065, %4064 ], [ %.pn902.pn.pn.pn.pn.pn, %.preheader2636.preheader ]
   %4088 = getelementptr inbounds nuw i8, ptr %81, i64 96
   br label %4089
 
@@ -17689,9 +17689,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
   br label %.thread2296
 
 .thread2296:                                      ; preds = %.preheader2633.preheader, %.thread2303, %.loopexit2634, %4053
-  %.8633 = phi i1 [ %.12637, %.loopexit2634 ], [ true, %4053 ], [ true, %.thread2303 ], [ %.12637, %.preheader2633.preheader ]
-  %.8559 = phi ptr [ %.12563, %.loopexit2634 ], [ %1045, %4053 ], [ %1061, %.thread2303 ], [ %.12563, %.preheader2633.preheader ]
-  %.pn902.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn902.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.loopexit2634 ], [ %4054, %4053 ], [ %4055, %.thread2303 ], [ %.pn902.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader2633.preheader ]
+  %.8633 = phi i1 [ %.12637, %.loopexit2634 ], [ true, %.thread2303 ], [ true, %4053 ], [ %.12637, %.preheader2633.preheader ]
+  %.8559 = phi ptr [ %.12563, %.loopexit2634 ], [ %1061, %.thread2303 ], [ %1045, %4053 ], [ %.12563, %.preheader2633.preheader ]
+  %.pn902.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn902.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.loopexit2634 ], [ %4055, %.thread2303 ], [ %4054, %4053 ], [ %.pn902.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader2633.preheader ]
   %4093 = getelementptr inbounds nuw i8, ptr %75, i64 96
   br label %4094
 
@@ -18005,9 +18005,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
   br label %.thread2330
 
 .thread2330:                                      ; preds = %.preheader2609.preheader, %.loopexit2610, %.thread2337
-  %.20779 = phi i1 [ %.23782, %.loopexit2610 ], [ %.23782, %.preheader2609.preheader ], [ true, %.thread2337 ]
-  %.1752 = phi i1 [ %.4755, %.loopexit2610 ], [ %.4755, %.preheader2609.preheader ], [ true, %.thread2337 ]
-  %.pn933.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn933.pn.pn.pn.pn.pn, %.loopexit2610 ], [ %.pn933.pn.pn.pn.pn.pn, %.preheader2609.preheader ], [ %4148, %.thread2337 ]
+  %.20779 = phi i1 [ %.23782, %.loopexit2610 ], [ true, %.thread2337 ], [ %.23782, %.preheader2609.preheader ]
+  %.1752 = phi i1 [ %.4755, %.loopexit2610 ], [ true, %.thread2337 ], [ %.4755, %.preheader2609.preheader ]
+  %.pn933.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn933.pn.pn.pn.pn.pn, %.loopexit2610 ], [ %4148, %.thread2337 ], [ %.pn933.pn.pn.pn.pn.pn, %.preheader2609.preheader ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %115) #20
   br i1 %.1752, label %.preheader2608, label %.thread2344
 
@@ -18075,10 +18075,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
   br label %.thread2350
 
 .thread2350:                                      ; preds = %.preheader2605.preheader, %.loopexit2606, %.thread2358
-  %.11770 = phi i1 [ %.14773, %.loopexit2606 ], [ %.14773, %.preheader2605.preheader ], [ true, %.thread2358 ]
-  %.1730 = phi i1 [ %.4733, %.loopexit2606 ], [ %.4733, %.preheader2605.preheader ], [ true, %.thread2358 ]
-  %.11661 = phi ptr [ %.14664, %.loopexit2606 ], [ %.14664, %.preheader2605.preheader ], [ %1467, %.thread2358 ]
-  %.pn933.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn933.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.loopexit2606 ], [ %.pn933.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader2605.preheader ], [ %4136, %.thread2358 ]
+  %.11770 = phi i1 [ %.14773, %.loopexit2606 ], [ true, %.thread2358 ], [ %.14773, %.preheader2605.preheader ]
+  %.1730 = phi i1 [ %.4733, %.loopexit2606 ], [ true, %.thread2358 ], [ %.4733, %.preheader2605.preheader ]
+  %.11661 = phi ptr [ %.14664, %.loopexit2606 ], [ %1467, %.thread2358 ], [ %.14664, %.preheader2605.preheader ]
+  %.pn933.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn933.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.loopexit2606 ], [ %4136, %.thread2358 ], [ %.pn933.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader2605.preheader ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %108) #20
   br i1 %.1730, label %.preheader2604, label %.thread2366
 
@@ -18146,10 +18146,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
   br label %.thread2373
 
 .thread2373:                                      ; preds = %.preheader2601.preheader, %.loopexit2602, %.thread2381
-  %.2761 = phi i1 [ %.5764, %.loopexit2602 ], [ %.5764, %.preheader2601.preheader ], [ true, %.thread2381 ]
-  %.1690 = phi i1 [ %.4693, %.loopexit2602 ], [ %.4693, %.preheader2601.preheader ], [ true, %.thread2381 ]
-  %.2652 = phi ptr [ %.5655, %.loopexit2602 ], [ %.5655, %.preheader2601.preheader ], [ %1448, %.thread2381 ]
-  %.pn933.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn933.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.loopexit2602 ], [ %.pn933.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader2601.preheader ], [ %4124, %.thread2381 ]
+  %.2761 = phi i1 [ %.5764, %.loopexit2602 ], [ true, %.thread2381 ], [ %.5764, %.preheader2601.preheader ]
+  %.1690 = phi i1 [ %.4693, %.loopexit2602 ], [ true, %.thread2381 ], [ %.4693, %.preheader2601.preheader ]
+  %.2652 = phi ptr [ %.5655, %.loopexit2602 ], [ %1448, %.thread2381 ], [ %.5655, %.preheader2601.preheader ]
+  %.pn933.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn933.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.loopexit2602 ], [ %4124, %.thread2381 ], [ %.pn933.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader2601.preheader ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %101) #20
   br i1 %.1690, label %.preheader2600, label %.thread2389
 
@@ -18506,9 +18506,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
   br label %.body1688.thread
 
 .body1688.thread:                                 ; preds = %.preheader2623.preheader, %2499, %.body1688.thread2470, %.body1688, %4294
-  %.14857 = phi ptr [ %2496, %.body1688 ], [ %2457, %4294 ], [ %2496, %.body1688.thread2470 ], [ %2496, %2499 ], [ %2496, %.preheader2623.preheader ]
-  %.14711 = phi i1 [ %.17714, %.body1688 ], [ true, %4294 ], [ true, %.body1688.thread2470 ], [ true, %2499 ], [ %.17714, %.preheader2623.preheader ]
-  %.pn982.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn982.pn.pn.pn, %.body1688 ], [ %4295, %4294 ], [ %4296, %.body1688.thread2470 ], [ %2500, %2499 ], [ %.pn982.pn.pn.pn, %.preheader2623.preheader ]
+  %.14857 = phi ptr [ %2496, %.body1688 ], [ %2496, %2499 ], [ %2457, %4294 ], [ %2496, %.body1688.thread2470 ], [ %2496, %.preheader2623.preheader ]
+  %.14711 = phi i1 [ %.17714, %.body1688 ], [ true, %2499 ], [ true, %4294 ], [ true, %.body1688.thread2470 ], [ %.17714, %.preheader2623.preheader ]
+  %.pn982.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn982.pn.pn.pn, %.body1688 ], [ %2500, %2499 ], [ %4295, %4294 ], [ %4296, %.body1688.thread2470 ], [ %.pn982.pn.pn.pn, %.preheader2623.preheader ]
   %4313 = getelementptr inbounds nuw i8, ptr %181, i64 48
   br label %4314
 
@@ -18538,9 +18538,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
   br label %.body1670.thread
 
 .body1670.thread:                                 ; preds = %.preheader2622.preheader, %2460, %.body1670.thread2482, %.body1670, %4289
-  %.9852 = phi ptr [ %.12855, %.body1670 ], [ %2418, %4289 ], [ %2457, %.body1670.thread2482 ], [ %2457, %2460 ], [ %.12855, %.preheader2622.preheader ]
-  %.9706 = phi i1 [ %.12709, %.body1670 ], [ true, %4289 ], [ true, %.body1670.thread2482 ], [ true, %2460 ], [ %.12709, %.preheader2622.preheader ]
-  %.pn982.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn982.pn.pn.pn.pn.pn.pn.pn.pn, %.body1670 ], [ %4290, %4289 ], [ %4291, %.body1670.thread2482 ], [ %2461, %2460 ], [ %.pn982.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader2622.preheader ]
+  %.9852 = phi ptr [ %.12855, %.body1670 ], [ %2457, %2460 ], [ %2418, %4289 ], [ %2457, %.body1670.thread2482 ], [ %.12855, %.preheader2622.preheader ]
+  %.9706 = phi i1 [ %.12709, %.body1670 ], [ true, %2460 ], [ true, %4289 ], [ true, %.body1670.thread2482 ], [ %.12709, %.preheader2622.preheader ]
+  %.pn982.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn982.pn.pn.pn.pn.pn.pn.pn.pn, %.body1670 ], [ %2461, %2460 ], [ %4290, %4289 ], [ %4291, %.body1670.thread2482 ], [ %.pn982.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader2622.preheader ]
   %4319 = getelementptr inbounds nuw i8, ptr %172, i64 48
   br label %4320
 
@@ -18570,9 +18570,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
   br label %.body1652.thread
 
 .body1652.thread:                                 ; preds = %.preheader2621.preheader, %2421, %.body1652.thread2495, %.body1652, %4284
-  %.4847 = phi ptr [ %.7850, %.body1652 ], [ %162, %4284 ], [ %2418, %.body1652.thread2495 ], [ %2418, %2421 ], [ %.7850, %.preheader2621.preheader ]
-  %.4701 = phi i1 [ %.7704, %.body1652 ], [ true, %4284 ], [ true, %.body1652.thread2495 ], [ true, %2421 ], [ %.7704, %.preheader2621.preheader ]
-  %.pn982.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn982.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body1652 ], [ %4285, %4284 ], [ %4286, %.body1652.thread2495 ], [ %2422, %2421 ], [ %.pn982.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader2621.preheader ]
+  %.4847 = phi ptr [ %.7850, %.body1652 ], [ %2418, %2421 ], [ %162, %4284 ], [ %2418, %.body1652.thread2495 ], [ %.7850, %.preheader2621.preheader ]
+  %.4701 = phi i1 [ %.7704, %.body1652 ], [ true, %2421 ], [ true, %4284 ], [ true, %.body1652.thread2495 ], [ %.7704, %.preheader2621.preheader ]
+  %.pn982.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn982.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body1652 ], [ %2422, %2421 ], [ %4285, %4284 ], [ %4286, %.body1652.thread2495 ], [ %.pn982.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader2621.preheader ]
   %4325 = getelementptr inbounds nuw i8, ptr %163, i64 48
   br label %4326
 
@@ -18615,7 +18615,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
   br i1 %4335, label %.thread2519, label %.preheader2618
 
 .thread2519.sink.split:                           ; preds = %.body1634.thread2511, %2382
-  %.pn982.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn25102524.ph = phi { ptr, i32 } [ %2383, %2382 ], [ %4281, %.body1634.thread2511 ]
+  %.pn982.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn25102524.ph = phi { ptr, i32 } [ %4281, %.body1634.thread2511 ], [ %2383, %2382 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %165) #20
   br label %.thread2519
 
@@ -18653,7 +18653,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
   br label %.body1613
 
 .body1613:                                        ; preds = %.preheader2617.preheader, %2344, %.body1616.thread2529, %4274, %2332, %.body1616
-  %.pn982.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn982.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body1616 ], [ %4275, %4274 ], [ %2333, %2332 ], [ %4276, %.body1616.thread2529 ], [ %2345, %2344 ], [ %.pn982.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader2617.preheader ]
+  %.pn982.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn982.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body1616 ], [ %2345, %2344 ], [ %4275, %4274 ], [ %2333, %2332 ], [ %4276, %.body1616.thread2529 ], [ %.pn982.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader2617.preheader ]
   %.not.i.i.i.i2122 = icmp eq ptr %2327, null
   br i1 %.not.i.i.i.i2122, label %.body1212, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i2123
 
@@ -18913,7 +18913,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
   br i1 %4434, label %.loopexit2613, label %4431
 
 .loopexit2613:                                    ; preds = %4425, %4431, %.body1965.thread
-  %.pn1031.pn = phi { ptr, i32 } [ %3486, %.body1965.thread ], [ %.pn1031, %4431 ], [ %eh.lpad-body1966, %4425 ]
+  %.pn1031.pn = phi { ptr, i32 } [ %.pn1031, %4431 ], [ %3486, %.body1965.thread ], [ %eh.lpad-body1966, %4425 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %232) #20
   br label %.body1959
 
@@ -18978,7 +18978,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
   br label %.body1064
 
 .body1064:                                        ; preds = %.preheader2646, %.thread2273, %3945, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i2102, %.body1134, %3937, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i2096, %.body1085, %3920, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i2093, %.body1066, %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEED2Ev.exit14.i, %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEED2Ev.exit14.i1127, %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEED2Ev.exit14.i1080, %3990, %.body1212
-  %.pn1035.pn.pn.pn = phi { ptr, i32 } [ %.pn1035.pn.pn, %.body1212 ], [ %.pn870.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %3990 ], [ %.pn864.pn.pn, %3937 ], [ %516, %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEED2Ev.exit14.i1127 ], [ %.pn862, %3920 ], [ %328, %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEED2Ev.exit14.i ], [ %367, %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEED2Ev.exit14.i1080 ], [ %3949, %.thread2273 ], [ %.pn862, %.body1066 ], [ %.pn862, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i2093 ], [ %.pn864.pn.pn, %.body1085 ], [ %.pn864.pn.pn, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i2096 ], [ %.pn868, %.body1134 ], [ %.pn868, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i2102 ], [ %.pn868, %3945 ], [ %.pn870.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader2646 ]
+  %.pn1035.pn.pn.pn = phi { ptr, i32 } [ %.pn1035.pn.pn, %.body1212 ], [ %.pn870.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %3990 ], [ %.pn868, %3945 ], [ %.pn864.pn.pn, %3937 ], [ %516, %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEED2Ev.exit14.i1127 ], [ %.pn862, %3920 ], [ %328, %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEED2Ev.exit14.i ], [ %367, %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEED2Ev.exit14.i1080 ], [ %3949, %.thread2273 ], [ %.pn862, %.body1066 ], [ %.pn862, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i2093 ], [ %.pn864.pn.pn, %.body1085 ], [ %.pn864.pn.pn, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i2096 ], [ %.pn868, %.body1134 ], [ %.pn868, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i2102 ], [ %.pn870.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader2646 ]
   call void @_ZNSt5arrayIN32pxrInternal_v0_24__pxrReserved__13UsdEditTargetELm4EED2Ev(ptr noundef nonnull align 8 dereferenceable(288) %22) #20
   br label %4458
 
@@ -24182,7 +24182,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
   br i1 %2168, label %.body475, label %.preheader1082
 
 .thread1058.sink.split:                           ; preds = %.body477.thread1051, %651
-  %.pn304.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn10501063.ph = phi { ptr, i32 } [ %652, %651 ], [ %2129, %.body477.thread1051 ]
+  %.pn304.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn10501063.ph = phi { ptr, i32 } [ %2129, %.body477.thread1051 ], [ %652, %651 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %66) #20
   br label %.body475
 
@@ -24245,7 +24245,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
   br i1 %2183, label %.body660, label %2180
 
 .body660:                                         ; preds = %2176, %2180, %.body663.thread, %1223
-  %.pn323.pn.pn = phi { ptr, i32 } [ %1224, %1223 ], [ %1227, %.body663.thread ], [ %.pn323, %2180 ], [ %eh.lpad-body664, %2176 ]
+  %.pn323.pn.pn = phi { ptr, i32 } [ %1224, %1223 ], [ %.pn323, %2180 ], [ %1227, %.body663.thread ], [ %eh.lpad-body664, %2176 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %94) #20
   %.not.i.i.i.i940 = icmp eq ptr %.sroa.2979.0, null
   br i1 %.not.i.i.i.i940, label %.body363, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i941
@@ -27349,7 +27349,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE13_AllocateCopyE
   br i1 %.not.i.i.i.i68, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, label %.lr.ph.i.i.i.i65, !llvm.loop !237
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit: ; preds = %.lr.ph.i.i.i.i65, %.lr.ph.i.i.i.i52, %.lr.ph.i.i.i.i, %53, %81, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE13_AllocateCopyEPS1_mm.exit, %37, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE13_AllocateCopyEPS1_mm.exit63
-  %.0 = phi ptr [ %76, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE13_AllocateCopyEPS1_mm.exit63 ], [ %38, %37 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE13_AllocateCopyEPS1_mm.exit ], [ %76, %81 ], [ %36, %53 ], [ %.1, %.lr.ph.i.i.i.i52 ], [ %38, %.lr.ph.i.i.i.i ], [ %76, %.lr.ph.i.i.i.i65 ]
+  %.0 = phi ptr [ %36, %53 ], [ %.1, %.lr.ph.i.i.i.i52 ], [ %38, %.lr.ph.i.i.i.i ], [ %76, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE13_AllocateCopyEPS1_mm.exit63 ], [ %38, %37 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE13_AllocateCopyEPS1_mm.exit ], [ %76, %81 ], [ %76, %.lr.ph.i.i.i.i65 ]
   %91 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %91
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE5clearEv.exit.sink.split, label %92

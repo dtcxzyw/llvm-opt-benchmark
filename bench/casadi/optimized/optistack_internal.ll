@@ -36974,7 +36974,7 @@ _ZNSt6vectorIN6casadi2MXESaIS1_EEC2ESt16initializer_listIS1_ERKS2_.exit: ; preds
   br i1 %243, label %.loopexit356, label %.body
 
 .loopexit356:                                     ; preds = %.body, %.loopexit356.loopexit358, %.thread316
-  %.pn149 = phi { ptr, i32 } [ %222, %.thread316 ], [ %240, %.loopexit356.loopexit358 ], [ %228, %.body ]
+  %.pn149 = phi { ptr, i32 } [ %240, %.loopexit356.loopexit358 ], [ %222, %.thread316 ], [ %228, %.body ]
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br label %464
 
@@ -52546,7 +52546,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %161, 
   br i1 %193, label %.loopexit1039, label %190
 
 .loopexit1039:                                    ; preds = %183, %190, %.thread
-  %.pn.pn.pn = phi { ptr, i32 } [ %123, %.thread ], [ %.pn.pn, %190 ], [ %182, %183 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %190 ], [ %123, %.thread ], [ %182, %183 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   %194 = load ptr, ptr %22, align 8, !tbaa !11
@@ -56322,7 +56322,7 @@ _ZNSt6vectorIN6casadi2MXESaIS1_EED2Ev.exit871:    ; preds = %_ZSt8_DestroyIPN6ca
   br i1 %1407, label %.loopexit, label %1404
 
 .loopexit:                                        ; preds = %1398, %1404, %.thread992
-  %.pn207.pn = phi { ptr, i32 } [ %1202, %.thread992 ], [ %.pn207, %1404 ], [ %1397, %1398 ]
+  %.pn207.pn = phi { ptr, i32 } [ %.pn207, %1404 ], [ %1202, %.thread992 ], [ %1397, %1398 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %118)
   call void @llvm.lifetime.end.p0(ptr nonnull %117)
   br label %1410

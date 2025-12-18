@@ -1103,7 +1103,7 @@ define internal range(i32 0, 2) i32 @rsa_ossl_mod_exp(ptr noundef %0, ptr nounde
   br label %64
 
 64:                                               ; preds = %58, %._crit_edge, %20
-  %.0299 = phi i1 [ true, %20 ], [ %63, %58 ], [ true, %._crit_edge ]
+  %.0299 = phi i1 [ true, %20 ], [ true, %._crit_edge ], [ %63, %58 ]
   %65 = load i32, ptr %21, align 4, !tbaa !25
   %66 = and i32 %65, 2
   %.not322 = icmp eq i32 %66, 0

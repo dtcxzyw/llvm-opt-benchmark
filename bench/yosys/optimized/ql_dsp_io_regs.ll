@@ -3718,7 +3718,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit404.i: ; preds = %
   br label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit406.i
 
 _ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit406.i: ; preds = %1381, %1071, %.body295.i, %.body261.i, %.body225.i, %844, %.body193.i, %339, %.body187.i, %267
-  %.pn177.pn.i = phi { ptr, i32 } [ %340, %339 ], [ %.pn163.pn.i, %1381 ], [ %.pn143.i, %.body295.i ], [ %.pn130.i, %.body187.i ], [ %.pn139.pn.pn.i, %.body261.i ], [ %.pn172.i, %844 ], [ %268, %267 ], [ %.pn135.pn.pn.i, %.body225.i ], [ %1072, %1071 ], [ %358, %.body193.i ]
+  %.pn177.pn.i = phi { ptr, i32 } [ %340, %339 ], [ %.pn163.pn.i, %1381 ], [ %.pn143.i, %.body295.i ], [ %1072, %1071 ], [ %.pn130.i, %.body187.i ], [ %.pn139.pn.pn.i, %.body261.i ], [ %.pn172.i, %844 ], [ %268, %267 ], [ %.pn135.pn.pn.i, %.body225.i ], [ %358, %.body193.i ]
   %1382 = load i32, ptr %206, align 4, !tbaa !47
   %1383 = add nsw i32 %1382, -1
   store i32 %1383, ptr %206, align 4, !tbaa !47

@@ -689,7 +689,7 @@ parse_slub_debug_flags.exit:                      ; preds = %65, %66
   br label %89
 
 85:                                               ; preds = %81, %79
-  %86 = phi i32 [ %84, %81 ], [ %76, %79 ]
+  %86 = phi i32 [ %76, %79 ], [ %84, %81 ]
   store i32 %86, ptr @slub_debug, align 4
   %87 = and i32 %86, 65536
   %88 = icmp eq i32 %87, 0
@@ -4715,9 +4715,9 @@ cache_from_obj.exit:                              ; preds = %221, %215, %214, %.
   br i1 %304, label %235, label %build_detached_freelist.exit, !llvm.loop !70
 
 build_detached_freelist.exit:                     ; preds = %298, %300, %cache_from_obj.exit
-  %.sroa.10.2 = phi ptr [ %128, %cache_from_obj.exit ], [ %.sroa.10.1, %300 ], [ %240, %298 ]
-  %.sroa.14.2 = phi i32 [ 1, %cache_from_obj.exit ], [ %.sroa.14.1, %300 ], [ %290, %298 ]
-  %305 = phi i64 [ 0, %cache_from_obj.exit ], [ %232, %300 ], [ %291, %298 ]
+  %.sroa.10.2 = phi ptr [ %.sroa.10.1, %300 ], [ %128, %cache_from_obj.exit ], [ %240, %298 ]
+  %.sroa.14.2 = phi i32 [ %.sroa.14.1, %300 ], [ 1, %cache_from_obj.exit ], [ %290, %298 ]
+  %305 = phi i64 [ %232, %300 ], [ 0, %cache_from_obj.exit ], [ %291, %298 ]
   %sext = shl i64 %305, 32
   %306 = ashr exact i64 %sext, 32
   %307 = icmp eq ptr %166, null
@@ -4825,7 +4825,7 @@ build_detached_freelist.exit:                     ; preds = %298, %300, %cache_f
   br i1 %363, label %.thread, label %.split, !llvm.loop !88
 
 .thread:                                          ; preds = %361, %.loopexit, %355, %121, %335, %15, %4
-  %364 = phi i32 [ 0, %4 ], [ 0, %15 ], [ 0, %335 ], [ 0, %121 ], [ %94, %355 ], [ 0, %.loopexit ], [ %94, %361 ]
+  %364 = phi i32 [ 0, %4 ], [ 0, %15 ], [ 0, %335 ], [ 0, %.loopexit ], [ 0, %121 ], [ %94, %355 ], [ %94, %361 ]
   ret i32 %364
 }
 
@@ -6686,7 +6686,7 @@ thread-pre-split:                                 ; preds = %132, %158
   br label %.loopexit
 
 .loopexit:                                        ; preds = %339, %315, %.thread20, %350, %347, %343, %324, %.thread24
-  %355 = phi i32 [ 0, %.thread24 ], [ 0, %343 ], [ %322, %324 ], [ 0, %347 ], [ 0, %350 ], [ -22, %.thread20 ], [ -22, %315 ], [ %322, %339 ]
+  %355 = phi i32 [ -22, %315 ], [ 0, %.thread24 ], [ 0, %343 ], [ %322, %324 ], [ 0, %347 ], [ 0, %350 ], [ -22, %.thread20 ], [ %322, %339 ]
   ret i32 %355
 }
 
@@ -8387,8 +8387,8 @@ define internal fastcc void @deactivate_slab(ptr noundef readonly captures(none)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.split.us, %.split.split.preheader, %.split.split..loopexit.loopexit31_crit_edge, %.split.split.us.preheader, %.split.split.us..loopexit.loopexit29_crit_edge, %.split13.us
-  %104 = phi ptr [ %.us-phi15, %.split13.us ], [ %2, %.split.split.us.preheader ], [ %2, %.split.split.preheader ], [ %55, %.split.split.us..loopexit.loopexit29_crit_edge ], [ %79, %.split.split..loopexit.loopexit31_crit_edge ], [ %33, %.split.us ]
-  %105 = phi i32 [ %.us-phi14, %.split13.us ], [ 1, %.split.split.us.preheader ], [ 1, %.split.split.preheader ], [ %102, %.split.split.us..loopexit.loopexit29_crit_edge ], [ %103, %.split.split..loopexit.loopexit31_crit_edge ], [ %40, %.split.us ]
+  %104 = phi ptr [ %2, %.split.split.us.preheader ], [ %.us-phi15, %.split13.us ], [ %2, %.split.split.preheader ], [ %55, %.split.split.us..loopexit.loopexit29_crit_edge ], [ %79, %.split.split..loopexit.loopexit31_crit_edge ], [ %33, %.split.us ]
+  %105 = phi i32 [ 1, %.split.split.us.preheader ], [ %.us-phi14, %.split13.us ], [ 1, %.split.split.preheader ], [ %102, %.split.split.us..loopexit.loopexit29_crit_edge ], [ %103, %.split.split..loopexit.loopexit31_crit_edge ], [ %40, %.split.us ]
   %106 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %107 = icmp eq ptr %104, null
   %108 = ptrtoint ptr %104 to i64
@@ -11173,11 +11173,11 @@ thread-pre-split.i:                               ; preds = %158, %158
   br label %196
 
 196:                                              ; preds = %195, %.loopexit.i
-  %197 = phi i32 [ %4, %.loopexit.i ], [ %192, %195 ]
+  %197 = phi i32 [ %192, %195 ], [ %4, %.loopexit.i ]
   br i1 %193, label %.thread.i, label %199
 
 .thread.i:                                        ; preds = %102, %196, %117, %115, %112, %101, %98, %57, %37
-  %198 = phi ptr [ %191, %196 ], [ %2, %37 ], [ %60, %98 ], [ %60, %101 ], [ %60, %117 ], [ %60, %115 ], [ %60, %112 ], [ %2, %57 ], [ %60, %102 ]
+  %198 = phi ptr [ %191, %196 ], [ %2, %57 ], [ %2, %37 ], [ %60, %98 ], [ %60, %101 ], [ %60, %117 ], [ %60, %115 ], [ %60, %112 ], [ %60, %102 ]
   tail call void (ptr, ptr, ...) @slab_fix(ptr noundef readonly %0, ptr noundef nonnull @.str.67, ptr noundef %198)
   br label %.thread17.i
 
@@ -11281,7 +11281,7 @@ thread-pre-split.i:                               ; preds = %158, %158
   br label %260
 
 260:                                              ; preds = %251, %237
-  %261 = phi ptr [ %1, %251 ], [ %227, %237 ]
+  %261 = phi ptr [ %227, %237 ], [ %1, %251 ]
   %262 = load i64, ptr %261, align 16
   %263 = lshr i64 %262, 58
   %264 = getelementptr inbounds nuw i8, ptr %261, i64 40
@@ -12836,7 +12836,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @show_slab_objects
   br i1 %235, label %179, label %.loopexit18, !llvm.loop !236
 
 .loopexit18:                                      ; preds = %164, %144, %107, %231, %168, %85
-  %236 = phi i64 [ %82, %168 ], [ %82, %85 ], [ %146, %144 ], [ %233, %231 ], [ %108, %107 ], [ %165, %164 ]
+  %236 = phi i64 [ %82, %168 ], [ %82, %85 ], [ %108, %107 ], [ %233, %231 ], [ %146, %144 ], [ %165, %164 ]
   %237 = tail call i32 (ptr, i32, ptr, ...) @sysfs_emit_at(ptr noundef %1, i32 noundef 0, ptr noundef nonnull @.str.97, i64 noundef %236) #27
   %238 = load i32, ptr @nr_node_ids, align 4
   %239 = icmp eq i32 %238, 0

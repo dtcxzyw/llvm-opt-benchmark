@@ -3724,7 +3724,7 @@ define internal void @_ZNK5faiss16ProductQuantizer23compute_distance_tablesEmPKf
   br i1 %66, label %.lr.ph.i, label %_ZNK5faiss16ProductQuantizer22compute_distance_tableEPKfPf.exit, !llvm.loop !105
 
 _ZNK5faiss16ProductQuantizer22compute_distance_tableEPKfPf.exit: ; preds = %.noexc15, %.noexc, %.preheader.i, %.preheader16.i
-  %67 = phi i64 [ 0, %.preheader16.i ], [ 0, %.preheader.i ], [ %50, %.noexc ], [ %65, %.noexc15 ]
+  %67 = phi i64 [ %50, %.noexc ], [ 0, %.preheader16.i ], [ 0, %.preheader.i ], [ %65, %.noexc15 ]
   %68 = add nuw i64 %.017, 1
   %69 = load i64, ptr %8, align 8, !tbaa !61
   %70 = add i64 %69, 1

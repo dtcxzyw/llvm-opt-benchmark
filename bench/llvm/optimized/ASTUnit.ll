@@ -24128,7 +24128,7 @@ _ZSt13move_backwardIPN5clang20CodeCompletionResultES2_ET0_T_S4_S3_.exit: ; preds
   br i1 %.not44, label %._crit_edge, label %.lr.ph, !llvm.loop !2531
 
 _ZSt4copyIPN5clang20CodeCompletionResultES2_ET0_T_S4_S3_.exit: ; preds = %.lr.ph.i.i.i.i.i54, %.lr.ph.i.i.i.i, %._crit_edge, %_ZSt13move_backwardIPN5clang20CodeCompletionResultES2_ET0_T_S4_S3_.exit, %_ZN4llvm15SmallVectorImplIN5clang20CodeCompletionResultEE6appendIPS2_vEEvT_S6_.exit
-  %.041 = phi ptr [ %37, %_ZN4llvm15SmallVectorImplIN5clang20CodeCompletionResultEE6appendIPS2_vEEvT_S6_.exit ], [ %48, %_ZSt13move_backwardIPN5clang20CodeCompletionResultES2_ET0_T_S4_S3_.exit ], [ %48, %._crit_edge ], [ %48, %.lr.ph.i.i.i.i ], [ %48, %.lr.ph.i.i.i.i.i54 ]
+  %.041 = phi ptr [ %37, %_ZN4llvm15SmallVectorImplIN5clang20CodeCompletionResultEE6appendIPS2_vEEvT_S6_.exit ], [ %48, %.lr.ph.i.i.i.i ], [ %48, %_ZSt13move_backwardIPN5clang20CodeCompletionResultES2_ET0_T_S4_S3_.exit ], [ %48, %._crit_edge ], [ %48, %.lr.ph.i.i.i.i.i54 ]
   ret ptr %.041
 }
 

@@ -300,7 +300,7 @@ tailrecurse.backedge:                             ; preds = %53, %53, %53
   br label %tailrecurse.outer, !llvm.loop !9
 
 .loopexit:                                        ; preds = %51, %53, %9, %.thread54, %47, %7, %11, %17, %25, %27, %_ZL10mwcsicompcPKwS0_b.exit
-  %.1.ph = phi i1 [ true, %25 ], [ %45, %_ZL10mwcsicompcPKwS0_b.exit ], [ %30, %27 ], [ %8, %7 ], [ true, %17 ], [ true, %11 ], [ %.not52.not.not, %.thread54 ], [ %.not52.not.not, %47 ], [ false, %9 ], [ false, %53 ], [ false, %51 ]
+  %.1.ph = phi i1 [ true, %25 ], [ %45, %_ZL10mwcsicompcPKwS0_b.exit ], [ %30, %27 ], [ %.not52.not.not, %.thread54 ], [ %8, %7 ], [ true, %17 ], [ true, %11 ], [ %.not52.not.not, %47 ], [ false, %9 ], [ false, %53 ], [ false, %51 ]
   ret i1 %.1.ph
 }
 

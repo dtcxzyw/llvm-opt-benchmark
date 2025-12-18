@@ -1009,9 +1009,9 @@ decode_scalar.exit96.i:                           ; preds = %decode_scalar.exit9
   br label %.thread.i
 
 .thread.i:                                        ; preds = %481, %decode_scalar.exit96.i, %418, %411, %decode_scalar.exit.i
-  %.162.i = phi i32 [ %.061110.i, %decode_scalar.exit96.i ], [ %.061110.i, %418 ], [ %.061110.i, %411 ], [ %486, %481 ], [ %.061110.i, %decode_scalar.exit.i ]
-  %.158.i = phi i32 [ 0, %decode_scalar.exit96.i ], [ %416, %418 ], [ %416, %411 ], [ 0, %481 ], [ 65535, %decode_scalar.exit.i ]
-  %.156.i = phi i32 [ 1, %decode_scalar.exit96.i ], [ 0, %418 ], [ 0, %411 ], [ %spec.select.i, %481 ], [ 0, %decode_scalar.exit.i ]
+  %.162.i = phi i32 [ %.061110.i, %411 ], [ %.061110.i, %decode_scalar.exit96.i ], [ %.061110.i, %418 ], [ %486, %481 ], [ %.061110.i, %decode_scalar.exit.i ]
+  %.158.i = phi i32 [ %416, %411 ], [ 0, %decode_scalar.exit96.i ], [ %416, %418 ], [ 0, %481 ], [ 65535, %decode_scalar.exit.i ]
+  %.156.i = phi i32 [ 0, %411 ], [ 1, %decode_scalar.exit96.i ], [ 0, %418 ], [ %spec.select.i, %481 ], [ 0, %decode_scalar.exit.i ]
   %488 = add nsw i32 %.162.i, 1
   %489 = icmp slt i32 %488, %311
   br i1 %489, label %321, label %.loopexit, !llvm.loop !78
@@ -1256,7 +1256,7 @@ lpc_prediction.exit:                              ; preds = %529, %.preheader.us
   br i1 %exitcond382.not.i, label %.critedge.i, label %308, !llvm.loop !84
 
 .critedge.thread.i:                               ; preds = %202, %321, %266, %175, %172
-  %.1.ph.i = phi i32 [ -38, %172 ], [ -1094995529, %175 ], [ -1094995529, %266 ], [ -1094995529, %321 ], [ -1094995529, %202 ]
+  %.1.ph.i = phi i32 [ -1094995529, %266 ], [ -1094995529, %321 ], [ -38, %172 ], [ -1094995529, %175 ], [ -1094995529, %202 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

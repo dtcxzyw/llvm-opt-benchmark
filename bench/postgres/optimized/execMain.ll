@@ -648,7 +648,7 @@ CheckValidRowMarkRel.exit.i:                      ; preds = %210, %201, %175, %1
   br label %InitPlan.exit
 
 InitPlan.exit:                                    ; preds = %295, %.critedge127.i, %287, %.lr.ph162.i, %.critedge133.i
-  %.0.i = phi ptr [ %285, %.critedge127.i ], [ %310, %.critedge133.i ], [ %285, %.lr.ph162.i ], [ %285, %287 ], [ %285, %295 ]
+  %.0.i = phi ptr [ %285, %.critedge127.i ], [ %310, %.critedge133.i ], [ %285, %287 ], [ %285, %.lr.ph162.i ], [ %285, %295 ]
   %311 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %.0.i, ptr %311, align 8
   %312 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -1545,7 +1545,7 @@ define dso_local zeroext i1 @ExecCheckPermissions(ptr noundef %0, ptr noundef %1
   %59 = tail call fastcc zeroext i1 @ExecCheckPermissionsModified(i32 noundef %12, i32 noundef %20, ptr noundef %58, i64 noundef 4)
   br i1 %59, label %.critedge, label %.loopexit
 
-.loopexit:                                        ; preds = %51, %56, %24, %32, %42, %44
+.loopexit:                                        ; preds = %32, %24, %51, %56, %42, %44
   br i1 %2, label %60, label %.thread35
 
 60:                                               ; preds = %.loopexit

@@ -1220,7 +1220,7 @@ ff_iamf_get_param_definition.exit95:              ; preds = %.loopexit, %ff_iamf
   br label %158
 
 add_param_definition.exit.thread:                 ; preds = %.thread53.i, %.loopexit129, %.thread53.i98, %.loopexit128, %.thread50.i101, %99, %.thread50.i, %48, %._crit_edge
-  %.8 = phi i32 [ -12, %._crit_edge ], [ -22, %48 ], [ -22, %.thread50.i ], [ -22, %99 ], [ -22, %.thread50.i101 ], [ -12, %.thread53.i98 ], [ -12, %.loopexit128 ], [ -12, %.loopexit129 ], [ -12, %.thread53.i ]
+  %.8 = phi i32 [ -12, %._crit_edge ], [ -12, %.thread53.i98 ], [ -22, %48 ], [ -22, %.thread50.i101 ], [ -22, %.thread50.i ], [ -22, %99 ], [ -12, %.loopexit128 ], [ -12, %.loopexit129 ], [ -12, %.thread53.i ]
   call void @ff_iamf_free_mix_presentation(ptr noundef nonnull %4) #9
   br label %158
 
@@ -3154,7 +3154,7 @@ flush_put_bits.exit:                              ; preds = %86
   br label %get_audio_element.exit.thread
 
 get_audio_element.exit.thread:                    ; preds = %._crit_edge.i, %27, %4, %86, %ff_iamf_get_codec_config.exit, %get_audio_element.exit, %106, %56
-  %.0 = phi i32 [ -22, %ff_iamf_get_codec_config.exit ], [ 0, %106 ], [ %.1, %56 ], [ -22, %get_audio_element.exit ], [ %87, %86 ], [ -22, %4 ], [ -22, %27 ], [ -22, %._crit_edge.i ]
+  %.0 = phi i32 [ -22, %ff_iamf_get_codec_config.exit ], [ 0, %106 ], [ %.1, %56 ], [ -22, %get_audio_element.exit ], [ %87, %86 ], [ -22, %27 ], [ -22, %4 ], [ -22, %._crit_edge.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

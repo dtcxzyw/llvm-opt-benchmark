@@ -6062,8 +6062,8 @@ _ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i.i: ; preds = %117
   br label %_ZN9QtPrivate17QForeachContainerI5QListIP7QActionEED2Ev.exit
 
 _ZN5QListI7QStringED2Ev.exit:                     ; preds = %37, %_ZN5QListIP7QActionED2Ev.exit, %92, %_ZN17QArrayDataPointerI7QStringE5derefEv.exit.i.i127, %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i.i138
-  %.not327334 = phi i1 [ false, %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i.i138 ], [ false, %_ZN17QArrayDataPointerI7QStringE5derefEv.exit.i.i127 ], [ false, %92 ], [ true, %_ZN5QListIP7QActionED2Ev.exit ], [ true, %37 ]
-  %.3 = phi ptr [ %91, %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i.i138 ], [ %91, %_ZN17QArrayDataPointerI7QStringE5derefEv.exit.i.i127 ], [ %91, %92 ], [ undef, %_ZN5QListIP7QActionED2Ev.exit ], [ undef, %37 ]
+  %.not327334 = phi i1 [ false, %92 ], [ false, %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i.i138 ], [ false, %_ZN17QArrayDataPointerI7QStringE5derefEv.exit.i.i127 ], [ true, %_ZN5QListIP7QActionED2Ev.exit ], [ true, %37 ]
+  %.3 = phi ptr [ %91, %92 ], [ %91, %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i.i138 ], [ %91, %_ZN17QArrayDataPointerI7QStringE5derefEv.exit.i.i127 ], [ undef, %_ZN5QListIP7QActionED2Ev.exit ], [ undef, %37 ]
   %.not.i.i.i.i144 = icmp eq ptr %30, null
   br i1 %.not.i.i.i.i144, label %_ZN9QtPrivate17QForeachContainerI5QListIP7QActionEED2Ev.exit147, label %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i.i145
 
@@ -6343,8 +6343,8 @@ _ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i.i203: ; preds = %206
   br label %_ZN9QtPrivate17QForeachContainerI5QListIP7QActionEED2Ev.exit205
 
 _ZN5QListI7QStringED2Ev.exit201:                  ; preds = %_ZN5QListI7QStringED2Ev.exit201.thread, %_ZN5QListIP7QActionED2Ev.exit151, %184, %_ZN17QArrayDataPointerI7QStringE5derefEv.exit.i.i189, %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i.i200
-  %.not324345 = phi i1 [ false, %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i.i200 ], [ false, %_ZN17QArrayDataPointerI7QStringE5derefEv.exit.i.i189 ], [ false, %184 ], [ true, %_ZN5QListIP7QActionED2Ev.exit151 ], [ true, %_ZN5QListI7QStringED2Ev.exit201.thread ]
-  %.6 = phi ptr [ %183, %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i.i200 ], [ %183, %_ZN17QArrayDataPointerI7QStringE5derefEv.exit.i.i189 ], [ %183, %184 ], [ undef, %_ZN5QListIP7QActionED2Ev.exit151 ], [ undef, %_ZN5QListI7QStringED2Ev.exit201.thread ]
+  %.not324345 = phi i1 [ false, %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i.i200 ], [ false, %184 ], [ false, %_ZN17QArrayDataPointerI7QStringE5derefEv.exit.i.i189 ], [ true, %_ZN5QListIP7QActionED2Ev.exit151 ], [ true, %_ZN5QListI7QStringED2Ev.exit201.thread ]
+  %.6 = phi ptr [ %183, %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i.i200 ], [ %183, %184 ], [ %183, %_ZN17QArrayDataPointerI7QStringE5derefEv.exit.i.i189 ], [ undef, %_ZN5QListIP7QActionED2Ev.exit151 ], [ undef, %_ZN5QListI7QStringED2Ev.exit201.thread ]
   %.not.i.i.i.i206 = icmp eq ptr %125, null
   br i1 %.not.i.i.i.i206, label %_ZN9QtPrivate17QForeachContainerI5QListIP7QActionEED2Ev.exit209, label %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i.i207
 

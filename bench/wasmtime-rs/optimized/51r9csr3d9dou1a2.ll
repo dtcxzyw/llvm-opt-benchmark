@@ -42997,7 +42997,7 @@ default.unreachable515:                           ; preds = %2
   unreachable
 
 "_ZN4core3ptr52drop_in_place$LT$wiggle..GuestSliceMut$LT$u8$GT$$GT$17h05bfae9e256fa400E.exit84": ; preds = %266, %.preheader, %295, %"_ZN4core3ptr154drop_in_place$LT$std..sync..mutex..MutexGuard$LT$alloc..boxed..Box$LT$dyn$u20$rand_core..RngCore$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$$GT$17h0d53e9cafae48556E.exit89", %155, %"_ZN4core3ptr154drop_in_place$LT$std..sync..mutex..MutexGuard$LT$alloc..boxed..Box$LT$dyn$u20$rand_core..RngCore$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$$GT$17h0d53e9cafae48556E.exit"
-  %.012 = phi ptr [ null, %"_ZN4core3ptr154drop_in_place$LT$std..sync..mutex..MutexGuard$LT$alloc..boxed..Box$LT$dyn$u20$rand_core..RngCore$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$$GT$17h0d53e9cafae48556E.exit" ], [ %.3, %295 ], [ %63, %155 ], [ %128, %"_ZN4core3ptr154drop_in_place$LT$std..sync..mutex..MutexGuard$LT$alloc..boxed..Box$LT$dyn$u20$rand_core..RngCore$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$$GT$17h0d53e9cafae48556E.exit89" ], [ null, %.preheader ], [ null, %266 ]
+  %.012 = phi ptr [ %128, %"_ZN4core3ptr154drop_in_place$LT$std..sync..mutex..MutexGuard$LT$alloc..boxed..Box$LT$dyn$u20$rand_core..RngCore$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$$GT$17h0d53e9cafae48556E.exit89" ], [ null, %"_ZN4core3ptr154drop_in_place$LT$std..sync..mutex..MutexGuard$LT$alloc..boxed..Box$LT$dyn$u20$rand_core..RngCore$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$$GT$17h0d53e9cafae48556E.exit" ], [ %.3, %295 ], [ %63, %155 ], [ null, %.preheader ], [ null, %266 ]
   store i8 1, ptr %18, align 4
   %20 = insertvalue { i64, ptr } { i64 0, ptr poison }, ptr %.012, 1
   ret { i64, ptr } %20

@@ -38829,7 +38829,7 @@ asterix_field_exists.exit.thread.i.i.i:           ; preds = %.lr.ph.i.i.i.i, %82
   br i1 %.not31.i.i.i, label %asterix_get_active_uap.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !9
 
 asterix_get_active_uap.exit.i.i:                  ; preds = %asterix_field_exists.exit.thread.i.i.i, %78, %asterix_fspec_len.exit.preheader.i.i.i, %45, %38, %36
-  %.0.i.i.i = phi i64 [ %81, %78 ], [ 0, %38 ], [ 0, %45 ], [ 0, %asterix_fspec_len.exit.preheader.i.i.i ], [ 0, %36 ], [ 0, %asterix_field_exists.exit.thread.i.i.i ]
+  %.0.i.i.i = phi i64 [ %81, %78 ], [ 0, %38 ], [ 0, %36 ], [ 0, %45 ], [ 0, %asterix_fspec_len.exit.preheader.i.i.i ], [ 0, %asterix_field_exists.exit.thread.i.i.i ]
   %90 = load ptr, ptr %34, align 8
   %.not.i.i.i = icmp eq ptr %90, null
   br i1 %.not.i.i.i, label %dissect_asterix_data_block.exit.i, label %91
@@ -39249,7 +39249,7 @@ asterix_fspec_len.exit:                           ; preds = %73
   br label %asterix_field_offset.exit.thread
 
 asterix_field_offset.exit.thread:                 ; preds = %.lr.ph.i.i, %.lr.ph131, %._crit_edge.thread, %._crit_edge, %asterix_field_exists.exit.i, %asterix_field_offset.exit, %127, %asterix_fspec_len.exit
-  %.1114 = phi i32 [ %61, %127 ], [ %61, %asterix_fspec_len.exit ], [ %.0113133, %asterix_field_offset.exit ], [ %.0113133, %asterix_field_exists.exit.i ], [ %61, %._crit_edge ], [ %61, %._crit_edge.thread ], [ %61, %.lr.ph131 ], [ %.0113133, %.lr.ph.i.i ]
+  %.1114 = phi i32 [ %61, %127 ], [ %61, %asterix_fspec_len.exit ], [ %61, %._crit_edge ], [ %.0113133, %asterix_field_offset.exit ], [ %.0113133, %asterix_field_exists.exit.i ], [ %61, %._crit_edge.thread ], [ %61, %.lr.ph131 ], [ %.0113133, %.lr.ph.i.i ]
   %129 = add i32 %.0111134, 1
   %130 = zext i32 %129 to i64
   %131 = getelementptr ptr, ptr %4, i64 %130
@@ -39451,7 +39451,7 @@ asterix_field_exists.exit.thread:                 ; preds = %.lr.ph.i, %asterix_
   br i1 %.not60, label %.loopexit, label %.lr.ph, !llvm.loop !21
 
 .loopexit:                                        ; preds = %asterix_field_exists.exit.thread, %.lr.ph77, %.preheader67, %._crit_edge.loopexit, %70, %.preheader68, %._crit_edge89, %12, %3
-  %.053 = phi i32 [ 0, %3 ], [ %14, %12 ], [ %27, %._crit_edge89 ], [ 0, %.preheader68 ], [ %69, %70 ], [ %55, %._crit_edge.loopexit ], [ 0, %.preheader67 ], [ %61, %.lr.ph77 ], [ %.4, %asterix_field_exists.exit.thread ]
+  %.053 = phi i32 [ 0, %3 ], [ %14, %12 ], [ %27, %._crit_edge89 ], [ %61, %.lr.ph77 ], [ %55, %._crit_edge.loopexit ], [ 0, %.preheader68 ], [ %69, %70 ], [ 0, %.preheader67 ], [ %.4, %asterix_field_exists.exit.thread ]
   ret i32 %.053
 }
 

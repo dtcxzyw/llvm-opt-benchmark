@@ -441,7 +441,7 @@ define range(i32 0, 2) i32 @custom_ext_add(ptr noundef %0, i32 noundef %1, ptr n
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.loopexit
 
-.thread88:                                        ; preds = %47, %93, %96, %20, %35, %27
+.thread88:                                        ; preds = %47, %20, %35, %96, %93, %27
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %103 = add nuw i64 %.06193, 1

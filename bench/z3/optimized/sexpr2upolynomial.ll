@@ -1074,7 +1074,7 @@ _ZN8rationalD2Ev.exit169:                         ; preds = %.noexc.i168
   br i1 %336, label %.loopexit, label %333
 
 .loopexit:                                        ; preds = %333, %.loopexit.loopexit181, %.thread
-  %.pn = phi { ptr, i32 } [ %299, %.thread ], [ %329, %.loopexit.loopexit181 ], [ %331, %333 ]
+  %.pn = phi { ptr, i32 } [ %329, %.loopexit.loopexit181 ], [ %299, %.thread ], [ %331, %333 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %343
 

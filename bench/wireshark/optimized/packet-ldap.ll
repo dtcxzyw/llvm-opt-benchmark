@@ -2811,9 +2811,9 @@ define internal fastcc void @dissect_ldap_pdu(ptr noundef %0, ptr noundef %1, pt
   store ptr %48, ptr %49, align 8
   br label %.critedge159
 
-.critedge159:                                     ; preds = %40, %33, %30, %26, %.critedge158
-  %50 = phi i32 [ %31, %.critedge158 ], [ %31, %40 ], [ %29, %26 ], [ %31, %30 ], [ %31, %33 ]
-  %.1 = phi i1 [ true, %.critedge158 ], [ false, %40 ], [ true, %26 ], [ false, %30 ], [ false, %33 ]
+.critedge159:                                     ; preds = %40, %26, %33, %30, %.critedge158
+  %50 = phi i32 [ %31, %.critedge158 ], [ %31, %40 ], [ %31, %30 ], [ %31, %33 ], [ %29, %26 ]
+  %.1 = phi i1 [ true, %.critedge158 ], [ false, %40 ], [ false, %30 ], [ false, %33 ], [ true, %26 ]
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %52 = load ptr, ptr %51, align 8
   %53 = load ptr, ptr %1, align 8

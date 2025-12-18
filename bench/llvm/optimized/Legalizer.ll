@@ -7134,7 +7134,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_12MachineInstrELb1EE9push_backES2_.exit137
   br label %.critedge95
 
 .critedge95:                                      ; preds = %.lr.ph, %192, %198, %212, %.lr.ph.split.i120, %_ZN4llvm28LegalizationArtifactCombiner19ArtifactValueFinder25findUnmergeThatDefinesRegENS_8RegisterEjRj.exit.i128, %_ZN4llvm23SmallVectorTemplateBaseIPNS_12MachineInstrELb1EE9push_backES2_.exit137
-  %.not93168 = phi i1 [ true, %_ZN4llvm23SmallVectorTemplateBaseIPNS_12MachineInstrELb1EE9push_backES2_.exit137 ], [ false, %212 ], [ false, %_ZN4llvm28LegalizationArtifactCombiner19ArtifactValueFinder25findUnmergeThatDefinesRegENS_8RegisterEjRj.exit.i128 ], [ false, %.lr.ph.split.i120 ], [ false, %198 ], [ false, %192 ], [ false, %.lr.ph ]
+  %.not93168 = phi i1 [ false, %212 ], [ true, %_ZN4llvm23SmallVectorTemplateBaseIPNS_12MachineInstrELb1EE9push_backES2_.exit137 ], [ false, %_ZN4llvm28LegalizationArtifactCombiner19ArtifactValueFinder25findUnmergeThatDefinesRegENS_8RegisterEjRj.exit.i128 ], [ false, %.lr.ph.split.i120 ], [ false, %198 ], [ false, %192 ], [ false, %.lr.ph ]
   %265 = load ptr, ptr %10, align 8, !tbaa !25
   %266 = icmp eq ptr %265, %180
   br i1 %266, label %_ZN4llvm11SmallVectorINS_8RegisterELj4EED2Ev.exit, label %267

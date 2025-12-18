@@ -148,8 +148,8 @@ cleanup:                                          ; preds = %for.end
   br i1 %tobool.not.i.i.i, label %return, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.inc16.i, %for.body4.i, %if.end10.i, %if.else, %cleanup
-  %retval.123 = phi i32 [ %call7, %cleanup ], [ 1, %if.else ], [ 0, %for.body4.i ], [ 0, %if.end10.i ], [ 1, %for.inc16.i ]
-  %10 = phi ptr [ %.pre, %cleanup ], [ %call5.i.i.i.i.i.i, %if.else ], [ %call5.i.i.i.i.i.i, %for.body4.i ], [ %call5.i.i.i.i.i.i, %if.end10.i ], [ %call5.i.i.i.i.i.i, %for.inc16.i ]
+  %retval.123 = phi i32 [ %call7, %cleanup ], [ 0, %for.body4.i ], [ 1, %if.else ], [ 0, %if.end10.i ], [ 1, %for.inc16.i ]
+  %10 = phi ptr [ %.pre, %cleanup ], [ %call5.i.i.i.i.i.i, %for.body4.i ], [ %call5.i.i.i.i.i.i, %if.else ], [ %call5.i.i.i.i.i.i, %if.end10.i ], [ %call5.i.i.i.i.i.i, %for.inc16.i ]
   call void @_ZdlPv(ptr noundef nonnull %10) #11
   br label %return
 
@@ -172,8 +172,8 @@ if.end.lr.ph:                                     ; preds = %entry, %if.then99
   br label %if.end
 
 if.then:                                          ; preds = %if.then99, %if.then71, %entry
-  %r.addr.0.ph.lcssa386 = phi i32 [ %r, %entry ], [ %r.addr.0.ph394, %if.then71 ], [ %sub100, %if.then99 ]
-  %l.addr.0.lcssa = phi i32 [ %l, %entry ], [ %add72, %if.then71 ], [ %l.addr.0388, %if.then99 ]
+  %r.addr.0.ph.lcssa386 = phi i32 [ %r.addr.0.ph394, %if.then71 ], [ %r, %entry ], [ %sub100, %if.then99 ]
+  %l.addr.0.lcssa = phi i32 [ %add72, %if.then71 ], [ %l, %entry ], [ %l.addr.0388, %if.then99 ]
   %add = add i32 %r.addr.0.ph.lcssa386, 1
   %sub.i = sub i32 %add, %l.addr.0.lcssa
   %cmp.i = icmp ult i32 %sub.i, 2
@@ -522,7 +522,7 @@ _ZN6hermes2vm12_GLOBAL__N_15_swapEPNS0_9SortModelERSt6vectorIjSaIjEEjj.exit68.i:
   br label %if.end51
 
 if.end51:                                         ; preds = %_ZN6hermes2vm12_GLOBAL__N_15_swapEPNS0_9SortModelERSt6vectorIjSaIjEEjj.exit68.i, %for.end29.i
-  %retval.sroa.6.0.i = phi i32 [ %j.1.lcssa.i, %_ZN6hermes2vm12_GLOBAL__N_15_swapEPNS0_9SortModelERSt6vectorIjSaIjEEjj.exit68.i ], [ %add1, %for.end29.i ]
+  %retval.sroa.6.0.i = phi i32 [ %add1, %for.end29.i ], [ %j.1.lcssa.i, %_ZN6hermes2vm12_GLOBAL__N_15_swapEPNS0_9SortModelERSt6vectorIjSaIjEEjj.exit68.i ]
   %sub53 = sub i32 %retval.sroa.6.0.i, %l.addr.0388
   %sub54 = sub i32 %r.addr.0.ph394, %retval.sroa.6.0.i
   %cmp55.not = icmp ugt i32 %sub53, %sub54
@@ -844,7 +844,7 @@ for.inc16.i303:                                   ; preds = %cond.true.i.i299, %
   br i1 %cmp1.not.i305, label %return, label %for.cond2.preheader.i287, !llvm.loop !7
 
 return:                                           ; preds = %if.then83, %if.end33, %if.end19, %if.end6, %if.then31.i, %if.then41, %if.then27, %if.then13, %if.end, %if.then58, %if.end22.i, %if.end10.i266, %for.body4.i249, %for.body.i, %for.body9.i, %if.end10.i, %for.body4.i, %for.inc16.i221, %if.end10.i225, %for.body4.i208, %for.inc16.i303, %if.end10.i307, %for.body4.i290, %do.body.i, %if.end13.i, %while.body.i, %while.cond.i, %if.else73, %if.else102, %if.then
-  %retval.0 = phi i32 [ 1, %if.else73 ], [ 1, %if.then ], [ 1, %if.else102 ], [ 0, %if.end33 ], [ 0, %if.end13.i ], [ 0, %do.body.i ], [ 0, %if.end10.i307 ], [ 1, %for.inc16.i303 ], [ 0, %if.end10.i225 ], [ 1, %for.inc16.i221 ], [ 0, %if.end10.i ], [ 0, %for.body9.i ], [ 0, %for.body.i ], [ 0, %if.end10.i266 ], [ 0, %if.end22.i ], [ 1, %while.cond.i ], [ 0, %while.body.i ], [ 0, %for.body4.i290 ], [ 0, %for.body4.i208 ], [ 0, %for.body4.i ], [ 0, %for.body4.i249 ], [ 0, %if.then58 ], [ 0, %if.end ], [ 0, %if.then13 ], [ 0, %if.then27 ], [ 0, %if.then41 ], [ 0, %if.then31.i ], [ 0, %if.end6 ], [ 0, %if.end19 ], [ 0, %if.then83 ]
+  %retval.0 = phi i32 [ 0, %for.body9.i ], [ 0, %do.body.i ], [ 1, %if.else73 ], [ 1, %for.inc16.i221 ], [ 1, %if.else102 ], [ 0, %if.end13.i ], [ 1, %if.then ], [ 0, %for.body.i ], [ 0, %if.end10.i ], [ 0, %if.end10.i266 ], [ 0, %if.end22.i ], [ 0, %if.end33 ], [ 1, %for.inc16.i303 ], [ 0, %if.end10.i307 ], [ 0, %if.end10.i225 ], [ 1, %while.cond.i ], [ 0, %while.body.i ], [ 0, %for.body4.i290 ], [ 0, %for.body4.i208 ], [ 0, %for.body4.i ], [ 0, %for.body4.i249 ], [ 0, %if.then58 ], [ 0, %if.end ], [ 0, %if.then13 ], [ 0, %if.then27 ], [ 0, %if.then41 ], [ 0, %if.then31.i ], [ 0, %if.end6 ], [ 0, %if.end19 ], [ 0, %if.then83 ]
   ret i32 %retval.0
 }
 

@@ -1922,7 +1922,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5VLget_file_type(ptr noundef %0
   br label %96
 
 95:                                               ; preds = %69, %76, %84
-  %.041.ph = phi i64 [ -1, %69 ], [ %74, %84 ], [ %74, %76 ]
+  %.041.ph = phi i64 [ -1, %69 ], [ %74, %76 ], [ %74, %84 ]
   %.not51 = icmp eq ptr %.139, null
   br i1 %.not51, label %103, label %96
 

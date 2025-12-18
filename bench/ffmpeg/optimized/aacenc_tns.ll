@@ -333,9 +333,9 @@ compress_coeffs.exit.loopexit:                    ; preds = %.lr.ph27.i
   br label %compress_coeffs.exit
 
 compress_coeffs.exit:                             ; preds = %.lr.ph.i, %compress_coeffs.exit.loopexit, %put_bits.exit76
-  %170 = phi i32 [ %158, %put_bits.exit76 ], [ %.pre108, %compress_coeffs.exit.loopexit ], [ %158, %.lr.ph.i ]
-  %171 = phi i32 [ %.026.i.i74, %put_bits.exit76 ], [ %.pre107, %compress_coeffs.exit.loopexit ], [ %.026.i.i74, %.lr.ph.i ]
-  %.0.i = phi i32 [ 1, %put_bits.exit76 ], [ 1, %compress_coeffs.exit.loopexit ], [ 0, %.lr.ph.i ]
+  %170 = phi i32 [ %.pre108, %compress_coeffs.exit.loopexit ], [ %158, %put_bits.exit76 ], [ %158, %.lr.ph.i ]
+  %171 = phi i32 [ %.pre107, %compress_coeffs.exit.loopexit ], [ %.026.i.i74, %put_bits.exit76 ], [ %.026.i.i74, %.lr.ph.i ]
+  %.0.i = phi i32 [ 1, %compress_coeffs.exit.loopexit ], [ 1, %put_bits.exit76 ], [ 0, %.lr.ph.i ]
   %172 = icmp sgt i32 %170, 1
   br i1 %172, label %173, label %176
 

@@ -1333,7 +1333,7 @@ common.resume:                                    ; preds = %32, %18
   br label %.loopexit
 
 115:                                              ; preds = %37, %.loopexit.sink.split.i
-  %.sroa.6.0.i = phi i64 [ 1, %37 ], [ %81, %.loopexit.sink.split.i ]
+  %.sroa.6.0.i = phi i64 [ %81, %.loopexit.sink.split.i ], [ 1, %37 ]
   %116 = load i64, ptr %22, align 8, !noundef !5
   %117 = icmp eq i64 %116, 0
   br i1 %117, label %118, label %120

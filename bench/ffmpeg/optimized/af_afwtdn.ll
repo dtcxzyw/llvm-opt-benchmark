@@ -1509,7 +1509,7 @@ measure_absmean.exit217:                          ; preds = %measure_absmean.exi
   br i1 %exitcond328.not, label %.lr.ph303, label %486, !llvm.loop !118
 
 ._crit_edge304:                                   ; preds = %denoise_level.exit, %.preheader, %.preheader275, %.loopexit
-  %524 = phi i32 [ %.pr, %.loopexit ], [ %446, %.preheader ], [ %406, %.preheader275 ], [ %.pr, %denoise_level.exit ]
+  %524 = phi i32 [ %406, %.preheader275 ], [ %446, %.preheader ], [ %.pr, %.loopexit ], [ %.pr, %denoise_level.exit ]
   %525 = load ptr, ptr %112, align 8, !tbaa !75
   %526 = load ptr, ptr %114, align 8, !tbaa !77
   %527 = getelementptr inbounds nuw i8, ptr %9, i64 112
@@ -2425,7 +2425,7 @@ denoise_level.exit:                               ; preds = %.lr.ph.i246, %1000
   br i1 %exitcond333.not, label %._crit_edge304, label %977, !llvm.loop !128
 
 inverse.exit:                                     ; preds = %84, %132, %100, %278, %164, %204, %._crit_edge.i223, %._crit_edge329.i, %563, %670
-  %.0 = phi i32 [ -12, %670 ], [ 0, %._crit_edge329.i ], [ 0, %._crit_edge.i223 ], [ -12, %563 ], [ -12, %204 ], [ -12, %164 ], [ -12, %278 ], [ -12, %100 ], [ -12, %132 ], [ -12, %84 ]
+  %.0 = phi i32 [ -12, %670 ], [ 0, %._crit_edge329.i ], [ 0, %._crit_edge.i223 ], [ -12, %563 ], [ -12, %204 ], [ -12, %164 ], [ -12, %278 ], [ -12, %132 ], [ -12, %100 ], [ -12, %84 ]
   ret i32 %.0
 }
 

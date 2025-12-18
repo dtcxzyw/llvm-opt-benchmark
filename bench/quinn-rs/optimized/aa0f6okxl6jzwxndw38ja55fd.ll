@@ -5800,7 +5800,7 @@ define hidden void @_ZN11quinn_proto5token11decode_addr17h6518ff5b6a4004c5E(ptr 
   br label %22
 
 17:                                               ; preds = %14, %15
-  %.sroa.9.1 = phi i32 [ %.sroa.017.1.extract.trunc.i, %14 ], [ %.sroa.9.1.copyload, %15 ]
+  %.sroa.9.1 = phi i32 [ %.sroa.9.1.copyload, %15 ], [ %.sroa.017.1.extract.trunc.i, %14 ]
   %18 = tail call { i16, i16 } @"_ZN50_$LT$u16$u20$as$u20$quinn_proto..coding..Codec$GT$6decode17h733c293fd0f43bc8E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1)
   %19 = extractvalue { i16, i16 } %18, 0
   %20 = trunc i16 %19 to i1

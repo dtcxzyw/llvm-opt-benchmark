@@ -256,9 +256,9 @@ define ptr @PEM_X509_INFO_read_bio_ex(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %.loopexit135
 
 .loopexit135:                                     ; preds = %.loopexit135.loopexit, %96, %50
-  %.068.ph.ph = phi ptr [ %.271, %50 ], [ %97, %96 ], [ %101, %.loopexit135.loopexit ]
-  %.061.ph.ph = phi i32 [ 0, %50 ], [ %.162, %96 ], [ 0, %.loopexit135.loopexit ]
-  %.1.ph.ph = phi ptr [ %d2i_X509_AUX.d2i_X509, %50 ], [ @d2i_AutoPrivateKey, %96 ], [ @d2i_X509_CRL, %.loopexit135.loopexit ]
+  %.068.ph.ph = phi ptr [ %97, %96 ], [ %.271, %50 ], [ %101, %.loopexit135.loopexit ]
+  %.061.ph.ph = phi i32 [ %.162, %96 ], [ 0, %50 ], [ 0, %.loopexit135.loopexit ]
+  %.1.ph.ph = phi ptr [ @d2i_AutoPrivateKey, %96 ], [ %d2i_X509_AUX.d2i_X509, %50 ], [ @d2i_X509_CRL, %.loopexit135.loopexit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %102 = load ptr, ptr %8, align 8, !tbaa !3
   %103 = call i32 @PEM_get_EVP_CIPHER_INFO(ptr noundef %102, ptr noundef nonnull %12) #4
@@ -363,7 +363,7 @@ define ptr @PEM_X509_INFO_read_bio_ex(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %.not103, label %.preheader, label %148
 
 .loopexit134:                                     ; preds = %117, %86, %50, %73, %71, %63, %61, %47, %45, %.thread127, %18, %31
-  %.069 = phi ptr [ %.271, %.thread127 ], [ null, %18 ], [ %.170.lcssa, %31 ], [ %.271, %71 ], [ %.271, %61 ], [ null, %63 ], [ %.271, %45 ], [ null, %47 ], [ null, %73 ], [ %.271, %50 ], [ %.271, %86 ], [ %.271, %117 ]
+  %.069 = phi ptr [ %.271, %.thread127 ], [ null, %18 ], [ %.271, %71 ], [ %.170.lcssa, %31 ], [ %.271, %61 ], [ null, %63 ], [ %.271, %45 ], [ null, %47 ], [ null, %73 ], [ %.271, %50 ], [ %.271, %86 ], [ %.271, %117 ]
   call void @X509_INFO_free(ptr noundef %.069) #4
   br label %.preheader
 

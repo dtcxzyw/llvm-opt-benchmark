@@ -977,7 +977,7 @@ fdt_get_alias_namelen.exit:                       ; preds = %15
   br i1 %87, label %.thread, label %72, !llvm.loop !14
 
 .thread:                                          ; preds = %79, %72, %76, %11, %fdt_get_alias_namelen.exit, %3
-  %.148 = phi i32 [ -5, %11 ], [ %7, %3 ], [ -5, %fdt_get_alias_namelen.exit ], [ %.252, %76 ], [ %86, %79 ], [ %.252, %72 ]
+  %.148 = phi i32 [ -5, %11 ], [ %7, %3 ], [ %.252, %76 ], [ -5, %fdt_get_alias_namelen.exit ], [ %86, %79 ], [ %.252, %72 ]
   ret i32 %.148
 }
 
@@ -1573,7 +1573,7 @@ fdt_next_property_offset.exit:                    ; preds = %94
   br label %.thread54.thread
 
 .thread54.thread:                                 ; preds = %30, %89, %88, %.thread54, %.thread54.thread60
-  %.2 = phi ptr [ null, %.thread54 ], [ null, %.thread54.thread60 ], [ %48, %88 ], [ %48, %89 ], [ null, %30 ]
+  %.2 = phi ptr [ null, %.thread54 ], [ null, %.thread54.thread60 ], [ %48, %89 ], [ %48, %88 ], [ null, %30 ]
   ret ptr %.2
 }
 
@@ -3283,7 +3283,7 @@ fdt_num_mem_rsv.exit:                             ; preds = %.fdt_num_mem_rsv.ex
   br i1 %115, label %fdt_num_mem_rsv.exit.thread, label %.lr.ph
 
 fdt_num_mem_rsv.exit.thread:                      ; preds = %.split.i, %92, %fdt_num_mem_rsv.exit, %101, %104, %.lr.ph, %fdt_num_mem_rsv.exit.preheader, %100, %9, %7, %2, %110
-  %.0 = phi i32 [ %111, %110 ], [ -8, %2 ], [ %8, %7 ], [ -8, %9 ], [ %., %100 ], [ %90, %fdt_num_mem_rsv.exit.preheader ], [ -13, %.lr.ph ], [ -11, %104 ], [ %114, %fdt_num_mem_rsv.exit ], [ -11, %101 ], [ -8, %92 ], [ -8, %.split.i ]
+  %.0 = phi i32 [ %111, %110 ], [ -8, %2 ], [ %8, %7 ], [ -8, %9 ], [ %90, %fdt_num_mem_rsv.exit.preheader ], [ %., %100 ], [ -13, %.lr.ph ], [ -11, %104 ], [ %114, %fdt_num_mem_rsv.exit ], [ -11, %101 ], [ -8, %92 ], [ -8, %.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

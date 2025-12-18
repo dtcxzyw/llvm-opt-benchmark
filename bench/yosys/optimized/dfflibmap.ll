@@ -16899,9 +16899,9 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit780:             ; preds = %2083, %2076, %_ZN5Y
   br label %2161
 
 ._crit_edge2117:                                  ; preds = %2157, %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit218.thread, %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit218, %._crit_edge2112
-  %.sroa.01002.0.lcssa283828442856 = phi ptr [ %.sroa.01002.1, %._crit_edge2112 ], [ null, %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit218.thread ], [ %.sroa.01002.1, %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit218 ], [ %.sroa.01002.1, %2157 ]
-  %.sroa.13.0.lcssa283628462855 = phi ptr [ %.sroa.13.1, %._crit_edge2112 ], [ null, %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit218.thread ], [ %.sroa.13.1, %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit218 ], [ %.sroa.13.1, %2157 ]
-  %2087 = phi ptr [ %116, %._crit_edge2112 ], [ %88, %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit218.thread ], [ %116, %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit218 ], [ %116, %2157 ]
+  %.sroa.01002.0.lcssa283828442856 = phi ptr [ %.sroa.01002.1, %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit218 ], [ %.sroa.01002.1, %._crit_edge2112 ], [ null, %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit218.thread ], [ %.sroa.01002.1, %2157 ]
+  %.sroa.13.0.lcssa283628462855 = phi ptr [ %.sroa.13.1, %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit218 ], [ %.sroa.13.1, %._crit_edge2112 ], [ null, %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit218.thread ], [ %.sroa.13.1, %2157 ]
+  %2087 = phi ptr [ %116, %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit218 ], [ %116, %._crit_edge2112 ], [ %88, %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit218.thread ], [ %116, %2157 ]
   %2088 = load ptr, ptr %2087, align 8, !tbaa !6
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_iESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef %2088)
           to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEED2Ev.exit unwind label %2089

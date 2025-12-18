@@ -1226,7 +1226,7 @@ define hidden { i64, ptr } @"_ZN117_$LT$futures_util..stream..futures_unordered.
   %63 = icmp eq ptr %62, null
   br i1 %63, label %174, label %164
 
-64:                                               ; preds = %46, %49
+64:                                               ; preds = %49, %46
   %65 = load ptr, ptr %24, align 8, !nonnull !3, !align !7, !noundef !3
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %67 = load ptr, ptr %66, align 8, !nonnull !3, !noundef !3
@@ -1558,8 +1558,8 @@ define hidden { i64, ptr } @"_ZN12futures_util6stream17futures_unordered18ready_
   br label %16
 
 16:                                               ; preds = %.sink.split, %22, %19, %9
-  %.sroa.6.0 = phi ptr [ undef, %9 ], [ undef, %19 ], [ undef, %22 ], [ %.sroa.09.0, %.sink.split ]
-  %.sroa.0.0 = phi i64 [ 1, %9 ], [ 2, %19 ], [ 2, %22 ], [ 0, %.sink.split ]
+  %.sroa.6.0 = phi ptr [ undef, %22 ], [ undef, %9 ], [ undef, %19 ], [ %.sroa.09.0, %.sink.split ]
+  %.sroa.0.0 = phi i64 [ 2, %22 ], [ 1, %9 ], [ 2, %19 ], [ 0, %.sink.split ]
   %17 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %18 = insertvalue { i64, ptr } %17, ptr %.sroa.6.0, 1
   ret { i64, ptr } %18
@@ -13077,8 +13077,8 @@ _ZN4core3ops8function6FnOnce9call_once17h3ea76654a9a1b9c9E.exit.thread2.i.i.i: ;
           to label %common.resume unwind label %178, !noalias !396
 
 153:                                              ; preds = %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$std..sync..mpmc..context..Context$GT$$GT$17hddd4986cf0accba5E.exit.i.i.i.i", %.noexc6.i.i
-  %.sroa.0.0.i.i.i = phi i64 [ %.pre.i.i.i, %.noexc6.i.i ], [ %139, %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$std..sync..mpmc..context..Context$GT$$GT$17hddd4986cf0accba5E.exit.i.i.i.i" ]
-  %.merged.i.i = phi { i64, ptr } [ %124, %.noexc6.i.i ], [ %136, %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$std..sync..mpmc..context..Context$GT$$GT$17hddd4986cf0accba5E.exit.i.i.i.i" ]
+  %.sroa.0.0.i.i.i = phi i64 [ %139, %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$std..sync..mpmc..context..Context$GT$$GT$17hddd4986cf0accba5E.exit.i.i.i.i" ], [ %.pre.i.i.i, %.noexc6.i.i ]
+  %.merged.i.i = phi { i64, ptr } [ %136, %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$std..sync..mpmc..context..Context$GT$$GT$17hddd4986cf0accba5E.exit.i.i.i.i" ], [ %124, %.noexc6.i.i ]
   %154 = icmp eq i64 %.sroa.0.0.i.i.i, 3
   br i1 %154, label %.thread.i.i, label %156
 
@@ -14160,7 +14160,7 @@ define internal fastcc void @"_ZN3std4sync4mpmc4zero16Channel$LT$T$GT$4recv28_$u
   br label %.body
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %39, %90, %.thread58, %.thread62, %217, %54, %59, %150, %155, %205, %210
-  %.sroa.01.1.ph.ph.ph = phi i1 [ false, %205 ], [ false, %150 ], [ false, %54 ], [ false, %217 ], [ false, %.thread62 ], [ true, %39 ], [ false, %210 ], [ false, %.thread58 ], [ false, %59 ], [ false, %155 ], [ false, %90 ]
+  %.sroa.01.1.ph.ph.ph = phi i1 [ false, %90 ], [ false, %54 ], [ false, %150 ], [ false, %205 ], [ false, %217 ], [ false, %.thread62 ], [ true, %39 ], [ false, %210 ], [ false, %.thread58 ], [ false, %59 ], [ false, %155 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -14718,7 +14718,7 @@ define internal fastcc { i64, ptr } @"_ZN3std4sync4mpmc4zero16Channel$LT$T$GT$4s
   br label %.body
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.invoke, %39, %90, %.thread, %.thread70, %54, %59, %150, %155, %209, %214
-  %.sroa.013.1.ph.ph.ph = phi i1 [ false, %209 ], [ false, %150 ], [ false, %54 ], [ false, %.thread70 ], [ true, %39 ], [ false, %214 ], [ false, %90 ], [ false, %.thread ], [ false, %59 ], [ false, %155 ], [ false, %.invoke ]
+  %.sroa.013.1.ph.ph.ph = phi i1 [ false, %90 ], [ false, %54 ], [ false, %150 ], [ false, %209 ], [ false, %.thread70 ], [ true, %39 ], [ false, %214 ], [ false, %.invoke ], [ false, %.thread ], [ false, %59 ], [ false, %155 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body

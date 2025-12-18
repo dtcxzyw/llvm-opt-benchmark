@@ -1596,8 +1596,8 @@ _ZL10set_ahcityiP4t_bb.exit.i:                    ; preds = %45, %20
   br i1 %62, label %50, label %_ZL9check_ahxiP4t_bbPiS1_.exit, !llvm.loop !91
 
 _ZL9check_ahxiP4t_bbPiS1_.exit:                   ; preds = %72, %16, %.preheader
-  %.266 = phi i32 [ 0, %.preheader ], [ %spec.select, %16 ], [ %.128.i, %72 ]
-  %.2 = phi i32 [ 0, %.preheader ], [ %.163, %16 ], [ %.1.i, %72 ]
+  %.266 = phi i32 [ %spec.select, %16 ], [ 0, %.preheader ], [ %.128.i, %72 ]
+  %.2 = phi i32 [ %.163, %16 ], [ 0, %.preheader ], [ %.1.i, %72 ]
   %73 = load ptr, ptr @stderr, align 8, !tbaa !40
   %74 = sext i32 %.266 to i64
   %75 = getelementptr inbounds %struct.t_bb, ptr %1, i64 %74

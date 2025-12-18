@@ -546,7 +546,7 @@ _ZN5arrow9list_util8internal12_GLOBAL__N_123RangeOfValuesUsedByListIlEESt4pairIl
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %94, %88, %129, %127
-  %.sroa.098.0.i.ph.i = phi i64 [ %130, %129 ], [ 0, %127 ], [ 0, %88 ], [ 0, %94 ]
+  %.sroa.098.0.i.ph.i = phi i64 [ 0, %127 ], [ %130, %129 ], [ 0, %88 ], [ 0, %94 ]
   %131 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %132 = load ptr, ptr %131, align 8, !tbaa !72
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 8
@@ -648,7 +648,7 @@ _ZN5arrow9list_util8internal12_GLOBAL__N_123RangeOfValuesUsedByListIlEESt4pairIl
   br i1 %.not.not.not.i.i, label %.lr.ph.i8.i, label %.loopexit.i.i, !llvm.loop !74
 
 .thread91.sink.split.i.i:                         ; preds = %.loopexit.i.i, %180, %159
-  %.5.ph.i.i = phi i64 [ 0, %159 ], [ %134, %180 ], [ %.965.lcssa.i.i, %.loopexit.i.i ]
+  %.5.ph.i.i = phi i64 [ %134, %180 ], [ 0, %159 ], [ %.965.lcssa.i.i, %.loopexit.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN5arrow9list_util8internal12_GLOBAL__N_110MaxViewEndIiEElRKNS_9ArraySpanE.exit.i
 
@@ -802,8 +802,8 @@ _ZN5arrow9list_util8internal12_GLOBAL__N_127RangeOfValuesUsedByListViewIiEESt4pa
   br i1 %.not.i.i48, label %.lr.ph.i.i46, label %.critedge43.loopexit.i.i19, !llvm.loop !76
 
 .critedge.sink.split.i.i:                         ; preds = %.critedge43.loopexit.i.i19, %248, %242, %223
-  %.sroa.069.0.ph.i.i = phi i64 [ undef, %223 ], [ 0, %248 ], [ 0, %242 ], [ %.sroa.066.5.lcssa.i.i, %.critedge43.loopexit.i.i19 ]
-  %.sroa.6.0.ph.i.i = phi i8 [ 0, %223 ], [ 1, %248 ], [ 1, %242 ], [ %.sroa.9.5.lcssa.i.i20, %.critedge43.loopexit.i.i19 ]
+  %.sroa.069.0.ph.i.i = phi i64 [ 0, %248 ], [ undef, %223 ], [ 0, %242 ], [ %.sroa.066.5.lcssa.i.i, %.critedge43.loopexit.i.i19 ]
+  %.sroa.6.0.ph.i.i = phi i8 [ 1, %248 ], [ 0, %223 ], [ 1, %242 ], [ %.sroa.9.5.lcssa.i.i20, %.critedge43.loopexit.i.i19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN5arrow9list_util8internal12_GLOBAL__N_113MinViewOffsetIlEESt8optionalIlERKNS_9ArraySpanE.exit.i
 
@@ -922,7 +922,7 @@ _ZN5arrow9list_util8internal12_GLOBAL__N_113MinViewOffsetIlEESt8optionalIlERKNS_
   br i1 %.not.not.not.i.i40, label %.lr.ph.i8.i35, label %.loopexit.i.i29, !llvm.loop !78
 
 .thread91.sink.split.i.i31:                       ; preds = %.loopexit.i.i29, %300, %282
-  %.5.ph.i.i32 = phi i64 [ 0, %282 ], [ %260, %300 ], [ %.965.lcssa.i.i30, %.loopexit.i.i29 ]
+  %.5.ph.i.i32 = phi i64 [ %260, %300 ], [ 0, %282 ], [ %.965.lcssa.i.i30, %.loopexit.i.i29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN5arrow9list_util8internal12_GLOBAL__N_110MaxViewEndIlEElRKNS_9ArraySpanE.exit.i
 
@@ -1396,7 +1396,7 @@ _ZZN5arrow9list_util8internal12_GLOBAL__N_118SumOfListViewSizesIlEElRKNS_9ArrayS
   br label %_ZN5arrow9list_util8internal12_GLOBAL__N_118SumOfListViewSizesIlEElRKNS_9ArraySpanE.exit
 
 _ZN5arrow9list_util8internal12_GLOBAL__N_118SumOfListViewSizesIlEElRKNS_9ArraySpanE.exit: ; preds = %.lr.ph.i.i.i30, %171, %._crit_edge.i.i25
-  %.3.i27 = phi i64 [ 0, %171 ], [ %.2.i26, %._crit_edge.i.i25 ], [ %176, %.lr.ph.i.i.i30 ]
+  %.3.i27 = phi i64 [ %.2.i26, %._crit_edge.i.i25 ], [ 0, %171 ], [ %176, %.lr.ph.i.i.i30 ]
   store ptr null, ptr %0, align 8, !tbaa !65
   %196 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.3.i27, ptr %196, align 8, !tbaa !68

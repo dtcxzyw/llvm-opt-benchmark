@@ -688,7 +688,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i53:  ; preds = %_ZN9QtPrivate8RefCo
   br label %.loopexit.split-lp
 
 _ZN7QStringD2Ev.exit58:                           ; preds = %_ZN7QStringD2Ev.exit28, %_ZN7QStringD2Ev.exit47, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i53, %_ZN9QtPrivate8RefCount5derefEv.exit.i54, %_ZN10QByteArrayD2Ev.exit
-  %.0 = phi i32 [ %80, %_ZN10QByteArrayD2Ev.exit ], [ -1, %_ZN9QtPrivate8RefCount5derefEv.exit.i54 ], [ -1, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i53 ], [ %50, %_ZN7QStringD2Ev.exit47 ], [ %16, %_ZN7QStringD2Ev.exit28 ]
+  %.0 = phi i32 [ -1, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i53 ], [ %50, %_ZN7QStringD2Ev.exit47 ], [ %80, %_ZN10QByteArrayD2Ev.exit ], [ -1, %_ZN9QtPrivate8RefCount5derefEv.exit.i54 ], [ %16, %_ZN7QStringD2Ev.exit28 ]
   %88 = load ptr, ptr %3, align 8
   %89 = load atomic i32, ptr %88 monotonic, align 4
   switch i32 %89, label %_ZN9QtPrivate8RefCount5derefEv.exit.i60 [
@@ -1002,7 +1002,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i39:  ; preds = %_ZN9QtPrivate8RefCo
   br label %.loopexit.split-lp
 
 _ZN10QByteArrayD2Ev.exit:                         ; preds = %_ZN7QStringD2Ev.exit, %_ZN7QStringD2Ev.exit38, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i39, %_ZN9QtPrivate8RefCount5derefEv.exit.i40, %62
-  %.0 = phi ptr [ null, %62 ], [ null, %_ZN9QtPrivate8RefCount5derefEv.exit.i40 ], [ null, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i39 ], [ %42, %_ZN7QStringD2Ev.exit38 ], [ %18, %_ZN7QStringD2Ev.exit ]
+  %.0 = phi ptr [ null, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i39 ], [ %42, %_ZN7QStringD2Ev.exit38 ], [ null, %62 ], [ null, %_ZN9QtPrivate8RefCount5derefEv.exit.i40 ], [ %18, %_ZN7QStringD2Ev.exit ]
   %69 = load ptr, ptr %3, align 8
   %70 = load atomic i32, ptr %69 monotonic, align 4
   switch i32 %70, label %_ZN9QtPrivate8RefCount5derefEv.exit.i45 [
@@ -4759,7 +4759,7 @@ _ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit162.i: ; p
   br i1 %82, label %common.resume, label %.preheader.i
 
 common.resume:                                    ; preds = %_ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit162.i, %112, %239, %243, %.body.thread724.i, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %56, %.body.thread724.i ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %.body.i ], [ %111, %112 ], [ %lpad.phi.i.i.i.i, %243 ], [ %238, %239 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %_ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit162.i ]
+  %common.resume.op = phi { ptr, i32 } [ %238, %239 ], [ %111, %112 ], [ %56, %.body.thread724.i ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %.body.i ], [ %lpad.phi.i.i.i.i, %243 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %_ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit162.i ]
   resume { ptr, i32 } %common.resume.op
 
 __cxx_global_var_init.5.exit:                     ; preds = %_ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit.i

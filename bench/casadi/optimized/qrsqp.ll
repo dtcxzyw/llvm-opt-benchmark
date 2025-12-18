@@ -3358,7 +3358,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit598: ; preds = %87
   br i1 %898, label %.loopexit, label %895
 
 .loopexit:                                        ; preds = %895, %.loopexit.loopexit711, %.thread703
-  %.pn220.pn.pn = phi { ptr, i32 } [ %844, %.thread703 ], [ %889, %.loopexit.loopexit711 ], [ %.pn220.pn, %895 ]
+  %.pn220.pn.pn = phi { ptr, i32 } [ %889, %.loopexit.loopexit711 ], [ %844, %.thread703 ], [ %.pn220.pn, %895 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %52)
   call void @llvm.lifetime.end.p0(ptr nonnull %51)
   %899 = load ptr, ptr %50, align 8, !tbaa !11
@@ -6147,9 +6147,9 @@ _ZN6casadi11casadi_axpyIdEEvxT_PKS1_PS1_.exit460: ; preds = %.lr.ph.i455, %_ZN6c
   br i1 %exitcond.not.i477, label %_ZN6casadi11casadi_scalIdEEvxT_PS1_.exit468, label %.lr.ph.i473, !llvm.loop !198
 
 _ZN6casadi11casadi_scalIdEEvxT_PS1_.exit468:      ; preds = %.lr.ph.i473, %.lr.ph.i464, %.lr.ph23.preheader.i479, %.preheader.i478, %.preheader16.i471, %_ZN6casadi11casadi_axpyIdEEvxT_PKS1_PS1_.exit460, %625
-  %638 = phi i64 [ %627, %625 ], [ %627, %.lr.ph23.preheader.i479 ], [ %627, %.preheader.i478 ], [ %627, %.preheader16.i471 ], [ %566, %_ZN6casadi11casadi_axpyIdEEvxT_PKS1_PS1_.exit460 ], [ %566, %.lr.ph.i464 ], [ %627, %.lr.ph.i473 ]
-  %.3193 = phi i1 [ true, %625 ], [ true, %.lr.ph23.preheader.i479 ], [ true, %.preheader.i478 ], [ true, %.preheader16.i471 ], [ %601, %_ZN6casadi11casadi_axpyIdEEvxT_PKS1_PS1_.exit460 ], [ %601, %.lr.ph.i464 ], [ true, %.lr.ph.i473 ]
-  %.3 = phi i64 [ 0, %625 ], [ 0, %.lr.ph23.preheader.i479 ], [ 0, %.preheader.i478 ], [ 0, %.preheader16.i471 ], [ %528, %_ZN6casadi11casadi_axpyIdEEvxT_PKS1_PS1_.exit460 ], [ %528, %.lr.ph.i464 ], [ 0, %.lr.ph.i473 ]
+  %638 = phi i64 [ %627, %625 ], [ %566, %.lr.ph.i464 ], [ %627, %.lr.ph23.preheader.i479 ], [ %627, %.preheader.i478 ], [ %627, %.preheader16.i471 ], [ %566, %_ZN6casadi11casadi_axpyIdEEvxT_PKS1_PS1_.exit460 ], [ %627, %.lr.ph.i473 ]
+  %.3193 = phi i1 [ true, %625 ], [ %601, %.lr.ph.i464 ], [ true, %.lr.ph23.preheader.i479 ], [ true, %.preheader.i478 ], [ true, %.preheader16.i471 ], [ %601, %_ZN6casadi11casadi_axpyIdEEvxT_PKS1_PS1_.exit460 ], [ true, %.lr.ph.i473 ]
+  %.3 = phi i64 [ 0, %625 ], [ %528, %.lr.ph.i464 ], [ 0, %.lr.ph23.preheader.i479 ], [ 0, %.preheader.i478 ], [ 0, %.preheader16.i471 ], [ %528, %_ZN6casadi11casadi_axpyIdEEvxT_PKS1_PS1_.exit460 ], [ 0, %.lr.ph.i473 ]
   %639 = load ptr, ptr %28, align 8, !tbaa !186
   %640 = load ptr, ptr %12, align 8, !tbaa !194
   %641 = icmp ne ptr %639, null
@@ -6297,7 +6297,7 @@ _ZN6casadi9casadi_mvIdEEvPKT_PKxS3_PS1_x.exit514: ; preds = %.loopexit48.i508, %
   br label %._crit_edge.i.i
 
 .thread538:                                       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit257, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %214, %207, %202, %192
-  %.1186 = phi i32 [ 0, %214 ], [ 0, %192 ], [ 0, %202 ], [ 0, %207 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit257 ]
+  %.1186 = phi i32 [ 0, %207 ], [ 0, %214 ], [ 0, %192 ], [ 0, %202 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit257 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.1186
 

@@ -2044,7 +2044,7 @@ define range(i32 0, 2) i32 @Saig_RefManSetPhases(ptr noundef readonly captures(n
   br i1 %58, label %.lr.ph.split.us, label %.critedge.preheader, !llvm.loop !79
 
 .critedge.preheader:                              ; preds = %113, %.lr.ph.split.us, %3
-  %59 = phi ptr [ %10, %3 ], [ %53, %.lr.ph.split.us ], [ %114, %113 ]
+  %59 = phi ptr [ %53, %.lr.ph.split.us ], [ %10, %3 ], [ %114, %113 ]
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 32
   %61 = load ptr, ptr %60, align 8, !tbaa !44
   %62 = getelementptr i8, ptr %61, i64 4
@@ -2751,8 +2751,8 @@ Vec_IntPush.exit161:                              ; preds = %Vec_IntPush.exit161
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph207, !llvm.loop !91
 
 ._crit_edge:                                      ; preds = %.lr.ph207, %114, %.preheader197
-  %.val146.lcssa281 = phi i32 [ %.val146, %.preheader197 ], [ %.val148, %114 ], [ %.val146, %.lr.ph207 ]
-  %.val150254280 = phi ptr [ %.pre.i157248, %.preheader197 ], [ %.pre.i157251, %114 ], [ %.pre.i157248, %.lr.ph207 ]
+  %.val146.lcssa281 = phi i32 [ %.val148, %114 ], [ %.val146, %.preheader197 ], [ %.val146, %.lr.ph207 ]
+  %.val150254280 = phi ptr [ %.pre.i157251, %114 ], [ %.pre.i157248, %.preheader197 ], [ %.pre.i157248, %.lr.ph207 ]
   %putchar = call i32 @putchar(i32 10)
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %162 = load i32, ptr %161, align 4, !tbaa !78

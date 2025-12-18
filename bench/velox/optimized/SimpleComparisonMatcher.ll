@@ -4652,7 +4652,7 @@ return.critedge:                                  ; preds = %invoke.cont11
   br label %return
 
 return:                                           ; preds = %for.body.i, %return.critedge, %entry, %dynamic_cast.end, %if.end.i.i35, %if.then23
-  %retval.0 = phi i1 [ true, %if.then23 ], [ false, %if.end.i.i35 ], [ false, %dynamic_cast.end ], [ false, %entry ], [ false, %return.critedge ], [ false, %for.body.i ]
+  %retval.0 = phi i1 [ true, %if.then23 ], [ false, %if.end.i.i35 ], [ false, %return.critedge ], [ false, %dynamic_cast.end ], [ false, %entry ], [ false, %for.body.i ]
   ret i1 %retval.0
 }
 
@@ -5399,8 +5399,8 @@ lpad:                                             ; preds = %_ZNSt8__detail12_No
   resume { ptr, i32 } %21
 
 return:                                           ; preds = %for.cond.i.i, %for.body, %_ZNSt8__detail12_NodeBuilderINS_9_IdentityEE8_S_buildIRKSt10shared_ptrIKN8facebook5velox4core20FieldAccessTypedExprEESC_NS_10_AllocNodeISaINS_10_Hash_nodeISA_Lb0EEEEEEEEPNT1_11__node_typeEOT_OT0_RKSI_.exit, %if.end.i.i
-  %retval.sroa.0.0 = phi ptr [ %10, %if.end.i.i ], [ %call28, %_ZNSt8__detail12_NodeBuilderINS_9_IdentityEE8_S_buildIRKSt10shared_ptrIKN8facebook5velox4core20FieldAccessTypedExprEESC_NS_10_AllocNodeISaINS_10_Hash_nodeISA_Lb0EEEEEEEEPNT1_11__node_typeEOT_OT0_RKSI_.exit ], [ %__it.sroa.0.0, %for.body ], [ %12, %for.cond.i.i ]
-  %retval.sroa.4.0 = phi i8 [ 0, %if.end.i.i ], [ 1, %_ZNSt8__detail12_NodeBuilderINS_9_IdentityEE8_S_buildIRKSt10shared_ptrIKN8facebook5velox4core20FieldAccessTypedExprEESC_NS_10_AllocNodeISaINS_10_Hash_nodeISA_Lb0EEEEEEEEPNT1_11__node_typeEOT_OT0_RKSI_.exit ], [ 0, %for.body ], [ 0, %for.cond.i.i ]
+  %retval.sroa.0.0 = phi ptr [ %__it.sroa.0.0, %for.body ], [ %call28, %_ZNSt8__detail12_NodeBuilderINS_9_IdentityEE8_S_buildIRKSt10shared_ptrIKN8facebook5velox4core20FieldAccessTypedExprEESC_NS_10_AllocNodeISaINS_10_Hash_nodeISA_Lb0EEEEEEEEPNT1_11__node_typeEOT_OT0_RKSI_.exit ], [ %10, %if.end.i.i ], [ %12, %for.cond.i.i ]
+  %retval.sroa.4.0 = phi i8 [ 0, %for.body ], [ 1, %_ZNSt8__detail12_NodeBuilderINS_9_IdentityEE8_S_buildIRKSt10shared_ptrIKN8facebook5velox4core20FieldAccessTypedExprEESC_NS_10_AllocNodeISaINS_10_Hash_nodeISA_Lb0EEEEEEEEPNT1_11__node_typeEOT_OT0_RKSI_.exit ], [ 0, %if.end.i.i ], [ 0, %for.cond.i.i ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %retval.sroa.4.0, 1
   ret { ptr, i8 } %.fca.1.insert

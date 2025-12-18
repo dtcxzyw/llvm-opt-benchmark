@@ -417,7 +417,7 @@ define dso_local ptr @FilterWalSummaries(ptr noundef readonly captures(address_i
   br i1 %.not24, label %108, label %117
 
 .critedge:                                        ; preds = %117, %98, %82, %67, %55, %39, %26, %.lr.ph75.split.us.split.us, %.lr.ph.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.us.split, %4
-  %.0.lcssa = phi ptr [ null, %4 ], [ null, %.lr.ph.split.split.split.split ], [ null, %.lr.ph.split.us.split ], [ null, %.lr.ph.split.split.us.split ], [ null, %.lr.ph.split.split.split.us.split ], [ %.1.us40, %98 ], [ %14, %.lr.ph75.split.us.split.us ], [ %.1.us.us77, %26 ], [ %.1.us.us81, %39 ], [ %.1.us, %55 ], [ %.1.us32.us69, %67 ], [ %.1.us32, %82 ], [ %.1, %117 ]
+  %.0.lcssa = phi ptr [ null, %4 ], [ %.1.us32, %82 ], [ null, %.lr.ph.split.split.split.split ], [ null, %.lr.ph.split.split.split.us.split ], [ null, %.lr.ph.split.split.us.split ], [ %.1.us.us81, %39 ], [ %14, %.lr.ph75.split.us.split.us ], [ null, %.lr.ph.split.us.split ], [ %.1.us, %55 ], [ %.1.us40, %98 ], [ %.1.us.us77, %26 ], [ %.1.us32.us69, %67 ], [ %.1, %117 ]
   ret ptr %.0.lcssa
 
 108:                                              ; preds = %.lr.ph55

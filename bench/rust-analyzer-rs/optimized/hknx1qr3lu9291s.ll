@@ -7007,7 +7007,7 @@ _ZN4core3ops8function6FnOnce9call_once17h42cce633f7b1c19fE.exit.i10.i.i.i.i.i.i.
   br label %16
 
 "_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbdd39363abc803d7E.exit": ; preds = %16, %.loopexit.i, %96, %"_ZN4core3ptr143drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$$GT$17h6ff555d62eac99f5E.exit.i10.i"
-  %.0.i = phi ptr [ null, %.loopexit.i ], [ %98, %96 ], [ null, %"_ZN4core3ptr143drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$$GT$17h6ff555d62eac99f5E.exit.i10.i" ], [ %17, %16 ]
+  %.0.i = phi ptr [ null, %"_ZN4core3ptr143drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$$GT$17h6ff555d62eac99f5E.exit.i10.i" ], [ null, %.loopexit.i ], [ %98, %96 ], [ %17, %16 ]
   ret ptr %.0.i
 }
 
@@ -20112,7 +20112,7 @@ define hidden noundef zeroext i1 @_ZN4stdx10iter_eq_by17h0c6345d8021a76dfE(ptr n
           to label %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$syntax..ast..generated..nodes..PathSegment$GT$$GT$17h9baf0212ff4047ecE.llvm.4370348610037963988.exit" unwind label %.loopexit.split-lp
 
 "_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$syntax..ast..generated..nodes..PathSegment$GT$$GT$17h9baf0212ff4047ecE.llvm.4370348610037963988.exit": ; preds = %210, %.invoke, %.critedge, %49, %51
-  %.0 = phi i1 [ false, %.invoke ], [ false, %51 ], [ true, %49 ], [ false, %.critedge ], [ false, %210 ]
+  %.0 = phi i1 [ false, %.invoke ], [ false, %.critedge ], [ false, %51 ], [ true, %49 ], [ false, %210 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !6870)
   call void @llvm.experimental.noalias.scope.decl(metadata !6873)
   %57 = load ptr, ptr %14, align 8, !alias.scope !6876, !noundef !4
@@ -21291,7 +21291,7 @@ _ZN4core3ops8function6FnOnce9call_once17h42cce633f7b1c19fE.exit.i10.i.i.i.i.i.i.
   br i1 %199, label %.invoke, label %"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$17h6d8bc47a4f7e9a70E.llvm.4370348610037963988.exit"
 
 "_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$17h6d8bc47a4f7e9a70E.llvm.4370348610037963988.exit": ; preds = %"_ZN6ide_db7imports13merge_imports8eq_attrs28_$u7b$$u7b$closure$u7d$$u7d$17h894350897291037aE.exit", %.invoke, %.critedge, %193, %195
-  %.0 = phi i1 [ false, %.critedge ], [ false, %195 ], [ true, %193 ], [ false, %.invoke ], [ false, %"_ZN6ide_db7imports13merge_imports8eq_attrs28_$u7b$$u7b$closure$u7d$$u7d$17h894350897291037aE.exit" ]
+  %.0 = phi i1 [ false, %.invoke ], [ false, %.critedge ], [ false, %195 ], [ true, %193 ], [ false, %"_ZN6ide_db7imports13merge_imports8eq_attrs28_$u7b$$u7b$closure$u7d$$u7d$17h894350897291037aE.exit" ]
   invoke void @"_ZN4core3ptr1284drop_in_place$LT$core..iter..adapters..flatten..FlattenCompat$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..FlatMap$LT$syntax..ast..AstChildren$LT$syntax..ast..generated..nodes..Attr$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..filter_map..FilterMap$LT$rowan..cursor..PreorderWithTokens$C$rowan..cursor..SyntaxNode..descendants_with_tokens..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$$LT$rowan..utility_types..NodeOrToken$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$C$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$u20$as$u20$core..convert..From$LT$rowan..utility_types..NodeOrToken$LT$rowan..cursor..SyntaxNode$C$rowan..cursor..SyntaxToken$GT$$GT$$GT$..from$GT$$C$ide_db..imports..merge_imports..eq_attrs$LT$syntax..ast..AstChildren$LT$syntax..ast..generated..nodes..Attr$GT$$C$syntax..ast..AstChildren$LT$syntax..ast..generated..nodes..Attr$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$ide_db..imports..merge_imports..eq_attrs$LT$syntax..ast..AstChildren$LT$syntax..ast..generated..nodes..Attr$GT$$C$syntax..ast..AstChildren$LT$syntax..ast..generated..nodes..Attr$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..option..IntoIter$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$$GT$17h0b559e0c86dfd015E.llvm.17272167133303916261"(ptr noalias noundef nonnull align 8 dereferenceable(144) %8)
           to label %"_ZN4core3ptr1238drop_in_place$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..flatten..FlatMap$LT$syntax..ast..AstChildren$LT$syntax..ast..generated..nodes..Attr$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..filter_map..FilterMap$LT$rowan..cursor..PreorderWithTokens$C$rowan..cursor..SyntaxNode..descendants_with_tokens..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$$LT$rowan..utility_types..NodeOrToken$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$C$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$u20$as$u20$core..convert..From$LT$rowan..utility_types..NodeOrToken$LT$rowan..cursor..SyntaxNode$C$rowan..cursor..SyntaxToken$GT$$GT$$GT$..from$GT$$C$ide_db..imports..merge_imports..eq_attrs$LT$syntax..ast..AstChildren$LT$syntax..ast..generated..nodes..Attr$GT$$C$syntax..ast..AstChildren$LT$syntax..ast..generated..nodes..Attr$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..option..Option$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$33" unwind label %23
 
@@ -24308,7 +24308,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit: ; preds = %.lr.ph.
   br label %.loopexit
 
 .loopexit:                                        ; preds = %63, %39, %2, %.split.us, %.split72.us
-  %storemerge23 = phi i64 [ 0, %.split.us ], [ 1, %.split72.us ], [ 0, %2 ], [ 0, %39 ], [ 0, %63 ]
+  %storemerge23 = phi i64 [ 1, %.split72.us ], [ 0, %.split.us ], [ 0, %2 ], [ 0, %39 ], [ 0, %63 ]
   store i64 %storemerge23, ptr %0, align 8
   ret void
 }

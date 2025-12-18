@@ -969,9 +969,9 @@ _ZN5draco4Mesh7SetFaceENS_9IndexTypeIjNS_19FaceIndex_tag_type_EEERKSt5arrayINS1_
   br i1 %exitcond328.not, label %.loopexit252, label %.lr.ph267, !llvm.loop !123
 
 .loopexit252:                                     ; preds = %.lr.ph267, %_ZNSt6vectorIbSaIbEE6resizeEmb.exit._crit_edge, %._crit_edge
-  %68 = phi i1 [ true, %._crit_edge ], [ false, %_ZNSt6vectorIbSaIbEE6resizeEmb.exit._crit_edge ], [ false, %.lr.ph267 ]
-  %.sink.i.i398 = phi i64 [ %44, %._crit_edge ], [ 0, %_ZNSt6vectorIbSaIbEE6resizeEmb.exit._crit_edge ], [ %44, %.lr.ph267 ]
-  %.sroa.0214.0396 = phi ptr [ %24, %._crit_edge ], [ null, %_ZNSt6vectorIbSaIbEE6resizeEmb.exit._crit_edge ], [ %24, %.lr.ph267 ]
+  %68 = phi i1 [ false, %_ZNSt6vectorIbSaIbEE6resizeEmb.exit._crit_edge ], [ true, %._crit_edge ], [ false, %.lr.ph267 ]
+  %.sink.i.i398 = phi i64 [ 0, %_ZNSt6vectorIbSaIbEE6resizeEmb.exit._crit_edge ], [ %44, %._crit_edge ], [ %44, %.lr.ph267 ]
+  %.sroa.0214.0396 = phi ptr [ null, %_ZNSt6vectorIbSaIbEE6resizeEmb.exit._crit_edge ], [ %24, %._crit_edge ], [ %24, %.lr.ph267 ]
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %71 = load ptr, ptr %70, align 8, !tbaa !124

@@ -120,7 +120,7 @@ _ZN4core4char7methods16encode_utf16_raw17h320237ac03d2da94E.exit.i.i: ; preds = 
   br label %_ZN4core4iter6traits8iterator8Iterator4fold17h72924e744e926338E.exit
 
 _ZN4core4iter6traits8iterator8Iterator4fold17h72924e744e926338E.exit: ; preds = %35, %11, %60, %58
-  %.0 = phi i64 [ %61, %60 ], [ %59, %58 ], [ %.0.i, %11 ], [ %.0.i, %35 ]
+  %.0 = phi i64 [ %59, %58 ], [ %61, %60 ], [ %.0.i, %11 ], [ %.0.i, %35 ]
   ret i64 %.0
 }
 
@@ -241,7 +241,7 @@ define void @_ZN10line_index9LineIndex3new17haaa10d7242ffbeb2E(ptr noalias nound
           to label %.backedge.i.i.i unwind label %.loopexit.split-lp.loopexit.i, !noalias !16
 
 .backedge.i.i.i:                                  ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf305d59fb8d87cabE.exit.i.i.i", %62, %57, %"_ZN4core3str6traits66_$LT$impl$u20$core..ops..index..Index$LT$I$GT$$u20$for$u20$str$GT$5index17h092230c0b7b61c29E.exit33.i.i.i"
-  %.0.be.i.i.i = phi i64 [ 0, %62 ], [ 0, %57 ], [ %56, %"_ZN4core3str6traits66_$LT$impl$u20$core..ops..index..Index$LT$I$GT$$u20$for$u20$str$GT$5index17h092230c0b7b61c29E.exit33.i.i.i" ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf305d59fb8d87cabE.exit.i.i.i" ]
+  %.0.be.i.i.i = phi i64 [ %56, %"_ZN4core3str6traits66_$LT$impl$u20$core..ops..index..Index$LT$I$GT$$u20$for$u20$str$GT$5index17h092230c0b7b61c29E.exit33.i.i.i" ], [ 0, %62 ], [ 0, %57 ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf305d59fb8d87cabE.exit.i.i.i" ]
   %exitcond.not.i.i.i = icmp eq i64 %22, %18
   br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph168.i.i.i
 

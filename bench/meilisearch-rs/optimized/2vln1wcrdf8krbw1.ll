@@ -9819,7 +9819,7 @@ define hidden void @"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C
   %40 = invoke { ptr, i1 } @"_ZN102_$LT$tracing_subscriber..registry..sharded..Data$u20$as$u20$tracing_subscriber..registry..SpanData$GT$14extensions_mut17heb74aa603e7001c9E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.8.0..sroa_idx)
           to label %42 unwind label %.thread
 
-.thread133:                                       ; preds = %163, %161, %157, %166
+.thread133:                                       ; preds = %157, %161, %163, %166
   %lpad.thr_comm131 = landingpad { ptr, i32 }
           cleanup
   br label %.thread126
@@ -10360,7 +10360,7 @@ define hidden void @"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C
   %42 = invoke { ptr, i1 } @"_ZN102_$LT$tracing_subscriber..registry..sharded..Data$u20$as$u20$tracing_subscriber..registry..SpanData$GT$14extensions_mut17heb74aa603e7001c9E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.8.0..sroa_idx)
           to label %44 unwind label %.thread
 
-.thread127:                                       ; preds = %170, %168, %164, %173
+.thread127:                                       ; preds = %164, %168, %170, %173
   %lpad.thr_comm125 = landingpad { ptr, i32 }
           cleanup
   br label %.thread120
@@ -47483,7 +47483,7 @@ common.resume:                                    ; preds = %"_ZN4core3ptr48drop
   br label %"_ZN4core3ptr48drop_in_place$LT$roaring..bitmap..iter..Iter$GT$17h7e5a365efcf73f9fE.exit352"
 
 .loopexit.split-lp40:                             ; preds = %"_ZN5alloc6borrow12Cow$LT$B$GT$10into_owned17h6af8564befb3caffE.exit", %182, %.loopexit38, %206, %209, %240, %243, %244, %263, %264, %211, %202, %254
-  %.sroa.0166.2.ph = phi i1 [ true, %182 ], [ true, %"_ZN5alloc6borrow12Cow$LT$B$GT$10into_owned17h6af8564befb3caffE.exit" ], [ true, %.loopexit38 ], [ true, %206 ], [ true, %211 ], [ true, %209 ], [ true, %243 ], [ true, %264 ], [ true, %263 ], [ true, %240 ], [ true, %244 ], [ true, %254 ], [ false, %202 ]
+  %.sroa.0166.2.ph = phi i1 [ true, %"_ZN5alloc6borrow12Cow$LT$B$GT$10into_owned17h6af8564befb3caffE.exit" ], [ true, %182 ], [ true, %.loopexit38 ], [ true, %206 ], [ true, %211 ], [ true, %209 ], [ true, %243 ], [ true, %264 ], [ true, %263 ], [ true, %240 ], [ true, %244 ], [ true, %254 ], [ false, %202 ]
   %lpad.loopexit.split-lp42 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr48drop_in_place$LT$roaring..bitmap..iter..Iter$GT$17h7e5a365efcf73f9fE.exit352"
@@ -87093,7 +87093,7 @@ _ZN4core5slice6memchr12memchr_naive17he786c2df6c28d6b1E.llvm.8666068179502612882
   br i1 %45, label %48, label %46
 
 .loopexit:                                        ; preds = %62, %39, %2, %.split.us, %.split73.us
-  %storemerge = phi i64 [ 1, %.split73.us ], [ %.us-phi, %.split.us ], [ 0, %2 ], [ 0, %39 ], [ 0, %62 ]
+  %storemerge = phi i64 [ %.us-phi, %.split.us ], [ 1, %.split73.us ], [ 0, %2 ], [ 0, %39 ], [ 0, %62 ]
   store i64 %storemerge, ptr %0, align 8
   ret void
 
@@ -115395,7 +115395,7 @@ define hidden void @"_ZN229_$LT$meilisearch..routes..tasks..TasksFilterQuery$u20
   br label %.thread1626
 
 .thread1631.loopexit.split-lp:                    ; preds = %702, %701, %715, %719, %729, %728, %674, %742, %746, %756, %755, %665, %769, %773, %783, %782, %661, %796, %800, %810, %809, %692, %826, %688, %845, %675, %864, %883, %905, %930, %949
-  %.sroa.0145.6.ph.ph = phi i8 [ 0, %949 ], [ 0, %930 ], [ 0, %905 ], [ 0, %883 ], [ 0, %864 ], [ 0, %675 ], [ 0, %845 ], [ 0, %688 ], [ 0, %826 ], [ 1, %692 ], [ 0, %809 ], [ 0, %810 ], [ 1, %800 ], [ 0, %796 ], [ 0, %661 ], [ 0, %782 ], [ 0, %783 ], [ 1, %773 ], [ 0, %769 ], [ 1, %665 ], [ 0, %755 ], [ 0, %756 ], [ 1, %746 ], [ 0, %742 ], [ 0, %674 ], [ 0, %728 ], [ 0, %729 ], [ 1, %719 ], [ 0, %715 ], [ 0, %701 ], [ 0, %702 ]
+  %.sroa.0145.6.ph.ph = phi i8 [ 0, %809 ], [ 0, %810 ], [ 1, %800 ], [ 1, %692 ], [ 0, %796 ], [ 0, %826 ], [ 0, %661 ], [ 0, %782 ], [ 0, %783 ], [ 1, %773 ], [ 0, %688 ], [ 0, %769 ], [ 0, %845 ], [ 1, %665 ], [ 0, %755 ], [ 0, %756 ], [ 1, %746 ], [ 0, %675 ], [ 0, %742 ], [ 0, %864 ], [ 0, %674 ], [ 0, %728 ], [ 0, %729 ], [ 1, %719 ], [ 0, %883 ], [ 0, %715 ], [ 0, %905 ], [ 0, %930 ], [ 0, %701 ], [ 0, %702 ], [ 0, %949 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.thread1626
@@ -119383,7 +119383,7 @@ define hidden void @"_ZN243_$LT$meilisearch..routes..tasks..TaskDeletionOrCancel
   br label %.thread1416
 
 .thread1421.loopexit.split-lp:                    ; preds = %653, %663, %662, %635, %676, %680, %690, %689, %626, %703, %707, %717, %716, %622, %730, %734, %744, %743, %649, %757, %761, %771, %770, %787, %806, %828, %858, %636, %888
-  %.sroa.0132.6.ph.ph = phi i8 [ 0, %888 ], [ 0, %636 ], [ 0, %858 ], [ 0, %828 ], [ 0, %806 ], [ 0, %787 ], [ 0, %770 ], [ 0, %771 ], [ 1, %761 ], [ 0, %757 ], [ 0, %649 ], [ 0, %743 ], [ 0, %744 ], [ 1, %734 ], [ 0, %730 ], [ 0, %622 ], [ 0, %716 ], [ 0, %717 ], [ 1, %707 ], [ 0, %703 ], [ 1, %626 ], [ 0, %689 ], [ 0, %690 ], [ 1, %680 ], [ 0, %676 ], [ 0, %635 ], [ 0, %662 ], [ 0, %663 ], [ 1, %653 ]
+  %.sroa.0132.6.ph.ph = phi i8 [ 1, %761 ], [ 0, %757 ], [ 0, %771 ], [ 0, %649 ], [ 0, %743 ], [ 0, %744 ], [ 1, %734 ], [ 0, %770 ], [ 0, %730 ], [ 0, %787 ], [ 0, %622 ], [ 0, %716 ], [ 0, %717 ], [ 1, %707 ], [ 0, %806 ], [ 0, %703 ], [ 0, %828 ], [ 1, %626 ], [ 0, %689 ], [ 0, %690 ], [ 1, %680 ], [ 0, %858 ], [ 0, %676 ], [ 0, %636 ], [ 0, %635 ], [ 0, %662 ], [ 0, %663 ], [ 1, %653 ], [ 0, %888 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.thread1416

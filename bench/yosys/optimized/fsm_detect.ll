@@ -6404,7 +6404,7 @@ _ZNK5Yosys9CellTypes11cell_outputENS_5RTLIL8IdStringES2_.exit: ; preds = %799, %
   unreachable
 
 _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %603, %818, %811, %_ZNK5Yosys9CellTypes11cell_outputENS_5RTLIL8IdStringES2_.exit
-  %822 = phi i1 [ %.011.i403, %818 ], [ %.011.i403, %_ZNK5Yosys9CellTypes11cell_outputENS_5RTLIL8IdStringES2_.exit ], [ %.011.i403, %811 ], [ true, %603 ]
+  %822 = phi i1 [ %.011.i403, %818 ], [ %.011.i403, %811 ], [ %.011.i403, %_ZNK5Yosys9CellTypes11cell_outputENS_5RTLIL8IdStringES2_.exit ], [ true, %603 ]
   %823 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1, !tbaa !106, !range !107, !noundef !108
   %824 = trunc nuw i8 %823 to i1
   %825 = icmp ne i32 %218, 0
@@ -8783,7 +8783,7 @@ _ZNK5Yosys7hashlib4poolINS_5RTLIL8IdStringENS0_8hash_opsIS3_EEE7do_hashERKS3_.ex
   br label %.noexc203.thread
 
 .noexc203.thread:                                 ; preds = %1675, %.noexc203, %_ZNK5Yosys7hashlib4poolINS_5RTLIL8IdStringENS0_8hash_opsIS3_EEE5countERKS3_.exit.i201, %._crit_edge.i444, %.noexc204.loopexit, %._crit_edge.i457, %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS_8CellTypeENS0_8hash_opsIS3_EEE4findERKS3_.exit.i198
-  %.ph = phi i1 [ false, %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS_8CellTypeENS0_8hash_opsIS3_EEE4findERKS3_.exit.i198 ], [ false, %._crit_edge.i457 ], [ false, %_ZNK5Yosys7hashlib4poolINS_5RTLIL8IdStringENS0_8hash_opsIS3_EEE5countERKS3_.exit.i201 ], [ false, %._crit_edge.i444 ], [ %1879, %.noexc204.loopexit ], [ false, %.noexc203 ], [ false, %1675 ]
+  %.ph = phi i1 [ false, %.noexc203 ], [ false, %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS_8CellTypeENS0_8hash_opsIS3_EEE4findERKS3_.exit.i198 ], [ false, %._crit_edge.i457 ], [ false, %_ZNK5Yosys7hashlib4poolINS_5RTLIL8IdStringENS0_8hash_opsIS3_EEE5countERKS3_.exit.i201 ], [ false, %._crit_edge.i444 ], [ %1879, %.noexc204.loopexit ], [ false, %1675 ]
   %1880 = load i32, ptr %15, align 4, !tbaa !105
   %1881 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1, !tbaa !106, !range !107, !noundef !108
   %1882 = trunc nuw i8 %1881 to i1
@@ -8846,7 +8846,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit206:             ; preds = %._ZN5Yosys5RTLIL8Id
   unreachable
 
 .critedge:                                        ; preds = %1465, %1906, %1899, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit206, %._crit_edge.i431, %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS_8CellTypeENS0_8hash_opsIS3_EEE5countERKS3_.exit.i189
-  %1910 = phi i1 [ true, %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS_8CellTypeENS0_8hash_opsIS3_EEE5countERKS3_.exit.i189 ], [ true, %._crit_edge.i431 ], [ %.ph, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit206 ], [ %.ph, %1899 ], [ %.ph, %1906 ], [ true, %1465 ]
+  %1910 = phi i1 [ %.ph, %1906 ], [ true, %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS_8CellTypeENS0_8hash_opsIS3_EEE5countERKS3_.exit.i189 ], [ true, %._crit_edge.i431 ], [ %.ph, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit206 ], [ %.ph, %1899 ], [ true, %1465 ]
   %1911 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1, !tbaa !106, !range !107, !noundef !108
   %1912 = trunc nuw i8 %1911 to i1
   %1913 = icmp ne i32 %1274, 0
@@ -51858,7 +51858,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit244.i:            ; preds = %1197, %_ZSt8_Destro
   br i1 %.not271.i, label %.critedge85.i, label %.lr.ph.i391
 
 .critedge85.i:                                    ; preds = %1202, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit218.i, %940, %937, %934, %925, %959, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit244.i, %_ZN5Yosys6SigSetISt4pairIPNS_5RTLIL4CellENS2_8IdStringEESt4lessIS6_EE4findERKNS2_7SigSpecERSt3setIS6_S8_SaIS6_EE.exit.i, %786
-  %.not271308.i = phi i8 [ 0, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit244.i ], [ 1, %_ZN5Yosys6SigSetISt4pairIPNS_5RTLIL4CellENS2_8IdStringEESt4lessIS6_EE4findERKNS2_7SigSpecERSt3setIS6_S8_SaIS6_EE.exit.i ], [ 1, %786 ], [ 0, %959 ], [ 0, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit218.i ], [ 0, %925 ], [ 1, %1202 ], [ 0, %934 ], [ 0, %940 ], [ 0, %937 ]
+  %.not271308.i = phi i8 [ 0, %959 ], [ 0, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit244.i ], [ 1, %_ZN5Yosys6SigSetISt4pairIPNS_5RTLIL4CellENS2_8IdStringEESt4lessIS6_EE4findERKNS2_7SigSpecERSt3setIS6_S8_SaIS6_EE.exit.i ], [ 1, %786 ], [ 1, %1202 ], [ 0, %934 ], [ 0, %940 ], [ 0, %937 ], [ 0, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit218.i ], [ 0, %925 ]
   %1204 = load ptr, ptr %402, align 8, !tbaa !21
   invoke void @_ZNSt8_Rb_treeISt4pairIPN5Yosys5RTLIL4CellENS2_8IdStringEES6_St9_IdentityIS6_ESt4lessIS6_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef %1204)
           to label %_ZNSt3setISt4pairIPN5Yosys5RTLIL4CellENS2_8IdStringEESt4lessIS6_ESaIS6_EED2Ev.exit.i unwind label %1205
@@ -53744,7 +53744,7 @@ _ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.i: ; pr
   br i1 %.not1386, label %.loopexit1395thread-pre-split, label %.lr.ph
 
 .loopexit1395thread-pre-split:                    ; preds = %._crit_edge.i.i, %1827, %.loopexit1394, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.i
-  %.not13861519.ph = phi i1 [ false, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.i ], [ false, %._crit_edge.i.i ], [ false, %1827 ], [ true, %.loopexit1394 ]
+  %.not13861519.ph = phi i1 [ false, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.i ], [ false, %1827 ], [ true, %.loopexit1394 ], [ false, %._crit_edge.i.i ]
   %.pr = load ptr, ptr %465, align 8, !tbaa !53
   br label %.loopexit1395
 
@@ -85453,7 +85453,7 @@ _ZN5Yosys7hashlib8hash_opsINS_7SigPool8bitDef_tEE4hashERKS3_.exit.i: ; preds = %
   br i1 %.not37.not, label %.loopexit, label %12
 
 .loopexit:                                        ; preds = %.critedge12, %151, %2
-  %.not3743 = phi i1 [ false, %2 ], [ true, %151 ], [ false, %.critedge12 ]
+  %.not3743 = phi i1 [ true, %151 ], [ false, %2 ], [ false, %.critedge12 ]
   ret i1 %.not3743
 }
 
@@ -87880,7 +87880,7 @@ _ZNK5Yosys7hashlib4poolINS_5RTLIL8IdStringENS0_8hash_opsIS3_EEE7do_hashERKS3_.ex
   br label %_ZNK5Yosys9CellTypes11cell_outputENS_5RTLIL8IdStringES2_.exit
 
 _ZNK5Yosys9CellTypes11cell_outputENS_5RTLIL8IdStringES2_.exit: ; preds = %381, %.noexc, %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit65, %_ZNK5Yosys7hashlib4poolINS_5RTLIL8IdStringENS0_8hash_opsIS3_EEE5countERKS3_.exit.i, %._crit_edge.i, %.noexc68.loopexit, %._crit_edge.i110, %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS_8CellTypeENS0_8hash_opsIS3_EEE4findERKS3_.exit.i
-  %570 = phi i1 [ false, %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS_8CellTypeENS0_8hash_opsIS3_EEE4findERKS3_.exit.i ], [ false, %._crit_edge.i110 ], [ false, %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit65 ], [ false, %_ZNK5Yosys7hashlib4poolINS_5RTLIL8IdStringENS0_8hash_opsIS3_EEE5countERKS3_.exit.i ], [ false, %._crit_edge.i ], [ %569, %.noexc68.loopexit ], [ false, %.noexc ], [ false, %381 ]
+  %570 = phi i1 [ false, %.noexc ], [ false, %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS_8CellTypeENS0_8hash_opsIS3_EEE4findERKS3_.exit.i ], [ false, %._crit_edge.i110 ], [ false, %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit65 ], [ false, %_ZNK5Yosys7hashlib4poolINS_5RTLIL8IdStringENS0_8hash_opsIS3_EEE5countERKS3_.exit.i ], [ false, %._crit_edge.i ], [ %569, %.noexc68.loopexit ], [ false, %381 ]
   %571 = load i32, ptr %10, align 4, !tbaa !105
   %572 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1, !tbaa !106, !range !107, !noundef !108
   %573 = trunc nuw i8 %572 to i1
@@ -89755,7 +89755,7 @@ _ZN5Yosys5RTLIL7SigSpec6appendERKNS0_8SigChunkE.exit: ; preds = %_ZSt8_DestroyIP
   br i1 %.not86, label %_ZNSt3setIPN5Yosys5RTLIL4CellESt4lessIS3_ESaIS3_EE5eraseERKS3_.exit, label %212
 
 _ZNSt3setIPN5Yosys5RTLIL4CellESt4lessIS3_ESaIS3_EE5eraseERKS3_.exit: ; preds = %198, %243, %174, %200, %160, %158, %170
-  %.4 = phi i1 [ true, %170 ], [ false, %160 ], [ false, %158 ], [ false, %200 ], [ true, %174 ], [ false, %243 ], [ true, %198 ]
+  %.4 = phi i1 [ true, %170 ], [ false, %160 ], [ false, %200 ], [ false, %158 ], [ true, %174 ], [ false, %243 ], [ true, %198 ]
   %245 = load ptr, ptr %121, align 8, !tbaa !21
   invoke void @_ZNSt8_Rb_treeIPN5Yosys5RTLIL4CellES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef %245)
           to label %_ZNSt3setIPN5Yosys5RTLIL4CellESt4lessIS3_ESaIS3_EED2Ev.exit unwind label %246
@@ -99226,7 +99226,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit770:              ; preds = %_ZSt8_DestroyIPN5Yo
   br i1 %1713, label %.loopexit990, label %1710
 
 .loopexit990:                                     ; preds = %1704, %1710, %.thread
-  %.pn357 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread ], [ %1709, %1710 ], [ %lpad.thr_comm.split-lp, %1704 ]
+  %.pn357 = phi { ptr, i32 } [ %1709, %1710 ], [ %lpad.thr_comm, %.thread ], [ %lpad.thr_comm.split-lp, %1704 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %78)
   br label %1828
 
@@ -111451,8 +111451,8 @@ _ZNSt8_Rb_treeIPN5Yosys5RTLIL4CellES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_
   br i1 %.not.i, label %_ZNSt8_Rb_treeIPN5Yosys5RTLIL4CellES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE11equal_rangeERKS3_.exit, label %6, !llvm.loop !1199
 
 _ZNSt8_Rb_treeIPN5Yosys5RTLIL4CellES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE11equal_rangeERKS3_.exit: ; preds = %23, %.lr.ph.i25.i, %2, %_ZNSt8_Rb_treeIPN5Yosys5RTLIL4CellES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i
-  %.sroa.037.0.i = phi ptr [ %.08.lcssa.i.i, %_ZNSt8_Rb_treeIPN5Yosys5RTLIL4CellES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i ], [ %4, %2 ], [ %.08.lcssa.i.i, %.lr.ph.i25.i ], [ %.123.i, %23 ]
-  %.sroa.3.0.i = phi ptr [ %.02243.i, %_ZNSt8_Rb_treeIPN5Yosys5RTLIL4CellES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i ], [ %4, %2 ], [ %.19.i28.i, %.lr.ph.i25.i ], [ %.123.i, %23 ]
+  %.sroa.037.0.i = phi ptr [ %.08.lcssa.i.i, %.lr.ph.i25.i ], [ %.08.lcssa.i.i, %_ZNSt8_Rb_treeIPN5Yosys5RTLIL4CellES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i ], [ %4, %2 ], [ %.123.i, %23 ]
+  %.sroa.3.0.i = phi ptr [ %.19.i28.i, %.lr.ph.i25.i ], [ %.02243.i, %_ZNSt8_Rb_treeIPN5Yosys5RTLIL4CellES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i ], [ %4, %2 ], [ %.123.i, %23 ]
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %26 = load i64, ptr %25, align 8, !tbaa !240
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 24

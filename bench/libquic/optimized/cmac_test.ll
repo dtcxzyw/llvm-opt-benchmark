@@ -255,7 +255,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL4testPKcPKhmS2_mS2_(ptr n
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %43, %.preheader6, %.thread, %.critedge.critedge, %.split32.us, %.critedge
-  %.172 = phi i32 [ 0, %.critedge ], [ 1, %.preheader6 ], [ 0, %.critedge.critedge ], [ 0, %.thread ], [ 0, %.split32.us ], [ 1, %43 ]
+  %.172 = phi i32 [ 0, %.critedge ], [ 0, %.split32.us ], [ 1, %.preheader6 ], [ 0, %.critedge.critedge ], [ 0, %.thread ], [ 1, %43 ]
   invoke void @CMAC_CTX_free(ptr noundef nonnull %22)
           to label %_ZNSt10unique_ptrI11cmac_ctx_st14OpenSSLDeleterIS0_XadL_Z13CMAC_CTX_freeEEEED2Ev.exit unwind label %68
 

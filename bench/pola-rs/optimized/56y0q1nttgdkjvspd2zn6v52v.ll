@@ -14188,7 +14188,7 @@ define hidden void @_ZN11polars_core5utils9supertype17merge_dtypes_many17h55d8d1
   br label %.body
 
 .loopexit.split-lp:                               ; preds = %46, %50, %178
-  %.sroa.043.2.ph = phi i1 [ true, %50 ], [ false, %178 ], [ true, %46 ]
+  %.sroa.043.2.ph = phi i1 [ false, %178 ], [ true, %46 ], [ true, %50 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -163244,7 +163244,7 @@ define hidden void @"_ZN75_$LT$$u5b$T$u5d$$u20$as$u20$alloc..slice..SpecCloneInt
           to label %19 unwind label %26
 
 common.resume:                                    ; preds = %19, %44, %46
-  %common.resume.op = phi { ptr, i32 } [ %45, %44 ], [ %47, %46 ], [ %22, %19 ]
+  %common.resume.op = phi { ptr, i32 } [ %47, %46 ], [ %45, %44 ], [ %22, %19 ]
   resume { ptr, i32 } %common.resume.op
 
 26:                                               ; preds = %23
@@ -180349,7 +180349,7 @@ _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit.i: ; preds = %
           to label %"_ZN4core3ptr55drop_in_place$LT$polars_core..frame..column..Column$GT$17h8fa2153bc77e80e8E.exit322" unwind label %124
 
 650:                                              ; preds = %249, %296, %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$polars_core..series..Series$GT$$GT$17h54c77db40a947d5bE.exit310", %220
-  %.sroa.060.3 = phi i1 [ true, %249 ], [ true, %296 ], [ %342, %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$polars_core..series..Series$GT$$GT$17h54c77db40a947d5bE.exit310" ], [ true, %220 ]
+  %.sroa.060.3 = phi i1 [ true, %220 ], [ true, %249 ], [ true, %296 ], [ %342, %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$polars_core..series..Series$GT$$GT$17h54c77db40a947d5bE.exit310" ]
   %651 = load i8, ptr %107, align 16, !range !3256, !noundef !3
   %652 = icmp eq i8 %651, 23
   br i1 %652, label %653, label %354
@@ -180384,7 +180384,7 @@ _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit.i: ; preds = %
   call void @"_ZN4core3ptr79drop_in_place$LT$polars_core..frame..column..partitioned..PartitionedColumn$GT$17h141edaa5faa9a71eE"(ptr noalias noundef nonnull align 8 dereferenceable(80) %661)
   br label %"_ZN4core3ptr55drop_in_place$LT$polars_core..frame..column..Column$GT$17h8fa2153bc77e80e8E.exit317"
 
-.thread481:                                       ; preds = %.body245, %322, %293, %246, %621, %600, %579, %558, %537, %516, %495, %474, %453, %432, %410, %287, %240, %.thread498
+.thread481:                                       ; preds = %.body245, %322, %246, %293, %621, %600, %579, %558, %537, %516, %495, %474, %453, %432, %410, %287, %240, %.thread498
   %.pn166400 = phi { ptr, i32 } [ %622, %621 ], [ %lpad.thr_comm, %.thread498 ], [ %288, %287 ], [ %496, %495 ], [ %411, %410 ], [ %454, %453 ], [ %559, %558 ], [ %580, %579 ], [ %601, %600 ], [ %433, %432 ], [ %538, %537 ], [ %475, %474 ], [ %517, %516 ], [ %241, %240 ], [ %247, %246 ], [ %294, %293 ], [ %.pn, %322 ], [ %.pn, %.body245 ]
   %.sroa.060.1399 = phi i8 [ 1, %621 ], [ %.sroa.060.0.ph, %.thread498 ], [ 1, %287 ], [ 1, %495 ], [ 1, %410 ], [ 1, %453 ], [ 1, %558 ], [ 1, %579 ], [ 1, %600 ], [ 1, %432 ], [ 1, %537 ], [ 1, %474 ], [ 1, %516 ], [ 1, %240 ], [ 1, %246 ], [ 1, %293 ], [ %.sroa.060.4, %322 ], [ %.sroa.060.4, %.body245 ]
   %662 = load i8, ptr %107, align 16, !range !3256, !noundef !3

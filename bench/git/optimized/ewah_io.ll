@@ -120,7 +120,7 @@ git_bswap32.exit48:                               ; preds = %._crit_edge, %36
   br label %.loopexit
 
 .loopexit:                                        ; preds = %26, %git_bswap32.exit48, %36, %git_bswap32.exit43, %git_bswap32.exit, %50
-  %.034 = phi i32 [ %53, %50 ], [ -1, %git_bswap32.exit ], [ -1, %git_bswap32.exit43 ], [ -1, %36 ], [ -1, %git_bswap32.exit48 ], [ -1, %26 ]
+  %.034 = phi i32 [ %53, %50 ], [ -1, %git_bswap32.exit ], [ -1, %git_bswap32.exit43 ], [ -1, %git_bswap32.exit48 ], [ -1, %36 ], [ -1, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

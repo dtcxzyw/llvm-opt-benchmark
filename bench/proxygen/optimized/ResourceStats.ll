@@ -2661,7 +2661,7 @@ _ZN5folly14ThreadLocalPtrINS_6detail19ThreadCachedReaders10EpochCountENS1_15Thre
   br i1 %cmp5.i.i.not, label %while.end, label %land.rhs, !llvm.loop !27
 
 while.end:                                        ; preds = %land.rhs, %_ZN5folly14ThreadLocalPtrINS_6detail19ThreadCachedReaders10EpochCountENS1_15ThreadCachedTagEvE8Accessor8IteratorppEv.exit, %_ZN5folly14ThreadLocalPtrINS_6detail19ThreadCachedReaders10EpochCountENS1_15ThreadCachedTagEvE8Accessor8IteratorppEv.exit.us, %land.rhs.lr.ph.split.us, %entry
-  %__first.sroa.5.0.lcssa = phi ptr [ %__first.coerce1, %entry ], [ %__first.coerce1, %land.rhs.lr.ph.split.us ], [ %__first.sroa.5.2.us, %_ZN5folly14ThreadLocalPtrINS_6detail19ThreadCachedReaders10EpochCountENS1_15ThreadCachedTagEvE8Accessor8IteratorppEv.exit.us ], [ %__first.sroa.5.2, %_ZN5folly14ThreadLocalPtrINS_6detail19ThreadCachedReaders10EpochCountENS1_15ThreadCachedTagEvE8Accessor8IteratorppEv.exit ], [ %__first.sroa.5.09, %land.rhs ]
+  %__first.sroa.5.0.lcssa = phi ptr [ %__first.coerce1, %entry ], [ %__first.coerce1, %land.rhs.lr.ph.split.us ], [ %__first.sroa.5.2.us, %_ZN5folly14ThreadLocalPtrINS_6detail19ThreadCachedReaders10EpochCountENS1_15ThreadCachedTagEvE8Accessor8IteratorppEv.exit.us ], [ %__first.sroa.5.09, %land.rhs ], [ %__first.sroa.5.2, %_ZN5folly14ThreadLocalPtrINS_6detail19ThreadCachedReaders10EpochCountENS1_15ThreadCachedTagEvE8Accessor8IteratorppEv.exit ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %__first.coerce0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %__first.sroa.5.0.lcssa, 1
   ret { ptr, ptr } %.fca.1.insert

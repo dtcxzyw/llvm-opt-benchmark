@@ -1178,7 +1178,7 @@ Abc_SuppGenFindBest.exit.loopexit.us32:           ; preds = %.lr.ph.i.us22
   br i1 %.not.us30, label %Abc_SuppGenSelectVar.exit.us31, label %.split17.us
 
 .split17.us:                                      ; preds = %Abc_SuppGenFindBest.exit.loopexit.us32, %51, %Abc_SuppGenFindBest.exit.us.us, %.split
-  %.us-phi = phi i64 [ 1, %.split ], [ 1, %51 ], [ %.0.us.us, %Abc_SuppGenFindBest.exit.us.us ], [ %.0.us20, %Abc_SuppGenFindBest.exit.loopexit.us32 ]
+  %.us-phi = phi i64 [ %.0.us.us, %Abc_SuppGenFindBest.exit.us.us ], [ 1, %.split ], [ 1, %51 ], [ %.0.us20, %Abc_SuppGenFindBest.exit.loopexit.us32 ]
   ret i64 %.us-phi
 }
 
@@ -1373,7 +1373,7 @@ Abc_SuppGenFilter.exit:                           ; preds = %59, %.lr.ph.split.s
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit40, %._crit_edge.loopexit39, %._crit_edge.loopexit, %4
-  %.0.lcssa = phi i32 [ 0, %4 ], [ %64, %._crit_edge.loopexit ], [ %65, %._crit_edge.loopexit39 ], [ %66, %._crit_edge.loopexit40 ]
+  %.0.lcssa = phi i32 [ 0, %4 ], [ %65, %._crit_edge.loopexit39 ], [ %64, %._crit_edge.loopexit ], [ %66, %._crit_edge.loopexit40 ]
   ret i32 %.0.lcssa
 }
 
@@ -2737,8 +2737,8 @@ Vec_WecPush.exit70:                               ; preds = %.Vec_IntGrow.exit10
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !57
 
 .loopexit:                                        ; preds = %163, %103, %.preheader91, %.preheader, %35
-  %.val.i61118 = phi ptr [ %.val.i61119, %35 ], [ %.val.i61119, %.preheader91 ], [ %.val.i61119, %.preheader ], [ %.val.i61119, %103 ], [ %.val.i61116, %163 ]
-  %165 = phi ptr [ %36, %35 ], [ %36, %.preheader91 ], [ %36, %.preheader ], [ %36, %103 ], [ %164, %163 ]
+  %.val.i61118 = phi ptr [ %.val.i61119, %103 ], [ %.val.i61119, %35 ], [ %.val.i61119, %.preheader91 ], [ %.val.i61119, %.preheader ], [ %.val.i61116, %163 ]
+  %165 = phi ptr [ %36, %103 ], [ %36, %35 ], [ %36, %.preheader91 ], [ %36, %.preheader ], [ %164, %163 ]
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
   %.val = load i32, ptr %12, align 4, !tbaa !3
   %166 = sext i32 %.val to i64

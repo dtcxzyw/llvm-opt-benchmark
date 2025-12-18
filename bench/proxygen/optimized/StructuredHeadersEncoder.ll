@@ -1730,7 +1730,7 @@ for.inc68:                                        ; preds = %for.end
   br i1 %8, label %return, label %for.body, !llvm.loop !13
 
 return:                                           ; preds = %for.end, %for.inc68, %if.end48, %_ZN8proxygen24StructuredHeadersEncoder16encodeIdentifierERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit17, %_ZN8proxygen24StructuredHeadersEncoder16encodeIdentifierERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %if.then36, %if.then
-  %retval.0 = phi i8 [ 1, %if.then ], [ 2, %_ZN8proxygen24StructuredHeadersEncoder16encodeIdentifierERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ 2, %_ZN8proxygen24StructuredHeadersEncoder16encodeIdentifierERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit17 ], [ 4, %if.then36 ], [ %call47, %if.end48 ], [ 0, %for.inc68 ], [ 0, %for.end ]
+  %retval.0 = phi i8 [ 1, %if.then ], [ %call47, %if.end48 ], [ 2, %_ZN8proxygen24StructuredHeadersEncoder16encodeIdentifierERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ 2, %_ZN8proxygen24StructuredHeadersEncoder16encodeIdentifierERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit17 ], [ 4, %if.then36 ], [ 0, %for.inc68 ], [ 0, %for.end ]
   ret i8 %retval.0
 }
 
@@ -4649,7 +4649,7 @@ arraydestroy.body30.i:                            ; preds = %arraydestroy.body30
   br i1 %arraydestroy.done33.i, label %common.resume, label %arraydestroy.body30.i
 
 common.resume:                                    ; preds = %arraydestroy.body.i, %arraydestroy.body30.i, %arraydestroy.body.i12, %arraydestroy.body27.i
-  %common.resume.op = phi { ptr, i32 } [ %2, %arraydestroy.body30.i ], [ %7, %arraydestroy.body27.i ], [ %6, %arraydestroy.body.i12 ], [ %1, %arraydestroy.body.i ]
+  %common.resume.op = phi { ptr, i32 } [ %2, %arraydestroy.body30.i ], [ %6, %arraydestroy.body.i12 ], [ %7, %arraydestroy.body27.i ], [ %1, %arraydestroy.body.i ]
   resume { ptr, i32 } %common.resume.op
 
 __cxx_global_var_init.exit:                       ; preds = %arraydestroy.body24.i

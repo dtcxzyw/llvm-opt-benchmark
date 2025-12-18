@@ -1056,7 +1056,7 @@ switch.lookup:                                    ; preds = %.lr.ph.i
   br label %"_ZN120_$LT$ruff_formatter..printer..queue..QueueContentIterator$LT$Q$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3843551dcf170019E.exit"
 
 "_ZN120_$LT$ruff_formatter..printer..queue..QueueContentIterator$LT$Q$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3843551dcf170019E.exit": ; preds = %.lr.ph.i, %17, %20, %switch.lookup
-  %.sroa.42.2 = phi i64 [ %21, %20 ], [ %.sroa.42.09, %switch.lookup ], [ %18, %17 ], [ %.sroa.42.09, %.lr.ph.i ]
+  %.sroa.42.2 = phi i64 [ %21, %20 ], [ %18, %17 ], [ %.sroa.42.09, %switch.lookup ], [ %.sroa.42.09, %.lr.ph.i ]
   %22 = icmp eq i64 %.sroa.42.2, 0
   br i1 %22, label %23, label %3
 
@@ -1147,7 +1147,7 @@ switch.lookup:                                    ; preds = %.lr.ph
   br label %27
 
 .loopexit:                                        ; preds = %.lr.ph, %22, %switch.lookup, %1, %27
-  %.sroa.0.0 = phi ptr [ null, %1 ], [ %.sroa.05.015, %27 ], [ %.sroa.05.015, %switch.lookup ], [ null, %22 ], [ %.sroa.05.015, %.lr.ph ]
+  %.sroa.0.0 = phi ptr [ null, %1 ], [ %.sroa.05.015, %27 ], [ null, %22 ], [ %.sroa.05.015, %switch.lookup ], [ %.sroa.05.015, %.lr.ph ]
   ret ptr %.sroa.0.0
 
 27:                                               ; preds = %22, %25

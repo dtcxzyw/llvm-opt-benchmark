@@ -1093,7 +1093,7 @@ define i32 @h5trav_getindext(ptr noundef readonly captures(none) %0, ptr noundef
   br i1 %38, label %7, label %.thread, !llvm.loop !87
 
 .thread:                                          ; preds = %7, %14, %.loopexit, %26, %32, %.preheader38, %2
-  %.1 = phi i32 [ -1, %2 ], [ -1, %.preheader38 ], [ %.03042, %26 ], [ %.03042, %32 ], [ %.03042, %14 ], [ %.03042, %7 ], [ -1, %.loopexit ]
+  %.1 = phi i32 [ -1, %2 ], [ %.03042, %26 ], [ -1, %.preheader38 ], [ %.03042, %32 ], [ %.03042, %14 ], [ %.03042, %7 ], [ -1, %.loopexit ]
   ret i32 %.1
 }
 

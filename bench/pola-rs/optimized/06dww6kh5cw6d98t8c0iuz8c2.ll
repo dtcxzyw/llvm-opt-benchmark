@@ -4500,7 +4500,7 @@ define hidden void @"_ZN129_$LT$polars_pipe..executors..sinks..joins..generic_bu
   br label %.body44
 
 .loopexit.split-lp:                               ; preds = %238, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h2d131ca01eb49f94E.exit.thread", %243
-  %.sroa.014.2.ph = phi i8 [ 0, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h2d131ca01eb49f94E.exit.thread" ], [ 1, %238 ], [ 0, %243 ]
+  %.sroa.014.2.ph = phi i8 [ 0, %243 ], [ 1, %238 ], [ 0, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h2d131ca01eb49f94E.exit.thread" ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body44
@@ -5458,7 +5458,7 @@ define hidden void @"_ZN129_$LT$polars_pipe..executors..sinks..joins..generic_bu
   br label %.body47
 
 .loopexit.split-lp:                               ; preds = %238, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h2d131ca01eb49f94E.exit.thread", %243
-  %.sroa.016.2.ph = phi i8 [ 0, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h2d131ca01eb49f94E.exit.thread" ], [ 1, %238 ], [ 0, %243 ]
+  %.sroa.016.2.ph = phi i8 [ 0, %243 ], [ 1, %238 ], [ 0, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h2d131ca01eb49f94E.exit.thread" ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body47
@@ -27843,7 +27843,7 @@ _ZN4core4iter6traits8iterator8Iterator7collect17hbbe5d7c9dcd966b3E.exit: ; preds
   br i1 %.sroa.01.0, label %24, label %23
 
 20:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator7collect17hbbe5d7c9dcd966b3E.exit, %16
-  %.sroa.01.2.ph = phi i1 [ true, %_ZN4core4iter6traits8iterator8Iterator7collect17hbbe5d7c9dcd966b3E.exit ], [ false, %16 ]
+  %.sroa.01.2.ph = phi i1 [ false, %16 ], [ true, %_ZN4core4iter6traits8iterator8Iterator7collect17hbbe5d7c9dcd966b3E.exit ]
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr80drop_in_place$LT$alloc..vec..Vec$LT$polars_plan..dsl..selector..Selector$GT$$GT$17hda77cb31ae0e55cdE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10) #27
@@ -30138,8 +30138,8 @@ define hidden void @_ZN11polars_lazy13physical_plan9streaming18construct_pipelin
   br label %.body239
 
 .loopexit.split-lp382:                            ; preds = %319, %333, %832, %.loopexit386, %91, %"_ZN70_$LT$foldhash..fast..RandomState$u20$as$u20$core..default..Default$GT$7default17ha7c0f57879e85702E.exit", %739
-  %.sroa.065.4.ph = phi i1 [ true, %"_ZN70_$LT$foldhash..fast..RandomState$u20$as$u20$core..default..Default$GT$7default17ha7c0f57879e85702E.exit" ], [ false, %319 ], [ true, %333 ], [ true, %91 ], [ true, %.loopexit386 ], [ true, %739 ], [ true, %832 ]
-  %.sroa.066.6.ph = phi i1 [ true, %"_ZN70_$LT$foldhash..fast..RandomState$u20$as$u20$core..default..Default$GT$7default17ha7c0f57879e85702E.exit" ], [ false, %319 ], [ false, %333 ], [ true, %91 ], [ true, %.loopexit386 ], [ true, %739 ], [ true, %832 ]
+  %.sroa.065.4.ph = phi i1 [ true, %91 ], [ true, %333 ], [ true, %.loopexit386 ], [ true, %739 ], [ false, %319 ], [ true, %"_ZN70_$LT$foldhash..fast..RandomState$u20$as$u20$core..default..Default$GT$7default17ha7c0f57879e85702E.exit" ], [ true, %832 ]
+  %.sroa.066.6.ph = phi i1 [ true, %91 ], [ false, %333 ], [ true, %.loopexit386 ], [ true, %739 ], [ false, %319 ], [ true, %"_ZN70_$LT$foldhash..fast..RandomState$u20$as$u20$core..default..Default$GT$7default17ha7c0f57879e85702E.exit" ], [ true, %832 ]
   %lpad.loopexit.split-lp384 = landingpad { ptr, i32 }
           cleanup
   br label %.body239
@@ -31405,7 +31405,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h7be58262d011691dE.exit: ; preds = %487
   br i1 %530, label %532, label %.invoke903, !prof !214
 
 .invoke903:                                       ; preds = %_ZN11polars_lazy13physical_plan9streaming18construct_pipeline16jit_insert_slice17h48280e1805b8e086E.exit, %525, %431, %614, %466
-  %531 = phi ptr [ @anon.d19c39322574f2857b9a1f8fc278806c.464, %466 ], [ @anon.d19c39322574f2857b9a1f8fc278806c.469, %614 ], [ @anon.d19c39322574f2857b9a1f8fc278806c.444, %525 ], [ @anon.d19c39322574f2857b9a1f8fc278806c.464, %431 ], [ @anon.d19c39322574f2857b9a1f8fc278806c.469, %_ZN11polars_lazy13physical_plan9streaming18construct_pipeline16jit_insert_slice17h48280e1805b8e086E.exit ]
+  %531 = phi ptr [ @anon.d19c39322574f2857b9a1f8fc278806c.469, %614 ], [ @anon.d19c39322574f2857b9a1f8fc278806c.464, %466 ], [ @anon.d19c39322574f2857b9a1f8fc278806c.464, %431 ], [ @anon.d19c39322574f2857b9a1f8fc278806c.469, %_ZN11polars_lazy13physical_plan9streaming18construct_pipeline16jit_insert_slice17h48280e1805b8e086E.exit ], [ @anon.d19c39322574f2857b9a1f8fc278806c.444, %525 ]
   invoke void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) %531) #29
           to label %.cont904 unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -32247,8 +32247,8 @@ _ZN9hashbrown3raw13RawTableInner16find_insert_slot17hacf9389ee4557603E.exit.i.i:
   br label %.thread341
 
 .thread341:                                       ; preds = %886, %890
-  %897 = phi i8 [ %888, %886 ], [ %.pre.i247, %890 ]
-  %.sroa.3.0.i.i.ph.i = phi i64 [ %.sroa.4.113.i.i.i, %886 ], [ %896, %890 ]
+  %897 = phi i8 [ %.pre.i247, %890 ], [ %888, %886 ]
+  %.sroa.3.0.i.i.ph.i = phi i64 [ %896, %890 ], [ %.sroa.4.113.i.i.i, %886 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !3656)
   %898 = getelementptr inbounds nuw i8, ptr %.val.i.i244, i64 %.sroa.3.0.i.i.ph.i
   %899 = and i8 %897, 1

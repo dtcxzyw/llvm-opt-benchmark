@@ -1011,7 +1011,7 @@ define noundef zeroext i1 @_ZN4lean17validate_utf8_oneEPKhmRm(ptr noundef readon
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %57, %47, %52, %24, %29, %39, %32, %14, %42, %45, %22, %12
-  %.0 = phi i1 [ false, %29 ], [ false, %47 ], [ false, %57 ], [ false, %14 ], [ false, %22 ], [ false, %52 ], [ false, %12 ], [ false, %42 ], [ false, %45 ], [ false, %24 ], [ false, %32 ], [ false, %39 ], [ true, %.critedge.sink.split ]
+  %.0 = phi i1 [ false, %29 ], [ false, %47 ], [ false, %57 ], [ false, %14 ], [ false, %39 ], [ false, %22 ], [ false, %52 ], [ false, %12 ], [ false, %42 ], [ false, %45 ], [ false, %24 ], [ false, %32 ], [ true, %.critedge.sink.split ]
   ret i1 %.0
 }
 

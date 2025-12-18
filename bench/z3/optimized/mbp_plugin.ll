@@ -313,7 +313,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %51, %45, %43
   br i1 %.not27.old.i.i.i, label %.loopexit99, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %86, %83
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %86 ], [ %85, %83 ]
+  %.137.i.i.i.be = phi ptr [ %85, %83 ], [ %.old.i.i.i, %86 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !38
 
 .loopexit98:                                      ; preds = %67, %78
@@ -2389,7 +2389,7 @@ _ZNK11ast_manager6is_iteEPK4expr.exit.i188:       ; preds = %670
   br label %.invoke314
 
 _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE6appendEjPKPS0_.exit: ; preds = %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit.i108, %116, %498, %_ZN3mbp14project_plugin9push_backER10ref_vectorI4expr11ast_managerEPS2_.exit186, %.invoke, %109, %491, %572, %670, %664, %_ZNK11ast_manager6is_iteEPK4expr.exit.i188, %522, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit.i171, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit.i150, %_ZN3mbp14project_plugin9push_backER10ref_vectorI4expr11ast_managerEPS2_.exit147, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit.i134, %310, %170, %157, %_ZN7obj_refI4expr11ast_managerED2Ev.exit, %663
-  %.0 = phi i1 [ false, %663 ], [ true, %522 ], [ true, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit.i150 ], [ true, %157 ], [ true, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit.i134 ], [ true, %109 ], [ false, %670 ], [ true, %572 ], [ true, %491 ], [ false, %664 ], [ true, %.invoke ], [ true, %_ZN7obj_refI4expr11ast_managerED2Ev.exit ], [ true, %170 ], [ true, %310 ], [ true, %_ZN3mbp14project_plugin9push_backER10ref_vectorI4expr11ast_managerEPS2_.exit147 ], [ true, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit.i171 ], [ false, %_ZNK11ast_manager6is_iteEPK4expr.exit.i188 ], [ true, %116 ], [ true, %_ZN3mbp14project_plugin9push_backER10ref_vectorI4expr11ast_managerEPS2_.exit186 ], [ true, %498 ], [ true, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit.i108 ]
+  %.0 = phi i1 [ false, %663 ], [ true, %522 ], [ false, %670 ], [ true, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit.i150 ], [ true, %116 ], [ true, %157 ], [ true, %491 ], [ true, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit.i134 ], [ true, %572 ], [ true, %_ZN3mbp14project_plugin9push_backER10ref_vectorI4expr11ast_managerEPS2_.exit186 ], [ true, %310 ], [ false, %664 ], [ true, %_ZN3mbp14project_plugin9push_backER10ref_vectorI4expr11ast_managerEPS2_.exit147 ], [ true, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit.i171 ], [ false, %_ZNK11ast_manager6is_iteEPK4expr.exit.i188 ], [ true, %109 ], [ true, %.invoke ], [ true, %498 ], [ true, %_ZN7obj_refI4expr11ast_managerED2Ev.exit ], [ true, %170 ], [ true, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit.i108 ]
   %707 = load ptr, ptr %9, align 8, !tbaa !14
   %.not.i.i190 = icmp eq ptr %707, null
   br i1 %.not.i.i190, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit191, label %708

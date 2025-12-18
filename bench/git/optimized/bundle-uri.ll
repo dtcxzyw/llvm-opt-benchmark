@@ -1553,7 +1553,7 @@ _.exit:                                           ; preds = %72, %74
   br label %.loopexit
 
 .loopexit:                                        ; preds = %34, %67, %69, %_.exit, %60, %32, %39, %26, %30, %28, %3, %63, %21
-  %.029 = phi i32 [ %.1, %21 ], [ 0, %69 ], [ -1, %60 ], [ 0, %32 ], [ 0, %63 ], [ 0, %39 ], [ 0, %26 ], [ -1, %3 ], [ -1, %28 ], [ 0, %30 ], [ 0, %_.exit ], [ 0, %67 ], [ 0, %34 ]
+  %.029 = phi i32 [ %.1, %21 ], [ 0, %69 ], [ -1, %60 ], [ 0, %32 ], [ 0, %63 ], [ 0, %39 ], [ 0, %26 ], [ -1, %3 ], [ -1, %28 ], [ 0, %30 ], [ 0, %67 ], [ 0, %_.exit ], [ 0, %34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1724,7 +1724,7 @@ skip_prefix.exit:                                 ; preds = %30, %strbuf_setlen.
   br i1 %56, label %.lr.ph33, label %.critedge
 
 .critedge:                                        ; preds = %skip_prefix.exit, %.lr.ph, %15, %13, %2
-  %.0 = phi i32 [ 1, %2 ], [ 1, %13 ], [ 0, %15 ], [ 0, %.lr.ph ], [ 0, %skip_prefix.exit ]
+  %.0 = phi i32 [ 1, %13 ], [ 1, %2 ], [ 0, %15 ], [ 0, %.lr.ph ], [ 0, %skip_prefix.exit ]
   call void @strbuf_release(ptr noundef nonnull %4) #16
   call void @bundle_header_release(ptr noundef nonnull %3) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

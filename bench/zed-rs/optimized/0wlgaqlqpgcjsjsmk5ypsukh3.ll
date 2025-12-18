@@ -2811,7 +2811,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17he0b2b2a941a050e0E.exit.i.i: ; preds = 
   br label %75
 
 .loopexit.split-lp.i.i:                           ; preds = %.invoke.i.i, %._crit_edge.i.i, %71
-  %.sroa.012.2.ph.i.i = phi i1 [ true, %.invoke.i.i ], [ true, %71 ], [ false, %._crit_edge.i.i ]
+  %.sroa.012.2.ph.i.i = phi i1 [ true, %71 ], [ true, %.invoke.i.i ], [ false, %._crit_edge.i.i ]
   %lpad.loopexit.split-lp.i.i = landingpad { ptr, i32 }
           cleanup
   br label %75
@@ -3474,8 +3474,8 @@ define hidden void @_ZN8language6buffer6Buffer4edit17hc2788a0c5996a71bE.llvm.645
   br label %.body97
 
 .body97:                                          ; preds = %70, %120, %122, %48
-  %.sroa.046.0.lpad-body = phi i1 [ true, %48 ], [ false, %122 ], [ false, %120 ], [ true, %70 ]
-  %eh.lpad-body98 = phi { ptr, i32 } [ %49, %48 ], [ %121, %122 ], [ %121, %120 ], [ %73, %70 ]
+  %.sroa.046.0.lpad-body = phi i1 [ false, %120 ], [ true, %48 ], [ false, %122 ], [ true, %70 ]
+  %eh.lpad-body98 = phi { ptr, i32 } [ %121, %120 ], [ %49, %48 ], [ %121, %122 ], [ %73, %70 ]
   %50 = extractvalue { ptr, i32 } %eh.lpad-body98, 0
   %51 = extractvalue { ptr, i32 } %eh.lpad-body98, 1
   br label %.thread
@@ -4862,7 +4862,7 @@ define hidden void @"_ZN99_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$a
   br i1 %.not.i.i.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hde982cd38ec97e24E.exit.thread.i.i", label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hde982cd38ec97e24E.exit.i.i"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hde982cd38ec97e24E.exit.i.i": ; preds = %97, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h3b6902ca1ed2d4d8E.exit.thread.i.i", %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h3b6902ca1ed2d4d8E.exit.i.i"
-  %.sroa.02.060.i.i = phi i8 [ %spec.select.i.i, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h3b6902ca1ed2d4d8E.exit.thread.i.i" ], [ 0, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h3b6902ca1ed2d4d8E.exit.i.i" ], [ 0, %97 ]
+  %.sroa.02.060.i.i = phi i8 [ 0, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h3b6902ca1ed2d4d8E.exit.i.i" ], [ %spec.select.i.i, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h3b6902ca1ed2d4d8E.exit.thread.i.i" ], [ 0, %97 ]
   %rhsc.i.i = load i8, ptr %90, align 1, !noalias !1140
   %103 = icmp eq i8 %rhsc.i.i, 10
   %spec.select76.i.i = zext i1 %103 to i64

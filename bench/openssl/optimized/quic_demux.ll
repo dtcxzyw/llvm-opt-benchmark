@@ -507,7 +507,7 @@ ossl_list_urxe_insert_tail.exit.i10:              ; preds = %112, %109
   br i1 %exitcond71.not.i, label %demux_recv.exit, label %83, !llvm.loop !45
 
 demux_recv.exit.thread:                           ; preds = %39, %38, %65, %67, %demux_ensure_free_urxe.exit
-  %.0.i11.ph = phi i32 [ -1, %demux_ensure_free_urxe.exit ], [ -2, %67 ], [ -1, %65 ], [ -2, %38 ], [ -2, %39 ]
+  %.0.i11.ph = phi i32 [ -2, %38 ], [ -1, %demux_ensure_free_urxe.exit ], [ -2, %67 ], [ -1, %65 ], [ -2, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %demux_ensure_free_urxe.exit.thread

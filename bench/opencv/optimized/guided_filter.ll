@@ -1363,9 +1363,9 @@ define hidden void @_ZNK2cv8ximgproc16GuidedFilterImpl20ComputeAlpha_ParBodyclER
   br i1 %32, label %.preheader.us40, label %._crit_edge36.us
 
 ._crit_edge34.us:                                 ; preds = %._crit_edge.us, %.lr.ph33.us, %.preheader.us40
-  %33 = phi ptr [ %96, %.preheader.us40 ], [ %96, %.lr.ph33.us ], [ %54, %._crit_edge.us ]
-  %34 = phi ptr [ %97, %.preheader.us40 ], [ %97, %.lr.ph33.us ], [ %54, %._crit_edge.us ]
-  %35 = phi ptr [ %98, %.preheader.us40 ], [ %97, %.lr.ph33.us ], [ %54, %._crit_edge.us ]
+  %33 = phi ptr [ %96, %.lr.ph33.us ], [ %96, %.preheader.us40 ], [ %54, %._crit_edge.us ]
+  %34 = phi ptr [ %97, %.lr.ph33.us ], [ %97, %.preheader.us40 ], [ %54, %._crit_edge.us ]
+  %35 = phi ptr [ %97, %.lr.ph33.us ], [ %98, %.preheader.us40 ], [ %54, %._crit_edge.us ]
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge36.us.loopexit, label %.preheader.us40, !llvm.loop !96

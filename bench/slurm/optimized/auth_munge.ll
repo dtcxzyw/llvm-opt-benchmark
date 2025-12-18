@@ -506,7 +506,7 @@ _print_cred.exit:                                 ; preds = %60, %62, %64, %66
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %80, %77, %83, %70
-  %not..not39 = phi i32 [ -1, %70 ], [ 0, %83 ], [ -1, %77 ], [ -1, %80 ], [ -1, %.lr.ph ]
+  %not..not39 = phi i32 [ -1, %80 ], [ -1, %70 ], [ 0, %83 ], [ -1, %77 ], [ -1, %.lr.ph ]
   call void @munge_ctx_destroy(ptr noundef nonnull %11) #13
   br label %84
 

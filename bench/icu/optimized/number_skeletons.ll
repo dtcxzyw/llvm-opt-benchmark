@@ -6408,7 +6408,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %34, %41, %43
   br i1 %141, label %.loopexit, label %138
 
 .loopexit:                                        ; preds = %.preheader84, %138, %112
-  %.pn57.pn = phi { ptr, i32 } [ %113, %112 ], [ %.pn57, %138 ], [ %113, %.preheader84 ]
+  %.pn57.pn = phi { ptr, i32 } [ %.pn57, %138 ], [ %113, %112 ], [ %113, %.preheader84 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %142
 

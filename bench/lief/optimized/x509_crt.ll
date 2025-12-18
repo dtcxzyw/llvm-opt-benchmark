@@ -242,7 +242,7 @@ x509_get_version.exit.thread.i:                   ; preds = %75, %65
   br label %77
 
 x509_get_version.exit.i:                          ; preds = %73, %66
-  %.0.i.i = phi i32 [ %67, %66 ], [ %74, %73 ]
+  %.0.i.i = phi i32 [ %74, %73 ], [ %67, %66 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not145.i = icmp eq i32 %.0.i.i, 0
   br i1 %.not145.i, label %77, label %x509_crt_parse_der_core.exit.thread.sink.split
@@ -785,7 +785,7 @@ mbedtls_x509_crt_parse_file.exit:                 ; preds = %30, %32
   br i1 %.not20, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !48
 
 .outer._crit_edge:                                ; preds = %mbedtls_x509_crt_parse_file.exit, %.backedge, %13, %21, %9
-  %.1 = phi i32 [ 0, %9 ], [ -10624, %13 ], [ -10496, %21 ], [ %.016.ph27, %.backedge ], [ %.2, %mbedtls_x509_crt_parse_file.exit ]
+  %.1 = phi i32 [ -10624, %13 ], [ 0, %9 ], [ -10496, %21 ], [ %.016.ph27, %.backedge ], [ %.2, %mbedtls_x509_crt_parse_file.exit ]
   %40 = call i32 @closedir(ptr noundef nonnull %7)
   br label %41
 
@@ -1483,7 +1483,7 @@ define hidden i32 @mbedtls_x509_crt_verify_info(ptr noundef writeonly captures(n
   br label %.loopexit
 
 .loopexit:                                        ; preds = %10, %13, %24, %27, %31
-  %.037 = phi i32 [ %33, %31 ], [ -10624, %27 ], [ -10624, %24 ], [ -10624, %13 ], [ -10624, %10 ]
+  %.037 = phi i32 [ %33, %31 ], [ -10624, %24 ], [ -10624, %27 ], [ -10624, %13 ], [ -10624, %10 ]
   ret i32 %.037
 }
 
@@ -1696,7 +1696,7 @@ x509_crt_verify_chain_reset.exit:                 ; preds = %18
   br label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i, %.loopexit.i.i.loopexit, %34
-  %.1.i.i = phi i32 [ %.01734.ph.i.i, %34 ], [ %.01734.ph.i.i, %.loopexit.i.i.loopexit ], [ 1, %.lr.ph.i.i ]
+  %.1.i.i = phi i32 [ %.01734.ph.i.i, %.loopexit.i.i.loopexit ], [ %.01734.ph.i.i, %34 ], [ 1, %.lr.ph.i.i ]
   %37 = getelementptr inbounds nuw i8, ptr %.01635.i.i, i64 24
   %38 = load ptr, ptr %37, align 8, !tbaa !72
   %.not.i.i = icmp eq ptr %38, null
@@ -1826,7 +1826,7 @@ x509_crt_check_san_ip.exit.i.i:                   ; preds = %57
   br i1 %.not15.i, label %x509_crt_verify_name.exit, label %79, !llvm.loop !101
 
 x509_crt_verify_name.exit:                        ; preds = %34, %71, %.critedge.i25.i.i, %85, %.critedge.i, %x509_crt_check_san_ip.exit.i.i, %63, %x509_crt_check_san_ip.exit.thread.i.i, %24
-  %.1 = phi i32 [ 0, %24 ], [ 4, %63 ], [ 0, %x509_crt_check_san_ip.exit.i.i ], [ 4, %x509_crt_check_san_ip.exit.thread.i.i ], [ 0, %71 ], [ 0, %85 ], [ 4, %.critedge.i ], [ 4, %.critedge.i25.i.i ], [ 0, %34 ]
+  %.1 = phi i32 [ 0, %24 ], [ 4, %63 ], [ 0, %85 ], [ 0, %71 ], [ 0, %x509_crt_check_san_ip.exit.i.i ], [ 4, %x509_crt_check_san_ip.exit.thread.i.i ], [ 4, %.critedge.i ], [ 4, %.critedge.i25.i.i ], [ 0, %34 ]
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %92 = call i32 @mbedtls_pk_get_type(ptr noundef nonnull %91) #19
   %93 = icmp eq i32 %92, 0
@@ -3670,7 +3670,7 @@ x509_memcasecmp.exit:                             ; preds = %18, %15, %3
   br i1 %exitcond.not.i.i, label %x509_check_wildcard.exit, label %.lr.ph.i.i, !llvm.loop !119
 
 x509_check_wildcard.exit:                         ; preds = %21, %36, %50, %53, %56, %25, %29, %38, %x509_memcasecmp.exit, %41, %7
-  %.0 = phi i32 [ 0, %7 ], [ -1, %41 ], [ -1, %x509_memcasecmp.exit ], [ -1, %38 ], [ -1, %29 ], [ -1, %25 ], [ -1, %36 ], [ 0, %56 ], [ -1, %50 ], [ -1, %53 ], [ 0, %21 ]
+  %.0 = phi i32 [ -1, %36 ], [ 0, %56 ], [ 0, %7 ], [ -1, %41 ], [ -1, %x509_memcasecmp.exit ], [ -1, %38 ], [ -1, %29 ], [ -1, %25 ], [ -1, %50 ], [ -1, %53 ], [ 0, %21 ]
   ret i32 %.0
 }
 
@@ -3816,7 +3816,7 @@ x509_string_cmp.exit:                             ; preds = %63, %47, %33
   br i1 %76, label %.lr.ph, label %x509_string_cmp.exit.thread, !llvm.loop !121
 
 x509_string_cmp.exit.thread:                      ; preds = %.lr.ph, %16, %11, %8, %x509_string_cmp.exit, %69, %41, %39, %40, %60, %57, %2
-  %.019 = phi i32 [ 0, %2 ], [ -1, %60 ], [ -1, %57 ], [ -1, %39 ], [ -1, %41 ], [ 0, %69 ], [ -1, %16 ], [ -1, %.lr.ph ], [ -1, %x509_string_cmp.exit ], [ -1, %11 ], [ -1, %8 ], [ -1, %40 ]
+  %.019 = phi i32 [ -1, %60 ], [ 0, %2 ], [ -1, %57 ], [ -1, %39 ], [ -1, %41 ], [ 0, %69 ], [ -1, %16 ], [ -1, %.lr.ph ], [ -1, %x509_string_cmp.exit ], [ -1, %11 ], [ -1, %8 ], [ -1, %40 ]
   ret i32 %.019
 }
 

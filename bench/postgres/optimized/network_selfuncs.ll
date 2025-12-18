@@ -1314,7 +1314,7 @@ inet_opr_codenum.exit:                            ; preds = %mcv_population.exit
   br label %inet_semi_join_sel.exit
 
 inet_semi_join_sel.exit:                          ; preds = %.lr.ph.i107, %.thread.i, %103, %106
-  %.2.i = phi double [ %109, %106 ], [ 0.000000e+00, %.thread.i ], [ 0.000000e+00, %103 ], [ 1.000000e+00, %.lr.ph.i107 ]
+  %.2.i = phi double [ 0.000000e+00, %103 ], [ %109, %106 ], [ 0.000000e+00, %.thread.i ], [ 1.000000e+00, %.lr.ph.i107 ]
   %110 = call double @llvm.fmuladd.f64(double %92, double %.2.i, double %.176124)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1386,7 +1386,7 @@ inet_semi_join_sel.exit:                          ; preds = %.lr.ph.i107, %.thre
   br label %inet_semi_join_sel.exit122
 
 inet_semi_join_sel.exit122:                       ; preds = %.lr.ph.i117, %.thread.i112, %136, %139
-  %.2.i114 = phi double [ %142, %139 ], [ 0.000000e+00, %.thread.i112 ], [ 0.000000e+00, %136 ], [ 1.000000e+00, %.lr.ph.i117 ]
+  %.2.i114 = phi double [ 0.000000e+00, %136 ], [ %142, %139 ], [ 0.000000e+00, %.thread.i112 ], [ 1.000000e+00, %.lr.ph.i117 ]
   %143 = fadd double %.071127, %.2.i114
   %144 = add i32 %.0128, 1
   %145 = add i32 %116, %.1126

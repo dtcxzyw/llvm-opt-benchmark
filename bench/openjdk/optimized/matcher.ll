@@ -8841,7 +8841,7 @@ _ZN10Node_Array3mapEjP4Node.exit:                 ; preds = %198, %203
   br label %_ZN7Matcher16find_shared_nodeEP4Nodej.exit
 
 _ZN7Matcher16find_shared_nodeEP4Nodej.exit:       ; preds = %57, %50, %32, %209
-  %.054 = phi ptr [ %100, %209 ], [ %25, %32 ], [ %25, %50 ], [ %25, %57 ]
+  %.054 = phi ptr [ %100, %209 ], [ %25, %57 ], [ %25, %50 ], [ %25, %32 ]
   ret ptr %.054
 }
 
@@ -12899,7 +12899,7 @@ _ZNK7Compile21is_method_compilationEv.exit:       ; preds = %1
   br i1 %90, label %28, label %_ZNK7Compile21is_method_compilationEv.exit.thread, !llvm.loop !57
 
 _ZNK7Compile21is_method_compilationEv.exit.thread: ; preds = %19, %28, %71, %86, %12, %1, %_ZNK7Compile21is_method_compilationEv.exit
-  %.0 = phi i1 [ false, %_ZNK7Compile21is_method_compilationEv.exit ], [ false, %1 ], [ false, %12 ], [ false, %86 ], [ false, %28 ], [ true, %71 ], [ false, %19 ]
+  %.0 = phi i1 [ false, %_ZNK7Compile21is_method_compilationEv.exit ], [ false, %1 ], [ false, %86 ], [ false, %12 ], [ false, %28 ], [ true, %71 ], [ false, %19 ]
   ret i1 %.0
 }
 

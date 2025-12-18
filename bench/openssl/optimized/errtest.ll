@@ -248,8 +248,8 @@ define internal range(i32 0, 2) i32 @test_print_error_format() #0 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %31, %39, %.critedge, %16, %10, %8
-  %.022 = phi ptr [ null, %8 ], [ %14, %39 ], [ %14, %.critedge ], [ %14, %16 ], [ %14, %10 ], [ %14, %31 ]
-  %.021 = phi i32 [ 0, %8 ], [ %spec.select, %39 ], [ 0, %.critedge ], [ 0, %16 ], [ 0, %10 ], [ 0, %31 ]
+  %.022 = phi ptr [ %14, %10 ], [ null, %8 ], [ %14, %39 ], [ %14, %.critedge ], [ %14, %16 ], [ %14, %31 ]
+  %.021 = phi i32 [ 0, %10 ], [ 0, %8 ], [ %spec.select, %39 ], [ 0, %.critedge ], [ 0, %16 ], [ 0, %31 ]
   %42 = call i32 @BIO_free(ptr noundef %.022) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)

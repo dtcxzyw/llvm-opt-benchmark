@@ -3105,7 +3105,7 @@ Curl_creader_read.exit:                           ; preds = %24
   br label %88
 
 88:                                               ; preds = %.sink.split, %83, %80, %78
-  %.176 = phi i32 [ %79, %78 ], [ 0, %83 ], [ 0, %80 ], [ 0, %.sink.split ]
+  %.176 = phi i32 [ %79, %78 ], [ 0, %80 ], [ 0, %83 ], [ 0, %.sink.split ]
   %.not96 = icmp eq ptr %0, null
   br i1 %.not96, label %Curl_creader_read.exit.thread, label %89
 

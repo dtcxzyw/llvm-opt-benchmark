@@ -1383,7 +1383,7 @@ find_sasl_command.exit.i:                         ; preds = %.preheader
   br label %handle_message_sasl.exit
 
 handle_message_sasl.exit:                         ; preds = %32, %find_sasl_command.exit.i, %43, %46, %48, %49, %51
-  %.1.i = phi i32 [ %.0.i, %find_sasl_command.exit.i ], [ 0, %43 ], [ %40, %48 ], [ %.0.i, %49 ], [ %42, %51 ], [ 0, %46 ], [ %.0.i, %32 ]
+  %.1.i = phi i32 [ 0, %46 ], [ %.0.i, %find_sasl_command.exit.i ], [ 0, %43 ], [ %40, %48 ], [ %.0.i, %49 ], [ %42, %51 ], [ %.0.i, %32 ]
   %.not39 = icmp slt i32 %.1.i, %10
   br i1 %.not39, label %58, label %handle_message_sasl.exit._crit_edge
 

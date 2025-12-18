@@ -2956,8 +2956,8 @@ select.unfold297:                                 ; preds = %.loopexit.i178, %25
   invoke void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %20)
           to label %_ZN7testing8internal11CmpHelperGTIiiEENS_15AssertionResultEPKcS4_RKT_RKT0_.exit unwind label %259
 
-255:                                              ; preds = %236, %252, %251, %.loopexit.i178
-  %.0.i167.ph = phi i32 [ -1, %.loopexit.i178 ], [ 0, %251 ], [ -1, %252 ], [ -1, %236 ]
+255:                                              ; preds = %236, %251, %252, %.loopexit.i178
+  %.0.i167.ph = phi i32 [ -1, %.loopexit.i178 ], [ -1, %252 ], [ 0, %251 ], [ -1, %236 ]
   store i32 %.0.i167.ph, ptr %21, align 4, !tbaa !54
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store i32 0, ptr %22, align 4, !tbaa !54
@@ -3364,8 +3364,8 @@ select.unfold305:                                 ; preds = %.loopexit.i248, %38
   invoke void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %31)
           to label %_ZN7testing8internal11CmpHelperGTIiiEENS_15AssertionResultEPKcS4_RKT_RKT0_.exit252 unwind label %394
 
-390:                                              ; preds = %371, %387, %386, %.loopexit.i248
-  %.0.i237.ph = phi i32 [ -1, %.loopexit.i248 ], [ 0, %386 ], [ -1, %387 ], [ -1, %371 ]
+390:                                              ; preds = %371, %386, %387, %.loopexit.i248
+  %.0.i237.ph = phi i32 [ -1, %.loopexit.i248 ], [ -1, %387 ], [ 0, %386 ], [ -1, %371 ]
   store i32 %.0.i237.ph, ptr %32, align 4, !tbaa !54
   call void @llvm.lifetime.start.p0(ptr nonnull %33)
   store i32 0, ptr %33, align 4, !tbaa !54
@@ -29894,7 +29894,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3fmt3v116detail12is_printableE
   br label %_ZN3fmt3v116detail12is_printableEtPKNS1_9singletonEmPKhS6_m.exit
 
 _ZN3fmt3v116detail12is_printableEtPKNS1_9singletonEmPKhS6_m.exit: ; preds = %.lr.ph.i63, %76, %72, %.lr.ph.i, %36, %32, %80
-  %.0 = phi i1 [ %spec.select, %80 ], [ %.04575.i57, %72 ], [ %37, %36 ], [ false, %.lr.ph.i ], [ %.04575.i, %32 ], [ %77, %76 ], [ false, %.lr.ph.i63 ]
+  %.0 = phi i1 [ %spec.select, %80 ], [ false, %.lr.ph.i ], [ %.04575.i57, %72 ], [ %37, %36 ], [ %.04575.i, %32 ], [ %77, %76 ], [ false, %.lr.ph.i63 ]
   ret i1 %.0
 }
 
@@ -38395,7 +38395,7 @@ _ZN3fmt3v116detail16adjust_precisionERii.exit:    ; preds = %340
   br label %_ZN3fmt3v116detail7compareERKNS1_6bigintES4_.exit
 
 _ZN3fmt3v116detail7compareERKNS1_6bigintES4_.exit: ; preds = %.loopexit.i, %385, %384, %368
-  %.0.i215 = phi i32 [ %370, %368 ], [ %387, %385 ], [ 0, %384 ], [ %389, %.loopexit.i ]
+  %.0.i215 = phi i32 [ %370, %368 ], [ 0, %384 ], [ %387, %385 ], [ %389, %.loopexit.i ]
   %390 = icmp sge i32 %.0.i215, %200
   %391 = load i64, ptr %spec.store.select.sroa.sel421, align 8, !tbaa !55
   %392 = trunc i64 %391 to i32
@@ -38503,7 +38503,7 @@ _ZNK3fmt3v116detail6bigint9get_bigitEi.exit46.i234: ; preds = %436, %_ZNK3fmt3v1
   br label %_ZN3fmt3v116detail11add_compareERKNS1_6bigintES4_S4_.exit237
 
 _ZN3fmt3v116detail11add_compareERKNS1_6bigintES4_S4_.exit237: ; preds = %444, %.thread.loopexit.i236, %404, %_ZN3fmt3v116detail7compareERKNS1_6bigintES4_.exit
-  %.0.i220 = phi i32 [ -1, %_ZN3fmt3v116detail7compareERKNS1_6bigintES4_.exit ], [ 0, %404 ], [ %450, %.thread.loopexit.i236 ], [ -1, %444 ]
+  %.0.i220 = phi i32 [ %450, %.thread.loopexit.i236 ], [ -1, %_ZN3fmt3v116detail7compareERKNS1_6bigintES4_.exit ], [ 0, %404 ], [ -1, %444 ]
   %451 = icmp slt i32 %.0.i220, %199
   %452 = trunc i32 %358 to i8
   %453 = add i8 %452, 48
@@ -38631,15 +38631,15 @@ _ZNK3fmt3v116detail6bigint9get_bigitEi.exit46.i253: ; preds = %496, %_ZNK3fmt3v1
   br label %510
 
 510:                                              ; preds = %475, %.thread.loopexit.i255
-  %.0.i239.ph = phi i1 [ %509, %.thread.loopexit.i255 ], [ false, %475 ]
+  %.0.i239.ph = phi i1 [ false, %475 ], [ %509, %.thread.loopexit.i255 ]
   %511 = and i32 %358, 1
   %.not109 = icmp eq i32 %511, 0
   %or.cond = or i1 %.not109, %.0.i239.ph
   br i1 %or.cond, label %_ZN3fmt3v116detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit, label %_ZN3fmt3v116detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit.sink.split
 
 _ZN3fmt3v116detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit.sink.split: ; preds = %_ZNK3fmt3v116detail6bigint9get_bigitEi.exit46.i253, %510, %473, %455, %.thread661
-  %.sink715 = phi i8 [ %452, %455 ], [ %456, %.thread661 ], [ %462, %473 ], [ %462, %510 ], [ %462, %_ZNK3fmt3v116detail6bigint9get_bigitEi.exit46.i253 ]
-  %indvars.iv.next553658667.ph = phi i64 [ %indvars.iv.next553, %455 ], [ %indvars.iv.next553655, %.thread661 ], [ %indvars.iv.next553658668673, %473 ], [ %indvars.iv.next553658668673, %510 ], [ %indvars.iv.next553658668673, %_ZNK3fmt3v116detail6bigint9get_bigitEi.exit46.i253 ]
+  %.sink715 = phi i8 [ %452, %455 ], [ %456, %.thread661 ], [ %462, %510 ], [ %462, %473 ], [ %462, %_ZNK3fmt3v116detail6bigint9get_bigitEi.exit46.i253 ]
+  %indvars.iv.next553658667.ph = phi i64 [ %indvars.iv.next553, %455 ], [ %indvars.iv.next553655, %.thread661 ], [ %indvars.iv.next553658668673, %510 ], [ %indvars.iv.next553658668673, %473 ], [ %indvars.iv.next553658668673, %_ZNK3fmt3v116detail6bigint9get_bigitEi.exit46.i253 ]
   %512 = getelementptr i8, ptr %354, i64 %indvars.iv552
   %513 = add i8 %.sink715, 49
   store i8 %513, ptr %512, align 1, !tbaa !38
@@ -39218,7 +39218,7 @@ _ZNK3fmt3v116detail6bigint9get_bigitEi.exit46.i375: ; preds = %751, %_ZNK3fmt3v1
   br label %765
 
 765:                                              ; preds = %730, %.thread.loopexit.i377
-  %.0.i361.ph = phi i1 [ %764, %.thread.loopexit.i377 ], [ false, %730 ]
+  %.0.i361.ph = phi i1 [ false, %730 ], [ %764, %.thread.loopexit.i377 ]
   %766 = and i32 %687, 1
   %.not105 = icmp eq i32 %766, 0
   %or.cond121 = or i1 %.not105, %.0.i361.ph
@@ -43447,7 +43447,7 @@ _ZNK3fmt3v117context3argEi.exit.thread39:         ; preds = %_ZNK3fmt3v117contex
   unreachable
 
 _ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail19dynamic_spec_getterEEEDTclfp_Li0EEEOT_.exit: ; preds = %83, %78, %80, %82, %84
-  %.0.i = phi i64 [ %.sroa.012.sroa.0.sroa.0.0.insert.insert71, %84 ], [ %79, %78 ], [ %81, %80 ], [ %.sroa.012.sroa.0.sroa.0.0.insert.insert, %82 ], [ %.sroa.012.sroa.0.sroa.0.0.insert.insert74, %83 ]
+  %.0.i = phi i64 [ %.sroa.012.sroa.0.sroa.0.0.insert.insert71, %84 ], [ %81, %80 ], [ %.sroa.012.sroa.0.sroa.0.0.insert.insert, %82 ], [ %79, %78 ], [ %.sroa.012.sroa.0.sroa.0.0.insert.insert74, %83 ]
   %95 = icmp ugt i64 %.0.i, 2147483647
   br i1 %95, label %_ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail19dynamic_spec_getterEEEDTclfp_Li0EEEOT_.exit.thread, label %_ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail19dynamic_spec_getterEEEDTclfp_Li0EEEOT_.exit.thread44
 
@@ -45434,7 +45434,7 @@ _ZZN3fmt3v116detail12format_floatIdEEiT_iRKNS0_12format_specsEbRNS1_6bufferIcEEE
   %250 = trunc nuw i32 %249 to i1
   br i1 %250, label %.critedge138, label %_ZN3fmt3v116detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit158
 
-.critedge138.thread:                              ; preds = %227, %239, %175, %171, %_ZZN3fmt3v116detail12format_floatIdEEiT_iRKNS0_12format_specsEbRNS1_6bufferIcEEENKUljPcE_clEjSA_.exit157.thread, %235
+.critedge138.thread:                              ; preds = %239, %227, %175, %171, %_ZZN3fmt3v116detail12format_floatIdEEiT_iRKNS0_12format_specsEbRNS1_6bufferIcEEENKUljPcE_clEjSA_.exit157.thread, %235
   %251 = load ptr, ptr %4, align 8, !tbaa !70
   %252 = zext nneg i32 %.0198 to i64
   %253 = getelementptr i8, ptr %251, i64 %252
@@ -45504,8 +45504,8 @@ _ZZN3fmt3v116detail12format_floatIdEEiT_iRKNS0_12format_specsEbRNS1_6bufferIcEEE
   store i32 %287, ptr %6, align 4, !tbaa !54
   br label %_ZN3fmt3v116detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit158
 
-_ZN3fmt3v116detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit158: ; preds = %282, %286, %.critedge, %227, %239, %175, %237, %173, %243
-  %.1199229 = phi i32 [ %.0198, %227 ], [ %.0198, %243 ], [ 9, %173 ], [ 18, %237 ], [ 9, %175 ], [ 18, %239 ], [ %283, %282 ], [ %.0198, %286 ], [ %.0198, %.critedge ]
+_ZN3fmt3v116detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit158: ; preds = %282, %286, %.critedge, %239, %227, %175, %237, %173, %243
+  %.1199229 = phi i32 [ 18, %239 ], [ %.0198, %243 ], [ 9, %173 ], [ 18, %237 ], [ 9, %175 ], [ %.0198, %227 ], [ %283, %282 ], [ %.0198, %286 ], [ %.0198, %.critedge ]
   %288 = zext nneg i32 %.1199229 to i64
   %289 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %290 = load i64, ptr %289, align 8, !tbaa !71

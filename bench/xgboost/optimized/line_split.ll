@@ -165,7 +165,7 @@ define noundef i64 @_ZN4dmlc2io12LineSplitter15SeekRecordBeginEPNS_6StreamE(ptr 
   br i1 %22, label %.loopexit, label %.lr.ph, !llvm.loop !8
 
 .loopexit:                                        ; preds = %4, %17, %.lr.ph, %.preheader
-  %.012 = phi i64 [ %10, %.preheader ], [ %.115, %.lr.ph ], [ %18, %17 ], [ %.0, %4 ]
+  %.012 = phi i64 [ %.115, %.lr.ph ], [ %10, %.preheader ], [ %18, %17 ], [ %.0, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %.012
 }

@@ -1196,7 +1196,7 @@ hwloc_disc_component_find.exit:                   ; preds = %55
   br i1 %.not114, label %.critedge135, label %25, !llvm.loop !84
 
 .critedge135:                                     ; preds = %._crit_edge185, %.preheader149, %.preheader147, %1, %3
-  %76 = phi ptr [ null, %1 ], [ null, %3 ], [ %4, %.preheader147 ], [ %4, %.preheader149 ], [ %4, %._crit_edge185 ]
+  %76 = phi ptr [ null, %3 ], [ null, %1 ], [ %4, %.preheader147 ], [ %4, %.preheader149 ], [ %4, %._crit_edge185 ]
   %.093163 = load ptr, ptr @hwloc_disc_components, align 8, !tbaa !23
   %.not123164 = icmp eq ptr %.093163, null
   br i1 %.not123164, label %.critedge.thread, label %.lr.ph166

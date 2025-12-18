@@ -287,8 +287,8 @@ define ptr @Cudd_ShortestPath(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   br label %getPath.exit
 
 .outer._crit_edge.i:                              ; preds = %.outer.i, %119, %40
-  %.pre-phi121.i = phi ptr [ %45, %40 ], [ %122, %119 ], [ %87, %.outer.i ]
-  %.063.lcssa.i = phi ptr [ %42, %40 ], [ %116, %119 ], [ %82, %.outer.i ]
+  %.pre-phi121.i = phi ptr [ %122, %119 ], [ %45, %40 ], [ %87, %.outer.i ]
+  %.063.lcssa.i = phi ptr [ %116, %119 ], [ %42, %40 ], [ %82, %.outer.i ]
   %130 = getelementptr inbounds nuw i8, ptr %.pre-phi121.i, i64 4
   %131 = load i32, ptr %130, align 4, !tbaa !34
   %132 = add i32 %131, -1

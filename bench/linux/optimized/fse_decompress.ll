@@ -744,9 +744,9 @@ define dso_local noundef i64 @FSE_decompress_usingDTable(ptr noundef %0, i64 nou
   br label %341
 
 341:                                              ; preds = %320, %334
-  %342 = phi i64 [ %295, %320 ], [ %340, %334 ]
-  %343 = phi i32 [ %310, %320 ], [ %336, %334 ]
-  %344 = phi ptr [ %293, %320 ], [ %339, %334 ]
+  %342 = phi i64 [ %340, %334 ], [ %295, %320 ]
+  %343 = phi i32 [ %336, %334 ], [ %310, %320 ]
+  %344 = phi ptr [ %339, %334 ], [ %293, %320 ]
   %345 = icmp ugt ptr %313, %214
   br i1 %345, label %.thread, label %346
 
@@ -1269,9 +1269,9 @@ define dso_local noundef i64 @FSE_decompress_usingDTable(ptr noundef %0, i64 nou
   br label %741
 
 741:                                              ; preds = %720, %734
-  %742 = phi i64 [ %694, %720 ], [ %740, %734 ]
-  %743 = phi i32 [ %702, %720 ], [ %736, %734 ]
-  %744 = phi ptr [ %692, %720 ], [ %739, %734 ]
+  %742 = phi i64 [ %740, %734 ], [ %694, %720 ]
+  %743 = phi i32 [ %736, %734 ], [ %702, %720 ]
+  %744 = phi ptr [ %739, %734 ], [ %692, %720 ]
   %745 = icmp ugt ptr %713, %609
   br i1 %745, label %.thread, label %746
 
@@ -1358,7 +1358,7 @@ define dso_local noundef i64 @FSE_decompress_usingDTable(ptr noundef %0, i64 nou
   br label %.thread
 
 .thread:                                          ; preds = %392, %341, %793, %741, %.thread56, %.thread68, %411, %407, %460, %16, %12, %65, %.critedge2, %472, %.critedge, %77
-  %808 = phi i64 [ %406, %.critedge ], [ %3, %77 ], [ %807, %.critedge2 ], [ %3, %472 ], [ -1, %16 ], [ -20, %65 ], [ -72, %12 ], [ -20, %460 ], [ -72, %407 ], [ -1, %411 ], [ -70, %.thread68 ], [ -70, %.thread56 ], [ -70, %793 ], [ -70, %741 ], [ -70, %341 ], [ -70, %392 ]
+  %808 = phi i64 [ %406, %.critedge ], [ %3, %77 ], [ %807, %.critedge2 ], [ %3, %472 ], [ -1, %411 ], [ -72, %407 ], [ -70, %.thread68 ], [ -20, %460 ], [ -1, %16 ], [ -20, %65 ], [ -72, %12 ], [ -70, %.thread56 ], [ -70, %793 ], [ -70, %741 ], [ -70, %341 ], [ -70, %392 ]
   ret i64 %808
 }
 

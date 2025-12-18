@@ -5109,7 +5109,7 @@ _ZNK11ast_manager5is_eqEPK4expr.exit.i:           ; preds = %_ZNK17array_recogni
   %.not.not.i = icmp eq ptr %88, %55
   br i1 %.not.not.i, label %_ZN3sls12array_plugin13is_shared_argEPN3euf5enodeE.exit, label %57
 
-.loopexit:                                        ; preds = %64, %57, %_ZNK11ast_manager5is_eqEPK4expr.exit.i, %79
+.loopexit:                                        ; preds = %_ZNK11ast_manager5is_eqEPK4expr.exit.i, %64, %57, %79
   %89 = load ptr, ptr %2, align 8, !tbaa !113
   %90 = icmp eq ptr %89, null
   br i1 %90, label %97, label %91
@@ -5314,7 +5314,7 @@ _ZNK11ast_manager5is_eqEPK4expr.exit:             ; preds = %_ZNK17array_recogni
   br i1 %.not.not, label %_ZNK11ast_manager5is_eqEPK4expr.exit.thread, label %13
 
 _ZNK11ast_manager5is_eqEPK4expr.exit.thread:      ; preds = %20, %_ZNK11ast_manager5is_eqEPK4expr.exit, %.loopexit, %13, %42, %2, %_ZNK3euf13enode_parents3endEv.exit
-  %.not43 = phi i1 [ false, %_ZNK3euf13enode_parents3endEv.exit ], [ false, %2 ], [ true, %42 ], [ true, %20 ], [ false, %.loopexit ], [ true, %13 ], [ true, %_ZNK11ast_manager5is_eqEPK4expr.exit ]
+  %.not43 = phi i1 [ false, %2 ], [ false, %_ZNK3euf13enode_parents3endEv.exit ], [ true, %42 ], [ true, %_ZNK11ast_manager5is_eqEPK4expr.exit ], [ false, %.loopexit ], [ true, %20 ], [ true, %13 ]
   ret i1 %.not43
 }
 
@@ -10135,7 +10135,7 @@ _ZN7obj_mapIN3euf5enodeE3mapIN3sls12array_plugin11select_argsEPS1_NS4_16select_a
   br i1 %.not27.old.i, label %_ZNK14core_hashtableIN7obj_mapIN3euf5enodeE3mapIN3sls12array_plugin11select_argsEPS2_NS5_16select_args_hashENS5_14select_args_eqEEE13obj_map_entryE8obj_hashINSB_8key_dataEE10default_eqISE_EE9find_coreERKSE_.exit, label %.lr.ph38.i.backedge
 
 .lr.ph38.i.backedge:                              ; preds = %38, %35
-  %.137.i.be = phi ptr [ %.old.i, %38 ], [ %37, %35 ]
+  %.137.i.be = phi ptr [ %37, %35 ], [ %.old.i, %38 ]
   br label %.lr.ph38.i, !llvm.loop !305
 
 _ZNK14core_hashtableIN7obj_mapIN3euf5enodeE3mapIN3sls12array_plugin11select_argsEPS2_NS5_16select_args_hashENS5_14select_args_eqEEE13obj_map_entryE8obj_hashINSB_8key_dataEE10default_eqISE_EE9find_coreERKSE_.exit: ; preds = %24, %19, %38, %35, %30, %.preheader.i

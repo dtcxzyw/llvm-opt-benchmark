@@ -2906,7 +2906,7 @@ insert_after.exit.i71:                            ; preds = %131, %127
   br label %try_reuse_basic_ref.exit
 
 try_reuse_basic_ref.exit:                         ; preds = %91, %49, %insert_after.exit.i71, %insert_head.exit.i73, %insert_after.exit.i, %insert_head.exit.i, %47, %45, %6
-  %.0 = phi ptr [ null, %6 ], [ %94, %insert_after.exit.i71 ], [ null, %49 ], [ %.1.i, %47 ], [ %52, %insert_after.exit.i ], [ %.1.i, %45 ], [ %52, %insert_head.exit.i ], [ %94, %insert_head.exit.i73 ], [ null, %91 ]
+  %.0 = phi ptr [ null, %6 ], [ %94, %insert_after.exit.i71 ], [ null, %49 ], [ %.1.i, %45 ], [ %52, %insert_after.exit.i ], [ %.1.i, %47 ], [ %52, %insert_head.exit.i ], [ %94, %insert_head.exit.i73 ], [ null, %91 ]
   ret ptr %.0
 }
 

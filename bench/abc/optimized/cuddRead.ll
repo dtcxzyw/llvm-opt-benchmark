@@ -498,7 +498,7 @@ define range(i32 0, 2) i32 @Cudd_addRead(ptr noundef %0, ptr noundef %1, ptr nou
   br label %._crit_edge273
 
 ._crit_edge273:                                   ; preds = %124, %110, %159, %145, %186, %249, %._crit_edge273.loopexit349, %._crit_edge257, %15, %248, %237, %223, %206, %96, %83, %59, %46
-  %.0198 = phi i32 [ 0, %248 ], [ 0, %46 ], [ 0, %59 ], [ 0, %83 ], [ 0, %96 ], [ 0, %15 ], [ 0, %206 ], [ 0, %223 ], [ 0, %237 ], [ 1, %._crit_edge257 ], [ 0, %159 ], [ 0, %._crit_edge273.loopexit349 ], [ 1, %186 ], [ 1, %249 ], [ 0, %145 ], [ 0, %110 ], [ 0, %124 ]
+  %.0198 = phi i32 [ 0, %248 ], [ 0, %237 ], [ 0, %46 ], [ 0, %59 ], [ 0, %83 ], [ 0, %96 ], [ 0, %15 ], [ 1, %._crit_edge257 ], [ 0, %223 ], [ 0, %._crit_edge273.loopexit349 ], [ 0, %159 ], [ 0, %206 ], [ 1, %186 ], [ 1, %249 ], [ 0, %145 ], [ 0, %110 ], [ 0, %124 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
@@ -909,7 +909,7 @@ define range(i32 0, 2) i32 @Cudd_bddRead(ptr noundef %0, ptr noundef %1, ptr nou
   br label %._crit_edge205
 
 ._crit_edge205:                                   ; preds = %80, %101, %121, %184, %._crit_edge205.loopexit264, %._crit_edge189, %13, %183, %164, %144, %66, %43
-  %.0149 = phi i32 [ 0, %183 ], [ 0, %43 ], [ 0, %66 ], [ 0, %13 ], [ 0, %144 ], [ 0, %164 ], [ 1, %._crit_edge189 ], [ 0, %101 ], [ 0, %._crit_edge205.loopexit264 ], [ 1, %121 ], [ 1, %184 ], [ 0, %80 ]
+  %.0149 = phi i32 [ 0, %183 ], [ 0, %164 ], [ 0, %43 ], [ 0, %66 ], [ 0, %13 ], [ 1, %._crit_edge189 ], [ 0, %101 ], [ 0, %._crit_edge205.loopexit264 ], [ 0, %144 ], [ 1, %121 ], [ 1, %184 ], [ 0, %80 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   ret i32 %.0149

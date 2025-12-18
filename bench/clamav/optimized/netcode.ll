@@ -1242,7 +1242,7 @@ define dso_local range(i32 0, 2) i32 @localnets_init(ptr noundef %0) local_unnam
   br i1 %.not.i26, label %localnets_free.exit.thread, label %.lr.ph.i25
 
 localnets_free.exit.thread:                       ; preds = %7, %.lr.ph.i25, %75, %1
-  %.2 = phi i32 [ 0, %1 ], [ 1, %75 ], [ 1, %.lr.ph.i25 ], [ 0, %7 ]
+  %.2 = phi i32 [ 0, %1 ], [ 1, %.lr.ph.i25 ], [ 1, %75 ], [ 0, %7 ]
   ret i32 %.2
 }
 

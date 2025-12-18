@@ -1009,16 +1009,16 @@ hwloc__object_cpusets_compare_first.exit.i:       ; preds = %324, %317
   br i1 %.not112.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !64
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %.thread.i, %319, %321, %hwloc__object_cpusets_compare_first.exit.i, %329, %327, %hwloc_obj_cmp_sets.exit.i
-  %.195.ph.i = phi ptr [ %.094230.i, %hwloc_obj_cmp_sets.exit.i ], [ %.094230.i, %327 ], [ %.094230.i, %329 ], [ %.1101229.in.i, %hwloc__object_cpusets_compare_first.exit.i ], [ %.1101229.in.i, %321 ], [ %.1101229.in.i, %319 ], [ %.1101229.in.i, %.thread.i ], [ %.094230.i, %.lr.ph.i ]
-  %.192.ph.i = phi ptr [ %.091231.i, %hwloc_obj_cmp_sets.exit.i ], [ %.1101229.in.i, %327 ], [ %.1101229.in.i, %329 ], [ %.091231.i, %hwloc__object_cpusets_compare_first.exit.i ], [ %.091231.i, %321 ], [ %.091231.i, %319 ], [ %.091231.i, %.thread.i ], [ %.1101229.in.i, %.lr.ph.i ]
-  %.187.ph.i = phi ptr [ %.086232.i, %hwloc_obj_cmp_sets.exit.i ], [ %.086232.i, %327 ], [ %.086232.i, %329 ], [ %spec.select.i, %hwloc__object_cpusets_compare_first.exit.i ], [ null, %321 ], [ null, %319 ], [ %.086232.i, %.thread.i ], [ %.086232.i, %.lr.ph.i ]
+  %.195.ph.i = phi ptr [ %.094230.i, %hwloc_obj_cmp_sets.exit.i ], [ %.1101229.in.i, %.thread.i ], [ %.094230.i, %327 ], [ %.094230.i, %329 ], [ %.1101229.in.i, %hwloc__object_cpusets_compare_first.exit.i ], [ %.1101229.in.i, %321 ], [ %.1101229.in.i, %319 ], [ %.094230.i, %.lr.ph.i ]
+  %.192.ph.i = phi ptr [ %.091231.i, %hwloc_obj_cmp_sets.exit.i ], [ %.091231.i, %.thread.i ], [ %.1101229.in.i, %327 ], [ %.1101229.in.i, %329 ], [ %.091231.i, %hwloc__object_cpusets_compare_first.exit.i ], [ %.091231.i, %321 ], [ %.091231.i, %319 ], [ %.1101229.in.i, %.lr.ph.i ]
+  %.187.ph.i = phi ptr [ %.086232.i, %hwloc_obj_cmp_sets.exit.i ], [ %.086232.i, %.thread.i ], [ %.086232.i, %327 ], [ %.086232.i, %329 ], [ %spec.select.i, %hwloc__object_cpusets_compare_first.exit.i ], [ null, %321 ], [ null, %319 ], [ %.086232.i, %.lr.ph.i ]
   %.not117.i = icmp eq ptr %.1101229.i, null
   br i1 %.not117.i, label %._crit_edge.i, label %103, !llvm.loop !65
 
 ._crit_edge.i:                                    ; preds = %hwloc__insert_try_merge_group.exit.thread140.thread169.i, %.loopexit.i, %86
-  %.tr174.i107 = phi ptr [ %.1, %86 ], [ %.tr174.i109, %.loopexit.i ], [ %.083233.i, %hwloc__insert_try_merge_group.exit.thread140.thread169.i ]
-  %.094.lcssa.i = phi ptr [ %91, %86 ], [ %.195.ph.i, %.loopexit.i ], [ %311, %hwloc__insert_try_merge_group.exit.thread140.thread169.i ]
-  %.086.lcssa.i = phi ptr [ null, %86 ], [ %.187.ph.i, %.loopexit.i ], [ null, %hwloc__insert_try_merge_group.exit.thread140.thread169.i ]
+  %.tr174.i107 = phi ptr [ %.tr174.i109, %.loopexit.i ], [ %.1, %86 ], [ %.083233.i, %hwloc__insert_try_merge_group.exit.thread140.thread169.i ]
+  %.094.lcssa.i = phi ptr [ %.195.ph.i, %.loopexit.i ], [ %91, %86 ], [ %311, %hwloc__insert_try_merge_group.exit.thread140.thread169.i ]
+  %.086.lcssa.i = phi ptr [ %.187.ph.i, %.loopexit.i ], [ null, %86 ], [ null, %hwloc__insert_try_merge_group.exit.thread140.thread169.i ]
   %.not110.i = icmp eq ptr %.086.lcssa.i, null
   %spec.select118.i = select i1 %.not110.i, ptr %.094.lcssa.i, ptr %.086.lcssa.i
   %335 = load ptr, ptr %spec.select118.i, align 8, !tbaa !50
@@ -1111,8 +1111,8 @@ hwloc__object_cpusets_compare_first.exit133.i:    ; preds = %360, %353
   %.not115.i = icmp eq ptr %367, null
   br i1 %.not115.i, label %hwloc___insert_object_by_cpuset.exit, label %.lr.ph259.i, !llvm.loop !67
 
-.loopexit:                                        ; preds = %174, %172, %._crit_edge.i, %306, %302, %268, %264, %261, %259, %189, %147, %148, %154
-  %.4.i.ph.ph = phi ptr [ %2, %._crit_edge.i ], [ %.083233.i, %306 ], [ %.083233.i, %302 ], [ %.083233.i, %268 ], [ %.083233.i, %264 ], [ %.083233.i, %261 ], [ %.083233.i, %259 ], [ %.083233.i, %189 ], [ %.083233.i, %147 ], [ %.083233.i, %148 ], [ %.083233.i, %154 ], [ %.083233.i, %172 ], [ %.083233.i, %174 ]
+.loopexit:                                        ; preds = %174, %172, %._crit_edge.i, %306, %302, %268, %264, %261, %259, %147, %154, %148, %189
+  %.4.i.ph.ph = phi ptr [ %2, %._crit_edge.i ], [ %.083233.i, %306 ], [ %.083233.i, %302 ], [ %.083233.i, %268 ], [ %.083233.i, %264 ], [ %.083233.i, %261 ], [ %.083233.i, %259 ], [ %.083233.i, %147 ], [ %.083233.i, %154 ], [ %.083233.i, %148 ], [ %.083233.i, %189 ], [ %.083233.i, %172 ], [ %.083233.i, %174 ]
   %.pr = load i32, ptr %.4.i.ph.ph, align 8, !tbaa !35
   %368 = icmp eq i32 %.pr, 4
   br i1 %368, label %369, label %hwloc___insert_object_by_cpuset.exit
@@ -1448,7 +1448,7 @@ define hidden range(i32 -2147483647, -2147483648) i32 @hwloc__replace_infos(ptr 
   br label %.critedge
 
 .critedge:                                        ; preds = %15, %67, %65, %56, %49, %42, %9
-  %.0 = phi i32 [ %43, %42 ], [ -1, %9 ], [ -1, %49 ], [ 1, %65 ], [ -1, %67 ], [ -1, %56 ], [ -1, %15 ]
+  %.0 = phi i32 [ -1, %56 ], [ %43, %42 ], [ -1, %9 ], [ -1, %49 ], [ 1, %65 ], [ -1, %67 ], [ -1, %15 ]
   ret i32 %.0
 }
 
@@ -1596,7 +1596,7 @@ define hidden i32 @hwloc__remove_infos(ptr noundef captures(none) %0, ptr nounde
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !76
 
 ._crit_edge:                                      ; preds = %57, %41, %25, %.lr.ph.split.us.split.us, %3
-  %.0.lcssa = phi i32 [ 0, %3 ], [ %.1.us42, %41 ], [ %6, %.lr.ph.split.us.split.us ], [ %.1.us, %25 ], [ %.1, %57 ]
+  %.0.lcssa = phi i32 [ 0, %3 ], [ %.1.us42, %41 ], [ %.1.us, %25 ], [ %6, %.lr.ph.split.us.split.us ], [ %.1, %57 ]
   %58 = load i32, ptr %5, align 8, !tbaa !68
   %59 = sub i32 %58, %.0.lcssa
   store i32 %59, ptr %5, align 8, !tbaa !68
@@ -1726,7 +1726,7 @@ define i32 @hwloc_modify_infos(ptr noundef captures(none) %0, i64 noundef %1, pt
   br label %hwloc__add_info_unique.exit
 
 hwloc__add_info_unique.exit:                      ; preds = %21, %48, %46, %37, %30, %16, %53, %51, %49, %8
-  %.0 = phi i32 [ -1, %53 ], [ %9, %8 ], [ %52, %51 ], [ %50, %49 ], [ -1, %16 ], [ -1, %30 ], [ 1, %46 ], [ -1, %48 ], [ -1, %37 ], [ 0, %21 ]
+  %.0 = phi i32 [ -1, %53 ], [ %9, %8 ], [ %52, %51 ], [ %50, %49 ], [ -1, %16 ], [ -1, %37 ], [ -1, %30 ], [ 1, %46 ], [ -1, %48 ], [ 0, %21 ]
   ret i32 %.0
 }
 
@@ -3178,7 +3178,7 @@ hwloc_tma_malloc.exit257._crit_edge:              ; preds = %hwloc_tma_malloc.ex
   br i1 %.not241, label %.thread, label %.lr.ph312, !llvm.loop !137
 
 .thread:                                          ; preds = %.lr.ph, %.lr.ph283, %.lr.ph289, %.lr.ph312, %254, %.loopexit
-  %.1264 = phi i32 [ 0, %.loopexit ], [ 0, %254 ], [ -1, %.lr.ph283 ], [ 0, %.lr.ph312 ], [ -1, %.lr.ph289 ], [ -1, %.lr.ph ]
+  %.1264 = phi i32 [ 0, %.lr.ph312 ], [ 0, %.loopexit ], [ -1, %.lr.ph283 ], [ 0, %254 ], [ -1, %.lr.ph289 ], [ -1, %.lr.ph ]
   %.not242 = icmp eq ptr %1, null
   br i1 %.not242, label %hwloc_alloc_setup_object.exit.thread, label %258
 
@@ -3272,7 +3272,7 @@ hwloc_tma_malloc.exit257._crit_edge:              ; preds = %hwloc_tma_malloc.ex
   br label %hwloc_insert_object_by_parent.exit
 
 hwloc_insert_object_by_parent.exit.thread:        ; preds = %271, %263, %281
-  %.1.i.ph = phi ptr [ %.3.i, %281 ], [ %.0.i259, %263 ], [ %.2.i, %271 ]
+  %.1.i.ph = phi ptr [ %.0.i259, %263 ], [ %.3.i, %281 ], [ %.2.i, %271 ]
   store ptr %.0197, ptr %.1.i.ph, align 8, !tbaa !50
   %305 = getelementptr inbounds nuw i8, ptr %.0197, i64 72
   store ptr %1, ptr %305, align 8, !tbaa !52
@@ -3283,8 +3283,8 @@ hwloc_insert_object_by_parent.exit.thread:        ; preds = %271, %263, %281
   br label %hwloc_alloc_setup_object.exit.thread
 
 hwloc_insert_object_by_parent.exit:               ; preds = %288, %.loopexit.sink.split.i
-  %308 = phi i32 [ %.pre320, %.loopexit.sink.split.i ], [ %259, %288 ]
-  %.1.i = phi ptr [ %.1.ph.i, %.loopexit.sink.split.i ], [ %.4.i, %288 ]
+  %308 = phi i32 [ %259, %288 ], [ %.pre320, %.loopexit.sink.split.i ]
+  %.1.i = phi ptr [ %.4.i, %288 ], [ %.1.ph.i, %.loopexit.sink.split.i ]
   store ptr %.0197, ptr %.1.i, align 8, !tbaa !50
   %309 = getelementptr inbounds nuw i8, ptr %.0197, i64 72
   store ptr %1, ptr %309, align 8, !tbaa !52
@@ -3305,7 +3305,7 @@ hwloc_insert_object_by_parent.exit:               ; preds = %288, %.loopexit.sin
   br label %hwloc_alloc_setup_object.exit.thread
 
 hwloc_alloc_setup_object.exit.thread:             ; preds = %.lr.ph277, %hwloc_insert_object_by_parent.exit.thread, %hwloc_tma_malloc.exit.i, %29, %.thread, %313, %hwloc_insert_object_by_parent.exit, %hwloc_tma_malloc.exit257
-  %.0194 = phi i32 [ -1, %hwloc_tma_malloc.exit257 ], [ %.1264, %.thread ], [ %.1264, %hwloc_insert_object_by_parent.exit ], [ %.1264, %313 ], [ -1, %29 ], [ -1, %hwloc_tma_malloc.exit.i ], [ %.1264, %hwloc_insert_object_by_parent.exit.thread ], [ -1, %.lr.ph277 ]
+  %.0194 = phi i32 [ -1, %hwloc_tma_malloc.exit.i ], [ -1, %hwloc_tma_malloc.exit257 ], [ %.1264, %.thread ], [ %.1264, %hwloc_insert_object_by_parent.exit ], [ %.1264, %313 ], [ -1, %29 ], [ %.1264, %hwloc_insert_object_by_parent.exit.thread ], [ -1, %.lr.ph277 ]
   ret i32 %.0194
 }
 
@@ -3589,8 +3589,8 @@ tailrecurse.backedge.i:                           ; preds = %55, %39
   br i1 %.not.i, label %tailrecurse._crit_edge.i, label %24, !llvm.loop !144
 
 tailrecurse._crit_edge.i:                         ; preds = %tailrecurse.backedge.i, %63, %16
-  %.tr70.lcssa.i = phi ptr [ %1, %16 ], [ %.tr7091.i, %63 ], [ %25, %tailrecurse.backedge.i ]
-  %.060.lcssa.i = phi ptr [ %19, %16 ], [ %64, %63 ], [ %41, %tailrecurse.backedge.i ]
+  %.tr70.lcssa.i = phi ptr [ %.tr7091.i, %63 ], [ %1, %16 ], [ %25, %tailrecurse.backedge.i ]
+  %.060.lcssa.i = phi ptr [ %64, %63 ], [ %19, %16 ], [ %41, %tailrecurse.backedge.i ]
   %66 = getelementptr inbounds nuw i8, ptr %2, i64 88
   store ptr null, ptr %66, align 8, !tbaa !56
   store ptr %2, ptr %.060.lcssa.i, align 8, !tbaa !50
@@ -3598,10 +3598,10 @@ tailrecurse._crit_edge.i:                         ; preds = %tailrecurse.backedg
   store ptr null, ptr %67, align 8, !tbaa !57
   br label %hwloc___attach_memory_object_by_nodeset.exit.thread
 
-hwloc___attach_memory_object_by_nodeset.exit.thread: ; preds = %30, %57, %tailrecurse._crit_edge.i
-  %.tr7091.i.lcssa.sink = phi ptr [ %.tr7091.i, %30 ], [ %.tr7091.i, %57 ], [ %.tr70.lcssa.i, %tailrecurse._crit_edge.i ]
+hwloc___attach_memory_object_by_nodeset.exit.thread: ; preds = %57, %30, %tailrecurse._crit_edge.i
+  %.tr7091.i.lcssa93.sink = phi ptr [ %.tr7091.i, %57 ], [ %.tr7091.i, %30 ], [ %.tr70.lcssa.i, %tailrecurse._crit_edge.i ]
   %68 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  store ptr %.tr7091.i.lcssa.sink, ptr %68, align 8, !tbaa !52
+  store ptr %.tr7091.i.lcssa93.sink, ptr %68, align 8, !tbaa !52
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store i64 1, ptr %69, align 8, !tbaa !60
   %70 = load i32, ptr %2, align 8, !tbaa !35
@@ -3738,7 +3738,7 @@ define void @hwloc_insert_object_by_parent(ptr noundef captures(none) %0, ptr no
   br label %.loopexit
 
 .loopexit:                                        ; preds = %16, %8, %.loopexit.sink.split, %33, %26
-  %.1 = phi ptr [ %.3, %26 ], [ %.4, %33 ], [ %.1.ph, %.loopexit.sink.split ], [ %.0, %8 ], [ %.2, %16 ]
+  %.1 = phi ptr [ %.4, %33 ], [ %.1.ph, %.loopexit.sink.split ], [ %.0, %8 ], [ %.3, %26 ], [ %.2, %16 ]
   store ptr %2, ptr %.1, align 8, !tbaa !50
   %51 = getelementptr inbounds nuw i8, ptr %2, i64 72
   store ptr %1, ptr %51, align 8, !tbaa !52
@@ -4529,10 +4529,10 @@ hwloc_dont_merge_group_level.exit264.i:           ; preds = %315
   br i1 %.not.i.i25, label %.thread.i24, label %325
 
 .thread.i24:                                      ; preds = %314, %.loopexit.thread, %.thread, %322, %hwloc_dont_merge_group_level.exit264.i, %.thread165, %305
-  %323 = phi i64 [ %310, %hwloc_dont_merge_group_level.exit264.i ], [ %287, %322 ], [ %306, %305 ], [ %310, %.thread165 ], [ %295, %.thread ], [ %291, %.loopexit.thread ], [ %310, %314 ]
-  %.0224465.i = phi i32 [ %.0224467.i167, %hwloc_dont_merge_group_level.exit264.i ], [ %spec.select250.i, %322 ], [ %.0224467.i, %305 ], [ %.0224467.i167, %.thread165 ], [ 1, %.thread ], [ 1, %.loopexit.thread ], [ %.0224467.i167, %314 ]
-  %324 = phi i1 [ true, %hwloc_dont_merge_group_level.exit264.i ], [ true, %322 ], [ %307, %305 ], [ %309, %.thread165 ], [ true, %.thread ], [ true, %.loopexit.thread ], [ %309, %314 ]
-  %.0221342.i = phi i32 [ 0, %hwloc_dont_merge_group_level.exit264.i ], [ 0, %322 ], [ 1, %305 ], [ 1, %.thread165 ], [ %spec.select, %.thread ], [ 0, %.loopexit.thread ], [ 1, %314 ]
+  %323 = phi i64 [ %310, %hwloc_dont_merge_group_level.exit264.i ], [ %287, %322 ], [ %306, %305 ], [ %295, %.thread ], [ %310, %.thread165 ], [ %291, %.loopexit.thread ], [ %310, %314 ]
+  %.0224465.i = phi i32 [ %.0224467.i167, %hwloc_dont_merge_group_level.exit264.i ], [ %spec.select250.i, %322 ], [ %.0224467.i, %305 ], [ 1, %.thread ], [ %.0224467.i167, %.thread165 ], [ 1, %.loopexit.thread ], [ %.0224467.i167, %314 ]
+  %324 = phi i1 [ true, %hwloc_dont_merge_group_level.exit264.i ], [ true, %322 ], [ %307, %305 ], [ true, %.thread ], [ %309, %.thread165 ], [ true, %.loopexit.thread ], [ %309, %314 ]
+  %.0221342.i = phi i32 [ 0, %hwloc_dont_merge_group_level.exit264.i ], [ 0, %322 ], [ 1, %305 ], [ %spec.select, %.thread ], [ 1, %.thread165 ], [ 0, %.loopexit.thread ], [ 1, %314 ]
   br label %325
 
 325:                                              ; preds = %.thread.i24, %322, %hwloc_dont_merge_group_level.exit264.i, %.thread468.i
@@ -5500,7 +5500,7 @@ hwloc_filter_levels_keep_structure.exit:          ; preds = %._crit_edge387.i, %
   br i1 %.not25.i.i32, label %.loopexit.i, label %.lr.ph34.i.i, !llvm.loop !168
 
 .loopexit.i:                                      ; preds = %.lr.ph34.i.i, %._crit_edge.i.i31, %752
-  %.021.lcssa38.i.i = phi i32 [ 0, %._crit_edge.i.i31 ], [ 0, %752 ], [ %755, %.lr.ph34.i.i ]
+  %.021.lcssa38.i.i = phi i32 [ 0, %752 ], [ 0, %._crit_edge.i.i31 ], [ %755, %.lr.ph34.i.i ]
   store i32 %.021.lcssa38.i.i, ptr %753, align 8, !tbaa !109
   %indvars.iv.next17.i = add nuw nsw i64 %indvars.iv16.i, 1
   %exitcond19.not.i = icmp eq i64 %indvars.iv.next17.i, 6
@@ -5909,7 +5909,7 @@ thread-pre-split:                                 ; preds = %59
   br label %hwloc_get_next_obj_by_type.exit
 
 hwloc_get_next_obj_by_type.exit:                  ; preds = %76, %81
-  %.0.i = phi ptr [ %77, %76 ], [ %83, %81 ]
+  %.0.i = phi ptr [ %83, %81 ], [ %77, %76 ]
   %.not108 = icmp eq ptr %.0.i, null
   br i1 %.not108, label %hwloc_get_next_obj_by_type.exit.thread, label %84
 
@@ -6470,7 +6470,7 @@ hwloc_alloc_setup_object.exit:                    ; preds = %hwloc_tma_malloc.ex
   br label %hwloc_insert_object_by_parent.exit
 
 hwloc_insert_object_by_parent.exit:               ; preds = %59, %51, %69, %76, %.loopexit.sink.split.i
-  %.1.i = phi ptr [ %.3.i, %69 ], [ %.4.i, %76 ], [ %.1.ph.i, %.loopexit.sink.split.i ], [ %.0.i19, %51 ], [ %.2.i, %59 ]
+  %.1.i = phi ptr [ %.4.i, %76 ], [ %.1.ph.i, %.loopexit.sink.split.i ], [ %.0.i19, %51 ], [ %.3.i, %69 ], [ %.2.i, %59 ]
   store ptr %.0.i, ptr %.1.i, align 8, !tbaa !50
   %94 = getelementptr inbounds nuw i8, ptr %.0.i, i64 72
   store ptr %1, ptr %94, align 8, !tbaa !52
@@ -6552,8 +6552,8 @@ define hidden ptr @hwloc_find_insert_io_parent_by_complete_cpuset(ptr noundef %0
   br label %hwloc_get_highest_obj_covering_complete_cpuset.exit, !llvm.loop !184
 
 hwloc_get_highest_obj_covering_complete_cpuset.exit: ; preds = %.loopexit.i, %15, %.hwloc_get_highest_obj_covering_complete_cpuset.exit.loopexit_crit_edge, %8, %.preheader.i
-  %25 = phi ptr [ %11, %8 ], [ %11, %.preheader.i ], [ %.pre.pre, %.hwloc_get_highest_obj_covering_complete_cpuset.exit.loopexit_crit_edge ], [ %17, %15 ], [ %17, %.loopexit.i ]
-  %.018.i = phi ptr [ %9, %8 ], [ %9, %.preheader.i ], [ %.01733.i, %.hwloc_get_highest_obj_covering_complete_cpuset.exit.loopexit_crit_edge ], [ %.026.i, %15 ], [ %.026.i, %.loopexit.i ]
+  %25 = phi ptr [ %11, %8 ], [ %11, %.preheader.i ], [ %17, %15 ], [ %.pre.pre, %.hwloc_get_highest_obj_covering_complete_cpuset.exit.loopexit_crit_edge ], [ %17, %.loopexit.i ]
+  %.018.i = phi ptr [ %9, %8 ], [ %9, %.preheader.i ], [ %.026.i, %15 ], [ %.01733.i, %.hwloc_get_highest_obj_covering_complete_cpuset.exit.loopexit_crit_edge ], [ %.026.i, %.loopexit.i ]
   %26 = tail call i32 @hwloc_bitmap_isequal(ptr noundef %25, ptr noundef %1) #38
   %.not31 = icmp eq i32 %26, 0
   br i1 %.not31, label %27, label %hwloc_obj_add_children_sets.exit
@@ -6653,7 +6653,7 @@ hwloc_tma_malloc.exit20.i:                        ; preds = %47, %44
   br i1 %.not.i39, label %hwloc_obj_add_children_sets.exit, label %.lr.ph.i37, !llvm.loop !176
 
 hwloc_obj_add_children_sets.exit:                 ; preds = %.lr.ph.i37, %hwloc_tma_malloc.exit.i, %50, %63, %51, %hwloc_get_highest_obj_covering_complete_cpuset.exit, %27, %2
-  %.0 = phi ptr [ %.018.i, %hwloc_get_highest_obj_covering_complete_cpuset.exit ], [ null, %2 ], [ %.018.i, %51 ], [ %.018.i, %27 ], [ %62, %63 ], [ %.018.i, %50 ], [ %.018.i, %hwloc_tma_malloc.exit.i ], [ %62, %.lr.ph.i37 ]
+  %.0 = phi ptr [ %.018.i, %hwloc_get_highest_obj_covering_complete_cpuset.exit ], [ null, %2 ], [ %.018.i, %51 ], [ %.018.i, %hwloc_tma_malloc.exit.i ], [ %.018.i, %27 ], [ %62, %63 ], [ %.018.i, %50 ], [ %62, %.lr.ph.i37 ]
   ret ptr %.0
 }
 
@@ -7441,7 +7441,7 @@ hwloc__topology_set_type_filter.exit.us18.us:     ; preds = %38, %36
   br label %.loopexit
 
 .loopexit:                                        ; preds = %hwloc__topology_set_type_filter.exit.us13, %hwloc__topology_set_type_filter.exit.us18.us, %hwloc__topology_set_type_filter.exit.us, %40
-  %.06 = phi i32 [ -1, %40 ], [ 0, %hwloc__topology_set_type_filter.exit.us18.us ], [ 0, %hwloc__topology_set_type_filter.exit.us ], [ 0, %hwloc__topology_set_type_filter.exit.us13 ]
+  %.06 = phi i32 [ -1, %40 ], [ 0, %hwloc__topology_set_type_filter.exit.us ], [ 0, %hwloc__topology_set_type_filter.exit.us18.us ], [ 0, %hwloc__topology_set_type_filter.exit.us13 ]
   ret i32 %.06
 }
 

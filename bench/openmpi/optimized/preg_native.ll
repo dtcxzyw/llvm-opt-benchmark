@@ -945,7 +945,7 @@ pmix_obj_run_destructors.exit235:                 ; preds = %.lr.ph.i232, %388
   br i1 %.not.i239, label %pmix_obj_run_destructors.exit240, label %.lr.ph.i237, !llvm.loop !53
 
 pmix_obj_run_destructors.exit240:                 ; preds = %369, %303, %300, %329, %326, %.lr.ph.i237, %410, %403
-  %.0 = phi i32 [ -32, %403 ], [ %.0129, %410 ], [ -32, %329 ], [ %.0129, %.lr.ph.i237 ], [ -32, %326 ], [ -32, %300 ], [ -32, %303 ], [ -32, %369 ]
+  %.0 = phi i32 [ -32, %403 ], [ %.0129, %.lr.ph.i237 ], [ -32, %329 ], [ %.0129, %410 ], [ -32, %326 ], [ -32, %300 ], [ -32, %303 ], [ -32, %369 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1707,7 +1707,7 @@ pmix_obj_run_destructors.exit169.sink.split:      ; preds = %224, %221
   br label %pmix_obj_run_destructors.exit169
 
 pmix_obj_run_destructors.exit169:                 ; preds = %.lr.ph.i178, %.lr.ph.i166, %pmix_obj_run_destructors.exit169.sink.split, %._crit_edge212, %._crit_edge215
-  %.0 = phi i32 [ -1366, %._crit_edge215 ], [ 0, %._crit_edge212 ], [ -32, %pmix_obj_run_destructors.exit169.sink.split ], [ -1366, %.lr.ph.i166 ], [ 0, %.lr.ph.i178 ]
+  %.0 = phi i32 [ -1366, %.lr.ph.i166 ], [ 0, %._crit_edge212 ], [ -32, %pmix_obj_run_destructors.exit169.sink.split ], [ -1366, %._crit_edge215 ], [ 0, %.lr.ph.i178 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -2058,7 +2058,7 @@ define internal noundef i32 @parse_nodes(ptr noundef readonly captures(address_i
   br label %regex_parse_value_ranges.exit.i
 
 regex_parse_value_ranges.exit.i:                  ; preds = %118, %141, %139, %137, %120
-  %.0.i.i = phi i32 [ 0, %141 ], [ %119, %120 ], [ %138, %137 ], [ %138, %139 ], [ %119, %118 ]
+  %.0.i.i = phi i32 [ 0, %141 ], [ %119, %120 ], [ %138, %139 ], [ %138, %137 ], [ %119, %118 ]
   %.not138.i = icmp eq ptr %.0111.i, null
   br i1 %.not138.i, label %143, label %142
 
@@ -2109,8 +2109,8 @@ regex_parse_value_ranges.exit.i:                  ; preds = %118, %141, %139, %1
   br i1 %.1252253.i, label %.backedge.i.backedge, label %pmix_regex_extract_nodes.exit.thread23
 
 .backedge.i.backedge:                             ; preds = %160, %152
-  %.0113.i.be = phi ptr [ %163, %160 ], [ %155, %152 ]
-  %.0109.i.be = phi i1 [ false, %160 ], [ true, %152 ]
+  %.0113.i.be = phi ptr [ %155, %152 ], [ %163, %160 ]
+  %.0109.i.be = phi i1 [ true, %152 ], [ false, %160 ]
   br label %.backedge.i, !llvm.loop !73
 
 pmix_regex_extract_nodes.exit.thread23:           ; preds = %144, %147, %160

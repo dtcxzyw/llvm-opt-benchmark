@@ -1060,7 +1060,7 @@ define i64 @PaUtil_EndBufferProcessing(ptr noundef %0, ptr noundef captures(none
   br label %.loopexit
 
 .loopexit:                                        ; preds = %30, %68, %66, %83, %91, %70, %78, %51, %42
-  %.1 = phi i64 [ %57, %51 ], [ %48, %42 ], [ %67, %66 ], [ %69, %68 ], [ %82, %78 ], [ %75, %70 ], [ %95, %91 ], [ %88, %83 ], [ %40, %30 ]
+  %.1 = phi i64 [ %88, %83 ], [ %57, %51 ], [ %48, %42 ], [ %67, %66 ], [ %69, %68 ], [ %82, %78 ], [ %75, %70 ], [ %95, %91 ], [ %40, %30 ]
   ret i64 %.1
 }
 
@@ -1221,7 +1221,7 @@ define internal fastcc i64 @NonAdaptingProcess(ptr noundef %0, ptr noundef captu
   %.0212358 = phi i32 [ %45, %.thread ], [ %.0212, %80 ]
   %.0213356 = phi i32 [ %40, %.thread ], [ %.0213, %80 ]
   %.0216354 = phi ptr [ %83, %.thread ], [ %43, %80 ]
-  %.1222351 = phi ptr [ %83, %.thread ], [ %.1222, %80 ]
+  %.1222352 = phi ptr [ %83, %.thread ], [ %.1222, %80 ]
   %86 = trunc i64 %..1206 to i32
   %87 = zext i32 %.0212358 to i64
   br label %88
@@ -1242,7 +1242,7 @@ define internal fastcc i64 @NonAdaptingProcess(ptr noundef %0, ptr noundef captu
   br i1 %.not234, label %.lr.ph, label %.preheader267
 
 .preheader267:                                    ; preds = %.thread, %94
-  %.1222352368 = phi ptr [ %.1222, %94 ], [ %83, %.thread ]
+  %.1222351368 = phi ptr [ %.1222, %94 ], [ %83, %.thread ]
   %95 = load i32, ptr %18, align 4, !tbaa !25
   %96 = zext i32 %95 to i64
   %factor.op.mul = mul i64 %..1206, %96
@@ -1294,7 +1294,7 @@ define internal fastcc i64 @NonAdaptingProcess(ptr noundef %0, ptr noundef captu
   br i1 %123, label %106, label %.loopexit264, !llvm.loop !68
 
 .loopexit264:                                     ; preds = %99, %106, %88, %38
-  %.0221 = phi ptr [ null, %38 ], [ %.1222, %106 ], [ %.1222351, %88 ], [ %.1222352368, %99 ]
+  %.0221 = phi ptr [ null, %38 ], [ %.1222, %106 ], [ %.1222352, %88 ], [ %.1222351368, %99 ]
   %.1 = phi i32 [ %.0, %38 ], [ 0, %106 ], [ %.2360, %88 ], [ 1, %99 ]
   %124 = load i32, ptr %22, align 8, !tbaa !15
   %125 = icmp eq i32 %124, 0

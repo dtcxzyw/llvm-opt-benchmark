@@ -1185,8 +1185,8 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit.i:    ; preds = %_ZNK6icu_7713Unicod
   br label %_ZL13getChunkLimitRKN6icu_7713UnicodeStringES2_.exit
 
 _ZL13getChunkLimitRKN6icu_7713UnicodeStringES2_.exit: ; preds = %.backedge.i, %.loopexit50.i, %456, %_ZNK6icu_7713UnicodeString9getBufferEv.exit.i, %433
-  %468 = phi i16 [ %434, %433 ], [ %436, %456 ], [ %436, %.loopexit50.i ], [ %436, %_ZNK6icu_7713UnicodeString9getBufferEv.exit.i ], [ %436, %.backedge.i ]
-  %.0.i308 = phi i32 [ %..i, %433 ], [ -1, %456 ], [ %467, %.loopexit50.i ], [ -1, %_ZNK6icu_7713UnicodeString9getBufferEv.exit.i ], [ -1, %.backedge.i ]
+  %468 = phi i16 [ %434, %433 ], [ %436, %_ZNK6icu_7713UnicodeString9getBufferEv.exit.i ], [ %436, %456 ], [ %436, %.loopexit50.i ], [ %436, %.backedge.i ]
+  %.0.i308 = phi i32 [ %..i, %433 ], [ -1, %_ZNK6icu_7713UnicodeString9getBufferEv.exit.i ], [ -1, %456 ], [ %467, %.loopexit50.i ], [ -1, %.backedge.i ]
   %469 = icmp slt i32 %.0.i308, 0
   %or.cond6 = select i1 %469, i1 %299, i1 false
   %or.cond8 = and i1 %326, %or.cond6
@@ -1786,10 +1786,10 @@ _ZN6icu_7713UnicodeString6appendEDs.exit351:      ; preds = %674
   br i1 %299, label %.loopexit386, label %273, !llvm.loop !43
 
 .loopexit386:                                     ; preds = %733, %731, %.thread373, %225, %257, %210, %242, %290, %192
-  %.5214 = phi ptr [ %.0209, %210 ], [ %.0209, %225 ], [ %.0209, %242 ], [ %.0209, %257 ], [ %.0209, %290 ], [ %.3212, %192 ], [ %.0209, %.thread373 ], [ %.0209, %731 ], [ %.0209, %733 ]
-  %.1164 = phi ptr [ null, %210 ], [ null, %225 ], [ %228, %242 ], [ %228, %257 ], [ %228, %290 ], [ null, %192 ], [ %228, %.thread373 ], [ %228, %731 ], [ %228, %733 ]
-  %.1158 = phi ptr [ %196, %210 ], [ %196, %225 ], [ %196, %242 ], [ %196, %257 ], [ %196, %290 ], [ null, %192 ], [ %196, %.thread373 ], [ %196, %731 ], [ %196, %733 ]
-  %.0150 = phi i8 [ 0, %210 ], [ 0, %225 ], [ 0, %242 ], [ 0, %257 ], [ 0, %290 ], [ 0, %192 ], [ 0, %.thread373 ], [ 0, %731 ], [ 1, %733 ]
+  %.5214 = phi ptr [ %.0209, %731 ], [ %.0209, %210 ], [ %.0209, %225 ], [ %.0209, %242 ], [ %.0209, %257 ], [ %.0209, %290 ], [ %.0209, %.thread373 ], [ %.3212, %192 ], [ %.0209, %733 ]
+  %.1164 = phi ptr [ %228, %731 ], [ null, %210 ], [ null, %225 ], [ %228, %242 ], [ %228, %257 ], [ %228, %290 ], [ %228, %.thread373 ], [ null, %192 ], [ %228, %733 ]
+  %.1158 = phi ptr [ %196, %731 ], [ %196, %210 ], [ %196, %225 ], [ %196, %242 ], [ %196, %257 ], [ %196, %290 ], [ %196, %.thread373 ], [ null, %192 ], [ %196, %733 ]
+  %.0150 = phi i8 [ 0, %731 ], [ 0, %210 ], [ 0, %225 ], [ 0, %242 ], [ 0, %257 ], [ 0, %290 ], [ 0, %.thread373 ], [ 0, %192 ], [ 1, %733 ]
   invoke void @ucnv_close_77(ptr noundef %.1158)
           to label %734 unwind label %.loopexit.split-lp382.loopexit.split-lp
 
@@ -3465,7 +3465,7 @@ sub_2531:                                         ; preds = %sub_1530
   br i1 %.not158.i, label %._crit_edge136.split.split.i, label %.lr.ph135.i
 
 .split146.us.i:                                   ; preds = %.noexc401, %.noexc395, %.noexc392
-  %.us-phi147.i = phi ptr [ %.082.us150.i, %.noexc395 ], [ %.082.us.i, %.noexc392 ], [ %.082.i, %.noexc401 ]
+  %.us-phi147.i = phi ptr [ %.082.us.i, %.noexc392 ], [ %.082.us150.i, %.noexc395 ], [ %.082.i, %.noexc401 ]
   %496 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.94, ptr noundef %.us-phi147.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   invoke void @_ZN6icu_7713UnicodeStringC1EPKcS2_(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef %.us-phi147.i, ptr noundef nonnull @.str.2)
@@ -3510,7 +3510,7 @@ sub_2531:                                         ; preds = %sub_1530
   br i1 %511, label %.preheader.i, label %.split.us.i
 
 .split.us.i:                                      ; preds = %.noexc403, %.noexc396, %.noexc393
-  %.us-phi137.i = phi ptr [ %.082.us150.i, %.noexc396 ], [ %.082.us.i, %.noexc393 ], [ %.082.i, %.noexc403 ]
+  %.us-phi137.i = phi ptr [ %.082.us.i, %.noexc393 ], [ %.082.us150.i, %.noexc396 ], [ %.082.i, %.noexc403 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   invoke void @_ZN6icu_7713UnicodeStringC1EPKcS2_(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef %.us-phi137.i, ptr noundef nonnull @.str.2)
           to label %.noexc404 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp

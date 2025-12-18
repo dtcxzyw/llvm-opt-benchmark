@@ -431,7 +431,7 @@ __archive_write_filters_close.exit:               ; preds = %45
   br i1 %.not.i42, label %__archive_write_filters_free.exit, label %.lr.ph.i41, !llvm.loop !46
 
 __archive_write_filters_free.exit:                ; preds = %54, %35, %__archive_write_filters_close.exit
-  %.014.lcssa.i45 = phi i32 [ %.2.i, %__archive_write_filters_close.exit ], [ 0, %35 ], [ %.2.i, %54 ]
+  %.014.lcssa.i45 = phi i32 [ 0, %35 ], [ %.2.i, %__archive_write_filters_close.exit ], [ %.2.i, %54 ]
   store ptr null, ptr %28, align 8, !tbaa !31
   %56 = tail call i32 @llvm.smin.i32(i32 %.014.lcssa.i45, i32 %33)
   br label %__archive_write_allocate_filter.exit.thread
@@ -689,7 +689,7 @@ define internal range(i32 -30, 1) i32 @archive_write_client_write(ptr noundef re
   br label %.thread
 
 .thread:                                          ; preds = %41, %58, %13, %18, %.preheader, %48, %._crit_edge103, %69
-  %.077 = phi i32 [ 0, %._crit_edge103 ], [ -30, %48 ], [ 0, %69 ], [ 0, %.preheader ], [ -30, %58 ], [ 0, %18 ], [ -30, %13 ], [ -30, %41 ]
+  %.077 = phi i32 [ 0, %._crit_edge103 ], [ 0, %.preheader ], [ -30, %48 ], [ -30, %58 ], [ 0, %69 ], [ 0, %18 ], [ -30, %13 ], [ -30, %41 ]
   ret i32 %.077
 }
 

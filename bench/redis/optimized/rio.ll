@@ -891,7 +891,7 @@ sdslen.exit89:                                    ; preds = %257, %259, %262, %2
   br label %.thread
 
 .thread:                                          ; preds = %sdslen.exit89, %288, %292, %296, %128
-  %.0 = phi i64 [ 0, %128 ], [ %2, %296 ], [ 0, %292 ], [ 0, %288 ], [ 0, %sdslen.exit89 ]
+  %.0 = phi i64 [ 0, %128 ], [ %2, %296 ], [ 0, %288 ], [ 0, %292 ], [ 0, %sdslen.exit89 ]
   ret i64 %.0
 }
 
@@ -962,7 +962,7 @@ define dso_local range(i64 -2147483645, 2147483648) i64 @rioWriteBulkCount(ptr n
   br i1 %.not31.i, label %rioWrite.exit, label %20
 
 rioWrite.exit:                                    ; preds = %32, %.thread.i, %3
-  %37 = phi i64 [ 0, %.thread.i ], [ 0, %3 ], [ %12, %32 ]
+  %37 = phi i64 [ 0, %3 ], [ 0, %.thread.i ], [ %12, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %37
 }
@@ -1035,7 +1035,7 @@ define dso_local i64 @rioWriteBulkString(ptr noundef %0, ptr noundef %1, i64 nou
   %.not31.i.i = icmp eq i64 %34, 0
   br i1 %.not31.i.i, label %37, label %20
 
-rioWriteBulkCount.exit.thread:                    ; preds = %.thread.i.i, %3
+rioWriteBulkCount.exit.thread:                    ; preds = %3, %.thread.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %rioWrite.exit.thread
 
@@ -1618,8 +1618,8 @@ sdslen.exit46:                                    ; preds = %76, %80, %84
   br label %sdslen.exit48
 
 sdslen.exit48:                                    ; preds = %107, %103, %99, %95, %92, %rioFdWrite.exit
-  %.033 = phi i64 [ %2, %rioFdWrite.exit ], [ %106, %103 ], [ %109, %107 ], [ %94, %92 ], [ %98, %95 ], [ %102, %99 ]
-  %.031 = phi ptr [ %1, %rioFdWrite.exit ], [ %89, %103 ], [ %89, %107 ], [ %89, %92 ], [ %89, %95 ], [ %89, %99 ]
+  %.033 = phi i64 [ %2, %rioFdWrite.exit ], [ %106, %103 ], [ %102, %99 ], [ %109, %107 ], [ %94, %92 ], [ %98, %95 ]
+  %.031 = phi ptr [ %1, %rioFdWrite.exit ], [ %89, %103 ], [ %89, %99 ], [ %89, %107 ], [ %89, %92 ], [ %89, %95 ]
   %.not4370 = icmp eq i64 %.033, 0
   br i1 %.not4370, label %.outer._crit_edge, label %.outer.split.preheader
 
@@ -1664,7 +1664,7 @@ sdslen.exit48:                                    ; preds = %107, %103, %99, %95
   br i1 %.not43, label %.outer._crit_edge, label %.outer.split, !llvm.loop !43
 
 .outer._crit_edge:                                ; preds = %.outer, %.thread, %sdslen.exit48
-  %.03393 = phi i64 [ 0, %sdslen.exit48 ], [ 0, %.thread ], [ %.03392, %.outer ]
+  %.03393 = phi i64 [ 0, %.thread ], [ 0, %sdslen.exit48 ], [ %.03392, %.outer ]
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %126 = load i64, ptr %125, align 8, !tbaa !12
   %127 = add i64 %126, %.03393
@@ -1675,7 +1675,7 @@ sdslen.exit48:                                    ; preds = %107, %103, %99, %95
   br label %.critedge
 
 .critedge:                                        ; preds = %60, %58, %119, %117, %71, %sdslen.exit46, %63, %.outer._crit_edge, %122
-  %.032 = phi i64 [ 1, %sdslen.exit46 ], [ 1, %.outer._crit_edge ], [ 0, %122 ], [ 0, %63 ], [ 1, %71 ], [ 0, %119 ], [ 0, %117 ], [ 0, %58 ], [ 0, %60 ]
+  %.032 = phi i64 [ 0, %119 ], [ 1, %sdslen.exit46 ], [ 1, %.outer._crit_edge ], [ 1, %71 ], [ 0, %122 ], [ 0, %63 ], [ 0, %117 ], [ 0, %58 ], [ 0, %60 ]
   ret i64 %.032
 }
 
@@ -1912,7 +1912,7 @@ sdslen.exit76:                                    ; preds = %48, %44, %40, %36, 
   br label %.critedge
 
 .critedge:                                        ; preds = %._crit_edge, %.lr.ph91, %11, %sdslen.exit, %._crit_edge92
-  %.0 = phi i64 [ 1, %._crit_edge92 ], [ 1, %sdslen.exit ], [ 1, %11 ], [ 0, %.lr.ph91 ], [ 0, %._crit_edge ]
+  %.0 = phi i64 [ 1, %11 ], [ 1, %._crit_edge92 ], [ 1, %sdslen.exit ], [ 0, %.lr.ph91 ], [ 0, %._crit_edge ]
   ret i64 %.0
 }
 

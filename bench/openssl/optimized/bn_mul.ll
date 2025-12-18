@@ -183,7 +183,7 @@ define i64 @bn_sub_part_words(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
   br i1 %93, label %.thread157, label %.lr.ph180
 
 .thread157:                                       ; preds = %.lr.ph, %50, %56, %62, %83, %78, %.lr.ph180, %88, %37, %.lr.ph190, %23, %30, %.preheader163, %.preheader, %5
-  %.0109 = phi i64 [ %6, %5 ], [ 0, %.preheader163 ], [ %spec.select185, %.preheader ], [ 0, %83 ], [ %spec.select149, %30 ], [ %spec.select148, %23 ], [ %spec.select147, %.lr.ph190 ], [ %spec.select, %37 ], [ 0, %88 ], [ 0, %.lr.ph180 ], [ 0, %78 ], [ %spec.select150, %.lr.ph ], [ %spec.select151, %50 ], [ %spec.select152, %56 ], [ %spec.select153, %62 ]
+  %.0109 = phi i64 [ %6, %5 ], [ %spec.select149, %30 ], [ 0, %.preheader163 ], [ 0, %83 ], [ %spec.select185, %.preheader ], [ %spec.select148, %23 ], [ %spec.select147, %.lr.ph190 ], [ %spec.select, %37 ], [ 0, %88 ], [ 0, %.lr.ph180 ], [ 0, %78 ], [ %spec.select150, %.lr.ph ], [ %spec.select151, %50 ], [ %spec.select152, %56 ], [ %spec.select153, %62 ]
   ret i64 %.0109
 }
 

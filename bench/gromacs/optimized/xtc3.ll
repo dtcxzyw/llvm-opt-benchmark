@@ -967,7 +967,7 @@ swapdecide.exit:                                  ; preds = %420, %422, %insert_
   br i1 %exitcond1061.not, label %.preheader926, label %457, !llvm.loop !24
 
 .loopexit939.thread:                              ; preds = %positive_int.exit.i593, %positive_int.exit.i604, %429, %is_quite_large.exit.thread, %positive_int.exit633, %swapdecide.exit
-  %.3897912 = phi i32 [ 0, %429 ], [ %.08941019, %positive_int.exit633 ], [ 0, %swapdecide.exit ], [ %.08941019, %is_quite_large.exit.thread ], [ %.08941019, %positive_int.exit.i604 ], [ %.08941019, %positive_int.exit.i593 ]
+  %.3897912 = phi i32 [ 0, %429 ], [ %.08941019, %is_quite_large.exit.thread ], [ %.08941019, %positive_int.exit633 ], [ %.08941019, %positive_int.exit.i604 ], [ 0, %swapdecide.exit ], [ %.08941019, %positive_int.exit.i593 ]
   call fastcc void @buffer_large(ptr noundef %9, ptr noundef nonnull %0, i32 noundef %.04961021, i32 noundef %2, i32 noundef 1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %5, ptr noundef nonnull align 4 dereferenceable(12) %150, i64 12, i1 false), !tbaa !3
   %.pre = add nsw i32 %.04961021, 3
@@ -3458,7 +3458,7 @@ write_three_large.exit112:                        ; preds = %insert_value_in_arr
   br i1 %exitcond144.not, label %.loopexit118, label %140, !llvm.loop !62
 
 .loopexit118:                                     ; preds = %write_three_large.exit112, %write_three_large.exit, %large_instruction_change.exit, %.preheader117
-  %.lcssa169 = phi i32 [ %.lcssa, %.preheader117 ], [ %.061128, %large_instruction_change.exit ], [ %.lcssa, %write_three_large.exit ], [ %.lcssa, %write_three_large.exit112 ]
+  %.lcssa169 = phi i32 [ %.061128, %large_instruction_change.exit ], [ %.lcssa, %write_three_large.exit ], [ %.lcssa, %.preheader117 ], [ %.lcssa, %write_three_large.exit112 ]
   %188 = icmp slt i32 %.lcssa169, %1
   br i1 %188, label %21, label %._crit_edge, !llvm.loop !63
 
@@ -3658,10 +3658,10 @@ define internal fastcc void @base_compress(ptr noundef readonly captures(none) %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.thread, %43, %.thread134
-  %.277133 = phi i32 [ %44, %43 ], [ %.176156, %.thread134 ], [ %.176156, %.thread ]
-  %.181131 = phi i32 [ 7, %43 ], [ %18, %.thread134 ], [ %.080155, %.thread ]
-  %.186129 = phi i32 [ %spec.store.select, %43 ], [ %.085153, %.thread134 ], [ %.085153, %.thread ]
-  %.293127 = phi i32 [ %.3.i, %43 ], [ %.192152, %.thread134 ], [ %.192152, %.thread ]
+  %.277133 = phi i32 [ %.176156, %.thread134 ], [ %44, %43 ], [ %.176156, %.thread ]
+  %.181131 = phi i32 [ %18, %.thread134 ], [ 7, %43 ], [ %.080155, %.thread ]
+  %.186129 = phi i32 [ %.085153, %.thread134 ], [ %spec.store.select, %43 ], [ %.085153, %.thread ]
+  %.293127 = phi i32 [ %.192152, %.thread134 ], [ %.3.i, %43 ], [ %.192152, %.thread ]
   %45 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv177
   %46 = load i32, ptr %45, align 4, !tbaa !3
   call void @Ptngc_largeint_add(i32 noundef %46, ptr noundef nonnull %9, i32 noundef 25) #12
@@ -4345,13 +4345,13 @@ define noundef i32 @Ptngc_unpack_array_xtc3(ptr noundef %0, ptr noundef captures
   br label %.loopexit121
 
 .loopexit121:                                     ; preds = %.loopexit121.loopexit, %269, %214, %.fold.split, %283, %285, %286, %278, %218, %.loopexit
-  %.1105 = phi i32 [ %.0104139, %.loopexit ], [ %.0104139, %218 ], [ %282, %278 ], [ %.0104139, %283 ], [ %.0104139, %285 ], [ %.0104139, %286 ], [ %.0104139, %214 ], [ %.0104139, %.fold.split ], [ %.0104139, %269 ], [ %.0104139, %.loopexit121.loopexit ]
-  %.1103 = phi i32 [ %.0102140, %.loopexit ], [ %.0102140, %218 ], [ %.0102140, %278 ], [ %.0102140, %283 ], [ 1, %285 ], [ 2, %286 ], [ 0, %214 ], [ %.0102140, %.fold.split ], [ %.0102140, %269 ], [ %.0102140, %.loopexit121.loopexit ]
-  %.1100 = phi i32 [ %.099142, %.loopexit ], [ %.099142, %218 ], [ %279, %278 ], [ %.099142, %283 ], [ %.099142, %285 ], [ %.099142, %286 ], [ %.099142, %214 ], [ %.099142, %.fold.split ], [ %270, %269 ], [ %270, %.loopexit121.loopexit ]
-  %.298 = phi i32 [ %.197.lcssa, %.loopexit ], [ %.096143, %218 ], [ %.096143, %278 ], [ %.096143, %283 ], [ %.096143, %285 ], [ %.096143, %286 ], [ %.096143, %214 ], [ %.096143, %.fold.split ], [ %.096143, %269 ], [ %.096143, %.loopexit121.loopexit ]
-  %.195 = phi i32 [ %.094144, %.loopexit ], [ %.094144, %218 ], [ %.094144, %278 ], [ %284, %283 ], [ %.094144, %285 ], [ %.094144, %286 ], [ %.094144, %214 ], [ %.094144, %.fold.split ], [ %.094144, %269 ], [ %.094144, %.loopexit121.loopexit ]
-  %.292 = phi i32 [ %264, %.loopexit ], [ %220, %218 ], [ %.090145, %278 ], [ %.090145, %283 ], [ %.090145, %285 ], [ %.090145, %286 ], [ %.090145, %214 ], [ %.090145, %.fold.split ], [ %.090145, %269 ], [ %287, %.loopexit121.loopexit ]
-  %.288 = phi i32 [ %266, %.loopexit ], [ %221, %218 ], [ %.086146, %278 ], [ %.086146, %283 ], [ %.086146, %285 ], [ %.086146, %286 ], [ %.086146, %214 ], [ %.086146, %.fold.split ], [ %.086146, %269 ], [ %275, %.loopexit121.loopexit ]
+  %.1105 = phi i32 [ %.0104139, %.loopexit ], [ %.0104139, %218 ], [ %.0104139, %.fold.split ], [ %282, %278 ], [ %.0104139, %283 ], [ %.0104139, %214 ], [ %.0104139, %285 ], [ %.0104139, %286 ], [ %.0104139, %269 ], [ %.0104139, %.loopexit121.loopexit ]
+  %.1103 = phi i32 [ %.0102140, %.loopexit ], [ %.0102140, %218 ], [ %.0102140, %.fold.split ], [ %.0102140, %278 ], [ %.0102140, %283 ], [ 0, %214 ], [ 1, %285 ], [ 2, %286 ], [ %.0102140, %269 ], [ %.0102140, %.loopexit121.loopexit ]
+  %.1100 = phi i32 [ %.099142, %.loopexit ], [ %.099142, %218 ], [ %.099142, %.fold.split ], [ %279, %278 ], [ %.099142, %283 ], [ %.099142, %214 ], [ %.099142, %285 ], [ %.099142, %286 ], [ %270, %269 ], [ %270, %.loopexit121.loopexit ]
+  %.298 = phi i32 [ %.197.lcssa, %.loopexit ], [ %.096143, %218 ], [ %.096143, %.fold.split ], [ %.096143, %278 ], [ %.096143, %283 ], [ %.096143, %214 ], [ %.096143, %285 ], [ %.096143, %286 ], [ %.096143, %269 ], [ %.096143, %.loopexit121.loopexit ]
+  %.195 = phi i32 [ %.094144, %.loopexit ], [ %.094144, %218 ], [ %.094144, %.fold.split ], [ %.094144, %278 ], [ %284, %283 ], [ %.094144, %214 ], [ %.094144, %285 ], [ %.094144, %286 ], [ %.094144, %269 ], [ %.094144, %.loopexit121.loopexit ]
+  %.292 = phi i32 [ %264, %.loopexit ], [ %220, %218 ], [ %.090145, %.fold.split ], [ %.090145, %278 ], [ %.090145, %283 ], [ %.090145, %214 ], [ %.090145, %285 ], [ %.090145, %286 ], [ %.090145, %269 ], [ %287, %.loopexit121.loopexit ]
+  %.288 = phi i32 [ %266, %.loopexit ], [ %221, %218 ], [ %.086146, %.fold.split ], [ %.086146, %278 ], [ %.086146, %283 ], [ %.086146, %214 ], [ %.086146, %285 ], [ %.086146, %286 ], [ %.086146, %269 ], [ %275, %.loopexit121.loopexit ]
   %288 = icmp sgt i32 %.292, 0
   %289 = icmp samesign ult i64 %indvars.iv.next173, %213
   %290 = select i1 %288, i1 %289, i1 false

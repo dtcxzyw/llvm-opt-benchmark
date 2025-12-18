@@ -158,7 +158,7 @@ define internal range(i32 -2147483648, 1) i32 @init(ptr noundef %0) #0 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %25, %44, %48, %54
-  %.4 = phi i32 [ 0, %54 ], [ -12, %48 ], [ %46, %44 ], [ %27, %25 ]
+  %.4 = phi i32 [ %46, %44 ], [ -12, %48 ], [ 0, %54 ], [ %27, %25 ]
   ret i32 %.4
 }
 
@@ -308,7 +308,7 @@ define internal range(i32 -2147483648, 1) i32 @query_formats(ptr noundef readonl
   br i1 %.not90, label %9, label %.loopexit, !llvm.loop !44
 
 .loopexit:                                        ; preds = %._crit_edge77, %26, %20, %.lr.ph76.split.us, %.lr.ph76.split, %.lr.ph.us, %40, %45, %.lr.ph
-  %.045 = phi i32 [ %48, %45 ], [ %67, %.lr.ph ], [ %18, %.lr.ph76.split.us ], [ %60, %.lr.ph76.split ], [ %43, %40 ], [ %38, %.lr.ph.us ], [ %30, %26 ], [ %24, %20 ], [ 0, %._crit_edge77 ]
+  %.045 = phi i32 [ %67, %.lr.ph ], [ %60, %.lr.ph76.split ], [ %48, %45 ], [ %18, %.lr.ph76.split.us ], [ %43, %40 ], [ %38, %.lr.ph.us ], [ %30, %26 ], [ %24, %20 ], [ 0, %._crit_edge77 ]
   ret i32 %.045
 }
 
@@ -541,7 +541,7 @@ define internal i32 @activate(ptr noundef %0) #1 {
   br i1 %122, label %67, label %.loopexit, !llvm.loop !60
 
 .loopexit:                                        ; preds = %119, %._crit_edge, %.loopexit105
-  %123 = phi i32 [ %63, %.loopexit105 ], [ %37, %._crit_edge ], [ %121, %119 ]
+  %123 = phi i32 [ %37, %._crit_edge ], [ %63, %.loopexit105 ], [ %121, %119 ]
   %.not139 = icmp eq i32 %123, 0
   br i1 %.not139, label %.thread, label %.lr.ph132
 
@@ -621,7 +621,7 @@ define internal i32 @activate(ptr noundef %0) #1 {
   br i1 %165, label %127, label %.thread, !llvm.loop !62
 
 .thread:                                          ; preds = %46, %162, %154, %1, %.preheader104, %.preheader103, %.loopexit, %.preheader, %118, %115, %56, %27
-  %.0 = phi i32 [ 0, %27 ], [ %60, %56 ], [ %116, %115 ], [ 0, %118 ], [ 0, %.preheader ], [ -1497649742, %.loopexit ], [ -1497649742, %.preheader103 ], [ -1497649742, %.preheader104 ], [ -1497649742, %1 ], [ %.188, %162 ], [ 0, %154 ], [ %53, %46 ]
+  %.0 = phi i32 [ 0, %27 ], [ 0, %118 ], [ %60, %56 ], [ 0, %154 ], [ 0, %.preheader ], [ %116, %115 ], [ -1497649742, %.preheader104 ], [ -1497649742, %.loopexit ], [ -1497649742, %1 ], [ -1497649742, %.preheader103 ], [ %.188, %162 ], [ %53, %46 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)

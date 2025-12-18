@@ -1073,7 +1073,7 @@ define internal noundef zeroext i1 @SDL_RLEBlit(ptr noundef readonly captures(no
   br label %.preheader1291
 
 .thread1106:                                      ; preds = %101, %84, %67, %50, %35, %11
-  %.4691.ph = phi ptr [ %32, %11 ], [ %32, %35 ], [ %.9696, %84 ], [ %.2689, %50 ], [ %.6693, %67 ], [ %.12699, %101 ]
+  %.4691.ph = phi ptr [ %32, %11 ], [ %.6693, %67 ], [ %.2689, %50 ], [ %.9696, %84 ], [ %32, %35 ], [ %.12699, %101 ]
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 267
   %104 = load i8, ptr %103, align 1
   %105 = zext i8 %104 to i32

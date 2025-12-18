@@ -258,9 +258,9 @@ define internal { double, double } @_ZL15ortho_s_inverse5PJ_XYP8PJconsts(double 
   br label %66
 
 66:                                               ; preds = %61, %64, %35
-  %.sroa.0.0 = phi double [ %14, %35 ], [ %.sroa.0.1, %61 ], [ %.sroa.0.1, %64 ]
-  %.sroa.11.0 = phi double [ %18, %35 ], [ %.sroa.11.1, %61 ], [ %.sroa.11.1, %64 ]
-  %.sroa.4.2 = phi double [ 0x7FF0000000000000, %35 ], [ %63, %61 ], [ %65, %64 ]
+  %.sroa.0.0 = phi double [ %14, %35 ], [ %.sroa.0.1, %64 ], [ %.sroa.0.1, %61 ]
+  %.sroa.11.0 = phi double [ %18, %35 ], [ %.sroa.11.1, %64 ], [ %.sroa.11.1, %61 ]
+  %.sroa.4.2 = phi double [ 0x7FF0000000000000, %35 ], [ %65, %64 ], [ %63, %61 ]
   %67 = fcmp oeq double %.sroa.11.0, 0.000000e+00
   %68 = and i32 %37, -2
   %switch = icmp eq i32 %68, 2

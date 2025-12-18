@@ -14444,7 +14444,7 @@ _ZNSt10_HashtableIN4node12CleanupQueue19CleanupHookCallbackES2_SaIS2_ENSt8__deta
   br label %return
 
 return:                                           ; preds = %if.end3.i, %lor.lhs.false.i, %if.end4.i, %if.else, %if.then, %_ZNSt10_HashtableIN4node12CleanupQueue19CleanupHookCallbackES2_SaIS2_ENSt8__detail9_IdentityENS2_5EqualENS2_4HashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE8_M_eraseEmPNS4_15_Hash_node_baseEPNS4_10_Hash_nodeIS2_Lb1EEE.exit
-  %retval.0 = phi i64 [ 1, %_ZNSt10_HashtableIN4node12CleanupQueue19CleanupHookCallbackES2_SaIS2_ENSt8__detail9_IdentityENS2_5EqualENS2_4HashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE8_M_eraseEmPNS4_15_Hash_node_baseEPNS4_10_Hash_nodeIS2_Lb1EEE.exit ], [ 0, %if.then ], [ 0, %if.else ], [ 0, %if.end4.i ], [ 0, %lor.lhs.false.i ], [ 0, %if.end3.i ]
+  %retval.0 = phi i64 [ 1, %_ZNSt10_HashtableIN4node12CleanupQueue19CleanupHookCallbackES2_SaIS2_ENSt8__detail9_IdentityENS2_5EqualENS2_4HashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE8_M_eraseEmPNS4_15_Hash_node_baseEPNS4_10_Hash_nodeIS2_Lb1EEE.exit ], [ 0, %if.end4.i ], [ 0, %if.then ], [ 0, %if.else ], [ 0, %lor.lhs.false.i ], [ 0, %if.end3.i ]
   ret i64 %retval.0
 }
 
@@ -14706,7 +14706,7 @@ return.sink.split:                                ; preds = %if.end18, %if.end5.
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.end18, %if.end
-  %retval.sroa.0.0 = phi i16 [ 0, %if.end ], [ 1, %if.end18 ], [ 257, %return.sink.split ]
+  %retval.sroa.0.0 = phi i16 [ 1, %if.end18 ], [ 0, %if.end ], [ 257, %return.sink.split ]
   ret i16 %retval.sroa.0.0
 }
 
@@ -15359,7 +15359,7 @@ if.end41.split:                                   ; preds = %while.body38
   br i1 %cmp37, label %while.body38, label %while.end43, !llvm.loop !24
 
 while.end43:                                      ; preds = %if.end41.split, %if.end41.split.us84, %if.end41.split.us, %while.end.split
-  %j.0.lcssa = phi i64 [ %dec, %while.end.split ], [ %dec42.us85, %if.end41.split.us84 ], [ %dec42.us, %if.end41.split.us ], [ %dec42, %if.end41.split ]
+  %j.0.lcssa = phi i64 [ %dec, %while.end.split ], [ %dec42.us, %if.end41.split.us ], [ %dec42.us85, %if.end41.split.us84 ], [ %dec42, %if.end41.split ]
   %add45 = add i64 %.us-phi, %conv44
   %30 = add i64 %1, %.us-phi69
   %31 = add i64 %j.0.lcssa, %conv44
@@ -15375,7 +15375,7 @@ if.then51:                                        ; preds = %while.end43
   br label %return
 
 return:                                           ; preds = %while.cond, %while.body17, %while.body17.us, %while.body38, %while.body38.us81, %while.body38.us, %if.then51
-  %retval.0 = phi i64 [ %call52, %if.then51 ], [ %0, %while.body17 ], [ %.us-phi, %while.body38.us ], [ %.us-phi, %while.body38.us81 ], [ %.us-phi, %while.body38 ], [ %0, %while.body17.us ], [ %0, %while.cond ]
+  %retval.0 = phi i64 [ %0, %while.body17 ], [ %.us-phi, %while.body38.us ], [ %call52, %if.then51 ], [ %.us-phi, %while.body38 ], [ %0, %while.body17.us ], [ %.us-phi, %while.body38.us81 ], [ %0, %while.cond ]
   ret i64 %retval.0
 }
 
@@ -15538,8 +15538,8 @@ if.end35.split:                                   ; preds = %while.body32
   br i1 %cmp31, label %while.body32, label %while.end36, !llvm.loop !27
 
 while.end36:                                      ; preds = %if.end35.split, %if.end35.split.us85, %if.end35.split.us, %while.cond24.preheader
-  %j.0.lcssa = phi i64 [ %sub, %while.cond24.preheader ], [ %dec.us86, %if.end35.split.us85 ], [ %dec.us, %if.end35.split.us ], [ %dec, %if.end35.split ]
-  %.lcssa67 = phi i16 [ %17, %while.cond24.preheader ], [ %22, %if.end35.split.us85 ], [ %20, %if.end35.split.us ], [ %27, %if.end35.split ]
+  %j.0.lcssa = phi i64 [ %sub, %while.cond24.preheader ], [ %dec.us, %if.end35.split.us ], [ %dec.us86, %if.end35.split.us85 ], [ %dec, %if.end35.split ]
+  %.lcssa67 = phi i16 [ %17, %while.cond24.preheader ], [ %20, %if.end35.split.us ], [ %22, %if.end35.split.us85 ], [ %27, %if.end35.split ]
   %cmp37 = icmp ult i64 %j.0.lcssa, %2
   br i1 %cmp37, label %if.then38, label %if.else
 
@@ -15570,7 +15570,7 @@ if.end56:                                         ; preds = %if.else, %if.then38
   br i1 %cmp.not, label %return, label %while.cond9.preheader, !llvm.loop !28
 
 return:                                           ; preds = %if.end56, %while.body13, %while.body13.us, %while.body32, %while.body32.us82, %while.body32.us, %entry
-  %retval.0 = phi i64 [ %0, %entry ], [ %0, %while.body13 ], [ %.us-phi, %while.body32.us ], [ %.us-phi, %while.body32.us82 ], [ %.us-phi, %while.body32 ], [ %0, %while.body13.us ], [ %0, %if.end56 ]
+  %retval.0 = phi i64 [ %0, %while.body13 ], [ %.us-phi, %while.body32.us ], [ %0, %entry ], [ %0, %while.body13.us ], [ %.us-phi, %while.body32.us82 ], [ %.us-phi, %while.body32 ], [ %0, %if.end56 ]
   ret i64 %retval.0
 }
 
@@ -15944,7 +15944,7 @@ for.inc42:                                        ; preds = %for.body32, %for.bo
   br i1 %cmp9.not, label %return, label %for.body, !llvm.loop !34
 
 return:                                           ; preds = %for.body, %for.inc42, %for.cond28.preheader, %for.cond28, %for.cond28.us35, %for.cond28.us, %for.cond28.us.us, %do.end5
-  %retval.0 = phi i64 [ %1, %do.end5 ], [ %call12, %for.cond28.us.us ], [ %call12, %for.cond28.us ], [ %call12, %for.cond28.us35 ], [ %call12, %for.cond28 ], [ %call12, %for.cond28.preheader ], [ %1, %for.inc42 ], [ %1, %for.body ]
+  %retval.0 = phi i64 [ %call12, %for.cond28 ], [ %call12, %for.cond28.us.us ], [ %call12, %for.cond28.us ], [ %1, %do.end5 ], [ %call12, %for.cond28.us35 ], [ %1, %for.inc42 ], [ %1, %for.body ], [ %call12, %for.cond28.preheader ]
   ret i64 %retval.0
 }
 
@@ -16273,7 +16273,7 @@ return.loopexit47.split.loop.exit51:              ; preds = %if.end59.thread
   br label %return
 
 return:                                           ; preds = %do.cond, %if.end55.thread, %if.end55.us, %if.end59.us, %do.cond.us, %return.loopexit47.split.loop.exit51
-  %.us-phi = phi i64 [ %sub65.le, %return.loopexit47.split.loop.exit51 ], [ %4, %if.end55.us ], [ %sub.ptr.div.us, %if.end59.us ], [ %4, %do.cond.us ], [ %4, %if.end55.thread ], [ %4, %do.cond ]
+  %.us-phi = phi i64 [ %4, %if.end55.us ], [ %sub65.le, %return.loopexit47.split.loop.exit51 ], [ %sub.ptr.div.us, %if.end59.us ], [ %4, %do.cond.us ], [ %4, %if.end55.thread ], [ %4, %do.cond ]
   ret i64 %.us-phi
 }
 
@@ -16534,7 +16534,7 @@ if.end41.split:                                   ; preds = %while.body38
   br i1 %cmp37, label %while.body38, label %while.end43, !llvm.loop !42
 
 while.end43:                                      ; preds = %if.end41.split, %if.end41.split.us84, %if.end41.split.us, %while.end.split
-  %j.0.lcssa = phi i64 [ %dec, %while.end.split ], [ %dec42.us85, %if.end41.split.us84 ], [ %dec42.us, %if.end41.split.us ], [ %dec42, %if.end41.split ]
+  %j.0.lcssa = phi i64 [ %dec, %while.end.split ], [ %dec42.us, %if.end41.split.us ], [ %dec42.us85, %if.end41.split.us84 ], [ %dec42, %if.end41.split ]
   %add45 = add i64 %.us-phi, %conv44
   %27 = add i64 %1, %.us-phi69
   %28 = add i64 %j.0.lcssa, %conv44
@@ -16550,7 +16550,7 @@ if.then51:                                        ; preds = %while.end43
   br label %return
 
 return:                                           ; preds = %while.cond, %while.body17, %while.body17.us, %while.body38, %while.body38.us81, %while.body38.us, %if.then51
-  %retval.0 = phi i64 [ %call52, %if.then51 ], [ %0, %while.body17 ], [ %.us-phi, %while.body38.us ], [ %.us-phi, %while.body38.us81 ], [ %.us-phi, %while.body38 ], [ %0, %while.body17.us ], [ %0, %while.cond ]
+  %retval.0 = phi i64 [ %0, %while.body17 ], [ %.us-phi, %while.body38.us ], [ %call52, %if.then51 ], [ %.us-phi, %while.body38 ], [ %0, %while.body17.us ], [ %.us-phi, %while.body38.us81 ], [ %0, %while.cond ]
   ret i64 %retval.0
 }
 
@@ -16710,8 +16710,8 @@ if.end35.split:                                   ; preds = %while.body32
   br i1 %cmp31, label %while.body32, label %while.end36, !llvm.loop !45
 
 while.end36:                                      ; preds = %if.end35.split, %if.end35.split.us85, %if.end35.split.us, %while.cond24.preheader
-  %j.0.lcssa = phi i64 [ %sub, %while.cond24.preheader ], [ %dec.us86, %if.end35.split.us85 ], [ %dec.us, %if.end35.split.us ], [ %dec, %if.end35.split ]
-  %.lcssa67 = phi i8 [ %15, %while.cond24.preheader ], [ %20, %if.end35.split.us85 ], [ %18, %if.end35.split.us ], [ %24, %if.end35.split ]
+  %j.0.lcssa = phi i64 [ %sub, %while.cond24.preheader ], [ %dec.us, %if.end35.split.us ], [ %dec.us86, %if.end35.split.us85 ], [ %dec, %if.end35.split ]
+  %.lcssa67 = phi i8 [ %15, %while.cond24.preheader ], [ %18, %if.end35.split.us ], [ %20, %if.end35.split.us85 ], [ %24, %if.end35.split ]
   %cmp37 = icmp ult i64 %j.0.lcssa, %2
   br i1 %cmp37, label %if.then38, label %if.else
 
@@ -16741,7 +16741,7 @@ if.end56:                                         ; preds = %if.else, %if.then38
   br i1 %cmp.not, label %return, label %while.cond9.preheader, !llvm.loop !46
 
 return:                                           ; preds = %if.end56, %while.body13, %while.body13.us, %while.body32, %while.body32.us82, %while.body32.us, %entry
-  %retval.0 = phi i64 [ %0, %entry ], [ %0, %while.body13 ], [ %.us-phi, %while.body32.us ], [ %.us-phi, %while.body32.us82 ], [ %.us-phi, %while.body32 ], [ %0, %while.body13.us ], [ %0, %if.end56 ]
+  %retval.0 = phi i64 [ %0, %while.body13 ], [ %.us-phi, %while.body32.us ], [ %0, %entry ], [ %0, %while.body13.us ], [ %.us-phi, %while.body32.us82 ], [ %.us-phi, %while.body32 ], [ %0, %if.end56 ]
   ret i64 %retval.0
 }
 
@@ -17214,7 +17214,7 @@ do.body24:                                        ; preds = %do.body18.us, %do.b
   unreachable
 
 return:                                           ; preds = %for.body.us, %for.inc42.split.split.us60, %for.cond28.us50, %for.body.us.us83, %for.inc42.split.split.us.us.us, %for.cond28.us39.us.us, %for.body.us.us, %for.inc42.split.us.split.us71.us, %for.cond28.us.us69.us, %for.body.us.us.us, %for.inc42.split.us.split.us.us.us.us, %for.cond28.us.us.us.us.us, %do.end5
-  %retval.0 = phi i64 [ %1, %do.end5 ], [ %retval.0.i.us, %for.cond28.us50 ], [ %sub.ptr.sub.i.us.us.us, %for.cond28.us.us.us.us.us ], [ %1, %for.body.us.us.us ], [ %retval.0.i.us.us, %for.cond28.us.us69.us ], [ %1, %for.body.us.us ], [ %sub.ptr.sub.i.us.us96, %for.cond28.us39.us.us ], [ %1, %for.body.us.us83 ], [ %1, %for.inc42.split.us.split.us.us.us.us ], [ %1, %for.inc42.split.us.split.us71.us ], [ %1, %for.inc42.split.split.us.us.us ], [ %1, %for.inc42.split.split.us60 ], [ %1, %for.body.us ]
+  %retval.0 = phi i64 [ %1, %for.body.us.us83 ], [ %sub.ptr.sub.i.us.us.us, %for.cond28.us.us.us.us.us ], [ %1, %for.body.us.us.us ], [ %1, %do.end5 ], [ %1, %for.body.us.us ], [ %sub.ptr.sub.i.us.us96, %for.cond28.us39.us.us ], [ %retval.0.i.us, %for.cond28.us50 ], [ %retval.0.i.us.us, %for.cond28.us.us69.us ], [ %1, %for.inc42.split.us.split.us.us.us.us ], [ %1, %for.inc42.split.us.split.us71.us ], [ %1, %for.inc42.split.split.us.us.us ], [ %1, %for.inc42.split.split.us60 ], [ %1, %for.body.us ]
   ret i64 %retval.0
 }
 

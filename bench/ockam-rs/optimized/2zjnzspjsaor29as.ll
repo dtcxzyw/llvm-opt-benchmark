@@ -965,7 +965,7 @@ default.unreachable11.i.i:                        ; preds = %243
   br label %202
 
 "_ZN10ockam_node5relay15processor_relay23ProcessorRelay$LT$P$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h31a1870d0badf37aE.exit": ; preds = %125, %254
-  %.sink.i = phi i8 [ 4, %125 ], [ 3, %254 ]
+  %.sink.i = phi i8 [ 3, %254 ], [ 4, %125 ]
   store i8 %.sink.i, ptr %32, align 8, !noalias !36
   br label %101
 

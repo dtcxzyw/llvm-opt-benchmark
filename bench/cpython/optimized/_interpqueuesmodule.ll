@@ -475,7 +475,7 @@ define internal ptr @queuesmod_list_all(ptr readnone captures(none) %0, ptr read
   br i1 %exitcond.not, label %Py_DECREF.exit.thread, label %35, !llvm.loop !61
 
 Py_DECREF.exit.thread:                            ; preds = %48, %.preheader, %42, %44, %47, %.loopexit
-  %.023 = phi ptr [ null, %.loopexit ], [ null, %47 ], [ null, %44 ], [ null, %42 ], [ %31, %.preheader ], [ %31, %48 ]
+  %.023 = phi ptr [ null, %.loopexit ], [ null, %42 ], [ null, %47 ], [ null, %44 ], [ %31, %.preheader ], [ %31, %48 ]
   tail call void @PyMem_Free(ptr noundef nonnull %9) #6
   br label %52
 

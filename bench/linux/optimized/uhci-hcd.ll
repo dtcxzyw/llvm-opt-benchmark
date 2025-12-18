@@ -2194,7 +2194,7 @@ uhci_alloc_qh.exit:                               ; preds = %30, %67
   br label %.thread48
 
 .thread44:                                        ; preds = %285, %327, %.loopexit56, %288, %.thread42, %520, %478, %381, %387, %334, %328, %265, %253, %.critedge, %97
-  %652 = phi i32 [ -12, %97 ], [ -12, %.thread42 ], [ -27, %520 ], [ -22, %478 ], [ -27, %381 ], [ -27, %387 ], [ %335, %334 ], [ -22, %328 ], [ %266, %265 ], [ -22, %253 ], [ -12, %.critedge ], [ -22, %288 ], [ -28, %.loopexit56 ], [ -28, %327 ], [ -22, %285 ]
+  %652 = phi i32 [ -28, %327 ], [ -12, %97 ], [ -12, %.thread42 ], [ -27, %520 ], [ -22, %478 ], [ -27, %381 ], [ -27, %387 ], [ %335, %334 ], [ -22, %328 ], [ %266, %265 ], [ -22, %253 ], [ -12, %.critedge ], [ -22, %288 ], [ -28, %.loopexit56 ], [ -22, %285 ]
   %653 = getelementptr inbounds nuw i8, ptr %98, i64 112
   %654 = load i32, ptr %653, align 16
   %655 = icmp eq i32 %654, 1
@@ -4218,7 +4218,7 @@ uhci_free_td.exit25:                              ; preds = %625, %638
   br i1 %508, label %.thread37, label %.thread35
 
 .thread35:                                        ; preds = %380, %uhci_free_td.exit, %485, %250, %.loopexit39
-  %644 = phi i32 [ %602, %.loopexit39 ], [ %441, %485 ], [ 0, %250 ], [ 0, %uhci_free_td.exit ], [ 0, %380 ]
+  %644 = phi i32 [ %602, %.loopexit39 ], [ 0, %uhci_free_td.exit ], [ 0, %250 ], [ %441, %485 ], [ 0, %380 ]
   %645 = getelementptr inbounds nuw i8, ptr %241, i64 4
   %646 = load i32, ptr %645, align 4
   %647 = icmp eq i32 %646, 0

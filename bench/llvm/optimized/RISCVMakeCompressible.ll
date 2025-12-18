@@ -1546,7 +1546,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.thread: ; preds = %98
   br label %_ZL19isCompressibleStoreRKN4llvm12MachineInstrE.exit60
 
 _ZL19isCompressibleStoreRKN4llvm12MachineInstrE.exit60: ; preds = %131, %135, %147, %154, %158
-  %.0.i58 = phi i1 [ %165, %158 ], [ %134, %131 ], [ %142, %135 ], [ %157, %154 ], [ true, %147 ]
+  %.0.i58 = phi i1 [ %165, %158 ], [ %134, %131 ], [ %142, %135 ], [ true, %147 ], [ %157, %154 ]
   %.not11 = xor i1 %.0.i58, true
   %or.cond14 = or i1 %123, %.not11
   br i1 %or.cond14, label %.critedge51, label %166

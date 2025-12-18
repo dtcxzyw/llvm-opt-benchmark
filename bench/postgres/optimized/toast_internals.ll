@@ -242,10 +242,10 @@ define dso_local noundef i64 @toast_save_datum(ptr noundef readonly captures(non
   br i1 %68, label %61, label %.loopexit, !llvm.loop !4
 
 .loopexit:                                        ; preds = %61, %56, %43
-  %.pre = phi ptr [ %.pre.pre, %56 ], [ %46, %43 ], [ %.pre.pre98, %61 ]
-  %.sroa.17.077 = phi i32 [ %42, %56 ], [ %45, %43 ], [ %42, %61 ]
-  %.1 = phi i32 [ %spec.select, %56 ], [ %.066, %43 ], [ %.297, %61 ]
-  %.sroa.9.0 = phi i32 [ %.sroa.3.0.copyload, %56 ], [ %52, %43 ], [ %65, %61 ]
+  %.pre = phi ptr [ %46, %43 ], [ %.pre.pre, %56 ], [ %.pre.pre98, %61 ]
+  %.sroa.17.077 = phi i32 [ %45, %43 ], [ %42, %56 ], [ %42, %61 ]
+  %.1 = phi i32 [ %.066, %43 ], [ %spec.select, %56 ], [ %.297, %61 ]
+  %.sroa.9.0 = phi i32 [ %52, %43 ], [ %.sroa.3.0.copyload, %56 ], [ %65, %61 ]
   %69 = zext i32 %.sroa.9.0 to i64
   store i64 %69, ptr %6, align 16
   %70 = ptrtoint ptr %8 to i64

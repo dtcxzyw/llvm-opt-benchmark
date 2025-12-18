@@ -1659,8 +1659,8 @@ _ZN6google8protobuf2io9Tokenizer17ConsumeZeroOrMoreINS1_12_GLOBAL__N_15DigitEEEv
   br i1 %153, label %.lr.ph.i37, label %_ZN6google8protobuf2io9Tokenizer17ConsumeZeroOrMoreINS1_12_GLOBAL__N_15DigitEEEvv.exit33, !llvm.loop !54
 
 _ZN6google8protobuf2io9Tokenizer17ConsumeZeroOrMoreINS1_12_GLOBAL__N_15DigitEEEvv.exit33: ; preds = %.lr.ph.i37, %.lr.ph.i32, %147, %_ZN6google8protobuf2io9Tokenizer17ConsumeZeroOrMoreINS1_12_GLOBAL__N_15DigitEEEvv.exit35, %137
-  %154 = phi i8 [ %145, %_ZN6google8protobuf2io9Tokenizer17ConsumeZeroOrMoreINS1_12_GLOBAL__N_15DigitEEEvv.exit35 ], [ %134, %137 ], [ %148, %147 ], [ %138, %.lr.ph.i32 ], [ %151, %.lr.ph.i37 ]
-  %.113 = phi i8 [ 0, %_ZN6google8protobuf2io9Tokenizer17ConsumeZeroOrMoreINS1_12_GLOBAL__N_15DigitEEEvv.exit35 ], [ 1, %137 ], [ 1, %147 ], [ 1, %.lr.ph.i32 ], [ 1, %.lr.ph.i37 ]
+  %154 = phi i8 [ %138, %.lr.ph.i32 ], [ %145, %_ZN6google8protobuf2io9Tokenizer17ConsumeZeroOrMoreINS1_12_GLOBAL__N_15DigitEEEvv.exit35 ], [ %134, %137 ], [ %148, %147 ], [ %151, %.lr.ph.i37 ]
+  %.113 = phi i8 [ 1, %.lr.ph.i32 ], [ 0, %_ZN6google8protobuf2io9Tokenizer17ConsumeZeroOrMoreINS1_12_GLOBAL__N_15DigitEEEvv.exit35 ], [ 1, %137 ], [ 1, %147 ], [ 1, %.lr.ph.i37 ]
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 128
   switch i8 %154, label %_ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit40 [
     i8 101, label %_ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit39.thread
@@ -1771,7 +1771,7 @@ _ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit52.thread: ; preds = %186
   br label %_ZN6google8protobuf2io9Tokenizer16ConsumeOneOrMoreINS1_12_GLOBAL__N_18HexDigitEEEvPKc.exit
 
 _ZN6google8protobuf2io9Tokenizer16ConsumeOneOrMoreINS1_12_GLOBAL__N_18HexDigitEEEvPKc.exit: ; preds = %switch.early.test4.i, %.lr.ph.i28, %186, %switch.early.test4.i.thread, %_ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit51.thread, %_ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit52.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %_ZN6google8protobuf2io9Tokenizer17ConsumeZeroOrMoreINS1_12_GLOBAL__N_110OctalDigitEEEvv.exit, %_ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit40
-  %.012 = phi i8 [ %.214, %_ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit40 ], [ 0, %_ZN6google8protobuf2io9Tokenizer17ConsumeZeroOrMoreINS1_12_GLOBAL__N_110OctalDigitEEEvv.exit ], [ %.214, %186 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ 1, %_ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit52.thread ], [ 1, %_ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit51.thread ], [ 0, %switch.early.test4.i.thread ], [ 0, %.lr.ph.i28 ], [ 0, %switch.early.test4.i ]
+  %.012 = phi i8 [ %.214, %_ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit40 ], [ 0, %switch.early.test4.i.thread ], [ 0, %_ZN6google8protobuf2io9Tokenizer17ConsumeZeroOrMoreINS1_12_GLOBAL__N_110OctalDigitEEEvv.exit ], [ %.214, %186 ], [ 0, %.lr.ph.i28 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ 1, %_ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit52.thread ], [ 1, %_ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit51.thread ], [ 0, %switch.early.test4.i ]
   %188 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %.val26 = load i8, ptr %188, align 8, !tbaa !47
   %189 = and i8 %.val26, -33
@@ -3716,7 +3716,7 @@ _ZN6google8protobuf2io9Tokenizer8EndTokenEv.exit47: ; preds = %_ZN6google8protob
   br label %.critedge2.thread
 
 .critedge2.thread:                                ; preds = %199, %_ZN6google8protobuf2io9Tokenizer8EndTokenEv.exit, %_ZN6google8protobuf2io9Tokenizer8EndTokenEv.exit22, %_ZN6google8protobuf2io9Tokenizer8EndTokenEv.exit47, %.critedge2.thread59
-  %.213 = phi i1 [ false, %.critedge2.thread59 ], [ true, %_ZN6google8protobuf2io9Tokenizer8EndTokenEv.exit47 ], [ true, %_ZN6google8protobuf2io9Tokenizer8EndTokenEv.exit22 ], [ true, %_ZN6google8protobuf2io9Tokenizer8EndTokenEv.exit ], [ true, %199 ]
+  %.213 = phi i1 [ false, %.critedge2.thread59 ], [ true, %_ZN6google8protobuf2io9Tokenizer8EndTokenEv.exit22 ], [ true, %_ZN6google8protobuf2io9Tokenizer8EndTokenEv.exit47 ], [ true, %_ZN6google8protobuf2io9Tokenizer8EndTokenEv.exit ], [ true, %199 ]
   ret i1 %.213
 }
 
@@ -4768,7 +4768,7 @@ _ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit60: ; preds = %375
   br label %.loopexit.split-lp
 
 .loopexit110:                                     ; preds = %239, %_ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit35.invoke, %390, %393, %135, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.0 = phi i1 [ true, %390 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ true, %135 ], [ %171, %_ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit35.invoke ], [ %381, %393 ], [ true, %239 ]
+  %.0 = phi i1 [ %381, %393 ], [ true, %390 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ true, %135 ], [ %171, %_ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit35.invoke ], [ true, %239 ]
   %396 = load ptr, ptr %13, align 8, !tbaa !72
   %.not.i61 = icmp ne ptr %396, null
   %397 = load i8, ptr %17, align 8, !range !49
@@ -5669,8 +5669,8 @@ _ZN6google8protobuf2io12_GLOBAL__N_110DigitValueEc.exit.i25.i: ; preds = %174, %
   br label %210
 
 _ZN6google8protobuf2ioL17FetchUnicodePointEPKcPj.exit: ; preds = %.lr.ph.i18.i, %_ZN6google8protobuf2ioL13ReadHexDigitsEPKciPj.exit.i, %178, %181
-  %.1 = phi i32 [ %151, %_ZN6google8protobuf2ioL13ReadHexDigitsEPKciPj.exit.i ], [ %184, %181 ], [ %151, %178 ], [ %151, %.lr.ph.i18.i ]
-  %.0.i111.idx = phi i64 [ %.add, %_ZN6google8protobuf2ioL13ReadHexDigitsEPKciPj.exit.i ], [ %.add126, %181 ], [ %.add, %178 ], [ %.add, %.lr.ph.i18.i ]
+  %.1 = phi i32 [ %184, %181 ], [ %151, %_ZN6google8protobuf2ioL13ReadHexDigitsEPKciPj.exit.i ], [ %151, %178 ], [ %151, %.lr.ph.i18.i ]
+  %.0.i111.idx = phi i64 [ %.add126, %181 ], [ %.add, %_ZN6google8protobuf2ioL13ReadHexDigitsEPKciPj.exit.i ], [ %.add, %178 ], [ %.add, %.lr.ph.i18.i ]
   %.0.i111.ptr = getelementptr inbounds nuw i8, ptr %.pn, i64 %.0.i111.idx
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %185 = icmp ult i32 %.1, 128

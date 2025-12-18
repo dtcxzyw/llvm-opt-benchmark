@@ -375,7 +375,7 @@ _ZNKSt14default_deleteIN4llvm7MatcherEEclEPS1_.exit.i.i.i: ; preds = %.critedge
   br label %.critedge16
 
 .critedge16:                                      ; preds = %.preheader, %_ZNKSt14default_deleteIN4llvm7MatcherEEclEPS1_.exit.i.i.i, %.critedge, %4
-  %.011 = phi ptr [ %6, %4 ], [ %0, %.critedge ], [ %0, %_ZNKSt14default_deleteIN4llvm7MatcherEEclEPS1_.exit.i.i.i ], [ null, %.preheader ]
+  %.011 = phi ptr [ %6, %4 ], [ %0, %_ZNKSt14default_deleteIN4llvm7MatcherEEclEPS1_.exit.i.i.i ], [ %0, %.critedge ], [ null, %.preheader ]
   ret ptr %.011
 }
 

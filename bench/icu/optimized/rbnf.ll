@@ -290,7 +290,7 @@ _ZN6icu_77L5streqEPKDsS1_.exit62:                 ; preds = %84
   br i1 %exitcond120.not, label %.thread84, label %.lr.ph108.split, !llvm.loop !9
 
 .thread84:                                        ; preds = %24, %_ZN6icu_77L5streqEPKDsS1_.exit, %.critedge98.preheader, %84, %_ZN6icu_77L5streqEPKDsS1_.exit62, %.critedge98._crit_edge.us, %52, %_ZN6icu_77L5streqEPKDsS1_.exit62.us, %_ZN6icu_77L5streqEPKDsS1_.exit65.us, %65, %.preheader, %.critedge, %5, %2, %3
-  %.040 = phi i1 [ false, %.critedge ], [ true, %3 ], [ false, %5 ], [ false, %2 ], [ true, %.preheader ], [ false, %_ZN6icu_77L5streqEPKDsS1_.exit65.us ], [ false, %_ZN6icu_77L5streqEPKDsS1_.exit62 ], [ true, %.critedge98._crit_edge.us ], [ false, %65 ], [ false, %52 ], [ false, %_ZN6icu_77L5streqEPKDsS1_.exit62.us ], [ false, %84 ], [ true, %.critedge98.preheader ], [ false, %_ZN6icu_77L5streqEPKDsS1_.exit ], [ false, %24 ]
+  %.040 = phi i1 [ false, %_ZN6icu_77L5streqEPKDsS1_.exit65.us ], [ false, %.critedge ], [ true, %3 ], [ true, %.preheader ], [ false, %5 ], [ false, %2 ], [ true, %.critedge98._crit_edge.us ], [ false, %_ZN6icu_77L5streqEPKDsS1_.exit62 ], [ false, %65 ], [ false, %52 ], [ false, %_ZN6icu_77L5streqEPKDsS1_.exit62.us ], [ false, %84 ], [ true, %.critedge98.preheader ], [ false, %_ZN6icu_77L5streqEPKDsS1_.exit ], [ false, %24 ]
   ret i1 %.040
 }
 
@@ -6426,7 +6426,7 @@ define void @_ZN6icu_7721RuleBasedNumberFormat18initDefaultRuleSetEv(ptr noundef
   br i1 %.not21, label %136, label %.loopexit.sink.split, !llvm.loop !138
 
 .loopexit.sink.split:                             ; preds = %66, %38, %61, %89, %137, %._crit_edge61
-  %.lcssa.sink = phi ptr [ %.pre62, %._crit_edge61 ], [ %139, %137 ], [ %.pre64.pre, %61 ], [ %63, %66 ], [ %33, %38 ], [ %.pre63.pre, %89 ]
+  %.lcssa.sink = phi ptr [ %139, %137 ], [ %.pre62, %._crit_edge61 ], [ %63, %66 ], [ %33, %38 ], [ %.pre63.pre, %89 ], [ %.pre64.pre, %61 ]
   store ptr %.lcssa.sink, ptr %8, align 8, !tbaa !64
   br label %.loopexit
 

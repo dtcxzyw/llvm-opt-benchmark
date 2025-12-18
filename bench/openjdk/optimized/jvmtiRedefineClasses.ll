@@ -7809,7 +7809,7 @@ _ZN18VM_RedefineClasses40rewrite_cp_refs_in_annotations_typeArrayEP5ArrayIhERi.e
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN18VM_RedefineClasses40rewrite_cp_refs_in_annotations_typeArrayEP5ArrayIhERi.exit60, %.loopexit.sink.split, %.preheader, %2, %108, %86
-  %.0 = phi i1 [ false, %86 ], [ false, %108 ], [ true, %2 ], [ true, %.preheader ], [ false, %.loopexit.sink.split ], [ true, %_ZN18VM_RedefineClasses40rewrite_cp_refs_in_annotations_typeArrayEP5ArrayIhERi.exit60 ]
+  %.0 = phi i1 [ false, %.loopexit.sink.split ], [ true, %.preheader ], [ false, %86 ], [ false, %108 ], [ true, %2 ], [ true, %_ZN18VM_RedefineClasses40rewrite_cp_refs_in_annotations_typeArrayEP5ArrayIhERi.exit60 ]
   ret i1 %.0
 }
 
@@ -8096,7 +8096,7 @@ _ZNK13InstanceKlass17class_annotationsEv.exit:    ; preds = %2
   br i1 %exitcond.not.i, label %_ZN18VM_RedefineClasses40rewrite_cp_refs_in_annotations_typeArrayEP5ArrayIhERi.exit, label %.lr.ph.i, !llvm.loop !48
 
 _ZN18VM_RedefineClasses40rewrite_cp_refs_in_annotations_typeArrayEP5ArrayIhERi.exit: ; preds = %29, %2, %28, %26, %._crit_edge.i, %19, %17, %_ZNK13InstanceKlass17class_annotationsEv.exit, %8
-  %.0 = phi i1 [ true, %8 ], [ true, %_ZNK13InstanceKlass17class_annotationsEv.exit ], [ false, %28 ], [ false, %19 ], [ false, %17 ], [ false, %26 ], [ true, %._crit_edge.i ], [ true, %2 ], [ true, %29 ]
+  %.0 = phi i1 [ true, %2 ], [ true, %8 ], [ true, %_ZNK13InstanceKlass17class_annotationsEv.exit ], [ false, %28 ], [ false, %19 ], [ false, %17 ], [ false, %26 ], [ true, %._crit_edge.i ], [ true, %29 ]
   ret i1 %.0
 }
 
@@ -15271,7 +15271,7 @@ define linkonce_odr hidden noundef ptr @_ZN34TransferNativeFunctionRegistration2
   br i1 %.not.i.i.i.i.i.i, label %.loopexit, label %46, !llvm.loop !71
 
 .loopexit:                                        ; preds = %46, %23, %30, %14, %27, %20
-  %.0.ph = phi ptr [ null, %23 ], [ null, %30 ], [ null, %14 ], [ %19, %20 ], [ %29, %27 ], [ %42, %46 ]
+  %.0.ph = phi ptr [ %29, %27 ], [ null, %23 ], [ null, %30 ], [ null, %14 ], [ %19, %20 ], [ %42, %46 ]
   call void @_ZN6Symbol18decrement_refcountEv(ptr noundef nonnull align 4 dereferenceable(8) %8) #20
   br label %_ZN16SymbolHandleBaseILb1EED2Ev.exit
 

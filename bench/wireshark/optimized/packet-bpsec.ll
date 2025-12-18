@@ -795,7 +795,7 @@ dissect_value.exit331:                            ; preds = %278, %.thread.i330
   br label %.critedge314
 
 .critedge314:                                     ; preds = %147, %242, %297
-  %.8 = phi i32 [ %299, %297 ], [ 0, %242 ], [ 0, %147 ]
+  %.8 = phi i32 [ 0, %242 ], [ %299, %297 ], [ 0, %147 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.8
 }

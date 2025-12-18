@@ -2953,7 +2953,7 @@ _ZN4core3str7pattern7Pattern12is_suffix_of17hb98a15f5366a76f0E.exit.thread.i.i: 
   br label %.thread6.i.i.i.i
 
 .thread6.i.i.i.i:                                 ; preds = %188, %186, %162, %162, %162, %162, %162, %162
-  %.sroa.3.0.i.i.i.i = phi i64 [ %..i.i.i.i.i.i, %188 ], [ 2, %186 ], [ 1, %162 ], [ 1, %162 ], [ 1, %162 ], [ 1, %162 ], [ 1, %162 ], [ 1, %162 ]
+  %.sroa.3.0.i.i.i.i = phi i64 [ 2, %186 ], [ %..i.i.i.i.i.i, %188 ], [ 1, %162 ], [ 1, %162 ], [ 1, %162 ], [ 1, %162 ], [ 1, %162 ], [ 1, %162 ]
   %190 = add i64 %.sroa.3.0.i.i.i.i, %.sroa.10.6.i.i
   %191 = icmp eq i64 %190, 1943
   br i1 %191, label %_ZN8unscanny7Scanner4snap17h2e39fcdb92f477b4E.exit.loopexit.i20.i.i, label %.lr.ph.i.i.i
@@ -6778,8 +6778,8 @@ default.unreachable2.i.i:                         ; preds = %47
   br label %_ZN10ttf_parser6tables4cmap8Subtable11glyph_index17h29cd81520ce026a6E.exit.i
 
 _ZN10ttf_parser6tables4cmap8Subtable11glyph_index17h29cd81520ce026a6E.exit.i: ; preds = %78, %74, %70, %66, %62, %58, %53
-  %82 = phi i16 [ %61, %58 ], [ %65, %62 ], [ %69, %66 ], [ %73, %70 ], [ %77, %74 ], [ %81, %78 ], [ %57, %53 ]
-  %.sroa.0.0.i.i = phi i16 [ %60, %58 ], [ %64, %62 ], [ %68, %66 ], [ %72, %70 ], [ %76, %74 ], [ %80, %78 ], [ %spec.select8.i.i.i, %53 ]
+  %82 = phi i16 [ %57, %53 ], [ %61, %58 ], [ %65, %62 ], [ %69, %66 ], [ %81, %78 ], [ %73, %70 ], [ %77, %74 ]
+  %.sroa.0.0.i.i = phi i16 [ %spec.select8.i.i.i, %53 ], [ %60, %58 ], [ %64, %62 ], [ %68, %66 ], [ %80, %78 ], [ %72, %70 ], [ %76, %74 ]
   %83 = icmp eq i16 %.sroa.0.0.i.i, 1
   br i1 %83, label %85, label %.backedge.i
 

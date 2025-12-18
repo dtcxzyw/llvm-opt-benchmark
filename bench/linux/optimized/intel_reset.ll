@@ -1538,7 +1538,7 @@ define dso_local i32 @__intel_engine_reset_bh(ptr noundef %0, ptr noundef %1) lo
   br label %.thread9
 
 .thread9:                                         ; preds = %18, %.lr.ph13, %8, %._crit_edge, %2
-  %84 = phi i32 [ -19, %2 ], [ %62, %._crit_edge ], [ 0, %8 ], [ %62, %.lr.ph13 ], [ 0, %18 ]
+  %84 = phi i32 [ -19, %2 ], [ 0, %8 ], [ %62, %._crit_edge ], [ %62, %.lr.ph13 ], [ 0, %18 ]
   ret i32 %84
 }
 

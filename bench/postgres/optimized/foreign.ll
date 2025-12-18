@@ -1084,7 +1084,7 @@ define dso_local noundef ptr @GetExistingLocalJoinPath(ptr noundef readonly capt
   br i1 %exitcond.not, label %.loopexit, label %9
 
 .loopexit:                                        ; preds = %46, %1, %.lr.ph, %38, %43, %33
-  %47 = phi ptr [ %.037.ph, %38 ], [ %.037.ph, %33 ], [ %.037.ph, %43 ], [ null, %.lr.ph ], [ null, %1 ], [ null, %46 ]
+  %47 = phi ptr [ %.037.ph, %38 ], [ %.037.ph, %33 ], [ %.037.ph, %43 ], [ null, %1 ], [ null, %.lr.ph ], [ null, %46 ]
   ret ptr %47
 }
 

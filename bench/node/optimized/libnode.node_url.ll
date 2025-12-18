@@ -424,7 +424,7 @@ lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i.i: ; preds = %lor.lhs.false.i.
   br label %if.else.i.i, !llvm.loop !7
 
 if.then8.i.i:                                     ; preds = %for.cond.i.i.i.i.i.i, %for.body.i.i.i.i, %if.end.i.i.i.i.i.i
-  %retval.sroa.0.1.i.i.i.i = phi ptr [ %6, %if.end.i.i.i.i.i.i ], [ %retval.sroa.0.0.i.i.i.i, %for.body.i.i.i.i ], [ %8, %for.cond.i.i.i.i.i.i ]
+  %retval.sroa.0.1.i.i.i.i = phi ptr [ %retval.sroa.0.0.i.i.i.i, %for.body.i.i.i.i ], [ %6, %if.end.i.i.i.i.i.i ], [ %8, %for.cond.i.i.i.i.i.i ]
   %graph_.i.i = getelementptr inbounds nuw i8, ptr %tracker, i64 8
   %11 = load ptr, ptr %graph_.i.i, align 8
   %_M_finish.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %tracker, i64 64
@@ -3067,14 +3067,14 @@ do.end107:                                        ; preds = %_ZNK2v820FunctionCa
   switch i32 %ref.tmp44.sroa.244.0.extract.trunc, label %do.body152 [
     i32 6, label %sw.bb
     i32 8, label %sw.bb111
-    i32 1, label %sw.epilog
+    i32 1, label %sw.bb114
     i32 2, label %sw.bb119
     i32 9, label %sw.bb124
     i32 5, label %sw.bb129
     i32 3, label %sw.bb134
     i32 0, label %sw.bb139
     i32 7, label %sw.bb144
-    i32 4, label %sw.bb147
+    i32 4, label %sw.epilog
   ]
 
 sw.bb:                                            ; preds = %do.end107
@@ -3084,6 +3084,10 @@ sw.bb:                                            ; preds = %do.end107
 sw.bb111:                                         ; preds = %do.end107
   call void @_ZN3ada14url_aggregator8set_hashESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(80) %out, i64 %64, ptr %63) #22
   br label %if.end159
+
+sw.bb114:                                         ; preds = %do.end107
+  %call117 = call noundef zeroext i1 @_ZN3ada14url_aggregator8set_hostESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(80) %out, i64 %64, ptr %63) #22
+  br i1 %call117, label %if.end159, label %if.then155
 
 sw.bb119:                                         ; preds = %do.end107
   %call122 = call noundef zeroext i1 @_ZN3ada14url_aggregator12set_hostnameESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(80) %out, i64 %64, ptr %63) #22
@@ -3109,20 +3113,16 @@ sw.bb144:                                         ; preds = %do.end107
   call void @_ZN3ada14url_aggregator10set_searchESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(80) %out, i64 %64, ptr %63) #22
   br label %if.end159
 
-sw.bb147:                                         ; preds = %do.end107
-  %call150 = call noundef zeroext i1 @_ZN3ada14url_aggregator12set_usernameESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(80) %out, i64 %64, ptr %63) #22
-  br i1 %call150, label %if.end159, label %if.then155
-
 do.body152:                                       ; preds = %do.end107
   call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node3url11BindingData6UpdateERKN2v820FunctionCallbackInfoINS2_5ValueEEEE4args_3) #22
   call void @abort() #23
   unreachable
 
 sw.epilog:                                        ; preds = %do.end107
-  %call117 = call noundef zeroext i1 @_ZN3ada14url_aggregator8set_hostESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(80) %out, i64 %64, ptr %63) #22
-  br i1 %call117, label %if.end159, label %if.then155
+  %call150 = call noundef zeroext i1 @_ZN3ada14url_aggregator12set_usernameESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(80) %out, i64 %64, ptr %63) #22
+  br i1 %call150, label %if.end159, label %if.then155
 
-if.then155:                                       ; preds = %sw.bb119, %sw.bb124, %sw.bb129, %sw.bb134, %sw.bb139, %sw.bb147, %sw.bb, %sw.epilog
+if.then155:                                       ; preds = %sw.bb114, %sw.bb119, %sw.bb124, %sw.bb129, %sw.bb134, %sw.bb139, %sw.bb, %sw.epilog
   %68 = load ptr, ptr %args, align 8
   %arrayidx.i313 = getelementptr inbounds nuw i8, ptr %68, i64 24
   %arrayidx.i755 = getelementptr inbounds nuw i8, ptr %68, i64 8
@@ -3134,7 +3134,7 @@ if.then155:                                       ; preds = %sw.bb119, %sw.bb124
   store i64 %72, ptr %arrayidx.i313, align 8
   br label %cleanup
 
-if.end159:                                        ; preds = %sw.bb119, %sw.bb124, %sw.bb129, %sw.bb134, %sw.bb139, %sw.bb147, %sw.bb, %sw.bb111, %sw.bb144, %sw.epilog
+if.end159:                                        ; preds = %sw.bb114, %sw.bb119, %sw.bb124, %sw.bb129, %sw.bb134, %sw.bb139, %sw.bb, %sw.bb111, %sw.bb144, %sw.epilog
   %components.i = getelementptr inbounds nuw i8, ptr %out, i64 48
   %type = getelementptr inbounds nuw i8, ptr %out, i64 11
   %73 = load i8, ptr %type, align 1
@@ -4469,7 +4469,7 @@ lor.lhs.false.return.loopexit_crit_edge.i.i.i.i:  ; preds = %lor.lhs.false.i.i.i
   br label %if.end12, !llvm.loop !7
 
 if.then:                                          ; preds = %for.cond.i.i.i.i, %for.body.i.i, %if.end.i.i.i.i
-  %retval.sroa.0.1.i.i = phi ptr [ %7, %if.end.i.i.i.i ], [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ %9, %for.cond.i.i.i.i ]
+  %retval.sroa.0.1.i.i = phi ptr [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ %7, %if.end.i.i.i.i ], [ %9, %for.cond.i.i.i.i ]
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %_M_start.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %12 = load ptr, ptr %_M_finish.i.i.i, align 8
@@ -4701,7 +4701,7 @@ lor.lhs.false.return.loopexit_crit_edge.i.i.i.i:  ; preds = %lor.lhs.false.i.i.i
   br label %if.end, !llvm.loop !7
 
 if.then:                                          ; preds = %for.cond.i.i.i.i, %for.body.i.i, %if.end.i.i.i.i
-  %retval.sroa.0.1.i.i = phi ptr [ %6, %if.end.i.i.i.i ], [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ %8, %for.cond.i.i.i.i ]
+  %retval.sroa.0.1.i.i = phi ptr [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ %6, %if.end.i.i.i.i ], [ %8, %for.cond.i.i.i.i ]
   %second = getelementptr inbounds nuw i8, ptr %retval.sroa.0.1.i.i, i64 16
   %11 = load ptr, ptr %second, align 8
   br label %return

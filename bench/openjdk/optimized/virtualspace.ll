@@ -536,7 +536,7 @@ _ZL22reserve_memory_specialPcmmmb.exit:           ; preds = %.preheader.split.sp
   br i1 %77, label %.preheader.split.split.split.split, label %.split54.us, !llvm.loop !6
 
 .split54.us:                                      ; preds = %74, %68, %62, %56, %50, %44
-  %.us-phi55 = phi i64 [ %69, %68 ], [ %45, %44 ], [ %51, %50 ], [ %57, %56 ], [ %63, %62 ], [ %75, %74 ]
+  %.us-phi55 = phi i64 [ %57, %56 ], [ %63, %62 ], [ %45, %44 ], [ %69, %68 ], [ %51, %50 ], [ %75, %74 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %78 = load i8, ptr @UseLargePages, align 1
   %79 = trunc i8 %78 to i1
@@ -605,9 +605,9 @@ _ZL14reserve_memoryPcmmib.exit:                   ; preds = %88, %90, %99
   br i1 %.not42, label %108, label %.sink.split
 
 .sink.split:                                      ; preds = %_ZL22reserve_memory_specialPcmmmb.exit, %_ZL22reserve_memory_specialPcmmmb.exit.us98, %_ZL22reserve_memory_specialPcmmmb.exit.us83, %_ZL22reserve_memory_specialPcmmmb.exit.us83.us, %_ZL22reserve_memory_specialPcmmmb.exit.us65, %_ZL22reserve_memory_specialPcmmmb.exit.us, %_ZL14reserve_memoryPcmmib.exit, %12
-  %.sink208 = phi ptr [ %11, %12 ], [ %.0.i, %_ZL14reserve_memoryPcmmib.exit ], [ %67, %_ZL22reserve_memory_specialPcmmmb.exit.us98 ], [ %43, %_ZL22reserve_memory_specialPcmmmb.exit.us ], [ %49, %_ZL22reserve_memory_specialPcmmmb.exit.us65 ], [ %55, %_ZL22reserve_memory_specialPcmmmb.exit.us83.us ], [ %61, %_ZL22reserve_memory_specialPcmmmb.exit.us83 ], [ %73, %_ZL22reserve_memory_specialPcmmmb.exit ]
-  %.sink204 = phi i64 [ %13, %12 ], [ %.0, %_ZL14reserve_memoryPcmmib.exit ], [ %.1.us91, %_ZL22reserve_memory_specialPcmmmb.exit.us98 ], [ %.1.us, %_ZL22reserve_memory_specialPcmmmb.exit.us ], [ %.1.us56, %_ZL22reserve_memory_specialPcmmmb.exit.us65 ], [ %.1.us73.us, %_ZL22reserve_memory_specialPcmmmb.exit.us83.us ], [ %.1.us73, %_ZL22reserve_memory_specialPcmmmb.exit.us83 ], [ %.1, %_ZL22reserve_memory_specialPcmmmb.exit ]
-  %.sink202 = phi i8 [ 1, %12 ], [ 0, %_ZL14reserve_memoryPcmmib.exit ], [ 1, %_ZL22reserve_memory_specialPcmmmb.exit.us98 ], [ 1, %_ZL22reserve_memory_specialPcmmmb.exit.us ], [ 1, %_ZL22reserve_memory_specialPcmmmb.exit.us65 ], [ 1, %_ZL22reserve_memory_specialPcmmmb.exit.us83.us ], [ 1, %_ZL22reserve_memory_specialPcmmmb.exit.us83 ], [ 1, %_ZL22reserve_memory_specialPcmmmb.exit ]
+  %.sink208 = phi ptr [ %11, %12 ], [ %49, %_ZL22reserve_memory_specialPcmmmb.exit.us65 ], [ %55, %_ZL22reserve_memory_specialPcmmmb.exit.us83.us ], [ %61, %_ZL22reserve_memory_specialPcmmmb.exit.us83 ], [ %43, %_ZL22reserve_memory_specialPcmmmb.exit.us ], [ %67, %_ZL22reserve_memory_specialPcmmmb.exit.us98 ], [ %.0.i, %_ZL14reserve_memoryPcmmib.exit ], [ %73, %_ZL22reserve_memory_specialPcmmmb.exit ]
+  %.sink204 = phi i64 [ %13, %12 ], [ %.1.us56, %_ZL22reserve_memory_specialPcmmmb.exit.us65 ], [ %.1.us73.us, %_ZL22reserve_memory_specialPcmmmb.exit.us83.us ], [ %.1.us73, %_ZL22reserve_memory_specialPcmmmb.exit.us83 ], [ %.1.us, %_ZL22reserve_memory_specialPcmmmb.exit.us ], [ %.1.us91, %_ZL22reserve_memory_specialPcmmmb.exit.us98 ], [ %.0, %_ZL14reserve_memoryPcmmib.exit ], [ %.1, %_ZL22reserve_memory_specialPcmmmb.exit ]
+  %.sink202 = phi i8 [ 1, %12 ], [ 1, %_ZL22reserve_memory_specialPcmmmb.exit.us65 ], [ 1, %_ZL22reserve_memory_specialPcmmmb.exit.us83.us ], [ 1, %_ZL22reserve_memory_specialPcmmmb.exit.us83 ], [ 1, %_ZL22reserve_memory_specialPcmmmb.exit.us ], [ 1, %_ZL22reserve_memory_specialPcmmmb.exit.us98 ], [ 0, %_ZL14reserve_memoryPcmmib.exit ], [ 1, %_ZL22reserve_memory_specialPcmmmb.exit ]
   %101 = zext i1 %5 to i8
   store ptr %.sink208, ptr %0, align 8
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1434,7 +1434,7 @@ _ZN17ReservedHeapSpace17try_reserve_rangeEPcS0_mS0_S0_mmm.exit93: ; preds = %.cr
   br label %_ZL38get_attach_addresses_for_disjoint_modev.exit
 
 _ZL38get_attach_addresses_for_disjoint_modev.exit: ; preds = %.critedge2.i96, %.lr.ph, %_ZN17ReservedHeapSpace17try_reserve_rangeEPcS0_mS0_S0_mmm.exit93, %._crit_edge
-  %.lcssa1835.i = phi i64 [ %.lcssa103, %._crit_edge ], [ 0, %_ZN17ReservedHeapSpace17try_reserve_rangeEPcS0_mS0_S0_mmm.exit93 ], [ %.lcssa103, %.lr.ph ], [ %144, %.critedge2.i96 ]
+  %.lcssa1835.i = phi i64 [ 0, %_ZN17ReservedHeapSpace17try_reserve_rangeEPcS0_mS0_S0_mmm.exit93 ], [ %.lcssa103, %._crit_edge ], [ %.lcssa103, %.lr.ph ], [ %144, %.critedge2.i96 ]
   %159 = getelementptr inbounds nuw i64, ptr @_ZZL38get_attach_addresses_for_disjoint_modevE9addresses, i64 %.lcssa1835.i
   %160 = load ptr, ptr %159, align 8
   %.not81111 = icmp eq ptr %160, null
@@ -2053,7 +2053,7 @@ _ZL15commit_expandedPcmmbb.exit43:                ; preds = %105, %114
   br label %123
 
 123:                                              ; preds = %.sink.split, %_ZL15commit_expandedPcmmbb.exit43, %_ZL15commit_expandedPcmmbb.exit40, %_ZL15commit_expandedPcmmbb.exit, %3
-  %.031 = phi i1 [ false, %3 ], [ false, %_ZL15commit_expandedPcmmbb.exit40 ], [ false, %_ZL15commit_expandedPcmmbb.exit ], [ false, %_ZL15commit_expandedPcmmbb.exit43 ], [ true, %.sink.split ]
+  %.031 = phi i1 [ false, %3 ], [ false, %_ZL15commit_expandedPcmmbb.exit43 ], [ false, %_ZL15commit_expandedPcmmbb.exit ], [ false, %_ZL15commit_expandedPcmmbb.exit40 ], [ true, %.sink.split ]
   ret i1 %.031
 }
 

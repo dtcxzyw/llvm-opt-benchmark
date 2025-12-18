@@ -385,7 +385,7 @@ define dso_local range(i32 -1, 1) i32 @unpack_slurm_step_layout(ptr noundef writ
   br label %.thread92
 
 .thread92:                                        ; preds = %52, %44, %38, %69, %20, %16, %66, %._crit_edge, %32, %29, %26, %23, %12, %83, %79
-  %.059 = phi ptr [ null, %12 ], [ %17, %23 ], [ %17, %26 ], [ %17, %29 ], [ %17, %32 ], [ %17, %._crit_edge ], [ %17, %66 ], [ %17, %79 ], [ %17, %69 ], [ %17, %38 ], [ null, %83 ], [ %17, %20 ], [ %17, %16 ], [ %17, %44 ], [ %17, %52 ]
+  %.059 = phi ptr [ null, %12 ], [ %17, %23 ], [ %17, %26 ], [ %17, %29 ], [ %17, %32 ], [ %17, %44 ], [ %17, %._crit_edge ], [ %17, %66 ], [ %17, %79 ], [ %17, %69 ], [ %17, %38 ], [ null, %83 ], [ %17, %20 ], [ %17, %16 ], [ %17, %52 ]
   %86 = call i32 @slurm_step_layout_destroy(ptr noundef %.059)
   store ptr null, ptr %0, align 8
   br label %87
@@ -829,11 +829,11 @@ define internal fastcc range(i32 -1, 1) i32 @_init_task_layout(ptr noundef captu
   br label %.critedge.i, !llvm.loop !14
 
 .critedge.i:                                      ; preds = %.lr.ph66.split.us.i, %.lr.ph66.split.i, %..critedge.i.loopexit102_crit_edge, %..critedge.i.loopexit_crit_edge, %.preheader.i
-  %189 = phi i32 [ %112, %.preheader.i ], [ %186, %..critedge.i.loopexit_crit_edge ], [ %148, %..critedge.i.loopexit102_crit_edge ], [ %186, %.lr.ph66.split.i ], [ %148, %.lr.ph66.split.us.i ]
-  %190 = phi i32 [ %113, %.preheader.i ], [ %186, %..critedge.i.loopexit_crit_edge ], [ %149, %..critedge.i.loopexit102_crit_edge ], [ %186, %.lr.ph66.split.i ], [ %149, %.lr.ph66.split.us.i ]
-  %191 = phi i32 [ 0, %.preheader.i ], [ %186, %..critedge.i.loopexit_crit_edge ], [ %149, %..critedge.i.loopexit102_crit_edge ], [ %186, %.lr.ph66.split.i ], [ %149, %.lr.ph66.split.us.i ]
-  %.148.lcssa.i = phi i32 [ %.04777.i, %.preheader.i ], [ %.249.i, %..critedge.i.loopexit_crit_edge ], [ %.249.us.i, %..critedge.i.loopexit102_crit_edge ], [ %.249.i, %.lr.ph66.split.i ], [ %.249.us.i, %.lr.ph66.split.us.i ]
-  %.0.lcssa.i = phi i1 [ false, %.preheader.i ], [ %.1.i, %..critedge.i.loopexit_crit_edge ], [ %.1.us.i, %..critedge.i.loopexit102_crit_edge ], [ %.1.i, %.lr.ph66.split.i ], [ %.1.us.i, %.lr.ph66.split.us.i ]
+  %189 = phi i32 [ %148, %..critedge.i.loopexit102_crit_edge ], [ %112, %.preheader.i ], [ %186, %.lr.ph66.split.i ], [ %186, %..critedge.i.loopexit_crit_edge ], [ %148, %.lr.ph66.split.us.i ]
+  %190 = phi i32 [ %149, %..critedge.i.loopexit102_crit_edge ], [ %113, %.preheader.i ], [ %186, %.lr.ph66.split.i ], [ %186, %..critedge.i.loopexit_crit_edge ], [ %149, %.lr.ph66.split.us.i ]
+  %191 = phi i32 [ %149, %..critedge.i.loopexit102_crit_edge ], [ 0, %.preheader.i ], [ %186, %.lr.ph66.split.i ], [ %186, %..critedge.i.loopexit_crit_edge ], [ %149, %.lr.ph66.split.us.i ]
+  %.148.lcssa.i = phi i32 [ %.249.us.i, %..critedge.i.loopexit102_crit_edge ], [ %.04777.i, %.preheader.i ], [ %.249.i, %.lr.ph66.split.i ], [ %.249.i, %..critedge.i.loopexit_crit_edge ], [ %.249.us.i, %.lr.ph66.split.us.i ]
+  %.0.lcssa.i = phi i1 [ %.1.us.i, %..critedge.i.loopexit102_crit_edge ], [ false, %.preheader.i ], [ %.1.i, %.lr.ph66.split.i ], [ %.1.i, %..critedge.i.loopexit_crit_edge ], [ %.1.us.i, %.lr.ph66.split.us.i ]
   %not..0.lcssa.i = xor i1 %.0.lcssa.i, true
   %spec.select58.i = or i1 %.145.fr.i, %not..0.lcssa.i
   %192 = load i32, ptr %104, align 8
@@ -1673,7 +1673,7 @@ define dso_local i32 @slurm_step_layout_host_id(ptr noundef readonly captures(no
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge, %.loopexit.loopexit, %.preheader20, %2, %5, %8
-  %.017 = phi i32 [ -1, %2 ], [ -1, %8 ], [ -1, %5 ], [ -1, %.preheader20 ], [ %24, %.loopexit.loopexit ], [ -1, %._crit_edge ]
+  %.017 = phi i32 [ -1, %.preheader20 ], [ -1, %2 ], [ -1, %8 ], [ -1, %5 ], [ %24, %.loopexit.loopexit ], [ -1, %._crit_edge ]
   ret i32 %.017
 }
 
@@ -1744,8 +1744,8 @@ slurm_step_layout_host_id.exit:                   ; preds = %20
   %27 = tail call ptr @nodelist_nth_host(ptr noundef %26, i32 noundef %24) #7
   br label %slurm_step_layout_host_id.exit.thread
 
-slurm_step_layout_host_id.exit.thread:            ; preds = %._crit_edge.i, %.preheader20.i, %5, %8, %2, %slurm_step_layout_host_id.exit
-  %.0 = phi ptr [ %27, %slurm_step_layout_host_id.exit ], [ null, %2 ], [ null, %8 ], [ null, %5 ], [ null, %.preheader20.i ], [ null, %._crit_edge.i ]
+slurm_step_layout_host_id.exit.thread:            ; preds = %._crit_edge.i, %5, %8, %2, %.preheader20.i, %slurm_step_layout_host_id.exit
+  %.0 = phi ptr [ %27, %slurm_step_layout_host_id.exit ], [ null, %5 ], [ null, %.preheader20.i ], [ null, %2 ], [ null, %8 ], [ null, %._crit_edge.i ]
   ret ptr %.0
 }
 
@@ -2508,10 +2508,10 @@ define internal fastcc void @_task_layout_block(ptr noundef readonly captures(no
   br label %.critedge8, !llvm.loop !44
 
 .critedge8:                                       ; preds = %.lr.ph129.split, %.lr.ph129.split.us, %.lr.ph129.split.preheader, %..critedge8.loopexit2_crit_edge, %.lr.ph129.split.us.preheader, %..critedge8.loopexit_crit_edge, %.preheader
-  %129 = phi i32 [ %91, %.preheader ], [ %91, %.lr.ph129.split.us.preheader ], [ %106, %..critedge8.loopexit_crit_edge ], [ %91, %.lr.ph129.split.preheader ], [ %126, %..critedge8.loopexit2_crit_edge ], [ %106, %.lr.ph129.split.us ], [ %126, %.lr.ph129.split ]
-  %130 = phi i32 [ 0, %.preheader ], [ %92, %.lr.ph129.split.us.preheader ], [ %106, %..critedge8.loopexit_crit_edge ], [ %92, %.lr.ph129.split.preheader ], [ %126, %..critedge8.loopexit2_crit_edge ], [ %106, %.lr.ph129.split.us ], [ %126, %.lr.ph129.split ]
-  %.7.lcssa = phi i32 [ %.6139, %.preheader ], [ %.6139, %.lr.ph129.split.us.preheader ], [ %102, %..critedge8.loopexit_crit_edge ], [ %.6139, %.lr.ph129.split.preheader ], [ %.8, %..critedge8.loopexit2_crit_edge ], [ %102, %.lr.ph129.split.us ], [ %.8, %.lr.ph129.split ]
-  %.0.lcssa = phi i1 [ false, %.preheader ], [ false, %.lr.ph129.split.us.preheader ], [ %spec.select.us, %..critedge8.loopexit_crit_edge ], [ false, %.lr.ph129.split.preheader ], [ %.1, %..critedge8.loopexit2_crit_edge ], [ %spec.select.us, %.lr.ph129.split.us ], [ %.1, %.lr.ph129.split ]
+  %129 = phi i32 [ %106, %.lr.ph129.split.us ], [ %91, %.preheader ], [ %91, %.lr.ph129.split.us.preheader ], [ %106, %..critedge8.loopexit_crit_edge ], [ %91, %.lr.ph129.split.preheader ], [ %126, %..critedge8.loopexit2_crit_edge ], [ %126, %.lr.ph129.split ]
+  %130 = phi i32 [ %106, %.lr.ph129.split.us ], [ 0, %.preheader ], [ %92, %.lr.ph129.split.us.preheader ], [ %106, %..critedge8.loopexit_crit_edge ], [ %92, %.lr.ph129.split.preheader ], [ %126, %..critedge8.loopexit2_crit_edge ], [ %126, %.lr.ph129.split ]
+  %.7.lcssa = phi i32 [ %102, %.lr.ph129.split.us ], [ %.6139, %.preheader ], [ %.6139, %.lr.ph129.split.us.preheader ], [ %102, %..critedge8.loopexit_crit_edge ], [ %.6139, %.lr.ph129.split.preheader ], [ %.8, %..critedge8.loopexit2_crit_edge ], [ %.8, %.lr.ph129.split ]
+  %.0.lcssa = phi i1 [ %spec.select.us, %.lr.ph129.split.us ], [ false, %.preheader ], [ false, %.lr.ph129.split.us.preheader ], [ %spec.select.us, %..critedge8.loopexit_crit_edge ], [ false, %.lr.ph129.split.preheader ], [ %.1, %..critedge8.loopexit2_crit_edge ], [ %.1, %.lr.ph129.split ]
   %not..0.lcssa = xor i1 %.0.lcssa, true
   %spec.select100 = or i1 %.082.fr, %not..0.lcssa
   %131 = load i32, ptr %87, align 8
@@ -2519,7 +2519,7 @@ define internal fastcc void @_task_layout_block(ptr noundef readonly captures(no
   br i1 %132, label %.preheader, label %.loopexit, !llvm.loop !45
 
 .loopexit:                                        ; preds = %.critedge6, %.critedge8, %.critedge97..loopexit_crit_edge, %.critedge2
-  %133 = phi i32 [ %.pre184, %.critedge97..loopexit_crit_edge ], [ %64, %.critedge2 ], [ %129, %.critedge8 ], [ %83, %.critedge6 ]
+  %133 = phi i32 [ %.pre184, %.critedge97..loopexit_crit_edge ], [ %129, %.critedge8 ], [ %64, %.critedge2 ], [ %83, %.critedge6 ]
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.not158 = icmp eq i32 %133, 0
   br i1 %.not158, label %._crit_edge149, label %.lr.ph148

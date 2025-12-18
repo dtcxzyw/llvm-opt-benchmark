@@ -3000,7 +3000,7 @@ _ZN11ast_manager7inc_refEP3ast.exit.i104:         ; preds = %169
   br i1 %.not27.old.i.i.i, label %.loopexit349, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %215, %212
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %215 ], [ %214, %212 ]
+  %.137.i.i.i.be = phi ptr [ %214, %212 ], [ %.old.i.i.i, %215 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !389
 
 216:                                              ; preds = %2
@@ -3253,7 +3253,7 @@ _ZN7obj_refI4expr11ast_managerEaSEPS0_.exit121:   ; preds = %282, %273, %276
   br i1 %.not27.old.i.i.i134, label %_ZNK7obj_mapI4exprN26ctx_solver_simplify_tactic8expr_posEE4findEPS0_RS2_.exit.thread, label %.lr.ph38.i.i.i130.backedge
 
 .lr.ph38.i.i.i130.backedge:                       ; preds = %318, %315
-  %.137.i.i.i131.be = phi ptr [ %.old.i.i.i133, %318 ], [ %317, %315 ]
+  %.137.i.i.i131.be = phi ptr [ %317, %315 ], [ %.old.i.i.i133, %318 ]
   br label %.lr.ph38.i.i.i130, !llvm.loop !389
 
 _ZNK7obj_mapI4exprN26ctx_solver_simplify_tactic8expr_posEE4findEPS0_RS2_.exit: ; preds = %299, %310
@@ -3790,9 +3790,9 @@ _ZN11ast_manager7inc_refEP3ast.exit.i210:         ; preds = %_ZN11ast_manager5mk
           to label %559 unwind label %.loopexit.split-lp, !llvm.loop !399
 
 _ZNK7obj_mapI4exprN26ctx_solver_simplify_tactic8expr_posEE8containsEPS0_.exitthread-pre-split: ; preds = %196, %207, %255, %513
-  %540 = phi ptr [ null, %513 ], [ %116, %255 ], [ %116, %207 ], [ %116, %196 ]
-  %.sroa.10309.1.ph = phi ptr [ %.sroa.10309.2.lcssa522532, %513 ], [ %.sroa.10309.0394, %255 ], [ %.sroa.10309.0394, %207 ], [ %.sroa.10309.0394, %196 ]
-  %.155.ph = phi i32 [ %.256534, %513 ], [ %.054395, %255 ], [ %.054395, %207 ], [ %.054395, %196 ]
+  %540 = phi ptr [ %116, %207 ], [ %116, %255 ], [ null, %513 ], [ %116, %196 ]
+  %.sroa.10309.1.ph = phi ptr [ %.sroa.10309.0394, %207 ], [ %.sroa.10309.0394, %255 ], [ %.sroa.10309.2.lcssa522532, %513 ], [ %.sroa.10309.0394, %196 ]
+  %.155.ph = phi i32 [ %.054395, %207 ], [ %.054395, %255 ], [ %.256534, %513 ], [ %.054395, %196 ]
   %.pr325 = load ptr, ptr %16, align 8, !tbaa !357
   br label %_ZNK7obj_mapI4exprN26ctx_solver_simplify_tactic8expr_posEE8containsEPS0_.exit
 
@@ -3963,7 +3963,7 @@ _ZN11ast_manager3incEv.exit218:                   ; preds = %.critedge
   br i1 %.not27.old.i.i.i231, label %.loopexit, label %.lr.ph38.i.i.i227.backedge
 
 .lr.ph38.i.i.i227.backedge:                       ; preds = %610, %607
-  %.137.i.i.i228.be = phi ptr [ %.old.i.i.i230, %610 ], [ %609, %607 ]
+  %.137.i.i.i228.be = phi ptr [ %609, %607 ], [ %.old.i.i.i230, %610 ]
   br label %.lr.ph38.i.i.i227, !llvm.loop !389
 
 _ZNK7obj_mapI4exprN26ctx_solver_simplify_tactic8expr_posEE4findEPS0_RS2_.exit238: ; preds = %591, %602
@@ -4589,7 +4589,7 @@ define linkonce_odr hidden void @_ZN26ctx_solver_simplify_tactic8mk_freshERjP4so
   br i1 %.not27.old.i.i.i, label %.loopexit, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %51, %48
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %51 ], [ %50, %48 ]
+  %.137.i.i.i.be = phi ptr [ %50, %48 ], [ %.old.i.i.i, %51 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !402
 
 _ZNK7obj_mapI4sortP9func_declE4findEPS0_RS2_.exit: ; preds = %32, %43

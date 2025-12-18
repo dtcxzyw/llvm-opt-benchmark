@@ -3184,8 +3184,8 @@ for.inc.i.i:                                      ; preds = %_ZN2v86GlobalINS_7C
   br label %"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPN2v86GlobalINS2_7ContextEEESt6vectorIS5_SaIS5_EEEEZN4node11Environment14UntrackContextENS2_5LocalIS4_EEE3$_0ET_SG_SG_T0_.exit"
 
 "_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPN2v86GlobalINS2_7ContextEEESt6vectorIS5_SaIS5_EEEEZN4node11Environment14UntrackContextENS2_5LocalIS4_EEE3$_0ET_SG_SG_T0_.exit": ; preds = %"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPN2v86GlobalINS2_7ContextEEESt6vectorIS5_SaIS5_EEEEZN4node11Environment14UntrackContextENS2_5LocalIS4_EEE3$_0ET_SG_SG_T0_.exit.loopexit", %for.end.i.i.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN2v86GlobalINS2_7ContextEEESt6vectorIS5_SaIS5_EEEENS0_5__ops10_Iter_predIZN4node11Environment14UntrackContextENS2_5LocalIS4_EEE3$_0EEET_SJ_SJ_T0_.exit.i.i"
-  %6 = phi ptr [ %2, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN2v86GlobalINS2_7ContextEEESt6vectorIS5_SaIS5_EEEENS0_5__ops10_Iter_predIZN4node11Environment14UntrackContextENS2_5LocalIS4_EEE3$_0EEET_SJ_SJ_T0_.exit.i.i" ], [ %2, %for.end.i.i.i.i ], [ %.pre, %"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPN2v86GlobalINS2_7ContextEEESt6vectorIS5_SaIS5_EEEEZN4node11Environment14UntrackContextENS2_5LocalIS4_EEE3$_0ET_SG_SG_T0_.exit.loopexit" ]
-  %retval.sroa.0.0.i.i = phi ptr [ %retval.sroa.0.0.in.sroa.speculated.i.i.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN2v86GlobalINS2_7ContextEEESt6vectorIS5_SaIS5_EEEENS0_5__ops10_Iter_predIZN4node11Environment14UntrackContextENS2_5LocalIS4_EEE3$_0EEET_SJ_SJ_T0_.exit.i.i" ], [ %2, %for.end.i.i.i.i ], [ %retval.sroa.0.2.i.i, %"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPN2v86GlobalINS2_7ContextEEESt6vectorIS5_SaIS5_EEEEZN4node11Environment14UntrackContextENS2_5LocalIS4_EEE3$_0ET_SG_SG_T0_.exit.loopexit" ]
+  %6 = phi ptr [ %2, %for.end.i.i.i.i ], [ %2, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN2v86GlobalINS2_7ContextEEESt6vectorIS5_SaIS5_EEEENS0_5__ops10_Iter_predIZN4node11Environment14UntrackContextENS2_5LocalIS4_EEE3$_0EEET_SJ_SJ_T0_.exit.i.i" ], [ %.pre, %"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPN2v86GlobalINS2_7ContextEEESt6vectorIS5_SaIS5_EEEEZN4node11Environment14UntrackContextENS2_5LocalIS4_EEE3$_0ET_SG_SG_T0_.exit.loopexit" ]
+  %retval.sroa.0.0.i.i = phi ptr [ %2, %for.end.i.i.i.i ], [ %retval.sroa.0.0.in.sroa.speculated.i.i.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN2v86GlobalINS2_7ContextEEESt6vectorIS5_SaIS5_EEEENS0_5__ops10_Iter_predIZN4node11Environment14UntrackContextENS2_5LocalIS4_EEE3$_0EEET_SJ_SJ_T0_.exit.i.i" ], [ %retval.sroa.0.2.i.i, %"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPN2v86GlobalINS2_7ContextEEESt6vectorIS5_SaIS5_EEEEZN4node11Environment14UntrackContextENS2_5LocalIS4_EEE3$_0ET_SG_SG_T0_.exit.loopexit" ]
   %call23 = call ptr @_ZNSt6vectorIN2v86GlobalINS0_7ContextEEESaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EESA_(ptr noundef nonnull align 8 dereferenceable(24) %contexts_, ptr %retval.sroa.0.0.i.i, ptr %6)
   %7 = load ptr, ptr %contexts_, align 8
   %8 = load ptr, ptr %_M_finish.i, align 8
@@ -46301,7 +46301,7 @@ if.then26:                                        ; preds = %if.end3.i.i.i.i, %f
   br label %if.end32
 
 if.end32:                                         ; preds = %for.cond.i.i.i.i, %for.body.i.i, %if.end.i.i.i.i14, %if.then26
-  %it.sroa.0.0 = phi ptr [ %42, %if.then26 ], [ %38, %if.end.i.i.i.i14 ], [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ %40, %for.cond.i.i.i.i ]
+  %it.sroa.0.0 = phi ptr [ %42, %if.then26 ], [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ %38, %if.end.i.i.i.i14 ], [ %40, %for.cond.i.i.i.i ]
   %second = getelementptr inbounds nuw i8, ptr %it.sroa.0.0, i64 16
   %43 = load ptr, ptr %second, align 8
   %wrapper_data_ = getelementptr inbounds nuw i8, ptr %this, i64 4184
@@ -46605,7 +46605,7 @@ do.body36:                                        ; preds = %if.end3.i.i.i.i, %f
   unreachable
 
 do.end40:                                         ; preds = %for.cond.i.i.i.i, %for.body.i.i, %if.end.i.i.i.i
-  %retval.sroa.0.1.i.i = phi ptr [ %5, %if.end.i.i.i.i ], [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ %7, %for.cond.i.i.i.i ]
+  %retval.sroa.0.1.i.i = phi ptr [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ %5, %if.end.i.i.i.i ], [ %7, %for.cond.i.i.i.i ]
   %second = getelementptr inbounds nuw i8, ptr %retval.sroa.0.1.i.i, i64 16
   %9 = load ptr, ptr %second, align 8
   tail call void @uv_mutex_unlock(ptr noundef nonnull @_ZN4node11IsolateData19isolate_data_mutex_E) #25
@@ -62651,7 +62651,7 @@ do.body12:                                        ; preds = %if.end3.i.i.i.i, %f
   unreachable
 
 _ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EEaSEOS4_.exit: ; preds = %for.cond.i.i.i.i, %for.body.i.i, %if.end.i.i.i.i
-  %retval.sroa.0.1.i.i = phi ptr [ %7, %if.end.i.i.i.i ], [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ %9, %for.cond.i.i.i.i ]
+  %retval.sroa.0.1.i.i = phi ptr [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ %7, %if.end.i.i.i.i ], [ %9, %for.cond.i.i.i.i ]
   %second = getelementptr inbounds nuw i8, ptr %retval.sroa.0.1.i.i, i64 16
   %12 = load ptr, ptr %second, align 8
   store ptr null, ptr %second, align 8
@@ -69019,7 +69019,7 @@ lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i.i: ; preds = %lor.lhs.false.i.
   br label %if.else.i.i, !llvm.loop !1020
 
 if.then8.i.i:                                     ; preds = %for.cond.i.i.i.i.i.i, %for.body.i.i.i.i, %if.end.i.i.i.i.i.i
-  %retval.sroa.0.1.i.i.i.i = phi ptr [ %6, %if.end.i.i.i.i.i.i ], [ %retval.sroa.0.0.i.i.i.i, %for.body.i.i.i.i ], [ %8, %for.cond.i.i.i.i.i.i ]
+  %retval.sroa.0.1.i.i.i.i = phi ptr [ %retval.sroa.0.0.i.i.i.i, %for.body.i.i.i.i ], [ %6, %if.end.i.i.i.i.i.i ], [ %8, %for.cond.i.i.i.i.i.i ]
   %graph_.i.i = getelementptr inbounds nuw i8, ptr %tracker, i64 8
   %11 = load ptr, ptr %graph_.i.i, align 8
   %_M_finish.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %tracker, i64 64
@@ -69199,7 +69199,7 @@ lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i.i: ; preds = %lor.lhs.false.i.
   br label %if.else.i.i, !llvm.loop !1020
 
 if.then8.i.i:                                     ; preds = %for.cond.i.i.i.i.i.i, %for.body.i.i.i.i, %if.end.i.i.i.i.i.i
-  %retval.sroa.0.1.i.i.i.i = phi ptr [ %6, %if.end.i.i.i.i.i.i ], [ %retval.sroa.0.0.i.i.i.i, %for.body.i.i.i.i ], [ %8, %for.cond.i.i.i.i.i.i ]
+  %retval.sroa.0.1.i.i.i.i = phi ptr [ %retval.sroa.0.0.i.i.i.i, %for.body.i.i.i.i ], [ %6, %if.end.i.i.i.i.i.i ], [ %8, %for.cond.i.i.i.i.i.i ]
   %graph_.i.i = getelementptr inbounds nuw i8, ptr %tracker, i64 8
   %11 = load ptr, ptr %graph_.i.i, align 8
   %_M_finish.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %tracker, i64 64
@@ -69979,7 +69979,7 @@ lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i.i: ; preds = %lor.lhs.false.i.
   br label %if.else.i.i, !llvm.loop !1020
 
 if.then8.i.i:                                     ; preds = %for.cond.i.i.i.i.i.i, %for.body.i.i.i.i, %if.end.i.i.i.i.i.i
-  %retval.sroa.0.1.i.i.i.i = phi ptr [ %6, %if.end.i.i.i.i.i.i ], [ %retval.sroa.0.0.i.i.i.i, %for.body.i.i.i.i ], [ %8, %for.cond.i.i.i.i.i.i ]
+  %retval.sroa.0.1.i.i.i.i = phi ptr [ %retval.sroa.0.0.i.i.i.i, %for.body.i.i.i.i ], [ %6, %if.end.i.i.i.i.i.i ], [ %8, %for.cond.i.i.i.i.i.i ]
   %graph_.i.i = getelementptr inbounds nuw i8, ptr %tracker, i64 8
   %11 = load ptr, ptr %graph_.i.i, align 8
   %_M_finish.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %tracker, i64 64
@@ -70086,7 +70086,7 @@ lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i.i22: ; preds = %lor.lhs.false.
   br label %if.else.i.i23, !llvm.loop !1020
 
 if.then8.i.i26:                                   ; preds = %for.cond.i.i.i.i.i.i24, %for.body.i.i.i.i52, %if.end.i.i.i.i.i.i12
-  %retval.sroa.0.1.i.i.i.i27 = phi ptr [ %27, %if.end.i.i.i.i.i.i12 ], [ %retval.sroa.0.0.i.i.i.i50, %for.body.i.i.i.i52 ], [ %29, %for.cond.i.i.i.i.i.i24 ]
+  %retval.sroa.0.1.i.i.i.i27 = phi ptr [ %retval.sroa.0.0.i.i.i.i50, %for.body.i.i.i.i52 ], [ %27, %if.end.i.i.i.i.i.i12 ], [ %29, %for.cond.i.i.i.i.i.i24 ]
   %graph_.i.i28 = getelementptr inbounds nuw i8, ptr %tracker, i64 8
   %32 = load ptr, ptr %graph_.i.i28, align 8
   %_M_finish.i.i.i.i.i29 = getelementptr inbounds nuw i8, ptr %tracker, i64 64
@@ -70193,7 +70193,7 @@ lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i.i74: ; preds = %lor.lhs.false.
   br label %if.else.i.i75, !llvm.loop !1020
 
 if.then8.i.i78:                                   ; preds = %for.cond.i.i.i.i.i.i76, %for.body.i.i.i.i104, %if.end.i.i.i.i.i.i64
-  %retval.sroa.0.1.i.i.i.i79 = phi ptr [ %48, %if.end.i.i.i.i.i.i64 ], [ %retval.sroa.0.0.i.i.i.i102, %for.body.i.i.i.i104 ], [ %50, %for.cond.i.i.i.i.i.i76 ]
+  %retval.sroa.0.1.i.i.i.i79 = phi ptr [ %retval.sroa.0.0.i.i.i.i102, %for.body.i.i.i.i104 ], [ %48, %if.end.i.i.i.i.i.i64 ], [ %50, %for.cond.i.i.i.i.i.i76 ]
   %graph_.i.i80 = getelementptr inbounds nuw i8, ptr %tracker, i64 8
   %53 = load ptr, ptr %graph_.i.i80, align 8
   %_M_finish.i.i.i.i.i81 = getelementptr inbounds nuw i8, ptr %tracker, i64 64
@@ -71443,7 +71443,7 @@ lor.lhs.false.return.loopexit_crit_edge.i.i.i.i:  ; preds = %lor.lhs.false.i.i.i
   br label %if.end12, !llvm.loop !1020
 
 if.then:                                          ; preds = %for.cond.i.i.i.i, %for.body.i.i, %if.end.i.i.i.i
-  %retval.sroa.0.1.i.i = phi ptr [ %7, %if.end.i.i.i.i ], [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ %9, %for.cond.i.i.i.i ]
+  %retval.sroa.0.1.i.i = phi ptr [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ %7, %if.end.i.i.i.i ], [ %9, %for.cond.i.i.i.i ]
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %_M_start.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %12 = load ptr, ptr %_M_finish.i.i.i, align 8
@@ -72321,7 +72321,7 @@ lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i: ; preds = %lor.lhs.false.i.i.
   br label %if.else.i, !llvm.loop !1020
 
 if.then8.i:                                       ; preds = %for.cond.i.i.i.i.i, %for.body.i.i.i, %if.end.i.i.i.i.i
-  %retval.sroa.0.1.i.i.i = phi ptr [ %7, %if.end.i.i.i.i.i ], [ %retval.sroa.0.0.i.i.i, %for.body.i.i.i ], [ %9, %for.cond.i.i.i.i.i ]
+  %retval.sroa.0.1.i.i.i = phi ptr [ %retval.sroa.0.0.i.i.i, %for.body.i.i.i ], [ %7, %if.end.i.i.i.i.i ], [ %9, %for.cond.i.i.i.i.i ]
   %graph_.i = getelementptr inbounds nuw i8, ptr %tracker, i64 8
   %12 = load ptr, ptr %graph_.i, align 8
   %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %tracker, i64 64
@@ -72433,7 +72433,7 @@ lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i.i: ; preds = %lor.lhs.false.i.
   br label %if.else.i.i, !llvm.loop !1020
 
 if.then8.i.i:                                     ; preds = %for.cond.i.i.i.i.i.i, %for.body.i.i.i.i, %if.end.i.i.i.i.i.i
-  %retval.sroa.0.1.i.i.i.i = phi ptr [ %28, %if.end.i.i.i.i.i.i ], [ %retval.sroa.0.0.i.i.i.i, %for.body.i.i.i.i ], [ %30, %for.cond.i.i.i.i.i.i ]
+  %retval.sroa.0.1.i.i.i.i = phi ptr [ %retval.sroa.0.0.i.i.i.i, %for.body.i.i.i.i ], [ %28, %if.end.i.i.i.i.i.i ], [ %30, %for.cond.i.i.i.i.i.i ]
   %graph_.i.i = getelementptr inbounds nuw i8, ptr %tracker, i64 8
   %33 = load ptr, ptr %graph_.i.i, align 8
   %_M_finish.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %tracker, i64 64
@@ -72540,7 +72540,7 @@ lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i.i32: ; preds = %lor.lhs.false.
   br label %if.else.i.i33, !llvm.loop !1020
 
 if.then8.i.i36:                                   ; preds = %for.cond.i.i.i.i.i.i34, %for.body.i.i.i.i62, %if.end.i.i.i.i.i.i22
-  %retval.sroa.0.1.i.i.i.i37 = phi ptr [ %49, %if.end.i.i.i.i.i.i22 ], [ %retval.sroa.0.0.i.i.i.i60, %for.body.i.i.i.i62 ], [ %51, %for.cond.i.i.i.i.i.i34 ]
+  %retval.sroa.0.1.i.i.i.i37 = phi ptr [ %retval.sroa.0.0.i.i.i.i60, %for.body.i.i.i.i62 ], [ %49, %if.end.i.i.i.i.i.i22 ], [ %51, %for.cond.i.i.i.i.i.i34 ]
   %graph_.i.i38 = getelementptr inbounds nuw i8, ptr %tracker, i64 8
   %54 = load ptr, ptr %graph_.i.i38, align 8
   %_M_finish.i.i.i.i.i39 = getelementptr inbounds nuw i8, ptr %tracker, i64 64
@@ -72647,7 +72647,7 @@ lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i.i84: ; preds = %lor.lhs.false.
   br label %if.else.i.i85, !llvm.loop !1020
 
 if.then8.i.i88:                                   ; preds = %for.cond.i.i.i.i.i.i86, %for.body.i.i.i.i114, %if.end.i.i.i.i.i.i74
-  %retval.sroa.0.1.i.i.i.i89 = phi ptr [ %70, %if.end.i.i.i.i.i.i74 ], [ %retval.sroa.0.0.i.i.i.i112, %for.body.i.i.i.i114 ], [ %72, %for.cond.i.i.i.i.i.i86 ]
+  %retval.sroa.0.1.i.i.i.i89 = phi ptr [ %retval.sroa.0.0.i.i.i.i112, %for.body.i.i.i.i114 ], [ %70, %if.end.i.i.i.i.i.i74 ], [ %72, %for.cond.i.i.i.i.i.i86 ]
   %graph_.i.i90 = getelementptr inbounds nuw i8, ptr %tracker, i64 8
   %75 = load ptr, ptr %graph_.i.i90, align 8
   %_M_finish.i.i.i.i.i91 = getelementptr inbounds nuw i8, ptr %tracker, i64 64
@@ -72754,7 +72754,7 @@ lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i.i136: ; preds = %lor.lhs.false
   br label %if.else.i.i137, !llvm.loop !1020
 
 if.then8.i.i140:                                  ; preds = %for.cond.i.i.i.i.i.i138, %for.body.i.i.i.i166, %if.end.i.i.i.i.i.i126
-  %retval.sroa.0.1.i.i.i.i141 = phi ptr [ %91, %if.end.i.i.i.i.i.i126 ], [ %retval.sroa.0.0.i.i.i.i164, %for.body.i.i.i.i166 ], [ %93, %for.cond.i.i.i.i.i.i138 ]
+  %retval.sroa.0.1.i.i.i.i141 = phi ptr [ %retval.sroa.0.0.i.i.i.i164, %for.body.i.i.i.i166 ], [ %91, %if.end.i.i.i.i.i.i126 ], [ %93, %for.cond.i.i.i.i.i.i138 ]
   %graph_.i.i142 = getelementptr inbounds nuw i8, ptr %tracker, i64 8
   %96 = load ptr, ptr %graph_.i.i142, align 8
   %_M_finish.i.i.i.i.i143 = getelementptr inbounds nuw i8, ptr %tracker, i64 64
@@ -72861,7 +72861,7 @@ lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i.i188: ; preds = %lor.lhs.false
   br label %if.else.i.i189, !llvm.loop !1020
 
 if.then8.i.i192:                                  ; preds = %for.cond.i.i.i.i.i.i190, %for.body.i.i.i.i218, %if.end.i.i.i.i.i.i178
-  %retval.sroa.0.1.i.i.i.i193 = phi ptr [ %112, %if.end.i.i.i.i.i.i178 ], [ %retval.sroa.0.0.i.i.i.i216, %for.body.i.i.i.i218 ], [ %114, %for.cond.i.i.i.i.i.i190 ]
+  %retval.sroa.0.1.i.i.i.i193 = phi ptr [ %retval.sroa.0.0.i.i.i.i216, %for.body.i.i.i.i218 ], [ %112, %if.end.i.i.i.i.i.i178 ], [ %114, %for.cond.i.i.i.i.i.i190 ]
   %graph_.i.i194 = getelementptr inbounds nuw i8, ptr %tracker, i64 8
   %117 = load ptr, ptr %graph_.i.i194, align 8
   %_M_finish.i.i.i.i.i195 = getelementptr inbounds nuw i8, ptr %tracker, i64 64
@@ -72968,7 +72968,7 @@ lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i.i240: ; preds = %lor.lhs.false
   br label %if.else.i.i241, !llvm.loop !1020
 
 if.then8.i.i244:                                  ; preds = %for.cond.i.i.i.i.i.i242, %for.body.i.i.i.i270, %if.end.i.i.i.i.i.i230
-  %retval.sroa.0.1.i.i.i.i245 = phi ptr [ %133, %if.end.i.i.i.i.i.i230 ], [ %retval.sroa.0.0.i.i.i.i268, %for.body.i.i.i.i270 ], [ %135, %for.cond.i.i.i.i.i.i242 ]
+  %retval.sroa.0.1.i.i.i.i245 = phi ptr [ %retval.sroa.0.0.i.i.i.i268, %for.body.i.i.i.i270 ], [ %133, %if.end.i.i.i.i.i.i230 ], [ %135, %for.cond.i.i.i.i.i.i242 ]
   %graph_.i.i246 = getelementptr inbounds nuw i8, ptr %tracker, i64 8
   %138 = load ptr, ptr %graph_.i.i246, align 8
   %_M_finish.i.i.i.i.i247 = getelementptr inbounds nuw i8, ptr %tracker, i64 64
@@ -73075,7 +73075,7 @@ lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i.i292: ; preds = %lor.lhs.false
   br label %if.else.i.i293, !llvm.loop !1020
 
 if.then8.i.i296:                                  ; preds = %for.cond.i.i.i.i.i.i294, %for.body.i.i.i.i322, %if.end.i.i.i.i.i.i282
-  %retval.sroa.0.1.i.i.i.i297 = phi ptr [ %154, %if.end.i.i.i.i.i.i282 ], [ %retval.sroa.0.0.i.i.i.i320, %for.body.i.i.i.i322 ], [ %156, %for.cond.i.i.i.i.i.i294 ]
+  %retval.sroa.0.1.i.i.i.i297 = phi ptr [ %retval.sroa.0.0.i.i.i.i320, %for.body.i.i.i.i322 ], [ %154, %if.end.i.i.i.i.i.i282 ], [ %156, %for.cond.i.i.i.i.i.i294 ]
   %graph_.i.i298 = getelementptr inbounds nuw i8, ptr %tracker, i64 8
   %159 = load ptr, ptr %graph_.i.i298, align 8
   %_M_finish.i.i.i.i.i299 = getelementptr inbounds nuw i8, ptr %tracker, i64 64
@@ -73182,7 +73182,7 @@ lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i.i344: ; preds = %lor.lhs.false
   br label %if.else.i.i345, !llvm.loop !1020
 
 if.then8.i.i348:                                  ; preds = %for.cond.i.i.i.i.i.i346, %for.body.i.i.i.i374, %if.end.i.i.i.i.i.i334
-  %retval.sroa.0.1.i.i.i.i349 = phi ptr [ %175, %if.end.i.i.i.i.i.i334 ], [ %retval.sroa.0.0.i.i.i.i372, %for.body.i.i.i.i374 ], [ %177, %for.cond.i.i.i.i.i.i346 ]
+  %retval.sroa.0.1.i.i.i.i349 = phi ptr [ %retval.sroa.0.0.i.i.i.i372, %for.body.i.i.i.i374 ], [ %175, %if.end.i.i.i.i.i.i334 ], [ %177, %for.cond.i.i.i.i.i.i346 ]
   %graph_.i.i350 = getelementptr inbounds nuw i8, ptr %tracker, i64 8
   %180 = load ptr, ptr %graph_.i.i350, align 8
   %_M_finish.i.i.i.i.i351 = getelementptr inbounds nuw i8, ptr %tracker, i64 64
@@ -73294,7 +73294,7 @@ lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i.i398: ; preds = %lor.lhs.false
   br label %if.else.i.i399, !llvm.loop !1020
 
 if.then8.i.i402:                                  ; preds = %for.cond.i.i.i.i.i.i400, %for.body.i.i.i.i428, %if.end.i.i.i.i.i.i388
-  %retval.sroa.0.1.i.i.i.i403 = phi ptr [ %197, %if.end.i.i.i.i.i.i388 ], [ %retval.sroa.0.0.i.i.i.i426, %for.body.i.i.i.i428 ], [ %199, %for.cond.i.i.i.i.i.i400 ]
+  %retval.sroa.0.1.i.i.i.i403 = phi ptr [ %retval.sroa.0.0.i.i.i.i426, %for.body.i.i.i.i428 ], [ %197, %if.end.i.i.i.i.i.i388 ], [ %199, %for.cond.i.i.i.i.i.i400 ]
   %graph_.i.i404 = getelementptr inbounds nuw i8, ptr %tracker, i64 8
   %202 = load ptr, ptr %graph_.i.i404, align 8
   %_M_finish.i.i.i.i.i405 = getelementptr inbounds nuw i8, ptr %tracker, i64 64
@@ -73736,7 +73736,7 @@ lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i: ; preds = %lor.lhs.false.i.i.
   br label %if.else.i, !llvm.loop !1020
 
 if.then8.i:                                       ; preds = %for.cond.i.i.i.i.i, %for.body.i.i.i, %if.end.i.i.i.i.i
-  %retval.sroa.0.1.i.i.i = phi ptr [ %20, %if.end.i.i.i.i.i ], [ %retval.sroa.0.0.i.i.i, %for.body.i.i.i ], [ %22, %for.cond.i.i.i.i.i ]
+  %retval.sroa.0.1.i.i.i = phi ptr [ %retval.sroa.0.0.i.i.i, %for.body.i.i.i ], [ %20, %if.end.i.i.i.i.i ], [ %22, %for.cond.i.i.i.i.i ]
   %25 = load ptr, ptr %graph_.i, align 8
   %26 = load ptr, ptr %_M_finish.i.i.i, align 8
   %27 = load ptr, ptr %_M_start.i.i.i, align 8
@@ -75083,7 +75083,7 @@ _ZNSt10_HashtableIPN4node6worker6WorkerES3_SaIS3_ENSt8__detail9_IdentityESt8equa
   br label %return
 
 return:                                           ; preds = %if.end3.i, %if.end4.i, %lor.lhs.false.return.loopexit_crit_edge.i, %if.else, %if.then, %_ZNSt10_HashtableIPN4node6worker6WorkerES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE8_M_eraseEmPNS5_15_Hash_node_baseEPNS5_10_Hash_nodeIS3_Lb0EEE.exit
-  %retval.0 = phi i64 [ 1, %_ZNSt10_HashtableIPN4node6worker6WorkerES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE8_M_eraseEmPNS5_15_Hash_node_baseEPNS5_10_Hash_nodeIS3_Lb0EEE.exit ], [ 0, %if.then ], [ 0, %if.else ], [ 0, %lor.lhs.false.return.loopexit_crit_edge.i ], [ 0, %if.end4.i ], [ 0, %if.end3.i ]
+  %retval.0 = phi i64 [ 1, %_ZNSt10_HashtableIPN4node6worker6WorkerES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE8_M_eraseEmPNS5_15_Hash_node_baseEPNS5_10_Hash_nodeIS3_Lb0EEE.exit ], [ 0, %if.end4.i ], [ 0, %if.then ], [ 0, %if.else ], [ 0, %lor.lhs.false.return.loopexit_crit_edge.i ], [ 0, %if.end3.i ]
   ret i64 %retval.0
 }
 
@@ -75160,7 +75160,7 @@ lor.lhs.false.return.loopexit_crit_edge.i.i.i.i:  ; preds = %lor.lhs.false.i.i.i
   br label %if.end, !llvm.loop !1020
 
 if.then:                                          ; preds = %for.cond.i.i.i.i, %for.body.i.i, %if.end.i.i.i.i
-  %retval.sroa.0.1.i.i = phi ptr [ %6, %if.end.i.i.i.i ], [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ %8, %for.cond.i.i.i.i ]
+  %retval.sroa.0.1.i.i = phi ptr [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ %6, %if.end.i.i.i.i ], [ %8, %for.cond.i.i.i.i ]
   %second = getelementptr inbounds nuw i8, ptr %retval.sroa.0.1.i.i, i64 16
   %11 = load ptr, ptr %second, align 8
   br label %return
@@ -76419,8 +76419,8 @@ _ZNSt10_HashtableIPN4node12shadow_realm11ShadowRealmES3_SaIS3_ENSt8__detail9_Ide
   br label %return
 
 return:                                           ; preds = %for.cond.i.i, %for.body, %if.end.i.i, %_ZNSt10_HashtableIPN4node12shadow_realm11ShadowRealmES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit
-  %retval.sroa.0.0 = phi ptr [ %call5.i.i.i.i.i, %_ZNSt10_HashtableIPN4node12shadow_realm11ShadowRealmES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit ], [ %10, %if.end.i.i ], [ %__it.sroa.0.0, %for.body ], [ %12, %for.cond.i.i ]
-  %retval.sroa.4.0 = phi i8 [ 1, %_ZNSt10_HashtableIPN4node12shadow_realm11ShadowRealmES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit ], [ 0, %if.end.i.i ], [ 0, %for.body ], [ 0, %for.cond.i.i ]
+  %retval.sroa.0.0 = phi ptr [ %call5.i.i.i.i.i, %_ZNSt10_HashtableIPN4node12shadow_realm11ShadowRealmES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit ], [ %__it.sroa.0.0, %for.body ], [ %10, %if.end.i.i ], [ %12, %for.cond.i.i ]
+  %retval.sroa.4.0 = phi i8 [ 1, %_ZNSt10_HashtableIPN4node12shadow_realm11ShadowRealmES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit ], [ 0, %for.body ], [ 0, %if.end.i.i ], [ 0, %for.cond.i.i ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %retval.sroa.4.0, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -76699,7 +76699,7 @@ _ZNSt10_HashtableIPN4node12shadow_realm11ShadowRealmES3_SaIS3_ENSt8__detail9_Ide
   br label %return
 
 return:                                           ; preds = %if.end3.i, %if.end4.i, %lor.lhs.false.return.loopexit_crit_edge.i, %if.else, %if.then, %_ZNSt10_HashtableIPN4node12shadow_realm11ShadowRealmES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE8_M_eraseEmPNS5_15_Hash_node_baseEPNS5_10_Hash_nodeIS3_Lb0EEE.exit
-  %retval.0 = phi i64 [ 1, %_ZNSt10_HashtableIPN4node12shadow_realm11ShadowRealmES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE8_M_eraseEmPNS5_15_Hash_node_baseEPNS5_10_Hash_nodeIS3_Lb0EEE.exit ], [ 0, %if.then ], [ 0, %if.else ], [ 0, %lor.lhs.false.return.loopexit_crit_edge.i ], [ 0, %if.end4.i ], [ 0, %if.end3.i ]
+  %retval.0 = phi i64 [ 1, %_ZNSt10_HashtableIPN4node12shadow_realm11ShadowRealmES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE8_M_eraseEmPNS5_15_Hash_node_baseEPNS5_10_Hash_nodeIS3_Lb0EEE.exit ], [ 0, %if.end4.i ], [ 0, %if.then ], [ 0, %if.else ], [ 0, %lor.lhs.false.return.loopexit_crit_edge.i ], [ 0, %if.end3.i ]
   ret i64 %retval.0
 }
 
@@ -76986,7 +76986,7 @@ cleanup:                                          ; preds = %if.end.i.i18, %if.t
   br label %_ZNSt10_HashtableItSt4pairIKtSt10unique_ptrIN4node21PerIsolateWrapperDataESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toItESt4hashItENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 
 if.then.i22:                                      ; preds = %for.cond.i.i, %for.body, %if.end.i.i
-  %retval.sroa.0.0.ph = phi ptr [ %8, %if.end.i.i ], [ %__it.sroa.0.0, %for.body ], [ %10, %for.cond.i.i ]
+  %retval.sroa.0.0.ph = phi ptr [ %__it.sroa.0.0, %for.body ], [ %8, %if.end.i.i ], [ %10, %for.cond.i.i ]
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKtSt10unique_ptrIN4node21PerIsolateWrapperDataESt14default_deleteIS6_EEELb0EEEEE18_M_deallocate_nodeEPSB_.exit.i, label %_ZNKSt14default_deleteIN4node21PerIsolateWrapperDataEEclEPS1_.exit.i.i.i.i.i.i
 
@@ -77361,7 +77361,7 @@ cleanup:                                          ; preds = %if.end.i.i17, %if.t
   br label %_ZNSt10_HashtableIPcSt4pairIKS0_St10unique_ptrIN2v812BackingStoreESt14default_deleteIS5_EEESaIS9_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 
 if.then.i21:                                      ; preds = %for.cond.i.i, %for.body, %if.end.i.i
-  %retval.sroa.0.0.ph = phi ptr [ %11, %if.end.i.i ], [ %__it.sroa.0.0, %for.body ], [ %13, %for.cond.i.i ]
+  %retval.sroa.0.0.ph = phi ptr [ %__it.sroa.0.0, %for.body ], [ %11, %if.end.i.i ], [ %13, %for.cond.i.i ]
   %cmp.not.i.i.i.i.i.i = icmp eq i64 %1, 0
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKPcSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS7_EEELb0EEEEE18_M_deallocate_nodeEPSC_.exit.i, label %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i.i.i.i.i.i
 
@@ -79135,8 +79135,8 @@ _ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_M
   br label %return
 
 return:                                           ; preds = %for.cond.i.i, %for.body, %if.end.i.i, %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit
-  %retval.sroa.0.0 = phi ptr [ %call5.i.i.i.i.i, %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit ], [ %8, %if.end.i.i ], [ %__it.sroa.0.0, %for.body ], [ %10, %for.cond.i.i ]
-  %retval.sroa.4.0 = phi i8 [ 1, %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit ], [ 0, %if.end.i.i ], [ 0, %for.body ], [ 0, %for.cond.i.i ]
+  %retval.sroa.0.0 = phi ptr [ %call5.i.i.i.i.i, %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit ], [ %__it.sroa.0.0, %for.body ], [ %8, %if.end.i.i ], [ %10, %for.cond.i.i ]
+  %retval.sroa.4.0 = phi i8 [ 1, %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit ], [ 0, %for.body ], [ 0, %if.end.i.i ], [ 0, %for.cond.i.i ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %retval.sroa.4.0, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -79735,7 +79735,7 @@ _ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_M
   br label %return
 
 return:                                           ; preds = %if.end3.i, %if.end4.i, %lor.lhs.false.return.loopexit_crit_edge.i, %if.else, %if.then, %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE8_M_eraseEmPNS1_15_Hash_node_baseEPNS1_10_Hash_nodeIiLb0EEE.exit
-  %retval.0 = phi i64 [ 1, %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE8_M_eraseEmPNS1_15_Hash_node_baseEPNS1_10_Hash_nodeIiLb0EEE.exit ], [ 0, %if.then ], [ 0, %if.else ], [ 0, %lor.lhs.false.return.loopexit_crit_edge.i ], [ 0, %if.end4.i ], [ 0, %if.end3.i ]
+  %retval.0 = phi i64 [ 1, %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE8_M_eraseEmPNS1_15_Hash_node_baseEPNS1_10_Hash_nodeIiLb0EEE.exit ], [ 0, %if.end4.i ], [ 0, %if.then ], [ 0, %if.else ], [ 0, %lor.lhs.false.return.loopexit_crit_edge.i ], [ 0, %if.end3.i ]
   ret i64 %retval.0
 }
 

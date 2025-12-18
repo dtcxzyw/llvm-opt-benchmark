@@ -2675,7 +2675,7 @@ _ZNSt6vectorIiSaIiEE6insertEN9__gnu_cxx17__normal_iteratorIPKiS1_EEOi.exit: ; pr
   br label %.body
 
 .loopexit:                                        ; preds = %130, %114, %125
-  %.sroa.06.1.i.i.i = phi ptr [ %126, %125 ], [ %.sroa.06.0.i.i.i, %114 ], [ %132, %130 ]
+  %.sroa.06.1.i.i.i = phi ptr [ %.sroa.06.0.i.i.i, %114 ], [ %126, %125 ], [ %132, %130 ]
   %142 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 16
   %.sroa.0.0.copyload.i = load i48, ptr %142, align 8
   store i48 %.sroa.0.0.copyload.i, ptr %5, align 8

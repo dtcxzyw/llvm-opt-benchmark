@@ -582,7 +582,7 @@ find_stream.exit:                                 ; preds = %110
   br label %.loopexit
 
 .loopexit:                                        ; preds = %155, %find_stream.exit, %101, %224, %.thread, %find_stream.exit.thread, %173, %._crit_edge193, %93, %._crit_edge, %._crit_edge200, %79, %72, %55, %42, %12
-  %.0 = phi i32 [ -1163346256, %42 ], [ %53, %55 ], [ -22, %72 ], [ %77, %79 ], [ -22, %find_stream.exit.thread ], [ %.2.ph, %.thread ], [ -12, %93 ], [ 0, %._crit_edge200 ], [ -558323010, %._crit_edge193 ], [ -12, %._crit_edge ], [ -22, %12 ], [ -12, %173 ], [ %228, %224 ], [ -12, %155 ], [ -558323010, %101 ], [ -22, %find_stream.exit ]
+  %.0 = phi i32 [ -1163346256, %42 ], [ %53, %55 ], [ -22, %72 ], [ %77, %79 ], [ -12, %173 ], [ -22, %find_stream.exit.thread ], [ -12, %93 ], [ %228, %224 ], [ %.2.ph, %.thread ], [ 0, %._crit_edge200 ], [ -558323010, %._crit_edge193 ], [ -12, %._crit_edge ], [ -22, %12 ], [ -12, %155 ], [ -558323010, %101 ], [ -22, %find_stream.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0

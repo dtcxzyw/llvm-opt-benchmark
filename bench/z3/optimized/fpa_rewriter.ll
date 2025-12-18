@@ -7684,7 +7684,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit105:      ; preds = %_ZN7obj_refI4expr11
   br label %_ZNK14bv_recognizers10is_extractEPK4expr.exit.thread.thread
 
 _ZNK14bv_recognizers10is_extractEPK4expr.exit.thread: ; preds = %82, %77, %66, %60, %_ZNK14bv_recognizers10is_extractEPK4expr.exit, %_ZNK14bv_recognizers10is_extractEPK4expr.exit69, %_ZN7obj_refI4expr11ast_managerED2Ev.exit105
-  %235 = phi ptr [ %.pre, %_ZN7obj_refI4expr11ast_managerED2Ev.exit105 ], [ %56, %_ZNK14bv_recognizers10is_extractEPK4expr.exit69 ], [ %56, %_ZNK14bv_recognizers10is_extractEPK4expr.exit ], [ %56, %82 ], [ %56, %66 ], [ %56, %60 ], [ %56, %77 ]
+  %235 = phi ptr [ %56, %77 ], [ %.pre, %_ZN7obj_refI4expr11ast_managerED2Ev.exit105 ], [ %56, %60 ], [ %56, %66 ], [ %56, %_ZNK14bv_recognizers10is_extractEPK4expr.exit69 ], [ %56, %_ZNK14bv_recognizers10is_extractEPK4expr.exit ], [ %56, %82 ]
   %.not.i.i106 = icmp eq ptr %235, null
   br i1 %.not.i.i106, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit107, label %_ZNK14bv_recognizers10is_extractEPK4expr.exit.thread.thread
 

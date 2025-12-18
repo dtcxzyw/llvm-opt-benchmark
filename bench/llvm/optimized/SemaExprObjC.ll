@@ -1573,7 +1573,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN5clangneENS_22specific_attr_iteratorINS_14NSConsumedAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !1132
 
 _ZN5clangneENS_22specific_attr_iteratorINS_14NSConsumedAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i.i.i: ; preds = %41, %.lr.ph.i.i.i.i.i.i.i
-  %.sroa.07.0.i.i.ph.i.i.i.i = phi ptr [ %36, %41 ], [ %.sroa.07.1.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ]
+  %.sroa.07.0.i.i.ph.i.i.i.i = phi ptr [ %.sroa.07.1.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ], [ %36, %41 ]
   %.not7.i.i = icmp eq ptr %.sroa.07.0.i.i.ph.i.i.i.i, %36
   %43 = select i1 %.not7.i.i, i64 0, i64 4
   br label %_ZNK5clang4Decl7hasAttrINS_14NSConsumedAttrEEEbv.exit.i.i
@@ -2911,7 +2911,7 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit: 
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN5clangneENS_22specific_attr_iteratorINS_14NSConsumedAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !1132
 
 _ZN5clangneENS_22specific_attr_iteratorINS_14NSConsumedAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i.i.i: ; preds = %431, %.lr.ph.i.i.i.i.i.i.i
-  %.sroa.07.0.i.i.ph.i.i.i.i = phi ptr [ %426, %431 ], [ %.sroa.07.1.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ]
+  %.sroa.07.0.i.i.ph.i.i.i.i = phi ptr [ %.sroa.07.1.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ], [ %426, %431 ]
   %.not7.i.i = icmp eq ptr %.sroa.07.0.i.i.ph.i.i.i.i, %426
   %433 = select i1 %.not7.i.i, i64 0, i64 4
   br label %_ZNK5clang4Decl7hasAttrINS_14NSConsumedAttrEEEbv.exit.i.i
@@ -5577,7 +5577,7 @@ _ZNK5clang4Type6castAsINS_11PointerTypeEEEPKT_v.exit: ; preds = %601, %612
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_8QualTypeEvEERKS1_OT_.exit, %_ZN5clanglsIA9_cEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit, %100, %._crit_edge, %21
-  %.sroa.067.0 = phi i64 [ 1, %21 ], [ %631, %._crit_edge ], [ 1, %100 ], [ 1, %_ZN5clanglsIA9_cEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit ], [ 1, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_8QualTypeEvEERKS1_OT_.exit ], [ 1, %.lr.ph ]
+  %.sroa.067.0 = phi i64 [ 1, %21 ], [ 1, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_8QualTypeEvEERKS1_OT_.exit ], [ %631, %._crit_edge ], [ 1, %100 ], [ 1, %_ZN5clanglsIA9_cEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit ], [ 1, %.lr.ph ]
   ret i64 %.sroa.067.0
 }
 
@@ -6127,9 +6127,9 @@ _ZN5clang9FixItHintD2Ev.exit91:                   ; preds = %119, %_ZNKSt7__cxx1
   %135 = call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %62) #21
   %136 = call i64 @_ZN5clang8SemaObjC22BuildObjCStringLiteralENS_14SourceLocationEPNS_13StringLiteralE(ptr noundef nonnull align 8 dereferenceable(328) %134, i32 %135, ptr noundef nonnull %62)
   %137 = icmp eq i64 %136, 1
-  br i1 %137, label %.critedge74, label %.critedge79
+  br i1 %137, label %.critedge74, label %.critedge81
 
-.critedge79:                                      ; preds = %_ZN5clang9FixItHintD2Ev.exit91
+.critedge81:                                      ; preds = %_ZN5clang9FixItHintD2Ev.exit91
   %138 = and i64 %136, -2
   %139 = inttoptr i64 %138 to ptr
   store ptr %139, ptr %5, align 8, !tbaa !3
@@ -6152,8 +6152,8 @@ _ZN5clang9FixItHintD2Ev.exit91:                   ; preds = %119, %_ZNKSt7__cxx1
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.critedge74
 
-.critedge5:                                       ; preds = %65, %65, %112, %.critedge79
-  %146 = phi ptr [ %67, %65 ], [ %67, %65 ], [ %114, %112 ], [ %139, %.critedge79 ]
+.critedge5:                                       ; preds = %65, %65, %112, %.critedge81
+  %146 = phi ptr [ %67, %65 ], [ %67, %65 ], [ %114, %112 ], [ %139, %.critedge81 ]
   br i1 %3, label %147, label %.loopexit
 
 147:                                              ; preds = %.critedge5
@@ -7559,7 +7559,7 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit: 
   br label %.loopexit
 
 682:                                              ; preds = %645, %648, %637
-  %.2124 = phi i1 [ true, %645 ], [ %.0122399, %637 ], [ true, %648 ]
+  %.2124 = phi i1 [ true, %648 ], [ true, %645 ], [ %.0122399, %637 ]
   %683 = getelementptr inbounds nuw i8, ptr %.0126398, i64 32
   %.not140 = icmp eq ptr %683, %626
   br i1 %.not140, label %._crit_edge, label %.lr.ph
@@ -15741,7 +15741,7 @@ _ZNK5clang4Expr18hasPlaceholderTypeENS_11BuiltinType4KindE.exit.thread: ; preds 
   br i1 %.not.i.i.i.i.i.i, label %_ZN5clangneENS_22specific_attr_iteratorINS_14NSConsumedAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !1132
 
 _ZN5clangneENS_22specific_attr_iteratorINS_14NSConsumedAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i.i: ; preds = %1049, %.lr.ph.i.i.i.i.i.i
-  %.sroa.07.0.i.i.ph.i.i.i = phi ptr [ %1044, %1049 ], [ %.sroa.07.1.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
+  %.sroa.07.0.i.i.ph.i.i.i = phi ptr [ %.sroa.07.1.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ], [ %1044, %1049 ]
   %.not7.i241 = icmp eq ptr %.sroa.07.0.i.i.ph.i.i.i, %1044
   %1051 = select i1 %.not7.i241, i64 0, i64 4
   br label %_ZNK5clang4Decl7hasAttrINS_14NSConsumedAttrEEEbv.exit.i
@@ -16257,7 +16257,7 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit27
   br label %.critedge160
 
 .critedge160:                                     ; preds = %91, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit218, %1313, %_ZNK5clang10ASTContext13getObjCIdTypeEv.exit
-  %.4 = phi i1 [ false, %_ZNK5clang10ASTContext13getObjCIdTypeEv.exit ], [ false, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit218 ], [ %.11, %1313 ], [ true, %91 ]
+  %.4 = phi i1 [ %.11, %1313 ], [ false, %_ZNK5clang10ASTContext13getObjCIdTypeEv.exit ], [ false, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit218 ], [ true, %91 ]
   ret i1 %.4
 }
 
@@ -16483,7 +16483,7 @@ _ZNK5clang13ReferenceType14getPointeeTypeEv.exit: ; preds = %_ZNK5clang4Type6cas
   br label %.thread
 
 .thread:                                          ; preds = %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit, %8, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread, %_ZNK5clang13ReferenceType14getPointeeTypeEv.exit
-  %47 = phi i32 [ 1, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread ], [ %46, %_ZNK5clang13ReferenceType14getPointeeTypeEv.exit ], [ 0, %8 ], [ 0, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit ]
+  %47 = phi i32 [ %46, %_ZNK5clang13ReferenceType14getPointeeTypeEv.exit ], [ 1, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread ], [ 0, %8 ], [ 0, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit ]
   ret i32 %47
 }
 
@@ -18748,7 +18748,7 @@ _ZNK5clang17ObjCInterfaceDecl18getSuperClassTInfoEv.exit.i: ; preds = %56, %50
   br label %_ZNK5clang17ObjCInterfaceDecl17getSuperClassTypeEv.exit
 
 _ZNK5clang17ObjCInterfaceDecl17getSuperClassTypeEv.exit: ; preds = %_ZNK5clang17ObjCInterfaceDecl13hasDefinitionEv.exit.i.i, %_ZNK5clang17ObjCInterfaceDecl18getSuperClassTInfoEv.exit.i, %59, %66
-  %68 = phi ptr [ %62, %59 ], [ %67, %66 ], [ null, %_ZNK5clang17ObjCInterfaceDecl18getSuperClassTInfoEv.exit.i ], [ null, %_ZNK5clang17ObjCInterfaceDecl13hasDefinitionEv.exit.i.i ]
+  %68 = phi ptr [ %67, %66 ], [ %62, %59 ], [ null, %_ZNK5clang17ObjCInterfaceDecl18getSuperClassTInfoEv.exit.i ], [ null, %_ZNK5clang17ObjCInterfaceDecl13hasDefinitionEv.exit.i.i ]
   %69 = ptrtoint ptr %68 to i64
   %70 = and i64 %69, -16
   %71 = load i24, ptr %32, align 8
@@ -20636,7 +20636,7 @@ _ZNK5clang17ObjCInterfaceDecl18getSuperClassTInfoEv.exit.i: ; preds = %122, %116
   br label %_ZNK5clang17ObjCInterfaceDecl17getSuperClassTypeEv.exit
 
 _ZNK5clang17ObjCInterfaceDecl17getSuperClassTypeEv.exit: ; preds = %125, %132
-  %134 = phi ptr [ %128, %125 ], [ %133, %132 ]
+  %134 = phi ptr [ %133, %132 ], [ %128, %125 ]
   %135 = ptrtoint ptr %134 to i64
   %136 = and i64 %135, -16
   %.not.i.i44 = icmp ult ptr %134, inttoptr (i64 16 to ptr)
@@ -22916,7 +22916,7 @@ _ZNK5clang17ObjCInterfaceDecl40declaresOrInheritsDesignatedInitializersEv.exit.t
   br label %1017
 
 .critedge498:                                     ; preds = %993, %_ZNK5clang4Type5getAsINS_14ObjCObjectTypeEEEPKT_v.exit.i.i, %966, %_ZNK5clang21ObjCObjectPointerType16getInterfaceDeclEv.exit, %_ZNK5clang17ObjCInterfaceDecl40declaresOrInheritsDesignatedInitializersEv.exit.thread, %972
-  %1011 = phi i32 [ 6834, %966 ], [ 6833, %_ZNK5clang21ObjCObjectPointerType16getInterfaceDeclEv.exit ], [ 6833, %_ZNK5clang17ObjCInterfaceDecl40declaresOrInheritsDesignatedInitializersEv.exit.thread ], [ 6833, %972 ], [ 6833, %_ZNK5clang4Type5getAsINS_14ObjCObjectTypeEEEPKT_v.exit.i.i ], [ 6833, %993 ]
+  %1011 = phi i32 [ 6833, %972 ], [ 6833, %_ZNK5clang17ObjCInterfaceDecl40declaresOrInheritsDesignatedInitializersEv.exit.thread ], [ 6834, %966 ], [ 6833, %_ZNK5clang21ObjCObjectPointerType16getInterfaceDeclEv.exit ], [ 6833, %_ZNK5clang4Type5getAsINS_14ObjCObjectTypeEEEPKT_v.exit.i.i ], [ 6833, %993 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %56)
   store ptr null, ptr %56, align 8, !tbaa !1145
   %1012 = load ptr, ptr %0, align 8, !tbaa !408
@@ -26436,7 +26436,7 @@ _ZNK5clang4Type5getAsINS_14ObjCObjectTypeEEEPKT_v.exit.thread16.i.i63: ; preds =
   br label %104
 
 104:                                              ; preds = %101, %86
-  %.2 = phi ptr [ %88, %86 ], [ %103, %101 ]
+  %.2 = phi ptr [ %103, %101 ], [ %88, %86 ]
   %.not42 = icmp eq ptr %.2, null
   br i1 %.not42, label %.critedge44, label %.thread
 
@@ -27048,7 +27048,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang4Decl7hasAttrINS_24NSRe
   br i1 %.not.i.i.i.i, label %_ZN5clangneENS_22specific_attr_iteratorINS_24NSReturnsNotRetainedAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i, label %.lr.ph.i.i.i.i, !llvm.loop !1537
 
 _ZN5clangneENS_22specific_attr_iteratorINS_24NSReturnsNotRetainedAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i: ; preds = %16, %.lr.ph.i.i.i.i
-  %.sroa.07.0.i.i.ph.i = phi ptr [ %11, %16 ], [ %.sroa.07.1.i.i.i, %.lr.ph.i.i.i.i ]
+  %.sroa.07.0.i.i.ph.i = phi ptr [ %.sroa.07.1.i.i.i, %.lr.ph.i.i.i.i ], [ %11, %16 ]
   %18 = icmp ne ptr %.sroa.07.0.i.i.ph.i, %11
   br label %_ZN5clang15hasSpecificAttrINS_24NSReturnsNotRetainedAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEEbRKT0_.exit
 
@@ -27090,7 +27090,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang4Decl7hasAttrINS_21NSRe
   br i1 %.not.i.i.i.i, label %_ZN5clangneENS_22specific_attr_iteratorINS_21NSReturnsRetainedAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i, label %.lr.ph.i.i.i.i, !llvm.loop !1538
 
 _ZN5clangneENS_22specific_attr_iteratorINS_21NSReturnsRetainedAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i: ; preds = %16, %.lr.ph.i.i.i.i
-  %.sroa.07.0.i.i.ph.i = phi ptr [ %11, %16 ], [ %.sroa.07.1.i.i.i, %.lr.ph.i.i.i.i ]
+  %.sroa.07.0.i.i.ph.i = phi ptr [ %.sroa.07.1.i.i.i, %.lr.ph.i.i.i.i ], [ %11, %16 ]
   %18 = icmp ne ptr %.sroa.07.0.i.i.ph.i, %11
   br label %_ZN5clang15hasSpecificAttrINS_21NSReturnsRetainedAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEEbRKT0_.exit
 
@@ -29100,7 +29100,7 @@ _ZN5clang12LookupResult17diagnoseAmbiguousEv.exit.i: ; preds = %678, %_ZN5clang1
   br i1 %.not, label %.thread248, label %.lr.ph
 
 .thread248:                                       ; preds = %.thread240, %5, %.lr.ph._crit_edge, %_ZNK5clang14IdentifierInfo5isStrILm3EEEbRAT__Kc.exit, %686
-  %.8 = phi i1 [ %.6, %686 ], [ true, %_ZNK5clang14IdentifierInfo5isStrILm3EEEbRAT__Kc.exit ], [ false, %.lr.ph._crit_edge ], [ true, %5 ], [ true, %.thread240 ]
+  %.8 = phi i1 [ false, %.lr.ph._crit_edge ], [ %.6, %686 ], [ true, %_ZNK5clang14IdentifierInfo5isStrILm3EEEbRAT__Kc.exit ], [ true, %5 ], [ true, %.thread240 ]
   ret i1 %.8
 }
 
@@ -30487,7 +30487,7 @@ _ZN5clang12LookupResult17diagnoseAmbiguousEv.exit.i: ; preds = %678, %_ZN5clang1
   br i1 %.not, label %.thread248, label %.lr.ph
 
 .thread248:                                       ; preds = %.thread240, %5, %.lr.ph._crit_edge, %_ZNK5clang14IdentifierInfo5isStrILm3EEEbRAT__Kc.exit, %686
-  %.8 = phi i1 [ %.6, %686 ], [ true, %_ZNK5clang14IdentifierInfo5isStrILm3EEEbRAT__Kc.exit ], [ false, %.lr.ph._crit_edge ], [ true, %5 ], [ true, %.thread240 ]
+  %.8 = phi i1 [ false, %.lr.ph._crit_edge ], [ %.6, %686 ], [ true, %_ZNK5clang14IdentifierInfo5isStrILm3EEEbRAT__Kc.exit ], [ true, %5 ], [ true, %.thread240 ]
   ret i1 %.8
 }
 
@@ -31616,7 +31616,7 @@ _ZN5clanglsINS_8QualTypeEEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit121
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang18declaresSameEntityEPKNS_4DeclES2_.exit.i, %.critedge.sink.split, %_ZNK5clang4Type12isObjCIdTypeEv.exit, %_ZNK5clang4Type12isObjCIdTypeEv.exit.thread, %_ZNK5clang17ObjCInterfaceDecl14isSuperClassOfEPKS0_.exit, %_ZN5clanglsINS_8QualTypeEEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit121, %122, %_ZNK5clang14ObjCObjectType12getInterfaceEv.exit
-  %.5 = phi i1 [ true, %_ZN5clanglsINS_8QualTypeEEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit121 ], [ %330, %_ZNK5clang4Type12isObjCIdTypeEv.exit.thread ], [ false, %122 ], [ true, %_ZNK5clang14ObjCObjectType12getInterfaceEv.exit ], [ %.not.i86, %_ZNK5clang17ObjCInterfaceDecl14isSuperClassOfEPKS0_.exit ], [ true, %_ZNK5clang4Type12isObjCIdTypeEv.exit ], [ %.5.ph, %.critedge.sink.split ], [ true, %_ZN5clang18declaresSameEntityEPKNS_4DeclES2_.exit.i ]
+  %.5 = phi i1 [ true, %_ZN5clanglsINS_8QualTypeEEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit121 ], [ %330, %_ZNK5clang4Type12isObjCIdTypeEv.exit.thread ], [ false, %122 ], [ true, %_ZNK5clang14ObjCObjectType12getInterfaceEv.exit ], [ %.not.i86, %_ZNK5clang17ObjCInterfaceDecl14isSuperClassOfEPKS0_.exit ], [ %.5.ph, %.critedge.sink.split ], [ true, %_ZNK5clang4Type12isObjCIdTypeEv.exit ], [ true, %_ZN5clang18declaresSameEntityEPKNS_4DeclES2_.exit.i ]
   %555 = load i8, ptr %56, align 1, !tbaa !1446, !range !22, !noundef !23
   %556 = trunc nuw i8 %555 to i1
   %.pre2.i = load i32, ptr %12, align 8
@@ -31697,7 +31697,7 @@ _ZN5clang12LookupResult17diagnoseAmbiguousEv.exit.i: ; preds = %574, %_ZN5clang1
   br i1 %.not, label %.thread218, label %.lr.ph
 
 .thread218:                                       ; preds = %.thread, %5, %.lr.ph._crit_edge, %_ZNK5clang14IdentifierInfo5isStrILm3EEEbRAT__Kc.exit, %582
-  %.7 = phi i1 [ %.5, %582 ], [ true, %_ZNK5clang14IdentifierInfo5isStrILm3EEEbRAT__Kc.exit ], [ false, %.lr.ph._crit_edge ], [ true, %5 ], [ true, %.thread ]
+  %.7 = phi i1 [ false, %.lr.ph._crit_edge ], [ %.5, %582 ], [ true, %_ZNK5clang14IdentifierInfo5isStrILm3EEEbRAT__Kc.exit ], [ true, %5 ], [ true, %.thread ]
   ret i1 %.7
 }
 
@@ -32826,7 +32826,7 @@ _ZN5clanglsINS_8QualTypeEEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit121
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang18declaresSameEntityEPKNS_4DeclES2_.exit.i, %.critedge.sink.split, %_ZNK5clang4Type12isObjCIdTypeEv.exit, %_ZNK5clang4Type12isObjCIdTypeEv.exit.thread, %_ZNK5clang17ObjCInterfaceDecl14isSuperClassOfEPKS0_.exit, %_ZN5clanglsINS_8QualTypeEEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit121, %122, %_ZNK5clang14ObjCObjectType12getInterfaceEv.exit
-  %.5 = phi i1 [ true, %_ZN5clanglsINS_8QualTypeEEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit121 ], [ %330, %_ZNK5clang4Type12isObjCIdTypeEv.exit.thread ], [ false, %122 ], [ true, %_ZNK5clang14ObjCObjectType12getInterfaceEv.exit ], [ %.not.i86, %_ZNK5clang17ObjCInterfaceDecl14isSuperClassOfEPKS0_.exit ], [ true, %_ZNK5clang4Type12isObjCIdTypeEv.exit ], [ %.5.ph, %.critedge.sink.split ], [ true, %_ZN5clang18declaresSameEntityEPKNS_4DeclES2_.exit.i ]
+  %.5 = phi i1 [ true, %_ZN5clanglsINS_8QualTypeEEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit121 ], [ %330, %_ZNK5clang4Type12isObjCIdTypeEv.exit.thread ], [ false, %122 ], [ true, %_ZNK5clang14ObjCObjectType12getInterfaceEv.exit ], [ %.not.i86, %_ZNK5clang17ObjCInterfaceDecl14isSuperClassOfEPKS0_.exit ], [ %.5.ph, %.critedge.sink.split ], [ true, %_ZNK5clang4Type12isObjCIdTypeEv.exit ], [ true, %_ZN5clang18declaresSameEntityEPKNS_4DeclES2_.exit.i ]
   %555 = load i8, ptr %56, align 1, !tbaa !1446, !range !22, !noundef !23
   %556 = trunc nuw i8 %555 to i1
   %.pre2.i = load i32, ptr %12, align 8
@@ -32907,7 +32907,7 @@ _ZN5clang12LookupResult17diagnoseAmbiguousEv.exit.i: ; preds = %574, %_ZN5clang1
   br i1 %.not, label %.thread218, label %.lr.ph
 
 .thread218:                                       ; preds = %.thread, %5, %.lr.ph._crit_edge, %_ZNK5clang14IdentifierInfo5isStrILm3EEEbRAT__Kc.exit, %582
-  %.7 = phi i1 [ %.5, %582 ], [ true, %_ZNK5clang14IdentifierInfo5isStrILm3EEEbRAT__Kc.exit ], [ false, %.lr.ph._crit_edge ], [ true, %5 ], [ true, %.thread ]
+  %.7 = phi i1 [ false, %.lr.ph._crit_edge ], [ %.5, %582 ], [ true, %_ZNK5clang14IdentifierInfo5isStrILm3EEEbRAT__Kc.exit ], [ true, %5 ], [ true, %.thread ]
   ret i1 %.7
 }
 
@@ -35908,7 +35908,7 @@ _ZN5clangneENS_22specific_attr_iteratorINS_21ObjCBridgeRelatedAttrEN4llvm11Small
   %or.cond.i = or i1 %.not.i26.i, %.not19.i
   br i1 %or.cond.i, label %.loopexit, label %.lr.ph.i
 
-.loopexit:                                        ; preds = %71, %.loopexit.i, %36, %.lr.ph, %24
+.loopexit:                                        ; preds = %71, %.loopexit.i, %24, %36, %.lr.ph
   %73 = load ptr, ptr %1, align 8, !tbaa !1555
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 80
   %.0.copyload.i.i.i.i.i14 = load i64, ptr %74, align 8
@@ -35926,7 +35926,7 @@ _ZN5clangneENS_22specific_attr_iteratorINS_21ObjCBridgeRelatedAttrEN4llvm11Small
   br i1 %.not, label %.thread22, label %.lr.ph
 
 .thread22:                                        ; preds = %.loopexit, %.lr.ph.i.i.i.i.i, %2, %58
-  %.3 = phi ptr [ %59, %58 ], [ null, %2 ], [ %65, %.lr.ph.i.i.i.i.i ], [ null, %.loopexit ]
+  %.3 = phi ptr [ null, %2 ], [ %59, %58 ], [ %65, %.lr.ph.i.i.i.i.i ], [ null, %.loopexit ]
   ret ptr %.3
 }
 
@@ -36852,7 +36852,7 @@ _ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread.sink.split:
   br label %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread
 
 _ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread: ; preds = %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread.sink.split, %66, %228, %96, %_ZNK5clang14IdentifierInfo5isStrILm9EEEbRAT__Kc.exit, %_ZNK5clang21ObjCObjectPointerType12isObjCIdTypeEv.exit.thread, %108, %22, %_ZN5clang9FixItHintD2Ev.exit73, %225, %_ZNK5clang14IdentifierInfo5isStrILm9EEEbRAT__Kc.exit64, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit, %4
-  %.0 = phi i1 [ false, %4 ], [ false, %96 ], [ false, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit ], [ false, %225 ], [ false, %66 ], [ false, %22 ], [ %239, %_ZNK5clang14IdentifierInfo5isStrILm9EEEbRAT__Kc.exit64 ], [ true, %_ZN5clang9FixItHintD2Ev.exit73 ], [ %111, %108 ], [ false, %_ZNK5clang14IdentifierInfo5isStrILm9EEEbRAT__Kc.exit ], [ false, %_ZNK5clang21ObjCObjectPointerType12isObjCIdTypeEv.exit.thread ], [ false, %228 ], [ true, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread.sink.split ]
+  %.0 = phi i1 [ false, %4 ], [ false, %96 ], [ false, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit ], [ false, %225 ], [ false, %66 ], [ false, %22 ], [ %239, %_ZNK5clang14IdentifierInfo5isStrILm9EEEbRAT__Kc.exit64 ], [ true, %_ZN5clang9FixItHintD2Ev.exit73 ], [ false, %228 ], [ %111, %108 ], [ false, %_ZNK5clang21ObjCObjectPointerType12isObjCIdTypeEv.exit.thread ], [ false, %_ZNK5clang14IdentifierInfo5isStrILm9EEEbRAT__Kc.exit ], [ true, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread.sink.split ]
   ret i1 %.0
 }
 
@@ -40216,7 +40216,7 @@ _ZNK5clang21ObjCObjectPointerType16getInterfaceDeclEv.exit: ; preds = %_ZNK5clan
   br label %_ZNK5clang8QualType15getObjCLifetimeEv.exit.thread
 
 _ZNK5clang8QualType15getObjCLifetimeEv.exit.thread: ; preds = %61, %_ZNK5clang4Type5getAsINS_14ObjCObjectTypeEEEPKT_v.exit.i.i, %_ZNK5clang21ObjCObjectPointerType16getInterfaceDeclEv.exit, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit, %3, %_ZNK5clang8QualType15getObjCLifetimeEv.exit, %32, %72
-  %.3 = phi i1 [ %74, %72 ], [ true, %3 ], [ true, %32 ], [ true, %_ZNK5clang8QualType15getObjCLifetimeEv.exit ], [ true, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit ], [ true, %_ZNK5clang21ObjCObjectPointerType16getInterfaceDeclEv.exit ], [ true, %_ZNK5clang4Type5getAsINS_14ObjCObjectTypeEEEPKT_v.exit.i.i ], [ true, %61 ]
+  %.3 = phi i1 [ %74, %72 ], [ true, %_ZNK5clang21ObjCObjectPointerType16getInterfaceDeclEv.exit ], [ true, %3 ], [ true, %32 ], [ true, %_ZNK5clang8QualType15getObjCLifetimeEv.exit ], [ true, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit ], [ true, %_ZNK5clang4Type5getAsINS_14ObjCObjectTypeEEEPKT_v.exit.i.i ], [ true, %61 ]
   ret i1 %.3
 }
 
@@ -41342,7 +41342,7 @@ define internal fastcc noundef ptr @_ZL22maybeUndoReclaimObjectPN5clang4ExprE(pt
   br label %.thread53
 
 .thread53:                                        ; preds = %6, %22, %14, %24
-  %.3 = phi ptr [ %0, %24 ], [ %16, %14 ], [ %0, %22 ], [ %0, %6 ]
+  %.3 = phi ptr [ %0, %22 ], [ %0, %24 ], [ %16, %14 ], [ %0, %6 ]
   ret ptr %.3
 }
 
@@ -43661,7 +43661,7 @@ _ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread.i: ; preds = %_ZNK5cl
   br label %_ZNK5clang4Type13isObjCSelTypeEv.exit
 
 _ZNK5clang4Type13isObjCSelTypeEv.exit:            ; preds = %98, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread.i, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.i, %78, %_ZNK5clang4Type15isObjCClassTypeEv.exit, %_ZNK5clang4Type12isObjCIdTypeEv.exit
-  %102 = phi i1 [ true, %_ZNK5clang4Type15isObjCClassTypeEv.exit ], [ true, %_ZNK5clang4Type12isObjCIdTypeEv.exit ], [ false, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread.i ], [ %101, %98 ], [ false, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.i ], [ false, %78 ]
+  %102 = phi i1 [ true, %_ZNK5clang4Type15isObjCClassTypeEv.exit ], [ true, %_ZNK5clang4Type12isObjCIdTypeEv.exit ], [ %101, %98 ], [ false, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread.i ], [ false, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.i ], [ false, %78 ]
   ret i1 %102
 }
 
@@ -44202,7 +44202,7 @@ define dso_local noundef i64 @_ZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExpr
   br label %"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E0_EEDaOT_T0_.exit.i"
 
 "_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E_EEDaOT_T0_.exit.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit.i.i.i.i.i", %.lr.ph.i.split.us.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit.thread.loopexit.split.loop.exit112.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit.thread.loopexit.split.loop.exit110.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit.thread.loopexit.split.loop.exit108.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit.thread.loopexit.split.loop.exit104.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit.thread.loopexit.split.loop.exit102.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit.thread.loopexit.split.loop.exit100.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit77.thread97.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit77.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit73.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit69.i.i.i.i.i"
-  %.028.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit73.i.i.i.i.i" ], [ %.2.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit77.i.i.i.i.i" ], [ %61, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit.thread.loopexit.split.loop.exit112.i.i.i.i.i" ], [ %10, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit77.thread97.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit69.i.i.i.i.i" ], [ %60, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit.thread.loopexit.split.loop.exit110.i.i.i.i.i" ], [ %59, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit.thread.loopexit.split.loop.exit108.i.i.i.i.i" ], [ %58, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit.thread.loopexit.split.loop.exit104.i.i.i.i.i" ], [ %57, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit.thread.loopexit.split.loop.exit102.i.i.i.i.i" ], [ %56, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit.thread.loopexit.split.loop.exit100.i.i.i.i.i" ], [ %.029120.i.us.i.i.i.i, %.lr.ph.i.split.us.i.i.i.i ], [ %.029120.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit.i.i.i.i.i" ]
+  %.028.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit73.i.i.i.i.i" ], [ %.2.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit77.i.i.i.i.i" ], [ %56, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit.thread.loopexit.split.loop.exit100.i.i.i.i.i" ], [ %57, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit.thread.loopexit.split.loop.exit102.i.i.i.i.i" ], [ %10, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit77.thread97.i.i.i.i.i" ], [ %.029120.i.us.i.i.i.i, %.lr.ph.i.split.us.i.i.i.i ], [ %.029.lcssa.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit69.i.i.i.i.i" ], [ %60, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit.thread.loopexit.split.loop.exit110.i.i.i.i.i" ], [ %59, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit.thread.loopexit.split.loop.exit108.i.i.i.i.i" ], [ %61, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit.thread.loopexit.split.loop.exit112.i.i.i.i.i" ], [ %58, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit.thread.loopexit.split.loop.exit104.i.i.i.i.i" ], [ %.029120.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit.i.i.i.i.i" ]
   %63 = getelementptr inbounds nuw %"class.clang::AvailabilitySpec", ptr %1, i64 %2
   %64 = icmp eq ptr %.028.i.i.i.i.i, %63
   %.not.i.i = icmp eq i64 %.val.val53.i.fr.i.i.i.i, 11
@@ -44361,8 +44361,8 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread.i:       ; preds = %_ZN4llvmeqENS_9Stri
   br label %"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E0_EEDaOT_T0_.exit.i"
 
 "_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E0_EEDaOT_T0_.exit.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit.i.i.i.i.i", %.loopexit.split.loop.exit76.i.i.i.i.i, %.loopexit.split.loop.exit74.i.i.i.i.i, %.loopexit.split.loop.exit72.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit63.thread.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit63.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit59.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit55.i.i.i.i.i", %"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E_EEDaOT_T0_.exit.i", %"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E_EEDaOT_T0_.exit.thread.i"
-  %100 = phi ptr [ %63, %"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E_EEDaOT_T0_.exit.i" ], [ %63, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit59.i.i.i.i.i" ], [ %63, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit63.thread.i.i.i.i.i" ], [ %63, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit63.i.i.i.i.i" ], [ %63, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit55.i.i.i.i.i" ], [ %63, %.loopexit.split.loop.exit74.i.i.i.i.i ], [ %63, %.loopexit.split.loop.exit72.i.i.i.i.i ], [ %63, %.loopexit.split.loop.exit76.i.i.i.i.i ], [ %62, %"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E_EEDaOT_T0_.exit.thread.i" ], [ %63, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit.i.i.i.i.i" ]
-  %.0.i = phi ptr [ %.028.i.i.i.i.i, %"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E_EEDaOT_T0_.exit.i" ], [ %.1.i.i.i.i16.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit59.i.i.i.i.i" ], [ %10, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit63.thread.i.i.i.i.i" ], [ %.2.i.i.i.i13.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit63.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i12.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit55.i.i.i.i.i" ], [ %98, %.loopexit.split.loop.exit74.i.i.i.i.i ], [ %97, %.loopexit.split.loop.exit72.i.i.i.i.i ], [ %99, %.loopexit.split.loop.exit76.i.i.i.i.i ], [ %.028.i.i.i.i.ph.i, %"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E_EEDaOT_T0_.exit.thread.i" ], [ %.02981.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit.i.i.i.i.i" ]
+  %100 = phi ptr [ %63, %.loopexit.split.loop.exit76.i.i.i.i.i ], [ %62, %"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E_EEDaOT_T0_.exit.thread.i" ], [ %63, %"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E_EEDaOT_T0_.exit.i" ], [ %63, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit59.i.i.i.i.i" ], [ %63, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit63.thread.i.i.i.i.i" ], [ %63, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit63.i.i.i.i.i" ], [ %63, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit55.i.i.i.i.i" ], [ %63, %.loopexit.split.loop.exit74.i.i.i.i.i ], [ %63, %.loopexit.split.loop.exit72.i.i.i.i.i ], [ %63, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit.i.i.i.i.i" ]
+  %.0.i = phi ptr [ %99, %.loopexit.split.loop.exit76.i.i.i.i.i ], [ %.028.i.i.i.i.ph.i, %"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E_EEDaOT_T0_.exit.thread.i" ], [ %.028.i.i.i.i.i, %"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E_EEDaOT_T0_.exit.i" ], [ %.1.i.i.i.i16.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit59.i.i.i.i.i" ], [ %10, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit63.thread.i.i.i.i.i" ], [ %.2.i.i.i.i13.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit63.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i12.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit55.i.i.i.i.i" ], [ %98, %.loopexit.split.loop.exit74.i.i.i.i.i ], [ %97, %.loopexit.split.loop.exit72.i.i.i.i.i ], [ %.02981.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit.i.i.i.i.i" ]
   %101 = icmp eq ptr %.0.i, %100
   br i1 %101, label %"_ZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS_16AvailabilitySpecEEENS_14SourceLocationES5_ENK3$_0clENS1_9StringRefE.exit", label %102
 
@@ -49549,7 +49549,7 @@ switch.lookup:                                    ; preds = %186
   br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
 
 _ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit: ; preds = %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %switch.lookup, %186, %107, %105, %103, %101, %99, %97, %95, %93, %91, %89, %87, %85, %111, %72, %70, %68, %66, %64, %62, %60, %58, %56, %54, %52, %50, %48, %46, %44, %42, %40, %38, %36, %34, %32, %30, %28, %26, %24, %22, %20, %18, %16, %14, %12, %10, %401, %399, %397, %395, %393, %391, %389, %387, %385, %383, %381, %379, %377, %375, %373, %371, %369, %367, %365, %363, %361, %359, %357, %355, %353, %351, %349, %347, %345, %343, %341, %339, %337, %335, %333, %331, %329, %327, %325, %323, %321, %319, %317, %315, %313, %311, %309, %307, %305, %303, %301, %299, %297, %295, %293, %291, %289, %287, %284, %282, %280, %278, %276, %274, %272, %270, %268, %266, %264, %262, %260, %258, %256, %254, %252, %250, %248, %246, %244, %242, %240, %238, %236, %234, %232, %230, %228, %226, %224, %222, %220, %218, %216, %214, %212, %210, %203, %_ZN12_GLOBAL__N_114ARCCastChecker24VisitObjCPropertyRefExprEPN5clang19ObjCPropertyRefExprE.exit, %191, %189, %184, %182, %180, %178, %176, %174, %172, %170, %168, %166, %164, %157, %155, %153, %151, %149, %147, %145, %131, %129, %127, %125, %123, %121, %119, %117
-  %.3 = phi i32 [ %..i.i, %117 ], [ %..i.i564, %119 ], [ %..i.i566, %121 ], [ %..i.i568, %123 ], [ %..i.i570, %125 ], [ %..i.i572, %127 ], [ %..i.i574, %129 ], [ %..i.i576, %131 ], [ %..i.i578, %145 ], [ %..i.i580, %147 ], [ %..i.i582, %149 ], [ %..i.i584, %151 ], [ %..i.i586, %153 ], [ %..i.i588, %155 ], [ %..i.i590, %157 ], [ %..i.i.i540, %87 ], [ %..i.i592, %164 ], [ %..i.i594, %166 ], [ %..i.i596, %168 ], [ %..i.i598, %170 ], [ %..i.i600, %172 ], [ %..i.i.i602, %174 ], [ %..i.i.i604, %176 ], [ %..i.i606, %178 ], [ %..i.i608, %180 ], [ %..i.i610, %182 ], [ %..i.i612, %184 ], [ %..i.i614, %189 ], [ %..i.i616, %191 ], [ %202, %_ZN12_GLOBAL__N_114ARCCastChecker24VisitObjCPropertyRefExprEPN5clang19ObjCPropertyRefExprE.exit ], [ %209, %203 ], [ %..i.i620, %210 ], [ %..i.i622, %212 ], [ %..i.i624, %214 ], [ %..i.i626, %216 ], [ %..i.i628, %218 ], [ %..i.i630, %220 ], [ %..i.i632, %222 ], [ %..i.i634, %224 ], [ %..i.i636, %226 ], [ %..i.i638, %228 ], [ %..i.i640, %230 ], [ %..i.i642, %232 ], [ %..i.i644, %234 ], [ %..i.i646, %236 ], [ %..i.i648, %238 ], [ %..i.i650, %240 ], [ %..i.i652, %242 ], [ %..i.i654, %244 ], [ %..i.i656, %246 ], [ %..i.i658, %248 ], [ %..i.i660, %250 ], [ %..i.i662, %252 ], [ %..i.i664, %254 ], [ %..i.i666, %256 ], [ %..i.i668, %258 ], [ %..i.i670, %260 ], [ %..i.i.i672, %262 ], [ %..i.i.i674, %264 ], [ %..i.i676, %266 ], [ %..i.i678, %268 ], [ %..i.i680, %270 ], [ %..i.i682, %272 ], [ %..i.i684, %274 ], [ %..i.i686, %276 ], [ %..i.i688, %278 ], [ %..i.i690, %280 ], [ %..i.i692, %282 ], [ %286, %284 ], [ %..i.i.i694, %287 ], [ %..i.i.i696, %289 ], [ %..i.i698, %291 ], [ %..i.i700, %293 ], [ %..i.i702, %295 ], [ %..i.i704, %297 ], [ %..i.i706, %299 ], [ %302, %301 ], [ %304, %303 ], [ %306, %305 ], [ %308, %307 ], [ %310, %309 ], [ %312, %311 ], [ %314, %313 ], [ %316, %315 ], [ %318, %317 ], [ %320, %319 ], [ %322, %321 ], [ %324, %323 ], [ %326, %325 ], [ %328, %327 ], [ %330, %329 ], [ %..i.i708, %331 ], [ %..i.i710, %333 ], [ %..i.i712, %335 ], [ %..i.i714, %337 ], [ %..i.i716, %339 ], [ %..i.i718, %341 ], [ %..i.i720, %343 ], [ %..i.i722, %345 ], [ %..i.i724, %347 ], [ %..i.i726, %349 ], [ %..i.i728, %351 ], [ %..i.i730, %353 ], [ %..i.i732, %355 ], [ %..i.i734, %357 ], [ %..i.i736, %359 ], [ %..i.i738, %361 ], [ %..i.i740, %363 ], [ %..i.i742, %365 ], [ %..i.i744, %367 ], [ %..i.i746, %369 ], [ %..i.i.i748, %371 ], [ %..i.i750, %373 ], [ %..i.i752, %375 ], [ %..i.i754, %377 ], [ %..i.i756, %379 ], [ %..i.i.i758, %381 ], [ %..i.i760, %383 ], [ %..i.i762, %385 ], [ %..i.i764, %387 ], [ %..i.i766, %389 ], [ %..i.i768, %391 ], [ %..i.i770, %393 ], [ %..i.i772, %395 ], [ %..i.i774, %397 ], [ %400, %399 ], [ %..i.i.i776, %401 ], [ 0, %186 ], [ %switch.load, %switch.lookup ], [ %..i.i.i, %10 ], [ %..i.i.i562, %111 ], [ %..i.i.i.i535, %72 ], [ %..i.i.i.i533, %70 ], [ %..i.i.i.i531, %68 ], [ %..i.i.i.i529, %66 ], [ %..i.i.i.i527, %64 ], [ %..i.i.i.i525, %62 ], [ %..i.i.i.i523, %60 ], [ %..i.i.i.i521, %58 ], [ %..i.i.i.i519, %56 ], [ %..i.i.i.i, %54 ], [ %..i.i.i517, %52 ], [ %..i.i.i515, %50 ], [ %..i.i.i513, %48 ], [ %..i.i.i511, %46 ], [ %..i.i.i509, %44 ], [ %..i.i.i507, %42 ], [ %..i.i.i505, %40 ], [ %..i.i.i503, %38 ], [ %..i.i.i501, %36 ], [ %..i.i.i499, %34 ], [ %..i.i.i497, %32 ], [ %..i.i.i495, %30 ], [ %..i.i.i493, %28 ], [ %..i.i.i491, %26 ], [ %..i.i.i489, %24 ], [ %..i.i.i487, %22 ], [ %..i.i.i485, %20 ], [ %..i.i.i483, %18 ], [ %..i.i.i481, %16 ], [ %..i.i.i479, %14 ], [ %..i.i.i477, %12 ], [ %..i.i.i538, %85 ], [ %..i.i.i560, %107 ], [ %..i.i.i558, %105 ], [ %..i.i.i556, %103 ], [ %..i.i.i554, %101 ], [ %..i.i.i552, %99 ], [ %..i.i.i550, %97 ], [ %..i.i.i548, %95 ], [ %..i.i.i546, %93 ], [ %..i.i.i544, %91 ], [ %..i.i.i542, %89 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ]
+  %.3 = phi i32 [ %..i.i.i542, %89 ], [ %..i.i.i544, %91 ], [ %..i.i, %117 ], [ %..i.i564, %119 ], [ %..i.i566, %121 ], [ %..i.i568, %123 ], [ %..i.i570, %125 ], [ %..i.i572, %127 ], [ %..i.i574, %129 ], [ %..i.i576, %131 ], [ %switch.load, %switch.lookup ], [ %..i.i578, %145 ], [ %..i.i580, %147 ], [ %..i.i582, %149 ], [ %..i.i584, %151 ], [ %..i.i586, %153 ], [ %..i.i588, %155 ], [ %..i.i590, %157 ], [ %..i.i.i540, %87 ], [ %..i.i592, %164 ], [ %..i.i594, %166 ], [ %..i.i596, %168 ], [ %..i.i598, %170 ], [ %..i.i600, %172 ], [ %..i.i.i602, %174 ], [ %..i.i.i604, %176 ], [ %..i.i606, %178 ], [ %..i.i608, %180 ], [ %..i.i610, %182 ], [ %..i.i612, %184 ], [ %..i.i.i546, %93 ], [ %..i.i614, %189 ], [ %..i.i616, %191 ], [ %202, %_ZN12_GLOBAL__N_114ARCCastChecker24VisitObjCPropertyRefExprEPN5clang19ObjCPropertyRefExprE.exit ], [ %209, %203 ], [ %..i.i620, %210 ], [ %..i.i622, %212 ], [ %..i.i624, %214 ], [ %..i.i626, %216 ], [ %..i.i628, %218 ], [ %..i.i630, %220 ], [ %..i.i632, %222 ], [ %..i.i634, %224 ], [ %..i.i636, %226 ], [ %..i.i638, %228 ], [ %..i.i640, %230 ], [ %..i.i642, %232 ], [ %..i.i644, %234 ], [ %..i.i646, %236 ], [ %..i.i648, %238 ], [ %..i.i650, %240 ], [ %..i.i652, %242 ], [ %..i.i654, %244 ], [ %..i.i656, %246 ], [ %..i.i658, %248 ], [ %..i.i660, %250 ], [ %..i.i662, %252 ], [ %..i.i664, %254 ], [ %..i.i666, %256 ], [ %..i.i668, %258 ], [ %..i.i670, %260 ], [ %..i.i.i672, %262 ], [ %..i.i.i674, %264 ], [ %..i.i676, %266 ], [ %..i.i678, %268 ], [ %..i.i680, %270 ], [ %..i.i682, %272 ], [ %..i.i684, %274 ], [ %..i.i686, %276 ], [ %..i.i688, %278 ], [ %..i.i690, %280 ], [ %..i.i692, %282 ], [ %286, %284 ], [ %..i.i.i694, %287 ], [ %..i.i.i696, %289 ], [ %..i.i698, %291 ], [ %..i.i700, %293 ], [ %..i.i702, %295 ], [ %..i.i704, %297 ], [ %..i.i706, %299 ], [ %302, %301 ], [ %304, %303 ], [ %306, %305 ], [ %308, %307 ], [ %310, %309 ], [ %312, %311 ], [ %314, %313 ], [ %316, %315 ], [ %318, %317 ], [ %320, %319 ], [ %322, %321 ], [ %324, %323 ], [ %326, %325 ], [ %328, %327 ], [ %330, %329 ], [ %..i.i708, %331 ], [ %..i.i710, %333 ], [ %..i.i712, %335 ], [ %..i.i714, %337 ], [ %..i.i716, %339 ], [ %..i.i718, %341 ], [ %..i.i720, %343 ], [ %..i.i722, %345 ], [ %..i.i724, %347 ], [ %..i.i726, %349 ], [ %..i.i728, %351 ], [ %..i.i730, %353 ], [ %..i.i732, %355 ], [ %..i.i734, %357 ], [ %..i.i736, %359 ], [ %..i.i738, %361 ], [ %..i.i740, %363 ], [ %..i.i742, %365 ], [ %..i.i744, %367 ], [ %..i.i746, %369 ], [ %..i.i.i748, %371 ], [ %..i.i750, %373 ], [ %..i.i752, %375 ], [ %..i.i754, %377 ], [ %..i.i756, %379 ], [ %..i.i.i758, %381 ], [ %..i.i760, %383 ], [ %..i.i762, %385 ], [ %..i.i764, %387 ], [ %..i.i766, %389 ], [ %..i.i768, %391 ], [ %..i.i770, %393 ], [ %..i.i772, %395 ], [ %..i.i774, %397 ], [ %400, %399 ], [ %..i.i.i776, %401 ], [ 0, %186 ], [ %..i.i.i548, %95 ], [ %..i.i.i550, %97 ], [ %..i.i.i552, %99 ], [ %..i.i.i554, %101 ], [ %..i.i.i556, %103 ], [ %..i.i.i558, %105 ], [ %..i.i.i560, %107 ], [ %..i.i.i538, %85 ], [ %..i.i.i477, %12 ], [ %..i.i.i479, %14 ], [ %..i.i.i481, %16 ], [ %..i.i.i483, %18 ], [ %..i.i.i485, %20 ], [ %..i.i.i487, %22 ], [ %..i.i.i489, %24 ], [ %..i.i.i491, %26 ], [ %..i.i.i493, %28 ], [ %..i.i.i495, %30 ], [ %..i.i.i497, %32 ], [ %..i.i.i499, %34 ], [ %..i.i.i501, %36 ], [ %..i.i.i503, %38 ], [ %..i.i.i505, %40 ], [ %..i.i.i507, %42 ], [ %..i.i.i509, %44 ], [ %..i.i.i511, %46 ], [ %..i.i.i513, %48 ], [ %..i.i.i515, %50 ], [ %..i.i.i517, %52 ], [ %..i.i.i.i, %54 ], [ %..i.i.i.i519, %56 ], [ %..i.i.i.i521, %58 ], [ %..i.i.i.i523, %60 ], [ %..i.i.i.i525, %62 ], [ %..i.i.i.i527, %64 ], [ %..i.i.i.i529, %66 ], [ %..i.i.i.i531, %68 ], [ %..i.i.i.i533, %70 ], [ %..i.i.i.i535, %72 ], [ %..i.i.i562, %111 ], [ %..i.i.i, %10 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ]
   ret i32 %.3
 }
 
@@ -49620,7 +49620,7 @@ _ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit: ; preds =
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit, %_ZNK5clang8QualType16isConstQualifiedEv.exit.thread, %9, %12, %_ZL15isAnyRetainable22ARCConversionTypeClass.exit8, %1, %_ZNK5clang8QualType16isConstQualifiedEv.exit
-  %.0 = phi i32 [ 0, %_ZNK5clang8QualType16isConstQualifiedEv.exit ], [ 0, %9 ], [ %28, %_ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit ], [ 0, %12 ], [ 0, %1 ], [ 0, %_ZL15isAnyRetainable22ARCConversionTypeClass.exit8 ], [ 2, %_ZNK5clang8QualType16isConstQualifiedEv.exit.thread ]
+  %.0 = phi i32 [ 0, %_ZNK5clang8QualType16isConstQualifiedEv.exit ], [ 0, %9 ], [ %28, %_ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit ], [ 2, %_ZNK5clang8QualType16isConstQualifiedEv.exit.thread ], [ 0, %12 ], [ 0, %1 ], [ 0, %_ZL15isAnyRetainable22ARCConversionTypeClass.exit8 ]
   ret i32 %.0
 }
 
@@ -49801,7 +49801,7 @@ _ZNK5clang4Decl7hasAttrINS_21CFAuditedTransferAttrEEEbv.exit.i: ; preds = %.lr.p
   %90 = trunc nuw i8 %89 to i1
   br i1 %90, label %_ZN12_GLOBAL__N_114ARCCastChecker19checkCallToFunctionEPN5clang12FunctionDeclE.exit, label %_ZN5clang8CallExpr15getDirectCalleeEv.exit.thread
 
-_ZN5clang8CallExpr15getDirectCalleeEv.exit.thread: ; preds = %83, %2, %9, %63, %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit.i, %87, %_ZNK5clang4Decl7hasAttrINS_21CFAuditedTransferAttrEEEbv.exit.i, %29, %69, %72
+_ZN5clang8CallExpr15getDirectCalleeEv.exit.thread: ; preds = %83, %2, %9, %63, %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit.i, %87, %_ZNK5clang4Decl7hasAttrINS_21CFAuditedTransferAttrEEEbv.exit.i, %29, %72, %69
   %.val = load ptr, ptr %0, align 8, !tbaa !1669
   %91 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(23216) %.val, i32 noundef 2) #20
   %.not.i.i14 = icmp ne i32 %91, 0
@@ -49809,7 +49809,7 @@ _ZN5clang8CallExpr15getDirectCalleeEv.exit.thread: ; preds = %83, %2, %9, %63, %
   br label %_ZN12_GLOBAL__N_114ARCCastChecker19checkCallToFunctionEPN5clang12FunctionDeclE.exit
 
 _ZN12_GLOBAL__N_114ARCCastChecker19checkCallToFunctionEPN5clang12FunctionDeclE.exit: ; preds = %87, %63, %85, %_ZNK5clang4Decl7hasAttrINS_21CFReturnsRetainedAttrEEEbv.exit.thread24.i, %_ZNK5clang4Decl7hasAttrINS_24CFReturnsNotRetainedAttrEEEbv.exit.i, %_ZN5clang8CallExpr15getDirectCalleeEv.exit.thread
-  %.3 = phi i32 [ %..i.i, %_ZN5clang8CallExpr15getDirectCalleeEv.exit.thread ], [ 1, %_ZNK5clang4Decl7hasAttrINS_21CFReturnsRetainedAttrEEEbv.exit.thread24.i ], [ 3, %63 ], [ 2, %85 ], [ 2, %_ZNK5clang4Decl7hasAttrINS_24CFReturnsNotRetainedAttrEEEbv.exit.i ], [ 3, %87 ]
+  %.3 = phi i32 [ %..i.i, %_ZN5clang8CallExpr15getDirectCalleeEv.exit.thread ], [ 2, %_ZNK5clang4Decl7hasAttrINS_24CFReturnsNotRetainedAttrEEEbv.exit.i ], [ 1, %_ZNK5clang4Decl7hasAttrINS_21CFReturnsRetainedAttrEEEbv.exit.thread24.i ], [ 2, %85 ], [ 3, %63 ], [ 3, %87 ]
   ret i32 %.3
 }
 
@@ -53266,7 +53266,7 @@ _ZN5clangneENS_22specific_attr_iteratorINS_14ObjCBridgeAttrEN4llvm11SmallVectorI
   %58 = icmp eq i16 %57, 295
   br i1 %58, label %.thread, label %.lr.ph.i.i.i.i, !llvm.loop !1696
 
-.loopexit:                                        ; preds = %46, %.lr.ph, %_ZN5clangneENS_22specific_attr_iteratorINS_14ObjCBridgeAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, %35
+.loopexit:                                        ; preds = %46, %.lr.ph, %35, %_ZN5clangneENS_22specific_attr_iteratorINS_14ObjCBridgeAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i
   %59 = getelementptr inbounds nuw i8, ptr %.sroa.01.025, i64 96
   %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %59, align 8
   %60 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, 3
@@ -53283,7 +53283,7 @@ _ZN5clangneENS_22specific_attr_iteratorINS_14ObjCBridgeAttrEN4llvm11SmallVectorI
   br i1 %or.cond, label %.thread, label %.lr.ph
 
 .thread:                                          ; preds = %61, %.loopexit, %.lr.ph.i.i.i.i, %26, %0, %14, %48
-  %.5 = phi ptr [ %49, %48 ], [ null, %14 ], [ null, %0 ], [ null, %26 ], [ %55, %.lr.ph.i.i.i.i ], [ null, %.loopexit ], [ null, %61 ]
+  %.5 = phi ptr [ %49, %48 ], [ null, %0 ], [ null, %26 ], [ null, %14 ], [ %55, %.lr.ph.i.i.i.i ], [ null, %.loopexit ], [ null, %61 ]
   ret ptr %.5
 }
 
@@ -53389,7 +53389,7 @@ _ZN5clangneENS_22specific_attr_iteratorINS_21ObjCBridgeMutableAttrEN4llvm11Small
   %58 = icmp eq i16 %57, 296
   br i1 %58, label %.thread, label %.lr.ph.i.i.i.i, !llvm.loop !1698
 
-.loopexit:                                        ; preds = %46, %.lr.ph, %_ZN5clangneENS_22specific_attr_iteratorINS_21ObjCBridgeMutableAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, %35
+.loopexit:                                        ; preds = %46, %.lr.ph, %35, %_ZN5clangneENS_22specific_attr_iteratorINS_21ObjCBridgeMutableAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i
   %59 = getelementptr inbounds nuw i8, ptr %.sroa.01.025, i64 96
   %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %59, align 8
   %60 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, 3
@@ -53406,7 +53406,7 @@ _ZN5clangneENS_22specific_attr_iteratorINS_21ObjCBridgeMutableAttrEN4llvm11Small
   br i1 %or.cond, label %.thread, label %.lr.ph
 
 .thread:                                          ; preds = %61, %.loopexit, %.lr.ph.i.i.i.i, %26, %0, %14, %48
-  %.5 = phi ptr [ %49, %48 ], [ null, %14 ], [ null, %0 ], [ null, %26 ], [ %55, %.lr.ph.i.i.i.i ], [ null, %.loopexit ], [ null, %61 ]
+  %.5 = phi ptr [ %49, %48 ], [ null, %0 ], [ null, %26 ], [ null, %14 ], [ %55, %.lr.ph.i.i.i.i ], [ null, %.loopexit ], [ null, %61 ]
   ret ptr %.5
 }
 

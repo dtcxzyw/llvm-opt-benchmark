@@ -573,7 +573,7 @@ define internal fastcc noundef double @_ZN4absl15random_internal12_GLOBAL__N_121
   br i1 %5, label %6, label %10
 
 common.ret193:                                    ; preds = %82, %112, %.loopexit, %90, %94, %6
-  %common.ret193.op = phi double [ %9, %6 ], [ %.1145162, %112 ], [ 0x7FF0000000000000, %82 ], [ %.1145162, %94 ], [ %91, %90 ], [ 0x7FF0000000000000, %.loopexit ]
+  %common.ret193.op = phi double [ %9, %6 ], [ %.1145162, %112 ], [ 0x7FF0000000000000, %82 ], [ %91, %90 ], [ %.1145162, %94 ], [ 0x7FF0000000000000, %.loopexit ]
   ret double %common.ret193.op
 
 6:                                                ; preds = %4

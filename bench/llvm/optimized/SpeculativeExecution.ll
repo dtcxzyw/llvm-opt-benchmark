@@ -1123,8 +1123,8 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i: ; preds = %._crit_edge.i.i
   br label %_ZN4llvm15SmallPtrSetImplIPKNS_11InstructionEE6insertES3_.exit
 
 _ZN4llvm15SmallPtrSetImplIPKNS_11InstructionEE6insertES3_.exit: ; preds = %.lr.ph.i.i55, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i, %149, %_ZN4llvm15InstructionCostpLERKS0_.exit
-  %.sroa.084.1 = phi i64 [ %.0.i53, %_ZN4llvm15InstructionCostpLERKS0_.exit ], [ %.sroa.084.0116, %149 ], [ %.sroa.084.0116, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ %.sroa.084.0116, %.lr.ph.i.i55 ]
-  %.142 = phi i32 [ %.041117, %_ZN4llvm15InstructionCostpLERKS0_.exit ], [ %spec.select, %149 ], [ %spec.select, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ %spec.select, %.lr.ph.i.i55 ]
+  %.sroa.084.1 = phi i64 [ %.0.i53, %_ZN4llvm15InstructionCostpLERKS0_.exit ], [ %.sroa.084.0116, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ %.sroa.084.0116, %149 ], [ %.sroa.084.0116, %.lr.ph.i.i55 ]
+  %.142 = phi i32 [ %.041117, %_ZN4llvm15InstructionCostpLERKS0_.exit ], [ %spec.select, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ %spec.select, %149 ], [ %spec.select, %.lr.ph.i.i55 ]
   %152 = getelementptr inbounds nuw i8, ptr %.sroa.079.0118, i64 8
   %.sroa.079.0 = load ptr, ptr %152, align 8, !tbaa !96
   %.not105 = icmp eq ptr %.sroa.079.0, %12

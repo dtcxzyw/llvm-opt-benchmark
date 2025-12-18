@@ -1748,7 +1748,7 @@ _ZN11floatbuffer6getvalEii.exit127.thread:        ; preds = %146, %_ZN11floatbuf
   br i1 %232, label %.preheader, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %._crit_edge202, %.preheader191, %.preheader189, %.preheader.lr.ph, %.preheader187, %2
-  %.078 = phi i32 [ -1, %2 ], [ 1, %.preheader187 ], [ 1, %.preheader.lr.ph ], [ 1, %.preheader189 ], [ 1, %.preheader191 ], [ 1, %._crit_edge202 ]
+  %.078 = phi i32 [ -1, %2 ], [ 1, %.preheader.lr.ph ], [ 1, %.preheader187 ], [ 1, %.preheader191 ], [ 1, %.preheader189 ], [ 1, %._crit_edge202 ]
   ret i32 %.078
 }
 
@@ -5222,7 +5222,7 @@ _ZN10QByteArrayD2Ev.exit38.sink.split:            ; preds = %130, %_ZN9QtPrivate
   br label %_ZN10QByteArrayD2Ev.exit38
 
 _ZN10QByteArrayD2Ev.exit38:                       ; preds = %_ZN10QByteArrayD2Ev.exit38.sink.split, %_ZN9QtPrivate8RefCount5derefEv.exit.i57, %130, %_ZN9QtPrivate8RefCount5derefEv.exit.i34, %70, %138
-  %.0 = phi i32 [ %139, %138 ], [ 0, %70 ], [ 0, %_ZN9QtPrivate8RefCount5derefEv.exit.i34 ], [ 0, %130 ], [ 0, %_ZN9QtPrivate8RefCount5derefEv.exit.i57 ], [ 0, %_ZN10QByteArrayD2Ev.exit38.sink.split ]
+  %.0 = phi i32 [ %139, %138 ], [ 0, %_ZN9QtPrivate8RefCount5derefEv.exit.i57 ], [ 0, %70 ], [ 0, %_ZN9QtPrivate8RefCount5derefEv.exit.i34 ], [ 0, %130 ], [ 0, %_ZN10QByteArrayD2Ev.exit38.sink.split ]
   %140 = load ptr, ptr %5, align 8
   %141 = load atomic i32, ptr %140 monotonic, align 4
   switch i32 %141, label %_ZN9QtPrivate8RefCount5derefEv.exit.i63 [
@@ -6745,7 +6745,7 @@ _ZNSt7__cxx114listIiSaIiEE6spliceESt20_List_const_iteratorIiERS2_.exit: ; preds 
   br i1 %.not.i.i.i8, label %_ZNSt7__cxx114listIiSaIiEED2Ev.exit, label %.lr.ph.i.i.i6, !llvm.loop !71
 
 _ZNSt7__cxx114listIiSaIiEED2Ev.exit:              ; preds = %.lr.ph.i.i.i6, %4, %23
-  %.sroa.04.020 = phi ptr [ %.sroa.04.0, %23 ], [ %1, %4 ], [ %.sroa.04.0, %.lr.ph.i.i.i6 ]
+  %.sroa.04.020 = phi ptr [ %1, %4 ], [ %.sroa.04.0, %23 ], [ %.sroa.04.0, %.lr.ph.i.i.i6 ]
   ret ptr %.sroa.04.020
 }
 

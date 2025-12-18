@@ -1491,8 +1491,8 @@ _ZN14MergeMemStream10set_memoryEP4Node.exit148:   ; preds = %425, %426
   br i1 %433, label %.lr.ph, label %.loopexit206, !llvm.loop !14
 
 .loopexit206:                                     ; preds = %.lr.ph, %.split.us.i.i, %412, %_ZN14MergeMemStream10set_memoryEP4Node.exit148
-  %.sroa.22.1.ph311 = phi ptr [ %404, %_ZN14MergeMemStream10set_memoryEP4Node.exit148 ], [ %414, %412 ], [ %404, %.split.us.i.i ], [ %404, %.lr.ph ]
-  %.sroa.15.1 = phi ptr [ %423, %_ZN14MergeMemStream10set_memoryEP4Node.exit148 ], [ %400, %412 ], [ %400, %.split.us.i.i ], [ %423, %.lr.ph ]
+  %.sroa.22.1.ph311 = phi ptr [ %404, %.split.us.i.i ], [ %404, %_ZN14MergeMemStream10set_memoryEP4Node.exit148 ], [ %414, %412 ], [ %404, %.lr.ph ]
+  %.sroa.15.1 = phi ptr [ %400, %.split.us.i.i ], [ %423, %_ZN14MergeMemStream10set_memoryEP4Node.exit148 ], [ %400, %412 ], [ %423, %.lr.ph ]
   br i1 %353, label %434, label %443
 
 434:                                              ; preds = %.loopexit206
@@ -5037,9 +5037,9 @@ _ZN4Node7set_reqEjPS_.exit144:                    ; preds = %_ZN4Node7del_outEPS
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN4Node7set_reqEjPS_.exit136, %_ZN4Node7set_reqEjPS_.exit144, %._crit_edge, %221, %273
-  %.3282 = phi i1 [ true, %273 ], [ true, %221 ], [ false, %._crit_edge ], [ true, %_ZN4Node7set_reqEjPS_.exit144 ], [ false, %_ZN4Node7set_reqEjPS_.exit136 ]
-  %.3114 = phi i32 [ %274, %273 ], [ %223, %221 ], [ %.0111.lcssa, %._crit_edge ], [ %228, %_ZN4Node7set_reqEjPS_.exit144 ], [ %176, %_ZN4Node7set_reqEjPS_.exit136 ]
-  %.3106 = phi i32 [ 0, %273 ], [ 0, %221 ], [ %.2105207, %._crit_edge ], [ 0, %_ZN4Node7set_reqEjPS_.exit144 ], [ %.2105207, %_ZN4Node7set_reqEjPS_.exit136 ]
+  %.3282 = phi i1 [ true, %_ZN4Node7set_reqEjPS_.exit144 ], [ true, %273 ], [ true, %221 ], [ false, %._crit_edge ], [ false, %_ZN4Node7set_reqEjPS_.exit136 ]
+  %.3114 = phi i32 [ %228, %_ZN4Node7set_reqEjPS_.exit144 ], [ %274, %273 ], [ %223, %221 ], [ %.0111.lcssa, %._crit_edge ], [ %176, %_ZN4Node7set_reqEjPS_.exit136 ]
+  %.3106 = phi i32 [ 0, %_ZN4Node7set_reqEjPS_.exit144 ], [ 0, %273 ], [ 0, %221 ], [ %.2105207, %._crit_edge ], [ %.2105207, %_ZN4Node7set_reqEjPS_.exit136 ]
   %275 = load i32, ptr %91, align 4
   %276 = getelementptr inbounds nuw i8, ptr %.0118204, i64 24
   %277 = load i32, ptr %276, align 8
@@ -14915,7 +14915,7 @@ _ZN11PhaseValues8set_typeEPK4NodePK4Type.exit28:  ; preds = %110, %129
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN4Node8init_reqEjPS_.exit, %_ZN11PhaseValues8set_typeEPK4NodePK4Type.exit, %55, %_ZN11PhaseValues8set_typeEPK4NodePK4Type.exit28
-  %.023 = phi ptr [ %120, %_ZN11PhaseValues8set_typeEPK4NodePK4Type.exit28 ], [ %29, %55 ], [ %66, %_ZN11PhaseValues8set_typeEPK4NodePK4Type.exit ], [ %66, %_ZN4Node8init_reqEjPS_.exit ]
+  %.023 = phi ptr [ %29, %55 ], [ %120, %_ZN11PhaseValues8set_typeEPK4NodePK4Type.exit28 ], [ %66, %_ZN11PhaseValues8set_typeEPK4NodePK4Type.exit ], [ %66, %_ZN4Node8init_reqEjPS_.exit ]
   %134 = getelementptr inbounds nuw i8, ptr %.023, i64 8
   %135 = load ptr, ptr %134, align 8
   %136 = getelementptr inbounds nuw ptr, ptr %135, i64 %23

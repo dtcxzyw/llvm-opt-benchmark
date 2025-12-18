@@ -871,13 +871,13 @@ WaveLoad.exit:                                    ; preds = %WaveFreeChunkData.e
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8.i)
   br i1 %311, label %314, label %312
 
-312:                                              ; preds = %135, %154, %.loopexit.thread.i, %218, %251, %.critedge.i, %256, %.thread.i, %275, %308, %192, %306, %164, %.thread213.i, %100, %82, %WaveLoad.exit.thread, %WaveLoad.exit
+312:                                              ; preds = %135, %154, %.loopexit.thread.i, %218, %251, %.critedge.i, %256, %192, %.thread.i, %275, %308, %164, %306, %100, %.thread213.i, %82, %WaveLoad.exit.thread, %WaveLoad.exit
   %313 = load ptr, ptr %3, align 8
   call void @SDL_free_REAL(ptr noundef %313) #8
   br label %314
 
-314:                                              ; preds = %135, %154, %.loopexit.thread.i, %218, %251, %.critedge.i, %256, %.thread.i, %275, %308, %192, %306, %164, %.thread213.i, %100, %82, %WaveLoad.exit.thread41, %312, %WaveLoad.exit
-  %.0.i3640 = phi i1 [ false, %312 ], [ true, %WaveLoad.exit ], [ true, %WaveLoad.exit.thread41 ], [ true, %82 ], [ true, %100 ], [ true, %.thread213.i ], [ true, %164 ], [ true, %306 ], [ true, %192 ], [ true, %308 ], [ true, %275 ], [ true, %.thread.i ], [ true, %256 ], [ true, %.critedge.i ], [ true, %251 ], [ true, %218 ], [ true, %.loopexit.thread.i ], [ true, %154 ], [ true, %135 ]
+314:                                              ; preds = %135, %154, %.loopexit.thread.i, %218, %251, %.critedge.i, %256, %192, %.thread.i, %275, %308, %164, %306, %100, %.thread213.i, %82, %WaveLoad.exit.thread41, %312, %WaveLoad.exit
+  %.0.i3640 = phi i1 [ false, %312 ], [ true, %WaveLoad.exit ], [ true, %WaveLoad.exit.thread41 ], [ true, %82 ], [ true, %.thread213.i ], [ true, %100 ], [ true, %306 ], [ true, %164 ], [ true, %308 ], [ true, %275 ], [ true, %.thread.i ], [ true, %192 ], [ true, %256 ], [ true, %.critedge.i ], [ true, %251 ], [ true, %218 ], [ true, %.loopexit.thread.i ], [ true, %154 ], [ true, %135 ]
   br i1 %1, label %319, label %315
 
 315:                                              ; preds = %314
@@ -2035,8 +2035,8 @@ MS_ADPCM_DecodeBlockHeader.exit:                  ; preds = %63
   br label %.loopexit108
 
 .loopexit:                                        ; preds = %._crit_edge.us.i, %.preheader.lr.ph.i, %93
-  %.sroa.22.3.ph = phi i64 [ %95, %.preheader.lr.ph.i ], [ %.sroa.22.1101, %93 ], [ %95, %._crit_edge.us.i ]
-  %storemerge.i.ph = phi i64 [ %.sroa.70.3103, %.preheader.lr.ph.i ], [ %.sroa.70.3103, %93 ], [ %146, %._crit_edge.us.i ]
+  %.sroa.22.3.ph = phi i64 [ %.sroa.22.1101, %93 ], [ %95, %.preheader.lr.ph.i ], [ %95, %._crit_edge.us.i ]
+  %storemerge.i.ph = phi i64 [ %.sroa.70.3103, %93 ], [ %.sroa.70.3103, %.preheader.lr.ph.i ], [ %146, %._crit_edge.us.i ]
   %163 = add i64 %53, %.sroa.41.0115
   %164 = sub i64 %33, %163
   %165 = icmp sgt i64 %.sroa.22.3.ph, 0

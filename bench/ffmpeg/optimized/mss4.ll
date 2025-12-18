@@ -776,7 +776,7 @@ get_coeff.exit.i.us:                              ; preds = %202, %184
   br i1 %.not40.i.i.us, label %read_vec_pos.exit.i.us.preheader, label %.preheader200.i.us, !llvm.loop !64
 
 read_vec_pos.exit.i.us.preheader:                 ; preds = %338, %390, %341, %284
-  %.ph = phi i32 [ %spec.select.i152.i.us, %284 ], [ %.lcssa187190.us, %341 ], [ %391, %390 ], [ %339, %338 ]
+  %.ph = phi i32 [ %391, %390 ], [ %spec.select.i152.i.us, %284 ], [ %.lcssa187190.us, %341 ], [ %339, %338 ]
   br label %read_vec_pos.exit.i.us
 
 read_vec_pos.exit.i.us:                           ; preds = %read_vec_pos.exit.i.us.preheader, %get_value_cached.exit.i.us
@@ -1206,9 +1206,9 @@ get_value_cached.exit192.us.us.i.us:              ; preds = %get_value_cached.ex
   br i1 %exitcond297.not.i.us, label %.loopexit.i130.us, label %.preheader198.us.i.us, !llvm.loop !70
 
 .loopexit.i130.us:                                ; preds = %436, %._crit_edge223.us.i.us, %.split.us.i.us
-  %.lcssa197199.lcssa205.us = phi i32 [ %.lcssa191193.us, %.split.us.i.us ], [ %.lcssa197199.us, %._crit_edge223.us.i.us ], [ %431, %436 ]
-  %.2121.i.us = phi i32 [ %.0119235.i.us, %.split.us.i.us ], [ %.pre-phi316.i.us, %._crit_edge223.us.i.us ], [ %.0119235.i.us, %436 ]
-  %.2118.i.us = phi i32 [ 16, %.split.us.i.us ], [ %.1117196.i.us, %._crit_edge223.us.i.us ], [ %.0116236.i.us, %436 ]
+  %.lcssa197199.lcssa205.us = phi i32 [ %.lcssa197199.us, %._crit_edge223.us.i.us ], [ %.lcssa191193.us, %.split.us.i.us ], [ %431, %436 ]
+  %.2121.i.us = phi i32 [ %.pre-phi316.i.us, %._crit_edge223.us.i.us ], [ %.0119235.i.us, %.split.us.i.us ], [ %.0119235.i.us, %436 ]
+  %.2118.i.us = phi i32 [ %.1117196.i.us, %._crit_edge223.us.i.us ], [ 16, %.split.us.i.us ], [ %.0116236.i.us, %436 ]
   %621 = add nuw nsw i32 %.1130234.i.us, 1
   %exitcond298.not.i.us = icmp eq i32 %621, 16
   br i1 %exitcond298.not.i.us, label %.preheader197.i.us, label %235, !llvm.loop !71
@@ -1863,7 +1863,7 @@ get_coeff_bits.exit:                              ; preds = %140, %143
   br label %.loopexit
 
 .loopexit:                                        ; preds = %get_coeff_bits.exit, %get_vlc2.exit, %.loopexit.loopexit, %170
-  %.0 = phi i32 [ %172, %170 ], [ %.062.i, %.loopexit.loopexit ], [ -1, %get_vlc2.exit ], [ -1, %get_coeff_bits.exit ]
+  %.0 = phi i32 [ %.062.i, %.loopexit.loopexit ], [ %172, %170 ], [ -1, %get_vlc2.exit ], [ -1, %get_coeff_bits.exit ]
   ret i32 %.0
 }
 

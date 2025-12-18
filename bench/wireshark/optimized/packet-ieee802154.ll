@@ -2687,7 +2687,7 @@ dissect_ieee802154_fcf.exit:                      ; preds = %152, %154, %156
   %318 = getelementptr inbounds nuw i8, ptr %11, i64 26
   br label %323
 
-.thread574:                                       ; preds = %253, %266, %277, %267, %263, %313, %241, %240
+.thread574:                                       ; preds = %253, %240, %266, %241, %313, %263, %267, %277
   %319 = getelementptr inbounds nuw i8, ptr %11, i64 26
   br label %333
 
@@ -5122,7 +5122,7 @@ define hidden i32 @ieee802154_dissect_frame_payload(ptr noundef %0, ptr noundef 
   br label %64
 
 64:                                               ; preds = %.sink.split.i, %46
-  %.0.i = phi ptr [ %55, %.sink.split.i ], [ %0, %46 ]
+  %.0.i = phi ptr [ %0, %46 ], [ %55, %.sink.split.i ]
   %65 = getelementptr inbounds nuw i8, ptr %3, i64 105
   %66 = load i8, ptr %65, align 1
   switch i8 %66, label %397 [
@@ -8671,8 +8671,8 @@ define internal i32 @dissect_mpx_ie(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %102
 
 52:                                               ; preds = %.thread, %33, %20
-  %.1110 = phi i32 [ %22, %20 ], [ %37, %33 ], [ %15, %.thread ]
-  %.0108 = phi i32 [ 5, %20 ], [ 8, %33 ], [ 3, %.thread ]
+  %.1110 = phi i32 [ %22, %20 ], [ %15, %.thread ], [ %37, %33 ]
+  %.0108 = phi i32 [ 5, %20 ], [ 3, %.thread ], [ 8, %33 ]
   %trunc = trunc nuw i32 %.1110 to i16
   switch i16 %trunc, label %85 [
     i16 1, label %53
@@ -8869,8 +8869,8 @@ define internal i32 @dissect_ietf_ie(ptr noundef %0, ptr noundef %1, ptr noundef
   %.not232 = icmp ne i32 %56, 0
   %57 = and i32 %56, 3
   %58 = icmp eq i32 %57, 0
-  %or.cond = and i1 %.not232, %58
-  br i1 %or.cond, label %121, label %.thread237
+  %or.cond260 = and i1 %.not232, %58
+  br i1 %or.cond260, label %121, label %.thread237
 
 59:                                               ; preds = %40
   %60 = icmp ult i32 %44, 3
@@ -8982,8 +8982,8 @@ define internal i32 @dissect_ietf_ie(ptr noundef %0, ptr noundef %1, ptr noundef
   %.not228 = icmp ne i32 %102, 0
   %115 = and i32 %102, 3
   %116 = icmp eq i32 %115, 0
-  %or.cond260 = and i1 %.not228, %116
-  br i1 %or.cond260, label %.thread251, label %.thread237
+  %or.cond = and i1 %.not228, %116
+  br i1 %or.cond, label %.thread251, label %.thread237
 
 117:                                              ; preds = %103
   %118 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %32, ptr noundef nonnull @ei_ieee802154_6top_unsupported_return_code)
@@ -9079,7 +9079,7 @@ define internal i32 @dissect_ietf_ie(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %.not233, label %.thread237, label %.lr.ph, !llvm.loop !35
 
 .thread237:                                       ; preds = %.lr.ph, %.lr.ph274, %.thread251, %._crit_edge, %103, %103, %103, %103, %103, %103, %103, %103, %114, %104, %111, %82, %105, %117, %91, %89, %80, %68, %67, %61, %59, %47, %85, %119, %45, %94, %11, %4
-  %.0210 = phi i32 [ %8, %11 ], [ %8, %4 ], [ 7, %45 ], [ 7, %94 ], [ 7, %103 ], [ 7, %103 ], [ 7, %103 ], [ 7, %103 ], [ 7, %103 ], [ 7, %103 ], [ 7, %103 ], [ 7, %103 ], [ 7, %114 ], [ %8, %104 ], [ %8, %111 ], [ 9, %82 ], [ 9, %105 ], [ 7, %117 ], [ 9, %91 ], [ 7, %89 ], [ 7, %80 ], [ 15, %68 ], [ 7, %67 ], [ 10, %61 ], [ 7, %59 ], [ 11, %47 ], [ %8, %85 ], [ 7, %119 ], [ %.2213.lcssa, %._crit_edge ], [ %.0211248256, %.thread251 ], [ %156, %.lr.ph274 ], [ %171, %.lr.ph ]
+  %.0210 = phi i32 [ %8, %11 ], [ %8, %4 ], [ 7, %119 ], [ %156, %.lr.ph274 ], [ 7, %45 ], [ 7, %94 ], [ 7, %103 ], [ 7, %103 ], [ 7, %103 ], [ 7, %103 ], [ 7, %103 ], [ 7, %103 ], [ 7, %103 ], [ 7, %103 ], [ 7, %114 ], [ %8, %104 ], [ %8, %111 ], [ 9, %82 ], [ 9, %105 ], [ 7, %117 ], [ 9, %91 ], [ 7, %89 ], [ 7, %80 ], [ 15, %68 ], [ 7, %67 ], [ 10, %61 ], [ 7, %59 ], [ 11, %47 ], [ %8, %85 ], [ %.2213.lcssa, %._crit_edge ], [ %.0211248256, %.thread251 ], [ %171, %.lr.ph ]
   ret i32 %.0210
 }
 

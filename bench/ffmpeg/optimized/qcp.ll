@@ -343,7 +343,7 @@ define internal i32 @qcp_read_packet(ptr noundef %0, ptr noundef %1) #1 {
   br i1 %.not, label %10, label %.thread, !llvm.loop !50
 
 .thread:                                          ; preds = %.backedge, %2, %30, %35
-  %.2 = phi i32 [ %31, %35 ], [ %31, %30 ], [ -541478725, %2 ], [ -541478725, %.backedge ]
+  %.2 = phi i32 [ %31, %30 ], [ %31, %35 ], [ -541478725, %2 ], [ -541478725, %.backedge ]
   ret i32 %.2
 }
 

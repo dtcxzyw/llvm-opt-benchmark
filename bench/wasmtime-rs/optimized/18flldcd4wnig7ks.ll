@@ -1228,8 +1228,8 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3a08c7d001ee06ceE.llvm.13596990030671032255.exit.thread.i.i.i.i.i.i.i"
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3a08c7d001ee06ceE.llvm.13596990030671032255.exit.i.i.i.i.i.i.i": ; preds = %.noexc14, %.noexc9, %.noexc
-  %.lcssa19.i.i.i.i.i.i = phi ptr [ %67, %.noexc ], [ %90, %.noexc9 ], [ %120, %.noexc14 ]
-  %.lcssa.i.i.i.i.i.i = phi i1 [ %68, %.noexc ], [ %91, %.noexc9 ], [ %121, %.noexc14 ]
+  %.lcssa19.i.i.i.i.i.i = phi ptr [ %90, %.noexc9 ], [ %67, %.noexc ], [ %120, %.noexc14 ]
+  %.lcssa.i.i.i.i.i.i = phi i1 [ %91, %.noexc9 ], [ %68, %.noexc ], [ %121, %.noexc14 ]
   br i1 %.lcssa.i.i.i.i.i.i, label %"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17h89134e03a44bc2adE.exit", label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h13aa071e84fdbf95E.llvm.13596990030671032255.exit.thread25.i.i.i.i.i.i.i"
 
 "_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h13aa071e84fdbf95E.llvm.13596990030671032255.exit.thread25.i.i.i.i.i.i.i": ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3a08c7d001ee06ceE.llvm.13596990030671032255.exit.i.i.i.i.i.i.i"
@@ -2495,8 +2495,8 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd625fafcc7578ed6E.llvm.13596990030671032255.exit.thread.i.i.i.i.i.i.i"
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd625fafcc7578ed6E.llvm.13596990030671032255.exit.i.i.i.i.i.i.i": ; preds = %.noexc14, %.noexc9, %.noexc
-  %.lcssa19.i.i.i.i.i.i = phi ptr [ %67, %.noexc ], [ %90, %.noexc9 ], [ %120, %.noexc14 ]
-  %.lcssa.i.i.i.i.i.i = phi i1 [ %68, %.noexc ], [ %91, %.noexc9 ], [ %121, %.noexc14 ]
+  %.lcssa19.i.i.i.i.i.i = phi ptr [ %90, %.noexc9 ], [ %67, %.noexc ], [ %120, %.noexc14 ]
+  %.lcssa.i.i.i.i.i.i = phi i1 [ %91, %.noexc9 ], [ %68, %.noexc ], [ %121, %.noexc14 ]
   br i1 %.lcssa.i.i.i.i.i.i, label %"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17hcd816ff493840e55E.exit", label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h13aa071e84fdbf95E.llvm.13596990030671032255.exit.thread25.i.i.i.i.i.i.i"
 
 "_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h13aa071e84fdbf95E.llvm.13596990030671032255.exit.thread25.i.i.i.i.i.i.i": ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd625fafcc7578ed6E.llvm.13596990030671032255.exit.i.i.i.i.i.i.i"
@@ -8983,9 +8983,9 @@ define hidden void @_ZN18wasmtime_cranelift17compiled_function20collect_address_
   br label %41
 
 .outer._crit_edge:                                ; preds = %.outer, %78, %11
-  %.026.ph.lcssa83 = phi i32 [ %13, %11 ], [ %.026.ph92, %78 ], [ %32, %.outer ]
-  %.0.ph.lcssa82 = phi i32 [ %17, %11 ], [ %.0.ph94, %78 ], [ %36, %.outer ]
-  %.025.lcssa = phi i32 [ %18, %11 ], [ %79, %78 ], [ %37, %.outer ]
+  %.026.ph.lcssa83 = phi i32 [ %.026.ph92, %78 ], [ %13, %11 ], [ %32, %.outer ]
+  %.0.ph.lcssa82 = phi i32 [ %.0.ph94, %78 ], [ %17, %11 ], [ %36, %.outer ]
+  %.025.lcssa = phi i32 [ %79, %78 ], [ %18, %11 ], [ %37, %.outer ]
   %24 = invoke noundef zeroext i1 @_ZN17cranelift_codegen2ir9sourceloc9SourceLoc10is_default17h1404d66e5543ae05E(i32 noundef %.0.ph.lcssa82)
           to label %.noexc unwind label %42
 
@@ -10889,7 +10889,7 @@ _ZN18wasmtime_cranelift5debug9transform17address_transform20get_wasm_code_offset
   br label %.thread345.i
 
 .thread365.loopexit.split-lp.i.loopexit:          ; preds = %320, %322, %"_ZN4core3ptr80drop_in_place$LT$alloc..collections..btree..map..IntoIter$LT$u64$C$usize$GT$$GT$17ha748184c69f75002E.exit.i", %356
-  %.076.ph.ph.i.ph = phi i1 [ true, %"_ZN4core3ptr80drop_in_place$LT$alloc..collections..btree..map..IntoIter$LT$u64$C$usize$GT$$GT$17ha748184c69f75002E.exit.i" ], [ false, %356 ], [ true, %322 ], [ true, %320 ]
+  %.076.ph.ph.i.ph = phi i1 [ true, %320 ], [ true, %"_ZN4core3ptr80drop_in_place$LT$alloc..collections..btree..map..IntoIter$LT$u64$C$usize$GT$$GT$17ha748184c69f75002E.exit.i" ], [ false, %356 ], [ true, %322 ]
   %lpad.loopexit146 = landingpad { ptr, i32 }
           cleanup
   br label %.thread345.i
@@ -12756,7 +12756,7 @@ select.unfold.sink.split:                         ; preds = %"_ZN103_$LT$craneli
   br label %select.unfold
 
 select.unfold:                                    ; preds = %select.unfold.sink.split, %3, %_ZN18wasmtime_cranelift5debug9transform17address_transform23TransformRangeStartIter3new17h57e405b311a0fea8E.llvm.12599983639457799574.exit, %5, %21, %.loopexit.i
-  %.sink = phi i64 [ 0, %_ZN18wasmtime_cranelift5debug9transform17address_transform23TransformRangeStartIter3new17h57e405b311a0fea8E.llvm.12599983639457799574.exit ], [ 0, %5 ], [ 0, %.loopexit.i ], [ 0, %21 ], [ 0, %3 ], [ 1, %select.unfold.sink.split ]
+  %.sink = phi i64 [ 0, %_ZN18wasmtime_cranelift5debug9transform17address_transform23TransformRangeStartIter3new17h57e405b311a0fea8E.llvm.12599983639457799574.exit ], [ 0, %3 ], [ 0, %5 ], [ 0, %21 ], [ 0, %.loopexit.i ], [ 1, %select.unfold.sink.split ]
   store i64 %.sink, ptr %0, align 8
   ret void
 

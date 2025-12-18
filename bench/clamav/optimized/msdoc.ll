@@ -1483,7 +1483,7 @@ ole2_translate_docsummary_propid.exit.thread:     ; preds = %ole2_translate_docs
   br label %ole2_process_property.exit.thread83
 
 ole2_process_property.exit:                       ; preds = %140, %150, %155, %168, %178, %190, %202, %.thread372.i, %.thread374.i, %237, %247, %257, %267, %318, %362, %381
-  %.0.i = phi i32 [ %172, %168 ], [ %184, %178 ], [ %196, %190 ], [ %207, %202 ], [ %214, %.thread372.i ], [ %224, %.thread374.i ], [ %241, %237 ], [ %251, %247 ], [ %261, %257 ], [ %271, %267 ], [ %321, %318 ], [ %365, %362 ], [ %159, %155 ], [ %154, %150 ], [ %385, %381 ], [ %143, %140 ]
+  %.0.i = phi i32 [ %143, %140 ], [ %172, %168 ], [ %184, %178 ], [ %196, %190 ], [ %207, %202 ], [ %214, %.thread372.i ], [ %224, %.thread374.i ], [ %241, %237 ], [ %251, %247 ], [ %261, %257 ], [ %271, %267 ], [ %385, %381 ], [ %321, %318 ], [ %365, %362 ], [ %159, %155 ], [ %154, %150 ]
   %.not78 = icmp eq i32 %.0.i, 0
   br i1 %.not78, label %ole2_process_property.exit.thread83, label %.thread
 
@@ -1790,7 +1790,7 @@ define internal fastcc ptr @ole2_convert_utf(ptr noundef nonnull captures(none) 
   br label %.loopexit127
 
 .loopexit127:                                     ; preds = %.lr.ph148.preheader, %38, %39, %16, %37, %22, %19, %111, %.preheader._crit_edge, %55, %11
-  %.089 = phi ptr [ %18, %19 ], [ %12, %11 ], [ null, %55 ], [ %.0100, %111 ], [ null, %.preheader._crit_edge ], [ null, %16 ], [ %18, %37 ], [ %18, %22 ], [ null, %39 ], [ %18, %38 ], [ %18, %.lr.ph148.preheader ]
+  %.089 = phi ptr [ %18, %19 ], [ %12, %11 ], [ null, %55 ], [ %.0100, %111 ], [ null, %.preheader._crit_edge ], [ null, %16 ], [ %18, %37 ], [ null, %39 ], [ %18, %22 ], [ %18, %38 ], [ %18, %.lr.ph148.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

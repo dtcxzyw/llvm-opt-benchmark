@@ -1998,7 +1998,7 @@ _ZNK14core_hashtableI17default_map_entryIPN16cached_var_subst3keyEP4exprEN9table
   br i1 %.not32, label %.loopexit, label %50, !llvm.loop !133
 
 _ZNK14core_hashtableI17default_map_entryIPN16cached_var_subst3keyEP4exprEN9table2mapIS6_NS1_13key_hash_procENS1_11key_eq_procEE15entry_hash_procENSA_13entry_eq_procEE6equalsERK9_key_dataIS3_S5_ESH_.exit: ; preds = %.preheader.i.i.i, %43, %.preheader.i.i.i36, %67
-  %.1 = phi ptr [ %.02956, %43 ], [ %.258, %67 ], [ %.258, %.preheader.i.i.i36 ], [ %.02956, %.preheader.i.i.i ]
+  %.1 = phi ptr [ %.258, %.preheader.i.i.i36 ], [ %.02956, %43 ], [ %.258, %67 ], [ %.02956, %.preheader.i.i.i ]
   %74 = getelementptr inbounds nuw i8, ptr %.1, i64 24
   %75 = icmp eq ptr %74, %19
   %spec.select = select i1 %75, ptr %15, ptr %74

@@ -1711,7 +1711,7 @@ define internal fastcc void @update_misfit_status(ptr noundef %0, ptr noundef ca
   br i1 %71, label %.loopexit11, label %.preheader9, !llvm.loop !31
 
 .loopexit11:                                      ; preds = %68, %47, %57
-  %.ph = phi ptr [ %52, %57 ], [ %31, %47 ], [ %63, %68 ]
+  %.ph = phi ptr [ %31, %47 ], [ %52, %57 ], [ %63, %68 ]
   %72 = getelementptr inbounds nuw i8, ptr %.ph, i64 160
   %73 = load i64, ptr %72, align 32
   %74 = getelementptr inbounds nuw i8, ptr %.ph, i64 288
@@ -2219,9 +2219,9 @@ define dso_local void @update_group_capacity(ptr noundef readonly captures(none)
 
 .thread:                                          ; preds = %69, %81, %77, %98, %59
   %116 = phi ptr [ %60, %59 ], [ %16, %98 ], [ %16, %77 ], [ %16, %81 ], [ %16, %69 ]
-  %117 = phi i64 [ %33, %59 ], [ %107, %98 ], [ %71, %69 ], [ %89, %81 ], [ %71, %77 ]
-  %118 = phi i64 [ %33, %59 ], [ %110, %98 ], [ %72, %69 ], [ %90, %81 ], [ %72, %77 ]
-  %119 = phi i64 [ %33, %59 ], [ %113, %98 ], [ %73, %69 ], [ %91, %81 ], [ %73, %77 ]
+  %117 = phi i64 [ %33, %59 ], [ %107, %98 ], [ %89, %81 ], [ %71, %77 ], [ %71, %69 ]
+  %118 = phi i64 [ %33, %59 ], [ %110, %98 ], [ %90, %81 ], [ %72, %77 ], [ %72, %69 ]
+  %119 = phi i64 [ %33, %59 ], [ %113, %98 ], [ %91, %81 ], [ %73, %77 ], [ %73, %69 ]
   %120 = load ptr, ptr %116, align 8
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 8
   store i64 %117, ptr %121, align 8
@@ -5828,7 +5828,7 @@ define internal i32 @select_task_rq_fair(ptr noundef %0, i32 noundef %1, i32 nou
   br i1 %186, label %.loopexit135, label %.preheader133, !llvm.loop !31
 
 .loopexit135:                                     ; preds = %183, %162, %172
-  %.ph = phi ptr [ %167, %172 ], [ %146, %162 ], [ %178, %183 ]
+  %.ph = phi ptr [ %146, %162 ], [ %167, %172 ], [ %178, %183 ]
   %187 = getelementptr inbounds nuw i8, ptr %.ph, i64 160
   %188 = load i64, ptr %187, align 32
   %189 = getelementptr inbounds nuw i8, ptr %.ph, i64 288
@@ -5947,7 +5947,7 @@ define internal i32 @select_task_rq_fair(ptr noundef %0, i32 noundef %1, i32 nou
   br i1 %267, label %.loopexit130, label %.preheader128, !llvm.loop !31
 
 .loopexit130:                                     ; preds = %264, %243, %253
-  %.ph79 = phi ptr [ %248, %253 ], [ %227, %243 ], [ %259, %264 ]
+  %.ph79 = phi ptr [ %227, %243 ], [ %248, %253 ], [ %259, %264 ]
   %268 = getelementptr inbounds nuw i8, ptr %.ph79, i64 160
   %269 = load i64, ptr %268, align 32
   %270 = getelementptr inbounds nuw i8, ptr %.ph79, i64 288
@@ -12354,7 +12354,7 @@ can_migrate_task.exit:                            ; preds = %1292, %1291, %1268,
   br i1 %1344, label %.loopexit102, label %.preheader100, !llvm.loop !31
 
 .loopexit102:                                     ; preds = %1341, %1320, %1330
-  %.ph89 = phi ptr [ %1325, %1330 ], [ %1304, %1320 ], [ %1336, %1341 ]
+  %.ph89 = phi ptr [ %1304, %1320 ], [ %1325, %1330 ], [ %1336, %1341 ]
   %1345 = getelementptr inbounds nuw i8, ptr %.ph89, i64 160
   %1346 = load i64, ptr %1345, align 32
   %1347 = getelementptr inbounds nuw i8, ptr %.ph89, i64 288
@@ -12513,7 +12513,7 @@ can_migrate_task.exit.thread:                     ; preds = %1205, %.preheader, 
   br i1 %1449, label %.loopexit104, label %.preheader103, !llvm.loop !146
 
 .loopexit104:                                     ; preds = %.loopexit105, %1150, %can_migrate_task.exit.thread, %1166, %1156, %1173
-  %1450 = phi i32 [ %1151, %1173 ], [ %1151, %can_migrate_task.exit.thread ], [ %1151, %1156 ], [ %1151, %1166 ], [ %1151, %1150 ], [ %1436, %.loopexit105 ]
+  %1450 = phi i32 [ %1151, %1173 ], [ %1151, %can_migrate_task.exit.thread ], [ %1151, %1156 ], [ %1151, %1166 ], [ %1436, %.loopexit105 ], [ %1151, %1150 ]
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @sched_schedstats, i32 2) #28
           to label %1459 [label %1451], !srcloc !8
 
@@ -13302,7 +13302,7 @@ can_migrate_task.exit:                            ; preds = %78
   br label %.sink.split
 
 .loopexit30:                                      ; preds = %46, %98, %.thread, %99, %34
-  %104 = phi ptr [ null, %34 ], [ null, %99 ], [ null, %.thread ], [ %65, %98 ], [ null, %46 ]
+  %104 = phi ptr [ %65, %98 ], [ null, %34 ], [ null, %99 ], [ null, %.thread ], [ null, %46 ]
   tail call void @__rcu_read_unlock() #28
   store i32 0, ptr %24, align 32
   tail call void @raw_spin_rq_unlock(ptr noundef %0) #28
@@ -14074,7 +14074,7 @@ define internal fastcc i32 @find_idlest_cpu(ptr noundef nonnull readonly capture
   br i1 %146, label %.loopexit117, label %.preheader115, !llvm.loop !31
 
 .loopexit117:                                     ; preds = %143, %122, %132
-  %.ph = phi ptr [ %127, %132 ], [ %106, %122 ], [ %138, %143 ]
+  %.ph = phi ptr [ %106, %122 ], [ %127, %132 ], [ %138, %143 ]
   %147 = getelementptr inbounds nuw i8, ptr %.ph, i64 160
   %148 = load i64, ptr %147, align 32
   %149 = getelementptr inbounds nuw i8, ptr %.ph, i64 288

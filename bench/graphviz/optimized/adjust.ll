@@ -671,7 +671,7 @@ angleSet.exit.thread:                             ; preds = %1, %4, %11
   br i1 %.not71, label %.thread, label %96, !llvm.loop !55
 
 .thread:                                          ; preds = %45, %96, %._crit_edge, %78, %angleSet.exit.thread, %47
-  %.0.shrunk = phi i1 [ false, %angleSet.exit.thread ], [ %or.cond, %47 ], [ true, %78 ], [ %or.cond, %._crit_edge ], [ true, %96 ], [ %or.cond, %45 ]
+  %.0.shrunk = phi i1 [ false, %angleSet.exit.thread ], [ true, %78 ], [ %or.cond, %47 ], [ %or.cond, %._crit_edge ], [ true, %96 ], [ %or.cond, %45 ]
   %.0 = zext i1 %.0.shrunk to i32
   ret i32 %.0
 }
@@ -789,7 +789,7 @@ define internal fastcc void @getAdjustMode(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not, label %.thread, label %.preheader
 
 .thread:                                          ; preds = %47, %31, %34
-  %.1 = phi ptr [ %.265, %34 ], [ %.056, %31 ], [ getelementptr inbounds nuw (i8, ptr @adjustMode, i64 408), %47 ]
+  %.1 = phi ptr [ %.056, %31 ], [ %.265, %34 ], [ getelementptr inbounds nuw (i8, ptr @adjustMode, i64 408), %47 ]
   %51 = getelementptr inbounds nuw i8, ptr %.1, i64 8
   %52 = load ptr, ptr %51, align 8, !tbaa !62
   %53 = icmp eq ptr %52, null
@@ -940,7 +940,7 @@ define i32 @removeOverlapWith(ptr noundef %0, ptr noundef readonly captures(none
   br i1 %.not16.i, label %simpleScale.exit, label %.lr.ph.i, !llvm.loop !67
 
 simpleScale.exit:                                 ; preds = %.lr.ph.i, %10, %13, %16, %23, %27, %36
-  %.011.i = phi i32 [ 0, %23 ], [ 0, %27 ], [ 0, %16 ], [ 0, %13 ], [ 0, %10 ], [ 1, %36 ], [ 1, %.lr.ph.i ]
+  %.011.i = phi i32 [ 0, %10 ], [ 0, %23 ], [ 0, %27 ], [ 0, %16 ], [ 0, %13 ], [ 1, %36 ], [ 1, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %50 = add nuw nsw i32 %.011.i, %11
   %51 = load i32, ptr %1, align 8, !tbaa !56

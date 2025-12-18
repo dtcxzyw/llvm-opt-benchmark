@@ -306,8 +306,8 @@ parse_psfile.exit.thread65.loopexit83:            ; preds = %thread-pre-split.i
   br label %parse_psfile.exit.thread65
 
 parse_psfile.exit.thread65:                       ; preds = %69, %parse_psfile.exit.thread65.loopexit83, %46, %33, %43
-  %85 = phi ptr [ %.pre92, %43 ], [ %.pre91, %33 ], [ %51, %46 ], [ %.pre, %parse_psfile.exit.thread65.loopexit83 ], [ %71, %69 ]
-  %.ph = phi i64 [ %44, %43 ], [ %34, %33 ], [ %52, %46 ], [ %.pr32.i, %parse_psfile.exit.thread65.loopexit83 ], [ %70, %69 ]
+  %85 = phi ptr [ %.pre, %parse_psfile.exit.thread65.loopexit83 ], [ %.pre92, %43 ], [ %.pre91, %33 ], [ %51, %46 ], [ %71, %69 ]
+  %.ph = phi i64 [ %.pr32.i, %parse_psfile.exit.thread65.loopexit83 ], [ %44, %43 ], [ %34, %33 ], [ %52, %46 ], [ %70, %69 ]
   call void @av_file_unmap(ptr noundef %85, i64 noundef %.ph) #11
   br label %.loopexit.sink.split
 
@@ -390,7 +390,7 @@ parse_psfile.exit:                                ; preds = %81
   br label %.loopexit
 
 .loopexit:                                        ; preds = %90, %106, %.loopexit.sink.split, %.loopexit70, %parse_psfile.exit, %1
-  %.0 = phi i32 [ %23, %1 ], [ %83, %parse_psfile.exit ], [ 0, %.loopexit70 ], [ %.0.ph, %.loopexit.sink.split ], [ 0, %106 ], [ %97, %90 ]
+  %.0 = phi i32 [ 0, %.loopexit70 ], [ %23, %1 ], [ %83, %parse_psfile.exit ], [ %.0.ph, %.loopexit.sink.split ], [ 0, %106 ], [ %97, %90 ]
   ret i32 %.0
 }
 

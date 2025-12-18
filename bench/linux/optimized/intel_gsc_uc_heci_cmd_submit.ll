@@ -755,7 +755,7 @@ define dso_local i32 @intel_gsc_uc_heci_cmd_submit_nonpriv(ptr noundef readonly 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph49, %276, %262, %._crit_edge
-  %280 = phi i32 [ %257, %276 ], [ %121, %._crit_edge ], [ %257, %262 ], [ %257, %.lr.ph49 ]
+  %280 = phi i32 [ %257, %276 ], [ %257, %262 ], [ %121, %._crit_edge ], [ %257, %.lr.ph49 ]
   %281 = icmp eq i32 %280, -35
   br i1 %281, label %.thread41, label %.thread43
 

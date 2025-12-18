@@ -593,7 +593,7 @@ addattr.exit.i:                                   ; preds = %192, %190
   br label %setattr.exit
 
 setattr.exit:                                     ; preds = %.lr.ph110.i, %164, %167, %.loopexit.i, %205
-  %.08298.i = phi ptr [ %.08299.i, %205 ], [ %.082.i, %.loopexit.i ], [ %145, %167 ], [ %145, %164 ], [ %145, %.lr.ph110.i ]
+  %.08298.i = phi ptr [ %.08299.i, %205 ], [ %.082.i, %.loopexit.i ], [ %145, %164 ], [ %145, %167 ], [ %145, %.lr.ph110.i ]
   call void @agmethod_upd(ptr noundef %.010, ptr noundef %.010, ptr noundef %.08298.i) #12
   br label %getattr.exit
 

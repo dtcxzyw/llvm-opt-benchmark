@@ -98,7 +98,7 @@ define range(i32 -1, 2147483647) i32 @Mvc_CoverAnyLiteral(ptr noundef readonly c
   br i1 %34, label %.lr.ph59.split, label %.loopexit50, !llvm.loop !18
 
 .loopexit50:                                      ; preds = %.loopexit, %32, %..loopexit_crit_edge.us, %17, %.lr.ph59.split.us, %2
-  %.0 = phi i32 [ -1, %2 ], [ -1, %.lr.ph59.split.us ], [ %.13958, %32 ], [ %.13958.us, %17 ], [ -1, %..loopexit_crit_edge.us ], [ -1, %.loopexit ]
+  %.0 = phi i32 [ %.13958.us, %17 ], [ %.13958, %32 ], [ -1, %.lr.ph59.split.us ], [ -1, %2 ], [ -1, %..loopexit_crit_edge.us ], [ -1, %.loopexit ]
   ret i32 %.0
 }
 

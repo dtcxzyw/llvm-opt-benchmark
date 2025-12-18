@@ -1281,7 +1281,7 @@ Ivy_DecGetVar.exit71:                             ; preds = %66, %67, %68, %69, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %tailrecurse, %99, %104, %._crit_edge, %._crit_edge113, %40, %34
-  %.0 = phi i32 [ %39, %34 ], [ %46, %40 ], [ %65, %._crit_edge113 ], [ %78, %._crit_edge ], [ %108, %104 ], [ %103, %99 ], [ 0, %tailrecurse ]
+  %.0 = phi i32 [ %39, %34 ], [ %46, %40 ], [ %103, %99 ], [ %65, %._crit_edge113 ], [ %78, %._crit_edge ], [ %108, %104 ], [ 0, %tailrecurse ]
   %accumulator.ret.tr = xor i32 %.0, %accumulator.tr
   ret i32 %accumulator.ret.tr
 }

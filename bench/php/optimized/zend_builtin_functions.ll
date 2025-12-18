@@ -8302,9 +8302,9 @@ zend_hash_find_ex_ind.exit.i:                     ; preds = %821, %817, %809
   br label %.loopexit225.i
 
 .loopexit225.i:                                   ; preds = %.loopexit225.loopexit252.i, %.loopexit225.loopexit.i, %.preheader.i, %.preheader226.i
-  %.2198.i = phi i32 [ %797, %.preheader.i ], [ %797, %.preheader226.i ], [ %905, %.loopexit225.loopexit.i ], [ %906, %.loopexit225.loopexit252.i ]
-  %.2192.i = phi ptr [ %799, %.preheader.i ], [ %799, %.preheader226.i ], [ %902, %.loopexit225.loopexit.i ], [ %864, %.loopexit225.loopexit252.i ]
-  %.2.i = phi i32 [ 0, %.preheader.i ], [ 0, %.preheader226.i ], [ %..i, %.loopexit225.loopexit.i ], [ %..i, %.loopexit225.loopexit252.i ]
+  %.2198.i = phi i32 [ %905, %.loopexit225.loopexit.i ], [ %797, %.preheader.i ], [ %797, %.preheader226.i ], [ %906, %.loopexit225.loopexit252.i ]
+  %.2192.i = phi ptr [ %902, %.loopexit225.loopexit.i ], [ %799, %.preheader.i ], [ %799, %.preheader226.i ], [ %864, %.loopexit225.loopexit252.i ]
+  %.2.i = phi i32 [ %..i, %.loopexit225.loopexit.i ], [ 0, %.preheader.i ], [ 0, %.preheader226.i ], [ %..i, %.loopexit225.loopexit252.i ]
   %907 = load ptr, ptr %175, align 8, !tbaa !89
   %908 = getelementptr inbounds nuw i8, ptr %907, i64 92
   %909 = load i32, ptr %908, align 4, !tbaa !28

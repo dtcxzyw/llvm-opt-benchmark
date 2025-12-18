@@ -478,7 +478,7 @@ define internal i32 @genh_read_packet(ptr noundef readonly captures(none) %0, pt
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge, %.preheader.lr.ph, %.preheader49, %65, %80
-  %.1 = phi i32 [ %82, %80 ], [ %71, %65 ], [ 0, %.preheader49 ], [ 0, %.preheader.lr.ph ], [ 0, %._crit_edge ]
+  %.1 = phi i32 [ %82, %80 ], [ %71, %65 ], [ 0, %.preheader.lr.ph ], [ 0, %.preheader49 ], [ 0, %._crit_edge ]
   %83 = getelementptr inbounds nuw i8, ptr %1, i64 36
   store i32 0, ptr %83, align 4, !tbaa !59
   br label %.thread

@@ -14578,7 +14578,7 @@ define hidden void @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$11insert_full17h
   br label %"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$11insert_full17h975a8892562d50b0E.exit"
 
 90:                                               ; preds = %72, %68
-  %.sroa.3.0.i.i.ph.i = phi i64 [ %.sroa.4.113.i.i.i, %68 ], [ %78, %72 ]
+  %.sroa.3.0.i.i.ph.i = phi i64 [ %78, %72 ], [ %.sroa.4.113.i.i.i, %68 ]
   %91 = load ptr, ptr %19, align 8, !alias.scope !988, !noalias !991, !nonnull !3
   %92 = load i64, ptr %17, align 8, !alias.scope !983, !noalias !985, !noundef !3
   %93 = icmp ult i64 %92, 3683455286283857
@@ -15759,7 +15759,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
   br label %52
 
 52:                                               ; preds = %41, %45
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.1.i.i, %41 ], [ %51, %45 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %51, %45 ], [ %.sroa.6.1.i.i, %41 ]
   %53 = load i16, ptr %3, align 2, !range !518, !noundef !3
   call void @llvm.experimental.noalias.scope.decl(metadata !1138)
   %54 = load ptr, ptr %0, align 8, !alias.scope !1138, !nonnull !3, !noundef !3
@@ -16024,7 +16024,7 @@ _ZN4core4hash6Hasher9write_str17hf38f6514ef01699eE.exit.i.i.i: ; preds = %"_ZN4c
   ret i1 %.sroa.0.0
 
 122:                                              ; preds = %111, %107
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.1.i.i, %107 ], [ %117, %111 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %117, %111 ], [ %.sroa.6.1.i.i, %107 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1174)
@@ -16186,7 +16186,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$
   br label %54
 
 54:                                               ; preds = %43, %47
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.1.i.i, %43 ], [ %53, %47 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %53, %47 ], [ %.sroa.6.1.i.i, %43 ]
   %55 = zext i1 %3 to i8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1194)
   %56 = load ptr, ptr %0, align 8, !alias.scope !1194, !noalias !1197, !nonnull !3, !noundef !3
@@ -16468,7 +16468,7 @@ _ZN4core4hash6Hasher9write_str17hf38f6514ef01699eE.exit.i.i.i: ; preds = %"_ZN4c
   ret void
 
 127:                                              ; preds = %113, %109
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.1.i.i, %109 ], [ %119, %113 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %119, %113 ], [ %.sroa.6.1.i.i, %109 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   %128 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -16750,7 +16750,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h47
   ret void
 
 117:                                              ; preds = %105, %101
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.1.i.i, %101 ], [ %111, %105 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %111, %105 ], [ %.sroa.6.1.i.i, %101 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   %118 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -16910,7 +16910,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$
   br label %53
 
 53:                                               ; preds = %42, %46
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.1.i.i, %42 ], [ %52, %46 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %52, %46 ], [ %.sroa.6.1.i.i, %42 ]
   %54 = load i16, ptr %4, align 2, !range !518, !noundef !3
   call void @llvm.experimental.noalias.scope.decl(metadata !1286)
   %55 = load ptr, ptr %0, align 8, !alias.scope !1286, !nonnull !3, !noundef !3
@@ -17168,7 +17168,7 @@ _ZN4core4hash11BuildHasher8hash_one17had09a6ed870fae65E.exit: ; preds = %_ZN4cor
   br label %117
 
 117:                                              ; preds = %106, %110
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.1.i.i, %106 ], [ %116, %110 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %116, %110 ], [ %.sroa.6.1.i.i, %106 ]
   %118 = load ptr, ptr %3, align 8, !nonnull !3, !align !424, !noundef !3
   call void @llvm.experimental.noalias.scope.decl(metadata !1321)
   %119 = load ptr, ptr %0, align 8, !alias.scope !1321, !noalias !1324, !nonnull !3, !noundef !3
@@ -17319,7 +17319,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h53
   ret void
 
 59:                                               ; preds = %45, %41
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.1.i.i, %41 ], [ %51, %45 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %51, %45 ], [ %.sroa.6.1.i.i, %41 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   %60 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -17487,7 +17487,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
   br label %51
 
 51:                                               ; preds = %40, %44
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.1.i.i, %40 ], [ %50, %44 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %50, %44 ], [ %.sroa.6.1.i.i, %40 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1362)
@@ -17631,7 +17631,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
   ret i1 %.sroa.0.0
 
 52:                                               ; preds = %43, %39
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.1.i.i, %39 ], [ %49, %43 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %49, %43 ], [ %.sroa.6.1.i.i, %39 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1377)
@@ -17901,7 +17901,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h91
   ret void
 
 117:                                              ; preds = %105, %101
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.1.i.i, %101 ], [ %111, %105 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %111, %105 ], [ %.sroa.6.1.i.i, %101 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   %118 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -18065,7 +18065,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
   br label %51
 
 51:                                               ; preds = %40, %44
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.1.i.i, %40 ], [ %50, %44 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %50, %44 ], [ %.sroa.6.1.i.i, %40 ]
   %52 = load ptr, ptr %4, align 8, !nonnull !3, !align !424, !noundef !3
   call void @llvm.experimental.noalias.scope.decl(metadata !1430)
   %53 = load ptr, ptr %0, align 8, !alias.scope !1430, !noalias !1433, !nonnull !3, !noundef !3
@@ -18313,7 +18313,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h95
   ret void
 
 117:                                              ; preds = %105, %101
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.1.i.i, %101 ], [ %111, %105 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %111, %105 ], [ %.sroa.6.1.i.i, %101 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   %118 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -18476,7 +18476,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
   br label %53
 
 53:                                               ; preds = %42, %46
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.1.i.i, %42 ], [ %52, %46 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %52, %46 ], [ %.sroa.6.1.i.i, %42 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1480)
   %54 = load ptr, ptr %0, align 8, !alias.scope !1480, !noalias !1483, !nonnull !3, !noundef !3
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 %.sroa.3.0.i.ph.i
@@ -18706,7 +18706,7 @@ _ZN4core4hash11BuildHasher8hash_one17h18b05d9f3d077b59E.exit: ; preds = %"_ZN4co
   br label %109
 
 109:                                              ; preds = %98, %102
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.1.i.i, %98 ], [ %108, %102 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %108, %102 ], [ %.sroa.6.1.i.i, %98 ]
   %110 = load ptr, ptr %4, align 8, !nonnull !3, !align !424, !noundef !3
   call void @llvm.experimental.noalias.scope.decl(metadata !1519)
   %111 = load ptr, ptr %0, align 8, !alias.scope !1519, !noalias !1522, !nonnull !3, !noundef !3
@@ -18850,7 +18850,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17ha7
   br label %55
 
 55:                                               ; preds = %44, %48
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.1.i.i, %44 ], [ %54, %48 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %54, %48 ], [ %.sroa.6.1.i.i, %44 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1538)
   %56 = load ptr, ptr %1, align 8, !alias.scope !1538, !noalias !1541, !nonnull !3, !noundef !3
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 %.sroa.3.0.i.ph.i
@@ -19109,7 +19109,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hc1
   ret void
 
 117:                                              ; preds = %105, %101
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.1.i.i, %101 ], [ %111, %105 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %111, %105 ], [ %.sroa.6.1.i.i, %101 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   %118 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -19382,7 +19382,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
   ret i1 %.sroa.0.0
 
 112:                                              ; preds = %103, %99
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.1.i.i, %99 ], [ %109, %103 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %109, %103 ], [ %.sroa.6.1.i.i, %99 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1604)
@@ -19652,7 +19652,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17he6
   ret void
 
 117:                                              ; preds = %105, %101
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.1.i.i, %101 ], [ %111, %105 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %111, %105 ], [ %.sroa.6.1.i.i, %101 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   %118 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -19929,7 +19929,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17he9
   ret void
 
 117:                                              ; preds = %105, %101
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.1.i.i, %101 ], [ %111, %105 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %111, %105 ], [ %.sroa.6.1.i.i, %101 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   %118 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -20089,7 +20089,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
   br label %52
 
 52:                                               ; preds = %41, %45
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.1.i.i, %41 ], [ %51, %45 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %51, %45 ], [ %.sroa.6.1.i.i, %41 ]
   %53 = load i32, ptr %3, align 4, !range !1689, !noundef !3
   call void @llvm.experimental.noalias.scope.decl(metadata !1690)
   %54 = load ptr, ptr %0, align 8, !alias.scope !1690, !nonnull !3, !noundef !3
@@ -20338,7 +20338,7 @@ define hidden noundef range(i8 0, 9) i8 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$
   ret i8 %.sroa.0.0
 
 116:                                              ; preds = %103, %99
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.1.i.i, %99 ], [ %109, %103 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %109, %103 ], [ %.sroa.6.1.i.i, %99 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1721)

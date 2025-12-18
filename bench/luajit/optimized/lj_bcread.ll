@@ -957,7 +957,7 @@ define internal fastcc void @bcread_error(ptr %.8.val, ptr %.128.val, i32 nounde
   br label %5
 
 5:                                                ; preds = %1, %.fold.split, %3
-  %.0 = phi ptr [ %4, %3 ], [ @.str.2, %1 ], [ %.128.val, %.fold.split ]
+  %.0 = phi ptr [ @.str.2, %1 ], [ %4, %3 ], [ %.128.val, %.fold.split ]
   %6 = load ptr, ptr @lj_err_allmsg, align 8, !tbaa !86
   %7 = zext nneg i32 %0 to i64
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 %7

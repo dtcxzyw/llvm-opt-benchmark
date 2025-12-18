@@ -945,7 +945,7 @@ if.then36.fold.split:                             ; preds = %if.then12
   br label %if.then36
 
 if.then36:                                        ; preds = %if.then12, %if.then36.fold.split, %if.end, %lor.lhs.false.i, %_ZNK8proxygen12QPACKEncoder11shouldIndexERKNS_15HPACKHeaderNameEN5folly5RangeIPKcEE.exit, %if.end34
-  %indexable.1.in62 = phi i1 [ %12, %if.end34 ], [ false, %if.end ], [ false, %_ZNK8proxygen12QPACKEncoder11shouldIndexERKNS_15HPACKHeaderNameEN5folly5RangeIPKcEE.exit ], [ false, %lor.lhs.false.i ], [ false, %if.then12 ], [ true, %if.then36.fold.split ]
+  %indexable.1.in62 = phi i1 [ %12, %if.end34 ], [ false, %if.then12 ], [ false, %if.end ], [ false, %_ZNK8proxygen12QPACKEncoder11shouldIndexERKNS_15HPACKHeaderNameEN5folly5RangeIPKcEE.exit ], [ false, %lor.lhs.false.i ], [ true, %if.then36.fold.split ]
   %call.i.i15 = tail call noundef nonnull align 8 dereferenceable(80) ptr @_ZN8proxygen22QPACKStaticHeaderTable3getEv(), !noalias !10
   %call2.i = tail call noundef i32 @_ZNK8proxygen11HeaderTable9nameIndexERKNS_15HPACKHeaderNameE(ptr noundef nonnull align 8 dereferenceable(80) %call.i.i15, ptr noundef nonnull align 8 dereferenceable(8) %name), !noalias !10
   %cmp.i16 = icmp eq i32 %call2.i, 0
@@ -3021,7 +3021,7 @@ lpad:                                             ; preds = %invoke.cont11, %inv
   br label %eh.resume
 
 while.end:                                        ; preds = %for.cond.i.i.i.i, %for.body.i.i, %if.end.i.i.i.i
-  %retval.sroa.0.1.i.i = phi ptr [ %5, %if.end.i.i.i.i ], [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ %7, %for.cond.i.i.i.i ]
+  %retval.sroa.0.1.i.i = phi ptr [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ %5, %if.end.i.i.i.i ], [ %7, %for.cond.i.i.i.i ]
   %10 = load ptr, ptr @_ZZN8proxygen12QPACKEncoder11onHeaderAckEmbE8vlocal__, align 8
   %cmp = icmp eq ptr %10, null
   br i1 %cmp, label %cond.true31, label %cond.end35

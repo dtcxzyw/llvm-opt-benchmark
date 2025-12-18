@@ -523,7 +523,7 @@ bsearch.exit.thread.sink.split:                   ; preds = %.critedge, %17
   br label %bsearch.exit.thread
 
 bsearch.exit.thread:                              ; preds = %42, %18, %bsearch.exit.thread.sink.split, %.preheader, %sk_sort.exit, %.critedge, %20, %17, %3
-  %.0 = phi i32 [ 1, %.critedge ], [ 0, %3 ], [ 1, %17 ], [ 0, %20 ], [ 0, %sk_sort.exit ], [ 0, %.preheader ], [ 1, %bsearch.exit.thread.sink.split ], [ 0, %18 ], [ 0, %42 ]
+  %.0 = phi i32 [ 1, %.critedge ], [ 0, %3 ], [ 1, %17 ], [ 0, %.preheader ], [ 0, %20 ], [ 0, %18 ], [ 1, %bsearch.exit.thread.sink.split ], [ 0, %sk_sort.exit ], [ 0, %42 ]
   ret i32 %.0
 }
 

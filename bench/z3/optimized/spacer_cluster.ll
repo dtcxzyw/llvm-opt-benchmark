@@ -4998,7 +4998,7 @@ _ZNK6vectorIN6spacer13lemma_cluster10lemma_infoELb1EjE3endEv.exit.i.i.i110: ; pr
   br i1 %.not.not.i.i117, label %.loopexit, label %.lr.ph.i.i108
 
 .loopexit:                                        ; preds = %.loopexit.i.i116, %.noexc120, %195, %_ZNK15ref_vector_coreIN6spacer13lemma_clusterE21ref_unmanaged_wrapperIS1_EE3endEv.exit.i.i106
-  %220 = phi i1 [ true, %_ZNK15ref_vector_coreIN6spacer13lemma_clusterE21ref_unmanaged_wrapperIS1_EE3endEv.exit.i.i106 ], [ true, %195 ], [ false, %.noexc120 ], [ true, %.loopexit.i.i116 ]
+  %220 = phi i1 [ false, %.noexc120 ], [ true, %_ZNK15ref_vector_coreIN6spacer13lemma_clusterE21ref_unmanaged_wrapperIS1_EE3endEv.exit.i.i106 ], [ true, %195 ], [ true, %.loopexit.i.i116 ]
   %221 = load i32, ptr %154, align 8, !tbaa !50
   %222 = add i32 %221, -1
   store i32 %222, ptr %154, align 8, !tbaa !50
@@ -5757,8 +5757,8 @@ _ZN6spacer13lemma_cluster8containsERK3refINS_5lemmaEE.exit.i: ; preds = %.lr.ph.
   br label %_ZNK6spacer13lemma_cluster8get_sizeEv.exit17.i
 
 _ZNK6spacer13lemma_cluster8get_sizeEv.exit17.i:   ; preds = %21, %29, %_ZN6spacer13lemma_cluster8containsERK3refINS_5lemmaEE.exit.i, %_ZNK6vectorIN6spacer13lemma_cluster10lemma_infoELb1EjE3endEv.exit.i.i, %_ZNK6spacer13lemma_cluster8get_sizeEv.exit.thread.i, %.lr.ph.i
-  %.114.i = phi ptr [ %.01322.i, %_ZNK6spacer13lemma_cluster8get_sizeEv.exit.thread.i ], [ %11, %29 ], [ %11, %_ZN6spacer13lemma_cluster8containsERK3refINS_5lemmaEE.exit.i ], [ %.01322.i, %_ZNK6vectorIN6spacer13lemma_cluster10lemma_infoELb1EjE3endEv.exit.i.i ], [ %.01322.i, %.lr.ph.i ], [ %.01322.i, %21 ]
-  %.1.i = phi i32 [ %.023.i, %_ZNK6spacer13lemma_cluster8get_sizeEv.exit.thread.i ], [ %31, %29 ], [ 0, %_ZN6spacer13lemma_cluster8containsERK3refINS_5lemmaEE.exit.i ], [ %.023.i, %_ZNK6vectorIN6spacer13lemma_cluster10lemma_infoELb1EjE3endEv.exit.i.i ], [ %.023.i, %.lr.ph.i ], [ %.023.i, %21 ]
+  %.114.i = phi ptr [ %.01322.i, %_ZNK6spacer13lemma_cluster8get_sizeEv.exit.thread.i ], [ %11, %29 ], [ %.01322.i, %.lr.ph.i ], [ %11, %_ZN6spacer13lemma_cluster8containsERK3refINS_5lemmaEE.exit.i ], [ %.01322.i, %_ZNK6vectorIN6spacer13lemma_cluster10lemma_infoELb1EjE3endEv.exit.i.i ], [ %.01322.i, %21 ]
+  %.1.i = phi i32 [ %.023.i, %_ZNK6spacer13lemma_cluster8get_sizeEv.exit.thread.i ], [ %31, %29 ], [ %.023.i, %.lr.ph.i ], [ 0, %_ZN6spacer13lemma_cluster8containsERK3refINS_5lemmaEE.exit.i ], [ %.023.i, %_ZNK6vectorIN6spacer13lemma_cluster10lemma_infoELb1EjE3endEv.exit.i.i ], [ %.023.i, %21 ]
   %32 = getelementptr inbounds nuw i8, ptr %.01521.i, i64 8
   %.not.i = icmp eq ptr %32, %10
   br i1 %.not.i, label %_ZN6spacer16pred_transformer10cluster_db11get_clusterERK3refINS_5lemmaEE.exit, label %.lr.ph.i

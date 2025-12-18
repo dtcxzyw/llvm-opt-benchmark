@@ -2338,7 +2338,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i100:     ; preds = %_ZNSt10filesystem7_
   br i1 %exitcond367.not.i, label %.loopexit297.i, label %.noexc118, !llvm.loop !85
 
 .loopexit297.i:                                   ; preds = %.noexc119, %.thread455.i, %._crit_edge.thread.i, %._crit_edge.i107
-  %.1200 = phi ptr [ null, %._crit_edge.i107 ], [ null, %._crit_edge.thread.i ], [ %846, %.thread455.i ], [ %848, %.noexc119 ]
+  %.1200 = phi ptr [ %846, %.thread455.i ], [ null, %._crit_edge.i107 ], [ null, %._crit_edge.thread.i ], [ %848, %.noexc119 ]
   %sext.i = shl i64 %836, 32
   %851 = ashr exact i64 %sext.i, 32
   %852 = invoke noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.114, ptr noundef nonnull @.str.57, i32 noundef 512, i64 noundef range(i64 -2147483648, 2147483648) %851, i64 noundef 12)
@@ -4059,8 +4059,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit259.i: ; preds = %
   br label %1606
 
 .loopexit.i139:                                   ; preds = %.lr.ph.i141, %.preheader271.i, %._crit_edge.us.i, %._crit_edge.i156, %_ZNSt10filesystem7__cxx114pathD2Ev.exit247.i, %.preheader272.thread.i, %.preheader272.i, %.preheader.i
-  %.0100.i = phi ptr [ %1424, %.preheader272.i ], [ %1322, %.preheader.i ], [ %1523, %_ZNSt10filesystem7__cxx114pathD2Ev.exit247.i ], [ %1424, %.preheader272.thread.i ], [ %1424, %.preheader271.i ], [ %1322, %._crit_edge.i156 ], [ %1424, %._crit_edge.us.i ], [ %1523, %.lr.ph.i141 ]
-  %.099.i = phi ptr [ %1450, %.preheader272.i ], [ %1346, %.preheader.i ], [ %1547, %_ZNSt10filesystem7__cxx114pathD2Ev.exit247.i ], [ %1450, %.preheader272.thread.i ], [ %1450, %.preheader271.i ], [ %1346, %._crit_edge.i156 ], [ %1450, %._crit_edge.us.i ], [ %1547, %.lr.ph.i141 ]
+  %.0100.i = phi ptr [ %1322, %.preheader.i ], [ %1424, %.preheader272.i ], [ %1523, %_ZNSt10filesystem7__cxx114pathD2Ev.exit247.i ], [ %1424, %.preheader272.thread.i ], [ %1322, %._crit_edge.i156 ], [ %1424, %._crit_edge.us.i ], [ %1424, %.preheader271.i ], [ %1523, %.lr.ph.i141 ]
+  %.099.i = phi ptr [ %1346, %.preheader.i ], [ %1450, %.preheader272.i ], [ %1547, %_ZNSt10filesystem7__cxx114pathD2Ev.exit247.i ], [ %1450, %.preheader272.thread.i ], [ %1346, %._crit_edge.i156 ], [ %1450, %._crit_edge.us.i ], [ %1450, %.preheader271.i ], [ %1547, %.lr.ph.i141 ]
   invoke void @_Z9xvgrcloseP8_IO_FILE(ptr noundef %.0100.i)
           to label %.noexc165 unwind label %.loopexit.split-lp238.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 

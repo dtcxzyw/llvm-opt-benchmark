@@ -641,7 +641,7 @@ _ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit.thread.sink.split: ; preds =
   br label %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit.thread
 
 _ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit.thread: ; preds = %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit.thread.sink.split, %22, %18, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i, %33, %44, %43
-  %.0 = phi i1 [ false, %44 ], [ false, %43 ], [ false, %33 ], [ false, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i ], [ false, %18 ], [ false, %22 ], [ true, %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit.thread.sink.split ]
+  %.0 = phi i1 [ false, %22 ], [ false, %18 ], [ false, %44 ], [ false, %43 ], [ false, %33 ], [ false, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i ], [ true, %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit.thread.sink.split ]
   %52 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !60
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %52, ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %.noexc.i unwind label %53

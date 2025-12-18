@@ -4928,9 +4928,9 @@ define hidden noundef nonnull align 8 ptr @_ZN5tokio7runtime9scheduler14current_
   br label %"_ZN5tokio7runtime9scheduler6inject15Inject$LT$T$GT$5close17h2216c0e92ffcd84fE.exit"
 
 .invoke:                                          ; preds = %23, %58, %71
-  %61 = phi ptr [ @anon.a04ce7f5fe84a8ff0b9c5affd729a942.77, %71 ], [ @anon.a04ce7f5fe84a8ff0b9c5affd729a942.149.llvm.5542961546488995764, %58 ], [ @anon.a04ce7f5fe84a8ff0b9c5affd729a942.149.llvm.5542961546488995764, %23 ]
-  %62 = phi i64 [ 48, %71 ], [ 39, %58 ], [ 39, %23 ]
-  %63 = phi ptr [ @anon.a04ce7f5fe84a8ff0b9c5affd729a942.78, %71 ], [ @anon.a04ce7f5fe84a8ff0b9c5affd729a942.150.llvm.5542961546488995764, %58 ], [ @anon.a04ce7f5fe84a8ff0b9c5affd729a942.150.llvm.5542961546488995764, %23 ]
+  %61 = phi ptr [ @anon.a04ce7f5fe84a8ff0b9c5affd729a942.149.llvm.5542961546488995764, %58 ], [ @anon.a04ce7f5fe84a8ff0b9c5affd729a942.77, %71 ], [ @anon.a04ce7f5fe84a8ff0b9c5affd729a942.149.llvm.5542961546488995764, %23 ]
+  %62 = phi i64 [ 39, %58 ], [ 48, %71 ], [ 39, %23 ]
+  %63 = phi ptr [ @anon.a04ce7f5fe84a8ff0b9c5affd729a942.150.llvm.5542961546488995764, %58 ], [ @anon.a04ce7f5fe84a8ff0b9c5affd729a942.78, %71 ], [ @anon.a04ce7f5fe84a8ff0b9c5affd729a942.150.llvm.5542961546488995764, %23 ]
   invoke void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 %61, i64 noundef %62, ptr noalias noundef readonly align 8 dereferenceable(24) %63) #38
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -5842,7 +5842,7 @@ _ZN5tokio4loom3std10atomic_u329AtomicU3211unsync_load17hc488a0b2ff33134bE.exit: 
   br i1 %55, label %.loopexit, label %.lr.ph.i.i9
 
 .loopexit:                                        ; preds = %56, %"_ZN4core3ptr166drop_in_place$LT$core..option..Option$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$$GT$17ha676625eb83809b2E.llvm.700930863383756518.exit1.i.i11", %.lr.ph.i.i9, %23, %"_ZN111_$LT$tokio..runtime..scheduler..inject..pop..Pop$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0cb0db8ac1bef0b5E.exit.thread"
-  %.02850 = phi i32 [ %.034, %"_ZN111_$LT$tokio..runtime..scheduler..inject..pop..Pop$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0cb0db8ac1bef0b5E.exit.thread" ], [ %16, %23 ], [ %.034, %"_ZN4core3ptr166drop_in_place$LT$core..option..Option$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$$GT$17ha676625eb83809b2E.llvm.700930863383756518.exit1.i.i11" ], [ %.034, %.lr.ph.i.i9 ], [ %62, %56 ]
+  %.02850 = phi i32 [ %16, %23 ], [ %.034, %"_ZN4core3ptr166drop_in_place$LT$core..option..Option$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$$GT$17ha676625eb83809b2E.llvm.700930863383756518.exit1.i.i11" ], [ %.034, %"_ZN111_$LT$tokio..runtime..scheduler..inject..pop..Pop$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0cb0db8ac1bef0b5E.exit.thread" ], [ %.034, %.lr.ph.i.i9 ], [ %62, %56 ]
   store atomic i32 %.02850, ptr %15 release, align 4
   br label %"_ZN4core3ptr151drop_in_place$LT$tokio..runtime..scheduler..inject..pop..Pop$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$17hdf700763d0519334E.exit"
 

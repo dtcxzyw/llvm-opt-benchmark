@@ -859,10 +859,10 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit220.i:     ; preds = %_ZNSt10filesystem7_
   br i1 %exitcond319.not, label %.loopexit.i, label %.lr.ph346.i, !llvm.loop !61
 
 .loopexit.i:                                      ; preds = %._crit_edge343.i, %249, %.noexc51
-  %.1323.i = phi ptr [ %258, %.noexc51 ], [ %.0322.i, %249 ], [ %258, %._crit_edge343.i ]
-  %.1321.i = phi ptr [ %255, %.noexc51 ], [ %.0320.i, %249 ], [ %255, %._crit_edge343.i ]
-  %.1319.i = phi ptr [ %256, %.noexc51 ], [ %.0318.i, %249 ], [ %256, %._crit_edge343.i ]
-  %.1317.i = phi ptr [ %257, %.noexc51 ], [ %.0316.i, %249 ], [ %257, %._crit_edge343.i ]
+  %.1323.i = phi ptr [ %.0322.i, %249 ], [ %258, %.noexc51 ], [ %258, %._crit_edge343.i ]
+  %.1321.i = phi ptr [ %.0320.i, %249 ], [ %255, %.noexc51 ], [ %255, %._crit_edge343.i ]
+  %.1319.i = phi ptr [ %.0318.i, %249 ], [ %256, %.noexc51 ], [ %256, %._crit_edge343.i ]
+  %.1317.i = phi ptr [ %.0316.i, %249 ], [ %257, %.noexc51 ], [ %257, %._crit_edge343.i ]
   %269 = load i32, ptr %32, align 4, !tbaa !62
   %270 = load ptr, ptr %36, align 8, !tbaa !55
   %271 = load i32, ptr %185, align 4, !tbaa !4

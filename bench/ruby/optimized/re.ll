@@ -2415,7 +2415,7 @@ str_coderange.exit:                               ; preds = %11, %17
   br label %reg_set_source.exit
 
 19:                                               ; preds = %str_coderange.exit, %9, %6
-  %.023 = phi ptr [ %7, %6 ], [ %7, %9 ], [ %10, %str_coderange.exit ]
+  %.023 = phi ptr [ %7, %6 ], [ %10, %str_coderange.exit ], [ %7, %9 ]
   %20 = inttoptr i64 %1 to ptr
   %21 = load i64, ptr %20, align 8, !tbaa !34, !noalias !106
   %22 = and i64 %21, 8192
@@ -8905,8 +8905,8 @@ define internal fastcc range(i32 -1, 1) i32 @unescape_nonascii0(ptr noundef nonn
   br label %.thread215
 
 .thread215:                                       ; preds = %.lr.ph, %177, %164, %167, %175, %162, %178, %38
-  %.5161 = phi i32 [ %.1157382, %38 ], [ %.1157382, %178 ], [ 0, %164 ], [ %.1157382, %167 ], [ %176, %175 ], [ %.1157382, %162 ], [ %.1157382, %177 ], [ %.1157382, %.lr.ph ]
-  %.5155 = phi i32 [ %.1151383, %38 ], [ %spec.select210, %178 ], [ %spec.select209, %164 ], [ %spec.select209, %167 ], [ %spec.select209, %175 ], [ %spec.select209, %162 ], [ %spec.select209, %177 ], [ %spec.select209, %.lr.ph ]
+  %.5161 = phi i32 [ %.1157382, %38 ], [ %.1157382, %178 ], [ %.1157382, %162 ], [ 0, %164 ], [ %.1157382, %167 ], [ %176, %175 ], [ %.1157382, %177 ], [ %.1157382, %.lr.ph ]
+  %.5155 = phi i32 [ %.1151383, %38 ], [ %spec.select210, %178 ], [ %spec.select209, %162 ], [ %spec.select209, %164 ], [ %spec.select209, %167 ], [ %spec.select209, %175 ], [ %spec.select209, %177 ], [ %spec.select209, %.lr.ph ]
   %180 = call i64 @rb_str_cat(i64 noundef %3, ptr noundef nonnull %12, i64 noundef 1) #29
   br label %.critedge
 
@@ -8916,9 +8916,9 @@ define internal fastcc range(i32 -1, 1) i32 @unescape_nonascii0(ptr noundef nonn
   br label %.critedge
 
 .critedge:                                        ; preds = %._crit_edge, %.critedge.loopexit, %111, %113, %116, %.thread215, %87, %83, %69, %92, %121, %118, %63, %._crit_edge.thread, %35, %36
-  %.2158 = phi i32 [ %.1157382, %36 ], [ %.1157382, %.critedge.loopexit ], [ %.1157382, %35 ], [ %.1157382, %._crit_edge ], [ %.1157382, %._crit_edge.thread ], [ %.1157382, %63 ], [ %.1157382, %118 ], [ %.1157382, %121 ], [ %.1157382, %92 ], [ %.1157382, %69 ], [ %.1157382, %83 ], [ %.1157382, %87 ], [ %.5161, %.thread215 ], [ %.1157382, %116 ], [ %.1157382, %113 ], [ %.1157382, %111 ]
-  %.2152 = phi i32 [ %.1151383, %36 ], [ %.1151383, %.critedge.loopexit ], [ %.1151383, %35 ], [ %.1151383, %._crit_edge ], [ %.1151383, %._crit_edge.thread ], [ %.1151383, %63 ], [ %.1151383, %118 ], [ %122, %121 ], [ %.1151383, %92 ], [ %.1151383, %69 ], [ %.1151383, %83 ], [ %.1151383, %87 ], [ %.5155, %.thread215 ], [ %.1151383, %116 ], [ %.1151383, %113 ], [ %.1151383, %111 ]
-  %.2147 = phi i32 [ %.1146384, %36 ], [ 0, %.critedge.loopexit ], [ %.1146384, %35 ], [ 0, %._crit_edge ], [ 0, %._crit_edge.thread ], [ %.1146384, %63 ], [ %.1146384, %118 ], [ 0, %121 ], [ %.1146384, %92 ], [ %.1146384, %69 ], [ %.1146384, %83 ], [ %.1146384, %87 ], [ %.1146384, %.thread215 ], [ %spec.select, %116 ], [ %114, %113 ], [ %.1146384, %111 ]
+  %.2158 = phi i32 [ %.1157382, %36 ], [ %.1157382, %.critedge.loopexit ], [ %.1157382, %35 ], [ %.1157382, %._crit_edge ], [ %.1157382, %._crit_edge.thread ], [ %.1157382, %63 ], [ %.1157382, %118 ], [ %.1157382, %121 ], [ %.1157382, %111 ], [ %.1157382, %113 ], [ %.1157382, %92 ], [ %.1157382, %69 ], [ %.1157382, %83 ], [ %.1157382, %87 ], [ %.5161, %.thread215 ], [ %.1157382, %116 ]
+  %.2152 = phi i32 [ %.1151383, %36 ], [ %.1151383, %.critedge.loopexit ], [ %.1151383, %35 ], [ %.1151383, %._crit_edge ], [ %.1151383, %._crit_edge.thread ], [ %.1151383, %63 ], [ %.1151383, %118 ], [ %122, %121 ], [ %.1151383, %111 ], [ %.1151383, %113 ], [ %.1151383, %92 ], [ %.1151383, %69 ], [ %.1151383, %83 ], [ %.1151383, %87 ], [ %.5155, %.thread215 ], [ %.1151383, %116 ]
+  %.2147 = phi i32 [ %.1146384, %36 ], [ 0, %.critedge.loopexit ], [ %.1146384, %35 ], [ 0, %._crit_edge ], [ 0, %._crit_edge.thread ], [ %.1146384, %63 ], [ %.1146384, %118 ], [ 0, %121 ], [ %.1146384, %111 ], [ %114, %113 ], [ %.1146384, %92 ], [ %.1146384, %69 ], [ %.1146384, %83 ], [ %.1146384, %87 ], [ %.1146384, %.thread215 ], [ %spec.select, %116 ]
   %182 = load ptr, ptr %11, align 8, !tbaa !64
   %183 = icmp ult ptr %182, %1
   br i1 %183, label %.lr.ph385, label %.loopexit229._crit_edge
@@ -9163,9 +9163,9 @@ define internal fastcc range(i32 -1, 256) i32 @read_escaped_byte(ptr noundef non
   br label %.thread
 
 .thread:                                          ; preds = %12, %.thread.loopexit436, %.thread.loopexit352, %.thread.loopexit268, %.thread.loopexit175, %.thread.loopexit, %55, %16, %15, %81
-  %.15985 = phi i32 [ %.058.ph173, %81 ], [ 1, %55 ], [ %.058.ph173, %16 ], [ %.058.ph173, %15 ], [ %.058.ph173, %.thread.loopexit436 ], [ %.058.ph173, %.thread.loopexit352 ], [ %.058.ph173, %.thread.loopexit268 ], [ %.058.ph173, %.thread.loopexit175 ], [ %.058.ph173, %.thread.loopexit ], [ %.058.ph173, %12 ]
-  %.06084 = phi i32 [ %.060, %81 ], [ %56, %55 ], [ 27, %16 ], [ 7, %15 ], [ 12, %.thread.loopexit436 ], [ 13, %.thread.loopexit352 ], [ 9, %.thread.loopexit268 ], [ 10, %.thread.loopexit175 ], [ 92, %.thread.loopexit ], [ 11, %12 ]
-  %.26483 = phi ptr [ %.264, %81 ], [ %57, %55 ], [ %13, %16 ], [ %13, %15 ], [ %13, %.thread.loopexit436 ], [ %13, %.thread.loopexit352 ], [ %13, %.thread.loopexit268 ], [ %13, %.thread.loopexit175 ], [ %13, %.thread.loopexit ], [ %13, %12 ]
+  %.15985 = phi i32 [ %.058.ph173, %81 ], [ %.058.ph173, %.thread.loopexit ], [ 1, %55 ], [ %.058.ph173, %16 ], [ %.058.ph173, %15 ], [ %.058.ph173, %.thread.loopexit436 ], [ %.058.ph173, %.thread.loopexit352 ], [ %.058.ph173, %.thread.loopexit268 ], [ %.058.ph173, %.thread.loopexit175 ], [ %.058.ph173, %12 ]
+  %.06084 = phi i32 [ %.060, %81 ], [ 92, %.thread.loopexit ], [ %56, %55 ], [ 27, %16 ], [ 7, %15 ], [ 12, %.thread.loopexit436 ], [ 13, %.thread.loopexit352 ], [ 9, %.thread.loopexit268 ], [ 10, %.thread.loopexit175 ], [ 11, %12 ]
+  %.26483 = phi ptr [ %.264, %81 ], [ %13, %.thread.loopexit ], [ %57, %55 ], [ %13, %16 ], [ %13, %15 ], [ %13, %.thread.loopexit436 ], [ %13, %.thread.loopexit352 ], [ %13, %.thread.loopexit268 ], [ %13, %.thread.loopexit175 ], [ %13, %12 ]
   %.not76 = icmp eq i32 %.0170, 0
   %83 = and i32 %.06084, 31
   %spec.select = select i1 %.not76, i32 %.06084, i32 %83
@@ -10241,9 +10241,9 @@ RREGEXP_SRC_PTR.exit:                             ; preds = %.thread, %85
   br i1 %91, label %.lr.ph, label %.thread157
 
 .thread157:                                       ; preds = %88, %.lr.ph, %37, %RSTRING_PTR.exit, %71, %RREGEXP_SRC_PTR.exit
-  %.199 = phi i64 [ %76, %71 ], [ %87, %RREGEXP_SRC_PTR.exit ], [ %33, %RSTRING_PTR.exit ], [ %89, %88 ], [ %.098186, %.lr.ph ], [ %.098186, %37 ]
-  %.191 = phi ptr [ %75, %71 ], [ %.sroa.2.0.i.i, %RREGEXP_SRC_PTR.exit ], [ %.sroa.2.0.i, %RSTRING_PTR.exit ], [ %90, %88 ], [ %.090187, %.lr.ph ], [ %.090187, %37 ]
-  %.1 = phi i32 [ %.4, %71 ], [ %83, %RREGEXP_SRC_PTR.exit ], [ %25, %RSTRING_PTR.exit ], [ %.4, %88 ], [ %.0188, %.lr.ph ], [ %.0188, %37 ]
+  %.199 = phi i64 [ %87, %RREGEXP_SRC_PTR.exit ], [ %76, %71 ], [ %33, %RSTRING_PTR.exit ], [ %89, %88 ], [ %.098186, %.lr.ph ], [ %.098186, %37 ]
+  %.191 = phi ptr [ %.sroa.2.0.i.i, %RREGEXP_SRC_PTR.exit ], [ %75, %71 ], [ %.sroa.2.0.i, %RSTRING_PTR.exit ], [ %90, %88 ], [ %.090187, %.lr.ph ], [ %.090187, %37 ]
+  %.1 = phi i32 [ %83, %RREGEXP_SRC_PTR.exit ], [ %.4, %71 ], [ %25, %RSTRING_PTR.exit ], [ %.4, %88 ], [ %.0188, %.lr.ph ], [ %.0188, %37 ]
   %92 = and i32 %.1, 4
   %.not.i124 = icmp eq i32 %92, 0
   br i1 %.not.i124, label %95, label %93

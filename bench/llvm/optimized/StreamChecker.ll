@@ -24612,8 +24612,8 @@ _ZNK5clang4Type16isFixedPointTypeEv.exit.i:       ; preds = %_ZN5clang4ento3Loc9
   %or.cond = select i1 %74, i1 %spec.select16.i.i, i1 false
   br i1 %or.cond, label %_ZNK5clang4Type24isUnsignedFixedPointTypeEv.exit.thread40, label %_ZNK5clang4Type24isUnsignedFixedPointTypeEv.exit.thread
 
-_ZNK5clang4Type24isUnsignedFixedPointTypeEv.exit.thread40: ; preds = %73, %67, %71, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread
-  %.sroa.017.044 = phi i32 [ %50, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread ], [ %54, %73 ], [ %54, %71 ], [ %54, %67 ]
+_ZNK5clang4Type24isUnsignedFixedPointTypeEv.exit.thread40: ; preds = %73, %71, %67, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread
+  %.sroa.017.044 = phi i32 [ %50, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread ], [ %54, %73 ], [ %54, %67 ], [ %54, %71 ]
   br label %_ZNK5clang4Type24isUnsignedFixedPointTypeEv.exit.thread
 
 _ZNK5clang4Type24isUnsignedFixedPointTypeEv.exit.thread: ; preds = %69, %73, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread24, %_ZNK5clang4Type16isFixedPointTypeEv.exit.i, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread, %_ZNK5clang4Type24isUnsignedFixedPointTypeEv.exit.thread40
@@ -25282,7 +25282,7 @@ _ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit._crit_edge: ; preds = %_ZNK5
   br label %_ZNK5clang4ento18CallDescriptionMapIN12_GLOBAL__N_113FnDescriptionEE6lookupERKNS0_9CallEventE.exit
 
 _ZNK5clang4ento18CallDescriptionMapIN12_GLOBAL__N_113FnDescriptionEE6lookupERKNS0_9CallEventE.exit: ; preds = %45, %54, %.split.loop.exit4.i, %._crit_edge
-  %.3 = phi ptr [ %56, %.split.loop.exit4.i ], [ null, %._crit_edge ], [ null, %54 ], [ null, %45 ]
+  %.3 = phi ptr [ null, %54 ], [ %56, %.split.loop.exit4.i ], [ null, %._crit_edge ], [ null, %45 ]
   ret ptr %.3
 }
 

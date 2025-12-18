@@ -2765,16 +2765,16 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   br label %158
 
 158:                                              ; preds = %155, %151
-  %.479.i = phi nsz float [ %156, %155 ], [ %.17695.i, %151 ]
-  %.4.i = phi nsz float [ %157, %155 ], [ %.196.i, %151 ]
+  %.479.i = phi nsz float [ %.17695.i, %151 ], [ %156, %155 ]
+  %.4.i = phi nsz float [ %.196.i, %151 ], [ %157, %155 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i138, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i to i32
   %exitcond.not.i = icmp eq i32 %134, %lftr.wideiv.i
   br i1 %exitcond.not.i, label %._crit_edge.split.split.i, label %151
 
 _auto_levels.exit:                                ; preds = %._crit_edge.split.split.i, %._crit_edge.split.split.us.us.i, %._crit_edge.split.us.us.i, %111, %.lr.ph115.i
-  %.075.lcssa.i = phi float [ 0xC7EFFFFFE0000000, %111 ], [ 0xC7EFFFFFE0000000, %.lr.ph115.i ], [ %.378.us.us.i, %._crit_edge.split.split.us.us.i ], [ %.479.us.us.i, %._crit_edge.split.us.us.i ], [ %.479.i, %._crit_edge.split.split.i ]
-  %.074.lcssa.i = phi float [ 0x47EFFFFFE0000000, %111 ], [ 0x47EFFFFFE0000000, %.lr.ph115.i ], [ %.3.us.us.i, %._crit_edge.split.split.us.us.i ], [ %.4.us.us.i, %._crit_edge.split.us.us.i ], [ %.4.i, %._crit_edge.split.split.i ]
+  %.075.lcssa.i = phi float [ 0xC7EFFFFFE0000000, %111 ], [ %.479.us.us.i, %._crit_edge.split.us.us.i ], [ %.378.us.us.i, %._crit_edge.split.split.us.us.i ], [ 0xC7EFFFFFE0000000, %.lr.ph115.i ], [ %.479.i, %._crit_edge.split.split.i ]
+  %.074.lcssa.i = phi float [ 0x47EFFFFFE0000000, %111 ], [ %.4.us.us.i, %._crit_edge.split.us.us.i ], [ %.3.us.us.i, %._crit_edge.split.split.us.us.i ], [ 0x47EFFFFFE0000000, %.lr.ph115.i ], [ %.4.i, %._crit_edge.split.split.i ]
   %159 = select i1 %114, i32 %113, i32 0
   %160 = fcmp reassoc nsz arcp contract afn ogt float %.074.lcssa.i, 1.000000e+00
   %161 = fcmp reassoc nsz arcp contract afn olt float %.074.lcssa.i, 0.000000e+00

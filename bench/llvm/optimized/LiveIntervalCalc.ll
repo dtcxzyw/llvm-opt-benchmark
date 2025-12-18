@@ -1043,7 +1043,7 @@ define dso_local void @_ZN4llvm16LiveIntervalCalc14createDeadDefsERNS_9LiveRange
   br i1 %.not.i.i.i.i.i, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %21, %27
-  %.sroa.0.0.i.i = phi ptr [ %.0.i.i.i, %21 ], [ %26, %27 ]
+  %.sroa.0.0.i.i = phi ptr [ %26, %27 ], [ %.0.i.i.i, %21 ]
   %30 = getelementptr i8, ptr %7, i64 120
   %31 = getelementptr i8, ptr %7, i64 136
   br label %_ZN4llvm19MachineRegisterInfo20defusechain_iteratorILb0ELb1ELb0ELb1ELb0ELb0EEppEv.exit

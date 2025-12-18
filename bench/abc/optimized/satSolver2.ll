@@ -3206,7 +3206,7 @@ Vec_IntPush.exit39.i:                             ; preds = %Vec_IntPush.exit39.
   br i1 %138, label %.lr.ph.i, label %Prf_ManUnsatCore.exit, !llvm.loop !117
 
 Prf_ManUnsatCore.exit:                            ; preds = %134, %91, %.preheader40.i, %.preheader.i
-  %.val32.i = phi ptr [ %43, %.preheader.i ], [ %43, %.preheader40.i ], [ %.pre.i52.i, %91 ], [ %.pre.i3549.i, %134 ]
+  %.val32.i = phi ptr [ %.pre.i52.i, %91 ], [ %43, %.preheader.i ], [ %43, %.preheader40.i ], [ %.pre.i3549.i, %134 ]
   store ptr null, ptr %52, align 8, !tbaa !68
   %.val31.i = load i32, ptr %38, align 4, !tbaa !115
   %139 = sext i32 %.val31.i to i64
@@ -4584,7 +4584,7 @@ clause2_read.exit285:                             ; preds = %385, %386
   br i1 %412, label %374, label %._crit_edge416, !llvm.loop !147
 
 ._crit_edge416:                                   ; preds = %._crit_edge412, %Sat_MemCompactLearned.exit, %.preheader357
-  %413 = phi i32 [ %371, %.preheader357 ], [ %339, %Sat_MemCompactLearned.exit ], [ %409, %._crit_edge412 ]
+  %413 = phi i32 [ %339, %Sat_MemCompactLearned.exit ], [ %371, %.preheader357 ], [ %409, %._crit_edge412 ]
   %414 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %415 = load i32, ptr %414, align 4, !tbaa !41
   %.not233 = icmp ne i32 %415, 0

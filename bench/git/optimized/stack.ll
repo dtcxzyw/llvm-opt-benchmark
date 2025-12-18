@@ -509,9 +509,9 @@ stack_copy_readers.exit.thread.sink.split.i:      ; preds = %105, %88, %.thread1
   br label %stack_copy_readers.exit.thread.i
 
 stack_copy_readers.exit.thread.i:                 ; preds = %stack_filename.exit152.i, %123, %118, %stack_copy_readers.exit.thread.sink.split.i, %._crit_edge
-  %.195.i97 = phi i64 [ %.195.i.lcssa, %._crit_edge ], [ %.195.i113, %stack_copy_readers.exit.thread.sink.split.i ], [ %.195.i.lcssa, %118 ], [ %.195.i.lcssa, %123 ], [ %.195.i.lcssa, %stack_filename.exit152.i ]
-  %.0108.i = phi ptr [ %.1109.i.lcssa, %._crit_edge ], [ %.0108.ph.i, %stack_copy_readers.exit.thread.sink.split.i ], [ %.1109.i.lcssa, %118 ], [ %.1109.i.lcssa, %123 ], [ %.1109.i.lcssa, %stack_filename.exit152.i ]
-  %.090.i = phi i32 [ %114, %._crit_edge ], [ %.090.ph.i, %stack_copy_readers.exit.thread.sink.split.i ], [ %126, %stack_filename.exit152.i ], [ %124, %123 ], [ %121, %118 ]
+  %.195.i97 = phi i64 [ %.195.i113, %stack_copy_readers.exit.thread.sink.split.i ], [ %.195.i.lcssa, %._crit_edge ], [ %.195.i.lcssa, %118 ], [ %.195.i.lcssa, %123 ], [ %.195.i.lcssa, %stack_filename.exit152.i ]
+  %.0108.i = phi ptr [ %.0108.ph.i, %stack_copy_readers.exit.thread.sink.split.i ], [ %.1109.i.lcssa, %._crit_edge ], [ %.1109.i.lcssa, %118 ], [ %.1109.i.lcssa, %123 ], [ %.1109.i.lcssa, %stack_filename.exit152.i ]
+  %.090.i = phi i32 [ %.090.ph.i, %stack_copy_readers.exit.thread.sink.split.i ], [ %114, %._crit_edge ], [ %126, %stack_filename.exit152.i ], [ %124, %123 ], [ %121, %118 ]
   %.not243.i = icmp eq i64 %.195.i97, 0
   br i1 %.not243.i, label %reftable_stack_reload_once.exit, label %.lr.ph239.i
 
@@ -525,10 +525,10 @@ stack_copy_readers.exit.thread.i:                 ; preds = %stack_filename.exit
   br i1 %exitcond283.not.i, label %reftable_stack_reload_once.exit, label %.lr.ph239.i, !llvm.loop !57
 
 reftable_stack_reload_once.exit:                  ; preds = %.lr.ph237.i, %.lr.ph239.i, %55, %65, %141, %stack_copy_readers.exit.thread.i
-  %.090345.i = phi i32 [ %.090.i, %stack_copy_readers.exit.thread.i ], [ %.5.lcssa.i, %141 ], [ -13, %65 ], [ -13, %55 ], [ %.090.i, %.lr.ph239.i ], [ %.5.lcssa.i, %.lr.ph237.i ]
-  %.198344.i = phi ptr [ %.097.i, %stack_copy_readers.exit.thread.i ], [ %.097.i, %141 ], [ %.097.i, %65 ], [ null, %55 ], [ %.097.i, %.lr.ph239.i ], [ %.097.i, %.lr.ph237.i ]
-  %.0106343.i = phi ptr [ %.1107.i, %stack_copy_readers.exit.thread.i ], [ null, %141 ], [ null, %65 ], [ null, %55 ], [ %.1107.i, %.lr.ph239.i ], [ null, %.lr.ph237.i ]
-  %.0108342.i = phi ptr [ %.0108.i, %stack_copy_readers.exit.thread.i ], [ %.1109.i.lcssa, %141 ], [ null, %65 ], [ null, %55 ], [ %.0108.i, %.lr.ph239.i ], [ %.1109.i.lcssa, %.lr.ph237.i ]
+  %.090345.i = phi i32 [ %.5.lcssa.i, %141 ], [ %.090.i, %stack_copy_readers.exit.thread.i ], [ %.090.i, %.lr.ph239.i ], [ -13, %65 ], [ -13, %55 ], [ %.5.lcssa.i, %.lr.ph237.i ]
+  %.198344.i = phi ptr [ %.097.i, %141 ], [ %.097.i, %stack_copy_readers.exit.thread.i ], [ %.097.i, %.lr.ph239.i ], [ %.097.i, %65 ], [ null, %55 ], [ %.097.i, %.lr.ph237.i ]
+  %.0106343.i = phi ptr [ null, %141 ], [ %.1107.i, %stack_copy_readers.exit.thread.i ], [ %.1107.i, %.lr.ph239.i ], [ null, %65 ], [ null, %55 ], [ null, %.lr.ph237.i ]
+  %.0108342.i = phi ptr [ %.1109.i.lcssa, %141 ], [ %.0108.i, %stack_copy_readers.exit.thread.i ], [ %.0108.i, %.lr.ph239.i ], [ null, %65 ], [ null, %55 ], [ %.1109.i.lcssa, %.lr.ph237.i ]
   call void @reftable_free(ptr noundef %.0106343.i) #16
   call void @reftable_free(ptr noundef %.0108342.i) #16
   call void @reftable_free(ptr noundef %.198344.i) #16
@@ -823,7 +823,7 @@ has_name.exit.us:                                 ; preds = %.lr.ph, %43
   br label %has_name.exit
 
 has_name.exit:                                    ; preds = %.lr.ph.i, %64, %61, %.loopexit
-  %67 = phi i1 [ false, %61 ], [ %66, %64 ], [ false, %.loopexit ], [ true, %.lr.ph.i ]
+  %67 = phi i1 [ false, %61 ], [ false, %.loopexit ], [ %66, %64 ], [ true, %.lr.ph.i ]
   %68 = load ptr, ptr %23, align 8, !tbaa !38
   %69 = getelementptr inbounds nuw ptr, ptr %68, i64 %.03046
   %70 = load ptr, ptr %69, align 8, !tbaa !39
@@ -1563,8 +1563,8 @@ define dso_local i32 @reftable_stack_auto_compact(ptr noundef %0) local_unnamed_
   br i1 %.not28.i, label %suggest_compaction_segment.exit, label %.lr.ph.i12, !llvm.loop !86
 
 suggest_compaction_segment.exit:                  ; preds = %38, %.lr.ph.i12, %.preheader.i, %.loopexit
-  %.sroa.0.0 = phi i64 [ 0, %.loopexit ], [ 0, %.preheader.i ], [ %spec.select39.i, %.lr.ph.i12 ], [ 0, %38 ]
-  %.sroa.5.1 = phi i64 [ 0, %.loopexit ], [ 0, %.preheader.i ], [ %.0.in.i, %.lr.ph.i12 ], [ 0, %38 ]
+  %.sroa.0.0 = phi i64 [ 0, %.loopexit ], [ %spec.select39.i, %.lr.ph.i12 ], [ 0, %.preheader.i ], [ 0, %38 ]
+  %.sroa.5.1 = phi i64 [ 0, %.loopexit ], [ %.0.in.i, %.lr.ph.i12 ], [ 0, %.preheader.i ], [ 0, %38 ]
   tail call void @reftable_free(ptr noundef nonnull %16) #16
   %54 = sub i64 %.sroa.5.1, %.sroa.0.0
   %55 = trunc i64 %54 to i32
@@ -2555,9 +2555,9 @@ stack_fsync.exit:                                 ; preds = %240, %242
   br i1 %exitcond342.not, label %stack_filename.exit.thread, label %.lr.ph311, !llvm.loop !126
 
 stack_filename.exit.thread:                       ; preds = %73, %46, %55, %stack_filename.exit, %142, %129, %132, %140, %.lr.ph305, %.lr.ph308, %204, %218, %221, %270, %.preheader272, %106, %102, %._crit_edge303, %79, %149, %94, %87, %.loopexit, %72, %st_mult.exit, %26, %5, %14, %256, %207, %212, %192, %187, %184, %172, %98, %30, %252, %245, %233
-  %.0161 = phi i64 [ 0, %14 ], [ 0, %26 ], [ 0, %5 ], [ 0, %30 ], [ %.1162, %79 ], [ %.1162, %87 ], [ %.1162, %.loopexit ], [ 0, %st_mult.exit ], [ %.1162, %98 ], [ %.1162, %233 ], [ %.1162, %245 ], [ %.1162, %252 ], [ %.1162, %256 ], [ %.1162, %207 ], [ %.1162, %212 ], [ %.1162, %172 ], [ %.1162, %184 ], [ %.1162, %187 ], [ %.1162, %192 ], [ %.1162, %94 ], [ %.1162, %72 ], [ %.1162, %149 ], [ %.1162, %._crit_edge303 ], [ %.1162, %102 ], [ %.1162, %106 ], [ %.1162, %.preheader272 ], [ %.1162, %218 ], [ %.1162, %.lr.ph308 ], [ %.1162, %.lr.ph305 ], [ %.1162, %129 ], [ %.1162, %142 ], [ %.1162, %270 ], [ %.1162, %221 ], [ %.1162, %204 ], [ %.1162, %140 ], [ %.1162, %132 ], [ %.1162, %55 ], [ %.1162, %46 ], [ %74, %73 ], [ %.1162, %stack_filename.exit ]
-  %.0156 = phi i32 [ 0, %14 ], [ %., %26 ], [ 0, %5 ], [ %31, %30 ], [ %80, %79 ], [ %.223, %87 ], [ -2, %.loopexit ], [ -13, %st_mult.exit ], [ %99, %98 ], [ -2, %233 ], [ -2, %245 ], [ -2, %252 ], [ %259, %256 ], [ %210, %207 ], [ %213, %212 ], [ %182, %172 ], [ %185, %184 ], [ %190, %187 ], [ %195, %192 ], [ -2, %94 ], [ %.222, %72 ], [ -13, %149 ], [ -12, %._crit_edge303 ], [ -2, %102 ], [ %107, %106 ], [ -12, %.preheader272 ], [ %219, %218 ], [ %202, %.lr.ph308 ], [ -13, %.lr.ph305 ], [ -12, %129 ], [ -12, %142 ], [ %266, %270 ], [ %222, %221 ], [ %205, %204 ], [ -12, %140 ], [ -12, %132 ], [ %56, %55 ], [ %53, %46 ], [ -2, %73 ], [ %58, %stack_filename.exit ]
-  %.0150 = phi ptr [ null, %14 ], [ null, %26 ], [ null, %5 ], [ null, %30 ], [ %37, %79 ], [ %37, %87 ], [ %37, %.loopexit ], [ null, %st_mult.exit ], [ %37, %98 ], [ %37, %233 ], [ %37, %245 ], [ %37, %252 ], [ %37, %256 ], [ %37, %207 ], [ %37, %212 ], [ %37, %172 ], [ %37, %184 ], [ %37, %187 ], [ %37, %192 ], [ %37, %94 ], [ %37, %72 ], [ %37, %149 ], [ %37, %._crit_edge303 ], [ %37, %102 ], [ %37, %106 ], [ %37, %.preheader272 ], [ %37, %218 ], [ %37, %.lr.ph308 ], [ %37, %.lr.ph305 ], [ %37, %129 ], [ %37, %142 ], [ %37, %270 ], [ %37, %221 ], [ %37, %204 ], [ %37, %140 ], [ %37, %132 ], [ %37, %stack_filename.exit ], [ %37, %55 ], [ %37, %46 ], [ %37, %73 ]
+  %.0161 = phi i64 [ 0, %14 ], [ 0, %26 ], [ 0, %5 ], [ 0, %30 ], [ %.1162, %.lr.ph305 ], [ %.1162, %.lr.ph308 ], [ %.1162, %79 ], [ %.1162, %87 ], [ %.1162, %.loopexit ], [ 0, %st_mult.exit ], [ %.1162, %98 ], [ %.1162, %129 ], [ %.1162, %270 ], [ %.1162, %.preheader272 ], [ %.1162, %106 ], [ %.1162, %233 ], [ %.1162, %245 ], [ %.1162, %252 ], [ %.1162, %256 ], [ %.1162, %102 ], [ %.1162, %207 ], [ %.1162, %212 ], [ %.1162, %172 ], [ %.1162, %184 ], [ %.1162, %187 ], [ %.1162, %192 ], [ %.1162, %218 ], [ %.1162, %._crit_edge303 ], [ %.1162, %94 ], [ %.1162, %72 ], [ %.1162, %149 ], [ %.1162, %142 ], [ %.1162, %221 ], [ %.1162, %204 ], [ %.1162, %140 ], [ %.1162, %132 ], [ %.1162, %46 ], [ %74, %73 ], [ %.1162, %55 ], [ %.1162, %stack_filename.exit ]
+  %.0156 = phi i32 [ 0, %14 ], [ %., %26 ], [ 0, %5 ], [ %31, %30 ], [ -13, %.lr.ph305 ], [ %202, %.lr.ph308 ], [ %80, %79 ], [ %.223, %87 ], [ -2, %.loopexit ], [ -13, %st_mult.exit ], [ %99, %98 ], [ -12, %129 ], [ %266, %270 ], [ -12, %.preheader272 ], [ %107, %106 ], [ -2, %233 ], [ -2, %245 ], [ -2, %252 ], [ %259, %256 ], [ -2, %102 ], [ %210, %207 ], [ %213, %212 ], [ %182, %172 ], [ %185, %184 ], [ %190, %187 ], [ %195, %192 ], [ %219, %218 ], [ -12, %._crit_edge303 ], [ -2, %94 ], [ %.222, %72 ], [ -13, %149 ], [ -12, %142 ], [ %222, %221 ], [ %205, %204 ], [ -12, %140 ], [ -12, %132 ], [ %53, %46 ], [ -2, %73 ], [ %56, %55 ], [ %58, %stack_filename.exit ]
+  %.0150 = phi ptr [ null, %14 ], [ null, %26 ], [ null, %5 ], [ null, %30 ], [ %37, %.lr.ph305 ], [ %37, %.lr.ph308 ], [ %37, %79 ], [ %37, %87 ], [ %37, %.loopexit ], [ null, %st_mult.exit ], [ %37, %98 ], [ %37, %129 ], [ %37, %270 ], [ %37, %.preheader272 ], [ %37, %106 ], [ %37, %233 ], [ %37, %245 ], [ %37, %252 ], [ %37, %256 ], [ %37, %102 ], [ %37, %207 ], [ %37, %212 ], [ %37, %172 ], [ %37, %184 ], [ %37, %187 ], [ %37, %192 ], [ %37, %218 ], [ %37, %._crit_edge303 ], [ %37, %94 ], [ %37, %72 ], [ %37, %149 ], [ %37, %142 ], [ %37, %221 ], [ %37, %204 ], [ %37, %140 ], [ %37, %132 ], [ %37, %stack_filename.exit ], [ %37, %55 ], [ %37, %46 ], [ %37, %73 ]
   %.0150.fr = freeze ptr %.0150
   %272 = call i32 @flock_release(ptr noundef nonnull %10) #16
   %273 = icmp ne ptr %.0150.fr, null
@@ -3204,7 +3204,7 @@ stack_filename.exit:                              ; preds = %39
   br i1 %110, label %.split.us.i, label %.lr.ph99.i
 
 .split.us.i:                                      ; preds = %.outer75.i, %100, %.preheader72.split.i
-  %.us-phi.i = phi i64 [ 0, %.preheader72.split.i ], [ %.1.ph.us.i, %100 ], [ %118, %.outer75.i ]
+  %.us-phi.i = phi i64 [ %.1.ph.us.i, %100 ], [ 0, %.preheader72.split.i ], [ %118, %.outer75.i ]
   call void @reftable_iterator_destroy(ptr noundef nonnull %7) #16
   %111 = load ptr, ptr %6, align 8, !tbaa !35
   %112 = call i32 @merged_table_init_iter(ptr noundef %111, ptr noundef nonnull %7, i8 noundef zeroext 103) #16
@@ -3389,8 +3389,8 @@ stack_filename.exit:                              ; preds = %39
   br i1 %188, label %.loopexit.i, label %.lr.ph100.i
 
 .loopexit.i:                                      ; preds = %.split92.i, %.lr.ph99.i, %.split92.us.us.i, %103, %.outer.i, %.critedge.split.split.i, %.backedge.i, %171, %.critedge.split.split.us.us.i, %.outer.us148.i, %.backedge.us113.us.i, %153, %.split125.us132.i, %.outer.us.i, %.lr.ph100.us.i, %.split125.us.us.us.i, %.outer.us.us.i, %.backedge.us.us.us.us.i, %133, %.preheader.i, %121, %.split.us.i, %94, %90, %._crit_edge199.i
-  %.044.i = phi i64 [ 0, %._crit_edge199.i ], [ 0, %90 ], [ 0, %94 ], [ %.us-phi.i, %.split.us.i ], [ %.us-phi.i, %121 ], [ %.us-phi.i, %.preheader.i ], [ %130, %.outer.us.us.i ], [ %.2.ph128.us147.i, %.backedge.us113.us.i ], [ %150, %.outer.us148.i ], [ %.1.ph.us.i, %.split92.us.us.i ], [ %.2.ph128.us.us.i, %.backedge.us.us.us.us.i ], [ %144, %.outer.us.i ], [ %.2.ph128.i, %.backedge.i ], [ %.2.ph128.i, %.critedge.split.split.i ], [ %.1.ph.us.i, %103 ], [ %.2.ph128.us.us.i, %133 ], [ %.2.ph128.us.us.i, %.split125.us.us.us.i ], [ %.2.ph128.us.i, %.split125.us132.i ], [ %.2.ph128.us.i, %.lr.ph100.us.i ], [ %.2.ph128.us147.i, %153 ], [ %.2.ph128.us147.i, %.critedge.split.split.us.us.i ], [ %.2.ph128.i, %171 ], [ %186, %.outer.i ], [ %.1.ph98.i, %.lr.ph99.i ], [ %.1.ph98.i, %.split92.i ]
-  %.043.i = phi i32 [ %80, %._crit_edge199.i ], [ %92, %90 ], [ %95, %94 ], [ %112, %.split.us.i ], [ %122, %121 ], [ 0, %.preheader.i ], [ 0, %.outer.us.us.i ], [ 0, %.backedge.us113.us.i ], [ 0, %.outer.us148.i ], [ %107, %.split92.us.us.i ], [ 0, %.backedge.us.us.us.us.i ], [ 0, %.outer.us.i ], [ 0, %.backedge.i ], [ %184, %.critedge.split.split.i ], [ %101, %103 ], [ %134, %133 ], [ %140, %.split125.us.us.us.i ], [ %147, %.split125.us132.i ], [ %142, %.lr.ph100.us.i ], [ %154, %153 ], [ %168, %.critedge.split.split.us.us.i ], [ %172, %171 ], [ 0, %.outer.i ], [ %116, %.split92.i ], [ %114, %.lr.ph99.i ]
+  %.044.i = phi i64 [ 0, %._crit_edge199.i ], [ 0, %90 ], [ 0, %94 ], [ %.us-phi.i, %.split.us.i ], [ %.us-phi.i, %121 ], [ %186, %.outer.i ], [ %.1.ph.us.i, %.split92.us.us.i ], [ %150, %.outer.us148.i ], [ %.2.ph128.us147.i, %.backedge.us113.us.i ], [ %.us-phi.i, %.preheader.i ], [ %.2.ph128.us.us.i, %.backedge.us.us.us.us.i ], [ %.2.ph128.i, %.backedge.i ], [ %130, %.outer.us.us.i ], [ %.1.ph.us.i, %103 ], [ %144, %.outer.us.i ], [ %.2.ph128.us.us.i, %133 ], [ %.2.ph128.us.us.i, %.split125.us.us.us.i ], [ %.2.ph128.us.i, %.split125.us132.i ], [ %.2.ph128.us.i, %.lr.ph100.us.i ], [ %.2.ph128.us147.i, %153 ], [ %.2.ph128.us147.i, %.critedge.split.split.us.us.i ], [ %.2.ph128.i, %171 ], [ %.2.ph128.i, %.critedge.split.split.i ], [ %.1.ph98.i, %.lr.ph99.i ], [ %.1.ph98.i, %.split92.i ]
+  %.043.i = phi i32 [ %80, %._crit_edge199.i ], [ %92, %90 ], [ %95, %94 ], [ %112, %.split.us.i ], [ %122, %121 ], [ 0, %.outer.i ], [ %107, %.split92.us.us.i ], [ 0, %.outer.us148.i ], [ 0, %.backedge.us113.us.i ], [ 0, %.preheader.i ], [ 0, %.backedge.us.us.us.us.i ], [ 0, %.backedge.i ], [ 0, %.outer.us.us.i ], [ %101, %103 ], [ 0, %.outer.us.i ], [ %134, %133 ], [ %140, %.split125.us.us.us.i ], [ %147, %.split125.us132.i ], [ %142, %.lr.ph100.us.i ], [ %154, %153 ], [ %168, %.critedge.split.split.us.us.i ], [ %172, %171 ], [ %184, %.critedge.split.split.i ], [ %116, %.split92.i ], [ %114, %.lr.ph99.i ]
   call void @reftable_iterator_destroy(ptr noundef nonnull %7) #16
   %189 = load ptr, ptr %6, align 8, !tbaa !35
   %.not65.i = icmp eq ptr %189, null

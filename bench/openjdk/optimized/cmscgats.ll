@@ -1443,7 +1443,7 @@ IsAvailableOnList.exit:                           ; preds = %29, %.split.us.i
   br label %IsAvailableOnList.exit.thread
 
 IsAvailableOnList.exit.thread:                    ; preds = %23, %32, %.lr.ph.split.i.preheader, %GetTable.exit, %IsAvailableOnList.exit
-  %.0 = phi ptr [ %36, %IsAvailableOnList.exit ], [ null, %GetTable.exit ], [ null, %.lr.ph.split.i.preheader ], [ null, %32 ], [ null, %23 ]
+  %.0 = phi ptr [ %36, %IsAvailableOnList.exit ], [ null, %32 ], [ null, %GetTable.exit ], [ null, %.lr.ph.split.i.preheader ], [ null, %23 ]
   ret ptr %.0
 }
 
@@ -5032,8 +5032,8 @@ AllocChunk.exit:                                  ; preds = %54
   br i1 %.not26, label %IsAvailableOnList.exit.thread, label %62, !llvm.loop !52
 
 IsAvailableOnList.exit.thread:                    ; preds = %23, %70, %.lr.ph.split.i.preheader, %54, %GetTable.exit
-  %storemerge = phi ptr [ null, %54 ], [ null, %GetTable.exit ], [ null, %.lr.ph.split.i.preheader ], [ %59, %70 ], [ null, %23 ]
-  %.0 = phi i32 [ %spec.select, %54 ], [ 0, %GetTable.exit ], [ 0, %.lr.ph.split.i.preheader ], [ %.4, %70 ], [ 0, %23 ]
+  %storemerge = phi ptr [ null, %GetTable.exit ], [ %59, %70 ], [ null, %54 ], [ null, %.lr.ph.split.i.preheader ], [ null, %23 ]
+  %.0 = phi i32 [ 0, %GetTable.exit ], [ %.4, %70 ], [ %spec.select, %54 ], [ 0, %.lr.ph.split.i.preheader ], [ 0, %23 ]
   store ptr %storemerge, ptr %2, align 8
   ret i32 %.0
 }
@@ -5442,7 +5442,7 @@ LocateSample.exit:                                ; preds = %28
   br label %GetData.exit
 
 GetData.exit:                                     ; preds = %GetDataFormat.exit.thread.i, %GetTable.exit.i, %53, %50, %44, %LocateSample.exit
-  %.0 = phi ptr [ null, %44 ], [ null, %LocateSample.exit ], [ null, %50 ], [ %58, %53 ], [ null, %GetTable.exit.i ], [ null, %GetDataFormat.exit.thread.i ]
+  %.0 = phi ptr [ null, %44 ], [ null, %GetTable.exit.i ], [ null, %LocateSample.exit ], [ null, %50 ], [ %58, %53 ], [ null, %GetDataFormat.exit.thread.i ]
   ret ptr %.0
 }
 
@@ -5796,7 +5796,7 @@ LocateEmptyPatch.exit.thread44:                   ; preds = %110, %87, %GetTable
   br label %LocateSample.exit.thread
 
 LocateEmptyPatch.exit.thread:                     ; preds = %GetData.exit.i, %GetTable.exit.i.i36, %101, %GetTable.exit.i.us.i, %.lr.ph.split.us.i, %LocateEmptyPatch.exit
-  %.0.i3342 = phi i32 [ %.0.i33, %LocateEmptyPatch.exit ], [ 0, %.lr.ph.split.us.i ], [ %smax.i, %GetTable.exit.i.us.i ], [ %.0913.i, %101 ], [ %.0913.i, %GetTable.exit.i.i36 ], [ %.0913.i, %GetData.exit.i ]
+  %.0.i3342 = phi i32 [ %.0.i33, %LocateEmptyPatch.exit ], [ %smax.i, %GetTable.exit.i.us.i ], [ 0, %.lr.ph.split.us.i ], [ %.0913.i, %101 ], [ %.0913.i, %GetTable.exit.i.i36 ], [ %.0913.i, %GetData.exit.i ]
   %115 = getelementptr inbounds nuw i8, ptr %.0.i81, i64 1032
   %116 = load i32, ptr %115, align 8
   br label %120
@@ -5813,7 +5813,7 @@ LocateEmptyPatch.exit.thread:                     ; preds = %GetData.exit.i, %Ge
   br label %LocateSample.exit.thread
 
 LocateSample.exit.thread:                         ; preds = %GetDataFormat.exit.thread.i, %GetTable.exit.i, %117, %47, %45, %120, %LocateEmptyPatch.exit.thread44
-  %.0 = phi i32 [ 0, %LocateEmptyPatch.exit.thread44 ], [ %121, %120 ], [ 0, %47 ], [ 0, %45 ], [ 0, %117 ], [ 0, %GetTable.exit.i ], [ 0, %GetDataFormat.exit.thread.i ]
+  %.0 = phi i32 [ 0, %GetTable.exit.i ], [ 0, %LocateEmptyPatch.exit.thread44 ], [ %121, %120 ], [ 0, %47 ], [ 0, %45 ], [ 0, %117 ], [ 0, %GetDataFormat.exit.thread.i ]
   ret i32 %.0
 }
 
@@ -6961,18 +6961,18 @@ ReadNumbers.exit.sink.split.i:                    ; preds = %Check.exit116.i, %C
   br label %ReadNumbers.exit.i
 
 ReadNumbers.exit.i:                               ; preds = %Check.exit.i.i104.i, %Check.exit.i.i.i, %ReadNumbers.exit.sink.split.i, %193, %ReadNumbers.exit127.i
-  %.360 = phi ptr [ %.057, %ReadNumbers.exit.sink.split.i ], [ %.057, %ReadNumbers.exit127.i ], [ %.158, %193 ], [ %.057, %Check.exit.i.i.i ], [ %.057, %Check.exit.i.i104.i ]
-  %.3 = phi ptr [ %.056, %ReadNumbers.exit.sink.split.i ], [ %.056, %ReadNumbers.exit127.i ], [ %.1, %193 ], [ %.056, %Check.exit.i.i.i ], [ %.056, %Check.exit.i.i104.i ]
-  %.181.i = phi i32 [ %.181.ph.i, %ReadNumbers.exit.sink.split.i ], [ %.080.i, %ReadNumbers.exit127.i ], [ %.080.i, %193 ], [ %.080.i, %Check.exit.i.i.i ], [ %.080.i, %Check.exit.i.i104.i ]
-  %.1.i = phi i32 [ %.1.ph.i, %ReadNumbers.exit.sink.split.i ], [ %.079.i, %ReadNumbers.exit127.i ], [ %.079.i, %193 ], [ %.079.i, %Check.exit.i.i.i ], [ %.079.i, %Check.exit.i.i104.i ]
+  %.360 = phi ptr [ %.057, %ReadNumbers.exit.sink.split.i ], [ %.158, %193 ], [ %.057, %Check.exit.i.i.i ], [ %.057, %ReadNumbers.exit127.i ], [ %.057, %Check.exit.i.i104.i ]
+  %.3 = phi ptr [ %.056, %ReadNumbers.exit.sink.split.i ], [ %.1, %193 ], [ %.056, %Check.exit.i.i.i ], [ %.056, %ReadNumbers.exit127.i ], [ %.056, %Check.exit.i.i104.i ]
+  %.181.i = phi i32 [ %.181.ph.i, %ReadNumbers.exit.sink.split.i ], [ %.080.i, %193 ], [ %.080.i, %Check.exit.i.i.i ], [ %.080.i, %ReadNumbers.exit127.i ], [ %.080.i, %Check.exit.i.i104.i ]
+  %.1.i = phi i32 [ %.1.ph.i, %ReadNumbers.exit.sink.split.i ], [ %.079.i, %193 ], [ %.079.i, %Check.exit.i.i.i ], [ %.079.i, %ReadNumbers.exit127.i ], [ %.079.i, %Check.exit.i.i104.i ]
   br label %37, !llvm.loop !61
 
 .loopexit.sink.split.i:                           ; preds = %193, %ReadNumbers.exit127.i, %84, %72, %69, %66, %53, %39, %37, %118, %172, %76, %57, %44, %109, %163
-  %.str.157.sink.i = phi ptr [ @.str.158, %76 ], [ @.str.136, %172 ], [ @.str.136, %118 ], [ @.str.158, %163 ], [ @.str.158, %109 ], [ @.str.158, %44 ], [ @.str.158, %57 ], [ @.str.157, %193 ], [ @.str.156, %ReadNumbers.exit127.i ], [ @.str.136, %84 ], [ @.str.153, %39 ], [ @.str.136, %53 ], [ @.str.136, %66 ], [ @.str.154, %69 ], [ @.str.155, %72 ], [ @.str.156, %37 ]
+  %.str.157.sink.i = phi ptr [ @.str.158, %44 ], [ @.str.158, %57 ], [ @.str.158, %109 ], [ @.str.136, %172 ], [ @.str.158, %76 ], [ @.str.136, %118 ], [ @.str.158, %163 ], [ @.str.157, %193 ], [ @.str.156, %ReadNumbers.exit127.i ], [ @.str.136, %84 ], [ @.str.153, %39 ], [ @.str.136, %53 ], [ @.str.136, %66 ], [ @.str.154, %69 ], [ @.str.155, %72 ], [ @.str.156, %37 ]
   call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %9, ptr noundef nonnull %.str.157.sink.i)
   br label %ParseCube.exit.thread
 
-ParseCube.exit.thread:                            ; preds = %146, %91, %.preheader175.i, %.loopexit.sink.split.i
+ParseCube.exit.thread:                            ; preds = %91, %146, %.preheader175.i, %.loopexit.sink.split.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)

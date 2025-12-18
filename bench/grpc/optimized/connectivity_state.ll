@@ -3025,7 +3025,7 @@ _ZZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolic
   br i1 %.not34, label %.loopexit, label %121, !llvm.loop !115
 
 .loopexit:                                        ; preds = %173, %63, %115, %49
-  %175 = phi i64 [ 0, %49 ], [ 0, %115 ], [ %51, %63 ], [ %117, %173 ]
+  %175 = phi i64 [ %51, %63 ], [ 0, %49 ], [ 0, %115 ], [ %117, %173 ]
   %176 = load i8, ptr %31, align 8, !tbaa !104, !range !97, !noundef !41
   %177 = trunc nuw i8 %176 to i1
   %.neg.i = select i1 %177, i64 -9, i64 -8

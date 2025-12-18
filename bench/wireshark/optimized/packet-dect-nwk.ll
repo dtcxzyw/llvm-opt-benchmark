@@ -1396,7 +1396,7 @@ define internal i32 @dissect_dect_nwk(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %.not.i73, label %dissect_dect_nwk_lce.exit, label %.lr.ph.i71, !llvm.loop !13
 
 dissect_dect_nwk_lce.exit:                        ; preds = %.lr.ph.i71, %.lr.ph.i66, %.lr.ph.i61, %.lr.ph.i56, %.lr.ph.i51, %.lr.ph.i, %66, %57, %48, %39, %31, %19, %4
-  %.0 = phi i32 [ 0, %4 ], [ 2, %19 ], [ 2, %31 ], [ 2, %39 ], [ 2, %48 ], [ 2, %57 ], [ 2, %66 ], [ %64, %.lr.ph.i66 ], [ %26, %.lr.ph.i ], [ %37, %.lr.ph.i51 ], [ %46, %.lr.ph.i56 ], [ %55, %.lr.ph.i61 ], [ %73, %.lr.ph.i71 ]
+  %.0 = phi i32 [ 0, %4 ], [ %64, %.lr.ph.i66 ], [ %26, %.lr.ph.i ], [ %37, %.lr.ph.i51 ], [ %46, %.lr.ph.i56 ], [ %55, %.lr.ph.i61 ], [ 2, %19 ], [ 2, %31 ], [ 2, %39 ], [ 2, %48 ], [ 2, %57 ], [ 2, %66 ], [ %73, %.lr.ph.i71 ]
   %75 = tail call i32 @tvb_captured_length(ptr noundef %0)
   %76 = icmp ult i32 %.0, %75
   br i1 %76, label %77, label %80
@@ -2297,7 +2297,7 @@ default.unreachable.i:                            ; preds = %.backedge.i
   br label %dissect_dect_nwk_s_ie_auth_type.exit
 
 dissect_dect_nwk_s_ie_auth_type.exit:             ; preds = %503, %471, %494, %487, %486, %463, %371, %366, %360, %358, %298, %292, %276, %262, %256, %243, %204, %184, %180, %171, %124, %103, %dissect_dect_nwk_s_ie_calling_party_number.exit, %dissect_dect_nwk_s_ie_cipher_info.exit, %dissect_dect_nwk_s_ie_iwu_to_iwu.exit, %270, %273, %377, %381, %385, %dissect_dect_nwk_s_ie_escape_to_proprietary.exit, %518, %73
-  %.1 = phi i32 [ %74, %73 ], [ %519, %518 ], [ %92, %486 ], [ %152, %dissect_dect_nwk_s_ie_calling_party_number.exit ], [ %170, %dissect_dect_nwk_s_ie_cipher_info.exit ], [ %123, %103 ], [ %183, %180 ], [ %242, %dissect_dect_nwk_s_ie_iwu_to_iwu.exit ], [ %202, %184 ], [ %272, %270 ], [ %275, %273 ], [ %255, %243 ], [ %290, %276 ], [ %380, %377 ], [ %384, %381 ], [ %388, %385 ], [ %376, %371 ], [ %485, %dissect_dect_nwk_s_ie_escape_to_proprietary.exit ], [ %130, %124 ], [ %179, %171 ], [ %209, %204 ], [ %269, %262 ], [ %260, %256 ], [ %297, %292 ], [ %312, %298 ], [ %365, %360 ], [ %359, %358 ], [ %370, %366 ], [ %464, %463 ], [ %493, %487 ], [ %497, %494 ], [ %474, %471 ], [ %512, %503 ]
+  %.1 = phi i32 [ %74, %73 ], [ %519, %518 ], [ %92, %486 ], [ %152, %dissect_dect_nwk_s_ie_calling_party_number.exit ], [ %170, %dissect_dect_nwk_s_ie_cipher_info.exit ], [ %123, %103 ], [ %183, %180 ], [ %242, %dissect_dect_nwk_s_ie_iwu_to_iwu.exit ], [ %202, %184 ], [ %272, %270 ], [ %275, %273 ], [ %255, %243 ], [ %290, %276 ], [ %380, %377 ], [ %384, %381 ], [ %388, %385 ], [ %376, %371 ], [ %485, %dissect_dect_nwk_s_ie_escape_to_proprietary.exit ], [ %474, %471 ], [ %130, %124 ], [ %179, %171 ], [ %209, %204 ], [ %269, %262 ], [ %260, %256 ], [ %297, %292 ], [ %312, %298 ], [ %365, %360 ], [ %359, %358 ], [ %370, %366 ], [ %464, %463 ], [ %493, %487 ], [ %497, %494 ], [ %512, %503 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.1
 }

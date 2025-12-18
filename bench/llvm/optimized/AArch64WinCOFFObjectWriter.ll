@@ -321,7 +321,7 @@ _ZN4llvm5TwineC2EPKc.exit:                        ; preds = %66, %78
   br label %98
 
 98:                                               ; preds = %86, %.thread102, %90, %85, %82, %83, %84, %93, %94, %95, %96, %97, %_ZN4llvmplERKNS_5TwineES2_.exit, %_ZN4llvm5TwineC2EPKc.exit, %_ZN4llvmplERKNS_5TwineES2_.exit92, %53, %81, %21
-  %.0 = phi i32 [ 1, %21 ], [ 0, %_ZN4llvmplERKNS_5TwineES2_.exit ], [ 0, %_ZN4llvmplERKNS_5TwineES2_.exit92 ], [ %switch.select71, %81 ], [ 17, %53 ], [ 0, %_ZN4llvm5TwineC2EPKc.exit ], [ 14, %82 ], [ 13, %83 ], [ 8, %84 ], [ 3, %97 ], [ 15, %96 ], [ 16, %95 ], [ 11, %90 ], [ 5, %93 ], [ 4, %94 ], [ %switch.select109, %86 ], [ 6, %85 ], [ 7, %.thread102 ]
+  %.0 = phi i32 [ 1, %21 ], [ 0, %_ZN4llvmplERKNS_5TwineES2_.exit ], [ 0, %_ZN4llvmplERKNS_5TwineES2_.exit92 ], [ %switch.select71, %81 ], [ 17, %53 ], [ 0, %_ZN4llvm5TwineC2EPKc.exit ], [ 14, %82 ], [ 13, %83 ], [ 8, %84 ], [ 3, %97 ], [ 15, %96 ], [ 16, %95 ], [ 7, %.thread102 ], [ 5, %93 ], [ 4, %94 ], [ %switch.select109, %86 ], [ 11, %90 ], [ 6, %85 ]
   ret i32 %.0
 }
 

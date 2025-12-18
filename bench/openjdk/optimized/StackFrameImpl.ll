@@ -888,7 +888,7 @@ validateThreadFrame.exit:                         ; preds = %20, %22
   br label %69
 
 69:                                               ; preds = %.sink.split, %39, %55, %31
-  %.033 = phi i32 [ %61, %55 ], [ %41, %39 ], [ %37, %31 ], [ 0, %.sink.split ]
+  %.033 = phi i32 [ %37, %31 ], [ %41, %39 ], [ %61, %55 ], [ 0, %.sink.split ]
   %70 = call zeroext i16 @map2jdwpError(i32 noundef %.033) #3
   %71 = load ptr, ptr @gdata, align 8
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 528

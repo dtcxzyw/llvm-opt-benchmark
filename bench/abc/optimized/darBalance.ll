@@ -105,9 +105,9 @@ Vec_PtrSort.exit:                                 ; preds = %3, %.sink.split.i
   br i1 %29, label %.lr.ph.split.us, label %.critedge2, !llvm.loop !15
 
 .split.us:                                        ; preds = %.lr.ph.split.us, %.lr.ph.split, %.lr.ph.split.preheader
-  %.us-phi = phi ptr [ %.val4498, %.lr.ph.split.preheader ], [ %.val44, %.lr.ph.split ], [ %.val44.us, %.lr.ph.split.us ]
-  %.us-phi59 = phi ptr [ %13, %.lr.ph.split.preheader ], [ %46, %.lr.ph.split ], [ %17, %.lr.ph.split.us ]
-  %.us-phi60 = phi i32 [ 0, %.lr.ph.split.preheader ], [ %.2, %.lr.ph.split ], [ %.058.us, %.lr.ph.split.us ]
+  %.us-phi = phi ptr [ %.val44, %.lr.ph.split ], [ %.val4498, %.lr.ph.split.preheader ], [ %.val44.us, %.lr.ph.split.us ]
+  %.us-phi59 = phi ptr [ %46, %.lr.ph.split ], [ %13, %.lr.ph.split.preheader ], [ %17, %.lr.ph.split.us ]
+  %.us-phi60 = phi i32 [ %.2, %.lr.ph.split ], [ 0, %.lr.ph.split.preheader ], [ %.058.us, %.lr.ph.split.us ]
   %30 = add nsw i32 %.us-phi60, 1
   %31 = sext i32 %.us-phi60 to i64
   %32 = getelementptr inbounds ptr, ptr %.us-phi, i64 %31
@@ -148,7 +148,7 @@ Vec_PtrSort.exit:                                 ; preds = %3, %.sink.split.i
   br i1 %47, label %.split.us, label %.lr.ph102
 
 .critedge2:                                       ; preds = %28, %.lr.ph102, %.split.us, %Vec_PtrSort.exit
-  %.1.sink = phi i32 [ 0, %Vec_PtrSort.exit ], [ %30, %.split.us ], [ 0, %.lr.ph102 ], [ %.2.us, %28 ]
+  %.1.sink = phi i32 [ 0, %.lr.ph102 ], [ 0, %Vec_PtrSort.exit ], [ %30, %.split.us ], [ %.2.us, %28 ]
   store i32 %.1.sink, ptr %4, align 4, !tbaa !11
   ret void
 }
@@ -483,9 +483,9 @@ Vec_PtrSort.exit.i:                               ; preds = %.sink.split.i.i, %6
   br i1 %91, label %.lr.ph.split.us.i, label %Dar_BalanceUniqify.exit, !llvm.loop !15
 
 .split.us.i:                                      ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i, %.lr.ph.split.preheader.i
-  %.us-phi.i = phi ptr [ %.val44.i32, %.lr.ph.split.preheader.i ], [ %.val44.us.i, %.lr.ph.split.us.i ], [ %.val44.i, %.lr.ph.split.i ]
-  %.us-phi59.i = phi ptr [ %75, %.lr.ph.split.preheader.i ], [ %79, %.lr.ph.split.us.i ], [ %107, %.lr.ph.split.i ]
-  %.us-phi60.i = phi i32 [ 0, %.lr.ph.split.preheader.i ], [ %.058.us.i, %.lr.ph.split.us.i ], [ %.2.i, %.lr.ph.split.i ]
+  %.us-phi.i = phi ptr [ %.val44.us.i, %.lr.ph.split.us.i ], [ %.val44.i32, %.lr.ph.split.preheader.i ], [ %.val44.i, %.lr.ph.split.i ]
+  %.us-phi59.i = phi ptr [ %79, %.lr.ph.split.us.i ], [ %75, %.lr.ph.split.preheader.i ], [ %107, %.lr.ph.split.i ]
+  %.us-phi60.i = phi i32 [ %.058.us.i, %.lr.ph.split.us.i ], [ 0, %.lr.ph.split.preheader.i ], [ %.2.i, %.lr.ph.split.i ]
   %92 = add nsw i32 %.us-phi60.i, 1
   %93 = sext i32 %.us-phi60.i to i64
   %94 = getelementptr inbounds ptr, ptr %.us-phi.i, i64 %93
@@ -528,7 +528,7 @@ Vec_PtrSort.exit.i:                               ; preds = %.sink.split.i.i, %6
   br i1 %108, label %.split.us.i, label %.lr.ph
 
 Dar_BalanceUniqify.exit:                          ; preds = %.lr.ph, %90, %Vec_PtrSort.exit.i, %.split.us.i
-  %.1.sink.i = phi i32 [ 0, %Vec_PtrSort.exit.i ], [ %92, %.split.us.i ], [ %.2.us.i, %90 ], [ 0, %.lr.ph ]
+  %.1.sink.i = phi i32 [ %.2.us.i, %90 ], [ 0, %Vec_PtrSort.exit.i ], [ %92, %.split.us.i ], [ 0, %.lr.ph ]
   store i32 %.1.sink.i, ptr %64, align 4, !tbaa !11
   ret ptr %63
 }
@@ -1045,7 +1045,7 @@ Dar_BalanceFindLeft.exit:                         ; preds = %49, %._crit_edge.sp
   br i1 %66, label %.lr.ph.split, label %._crit_edge, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %Dar_BalanceFindLeft.exit, %Dar_BalanceFindLeft.exit.us, %4, %Vec_PtrSort.exit
-  %.lcssa = phi i32 [ %.pre, %Vec_PtrSort.exit ], [ %6, %4 ], [ %26, %Dar_BalanceFindLeft.exit.us ], [ %65, %Dar_BalanceFindLeft.exit ]
+  %.lcssa = phi i32 [ %.pre, %Vec_PtrSort.exit ], [ %26, %Dar_BalanceFindLeft.exit.us ], [ %6, %4 ], [ %65, %Dar_BalanceFindLeft.exit ]
   %.not = icmp eq i32 %.lcssa, 0
   br i1 %.not, label %70, label %67
 
@@ -1383,7 +1383,7 @@ define ptr @Dar_Balance_rec(ptr noundef %0, ptr noundef %1, ptr noundef captures
   br label %.loopexit
 
 .loopexit:                                        ; preds = %21, %58, %5, %62, %42, %16
-  %.034 = phi ptr [ %20, %16 ], [ %7, %5 ], [ %44, %42 ], [ %48, %62 ], [ null, %58 ], [ null, %21 ]
+  %.034 = phi ptr [ null, %58 ], [ %20, %16 ], [ %7, %5 ], [ %44, %42 ], [ %48, %62 ], [ null, %21 ]
   ret ptr %.034
 }
 

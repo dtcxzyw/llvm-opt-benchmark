@@ -204,7 +204,7 @@ skip_prefix.exit.i.i.i:                           ; preds = %50
   br i1 %.not11.i.i.i, label %.loopexit.i, label %45
 
 .loopexit.i:                                      ; preds = %77, %skip_prefix.exit.i.i.i, %skip_prefix.exit.i.i.i, %find_pack_by_name.exit.i.i.i.i, %55, %59, %.preheader.i.i.i
-  %79 = phi i1 [ true, %.preheader.i.i.i ], [ false, %59 ], [ false, %55 ], [ false, %skip_prefix.exit.i.i.i ], [ true, %77 ], [ false, %skip_prefix.exit.i.i.i ], [ false, %find_pack_by_name.exit.i.i.i.i ]
+  %79 = phi i1 [ false, %59 ], [ true, %.preheader.i.i.i ], [ false, %skip_prefix.exit.i.i.i ], [ true, %77 ], [ false, %skip_prefix.exit.i.i.i ], [ false, %find_pack_by_name.exit.i.i.i.i ], [ false, %55 ]
   call void @strbuf_release(ptr noundef nonnull %3) #14
   %80 = call i32 @fclose(ptr noundef nonnull %41)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

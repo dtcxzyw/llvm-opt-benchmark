@@ -1473,7 +1473,7 @@ define internal range(i32 -1, 1) i32 @H5O__link_debug(ptr readnone captures(none
   br label %17
 
 17:                                               ; preds = %12, %.fold.split51, %.fold.split, %14
-  %18 = phi ptr [ @.str.29, %12 ], [ %16, %14 ], [ @.str.30, %.fold.split ], [ @.str.31, %.fold.split51 ]
+  %18 = phi ptr [ @.str.29, %12 ], [ @.str.30, %.fold.split ], [ %16, %14 ], [ @.str.31, %.fold.split51 ]
   %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.26, i32 noundef %3, ptr noundef nonnull @.str.27, i32 noundef %4, ptr noundef nonnull @.str.28, ptr noundef nonnull %18) #8
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %21 = load i8, ptr %20, align 4, !tbaa !22, !range !7, !noundef !8

@@ -3632,7 +3632,7 @@ bsearch.exit141:                                  ; preds = %134, %166
   unreachable
 
 ._crit_edge:                                      ; preds = %174, %list_length.exit130, %.preheader
-  %.099.lcssa189 = phi ptr [ %.1100, %.preheader ], [ null, %list_length.exit130 ], [ %.1100, %174 ]
+  %.099.lcssa189 = phi ptr [ null, %list_length.exit130 ], [ %.1100, %.preheader ], [ %.1100, %174 ]
   store ptr %35, ptr @PG_exception_stack, align 8
   store ptr %36, ptr @error_context_stack, align 8
   %179 = load ptr, ptr @WalReceiverFunctions, align 8

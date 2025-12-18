@@ -2510,7 +2510,7 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$18trim_start_mat
   br i1 %70, label %"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17h15d7f13a81aea891E.llvm.687266931824691263.exit", label %.lr.ph.i
 
 "_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17h15d7f13a81aea891E.llvm.687266931824691263.exit": ; preds = %33, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17he91062b00b43ecabE.llvm.687266931824691263.exit.i", %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h4f4cea2782716ef1E.llvm.687266931824691263.exit.i.i", %50, %48, %2
-  %71 = phi i64 [ 0, %2 ], [ %1, %33 ], [ %1, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17he91062b00b43ecabE.llvm.687266931824691263.exit.i" ], [ %5, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h4f4cea2782716ef1E.llvm.687266931824691263.exit.i.i" ], [ %5, %48 ], [ %5, %50 ]
+  %71 = phi i64 [ 0, %2 ], [ %1, %33 ], [ %1, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17he91062b00b43ecabE.llvm.687266931824691263.exit.i" ], [ %5, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h4f4cea2782716ef1E.llvm.687266931824691263.exit.i.i" ], [ %5, %50 ], [ %5, %48 ]
   %72 = getelementptr inbounds i8, ptr %0, i64 %71
   %73 = sub i64 %1, %71
   %74 = insertvalue { ptr, i64 } poison, ptr %72, 0
@@ -4256,8 +4256,8 @@ define hidden void @_ZN5rayon5slice9quicksort7recurse17h36db2f346758be6fE(ptr no
   br i1 %20, label %40, label %41
 
 .outer._crit_edge:                                ; preds = %.outer, %305, %5
-  %.sroa.16.0.lcssa = phi i64 [ %1, %5 ], [ %306, %305 ], [ %.sroa.16.1, %.outer ]
-  %.sroa.0.0.lcssa = phi ptr [ %0, %5 ], [ %307, %305 ], [ %.sroa.0.1, %.outer ]
+  %.sroa.16.0.lcssa = phi i64 [ %306, %305 ], [ %1, %5 ], [ %.sroa.16.1, %.outer ]
+  %.sroa.0.0.lcssa = phi ptr [ %307, %305 ], [ %0, %5 ], [ %.sroa.0.1, %.outer ]
   %.val71 = load ptr, ptr %2, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !855)
   %21 = icmp samesign ugt i64 %.sroa.16.0.lcssa, 1
@@ -4855,7 +4855,7 @@ _ZN5rayon5slice9quicksort12choose_pivot17hb465886067f243f2E.exit: ; preds = %"_Z
   br i1 %260, label %.preheader.i.i, label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.preheader10.i.i, %.preheader.i.i, %246
-  %spec.select.lcssa.sink.i.i = phi ptr [ %spec.select.i.i, %246 ], [ %259, %.preheader.i.i ], [ %253, %.preheader10.i.i ]
+  %spec.select.lcssa.sink.i.i = phi ptr [ %259, %.preheader.i.i ], [ %spec.select.i.i, %246 ], [ %253, %.preheader10.i.i ]
   %261 = ptrtoint ptr %spec.select.lcssa.sink.i.i to i64
   %262 = ptrtoint ptr %179 to i64
   %263 = sub i64 %261, %262

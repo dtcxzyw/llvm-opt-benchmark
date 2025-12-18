@@ -607,7 +607,7 @@ _ZNK4absl12lts_202407226Status4codeEv.exit:       ; preds = %14, %17
   br label %24
 
 24:                                               ; preds = %.sink.split, %9, %_ZNK4absl12lts_202407226Status4codeEv.exit
-  %.0 = phi i1 [ false, %_ZNK4absl12lts_202407226Status4codeEv.exit ], [ false, %9 ], [ true, %.sink.split ]
+  %.0 = phi i1 [ false, %9 ], [ false, %_ZNK4absl12lts_202407226Status4codeEv.exit ], [ true, %.sink.split ]
   ret i1 %.0
 }
 

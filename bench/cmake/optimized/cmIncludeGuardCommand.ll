@@ -194,7 +194,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit70: ; preds = %58,
   br label %205
 
 .noexc.i72:                                       ; preds = %48, %45, %43
-  %.043 = phi i32 [ 0, %43 ], [ 1, %45 ], [ 2, %48 ]
+  %.043 = phi i32 [ 0, %43 ], [ 2, %48 ], [ 1, %45 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %65 = load ptr, ptr %1, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %15)

@@ -1314,7 +1314,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %139
   br label %191
 
 .loopexit:                                        ; preds = %106, %91, %59, %31, %147, %121
-  %172 = phi i64 [ %122, %147 ], [ %122, %121 ], [ %107, %106 ], [ %92, %91 ], [ %50, %59 ], [ %32, %31 ]
+  %172 = phi i64 [ %122, %147 ], [ %122, %121 ], [ %50, %59 ], [ %32, %31 ], [ %92, %91 ], [ %107, %106 ]
   store i32 %5, ptr %4, align 8, !tbaa !25
   %173 = sext i8 %.1128 to i64
   %174 = sub i64 %172, %173
@@ -6841,7 +6841,7 @@ lxb_encoding_encode_shift_jis_index.exit.thread.sink.split: ; preds = %14, %6, %
   br label %lxb_encoding_encode_shift_jis_index.exit.thread
 
 lxb_encoding_encode_shift_jis_index.exit.thread:  ; preds = %30, %lxb_encoding_encode_shift_jis_index.exit.thread.sink.split, %lxb_encoding_encode_shift_jis_index.exit
-  %.0 = phi i8 [ -2, %lxb_encoding_encode_shift_jis_index.exit ], [ %.0.ph, %lxb_encoding_encode_shift_jis_index.exit.thread.sink.split ], [ -1, %30 ]
+  %.0 = phi i8 [ %.0.ph, %lxb_encoding_encode_shift_jis_index.exit.thread.sink.split ], [ -2, %lxb_encoding_encode_shift_jis_index.exit ], [ -1, %30 ]
   ret i8 %.0
 }
 

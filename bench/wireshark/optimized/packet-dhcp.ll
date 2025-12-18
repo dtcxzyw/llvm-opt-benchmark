@@ -3764,7 +3764,7 @@ define internal i32 @dissect_dhcp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %.loopexit285
 
 .loopexit285:                                     ; preds = %.lr.ph297, %154, %156
-  %.0245 = phi ptr [ %155, %154 ], [ %157, %156 ], [ %145, %.lr.ph297 ]
+  %.0245 = phi ptr [ %157, %156 ], [ %155, %154 ], [ %145, %.lr.ph297 ]
   %158 = load i8, ptr %8, align 1
   %159 = and i8 %158, 2
   %.not272 = icmp eq i8 %159, 0
@@ -3800,7 +3800,7 @@ define internal i32 @dissect_dhcp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph300, %169, %171
-  %.0246 = phi ptr [ %170, %169 ], [ %172, %171 ], [ %160, %.lr.ph300 ]
+  %.0246 = phi ptr [ %172, %171 ], [ %170, %169 ], [ %160, %.lr.ph300 ]
   call void @proto_tree_move_item(ptr noundef %63, ptr noundef %.0246, ptr noundef %.0245)
   %173 = load ptr, ptr %6, align 8
   %174 = icmp eq ptr %173, null
@@ -7857,7 +7857,7 @@ define internal noundef zeroext i1 @dissect_packetcable_mta_vendor_id_heur(ptr n
   br label %.loopexit180.i
 
 .loopexit180.i:                                   ; preds = %89, %122, %115, %108, %86, %79, %75, %68
-  %.1.i = phi i16 [ %42, %122 ], [ %70, %68 ], [ %42, %75 ], [ %81, %79 ], [ %117, %115 ], [ %110, %108 ], [ %42, %86 ], [ %92, %89 ]
+  %.1.i = phi i16 [ %42, %122 ], [ %70, %68 ], [ %42, %75 ], [ %81, %79 ], [ %110, %108 ], [ %117, %115 ], [ %42, %86 ], [ %92, %89 ]
   %128 = load i32, ptr @ett_dhcp_option, align 4
   %129 = call ptr @proto_item_add_subtree(ptr noundef %62, i32 noundef %128)
   switch i16 %.1.i, label %.loopexit180..loopexit_crit_edge.i [
@@ -8232,7 +8232,7 @@ dissect_vendor_alcatel_suboption.exit:            ; preds = %37, %40, %44, %60, 
   br i1 %77, label %.lr.ph, label %test_encapsulated_vendor_options.exit, !llvm.loop !54
 
 test_encapsulated_vendor_options.exit:            ; preds = %.critedge.i, %switch.lookup, %18, %dissect_vendor_alcatel_suboption.exit, %.loopexit, %7, %4
-  %.0 = phi i1 [ false, %4 ], [ false, %7 ], [ true, %.loopexit ], [ true, %dissect_vendor_alcatel_suboption.exit ], [ false, %18 ], [ false, %switch.lookup ], [ false, %.critedge.i ]
+  %.0 = phi i1 [ true, %.loopexit ], [ false, %4 ], [ false, %7 ], [ true, %dissect_vendor_alcatel_suboption.exit ], [ false, %18 ], [ false, %switch.lookup ], [ false, %.critedge.i ]
   ret i1 %.0
 }
 
@@ -8751,7 +8751,7 @@ dissect_vendor_cablelabs_suboption.exit:          ; preds = %58, %61, %65, %81, 
   br i1 %139, label %.lr.ph, label %.loopexit, !llvm.loop !59
 
 .loopexit:                                        ; preds = %dissect_vendor_cablelabs_suboption.exit, %49, %4, %.tail40.thread
-  %.0 = phi i1 [ false, %.tail40.thread ], [ false, %4 ], [ true, %49 ], [ true, %dissect_vendor_cablelabs_suboption.exit ]
+  %.0 = phi i1 [ false, %4 ], [ false, %.tail40.thread ], [ true, %49 ], [ true, %dissect_vendor_cablelabs_suboption.exit ]
   ret i1 %.0
 }
 
@@ -10250,7 +10250,7 @@ define internal fastcc i32 @dhcp_handle_basic_types(ptr noundef %0, ptr noundef 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %129, %18, %59, %31, %.preheader223, %.preheader, %166, %172, %169, %153, %159, %156, %140, %146, %143, %118, %124, %121, %105, %111, %108, %92, %98, %95, %79, %85, %82, %66, %72, %69, %36, %41, %39, %9, %.split.us, %.split237.us, %163, %150, %137, %115, %102, %89, %76, %53, %45
-  %.0 = phi i32 [ 0, %9 ], [ 4, %153 ], [ 0, %45 ], [ 4, %53 ], [ %.us-phi238, %.split237.us ], [ %6, %36 ], [ 0, %76 ], [ %6, %66 ], [ 0, %89 ], [ 1, %79 ], [ 0, %102 ], [ 1, %92 ], [ 0, %115 ], [ 2, %105 ], [ %.us-phi, %.split.us ], [ 0, %137 ], [ 2, %118 ], [ 0, %150 ], [ 4, %140 ], [ 0, %163 ], [ %6, %39 ], [ %6, %41 ], [ %6, %69 ], [ %6, %72 ], [ 1, %82 ], [ 1, %85 ], [ 1, %95 ], [ 1, %98 ], [ 2, %108 ], [ 2, %111 ], [ 2, %121 ], [ 2, %124 ], [ 4, %143 ], [ 4, %146 ], [ 4, %156 ], [ 4, %159 ], [ 4, %169 ], [ 4, %172 ], [ 4, %166 ], [ 0, %.preheader ], [ 0, %.preheader223 ], [ %19, %18 ], [ %32, %31 ], [ %62, %59 ], [ %132, %129 ]
+  %.0 = phi i32 [ 0, %9 ], [ 4, %153 ], [ 0, %45 ], [ 4, %53 ], [ %.us-phi238, %.split237.us ], [ 4, %166 ], [ %6, %36 ], [ 0, %76 ], [ %6, %66 ], [ 0, %89 ], [ 1, %79 ], [ 0, %102 ], [ 1, %92 ], [ 0, %115 ], [ 2, %105 ], [ %.us-phi, %.split.us ], [ %19, %18 ], [ 0, %137 ], [ 2, %118 ], [ 0, %150 ], [ 4, %140 ], [ 0, %163 ], [ %6, %39 ], [ %6, %41 ], [ %6, %69 ], [ %6, %72 ], [ 1, %82 ], [ 1, %85 ], [ 1, %95 ], [ 1, %98 ], [ 2, %108 ], [ 2, %111 ], [ 2, %121 ], [ 2, %124 ], [ 4, %143 ], [ 4, %146 ], [ 4, %156 ], [ 4, %159 ], [ 4, %169 ], [ 4, %172 ], [ 0, %.preheader ], [ %62, %59 ], [ 0, %.preheader223 ], [ %32, %31 ], [ %132, %129 ]
   ret i32 %.0
 }
 

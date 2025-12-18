@@ -1356,8 +1356,8 @@ _ZNSolsEPFRSoS_E.exit90:                          ; preds = %.noexc105
   %213 = load ptr, ptr %0, align 8, !tbaa !22
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit.thread.sink.split
 
-_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit.thread117: ; preds = %75, %100, %93, %58, %.thread110, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i, %185
-  %.457121 = phi i64 [ %.053176, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i ], [ %.053176, %185 ], [ %spec.select130, %.thread110 ], [ %.053176, %58 ], [ %.053176, %93 ], [ %.053176, %100 ], [ %71, %75 ]
+_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit.thread117: ; preds = %75, %100, %93, %58, %.thread110, %185, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i
+  %.457121 = phi i64 [ %.053176, %185 ], [ %.053176, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i ], [ %spec.select130, %.thread110 ], [ %.053176, %58 ], [ %.053176, %93 ], [ %.053176, %100 ], [ %71, %75 ]
   %214 = add i64 %.457121, 1
   %215 = load ptr, ptr %0, align 8, !tbaa !22
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 8
@@ -1385,7 +1385,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit.thread
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit.thread: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit.thread117, %100, %58, %75, %93, %119, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit.thread.sink.split, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit, %156
-  %.8 = phi i32 [ 1, %156 ], [ 1, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit ], [ 0, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit.thread.sink.split ], [ 0, %119 ], [ 1, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit.thread117 ], [ 0, %100 ], [ 0, %58 ], [ 0, %75 ], [ 0, %93 ]
+  %.8 = phi i32 [ 1, %156 ], [ 1, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit ], [ 0, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit.thread.sink.split ], [ 0, %119 ], [ 0, %75 ], [ 0, %58 ], [ 0, %100 ], [ 1, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit.thread117 ], [ 0, %93 ]
   %228 = load ptr, ptr %3, align 8, !tbaa !30
   %229 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %230 = load ptr, ptr %229, align 8, !tbaa !33

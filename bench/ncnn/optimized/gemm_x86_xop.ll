@@ -1396,7 +1396,7 @@ define hidden void @_ZN4ncnn32gemm_transB_packed_tile_int8_xopERKNS_3MatES2_RS0_
   br i1 %744, label %.lr.ph1280.i, label %.preheader898.i, !llvm.loop !54
 
 ._crit_edge1297.i:                                ; preds = %._crit_edge1290.us.i, %.lr.ph1296.split.split.us.preheader.i, %.lr.ph1296.split.split.preheader.i, %.preheader898.i
-  %.14.lcssa.i = phi ptr [ %.13.lcssa.i, %.preheader898.i ], [ %scevgep1459.i, %.lr.ph1296.split.split.preheader.i ], [ %scevgep1461.i, %.lr.ph1296.split.split.us.preheader.i ], [ %682, %._crit_edge1290.us.i ]
+  %.14.lcssa.i = phi ptr [ %.13.lcssa.i, %.preheader898.i ], [ %scevgep1461.i, %.lr.ph1296.split.split.us.preheader.i ], [ %scevgep1459.i, %.lr.ph1296.split.split.preheader.i ], [ %682, %._crit_edge1290.us.i ]
   %745 = getelementptr inbounds i8, ptr %.27081306.i, i64 %299
   %746 = add nuw nsw i32 %.27141304.i, 1
   %exitcond1465.not.i = icmp eq i32 %746, %4

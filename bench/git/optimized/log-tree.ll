@@ -2634,7 +2634,7 @@ do_remerge_diff.exit.i:                           ; preds = %cleanup_additional_
   br label %164
 
 log_tree_diff.exit:                               ; preds = %164, %173, %56, %do_remerge_diff.exit.i, %156
-  %.0.i = phi i32 [ %58, %56 ], [ %158, %156 ], [ %.0.i.i, %do_remerge_diff.exit.i ], [ %170, %173 ], [ %170, %164 ]
+  %.0.i = phi i32 [ %158, %156 ], [ %.0.i.i, %do_remerge_diff.exit.i ], [ %58, %56 ], [ %170, %173 ], [ %170, %164 ]
   %.not36 = icmp eq i32 %.0.i, 0
   br i1 %.not36, label %log_tree_diff.exit.thread, label %183
 

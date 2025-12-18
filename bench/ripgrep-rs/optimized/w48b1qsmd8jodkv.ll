@@ -3765,9 +3765,9 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17he560119ec6390f46E.exit: ; pred
   br label %.thread319
 
 .thread319:                                       ; preds = %169, %170, %183, %.sink.split.i193
-  %.sroa.036.4330 = phi i64 [ 0, %183 ], [ %184, %.sink.split.i193 ], [ 0, %170 ], [ %.sroa.036.3.ph, %169 ]
-  %.sroa.6293.1328 = phi ptr [ %.sroa.6293.0.ph, %183 ], [ %186, %.sink.split.i193 ], [ %.sroa.6293.0.ph, %170 ], [ %.sroa.6293.0.ph, %169 ]
-  %.sroa.841.sroa.6.3326 = phi ptr [ %.sroa.6293.0.ph, %183 ], [ %186, %.sink.split.i193 ], [ %.sroa.6293.0.ph, %170 ], [ %.sroa.841.sroa.6.2.ph, %169 ]
+  %.sroa.036.4330 = phi i64 [ 0, %170 ], [ 0, %183 ], [ %184, %.sink.split.i193 ], [ %.sroa.036.3.ph, %169 ]
+  %.sroa.6293.1328 = phi ptr [ %.sroa.6293.0.ph, %170 ], [ %.sroa.6293.0.ph, %183 ], [ %186, %.sink.split.i193 ], [ %.sroa.6293.0.ph, %169 ]
+  %.sroa.841.sroa.6.3326 = phi ptr [ %.sroa.6293.0.ph, %170 ], [ %.sroa.6293.0.ph, %183 ], [ %186, %.sink.split.i193 ], [ %.sroa.841.sroa.6.2.ph, %169 ]
   %188 = load ptr, ptr %112, align 8, !nonnull !7, !noundef !7
   %189 = getelementptr inbounds nuw i8, ptr %188, i64 529
   %190 = load i8, ptr %189, align 1, !range !66, !noundef !7

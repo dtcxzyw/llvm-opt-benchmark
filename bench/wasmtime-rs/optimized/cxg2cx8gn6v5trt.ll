@@ -639,7 +639,7 @@ define hidden noundef align 8 dereferenceable_or_null(48) ptr @_ZN4core4iter6tra
   br i1 %37, label %"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h1d340cf8c92873baE.exit", label %18
 
 "_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h1d340cf8c92873baE.exit": ; preds = %4, %"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h20be6bff56034a44E.exit.i.i", %"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1bad3fbf10450cb0E.exit"
-  %.0 = phi ptr [ %5, %"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1bad3fbf10450cb0E.exit" ], [ %.0.i.i.i, %"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h20be6bff56034a44E.exit.i.i" ], [ null, %4 ]
+  %.0 = phi ptr [ %.0.i.i.i, %"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h20be6bff56034a44E.exit.i.i" ], [ %5, %"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1bad3fbf10450cb0E.exit" ], [ null, %4 ]
   ret ptr %.0
 }
 
@@ -3128,7 +3128,7 @@ define noundef align 8 dereferenceable_or_null(48) ptr @_ZN11wasi_common5sched4P
   br i1 %40, label %_ZN4core4iter6traits8iterator8Iterator6reduce17h9580562d09f55c56E.llvm.7437452962731462277.exit, label %21
 
 _ZN4core4iter6traits8iterator8Iterator6reduce17h9580562d09f55c56E.llvm.7437452962731462277.exit: ; preds = %7, %"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h20be6bff56034a44E.exit.i.i.i", %"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1bad3fbf10450cb0E.exit.i"
-  %.0.i = phi ptr [ %8, %"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1bad3fbf10450cb0E.exit.i" ], [ %.0.i.i.i.i, %"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h20be6bff56034a44E.exit.i.i.i" ], [ null, %7 ]
+  %.0.i = phi ptr [ %.0.i.i.i.i, %"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h20be6bff56034a44E.exit.i.i.i" ], [ %8, %"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1bad3fbf10450cb0E.exit.i" ], [ null, %7 ]
   ret ptr %.0.i
 }
 

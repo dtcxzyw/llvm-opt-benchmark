@@ -6691,7 +6691,7 @@ Vec_IntGrow.exit.i:                               ; preds = %90, %Vec_IntAlloc.e
   br i1 %exitcond.not.i, label %Vec_IntFill.exit, label %96, !llvm.loop !177
 
 Vec_IntFill.exit:                                 ; preds = %96, %Vec_IntAlloc.exit.thread, %Vec_IntGrow.exit.i
-  %98 = phi ptr [ %94, %Vec_IntGrow.exit.i ], [ %78, %Vec_IntAlloc.exit.thread ], [ %94, %96 ]
+  %98 = phi ptr [ %78, %Vec_IntAlloc.exit.thread ], [ %94, %Vec_IntGrow.exit.i ], [ %94, %96 ]
   store i32 %.val134, ptr %73, align 4, !tbaa !37
   tail call void @Abc_NtkFinSimulateOne(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %4, ptr noundef %7, ptr noundef nonnull %71, ptr noundef nonnull %25, i32 noundef %21, ptr noundef %5, ptr noundef nonnull %12, i32 noundef 0, i32 noundef 1)
   %99 = load ptr, ptr %98, align 8, !tbaa !36
@@ -8207,8 +8207,8 @@ Abc_NtkFinCheckTypesOk2.exit.Abc_NtkFinComputeTypes.exit_crit_edge: ; preds = %A
   br label %222
 
 Abc_NtkFinComputeTypes.exit:                      ; preds = %select.unfold.i, %63, %Abc_NtkFinCheckTypesOk2.exit.Abc_NtkFinComputeTypes.exit_crit_edge, %9, %65, %Abc_NtkIsSopLogic.exit, %Vec_IntStart.exit.i, %Abc_NtkIsMappedLogic.exit
-  %102 = phi ptr [ %6, %Abc_NtkIsMappedLogic.exit ], [ %.pre, %Abc_NtkFinCheckTypesOk2.exit.Abc_NtkFinComputeTypes.exit_crit_edge ], [ %6, %Vec_IntStart.exit.i ], [ %6, %Abc_NtkIsSopLogic.exit ], [ %6, %9 ], [ %6, %65 ], [ %6, %63 ], [ %91, %select.unfold.i ]
-  %.0136 = phi ptr [ null, %Abc_NtkIsMappedLogic.exit ], [ null, %Abc_NtkFinCheckTypesOk2.exit.Abc_NtkFinComputeTypes.exit_crit_edge ], [ %37, %Vec_IntStart.exit.i ], [ null, %Abc_NtkIsSopLogic.exit ], [ null, %9 ], [ null, %65 ], [ %37, %63 ], [ null, %select.unfold.i ]
+  %102 = phi ptr [ %6, %Abc_NtkIsMappedLogic.exit ], [ %.pre, %Abc_NtkFinCheckTypesOk2.exit.Abc_NtkFinComputeTypes.exit_crit_edge ], [ %6, %Vec_IntStart.exit.i ], [ %6, %63 ], [ %6, %Abc_NtkIsSopLogic.exit ], [ %6, %9 ], [ %6, %65 ], [ %91, %select.unfold.i ]
+  %.0136 = phi ptr [ null, %Abc_NtkIsMappedLogic.exit ], [ null, %Abc_NtkFinCheckTypesOk2.exit.Abc_NtkFinComputeTypes.exit_crit_edge ], [ %37, %Vec_IntStart.exit.i ], [ %37, %63 ], [ null, %Abc_NtkIsSopLogic.exit ], [ null, %9 ], [ null, %65 ], [ null, %select.unfold.i ]
   %103 = getelementptr i8, ptr %0, i64 32
   %.val75 = load ptr, ptr %103, align 8, !tbaa !24
   %104 = getelementptr i8, ptr %.val75, i64 4
@@ -8336,8 +8336,8 @@ Vec_IntFree.exit:                                 ; preds = %146, %149
   br i1 %exitcond163.not, label %.critedge2, label %.critedge, !llvm.loop !193
 
 .critedge2:                                       ; preds = %.critedge, %Vec_WecStart.exit, %.critedge.preheader
-  %.val78191 = phi i32 [ %.val78.pre, %.critedge.preheader ], [ 0, %Vec_WecStart.exit ], [ %.val78.pre, %.critedge ]
-  %.val84.pre190 = phi ptr [ %.val84.pre.pre, %.critedge.preheader ], [ %126, %Vec_WecStart.exit ], [ %.val84.pre.pre, %.critedge ]
+  %.val78191 = phi i32 [ 0, %Vec_WecStart.exit ], [ %.val78.pre, %.critedge.preheader ], [ %.val78.pre, %.critedge ]
+  %.val84.pre190 = phi ptr [ %126, %Vec_WecStart.exit ], [ %.val84.pre.pre, %.critedge.preheader ], [ %.val84.pre.pre, %.critedge ]
   %154 = sext i32 %.val78191 to i64
   tail call void @qsort(ptr noundef %.val84.pre190, i64 noundef %154, i64 noundef 16, ptr noundef nonnull @Vec_WecSortCompare3) #35
   %155 = icmp eq ptr %.0136, null

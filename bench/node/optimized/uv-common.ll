@@ -3234,7 +3234,7 @@ if.then7:                                         ; preds = %for.end
   br label %return
 
 return:                                           ; preds = %for.body, %for.end, %if.then7, %entry
-  %retval.0 = phi i32 [ -16, %entry ], [ 0, %if.then7 ], [ 0, %for.end ], [ -16, %for.body ]
+  %retval.0 = phi i32 [ 0, %for.end ], [ -16, %entry ], [ 0, %if.then7 ], [ -16, %for.body ]
   ret i32 %retval.0
 }
 

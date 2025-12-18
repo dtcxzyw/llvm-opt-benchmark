@@ -909,7 +909,7 @@ _ZN4llvm9DwarfFile6getDIEEPKNS_6MDNodeE.exit.sink.split: ; preds = %_ZNK4llvm12D
   br label %_ZN4llvm9DwarfFile6getDIEEPKNS_6MDNodeE.exit
 
 _ZN4llvm9DwarfFile6getDIEEPKNS_6MDNodeE.exit:     ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i.i.i, %_ZN4llvm9DwarfFile6getDIEEPKNS_6MDNodeE.exit.sink.split, %_ZNK4llvm9DwarfUnit20isShareableAcrossCUsEPKNS_6DINodeE.exit.thread, %22
-  %.0 = phi ptr [ null, %22 ], [ null, %_ZNK4llvm9DwarfUnit20isShareableAcrossCUsEPKNS_6DINodeE.exit.thread ], [ %80, %_ZN4llvm9DwarfFile6getDIEEPKNS_6MDNodeE.exit.sink.split ], [ null, %.lr.ph.i.i.i ], [ null, %.lr.ph.i.i.i.i ]
+  %.0 = phi ptr [ %80, %_ZN4llvm9DwarfFile6getDIEEPKNS_6MDNodeE.exit.sink.split ], [ null, %_ZNK4llvm9DwarfUnit20isShareableAcrossCUsEPKNS_6DINodeE.exit.thread ], [ null, %22 ], [ null, %.lr.ph.i.i.i ], [ null, %.lr.ph.i.i.i.i ]
   ret ptr %.0
 }
 
@@ -5126,7 +5126,7 @@ _ZNK4llvm24MDTupleTypedArrayWrapperINS_6DINodeEE3endEv.exit.i: ; preds = %78, %7
   br i1 %.not25.i, label %_ZN4llvm9DwarfUnit17addTemplateParamsERNS_3DIEENS_24MDTupleTypedArrayWrapperINS_6DINodeEEE.exit, label %.lr.ph.i
 
 _ZN4llvm9DwarfUnit17addTemplateParamsERNS_3DIEENS_24MDTupleTypedArrayWrapperINS_6DINodeEEE.exit: ; preds = %90, %52, %_ZNK4llvm15DICompositeType16getDiscriminatorEv.exit, %_ZNK4llvm24MDTupleTypedArrayWrapperINS_6DINodeEE3endEv.exit.i, %_ZNK4llvm15DICompositeType17getTemplateParamsEv.exit, %54
-  %.0383 = phi ptr [ null, %54 ], [ null, %_ZNK4llvm15DICompositeType17getTemplateParamsEv.exit ], [ null, %_ZNK4llvm24MDTupleTypedArrayWrapperINS_6DINodeEE3endEv.exit.i ], [ null, %_ZNK4llvm15DICompositeType16getDiscriminatorEv.exit ], [ %51, %52 ], [ null, %90 ]
+  %.0383 = phi ptr [ %51, %52 ], [ null, %54 ], [ null, %_ZNK4llvm15DICompositeType17getTemplateParamsEv.exit ], [ null, %_ZNK4llvm24MDTupleTypedArrayWrapperINS_6DINodeEE3endEv.exit.i ], [ null, %_ZNK4llvm15DICompositeType16getDiscriminatorEv.exit ], [ null, %90 ]
   %92 = load i64, ptr %13, align 8
   %93 = and i64 %92, 2
   %.not.i.i.i.i204 = icmp eq i64 %93, 0

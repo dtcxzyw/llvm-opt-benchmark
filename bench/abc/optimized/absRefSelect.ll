@@ -757,8 +757,8 @@ Rnm_ObjIsJust.exit.thread141:                     ; preds = %.lr.ph152, %Rnm_Obj
   br label %.critedge6
 
 .critedge6:                                       ; preds = %146, %.critedge6.sink.split, %Gia_ObjIsRo.exit.thread
-  %.pre.i132183 = phi ptr [ %98, %Gia_ObjIsRo.exit.thread ], [ %.pre.i132183.ph, %.critedge6.sink.split ], [ %98, %146 ]
-  %.pre.i122179 = phi ptr [ %99, %Gia_ObjIsRo.exit.thread ], [ %.pre.i132181.sink, %.critedge6.sink.split ], [ %99, %146 ]
+  %.pre.i132183 = phi ptr [ %.pre.i132183.ph, %.critedge6.sink.split ], [ %98, %Gia_ObjIsRo.exit.thread ], [ %98, %146 ]
+  %.pre.i122179 = phi ptr [ %.pre.i132181.sink, %.critedge6.sink.split ], [ %99, %Gia_ObjIsRo.exit.thread ], [ %99, %146 ]
   %indvars.iv.next169 = add nuw nsw i64 %indvars.iv168, 1
   %.val93 = load i32, ptr %6, align 4, !tbaa !15
   %184 = sext i32 %.val93 to i64

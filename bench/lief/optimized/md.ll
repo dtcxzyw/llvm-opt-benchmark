@@ -994,7 +994,7 @@ define hidden i32 @mbedtls_md_file(ptr noundef %0, ptr noundef readonly captures
   br label %.loopexit
 
 .loopexit:                                        ; preds = %15, %17, %19, %12, %10
-  %.010 = phi i32 [ %11, %10 ], [ %13, %12 ], [ %20, %19 ], [ -20992, %17 ], [ %16, %15 ]
+  %.010 = phi i32 [ %11, %10 ], [ %13, %12 ], [ -20992, %17 ], [ %20, %19 ], [ %16, %15 ]
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %5, i64 noundef 1024) #14
   %21 = call i32 @fclose(ptr noundef nonnull %8)
   call void @mbedtls_md_free(ptr noundef nonnull %4)

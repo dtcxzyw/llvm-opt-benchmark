@@ -2240,9 +2240,9 @@ _ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit.i: ; preds
           to label %.noexc80 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .invoke:                                          ; preds = %.noexc77, %336, %.noexc91, %403, %811, %774, %994
-  %247 = phi i64 [ %995, %994 ], [ %.sroa.01.044.i, %.noexc91 ], [ %812, %811 ], [ %404, %403 ], [ %775, %774 ], [ %337, %336 ], [ %237, %.noexc77 ]
-  %248 = phi i64 [ %996, %994 ], [ %305, %.noexc91 ], [ %813, %811 ], [ %405, %403 ], [ %776, %774 ], [ %338, %336 ], [ %238, %.noexc77 ]
-  %249 = phi ptr [ @anon.5e57fe82ff1aab3e07530ed2abc6b869.102, %994 ], [ @anon.5e57fe82ff1aab3e07530ed2abc6b869.46, %.noexc91 ], [ @anon.5e57fe82ff1aab3e07530ed2abc6b869.90, %811 ], [ @anon.5e57fe82ff1aab3e07530ed2abc6b869.52, %403 ], [ @anon.5e57fe82ff1aab3e07530ed2abc6b869.81, %774 ], [ @anon.5e57fe82ff1aab3e07530ed2abc6b869.47, %336 ], [ @anon.5e57fe82ff1aab3e07530ed2abc6b869.39, %.noexc77 ]
+  %247 = phi i64 [ %.sroa.01.044.i, %.noexc91 ], [ %995, %994 ], [ %404, %403 ], [ %812, %811 ], [ %775, %774 ], [ %337, %336 ], [ %237, %.noexc77 ]
+  %248 = phi i64 [ %305, %.noexc91 ], [ %996, %994 ], [ %405, %403 ], [ %813, %811 ], [ %776, %774 ], [ %338, %336 ], [ %238, %.noexc77 ]
+  %249 = phi ptr [ @anon.5e57fe82ff1aab3e07530ed2abc6b869.46, %.noexc91 ], [ @anon.5e57fe82ff1aab3e07530ed2abc6b869.102, %994 ], [ @anon.5e57fe82ff1aab3e07530ed2abc6b869.52, %403 ], [ @anon.5e57fe82ff1aab3e07530ed2abc6b869.90, %811 ], [ @anon.5e57fe82ff1aab3e07530ed2abc6b869.81, %774 ], [ @anon.5e57fe82ff1aab3e07530ed2abc6b869.47, %336 ], [ @anon.5e57fe82ff1aab3e07530ed2abc6b869.39, %.noexc77 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %247, i64 %248, ptr nonnull align 8 %249) #15
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 

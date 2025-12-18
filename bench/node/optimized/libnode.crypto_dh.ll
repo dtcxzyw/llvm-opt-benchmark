@@ -1178,12 +1178,18 @@ if.then.i139:                                     ; preds = %if.then69
   %57 = ptrtoint ptr %56 to i64
   %add1.i411 = add i64 %57, 608
   %58 = inttoptr i64 %add1.i411 to ptr
-  br label %if.end112
+  br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit142
 
 if.end.i134:                                      ; preds = %if.then69
   %59 = load ptr, ptr %values_.i, align 8
   %add.ptr.i137 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  br label %if.end112
+  br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit142
+
+_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit142: ; preds = %if.end.i134, %if.then.i139
+  %retval.i125.sroa.0.0 = phi ptr [ %58, %if.then.i139 ], [ %add.ptr.i137, %if.end.i134 ]
+  %call83 = call noundef i32 @_ZNK2v85Int325ValueEv(ptr noundef nonnull align 1 dereferenceable(1) %retval.i125.sroa.0.0) #19
+  %call84 = call noundef zeroext i1 @_ZN4node6crypto13DiffieHellman4InitEPKcii(ptr noundef nonnull align 8 dereferenceable(48) %call1, ptr noundef %retval.0.i46, i32 noundef %conv, i32 noundef %call83)
+  br i1 %call84, label %if.end115, label %if.then113
 
 lor.lhs.false.i:                                  ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit160
   %60 = load i32, ptr %length_.i, align 8
@@ -1210,7 +1216,7 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.the
   %length_.i.i48 = getelementptr inbounds nuw i8, ptr %arg1, i64 16
   %66 = load i64, ptr %length_.i.i48, align 8
   %cmp.i49 = icmp ult i64 %66, 2147483648
-  br i1 %cmp.i49, label %if.end101, label %if.then100
+  br i1 %cmp.i49, label %if.end112, label %if.then100
 
 if.then100:                                       ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
   %isolate_.i.i50 = getelementptr inbounds nuw i8, ptr %retval.0.i.i, i64 88
@@ -1219,7 +1225,7 @@ if.then100:                                       ; preds = %_ZNK2v820FunctionCa
   %call6.i.i52 = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %67, ptr %call.i.i51) #19
   br label %if.end115
 
-if.end101:                                        ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
+if.end112:                                        ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
   %68 = load i64, ptr %length_.i.i, align 8
   %cmp.i54 = icmp eq i64 %68, 0
   %data_.i55 = getelementptr inbounds nuw i8, ptr %arg0, i64 24
@@ -1240,18 +1246,12 @@ if.end101:                                        ; preds = %_ZNK2v820FunctionCa
   %call108 = call noundef zeroext i1 @_ZN4node6crypto13DiffieHellman4InitEPKciS3_i(ptr noundef nonnull align 8 dereferenceable(48) %call1, ptr noundef %retval.0.i58, i32 noundef %conv104, ptr noundef %retval.0.i65, i32 noundef %conv107)
   br i1 %call108, label %if.end115, label %if.then113
 
-if.end112:                                        ; preds = %if.then.i139, %if.end.i134
-  %retval.i125.sroa.0.0 = phi ptr [ %58, %if.then.i139 ], [ %add.ptr.i137, %if.end.i134 ]
-  %call83 = call noundef i32 @_ZNK2v85Int325ValueEv(ptr noundef nonnull align 1 dereferenceable(1) %retval.i125.sroa.0.0) #19
-  %call84 = call noundef zeroext i1 @_ZN4node6crypto13DiffieHellman4InitEPKcii(ptr noundef nonnull align 8 dereferenceable(48) %call1, ptr noundef %retval.0.i46, i32 noundef %conv, i32 noundef %call83)
-  br i1 %call84, label %if.end115, label %if.then113
-
-if.then113:                                       ; preds = %_ZN4node6crypto13DiffieHellman13VerifyContextEv.exit.i, %_ZNSt10unique_ptrI5dh_stN4node15FunctionDeleterIS0_XadL_Z7DH_freeEEEEE5resetEPS0_.exit.i, %if.end101, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit232, %_ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit, %if.end112
+if.then113:                                       ; preds = %_ZN4node6crypto13DiffieHellman13VerifyContextEv.exit.i, %_ZNSt10unique_ptrI5dh_stN4node15FunctionDeleterIS0_XadL_Z7DH_freeEEEEE5resetEPS0_.exit.i, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit142, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit232, %_ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit, %if.end112
   %call114 = call i64 @ERR_get_error() #19
   call void @_ZN4node6crypto16ThrowCryptoErrorEPNS_11EnvironmentEmPKc(ptr noundef nonnull %retval.0.i.i, i64 noundef %call114, ptr noundef nonnull @.str.15) #19
   br label %if.end115
 
-if.end115:                                        ; preds = %_ZN4node6crypto13DiffieHellman13VerifyContextEv.exit.i.thread, %if.end101, %if.then113, %if.end112, %if.then100, %if.then60
+if.end115:                                        ; preds = %_ZN4node6crypto13DiffieHellman13VerifyContextEv.exit.i.thread, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit142, %if.then113, %if.end112, %if.then100, %if.then60
   ret void
 }
 
@@ -3849,7 +3849,7 @@ if.end18:                                         ; preds = %if.end15
   br label %return
 
 return:                                           ; preds = %while.body.i, %while.body.i22, %while.body.i41, %while.body.i60, %while.body.i79, %while.body.i98, %if.end18, %if.end15
-  %retval.0 = phi ptr [ @_ZN4node6crypto28InstantiateStandardizedGroupIXadL_Z25BN_get_rfc3526_prime_6144EEEESt10unique_ptrI9bignum_stNS_15FunctionDeleterIS3_XadL_Z7BN_freeEEEEEv, %if.end15 ], [ %_ZN4node6crypto28InstantiateStandardizedGroupIXadL_Z25BN_get_rfc3526_prime_8192EEEESt10unique_ptrI9bignum_stNS_15FunctionDeleterIS3_XadL_Z7BN_freeEEEEEv., %if.end18 ], [ @_ZN4node6crypto28InstantiateStandardizedGroupIXadL_Z25BN_get_rfc2409_prime_1024EEEESt10unique_ptrI9bignum_stNS_15FunctionDeleterIS3_XadL_Z7BN_freeEEEEEv, %while.body.i22 ], [ @_ZN4node6crypto28InstantiateStandardizedGroupIXadL_Z25BN_get_rfc3526_prime_4096EEEESt10unique_ptrI9bignum_stNS_15FunctionDeleterIS3_XadL_Z7BN_freeEEEEEv, %while.body.i98 ], [ @_ZN4node6crypto28InstantiateStandardizedGroupIXadL_Z25BN_get_rfc3526_prime_3072EEEESt10unique_ptrI9bignum_stNS_15FunctionDeleterIS3_XadL_Z7BN_freeEEEEEv, %while.body.i79 ], [ @_ZN4node6crypto28InstantiateStandardizedGroupIXadL_Z25BN_get_rfc3526_prime_2048EEEESt10unique_ptrI9bignum_stNS_15FunctionDeleterIS3_XadL_Z7BN_freeEEEEEv, %while.body.i60 ], [ @_ZN4node6crypto28InstantiateStandardizedGroupIXadL_Z25BN_get_rfc3526_prime_1536EEEESt10unique_ptrI9bignum_stNS_15FunctionDeleterIS3_XadL_Z7BN_freeEEEEEv, %while.body.i41 ], [ @_ZN4node6crypto28InstantiateStandardizedGroupIXadL_Z24BN_get_rfc2409_prime_768EEEESt10unique_ptrI9bignum_stNS_15FunctionDeleterIS3_XadL_Z7BN_freeEEEEEv, %while.body.i ]
+  %retval.0 = phi ptr [ @_ZN4node6crypto28InstantiateStandardizedGroupIXadL_Z25BN_get_rfc3526_prime_6144EEEESt10unique_ptrI9bignum_stNS_15FunctionDeleterIS3_XadL_Z7BN_freeEEEEEv, %if.end15 ], [ %_ZN4node6crypto28InstantiateStandardizedGroupIXadL_Z25BN_get_rfc3526_prime_8192EEEESt10unique_ptrI9bignum_stNS_15FunctionDeleterIS3_XadL_Z7BN_freeEEEEEv., %if.end18 ], [ @_ZN4node6crypto28InstantiateStandardizedGroupIXadL_Z25BN_get_rfc3526_prime_4096EEEESt10unique_ptrI9bignum_stNS_15FunctionDeleterIS3_XadL_Z7BN_freeEEEEEv, %while.body.i98 ], [ @_ZN4node6crypto28InstantiateStandardizedGroupIXadL_Z25BN_get_rfc2409_prime_1024EEEESt10unique_ptrI9bignum_stNS_15FunctionDeleterIS3_XadL_Z7BN_freeEEEEEv, %while.body.i22 ], [ @_ZN4node6crypto28InstantiateStandardizedGroupIXadL_Z25BN_get_rfc3526_prime_1536EEEESt10unique_ptrI9bignum_stNS_15FunctionDeleterIS3_XadL_Z7BN_freeEEEEEv, %while.body.i41 ], [ @_ZN4node6crypto28InstantiateStandardizedGroupIXadL_Z25BN_get_rfc3526_prime_2048EEEESt10unique_ptrI9bignum_stNS_15FunctionDeleterIS3_XadL_Z7BN_freeEEEEEv, %while.body.i60 ], [ @_ZN4node6crypto28InstantiateStandardizedGroupIXadL_Z25BN_get_rfc3526_prime_3072EEEESt10unique_ptrI9bignum_stNS_15FunctionDeleterIS3_XadL_Z7BN_freeEEEEEv, %while.body.i79 ], [ @_ZN4node6crypto28InstantiateStandardizedGroupIXadL_Z24BN_get_rfc2409_prime_768EEEESt10unique_ptrI9bignum_stNS_15FunctionDeleterIS3_XadL_Z7BN_freeEEEEEv, %while.body.i ]
   ret ptr %retval.0
 }
 
@@ -7722,7 +7722,7 @@ lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i.i: ; preds = %lor.lhs.false.i.
   br label %if.else.i.i, !llvm.loop !20
 
 if.then8.i.i:                                     ; preds = %for.cond.i.i.i.i.i.i, %for.body.i.i.i.i, %if.end.i.i.i.i.i.i
-  %retval.sroa.0.1.i.i.i.i = phi ptr [ %6, %if.end.i.i.i.i.i.i ], [ %retval.sroa.0.0.i.i.i.i, %for.body.i.i.i.i ], [ %8, %for.cond.i.i.i.i.i.i ]
+  %retval.sroa.0.1.i.i.i.i = phi ptr [ %retval.sroa.0.0.i.i.i.i, %for.body.i.i.i.i ], [ %6, %if.end.i.i.i.i.i.i ], [ %8, %for.cond.i.i.i.i.i.i ]
   %graph_.i.i = getelementptr inbounds nuw i8, ptr %tracker, i64 8
   %11 = load ptr, ptr %graph_.i.i, align 8
   %_M_finish.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %tracker, i64 64
@@ -7917,7 +7917,7 @@ lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i.i35: ; preds = %lor.lhs.false.
   br label %if.else.i.i36, !llvm.loop !20
 
 if.then8.i.i39:                                   ; preds = %for.cond.i.i.i.i.i.i37, %for.body.i.i.i.i65, %if.end.i.i.i.i.i.i25
-  %retval.sroa.0.1.i.i.i.i40 = phi ptr [ %43, %if.end.i.i.i.i.i.i25 ], [ %retval.sroa.0.0.i.i.i.i63, %for.body.i.i.i.i65 ], [ %45, %for.cond.i.i.i.i.i.i37 ]
+  %retval.sroa.0.1.i.i.i.i40 = phi ptr [ %retval.sroa.0.0.i.i.i.i63, %for.body.i.i.i.i65 ], [ %43, %if.end.i.i.i.i.i.i25 ], [ %45, %for.cond.i.i.i.i.i.i37 ]
   %graph_.i.i41 = getelementptr inbounds nuw i8, ptr %tracker, i64 8
   %48 = load ptr, ptr %graph_.i.i41, align 8
   %_M_finish.i.i.i.i.i42 = getelementptr inbounds nuw i8, ptr %tracker, i64 64
@@ -8184,7 +8184,7 @@ lor.lhs.false.return.loopexit_crit_edge.i.i.i.i:  ; preds = %lor.lhs.false.i.i.i
   br label %if.end12, !llvm.loop !20
 
 if.then:                                          ; preds = %for.cond.i.i.i.i, %for.body.i.i, %if.end.i.i.i.i
-  %retval.sroa.0.1.i.i = phi ptr [ %7, %if.end.i.i.i.i ], [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ %9, %for.cond.i.i.i.i ]
+  %retval.sroa.0.1.i.i = phi ptr [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ %7, %if.end.i.i.i.i ], [ %9, %for.cond.i.i.i.i ]
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %_M_start.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %12 = load ptr, ptr %_M_finish.i.i.i, align 8
@@ -8416,7 +8416,7 @@ lor.lhs.false.return.loopexit_crit_edge.i.i.i.i:  ; preds = %lor.lhs.false.i.i.i
   br label %if.end, !llvm.loop !20
 
 if.then:                                          ; preds = %for.cond.i.i.i.i, %for.body.i.i, %if.end.i.i.i.i
-  %retval.sroa.0.1.i.i = phi ptr [ %6, %if.end.i.i.i.i ], [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ %8, %for.cond.i.i.i.i ]
+  %retval.sroa.0.1.i.i = phi ptr [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ %6, %if.end.i.i.i.i ], [ %8, %for.cond.i.i.i.i ]
   %second = getelementptr inbounds nuw i8, ptr %retval.sroa.0.1.i.i, i64 16
   %11 = load ptr, ptr %second, align 8
   br label %return
@@ -9236,7 +9236,7 @@ lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i.i: ; preds = %lor.lhs.false.i.
   br label %if.else.i.i, !llvm.loop !20
 
 if.then8.i.i:                                     ; preds = %for.cond.i.i.i.i.i.i, %for.body.i.i.i.i, %if.end.i.i.i.i.i.i
-  %retval.sroa.0.1.i.i.i.i = phi ptr [ %6, %if.end.i.i.i.i.i.i ], [ %retval.sroa.0.0.i.i.i.i, %for.body.i.i.i.i ], [ %8, %for.cond.i.i.i.i.i.i ]
+  %retval.sroa.0.1.i.i.i.i = phi ptr [ %retval.sroa.0.0.i.i.i.i, %for.body.i.i.i.i ], [ %6, %if.end.i.i.i.i.i.i ], [ %8, %for.cond.i.i.i.i.i.i ]
   %graph_.i.i = getelementptr inbounds nuw i8, ptr %tracker, i64 8
   %11 = load ptr, ptr %graph_.i.i, align 8
   %_M_finish.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %tracker, i64 64
@@ -9343,7 +9343,7 @@ lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i.i20: ; preds = %lor.lhs.false.
   br label %if.else.i.i21, !llvm.loop !20
 
 if.then8.i.i24:                                   ; preds = %for.cond.i.i.i.i.i.i22, %for.body.i.i.i.i50, %if.end.i.i.i.i.i.i10
-  %retval.sroa.0.1.i.i.i.i25 = phi ptr [ %27, %if.end.i.i.i.i.i.i10 ], [ %retval.sroa.0.0.i.i.i.i48, %for.body.i.i.i.i50 ], [ %29, %for.cond.i.i.i.i.i.i22 ]
+  %retval.sroa.0.1.i.i.i.i25 = phi ptr [ %retval.sroa.0.0.i.i.i.i48, %for.body.i.i.i.i50 ], [ %27, %if.end.i.i.i.i.i.i10 ], [ %29, %for.cond.i.i.i.i.i.i22 ]
   %graph_.i.i26 = getelementptr inbounds nuw i8, ptr %tracker, i64 8
   %32 = load ptr, ptr %graph_.i.i26, align 8
   %_M_finish.i.i.i.i.i27 = getelementptr inbounds nuw i8, ptr %tracker, i64 64
@@ -11703,7 +11703,7 @@ lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i.i: ; preds = %lor.lhs.false.i.
   br label %if.else.i.i, !llvm.loop !20
 
 if.then8.i.i:                                     ; preds = %for.cond.i.i.i.i.i.i, %for.body.i.i.i.i, %if.end.i.i.i.i.i.i
-  %retval.sroa.0.1.i.i.i.i = phi ptr [ %6, %if.end.i.i.i.i.i.i ], [ %retval.sroa.0.0.i.i.i.i, %for.body.i.i.i.i ], [ %8, %for.cond.i.i.i.i.i.i ]
+  %retval.sroa.0.1.i.i.i.i = phi ptr [ %retval.sroa.0.0.i.i.i.i, %for.body.i.i.i.i ], [ %6, %if.end.i.i.i.i.i.i ], [ %8, %for.cond.i.i.i.i.i.i ]
   %graph_.i.i = getelementptr inbounds nuw i8, ptr %tracker, i64 8
   %11 = load ptr, ptr %graph_.i.i, align 8
   %_M_finish.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %tracker, i64 64
@@ -11810,7 +11810,7 @@ lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i.i20: ; preds = %lor.lhs.false.
   br label %if.else.i.i21, !llvm.loop !20
 
 if.then8.i.i24:                                   ; preds = %for.cond.i.i.i.i.i.i22, %for.body.i.i.i.i50, %if.end.i.i.i.i.i.i10
-  %retval.sroa.0.1.i.i.i.i25 = phi ptr [ %27, %if.end.i.i.i.i.i.i10 ], [ %retval.sroa.0.0.i.i.i.i48, %for.body.i.i.i.i50 ], [ %29, %for.cond.i.i.i.i.i.i22 ]
+  %retval.sroa.0.1.i.i.i.i25 = phi ptr [ %retval.sroa.0.0.i.i.i.i48, %for.body.i.i.i.i50 ], [ %27, %if.end.i.i.i.i.i.i10 ], [ %29, %for.cond.i.i.i.i.i.i22 ]
   %graph_.i.i26 = getelementptr inbounds nuw i8, ptr %tracker, i64 8
   %32 = load ptr, ptr %graph_.i.i26, align 8
   %_M_finish.i.i.i.i.i27 = getelementptr inbounds nuw i8, ptr %tracker, i64 64
@@ -13054,7 +13054,7 @@ lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i.i: ; preds = %lor.lhs.false.i.
   br label %if.else.i.i, !llvm.loop !20
 
 if.then8.i.i:                                     ; preds = %for.cond.i.i.i.i.i.i, %for.body.i.i.i.i, %if.end.i.i.i.i.i.i
-  %retval.sroa.0.1.i.i.i.i = phi ptr [ %6, %if.end.i.i.i.i.i.i ], [ %retval.sroa.0.0.i.i.i.i, %for.body.i.i.i.i ], [ %8, %for.cond.i.i.i.i.i.i ]
+  %retval.sroa.0.1.i.i.i.i = phi ptr [ %retval.sroa.0.0.i.i.i.i, %for.body.i.i.i.i ], [ %6, %if.end.i.i.i.i.i.i ], [ %8, %for.cond.i.i.i.i.i.i ]
   %graph_.i.i = getelementptr inbounds nuw i8, ptr %tracker, i64 8
   %11 = load ptr, ptr %graph_.i.i, align 8
   %_M_finish.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %tracker, i64 64
@@ -13161,7 +13161,7 @@ lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i.i20: ; preds = %lor.lhs.false.
   br label %if.else.i.i21, !llvm.loop !20
 
 if.then8.i.i24:                                   ; preds = %for.cond.i.i.i.i.i.i22, %for.body.i.i.i.i50, %if.end.i.i.i.i.i.i10
-  %retval.sroa.0.1.i.i.i.i25 = phi ptr [ %27, %if.end.i.i.i.i.i.i10 ], [ %retval.sroa.0.0.i.i.i.i48, %for.body.i.i.i.i50 ], [ %29, %for.cond.i.i.i.i.i.i22 ]
+  %retval.sroa.0.1.i.i.i.i25 = phi ptr [ %retval.sroa.0.0.i.i.i.i48, %for.body.i.i.i.i50 ], [ %27, %if.end.i.i.i.i.i.i10 ], [ %29, %for.cond.i.i.i.i.i.i22 ]
   %graph_.i.i26 = getelementptr inbounds nuw i8, ptr %tracker, i64 8
   %32 = load ptr, ptr %graph_.i.i26, align 8
   %_M_finish.i.i.i.i.i27 = getelementptr inbounds nuw i8, ptr %tracker, i64 64

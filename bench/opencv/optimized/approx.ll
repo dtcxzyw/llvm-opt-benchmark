@@ -1317,6 +1317,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %20, %
   store ptr null, ptr %38, align 8, !tbaa !59
   br label %.thread117
 
+.preheader122.split.us.split.outer.backedge:      ; preds = %69, %60
+  %.051134.us.ph.be = phi ptr [ %59, %60 ], [ %71, %69 ]
+  %.052133.us.ph.be = phi ptr [ null, %60 ], [ %.378126.us143, %69 ]
+  %.071132.us.ph.be = phi ptr [ %.374.us, %60 ], [ %.273.us178, %69 ]
+  %.075131.us.ph.be = phi ptr [ %.254.us, %60 ], [ %.479.us, %69 ]
+  br label %.preheader122.split.us.split.outer
+
 .preheader122.split.us.split.outer:               ; preds = %.preheader122.split.us, %.preheader122.split.us.split.outer.backedge
   %.051134.us.ph = phi ptr [ %.051134.us.ph.be, %.preheader122.split.us.split.outer.backedge ], [ %0, %.preheader122.split.us ]
   %.052133.us.ph = phi ptr [ %.052133.us.ph.be, %.preheader122.split.us.split.outer.backedge ], [ null, %.preheader122.split.us ]
@@ -1382,13 +1389,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %20, %
 60:                                               ; preds = %56
   %.not97.us = icmp eq ptr %.254.us, null
   br i1 %.not97.us, label %.split.us, label %.preheader122.split.us.split.outer.backedge
-
-.preheader122.split.us.split.outer.backedge:      ; preds = %69, %60
-  %.051134.us.ph.be = phi ptr [ %59, %60 ], [ %71, %69 ]
-  %.052133.us.ph.be = phi ptr [ null, %60 ], [ %.378126.us143, %69 ]
-  %.071132.us.ph.be = phi ptr [ %.374.us, %60 ], [ %.273.us178, %69 ]
-  %.075131.us.ph.be = phi ptr [ %.254.us, %60 ], [ %.479.us, %69 ]
-  br label %.preheader122.split.us.split.outer
 
 61:                                               ; preds = %69
   %62 = getelementptr inbounds nuw i8, ptr %65, i64 24
@@ -1501,7 +1501,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit114: ; preds = %93
   br label %98
 
 .thread117:                                       ; preds = %.lr.ph.us, %61, %30, %35, %.preheader122.split.us.split.us
-  %.us-phi = phi ptr [ null, %.preheader122.split.us.split.us ], [ %31, %35 ], [ null, %30 ], [ %.273.us178, %61 ], [ %.273.us178, %.lr.ph.us ]
+  %.us-phi = phi ptr [ null, %30 ], [ null, %.preheader122.split.us.split.us ], [ %.273.us178, %61 ], [ %31, %35 ], [ %.273.us178, %.lr.ph.us ]
   ret ptr %.us-phi
 
 98:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit114, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit108, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit

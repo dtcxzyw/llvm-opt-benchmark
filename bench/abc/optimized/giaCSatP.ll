@@ -650,7 +650,7 @@ CbsP_QuePush.exit:                                ; preds = %._crit_edge.i, %128
   br label %CbsP_ManPropagateOne.exit.thread
 
 CbsP_ManPropagateOne.exit:                        ; preds = %57, %61, %63, %88
-  %.0.i = phi i32 [ %58, %57 ], [ %62, %61 ], [ %64, %63 ], [ %89, %88 ]
+  %.0.i = phi i32 [ %89, %88 ], [ %58, %57 ], [ %62, %61 ], [ %64, %63 ]
   %.not46 = icmp eq i32 %.0.i, 0
   br i1 %.not46, label %CbsP_ManPropagateOne.exit.thread, label %.loopexit
 
@@ -827,7 +827,7 @@ CbsP_ManPropagateTwo.exit.thread:                 ; preds = %199, %200, %CbsP_Va
   br label %11
 
 .loopexit:                                        ; preds = %.critedge2, %CbsP_ManPropagateOne.exit.thread, %CbsP_ManPropagateOne.exit, %CbsP_ManPropagateTwo.exit.thread, %CbsP_ManPropagateTwo.exit
-  %.037 = phi i32 [ 0, %CbsP_ManPropagateOne.exit.thread ], [ 0, %CbsP_ManPropagateTwo.exit.thread ], [ %215, %CbsP_ManPropagateTwo.exit ], [ %.0.i, %CbsP_ManPropagateOne.exit ], [ 0, %.critedge2 ]
+  %.037 = phi i32 [ 0, %CbsP_ManPropagateTwo.exit.thread ], [ 0, %CbsP_ManPropagateOne.exit.thread ], [ %215, %CbsP_ManPropagateTwo.exit ], [ %.0.i, %CbsP_ManPropagateOne.exit ], [ 0, %.critedge2 ]
   ret i32 %.037
 }
 

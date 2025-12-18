@@ -282,7 +282,7 @@ define void @ff_print_debug_info2(ptr noundef %0, ptr noundef %1, ptr noundef re
   br i1 %72, label %.split.us284, label %.split268.us278, !llvm.loop !59
 
 .split268.us278:                                  ; preds = %.loopexit249.us, %.loopexit247.us.us, %.loopexit.us.us.us, %221
-  %.us-phi.us = phi i32 [ %.3.us.us288, %.loopexit247.us.us ], [ %.3.us.us.us.us, %221 ], [ %.3.us.us.us295, %.loopexit.us.us.us ], [ %.3.us283, %.loopexit249.us ]
+  %.us-phi.us = phi i32 [ %.3.us.us.us295, %.loopexit.us.us.us ], [ %.3.us.us.us.us, %221 ], [ %.3.us.us288, %.loopexit247.us.us ], [ %.3.us283, %.loopexit249.us ]
   %indvars.iv.next344 = add nuw nsw i64 %indvars.iv343, 1
   %exitcond348.not = icmp eq i64 %indvars.iv.next344, %wide.trip.count
   br i1 %exitcond348.not, label %._crit_edge.us, label %53, !llvm.loop !60

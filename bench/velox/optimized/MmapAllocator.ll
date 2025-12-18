@@ -1467,7 +1467,7 @@ if.then2.i:                                       ; preds = %if.end.i
   store i32 0, ptr %injectedFailure_.i405, align 8
   br label %if.then270
 
-if.then270:                                       ; preds = %"_ZN8facebook5velox6memory5Stats14recordAllocateIZNS1_13MmapAllocator33allocateNonContiguousWithoutRetryEmRNS1_10AllocationESt8functionIFvlbEEmE3$_0EEvliT_.exit", %_ZN8facebook5velox10ClockTimerD2Ev.exit.i, %if.end.i, %if.then2.i
+if.then270:                                       ; preds = %"_ZN8facebook5velox6memory5Stats14recordAllocateIZNS1_13MmapAllocator33allocateNonContiguousWithoutRetryEmRNS1_10AllocationESt8functionIFvlbEEmE3$_0EEvliT_.exit", %_ZN8facebook5velox10ClockTimerD2Ev.exit.i, %if.then2.i, %if.end.i
   call void @llvm.experimental.noalias.scope.decl(metadata !25)
   %retval.i.sroa.0.0.insert.ext.i222 = and i64 %indvars.iv, 4294967295
   %78 = load i32, ptr %arrayidx.i.i214, align 4, !noalias !25
@@ -1675,7 +1675,7 @@ ehcleanup351:                                     ; preds = %lpad336, %lpad326, 
   br label %common.resume
 
 return:                                           ; preds = %for.body.i, %if.end247, %if.end.thread, %if.then318, %for.end312, %if.then5, %land.lhs.true, %_ZNKSt8functionIFvlbEEclElb.exit, %if.end350, %if.end308, %if.end153, %if.end65
-  %retval.0 = phi i1 [ false, %if.end350 ], [ false, %if.end65 ], [ false, %if.end153 ], [ false, %if.end308 ], [ true, %if.then5 ], [ true, %_ZNKSt8functionIFvlbEEclElb.exit ], [ true, %land.lhs.true ], [ true, %for.end312 ], [ true, %if.then318 ], [ true, %if.end.thread ], [ true, %if.end247 ], [ true, %for.body.i ]
+  %retval.0 = phi i1 [ false, %if.end350 ], [ false, %if.end65 ], [ false, %if.end153 ], [ false, %if.end308 ], [ true, %if.then5 ], [ true, %if.end.thread ], [ true, %_ZNKSt8functionIFvlbEEclElb.exit ], [ true, %land.lhs.true ], [ true, %for.end312 ], [ true, %if.then318 ], [ true, %if.end247 ], [ true, %for.body.i ]
   ret i1 %retval.0
 
 terminate.lpad:                                   ; preds = %ehcleanup245

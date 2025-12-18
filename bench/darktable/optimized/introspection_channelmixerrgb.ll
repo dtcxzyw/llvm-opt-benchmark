@@ -936,8 +936,8 @@ CCT_to_xy_blackbody.exit:                         ; preds = %77, %82, %88
   br label %100
 
 100:                                              ; preds = %8, %._crit_edge, %CCT_to_xy_blackbody.exit, %CCT_to_xy_daylight.exit, %23, %15, %12, %11
-  %101 = phi float [ %.pre29, %._crit_edge ], [ %94, %CCT_to_xy_blackbody.exit ], [ %52, %CCT_to_xy_daylight.exit ], [ %28, %23 ], [ %20, %15 ], [ 0x3FDA13A920000000, %12 ], [ 0x3FD5555560000000, %11 ], [ 0x3FD6F1AA00000000, %8 ]
-  %102 = phi float [ %.pre, %._crit_edge ], [ %.038.i, %CCT_to_xy_blackbody.exit ], [ %.0.i, %CCT_to_xy_daylight.exit ], [ %26, %23 ], [ %18, %15 ], [ 0x3FDCA4FCA0000000, %12 ], [ 0x3FD5555560000000, %11 ], [ 0x3FD61F7520000000, %8 ]
+  %101 = phi float [ %.pre29, %._crit_edge ], [ %94, %CCT_to_xy_blackbody.exit ], [ %52, %CCT_to_xy_daylight.exit ], [ 0x3FDA13A920000000, %12 ], [ 0x3FD5555560000000, %11 ], [ %28, %23 ], [ %20, %15 ], [ 0x3FD6F1AA00000000, %8 ]
+  %102 = phi float [ %.pre, %._crit_edge ], [ %.038.i, %CCT_to_xy_blackbody.exit ], [ %.0.i, %CCT_to_xy_daylight.exit ], [ 0x3FDCA4FCA0000000, %12 ], [ 0x3FD5555560000000, %11 ], [ %26, %23 ], [ %18, %15 ], [ 0x3FD61F7520000000, %8 ]
   %103 = fcmp reassoc nsz arcp contract afn une float %102, 0.000000e+00
   %104 = fcmp reassoc nsz arcp contract afn une float %101, 0.000000e+00
   %or.cond5 = select i1 %103, i1 %104, i1 false
@@ -5191,7 +5191,7 @@ _init_bounding_box.exit:                          ; preds = %24
   br label %85
 
 85:                                               ; preds = %.sink.split, %71, %63, %67, %20
-  %.2 = phi i32 [ 0, %20 ], [ 0, %63 ], [ 0, %67 ], [ 0, %71 ], [ 1, %.sink.split ]
+  %.2 = phi i32 [ 0, %71 ], [ 0, %20 ], [ 0, %67 ], [ 0, %63 ], [ 1, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %86

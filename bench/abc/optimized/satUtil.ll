@@ -120,8 +120,8 @@ define void @Sat_SolverWriteDimacs(ptr noundef readonly captures(none) %0, ptr n
   br i1 %55, label %.lr.ph86.us, label %.critedge.us
 
 .critedge.us:                                     ; preds = %._crit_edge.i.us.us.us, %108, %.preheader81.us
-  %56 = phi ptr [ %50, %.preheader81.us ], [ %109, %108 ], [ %84, %._crit_edge.i.us.us.us ]
-  %57 = phi ptr [ %51, %.preheader81.us ], [ %109, %108 ], [ %84, %._crit_edge.i.us.us.us ]
+  %56 = phi ptr [ %109, %108 ], [ %50, %.preheader81.us ], [ %84, %._crit_edge.i.us.us.us ]
+  %57 = phi ptr [ %109, %108 ], [ %51, %.preheader81.us ], [ %84, %._crit_edge.i.us.us.us ]
   %58 = add i32 %.16288.us, 2
   %59 = load i32, ptr %45, align 8, !tbaa !23
   %.not69.us = icmp sgt i32 %58, %59
@@ -500,8 +500,8 @@ define void @Sat_Solver2WriteDimacs(ptr noundef readonly captures(none) %0, ptr 
   br i1 %50, label %.lr.ph82.us, label %.critedge.us
 
 .critedge.us:                                     ; preds = %._crit_edge.i.us.us.us, %101, %.preheader77.us
-  %51 = phi ptr [ %45, %.preheader77.us ], [ %102, %101 ], [ %77, %._crit_edge.i.us.us.us ]
-  %52 = phi ptr [ %46, %.preheader77.us ], [ %102, %101 ], [ %77, %._crit_edge.i.us.us.us ]
+  %51 = phi ptr [ %102, %101 ], [ %45, %.preheader77.us ], [ %77, %._crit_edge.i.us.us.us ]
+  %52 = phi ptr [ %102, %101 ], [ %46, %.preheader77.us ], [ %77, %._crit_edge.i.us.us.us ]
   %53 = add i32 %.16084.us, 2
   %54 = load i32, ptr %40, align 8, !tbaa !23
   %.not.us = icmp sgt i32 %53, %54

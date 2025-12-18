@@ -1946,9 +1946,9 @@ put_bits.exit159.i.i:                             ; preds = %819, %806
   br i1 %828, label %778, label %.loopexit181.i.i, !llvm.loop !146
 
 .loopexit181.i.i:                                 ; preds = %823, %put_bits.exit143.i.i, %put_bits.exit147.i.i, %put_bits.exit139.i.i
-  %.sroa.286.59.i = phi ptr [ %.sroa.286.82.i, %put_bits.exit139.i.i ], [ %.sroa.286.58.i, %put_bits.exit147.i.i ], [ %.sroa.286.85.i, %put_bits.exit143.i.i ], [ %.sroa.286.77.i, %823 ]
-  %829 = phi i32 [ %706, %put_bits.exit139.i.i ], [ %storemerge.i.i, %put_bits.exit147.i.i ], [ %745, %put_bits.exit143.i.i ], [ %824, %823 ]
-  %830 = phi i32 [ %.020.i.i137.i.i, %put_bits.exit139.i.i ], [ %storemerge180.i.i, %put_bits.exit147.i.i ], [ %.020.i.i141.i.i, %put_bits.exit143.i.i ], [ %825, %823 ]
+  %.sroa.286.59.i = phi ptr [ %.sroa.286.58.i, %put_bits.exit147.i.i ], [ %.sroa.286.82.i, %put_bits.exit139.i.i ], [ %.sroa.286.85.i, %put_bits.exit143.i.i ], [ %.sroa.286.77.i, %823 ]
+  %829 = phi i32 [ %storemerge.i.i, %put_bits.exit147.i.i ], [ %706, %put_bits.exit139.i.i ], [ %745, %put_bits.exit143.i.i ], [ %824, %823 ]
+  %830 = phi i32 [ %storemerge180.i.i, %put_bits.exit147.i.i ], [ %.020.i.i137.i.i, %put_bits.exit139.i.i ], [ %.020.i.i141.i.i, %put_bits.exit143.i.i ], [ %825, %823 ]
   %831 = getelementptr inbounds nuw i8, ptr %599, i64 40
   %832 = load i32, ptr %831, align 8, !tbaa !58
   %833 = sub nsw i32 32, %829
@@ -3327,9 +3327,9 @@ put_bits.exit79.i.i:                              ; preds = %1445, %1433
   br i1 %1455, label %.preheader.i231.i, label %put_residue_header.exit.i, !llvm.loop !158
 
 put_residue_header.exit.i:                        ; preds = %1452, %.preheader80.i.i, %put_bits.exit63.i.i
-  %.sroa.286.149.i = phi ptr [ %.sroa.286.141.i, %.preheader80.i.i ], [ %.sroa.286.135.i, %put_bits.exit63.i.i ], [ %.sroa.286.146.i, %1452 ]
-  %.sroa.141.22.i = phi i32 [ %.sroa.141.18.i, %.preheader80.i.i ], [ %1355, %put_bits.exit63.i.i ], [ %.sroa.141.21.i, %1452 ]
-  %.sroa.0.22.i = phi i32 [ %.sroa.0.18.i, %.preheader80.i.i ], [ %.020.i.i61.i.i, %put_bits.exit63.i.i ], [ %.sroa.0.21.i, %1452 ]
+  %.sroa.286.149.i = phi ptr [ %.sroa.286.135.i, %put_bits.exit63.i.i ], [ %.sroa.286.141.i, %.preheader80.i.i ], [ %.sroa.286.146.i, %1452 ]
+  %.sroa.141.22.i = phi i32 [ %1355, %put_bits.exit63.i.i ], [ %.sroa.141.18.i, %.preheader80.i.i ], [ %.sroa.141.21.i, %1452 ]
+  %.sroa.0.22.i = phi i32 [ %.020.i.i61.i.i, %put_bits.exit63.i.i ], [ %.sroa.0.18.i, %.preheader80.i.i ], [ %.sroa.0.21.i, %1452 ]
   %indvars.iv.next817.i = add nuw nsw i64 %indvars.iv816.i, 1
   %1456 = load i32, ptr %265, align 8, !tbaa !101
   %1457 = sext i32 %1456 to i64
@@ -4250,8 +4250,8 @@ put_main_header.exit:                             ; preds = %1832
   call void @ff_af_queue_init(ptr noundef nonnull %0, ptr noundef nonnull %1853) #13
   br label %create_vorbis_context.exit.thread
 
-create_vorbis_context.exit.thread:                ; preds = %.lr.ph313.i, %cb_lookup_vals.exit.i, %cb_lookup_vals.exit.i.i, %.lr.ph322.i, %380, %382, %384, %11, %._crit_edge.i, %188, %202, %._crit_edge332.i, %264, %276, %279, %283, %._crit_edge336.i, %._crit_edge339.i, %327, %331, %268, %._crit_edge327.i, %put_main_header.exit.thread, %put_main_header.exit, %create_vorbis_context.exit, %1846, %10
-  %.0 = phi i32 [ -1, %10 ], [ 0, %1846 ], [ %387, %create_vorbis_context.exit ], [ %1844, %put_main_header.exit ], [ -12, %put_main_header.exit.thread ], [ -12, %380 ], [ -12, %382 ], [ -12, %384 ], [ -12, %11 ], [ -12, %._crit_edge.i ], [ -12, %188 ], [ -12, %202 ], [ -558323010, %._crit_edge332.i ], [ -12, %264 ], [ %277, %276 ], [ -12, %279 ], [ -12, %283 ], [ -12, %._crit_edge336.i ], [ -12, %._crit_edge339.i ], [ -12, %327 ], [ -12, %331 ], [ -12, %268 ], [ -12, %._crit_edge327.i ], [ -12, %.lr.ph322.i ], [ -12, %cb_lookup_vals.exit.i.i ], [ -12, %cb_lookup_vals.exit.i ], [ -12, %.lr.ph313.i ]
+create_vorbis_context.exit.thread:                ; preds = %.lr.ph313.i, %cb_lookup_vals.exit.i, %cb_lookup_vals.exit.i.i, %.lr.ph322.i, %382, %384, %11, %._crit_edge.i, %188, %202, %._crit_edge332.i, %264, %276, %279, %283, %._crit_edge336.i, %._crit_edge339.i, %327, %331, %268, %._crit_edge327.i, %380, %put_main_header.exit.thread, %put_main_header.exit, %create_vorbis_context.exit, %1846, %10
+  %.0 = phi i32 [ -1, %10 ], [ 0, %1846 ], [ %387, %create_vorbis_context.exit ], [ %1844, %put_main_header.exit ], [ -12, %put_main_header.exit.thread ], [ -12, %.lr.ph322.i ], [ -12, %380 ], [ -12, %._crit_edge327.i ], [ -12, %382 ], [ -12, %384 ], [ -12, %11 ], [ -12, %._crit_edge.i ], [ -12, %188 ], [ -12, %202 ], [ -558323010, %._crit_edge332.i ], [ -12, %264 ], [ %277, %276 ], [ -12, %279 ], [ -12, %283 ], [ -12, %._crit_edge336.i ], [ -12, %._crit_edge339.i ], [ -12, %327 ], [ -12, %331 ], [ -12, %268 ], [ -12, %cb_lookup_vals.exit.i.i ], [ -12, %cb_lookup_vals.exit.i ], [ -12, %.lr.ph313.i ]
   ret i32 %.0
 }
 
@@ -4517,7 +4517,7 @@ define internal range(i32 -2147483648, 1) i32 @vorbis_encode_frame(ptr noundef %
   br i1 %149, label %141, label %.loopexit.i, !llvm.loop !188
 
 .loopexit.i:                                      ; preds = %128, %141, %.preheader.i176, %.preheader51.i
-  %150 = phi i32 [ %119, %.preheader.i176 ], [ %119, %.preheader51.i ], [ %148, %141 ], [ %139, %128 ]
+  %150 = phi i32 [ %148, %141 ], [ %119, %.preheader.i176 ], [ %119, %.preheader51.i ], [ %139, %128 ]
   %151 = icmp sgt i32 %116, 0
   br i1 %151, label %.lr.ph60.i, label %move_audio.exit
 
@@ -6090,7 +6090,7 @@ put_codeword.exit.i:                              ; preds = %put_codeword.exit.l
   br i1 %exitcond60.not.i269.us.us.i, label %._crit_edge46.i228.us.us.i, label %.lr.ph45.split.us.i253.us.us.i, !llvm.loop !228
 
 ._crit_edge46.i228.us.us.i:                       ; preds = %910, %928, %.preheader.i224.us.us.i
-  %.032.lcssa.i229.us.us.i = phi i32 [ -1, %.preheader.i224.us.us.i ], [ %.133.us.i266.us.us.i, %928 ], [ %.133.i247.us.us.i, %910 ]
+  %.032.lcssa.i229.us.us.i = phi i32 [ %.133.us.i266.us.us.i, %928 ], [ -1, %.preheader.i224.us.us.i ], [ %.133.i247.us.us.i, %910 ]
   %929 = ptrtoint ptr %.sroa.54.34 to i64
   %930 = sub i64 %815, %929
   %.tr.i.i.i230.us.us.i = trunc i64 %930 to i32
@@ -6287,7 +6287,7 @@ put_vector.exit270.us.us.i:                       ; preds = %951, %939
   br i1 %exitcond60.not.i.us.us.i, label %._crit_edge46.i.us.us.i, label %.lr.ph45.split.us.i.us.us.i, !llvm.loop !228
 
 ._crit_edge46.i.us.us.i:                          ; preds = %990, %1008, %.preheader.i.us.us.i
-  %.032.lcssa.i.us.us.i = phi i32 [ -1, %.preheader.i.us.us.i ], [ %.133.us.i.us.us.i, %1008 ], [ %.133.i.us.us.i, %990 ]
+  %.032.lcssa.i.us.us.i = phi i32 [ %.133.us.i.us.us.i, %1008 ], [ -1, %.preheader.i.us.us.i ], [ %.133.i.us.us.i, %990 ]
   %1009 = ptrtoint ptr %.sroa.54.38 to i64
   %1010 = sub i64 %815, %1009
   %.tr.i.i.i.us.us.i = trunc i64 %1010 to i32
@@ -6363,9 +6363,9 @@ put_vector.exit.us.us.i:                          ; preds = %1031, %1019
   br i1 %exitcond406.not.i, label %._crit_edge345.us.us.i, label %.lr.ph344.us.us.i, !llvm.loop !233
 
 .critedge.us.us.i:                                ; preds = %._crit_edge334.us.us.i, %._crit_edge345.us.us.i, %.preheader284.us.us.i, %885, %.preheader286.us.us.i
-  %.sroa.54.33 = phi ptr [ %.sroa.54.31, %.preheader286.us.us.i ], [ %.sroa.54.31, %.preheader284.us.us.i ], [ %.sroa.54.31, %885 ], [ %.sroa.54.40, %._crit_edge345.us.us.i ], [ %.sroa.54.36, %._crit_edge334.us.us.i ]
-  %.sroa.27.15 = phi i32 [ %.sroa.27.13, %.preheader286.us.us.i ], [ %.sroa.27.13, %.preheader284.us.us.i ], [ %.sroa.27.13, %885 ], [ %1036, %._crit_edge345.us.us.i ], [ %955, %._crit_edge334.us.us.i ]
-  %.sroa.0.15 = phi i32 [ %.sroa.0.13, %.preheader286.us.us.i ], [ %.sroa.0.13, %.preheader284.us.us.i ], [ %.sroa.0.13, %885 ], [ %.020.i.i.i.i.us.us.i, %._crit_edge345.us.us.i ], [ %.020.i.i.i.i233.us.us.i, %._crit_edge334.us.us.i ]
+  %.sroa.54.33 = phi ptr [ %.sroa.54.31, %.preheader286.us.us.i ], [ %.sroa.54.31, %885 ], [ %.sroa.54.31, %.preheader284.us.us.i ], [ %.sroa.54.40, %._crit_edge345.us.us.i ], [ %.sroa.54.36, %._crit_edge334.us.us.i ]
+  %.sroa.27.15 = phi i32 [ %.sroa.27.13, %.preheader286.us.us.i ], [ %.sroa.27.13, %885 ], [ %.sroa.27.13, %.preheader284.us.us.i ], [ %1036, %._crit_edge345.us.us.i ], [ %955, %._crit_edge334.us.us.i ]
+  %.sroa.0.15 = phi i32 [ %.sroa.0.13, %.preheader286.us.us.i ], [ %.sroa.0.13, %885 ], [ %.sroa.0.13, %.preheader284.us.us.i ], [ %.020.i.i.i.i.us.us.i, %._crit_edge345.us.us.i ], [ %.020.i.i.i.i233.us.us.i, %._crit_edge334.us.us.i ]
   %1046 = add nuw nsw i32 %.2183353.us.us.i, 1
   %indvars.iv.next414.i = add nsw i64 %indvars.iv413.i, 1
   %1047 = icmp slt i32 %1046, %767

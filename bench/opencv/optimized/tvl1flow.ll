@@ -1182,7 +1182,7 @@ _ZNK2cv11_InputArray6getMatEi.exit304:            ; preds = %311, %314
   br i1 %332, label %.loopexit514, label %329
 
 .loopexit514:                                     ; preds = %329, %.loopexit514.loopexit531, %.thread
-  %.pn162.pn = phi { ptr, i32 } [ %306, %.thread ], [ %322, %.loopexit514.loopexit531 ], [ %.pn162, %329 ]
+  %.pn162.pn = phi { ptr, i32 } [ %322, %.loopexit514.loopexit531 ], [ %306, %.thread ], [ %.pn162, %329 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %810
 
@@ -2309,7 +2309,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %795, %798
   br i1 %809, label %.loopexit, label %806
 
 .loopexit:                                        ; preds = %806, %.loopexit.loopexit530, %.thread510
-  %.pn211 = phi { ptr, i32 } [ %784, %.thread510 ], [ %802, %.loopexit.loopexit530 ], [ %804, %806 ]
+  %.pn211 = phi { ptr, i32 } [ %802, %.loopexit.loopexit530 ], [ %784, %.thread510 ], [ %804, %806 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %58)
   br label %810
 

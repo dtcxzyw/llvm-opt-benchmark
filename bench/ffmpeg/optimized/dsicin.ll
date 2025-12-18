@@ -319,7 +319,7 @@ cin_read_frame_header.exit.thread.sink.split:     ; preds = %84, %89
   br label %cin_read_frame_header.exit.thread
 
 cin_read_frame_header.exit.thread:                ; preds = %cin_read_frame_header.exit.thread.sink.split, %30, %22, %25, %10, %27, %86, %52, %46, %38
-  %.059 = phi i32 [ %87, %86 ], [ -1094995529, %38 ], [ %50, %46 ], [ %78, %52 ], [ -1094995529, %27 ], [ -5, %22 ], [ -1094995529, %25 ], [ -5, %10 ], [ -1094995529, %30 ], [ 0, %cin_read_frame_header.exit.thread.sink.split ]
+  %.059 = phi i32 [ -1094995529, %30 ], [ %87, %86 ], [ -1094995529, %38 ], [ %50, %46 ], [ -5, %10 ], [ %78, %52 ], [ -1094995529, %27 ], [ -5, %22 ], [ -1094995529, %25 ], [ 0, %cin_read_frame_header.exit.thread.sink.split ]
   ret i32 %.059
 }
 

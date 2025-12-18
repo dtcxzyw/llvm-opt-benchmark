@@ -285,7 +285,7 @@ define hidden void @_ZN4cvc58internal6theory2bv22BitblastProofGenerator11getProo
   unreachable
 
 _ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb1EEESt5tupleIJS3_S3_EESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S5_EEE2atERSB_.exit: ; preds = %78, %55, %68
-  %.sroa.06.1.i.i.i = phi ptr [ %69, %68 ], [ %.sroa.06.0.i.i.i, %55 ], [ %84, %78 ]
+  %.sroa.06.1.i.i.i = phi ptr [ %.sroa.06.0.i.i.i, %55 ], [ %69, %68 ], [ %84, %78 ]
   %89 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 16
   %90 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 24
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
@@ -3390,7 +3390,7 @@ _ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_St5tupleIJS3_S
   br label %64
 
 _ZNKSt10_HashtableIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_St5tupleIJS3_S3_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS5_m.exit: ; preds = %23, %48, %38
-  %.sroa.037.0.ph = phi ptr [ %39, %38 ], [ %54, %48 ], [ %.sroa.033.0, %23 ]
+  %.sroa.037.0.ph = phi ptr [ %54, %48 ], [ %39, %38 ], [ %.sroa.033.0, %23 ]
   tail call void @_ZNSt4pairIKN4cvc58internal12NodeTemplateILb1EEESt5tupleIJS3_S3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #20
   tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 40) #22
   br label %_ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_St5tupleIJS3_S3_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit

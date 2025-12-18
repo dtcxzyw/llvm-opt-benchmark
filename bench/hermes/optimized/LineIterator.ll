@@ -88,8 +88,8 @@ if.then:                                          ; preds = %land.lhs.true.i, %e
   store i32 %inc, ptr %LineNumber, align 4
   br label %if.end
 
-if.end:                                           ; preds = %land.lhs.true.i, %entry, %if.then
-  %Pos.554 = phi ptr [ %add.ptr6.i, %if.then ], [ %add.ptr.i, %entry ], [ %add.ptr.i, %land.lhs.true.i ]
+if.end:                                           ; preds = %entry, %land.lhs.true.i, %if.then
+  %Pos.554 = phi ptr [ %add.ptr6.i, %if.then ], [ %add.ptr.i, %land.lhs.true.i ], [ %add.ptr.i, %entry ]
   %SkipBlanks = getelementptr inbounds nuw i8, ptr %this, i64 9
   %5 = load i8, ptr %SkipBlanks, align 1
   %tobool = trunc i8 %5 to i1
@@ -270,8 +270,8 @@ if.end31:                                         ; preds = %if.end24, %if.end24
   br i1 %cmp33, label %if.then34, label %while.cond37.preheader
 
 while.cond37.preheader:                           ; preds = %land.lhs.true.i29, %land.lhs.true.i17, %for.cond, %land.lhs.true.i29.us, %land.lhs.true.i9, %land.lhs.true.i5, %land.lhs.true, %if.end31
-  %Pos.0119 = phi ptr [ %Pos.0, %if.end31 ], [ %Pos.554, %land.lhs.true ], [ %Pos.554, %land.lhs.true.i5 ], [ %Pos.1, %land.lhs.true.i9 ], [ %Pos.3.ph.ph.us108, %land.lhs.true.i29.us ], [ %Pos.2, %for.cond ], [ %Pos.2, %land.lhs.true.i17 ], [ %Pos.3.ph.ph114, %land.lhs.true.i29 ]
-  %25 = phi i8 [ %24, %if.end31 ], [ %6, %land.lhs.true ], [ 13, %land.lhs.true.i5 ], [ 13, %land.lhs.true.i9 ], [ 13, %land.lhs.true.i29.us ], [ %19, %for.cond ], [ 13, %land.lhs.true.i17 ], [ 13, %land.lhs.true.i29 ]
+  %Pos.0119 = phi ptr [ %Pos.0, %if.end31 ], [ %Pos.1, %land.lhs.true.i9 ], [ %Pos.3.ph.ph.us108, %land.lhs.true.i29.us ], [ %Pos.554, %land.lhs.true ], [ %Pos.554, %land.lhs.true.i5 ], [ %Pos.2, %for.cond ], [ %Pos.2, %land.lhs.true.i17 ], [ %Pos.3.ph.ph114, %land.lhs.true.i29 ]
+  %25 = phi i8 [ %24, %if.end31 ], [ 13, %land.lhs.true.i9 ], [ 13, %land.lhs.true.i29.us ], [ %6, %land.lhs.true ], [ 13, %land.lhs.true.i5 ], [ %19, %for.cond ], [ 13, %land.lhs.true.i17 ], [ 13, %land.lhs.true.i29 ]
   br label %while.cond37
 
 if.then34:                                        ; preds = %do.body, %do.body.us, %if.end31

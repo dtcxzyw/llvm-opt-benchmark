@@ -6064,7 +6064,7 @@ _ZN19ConstPluginIteratorI14DecoratePluginEppEv.exit313: ; preds = %.preheader.i3
   ret void
 
 _ZNSt7__cxx114listIP7QActionSaIS2_EED2Ev.exit149: ; preds = %.lr.ph.i.i.i146, %.lr.ph.i.i.i231, %611, %277, %875, %729, %565, %502, %436, %227, %221, %219, %217, %112, %110
-  %.pn79 = phi { ptr, i32 } [ %111, %110 ], [ %lpad.phi399, %436 ], [ %503, %502 ], [ %566, %565 ], [ %lpad.phi, %875 ], [ %.pn.pn, %227 ], [ %lpad.phi394, %729 ], [ %222, %221 ], [ %220, %219 ], [ %218, %217 ], [ %113, %112 ], [ %278, %277 ], [ %612, %611 ], [ %612, %.lr.ph.i.i.i231 ], [ %278, %.lr.ph.i.i.i146 ]
+  %.pn79 = phi { ptr, i32 } [ %111, %110 ], [ %lpad.phi399, %436 ], [ %503, %502 ], [ %566, %565 ], [ %lpad.phi, %875 ], [ %.pn.pn, %227 ], [ %612, %.lr.ph.i.i.i231 ], [ %lpad.phi394, %729 ], [ %222, %221 ], [ %220, %219 ], [ %218, %217 ], [ %113, %112 ], [ %278, %277 ], [ %612, %611 ], [ %278, %.lr.ph.i.i.i146 ]
   resume { ptr, i32 } %.pn79
 }
 
@@ -16262,7 +16262,7 @@ _ZN6GLArea4LogfIJxEEEviPKcDpOT_.exit:             ; preds = %_ZN11GLLogStream4lo
   br label %1116
 
 1116:                                             ; preds = %.sink.split, %1114, %_ZN7QStringD2Ev.exit281
-  %.1 = phi i1 [ false, %_ZN7QStringD2Ev.exit281 ], [ true, %1114 ], [ false, %.sink.split ]
+  %.1 = phi i1 [ true, %1114 ], [ false, %_ZN7QStringD2Ev.exit281 ], [ false, %.sink.split ]
   %1117 = load ptr, ptr %7, align 8
   %1118 = load atomic i32, ptr %1117 monotonic, align 4
   switch i32 %1118, label %_ZN9QtPrivate8RefCount5derefEv.exit.i.i801 [
@@ -17469,7 +17469,7 @@ _ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i169: ; preds = %_ZN7
   unreachable
 
 .loopexit:                                        ; preds = %302, %.loopexit192, %.loopexit.split-lp, %362, %200, %150
-  %.merged49 = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %.pn47, %362 ], [ %.pn38, %200 ], [ %.pn.pn.pn.pn, %150 ], [ %lpad.loopexit, %.loopexit192 ], [ %.pn41, %302 ]
+  %.merged49 = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %.pn47, %362 ], [ %.pn.pn.pn.pn, %150 ], [ %.pn38, %200 ], [ %lpad.loopexit, %.loopexit192 ], [ %.pn41, %302 ]
   call void @_ZN11QStringListD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #29
   br label %391
 

@@ -521,7 +521,7 @@ append_block_.exit.thread.sink.split.i:           ; preds = %161, %158, %155, %1
   br label %read_from_aiff_.exit
 
 read_from_aiff_.exit:                             ; preds = %11, %18, %25, %safe_realloc_nofree_muladd2_.exit.thread.i.i, %69, %77, %96, %99, %105, %108, %112, %130, %138, %safe_realloc_nofree_muladd2_.exit.thread.i125.i, %153, %155, %158, %159, %161, %append_block_.exit.thread.sink.split.i
-  %.064.i = phi i32 [ 0, %18 ], [ 0, %11 ], [ 0, %safe_realloc_nofree_muladd2_.exit.thread.i.i ], [ 1, %159 ], [ 0, %161 ], [ 0, %158 ], [ 0, %155 ], [ 0, %25 ], [ 0, %96 ], [ 0, %69 ], [ 0, %153 ], [ 0, %130 ], [ 0, %99 ], [ 0, %108 ], [ 0, %112 ], [ 0, %105 ], [ 0, %77 ], [ 0, %138 ], [ 0, %safe_realloc_nofree_muladd2_.exit.thread.i125.i ], [ 0, %append_block_.exit.thread.sink.split.i ]
+  %.064.i = phi i32 [ 0, %18 ], [ 0, %11 ], [ 0, %safe_realloc_nofree_muladd2_.exit.thread.i.i ], [ 1, %159 ], [ 0, %161 ], [ 0, %158 ], [ 0, %155 ], [ 0, %safe_realloc_nofree_muladd2_.exit.thread.i125.i ], [ 0, %138 ], [ 0, %77 ], [ 0, %105 ], [ 0, %112 ], [ 0, %25 ], [ 0, %108 ], [ 0, %99 ], [ 0, %96 ], [ 0, %69 ], [ 0, %153 ], [ 0, %130 ], [ 0, %append_block_.exit.thread.sink.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %162 = call i32 @fclose(ptr noundef nonnull %5)
   br label %163
@@ -1363,7 +1363,7 @@ append_block_.exit.thread.sink.split.i:           ; preds = %112, %109, %106, %1
   br label %read_from_wave64_.exit
 
 read_from_wave64_.exit:                           ; preds = %11, %17, %24, %safe_realloc_nofree_muladd2_.exit.thread.i.i, %48, %55, %67, %71, %74, %80, %83, %89, %safe_realloc_nofree_muladd2_.exit.thread.i112.i, %104, %106, %109, %110, %112, %append_block_.exit.thread.sink.split.i
-  %.059.i = phi i32 [ 0, %17 ], [ 0, %11 ], [ 0, %safe_realloc_nofree_muladd2_.exit.thread.i.i ], [ 1, %110 ], [ 0, %112 ], [ 0, %109 ], [ 0, %106 ], [ 0, %24 ], [ 0, %71 ], [ 0, %48 ], [ 0, %55 ], [ 0, %104 ], [ 0, %83 ], [ 0, %74 ], [ 0, %80 ], [ 0, %67 ], [ 0, %89 ], [ 0, %safe_realloc_nofree_muladd2_.exit.thread.i112.i ], [ 0, %append_block_.exit.thread.sink.split.i ]
+  %.059.i = phi i32 [ 0, %17 ], [ 0, %11 ], [ 0, %safe_realloc_nofree_muladd2_.exit.thread.i.i ], [ 1, %110 ], [ 0, %112 ], [ 0, %109 ], [ 0, %106 ], [ 0, %safe_realloc_nofree_muladd2_.exit.thread.i112.i ], [ 0, %89 ], [ 0, %67 ], [ 0, %80 ], [ 0, %74 ], [ 0, %24 ], [ 0, %83 ], [ 0, %104 ], [ 0, %71 ], [ 0, %48 ], [ 0, %55 ], [ 0, %append_block_.exit.thread.sink.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %113 = call i32 @fclose(ptr noundef nonnull %5)
   br label %114
@@ -2217,7 +2217,7 @@ append_block_.exit.thread.sink.split.i:           ; preds = %202, %193, %189, %s
   br label %read_from_flac_.exit
 
 read_from_flac_.exit:                             ; preds = %54, %71, %74, %86, %.thread240.i, %90, %96, %99, %102, %107, %110, %116, %120, %123, %127, %130, %135, %138, %143, %148, %151, %154, %170, %174, %safe_realloc_nofree_muladd2_.exit.thread.i.i, %189, %192, %199, %201, %append_block_.exit.thread.sink.split.i
-  %.0140.i = phi i32 [ 0, %54 ], [ 0, %71 ], [ 0, %170 ], [ 0, %74 ], [ 0, %86 ], [ 0, %110 ], [ 0, %102 ], [ 0, %107 ], [ 0, %90 ], [ 0, %96 ], [ 0, %99 ], [ 0, %123 ], [ 0, %127 ], [ 0, %116 ], [ 0, %120 ], [ 0, %143 ], [ 0, %151 ], [ 0, %148 ], [ 0, %130 ], [ 0, %135 ], [ 0, %138 ], [ 0, %154 ], [ 0, %.thread240.i ], [ 1, %199 ], [ 0, %201 ], [ 0, %192 ], [ 0, %189 ], [ 0, %174 ], [ 0, %safe_realloc_nofree_muladd2_.exit.thread.i.i ], [ 0, %append_block_.exit.thread.sink.split.i ]
+  %.0140.i = phi i32 [ 0, %54 ], [ 0, %71 ], [ 0, %170 ], [ 0, %74 ], [ 0, %86 ], [ 0, %110 ], [ 0, %102 ], [ 0, %107 ], [ 0, %90 ], [ 0, %96 ], [ 0, %99 ], [ 0, %123 ], [ 0, %127 ], [ 0, %116 ], [ 0, %120 ], [ 0, %143 ], [ 0, %151 ], [ 0, %148 ], [ 0, %130 ], [ 0, %135 ], [ 0, %138 ], [ 0, %154 ], [ 0, %.thread240.i ], [ 1, %199 ], [ 0, %201 ], [ 0, %192 ], [ 0, %189 ], [ 0, %safe_realloc_nofree_muladd2_.exit.thread.i.i ], [ 0, %174 ], [ 0, %append_block_.exit.thread.sink.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @FLAC__metadata_simple_iterator_delete(ptr noundef nonnull %6) #14

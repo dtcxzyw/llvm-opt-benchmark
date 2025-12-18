@@ -2112,8 +2112,8 @@ define void @_ZNK5osgeo4proj9operation14Transformation20getTOWGS84ParametersEb(p
   br label %.thread172
 
 .thread172:                                       ; preds = %26, %26, %.thread172.fold.split185, %20, %20, %20, %20, %20, %20, %.thread172.fold.split, %29, %33, %33, %22, %21, %21, %21, %21, %21, %16
-  %.0107178 = phi i1 [ true, %.thread172.fold.split185 ], [ false, %20 ], [ false, %20 ], [ false, %20 ], [ false, %20 ], [ false, %20 ], [ false, %22 ], [ false, %26 ], [ false, %26 ], [ false, %20 ], [ false, %21 ], [ false, %21 ], [ false, %21 ], [ false, %21 ], [ false, %21 ], [ false, %16 ], [ true, %33 ], [ true, %33 ], [ true, %29 ], [ false, %.thread172.fold.split ]
-  %.0108177 = phi double [ 1.000000e+00, %.thread172.fold.split185 ], [ -1.000000e+00, %20 ], [ -1.000000e+00, %20 ], [ -1.000000e+00, %20 ], [ -1.000000e+00, %20 ], [ -1.000000e+00, %20 ], [ 1.000000e+00, %22 ], [ 1.000000e+00, %26 ], [ 1.000000e+00, %26 ], [ -1.000000e+00, %20 ], [ -1.000000e+00, %21 ], [ -1.000000e+00, %21 ], [ -1.000000e+00, %21 ], [ -1.000000e+00, %21 ], [ -1.000000e+00, %21 ], [ -1.000000e+00, %16 ], [ 1.000000e+00, %33 ], [ 1.000000e+00, %33 ], [ 1.000000e+00, %29 ], [ 1.000000e+00, %.thread172.fold.split ]
+  %.0107178 = phi i1 [ true, %.thread172.fold.split185 ], [ true, %29 ], [ true, %33 ], [ false, %20 ], [ false, %20 ], [ false, %20 ], [ false, %20 ], [ false, %20 ], [ false, %22 ], [ true, %33 ], [ false, %26 ], [ false, %26 ], [ false, %20 ], [ false, %21 ], [ false, %21 ], [ false, %21 ], [ false, %21 ], [ false, %21 ], [ false, %16 ], [ false, %.thread172.fold.split ]
+  %.0108177 = phi double [ 1.000000e+00, %.thread172.fold.split185 ], [ 1.000000e+00, %29 ], [ 1.000000e+00, %33 ], [ -1.000000e+00, %20 ], [ -1.000000e+00, %20 ], [ -1.000000e+00, %20 ], [ -1.000000e+00, %20 ], [ -1.000000e+00, %20 ], [ 1.000000e+00, %22 ], [ 1.000000e+00, %33 ], [ 1.000000e+00, %26 ], [ 1.000000e+00, %26 ], [ -1.000000e+00, %20 ], [ -1.000000e+00, %21 ], [ -1.000000e+00, %21 ], [ -1.000000e+00, %21 ], [ -1.000000e+00, %21 ], [ -1.000000e+00, %21 ], [ -1.000000e+00, %16 ], [ 1.000000e+00, %.thread172.fold.split ]
   %34 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #25
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %34, i8 0, i64 56, i1 false), !tbaa !68
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 56
@@ -3615,7 +3615,7 @@ _ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   br i1 %138, label %.loopexit, label %135
 
 .loopexit:                                        ; preds = %114, %135, %.thread
-  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %29, %.thread ], [ %.pn.pn.pn.pn.pn, %135 ], [ %113, %114 ]
+  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %135 ], [ %29, %.thread ], [ %113, %114 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #26
@@ -4435,7 +4435,7 @@ _ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   br i1 %156, label %.loopexit, label %153
 
 .loopexit:                                        ; preds = %120, %153, %.thread
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %25, %.thread ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn, %153 ], [ %119, %120 ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn, %153 ], [ %25, %.thread ], [ %119, %120 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @_ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #26
@@ -5170,7 +5170,7 @@ _ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   br i1 %242, label %.loopexit, label %239
 
 .loopexit:                                        ; preds = %180, %239, %.thread
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %34, %.thread ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %239 ], [ %179, %180 ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %239 ], [ %34, %.thread ], [ %179, %180 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @_ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %22) #26
@@ -5597,7 +5597,7 @@ _ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   br i1 %144, label %.loopexit, label %141
 
 .loopexit:                                        ; preds = %114, %141, %.thread
-  %.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %23, %.thread ], [ %.pn.pn.pn.pn.pn.pn.pn, %141 ], [ %113, %114 ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn, %141 ], [ %23, %.thread ], [ %113, %114 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #26
@@ -8318,7 +8318,7 @@ _ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   br i1 %116, label %.loopexit27, label %113
 
 .loopexit27:                                      ; preds = %113, %.loopexit27.loopexit30, %.thread25
-  %.pn.pn = phi { ptr, i32 } [ %38, %.thread25 ], [ %106, %.loopexit27.loopexit30 ], [ %.pn, %113 ]
+  %.pn.pn = phi { ptr, i32 } [ %106, %.loopexit27.loopexit30 ], [ %38, %.thread25 ], [ %.pn, %113 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @_ZN5osgeo4proj9operation18VectorOfParametersD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #26
@@ -8336,7 +8336,7 @@ _ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   br i1 %121, label %.loopexit, label %118
 
 .loopexit:                                        ; preds = %118, %.loopexit.loopexit31, %.thread
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %15, %.thread ], [ %103, %.loopexit.loopexit31 ], [ %.pn.pn.pn, %118 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %103, %.loopexit.loopexit31 ], [ %15, %.thread ], [ %.pn.pn.pn, %118 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #26
@@ -8663,7 +8663,7 @@ _ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   br i1 %131, label %.loopexit28, label %128
 
 .loopexit28:                                      ; preds = %118, %128, %.thread26
-  %.pn.pn = phi { ptr, i32 } [ %41, %.thread26 ], [ %.pn, %128 ], [ %117, %118 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %128 ], [ %41, %.thread26 ], [ %117, %118 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @_ZN5osgeo4proj9operation18VectorOfParametersD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #26
@@ -8681,7 +8681,7 @@ _ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   br i1 %136, label %.loopexit, label %133
 
 .loopexit:                                        ; preds = %110, %133, %.thread
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %16, %.thread ], [ %.pn.pn.pn, %133 ], [ %109, %110 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %133 ], [ %16, %.thread ], [ %109, %110 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #26
@@ -9001,7 +9001,7 @@ _ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   br i1 %131, label %.loopexit28, label %128
 
 .loopexit28:                                      ; preds = %118, %128, %.thread26
-  %.pn.pn = phi { ptr, i32 } [ %41, %.thread26 ], [ %.pn, %128 ], [ %117, %118 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %128 ], [ %41, %.thread26 ], [ %117, %118 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @_ZN5osgeo4proj9operation18VectorOfParametersD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #26
@@ -9019,7 +9019,7 @@ _ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   br i1 %136, label %.loopexit, label %133
 
 .loopexit:                                        ; preds = %110, %133, %.thread
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %16, %.thread ], [ %.pn.pn.pn, %133 ], [ %109, %110 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %133 ], [ %16, %.thread ], [ %109, %110 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #26
@@ -9315,7 +9315,7 @@ _ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   br i1 %116, label %.loopexit27, label %113
 
 .loopexit27:                                      ; preds = %113, %.loopexit27.loopexit30, %.thread25
-  %.pn.pn = phi { ptr, i32 } [ %38, %.thread25 ], [ %106, %.loopexit27.loopexit30 ], [ %.pn, %113 ]
+  %.pn.pn = phi { ptr, i32 } [ %106, %.loopexit27.loopexit30 ], [ %38, %.thread25 ], [ %.pn, %113 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @_ZN5osgeo4proj9operation18VectorOfParametersD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #26
@@ -9333,7 +9333,7 @@ _ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   br i1 %121, label %.loopexit, label %118
 
 .loopexit:                                        ; preds = %118, %.loopexit.loopexit31, %.thread
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %15, %.thread ], [ %103, %.loopexit.loopexit31 ], [ %.pn.pn.pn, %118 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %103, %.loopexit.loopexit31 ], [ %15, %.thread ], [ %.pn.pn.pn, %118 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #26
@@ -10532,7 +10532,7 @@ _ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   br i1 %236, label %.loopexit, label %233
 
 .loopexit:                                        ; preds = %209, %233, %.thread
-  %.pn154.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %88, %.thread ], [ %.pn154.pn.pn.pn.pn.pn, %233 ], [ %208, %209 ]
+  %.pn154.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn154.pn.pn.pn.pn.pn, %233 ], [ %88, %.thread ], [ %208, %209 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #26
@@ -12647,7 +12647,7 @@ _ZN7dropbox6oxygen23nn_dynamic_pointer_castIN5osgeo4proj9operation14Transformati
   br i1 %or.cond43.i, label %69, label %.critedge.i
 
 69:                                               ; preds = %67, %66, %.noexc11, %61, %61, %60, %60, %60, %.noexc10, %53, %.thread.i8, %.noexc9, %46, %46, %46, %46, %46, %45, %45, %45, %45, %45, %45, %.noexc
-  %.0159.i = phi i1 [ false, %.noexc ], [ true, %.noexc9 ], [ false, %60 ], [ false, %46 ], [ false, %46 ], [ false, %46 ], [ false, %46 ], [ false, %46 ], [ false, %45 ], [ true, %53 ], [ true, %.thread.i8 ], [ false, %61 ], [ false, %61 ], [ false, %60 ], [ false, %.noexc10 ], [ false, %45 ], [ false, %45 ], [ false, %45 ], [ false, %45 ], [ false, %45 ], [ false, %60 ], [ true, %67 ], [ true, %66 ], [ true, %.noexc11 ]
+  %.0159.i = phi i1 [ false, %.noexc10 ], [ false, %.noexc ], [ true, %.noexc9 ], [ false, %60 ], [ false, %46 ], [ false, %46 ], [ false, %46 ], [ false, %46 ], [ false, %46 ], [ false, %45 ], [ true, %53 ], [ true, %.thread.i8 ], [ false, %61 ], [ false, %61 ], [ false, %60 ], [ false, %45 ], [ false, %45 ], [ false, %45 ], [ false, %45 ], [ false, %45 ], [ false, %60 ], [ true, %67 ], [ true, %66 ], [ true, %.noexc11 ]
   %70 = tail call noundef double @_ZNK5osgeo4proj9operation15SingleOperation25parameterValueNumericAsSIEi(ptr noundef nonnull align 8 dereferenceable(16) %25, i32 noundef 8605) #26, !noalias !168
   %71 = fcmp une double %70, 0.000000e+00
   %72 = fneg double %70

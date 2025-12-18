@@ -5517,8 +5517,8 @@ _ZN6syntax10validation19validate_range_expr17h75da4e809c8e8fd5E.exit: ; preds = 
           to label %_ZN6syntax3ast9generated5nodes11PathSegment16coloncolon_token17h3f411437e7ce2d8aE.exit.i unwind label %1139, !noalias !1483
 
 .body.i368:                                       ; preds = %1538, %.body82.i, %"_ZN4core3ptr85drop_in_place$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h178068cb8b3cb747E.exit62.i"
-  %.3432.i = phi i8 [ %.228.i, %"_ZN4core3ptr85drop_in_place$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h178068cb8b3cb747E.exit62.i" ], [ %.7.lpad-body.i, %1538 ], [ %.7.lpad-body.i, %.body82.i ]
-  %.pn431.i = phi { ptr, i32 } [ %1247, %"_ZN4core3ptr85drop_in_place$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h178068cb8b3cb747E.exit62.i" ], [ %eh.lpad-body83.i, %1538 ], [ %eh.lpad-body83.i, %.body82.i ]
+  %.3432.i = phi i8 [ %.228.i, %"_ZN4core3ptr85drop_in_place$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h178068cb8b3cb747E.exit62.i" ], [ %.7.lpad-body.i, %.body82.i ], [ %.7.lpad-body.i, %1538 ]
+  %.pn431.i = phi { ptr, i32 } [ %1247, %"_ZN4core3ptr85drop_in_place$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h178068cb8b3cb747E.exit62.i" ], [ %eh.lpad-body83.i, %.body82.i ], [ %eh.lpad-body83.i, %1538 ]
   %1138 = trunc nuw i8 %.3432.i to i1
   br i1 %1138, label %.body.thread.i, label %"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Path$GT$17h67851934f51d7188E.exit109.i"
 
@@ -7961,7 +7961,7 @@ _ZN6syntax10validation21validate_numeric_name9int_token17he2955e0a5476c1a0E.exit
   br label %173
 
 _ZN6syntax10validation21validate_numeric_name9int_token17he2955e0a5476c1a0E.exit: ; preds = %"_ZN4core6option15Option$LT$T$GT$6filter17ha65736edd9edc63cE.exit.i", %"_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..nodes..NameRef$GT$17ha24634abb9e48cbcE.exit14.sink.split.i"
-  %.1.i = phi ptr [ %.0.i.i, %"_ZN4core6option15Option$LT$T$GT$6filter17ha65736edd9edc63cE.exit.i" ], [ %.1.ph.i, %"_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..nodes..NameRef$GT$17ha24634abb9e48cbcE.exit14.sink.split.i" ]
+  %.1.i = phi ptr [ %.1.ph.i, %"_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..nodes..NameRef$GT$17ha24634abb9e48cbcE.exit14.sink.split.i" ], [ %.0.i.i, %"_ZN4core6option15Option$LT$T$GT$6filter17ha65736edd9edc63cE.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not = icmp eq ptr %.1.i, null
   br i1 %.not, label %173, label %61
@@ -9639,7 +9639,7 @@ define internal fastcc void @_ZN6syntax10validation17validate_let_expr17hb50585d
   ]
 
 "_ZN5rowan3api19SyntaxNode$LT$L$GT$6parent17h9067579407e696eaE.exit.thread": ; preds = %109, %18, %120, %"_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..nodes..BinExpr$GT$17ha7d757a14a40451aE.exit43"
-  %.3 = phi ptr [ %25, %120 ], [ %25, %"_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..nodes..BinExpr$GT$17ha7d757a14a40451aE.exit43" ], [ %0, %18 ], [ %25, %109 ]
+  %.3 = phi ptr [ %25, %"_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..nodes..BinExpr$GT$17ha7d757a14a40451aE.exit43" ], [ %25, %120 ], [ %0, %18 ], [ %25, %109 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %122 = load i8, ptr %121, align 4, !range !298, !noalias !2571, !noundef !4
@@ -10697,7 +10697,7 @@ default.unreachable22:                            ; preds = %1
   br label %"_ZN6syntax3ast8expr_ext59_$LT$impl$u20$syntax..ast..generated..nodes..PrefixExpr$GT$8op_token17hc1fd1d7b20e758cfE.exit"
 
 "_ZN6syntax3ast8expr_ext59_$LT$impl$u20$syntax..ast..generated..nodes..PrefixExpr$GT$8op_token17hc1fd1d7b20e758cfE.exit": ; preds = %56, %90, %88, %85, %82, %79, %76, %73, %53, %50, %47, %44, %41, %38, %35, %28, %21, %12, %9, %6
-  %.0 = phi ptr [ %8, %6 ], [ %11, %9 ], [ %14, %12 ], [ %91, %90 ], [ %23, %21 ], [ %30, %28 ], [ %37, %35 ], [ %40, %38 ], [ %43, %41 ], [ %46, %44 ], [ %49, %47 ], [ %52, %50 ], [ %55, %53 ], [ %89, %88 ], [ %75, %73 ], [ %78, %76 ], [ %81, %79 ], [ %87, %85 ], [ %84, %82 ], [ %60, %56 ]
+  %.0 = phi ptr [ %8, %6 ], [ %11, %9 ], [ %14, %12 ], [ %87, %85 ], [ %23, %21 ], [ %81, %79 ], [ %30, %28 ], [ %91, %90 ], [ %37, %35 ], [ %40, %38 ], [ %43, %41 ], [ %46, %44 ], [ %49, %47 ], [ %52, %50 ], [ %55, %53 ], [ %89, %88 ], [ %84, %82 ], [ %75, %73 ], [ %78, %76 ], [ %60, %56 ]
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %"_ZN6syntax3ast8expr_ext59_$LT$impl$u20$syntax..ast..generated..nodes..PrefixExpr$GT$8op_token17hc1fd1d7b20e758cfE.exit.thread", label %"_ZN6syntax3ast8expr_ext59_$LT$impl$u20$syntax..ast..generated..nodes..PrefixExpr$GT$8op_token17hc1fd1d7b20e758cfE.exit.thread16"
 

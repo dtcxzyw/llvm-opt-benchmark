@@ -623,7 +623,7 @@ define hidden i32 @internal_exr_compute_chunk_offset_size(ptr noundef captures(n
   br i1 %exitcond164.not, label %._crit_edge, label %52, !llvm.loop !50
 
 .thread122:                                       ; preds = %._crit_edge.us, %43, %.preheader124.lr.ph, %.preheader125, %._crit_edge
-  %.187.in = phi i64 [ %60, %._crit_edge ], [ 0, %.preheader125 ], [ 0, %.preheader124.lr.ph ], [ 0, %43 ], [ %41, %._crit_edge.us ]
+  %.187.in = phi i64 [ %60, %._crit_edge ], [ 0, %.preheader125 ], [ 0, %43 ], [ 0, %.preheader124.lr.ph ], [ %41, %._crit_edge.us ]
   %.187 = trunc i64 %.187.in to i32
   %61 = load i32, ptr %5, align 8, !tbaa !51
   %62 = icmp sgt i32 %61, 0

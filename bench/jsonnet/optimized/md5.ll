@@ -104,7 +104,7 @@ define void @_ZN3MD5C2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(pt
   br i1 %.not24.i.i, label %_ZN3MD56updateEPKcj.exit, label %.lr.ph.i.i, !llvm.loop !20
 
 _ZN3MD56updateEPKcj.exit:                         ; preds = %.lr.ph.i.i, %2, %15
-  %.1.i.i = phi i32 [ 64, %15 ], [ 0, %2 ], [ %17, %.lr.ph.i.i ]
+  %.1.i.i = phi i32 [ 0, %2 ], [ 64, %15 ], [ %17, %.lr.ph.i.i ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %22 = zext i32 %.1.i.i to i64
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 %22

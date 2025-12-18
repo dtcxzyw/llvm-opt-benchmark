@@ -443,7 +443,7 @@ define hidden noalias noundef ptr @_ZN2TH14THDiskFile_newERKNSt7__cxx1112basic_s
   store i32 1, ptr %4, align 4, !tbaa !19
   br label %34
 
-24:                                               ; preds = %3, %13, %19, %16
+24:                                               ; preds = %16, %19, %13, %3
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.4, ptr noundef nonnull align 1 dereferenceable(1) %7)
@@ -1701,7 +1701,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit124: ; preds = %84
   br label %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit
 
 _ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit:   ; preds = %.lr.ph, %._crit_edge.us.i, %._crit_edge.us.i131, %.preheader, %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit121, %.loopexit, %120, %120, %123, %._crit_edge, %43
-  %.0 = phi i64 [ %.1143, %.loopexit ], [ %44, %43 ], [ %90, %._crit_edge ], [ %.1143, %123 ], [ %.1143, %120 ], [ %.1143, %120 ], [ %59, %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit121 ], [ 0, %.preheader ], [ %44, %._crit_edge.us.i ], [ %90, %._crit_edge.us.i131 ], [ %59, %.lr.ph ]
+  %.0 = phi i64 [ %.1143, %.loopexit ], [ %44, %43 ], [ %90, %._crit_edge ], [ %59, %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit121 ], [ %90, %._crit_edge.us.i131 ], [ %.1143, %123 ], [ %.1143, %120 ], [ %.1143, %120 ], [ 0, %.preheader ], [ %44, %._crit_edge.us.i ], [ %59, %.lr.ph ]
   %.not106 = icmp eq i64 %.0, %2
   br i1 %.not106, label %137, label %126
 

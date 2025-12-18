@@ -272,7 +272,7 @@ define i64 @LZ4F_read(ptr noundef captures(address_is_null) %0, ptr noundef %1, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %32, %.loopexit.sink.split, %.preheader, %3
-  %.033 = phi i64 [ 0, %.preheader ], [ -21, %3 ], [ %.033.ph, %.loopexit.sink.split ], [ %37, %32 ]
+  %.033 = phi i64 [ 0, %.preheader ], [ %.033.ph, %.loopexit.sink.split ], [ -21, %3 ], [ %37, %32 ]
   ret i64 %.033
 }
 
@@ -515,7 +515,7 @@ define noundef i64 @LZ4F_write(ptr noundef captures(address_is_null) %0, ptr nou
   br label %.loopexit
 
 .loopexit:                                        ; preds = %21, %.loopexit.sink.split, %.preheader, %3
-  %.0 = phi i64 [ 0, %.preheader ], [ -21, %3 ], [ %.sink, %.loopexit.sink.split ], [ %2, %21 ]
+  %.0 = phi i64 [ -21, %3 ], [ 0, %.preheader ], [ %.sink, %.loopexit.sink.split ], [ %2, %21 ]
   ret i64 %.0
 }
 

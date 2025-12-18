@@ -1144,7 +1144,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN10async_task4task17Task$LT$T$C$M$GT
   br i1 %22, label %"_ZN10async_task6header15Header$LT$M$GT$6notify17h636128806a07616cE.llvm.10573945460333072495.exit22", label %23
 
 "_ZN10async_task6header15Header$LT$M$GT$6notify17h636128806a07616cE.llvm.10573945460333072495.exit22": ; preds = %20, %98, %92, %79, %74, %69, %"_ZN10async_task6header15Header$LT$M$GT$6notify17h636128806a07616cE.llvm.10573945460333072495.exit"
-  %.sroa.0.0 = phi i8 [ 1, %"_ZN10async_task6header15Header$LT$M$GT$6notify17h636128806a07616cE.llvm.10573945460333072495.exit" ], [ 2, %69 ], [ 0, %74 ], [ 0, %79 ], [ 0, %92 ], [ 0, %98 ], [ 2, %20 ]
+  %.sroa.0.0 = phi i8 [ 1, %"_ZN10async_task6header15Header$LT$M$GT$6notify17h636128806a07616cE.llvm.10573945460333072495.exit" ], [ 0, %98 ], [ 2, %69 ], [ 0, %74 ], [ 0, %79 ], [ 0, %92 ], [ 2, %20 ]
   ret i8 %.sroa.0.0
 
 23:                                               ; preds = %20, %10
@@ -8112,8 +8112,8 @@ define hidden void @_ZN8language6buffer6Buffer4edit17h688b4901f6936b7eE.llvm.105
   br label %.body97
 
 .body97:                                          ; preds = %69, %112, %114, %47
-  %.sroa.046.0.lpad-body = phi i1 [ true, %47 ], [ false, %114 ], [ false, %112 ], [ true, %69 ]
-  %eh.lpad-body98 = phi { ptr, i32 } [ %48, %47 ], [ %113, %114 ], [ %113, %112 ], [ %72, %69 ]
+  %.sroa.046.0.lpad-body = phi i1 [ false, %112 ], [ true, %47 ], [ false, %114 ], [ true, %69 ]
+  %eh.lpad-body98 = phi { ptr, i32 } [ %113, %112 ], [ %48, %47 ], [ %113, %114 ], [ %72, %69 ]
   %49 = extractvalue { ptr, i32 } %eh.lpad-body98, 0
   %50 = extractvalue { ptr, i32 } %eh.lpad-body98, 1
   br label %.thread

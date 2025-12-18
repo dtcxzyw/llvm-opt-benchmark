@@ -572,7 +572,7 @@ X509_LOOKUP_new.exit.thread.sink.split:           ; preds = %32, %29, %27, %22
   br label %X509_LOOKUP_new.exit.thread
 
 X509_LOOKUP_new.exit.thread:                      ; preds = %.lr.ph, %X509_LOOKUP_new.exit.thread.sink.split, %._crit_edge, %X509_LOOKUP_new.exit
-  %.0 = phi ptr [ %14, %X509_LOOKUP_new.exit ], [ null, %._crit_edge ], [ null, %X509_LOOKUP_new.exit.thread.sink.split ], [ %10, %.lr.ph ]
+  %.0 = phi ptr [ null, %X509_LOOKUP_new.exit.thread.sink.split ], [ null, %._crit_edge ], [ %14, %X509_LOOKUP_new.exit ], [ %10, %.lr.ph ]
   ret ptr %.0
 }
 
@@ -1695,7 +1695,7 @@ X509_OBJECT_free_contents.exit43:                 ; preds = %34, %36, %37
   br label %.loopexit
 
 .loopexit:                                        ; preds = %67, %.lr.ph, %55, %48, %76, %X509_OBJECT_free_contents.exit43
-  %.032 = phi i32 [ 1, %76 ], [ 0, %X509_OBJECT_free_contents.exit43 ], [ 0, %48 ], [ 0, %55 ], [ 0, %.lr.ph ], [ 0, %67 ]
+  %.032 = phi i32 [ 0, %X509_OBJECT_free_contents.exit43 ], [ 1, %76 ], [ 0, %48 ], [ 0, %55 ], [ 0, %.lr.ph ], [ 0, %67 ]
   %78 = load ptr, ptr %1, align 8, !tbaa !45
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 16
   call void @CRYPTO_MUTEX_unlock(ptr noundef nonnull %79) #10

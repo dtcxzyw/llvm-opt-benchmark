@@ -201,8 +201,8 @@ define internal range(i32 -22, 1) i32 @swf_write_header(ptr noundef %0) #0 {
   br label %84
 
 84:                                               ; preds = %81, %81, %81, %.fold.split232, %.fold.split, %73, %.thread197
-  %85 = phi i1 [ true, %73 ], [ true, %81 ], [ false, %.thread197 ], [ true, %81 ], [ true, %81 ], [ false, %.fold.split ], [ false, %.fold.split232 ]
-  %.0119 = phi i32 [ 9, %73 ], [ 8, %81 ], [ 4, %.thread197 ], [ 8, %81 ], [ 8, %81 ], [ 7, %.fold.split ], [ 6, %.fold.split232 ]
+  %85 = phi i1 [ true, %73 ], [ true, %81 ], [ false, %.fold.split ], [ false, %.thread197 ], [ true, %81 ], [ true, %81 ], [ false, %.fold.split232 ]
+  %.0119 = phi i32 [ 9, %73 ], [ 8, %81 ], [ 7, %.fold.split ], [ 4, %.thread197 ], [ 8, %81 ], [ 8, %81 ], [ 6, %.fold.split232 ]
   tail call void @avio_w8(ptr noundef %7, i32 noundef %.0119) #7
   tail call void @avio_wl32(ptr noundef %7, i32 noundef 104857600) #7
   %86 = mul nsw i32 %.0123, 20
@@ -469,7 +469,7 @@ flush_put_bits.exit:                              ; preds = %166, %put_bits.exit
   br label %.thread
 
 .thread:                                          ; preds = %30, %32, %41, %177, %179, %.thread198, %202, %93
-  %.2 = phi i32 [ 0, %177 ], [ -22, %93 ], [ -1, %202 ], [ 0, %.thread198 ], [ 0, %179 ], [ -1, %32 ], [ -1, %41 ], [ -12, %30 ]
+  %.2 = phi i32 [ 0, %177 ], [ -22, %93 ], [ -1, %202 ], [ 0, %.thread198 ], [ 0, %179 ], [ -1, %41 ], [ -1, %32 ], [ -12, %30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.2

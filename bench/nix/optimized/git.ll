@@ -5124,9 +5124,9 @@ _ZN7testing8internal8EqHelper7CompareIN3nix20MemorySourceAccessorES4_TnPNSt9enab
   br i1 %225, label %.loopexit121, label %.preheader120
 
 .loopexit121:                                     ; preds = %.preheader120, %202, %221, %.thread
-  %.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn, %221 ], [ %203, %202 ], [ %204, %.thread ], [ %.pn.pn.pn.pn.pn.pn, %.preheader120 ]
-  %.121 = phi ptr [ %40, %221 ], [ %10, %202 ], [ %40, %.thread ], [ %40, %.preheader120 ]
-  %.1 = phi i1 [ %.3, %221 ], [ true, %202 ], [ true, %.thread ], [ %.3, %.preheader120 ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn, %221 ], [ %204, %.thread ], [ %203, %202 ], [ %.pn.pn.pn.pn.pn.pn, %.preheader120 ]
+  %.121 = phi ptr [ %40, %221 ], [ %40, %.thread ], [ %10, %202 ], [ %40, %.preheader120 ]
+  %.1 = phi i1 [ %.3, %221 ], [ true, %.thread ], [ true, %202 ], [ %.3, %.preheader120 ]
   call void @_ZN3nix20MemorySourceAccessor4File7RegularD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %11) #26
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #26
   %226 = icmp ne ptr %10, %.121
@@ -17284,7 +17284,7 @@ common.resume.sink.split:                         ; preds = %427, %433, %401, %4
   br label %common.resume
 
 common.resume:                                    ; preds = %.preheader.i, %common.resume.sink.split, %278
-  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.i, %278 ], [ %common.resume.op.ph, %common.resume.sink.split ], [ %.pn.pn.pn.pn.pn.pn.pn.i, %.preheader.i ]
+  %common.resume.op = phi { ptr, i32 } [ %common.resume.op.ph, %common.resume.sink.split ], [ %.pn.pn.pn.pn.pn.pn.pn.i, %278 ], [ %.pn.pn.pn.pn.pn.pn.pn.i, %.preheader.i ]
   resume { ptr, i32 } %common.resume.op
 
 __cxx_global_var_init.4.exit:                     ; preds = %_ZN7testing8internal12CodeLocationD2Ev.exit.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i

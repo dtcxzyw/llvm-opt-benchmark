@@ -129448,7 +129448,7 @@ _ZN3std4sync6poison4Flag5guard17h6c661f46aaa22cfeE.exit.i: ; preds = %.noexc7, %
           to label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hab8bc25bfb4d622bE.exit" unwind label %191
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hab8bc25bfb4d622bE.exit.thread": ; preds = %149, %153
-  %.sroa.3.0.i.i.ph.i = phi i64 [ %.sroa.4.19.i.i.i, %149 ], [ %159, %153 ]
+  %.sroa.3.0.i.i.ph.i = phi i64 [ %159, %153 ], [ %.sroa.4.19.i.i.i, %149 ]
   %164 = load ptr, ptr %42, align 8, !alias.scope !23569, !noalias !23572, !nonnull !4
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false), !noalias !23548
@@ -130221,7 +130221,7 @@ _ZN3std4sync6poison4Flag5guard17h6c661f46aaa22cfeE.exit.i: ; preds = %.noexc7, %
           to label %193 unwind label %191
 
 .thread29:                                        ; preds = %151, %155
-  %.sroa.3.0.i.i.ph.i = phi i64 [ %.sroa.4.19.i.i.i, %151 ], [ %161, %155 ]
+  %.sroa.3.0.i.i.ph.i = phi i64 [ %161, %155 ], [ %.sroa.4.19.i.i.i, %151 ]
   %167 = load ptr, ptr %43, align 8, !alias.scope !23728, !noalias !23731, !nonnull !4
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !noalias !23695
@@ -130977,7 +130977,7 @@ _ZN3std4sync6poison4Flag5guard17h6c661f46aaa22cfeE.exit.i: ; preds = %.noexc7, %
           to label %193 unwind label %191
 
 .thread29:                                        ; preds = %151, %155
-  %.sroa.3.0.i.i.ph.i = phi i64 [ %.sroa.4.19.i.i.i, %151 ], [ %161, %155 ]
+  %.sroa.3.0.i.i.ph.i = phi i64 [ %161, %155 ], [ %.sroa.4.19.i.i.i, %151 ]
   %167 = load ptr, ptr %43, align 8, !alias.scope !23864, !noalias !23867, !nonnull !4
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !noalias !23831

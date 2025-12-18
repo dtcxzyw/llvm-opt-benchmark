@@ -3542,7 +3542,7 @@ _ZN5draco33DynamicIntegerPointsKdTreeDecoderILi0EE12DecodeNumberEiPj.exit.thread
   br label %291
 
 _ZN5draco33DynamicIntegerPointsKdTreeDecoderILi0EE12DecodeNumberEiPj.exit: ; preds = %262, %269, %276
-  %.0172 = phi i32 [ %285, %276 ], [ %266, %269 ], [ %266, %262 ]
+  %.0172 = phi i32 [ %266, %262 ], [ %285, %276 ], [ %266, %269 ]
   %287 = lshr i32 %.sroa.0.0.copyload178, 1
   %288 = icmp ult i32 %287, %.0172
   br i1 %288, label %.thread193, label %291
@@ -5002,7 +5002,7 @@ _ZN5draco33DynamicIntegerPointsKdTreeDecoderILi1EE12DecodeNumberEiPj.exit.thread
   br label %290
 
 _ZN5draco33DynamicIntegerPointsKdTreeDecoderILi1EE12DecodeNumberEiPj.exit: ; preds = %261, %268, %275
-  %.0169 = phi i32 [ %284, %275 ], [ %265, %268 ], [ %265, %261 ]
+  %.0169 = phi i32 [ %265, %261 ], [ %284, %275 ], [ %265, %268 ]
   %286 = lshr i32 %.sroa.0.0.copyload175, 1
   %287 = icmp ult i32 %286, %.0169
   br i1 %287, label %.thread190, label %290
@@ -8142,7 +8142,7 @@ _ZN5draco18FoldedBit32DecoderINS_14RAnsBitDecoderEE13StartDecodingEPNS_13Decoder
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit11
 
 _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit11:   ; preds = %34, %48, %4, %17, %45, %42, %39, %_ZN5draco18FoldedBit32DecoderINS_14RAnsBitDecoderEE13StartDecodingEPNS_13DecoderBufferE.exit, %28, %21, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
-  %.0 = phi i1 [ false, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit ], [ false, %4 ], [ true, %21 ], [ false, %45 ], [ false, %42 ], [ false, %39 ], [ false, %_ZN5draco18FoldedBit32DecoderINS_14RAnsBitDecoderEE13StartDecodingEPNS_13DecoderBufferE.exit ], [ false, %28 ], [ %50, %48 ], [ false, %17 ], [ false, %34 ]
+  %.0 = phi i1 [ false, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit ], [ false, %4 ], [ true, %21 ], [ false, %17 ], [ false, %45 ], [ false, %42 ], [ false, %39 ], [ false, %_ZN5draco18FoldedBit32DecoderINS_14RAnsBitDecoderEE13StartDecodingEPNS_13DecoderBufferE.exit ], [ false, %28 ], [ %50, %48 ], [ false, %34 ]
   ret i1 %.0
 }
 
@@ -9373,7 +9373,7 @@ _ZN5draco18FoldedBit32DecoderINS_14RAnsBitDecoderEE13StartDecodingEPNS_13Decoder
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit11
 
 _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit11:   ; preds = %34, %48, %4, %17, %45, %42, %39, %_ZN5draco18FoldedBit32DecoderINS_14RAnsBitDecoderEE13StartDecodingEPNS_13DecoderBufferE.exit, %28, %21, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
-  %.0 = phi i1 [ false, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit ], [ false, %4 ], [ true, %21 ], [ false, %45 ], [ false, %42 ], [ false, %39 ], [ false, %_ZN5draco18FoldedBit32DecoderINS_14RAnsBitDecoderEE13StartDecodingEPNS_13DecoderBufferE.exit ], [ false, %28 ], [ %50, %48 ], [ false, %17 ], [ false, %34 ]
+  %.0 = phi i1 [ false, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit ], [ false, %4 ], [ true, %21 ], [ false, %17 ], [ false, %45 ], [ false, %42 ], [ false, %39 ], [ false, %_ZN5draco18FoldedBit32DecoderINS_14RAnsBitDecoderEE13StartDecodingEPNS_13DecoderBufferE.exit ], [ false, %28 ], [ %50, %48 ], [ false, %34 ]
   ret i1 %.0
 }
 
@@ -10594,7 +10594,7 @@ _ZN5draco18FoldedBit32DecoderINS_14RAnsBitDecoderEE13StartDecodingEPNS_13Decoder
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit11
 
 _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit11:   ; preds = %34, %48, %4, %17, %45, %42, %39, %_ZN5draco18FoldedBit32DecoderINS_14RAnsBitDecoderEE13StartDecodingEPNS_13DecoderBufferE.exit, %28, %21, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
-  %.0 = phi i1 [ false, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit ], [ false, %4 ], [ true, %21 ], [ false, %45 ], [ false, %42 ], [ false, %39 ], [ false, %_ZN5draco18FoldedBit32DecoderINS_14RAnsBitDecoderEE13StartDecodingEPNS_13DecoderBufferE.exit ], [ false, %28 ], [ %50, %48 ], [ false, %17 ], [ false, %34 ]
+  %.0 = phi i1 [ false, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit ], [ false, %4 ], [ true, %21 ], [ false, %17 ], [ false, %45 ], [ false, %42 ], [ false, %39 ], [ false, %_ZN5draco18FoldedBit32DecoderINS_14RAnsBitDecoderEE13StartDecodingEPNS_13DecoderBufferE.exit ], [ false, %28 ], [ %50, %48 ], [ false, %34 ]
   ret i1 %.0
 }
 

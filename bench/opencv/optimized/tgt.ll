@@ -478,7 +478,7 @@ opj_tgt_reset.exit.sink.split:                    ; preds = %47, %50, %36, %33
   br label %opj_tgt_reset.exit
 
 opj_tgt_reset.exit:                               ; preds = %.lr.ph.i, %opj_tgt_reset.exit.sink.split, %90, %4
-  %.0 = phi ptr [ null, %4 ], [ %0, %90 ], [ null, %opj_tgt_reset.exit.sink.split ], [ %0, %.lr.ph.i ]
+  %.0 = phi ptr [ null, %opj_tgt_reset.exit.sink.split ], [ null, %4 ], [ %0, %90 ], [ %0, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0

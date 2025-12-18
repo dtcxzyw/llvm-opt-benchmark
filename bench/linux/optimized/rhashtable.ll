@@ -339,8 +339,8 @@ select.unfold:                                    ; preds = %.loopexit32, %101, 
   %spec.select = select i1 %182, ptr inttoptr (i64 -11 to ptr), ptr inttoptr (i64 -2 to ptr)
   br label %.thread20
 
-.thread20:                                        ; preds = %.split47.us, %175, %176, %.loopexit
-  %.ph = phi ptr [ null, %175 ], [ %spec.select, %.split47.us ], [ inttoptr (i64 -2 to ptr), %.loopexit ], [ null, %176 ]
+.thread20:                                        ; preds = %.split47.us, %176, %175, %.loopexit
+  %.ph = phi ptr [ null, %176 ], [ %spec.select, %.split47.us ], [ inttoptr (i64 -2 to ptr), %.loopexit ], [ null, %175 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %191
 
@@ -1846,7 +1846,7 @@ define internal fastcc noundef ptr @bucket_table_alloc(i64 noundef range(i64 0, 
   br i1 %63, label %57, label %.thread6, !llvm.loop !54
 
 .thread6:                                         ; preds = %57, %39, %19, %8, %45
-  %64 = phi ptr [ %47, %45 ], [ null, %8 ], [ null, %39 ], [ null, %19 ], [ %47, %57 ]
+  %64 = phi ptr [ null, %19 ], [ %47, %45 ], [ null, %8 ], [ null, %39 ], [ %47, %57 ]
   ret ptr %64
 }
 

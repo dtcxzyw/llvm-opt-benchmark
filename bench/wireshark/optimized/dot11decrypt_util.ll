@@ -252,7 +252,7 @@ define hidden noundef zeroext i1 @dot11decrypt_kdf(ptr noundef %0, i64 noundef %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %46, %8, %52, %30
-  %.045 = phi i1 [ false, %30 ], [ true, %52 ], [ false, %8 ], [ false, %46 ]
+  %.045 = phi i1 [ false, %30 ], [ false, %8 ], [ true, %52 ], [ false, %46 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

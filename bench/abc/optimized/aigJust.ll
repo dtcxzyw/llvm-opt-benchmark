@@ -251,7 +251,7 @@ tailrecurse.backedge:                             ; preds = %71, %89, %109
   br i1 %.not140, label %Aig_ObjSatValue.exit, label %.lr.ph
 
 Aig_ObjSatValue.exit:                             ; preds = %.thread105, %tailrecurse.backedge, %68, %83, %109, %.thread, %5, %25, %Vec_IntPush.exit, %13
-  %.0.shrunk = phi i1 [ true, %Vec_IntPush.exit ], [ %17, %13 ], [ true, %25 ], [ %.not4.i96174, %.thread ], [ true, %5 ], [ true, %tailrecurse.backedge ], [ false, %68 ], [ true, %83 ], [ true, %109 ], [ true, %.thread105 ]
+  %.0.shrunk = phi i1 [ true, %Vec_IntPush.exit ], [ %17, %13 ], [ true, %25 ], [ %.not4.i96174, %.thread ], [ true, %109 ], [ true, %5 ], [ false, %68 ], [ true, %83 ], [ true, %tailrecurse.backedge ], [ true, %.thread105 ]
   %.0 = zext i1 %.0.shrunk to i32
   ret i32 %.0
 }

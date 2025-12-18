@@ -2961,7 +2961,7 @@ switch.early.test:                                ; preds = %.lr.ph
   %.not = icmp eq i8 %.fr, 0
   br i1 %.not, label %.thread40, label %.lr.ph, !llvm.loop !179
 
-.thread40:                                        ; preds = %12, %10, %7, %1
+.thread40:                                        ; preds = %12, %7, %10, %1
   %.0 = phi i32 [ 1, %1 ], [ 1, %7 ], [ 1, %10 ], [ 0, %12 ]
   ret i32 %.0
 }
@@ -11475,6 +11475,11 @@ moduleCreateEmptyKey.exit:                        ; preds = %.thread, %.sink.spl
   call void @decrRefCount(ptr noundef nonnull %.3) #35
   br label %.thread92.outer.backedge
 
+.thread92.outer.backedge:                         ; preds = %104, %117, %99
+  %.pn = phi i32 [ %103, %99 ], [ %115, %117 ], [ %103, %104 ]
+  %.061.ph.be = add nsw i32 %.pn, %.061.ph
+  br label %.thread92.outer
+
 105:                                              ; preds = %97
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %.3, ptr %4, align 16, !tbaa !141
@@ -11500,11 +11505,6 @@ moduleCreateEmptyKey.exit:                        ; preds = %.thread, %.sink.spl
 117:                                              ; preds = %116, %105
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread92.outer.backedge
-
-.thread92.outer.backedge:                         ; preds = %117, %104, %99
-  %.pn = phi i32 [ %103, %99 ], [ %103, %104 ], [ %115, %117 ]
-  %.061.ph.be = add nsw i32 %.pn, %.061.ph
-  br label %.thread92.outer
 
 .thread89:                                        ; preds = %52, %67
   call void @llvm.va_end.p0(ptr nonnull %3)
@@ -14340,7 +14340,7 @@ define dso_local ptr @moduleTypeLookupModuleByID(i64 noundef %0) local_unnamed_a
   br label %.loopexit
 
 .loopexit:                                        ; preds = %7, %._crit_edge.thread, %._crit_edge, %31
-  %.0 = phi ptr [ %.2, %31 ], [ %.2, %._crit_edge ], [ null, %._crit_edge.thread ], [ %6, %7 ]
+  %.0 = phi ptr [ %.2, %._crit_edge ], [ %.2, %31 ], [ null, %._crit_edge.thread ], [ %6, %7 ]
   ret ptr %.0
 }
 
@@ -24806,7 +24806,7 @@ modulePopulateReplicationInfoStructure.exit:      ; preds = %123
   br label %moduleInitKey.exit
 
 moduleInitKey.exit:                               ; preds = %.sink.split.i.i, %154, %144, %141, %modulePopulateReplicationInfoStructure.exit.thread, %122, %122, %122, %122, %.fold.split, %134, %136
-  %.0 = phi ptr [ %10, %.sink.split.i.i ], [ %7, %modulePopulateReplicationInfoStructure.exit.thread ], [ %8, %141 ], [ %2, %134 ], [ %2, %122 ], [ %2, %122 ], [ %2, %122 ], [ null, %.fold.split ], [ %2, %136 ], [ %2, %122 ], [ %10, %144 ], [ %10, %154 ]
+  %.0 = phi ptr [ %2, %122 ], [ %10, %.sink.split.i.i ], [ %7, %modulePopulateReplicationInfoStructure.exit.thread ], [ %8, %141 ], [ %2, %134 ], [ %2, %122 ], [ %2, %122 ], [ %2, %122 ], [ null, %.fold.split ], [ %2, %136 ], [ %10, %144 ], [ %10, %154 ]
   %158 = load ptr, ptr %89, align 8, !tbaa !595
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 72
   %160 = load i32, ptr %159, align 8, !tbaa !602

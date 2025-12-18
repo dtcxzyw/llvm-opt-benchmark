@@ -2007,7 +2007,7 @@ _ZNKSt13unordered_mapImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4ha
   unreachable
 
 .loopexit:                                        ; preds = %159, %147, %152
-  %.sroa.06.1.i.i.i = phi ptr [ %155, %152 ], [ %.sroa.06.0.i.i.i, %147 ], [ %161, %159 ]
+  %.sroa.06.1.i.i.i = phi ptr [ %.sroa.06.0.i.i.i, %147 ], [ %155, %152 ], [ %161, %159 ]
   %166 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 16
   %167 = load ptr, ptr %2, align 8, !tbaa !46
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 296

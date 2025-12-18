@@ -805,7 +805,7 @@ break_cycles.exit.i:                              ; preds = %.lr.ph18.i.i, %._cr
   br i1 %.not30.i.i, label %connect_components.exit.i, label %.lr.ph43.i.i, !llvm.loop !96
 
 connect_components.exit.i:                        ; preds = %322, %311, %._crit_edge38.i.i, %._crit_edge.i40.i
-  %.025.lcssa49.i.i = phi i32 [ %.126.i.i, %._crit_edge38.i.i ], [ %.126.i.i, %311 ], [ 0, %._crit_edge.i40.i ], [ %.126.i.i, %322 ]
+  %.025.lcssa49.i.i = phi i32 [ 0, %._crit_edge.i40.i ], [ %.126.i.i, %._crit_edge38.i.i ], [ %.126.i.i, %311 ], [ %.126.i.i, %322 ]
   %324 = call ptr @agfstnode(ptr noundef %12) #15
   %.not58.i.i = icmp eq ptr %324, null
   br i1 %.not58.i.i, label %add_fast_edges.exit.i, label %.lr.ph61.i.i

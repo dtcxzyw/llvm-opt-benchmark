@@ -1240,7 +1240,7 @@ pmix_cmd_line_get_param.exit:                     ; preds = %80, %110, %.lr.ph.i
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph186, %.lr.ph191, %.lr.ph196, %.lr.ph202, %._crit_edge203, %185, %190, %195, %133, %126, %119, %197, %73, %61, %49, %37, %25
-  %.0 = phi i32 [ -43, %25 ], [ -43, %37 ], [ -43, %49 ], [ -43, %61 ], [ -43, %73 ], [ -43, %133 ], [ -43, %197 ], [ 0, %190 ], [ -43, %126 ], [ -43, %119 ], [ 0, %195 ], [ 0, %185 ], [ 0, %._crit_edge203 ], [ -43, %.lr.ph186 ], [ %180, %.lr.ph202 ], [ -43, %.lr.ph196 ], [ -43, %.lr.ph191 ], [ %116, %.lr.ph ]
+  %.0 = phi i32 [ -43, %25 ], [ -43, %37 ], [ -43, %49 ], [ -43, %61 ], [ -43, %73 ], [ -43, %.lr.ph191 ], [ -43, %133 ], [ -43, %.lr.ph196 ], [ %180, %.lr.ph202 ], [ -43, %.lr.ph186 ], [ 0, %._crit_edge203 ], [ -43, %197 ], [ 0, %190 ], [ -43, %126 ], [ -43, %119 ], [ 0, %195 ], [ 0, %185 ], [ %116, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)

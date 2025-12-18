@@ -1085,7 +1085,7 @@ _.exit264:                                        ; preds = %231, %232
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.thread300
 
-249:                                              ; preds = %149, %246, %144, %147, %243, %245
+249:                                              ; preds = %149, %246, %147, %144, %243, %245
   %.2166.ph294 = phi i32 [ 0, %246 ], [ %142, %144 ], [ %142, %147 ], [ 0, %243 ], [ 0, %245 ], [ 0, %149 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -1250,7 +1250,7 @@ define internal range(i32 -1, 1) i32 @reftable_be_transaction_finish(ptr readnon
   br i1 %40, label %.lr.ph.i, label %free_transaction_data.exit, !llvm.loop !102
 
 free_transaction_data.exit:                       ; preds = %.lr.ph.i, %3, %.preheader.i
-  %.143 = phi i32 [ %.1, %.preheader.i ], [ 0, %3 ], [ %.1, %.lr.ph.i ]
+  %.143 = phi i32 [ 0, %3 ], [ %.1, %.preheader.i ], [ %.1, %.lr.ph.i ]
   %41 = load ptr, ptr %5, align 8, !tbaa !80
   tail call void @free(ptr noundef %41) #20
   tail call void @free(ptr noundef nonnull %5) #20
@@ -1958,9 +1958,9 @@ st_mult.exit.us:                                  ; preds = %40
   br label %._crit_edge
 
 .loopexit:                                        ; preds = %51, %..loopexit_crit_edge, %.thread71
-  %.046 = phi ptr [ %.14793.us108, %..loopexit_crit_edge ], [ %.us-phi99, %.thread71 ], [ %.14793.us108, %51 ]
-  %.038 = phi i64 [ %.13995.us106, %..loopexit_crit_edge ], [ %.us-phi100, %.thread71 ], [ %.13995.us106, %51 ]
-  %.035 = phi i32 [ %56, %..loopexit_crit_edge ], [ %.us-phi, %.thread71 ], [ 0, %51 ]
+  %.046 = phi ptr [ %.us-phi99, %.thread71 ], [ %.14793.us108, %..loopexit_crit_edge ], [ %.14793.us108, %51 ]
+  %.038 = phi i64 [ %.us-phi100, %.thread71 ], [ %.13995.us106, %..loopexit_crit_edge ], [ %.13995.us106, %51 ]
+  %.035 = phi i32 [ %.us-phi, %.thread71 ], [ %56, %..loopexit_crit_edge ], [ 0, %51 ]
   call void @reftable_iterator_destroy(ptr noundef nonnull %6) #20
   %.not121 = icmp eq i64 %.038, 0
   br i1 %.not121, label %._crit_edge, label %.lr.ph120
@@ -4016,8 +4016,8 @@ st_mult.exit203:                                  ; preds = %121
   br i1 %exitcond.not, label %._crit_edge310, label %.lr.ph309, !llvm.loop !182
 
 ._crit_edge310:                                   ; preds = %.lr.ph309, %sane_qsort.exit, %.loopexit
-  %.10359 = phi ptr [ %.10, %.loopexit ], [ null, %sane_qsort.exit ], [ %.10, %.lr.ph309 ]
-  %.8160358 = phi i32 [ %.8160, %.loopexit ], [ 0, %sane_qsort.exit ], [ %.8160, %.lr.ph309 ]
+  %.10359 = phi ptr [ null, %sane_qsort.exit ], [ %.10, %.loopexit ], [ %.10, %.lr.ph309 ]
+  %.8160358 = phi i32 [ 0, %sane_qsort.exit ], [ %.8160, %.loopexit ], [ %.8160, %.lr.ph309 ]
   call void @free(ptr noundef %.10359) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.8160358
@@ -4582,9 +4582,9 @@ st_mult.exit231:                                  ; preds = %243
   br i1 %259, label %.loopexit, label %216
 
 .loopexit:                                        ; preds = %257, %.preheader, %154, %41, %222, %209, %156, %78, %56, %_.exit219, %_.exit
-  %.0176 = phi ptr [ null, %_.exit ], [ null, %_.exit219 ], [ null, %56 ], [ null, %78 ], [ %.6182, %156 ], [ %.6182, %209 ], [ %.7183250, %222 ], [ %83, %154 ], [ null, %41 ], [ %.6182, %.preheader ], [ %.9185, %257 ]
-  %.0170 = phi i64 [ 0, %_.exit ], [ 0, %_.exit219 ], [ 0, %56 ], [ 0, %78 ], [ %157, %156 ], [ %157, %209 ], [ %.4174251, %222 ], [ 1, %154 ], [ 0, %41 ], [ %157, %.preheader ], [ %.5175, %257 ]
-  %.0165 = phi i32 [ -1, %_.exit ], [ -1, %_.exit219 ], [ %54, %56 ], [ %79, %78 ], [ %207, %156 ], [ %211, %209 ], [ %224, %222 ], [ %131, %154 ], [ 0, %41 ], [ %213, %.preheader ], [ %258, %257 ]
+  %.0176 = phi ptr [ null, %_.exit ], [ null, %_.exit219 ], [ null, %56 ], [ null, %78 ], [ %.6182, %156 ], [ %.6182, %209 ], [ null, %41 ], [ %.7183250, %222 ], [ %83, %154 ], [ %.6182, %.preheader ], [ %.9185, %257 ]
+  %.0170 = phi i64 [ 0, %_.exit ], [ 0, %_.exit219 ], [ 0, %56 ], [ 0, %78 ], [ %157, %156 ], [ %157, %209 ], [ 0, %41 ], [ %.4174251, %222 ], [ 1, %154 ], [ %157, %.preheader ], [ %.5175, %257 ]
+  %.0165 = phi i32 [ -1, %_.exit ], [ -1, %_.exit219 ], [ %54, %56 ], [ %79, %78 ], [ %207, %156 ], [ %211, %209 ], [ 0, %41 ], [ %224, %222 ], [ %131, %154 ], [ %213, %.preheader ], [ %258, %257 ]
   call void @reftable_iterator_destroy(ptr noundef nonnull %6) #20
   call void @string_list_clear(ptr noundef nonnull %7, i32 noundef 0) #20
   call void @strbuf_release(ptr noundef nonnull %9) #20
@@ -5042,8 +5042,8 @@ should_exclude_current_ref.exit.thread:           ; preds = %56, %40, %54, %38
   unreachable
 
 .sink.split:                                      ; preds = %113, %100, %84, %.split.loop.exit9.i.i92, %.split.loop.exit9.i.i86, %.split.loop.exit9.i.i
-  %.2.i.i91.sink = phi i32 [ %86, %.split.loop.exit9.i.i ], [ %102, %.split.loop.exit9.i.i86 ], [ %115, %.split.loop.exit9.i.i92 ], [ 0, %100 ], [ 0, %84 ], [ 0, %113 ]
-  %.2.ph = phi ptr [ %.056135, %.split.loop.exit9.i.i ], [ %.056135, %.split.loop.exit9.i.i86 ], [ null, %.split.loop.exit9.i.i92 ], [ %.056135, %100 ], [ %.056135, %84 ], [ null, %113 ]
+  %.2.i.i91.sink = phi i32 [ 0, %100 ], [ 0, %84 ], [ %86, %.split.loop.exit9.i.i ], [ %102, %.split.loop.exit9.i.i86 ], [ %115, %.split.loop.exit9.i.i92 ], [ 0, %113 ]
+  %.2.ph = phi ptr [ %.056135, %100 ], [ %.056135, %84 ], [ %.056135, %.split.loop.exit9.i.i ], [ %.056135, %.split.loop.exit9.i.i86 ], [ null, %.split.loop.exit9.i.i92 ], [ null, %113 ]
   store i32 %.2.i.i91.sink, ptr %18, align 4, !tbaa !139
   br label %117
 

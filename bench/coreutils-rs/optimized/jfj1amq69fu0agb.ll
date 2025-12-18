@@ -3137,8 +3137,8 @@ _ZN7uu_tail5paths13HeaderPrinter11print_input17h31ddadad9224c8c2E.exit.i: ; pred
   br label %239
 
 244:                                              ; preds = %.noexc69, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h5f62580eb8962983E.exit75.i"
-  %.sroa.5.1.i = phi ptr [ %.sroa.5.082.i, %.noexc69 ], [ %197, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h5f62580eb8962983E.exit75.i" ]
-  %.sroa.0.1.i = phi ptr [ %.sroa.0.083.i, %.noexc69 ], [ %187, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h5f62580eb8962983E.exit75.i" ]
+  %.sroa.5.1.i = phi ptr [ %197, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h5f62580eb8962983E.exit75.i" ], [ %.sroa.5.082.i, %.noexc69 ]
+  %.sroa.0.1.i = phi ptr [ %187, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h5f62580eb8962983E.exit75.i" ], [ %.sroa.0.083.i, %.noexc69 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !599
   br label %241
 

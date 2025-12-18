@@ -548,7 +548,7 @@ init_thread_push_handlers.exit.thread.i:          ; preds = %init_thread_push_ha
   br label %init_get_thread_local.exit.thread
 
 init_get_thread_local.exit:                       ; preds = %init_thread_push_handlers.exit.i, %3
-  %.012.i = phi ptr [ %7, %init_thread_push_handlers.exit.i ], [ %4, %3 ]
+  %.012.i = phi ptr [ %4, %3 ], [ %7, %init_thread_push_handlers.exit.i ]
   %29 = tail call noalias ptr @CRYPTO_malloc(i64 noundef 32, ptr noundef nonnull @.str, i32 noundef 408) #2
   %30 = icmp eq ptr %29, null
   br i1 %30, label %init_get_thread_local.exit.thread, label %31

@@ -1703,8 +1703,8 @@ __redisReaderSetError.exit70.i.i:                 ; preds = %455, %452, %450, %4
   br label %469
 
 469:                                              ; preds = %466, %463, %436
-  %.1.i42.i = phi ptr [ %437, %436 ], [ %465, %463 ], [ %468, %466 ]
-  %.045.i.i = phi i64 [ %375, %436 ], [ %439, %463 ], [ %439, %466 ]
+  %.1.i42.i = phi ptr [ %468, %466 ], [ %465, %463 ], [ %437, %436 ]
+  %.045.i.i = phi i64 [ %439, %466 ], [ %439, %463 ], [ %375, %436 ]
   %470 = icmp eq ptr %.1.i42.i, null
   br i1 %470, label %471, label %..thread83_crit_edge.i.i
 
@@ -2208,7 +2208,7 @@ processItem.exit:                                 ; preds = %329, %349, %486, %5
   %674 = icmp sgt i32 %.pr283, -1
   br i1 %674, label %39, label %processItem.exit.thread
 
-processItem.exit.thread:                          ; preds = %processItem.exit, %readBytes.exit.i, %99, %readLine.exit.i.i, %.thread.i, %107, %.thread.i40.i, %.thread116.i, %360, %readLine.exit.i72.i, %redisReaderGrow.exit.thread.i.i, %549, %47, %556, %367, %114, %._crit_edge.i44.i, %._crit_edge.i.i, %28, %653, %637, %221, %__redisReaderSetErrorProtocolByte.exit
+processItem.exit.thread:                          ; preds = %processItem.exit, %readBytes.exit.i, %47, %99, %readLine.exit.i.i, %.thread.i, %107, %.thread.i40.i, %.thread116.i, %360, %readLine.exit.i72.i, %redisReaderGrow.exit.thread.i.i, %549, %556, %367, %114, %._crit_edge.i44.i, %._crit_edge.i.i, %28, %653, %637, %221, %__redisReaderSetErrorProtocolByte.exit
   %.pr = load i32, ptr %0, align 8, !tbaa !29
   %.not39 = icmp eq i32 %.pr, 0
   br i1 %.not39, label %675, label %processItem.exit.thread.thread

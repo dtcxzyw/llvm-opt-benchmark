@@ -488,7 +488,7 @@ define float @Abc_NtkDelayTraceLut(ptr noundef %0, i32 noundef %1) local_unnamed
   br i1 %exitcond397.not, label %.critedge2.thread, label %145, !llvm.loop !48
 
 .critedge2:                                       ; preds = %94, %72
-  %.val269 = phi ptr [ %.val269.pre452, %72 ], [ %.val269.pre.pre, %94 ]
+  %.val269 = phi ptr [ %.val269.pre.pre, %94 ], [ %.val269.pre452, %72 ]
   %164 = icmp eq i32 %.val223.fr, 0
   br i1 %164, label %165, label %.critedge2.thread
 
@@ -912,8 +912,8 @@ Abc_NtkDelayTraceSortPins.exit341..critedge16_crit_edge: ; preds = %285
   br i1 %exitcond435.not, label %.critedge16, label %340, !llvm.loop !54
 
 .critedge16:                                      ; preds = %362, %284, %249, %Abc_NtkDelayTraceSortPins.exit341..critedge16_crit_edge, %255, %220
-  %.pre-phi463 = phi i64 [ %.pre462, %Abc_NtkDelayTraceSortPins.exit341..critedge16_crit_edge ], [ %224, %220 ], [ %259, %255 ], [ %259, %284 ], [ %224, %249 ], [ %337, %362 ]
-  %.val297.val = phi ptr [ %.val297.val.pre, %Abc_NtkDelayTraceSortPins.exit341..critedge16_crit_edge ], [ %.val285.val, %220 ], [ %.val289.val, %255 ], [ %.val289.val, %284 ], [ %.val285.val, %249 ], [ %.val293.val, %362 ]
+  %.pre-phi463 = phi i64 [ %.pre462, %Abc_NtkDelayTraceSortPins.exit341..critedge16_crit_edge ], [ %259, %284 ], [ %224, %249 ], [ %224, %220 ], [ %259, %255 ], [ %337, %362 ]
+  %.val297.val = phi ptr [ %.val297.val.pre, %Abc_NtkDelayTraceSortPins.exit341..critedge16_crit_edge ], [ %.val289.val, %284 ], [ %.val285.val, %249 ], [ %.val285.val, %220 ], [ %.val289.val, %255 ], [ %.val293.val, %362 ]
   %363 = getelementptr float, ptr %.val297.val, i64 %.pre-phi463
   %364 = getelementptr i8, ptr %363, i64 4
   %365 = load float, ptr %364, align 4, !tbaa !35
@@ -2565,7 +2565,7 @@ define i32 @Abc_NtkDelayTraceTCEdges(ptr readnone captures(none) %0, ptr noundef
   br i1 %exitcond89.not, label %.critedge, label %129, !llvm.loop !78
 
 .critedge:                                        ; preds = %129, %58, %26, %76, %48, %.preheader
-  %.249 = phi i32 [ 0, %.preheader ], [ 0, %48 ], [ 0, %76 ], [ %.4, %58 ], [ %.148, %26 ], [ %.6, %129 ]
+  %.249 = phi i32 [ %.4, %58 ], [ 0, %76 ], [ 0, %.preheader ], [ 0, %48 ], [ %.148, %26 ], [ %.6, %129 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.249

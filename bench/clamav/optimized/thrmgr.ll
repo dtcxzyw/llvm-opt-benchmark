@@ -244,13 +244,13 @@ switch.lookup:                                    ; preds = %13
   br i1 %.not146, label %.loopexit, label %.lr.ph228
 
 .loopexit:                                        ; preds = %.thread, %.thread192, %18, %11
-  %.str.11.sink = phi ptr [ @.str.1, %11 ], [ @.str.11, %18 ], [ @.str.11, %.thread192 ], [ @.str.11, %.thread ]
-  %.1131 = phi i1 [ true, %11 ], [ true, %18 ], [ false, %.thread192 ], [ true, %.thread ]
-  %.1123 = phi i64 [ %.0122235, %11 ], [ %.0122235, %18 ], [ %72, %.thread192 ], [ %.7129165, %.thread ]
-  %.1113 = phi i64 [ %.0112236, %11 ], [ %.0112236, %18 ], [ %.2114222, %.thread192 ], [ %.9121166, %.thread ]
-  %.1103 = phi i64 [ %.0102237, %11 ], [ %.0102237, %18 ], [ %.2104223, %.thread192 ], [ %.9111167, %.thread ]
-  %.194 = phi ptr [ %.093238, %11 ], [ %.093238, %18 ], [ %.295224, %.thread192 ], [ %.8101168, %.thread ]
-  %.191 = phi i32 [ %.090239, %11 ], [ %.090239, %18 ], [ %.292225, %.thread192 ], [ %.9169, %.thread ]
+  %.str.11.sink = phi ptr [ @.str.1, %11 ], [ @.str.11, %.thread192 ], [ @.str.11, %18 ], [ @.str.11, %.thread ]
+  %.1131 = phi i1 [ true, %11 ], [ false, %.thread192 ], [ true, %18 ], [ true, %.thread ]
+  %.1123 = phi i64 [ %.0122235, %11 ], [ %72, %.thread192 ], [ %.0122235, %18 ], [ %.7129165, %.thread ]
+  %.1113 = phi i64 [ %.0112236, %11 ], [ %.2114222, %.thread192 ], [ %.0112236, %18 ], [ %.9121166, %.thread ]
+  %.1103 = phi i64 [ %.0102237, %11 ], [ %.2104223, %.thread192 ], [ %.0102237, %18 ], [ %.9111167, %.thread ]
+  %.194 = phi ptr [ %.093238, %11 ], [ %.295224, %.thread192 ], [ %.093238, %18 ], [ %.8101168, %.thread ]
+  %.191 = phi i32 [ %.090239, %11 ], [ %.292225, %.thread192 ], [ %.090239, %18 ], [ %.9169, %.thread ]
   %86 = call i32 (i32, ptr, ...) @mdprintf(i32 noundef %0, ptr noundef nonnull %.str.11.sink) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %87 = getelementptr inbounds nuw i8, ptr %.1240, i64 8

@@ -25290,7 +25290,7 @@ lean_dec.exit:                                    ; preds = %458, %457, %455, %l
   unreachable
 
 lean_dec.exit168:                                 ; preds = %lean_inc.exit178, %376, %378, %379, %297, %299, %300, %lean_inc.exit196.thread, %lean_inc.exit188, %208, %210, %211
-  %.1138 = phi ptr [ %196, %lean_inc.exit188 ], [ %.0137381, %297 ], [ %196, %211 ], [ %196, %210 ], [ %196, %208 ], [ %.0137381, %lean_inc.exit196.thread ], [ %.0137381, %300 ], [ %.0137381, %299 ], [ %364, %379 ], [ %364, %378 ], [ %364, %376 ], [ %364, %lean_inc.exit178 ]
+  %.1138 = phi ptr [ %.0137381, %297 ], [ %196, %lean_inc.exit188 ], [ %196, %211 ], [ %196, %210 ], [ %196, %208 ], [ %.0137381, %lean_inc.exit196.thread ], [ %.0137381, %300 ], [ %.0137381, %299 ], [ %364, %379 ], [ %364, %378 ], [ %364, %376 ], [ %364, %lean_inc.exit178 ]
   %.1126 = add nuw i64 %.0125383, 1
   %exitcond.not = icmp eq i64 %.1126, %3
   br i1 %exitcond.not, label %._crit_edge, label %94

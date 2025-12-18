@@ -1875,7 +1875,7 @@ dsp_x8_put_solidcolor.exit:                       ; preds = %390, %dsp_x8_put_so
   br label %.loopexit
 
 .loopexit:                                        ; preds = %x8_get_ac_rlf.exit, %.thread, %749, %786, %.thread168, %778, %x8_get_dc_rlf.exit
-  %.0 = phi i32 [ -1, %x8_get_dc_rlf.exit ], [ 0, %778 ], [ 0, %.thread168 ], [ 0, %786 ], [ 0, %749 ], [ 0, %.thread ], [ -1, %x8_get_ac_rlf.exit ]
+  %.0 = phi i32 [ -1, %x8_get_dc_rlf.exit ], [ 0, %.thread ], [ 0, %778 ], [ 0, %.thread168 ], [ 0, %786 ], [ 0, %749 ], [ -1, %x8_get_ac_rlf.exit ]
   ret i32 %.0
 }
 

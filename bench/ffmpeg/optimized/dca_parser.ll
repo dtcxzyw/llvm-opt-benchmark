@@ -339,9 +339,9 @@ switch.early.test.i:                              ; preds = %42
   br i1 %exitcond235.not.i, label %.loopexit.i, label %63, !llvm.loop !31
 
 .loopexit.i:                                      ; preds = %58, %162, %.preheader.i, %.preheader143.i
-  %.1108.i = phi i32 [ %.0107.i, %.preheader.i ], [ 0, %.preheader143.i ], [ %.3110.i, %162 ], [ 0, %58 ]
-  %.2105.i = phi i32 [ %.0103.i, %.preheader.i ], [ %21, %.preheader143.i ], [ %64, %162 ], [ %24, %58 ]
-  %.2.i = phi i64 [ %.099.i, %.preheader.i ], [ %.1.fr181.i, %.preheader143.i ], [ %69, %162 ], [ %31, %58 ]
+  %.1108.i = phi i32 [ %.3110.i, %162 ], [ %.0107.i, %.preheader.i ], [ 0, %.preheader143.i ], [ 0, %58 ]
+  %.2105.i = phi i32 [ %64, %162 ], [ %.0103.i, %.preheader.i ], [ %21, %.preheader143.i ], [ %24, %58 ]
+  %.2.i = phi i64 [ %69, %162 ], [ %.099.i, %.preheader.i ], [ %.1.fr181.i, %.preheader143.i ], [ %31, %58 ]
   store i32 %.1108.i, ptr %16, align 8, !tbaa !23
   store i64 %.2.i, ptr %18, align 8, !tbaa !24
   store i32 %.2105.i, ptr %20, align 4, !tbaa !25
@@ -680,8 +680,8 @@ dca_find_frame_end.exit:                          ; preds = %159, %.loopexit.i
   br label %376
 
 376:                                              ; preds = %.sink.split113.i, %374, %366, %362, %354, %336
-  %.136 = phi i32 [ %.035, %.sink.split113.i ], [ %340, %354 ], [ %340, %366 ], [ %340, %374 ], [ %340, %362 ], [ %340, %336 ]
-  %.2 = phi i32 [ %.034, %.sink.split113.i ], [ %345, %354 ], [ %345, %366 ], [ %345, %374 ], [ %345, %362 ], [ %345, %336 ]
+  %.136 = phi i32 [ %340, %336 ], [ %340, %362 ], [ %340, %374 ], [ %340, %366 ], [ %340, %354 ], [ %.035, %.sink.split113.i ]
+  %.2 = phi i32 [ %345, %336 ], [ %345, %362 ], [ %345, %374 ], [ %345, %366 ], [ %345, %354 ], [ %.034, %.sink.split113.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %377 = getelementptr inbounds nuw i8, ptr %1, i64 344
@@ -702,7 +702,7 @@ dca_find_frame_end.exit:                          ; preds = %159, %.loopexit.i
   %386 = trunc i64 %385 to i32
   br label %388
 
-387:                                              ; preds = %178, %187, %194, %204, %216, %239, %284, %250, %330, %333, %252, %262, %274
+387:                                              ; preds = %178, %187, %194, %204, %216, %239, %284, %250, %330, %333, %274, %252, %262
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %388

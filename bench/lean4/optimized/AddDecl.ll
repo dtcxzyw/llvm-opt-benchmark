@@ -14584,7 +14584,7 @@ lean_alloc_ctor.exit1343:                         ; preds = %1935
   br label %lean_dec.exit.thread
 
 lean_dec.exit719:                                 ; preds = %lean_inc.exit733, %1623, %1625, %1626, %lean_inc.exit747, %1329, %1331, %1332, %lean_inc.exit761, %891, %893, %894, %lean_inc.exit779, %442, %444, %445, %lean_inc.exit792, %204, %206, %207
-  %.11606 = phi ptr [ %428, %lean_inc.exit779 ], [ %1317, %lean_inc.exit747 ], [ %192, %lean_inc.exit792 ], [ %877, %lean_inc.exit761 ], [ %192, %207 ], [ %192, %206 ], [ %192, %204 ], [ %428, %445 ], [ %428, %444 ], [ %428, %442 ], [ %877, %894 ], [ %877, %893 ], [ %877, %891 ], [ %1317, %1332 ], [ %1317, %1331 ], [ %1317, %1329 ], [ %1609, %1626 ], [ %1609, %1625 ], [ %1609, %1623 ], [ %1609, %lean_inc.exit733 ]
+  %.11606 = phi ptr [ %192, %lean_inc.exit792 ], [ %428, %lean_inc.exit779 ], [ %877, %lean_inc.exit761 ], [ %1317, %lean_inc.exit747 ], [ %192, %207 ], [ %192, %206 ], [ %192, %204 ], [ %428, %445 ], [ %428, %444 ], [ %428, %442 ], [ %877, %894 ], [ %877, %893 ], [ %877, %891 ], [ %1317, %1332 ], [ %1317, %1331 ], [ %1317, %1329 ], [ %1609, %1626 ], [ %1609, %1625 ], [ %1609, %1623 ], [ %1609, %lean_inc.exit733 ]
   %.11589 = load ptr, ptr @l_List_forIn_x27_loop___at_Lean_addDecl_addSynchronously___spec__3___closed__5, align 8, !tbaa !4
   %1943 = getelementptr inbounds nuw i8, ptr %.11589, i64 8
   %1944 = load ptr, ptr %1943, align 8, !tbaa !4

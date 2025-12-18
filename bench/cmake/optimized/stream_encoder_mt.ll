@@ -999,7 +999,7 @@ mythread_condtime_set.exit.i:                     ; preds = %257, %242
   br label %.split.us.us.i.backedge
 
 .split.us.us.i.backedge:                          ; preds = %278, %274
-  %.2.us.us.us.i.be = phi i8 [ %277, %274 ], [ 0, %278 ]
+  %.2.us.us.us.i.be = phi i8 [ 0, %278 ], [ %277, %274 ]
   br label %.split.us.us.i, !llvm.loop !87
 
 .split.i126:                                      ; preds = %260
@@ -1035,7 +1035,7 @@ mythread_condtime_set.exit.i:                     ; preds = %257, %242
   br i1 %293, label %wait_for_work.exit, label %.lr.ph.i, !llvm.loop !87
 
 wait_for_work.exit:                               ; preds = %.lr.ph.i, %292, %264, %266, %268, %.split.i126
-  %.us-phi.i = phi i8 [ 0, %.split.i126 ], [ %.2.us.us.us.i, %264 ], [ %.2.us.us.us.i, %268 ], [ %.2.us.us.us.i, %266 ], [ %.232.i, %.lr.ph.i ], [ %.3.i127, %292 ]
+  %.us-phi.i = phi i8 [ 0, %.split.i126 ], [ %.2.us.us.us.i, %264 ], [ %.2.us.us.us.i, %268 ], [ %.2.us.us.us.i, %266 ], [ %.3.i127, %292 ], [ %.232.i, %.lr.ph.i ]
   %294 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %26) #12
   %295 = trunc nuw i8 %.us-phi.i to i1
   br i1 %295, label %threads_stop.exit.thread, label %.outer
@@ -1051,7 +1051,7 @@ threads_stop.exit.thread.loopexit196:             ; preds = %232
   br label %threads_stop.exit.thread
 
 threads_stop.exit.thread:                         ; preds = %wait_for_work.exit, %236, %235, %.preheader45.i, %.preheader45.i120, %.preheader45.i113, %232, %threads_stop.exit.thread.loopexit196, %58, %78, %296, %213
-  %.2.ph = phi i32 [ %.3.i, %213 ], [ %299, %296 ], [ %.393, %78 ], [ %57, %58 ], [ %57, %.preheader45.i ], [ 1, %232 ], [ %.393, %.preheader45.i113 ], [ %.3.i, %.preheader45.i120 ], [ 101, %wait_for_work.exit ], [ 0, %236 ], [ 1, %235 ], [ %8, %threads_stop.exit.thread.loopexit196 ]
+  %.2.ph = phi i32 [ %.3.i, %213 ], [ 1, %232 ], [ %.3.i, %.preheader45.i120 ], [ %.393, %.preheader45.i113 ], [ %.393, %78 ], [ %57, %58 ], [ %299, %296 ], [ %57, %.preheader45.i ], [ 0, %236 ], [ 1, %235 ], [ 101, %wait_for_work.exit ], [ %8, %threads_stop.exit.thread.loopexit196 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)

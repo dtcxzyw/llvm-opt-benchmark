@@ -2307,9 +2307,9 @@ beforep.exit475.thread41:                         ; preds = %.beforep.exit475.th
   br i1 %615, label %.lr.ph112, label %.loopexit, !llvm.loop !62
 
 .loopexit68:                                      ; preds = %286, %impliedp.exit469.thread27, %87, %166, %impliedp.exit.thread21, %476, %452, %406, %409, %._crit_edge, %510
-  %.0379 = phi ptr [ %.1380.ph, %406 ], [ %407, %409 ], [ null, %510 ], [ null, %._crit_edge ], [ %.438398, %476 ], [ %.438398, %452 ], [ %.1380.ph, %impliedp.exit.thread21 ], [ %.1380.ph, %166 ], [ %.1380.ph, %87 ], [ %.1380.ph, %impliedp.exit469.thread27 ], [ %.1380.ph, %286 ]
-  %.0370 = phi ptr [ %.1371.ph252, %406 ], [ %.1371.ph252, %409 ], [ null, %510 ], [ null, %._crit_edge ], [ %.437499, %476 ], [ %.437499, %452 ], [ %.1371.ph252, %impliedp.exit.thread21 ], [ %.1371.ph252, %166 ], [ %.1371.ph252, %87 ], [ %.1371.ph252, %impliedp.exit469.thread27 ], [ %.1371.ph252, %286 ]
-  %.0359 = phi ptr [ null, %406 ], [ null, %409 ], [ %.5364, %510 ], [ %.5364, %._crit_edge ], [ %.636590, %476 ], [ %.236194, %452 ], [ null, %impliedp.exit.thread21 ], [ null, %166 ], [ null, %87 ], [ null, %impliedp.exit469.thread27 ], [ null, %286 ]
+  %.0379 = phi ptr [ %.438398, %476 ], [ %.438398, %452 ], [ null, %._crit_edge ], [ null, %510 ], [ %407, %409 ], [ %.1380.ph, %406 ], [ %.1380.ph, %impliedp.exit.thread21 ], [ %.1380.ph, %166 ], [ %.1380.ph, %87 ], [ %.1380.ph, %impliedp.exit469.thread27 ], [ %.1380.ph, %286 ]
+  %.0370 = phi ptr [ %.437499, %476 ], [ %.437499, %452 ], [ null, %._crit_edge ], [ null, %510 ], [ %.1371.ph252, %409 ], [ %.1371.ph252, %406 ], [ %.1371.ph252, %impliedp.exit.thread21 ], [ %.1371.ph252, %166 ], [ %.1371.ph252, %87 ], [ %.1371.ph252, %impliedp.exit469.thread27 ], [ %.1371.ph252, %286 ]
+  %.0359 = phi ptr [ %.636590, %476 ], [ %.236194, %452 ], [ %.5364, %._crit_edge ], [ %.5364, %510 ], [ null, %409 ], [ null, %406 ], [ null, %impliedp.exit.thread21 ], [ null, %166 ], [ null, %87 ], [ null, %impliedp.exit469.thread27 ], [ null, %286 ]
   %616 = load ptr, ptr %12, align 8, !tbaa !34
   %.not.i476 = icmp eq ptr %616, null
   br i1 %.not.i476, label %618, label %617
@@ -2378,7 +2378,7 @@ beforep.exit475.thread41:                         ; preds = %.beforep.exit475.th
   br i1 %.not419, label %.loopexit, label %.lr.ph124, !llvm.loop !66
 
 .loopexit:                                        ; preds = %612, %.lr.ph124, %2, %517, %.preheader
-  %.0 = phi ptr [ null, %.preheader ], [ %12, %517 ], [ null, %2 ], [ null, %.lr.ph124 ], [ %12, %612 ]
+  %.0 = phi ptr [ null, %.preheader ], [ %12, %517 ], [ null, %.lr.ph124 ], [ null, %2 ], [ %12, %612 ]
   ret ptr %.0
 }
 

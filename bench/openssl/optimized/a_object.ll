@@ -332,9 +332,9 @@ define i32 @a2d_ASN1_OBJECT(ptr noundef writeonly captures(address_is_null) %0, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit273, %.loopexit.loopexit, %76
-  %.3129 = phi i32 [ 0, %76 ], [ %87, %.loopexit.loopexit ], [ %88, %.loopexit.loopexit273 ]
-  %.4113 = phi ptr [ %.2111, %76 ], [ %.1110263, %.loopexit.loopexit ], [ %.2111, %.loopexit.loopexit273 ]
-  %.3108 = phi i32 [ %.1106, %76 ], [ %.0105264, %.loopexit.loopexit ], [ %.1106, %.loopexit.loopexit273 ]
+  %.3129 = phi i32 [ %87, %.loopexit.loopexit ], [ 0, %76 ], [ %88, %.loopexit.loopexit273 ]
+  %.4113 = phi ptr [ %.1110263, %.loopexit.loopexit ], [ %.2111, %76 ], [ %.2111, %.loopexit.loopexit273 ]
+  %.3108 = phi i32 [ %.0105264, %.loopexit.loopexit ], [ %.1106, %76 ], [ %.1106, %.loopexit.loopexit273 ]
   %89 = add nsw i32 %.3129, %.0119261
   br i1 %.not151, label %105, label %90
 
@@ -391,18 +391,18 @@ define i32 @a2d_ASN1_OBJECT(ptr noundef writeonly captures(address_is_null) %0, 
   br label %.sink.split
 
 .thread171.sink.split:                            ; preds = %90, %58, %28, %33
-  %.sink366 = phi i32 [ 98, %33 ], [ 117, %58 ], [ 85, %28 ], [ 157, %90 ]
-  %.sink = phi i32 [ 130, %33 ], [ 147, %58 ], [ 131, %28 ], [ 107, %90 ]
-  %.0109.ph = phi ptr [ %.1110263, %33 ], [ %.1110263, %58 ], [ %.1110263, %28 ], [ %.4113, %90 ]
-  %.096.ph = phi ptr [ %.2230, %33 ], [ %.2.lcssa.ph, %58 ], [ %.197266, %28 ], [ %.2.lcssa.ph, %90 ]
+  %.sink366 = phi i32 [ 98, %33 ], [ 157, %90 ], [ 85, %28 ], [ 117, %58 ]
+  %.sink = phi i32 [ 130, %33 ], [ 107, %90 ], [ 131, %28 ], [ 147, %58 ]
+  %.0109.ph = phi ptr [ %.1110263, %33 ], [ %.4113, %90 ], [ %.1110263, %28 ], [ %.1110263, %58 ]
+  %.096.ph = phi ptr [ %.2230, %33 ], [ %.2.lcssa.ph, %90 ], [ %.197266, %28 ], [ %.2.lcssa.ph, %58 ]
   call void @ERR_new() #6
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink366, ptr noundef nonnull @__func__.a2d_ASN1_OBJECT) #6
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef %.sink, ptr noundef null) #6
   br label %.thread171
 
 .thread171:                                       ; preds = %61, %.thread157, %46, %40, %.thread, %.lr.ph253, %.thread171.sink.split
-  %.0109 = phi ptr [ %.0109.ph, %.thread171.sink.split ], [ %.1110263, %.thread157 ], [ %.2111, %.lr.ph253 ], [ %.1110263, %.thread ], [ %.1110263, %40 ], [ %.1110263, %46 ], [ %.1110263, %61 ]
-  %.096 = phi ptr [ %.096.ph, %.thread171.sink.split ], [ %.3163, %.thread157 ], [ %.2.lcssa.ph, %.lr.ph253 ], [ %.3163, %46 ], [ null, %40 ], [ %.4156, %.thread ], [ %.2.lcssa.ph, %61 ]
+  %.0109 = phi ptr [ %.1110263, %.thread157 ], [ %.0109.ph, %.thread171.sink.split ], [ %.2111, %.lr.ph253 ], [ %.1110263, %.thread ], [ %.1110263, %40 ], [ %.1110263, %46 ], [ %.1110263, %61 ]
+  %.096 = phi ptr [ %.3163, %.thread157 ], [ %.096.ph, %.thread171.sink.split ], [ %.2.lcssa.ph, %.lr.ph253 ], [ %.3163, %46 ], [ null, %40 ], [ %.4156, %.thread ], [ %.2.lcssa.ph, %61 ]
   %.not153 = icmp eq ptr %.0109, %5
   br i1 %.not153, label %.sink.split, label %.thread171.thread
 

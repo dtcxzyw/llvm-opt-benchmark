@@ -11198,7 +11198,7 @@ define hidden void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..
   ]
 
 107:                                              ; preds = %"_ZN86_$LT$uv_distribution_types..annotation..SourceAnnotation$u20$as$u20$core..cmp..Ord$GT$3cmp17hbaf22b36e0a52036E.exit.i", %32
-  %.sroa.4.0.i = phi i64 [ %30, %32 ], [ %.sroa.8.0.i, %"_ZN86_$LT$uv_distribution_types..annotation..SourceAnnotation$u20$as$u20$core..cmp..Ord$GT$3cmp17hbaf22b36e0a52036E.exit.i" ]
+  %.sroa.4.0.i = phi i64 [ %.sroa.8.0.i, %"_ZN86_$LT$uv_distribution_types..annotation..SourceAnnotation$u20$as$u20$core..cmp..Ord$GT$3cmp17hbaf22b36e0a52036E.exit.i" ], [ %30, %32 ]
   %108 = icmp eq i64 %.sroa.3.0, 0
   br i1 %108, label %"_ZN86_$LT$uv_distribution_types..annotation..SourceAnnotation$u20$as$u20$core..cmp..Ord$GT$3cmp17hbaf22b36e0a52036E.exit.thread.i", label %110
 

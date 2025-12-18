@@ -1527,8 +1527,8 @@ _ZNK6vectorIN3sat5frameELb0EjE5emptyEv.exit.thread: ; preds = %.loopexit, %_ZNK6
   br i1 %469, label %.lr.ph353, label %.thread303
 
 .thread303:                                       ; preds = %.critedge143, %.critedge143.preheader, %_ZNK3sat6solver8num_varsEv.exit212.lr.ph, %.thread302
-  %470 = phi ptr [ %.pre378, %.thread302 ], [ %91, %_ZNK3sat6solver8num_varsEv.exit212.lr.ph ], [ %91, %.critedge143.preheader ], [ %91, %.critedge143 ]
-  %.not138335 = phi i1 [ false, %.thread302 ], [ true, %_ZNK3sat6solver8num_varsEv.exit212.lr.ph ], [ true, %.critedge143.preheader ], [ true, %.critedge143 ]
+  %470 = phi ptr [ %.pre378, %.thread302 ], [ %91, %.critedge143.preheader ], [ %91, %_ZNK3sat6solver8num_varsEv.exit212.lr.ph ], [ %91, %.critedge143 ]
+  %.not138335 = phi i1 [ false, %.thread302 ], [ true, %.critedge143.preheader ], [ true, %_ZNK3sat6solver8num_varsEv.exit212.lr.ph ], [ true, %.critedge143 ]
   %.not.i.i = icmp eq ptr %470, null
   br i1 %.not.i.i, label %_ZN6vectorIN3sat5frameELb0EjED2Ev.exit, label %471
 

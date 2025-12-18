@@ -966,7 +966,7 @@ run_request_queue.exit:                           ; preds = %180
   br label %339
 
 339:                                              ; preds = %203, %206, %196, %183, %194, %191, %322, %336
-  %.0102 = phi i32 [ 0, %183 ], [ %.2, %336 ], [ %.2, %322 ], [ -1, %196 ], [ 0, %191 ], [ 0, %194 ], [ 0, %206 ], [ 0, %203 ]
+  %.0102 = phi i32 [ 0, %203 ], [ 0, %183 ], [ 0, %194 ], [ 0, %191 ], [ %.2, %336 ], [ %.2, %322 ], [ -1, %196 ], [ 0, %206 ]
   %.not170 = icmp eq ptr %.1111, null
   br i1 %.not170, label %.thread195, label %.thread203
 
@@ -3201,7 +3201,7 @@ start_fetch_loose.exit:                           ; preds = %17, %18, %release_r
   br i1 %.not, label %start_mkcol.exit, label %.lr.ph.split, !llvm.loop !182
 
 start_mkcol.exit:                                 ; preds = %7, %80, %.preheader, %78, %76, %56, %1, %start_fetch_loose.exit
-  %.09 = phi i32 [ 1, %start_fetch_loose.exit ], [ 0, %1 ], [ 1, %56 ], [ 1, %76 ], [ 1, %78 ], [ 0, %.preheader ], [ 0, %80 ], [ 0, %7 ]
+  %.09 = phi i32 [ 1, %start_fetch_loose.exit ], [ 0, %1 ], [ 1, %56 ], [ 1, %78 ], [ 1, %76 ], [ 0, %80 ], [ 0, %.preheader ], [ 0, %7 ]
   ret i32 %.09
 }
 

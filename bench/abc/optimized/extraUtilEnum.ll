@@ -1819,7 +1819,7 @@ Abc_EnumDerefNode.exit:                           ; preds = %Abc_EnumRefNode.exi
   br label %Abc_EnumerateFilter.exit.thread
 
 Abc_EnumerateFilter.exit.thread:                  ; preds = %.lr.ph.i155, %243, %249, %254, %260, %236, %287, %281, %275, %267, %293, %208, %184, %177, %Abc_EnumDerefNode.exit
-  %338 = phi i32 [ %337, %Abc_EnumDerefNode.exit ], [ %209, %208 ], [ %174, %184 ], [ %174, %177 ], [ %209, %243 ], [ %209, %287 ], [ %209, %293 ], [ %209, %267 ], [ %209, %275 ], [ %209, %281 ], [ %209, %236 ], [ %209, %260 ], [ %209, %254 ], [ %209, %249 ], [ %209, %.lr.ph.i155 ]
+  %338 = phi i32 [ %209, %243 ], [ %209, %287 ], [ %337, %Abc_EnumDerefNode.exit ], [ %209, %208 ], [ %174, %184 ], [ %174, %177 ], [ %209, %293 ], [ %209, %267 ], [ %209, %275 ], [ %209, %281 ], [ %209, %236 ], [ %209, %260 ], [ %209, %254 ], [ %209, %249 ], [ %209, %.lr.ph.i155 ]
   %339 = add i32 %.0139172, 1
   %exitcond187.not = icmp eq i32 %339, %74
   br i1 %exitcond187.not, label %.loopexit, label %173, !llvm.loop !57

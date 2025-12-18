@@ -1850,7 +1850,7 @@ _ZNK26ShenandoahRegionPartitions39find_index_of_previous_available_regionE28Shen
   unreachable
 
 .loopexit:                                        ; preds = %_ZNK14ShenandoahHeap10get_regionEm.exit86, %_ZNK26ShenandoahRegionPartitions39find_index_of_previous_available_regionE28ShenandoahFreeSetPartitionIdl.exit114, %_ZNK26ShenandoahRegionPartitions35find_index_of_next_available_regionE28ShenandoahFreeSetPartitionIdl.exit, %136, %_ZNK26ShenandoahRegionPartitions39find_index_of_previous_available_regionE28ShenandoahFreeSetPartitionIdl.exit, %68, %210, %95, %28, %250, %248, %._crit_edge
-  %.0 = phi ptr [ %247, %250 ], [ null, %28 ], [ null, %210 ], [ null, %._crit_edge ], [ %247, %248 ], [ null, %95 ], [ null, %_ZNK26ShenandoahRegionPartitions39find_index_of_previous_available_regionE28ShenandoahFreeSetPartitionIdl.exit114 ], [ %69, %68 ], [ %137, %136 ], [ null, %_ZNK26ShenandoahRegionPartitions39find_index_of_previous_available_regionE28ShenandoahFreeSetPartitionIdl.exit ], [ null, %_ZNK26ShenandoahRegionPartitions35find_index_of_next_available_regionE28ShenandoahFreeSetPartitionIdl.exit ], [ %182, %_ZNK14ShenandoahHeap10get_regionEm.exit86 ]
+  %.0 = phi ptr [ %247, %250 ], [ null, %_ZNK26ShenandoahRegionPartitions35find_index_of_next_available_regionE28ShenandoahFreeSetPartitionIdl.exit ], [ null, %28 ], [ null, %210 ], [ null, %._crit_edge ], [ %247, %248 ], [ %69, %68 ], [ null, %95 ], [ null, %_ZNK26ShenandoahRegionPartitions39find_index_of_previous_available_regionE28ShenandoahFreeSetPartitionIdl.exit114 ], [ null, %_ZNK26ShenandoahRegionPartitions39find_index_of_previous_available_regionE28ShenandoahFreeSetPartitionIdl.exit ], [ %137, %136 ], [ %182, %_ZNK14ShenandoahHeap10get_regionEm.exit86 ]
   ret ptr %.0
 }
 
@@ -2495,7 +2495,7 @@ _ZNK17ShenandoahFreeSet17can_allocate_fromEP20ShenandoahHeapRegion.exit.thread84
   br i1 %78, label %56, label %_ZNK26ShenandoahRegionPartitions47find_index_of_next_available_cluster_of_regionsE28ShenandoahFreeSetPartitionIdlm.exit79, !llvm.loop !21
 
 _ZNK26ShenandoahRegionPartitions47find_index_of_next_available_cluster_of_regionsE28ShenandoahFreeSetPartitionIdlm.exit79: ; preds = %75, %50, %69, %63
-  %.3 = phi i64 [ %spec.select.i77, %69 ], [ %66, %63 ], [ %.1.ph, %50 ], [ %51, %75 ]
+  %.3 = phi i64 [ %66, %63 ], [ %spec.select.i77, %69 ], [ %.1.ph, %50 ], [ %51, %75 ]
   %79 = icmp sgt i64 %.3, %18
   br i1 %79, label %.loopexit, label %_ZNK14ShenandoahHeap10get_regionEm.exit.outer, !llvm.loop !22
 

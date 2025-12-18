@@ -1606,7 +1606,7 @@ define hidden noundef zeroext i1 @uat_fld_chk_oid(ptr noundef readnone captures(
   br i1 %36, label %38, label %.sink.split
 
 .sink.split:                                      ; preds = %12, %29, %32, %33, %20, %8, %6
-  %.str.21.sink = phi ptr [ @.str.20, %20 ], [ @.str.18, %8 ], [ @.str.17, %6 ], [ @.str.21, %33 ], [ @.str.21, %32 ], [ @.str.21, %29 ], [ @.str.19, %12 ]
+  %.str.21.sink = phi ptr [ @.str.20, %20 ], [ @.str.21, %29 ], [ @.str.18, %8 ], [ @.str.17, %6 ], [ @.str.21, %33 ], [ @.str.21, %32 ], [ @.str.19, %12 ]
   %37 = tail call noalias ptr @g_strdup(ptr noundef nonnull %.str.21.sink)
   store ptr %37, ptr %5, align 8
   br label %38

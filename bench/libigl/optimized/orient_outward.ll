@@ -160,7 +160,7 @@ define weak_odr dso_local void @_ZN3igl14orient_outwardIN5Eigen6MatrixIdLin1ELin
   br i1 %exitcond92.not.i.i.i.i, label %_ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE8maxCoeffEv.exit, label %.lr.ph85.i.i.i.i, !llvm.loop !22
 
 _ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE8maxCoeffEv.exit: ; preds = %.lr.ph80.i.i.i.i, %.lr.ph85.i.i.i.i, %58, %65
-  %.2.i.i.i.i = phi i32 [ %66, %65 ], [ %59, %58 ], [ %70, %.lr.ph85.i.i.i.i ], [ %63, %.lr.ph80.i.i.i.i ]
+  %.2.i.i.i.i = phi i32 [ %70, %.lr.ph85.i.i.i.i ], [ %66, %65 ], [ %59, %58 ], [ %63, %.lr.ph80.i.i.i.i ]
   %72 = add nsw i32 %.2.i.i.i.i, 1
   %73 = sext i32 %72 to i64
   %74 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -686,7 +686,7 @@ thread-pre-split.i.i.i.i.i.i.i:                   ; preds = %255
   br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i, label %_ZN5Eigen5BlockINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSINS1_IiLi1ELin1ELi1ELi1ELin1EEEEERS3_RKNS_9DenseBaseIT_EE.exit, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, !llvm.loop !71
 
 _ZN5Eigen5BlockINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSINS1_IiLi1ELin1ELi1ELi1ELin1EEEEERS3_RKNS_9DenseBaseIT_EE.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i, %255, %.loopexit
-  %280 = phi ptr [ %.ph, %.loopexit ], [ null, %255 ], [ %.ph, %.lr.ph.i.i.i.i.i.i.i.i.i.i ]
+  %280 = phi ptr [ null, %255 ], [ %.ph, %.loopexit ], [ %.ph, %.lr.ph.i.i.i.i.i.i.i.i.i.i ]
   call void @free(ptr noundef %280) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %281
@@ -966,7 +966,7 @@ define weak_odr dso_local void @_ZN3igl14orient_outwardIN5Eigen6MatrixIdLin1ELin
   br i1 %exitcond92.not.i.i.i.i, label %_ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE8maxCoeffEv.exit, label %.lr.ph85.i.i.i.i, !llvm.loop !77
 
 _ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE8maxCoeffEv.exit: ; preds = %.lr.ph80.i.i.i.i, %.lr.ph85.i.i.i.i, %61, %68
-  %.2.i.i.i.i = phi i32 [ %69, %68 ], [ %62, %61 ], [ %73, %.lr.ph85.i.i.i.i ], [ %66, %.lr.ph80.i.i.i.i ]
+  %.2.i.i.i.i = phi i32 [ %73, %.lr.ph85.i.i.i.i ], [ %69, %68 ], [ %62, %61 ], [ %66, %.lr.ph80.i.i.i.i ]
   %75 = add nsw i32 %.2.i.i.i.i, 1
   %76 = sext i32 %75 to i64
   %77 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1492,7 +1492,7 @@ thread-pre-split.i.i.i.i.i.i.i:                   ; preds = %258
   br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i, label %_ZN5Eigen5BlockINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSINS1_IiLi1ELin1ELi1ELi1ELin1EEEEERS3_RKNS_9DenseBaseIT_EE.exit, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, !llvm.loop !71
 
 _ZN5Eigen5BlockINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSINS1_IiLi1ELin1ELi1ELi1ELin1EEEEERS3_RKNS_9DenseBaseIT_EE.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i, %258, %.loopexit
-  %283 = phi ptr [ %.ph, %.loopexit ], [ null, %258 ], [ %.ph, %.lr.ph.i.i.i.i.i.i.i.i.i.i ]
+  %283 = phi ptr [ null, %258 ], [ %.ph, %.loopexit ], [ %.ph, %.lr.ph.i.i.i.i.i.i.i.i.i.i ]
   call void @free(ptr noundef %283) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %284

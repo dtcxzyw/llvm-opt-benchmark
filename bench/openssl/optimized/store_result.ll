@@ -804,10 +804,10 @@ try_crl.exit:                                     ; preds = %258, %255, %244, %t
   br i1 %.not69.i, label %.critedge.i80, label %.lr.ph.i, !llvm.loop !62
 
 .critedge.i80:                                    ; preds = %316, %313, %309, %.lr.ph.i, %304, %302, %298, %296, %292
-  %.040.i = phi ptr [ null, %292 ], [ null, %302 ], [ %297, %298 ], [ null, %296 ], [ null, %304 ], [ null, %.lr.ph.i ], [ null, %309 ], [ null, %313 ], [ null, %316 ]
-  %.038.i = phi ptr [ null, %292 ], [ null, %302 ], [ null, %298 ], [ null, %296 ], [ %303, %304 ], [ null, %.lr.ph.i ], [ null, %309 ], [ null, %313 ], [ null, %316 ]
-  %.035.i = phi ptr [ null, %292 ], [ null, %302 ], [ null, %298 ], [ null, %296 ], [ null, %304 ], [ %312, %316 ], [ %312, %313 ], [ null, %309 ], [ null, %.lr.ph.i ]
-  %.not66.i = phi i1 [ false, %292 ], [ true, %302 ], [ true, %298 ], [ true, %296 ], [ true, %304 ], [ %308, %.lr.ph.i ], [ %308, %309 ], [ %308, %313 ], [ %308, %316 ]
+  %.040.i = phi ptr [ null, %292 ], [ null, %304 ], [ null, %302 ], [ %297, %298 ], [ null, %296 ], [ null, %.lr.ph.i ], [ null, %309 ], [ null, %313 ], [ null, %316 ]
+  %.038.i = phi ptr [ null, %292 ], [ %303, %304 ], [ null, %302 ], [ null, %298 ], [ null, %296 ], [ null, %.lr.ph.i ], [ null, %309 ], [ null, %313 ], [ null, %316 ]
+  %.035.i = phi ptr [ null, %292 ], [ null, %304 ], [ null, %302 ], [ null, %298 ], [ null, %296 ], [ %312, %316 ], [ %312, %313 ], [ null, %309 ], [ null, %.lr.ph.i ]
+  %.not66.i = phi i1 [ false, %292 ], [ true, %304 ], [ true, %302 ], [ true, %298 ], [ true, %296 ], [ %308, %.lr.ph.i ], [ %308, %309 ], [ %308, %313 ], [ %308, %316 ]
   %318 = load ptr, ptr %5, align 8, !tbaa !43
   call void @EVP_PKEY_free(ptr noundef %318) #5
   %319 = load ptr, ptr %6, align 8, !tbaa !57

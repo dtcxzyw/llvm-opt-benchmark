@@ -970,7 +970,7 @@ define hidden noundef i32 @_ZN15JvmtiExtensions13get_functionsEP8JvmtiEnvPiPP26j
   br label %.loopexit87
 
 .loopexit87:                                      ; preds = %133, %79, %39, %.lr.ph94, %.lr.ph, %9, %._crit_edge
-  %.0 = phi i32 [ 0, %._crit_edge ], [ %14, %9 ], [ %104, %.lr.ph ], [ %139, %133 ], [ %85, %79 ], [ %57, %39 ], [ %38, %.lr.ph94 ]
+  %.0 = phi i32 [ 0, %._crit_edge ], [ %14, %9 ], [ %104, %.lr.ph ], [ %85, %79 ], [ %57, %39 ], [ %139, %133 ], [ %38, %.lr.ph94 ]
   call void @_ZN15ResourceTrackerD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %4) #12
   ret i32 %.0
 }

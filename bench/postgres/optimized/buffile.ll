@@ -1000,7 +1000,7 @@ select.unfold._crit_edge:                         ; preds = %.lr.ph72.preheader.
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.preheader, %.lr.ph72.preheader, %select.unfold._crit_edge, %5, %96, %68
-  %.051 = phi i32 [ 0, %96 ], [ -1, %5 ], [ 0, %68 ], [ -1, %select.unfold._crit_edge ], [ -1, %.lr.ph72.preheader ], [ -1, %.lr.ph.preheader ]
+  %.051 = phi i32 [ 0, %96 ], [ -1, %5 ], [ 0, %68 ], [ -1, %.lr.ph72.preheader ], [ -1, %select.unfold._crit_edge ], [ -1, %.lr.ph.preheader ]
   ret i32 %.051
 }
 

@@ -548,7 +548,7 @@ functionsVerifyName.exit:                         ; preds = %sdslen.exit33.i
   unreachable
 
 .sink.split:                                      ; preds = %55, %functionsVerifyName.exit, %sdslen.exit.i, %6
-  %.str.1.sink = phi ptr [ @.str, %sdslen.exit.i ], [ @.str, %6 ], [ @.str.1, %functionsVerifyName.exit ], [ @.str, %55 ]
+  %.str.1.sink = phi ptr [ @.str, %sdslen.exit.i ], [ @.str.1, %functionsVerifyName.exit ], [ @.str, %6 ], [ @.str, %55 ]
   %68 = tail call ptr @sdsnew(ptr noundef nonnull %.str.1.sink) #12
   store ptr %68, ptr %5, align 8, !tbaa !51
   br label %69
@@ -1922,8 +1922,8 @@ sdslen.exit:                                      ; preds = %9, %20, %23, %27, %
   br label %152
 
 49:                                               ; preds = %47, %45, %39, %sdslen.exit
-  %50 = phi i1 [ false, %sdslen.exit ], [ false, %45 ], [ false, %39 ], [ true, %47 ]
-  %.not64.i = phi i1 [ true, %sdslen.exit ], [ false, %45 ], [ true, %39 ], [ true, %47 ]
+  %50 = phi i1 [ false, %sdslen.exit ], [ true, %47 ], [ false, %45 ], [ false, %39 ]
+  %.not64.i = phi i1 [ true, %sdslen.exit ], [ true, %47 ], [ false, %45 ], [ true, %39 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %51 = call i32 @verifyDumpPayload(ptr noundef nonnull %15, i64 noundef %.0.i, ptr noundef nonnull %4) #12
   %.not35 = icmp eq i32 %51, 0
@@ -2762,7 +2762,7 @@ functionsVerifyName.exit:                         ; preds = %sdslen.exit33.i
   tail call void @dictReleaseIterator(ptr noundef nonnull %104) #12
   br label %engineLibraryFree.exit
 
-engineLibraryFree.exit:                           ; preds = %116, %120, %82, %101
+engineLibraryFree.exit:                           ; preds = %116, %120, %101, %82
   %121 = load ptr, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !30
   tail call void @dictRelease(ptr noundef %121) #12
   %122 = load ptr, ptr %83, align 8, !tbaa !31

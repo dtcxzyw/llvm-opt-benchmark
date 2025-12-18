@@ -1457,7 +1457,7 @@ _ZN7ciField4typeEv.exit:                          ; preds = %84, %89
   br label %233
 
 233:                                              ; preds = %185, %114, %59, %122, %192, %214, %19
-  %.053 = phi i8 [ %24, %19 ], [ %70, %59 ], [ %139, %122 ], [ %115, %114 ], [ %209, %192 ], [ %232, %214 ], [ %186, %185 ]
+  %.053 = phi i8 [ %24, %19 ], [ %186, %185 ], [ %70, %59 ], [ %139, %122 ], [ %115, %114 ], [ %209, %192 ], [ %232, %214 ]
   %234 = trunc i8 %.053 to i1
   br i1 %234, label %235, label %.thread
 
@@ -2022,7 +2022,7 @@ _ZNK10BlockBegin14is_predecessorEPS_.exit.i:      ; preds = %149, %148, %138
   br i1 %167, label %163, label %_ZN23LoopInvariantCodeMotionC2EP18ShortLoopOptimizerP20GlobalValueNumberingP10BlockBeginP9BlockList.exit, !llvm.loop !21
 
 _ZN23LoopInvariantCodeMotionC2EP18ShortLoopOptimizerP20GlobalValueNumberingP10BlockBeginP9BlockList.exit: ; preds = %19, %.loopexit, %32, %80, %163, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i, %._crit_edge, %107, %_ZN11Compilation12is_profilingEv.exit.i, %115, %159, %128, %_ZN11Compilation13is_optimisticEv.exit
-  %168 = phi i1 [ true, %_ZN11Compilation13is_optimisticEv.exit ], [ true, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i ], [ true, %._crit_edge ], [ true, %107 ], [ true, %_ZN11Compilation12is_profilingEv.exit.i ], [ true, %115 ], [ true, %159 ], [ true, %128 ], [ false, %.loopexit ], [ true, %163 ], [ false, %80 ], [ false, %32 ], [ false, %19 ]
+  %168 = phi i1 [ true, %163 ], [ false, %.loopexit ], [ false, %80 ], [ true, %_ZN11Compilation13is_optimisticEv.exit ], [ true, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i ], [ true, %._crit_edge ], [ true, %107 ], [ true, %_ZN11Compilation12is_profilingEv.exit.i ], [ true, %115 ], [ true, %159 ], [ true, %128 ], [ false, %32 ], [ false, %19 ]
   ret i1 %168
 }
 

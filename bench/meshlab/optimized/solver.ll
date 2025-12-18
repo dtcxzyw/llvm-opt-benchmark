@@ -662,7 +662,7 @@ define noundef double @_ZN6SolverclEiPd(ptr noundef nonnull align 8 dereferencea
   br label %.loopexit149
 
 .loopexit149:                                     ; preds = %.loopexit149.sink.split, %.preheader, %40, %37, %34, %31, %._crit_edge
-  %.0115 = phi double [ 0.000000e+00, %31 ], [ 0.000000e+00, %._crit_edge ], [ 0.000000e+00, %34 ], [ 0.000000e+00, %37 ], [ 0.000000e+00, %.preheader ], [ %83, %.loopexit149.sink.split ], [ 0.000000e+00, %40 ]
+  %.0115 = phi double [ 0.000000e+00, %31 ], [ 0.000000e+00, %._crit_edge ], [ 0.000000e+00, %40 ], [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %34 ], [ %83, %.loopexit149.sink.split ], [ 0.000000e+00, %37 ]
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %85 = load double, ptr %84, align 8
   %86 = fcmp oeq double %85, 0.000000e+00
@@ -2157,8 +2157,8 @@ define linkonce_odr noundef double @_Z10min_newuoaId6SolverET_iPS1_RT0_S1_S1_i(i
   br label %.lr.ph24.i.i.i
 
 .preheader8.i.i.i.preheader:                      ; preds = %.lr.ph24.i.i.i, %._crit_edge19.i.i.i, %._crit_edge19.i.i.i.thread267
-  %.0377.lcssa.i.i.i266 = phi double [ 0.000000e+00, %._crit_edge19.i.i.i ], [ 0.000000e+00, %._crit_edge19.i.i.i.thread267 ], [ %532, %.lr.ph24.i.i.i ]
-  %520 = phi double [ %514, %._crit_edge19.i.i.i ], [ %517, %._crit_edge19.i.i.i.thread267 ], [ %518, %.lr.ph24.i.i.i ]
+  %.0377.lcssa.i.i.i266 = phi double [ 0.000000e+00, %._crit_edge19.i.i.i.thread267 ], [ 0.000000e+00, %._crit_edge19.i.i.i ], [ %532, %.lr.ph24.i.i.i ]
+  %520 = phi double [ %517, %._crit_edge19.i.i.i.thread267 ], [ %514, %._crit_edge19.i.i.i ], [ %518, %.lr.ph24.i.i.i ]
   br label %.preheader8.i.i.i
 
 .lr.ph24.i.i.i:                                   ; preds = %.lr.ph24.i.i.i, %.lr.ph24.preheader.i.i.i
@@ -2728,12 +2728,12 @@ _ZL7biglag_Id6SolverEiiiPT_S2_S2_S2_PiS3_S3_S2_S2_S2_S2_S2_S2_S2_S2_RT0_.exit.i.
   br i1 %exitcond1206.not.i.i, label %._crit_edge659.i.i, label %.preheader266.i.i, !llvm.loop !59
 
 ._crit_edge659.i.i:                               ; preds = %._crit_edge653.i.i, %.loopexit280.i.i.thread, %_ZL7biglag_Id6SolverEiiiPT_S2_S2_S2_PiS3_S3_S2_S2_S2_S2_S2_S2_S2_S2_RT0_.exit.i.i, %.preheader277.i.i
-  %763 = phi i1 [ %711, %.preheader277.i.i ], [ %710, %_ZL7biglag_Id6SolverEiiiPT_S2_S2_S2_PiS3_S3_S2_S2_S2_S2_S2_S2_S2_S2_RT0_.exit.i.i ], [ false, %.loopexit280.i.i.thread ], [ %711, %._crit_edge653.i.i ]
-  %.8.i.i327 = phi double [ %.8.i.i328, %.preheader277.i.i ], [ %.8.i.i329, %_ZL7biglag_Id6SolverEiiiPT_S2_S2_S2_PiS3_S3_S2_S2_S2_S2_S2_S2_S2_S2_RT0_.exit.i.i ], [ 0.000000e+00, %.loopexit280.i.i.thread ], [ %.8.i.i328, %._crit_edge653.i.i ]
-  %.1150.lcssa.i.i291 = phi double [ %.1150.lcssa.i.i, %.preheader277.i.i ], [ 0.000000e+00, %_ZL7biglag_Id6SolverEiiiPT_S2_S2_S2_PiS3_S3_S2_S2_S2_S2_S2_S2_S2_S2_RT0_.exit.i.i ], [ 0.000000e+00, %.loopexit280.i.i.thread ], [ %.1150.lcssa.i.i, %._crit_edge653.i.i ]
-  %.1122.i.i279281290 = phi double [ %.1122.i.i278, %.preheader277.i.i ], [ %.1122.i.i, %_ZL7biglag_Id6SolverEiiiPT_S2_S2_S2_PiS3_S3_S2_S2_S2_S2_S2_S2_S2_S2_RT0_.exit.i.i ], [ %.3124689.i.i, %.loopexit280.i.i.thread ], [ %.1122.i.i278, %._crit_edge653.i.i ]
-  %.01132.lcssa.i.i = phi double [ 0.000000e+00, %.preheader277.i.i ], [ 0.000000e+00, %_ZL7biglag_Id6SolverEiiiPT_S2_S2_S2_PiS3_S3_S2_S2_S2_S2_S2_S2_S2_S2_RT0_.exit.i.i ], [ 0.000000e+00, %.loopexit280.i.i.thread ], [ %762, %._crit_edge653.i.i ]
-  %.01092.lcssa.i.i = phi double [ 0.000000e+00, %.preheader277.i.i ], [ 0.000000e+00, %_ZL7biglag_Id6SolverEiiiPT_S2_S2_S2_PiS3_S3_S2_S2_S2_S2_S2_S2_S2_S2_RT0_.exit.i.i ], [ 0.000000e+00, %.loopexit280.i.i.thread ], [ %759, %._crit_edge653.i.i ]
+  %763 = phi i1 [ %711, %.preheader277.i.i ], [ false, %.loopexit280.i.i.thread ], [ %710, %_ZL7biglag_Id6SolverEiiiPT_S2_S2_S2_PiS3_S3_S2_S2_S2_S2_S2_S2_S2_S2_RT0_.exit.i.i ], [ %711, %._crit_edge653.i.i ]
+  %.8.i.i327 = phi double [ %.8.i.i328, %.preheader277.i.i ], [ 0.000000e+00, %.loopexit280.i.i.thread ], [ %.8.i.i329, %_ZL7biglag_Id6SolverEiiiPT_S2_S2_S2_PiS3_S3_S2_S2_S2_S2_S2_S2_S2_S2_RT0_.exit.i.i ], [ %.8.i.i328, %._crit_edge653.i.i ]
+  %.1150.lcssa.i.i291 = phi double [ %.1150.lcssa.i.i, %.preheader277.i.i ], [ 0.000000e+00, %.loopexit280.i.i.thread ], [ 0.000000e+00, %_ZL7biglag_Id6SolverEiiiPT_S2_S2_S2_PiS3_S3_S2_S2_S2_S2_S2_S2_S2_S2_RT0_.exit.i.i ], [ %.1150.lcssa.i.i, %._crit_edge653.i.i ]
+  %.1122.i.i279281290 = phi double [ %.1122.i.i278, %.preheader277.i.i ], [ %.3124689.i.i, %.loopexit280.i.i.thread ], [ %.1122.i.i, %_ZL7biglag_Id6SolverEiiiPT_S2_S2_S2_PiS3_S3_S2_S2_S2_S2_S2_S2_S2_S2_RT0_.exit.i.i ], [ %.1122.i.i278, %._crit_edge653.i.i ]
+  %.01132.lcssa.i.i = phi double [ 0.000000e+00, %.preheader277.i.i ], [ 0.000000e+00, %.loopexit280.i.i.thread ], [ 0.000000e+00, %_ZL7biglag_Id6SolverEiiiPT_S2_S2_S2_PiS3_S3_S2_S2_S2_S2_S2_S2_S2_S2_RT0_.exit.i.i ], [ %762, %._crit_edge653.i.i ]
+  %.01092.lcssa.i.i = phi double [ 0.000000e+00, %.preheader277.i.i ], [ 0.000000e+00, %.loopexit280.i.i.thread ], [ 0.000000e+00, %_ZL7biglag_Id6SolverEiiiPT_S2_S2_S2_PiS3_S3_S2_S2_S2_S2_S2_S2_S2_S2_RT0_.exit.i.i ], [ %759, %._crit_edge653.i.i ]
   %764 = fadd double %.8.i.i327, %.01132.lcssa.i.i
   %765 = fadd double %.01132.lcssa.i.i, %764
   %766 = call double @llvm.fmuladd.f64(double %.11131.i.i, double 5.000000e-01, double %765)
@@ -2928,11 +2928,11 @@ _ZL7biglag_Id6SolverEiiiPT_S2_S2_S2_PiS3_S3_S2_S2_S2_S2_S2_S2_S2_S2_RT0_.exit.i.
   br i1 %exitcond287.not.i.i.i, label %.loopexit22.i.i.i, label %.lr.ph69.i.i.i, !llvm.loop !65
 
 .loopexit22.i.i.i:                                ; preds = %.lr.ph69.i.i.i, %._crit_edge42.i.i.i.thread, %.lr.ph61.i.i.i, %._crit_edge42.i.i.i
-  %.0.lcssa.i1337.i.i305 = phi double [ %.0.lcssa.i1337.i.i, %._crit_edge42.i.i.i ], [ %.0.lcssa.i1337.i.i, %.lr.ph61.i.i.i ], [ 0.000000e+00, %._crit_edge42.i.i.i.thread ], [ %.0.lcssa.i1337.i.i, %.lr.ph69.i.i.i ]
-  %.0868.lcssa.i.i.i301 = phi double [ %.0868.lcssa.i.i.i, %._crit_edge42.i.i.i ], [ %.0868.lcssa.i.i.i, %.lr.ph61.i.i.i ], [ 0.000000e+00, %._crit_edge42.i.i.i.thread ], [ %.0868.lcssa.i.i.i, %.lr.ph69.i.i.i ]
-  %844 = phi double [ %797, %._crit_edge42.i.i.i ], [ %797, %.lr.ph61.i.i.i ], [ %819, %._crit_edge42.i.i.i.thread ], [ %797, %.lr.ph69.i.i.i ]
-  %.1863.i.i.i = phi double [ %.0862.lcssa.i.i.i, %._crit_edge42.i.i.i ], [ %.0862.lcssa.i.i.i, %.lr.ph61.i.i.i ], [ 0.000000e+00, %._crit_edge42.i.i.i.thread ], [ %.3865.i.i.i, %.lr.ph69.i.i.i ]
-  %.1858.i.i.i = phi double [ %.0857.lcssa.i.i.i, %._crit_edge42.i.i.i ], [ %.0857.lcssa.i.i.i, %.lr.ph61.i.i.i ], [ 0.000000e+00, %._crit_edge42.i.i.i.thread ], [ %.3860.i.i.i, %.lr.ph69.i.i.i ]
+  %.0.lcssa.i1337.i.i305 = phi double [ %.0.lcssa.i1337.i.i, %._crit_edge42.i.i.i ], [ 0.000000e+00, %._crit_edge42.i.i.i.thread ], [ %.0.lcssa.i1337.i.i, %.lr.ph61.i.i.i ], [ %.0.lcssa.i1337.i.i, %.lr.ph69.i.i.i ]
+  %.0868.lcssa.i.i.i301 = phi double [ %.0868.lcssa.i.i.i, %._crit_edge42.i.i.i ], [ 0.000000e+00, %._crit_edge42.i.i.i.thread ], [ %.0868.lcssa.i.i.i, %.lr.ph61.i.i.i ], [ %.0868.lcssa.i.i.i, %.lr.ph69.i.i.i ]
+  %844 = phi double [ %797, %._crit_edge42.i.i.i ], [ %819, %._crit_edge42.i.i.i.thread ], [ %797, %.lr.ph61.i.i.i ], [ %797, %.lr.ph69.i.i.i ]
+  %.1863.i.i.i = phi double [ %.0862.lcssa.i.i.i, %._crit_edge42.i.i.i ], [ 0.000000e+00, %._crit_edge42.i.i.i.thread ], [ %.0862.lcssa.i.i.i, %.lr.ph61.i.i.i ], [ %.3865.i.i.i, %.lr.ph69.i.i.i ]
+  %.1858.i.i.i = phi double [ %.0857.lcssa.i.i.i, %._crit_edge42.i.i.i ], [ 0.000000e+00, %._crit_edge42.i.i.i.thread ], [ %.0857.lcssa.i.i.i, %.lr.ph61.i.i.i ], [ %.3860.i.i.i, %.lr.ph69.i.i.i ]
   %845 = fneg double %.1863.i.i.i
   %846 = fmul double %.1863.i.i.i, %845
   %847 = call double @llvm.fmuladd.f64(double %.0868.lcssa.i.i.i301, double %.1858.i.i.i, double %846)
@@ -3780,7 +3780,7 @@ _ZL7biglag_Id6SolverEiiiPT_S2_S2_S2_PiS3_S3_S2_S2_S2_S2_S2_S2_S2_S2_RT0_.exit.i.
   br i1 %exitcond436.not.i.i.i, label %._crit_edge212.i.i.i, label %.preheader8.i1344.i.i.backedge
 
 .preheader8.i1344.i.i.backedge:                   ; preds = %._crit_edge204.i.i.i, %._crit_edge204.i.i.i.thread
-  %indvars.iv432.i.i.i.be = phi i64 [ %indvars.iv.next433.i.i.i, %._crit_edge204.i.i.i ], [ %indvars.iv.next433.i.i.i322, %._crit_edge204.i.i.i.thread ]
+  %indvars.iv432.i.i.i.be = phi i64 [ %indvars.iv.next433.i.i.i322, %._crit_edge204.i.i.i.thread ], [ %indvars.iv.next433.i.i.i, %._crit_edge204.i.i.i ]
   br label %.preheader8.i1344.i.i, !llvm.loop !92
 
 ._crit_edge204.i.i.i.thread:                      ; preds = %.lr.ph203.i.i.i
@@ -4751,8 +4751,8 @@ _ZL7update_IdEiiiPT_S1_PiS2_S1_S1_S2_S1_.exit.i.i: ; preds = %._crit_edge39.i.i.
   br i1 %1597, label %.thread241.i.i, label %.loopexit299.i.i
 
 .loopexit299.i.i:                                 ; preds = %.preheader297.i.i, %1596, %1305, %._crit_edge669.i.i, %1346
-  %.21135.i.i = phi double [ %1300, %1346 ], [ %1300, %1596 ], [ %1300, %._crit_edge669.i.i ], [ %1300, %1305 ], [ %.01133.i.i, %.preheader297.i.i ]
-  %.91102.i.i = phi double [ %.101103.i.i, %1346 ], [ %.51098.i.i, %1596 ], [ %.11094708.i.i, %1305 ], [ %.81101.i.i, %._crit_edge669.i.i ], [ %.01093.i.i, %.preheader297.i.i ]
+  %.21135.i.i = phi double [ %1300, %1596 ], [ %1300, %1346 ], [ %1300, %._crit_edge669.i.i ], [ %1300, %1305 ], [ %.01133.i.i, %.preheader297.i.i ]
+  %.91102.i.i = phi double [ %.51098.i.i, %1596 ], [ %.101103.i.i, %1346 ], [ %.11094708.i.i, %1305 ], [ %.81101.i.i, %._crit_edge669.i.i ], [ %.01093.i.i, %.preheader297.i.i ]
   %1598 = fcmp ugt double %.91102.i.i, %.21135.i.i
   %brmerge1468.i.i = or i1 %.not414.i.i, %1598
   %.21135.mux.i.i = select i1 %1598, double %.21135.i.i, double %.91102.i.i

@@ -3287,7 +3287,7 @@ define internal fastcc noundef align 8 ptr @_ZN10serde_json4read20parse_unicode_
   br label %_ZN10serde_json4read19push_wtf8_codepoint17h5126d55bd5405642E.exit
 
 _ZN10serde_json4read11peek_or_eof17h43660b2613644039E.exit: ; preds = %.thread18.i, %.thread.i
-  %.sroa.6.0 = phi i8 [ %33, %.thread.i ], [ %37, %.thread18.i ]
+  %.sroa.6.0 = phi i8 [ %37, %.thread18.i ], [ %33, %.thread.i ]
   %47 = icmp eq i8 %.sroa.6.0, 92
   store i8 0, ptr %29, align 8
   br i1 %47, label %48, label %58
@@ -24520,9 +24520,9 @@ define hidden void @"_ZN12polars_arrow5array7binview3ffi134_$LT$impl$u20$polars_
           to label %52 unwind label %49
 
 47:                                               ; preds = %.thread147, %49
-  %.sroa.042.2 = phi i1 [ %51, %49 ], [ true, %.thread147 ]
-  %.sroa.040.1 = phi i8 [ %.sroa.040.0, %49 ], [ %.sroa.040.2, %.thread147 ]
-  %.pn95 = phi { ptr, i32 } [ %50, %49 ], [ %.pn93, %.thread147 ]
+  %.sroa.042.2 = phi i1 [ true, %.thread147 ], [ %51, %49 ]
+  %.sroa.040.1 = phi i8 [ %.sroa.040.2, %.thread147 ], [ %.sroa.040.0, %49 ]
+  %.pn95 = phi { ptr, i32 } [ %.pn93, %.thread147 ], [ %50, %49 ]
   %48 = trunc nuw i8 %.sroa.040.1 to i1
   br i1 %48, label %144, label %38
 
@@ -25064,9 +25064,9 @@ define hidden void @"_ZN12polars_arrow5array7binview3ffi134_$LT$impl$u20$polars_
           to label %52 unwind label %49
 
 47:                                               ; preds = %.thread147, %49
-  %.sroa.042.2 = phi i1 [ %51, %49 ], [ true, %.thread147 ]
-  %.sroa.040.1 = phi i8 [ %.sroa.040.0, %49 ], [ %.sroa.040.2, %.thread147 ]
-  %.pn95 = phi { ptr, i32 } [ %50, %49 ], [ %.pn93, %.thread147 ]
+  %.sroa.042.2 = phi i1 [ true, %.thread147 ], [ %51, %49 ]
+  %.sroa.040.1 = phi i8 [ %.sroa.040.2, %.thread147 ], [ %.sroa.040.0, %49 ]
+  %.pn95 = phi { ptr, i32 } [ %.pn93, %.thread147 ], [ %50, %49 ]
   %48 = trunc nuw i8 %.sroa.040.1 to i1
   br i1 %48, label %144, label %38
 
@@ -25604,9 +25604,9 @@ define hidden void @"_ZN12polars_arrow5array7binview3ffi134_$LT$impl$u20$polars_
           to label %49 unwind label %46
 
 44:                                               ; preds = %.thread147, %46
-  %.sroa.042.2 = phi i1 [ %48, %46 ], [ true, %.thread147 ]
-  %.sroa.040.1 = phi i8 [ %.sroa.040.0, %46 ], [ %.sroa.040.2, %.thread147 ]
-  %.pn95 = phi { ptr, i32 } [ %47, %46 ], [ %.pn93, %.thread147 ]
+  %.sroa.042.2 = phi i1 [ true, %.thread147 ], [ %48, %46 ]
+  %.sroa.040.1 = phi i8 [ %.sroa.040.2, %.thread147 ], [ %.sroa.040.0, %46 ]
+  %.pn95 = phi { ptr, i32 } [ %.pn93, %.thread147 ], [ %47, %46 ]
   %45 = trunc nuw i8 %.sroa.040.1 to i1
   br i1 %45, label %141, label %35
 
@@ -26142,9 +26142,9 @@ define hidden void @"_ZN12polars_arrow5array7binview3ffi134_$LT$impl$u20$polars_
           to label %49 unwind label %46
 
 44:                                               ; preds = %.thread147, %46
-  %.sroa.042.2 = phi i1 [ %48, %46 ], [ true, %.thread147 ]
-  %.sroa.040.1 = phi i8 [ %.sroa.040.0, %46 ], [ %.sroa.040.2, %.thread147 ]
-  %.pn95 = phi { ptr, i32 } [ %47, %46 ], [ %.pn93, %.thread147 ]
+  %.sroa.042.2 = phi i1 [ true, %.thread147 ], [ %48, %46 ]
+  %.sroa.040.1 = phi i8 [ %.sroa.040.2, %.thread147 ], [ %.sroa.040.0, %46 ]
+  %.pn95 = phi { ptr, i32 } [ %.pn93, %.thread147 ], [ %47, %46 ]
   %45 = trunc nuw i8 %.sroa.040.1 to i1
   br i1 %45, label %141, label %35
 
@@ -36800,7 +36800,7 @@ define hidden noundef align 8 ptr @"_ZN76_$LT$serde_json..read..IoRead$LT$R$GT$$
   br label %_ZN10serde_json4read13ignore_escape17ha091dc37a4a8fa57E.exit.thread
 
 _ZN10serde_json4read11next_or_eof17h9f0095ea68c5595bE.exit: ; preds = %.thread18.i, %.backedge
-  %.sroa.5.1 = phi i8 [ %18, %.thread18.i ], [ %15, %.backedge ]
+  %.sroa.5.1 = phi i8 [ %15, %.backedge ], [ %18, %.thread18.i ]
   switch i8 %.sroa.5.1, label %27 [
     i8 34, label %_ZN10serde_json4read13ignore_escape17ha091dc37a4a8fa57E.exit.thread
     i8 92, label %33
@@ -36865,7 +36865,7 @@ _ZN10serde_json4read11next_or_eof17h9f0095ea68c5595bE.exit: ; preds = %.thread18
   br label %_ZN10serde_json4read13ignore_escape17ha091dc37a4a8fa57E.exit.thread
 
 _ZN10serde_json4read11next_or_eof17h9f0095ea68c5595bE.exit.i: ; preds = %.thread18.i.i, %33
-  %.sroa.5.0.i = phi i8 [ %39, %.thread18.i.i ], [ %36, %33 ]
+  %.sroa.5.0.i = phi i8 [ %36, %33 ], [ %39, %.thread18.i.i ]
   switch i8 %.sroa.5.0.i, label %48 [
     i8 34, label %.backedge.backedge
     i8 92, label %.backedge.backedge
@@ -36910,7 +36910,7 @@ _ZN10serde_json4read11next_or_eof17h9f0095ea68c5595bE.exit.i: ; preds = %.thread
   br label %.backedge
 
 _ZN10serde_json4read13ignore_escape17ha091dc37a4a8fa57E.exit.thread: ; preds = %_ZN10serde_json4read11next_or_eof17h9f0095ea68c5595bE.exit, %23, %19, %44, %40, %55, %48, %29
-  %.sroa.0.0 = phi ptr [ %51, %48 ], [ %32, %29 ], [ %47, %44 ], [ %43, %40 ], [ %57, %55 ], [ %22, %19 ], [ %26, %23 ], [ null, %_ZN10serde_json4read11next_or_eof17h9f0095ea68c5595bE.exit ]
+  %.sroa.0.0 = phi ptr [ %51, %48 ], [ %32, %29 ], [ %26, %23 ], [ %47, %44 ], [ %43, %40 ], [ %57, %55 ], [ %22, %19 ], [ null, %_ZN10serde_json4read11next_or_eof17h9f0095ea68c5595bE.exit ]
   ret ptr %.sroa.0.0
 }
 
@@ -37120,10 +37120,10 @@ _ZN10serde_json4read11next_or_eof17h9f0095ea68c5595bE.exit15.thread: ; preds = %
   br label %84
 
 _ZN10serde_json4read11next_or_eof17h9f0095ea68c5595bE.exit22: ; preds = %.thread18.i16, %_ZN10serde_json4read11next_or_eof17h9f0095ea68c5595bE.exit15
-  %.sroa.529.075 = phi i8 [ %.sroa.529.074, %.thread18.i16 ], [ %58, %_ZN10serde_json4read11next_or_eof17h9f0095ea68c5595bE.exit15 ]
-  %.sroa.5.0606473 = phi i8 [ %.sroa.5.0606472, %.thread18.i16 ], [ %.sroa.5.06063, %_ZN10serde_json4read11next_or_eof17h9f0095ea68c5595bE.exit15 ]
-  %.sroa.525.06671 = phi i8 [ %.sroa.525.06670, %.thread18.i16 ], [ %.sroa.525.065, %_ZN10serde_json4read11next_or_eof17h9f0095ea68c5595bE.exit15 ]
-  %.sroa.533.0 = phi i8 [ %62, %.thread18.i16 ], [ %.pre57, %_ZN10serde_json4read11next_or_eof17h9f0095ea68c5595bE.exit15 ]
+  %.sroa.529.075 = phi i8 [ %58, %_ZN10serde_json4read11next_or_eof17h9f0095ea68c5595bE.exit15 ], [ %.sroa.529.074, %.thread18.i16 ]
+  %.sroa.5.0606473 = phi i8 [ %.sroa.5.06063, %_ZN10serde_json4read11next_or_eof17h9f0095ea68c5595bE.exit15 ], [ %.sroa.5.0606472, %.thread18.i16 ]
+  %.sroa.525.06671 = phi i8 [ %.sroa.525.065, %_ZN10serde_json4read11next_or_eof17h9f0095ea68c5595bE.exit15 ], [ %.sroa.525.06670, %.thread18.i16 ]
+  %.sroa.533.0 = phi i8 [ %.pre57, %_ZN10serde_json4read11next_or_eof17h9f0095ea68c5595bE.exit15 ], [ %62, %.thread18.i16 ]
   %73 = tail call { i16, i16 } @_ZN10serde_json4read22decode_four_hex_digits17hb6cf9093e7c14b00E(i8 noundef %.sroa.5.0606473, i8 noundef %.sroa.525.06671, i8 noundef %.sroa.529.075, i8 noundef %.sroa.533.0)
   %74 = extractvalue { i16, i16 } %73, 0
   %75 = trunc i16 %74 to i1
@@ -37218,7 +37218,7 @@ define hidden void @"_ZN76_$LT$serde_json..read..IoRead$LT$R$GT$$u20$as$u20$serd
   br label %"_ZN10serde_json4read15IoRead$LT$R$GT$15parse_str_bytes17h58db991b552c0174E.exit.thread"
 
 _ZN10serde_json4read11next_or_eof17h9f0095ea68c5595bE.exit.i: ; preds = %.thread18.i.i, %.backedge.i
-  %.sroa.5.1.i = phi i8 [ %23, %.thread18.i.i ], [ %20, %.backedge.i ]
+  %.sroa.5.1.i = phi i8 [ %20, %.backedge.i ], [ %23, %.thread18.i.i ]
   switch i8 %.sroa.5.1.i, label %32 [
     i8 34, label %41
     i8 92, label %49
@@ -37317,7 +37317,7 @@ _ZN10serde_json4read11next_or_eof17h9f0095ea68c5595bE.exit.i: ; preds = %.thread
   br label %"_ZN10serde_json4read15IoRead$LT$R$GT$15parse_str_bytes17h58db991b552c0174E.exit.thread"
 
 _ZN10serde_json4read11next_or_eof17h9f0095ea68c5595bE.exit.i.i: ; preds = %.thread18.i.i.i, %49
-  %.sroa.5.0.i.i = phi i8 [ %55, %.thread18.i.i.i ], [ %52, %49 ]
+  %.sroa.5.0.i.i = phi i8 [ %52, %49 ], [ %55, %.thread18.i.i.i ]
   switch i8 %.sroa.5.0.i.i, label %64 [
     i8 34, label %68
     i8 92, label %72
@@ -37409,7 +37409,7 @@ _ZN10serde_json4read12parse_escape17h1a5f6d41b512956dE.exit.i: ; preds = %_ZN10s
   br label %"_ZN10serde_json4read15IoRead$LT$R$GT$15parse_str_bytes17h58db991b552c0174E.exit.thread"
 
 "_ZN10serde_json4read15IoRead$LT$R$GT$15parse_str_bytes17h58db991b552c0174E.exit.thread": ; preds = %_ZN10serde_json4read12parse_escape17h1a5f6d41b512956dE.exit.i, %56, %60, %64, %24, %28, %101, %"_ZN10serde_json4read15IoRead$LT$R$GT$15parse_str_bytes17h58db991b552c0174E.exit.thread4"
-  %.sroa.7.03.in = phi ptr [ %48, %"_ZN10serde_json4read15IoRead$LT$R$GT$15parse_str_bytes17h58db991b552c0174E.exit.thread4" ], [ %104, %101 ], [ %31, %28 ], [ %27, %24 ], [ %63, %60 ], [ %59, %56 ], [ %67, %64 ], [ %100, %_ZN10serde_json4read12parse_escape17h1a5f6d41b512956dE.exit.i ]
+  %.sroa.7.03.in = phi ptr [ %48, %"_ZN10serde_json4read15IoRead$LT$R$GT$15parse_str_bytes17h58db991b552c0174E.exit.thread4" ], [ %104, %101 ], [ %31, %28 ], [ %27, %24 ], [ %67, %64 ], [ %63, %60 ], [ %59, %56 ], [ %100, %_ZN10serde_json4read12parse_escape17h1a5f6d41b512956dE.exit.i ]
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.7.03.in, ptr %105, align 8
   store i64 2, ptr %0, align 8

@@ -1269,8 +1269,8 @@ define linkonce_odr dso_local void @_ZN12hb_bit_set_t9set_arrayIjEEvbPKT_jj(ptr 
   br label %42
 
 42:                                               ; preds = %40, %37
-  %.226.i.i.i.i.i = phi i32 [ %38, %37 ], [ %.0242.i.i.i.i.i, %40 ]
-  %.223.i.i.i.i.i = phi i32 [ %.0213.i.i.i.i.i, %37 ], [ %41, %40 ]
+  %.226.i.i.i.i.i = phi i32 [ %.0242.i.i.i.i.i, %40 ], [ %38, %37 ]
+  %.223.i.i.i.i.i = phi i32 [ %41, %40 ], [ %.0213.i.i.i.i.i, %37 ]
   %.not.not.i.i.i.i.i = icmp sgt i32 %.223.i.i.i.i.i, %.226.i.i.i.i.i
   br i1 %.not.not.i.i.i.i.i, label %.loopexit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !92
 
@@ -1445,9 +1445,9 @@ _ZN13hb_bit_page_t3setEjb.exit:                   ; preds = %_ZN12hb_bit_set_t8p
   br i1 %121, label %_ZN12hb_bit_set_t8page_forEjb.exit.thread.split.split, label %.critedge, !llvm.loop !102
 
 .critedge:                                        ; preds = %116, %98, %..critedge.split.us_crit_edge
-  %.us-phi = phi ptr [ %82, %..critedge.split.us_crit_edge ], [ %99, %98 ], [ %117, %116 ]
-  %.us-phi50 = phi i32 [ %81, %..critedge.split.us_crit_edge ], [ %97, %98 ], [ %115, %116 ]
-  %.us-phi51 = phi i32 [ %83, %..critedge.split.us_crit_edge ], [ %100, %98 ], [ %118, %116 ]
+  %.us-phi = phi ptr [ %99, %98 ], [ %82, %..critedge.split.us_crit_edge ], [ %117, %116 ]
+  %.us-phi50 = phi i32 [ %97, %98 ], [ %81, %..critedge.split.us_crit_edge ], [ %115, %116 ]
+  %.us-phi51 = phi i32 [ %100, %98 ], [ %83, %..critedge.split.us_crit_edge ], [ %118, %116 ]
   br label %18, !llvm.loop !103
 
 .critedge42:                                      ; preds = %_ZN12hb_bit_set_t8page_forEjb.exit.thread.split.us, %_ZN12hb_bit_set_t8page_forEjb.exit, %79, %114, %96, %5

@@ -1052,7 +1052,7 @@ BufferGetPage.exit76.i:                           ; preds = %273, %267
   br i1 %282, label %.lr.ph93.i, label %.loopexit.i, !llvm.loop !12
 
 .loopexit.i:                                      ; preds = %BufferGetPage.exit76.i, %246, %243, %._crit_edge86.i
-  %283 = phi i32 [ %235, %._crit_edge86.i ], [ %235, %246 ], [ %235, %243 ], [ %280, %BufferGetPage.exit76.i ]
+  %283 = phi i32 [ %235, %._crit_edge86.i ], [ %235, %243 ], [ %235, %246 ], [ %280, %BufferGetPage.exit76.i ]
   %284 = icmp sgt i32 %283, 0
   br i1 %284, label %.lr.ph96.i, label %._crit_edge97.thread.i
 

@@ -1202,7 +1202,7 @@ _ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEED2Ev.ex
   br label %.loopexit
 
 .loopexit:                                        ; preds = %188, %202, %204, %181
-  %.merged = phi { ptr, i32 } [ %.pn, %181 ], [ %205, %204 ], [ %203, %202 ], [ %189, %188 ]
+  %.merged = phi { ptr, i32 } [ %.pn, %181 ], [ %203, %202 ], [ %205, %204 ], [ %189, %188 ]
   call void @_ZNSt6vectorISt10shared_ptrIN5folly10LogHandlerEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @_ZNSt5arrayISt10shared_ptrIN5folly10LogHandlerEELm5EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %7) #15
@@ -3522,7 +3522,7 @@ _ZN5folly9LockedPtrINS_12SynchronizedISt6vectorISt10shared_ptrINS_10LogHandlerEE
   br label %_ZNSt10shared_ptrIN5folly10LogHandlerEEaSERKS2_.exit, !llvm.loop !159
 
 .loopexit:                                        ; preds = %49, %33, %44
-  %.sroa.06.1.i.i.i = phi ptr [ %45, %44 ], [ %.sroa.06.0.i.i.i, %33 ], [ %51, %49 ]
+  %.sroa.06.1.i.i.i = phi ptr [ %.sroa.06.0.i.i.i, %33 ], [ %45, %44 ], [ %51, %49 ]
   %57 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 24
   %58 = load ptr, ptr %57, align 8, !tbaa !86
   store ptr %58, ptr %.sroa.012.022, align 8, !tbaa !86

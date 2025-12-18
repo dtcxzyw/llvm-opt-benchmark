@@ -1722,7 +1722,7 @@ _ZN11ackr_helper9is_selectEP3app.exit.thread51:   ; preds = %43, %_ZN11ackr_help
   br i1 %.not27.old.i.i.i, label %.loopexit58, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %83, %80
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %83 ], [ %82, %80 ]
+  %.137.i.i.i.be = phi ptr [ %82, %80 ], [ %.old.i.i.i, %83 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !113
 
 _ZNK7obj_mapI3appPN11ackr_helper7app_occEE4findEPS0_RS3_.exit: ; preds = %64, %75
@@ -1872,7 +1872,7 @@ _ZNK11ackr_helper14is_uninterp_fnEPK3app.exit.thread: ; preds = %25, %_ZNK11ackr
   br i1 %.not27.old.i.i.i30, label %.loopexit, label %.lr.ph38.i.i.i26.backedge
 
 .lr.ph38.i.i.i26.backedge:                        ; preds = %141, %138
-  %.137.i.i.i27.be = phi ptr [ %.old.i.i.i29, %141 ], [ %140, %138 ]
+  %.137.i.i.i27.be = phi ptr [ %140, %138 ], [ %.old.i.i.i29, %141 ]
   br label %.lr.ph38.i.i.i26, !llvm.loop !121
 
 _ZNK7obj_mapI9func_declPN11ackr_helper7app_occEE4findEPS0_RS3_.exit: ; preds = %122, %133
@@ -4225,7 +4225,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI3appPN11ackr_help
   br i1 %.not32.old, label %.loopexit, label %.lr.ph48.backedge
 
 .lr.ph48.backedge:                                ; preds = %36, %33
-  %.247.be = phi ptr [ %.old, %36 ], [ %35, %33 ]
+  %.247.be = phi ptr [ %35, %33 ], [ %.old, %36 ]
   br label %.lr.ph48, !llvm.loop !175
 
 .loopexit38:                                      ; preds = %17, %28

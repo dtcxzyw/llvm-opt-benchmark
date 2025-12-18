@@ -9837,7 +9837,7 @@ define internal fastcc void @dissect_zcl_met_mirror_report_attribute_response(pt
   br label %14
 
 14:                                               ; preds = %13, %3
-  %.0 = phi i32 [ 5, %13 ], [ 1, %3 ]
+  %.0 = phi i32 [ 1, %3 ], [ 5, %13 ]
   br label %15
 
 15:                                               ; preds = %14, %15

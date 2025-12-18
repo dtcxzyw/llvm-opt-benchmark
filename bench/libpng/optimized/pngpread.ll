@@ -1430,7 +1430,7 @@ png_push_have_row.exit169:                        ; preds = %115, %117
   br label %.critedge4
 
 .critedge4:                                       ; preds = %.preheader, %.critedge2, %.critedge4thread-pre-split.loopexit
-  %119 = phi i8 [ %.pr204.pre, %.critedge4thread-pre-split.loopexit ], [ %106, %.critedge2 ], [ %113, %.preheader ]
+  %119 = phi i8 [ %106, %.critedge2 ], [ %.pr204.pre, %.critedge4thread-pre-split.loopexit ], [ %113, %.preheader ]
   %120 = icmp eq i8 %119, 6
   br i1 %120, label %121, label %.critedge8
 

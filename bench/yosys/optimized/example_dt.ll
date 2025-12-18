@@ -6368,7 +6368,7 @@ _ZN5Yosys9DriveSpecD2Ev.exit885:                  ; preds = %_ZSt8_DestroyIPN5Yo
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader.preheader, %.body800.thread2522, %.body800.thread, %.body800
-  %.pn487.pn.pn.pn.pn.pn2520 = phi { ptr, i32 } [ %1634, %.body800.thread ], [ %.pn487.pn.pn, %.body800 ], [ %1638, %.body800.thread2522 ], [ %.pn487.pn.pn.pn6482, %.preheader.preheader ]
+  %.pn487.pn.pn.pn.pn.pn2520 = phi { ptr, i32 } [ %1634, %.body800.thread ], [ %1638, %.body800.thread2522 ], [ %.pn487.pn.pn, %.body800 ], [ %.pn487.pn.pn.pn6482, %.preheader.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %61)
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %59) #25
   br label %.body795
@@ -7795,7 +7795,7 @@ _ZNK5Yosys7hashlib4poolINS_5RTLIL8IdStringENS0_8hash_opsIS3_EEE7do_hashERKS3_.ex
   br label %_ZNK5Yosys9CellTypes10cell_inputENS_5RTLIL8IdStringES2_.exit
 
 _ZNK5Yosys9CellTypes10cell_inputENS_5RTLIL8IdStringES2_.exit: ; preds = %2670, %.noexc964, %_ZNK5Yosys7hashlib4poolINS_5RTLIL8IdStringENS0_8hash_opsIS3_EEE5countERKS3_.exit.i, %._crit_edge.i1688, %.noexc965.loopexit, %._crit_edge.i1698, %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS_8CellTypeENS0_8hash_opsIS3_EEE4findERKS3_.exit.i
-  %2859 = phi i1 [ false, %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS_8CellTypeENS0_8hash_opsIS3_EEE4findERKS3_.exit.i ], [ false, %._crit_edge.i1698 ], [ false, %_ZNK5Yosys7hashlib4poolINS_5RTLIL8IdStringENS0_8hash_opsIS3_EEE5countERKS3_.exit.i ], [ false, %._crit_edge.i1688 ], [ %2858, %.noexc965.loopexit ], [ false, %.noexc964 ], [ false, %2670 ]
+  %2859 = phi i1 [ false, %.noexc964 ], [ false, %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS_8CellTypeENS0_8hash_opsIS3_EEE4findERKS3_.exit.i ], [ false, %._crit_edge.i1698 ], [ false, %_ZNK5Yosys7hashlib4poolINS_5RTLIL8IdStringENS0_8hash_opsIS3_EEE5countERKS3_.exit.i ], [ false, %._crit_edge.i1688 ], [ %2858, %.noexc965.loopexit ], [ false, %2670 ]
   %2860 = load i32, ptr %76, align 4, !tbaa !128
   %2861 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1, !tbaa !139, !range !141, !noundef !142
   %2862 = trunc nuw i8 %2861 to i1
@@ -11226,7 +11226,7 @@ _ZNK5Yosys7hashlib4poolINS_5RTLIL8IdStringENS0_8hash_opsIS3_EEE7do_hashERKS3_.ex
   br label %_ZNK5Yosys9CellTypes10cell_inputENS_5RTLIL8IdStringES2_.exit1288
 
 _ZNK5Yosys9CellTypes10cell_inputENS_5RTLIL8IdStringES2_.exit1288: ; preds = %4099, %.noexc1286, %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit1279, %_ZNK5Yosys7hashlib4poolINS_5RTLIL8IdStringENS0_8hash_opsIS3_EEE5countERKS3_.exit.i1284, %._crit_edge.i1764, %.noexc1287.loopexit, %._crit_edge.i1777, %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS_8CellTypeENS0_8hash_opsIS3_EEE4findERKS3_.exit.i1281
-  %4288 = phi i1 [ false, %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS_8CellTypeENS0_8hash_opsIS3_EEE4findERKS3_.exit.i1281 ], [ false, %._crit_edge.i1777 ], [ false, %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit1279 ], [ false, %_ZNK5Yosys7hashlib4poolINS_5RTLIL8IdStringENS0_8hash_opsIS3_EEE5countERKS3_.exit.i1284 ], [ false, %._crit_edge.i1764 ], [ %4287, %.noexc1287.loopexit ], [ false, %.noexc1286 ], [ false, %4099 ]
+  %4288 = phi i1 [ false, %.noexc1286 ], [ false, %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS_8CellTypeENS0_8hash_opsIS3_EEE4findERKS3_.exit.i1281 ], [ false, %._crit_edge.i1777 ], [ false, %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit1279 ], [ false, %_ZNK5Yosys7hashlib4poolINS_5RTLIL8IdStringENS0_8hash_opsIS3_EEE5countERKS3_.exit.i1284 ], [ false, %._crit_edge.i1764 ], [ %4287, %.noexc1287.loopexit ], [ false, %4099 ]
   %4289 = load i32, ptr %113, align 4, !tbaa !128
   %4290 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1, !tbaa !139, !range !141, !noundef !142
   %4291 = trunc nuw i8 %4290 to i1
@@ -83272,7 +83272,7 @@ _ZNK5Yosys7hashlib4poolINS_9DriveSpecENS0_8hash_opsIS2_EEE7do_hashERKS2_.exit: ;
   br i1 %92, label %59, label %.critedge, !llvm.loop !972
 
 .critedge:                                        ; preds = %.loopexit, %83, %85, %49, %3
-  %.011 = phi i32 [ -1, %3 ], [ %54, %49 ], [ %.016, %85 ], [ %91, %.loopexit ], [ %.016, %83 ]
+  %.011 = phi i32 [ -1, %3 ], [ %.016, %85 ], [ %54, %49 ], [ %91, %.loopexit ], [ %.016, %83 ]
   ret i32 %.011
 }
 
@@ -84569,7 +84569,7 @@ _ZNK5Yosys7hashlib4poolINS_10DriveChunkENS0_8hash_opsIS2_EEE7do_hashERKS2_.exit:
   unreachable
 
 _ZNK5Yosys14DriveChunkWireeqERKS0_.exit:          ; preds = %95, %._crit_edge.i, %_ZNK5Yosys7hashlib4poolINS_10DriveChunkENS0_8hash_opsIS2_EEE7do_hashERKS2_.exit, %_ZNK5Yosys7hashlib4poolINS_10DriveChunkENS0_8hash_opsIS2_EEE9do_lookupERKS2_Rj.exit, %146, %92, %70, %77, %64, %58, %52, %46, %40, %34, %28, %22, %16, %10, %5, %2, %6
-  %.0 = phi i1 [ %69, %64 ], [ false, %2 ], [ %9, %6 ], [ true, %5 ], [ %27, %22 ], [ %51, %46 ], [ false, %16 ], [ false, %10 ], [ false, %40 ], [ false, %34 ], [ false, %28 ], [ false, %58 ], [ false, %52 ], [ false, %70 ], [ false, %77 ], [ true, %92 ], [ false, %146 ], [ false, %95 ], [ false, %._crit_edge.i ], [ false, %_ZNK5Yosys7hashlib4poolINS_10DriveChunkENS0_8hash_opsIS2_EEE7do_hashERKS2_.exit ], [ true, %_ZNK5Yosys7hashlib4poolINS_10DriveChunkENS0_8hash_opsIS2_EEE9do_lookupERKS2_Rj.exit ]
+  %.0 = phi i1 [ %69, %64 ], [ false, %2 ], [ %9, %6 ], [ true, %5 ], [ %27, %22 ], [ %51, %46 ], [ false, %16 ], [ false, %10 ], [ false, %40 ], [ false, %34 ], [ false, %28 ], [ false, %58 ], [ false, %52 ], [ false, %70 ], [ false, %77 ], [ true, %92 ], [ false, %146 ], [ true, %_ZNK5Yosys7hashlib4poolINS_10DriveChunkENS0_8hash_opsIS2_EEE9do_lookupERKS2_Rj.exit ], [ false, %._crit_edge.i ], [ false, %_ZNK5Yosys7hashlib4poolINS_10DriveChunkENS0_8hash_opsIS2_EEE7do_hashERKS2_.exit ], [ false, %95 ]
   ret i1 %.0
 }
 
@@ -85982,7 +85982,7 @@ _ZNSt6vectorIN5Yosys7hashlib4poolIZN12_GLOBAL__N_113ExampleDtPass7executeES_INSt
   br label %_ZNK5Yosys7hashlib4poolIZN12_GLOBAL__N_113ExampleDtPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EEPNS_5RTLIL6DesignEE9ExampleFnNS0_8hash_opsISG_EEE9do_lookupERKSG_Rj.exit
 
 _ZNK5Yosys7hashlib4poolIZN12_GLOBAL__N_113ExampleDtPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EEPNS_5RTLIL6DesignEE9ExampleFnNS0_8hash_opsISG_EEE9do_lookupERKSG_Rj.exit: ; preds = %_ZN5Yosys7hashlib8hash_opsIZN12_GLOBAL__N_113ExampleDtPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EEPNS_5RTLIL6DesignEE9ExampleFnE3cmpERKSG_SJ_.exit.i, %_ZNSt6vectorIN5Yosys7hashlib4poolIZN12_GLOBAL__N_113ExampleDtPass7executeES_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EEPNS0_5RTLIL6DesignEE9ExampleFnNS1_8hash_opsISG_EEE7entry_tESaISK_EE12emplace_backIJRKSG_RiEEERSK_DpOT_.exit.i, %_ZNK5Yosys7hashlib4poolIZN12_GLOBAL__N_113ExampleDtPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EEPNS_5RTLIL6DesignEE9ExampleFnNS0_8hash_opsISG_EEE7do_hashERKSG_.exit.i9
-  %.0 = phi i32 [ %343, %_ZNSt6vectorIN5Yosys7hashlib4poolIZN12_GLOBAL__N_113ExampleDtPass7executeES_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EEPNS0_5RTLIL6DesignEE9ExampleFnNS1_8hash_opsISG_EEE7entry_tESaISK_EE12emplace_backIJRKSG_RiEEERSK_DpOT_.exit.i ], [ %.pre62.i, %_ZNK5Yosys7hashlib4poolIZN12_GLOBAL__N_113ExampleDtPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EEPNS_5RTLIL6DesignEE9ExampleFnNS0_8hash_opsISG_EEE7do_hashERKSG_.exit.i9 ], [ %.018.i, %_ZN5Yosys7hashlib8hash_opsIZN12_GLOBAL__N_113ExampleDtPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EEPNS_5RTLIL6DesignEE9ExampleFnE3cmpERKSG_SJ_.exit.i ]
+  %.0 = phi i32 [ %.pre62.i, %_ZNK5Yosys7hashlib4poolIZN12_GLOBAL__N_113ExampleDtPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EEPNS_5RTLIL6DesignEE9ExampleFnNS0_8hash_opsISG_EEE7do_hashERKSG_.exit.i9 ], [ %343, %_ZNSt6vectorIN5Yosys7hashlib4poolIZN12_GLOBAL__N_113ExampleDtPass7executeES_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EEPNS0_5RTLIL6DesignEE9ExampleFnNS1_8hash_opsISG_EEE7entry_tESaISK_EE12emplace_backIJRKSG_RiEEERSK_DpOT_.exit.i ], [ %.018.i, %_ZN5Yosys7hashlib8hash_opsIZN12_GLOBAL__N_113ExampleDtPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EEPNS_5RTLIL6DesignEE9ExampleFnE3cmpERKSG_SJ_.exit.i ]
   ret i32 %.0
 }
 

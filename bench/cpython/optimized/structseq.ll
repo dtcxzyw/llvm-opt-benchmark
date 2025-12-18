@@ -1022,7 +1022,7 @@ get_type_attr_as_size.exit21:                     ; preds = %13, %17
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %28, %get_type_attr_as_size.exit21.thread, %get_type_attr_as_size.exit.thread, %get_type_attr_as_size.exit21, %25, %get_type_attr_as_size.exit
-  %.0 = phi ptr [ null, %get_type_attr_as_size.exit ], [ null, %25 ], [ null, %get_type_attr_as_size.exit21 ], [ null, %get_type_attr_as_size.exit.thread ], [ null, %get_type_attr_as_size.exit21.thread ], [ %26, %28 ], [ %26, %.lr.ph ]
+  %.0 = phi ptr [ null, %get_type_attr_as_size.exit ], [ null, %25 ], [ null, %get_type_attr_as_size.exit21 ], [ null, %get_type_attr_as_size.exit21.thread ], [ null, %get_type_attr_as_size.exit.thread ], [ %26, %28 ], [ %26, %.lr.ph ]
   ret ptr %.0
 }
 
@@ -2919,7 +2919,7 @@ Py_DECREF.exit51:                                 ; preds = %73, %70, %66, %58, 
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %_Py_NewRef.exit60, %.preheader, %87, %84, %Py_DECREF.exit51, %get_type_attr_as_size.exit.thread, %._crit_edge, %34, %get_type_attr_as_size.exit, %8, %6, %29
-  %.0 = phi ptr [ null, %6 ], [ null, %8 ], [ null, %29 ], [ null, %34 ], [ null, %get_type_attr_as_size.exit.thread ], [ null, %get_type_attr_as_size.exit ], [ %35, %._crit_edge ], [ null, %Py_DECREF.exit51 ], [ null, %84 ], [ null, %87 ], [ %35, %.preheader ], [ %35, %_Py_NewRef.exit60 ]
+  %.0 = phi ptr [ null, %6 ], [ null, %8 ], [ null, %29 ], [ null, %34 ], [ null, %get_type_attr_as_size.exit.thread ], [ null, %get_type_attr_as_size.exit ], [ null, %87 ], [ %35, %._crit_edge ], [ null, %Py_DECREF.exit51 ], [ null, %84 ], [ %35, %.preheader ], [ %35, %_Py_NewRef.exit60 ]
   ret ptr %.0
 }
 

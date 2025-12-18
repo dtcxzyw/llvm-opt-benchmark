@@ -1679,7 +1679,7 @@ define dso_local noundef zeroext i1 @slurm_option_get_next_set(ptr noundef %0, p
   %.not27 = icmp eq ptr %16, null
   br i1 %.not27, label %.critedge2, label %.critedge
 
-.critedge2:                                       ; preds = %11, %7, %15
+.critedge2:                                       ; preds = %7, %11, %15
   %17 = add nuw nsw i64 %8, 1
   store i64 %17, ptr %3, align 8
   %exitcond.not = icmp eq i64 %17, 163
@@ -2464,7 +2464,7 @@ _find_option_idx.exit.i185:                       ; preds = %270
   br label %slurm_option_reset.exit
 
 slurm_option_reset.exit:                          ; preds = %94, %275, %283, %_find_option_idx.exit.i185, %101, %_find_option_idx.exit.i, %293, %285, %slurm_option_reset.exit129, %181, %179, %slurm_option_reset.exit136, %302
-  %.0 = phi i32 [ 0, %293 ], [ -1, %302 ], [ -1, %101 ], [ 0, %slurm_option_reset.exit136 ], [ 0, %179 ], [ 0, %181 ], [ 0, %slurm_option_reset.exit129 ], [ 0, %285 ], [ -1, %_find_option_idx.exit.i ], [ -1, %_find_option_idx.exit.i185 ], [ -1, %283 ], [ -1, %275 ], [ -1, %94 ]
+  %.0 = phi i32 [ 0, %293 ], [ -1, %302 ], [ -1, %101 ], [ 0, %slurm_option_reset.exit136 ], [ 0, %179 ], [ 0, %181 ], [ 0, %slurm_option_reset.exit129 ], [ 0, %285 ], [ -1, %275 ], [ -1, %_find_option_idx.exit.i ], [ -1, %283 ], [ -1, %_find_option_idx.exit.i185 ], [ -1, %94 ]
   ret i32 %.0
 }
 
@@ -6198,7 +6198,7 @@ slurm_option_isset.exit:                          ; preds = %_find_option_idx.ex
   br label %slurm_option_isset.exit.thread
 
 slurm_option_isset.exit.thread:                   ; preds = %45, %slurm_option_isset.exit, %_find_option_idx.exit.i, %52
-  %.sink505 = phi i16 [ %55, %52 ], [ -2, %_find_option_idx.exit.i ], [ -2, %slurm_option_isset.exit ], [ -2, %45 ]
+  %.sink505 = phi i16 [ %55, %52 ], [ -2, %slurm_option_isset.exit ], [ -2, %_find_option_idx.exit.i ], [ -2, %45 ]
   %56 = getelementptr inbounds nuw i8, ptr %5, i64 128
   store i16 %.sink505, ptr %56, align 8
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 504

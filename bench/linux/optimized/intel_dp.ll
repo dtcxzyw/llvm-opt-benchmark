@@ -6814,7 +6814,7 @@ define dso_local void @intel_dp_phy_test(ptr noundef %0) local_unnamed_addr #2 a
   br label %9, !llvm.loop !123
 
 .thread19:                                        ; preds = %246, %243, %._crit_edge.thread, %104, %242, %._crit_edge
-  %251 = phi i32 [ 0, %104 ], [ 0, %242 ], [ 0, %._crit_edge ], [ 0, %._crit_edge.thread ], [ 0, %243 ], [ %247, %246 ]
+  %251 = phi i32 [ 0, %._crit_edge.thread ], [ 0, %._crit_edge ], [ 0, %104 ], [ 0, %242 ], [ 0, %243 ], [ %247, %246 ]
   call void @drm_modeset_drop_locks(ptr noundef nonnull %4) #16
   call void @drm_modeset_acquire_fini(ptr noundef nonnull %4) #16
   %252 = icmp eq i32 %251, 0
@@ -9617,7 +9617,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @dsc_compute_compressed_bpp
   br i1 %221, label %.loopexit14, label %.split, !llvm.loop !186
 
 .loopexit14:                                      ; preds = %.loopexit13, %.loopexit13.us.us, %.split.us, %218, %.split23, %104, %85
-  %222 = phi i32 [ 0, %218 ], [ 0, %.split23 ], [ -22, %104 ], [ -22, %85 ], [ -22, %.split.us ], [ -22, %.loopexit13.us.us ], [ -22, %.loopexit13 ]
+  %222 = phi i32 [ 0, %218 ], [ 0, %.split23 ], [ -22, %104 ], [ -22, %85 ], [ -22, %.loopexit13.us.us ], [ -22, %.split.us ], [ -22, %.loopexit13 ]
   ret i32 %222
 }
 
@@ -10067,8 +10067,8 @@ define internal fastcc range(i32 -2147483648, 1) i32 @intel_dp_compute_link_conf
   br label %175
 
 .loopexit17:                                      ; preds = %.loopexit16, %101, %72, %.thread, %66, %91
-  %.ph = phi ptr [ @.str.79, %91 ], [ @.str.78, %66 ], [ @.str.79, %.thread ], [ @.str.79, %72 ], [ @.str.79, %101 ], [ @.str.79, %.loopexit16 ]
-  %.ph15 = phi ptr [ @.str.78, %91 ], [ @.str.79, %66 ], [ @.str.79, %.thread ], [ @.str.79, %72 ], [ @.str.78, %101 ], [ @.str.78, %.loopexit16 ]
+  %.ph = phi ptr [ @.str.79, %91 ], [ @.str.79, %72 ], [ @.str.78, %66 ], [ @.str.79, %.thread ], [ @.str.79, %101 ], [ @.str.79, %.loopexit16 ]
+  %.ph15 = phi ptr [ @.str.78, %91 ], [ @.str.79, %72 ], [ @.str.79, %66 ], [ @.str.79, %.thread ], [ @.str.78, %101 ], [ @.str.78, %.loopexit16 ]
   %161 = icmp eq ptr %6, null
   br i1 %161, label %165, label %162
 
@@ -11517,7 +11517,7 @@ define internal fastcc void @intel_dp_check_device_service_irq(ptr noundef %0) u
   br label %.thread
 
 262:                                              ; preds = %232, %177, %103
-  %263 = phi i8 [ %234, %232 ], [ %178, %177 ], [ %104, %103 ]
+  %263 = phi i8 [ %104, %103 ], [ %234, %232 ], [ %178, %177 ]
   %264 = and i8 %263, 1
   %265 = icmp eq i8 %264, 0
   br i1 %265, label %.thread, label %266
@@ -13473,7 +13473,7 @@ define internal i32 @intel_dp_connector_atomic_check(ptr noundef %0, ptr noundef
   br label %170
 
 170:                                              ; preds = %142, %146, %163
-  %171 = phi i8 [ %169, %163 ], [ %135, %142 ], [ %135, %146 ]
+  %171 = phi i8 [ %135, %146 ], [ %169, %163 ], [ %135, %142 ]
   %172 = load ptr, ptr %134, align 8
   %173 = icmp eq ptr %172, %131
   br i1 %173, label %174, label %.preheader, !llvm.loop !230

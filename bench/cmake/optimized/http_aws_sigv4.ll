@@ -842,8 +842,8 @@ make_headers.exit.thread.sink.split:              ; preds = %195, %171, %172
   br label %make_headers.exit.thread
 
 make_headers.exit.thread:                         ; preds = %192, %289, %280, %.lr.ph257.i, %287, %make_headers.exit.thread.sink.split, %227, %175, %find_date_hdr.exit.thread.i
-  %.2.ph = phi ptr [ null, %find_date_hdr.exit.thread.i ], [ null, %175 ], [ null, %227 ], [ null, %make_headers.exit.thread.sink.split ], [ %.1198, %289 ], [ %.1198, %287 ], [ %.1198, %.lr.ph257.i ], [ %.1198, %280 ], [ null, %192 ]
-  %.2.i.ph = phi ptr [ %.4.lcssa.i, %find_date_hdr.exit.thread.i ], [ %.0126.i, %175 ], [ %.4.lcssa.i, %227 ], [ %.2.i.ph.ph, %make_headers.exit.thread.sink.split ], [ %.6306.i, %289 ], [ %.6306.i, %287 ], [ %.6306.i, %.lr.ph257.i ], [ %.6306.i, %280 ], [ %.4240.i, %192 ]
+  %.2.ph = phi ptr [ null, %find_date_hdr.exit.thread.i ], [ %.1198, %289 ], [ null, %make_headers.exit.thread.sink.split ], [ null, %175 ], [ null, %227 ], [ %.1198, %287 ], [ %.1198, %.lr.ph257.i ], [ %.1198, %280 ], [ null, %192 ]
+  %.2.i.ph = phi ptr [ %.4.lcssa.i, %find_date_hdr.exit.thread.i ], [ %.6306.i, %289 ], [ %.2.i.ph.ph, %make_headers.exit.thread.sink.split ], [ %.0126.i, %175 ], [ %.4.lcssa.i, %227 ], [ %.6306.i, %287 ], [ %.6306.i, %.lr.ph257.i ], [ %.6306.i, %280 ], [ %.4240.i, %192 ]
   call void @curl_slist_free_all(ptr noundef %.2.i.ph) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

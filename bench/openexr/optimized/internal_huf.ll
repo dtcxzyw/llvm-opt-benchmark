@@ -758,7 +758,7 @@ hufBuildEncTable.exit:                            ; preds = %270
   br label %hufPackEncTable.exit
 
 hufPackEncTable.exit:                             ; preds = %346, %._crit_edge202.i, %hufBuildEncTable.exit
-  %.070 = phi ptr [ %351, %346 ], [ %.788140.i, %._crit_edge202.i ], [ %9, %hufBuildEncTable.exit ]
+  %.070 = phi ptr [ %9, %hufBuildEncTable.exit ], [ %.788140.i, %._crit_edge202.i ], [ %351, %346 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !32)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !35)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !37)
@@ -868,7 +868,7 @@ hufPackEncTable.exit:                             ; preds = %346, %._crit_edge20
   %398 = trunc i64 %397 to i8
   %399 = getelementptr inbounds nuw i8, ptr %.4165331.i, i64 1
   store i8 %398, ptr %.4165331.i, align 1, !tbaa !26, !alias.scope !37, !noalias !43
-  %400 = icmp slt i64 %indvars.iv413.i, 16
+  %400 = icmp samesign ult i64 %indvars.iv413.i, 16
   br i1 %400, label %.critedge235.thread.i, label %.lr.ph332.i, !llvm.loop !45
 
 .critedge235.thread.i:                            ; preds = %396
@@ -960,11 +960,11 @@ hufPackEncTable.exit:                             ; preds = %346, %._crit_edge20
   br label %.loopexit268.i
 
 .loopexit268.i:                                   ; preds = %.critedge239.loopexit.i, %.loopexit268.loopexit.i, %435, %.critedge235.i, %.critedge239.preheader.i
-  %.2207.i = phi i32 [ %436, %435 ], [ 0, %.critedge235.i ], [ 0, %.critedge239.preheader.i ], [ 0, %.loopexit268.loopexit.i ], [ 0, %.critedge239.loopexit.i ]
-  %.2203.i = phi i32 [ %.0201343.i, %435 ], [ %363, %.critedge235.i ], [ %363, %.critedge239.preheader.i ], [ %363, %.loopexit268.loopexit.i ], [ %363, %.critedge239.loopexit.i ]
-  %.3188.i = phi i32 [ %.0185344.i, %435 ], [ %409, %.critedge235.i ], [ %.0185344.i, %.critedge239.preheader.i ], [ %437, %.loopexit268.loopexit.i ], [ %.8193.lcssa.i, %.critedge239.loopexit.i ]
-  %.2179.i = phi i64 [ %.0177345.i, %435 ], [ %408, %.critedge235.i ], [ %.0177345.i, %.critedge239.preheader.i ], [ %412, %.loopexit268.loopexit.i ], [ %426, %.critedge239.loopexit.i ]
-  %.3164.i = phi ptr [ %.0161346.i, %435 ], [ %.2163.lcssa.i, %.critedge235.i ], [ %.0161346.i, %.critedge239.preheader.i ], [ %418, %.loopexit268.loopexit.i ], [ %.8169.lcssa.i, %.critedge239.loopexit.i ]
+  %.2207.i = phi i32 [ 0, %.critedge235.i ], [ %436, %435 ], [ 0, %.critedge239.preheader.i ], [ 0, %.loopexit268.loopexit.i ], [ 0, %.critedge239.loopexit.i ]
+  %.2203.i = phi i32 [ %363, %.critedge235.i ], [ %.0201343.i, %435 ], [ %363, %.critedge239.preheader.i ], [ %363, %.loopexit268.loopexit.i ], [ %363, %.critedge239.loopexit.i ]
+  %.3188.i = phi i32 [ %409, %.critedge235.i ], [ %.0185344.i, %435 ], [ %.0185344.i, %.critedge239.preheader.i ], [ %437, %.loopexit268.loopexit.i ], [ %.8193.lcssa.i, %.critedge239.loopexit.i ]
+  %.2179.i = phi i64 [ %408, %.critedge235.i ], [ %.0177345.i, %435 ], [ %.0177345.i, %.critedge239.preheader.i ], [ %412, %.loopexit268.loopexit.i ], [ %426, %.critedge239.loopexit.i ]
+  %.3164.i = phi ptr [ %.2163.lcssa.i, %.critedge235.i ], [ %.0161346.i, %435 ], [ %.0161346.i, %.critedge239.preheader.i ], [ %418, %.loopexit268.loopexit.i ], [ %.8169.lcssa.i, %.critedge239.loopexit.i ]
   %438 = add nuw i64 %.0211341.i, 1
   %exitcond.not.i56 = icmp eq i64 %438, %4
   br i1 %exitcond.not.i56, label %.thread254.i, label %360, !llvm.loop !49
@@ -1148,9 +1148,9 @@ hufPackEncTable.exit:                             ; preds = %346, %._crit_edge20
   br label %.critedge245.i
 
 .critedge245.i:                                   ; preds = %.critedge247.loopexit.i, %.critedge245.loopexit.i, %.critedge243.i, %.critedge247.preheader.i
-  %.13198.i = phi i32 [ %489, %.critedge243.i ], [ %.3188.i, %.critedge247.preheader.i ], [ %515, %.critedge245.loopexit.i ], [ %.15200.lcssa.i, %.critedge247.loopexit.i ]
-  %.6183.i = phi i64 [ %488, %.critedge243.i ], [ %.2179.i, %.critedge247.preheader.i ], [ %492, %.critedge245.loopexit.i ], [ %506, %.critedge247.loopexit.i ]
-  %.13174.i = phi ptr [ %.10171.lcssa.i, %.critedge243.i ], [ %.3164.i, %.critedge247.preheader.i ], [ %498, %.critedge245.loopexit.i ], [ %.15176.lcssa.i, %.critedge247.loopexit.i ]
+  %.13198.i = phi i32 [ %515, %.critedge245.loopexit.i ], [ %489, %.critedge243.i ], [ %.3188.i, %.critedge247.preheader.i ], [ %.15200.lcssa.i, %.critedge247.loopexit.i ]
+  %.6183.i = phi i64 [ %492, %.critedge245.loopexit.i ], [ %488, %.critedge243.i ], [ %.2179.i, %.critedge247.preheader.i ], [ %506, %.critedge247.loopexit.i ]
+  %.13174.i = phi ptr [ %498, %.critedge245.loopexit.i ], [ %.10171.lcssa.i, %.critedge243.i ], [ %.3164.i, %.critedge247.preheader.i ], [ %.15176.lcssa.i, %.critedge247.loopexit.i ]
   %.not232.i = icmp eq i32 %.13198.i, 0
   br i1 %.not232.i, label %522, label %516
 
@@ -1204,7 +1204,7 @@ hufPackEncTable.exit.thread.sink.split:           ; preds = %7, %530
   br label %hufPackEncTable.exit.thread
 
 hufPackEncTable.exit.thread:                      ; preds = %.lr.ph176.i, %.lr.ph182.i, %.lr.ph187.i, %.lr.ph192.i, %.lr.ph327.i, %.lr.ph332.i, %.lr.ph337.i, %.lr.ph.i57, %.lr.ph367.i, %.lr.ph372.i, %.lr.ph377.i, %.lr.ph355.i, %hufPackEncTable.exit.thread.sink.split, %522, %516, %345, %12
-  %.0 = phi i32 [ 3, %12 ], [ 4, %345 ], [ 4, %516 ], [ 4, %522 ], [ 0, %hufPackEncTable.exit.thread.sink.split ], [ 4, %.lr.ph182.i ], [ 4, %.lr.ph355.i ], [ 4, %.lr.ph377.i ], [ 4, %.lr.ph372.i ], [ 4, %.lr.ph367.i ], [ 4, %.lr.ph.i57 ], [ 4, %.lr.ph337.i ], [ 4, %.lr.ph332.i ], [ 4, %.lr.ph327.i ], [ 4, %.lr.ph192.i ], [ 4, %.lr.ph187.i ], [ 4, %.lr.ph176.i ]
+  %.0 = phi i32 [ 4, %.lr.ph327.i ], [ 4, %.lr.ph372.i ], [ 3, %12 ], [ 4, %.lr.ph192.i ], [ 4, %.lr.ph355.i ], [ 4, %.lr.ph187.i ], [ 4, %.lr.ph377.i ], [ 4, %345 ], [ 4, %.lr.ph182.i ], [ 4, %.lr.ph337.i ], [ 4, %516 ], [ 4, %.lr.ph.i57 ], [ 4, %.lr.ph367.i ], [ 4, %522 ], [ 4, %.lr.ph332.i ], [ 0, %hufPackEncTable.exit.thread.sink.split ], [ 4, %.lr.ph176.i ]
   ret i32 %.0
 }
 
@@ -2050,7 +2050,7 @@ hufUnpackEncTable.exit:                           ; preds = %290, %308, %getBits
   br i1 %exitcond.not.i88, label %.critedge, label %372, !llvm.loop !99
 
 .critedge:                                        ; preds = %377, %hufUnpackEncTable.exit, %fasthuf_initialize.exit.thread, %272, %280, %28, %20, %19, %18
-  %.0 = phi i32 [ %., %18 ], [ 23, %fasthuf_initialize.exit.thread ], [ 1, %272 ], [ 3, %19 ], [ 23, %20 ], [ 1, %28 ], [ %281, %280 ], [ 23, %hufUnpackEncTable.exit ], [ %.4, %377 ]
+  %.0 = phi i32 [ %., %18 ], [ %281, %280 ], [ 1, %272 ], [ 3, %19 ], [ 23, %20 ], [ 23, %hufUnpackEncTable.exit ], [ 1, %28 ], [ 23, %fasthuf_initialize.exit.thread ], [ %.4, %377 ]
   ret i32 %.0
 }
 
@@ -2719,7 +2719,7 @@ define internal fastcc range(i32 0, 24) i32 @hufBuildDecTable(ptr noundef readon
   br i1 %exitcond.not, label %.thread84, label %.lr.ph104, !llvm.loop !129
 
 .thread84:                                        ; preds = %.loopexit97, %.lr.ph104, %24, %50, %68, %66, %.thread
-  %.5 = phi i32 [ 0, %.thread ], [ 23, %68 ], [ 23, %66 ], [ 23, %24 ], [ 0, %.loopexit97 ], [ 23, %.lr.ph104 ], [ 1, %50 ]
+  %.5 = phi i32 [ 23, %68 ], [ 0, %.thread ], [ 23, %66 ], [ 0, %.loopexit97 ], [ 23, %.lr.ph104 ], [ 23, %24 ], [ 1, %50 ]
   ret i32 %.5
 }
 
@@ -2975,11 +2975,11 @@ define internal fastcc range(i32 0, 24) i32 @hufDecode(ptr noundef readonly capt
   br i1 %exitcond.not, label %.thread314, label %.lr.ph370, !llvm.loop !134
 
 .loopexit329:                                     ; preds = %.lr.ph380, %.preheader, %120, %126
-  %.0232343 = phi i32 [ %97, %126 ], [ %97, %120 ], [ 0, %.preheader ], [ %97, %.lr.ph380 ]
-  %.8214 = phi i32 [ %89, %126 ], [ %110, %120 ], [ %.1207382, %.preheader ], [ %110, %.lr.ph380 ]
-  %.8194 = phi i64 [ %.9195.lcssa, %126 ], [ %.10196, %120 ], [ %.1187383, %.preheader ], [ %.10196, %.lr.ph380 ]
-  %.8176 = phi ptr [ %128, %126 ], [ %.1169384, %120 ], [ %.1169384, %.preheader ], [ %123, %.lr.ph380 ]
-  %.8160 = phi ptr [ %.9161.lcssa, %126 ], [ %.10162, %120 ], [ %.1153385, %.preheader ], [ %.10162, %.lr.ph380 ]
+  %.0232343 = phi i32 [ %97, %120 ], [ %97, %126 ], [ 0, %.preheader ], [ %97, %.lr.ph380 ]
+  %.8214 = phi i32 [ %110, %120 ], [ %89, %126 ], [ %.1207382, %.preheader ], [ %110, %.lr.ph380 ]
+  %.8194 = phi i64 [ %.10196, %120 ], [ %.9195.lcssa, %126 ], [ %.1187383, %.preheader ], [ %.10196, %.lr.ph380 ]
+  %.8176 = phi ptr [ %.1169384, %120 ], [ %128, %126 ], [ %.1169384, %.preheader ], [ %123, %.lr.ph380 ]
+  %.8160 = phi ptr [ %.10162, %120 ], [ %.9161.lcssa, %126 ], [ %.1153385, %.preheader ], [ %.10162, %.lr.ph380 ]
   %130 = icmp eq i32 %.0232343, %67
   br i1 %130, label %.thread314, label %.loopexit331
 
@@ -3104,7 +3104,7 @@ define internal fastcc range(i32 0, 24) i32 @hufDecode(ptr noundef readonly capt
   br label %.thread314
 
 .thread314:                                       ; preds = %.loopexit329, %109, %101, %117, %124, %63, %43, %35, %51, %26, %58, %129, %160, %152, %168, %.lr.ph414, %175, %._crit_edge415
-  %.11 = phi i32 [ %.262, %._crit_edge415 ], [ 23, %160 ], [ 23, %129 ], [ 23, %175 ], [ 23, %.lr.ph414 ], [ 1, %168 ], [ 1, %152 ], [ 23, %.loopexit329 ], [ 1, %101 ], [ 23, %109 ], [ 23, %124 ], [ 23, %63 ], [ 1, %117 ], [ 1, %35 ], [ 23, %43 ], [ 23, %58 ], [ 1, %51 ], [ 23, %26 ]
+  %.11 = phi i32 [ %.262, %._crit_edge415 ], [ 23, %129 ], [ 23, %160 ], [ 23, %175 ], [ 23, %.lr.ph414 ], [ 1, %168 ], [ 1, %152 ], [ 23, %.loopexit329 ], [ 1, %101 ], [ 23, %109 ], [ 23, %124 ], [ 23, %63 ], [ 1, %117 ], [ 1, %35 ], [ 23, %43 ], [ 23, %58 ], [ 1, %51 ], [ 23, %26 ]
   ret i32 %.11
 }
 

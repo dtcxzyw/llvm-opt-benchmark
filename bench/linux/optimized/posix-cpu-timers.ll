@@ -1152,7 +1152,7 @@ define internal noundef range(i32 -22, 1) i32 @posix_cpu_clock_getres(i32 nounde
   br label %42
 
 39:                                               ; preds = %16, %14
-  %.in = phi ptr [ %15, %14 ], [ %19, %16 ]
+  %.in = phi ptr [ %19, %16 ], [ %15, %14 ]
   %40 = load ptr, ptr %.in, align 8
   %41 = icmp eq ptr %40, null
   tail call void @__rcu_read_unlock() #11
@@ -1491,7 +1491,7 @@ define internal noundef range(i32 -22, 1) i32 @posix_cpu_timer_create(ptr nounde
   br i1 %39, label %.thread, label %.thread6
 
 40:                                               ; preds = %17, %15
-  %.in = phi ptr [ %16, %15 ], [ %20, %17 ]
+  %.in = phi ptr [ %20, %17 ], [ %16, %15 ]
   %41 = load ptr, ptr %.in, align 8
   %42 = icmp eq ptr %41, null
   br i1 %42, label %.thread, label %.thread6

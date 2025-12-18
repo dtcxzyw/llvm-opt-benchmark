@@ -273,7 +273,7 @@ _get_job_node_req.exit:                           ; preds = %68, %74, %76, %81
   unreachable
 
 87:                                               ; preds = %84, %85, %86
-  %.064 = phi ptr [ @.str.3, %85 ], [ @.str.4, %86 ], [ @.str.2, %84 ]
+  %.064 = phi ptr [ @.str.2, %84 ], [ @.str.3, %85 ], [ @.str.4, %86 ]
   %88 = icmp ult i16 %5, 3
   br i1 %88, label %switch.lookup, label %.fold.split79
 
@@ -918,8 +918,8 @@ _guess_job_end.exit.i.i:                          ; preds = %361, %359, %355, %3
   br label %.thread28.i.i
 
 .thread28.i.i:                                    ; preds = %.critedge.i.i, %._crit_edge.i.i, %237, %234, %.thread28.sink.split.i.i
-  %.1119.i.i = phi i32 [ %.0118.i.i, %.thread28.sink.split.i.i ], [ %.0118.i.i, %237 ], [ %.5123.i.i, %.critedge.i.i ], [ %.0118.i.i, %._crit_edge.i.i ], [ %.0118.i.i, %234 ]
-  %.2.i.i = phi i32 [ 0, %.thread28.sink.split.i.i ], [ %.1117.i.i, %237 ], [ %.4.i.i, %.critedge.i.i ], [ %.1117.i.i, %._crit_edge.i.i ], [ %.1117.i.i, %234 ]
+  %.1119.i.i = phi i32 [ %.0118.i.i, %.thread28.sink.split.i.i ], [ %.0118.i.i, %234 ], [ %.0118.i.i, %._crit_edge.i.i ], [ %.0118.i.i, %237 ], [ %.5123.i.i, %.critedge.i.i ]
+  %.2.i.i = phi i32 [ 0, %.thread28.sink.split.i.i ], [ %.1117.i.i, %234 ], [ %.1117.i.i, %._crit_edge.i.i ], [ %.1117.i.i, %237 ], [ %.4.i.i, %.critedge.i.i ]
   %375 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %376 = and i64 %375, 1
   %.not156.i.i = icmp eq i64 %376, 0
@@ -1792,7 +1792,7 @@ _get_usable_nodes.exit.i:                         ; preds = %657, %653, %649
   br label %.thread288.i
 
 .thread288.i:                                     ; preds = %570, %.thread288.sink.split.i, %704, %._crit_edge356.i
-  %.6.i = phi i32 [ %.5189.i, %704 ], [ %.1185.lcssa.i, %._crit_edge356.i ], [ %.6.ph.i, %.thread288.sink.split.i ], [ %482, %570 ]
+  %.6.i = phi i32 [ %.5189.i, %704 ], [ %.6.ph.i, %.thread288.sink.split.i ], [ %.1185.lcssa.i, %._crit_edge356.i ], [ %482, %570 ]
   %706 = load ptr, ptr %14, align 8
   %.not257.i = icmp eq ptr %706, null
   br i1 %.not257.i, label %708, label %707
@@ -4056,8 +4056,8 @@ _build_gres_mc_data.exit:                         ; preds = %490, %494, %497
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.40, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._job_test) #10
   br label %.thread909
 
-.thread917:                                       ; preds = %894, %875, %912, %915, %918, %1034, %647, %650, %653
-  %.0632920 = phi ptr [ %643, %653 ], [ %911, %912 ], [ %911, %915 ], [ %911, %918 ], [ %.5637, %1034 ], [ %643, %647 ], [ %643, %650 ], [ %.16331014, %875 ], [ %.2634, %894 ]
+.thread917:                                       ; preds = %894, %875, %1034, %918, %915, %912, %647, %650, %653
+  %.0632920 = phi ptr [ %643, %653 ], [ %.5637, %1034 ], [ %911, %918 ], [ %911, %915 ], [ %911, %912 ], [ %643, %647 ], [ %643, %650 ], [ %.16331014, %875 ], [ %.2634, %894 ]
   %1042 = load i8, ptr %500, align 8, !range !11, !noundef !12
   %1043 = trunc nuw i8 %1042 to i1
   %1044 = icmp eq i32 %.1624, 0
@@ -5103,7 +5103,7 @@ _build_gres_mc_data.exit:                         ; preds = %490, %494, %497
   br label %.critedge
 
 .critedge:                                        ; preds = %.thread943, %1506, %338, %335, %329, %326, %323, %332, %1505, %1502, %.thread929, %_verify_node_state.exit, %310, %1576, %1492, %1488, %1491, %562, %568, %565, %1416, %1209, %1090, %1077, %580, %555
-  %.0 = phi i32 [ -1, %_verify_node_state.exit ], [ 22, %1090 ], [ %1208, %1209 ], [ -1, %.thread929 ], [ %.2601, %1416 ], [ 0, %562 ], [ 0, %1492 ], [ 0, %1488 ], [ %1079, %1077 ], [ %582, %580 ], [ %557, %555 ], [ 0, %1505 ], [ -1, %310 ], [ 0, %565 ], [ 0, %568 ], [ 0, %1491 ], [ -1, %1576 ], [ 0, %1502 ], [ 2040, %332 ], [ 2040, %323 ], [ 2040, %326 ], [ 2040, %329 ], [ 2040, %335 ], [ 2040, %338 ], [ 0, %1506 ], [ 0, %.thread943 ]
+  %.0 = phi i32 [ -1, %_verify_node_state.exit ], [ 22, %1090 ], [ %1208, %1209 ], [ -1, %.thread929 ], [ %.2601, %1416 ], [ 0, %562 ], [ 0, %1492 ], [ 0, %1488 ], [ %1079, %1077 ], [ %582, %580 ], [ %557, %555 ], [ 0, %1502 ], [ -1, %310 ], [ 0, %565 ], [ 0, %568 ], [ 0, %1491 ], [ -1, %1576 ], [ 0, %1505 ], [ 2040, %338 ], [ 2040, %332 ], [ 2040, %323 ], [ 2040, %326 ], [ 2040, %329 ], [ 2040, %335 ], [ 0, %1506 ], [ 0, %.thread943 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
@@ -7545,7 +7545,7 @@ _count_used_cpus.exit493:                         ; preds = %352, %347, %_check_
   br i1 %358, label %.thread548, label %359
 
 .thread548:                                       ; preds = %191, %60, %52, %156, %145, %142, %170, %242, %238, %._crit_edge570, %155, %149, %139, %._crit_edge631
-  %.0318553 = phi i16 [ %.1, %._crit_edge631 ], [ %152, %156 ], [ -1, %145 ], [ -1, %142 ], [ %.1, %170 ], [ %.1, %242 ], [ %.1, %238 ], [ %.1, %._crit_edge570 ], [ %152, %155 ], [ -1, %149 ], [ -1, %139 ], [ -1, %52 ], [ -1, %60 ], [ %.1, %191 ]
+  %.0318553 = phi i16 [ %.1, %._crit_edge631 ], [ -1, %60 ], [ %152, %156 ], [ -1, %145 ], [ -1, %142 ], [ %.1, %170 ], [ %.1, %242 ], [ %.1, %238 ], [ %.1, %._crit_edge570 ], [ %152, %155 ], [ -1, %149 ], [ -1, %139 ], [ -1, %52 ], [ %.1, %191 ]
   call void @bit_clear_all(ptr noundef %1) #10
   br label %359
 

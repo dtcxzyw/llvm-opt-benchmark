@@ -502,7 +502,7 @@ define dso_local i64 @binsearch(i64 noundef %0, ptr noundef readonly captures(no
   br label %.loopexit
 
 .loopexit:                                        ; preds = %7, %12, %13
-  %.2 = phi i64 [ %15, %13 ], [ %.023, %12 ], [ %0, %7 ]
+  %.2 = phi i64 [ %.023, %12 ], [ %15, %13 ], [ %0, %7 ]
   ret i64 %.2
 }
 

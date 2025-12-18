@@ -574,7 +574,7 @@ define hidden zeroext i1 @SDL_SW_UpdateYUVTexture(ptr noundef readonly captures(
   br label %.loopexit
 
 .loopexit:                                        ; preds = %265, %171, %135, %211, %38, %._crit_edge188, %._crit_edge, %147, %._crit_edge195, %25, %198, %278
-  %.0144 = phi i1 [ %279, %278 ], [ true, %198 ], [ true, %25 ], [ true, %147 ], [ true, %._crit_edge195 ], [ true, %._crit_edge ], [ true, %38 ], [ true, %._crit_edge188 ], [ true, %211 ], [ true, %171 ], [ true, %135 ], [ true, %265 ]
+  %.0144 = phi i1 [ %279, %278 ], [ true, %._crit_edge195 ], [ true, %147 ], [ true, %25 ], [ true, %198 ], [ true, %._crit_edge ], [ true, %38 ], [ true, %211 ], [ true, %171 ], [ true, %135 ], [ true, %._crit_edge188 ], [ true, %265 ]
   ret i1 %.0144
 }
 

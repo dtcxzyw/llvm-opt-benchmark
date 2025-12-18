@@ -874,8 +874,8 @@ define internal void @nfnetlink_rcv(ptr noundef %0) #0 align 16 {
   br i1 %275, label %.thread38, label %125
 
 .thread38:                                        ; preds = %266, %.preheader50, %115, %135, %230, %.loopexit47, %180, %.loopexit49, %.loopexit45
-  %276 = phi i32 [ 1, %135 ], [ %231, %230 ], [ %265, %.loopexit47 ], [ %181, %180 ], [ %179, %.loopexit49 ], [ %161, %.loopexit45 ], [ %77, %115 ], [ 1, %.preheader50 ], [ %267, %266 ]
-  %277 = phi ptr [ %126, %135 ], [ %144, %230 ], [ %144, %.loopexit47 ], [ %144, %180 ], [ %144, %.loopexit49 ], [ %144, %.loopexit45 ], [ %76, %115 ], [ %126, %.preheader50 ], [ %144, %266 ]
+  %276 = phi i32 [ 1, %.preheader50 ], [ %161, %.loopexit45 ], [ 1, %135 ], [ %231, %230 ], [ %265, %.loopexit47 ], [ %181, %180 ], [ %179, %.loopexit49 ], [ %77, %115 ], [ %267, %266 ]
+  %277 = phi ptr [ %126, %.preheader50 ], [ %144, %.loopexit45 ], [ %126, %135 ], [ %144, %230 ], [ %144, %.loopexit47 ], [ %144, %180 ], [ %144, %.loopexit49 ], [ %76, %115 ], [ %144, %266 ]
   br label %278
 
 278:                                              ; preds = %296, %.thread38
@@ -1254,7 +1254,7 @@ define internal i32 @nfnetlink_rcv_msg(ptr noundef %0, ptr noundef %1, ptr nound
   br label %.loopexit
 
 .loopexit:                                        ; preds = %92, %.thread9, %.thread8, %.thread6, %3
-  %95 = phi i32 [ 0, %3 ], [ -22, %.thread6 ], [ %.ph, %.thread8 ], [ -22, %.thread9 ], [ %93, %92 ]
+  %95 = phi i32 [ 0, %3 ], [ -22, %.thread6 ], [ -22, %.thread9 ], [ %.ph, %.thread8 ], [ %93, %92 ]
   ret i32 %95
 }
 

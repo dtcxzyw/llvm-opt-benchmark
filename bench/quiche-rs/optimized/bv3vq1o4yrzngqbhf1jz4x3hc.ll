@@ -1229,7 +1229,7 @@ _ZN4core5slice6memchr6memchr17h2d5411a4e6c78ad8E.exit.thread16: ; preds = %.lr.p
   br i1 %.not12, label %40, label %38
 
 _ZN4core5slice6memchr6memchr17h2d5411a4e6c78ad8E.exit.thread: ; preds = %.preheader.i, %27, %_ZN4core5slice6memchr6memchr17h2d5411a4e6c78ad8E.exit._ZN4core5slice6memchr6memchr17h2d5411a4e6c78ad8E.exit.thread.loopexit20_crit_edge
-  %37 = phi i64 [ %.pre46.pre, %_ZN4core5slice6memchr6memchr17h2d5411a4e6c78ad8E.exit._ZN4core5slice6memchr6memchr17h2d5411a4e6c78ad8E.exit.thread.loopexit20_crit_edge ], [ %13, %27 ], [ %13, %.preheader.i ]
+  %37 = phi i64 [ %13, %27 ], [ %.pre46.pre, %_ZN4core5slice6memchr6memchr17h2d5411a4e6c78ad8E.exit._ZN4core5slice6memchr6memchr17h2d5411a4e6c78ad8E.exit.thread.loopexit20_crit_edge ], [ %13, %.preheader.i ]
   store i64 %37, ptr %4, align 8
   br label %._crit_edge
 
@@ -2888,9 +2888,9 @@ _ZN4core5slice6memchr6memchr17h2d5411a4e6c78ad8E.exit.thread16.i310: ; preds = %
   br i1 %261, label %.invoke, label %265, !prof !118
 
 .invoke:                                          ; preds = %"_ZN75_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write..write_fmt..SpecWriteFmt$GT$14spec_write_fmt17hed7600c44cf3845bE.exit263", %"_ZN75_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write..write_fmt..SpecWriteFmt$GT$14spec_write_fmt17hed7600c44cf3845bE.exit158", %"_ZN75_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write..write_fmt..SpecWriteFmt$GT$14spec_write_fmt17hed7600c44cf3845bE.exit216", %86, %74, %188, %176
-  %262 = phi ptr [ %18, %176 ], [ %19, %188 ], [ %16, %74 ], [ %17, %86 ], [ %4, %"_ZN75_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write..write_fmt..SpecWriteFmt$GT$14spec_write_fmt17hed7600c44cf3845bE.exit158" ], [ %4, %"_ZN75_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write..write_fmt..SpecWriteFmt$GT$14spec_write_fmt17hed7600c44cf3845bE.exit216" ], [ %4, %"_ZN75_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write..write_fmt..SpecWriteFmt$GT$14spec_write_fmt17hed7600c44cf3845bE.exit263" ]
-  %263 = phi ptr [ @anon.496ad3ee9a508f328fb6f26431887050.37, %176 ], [ @anon.496ad3ee9a508f328fb6f26431887050.37, %188 ], [ @anon.496ad3ee9a508f328fb6f26431887050.37, %74 ], [ @anon.496ad3ee9a508f328fb6f26431887050.37, %86 ], [ @anon.496ad3ee9a508f328fb6f26431887050.35, %"_ZN75_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write..write_fmt..SpecWriteFmt$GT$14spec_write_fmt17hed7600c44cf3845bE.exit158" ], [ @anon.496ad3ee9a508f328fb6f26431887050.35, %"_ZN75_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write..write_fmt..SpecWriteFmt$GT$14spec_write_fmt17hed7600c44cf3845bE.exit216" ], [ @anon.496ad3ee9a508f328fb6f26431887050.35, %"_ZN75_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write..write_fmt..SpecWriteFmt$GT$14spec_write_fmt17hed7600c44cf3845bE.exit263" ]
-  %264 = phi ptr [ @anon.496ad3ee9a508f328fb6f26431887050.200, %176 ], [ @anon.496ad3ee9a508f328fb6f26431887050.202, %188 ], [ @anon.496ad3ee9a508f328fb6f26431887050.175, %74 ], [ @anon.496ad3ee9a508f328fb6f26431887050.180, %86 ], [ @anon.496ad3ee9a508f328fb6f26431887050.179, %"_ZN75_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write..write_fmt..SpecWriteFmt$GT$14spec_write_fmt17hed7600c44cf3845bE.exit158" ], [ @anon.496ad3ee9a508f328fb6f26431887050.201, %"_ZN75_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write..write_fmt..SpecWriteFmt$GT$14spec_write_fmt17hed7600c44cf3845bE.exit216" ], [ @anon.496ad3ee9a508f328fb6f26431887050.212, %"_ZN75_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write..write_fmt..SpecWriteFmt$GT$14spec_write_fmt17hed7600c44cf3845bE.exit263" ]
+  %262 = phi ptr [ %4, %"_ZN75_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write..write_fmt..SpecWriteFmt$GT$14spec_write_fmt17hed7600c44cf3845bE.exit216" ], [ %18, %176 ], [ %4, %"_ZN75_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write..write_fmt..SpecWriteFmt$GT$14spec_write_fmt17hed7600c44cf3845bE.exit158" ], [ %19, %188 ], [ %16, %74 ], [ %17, %86 ], [ %4, %"_ZN75_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write..write_fmt..SpecWriteFmt$GT$14spec_write_fmt17hed7600c44cf3845bE.exit263" ]
+  %263 = phi ptr [ @anon.496ad3ee9a508f328fb6f26431887050.35, %"_ZN75_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write..write_fmt..SpecWriteFmt$GT$14spec_write_fmt17hed7600c44cf3845bE.exit216" ], [ @anon.496ad3ee9a508f328fb6f26431887050.37, %176 ], [ @anon.496ad3ee9a508f328fb6f26431887050.35, %"_ZN75_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write..write_fmt..SpecWriteFmt$GT$14spec_write_fmt17hed7600c44cf3845bE.exit158" ], [ @anon.496ad3ee9a508f328fb6f26431887050.37, %188 ], [ @anon.496ad3ee9a508f328fb6f26431887050.37, %74 ], [ @anon.496ad3ee9a508f328fb6f26431887050.37, %86 ], [ @anon.496ad3ee9a508f328fb6f26431887050.35, %"_ZN75_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write..write_fmt..SpecWriteFmt$GT$14spec_write_fmt17hed7600c44cf3845bE.exit263" ]
+  %264 = phi ptr [ @anon.496ad3ee9a508f328fb6f26431887050.201, %"_ZN75_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write..write_fmt..SpecWriteFmt$GT$14spec_write_fmt17hed7600c44cf3845bE.exit216" ], [ @anon.496ad3ee9a508f328fb6f26431887050.200, %176 ], [ @anon.496ad3ee9a508f328fb6f26431887050.179, %"_ZN75_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write..write_fmt..SpecWriteFmt$GT$14spec_write_fmt17hed7600c44cf3845bE.exit158" ], [ @anon.496ad3ee9a508f328fb6f26431887050.202, %188 ], [ @anon.496ad3ee9a508f328fb6f26431887050.175, %74 ], [ @anon.496ad3ee9a508f328fb6f26431887050.180, %86 ], [ @anon.496ad3ee9a508f328fb6f26431887050.212, %"_ZN75_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write..write_fmt..SpecWriteFmt$GT$14spec_write_fmt17hed7600c44cf3845bE.exit263" ]
   invoke void @_ZN4core6result13unwrap_failed17h563d6df1cad9fe9bE(ptr noalias noundef nonnull readonly align 1 @anon.496ad3ee9a508f328fb6f26431887050.34, i64 noundef 43, ptr noundef nonnull align 1 %262, ptr noalias noundef readonly align 8 dereferenceable(32) %263, ptr noalias noundef readonly align 8 dereferenceable(24) %264) #20
           to label %.cont unwind label %.thread186.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -3433,7 +3433,7 @@ define { i8, i8 } @_ZN11quiche_apps6common26priority_from_query_string17h8c4955c
           to label %"_ZN5alloc6string95_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$str$GT$$u20$for$u20$alloc..borrow..Cow$LT$str$GT$$GT$2eq17ha9f0480a32fd0736E.exit29" unwind label %.loopexit37
 
 .loopexit:                                        ; preds = %40, %43, %43, %63, %52, %61, %.lr.ph.i
-  %.sroa.8.0.i.ph = phi i8 [ 2, %61 ], [ 1, %.lr.ph.i ], [ 2, %63 ], [ 1, %52 ], [ 1, %43 ], [ 1, %43 ], [ 0, %40 ]
+  %.sroa.8.0.i.ph = phi i8 [ 1, %.lr.ph.i ], [ 2, %61 ], [ 2, %63 ], [ 1, %52 ], [ 1, %43 ], [ 0, %40 ], [ 1, %43 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i8 %.sroa.8.0.i.ph, ptr %2, align 1
   invoke void @_ZN4core6result13unwrap_failed17h563d6df1cad9fe9bE(ptr noalias noundef nonnull readonly align 1 @anon.496ad3ee9a508f328fb6f26431887050.34, i64 noundef 43, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.496ad3ee9a508f328fb6f26431887050.36, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.496ad3ee9a508f328fb6f26431887050.237) #20
@@ -11015,7 +11015,7 @@ _ZN11quiche_apps6common15hdrs_to_strings17h6e1a00223858160aE.exit: ; preds = %35
   br label %537
 
 .loopexit.split-lp.i:                             ; preds = %565, %553, %546, %536, %528
-  %.sroa.076.1.ph.i = phi i8 [ 0, %536 ], [ %.sroa.076.0.i, %528 ], [ %.sroa.076.0.i, %546 ], [ %.sroa.076.0.i, %553 ], [ %.sroa.076.0.i, %565 ]
+  %.sroa.076.1.ph.i = phi i8 [ %.sroa.076.0.i, %546 ], [ %.sroa.076.0.i, %528 ], [ %.sroa.076.0.i, %553 ], [ %.sroa.076.0.i, %565 ], [ 0, %536 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %537

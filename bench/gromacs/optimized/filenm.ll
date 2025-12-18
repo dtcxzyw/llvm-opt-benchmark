@@ -919,7 +919,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit.i: ; preds = %_ZNS
   br i1 %81, label %_ZN12_GLOBAL__N_130findSuffixFromNoAppendPositionESt17basic_string_viewIcSt11char_traitsIcEE.exit, label %.loopexit
 
 .loopexit:                                        ; preds = %78, %74, %70, %66, %61, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit45, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i, %52, %.preheader
-  %82 = phi i64 [ %44, %.preheader ], [ %45, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i ], [ %45, %52 ], [ %45, %78 ], [ %45, %74 ], [ %45, %70 ], [ %45, %66 ], [ %45, %61 ], [ %45, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit.i ], [ %163, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit45 ]
+  %82 = phi i64 [ %45, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i ], [ %44, %.preheader ], [ %45, %52 ], [ %45, %70 ], [ %45, %66 ], [ %45, %61 ], [ %45, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit.i ], [ %163, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit45 ], [ %45, %74 ], [ %45, %78 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)

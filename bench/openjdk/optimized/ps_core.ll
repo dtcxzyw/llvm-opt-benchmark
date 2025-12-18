@@ -469,7 +469,7 @@ core_handle_note.exit:                            ; preds = %core_handle_prstatu
   br i1 %137, label %.lr.ph, label %.sink.split, !llvm.loop !9
 
 .sink.split:                                      ; preds = %121, %132, %39, %18, %.thread.i, %117, %.preheader
-  %.020.ph = phi i32 [ 1, %.preheader ], [ 0, %18 ], [ 0, %117 ], [ 0, %.thread.i ], [ 0, %39 ], [ 1, %132 ], [ 0, %121 ]
+  %.020.ph = phi i32 [ 1, %.preheader ], [ 0, %.thread.i ], [ 0, %39 ], [ 0, %18 ], [ 0, %117 ], [ 0, %121 ], [ 1, %132 ]
   tail call void @free(ptr noundef %6) #15
   br label %138
 

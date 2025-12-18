@@ -1690,7 +1690,7 @@ define hidden noundef zeroext i1 @_ZN3smt15model_generator14visit_childrenERKNS_
   br i1 %.not27.old.i.i, label %.loopexit, label %.lr.ph38.i.i.backedge
 
 .lr.ph38.i.i.backedge:                            ; preds = %49, %46
-  %.137.i.i.be = phi ptr [ %.old.i.i, %49 ], [ %48, %46 ]
+  %.137.i.i.be = phi ptr [ %48, %46 ], [ %.old.i.i, %49 ]
   br label %.lr.ph38.i.i, !llvm.loop !232
 
 .loopexit:                                        ; preds = %35, %49, %46, %.preheader.i.i
@@ -3860,7 +3860,7 @@ _ZNK3smt7context11is_relevantEPNS_5enodeE.exit.thread: ; preds = %.noexc132, %_Z
   br i1 %.not27.old.i.i, label %.loopexit165, label %.lr.ph38.i.i.backedge
 
 .lr.ph38.i.i.backedge:                            ; preds = %501, %498
-  %.137.i.i.be = phi ptr [ %.old.i.i, %501 ], [ %500, %498 ]
+  %.137.i.i.be = phi ptr [ %500, %498 ], [ %.old.i.i, %501 ]
   br label %.lr.ph38.i.i, !llvm.loop !281
 
 502:                                              ; preds = %461, %_Z17is_uninterp_constPK4expr.exit.thread162
@@ -4396,7 +4396,7 @@ _ZNK4decl13get_family_idEv.exit.thread:           ; preds = %_ZNK4decl13get_fami
   br i1 %.not27.old.i.i, label %_ZNK3smt7context10get_theoryEi.exit.thread, label %.lr.ph38.i.i.backedge
 
 .lr.ph38.i.i.backedge:                            ; preds = %39, %36
-  %.137.i.i.be = phi ptr [ %.old.i.i, %39 ], [ %38, %36 ]
+  %.137.i.i.be = phi ptr [ %38, %36 ], [ %.old.i.i, %39 ]
   br label %.lr.ph38.i.i, !llvm.loop !281
 
 40:                                               ; preds = %_ZNK4decl13get_family_idEv.exit
@@ -4763,7 +4763,7 @@ _ZNK3smt15model_generator9get_valueEPNS_5enodeE.exit60: ; preds = %110, %122
   br i1 %.not27.old.i.i.i.i, label %_ZNK10model_core15get_func_interpEP9func_decl.exit.thread, label %.lr.ph38.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.backedge:                        ; preds = %168, %165
-  %.137.i.i.i.i.be = phi ptr [ %.old.i.i.i.i, %168 ], [ %167, %165 ]
+  %.137.i.i.i.i.be = phi ptr [ %167, %165 ], [ %.old.i.i.i.i, %168 ]
   br label %.lr.ph38.i.i.i.i, !llvm.loop !298
 
 169:                                              ; preds = %_ZNK3smt15model_generator9get_valueEPNS_5enodeE.exit60, %._crit_edge.i

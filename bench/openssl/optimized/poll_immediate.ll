@@ -311,8 +311,8 @@ ossl_time_from_timeval.exit35.split:              ; preds = %ossl_time_from_time
   %exitcond.not.i = icmp eq i64 %127, %1
   br i1 %exitcond.not.i, label %128, label %80, !llvm.loop !26
 
-poll_readout.exit.thread:                         ; preds = %.lr.ph.i, %.lr.ph108.i, %.lr.ph111.i, %.lr.ph114.i, %.split97.us, %.split.us, %.split107.us, %.split102.us
-  %.079102.i59 = phi i64 [ %.us-phi104, %.split102.us ], [ %.us-phi99, %.split97.us ], [ %.us-phi94, %.split.us ], [ %.us-phi109, %.split107.us ], [ %.us-phi104, %.lr.ph108.i ], [ %.us-phi94, %.lr.ph114.i ], [ %.us-phi109, %.lr.ph111.i ], [ %.us-phi99, %.lr.ph.i ]
+poll_readout.exit.thread:                         ; preds = %.lr.ph.i, %.lr.ph108.i, %.lr.ph111.i, %.lr.ph114.i, %.split107.us, %.split97.us, %.split102.us, %.split.us
+  %.079102.i59 = phi i64 [ %.us-phi94, %.lr.ph114.i ], [ %.us-phi104, %.lr.ph108.i ], [ %.us-phi109, %.lr.ph111.i ], [ %.us-phi94, %.split.us ], [ %.us-phi109, %.split107.us ], [ %.us-phi99, %.split97.us ], [ %.us-phi104, %.split102.us ], [ %.us-phi99, %.lr.ph.i ]
   %.4.i.ph = add i64 %.079102.i59, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %.loopexit

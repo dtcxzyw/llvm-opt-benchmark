@@ -928,7 +928,7 @@ _ZNKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE4findERS5_.exit
   br label %.thread.i
 
 .thread.i:                                        ; preds = %.lr.ph.i.i.i.i.i, %107, %..loopexit_crit_edge21.i.i.i.i.i, %.lr.ph.split.i
-  %.442.i = phi double [ %111, %107 ], [ %.02364.i, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.02364.i, %.lr.ph.split.i ], [ %.02364.i, %.lr.ph.i.i.i.i.i ]
+  %.442.i = phi double [ %.02364.i, %.lr.ph.split.i ], [ %111, %107 ], [ %.02364.i, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.02364.i, %.lr.ph.i.i.i.i.i ]
   %112 = add nuw i64 %.02763.i, 1
   %exitcond.not.i = icmp eq i64 %112, %62
   br i1 %exitcond.not.i, label %_ZNK8LightGBM4Tree12PredictByMapERKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE.exit, label %.lr.ph.split.i, !llvm.loop !178
@@ -1142,7 +1142,7 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM4Tree12GetLeafByMapERKSt13unordere
   unreachable
 
 .loopexit:                                        ; preds = %59, %48, %54
-  %.sroa.06.1.i.i.i21 = phi ptr [ %55, %54 ], [ %.sroa.06.0.i.i.i23, %48 ], [ %61, %59 ]
+  %.sroa.06.1.i.i.i21 = phi ptr [ %.sroa.06.0.i.i.i23, %48 ], [ %55, %54 ], [ %61, %59 ]
   %67 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i21, i64 16
   %68 = load double, ptr %67, align 8, !tbaa !155
   %69 = getelementptr inbounds nuw i8, ptr %15, i64 %23
@@ -1360,13 +1360,13 @@ _ZNK8LightGBM4Tree8DecisionEdi.exit:              ; preds = %75, %.thread65, %_Z
   unreachable
 
 _ZNKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE2atERS5_.exit53: ; preds = %157, %146, %152
-  %.sroa.06.1.i.i.i49 = phi ptr [ %153, %152 ], [ %.sroa.06.0.i.i.i51, %146 ], [ %159, %157 ]
+  %.sroa.06.1.i.i.i49 = phi ptr [ %.sroa.06.0.i.i.i51, %146 ], [ %153, %152 ], [ %159, %157 ]
   %165 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i49, i64 16
   %166 = load double, ptr %165, align 8, !tbaa !155
   br label %_ZNKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE5countERS5_.exit40.thread
 
 _ZNKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE5countERS5_.exit40.thread: ; preds = %.lr.ph.i.i.i.i.i29, %.preheader175, %128, %..loopexit_crit_edge21.i.i.i.i.i33, %_ZNKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE2atERS5_.exit53
-  %167 = phi double [ %166, %_ZNKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE2atERS5_.exit53 ], [ 0.000000e+00, %..loopexit_crit_edge21.i.i.i.i.i33 ], [ 0.000000e+00, %128 ], [ 0.000000e+00, %.preheader175 ], [ 0.000000e+00, %.lr.ph.i.i.i.i.i29 ]
+  %167 = phi double [ %166, %_ZNKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE2atERS5_.exit53 ], [ 0.000000e+00, %..loopexit_crit_edge21.i.i.i.i.i33 ], [ 0.000000e+00, %.preheader175 ], [ 0.000000e+00, %128 ], [ 0.000000e+00, %.lr.ph.i.i.i.i.i29 ]
   %168 = getelementptr inbounds nuw i8, ptr %15, i64 %121
   %169 = load i8, ptr %168, align 1, !tbaa !156
   %170 = lshr i8 %169, 2

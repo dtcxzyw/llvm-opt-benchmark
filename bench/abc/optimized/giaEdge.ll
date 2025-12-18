@@ -1270,7 +1270,7 @@ Gia_ObjHaveEdge.exit56.thread.i268:               ; preds = %Gia_ObjHaveEdge.exi
   br i1 %exitcond85.not.i270, label %Gia_ObjEvalEdgeDelay.exit273, label %213, !llvm.loop !50
 
 Gia_ObjEvalEdgeDelay.exit273:                     ; preds = %Gia_ObjHaveEdge.exit.thread.i248, %Gia_ObjHaveEdge.exit56.thread.i268, %.preheader70.i234, %._crit_edge.i271
-  %.1.i235 = phi i32 [ 0, %._crit_edge.i271 ], [ 0, %.preheader70.i234 ], [ %226, %Gia_ObjHaveEdge.exit56.thread.i268 ], [ %205, %Gia_ObjHaveEdge.exit.thread.i248 ]
+  %.1.i235 = phi i32 [ 0, %.preheader70.i234 ], [ 0, %._crit_edge.i271 ], [ %226, %Gia_ObjHaveEdge.exit56.thread.i268 ], [ %205, %Gia_ObjHaveEdge.exit.thread.i248 ]
   %227 = getelementptr i8, ptr %177, i64 8
   %.val145 = load ptr, ptr %227, align 8, !tbaa !8
   %228 = getelementptr inbounds i32, ptr %.val145, i64 %167
@@ -1467,7 +1467,7 @@ Gia_ObjHaveEdge.exit56.thread.i319:               ; preds = %Gia_ObjHaveEdge.exi
   br i1 %exitcond85.not.i321, label %Gia_ObjEvalEdgeDelay.exit324, label %306, !llvm.loop !50
 
 Gia_ObjEvalEdgeDelay.exit324:                     ; preds = %Gia_ObjHaveEdge.exit.thread.i299, %Gia_ObjHaveEdge.exit56.thread.i319, %.preheader70.i285, %._crit_edge.i322
-  %.1.i286 = phi i32 [ 0, %._crit_edge.i322 ], [ 0, %.preheader70.i285 ], [ %319, %Gia_ObjHaveEdge.exit56.thread.i319 ], [ %298, %Gia_ObjHaveEdge.exit.thread.i299 ]
+  %.1.i286 = phi i32 [ 0, %.preheader70.i285 ], [ 0, %._crit_edge.i322 ], [ %319, %Gia_ObjHaveEdge.exit56.thread.i319 ], [ %298, %Gia_ObjHaveEdge.exit.thread.i299 ]
   %320 = getelementptr i8, ptr %270, i64 8
   %.val147 = load ptr, ptr %320, align 8, !tbaa !8
   %321 = getelementptr inbounds nuw i32, ptr %.val147, i64 %indvars.iv370

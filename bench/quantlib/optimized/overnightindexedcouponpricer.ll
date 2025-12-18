@@ -1442,8 +1442,8 @@ lpad169:                                          ; preds = %catch
   br label %ehcleanup349
 
 if.end172:                                        ; preds = %invoke.cont34, %_ZNSt8_Rb_treeIN8QuantLib4DateESt4pairIKS1_dESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i169, %if.then124, %_ZNSt3mapIN8QuantLib4DateEdSt4lessIS1_ESaISt4pairIKS1_dEEE4findERS5_.exit.i171, %catch, %cond.end159, %invoke.cont132, %land.lhs.true
-  %i.1 = phi i64 [ %add138, %cond.end159 ], [ %i.0503, %catch ], [ %i.0503, %invoke.cont132 ], [ %i.0503, %land.lhs.true ], [ %i.0503, %_ZNSt3mapIN8QuantLib4DateEdSt4lessIS1_ESaISt4pairIKS1_dEEE4findERS5_.exit.i171 ], [ %i.0503, %if.then124 ], [ %i.0503, %_ZNSt8_Rb_treeIN8QuantLib4DateESt4pairIKS1_dESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i169 ], [ 0, %invoke.cont34 ]
-  %compoundFactor.1 = phi double [ %mul164, %cond.end159 ], [ %compoundFactor.0504, %catch ], [ %compoundFactor.0504, %invoke.cont132 ], [ %compoundFactor.0504, %land.lhs.true ], [ %compoundFactor.0504, %_ZNSt3mapIN8QuantLib4DateEdSt4lessIS1_ESaISt4pairIKS1_dEEE4findERS5_.exit.i171 ], [ %compoundFactor.0504, %if.then124 ], [ %compoundFactor.0504, %_ZNSt8_Rb_treeIN8QuantLib4DateESt4pairIKS1_dESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i169 ], [ 1.000000e+00, %invoke.cont34 ]
+  %i.1 = phi i64 [ %add138, %cond.end159 ], [ %i.0503, %catch ], [ %i.0503, %invoke.cont132 ], [ %i.0503, %land.lhs.true ], [ %i.0503, %_ZNSt8_Rb_treeIN8QuantLib4DateESt4pairIKS1_dESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i169 ], [ %i.0503, %_ZNSt3mapIN8QuantLib4DateEdSt4lessIS1_ESaISt4pairIKS1_dEEE4findERS5_.exit.i171 ], [ %i.0503, %if.then124 ], [ 0, %invoke.cont34 ]
+  %compoundFactor.1 = phi double [ %mul164, %cond.end159 ], [ %compoundFactor.0504, %catch ], [ %compoundFactor.0504, %invoke.cont132 ], [ %compoundFactor.0504, %land.lhs.true ], [ %compoundFactor.0504, %_ZNSt8_Rb_treeIN8QuantLib4DateESt4pairIKS1_dESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i169 ], [ %compoundFactor.0504, %_ZNSt3mapIN8QuantLib4DateEdSt4lessIS1_ESaISt4pairIKS1_dEEE4findERS5_.exit.i171 ], [ %compoundFactor.0504, %if.then124 ], [ 1.000000e+00, %invoke.cont34 ]
   %cmp173 = icmp ult i64 %i.1, %cond.i
   br i1 %cmp173, label %if.then174, label %if.end326
 
@@ -2042,7 +2042,7 @@ lpad301:                                          ; preds = %.noexc370, %.noexc3
   br label %ehcleanup324
 
 if.end322:                                        ; preds = %invoke.cont244, %invoke.cont292, %invoke.cont284, %invoke.cont313
-  %compoundFactor.5 = phi double [ %mul316, %invoke.cont313 ], [ %mul286, %invoke.cont284 ], [ %mul295, %invoke.cont292 ], [ %mul247, %invoke.cont244 ]
+  %compoundFactor.5 = phi double [ %mul295, %invoke.cont292 ], [ %mul316, %invoke.cont313 ], [ %mul286, %invoke.cont284 ], [ %mul247, %invoke.cont244 ]
   %181 = load ptr, ptr %pn.i.i.i, align 8, !tbaa !37
   %cmp.not.i.i.i375 = icmp eq ptr %181, null
   br i1 %cmp.not.i.i.i375, label %_ZN8QuantLib6HandleINS_18YieldTermStructureEED2Ev.exit, label %if.then.i.i.i376
@@ -7127,8 +7127,8 @@ if.end18.i:                                       ; preds = %if.else.i, %while.b
   br i1 %cmp.not.i, label %_ZNSt8_Rb_treeIPN8QuantLib8ObserverES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE11equal_rangeERKS2_.exit, label %while.body.i, !llvm.loop !211
 
 _ZNSt8_Rb_treeIPN8QuantLib8ObserverES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE11equal_rangeERKS2_.exit: ; preds = %if.end18.i, %while.body.i23.i, %entry, %_ZNSt8_Rb_treeIPN8QuantLib8ObserverES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i
-  %retval.sroa.0.0.i = phi ptr [ %__y.addr.0.lcssa.i.i, %_ZNSt8_Rb_treeIPN8QuantLib8ObserverES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i ], [ %add.ptr.i.i, %entry ], [ %__y.addr.0.lcssa.i.i, %while.body.i23.i ], [ %__y.1.i, %if.end18.i ]
-  %retval.sroa.3.0.i = phi ptr [ %__y.040.i, %_ZNSt8_Rb_treeIPN8QuantLib8ObserverES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i ], [ %add.ptr.i.i, %entry ], [ %__y.addr.1.i28.i, %while.body.i23.i ], [ %__y.1.i, %if.end18.i ]
+  %retval.sroa.0.0.i = phi ptr [ %__y.addr.0.lcssa.i.i, %while.body.i23.i ], [ %__y.addr.0.lcssa.i.i, %_ZNSt8_Rb_treeIPN8QuantLib8ObserverES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i ], [ %add.ptr.i.i, %entry ], [ %__y.1.i, %if.end18.i ]
+  %retval.sroa.3.0.i = phi ptr [ %__y.addr.1.i28.i, %while.body.i23.i ], [ %__y.040.i, %_ZNSt8_Rb_treeIPN8QuantLib8ObserverES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i ], [ %add.ptr.i.i, %entry ], [ %__y.1.i, %if.end18.i ]
   %_M_node_count.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %6 = load i64, ptr %_M_node_count.i, align 8, !tbaa !16
   %_M_left.i.i1 = getelementptr inbounds nuw i8, ptr %this, i64 24

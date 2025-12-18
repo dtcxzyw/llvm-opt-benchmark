@@ -2346,7 +2346,7 @@ define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position5legalENS_4MoveE(ptr
   br label %.loopexit
 
 .loopexit:                                        ; preds = %113, %263, %272, %._crit_edge, %168, %10, %58, %184
-  %.0 = phi i1 [ %.not35, %168 ], [ %.not38, %58 ], [ %.not33, %184 ], [ false, %10 ], [ true, %._crit_edge ], [ true, %263 ], [ %285, %272 ], [ false, %113 ]
+  %.0 = phi i1 [ %.not35, %168 ], [ %.not38, %58 ], [ %285, %272 ], [ %.not33, %184 ], [ false, %10 ], [ true, %._crit_edge ], [ true, %263 ], [ false, %113 ]
   ret i1 %.0
 }
 

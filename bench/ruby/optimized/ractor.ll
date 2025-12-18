@@ -6710,7 +6710,7 @@ rb_obj_write.exit210:                             ; preds = %217, %219, %224
   unreachable
 
 .critedge180:                                     ; preds = %rb_obj_write.exit207, %rb_obj_write.exit202, %RSTRUCT_CONST_PTR.exit, %ROBJECT_IVPTR.exit, %228, %230, %235, %205, %207, %212, %166, %239, %95, %88, %88, %88, %88, %88, %88, %.critedge183, %92
-  %248 = phi i64 [ %50, %92 ], [ %50, %RSTRUCT_CONST_PTR.exit ], [ %50, %ROBJECT_IVPTR.exit ], [ %50, %228 ], [ %50, %230 ], [ %50, %235 ], [ %50, %205 ], [ %50, %207 ], [ %50, %212 ], [ %50, %166 ], [ %50, %239 ], [ %50, %95 ], [ %50, %88 ], [ %50, %88 ], [ %50, %88 ], [ %50, %88 ], [ %50, %88 ], [ %50, %88 ], [ %.pre244, %.critedge183 ], [ %50, %rb_obj_write.exit202 ], [ %50, %rb_obj_write.exit207 ]
+  %248 = phi i64 [ %50, %rb_obj_write.exit202 ], [ %50, %92 ], [ %50, %RSTRUCT_CONST_PTR.exit ], [ %50, %ROBJECT_IVPTR.exit ], [ %50, %228 ], [ %50, %230 ], [ %50, %235 ], [ %50, %205 ], [ %50, %207 ], [ %50, %212 ], [ %50, %166 ], [ %50, %239 ], [ %50, %95 ], [ %50, %88 ], [ %50, %88 ], [ %50, %88 ], [ %50, %88 ], [ %50, %88 ], [ %50, %88 ], [ %.pre244, %.critedge183 ], [ %50, %rb_obj_write.exit207 ]
   %249 = load i64, ptr %4, align 8, !tbaa !80
   store i64 %249, ptr %21, align 8, !tbaa !175
   %250 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -6729,7 +6729,7 @@ rb_obj_write.exit210:                             ; preds = %217, %219, %224
   br label %.critedge192
 
 .critedge192:                                     ; preds = %.lr.ph224, %135, %.lr.ph227, %rb_obj_write.exit210, %213, %rb_obj_write.exit208, %190, %.critedge180, %88, %.critedge187, %.critedge185, %.critedge, %16, %95, %32, %19, %14
-  %.0 = phi i32 [ 0, %14 ], [ 0, %32 ], [ %., %.critedge180 ], [ 1, %88 ], [ 1, %95 ], [ 1, %rb_obj_write.exit210 ], [ 1, %190 ], [ 1, %rb_obj_write.exit208 ], [ 1, %.critedge185 ], [ 1, %.critedge187 ], [ 1, %213 ], [ 1, %.critedge ], [ 1, %19 ], [ 0, %16 ], [ 1, %135 ], [ 1, %.lr.ph227 ], [ 1, %.lr.ph224 ]
+  %.0 = phi i32 [ 0, %14 ], [ 0, %32 ], [ %., %.critedge180 ], [ 1, %88 ], [ 1, %95 ], [ 1, %rb_obj_write.exit210 ], [ 0, %16 ], [ 1, %135 ], [ 1, %190 ], [ 1, %rb_obj_write.exit208 ], [ 1, %.lr.ph227 ], [ 1, %.critedge185 ], [ 1, %.critedge187 ], [ 1, %213 ], [ 1, %.critedge ], [ 1, %19 ], [ 1, %.lr.ph224 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -8186,7 +8186,7 @@ rb_vm_lock_leave.exit:                            ; preds = %rb_vm_lock_enter_nb
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %46, %.critedge, %86, %82, %78, %74, %49, %25, %53, %rb_vm_lock_leave.exit
-  %.1 = phi i32 [ 1, %rb_vm_lock_leave.exit ], [ %., %.critedge ], [ 1, %86 ], [ 1, %82 ], [ 1, %25 ], [ 1, %53 ], [ 1, %49 ], [ 1, %74 ], [ 1, %78 ], [ 1, %46 ], [ 1, %.lr.ph ]
+  %.1 = phi i32 [ 1, %rb_vm_lock_leave.exit ], [ %., %.critedge ], [ 1, %86 ], [ 1, %82 ], [ 1, %25 ], [ 1, %53 ], [ 1, %46 ], [ 1, %49 ], [ 1, %74 ], [ 1, %78 ], [ 1, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %103
 

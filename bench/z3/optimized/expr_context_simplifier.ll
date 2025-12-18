@@ -471,7 +471,7 @@ define hidden void @_ZN23expr_context_simplifier10reduce_recEP4exprR7obj_refIS0_
   br i1 %.not27.old.i.i.i, label %.loopexit39, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %37, %34
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %37 ], [ %36, %34 ]
+  %.137.i.i.i.be = phi ptr [ %36, %34 ], [ %.old.i.i.i, %37 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !65
 
 .loopexit:                                        ; preds = %18, %29
@@ -2302,7 +2302,7 @@ _ZNK11ast_manager6is_notEPK4expr.exit.thread:     ; preds = %10, %3, %21, %_ZNK1
   br i1 %.not27.old.i.i.i, label %.loopexit, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %57, %54
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %57 ], [ %56, %54 ]
+  %.137.i.i.i.be = phi ptr [ %56, %54 ], [ %.old.i.i.i, %57 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !65
 
 .loopexit:                                        ; preds = %43, %54, %57, %.preheader.i.i.i
@@ -2631,8 +2631,8 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0
   br label %_ZNK23expr_context_simplifier8is_falseEP4expr.exit27.thread52
 
 _ZNK23expr_context_simplifier8is_falseEP4expr.exit27.thread52: ; preds = %_ZNK23expr_context_simplifier7is_trueEP4expr.exit.thread, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit, %_ZNK23expr_context_simplifier7is_trueEP4expr.exit
-  %121 = phi ptr [ %9, %_ZNK23expr_context_simplifier7is_trueEP4expr.exit ], [ %.pre, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit ], [ %9, %_ZNK23expr_context_simplifier7is_trueEP4expr.exit.thread ]
-  %.0 = phi i1 [ false, %_ZNK23expr_context_simplifier7is_trueEP4expr.exit ], [ false, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit ], [ %1, %_ZNK23expr_context_simplifier7is_trueEP4expr.exit.thread ]
+  %121 = phi ptr [ %.pre, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit ], [ %9, %_ZNK23expr_context_simplifier7is_trueEP4expr.exit ], [ %9, %_ZNK23expr_context_simplifier7is_trueEP4expr.exit.thread ]
+  %.0 = phi i1 [ false, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit ], [ false, %_ZNK23expr_context_simplifier7is_trueEP4expr.exit ], [ %1, %_ZNK23expr_context_simplifier7is_trueEP4expr.exit.thread ]
   %.not.i.i = icmp eq ptr %121, null
   br i1 %.not.i.i, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit, label %.thread54
 
@@ -3796,7 +3796,7 @@ _ZNK6vectorIP4exprLb0EjE5emptyEv.exit:            ; preds = %_ZNK6vectorIP4exprL
   br i1 %.not27.old.i.i.i, label %.loopexit414, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %270, %267
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %270 ], [ %269, %267 ]
+  %.137.i.i.i.be = phi ptr [ %269, %267 ], [ %.old.i.i.i, %270 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !199
 
 271:                                              ; preds = %41
@@ -4100,7 +4100,7 @@ _ZN11ast_manager6mk_notEP4expr.exit122:           ; preds = %310
   br i1 %.not27.old.i.i.i144, label %.loopexit411, label %.lr.ph38.i.i.i140.backedge
 
 .lr.ph38.i.i.i140.backedge:                       ; preds = %403, %400
-  %.137.i.i.i141.be = phi ptr [ %.old.i.i.i143, %403 ], [ %402, %400 ]
+  %.137.i.i.i141.be = phi ptr [ %402, %400 ], [ %.old.i.i.i143, %403 ]
   br label %.lr.ph38.i.i.i140, !llvm.loop !199
 
 .loopexit410:                                     ; preds = %384, %395
@@ -4827,10 +4827,10 @@ _ZN11ast_manager5mk_eqEP4exprS1_.exit:            ; preds = %668
           to label %693 unwind label %290, !llvm.loop !202
 
 _ZNK7obj_mapI4exprSt4pairIjPS0_EE8containsES2_.exit: ; preds = %293, %660, %317, %304
-  %.sroa.7345.1 = phi ptr [ %.sroa.7345.2.lcssa, %660 ], [ %.sroa.7345.0456, %293 ], [ %.sroa.7345.0456, %317 ], [ %.sroa.7345.0456, %304 ]
-  %.0370 = phi ptr [ %368, %660 ], [ %208, %293 ], [ %318, %317 ], [ %305, %304 ]
-  %.167 = phi i32 [ %.268564, %660 ], [ %.066457, %293 ], [ %.066457, %317 ], [ %.066457, %304 ]
-  %.162 = phi i32 [ %.263.lcssa, %660 ], [ %.061459, %293 ], [ %.061459, %317 ], [ %.061459, %304 ]
+  %.sroa.7345.1 = phi ptr [ %.sroa.7345.0456, %304 ], [ %.sroa.7345.2.lcssa, %660 ], [ %.sroa.7345.0456, %293 ], [ %.sroa.7345.0456, %317 ]
+  %.0370 = phi ptr [ %305, %304 ], [ %368, %660 ], [ %208, %293 ], [ %318, %317 ]
+  %.167 = phi i32 [ %.066457, %304 ], [ %.268564, %660 ], [ %.066457, %293 ], [ %.066457, %317 ]
+  %.162 = phi i32 [ %.061459, %304 ], [ %.263.lcssa, %660 ], [ %.061459, %293 ], [ %.061459, %317 ]
   %.not77 = icmp eq ptr %.0370, null
   br i1 %.not77, label %_ZNK7obj_mapI4exprSt4pairIjPS0_EE8containsES2_.exit.thread381, label %_ZNK7obj_mapI4exprSt4pairIjPS0_EE8containsES2_.exit.thread392
 
@@ -4990,7 +4990,7 @@ _ZNK6vectorIP4exprLb0EjE5emptyEv.exit.thread:     ; preds = %_ZNK6vectorIP4exprL
   br i1 %.not27.old.i.i.i302, label %.loopexit, label %.lr.ph38.i.i.i298.backedge
 
 .lr.ph38.i.i.i298.backedge:                       ; preds = %734, %731
-  %.137.i.i.i299.be = phi ptr [ %.old.i.i.i301, %734 ], [ %733, %731 ]
+  %.137.i.i.i299.be = phi ptr [ %733, %731 ], [ %.old.i.i.i301, %734 ]
   br label %.lr.ph38.i.i.i298, !llvm.loop !199
 
 _ZNK7obj_mapI4exprSt4pairIjPS0_EE4findES2_RS3_.exit309: ; preds = %715, %726
@@ -5955,7 +5955,7 @@ _ZNK6vectorIP4exprLb0EjE5emptyEv.exit:            ; preds = %_ZNK6vectorIP4exprL
   br i1 %.not27.old.i.i.i, label %.loopexit836, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %231, %228
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %231 ], [ %230, %228 ]
+  %.137.i.i.i.be = phi ptr [ %230, %228 ], [ %.old.i.i.i, %231 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !219
 
 .loopexit836:                                     ; preds = %.preheader.i.i.i, %217, %228, %231
@@ -7186,7 +7186,7 @@ _ZNK6vectorIP4exprLb0EjE5emptyEv.exit382:         ; preds = %_ZNK6vectorIP4exprL
   br i1 %.not27.old.i.i.i402, label %.loopexit829, label %.lr.ph38.i.i.i398.backedge
 
 .lr.ph38.i.i.i398.backedge:                       ; preds = %773, %770
-  %.137.i.i.i399.be = phi ptr [ %.old.i.i.i401, %773 ], [ %772, %770 ]
+  %.137.i.i.i399.be = phi ptr [ %772, %770 ], [ %.old.i.i.i401, %773 ]
   br label %.lr.ph38.i.i.i398, !llvm.loop !199
 
 774:                                              ; preds = %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit.thread
@@ -7324,7 +7324,7 @@ _ZNK6vectorIP4exprLb0EjE5emptyEv.exit382:         ; preds = %_ZNK6vectorIP4exprL
   br i1 %.not27.old.i.i.i420, label %_ZNK7obj_mapI4expr5lboolE4findEPS0_RS1_.exit.thread, label %.lr.ph38.i.i.i416.backedge
 
 .lr.ph38.i.i.i416.backedge:                       ; preds = %829, %826
-  %.137.i.i.i417.be = phi ptr [ %.old.i.i.i419, %829 ], [ %828, %826 ]
+  %.137.i.i.i417.be = phi ptr [ %828, %826 ], [ %.old.i.i.i419, %829 ]
   br label %.lr.ph38.i.i.i416, !llvm.loop !219
 
 _ZNK7obj_mapI4expr5lboolE4findEPS0_RS1_.exit:     ; preds = %810, %821
@@ -7629,7 +7629,7 @@ _ZNK7obj_mapI4expr5lboolE4findEPS0_RS1_.exit.thread: ; preds = %815, %829, %826,
   br i1 %.not27.old.i.i.i470, label %.loopexit824, label %.lr.ph38.i.i.i466.backedge
 
 .lr.ph38.i.i.i466.backedge:                       ; preds = %953, %950
-  %.137.i.i.i467.be = phi ptr [ %.old.i.i.i469, %953 ], [ %952, %950 ]
+  %.137.i.i.i467.be = phi ptr [ %952, %950 ], [ %.old.i.i.i469, %953 ]
   br label %.lr.ph38.i.i.i466, !llvm.loop !199
 
 .loopexit823:                                     ; preds = %934, %945
@@ -8356,10 +8356,10 @@ _ZN11ast_manager5mk_eqEP4exprS1_.exit:            ; preds = %1218
           to label %1243 unwind label %791, !llvm.loop !225
 
 _ZNK7obj_mapI4exprSt4pairIjPS0_EE8containsES2_.exit: ; preds = %841, %850, %867, %858, %794, %1210
-  %.sroa.7686.1 = phi ptr [ %.sroa.7686.3.lcssa, %1210 ], [ %.sroa.7686.0919, %794 ], [ %.sroa.7686.0919, %858 ], [ %.sroa.7686.0919, %867 ], [ %.sroa.7686.0919, %850 ], [ %.sroa.7686.0919, %841 ]
-  %.0749 = phi ptr [ %918, %1210 ], [ %711, %794 ], [ %859, %858 ], [ %868, %867 ], [ %851, %850 ], [ %842, %841 ]
-  %.1142 = phi i32 [ %.3144.lcssa, %1210 ], [ %.0141920, %794 ], [ %.0141920, %858 ], [ %.0141920, %867 ], [ %.0141920, %850 ], [ %.0141920, %841 ]
-  %.1138 = phi i32 [ %.31401146, %1210 ], [ %.0137921, %794 ], [ %.0137921, %858 ], [ %.0137921, %867 ], [ %.0137921, %850 ], [ %.0137921, %841 ]
+  %.sroa.7686.1 = phi ptr [ %.sroa.7686.0919, %794 ], [ %.sroa.7686.3.lcssa, %1210 ], [ %.sroa.7686.0919, %858 ], [ %.sroa.7686.0919, %867 ], [ %.sroa.7686.0919, %850 ], [ %.sroa.7686.0919, %841 ]
+  %.0749 = phi ptr [ %711, %794 ], [ %918, %1210 ], [ %859, %858 ], [ %868, %867 ], [ %851, %850 ], [ %842, %841 ]
+  %.1142 = phi i32 [ %.0141920, %794 ], [ %.3144.lcssa, %1210 ], [ %.0141920, %858 ], [ %.0141920, %867 ], [ %.0141920, %850 ], [ %.0141920, %841 ]
+  %.1138 = phi i32 [ %.0137921, %794 ], [ %.31401146, %1210 ], [ %.0137921, %858 ], [ %.0137921, %867 ], [ %.0137921, %850 ], [ %.0137921, %841 ]
   %.not164 = icmp eq ptr %.0749, null
   br i1 %.not164, label %_ZNK7obj_mapI4exprSt4pairIjPS0_EE8containsES2_.exit.thread791, label %_ZNK7obj_mapI4exprSt4pairIjPS0_EE8containsES2_.exit.thread802
 
@@ -8519,7 +8519,7 @@ _ZNK6vectorIP4exprLb0EjE5emptyEv.exit382.thread:  ; preds = %_ZNK6vectorIP4exprL
   br i1 %.not27.old.i.i.i630, label %.loopexit, label %.lr.ph38.i.i.i626.backedge
 
 .lr.ph38.i.i.i626.backedge:                       ; preds = %1284, %1281
-  %.137.i.i.i627.be = phi ptr [ %.old.i.i.i629, %1284 ], [ %1283, %1281 ]
+  %.137.i.i.i627.be = phi ptr [ %1283, %1281 ], [ %.old.i.i.i629, %1284 ]
   br label %.lr.ph38.i.i.i626, !llvm.loop !199
 
 _ZNK7obj_mapI4exprSt4pairIjPS0_EE4findES2_RS3_.exit637: ; preds = %1265, %1276
@@ -9342,7 +9342,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI4exprbE13obj_map_
   br i1 %.not32.old, label %.loopexit, label %.lr.ph48.backedge
 
 .lr.ph48.backedge:                                ; preds = %36, %33
-  %.247.be = phi ptr [ %.old, %36 ], [ %35, %33 ]
+  %.247.be = phi ptr [ %35, %33 ], [ %.old, %36 ]
   br label %.lr.ph48, !llvm.loop !236
 
 .loopexit38:                                      ; preds = %17, %28

@@ -199,8 +199,8 @@ _ZN3net9IPAddressaSERKS0_.exit:                   ; preds = %10
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %18
 
-_ZN3net12_GLOBAL__N_124GetIPAddressFromSockAddrEPK8sockaddrjPPKhPmPt.exit.thread: ; preds = %3, %6, %8, %_ZN3net9IPAddressaSERKS0_.exit
-  %.0.i12 = phi i1 [ true, %_ZN3net9IPAddressaSERKS0_.exit ], [ false, %8 ], [ false, %6 ], [ false, %3 ]
+_ZN3net12_GLOBAL__N_124GetIPAddressFromSockAddrEPK8sockaddrjPPKhPmPt.exit.thread: ; preds = %6, %3, %8, %_ZN3net9IPAddressaSERKS0_.exit
+  %.0.i12 = phi i1 [ true, %_ZN3net9IPAddressaSERKS0_.exit ], [ false, %8 ], [ false, %3 ], [ false, %6 ]
   ret i1 %.0.i12
 }
 

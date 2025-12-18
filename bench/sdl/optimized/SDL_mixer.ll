@@ -276,7 +276,7 @@ define hidden zeroext i1 @SDL_MixAudio_REAL(ptr noundef captures(none) %0, ptr n
   br label %.loopexit
 
 .loopexit:                                        ; preds = %132, %114, %86, %72, %67, %.lr.ph193, %.lr.ph198, %.lr.ph203, %116, %102, %83, %69, %49, %37, %.preheader160, %.preheader, %5, %136
-  %.0 = phi i1 [ true, %5 ], [ %137, %136 ], [ true, %102 ], [ true, %.preheader ], [ true, %.preheader160 ], [ true, %37 ], [ true, %49 ], [ true, %69 ], [ true, %83 ], [ true, %116 ], [ true, %114 ], [ true, %.lr.ph203 ], [ true, %.lr.ph198 ], [ true, %.lr.ph193 ], [ true, %67 ], [ true, %72 ], [ true, %86 ], [ true, %132 ]
+  %.0 = phi i1 [ true, %5 ], [ %137, %136 ], [ true, %83 ], [ true, %69 ], [ true, %49 ], [ true, %37 ], [ true, %.preheader160 ], [ true, %.preheader ], [ true, %102 ], [ true, %116 ], [ true, %.lr.ph203 ], [ true, %.lr.ph198 ], [ true, %.lr.ph193 ], [ true, %67 ], [ true, %72 ], [ true, %86 ], [ true, %114 ], [ true, %132 ]
   ret i1 %.0
 }
 

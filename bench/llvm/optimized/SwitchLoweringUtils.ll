@@ -3744,9 +3744,9 @@ _ZN4llvm5APIntD2Ev.exit115:                       ; preds = %_ZN4llvm5APIntC2ERK
   br i1 %.not88, label %._crit_edge226, label %.preheader, !llvm.loop !444
 
 ._crit_edge233:                                   ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_8SwitchCG11BitTestCaseELb1EE9push_backERKS2_.exit, %._crit_edge226, %._crit_edge226.thread
-  %.sroa.20.0.lcssa298309 = phi i64 [ %283, %._crit_edge226 ], [ 0, %._crit_edge226.thread ], [ %283, %_ZN4llvm23SmallVectorTemplateBaseINS_8SwitchCG11BitTestCaseELb1EE9push_backERKS2_.exit ]
-  %.sroa.0156.0.lcssa300308 = phi ptr [ %.sroa.0156.1, %._crit_edge226 ], [ null, %._crit_edge226.thread ], [ %.sroa.0156.1, %_ZN4llvm23SmallVectorTemplateBaseINS_8SwitchCG11BitTestCaseELb1EE9push_backERKS2_.exit ]
-  %485 = phi ptr [ %284, %._crit_edge226 ], [ %270, %._crit_edge226.thread ], [ %284, %_ZN4llvm23SmallVectorTemplateBaseINS_8SwitchCG11BitTestCaseELb1EE9push_backERKS2_.exit ]
+  %.sroa.20.0.lcssa298309 = phi i64 [ 0, %._crit_edge226.thread ], [ %283, %._crit_edge226 ], [ %283, %_ZN4llvm23SmallVectorTemplateBaseINS_8SwitchCG11BitTestCaseELb1EE9push_backERKS2_.exit ]
+  %.sroa.0156.0.lcssa300308 = phi ptr [ null, %._crit_edge226.thread ], [ %.sroa.0156.1, %._crit_edge226 ], [ %.sroa.0156.1, %_ZN4llvm23SmallVectorTemplateBaseINS_8SwitchCG11BitTestCaseELb1EE9push_backERKS2_.exit ]
+  %485 = phi ptr [ %270, %._crit_edge226.thread ], [ %284, %._crit_edge226 ], [ %284, %_ZN4llvm23SmallVectorTemplateBaseINS_8SwitchCG11BitTestCaseELb1EE9push_backERKS2_.exit ]
   %486 = getelementptr inbounds nuw i8, ptr %0, i64 56
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   %487 = getelementptr inbounds i8, ptr %4, i64 -8

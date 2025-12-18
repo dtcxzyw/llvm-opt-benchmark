@@ -1041,8 +1041,8 @@ qtx_write_hdr.exit.thread.i.i:                    ; preds = %292, %279
   br i1 %.not53.i.i.i, label %qtx_encrypt_into_txe.exit.thread.i.i, label %qtx_encrypt_into_txe.exit.i.i
 
 qtx_encrypt_into_txe.exit.thread.sink.split.i.i:  ; preds = %355, %367, %.loopexit.i.i.i, %346, %344, %330, %327, %321, %318
-  %.sink162.i.i = phi i32 [ 502, %318 ], [ 529, %330 ], [ 539, %344 ], [ 545, %346 ], [ 575, %.loopexit.i.i.i ], [ 511, %321 ], [ 522, %327 ], [ 581, %367 ], [ 560, %355 ]
-  %.sink.i.i = phi i32 [ 786691, %318 ], [ 786691, %330 ], [ 524294, %344 ], [ 524294, %346 ], [ 524294, %.loopexit.i.i.i ], [ 395, %321 ], [ 786691, %327 ], [ 524294, %367 ], [ 524294, %355 ]
+  %.sink162.i.i = phi i32 [ 502, %318 ], [ 529, %330 ], [ 539, %344 ], [ 545, %346 ], [ 581, %367 ], [ 575, %.loopexit.i.i.i ], [ 511, %321 ], [ 522, %327 ], [ 560, %355 ]
+  %.sink.i.i = phi i32 [ 786691, %318 ], [ 786691, %330 ], [ 524294, %344 ], [ 524294, %346 ], [ 524294, %367 ], [ 524294, %.loopexit.i.i.i ], [ 395, %321 ], [ 786691, %327 ], [ 524294, %355 ]
   call void @ERR_new() #11
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink162.i.i, ptr noundef nonnull @__func__.qtx_encrypt_into_txe) #11
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef %.sink.i.i, ptr noundef null) #11
@@ -1290,7 +1290,7 @@ ossl_list_txe_insert_tail.exit.i87:               ; preds = %qtx_add_to_pending.
   br label %ossl_qtx_finish_dgram.exit91
 
 ossl_qtx_finish_dgram.exit91:                     ; preds = %163, %161, %qtx_mutate_write.exit, %395, %qtx_ensure_cons.exit, %ossl_quic_pkt_type_to_enc_level.exit.thread, %ossl_list_txe_insert_tail.exit.i87, %436, %qtx_mutate_write.exit.thread, %428, %63, %2
-  %.0 = phi i32 [ 0, %ossl_quic_pkt_type_to_enc_level.exit.thread ], [ 0, %2 ], [ 1, %ossl_list_txe_insert_tail.exit.i87 ], [ 0, %63 ], [ 0, %qtx_mutate_write.exit.thread ], [ 1, %428 ], [ 1, %436 ], [ 0, %qtx_ensure_cons.exit ], [ 0, %395 ], [ 0, %qtx_mutate_write.exit ], [ 0, %161 ], [ 0, %163 ]
+  %.0 = phi i32 [ 0, %ossl_quic_pkt_type_to_enc_level.exit.thread ], [ 0, %2 ], [ 1, %ossl_list_txe_insert_tail.exit.i87 ], [ 1, %436 ], [ 1, %428 ], [ 0, %qtx_mutate_write.exit.thread ], [ 0, %63 ], [ 0, %qtx_ensure_cons.exit ], [ 0, %395 ], [ 0, %qtx_mutate_write.exit ], [ 0, %161 ], [ 0, %163 ]
   ret i32 %.0
 }
 

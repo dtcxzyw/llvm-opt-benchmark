@@ -3341,7 +3341,7 @@ _ZN9btVector317deSerializeDoubleERK19btVector3DoubleData.exit: ; preds = %209, %
   br label %common.ret
 
 233:                                              ; preds = %107, %112, %117, %87, %92, %97, %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit, %77, %65
-  %.2 = phi ptr [ %76, %65 ], [ %81, %77 ], [ %121, %117 ], [ %102, %97 ], [ %163, %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit ], [ %91, %87 ], [ %96, %92 ], [ %111, %107 ], [ %116, %112 ]
+  %.2 = phi ptr [ %121, %117 ], [ %76, %65 ], [ %81, %77 ], [ %111, %107 ], [ %102, %97 ], [ %163, %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit ], [ %116, %112 ], [ %91, %87 ], [ %96, %92 ]
   %.not169 = icmp eq ptr %.2, null
   br i1 %.not169, label %common.ret, label %_ZN9btVector316deSerializeFloatERK18btVector3FloatData.exit259
 

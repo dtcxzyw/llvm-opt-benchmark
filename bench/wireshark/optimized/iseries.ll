@@ -1133,7 +1133,7 @@ define internal fastcc i32 @append_hex_digits(ptr noundef writeonly captures(non
   br label %.loopexit49
 
 .loopexit49:                                      ; preds = %11, %29, %.loopexit49.sink.split
-  %.038 = phi i32 [ %.14059, %29 ], [ -1, %.loopexit49.sink.split ], [ %1, %11 ]
+  %.038 = phi i32 [ -1, %.loopexit49.sink.split ], [ %.14059, %29 ], [ %1, %11 ]
   ret i32 %.038
 }
 

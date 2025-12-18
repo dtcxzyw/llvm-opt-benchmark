@@ -30778,7 +30778,7 @@ define linkonce_odr hidden void @_ZNK4entt10basic_flowISaIjEE11setup_graphERNS_1
   br label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt4pairImbESt6vectorIS3_SaIS3_EEEEZNK4entt10basic_flowISaIjEE11setup_graphERNSA_16adjacency_matrixINSA_12directed_tagESaImEEEEUlRKT_E_ESJ_SJ_SJ_T0_.exit
 
 _ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt4pairImbESt6vectorIS3_SaIS3_EEEEZNK4entt10basic_flowISaIjEE11setup_graphERNSA_16adjacency_matrixINSA_12directed_tagESaImEEEEUlRKT_E_ESJ_SJ_SJ_T0_.exit: ; preds = %.lr.ph.i.i.i14, %58, %64, %70, %.loopexit.split.loop.exit35.i.i.i, %.loopexit.split.loop.exit37.i.i.i, %.loopexit.split.loop.exit39.i.i.i
-  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.025.1.i.i.i, %64 ], [ %spec.select.i.i.i, %70 ], [ %.sroa.025.0.lcssa.i.i.i, %58 ], [ %75, %.loopexit.split.loop.exit37.i.i.i ], [ %74, %.loopexit.split.loop.exit35.i.i.i ], [ %76, %.loopexit.split.loop.exit39.i.i.i ], [ %.sroa.025.044.i.i.i, %.lr.ph.i.i.i14 ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.025.1.i.i.i, %64 ], [ %spec.select.i.i.i, %70 ], [ %76, %.loopexit.split.loop.exit39.i.i.i ], [ %.sroa.025.0.lcssa.i.i.i, %58 ], [ %75, %.loopexit.split.loop.exit37.i.i.i ], [ %74, %.loopexit.split.loop.exit35.i.i.i ], [ %.sroa.025.044.i.i.i, %.lr.ph.i.i.i14 ]
   %.not152 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i, %11
   br i1 %.not152, label %.lr.ph176.preheader, label %.preheader156
 
@@ -30923,7 +30923,7 @@ _ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt4pairImbESt6vectorIS3_SaIS3_EEEE
   br label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt4pairImbESt6vectorIS3_SaIS3_EEEEZNK4entt10basic_flowISaIjEE11setup_graphERNSA_16adjacency_matrixINSA_12directed_tagESaImEEEEUlRKT_E0_ESJ_SJ_SJ_T0_.exit
 
 _ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt4pairImbESt6vectorIS3_SaIS3_EEEEZNK4entt10basic_flowISaIjEE11setup_graphERNSA_16adjacency_matrixINSA_12directed_tagESaImEEEEUlRKT_E0_ESJ_SJ_SJ_T0_.exit: ; preds = %.lr.ph.i.i.i60, %123, %129, %135, %.loopexit.split.loop.exit35.i.i.i68, %.loopexit.split.loop.exit37.i.i.i67, %.loopexit.split.loop.exit39.i.i.i66
-  %.sroa.08.0.in.sroa.speculated.i.i.i56 = phi ptr [ %.sroa.025.1.i.i.i57, %129 ], [ %spec.select.i.i.i55, %135 ], [ %.sroa.025.0.lcssa.i.i.i53, %123 ], [ %140, %.loopexit.split.loop.exit37.i.i.i67 ], [ %139, %.loopexit.split.loop.exit35.i.i.i68 ], [ %141, %.loopexit.split.loop.exit39.i.i.i66 ], [ %.sroa.025.044.i.i.i62, %.lr.ph.i.i.i60 ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i56 = phi ptr [ %.sroa.025.1.i.i.i57, %129 ], [ %spec.select.i.i.i55, %135 ], [ %141, %.loopexit.split.loop.exit39.i.i.i66 ], [ %.sroa.025.0.lcssa.i.i.i53, %123 ], [ %140, %.loopexit.split.loop.exit37.i.i.i67 ], [ %139, %.loopexit.split.loop.exit35.i.i.i68 ], [ %.sroa.025.044.i.i.i62, %.lr.ph.i.i.i60 ]
   %.not149 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i56, %11
   br i1 %.not149, label %._crit_edge, label %.preheader158
 
@@ -30945,7 +30945,7 @@ _ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt4pairImbESt6vectorIS3_SaIS3_EEEE
   br i1 %.not150, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt4pairImbESt6vectorIS3_SaIS3_EEEEZNK4entt10basic_flowISaIjEE11setup_graphERNSA_16adjacency_matrixINSA_12directed_tagESaImEEEEUlRKT_E0_ESJ_SJ_SJ_T0_.exit.thread, label %.lr.ph, !llvm.loop !452
 
 _ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt4pairImbESt6vectorIS3_SaIS3_EEEEZNK4entt10basic_flowISaIjEE11setup_graphERNSA_16adjacency_matrixINSA_12directed_tagESaImEEEEUlRKT_E0_ESJ_SJ_SJ_T0_.exit.thread: ; preds = %.lr.ph, %.lr.ph172, %.lr.ph176, %25, %.preheader158, %.preheader156, %19
-  %.sroa.0119.5 = phi ptr [ %20, %19 ], [ %20, %.preheader156 ], [ %.sroa.0119.0179, %.preheader158 ], [ %20, %25 ], [ %89, %.lr.ph172 ], [ %96, %.lr.ph176 ], [ %148, %.lr.ph ]
+  %.sroa.0119.5 = phi ptr [ %89, %.lr.ph172 ], [ %96, %.lr.ph176 ], [ %20, %19 ], [ %20, %25 ], [ %.sroa.0119.0179, %.preheader158 ], [ %20, %.preheader156 ], [ %148, %.lr.ph ]
   %.not148 = icmp eq ptr %.sroa.0119.5, %11
   br i1 %.not148, label %._crit_edge, label %15, !llvm.loop !453
 

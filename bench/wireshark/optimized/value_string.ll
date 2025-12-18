@@ -81,7 +81,7 @@ define ptr @val_to_str(i32 noundef %0, ptr noundef readonly captures(address_is_
   %.not16.i.i = icmp eq ptr %16, null
   br i1 %.not16.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !6
 
-.loopexit:                                        ; preds = %.lr.ph, %5, %.preheader.i.i
+.loopexit:                                        ; preds = %.lr.ph, %.preheader.i.i, %5
   %17 = tail call ptr @wmem_packet_scope()
   %18 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %17, ptr noundef nonnull %2, i32 noundef %0)
   br label %try_val_to_str.exit
@@ -129,7 +129,7 @@ define ptr @try_val_to_str(i32 noundef %0, ptr noundef readonly captures(address
   br label %try_val_to_str_idx.exit, !llvm.loop !6
 
 try_val_to_str_idx.exit:                          ; preds = %.lr.ph.i, %.lr.ph.i.preheader, %.try_val_to_str_idx.exit.loopexit_crit_edge, %2, %.preheader.i
-  %.013.i = phi ptr [ null, %2 ], [ null, %.preheader.i ], [ %4, %.lr.ph.i.preheader ], [ null, %.try_val_to_str_idx.exit.loopexit_crit_edge ], [ %13, %.lr.ph.i ]
+  %.013.i = phi ptr [ null, %.preheader.i ], [ null, %2 ], [ %4, %.lr.ph.i.preheader ], [ null, %.try_val_to_str_idx.exit.loopexit_crit_edge ], [ %13, %.lr.ph.i ]
   ret ptr %.013.i
 }
 
@@ -183,7 +183,7 @@ try_val_to_str.exit:                              ; preds = %.lr.ph.i.i, %.lr.ph
   %18 = tail call noalias ptr @wmem_strdup(ptr noundef %0, ptr noundef nonnull %.lcssa)
   br label %20
 
-.loopexit:                                        ; preds = %.lr.ph, %6, %.preheader.i.i
+.loopexit:                                        ; preds = %.lr.ph, %.preheader.i.i, %6
   %19 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %0, ptr noundef nonnull %3, i32 noundef %1)
   br label %20
 
@@ -238,7 +238,7 @@ define nonnull ptr @val_to_str_const(i32 noundef %0, ptr noundef readonly captur
   br label %try_val_to_str.exit, !llvm.loop !6
 
 try_val_to_str.exit:                              ; preds = %.lr.ph.i.i, %.lr.ph.i.i.preheader, %.try_val_to_str.exit.loopexit_crit_edge, %5, %.preheader.i.i
-  %.013.i.i = phi ptr [ null, %5 ], [ null, %.preheader.i.i ], [ %7, %.lr.ph.i.i.preheader ], [ null, %.try_val_to_str.exit.loopexit_crit_edge ], [ %16, %.lr.ph.i.i ]
+  %.013.i.i = phi ptr [ null, %.preheader.i.i ], [ null, %5 ], [ %7, %.lr.ph.i.i.preheader ], [ null, %.try_val_to_str.exit.loopexit_crit_edge ], [ %16, %.lr.ph.i.i ]
   %.not8 = icmp eq ptr %.013.i.i, null
   %. = select i1 %.not8, ptr %2, ptr %.013.i.i
   ret ptr %.
@@ -336,7 +336,7 @@ define ptr @char_val_to_str(i8 noundef signext %0, ptr noundef readonly captures
   %.not16.i.i = icmp eq ptr %18, null
   br i1 %.not16.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !6
 
-.loopexit:                                        ; preds = %.lr.ph, %6, %.preheader.i.i
+.loopexit:                                        ; preds = %.lr.ph, %.preheader.i.i, %6
   %19 = tail call ptr @wmem_packet_scope()
   %20 = call ptr @hfinfo_char_value_format_display(i32 noundef 2, ptr noundef nonnull %4, i32 noundef %7)
   %21 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %19, ptr noundef nonnull @.str.6, ptr noundef nonnull %2, ptr noundef %20)
@@ -390,7 +390,7 @@ define ptr @val64_to_str(i64 noundef %0, ptr noundef readonly captures(address_i
   %.not16.i.i = icmp eq ptr %16, null
   br i1 %.not16.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !8
 
-.loopexit:                                        ; preds = %.lr.ph, %5, %.preheader.i.i
+.loopexit:                                        ; preds = %.lr.ph, %.preheader.i.i, %5
   %17 = tail call ptr @wmem_packet_scope()
   %18 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %17, ptr noundef nonnull %2, i64 noundef %0)
   br label %try_val64_to_str.exit
@@ -435,7 +435,7 @@ define ptr @try_val64_to_str(i64 noundef %0, ptr noundef readonly captures(addre
   br label %try_val64_to_str_idx.exit, !llvm.loop !8
 
 try_val64_to_str_idx.exit:                        ; preds = %.lr.ph.i, %.lr.ph.i.preheader, %.try_val64_to_str_idx.exit.loopexit_crit_edge, %2, %.preheader.i
-  %.013.i = phi ptr [ null, %2 ], [ null, %.preheader.i ], [ %4, %.lr.ph.i.preheader ], [ null, %.try_val64_to_str_idx.exit.loopexit_crit_edge ], [ %13, %.lr.ph.i ]
+  %.013.i = phi ptr [ null, %.preheader.i ], [ null, %2 ], [ %4, %.lr.ph.i.preheader ], [ null, %.try_val64_to_str_idx.exit.loopexit_crit_edge ], [ %13, %.lr.ph.i ]
   ret ptr %.013.i
 }
 
@@ -482,7 +482,7 @@ define nonnull ptr @val64_to_str_const(i64 noundef %0, ptr noundef readonly capt
   br label %try_val64_to_str.exit, !llvm.loop !8
 
 try_val64_to_str.exit:                            ; preds = %.lr.ph.i.i, %.lr.ph.i.i.preheader, %.try_val64_to_str.exit.loopexit_crit_edge, %5, %.preheader.i.i
-  %.013.i.i = phi ptr [ null, %5 ], [ null, %.preheader.i.i ], [ %7, %.lr.ph.i.i.preheader ], [ null, %.try_val64_to_str.exit.loopexit_crit_edge ], [ %16, %.lr.ph.i.i ]
+  %.013.i.i = phi ptr [ null, %.preheader.i.i ], [ null, %5 ], [ %7, %.lr.ph.i.i.preheader ], [ null, %.try_val64_to_str.exit.loopexit_crit_edge ], [ %16, %.lr.ph.i.i ]
   %.not8 = icmp eq ptr %.013.i.i, null
   %. = select i1 %.not8, ptr %2, ptr %.013.i.i
   ret ptr %.
@@ -1469,7 +1469,7 @@ define ptr @str_to_str(ptr noundef %0, ptr noundef readonly captures(address_is_
   %.not13.i.i = icmp eq ptr %16, null
   br i1 %.not13.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !15
 
-.loopexit:                                        ; preds = %.lr.ph, %5, %.preheader.i.i
+.loopexit:                                        ; preds = %.lr.ph, %.preheader.i.i, %5
   %17 = tail call ptr @wmem_packet_scope()
   %18 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %17, ptr noundef nonnull %2, ptr noundef %0)
   br label %try_str_to_str.exit
@@ -1516,7 +1516,7 @@ define ptr @try_str_to_str(ptr noundef readonly captures(none) %0, ptr noundef r
   br label %try_str_to_str_idx.exit, !llvm.loop !15
 
 try_str_to_str_idx.exit:                          ; preds = %.lr.ph.i, %.lr.ph.i.preheader, %.try_str_to_str_idx.exit.loopexit_crit_edge, %2, %.preheader.i
-  %.012.i = phi ptr [ null, %2 ], [ null, %.preheader.i ], [ %4, %.lr.ph.i.preheader ], [ null, %.try_str_to_str_idx.exit.loopexit_crit_edge ], [ %13, %.lr.ph.i ]
+  %.012.i = phi ptr [ null, %.preheader.i ], [ null, %2 ], [ %4, %.lr.ph.i.preheader ], [ null, %.try_str_to_str_idx.exit.loopexit_crit_edge ], [ %13, %.lr.ph.i ]
   ret ptr %.012.i
 }
 
@@ -1609,7 +1609,7 @@ define ptr @rval_to_str(i32 noundef %0, ptr noundef readonly captures(address_is
   %.not17.i.i = icmp eq ptr %21, null
   br i1 %.not17.i.i, label %.loopexit, label %9, !llvm.loop !16
 
-.loopexit:                                        ; preds = %16, %5, %.preheader.i.i
+.loopexit:                                        ; preds = %16, %.preheader.i.i, %5
   %22 = tail call ptr @wmem_packet_scope()
   %23 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %22, ptr noundef nonnull %2, i32 noundef %0)
   br label %try_rval_to_str.exit
@@ -1658,7 +1658,7 @@ define ptr @try_rval_to_str(i32 noundef %0, ptr noundef readonly captures(addres
   br i1 %.not17.i, label %try_rval_to_str_idx.exit, label %6, !llvm.loop !16
 
 try_rval_to_str_idx.exit:                         ; preds = %13, %10, %2, %.preheader.i
-  %.015.i = phi ptr [ null, %2 ], [ null, %.preheader.i ], [ null, %13 ], [ %7, %10 ]
+  %.015.i = phi ptr [ null, %.preheader.i ], [ null, %2 ], [ null, %13 ], [ %7, %10 ]
   ret ptr %.015.i
 }
 
@@ -1709,7 +1709,7 @@ define nonnull ptr @rval_to_str_const(i32 noundef %0, ptr noundef readonly captu
   br i1 %.not17.i.i, label %try_rval_to_str.exit, label %9, !llvm.loop !16
 
 try_rval_to_str.exit:                             ; preds = %13, %16, %5, %.preheader.i.i
-  %.015.i.i = phi ptr [ null, %5 ], [ null, %.preheader.i.i ], [ %10, %13 ], [ null, %16 ]
+  %.015.i.i = phi ptr [ null, %.preheader.i.i ], [ null, %5 ], [ %10, %13 ], [ null, %16 ]
   %.not8 = icmp eq ptr %.015.i.i, null
   %. = select i1 %.not8, ptr %2, ptr %.015.i.i
   ret ptr %.
@@ -1850,7 +1850,7 @@ define ptr @try_rval64_to_str(i64 noundef %0, ptr noundef readonly captures(addr
   br i1 %.not17.i, label %try_rval64_to_str_idx.exit, label %.lr.ph.i, !llvm.loop !17
 
 try_rval64_to_str_idx.exit:                       ; preds = %11, %8, %2, %.preheader.i
-  %.015.i = phi ptr [ null, %2 ], [ null, %.preheader.i ], [ null, %11 ], [ %5, %8 ]
+  %.015.i = phi ptr [ null, %.preheader.i ], [ null, %2 ], [ null, %11 ], [ %5, %8 ]
   ret ptr %.015.i
 }
 

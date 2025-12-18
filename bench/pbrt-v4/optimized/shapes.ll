@@ -3411,7 +3411,7 @@ _ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectIN4pbrt8TriangleEEE
   br label %73
 
 ._crit_edge:                                      ; preds = %73, %_ZN4pstd6vectorIN4pbrt5ShapeENS_3pmr21polymorphic_allocatorIS2_EEEC2EmRKS5_.exit.thread, %_ZN4pstd6vectorIN4pbrt5ShapeENS_3pmr21polymorphic_allocatorIS2_EEEC2EmRKS5_.exit, %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectIN4pbrt8TriangleEEEPT_m.exit
-  %65 = phi i32 [ %.pre23, %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectIN4pbrt8TriangleEEEPT_m.exit ], [ 0, %_ZN4pstd6vectorIN4pbrt5ShapeENS_3pmr21polymorphic_allocatorIS2_EEEC2EmRKS5_.exit ], [ 0, %_ZN4pstd6vectorIN4pbrt5ShapeENS_3pmr21polymorphic_allocatorIS2_EEEC2EmRKS5_.exit.thread ], [ %.pre23, %73 ]
+  %65 = phi i32 [ 0, %_ZN4pstd6vectorIN4pbrt5ShapeENS_3pmr21polymorphic_allocatorIS2_EEEC2EmRKS5_.exit.thread ], [ %.pre23, %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectIN4pbrt8TriangleEEEPT_m.exit ], [ 0, %_ZN4pstd6vectorIN4pbrt5ShapeENS_3pmr21polymorphic_allocatorIS2_EEEC2EmRKS5_.exit ], [ %.pre23, %73 ]
   %66 = sext i32 %65 to i64
   %67 = shl nsw i64 %66, 3
   %68 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4pbrtL13triangleBytesE)
@@ -51548,8 +51548,8 @@ _ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE7reserveEm.exit: ; preds = %
   br label %204
 
 ._crit_edge75:                                    ; preds = %97, %._crit_edge, %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE7reserveEm.exit
-  %65 = phi i64 [ 0, %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE7reserveEm.exit ], [ 0, %._crit_edge ], [ %102, %97 ]
-  %66 = phi ptr [ %42, %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE7reserveEm.exit ], [ null, %._crit_edge ], [ %98, %97 ]
+  %65 = phi i64 [ 0, %._crit_edge ], [ 0, %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE7reserveEm.exit ], [ %102, %97 ]
+  %66 = phi ptr [ null, %._crit_edge ], [ %42, %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE7reserveEm.exit ], [ %98, %97 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %.sroa.068.4.vec.extract = extractelement <2 x float> %5, i64 1
   %.sroa.4.12.vec.extract = extractelement <2 x float> %6, i64 1
@@ -62525,9 +62525,9 @@ _ZNK4pbrt7HashMapISt4pairIiiEiNS_11HashIntPairEN4pstd3pmr21polymorphic_allocator
   br label %_ZN4pstd8optionalISt4pairIS1_IiiEiEEaSEOS3_.exit
 
 _ZN4pstd8optionalISt4pairIS1_IiiEiEE5valueEv.exit.i.i: ; preds = %.lr.ph.i, %.lr.ph.i9, %.lr.ph.i.preheader, %.lr.ph.i9.preheader
-  %.ph = phi ptr [ %69, %.lr.ph.i9.preheader ], [ %19, %.lr.ph.i.preheader ], [ %69, %.lr.ph.i9 ], [ %19, %.lr.ph.i ]
-  %.ph25 = phi i64 [ %.sroa.0.0.copyload.i6, %.lr.ph.i9.preheader ], [ %.sroa.0.0.copyload.i, %.lr.ph.i.preheader ], [ %.sroa.0.0.copyload.i6, %.lr.ph.i9 ], [ %.sroa.0.0.copyload.i, %.lr.ph.i ]
-  %.0.ph = phi i64 [ %68, %.lr.ph.i9.preheader ], [ %17, %.lr.ph.i.preheader ], [ %90, %.lr.ph.i9 ], [ %40, %.lr.ph.i ]
+  %.ph = phi ptr [ %69, %.lr.ph.i9 ], [ %69, %.lr.ph.i9.preheader ], [ %19, %.lr.ph.i.preheader ], [ %19, %.lr.ph.i ]
+  %.ph25 = phi i64 [ %.sroa.0.0.copyload.i6, %.lr.ph.i9 ], [ %.sroa.0.0.copyload.i6, %.lr.ph.i9.preheader ], [ %.sroa.0.0.copyload.i, %.lr.ph.i.preheader ], [ %.sroa.0.0.copyload.i, %.lr.ph.i ]
+  %.0.ph = phi i64 [ %90, %.lr.ph.i9 ], [ %68, %.lr.ph.i9.preheader ], [ %17, %.lr.ph.i.preheader ], [ %40, %.lr.ph.i ]
   %105 = load i32, ptr %2, align 4, !tbaa !15
   %106 = getelementptr inbounds nuw %"class.pstd::optional.184", ptr %.ph, i64 %.0.ph
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 12

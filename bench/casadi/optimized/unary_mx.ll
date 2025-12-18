@@ -2851,7 +2851,7 @@ define void @_ZNK6casadi7UnaryMX11eval_linearERKSt6vectorISt5arrayINS_2MXELm3EES
   br i1 %30, label %.loopexit, label %27
 
 .loopexit:                                        ; preds = %.preheader10, %27, %19
-  %.pn = phi { ptr, i32 } [ %20, %19 ], [ %26, %27 ], [ %20, %.preheader10 ]
+  %.pn = phi { ptr, i32 } [ %26, %27 ], [ %20, %19 ], [ %20, %.preheader10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn
 }
@@ -4051,7 +4051,7 @@ _ZN6casadi2MXaSERKS0_.exit:                       ; preds = %_ZN6casadimlERKNS_2
   br i1 %72, label %.loopexit, label %69
 
 .loopexit:                                        ; preds = %.preheader, %69, %27
-  %.pn20.pn.pn.pn = phi { ptr, i32 } [ %28, %27 ], [ %.pn20.pn.pn, %69 ], [ %28, %.preheader ]
+  %.pn20.pn.pn.pn = phi { ptr, i32 } [ %.pn20.pn.pn, %69 ], [ %28, %27 ], [ %28, %.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn20.pn.pn.pn
 }
@@ -4780,7 +4780,7 @@ _ZN6casadimlERKNS_2MXES2_.exit:                   ; preds = %.lr.ph
   br i1 %76, label %.loopexit, label %73
 
 .loopexit:                                        ; preds = %.preheader, %73, %28
-  %.pn20.pn.pn.pn = phi { ptr, i32 } [ %29, %28 ], [ %.pn20.pn.pn, %73 ], [ %29, %.preheader ]
+  %.pn20.pn.pn.pn = phi { ptr, i32 } [ %.pn20.pn.pn, %73 ], [ %29, %28 ], [ %29, %.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn20.pn.pn.pn
 }

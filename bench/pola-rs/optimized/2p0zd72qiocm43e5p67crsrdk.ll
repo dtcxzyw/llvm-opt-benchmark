@@ -12343,7 +12343,7 @@ define hidden void @"_ZN75_$LT$$u5b$T$u5d$$u20$as$u20$alloc..slice..SpecCloneInt
           to label %21 unwind label %28
 
 common.resume:                                    ; preds = %21, %45, %56, %69
-  %common.resume.op = phi { ptr, i32 } [ %46, %45 ], [ %70, %69 ], [ %57, %56 ], [ %24, %21 ]
+  %common.resume.op = phi { ptr, i32 } [ %57, %56 ], [ %46, %45 ], [ %70, %69 ], [ %24, %21 ]
   resume { ptr, i32 } %common.resume.op
 
 28:                                               ; preds = %25
@@ -22178,7 +22178,7 @@ define void @_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded21op
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke418, %.invoke, %80, %86, %.loopexit171, %7, %126, %53, %173, %94, %93, %92, %87, %85, %78, %67, %56
-  %.sroa.046.0.ph.ph.ph = phi i1 [ true, %56 ], [ false, %80 ], [ true, %67 ], [ true, %.loopexit171 ], [ true, %78 ], [ true, %85 ], [ true, %87 ], [ true, %92 ], [ true, %93 ], [ true, %94 ], [ true, %86 ], [ true, %.invoke418 ], [ true, %173 ], [ true, %53 ], [ true, %.invoke ], [ true, %126 ], [ true, %7 ]
+  %.sroa.046.0.ph.ph.ph = phi i1 [ true, %94 ], [ true, %.loopexit171 ], [ true, %.invoke418 ], [ true, %93 ], [ true, %92 ], [ true, %173 ], [ true, %87 ], [ true, %85 ], [ true, %78 ], [ true, %7 ], [ true, %53 ], [ true, %67 ], [ true, %86 ], [ true, %.invoke ], [ true, %56 ], [ false, %80 ], [ true, %126 ]
   %lpad.loopexit.split-lp169 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -22868,7 +22868,7 @@ define void @_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded21op
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke418, %.invoke, %77, %82, %.loopexit171, %6, %122, %51, %169, %90, %89, %88, %83, %81, %75, %65, %54
-  %.sroa.046.0.ph.ph.ph = phi i1 [ true, %54 ], [ false, %77 ], [ true, %65 ], [ true, %.loopexit171 ], [ true, %75 ], [ true, %81 ], [ true, %83 ], [ true, %88 ], [ true, %89 ], [ true, %90 ], [ true, %82 ], [ true, %.invoke418 ], [ true, %169 ], [ true, %51 ], [ true, %.invoke ], [ true, %122 ], [ true, %6 ]
+  %.sroa.046.0.ph.ph.ph = phi i1 [ true, %90 ], [ true, %.loopexit171 ], [ true, %.invoke418 ], [ true, %89 ], [ true, %88 ], [ true, %169 ], [ true, %83 ], [ true, %81 ], [ true, %75 ], [ true, %6 ], [ true, %51 ], [ true, %65 ], [ true, %82 ], [ true, %.invoke ], [ true, %54 ], [ false, %77 ], [ true, %122 ]
   %lpad.loopexit.split-lp169 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -23572,7 +23572,7 @@ define void @_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded21op
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke407, %.invoke, %83, %89, %.loopexit160, %7, %130, %56, %177, %97, %96, %95, %90, %88, %81, %70, %59
-  %.sroa.040.0.ph.ph.ph = phi i1 [ true, %59 ], [ false, %83 ], [ true, %70 ], [ true, %.loopexit160 ], [ true, %81 ], [ true, %88 ], [ true, %90 ], [ true, %95 ], [ true, %96 ], [ true, %97 ], [ true, %89 ], [ true, %.invoke407 ], [ true, %177 ], [ true, %56 ], [ true, %.invoke ], [ true, %130 ], [ true, %7 ]
+  %.sroa.040.0.ph.ph.ph = phi i1 [ true, %97 ], [ true, %.loopexit160 ], [ true, %.invoke407 ], [ true, %96 ], [ true, %95 ], [ true, %177 ], [ true, %90 ], [ true, %88 ], [ true, %81 ], [ true, %7 ], [ true, %56 ], [ true, %70 ], [ true, %89 ], [ true, %.invoke ], [ true, %59 ], [ false, %83 ], [ true, %130 ]
   %lpad.loopexit.split-lp158 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -24276,7 +24276,7 @@ define void @_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded21op
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke407, %.invoke, %83, %89, %.loopexit160, %7, %130, %56, %177, %97, %96, %95, %90, %88, %81, %70, %59
-  %.sroa.040.0.ph.ph.ph = phi i1 [ true, %59 ], [ false, %83 ], [ true, %70 ], [ true, %.loopexit160 ], [ true, %81 ], [ true, %88 ], [ true, %90 ], [ true, %95 ], [ true, %96 ], [ true, %97 ], [ true, %89 ], [ true, %.invoke407 ], [ true, %177 ], [ true, %56 ], [ true, %.invoke ], [ true, %130 ], [ true, %7 ]
+  %.sroa.040.0.ph.ph.ph = phi i1 [ true, %97 ], [ true, %.loopexit160 ], [ true, %.invoke407 ], [ true, %96 ], [ true, %95 ], [ true, %177 ], [ true, %90 ], [ true, %88 ], [ true, %81 ], [ true, %7 ], [ true, %56 ], [ true, %70 ], [ true, %89 ], [ true, %.invoke ], [ true, %59 ], [ false, %83 ], [ true, %130 ]
   %lpad.loopexit.split-lp158 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -24980,7 +24980,7 @@ define void @_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded21op
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke407, %.invoke, %83, %89, %.loopexit160, %7, %130, %56, %177, %97, %96, %95, %90, %88, %81, %70, %59
-  %.sroa.040.0.ph.ph.ph = phi i1 [ true, %59 ], [ false, %83 ], [ true, %70 ], [ true, %.loopexit160 ], [ true, %81 ], [ true, %88 ], [ true, %90 ], [ true, %95 ], [ true, %96 ], [ true, %97 ], [ true, %89 ], [ true, %.invoke407 ], [ true, %177 ], [ true, %56 ], [ true, %.invoke ], [ true, %130 ], [ true, %7 ]
+  %.sroa.040.0.ph.ph.ph = phi i1 [ true, %97 ], [ true, %.loopexit160 ], [ true, %.invoke407 ], [ true, %96 ], [ true, %95 ], [ true, %177 ], [ true, %90 ], [ true, %88 ], [ true, %81 ], [ true, %7 ], [ true, %56 ], [ true, %70 ], [ true, %89 ], [ true, %.invoke ], [ true, %59 ], [ false, %83 ], [ true, %130 ]
   %lpad.loopexit.split-lp158 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -25674,7 +25674,7 @@ define void @_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded21op
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke418, %.invoke, %80, %86, %.loopexit171, %7, %126, %53, %173, %94, %93, %92, %87, %85, %78, %67, %56
-  %.sroa.046.0.ph.ph.ph = phi i1 [ true, %56 ], [ false, %80 ], [ true, %67 ], [ true, %.loopexit171 ], [ true, %78 ], [ true, %85 ], [ true, %87 ], [ true, %92 ], [ true, %93 ], [ true, %94 ], [ true, %86 ], [ true, %.invoke418 ], [ true, %173 ], [ true, %53 ], [ true, %.invoke ], [ true, %126 ], [ true, %7 ]
+  %.sroa.046.0.ph.ph.ph = phi i1 [ true, %94 ], [ true, %.loopexit171 ], [ true, %.invoke418 ], [ true, %93 ], [ true, %92 ], [ true, %173 ], [ true, %87 ], [ true, %85 ], [ true, %78 ], [ true, %7 ], [ true, %53 ], [ true, %67 ], [ true, %86 ], [ true, %.invoke ], [ true, %56 ], [ false, %80 ], [ true, %126 ]
   %lpad.loopexit.split-lp169 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -26373,7 +26373,7 @@ define void @_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded21op
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke414, %.invoke, %81, %87, %.loopexit167, %7, %128, %54, %175, %95, %94, %93, %88, %86, %79, %68, %57
-  %.sroa.044.0.ph.ph.ph = phi i1 [ true, %57 ], [ false, %81 ], [ true, %68 ], [ true, %.loopexit167 ], [ true, %79 ], [ true, %86 ], [ true, %88 ], [ true, %93 ], [ true, %94 ], [ true, %95 ], [ true, %87 ], [ true, %.invoke414 ], [ true, %175 ], [ true, %54 ], [ true, %.invoke ], [ true, %128 ], [ true, %7 ]
+  %.sroa.044.0.ph.ph.ph = phi i1 [ true, %95 ], [ true, %.loopexit167 ], [ true, %.invoke414 ], [ true, %94 ], [ true, %93 ], [ true, %175 ], [ true, %88 ], [ true, %86 ], [ true, %79 ], [ true, %7 ], [ true, %54 ], [ true, %68 ], [ true, %87 ], [ true, %.invoke ], [ true, %57 ], [ false, %81 ], [ true, %128 ]
   %lpad.loopexit.split-lp165 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -27067,7 +27067,7 @@ define void @_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded21op
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke418, %.invoke, %80, %86, %.loopexit171, %7, %126, %53, %173, %94, %93, %92, %87, %85, %78, %67, %56
-  %.sroa.046.0.ph.ph.ph = phi i1 [ true, %56 ], [ false, %80 ], [ true, %67 ], [ true, %.loopexit171 ], [ true, %78 ], [ true, %85 ], [ true, %87 ], [ true, %92 ], [ true, %93 ], [ true, %94 ], [ true, %86 ], [ true, %.invoke418 ], [ true, %173 ], [ true, %53 ], [ true, %.invoke ], [ true, %126 ], [ true, %7 ]
+  %.sroa.046.0.ph.ph.ph = phi i1 [ true, %94 ], [ true, %.loopexit171 ], [ true, %.invoke418 ], [ true, %93 ], [ true, %92 ], [ true, %173 ], [ true, %87 ], [ true, %85 ], [ true, %78 ], [ true, %7 ], [ true, %53 ], [ true, %67 ], [ true, %86 ], [ true, %.invoke ], [ true, %56 ], [ false, %80 ], [ true, %126 ]
   %lpad.loopexit.split-lp169 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -27771,7 +27771,7 @@ define void @_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded21op
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke407, %.invoke, %83, %89, %.loopexit160, %7, %130, %56, %177, %97, %96, %95, %90, %88, %81, %70, %59
-  %.sroa.040.0.ph.ph.ph = phi i1 [ true, %59 ], [ false, %83 ], [ true, %70 ], [ true, %.loopexit160 ], [ true, %81 ], [ true, %88 ], [ true, %90 ], [ true, %95 ], [ true, %96 ], [ true, %97 ], [ true, %89 ], [ true, %.invoke407 ], [ true, %177 ], [ true, %56 ], [ true, %.invoke ], [ true, %130 ], [ true, %7 ]
+  %.sroa.040.0.ph.ph.ph = phi i1 [ true, %97 ], [ true, %.loopexit160 ], [ true, %.invoke407 ], [ true, %96 ], [ true, %95 ], [ true, %177 ], [ true, %90 ], [ true, %88 ], [ true, %81 ], [ true, %7 ], [ true, %56 ], [ true, %70 ], [ true, %89 ], [ true, %.invoke ], [ true, %59 ], [ false, %83 ], [ true, %130 ]
   %lpad.loopexit.split-lp158 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -56045,7 +56045,7 @@ define void @_ZN14polars_parquet5arrow4read11deserialize9primitive5plain15decode
   br i1 %exitcond23.not.i31, label %"_ZN14polars_parquet5arrow4read11deserialize9primitive5plain15decode_optional28_$u7b$$u7b$closure$u7d$$u7d$17h6f16ba4c40d310e1E.exit32", label %.lr.ph20.i28
 
 "_ZN14polars_parquet5arrow4read11deserialize9primitive5plain15decode_optional28_$u7b$$u7b$closure$u7d$$u7d$17h6f16ba4c40d310e1E.exit32": ; preds = %.lr.ph.i22, %130, %.preheader14.i21, %.preheader.i27
-  %.sroa.061.9 = phi i64 [ %.sroa.061.0103, %.preheader.i27 ], [ %.sroa.061.0103, %.preheader14.i21 ], [ %132, %130 ], [ %121, %.lr.ph.i22 ]
+  %.sroa.061.9 = phi i64 [ %.sroa.061.0103, %.preheader.i27 ], [ %132, %130 ], [ %.sroa.061.0103, %.preheader14.i21 ], [ %121, %.lr.ph.i22 ]
   %134 = getelementptr inbounds nuw { [16 x i8] }, ptr %.sroa.0.0104, i64 %.sroa.01.0105
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %135
@@ -56394,7 +56394,7 @@ define void @_ZN14polars_parquet5arrow4read11deserialize9primitive5plain15decode
   br i1 %exitcond37.not.i49, label %"_ZN14polars_parquet5arrow4read11deserialize9primitive5plain15decode_optional28_$u7b$$u7b$closure$u7d$$u7d$17h926da6b72d8ff842E.exit50", label %.lr.ph34.i44
 
 "_ZN14polars_parquet5arrow4read11deserialize9primitive5plain15decode_optional28_$u7b$$u7b$closure$u7d$$u7d$17h926da6b72d8ff842E.exit50": ; preds = %.lr.ph.i37, %121, %.preheader28.i36, %.preheader.i43
-  %.sroa.079.9 = phi i64 [ %.sroa.079.0121, %.preheader.i43 ], [ %.sroa.079.0121, %.preheader28.i36 ], [ %123, %121 ], [ %113, %.lr.ph.i37 ]
+  %.sroa.079.9 = phi i64 [ %.sroa.079.0121, %.preheader.i43 ], [ %123, %121 ], [ %.sroa.079.0121, %.preheader28.i36 ], [ %113, %.lr.ph.i37 ]
   %125 = getelementptr inbounds nuw { [1 x i8] }, ptr %.sroa.0.0122, i64 %.sroa.05.0123
   br label %126
 
@@ -56762,7 +56762,7 @@ define void @_ZN14polars_parquet5arrow4read11deserialize9primitive5plain15decode
   br i1 %exitcond23.not.i31, label %"_ZN14polars_parquet5arrow4read11deserialize9primitive5plain15decode_optional28_$u7b$$u7b$closure$u7d$$u7d$17h455feb197970215cE.exit32", label %.lr.ph20.i28
 
 "_ZN14polars_parquet5arrow4read11deserialize9primitive5plain15decode_optional28_$u7b$$u7b$closure$u7d$$u7d$17h455feb197970215cE.exit32": ; preds = %.lr.ph.i22, %130, %.preheader14.i21, %.preheader.i27
-  %.sroa.061.9 = phi i64 [ %.sroa.061.0103, %.preheader.i27 ], [ %.sroa.061.0103, %.preheader14.i21 ], [ %132, %130 ], [ %121, %.lr.ph.i22 ]
+  %.sroa.061.9 = phi i64 [ %.sroa.061.0103, %.preheader.i27 ], [ %132, %130 ], [ %.sroa.061.0103, %.preheader14.i21 ], [ %121, %.lr.ph.i22 ]
   %134 = getelementptr inbounds nuw { [12 x i8] }, ptr %.sroa.0.0104, i64 %.sroa.01.0105
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %135
@@ -57111,7 +57111,7 @@ define void @_ZN14polars_parquet5arrow4read11deserialize9primitive5plain15decode
   br i1 %exitcond37.not.i49, label %"_ZN14polars_parquet5arrow4read11deserialize9primitive5plain15decode_optional28_$u7b$$u7b$closure$u7d$$u7d$17he0d356d4901b5f33E.exit50", label %.lr.ph34.i44
 
 "_ZN14polars_parquet5arrow4read11deserialize9primitive5plain15decode_optional28_$u7b$$u7b$closure$u7d$$u7d$17he0d356d4901b5f33E.exit50": ; preds = %.lr.ph.i37, %121, %.preheader28.i36, %.preheader.i43
-  %.sroa.079.9 = phi i64 [ %.sroa.079.0121, %.preheader.i43 ], [ %.sroa.079.0121, %.preheader28.i36 ], [ %123, %121 ], [ %113, %.lr.ph.i37 ]
+  %.sroa.079.9 = phi i64 [ %.sroa.079.0121, %.preheader.i43 ], [ %123, %121 ], [ %.sroa.079.0121, %.preheader28.i36 ], [ %113, %.lr.ph.i37 ]
   %125 = getelementptr inbounds nuw { [8 x i8] }, ptr %.sroa.0.0122, i64 %.sroa.05.0123
   br label %126
 
@@ -57456,7 +57456,7 @@ define void @_ZN14polars_parquet5arrow4read11deserialize9primitive5plain15decode
   br i1 %exitcond37.not.i49, label %"_ZN14polars_parquet5arrow4read11deserialize9primitive5plain15decode_optional28_$u7b$$u7b$closure$u7d$$u7d$17h35a10dd2961b663fE.exit50", label %.lr.ph34.i44
 
 "_ZN14polars_parquet5arrow4read11deserialize9primitive5plain15decode_optional28_$u7b$$u7b$closure$u7d$$u7d$17h35a10dd2961b663fE.exit50": ; preds = %.lr.ph.i37, %121, %.preheader28.i36, %.preheader.i43
-  %.sroa.079.9 = phi i64 [ %.sroa.079.0121, %.preheader.i43 ], [ %.sroa.079.0121, %.preheader28.i36 ], [ %123, %121 ], [ %113, %.lr.ph.i37 ]
+  %.sroa.079.9 = phi i64 [ %.sroa.079.0121, %.preheader.i43 ], [ %123, %121 ], [ %.sroa.079.0121, %.preheader28.i36 ], [ %113, %.lr.ph.i37 ]
   %125 = getelementptr inbounds nuw { [2 x i8] }, ptr %.sroa.0.0122, i64 %.sroa.05.0123
   br label %126
 
@@ -57824,7 +57824,7 @@ define void @_ZN14polars_parquet5arrow4read11deserialize9primitive5plain15decode
   br i1 %exitcond23.not.i31, label %"_ZN14polars_parquet5arrow4read11deserialize9primitive5plain15decode_optional28_$u7b$$u7b$closure$u7d$$u7d$17h3da167e397ab3c67E.exit32", label %.lr.ph20.i28
 
 "_ZN14polars_parquet5arrow4read11deserialize9primitive5plain15decode_optional28_$u7b$$u7b$closure$u7d$$u7d$17h3da167e397ab3c67E.exit32": ; preds = %.lr.ph.i22, %130, %.preheader14.i21, %.preheader.i27
-  %.sroa.061.9 = phi i64 [ %.sroa.061.0103, %.preheader.i27 ], [ %.sroa.061.0103, %.preheader14.i21 ], [ %132, %130 ], [ %121, %.lr.ph.i22 ]
+  %.sroa.061.9 = phi i64 [ %.sroa.061.0103, %.preheader.i27 ], [ %132, %130 ], [ %.sroa.061.0103, %.preheader14.i21 ], [ %121, %.lr.ph.i22 ]
   %134 = getelementptr inbounds nuw { [32 x i8] }, ptr %.sroa.0.0104, i64 %.sroa.01.0105
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %135
@@ -58173,7 +58173,7 @@ define void @_ZN14polars_parquet5arrow4read11deserialize9primitive5plain15decode
   br i1 %exitcond37.not.i49, label %"_ZN14polars_parquet5arrow4read11deserialize9primitive5plain15decode_optional28_$u7b$$u7b$closure$u7d$$u7d$17h298e46323cdd9735E.exit50", label %.lr.ph34.i44
 
 "_ZN14polars_parquet5arrow4read11deserialize9primitive5plain15decode_optional28_$u7b$$u7b$closure$u7d$$u7d$17h298e46323cdd9735E.exit50": ; preds = %.lr.ph.i37, %121, %.preheader28.i36, %.preheader.i43
-  %.sroa.079.9 = phi i64 [ %.sroa.079.0121, %.preheader.i43 ], [ %.sroa.079.0121, %.preheader28.i36 ], [ %123, %121 ], [ %113, %.lr.ph.i37 ]
+  %.sroa.079.9 = phi i64 [ %.sroa.079.0121, %.preheader.i43 ], [ %123, %121 ], [ %.sroa.079.0121, %.preheader28.i36 ], [ %113, %.lr.ph.i37 ]
   %125 = getelementptr inbounds nuw { [4 x i8] }, ptr %.sroa.0.0122, i64 %.sroa.05.0123
   br label %126
 
@@ -60180,7 +60180,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap15slice_unchecked17h96b3ee4092ca636bE.e
           to label %196 unwind label %.thread109
 
 "_ZN14polars_parquet5arrow4read11deserialize9primitive5plain22decode_masked_optional28_$u7b$$u7b$closure$u7d$$u7d$17hd679fe1385c38fe4E.exit.thread123": ; preds = %.lr.ph.i, %179, %.preheader.i, %.preheader49.i
-  %.sroa.028.2.i.ph.pn = phi i64 [ 0, %.preheader.i ], [ 0, %.preheader49.i ], [ %181, %179 ], [ %160, %.lr.ph.i ]
+  %.sroa.028.2.i.ph.pn = phi i64 [ 0, %.preheader.i ], [ %181, %179 ], [ 0, %.preheader49.i ], [ %160, %.lr.ph.i ]
   %191 = getelementptr inbounds nuw { [2 x i8] }, ptr %.sroa.0.089149, i64 %.sroa.028.2.i.ph.pn
   %192 = add i64 %147, %.sroa.063.0148
   %193 = sub i64 %.sroa.085.0147, %.sroa.028.2.i.ph.pn
@@ -60805,7 +60805,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap15slice_unchecked17h96b3ee4092ca636bE.e
           to label %196 unwind label %.thread109
 
 "_ZN14polars_parquet5arrow4read11deserialize9primitive5plain22decode_masked_optional28_$u7b$$u7b$closure$u7d$$u7d$17hefc7486f406e144aE.exit.thread123": ; preds = %.lr.ph.i, %179, %.preheader.i, %.preheader49.i
-  %.sroa.028.2.i.ph.pn = phi i64 [ 0, %.preheader.i ], [ 0, %.preheader49.i ], [ %181, %179 ], [ %160, %.lr.ph.i ]
+  %.sroa.028.2.i.ph.pn = phi i64 [ 0, %.preheader.i ], [ %181, %179 ], [ 0, %.preheader49.i ], [ %160, %.lr.ph.i ]
   %191 = getelementptr inbounds nuw { [8 x i8] }, ptr %.sroa.0.089149, i64 %.sroa.028.2.i.ph.pn
   %192 = add i64 %147, %.sroa.063.0148
   %193 = sub i64 %.sroa.085.0147, %.sroa.028.2.i.ph.pn
@@ -61453,7 +61453,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap15slice_unchecked17h96b3ee4092ca636bE.e
           to label %199 unwind label %.thread106
 
 .thread122:                                       ; preds = %.lr.ph.i, %182, %.preheader.i, %.preheader35.i
-  %.sroa.023.2.i.ph.pn = phi i64 [ 0, %.preheader35.i ], [ 0, %.preheader.i ], [ %184, %182 ], [ %162, %.lr.ph.i ]
+  %.sroa.023.2.i.ph.pn = phi i64 [ %184, %182 ], [ 0, %.preheader.i ], [ 0, %.preheader35.i ], [ %162, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %194 = getelementptr inbounds nuw { [16 x i8] }, ptr %.sroa.0.086158, i64 %.sroa.023.2.i.ph.pn
   %195 = add i64 %149, %.sroa.060.0157
@@ -62082,7 +62082,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap15slice_unchecked17h96b3ee4092ca636bE.e
           to label %196 unwind label %.thread109
 
 "_ZN14polars_parquet5arrow4read11deserialize9primitive5plain22decode_masked_optional28_$u7b$$u7b$closure$u7d$$u7d$17h572551fe49e1e3b1E.exit.thread123": ; preds = %.lr.ph.i, %179, %.preheader.i, %.preheader49.i
-  %.sroa.028.2.i.ph.pn = phi i64 [ 0, %.preheader.i ], [ 0, %.preheader49.i ], [ %181, %179 ], [ %160, %.lr.ph.i ]
+  %.sroa.028.2.i.ph.pn = phi i64 [ 0, %.preheader.i ], [ %181, %179 ], [ 0, %.preheader49.i ], [ %160, %.lr.ph.i ]
   %191 = getelementptr inbounds nuw { [4 x i8] }, ptr %.sroa.0.089149, i64 %.sroa.028.2.i.ph.pn
   %192 = add i64 %147, %.sroa.063.0148
   %193 = sub i64 %.sroa.085.0147, %.sroa.028.2.i.ph.pn
@@ -62707,7 +62707,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap15slice_unchecked17h96b3ee4092ca636bE.e
           to label %196 unwind label %.thread109
 
 "_ZN14polars_parquet5arrow4read11deserialize9primitive5plain22decode_masked_optional28_$u7b$$u7b$closure$u7d$$u7d$17ha22c4a55973df335E.exit.thread123": ; preds = %.lr.ph.i, %179, %.preheader.i, %.preheader49.i
-  %.sroa.028.2.i.ph.pn = phi i64 [ 0, %.preheader.i ], [ 0, %.preheader49.i ], [ %181, %179 ], [ %160, %.lr.ph.i ]
+  %.sroa.028.2.i.ph.pn = phi i64 [ 0, %.preheader.i ], [ %181, %179 ], [ 0, %.preheader49.i ], [ %160, %.lr.ph.i ]
   %191 = getelementptr inbounds nuw { [1 x i8] }, ptr %.sroa.0.089149, i64 %.sroa.028.2.i.ph.pn
   %192 = add i64 %147, %.sroa.063.0148
   %193 = sub i64 %.sroa.085.0147, %.sroa.028.2.i.ph.pn
@@ -63355,7 +63355,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap15slice_unchecked17h96b3ee4092ca636bE.e
           to label %199 unwind label %.thread106
 
 .thread122:                                       ; preds = %.lr.ph.i, %182, %.preheader.i, %.preheader35.i
-  %.sroa.023.2.i.ph.pn = phi i64 [ 0, %.preheader35.i ], [ 0, %.preheader.i ], [ %184, %182 ], [ %162, %.lr.ph.i ]
+  %.sroa.023.2.i.ph.pn = phi i64 [ %184, %182 ], [ 0, %.preheader.i ], [ 0, %.preheader35.i ], [ %162, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %194 = getelementptr inbounds nuw { [12 x i8] }, ptr %.sroa.0.086158, i64 %.sroa.023.2.i.ph.pn
   %195 = add i64 %149, %.sroa.060.0157
@@ -64007,7 +64007,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap15slice_unchecked17h96b3ee4092ca636bE.e
           to label %199 unwind label %.thread106
 
 .thread122:                                       ; preds = %.lr.ph.i, %182, %.preheader.i, %.preheader35.i
-  %.sroa.023.2.i.ph.pn = phi i64 [ 0, %.preheader35.i ], [ 0, %.preheader.i ], [ %184, %182 ], [ %162, %.lr.ph.i ]
+  %.sroa.023.2.i.ph.pn = phi i64 [ %184, %182 ], [ 0, %.preheader.i ], [ 0, %.preheader35.i ], [ %162, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %194 = getelementptr inbounds nuw { [32 x i8] }, ptr %.sroa.0.086158, i64 %.sroa.023.2.i.ph.pn
   %195 = add i64 %149, %.sroa.060.0157

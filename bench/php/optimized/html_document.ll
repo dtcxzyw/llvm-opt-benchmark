@@ -751,9 +751,9 @@ define internal void @dom_lexbor_libxml2_bridge_tokenizer_error_reporter(ptr nou
   br i1 %exitcond61.not.i, label %dom_find_line_and_column_using_cache.exit, label %26
 
 dom_find_line_and_column_using_cache.exit:        ; preds = %.lr.ph.i, %26, %.preheader46.i, %.preheader.i
-  %.238.i = phi i64 [ %11, %.preheader.i ], [ %11, %.preheader46.i ], [ %.440.i, %26 ], [ %.137.i, %.lr.ph.i ]
-  %.234.i = phi i64 [ %12, %.preheader.i ], [ %12, %.preheader46.i ], [ %.4.i, %26 ], [ %.133.i, %.lr.ph.i ]
-  %.1.i = phi i64 [ %14, %.preheader.i ], [ %14, %.preheader46.i ], [ %spec.select.i, %26 ], [ %spec.select.i, %.lr.ph.i ]
+  %.238.i = phi i64 [ %.440.i, %26 ], [ %11, %.preheader.i ], [ %11, %.preheader46.i ], [ %.137.i, %.lr.ph.i ]
+  %.234.i = phi i64 [ %.4.i, %26 ], [ %12, %.preheader.i ], [ %12, %.preheader46.i ], [ %.133.i, %.lr.ph.i ]
+  %.1.i = phi i64 [ %spec.select.i, %26 ], [ %14, %.preheader.i ], [ %14, %.preheader46.i ], [ %spec.select.i, %.lr.ph.i ]
   store i64 %.238.i, ptr %10, align 8, !tbaa !47
   store i64 %.234.i, ptr %4, align 8, !tbaa !46
   store i64 %.1.i, ptr %13, align 8, !tbaa !48
@@ -1105,7 +1105,7 @@ dom_seek_utf8_non_ascii.exit.i:                   ; preds = %.preheader.i, %57
   br label %.loopexit.i
 
 dom_seek_utf8_non_ascii.exit.thread.i:            ; preds = %.lr.ph.i, %.lr.ph76.i, %44
-  %61 = phi ptr [ %.promoted.i, %44 ], [ %55, %.lr.ph76.i ], [ %51, %.lr.ph.i ]
+  %61 = phi ptr [ %55, %.lr.ph76.i ], [ %.promoted.i, %44 ], [ %51, %.lr.ph.i ]
   %62 = call i32 @lxb_encoding_decode_utf_8_single(ptr noundef nonnull %16, ptr noundef nonnull %11, ptr noundef %4) #10
   %63 = icmp ugt i32 %62, 1114111
   %.pre95.i = load ptr, ptr %11, align 8, !tbaa !10
@@ -1289,8 +1289,8 @@ dom_decode_encode_fast_path.exit:                 ; preds = %.thread65.i, %._cri
   br i1 %exitcond61.not.i.i.i, label %dom_find_line_and_column_using_cache.exit.i.i, label %138
 
 dom_find_line_and_column_using_cache.exit.i.i:    ; preds = %.lr.ph.i.i.i, %138, %.preheader.i.i.i, %.preheader46.i.i.i
-  %.238.i.i.i = phi i64 [ %123, %.preheader.i.i.i ], [ %123, %.preheader46.i.i.i ], [ %.440.i.i.i, %138 ], [ %.137.i.i.i, %.lr.ph.i.i.i ]
-  %.234.i.i.i = phi i64 [ %124, %.preheader.i.i.i ], [ %124, %.preheader46.i.i.i ], [ %.4.i.i.i, %138 ], [ %.133.i.i.i, %.lr.ph.i.i.i ]
+  %.238.i.i.i = phi i64 [ %.440.i.i.i, %138 ], [ %123, %.preheader.i.i.i ], [ %123, %.preheader46.i.i.i ], [ %.137.i.i.i, %.lr.ph.i.i.i ]
+  %.234.i.i.i = phi i64 [ %.4.i.i.i, %138 ], [ %124, %.preheader.i.i.i ], [ %124, %.preheader46.i.i.i ], [ %.133.i.i.i, %.lr.ph.i.i.i ]
   store i64 %.238.i.i.i, ptr %122, align 8, !tbaa !47
   store i64 %.234.i.i.i, ptr %120, align 8, !tbaa !46
   br label %144
@@ -2066,7 +2066,7 @@ dom_parse_decode_encode_finish.exit.sink.split:   ; preds = %206, %211
   br label %dom_parse_decode_encode_finish.exit
 
 dom_parse_decode_encode_finish.exit:              ; preds = %129, %dom_parse_decode_encode_finish.exit.sink.split, %201, %164, %166, %119, %zend_string_release_ex.exit
-  %.0 = phi ptr [ null, %zend_string_release_ex.exit ], [ null, %119 ], [ null, %166 ], [ null, %164 ], [ %169, %201 ], [ %169, %dom_parse_decode_encode_finish.exit.sink.split ], [ null, %129 ]
+  %.0 = phi ptr [ null, %zend_string_release_ex.exit ], [ null, %119 ], [ %169, %dom_parse_decode_encode_finish.exit.sink.split ], [ null, %166 ], [ null, %164 ], [ %169, %201 ], [ null, %129 ]
   call void @php_dom_throw_error(i32 noundef 11, i1 noundef zeroext true) #10
   br label %248
 
@@ -3143,7 +3143,7 @@ define hidden range(i32 -1, 1) i32 @dom_html_document_title_read(ptr noundef %0,
   br i1 %.not17.i.i, label %.preheader.i, label %.lr.ph.i32.backedge
 
 .lr.ph.i32.backedge:                              ; preds = %55, %.thread.i, %47
-  %.02.i.be = phi ptr [ %51, %.thread.i ], [ %49, %47 ], [ %57, %55 ]
+  %.02.i.be = phi ptr [ %49, %47 ], [ %51, %.thread.i ], [ %57, %55 ]
   br label %.lr.ph.i32
 
 .preheader.i:                                     ; preds = %.thread.i, %55
@@ -3165,7 +3165,7 @@ dom_get_svg_title_element.exit.thread.sink.split: ; preds = %27, %41
   br label %dom_get_svg_title_element.exit.thread
 
 dom_get_svg_title_element.exit.thread:            ; preds = %31, %.preheader.i, %dom_get_svg_title_element.exit.thread.sink.split, %33, %19
-  %.124 = phi ptr [ %9, %19 ], [ %9, %33 ], [ %59, %dom_get_svg_title_element.exit.thread.sink.split ], [ %9, %.preheader.i ], [ %9, %31 ]
+  %.124 = phi ptr [ %59, %dom_get_svg_title_element.exit.thread.sink.split ], [ %9, %33 ], [ %9, %.preheader.i ], [ %9, %19 ], [ %9, %31 ]
   %60 = tail call ptr @dom_strip_and_collapse_ascii_whitespace(ptr noundef %.124) #10
   store ptr %60, ptr %1, align 8, !tbaa !4
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 4
@@ -3535,7 +3535,7 @@ zend_string_release_ex.exit:                      ; preds = %51, %46, %34, %.loo
   br i1 %.not17.i.i, label %.preheader.i, label %.lr.ph.i74.backedge
 
 .lr.ph.i74.backedge:                              ; preds = %92, %.thread.i, %84
-  %.02.i.be = phi ptr [ %88, %.thread.i ], [ %86, %84 ], [ %94, %92 ]
+  %.02.i.be = phi ptr [ %86, %84 ], [ %88, %.thread.i ], [ %94, %92 ]
   br label %.lr.ph.i74
 
 .preheader.i:                                     ; preds = %.thread.i, %92
@@ -3746,8 +3746,8 @@ define internal fastcc noundef zeroext i1 @dom_process_parse_chunk(ptr noundef n
   br i1 %exitcond61.not.i, label %dom_find_line_and_column_using_cache.exit, label %39
 
 dom_find_line_and_column_using_cache.exit:        ; preds = %.lr.ph.i, %39, %.preheader46.i, %.preheader.i
-  %.238.i = phi i64 [ %24, %.preheader.i ], [ %24, %.preheader46.i ], [ %.440.i, %39 ], [ %.137.i, %.lr.ph.i ]
-  %.234.i = phi i64 [ %25, %.preheader.i ], [ %25, %.preheader46.i ], [ %.4.i, %39 ], [ %.133.i, %.lr.ph.i ]
+  %.238.i = phi i64 [ %.440.i, %39 ], [ %24, %.preheader.i ], [ %24, %.preheader46.i ], [ %.137.i, %.lr.ph.i ]
+  %.234.i = phi i64 [ %.4.i, %39 ], [ %25, %.preheader.i ], [ %25, %.preheader46.i ], [ %.133.i, %.lr.ph.i ]
   store i64 %.238.i, ptr %23, align 8, !tbaa !47
   store i64 %.234.i, ptr %21, align 8, !tbaa !46
   br label %45
@@ -3853,8 +3853,8 @@ define internal range(i32 -1, 1) i32 @dom_saveHTML_write_string_len_utf8_output(
   br label %36
 
 36:                                               ; preds = %._crit_edge47, %34
-  %37 = phi ptr [ %35, %34 ], [ %.pre, %._crit_edge47 ]
-  %.227 = phi ptr [ %35, %34 ], [ %.02544, %._crit_edge47 ]
+  %37 = phi ptr [ %.pre, %._crit_edge47 ], [ %35, %34 ]
+  %.227 = phi ptr [ %.02544, %._crit_edge47 ], [ %35, %34 ]
   %.not = icmp eq ptr %37, %8
   br i1 %.not, label %._crit_edge, label %11
 
@@ -3949,8 +3949,8 @@ define internal range(i32 -1, 1) i32 @dom_saveHTML_write_string_utf8_output(ptr 
   br label %36
 
 36:                                               ; preds = %34, %._crit_edge47.i
-  %37 = phi ptr [ %35, %34 ], [ %.pre.i, %._crit_edge47.i ]
-  %.227.i = phi ptr [ %35, %34 ], [ %.02544.i, %._crit_edge47.i ]
+  %37 = phi ptr [ %.pre.i, %._crit_edge47.i ], [ %35, %34 ]
+  %.227.i = phi ptr [ %.02544.i, %._crit_edge47.i ], [ %35, %34 ]
   %.not.i = icmp eq ptr %37, %8
   br i1 %.not.i, label %._crit_edge.i, label %11
 

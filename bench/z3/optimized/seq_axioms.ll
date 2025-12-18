@@ -1474,7 +1474,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit: 
   br label %28
 
 28:                                               ; preds = %23, %21
-  %.1 = phi i32 [ %25, %23 ], [ %.029, %21 ]
+  %.1 = phi i32 [ %.029, %21 ], [ %25, %23 ]
   %29 = getelementptr inbounds nuw i8, ptr %.02028, i64 8
   %.not = icmp eq ptr %29, %16
   br i1 %.not, label %.critedge24.loopexit, label %.lr.ph

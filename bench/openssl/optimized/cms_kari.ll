@@ -354,7 +354,7 @@ define range(i32 0, 2) i32 @CMS_RecipientEncryptedKey_get0_id(ptr noundef readon
   br label %45
 
 45:                                               ; preds = %.sink.split, %24, %44, %6
-  %.0 = phi i32 [ 0, %6 ], [ 1, %44 ], [ 1, %24 ], [ 1, %.sink.split ]
+  %.0 = phi i32 [ 0, %6 ], [ 1, %24 ], [ 1, %44 ], [ 1, %.sink.split ]
   ret i32 %.0
 }
 

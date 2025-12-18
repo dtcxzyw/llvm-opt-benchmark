@@ -132,7 +132,7 @@ sz_s2u.exit29:                                    ; preds = %39, %37
   br label %sz_sa2u.exit
 
 sz_sa2u.exit:                                     ; preds = %sz_s2u.exit, %.thread41
-  %.018.i = phi i64 [ %.0.i27, %sz_s2u.exit ], [ %..0.i, %.thread41 ]
+  %.018.i = phi i64 [ %..0.i, %.thread41 ], [ %.0.i27, %sz_s2u.exit ]
   %55 = add nsw i64 %.018.i, -8070450532247928833
   %56 = icmp ult i64 %55, -8070450532247928832
   br i1 %56, label %sz_sa2u.exit.thread, label %57, !prof !11

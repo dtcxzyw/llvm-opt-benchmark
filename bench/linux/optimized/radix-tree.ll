@@ -676,8 +676,8 @@ define dso_local ptr @radix_tree_lookup_slot(ptr noundef %0, i64 noundef %1) #3 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.loopexit1, %.loopexit.loopexit
-  %39 = phi ptr [ %spec.select, %.loopexit1 ], [ %38, %.loopexit.loopexit ], [ null, %.lr.ph ]
-  %40 = phi ptr [ %spec.select39, %.loopexit1 ], [ %32, %.loopexit.loopexit ], [ null, %.lr.ph ]
+  %39 = phi ptr [ %38, %.loopexit.loopexit ], [ %spec.select, %.loopexit1 ], [ null, %.lr.ph ]
+  %40 = phi ptr [ %32, %.loopexit.loopexit ], [ %spec.select39, %.loopexit1 ], [ null, %.lr.ph ]
   %41 = icmp eq ptr %40, null
   %42 = select i1 %41, ptr null, ptr %39
   ret ptr %42
@@ -747,7 +747,7 @@ define dso_local ptr @radix_tree_lookup(ptr noundef %0, i64 noundef %1) #3 align
   unreachable
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %20, %.thread
-  %39 = phi ptr [ %11, %.thread ], [ %33, %.preheader ], [ %33, %20 ], [ null, %.lr.ph ]
+  %39 = phi ptr [ %33, %.preheader ], [ %11, %.thread ], [ %33, %20 ], [ null, %.lr.ph ]
   ret ptr %39
 }
 
@@ -1752,8 +1752,8 @@ define dso_local ptr @radix_tree_next_chunk(ptr noundef %0, ptr noundef captures
   br i1 %198, label %.loopexit, label %.preheader12
 
 .thread:                                          ; preds = %.split32.split, %.split32.split.us.us, %.split32.us.split.us.us.us, %20
-  %.lcssa27 = phi i64 [ %15, %20 ], [ %179, %.split32.split.us.us ], [ %86, %.split32.us.split.us.us.us ], [ %15, %.split32.split ]
-  %.lcssa = phi ptr [ %25, %20 ], [ %180, %.split32.split.us.us ], [ %87, %.split32.us.split.us.us.us ], [ %184, %.split32.split ]
+  %.lcssa27 = phi i64 [ %15, %20 ], [ %86, %.split32.us.split.us.us.us ], [ %179, %.split32.split.us.us ], [ %15, %.split32.split ]
+  %.lcssa = phi ptr [ %25, %20 ], [ %87, %.split32.us.split.us.us.us ], [ %180, %.split32.split.us.us ], [ %184, %.split32.split ]
   %199 = icmp ne i64 %.lcssa27, 0
   %200 = icmp eq ptr %.lcssa, null
   %201 = or i1 %199, %200
@@ -1804,11 +1804,11 @@ define dso_local ptr @radix_tree_next_chunk(ptr noundef %0, ptr noundef captures
   br i1 %227, label %.preheader12, label %.split34.us, !llvm.loop !68
 
 .split34.us:                                      ; preds = %222, %220, %168, %173, %111, %.preheader12.us, %71, %66
-  %.us-phi35 = phi i64 [ %170, %168 ], [ %68, %71 ], [ %108, %111 ], [ %68, %66 ], [ %108, %.preheader12.us ], [ %170, %173 ], [ %212, %220 ], [ %212, %222 ]
-  %.us-phi36 = phi i64 [ %171, %168 ], [ %69, %71 ], [ %15, %111 ], [ %69, %66 ], [ %15, %.preheader12.us ], [ %171, %173 ], [ %15, %220 ], [ %15, %222 ]
-  %.us-phi37 = phi i64 [ %132, %168 ], [ %44, %71 ], [ %102, %111 ], [ %44, %66 ], [ %102, %.preheader12.us ], [ %132, %173 ], [ %206, %220 ], [ %206, %222 ]
-  %.us-phi38 = phi ptr [ %133, %168 ], [ %45, %71 ], [ %103, %111 ], [ %45, %66 ], [ %103, %.preheader12.us ], [ %133, %173 ], [ %207, %220 ], [ %207, %222 ]
-  %.us-phi39 = phi ptr [ %137, %168 ], [ %49, %71 ], [ %107, %111 ], [ %49, %66 ], [ %107, %.preheader12.us ], [ %137, %173 ], [ %211, %220 ], [ %211, %222 ]
+  %.us-phi35 = phi i64 [ %170, %168 ], [ %108, %111 ], [ %68, %71 ], [ %68, %66 ], [ %108, %.preheader12.us ], [ %170, %173 ], [ %212, %220 ], [ %212, %222 ]
+  %.us-phi36 = phi i64 [ %171, %168 ], [ %15, %111 ], [ %69, %71 ], [ %69, %66 ], [ %15, %.preheader12.us ], [ %171, %173 ], [ %15, %220 ], [ %15, %222 ]
+  %.us-phi37 = phi i64 [ %132, %168 ], [ %102, %111 ], [ %44, %71 ], [ %44, %66 ], [ %102, %.preheader12.us ], [ %132, %173 ], [ %206, %220 ], [ %206, %222 ]
+  %.us-phi38 = phi ptr [ %133, %168 ], [ %103, %111 ], [ %45, %71 ], [ %45, %66 ], [ %103, %.preheader12.us ], [ %133, %173 ], [ %207, %220 ], [ %207, %222 ]
+  %.us-phi39 = phi ptr [ %137, %168 ], [ %107, %111 ], [ %49, %71 ], [ %49, %66 ], [ %107, %.preheader12.us ], [ %137, %173 ], [ %211, %220 ], [ %211, %222 ]
   %228 = load i8, ptr %.us-phi38, align 8
   %229 = zext nneg i8 %228 to i64
   %230 = shl i64 -64, %229
@@ -1852,7 +1852,7 @@ define dso_local ptr @radix_tree_next_chunk(ptr noundef %0, ptr noundef captures
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.split.split, %.preheader12, %.lr.ph.split.split.us, %.thread11.us40.us, %.preheader12.us, %.lr.ph.split.us.split.us, %.thread11.loopexit.us.us.us.us.thread, %.thread11.loopexit.us.us.us.us, %.lr.ph.split.us.split, %.thread, %253, %.thread8, %17, %7
-  %255 = phi ptr [ %254, %253 ], [ %21, %.thread8 ], [ null, %7 ], [ null, %17 ], [ null, %.thread ], [ null, %.lr.ph.split.us.split ], [ null, %.preheader12 ], [ null, %.thread11.loopexit.us.us.us.us ], [ null, %.lr.ph.split.us.split.us ], [ null, %.preheader12.us ], [ null, %.thread11.us40.us ], [ null, %.lr.ph.split.split.us ], [ null, %.thread11.loopexit.us.us.us.us.thread ], [ null, %.lr.ph.split.split ]
+  %255 = phi ptr [ %254, %253 ], [ %21, %.thread8 ], [ null, %7 ], [ null, %17 ], [ null, %.thread ], [ null, %.thread11.loopexit.us.us.us.us ], [ null, %.lr.ph.split.us.split.us ], [ null, %.thread11.us40.us ], [ null, %.lr.ph.split.us.split ], [ null, %.preheader12.us ], [ null, %.lr.ph.split.split.us ], [ null, %.preheader12 ], [ null, %.thread11.loopexit.us.us.us.us.thread ], [ null, %.lr.ph.split.split ]
   ret ptr %255
 }
 
@@ -2011,10 +2011,6 @@ define dso_local i32 @radix_tree_gang_lookup_tag(ptr noundef %0, ptr noundef wri
   %35 = icmp ult i64 %.pr.us, 2
   br i1 %35, label %.split.us.outer.backedge, label %36, !prof !73
 
-.split.us.outer.backedge:                         ; preds = %.loopexit28, %39, %43
-  %.ph27.be = phi ptr [ %51, %43 ], [ %42, %39 ], [ null, %.loopexit28 ]
-  br label %.split.us.outer, !llvm.loop !72
-
 36:                                               ; preds = %.loopexit28
   %37 = and i64 %.pr.us, 2
   %38 = icmp eq i64 %37, 0
@@ -2039,6 +2035,10 @@ define dso_local i32 @radix_tree_gang_lookup_tag(ptr noundef %0, ptr noundef wri
   store i64 %50, ptr %6, align 8
   %51 = getelementptr ptr, ptr %23, i64 %48
   br label %.split.us.outer.backedge
+
+.split.us.outer.backedge:                         ; preds = %43, %.loopexit28, %39
+  %.ph27.be = phi ptr [ %42, %39 ], [ null, %.loopexit28 ], [ %51, %43 ]
+  br label %.split.us.outer, !llvm.loop !72
 
 .split:                                           ; preds = %.split.outer, %.thread
   %52 = phi ptr [ null, %.thread ], [ %.ph35, %.split.outer ]
@@ -2179,7 +2179,7 @@ define dso_local i32 @radix_tree_gang_lookup_tag_slot(ptr noundef %0, ptr nounde
   br label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %38, %34, %27
-  %.be = phi ptr [ %46, %38 ], [ %37, %34 ], [ null, %27 ]
+  %.be = phi ptr [ null, %27 ], [ %46, %38 ], [ %37, %34 ]
   br label %.split.us, !llvm.loop !75
 
 .split:                                           ; preds = %8, %.split.backedge
@@ -2217,7 +2217,7 @@ define dso_local i32 @radix_tree_gang_lookup_tag_slot(ptr noundef %0, ptr nounde
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %63, %58
-  %.be35 = phi ptr [ %66, %63 ], [ null, %58 ]
+  %.be35 = phi ptr [ null, %58 ], [ %66, %63 ]
   br label %.split, !llvm.loop !75
 
 .split7.us:                                       ; preds = %50, %19
@@ -2881,7 +2881,7 @@ define dso_local ptr @idr_get_free(ptr noundef %0, ptr noundef captures(none) %1
   br label %radix_tree_node_alloc.exit.thread
 
 radix_tree_node_alloc.exit.thread:                ; preds = %28, %72, %92, %.thread14, %44, %210
-  %214 = phi ptr [ %211, %210 ], [ %46, %44 ], [ inttoptr (i64 -28 to ptr), %.thread14 ], [ inttoptr (i64 -12 to ptr), %72 ], [ inttoptr (i64 -12 to ptr), %92 ], [ inttoptr (i64 -28 to ptr), %28 ]
+  %214 = phi ptr [ %211, %210 ], [ inttoptr (i64 -28 to ptr), %.thread14 ], [ %46, %44 ], [ inttoptr (i64 -12 to ptr), %72 ], [ inttoptr (i64 -12 to ptr), %92 ], [ inttoptr (i64 -28 to ptr), %28 ]
   ret ptr %214
 }
 

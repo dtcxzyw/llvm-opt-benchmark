@@ -413,8 +413,8 @@ define dso_local zeroext range(i16 0, 16379) i16 @PageAddItemExtended(ptr nounde
   br label %.loopexit
 
 .loopexit:                                        ; preds = %55, %50, %41, %._crit_edge, %40
-  %.074 = phi i16 [ %3, %41 ], [ %3, %40 ], [ %3, %50 ], [ %.1.lcssa, %._crit_edge ], [ %.1103, %55 ]
-  %.0 = phi i1 [ false, %41 ], [ false, %40 ], [ %.not86, %50 ], [ false, %._crit_edge ], [ false, %55 ]
+  %.074 = phi i16 [ %3, %41 ], [ %3, %40 ], [ %.1.lcssa, %._crit_edge ], [ %3, %50 ], [ %.1103, %55 ]
+  %.0 = phi i1 [ false, %41 ], [ false, %40 ], [ false, %._crit_edge ], [ %.not86, %50 ], [ false, %55 ]
   %62 = icmp ugt i16 %.074, %narrow
   br i1 %62, label %63, label %.thread94
 

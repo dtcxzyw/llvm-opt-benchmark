@@ -411,7 +411,7 @@ define hidden range(i32 -1, 2) i32 @inflate_table(i32 noundef %0, ptr noundef re
   br label %.loopexit
 
 .loopexit:                                        ; preds = %33, %._crit_edge263, %.loopexit.sink.split, %63, %65, %41
-  %.0180 = phi i32 [ 1, %63 ], [ -1, %41 ], [ 1, %65 ], [ 0, %.loopexit.sink.split ], [ 1, %._crit_edge263 ], [ -1, %33 ]
+  %.0180 = phi i32 [ 1, %._crit_edge263 ], [ 1, %63 ], [ 0, %.loopexit.sink.split ], [ -1, %41 ], [ 1, %65 ], [ -1, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0180

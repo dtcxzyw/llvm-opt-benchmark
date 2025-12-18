@@ -636,8 +636,8 @@ _unlink_free_nodes.exit:                          ; preds = %.preheader24.i, %._
   br i1 %.not92, label %.outer._crit_edge, label %69, !llvm.loop !16
 
 .outer._crit_edge:                                ; preds = %.outer, %129, %.preheader
-  %.079.ph.lcssa = phi i32 [ 0, %.preheader ], [ %.079.ph137, %129 ], [ 2018, %.outer ]
-  %.078.ph.lcssa = phi ptr [ null, %.preheader ], [ %.078.ph138, %129 ], [ %.1, %.outer ]
+  %.079.ph.lcssa = phi i32 [ %.079.ph137, %129 ], [ 0, %.preheader ], [ 2018, %.outer ]
+  %.078.ph.lcssa = phi ptr [ %.078.ph138, %129 ], [ null, %.preheader ], [ %.1, %.outer ]
   tail call void @hostlist_destroy(ptr noundef nonnull %25) #16
   %135 = icmp eq i32 %.079.ph.lcssa, 2018
   %136 = icmp ne ptr %.078.ph.lcssa, null
@@ -1874,7 +1874,7 @@ define dso_local range(i32 0, 2) i32 @part_not_on_list(ptr noundef readonly capt
   br i1 %.not, label %.thread, label %5, !llvm.loop !27
 
 .thread:                                          ; preds = %16, %2, %10, %11
-  %19 = phi i32 [ 0, %11 ], [ 0, %10 ], [ 1, %2 ], [ 1, %16 ]
+  %19 = phi i32 [ 0, %10 ], [ 0, %11 ], [ 1, %2 ], [ 1, %16 ]
   ret i32 %19
 }
 
@@ -2003,7 +2003,7 @@ define internal noundef i32 @_pack_part(ptr noundef %0, ptr noundef captures(non
   %.not.i = icmp eq ptr %28, null
   br i1 %.not.i, label %part_not_on_list.exit, label %15, !llvm.loop !27
 
-part_not_on_list.exit.thread:                     ; preds = %20, %21, %6, %2
+part_not_on_list.exit.thread:                     ; preds = %21, %20, %6, %2
   %29 = load ptr, ptr %1, align 8
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 14
   %31 = load i16, ptr %30, align 2

@@ -6821,7 +6821,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__9S
   br i1 %or.cond.not, label %.lr.ph.i.i.i.i.i41, label %_ZSteqIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit, !llvm.loop !18
 
 _ZSteqIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit: ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i.i9, %.lr.ph.i.i.i.i.i17, %.lr.ph.i.i.i.i.i25, %.lr.ph.i.i.i.i.i33, %.lr.ph.i.i.i.i.i41, %124, %.loopexit, %.loopexit50, %.loopexit52, %.loopexit54, %.loopexit56, %8, %2
-  %128 = phi i1 [ false, %2 ], [ false, %8 ], [ false, %.loopexit56 ], [ false, %.loopexit54 ], [ false, %.loopexit52 ], [ false, %.loopexit50 ], [ false, %.loopexit ], [ true, %124 ], [ false, %.lr.ph.i.i.i.i.i9 ], [ %125, %.lr.ph.i.i.i.i.i41 ], [ false, %.lr.ph.i.i.i.i.i33 ], [ false, %.lr.ph.i.i.i.i.i25 ], [ false, %.lr.ph.i.i.i.i.i17 ], [ false, %.lr.ph.i.i.i.i.i ]
+  %128 = phi i1 [ false, %.lr.ph.i.i.i.i.i25 ], [ false, %.lr.ph.i.i.i.i.i17 ], [ false, %.lr.ph.i.i.i.i.i9 ], [ %125, %.lr.ph.i.i.i.i.i41 ], [ false, %.lr.ph.i.i.i.i.i33 ], [ false, %2 ], [ false, %8 ], [ false, %.loopexit56 ], [ false, %.loopexit54 ], [ false, %.loopexit52 ], [ false, %.loopexit50 ], [ false, %.loopexit ], [ true, %124 ], [ false, %.lr.ph.i.i.i.i.i ]
   ret i1 %128
 }
 
@@ -11513,7 +11513,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__9S
   br label %_ZSteqIN32pxrInternal_v0_24__pxrReserved__12SdfReferenceESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit
 
 _ZSteqIN32pxrInternal_v0_24__pxrReserved__12SdfReferenceESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit: ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i.i9, %.lr.ph.i.i.i.i.i15, %.lr.ph.i.i.i.i.i21, %.lr.ph.i.i.i.i.i27, %.loopexit33, %.loopexit35, %.loopexit37, %.loopexit39, %8, %.loopexit, %2
-  %112 = phi i1 [ %111, %.loopexit ], [ false, %2 ], [ false, %8 ], [ false, %.loopexit39 ], [ false, %.loopexit37 ], [ false, %.loopexit35 ], [ false, %.loopexit33 ], [ false, %.lr.ph.i.i.i.i.i9 ], [ false, %.lr.ph.i.i.i.i.i27 ], [ false, %.lr.ph.i.i.i.i.i21 ], [ false, %.lr.ph.i.i.i.i.i15 ], [ false, %.lr.ph.i.i.i.i.i ]
+  %112 = phi i1 [ false, %.lr.ph.i.i.i.i.i9 ], [ false, %.lr.ph.i.i.i.i.i27 ], [ false, %.lr.ph.i.i.i.i.i21 ], [ false, %.lr.ph.i.i.i.i.i15 ], [ %111, %.loopexit ], [ false, %2 ], [ false, %8 ], [ false, %.loopexit39 ], [ false, %.loopexit37 ], [ false, %.loopexit35 ], [ false, %.loopexit33 ], [ false, %.lr.ph.i.i.i.i.i ]
   ret i1 %112
 }
 
@@ -15909,7 +15909,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__9S
   br label %_ZSteqIN32pxrInternal_v0_24__pxrReserved__10SdfPayloadESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit
 
 _ZSteqIN32pxrInternal_v0_24__pxrReserved__10SdfPayloadESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit: ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i.i9, %.lr.ph.i.i.i.i.i15, %.lr.ph.i.i.i.i.i21, %.lr.ph.i.i.i.i.i27, %.loopexit33, %.loopexit35, %.loopexit37, %.loopexit39, %8, %.loopexit, %2
-  %112 = phi i1 [ %111, %.loopexit ], [ false, %2 ], [ false, %8 ], [ false, %.loopexit39 ], [ false, %.loopexit37 ], [ false, %.loopexit35 ], [ false, %.loopexit33 ], [ false, %.lr.ph.i.i.i.i.i9 ], [ false, %.lr.ph.i.i.i.i.i27 ], [ false, %.lr.ph.i.i.i.i.i21 ], [ false, %.lr.ph.i.i.i.i.i15 ], [ false, %.lr.ph.i.i.i.i.i ]
+  %112 = phi i1 [ false, %.lr.ph.i.i.i.i.i9 ], [ false, %.lr.ph.i.i.i.i.i27 ], [ false, %.lr.ph.i.i.i.i.i21 ], [ false, %.lr.ph.i.i.i.i.i15 ], [ %111, %.loopexit ], [ false, %2 ], [ false, %8 ], [ false, %.loopexit39 ], [ false, %.loopexit37 ], [ false, %.loopexit35 ], [ false, %.loopexit33 ], [ false, %.lr.ph.i.i.i.i.i ]
   ret i1 %112
 }
 

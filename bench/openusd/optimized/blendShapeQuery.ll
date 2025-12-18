@@ -3356,7 +3356,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__22UsdSkelBlendS
   br label %60, !llvm.loop !32
 
 .loopexit28:                                      ; preds = %62, %20, %39
-  %.1 = phi i1 [ false, %39 ], [ false, %20 ], [ true, %62 ]
+  %.1 = phi i1 [ false, %20 ], [ false, %39 ], [ true, %62 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #19
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %6) #19
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #19
@@ -3923,7 +3923,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__22UsdSkelBlendS
   br i1 %exitcond.not.i.i.i.i, label %"_ZN32pxrInternal_v0_24__pxrReserved__19WorkParallelReduceNIZNS_12_GLOBAL__N_137_ComputeApproximateNumPointsForShapesERKSt6vectorINS_7VtArrayIiEESaIS4_EERKS2_INS3_INS_7GfVec3fEEESaISA_EEE3$_0ZNS1_37_ComputeApproximateNumPointsForShapesES8_SE_E3$_1iEET1_RKSH_mOT_OT0_.exit.i", label %.lr.ph23.i.i.i.i, !llvm.loop !35
 
 "_ZN32pxrInternal_v0_24__pxrReserved__19WorkParallelReduceNIZNS_12_GLOBAL__N_137_ComputeApproximateNumPointsForShapesERKSt6vectorINS_7VtArrayIiEESaIS4_EERKS2_INS3_INS_7GfVec3fEEESaISA_EEE3$_0ZNS1_37_ComputeApproximateNumPointsForShapesES8_SE_E3$_1iEET1_RKSH_mOT_OT0_.exit.i": ; preds = %._crit_edge.i.i.i.i, %74, %70, %34
-  %.0.i.i.i = phi i32 [ %.val.pre.i.i.i.i, %74 ], [ %.val.pre.i.i.i.i, %70 ], [ 0, %34 ], [ %.1.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
+  %.0.i.i.i = phi i32 [ 0, %34 ], [ %.val.pre.i.i.i.i, %74 ], [ %.val.pre.i.i.i.i, %70 ], [ %.1.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %87 = load ptr, ptr %20, align 8

@@ -370,7 +370,7 @@ Sbd_StoInitResult.exit:                           ; preds = %64
   br i1 %exitcond159.not.i.us, label %.loopexit.us, label %.lr.ph134.i.us, !llvm.loop !46
 
 .loopexit.us:                                     ; preds = %167, %.preheader.i.us, %._crit_edge131.loopexit.i.us, %.preheader116.i.us, %._crit_edge.loopexit.i.us, %.preheader117.i.us
-  %.5.lcssa.sink.i.us = phi i32 [ %151, %._crit_edge.loopexit.i.us ], [ 0, %.preheader.i.us ], [ %.1.i.us, %.preheader117.i.us ], [ %.091.i.us, %.preheader116.i.us ], [ %162, %._crit_edge131.loopexit.i.us ], [ %23, %167 ]
+  %.5.lcssa.sink.i.us = phi i32 [ %151, %._crit_edge.loopexit.i.us ], [ 0, %.preheader.i.us ], [ %162, %._crit_edge131.loopexit.i.us ], [ %.1.i.us, %.preheader117.i.us ], [ %.091.i.us, %.preheader116.i.us ], [ %23, %167 ]
   %169 = getelementptr inbounds nuw i8, ptr %108, i64 20
   %170 = load i32, ptr %169, align 4
   %171 = shl i32 %.5.lcssa.sink.i.us, 28
@@ -1096,7 +1096,7 @@ Abc_TtExpand.exit77.i.us:                         ; preds = %474, %Abc_TtExpand.
   br i1 %exitcond29.not.i100.i.us, label %Abc_TtXor.exit.i.us, label %.lr.ph22.i97.i.us, !llvm.loop !73
 
 Abc_TtXor.exit.i.us:                              ; preds = %.lr.ph.i81.i.us, %.lr.ph22.i.i.us, %.lr.ph.i90.i.us, %.lr.ph22.i97.i.us, %.preheader.i94.i.us, %.preheader18.i87.i.us, %.preheader.i85.i.us, %.preheader18.i.i.us
-  %.046.i.us = phi i32 [ 1, %.preheader18.i.i.us ], [ 0, %.preheader.i85.i.us ], [ 1, %.preheader18.i87.i.us ], [ 0, %.preheader.i94.i.us ], [ 0, %.lr.ph22.i.i.us ], [ 0, %.lr.ph22.i97.i.us ], [ 1, %.lr.ph.i90.i.us ], [ 1, %.lr.ph.i81.i.us ]
+  %.046.i.us = phi i32 [ 1, %.lr.ph.i90.i.us ], [ 1, %.preheader18.i.i.us ], [ 0, %.preheader.i85.i.us ], [ 0, %.lr.ph22.i.i.us ], [ 1, %.preheader18.i87.i.us ], [ 0, %.preheader.i94.i.us ], [ 0, %.lr.ph22.i97.i.us ], [ 1, %.lr.ph.i81.i.us ]
   %.not.i101.i.us = icmp eq i32 %239, 0
   br i1 %.not.i101.i.us, label %Sbd_CutComputeTruth.exit.us, label %.lr.ph.split.i.i.us
 
@@ -2004,13 +2004,13 @@ Sbd_CutSetLastCutContains.exit.i.us:              ; preds = %._crit_edge56.loope
   br i1 %976, label %.lr.ph.i8.i.us, label %Sbd_CutSetSortByCost.exit.i.us, !llvm.loop !91
 
 Sbd_CutSetSortByCost.exit.i.us:                   ; preds = %933, %939, %947, %953, %956, %961, %969, %975, %Sbd_CutSetLastCutContains.exit.i.us, %855
-  %.0.i12.i.us = phi i32 [ %.0.i.i200.us, %Sbd_CutSetLastCutContains.exit.i.us ], [ %.1375.us, %855 ], [ %.0.i.i200.us, %975 ], [ %.0.i.i200.us, %969 ], [ %.0.i.i200.us, %961 ], [ %.0.i.i200.us, %956 ], [ %.0.i.i200.us, %953 ], [ %.0.i.i200.us, %947 ], [ %.0.i.i200.us, %939 ], [ %.0.i.i200.us, %933 ]
+  %.0.i12.i.us = phi i32 [ %.1375.us, %855 ], [ %.0.i.i200.us, %Sbd_CutSetLastCutContains.exit.i.us ], [ %.0.i.i200.us, %975 ], [ %.0.i.i200.us, %969 ], [ %.0.i.i200.us, %961 ], [ %.0.i.i200.us, %956 ], [ %.0.i.i200.us, %953 ], [ %.0.i.i200.us, %947 ], [ %.0.i.i200.us, %939 ], [ %.0.i.i200.us, %933 ]
   %977 = add nsw i32 %.0.i12.i.us, 1
   %978 = call range(i32 -2147483648, 2147483647) i32 @llvm.smin.i32(i32 range(i32 -2147483647, -2147483648) %977, i32 range(i32 -2147483648, 2147483647) %83)
   br label %Sbd_CutSetAddCut.exit.us
 
 Sbd_CutSetAddCut.exit.us:                         ; preds = %139, %.lr.ph134.i.us, %198, %225, %210, %220, %Sbd_CutSetSortByCost.exit.i.us, %Sbd_CutTreeLeaves.exit.us, %.loopexit120.i.us, %.loopexit121.i.us, %.preheader118.i.us, %96
-  %.2.us = phi i32 [ %.1375.us, %96 ], [ 1, %Sbd_CutTreeLeaves.exit.us ], [ %978, %Sbd_CutSetSortByCost.exit.i.us ], [ %.1375.us, %.loopexit121.i.us ], [ %.1375.us, %.loopexit120.i.us ], [ %.1375.us, %.preheader118.i.us ], [ %.1375.us, %.lr.ph134.i.us ], [ %.1375.us, %220 ], [ %.1375.us, %210 ], [ %.1375.us, %225 ], [ %.1375.us, %198 ], [ %.1375.us, %139 ]
+  %.2.us = phi i32 [ %.1375.us, %96 ], [ %.1375.us, %.preheader118.i.us ], [ 1, %Sbd_CutTreeLeaves.exit.us ], [ %978, %Sbd_CutSetSortByCost.exit.i.us ], [ %.1375.us, %.loopexit120.i.us ], [ %.1375.us, %220 ], [ %.1375.us, %.loopexit121.i.us ], [ %.1375.us, %.lr.ph134.i.us ], [ %.1375.us, %210 ], [ %.1375.us, %198 ], [ %.1375.us, %225 ], [ %.1375.us, %139 ]
   %979 = add nuw nsw i32 %.0119374.us, 1
   %980 = getelementptr inbounds nuw i8, ptr %.0116379.us, i64 64
   %exitcond.not = icmp eq i32 %979, %61
@@ -4114,7 +4114,7 @@ define range(i32 -1, 16) i32 @Sbd_StoObjBestCut(ptr noundef readonly captures(no
   %or.cond86 = select i1 %50, i1 true, i1 %or.cond58
   br i1 %or.cond86, label %Sbd_CutCompare2.exit.thread56, label %Sbd_CutCompare2.exit.thread
 
-Sbd_CutCompare2.exit.thread56:                    ; preds = %49, %41, %33, %27, %17
+Sbd_CutCompare2.exit.thread56:                    ; preds = %33, %41, %27, %49, %17
   br label %Sbd_CutCompare2.exit.thread
 
 Sbd_CutCompare2.exit.thread:                      ; preds = %49, %9, %43, %35, %29, %19, %._crit_edge69, %14, %Sbd_CutCompare2.exit.thread56

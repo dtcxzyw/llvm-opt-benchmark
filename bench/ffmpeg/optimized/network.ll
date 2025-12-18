@@ -185,7 +185,7 @@ ff_network_wait_fd.exit:                          ; preds = %.lr.ph.split
   br label %.loopexit
 
 .loopexit:                                        ; preds = %36, %26, %23, %.loopexit.split.loop.exit17, %4, %ff_network_wait_fd.exit.thread15
-  %.09 = phi i32 [ 0, %ff_network_wait_fd.exit.thread15 ], [ %38, %.loopexit.split.loop.exit17 ], [ -1414092869, %4 ], [ -1414092869, %26 ], [ -110, %23 ], [ -1414092869, %36 ]
+  %.09 = phi i32 [ 0, %ff_network_wait_fd.exit.thread15 ], [ %38, %.loopexit.split.loop.exit17 ], [ -1414092869, %26 ], [ -1414092869, %4 ], [ -110, %23 ], [ -1414092869, %36 ]
   ret i32 %.09
 }
 
@@ -444,7 +444,7 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @ff_poll_interrup
   br label %.thread
 
 .thread:                                          ; preds = %25, %19, %10, %.thread.loopexit.split.loop.exit
-  %.2 = phi i32 [ %28, %.thread.loopexit.split.loop.exit ], [ %9, %10 ], [ %18, %19 ], [ %.1, %25 ]
+  %.2 = phi i32 [ %9, %10 ], [ %28, %.thread.loopexit.split.loop.exit ], [ %.1, %25 ], [ %18, %19 ]
   %.not16 = icmp eq i32 %.2, 0
   %..2 = select i1 %.not16, i32 -110, i32 %.2
   br label %.loopexit

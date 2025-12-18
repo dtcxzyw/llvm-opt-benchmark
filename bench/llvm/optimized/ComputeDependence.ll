@@ -608,7 +608,7 @@ _ZNK5clang22specific_attr_iteratorINS_11AlignedAttrEN4llvm11SmallVectorIPNS_4Att
   br label %50
 
 .thread:                                          ; preds = %58, %_ZN5clangneENS_22specific_attr_iteratorINS_11AlignedAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit, %63, %56, %27, %25, %17, %32, %6
-  %.0 = phi i8 [ %16, %6 ], [ %spec.select, %17 ], [ %spec.select, %32 ], [ %spec.select, %25 ], [ %spec.select, %27 ], [ %.2, %63 ], [ %.2, %56 ], [ %.2, %_ZN5clangneENS_22specific_attr_iteratorINS_11AlignedAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit ], [ %.2, %58 ]
+  %.0 = phi i8 [ %16, %6 ], [ %spec.select, %17 ], [ %spec.select, %32 ], [ %.2, %56 ], [ %spec.select, %25 ], [ %spec.select, %27 ], [ %.2, %63 ], [ %.2, %_ZN5clangneENS_22specific_attr_iteratorINS_11AlignedAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit ], [ %.2, %58 ]
   ret i8 %.0
 }
 
@@ -2082,7 +2082,7 @@ _ZNK5clang11DeclRefExpr18getNumTemplateArgsEv.exit: ; preds = %_ZNK5clang11DeclR
   br i1 %41, label %.lr.ph, label %_ZNK5clang11DeclRefExpr15getTemplateArgsEv.exit.thread, !llvm.loop !511
 
 _ZNK5clang11DeclRefExpr15getTemplateArgsEv.exit.thread: ; preds = %.lr.ph, %_ZNK5clang11DeclRefExpr18getNumTemplateArgsEv.exit, %_ZNK5clang11DeclRefExpr12getQualifierEv.exit.thread, %_ZNK5clang11DeclRefExpr23hasExplicitTemplateArgsEv.exit.i
-  %.1100 = phi i8 [ %.099, %_ZNK5clang11DeclRefExpr23hasExplicitTemplateArgsEv.exit.i ], [ %.099, %_ZNK5clang11DeclRefExpr12getQualifierEv.exit.thread ], [ %.099, %_ZNK5clang11DeclRefExpr18getNumTemplateArgsEv.exit ], [ %39, %.lr.ph ]
+  %.1100 = phi i8 [ %.099, %_ZNK5clang11DeclRefExpr12getQualifierEv.exit.thread ], [ %.099, %_ZNK5clang11DeclRefExpr23hasExplicitTemplateArgsEv.exit.i ], [ %.099, %_ZNK5clang11DeclRefExpr18getNumTemplateArgsEv.exit ], [ %39, %.lr.ph ]
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %43 = load ptr, ptr %42, align 8, !tbaa !512
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2601,7 +2601,7 @@ _ZNK5clang10MemberExpr18template_argumentsEv.exit: ; preds = %_ZNK5clang10Member
   br i1 %.not2956, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZNK5clang10MemberExpr12getQualifierEv.exit.thread, %_ZNK5clang10MemberExpr23hasExplicitTemplateArgsEv.exit.i.i, %_ZNK5clang10MemberExpr18template_argumentsEv.exit
-  %.1.lcssa = phi i8 [ %.046, %_ZNK5clang10MemberExpr18template_argumentsEv.exit ], [ %.046, %_ZNK5clang10MemberExpr23hasExplicitTemplateArgsEv.exit.i.i ], [ %.046, %_ZNK5clang10MemberExpr12getQualifierEv.exit.thread ], [ %60, %.lr.ph ]
+  %.1.lcssa = phi i8 [ %.046, %_ZNK5clang10MemberExpr18template_argumentsEv.exit ], [ %.046, %_ZNK5clang10MemberExpr12getQualifierEv.exit.thread ], [ %.046, %_ZNK5clang10MemberExpr23hasExplicitTemplateArgsEv.exit.i.i ], [ %60, %.lr.ph ]
   %46 = load ptr, ptr %9, align 8, !tbaa !538
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 28
   %48 = load i32, ptr %47, align 4
@@ -3359,7 +3359,7 @@ _ZN5clang4Decl14getDeclContextEv.exit:            ; preds = %.lr.ph, %50
   br i1 %.not34, label %._crit_edge, label %.lr.ph
 
 ._crit_edge42:                                    ; preds = %.lr.ph41, %._crit_edge, %_ZNK5clang12OverloadExpr23hasExplicitTemplateArgsEv.exit.i.i, %_ZNK5clang12OverloadExpr18template_argumentsEv.exit
-  %.6.lcssa = phi i8 [ %.4.lcssa, %_ZNK5clang12OverloadExpr18template_argumentsEv.exit ], [ %.4.lcssa, %_ZNK5clang12OverloadExpr23hasExplicitTemplateArgsEv.exit.i.i ], [ %.4.lcssa, %._crit_edge ], [ %70, %.lr.ph41 ]
+  %.6.lcssa = phi i8 [ %.4.lcssa, %_ZNK5clang12OverloadExpr18template_argumentsEv.exit ], [ %.4.lcssa, %._crit_edge ], [ %.4.lcssa, %_ZNK5clang12OverloadExpr23hasExplicitTemplateArgsEv.exit.i.i ], [ %70, %.lr.ph41 ]
   ret i8 %.6.lcssa
 
 .lr.ph41:                                         ; preds = %_ZNK5clang12OverloadExpr18template_argumentsEv.exit, %.lr.ph41
@@ -3430,7 +3430,7 @@ _ZNK5clang25DependentScopeDeclRefExpr18template_argumentsEv.exit: ; preds = %_ZN
   br i1 %.not1320, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %17, %_ZNK5clang25DependentScopeDeclRefExpr23hasExplicitTemplateArgsEv.exit.i2.i, %_ZNK5clang25DependentScopeDeclRefExpr18template_argumentsEv.exit
-  %.1.lcssa = phi i8 [ %.019, %_ZNK5clang25DependentScopeDeclRefExpr18template_argumentsEv.exit ], [ %.019, %_ZNK5clang25DependentScopeDeclRefExpr23hasExplicitTemplateArgsEv.exit.i2.i ], [ %.019, %17 ], [ %36, %.lr.ph ]
+  %.1.lcssa = phi i8 [ %.019, %_ZNK5clang25DependentScopeDeclRefExpr18template_argumentsEv.exit ], [ %.019, %17 ], [ %.019, %_ZNK5clang25DependentScopeDeclRefExpr23hasExplicitTemplateArgsEv.exit.i2.i ], [ %36, %.lr.ph ]
   ret i8 %.1.lcssa
 
 .lr.ph:                                           ; preds = %_ZNK5clang25DependentScopeDeclRefExpr18template_argumentsEv.exit, %.lr.ph
@@ -3728,7 +3728,7 @@ _ZNK5clang27CXXDependentScopeMemberExpr18template_argumentsEv.exit: ; preds = %_
   br i1 %.not1524, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %22, %_ZNK5clang27CXXDependentScopeMemberExpr23hasExplicitTemplateArgsEv.exit.i2.i, %_ZNK5clang27CXXDependentScopeMemberExpr18template_argumentsEv.exit
-  %.2.lcssa = phi i8 [ %27, %_ZNK5clang27CXXDependentScopeMemberExpr18template_argumentsEv.exit ], [ %27, %_ZNK5clang27CXXDependentScopeMemberExpr23hasExplicitTemplateArgsEv.exit.i2.i ], [ %27, %22 ], [ %46, %.lr.ph ]
+  %.2.lcssa = phi i8 [ %27, %_ZNK5clang27CXXDependentScopeMemberExpr18template_argumentsEv.exit ], [ %27, %22 ], [ %27, %_ZNK5clang27CXXDependentScopeMemberExpr23hasExplicitTemplateArgsEv.exit.i2.i ], [ %46, %.lr.ph ]
   ret i8 %.2.lcssa
 
 .lr.ph:                                           ; preds = %_ZNK5clang27CXXDependentScopeMemberExpr18template_argumentsEv.exit, %.lr.ph

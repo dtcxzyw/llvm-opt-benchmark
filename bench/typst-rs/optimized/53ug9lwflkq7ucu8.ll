@@ -1378,7 +1378,7 @@ _ZN5image6codecs4jpeg7encoder16pixel_at_or_near17h39234a9c57d836ebE.exit.us.i: ;
   br i1 %.not.i.i.i.i, label %_ZN5image6codecs4jpeg7encoder16pixel_at_or_near17h39234a9c57d836ebE.exit.i, label %.split37.us.i
 
 .split32.us.i:                                    ; preds = %.split.split.split.preheader.i, %.split.split.us.split.i, %.split.split.us.split.us.i
-  %.us-phi34.i = phi i32 [ %.0.sroa.speculated.i.i.us.us.i, %.split.split.us.split.us.i ], [ %.0.sroa.speculated.i.i.us.i, %.split.split.us.split.i ], [ %.sroa.047.0, %.split.split.split.preheader.i ]
+  %.us-phi34.i = phi i32 [ %.0.sroa.speculated.i.i.us.i, %.split.split.us.split.i ], [ %.0.sroa.speculated.i.i.us.us.i, %.split.split.us.split.us.i ], [ %.sroa.047.0, %.split.split.split.preheader.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !153
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !153
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !153
@@ -1643,7 +1643,7 @@ define internal fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder20JpegEncoder$
   br i1 %67, label %.split50.us.i, label %77
 
 .split45.us.i:                                    ; preds = %.split.split.split.preheader.i, %.split.split.us.split.i, %.split.split.us.split.us.i
-  %.us-phi47.i = phi i32 [ %.0.sroa.speculated.i.i.us.us.i, %.split.split.us.split.us.i ], [ %.0.sroa.speculated.i.i.us.i, %.split.split.us.split.i ], [ %.sroa.047.0, %.split.split.split.preheader.i ]
+  %.us-phi47.i = phi i32 [ %.0.sroa.speculated.i.i.us.i, %.split.split.us.split.i ], [ %.0.sroa.speculated.i.i.us.us.i, %.split.split.us.split.us.i ], [ %.sroa.047.0, %.split.split.split.preheader.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !199
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !199
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !199

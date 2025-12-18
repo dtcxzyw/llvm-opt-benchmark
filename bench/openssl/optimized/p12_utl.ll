@@ -310,7 +310,7 @@ OPENSSL_asc2uni.exit.sink.split:                  ; preds = %80, %33
   br label %OPENSSL_asc2uni.exit
 
 OPENSSL_asc2uni.exit:                             ; preds = %34, %OPENSSL_asc2uni.exit.sink.split, %._crit_edge.thread, %33, %17, %80, %._crit_edge
-  %.0 = phi ptr [ %77, %80 ], [ null, %._crit_edge ], [ %21, %33 ], [ null, %17 ], [ null, %._crit_edge.thread ], [ %.sink89, %OPENSSL_asc2uni.exit.sink.split ], [ null, %34 ]
+  %.0 = phi ptr [ %77, %80 ], [ null, %._crit_edge ], [ %21, %33 ], [ %.sink89, %OPENSSL_asc2uni.exit.sink.split ], [ null, %17 ], [ null, %._crit_edge.thread ], [ null, %34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }

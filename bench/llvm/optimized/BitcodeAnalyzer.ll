@@ -1664,7 +1664,7 @@ _ZN4llvm8ExpectedIjED2Ev.exit58:                  ; preds = %191, %_ZNKSt14defau
   br label %.critedge
 
 .critedge:                                        ; preds = %95, %_ZN4llvm8ExpectedIjED2Ev.exit58, %.critedge.loopexit, %_ZN4llvm8ExpectedIjED2Ev.exit58.thread, %_ZN4llvm8ExpectedIjED2Ev.exit58.thread160, %_ZN4llvm8ExpectedINS_17CurStreamTypeTypeEED2Ev.exit34
-  %.2 = phi i1 [ false, %.critedge.loopexit ], [ false, %_ZN4llvm8ExpectedINS_17CurStreamTypeTypeEED2Ev.exit34 ], [ false, %_ZN4llvm8ExpectedIjED2Ev.exit58.thread ], [ false, %_ZN4llvm8ExpectedIjED2Ev.exit58.thread160 ], [ true, %_ZN4llvm8ExpectedIjED2Ev.exit58 ], [ true, %95 ]
+  %.2 = phi i1 [ false, %_ZN4llvm8ExpectedINS_17CurStreamTypeTypeEED2Ev.exit34 ], [ false, %.critedge.loopexit ], [ false, %_ZN4llvm8ExpectedIjED2Ev.exit58.thread ], [ false, %_ZN4llvm8ExpectedIjED2Ev.exit58.thread160 ], [ true, %_ZN4llvm8ExpectedIjED2Ev.exit58 ], [ true, %95 ]
   call void @_ZN4llvm11SmallVectorINS_15BitstreamCursor5BlockELj8EED2Ev(ptr noundef nonnull align 8 dereferenceable(272) %66) #24
   %197 = load ptr, ptr %32, align 8, !tbaa !115
   %198 = load ptr, ptr %65, align 8, !tbaa !114
@@ -4738,10 +4738,10 @@ _ZN4llvm5ErrorD2Ev.exit314:                       ; preds = %_ZN4llvm21SimpleBit
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.backedge
 
-.backedge:                                        ; preds = %_ZN4llvm5ErrorD2Ev.exit248, %_ZN4llvm5ErrorD2Ev.exit249, %.critedge172
-  %.1651 = phi i64 [ %.0118529, %.critedge172 ], [ %427, %_ZN4llvm5ErrorD2Ev.exit248 ], [ %.0118529, %_ZN4llvm5ErrorD2Ev.exit249 ]
-  %.1132650 = phi i64 [ %.3134, %.critedge172 ], [ %.0131528, %_ZN4llvm5ErrorD2Ev.exit248 ], [ %.0131528, %_ZN4llvm5ErrorD2Ev.exit249 ]
-  %.1390649 = phi i32 [ %spec.select, %.critedge172 ], [ %.0525, %_ZN4llvm5ErrorD2Ev.exit248 ], [ %.0525, %_ZN4llvm5ErrorD2Ev.exit249 ]
+.backedge:                                        ; preds = %_ZN4llvm5ErrorD2Ev.exit249, %_ZN4llvm5ErrorD2Ev.exit248, %.critedge172
+  %.1651 = phi i64 [ %.0118529, %.critedge172 ], [ %.0118529, %_ZN4llvm5ErrorD2Ev.exit249 ], [ %427, %_ZN4llvm5ErrorD2Ev.exit248 ]
+  %.1132650 = phi i64 [ %.3134, %.critedge172 ], [ %.0131528, %_ZN4llvm5ErrorD2Ev.exit249 ], [ %.0131528, %_ZN4llvm5ErrorD2Ev.exit248 ]
+  %.1390649 = phi i32 [ %spec.select, %.critedge172 ], [ %.0525, %_ZN4llvm5ErrorD2Ev.exit249 ], [ %.0525, %_ZN4llvm5ErrorD2Ev.exit248 ]
   %815 = load i32, ptr %31, align 8, !tbaa !18
   %816 = icmp eq i32 %815, 0
   %817 = load i64, ptr %286, align 8

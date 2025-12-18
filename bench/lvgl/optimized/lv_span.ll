@@ -356,7 +356,7 @@ lv_span_get_style_text_letter_space.exit.i.i:     ; preds = %116, %113
   br label %lv_text_get_snippet.exit.i.i
 
 lv_text_get_snippet.exit.i.i:                     ; preds = %135, %124
-  %.0.i224.i.i = phi i1 [ %switch.selectcmp.i.i.i, %135 ], [ true, %124 ]
+  %.0.i224.i.i = phi i1 [ true, %124 ], [ %switch.selectcmp.i.i.i, %135 ]
   %140 = icmp ne i32 %127, 0
   %or.cond13.i.i = and i1 %140, %.0.i224.i.i
   br i1 %or.cond13.i.i, label %141, label %lv_text_get_snippet.exit.thread.i.i

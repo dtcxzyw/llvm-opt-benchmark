@@ -2268,12 +2268,12 @@ tar_read_header.exit.thread:                      ; preds = %604, %615
   br label %tar_flush_unconsumed.exit
 
 tar_read_header.exit.thread231:                   ; preds = %80, %81, %84, %tar_flush_unconsumed.exit211.i
-  %.0.i.ph.ph230 = phi i32 [ %..i, %tar_flush_unconsumed.exit211.i ], [ -30, %84 ], [ -30, %81 ], [ 1, %80 ]
+  %.0.i.ph.ph230 = phi i32 [ %..i, %tar_flush_unconsumed.exit211.i ], [ -30, %84 ], [ 1, %80 ], [ -30, %81 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %tar_flush_unconsumed.exit
 
 tar_read_header.exit:                             ; preds = %134, %226, %237, %269, %313, %324, %329, %header_gnutar.exit.i, %header_pax_global.exit.i, %archive_block_is_null.exit208.thread.i, %609, %is_mac_metadata_entry.exit.i, %625, %629, %.thread252.i, %641, %.thread251.i
-  %.0.i.ph.ph = phi i32 [ 1, %archive_block_is_null.exit208.thread.i ], [ %561, %is_mac_metadata_entry.exit.i ], [ -20, %625 ], [ %642, %641 ], [ -20, %.thread251.i ], [ %561, %.thread252.i ], [ %561, %629 ], [ -30, %609 ], [ -30, %header_pax_global.exit.i ], [ -30, %header_gnutar.exit.i ], [ -30, %329 ], [ -30, %324 ], [ -30, %313 ], [ -30, %269 ], [ -30, %237 ], [ -30, %226 ], [ -30, %134 ]
+  %.0.i.ph.ph = phi i32 [ 1, %archive_block_is_null.exit208.thread.i ], [ -30, %609 ], [ %561, %is_mac_metadata_entry.exit.i ], [ -20, %625 ], [ %642, %641 ], [ %561, %.thread252.i ], [ %561, %629 ], [ -20, %.thread251.i ], [ -30, %header_pax_global.exit.i ], [ -30, %header_gnutar.exit.i ], [ -30, %329 ], [ -30, %324 ], [ -30, %313 ], [ -30, %269 ], [ -30, %237 ], [ -30, %226 ], [ -30, %134 ]
   %.pr.pr = load i64, ptr %9, align 8, !tbaa !45
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.not.i64 = icmp eq i64 %.pr.pr, 0
@@ -3506,7 +3506,7 @@ tar_flush_unconsumed.exit:                        ; preds = %._crit_edge, %38
   br label %gnu_add_sparse_entry.exit.thread
 
 gnu_add_sparse_entry.exit.thread:                 ; preds = %19, %.lr.ph, %33, %25, %46, %tar_flush_unconsumed.exit, %gnu_clear_sparse_list.exit
-  %.0 = phi i64 [ %spec.select, %46 ], [ -30, %gnu_clear_sparse_list.exit ], [ -30, %tar_flush_unconsumed.exit ], [ -30, %25 ], [ -30, %33 ], [ -30, %.lr.ph ], [ -30, %19 ]
+  %.0 = phi i64 [ %spec.select, %46 ], [ -30, %gnu_clear_sparse_list.exit ], [ -30, %33 ], [ -30, %25 ], [ -30, %tar_flush_unconsumed.exit ], [ -30, %.lr.ph ], [ -30, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.0
 }
@@ -4751,7 +4751,7 @@ tar_flush_unconsumed.exit:                        ; preds = %16, %13
   br label %tar_atol10.exit
 
 tar_atol10.exit:                                  ; preds = %.critedge2.i.i, %32, %34, %read_bytes_to_string.exit, %20, %.critedge53.i.i, %.critedge4.i.i
-  %.044.i.i = phi i64 [ 0, %20 ], [ 0, %.critedge53.i.i ], [ %spec.select.i.i, %.critedge4.i.i ], [ 0, %read_bytes_to_string.exit ], [ %.04295.i.i, %32 ], [ %.04295.i.i, %34 ], [ 0, %.critedge2.i.i ]
+  %.044.i.i = phi i64 [ 0, %.critedge53.i.i ], [ 0, %20 ], [ %spec.select.i.i, %.critedge4.i.i ], [ 0, %read_bytes_to_string.exit ], [ %.04295.i.i, %32 ], [ %.04295.i.i, %34 ], [ 0, %.critedge2.i.i ]
   store i64 %.044.i.i, ptr %2, align 8, !tbaa !45
   call void @archive_string_free(ptr noundef nonnull %4) #13
   %44 = load i64, ptr %2, align 8, !tbaa !45
@@ -4986,8 +4986,8 @@ tar_atol10.exit64:                                ; preds = %52, %54, %.critedge
   %64 = icmp slt i64 %.044.i.i50, 0
   br i1 %64, label %gnu_add_sparse_entry.exit.thread, label %tar_atol10.exit64.thread
 
-tar_atol10.exit64.thread:                         ; preds = %.critedge2.i.i62, %.critedge53.i.i37, %42, %tar_atol10.exit64
-  %.044.i.i5067 = phi i64 [ %.044.i.i50, %tar_atol10.exit64 ], [ 0, %42 ], [ 0, %.critedge53.i.i37 ], [ 0, %.critedge2.i.i62 ]
+tar_atol10.exit64.thread:                         ; preds = %.critedge2.i.i62, %42, %.critedge53.i.i37, %tar_atol10.exit64
+  %.044.i.i5067 = phi i64 [ %.044.i.i50, %tar_atol10.exit64 ], [ 0, %.critedge53.i.i37 ], [ 0, %42 ], [ 0, %.critedge2.i.i62 ]
   %65 = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #14
   %66 = icmp eq ptr %65, null
   br i1 %66, label %67, label %68
@@ -5026,13 +5026,13 @@ gnu_add_sparse_entry.exit:                        ; preds = %72
   store i64 %.044.i.i5067, ptr %77, align 8, !tbaa !82
   br label %tar_atol10.exit.thread
 
-tar_atol10.exit.thread:                           ; preds = %.critedge2.i.i, %.critedge53.i.i, %19, %gnu_add_sparse_entry.exit, %tar_atol10.exit
-  %.1 = phi i64 [ %.044.i.i, %tar_atol10.exit ], [ -1, %gnu_add_sparse_entry.exit ], [ 0, %19 ], [ 0, %.critedge53.i.i ], [ 0, %.critedge2.i.i ]
+tar_atol10.exit.thread:                           ; preds = %.critedge2.i.i, %19, %.critedge53.i.i, %gnu_add_sparse_entry.exit, %tar_atol10.exit
+  %.1 = phi i64 [ %.044.i.i, %tar_atol10.exit ], [ -1, %gnu_add_sparse_entry.exit ], [ 0, %.critedge53.i.i ], [ 0, %19 ], [ 0, %.critedge2.i.i ]
   %78 = getelementptr inbounds nuw i8, ptr %.023.lcssa, i64 1
   br i1 %.not.lcssa, label %gnu_add_sparse_entry.exit.thread, label %7
 
 gnu_add_sparse_entry.exit.thread:                 ; preds = %tar_atol10.exit.thread, %tar_atol10.exit64, %tar_atol10.exit, %9, %75, %67
-  %.027 = phi i32 [ -30, %67 ], [ -30, %75 ], [ -20, %9 ], [ -20, %tar_atol10.exit ], [ 0, %tar_atol10.exit.thread ], [ -20, %tar_atol10.exit64 ]
+  %.027 = phi i32 [ -20, %9 ], [ -30, %75 ], [ -30, %67 ], [ -20, %tar_atol10.exit ], [ 0, %tar_atol10.exit.thread ], [ -20, %tar_atol10.exit64 ]
   ret i32 %.027
 }
 
@@ -5363,10 +5363,10 @@ url_decode.exit:                                  ; preds = %.preheader.i, %.bac
   br label %.outer._crit_edge.i
 
 .outer._crit_edge.i:                              ; preds = %.outer.i, %.lr.ph.split.i, %.lr.ph.split.i, %.outer._crit_edge.loopexit.split.loop.exit151.i
-  %.040.ph.lcssa.i = phi i32 [ %.040.ph109.i, %.outer._crit_edge.loopexit.split.loop.exit151.i ], [ %.040.ph109.i, %.lr.ph.split.i ], [ %.040.ph109.i, %.lr.ph.split.i ], [ %72, %.outer.i ]
-  %.0.ph.lcssa.i = phi i32 [ %.0.ph110.i, %.outer._crit_edge.loopexit.split.loop.exit151.i ], [ %.0.ph110.i, %.lr.ph.split.i ], [ %.0.ph110.i, %.lr.ph.split.i ], [ %74, %.outer.i ]
-  %.1.lcssa.i = phi ptr [ %scevgep.le.i, %.outer._crit_edge.loopexit.split.loop.exit151.i ], [ %.157.i, %.lr.ph.split.i ], [ %.157.i, %.lr.ph.split.i ], [ %71, %.outer.i ]
-  %.2.i = phi i64 [ 0, %.outer._crit_edge.loopexit.split.loop.exit151.i ], [ 0, %.lr.ph.split.i ], [ 0, %.lr.ph.split.i ], [ %73, %.outer.i ]
+  %.040.ph.lcssa.i = phi i32 [ %.040.ph109.i, %.lr.ph.split.i ], [ %.040.ph109.i, %.outer._crit_edge.loopexit.split.loop.exit151.i ], [ %.040.ph109.i, %.lr.ph.split.i ], [ %72, %.outer.i ]
+  %.0.ph.lcssa.i = phi i32 [ %.0.ph110.i, %.lr.ph.split.i ], [ %.0.ph110.i, %.outer._crit_edge.loopexit.split.loop.exit151.i ], [ %.0.ph110.i, %.lr.ph.split.i ], [ %74, %.outer.i ]
+  %.1.lcssa.i = phi ptr [ %.157.i, %.lr.ph.split.i ], [ %scevgep.le.i, %.outer._crit_edge.loopexit.split.loop.exit151.i ], [ %.157.i, %.lr.ph.split.i ], [ %71, %.outer.i ]
+  %.2.i = phi i64 [ 0, %.lr.ph.split.i ], [ 0, %.outer._crit_edge.loopexit.split.loop.exit151.i ], [ 0, %.lr.ph.split.i ], [ %73, %.outer.i ]
   %78 = sub nsw i32 4, %.0.ph.lcssa.i
   %79 = mul nsw i32 %78, 6
   %80 = shl i32 %.040.ph.lcssa.i, %79
@@ -5669,8 +5669,8 @@ tar_atol10.exit:                                  ; preds = %29, %31, %.critedge
   %41 = icmp slt i64 %.044.i.i, 0
   br i1 %41, label %gnu_add_sparse_entry.exit.thread, label %tar_atol10.exit.thread
 
-tar_atol10.exit.thread:                           ; preds = %.critedge2.i.i, %.critedge53.i.i, %.critedge, %tar_atol10.exit
-  %.044.i.i2 = phi i64 [ %.044.i.i, %tar_atol10.exit ], [ 0, %.critedge ], [ 0, %.critedge53.i.i ], [ 0, %.critedge2.i.i ]
+tar_atol10.exit.thread:                           ; preds = %.critedge2.i.i, %.critedge, %.critedge53.i.i, %tar_atol10.exit
+  %.044.i.i2 = phi i64 [ %.044.i.i, %tar_atol10.exit ], [ 0, %.critedge53.i.i ], [ 0, %.critedge ], [ 0, %.critedge2.i.i ]
   %42 = icmp samesign ult i64 %.032, %.044.i.i2
   br i1 %42, label %43, label %60
 
@@ -5732,7 +5732,7 @@ tar_atol10.exit.thread:                           ; preds = %.critedge2.i.i, %.c
   br label %gnu_add_sparse_entry.exit.thread
 
 gnu_add_sparse_entry.exit.thread:                 ; preds = %tar_atol10.exit, %13, %55, %47, %.critedge43, %6, %4, %.loopexit
-  %.033 = phi i32 [ -20, %4 ], [ -20, %6 ], [ 0, %.critedge43 ], [ -20, %.loopexit ], [ -30, %47 ], [ -30, %55 ], [ -20, %13 ], [ -20, %tar_atol10.exit ]
+  %.033 = phi i32 [ -20, %4 ], [ -20, %6 ], [ -30, %55 ], [ -20, %13 ], [ 0, %.critedge43 ], [ -20, %.loopexit ], [ -30, %47 ], [ -20, %tar_atol10.exit ]
   ret i32 %.033
 }
 
@@ -6154,7 +6154,7 @@ define internal fastcc range(i32 -30, 1) i32 @gnu_sparse_old_parse(ptr noundef %
   br i1 %30, label %7, label %.critedge, !llvm.loop !109
 
 .critedge:                                        ; preds = %7, %25, %24, %15
-  %.09 = phi i32 [ -30, %15 ], [ -30, %24 ], [ 0, %25 ], [ 0, %7 ]
+  %.09 = phi i32 [ -30, %24 ], [ -30, %15 ], [ 0, %25 ], [ 0, %7 ]
   ret i32 %.09
 }
 
@@ -6293,8 +6293,8 @@ readline.exit.thread:                             ; preds = %tar_flush_unconsume
   br label %.loopexit
 
 readline.exit:                                    ; preds = %26, %40
-  %.2 = phi ptr [ %41, %40 ], [ %12, %26 ]
-  %.044.i = phi i64 [ %39, %40 ], [ %23, %26 ]
+  %.2 = phi ptr [ %12, %26 ], [ %41, %40 ]
+  %.044.i = phi i64 [ %23, %26 ], [ %39, %40 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %58 = icmp slt i64 %.044.i, 1
   br i1 %58, label %.loopexit, label %59

@@ -496,7 +496,7 @@ _ZN4cvc58internal8TypeNode4nullEv.exit.us.sink.split: ; preds = %_ZStlsISt11char
   br label %_ZN4cvc58internal8TypeNode4nullEv.exit.us
 
 _ZN4cvc58internal8TypeNode4nullEv.exit.us:        ; preds = %.invoke, %_ZN4cvc58internal8TypeNode4nullEv.exit.us.sink.split, %65, %55, %_ZN4cvc58internal6theory5arith16isMaybeRealOrIntERKNS0_8TypeNodeE.exit.thread.us, %51
-  %cond = phi i1 [ false, %51 ], [ false, %65 ], [ true, %_ZN4cvc58internal6theory5arith16isMaybeRealOrIntERKNS0_8TypeNodeE.exit.thread.us ], [ true, %55 ], [ false, %_ZN4cvc58internal8TypeNode4nullEv.exit.us.sink.split ], [ false, %.invoke ]
+  %cond = phi i1 [ false, %51 ], [ false, %65 ], [ false, %.invoke ], [ true, %_ZN4cvc58internal6theory5arith16isMaybeRealOrIntERKNS0_8TypeNodeE.exit.thread.us ], [ true, %55 ], [ false, %_ZN4cvc58internal8TypeNode4nullEv.exit.us.sink.split ]
   %73 = load ptr, ptr %9, align 8, !tbaa !6
   %74 = load i64, ptr %73, align 8
   %75 = and i64 %74, 1152920405095219200

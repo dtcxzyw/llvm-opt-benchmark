@@ -681,7 +681,7 @@ default.unreachable:                              ; preds = %64, %58
   br i1 %101, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h26964b5c03c35e66E.exit, label %.lr.ph.split.i
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h26964b5c03c35e66E.exit: ; preds = %.lr.ph.split.i, %53, %59, %67, %71, %75, %79, %85, %91, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h527646ec25be9f8bE.exit.i", %.critedge.backedge.i, %._crit_edge.i.i.i.i.i, %9, %.lr.ph.split.us.i, %"._ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h527646ec25be9f8bE.exit.thread.loopexit12_crit_edge20.split.us.i"
-  %102 = phi i1 [ false, %"._ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h527646ec25be9f8bE.exit.thread.loopexit12_crit_edge20.split.us.i" ], [ true, %9 ], [ true, %.lr.ph.split.us.i ], [ false, %._crit_edge.i.i.i.i.i ], [ false, %59 ], [ true, %.critedge.backedge.i ], [ false, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h527646ec25be9f8bE.exit.i" ], [ true, %.lr.ph.split.i ], [ false, %53 ], [ false, %75 ], [ false, %67 ], [ false, %71 ], [ false, %91 ], [ false, %85 ], [ false, %79 ]
+  %102 = phi i1 [ true, %.lr.ph.split.us.i ], [ false, %"._ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h527646ec25be9f8bE.exit.thread.loopexit12_crit_edge20.split.us.i" ], [ false, %._crit_edge.i.i.i.i.i ], [ true, %9 ], [ true, %.critedge.backedge.i ], [ false, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h527646ec25be9f8bE.exit.i" ], [ true, %.lr.ph.split.i ], [ false, %53 ], [ false, %59 ], [ false, %75 ], [ false, %91 ], [ false, %85 ], [ false, %79 ], [ false, %71 ], [ false, %67 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %103
 
@@ -825,7 +825,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
   ret i1 %.sroa.0.0
 
 53:                                               ; preds = %44, %40
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.1.i.i, %40 ], [ %50, %44 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %50, %44 ], [ %.sroa.6.1.i.i, %40 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !152)
@@ -996,7 +996,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hd1
   ret void
 
 58:                                               ; preds = %46, %42
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.1.i.i, %42 ], [ %52, %46 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %52, %46 ], [ %.sroa.6.1.i.i, %42 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   %59 = getelementptr inbounds nuw i8, ptr %5, i64 24

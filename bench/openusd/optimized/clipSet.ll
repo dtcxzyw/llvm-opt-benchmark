@@ -5492,7 +5492,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_ClipContributesValueERKSt1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.thread96, %._crit_edge, %63, %90, %.thread, %97, %95, %30
-  %.0 = phi i1 [ false, %30 ], [ true, %95 ], [ true, %97 ], [ true, %.thread ], [ true, %90 ], [ false, %63 ], [ true, %._crit_edge ], [ true, %.thread96 ]
+  %.0 = phi i1 [ false, %30 ], [ true, %90 ], [ true, %95 ], [ true, %97 ], [ true, %.thread ], [ false, %63 ], [ true, %._crit_edge ], [ true, %.thread96 ]
   ret i1 %.0
 }
 
@@ -6110,8 +6110,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_ClipContributesValueERKSt1
   br i1 %.not.i.i.i24.i, label %_ZNKSt3setIdSt4lessIdESaIdEE11upper_boundERKd.exit.i, label %.lr.ph.i.i.i17.i, !llvm.loop !62
 
 _ZNKSt3setIdSt4lessIdESaIdEE11upper_boundERKd.exit.i: ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i.i.i17.i, %74, %70
-  %78 = phi ptr [ null, %70 ], [ null, %74 ], [ %69, %.lr.ph.i.i.i17.i ], [ %69, %.lr.ph.i.i.i.i ]
-  %.sroa.04.0.i = phi ptr [ %15, %70 ], [ %15, %74 ], [ %.19.i.i.i20.i, %.lr.ph.i.i.i17.i ], [ %.19.i.i.i.i, %.lr.ph.i.i.i.i ]
+  %78 = phi ptr [ %69, %.lr.ph.i.i.i17.i ], [ null, %70 ], [ null, %74 ], [ %69, %.lr.ph.i.i.i.i ]
+  %.sroa.04.0.i = phi ptr [ %.19.i.i.i20.i, %.lr.ph.i.i.i17.i ], [ %15, %70 ], [ %15, %74 ], [ %.19.i.i.i.i, %.lr.ph.i.i.i.i ]
   %79 = load i8, ptr %10, align 8
   %80 = trunc i8 %79 to i1
   %81 = load double, ptr %11, align 8
@@ -6151,7 +6151,7 @@ _ZNKSt3setIdSt4lessIdESaIdEE11upper_boundERKd.exit.i: ; preds = %.lr.ph.i.i.i.i,
   br i1 %.not.i.i.i45.i, label %_ZNKSt3setIdSt4lessIdESaIdEE11lower_boundERKd.exit36.i, label %.lr.ph.i.i.i38.i, !llvm.loop !61
 
 _ZNKSt3setIdSt4lessIdESaIdEE11lower_boundERKd.exit36.i: ; preds = %.lr.ph.i.i.i27.i, %.lr.ph.i.i.i38.i, %86, %82
-  %.sroa.03.0.i = phi ptr [ %15, %82 ], [ %15, %86 ], [ %.19.i.i.i41.i, %.lr.ph.i.i.i38.i ], [ %.19.i.i.i30.i, %.lr.ph.i.i.i27.i ]
+  %.sroa.03.0.i = phi ptr [ %.19.i.i.i41.i, %.lr.ph.i.i.i38.i ], [ %15, %82 ], [ %15, %86 ], [ %.19.i.i.i30.i, %.lr.ph.i.i.i27.i ]
   %90 = load ptr, ptr %16, align 8
   %91 = load ptr, ptr %0, align 8
   %92 = ptrtoint ptr %90 to i64
@@ -7717,7 +7717,7 @@ _ZSt22__uninitialized_move_aIPdS0_SaIdEET0_T_S3_S2_RT1_.exit: ; preds = %15
   br i1 %.not.i.i53, label %_ZSt7advanceISt23_Rb_tree_const_iteratorIdEmEvRT_T0_.exit, label %.lr.ph.i.i52, !llvm.loop !76
 
 _ZSt7advanceISt23_Rb_tree_const_iteratorIdEmEvRT_T0_.exit: ; preds = %.lr.ph.i.i52, %.preheader.i.i, %.preheader7.i.i
-  %.sroa.0.0 = phi ptr [ %2, %.preheader7.i.i ], [ %38, %.preheader.i.i ], [ %41, %.lr.ph.i.i52 ]
+  %.sroa.0.0 = phi ptr [ %38, %.preheader.i.i ], [ %2, %.preheader7.i.i ], [ %41, %.lr.ph.i.i52 ]
   %.not6.i.i.i.i.i.i.i.i = icmp eq ptr %.sroa.0.0, %3
   br i1 %.not6.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aISt23_Rb_tree_const_iteratorIdEPddET0_T_S4_S3_RSaIT1_E.exit, label %.lr.ph.i.i.i.i.i.i.i.i
 
@@ -10718,7 +10718,7 @@ _ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrRes
   br label %76, !llvm.loop !118
 
 _ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS5_SaIS5_EEEEEET_SB_SB_SB_.exit: ; preds = %._crit_edge61.i.i, %._crit_edge.i.i, %.lr.ph.i.i.i, %57, %59
-  %.sroa.012.0.i.i = phi ptr [ %.sroa.0.0, %57 ], [ %.sroa.065.0, %59 ], [ %.tr7079, %.lr.ph.i.i.i ], [ %75, %._crit_edge.i.i ], [ %75, %._crit_edge61.i.i ]
+  %.sroa.012.0.i.i = phi ptr [ %.tr7079, %.lr.ph.i.i.i ], [ %.sroa.0.0, %57 ], [ %.sroa.065.0, %59 ], [ %75, %._crit_edge.i.i ], [ %75, %._crit_edge61.i.i ]
   tail call void @_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEElNS0_5__ops15_Iter_comp_iterINS3_22Usd_SortByExternalTimeEEEEvT_SE_SE_T0_SF_T1_(ptr %.tr78, ptr %.sroa.065.0, ptr %.sroa.012.0.i.i, i64 noundef %.0, i64 noundef %.047)
   %99 = sub nsw i64 %.tr7280, %.0
   %100 = sub nsw i64 %.tr7381, %.047
@@ -11629,7 +11629,7 @@ _ZSt13move_backwardIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingEN
   br label %56, !llvm.loop !118
 
 _ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS5_SaIS5_EEEEEET_SB_SB_SB_.exit: ; preds = %._crit_edge.i.i, %._crit_edge61.i.i, %.lr.ph.i.i.i, %39, %37, %25, %12, %_ZSt13move_backwardIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit
-  %.sroa.032.0 = phi ptr [ %23, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit ], [ %2, %25 ], [ %36, %_ZSt13move_backwardIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit ], [ %0, %12 ], [ %2, %37 ], [ %0, %39 ], [ %1, %.lr.ph.i.i.i ], [ %55, %._crit_edge61.i.i ], [ %55, %._crit_edge.i.i ]
+  %.sroa.032.0 = phi ptr [ %23, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit ], [ %2, %25 ], [ %36, %_ZSt13move_backwardIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit ], [ %0, %12 ], [ %1, %.lr.ph.i.i.i ], [ %2, %37 ], [ %0, %39 ], [ %55, %._crit_edge61.i.i ], [ %55, %._crit_edge.i.i ]
   ret ptr %.sroa.032.0
 }
 

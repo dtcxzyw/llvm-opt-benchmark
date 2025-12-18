@@ -7051,8 +7051,8 @@ rbimpl_intern_const.exit173:                      ; preds = %.lr.ph.i171, %rbimp
   br label %.loopexit215
 
 .loopexit215:                                     ; preds = %.loopexit215.loopexit244, %.loopexit215.loopexit, %.preheader216, %.preheader214
-  %79 = phi i32 [ %34, %.preheader214 ], [ %34, %.preheader216 ], [ %74, %.loopexit215.loopexit ], [ %54, %.loopexit215.loopexit244 ]
-  %.1 = phi i32 [ 0, %.preheader214 ], [ 0, %.preheader216 ], [ %77, %.loopexit215.loopexit ], [ %78, %.loopexit215.loopexit244 ]
+  %79 = phi i32 [ %74, %.loopexit215.loopexit ], [ %34, %.preheader214 ], [ %34, %.preheader216 ], [ %54, %.loopexit215.loopexit244 ]
+  %.1 = phi i32 [ %77, %.loopexit215.loopexit ], [ 0, %.preheader214 ], [ 0, %.preheader216 ], [ %78, %.loopexit215.loopexit244 ]
   %80 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %81 = load i32, ptr %80, align 4, !tbaa !143
   %82 = add i32 %81, %79
@@ -11666,7 +11666,7 @@ insn_op_type.exit.thread:                         ; preds = %insn_op_type.exit
   unreachable
 
 obj_resurrect.exit:                               ; preds = %rb_array_len.exit, %.lr.ph731, %419, %416, %283, %278, %276, %274, %272, %268, %264, %258, %280, %rbimpl_intern_const.exit524, %384, %rbimpl_intern_const.exit494, %ISEQ_IS_ENTRY_START.exit, %254, %248
-  %.sink949 = phi i64 [ %282, %280 ], [ %277, %276 ], [ %422, %rbimpl_intern_const.exit524 ], [ %284, %283 ], [ %386, %384 ], [ %322, %rbimpl_intern_const.exit494 ], [ %317, %ISEQ_IS_ENTRY_START.exit ], [ 4, %278 ], [ %252, %248 ], [ %257, %254 ], [ %259, %258 ], [ %259, %264 ], [ %259, %268 ], [ %273, %272 ], [ %275, %274 ], [ %418, %416 ], [ %420, %419 ], [ %284, %.lr.ph731 ], [ %389, %rb_array_len.exit ]
+  %.sink949 = phi i64 [ %282, %280 ], [ %277, %276 ], [ %422, %rbimpl_intern_const.exit524 ], [ %284, %.lr.ph731 ], [ %284, %283 ], [ %386, %384 ], [ %322, %rbimpl_intern_const.exit494 ], [ %317, %ISEQ_IS_ENTRY_START.exit ], [ 4, %278 ], [ %252, %248 ], [ %257, %254 ], [ %259, %258 ], [ %259, %264 ], [ %259, %268 ], [ %273, %272 ], [ %275, %274 ], [ %420, %419 ], [ %418, %416 ], [ %389, %rb_array_len.exit ]
   %465 = tail call i64 @rb_ary_push(i64 noundef %228, i64 noundef %.sink949) #21
   %indvars.iv.next822 = add nuw nsw i64 %indvars.iv821, 1
   %466 = getelementptr i8, ptr %.1345737, i64 8
@@ -11781,7 +11781,7 @@ obj_resurrect.exit:                               ; preds = %rb_array_len.exit, 
   unreachable
 
 exception_type2symbol.exit:                       ; preds = %.lr.ph.i30.i, %.lr.ph.i24.i, %.lr.ph.i18.i, %.lr.ph.i12.i, %.lr.ph.i6.i, %.lr.ph.i.i, %480, %482, %484, %486, %488, %490
-  %.0.i525 = phi i64 [ %.pr.i.i, %480 ], [ %.pr.i3.i, %482 ], [ %.pr.i9.i, %484 ], [ %.pr.i15.i, %486 ], [ %.pr.i21.i, %488 ], [ %.pr.i27.i, %490 ], [ %489, %.lr.ph.i24.i ], [ %481, %.lr.ph.i.i ], [ %483, %.lr.ph.i6.i ], [ %485, %.lr.ph.i12.i ], [ %487, %.lr.ph.i18.i ], [ %491, %.lr.ph.i30.i ]
+  %.0.i525 = phi i64 [ %487, %.lr.ph.i18.i ], [ %489, %.lr.ph.i24.i ], [ %481, %.lr.ph.i.i ], [ %483, %.lr.ph.i6.i ], [ %485, %.lr.ph.i12.i ], [ %.pr.i.i, %480 ], [ %.pr.i3.i, %482 ], [ %.pr.i9.i, %484 ], [ %.pr.i15.i, %486 ], [ %.pr.i21.i, %488 ], [ %.pr.i27.i, %490 ], [ %491, %.lr.ph.i30.i ]
   %493 = tail call i64 @rb_id2sym(i64 noundef %.0.i525) #21
   %494 = tail call i64 @rb_ary_push(i64 noundef %475, i64 noundef %493) #21
   %495 = getelementptr inbounds nuw i8, ptr %478, i64 8
@@ -12383,7 +12383,7 @@ rbimpl_intern_const.exit622:                      ; preds = %.lr.ph.i620, %rbimp
   br i1 %.not.i633, label %.lr.ph.i632, label %rbimpl_intern_const.exit628, !llvm.loop !241
 
 rbimpl_intern_const.exit628:                      ; preds = %.lr.ph.i632, %.lr.ph.i626, %764, %762
-  %.lcssa.i631.sink = phi i64 [ %.pr.i623, %762 ], [ %.pr.i629, %764 ], [ %763, %.lr.ph.i626 ], [ %765, %.lr.ph.i632 ]
+  %.lcssa.i631.sink = phi i64 [ %763, %.lr.ph.i626 ], [ %.pr.i623, %762 ], [ %.pr.i629, %764 ], [ %765, %.lr.ph.i632 ]
   %766 = call i64 @rb_id2sym(i64 noundef %.lcssa.i631.sink) #21
   %767 = call i64 @rb_hash_aset(i64 noundef %14, i64 noundef %758, i64 noundef %766) #21
   %768 = call i64 @rb_str_new_static(ptr noundef nonnull @.str.274, i64 noundef 40) #21

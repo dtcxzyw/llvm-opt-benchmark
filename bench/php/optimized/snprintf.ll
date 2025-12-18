@@ -192,8 +192,8 @@ define dso_local noundef ptr @php_conv_fp(i8 noundef signext %0, double noundef 
   br label %71
 
 71:                                               ; preds = %.loopexit82, %63, %._crit_edge, %69, %65, %45, %44, %32
-  %.470 = phi ptr [ %46, %45 ], [ %36, %44 ], [ %6, %32 ], [ %67, %65 ], [ %70, %69 ], [ %64, %63 ], [ %.268.lcssa, %._crit_edge ], [ %.066.lcssa, %.loopexit82 ]
-  %.2 = phi ptr [ %.064, %45 ], [ %.064, %44 ], [ %.064, %32 ], [ %66, %65 ], [ %66, %69 ], [ %.1.lcssa, %63 ], [ %.1.lcssa, %._crit_edge ], [ %.064, %.loopexit82 ]
+  %.470 = phi ptr [ %.268.lcssa, %._crit_edge ], [ %46, %45 ], [ %36, %44 ], [ %6, %32 ], [ %67, %65 ], [ %70, %69 ], [ %64, %63 ], [ %.066.lcssa, %.loopexit82 ]
+  %.2 = phi ptr [ %.1.lcssa, %._crit_edge ], [ %.064, %45 ], [ %.064, %44 ], [ %.064, %32 ], [ %66, %65 ], [ %66, %69 ], [ %.1.lcssa, %63 ], [ %.064, %.loopexit82 ]
   %72 = load i8, ptr %.2, align 1, !tbaa !8
   %.not7596 = icmp eq i8 %72, 0
   br i1 %.not7596, label %._crit_edge101, label %.lr.ph100
@@ -622,17 +622,17 @@ zend_tmp_string_release.exit.i:                   ; preds = %155, %zend_tmp_stri
   br label %.loopexit472.i
 
 .loopexit472.i:                                   ; preds = %.lr.ph744.i, %128, %115, %95, %.loopexit473.i, %30, %26
-  %132 = phi i8 [ %85, %.loopexit473.i ], [ %.pre1034.i, %128 ], [ %90, %115 ], [ %28, %30 ], [ %28, %26 ], [ %99, %95 ], [ %110, %.lr.ph744.i ]
-  %.3301.i = phi i32 [ %.2300.i, %.loopexit473.i ], [ %.2300.i, %128 ], [ %.2300.i, %115 ], [ %.0298.i, %30 ], [ %.0298.i, %26 ], [ %.2300.i, %95 ], [ %.2300.i, %.lr.ph744.i ]
-  %.2293.i = phi i32 [ %.0291.i, %.loopexit473.i ], [ %spec.store.select.i, %128 ], [ 0, %115 ], [ %.0291.i, %30 ], [ %.0291.i, %26 ], [ %98, %95 ], [ %109, %.lr.ph744.i ]
-  %.3290.i = phi i32 [ %.2289.i, %.loopexit473.i ], [ %.2289.i, %128 ], [ %.2289.i, %115 ], [ 1, %30 ], [ 1, %26 ], [ %.2289.i, %95 ], [ %.2289.i, %.lr.ph744.i ]
-  %.2285.i = phi i8 [ %.0283.i, %.loopexit473.i ], [ %.0283.i, %128 ], [ %.0283.i, %115 ], [ 32, %30 ], [ 32, %26 ], [ %.0283.i, %95 ], [ %.0283.i, %.lr.ph744.i ]
-  %.2261.i = phi i8 [ %.0259.i, %.loopexit473.i ], [ %.0259.i, %128 ], [ %.0259.i, %115 ], [ 0, %30 ], [ 0, %26 ], [ %.0259.i, %95 ], [ %.0259.i, %.lr.ph744.i ]
-  %.2258.i = phi i8 [ %.0256.i, %.loopexit473.i ], [ %.0256.i, %128 ], [ %.0256.i, %115 ], [ 0, %30 ], [ 0, %26 ], [ %.0256.i, %95 ], [ %.0256.i, %.lr.ph744.i ]
-  %.2255.i = phi i8 [ %.0253.i, %.loopexit473.i ], [ %.0253.i, %128 ], [ %.0253.i, %115 ], [ 0, %30 ], [ 0, %26 ], [ %.0253.i, %95 ], [ %.0253.i, %.lr.ph744.i ]
-  %.0252.i = phi i1 [ false, %.loopexit473.i ], [ true, %128 ], [ true, %115 ], [ false, %30 ], [ false, %26 ], [ true, %95 ], [ true, %.lr.ph744.i ]
-  %.1251.i = phi i1 [ %.0250.i, %.loopexit473.i ], [ %.0250.i, %128 ], [ %.0250.i, %115 ], [ false, %30 ], [ false, %26 ], [ %.0250.i, %95 ], [ %.0250.i, %.lr.ph744.i ]
-  %.5.i = phi ptr [ %.3.i, %.loopexit473.i ], [ %131, %128 ], [ %88, %115 ], [ %27, %30 ], [ %27, %26 ], [ %97, %95 ], [ %107, %.lr.ph744.i ]
+  %132 = phi i8 [ %85, %.loopexit473.i ], [ %28, %26 ], [ %.pre1034.i, %128 ], [ %90, %115 ], [ %28, %30 ], [ %99, %95 ], [ %110, %.lr.ph744.i ]
+  %.3301.i = phi i32 [ %.2300.i, %.loopexit473.i ], [ %.0298.i, %26 ], [ %.2300.i, %128 ], [ %.2300.i, %115 ], [ %.0298.i, %30 ], [ %.2300.i, %95 ], [ %.2300.i, %.lr.ph744.i ]
+  %.2293.i = phi i32 [ %.0291.i, %.loopexit473.i ], [ %.0291.i, %26 ], [ %spec.store.select.i, %128 ], [ 0, %115 ], [ %.0291.i, %30 ], [ %98, %95 ], [ %109, %.lr.ph744.i ]
+  %.3290.i = phi i32 [ %.2289.i, %.loopexit473.i ], [ 1, %26 ], [ %.2289.i, %128 ], [ %.2289.i, %115 ], [ 1, %30 ], [ %.2289.i, %95 ], [ %.2289.i, %.lr.ph744.i ]
+  %.2285.i = phi i8 [ %.0283.i, %.loopexit473.i ], [ 32, %26 ], [ %.0283.i, %128 ], [ %.0283.i, %115 ], [ 32, %30 ], [ %.0283.i, %95 ], [ %.0283.i, %.lr.ph744.i ]
+  %.2261.i = phi i8 [ %.0259.i, %.loopexit473.i ], [ 0, %26 ], [ %.0259.i, %128 ], [ %.0259.i, %115 ], [ 0, %30 ], [ %.0259.i, %95 ], [ %.0259.i, %.lr.ph744.i ]
+  %.2258.i = phi i8 [ %.0256.i, %.loopexit473.i ], [ 0, %26 ], [ %.0256.i, %128 ], [ %.0256.i, %115 ], [ 0, %30 ], [ %.0256.i, %95 ], [ %.0256.i, %.lr.ph744.i ]
+  %.2255.i = phi i8 [ %.0253.i, %.loopexit473.i ], [ 0, %26 ], [ %.0253.i, %128 ], [ %.0253.i, %115 ], [ 0, %30 ], [ %.0253.i, %95 ], [ %.0253.i, %.lr.ph744.i ]
+  %.0252.i = phi i1 [ false, %.loopexit473.i ], [ false, %26 ], [ true, %128 ], [ true, %115 ], [ false, %30 ], [ true, %95 ], [ true, %.lr.ph744.i ]
+  %.1251.i = phi i1 [ %.0250.i, %.loopexit473.i ], [ false, %26 ], [ %.0250.i, %128 ], [ %.0250.i, %115 ], [ false, %30 ], [ %.0250.i, %95 ], [ %.0250.i, %.lr.ph744.i ]
+  %.5.i = phi ptr [ %.3.i, %.loopexit473.i ], [ %27, %26 ], [ %131, %128 ], [ %88, %115 ], [ %27, %30 ], [ %97, %95 ], [ %107, %.lr.ph744.i ]
   switch i8 %132, label %155 [
     i8 76, label %133
     i8 108, label %135
@@ -2076,11 +2076,11 @@ ap_php_conv_p2.exit411.i:                         ; preds = %779
   br label %.loopexit465.i
 
 .loopexit465.i:                                   ; preds = %.loopexit465.loopexit.i, %801, %.thread420.i
-  %829 = phi i64 [ %.pre1037.i, %801 ], [ %.pre1037.i, %.thread420.i ], [ %825, %.loopexit465.loopexit.i ]
-  %.2326.i = phi i64 [ %.0324.ph.i, %801 ], [ %.0324.ph.i, %.thread420.i ], [ %826, %.loopexit465.loopexit.i ]
-  %.11320.i = phi ptr [ %.10319.i, %801 ], [ %.10319.i, %.thread420.i ], [ %.12321.i, %.loopexit465.loopexit.i ]
-  %.5303.i = phi i32 [ %.3301.i, %801 ], [ %.3301.i, %.thread420.i ], [ %828, %.loopexit465.loopexit.i ]
-  %.3244.i = phi ptr [ %.0241.ph.i, %801 ], [ %.0241.ph.i, %.thread420.i ], [ %.7248.i, %.loopexit465.loopexit.i ]
+  %829 = phi i64 [ %.pre1037.i, %.thread420.i ], [ %.pre1037.i, %801 ], [ %825, %.loopexit465.loopexit.i ]
+  %.2326.i = phi i64 [ %.0324.ph.i, %.thread420.i ], [ %.0324.ph.i, %801 ], [ %826, %.loopexit465.loopexit.i ]
+  %.11320.i = phi ptr [ %.10319.i, %.thread420.i ], [ %.10319.i, %801 ], [ %.12321.i, %.loopexit465.loopexit.i ]
+  %.5303.i = phi i32 [ %.3301.i, %.thread420.i ], [ %.3301.i, %801 ], [ %828, %.loopexit465.loopexit.i ]
+  %.3244.i = phi ptr [ %.0241.ph.i, %.thread420.i ], [ %.0241.ph.i, %801 ], [ %.7248.i, %.loopexit465.loopexit.i ]
   %.not389756.i = icmp eq i64 %829, 0
   br i1 %.not389756.i, label %._crit_edge.i, label %.lr.ph761.i
 
@@ -2148,9 +2148,9 @@ ap_php_conv_p2.exit411.i:                         ; preds = %779
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.loopexit.loopexit.i, %839, %._crit_edge.i
-  %.6330.i = phi i64 [ %.5329.lcssa.i, %839 ], [ %.5329.lcssa.i, %._crit_edge.i ], [ %849, %.loopexit.loopexit.i ]
-  %.8306.i = phi i32 [ %.5303.i, %839 ], [ %.5303.i, %._crit_edge.i ], [ %851, %.loopexit.loopexit.i ]
-  %.10.i = phi ptr [ %.8249.lcssa.i, %839 ], [ %.8249.lcssa.i, %._crit_edge.i ], [ %.12.i, %.loopexit.loopexit.i ]
+  %.6330.i = phi i64 [ %.5329.lcssa.i, %._crit_edge.i ], [ %.5329.lcssa.i, %839 ], [ %849, %.loopexit.loopexit.i ]
+  %.8306.i = phi i32 [ %.5303.i, %._crit_edge.i ], [ %.5303.i, %839 ], [ %851, %.loopexit.loopexit.i ]
+  %.10.i = phi ptr [ %.8249.lcssa.i, %._crit_edge.i ], [ %.8249.lcssa.i, %839 ], [ %.12.i, %.loopexit.loopexit.i ]
   %.not.i.i = icmp eq ptr %.0412430.i, null
   br i1 %.not.i.i, label %zend_tmp_string_release.exit.thread.i, label %852, !prof !20
 

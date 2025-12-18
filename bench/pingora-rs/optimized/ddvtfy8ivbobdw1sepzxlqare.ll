@@ -517,8 +517,8 @@ select.unfold:                                    ; preds = %43, %5
   br label %220
 
 220:                                              ; preds = %213, %209
-  %221 = phi i8 [ %211, %209 ], [ %.pre.i, %213 ]
-  %.sroa.3.0.i.i.ph.i = phi i64 [ %.sroa.4.113.i.i.i, %209 ], [ %219, %213 ]
+  %221 = phi i8 [ %.pre.i, %213 ], [ %211, %209 ]
+  %.sroa.3.0.i.i.ph.i = phi i64 [ %219, %213 ], [ %.sroa.4.113.i.i.i, %209 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !120)
   %222 = getelementptr inbounds nuw i8, ptr %.val.i.i11, i64 %.sroa.3.0.i.i.ph.i
   %223 = and i8 %221, 1
@@ -2583,7 +2583,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h0c
   ret void
 
 57:                                               ; preds = %45, %41
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.19.i.i, %41 ], [ %51, %45 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %51, %45 ], [ %.sroa.6.19.i.i, %41 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   %58 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -2760,8 +2760,8 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hf4
   ret void
 
 54:                                               ; preds = %44, %40
-  %55 = phi i8 [ %42, %40 ], [ %.pre, %44 ]
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.19.i.i, %40 ], [ %50, %44 ]
+  %55 = phi i8 [ %.pre, %44 ], [ %42, %40 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %50, %44 ], [ %.sroa.6.19.i.i, %40 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !450)
   %56 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %.sroa.3.0.i.ph.i
   %57 = and i8 %55, 1
@@ -3364,8 +3364,8 @@ _ZN13pingora_cache4lock11WritePermit3new17h962c4af75f826c12E.exit: ; preds = %_Z
   br label %.thread
 
 .thread:                                          ; preds = %178, %182
-  %189 = phi i8 [ %180, %178 ], [ %.pre.i, %182 ]
-  %.sroa.3.0.i.ph.i.i = phi i64 [ %.sroa.6.19.i.i.i, %178 ], [ %188, %182 ]
+  %189 = phi i8 [ %.pre.i, %182 ], [ %180, %178 ]
+  %.sroa.3.0.i.ph.i.i = phi i64 [ %188, %182 ], [ %.sroa.6.19.i.i.i, %178 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !552)
   %190 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 %.sroa.3.0.i.ph.i.i
   %191 = and i8 %189, 1

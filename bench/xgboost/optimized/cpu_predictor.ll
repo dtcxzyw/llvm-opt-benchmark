@@ -15401,7 +15401,7 @@ _ZNK7xgboost7RegTree18GetMultiTargetTreeEv.exit:  ; preds = %_ZNK7xgboost6linalg
   br i1 %142, label %_ZN7xgboost9predictor5multi12GetLeafIndexILb1ELb1EEEiRKNS_15MultiTargetTreeERKNS_7RegTree4FVecERKNS6_22CategoricalSplitMatrixE.exit.i, label %126, !llvm.loop !574
 
 _ZN7xgboost9predictor5multi12GetLeafIndexILb1ELb1EEEiRKNS_15MultiTargetTreeERKNS_7RegTree4FVecERKNS6_22CategoricalSplitMatrixE.exit.i: ; preds = %126, %106, %124, %104
-  %143 = phi i32 [ 0, %104 ], [ 0, %124 ], [ %117, %106 ], [ %136, %126 ]
+  %143 = phi i32 [ %117, %106 ], [ 0, %104 ], [ 0, %124 ], [ %136, %126 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZNK7xgboost15MultiTargetTree9LeafValueEi(ptr dead_on_unwind nonnull writable sret(%"class.xgboost::linalg::TensorView.226") align 8 %11, ptr noundef nonnull align 8 dereferenceable(72) %95, i32 noundef %143)
   %144 = load i64, ptr %26, align 8, !tbaa !575
@@ -15675,7 +15675,7 @@ _ZN7xgboost9predictor16GetNextNodeMultiILb0ELb0EEEiRKNS_15MultiTargetTreeEifbRKN
   br i1 %295, label %_ZN7xgboost9predictor5multi12GetLeafIndexILb1ELb0EEEiRKNS_15MultiTargetTreeERKNS_7RegTree4FVecERKNS6_22CategoricalSplitMatrixE.exit.i, label %262, !llvm.loop !583
 
 _ZN7xgboost9predictor5multi12GetLeafIndexILb1ELb0EEEiRKNS_15MultiTargetTreeERKNS_7RegTree4FVecERKNS6_22CategoricalSplitMatrixE.exit.i: ; preds = %_ZN7xgboost9predictor16GetNextNodeMultiILb0ELb0EEEiRKNS_15MultiTargetTreeEifbRKNS_7RegTree22CategoricalSplitMatrixE.exit.i, %_ZN7xgboost9predictor16GetNextNodeMultiILb1ELb0EEEiRKNS_15MultiTargetTreeEifbRKNS_7RegTree22CategoricalSplitMatrixE.exit, %259, %191
-  %296 = phi i32 [ 0, %191 ], [ 0, %259 ], [ %.0.i, %_ZN7xgboost9predictor16GetNextNodeMultiILb1ELb0EEEiRKNS_15MultiTargetTreeEifbRKNS_7RegTree22CategoricalSplitMatrixE.exit ], [ %289, %_ZN7xgboost9predictor16GetNextNodeMultiILb0ELb0EEEiRKNS_15MultiTargetTreeEifbRKNS_7RegTree22CategoricalSplitMatrixE.exit.i ]
+  %296 = phi i32 [ %.0.i, %_ZN7xgboost9predictor16GetNextNodeMultiILb1ELb0EEEiRKNS_15MultiTargetTreeEifbRKNS_7RegTree22CategoricalSplitMatrixE.exit ], [ 0, %191 ], [ 0, %259 ], [ %289, %_ZN7xgboost9predictor16GetNextNodeMultiILb0ELb0EEEiRKNS_15MultiTargetTreeEifbRKNS_7RegTree22CategoricalSplitMatrixE.exit.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZNK7xgboost15MultiTargetTree9LeafValueEi(ptr dead_on_unwind nonnull writable sret(%"class.xgboost::linalg::TensorView.226") align 8 %9, ptr noundef nonnull align 8 dereferenceable(72) %182, i32 noundef %296)
   %297 = load i64, ptr %28, align 8, !tbaa !575
@@ -16035,7 +16035,7 @@ _ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.
   br i1 %494, label %_ZN7xgboost9predictor6scalar18PredValueByOneTreeILb1EEEfRKNS_7RegTree4FVecERKS3_RKNS3_22CategoricalSplitMatrixE.exit, label %.lr.ph.i8.i79, !llvm.loop !587
 
 _ZN7xgboost9predictor6scalar18PredValueByOneTreeILb1EEEfRKNS_7RegTree4FVecERKS3_RKNS3_22CategoricalSplitMatrixE.exit: ; preds = %.noexc10.i, %.lr.ph.i8.i79.us, %_ZN7xgboost9predictor11GetNextNodeILb1ELb1EEEiRKNS_7RegTree4NodeEifbRKNS2_22CategoricalSplitMatrixE.exit.i.i, %341, %413
-  %495 = phi i32 [ 0, %341 ], [ 0, %413 ], [ %427, %.lr.ph.i8.i79.us ], [ %.0.i.i.i, %_ZN7xgboost9predictor11GetNextNodeILb1ELb1EEEiRKNS_7RegTree4NodeEifbRKNS2_22CategoricalSplitMatrixE.exit.i.i ], [ %489, %.noexc10.i ]
+  %495 = phi i32 [ %.0.i.i.i, %_ZN7xgboost9predictor11GetNextNodeILb1ELb1EEEiRKNS_7RegTree4NodeEifbRKNS2_22CategoricalSplitMatrixE.exit.i.i ], [ 0, %341 ], [ 0, %413 ], [ %427, %.lr.ph.i8.i79.us ], [ %489, %.noexc10.i ]
   %496 = sext i32 %495 to i64
   %497 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %317, i64 %496
   %498 = getelementptr inbounds nuw i8, ptr %497, i64 16
@@ -16130,7 +16130,7 @@ _ZN7xgboost9predictor11GetNextNodeILb1ELb0EEEiRKNS_7RegTree4NodeEifbRKNS2_22Cate
   br i1 %558, label %_ZN7xgboost9predictor6scalar18PredValueByOneTreeILb0EEEfRKNS_7RegTree4FVecERKS3_RKNS3_22CategoricalSplitMatrixE.exit, label %540, !llvm.loop !590
 
 _ZN7xgboost9predictor6scalar18PredValueByOneTreeILb0EEEfRKNS_7RegTree4FVecERKS3_RKNS3_22CategoricalSplitMatrixE.exit: ; preds = %540, %_ZN7xgboost9predictor11GetNextNodeILb1ELb0EEEiRKNS_7RegTree4NodeEifbRKNS2_22CategoricalSplitMatrixE.exit.i.i, %510, %538
-  %559 = phi i32 [ 0, %510 ], [ 0, %538 ], [ %.0.i.i.i83, %_ZN7xgboost9predictor11GetNextNodeILb1ELb0EEEiRKNS_7RegTree4NodeEifbRKNS2_22CategoricalSplitMatrixE.exit.i.i ], [ %553, %540 ]
+  %559 = phi i32 [ %.0.i.i.i83, %_ZN7xgboost9predictor11GetNextNodeILb1ELb0EEEiRKNS_7RegTree4NodeEifbRKNS2_22CategoricalSplitMatrixE.exit.i.i ], [ 0, %510 ], [ 0, %538 ], [ %553, %540 ]
   %560 = sext i32 %559 to i64
   %561 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %329, i64 %560
   %562 = getelementptr inbounds nuw i8, ptr %561, i64 16
@@ -28977,7 +28977,7 @@ _ZN7xgboost9predictor11GetNextNodeILb1ELb1EEEiRKNS_7RegTree4NodeEifbRKNS2_22Cate
   br i1 %233, label %_ZN7xgboost9predictor5multi12GetLeafIndexILb1ELb1EEEiRKNS_15MultiTargetTreeERKNS_7RegTree4FVecERKNS6_22CategoricalSplitMatrixE.exit, label %.lr.ph.i23, !llvm.loop !586
 
 _ZN7xgboost9predictor5multi12GetLeafIndexILb1ELb1EEEiRKNS_15MultiTargetTreeERKNS_7RegTree4FVecERKNS6_22CategoricalSplitMatrixE.exit: ; preds = %114, %_ZN7xgboost9predictor11GetNextNodeILb1ELb1EEEiRKNS_7RegTree4NodeEifbRKNS2_22CategoricalSplitMatrixE.exit.i, %_ZN7xgboost9predictor11GetNextNodeILb1ELb1EEEiRKNS_7RegTree4NodeEifbRKNS2_22CategoricalSplitMatrixE.exit.i.us, %132, %106
-  %.0 = phi i32 [ 0, %106 ], [ 0, %132 ], [ %.0.i.i, %_ZN7xgboost9predictor11GetNextNodeILb1ELb1EEEiRKNS_7RegTree4NodeEifbRKNS2_22CategoricalSplitMatrixE.exit.i ], [ %.0.i.i.us, %_ZN7xgboost9predictor11GetNextNodeILb1ELb1EEEiRKNS_7RegTree4NodeEifbRKNS2_22CategoricalSplitMatrixE.exit.i.us ], [ %125, %114 ]
+  %.0 = phi i32 [ %.0.i.i, %_ZN7xgboost9predictor11GetNextNodeILb1ELb1EEEiRKNS_7RegTree4NodeEifbRKNS2_22CategoricalSplitMatrixE.exit.i ], [ 0, %106 ], [ 0, %132 ], [ %.0.i.i.us, %_ZN7xgboost9predictor11GetNextNodeILb1ELb1EEEiRKNS_7RegTree4NodeEifbRKNS2_22CategoricalSplitMatrixE.exit.i.us ], [ %125, %114 ]
   %234 = sitofp i32 %.0 to float
   %235 = load ptr, ptr %71, align 8, !tbaa !975
   %236 = load ptr, ptr %64, align 8, !tbaa !970
@@ -30955,7 +30955,7 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEiEvT_S7_RKT0_.exit
   br i1 %exitcond.not, label %.loopexit, label %160, !llvm.loop !1069
 
 .loopexit:                                        ; preds = %160, %.lr.ph.split.us, %146, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEiEvT_S7_RKT0_.exit
-  %168 = phi i64 [ %113, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEiEvT_S7_RKT0_.exit ], [ 0, %146 ], [ %148, %.lr.ph.split.us ], [ %148, %160 ]
+  %168 = phi i64 [ %148, %.lr.ph.split.us ], [ %113, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEiEvT_S7_RKT0_.exit ], [ 0, %146 ], [ %148, %160 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %169 = load ptr, ptr %51, align 8, !tbaa !1062
   %170 = load i32, ptr %169, align 4, !tbaa !95

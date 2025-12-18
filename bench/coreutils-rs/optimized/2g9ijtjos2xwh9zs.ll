@@ -5240,7 +5240,7 @@ _ZN4core3ptr19swap_nonoverlapping17h45446940a5c53ec3E.exit.i.i: ; preds = %131
   br i1 %exitcond.not.i.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17hf89b29a95cac8a7bE.exit", label %127
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17hf89b29a95cac8a7bE.exit": ; preds = %_ZN4core3ptr19swap_nonoverlapping17h45446940a5c53ec3E.exit.i.i, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h111859b7f4088bacE.exit", %122, %79
-  %.0128 = phi i64 [ %.1, %79 ], [ %.1, %122 ], [ %.sroa.3120.1, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h111859b7f4088bacE.exit" ], [ %.1, %_ZN4core3ptr19swap_nonoverlapping17h45446940a5c53ec3E.exit.i.i ]
+  %.0128 = phi i64 [ %.sroa.3120.1, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h111859b7f4088bacE.exit" ], [ %.1, %79 ], [ %.1, %122 ], [ %.1, %_ZN4core3ptr19swap_nonoverlapping17h45446940a5c53ec3E.exit.i.i ]
   %138 = load i64, ptr %59, align 8, !alias.scope !1393, !noundef !18
   %139 = load i64, ptr %14, align 8, !alias.scope !1393, !noundef !18
   %140 = icmp eq i64 %138, %139
@@ -5693,7 +5693,7 @@ define hidden noundef range(i8 0, 3) i8 @_ZN5rayon5slice9mergesort9mergesort17h9
           to label %43 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17hf89b29a95cac8a7bE.exit": ; preds = %_ZN4core3ptr19swap_nonoverlapping17h45446940a5c53ec3E.exit.i.i, %.thread.thread, %51
-  %.080 = phi i64 [ %.2, %51 ], [ %.3280396, %.thread.thread ], [ %.3280396, %_ZN4core3ptr19swap_nonoverlapping17h45446940a5c53ec3E.exit.i.i ]
+  %.080 = phi i64 [ %.3280396, %.thread.thread ], [ %.2, %51 ], [ %.3280396, %_ZN4core3ptr19swap_nonoverlapping17h45446940a5c53ec3E.exit.i.i ]
   %.not94230 = icmp ne i64 %.080, 0
   %30 = sub i64 %.079273, %.080
   %31 = icmp ult i64 %30, 10
@@ -6010,9 +6010,9 @@ _ZN4core3ptr19swap_nonoverlapping17h45446940a5c53ec3E.exit.i.i: ; preds = %84
   br i1 %153, label %.invoke, label %159
 
 .invoke470:                                       ; preds = %.thread, %.lr.ph.split, %141, %.lr.ph.split.us
-  %154 = phi i64 [ %33, %.lr.ph.split.us ], [ %103, %.lr.ph.split ], [ %143, %141 ], [ %.3, %.thread ]
-  %155 = phi i64 [ %.079273, %.lr.ph.split.us ], [ %.079273, %.lr.ph.split ], [ %150, %141 ], [ %.079273, %.thread ]
-  %156 = phi ptr [ @anon.5510db2c7e61de0b2d2879ef0cabf3d4.100, %.lr.ph.split.us ], [ @anon.5510db2c7e61de0b2d2879ef0cabf3d4.100, %.lr.ph.split ], [ @anon.5510db2c7e61de0b2d2879ef0cabf3d4.97, %141 ], [ @anon.5510db2c7e61de0b2d2879ef0cabf3d4.94, %.thread ]
+  %154 = phi i64 [ %103, %.lr.ph.split ], [ %143, %141 ], [ %33, %.lr.ph.split.us ], [ %.3, %.thread ]
+  %155 = phi i64 [ %.079273, %.lr.ph.split ], [ %150, %141 ], [ %.079273, %.lr.ph.split.us ], [ %.079273, %.thread ]
+  %156 = phi ptr [ @anon.5510db2c7e61de0b2d2879ef0cabf3d4.100, %.lr.ph.split ], [ @anon.5510db2c7e61de0b2d2879ef0cabf3d4.97, %141 ], [ @anon.5510db2c7e61de0b2d2879ef0cabf3d4.100, %.lr.ph.split.us ], [ @anon.5510db2c7e61de0b2d2879ef0cabf3d4.94, %.thread ]
   invoke void @_ZN4core5slice5index22slice_index_order_fail17h2e9882225a126cdcE(i64 noundef %154, i64 noundef %155, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %156) #41
           to label %.cont471 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -6125,9 +6125,9 @@ _ZN4core3ptr19swap_nonoverlapping17h45446940a5c53ec3E.exit.i.i: ; preds = %84
   br label %.body
 
 .loopexit:                                        ; preds = %184, %177, %170, %165
-  %.sroa.17.1.i = phi ptr [ %162, %165 ], [ %161, %170 ], [ %.sroa.17.3.i, %177 ], [ %186, %184 ]
-  %.sroa.9.1.i = phi ptr [ %167, %165 ], [ %171, %170 ], [ %.sroa.9.3.i, %177 ], [ %171, %184 ]
-  %.sroa.0.0.i124 = phi ptr [ %2, %165 ], [ %2, %170 ], [ %2, %177 ], [ %.sroa.0.3.i, %184 ]
+  %.sroa.17.1.i = phi ptr [ %.sroa.17.3.i, %177 ], [ %162, %165 ], [ %161, %170 ], [ %186, %184 ]
+  %.sroa.9.1.i = phi ptr [ %.sroa.9.3.i, %177 ], [ %167, %165 ], [ %171, %170 ], [ %171, %184 ]
+  %.sroa.0.0.i124 = phi ptr [ %2, %177 ], [ %2, %165 ], [ %2, %170 ], [ %.sroa.0.3.i, %184 ]
   %193 = ptrtoint ptr %.sroa.9.1.i to i64
   %194 = ptrtoint ptr %.sroa.0.0.i124 to i64
   %195 = sub i64 %193, %194

@@ -1898,7 +1898,7 @@ define internal fastcc void @"_ZN98_$LT$itertools..groupbylazy..Chunks$LT$I$GT$$
   store i64 3, ptr %0, align 8
   br label %78
 
-"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$4step17h2edac589adb86bfcE.exit.thread11": ; preds = %39, %67, %"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$4step17h2edac589adb86bfcE.exit"
+"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$4step17h2edac589adb86bfcE.exit.thread11": ; preds = %67, %39, %"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$4step17h2edac589adb86bfcE.exit"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.0.val, ptr %.sroa.4.0..sroa_idx, align 8
@@ -2116,7 +2116,7 @@ define internal fastcc void @"_ZN98_$LT$itertools..groupbylazy..Chunks$LT$I$GT$$
   store i64 3, ptr %0, align 8
   br label %78
 
-"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$4step17hd46831ce8fbf2dadE.exit.thread11": ; preds = %39, %67, %"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$4step17hd46831ce8fbf2dadE.exit"
+"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$4step17hd46831ce8fbf2dadE.exit.thread11": ; preds = %67, %39, %"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$4step17hd46831ce8fbf2dadE.exit"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.0.val, ptr %.sroa.4.0..sroa_idx, align 8
@@ -18516,7 +18516,7 @@ default.unreachable:                              ; preds = %132
   br label %.body
 
 .loopexit.split-lp21:                             ; preds = %"_ZN4core3ptr98drop_in_place$LT$std..sync..mpsc..Sender$LT$$LP$usize$C$uu_sort..chunks..RecycledChunk$RP$$GT$$GT$17h8d849af54c131572E.exit", %137, %138, %139
-  %.0.ph = phi i1 [ true, %138 ], [ true, %137 ], [ true, %139 ], [ false, %"_ZN4core3ptr98drop_in_place$LT$std..sync..mpsc..Sender$LT$$LP$usize$C$uu_sort..chunks..RecycledChunk$RP$$GT$$GT$17h8d849af54c131572E.exit" ]
+  %.0.ph = phi i1 [ true, %137 ], [ true, %139 ], [ false, %"_ZN4core3ptr98drop_in_place$LT$std..sync..mpsc..Sender$LT$$LP$usize$C$uu_sort..chunks..RecycledChunk$RP$$GT$$GT$17h8d849af54c131572E.exit" ], [ true, %138 ]
   %lpad.loopexit.split-lp23 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -18697,7 +18697,7 @@ define hidden { ptr, ptr } @_ZN7uu_sort5merge10FileMerger12write_all_to17hde0ffc
   br label %.body
 
 .loopexit.split-lp:                               ; preds = %"_ZN4core3ptr98drop_in_place$LT$std..sync..mpsc..Sender$LT$$LP$usize$C$uu_sort..chunks..RecycledChunk$RP$$GT$$GT$17h8d849af54c131572E.exit", %17, %18, %19
-  %.0.ph = phi i1 [ true, %18 ], [ true, %17 ], [ true, %19 ], [ false, %"_ZN4core3ptr98drop_in_place$LT$std..sync..mpsc..Sender$LT$$LP$usize$C$uu_sort..chunks..RecycledChunk$RP$$GT$$GT$17h8d849af54c131572E.exit" ]
+  %.0.ph = phi i1 [ true, %17 ], [ true, %19 ], [ false, %"_ZN4core3ptr98drop_in_place$LT$std..sync..mpsc..Sender$LT$$LP$usize$C$uu_sort..chunks..RecycledChunk$RP$$GT$$GT$17h8d849af54c131572E.exit" ], [ true, %18 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -19262,7 +19262,7 @@ default.unreachable:                              ; preds = %132
   br label %.body
 
 .loopexit.split-lp21:                             ; preds = %"_ZN4core3ptr98drop_in_place$LT$std..sync..mpsc..Sender$LT$$LP$usize$C$uu_sort..chunks..RecycledChunk$RP$$GT$$GT$17h8d849af54c131572E.exit", %137, %138, %139
-  %.0.ph = phi i1 [ true, %138 ], [ true, %137 ], [ true, %139 ], [ false, %"_ZN4core3ptr98drop_in_place$LT$std..sync..mpsc..Sender$LT$$LP$usize$C$uu_sort..chunks..RecycledChunk$RP$$GT$$GT$17h8d849af54c131572E.exit" ]
+  %.0.ph = phi i1 [ true, %137 ], [ true, %139 ], [ false, %"_ZN4core3ptr98drop_in_place$LT$std..sync..mpsc..Sender$LT$$LP$usize$C$uu_sort..chunks..RecycledChunk$RP$$GT$$GT$17h8d849af54c131572E.exit" ], [ true, %138 ]
   %lpad.loopexit.split-lp23 = landingpad { ptr, i32 }
           cleanup
   br label %.body

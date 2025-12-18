@@ -7673,7 +7673,7 @@ sw.epilog.loopexit.split.loop.exit292:            ; preds = %land.rhs23
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %land.rhs44, %while.cond42, %while.body, %while.body18, %while.body29, %sw.epilog.loopexit.split.loop.exit292, %sw.bb55, %while.end20, %sw.bb, %entry
-  %new_cursor.5 = phi i32 [ %0, %entry ], [ %add56, %sw.bb55 ], [ %add, %sw.bb ], [ %new_cursor.1.lcssa, %while.end20 ], [ %26, %sw.epilog.loopexit.split.loop.exit292 ], [ %conv, %while.body29 ], [ %conv, %while.body18 ], [ %conv, %while.body ], [ %22, %land.rhs44 ], [ %smin263, %while.cond42 ]
+  %new_cursor.5 = phi i32 [ %0, %entry ], [ %add56, %sw.bb55 ], [ %add, %sw.bb ], [ %new_cursor.1.lcssa, %while.end20 ], [ %26, %sw.epilog.loopexit.split.loop.exit292 ], [ %conv, %while.body ], [ %conv, %while.body29 ], [ %conv, %while.body18 ], [ %smin263, %while.cond42 ], [ %22, %land.rhs44 ]
   %cond58 = tail call i32 @llvm.smin.i32(i32 %new_cursor.5, i32 %conv)
   %spec.select = tail call i32 @llvm.smax.i32(i32 %cond58, i32 0)
   switch i32 %op, label %sw.epilog124 [

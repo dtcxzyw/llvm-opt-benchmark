@@ -9257,7 +9257,7 @@ _ZN10open_spiel10algorithms8internal10TreeVectorIdNS0_6LeafIdEEixERKS3_.exit45: 
   br i1 %.not.i43.not, label %_ZN10open_spiel10algorithms8internal10TreeVectorIdNS0_6LeafIdEEixERKS3_.exit38, label %.lr.ph
 
 _ZN10open_spiel10algorithms8internal10TreeVectorIdNS0_6LeafIdEEixERKS3_.exit38: ; preds = %_ZN10open_spiel10algorithms8internal10TreeVectorIdNS0_6LeafIdEEixERKS3_.exit45, %_ZN10open_spiel10algorithms8internal10TreeVectorIdNS0_6LeafIdEEixERKS3_.exit, %.preheader70, %.preheader
-  %.029.lcssa.sink = phi double [ 0x10000000000000, %.preheader ], [ 0.000000e+00, %.preheader70 ], [ %57, %_ZN10open_spiel10algorithms8internal10TreeVectorIdNS0_6LeafIdEEixERKS3_.exit ], [ %65, %_ZN10open_spiel10algorithms8internal10TreeVectorIdNS0_6LeafIdEEixERKS3_.exit45 ]
+  %.029.lcssa.sink = phi double [ %57, %_ZN10open_spiel10algorithms8internal10TreeVectorIdNS0_6LeafIdEEixERKS3_.exit ], [ 0x10000000000000, %.preheader ], [ 0.000000e+00, %.preheader70 ], [ %65, %_ZN10open_spiel10algorithms8internal10TreeVectorIdNS0_6LeafIdEEixERKS3_.exit45 ]
   %67 = getelementptr inbounds nuw double, ptr %.pre93, i64 %indvars.iv
   store double %.029.lcssa.sink, ptr %67, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

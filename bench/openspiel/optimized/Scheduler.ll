@@ -1101,8 +1101,8 @@ _ZNK9Scheduler8SameHandEii.exit.loopexit:         ; preds = %114
   br label %.critedge2
 
 .critedge2:                                       ; preds = %_ZNK9Scheduler8SameHandEii.exit.preheader.thread, %.critedge2.loopexit, %_ZNK9Scheduler8SameHandEii.exit.preheader
-  %116 = phi i32 [ %79, %_ZNK9Scheduler8SameHandEii.exit.preheader ], [ %79, %.critedge2.loopexit ], [ %78, %_ZNK9Scheduler8SameHandEii.exit.preheader.thread ]
-  %.0101128 = phi i32 [ 0, %_ZNK9Scheduler8SameHandEii.exit.preheader ], [ %115, %.critedge2.loopexit ], [ 0, %_ZNK9Scheduler8SameHandEii.exit.preheader.thread ]
+  %116 = phi i32 [ %79, %.critedge2.loopexit ], [ %79, %_ZNK9Scheduler8SameHandEii.exit.preheader ], [ %78, %_ZNK9Scheduler8SameHandEii.exit.preheader.thread ]
+  %.0101128 = phi i32 [ %115, %.critedge2.loopexit ], [ 0, %_ZNK9Scheduler8SameHandEii.exit.preheader ], [ 0, %_ZNK9Scheduler8SameHandEii.exit.preheader.thread ]
   %117 = icmp eq i32 %.0101128, %116
   br i1 %117, label %.loopexit, label %118
 

@@ -5055,13 +5055,13 @@ define ptr @_ZNK6duckdb12MetaPipeline14GetFinishGroupERNS_8PipelineE(ptr noundef
   br label %_ZNKSt13unordered_mapISt17reference_wrapperIN6duckdb8PipelineEERS2_NS1_21ReferenceHashFunctionIS2_EENS1_17ReferenceEqualityIS2_EESaISt4pairIKS3_S4_EEE4findERSA_.exit.thread, !llvm.loop !262
 
 _ZNKSt13unordered_mapISt17reference_wrapperIN6duckdb8PipelineEERS2_NS1_21ReferenceHashFunctionIS2_EENS1_17ReferenceEqualityIS2_EESaISt4pairIKS3_S4_EEE4findERSA_.exit: ; preds = %30, %8, %21
-  %.sroa.06.1.i.i = phi ptr [ %22, %21 ], [ %.sroa.06.0.i.i, %8 ], [ %36, %30 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %8 ], [ %22, %21 ], [ %36, %30 ]
   %41 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %42 = load ptr, ptr %41, align 8, !tbaa !263
   br label %_ZNKSt13unordered_mapISt17reference_wrapperIN6duckdb8PipelineEERS2_NS1_21ReferenceHashFunctionIS2_EENS1_17ReferenceEqualityIS2_EESaISt4pairIKS3_S4_EEE4findERSA_.exit.thread
 
 _ZNKSt13unordered_mapISt17reference_wrapperIN6duckdb8PipelineEERS2_NS1_21ReferenceHashFunctionIS2_EENS1_17ReferenceEqualityIS2_EESaISt4pairIKS3_S4_EEE4findERSA_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %7, %12, %..loopexit_crit_edge21.i.i.i.i, %_ZNKSt13unordered_mapISt17reference_wrapperIN6duckdb8PipelineEERS2_NS1_21ReferenceHashFunctionIS2_EENS1_17ReferenceEqualityIS2_EESaISt4pairIKS3_S4_EEE4findERSA_.exit
-  %43 = phi ptr [ %42, %_ZNKSt13unordered_mapISt17reference_wrapperIN6duckdb8PipelineEERS2_NS1_21ReferenceHashFunctionIS2_EENS1_17ReferenceEqualityIS2_EESaISt4pairIKS3_S4_EEE4findERSA_.exit ], [ null, %..loopexit_crit_edge21.i.i.i.i ], [ null, %12 ], [ null, %7 ], [ null, %.lr.ph.i.i.i.i ]
+  %43 = phi ptr [ %42, %_ZNKSt13unordered_mapISt17reference_wrapperIN6duckdb8PipelineEERS2_NS1_21ReferenceHashFunctionIS2_EENS1_17ReferenceEqualityIS2_EESaISt4pairIKS3_S4_EEE4findERSA_.exit ], [ null, %..loopexit_crit_edge21.i.i.i.i ], [ null, %7 ], [ null, %12 ], [ null, %.lr.ph.i.i.i.i ]
   ret ptr %43
 }
 
@@ -5199,7 +5199,7 @@ _ZNSt6vectorISt17reference_wrapperIN6duckdb16PhysicalOperatorEESaIS3_EED2Ev.exit
   br label %_ZNSt13unordered_mapISt17reference_wrapperIN6duckdb8PipelineEENS1_6vectorIS3_Lb1EEENS1_21ReferenceHashFunctionIS2_EENS1_17ReferenceEqualityIS2_EESaISt4pairIKS3_S5_EEE4findERSB_.exit.thread, !llvm.loop !242
 
 _ZNSt13unordered_mapISt17reference_wrapperIN6duckdb8PipelineEENS1_6vectorIS3_Lb1EEENS1_21ReferenceHashFunctionIS2_EENS1_17ReferenceEqualityIS2_EESaISt4pairIKS3_S5_EEE4findERSB_.exit: ; preds = %60, %39, %51
-  %.sroa.06.1.i.i = phi ptr [ %52, %51 ], [ %.sroa.06.0.i.i, %39 ], [ %66, %60 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %39 ], [ %52, %51 ], [ %66, %60 ]
   %71 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %6, ptr %4, align 8, !tbaa !170
@@ -7105,7 +7105,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit26: ; preds = %73,
   br label %.loopexit
 
 .loopexit:                                        ; preds = %41, %.loopexit.sink.split, %25, %44
-  %.0 = phi i8 [ %48, %44 ], [ %18, %25 ], [ 2, %.loopexit.sink.split ], [ %33, %41 ]
+  %.0 = phi i8 [ 2, %.loopexit.sink.split ], [ %48, %44 ], [ %18, %25 ], [ %33, %41 ]
   ret i8 %.0
 
 82:                                               ; preds = %81, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit26
@@ -8934,7 +8934,7 @@ _ZN6duckdb12MetaPipeline12GetPipelinesERNS_6vectorINS_10shared_ptrINS_8PipelineE
   br label %_ZNK6duckdb12MetaPipeline14GetFinishGroupERNS_8PipelineE.exit.thread, !llvm.loop !262
 
 _ZNK6duckdb12MetaPipeline14GetFinishGroupERNS_8PipelineE.exit: ; preds = %362, %340, %353
-  %.sroa.06.1.i.i.i = phi ptr [ %354, %353 ], [ %.sroa.06.0.i.i.i, %340 ], [ %368, %362 ]
+  %.sroa.06.1.i.i.i = phi ptr [ %.sroa.06.0.i.i.i, %340 ], [ %354, %353 ], [ %368, %362 ]
   %373 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 16
   %374 = load ptr, ptr %373, align 8, !tbaa !263
   %.not259 = icmp eq ptr %374, null
@@ -11992,7 +11992,7 @@ _ZNK6duckdb10shared_ptrINS_8PipelineELb1EEdeEv.exit: ; preds = %_ZNK6duckdb8weak
   br label %_ZNSt13unordered_mapISt17reference_wrapperIN6duckdb8PipelineEENS1_18PipelineEventStackENS1_21ReferenceHashFunctionIS2_EENS1_17ReferenceEqualityIS2_EESaISt4pairIKS3_S4_EEE4findERSA_.exit.thread, !llvm.loop !383
 
 _ZNSt13unordered_mapISt17reference_wrapperIN6duckdb8PipelineEENS1_18PipelineEventStackENS1_21ReferenceHashFunctionIS2_EENS1_17ReferenceEqualityIS2_EESaISt4pairIKS3_S4_EEE4findERSA_.exit: ; preds = %183, %163, %174
-  %.sroa.06.1.i.i = phi ptr [ %175, %174 ], [ %.sroa.06.0.i.i, %163 ], [ %189, %183 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %163 ], [ %175, %174 ], [ %189, %183 ]
   %194 = load ptr, ptr %50, align 8, !tbaa !552
   %195 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 48
   %196 = load ptr, ptr %195, align 8, !tbaa !554
@@ -12224,7 +12224,7 @@ _ZNSt13unordered_mapISt17reference_wrapperIN6duckdb8PipelineEENS1_18PipelineEven
   br i1 %298, label %_ZNSt13unordered_mapISt17reference_wrapperIN6duckdb8PipelineEENS1_18PipelineEventStackENS1_21ReferenceHashFunctionIS2_EENS1_17ReferenceEqualityIS2_EESaISt4pairIKS3_S4_EEE4findERSA_.exit115, label %.lr.ph.i.i.i.i106, !llvm.loop !383
 
 _ZNSt13unordered_mapISt17reference_wrapperIN6duckdb8PipelineEENS1_18PipelineEventStackENS1_21ReferenceHashFunctionIS2_EENS1_17ReferenceEqualityIS2_EESaISt4pairIKS3_S4_EEE4findERSA_.exit115: ; preds = %.lr.ph.i.i.i.i106, %.preheader649, %275
-  %.sroa.06.1.i.i111 = phi ptr [ %282, %275 ], [ %.sroa.06.0.i.i113, %.preheader649 ], [ %290, %.lr.ph.i.i.i.i106 ]
+  %.sroa.06.1.i.i111 = phi ptr [ %.sroa.06.0.i.i113, %.preheader649 ], [ %282, %275 ], [ %290, %.lr.ph.i.i.i.i106 ]
   %299 = load ptr, ptr %268, align 8, !tbaa !556
   %300 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i111, i64 24
   %301 = load ptr, ptr %300, align 8, !tbaa !556
@@ -13545,9 +13545,9 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %_ZNSt6vectorImSaImEE9push_backERKm.exit.us
 
 _ZNSt6vectorImSaImEE9push_backERKm.exit.us:       ; preds = %41, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.us, %44
-  %.sroa.13.1.us = phi ptr [ %63, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.us ], [ %.sroa.13.074.us, %44 ], [ %.sroa.13.074.us, %41 ]
-  %.sroa.9.1.us = phi ptr [ %61, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.us ], [ %45, %44 ], [ %.sroa.9.075.us, %41 ]
-  %.sroa.052.1.us = phi ptr [ %57, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.us ], [ %.sroa.052.076.us, %44 ], [ %.sroa.052.076.us, %41 ]
+  %.sroa.13.1.us = phi ptr [ %.sroa.13.074.us, %44 ], [ %63, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.us ], [ %.sroa.13.074.us, %41 ]
+  %.sroa.9.1.us = phi ptr [ %45, %44 ], [ %61, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.us ], [ %.sroa.9.075.us, %41 ]
+  %.sroa.052.1.us = phi ptr [ %.sroa.052.076.us, %44 ], [ %57, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.us ], [ %.sroa.052.076.us, %41 ]
   %64 = getelementptr inbounds nuw i8, ptr %.sroa.049.073.us, i64 8
   %.not59.us = icmp eq ptr %64, %18
   br i1 %.not59.us, label %.split85.us, label %.lr.ph.us
@@ -37478,7 +37478,7 @@ _ZN17duckdb_moodycamel7details9Semaphore8try_waitEv.exit.thread: ; preds = %51, 
   br label %.preheader12, !llvm.loop !1365
 
 .loopexit:                                        ; preds = %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit, %.thread, %.preheader, %_ZN17duckdb_moodycamel7details9Semaphore10timed_waitEm.exit, %13, %_ZN17duckdb_moodycamel7details9Semaphore4waitEv.exit
-  %.04 = phi i1 [ %25, %_ZN17duckdb_moodycamel7details9Semaphore4waitEv.exit ], [ true, %13 ], [ true, %_ZN17duckdb_moodycamel7details9Semaphore10timed_waitEm.exit ], [ false, %.thread ], [ true, %.preheader ], [ true, %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit ]
+  %.04 = phi i1 [ false, %.thread ], [ true, %.preheader ], [ %25, %_ZN17duckdb_moodycamel7details9Semaphore4waitEv.exit ], [ true, %13 ], [ true, %_ZN17duckdb_moodycamel7details9Semaphore10timed_waitEm.exit ], [ true, %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit ]
   ret i1 %.04
 }
 
@@ -41053,8 +41053,8 @@ _ZNSt10_HashtableISt17reference_wrapperIN6duckdb8PipelineEES3_SaIS3_ENSt8__detai
   resume { ptr, i32 } %53
 
 _ZNKSt10_HashtableISt17reference_wrapperIN6duckdb8PipelineEES3_SaIS3_ENSt8__detail9_IdentityENS1_17ReferenceEqualityIS2_EENS1_21ReferenceHashFunctionIS2_EENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS3_EEPNS5_10_Hash_nodeIS3_Lb1EEEmRKT_m.exit: ; preds = %37, %20, %.critedge, %28
-  %.sroa.031.1 = phi ptr [ %29, %28 ], [ %52, %.critedge ], [ %.sroa.028.0, %20 ], [ %43, %37 ]
-  %.sroa.432.1 = phi i8 [ 0, %28 ], [ 1, %.critedge ], [ 0, %20 ], [ 0, %37 ]
+  %.sroa.031.1 = phi ptr [ %.sroa.028.0, %20 ], [ %52, %.critedge ], [ %29, %28 ], [ %43, %37 ]
+  %.sroa.432.1 = phi i8 [ 0, %20 ], [ 1, %.critedge ], [ 0, %28 ], [ 0, %37 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.031.1, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.432.1, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -41348,7 +41348,7 @@ _ZNSt10_HashtableISt17reference_wrapperIN6duckdb8PipelineEESt4pairIKS3_RS2_ESaIS
   resume { ptr, i32 } %51
 
 _ZNKSt10_HashtableISt17reference_wrapperIN6duckdb8PipelineEESt4pairIKS3_RS2_ESaIS7_ENSt8__detail10_Select1stENS1_17ReferenceEqualityIS2_EENS1_21ReferenceHashFunctionIS2_EENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS5_m.exit: ; preds = %37, %19, %28
-  %.sroa.043.0.ph = phi ptr [ %29, %28 ], [ %.sroa.035.0, %19 ], [ %43, %37 ]
+  %.sroa.043.0.ph = phi ptr [ %.sroa.035.0, %19 ], [ %29, %28 ], [ %43, %37 ]
   tail call void @_ZdlPv(ptr noundef nonnull %4) #37
   br label %_ZNSt10_HashtableISt17reference_wrapperIN6duckdb8PipelineEESt4pairIKS3_RS2_ESaIS7_ENSt8__detail10_Select1stENS1_17ReferenceEqualityIS2_EENS1_21ReferenceHashFunctionIS2_EENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 
@@ -43228,7 +43228,7 @@ _ZNSt10_HashtableISt17reference_wrapperIN6duckdb8PipelineEESt4pairIKS3_NS1_18Pip
   resume { ptr, i32 } %52
 
 _ZNKSt10_HashtableISt17reference_wrapperIN6duckdb8PipelineEESt4pairIKS3_NS1_18PipelineEventStackEESaIS7_ENSt8__detail10_Select1stENS1_17ReferenceEqualityIS2_EENS1_21ReferenceHashFunctionIS2_EENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS5_m.exit: ; preds = %38, %20, %29
-  %.sroa.042.0.ph = phi ptr [ %30, %29 ], [ %.sroa.034.0, %20 ], [ %44, %38 ]
+  %.sroa.042.0.ph = phi ptr [ %.sroa.034.0, %20 ], [ %30, %29 ], [ %44, %38 ]
   tail call void @_ZdlPv(ptr noundef nonnull %3) #37
   br label %_ZNSt10_HashtableISt17reference_wrapperIN6duckdb8PipelineEESt4pairIKS3_NS1_18PipelineEventStackEESaIS7_ENSt8__detail10_Select1stENS1_17ReferenceEqualityIS2_EENS1_21ReferenceHashFunctionIS2_EENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 
@@ -47735,7 +47735,7 @@ _ZNSt6atomicIPN17duckdb_moodycamel15ConcurrentQueueIN6duckdb10shared_ptrINS2_4Ta
   br i1 %137, label %_ZN17duckdb_moodycamel15ConcurrentQueueIN6duckdb10shared_ptrINS1_4TaskELb1EEENS_28ConcurrentQueueDefaultTraitsEE12add_producerEPNS6_12ProducerBaseE.exit, label %_ZNSt6atomicIPN17duckdb_moodycamel15ConcurrentQueueIN6duckdb10shared_ptrINS2_4TaskELb1EEENS0_28ConcurrentQueueDefaultTraitsEE12ProducerBaseEE21compare_exchange_weakERS9_S9_St12memory_orderSC_.exit.i, !llvm.loop !1524
 
 _ZN17duckdb_moodycamel15ConcurrentQueueIN6duckdb10shared_ptrINS1_4TaskELb1EEENS_28ConcurrentQueueDefaultTraitsEE12add_producerEPNS6_12ProducerBaseE.exit: ; preds = %_ZNSt6atomicIPN17duckdb_moodycamel15ConcurrentQueueIN6duckdb10shared_ptrINS2_4TaskELb1EEENS0_28ConcurrentQueueDefaultTraitsEE12ProducerBaseEE21compare_exchange_weakERS9_S9_St12memory_orderSC_.exit.i, %122, %66, %22, %21
-  %.4 = phi ptr [ %.01331, %21 ], [ %.ph, %122 ], [ null, %66 ], [ null, %22 ], [ %.ph, %_ZNSt6atomicIPN17duckdb_moodycamel15ConcurrentQueueIN6duckdb10shared_ptrINS2_4TaskELb1EEENS0_28ConcurrentQueueDefaultTraitsEE12ProducerBaseEE21compare_exchange_weakERS9_S9_St12memory_orderSC_.exit.i ]
+  %.4 = phi ptr [ %.01331, %21 ], [ null, %22 ], [ %.ph, %122 ], [ null, %66 ], [ %.ph, %_ZNSt6atomicIPN17duckdb_moodycamel15ConcurrentQueueIN6duckdb10shared_ptrINS2_4TaskELb1EEENS0_28ConcurrentQueueDefaultTraitsEE12ProducerBaseEE21compare_exchange_weakERS9_S9_St12memory_orderSC_.exit.i ]
   ret ptr %.4
 }
 
@@ -48384,7 +48384,7 @@ _ZN17duckdb_moodycamel15ConcurrentQueueIN6duckdb10shared_ptrINS1_4TaskELb1EEENS_
   br label %_ZN17duckdb_moodycamel15ConcurrentQueueIN6duckdb10shared_ptrINS1_4TaskELb1EEENS_28ConcurrentQueueDefaultTraitsEE22add_block_to_free_listEPNS6_5BlockE.exit.thread
 
 _ZN17duckdb_moodycamel15ConcurrentQueueIN6duckdb10shared_ptrINS1_4TaskELb1EEENS_28ConcurrentQueueDefaultTraitsEE22add_block_to_free_listEPNS6_5BlockE.exit.thread: ; preds = %104, %107, %2, %_ZN17duckdb_moodycamel15ConcurrentQueueIN6duckdb10shared_ptrINS1_4TaskELb1EEENS_28ConcurrentQueueDefaultTraitsEE22add_block_to_free_listEPNS6_5BlockE.exit.thread20, %_ZN6duckdb10shared_ptrINS_4TaskELb1EED2Ev.exit, %94
-  %.1 = phi i1 [ true, %_ZN6duckdb10shared_ptrINS_4TaskELb1EED2Ev.exit ], [ true, %94 ], [ false, %_ZN17duckdb_moodycamel15ConcurrentQueueIN6duckdb10shared_ptrINS1_4TaskELb1EEENS_28ConcurrentQueueDefaultTraitsEE22add_block_to_free_listEPNS6_5BlockE.exit.thread20 ], [ false, %2 ], [ true, %107 ], [ true, %104 ]
+  %.1 = phi i1 [ false, %2 ], [ true, %_ZN6duckdb10shared_ptrINS_4TaskELb1EED2Ev.exit ], [ true, %94 ], [ false, %_ZN17duckdb_moodycamel15ConcurrentQueueIN6duckdb10shared_ptrINS1_4TaskELb1EEENS_28ConcurrentQueueDefaultTraitsEE22add_block_to_free_listEPNS6_5BlockE.exit.thread20 ], [ true, %107 ], [ true, %104 ]
   ret i1 %.1
 }
 

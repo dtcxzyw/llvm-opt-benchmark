@@ -4476,7 +4476,7 @@ get_field_type_parameters.exit.i.i.i.i.i:         ; preds = %912, %907, %906, %9
   br i1 %916, label %.lr.ph.i.i.i.i.i, label %get_blob_type_from_fields.exit.i.i.i.i, !llvm.loop !34
 
 get_blob_type_from_fields.exit.i.i.i.i:           ; preds = %get_field_type_parameters.exit.i.i.i.i.i, %901, %896, %878
-  %.041.i.i.i.i = phi i8 [ 20, %896 ], [ %893, %878 ], [ %spec.select402, %901 ], [ 20, %get_field_type_parameters.exit.i.i.i.i.i ]
+  %.041.i.i.i.i = phi i8 [ %893, %878 ], [ 20, %896 ], [ %spec.select402, %901 ], [ 20, %get_field_type_parameters.exit.i.i.i.i.i ]
   %917 = load i32, ptr @hf_acn_blob_type, align 4
   %918 = zext i8 %.041.i.i.i.i to i32
   %919 = call ptr @proto_tree_add_uint(ptr noundef %881, i32 noundef %917, ptr noundef %0, i32 noundef %892, i32 noundef 1, i32 noundef %918)
@@ -7243,7 +7243,7 @@ default.unreachable:                              ; preds = %123, %37, %5
   br i1 %164, label %123, label %.loopexit, !llvm.loop !61
 
 .loopexit:                                        ; preds = %123, %158, %.lr.ph263, %78, %._crit_edge264, %42, %.critedge
-  %.0234 = phi i32 [ %43, %42 ], [ %33, %.critedge ], [ %79, %78 ], [ %122, %._crit_edge264 ], [ %3, %.lr.ph263 ], [ %3, %123 ], [ %159, %158 ]
+  %.0234 = phi i32 [ %3, %.lr.ph263 ], [ %43, %42 ], [ %33, %.critedge ], [ %122, %._crit_edge264 ], [ %79, %78 ], [ %3, %123 ], [ %159, %158 ]
   ret i32 %.0234
 }
 
@@ -7384,7 +7384,7 @@ default.unreachable94:                            ; preds = %10, %5
   unreachable
 
 .loopexit:                                        ; preds = %53, %56, %46, %.lr.ph89, %15, %._crit_edge, %10
-  %.075 = phi i32 [ %3, %10 ], [ %24, %15 ], [ %45, %._crit_edge ], [ %3, %.lr.ph89 ], [ %3, %46 ], [ %3, %53 ], [ %66, %56 ]
+  %.075 = phi i32 [ %3, %.lr.ph89 ], [ %45, %._crit_edge ], [ %3, %10 ], [ %24, %15 ], [ %3, %46 ], [ %3, %53 ], [ %66, %56 ]
   ret i32 %.075
 }
 

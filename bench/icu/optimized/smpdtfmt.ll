@@ -6983,7 +6983,7 @@ _ZN6icu_7713UnicodeStringpLERKS0_.exit514:        ; preds = %523
   br label %620
 
 620:                                              ; preds = %605, %616, %612
-  %.0462 = phi ptr [ %609, %605 ], [ %615, %612 ], [ %619, %616 ]
+  %.0462 = phi ptr [ %619, %616 ], [ %615, %612 ], [ %609, %605 ]
   %621 = icmp eq ptr %.0462, null
   br i1 %621, label %tailrecurse.backedge, label %622
 
@@ -9518,7 +9518,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit266.thread: ; preds = %_ZNK6icu_7713Unic
   br label %475
 
 475:                                              ; preds = %.thread323, %365, %389, %470, %381, %353, %73, %70
-  %.0182 = phi ptr [ null, %70 ], [ %62, %73 ], [ %.1183, %353 ], [ %.1183, %.thread323 ], [ %.1183, %381 ], [ %.1183, %470 ], [ %.1183, %389 ], [ %.1183, %365 ]
+  %.0182 = phi ptr [ %.1183, %365 ], [ null, %70 ], [ %62, %73 ], [ %.1183, %389 ], [ %.1183, %353 ], [ %.1183, %.thread323 ], [ %.1183, %381 ], [ %.1183, %470 ]
   %476 = load i32, ptr %5, align 4, !tbaa !13
   %477 = icmp sgt i32 %476, 0
   %.not246 = icmp eq ptr %.0187, %2
@@ -13034,7 +13034,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit186:      ; preds = %344, %.lr.ph282.spl
   br label %.thread222
 
 .thread222:                                       ; preds = %.thread212, %294, %.thread232
-  %.4 = phi i8 [ 1, %.thread232 ], [ 0, %294 ], [ 0, %.thread212 ]
+  %.4 = phi i8 [ 0, %294 ], [ 1, %.thread232 ], [ 0, %.thread212 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i8 %.4
@@ -15204,9 +15204,9 @@ define noundef i32 @_ZNK6icu_7716SimpleDateFormat18compareSimpleAffixERKNS_13Uni
   br label %.critedge, !llvm.loop !218
 
 .critedge:                                        ; preds = %.lr.ph125, %.lr.ph, %.lr.ph.preheader, %..critedge.loopexit_crit_edge, %..critedge_crit_edge88, %.preheader79
-  %.366 = phi i32 [ %.063101, %.preheader79 ], [ %44, %..critedge_crit_edge88 ], [ %.063101, %.lr.ph.preheader ], [ %44, %..critedge.loopexit_crit_edge ], [ %44, %.lr.ph ], [ %44, %.lr.ph125 ]
-  %.259 = phi i32 [ %.057102, %.preheader79 ], [ %43, %..critedge_crit_edge88 ], [ %.057102, %.lr.ph.preheader ], [ %43, %..critedge.loopexit_crit_edge ], [ %43, %.lr.ph ], [ %43, %.lr.ph125 ]
-  %.151 = phi i1 [ false, %.preheader79 ], [ true, %..critedge_crit_edge88 ], [ false, %.lr.ph.preheader ], [ true, %..critedge.loopexit_crit_edge ], [ true, %.lr.ph ], [ true, %.lr.ph125 ]
+  %.366 = phi i32 [ %.063101, %.preheader79 ], [ %44, %..critedge_crit_edge88 ], [ %44, %..critedge.loopexit_crit_edge ], [ %.063101, %.lr.ph.preheader ], [ %44, %.lr.ph ], [ %44, %.lr.ph125 ]
+  %.259 = phi i32 [ %.057102, %.preheader79 ], [ %43, %..critedge_crit_edge88 ], [ %43, %..critedge.loopexit_crit_edge ], [ %.057102, %.lr.ph.preheader ], [ %43, %.lr.ph ], [ %43, %.lr.ph125 ]
+  %.151 = phi i1 [ false, %.preheader79 ], [ true, %..critedge_crit_edge88 ], [ true, %..critedge.loopexit_crit_edge ], [ false, %.lr.ph.preheader ], [ true, %.lr.ph ], [ true, %.lr.ph125 ]
   %55 = load i16, ptr %6, align 8, !tbaa !51
   %56 = and i16 %55, 17
   %.not.i.i = icmp eq i16 %56, 0

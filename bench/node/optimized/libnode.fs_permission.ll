@@ -700,7 +700,7 @@ lor.lhs.false.return.loopexit_crit_edge.i.i.i.i:  ; preds = %lor.lhs.false.i.i.i
   br label %return, !llvm.loop !16
 
 if.end11:                                         ; preds = %for.cond.i.i.i.i, %for.body.i.i, %if.end.i.i.i.i
-  %retval.sroa.0.1.i.i = phi ptr [ %6, %if.end.i.i.i.i ], [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ %8, %for.cond.i.i.i.i ]
+  %retval.sroa.0.1.i.i = phi ptr [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ %6, %if.end.i.i.i.i ], [ %8, %for.cond.i.i.i.i ]
   %second = getelementptr inbounds nuw i8, ptr %retval.sroa.0.1.i.i, i64 16
   %10 = load ptr, ptr %second, align 8
   %call13 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #13
@@ -748,7 +748,7 @@ for.inc:                                          ; preds = %if.end29, %land.lhs
   br i1 %or.cond, label %lor.lhs.false, label %return, !llvm.loop !17
 
 return:                                           ; preds = %if.end3.i.i.i.i, %for.cond.i.i, %lor.lhs.false, %if.end29, %for.inc, %if.end11, %if.end15.i.i, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i, %entry
-  %retval.0 = phi ptr [ null, %entry ], [ null, %if.end15.i.i ], [ null, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i ], [ %10, %if.end11 ], [ null, %for.cond.i.i ], [ %10, %for.inc ], [ null, %if.end29 ], [ %10, %lor.lhs.false ], [ null, %if.end3.i.i.i.i ]
+  %retval.0 = phi ptr [ null, %for.cond.i.i ], [ null, %entry ], [ null, %if.end15.i.i ], [ %10, %if.end11 ], [ null, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i ], [ %10, %for.inc ], [ null, %if.end29 ], [ %10, %lor.lhs.false ], [ null, %if.end3.i.i.i.i ]
   ret ptr %retval.0
 }
 

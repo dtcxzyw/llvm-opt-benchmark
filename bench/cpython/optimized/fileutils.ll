@@ -1120,7 +1120,7 @@ _Py_mbstowcs.exit.thread:                         ; preds = %.lr.ph.i.preheader,
   br i1 %exitcond.not, label %.critedge, label %.preheader, !llvm.loop !181
 
 .critedge:                                        ; preds = %18, %_Py_mbstowcs.exit, %_Py_mbstowcs.exit.thread, %.lr.ph.i.preheader, %0, %13, %11, %16, %.tail.thread
-  %.0 = phi i32 [ 0, %.tail.thread ], [ 1, %13 ], [ 1, %0 ], [ 1, %16 ], [ 1, %11 ], [ 0, %_Py_mbstowcs.exit.thread ], [ 1, %.lr.ph.i.preheader ], [ 1, %_Py_mbstowcs.exit ], [ 0, %18 ]
+  %.0 = phi i32 [ 1, %11 ], [ 0, %.tail.thread ], [ 1, %13 ], [ 0, %_Py_mbstowcs.exit.thread ], [ 1, %0 ], [ 1, %16 ], [ 1, %.lr.ph.i.preheader ], [ 1, %_Py_mbstowcs.exit ], [ 0, %18 ]
   ret i32 %.0
 }
 
@@ -2216,8 +2216,8 @@ set_inheritable.exit.thread:                      ; preds = %50, %56, %set_inher
   %65 = tail call i32 @close(i32 noundef %.12853) #17
   br label %.critedge39
 
-.critedge39:                                      ; preds = %54, %59, %38, %35, %31, %30, %27, %.critedge, %16, %13, %11, %5, %set_inheritable.exit, %45, %set_inheritable.exit.thread
-  %.1 = phi i32 [ -1, %set_inheritable.exit.thread ], [ -1, %45 ], [ %.128, %set_inheritable.exit ], [ -1, %5 ], [ -1, %30 ], [ -1, %16 ], [ -1, %11 ], [ -1, %13 ], [ -1, %.critedge ], [ -1, %27 ], [ -1, %31 ], [ -1, %35 ], [ -1, %38 ], [ %46, %59 ], [ %46, %54 ]
+.critedge39:                                      ; preds = %59, %54, %38, %35, %31, %30, %27, %.critedge, %16, %13, %11, %5, %set_inheritable.exit, %45, %set_inheritable.exit.thread
+  %.1 = phi i32 [ -1, %set_inheritable.exit.thread ], [ -1, %45 ], [ %.128, %set_inheritable.exit ], [ -1, %5 ], [ -1, %30 ], [ -1, %16 ], [ -1, %11 ], [ -1, %13 ], [ -1, %.critedge ], [ -1, %27 ], [ -1, %31 ], [ -1, %35 ], [ -1, %38 ], [ %46, %54 ], [ %46, %59 ]
   ret i32 %.1
 }
 
@@ -3164,8 +3164,8 @@ _Py_skiproot.exit:                                ; preds = %5, %.split, %22
   br i1 %39, label %37, label %.loopexit, !llvm.loop !195
 
 .loopexit:                                        ; preds = %37, %36, %34, %_Py_skiproot.exit
-  %.1106 = phi i32 [ %.0105, %34 ], [ %.0105, %36 ], [ %.0105, %_Py_skiproot.exit ], [ %31, %37 ]
-  %.197 = phi ptr [ %.096, %34 ], [ %.096, %36 ], [ %.096, %_Py_skiproot.exit ], [ %.298, %37 ]
+  %.1106 = phi i32 [ %.0105, %_Py_skiproot.exit ], [ %.0105, %34 ], [ %.0105, %36 ], [ %31, %37 ]
+  %.197 = phi ptr [ %.096, %_Py_skiproot.exit ], [ %.096, %34 ], [ %.096, %36 ], [ %.298, %37 ]
   %.not127 = icmp eq ptr %27, null
   br label %41
 
@@ -3820,8 +3820,8 @@ define internal fastcc range(i32 -3, 1) i32 @encode_current_locale(ptr noundef r
   br i1 %.not, label %70, label %.split107.us
 
 .split107.us:                                     ; preds = %._crit_edge.split.us102, %._crit_edge.split.us.us.us, %.split92.split, %.split92.split.us
-  %.us-phi108 = phi ptr [ %.048.us.us, %._crit_edge.split.us.us.us ], [ %.048.us120, %.split92.split.us ], [ %.048, %.split92.split ], [ %.048.us, %._crit_edge.split.us102 ]
-  %.us-phi109 = phi ptr [ %.250.us.us.us, %._crit_edge.split.us.us.us ], [ %.048.us120, %.split92.split.us ], [ %.048, %.split92.split ], [ %.250.us100, %._crit_edge.split.us102 ]
+  %.us-phi108 = phi ptr [ %.048, %.split92.split ], [ %.048.us120, %.split92.split.us ], [ %.048.us.us, %._crit_edge.split.us.us.us ], [ %.048.us, %._crit_edge.split.us102 ]
+  %.us-phi109 = phi ptr [ %.048, %.split92.split ], [ %.048.us120, %.split92.split.us ], [ %.250.us.us.us, %._crit_edge.split.us.us.us ], [ %.250.us100, %._crit_edge.split.us102 ]
   store i8 0, ptr %.us-phi109, align 1, !tbaa !175
   store ptr %.us-phi108, ptr %1, align 8, !tbaa !177
   br label %get_surrogateescape.exit
@@ -3863,7 +3863,7 @@ define internal fastcc range(i32 -3, 1) i32 @encode_current_locale(ptr noundef r
   br label %get_surrogateescape.exit
 
 get_surrogateescape.exit:                         ; preds = %41, %17, %70, %66, %6, %78, %79, %.split107.us
-  %.0 = phi i32 [ -2, %78 ], [ 0, %.split107.us ], [ -2, %79 ], [ -3, %6 ], [ -1, %17 ], [ -1, %66 ], [ -1, %70 ], [ -1, %41 ]
+  %.0 = phi i32 [ -2, %78 ], [ -3, %6 ], [ 0, %.split107.us ], [ -2, %79 ], [ -1, %70 ], [ -1, %17 ], [ -1, %66 ], [ -1, %41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }

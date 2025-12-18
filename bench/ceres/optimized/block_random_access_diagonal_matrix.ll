@@ -2063,7 +2063,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1
   br label %_ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi1ELin1ELb1EEELi1ELin1ELb0EEEE6lpNormILi1EEEdv.exit
 
 _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi1ELin1ELb1EEELi1ELin1ELb0EEEE6lpNormILi1EEEdv.exit: ; preds = %.lr.ph85.i.i.i.i.i, %109, %117
-  %.0.i.i.i19 = phi double [ %110, %109 ], [ %119, %117 ], [ %115, %.lr.ph85.i.i.i.i.i ]
+  %.0.i.i.i19 = phi double [ %119, %117 ], [ %110, %109 ], [ %115, %.lr.ph85.i.i.i.i.i ]
   %120 = fadd double %.0.i.i.i, %.0.i.i.i19
   %121 = fcmp ogt double %120, %62
   br i1 %121, label %122, label %123

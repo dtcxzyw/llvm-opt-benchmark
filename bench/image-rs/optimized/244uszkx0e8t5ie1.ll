@@ -18761,7 +18761,7 @@ _ZN5image6codecs4webp11loop_filter14simple_segment17h68ed65405427d4b1E.exit.i: ;
   br i1 %738, label %.thread, label %864
 
 .thread223.i:                                     ; preds = %_ZN5image6codecs4webp11loop_filter15subblock_filter17h6d6e8a66c01a51cfE.exit167, %.loopexit271.i, %.thread217.i.thread, %.loopexit276.i, %.thread, %.thread217.i
-  %or.cond.i2006 = phi i1 [ true, %.thread217.i.thread ], [ true, %.thread217.i ], [ false, %.loopexit276.i ], [ false, %.thread ], [ false, %.loopexit271.i ], [ false, %_ZN5image6codecs4webp11loop_filter15subblock_filter17h6d6e8a66c01a51cfE.exit167 ]
+  %or.cond.i2006 = phi i1 [ true, %.thread217.i.thread ], [ false, %.loopexit271.i ], [ true, %.thread217.i ], [ false, %.loopexit276.i ], [ false, %.thread ], [ false, %_ZN5image6codecs4webp11loop_filter15subblock_filter17h6d6e8a66c01a51cfE.exit167 ]
   br i1 %.not125.i, label %.thread234.i, label %1025
 
 864:                                              ; preds = %863
@@ -20035,7 +20035,7 @@ default.unreachable:                              ; preds = %1638, %1473
   br label %_ZN5image6codecs4webp3vp88LumaMode10into_intra17h89b93bee24b5c1bbE.exit.i
 
 _ZN5image6codecs4webp3vp88LumaMode10into_intra17h89b93bee24b5c1bbE.exit.i: ; preds = %1476, %1475, %1474, %1473
-  %.03.i.i = phi i8 [ 1, %1475 ], [ 0, %1476 ], [ 3, %1474 ], [ 2, %1473 ]
+  %.03.i.i = phi i8 [ 0, %1476 ], [ 1, %1475 ], [ 3, %1474 ], [ 2, %1473 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(4) %scevgep.i, i8 %.03.i.i, i64 4, i1 false), !noalias !2283
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(4) %.sroa.6.0..sroa_idx, i8 %.03.i.i, i64 4, i1 false), !alias.scope !2280, !noalias !2285
   br label %.thread.i94

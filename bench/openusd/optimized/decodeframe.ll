@@ -9339,7 +9339,7 @@ set_cb_buffer.exit.us.i:                          ; preds = %159
   br i1 %.not17.i.i, label %222, label %parse_tile_row_mt.exit
 
 parse_tile_row_mt.exit:                           ; preds = %222, %.lr.ph.i.i, %set_cb_buffer.exit.us.i, %._crit_edge50.i, %204, %219
-  %.not.sink.i = phi i32 [ 1, %204 ], [ 1, %._crit_edge50.i ], [ 0, %219 ], [ 1, %set_cb_buffer.exit.us.i ], [ 1, %.lr.ph.i.i ], [ 0, %222 ]
+  %.not.sink.i = phi i32 [ 1, %set_cb_buffer.exit.us.i ], [ 1, %204 ], [ 1, %._crit_edge50.i ], [ 0, %219 ], [ 0, %222 ], [ 1, %.lr.ph.i.i ]
   call void @aom_merge_corrupted_flag(ptr noundef nonnull %6, i32 noundef %.not.sink.i) #17
   %226 = load ptr, ptr %45, align 32
   %227 = call i32 @pthread_mutex_lock(ptr noundef %226) #17
@@ -12937,7 +12937,7 @@ read_partition.exit:                              ; preds = %383, %aom_read_symb
   br label %get_partition.exit
 
 get_partition.exit:                               ; preds = %572, %read_partition.exit
-  %.0 = phi i8 [ %.0.i305, %read_partition.exit ], [ %579, %572 ]
+  %.0 = phi i8 [ %579, %572 ], [ %.0.i305, %read_partition.exit ]
   %580 = icmp eq i8 %.0, -1
   br i1 %580, label %get_partition_subsize.exit319.thread, label %get_partition.exit.thread
 
@@ -13967,7 +13967,7 @@ aom_read_symbol_.exit.i.i:                        ; preds = %._crit_edge.loopexi
   br label %read_tx_size.exit
 
 read_tx_size.exit:                                ; preds = %.lr.ph.i.i.i, %239, %aom_read_symbol_.exit.i.i, %351
-  %360 = phi i8 [ %.14.i.i, %351 ], [ 0, %239 ], [ %263, %aom_read_symbol_.exit.i.i ], [ %.07.i.i.i, %.lr.ph.i.i.i ]
+  %360 = phi i8 [ %263, %aom_read_symbol_.exit.i.i ], [ 0, %239 ], [ %.14.i.i, %351 ], [ %.07.i.i.i, %.lr.ph.i.i.i ]
   %361 = getelementptr inbounds nuw i8, ptr %207, i64 153
   store i8 %360, ptr %361, align 1
   br i1 %213, label %362, label %364
@@ -15926,7 +15926,7 @@ set_cb_buffer.exit:                               ; preds = %94
   br i1 %.not17.i, label %136, label %check_trailing_bits_after_symbol_coder.exit
 
 check_trailing_bits_after_symbol_coder.exit:      ; preds = %set_cb_buffer.exit, %.lr.ph.i, %136, %133, %118, %._crit_edge45
-  %.not.sink = phi i32 [ 1, %118 ], [ 1, %._crit_edge45 ], [ 0, %133 ], [ 0, %136 ], [ 1, %.lr.ph.i ], [ 1, %set_cb_buffer.exit ]
+  %.not.sink = phi i32 [ 0, %136 ], [ 1, %118 ], [ 1, %._crit_edge45 ], [ 0, %133 ], [ 1, %.lr.ph.i ], [ 1, %set_cb_buffer.exit ]
   %140 = getelementptr inbounds nuw i8, ptr %1, i64 47824
   call void @aom_merge_corrupted_flag(ptr noundef nonnull %140, i32 noundef %.not.sink) #17
   ret void

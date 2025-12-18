@@ -205,7 +205,7 @@ _ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE7nweightERKNS_12omt_internal17subtree_templa
   tail call void @_Z9toku_freePv(ptr noundef %.sink.i6)
   br label %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE5fetchEjPS3_.exit.thread
 
-_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE5fetchEjPS3_.exit.thread: ; preds = %42, %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv.exit.thread10.i, %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv.exit.i, %.loopexit
+_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE5fetchEjPS3_.exit.thread: ; preds = %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv.exit.thread10.i, %42, %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv.exit.i, %.loopexit
   %74 = add nuw i32 %.013, 1
   %exitcond.not = icmp eq i32 %74, %.0.i
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %39, !llvm.loop !21
@@ -532,7 +532,7 @@ define noundef zeroext i1 @_ZN4toku3wfg22cycle_exists_from_nodeEPNS0_4nodeES2_St
   br label %22
 
 ._crit_edge:                                      ; preds = %90, %79, %_ZNKSt8functionIFvmEEclEm.exit31, %26, %_ZNKSt8functionIFvmEEclEm.exit, %4
-  %.0.lcssa = phi i1 [ false, %4 ], [ true, %_ZNKSt8functionIFvmEEclEm.exit ], [ true, %26 ], [ true, %_ZNKSt8functionIFvmEEclEm.exit31 ], [ true, %79 ], [ false, %90 ]
+  %.0.lcssa = phi i1 [ false, %4 ], [ true, %79 ], [ true, %_ZNKSt8functionIFvmEEclEm.exit ], [ true, %26 ], [ true, %_ZNKSt8functionIFvmEEclEm.exit31 ], [ false, %90 ]
   store i8 0, ptr %11, align 8, !tbaa !31
   ret i1 %.0.lcssa
 
@@ -941,7 +941,7 @@ _ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv.exit: ; preds = %6, %12
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 12
   br label %21
 
-._crit_edge:                                      ; preds = %24, %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv.exit.thread10.i, %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv.exit.i, %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE5fetchEjPS3_.exit.thread, %8, %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv.exit
+._crit_edge:                                      ; preds = %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv.exit.thread10.i, %24, %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv.exit.i, %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE5fetchEjPS3_.exit.thread, %8, %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv.exit
   ret void
 
 21:                                               ; preds = %.lr.ph, %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE5fetchEjPS3_.exit.thread
@@ -1533,7 +1533,7 @@ define linkonce_odr void @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE15insert_internalEP
   br label %21
 
 tailrecurse.outer._crit_edge:                     ; preds = %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit39, %tailrecurse, %5
-  %.tr40.lcssa = phi ptr [ %1, %5 ], [ %29, %tailrecurse ], [ %111, %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit39 ]
+  %.tr40.lcssa = phi ptr [ %29, %tailrecurse ], [ %1, %5 ], [ %111, %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit39 ]
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %11 = load i32, ptr %10, align 4, !tbaa !11
   %12 = add i32 %11, 1

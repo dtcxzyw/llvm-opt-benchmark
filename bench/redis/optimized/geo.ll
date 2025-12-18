@@ -202,7 +202,7 @@ define dso_local range(i32 -1, 1) i32 @extractLongLatOrReply(ptr noundef %0, ptr
   br label %.loopexit
 
 .loopexit:                                        ; preds = %5, %11, %._crit_edge
-  %.014 = phi i32 [ -1, %._crit_edge ], [ 0, %11 ], [ -1, %5 ]
+  %.014 = phi i32 [ 0, %11 ], [ -1, %._crit_edge ], [ -1, %5 ]
   ret i32 %.014
 }
 

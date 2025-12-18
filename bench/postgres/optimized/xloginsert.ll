@@ -1075,7 +1075,7 @@ XLogRecordAssemble.exit:                          ; preds = %._crit_edge232.i
   br i1 %exitcond.not.i20, label %XLogResetInsertion.exit, label %287, !llvm.loop !4
 
 XLogResetInsertion.exit:                          ; preds = %287, %25, %283, %21
-  %.0 = phi i64 [ 40, %21 ], [ %281, %283 ], [ 40, %25 ], [ %281, %287 ]
+  %.0 = phi i64 [ 40, %25 ], [ 40, %21 ], [ %281, %283 ], [ %281, %287 ]
   store i32 0, ptr @num_rdatas, align 4
   store i32 0, ptr @max_registered_block_id, align 4
   store i64 0, ptr @mainrdata_len, align 8

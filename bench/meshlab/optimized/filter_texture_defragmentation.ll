@@ -1901,7 +1901,7 @@ _ZNSt7__cxx114listIiSaIiEE6spliceESt20_List_const_iteratorIiERS2_.exit: ; preds 
   br i1 %.not.i.i.i8, label %_ZNSt7__cxx114listIiSaIiEED2Ev.exit, label %.lr.ph.i.i.i6, !llvm.loop !11
 
 _ZNSt7__cxx114listIiSaIiEED2Ev.exit:              ; preds = %.lr.ph.i.i.i6, %4, %23
-  %.sroa.04.020 = phi ptr [ %.sroa.04.0, %23 ], [ %1, %4 ], [ %.sroa.04.0, %.lr.ph.i.i.i6 ]
+  %.sroa.04.020 = phi ptr [ %1, %4 ], [ %.sroa.04.0, %23 ], [ %.sroa.04.0, %.lr.ph.i.i.i6 ]
   ret ptr %.sroa.04.020
 }
 
@@ -9406,7 +9406,7 @@ _ZNKSt4lessISt4pairIP8MeshFaceiEEclERKS3_S6_.exit.thread.i.thread.i: ; preds = %
   br i1 %.not.i13.i, label %._crit_edge.i.thread.i, label %.lr.ph.i.i75.backedge
 
 .lr.ph.i.i75.backedge:                            ; preds = %_ZNKSt4lessISt4pairIP8MeshFaceiEEclERKS3_S6_.exit.thread.i.thread.i, %_ZNKSt4lessISt4pairIP8MeshFaceiEEclERKS3_S6_.exit.thread.i.i
-  %.02126.i.i.be = phi ptr [ %.021.i.i, %_ZNKSt4lessISt4pairIP8MeshFaceiEEclERKS3_S6_.exit.thread.i.i ], [ %.021.i12.i, %_ZNKSt4lessISt4pairIP8MeshFaceiEEclERKS3_S6_.exit.thread.i.thread.i ]
+  %.02126.i.i.be = phi ptr [ %.021.i12.i, %_ZNKSt4lessISt4pairIP8MeshFaceiEEclERKS3_S6_.exit.thread.i.thread.i ], [ %.021.i.i, %_ZNKSt4lessISt4pairIP8MeshFaceiEEclERKS3_S6_.exit.thread.i.i ]
   br label %.lr.ph.i.i75, !llvm.loop !100
 
 ._crit_edge.thread.i.i:                           ; preds = %_ZNKSt4lessISt4pairIP8MeshFaceiEEclERKS3_S6_.exit.thread.i.i, %.loopexit

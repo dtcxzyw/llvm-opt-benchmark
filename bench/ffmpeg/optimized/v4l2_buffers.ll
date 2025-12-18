@@ -232,7 +232,7 @@ v4l2_bufref_to_buf.exit80.i:                      ; preds = %103, %100
   br i1 %106, label %83, label %v4l2_buffer_swframe_to_buf.exit, !llvm.loop !76
 
 v4l2_buffer_swframe_to_buf.exit:                  ; preds = %v4l2_bufref_to_buf.exit80.i, %61, %82, %21, %.critedge.i, %.preheader.i
-  %.3.i = phi i32 [ 0, %21 ], [ 0, %.preheader.i ], [ 0, %.critedge.i ], [ -22, %61 ], [ 0, %82 ], [ 0, %v4l2_bufref_to_buf.exit80.i ]
+  %.3.i = phi i32 [ -22, %61 ], [ 0, %21 ], [ 0, %.preheader.i ], [ 0, %.critedge.i ], [ 0, %82 ], [ 0, %v4l2_bufref_to_buf.exit80.i ]
   ret i32 %.3.i
 }
 
@@ -1251,7 +1251,7 @@ buf_to_m2mctx.exit.i:                             ; preds = %105, %switch.lookup
   br label %ff_v4l2_buffer_enqueue.exit
 
 ff_v4l2_buffer_enqueue.exit:                      ; preds = %91, %123, %119, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %22
-  %.077 = phi i32 [ %25, %22 ], [ 0, %._crit_edge ], [ 0, %._crit_edge ], [ 0, %._crit_edge ], [ 0, %._crit_edge ], [ 0, %._crit_edge ], [ 0, %._crit_edge ], [ 0, %._crit_edge ], [ 0, %._crit_edge ], [ %122, %119 ], [ 0, %123 ], [ -12, %91 ]
+  %.077 = phi i32 [ %25, %22 ], [ 0, %._crit_edge ], [ 0, %123 ], [ 0, %._crit_edge ], [ 0, %._crit_edge ], [ 0, %._crit_edge ], [ 0, %._crit_edge ], [ 0, %._crit_edge ], [ 0, %._crit_edge ], [ 0, %._crit_edge ], [ %122, %119 ], [ -12, %91 ]
   ret i32 %.077
 }
 

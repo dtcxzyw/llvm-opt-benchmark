@@ -733,7 +733,7 @@ define dso_local noundef range(i32 -98, 1) i32 @inet_csk_get_port(ptr noundef %0
   br i1 %149, label %.thread25, label %29
 
 .loopexit:                                        ; preds = %125, %.thread, %129
-  %150 = phi ptr [ null, %129 ], [ null, %.thread ], [ %123, %125 ]
+  %150 = phi ptr [ null, %129 ], [ %123, %125 ], [ null, %.thread ]
   %151 = icmp eq ptr %106, null
   br i1 %151, label %.thread25, label %152
 
@@ -1446,7 +1446,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @inet_csk_bind_conflict(ptr n
   br i1 %76, label %.loopexit, label %.preheader18, !llvm.loop !25
 
 .loopexit:                                        ; preds = %.loopexit17, %62, %40, %42, %27, %.thread, %.thread.thread
-  %77 = phi i32 [ 0, %.thread.thread ], [ 0, %.thread ], [ 0, %27 ], [ 1, %62 ], [ 1, %40 ], [ 0, %42 ], [ 0, %.loopexit17 ]
+  %77 = phi i32 [ 0, %.thread.thread ], [ 1, %40 ], [ 0, %.thread ], [ 1, %62 ], [ 0, %27 ], [ 0, %42 ], [ 0, %.loopexit17 ]
   ret i32 %77
 }
 
@@ -3636,8 +3636,8 @@ define internal void @reqsk_timer_handler(ptr noundef %0) #0 align 16 {
   br label %.thread16
 
 .thread16:                                        ; preds = %.loopexit, %70, %69
-  %75 = phi i1 [ true, %69 ], [ %71, %70 ], [ %.not, %.loopexit ]
-  %76 = phi i1 [ false, %69 ], [ %74, %70 ], [ false, %.loopexit ]
+  %75 = phi i1 [ %.not, %.loopexit ], [ true, %69 ], [ %71, %70 ]
+  %76 = phi i1 [ false, %.loopexit ], [ false, %69 ], [ %74, %70 ]
   %77 = getelementptr inbounds nuw i8, ptr %28, i64 192
   %78 = load ptr, ptr %77, align 8
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 56

@@ -5121,13 +5121,13 @@ _ZN2cv8ximgproc8nodeHeap6getMinEv.exit:           ; preds = %._crit_edge.i, %._c
   br i1 %318, label %.lr.ph.i.i, label %_ZN2cv8ximgproc8nodeHeap10updateNodeENS0_4nodeE.exit, !llvm.loop !226
 
 _ZN2cv8ximgproc8nodeHeap10updateNodeENS0_4nodeE.exit: ; preds = %.lr.ph.i44, %.lr.ph.i.i, %281, %249, %.lr.ph
-  %319 = phi ptr [ %231, %.lr.ph ], [ %288, %281 ], [ %231, %249 ], [ %288, %.lr.ph.i.i ], [ %231, %.lr.ph.i44 ]
-  %320 = phi ptr [ %232, %.lr.ph ], [ %290, %281 ], [ %232, %249 ], [ %290, %.lr.ph.i.i ], [ %271, %.lr.ph.i44 ]
-  %321 = phi ptr [ %233, %.lr.ph ], [ %288, %281 ], [ %233, %249 ], [ %288, %.lr.ph.i.i ], [ %231, %.lr.ph.i44 ]
-  %322 = phi ptr [ %234, %.lr.ph ], [ %288, %281 ], [ %233, %249 ], [ %288, %.lr.ph.i.i ], [ %231, %.lr.ph.i44 ]
-  %323 = phi ptr [ %235, %.lr.ph ], [ %290, %281 ], [ %232, %249 ], [ %290, %.lr.ph.i.i ], [ %271, %.lr.ph.i44 ]
-  %324 = phi ptr [ %236, %.lr.ph ], [ %290, %281 ], [ %232, %249 ], [ %290, %.lr.ph.i.i ], [ %271, %.lr.ph.i44 ]
-  %325 = phi ptr [ %237, %.lr.ph ], [ %288, %281 ], [ %233, %249 ], [ %288, %.lr.ph.i.i ], [ %231, %.lr.ph.i44 ]
+  %319 = phi ptr [ %288, %.lr.ph.i.i ], [ %231, %.lr.ph ], [ %288, %281 ], [ %231, %249 ], [ %231, %.lr.ph.i44 ]
+  %320 = phi ptr [ %290, %.lr.ph.i.i ], [ %232, %.lr.ph ], [ %290, %281 ], [ %232, %249 ], [ %271, %.lr.ph.i44 ]
+  %321 = phi ptr [ %288, %.lr.ph.i.i ], [ %233, %.lr.ph ], [ %288, %281 ], [ %233, %249 ], [ %231, %.lr.ph.i44 ]
+  %322 = phi ptr [ %288, %.lr.ph.i.i ], [ %234, %.lr.ph ], [ %288, %281 ], [ %233, %249 ], [ %231, %.lr.ph.i44 ]
+  %323 = phi ptr [ %290, %.lr.ph.i.i ], [ %235, %.lr.ph ], [ %290, %281 ], [ %232, %249 ], [ %271, %.lr.ph.i44 ]
+  %324 = phi ptr [ %290, %.lr.ph.i.i ], [ %236, %.lr.ph ], [ %290, %281 ], [ %232, %249 ], [ %271, %.lr.ph.i44 ]
+  %325 = phi ptr [ %288, %.lr.ph.i.i ], [ %237, %.lr.ph ], [ %288, %281 ], [ %233, %249 ], [ %231, %.lr.ph.i44 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %326 = load ptr, ptr %8, align 8, !tbaa !107
   %327 = getelementptr inbounds nuw i8, ptr %326, i64 24
@@ -9227,7 +9227,7 @@ _ZNSt6vectorIN2cv8ximgproc11SparseMatchESaIS2_EED2Ev.exit: ; preds = %_ZNSt6vect
   br i1 %1169, label %.loopexit, label %1166
 
 .loopexit:                                        ; preds = %1166, %.loopexit.loopexit534, %.thread502
-  %.pn313.pn = phi { ptr, i32 } [ %1088, %.thread502 ], [ %1108, %.loopexit.loopexit534 ], [ %.pn313, %1166 ]
+  %.pn313.pn = phi { ptr, i32 } [ %1108, %.loopexit.loopexit534 ], [ %1088, %.thread502 ], [ %.pn313, %1166 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %94)
   br label %1170
 
@@ -12045,7 +12045,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge130, %68
   br label %.thread
 
 .thread:                                          ; preds = %84, %88, %._crit_edge
-  %95 = phi i32 [ %.pre, %88 ], [ %74, %._crit_edge ], [ %74, %84 ]
+  %95 = phi i32 [ %74, %._crit_edge ], [ %.pre, %88 ], [ %74, %84 ]
   %96 = icmp sgt i32 %95, 0
   br i1 %96, label %.lr.ph121, label %._crit_edge122
 
@@ -16675,13 +16675,13 @@ _ZN2cv8ximgproc8nodeHeap6getMinEv.exit.i.i.i:     ; preds = %._crit_edge37.i.i.i
   br i1 %323, label %.lr.ph.i.i.i.i.i, label %_ZN2cv8ximgproc8nodeHeap10updateNodeENS0_4nodeE.exit.i.i.i, !llvm.loop !226
 
 _ZN2cv8ximgproc8nodeHeap10updateNodeENS0_4nodeE.exit.i.i.i: ; preds = %.lr.ph.i46.i.i.i, %.lr.ph.i.i.i.i.i, %286, %254, %.lr.ph.i.i.i
-  %324 = phi ptr [ %236, %.lr.ph.i.i.i ], [ %293, %286 ], [ %236, %254 ], [ %293, %.lr.ph.i.i.i.i.i ], [ %236, %.lr.ph.i46.i.i.i ]
-  %325 = phi ptr [ %237, %.lr.ph.i.i.i ], [ %295, %286 ], [ %237, %254 ], [ %295, %.lr.ph.i.i.i.i.i ], [ %276, %.lr.ph.i46.i.i.i ]
-  %326 = phi ptr [ %238, %.lr.ph.i.i.i ], [ %293, %286 ], [ %238, %254 ], [ %293, %.lr.ph.i.i.i.i.i ], [ %236, %.lr.ph.i46.i.i.i ]
-  %327 = phi ptr [ %239, %.lr.ph.i.i.i ], [ %293, %286 ], [ %238, %254 ], [ %293, %.lr.ph.i.i.i.i.i ], [ %236, %.lr.ph.i46.i.i.i ]
-  %328 = phi ptr [ %240, %.lr.ph.i.i.i ], [ %295, %286 ], [ %237, %254 ], [ %295, %.lr.ph.i.i.i.i.i ], [ %276, %.lr.ph.i46.i.i.i ]
-  %329 = phi ptr [ %241, %.lr.ph.i.i.i ], [ %295, %286 ], [ %237, %254 ], [ %295, %.lr.ph.i.i.i.i.i ], [ %276, %.lr.ph.i46.i.i.i ]
-  %330 = phi ptr [ %242, %.lr.ph.i.i.i ], [ %293, %286 ], [ %238, %254 ], [ %293, %.lr.ph.i.i.i.i.i ], [ %236, %.lr.ph.i46.i.i.i ]
+  %324 = phi ptr [ %293, %.lr.ph.i.i.i.i.i ], [ %236, %.lr.ph.i.i.i ], [ %293, %286 ], [ %236, %254 ], [ %236, %.lr.ph.i46.i.i.i ]
+  %325 = phi ptr [ %295, %.lr.ph.i.i.i.i.i ], [ %237, %.lr.ph.i.i.i ], [ %295, %286 ], [ %237, %254 ], [ %276, %.lr.ph.i46.i.i.i ]
+  %326 = phi ptr [ %293, %.lr.ph.i.i.i.i.i ], [ %238, %.lr.ph.i.i.i ], [ %293, %286 ], [ %238, %254 ], [ %236, %.lr.ph.i46.i.i.i ]
+  %327 = phi ptr [ %293, %.lr.ph.i.i.i.i.i ], [ %239, %.lr.ph.i.i.i ], [ %293, %286 ], [ %238, %254 ], [ %236, %.lr.ph.i46.i.i.i ]
+  %328 = phi ptr [ %295, %.lr.ph.i.i.i.i.i ], [ %240, %.lr.ph.i.i.i ], [ %295, %286 ], [ %237, %254 ], [ %276, %.lr.ph.i46.i.i.i ]
+  %329 = phi ptr [ %295, %.lr.ph.i.i.i.i.i ], [ %241, %.lr.ph.i.i.i ], [ %295, %286 ], [ %237, %254 ], [ %276, %.lr.ph.i46.i.i.i ]
+  %330 = phi ptr [ %293, %.lr.ph.i.i.i.i.i ], [ %242, %.lr.ph.i.i.i ], [ %293, %286 ], [ %238, %254 ], [ %236, %.lr.ph.i46.i.i.i ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %331 = load ptr, ptr %40, align 8, !tbaa !291
   %332 = getelementptr inbounds nuw %"class.std::vector.3", ptr %331, i64 %144

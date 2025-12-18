@@ -1483,7 +1483,7 @@ _ZN8WasmEdge7FileMgr9readBytesEN5cxx204spanIhLm18446744073709551615EEE.exit: ; p
   br i1 %.old51, label %._crit_edge, label %.thread103
 
 .thread103:                                       ; preds = %91, %116, %.thread76, %98, %123, %106
-  %.3 = phi i8 [ %spec.select, %106 ], [ %spec.select, %123 ], [ %spec.select, %.thread76 ], [ %.mux, %98 ], [ %spec.select110, %91 ], [ %spec.select, %116 ]
+  %.3 = phi i8 [ %spec.select, %106 ], [ %spec.select110, %91 ], [ %spec.select, %116 ], [ %spec.select, %123 ], [ %spec.select, %.thread76 ], [ %.mux, %98 ]
   %124 = icmp ne i32 %.037, 0
   %125 = trunc nuw i8 %.3 to i1
   %126 = select i1 %124, i1 %125, i1 false

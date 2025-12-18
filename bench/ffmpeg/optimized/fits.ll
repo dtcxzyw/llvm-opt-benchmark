@@ -191,7 +191,7 @@ define range(i32 -1094995529, 2) i32 @avpriv_fits_header_parse_line(ptr noundef 
   br i1 %exitcond122.not.i, label %read_keyword_value.exit, label %.lr.ph88.i, !llvm.loop !28
 
 read_keyword_value.exit:                          ; preds = %24, %.lr.ph88.i, %.lr.ph88.i, %39, %.critedge.i, %.preheader.i, %.critedge4.i, %.critedge6.i
-  %.057.i = phi ptr [ %31, %.critedge4.i ], [ %36, %.critedge6.i ], [ %9, %.critedge.i ], [ %25, %.preheader.i ], [ %.36086.i, %.lr.ph88.i ], [ %.36086.i, %.lr.ph88.i ], [ %40, %39 ], [ %9, %24 ]
+  %.057.i = phi ptr [ %31, %.critedge4.i ], [ %36, %.critedge6.i ], [ %9, %.critedge.i ], [ %.36086.i, %.lr.ph88.i ], [ %25, %.preheader.i ], [ %.36086.i, %.lr.ph88.i ], [ %40, %39 ], [ %9, %24 ]
   store i8 0, ptr %.057.i, align 1, !tbaa !22
   %41 = load i32, ptr %1, align 8, !tbaa !4
   switch i32 %41, label %dict_set_if_not_null.exit101 [

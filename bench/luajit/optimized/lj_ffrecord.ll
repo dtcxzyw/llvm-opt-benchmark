@@ -3440,7 +3440,7 @@ define internal void @recff_table_new(ptr noundef %0, ptr readnone captures(none
   br label %31
 
 31:                                               ; preds = %21, %.fold.split, %26
-  %32 = phi i16 [ %30, %26 ], [ 0, %21 ], [ 1, %.fold.split ]
+  %32 = phi i16 [ 0, %21 ], [ %30, %26 ], [ 1, %.fold.split ]
   %33 = icmp sgt i32 %19, 0
   %34 = trunc i32 %19 to i16
   %35 = add i16 %34, 1

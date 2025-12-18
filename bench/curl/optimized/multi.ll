@@ -520,7 +520,7 @@ sockhash_destroy.exit:                            ; preds = %.lr.ph.i47, %._crit
   br label %.critedge
 
 .critedge:                                        ; preds = %25, %23, %1, %3, %sockhash_destroy.exit, %6
-  %.3 = phi i32 [ 0, %sockhash_destroy.exit ], [ 8, %6 ], [ 1, %3 ], [ 1, %1 ], [ 1, %23 ], [ 1, %25 ]
+  %.3 = phi i32 [ 1, %1 ], [ 0, %sockhash_destroy.exit ], [ 8, %6 ], [ 1, %3 ], [ 1, %23 ], [ 1, %25 ]
   ret i32 %.3
 }
 
@@ -1742,7 +1742,7 @@ define internal fastcc range(i32 0, 13) i32 @multi_wait(ptr noundef %0, ptr noun
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph134, %56, %47, %._crit_edge, %95, %107
-  %.290 = phi i32 [ 3, %47 ], [ 3, %._crit_edge ], [ 0, %95 ], [ 0, %107 ], [ 12, %56 ], [ 3, %.lr.ph134 ], [ 3, %.lr.ph ]
+  %.290 = phi i32 [ 3, %.lr.ph134 ], [ 3, %47 ], [ 12, %56 ], [ 3, %._crit_edge ], [ 0, %95 ], [ 0, %107 ], [ 3, %.lr.ph ]
   call void @Curl_pollfds_cleanup(ptr noundef nonnull %11) #19
   br label %108
 
@@ -1802,7 +1802,7 @@ define range(i32 0, 10) i32 @curl_multi_wakeup(ptr noundef readonly captures(add
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %12, %.loopexit.loopexit, %6, %1, %3
-  %.0 = phi i32 [ 9, %.loopexit.loopexit ], [ 1, %1 ], [ 1, %3 ], [ 9, %6 ], [ 0, %12 ], [ 0, %.preheader ]
+  %.0 = phi i32 [ 9, %6 ], [ 9, %.loopexit.loopexit ], [ 1, %1 ], [ 1, %3 ], [ 0, %12 ], [ 0, %.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -3737,8 +3737,8 @@ mstate.exit184:                                   ; preds = %mstate.exit184threa
   br label %.thread250
 
 .thread250:                                       ; preds = %670, %676, %.thread
-  %.pr266 = phi i32 [ %668, %670 ], [ %.pr266.pre, %676 ], [ %.pr266.pre291, %.thread ]
-  %.1136.ph = phi i32 [ %.2137, %670 ], [ %.2137, %676 ], [ 0, %.thread ]
+  %.pr266 = phi i32 [ %.pr266.pre291, %.thread ], [ %668, %670 ], [ %.pr266.pre, %676 ]
+  %.1136.ph = phi i32 [ 0, %.thread ], [ %.2137, %670 ], [ %.2137, %676 ]
   %678 = icmp ult i32 %.pr266, 16
   br i1 %678, label %.thread250.thread, label %mstate.exit235
 
@@ -3748,7 +3748,7 @@ mstate.exit184:                                   ; preds = %mstate.exit184threa
   br label %.thread250.thread
 
 .thread250.thread:                                ; preds = %.thread250.thread.sink.split, %673, %mstate.exit184, %240, %277, %279, %296, %404, %412, %429, %434, %456, %472, %640, %.thread250
-  %.1136269.ph = phi i32 [ -1, %240 ], [ -1, %277 ], [ -1, %279 ], [ -1, %296 ], [ -1, %404 ], [ -1, %412 ], [ -1, %429 ], [ -1, %434 ], [ -1, %456 ], [ -1, %472 ], [ -1, %640 ], [ %.1136.ph, %.thread250 ], [ %.2137, %mstate.exit184 ], [ %.2137, %673 ], [ -1, %.thread250.thread.sink.split ]
+  %.1136269.ph = phi i32 [ %.2137, %673 ], [ %.2137, %mstate.exit184 ], [ -1, %240 ], [ %.1136.ph, %.thread250 ], [ -1, %277 ], [ -1, %640 ], [ -1, %279 ], [ -1, %472 ], [ -1, %296 ], [ -1, %456 ], [ -1, %404 ], [ -1, %412 ], [ -1, %429 ], [ -1, %434 ], [ -1, %.thread250.thread.sink.split ]
   %.pr273 = load i32, ptr %22, align 4, !tbaa !28
   %.not172 = icmp eq i32 %.pr273, 0
   br i1 %.not172, label %.thread250.thread.thread, label %679
@@ -4603,7 +4603,7 @@ sh_getentry.exit144:                              ; preds = %.critedge
   br i1 %179, label %130, label %.thread164, !llvm.loop !220
 
 .thread164:                                       ; preds = %.thread175, %.preheader, %96, %122, %sh_addentry.exit.thread, %173
-  %.2 = phi i32 [ 11, %173 ], [ 3, %96 ], [ 11, %122 ], [ 3, %sh_addentry.exit.thread ], [ 0, %.preheader ], [ 0, %.thread175 ]
+  %.2 = phi i32 [ 3, %sh_addentry.exit.thread ], [ 11, %173 ], [ 3, %96 ], [ 11, %122 ], [ 0, %.preheader ], [ 0, %.thread175 ]
   ret i32 %.2
 }
 
@@ -6916,7 +6916,7 @@ singlesocket.exit:                                ; preds = %57
   br i1 %.not32, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %.outer, %.backedge, %1, %singlesocket.exit
-  %.1 = phi i32 [ %59, %singlesocket.exit ], [ 0, %1 ], [ %.0.ph35, %.backedge ], [ %55, %.outer ]
+  %.1 = phi i32 [ %59, %singlesocket.exit ], [ %.0.ph35, %.backedge ], [ 0, %1 ], [ %55, %.outer ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.1
 }

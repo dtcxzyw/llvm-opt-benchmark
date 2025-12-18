@@ -168,8 +168,8 @@ define internal range(i32 -2147483648, 1) i32 @vp9_handle_packet(ptr noundef %0,
   br i1 %.old3.not, label %.thread, label %.preheader210
 
 .thread:                                          ; preds = %64, %43, %.thread193, %50
-  %.2136 = phi i32 [ %54, %50 ], [ %49, %.thread193 ], [ %.0134, %43 ], [ %66, %64 ]
-  %.2130 = phi ptr [ %53, %50 ], [ %48, %.thread193 ], [ %.0128, %43 ], [ %65, %64 ]
+  %.2136 = phi i32 [ %.0134, %43 ], [ %54, %50 ], [ %49, %.thread193 ], [ %66, %64 ]
+  %.2130 = phi ptr [ %.0128, %43 ], [ %53, %50 ], [ %48, %.thread193 ], [ %65, %64 ]
   br i1 %.not177, label %.loopexit, label %68
 
 68:                                               ; preds = %.thread

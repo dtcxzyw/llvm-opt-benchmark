@@ -3018,7 +3018,7 @@ define dso_local ptr @inet_gso_segment(ptr noundef initializes((180, 182)) %0, i
   br i1 %362, label %.thread, label %.split.split, !llvm.loop !59
 
 .thread:                                          ; preds = %343, %300, %272, %193, %112, %119, %125, %129, %104, %53, %51, %30, %26, %24
-  %363 = phi ptr [ inttoptr (i64 -22 to ptr), %26 ], [ inttoptr (i64 -22 to ptr), %30 ], [ inttoptr (i64 -22 to ptr), %53 ], [ %123, %129 ], [ inttoptr (i64 -93 to ptr), %104 ], [ inttoptr (i64 -22 to ptr), %24 ], [ inttoptr (i64 -22 to ptr), %51 ], [ inttoptr (i64 -93 to ptr), %112 ], [ inttoptr (i64 -93 to ptr), %119 ], [ null, %125 ], [ %123, %300 ], [ %123, %193 ], [ %123, %272 ], [ %123, %343 ]
+  %363 = phi ptr [ inttoptr (i64 -22 to ptr), %26 ], [ inttoptr (i64 -22 to ptr), %30 ], [ inttoptr (i64 -22 to ptr), %53 ], [ %123, %129 ], [ inttoptr (i64 -93 to ptr), %104 ], [ inttoptr (i64 -22 to ptr), %24 ], [ inttoptr (i64 -22 to ptr), %51 ], [ null, %125 ], [ inttoptr (i64 -93 to ptr), %112 ], [ inttoptr (i64 -93 to ptr), %119 ], [ %123, %193 ], [ %123, %272 ], [ %123, %300 ], [ %123, %343 ]
   ret ptr %363
 }
 

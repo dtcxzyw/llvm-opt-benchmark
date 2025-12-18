@@ -6266,8 +6266,8 @@ define internal fastcc void @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..o
   br label %66
 
 66:                                               ; preds = %59, %55
-  %67 = phi i8 [ %57, %55 ], [ %.pre.i.i.i.i.i.i, %59 ]
-  %.sroa.3.0.i.ph.i.i.i.i.i.i.i = phi i64 [ %.sroa.4.128.i.i.i.i.i.i.i.i, %55 ], [ %65, %59 ]
+  %67 = phi i8 [ %.pre.i.i.i.i.i.i, %59 ], [ %57, %55 ]
+  %.sroa.3.0.i.ph.i.i.i.i.i.i.i = phi i64 [ %65, %59 ], [ %.sroa.4.128.i.i.i.i.i.i.i.i, %55 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1523)
   %68 = getelementptr inbounds i8, ptr %.val.i.i.i.i.i.i.i, i64 %.sroa.3.0.i.ph.i.i.i.i.i.i.i
   %69 = and i8 %67, 1
@@ -25884,7 +25884,7 @@ select.unfold:                                    ; preds = %.sink.split.i7.i, %
   br i1 %97, label %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17hd2408714aa3964d9E.exit", label %94
 
 .loopexit357:                                     ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6576c6a3be853273E.exit.thread.i.loopexit", %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17hd2408714aa3964d9E.exit139.thread", %340
-  %.sroa.12.1.ph.lcssa407 = phi ptr [ %.sroa.12.0441, %340 ], [ %.sroa.12.1.ph438, %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17hd2408714aa3964d9E.exit139.thread" ], [ %.sroa.12.4698, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6576c6a3be853273E.exit.thread.i.loopexit" ]
+  %.sroa.12.1.ph.lcssa407 = phi ptr [ %.sroa.12.1.ph438, %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17hd2408714aa3964d9E.exit139.thread" ], [ %.sroa.12.0441, %340 ], [ %.sroa.12.4698, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6576c6a3be853273E.exit.thread.i.loopexit" ]
   %exitcond.not = icmp eq i64 %100, %90
   br i1 %exitcond.not, label %._crit_edge, label %99
 

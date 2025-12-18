@@ -421,7 +421,7 @@ match_noeq.exit.thread.i:                         ; preds = %match_noeq.exit.thr
   br i1 %.not16.i, label %borrowed_unsetenv.exit, label %match_noeq.exit.thread.i, !llvm.loop !12
 
 borrowed_unsetenv.exit:                           ; preds = %21, %match_noeq.exit.thread.i, %1, %3, %6, %.preheader21.i
-  %.011.i = phi i32 [ -1, %1 ], [ -1, %6 ], [ -1, %3 ], [ 0, %.preheader21.i ], [ 0, %match_noeq.exit.thread.i ], [ 0, %21 ]
+  %.011.i = phi i32 [ 0, %.preheader21.i ], [ -1, %1 ], [ -1, %6 ], [ -1, %3 ], [ 0, %match_noeq.exit.thread.i ], [ 0, %21 ]
   ret i32 %.011.i
 }
 

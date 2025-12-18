@@ -3189,7 +3189,7 @@ _ZN6icu_7712_GLOBAL__N_19CEIBuffer3getEi.exit241: ; preds = %.noexc240, %90
   %130 = and i32 %120, 65535
   %131 = and i32 %122, 65535
   %.not50.i = icmp eq i32 %130, %131
-  br i1 %.not50.i, label %141, label %132
+  br i1 %.not50.i, label %137, label %132
 
 132:                                              ; preds = %129
   %133 = icmp eq i32 %130, 0
@@ -3199,30 +3199,30 @@ _ZN6icu_7712_GLOBAL__N_19CEIBuffer3getEi.exit241: ; preds = %.noexc240, %90
   %135 = icmp eq i32 %131, 0
   %136 = icmp eq i16 %113, 4
   %or.cond5.i = and i1 %135, %136
-  br i1 %or.cond5.i, label %select.unfold, label %137
+  br i1 %or.cond5.i, label %select.unfold, label %_ZL12compareCE64slls.exit
 
-137:                                              ; preds = %134
-  %138 = icmp eq i32 %131, 5
-  %139 = icmp eq i32 %130, 5
-  %140 = and i1 %136, %139
-  %narrow.i = or i1 %138, %140
-  br i1 %narrow.i, label %.thread, label %_ZL12compareCE64slls.exit.thread319
+137:                                              ; preds = %129
+  %138 = trunc i64 %109 to i32
+  %139 = and i32 %138, -65536
+  %140 = trunc i64 %82 to i32
+  %141 = and i32 %140, -65536
+  %.not51.i = icmp eq i32 %139, %141
+  br i1 %.not51.i, label %.thread, label %142
 
-141:                                              ; preds = %129
-  %142 = trunc i64 %109 to i32
-  %143 = and i32 %142, -65536
-  %144 = trunc i64 %82 to i32
-  %145 = and i32 %144, -65536
-  %.not51.i = icmp eq i32 %143, %145
-  br i1 %.not51.i, label %.thread, label %_ZL12compareCE64slls.exit
-
-_ZL12compareCE64slls.exit:                        ; preds = %141
-  %146 = icmp eq i32 %145, 327680
-  %147 = icmp eq i16 %113, 4
-  %148 = icmp eq i32 %143, 327680
-  %149 = and i1 %147, %148
-  %narrow52.i = or i1 %146, %149
+142:                                              ; preds = %137
+  %143 = icmp eq i32 %141, 327680
+  %144 = icmp eq i16 %113, 4
+  %145 = icmp eq i32 %139, 327680
+  %146 = and i1 %144, %145
+  %narrow52.i = or i1 %143, %146
   br i1 %narrow52.i, label %.thread, label %_ZL12compareCE64slls.exit.thread319
+
+_ZL12compareCE64slls.exit:                        ; preds = %134
+  %147 = icmp eq i32 %131, 5
+  %148 = icmp eq i32 %130, 5
+  %149 = and i1 %136, %148
+  %narrow.i = or i1 %147, %149
+  br i1 %narrow.i, label %.thread, label %_ZL12compareCE64slls.exit.thread319
 
 150:                                              ; preds = %124, %132
   %151 = add nsw i32 %.0164416, -1
@@ -3233,15 +3233,15 @@ select.unfold:                                    ; preds = %126, %134
   %153 = add nsw i32 %.0158417, -1
   br label %.thread
 
-.thread:                                          ; preds = %137, %_ZL12compareCE64slls.exit, %select.unfold, %150, %_ZN6icu_7712_GLOBAL__N_19CEIBuffer3getEi.exit241, %141
-  %.1165.ph = phi i32 [ %.0164416, %141 ], [ %.0164416, %_ZN6icu_7712_GLOBAL__N_19CEIBuffer3getEi.exit241 ], [ %151, %150 ], [ %.0164416, %select.unfold ], [ %.0164416, %_ZL12compareCE64slls.exit ], [ %.0164416, %137 ]
-  %.2160.ph = phi i32 [ %.0158417, %141 ], [ %.0158417, %_ZN6icu_7712_GLOBAL__N_19CEIBuffer3getEi.exit241 ], [ %152, %150 ], [ %153, %select.unfold ], [ %.0158417, %_ZL12compareCE64slls.exit ], [ %.0158417, %137 ]
+.thread:                                          ; preds = %142, %_ZL12compareCE64slls.exit, %select.unfold, %150, %_ZN6icu_7712_GLOBAL__N_19CEIBuffer3getEi.exit241, %137
+  %.1165.ph = phi i32 [ %.0164416, %137 ], [ %.0164416, %_ZN6icu_7712_GLOBAL__N_19CEIBuffer3getEi.exit241 ], [ %151, %150 ], [ %.0164416, %select.unfold ], [ %.0164416, %_ZL12compareCE64slls.exit ], [ %.0164416, %142 ]
+  %.2160.ph = phi i32 [ %.0158417, %137 ], [ %.0158417, %_ZN6icu_7712_GLOBAL__N_19CEIBuffer3getEi.exit241 ], [ %152, %150 ], [ %153, %select.unfold ], [ %.0158417, %_ZL12compareCE64slls.exit ], [ %.0158417, %142 ]
   %154 = add nsw i32 %.1165.ph, 1
   %155 = load i32, ptr %44, align 8, !tbaa !75
   %156 = icmp slt i32 %154, %155
   br i1 %156, label %.lr.ph, label %.critedge, !llvm.loop !90
 
-_ZL12compareCE64slls.exit.thread319:              ; preds = %137, %126, %115, %_ZL12compareCE64slls.exit
+_ZL12compareCE64slls.exit.thread319:              ; preds = %142, %126, %115, %_ZL12compareCE64slls.exit
   %.not195 = icmp eq i64 %109, 9223372036854775807
   br i1 %.not195, label %_ZL15isBreakBoundaryP13UStringSearchiR10UErrorCode.exit293.thread.thread.loopexit, label %select.unfold366
 
@@ -4868,7 +4868,7 @@ _ZN6icu_7712_GLOBAL__N_19CEIBuffer11getPreviousEi.exit268: ; preds = %.noexc267,
   %206 = and i32 %196, 65535
   %207 = and i32 %198, 65535
   %.not50.i = icmp eq i32 %206, %207
-  br i1 %.not50.i, label %217, label %208
+  br i1 %.not50.i, label %213, label %208
 
 208:                                              ; preds = %205
   %209 = icmp eq i32 %206, 0
@@ -4878,30 +4878,30 @@ _ZN6icu_7712_GLOBAL__N_19CEIBuffer11getPreviousEi.exit268: ; preds = %.noexc267,
   %211 = icmp eq i32 %207, 0
   %212 = icmp eq i16 %189, 4
   %or.cond5.i = and i1 %211, %212
-  br i1 %or.cond5.i, label %select.unfold, label %213
+  br i1 %or.cond5.i, label %select.unfold, label %_ZL12compareCE64slls.exit
 
-213:                                              ; preds = %210
-  %214 = icmp eq i32 %207, 5
-  %215 = icmp eq i32 %206, 5
-  %216 = and i1 %212, %215
-  %narrow.i = or i1 %214, %216
-  br i1 %narrow.i, label %.thread, label %.thread353
+213:                                              ; preds = %205
+  %214 = trunc i64 %185 to i32
+  %215 = and i32 %214, -65536
+  %216 = trunc i64 %156 to i32
+  %217 = and i32 %216, -65536
+  %.not51.i = icmp eq i32 %215, %217
+  br i1 %.not51.i, label %.thread, label %218
 
-217:                                              ; preds = %205
-  %218 = trunc i64 %185 to i32
-  %219 = and i32 %218, -65536
-  %220 = trunc i64 %156 to i32
-  %221 = and i32 %220, -65536
-  %.not51.i = icmp eq i32 %219, %221
-  br i1 %.not51.i, label %.thread, label %_ZL12compareCE64slls.exit
-
-_ZL12compareCE64slls.exit:                        ; preds = %217
-  %222 = icmp eq i32 %221, 327680
-  %223 = icmp eq i16 %189, 4
-  %224 = icmp eq i32 %219, 327680
-  %225 = and i1 %223, %224
-  %narrow52.i = or i1 %222, %225
+218:                                              ; preds = %213
+  %219 = icmp eq i32 %217, 327680
+  %220 = icmp eq i16 %189, 4
+  %221 = icmp eq i32 %215, 327680
+  %222 = and i1 %220, %221
+  %narrow52.i = or i1 %219, %222
   br i1 %narrow52.i, label %.thread, label %.thread353
+
+_ZL12compareCE64slls.exit:                        ; preds = %210
+  %223 = icmp eq i32 %207, 5
+  %224 = icmp eq i32 %206, 5
+  %225 = and i1 %212, %224
+  %narrow.i = or i1 %223, %225
+  br i1 %narrow.i, label %.thread, label %.thread353
 
 226:                                              ; preds = %174
   %227 = landingpad { ptr, i32 }
@@ -4916,13 +4916,13 @@ select.unfold:                                    ; preds = %202, %210
   %230 = add nsw i32 %.0164420, -1
   br label %.thread
 
-.thread:                                          ; preds = %213, %_ZL12compareCE64slls.exit, %217, %_ZN6icu_7712_GLOBAL__N_19CEIBuffer11getPreviousEi.exit268, %228, %select.unfold
-  %.1169 = phi i32 [ %.0168.in419, %228 ], [ %.0168421, %select.unfold ], [ %.0168421, %217 ], [ %.0168421, %_ZN6icu_7712_GLOBAL__N_19CEIBuffer11getPreviousEi.exit268 ], [ %.0168421, %_ZL12compareCE64slls.exit ], [ %.0168421, %213 ]
-  %.2166 = phi i32 [ %229, %228 ], [ %230, %select.unfold ], [ %.0164420, %217 ], [ %.0164420, %_ZN6icu_7712_GLOBAL__N_19CEIBuffer11getPreviousEi.exit268 ], [ %.0164420, %_ZL12compareCE64slls.exit ], [ %.0164420, %213 ]
+.thread:                                          ; preds = %218, %_ZL12compareCE64slls.exit, %213, %_ZN6icu_7712_GLOBAL__N_19CEIBuffer11getPreviousEi.exit268, %228, %select.unfold
+  %.1169 = phi i32 [ %.0168421, %213 ], [ %.0168.in419, %228 ], [ %.0168421, %select.unfold ], [ %.0168421, %_ZN6icu_7712_GLOBAL__N_19CEIBuffer11getPreviousEi.exit268 ], [ %.0168421, %_ZL12compareCE64slls.exit ], [ %.0168421, %218 ]
+  %.2166 = phi i32 [ %.0164420, %213 ], [ %229, %228 ], [ %230, %select.unfold ], [ %.0164420, %_ZN6icu_7712_GLOBAL__N_19CEIBuffer11getPreviousEi.exit268 ], [ %.0164420, %_ZL12compareCE64slls.exit ], [ %.0164420, %218 ]
   %231 = icmp sgt i32 %.1169, 0
   br i1 %231, label %.lr.ph, label %.critedge234.loopexit, !llvm.loop !106
 
-.thread353:                                       ; preds = %213, %202, %191, %_ZL12compareCE64slls.exit
+.thread353:                                       ; preds = %218, %202, %191, %_ZL12compareCE64slls.exit
   %.not206 = icmp eq i64 %185, 9223372036854775807
   br i1 %.not206, label %.thread369.loopexit, label %.thread382
 

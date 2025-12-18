@@ -1398,7 +1398,7 @@ bsearch.exit.i:                                   ; preds = %72
   br label %look_for_dissector.exit
 
 look_for_dissector.exit:                          ; preds = %83, %91
-  %.0.i = phi ptr [ %86, %83 ], [ %94, %91 ]
+  %.0.i = phi ptr [ %94, %91 ], [ %86, %83 ]
   %.not129 = icmp eq ptr %.0.i, null
   br i1 %.not129, label %.thread144, label %look_for_dissector.exit.thread140
 

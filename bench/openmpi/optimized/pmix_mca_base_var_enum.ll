@@ -423,7 +423,7 @@ define internal range(i32 -46, 1) i32 @pmix_mca_base_var_enum_verbose_vfs(ptr re
   br label %.loopexit
 
 .loopexit:                                        ; preds = %11, %.loopexit.sink.split, %.preheader
-  %.1 = phi i32 [ -46, %.preheader ], [ 0, %.loopexit.sink.split ], [ -46, %11 ]
+  %.1 = phi i32 [ 0, %.loopexit.sink.split ], [ -46, %.preheader ], [ -46, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.1
 }

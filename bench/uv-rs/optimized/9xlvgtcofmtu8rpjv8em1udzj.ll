@@ -28049,7 +28049,7 @@ define hidden noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u2
   br i1 %17, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h658735dd344197feE.llvm.12339422036629587697.exit", label %13
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h658735dd344197feE.llvm.12339422036629587697.exit": ; preds = %"_ZN11uv_resolver4lock12WheelTagHint13platform_tags28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h7050017ec71fd07cE.llvm.12339422036629587697.exit.loopexit", %15, %3
-  %18 = phi i1 [ false, %3 ], [ true, %15 ], [ false, %"_ZN11uv_resolver4lock12WheelTagHint13platform_tags28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h7050017ec71fd07cE.llvm.12339422036629587697.exit.loopexit" ]
+  %18 = phi i1 [ true, %15 ], [ false, %3 ], [ false, %"_ZN11uv_resolver4lock12WheelTagHint13platform_tags28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h7050017ec71fd07cE.llvm.12339422036629587697.exit.loopexit" ]
   ret i1 %18
 }
 
@@ -30298,7 +30298,7 @@ define internal fastcc void @_ZN9uv_pep4407version7Version12with_release17h27650
   %91 = add nuw nsw i8 %74, 1
   br label %_ZN9uv_pep4407version12VersionSmall12push_release17h02d96fd89e4e4274E.exit
 
-_ZN9uv_pep4407version12VersionSmall12push_release17h02d96fd89e4e4274E.exit.thread: ; preds = %78, %76, %70
+_ZN9uv_pep4407version12VersionSmall12push_release17h02d96fd89e4e4274E.exit.thread: ; preds = %76, %78, %70
   %92 = invoke noundef align 8 dereferenceable(136) ptr @_ZN9uv_pep4407version7Version9make_full17h80bac72c41a6d3c1E(ptr noalias noundef nonnull align 8 dereferenceable(16) %1)
           to label %93 unwind label %68
 
@@ -37233,7 +37233,7 @@ define void @_ZN11uv_resolver4lock6export11pylock_toml10PylockToml13to_resolutio
   br label %.body
 
 .loopexit.loopexit.split-lp:                      ; preds = %2545, %.noexc509, %.noexc65.i, %.noexc.i, %894, %835, %830, %.noexc490, %823, %806, %"_ZN4core6option15Option$LT$T$GT$6filter17h850830847a4867ccE.exit", %2031, %1937, %1572, %1557, %1063, %795, %.thread1456.thread.thread
-  %.sroa.0170.0.ph.ph = phi i1 [ true, %1572 ], [ true, %1937 ], [ true, %2031 ], [ false, %1557 ], [ true, %.thread1456.thread.thread ], [ true, %795 ], [ true, %"_ZN4core6option15Option$LT$T$GT$6filter17h850830847a4867ccE.exit" ], [ true, %.noexc.i ], [ true, %830 ], [ true, %.noexc509 ], [ true, %823 ], [ true, %.noexc65.i ], [ true, %.noexc490 ], [ true, %806 ], [ true, %1063 ], [ true, %835 ], [ true, %894 ], [ false, %2545 ]
+  %.sroa.0170.0.ph.ph = phi i1 [ true, %1937 ], [ true, %1572 ], [ true, %2031 ], [ false, %1557 ], [ true, %.thread1456.thread.thread ], [ true, %795 ], [ true, %"_ZN4core6option15Option$LT$T$GT$6filter17h850830847a4867ccE.exit" ], [ true, %.noexc.i ], [ true, %830 ], [ true, %.noexc509 ], [ true, %823 ], [ true, %.noexc65.i ], [ true, %.noexc490 ], [ true, %806 ], [ true, %1063 ], [ true, %835 ], [ true, %894 ], [ false, %2545 ]
   %lpad.loopexit.split-lp1932 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -47633,7 +47633,7 @@ define hidden void @"_ZN134_$LT$uv_resolver..pubgrub..report..PubGrubHintCore$u2
           to label %82 unwind label %89
 
 common.resume:                                    ; preds = %402, %82, %302, %317, %330, %.body54, %435, %454, %458, %462, %354, %"_ZN4core3ptr68drop_in_place$LT$uv_pep440..version_specifier..VersionSpecifiers$GT$17h4b900a12d1c8f9f5E.exit", %350, %253, %229
-  %common.resume.op = phi { ptr, i32 } [ %.pn4, %350 ], [ %230, %229 ], [ %254, %253 ], [ %303, %302 ], [ %318, %317 ], [ %331, %330 ], [ %463, %462 ], [ %.pn2, %.body54 ], [ %.pn, %435 ], [ %455, %454 ], [ %459, %458 ], [ %.pn4, %354 ], [ %.pn4, %"_ZN4core3ptr68drop_in_place$LT$uv_pep440..version_specifier..VersionSpecifiers$GT$17h4b900a12d1c8f9f5E.exit" ], [ %85, %82 ], [ %405, %402 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn4, %350 ], [ %85, %82 ], [ %230, %229 ], [ %254, %253 ], [ %303, %302 ], [ %318, %317 ], [ %331, %330 ], [ %463, %462 ], [ %.pn2, %.body54 ], [ %.pn, %435 ], [ %455, %454 ], [ %459, %458 ], [ %.pn4, %354 ], [ %.pn4, %"_ZN4core3ptr68drop_in_place$LT$uv_pep440..version_specifier..VersionSpecifiers$GT$17h4b900a12d1c8f9f5E.exit" ], [ %405, %402 ]
   resume { ptr, i32 } %common.resume.op
 
 89:                                               ; preds = %86
@@ -52684,7 +52684,7 @@ default.unreachable147:                           ; preds = %"_ZN66_$LT$uv_pep44
   br label %"_ZN4core3ptr78drop_in_place$LT$version_ranges..Ranges$LT$uv_pep440..version..Version$GT$$GT$17h840a8dec1c85e5cbE.exit"
 
 .body37:                                          ; preds = %161, %300, %241, %247, %176, %.body63, %250
-  %.pn29 = phi { ptr, i32 } [ %251, %250 ], [ %.pn.pn, %.body63 ], [ %248, %247 ], [ %177, %176 ], [ %242, %241 ], [ %303, %300 ], [ %164, %161 ]
+  %.pn29 = phi { ptr, i32 } [ %251, %250 ], [ %.pn.pn, %.body63 ], [ %303, %300 ], [ %248, %247 ], [ %177, %176 ], [ %242, %241 ], [ %164, %161 ]
   invoke void @"_ZN4core3ptr78drop_in_place$LT$version_ranges..Ranges$LT$uv_pep440..version..Version$GT$$GT$17h840a8dec1c85e5cbE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %30) #51
           to label %.body unwind label %406
 
@@ -52950,7 +52950,7 @@ default.unreachable147:                           ; preds = %"_ZN66_$LT$uv_pep44
   br label %.loopexit
 
 .body63:                                          ; preds = %260, %322, %275, %"_ZN4core3ptr68drop_in_place$LT$uv_pep440..version_specifier..VersionSpecifiers$GT$17h4b900a12d1c8f9f5E.exit85"
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr68drop_in_place$LT$uv_pep440..version_specifier..VersionSpecifiers$GT$17h4b900a12d1c8f9f5E.exit85" ], [ %276, %275 ], [ %323, %322 ], [ %263, %260 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr68drop_in_place$LT$uv_pep440..version_specifier..VersionSpecifiers$GT$17h4b900a12d1c8f9f5E.exit85" ], [ %323, %322 ], [ %276, %275 ], [ %263, %260 ]
   invoke void @"_ZN4core3ptr78drop_in_place$LT$version_ranges..Ranges$LT$uv_pep440..version..Version$GT$$GT$17h840a8dec1c85e5cbE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %27) #51
           to label %.body37 unwind label %406
 
@@ -53285,7 +53285,7 @@ default.unreachable147:                           ; preds = %"_ZN66_$LT$uv_pep44
           to label %391 unwind label %398
 
 common.resume:                                    ; preds = %391, %59, %.body96
-  %common.resume.op = phi { ptr, i32 } [ %.pn33, %.body96 ], [ %60, %59 ], [ %394, %391 ]
+  %common.resume.op = phi { ptr, i32 } [ %60, %59 ], [ %.pn33, %.body96 ], [ %394, %391 ]
   resume { ptr, i32 } %common.resume.op
 
 398:                                              ; preds = %395

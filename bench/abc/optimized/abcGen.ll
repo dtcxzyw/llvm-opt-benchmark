@@ -6568,8 +6568,8 @@ Vec_WecPush.exit226:                              ; preds = %.Vec_IntGrow.exit10
   br i1 %exitcond325.not, label %.critedge14, label %293, !llvm.loop !207
 
 .critedge14:                                      ; preds = %.critedge10, %._crit_edge258, %.critedge10.preheader
-  %.0153.lcssa371 = phi i32 [ %.1154.lcssa, %.critedge10.preheader ], [ 0, %._crit_edge258 ], [ %.1154.lcssa, %.critedge10 ]
-  %.0157.lcssa370 = phi i32 [ %.1158.lcssa, %.critedge10.preheader ], [ 0, %._crit_edge258 ], [ %.1158.lcssa, %.critedge10 ]
+  %.0153.lcssa371 = phi i32 [ 0, %._crit_edge258 ], [ %.1154.lcssa, %.critedge10.preheader ], [ %.1154.lcssa, %.critedge10 ]
+  %.0157.lcssa370 = phi i32 [ 0, %._crit_edge258 ], [ %.1158.lcssa, %.critedge10.preheader ], [ %.1158.lcssa, %.critedge10 ]
   %304 = tail call i64 @fwrite(ptr nonnull @.str.223, i64 6, i64 1, ptr %91)
   tail call void @Abc_WriteHalfAdder(ptr noundef %91)
   tail call void @Abc_WriteFullAdder(ptr noundef %91)
@@ -8779,10 +8779,10 @@ Vec_IntPush.exit529:                              ; preds = %Vec_IntPush.exit529
   br i1 %933, label %.critedge12, label %.critedge14, !llvm.loop !224
 
 .critedge14:                                      ; preds = %Vec_WecFree.exit, %.critedge12, %._crit_edge590, %.critedge12.preheader
-  %.0281974 = phi ptr [ %.0281979, %.critedge12.preheader ], [ %15, %._crit_edge590 ], [ %.0281979, %.critedge12 ], [ %146, %Vec_WecFree.exit ]
-  %.0254969 = phi i32 [ %.0254983, %.critedge12.preheader ], [ 0, %._crit_edge590 ], [ %.0254983, %.critedge12 ], [ %.1255.lcssa, %Vec_WecFree.exit ]
-  %.7.lcssa889 = phi i32 [ %.8, %.critedge12.preheader ], [ 0, %._crit_edge590 ], [ %.8, %.critedge12 ], [ %.1265.lcssa, %Vec_WecFree.exit ]
-  %.4263.lcssa = phi i32 [ %.0259982, %.critedge12.preheader ], [ 0, %._crit_edge590 ], [ %930, %.critedge12 ], [ %.1260.lcssa, %Vec_WecFree.exit ]
+  %.0281974 = phi ptr [ %.0281979, %.critedge12.preheader ], [ %.0281979, %.critedge12 ], [ %15, %._crit_edge590 ], [ %146, %Vec_WecFree.exit ]
+  %.0254969 = phi i32 [ %.0254983, %.critedge12.preheader ], [ %.0254983, %.critedge12 ], [ 0, %._crit_edge590 ], [ %.1255.lcssa, %Vec_WecFree.exit ]
+  %.7.lcssa889 = phi i32 [ %.8, %.critedge12.preheader ], [ %.8, %.critedge12 ], [ 0, %._crit_edge590 ], [ %.1265.lcssa, %Vec_WecFree.exit ]
+  %.4263.lcssa = phi i32 [ %.0259982, %.critedge12.preheader ], [ %930, %.critedge12 ], [ 0, %._crit_edge590 ], [ %.1260.lcssa, %Vec_WecFree.exit ]
   %934 = tail call i64 @fwrite(ptr nonnull @.str.223, i64 6, i64 1, ptr %91)
   tail call void @Abc_WriteFullAdder(ptr noundef %91)
   %.not298 = icmp eq i32 %.0254969, 0

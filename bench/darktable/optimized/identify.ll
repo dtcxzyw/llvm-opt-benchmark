@@ -1317,7 +1317,7 @@ define void @_ZN6LibRaw8identifyEv(ptr noundef nonnull align 8 dereferenceable(7
   br label %.loopexit600
 
 .loopexit600:                                     ; preds = %415, %.preheader599, %497
-  %504 = phi i8 [ %.pre, %497 ], [ 0, %.preheader599 ], [ 0, %415 ]
+  %504 = phi i8 [ 0, %.preheader599 ], [ %.pre, %497 ], [ 0, %415 ]
   %505 = icmp eq i8 %504, 0
   %506 = icmp slt i64 %158, 25000000
   %or.cond8 = and i1 %506, %505

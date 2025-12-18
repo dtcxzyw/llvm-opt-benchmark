@@ -72,7 +72,7 @@ define dso_local ptr @get_role_password(ptr noundef %0, ptr noundef writeonly ca
   br label %27
 
 27:                                               ; preds = %.sink.split, %14, %21
-  %.0 = phi ptr [ %16, %21 ], [ %16, %14 ], [ null, %.sink.split ]
+  %.0 = phi ptr [ %16, %14 ], [ %16, %21 ], [ null, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
@@ -572,7 +572,7 @@ sub_1.i:                                          ; preds = %4
   br label %43
 
 43:                                               ; preds = %.sink.split, %36, %27
-  %.0 = phi i32 [ 0, %27 ], [ 0, %36 ], [ -1, %.sink.split ]
+  %.0 = phi i32 [ 0, %36 ], [ 0, %27 ], [ -1, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %.0

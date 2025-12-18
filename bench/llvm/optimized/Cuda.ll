@@ -7569,7 +7569,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i:            ; preds = %_ZN4llvm9StringRefC
   br label %_ZN4llvmplERKNS_5TwineES2_.exit
 
 _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i, %_ZN4llvm9StringRefC2EPKc.exit76, %219, %215, %217, %213, %_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.exit.thread468
-  %.sroa.0284.0 = phi ptr [ @.str.47, %217 ], [ @.str.47, %_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.exit.thread468 ], [ @.str.48, %215 ], [ @.str.47, %213 ], [ @.str.50, %219 ], [ %switch.select503, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ], [ @.str.50, %_ZN4llvm9StringRefC2EPKc.exit76 ]
+  %.sroa.0284.0 = phi ptr [ @.str.47, %217 ], [ @.str.47, %_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.exit.thread468 ], [ @.str.48, %215 ], [ @.str.47, %213 ], [ @.str.50, %219 ], [ @.str.50, %_ZN4llvm9StringRefC2EPKc.exit76 ], [ %switch.select503, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store ptr @.str.53, ptr %17, align 8, !alias.scope !333
   %224 = getelementptr inbounds nuw i8, ptr %17, i64 16

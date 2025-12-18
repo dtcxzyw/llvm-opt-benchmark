@@ -1731,7 +1731,7 @@ _ZN7rocksdb20CompactionInputFilesD2Ev.exit.i.i.i: ; preds = %576, %_ZNSt6vectorI
   br label %.body.i.i.i
 
 .body.i.i.i:                                      ; preds = %.body88.i.i.i, %.loopexit.split-lp149.i.i.i, %.loopexit148.i.i.i, %477, %476
-  %.pn.pn.i.i.i = phi { ptr, i32 } [ %lpad.loopexit.split-lp151.i.i.i, %.loopexit.split-lp149.i.i.i ], [ %lpad.phi157.i.i.i, %477 ], [ %lpad.phi157.i.i.i, %476 ], [ %lpad.loopexit150.i.i.i, %.loopexit148.i.i.i ], [ %.pn.i.i.i, %.body88.i.i.i ]
+  %.pn.pn.i.i.i = phi { ptr, i32 } [ %lpad.phi157.i.i.i, %476 ], [ %lpad.loopexit.split-lp151.i.i.i, %.loopexit.split-lp149.i.i.i ], [ %lpad.phi157.i.i.i, %477 ], [ %lpad.loopexit150.i.i.i, %.loopexit148.i.i.i ], [ %.pn.i.i.i, %.body88.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %693
@@ -2709,7 +2709,7 @@ _ZNK7rocksdb16MutableCFOptions27MaxBytesMultiplerAdditionalEi.exit.us.i.i.i: ; p
   br i1 %1013, label %.lr.ph.split.split.us.i.i.i, label %_ZN7rocksdb12_GLOBAL__N_122LevelCompactionBuilder9GetPathIdERKNS_18ImmutableCFOptionsERKNS_16MutableCFOptionsEi.exit.i.i, !llvm.loop !289
 
 _ZN7rocksdb12_GLOBAL__N_122LevelCompactionBuilder9GetPathIdERKNS_18ImmutableCFOptionsERKNS_16MutableCFOptionsEi.exit.i.i: ; preds = %.split.i.i.i, %.lr.ph71.i.i.i, %.split.us.us.i.i.i, %.lr.ph90.us.i.i.i, %945
-  %.026.ph.lcssa.i.i.i = phi i32 [ 0, %945 ], [ %.026.ph93.i.i.i, %.lr.ph71.i.i.i ], [ %.026.ph93.us.i.i.i, %.lr.ph90.us.i.i.i ], [ %978, %.split.us.us.i.i.i ], [ %1008, %.split.i.i.i ]
+  %.026.ph.lcssa.i.i.i = phi i32 [ %978, %.split.us.us.i.i.i ], [ %.026.ph93.us.i.i.i, %.lr.ph90.us.i.i.i ], [ 0, %945 ], [ %.026.ph93.i.i.i, %.lr.ph71.i.i.i ], [ %1008, %.split.i.i.i ]
   %1014 = load ptr, ptr %25, align 8, !tbaa !56
   %1015 = getelementptr inbounds nuw i8, ptr %1014, i64 2800
   %1016 = load i32, ptr %1015, align 16, !tbaa !138
@@ -4132,7 +4132,7 @@ _ZN7rocksdb20CompactionInputFiles5clearEv.exit74: ; preds = %.critedge56.thread,
   br label %.body
 
 .body:                                            ; preds = %.body66, %.loopexit105, %.loopexit.split-lp, %388, %386
-  %.pn.pn = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.phi110, %388 ], [ %lpad.phi110, %386 ], [ %lpad.loopexit, %.loopexit105 ], [ %.pn, %.body66 ]
+  %.pn.pn = phi { ptr, i32 } [ %lpad.phi110, %386 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.phi110, %388 ], [ %lpad.loopexit, %.loopexit105 ], [ %.pn, %.body66 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %common.resume
@@ -4731,7 +4731,7 @@ _ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE9push_backERKS2_.exit: ; preds = %
   br label %.critedge
 
 .critedge:                                        ; preds = %41, %._crit_edge, %99, %98, %7, %100, %1
-  %.0 = phi i1 [ false, %1 ], [ false, %7 ], [ true, %100 ], [ false, %98 ], [ false, %99 ], [ false, %._crit_edge ], [ false, %41 ]
+  %.0 = phi i1 [ false, %1 ], [ false, %7 ], [ true, %100 ], [ false, %99 ], [ false, %98 ], [ false, %._crit_edge ], [ false, %41 ]
   ret i1 %.0
 }
 
@@ -6878,7 +6878,7 @@ _ZNK7rocksdb21UserComparatorWrapper7CompareERKNS_5SliceES3_.exit.i.i.i.i: ; pred
   br label %_ZTWN7rocksdb10perf_levelE.exit.i.i.i.i.i, !llvm.loop !334
 
 "_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN7rocksdb12_GLOBAL__N_122LevelCompactionBuilder20TryPickL0TrivialMoveEvE3$_0EclIPNS2_12FileMetaDataENS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEEEEbRT_T0_.exit.thread10": ; preds = %101, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN7rocksdb12_GLOBAL__N_122LevelCompactionBuilder20TryPickL0TrivialMoveEvE3$_0EclIPNS2_12FileMetaDataENS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEEEEbRT_T0_.exit", %78, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN7rocksdb12_GLOBAL__N_122LevelCompactionBuilder20TryPickL0TrivialMoveEvE3$_0EclIPNS2_12FileMetaDataENS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEEEEbRT_T0_.exit.us21", %54, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN7rocksdb12_GLOBAL__N_122LevelCompactionBuilder20TryPickL0TrivialMoveEvE3$_0EclIPNS2_12FileMetaDataENS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEEEEbRT_T0_.exit.us", %30, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN7rocksdb12_GLOBAL__N_122LevelCompactionBuilder20TryPickL0TrivialMoveEvE3$_0EclIPNS2_12FileMetaDataENS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEEEEbRT_T0_.exit.us.us"
-  %.us-phi = phi ptr [ %.sroa.06.0.us13, %78 ], [ %.sroa.06.0.us.us, %30 ], [ %.sroa.06.0.us, %54 ], [ %.sroa.06.0.us.us, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN7rocksdb12_GLOBAL__N_122LevelCompactionBuilder20TryPickL0TrivialMoveEvE3$_0EclIPNS2_12FileMetaDataENS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEEEEbRT_T0_.exit.us.us" ], [ %.sroa.06.0.us, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN7rocksdb12_GLOBAL__N_122LevelCompactionBuilder20TryPickL0TrivialMoveEvE3$_0EclIPNS2_12FileMetaDataENS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEEEEbRT_T0_.exit.us" ], [ %.sroa.06.0.us13, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN7rocksdb12_GLOBAL__N_122LevelCompactionBuilder20TryPickL0TrivialMoveEvE3$_0EclIPNS2_12FileMetaDataENS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEEEEbRT_T0_.exit.us21" ], [ %.sroa.06.0, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN7rocksdb12_GLOBAL__N_122LevelCompactionBuilder20TryPickL0TrivialMoveEvE3$_0EclIPNS2_12FileMetaDataENS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEEEEbRT_T0_.exit" ], [ %.sroa.06.0, %101 ]
+  %.us-phi = phi ptr [ %.sroa.06.0.us13, %78 ], [ %.sroa.06.0.us, %54 ], [ %.sroa.06.0.us.us, %30 ], [ %.sroa.06.0.us.us, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN7rocksdb12_GLOBAL__N_122LevelCompactionBuilder20TryPickL0TrivialMoveEvE3$_0EclIPNS2_12FileMetaDataENS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEEEEbRT_T0_.exit.us.us" ], [ %.sroa.06.0.us, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN7rocksdb12_GLOBAL__N_122LevelCompactionBuilder20TryPickL0TrivialMoveEvE3$_0EclIPNS2_12FileMetaDataENS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEEEEbRT_T0_.exit.us" ], [ %.sroa.06.0.us13, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN7rocksdb12_GLOBAL__N_122LevelCompactionBuilder20TryPickL0TrivialMoveEvE3$_0EclIPNS2_12FileMetaDataENS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEEEEbRT_T0_.exit.us21" ], [ %.sroa.06.0, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN7rocksdb12_GLOBAL__N_122LevelCompactionBuilder20TryPickL0TrivialMoveEvE3$_0EclIPNS2_12FileMetaDataENS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEEEEbRT_T0_.exit" ], [ %.sroa.06.0, %101 ]
   store ptr %5, ptr %.us-phi, align 8, !tbaa !228
   ret void
 }

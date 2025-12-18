@@ -558,7 +558,7 @@ Py_INCREF.exit.thread6.sink.split:                ; preds = %29, %9
   br label %Py_INCREF.exit.thread6
 
 Py_INCREF.exit.thread6:                           ; preds = %Py_INCREF.exit.thread6.sink.split, %29, %9, %Py_INCREF.exit
-  %.0189 = phi ptr [ %33, %Py_INCREF.exit ], [ %0, %9 ], [ %18, %29 ], [ %.sink42, %Py_INCREF.exit.thread6.sink.split ]
+  %.0189 = phi ptr [ %33, %Py_INCREF.exit ], [ %18, %29 ], [ %0, %9 ], [ %.sink42, %Py_INCREF.exit.thread6.sink.split ]
   %35 = tail call ptr @PyUnicode_AsUTF8(ptr noundef nonnull %.0189) #4
   %36 = icmp eq ptr %35, null
   br i1 %36, label %37, label %.thread32

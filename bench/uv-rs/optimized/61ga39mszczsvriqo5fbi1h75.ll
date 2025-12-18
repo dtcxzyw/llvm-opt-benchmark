@@ -1388,8 +1388,8 @@ default.unreachable:                              ; preds = %.noexc395, %.noexc3
   br i1 %357, label %.lr.ph.i.us, label %._crit_edge.i423.us
 
 ._crit_edge.i423.us:                              ; preds = %.sink.split.i.us, %354, %313, %270
-  %.sink.i431.us.lcssa916 = phi i64 [ %.sink.i431.us.lcssa919, %270 ], [ %.sink.i431.us.lcssa919, %313 ], [ %.sink.i431.us.lcssa919, %354 ], [ %.sink.i431.us, %.sink.split.i.us ]
-  %358 = phi i64 [ %263, %270 ], [ -1, %313 ], [ -1, %354 ], [ %.sink.i431.us, %.sink.split.i.us ]
+  %.sink.i431.us.lcssa916 = phi i64 [ %.sink.i431.us.lcssa919, %270 ], [ %.sink.i431.us.lcssa919, %354 ], [ %.sink.i431.us.lcssa919, %313 ], [ %.sink.i431.us, %.sink.split.i.us ]
+  %358 = phi i64 [ %263, %270 ], [ -1, %354 ], [ -1, %313 ], [ %.sink.i431.us, %.sink.split.i.us ]
   %359 = sub nuw i64 %244, %.pre.i.i666.us
   %360 = getelementptr inbounds i8, ptr %.val.i, i64 %.pre.i.i666.us
   br label %.noexc394.us

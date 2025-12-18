@@ -863,8 +863,8 @@ _ZL12transformEUCP8MBCSData.exit.thread.i:        ; preds = %270, %237, %.prehea
   br label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i24.i, %318, %327, %.critedge.thread.i.i, %.critedge.thread.thread.i.i
-  %.258.i.i = phi i16 [ %328, %327 ], [ %305, %.critedge.thread.i.i ], [ %299, %.critedge.thread.thread.i.i ], [ %319, %318 ], [ %307, %.lr.ph.i24.i ]
-  %.2.i.i = phi i16 [ %328, %327 ], [ %.084.i.i, %.critedge.thread.i.i ], [ %.084.i.i, %.critedge.thread.thread.i.i ], [ %323, %318 ], [ %311, %.lr.ph.i24.i ]
+  %.258.i.i = phi i16 [ %299, %.critedge.thread.thread.i.i ], [ %328, %327 ], [ %305, %.critedge.thread.i.i ], [ %319, %318 ], [ %307, %.lr.ph.i24.i ]
+  %.2.i.i = phi i16 [ %.084.i.i, %.critedge.thread.thread.i.i ], [ %328, %327 ], [ %.084.i.i, %.critedge.thread.i.i ], [ %323, %318 ], [ %311, %.lr.ph.i24.i ]
   %329 = zext i16 %.258.i.i to i32
   %330 = icmp ugt i32 %280, %329
   br i1 %330, label %.lr.ph85.i.i, label %._crit_edge.i22.i, !llvm.loop !68
@@ -1028,8 +1028,8 @@ _ZL19singleCompactStage3P8MBCSData.exit.i:        ; preds = %342
   br label %.loopexit.i37.i
 
 .loopexit.i37.i:                                  ; preds = %.lr.ph.i35.i, %390, %399, %.critedge.thread.i33.i, %.critedge.thread.thread.i41.i
-  %.256.i.i = phi i16 [ %400, %399 ], [ %377, %.critedge.thread.i33.i ], [ %371, %.critedge.thread.thread.i41.i ], [ %391, %390 ], [ %379, %.lr.ph.i35.i ]
-  %.2.i38.i = phi i16 [ %400, %399 ], [ %.082.i.i, %.critedge.thread.i33.i ], [ %.082.i.i, %.critedge.thread.thread.i41.i ], [ %395, %390 ], [ %383, %.lr.ph.i35.i ]
+  %.256.i.i = phi i16 [ %371, %.critedge.thread.thread.i41.i ], [ %400, %399 ], [ %377, %.critedge.thread.i33.i ], [ %391, %390 ], [ %379, %.lr.ph.i35.i ]
+  %.2.i38.i = phi i16 [ %.082.i.i, %.critedge.thread.thread.i41.i ], [ %400, %399 ], [ %.082.i.i, %.critedge.thread.i33.i ], [ %395, %390 ], [ %383, %.lr.ph.i35.i ]
   %401 = zext i16 %.256.i.i to i32
   %402 = icmp ugt i32 %340, %401
   br i1 %402, label %.lr.ph83.i.i, label %._crit_edge.i25.i, !llvm.loop !73
@@ -1187,8 +1187,8 @@ _ZL19singleCompactStage2P8MBCSData.exit.i:        ; preds = %412
   br label %.loopexit.i62.i
 
 .loopexit.i62.i:                                  ; preds = %.lr.ph.i57.i, %460, %469, %.critedge.thread.i54.i, %.critedge.thread.thread.i71.i
-  %.256.i63.i = phi i16 [ %470, %469 ], [ %447, %.critedge.thread.i54.i ], [ %441, %.critedge.thread.thread.i71.i ], [ %461, %460 ], [ %449, %.lr.ph.i57.i ]
-  %.2.i64.i = phi i16 [ %470, %469 ], [ %.082.i49.i, %.critedge.thread.i54.i ], [ %.082.i49.i, %.critedge.thread.thread.i71.i ], [ %465, %460 ], [ %453, %.lr.ph.i57.i ]
+  %.256.i63.i = phi i16 [ %441, %.critedge.thread.thread.i71.i ], [ %470, %469 ], [ %447, %.critedge.thread.i54.i ], [ %461, %460 ], [ %449, %.lr.ph.i57.i ]
+  %.2.i64.i = phi i16 [ %.082.i49.i, %.critedge.thread.thread.i71.i ], [ %470, %469 ], [ %.082.i49.i, %.critedge.thread.i54.i ], [ %465, %460 ], [ %453, %.lr.ph.i57.i ]
   %471 = zext i16 %.256.i63.i to i32
   %472 = load i32, ptr %70, align 8, !tbaa !43
   %473 = icmp ugt i32 %472, %471

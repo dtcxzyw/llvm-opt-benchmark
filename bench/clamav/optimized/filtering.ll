@@ -536,7 +536,7 @@ define i32 @filter_add_acpatt(ptr noundef captures(none) %0, ptr noundef readonl
   br label %.loopexit
 
 138:                                              ; preds = %114, %80, %92, %87, %130, %123, %96, %72
-  %.4382 = phi i32 [ %.2380683, %72 ], [ %.2380683, %80 ], [ %.2380683, %87 ], [ %.2380683, %92 ], [ %.2380683, %96 ], [ %115, %114 ], [ %.2380683, %130 ], [ %.2380683, %123 ]
+  %.4382 = phi i32 [ %.2380683, %123 ], [ %.2380683, %72 ], [ %.2380683, %80 ], [ %.2380683, %87 ], [ %.2380683, %92 ], [ %.2380683, %96 ], [ %115, %114 ], [ %.2380683, %130 ]
   %indvars.iv.next1202 = add nuw nsw i64 %indvars.iv1201, 1
   %indvars.iv.next1200 = add nuw nsw i64 %indvars.iv1199, 1
   %139 = icmp samesign ult i64 %indvars.iv.next1200, %59
@@ -1093,8 +1093,8 @@ spec_ith_char.exit515:                            ; preds = %spec_ith_char.exit,
   br i1 %.not476, label %._crit_edge824, label %.lr.ph694
 
 ._crit_edge824:                                   ; preds = %spec_ith_char.exit515, %.lr.ph694.us931, %.lr.ph694.us931.us, %.thread550.us832, %.thread550.us832.us, %.thread550.us, %190
-  %.0421.lcssa = phi i8 [ 0, %190 ], [ 0, %.lr.ph694.us931 ], [ 0, %.thread550.us ], [ %.1422.lcssa.us833.us, %.thread550.us832.us ], [ %.1422.lcssa.us833, %.thread550.us832 ], [ 0, %.lr.ph694.us931.us ], [ 0, %spec_ith_char.exit515 ]
-  %.0417.lcssa = phi i32 [ 4, %190 ], [ 2, %.lr.ph694.us931 ], [ 4, %.thread550.us ], [ %.3420.us834.us, %.thread550.us832.us ], [ %.3420.us834, %.thread550.us832 ], [ 2, %.lr.ph694.us931.us ], [ 2, %spec_ith_char.exit515 ]
+  %.0421.lcssa = phi i8 [ 0, %190 ], [ %.1422.lcssa.us833.us, %.thread550.us832.us ], [ 0, %.lr.ph694.us931 ], [ 0, %.lr.ph694.us931.us ], [ %.1422.lcssa.us833, %.thread550.us832 ], [ 0, %.thread550.us ], [ 0, %spec_ith_char.exit515 ]
+  %.0417.lcssa = phi i32 [ 4, %190 ], [ %.3420.us834.us, %.thread550.us832.us ], [ 2, %.lr.ph694.us931 ], [ 2, %.lr.ph694.us931.us ], [ %.3420.us834, %.thread550.us832 ], [ 4, %.thread550.us ], [ 2, %spec_ith_char.exit515 ]
   %343 = icmp eq i32 %.0417.lcssa, 4
   %344 = icmp ne i8 %.0421.lcssa, 0
   %or.cond14 = select i1 %343, i1 %344, i1 false
@@ -2183,7 +2183,7 @@ filter_set_end.exit:                              ; preds = %790, %783, %780, %.
   br i1 %exitcond1244.not, label %._crit_edge1030, label %.lr.ph1029.split.splitthread-pre-split, !llvm.loop !35
 
 ._crit_edge1030:                                  ; preds = %filter_set_end.exit.us, %filter_set_end.exit, %.lr.ph1029.split, %.preheader
-  %.1360.lcssa = phi i32 [ %.03591040, %.preheader ], [ %760, %.lr.ph1029.split ], [ %760, %filter_set_end.exit ], [ %760, %filter_set_end.exit.us ]
+  %.1360.lcssa = phi i32 [ %.03591040, %.preheader ], [ %760, %filter_set_end.exit ], [ %760, %.lr.ph1029.split ], [ %760, %filter_set_end.exit.us ]
   %792 = add nuw nsw i32 %.03611038, 1
   %.not462.not = icmp samesign ult i32 %.03611038, %754
   br i1 %.not462.not, label %.preheader, label %793
@@ -2212,7 +2212,7 @@ filter_set_end.exit:                              ; preds = %790, %783, %780, %.
   br i1 %.not458, label %.loopexit, label %713
 
 .loopexit:                                        ; preds = %._crit_edge1045, %694, %145, %.thread1334, %.critedge488, %._crit_edge983.thread, %._crit_edge.thread
-  %.0 = phi i32 [ %32, %._crit_edge.thread ], [ -1, %.critedge488 ], [ -1, %145 ], [ -1, %._crit_edge983.thread ], [ -1, %.thread1334 ], [ %.1390.lcssa, %694 ], [ %.1390.lcssa, %._crit_edge1045 ]
+  %.0 = phi i32 [ %32, %._crit_edge.thread ], [ -1, %.critedge488 ], [ -1, %145 ], [ -1, %._crit_edge983.thread ], [ %.1390.lcssa, %694 ], [ -1, %.thread1334 ], [ %.1390.lcssa, %._crit_edge1045 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

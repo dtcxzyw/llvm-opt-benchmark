@@ -194,7 +194,7 @@ define hidden i32 @uv__tcp_bind(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
   br label %maybe_new_socket.exit
 
 maybe_new_socket.exit:                            ; preds = %20, %15, %.critedge, %62, %51, %32, %7, %53, %42, %26
-  %.0 = phi i32 [ -22, %51 ], [ -22, %7 ], [ %29, %26 ], [ 0, %.critedge ], [ %45, %42 ], [ %34, %32 ], [ %54, %53 ], [ 0, %62 ], [ %19, %20 ], [ %16, %15 ]
+  %.0 = phi i32 [ -22, %51 ], [ -22, %7 ], [ %29, %26 ], [ 0, %.critedge ], [ %45, %42 ], [ %34, %32 ], [ %54, %53 ], [ 0, %62 ], [ %16, %15 ], [ %19, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -346,7 +346,7 @@ uv__is_ipv6_link_local.exit.thread:               ; preds = %31, %36, %40, %uv__
   br label %maybe_new_socket.exit
 
 maybe_new_socket.exit:                            ; preds = %25, %20, %.critedge36, %66, %5, %51
-  %.0 = phi i32 [ %52, %51 ], [ 0, %.critedge36 ], [ -114, %5 ], [ 0, %66 ], [ %24, %25 ], [ %21, %20 ]
+  %.0 = phi i32 [ %52, %51 ], [ 0, %.critedge36 ], [ -114, %5 ], [ 0, %66 ], [ %21, %20 ], [ %24, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -585,7 +585,7 @@ define hidden i32 @uv__tcp_listen(ptr noundef %0, i32 noundef %1, ptr noundef %2
   br label %maybe_new_socket.exit
 
 maybe_new_socket.exit:                            ; preds = %15, %10, %3, %24, %20
-  %.0 = phi i32 [ 0, %24 ], [ %5, %3 ], [ %23, %20 ], [ %14, %15 ], [ %11, %10 ]
+  %.0 = phi i32 [ 0, %24 ], [ %5, %3 ], [ %23, %20 ], [ %11, %10 ], [ %14, %15 ]
   ret i32 %.0
 }
 

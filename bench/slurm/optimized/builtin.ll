@@ -398,7 +398,7 @@ _my_sleep.exit:                                   ; preds = %30
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %51, %.loopexit.sink.split.i, %127, %64
-  %131 = phi ptr [ %119, %127 ], [ %50, %64 ], [ %.ph.i, %.loopexit.sink.split.i ], [ %50, %51 ]
+  %131 = phi ptr [ %119, %127 ], [ %.ph.i, %.loopexit.sink.split.i ], [ %50, %64 ], [ %50, %51 ]
   %.not70.i = icmp eq ptr %49, null
   br i1 %.not70.i, label %133, label %132
 

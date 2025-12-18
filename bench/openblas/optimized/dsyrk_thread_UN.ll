@@ -515,7 +515,7 @@ syrk_beta.exit:                                   ; preds = %48, %41, %38, %37
   br label %134
 
 .loopexit317:                                     ; preds = %._crit_edge340, %._crit_edge340.us, %134
-  %131 = phi i64 [ %138, %134 ], [ %161, %._crit_edge340.us ], [ %181, %._crit_edge340 ]
+  %131 = phi i64 [ %161, %._crit_edge340.us ], [ %138, %134 ], [ %181, %._crit_edge340 ]
   %132 = load i64, ptr %81, align 8, !tbaa !3
   %133 = icmp slt i64 %136, %132
   br i1 %133, label %134, label %._crit_edge349, !llvm.loop !52

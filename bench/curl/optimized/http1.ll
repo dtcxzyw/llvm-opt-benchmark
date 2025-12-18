@@ -163,7 +163,7 @@ thread-pre-split.thread.i.i:                      ; preds = %thread-pre-split.i.
   br i1 %.not18.i.i, label %next_line.exit.thread47, label %.loopexit.sink.split
 
 51:                                               ; preds = %48, %46
-  %52 = phi i64 [ %44, %48 ], [ %47, %46 ]
+  %52 = phi i64 [ %47, %46 ], [ %44, %48 ]
   %53 = load i64, ptr %15, align 8, !tbaa !3
   %54 = icmp ugt i64 %52, %53
   br i1 %54, label %.loopexit.sink.split, label %next_line.exit.thread47
@@ -322,7 +322,7 @@ next_line.exit.thread.loopexit:                   ; preds = %28, %55
   br label %start_req.exit
 
 start_req.exit.thread:                            ; preds = %69, %110, %84, %72, %81, %.thread118.i
-  %.078.i.ph = phi ptr [ null, %.thread118.i ], [ null, %81 ], [ null, %69 ], [ %109, %110 ], [ null, %84 ], [ null, %72 ]
+  %.078.i.ph = phi ptr [ null, %.thread118.i ], [ null, %81 ], [ %109, %110 ], [ null, %84 ], [ null, %72 ], [ null, %69 ]
   %.076.i.ph = phi i32 [ %.177.ph.i, %.thread118.i ], [ 3, %81 ], [ 3, %72 ], [ 3, %84 ], [ 3, %110 ], [ 3, %69 ]
   call void @curl_url_cleanup(ptr noundef %.078.i.ph) #6
   br label %.loopexit.sink.split

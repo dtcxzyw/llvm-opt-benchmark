@@ -1423,7 +1423,7 @@ define weak_odr noundef ptr @_ZN7rocksdb11clock_cache15ClockCacheShardINS0_20Fix
   br i1 %37, label %_ZN7rocksdb11clock_cache20FixedHyperClockTable6LookupERKSt5arrayImLm2EE.exit, label %13, !llvm.loop !102
 
 _ZN7rocksdb11clock_cache20FixedHyperClockTable6LookupERKSt5arrayImLm2EE.exit: ; preds = %33, %29, %26, %21, %3
-  %.0 = phi ptr [ null, %3 ], [ %15, %26 ], [ %15, %21 ], [ null, %29 ], [ null, %33 ]
+  %.0 = phi ptr [ null, %3 ], [ %15, %21 ], [ %15, %26 ], [ null, %29 ], [ null, %33 ]
   ret ptr %.0
 }
 
@@ -1487,7 +1487,7 @@ define noundef ptr @_ZN7rocksdb11clock_cache20FixedHyperClockTable6LookupERKSt5a
   br i1 %33, label %"_ZN7rocksdb11clock_cache20FixedHyperClockTable8FindSlotIZNS1_6LookupERKSt5arrayImLm2EEE3$_0ZNS1_6LookupES6_E3$_1ZNS1_6LookupES6_E3$_2EEPNS1_10HandleImplES6_RKT_RKT0_RKT1_.exit", label %9, !llvm.loop !102
 
 "_ZN7rocksdb11clock_cache20FixedHyperClockTable8FindSlotIZNS1_6LookupERKSt5arrayImLm2EEE3$_0ZNS1_6LookupES6_E3$_1ZNS1_6LookupES6_E3$_2EEPNS1_10HandleImplES6_RKT_RKT0_RKT1_.exit": ; preds = %25, %29, %17, %22
-  %.2.i = phi ptr [ %11, %22 ], [ %11, %17 ], [ null, %29 ], [ null, %25 ]
+  %.2.i = phi ptr [ %11, %17 ], [ %11, %22 ], [ null, %29 ], [ null, %25 ]
   ret ptr %.2.i
 }
 
@@ -1660,7 +1660,7 @@ _ZN7rocksdb11clock_cache12_GLOBAL__N_117FreeDataMarkEmptyERNS0_11ClockHandleEPNS
   br label %_ZN7rocksdb11clock_cache12_GLOBAL__N_119CorrectNearOverflowEmRNS_12AcqRelAtomicImEE.exit
 
 _ZN7rocksdb11clock_cache12_GLOBAL__N_119CorrectNearOverflowEmRNS_12AcqRelAtomicImEE.exit: ; preds = %21, %82, %80, %18, %._crit_edge, %_ZNK7rocksdb11clock_cache20ClockHandleBasicData8FreeDataEPNS_15MemoryAllocatorE.exit, %_ZN7rocksdb11clock_cache12_GLOBAL__N_117FreeDataMarkEmptyERNS0_11ClockHandleEPNS_15MemoryAllocatorE.exit
-  %.0 = phi i1 [ true, %_ZNK7rocksdb11clock_cache20ClockHandleBasicData8FreeDataEPNS_15MemoryAllocatorE.exit ], [ false, %18 ], [ true, %_ZN7rocksdb11clock_cache12_GLOBAL__N_117FreeDataMarkEmptyERNS0_11ClockHandleEPNS_15MemoryAllocatorE.exit ], [ false, %._crit_edge ], [ false, %80 ], [ false, %82 ], [ false, %21 ]
+  %.0 = phi i1 [ true, %_ZNK7rocksdb11clock_cache20ClockHandleBasicData8FreeDataEPNS_15MemoryAllocatorE.exit ], [ false, %18 ], [ false, %82 ], [ true, %_ZN7rocksdb11clock_cache12_GLOBAL__N_117FreeDataMarkEmptyERNS0_11ClockHandleEPNS_15MemoryAllocatorE.exit ], [ false, %._crit_edge ], [ false, %80 ], [ false, %21 ]
   ret i1 %.0
 }
 
@@ -2447,7 +2447,7 @@ define weak_odr noundef ptr @_ZN7rocksdb11clock_cache15ClockCacheShardINS0_20Fix
   br i1 %41, label %_ZN7rocksdb11clock_cache15ClockCacheShardINS0_20FixedHyperClockTableEE6LookupERKNS_5SliceERKSt5arrayImLm2EE.exit, label %17, !llvm.loop !102
 
 _ZN7rocksdb11clock_cache15ClockCacheShardINS0_20FixedHyperClockTableEE6LookupERKNS_5SliceERKSt5arrayImLm2EE.exit: ; preds = %33, %37, %7, %25, %30
-  %.0.i = phi ptr [ null, %7 ], [ %19, %30 ], [ %19, %25 ], [ null, %37 ], [ null, %33 ]
+  %.0.i = phi ptr [ null, %7 ], [ %19, %25 ], [ %19, %30 ], [ null, %37 ], [ null, %33 ]
   ret ptr %.0.i
 }
 
@@ -3336,7 +3336,7 @@ _ZN7rocksdb11clock_cache12_GLOBAL__N_111MatchAndRefEPKSt5arrayImLm2EERKNS0_11Clo
   br i1 %exitcond, label %40, label %.preheader, !prof !141, !llvm.loop !142
 
 .thread118:                                       ; preds = %30, %72, %71, %95, %100
-  %.5 = phi ptr [ %76, %100 ], [ null, %71 ], [ null, %72 ], [ %76, %95 ], [ %24, %30 ]
+  %.5 = phi ptr [ null, %72 ], [ %76, %100 ], [ null, %71 ], [ %76, %95 ], [ %24, %30 ]
   ret ptr %.5
 }
 
@@ -4603,7 +4603,7 @@ _ZN7rocksdb11clock_cache12_GLOBAL__N_119CorrectNearOverflowEmRNS_12AcqRelAtomicI
   br label %13
 
 "_ZN7rocksdb11clock_cache20FixedHyperClockTable8FindSlotIZNS1_8DoInsertERKNS0_20ClockHandleBasicDataEmbRNS1_11InsertStateEE3$_0ZNS1_8DoInsertES5_mbS7_E3$_1ZNS1_8DoInsertES5_mbS7_E3$_2EEPNS1_10HandleImplERKSt5arrayImLm2EERKT_RKT0_RKT1_.exit": ; preds = %.lr.ph.i.i.i, %.lr.ph.i.i27.i, %"_ZZN7rocksdb11clock_cache20FixedHyperClockTable8DoInsertERKNS0_20ClockHandleBasicDataEmbRNS1_11InsertStateEENK3$_0clEPNS1_10HandleImplE.exit.i", %_ZN7rocksdb11clock_cache12_GLOBAL__N_119CorrectNearOverflowEmRNS_12AcqRelAtomicImEE.exit.i.i.i.i, %54
-  %.2 = phi ptr [ null, %_ZN7rocksdb11clock_cache12_GLOBAL__N_119CorrectNearOverflowEmRNS_12AcqRelAtomicImEE.exit.i.i.i.i ], [ null, %54 ], [ %15, %"_ZZN7rocksdb11clock_cache20FixedHyperClockTable8DoInsertERKNS0_20ClockHandleBasicDataEmbRNS1_11InsertStateEENK3$_0clEPNS1_10HandleImplE.exit.i" ], [ null, %.lr.ph.i.i27.i ], [ null, %.lr.ph.i.i.i ]
+  %.2 = phi ptr [ null, %_ZN7rocksdb11clock_cache12_GLOBAL__N_119CorrectNearOverflowEmRNS_12AcqRelAtomicImEE.exit.i.i.i.i ], [ null, %.lr.ph.i.i27.i ], [ null, %54 ], [ %15, %"_ZZN7rocksdb11clock_cache20FixedHyperClockTable8DoInsertERKNS0_20ClockHandleBasicDataEmbRNS1_11InsertStateEENK3$_0clEPNS1_10HandleImplE.exit.i" ], [ null, %.lr.ph.i.i.i ]
   ret ptr %.2
 }
 
@@ -6522,7 +6522,7 @@ _ZN7rocksdb12AcqRelAtomicImE7CasWeakERmm.exit:    ; preds = %174, %169
   br i1 %exitcond232, label %.split215.us, label %.split, !prof !141, !llvm.loop !224
 
 .critedge:                                        ; preds = %95, %_ZN7rocksdb12AcqRelAtomicImE7CasWeakERmm.exit.us, %.thread178, %112, %116, %65, %69, %34, %38
-  %.1 = phi ptr [ null, %112 ], [ null, %34 ], [ null, %65 ], [ null, %38 ], [ null, %69 ], [ null, %116 ], [ %127, %.thread178 ], [ %127, %_ZN7rocksdb12AcqRelAtomicImE7CasWeakERmm.exit.us ], [ null, %95 ]
+  %.1 = phi ptr [ null, %112 ], [ %127, %_ZN7rocksdb12AcqRelAtomicImE7CasWeakERmm.exit.us ], [ null, %34 ], [ null, %65 ], [ null, %38 ], [ null, %69 ], [ null, %116 ], [ %127, %.thread178 ], [ null, %95 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.1
 }
@@ -10886,7 +10886,7 @@ define linkonce_odr noundef ptr @_ZN7rocksdb12ShardedCacheINS_11clock_cache15Clo
   br i1 %57, label %_ZN7rocksdb11clock_cache15ClockCacheShardINS0_20FixedHyperClockTableEE6LookupERKNS_5SliceERKSt5arrayImLm2EEPKNS_5Cache15CacheItemHelperEPNSB_13CreateContextENSB_8PriorityEPNS_10StatisticsE.exit, label %33, !llvm.loop !102
 
 _ZN7rocksdb11clock_cache15ClockCacheShardINS0_20FixedHyperClockTableEE6LookupERKNS_5SliceERKSt5arrayImLm2EEPKNS_5Cache15CacheItemHelperEPNSB_13CreateContextENSB_8PriorityEPNS_10StatisticsE.exit: ; preds = %49, %53, %6, %41, %46
-  %.0.i.i = phi ptr [ null, %6 ], [ %35, %46 ], [ %35, %41 ], [ null, %53 ], [ null, %49 ]
+  %.0.i.i = phi ptr [ null, %6 ], [ %35, %41 ], [ %35, %46 ], [ null, %53 ], [ null, %49 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret ptr %.0.i.i
 }

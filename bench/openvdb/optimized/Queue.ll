@@ -3045,7 +3045,7 @@ if.then36:                                        ; preds = %if.end34
   br label %return
 
 return:                                           ; preds = %_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorD2Ev.exit55, %if.end34, %if.then36
-  %retval.2 = phi i1 [ %tobool.not63, %if.then36 ], [ %tobool.not63, %if.end34 ], [ false, %_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorD2Ev.exit55 ]
+  %retval.2 = phi i1 [ %tobool.not63, %if.end34 ], [ %tobool.not63, %if.then36 ], [ false, %_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorD2Ev.exit55 ]
   ret i1 %retval.2
 
 unreachable:                                      ; preds = %_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorD2Ev.exit55
@@ -3315,7 +3315,7 @@ common.resume:                                    ; preds = %if.then.i.i.i23, %i
   resume { ptr, i32 } %common.resume.op
 
 _ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorC2EPSG_mb.exit: ; preds = %seqcst.i14.i.i.i, %if.then.i, %if.then11.i
-  %b_old.sroa.10.5 = phi i8 [ 1, %if.then.i ], [ 1, %if.then11.i ], [ 0, %seqcst.i14.i.i.i ]
+  %b_old.sroa.10.5 = phi i8 [ 1, %if.then11.i ], [ 1, %if.then.i ], [ 0, %seqcst.i14.i.i.i ]
   %shl2 = shl nuw i64 %sub, 1
   %or = or disjoint i64 %shl2, 1
   %13 = load atomic i64, ptr %node_list.i acquire, align 8

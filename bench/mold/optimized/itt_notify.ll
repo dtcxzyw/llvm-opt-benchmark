@@ -6741,7 +6741,7 @@ _ZL17__itt_get_env_varPKc.exit.i.preheader:       ; preds = %60, %53
   br i1 %.not77.i.i, label %_ZL12__itt_fsplitPKcS0_PS0_Pi.exit.i, label %.preheader.i.i, !llvm.loop !116
 
 _ZL12__itt_fsplitPKcS0_PS0_Pi.exit.i:             ; preds = %103, %98, %.loopexit.i.i
-  %indvars.iv46.i.lcssa.sink.i = phi i64 [ %94, %.loopexit.i.i ], [ %indvars.iv46.i.i, %98 ], [ %indvars.iv.next47.i.i, %103 ]
+  %indvars.iv46.i.lcssa.sink.i = phi i64 [ %indvars.iv46.i.i, %98 ], [ %94, %.loopexit.i.i ], [ %indvars.iv.next47.i.i, %103 ]
   %106 = getelementptr inbounds nuw i8, ptr %.026.i116, i64 %indvars.iv46.i.lcssa.sink.i
   %107 = call i32 @llvm.smin.i32(i32 %.255.i, i32 254)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)

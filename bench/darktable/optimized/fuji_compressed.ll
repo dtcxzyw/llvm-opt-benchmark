@@ -4059,7 +4059,7 @@ _ZN6LibRaw5sgetnEiPh.exit:                        ; preds = %.lr.ph.i
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph42, !llvm.loop !158
 
 ._crit_edge:                                      ; preds = %.lr.ph42, %59, %.preheader
-  %.lcssa3949 = phi i32 [ %73, %.preheader ], [ %60, %59 ], [ %73, %.lr.ph42 ]
+  %.lcssa3949 = phi i32 [ %60, %59 ], [ %73, %.preheader ], [ %73, %.lr.ph42 ]
   %83 = load ptr, ptr %0, align 8, !tbaa !100
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 144
   %85 = load ptr, ptr %84, align 8

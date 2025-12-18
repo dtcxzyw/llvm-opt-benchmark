@@ -768,7 +768,7 @@ _ZN4core3ops8function5FnMut8call_mut17h33940878987a20c1E.exit52.i.i: ; preds = %
   br label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$10advance_by17heddbfd1faadc916fE.exit"
 
 "_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$10advance_by17heddbfd1faadc916fE.exit": ; preds = %16, %82, %8, %_ZN4core3ops8function5FnMut8call_mut17h33940878987a20c1E.exit.i.i, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17he78ca07719e76d4dE.exit.i.i", %74, %_ZN4core3ops8function5FnMut8call_mut17h33940878987a20c1E.exit52.i.i, %110
-  %.0.i = phi i64 [ %.172.i.i, %110 ], [ 0, %_ZN4core3ops8function5FnMut8call_mut17h33940878987a20c1E.exit.i.i ], [ 0, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17he78ca07719e76d4dE.exit.i.i" ], [ 0, %_ZN4core3ops8function5FnMut8call_mut17h33940878987a20c1E.exit52.i.i ], [ 0, %8 ], [ 0, %74 ], [ 0, %82 ], [ 0, %16 ]
+  %.0.i = phi i64 [ %.172.i.i, %110 ], [ 0, %_ZN4core3ops8function5FnMut8call_mut17h33940878987a20c1E.exit.i.i ], [ 0, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17he78ca07719e76d4dE.exit.i.i" ], [ 0, %_ZN4core3ops8function5FnMut8call_mut17h33940878987a20c1E.exit52.i.i ], [ 0, %82 ], [ 0, %8 ], [ 0, %74 ], [ 0, %16 ]
   ret i64 %.0.i
 }
 
@@ -4229,8 +4229,8 @@ _ZN5gimli5write3cfi17write_advance_loc17h3fc22d09339a9fffE.exit.thread.i: ; pred
   br label %.loopexit184
 
 599:                                              ; preds = %.noexc106, %470, %.noexc96, %.noexc95, %.noexc94, %.noexc91, %_ZN5gimli5write6writer6Writer13write_address17h40a9f0c52c3e9c74E.exit.thread.loopexit.split.loop.exit330.i, %_ZN5gimli5write6writer6Writer13write_address17h40a9f0c52c3e9c74E.exit.thread.loopexit.split.loop.exit.i, %354
-  %.sroa.15.sroa.0.0.i = phi i56 [ %.sroa.4282.0.extract.trunc.le.i, %_ZN5gimli5write6writer6Writer13write_address17h40a9f0c52c3e9c74E.exit.thread.loopexit.split.loop.exit330.i ], [ %spec.select300.i, %.noexc106 ], [ %.sroa.4272.0.extract.trunc.i, %.noexc96 ], [ %.sroa.15.sroa.0.1.i, %470 ], [ %.sroa.4270.0.extract.trunc.i, %.noexc94 ], [ %.sroa.4268.0.extract.trunc.i, %.noexc95 ], [ %.sroa.4266.0.extract.trunc.i, %.noexc91 ], [ %.1..1..1..1..1..1..sroa.15.sroa.0.0.copyload.i, %354 ], [ %.sroa.4286.0.extract.trunc.le.i, %_ZN5gimli5write6writer6Writer13write_address17h40a9f0c52c3e9c74E.exit.thread.loopexit.split.loop.exit.i ]
-  %.sroa.0.0.i80 = phi i64 [ %495, %_ZN5gimli5write6writer6Writer13write_address17h40a9f0c52c3e9c74E.exit.thread.loopexit.split.loop.exit330.i ], [ %phi.call.i, %.noexc106 ], [ %428, %.noexc96 ], [ %.sroa.15.sroa.0.1.in.in.i, %470 ], [ %411, %.noexc94 ], [ %418, %.noexc95 ], [ %401, %.noexc91 ], [ %356, %354 ], [ %584, %_ZN5gimli5write6writer6Writer13write_address17h40a9f0c52c3e9c74E.exit.thread.loopexit.split.loop.exit.i ]
+  %.sroa.15.sroa.0.0.i = phi i56 [ %.sroa.4282.0.extract.trunc.le.i, %_ZN5gimli5write6writer6Writer13write_address17h40a9f0c52c3e9c74E.exit.thread.loopexit.split.loop.exit330.i ], [ %spec.select300.i, %.noexc106 ], [ %.sroa.4272.0.extract.trunc.i, %.noexc96 ], [ %.sroa.4286.0.extract.trunc.le.i, %_ZN5gimli5write6writer6Writer13write_address17h40a9f0c52c3e9c74E.exit.thread.loopexit.split.loop.exit.i ], [ %.sroa.15.sroa.0.1.i, %470 ], [ %.sroa.4270.0.extract.trunc.i, %.noexc94 ], [ %.sroa.4268.0.extract.trunc.i, %.noexc95 ], [ %.sroa.4266.0.extract.trunc.i, %.noexc91 ], [ %.1..1..1..1..1..1..sroa.15.sroa.0.0.copyload.i, %354 ]
+  %.sroa.0.0.i80 = phi i64 [ %495, %_ZN5gimli5write6writer6Writer13write_address17h40a9f0c52c3e9c74E.exit.thread.loopexit.split.loop.exit330.i ], [ %phi.call.i, %.noexc106 ], [ %428, %.noexc96 ], [ %584, %_ZN5gimli5write6writer6Writer13write_address17h40a9f0c52c3e9c74E.exit.thread.loopexit.split.loop.exit.i ], [ %.sroa.15.sroa.0.1.in.in.i, %470 ], [ %411, %.noexc94 ], [ %418, %.noexc95 ], [ %401, %.noexc91 ], [ %356, %354 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %600 = and i64 %.sroa.0.0.i80, 255
   %601 = icmp eq i64 %600, 18
@@ -5776,8 +5776,8 @@ _ZN5gimli5write3cfi17write_advance_loc17h4a0538fe5d50254dE.exit.thread.i: ; pred
   br label %.loopexit188
 
 639:                                              ; preds = %.noexc109, %.noexc101.thread, %.noexc99, %.noexc98, %_ZN5gimli5write6writer6Writer16write_eh_pointer17hefcf1f7f4e755d8fE.exit.i, %.noexc96, %_ZN5gimli5write6writer6Writer16write_eh_pointer17hefcf1f7f4e755d8fE.exit.thread.loopexit.split.loop.exit341.i, %_ZN5gimli5write6writer6Writer16write_eh_pointer17hefcf1f7f4e755d8fE.exit.thread.loopexit.split.loop.exit.i, %353
-  %.sroa.15.sroa.0.0.i = phi i56 [ %.sroa.4282.0.extract.trunc.le.i, %_ZN5gimli5write6writer6Writer16write_eh_pointer17hefcf1f7f4e755d8fE.exit.thread.loopexit.split.loop.exit341.i ], [ %spec.select300.i, %.noexc109 ], [ %.sroa.4272.0.extract.trunc.i, %.noexc99 ], [ %.sroa.15.sroa.0.1.i, %.noexc101.thread ], [ %.sroa.4270.0.extract.trunc.i, %_ZN5gimli5write6writer6Writer16write_eh_pointer17hefcf1f7f4e755d8fE.exit.i ], [ %.sroa.4268.0.extract.trunc.i, %.noexc98 ], [ %.sroa.4266.0.extract.trunc.i, %.noexc96 ], [ %.1..1..1..1..1..1..sroa.15.sroa.0.0.copyload.i, %353 ], [ %.sroa.4286.0.extract.trunc.le.i, %_ZN5gimli5write6writer6Writer16write_eh_pointer17hefcf1f7f4e755d8fE.exit.thread.loopexit.split.loop.exit.i ]
-  %.sroa.0.0.i80 = phi i64 [ %535, %_ZN5gimli5write6writer6Writer16write_eh_pointer17hefcf1f7f4e755d8fE.exit.thread.loopexit.split.loop.exit341.i ], [ %phi.call.i, %.noexc109 ], [ %470, %.noexc99 ], [ %.sroa.15.sroa.0.1.in.in.i, %.noexc101.thread ], [ %.sroa.0.0.i315.i, %_ZN5gimli5write6writer6Writer16write_eh_pointer17hefcf1f7f4e755d8fE.exit.i ], [ %459, %.noexc98 ], [ %441, %.noexc96 ], [ %355, %353 ], [ %624, %_ZN5gimli5write6writer6Writer16write_eh_pointer17hefcf1f7f4e755d8fE.exit.thread.loopexit.split.loop.exit.i ]
+  %.sroa.15.sroa.0.0.i = phi i56 [ %.sroa.4282.0.extract.trunc.le.i, %_ZN5gimli5write6writer6Writer16write_eh_pointer17hefcf1f7f4e755d8fE.exit.thread.loopexit.split.loop.exit341.i ], [ %spec.select300.i, %.noexc109 ], [ %.sroa.4272.0.extract.trunc.i, %.noexc99 ], [ %.sroa.4286.0.extract.trunc.le.i, %_ZN5gimli5write6writer6Writer16write_eh_pointer17hefcf1f7f4e755d8fE.exit.thread.loopexit.split.loop.exit.i ], [ %.sroa.15.sroa.0.1.i, %.noexc101.thread ], [ %.sroa.4270.0.extract.trunc.i, %_ZN5gimli5write6writer6Writer16write_eh_pointer17hefcf1f7f4e755d8fE.exit.i ], [ %.sroa.4268.0.extract.trunc.i, %.noexc98 ], [ %.sroa.4266.0.extract.trunc.i, %.noexc96 ], [ %.1..1..1..1..1..1..sroa.15.sroa.0.0.copyload.i, %353 ]
+  %.sroa.0.0.i80 = phi i64 [ %535, %_ZN5gimli5write6writer6Writer16write_eh_pointer17hefcf1f7f4e755d8fE.exit.thread.loopexit.split.loop.exit341.i ], [ %phi.call.i, %.noexc109 ], [ %470, %.noexc99 ], [ %624, %_ZN5gimli5write6writer6Writer16write_eh_pointer17hefcf1f7f4e755d8fE.exit.thread.loopexit.split.loop.exit.i ], [ %.sroa.15.sroa.0.1.in.in.i, %.noexc101.thread ], [ %.sroa.0.0.i315.i, %_ZN5gimli5write6writer6Writer16write_eh_pointer17hefcf1f7f4e755d8fE.exit.i ], [ %459, %.noexc98 ], [ %441, %.noexc96 ], [ %355, %353 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %640 = and i64 %.sroa.0.0.i80, 255
   %641 = icmp eq i64 %640, 18
@@ -9674,7 +9674,7 @@ define hidden noundef zeroext i1 @_ZN18wasmtime_cranelift5debug9transform10expre
   br i1 %11, label %.loopexit, label %.thread14
 
 .loopexit:                                        ; preds = %.lr.ph.i, %.lr.ph.i6, %.thread14, %4, %.thread
-  %.0 = phi i1 [ false, %.thread ], [ %14, %.thread14 ], [ false, %4 ], [ %17, %.lr.ph.i6 ], [ false, %.lr.ph.i ]
+  %.0 = phi i1 [ %17, %.lr.ph.i6 ], [ false, %.thread ], [ %14, %.thread14 ], [ false, %4 ], [ false, %.lr.ph.i ]
   ret i1 %.0
 
 .thread14:                                        ; preds = %.thread
@@ -9939,7 +9939,7 @@ define internal fastcc void @_ZN18wasmtime_cranelift5debug9transform10expression
   br i1 %.not, label %.lr.ph.i110, label %146
 
 .lr.ph.i110:                                      ; preds = %.lr.ph.i, %129, %146
-  %.079160 = phi i64 [ %spec.select, %146 ], [ 0, %129 ], [ %118, %.lr.ph.i ]
+  %.079160 = phi i64 [ 0, %129 ], [ %spec.select, %146 ], [ %118, %.lr.ph.i ]
   br label %132
 
 ._crit_edge.i117:                                 ; preds = %139, %114

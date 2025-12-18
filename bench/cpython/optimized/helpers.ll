@@ -932,7 +932,7 @@ _PyTokenizer_error_ret.exit:                      ; preds = %103, %106, %108
   br label %get_coding_spec.exit
 
 get_coding_spec.exit:                             ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %81, %.loopexit, %_PyTokenizer_new_string.exit78.thread.i, %_PyTokenizer_new_string.exit.thread.i, %96, %113, %79, %_PyTokenizer_error_ret.exit, %92, %8
-  %.029 = phi i32 [ 1, %8 ], [ 0, %92 ], [ 0, %_PyTokenizer_error_ret.exit ], [ 1, %96 ], [ 1, %79 ], [ 1, %113 ], [ 0, %_PyTokenizer_new_string.exit.thread.i ], [ 0, %_PyTokenizer_new_string.exit78.thread.i ], [ 1, %.loopexit ], [ 1, %81 ], [ 1, %.lr.ph ], [ 1, %.lr.ph ], [ 1, %.lr.ph ]
+  %.029 = phi i32 [ 1, %8 ], [ 0, %_PyTokenizer_new_string.exit78.thread.i ], [ 0, %92 ], [ 0, %_PyTokenizer_error_ret.exit ], [ 1, %96 ], [ 0, %_PyTokenizer_new_string.exit.thread.i ], [ 1, %113 ], [ 1, %79 ], [ 1, %.loopexit ], [ 1, %81 ], [ 1, %.lr.ph ], [ 1, %.lr.ph ], [ 1, %.lr.ph ]
   ret i32 %.029
 }
 

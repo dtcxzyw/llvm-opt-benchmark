@@ -689,8 +689,8 @@ define void @_ZN10meili_snap34default_snapshot_settings_for_test17h23bbead29b6e1
           to label %44 unwind label %.thread
 
 42:                                               ; preds = %.body.thread, %.body
-  %.sroa.020.2.ph = phi i1 [ %.sroa.020.3, %.body ], [ %.sroa.020.3185, %.body.thread ]
-  %.pn34.ph = phi { ptr, i32 } [ %.pn.pn, %.body ], [ %.pn.pn186, %.body.thread ]
+  %.sroa.020.2.ph = phi i1 [ %.sroa.020.3185, %.body.thread ], [ %.sroa.020.3, %.body ]
+  %.pn34.ph = phi { ptr, i32 } [ %.pn.pn186, %.body.thread ], [ %.pn.pn, %.body ]
   br i1 %.sroa.020.2.ph, label %.thread172, label %"_ZN4core3ptr46drop_in_place$LT$insta..settings..Settings$GT$17h143301b41356216cE.exit"
 
 .thread:                                          ; preds = %.invoke, %6, %44, %52, %56, %67, %69, %74, %80

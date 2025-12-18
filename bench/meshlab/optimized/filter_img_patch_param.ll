@@ -1810,7 +1810,7 @@ _ZNSt7__cxx114listIiSaIiEE6spliceESt20_List_const_iteratorIiERS2_.exit: ; preds 
   br i1 %.not.i.i.i8, label %_ZNSt7__cxx114listIiSaIiEED2Ev.exit, label %.lr.ph.i.i.i6, !llvm.loop !12
 
 _ZNSt7__cxx114listIiSaIiEED2Ev.exit:              ; preds = %.lr.ph.i.i.i6, %4, %23
-  %.sroa.04.020 = phi ptr [ %.sroa.04.0, %23 ], [ %1, %4 ], [ %.sroa.04.0, %.lr.ph.i.i.i6 ]
+  %.sroa.04.020 = phi ptr [ %1, %4 ], [ %.sroa.04.0, %23 ], [ %.sroa.04.0, %.lr.ph.i.i.i6 ]
   ret ptr %.sroa.04.020
 }
 
@@ -6178,7 +6178,7 @@ _ZNSt7__cxx114listIP11RasterModelSaIS2_EED2Ev.exit266: ; preds = %.lr.ph.i.i.i26
   br label %_ZNSt7__cxx114listIN3vcg4ShotIfNS1_8Matrix44IfEEEESaIS5_EED2Ev.exit271
 
 _ZNSt7__cxx114listIN3vcg4ShotIfNS1_8Matrix44IfEEEESaIS5_EED2Ev.exit271: ; preds = %.lr.ph.i.i.i268, %702, %_ZNSt7__cxx114listIP11RasterModelSaIS2_EED2Ev.exit266, %93, %56, %704, %95, %58
-  %.pn147.pn = phi { ptr, i32 } [ %703, %702 ], [ %.pn128337, %95 ], [ %94, %93 ], [ %.pn125331, %58 ], [ %57, %56 ], [ %.pn369, %704 ], [ %.pn147, %_ZNSt7__cxx114listIP11RasterModelSaIS2_EED2Ev.exit266 ], [ %.pn147, %.lr.ph.i.i.i268 ]
+  %.pn147.pn = phi { ptr, i32 } [ %703, %702 ], [ %.pn128337, %95 ], [ %94, %93 ], [ %.pn147, %_ZNSt7__cxx114listIP11RasterModelSaIS2_EED2Ev.exit266 ], [ %.pn125331, %58 ], [ %57, %56 ], [ %.pn369, %704 ], [ %.pn147, %.lr.ph.i.i.i268 ]
   resume { ptr, i32 } %.pn147.pn
 
 705:                                              ; preds = %700, %446, %262, %166, %139, %91, %54
@@ -8286,8 +8286,8 @@ _ZN25FilterImgPatchParamPlugin21computeTotalPatchAreaERK5QHashIP11RasterModel7QV
   br label %_ZN25FilterImgPatchParamPlugin21computeTotalPatchAreaERK5QHashIP11RasterModel7QVectorI5PatchEE.exit
 
 _ZN25FilterImgPatchParamPlugin21computeTotalPatchAreaERK5QHashIP11RasterModel7QVectorI5PatchEE.exit: ; preds = %303, %_ZN25FilterImgPatchParamPlugin21computeTotalPatchAreaERK5QHashIP11RasterModel7QVectorI5PatchEE.exit.loopexit, %_ZNK19MeshLabPluginLogger3logIJfEEEvPKcDpOT_.exit167
-  %330 = phi ptr [ %298, %_ZNK19MeshLabPluginLogger3logIJfEEEvPKcDpOT_.exit167 ], [ %.pre378, %_ZN25FilterImgPatchParamPlugin21computeTotalPatchAreaERK5QHashIP11RasterModel7QVectorI5PatchEE.exit.loopexit ], [ %298, %303 ]
-  %.0.lcssa.i = phi float [ 0.000000e+00, %_ZNK19MeshLabPluginLogger3logIJfEEEvPKcDpOT_.exit167 ], [ %.1.lcssa.i, %_ZN25FilterImgPatchParamPlugin21computeTotalPatchAreaERK5QHashIP11RasterModel7QVectorI5PatchEE.exit.loopexit ], [ 0.000000e+00, %303 ]
+  %330 = phi ptr [ %.pre378, %_ZN25FilterImgPatchParamPlugin21computeTotalPatchAreaERK5QHashIP11RasterModel7QVectorI5PatchEE.exit.loopexit ], [ %298, %_ZNK19MeshLabPluginLogger3logIJfEEEvPKcDpOT_.exit167 ], [ %298, %303 ]
+  %.0.lcssa.i = phi float [ %.1.lcssa.i, %_ZN25FilterImgPatchParamPlugin21computeTotalPatchAreaERK5QHashIP11RasterModel7QVectorI5PatchEE.exit.loopexit ], [ 0.000000e+00, %_ZNK19MeshLabPluginLogger3logIJfEEEvPKcDpOT_.exit167 ], [ 0.000000e+00, %303 ]
   %331 = getelementptr inbounds nuw i8, ptr %330, i64 16
   %332 = load atomic i32, ptr %331 monotonic, align 4
   %333 = icmp ugt i32 %332, 1
@@ -8515,7 +8515,7 @@ _ZN25FilterImgPatchParamPlugin21computeTotalPatchAreaERK5QHashIP11RasterModel7QV
   br label %_ZN25FilterImgPatchParamPlugin21computeTotalPatchAreaERK5QHashIP11RasterModel7QVectorI5PatchEE.exit228
 
 _ZN25FilterImgPatchParamPlugin21computeTotalPatchAreaERK5QHashIP11RasterModel7QVectorI5PatchEE.exit228: ; preds = %389, %_ZN25FilterImgPatchParamPlugin21computeTotalPatchAreaERK5QHashIP11RasterModel7QVectorI5PatchEE.exit228.loopexit, %_ZNK19MeshLabPluginLogger3logIJfEEEvPKcDpOT_.exit205
-  %.0.lcssa.i225 = phi float [ 0.000000e+00, %_ZNK19MeshLabPluginLogger3logIJfEEEvPKcDpOT_.exit205 ], [ %416, %_ZN25FilterImgPatchParamPlugin21computeTotalPatchAreaERK5QHashIP11RasterModel7QVectorI5PatchEE.exit228.loopexit ], [ 0.000000e+00, %389 ]
+  %.0.lcssa.i225 = phi float [ %416, %_ZN25FilterImgPatchParamPlugin21computeTotalPatchAreaERK5QHashIP11RasterModel7QVectorI5PatchEE.exit228.loopexit ], [ 0.000000e+00, %_ZNK19MeshLabPluginLogger3logIJfEEEvPKcDpOT_.exit205 ], [ 0.000000e+00, %389 ]
   %417 = getelementptr inbounds i8, ptr %0, i64 %383
   %418 = getelementptr inbounds nuw i8, ptr %417, i64 8
   %419 = load ptr, ptr %418, align 8
@@ -8586,7 +8586,7 @@ _ZNK19MeshLabPluginLogger3logIJfEEEvPKcDpOT_.exit233: ; preds = %_ZN11GLLogStrea
   br i1 %.not.i242, label %_ZN25FilterImgPatchParamPlugin17computePatchCountERK5QHashIP11RasterModel7QVectorI5PatchEE.exit, label %.lr.ph.i241
 
 _ZN25FilterImgPatchParamPlugin17computePatchCountERK5QHashIP11RasterModel7QVectorI5PatchEE.exit: ; preds = %434, %.noexc246, %_ZNK19MeshLabPluginLogger3logIJfEEEvPKcDpOT_.exit233
-  %.0.lcssa.i244 = phi i32 [ 0, %_ZNK19MeshLabPluginLogger3logIJfEEEvPKcDpOT_.exit233 ], [ %443, %.noexc246 ], [ 0, %434 ]
+  %.0.lcssa.i244 = phi i32 [ %443, %.noexc246 ], [ 0, %_ZNK19MeshLabPluginLogger3logIJfEEEvPKcDpOT_.exit233 ], [ 0, %434 ]
   %444 = getelementptr inbounds i8, ptr %0, i64 %428
   %445 = getelementptr inbounds nuw i8, ptr %444, i64 8
   %446 = load ptr, ptr %445, align 8
@@ -24047,7 +24047,7 @@ _ZNSt6vectorIP11RasterModelSaIS1_EE5clearEv.exit: ; preds = %.loopexit
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp.loopexit:    ; preds = %_ZNKSt6vectorIP11RasterModelSaIS1_EE12_M_check_lenEmPKc.exit.i.i, %_ZNSt6vectorIP11RasterModelSaIS1_EE9push_backERKS1_.exit, %462, %467, %482, %_ZN8QMapDataIP11RasterModeliE7destroyEv.exit.i333, %_ZN9QtPrivate8RefCount5derefEv.exit.thread.i330
-  %.sroa.0393.1.ph.ph.ph = phi ptr [ %.sroa.0393.2, %462 ], [ %.sroa.0393.2, %467 ], [ %.sroa.0393.2, %482 ], [ %.sroa.0393.2, %_ZN8QMapDataIP11RasterModeliE7destroyEv.exit.i333 ], [ %.sroa.0393.2, %_ZN9QtPrivate8RefCount5derefEv.exit.thread.i330 ], [ %.sroa.0393.2, %_ZNKSt6vectorIP11RasterModelSaIS1_EE12_M_check_lenEmPKc.exit.i.i ], [ %.sroa.0393.3, %_ZNSt6vectorIP11RasterModelSaIS1_EE9push_backERKS1_.exit ]
+  %.sroa.0393.1.ph.ph.ph = phi ptr [ %.sroa.0393.2, %467 ], [ %.sroa.0393.2, %482 ], [ %.sroa.0393.2, %_ZN8QMapDataIP11RasterModeliE7destroyEv.exit.i333 ], [ %.sroa.0393.2, %_ZN9QtPrivate8RefCount5derefEv.exit.thread.i330 ], [ %.sroa.0393.2, %462 ], [ %.sroa.0393.3, %_ZNSt6vectorIP11RasterModelSaIS1_EE9push_backERKS1_.exit ], [ %.sroa.0393.2, %_ZNKSt6vectorIP11RasterModelSaIS1_EE12_M_check_lenEmPKc.exit.i.i ]
   %lpad.loopexit470 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -32159,11 +32159,11 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN3vcg10RectPackerI
   br i1 %or.cond256, label %.thread244, label %._crit_edge286
 
 .thread244:                                       ; preds = %.thread, %146, %.preheader._crit_edge
-  %.2150255 = phi i32 [ %143, %146 ], [ %.0148283, %.preheader._crit_edge ], [ %.0148283, %.thread ]
-  %.3254 = phi i32 [ %.sroa.speculated, %146 ], [ %.1152282, %.preheader._crit_edge ], [ %.1152282, %.thread ]
-  %.3157253 = phi i32 [ %.sroa.speculated202, %146 ], [ %.1155281, %.preheader._crit_edge ], [ %.1155281, %.thread ]
-  %.3161252 = phi i32 [ %148, %146 ], [ %.1159280, %.preheader._crit_edge ], [ %.1159280, %.thread ]
-  %.3165251 = phi i32 [ %.1139276, %146 ], [ %.1163279, %.preheader._crit_edge ], [ %.1163279, %.thread ]
+  %.2150255 = phi i32 [ %.0148283, %.preheader._crit_edge ], [ %143, %146 ], [ %.0148283, %.thread ]
+  %.3254 = phi i32 [ %.1152282, %.preheader._crit_edge ], [ %.sroa.speculated, %146 ], [ %.1152282, %.thread ]
+  %.3157253 = phi i32 [ %.1155281, %.preheader._crit_edge ], [ %.sroa.speculated202, %146 ], [ %.1155281, %.thread ]
+  %.3161252 = phi i32 [ %.1159280, %.preheader._crit_edge ], [ %148, %146 ], [ %.1159280, %.thread ]
+  %.3165251 = phi i32 [ %.1163279, %.preheader._crit_edge ], [ %.1139276, %146 ], [ %.1163279, %.thread ]
   %indvars.iv.next340 = add nuw nsw i64 %indvars.iv339, 1
   %exitcond343.not = icmp eq i64 %indvars.iv.next340, %wide.trip.count342
   br i1 %exitcond343.not, label %._crit_edge286, label %.preheader258, !llvm.loop !296
@@ -33549,7 +33549,7 @@ define noundef float @_ZN25FilterImgPatchParamPlugin21computeTotalPatchAreaERK5Q
   br i1 %.not17, label %._crit_edge25, label %.lr.ph24
 
 ._crit_edge25:                                    ; preds = %8, %._crit_edge, %2
-  %.0.lcssa = phi float [ 0.000000e+00, %2 ], [ %.1.lcssa, %._crit_edge ], [ 0.000000e+00, %8 ]
+  %.0.lcssa = phi float [ %.1.lcssa, %._crit_edge ], [ 0.000000e+00, %2 ], [ 0.000000e+00, %8 ]
   ret float %.0.lcssa
 }
 
@@ -33592,7 +33592,7 @@ define noundef i32 @_ZN25FilterImgPatchParamPlugin17computePatchCountERK5QHashIP
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %8, %.lr.ph, %2
-  %.0.lcssa = phi i32 [ 0, %2 ], [ %16, %.lr.ph ], [ 0, %8 ]
+  %.0.lcssa = phi i32 [ %16, %.lr.ph ], [ 0, %2 ], [ 0, %8 ]
   ret i32 %.0.lcssa
 }
 

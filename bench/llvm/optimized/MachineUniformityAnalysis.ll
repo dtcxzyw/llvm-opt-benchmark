@@ -355,7 +355,7 @@ _ZN4llvm20filter_iterator_baseIPKNS_14MachineOperandEPFbRS2_ESt26bidirectional_i
   br i1 %.not.not, label %.loopexit, label %.lr.ph.split
 
 .loopexit:                                        ; preds = %12, %_ZNK4llvm29GenericUniformityAnalysisImplINS_17GenericSSAContextINS_15MachineFunctionEEEE11isDivergentENS_8RegisterE.exit.loopexit, %_ZN4llvm20filter_iterator_baseIPKNS_14MachineOperandEPFbRS2_ESt26bidirectional_iterator_tagEppEv.exit, %.lr.ph.split, %28, %39, %.lr.ph, %_ZNK4llvm12MachineInstr8all_defsEv.exit
-  %.not19 = phi i1 [ false, %_ZNK4llvm12MachineInstr8all_defsEv.exit ], [ false, %.lr.ph ], [ %26, %_ZNK4llvm29GenericUniformityAnalysisImplINS_17GenericSSAContextINS_15MachineFunctionEEEE11isDivergentENS_8RegisterE.exit.loopexit ], [ false, %39 ], [ true, %28 ], [ %26, %.lr.ph.split ], [ %26, %_ZN4llvm20filter_iterator_baseIPKNS_14MachineOperandEPFbRS2_ESt26bidirectional_iterator_tagEppEv.exit ], [ false, %12 ]
+  %.not19 = phi i1 [ false, %.lr.ph ], [ false, %_ZNK4llvm12MachineInstr8all_defsEv.exit ], [ %26, %_ZNK4llvm29GenericUniformityAnalysisImplINS_17GenericSSAContextINS_15MachineFunctionEEEE11isDivergentENS_8RegisterE.exit.loopexit ], [ true, %28 ], [ false, %39 ], [ %26, %.lr.ph.split ], [ %26, %_ZN4llvm20filter_iterator_baseIPKNS_14MachineOperandEPFbRS2_ESt26bidirectional_iterator_tagEppEv.exit ], [ false, %12 ]
   ret i1 %.not19
 }
 
@@ -1532,7 +1532,7 @@ _ZNK4llvm29GenericUniformityAnalysisImplINS_17GenericSSAContextINS_15MachineFunc
   br i1 %.not.i.i.i.i.i, label %_ZNK4llvm29GenericUniformityAnalysisImplINS_17GenericSSAContextINS_15MachineFunctionEEEE19isTemporalDivergentERKNS_17MachineBasicBlockERKNS_12MachineInstrE.exit, label %_ZNK4llvm19MachineRegisterInfo9def_beginENS_8RegisterE.exit.i
 
 _ZNK4llvm19MachineRegisterInfo9def_beginENS_8RegisterE.exit.i: ; preds = %51, %45
-  %.sroa.0.0.i.i = phi ptr [ %.0.i.i.i, %45 ], [ %50, %51 ]
+  %.sroa.0.0.i.i = phi ptr [ %50, %51 ], [ %.0.i.i.i, %45 ]
   %54 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 24
   %55 = load ptr, ptr %54, align 8, !tbaa !39
   %.not.i.i3.i = icmp eq ptr %55, null
@@ -1610,7 +1610,7 @@ _ZNK4llvm15SmallPtrSetImplIPKNS_12GenericCycleINS_17GenericSSAContextINS_15Machi
   br i1 %.not.i14, label %_ZNK4llvm29GenericUniformityAnalysisImplINS_17GenericSSAContextINS_15MachineFunctionEEEE19isTemporalDivergentERKNS_17MachineBasicBlockERKNS_12MachineInstrE.exit, label %73, !llvm.loop !358
 
 _ZNK4llvm29GenericUniformityAnalysisImplINS_17GenericSSAContextINS_15MachineFunctionEEEE19isTemporalDivergentERKNS_17MachineBasicBlockERKNS_12MachineInstrE.exit: ; preds = %23, %_ZNK4llvm15SmallPtrSetImplIPKNS_12GenericCycleINS_17GenericSSAContextINS_15MachineFunctionEEEEEE8containsES7_.exit.thread.i, %_ZNK4llvm15SmallPtrSetImplIPKNS_12GenericCycleINS_17GenericSSAContextINS_15MachineFunctionEEEEEE8containsES7_.exit.i, %73, %.lr.ph.i.i.i, %48, %_ZNK4llvm29GenericUniformityAnalysisImplINS_17GenericSSAContextINS_15MachineFunctionEEEE11isDivergentENS_8RegisterE.exit, %56, %51, %15, %_ZNK4llvm19MachineRegisterInfo9getOneDefENS_8RegisterE.exit, %2
-  %.0 = phi i1 [ false, %2 ], [ true, %_ZNK4llvm29GenericUniformityAnalysisImplINS_17GenericSSAContextINS_15MachineFunctionEEEE11isDivergentENS_8RegisterE.exit ], [ false, %_ZNK4llvm19MachineRegisterInfo9getOneDefENS_8RegisterE.exit ], [ true, %48 ], [ true, %_ZNK4llvm15SmallPtrSetImplIPKNS_12GenericCycleINS_17GenericSSAContextINS_15MachineFunctionEEEEEE8containsES7_.exit.i ], [ true, %15 ], [ true, %51 ], [ true, %56 ], [ true, %.lr.ph.i.i.i ], [ false, %_ZNK4llvm15SmallPtrSetImplIPKNS_12GenericCycleINS_17GenericSSAContextINS_15MachineFunctionEEEEEE8containsES7_.exit.thread.i ], [ false, %73 ], [ true, %23 ]
+  %.0 = phi i1 [ false, %2 ], [ true, %56 ], [ true, %.lr.ph.i.i.i ], [ false, %_ZNK4llvm19MachineRegisterInfo9getOneDefENS_8RegisterE.exit ], [ true, %48 ], [ true, %_ZNK4llvm29GenericUniformityAnalysisImplINS_17GenericSSAContextINS_15MachineFunctionEEEE11isDivergentENS_8RegisterE.exit ], [ true, %_ZNK4llvm15SmallPtrSetImplIPKNS_12GenericCycleINS_17GenericSSAContextINS_15MachineFunctionEEEEEE8containsES7_.exit.i ], [ true, %15 ], [ true, %51 ], [ false, %_ZNK4llvm15SmallPtrSetImplIPKNS_12GenericCycleINS_17GenericSSAContextINS_15MachineFunctionEEEEEE8containsES7_.exit.thread.i ], [ false, %73 ], [ true, %23 ]
   ret i1 %.0
 }
 
@@ -2195,7 +2195,7 @@ _ZN4llvm20filter_iterator_baseIPKNS_14MachineOperandEPFbRS2_ESt26bidirectional_i
   br i1 %.not.not.i, label %_ZNK4llvm15SmallPtrSetImplIPKNS_17MachineBasicBlockEE8containsES3_.exit, label %.lr.ph.split.i
 
 _ZNK4llvm15SmallPtrSetImplIPKNS_17MachineBasicBlockEE8containsES3_.exit: ; preds = %.lr.ph.i.i, %45, %_ZN4llvm20filter_iterator_baseIPKNS_14MachineOperandEPFbRS2_ESt26bidirectional_iterator_tagEppEv.exit.i, %_ZNK4llvm29GenericUniformityAnalysisImplINS_17GenericSSAContextINS_15MachineFunctionEEEE11isDivergentENS_8RegisterE.exit.loopexit.i, %.lr.ph.split.i, %61, %72, %.lr.ph.i, %_ZNK4llvm12MachineInstr8all_defsEv.exit.i, %32, %23
-  %.0 = phi i1 [ %34, %32 ], [ false, %23 ], [ false, %_ZNK4llvm12MachineInstr8all_defsEv.exit.i ], [ false, %.lr.ph.i ], [ false, %45 ], [ false, %72 ], [ true, %61 ], [ %59, %_ZN4llvm20filter_iterator_baseIPKNS_14MachineOperandEPFbRS2_ESt26bidirectional_iterator_tagEppEv.exit.i ], [ %59, %.lr.ph.split.i ], [ %59, %_ZNK4llvm29GenericUniformityAnalysisImplINS_17GenericSSAContextINS_15MachineFunctionEEEE11isDivergentENS_8RegisterE.exit.loopexit.i ], [ %30, %.lr.ph.i.i ]
+  %.0 = phi i1 [ false, %45 ], [ %34, %32 ], [ false, %23 ], [ %59, %_ZN4llvm20filter_iterator_baseIPKNS_14MachineOperandEPFbRS2_ESt26bidirectional_iterator_tagEppEv.exit.i ], [ false, %.lr.ph.i ], [ false, %_ZNK4llvm12MachineInstr8all_defsEv.exit.i ], [ true, %61 ], [ false, %72 ], [ %59, %.lr.ph.split.i ], [ %59, %_ZNK4llvm29GenericUniformityAnalysisImplINS_17GenericSSAContextINS_15MachineFunctionEEEE11isDivergentENS_8RegisterE.exit.loopexit.i ], [ %30, %.lr.ph.i.i ]
   ret i1 %.0
 }
 
@@ -7792,7 +7792,7 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i92: ; preds = %._crit_edge
   br label %_ZN4llvm20DivergencePropagatorINS_17GenericSSAContextINS_15MachineFunctionEEEE18visitCycleExitEdgeERKNS_17MachineBasicBlockES7_.exit
 
 _ZN4llvm20DivergencePropagatorINS_17GenericSSAContextINS_15MachineFunctionEEEE18visitCycleExitEdgeERKNS_17MachineBasicBlockES7_.exit: ; preds = %.lr.ph.i.i.i95, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_17MachineBasicBlockES4_NS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_EixEOS4_.exit, %325, %345, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i92
-  %.0.i164248 = phi i1 [ true, %345 ], [ true, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i92 ], [ false, %325 ], [ false, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_17MachineBasicBlockES4_NS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_EixEOS4_.exit ], [ true, %.lr.ph.i.i.i95 ]
+  %.0.i164248 = phi i1 [ true, %345 ], [ true, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i92 ], [ false, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_17MachineBasicBlockES4_NS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_EixEOS4_.exit ], [ false, %325 ], [ true, %.lr.ph.i.i.i95 ]
   %348 = or i1 %.063287, %.0.i164248
   %349 = load ptr, ptr %1, align 8, !tbaa !534
   %350 = getelementptr inbounds nuw i8, ptr %349, i64 64
@@ -7987,8 +7987,8 @@ _ZNK4llvm17ModifiedPostOrderINS_17GenericSSAContextINS_15MachineFunctionEEEE8get
   br label %445
 
 445:                                              ; preds = %166, %443
-  %.2239 = phi i32 [ %.1238299, %166 ], [ %444, %443 ]
-  %.1 = phi ptr [ %.0301, %166 ], [ %.2, %443 ]
+  %.2239 = phi i32 [ %444, %443 ], [ %.1238299, %166 ]
+  %.1 = phi ptr [ %.2, %443 ], [ %.0301, %166 ]
   %446 = load ptr, ptr %59, align 8, !tbaa !523
   %447 = icmp eq ptr %446, %59
   br i1 %447, label %_ZNK4llvm15SparseBitVectorILj128EE9find_lastEv.exit.thread, label %144

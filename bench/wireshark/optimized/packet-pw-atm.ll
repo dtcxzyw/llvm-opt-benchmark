@@ -979,7 +979,7 @@ pw_cell_header_size.exit268.thread.thread313.sink.split: ; preds = %104, %102
   br label %pw_cell_header_size.exit268.thread.thread313
 
 pw_cell_header_size.exit268.thread.thread313:     ; preds = %pw_cell_header_size.exit268.thread.thread313.sink.split, %30, %pw_cell_header_size.exit268.thread.thread309, %104, %pw_cell_header_size.exit268.thread
-  %.0225272311 = phi i32 [ %.0225272312, %pw_cell_header_size.exit268.thread.thread309 ], [ %.0225272312, %104 ], [ %.0225272, %pw_cell_header_size.exit268.thread ], [ 1, %30 ], [ %.0225272312, %pw_cell_header_size.exit268.thread.thread313.sink.split ]
+  %.0225272311 = phi i32 [ %.0225272312, %pw_cell_header_size.exit268.thread.thread309 ], [ %.0225272312, %104 ], [ 1, %30 ], [ %.0225272, %pw_cell_header_size.exit268.thread ], [ %.0225272312, %pw_cell_header_size.exit268.thread.thread313.sink.split ]
   %105 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
   %106 = zext i8 %105 to i32
   %107 = lshr i32 %106, 7
@@ -1728,9 +1728,9 @@ number_of_cells.exit102:                          ; preds = %45
   br label %53
 
 53:                                               ; preds = %.sink.split, %number_of_cells.exit102, %pw_cell_size.exit28.i
-  %.not87 = phi i1 [ true, %pw_cell_size.exit28.i ], [ true, %number_of_cells.exit102 ], [ false, %.sink.split ]
-  %.083 = phi i32 [ %42, %pw_cell_size.exit28.i ], [ -1, %number_of_cells.exit102 ], [ %.083.ph, %.sink.split ]
-  %.082 = phi i32 [ %36, %pw_cell_size.exit28.i ], [ %46, %number_of_cells.exit102 ], [ %.082.ph, %.sink.split ]
+  %.not87 = phi i1 [ true, %number_of_cells.exit102 ], [ true, %pw_cell_size.exit28.i ], [ false, %.sink.split ]
+  %.083 = phi i32 [ -1, %number_of_cells.exit102 ], [ %42, %pw_cell_size.exit28.i ], [ %.083.ph, %.sink.split ]
+  %.082 = phi i32 [ %46, %number_of_cells.exit102 ], [ %36, %pw_cell_size.exit28.i ], [ %.082.ph, %.sink.split ]
   br i1 %13, label %54, label %58
 
 54:                                               ; preds = %53

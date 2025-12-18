@@ -20095,7 +20095,7 @@ lean_alloc_ctor.exit2828:                         ; preds = %lean_dec.exit
   br label %4190
 
 4190:                                             ; preds = %.thread2836, %lean_alloc_ctor.exit2241, %lean_dec.exit1661, %2582, %lean_alloc_ctor.exit2828, %4157, %lean_dec.exit1611, %lean_alloc_ctor.exit2821
-  %.4 = phi ptr [ %.01363, %.thread2836 ], [ %4151, %lean_alloc_ctor.exit2821 ], [ %.12, %4157 ], [ %.12, %lean_dec.exit1611 ], [ %4184, %lean_alloc_ctor.exit2828 ], [ %176, %lean_dec.exit1661 ], [ %1489, %lean_alloc_ctor.exit2241 ], [ %.01396, %2582 ]
+  %.4 = phi ptr [ %.01363, %.thread2836 ], [ %4151, %lean_alloc_ctor.exit2821 ], [ %.12, %4157 ], [ %.12, %lean_dec.exit1611 ], [ %4184, %lean_alloc_ctor.exit2828 ], [ %176, %lean_dec.exit1661 ], [ %.01396, %2582 ], [ %1489, %lean_alloc_ctor.exit2241 ]
   ret ptr %.4
 }
 

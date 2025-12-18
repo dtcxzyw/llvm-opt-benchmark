@@ -1622,9 +1622,9 @@ write_packed_entry.exit131.i:                     ; preds = %133, %132
   br label %select.unfold.i.backedge
 
 select.unfold.i.backedge:                         ; preds = %write_packed_entry.exit131.i, %123, %.thread163.i
-  %.090.i.be = phi i32 [ %.292148.i, %123 ], [ %.292148.i, %write_packed_entry.exit131.i ], [ %121, %.thread163.i ]
-  %.085.i.be = phi i64 [ %124, %123 ], [ %137, %write_packed_entry.exit131.i ], [ %.287158.i, %.thread163.i ]
-  %.3.i.be = phi ptr [ %.6150.i, %123 ], [ %.6150.i, %write_packed_entry.exit131.i ], [ %spec.select121.i, %.thread163.i ]
+  %.090.i.be = phi i32 [ %.292148.i, %write_packed_entry.exit131.i ], [ %.292148.i, %123 ], [ %121, %.thread163.i ]
+  %.085.i.be = phi i64 [ %137, %write_packed_entry.exit131.i ], [ %124, %123 ], [ %.287158.i, %.thread163.i ]
+  %.3.i.be = phi ptr [ %.6150.i, %write_packed_entry.exit131.i ], [ %.6150.i, %123 ], [ %spec.select121.i, %.thread163.i ]
   br label %select.unfold.i
 
 138:                                              ; preds = %66
@@ -2002,8 +2002,8 @@ cmp_record_to_refname.exit.thread.i.i:            ; preds = %cmp_record_to_refna
   br i1 %68, label %.lr.ph.i37.i.i, label %find_end_of_record.exit.i.i, !llvm.loop !98
 
 find_end_of_record.exit.i.i:                      ; preds = %.lr.ph.i32.i.i, %.critedge2.i40.i.i, %64, %cmp_record_to_refname.exit.thread.i.i, %51
-  %.228.i.i = phi ptr [ %.0.lcssa.i.i.i, %51 ], [ %.02661.i.i, %cmp_record_to_refname.exit.thread.i.i ], [ %.02661.i.i, %.critedge2.i40.i.i ], [ %.02661.i.i, %64 ], [ %.0.lcssa.i.i.i, %.lr.ph.i32.i.i ]
-  %.225.i.i = phi ptr [ %.02362.i.i, %51 ], [ %58, %cmp_record_to_refname.exit.thread.i.i ], [ %scevgep.i.i.i, %.critedge2.i40.i.i ], [ %62, %64 ], [ %.02362.i.i, %.lr.ph.i32.i.i ]
+  %.228.i.i = phi ptr [ %.0.lcssa.i.i.i, %51 ], [ %.02661.i.i, %.critedge2.i40.i.i ], [ %.02661.i.i, %cmp_record_to_refname.exit.thread.i.i ], [ %.02661.i.i, %64 ], [ %.0.lcssa.i.i.i, %.lr.ph.i32.i.i ]
+  %.225.i.i = phi ptr [ %.02362.i.i, %51 ], [ %scevgep.i.i.i, %.critedge2.i40.i.i ], [ %58, %cmp_record_to_refname.exit.thread.i.i ], [ %62, %64 ], [ %.02362.i.i, %.lr.ph.i32.i.i ]
   %.not.i.i = icmp eq ptr %.225.i.i, %.228.i.i
   br i1 %.not.i.i, label %find_reference_location.exit, label %32, !llvm.loop !99
 
@@ -2175,8 +2175,8 @@ cmp_record_to_refname.exit.thread.i.i.i:          ; preds = %cmp_record_to_refna
   br i1 %136, label %.lr.ph.i37.i.i.i, label %find_end_of_record.exit.i.i.i, !llvm.loop !98
 
 find_end_of_record.exit.i.i.i:                    ; preds = %.lr.ph.i32.i.i.i, %.critedge2.i40.i.i.i, %132, %cmp_record_to_refname.exit.thread.i.i.i, %119
-  %.228.i.i.i = phi ptr [ %.0.lcssa.i.i.i.i, %119 ], [ %.02661.i.i.i, %cmp_record_to_refname.exit.thread.i.i.i ], [ %.02661.i.i.i, %.critedge2.i40.i.i.i ], [ %.02661.i.i.i, %132 ], [ %.0.lcssa.i.i.i.i, %.lr.ph.i32.i.i.i ]
-  %.225.i.i.i = phi ptr [ %.02362.i.i.i, %119 ], [ %126, %cmp_record_to_refname.exit.thread.i.i.i ], [ %scevgep.i.i.i.i, %.critedge2.i40.i.i.i ], [ %130, %132 ], [ %.02362.i.i.i, %.lr.ph.i32.i.i.i ]
+  %.228.i.i.i = phi ptr [ %.0.lcssa.i.i.i.i, %119 ], [ %.02661.i.i.i, %.critedge2.i40.i.i.i ], [ %.02661.i.i.i, %cmp_record_to_refname.exit.thread.i.i.i ], [ %.02661.i.i.i, %132 ], [ %.0.lcssa.i.i.i.i, %.lr.ph.i32.i.i.i ]
+  %.225.i.i.i = phi ptr [ %.02362.i.i.i, %119 ], [ %scevgep.i.i.i.i, %.critedge2.i40.i.i.i ], [ %126, %cmp_record_to_refname.exit.thread.i.i.i ], [ %130, %132 ], [ %.02362.i.i.i, %.lr.ph.i32.i.i.i ]
   %.not.i.i.i53 = icmp eq ptr %.225.i.i.i, %.228.i.i.i
   br i1 %.not.i.i.i53, label %.lr.ph.i.i69.i, label %100, !llvm.loop !99
 
@@ -2576,8 +2576,8 @@ cmp_record_to_refname.exit.thread.i.i:            ; preds = %cmp_record_to_refna
   br i1 %59, label %.lr.ph.i37.i.i, label %find_end_of_record.exit.i.i, !llvm.loop !98
 
 find_end_of_record.exit.i.i:                      ; preds = %.lr.ph.i32.i.i, %.critedge2.i40.i.i, %55, %cmp_record_to_refname.exit.thread.i.i, %42
-  %.228.i.i = phi ptr [ %.0.lcssa.i.i.i, %42 ], [ %.02661.i.i, %cmp_record_to_refname.exit.thread.i.i ], [ %.02661.i.i, %.critedge2.i40.i.i ], [ %.02661.i.i, %55 ], [ %.0.lcssa.i.i.i, %.lr.ph.i32.i.i ]
-  %.225.i.i = phi ptr [ %.02362.i.i, %42 ], [ %49, %cmp_record_to_refname.exit.thread.i.i ], [ %scevgep.i.i.i, %.critedge2.i40.i.i ], [ %53, %55 ], [ %.02362.i.i, %.lr.ph.i32.i.i ]
+  %.228.i.i = phi ptr [ %.0.lcssa.i.i.i, %42 ], [ %.02661.i.i, %.critedge2.i40.i.i ], [ %.02661.i.i, %cmp_record_to_refname.exit.thread.i.i ], [ %.02661.i.i, %55 ], [ %.0.lcssa.i.i.i, %.lr.ph.i32.i.i ]
+  %.225.i.i = phi ptr [ %.02362.i.i, %42 ], [ %scevgep.i.i.i, %.critedge2.i40.i.i ], [ %49, %cmp_record_to_refname.exit.thread.i.i ], [ %53, %55 ], [ %.02362.i.i, %.lr.ph.i32.i.i ]
   %.not.i.i = icmp eq ptr %.225.i.i, %.228.i.i
   br i1 %.not.i.i, label %find_reference_location.exit.thread, label %23, !llvm.loop !99
 
@@ -2605,8 +2605,8 @@ find_reference_location.exit:                     ; preds = %cmp_record_to_refna
   unreachable
 
 find_reference_location.exit.thread:              ; preds = %find_end_of_record.exit.i.i, %60, %find_reference_location.exit, %packed_downcast.exit
-  %.sink = phi ptr [ %5, %find_reference_location.exit ], [ %5, %packed_downcast.exit ], [ %4, %60 ], [ %5, %find_end_of_record.exit.i.i ]
-  %.0 = phi i32 [ -1, %find_reference_location.exit ], [ -1, %packed_downcast.exit ], [ 0, %60 ], [ -1, %find_end_of_record.exit.i.i ]
+  %.sink = phi ptr [ %5, %find_reference_location.exit ], [ %4, %60 ], [ %5, %packed_downcast.exit ], [ %5, %find_end_of_record.exit.i.i ]
+  %.0 = phi i32 [ -1, %find_reference_location.exit ], [ 0, %60 ], [ -1, %packed_downcast.exit ], [ -1, %find_end_of_record.exit.i.i ]
   store i32 2, ptr %.sink, align 4, !tbaa !22
   ret i32 %.0
 }

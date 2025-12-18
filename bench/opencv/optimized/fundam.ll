@@ -10980,7 +10980,7 @@ _ZNK2cv11_InputArray6getMatEi.exit12:             ; preds = %15, %18
   br i1 %exitcond13.not.i23, label %_ZN2cvL19haveCollinearPointsERKNS_3MatEi.exit, label %64, !llvm.loop !266
 
 _ZN2cvL19haveCollinearPointsERKNS_3MatEi.exit:    ; preds = %41, %.critedge.i21, %78, %_ZNK2cv11_InputArray6getMatEi.exit12
-  %96 = phi i1 [ true, %_ZNK2cv11_InputArray6getMatEi.exit12 ], [ true, %.critedge.i21 ], [ false, %78 ], [ false, %41 ]
+  %96 = phi i1 [ false, %78 ], [ true, %.critedge.i21 ], [ true, %_ZNK2cv11_InputArray6getMatEi.exit12 ], [ false, %41 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #21

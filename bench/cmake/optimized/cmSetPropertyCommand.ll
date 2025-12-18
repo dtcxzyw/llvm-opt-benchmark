@@ -929,7 +929,7 @@ _ZNSt6vectorIP10cmMakefileSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__n
   br label %_ZNSt6vectorIP10cmMakefileSaIS1_EE9push_backERKS1_.exit145
 
 _ZNSt6vectorIP10cmMakefileSaIS1_EE9push_backERKS1_.exit145: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit87, %_ZNSt6vectorIP10cmMakefileSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i142, %255, %.thread, %.critedge79, %246
-  %.4 = phi i1 [ true, %.critedge79 ], [ true, %_ZNSt6vectorIP10cmMakefileSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i142 ], [ true, %246 ], [ false, %.thread ], [ true, %255 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit87 ]
+  %.4 = phi i1 [ true, %.critedge79 ], [ true, %255 ], [ true, %_ZNSt6vectorIP10cmMakefileSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i142 ], [ true, %246 ], [ false, %.thread ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit87 ]
   %277 = load ptr, ptr %20, align 8, !tbaa !77
   %.not5.i.i.i.i = icmp eq ptr %277, null
   br i1 %.not5.i.i.i.i, label %_ZNSt10_HashtableIP10cmMakefileS1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ESt4hashIS1_ENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i, label %.lr.ph.i.i.i.i146
@@ -4141,8 +4141,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit37: ; preds = %119
   br i1 %128, label %.split.us, label %_ZNSt6bitsetILm32EE3setEmb.exit.i.i
 
 .split.us:                                        ; preds = %.lr.ph.i.ithread-pre-split, %.lr.ph.i.ithread-pre-split.us88, %.lr.ph.i.ithread-pre-split.us
-  %.us-phi71 = phi i64 [ %97, %.lr.ph.i.ithread-pre-split.us88 ], [ %31, %.lr.ph.i.ithread-pre-split.us ], [ %132, %.lr.ph.i.ithread-pre-split ]
-  %.us-phi72 = phi i64 [ %98, %.lr.ph.i.ithread-pre-split.us88 ], [ %32, %.lr.ph.i.ithread-pre-split.us ], [ %127, %.lr.ph.i.ithread-pre-split ]
+  %.us-phi71 = phi i64 [ %31, %.lr.ph.i.ithread-pre-split.us ], [ %97, %.lr.ph.i.ithread-pre-split.us88 ], [ %132, %.lr.ph.i.ithread-pre-split ]
+  %.us-phi72 = phi i64 [ %32, %.lr.ph.i.ithread-pre-split.us ], [ %98, %.lr.ph.i.ithread-pre-split.us88 ], [ %127, %.lr.ph.i.ithread-pre-split ]
   store i64 %.us-phi71, ptr %13, align 8, !tbaa !38
   call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.68, i64 noundef %.us-phi72, i64 noundef 32) #23
   unreachable
@@ -4177,8 +4177,8 @@ common.resume:                                    ; preds = %_ZNSt7__cxx1112basi
   resume { ptr, i32 } %common.resume.op
 
 .split74.us:                                      ; preds = %_ZN2cm8enum_setIN12cmStateEnums12TargetDomainELm32ELi0EEC2ESt16initializer_listIS2_E.exit, %_ZN2cm8enum_setIN12cmStateEnums12TargetDomainELm32ELi0EEC2ESt16initializer_listIS2_E.exit.us91, %_ZN2cm8enum_setIN12cmStateEnums12TargetDomainELm32ELi0EEC2ESt16initializer_listIS2_E.exit.us
-  %.us-phi75 = phi ptr [ %89, %_ZN2cm8enum_setIN12cmStateEnums12TargetDomainELm32ELi0EEC2ESt16initializer_listIS2_E.exit.us91 ], [ %23, %_ZN2cm8enum_setIN12cmStateEnums12TargetDomainELm32ELi0EEC2ESt16initializer_listIS2_E.exit.us ], [ %104, %_ZN2cm8enum_setIN12cmStateEnums12TargetDomainELm32ELi0EEC2ESt16initializer_listIS2_E.exit ]
-  %.us-phi76 = phi ptr [ %.sroa.047.069.us83, %_ZN2cm8enum_setIN12cmStateEnums12TargetDomainELm32ELi0EEC2ESt16initializer_listIS2_E.exit.us91 ], [ %.sroa.047.069.us, %_ZN2cm8enum_setIN12cmStateEnums12TargetDomainELm32ELi0EEC2ESt16initializer_listIS2_E.exit.us ], [ %.sroa.047.069, %_ZN2cm8enum_setIN12cmStateEnums12TargetDomainELm32ELi0EEC2ESt16initializer_listIS2_E.exit ]
+  %.us-phi75 = phi ptr [ %23, %_ZN2cm8enum_setIN12cmStateEnums12TargetDomainELm32ELi0EEC2ESt16initializer_listIS2_E.exit.us ], [ %89, %_ZN2cm8enum_setIN12cmStateEnums12TargetDomainELm32ELi0EEC2ESt16initializer_listIS2_E.exit.us91 ], [ %104, %_ZN2cm8enum_setIN12cmStateEnums12TargetDomainELm32ELi0EEC2ESt16initializer_listIS2_E.exit ]
+  %.us-phi76 = phi ptr [ %.sroa.047.069.us, %_ZN2cm8enum_setIN12cmStateEnums12TargetDomainELm32ELi0EEC2ESt16initializer_listIS2_E.exit.us ], [ %.sroa.047.069.us83, %_ZN2cm8enum_setIN12cmStateEnums12TargetDomainELm32ELi0EEC2ESt16initializer_listIS2_E.exit.us91 ], [ %.sroa.047.069, %_ZN2cm8enum_setIN12cmStateEnums12TargetDomainELm32ELi0EEC2ESt16initializer_listIS2_E.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !236
   store i64 22, ptr %8, align 8, !tbaa !38, !alias.scope !239, !noalias !236
@@ -4242,7 +4242,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %.loopexit
 
 .loopexit:                                        ; preds = %134, %101, %_ZN12cmConstStackI17cmListFileContext19cmListFileBacktraceED2Ev.exit.i.us, %7, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i41, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.not5056 = phi i1 [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ false, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i41 ], [ true, %7 ], [ true, %101 ], [ true, %_ZN12cmConstStackI17cmListFileContext19cmListFileBacktraceED2Ev.exit.i.us ], [ true, %134 ]
+  %.not5056 = phi i1 [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ false, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i41 ], [ true, %7 ], [ true, %_ZN12cmConstStackI17cmListFileContext19cmListFileBacktraceED2Ev.exit.i.us ], [ true, %101 ], [ true, %134 ]
   ret i1 %.not5056
 }
 
@@ -4445,7 +4445,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   br label %.split
 
 .split99.us:                                      ; preds = %69, %58, %47
-  %.us-phi101 = phi ptr [ %.sroa.078.097.us102, %58 ], [ %.sroa.078.097.us, %47 ], [ %.sroa.078.097, %69 ]
+  %.us-phi101 = phi ptr [ %.sroa.078.097.us, %47 ], [ %.sroa.078.097.us102, %58 ], [ %.sroa.078.097, %69 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !250
   store i64 54, ptr %10, align 8, !tbaa !38, !alias.scope !253, !noalias !250
@@ -5255,8 +5255,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit67: ; preds = %97,
   br i1 %.not84, label %.loopexit, label %147
 
 .split.us:                                        ; preds = %147, %140, %125, %118, %.lr.ph.split, %.lr.ph.split.us
-  %.us-phi = phi ptr [ %108, %.lr.ph.split.us ], [ %108, %.lr.ph.split ], [ %141, %140 ], [ %119, %118 ], [ %126, %125 ], [ %148, %147 ]
-  %.us-phi91 = phi ptr [ %106, %.lr.ph.split.us ], [ %106, %.lr.ph.split ], [ %139, %140 ], [ %117, %118 ], [ %135, %125 ], [ %157, %147 ]
+  %.us-phi = phi ptr [ %141, %140 ], [ %108, %.lr.ph.split.us ], [ %126, %125 ], [ %108, %.lr.ph.split ], [ %119, %118 ], [ %148, %147 ]
+  %.us-phi91 = phi ptr [ %139, %140 ], [ %106, %.lr.ph.split.us ], [ %135, %125 ], [ %106, %.lr.ph.split ], [ %117, %118 ], [ %157, %147 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !312
   store i64 30, ptr %8, align 8, !tbaa !38, !alias.scope !315, !noalias !312
@@ -5320,7 +5320,7 @@ _ZN12_GLOBAL__N_116HandleCacheEntryERKNSt7__cxx1112basic_stringIcSt11char_traits
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph96.split, %.lr.ph96.split.us, %.lr.ph111.split, %.lr.ph111.split.us, %104, %_ZN12_GLOBAL__N_116HandleCacheEntryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK10cmMakefileS7_S7_bbb.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit64, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.0 = phi i1 [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit64 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ false, %_ZN12_GLOBAL__N_116HandleCacheEntryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK10cmMakefileS7_S7_bbb.exit ], [ true, %104 ], [ true, %.lr.ph96.split.us ], [ true, %.lr.ph111.split.us ], [ true, %.lr.ph111.split ], [ true, %.lr.ph96.split ]
+  %.0 = phi i1 [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit64 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ false, %_ZN12_GLOBAL__N_116HandleCacheEntryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK10cmMakefileS7_S7_bbb.exit ], [ true, %104 ], [ true, %.lr.ph96.split.us ], [ true, %.lr.ph111.split ], [ true, %.lr.ph111.split.us ], [ true, %.lr.ph96.split ]
   ret i1 %.0
 
 179:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit77, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit67, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit57, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47
@@ -5404,8 +5404,8 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117HandleInstallModeE
   br i1 %.not, label %.critedge, label %31
 
 .split.us:                                        ; preds = %31, %27, %18, %.lr.ph.split, %.lr.ph.split.us
-  %.us-phi = phi ptr [ %15, %.lr.ph.split.us ], [ %15, %.lr.ph.split ], [ %28, %27 ], [ %19, %18 ], [ %32, %31 ]
-  %.us-phi39 = phi ptr [ %13, %.lr.ph.split.us ], [ %13, %.lr.ph.split ], [ %26, %27 ], [ %23, %18 ], [ %37, %31 ]
+  %.us-phi = phi ptr [ %19, %18 ], [ %15, %.lr.ph.split.us ], [ %15, %.lr.ph.split ], [ %28, %27 ], [ %32, %31 ]
+  %.us-phi39 = phi ptr [ %23, %18 ], [ %13, %.lr.ph.split.us ], [ %13, %.lr.ph.split ], [ %26, %27 ], [ %37, %31 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !324
   store i64 55, ptr %8, align 8, !tbaa !38, !alias.scope !327, !noalias !324
@@ -5463,7 +5463,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph44.split, %.lr.ph44.split.us, %.lr.ph59, %7, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
-  %.not34 = phi i1 [ false, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ true, %7 ], [ true, %.lr.ph44.split.us ], [ true, %.lr.ph59 ], [ true, %.lr.ph44.split ]
+  %.not34 = phi i1 [ false, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ true, %7 ], [ true, %.lr.ph59 ], [ true, %.lr.ph44.split.us ], [ true, %.lr.ph44.split ]
   ret i1 %.not34
 }
 
@@ -6534,8 +6534,8 @@ _ZNSt10_HashtableIP10cmMakefileS1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_E
   resume { ptr, i32 } %47
 
 _ZNKSt10_HashtableIP10cmMakefileS1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ESt4hashIS1_ENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb0ELb1ELb1EEEE15_M_find_node_trIS1_EEPNS3_10_Hash_nodeIS1_Lb0EEEmRKT_m.exit: ; preds = %33, %19, %.critedge, %28
-  %.sroa.031.1 = phi ptr [ %29, %28 ], [ %46, %.critedge ], [ %.sroa.028.0, %19 ], [ %35, %33 ]
-  %.sroa.432.1 = phi i8 [ 0, %28 ], [ 1, %.critedge ], [ 0, %19 ], [ 0, %33 ]
+  %.sroa.031.1 = phi ptr [ %.sroa.028.0, %19 ], [ %46, %.critedge ], [ %29, %28 ], [ %35, %33 ]
+  %.sroa.432.1 = phi i8 [ 0, %19 ], [ 1, %.critedge ], [ 0, %28 ], [ 0, %33 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.031.1, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.432.1, 1
   ret { ptr, i8 } %.fca.1.insert

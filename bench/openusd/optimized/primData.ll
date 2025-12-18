@@ -889,37 +889,37 @@ _ZNSt6bitsetILm15EE9referenceaSEb.exit31:         ; preds = %3
 _ZNSt6bitsetILm15EE9referenceaSEb.exit32:         ; preds = %_ZNSt6bitsetILm15EE9referenceaSEb.exit31
   %21 = or i64 %20, 512
   store i64 %21, ptr %14, align 8
-  br i1 %13, label %23, label %.thread96
+  br i1 %13, label %26, label %.thread96
 
 _ZNSt6bitsetILm15EE9referenceaSEb.exit32.thread:  ; preds = %_ZNSt6bitsetILm15EE9referenceaSEb.exit31
   %22 = and i64 %20, -513
   store i64 %22, ptr %14, align 8
   br i1 %13, label %.thread, label %.thread96
 
-23:                                               ; preds = %_ZNSt6bitsetILm15EE9referenceaSEb.exit32
-  %24 = load ptr, ptr %0, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 128
-  %26 = load ptr, ptr %25, align 8
-  %27 = load ptr, ptr %17, align 8
-  %28 = tail call noundef nonnull align 4 dereferenceable(8) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12PcpPrimIndex7GetPathEv(ptr noundef nonnull align 8 dereferenceable(40) %27)
-  %29 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8PcpCache17IsPayloadIncludedERKNS_7SdfPathE(ptr noundef nonnull align 8 dereferenceable(352) %26, ptr noundef nonnull align 4 dereferenceable(8) %28)
-  %.pre147 = load i64, ptr %14, align 8
-  br i1 %29, label %33, label %.thread96
-
 .thread:                                          ; preds = %_ZNSt6bitsetILm15EE9referenceaSEb.exit32.thread
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %31 = load i64, ptr %30, align 8
-  %32 = and i64 %31, 2
-  %.not135 = icmp eq i64 %32, 0
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %24 = load i64, ptr %23, align 8
+  %25 = and i64 %24, 2
+  %.not135 = icmp eq i64 %25, 0
   br i1 %.not135, label %.thread96, label %33
 
-33:                                               ; preds = %23, %.thread
-  %34 = phi i64 [ %.pre147, %23 ], [ %22, %.thread ]
+26:                                               ; preds = %_ZNSt6bitsetILm15EE9referenceaSEb.exit32
+  %27 = load ptr, ptr %0, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 128
+  %29 = load ptr, ptr %28, align 8
+  %30 = load ptr, ptr %17, align 8
+  %31 = tail call noundef nonnull align 4 dereferenceable(8) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12PcpPrimIndex7GetPathEv(ptr noundef nonnull align 8 dereferenceable(40) %30)
+  %32 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8PcpCache17IsPayloadIncludedERKNS_7SdfPathE(ptr noundef nonnull align 8 dereferenceable(352) %29, ptr noundef nonnull align 4 dereferenceable(8) %31)
+  %.pre147 = load i64, ptr %14, align 8
+  br i1 %32, label %33, label %.thread96
+
+33:                                               ; preds = %.thread, %26
+  %34 = phi i64 [ %22, %.thread ], [ %.pre147, %26 ]
   %35 = or i64 %34, 2
   br label %_ZNSt6bitsetILm15EE9referenceaSEb.exit33
 
-.thread96:                                        ; preds = %23, %_ZNSt6bitsetILm15EE9referenceaSEb.exit32.thread, %_ZNSt6bitsetILm15EE9referenceaSEb.exit32, %.thread
-  %36 = phi i64 [ %22, %.thread ], [ %22, %_ZNSt6bitsetILm15EE9referenceaSEb.exit32.thread ], [ %21, %_ZNSt6bitsetILm15EE9referenceaSEb.exit32 ], [ %.pre147, %23 ]
+.thread96:                                        ; preds = %26, %_ZNSt6bitsetILm15EE9referenceaSEb.exit32.thread, %_ZNSt6bitsetILm15EE9referenceaSEb.exit32, %.thread
+  %36 = phi i64 [ %22, %.thread ], [ %22, %_ZNSt6bitsetILm15EE9referenceaSEb.exit32.thread ], [ %21, %_ZNSt6bitsetILm15EE9referenceaSEb.exit32 ], [ %.pre147, %26 ]
   %37 = and i64 %36, -3
   br label %_ZNSt6bitsetILm15EE9referenceaSEb.exit33
 

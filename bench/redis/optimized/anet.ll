@@ -94,7 +94,7 @@ define dso_local range(i32 -1, 1) i32 @anetSetBlock(ptr noundef captures(address
   br label %18
 
 18:                                               ; preds = %.sink.split, %11, %6
-  %.010 = phi i32 [ 0, %6 ], [ 0, %11 ], [ -1, %.sink.split ]
+  %.010 = phi i32 [ 0, %11 ], [ 0, %6 ], [ -1, %.sink.split ]
   ret i32 %.010
 }
 
@@ -147,7 +147,7 @@ define dso_local range(i32 -1, 1) i32 @anetNonBlock(ptr noundef captures(address
   br label %anetSetBlock.exit
 
 anetSetBlock.exit:                                ; preds = %5, %7, %.sink.split.i
-  %.010.i = phi i32 [ 0, %5 ], [ 0, %7 ], [ -1, %.sink.split.i ]
+  %.010.i = phi i32 [ 0, %7 ], [ 0, %5 ], [ -1, %.sink.split.i ]
   ret i32 %.010.i
 }
 
@@ -177,7 +177,7 @@ define dso_local range(i32 -1, 1) i32 @anetBlock(ptr noundef captures(address_is
   br label %anetSetBlock.exit
 
 anetSetBlock.exit:                                ; preds = %5, %8, %.sink.split.i
-  %.010.i = phi i32 [ 0, %5 ], [ 0, %8 ], [ -1, %.sink.split.i ]
+  %.010.i = phi i32 [ 0, %8 ], [ 0, %5 ], [ -1, %.sink.split.i ]
   ret i32 %.010.i
 }
 
@@ -217,7 +217,7 @@ define dso_local i32 @anetCloexec(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %17, label %11, label %.critedge2, !llvm.loop !11
 
 .critedge2:                                       ; preds = %5, %14, %11, %.critedge14
-  %.0 = phi i32 [ %3, %.critedge14 ], [ -1, %14 ], [ %12, %11 ], [ -1, %5 ]
+  %.0 = phi i32 [ -1, %14 ], [ %3, %.critedge14 ], [ %12, %11 ], [ -1, %5 ]
   ret i32 %.0
 }
 
@@ -579,7 +579,7 @@ anetNonBlock.exit:                                ; preds = %33, %38
   call void (ptr, ptr, ...) @anetSetError(ptr noundef %0, ptr noundef nonnull %.str.1.sink.i.i, ptr noundef %43)
   br label %.thread73
 
-anetNonBlock.exit.thread:                         ; preds = %38, %36, %32
+anetNonBlock.exit.thread:                         ; preds = %36, %38, %32
   br i1 %.not58, label %56, label %44
 
 44:                                               ; preds = %anetNonBlock.exit.thread
@@ -736,7 +736,7 @@ define dso_local i32 @anetUnixGenericConnect(ptr noundef captures(address_is_nul
   %21 = load i32, ptr %20, align 4, !tbaa !5
   br label %.sink.split
 
-anetNonBlock.exit.thread:                         ; preds = %16, %14, %7
+anetNonBlock.exit.thread:                         ; preds = %14, %16, %7
   %22 = call i32 @connect(i32 noundef %5, ptr nonnull %4, i32 noundef 110) #11
   %23 = icmp eq i32 %22, -1
   br i1 %23, label %24, label %30
@@ -757,7 +757,7 @@ anetNonBlock.exit.thread:                         ; preds = %16, %14, %7
   br label %30
 
 30:                                               ; preds = %.sink.split, %anetNonBlock.exit.thread, %24, %3
-  %.0 = phi i32 [ %5, %24 ], [ -1, %3 ], [ %5, %anetNonBlock.exit.thread ], [ -1, %.sink.split ]
+  %.0 = phi i32 [ %5, %24 ], [ %5, %anetNonBlock.exit.thread ], [ -1, %3 ], [ -1, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }

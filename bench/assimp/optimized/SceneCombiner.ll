@@ -1787,12 +1787,12 @@ _ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE10_M_insert_IjNS5_11_Alloc_nodeE
   br i1 %315, label %182, label %.loopexit823, !llvm.loop !21
 
 .loopexit823:                                     ; preds = %.loopexit821, %._crit_edge866.thread, %.preheader822, %._crit_edge866
-  %.not3881253 = phi i1 [ false, %.preheader822 ], [ true, %._crit_edge866 ], [ %.not3881241, %._crit_edge866.thread ], [ false, %.loopexit821 ]
-  %.sroa.0744.078012241251 = phi ptr [ %113, %.preheader822 ], [ %113, %._crit_edge866 ], [ null, %._crit_edge866.thread ], [ %113, %.loopexit821 ]
-  %.sroa.26.077712291249 = phi ptr [ %114, %.preheader822 ], [ %114, %._crit_edge866 ], [ null, %._crit_edge866.thread ], [ %114, %.loopexit821 ]
-  %.sroa.0727.012341247 = phi ptr [ %115, %.preheader822 ], [ %115, %._crit_edge866 ], [ null, %._crit_edge866.thread ], [ %115, %.loopexit821 ]
-  %.sroa.18.012361244 = phi ptr [ %153, %.preheader822 ], [ %153, %._crit_edge866 ], [ null, %._crit_edge866.thread ], [ %153, %.loopexit821 ]
-  %316 = phi ptr [ %95, %.preheader822 ], [ %95, %._crit_edge866 ], [ %95, %._crit_edge866.thread ], [ %310, %.loopexit821 ]
+  %.not3881253 = phi i1 [ %.not3881241, %._crit_edge866.thread ], [ false, %.preheader822 ], [ true, %._crit_edge866 ], [ false, %.loopexit821 ]
+  %.sroa.0744.078012241251 = phi ptr [ null, %._crit_edge866.thread ], [ %113, %.preheader822 ], [ %113, %._crit_edge866 ], [ %113, %.loopexit821 ]
+  %.sroa.26.077712291249 = phi ptr [ null, %._crit_edge866.thread ], [ %114, %.preheader822 ], [ %114, %._crit_edge866 ], [ %114, %.loopexit821 ]
+  %.sroa.0727.012341247 = phi ptr [ null, %._crit_edge866.thread ], [ %115, %.preheader822 ], [ %115, %._crit_edge866 ], [ %115, %.loopexit821 ]
+  %.sroa.18.012361244 = phi ptr [ null, %._crit_edge866.thread ], [ %153, %.preheader822 ], [ %153, %._crit_edge866 ], [ %153, %.loopexit821 ]
+  %316 = phi ptr [ %95, %._crit_edge866.thread ], [ %95, %.preheader822 ], [ %95, %._crit_edge866 ], [ %310, %.loopexit821 ]
   %317 = load ptr, ptr %9, align 8
   %.not977 = icmp eq ptr %316, %317
   br i1 %.not977, label %._crit_edge874, label %.lr.ph873
@@ -1961,7 +1961,7 @@ _ZN6Assimp13SceneCombiner4CopyEPP9aiTexturePKS1_.exit.us: ; preds = %.lr.ph881.s
   br i1 %410, label %.lr.ph881.split.us.split, label %._crit_edge882, !llvm.loop !23
 
 ._crit_edge882:                                   ; preds = %_ZN6Assimp13SceneCombiner4CopyEPP9aiTexturePKS1_.exit, %405, %.lr.ph881.split.us, %388
-  %.1346.lcssa = phi ptr [ %.0345887, %388 ], [ %.0345887, %.lr.ph881.split.us ], [ %.2347.us, %405 ], [ %461, %_ZN6Assimp13SceneCombiner4CopyEPP9aiTexturePKS1_.exit ]
+  %.1346.lcssa = phi ptr [ %.0345887, %388 ], [ %.2347.us, %405 ], [ %.0345887, %.lr.ph881.split.us ], [ %461, %_ZN6Assimp13SceneCombiner4CopyEPP9aiTexturePKS1_.exit ]
   %411 = getelementptr inbounds nuw i32, ptr %.sroa.0727.012341247, i64 %390
   store i32 %.0334888, ptr %411, align 4
   %412 = load ptr, ptr %384, align 8
@@ -2510,7 +2510,7 @@ _ZN6Assimp12PrefixStringER8aiStringPKcj.exit:     ; preds = %615, %602, %.noexc4
   br i1 %675, label %.lr.ph909.split.us.split, label %._crit_edge910, !llvm.loop !31
 
 ._crit_edge910:                                   ; preds = %702, %670, %.lr.ph909.split.us, %647
-  %.1343.lcssa = phi ptr [ %.0342914, %647 ], [ %.0342914, %.lr.ph909.split.us ], [ %.2344.us, %670 ], [ %708, %702 ]
+  %.1343.lcssa = phi ptr [ %.0342914, %647 ], [ %.2344.us, %670 ], [ %.0342914, %.lr.ph909.split.us ], [ %708, %702 ]
   %676 = getelementptr inbounds nuw i32, ptr %.sroa.0727.012341247, i64 %649
   store i32 %.2336918, ptr %676, align 4
   %677 = load ptr, ptr %643, align 8
@@ -10097,8 +10097,8 @@ _ZNSt10_HashtableIPK6aiBoneS2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4h
   resume { ptr, i32 } %47
 
 _ZNKSt10_HashtableIPK6aiBoneS2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE15_M_find_node_trIS2_EEPNS4_10_Hash_nodeIS2_Lb0EEEmRKT_m.exit: ; preds = %33, %19, %.critedge, %28
-  %.sroa.031.1 = phi ptr [ %29, %28 ], [ %46, %.critedge ], [ %.sroa.028.0, %19 ], [ %35, %33 ]
-  %.sroa.432.1 = phi i8 [ 0, %28 ], [ 1, %.critedge ], [ 0, %19 ], [ 0, %33 ]
+  %.sroa.031.1 = phi ptr [ %.sroa.028.0, %19 ], [ %46, %.critedge ], [ %29, %28 ], [ %35, %33 ]
+  %.sroa.432.1 = phi i8 [ 0, %19 ], [ 1, %.critedge ], [ 0, %28 ], [ 0, %33 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.031.1, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.432.1, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -10532,8 +10532,8 @@ _ZNSt10_HashtableIP7aiSceneS1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ESt4h
   resume { ptr, i32 } %47
 
 _ZNKSt10_HashtableIP7aiSceneS1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ESt4hashIS1_ENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb0ELb1ELb1EEEE15_M_find_node_trIS1_EEPNS3_10_Hash_nodeIS1_Lb0EEEmRKT_m.exit: ; preds = %33, %19, %.critedge, %28
-  %.sroa.031.1 = phi ptr [ %29, %28 ], [ %46, %.critedge ], [ %.sroa.028.0, %19 ], [ %35, %33 ]
-  %.sroa.432.1 = phi i8 [ 0, %28 ], [ 1, %.critedge ], [ 0, %19 ], [ 0, %33 ]
+  %.sroa.031.1 = phi ptr [ %.sroa.028.0, %19 ], [ %46, %.critedge ], [ %29, %28 ], [ %35, %33 ]
+  %.sroa.432.1 = phi i8 [ 0, %19 ], [ 1, %.critedge ], [ 0, %28 ], [ 0, %33 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.031.1, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.432.1, 1
   ret { ptr, i8 } %.fca.1.insert

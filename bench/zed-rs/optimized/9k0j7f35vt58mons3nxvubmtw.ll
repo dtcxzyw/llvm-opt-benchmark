@@ -594,8 +594,8 @@ _ZN3std2io4Read8read_buf17h03c00899386c89bdE.exit.thread.thread: ; preds = %_ZN3
   br label %.loopexit
 
 .loopexit:                                        ; preds = %104, %94, %100, %96, %.loopexit114, %_ZN3std2io4Read8read_buf17h03c00899386c89bdE.exit.thread.thread, %32, %35, %53, %71
-  %.sroa.8.0 = phi i64 [ %33, %32 ], [ %54, %53 ], [ %74, %71 ], [ 0, %35 ], [ %85, %_ZN3std2io4Read8read_buf17h03c00899386c89bdE.exit.thread.thread ], [ %110, %.loopexit114 ], [ %82, %96 ], [ %82, %100 ], [ %82, %94 ], [ %82, %104 ]
-  %.sroa.0.0 = phi i64 [ 1, %32 ], [ 0, %53 ], [ 1, %71 ], [ 0, %35 ], [ 0, %_ZN3std2io4Read8read_buf17h03c00899386c89bdE.exit.thread.thread ], [ 1, %.loopexit114 ], [ 1, %96 ], [ 1, %100 ], [ 1, %94 ], [ 1, %104 ]
+  %.sroa.8.0 = phi i64 [ %33, %32 ], [ %54, %53 ], [ %110, %.loopexit114 ], [ %74, %71 ], [ 0, %35 ], [ %85, %_ZN3std2io4Read8read_buf17h03c00899386c89bdE.exit.thread.thread ], [ %82, %96 ], [ %82, %100 ], [ %82, %94 ], [ %82, %104 ]
+  %.sroa.0.0 = phi i64 [ 1, %32 ], [ 0, %53 ], [ 1, %.loopexit114 ], [ 1, %71 ], [ 0, %35 ], [ 0, %_ZN3std2io4Read8read_buf17h03c00899386c89bdE.exit.thread.thread ], [ 1, %96 ], [ 1, %100 ], [ 1, %94 ], [ 1, %104 ]
   %111 = inttoptr i64 %.sroa.8.0 to ptr
   %112 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %113 = insertvalue { i64, ptr } %112, ptr %111, 1

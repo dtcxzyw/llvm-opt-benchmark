@@ -7598,7 +7598,7 @@ define noundef zeroext i1 @_ZN9actix_web4http6header15accept_encoding22is_identi
   br label %.loopexit
 
 .loopexit:                                        ; preds = %14, %.loopexit.sink.split, %2
-  %.0 = phi i1 [ true, %2 ], [ %7, %.loopexit.sink.split ], [ true, %14 ]
+  %.0 = phi i1 [ %7, %.loopexit.sink.split ], [ true, %2 ], [ true, %14 ]
   ret i1 %.0
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %14
@@ -8178,7 +8178,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17hd45d4e7590749a67E.exit: ; preds = %115
           to label %.thread unwind label %82
 
 .thread:                                          ; preds = %92, %171, %101, %158, %71, %81, %172, %.body65
-  %.pn4786 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %.body65 ], [ %lpad.thr_comm.split-lp, %172 ], [ %eh.lpad-body.ph, %81 ], [ %72, %71 ], [ %93, %92 ], [ %159, %158 ], [ %102, %101 ], [ %.pn97, %171 ]
+  %.pn4786 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %.body65 ], [ %lpad.thr_comm.split-lp, %172 ], [ %eh.lpad-body.ph, %81 ], [ %72, %71 ], [ %.pn97, %171 ], [ %159, %158 ], [ %102, %101 ], [ %93, %92 ]
   resume { ptr, i32 } %.pn4786
 
 172:                                              ; preds = %.body65

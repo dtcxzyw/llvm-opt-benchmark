@@ -6150,12 +6150,12 @@ _ZN9Imath_3_24modpEii.exit.us.i:                  ; preds = %404, %400
   br i1 %424, label %.lr.ph.split.us.i, label %._crit_edge.i, !llvm.loop !235
 
 ._crit_edge.i:                                    ; preds = %452, %417, %390
-  %.val19.us35.i = phi ptr [ %.val19.us34.i, %390 ], [ %.val19.us.i, %417 ], [ %.val19.us32.i, %452 ]
-  %.val.us29.i = phi ptr [ %.val.us28.i, %390 ], [ %.val.us.i, %417 ], [ %.val.us26.i, %452 ]
-  %.val1923.i = phi ptr [ %.val1922.i, %390 ], [ %.val19.us.i, %417 ], [ %.val19.i, %452 ]
-  %.val18.i = phi ptr [ %.val17.i, %390 ], [ %.val.us.i, %417 ], [ %.val.i, %452 ]
-  %.val19215.i = phi ptr [ %.val192.i, %390 ], [ %.val19.us.i, %417 ], [ %.val19.i, %452 ]
-  %.val113.i = phi ptr [ %.val1.i, %390 ], [ %.val.us.i, %417 ], [ %.val.i, %452 ]
+  %.val19.us35.i = phi ptr [ %.val19.us.i, %417 ], [ %.val19.us34.i, %390 ], [ %.val19.us32.i, %452 ]
+  %.val.us29.i = phi ptr [ %.val.us.i, %417 ], [ %.val.us28.i, %390 ], [ %.val.us26.i, %452 ]
+  %.val1923.i = phi ptr [ %.val19.us.i, %417 ], [ %.val1922.i, %390 ], [ %.val19.i, %452 ]
+  %.val18.i = phi ptr [ %.val.us.i, %417 ], [ %.val17.i, %390 ], [ %.val.i, %452 ]
+  %.val19215.i = phi ptr [ %.val19.us.i, %417 ], [ %.val192.i, %390 ], [ %.val19.i, %452 ]
+  %.val113.i = phi ptr [ %.val.us.i, %417 ], [ %.val1.i, %390 ], [ %.val.i, %452 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %425 = add i32 %.06.i, 1
   %exitcond.not.i = icmp eq i32 %.06.i, %384

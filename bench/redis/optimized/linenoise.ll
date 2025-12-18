@@ -1837,7 +1837,7 @@ getCursorPosition.exit34.i.i.i:                   ; preds = %119
   br label %getColumns.exit.i.i
 
 getColumns.exit.i.i:                              ; preds = %131, %126, %124, %getCursorPosition.exit34.i.i.i, %getCursorPosition.exit34.thread.i.i.i, %102, %getCursorPosition.exit.i.i.i, %getCursorPosition.exit.thread.i.i.i, %66
-  %.1.i.i.i = phi i32 [ %122, %124 ], [ %132, %131 ], [ %122, %126 ], [ 80, %66 ], [ 80, %getCursorPosition.exit34.i.i.i ], [ 80, %getCursorPosition.exit.i.i.i ], [ 80, %102 ], [ 80, %getCursorPosition.exit.thread.i.i.i ], [ 80, %getCursorPosition.exit34.thread.i.i.i ]
+  %.1.i.i.i = phi i32 [ %122, %126 ], [ %132, %131 ], [ %122, %124 ], [ 80, %66 ], [ 80, %getCursorPosition.exit34.i.i.i ], [ 80, %getCursorPosition.exit.i.i.i ], [ 80, %102 ], [ 80, %getCursorPosition.exit.thread.i.i.i ], [ 80, %getCursorPosition.exit34.thread.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %133 = sext i32 %.1.i.i.i to i64
   %134 = getelementptr inbounds nuw i8, ptr %12, i64 72
@@ -2623,7 +2623,7 @@ linenoiseEditDeletePrevWord.exit.i.i:             ; preds = %415, %421, %.lr.ph2
   br label %linenoiseEditBackspace.exit.i.i
 
 .thread.i.i:                                      ; preds = %393, %299, %267, %261, %.loopexit.i.i, %._crit_edge.i.i
-  %.2.ph.i.i = phi i32 [ %231, %.loopexit.i.i ], [ -1, %299 ], [ -1, %267 ], [ %263, %261 ], [ %155, %._crit_edge.i.i ], [ -1, %393 ]
+  %.2.ph.i.i = phi i32 [ %155, %._crit_edge.i.i ], [ %231, %.loopexit.i.i ], [ -1, %299 ], [ -1, %267 ], [ %263, %261 ], [ -1, %393 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %429 = icmp eq i32 %.2.ph.i.i, -1
@@ -2664,7 +2664,7 @@ linenoiseRaw.exit:                                ; preds = %linenoiseEdit.exit.
   br label %linenoiseNoTTY.exit
 
 linenoiseNoTTY.exit:                              ; preds = %39, %39, %isUnsupportedTerm.exit.thread, %.thread.sink.split.i, %26, %linenoiseRaw.exit, %.critedge, %isUnsupportedTerm.exit, %437
-  %.010 = phi ptr [ null, %linenoiseRaw.exit ], [ null, %isUnsupportedTerm.exit ], [ %438, %437 ], [ %63, %.critedge ], [ null, %26 ], [ null, %.thread.sink.split.i ], [ null, %isUnsupportedTerm.exit.thread ], [ %.4.i, %39 ], [ %.4.i, %39 ]
+  %.010 = phi ptr [ null, %linenoiseRaw.exit ], [ null, %isUnsupportedTerm.exit ], [ %438, %437 ], [ %63, %.critedge ], [ null, %isUnsupportedTerm.exit.thread ], [ null, %.thread.sink.split.i ], [ null, %26 ], [ %.4.i, %39 ], [ %.4.i, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret ptr %.010
 }
@@ -3099,9 +3099,9 @@ define dso_local void @searchInHistory(ptr dead_on_unwind noalias writable write
   br label %.split29.us
 
 .split29.us:                                      ; preds = %.split29.us.loopexit53, %.split29.us.loopexit51, %.split29.us.loopexit49, %.split29.us.loopexit, %.split, %.split.us
-  %.us-phi = phi i32 [ %6, %.split.us ], [ %37, %.split ], [ %51, %.split29.us.loopexit ], [ %52, %.split29.us.loopexit49 ], [ %53, %.split29.us.loopexit51 ], [ %54, %.split29.us.loopexit53 ]
-  %.us-phi30 = phi ptr [ %13, %.split.us ], [ %41, %.split ], [ %22, %.split29.us.loopexit ], [ %30, %.split29.us.loopexit49 ], [ %48, %.split29.us.loopexit51 ], [ %69, %.split29.us.loopexit53 ]
-  %.us-phi31 = phi ptr [ %14, %.split.us ], [ %42, %.split ], [ %23, %.split29.us.loopexit ], [ %31, %.split29.us.loopexit49 ], [ %49, %.split29.us.loopexit51 ], [ %70, %.split29.us.loopexit53 ]
+  %.us-phi = phi i32 [ %51, %.split29.us.loopexit ], [ %6, %.split.us ], [ %53, %.split29.us.loopexit51 ], [ %37, %.split ], [ %52, %.split29.us.loopexit49 ], [ %54, %.split29.us.loopexit53 ]
+  %.us-phi30 = phi ptr [ %22, %.split29.us.loopexit ], [ %13, %.split.us ], [ %48, %.split29.us.loopexit51 ], [ %41, %.split ], [ %30, %.split29.us.loopexit49 ], [ %69, %.split29.us.loopexit53 ]
+  %.us-phi31 = phi ptr [ %23, %.split29.us.loopexit ], [ %14, %.split.us ], [ %49, %.split29.us.loopexit51 ], [ %42, %.split ], [ %31, %.split29.us.loopexit49 ], [ %70, %.split29.us.loopexit53 ]
   %55 = ptrtoint ptr %.us-phi31 to i64
   %56 = ptrtoint ptr %.us-phi30 to i64
   %57 = sub i64 %55, %56

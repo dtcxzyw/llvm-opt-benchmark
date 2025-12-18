@@ -2051,8 +2051,8 @@ define internal fastcc noundef range(i32 -2, -2147483648) i32 @_ZN9Stockfish12_G
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %26, %34, %.thread
-  %.sink = phi i32 [ %38, %.thread ], [ 1, %34 ], [ 2, %26 ]
-  %.0.ph = phi i32 [ %.042.lcssa6468, %.thread ], [ %31, %34 ], [ 2, %26 ]
+  %.sink = phi i32 [ 1, %34 ], [ %38, %.thread ], [ 2, %26 ]
+  %.0.ph = phi i32 [ %31, %34 ], [ %.042.lcssa6468, %.thread ], [ 2, %26 ]
   store i32 %.sink, ptr %1, align 4
   br label %.loopexit
 
@@ -2655,7 +2655,7 @@ _ZN9Stockfish12_GLOBAL__N_110set_groupsINS0_7TBTableILNS0_6TBTypeE1EEEEEvRT_PNS0
   br i1 %exitcond112.not.i.i.i.i, label %.loopexit.us.i.i.i.i, label %308, !llvm.loop !91
 
 .loopexit.us.i.i.i.i:                             ; preds = %319, %308, %.split41.us.i.i.i.i
-  %.3.us.i.i.i.i = phi ptr [ %.02640.us.i.i.i.i, %.split41.us.i.i.i.i ], [ %317, %308 ], [ %329, %319 ]
+  %.3.us.i.i.i.i = phi ptr [ %317, %308 ], [ %.02640.us.i.i.i.i, %.split41.us.i.i.i.i ], [ %329, %319 ]
   %indvars.iv.next114.i.i.i.i = add nuw nsw i64 %indvars.iv113.i.i.i.i, 1
   %exitcond117.not.i.i.i.i = icmp eq i64 %indvars.iv.next114.i.i.i.i, %wide.trip.count192.i.i.i
   br i1 %exitcond117.not.i.i.i.i, label %_ZN9Stockfish12_GLOBAL__N_111set_dtz_mapERNS0_7TBTableILNS0_6TBTypeE1EEEPhNS_4FileE.exit.i.i.i, label %.split41.us.i.i.i.i, !llvm.loop !92
@@ -2746,7 +2746,7 @@ _ZN9Stockfish12_GLOBAL__N_110set_groupsINS0_7TBTableILNS0_6TBTypeE1EEEEEvRT_PNS0
   br i1 %exitcond100.not.i.i.i.i, label %.loopexit.us53.i.i.i.i, label %351, !llvm.loop !91
 
 .loopexit.us53.i.i.i.i:                           ; preds = %340, %351, %.split41.split.us.i.i.i.i
-  %.3.us50.i.i.i.i = phi ptr [ %.02640.us45.i.i.i.i, %.split41.split.us.i.i.i.i ], [ %360, %351 ], [ %350, %340 ]
+  %.3.us50.i.i.i.i = phi ptr [ %360, %351 ], [ %.02640.us45.i.i.i.i, %.split41.split.us.i.i.i.i ], [ %350, %340 ]
   %indvars.iv.next102.i.i.i.i = add nuw nsw i64 %indvars.iv101.i.i.i.i, 1
   %exitcond104.not.i.i.i.i = icmp eq i64 %indvars.iv.next102.i.i.i.i, %wide.trip.count192.i.i.i
   br i1 %exitcond104.not.i.i.i.i, label %_ZN9Stockfish12_GLOBAL__N_111set_dtz_mapERNS0_7TBTableILNS0_6TBTypeE1EEEPhNS_4FileE.exit.i.i.i, label %.split41.split.us.i.i.i.i, !llvm.loop !92
@@ -2834,7 +2834,7 @@ _ZN9Stockfish12_GLOBAL__N_111set_dtz_mapERNS0_7TBTableILNS0_6TBTypeE1EEEPhNS_4Fi
   br i1 %exitcond87.not.i.i.i.i, label %_ZN9Stockfish12_GLOBAL__N_111set_dtz_mapERNS0_7TBTableILNS0_6TBTypeE1EEEPhNS_4FileE.exit.i.i.i, label %.split.i.i.i.i, !llvm.loop !92
 
 _ZN9Stockfish12_GLOBAL__N_111set_dtz_mapERNS0_7TBTableILNS0_6TBTypeE1EEEPhNS_4FileE.exit.i.i.i: ; preds = %.loopexit34.split.i.i.i.i, %.loopexit.us70.i.i.i.i, %.loopexit.us53.i.i.i.i, %.loopexit.us.i.i.i.i
-  %.us-phi44.i.i.i.i = phi ptr [ %378, %.loopexit.us70.i.i.i.i ], [ %.3.us.i.i.i.i, %.loopexit.us.i.i.i.i ], [ %.3.us50.i.i.i.i, %.loopexit.us53.i.i.i.i ], [ %393, %.loopexit34.split.i.i.i.i ]
+  %.us-phi44.i.i.i.i = phi ptr [ %.3.us50.i.i.i.i, %.loopexit.us53.i.i.i.i ], [ %.3.us.i.i.i.i, %.loopexit.us.i.i.i.i ], [ %378, %.loopexit.us70.i.i.i.i ], [ %393, %.loopexit34.split.i.i.i.i ]
   %395 = ptrtoint ptr %.us-phi44.i.i.i.i to i64
   %396 = and i64 %395, 1
   %397 = getelementptr inbounds nuw i8, ptr %.us-phi44.i.i.i.i, i64 %396
@@ -3414,7 +3414,7 @@ _ZSt11stable_sortIPN9Stockfish6SquareEPFbS1_S1_EEvT_S5_T0_.exit.i.i: ; preds = %
   br label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %.lr.ph216.i.i, %667, %658, %647, %633, %619, %_ZSt11stable_sortIPN9Stockfish6SquareEPFbS1_S1_EEvT_S5_T0_.exit.i.i, %554
-  %.1.i14.i = phi i64 [ %629, %619 ], [ %643, %633 ], [ %657, %647 ], [ %666, %658 ], [ %679, %667 ], [ %560, %_ZSt11stable_sortIPN9Stockfish6SquareEPFbS1_S1_EEvT_S5_T0_.exit.i.i ], [ %560, %554 ], [ %581, %.lr.ph216.i.i ]
+  %.1.i14.i = phi i64 [ %679, %667 ], [ %629, %619 ], [ %643, %633 ], [ %657, %647 ], [ %666, %658 ], [ %560, %_ZSt11stable_sortIPN9Stockfish6SquareEPFbS1_S1_EEvT_S5_T0_.exit.i.i ], [ %560, %554 ], [ %581, %.lr.ph216.i.i ]
   %680 = getelementptr inbounds nuw i8, ptr %510, i64 160
   %681 = load i64, ptr %680, align 8
   %682 = mul i64 %681, %.1.i14.i
@@ -3785,7 +3785,7 @@ _ZN9Stockfish12_GLOBAL__N_118dtz_before_zeroingENS_10Tablebases8WDLScoreE.exit66
   br label %_ZN9Stockfish12_GLOBAL__N_118dtz_before_zeroingENS_10Tablebases8WDLScoreE.exit
 
 _ZN9Stockfish12_GLOBAL__N_118dtz_before_zeroingENS_10Tablebases8WDLScoreE.exit: ; preds = %836, %._crit_edge.thread, %._crit_edge, %_ZN9Stockfish12_GLOBAL__N_111probe_tableILNS0_6TBTypeE1EiEET0_RKNS_8PositionEPNS_10Tablebases10ProbeStateENS7_8WDLScoreE.exit.thread, %.fold.split.i, %27, %26, %_ZN9Stockfish12_GLOBAL__N_111probe_tableILNS0_6TBTypeE1EiEET0_RKNS_8PositionEPNS_10Tablebases10ProbeStateENS7_8WDLScoreE.exit, %2, %777
-  %.0 = phi i32 [ %.2, %._crit_edge ], [ 0, %2 ], [ %784, %777 ], [ %.pr, %_ZN9Stockfish12_GLOBAL__N_111probe_tableILNS0_6TBTypeE1EiEET0_RKNS_8PositionEPNS_10Tablebases10ProbeStateENS7_8WDLScoreE.exit ], [ 1, %26 ], [ %31, %27 ], [ 101, %.fold.split.i ], [ 0, %_ZN9Stockfish12_GLOBAL__N_111probe_tableILNS0_6TBTypeE1EiEET0_RKNS_8PositionEPNS_10Tablebases10ProbeStateENS7_8WDLScoreE.exit.thread ], [ -1, %._crit_edge.thread ], [ 0, %836 ]
+  %.0 = phi i32 [ %.2, %._crit_edge ], [ 0, %_ZN9Stockfish12_GLOBAL__N_111probe_tableILNS0_6TBTypeE1EiEET0_RKNS_8PositionEPNS_10Tablebases10ProbeStateENS7_8WDLScoreE.exit.thread ], [ 0, %2 ], [ %784, %777 ], [ %.pr, %_ZN9Stockfish12_GLOBAL__N_111probe_tableILNS0_6TBTypeE1EiEET0_RKNS_8PositionEPNS_10Tablebases10ProbeStateENS7_8WDLScoreE.exit ], [ 1, %26 ], [ %31, %27 ], [ 101, %.fold.split.i ], [ -1, %._crit_edge.thread ], [ 0, %836 ]
   ret i32 %.0
 }
 
@@ -3879,8 +3879,8 @@ define internal fastcc noundef range(i32 -2, 4094) i32 @_ZN9Stockfish12_GLOBAL__
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %33, %41, %.thread
-  %.sink = phi i32 [ %45, %.thread ], [ 1, %41 ], [ 2, %33 ]
-  %.0.ph = phi i32 [ %.045.lcssa6872, %.thread ], [ %38, %41 ], [ 2, %33 ]
+  %.sink = phi i32 [ 1, %41 ], [ %45, %.thread ], [ 2, %33 ]
+  %.0.ph = phi i32 [ %38, %41 ], [ %.045.lcssa6872, %.thread ], [ 2, %33 ]
   store i32 %.sink, ptr %1, align 4
   br label %.loopexit
 
@@ -4513,7 +4513,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN9Stockfish6Search8Root
   br i1 %.not49, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %.lr.ph, %.thread, %147
-  %.sroa.7.0 = phi i64 [ 0, %.thread ], [ 1, %147 ], [ 0, %.lr.ph ]
+  %.sroa.7.0 = phi i64 [ 1, %147 ], [ 0, %.thread ], [ 0, %.lr.ph ]
   br i1 %.not89, label %.loopexit.thread, label %157
 
 157:                                              ; preds = %152, %.loopexit
@@ -6586,7 +6586,7 @@ _ZSt11stable_sortIPN9Stockfish6SquareEPFbS1_S1_EEvT_S5_T0_.exit.i: ; preds = %_Z
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.lr.ph56.i, %611, %602, %591, %577, %563, %_ZSt11stable_sortIPN9Stockfish6SquareEPFbS1_S1_EEvT_S5_T0_.exit.i, %498
-  %.1.i13 = phi i64 [ %573, %563 ], [ %587, %577 ], [ %601, %591 ], [ %610, %602 ], [ %623, %611 ], [ %504, %_ZSt11stable_sortIPN9Stockfish6SquareEPFbS1_S1_EEvT_S5_T0_.exit.i ], [ %504, %498 ], [ %525, %.lr.ph56.i ]
+  %.1.i13 = phi i64 [ %623, %611 ], [ %573, %563 ], [ %587, %577 ], [ %601, %591 ], [ %610, %602 ], [ %504, %_ZSt11stable_sortIPN9Stockfish6SquareEPFbS1_S1_EEvT_S5_T0_.exit.i ], [ %504, %498 ], [ %525, %.lr.ph56.i ]
   %624 = getelementptr inbounds nuw i8, ptr %475, i64 160
   %625 = load i64, ptr %624, align 8
   %626 = mul i64 %625, %.1.i13
@@ -8255,7 +8255,7 @@ _ZSt13move_backwardIPN9Stockfish6SquareES2_ET0_T_S4_S3_.exit: ; preds = %49, %53
   br label %24, !llvm.loop !178
 
 _ZSt11swap_rangesIPN9Stockfish6SquareES2_ET0_T_S4_S3_.exit: ; preds = %._crit_edge, %._crit_edge92, %.lr.ph.i, %5, %3, %_ZSt13move_backwardIPN9Stockfish6SquareES2_ET0_T_S4_S3_.exit, %_ZSt4moveIPN9Stockfish6SquareES2_ET0_T_S4_S3_.exit
-  %.050 = phi ptr [ %2, %3 ], [ %23, %_ZSt4moveIPN9Stockfish6SquareES2_ET0_T_S4_S3_.exit ], [ %0, %5 ], [ %23, %_ZSt13move_backwardIPN9Stockfish6SquareES2_ET0_T_S4_S3_.exit ], [ %1, %.lr.ph.i ], [ %23, %._crit_edge92 ], [ %23, %._crit_edge ]
+  %.050 = phi ptr [ %1, %.lr.ph.i ], [ %2, %3 ], [ %23, %_ZSt13move_backwardIPN9Stockfish6SquareES2_ET0_T_S4_S3_.exit ], [ %23, %_ZSt4moveIPN9Stockfish6SquareES2_ET0_T_S4_S3_.exit ], [ %0, %5 ], [ %23, %._crit_edge92 ], [ %23, %._crit_edge ]
   ret ptr %.050
 }
 
@@ -10333,7 +10333,7 @@ define linkonce_odr dso_local ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iter
   br label %34, !llvm.loop !202
 
 _ZSt11swap_rangesIN9__gnu_cxx17__normal_iteratorIPN9Stockfish6Search8RootMoveESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit: ; preds = %._crit_edge, %._crit_edge62, %.lr.ph.i, %5, %3
-  %.sroa.012.0 = phi ptr [ %2, %3 ], [ %0, %5 ], [ %1, %.lr.ph.i ], [ %33, %._crit_edge62 ], [ %33, %._crit_edge ]
+  %.sroa.012.0 = phi ptr [ %1, %.lr.ph.i ], [ %2, %3 ], [ %0, %5 ], [ %33, %._crit_edge62 ], [ %33, %._crit_edge ]
   ret ptr %.sroa.012.0
 }
 

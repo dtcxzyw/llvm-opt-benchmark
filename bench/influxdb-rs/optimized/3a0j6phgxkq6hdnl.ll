@@ -2908,8 +2908,8 @@ common.resume:                                    ; preds = %"_ZN4core3ptr73drop
   br i1 %or.cond.i, label %.invoke, label %"_ZN3csv6writer15Writer$LT$W$GT$5flush17ha65a1e5787c83b2dE.exit"
 
 .invoke:                                          ; preds = %258, %266, %.noexc139
-  %184 = phi ptr [ @anon.60dc0379046a18711abc9b890678a8dd.2.llvm.14933412330345768097, %.noexc139 ], [ @anon.7f594b1cc0dc9c97352e1e787ce274d2.3, %266 ], [ @anon.7f594b1cc0dc9c97352e1e787ce274d2.3, %258 ]
-  %185 = phi ptr [ @anon.60dc0379046a18711abc9b890678a8dd.18.llvm.14933412330345768097, %.noexc139 ], [ @anon.7f594b1cc0dc9c97352e1e787ce274d2.4, %266 ], [ @anon.7f594b1cc0dc9c97352e1e787ce274d2.7, %258 ]
+  %184 = phi ptr [ @anon.7f594b1cc0dc9c97352e1e787ce274d2.3, %266 ], [ @anon.60dc0379046a18711abc9b890678a8dd.2.llvm.14933412330345768097, %.noexc139 ], [ @anon.7f594b1cc0dc9c97352e1e787ce274d2.3, %258 ]
+  %185 = phi ptr [ @anon.7f594b1cc0dc9c97352e1e787ce274d2.4, %266 ], [ @anon.60dc0379046a18711abc9b890678a8dd.18.llvm.14933412330345768097, %.noexc139 ], [ @anon.7f594b1cc0dc9c97352e1e787ce274d2.7, %258 ]
   invoke void @_ZN4core9panicking5panic17h195fc2a96298d4c3E(ptr noalias noundef nonnull readonly align 1 %184, i64 noundef 43, ptr noalias noundef readonly align 8 dereferenceable(24) %185) #19
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 

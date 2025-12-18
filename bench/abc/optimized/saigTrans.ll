@@ -811,7 +811,7 @@ Saig_ManStartMap1.exit:                           ; preds = %Vec_IntAlloc.exit.t
   br i1 %81, label %63, label %.critedge, !llvm.loop !59
 
 .critedge:                                        ; preds = %34, %63, %.preheader277, %.preheader274
-  %.val198308326 = phi i32 [ %.val201287, %.preheader274 ], [ %.val202281, %.preheader277 ], [ %.val201, %63 ], [ %.val202, %34 ]
+  %.val198308326 = phi i32 [ %.val201, %63 ], [ %.val201287, %.preheader274 ], [ %.val202281, %.preheader277 ], [ %.val202, %34 ]
   %82 = add nsw i32 %2, -1
   %83 = icmp sgt i32 %2, 0
   br i1 %83, label %.lr.ph306, label %.critedge12._crit_edge

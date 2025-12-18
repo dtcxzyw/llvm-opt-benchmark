@@ -3359,7 +3359,7 @@ _ZN3net10SpdyFramer42IncrementallyDeliverControlFrameHeaderDataEjPKcm.exit.threa
   br label %.thread
 
 _ZN3net10SpdyFramer42IncrementallyDeliverControlFrameHeaderDataEjPKcm.exit: ; preds = %98, %61, %71, %_ZN3net10SpdyFramer15GetHpackDecoderEv.exit
-  %.027.shrunk = phi i1 [ true, %_ZN3net10SpdyFramer15GetHpackDecoderEv.exit ], [ %72, %71 ], [ true, %61 ], [ true, %98 ]
+  %.027.shrunk = phi i1 [ true, %_ZN3net10SpdyFramer15GetHpackDecoderEv.exit ], [ true, %61 ], [ %72, %71 ], [ true, %98 ]
   %106 = load i64, ptr %18, align 8, !tbaa !91
   %107 = sub i64 %106, %.sroa.speculated
   store i64 %107, ptr %18, align 8, !tbaa !91
@@ -7154,9 +7154,9 @@ _ZNSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traits
   br i1 %206, label %._crit_edge, label %.lr.ph, !llvm.loop !175
 
 ._crit_edge:                                      ; preds = %205, %.critedge2, %98
-  %.sroa.17.1.lcssa = phi ptr [ null, %98 ], [ %.sroa.17.1424, %.critedge2 ], [ %.sroa.17.3, %205 ]
-  %.sroa.0237.1.lcssa = phi ptr [ null, %98 ], [ %.sroa.0237.1425, %.critedge2 ], [ %.sroa.0237.3, %205 ]
-  %.0.lcssa = phi i64 [ 0, %98 ], [ %.0426, %.critedge2 ], [ %.2, %205 ]
+  %.sroa.17.1.lcssa = phi ptr [ %.sroa.17.1424, %.critedge2 ], [ null, %98 ], [ %.sroa.17.3, %205 ]
+  %.sroa.0237.1.lcssa = phi ptr [ %.sroa.0237.1425, %.critedge2 ], [ null, %98 ], [ %.sroa.0237.3, %205 ]
+  %.0.lcssa = phi i64 [ %.0426, %.critedge2 ], [ 0, %98 ], [ %.2, %205 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   br label %209
 
@@ -9720,7 +9720,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit83: ; preds = %_ZNSo
   br label %154
 
 .critedge54:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit70, %.critedge53, %139, %.critedge, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79, %.critedge51, %4
-  %.033 = phi i1 [ false, %4 ], [ true, %.critedge51 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79 ], [ false, %.critedge ], [ false, %139 ], [ false, %.critedge53 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit70 ]
+  %.033 = phi i1 [ false, %.critedge53 ], [ false, %4 ], [ true, %.critedge51 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79 ], [ false, %.critedge ], [ false, %139 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit70 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i1 %.033

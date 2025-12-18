@@ -1623,8 +1623,8 @@ thread-pre-split:                                 ; preds = %171, %198
   br label %.thread221.thread
 
 .thread221.thread:                                ; preds = %314, %306, %.thread221
-  %324 = phi ptr [ %316, %314 ], [ %.pre240, %.thread221 ], [ @.str.3, %306 ]
-  %.3145 = phi i32 [ 2, %314 ], [ %323, %.thread221 ], [ %307, %306 ]
+  %324 = phi ptr [ @.str.3, %306 ], [ %.pre240, %.thread221 ], [ %316, %314 ]
+  %.3145 = phi i32 [ %307, %306 ], [ %323, %.thread221 ], [ 2, %314 ]
   %325 = load ptr, ptr %19, align 8, !tbaa !27
   %326 = load i64, ptr %13, align 8, !tbaa !21
   call fastcc void @phar_file_action(ptr noundef %325, ptr noundef %283, ptr noundef %324, i32 noundef %.3145, ptr noundef %282, i64 noundef %.pre, ptr noundef nonnull %61, ptr noundef %.3140, i64 noundef %326)
@@ -4092,7 +4092,7 @@ zend_string_release_ex.exit:                      ; preds = %110, %118, %123
   %.not186 = icmp eq i64 %13, 0
   br i1 %.not186, label %199, label %.thread238
 
-.thread238:                                       ; preds = %151, %138, %159
+.thread238:                                       ; preds = %138, %151, %159
   %.2152243 = phi i64 [ %163, %159 ], [ %152, %151 ], [ %139, %138 ]
   %.4163242 = phi ptr [ null, %159 ], [ %147, %151 ], [ %136, %138 ]
   %164 = call ptr @expand_filepath(ptr noundef nonnull %14, ptr noundef null) #20

@@ -30040,7 +30040,7 @@ stbir__get_split_info.exit:                       ; preds = %496, %stbir_simd_me
   br i1 %542, label %.thread393, label %168
 
 .thread393:                                       ; preds = %.thread391, %._crit_edge411.us426, %.loopexit.us, %.lr.ph418.split, %stbir__get_split_info.exit, %47
-  %.0310 = phi ptr [ null, %47 ], [ %172, %stbir__get_split_info.exit ], [ %172, %.lr.ph418.split ], [ %spec.select366.le, %._crit_edge411.us426 ], [ %spec.select366.le, %.loopexit.us ], [ null, %.thread391 ]
+  %.0310 = phi ptr [ null, %47 ], [ %172, %stbir__get_split_info.exit ], [ %spec.select366.le, %._crit_edge411.us426 ], [ %spec.select366.le, %.loopexit.us ], [ %172, %.lr.ph418.split ], [ null, %.thread391 ]
   ret ptr %.0310
 }
 
@@ -30475,7 +30475,7 @@ define range(i32 0, 2) i32 @stbir__double_to_rational(double noundef %0, i32 nou
 ._crit_edge:                                      ; preds = %5
   br i1 %.not, label %._crit_edge.thread, label %._crit_edge.thread120
 
-._crit_edge.thread120:                            ; preds = %33, %35, %._crit_edge
+._crit_edge.thread120:                            ; preds = %35, %33, %._crit_edge
   %42 = uitofp i32 %1 to double
   %43 = fmul double %0, %42
   %44 = fadd double %43, 5.000000e-01

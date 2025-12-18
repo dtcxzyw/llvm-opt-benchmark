@@ -714,7 +714,7 @@ process_new_extcap.exit.i:                        ; preds = %.sink.split.i.i, %1
   br label %extcap_load_interface_list.exit
 
 .critedge.critedge.i:                             ; preds = %extcap_run_all.exit.i, %34
-  %.0.i8490.ph.i = phi ptr [ null, %34 ], [ %49, %extcap_run_all.exit.i ]
+  %.0.i8490.ph.i = phi ptr [ %49, %extcap_run_all.exit.i ], [ null, %34 ]
   call void @g_free(ptr noundef %.0.i8490.ph.i)
   call void @g_free(ptr noundef %37)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

@@ -2851,7 +2851,7 @@ _ZNSt6vectorIN7rocksdb20CompactionInputFilesESaIS1_EE6resizeEm.exit: ; preds = %
   br label %_ZNSt13unordered_setImSt4hashImESt8equal_toImESaImEE4findERKm.exit.thread, !llvm.loop !394
 
 _ZNSt13unordered_setImSt4hashImESt8equal_toImESaImEE4findERKm.exit: ; preds = %71, %56, %66
-  %.sroa.06.1.i.i = phi ptr [ %67, %66 ], [ %.sroa.06.0.i.i, %56 ], [ %73, %71 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %56 ], [ %67, %66 ], [ %73, %71 ]
   %78 = load ptr, ptr %10, align 8, !tbaa !369
   %79 = getelementptr inbounds nuw %"struct.rocksdb::CompactionInputFiles", ptr %78, i64 %indvars.iv
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
@@ -3009,9 +3009,9 @@ _ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_M
   br label %297
 
 _ZNSt13unordered_setImSt4hashImESt8equal_toImESaImEE4findERKm.exit.thread: ; preds = %.lr.ph.i.i.i.i, %.preheader151, %60, %..loopexit_crit_edge21.i.i.i.i, %134
-  %139 = phi i64 [ %137, %134 ], [ %51, %..loopexit_crit_edge21.i.i.i.i ], [ %51, %60 ], [ 0, %.preheader151 ], [ %51, %.lr.ph.i.i.i.i ]
-  %.244 = phi i32 [ %46, %134 ], [ %.143132, %..loopexit_crit_edge21.i.i.i.i ], [ %.143132, %60 ], [ %.143132, %.preheader151 ], [ %.143132, %.lr.ph.i.i.i.i ]
-  %.241 = phi i32 [ %spec.select, %134 ], [ %.140133, %..loopexit_crit_edge21.i.i.i.i ], [ %.140133, %60 ], [ %.140133, %.preheader151 ], [ %.140133, %.lr.ph.i.i.i.i ]
+  %139 = phi i64 [ %137, %134 ], [ %51, %..loopexit_crit_edge21.i.i.i.i ], [ 0, %.preheader151 ], [ %51, %60 ], [ %51, %.lr.ph.i.i.i.i ]
+  %.244 = phi i32 [ %46, %134 ], [ %.143132, %..loopexit_crit_edge21.i.i.i.i ], [ %.143132, %.preheader151 ], [ %.143132, %60 ], [ %.143132, %.lr.ph.i.i.i.i ]
+  %.241 = phi i32 [ %spec.select, %134 ], [ %.140133, %..loopexit_crit_edge21.i.i.i.i ], [ %.140133, %.preheader151 ], [ %.140133, %60 ], [ %.140133, %.lr.ph.i.i.i.i ]
   %140 = getelementptr inbounds nuw i8, ptr %.sroa.090.0131, i64 8
   %.not96 = icmp eq ptr %140, %45
   br i1 %.not96, label %._crit_edge.loopexit, label %50
@@ -5200,8 +5200,8 @@ _ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE6resizeEm.exit: ; preds = %329
   br label %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EED2Ev.exit314
 
 _ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE6resizeEm.exit.thread: ; preds = %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE6resizeEm.exit, %281, %_ZSt27__uninitialized_default_n_aIPPN7rocksdb12FileMetaDataEmS2_ET_S4_T0_RSaIT1_E.exit.i, %_ZNSt12_Vector_baseIPN7rocksdb12FileMetaDataESaIS2_EE13_M_deallocateEPS2_m.exit36.i, %372, %374, %376
-  %386 = phi ptr [ %375, %376 ], [ %333, %374 ], [ %333, %372 ], [ %370, %_ZNSt12_Vector_baseIPN7rocksdb12FileMetaDataESaIS2_EE13_M_deallocateEPS2_m.exit36.i ], [ %.0.i.i.i.i, %_ZSt27__uninitialized_default_n_aIPPN7rocksdb12FileMetaDataEmS2_ET_S4_T0_RSaIT1_E.exit.i ], [ %268, %281 ], [ %378, %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE6resizeEm.exit ]
-  %.2226 = phi i1 [ false, %376 ], [ false, %374 ], [ false, %372 ], [ false, %_ZNSt12_Vector_baseIPN7rocksdb12FileMetaDataESaIS2_EE13_M_deallocateEPS2_m.exit36.i ], [ false, %_ZSt27__uninitialized_default_n_aIPPN7rocksdb12FileMetaDataEmS2_ET_S4_T0_RSaIT1_E.exit.i ], [ true, %281 ], [ true, %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE6resizeEm.exit ]
+  %386 = phi ptr [ %.0.i.i.i.i, %_ZSt27__uninitialized_default_n_aIPPN7rocksdb12FileMetaDataEmS2_ET_S4_T0_RSaIT1_E.exit.i ], [ %375, %376 ], [ %333, %374 ], [ %333, %372 ], [ %370, %_ZNSt12_Vector_baseIPN7rocksdb12FileMetaDataESaIS2_EE13_M_deallocateEPS2_m.exit36.i ], [ %268, %281 ], [ %378, %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE6resizeEm.exit ]
+  %.2226 = phi i1 [ false, %_ZSt27__uninitialized_default_n_aIPPN7rocksdb12FileMetaDataEmS2_ET_S4_T0_RSaIT1_E.exit.i ], [ false, %376 ], [ false, %374 ], [ false, %372 ], [ false, %_ZNSt12_Vector_baseIPN7rocksdb12FileMetaDataESaIS2_EE13_M_deallocateEPS2_m.exit36.i ], [ true, %281 ], [ true, %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE6resizeEm.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %.thread
 
@@ -5751,7 +5751,7 @@ _ZN7rocksdb20CompactionInputFilesD2Ev.exit:       ; preds = %_ZNSt6vectorIN7rock
   br label %.body
 
 .body:                                            ; preds = %.body322, %586, %532, %529
-  %.pn244 = phi { ptr, i32 } [ %587, %586 ], [ %530, %532 ], [ %530, %529 ], [ %eh.lpad-body405671, %.body322 ]
+  %.pn244 = phi { ptr, i32 } [ %530, %529 ], [ %587, %586 ], [ %530, %532 ], [ %eh.lpad-body405671, %.body322 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %785
 
@@ -6683,9 +6683,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit: ; preds = %1
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit129 unwind label %157
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit129: ; preds = %.lr.ph.i.i.i.i, %.preheader370, %139, %..loopexit_crit_edge21.i.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit, %_ZNSt13unordered_setImSt4hashImESt8equal_toImESaImEE4findERKm.exit
-  %.1280 = phi i32 [ %.sroa.speculated237, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit ], [ %.sroa.speculated237, %_ZNSt13unordered_setImSt4hashImESt8equal_toImESaImEE4findERKm.exit ], [ %.0279335, %..loopexit_crit_edge21.i.i.i.i ], [ %.0279335, %139 ], [ %.0279335, %.preheader370 ], [ %.0279335, %.lr.ph.i.i.i.i ]
-  %.1277 = phi i32 [ %.sroa.speculated241, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit ], [ %.sroa.speculated241, %_ZNSt13unordered_setImSt4hashImESt8equal_toImESaImEE4findERKm.exit ], [ %.0276336, %..loopexit_crit_edge21.i.i.i.i ], [ %.0276336, %139 ], [ %.0276336, %.preheader370 ], [ %.0276336, %.lr.ph.i.i.i.i ]
-  %.2 = phi i8 [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit ], [ %.1338, %_ZNSt13unordered_setImSt4hashImESt8equal_toImESaImEE4findERKm.exit ], [ %.1338, %..loopexit_crit_edge21.i.i.i.i ], [ %.1338, %139 ], [ %.1338, %.preheader370 ], [ %.1338, %.lr.ph.i.i.i.i ]
+  %.1280 = phi i32 [ %.sroa.speculated237, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit ], [ %.sroa.speculated237, %_ZNSt13unordered_setImSt4hashImESt8equal_toImESaImEE4findERKm.exit ], [ %.0279335, %..loopexit_crit_edge21.i.i.i.i ], [ %.0279335, %.preheader370 ], [ %.0279335, %139 ], [ %.0279335, %.lr.ph.i.i.i.i ]
+  %.1277 = phi i32 [ %.sroa.speculated241, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit ], [ %.sroa.speculated241, %_ZNSt13unordered_setImSt4hashImESt8equal_toImESaImEE4findERKm.exit ], [ %.0276336, %..loopexit_crit_edge21.i.i.i.i ], [ %.0276336, %.preheader370 ], [ %.0276336, %139 ], [ %.0276336, %.lr.ph.i.i.i.i ]
+  %.2 = phi i8 [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit ], [ %.1338, %_ZNSt13unordered_setImSt4hashImESt8equal_toImESaImEE4findERKm.exit ], [ %.1338, %..loopexit_crit_edge21.i.i.i.i ], [ %.1338, %.preheader370 ], [ %.1338, %139 ], [ %.1338, %.lr.ph.i.i.i.i ]
   %168 = add nuw i64 %.085337, 1
   %169 = load ptr, ptr %120, align 8, !tbaa !443
   %170 = load ptr, ptr %119, align 8, !tbaa !446
@@ -12650,8 +12650,8 @@ _ZNSt10_HashtableIPN7rocksdb10CompactionES2_SaIS2_ENSt8__detail9_IdentityESt8equ
   resume { ptr, i32 } %47
 
 _ZNKSt10_HashtableIPN7rocksdb10CompactionES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE15_M_find_node_trIS2_EEPNS4_10_Hash_nodeIS2_Lb0EEEmRKT_m.exit: ; preds = %33, %19, %.critedge, %28
-  %.sroa.031.1 = phi ptr [ %29, %28 ], [ %46, %.critedge ], [ %.sroa.028.0, %19 ], [ %35, %33 ]
-  %.sroa.432.1 = phi i8 [ 0, %28 ], [ 1, %.critedge ], [ 0, %19 ], [ 0, %33 ]
+  %.sroa.031.1 = phi ptr [ %.sroa.028.0, %19 ], [ %46, %.critedge ], [ %29, %28 ], [ %35, %33 ]
+  %.sroa.432.1 = phi i8 [ 0, %19 ], [ 1, %.critedge ], [ 0, %28 ], [ 0, %33 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.031.1, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.432.1, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -12925,8 +12925,8 @@ _ZNSt8_Rb_treeIPN7rocksdb10CompactionES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14
   br i1 %.not.i, label %_ZNSt8_Rb_treeIPN7rocksdb10CompactionES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE11equal_rangeERKS2_.exit, label %6, !llvm.loop !635
 
 _ZNSt8_Rb_treeIPN7rocksdb10CompactionES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE11equal_rangeERKS2_.exit: ; preds = %23, %.lr.ph.i25.i, %2, %_ZNSt8_Rb_treeIPN7rocksdb10CompactionES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i
-  %.sroa.037.0.i = phi ptr [ %.08.lcssa.i.i, %_ZNSt8_Rb_treeIPN7rocksdb10CompactionES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i ], [ %4, %2 ], [ %.08.lcssa.i.i, %.lr.ph.i25.i ], [ %.123.i, %23 ]
-  %.sroa.3.0.i = phi ptr [ %.02243.i, %_ZNSt8_Rb_treeIPN7rocksdb10CompactionES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i ], [ %4, %2 ], [ %.19.i28.i, %.lr.ph.i25.i ], [ %.123.i, %23 ]
+  %.sroa.037.0.i = phi ptr [ %.08.lcssa.i.i, %.lr.ph.i25.i ], [ %.08.lcssa.i.i, %_ZNSt8_Rb_treeIPN7rocksdb10CompactionES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i ], [ %4, %2 ], [ %.123.i, %23 ]
+  %.sroa.3.0.i = phi ptr [ %.19.i28.i, %.lr.ph.i25.i ], [ %.02243.i, %_ZNSt8_Rb_treeIPN7rocksdb10CompactionES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i ], [ %4, %2 ], [ %.123.i, %23 ]
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %26 = load i64, ptr %25, align 8, !tbaa !177
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -13155,7 +13155,7 @@ _ZNSt10_HashtableIPN7rocksdb10CompactionES2_SaIS2_ENSt8__detail9_IdentityESt8equ
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph.i, %.lr.ph, %..loopexit_crit_edge21.i, %22, %5, %_ZNSt10_HashtableIPN7rocksdb10CompactionES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE8_M_eraseEmPNS4_15_Hash_node_baseEPNS4_10_Hash_nodeIS2_Lb0EEE.exit
-  %.0 = phi i64 [ 1, %_ZNSt10_HashtableIPN7rocksdb10CompactionES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE8_M_eraseEmPNS4_15_Hash_node_baseEPNS4_10_Hash_nodeIS2_Lb0EEE.exit ], [ 0, %5 ], [ 0, %22 ], [ 0, %..loopexit_crit_edge21.i ], [ 0, %.lr.ph ], [ 0, %.lr.ph.i ]
+  %.0 = phi i64 [ 1, %_ZNSt10_HashtableIPN7rocksdb10CompactionES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE8_M_eraseEmPNS4_15_Hash_node_baseEPNS4_10_Hash_nodeIS2_Lb0EEE.exit ], [ 0, %.lr.ph ], [ 0, %5 ], [ 0, %22 ], [ 0, %..loopexit_crit_edge21.i ], [ 0, %.lr.ph.i ]
   ret i64 %.0
 }
 

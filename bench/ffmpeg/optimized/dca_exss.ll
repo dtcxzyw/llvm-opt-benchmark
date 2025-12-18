@@ -1167,7 +1167,7 @@ get_bits_long.exit.i:                             ; preds = %.lr.ph247.i, %get_b
   br label %parse_descriptor.exit.thread
 
 .critedge208.i:                                   ; preds = %.preheader.i, %._crit_edge260.us.i, %.loopexit.i, %673, %670
-  %777 = phi i32 [ %671, %670 ], [ %.promoted261.us303.i, %.loopexit.i ], [ %spec.select.i221.i, %673 ], [ %770, %._crit_edge260.us.i ], [ %.promoted261.us303.i, %.preheader.i ]
+  %777 = phi i32 [ %770, %._crit_edge260.us.i ], [ %671, %670 ], [ %.promoted261.us303.i, %.loopexit.i ], [ %spec.select.i221.i, %673 ], [ %.promoted261.us303.i, %.preheader.i ]
   %778 = lshr i32 %777, 3
   %779 = zext nneg i32 %778 to i64
   %780 = getelementptr inbounds nuw i8, ptr %281, i64 %779
@@ -1679,7 +1679,7 @@ ff_dca_seek_bits.exit:                            ; preds = %._crit_edge
   br label %parse_descriptor.exit.thread
 
 parse_descriptor.exit.thread:                     ; preds = %338, %148, %133, %134, %149, %.split.us.i, %995, %776, %.thread235.i, %993, %ff_dca_seek_bits.exit, %1074, %1076, %1062, %1064, %276, %277, %87, %88, %3, %ff_dca_check_crc.exit.thread
-  %.0 = phi i32 [ -1163346256, %148 ], [ -1094995529, %ff_dca_check_crc.exit.thread ], [ -1094995529, %3 ], [ -1094995529, %87 ], [ -1094995529, %276 ], [ 0, %ff_dca_seek_bits.exit ], [ -1094995529, %1062 ], [ -1094995529, %1074 ], [ -1094995529, %88 ], [ -1094995529, %277 ], [ -1094995529, %1064 ], [ -1094995529, %1076 ], [ -1094995529, %993 ], [ -1094995529, %.thread235.i ], [ -1094995529, %776 ], [ -1094995529, %995 ], [ -1094995529, %.split.us.i ], [ -1163346256, %149 ], [ -1163346256, %134 ], [ -1163346256, %133 ], [ -1094995529, %338 ]
+  %.0 = phi i32 [ -1163346256, %148 ], [ -1094995529, %ff_dca_check_crc.exit.thread ], [ -1094995529, %3 ], [ -1094995529, %87 ], [ -1094995529, %276 ], [ 0, %ff_dca_seek_bits.exit ], [ -1094995529, %1062 ], [ -1094995529, %1074 ], [ -1094995529, %88 ], [ -1094995529, %277 ], [ -1094995529, %1064 ], [ -1094995529, %1076 ], [ -1094995529, %993 ], [ -1094995529, %.thread235.i ], [ -1094995529, %776 ], [ -1094995529, %.split.us.i ], [ -1094995529, %995 ], [ -1163346256, %149 ], [ -1163346256, %134 ], [ -1163346256, %133 ], [ -1094995529, %338 ]
   ret i32 %.0
 }
 

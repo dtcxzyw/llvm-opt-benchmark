@@ -28934,7 +28934,7 @@ lean_obj_tag.exit:                                ; preds = %55, %58
   br label %lean_dec.exit37.backedge
 
 lean_dec.exit37.backedge:                         ; preds = %67, %71, %77, %79, %80
-  %.028.be = phi ptr [ %74, %80 ], [ %74, %77 ], [ %74, %79 ], [ %72, %71 ], [ %70, %67 ]
+  %.028.be = phi ptr [ %74, %80 ], [ %74, %79 ], [ %74, %77 ], [ %72, %71 ], [ %70, %67 ]
   br label %lean_dec.exit37
 
 71:                                               ; preds = %63
@@ -29831,7 +29831,7 @@ lean_obj_tag.exit:                                ; preds = %90, %93
   br label %lean_dec.exit52.backedge
 
 lean_dec.exit52.backedge:                         ; preds = %102, %106, %112, %114, %115
-  %.036.be = phi ptr [ %109, %115 ], [ %109, %112 ], [ %109, %114 ], [ %107, %106 ], [ %105, %102 ]
+  %.036.be = phi ptr [ %109, %115 ], [ %109, %114 ], [ %109, %112 ], [ %107, %106 ], [ %105, %102 ]
   br label %lean_dec.exit52
 
 106:                                              ; preds = %98
@@ -33125,7 +33125,7 @@ lean_obj_tag.exit:                                ; preds = %5, %8
   br label %2
 
 lean_string_dec_eq.exit:                          ; preds = %lean_obj_tag.exit, %20, %16, %11
-  %.0 = phi i8 [ 1, %11 ], [ 0, %16 ], [ %22, %20 ], [ 0, %lean_obj_tag.exit ]
+  %.0 = phi i8 [ %22, %20 ], [ 1, %11 ], [ 0, %16 ], [ 0, %lean_obj_tag.exit ]
   ret i8 %.0
 }
 
@@ -33184,7 +33184,7 @@ lean_obj_tag.exit.i:                              ; preds = %8, %5
   br label %2
 
 l_Lean_Name_hasMacroScopes.exit:                  ; preds = %lean_obj_tag.exit.i, %11, %16, %20
-  %.0.i = phi i64 [ 3, %11 ], [ 1, %16 ], [ %22, %20 ], [ 1, %lean_obj_tag.exit.i ]
+  %.0.i = phi i64 [ %22, %20 ], [ 3, %11 ], [ 1, %16 ], [ 1, %lean_obj_tag.exit.i ]
   %26 = ptrtoint ptr %0 to i64
   %27 = and i64 %26, 1
   %.not = icmp eq i64 %27, 0
@@ -33297,7 +33297,7 @@ lean_string_dec_eq.exit.thread18:                 ; preds = %10, %lean_string_de
   br label %.backedge.backedge
 
 lean_inc.exit.thread:                             ; preds = %lean_obj_tag.exit, %lean_string_dec_eq.exit.thread18, %26, %28, %29
-  %.1 = phi ptr [ %12, %29 ], [ %12, %28 ], [ %12, %26 ], [ %12, %lean_string_dec_eq.exit.thread18 ], [ inttoptr (i64 1 to ptr), %lean_obj_tag.exit ]
+  %.1 = phi ptr [ %12, %lean_string_dec_eq.exit.thread18 ], [ %12, %29 ], [ %12, %28 ], [ %12, %26 ], [ inttoptr (i64 1 to ptr), %lean_obj_tag.exit ]
   ret ptr %.1
 }
 
@@ -33385,7 +33385,7 @@ lean_string_dec_eq.exit.thread18.i:               ; preds = %lean_string_dec_eq.
   br label %.backedge.i
 
 l___private_Init_Prelude_0__Lean_eraseMacroScopesAux.exit: ; preds = %lean_obj_tag.exit.i, %lean_string_dec_eq.exit.thread18.i, %26, %28, %29
-  %.1.i = phi ptr [ %12, %29 ], [ %12, %28 ], [ %12, %26 ], [ %12, %lean_string_dec_eq.exit.thread18.i ], [ inttoptr (i64 1 to ptr), %lean_obj_tag.exit.i ]
+  %.1.i = phi ptr [ %12, %lean_string_dec_eq.exit.thread18.i ], [ %12, %29 ], [ %12, %28 ], [ %12, %26 ], [ inttoptr (i64 1 to ptr), %lean_obj_tag.exit.i ]
   %33 = ptrtoint ptr %0 to i64
   %34 = and i64 %33, 1
   %.not = icmp eq i64 %34, 0
@@ -33545,11 +33545,11 @@ lean_string_dec_eq.exit.thread18.i:               ; preds = %lean_string_dec_eq.
   br label %l_Lean_Name_hasMacroScopes.exit.thread14.backedge
 
 l_Lean_Name_hasMacroScopes.exit.thread14.backedge: ; preds = %52, %lean_string_dec_eq.exit.i, %39
-  %.014.i.be = phi ptr [ %54, %52 ], [ %34, %39 ], [ %34, %lean_string_dec_eq.exit.i ]
+  %.014.i.be = phi ptr [ %34, %lean_string_dec_eq.exit.i ], [ %34, %39 ], [ %54, %52 ]
   br label %l_Lean_Name_hasMacroScopes.exit.thread14
 
 l___private_Init_Prelude_0__Lean_eraseMacroScopesAux.exit: ; preds = %lean_obj_tag.exit.i7, %lean_string_dec_eq.exit.thread18.i, %48, %50, %51
-  %.1.i = phi ptr [ %34, %51 ], [ %34, %50 ], [ %34, %48 ], [ %34, %lean_string_dec_eq.exit.thread18.i ], [ inttoptr (i64 1 to ptr), %lean_obj_tag.exit.i7 ]
+  %.1.i = phi ptr [ %34, %lean_string_dec_eq.exit.thread18.i ], [ %34, %51 ], [ %34, %50 ], [ %34, %48 ], [ inttoptr (i64 1 to ptr), %lean_obj_tag.exit.i7 ]
   %55 = ptrtoint ptr %0 to i64
   %56 = and i64 %55, 1
   %.not = icmp eq i64 %56, 0
@@ -33759,11 +33759,11 @@ lean_string_dec_eq.exit.thread18.i:               ; preds = %lean_string_dec_eq.
   br label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %69, %lean_string_dec_eq.exit.i, %56
-  %.014.i.be = phi ptr [ %71, %69 ], [ %51, %56 ], [ %51, %lean_string_dec_eq.exit.i ]
+  %.014.i.be = phi ptr [ %51, %lean_string_dec_eq.exit.i ], [ %71, %69 ], [ %51, %56 ]
   br label %.preheader
 
 l___private_Init_Prelude_0__Lean_eraseMacroScopesAux.exit: ; preds = %lean_obj_tag.exit.i, %lean_string_dec_eq.exit.thread18.i, %65, %67, %68
-  %.1.i = phi ptr [ %51, %68 ], [ %51, %67 ], [ %51, %65 ], [ %51, %lean_string_dec_eq.exit.thread18.i ], [ inttoptr (i64 1 to ptr), %lean_obj_tag.exit.i ]
+  %.1.i = phi ptr [ %51, %lean_string_dec_eq.exit.thread18.i ], [ %51, %68 ], [ %51, %67 ], [ %51, %65 ], [ inttoptr (i64 1 to ptr), %lean_obj_tag.exit.i ]
   br i1 %.not.i18, label %72, label %common.ret32
 
 72:                                               ; preds = %l___private_Init_Prelude_0__Lean_eraseMacroScopesAux.exit
@@ -36322,7 +36322,7 @@ lean_obj_tag.exit.i:                              ; preds = %9, %6
   br label %3
 
 l_Lean_Name_hasMacroScopes.exit:                  ; preds = %lean_obj_tag.exit.i, %12, %17, %21
-  %.0.i = phi i1 [ false, %12 ], [ true, %17 ], [ %23, %21 ], [ true, %lean_obj_tag.exit.i ]
+  %.0.i = phi i1 [ %23, %21 ], [ false, %12 ], [ true, %17 ], [ true, %lean_obj_tag.exit.i ]
   br label %27
 
 27:                                               ; preds = %48, %l_Lean_Name_hasMacroScopes.exit
@@ -36376,7 +36376,7 @@ lean_obj_tag.exit.i113:                           ; preds = %33, %30
   br label %27
 
 l_Lean_Name_hasMacroScopes.exit119:               ; preds = %lean_obj_tag.exit.i113, %41, %45
-  %.0.i117 = phi i1 [ true, %41 ], [ %47, %45 ], [ true, %lean_obj_tag.exit.i113 ]
+  %.0.i117 = phi i1 [ %47, %45 ], [ true, %41 ], [ true, %lean_obj_tag.exit.i113 ]
   br i1 %.0.i, label %51, label %146
 
 l_Lean_Name_hasMacroScopes.exit119.thread:        ; preds = %36

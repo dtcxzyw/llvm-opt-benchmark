@@ -593,8 +593,8 @@ define internal i32 @b64_read(ptr noundef %0, ptr noundef writeonly captures(add
   br i1 %161, label %.lr.ph261, label %.loopexit223, !llvm.loop !35
 
 .loopexit223:                                     ; preds = %.outer, %.lr.ph261, %57, %60, %.backedge, %39, %151
-  %.1180.ph245 = phi i32 [ %.1180.ph275, %151 ], [ %.0179, %39 ], [ %.1180.ph275, %57 ], [ %.1180.ph275, %.backedge ], [ %.1180.ph275, %60 ], [ %155, %.outer ], [ %.1180.ph275, %.lr.ph261 ]
-  %.1175 = phi i32 [ 0, %151 ], [ 0, %39 ], [ %.2, %.backedge ], [ %55, %57 ], [ %55, %60 ], [ %.2, %.outer ], [ %.0174.ph278, %.lr.ph261 ]
+  %.1180.ph245 = phi i32 [ %.1180.ph275, %151 ], [ %.1180.ph275, %57 ], [ %.0179, %39 ], [ %.1180.ph275, %.backedge ], [ %.1180.ph275, %60 ], [ %155, %.outer ], [ %.1180.ph275, %.lr.ph261 ]
+  %.1175 = phi i32 [ 0, %151 ], [ %.2, %.backedge ], [ 0, %39 ], [ %55, %57 ], [ %55, %60 ], [ %.2, %.outer ], [ %.0174.ph278, %.lr.ph261 ]
   call void @BIO_copy_next_retry(ptr noundef nonnull %0) #11
   %162 = icmp eq i32 %.1180.ph245, 0
   %163 = select i1 %162, i32 %.1175, i32 %.1180.ph245

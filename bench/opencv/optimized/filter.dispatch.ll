@@ -10224,7 +10224,7 @@ _ZN2cv3Mat2atIiEERT_i.exit:                       ; preds = %.lr.ph56
   br i1 %161, label %.lr.ph56, label %.critedge, !llvm.loop !446
 
 .critedge:                                        ; preds = %_ZN2cv3Mat2atIiEERT_i.exit, %.lr.ph56, %_ZN2cv3Mat2atIiEERT_i.exit.us46, %_ZN2cv3Mat2atIiEERT_i.exit.us46.us60, %.lr.ph70, %_ZN2cv3Mat2atIiEERT_i.exit.us46.us, %.lr.ph72, %_ZN2cv3Mat2atIdEERT_i.exit.us, %.lr.ph.split.split, %.lr.ph.split.split.us.split.us, %.lr.ph.split.split.us.split.split.us, %18
-  %.not.lcssa = phi i1 [ true, %18 ], [ false, %.lr.ph.split.split ], [ false, %.lr.ph.split.split.us.split.us ], [ false, %.lr.ph.split.split.us.split.split.us ], [ %exitcond97.not, %_ZN2cv3Mat2atIiEERT_i.exit.us46.us ], [ %exitcond92.not, %_ZN2cv3Mat2atIiEERT_i.exit.us46.us60 ], [ %143, %_ZN2cv3Mat2atIiEERT_i.exit.us46 ], [ %94, %_ZN2cv3Mat2atIdEERT_i.exit.us ], [ %exitcond97.not, %.lr.ph72 ], [ %exitcond92.not, %.lr.ph70 ], [ %exitcond.not, %.lr.ph56 ], [ %exitcond.not, %_ZN2cv3Mat2atIiEERT_i.exit ]
+  %.not.lcssa = phi i1 [ true, %18 ], [ %exitcond97.not, %_ZN2cv3Mat2atIiEERT_i.exit.us46.us ], [ false, %.lr.ph.split.split ], [ false, %.lr.ph.split.split.us.split.us ], [ false, %.lr.ph.split.split.us.split.split.us ], [ %143, %_ZN2cv3Mat2atIiEERT_i.exit.us46 ], [ %94, %_ZN2cv3Mat2atIdEERT_i.exit.us ], [ %exitcond92.not, %_ZN2cv3Mat2atIiEERT_i.exit.us46.us60 ], [ %exitcond97.not, %.lr.ph72 ], [ %exitcond92.not, %.lr.ph70 ], [ %exitcond.not, %.lr.ph56 ], [ %exitcond.not, %_ZN2cv3Mat2atIiEERT_i.exit ]
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #32
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.not.lcssa
@@ -13540,8 +13540,8 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIhiNS0_
   br label %.thread
 
 .thread:                                          ; preds = %.thread.loopexit416, %.thread.loopexit415, %.thread.loopexit414, %.thread.loopexit413, %.thread.loopexit, %.preheader328, %.preheader326, %.preheader324, %.preheader322, %.thread312, %21, %22, %._crit_edge
-  %.0285 = phi ptr [ %38, %._crit_edge ], [ %19, %21 ], [ %19, %22 ], [ %19, %.thread312 ], [ %19, %.preheader322 ], [ %19, %.preheader324 ], [ %19, %.preheader326 ], [ %19, %.preheader328 ], [ %148, %.thread.loopexit ], [ %76, %.thread.loopexit413 ], [ %112, %.thread.loopexit414 ], [ %204, %.thread.loopexit415 ], [ %251, %.thread.loopexit416 ]
-  %.1 = phi i32 [ %.0280.lcssa, %._crit_edge ], [ 0, %21 ], [ 0, %22 ], [ 0, %.thread312 ], [ 0, %.preheader322 ], [ 0, %.preheader324 ], [ 0, %.preheader326 ], [ 0, %.preheader328 ], [ %252, %.thread.loopexit ], [ %253, %.thread.loopexit413 ], [ %254, %.thread.loopexit414 ], [ %255, %.thread.loopexit415 ], [ %256, %.thread.loopexit416 ]
+  %.0285 = phi ptr [ %38, %._crit_edge ], [ %112, %.thread.loopexit414 ], [ %204, %.thread.loopexit415 ], [ %19, %21 ], [ %19, %22 ], [ %148, %.thread.loopexit ], [ %76, %.thread.loopexit413 ], [ %19, %.thread312 ], [ %19, %.preheader322 ], [ %19, %.preheader324 ], [ %19, %.preheader326 ], [ %19, %.preheader328 ], [ %251, %.thread.loopexit416 ]
+  %.1 = phi i32 [ %.0280.lcssa, %._crit_edge ], [ %254, %.thread.loopexit414 ], [ %255, %.thread.loopexit415 ], [ 0, %21 ], [ 0, %22 ], [ %252, %.thread.loopexit ], [ %253, %.thread.loopexit413 ], [ 0, %.thread312 ], [ 0, %.preheader322 ], [ 0, %.preheader324 ], [ 0, %.preheader326 ], [ 0, %.preheader328 ], [ %256, %.thread.loopexit416 ]
   %257 = icmp slt i32 %.1, %20
   br i1 %257, label %.lr.ph372, label %.loopexit
 
@@ -13793,8 +13793,8 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIhiNS0_
   br label %.loopexit317
 
 .loopexit317:                                     ; preds = %.loopexit317.loopexit410, %.loopexit317.loopexit409, %.loopexit317.loopexit, %346, %._crit_edge491, %.preheader, %287
-  %.10295 = phi ptr [ %19, %287 ], [ %19, %.preheader ], [ %19, %._crit_edge491 ], [ %19, %346 ], [ %318, %.loopexit317.loopexit ], [ %345, %.loopexit317.loopexit409 ], [ %401, %.loopexit317.loopexit410 ]
-  %.11 = phi i32 [ 0, %287 ], [ 0, %.preheader ], [ 0, %._crit_edge491 ], [ 0, %346 ], [ %402, %.loopexit317.loopexit ], [ %403, %.loopexit317.loopexit409 ], [ %404, %.loopexit317.loopexit410 ]
+  %.10295 = phi ptr [ %345, %.loopexit317.loopexit409 ], [ %19, %287 ], [ %318, %.loopexit317.loopexit ], [ %19, %.preheader ], [ %19, %._crit_edge491 ], [ %19, %346 ], [ %401, %.loopexit317.loopexit410 ]
+  %.11 = phi i32 [ %403, %.loopexit317.loopexit409 ], [ 0, %287 ], [ %402, %.loopexit317.loopexit ], [ 0, %.preheader ], [ 0, %._crit_edge491 ], [ 0, %346 ], [ %404, %.loopexit317.loopexit410 ]
   %405 = icmp slt i32 %.11, %20
   br i1 %405, label %.lr.ph404, label %.loopexit
 
@@ -14558,8 +14558,8 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIffNS0_
   br label %.thread
 
 .thread:                                          ; preds = %.thread.loopexit407, %.thread.loopexit406, %.thread.loopexit405, %.thread.loopexit404, %.thread.loopexit, %.preheader323, %.preheader321, %._crit_edge482, %.preheader318, %.preheader317, %21, %22, %._crit_edge
-  %.0285 = phi ptr [ %36, %._crit_edge ], [ %19, %21 ], [ %19, %22 ], [ %19, %.preheader317 ], [ %19, %.preheader318 ], [ %19, %._crit_edge482 ], [ %19, %.preheader321 ], [ %19, %.preheader323 ], [ %69, %.thread.loopexit ], [ %102, %.thread.loopexit404 ], [ %130, %.thread.loopexit405 ], [ %178, %.thread.loopexit406 ], [ %211, %.thread.loopexit407 ]
-  %.1 = phi i32 [ %.0280.lcssa, %._crit_edge ], [ 0, %21 ], [ 0, %22 ], [ 0, %.preheader317 ], [ 0, %.preheader318 ], [ 0, %._crit_edge482 ], [ 0, %.preheader321 ], [ 0, %.preheader323 ], [ %212, %.thread.loopexit ], [ %213, %.thread.loopexit404 ], [ %214, %.thread.loopexit405 ], [ %215, %.thread.loopexit406 ], [ %216, %.thread.loopexit407 ]
+  %.0285 = phi ptr [ %36, %._crit_edge ], [ %19, %22 ], [ %130, %.thread.loopexit405 ], [ %19, %21 ], [ %178, %.thread.loopexit406 ], [ %69, %.thread.loopexit ], [ %102, %.thread.loopexit404 ], [ %19, %.preheader317 ], [ %19, %.preheader318 ], [ %19, %._crit_edge482 ], [ %19, %.preheader321 ], [ %19, %.preheader323 ], [ %211, %.thread.loopexit407 ]
+  %.1 = phi i32 [ %.0280.lcssa, %._crit_edge ], [ 0, %22 ], [ %214, %.thread.loopexit405 ], [ 0, %21 ], [ %215, %.thread.loopexit406 ], [ %212, %.thread.loopexit ], [ %213, %.thread.loopexit404 ], [ 0, %.preheader317 ], [ 0, %.preheader318 ], [ 0, %._crit_edge482 ], [ 0, %.preheader321 ], [ 0, %.preheader323 ], [ %216, %.thread.loopexit407 ]
   %217 = icmp slt i32 %.1, %20
   br i1 %217, label %.lr.ph367, label %.loopexit
 
@@ -14788,8 +14788,8 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIffNS0_
   br label %.loopexit312
 
 .loopexit312:                                     ; preds = %.loopexit312.loopexit401, %.loopexit312.loopexit400, %.loopexit312.loopexit, %293, %._crit_edge483, %.preheader, %242
-  %.10295 = phi ptr [ %19, %242 ], [ %19, %.preheader ], [ %19, %._crit_edge483 ], [ %19, %293 ], [ %269, %.loopexit312.loopexit ], [ %292, %.loopexit312.loopexit400 ], [ %338, %.loopexit312.loopexit401 ]
-  %.11 = phi i32 [ 0, %242 ], [ 0, %.preheader ], [ 0, %._crit_edge483 ], [ 0, %293 ], [ %339, %.loopexit312.loopexit ], [ %340, %.loopexit312.loopexit400 ], [ %341, %.loopexit312.loopexit401 ]
+  %.10295 = phi ptr [ %292, %.loopexit312.loopexit400 ], [ %19, %242 ], [ %269, %.loopexit312.loopexit ], [ %19, %.preheader ], [ %19, %._crit_edge483 ], [ %19, %293 ], [ %338, %.loopexit312.loopexit401 ]
+  %.11 = phi i32 [ %340, %.loopexit312.loopexit400 ], [ 0, %242 ], [ %339, %.loopexit312.loopexit ], [ 0, %.preheader ], [ 0, %._crit_edge483 ], [ 0, %293 ], [ %341, %.loopexit312.loopexit401 ]
   %342 = icmp slt i32 %.11, %20
   br i1 %342, label %.lr.ph399, label %.loopexit
 

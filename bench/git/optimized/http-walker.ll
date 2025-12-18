@@ -1167,7 +1167,7 @@ is_alternate_allowed.exit:                        ; preds = %158
   br label %171
 
 .loopexit:                                        ; preds = %skip_prefix.exit.i, %strbuf_strip_suffix.exit, %158
-  %.str.29.sink.i = phi ptr [ @.str.27, %strbuf_strip_suffix.exit ], [ @.str.29, %158 ], [ @.str.28, %skip_prefix.exit.i ]
+  %.str.29.sink.i = phi ptr [ @.str.29, %158 ], [ @.str.27, %strbuf_strip_suffix.exit ], [ @.str.28, %skip_prefix.exit.i ]
   call void (ptr, ...) @warning(ptr noundef nonnull %.str.29.sink.i, ptr noundef %145) #11
   call void @strbuf_release(ptr noundef nonnull %3) #11
   br label %171

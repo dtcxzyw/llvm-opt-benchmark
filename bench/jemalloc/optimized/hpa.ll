@@ -342,7 +342,7 @@ malloc_mutex_lock.exit.i.i:                       ; preds = %60, %54
   br label %hpa_alloc_batch_psset.exit
 
 hpa_central_extract.exit.i:                       ; preds = %95, %77
-  %.0.i.i = phi ptr [ %71, %77 ], [ %.154.i.i, %95 ]
+  %.0.i.i = phi ptr [ %.154.i.i, %95 ], [ %71, %77 ]
   %109 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %110 = call i32 @pthread_mutex_trylock(ptr noundef nonnull %109) #8
   %.not.i58.i = icmp eq i32 %110, 0

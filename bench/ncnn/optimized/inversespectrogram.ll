@@ -249,7 +249,7 @@ define hidden noundef i32 @_ZN4ncnn18InverseSpectrogram10load_paramERKNS_9ParamD
   br i1 %exitcond80.not, label %.loopexit, label %56, !llvm.loop !45
 
 .loopexit:                                        ; preds = %56, %43, %.lr.ph53, %.loopexit41
-  %.5 = phi ptr [ %.036.lcssa, %.loopexit41 ], [ %51, %43 ], [ %38, %.lr.ph53 ], [ %64, %56 ]
+  %.5 = phi ptr [ %.036.lcssa, %.loopexit41 ], [ %38, %.lr.ph53 ], [ %51, %43 ], [ %64, %56 ]
   %.neg = sdiv i32 %28, -2
   %66 = add i32 %.neg, %28
   %67 = icmp sgt i32 %66, 0
@@ -775,7 +775,7 @@ _ZN4ncnn3MatD2Ev.exit115:                         ; preds = %194, %._crit_edge, 
   br i1 %exitcond363.not, label %_ZNK4ncnn3Mat5emptyEv.exit96.thread, label %225, !llvm.loop !72
 
 _ZNK4ncnn3Mat5emptyEv.exit96.thread:              ; preds = %233, %224, %.preheader272, %.preheader, %46, %_ZNK4ncnn3Mat5emptyEv.exit96
-  %.1 = phi i32 [ -100, %_ZNK4ncnn3Mat5emptyEv.exit96 ], [ -100, %46 ], [ 0, %.preheader ], [ 0, %.preheader272 ], [ 0, %224 ], [ 0, %233 ]
+  %.1 = phi i32 [ -100, %_ZNK4ncnn3Mat5emptyEv.exit96 ], [ 0, %.preheader ], [ -100, %46 ], [ 0, %.preheader272 ], [ 0, %224 ], [ 0, %233 ]
   %234 = load ptr, ptr %51, align 8, !tbaa !7
   %.not.i120 = icmp eq ptr %234, null
   br i1 %.not.i120, label %_ZN4ncnn3MatD2Ev.exit117, label %235

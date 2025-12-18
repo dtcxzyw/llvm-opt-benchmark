@@ -571,7 +571,7 @@ Saig_ManRetimeNodeBwd.exit.thread:                ; preds = %Saig_ManRetimeNodeB
   br i1 %exitcond116.not, label %.loopexit, label %.preheaderthread-pre-split, !llvm.loop !42
 
 .loopexit:                                        ; preds = %.critedge, %119, %.critedge2, %179, %.preheader70.lr.ph.split.us, %.preheader.lr.ph.split.us, %20, %.preheader69
-  %.150 = phi i32 [ 0, %.preheader69 ], [ %1, %179 ], [ %spec.select, %.preheader.lr.ph.split.us ], [ 0, %20 ], [ %spec.select142, %.preheader70.lr.ph.split.us ], [ %.293, %.critedge2 ], [ %.04984, %.critedge ], [ %1, %119 ]
+  %.150 = phi i32 [ 0, %20 ], [ 0, %.preheader69 ], [ %spec.select142, %.preheader70.lr.ph.split.us ], [ %1, %179 ], [ %spec.select, %.preheader.lr.ph.split.us ], [ %.293, %.critedge2 ], [ %1, %119 ], [ %.04984, %.critedge ]
   store i32 0, ptr %5, align 8, !tbaa !33
   tail call void @Aig_ManFanoutStop(ptr noundef nonnull %0) #3
   %181 = tail call i32 @Aig_ManCleanup(ptr noundef nonnull %0) #3

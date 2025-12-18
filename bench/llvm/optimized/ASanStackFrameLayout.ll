@@ -1217,7 +1217,7 @@ _ZSt13move_backwardIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit: 
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !72
 
 _ZSt11swap_rangesIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit: ; preds = %._crit_edge, %._crit_edge110, %.lr.ph.i, %_ZSt13move_backwardIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit, %_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit, %10, %3
-  %.053 = phi ptr [ %0, %10 ], [ %2, %3 ], [ %26, %_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit ], [ %26, %_ZSt13move_backwardIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit ], [ %1, %.lr.ph.i ], [ %26, %._crit_edge110 ], [ %26, %._crit_edge ]
+  %.053 = phi ptr [ %0, %10 ], [ %2, %3 ], [ %1, %.lr.ph.i ], [ %26, %_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit ], [ %26, %_ZSt13move_backwardIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit ], [ %26, %._crit_edge110 ], [ %26, %._crit_edge ]
   ret ptr %.053
 }
 

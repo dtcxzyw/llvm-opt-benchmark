@@ -2367,7 +2367,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_os_get_group(ptr no
   br label %.loopexit
 
 .loopexit:                                        ; preds = %8, %.preheader61, %24, %2, %._crit_edge79, %42, %22
-  %.049 = phi i32 [ 0, %._crit_edge79 ], [ -22, %2 ], [ %23, %22 ], [ -12, %42 ], [ -2, %24 ], [ -12, %.preheader61 ], [ -12, %8 ]
+  %.049 = phi i32 [ 0, %._crit_edge79 ], [ -22, %2 ], [ %23, %22 ], [ -2, %24 ], [ -12, %42 ], [ -12, %.preheader61 ], [ -12, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.049
@@ -2488,7 +2488,7 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @uv__getpwuid_r(p
   br label %.loopexit
 
 .loopexit:                                        ; preds = %8, %.preheader42, %24, %2, %42, %41, %22
-  %.0 = phi i32 [ 0, %42 ], [ -22, %2 ], [ %23, %22 ], [ -12, %41 ], [ -2, %24 ], [ -12, %.preheader42 ], [ -12, %8 ]
+  %.0 = phi i32 [ 0, %42 ], [ -22, %2 ], [ %23, %22 ], [ -2, %24 ], [ -12, %41 ], [ -12, %.preheader42 ], [ -12, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0

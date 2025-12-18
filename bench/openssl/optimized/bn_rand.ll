@@ -619,7 +619,7 @@ define range(i32 0, 2) i32 @ossl_bn_gen_dsa_nonce_fixed_top(ptr noundef %0, ptr 
   br i1 %67, label %.thread, label %68
 
 .thread:                                          ; preds = %63, %.preheader.split, %29, %._crit_edge.us, %49, %47, %45, %43, %41, %39, %36
-  %.2.ph = phi i32 [ 0, %49 ], [ 0, %._crit_edge.us ], [ 0, %36 ], [ 0, %39 ], [ 0, %41 ], [ 0, %43 ], [ 0, %45 ], [ 0, %47 ], [ 1, %29 ], [ 1, %63 ], [ 0, %.preheader.split ]
+  %.2.ph = phi i32 [ 0, %._crit_edge.us ], [ 0, %49 ], [ 0, %36 ], [ 0, %39 ], [ 0, %41 ], [ 0, %43 ], [ 0, %45 ], [ 0, %47 ], [ 1, %29 ], [ 0, %.preheader.split ], [ 1, %63 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %._crit_edge
 

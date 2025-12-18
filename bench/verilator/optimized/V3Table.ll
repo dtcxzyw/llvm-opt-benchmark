@@ -17057,7 +17057,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %.crit
   br label %.critedge66
 
 .critedge66:                                      ; preds = %100, %.noexc90, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %112 = phi ptr [ %84, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %101, %100 ], [ %103, %.noexc90 ]
+  %112 = phi ptr [ %84, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %103, %.noexc90 ], [ %101, %100 ]
   %113 = call noalias noundef nonnull dereferenceable(200) ptr @_Znwm(i64 noundef 200) #25
   %114 = load ptr, ptr %0, align 8, !tbaa !107
   invoke void @_ZN7AstNodeC2E6VNTypeP8FileLine(ptr noundef nonnull align 8 dereferenceable(200) %113, i16 118, ptr noundef %114)

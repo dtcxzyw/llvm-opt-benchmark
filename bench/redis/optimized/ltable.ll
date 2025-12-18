@@ -282,7 +282,7 @@ findindex.exit:                                   ; preds = %3, %15, %98, %112
   br label %.loopexit
 
 .loopexit:                                        ; preds = %147, %.loopexit.sink.split, %136
-  %.0 = phi i32 [ 0, %136 ], [ 1, %.loopexit.sink.split ], [ 0, %147 ]
+  %.0 = phi i32 [ 1, %.loopexit.sink.split ], [ 0, %136 ], [ 0, %147 ]
   ret i32 %.0
 }
 
@@ -1566,7 +1566,7 @@ mainposition.exit67:                              ; preds = %182, %.preheader.i.
   br label %luaH_set.exit
 
 luaH_set.exit:                                    ; preds = %mainposition.exit, %239, %236
-  %.044 = phi ptr [ %80, %239 ], [ %.0.i, %236 ], [ %.0.i, %mainposition.exit ]
+  %.044 = phi ptr [ %.0.i, %236 ], [ %80, %239 ], [ %.0.i, %mainposition.exit ]
   %243 = getelementptr inbounds nuw i8, ptr %.044, i64 16
   %244 = load i64, ptr %2, align 8, !tbaa !9
   store i64 %244, ptr %243, align 8, !tbaa !9
@@ -2002,7 +2002,7 @@ luaH_getnum.exit45.i:                             ; preds = %125, %121, %102
   br i1 %132, label %.lr.ph.i, label %unbound_search.exit, !llvm.loop !48
 
 unbound_search.exit:                              ; preds = %.lr.ph, %luaH_getnum.exit35.i, %luaH_getnum.exit45.i, %.preheader, %.preheader.i, %23
-  %.0 = phi i32 [ %3, %23 ], [ %.020.i, %.preheader.i ], [ 0, %.preheader ], [ %67, %luaH_getnum.exit35.i ], [ %.2..i, %luaH_getnum.exit45.i ], [ %.017., %.lr.ph ]
+  %.0 = phi i32 [ %3, %23 ], [ %.2..i, %luaH_getnum.exit45.i ], [ %67, %luaH_getnum.exit35.i ], [ %.020.i, %.preheader.i ], [ 0, %.preheader ], [ %.017., %.lr.ph ]
   ret i32 %.0
 }
 

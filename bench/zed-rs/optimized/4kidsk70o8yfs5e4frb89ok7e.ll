@@ -42541,8 +42541,8 @@ define hidden void @"_ZN5flume15Shared$LT$T$GT$4send17h3bbc1ff5325dfc69E.llvm.15
   unreachable
 
 .body49:                                          ; preds = %.body59.thread, %375, %47, %.thread176, %"_ZN4core3ptr201drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$flume..Hook$LT$core..result..Result$LT$exr..block..UncompressedBlock$C$exr..error..Error$GT$$C$dyn$u20$flume..signal..Signal$GT$$GT$$GT$$GT$17h6ebd4e307d2bc5e3E.exit"
-  %.sroa.023.1 = phi i8 [ %.sroa.023.5, %"_ZN4core3ptr201drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$flume..Hook$LT$core..result..Result$LT$exr..block..UncompressedBlock$C$exr..error..Error$GT$$C$dyn$u20$flume..signal..Signal$GT$$GT$$GT$$GT$17h6ebd4e307d2bc5e3E.exit" ], [ %.sroa.023.5180, %.thread176 ], [ %.sroa.023.6338344, %47 ], [ %.sroa.023.3.lpad-body166, %375 ], [ %.sroa.023.3.lpad-body166, %.body59.thread ]
-  %.pn40 = phi { ptr, i32 } [ %.pn38, %"_ZN4core3ptr201drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$flume..Hook$LT$core..result..Result$LT$exr..block..UncompressedBlock$C$exr..error..Error$GT$$C$dyn$u20$flume..signal..Signal$GT$$GT$$GT$$GT$17h6ebd4e307d2bc5e3E.exit" ], [ %.pn38181, %.thread176 ], [ %48, %47 ], [ %eh.lpad-body60167, %375 ], [ %eh.lpad-body60167, %.body59.thread ]
+  %.sroa.023.1 = phi i8 [ %.sroa.023.5, %"_ZN4core3ptr201drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$flume..Hook$LT$core..result..Result$LT$exr..block..UncompressedBlock$C$exr..error..Error$GT$$C$dyn$u20$flume..signal..Signal$GT$$GT$$GT$$GT$17h6ebd4e307d2bc5e3E.exit" ], [ %.sroa.023.3.lpad-body166, %375 ], [ %.sroa.023.6338344, %47 ], [ %.sroa.023.5180, %.thread176 ], [ %.sroa.023.3.lpad-body166, %.body59.thread ]
+  %.pn40 = phi { ptr, i32 } [ %.pn38, %"_ZN4core3ptr201drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$flume..Hook$LT$core..result..Result$LT$exr..block..UncompressedBlock$C$exr..error..Error$GT$$C$dyn$u20$flume..signal..Signal$GT$$GT$$GT$$GT$17h6ebd4e307d2bc5e3E.exit" ], [ %eh.lpad-body60167, %375 ], [ %48, %47 ], [ %.pn38181, %.thread176 ], [ %eh.lpad-body60167, %.body59.thread ]
   %46 = trunc nuw i8 %.sroa.023.1 to i1
   br i1 %46, label %.body49.thread, label %.body.thread
 
@@ -43375,7 +43375,7 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.15681087171329068630.exit
   br i1 %349, label %.invoke.i, label %351
 
 .invoke.i:                                        ; preds = %.noexc26.i, %.noexc22.i, %.noexc42.i, %.noexc34.i, %.noexc13.i, %"_ZN4core3ptr153drop_in_place$LT$std..sync..mutex..MutexGuard$LT$flume..Chan$LT$core..result..Result$LT$exr..block..UncompressedBlock$C$exr..error..Error$GT$$GT$$GT$$GT$17h099c84665d4409ffE.llvm.15681087171329068630.exit"
-  %350 = phi ptr [ @anon.05b13e52f826c56db84bc771daf91b77.211, %.noexc34.i ], [ @anon.05b13e52f826c56db84bc771daf91b77.216, %.noexc13.i ], [ @anon.05b13e52f826c56db84bc771daf91b77.211, %.noexc42.i ], [ @anon.05b13e52f826c56db84bc771daf91b77.207, %"_ZN4core3ptr153drop_in_place$LT$std..sync..mutex..MutexGuard$LT$flume..Chan$LT$core..result..Result$LT$exr..block..UncompressedBlock$C$exr..error..Error$GT$$GT$$GT$$GT$17h099c84665d4409ffE.llvm.15681087171329068630.exit" ], [ @anon.05b13e52f826c56db84bc771daf91b77.216, %.noexc22.i ], [ @anon.05b13e52f826c56db84bc771daf91b77.218, %.noexc26.i ]
+  %350 = phi ptr [ @anon.05b13e52f826c56db84bc771daf91b77.211, %.noexc34.i ], [ @anon.05b13e52f826c56db84bc771daf91b77.216, %.noexc22.i ], [ @anon.05b13e52f826c56db84bc771daf91b77.216, %.noexc13.i ], [ @anon.05b13e52f826c56db84bc771daf91b77.211, %.noexc42.i ], [ @anon.05b13e52f826c56db84bc771daf91b77.207, %"_ZN4core3ptr153drop_in_place$LT$std..sync..mutex..MutexGuard$LT$flume..Chan$LT$core..result..Result$LT$exr..block..UncompressedBlock$C$exr..error..Error$GT$$GT$$GT$$GT$17h099c84665d4409ffE.llvm.15681087171329068630.exit" ], [ @anon.05b13e52f826c56db84bc771daf91b77.218, %.noexc26.i ]
   invoke void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %350) #46
           to label %.cont.i unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !10572
 
@@ -58337,8 +58337,8 @@ _ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17h5ac2ae42596d
   %70 = zext nneg i16 %69 to i64
   br label %_ZN9hashbrown3raw5inner13RawTableInner30find_or_find_insert_slot_inner17h905c416281a1f195E.exit.thread
 
-_ZN9hashbrown3raw5inner13RawTableInner30find_or_find_insert_slot_inner17h905c416281a1f195E.exit.thread: ; preds = %64, %60
-  %.sroa.3.0.i.ph = phi i64 [ %.sroa.4.1.i, %60 ], [ %70, %64 ]
+_ZN9hashbrown3raw5inner13RawTableInner30find_or_find_insert_slot_inner17h905c416281a1f195E.exit.thread: ; preds = %60, %64
+  %.sroa.3.0.i.ph = phi i64 [ %70, %64 ], [ %.sroa.4.1.i, %60 ]
   %71 = inttoptr i64 %.sroa.3.0.i.ph to ptr
   br label %.loopexit
 

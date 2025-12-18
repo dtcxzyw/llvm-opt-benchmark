@@ -15089,7 +15089,7 @@ define internal fastcc noundef zeroext i1 @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_
   br label %.loopexit
 
 .loopexit:                                        ; preds = %16, %8, %5, %6, %27, %25, %.thread
-  %.1 = phi i1 [ true, %.thread ], [ false, %25 ], [ false, %27 ], [ false, %6 ], [ false, %5 ], [ false, %8 ], [ false, %16 ]
+  %.1 = phi i1 [ true, %.thread ], [ false, %5 ], [ false, %25 ], [ false, %27 ], [ false, %6 ], [ false, %8 ], [ false, %16 ]
   ret i1 %.1
 }
 

@@ -5775,7 +5775,7 @@ AppendJumble.exit56:                              ; preds = %.lr.ph.i49, %61
   unreachable
 
 .sink.split:                                      ; preds = %93, %76, %51, %34, %86, %69, %44, %AppendJumble.exit56
-  %.lcssa.sink = phi i64 [ %65, %AppendJumble.exit56 ], [ %24, %44 ], [ %24, %69 ], [ %24, %86 ], [ %80, %76 ], [ %38, %34 ], [ %55, %51 ], [ %97, %93 ]
+  %.lcssa.sink = phi i64 [ %55, %51 ], [ %65, %AppendJumble.exit56 ], [ %80, %76 ], [ %38, %34 ], [ %24, %44 ], [ %24, %69 ], [ %24, %86 ], [ %97, %93 ]
   store i64 %.lcssa.sink, ptr %4, align 8
   br label %104
 

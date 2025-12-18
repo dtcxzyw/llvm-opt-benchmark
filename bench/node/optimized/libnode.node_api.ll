@@ -3806,7 +3806,7 @@ if.then150:                                       ; preds = %if.end.i, %if.then.
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.then150, %if.end16.thread.i, %delete.notnull.i, %do.end103, %do.end69, %do.end34, %do.body22, %_ZN10napi_env__13CheckGCAccessEv.exit
-  %status.0.sink = phi i32 [ 3, %do.end103 ], [ 2, %do.end69 ], [ 1, %do.end34 ], [ 1, %do.body22 ], [ 9, %delete.notnull.i ], [ 9, %if.end16.thread.i ], [ 1, %_ZN10napi_env__13CheckGCAccessEv.exit ], [ 0, %if.then150 ]
+  %status.0.sink = phi i32 [ 3, %do.end103 ], [ 2, %do.end69 ], [ 1, %do.end34 ], [ 1, %do.body22 ], [ 9, %if.end16.thread.i ], [ 9, %delete.notnull.i ], [ 1, %_ZN10napi_env__13CheckGCAccessEv.exit ], [ 0, %if.then150 ]
   %error_code1.i57 = getelementptr inbounds nuw i8, ptr %env, i64 156
   store i32 %status.0.sink, ptr %error_code1.i57, align 4
   %engine_error_code3.i58 = getelementptr inbounds nuw i8, ptr %env, i64 152
@@ -4001,7 +4001,7 @@ do.body8.i.i:                                     ; preds = %do.body.i.i
   unreachable
 
 _ZN6v8impl12_GLOBAL__N_118ThreadSafeFunction4PushEPv34napi_threadsafe_function_call_mode.exit: ; preds = %while.cond.us.i, %if.then8.i, %if.else.i, %_ZNSt5queueIPvSt5dequeIS0_SaIS0_EEE4pushERKS0_.exit.i, %do.body.i.i
-  %retval.0.i = phi i32 [ 1, %if.then8.i ], [ 16, %if.else.i ], [ 0, %_ZNSt5queueIPvSt5dequeIS0_SaIS0_EEE4pushERKS0_.exit.i ], [ 0, %do.body.i.i ], [ 15, %while.cond.us.i ]
+  %retval.0.i = phi i32 [ 1, %if.then8.i ], [ 0, %do.body.i.i ], [ 16, %if.else.i ], [ 0, %_ZNSt5queueIPvSt5dequeIS0_SaIS0_EEE4pushERKS0_.exit.i ], [ 15, %while.cond.us.i ]
   call void @uv_mutex_unlock(ptr noundef nonnull %mutex.i) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %data.addr.i)
   ret i32 %retval.0.i
@@ -4642,7 +4642,7 @@ cleanup:                                          ; preds = %if.end.i.i17, %if.t
   br label %_ZNSt10_HashtableIPN6v8impl10RefTrackerES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit
 
 if.then.i21:                                      ; preds = %for.cond.i.i, %for.body, %if.end.i.i
-  %retval.sroa.0.0.ph = phi ptr [ %9, %if.end.i.i ], [ %__it.sroa.0.0, %for.body ], [ %11, %for.cond.i.i ]
+  %retval.sroa.0.0.ph = phi ptr [ %__it.sroa.0.0, %for.body ], [ %9, %if.end.i.i ], [ %11, %for.cond.i.i ]
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i) #25
   br label %_ZNSt10_HashtableIPN6v8impl10RefTrackerES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit
 
@@ -7606,7 +7606,7 @@ _ZNSt10_HashtableIPN6v8impl10RefTrackerES2_SaIS2_ENSt8__detail9_IdentityESt8equa
   br label %return
 
 return:                                           ; preds = %if.end3.i, %if.end4.i, %lor.lhs.false.return.loopexit_crit_edge.i, %if.else, %if.then, %_ZNSt10_HashtableIPN6v8impl10RefTrackerES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE8_M_eraseEmPNS4_15_Hash_node_baseEPNS4_10_Hash_nodeIS2_Lb0EEE.exit
-  %retval.0 = phi i64 [ 1, %_ZNSt10_HashtableIPN6v8impl10RefTrackerES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE8_M_eraseEmPNS4_15_Hash_node_baseEPNS4_10_Hash_nodeIS2_Lb0EEE.exit ], [ 0, %if.then ], [ 0, %if.else ], [ 0, %lor.lhs.false.return.loopexit_crit_edge.i ], [ 0, %if.end4.i ], [ 0, %if.end3.i ]
+  %retval.0 = phi i64 [ 1, %_ZNSt10_HashtableIPN6v8impl10RefTrackerES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE8_M_eraseEmPNS4_15_Hash_node_baseEPNS4_10_Hash_nodeIS2_Lb0EEE.exit ], [ 0, %if.end4.i ], [ 0, %if.then ], [ 0, %if.else ], [ 0, %lor.lhs.false.return.loopexit_crit_edge.i ], [ 0, %if.end3.i ]
   ret i64 %retval.0
 }
 

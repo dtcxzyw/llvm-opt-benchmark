@@ -3341,7 +3341,7 @@ define internal void @bxt_set_cdclk(ptr noundef %0, ptr noundef readonly capture
   br label %20
 
 20:                                               ; preds = %18, %16
-  %21 = phi i32 [ %17, %16 ], [ %19, %18 ]
+  %21 = phi i32 [ %19, %18 ], [ %17, %16 ]
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %.thread, label %23
 

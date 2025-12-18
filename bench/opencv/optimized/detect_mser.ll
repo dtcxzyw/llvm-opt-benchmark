@@ -2587,7 +2587,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EED2Ev.exit340:  ; preds = %853
   br label %_ZNSt6vectorIN2cv8KeyPointESaIS1_EED2Ev.exit342
 
 _ZNSt6vectorIN2cv8KeyPointESaIS1_EED2Ev.exit342:  ; preds = %_ZNSt6vectorIN2cv8KeyPointESaIS1_EED2Ev.exit330, %521, %523, %525, %654, %656, %658, %666, %692, %857, %859
-  %.merged98 = phi { ptr, i32 } [ %522, %521 ], [ %655, %654 ], [ %667, %666 ], [ %.pn70.pn.pn, %692 ], [ %526, %525 ], [ %524, %523 ], [ %659, %658 ], [ %657, %656 ], [ %860, %859 ], [ %858, %857 ], [ %.pn86.pn.pn, %_ZNSt6vectorIN2cv8KeyPointESaIS1_EED2Ev.exit330 ]
+  %.merged98 = phi { ptr, i32 } [ %522, %521 ], [ %655, %654 ], [ %858, %857 ], [ %667, %666 ], [ %.pn70.pn.pn, %692 ], [ %526, %525 ], [ %524, %523 ], [ %659, %658 ], [ %657, %656 ], [ %860, %859 ], [ %.pn86.pn.pn, %_ZNSt6vectorIN2cv8KeyPointESaIS1_EED2Ev.exit330 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %42) #23
   br label %897
 

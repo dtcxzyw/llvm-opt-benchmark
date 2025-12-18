@@ -139,7 +139,7 @@ list_length.exit.thread:                          ; preds = %.split
   br i1 %34, label %35, label %.thread
 
 .thread:                                          ; preds = %list_length.exit, %25, %30, %.split.us, %list_length.exit.us, %.split.us.preheader
-  %.us-phi2840 = phi ptr [ null, %.split.us.preheader ], [ %.0, %25 ], [ %.0.us49, %list_length.exit.us ], [ null, %.split.us ], [ %.0, %30 ], [ %.0, %list_length.exit ]
+  %.us-phi2840 = phi ptr [ %.0, %25 ], [ null, %.split.us.preheader ], [ %.0.us49, %list_length.exit.us ], [ null, %.split.us ], [ %.0, %30 ], [ %.0, %list_length.exit ]
   ret ptr %.us-phi2840
 
 35:                                               ; preds = %30
@@ -201,7 +201,7 @@ list_length.exit.split.split:                     ; preds = %list_length.exit.sp
   br i1 %26, label %28, label %.thread
 
 .thread:                                          ; preds = %17, %22, %list_length.exit.split.us, %list_length.exit.split
-  %27 = phi ptr [ %3, %list_length.exit.split.us ], [ null, %list_length.exit.split ], [ %6, %22 ], [ %6, %17 ]
+  %27 = phi ptr [ null, %list_length.exit.split ], [ %3, %list_length.exit.split.us ], [ %6, %22 ], [ %6, %17 ]
   ret ptr %27
 
 28:                                               ; preds = %22

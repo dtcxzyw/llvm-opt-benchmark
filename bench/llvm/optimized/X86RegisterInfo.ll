@@ -4005,7 +4005,7 @@ _ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i.i.i128.i.i.i.i.i.i: ; preds 
   br label %_ZN4llvm11SmallVectorINS_10MCRegisterELj12EED2Ev.exit
 
 _ZN4llvm11SmallVectorINS_10MCRegisterELj12EED2Ev.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i91.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i98.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i105.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i112.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i119.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i126.i.i.i.i.i.i, %._crit_edge._crit_edge204.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i, %"_ZN4llvm6any_ofINS_11SmallVectorINS_10MCRegisterELj12EEEZNKS_15X86RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionES2_E3$_1EEbOT_T0_.exit.thread", %105, %109
-  %119 = phi i1 [ %118, %109 ], [ false, %"_ZN4llvm6any_ofINS_11SmallVectorINS_10MCRegisterELj12EEEZNKS_15X86RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionES2_E3$_1EEbOT_T0_.exit.thread" ], [ false, %105 ], [ true, %._crit_edge.i.i.i.i.i.i ], [ true, %._crit_edge._crit_edge.i.i.i.i.i.i ], [ true, %._crit_edge._crit_edge204.i.i.i.i.i.i ], [ true, %.lr.ph.i.i.i.i.i.i.i.i.i98.i.i.i.i.i.i ], [ true, %.lr.ph.i.i.i.i.i.i.i.i.i126.i.i.i.i.i.i ], [ true, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i119.i.i.i.i.i.i ], [ true, %.lr.ph.i.i.i.i.i.i.i.i.i112.i.i.i.i.i.i ], [ true, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i105.i.i.i.i.i.i ], [ true, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i91.i.i.i.i.i.i ]
+  %119 = phi i1 [ %118, %109 ], [ false, %"_ZN4llvm6any_ofINS_11SmallVectorINS_10MCRegisterELj12EEEZNKS_15X86RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionES2_E3$_1EEbOT_T0_.exit.thread" ], [ false, %105 ], [ true, %._crit_edge.i.i.i.i.i.i ], [ true, %.lr.ph.i.i.i.i.i.i.i.i.i126.i.i.i.i.i.i ], [ true, %.lr.ph.i.i.i.i.i.i.i.i.i98.i.i.i.i.i.i ], [ true, %._crit_edge._crit_edge.i.i.i.i.i.i ], [ true, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i105.i.i.i.i.i.i ], [ true, %.lr.ph.i.i.i.i.i.i.i.i.i112.i.i.i.i.i.i ], [ true, %._crit_edge._crit_edge204.i.i.i.i.i.i ], [ true, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i119.i.i.i.i.i.i ], [ true, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i91.i.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %"_ZZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionENS_10MCRegisterEENK3$_0clES4_S4_.exit.thread"
 
@@ -4731,7 +4731,7 @@ _ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i.i.i86.i.i.i.i.i.i336: ; pred
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge37.thread
 
-.loopexit.thread:                                 ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_4EclIPS7_EEbT_.exit60.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_4EclIPS7_EEbT_.exit.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_4EclIPS7_EEbT_.exit74.i.i.i.i.i.i", %.lr.ph.i.i.i.i.i.i.i.i.i.i.i49.i.i.i.i.i.i301, %.lr.ph.i.i.i.i.i.i.i.i.i56.i.i.i.i.i.i308, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i63.i.i.i.i.i.i314, %.lr.ph.i.i.i.i.i.i.i.i.i70.i.i.i.i.i.i321, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i77.i.i.i.i.i.i327, %.lr.ph.i.i.i.i.i.i.i.i.i84.i.i.i.i.i.i334
+.loopexit.thread:                                 ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_4EclIPS7_EEbT_.exit60.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_4EclIPS7_EEbT_.exit74.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_4EclIPS7_EEbT_.exit.i.i.i.i.i.i", %.lr.ph.i.i.i.i.i.i.i.i.i.i.i49.i.i.i.i.i.i301, %.lr.ph.i.i.i.i.i.i.i.i.i56.i.i.i.i.i.i308, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i63.i.i.i.i.i.i314, %.lr.ph.i.i.i.i.i.i.i.i.i70.i.i.i.i.i.i321, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i77.i.i.i.i.i.i327, %.lr.ph.i.i.i.i.i.i.i.i.i84.i.i.i.i.i.i334
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %"_ZZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionENS_10MCRegisterEENK3$_0clES4_S4_.exit.thread"
 
@@ -4743,8 +4743,8 @@ _ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i.i.i86.i.i.i.i.i.i336: ; pred
 .critedge37.thread:                               ; preds = %.loopexit.thread586, %.critedge.thread, %.loopexit
   br label %"_ZZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionENS_10MCRegisterEENK3$_0clES4_S4_.exit.thread"
 
-"_ZZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionENS_10MCRegisterEENK3$_0clES4_S4_.exit.thread": ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i64, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i71, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i49.i.i.i.i.i.i77, %.lr.ph.i.i.i.i.i.i.i.i.i56.i.i.i.i.i.i84, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i63.i.i.i.i.i.i90, %.lr.ph.i.i.i.i.i.i.i.i.i70.i.i.i.i.i.i97, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i77.i.i.i.i.i.i103, %.lr.ph.i.i.i.i.i.i.i.i.i84.i.i.i.i.i.i110, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i105.i.i.i.i.i.i252, %.lr.ph.i.i.i.i.i.i.i.i.i112.i.i.i.i.i.i259, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i119.i.i.i.i.i.i235, %.lr.ph.i.i.i.i.i.i.i.i.i126.i.i.i.i.i.i242, %._crit_edge._crit_edge204.i.i.i.i.i.i230, %._crit_edge._crit_edge.i.i.i.i.i.i247, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_2EclIPS7_EEbT_.exit74.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_2EclIPS7_EEbT_.exit60.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_2EclIPS7_EEbT_.exit.i.i.i.i.i.i", %.lr.ph.i.i.i.i.i.i57, %.loopexit.thread, %127, %.critedge37.thread, %.loopexit, %_ZN4llvm11SmallVectorINS_10MCRegisterELj12EED2Ev.exit
-  %.0 = phi i1 [ %119, %_ZN4llvm11SmallVectorINS_10MCRegisterELj12EED2Ev.exit ], [ false, %.critedge37.thread ], [ true, %.loopexit ], [ true, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_2EclIPS7_EEbT_.exit74.i.i.i.i.i.i" ], [ true, %127 ], [ true, %.loopexit.thread ], [ true, %._crit_edge._crit_edge204.i.i.i.i.i.i230 ], [ true, %.lr.ph.i.i.i.i.i.i57 ], [ true, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_2EclIPS7_EEbT_.exit.i.i.i.i.i.i" ], [ true, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_2EclIPS7_EEbT_.exit60.i.i.i.i.i.i" ], [ true, %._crit_edge._crit_edge.i.i.i.i.i.i247 ], [ true, %.lr.ph.i.i.i.i.i.i.i ], [ true, %.lr.ph.i.i.i.i.i.i.i.i.i126.i.i.i.i.i.i242 ], [ true, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i119.i.i.i.i.i.i235 ], [ true, %.lr.ph.i.i.i.i.i.i.i.i.i112.i.i.i.i.i.i259 ], [ true, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i105.i.i.i.i.i.i252 ], [ true, %.lr.ph.i.i.i.i.i.i.i.i.i84.i.i.i.i.i.i110 ], [ true, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i77.i.i.i.i.i.i103 ], [ true, %.lr.ph.i.i.i.i.i.i.i.i.i70.i.i.i.i.i.i97 ], [ true, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i63.i.i.i.i.i.i90 ], [ true, %.lr.ph.i.i.i.i.i.i.i.i.i56.i.i.i.i.i.i84 ], [ true, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i49.i.i.i.i.i.i77 ], [ true, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i71 ], [ true, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i64 ], [ true, %.lr.ph.i.i.i.i.i.i.i.i.i ]
+"_ZZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionENS_10MCRegisterEENK3$_0clES4_S4_.exit.thread": ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i64, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i71, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i49.i.i.i.i.i.i77, %.lr.ph.i.i.i.i.i.i.i.i.i56.i.i.i.i.i.i84, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i63.i.i.i.i.i.i90, %.lr.ph.i.i.i.i.i.i.i.i.i70.i.i.i.i.i.i97, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i77.i.i.i.i.i.i103, %.lr.ph.i.i.i.i.i.i.i.i.i84.i.i.i.i.i.i110, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i105.i.i.i.i.i.i252, %.lr.ph.i.i.i.i.i.i.i.i.i112.i.i.i.i.i.i259, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i119.i.i.i.i.i.i235, %.lr.ph.i.i.i.i.i.i.i.i.i126.i.i.i.i.i.i242, %._crit_edge._crit_edge.i.i.i.i.i.i247, %._crit_edge._crit_edge204.i.i.i.i.i.i230, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_2EclIPS7_EEbT_.exit74.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_2EclIPS7_EEbT_.exit60.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_2EclIPS7_EEbT_.exit.i.i.i.i.i.i", %.lr.ph.i.i.i.i.i.i57, %.loopexit.thread, %127, %.critedge37.thread, %.loopexit, %_ZN4llvm11SmallVectorINS_10MCRegisterELj12EED2Ev.exit
+  %.0 = phi i1 [ %119, %_ZN4llvm11SmallVectorINS_10MCRegisterELj12EED2Ev.exit ], [ false, %.critedge37.thread ], [ true, %127 ], [ true, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i71 ], [ true, %.loopexit.thread ], [ true, %.loopexit ], [ true, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_2EclIPS7_EEbT_.exit74.i.i.i.i.i.i" ], [ true, %._crit_edge._crit_edge.i.i.i.i.i.i247 ], [ true, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i49.i.i.i.i.i.i77 ], [ true, %.lr.ph.i.i.i.i.i.i.i.i.i56.i.i.i.i.i.i84 ], [ true, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i63.i.i.i.i.i.i90 ], [ true, %.lr.ph.i.i.i.i.i.i.i.i.i70.i.i.i.i.i.i97 ], [ true, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i77.i.i.i.i.i.i103 ], [ true, %.lr.ph.i.i.i.i.i.i.i.i.i84.i.i.i.i.i.i110 ], [ true, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i105.i.i.i.i.i.i252 ], [ true, %.lr.ph.i.i.i.i.i.i.i.i.i112.i.i.i.i.i.i259 ], [ true, %.lr.ph.i.i.i.i.i.i57 ], [ true, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_2EclIPS7_EEbT_.exit.i.i.i.i.i.i" ], [ true, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_2EclIPS7_EEbT_.exit60.i.i.i.i.i.i" ], [ true, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i119.i.i.i.i.i.i235 ], [ true, %.lr.ph.i.i.i.i.i.i.i.i.i126.i.i.i.i.i.i242 ], [ true, %.lr.ph.i.i.i.i.i.i.i ], [ true, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i64 ], [ true, %._crit_edge._crit_edge204.i.i.i.i.i.i230 ], [ true, %.lr.ph.i.i.i.i.i.i.i.i.i ]
   ret i1 %.0
 }
 
@@ -4905,7 +4905,7 @@ _ZNK4llvm14MCRegisterInfo22isSuperOrSubRegisterEqENS_10MCRegisterES1_.exit28: ; 
   br label %_ZNK4llvm14MCRegisterInfo22isSuperOrSubRegisterEqENS_10MCRegisterES1_.exit.thread
 
 _ZNK4llvm14MCRegisterInfo22isSuperOrSubRegisterEqENS_10MCRegisterES1_.exit.thread: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i17, %.lr.ph.i.i.i.i.i.i24, %52, %3, %_ZNK4llvm14MCRegisterInfo22isSuperOrSubRegisterEqENS_10MCRegisterES1_.exit28
-  %.0 = phi i1 [ %86, %_ZNK4llvm14MCRegisterInfo22isSuperOrSubRegisterEqENS_10MCRegisterES1_.exit28 ], [ true, %3 ], [ true, %52 ], [ true, %.lr.ph.i.i.i.i.i.i ], [ true, %.lr.ph.i.i.i.i.i.i24 ], [ true, %.lr.ph.i.i.i.i.i.i.i.i17 ], [ true, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.0 = phi i1 [ true, %.lr.ph.i.i.i.i.i.i ], [ %86, %_ZNK4llvm14MCRegisterInfo22isSuperOrSubRegisterEqENS_10MCRegisterES1_.exit28 ], [ true, %3 ], [ true, %.lr.ph.i.i.i.i.i.i.i.i17 ], [ true, %52 ], [ true, %.lr.ph.i.i.i.i.i.i24 ], [ true, %.lr.ph.i.i.i.i.i.i.i.i ]
   ret i1 %.0
 }
 
@@ -5736,7 +5736,7 @@ switch.early.test56:                              ; preds = %96, %switch.early.t
   br i1 %.not46, label %switch.early.test56._crit_edge, label %.lr.ph.i.i.i.i.i.preheader
 
 switch.early.test56._crit_edge:                   ; preds = %.thread, %switch.early.test56, %.thread.us100, %switch.early.test56.us98, %.thread.us, %switch.early.test56.us, %.thread.us.us.us, %switch.early.test56.us.us.us, %._crit_edge
-  %spec.select = phi i32 [ 0, %._crit_edge ], [ 0, %.thread.us100 ], [ %.4.ph.us, %switch.early.test56.us ], [ %.4.ph.us.us.us, %switch.early.test56.us.us.us ], [ 0, %.thread.us.us.us ], [ 0, %.thread.us ], [ %.4.ph.us99, %switch.early.test56.us98 ], [ %.4.ph, %switch.early.test56 ], [ 0, %.thread ]
+  %spec.select = phi i32 [ 0, %._crit_edge ], [ 0, %.thread.us100 ], [ %.4.ph.us.us.us, %switch.early.test56.us.us.us ], [ %.4.ph.us, %switch.early.test56.us ], [ 0, %.thread.us.us.us ], [ 0, %.thread.us ], [ %.4.ph.us99, %switch.early.test56.us98 ], [ %.4.ph, %switch.early.test56 ], [ 0, %.thread ]
   %99 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @_ZNSt8_Rb_treeIttSt9_IdentityItESt4lessItESaItEE8_M_eraseEPSt13_Rb_tree_nodeItE(ptr noundef nonnull align 8 dereferenceable(48) %99, ptr noundef %.pre)
   %100 = load ptr, ptr %4, align 8, !tbaa !828
@@ -7872,7 +7872,7 @@ _ZL12canHintShapeRN4llvm6ShapeTES1_.exit:         ; preds = %111
   %183 = icmp eq i64 %110, %.0.i20.i.i
   br i1 %183, label %_ZL12canHintShapeRN4llvm6ShapeTES1_.exit.thread12, label %_ZL12canHintShapeRN4llvm6ShapeTES1_.exit.thread
 
-_ZL12canHintShapeRN4llvm6ShapeTES1_.exit.thread12: ; preds = %118, %_ZN4llvm6ShapeTD2Ev.exit86.i, %100, %61, %_ZL12canHintShapeRN4llvm6ShapeTES1_.exit
+_ZL12canHintShapeRN4llvm6ShapeTES1_.exit.thread12: ; preds = %118, %100, %_ZN4llvm6ShapeTD2Ev.exit86.i, %61, %_ZL12canHintShapeRN4llvm6ShapeTES1_.exit
   %184 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %185 = load ptr, ptr %184, align 8, !tbaa !896
   %186 = getelementptr inbounds nuw i8, ptr %185, i64 8
@@ -9755,7 +9755,7 @@ define linkonce_odr hidden void @_ZN4llvm6ShapeT9deduceImmEPKNS_19MachineRegiste
   br i1 %.not.i.i.i.i.i.i, label %_ZZN4llvm6ShapeT9deduceImmEPKNS_19MachineRegisterInfoEENKUlNS_8RegisterEE_clES4_.exit, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %26, %20
-  %.sroa.014.021.i.ph = phi ptr [ %25, %26 ], [ %.0.i.i.i.i, %20 ]
+  %.sroa.014.021.i.ph = phi ptr [ %.0.i.i.i.i, %20 ], [ %25, %26 ]
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %49
@@ -9797,7 +9797,7 @@ define linkonce_odr hidden void @_ZN4llvm6ShapeT9deduceImmEPKNS_19MachineRegiste
   br i1 %.not.i.i.i13.i, label %_ZZN4llvm6ShapeT9deduceImmEPKNS_19MachineRegisterInfoEENKUlNS_8RegisterEE_clES4_.exit, label %.lr.ph.i
 
 _ZZN4llvm6ShapeT9deduceImmEPKNS_19MachineRegisterInfoEENKUlNS_8RegisterEE_clES4_.exit: ; preds = %46, %49, %5, %23, %26, %36, %43
-  %.1.i = phi i64 [ %45, %43 ], [ 0, %36 ], [ -1, %26 ], [ -1, %5 ], [ -1, %23 ], [ -1, %49 ], [ -1, %46 ]
+  %.1.i = phi i64 [ 0, %36 ], [ %45, %43 ], [ -1, %26 ], [ -1, %23 ], [ -1, %5 ], [ -1, %49 ], [ -1, %46 ]
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.1.i, ptr %52, align 8, !tbaa !900
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -9837,7 +9837,7 @@ _ZZN4llvm6ShapeT9deduceImmEPKNS_19MachineRegisterInfoEENKUlNS_8RegisterEE_clES4_
   br i1 %.not.i.i.i.i.i.i23, label %_ZZN4llvm6ShapeT9deduceImmEPKNS_19MachineRegisterInfoEENKUlNS_8RegisterEE_clES4_.exit24.thread, label %.lr.ph.i16.preheader
 
 .lr.ph.i16.preheader:                             ; preds = %72, %66
-  %.sroa.014.021.i17.ph = phi ptr [ %71, %72 ], [ %.0.i.i.i.i11, %66 ]
+  %.sroa.014.021.i17.ph = phi ptr [ %.0.i.i.i.i11, %66 ], [ %71, %72 ]
   br label %.lr.ph.i16
 
 .lr.ph.i16:                                       ; preds = %.lr.ph.i16.preheader, %93
@@ -9878,7 +9878,7 @@ _ZZN4llvm6ShapeT9deduceImmEPKNS_19MachineRegisterInfoEENKUlNS_8RegisterEE_clES4_
   %.not.i.i.i13.i21 = icmp eq i32 %95, 0
   br i1 %.not.i.i.i13.i21, label %_ZZN4llvm6ShapeT9deduceImmEPKNS_19MachineRegisterInfoEENKUlNS_8RegisterEE_clES4_.exit24.thread, label %.lr.ph.i16
 
-_ZZN4llvm6ShapeT9deduceImmEPKNS_19MachineRegisterInfoEENKUlNS_8RegisterEE_clES4_.exit24.thread: ; preds = %90, %93, %72, %_ZZN4llvm6ShapeT9deduceImmEPKNS_19MachineRegisterInfoEENKUlNS_8RegisterEE_clES4_.exit, %69
+_ZZN4llvm6ShapeT9deduceImmEPKNS_19MachineRegisterInfoEENKUlNS_8RegisterEE_clES4_.exit24.thread: ; preds = %90, %93, %72, %69, %_ZZN4llvm6ShapeT9deduceImmEPKNS_19MachineRegisterInfoEENKUlNS_8RegisterEE_clES4_.exit
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 -1, ptr %96, align 8, !tbaa !901
   br label %.loopexit
@@ -9947,7 +9947,7 @@ _ZZN4llvm6ShapeT9deduceImmEPKNS_19MachineRegisterInfoEENKUlNS_8RegisterEE_clES4_
   br i1 %.not.i.i.i.i.i.i38, label %_ZZN4llvm6ShapeT9deduceImmEPKNS_19MachineRegisterInfoEENKUlNS_8RegisterEE_clES4_.exit39, label %.lr.ph.i31.preheader
 
 .lr.ph.i31.preheader:                             ; preds = %131, %125
-  %.sroa.014.021.i32.ph = phi ptr [ %130, %131 ], [ %.0.i.i.i.i26, %125 ]
+  %.sroa.014.021.i32.ph = phi ptr [ %.0.i.i.i.i26, %125 ], [ %130, %131 ]
   br label %.lr.ph.i31
 
 .lr.ph.i31:                                       ; preds = %.lr.ph.i31.preheader, %154
@@ -9989,7 +9989,7 @@ _ZZN4llvm6ShapeT9deduceImmEPKNS_19MachineRegisterInfoEENKUlNS_8RegisterEE_clES4_
   br i1 %.not.i.i.i13.i36, label %_ZZN4llvm6ShapeT9deduceImmEPKNS_19MachineRegisterInfoEENKUlNS_8RegisterEE_clES4_.exit39, label %.lr.ph.i31
 
 _ZZN4llvm6ShapeT9deduceImmEPKNS_19MachineRegisterInfoEENKUlNS_8RegisterEE_clES4_.exit39: ; preds = %151, %154, %112, %128, %131, %141, %148
-  %.1.i34 = phi i64 [ %150, %148 ], [ 0, %141 ], [ -1, %131 ], [ -1, %112 ], [ -1, %128 ], [ -1, %154 ], [ -1, %151 ]
+  %.1.i34 = phi i64 [ 0, %141 ], [ %150, %148 ], [ -1, %131 ], [ -1, %128 ], [ -1, %112 ], [ -1, %154 ], [ -1, %151 ]
   %157 = load i32, ptr %109, align 8, !tbaa !325
   %158 = load i32, ptr %110, align 4, !tbaa !326
   %.not.i.i.not.i = icmp ult i32 %157, %158

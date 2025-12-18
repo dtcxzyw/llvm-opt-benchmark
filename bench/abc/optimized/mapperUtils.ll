@@ -183,7 +183,7 @@ define range(i32 -1, 65536) i32 @Map_MappingCountLevels(ptr noundef readonly cap
   br i1 %28, label %19, label %._crit_edge, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %19, %1, %.preheader
-  %.013.lcssa25 = phi i32 [ %spec.select, %.preheader ], [ -1, %1 ], [ %spec.select, %19 ]
+  %.013.lcssa25 = phi i32 [ -1, %1 ], [ %spec.select, %.preheader ], [ %spec.select, %19 ]
   ret i32 %.013.lcssa25
 }
 
@@ -1529,8 +1529,8 @@ Map_MappingGetMaxLevel.exit38:                    ; preds = %38, %._crit_edge.th
   br i1 %.not29, label %.loopexit, label %.lr.ph44, !llvm.loop !94
 
 .loopexit:                                        ; preds = %.lr.ph44, %54, %60
-  %.2 = phi i32 [ %.02746, %60 ], [ %.02746, %54 ], [ %64, %.lr.ph44 ]
-  %.1 = phi i32 [ %.02448, %60 ], [ %.02448, %54 ], [ %63, %.lr.ph44 ]
+  %.2 = phi i32 [ %.02746, %54 ], [ %.02746, %60 ], [ %64, %.lr.ph44 ]
+  %.1 = phi i32 [ %.02448, %54 ], [ %.02448, %60 ], [ %63, %.lr.ph44 ]
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next57, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge50, label %54, !llvm.loop !95

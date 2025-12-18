@@ -3120,8 +3120,8 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc108
   br i1 %exitcond144.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !226
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %25
-  %.sroa.16.1171 = phi i64 [ 0, %25 ], [ %38, %.lr.ph.split.us ], [ %38, %.lr.ph.split ]
-  %.sroa.0.1169 = phi ptr [ null, %25 ], [ %33, %.lr.ph.split.us ], [ %33, %.lr.ph.split ]
+  %.sroa.16.1171 = phi i64 [ %38, %.lr.ph.split.us ], [ 0, %25 ], [ %38, %.lr.ph.split ]
+  %.sroa.0.1169 = phi ptr [ %33, %.lr.ph.split.us ], [ null, %25 ], [ %33, %.lr.ph.split ]
   invoke void @_ZN3gmx24AbstractAverageHistogram16scaleAllByVectorEPKf(ptr noundef nonnull align 8 dereferenceable(124) %24, ptr noundef %.sroa.0.1169)
           to label %70 unwind label %83
 

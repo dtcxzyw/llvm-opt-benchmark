@@ -768,7 +768,7 @@ _ZNK5clang6format11FormatToken17isTrailingCommentEv.exit.thread: ; preds = %67, 
   br i1 %.not51, label %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.thread, label %51, !llvm.loop !176
 
 _ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.thread: ; preds = %.preheader61, %94, %.preheader, %28, %22, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit, %34, %4, %7
-  %.041 = phi i32 [ 0, %4 ], [ 0, %7 ], [ 0, %28 ], [ 10000, %34 ], [ 0, %22 ], [ 0, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit ], [ 0, %.preheader ], [ %96, %94 ], [ 0, %.preheader61 ]
+  %.041 = phi i32 [ 0, %4 ], [ %96, %94 ], [ 0, %7 ], [ 0, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit ], [ 0, %28 ], [ 10000, %34 ], [ 0, %22 ], [ 0, %.preheader ], [ 0, %.preheader61 ]
   ret i32 %.041
 }
 

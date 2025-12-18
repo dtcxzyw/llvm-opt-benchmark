@@ -1169,8 +1169,8 @@ cmp_address.exit.i:                               ; preds = %50
   br label %.thread40.i
 
 .thread40.i:                                      ; preds = %cmp_address.exit.i, %50, %48, %42, %40, %28
-  %59 = phi ptr [ %35, %42 ], [ %spec.select, %cmp_address.exit.i ], [ %35, %28 ], [ %35, %50 ], [ %36, %40 ], [ %36, %48 ]
-  %60 = phi ptr [ %36, %42 ], [ %spec.select52, %cmp_address.exit.i ], [ %36, %28 ], [ %36, %50 ], [ %35, %40 ], [ %35, %48 ]
+  %59 = phi ptr [ %35, %42 ], [ %spec.select, %cmp_address.exit.i ], [ %35, %28 ], [ %35, %50 ], [ %36, %48 ], [ %36, %40 ]
+  %60 = phi ptr [ %36, %42 ], [ %spec.select52, %cmp_address.exit.i ], [ %36, %28 ], [ %36, %50 ], [ %35, %48 ], [ %35, %40 ]
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %62 = load i32, ptr %61, align 4
   %63 = tail call ptr @find_conversation(i32 noundef %62, ptr noundef nonnull %60, ptr noundef nonnull %59, i32 noundef 2, i32 noundef %..i, i32 noundef 0, i32 noundef 131072)

@@ -1599,7 +1599,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit89: ; preds = %_ZN4llvm
   br label %114
 
 .critedge56:                                      ; preds = %114, %102, %.critedge54, %_ZNK4llvm12MachineInstr11memoperandsEv.exit
-  %248 = phi i32 [ %99, %_ZNK4llvm12MachineInstr11memoperandsEv.exit ], [ %99, %.critedge54 ], [ %99, %102 ], [ %120, %114 ]
+  %248 = phi i32 [ %99, %102 ], [ %99, %_ZNK4llvm12MachineInstr11memoperandsEv.exit ], [ %99, %.critedge54 ], [ %120, %114 ]
   %249 = load ptr, ptr %6, align 8, !tbaa !129
   %250 = zext i32 %248 to i64
   %251 = shl nuw nsw i64 %250, 3

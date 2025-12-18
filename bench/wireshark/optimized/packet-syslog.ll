@@ -807,7 +807,7 @@ define internal i32 @get_framed_syslog_pdu_len(ptr noundef readonly captures(non
   br label %.thread47
 
 .thread47:                                        ; preds = %17, %39, %.thread, %35, %36
-  %.036 = phi i32 [ %spec.select, %39 ], [ 0, %36 ], [ 0, %35 ], [ 0, %.thread ], [ 0, %17 ]
+  %.036 = phi i32 [ 0, %.thread ], [ %spec.select, %39 ], [ 0, %36 ], [ 0, %35 ], [ 0, %17 ]
   ret i32 %.036
 }
 
@@ -1101,7 +1101,7 @@ define internal fastcc noundef zeroext i1 @dissect_syslog_sd(ptr noundef %0, ptr
   br label %110
 
 110:                                              ; preds = %.sink.split, %24, %21
-  %.0 = phi i1 [ false, %21 ], [ false, %24 ], [ true, %.sink.split ]
+  %.0 = phi i1 [ false, %24 ], [ false, %21 ], [ true, %.sink.split ]
   ret i1 %.0
 }
 

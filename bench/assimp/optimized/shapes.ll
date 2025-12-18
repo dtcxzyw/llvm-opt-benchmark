@@ -1160,7 +1160,7 @@ define noundef zeroext i1 @_ZN3p2t10IsDelaunayERKSt6vectorIPNS_8TriangleESaIS2_E
   br i1 %.not, label %.loopexit42, label %.lr.ph
 
 .loopexit42:                                      ; preds = %._crit_edge, %26, %1
-  %.not45 = phi i1 [ true, %1 ], [ false, %26 ], [ true, %._crit_edge ]
+  %.not45 = phi i1 [ false, %26 ], [ true, %1 ], [ true, %._crit_edge ]
   ret i1 %.not45
 }
 

@@ -2946,7 +2946,7 @@ _ZN9uv_pep50812verbatim_url11VerbatimUrl10with_given17hfaa263b7e6848fb6E.exit: ;
   %247 = invoke noundef align 8 dereferenceable(88) ptr @"_ZN80_$LT$uv_pep508..verbatim_url..VerbatimUrl$u20$as$u20$core..ops..deref..Deref$GT$5deref17h1bf9bd74247a5004E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %70)
           to label %250 unwind label %248
 
-.thread305.thread341:                             ; preds = %.critedge, %359, %376, %443, %437
+.thread305.thread341:                             ; preds = %359, %.critedge, %376, %443, %437
   %lpad.thr_comm339 = landingpad { ptr, i32 }
           cleanup
   br label %.thread275

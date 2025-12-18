@@ -1132,7 +1132,7 @@ Vec_IntPush.exit75:                               ; preds = %Vec_IntPush.exit75.
   br label %.critedge
 
 .critedge:                                        ; preds = %142, %.critedge.sink.split, %Vec_IntAlloc.exit
-  %.089 = phi ptr [ %10, %Vec_IntAlloc.exit ], [ null, %.critedge.sink.split ], [ %10, %142 ]
+  %.089 = phi ptr [ null, %.critedge.sink.split ], [ %10, %Vec_IntAlloc.exit ], [ %10, %142 ]
   %147 = getelementptr i8, ptr %.089, i64 4
   %.val3996 = load i32, ptr %147, align 4, !tbaa !41
   %148 = icmp sgt i32 %.val3996, 0
@@ -1726,8 +1726,8 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   br i1 %130, label %.critedge4, label %.critedge2._crit_edge, !llvm.loop !58
 
 .critedge2._crit_edge:                            ; preds = %.critedge4, %.critedge, %.critedge2.preheader
-  %.val89187 = phi ptr [ %.val89173, %.critedge2.preheader ], [ %.val89175, %.critedge ], [ %.val89173, %.critedge4 ]
-  %.pre.i167 = phi ptr [ %.pre.i170, %.critedge2.preheader ], [ %.pre.i166, %.critedge ], [ %.val89173, %.critedge4 ]
+  %.val89187 = phi ptr [ %.val89175, %.critedge ], [ %.val89173, %.critedge2.preheader ], [ %.val89173, %.critedge4 ]
+  %.pre.i167 = phi ptr [ %.pre.i166, %.critedge ], [ %.pre.i170, %.critedge2.preheader ], [ %.val89173, %.critedge4 ]
   %putchar = tail call i32 @putchar(i32 10)
   %.val7.i119 = load i32, ptr %12, align 4, !tbaa !41
   %131 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, i32 noundef %.val7.i119)

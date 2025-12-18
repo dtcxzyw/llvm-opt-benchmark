@@ -1756,9 +1756,9 @@ _ZN5draco30AttributeQuantizationTransformD2Ev.exit260: ; preds = %.critedge.crit
   br label %.critedge
 
 .critedge:                                        ; preds = %119, %_ZNSt6vectorIfSaIfEE6resizeEm.exit, %112, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit, %.critedge228, %.critedge228.preheader, %.critedge230, %_ZN5draco30AttributeQuantizationTransformD2Ev.exit258, %_ZN5draco30AttributeQuantizationTransformD2Ev.exit260
-  %.sroa.16.2 = phi ptr [ %.sroa.16.5, %_ZN5draco30AttributeQuantizationTransformD2Ev.exit258 ], [ %.sroa.16.5, %_ZN5draco30AttributeQuantizationTransformD2Ev.exit260 ], [ %.sroa.16.0, %.critedge230 ], [ %.sroa.16.0, %.critedge228.preheader ], [ %.sroa.16.0, %.critedge228 ], [ %.sroa.16.5, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ], [ %.sroa.16.5, %112 ], [ %.sroa.16.5, %_ZNSt6vectorIfSaIfEE6resizeEm.exit ], [ %.sroa.16.5, %119 ]
-  %.sroa.0314.2 = phi ptr [ %.sroa.0314.5, %_ZN5draco30AttributeQuantizationTransformD2Ev.exit258 ], [ %.sroa.0314.5, %_ZN5draco30AttributeQuantizationTransformD2Ev.exit260 ], [ %.sroa.0314.0, %.critedge230 ], [ %.sroa.0314.0, %.critedge228.preheader ], [ %.sroa.0314.0, %.critedge228 ], [ %.sroa.0314.5, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ], [ %.sroa.0314.5, %112 ], [ %.sroa.0314.5, %_ZNSt6vectorIfSaIfEE6resizeEm.exit ], [ %.sroa.0314.5, %119 ]
-  %.9 = phi i1 [ false, %_ZN5draco30AttributeQuantizationTransformD2Ev.exit258 ], [ false, %_ZN5draco30AttributeQuantizationTransformD2Ev.exit260 ], [ false, %.critedge230 ], [ true, %.critedge228.preheader ], [ true, %.critedge228 ], [ false, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ], [ false, %112 ], [ false, %_ZNSt6vectorIfSaIfEE6resizeEm.exit ], [ false, %119 ]
+  %.sroa.16.2 = phi ptr [ %.sroa.16.0, %.critedge228.preheader ], [ %.sroa.16.0, %.critedge230 ], [ %.sroa.16.5, %_ZN5draco30AttributeQuantizationTransformD2Ev.exit258 ], [ %.sroa.16.5, %_ZN5draco30AttributeQuantizationTransformD2Ev.exit260 ], [ %.sroa.16.0, %.critedge228 ], [ %.sroa.16.5, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ], [ %.sroa.16.5, %112 ], [ %.sroa.16.5, %_ZNSt6vectorIfSaIfEE6resizeEm.exit ], [ %.sroa.16.5, %119 ]
+  %.sroa.0314.2 = phi ptr [ %.sroa.0314.0, %.critedge228.preheader ], [ %.sroa.0314.0, %.critedge230 ], [ %.sroa.0314.5, %_ZN5draco30AttributeQuantizationTransformD2Ev.exit258 ], [ %.sroa.0314.5, %_ZN5draco30AttributeQuantizationTransformD2Ev.exit260 ], [ %.sroa.0314.0, %.critedge228 ], [ %.sroa.0314.5, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ], [ %.sroa.0314.5, %112 ], [ %.sroa.0314.5, %_ZNSt6vectorIfSaIfEE6resizeEm.exit ], [ %.sroa.0314.5, %119 ]
+  %.9 = phi i1 [ true, %.critedge228.preheader ], [ false, %.critedge230 ], [ false, %_ZN5draco30AttributeQuantizationTransformD2Ev.exit258 ], [ false, %_ZN5draco30AttributeQuantizationTransformD2Ev.exit260 ], [ true, %.critedge228 ], [ false, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ], [ false, %112 ], [ false, %_ZNSt6vectorIfSaIfEE6resizeEm.exit ], [ false, %119 ]
   %.not.i.i.i = icmp eq ptr %.sroa.0314.2, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %214
 
@@ -5373,7 +5373,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   br i1 %.not90, label %24, label %.critedge30, !llvm.loop !217
 
 .critedge30:                                      ; preds = %._crit_edge, %34, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit
-  %46 = phi i1 [ true, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ], [ false, %34 ], [ true, %._crit_edge ]
+  %46 = phi i1 [ false, %34 ], [ true, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ], [ true, %._crit_edge ]
   %.not.i.i.i35 = icmp eq ptr %.sroa.044.0, null
   br i1 %.not.i.i.i35, label %_ZNSt6vectorIiSaIiEED2Ev.exit36, label %47
 
@@ -7055,7 +7055,7 @@ _ZN5draco33DynamicIntegerPointsKdTreeDecoderILi0EE12DecodeNumberEiPj.exit.thread
   br label %366
 
 _ZN5draco33DynamicIntegerPointsKdTreeDecoderILi0EE12DecodeNumberEiPj.exit: ; preds = %337, %344, %351
-  %.0181 = phi i32 [ %360, %351 ], [ %341, %344 ], [ %341, %337 ]
+  %.0181 = phi i32 [ %341, %337 ], [ %360, %351 ], [ %341, %344 ]
   %362 = lshr i32 %.sroa.0.0.copyload187, 1
   %363 = icmp ult i32 %362, %.0181
   br i1 %363, label %.thread202, label %366
@@ -8631,7 +8631,7 @@ _ZN5draco33DynamicIntegerPointsKdTreeDecoderILi1EE12DecodeNumberEiPj.exit.thread
   br label %365
 
 _ZN5draco33DynamicIntegerPointsKdTreeDecoderILi1EE12DecodeNumberEiPj.exit: ; preds = %336, %343, %350
-  %.0178 = phi i32 [ %359, %350 ], [ %340, %343 ], [ %340, %336 ]
+  %.0178 = phi i32 [ %340, %336 ], [ %359, %350 ], [ %340, %343 ]
   %361 = lshr i32 %.sroa.0.0.copyload184, 1
   %362 = icmp ult i32 %361, %.0178
   br i1 %362, label %.thread199, label %365
@@ -11989,7 +11989,7 @@ _ZN5draco18FoldedBit32DecoderINS_14RAnsBitDecoderEE13StartDecodingEPNS_13Decoder
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit11
 
 _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit11:   ; preds = %34, %48, %4, %17, %45, %42, %39, %_ZN5draco18FoldedBit32DecoderINS_14RAnsBitDecoderEE13StartDecodingEPNS_13DecoderBufferE.exit, %28, %21, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
-  %.0 = phi i1 [ false, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit ], [ false, %4 ], [ true, %21 ], [ false, %45 ], [ false, %42 ], [ false, %39 ], [ false, %_ZN5draco18FoldedBit32DecoderINS_14RAnsBitDecoderEE13StartDecodingEPNS_13DecoderBufferE.exit ], [ false, %28 ], [ %50, %48 ], [ false, %17 ], [ false, %34 ]
+  %.0 = phi i1 [ false, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit ], [ false, %4 ], [ true, %21 ], [ false, %17 ], [ false, %45 ], [ false, %42 ], [ false, %39 ], [ false, %_ZN5draco18FoldedBit32DecoderINS_14RAnsBitDecoderEE13StartDecodingEPNS_13DecoderBufferE.exit ], [ false, %28 ], [ %50, %48 ], [ false, %34 ]
   ret i1 %.0
 }
 
@@ -13319,7 +13319,7 @@ _ZN5draco18FoldedBit32DecoderINS_14RAnsBitDecoderEE13StartDecodingEPNS_13Decoder
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit11
 
 _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit11:   ; preds = %34, %48, %4, %17, %45, %42, %39, %_ZN5draco18FoldedBit32DecoderINS_14RAnsBitDecoderEE13StartDecodingEPNS_13DecoderBufferE.exit, %28, %21, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
-  %.0 = phi i1 [ false, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit ], [ false, %4 ], [ true, %21 ], [ false, %45 ], [ false, %42 ], [ false, %39 ], [ false, %_ZN5draco18FoldedBit32DecoderINS_14RAnsBitDecoderEE13StartDecodingEPNS_13DecoderBufferE.exit ], [ false, %28 ], [ %50, %48 ], [ false, %17 ], [ false, %34 ]
+  %.0 = phi i1 [ false, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit ], [ false, %4 ], [ true, %21 ], [ false, %17 ], [ false, %45 ], [ false, %42 ], [ false, %39 ], [ false, %_ZN5draco18FoldedBit32DecoderINS_14RAnsBitDecoderEE13StartDecodingEPNS_13DecoderBufferE.exit ], [ false, %28 ], [ %50, %48 ], [ false, %34 ]
   ret i1 %.0
 }
 
@@ -14639,7 +14639,7 @@ _ZN5draco18FoldedBit32DecoderINS_14RAnsBitDecoderEE13StartDecodingEPNS_13Decoder
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit11
 
 _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit11:   ; preds = %34, %48, %4, %17, %45, %42, %39, %_ZN5draco18FoldedBit32DecoderINS_14RAnsBitDecoderEE13StartDecodingEPNS_13DecoderBufferE.exit, %28, %21, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
-  %.0 = phi i1 [ false, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit ], [ false, %4 ], [ true, %21 ], [ false, %45 ], [ false, %42 ], [ false, %39 ], [ false, %_ZN5draco18FoldedBit32DecoderINS_14RAnsBitDecoderEE13StartDecodingEPNS_13DecoderBufferE.exit ], [ false, %28 ], [ %50, %48 ], [ false, %17 ], [ false, %34 ]
+  %.0 = phi i1 [ false, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit ], [ false, %4 ], [ true, %21 ], [ false, %17 ], [ false, %45 ], [ false, %42 ], [ false, %39 ], [ false, %_ZN5draco18FoldedBit32DecoderINS_14RAnsBitDecoderEE13StartDecodingEPNS_13DecoderBufferE.exit ], [ false, %28 ], [ %50, %48 ], [ false, %34 ]
   ret i1 %.0
 }
 

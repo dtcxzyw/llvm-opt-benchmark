@@ -1470,7 +1470,7 @@ nextc.exit.thread:                                ; preds = %.lr.ph, %.lr.ph18
   br i1 %.not6, label %.critedge, label %.lr.ph
 
 .critedge:                                        ; preds = %60, %32, %.split.us, %.split, %nextc.exit.thread
-  %.011 = phi i32 [ %.us-phi12, %nextc.exit.thread ], [ 0, %.split.us ], [ 0, %.split ], [ %34, %32 ], [ %62, %60 ]
+  %.011 = phi i32 [ %.us-phi12, %nextc.exit.thread ], [ %34, %32 ], [ 0, %.split.us ], [ 0, %.split ], [ %62, %60 ]
   ret i32 %.011
 }
 

@@ -870,7 +870,7 @@ define dso_local range(i32 0, 5) i32 @onigenc_get_case_fold_codes_by_str_with_ma
   br label %.loopexit
 
 .loopexit:                                        ; preds = %65, %.loopexit.sink.split, %.preheader, %29, %38, %41, %10, %19, %22
-  %.074 = phi i32 [ 1, %41 ], [ 1, %38 ], [ 0, %.preheader ], [ 1, %10 ], [ 1, %29 ], [ 1, %22 ], [ 1, %19 ], [ %.074.ph, %.loopexit.sink.split ], [ 0, %65 ]
+  %.074 = phi i32 [ 1, %41 ], [ 1, %38 ], [ 0, %.preheader ], [ 1, %10 ], [ %.074.ph, %.loopexit.sink.split ], [ 1, %29 ], [ 1, %22 ], [ 1, %19 ], [ 0, %65 ]
   ret i32 %.074
 }
 
@@ -1148,7 +1148,7 @@ onigenc_mbclen.exit:                              ; preds = %27, %21, %42, %37
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %.lr.ph, %21, %onigenc_mbclen.exit
-  %52 = phi i32 [ %45, %onigenc_mbclen.exit ], [ 0, %21 ], [ %47, %.lr.ph ]
+  %52 = phi i32 [ 0, %21 ], [ %45, %onigenc_mbclen.exit ], [ %47, %.lr.ph ]
   %53 = load ptr, ptr %2, align 8, !tbaa !19
   %54 = sext i32 %52 to i64
   %55 = getelementptr i8, ptr %53, i64 %54

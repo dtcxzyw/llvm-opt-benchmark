@@ -305,7 +305,7 @@ BufferGetPage.exit.us:                            ; preds = %19, %13
   br label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %50, %44
-  %.0.us.be = phi i32 [ %45, %44 ], [ %52, %50 ]
+  %.0.us.be = phi i32 [ %52, %50 ], [ %45, %44 ]
   br label %.split.us
 
 .split:                                           ; preds = %7, %.backedge
@@ -1484,7 +1484,7 @@ BufferGetPage.exit.i:                             ; preds = %140, %134
   br i1 %exitcond.not, label %.loopexit, label %183, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.thread216, %207, %.preheader238, %212
-  %.5 = phi i32 [ %.6, %212 ], [ %.0146, %.preheader238 ], [ %198, %207 ], [ %.0146, %.thread216 ]
+  %.5 = phi i32 [ %.0146, %.preheader238 ], [ %.6, %212 ], [ %198, %207 ], [ %.0146, %.thread216 ]
   %269 = getelementptr inbounds nuw i8, ptr %3, i64 1
   call void @_bt_metaversion(ptr noundef %9, ptr noundef nonnull %3, ptr noundef nonnull %269) #7
   %270 = getelementptr inbounds nuw i8, ptr %3, i64 2
@@ -2123,7 +2123,7 @@ BufferGetPage.exit:                               ; preds = %180, %186
   %225 = icmp eq i32 %224, 0
   br i1 %225, label %._crit_edge, label %25
 
-226:                                              ; preds = %201, %209
+226:                                              ; preds = %209, %201
   %227 = load ptr, ptr %8, align 8
   %228 = load i32, ptr %22, align 8
   call void @_bt_unlockbuf(ptr noundef %227, i32 noundef %228) #7
@@ -3414,7 +3414,7 @@ _bt_savepostingitem.exit249:                      ; preds = %.lr.ph, %349
   br i1 %353, label %.lr.ph, label %_bt_saveitem.exit238, !llvm.loop !21
 
 _bt_saveitem.exit238:                             ; preds = %_bt_savepostingitem.exit249, %_bt_setuppostingitems.exit245, %290, %BTreeTupleIsPosting.exit234.thread, %277
-  %.8 = phi i32 [ %.5268, %277 ], [ %285, %BTreeTupleIsPosting.exit234.thread ], [ %285, %290 ], [ %304, %_bt_setuppostingitems.exit245 ], [ %338, %_bt_savepostingitem.exit249 ]
+  %.8 = phi i32 [ %.5268, %277 ], [ %285, %290 ], [ %285, %BTreeTupleIsPosting.exit234.thread ], [ %304, %_bt_setuppostingitems.exit245 ], [ %338, %_bt_savepostingitem.exit249 ]
   %354 = load i8, ptr %70, align 4, !range !5, !noundef !6
   %355 = trunc nuw i8 %354 to i1
   %356 = add i16 %.2269, -1

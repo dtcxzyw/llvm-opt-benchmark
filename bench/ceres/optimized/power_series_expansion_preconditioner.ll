@@ -724,7 +724,7 @@ _ZN5ceres8internal15ParallelSetZeroIN5Eigen3MapINS2_6MatrixIdLin1ELi1ELi0ELin1EL
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph85.i.i.i.i.i, %172, %164, %129
-  %.0.i.i.i = phi double [ 0.000000e+00, %129 ], [ %174, %172 ], [ %165, %164 ], [ %170, %.lr.ph85.i.i.i.i.i ]
+  %.0.i.i.i = phi double [ 0.000000e+00, %129 ], [ %165, %164 ], [ %174, %172 ], [ %170, %.lr.ph85.i.i.i.i.i ]
   %.scalar.i = call noundef double @llvm.sqrt.f64(double %.0.i.i.i)
   %175 = fcmp olt double %.scalar.i, %100
   br i1 %175, label %176, label %188
@@ -2701,7 +2701,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal11ParallelForIZNS0_4NormIN5Ei
   br label %_ZN5ceres8internal15InvokeOnSegmentIZNS0_4NormIN5Eigen3MapINS3_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS3_6StrideILi0ELi0EEEEEEEdRKNS3_9DenseBaseIT_EEPNS0_11ContextImplEiEUliSt5tupleIJiiEEE_EEviSI_OSB_.exit
 
 _ZN5ceres8internal15InvokeOnSegmentIZNS0_4NormIN5Eigen3MapINS3_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS3_6StrideILi0ELi0EEEEEEEdRKNS3_9DenseBaseIT_EEPNS0_11ContextImplEiEUliSt5tupleIJiiEEE_EEviSI_OSB_.exit: ; preds = %.lr.ph85.i.i.i.i.i.i.i, %23, %61, %69
-  %.0.i.i.i.i.i = phi double [ 0.000000e+00, %23 ], [ %71, %69 ], [ %62, %61 ], [ %67, %.lr.ph85.i.i.i.i.i.i.i ]
+  %.0.i.i.i.i.i = phi double [ 0.000000e+00, %23 ], [ %62, %61 ], [ %71, %69 ], [ %67, %.lr.ph85.i.i.i.i.i.i.i ]
   %72 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %73 = load ptr, ptr %72, align 8, !tbaa !174
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 264
@@ -3190,7 +3190,7 @@ _ZNSt14_Function_baseD2Ev.exit23:                 ; preds = %63, %60, %58
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph85.i.i.i.i.i.i.i, %136, %128, %79
-  %.0.i.i.i.i.i = phi double [ 0.000000e+00, %79 ], [ %138, %136 ], [ %129, %128 ], [ %134, %.lr.ph85.i.i.i.i.i.i.i ]
+  %.0.i.i.i.i.i = phi double [ 0.000000e+00, %79 ], [ %129, %128 ], [ %138, %136 ], [ %134, %.lr.ph85.i.i.i.i.i.i.i ]
   %139 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %140 = load ptr, ptr %139, align 8, !tbaa !174
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 264
@@ -3690,7 +3690,7 @@ _ZNSt14_Function_baseD2Ev.exit23:                 ; preds = %93, %90, %88
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph85.i.i.i.i.i.i.i, %166, %158, %109
-  %.0.i.i.i.i.i = phi double [ 0.000000e+00, %109 ], [ %168, %166 ], [ %159, %158 ], [ %164, %.lr.ph85.i.i.i.i.i.i.i ]
+  %.0.i.i.i.i.i = phi double [ 0.000000e+00, %109 ], [ %159, %158 ], [ %168, %166 ], [ %164, %.lr.ph85.i.i.i.i.i.i.i ]
   %169 = getelementptr inbounds nuw i8, ptr %119, i64 8
   %170 = load ptr, ptr %169, align 8, !tbaa !174
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 264

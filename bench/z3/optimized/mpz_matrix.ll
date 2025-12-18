@@ -2593,7 +2593,7 @@ _ZN18mpz_matrix_manager9swap_rowsER10mpz_matrixjj.exit: ; preds = %_ZN18mpz_matr
   br i1 %150, label %.preheader115, label %_ZN18mpz_matrix_manager9swap_rowsER10mpz_matrixjj.exit._crit_edge, !llvm.loop !67
 
 _ZN18mpz_matrix_manager9swap_rowsER10mpz_matrixjj.exit._crit_edge: ; preds = %149, %_ZN18mpz_matrix_manager9swap_rowsER10mpz_matrixjj.exit
-  %.1 = phi i32 [ %.2.ph, %149 ], [ %141, %_ZN18mpz_matrix_manager9swap_rowsER10mpz_matrixjj.exit ]
+  %.1 = phi i32 [ %141, %_ZN18mpz_matrix_manager9swap_rowsER10mpz_matrixjj.exit ], [ %.2.ph, %149 ]
   %151 = zext i32 %.1 to i64
   %.idx = shl nuw nsw i64 %151, 2
   %152 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
@@ -2722,9 +2722,9 @@ _ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit
   br i1 %.not.i21.i.i.i, label %_ZSt4sortIPjEvT_S1_.exit, label %.lr.ph.i15.i.i.i, !llvm.loop !69
 
 _ZSt4sortIPjEvT_S1_.exit:                         ; preds = %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i18.i.i.i, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i8.i.i.i, %33, %_ZN6bufferIjLb0ELj128EE6resizeEjRKj.exit, %.preheader116, %177, %_ZN18mpz_matrix_manager9swap_rowsER10mpz_matrixjj.exit._crit_edge
-  %.not.i.i93193 = phi i1 [ true, %_ZN18mpz_matrix_manager9swap_rowsER10mpz_matrixjj.exit._crit_edge ], [ false, %177 ], [ true, %.preheader116 ], [ true, %_ZN6bufferIjLb0ELj128EE6resizeEjRKj.exit ], [ true, %33 ], [ false, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i8.i.i.i ], [ false, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i18.i.i.i ]
-  %194 = phi i64 [ 0, %_ZN18mpz_matrix_manager9swap_rowsER10mpz_matrixjj.exit._crit_edge ], [ 1, %177 ], [ 0, %.preheader116 ], [ 0, %_ZN6bufferIjLb0ELj128EE6resizeEjRKj.exit ], [ 0, %33 ], [ %151, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i8.i.i.i ], [ %151, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i18.i.i.i ]
-  %.1192 = phi i32 [ 0, %_ZN18mpz_matrix_manager9swap_rowsER10mpz_matrixjj.exit._crit_edge ], [ 1, %177 ], [ 0, %.preheader116 ], [ 0, %_ZN6bufferIjLb0ELj128EE6resizeEjRKj.exit ], [ 0, %33 ], [ %.1, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i8.i.i.i ], [ %.1, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i18.i.i.i ]
+  %.not.i.i93193 = phi i1 [ false, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i8.i.i.i ], [ true, %33 ], [ true, %_ZN18mpz_matrix_manager9swap_rowsER10mpz_matrixjj.exit._crit_edge ], [ false, %177 ], [ true, %.preheader116 ], [ true, %_ZN6bufferIjLb0ELj128EE6resizeEjRKj.exit ], [ false, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i18.i.i.i ]
+  %194 = phi i64 [ %151, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i8.i.i.i ], [ 0, %33 ], [ 0, %_ZN18mpz_matrix_manager9swap_rowsER10mpz_matrixjj.exit._crit_edge ], [ 1, %177 ], [ 0, %.preheader116 ], [ 0, %_ZN6bufferIjLb0ELj128EE6resizeEjRKj.exit ], [ %151, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i18.i.i.i ]
+  %.1192 = phi i32 [ %.1, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i8.i.i.i ], [ 0, %33 ], [ 0, %_ZN18mpz_matrix_manager9swap_rowsER10mpz_matrixjj.exit._crit_edge ], [ 1, %177 ], [ 0, %.preheader116 ], [ 0, %_ZN6bufferIjLb0ELj128EE6resizeEjRKj.exit ], [ %.1, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i18.i.i.i ]
   %195 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %196 = load i32, ptr %195, align 4, !tbaa !15
   invoke void @_ZN18mpz_matrix_manager2mkEjjR10mpz_matrix(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %.1192, i32 noundef %196, ptr noundef nonnull align 8 dereferenceable(16) %13)

@@ -121,7 +121,7 @@ define internal { double, double } @_ZL15robin_s_inverse5PJ_XYP8PJconsts(double 
   br i1 %35, label %36, label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %30, %28
-  %.0.be = phi i64 [ %29, %28 ], [ %31, %30 ]
+  %.0.be = phi i64 [ %31, %30 ], [ %29, %28 ]
   br label %.preheader, !llvm.loop !47
 
 36:                                               ; preds = %30

@@ -7062,11 +7062,11 @@ _ZN3gmx14LogEntryWriterD2Ev.exit213.i:            ; preds = %700, %_ZNKSt7__cxx1
   br label %.loopexit.i132
 
 .loopexit.i132:                                   ; preds = %.loopexit.i132.loopexit, %.preheader33.i, %754, %735, %735
-  %.1104.i = phi i32 [ 1, %754 ], [ %.010344.i, %735 ], [ %.010344.i, %735 ], [ %741, %.preheader33.i ], [ %741, %.loopexit.i132.loopexit ]
-  %.189.i = phi i8 [ %746, %754 ], [ %.08845.i, %735 ], [ %.08845.i, %735 ], [ %746, %.preheader33.i ], [ %746, %.loopexit.i132.loopexit ]
-  %.187.i = phi i1 [ false, %754 ], [ false, %735 ], [ false, %735 ], [ false, %.preheader33.i ], [ %not..i156.le, %.loopexit.i132.loopexit ]
-  %.185.i = phi ptr [ %762, %754 ], [ %.08447.i, %735 ], [ %.08447.i, %735 ], [ %.08447.i, %.preheader33.i ], [ %.08447.i, %.loopexit.i132.loopexit ]
-  %.1.i = phi i32 [ %753, %754 ], [ %.048.i, %735 ], [ %.048.i, %735 ], [ %.048.i, %.preheader33.i ], [ %.048.i, %.loopexit.i132.loopexit ]
+  %.1104.i = phi i32 [ 1, %754 ], [ %.010344.i, %735 ], [ %741, %.preheader33.i ], [ %.010344.i, %735 ], [ %741, %.loopexit.i132.loopexit ]
+  %.189.i = phi i8 [ %746, %754 ], [ %.08845.i, %735 ], [ %746, %.preheader33.i ], [ %.08845.i, %735 ], [ %746, %.loopexit.i132.loopexit ]
+  %.187.i = phi i1 [ false, %754 ], [ false, %735 ], [ false, %.preheader33.i ], [ false, %735 ], [ %not..i156.le, %.loopexit.i132.loopexit ]
+  %.185.i = phi ptr [ %762, %754 ], [ %.08447.i, %735 ], [ %.08447.i, %.preheader33.i ], [ %.08447.i, %735 ], [ %.08447.i, %.loopexit.i132.loopexit ]
+  %.1.i = phi i32 [ %753, %754 ], [ %.048.i, %735 ], [ %.048.i, %.preheader33.i ], [ %.048.i, %735 ], [ %.048.i, %.loopexit.i132.loopexit ]
   %indvars.iv.next96.i = add nuw nsw i64 %indvars.iv95.i, 1
   %783 = icmp samesign ugt i64 %indvars.iv95.i, 1
   %.not112.i = select i1 %783, i1 true, i1 %.187.i
@@ -7899,9 +7899,9 @@ _ZNSt6vectorI16VsiteAtomMappingSaIS0_EED2Ev.exit: ; preds = %_ZNSt6vectorIS_IiSa
   br label %_ZNSt6vectorI16VsiteAtomMappingSaIS0_EED2Ev.exit214
 
 .body130:                                         ; preds = %.loopexit292, %.loopexit.split-lp.loopexit.split-lp, %1098, %1096, %_ZN3gmx14LogEntryWriterD2Ev.exit24.i, %_ZN3gmx14LogEntryWriterD2Ev.exit213.i, %_ZN3gmx14LogEntryWriterD2Ev.exit206.i, %_ZN3gmx14LogEntryWriterD2Ev.exit199.i, %_ZN3gmx14LogEntryWriterD2Ev.exit100.i, %_ZN3gmx14LogEntryWriterD2Ev.exit134.i, %383, %20
-  %.sroa.19.1 = phi ptr [ %.sroa.19.0, %20 ], [ %.sroa.19.3, %383 ], [ %.sroa.19.3, %_ZN3gmx14LogEntryWriterD2Ev.exit213.i ], [ %.sroa.19.3, %1098 ], [ %.sroa.19.3, %_ZN3gmx14LogEntryWriterD2Ev.exit134.i ], [ %.sroa.19.3, %_ZN3gmx14LogEntryWriterD2Ev.exit100.i ], [ %.sroa.19.3, %1096 ], [ %.sroa.19.3, %_ZN3gmx14LogEntryWriterD2Ev.exit199.i ], [ %.sroa.19.3, %_ZN3gmx14LogEntryWriterD2Ev.exit206.i ], [ %.sroa.19.3, %_ZN3gmx14LogEntryWriterD2Ev.exit24.i ], [ %.sroa.19.3, %.loopexit292 ], [ %.sroa.19.3, %.loopexit.split-lp.loopexit.split-lp ]
-  %.sroa.0234.1 = phi ptr [ %.sroa.0234.0, %20 ], [ %.sroa.0234.3, %383 ], [ %.sroa.0234.3, %_ZN3gmx14LogEntryWriterD2Ev.exit213.i ], [ %.sroa.0234.3, %1098 ], [ %.sroa.0234.3, %_ZN3gmx14LogEntryWriterD2Ev.exit134.i ], [ %.sroa.0234.3, %_ZN3gmx14LogEntryWriterD2Ev.exit100.i ], [ %.sroa.0234.3, %1096 ], [ %.sroa.0234.3, %_ZN3gmx14LogEntryWriterD2Ev.exit199.i ], [ %.sroa.0234.3, %_ZN3gmx14LogEntryWriterD2Ev.exit206.i ], [ %.sroa.0234.3, %_ZN3gmx14LogEntryWriterD2Ev.exit24.i ], [ %.sroa.0234.3, %.loopexit292 ], [ %.sroa.0234.3, %.loopexit.split-lp.loopexit.split-lp ]
-  %.pn100.pn = phi { ptr, i32 } [ %21, %20 ], [ %384, %383 ], [ %701, %_ZN3gmx14LogEntryWriterD2Ev.exit213.i ], [ %1099, %1098 ], [ %901, %_ZN3gmx14LogEntryWriterD2Ev.exit134.i ], [ %1038, %_ZN3gmx14LogEntryWriterD2Ev.exit100.i ], [ %1097, %1096 ], [ %650, %_ZN3gmx14LogEntryWriterD2Ev.exit199.i ], [ %678, %_ZN3gmx14LogEntryWriterD2Ev.exit206.i ], [ %1086, %_ZN3gmx14LogEntryWriterD2Ev.exit24.i ], [ %lpad.loopexit, %.loopexit292 ], [ %lpad.loopexit.split-lp298, %.loopexit.split-lp.loopexit.split-lp ]
+  %.sroa.19.1 = phi ptr [ %.sroa.19.3, %1098 ], [ %.sroa.19.3, %1096 ], [ %.sroa.19.0, %20 ], [ %.sroa.19.3, %383 ], [ %.sroa.19.3, %_ZN3gmx14LogEntryWriterD2Ev.exit24.i ], [ %.sroa.19.3, %_ZN3gmx14LogEntryWriterD2Ev.exit213.i ], [ %.sroa.19.3, %_ZN3gmx14LogEntryWriterD2Ev.exit206.i ], [ %.sroa.19.3, %_ZN3gmx14LogEntryWriterD2Ev.exit100.i ], [ %.sroa.19.3, %_ZN3gmx14LogEntryWriterD2Ev.exit199.i ], [ %.sroa.19.3, %_ZN3gmx14LogEntryWriterD2Ev.exit134.i ], [ %.sroa.19.3, %.loopexit292 ], [ %.sroa.19.3, %.loopexit.split-lp.loopexit.split-lp ]
+  %.sroa.0234.1 = phi ptr [ %.sroa.0234.3, %1098 ], [ %.sroa.0234.3, %1096 ], [ %.sroa.0234.0, %20 ], [ %.sroa.0234.3, %383 ], [ %.sroa.0234.3, %_ZN3gmx14LogEntryWriterD2Ev.exit24.i ], [ %.sroa.0234.3, %_ZN3gmx14LogEntryWriterD2Ev.exit213.i ], [ %.sroa.0234.3, %_ZN3gmx14LogEntryWriterD2Ev.exit206.i ], [ %.sroa.0234.3, %_ZN3gmx14LogEntryWriterD2Ev.exit100.i ], [ %.sroa.0234.3, %_ZN3gmx14LogEntryWriterD2Ev.exit199.i ], [ %.sroa.0234.3, %_ZN3gmx14LogEntryWriterD2Ev.exit134.i ], [ %.sroa.0234.3, %.loopexit292 ], [ %.sroa.0234.3, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn100.pn = phi { ptr, i32 } [ %1099, %1098 ], [ %1097, %1096 ], [ %21, %20 ], [ %384, %383 ], [ %1086, %_ZN3gmx14LogEntryWriterD2Ev.exit24.i ], [ %701, %_ZN3gmx14LogEntryWriterD2Ev.exit213.i ], [ %678, %_ZN3gmx14LogEntryWriterD2Ev.exit206.i ], [ %1038, %_ZN3gmx14LogEntryWriterD2Ev.exit100.i ], [ %650, %_ZN3gmx14LogEntryWriterD2Ev.exit199.i ], [ %901, %_ZN3gmx14LogEntryWriterD2Ev.exit134.i ], [ %lpad.loopexit, %.loopexit292 ], [ %lpad.loopexit.split-lp298, %.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %.not.i.i.i213 = icmp eq ptr %.sroa.0234.1, null

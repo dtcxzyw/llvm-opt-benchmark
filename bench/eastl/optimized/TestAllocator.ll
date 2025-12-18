@@ -1048,7 +1048,7 @@ eh.resume.sink.split.i:                           ; preds = %lpad86.i, %lpad66.l
   br label %common.resume
 
 common.resume:                                    ; preds = %while.body.i.i.i42.i, %while.body.i.i.i240.i, %while.body.i.i.i54.i, %ehcleanup.i28, %ehcleanup.i, %ehcleanup122.i, %eh.resume.sink.split.i
-  %common.resume.op = phi { ptr, i32 } [ %.pn12.pn.ph.i, %eh.resume.sink.split.i ], [ %.pn12.i, %ehcleanup.i ], [ %133, %ehcleanup122.i ], [ %162, %ehcleanup.i28 ], [ %133, %while.body.i.i.i240.i ], [ %162, %while.body.i.i.i54.i ], [ %.pn12.i, %while.body.i.i.i42.i ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn12.pn.ph.i, %eh.resume.sink.split.i ], [ %133, %while.body.i.i.i240.i ], [ %133, %ehcleanup122.i ], [ %162, %while.body.i.i.i54.i ], [ %.pn12.i, %ehcleanup.i ], [ %162, %ehcleanup.i28 ], [ %.pn12.i, %while.body.i.i.i42.i ]
   resume { ptr, i32 } %common.resume.op
 
 _ZL18TestFixedAllocatorv.exit:                    ; preds = %while.body.i.i.i226.i, %_ZN5eastl4listIi20fixed_pool_referenceED2Ev.exit.i

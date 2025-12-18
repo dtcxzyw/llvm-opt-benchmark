@@ -1205,7 +1205,7 @@ switch.early.test286:                             ; preds = %241
   br label %.critedge6
 
 .critedge6:                                       ; preds = %.critedge8, %139, %.critedge12, %259
-  %.0117 = phi ptr [ %13, %259 ], [ %13, %.critedge12 ], [ null, %139 ], [ null, %.critedge8 ]
+  %.0117 = phi ptr [ %13, %.critedge12 ], [ %13, %259 ], [ null, %139 ], [ null, %.critedge8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.0117
 }

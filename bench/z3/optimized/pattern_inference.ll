@@ -320,7 +320,7 @@ define hidden void @_ZN15smaller_pattern4saveEP4exprS1_(ptr noundef nonnull alig
   br i1 %.not27.old.i.i, label %.loopexit, label %.lr.ph37.i.i.backedge
 
 .lr.ph37.i.i.backedge:                            ; preds = %58, %55
-  %.136.i.i.be = phi ptr [ %.old.i.i, %58 ], [ %57, %55 ]
+  %.136.i.i.be = phi ptr [ %57, %55 ], [ %.old.i.i, %58 ]
   br label %.lr.ph37.i.i, !llvm.loop !20
 
 .loopexit:                                        ; preds = %39, %58, %55, %.preheader.i.i
@@ -1703,7 +1703,7 @@ _ZN6vectorIN21pattern_inference_cfg7collect5entryELb0EjE9push_backERKS2_.exit.i1
   br label %_ZN21pattern_inference_cfg7collect5visitEP4exprjRb.exit17
 
 _ZN21pattern_inference_cfg7collect5visitEP4exprjRb.exit17: ; preds = %_ZN21pattern_inference_cfg7collect5visitEP4exprjRb.exit, %8, %_ZN6vectorIN21pattern_inference_cfg7collect5entryELb0EjE9push_backERKS2_.exit.i12, %37, %3
-  %.1 = phi i1 [ true, %3 ], [ false, %_ZN6vectorIN21pattern_inference_cfg7collect5entryELb0EjE9push_backERKS2_.exit.i12 ], [ true, %37 ], [ true, %8 ], [ %.2, %_ZN21pattern_inference_cfg7collect5visitEP4exprjRb.exit ]
+  %.1 = phi i1 [ true, %3 ], [ true, %37 ], [ false, %_ZN6vectorIN21pattern_inference_cfg7collect5entryELb0EjE9push_backERKS2_.exit.i12 ], [ true, %8 ], [ %.2, %_ZN21pattern_inference_cfg7collect5visitEP4exprjRb.exit ]
   ret i1 %.1
 }
 
@@ -3119,7 +3119,7 @@ define hidden void @_ZN21pattern_inference_cfg13add_candidateEP3appRK8uint_setj(
   br i1 %.not27.old.i.i.i, label %.loopexit, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %48, %45
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %48 ], [ %47, %45 ]
+  %.137.i.i.i.be = phi ptr [ %47, %45 ], [ %.old.i.i.i, %48 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !219
 
 .loopexit:                                        ; preds = %34, %45, %48, %.preheader.i.i.i
@@ -3397,7 +3397,7 @@ _ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit: 
   br i1 %.not27.old.i.i, label %_ZNK7obj_mapI4exprN21pattern_inference_cfg4infoEE9find_coreEPS0_.exit, label %.lr.ph38.i.i.backedge
 
 .lr.ph38.i.i.backedge:                            ; preds = %55, %52
-  %.137.i.i.be = phi ptr [ %.old.i.i, %55 ], [ %54, %52 ]
+  %.137.i.i.be = phi ptr [ %54, %52 ], [ %.old.i.i, %55 ]
   br label %.lr.ph38.i.i, !llvm.loop !219
 
 _ZNK7obj_mapI4exprN21pattern_inference_cfg4infoEE9find_coreEPS0_.exit: ; preds = %36, %41, %47, %52, %55, %.preheader.i.i
@@ -3484,7 +3484,7 @@ _ZNK7obj_mapI4exprN21pattern_inference_cfg4infoEE9find_coreEPS0_.exit: ; preds =
   br i1 %.not27.old.i.i43, label %.thread99, label %.lr.ph38.i.i39.backedge
 
 .lr.ph38.i.i39.backedge:                          ; preds = %94, %91
-  %.137.i.i40.be = phi ptr [ %.old.i.i42, %94 ], [ %93, %91 ]
+  %.137.i.i40.be = phi ptr [ %93, %91 ], [ %.old.i.i42, %94 ]
   br label %.lr.ph38.i.i39, !llvm.loop !219
 
 _ZNK7obj_mapI4exprN21pattern_inference_cfg4infoEE9find_coreEPS0_.exit49: ; preds = %75, %86
@@ -4162,7 +4162,7 @@ _ZN6vectorIP4exprLb0EjE5resetEv.exit:             ; preds = %_ZN7nat_set5resetEv
   br i1 %.not27.old.i.i, label %_ZNK7obj_mapI4exprN21pattern_inference_cfg4infoEE9find_coreEPS0_.exit, label %.lr.ph38.i.i.backedge
 
 .lr.ph38.i.i.backedge:                            ; preds = %57, %54
-  %.137.i.i.be = phi ptr [ %.old.i.i, %57 ], [ %56, %54 ]
+  %.137.i.i.be = phi ptr [ %56, %54 ], [ %.old.i.i, %57 ]
   br label %.lr.ph38.i.i, !llvm.loop !219
 
 _ZNK7obj_mapI4exprN21pattern_inference_cfg4infoEE9find_coreEPS0_.exit: ; preds = %38, %43, %49, %54, %57, %.preheader.i.i
@@ -4382,7 +4382,7 @@ _ZN6vectorIP4exprLb0EjE4backEv.exit:              ; preds = %_ZNK6vectorIP4exprL
   br i1 %.not27.old.i.i45, label %.critedge, label %.lr.ph38.i.i41.backedge
 
 .lr.ph38.i.i41.backedge:                          ; preds = %151, %148
-  %.137.i.i42.be = phi ptr [ %.old.i.i44, %151 ], [ %150, %148 ]
+  %.137.i.i42.be = phi ptr [ %150, %148 ], [ %.old.i.i44, %151 ]
   br label %.lr.ph38.i.i41, !llvm.loop !219
 
 _ZNK7obj_mapI4exprN21pattern_inference_cfg4infoEE9find_coreEPS0_.exit51: ; preds = %132, %143
@@ -4523,8 +4523,8 @@ thread-pre-split.i.i.i.i63.preheader:             ; preds = %_ZNK6vectorIjLb0EjE
   br label %_ZN7nat_set13assure_domainEj.exit.i57
 
 thread-pre-split.i.i.i.i63:                       ; preds = %thread-pre-split.i.i.i.i63.backedge, %thread-pre-split.i.i.i.i63.preheader
-  %189 = phi ptr [ %178, %thread-pre-split.i.i.i.i63.preheader ], [ %.be199, %thread-pre-split.i.i.i.i63.backedge ]
-  %190 = phi ptr [ %.ph, %thread-pre-split.i.i.i.i63.preheader ], [ %.be199, %thread-pre-split.i.i.i.i63.backedge ]
+  %189 = phi ptr [ %178, %thread-pre-split.i.i.i.i63.preheader ], [ %.be, %thread-pre-split.i.i.i.i63.backedge ]
+  %190 = phi ptr [ %.ph, %thread-pre-split.i.i.i.i63.preheader ], [ %.be, %thread-pre-split.i.i.i.i63.backedge ]
   %191 = icmp eq ptr %190, null
   br i1 %191, label %_ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i.i.i70, label %_ZNK6vectorIjLb0EjE8capacityEv.exit.i.i.i.i67
 
@@ -4648,7 +4648,7 @@ common.resume:                                    ; preds = %_ZNSt7__cxx1112basi
   br label %thread-pre-split.i.i.i.i63.backedge
 
 thread-pre-split.i.i.i.i63.backedge:              ; preds = %236, %196
-  %.be199 = phi ptr [ %199, %196 ], [ %239, %236 ]
+  %.be = phi ptr [ %239, %236 ], [ %199, %196 ]
   br label %thread-pre-split.i.i.i.i63, !llvm.loop !239
 
 240:                                              ; preds = %_ZN17default_exceptionC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i82
@@ -4840,7 +4840,7 @@ _ZN21pattern_inference_cfg19contains_subpattern4saveEP4expr.exit74: ; preds = %_
   br i1 %322, label %.critedge31, label %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit, !llvm.loop !241
 
 .critedge31:                                      ; preds = %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit, %.loopexit, %.critedge39.preheader.i, %.critedge.preheader.thread84.i, %.critedge39.i, %_ZN21pattern_inference_cfg19contains_subpattern4saveEP4expr.exit
-  %.7 = phi i1 [ false, %_ZN21pattern_inference_cfg19contains_subpattern4saveEP4expr.exit ], [ true, %.critedge39.i ], [ true, %.critedge39.preheader.i ], [ false, %.loopexit ], [ false, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit ], [ true, %.critedge.preheader.thread84.i ]
+  %.7 = phi i1 [ false, %_ZN21pattern_inference_cfg19contains_subpattern4saveEP4expr.exit ], [ true, %.critedge39.i ], [ false, %.loopexit ], [ true, %.critedge39.preheader.i ], [ false, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit ], [ true, %.critedge.preheader.thread84.i ]
   ret i1 %.7
 }
 
@@ -4985,7 +4985,7 @@ define hidden noundef zeroext i1 @_ZNK21pattern_inference_cfg17pattern_weight_lt
   br i1 %.not27.old.i.i, label %_ZNK7obj_mapI4exprN21pattern_inference_cfg4infoEE9find_coreEPS0_.exit, label %.lr.ph38.i.i.backedge
 
 .lr.ph38.i.i.backedge:                            ; preds = %37, %34
-  %.137.i.i.be = phi ptr [ %.old.i.i, %37 ], [ %36, %34 ]
+  %.137.i.i.be = phi ptr [ %36, %34 ], [ %.old.i.i, %37 ]
   br label %.lr.ph38.i.i, !llvm.loop !219
 
 _ZNK7obj_mapI4exprN21pattern_inference_cfg4infoEE9find_coreEPS0_.exit: ; preds = %18, %23, %29, %34, %37, %.preheader.i.i
@@ -5053,7 +5053,7 @@ _ZNK7obj_mapI4exprN21pattern_inference_cfg4infoEE9find_coreEPS0_.exit: ; preds =
   br i1 %.not27.old.i.i25, label %_ZNK7obj_mapI4exprN21pattern_inference_cfg4infoEE9find_coreEPS0_.exit31, label %.lr.ph38.i.i21.backedge
 
 .lr.ph38.i.i21.backedge:                          ; preds = %64, %61
-  %.137.i.i22.be = phi ptr [ %.old.i.i24, %64 ], [ %63, %61 ]
+  %.137.i.i22.be = phi ptr [ %63, %61 ], [ %.old.i.i24, %64 ]
   br label %.lr.ph38.i.i21, !llvm.loop !219
 
 _ZNK7obj_mapI4exprN21pattern_inference_cfg4infoEE9find_coreEPS0_.exit31: ; preds = %45, %50, %56, %61, %64, %.preheader.i.i19
@@ -5455,10 +5455,10 @@ _ZN6bufferIP3appLb0ELj16EE6expandEv.exit.i73:     ; preds = %130, %._crit_edge.i
   br i1 %.not51, label %.loopexit, label %.lr.ph103
 
 .loopexit:                                        ; preds = %._crit_edge.i75, %_Z9is_groundPK4expr.exit.thread, %"_ZZN21pattern_inference_cfg10mk_patternEP3appENK3$_0clEP4expr.exit60", %_Z9is_groundPK4expr.exit
-  %140 = phi i32 [ %100, %_Z9is_groundPK4expr.exit ], [ %77, %"_ZZN21pattern_inference_cfg10mk_patternEP3appENK3$_0clEP4expr.exit60" ], [ %100, %_Z9is_groundPK4expr.exit.thread ], [ %138, %._crit_edge.i75 ]
-  %.pre.i76111 = phi ptr [ %.pre.i76112, %_Z9is_groundPK4expr.exit ], [ %.pre.i76112, %"_ZZN21pattern_inference_cfg10mk_patternEP3appENK3$_0clEP4expr.exit60" ], [ %.pre.i76112, %_Z9is_groundPK4expr.exit.thread ], [ %.pre.i76109, %._crit_edge.i75 ]
-  %141 = phi ptr [ %78, %_Z9is_groundPK4expr.exit ], [ %78, %"_ZZN21pattern_inference_cfg10mk_patternEP3appENK3$_0clEP4expr.exit60" ], [ %78, %_Z9is_groundPK4expr.exit.thread ], [ %.pre.i76109, %._crit_edge.i75 ]
-  %.150.ph = phi i32 [ %.049105, %_Z9is_groundPK4expr.exit ], [ %99, %"_ZZN21pattern_inference_cfg10mk_patternEP3appENK3$_0clEP4expr.exit60" ], [ %.049105, %_Z9is_groundPK4expr.exit.thread ], [ %.049105, %._crit_edge.i75 ]
+  %140 = phi i32 [ %77, %"_ZZN21pattern_inference_cfg10mk_patternEP3appENK3$_0clEP4expr.exit60" ], [ %100, %_Z9is_groundPK4expr.exit ], [ %100, %_Z9is_groundPK4expr.exit.thread ], [ %138, %._crit_edge.i75 ]
+  %.pre.i76111 = phi ptr [ %.pre.i76112, %"_ZZN21pattern_inference_cfg10mk_patternEP3appENK3$_0clEP4expr.exit60" ], [ %.pre.i76112, %_Z9is_groundPK4expr.exit ], [ %.pre.i76112, %_Z9is_groundPK4expr.exit.thread ], [ %.pre.i76109, %._crit_edge.i75 ]
+  %141 = phi ptr [ %78, %"_ZZN21pattern_inference_cfg10mk_patternEP3appENK3$_0clEP4expr.exit60" ], [ %78, %_Z9is_groundPK4expr.exit ], [ %78, %_Z9is_groundPK4expr.exit.thread ], [ %.pre.i76109, %._crit_edge.i75 ]
+  %.150.ph = phi i32 [ %99, %"_ZZN21pattern_inference_cfg10mk_patternEP3appENK3$_0clEP4expr.exit60" ], [ %.049105, %_Z9is_groundPK4expr.exit ], [ %.049105, %_Z9is_groundPK4expr.exit.thread ], [ %.049105, %._crit_edge.i75 ]
   %.not52 = icmp ult i32 %.150.ph, %140
   br i1 %.not52, label %76, label %.thread94, !llvm.loop !245
 
@@ -5993,7 +5993,7 @@ _ZN15ref_buffer_coreI3app19ref_manager_wrapperIS0_11ast_managerELj16EE9push_back
   br i1 %.not27.old.i.i, label %_ZNK7obj_mapI4exprN21pattern_inference_cfg4infoEE9find_coreEPS0_.exit, label %.lr.ph38.i.i.backedge
 
 .lr.ph38.i.i.backedge:                            ; preds = %124, %121
-  %.137.i.i.be = phi ptr [ %.old.i.i, %124 ], [ %123, %121 ]
+  %.137.i.i.be = phi ptr [ %123, %121 ], [ %.old.i.i, %124 ]
   br label %.lr.ph38.i.i, !llvm.loop !219
 
 _ZNK7obj_mapI4exprN21pattern_inference_cfg4infoEE9find_coreEPS0_.exit: ; preds = %105, %110, %116, %121, %124, %.preheader.i.i
@@ -6366,8 +6366,8 @@ _ZN6vectorIPN21pattern_inference_cfg11pre_patternELb0EjE9push_backERKS2_.exit58:
   br label %277
 
 277:                                              ; preds = %_ZN15ref_buffer_coreI3app19ref_manager_wrapperIS0_11ast_managerELj16EE9push_backEPS0_.exit._crit_edge, %_ZN6vectorIPN21pattern_inference_cfg11pre_patternELb0EjE9push_backERKS2_.exit58, %_ZN6vectorIPN21pattern_inference_cfg11pre_patternELb0EjE9push_backERKS2_.exit54, %_ZN6vectorIPN21pattern_inference_cfg11pre_patternELb0EjE9push_backERKS2_.exit, %84
-  %278 = phi ptr [ %.pre86, %_ZN15ref_buffer_coreI3app19ref_manager_wrapperIS0_11ast_managerELj16EE9push_backEPS0_.exit._crit_edge ], [ %34, %84 ], [ %271, %_ZN6vectorIPN21pattern_inference_cfg11pre_patternELb0EjE9push_backERKS2_.exit58 ], [ %259, %_ZN6vectorIPN21pattern_inference_cfg11pre_patternELb0EjE9push_backERKS2_.exit54 ], [ %243, %_ZN6vectorIPN21pattern_inference_cfg11pre_patternELb0EjE9push_backERKS2_.exit ]
-  %.1 = phi i32 [ %.079, %_ZN15ref_buffer_coreI3app19ref_manager_wrapperIS0_11ast_managerELj16EE9push_backEPS0_.exit._crit_edge ], [ %.079, %84 ], [ %.079, %_ZN6vectorIPN21pattern_inference_cfg11pre_patternELb0EjE9push_backERKS2_.exit58 ], [ %264, %_ZN6vectorIPN21pattern_inference_cfg11pre_patternELb0EjE9push_backERKS2_.exit54 ], [ %.079, %_ZN6vectorIPN21pattern_inference_cfg11pre_patternELb0EjE9push_backERKS2_.exit ]
+  %278 = phi ptr [ %34, %84 ], [ %.pre86, %_ZN15ref_buffer_coreI3app19ref_manager_wrapperIS0_11ast_managerELj16EE9push_backEPS0_.exit._crit_edge ], [ %271, %_ZN6vectorIPN21pattern_inference_cfg11pre_patternELb0EjE9push_backERKS2_.exit58 ], [ %259, %_ZN6vectorIPN21pattern_inference_cfg11pre_patternELb0EjE9push_backERKS2_.exit54 ], [ %243, %_ZN6vectorIPN21pattern_inference_cfg11pre_patternELb0EjE9push_backERKS2_.exit ]
+  %.1 = phi i32 [ %.079, %84 ], [ %.079, %_ZN15ref_buffer_coreI3app19ref_manager_wrapperIS0_11ast_managerELj16EE9push_backEPS0_.exit._crit_edge ], [ %.079, %_ZN6vectorIPN21pattern_inference_cfg11pre_patternELb0EjE9push_backERKS2_.exit58 ], [ %264, %_ZN6vectorIPN21pattern_inference_cfg11pre_patternELb0EjE9push_backERKS2_.exit54 ], [ %.079, %_ZN6vectorIPN21pattern_inference_cfg11pre_patternELb0EjE9push_backERKS2_.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %279 = icmp eq ptr %278, null
   br i1 %279, label %.critedge, label %_ZNK6vectorIPN21pattern_inference_cfg11pre_patternELb0EjE4sizeEv.exit, !llvm.loop !252
@@ -6565,7 +6565,7 @@ _ZN6vectorIP3appLb0EjE3endEv.exit:                ; preds = %9
   br i1 %.not27.old.i.i, label %_ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit.thread, label %.lr.ph38.i.i.backedge
 
 .lr.ph38.i.i.backedge:                            ; preds = %59, %56
-  %.137.i.i.be = phi ptr [ %.old.i.i, %59 ], [ %58, %56 ]
+  %.137.i.i.be = phi ptr [ %58, %56 ], [ %.old.i.i, %59 ]
   br label %.lr.ph38.i.i, !llvm.loop !255
 
 _ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit: ; preds = %40, %51
@@ -11594,7 +11594,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI4exprN21pattern_i
   br i1 %.not32.old, label %.loopexit, label %.lr.ph48.backedge
 
 .lr.ph48.backedge:                                ; preds = %36, %33
-  %.247.be = phi ptr [ %.old, %36 ], [ %35, %33 ]
+  %.247.be = phi ptr [ %35, %33 ], [ %.old, %36 ]
   br label %.lr.ph48, !llvm.loop !383
 
 .loopexit38:                                      ; preds = %17, %28
@@ -12023,7 +12023,7 @@ define linkonce_odr hidden void @_ZSt16__insertion_sortIPP3appN9__gnu_cxx5__ops1
   br i1 %.not27.old.i.i.i, label %_ZNK7obj_mapI4exprN21pattern_inference_cfg4infoEE9find_coreEPS0_.exit.i, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %56, %53
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %56 ], [ %55, %53 ]
+  %.137.i.i.i.be = phi ptr [ %55, %53 ], [ %.old.i.i.i, %56 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !219
 
 _ZNK7obj_mapI4exprN21pattern_inference_cfg4infoEE9find_coreEPS0_.exit.i: ; preds = %42, %37, %56, %53, %48, %.preheader.i.i.i
@@ -12091,7 +12091,7 @@ _ZNK7obj_mapI4exprN21pattern_inference_cfg4infoEE9find_coreEPS0_.exit.i: ; preds
   br i1 %.not27.old.i.i25.i, label %_ZNK7obj_mapI4exprN21pattern_inference_cfg4infoEE9find_coreEPS0_.exit31.i, label %.lr.ph38.i.i21.i.backedge
 
 .lr.ph38.i.i21.i.backedge:                        ; preds = %83, %80
-  %.137.i.i22.i.be = phi ptr [ %.old.i.i24.i, %83 ], [ %82, %80 ]
+  %.137.i.i22.i.be = phi ptr [ %82, %80 ], [ %.old.i.i24.i, %83 ]
   br label %.lr.ph38.i.i21.i, !llvm.loop !219
 
 _ZNK7obj_mapI4exprN21pattern_inference_cfg4infoEE9find_coreEPS0_.exit31.i: ; preds = %69, %64, %83, %80, %75, %.preheader.i.i19.i
@@ -12485,7 +12485,7 @@ _ZSt13move_backwardIPP3appS2_ET0_T_S4_S3_.exit:   ; preds = %48, %52
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !391
 
 _ZSt11swap_rangesIPP3appS2_ET0_T_S4_S3_.exit:     ; preds = %._crit_edge, %._crit_edge111, %.lr.ph.i, %_ZSt13move_backwardIPP3appS2_ET0_T_S4_S3_.exit, %_ZSt4moveIPP3appS2_ET0_T_S4_S3_.exit, %5, %3
-  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %23, %_ZSt4moveIPP3appS2_ET0_T_S4_S3_.exit ], [ %23, %_ZSt13move_backwardIPP3appS2_ET0_T_S4_S3_.exit ], [ %1, %.lr.ph.i ], [ %23, %._crit_edge111 ], [ %23, %._crit_edge ]
+  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %1, %.lr.ph.i ], [ %23, %_ZSt4moveIPP3appS2_ET0_T_S4_S3_.exit ], [ %23, %_ZSt13move_backwardIPP3appS2_ET0_T_S4_S3_.exit ], [ %23, %._crit_edge111 ], [ %23, %._crit_edge ]
   ret ptr %.053
 }
 
@@ -13006,7 +13006,7 @@ _ZSt12__move_mergeIPP3appS2_N9__gnu_cxx5__ops15_Iter_comp_iterIN21pattern_infere
   br i1 %.not27.old.i.i.i, label %_ZNK7obj_mapI4exprN21pattern_inference_cfg4infoEE9find_coreEPS0_.exit.i, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %55, %52
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %55 ], [ %54, %52 ]
+  %.137.i.i.i.be = phi ptr [ %54, %52 ], [ %.old.i.i.i, %55 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !219
 
 _ZNK7obj_mapI4exprN21pattern_inference_cfg4infoEE9find_coreEPS0_.exit.i: ; preds = %41, %36, %55, %52, %47, %.preheader.i.i.i
@@ -13074,7 +13074,7 @@ _ZNK7obj_mapI4exprN21pattern_inference_cfg4infoEE9find_coreEPS0_.exit.i: ; preds
   br i1 %.not27.old.i.i25.i, label %_ZNK7obj_mapI4exprN21pattern_inference_cfg4infoEE9find_coreEPS0_.exit31.i, label %.lr.ph38.i.i21.i.backedge
 
 .lr.ph38.i.i21.i.backedge:                        ; preds = %82, %79
-  %.137.i.i22.i.be = phi ptr [ %.old.i.i24.i, %82 ], [ %81, %79 ]
+  %.137.i.i22.i.be = phi ptr [ %81, %79 ], [ %.old.i.i24.i, %82 ]
   br label %.lr.ph38.i.i21.i, !llvm.loop !219
 
 _ZNK7obj_mapI4exprN21pattern_inference_cfg4infoEE9find_coreEPS0_.exit31.i: ; preds = %68, %63, %82, %79, %74, %.preheader.i.i19.i

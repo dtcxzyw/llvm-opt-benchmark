@@ -227,7 +227,7 @@ define i32 @BN_add_word(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   br label %.critedge42
 
 .critedge42:                                      ; preds = %19, %.critedge, %30, %26, %12, %15, %2, %5
-  %.033 = phi i32 [ %6, %5 ], [ 1, %2 ], [ %13, %12 ], [ 0, %26 ], [ %13, %15 ], [ 1, %30 ], [ 1, %.critedge ], [ 1, %19 ]
+  %.033 = phi i32 [ %6, %5 ], [ 1, %2 ], [ %13, %12 ], [ 0, %26 ], [ %13, %15 ], [ 1, %.critedge ], [ 1, %30 ], [ 1, %19 ]
   ret i32 %.033
 }
 

@@ -1543,7 +1543,7 @@ define internal void @kyber_completed_request(ptr noundef readonly captures(none
   br label %13
 
 13:                                               ; preds = %2, %11, %12
-  %14 = phi i64 [ 2, %12 ], [ 1, %11 ], [ 0, %2 ]
+  %14 = phi i64 [ 0, %2 ], [ 2, %12 ], [ 1, %11 ]
   tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #18, !srcloc !30
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !40
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 280

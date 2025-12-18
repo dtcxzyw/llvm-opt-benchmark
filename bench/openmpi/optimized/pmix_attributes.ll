@@ -729,7 +729,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %29, %3
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %pmix_obj_new_tma.exit, %51, %12
-  %.018 = phi i32 [ -27, %12 ], [ 0, %51 ], [ 0, %pmix_obj_new_tma.exit ], [ -171, %.lr.ph ]
+  %.018 = phi i32 [ -27, %12 ], [ 0, %pmix_obj_new_tma.exit ], [ 0, %51 ], [ -171, %.lr.ph ]
   ret i32 %.018
 }
 

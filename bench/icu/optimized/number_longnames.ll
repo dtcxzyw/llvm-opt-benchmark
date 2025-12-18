@@ -6316,8 +6316,8 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_114trimSpaceCharsEPKDsRi(ptr
   br label %.critedge28
 
 .critedge28:                                      ; preds = %25, %.critedge28.loopexit, %17
-  %.02131 = phi i32 [ 0, %17 ], [ %31, %.critedge28.loopexit ], [ %18, %25 ]
-  %.0 = phi i32 [ %18, %17 ], [ %32, %.critedge28.loopexit ], [ %18, %25 ]
+  %.02131 = phi i32 [ %31, %.critedge28.loopexit ], [ 0, %17 ], [ %18, %25 ]
+  %.0 = phi i32 [ %32, %.critedge28.loopexit ], [ %18, %17 ], [ %18, %25 ]
   %33 = sub nsw i32 %.0, %.02131
   store i32 %33, ptr %1, align 4, !tbaa !12
   %34 = zext nneg i32 %.02131 to i64

@@ -1953,7 +1953,7 @@ _ZN4core3cmp10PartialOrd2lt17hcd90cb87bc72222eE.exit: ; preds = %49, %.noexc45
   br label %_ZN4core3cmp10PartialOrd2lt17hcd90cb87bc72222eE.exit.thread
 
 _ZN4core3cmp10PartialOrd2lt17hcd90cb87bc72222eE.exit.thread: ; preds = %66, %.noexc50, %_ZN4core3cmp10PartialOrd2lt17hcd90cb87bc72222eE.exit, %._crit_edge, %.noexc45, %49
-  %.0.in.in89.lcssa105.sink = phi i64 [ %.0.lcssa, %_ZN4core3cmp10PartialOrd2lt17hcd90cb87bc72222eE.exit ], [ %.0.in.in.lcssa, %._crit_edge ], [ %.0.in.in.lcssa, %.noexc45 ], [ %.0.in.in.lcssa, %49 ], [ %.0.in.in89, %.noexc50 ], [ %.0.in.in89, %66 ]
+  %.0.in.in89.lcssa105.sink = phi i64 [ %.0.in.in.lcssa, %49 ], [ %.0.in.in.lcssa, %.noexc45 ], [ %.0.lcssa, %_ZN4core3cmp10PartialOrd2lt17hcd90cb87bc72222eE.exit ], [ %.0.in.in.lcssa, %._crit_edge ], [ %.0.in.in89, %.noexc50 ], [ %.0.in.in89, %66 ]
   %51 = getelementptr inbounds { ptr, i64 }, ptr %5, i64 %.0.in.in89.lcssa105.sink
   store ptr %10, ptr %51, align 8
   %.sroa.22.16..sroa_idx64 = getelementptr inbounds nuw i8, ptr %51, i64 8
@@ -2172,7 +2172,7 @@ _ZN4core3cmp10PartialOrd2lt17h6ca173b1ee1b1efeE.exit: ; preds = %64, %.noexc51
   br label %_ZN4core3cmp10PartialOrd2lt17h6ca173b1ee1b1efeE.exit.thread
 
 _ZN4core3cmp10PartialOrd2lt17h6ca173b1ee1b1efeE.exit.thread: ; preds = %87, %.noexc60, %_ZN4core3cmp10PartialOrd2lt17h6ca173b1ee1b1efeE.exit, %._crit_edge, %.noexc51, %64
-  %.0.in.in112.lcssa138.sink = phi i64 [ %.0.lcssa, %_ZN4core3cmp10PartialOrd2lt17h6ca173b1ee1b1efeE.exit ], [ %.0.in.in.lcssa, %._crit_edge ], [ %.0.in.in.lcssa, %.noexc51 ], [ %.0.in.in.lcssa, %64 ], [ %.0.in.in112, %.noexc60 ], [ %.0.in.in112, %87 ]
+  %.0.in.in112.lcssa138.sink = phi i64 [ %.0.in.in.lcssa, %64 ], [ %.0.in.in.lcssa, %.noexc51 ], [ %.0.lcssa, %_ZN4core3cmp10PartialOrd2lt17h6ca173b1ee1b1efeE.exit ], [ %.0.in.in.lcssa, %._crit_edge ], [ %.0.in.in112, %.noexc60 ], [ %.0.in.in112, %87 ]
   %66 = getelementptr inbounds { ptr, i64 }, ptr %5, i64 %.0.in.in112.lcssa138.sink
   store ptr %10, ptr %66, align 8
   %.sroa.22.16..sroa_idx74 = getelementptr inbounds nuw i8, ptr %66, i64 8
@@ -2376,7 +2376,7 @@ _ZN4core3cmp10PartialOrd2lt17h1457feddb87eeeadE.exit: ; preds = %49, %.noexc45
   br label %_ZN4core3cmp10PartialOrd2lt17h1457feddb87eeeadE.exit.thread
 
 _ZN4core3cmp10PartialOrd2lt17h1457feddb87eeeadE.exit.thread: ; preds = %66, %.noexc50, %_ZN4core3cmp10PartialOrd2lt17h1457feddb87eeeadE.exit, %._crit_edge, %.noexc45, %49
-  %.0.in.in89.lcssa105.sink = phi i64 [ %.0.lcssa, %_ZN4core3cmp10PartialOrd2lt17h1457feddb87eeeadE.exit ], [ %.0.in.in.lcssa, %._crit_edge ], [ %.0.in.in.lcssa, %.noexc45 ], [ %.0.in.in.lcssa, %49 ], [ %.0.in.in89, %.noexc50 ], [ %.0.in.in89, %66 ]
+  %.0.in.in89.lcssa105.sink = phi i64 [ %.0.in.in.lcssa, %49 ], [ %.0.in.in.lcssa, %.noexc45 ], [ %.0.lcssa, %_ZN4core3cmp10PartialOrd2lt17h1457feddb87eeeadE.exit ], [ %.0.in.in.lcssa, %._crit_edge ], [ %.0.in.in89, %.noexc50 ], [ %.0.in.in89, %66 ]
   %51 = getelementptr inbounds { ptr, i64 }, ptr %5, i64 %.0.in.in89.lcssa105.sink
   store ptr %10, ptr %51, align 8
   %.sroa.22.16..sroa_idx64 = getelementptr inbounds nuw i8, ptr %51, i64 8

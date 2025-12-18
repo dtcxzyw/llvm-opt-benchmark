@@ -11666,7 +11666,7 @@ define hidden noundef zeroext i1 @"_ZN3std4sync4mpmc4list16Channel$LT$T$GT$10sta
   br i1 %17, label %.lr.ph164, label %._crit_edge
 
 .critedge:                                        ; preds = %.outer.backedge, %.loopexit, %2
-  %.sroa.047.0.ph.lcssa85 = phi ptr [ null, %2 ], [ %.sroa.047.0.ph90, %.loopexit ], [ %.sroa.047.0.ph.be, %.outer.backedge ]
+  %.sroa.047.0.ph.lcssa85 = phi ptr [ %.sroa.047.0.ph90, %.loopexit ], [ null, %2 ], [ %.sroa.047.0.ph.be, %.outer.backedge ]
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr null, ptr %18, align 8
   br label %70
@@ -13804,7 +13804,7 @@ define internal fastcc void @"_ZN3std4sync4mpmc4zero16Channel$LT$T$GT$4recv28_$u
   br label %.body
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %39, %84, %228, %54, %59, %88, %92, %99, %103, %162, %167, %220, %225
-  %.sroa.06.1.ph.ph.ph = phi i1 [ false, %220 ], [ false, %162 ], [ false, %99 ], [ false, %88 ], [ false, %54 ], [ false, %228 ], [ false, %103 ], [ true, %39 ], [ false, %225 ], [ false, %92 ], [ false, %59 ], [ false, %167 ], [ false, %84 ]
+  %.sroa.06.1.ph.ph.ph = phi i1 [ false, %88 ], [ false, %99 ], [ false, %84 ], [ false, %54 ], [ false, %162 ], [ false, %220 ], [ false, %228 ], [ false, %103 ], [ true, %39 ], [ false, %225 ], [ false, %92 ], [ false, %59 ], [ false, %167 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -15325,8 +15325,8 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.exit.i.i65: ; preds = %208, %.
           cleanup
   br label %.thread113
 
-.thread106:                                       ; preds = %167, %113, %190, %136, %.thread113
-  %eh.lpad-body.ph.pn = phi { ptr, i32 } [ %137, %136 ], [ %.pn, %.thread113 ], [ %114, %113 ], [ %191, %190 ], [ %168, %167 ]
+.thread106:                                       ; preds = %113, %167, %190, %136, %.thread113
+  %eh.lpad-body.ph.pn = phi { ptr, i32 } [ %137, %136 ], [ %.pn, %.thread113 ], [ %168, %167 ], [ %191, %190 ], [ %114, %113 ]
   resume { ptr, i32 } %eh.lpad-body.ph.pn
 
 .thread113:                                       ; preds = %30, %26, %214
@@ -16386,7 +16386,7 @@ _ZN3std4sync4mpmc7context7Context4with17h3dfb723d97dbc6b3E.exit: ; preds = %"_ZN
   br i1 %130, label %.lr.ph.i, label %.loopexit22
 
 .loopexit22:                                      ; preds = %_ZN3std4sync4mpmc7context7Context4with17h3dfb723d97dbc6b3E.exit, %84, %_ZN3std4sync4mpmc5utils7Backoff10spin_light17h1f9193d8161cb09fE.exit23.i, %3, %"_ZN3std4sync4mpmc5array16Channel$LT$T$GT$5write17h655c098852b7b738E.exit.thread"
-  %.sroa.0.0 = phi i8 [ 1, %3 ], [ 2, %"_ZN3std4sync4mpmc5array16Channel$LT$T$GT$5write17h655c098852b7b738E.exit.thread" ], [ 1, %_ZN3std4sync4mpmc5utils7Backoff10spin_light17h1f9193d8161cb09fE.exit23.i ], [ 0, %84 ], [ 1, %_ZN3std4sync4mpmc7context7Context4with17h3dfb723d97dbc6b3E.exit ]
+  %.sroa.0.0 = phi i8 [ 2, %"_ZN3std4sync4mpmc5array16Channel$LT$T$GT$5write17h655c098852b7b738E.exit.thread" ], [ 1, %3 ], [ 1, %_ZN3std4sync4mpmc5utils7Backoff10spin_light17h1f9193d8161cb09fE.exit23.i ], [ 1, %_ZN3std4sync4mpmc7context7Context4with17h3dfb723d97dbc6b3E.exit ], [ 0, %84 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i8 %.sroa.0.0
 }

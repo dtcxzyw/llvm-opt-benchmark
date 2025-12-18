@@ -3827,7 +3827,7 @@ define internal fastcc range(i32 0, 2) i32 @writepid(ptr noundef %0) unnamed_add
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %5, %12
-  %.0 = phi i32 [ 0, %12 ], [ 0, %5 ], [ 1, %.critedge.sink.split ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %12 ], [ 1, %.critedge.sink.split ]
   ret i32 %.0
 }
 

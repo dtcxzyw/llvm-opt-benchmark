@@ -502,7 +502,7 @@ ossl_param_is_empty.exit.thread.sink.split:       ; preds = %63, %60, %46, %43, 
   br label %ossl_param_is_empty.exit.thread
 
 ossl_param_is_empty.exit.thread:                  ; preds = %ossl_param_is_empty.exit.thread.sink.split, %2, %58, %63, %ossl_param_is_empty.exit
-  %.0 = phi i32 [ 1, %ossl_param_is_empty.exit ], [ 1, %63 ], [ 1, %58 ], [ 1, %2 ], [ 0, %ossl_param_is_empty.exit.thread.sink.split ]
+  %.0 = phi i32 [ 1, %2 ], [ 1, %58 ], [ 1, %63 ], [ 1, %ossl_param_is_empty.exit ], [ 0, %ossl_param_is_empty.exit.thread.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

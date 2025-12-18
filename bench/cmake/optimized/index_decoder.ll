@@ -498,7 +498,7 @@ define dso_local range(i32 2, 1) i32 @lzma_index_buffer_decode(ptr noundef %0, p
   br label %index_decoder_reset.exit
 
 index_decoder_reset.exit:                         ; preds = %15, %32, %21, %.fold.split, %30
-  %.2 = phi i32 [ %28, %.fold.split ], [ 0, %21 ], [ 6, %32 ], [ 9, %30 ], [ 5, %15 ]
+  %.2 = phi i32 [ %28, %.fold.split ], [ 9, %30 ], [ 0, %21 ], [ 6, %32 ], [ 5, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread
 

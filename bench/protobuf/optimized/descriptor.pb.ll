@@ -4010,7 +4010,7 @@ _ZNK6google8protobuf11FileOptions13IsInitializedEv.exit.thread: ; preds = %if.en
   br label %return
 
 return:                                           ; preds = %for.body.i, %for.body.i5, %for.body.i16, %if.then.i.i, %if.end.i.i.i, %if.then8.i.i.i, %if.end14, %if.end6.i, %if.then8.i, %_ZNK6google8protobuf11FileOptions13IsInitializedEv.exit.thread
-  %retval.0 = phi i1 [ true, %if.end14 ], [ false, %_ZNK6google8protobuf11FileOptions13IsInitializedEv.exit.thread ], [ true, %if.then8.i ], [ true, %if.end6.i ], [ false, %for.body.i5 ], [ false, %if.then.i.i ], [ false, %for.body.i16 ], [ false, %if.then8.i.i.i ], [ false, %if.end.i.i.i ], [ false, %for.body.i ]
+  %retval.0 = phi i1 [ false, %if.then.i.i ], [ true, %if.end14 ], [ false, %for.body.i16 ], [ false, %for.body.i5 ], [ false, %_ZNK6google8protobuf11FileOptions13IsInitializedEv.exit.thread ], [ true, %if.then8.i ], [ true, %if.end6.i ], [ false, %if.then8.i.i.i ], [ false, %if.end.i.i.i ], [ false, %for.body.i ]
   ret i1 %retval.0
 }
 
@@ -7697,7 +7697,7 @@ _ZNK6google8protobuf14MessageOptions13IsInitializedEv.exit.thread: ; preds = %if
   br label %return
 
 return:                                           ; preds = %if.then.i.i, %if.end.i.i.i, %if.then8.i.i.i, %for.body.i3, %for.body.i13, %if.then.i.i33, %if.end.i.i.i37, %if.then8.i.i.i44, %if.then.i.i61, %if.end.i.i.i65, %if.then8.i.i.i72, %if.then.i.i91, %if.end.i.i.i95, %if.then8.i.i.i102, %if.end22, %if.end6.i, %if.then8.i, %_ZNK6google8protobuf14MessageOptions13IsInitializedEv.exit.thread
-  %retval.0 = phi i1 [ false, %_ZNK6google8protobuf14MessageOptions13IsInitializedEv.exit.thread ], [ true, %if.then8.i ], [ true, %if.end6.i ], [ true, %if.end22 ], [ false, %for.body.i3 ], [ false, %if.then.i.i91 ], [ false, %if.then.i.i61 ], [ false, %if.then.i.i33 ], [ false, %for.body.i13 ], [ false, %if.then8.i.i.i102 ], [ false, %if.end.i.i.i95 ], [ false, %if.then8.i.i.i72 ], [ false, %if.end.i.i.i65 ], [ false, %if.then8.i.i.i44 ], [ false, %if.end.i.i.i37 ], [ false, %if.then8.i.i.i ], [ false, %if.end.i.i.i ], [ false, %if.then.i.i ]
+  %retval.0 = phi i1 [ false, %if.then.i.i91 ], [ true, %if.end22 ], [ false, %if.then.i.i61 ], [ false, %for.body.i3 ], [ false, %for.body.i13 ], [ false, %_ZNK6google8protobuf14MessageOptions13IsInitializedEv.exit.thread ], [ false, %if.then.i.i33 ], [ true, %if.end6.i ], [ true, %if.then8.i ], [ false, %if.then8.i.i.i102 ], [ false, %if.end.i.i.i95 ], [ false, %if.then8.i.i.i72 ], [ false, %if.end.i.i.i65 ], [ false, %if.then8.i.i.i44 ], [ false, %if.end.i.i.i37 ], [ false, %if.then8.i.i.i ], [ false, %if.end.i.i.i ], [ false, %if.then.i.i ]
   ret i1 %retval.0
 }
 
@@ -9432,7 +9432,7 @@ _ZNK6google8protobuf19UninterpretedOption13IsInitializedEv.exit: ; preds = %for.
   br i1 %cmp, label %return, label %for.body, !llvm.loop !68
 
 return:                                           ; preds = %_ZNK6google8protobuf19UninterpretedOption13IsInitializedEv.exit, %for.body.i.i, %for.body.us.i.i, %_ZNK6google8protobuf19UninterpretedOption13IsInitializedEv.exit.loopexit4.us, %for.body.i.i.us, %_ZNK6google8protobuf19UninterpretedOption13IsInitializedEv.exit.loopexit.us.us, %for.body.us.i.i.us.us, %entry
-  %cmp9 = phi i1 [ true, %entry ], [ false, %for.body.i.i ], [ false, %for.body.us.i.i.us.us ], [ true, %_ZNK6google8protobuf19UninterpretedOption13IsInitializedEv.exit.loopexit.us.us ], [ false, %for.body.i.i.us ], [ true, %_ZNK6google8protobuf19UninterpretedOption13IsInitializedEv.exit.loopexit4.us ], [ false, %for.body.us.i.i ], [ true, %_ZNK6google8protobuf19UninterpretedOption13IsInitializedEv.exit ]
+  %cmp9 = phi i1 [ true, %_ZNK6google8protobuf19UninterpretedOption13IsInitializedEv.exit.loopexit4.us ], [ false, %for.body.i.i.us ], [ false, %for.body.us.i.i ], [ false, %for.body.us.i.i.us.us ], [ true, %entry ], [ true, %_ZNK6google8protobuf19UninterpretedOption13IsInitializedEv.exit.loopexit.us.us ], [ false, %for.body.i.i ], [ true, %_ZNK6google8protobuf19UninterpretedOption13IsInitializedEv.exit ]
   ret i1 %cmp9
 }
 

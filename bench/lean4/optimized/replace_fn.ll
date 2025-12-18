@@ -2421,7 +2421,7 @@ define linkonce_odr hidden void @_ZN4lean10replace_fn5applyERKNS_4exprE(ptr dead
   br label %_ZN4lean4exprC2ERKS0_.exit, !llvm.loop !89
 
 _ZNSt13unordered_mapIP11lean_objectN4lean4exprESt4hashIS1_ESt8equal_toIS1_E16mi_stl_allocatorISt4pairIKS1_S3_EEE4findERSA_.exit: ; preds = %43, %26, %38
-  %.sroa.06.1.i.i = phi ptr [ %39, %38 ], [ %.sroa.06.0.i.i, %26 ], [ %45, %43 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %26 ], [ %39, %38 ], [ %45, %43 ]
   %51 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %52 = load ptr, ptr %51, align 8, !tbaa !27
   store ptr %52, ptr %0, align 8, !tbaa !27
@@ -3665,7 +3665,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIP11lean_objectSt4pairI
   resume { ptr, i32 } %81
 
 _ZNKSt10_HashtableIP11lean_objectSt4pairIKS1_N4lean4exprEE16mi_stl_allocatorIS6_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit: ; preds = %38, %24, %33
-  %.sroa.039.0.ph = phi ptr [ %34, %33 ], [ %.sroa.035.0, %24 ], [ %40, %38 ]
+  %.sroa.039.0.ph = phi ptr [ %.sroa.035.0, %24 ], [ %34, %33 ], [ %40, %38 ]
   %82 = ptrtoint ptr %11 to i64
   %83 = and i64 %82, 1
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %83, 0

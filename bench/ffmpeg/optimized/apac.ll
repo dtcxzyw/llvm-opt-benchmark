@@ -69,7 +69,7 @@ define internal range(i32 -1094995529, 1) i32 @apac_init(ptr noundef captures(no
   br label %.loopexit
 
 .loopexit:                                        ; preds = %16, %.critedge, %1
-  %.0 = phi i32 [ -1094995529, %1 ], [ %., %.critedge ], [ -12, %16 ]
+  %.0 = phi i32 [ %., %.critedge ], [ -1094995529, %1 ], [ -12, %16 ]
   ret i32 %.0
 }
 

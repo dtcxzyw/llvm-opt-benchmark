@@ -282,8 +282,8 @@ test_record.exit26:                               ; preds = %87, %88
   br label %.loopexit
 
 .loopexit:                                        ; preds = %68, %39, %102, %94, %83, %67, %56, %38
-  %.1 = phi ptr [ null, %38 ], [ %21, %56 ], [ %21, %67 ], [ %21, %83 ], [ %21, %94 ], [ null, %102 ], [ %21, %39 ], [ %21, %68 ]
-  %.014 = phi i32 [ 0, %38 ], [ 0, %56 ], [ 0, %67 ], [ 0, %83 ], [ 0, %94 ], [ 1, %102 ], [ 0, %39 ], [ 0, %68 ]
+  %.1 = phi ptr [ null, %38 ], [ null, %102 ], [ %21, %56 ], [ %21, %67 ], [ %21, %94 ], [ %21, %83 ], [ %21, %39 ], [ %21, %68 ]
+  %.014 = phi i32 [ 0, %38 ], [ 1, %102 ], [ 0, %56 ], [ 0, %67 ], [ 0, %94 ], [ 0, %83 ], [ 0, %39 ], [ 0, %68 ]
   %103 = load ptr, ptr %6, align 8, !tbaa !4
   %104 = call i32 %14(ptr noundef %103) #5
   %105 = load ptr, ptr %7, align 8, !tbaa !4
@@ -400,7 +400,7 @@ define internal fastcc ptr @multihexstr2buf(ptr noundef readonly captures(none) 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %5, %27, %11, %39
-  %.0 = phi ptr [ %13, %39 ], [ null, %27 ], [ null, %11 ], [ null, %5 ]
+  %.0 = phi ptr [ %13, %39 ], [ null, %11 ], [ null, %27 ], [ null, %5 ]
   ret ptr %.0
 }
 

@@ -792,7 +792,7 @@ define internal fastcc i32 @_getopt_internal(i32 noundef %0, ptr noundef %1, ptr
   br label %.thread230
 
 .thread230:                                       ; preds = %62, %47, %..thread230.loopexit_crit_edge, %.thread241, %182, %184, %173, %177, %175, %64, %35
-  %.0177 = phi i32 [ -1, %35 ], [ %65, %64 ], [ 63, %175 ], [ 63, %177 ], [ %174, %173 ], [ 63, %182 ], [ 63, %184 ], [ %.5, %.thread241 ], [ %49, %47 ], [ %49, %..thread230.loopexit_crit_edge ], [ -1, %62 ]
+  %.0177 = phi i32 [ -1, %35 ], [ %65, %64 ], [ %.5, %.thread241 ], [ %49, %47 ], [ 63, %175 ], [ 63, %177 ], [ %174, %173 ], [ 63, %182 ], [ 63, %184 ], [ %49, %..thread230.loopexit_crit_edge ], [ -1, %62 ]
   %192 = load i32, ptr @optind, align 4, !tbaa !9
   %193 = icmp sgt i32 %192, %0
   br i1 %193, label %194, label %195

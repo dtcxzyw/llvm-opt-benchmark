@@ -1909,7 +1909,7 @@ eh.resume.sink.split:                             ; preds = %lpad112, %lpad.i83,
   br label %eh.resume
 
 eh.resume:                                        ; preds = %arraydestroy.body35, %arraydestroy.body189, %eh.resume.sink.split, %ehcleanup184, %ehcleanup33
-  %.pn21.pn.pn = phi { ptr, i32 } [ %.pn9.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup184 ], [ %.pn.pn.pn, %ehcleanup33 ], [ %.pn21.pn.pn.ph, %eh.resume.sink.split ], [ %.pn9.pn.pn.pn.pn.pn.pn.pn.pn.pn, %arraydestroy.body189 ], [ %.pn.pn.pn, %arraydestroy.body35 ]
+  %.pn21.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %ehcleanup33 ], [ %.pn21.pn.pn.ph, %eh.resume.sink.split ], [ %.pn9.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup184 ], [ %.pn9.pn.pn.pn.pn.pn.pn.pn.pn.pn, %arraydestroy.body189 ], [ %.pn.pn.pn, %arraydestroy.body35 ]
   resume { ptr, i32 } %.pn21.pn.pn
 }
 

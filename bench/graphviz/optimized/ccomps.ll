@@ -1645,7 +1645,7 @@ thread-pre-split.i:                               ; preds = %thread-pre-split.si
   br label %process.exit
 
 process.exit:                                     ; preds = %551, %371, %205, %282, %283, %398, %415, %421, %478, %479, %577, %594
-  %.0.shrunk.i = phi i1 [ false, %478 ], [ true, %421 ], [ false, %479 ], [ true, %577 ], [ %595, %594 ], [ false, %282 ], [ true, %205 ], [ false, %283 ], [ true, %398 ], [ %.not122.i.i, %415 ], [ false, %371 ], [ false, %551 ]
+  %.0.shrunk.i = phi i1 [ false, %371 ], [ false, %478 ], [ true, %421 ], [ false, %479 ], [ true, %577 ], [ %595, %594 ], [ false, %282 ], [ true, %205 ], [ false, %283 ], [ true, %398 ], [ %.not122.i.i, %415 ], [ false, %551 ]
   %.0.i10 = zext i1 %.0.shrunk.i to i32
   %596 = add nuw nsw i32 %.0134, %.0.i10
   %597 = call i32 @agclose(ptr noundef nonnull %115) #23

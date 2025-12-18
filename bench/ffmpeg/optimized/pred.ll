@@ -5363,8 +5363,8 @@ define internal void @intra_pred_5_9(ptr noundef readonly captures(none) %0, ptr
   br i1 %.not291, label %.loopexit, label %769, !llvm.loop !147
 
 .loopexit:                                        ; preds = %769, %.preheader, %669, %664, %.loopexit32
-  %.0775.i = phi ptr [ %71, %.loopexit32 ], [ %71, %664 ], [ %71, %669 ], [ %73, %.preheader ], [ %73, %769 ]
-  %.0772.i = phi ptr [ %70, %.loopexit32 ], [ %70, %664 ], [ %70, %669 ], [ %70, %.preheader ], [ %72, %769 ]
+  %.0775.i = phi ptr [ %71, %.loopexit32 ], [ %71, %664 ], [ %73, %.preheader ], [ %71, %669 ], [ %73, %769 ]
+  %.0772.i = phi ptr [ %70, %.loopexit32 ], [ %70, %664 ], [ %70, %.preheader ], [ %70, %669 ], [ %72, %769 ]
   switch i32 %69, label %791 [
     i32 0, label %786
     i32 1, label %.thread19
@@ -12314,8 +12314,8 @@ define internal void @intra_pred_5_10(ptr noundef readonly captures(none) %0, pt
   br i1 %.not290, label %.loopexit, label %769, !llvm.loop !198
 
 .loopexit:                                        ; preds = %769, %.preheader, %669, %664, %.loopexit31
-  %.0775.i = phi ptr [ %71, %.loopexit31 ], [ %71, %664 ], [ %71, %669 ], [ %73, %.preheader ], [ %73, %769 ]
-  %.0772.i = phi ptr [ %70, %.loopexit31 ], [ %70, %664 ], [ %70, %669 ], [ %70, %.preheader ], [ %72, %769 ]
+  %.0775.i = phi ptr [ %71, %.loopexit31 ], [ %71, %664 ], [ %73, %.preheader ], [ %71, %669 ], [ %73, %769 ]
+  %.0772.i = phi ptr [ %70, %.loopexit31 ], [ %70, %664 ], [ %70, %.preheader ], [ %70, %669 ], [ %72, %769 ]
   switch i32 %69, label %791 [
     i32 0, label %786
     i32 1, label %.thread18
@@ -19265,8 +19265,8 @@ define internal void @intra_pred_5_12(ptr noundef readonly captures(none) %0, pt
   br i1 %.not290, label %.loopexit, label %769, !llvm.loop !248
 
 .loopexit:                                        ; preds = %769, %.preheader, %669, %664, %.loopexit31
-  %.0775.i = phi ptr [ %71, %.loopexit31 ], [ %71, %664 ], [ %71, %669 ], [ %73, %.preheader ], [ %73, %769 ]
-  %.0772.i = phi ptr [ %70, %.loopexit31 ], [ %70, %664 ], [ %70, %669 ], [ %70, %.preheader ], [ %72, %769 ]
+  %.0775.i = phi ptr [ %71, %.loopexit31 ], [ %71, %664 ], [ %73, %.preheader ], [ %71, %669 ], [ %73, %769 ]
+  %.0772.i = phi ptr [ %70, %.loopexit31 ], [ %70, %664 ], [ %70, %.preheader ], [ %70, %669 ], [ %72, %769 ]
   switch i32 %69, label %791 [
     i32 0, label %786
     i32 1, label %.thread18
@@ -26153,8 +26153,8 @@ define internal void @intra_pred_5_8(ptr noundef readonly captures(none) %0, ptr
   br i1 %.not295, label %.loopexit, label %757, !llvm.loop !296
 
 .loopexit:                                        ; preds = %757, %.preheader, %657, %652, %.loopexit31
-  %.0775.i = phi ptr [ %70, %.loopexit31 ], [ %70, %652 ], [ %70, %657 ], [ %72, %.preheader ], [ %72, %757 ]
-  %.0772.i = phi ptr [ %69, %.loopexit31 ], [ %69, %652 ], [ %69, %657 ], [ %69, %.preheader ], [ %71, %757 ]
+  %.0775.i = phi ptr [ %70, %.loopexit31 ], [ %70, %652 ], [ %72, %.preheader ], [ %70, %657 ], [ %72, %757 ]
+  %.0772.i = phi ptr [ %69, %.loopexit31 ], [ %69, %652 ], [ %69, %.preheader ], [ %69, %657 ], [ %71, %757 ]
   switch i32 %68, label %779 [
     i32 0, label %774
     i32 1, label %.thread18

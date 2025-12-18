@@ -2366,9 +2366,9 @@ cr_add_interval.exit.thread:                      ; preds = %._crit_edge.i, %cr_
   br label %.loopexit258
 
 .loopexit258:                                     ; preds = %121, %.loopexit258.sink.split, %.preheader, %111
-  %.sroa.0.2 = phi i32 [ %.sroa.0.1273, %.preheader ], [ %.sroa.0.1273, %111 ], [ %.sroa.0.2.ph, %.loopexit258.sink.split ], [ %.sroa.0.1273, %121 ]
-  %.sroa.18.2 = phi i32 [ %.sroa.18.1274, %.preheader ], [ %.sroa.18.1274, %111 ], [ %.sroa.18.2.ph, %.loopexit258.sink.split ], [ %.sroa.18.1274, %121 ]
-  %.sroa.24.3 = phi ptr [ %.sroa.24.2275, %.preheader ], [ %.sroa.24.2275, %111 ], [ %.sroa.24.7.sink313, %.loopexit258.sink.split ], [ %.sroa.24.2275, %121 ]
+  %.sroa.0.2 = phi i32 [ %.sroa.0.1273, %.preheader ], [ %.sroa.0.2.ph, %.loopexit258.sink.split ], [ %.sroa.0.1273, %111 ], [ %.sroa.0.1273, %121 ]
+  %.sroa.18.2 = phi i32 [ %.sroa.18.1274, %.preheader ], [ %.sroa.18.2.ph, %.loopexit258.sink.split ], [ %.sroa.18.1274, %111 ], [ %.sroa.18.1274, %121 ]
+  %.sroa.24.3 = phi ptr [ %.sroa.24.2275, %.preheader ], [ %.sroa.24.7.sink313, %.loopexit258.sink.split ], [ %.sroa.24.2275, %111 ], [ %.sroa.24.2275, %121 ]
   %140 = zext i8 %110 to i64
   %.add124 = add nuw nsw i64 %.4.add, %140
   %141 = icmp slt i64 %.add124, 828
@@ -3283,7 +3283,7 @@ cr_realloc.exit.thread.i95:                       ; preds = %128
   br i1 %exitcond120.not, label %cr_add_interval.exit, label %17, !llvm.loop !55
 
 cr_add_interval.exit:                             ; preds = %128, %114, %89, %66, %.loopexit, %37, %2
-  %.046 = phi i32 [ 0, %2 ], [ -1, %37 ], [ -1, %128 ], [ 0, %.loopexit ], [ -1, %66 ], [ -1, %89 ], [ -1, %114 ]
+  %.046 = phi i32 [ 0, %2 ], [ -1, %37 ], [ 0, %.loopexit ], [ -1, %66 ], [ -1, %128 ], [ -1, %89 ], [ -1, %114 ]
   ret i32 %.046
 }
 
@@ -4169,7 +4169,7 @@ cr_copy.exit:                                     ; preds = %.cr_copy.exit_crit_
   br label %.loopexit
 
 .loopexit58:                                      ; preds = %128, %80, %58, %36, %126
-  %.1 = phi i32 [ %127, %126 ], [ %.042.ph, %128 ], [ %39, %36 ], [ %61, %58 ], [ %83, %80 ]
+  %.1 = phi i32 [ %127, %126 ], [ %.042.ph, %128 ], [ %61, %58 ], [ %83, %80 ], [ %39, %36 ]
   %159 = icmp sgt i32 %.1, 0
   br i1 %159, label %.lr.ph.preheader, label %.loopexit
 
@@ -4811,7 +4811,7 @@ unicode_get_short_code.exit163:                   ; preds = %184, %190, %192
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %90, %unicode_get_short_code.exit, %78, %54, %.lr.ph179, %22, %23, %13, %112, %unicode_get_short_code.exit163, %139, %unicode_get_short_code.exit158, %11
-  %.0 = phi i32 [ 1, %11 ], [ 0, %112 ], [ 2, %unicode_get_short_code.exit163 ], [ 0, %13 ], [ 3, %139 ], [ 2, %unicode_get_short_code.exit158 ], [ %.0129, %90 ], [ 0, %23 ], [ 0, %.lr.ph179 ], [ %57, %78 ], [ %5, %22 ], [ %34, %54 ], [ 0, %unicode_get_short_code.exit ], [ %.1130, %.lr.ph ]
+  %.0 = phi i32 [ 1, %11 ], [ 0, %112 ], [ 2, %unicode_get_short_code.exit163 ], [ 0, %unicode_get_short_code.exit ], [ %.0129, %90 ], [ 0, %13 ], [ 3, %139 ], [ 2, %unicode_get_short_code.exit158 ], [ 0, %23 ], [ 0, %.lr.ph179 ], [ %5, %22 ], [ %34, %54 ], [ %57, %78 ], [ %.1130, %.lr.ph ]
   ret i32 %.0
 }
 

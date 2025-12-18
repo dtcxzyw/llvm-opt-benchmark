@@ -216,7 +216,7 @@ define hidden ptr @SDL_CalculateBlitA(ptr noundef readonly captures(none) %0) lo
   br label %117
 
 117:                                              ; preds = %74, %76, %1, %64, %106, %110, %114, %68, %101, %71, %10, %51, %55, %58, %62, %47, %44, %13, %105, %50
-  %.0 = phi ptr [ @BlitNtoNSurfaceAlphaKey, %110 ], [ @BlitNtoNPixelAlpha, %51 ], [ %BlitNtoNPixelAlpha.BlitNto1PixelAlpha, %13 ], [ @BlitNtoNPixelAlpha, %58 ], [ @BlitNtoNSurfaceAlpha, %68 ], [ @BlitNtoNPixelAlpha, %50 ], [ @BlitARGBto565PixelAlpha, %44 ], [ %Blit8888to8888PixelAlpha.Blit8888to8888PixelAlphaSwizzle, %62 ], [ @BlitARGBto555PixelAlpha, %47 ], [ %BlitNtoNSurfaceAlphaKey.BlitNto1SurfaceAlphaKey, %114 ], [ @BlitRGBtoRGBSurfaceAlpha, %101 ], [ %BlitNtoNSurfaceAlpha.BlitNto1SurfaceAlpha, %71 ], [ @BlitNtoNPixelAlpha, %10 ], [ @BlitNtoNPixelAlpha, %55 ], [ %switch.select51, %76 ], [ null, %1 ], [ @BlitNtoNSurfaceAlpha, %105 ], [ null, %106 ], [ null, %64 ], [ @BlitNtoNSurfaceAlpha, %74 ]
+  %.0 = phi ptr [ @BlitNtoNSurfaceAlphaKey, %110 ], [ @BlitNtoNPixelAlpha, %51 ], [ %BlitNtoNPixelAlpha.BlitNto1PixelAlpha, %13 ], [ @BlitNtoNPixelAlpha, %58 ], [ @BlitNtoNSurfaceAlpha, %68 ], [ @BlitNtoNPixelAlpha, %50 ], [ @BlitARGBto565PixelAlpha, %44 ], [ %Blit8888to8888PixelAlpha.Blit8888to8888PixelAlphaSwizzle, %62 ], [ @BlitARGBto555PixelAlpha, %47 ], [ %BlitNtoNSurfaceAlphaKey.BlitNto1SurfaceAlphaKey, %114 ], [ @BlitRGBtoRGBSurfaceAlpha, %101 ], [ %BlitNtoNSurfaceAlpha.BlitNto1SurfaceAlpha, %71 ], [ @BlitNtoNPixelAlpha, %10 ], [ @BlitNtoNPixelAlpha, %55 ], [ %switch.select51, %76 ], [ null, %64 ], [ null, %1 ], [ @BlitNtoNSurfaceAlpha, %105 ], [ null, %106 ], [ @BlitNtoNSurfaceAlpha, %74 ]
   ret ptr %.0
 }
 

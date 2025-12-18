@@ -5911,7 +5911,7 @@ _ZN8V3NumberD2Ev.exit45:                          ; preds = %98, %_ZNKSt7__cxx11
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN8V3NumberD2Ev.exit45, %.loopexit.loopexit, %19
-  %.0 = phi i1 [ false, %.loopexit.loopexit ], [ false, %19 ], [ true, %_ZN8V3NumberD2Ev.exit45 ]
+  %.0 = phi i1 [ false, %19 ], [ false, %.loopexit.loopexit ], [ true, %_ZN8V3NumberD2Ev.exit45 ]
   %116 = load i8, ptr %11, align 4, !tbaa !185
   %117 = icmp eq i8 %116, 3
   br i1 %117, label %118, label %124

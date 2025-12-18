@@ -2780,7 +2780,7 @@ arraydestroy.body64:                              ; preds = %arraydestroy.body64
   br i1 %arraydestroy.done67, label %ehcleanup, label %arraydestroy.body64
 
 ehcleanup:                                        ; preds = %arraydestroy.body, %arraydestroy.body64, %lpad.thread
-  %.pn = phi { ptr, i32 } [ %2, %lpad.thread ], [ %5, %arraydestroy.body64 ], [ %4, %arraydestroy.body ]
+  %.pn = phi { ptr, i32 } [ %5, %arraydestroy.body64 ], [ %2, %lpad.thread ], [ %4, %arraydestroy.body ]
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN8facebook5velox16getTypeStringMapB5cxx11EvE14kTypeStringMapB5cxx11) #41
   resume { ptr, i32 } %.pn
 }
@@ -3432,12 +3432,12 @@ arraydestroy.body64:                              ; preds = %arraydestroy.body64
   br i1 %arraydestroy.done67, label %ehcleanup, label %arraydestroy.body64
 
 ehcleanup:                                        ; preds = %arraydestroy.body, %arraydestroy.body64, %lpad.thread
-  %.pn = phi { ptr, i32 } [ %2, %lpad.thread ], [ %19, %arraydestroy.body64 ], [ %18, %arraydestroy.body ]
+  %.pn = phi { ptr, i32 } [ %19, %arraydestroy.body64 ], [ %2, %lpad.thread ], [ %18, %arraydestroy.body ]
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN8facebook5velox17mapTypeKindToNameB5cxx11ERKNS0_8TypeKindEE11typeEnumMapB5cxx11) #41
   resume { ptr, i32 } %.pn
 
 if.end:                                           ; preds = %for.cond.i.i.i.i, %for.body.i.i, %if.end.i.i.i.i
-  %retval.sroa.0.1.i.i = phi ptr [ %10, %if.end.i.i.i.i ], [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ %16, %for.cond.i.i.i.i ]
+  %retval.sroa.0.1.i.i = phi ptr [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ %10, %if.end.i.i.i.i ], [ %16, %for.cond.i.i.i.i ]
   %second = getelementptr inbounds nuw i8, ptr %retval.sroa.0.1.i.i, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %second)
   ret void
@@ -16074,7 +16074,7 @@ arraydestroy.body20:                              ; preds = %arraydestroy.body20
   br i1 %arraydestroy.done23, label %ehcleanup, label %arraydestroy.body20
 
 ehcleanup:                                        ; preds = %arraydestroy.body, %arraydestroy.body20, %lpad.thread
-  %.pn = phi { ptr, i32 } [ %2, %lpad.thread ], [ %5, %arraydestroy.body20 ], [ %4, %arraydestroy.body ]
+  %.pn = phi { ptr, i32 } [ %5, %arraydestroy.body20 ], [ %2, %lpad.thread ], [ %4, %arraydestroy.body ]
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN8facebook5velox12_GLOBAL__N_122parametricBuiltinTypesB5cxx11EvE6kTypesB5cxx11) #41
   resume { ptr, i32 } %.pn
 }
@@ -33476,8 +33476,8 @@ lpad:                                             ; preds = %_ZNSt8__detail12_No
   br label %common.resume
 
 return:                                           ; preds = %for.cond.i.i, %for.body, %_ZNSt8__detail12_NodeBuilderINS_10_Select1stEE8_S_buildIRKN8facebook5velox8TypeKindERKSt4pairIS7_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENS_10_AllocNodeISaINS_10_Hash_nodeISG_Lb1EEEEEEEEPNT1_11__node_typeEOT_OT0_RKSO_.exit, %if.end.i.i
-  %retval.sroa.0.0 = phi ptr [ %8, %if.end.i.i ], [ %call28, %_ZNSt8__detail12_NodeBuilderINS_10_Select1stEE8_S_buildIRKN8facebook5velox8TypeKindERKSt4pairIS7_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENS_10_AllocNodeISaINS_10_Hash_nodeISG_Lb1EEEEEEEEPNT1_11__node_typeEOT_OT0_RKSO_.exit ], [ %__it.sroa.0.0, %for.body ], [ %14, %for.cond.i.i ]
-  %retval.sroa.4.0 = phi i8 [ 0, %if.end.i.i ], [ 1, %_ZNSt8__detail12_NodeBuilderINS_10_Select1stEE8_S_buildIRKN8facebook5velox8TypeKindERKSt4pairIS7_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENS_10_AllocNodeISaINS_10_Hash_nodeISG_Lb1EEEEEEEEPNT1_11__node_typeEOT_OT0_RKSO_.exit ], [ 0, %for.body ], [ 0, %for.cond.i.i ]
+  %retval.sroa.0.0 = phi ptr [ %__it.sroa.0.0, %for.body ], [ %call28, %_ZNSt8__detail12_NodeBuilderINS_10_Select1stEE8_S_buildIRKN8facebook5velox8TypeKindERKSt4pairIS7_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENS_10_AllocNodeISaINS_10_Hash_nodeISG_Lb1EEEEEEEEPNT1_11__node_typeEOT_OT0_RKSO_.exit ], [ %8, %if.end.i.i ], [ %14, %for.cond.i.i ]
+  %retval.sroa.4.0 = phi i8 [ 0, %for.body ], [ 1, %_ZNSt8__detail12_NodeBuilderINS_10_Select1stEE8_S_buildIRKN8facebook5velox8TypeKindERKSt4pairIS7_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENS_10_AllocNodeISaINS_10_Hash_nodeISG_Lb1EEEEEEEEPNT1_11__node_typeEOT_OT0_RKSO_.exit ], [ 0, %if.end.i.i ], [ 0, %for.cond.i.i ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %retval.sroa.4.0, 1
   ret { ptr, i8 } %.fca.1.insert

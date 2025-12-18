@@ -289,7 +289,7 @@ get_info.exit.thread.i:                           ; preds = %get_info.exit.threa
   br i1 %146, label %get_info.exit.thread.i, label %buf_apply.exit, !llvm.loop !17
 
 buf_apply.exit:                                   ; preds = %122, %get_info.exit.thread.i, %134, %buf_push.exit, %70
-  %.0.i = phi i64 [ 0, %buf_push.exit ], [ 0, %70 ], [ %140, %134 ], [ %.0.i.i, %get_info.exit.thread.i ], [ 0, %122 ]
+  %.0.i = phi i64 [ 0, %buf_push.exit ], [ %140, %134 ], [ 0, %70 ], [ %.0.i.i, %get_info.exit.thread.i ], [ 0, %122 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %147 = add i64 %.0.i, %.037
   br label %148

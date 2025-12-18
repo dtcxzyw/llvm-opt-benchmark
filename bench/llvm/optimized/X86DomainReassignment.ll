@@ -4011,10 +4011,10 @@ _ZN12_GLOBAL__N_17ClosureD2Ev.exit:               ; preds = %_ZNSt6vectorIN12_GL
   br label %_ZNK4llvm19MachineRegisterInfo15reg_nodbg_emptyENS_8RegisterE.exit.thread
 
 _ZNK4llvm19MachineRegisterInfo15reg_nodbg_emptyENS_8RegisterE.exit.thread: ; preds = %.preheader.i.i.i, %1110, %1101, %1065, %_ZNK4llvm19MachineRegisterInfo15reg_nodbg_emptyENS_8RegisterE.exit, %_ZN12_GLOBAL__N_17ClosureD2Ev.exit
-  %.sroa.14.1 = phi ptr [ %.sroa.14.0120, %_ZNK4llvm19MachineRegisterInfo15reg_nodbg_emptyENS_8RegisterE.exit ], [ %.sroa.14.2, %_ZN12_GLOBAL__N_17ClosureD2Ev.exit ], [ %.sroa.14.0120, %1065 ], [ %.sroa.14.0120, %1101 ], [ %.sroa.14.0120, %1110 ], [ %.sroa.14.0120, %.preheader.i.i.i ]
-  %.sroa.8.1 = phi ptr [ %.sroa.8.0121, %_ZNK4llvm19MachineRegisterInfo15reg_nodbg_emptyENS_8RegisterE.exit ], [ %.sroa.8.2, %_ZN12_GLOBAL__N_17ClosureD2Ev.exit ], [ %.sroa.8.0121, %1065 ], [ %.sroa.8.0121, %1101 ], [ %.sroa.8.0121, %1110 ], [ %.sroa.8.0121, %.preheader.i.i.i ]
-  %.sroa.082.1 = phi ptr [ %.sroa.082.0123, %_ZNK4llvm19MachineRegisterInfo15reg_nodbg_emptyENS_8RegisterE.exit ], [ %.sroa.082.2, %_ZN12_GLOBAL__N_17ClosureD2Ev.exit ], [ %.sroa.082.0123, %1065 ], [ %.sroa.082.0123, %1101 ], [ %.sroa.082.0123, %1110 ], [ %.sroa.082.0123, %.preheader.i.i.i ]
-  %.118 = phi i32 [ %.017125, %_ZNK4llvm19MachineRegisterInfo15reg_nodbg_emptyENS_8RegisterE.exit ], [ %1117, %_ZN12_GLOBAL__N_17ClosureD2Ev.exit ], [ %.017125, %1065 ], [ %.017125, %1101 ], [ %.017125, %1110 ], [ %.017125, %.preheader.i.i.i ]
+  %.sroa.14.1 = phi ptr [ %.sroa.14.0120, %_ZNK4llvm19MachineRegisterInfo15reg_nodbg_emptyENS_8RegisterE.exit ], [ %.sroa.14.0120, %1110 ], [ %.sroa.14.2, %_ZN12_GLOBAL__N_17ClosureD2Ev.exit ], [ %.sroa.14.0120, %1065 ], [ %.sroa.14.0120, %1101 ], [ %.sroa.14.0120, %.preheader.i.i.i ]
+  %.sroa.8.1 = phi ptr [ %.sroa.8.0121, %_ZNK4llvm19MachineRegisterInfo15reg_nodbg_emptyENS_8RegisterE.exit ], [ %.sroa.8.0121, %1110 ], [ %.sroa.8.2, %_ZN12_GLOBAL__N_17ClosureD2Ev.exit ], [ %.sroa.8.0121, %1065 ], [ %.sroa.8.0121, %1101 ], [ %.sroa.8.0121, %.preheader.i.i.i ]
+  %.sroa.082.1 = phi ptr [ %.sroa.082.0123, %_ZNK4llvm19MachineRegisterInfo15reg_nodbg_emptyENS_8RegisterE.exit ], [ %.sroa.082.0123, %1110 ], [ %.sroa.082.2, %_ZN12_GLOBAL__N_17ClosureD2Ev.exit ], [ %.sroa.082.0123, %1065 ], [ %.sroa.082.0123, %1101 ], [ %.sroa.082.0123, %.preheader.i.i.i ]
+  %.118 = phi i32 [ %.017125, %_ZNK4llvm19MachineRegisterInfo15reg_nodbg_emptyENS_8RegisterE.exit ], [ %.017125, %1110 ], [ %1117, %_ZN12_GLOBAL__N_17ClosureD2Ev.exit ], [ %.017125, %1065 ], [ %.017125, %1101 ], [ %.017125, %.preheader.i.i.i ]
   %1445 = add nuw i32 %.019124, 1
   %1446 = load ptr, ptr %113, align 8, !tbaa !337
   %1447 = getelementptr inbounds nuw i8, ptr %1446, i64 56
@@ -6160,7 +6160,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterEjNS_12DenseMapInfoIS2_vEENS_6de
   br i1 %.not.i.i.i.i.i.i, label %_ZNK4llvm19MachineRegisterInfo9hasOneDefENS_8RegisterE.exit.thread, label %.lr.ph.i.i.i.preheader.i.i
 
 .lr.ph.i.i.i.preheader.i.i:                       ; preds = %50, %44
-  %.sroa.0.0.i.i.i = phi ptr [ %.0.i.i.i.i, %44 ], [ %49, %50 ]
+  %.sroa.0.0.i.i.i = phi ptr [ %49, %50 ], [ %.0.i.i.i.i, %44 ]
   %53 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i, i64 24
   %54 = load ptr, ptr %53, align 8, !tbaa !617
   %.not.i.i.i.i.i.i.i = icmp eq ptr %54, null

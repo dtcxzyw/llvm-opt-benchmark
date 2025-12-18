@@ -1378,7 +1378,7 @@ _ZN3zmq15socket_poller_t14adjust_timeoutERNS_7clock_tElRmS3_Rb.exit.thread56: ; 
   br label %_ZN3zmq15socket_poller_t17zero_trail_eventsEP18zmq_poller_event_tii.exit.thread
 
 _ZN3zmq15socket_poller_t17zero_trail_eventsEP18zmq_poller_event_tii.exit.thread: ; preds = %45, %.lr.ph.i, %69, %_ZN3zmq15socket_poller_t14adjust_timeoutERNS_7clock_tElRmS3_Rb.exit.thread56
-  %.6 = phi i32 [ -1, %_ZN3zmq15socket_poller_t14adjust_timeoutERNS_7clock_tElRmS3_Rb.exit.thread56 ], [ %68, %69 ], [ %68, %.lr.ph.i ], [ -1, %45 ]
+  %.6 = phi i32 [ -1, %_ZN3zmq15socket_poller_t14adjust_timeoutERNS_7clock_tElRmS3_Rb.exit.thread56 ], [ %68, %.lr.ph.i ], [ %68, %69 ], [ -1, %45 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %84
 

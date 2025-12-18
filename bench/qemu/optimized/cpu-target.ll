@@ -479,7 +479,7 @@ define dso_local range(i32 -1, 1) i32 @cpu_memory_rw_debug(ptr noundef readnone 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %41, %17, %5, %._crit_edge, %.thread
-  %.157 = phi i32 [ %.05678, %.thread ], [ %.056, %._crit_edge ], [ 0, %5 ], [ -1, %17 ], [ -1, %41 ]
+  %.157 = phi i32 [ %.05678, %.thread ], [ %.056, %._crit_edge ], [ -1, %17 ], [ 0, %5 ], [ -1, %41 ]
   ret i32 %.157
 }
 

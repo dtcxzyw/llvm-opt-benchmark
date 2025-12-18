@@ -15134,7 +15134,7 @@ _ZNK12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7uncnstrEjPKP4expr.exit.i71: ; pre
   br label %_ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg17process_basic_appEP9func_decljPKP4expr.exit
 
 _ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg17process_basic_appEP9func_decljPKP4expr.exit: ; preds = %828, %_ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7add_defEP4exprS3_.exit.i74, %_ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7add_defEP4exprS3_.exit.i70.i, %.loopexit.i64.i, %545, %540, %539, %_ZN8rationalD2Ev.exit56.i.i95, %436, %_ZNK4decl13get_family_idEv.exit.i120, %380, %375, %_ZN8rationalD2Ev.exit56.i.i, %320, %_ZNK4decl13get_family_idEv.exit.i, %_ZN7obj_refI4expr11ast_managerED2Ev.exit.i.i, %224, %_ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg8add_defsEjPKP4exprS3_S3_.exit130.i, %_ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg8add_defsEjPKP4exprS3_S3_.exit.i, %_ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7add_defEP4exprS3_.exit99.i, %_ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7add_defEP4exprS3_.exit96.i, %_ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7add_defEP4exprS3_.exit91.i, %_ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7add_defEP4exprS3_.exit86.i, %833, %845, %839
-  %.049 = phi ptr [ %834, %833 ], [ %840, %839 ], [ %846, %845 ], [ %.0.pre.i, %_ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7add_defEP4exprS3_.exit86.i ], [ %.2.i, %_ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7add_defEP4exprS3_.exit91.i ], [ %.3.i, %_ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7add_defEP4exprS3_.exit96.i ], [ %.4.i, %_ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7add_defEP4exprS3_.exit99.i ], [ %.5.i, %_ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg8add_defsEjPKP4exprS3_S3_.exit.i ], [ %.6.i, %_ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg8add_defsEjPKP4exprS3_S3_.exit130.i ], [ %.4.i.i, %_ZN7obj_refI4expr11ast_managerED2Ev.exit.i.i ], [ %228, %224 ], [ %384, %380 ], [ %262, %_ZNK4decl13get_family_idEv.exit.i ], [ %.328.i.i, %_ZN8rationalD2Ev.exit56.i.i ], [ %379, %375 ], [ %.126.i.i, %320 ], [ %391, %_ZNK4decl13get_family_idEv.exit.i120 ], [ %.1.i.i, %436 ], [ %544, %540 ], [ %549, %545 ], [ %.1.i75, %_ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7add_defEP4exprS3_.exit.i74 ], [ %.2.pre.i, %828 ], [ %.3.i.i, %_ZN8rationalD2Ev.exit56.i.i95 ], [ %.0.i50.i, %539 ], [ %.1.i65.i, %.loopexit.i64.i ], [ %.124.i.i, %_ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7add_defEP4exprS3_.exit.i70.i ]
+  %.049 = phi ptr [ %.124.i.i, %_ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7add_defEP4exprS3_.exit.i70.i ], [ %.1.i65.i, %.loopexit.i64.i ], [ %.0.i50.i, %539 ], [ %834, %833 ], [ %840, %839 ], [ %846, %845 ], [ %.3.i.i, %_ZN8rationalD2Ev.exit56.i.i95 ], [ %.0.pre.i, %_ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7add_defEP4exprS3_.exit86.i ], [ %.2.i, %_ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7add_defEP4exprS3_.exit91.i ], [ %.3.i, %_ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7add_defEP4exprS3_.exit96.i ], [ %.2.pre.i, %828 ], [ %.4.i, %_ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7add_defEP4exprS3_.exit99.i ], [ %.1.i75, %_ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7add_defEP4exprS3_.exit.i74 ], [ %.5.i, %_ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg8add_defsEjPKP4exprS3_S3_.exit.i ], [ %549, %545 ], [ %.6.i, %_ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg8add_defsEjPKP4exprS3_S3_.exit130.i ], [ %544, %540 ], [ %.1.i.i, %436 ], [ %391, %_ZNK4decl13get_family_idEv.exit.i120 ], [ %.126.i.i, %320 ], [ %379, %375 ], [ %.4.i.i, %_ZN7obj_refI4expr11ast_managerED2Ev.exit.i.i ], [ %228, %224 ], [ %.328.i.i, %_ZN8rationalD2Ev.exit56.i.i ], [ %384, %380 ], [ %262, %_ZNK4decl13get_family_idEv.exit.i ]
   %847 = icmp eq ptr %.049, null
   br i1 %847, label %_ZNK4decl13get_family_idEv.exit.thread, label %848
 
@@ -15213,7 +15213,7 @@ _ZN7obj_refI3app11ast_managerEaSEPS0_.exit:       ; preds = %871, %873, %880
   br label %_ZNK4decl13get_family_idEv.exit.thread
 
 _ZNK4decl13get_family_idEv.exit.thread:           ; preds = %.lr.ph, %_Z9is_groundPK4expr.exit, %507, %_ZNK4decl13get_decl_kindEv.exit.i65, %788, %_ZNK12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7uncnstrEjPKP4expr.exit.i61.i, %499, %603, %_ZNK12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7uncnstrEjPKP4expr.exit.i71, %_ZNK4decl13get_decl_kindEv.exit.i56, %.thread.i, %211, %209, %_ZNK4decl13get_decl_kindEv.exit.i, %110, %_ZNK12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7uncnstrEjPKP4expr.exit.i, %129, %214, %_ZNK12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7uncnstrEjPKP4expr.exit114.i, %90, %841, %48, %_ZNK4decl13get_family_idEv.exit, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit, %_ZN7obj_refI3app11ast_managerEaSEPS0_.exit, %_ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg17process_basic_appEP9func_decljPKP4expr.exit, %6
-  %.0 = phi i32 [ 5, %6 ], [ 5, %_ZNK4decl13get_family_idEv.exit ], [ 5, %_ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg17process_basic_appEP9func_decljPKP4expr.exit ], [ 4, %_ZN7obj_refI3app11ast_managerEaSEPS0_.exit ], [ 4, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit ], [ 5, %48 ], [ 5, %841 ], [ 5, %90 ], [ 5, %_ZNK4decl13get_decl_kindEv.exit.i65 ], [ 5, %_ZNK12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7uncnstrEjPKP4expr.exit114.i ], [ 5, %214 ], [ 5, %507 ], [ 5, %129 ], [ 5, %_ZNK12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7uncnstrEjPKP4expr.exit.i ], [ 5, %110 ], [ 5, %_ZNK4decl13get_decl_kindEv.exit.i ], [ 5, %209 ], [ 5, %211 ], [ 5, %.thread.i ], [ 5, %_ZNK4decl13get_decl_kindEv.exit.i56 ], [ 5, %_ZNK12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7uncnstrEjPKP4expr.exit.i71 ], [ 5, %603 ], [ 5, %499 ], [ 5, %_ZNK12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7uncnstrEjPKP4expr.exit.i61.i ], [ 5, %788 ], [ 5, %_Z9is_groundPK4expr.exit ], [ 5, %.lr.ph ]
+  %.0 = phi i32 [ 5, %6 ], [ 5, %788 ], [ 5, %_ZNK4decl13get_family_idEv.exit ], [ 5, %_ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg17process_basic_appEP9func_decljPKP4expr.exit ], [ 4, %_ZN7obj_refI3app11ast_managerEaSEPS0_.exit ], [ 4, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit ], [ 5, %48 ], [ 5, %_ZNK12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7uncnstrEjPKP4expr.exit.i61.i ], [ 5, %841 ], [ 5, %90 ], [ 5, %_ZNK4decl13get_decl_kindEv.exit.i65 ], [ 5, %_ZNK12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7uncnstrEjPKP4expr.exit114.i ], [ 5, %214 ], [ 5, %507 ], [ 5, %129 ], [ 5, %_ZNK12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7uncnstrEjPKP4expr.exit.i ], [ 5, %110 ], [ 5, %_ZNK4decl13get_decl_kindEv.exit.i ], [ 5, %209 ], [ 5, %211 ], [ 5, %.thread.i ], [ 5, %_ZNK4decl13get_decl_kindEv.exit.i56 ], [ 5, %_ZNK12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7uncnstrEjPKP4expr.exit.i71 ], [ 5, %603 ], [ 5, %499 ], [ 5, %_Z9is_groundPK4expr.exit ], [ 5, %.lr.ph ]
   ret i32 %.0
 }
 
@@ -15708,7 +15708,7 @@ _ZN6bufferIP4exprLb0ELj16EED2Ev.exit:             ; preds = %_ZN12_GLOBAL__N_119
   br label %_ZNK8datatype4util11is_accessorEP9func_decl.exit.thread
 
 _ZNK8datatype4util11is_accessorEP9func_decl.exit.thread: ; preds = %42, %4, %_ZNK4decl13get_family_idEv.exit.thread.i.i, %_ZNK8datatype4util11is_accessorEP9func_decl.exit, %18, %130, %28
-  %.032 = phi ptr [ %32, %28 ], [ %.3, %130 ], [ null, %18 ], [ null, %_ZNK8datatype4util11is_accessorEP9func_decl.exit ], [ null, %_ZNK4decl13get_family_idEv.exit.thread.i.i ], [ null, %4 ], [ null, %42 ]
+  %.032 = phi ptr [ %32, %28 ], [ null, %4 ], [ %.3, %130 ], [ null, %18 ], [ null, %_ZNK8datatype4util11is_accessorEP9func_decl.exit ], [ null, %_ZNK4decl13get_family_idEv.exit.thread.i.i ], [ null, %42 ]
   ret ptr %.032
 }
 
@@ -16064,7 +16064,7 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_119elim_uncnstr_tact
   br i1 %.not27.old.i.i, label %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit.thread, label %.lr.ph38.i.i.backedge
 
 .lr.ph38.i.i.backedge:                            ; preds = %30, %27
-  %.137.i.i.be = phi ptr [ %.old.i.i, %30 ], [ %29, %27 ]
+  %.137.i.i.be = phi ptr [ %29, %27 ], [ %.old.i.i, %30 ]
   br label %.lr.ph38.i.i, !llvm.loop !418
 
 _ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit: ; preds = %11, %22
@@ -16135,11 +16135,11 @@ _ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8con
   br i1 %.not27.old.i.i14, label %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit.thread, label %.lr.ph38.i.i10.backedge
 
 .lr.ph38.i.i10.backedge:                          ; preds = %60, %57
-  %.137.i.i11.be = phi ptr [ %.old.i.i13, %60 ], [ %59, %57 ]
+  %.137.i.i11.be = phi ptr [ %59, %57 ], [ %.old.i.i13, %60 ]
   br label %.lr.ph38.i.i10, !llvm.loop !418
 
 _ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit.thread: ; preds = %16, %27, %30, %46, %41, %60, %57, %52, %.preheader.i.i8, %.preheader.i.i
-  %61 = phi i1 [ false, %.preheader.i.i ], [ true, %.preheader.i.i8 ], [ false, %27 ], [ false, %52 ], [ %.not.i5, %46 ], [ true, %57 ], [ true, %60 ], [ %.not.i5, %41 ], [ false, %30 ], [ false, %16 ]
+  %61 = phi i1 [ %.not.i5, %46 ], [ false, %.preheader.i.i ], [ false, %52 ], [ false, %27 ], [ true, %.preheader.i.i8 ], [ true, %57 ], [ true, %60 ], [ %.not.i5, %41 ], [ false, %30 ], [ false, %16 ]
   ret i1 %61
 }
 
@@ -16269,7 +16269,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119elim_uncnstr_tacti
   br i1 %.not27.old.i.i.i, label %.loopexit, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %40, %37
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %40 ], [ %39, %37 ]
+  %.137.i.i.i.be = phi ptr [ %39, %37 ], [ %.old.i.i.i, %40 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !423
 
 _ZNK7obj_mapI3appPS0_E4findES1_RS1_.exit:         ; preds = %21, %32
@@ -17990,7 +17990,7 @@ _ZN6bufferIP4exprLb0ELj16EED2Ev.exit220:          ; preds = %351, %354
   resume { ptr, i32 } %.pn102
 
 .critedge107:                                     ; preds = %_ZNK11ast_manager11is_uninterpEPK4sort.exit174.thread.thread, %_ZNK11ast_manager11is_uninterpEPK4sort.exit135, %_ZNK11ast_manager11is_uninterpEPK4sort.exit135, %_Z16get_array_domainPK4sortj.exit, %262, %_ZNK6vectorIP9func_declLb0EjE3endEv.exit, %_ZNK11ast_manager11is_uninterpEPK4sort.exit, %_ZNK11ast_manager11is_uninterpEPK4sort.exit, %_Z15get_array_rangePK4sort.exit, %_ZN6bufferIP4exprLb0ELj16EED2Ev.exit220, %_ZN8rationalD2Ev.exit, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit130, %_ZN6bufferIP4exprLb0ELj16EED2Ev.exit, %258, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit
-  %.062 = phi i1 [ true, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit ], [ true, %_ZN8rationalD2Ev.exit ], [ true, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit130 ], [ false, %258 ], [ false, %_ZNK11ast_manager11is_uninterpEPK4sort.exit ], [ %211, %_ZN6bufferIP4exprLb0ELj16EED2Ev.exit ], [ true, %_ZN6bufferIP4exprLb0ELj16EED2Ev.exit220 ], [ false, %_Z15get_array_rangePK4sort.exit ], [ false, %_ZNK11ast_manager11is_uninterpEPK4sort.exit ], [ false, %_ZNK6vectorIP9func_declLb0EjE3endEv.exit ], [ false, %262 ], [ false, %_ZNK11ast_manager11is_uninterpEPK4sort.exit135 ], [ false, %_Z16get_array_domainPK4sortj.exit ], [ false, %_ZNK11ast_manager11is_uninterpEPK4sort.exit135 ], [ false, %_ZNK11ast_manager11is_uninterpEPK4sort.exit174.thread.thread ]
+  %.062 = phi i1 [ true, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit ], [ true, %_ZN8rationalD2Ev.exit ], [ true, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit130 ], [ false, %258 ], [ false, %_ZNK11ast_manager11is_uninterpEPK4sort.exit ], [ false, %_ZNK11ast_manager11is_uninterpEPK4sort.exit ], [ %211, %_ZN6bufferIP4exprLb0ELj16EED2Ev.exit ], [ true, %_ZN6bufferIP4exprLb0ELj16EED2Ev.exit220 ], [ false, %_ZNK6vectorIP9func_declLb0EjE3endEv.exit ], [ false, %_Z15get_array_rangePK4sort.exit ], [ false, %_ZNK11ast_manager11is_uninterpEPK4sort.exit135 ], [ false, %262 ], [ false, %_Z16get_array_domainPK4sortj.exit ], [ false, %_ZNK11ast_manager11is_uninterpEPK4sort.exit135 ], [ false, %_ZNK11ast_manager11is_uninterpEPK4sort.exit174.thread.thread ]
   ret i1 %.062
 }
 

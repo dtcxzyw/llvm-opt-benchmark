@@ -3112,7 +3112,7 @@ _ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit11: ; preds = %21, %24, %27
   br i1 %43, label %.lr.ph, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread, !llvm.loop !109
 
 _ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread: ; preds = %.lr.ph.i, %.lr.ph, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit11, %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit
-  %.0 = phi i32 [ -1, %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit ], [ 8, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit11 ], [ %.sroa.speculated, %.lr.ph ], [ -1, %.lr.ph.i ]
+  %.0 = phi i32 [ %.sroa.speculated, %.lr.ph ], [ -1, %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit ], [ 8, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit11 ], [ -1, %.lr.ph.i ]
   ret i32 %.0
 }
 
@@ -3226,7 +3226,7 @@ _ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit17: ; preds = %22, %25, %28
   br i1 %47, label %.lr.ph, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread, !llvm.loop !110
 
 _ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread: ; preds = %.lr.ph.i, %45, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit17, %.thread, %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit
-  %.0 = phi i32 [ -1, %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit ], [ %40, %.thread ], [ 8, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit17 ], [ 8, %45 ], [ -1, %.lr.ph.i ]
+  %.0 = phi i32 [ 8, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit17 ], [ -1, %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit ], [ %40, %.thread ], [ 8, %45 ], [ -1, %.lr.ph.i ]
   ret i32 %.0
 }
 

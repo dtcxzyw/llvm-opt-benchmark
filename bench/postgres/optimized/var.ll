@@ -1602,7 +1602,7 @@ tailrecurse.backedge:                             ; preds = %24, %27, %29, %31
   br i1 %or.cond.not, label %41, label %.critedge
 
 .critedge:                                        ; preds = %tailrecurse.backedge, %17, %20, %.lr.ph, %41, %2, %33, %.lr.ph57, %.thread43, %11, %5
-  %.0 = phi i1 [ true, %5 ], [ true, %11 ], [ false, %.thread43 ], [ true, %.lr.ph57 ], [ true, %33 ], [ false, %2 ], [ %44, %41 ], [ false, %.lr.ph ], [ false, %20 ], [ false, %17 ], [ false, %tailrecurse.backedge ]
+  %.0 = phi i1 [ true, %.lr.ph57 ], [ false, %.thread43 ], [ true, %5 ], [ true, %11 ], [ %44, %41 ], [ true, %33 ], [ false, %2 ], [ false, %.lr.ph ], [ false, %20 ], [ false, %17 ], [ false, %tailrecurse.backedge ]
   ret i1 %.0
 }
 

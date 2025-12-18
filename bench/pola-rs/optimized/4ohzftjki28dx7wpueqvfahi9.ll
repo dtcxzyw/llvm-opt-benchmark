@@ -20739,7 +20739,7 @@ _ZN4core5slice6memchr6memchr17hf042c2b2d8451469E.exit.thread16.i.i.i.i: ; preds 
   br i1 %.not12.i.i.i.i, label %48, label %46
 
 _ZN4core5slice6memchr6memchr17hf042c2b2d8451469E.exit.thread.i.i.i.i: ; preds = %.preheader.i.i.i.i.i, %35, %_ZN4core5slice6memchr6memchr17hf042c2b2d8451469E.exit._ZN4core5slice6memchr6memchr17hf042c2b2d8451469E.exit.thread.loopexit20_crit_edge.i.i.i.i
-  %45 = phi i64 [ %.pre46.pre.i.i.i.i, %_ZN4core5slice6memchr6memchr17hf042c2b2d8451469E.exit._ZN4core5slice6memchr6memchr17hf042c2b2d8451469E.exit.thread.loopexit20_crit_edge.i.i.i.i ], [ %21, %35 ], [ %21, %.preheader.i.i.i.i.i ]
+  %45 = phi i64 [ %21, %35 ], [ %.pre46.pre.i.i.i.i, %_ZN4core5slice6memchr6memchr17hf042c2b2d8451469E.exit._ZN4core5slice6memchr6memchr17hf042c2b2d8451469E.exit.thread.loopexit20_crit_edge.i.i.i.i ], [ %21, %.preheader.i.i.i.i.i ]
   store i64 %45, ptr %13, align 8, !alias.scope !3297, !noalias !3300
   br label %.loopexit.i.i.i
 
@@ -20807,8 +20807,8 @@ _ZN4core5slice6memchr6memchr17hf042c2b2d8451469E.exit.thread.i.i.i.i: ; preds = 
   br label %69
 
 69:                                               ; preds = %._crit_edge.i.i.i.i, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h76b8e8f4bb67d501E.exit.i.i.i"
-  %.sroa.4.0.i.i.i = phi i64 [ %59, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h76b8e8f4bb67d501E.exit.i.i.i" ], [ %67, %._crit_edge.i.i.i.i ]
-  %.sroa.0.0.i.i.i = phi ptr [ %60, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h76b8e8f4bb67d501E.exit.i.i.i" ], [ %68, %._crit_edge.i.i.i.i ]
+  %.sroa.4.0.i.i.i = phi i64 [ %67, %._crit_edge.i.i.i.i ], [ %59, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h76b8e8f4bb67d501E.exit.i.i.i" ]
+  %.sroa.0.0.i.i.i = phi ptr [ %68, %._crit_edge.i.i.i.i ], [ %60, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h76b8e8f4bb67d501E.exit.i.i.i" ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3311)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5.i.i)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3314)
@@ -20871,7 +20871,7 @@ thread-pre-split.i.i.i.i:                         ; preds = %69
   br i1 %.not.i.i.i8.i, label %.loopexit.i.i.i.i, label %84
 
 .loopexit.i.i.i.i:                                ; preds = %.preheader92.i.i.i.i, %103, %.preheader86.i.i.i.i, %128, %.preheader.i.i.i.i, %.preheader89.i.i.i.i
-  %.sroa.025.1.i.i.i.i = phi i32 [ 0, %.preheader.i.i.i.i ], [ 0, %.preheader89.i.i.i.i ], [ %107, %103 ], [ %132, %128 ], [ %.sroa.025.0.i.i.i.i, %.preheader86.i.i.i.i ], [ %.sroa.025.3.i.i.i.i, %.preheader92.i.i.i.i ]
+  %.sroa.025.1.i.i.i.i = phi i32 [ %107, %103 ], [ %132, %128 ], [ %.sroa.025.0.i.i.i.i, %.preheader86.i.i.i.i ], [ 0, %.preheader.i.i.i.i ], [ 0, %.preheader89.i.i.i.i ], [ %.sroa.025.3.i.i.i.i, %.preheader92.i.i.i.i ]
   %82 = zext i32 %.sroa.025.1.i.i.i.i to i64
   %83 = shl nuw i64 %82, 32
   br label %"_ZN4core3num21_$LT$impl$u20$i32$GT$16from_ascii_radix17hc6182e68b1d9b378E.exit.i.i.i"
@@ -20904,7 +20904,7 @@ thread-pre-split.i.i.i.i:                         ; preds = %69
   br label %.loopexit85.i.i.i.i
 
 .loopexit85.i.i.i.i:                              ; preds = %91, %.lr.ph.i.i.i9.i, %117, %.lr.ph113.i.i.i.i, %.loopexit94.split.loop.exit100.i.i.i.i, %.loopexit88.split.loop.exit106.i.i.i.i
-  %.sroa.12.2.i.i.i.i = phi i64 [ %.mux81.le.i.i.i.i, %.loopexit88.split.loop.exit106.i.i.i.i ], [ %.mux.le.i.i.i.i, %.loopexit94.split.loop.exit100.i.i.i.i ], [ 256, %.lr.ph.i.i.i9.i ], [ 256, %.lr.ph113.i.i.i.i ], [ 512, %117 ], [ 768, %91 ]
+  %.sroa.12.2.i.i.i.i = phi i64 [ 256, %.lr.ph113.i.i.i.i ], [ 512, %117 ], [ 256, %.lr.ph.i.i.i9.i ], [ %.mux81.le.i.i.i.i, %.loopexit88.split.loop.exit106.i.i.i.i ], [ %.mux.le.i.i.i.i, %.loopexit94.split.loop.exit100.i.i.i.i ], [ 768, %91 ]
   %98 = or disjoint i64 %.sroa.12.2.i.i.i.i, 1
   br label %"_ZN4core3num21_$LT$impl$u20$i32$GT$16from_ascii_radix17hc6182e68b1d9b378E.exit.i.i.i"
 

@@ -1061,7 +1061,7 @@ move_decoder_metadata_to_img.exit:                ; preds = %52, %59
   br label %add_grain_if_needed.exit
 
 add_grain_if_needed.exit:                         ; preds = %163, %199
-  %.0.i = phi ptr [ %164, %199 ], [ %53, %163 ]
+  %.0.i = phi ptr [ %53, %163 ], [ %164, %199 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %204
 
@@ -4237,7 +4237,7 @@ parse_timing_info.exit.i:                         ; preds = %74, %71
   br i1 %exitcond.not.i, label %parse_operating_points.exit, label %.split.split.i, !llvm.loop !15
 
 parse_operating_points.exit:                      ; preds = %144, %124, %109, %96, %61
-  %.033.i = phi i32 [ 0, %61 ], [ %spec.select.us57.i, %124 ], [ %spec.select.us.us.i, %96 ], [ %spec.select.us.i, %109 ], [ %spec.select.i, %144 ]
+  %.033.i = phi i32 [ 0, %61 ], [ %spec.select.us57.i, %124 ], [ %spec.select.us.i, %109 ], [ %spec.select.us.us.i, %96 ], [ %spec.select.i, %144 ]
   %146 = call i32 @aom_get_num_layers_from_operating_point_idc(i32 noundef %.033.i, ptr noundef nonnull %38, ptr noundef nonnull %39) #12
   %.not49.i.not = icmp eq i32 %146, 0
   br i1 %.not49.i.not, label %147, label %parse_operating_points.exit.thread

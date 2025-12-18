@@ -1450,8 +1450,8 @@ pps_add_ctus.exit.us.i.i.i.i.i.i.i.i.i:           ; preds = %._crit_edge.us.i.us
   br i1 %exitcond45.not.i.i.i.i.i.i.i.i.i, label %.loopexit.i.i.i.i.i.i.i, label %.preheader.us.i.i23.i.i.i.i.i.i.i, !llvm.loop !193
 
 .loopexit.i.i.i.i.i.i.i:                          ; preds = %.mark_tile_as_used.exit_crit_edge.us.i.i.i.i.i.i.i.i.i, %subpic_tiles.exit.thread.i.i.i.i.i.i.i.i, %pps_add_ctus.exit.i.i.i.i.i.i.i.i.i
-  %.379.i.i.i.i.i.i = phi i32 [ %.278.i.i.i.i.i.i, %subpic_tiles.exit.thread.i.i.i.i.i.i.i.i ], [ %724, %pps_add_ctus.exit.i.i.i.i.i.i.i.i.i ], [ %.8.i.i.i.i.i.i, %.mark_tile_as_used.exit_crit_edge.us.i.i.i.i.i.i.i.i.i ]
-  %773 = phi i32 [ %648, %subpic_tiles.exit.thread.i.i.i.i.i.i.i.i ], [ %724, %pps_add_ctus.exit.i.i.i.i.i.i.i.i.i ], [ %768, %.mark_tile_as_used.exit_crit_edge.us.i.i.i.i.i.i.i.i.i ]
+  %.379.i.i.i.i.i.i = phi i32 [ %724, %pps_add_ctus.exit.i.i.i.i.i.i.i.i.i ], [ %.278.i.i.i.i.i.i, %subpic_tiles.exit.thread.i.i.i.i.i.i.i.i ], [ %.8.i.i.i.i.i.i, %.mark_tile_as_used.exit_crit_edge.us.i.i.i.i.i.i.i.i.i ]
+  %773 = phi i32 [ %724, %pps_add_ctus.exit.i.i.i.i.i.i.i.i.i ], [ %648, %subpic_tiles.exit.thread.i.i.i.i.i.i.i.i ], [ %768, %.mark_tile_as_used.exit_crit_edge.us.i.i.i.i.i.i.i.i.i ]
   %indvars.iv.next.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i, 1
   %774 = load i16, ptr %635, align 8, !tbaa !194
   %775 = zext i16 %774 to i64
@@ -2599,7 +2599,7 @@ lmcs_derive_lut.exit.i:                           ; preds = %1380
   br i1 %exitcond.not.i, label %decode_frame_ps.exit, label %1387, !llvm.loop !254
 
 decode_frame_ps.exit:                             ; preds = %1139, %1147, %1174, %1182, %1387, %decode_ps.exit, %1030, %lmcs_derive_lut.exit.thread.i
-  %.035.i = phi i32 [ -1094995529, %1030 ], [ %.0.i.ph.i, %lmcs_derive_lut.exit.thread.i ], [ -1094995529, %decode_ps.exit ], [ -1094995529, %1174 ], [ 0, %1387 ], [ -1094995529, %1182 ], [ -1094995529, %1147 ], [ -1094995529, %1139 ]
+  %.035.i = phi i32 [ -1094995529, %1030 ], [ 0, %1387 ], [ %.0.i.ph.i, %lmcs_derive_lut.exit.thread.i ], [ -1094995529, %decode_ps.exit ], [ -1094995529, %1174 ], [ -1094995529, %1182 ], [ -1094995529, %1147 ], [ -1094995529, %1139 ]
   %1391 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1392 = getelementptr inbounds nuw i8, ptr %1, i64 892
   %1393 = load i32, ptr %1392, align 4, !tbaa !27
@@ -3790,7 +3790,7 @@ sh_partition_constraints.exit.i:                  ; preds = %266, %217
   br i1 %350, label %315, label %sh_derive.exit, !llvm.loop !345
 
 sh_derive.exit:                                   ; preds = %106, %347, %sh_partition_constraints.exit.i, %.preheader.i45.i, %sh_slice_address.exit.i, %140, %130, %117, %3, %5
-  %.0 = phi i32 [ -1094995529, %5 ], [ -1094995529, %3 ], [ 0, %sh_partition_constraints.exit.i ], [ 0, %.preheader.i45.i ], [ -1094995529, %sh_slice_address.exit.i ], [ -1094995529, %140 ], [ -1094995529, %130 ], [ -1094995529, %117 ], [ 0, %347 ], [ -1094995529, %106 ]
+  %.0 = phi i32 [ -1094995529, %5 ], [ -1094995529, %3 ], [ 0, %347 ], [ 0, %sh_partition_constraints.exit.i ], [ 0, %.preheader.i45.i ], [ -1094995529, %sh_slice_address.exit.i ], [ -1094995529, %140 ], [ -1094995529, %130 ], [ -1094995529, %117 ], [ -1094995529, %106 ]
   ret i32 %.0
 }
 

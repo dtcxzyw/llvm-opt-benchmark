@@ -1072,7 +1072,7 @@ do.body11:                                        ; preds = %if.end3.i.i.i.i, %f
   unreachable
 
 do.end13:                                         ; preds = %for.cond.i.i.i.i, %for.body.i.i, %if.end.i.i.i.i
-  %retval.sroa.0.1.i.i = phi ptr [ %6, %if.end.i.i.i.i ], [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ %8, %for.cond.i.i.i.i ]
+  %retval.sroa.0.1.i.i = phi ptr [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ %6, %if.end.i.i.i.i ], [ %8, %for.cond.i.i.i.i ]
   %cmp14.not = icmp eq i64 %size, 0
   br i1 %cmp14.not, label %if.end27, label %do.body16
 

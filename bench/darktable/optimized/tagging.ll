@@ -1877,8 +1877,8 @@ define internal void @_tree_select_show(ptr readnone captures(none) %0, ptr noun
   br label %13
 
 13:                                               ; preds = %10, %11, %.fold.split, %12
-  %.04 = phi i32 [ 0, %.fold.split ], [ 0, %12 ], [ 0, %10 ], [ 1, %11 ]
-  %.0 = phi i32 [ 0, %.fold.split ], [ 1, %12 ], [ %spec.select, %10 ], [ 0, %11 ]
+  %.04 = phi i32 [ 0, %.fold.split ], [ 0, %12 ], [ 1, %11 ], [ 0, %10 ]
+  %.0 = phi i32 [ 0, %.fold.split ], [ 1, %12 ], [ 0, %11 ], [ %spec.select, %10 ]
   call void (ptr, ptr, ...) @g_object_set(ptr noundef %1, ptr noundef nonnull @.str.75, i32 noundef %.04, ptr noundef nonnull @.str.76, i32 noundef %.0, ptr noundef null) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

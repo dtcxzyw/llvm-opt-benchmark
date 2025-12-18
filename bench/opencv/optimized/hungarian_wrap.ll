@@ -827,7 +827,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit52:          ; preds = %96, %98, %100, %102
   br i1 %158, label %152, label %._crit_edge66.loopexit, !llvm.loop !67
 
 .loopexit:                                        ; preds = %._crit_edge66, %_ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit49, %.preheader55, %.preheader.lr.ph, %._crit_edge62
-  %159 = phi i32 [ %114, %.preheader.lr.ph ], [ %114, %._crit_edge62 ], [ %103, %.preheader55 ], [ %60, %_ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit49 ], [ %148, %._crit_edge66 ]
+  %159 = phi i32 [ %60, %_ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit49 ], [ %114, %.preheader.lr.ph ], [ %114, %._crit_edge62 ], [ %103, %.preheader55 ], [ %148, %._crit_edge66 ]
   ret i32 %159
 }
 

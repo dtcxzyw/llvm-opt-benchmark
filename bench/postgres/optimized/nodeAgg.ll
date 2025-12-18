@@ -1797,8 +1797,8 @@ switch.lookup:                                    ; preds = %849
   br label %.fold.split
 
 .fold.split:                                      ; preds = %849, %switch.lookup, %843
-  %.0472 = phi i1 [ true, %843 ], [ %switch.masked, %switch.lookup ], [ false, %849 ]
-  %.0 = phi i1 [ true, %843 ], [ %switch.masked866, %switch.lookup ], [ false, %849 ]
+  %.0472 = phi i1 [ %switch.masked, %switch.lookup ], [ true, %843 ], [ false, %849 ]
+  %.0 = phi i1 [ %switch.masked866, %switch.lookup ], [ true, %843 ], [ false, %849 ]
   %852 = call ptr @ExecBuildAggTrans(ptr noundef nonnull %14, ptr noundef nonnull %840, i1 noundef zeroext %.0, i1 noundef zeroext %.0472, i1 noundef zeroext false) #11
   %853 = getelementptr inbounds nuw i8, ptr %840, i64 48
   store ptr %852, ptr %853, align 8
@@ -3155,9 +3155,9 @@ list_length.exit191:                              ; preds = %120, %123
   br label %137
 
 133:                                              ; preds = %list_length.exit191, %list_length.exit189
-  %.0167 = phi i32 [ %117, %list_length.exit189 ], [ 0, %list_length.exit191 ]
-  %.0166 = phi i32 [ %117, %list_length.exit189 ], [ %126, %list_length.exit191 ]
-  %.0165 = phi ptr [ %112, %list_length.exit189 ], [ %122, %list_length.exit191 ]
+  %.0167 = phi i32 [ 0, %list_length.exit191 ], [ %117, %list_length.exit189 ]
+  %.0166 = phi i32 [ %126, %list_length.exit191 ], [ %117, %list_length.exit189 ]
+  %.0165 = phi ptr [ %122, %list_length.exit191 ], [ %112, %list_length.exit189 ]
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 188
   store i32 %.0166, ptr %134, align 4
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -3273,7 +3273,7 @@ list_length.exit191:                              ; preds = %120, %123
   br i1 %201, label %.lr.ph214, label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph214, %161, %.lr.ph, %137, %140
-  %.0167196208 = phi i32 [ %.0167195, %140 ], [ %.0167197, %137 ], [ %.0167195, %.lr.ph ], [ %.0167195, %161 ], [ %.0167195, %.lr.ph214 ]
+  %.0167196208 = phi i32 [ %.0167195, %140 ], [ %.0167197, %137 ], [ %.0167195, %161 ], [ %.0167195, %.lr.ph ], [ %.0167195, %.lr.ph214 ]
   %202 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %203 = load ptr, ptr %202, align 8
   %.not181 = icmp eq ptr %203, null

@@ -876,8 +876,8 @@ _ZN5boost6spirit2qi6detail20positive_accumulatorILj10EE3addIjcEEbRT_T0_N4mpl_5bo
   br i1 %197, label %_ZN5boost6spirit2qi5parseIPKcNS0_8terminalINS0_3tag5uint_EEEjEEbRT_S9_RKT0_RT1_.exit, label %.lr.ph112.i, !llvm.loop !30
 
 _ZN5boost6spirit2qi5parseIPKcNS0_8terminalINS0_3tag5uint_EEEjEEbRT_S9_RKT0_RT1_.exit: ; preds = %.lr.ph112.i, %_ZN5boost6spirit2qi6detail20positive_accumulatorILj10EE3addIjcEEbRT_T0_N4mpl_5bool_ILb1EEE.exit.i.i.i, %160, %_ZN5boost6spirit2qi6detail20positive_accumulatorILj10EE3addIjcEEbRT_T0_N4mpl_5bool_ILb1EEE.exit.i.i61.i, %179, %_ZN5boost6spirit2qi6detail20positive_accumulatorILj10EE3addIjcEEbRT_T0_N4mpl_5bool_ILb1EEE.exit.i.i68.i, %189, %170, %151
-  %.0194 = phi ptr [ %73, %151 ], [ %73, %189 ], [ %73, %170 ], [ %scevgep.i, %_ZN5boost6spirit2qi6detail20positive_accumulatorILj10EE3addIjcEEbRT_T0_N4mpl_5bool_ILb1EEE.exit.i.i68.i ], [ %scevgep.i, %_ZN5boost6spirit2qi6detail20positive_accumulatorILj10EE3addIjcEEbRT_T0_N4mpl_5bool_ILb1EEE.exit.i.i.i ], [ %scevgep.i, %_ZN5boost6spirit2qi6detail20positive_accumulatorILj10EE3addIjcEEbRT_T0_N4mpl_5bool_ILb1EEE.exit.i.i61.i ], [ %176, %179 ], [ %157, %160 ], [ %.151109.i, %.lr.ph112.i ]
-  %.0193 = phi i32 [ %.186108.i, %151 ], [ %175, %189 ], [ %156, %170 ], [ %194, %_ZN5boost6spirit2qi6detail20positive_accumulatorILj10EE3addIjcEEbRT_T0_N4mpl_5bool_ILb1EEE.exit.i.i68.i ], [ %156, %_ZN5boost6spirit2qi6detail20positive_accumulatorILj10EE3addIjcEEbRT_T0_N4mpl_5bool_ILb1EEE.exit.i.i.i ], [ %175, %_ZN5boost6spirit2qi6detail20positive_accumulatorILj10EE3addIjcEEbRT_T0_N4mpl_5bool_ILb1EEE.exit.i.i61.i ], [ %175, %179 ], [ %156, %160 ], [ %.186108.i, %.lr.ph112.i ]
+  %.0194 = phi ptr [ %73, %170 ], [ %73, %189 ], [ %73, %151 ], [ %scevgep.i, %_ZN5boost6spirit2qi6detail20positive_accumulatorILj10EE3addIjcEEbRT_T0_N4mpl_5bool_ILb1EEE.exit.i.i68.i ], [ %scevgep.i, %_ZN5boost6spirit2qi6detail20positive_accumulatorILj10EE3addIjcEEbRT_T0_N4mpl_5bool_ILb1EEE.exit.i.i.i ], [ %scevgep.i, %_ZN5boost6spirit2qi6detail20positive_accumulatorILj10EE3addIjcEEbRT_T0_N4mpl_5bool_ILb1EEE.exit.i.i61.i ], [ %176, %179 ], [ %157, %160 ], [ %.151109.i, %.lr.ph112.i ]
+  %.0193 = phi i32 [ %156, %170 ], [ %175, %189 ], [ %.186108.i, %151 ], [ %194, %_ZN5boost6spirit2qi6detail20positive_accumulatorILj10EE3addIjcEEbRT_T0_N4mpl_5bool_ILb1EEE.exit.i.i68.i ], [ %156, %_ZN5boost6spirit2qi6detail20positive_accumulatorILj10EE3addIjcEEbRT_T0_N4mpl_5bool_ILb1EEE.exit.i.i.i ], [ %175, %_ZN5boost6spirit2qi6detail20positive_accumulatorILj10EE3addIjcEEbRT_T0_N4mpl_5bool_ILb1EEE.exit.i.i61.i ], [ %175, %179 ], [ %156, %160 ], [ %.186108.i, %.lr.ph112.i ]
   %198 = icmp eq i32 %.0193, 0
   br i1 %198, label %_ZN5boost6spirit2qi5parseIPKcNS0_8terminalINS0_3tag5uint_EEEjEEbRT_S9_RKT0_RT1_.exit.thread204, label %_ZN5boost6spirit2qi5parseIPKcNS0_8terminalINS0_3tag5uint_EEEjEEbRT_S9_RKT0_RT1_.exit.thread
 
@@ -1279,7 +1279,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit139: ; pre
   br i1 %.not, label %._crit_edge, label %25
 
 ._crit_edge:                                      ; preds = %325, %309, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit139
-  %.3322 = phi i32 [ %.049255, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit139 ], [ %.049255, %309 ], [ %.3, %325 ]
+  %.3322 = phi i32 [ %.049255, %309 ], [ %.049255, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit139 ], [ %.3, %325 ]
   %.pre = load i64, ptr %20, align 8, !tbaa !13
   %326 = trunc i64 %.pre to i32
   %327 = icmp ult i32 %.3322, %326
@@ -1976,9 +1976,9 @@ _ZN5boost6spirit2qi5parseIPKwNS0_8terminalINS0_3tag5uint_EEEjEEbRT_S9_RKT0_RT1_.
   %184 = icmp eq i32 %.0192, 0
   br i1 %184, label %_ZN5boost6spirit2qi5parseIPKwNS0_8terminalINS0_3tag5uint_EEEjEEbRT_S9_RKT0_RT1_.exit.thread, label %_ZN5boost6spirit2qi5parseIPKwNS0_8terminalINS0_3tag5uint_EEEjEEbRT_S9_RKT0_RT1_.exit.thread201
 
-_ZN5boost6spirit2qi5parseIPKwNS0_8terminalINS0_3tag5uint_EEEjEEbRT_S9_RKT0_RT1_.exit.thread201: ; preds = %146, %161, %176, %137, %_ZN5boost6spirit2qi5parseIPKwNS0_8terminalINS0_3tag5uint_EEEjEEbRT_S9_RKT0_RT1_.exit
-  %.0192205 = phi i32 [ %.0192, %_ZN5boost6spirit2qi5parseIPKwNS0_8terminalINS0_3tag5uint_EEEjEEbRT_S9_RKT0_RT1_.exit ], [ %136, %137 ], [ %.4.ph.i, %176 ], [ %.3.ph.i, %161 ], [ %.186110.i, %146 ]
-  %.0193204 = phi ptr [ %.0193, %_ZN5boost6spirit2qi5parseIPKwNS0_8terminalINS0_3tag5uint_EEEjEEbRT_S9_RKT0_RT1_.exit ], [ %138, %137 ], [ %74, %176 ], [ %74, %161 ], [ %74, %146 ]
+_ZN5boost6spirit2qi5parseIPKwNS0_8terminalINS0_3tag5uint_EEEjEEbRT_S9_RKT0_RT1_.exit.thread201: ; preds = %161, %176, %146, %137, %_ZN5boost6spirit2qi5parseIPKwNS0_8terminalINS0_3tag5uint_EEEjEEbRT_S9_RKT0_RT1_.exit
+  %.0192205 = phi i32 [ %.0192, %_ZN5boost6spirit2qi5parseIPKwNS0_8terminalINS0_3tag5uint_EEEjEEbRT_S9_RKT0_RT1_.exit ], [ %136, %137 ], [ %.186110.i, %146 ], [ %.4.ph.i, %176 ], [ %.3.ph.i, %161 ]
+  %.0193204 = phi ptr [ %.0193, %_ZN5boost6spirit2qi5parseIPKwNS0_8terminalINS0_3tag5uint_EEEjEEbRT_S9_RKT0_RT1_.exit ], [ %138, %137 ], [ %74, %146 ], [ %74, %176 ], [ %74, %161 ]
   %185 = icmp eq ptr %.0193204, %2
   br i1 %185, label %_ZN5boost6spirit2qi5parseIPKwNS0_8terminalINS0_3tag5uint_EEEjEEbRT_S9_RKT0_RT1_.exit.thread, label %186
 
@@ -2376,7 +2376,7 @@ _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE9push_backEw.exit138: ; pre
   br i1 %.not, label %._crit_edge, label %25
 
 ._crit_edge:                                      ; preds = %313, %298, %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE9push_backEw.exit138
-  %.3324 = phi i32 [ %.048254, %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE9push_backEw.exit138 ], [ %.048254, %298 ], [ %.3, %313 ]
+  %.3324 = phi i32 [ %.048254, %298 ], [ %.048254, %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE9push_backEw.exit138 ], [ %.3, %313 ]
   %.pre = load i64, ptr %20, align 8, !tbaa !61
   %314 = trunc i64 %.pre to i32
   %315 = icmp ult i32 %.3324, %314

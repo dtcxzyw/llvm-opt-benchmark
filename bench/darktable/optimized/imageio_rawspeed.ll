@@ -1617,7 +1617,7 @@ _ZN8rawspeed8RawImageC2ERKS0_.exit255:            ; preds = %302, %308, %311
   br i1 %exitcond369.not.i, label %.loopexit.i, label %.preheader304.lr.ph.us.i, !llvm.loop !250
 
 .loopexit.i:                                      ; preds = %._crit_edge.us.i, %._crit_edge.us321.i, %._crit_edge.us329.i, %._crit_edge.us337.i, %.lr.ph318.i, %.preheader305.i, %.lr.ph.i, %.preheader308.i, %.lr.ph334.i, %.preheader.i, %.lr.ph326.i, %.preheader302.i
-  %495 = phi ptr [ %335, %.lr.ph334.i ], [ %409, %.lr.ph.i ], [ %335, %.preheader.i ], [ %335, %.lr.ph326.i ], [ %409, %.lr.ph318.i ], [ %409, %.preheader308.i ], [ %409, %.preheader305.i ], [ %335, %.preheader302.i ], [ %409, %._crit_edge.us321.i ], [ %335, %._crit_edge.us337.i ], [ %335, %._crit_edge.us329.i ], [ %409, %._crit_edge.us.i ]
+  %495 = phi ptr [ %335, %.lr.ph334.i ], [ %409, %._crit_edge.us321.i ], [ %409, %.lr.ph.i ], [ %335, %._crit_edge.us329.i ], [ %335, %.preheader.i ], [ %335, %._crit_edge.us337.i ], [ %335, %.lr.ph326.i ], [ %409, %.lr.ph318.i ], [ %409, %.preheader308.i ], [ %409, %.preheader305.i ], [ %335, %.preheader302.i ], [ %409, %._crit_edge.us.i ]
   %496 = getelementptr inbounds nuw i8, ptr %0, i64 1600
   store i32 2, ptr %496, align 16, !tbaa !222
   %497 = getelementptr inbounds nuw i8, ptr %0, i64 1472

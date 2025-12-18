@@ -15908,7 +15908,7 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction28EmitCompoundStmtWitho
   br label %_ZNK5clang12CompoundStmt17getStmtExprResultEv.exit
 
 _ZNK5clang12CompoundStmt17getStmtExprResultEv.exit: ; preds = %12, %17, %19
-  %.3.i.i = phi ptr [ %23, %19 ], [ null, %17 ], [ %13, %12 ]
+  %.3.i.i = phi ptr [ null, %17 ], [ %23, %19 ], [ %13, %12 ]
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 24, i1 false), !alias.scope !1472
   %25 = load i8, ptr %24, align 8, !alias.scope !1472
@@ -19710,7 +19710,7 @@ _ZN5clangneENS_22specific_attr_iteratorINS_12AsmLabelAttrEN4llvm11SmallVectorIPN
   %110 = icmp eq i16 %109, 131
   br i1 %110, label %_ZNK5clang4Decl7getAttrINS_12AsmLabelAttrEEEPT_v.exit, label %.lr.ph.i.i.i.i, !llvm.loop !1591
 
-.loopexit:                                        ; preds = %98, %85, %_ZN5clangneENS_22specific_attr_iteratorINS_12AsmLabelAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, %87
+.loopexit:                                        ; preds = %98, %85, %87, %_ZN5clangneENS_22specific_attr_iteratorINS_12AsmLabelAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %111, ptr %0, align 8, !tbaa !1151
   %112 = load ptr, ptr %1, align 8, !tbaa !1154
@@ -22974,7 +22974,7 @@ _ZL19getConvergenceTokenPN4llvm10BasicBlockE.exit.loopexit: ; preds = %_ZN4llvm1
   br label %_ZL19getConvergenceTokenPN4llvm10BasicBlockE.exit
 
 _ZL19getConvergenceTokenPN4llvm10BasicBlockE.exit: ; preds = %_ZL19getConvergenceTokenPN4llvm10BasicBlockE.exit.loopexit, %59, %_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_10BasicBlockENS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ES1_EELb0ELb0EEE.exit.i
-  %.0 = phi ptr [ %47, %_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_10BasicBlockENS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ES1_EELb0ELb0EEE.exit.i ], [ %47, %59 ], [ %60, %_ZL19getConvergenceTokenPN4llvm10BasicBlockE.exit.loopexit ]
+  %.0 = phi ptr [ %47, %59 ], [ %47, %_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_10BasicBlockENS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ES1_EELb0ELb0EEE.exit.i ], [ %60, %_ZL19getConvergenceTokenPN4llvm10BasicBlockE.exit.loopexit ]
   ret ptr %.0
 }
 
@@ -23664,7 +23664,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @_ZL24CollectStatementsForCas
   br label %6
 
 tailrecurse.outer._crit_edge:                     ; preds = %_ZNK5clang10SwitchCase10getSubStmtEv.exit, %_ZNK5clang10SwitchCase10getSubStmtEv.exit103, %4
-  %.tr123.ph.lcssa141 = phi ptr [ %1, %4 ], [ %.tr123.ph147, %_ZNK5clang10SwitchCase10getSubStmtEv.exit103 ], [ null, %_ZNK5clang10SwitchCase10getSubStmtEv.exit ]
+  %.tr123.ph.lcssa141 = phi ptr [ %.tr123.ph147, %_ZNK5clang10SwitchCase10getSubStmtEv.exit103 ], [ %1, %4 ], [ null, %_ZNK5clang10SwitchCase10getSubStmtEv.exit ]
   %.not87 = icmp eq ptr %.tr123.ph.lcssa141, null
   %5 = select i1 %.not87, i32 1, i32 2
   br label %.thread
@@ -23898,7 +23898,7 @@ default.unreachable:                              ; preds = %.lr.ph152
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph152, %62, %.preheader127, %.lr.ph158, %78, %.preheader, %32, %70, %65, %._crit_edge.loopexit, %85, %87, %._crit_edge, %._crit_edge159, %61, %.thread119, %88, %91, %tailrecurse.outer._crit_edge
-  %.061 = phi i32 [ %.96, %88 ], [ 2, %32 ], [ 0, %.thread119 ], [ 1, %91 ], [ %5, %tailrecurse.outer._crit_edge ], [ 2, %._crit_edge ], [ %.mux, %._crit_edge159 ], [ 1, %87 ], [ 0, %61 ], [ 0, %85 ], [ 0, %65 ], [ 2, %.preheader127 ], [ 2, %._crit_edge.loopexit ], [ 1, %70 ], [ 0, %78 ], [ %77, %.lr.ph158 ], [ 2, %.preheader ], [ 0, %62 ], [ %57, %.lr.ph152 ]
+  %.061 = phi i32 [ %.96, %88 ], [ 2, %32 ], [ 0, %.thread119 ], [ 1, %91 ], [ %5, %tailrecurse.outer._crit_edge ], [ 0, %65 ], [ 2, %._crit_edge ], [ %.mux, %._crit_edge159 ], [ 1, %87 ], [ 0, %61 ], [ 0, %85 ], [ %77, %.lr.ph158 ], [ 2, %.preheader127 ], [ 0, %78 ], [ 2, %._crit_edge.loopexit ], [ 1, %70 ], [ 2, %.preheader ], [ 0, %62 ], [ %57, %.lr.ph152 ]
   ret i32 %.061
 }
 
@@ -24483,7 +24483,7 @@ _ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IR
   br i1 %.not.i.i.i.i, label %_ZN4llvm8erase_ifINS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS4_EUlRKS5_E_EEvRT_T0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !1729
 
 _ZN4llvm8erase_ifINS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS4_EUlRKS5_E_EEvRT_T0_.exit: ; preds = %57, %._crit_edge.i.i.i.i.i.i, %43, %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i
-  %.016.i.i.i.i = phi ptr [ %.028.i.i.i.i.i.i, %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i ], [ %10, %._crit_edge.i.i.i.i.i.i ], [ %10, %43 ], [ %.1.i.i.i.i, %57 ]
+  %.016.i.i.i.i = phi ptr [ %.028.i.i.i.i.i.i, %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i ], [ %10, %43 ], [ %10, %._crit_edge.i.i.i.i.i.i ], [ %.1.i.i.i.i, %57 ]
   %58 = ptrtoint ptr %.016.i.i.i.i to i64
   %59 = ptrtoint ptr %6 to i64
   %60 = sub i64 %58, %59

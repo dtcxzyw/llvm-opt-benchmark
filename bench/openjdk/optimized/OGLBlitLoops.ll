@@ -853,7 +853,7 @@ define hidden void @OGLBlitLoops_Blit(ptr noundef %0, ptr noundef %1, i64 nounde
   %120 = fcmp oeq float %119, 1.000000e+00
   br i1 %120, label %.critedge, label %.critedge141
 
-.critedge141:                                     ; preds = %103, %113, %109, %104, %117
+.critedge141:                                     ; preds = %104, %103, %113, %109, %117
   call fastcc void @OGLBlitToSurfaceViaTexture(ptr noundef nonnull %1, ptr noundef %17, ptr noundef nonnull %18, ptr noundef null, i8 noundef zeroext 1, i32 noundef %5, i32 noundef %.0106, i32 noundef %.0107, i32 noundef %.0108, i32 noundef %.0109, double noundef %.0110, double noundef %.0111, double noundef %.0113, double noundef %.0112)
   br label %121
 
@@ -1303,7 +1303,7 @@ define hidden void @flip(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 nou
   br i1 %exitcond.not, label %.loopexit.thread, label %.lr.ph138.split, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %..loopexit135_crit_edge.split.us140.us, %..loopexit135_crit_edge.split.us.us.us.us, %.lr.ph138.split.us, %.thread
-  %.0.lcssa = phi i32 [ 0, %.thread ], [ %19, %.lr.ph138.split.us ], [ %19, %..loopexit135_crit_edge.split.us.us.us.us ], [ %19, %..loopexit135_crit_edge.split.us140.us ]
+  %.0.lcssa = phi i32 [ %19, %..loopexit135_crit_edge.split.us.us.us.us ], [ 0, %.thread ], [ %19, %.lr.ph138.split.us ], [ %19, %..loopexit135_crit_edge.split.us140.us ]
   %.not = icmp eq i8 %4, 0
   %116 = and i32 %2, 1
   %.not127 = icmp eq i32 %116, 0

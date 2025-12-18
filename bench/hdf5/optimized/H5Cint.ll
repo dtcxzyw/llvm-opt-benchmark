@@ -342,7 +342,7 @@ define range(i32 -1, 1) i32 @H5C__auto_adjust_cache_size(ptr noundef %0, i1 noun
   br label %230
 
 160:                                              ; preds = %._crit_edge, %147, %100
-  %.pr = phi i32 [ %.pr.pre, %._crit_edge ], [ %.pr.pre117, %147 ], [ %.pr.pre117, %100 ]
+  %.pr = phi i32 [ %.pr.pre, %._crit_edge ], [ %.pr.pre117, %100 ], [ %.pr.pre117, %147 ]
   %161 = icmp eq i32 %.pr, 2
   br i1 %161, label %164, label %162
 

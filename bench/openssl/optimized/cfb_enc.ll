@@ -551,8 +551,8 @@ define void @DES_cfb_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   br i1 %.not250, label %.loopexit253, label %161, !llvm.loop !12
 
 .loopexit253:                                     ; preds = %.loopexit255, %262, %.preheader256, %.preheader252
-  %.2242 = phi i32 [ %28, %.preheader252 ], [ %28, %.preheader256 ], [ %.4244, %262 ], [ %.1241, %.loopexit255 ]
-  %.2237 = phi i32 [ %40, %.preheader252 ], [ %40, %.preheader256 ], [ %.4239, %262 ], [ %.1236, %.loopexit255 ]
+  %.2242 = phi i32 [ %.4244, %262 ], [ %28, %.preheader252 ], [ %28, %.preheader256 ], [ %.1241, %.loopexit255 ]
+  %.2237 = phi i32 [ %.4239, %262 ], [ %40, %.preheader252 ], [ %40, %.preheader256 ], [ %.1236, %.loopexit255 ]
   store i32 %.2242, ptr %5, align 1
   store i32 %.2237, ptr %24, align 1
   br label %264

@@ -9069,7 +9069,7 @@ return.sink.split:                                ; preds = %do.body27, %do.body
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.then6.i, %if.then.i, %invoke.cont42, %do.body27, %do.body19, %do.body
-  %retval.0 = phi ptr [ null, %do.body ], [ null, %do.body19 ], [ null, %invoke.cont42 ], [ null, %do.body27 ], [ %call43, %if.then.i ], [ %call43, %if.then6.i ], [ null, %return.sink.split ]
+  %retval.0 = phi ptr [ null, %do.body ], [ null, %do.body19 ], [ null, %invoke.cont42 ], [ null, %do.body27 ], [ %call43, %if.then6.i ], [ %call43, %if.then.i ], [ null, %return.sink.split ]
   ret ptr %retval.0
 
 terminate.lpad:                                   ; preds = %if.end5, %if.end46, %invoke.cont39, %invoke.cont35, %cleanup.done, %invoke.cont11, %invoke.cont10, %cond.false, %invoke.cont
@@ -9834,7 +9834,7 @@ return.sink.split:                                ; preds = %invoke.cont57, %inv
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.then6.i, %if.then.i, %invoke.cont94
-  %retval.0 = phi ptr [ null, %invoke.cont94 ], [ %call95, %if.then.i ], [ %call95, %if.then6.i ], [ null, %return.sink.split ]
+  %retval.0 = phi ptr [ %call95, %if.then6.i ], [ null, %invoke.cont94 ], [ %call95, %if.then.i ], [ null, %return.sink.split ]
   ret ptr %retval.0
 
 terminate.lpad:                                   ; preds = %if.end98, %invoke.cont99, %invoke.cont88, %invoke.cont84, %invoke.cont57, %invoke.cont55, %invoke.cont52, %invoke.cont50, %invoke.cont44, %invoke.cont42, %invoke.cont40, %invoke.cont38, %invoke.cont37, %if.then35, %invoke.cont29, %invoke.cont27, %invoke.cont25, %invoke.cont21, %invoke.cont17, %if.then, %lor.lhs.false, %invoke.cont8, %invoke.cont4, %invoke.cont3, %cond.false
@@ -35417,7 +35417,7 @@ for.inc:                                          ; preds = %for.body, %_ZNSt10s
   br i1 %cmp1.not, label %return, label %for.body, !llvm.loop !237
 
 return:                                           ; preds = %for.inc, %sw.bb27.i.i, %for.end.i.i, %_ZSt9__find_ifIPSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS3_27HTTPSessionObserverAccessorENS1_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE8ObserverEEN9__gnu_cxx5__ops10_Iter_predIZZNS1_22ObserverContainerStoreISA_NS1_35ObserverContainerStorePolicyDefaultILj2EEEE21invokeForEachObserverEONS1_8FunctionIFvRSB_EEENS1_26ObserverContainerStoreBaseISA_E26InvokeWhileIteratingPolicyEENKUlvE_clEvEUlRKT_E_EEEST_ST_ST_T0_.exit
-  %retval.0 = phi ptr [ %retval.0.i.i, %_ZSt9__find_ifIPSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS3_27HTTPSessionObserverAccessorENS1_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE8ObserverEEN9__gnu_cxx5__ops10_Iter_predIZZNS1_22ObserverContainerStoreISA_NS1_35ObserverContainerStorePolicyDefaultILj2EEEE21invokeForEachObserverEONS1_8FunctionIFvRSB_EEENS1_26ObserverContainerStoreBaseISA_E26InvokeWhileIteratingPolicyEENKUlvE_clEvEUlRKT_E_EEEST_ST_ST_T0_.exit ], [ %__last, %for.end.i.i ], [ %__last, %sw.bb27.i.i ], [ %__result.1, %for.inc ]
+  %retval.0 = phi ptr [ %retval.0.i.i, %_ZSt9__find_ifIPSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS3_27HTTPSessionObserverAccessorENS1_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE8ObserverEEN9__gnu_cxx5__ops10_Iter_predIZZNS1_22ObserverContainerStoreISA_NS1_35ObserverContainerStorePolicyDefaultILj2EEEE21invokeForEachObserverEONS1_8FunctionIFvRSB_EEENS1_26ObserverContainerStoreBaseISA_E26InvokeWhileIteratingPolicyEENKUlvE_clEvEUlRKT_E_EEEST_ST_ST_T0_.exit ], [ %__last, %sw.bb27.i.i ], [ %__last, %for.end.i.i ], [ %__result.1, %for.inc ]
   ret ptr %retval.0
 }
 
@@ -36624,8 +36624,8 @@ if.end19.i:                                       ; preds = %if.else.i, %while.b
   br i1 %cmp.not.i, label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE11equal_rangeERKm.exit, label %while.body.i, !llvm.loop !245
 
 _ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE11equal_rangeERKm.exit: ; preds = %if.end19.i, %while.body.i23.i, %entry, %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE14_M_lower_boundEPSt13_Rb_tree_nodeImEPSt18_Rb_tree_node_baseRKm.exit.i
-  %retval.sroa.0.0.i = phi ptr [ %__y.addr.0.lcssa.i.i, %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE14_M_lower_boundEPSt13_Rb_tree_nodeImEPSt18_Rb_tree_node_baseRKm.exit.i ], [ %add.ptr.i.i, %entry ], [ %__y.addr.0.lcssa.i.i, %while.body.i23.i ], [ %__y.1.i, %if.end19.i ]
-  %retval.sroa.3.0.i = phi ptr [ %__y.040.i, %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE14_M_lower_boundEPSt13_Rb_tree_nodeImEPSt18_Rb_tree_node_baseRKm.exit.i ], [ %add.ptr.i.i, %entry ], [ %__y.addr.1.i28.i, %while.body.i23.i ], [ %__y.1.i, %if.end19.i ]
+  %retval.sroa.0.0.i = phi ptr [ %__y.addr.0.lcssa.i.i, %while.body.i23.i ], [ %__y.addr.0.lcssa.i.i, %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE14_M_lower_boundEPSt13_Rb_tree_nodeImEPSt18_Rb_tree_node_baseRKm.exit.i ], [ %add.ptr.i.i, %entry ], [ %__y.1.i, %if.end19.i ]
+  %retval.sroa.3.0.i = phi ptr [ %__y.addr.1.i28.i, %while.body.i23.i ], [ %__y.040.i, %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE14_M_lower_boundEPSt13_Rb_tree_nodeImEPSt18_Rb_tree_node_baseRKm.exit.i ], [ %add.ptr.i.i, %entry ], [ %__y.1.i, %if.end19.i ]
   %_M_node_count.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %6 = load i64, ptr %_M_node_count.i, align 8
   %_M_left.i.i1 = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -40447,8 +40447,8 @@ if.then23.i.i:                                    ; preds = %if.end15.i.i
   br label %_ZN5folly3f146detail22ValueContainerIteratorIPKmEppEv.exit
 
 _ZN5folly3f146detail22ValueContainerIteratorIPKmEppEv.exit: ; preds = %while.body.i.i, %for.cond.i.i, %if.then23.i.i
-  %__first.sroa.0.1 = phi ptr [ %arrayidx.i.i.i.i.i, %if.then23.i.i ], [ null, %for.cond.i.i ], [ %incdec.ptr.i.i2, %while.body.i.i ]
-  %__first.sroa.6.3 = phi i64 [ %conv.i.i, %if.then23.i.i ], [ 0, %for.cond.i.i ], [ %dec.i.i, %while.body.i.i ]
+  %__first.sroa.0.1 = phi ptr [ null, %for.cond.i.i ], [ %arrayidx.i.i.i.i.i, %if.then23.i.i ], [ %incdec.ptr.i.i2, %while.body.i.i ]
+  %__first.sroa.6.3 = phi i64 [ 0, %for.cond.i.i ], [ %conv.i.i, %if.then23.i.i ], [ %dec.i.i, %while.body.i.i ]
   %cmp.i.i.i.not = icmp eq ptr %__first.sroa.0.1, %__last.coerce0
   br i1 %cmp.i.i.i.not, label %for.end, label %for.body, !llvm.loop !271
 

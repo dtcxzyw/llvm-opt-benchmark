@@ -2424,7 +2424,7 @@ define dso_local noundef range(i32 0, 2) i32 @__neigh_event_send(ptr noundef %0,
   br label %176
 
 176:                                              ; preds = %165, %93, %89
-  %177 = phi i32 [ 0, %89 ], [ 1, %165 ], [ 1, %93 ]
+  %177 = phi i32 [ 1, %93 ], [ 1, %165 ], [ 0, %89 ]
   br i1 %91, label %.thread12, label %178
 
 178:                                              ; preds = %176
@@ -5763,7 +5763,7 @@ thread-pre-split:                                 ; preds = %thread-pre-splitthr
   br i1 %208, label %.thread37.thread100, label %.lr.ph59
 
 .thread37.thread100:                              ; preds = %184, %.loopexit, %190, %.thread35, %165, %135, %.thread34
-  %209 = phi ptr [ %133, %.thread34 ], [ null, %135 ], [ null, %.thread35 ], [ %155, %165 ], [ null, %190 ], [ %206, %.loopexit ], [ null, %184 ]
+  %209 = phi ptr [ %133, %.thread34 ], [ null, %135 ], [ null, %.thread35 ], [ null, %190 ], [ %155, %165 ], [ null, %184 ], [ %206, %.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %210
 
@@ -6078,7 +6078,7 @@ define dso_local ptr @neigh_seq_next(ptr noundef readonly captures(none) %0, ptr
   br label %.thread, !llvm.loop !132
 
 .thread:                                          ; preds = %163, %173, %95, %98, %102, %188, %167, %.loopexit20, %.thread19, %.loopexit22, %60
-  %189 = phi ptr [ %62, %60 ], [ %1, %.loopexit22 ], [ null, %.thread19 ], [ %138, %.loopexit20 ], [ %182, %188 ], [ null, %167 ], [ null, %173 ], [ %86, %95 ], [ %86, %102 ], [ %86, %98 ], [ %161, %163 ]
+  %189 = phi ptr [ %62, %60 ], [ %1, %.loopexit22 ], [ null, %.thread19 ], [ %138, %.loopexit20 ], [ %182, %188 ], [ null, %167 ], [ %86, %95 ], [ null, %173 ], [ %86, %102 ], [ %86, %98 ], [ %161, %163 ]
   %190 = load i64, ptr %2, align 8
   %191 = add i64 %190, 1
   store i64 %191, ptr %2, align 8
@@ -9199,8 +9199,8 @@ define internal i32 @neigh_dump_info(ptr noundef %0, ptr noundef captures(none) 
   br i1 %433, label %.loopexit44, label %.split, !llvm.loop !171
 
 .loopexit44:                                      ; preds = %.loopexit42.split, %.loopexit42.split.us.split.us87, %.loopexit42.split.us.split.us.us.us, %304
-  %434 = phi i64 [ %306, %304 ], [ 16, %.loopexit42.split.us.split.us87 ], [ 16, %.loopexit42.split.us.split.us.us.us ], [ 16, %.loopexit42.split ]
-  %435 = phi i32 [ %305, %304 ], [ %355, %.loopexit42.split.us.split.us87 ], [ %325, %.loopexit42.split.us.split.us.us.us ], [ %430, %.loopexit42.split ]
+  %434 = phi i64 [ %306, %304 ], [ 16, %.loopexit42.split.us.split.us.us.us ], [ 16, %.loopexit42.split.us.split.us87 ], [ 16, %.loopexit42.split ]
+  %435 = phi i32 [ %305, %304 ], [ %325, %.loopexit42.split.us.split.us.us.us ], [ %355, %.loopexit42.split.us.split.us87 ], [ %430, %.loopexit42.split ]
   call void @_raw_read_unlock_bh(ptr noundef nonnull %311) #21
   %436 = load i32, ptr %122, align 8
   %437 = shl i64 %434, 32
@@ -9217,8 +9217,8 @@ define internal i32 @neigh_dump_info(ptr noundef %0, ptr noundef captures(none) 
   br i1 %443, label %.loopexit45, label %.split116, !llvm.loop !170
 
 .loopexit45.loopexit.critedge:                    ; preds = %.thread36.us117, %.thread36.us.us125.us, %.thread36.us.us.us.us.us
-  %.ph333 = phi i64 [ %192, %.thread36.us.us125.us ], [ %157, %.thread36.us.us.us.us.us ], [ %232, %.thread36.us117 ]
-  %.ph334 = phi i32 [ %207, %.thread36.us.us125.us ], [ %172, %.thread36.us.us.us.us.us ], [ %241, %.thread36.us117 ]
+  %.ph333 = phi i64 [ %157, %.thread36.us.us.us.us.us ], [ %192, %.thread36.us.us125.us ], [ %232, %.thread36.us117 ]
+  %.ph334 = phi i32 [ %172, %.thread36.us.us.us.us.us ], [ %207, %.thread36.us.us125.us ], [ %241, %.thread36.us117 ]
   call void @__rcu_read_unlock() #21
   %444 = shl i64 %.ph333, 32
   %445 = ashr exact i64 %444, 32
@@ -9732,15 +9732,15 @@ define internal i32 @neightbl_dump_info(ptr noundef %0, ptr noundef captures(non
   br label %.thread25
 
 .loopexit:                                        ; preds = %318, %77, %87, %249
-  %.ph = phi i32 [ 0, %249 ], [ %80, %87 ], [ %80, %77 ], [ %319, %318 ]
-  %.ph19 = phi i32 [ 0, %249 ], [ %79, %87 ], [ %79, %77 ], [ 0, %318 ]
+  %.ph = phi i32 [ %80, %77 ], [ 0, %249 ], [ %80, %87 ], [ %319, %318 ]
+  %.ph19 = phi i32 [ %79, %77 ], [ 0, %249 ], [ %79, %87 ], [ 0, %318 ]
   %330 = add nuw nsw i64 %78, 1
   %331 = icmp eq i64 %330, 3
   br i1 %331, label %.thread25, label %77, !llvm.loop !179
 
 .thread25:                                        ; preds = %90, %97, %102, %.loopexit, %273, %280, %285, %322
-  %332 = phi i32 [ %324, %322 ], [ %267, %273 ], [ %267, %285 ], [ %267, %280 ], [ %80, %97 ], [ %80, %90 ], [ %80, %102 ], [ %.ph, %.loopexit ]
-  %333 = phi i64 [ %78, %322 ], [ %78, %273 ], [ %78, %285 ], [ %78, %280 ], [ %78, %97 ], [ %78, %90 ], [ %78, %102 ], [ 3, %.loopexit ]
+  %332 = phi i32 [ %267, %273 ], [ %324, %322 ], [ %267, %285 ], [ %267, %280 ], [ %80, %90 ], [ %80, %102 ], [ %80, %97 ], [ %.ph, %.loopexit ]
+  %333 = phi i64 [ %78, %273 ], [ %78, %322 ], [ %78, %285 ], [ %78, %280 ], [ %78, %90 ], [ %78, %102 ], [ %78, %97 ], [ 3, %.loopexit ]
   store i64 %333, ptr %15, align 8
   %334 = sext i32 %332 to i64
   store i64 %334, ptr %17, align 8

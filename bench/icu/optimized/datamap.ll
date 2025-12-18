@@ -760,7 +760,7 @@ define noundef ptr @_ZNK9RBDataMap14getStringArrayERiPKcR10UErrorCode(ptr nounde
   br i1 %34, label %.lr.ph, label %.loopexit, !llvm.loop !27
 
 .loopexit:                                        ; preds = %.lr.ph, %.loopexit36, %4, %12
-  %.1 = phi ptr [ null, %12 ], [ null, %4 ], [ %26, %.loopexit36 ], [ %26, %.lr.ph ]
+  %.1 = phi ptr [ null, %4 ], [ null, %12 ], [ %26, %.loopexit36 ], [ %26, %.lr.ph ]
   ret ptr %.1
 }
 

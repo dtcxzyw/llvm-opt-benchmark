@@ -358,7 +358,7 @@ define hidden void @_ZN3smt18quantifier_manager25log_justification_to_rootERSoPN
   br i1 %.not27.old.i.i, label %_ZNK14core_hashtableI14obj_hash_entryIN3smt5enodeEE12obj_ptr_hashIS2_E6ptr_eqIS2_EE4findERKPS2_.exit.thread, label %.lr.ph38.i.i.backedge
 
 .lr.ph38.i.i.backedge:                            ; preds = %45, %42
-  %.137.i.i.be = phi ptr [ %.old.i.i, %45 ], [ %44, %42 ]
+  %.137.i.i.be = phi ptr [ %44, %42 ], [ %.old.i.i, %45 ]
   br label %.lr.ph38.i.i, !llvm.loop !34
 
 _ZNK14core_hashtableI14obj_hash_entryIN3smt5enodeEE12obj_ptr_hashIS2_E6ptr_eqIS2_EE9find_coreERKPS2_.exit.i: ; preds = %24, %36
@@ -572,7 +572,7 @@ _ZNK3smt5enode12get_num_argsEv.exit:              ; preds = %47
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %64, !llvm.loop !54
 
-._crit_edge100.critedge:                          ; preds = %47, %_ZNK3smt5enode12get_num_argsEv.exit
+._crit_edge100.critedge:                          ; preds = %_ZNK3smt5enode12get_num_argsEv.exit, %47
   %69 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str, i64 noundef 11)
   %70 = load ptr, ptr %1, align 8, !tbaa !23
   %71 = load i32, ptr %70, align 4, !tbaa !48
@@ -3749,7 +3749,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI10quantifierPN1q1
   br i1 %.not32.old, label %.loopexit, label %.lr.ph48.backedge
 
 .lr.ph48.backedge:                                ; preds = %36, %33
-  %.247.be = phi ptr [ %.old, %36 ], [ %35, %33 ]
+  %.247.be = phi ptr [ %35, %33 ], [ %.old, %36 ]
   br label %.lr.ph48, !llvm.loop !745
 
 .loopexit38:                                      ; preds = %17, %28

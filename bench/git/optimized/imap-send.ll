@@ -1254,7 +1254,7 @@ next_arg.exit.thread.i:                           ; preds = %.thread.i.i
   br i1 %152, label %next_arg.exit136.thread160.i, label %next_arg.exit136.thread.i
 
 next_arg.exit136.thread160.i:                     ; preds = %145, %.thread.i126.i, %.critedge.thread.i122.i
-  %.022.ph.i131.ph.i = phi ptr [ %.056.i123.i, %.critedge.thread.i122.i ], [ %.056.i123.i, %.thread.i126.i ], [ %.promoted44.i119.i, %145 ]
+  %.022.ph.i131.ph.i = phi ptr [ %.056.i123.i, %.thread.i126.i ], [ %.056.i123.i, %.critedge.thread.i122.i ], [ %.promoted44.i119.i, %145 ]
   store ptr null, ptr %6, align 8, !tbaa !72
   br label %next_arg.exit136.thread.i
 
@@ -2349,7 +2349,7 @@ socket_read.exit:                                 ; preds = %37, %socket_perror.
   br label %11
 
 .loopexit:                                        ; preds = %socket_read.exit, %70, %75
-  %.036 = phi i32 [ 0, %75 ], [ 0, %70 ], [ -1, %socket_read.exit ]
+  %.036 = phi i32 [ 0, %70 ], [ 0, %75 ], [ -1, %socket_read.exit ]
   ret i32 %.036
 }
 
@@ -2539,7 +2539,7 @@ define internal fastcc range(i32 0, 3) i32 @parse_response_code(ptr noundef capt
   br i1 %42, label %next_arg.exit.thread118, label %next_arg.exit.thread
 
 next_arg.exit.thread118:                          ; preds = %35, %.thread.i, %.critedge.thread.i
-  %.022.ph.i.ph = phi ptr [ %.056.i, %.critedge.thread.i ], [ %.056.i, %.thread.i ], [ %.promoted44.i, %35 ]
+  %.022.ph.i.ph = phi ptr [ %.056.i, %.thread.i ], [ %.056.i, %.critedge.thread.i ], [ %.promoted44.i, %35 ]
   store ptr null, ptr %6, align 8, !tbaa !72
   br label %next_arg.exit.thread
 
@@ -2632,7 +2632,7 @@ next_arg.exit.thread:                             ; preds = %.thread.i, %.crited
   br i1 %74, label %next_arg.exit81.thread128, label %next_arg.exit81.thread
 
 next_arg.exit81.thread128:                        ; preds = %67, %.thread.i71, %.critedge.thread.i67
-  %.022.ph.i76.ph = phi ptr [ %.056.i68, %.critedge.thread.i67 ], [ %.056.i68, %.thread.i71 ], [ %.promoted44.i64, %67 ]
+  %.022.ph.i76.ph = phi ptr [ %.056.i68, %.thread.i71 ], [ %.056.i68, %.critedge.thread.i67 ], [ %.promoted44.i64, %67 ]
   store ptr null, ptr %6, align 8, !tbaa !72
   br label %next_arg.exit81.thread
 
@@ -2756,7 +2756,7 @@ next_arg.exit81.thread124:                        ; preds = %._crit_edge.i63, %4
   br i1 %116, label %next_arg.exit106.thread140, label %next_arg.exit106.thread
 
 next_arg.exit106.thread140:                       ; preds = %109, %.thread.i96, %.critedge.thread.i92
-  %.022.ph.i101.ph = phi ptr [ %.056.i93, %.critedge.thread.i92 ], [ %.056.i93, %.thread.i96 ], [ %.promoted44.i89, %109 ]
+  %.022.ph.i101.ph = phi ptr [ %.056.i93, %.thread.i96 ], [ %.056.i93, %.critedge.thread.i92 ], [ %.promoted44.i89, %109 ]
   store ptr null, ptr %6, align 8, !tbaa !72
   br label %next_arg.exit106.thread
 
@@ -3320,8 +3320,8 @@ define internal fastcc void @parse_capability(ptr noundef captures(none) initial
   br label %next_arg.exit
 
 next_arg.exit:                                    ; preds = %22, %.thread.i, %.critedge.thread.i, %.critedge.i
-  %.1 = phi ptr [ null, %.critedge.i ], [ %spec.select, %.thread.i ], [ null, %.critedge.thread.i ], [ null, %22 ]
-  %.022.i = phi ptr [ %25, %.critedge.i ], [ %.056.i, %.thread.i ], [ %.056.i, %.critedge.thread.i ], [ %.promoted44.i, %22 ]
+  %.1 = phi ptr [ null, %.critedge.thread.i ], [ null, %.critedge.i ], [ %spec.select, %.thread.i ], [ null, %22 ]
+  %.022.i = phi ptr [ %.056.i, %.critedge.thread.i ], [ %25, %.critedge.i ], [ %.056.i, %.thread.i ], [ %.promoted44.i, %22 ]
   br label %30
 
 30:                                               ; preds = %next_arg.exit, %39
@@ -3664,7 +3664,7 @@ define internal fastcc range(i32 0, 3) i32 @get_cmd_result(ptr noundef %0, ptr n
   br i1 %40, label %next_arg.exit.thread187, label %next_arg.exit.thread
 
 next_arg.exit.thread187:                          ; preds = %33, %.thread.i, %.critedge.thread.i
-  %.022.ph.i.ph = phi ptr [ %.056.i, %.critedge.thread.i ], [ %.056.i, %.thread.i ], [ %.promoted44.i, %33 ]
+  %.022.ph.i.ph = phi ptr [ %.056.i, %.thread.i ], [ %.056.i, %.critedge.thread.i ], [ %.promoted44.i, %33 ]
   store ptr null, ptr %4, align 8, !tbaa !72
   br label %next_arg.exit.thread
 
@@ -3757,7 +3757,7 @@ next_arg.exit.thread:                             ; preds = %.thread.i, %.crited
   br i1 %72, label %next_arg.exit129.thread197, label %next_arg.exit129.thread
 
 next_arg.exit129.thread197:                       ; preds = %65, %.thread.i119, %.critedge.thread.i115
-  %.022.ph.i124.ph = phi ptr [ %.056.i116, %.critedge.thread.i115 ], [ %.056.i116, %.thread.i119 ], [ %.promoted44.i112, %65 ]
+  %.022.ph.i124.ph = phi ptr [ %.056.i116, %.thread.i119 ], [ %.056.i116, %.critedge.thread.i115 ], [ %.promoted44.i112, %65 ]
   store ptr null, ptr %4, align 8, !tbaa !72
   br label %next_arg.exit129.thread
 
@@ -4498,12 +4498,12 @@ define internal fastcc range(i32 -1, 1) i32 @skip_imap_list_l(ptr noundef nonnul
   br label %.loopexit19
 
 .loopexit19:                                      ; preds = %12, %.lr.ph, %44, %37, %..loopexit19_crit_edge, %50
-  %52 = phi ptr [ %.pre58, %..loopexit19_crit_edge ], [ %51, %50 ], [ %.promoted27, %37 ], [ %39, %.lr.ph ], [ %45, %44 ], [ %11, %12 ]
+  %52 = phi ptr [ %.pre58, %..loopexit19_crit_edge ], [ %51, %50 ], [ %39, %.lr.ph ], [ %.promoted27, %37 ], [ %45, %44 ], [ %11, %12 ]
   store ptr %52, ptr %0, align 8, !tbaa !72
   br label %.loopexit18
 
 .loopexit18:                                      ; preds = %.critedge.thread.us, %16, %.preheader17.us, %.preheader17, %47, %.loopexit19
-  %.0 = phi i32 [ 0, %.loopexit19 ], [ -1, %47 ], [ -1, %.preheader17.us ], [ -1, %.preheader17 ], [ -1, %16 ], [ -1, %.critedge.thread.us ]
+  %.0 = phi i32 [ 0, %.loopexit19 ], [ -1, %.preheader17 ], [ -1, %47 ], [ -1, %.preheader17.us ], [ -1, %16 ], [ -1, %.critedge.thread.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

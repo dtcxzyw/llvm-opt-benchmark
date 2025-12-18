@@ -715,8 +715,8 @@ define range(i32 -1, 1) i32 @H5EA__dblock_debug(ptr noundef %0, i64 noundef %1, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %54, %39, %67, %35, %28
-  %.053 = phi ptr [ null, %28 ], [ null, %35 ], [ %33, %67 ], [ %33, %39 ], [ %33, %54 ]
-  %.1 = phi i32 [ -1, %28 ], [ -1, %35 ], [ -1, %67 ], [ 0, %39 ], [ 0, %54 ]
+  %.053 = phi ptr [ %33, %67 ], [ null, %28 ], [ null, %35 ], [ %33, %39 ], [ %33, %54 ]
+  %.1 = phi i32 [ -1, %67 ], [ -1, %28 ], [ -1, %35 ], [ 0, %39 ], [ 0, %54 ]
   %.not62 = icmp eq ptr %.051, null
   br i1 %.not62, label %80, label %71
 

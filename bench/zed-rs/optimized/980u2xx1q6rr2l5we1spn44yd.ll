@@ -26232,8 +26232,8 @@ define hidden void @"_ZN73_$LT$gpui..view..View$LT$T$GT$$u20$as$u20$workspace..i
           to label %60 unwind label %58
 
 .body50:                                          ; preds = %428, %156, %58, %444
-  %.sroa.07.1 = phi i8 [ %.sroa.07.2, %156 ], [ %.sroa.07.3.ph, %444 ], [ %.sroa.07.0, %58 ], [ %.sroa.07.5, %428 ]
-  %.pn28 = phi { ptr, i32 } [ %157, %156 ], [ %.pn25.pn.ph, %444 ], [ %59, %58 ], [ %.pn25, %428 ]
+  %.sroa.07.1 = phi i8 [ %.sroa.07.2, %156 ], [ %.sroa.07.3.ph, %444 ], [ %.sroa.07.5, %428 ], [ %.sroa.07.0, %58 ]
+  %.pn28 = phi { ptr, i32 } [ %157, %156 ], [ %.pn25.pn.ph, %444 ], [ %.pn25, %428 ], [ %59, %58 ]
   %57 = trunc nuw i8 %.sroa.07.1 to i1
   br i1 %57, label %.body50.thread179, label %"_ZN4core3ptr63drop_in_place$LT$gpui..view..WeakView$LT$editor..Editor$GT$$GT$17h8969f1a90033a302E.exit115"
 

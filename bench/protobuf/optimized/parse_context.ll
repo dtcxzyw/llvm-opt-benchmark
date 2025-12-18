@@ -299,7 +299,7 @@ sw.epilog:                                        ; preds = %if.then.i.i.i, %if.
   br i1 %cmp, label %while.body8, label %return, !llvm.loop !8
 
 return:                                           ; preds = %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, %if.end, %lor.lhs.false24, %sw.bb31, %if.end14, %sw.epilog, %for.end.i.i, %if.end12.i.i, %for.cond.i.i, %for.cond.i.i.i, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %for.cond.i.i ], [ false, %for.cond.i.i.i ], [ false, %for.end.i.i ], [ false, %sw.epilog ], [ false, %if.end14 ], [ true, %if.end ], [ false, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ false, %lor.lhs.false24 ], [ true, %sw.bb31 ], [ false, %if.end12.i.i ]
+  %retval.0 = phi i1 [ false, %for.cond.i.i ], [ false, %for.cond.i.i.i ], [ false, %entry ], [ false, %sw.epilog ], [ false, %if.end14 ], [ true, %if.end ], [ false, %for.end.i.i ], [ false, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ false, %lor.lhs.false24 ], [ true, %sw.bb31 ], [ false, %if.end12.i.i ]
   ret i1 %retval.0
 }
 
@@ -2317,7 +2317,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %cmp7.not, label %return, label %while.cond, !llvm.loop !24
 
 return:                                           ; preds = %if.end8.i.i, %if.end5, %for.cond.i.i, %if.then3.i.i, %if.then11.i.i.i, %while.end21.i.i.i, %if.then4
-  %retval.0 = phi ptr [ %retval.0.i.ph, %if.then4 ], [ %spec.select, %if.then3.i.i ], [ null, %if.then11.i.i.i ], [ %5, %while.end21.i.i.i ], [ null, %for.cond.i.i ], [ null, %if.end5 ], [ null, %if.end8.i.i ]
+  %retval.0 = phi ptr [ %retval.0.i.ph, %if.then4 ], [ null, %for.cond.i.i ], [ %5, %while.end21.i.i.i ], [ %spec.select, %if.then3.i.i ], [ null, %if.then11.i.i.i ], [ null, %if.end5 ], [ null, %if.end8.i.i ]
   ret ptr %retval.0
 }
 
@@ -2903,13 +2903,13 @@ _ZZN6google8protobuf8internal12VarintParserIiLb0EEEPKcPvS4_PNS1_12ParseContextEE
   br i1 %cmp.i109, label %while.body.i76, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIiLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit113, !llvm.loop !25
 
 _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIiLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit113: ; preds = %_ZZN6google8protobuf8internal12VarintParserIiLb0EEEPKcPvS4_PNS1_12ParseContextEENKUlmE_clEm.exit.i99, %for.cond.i.i.i.i89, %while.end68
-  %retval.0.i72 = phi ptr [ %ptr.addr.0.lcssa, %while.end68 ], [ null, %for.cond.i.i.i.i89 ], [ %retval.0.i.ph.i97, %_ZZN6google8protobuf8internal12VarintParserIiLb0EEEPKcPvS4_PNS1_12ParseContextEENKUlmE_clEm.exit.i99 ]
+  %retval.0.i72 = phi ptr [ null, %for.cond.i.i.i.i89 ], [ %ptr.addr.0.lcssa, %while.end68 ], [ %retval.0.i.ph.i97, %_ZZN6google8protobuf8internal12VarintParserIiLb0EEEPKcPvS4_PNS1_12ParseContextEENKUlmE_clEm.exit.i99 ]
   %cmp75 = icmp eq ptr %add.ptr71, %retval.0.i72
   %cond = select i1 %cmp75, ptr %retval.0.i72, ptr null
   br label %return
 
 return:                                           ; preds = %if.end46, %for.cond.i.i.i.i, %for.cond.i.i.i.i41, %if.end12.i.i, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread, %for.end.i.i, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIiLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit65, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIiLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit113, %if.end39
-  %retval.0 = phi ptr [ null, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread ], [ %add.ptr45, %if.end39 ], [ null, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIiLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit65 ], [ %cond, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIiLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit113 ], [ null, %for.end.i.i ], [ null, %if.end12.i.i ], [ null, %for.cond.i.i.i.i ], [ null, %for.cond.i.i.i.i41 ], [ null, %if.end46 ]
+  %retval.0 = phi ptr [ null, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread ], [ null, %if.end12.i.i ], [ %add.ptr45, %if.end39 ], [ null, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIiLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit65 ], [ null, %for.cond.i.i.i.i41 ], [ %cond, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIiLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit113 ], [ null, %for.end.i.i ], [ null, %for.cond.i.i.i.i ], [ null, %if.end46 ]
   ret ptr %retval.0
 }
 
@@ -3440,13 +3440,13 @@ _ZZN6google8protobuf8internal12VarintParserIjLb0EEEPKcPvS4_PNS1_12ParseContextEE
   br i1 %cmp.i109, label %while.body.i76, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIjLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit113, !llvm.loop !27
 
 _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIjLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit113: ; preds = %_ZZN6google8protobuf8internal12VarintParserIjLb0EEEPKcPvS4_PNS1_12ParseContextEENKUlmE_clEm.exit.i99, %for.cond.i.i.i.i89, %while.end68
-  %retval.0.i72 = phi ptr [ %ptr.addr.0.lcssa, %while.end68 ], [ null, %for.cond.i.i.i.i89 ], [ %retval.0.i.ph.i97, %_ZZN6google8protobuf8internal12VarintParserIjLb0EEEPKcPvS4_PNS1_12ParseContextEENKUlmE_clEm.exit.i99 ]
+  %retval.0.i72 = phi ptr [ null, %for.cond.i.i.i.i89 ], [ %ptr.addr.0.lcssa, %while.end68 ], [ %retval.0.i.ph.i97, %_ZZN6google8protobuf8internal12VarintParserIjLb0EEEPKcPvS4_PNS1_12ParseContextEENKUlmE_clEm.exit.i99 ]
   %cmp75 = icmp eq ptr %add.ptr71, %retval.0.i72
   %cond = select i1 %cmp75, ptr %retval.0.i72, ptr null
   br label %return
 
 return:                                           ; preds = %if.end46, %for.cond.i.i.i.i, %for.cond.i.i.i.i41, %if.end12.i.i, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread, %for.end.i.i, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIjLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit65, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIjLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit113, %if.end39
-  %retval.0 = phi ptr [ null, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread ], [ %add.ptr45, %if.end39 ], [ null, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIjLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit65 ], [ %cond, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIjLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit113 ], [ null, %for.end.i.i ], [ null, %if.end12.i.i ], [ null, %for.cond.i.i.i.i ], [ null, %for.cond.i.i.i.i41 ], [ null, %if.end46 ]
+  %retval.0 = phi ptr [ null, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread ], [ null, %if.end12.i.i ], [ %add.ptr45, %if.end39 ], [ null, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIjLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit65 ], [ null, %for.cond.i.i.i.i41 ], [ %cond, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIjLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit113 ], [ null, %for.end.i.i ], [ null, %for.cond.i.i.i.i ], [ null, %if.end46 ]
   ret ptr %retval.0
 }
 
@@ -3946,13 +3946,13 @@ _ZZN6google8protobuf8internal12VarintParserIlLb0EEEPKcPvS4_PNS1_12ParseContextEE
   br i1 %cmp.i106, label %while.body.i74, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIlLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit110, !llvm.loop !29
 
 _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIlLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit110: ; preds = %_ZZN6google8protobuf8internal12VarintParserIlLb0EEEPKcPvS4_PNS1_12ParseContextEENKUlmE_clEm.exit.i97, %for.cond.i.i.i.i87, %while.end68
-  %retval.0.i70 = phi ptr [ %ptr.addr.0.lcssa, %while.end68 ], [ null, %for.cond.i.i.i.i87 ], [ %retval.0.i.ph.i95, %_ZZN6google8protobuf8internal12VarintParserIlLb0EEEPKcPvS4_PNS1_12ParseContextEENKUlmE_clEm.exit.i97 ]
+  %retval.0.i70 = phi ptr [ null, %for.cond.i.i.i.i87 ], [ %ptr.addr.0.lcssa, %while.end68 ], [ %retval.0.i.ph.i95, %_ZZN6google8protobuf8internal12VarintParserIlLb0EEEPKcPvS4_PNS1_12ParseContextEENKUlmE_clEm.exit.i97 ]
   %cmp75 = icmp eq ptr %add.ptr71, %retval.0.i70
   %cond = select i1 %cmp75, ptr %retval.0.i70, ptr null
   br label %return
 
 return:                                           ; preds = %if.end46, %for.cond.i.i.i.i, %for.cond.i.i.i.i40, %if.end12.i.i, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread, %for.end.i.i, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIlLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit63, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIlLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit110, %if.end39
-  %retval.0 = phi ptr [ null, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread ], [ %add.ptr45, %if.end39 ], [ null, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIlLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit63 ], [ %cond, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIlLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit110 ], [ null, %for.end.i.i ], [ null, %if.end12.i.i ], [ null, %for.cond.i.i.i.i ], [ null, %for.cond.i.i.i.i40 ], [ null, %if.end46 ]
+  %retval.0 = phi ptr [ null, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread ], [ null, %if.end12.i.i ], [ %add.ptr45, %if.end39 ], [ null, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIlLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit63 ], [ null, %for.cond.i.i.i.i40 ], [ %cond, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIlLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit110 ], [ null, %for.end.i.i ], [ null, %for.cond.i.i.i.i ], [ null, %if.end46 ]
   ret ptr %retval.0
 }
 
@@ -4451,13 +4451,13 @@ _ZZN6google8protobuf8internal12VarintParserImLb0EEEPKcPvS4_PNS1_12ParseContextEE
   br i1 %cmp.i106, label %while.body.i74, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserImLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit110, !llvm.loop !31
 
 _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserImLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit110: ; preds = %_ZZN6google8protobuf8internal12VarintParserImLb0EEEPKcPvS4_PNS1_12ParseContextEENKUlmE_clEm.exit.i97, %for.cond.i.i.i.i87, %while.end68
-  %retval.0.i70 = phi ptr [ %ptr.addr.0.lcssa, %while.end68 ], [ null, %for.cond.i.i.i.i87 ], [ %retval.0.i.ph.i95, %_ZZN6google8protobuf8internal12VarintParserImLb0EEEPKcPvS4_PNS1_12ParseContextEENKUlmE_clEm.exit.i97 ]
+  %retval.0.i70 = phi ptr [ null, %for.cond.i.i.i.i87 ], [ %ptr.addr.0.lcssa, %while.end68 ], [ %retval.0.i.ph.i95, %_ZZN6google8protobuf8internal12VarintParserImLb0EEEPKcPvS4_PNS1_12ParseContextEENKUlmE_clEm.exit.i97 ]
   %cmp75 = icmp eq ptr %add.ptr71, %retval.0.i70
   %cond = select i1 %cmp75, ptr %retval.0.i70, ptr null
   br label %return
 
 return:                                           ; preds = %if.end46, %for.cond.i.i.i.i, %for.cond.i.i.i.i40, %if.end12.i.i, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread, %for.end.i.i, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserImLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit63, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserImLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit110, %if.end39
-  %retval.0 = phi ptr [ null, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread ], [ %add.ptr45, %if.end39 ], [ null, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserImLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit63 ], [ %cond, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserImLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit110 ], [ null, %for.end.i.i ], [ null, %if.end12.i.i ], [ null, %for.cond.i.i.i.i ], [ null, %for.cond.i.i.i.i40 ], [ null, %if.end46 ]
+  %retval.0 = phi ptr [ null, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread ], [ null, %if.end12.i.i ], [ %add.ptr45, %if.end39 ], [ null, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserImLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit63 ], [ null, %for.cond.i.i.i.i40 ], [ %cond, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserImLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit110 ], [ null, %for.end.i.i ], [ null, %for.cond.i.i.i.i ], [ null, %if.end46 ]
   ret ptr %retval.0
 }
 
@@ -4971,13 +4971,13 @@ _ZZN6google8protobuf8internal12VarintParserIiLb1EEEPKcPvS4_PNS1_12ParseContextEE
   br i1 %cmp.i117, label %while.body.i80, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIiLb1EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit121, !llvm.loop !33
 
 _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIiLb1EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit121: ; preds = %_ZZN6google8protobuf8internal12VarintParserIiLb1EEEPKcPvS4_PNS1_12ParseContextEENKUlmE_clEm.exit.i103, %for.cond.i.i.i.i93, %while.end68
-  %retval.0.i76 = phi ptr [ %ptr.addr.0.lcssa, %while.end68 ], [ null, %for.cond.i.i.i.i93 ], [ %retval.0.i.ph.i101, %_ZZN6google8protobuf8internal12VarintParserIiLb1EEEPKcPvS4_PNS1_12ParseContextEENKUlmE_clEm.exit.i103 ]
+  %retval.0.i76 = phi ptr [ null, %for.cond.i.i.i.i93 ], [ %ptr.addr.0.lcssa, %while.end68 ], [ %retval.0.i.ph.i101, %_ZZN6google8protobuf8internal12VarintParserIiLb1EEEPKcPvS4_PNS1_12ParseContextEENKUlmE_clEm.exit.i103 ]
   %cmp75 = icmp eq ptr %add.ptr71, %retval.0.i76
   %cond = select i1 %cmp75, ptr %retval.0.i76, ptr null
   br label %return
 
 return:                                           ; preds = %if.end46, %for.cond.i.i.i.i, %for.cond.i.i.i.i41, %if.end12.i.i, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread, %for.end.i.i, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIiLb1EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit69, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIiLb1EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit121, %if.end39
-  %retval.0 = phi ptr [ null, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread ], [ %add.ptr45, %if.end39 ], [ null, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIiLb1EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit69 ], [ %cond, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIiLb1EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit121 ], [ null, %for.end.i.i ], [ null, %if.end12.i.i ], [ null, %for.cond.i.i.i.i ], [ null, %for.cond.i.i.i.i41 ], [ null, %if.end46 ]
+  %retval.0 = phi ptr [ null, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread ], [ null, %if.end12.i.i ], [ %add.ptr45, %if.end39 ], [ null, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIiLb1EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit69 ], [ null, %for.cond.i.i.i.i41 ], [ %cond, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIiLb1EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit121 ], [ null, %for.end.i.i ], [ null, %for.cond.i.i.i.i ], [ null, %if.end46 ]
   ret ptr %retval.0
 }
 
@@ -5344,13 +5344,13 @@ _ZZN6google8protobuf8internal12VarintParserIlLb1EEEPKcPvS4_PNS1_12ParseContextEE
   br i1 %cmp.i114, label %while.body.i78, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIlLb1EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit118, !llvm.loop !35
 
 _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIlLb1EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit118: ; preds = %_ZZN6google8protobuf8internal12VarintParserIlLb1EEEPKcPvS4_PNS1_12ParseContextEENKUlmE_clEm.exit.i101, %for.cond.i.i.i.i91, %while.end68
-  %retval.0.i74 = phi ptr [ %ptr.addr.0.lcssa, %while.end68 ], [ null, %for.cond.i.i.i.i91 ], [ %retval.0.i.ph.i99, %_ZZN6google8protobuf8internal12VarintParserIlLb1EEEPKcPvS4_PNS1_12ParseContextEENKUlmE_clEm.exit.i101 ]
+  %retval.0.i74 = phi ptr [ null, %for.cond.i.i.i.i91 ], [ %ptr.addr.0.lcssa, %while.end68 ], [ %retval.0.i.ph.i99, %_ZZN6google8protobuf8internal12VarintParserIlLb1EEEPKcPvS4_PNS1_12ParseContextEENKUlmE_clEm.exit.i101 ]
   %cmp75 = icmp eq ptr %add.ptr71, %retval.0.i74
   %cond = select i1 %cmp75, ptr %retval.0.i74, ptr null
   br label %return
 
 return:                                           ; preds = %if.end46, %for.cond.i.i.i.i, %for.cond.i.i.i.i40, %if.end12.i.i, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread, %for.end.i.i, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIlLb1EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit67, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIlLb1EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit118, %if.end39
-  %retval.0 = phi ptr [ null, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread ], [ %add.ptr45, %if.end39 ], [ null, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIlLb1EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit67 ], [ %cond, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIlLb1EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit118 ], [ null, %for.end.i.i ], [ null, %if.end12.i.i ], [ null, %for.cond.i.i.i.i ], [ null, %for.cond.i.i.i.i40 ], [ null, %if.end46 ]
+  %retval.0 = phi ptr [ null, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread ], [ null, %if.end12.i.i ], [ %add.ptr45, %if.end39 ], [ null, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIlLb1EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit67 ], [ null, %for.cond.i.i.i.i40 ], [ %cond, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIlLb1EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit118 ], [ null, %for.end.i.i ], [ null, %for.cond.i.i.i.i ], [ null, %if.end46 ]
   ret ptr %retval.0
 }
 
@@ -5711,13 +5711,13 @@ _ZZN6google8protobuf8internal12VarintParserIbLb0EEEPKcPvS4_PNS1_12ParseContextEE
   br i1 %cmp.i110, label %while.body.i76, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIbLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit114, !llvm.loop !37
 
 _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIbLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit114: ; preds = %_ZZN6google8protobuf8internal12VarintParserIbLb0EEEPKcPvS4_PNS1_12ParseContextEENKUlmE_clEm.exit.i99, %for.cond.i.i.i.i89, %while.end68
-  %retval.0.i72 = phi ptr [ %ptr.addr.0.lcssa, %while.end68 ], [ null, %for.cond.i.i.i.i89 ], [ %retval.0.i.ph.i97, %_ZZN6google8protobuf8internal12VarintParserIbLb0EEEPKcPvS4_PNS1_12ParseContextEENKUlmE_clEm.exit.i99 ]
+  %retval.0.i72 = phi ptr [ null, %for.cond.i.i.i.i89 ], [ %ptr.addr.0.lcssa, %while.end68 ], [ %retval.0.i.ph.i97, %_ZZN6google8protobuf8internal12VarintParserIbLb0EEEPKcPvS4_PNS1_12ParseContextEENKUlmE_clEm.exit.i99 ]
   %cmp75 = icmp eq ptr %add.ptr71, %retval.0.i72
   %cond = select i1 %cmp75, ptr %retval.0.i72, ptr null
   br label %return
 
 return:                                           ; preds = %if.end46, %for.cond.i.i.i.i, %for.cond.i.i.i.i40, %if.end12.i.i, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread, %for.end.i.i, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIbLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit65, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIbLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit114, %if.end39
-  %retval.0 = phi ptr [ null, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread ], [ %add.ptr45, %if.end39 ], [ null, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIbLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit65 ], [ %cond, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIbLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit114 ], [ null, %for.end.i.i ], [ null, %if.end12.i.i ], [ null, %for.cond.i.i.i.i ], [ null, %for.cond.i.i.i.i40 ], [ null, %if.end46 ]
+  %retval.0 = phi ptr [ null, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread ], [ null, %if.end12.i.i ], [ %add.ptr45, %if.end39 ], [ null, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIbLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit65 ], [ null, %for.cond.i.i.i.i40 ], [ %cond, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIbLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit114 ], [ null, %for.end.i.i ], [ null, %for.cond.i.i.i.i ], [ null, %if.end46 ]
   ret ptr %retval.0
 }
 
@@ -6035,7 +6035,7 @@ cleanup.done:                                     ; preds = %_ZN6google8protobuf
   br label %return
 
 return:                                           ; preds = %_ZN6google8protobuf13RepeatedFieldIjE7ReserveEi.exit, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread, %cleanup.done, %entry, %if.then33
-  %retval.0 = phi ptr [ null, %entry ], [ %cond, %if.then33 ], [ null, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread ], [ %spec.select, %cleanup.done ], [ null, %_ZN6google8protobuf13RepeatedFieldIjE7ReserveEi.exit ]
+  %retval.0 = phi ptr [ null, %entry ], [ %spec.select, %cleanup.done ], [ %cond, %if.then33 ], [ null, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread ], [ null, %_ZN6google8protobuf13RepeatedFieldIjE7ReserveEi.exit ]
   ret ptr %retval.0
 }
 
@@ -6248,7 +6248,7 @@ cleanup.done:                                     ; preds = %_ZN6google8protobuf
   br label %return
 
 return:                                           ; preds = %_ZN6google8protobuf13RepeatedFieldIiE7ReserveEi.exit, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread, %cleanup.done, %entry, %if.then33
-  %retval.0 = phi ptr [ null, %entry ], [ %cond, %if.then33 ], [ null, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread ], [ %spec.select, %cleanup.done ], [ null, %_ZN6google8protobuf13RepeatedFieldIiE7ReserveEi.exit ]
+  %retval.0 = phi ptr [ null, %entry ], [ %spec.select, %cleanup.done ], [ %cond, %if.then33 ], [ null, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread ], [ null, %_ZN6google8protobuf13RepeatedFieldIiE7ReserveEi.exit ]
   ret ptr %retval.0
 }
 
@@ -6450,7 +6450,7 @@ cleanup.done:                                     ; preds = %_ZN6google8protobuf
   br label %return
 
 return:                                           ; preds = %_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread, %cleanup.done, %entry, %if.then33
-  %retval.0 = phi ptr [ null, %entry ], [ %cond, %if.then33 ], [ null, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread ], [ %spec.select, %cleanup.done ], [ null, %_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit ]
+  %retval.0 = phi ptr [ null, %entry ], [ %spec.select, %cleanup.done ], [ %cond, %if.then33 ], [ null, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread ], [ null, %_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit ]
   ret ptr %retval.0
 }
 
@@ -6652,7 +6652,7 @@ cleanup.done:                                     ; preds = %_ZN6google8protobuf
   br label %return
 
 return:                                           ; preds = %_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread, %cleanup.done, %entry, %if.then33
-  %retval.0 = phi ptr [ null, %entry ], [ %cond, %if.then33 ], [ null, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread ], [ %spec.select, %cleanup.done ], [ null, %_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit ]
+  %retval.0 = phi ptr [ null, %entry ], [ %spec.select, %cleanup.done ], [ %cond, %if.then33 ], [ null, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread ], [ null, %_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit ]
   ret ptr %retval.0
 }
 
@@ -6854,7 +6854,7 @@ cleanup.done:                                     ; preds = %_ZN6google8protobuf
   br label %return
 
 return:                                           ; preds = %_ZN6google8protobuf13RepeatedFieldIfE7ReserveEi.exit, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread, %cleanup.done, %entry, %if.then33
-  %retval.0 = phi ptr [ null, %entry ], [ %cond, %if.then33 ], [ null, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread ], [ %spec.select, %cleanup.done ], [ null, %_ZN6google8protobuf13RepeatedFieldIfE7ReserveEi.exit ]
+  %retval.0 = phi ptr [ null, %entry ], [ %spec.select, %cleanup.done ], [ %cond, %if.then33 ], [ null, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread ], [ null, %_ZN6google8protobuf13RepeatedFieldIfE7ReserveEi.exit ]
   ret ptr %retval.0
 }
 
@@ -7201,7 +7201,7 @@ cleanup.done:                                     ; preds = %_ZN6google8protobuf
   br label %return
 
 return:                                           ; preds = %_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread, %cleanup.done, %entry, %if.then33
-  %retval.0 = phi ptr [ null, %entry ], [ %cond, %if.then33 ], [ null, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread ], [ %spec.select, %cleanup.done ], [ null, %_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit ]
+  %retval.0 = phi ptr [ null, %entry ], [ %spec.select, %cleanup.done ], [ %cond, %if.then33 ], [ null, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread ], [ null, %_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit ]
   ret ptr %retval.0
 }
 
@@ -7563,7 +7563,7 @@ if.end.i29:                                       ; preds = %_ZN6google8protobuf
   br label %return
 
 return:                                           ; preds = %if.end.i.i.i, %do.body.i.i.i, %if.end12.i.i, %if.end.i29, %if.then.i27, %do.end.i.i.i, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread.i.i.i, %if.then.i7, %for.end.i.i
-  %retval.0 = phi ptr [ %call4.i, %if.end.i29 ], [ null, %for.end.i.i ], [ %add.ptr2.i, %if.then.i7 ], [ %add.ptr18.i.i.i, %do.end.i.i.i ], [ null, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread.i.i.i ], [ %add.ptr3.i, %if.then.i27 ], [ null, %if.end12.i.i ], [ null, %do.body.i.i.i ], [ null, %if.end.i.i.i ]
+  %retval.0 = phi ptr [ %call4.i, %if.end.i29 ], [ null, %if.end12.i.i ], [ null, %for.end.i.i ], [ %add.ptr2.i, %if.then.i7 ], [ %add.ptr18.i.i.i, %do.end.i.i.i ], [ null, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread.i.i.i ], [ %add.ptr3.i, %if.then.i27 ], [ null, %do.body.i.i.i ], [ null, %if.end.i.i.i ]
   ret ptr %retval.0
 }
 

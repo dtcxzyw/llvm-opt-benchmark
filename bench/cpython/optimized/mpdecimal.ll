@@ -1425,7 +1425,7 @@ define hidden i64 @mpd_trail_zeros(ptr noundef readonly captures(none) %0) local
   br i1 %exitcond.not, label %.loopexit, label %7, !llvm.loop !27
 
 .loopexit:                                        ; preds = %18, %.lr.ph19, %1, %10
-  %.0 = phi i64 [ %11, %10 ], [ 0, %1 ], [ %15, %.lr.ph19 ], [ 0, %18 ]
+  %.0 = phi i64 [ 0, %1 ], [ %11, %10 ], [ %15, %.lr.ph19 ], [ 0, %18 ]
   ret i64 %.0
 }
 
@@ -1479,7 +1479,7 @@ define hidden range(i32 0, 2) i32 @mpd_isinteger(ptr noundef readonly captures(n
   br i1 %exitcond.not.i.i, label %mpd_trail_zeros.exit.i, label %.lr.ph.i.i, !llvm.loop !27
 
 mpd_trail_zeros.exit.i:                           ; preds = %24, %.lr.ph19.i.i, %16, %12
-  %.0.i.i = phi i64 [ %17, %16 ], [ 0, %12 ], [ %21, %.lr.ph19.i.i ], [ 0, %24 ]
+  %.0.i.i = phi i64 [ 0, %12 ], [ %17, %16 ], [ %21, %.lr.ph19.i.i ], [ 0, %24 ]
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load i64, ptr %26, align 8, !tbaa !7
   %28 = add i64 %27, %.0.i.i
@@ -1536,7 +1536,7 @@ define internal fastcc range(i32 0, 2) i32 @_mpd_isint(ptr noundef readonly capt
   br i1 %exitcond.not.i, label %mpd_trail_zeros.exit, label %.lr.ph.i, !llvm.loop !27
 
 mpd_trail_zeros.exit:                             ; preds = %21, %.lr.ph19.i, %9, %13
-  %.0.i = phi i64 [ %14, %13 ], [ 0, %9 ], [ %18, %.lr.ph19.i ], [ 0, %21 ]
+  %.0.i = phi i64 [ 0, %9 ], [ %14, %13 ], [ %18, %.lr.ph19.i ], [ 0, %21 ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load i64, ptr %23, align 8, !tbaa !7
   %25 = add i64 %24, %.0.i
@@ -2912,7 +2912,7 @@ _mpd_get_msdigits.exit.thread:                    ; preds = %33, %27
   br label %57
 
 57:                                               ; preds = %.sink.split, %_mpd_get_msdigits.exit.thread, %51, %mpd_iszero.exit
-  %.0 = phi i64 [ 0, %mpd_iszero.exit ], [ %umul.value56, %51 ], [ %.148, %_mpd_get_msdigits.exit.thread ], [ -1, %.sink.split ]
+  %.0 = phi i64 [ %.148, %_mpd_get_msdigits.exit.thread ], [ %umul.value56, %51 ], [ 0, %mpd_iszero.exit ], [ -1, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.0
@@ -15301,7 +15301,7 @@ mpd_qresize.exit59:                               ; preds = %219, %221
   br label %265
 
 265:                                              ; preds = %249, %263, %261
-  %.042 = phi ptr [ %264, %263 ], [ %254, %249 ], [ %262, %261 ]
+  %.042 = phi ptr [ %264, %263 ], [ %262, %261 ], [ %254, %249 ]
   %266 = icmp eq ptr %.042, null
   br i1 %266, label %.thread82, label %.thread
 
@@ -20857,7 +20857,7 @@ define hidden void @mpd_qpow(ptr noundef %0, ptr noundef readonly captures(addre
   br i1 %exitcond.not.i.i.i, label %mpd_isinteger.exit, label %.lr.ph.i.i.i, !llvm.loop !27
 
 mpd_isinteger.exit:                               ; preds = %40, %.lr.ph19.i.i.i, %28, %32
-  %.0.i.i.i = phi i64 [ %33, %32 ], [ 0, %28 ], [ %37, %.lr.ph19.i.i.i ], [ 0, %40 ]
+  %.0.i.i.i = phi i64 [ 0, %28 ], [ %33, %32 ], [ %37, %.lr.ph19.i.i.i ], [ 0, %40 ]
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %43 = load i64, ptr %42, align 8, !tbaa !7
   %44 = add i64 %43, %.0.i.i.i
@@ -21418,7 +21418,7 @@ _mpd_cmp_abs.exit.thread42:                       ; preds = %.preheader, %6, %_m
   br i1 %exitcond.not.i.i, label %_mpd_isint.exit, label %.lr.ph.i.i, !llvm.loop !27
 
 _mpd_isint.exit:                                  ; preds = %70, %.lr.ph19.i.i, %58, %62
-  %.0.i.i = phi i64 [ %63, %62 ], [ 0, %58 ], [ %67, %.lr.ph19.i.i ], [ 0, %70 ]
+  %.0.i.i = phi i64 [ 0, %58 ], [ %63, %62 ], [ %67, %.lr.ph19.i.i ], [ 0, %70 ]
   %72 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %73 = load i64, ptr %72, align 8, !tbaa !7
   %74 = add i64 %73, %.0.i.i
@@ -22678,7 +22678,7 @@ mpd_iszero.exit.thread.thread.i:                  ; preds = %mpd_iszero.exit.thr
   br label %mpd_isodd.exit.i
 
 mpd_isodd.exit.i:                                 ; preds = %227, %216
-  %.0.i30.in.in.i = phi i64 [ %224, %216 ], [ %228, %227 ]
+  %.0.i30.in.in.i = phi i64 [ %228, %227 ], [ %224, %216 ]
   %.0.i3036.i = and i64 %.0.i30.in.in.i, 1
   %.not22.i = icmp eq i64 %.0.i3036.i, 0
   br i1 %.not22.i, label %mpd_isodd.exit.thread.i, label %229
@@ -23333,7 +23333,7 @@ mpd_seterror.exit:                                ; preds = %111, %114, %126
   br i1 %exitcond.not.i.i, label %_mpd_isint.exit, label %.lr.ph.i.i, !llvm.loop !27
 
 _mpd_isint.exit:                                  ; preds = %153, %.lr.ph19.i.i, %141, %145
-  %.0.i.i = phi i64 [ %146, %145 ], [ 0, %141 ], [ %150, %.lr.ph19.i.i ], [ 0, %153 ]
+  %.0.i.i = phi i64 [ 0, %141 ], [ %146, %145 ], [ %150, %.lr.ph19.i.i ], [ 0, %153 ]
   %155 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %156 = load i64, ptr %155, align 8, !tbaa !7
   %157 = add i64 %156, %.0.i.i
@@ -23383,7 +23383,7 @@ _mpd_isint.exit.thread:                           ; preds = %133, %_mpd_isint.ex
   br i1 %exitcond.not.i.i133, label %_mpd_isint.exit134, label %.lr.ph.i.i127, !llvm.loop !27
 
 _mpd_isint.exit134:                               ; preds = %178, %.lr.ph19.i.i130, %166, %170
-  %.0.i.i125 = phi i64 [ %171, %170 ], [ 0, %166 ], [ %175, %.lr.ph19.i.i130 ], [ 0, %178 ]
+  %.0.i.i125 = phi i64 [ 0, %166 ], [ %171, %170 ], [ %175, %.lr.ph19.i.i130 ], [ 0, %178 ]
   %180 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %181 = load i64, ptr %180, align 8, !tbaa !7
   %182 = add i64 %181, %.0.i.i125
@@ -23433,7 +23433,7 @@ _mpd_isint.exit134.thread:                        ; preds = %_mpd_isint.exit.thr
   br i1 %exitcond.not.i.i145, label %_mpd_isint.exit146, label %.lr.ph.i.i139, !llvm.loop !27
 
 _mpd_isint.exit146:                               ; preds = %203, %.lr.ph19.i.i142, %191, %195
-  %.0.i.i137 = phi i64 [ %196, %195 ], [ 0, %191 ], [ %200, %.lr.ph19.i.i142 ], [ 0, %203 ]
+  %.0.i.i137 = phi i64 [ 0, %191 ], [ %196, %195 ], [ %200, %.lr.ph19.i.i142 ], [ 0, %203 ]
   %205 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %206 = load i64, ptr %205, align 8, !tbaa !7
   %207 = add i64 %206, %.0.i.i137
@@ -25150,7 +25150,7 @@ mpd_iszero.exit:                                  ; preds = %83
   br i1 %exitcond.not.i, label %mpd_trail_zeros.exit, label %.lr.ph.i, !llvm.loop !27
 
 mpd_trail_zeros.exit:                             ; preds = %106, %.lr.ph19.i, %94, %98
-  %.0.i49 = phi i64 [ %99, %98 ], [ 0, %94 ], [ %103, %.lr.ph19.i ], [ 0, %106 ]
+  %.0.i49 = phi i64 [ 0, %94 ], [ %99, %98 ], [ %103, %.lr.ph19.i ], [ 0, %106 ]
   %108 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %109 = load i32, ptr %108, align 8, !tbaa !28
   %.not35 = icmp eq i32 %109, 0
@@ -27358,7 +27358,7 @@ mpd_qsub.exit.i:                                  ; preds = %414, %_mpd_qaddsub_
   br i1 %exitcond.not.i.i, label %mpd_trail_zeros.exit.i, label %423, !llvm.loop !27
 
 mpd_trail_zeros.exit.i:                           ; preds = %434, %.lr.ph19.i.i, %426, %._crit_edge.i
-  %.0.i106.i = phi i64 [ %427, %426 ], [ 0, %._crit_edge.i ], [ %431, %.lr.ph19.i.i ], [ 0, %434 ]
+  %.0.i106.i = phi i64 [ 0, %._crit_edge.i ], [ %427, %426 ], [ %431, %.lr.ph19.i.i ], [ 0, %434 ]
   %436 = sub i64 %147, %419
   %437 = call i64 @llvm.smin.i64(i64 %.0.i106.i, i64 %436)
   %438 = icmp sgt i64 %437, 0
@@ -28412,7 +28412,7 @@ define hidden i64 @mpd_qexport_u16(ptr noundef captures(none) %0, i64 noundef %1
   br i1 %exitcond.not.i.i, label %_mpd_isint.exit, label %.lr.ph.i.i, !llvm.loop !27
 
 _mpd_isint.exit:                                  ; preds = %35, %.lr.ph19.i.i, %23, %27
-  %.0.i.i = phi i64 [ %28, %27 ], [ 0, %23 ], [ %32, %.lr.ph19.i.i ], [ 0, %35 ]
+  %.0.i.i = phi i64 [ 0, %23 ], [ %28, %27 ], [ %32, %.lr.ph19.i.i ], [ 0, %35 ]
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %38 = load i64, ptr %37, align 8, !tbaa !7
   %39 = add i64 %38, %.0.i.i
@@ -28684,7 +28684,7 @@ define hidden i64 @mpd_qexport_u32(ptr noundef captures(none) %0, i64 noundef %1
   br i1 %exitcond.not.i.i, label %_mpd_isint.exit, label %.lr.ph.i.i, !llvm.loop !27
 
 _mpd_isint.exit:                                  ; preds = %35, %.lr.ph19.i.i, %23, %27
-  %.0.i.i = phi i64 [ %28, %27 ], [ 0, %23 ], [ %32, %.lr.ph19.i.i ], [ 0, %35 ]
+  %.0.i.i = phi i64 [ 0, %23 ], [ %28, %27 ], [ %32, %.lr.ph19.i.i ], [ 0, %35 ]
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %38 = load i64, ptr %37, align 8, !tbaa !7
   %39 = add i64 %38, %.0.i.i

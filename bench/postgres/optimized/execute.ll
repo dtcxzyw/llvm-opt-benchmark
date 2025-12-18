@@ -973,7 +973,7 @@ ecpg_is_type_an_array.exit.thread:                ; preds = %310, %350, %12, %15
   br i1 %exitcond.not, label %.loopexit184, label %.lr.ph, !llvm.loop !7
 
 .loopexit184:                                     ; preds = %.lr.ph, %.preheader183, %464, %470, %._crit_edge, %._crit_edge193
-  %.1156 = phi i32 [ %474, %470 ], [ %463, %._crit_edge ], [ %445, %._crit_edge193 ], [ %469, %464 ], [ 0, %.preheader183 ], [ %476, %.lr.ph ]
+  %.1156 = phi i32 [ %469, %464 ], [ %474, %470 ], [ %463, %._crit_edge ], [ %445, %._crit_edge193 ], [ 0, %.preheader183 ], [ %476, %.lr.ph ]
   %478 = load i32, ptr %2, align 8
   tail call void (ptr, ...) @ecpg_log(ptr noundef nonnull @.str.4, i32 noundef %478, i32 noundef %5) #14
   %479 = sext i32 %.1156 to i64
@@ -3617,7 +3617,7 @@ ecpg_free_params.exit292:                         ; preds = %print_param_value.e
   br label %.critedge258
 
 .critedge258:                                     ; preds = %.thread313, %392
-  %.1189 = phi ptr [ %.0188360, %.thread313 ], [ %394, %392 ]
+  %.1189 = phi ptr [ %394, %392 ], [ %.0188360, %.thread313 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not241 = icmp eq ptr %.1189, null
   br i1 %.not241, label %._crit_edge, label %61, !llvm.loop !29

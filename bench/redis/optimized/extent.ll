@@ -2580,8 +2580,8 @@ extent_coalesce.exit51:                           ; preds = %26
   br i1 %34, label %.sink.split, label %35
 
 .sink.split:                                      ; preds = %extent_coalesce.exit51, %extent_coalesce.exit, %.loopexit60
-  %.sink = phi i8 [ 0, %.loopexit60 ], [ 1, %extent_coalesce.exit ], [ 1, %extent_coalesce.exit51 ]
-  %.3.ph = phi ptr [ %.137.ph59, %.loopexit60 ], [ %.036.ph, %extent_coalesce.exit ], [ %25, %extent_coalesce.exit51 ]
+  %.sink = phi i8 [ 1, %extent_coalesce.exit ], [ 0, %.loopexit60 ], [ 1, %extent_coalesce.exit51 ]
+  %.3.ph = phi ptr [ %.036.ph, %extent_coalesce.exit ], [ %.137.ph59, %.loopexit60 ], [ %25, %extent_coalesce.exit51 ]
   store i8 %.sink, ptr %5, align 1, !tbaa !4
   br label %35
 

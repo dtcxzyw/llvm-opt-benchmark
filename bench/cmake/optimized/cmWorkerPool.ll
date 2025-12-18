@@ -3985,7 +3985,7 @@ _ZNSt5dequeISt10unique_ptrIN12cmWorkerPool4JobTESt14default_deleteIS2_EESaIS5_EE
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke, %63
-  %.sroa.0.5.ph.ph = phi ptr [ null, %.invoke ], [ %41, %63 ]
+  %.sroa.0.5.ph.ph = phi ptr [ %41, %63 ], [ null, %.invoke ]
   %lpad.loopexit.split-lp43 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp

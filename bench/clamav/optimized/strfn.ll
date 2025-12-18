@@ -1086,7 +1086,7 @@ define noundef ptr @_Z11GetCmdParamPKwPwm(ptr noundef readonly captures(ret: add
   br label %.loopexit
 
 .loopexit:                                        ; preds = %4, %.critedge, %41
-  %.030 = phi ptr [ %.132.lcssa, %41 ], [ %.132.lcssa, %.critedge ], [ null, %4 ]
+  %.030 = phi ptr [ %.132.lcssa, %.critedge ], [ %.132.lcssa, %41 ], [ null, %4 ]
   ret ptr %.030
 }
 

@@ -7288,7 +7288,7 @@ return.sink.split:                                ; preds = %if.then.i, %_ZZN8fa
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.then27, %if.then3, %for.end, %entry
-  %retval.0 = phi i1 [ true, %entry ], [ true, %for.end ], [ true, %if.then3 ], [ true, %if.then27 ], [ false, %return.sink.split ]
+  %retval.0 = phi i1 [ true, %entry ], [ true, %for.end ], [ true, %if.then27 ], [ true, %if.then3 ], [ false, %return.sink.split ]
   ret i1 %retval.0
 }
 
@@ -19428,10 +19428,10 @@ while.cond5.preheader.loopexit165:                ; preds = %if.then4.i67.i, %if
   br label %while.cond5.preheader
 
 while.cond5.preheader:                            ; preds = %while.cond2.us, %while.cond2.us.us, %while.cond5.preheader.loopexit165, %while.body.split.us.split.split.us.split
-  %idxprom.i.i26.pre-phi = phi i64 [ %.pre171, %while.cond5.preheader.loopexit165 ], [ %idxprom.i.i88.i.us, %while.body.split.us.split.split.us.split ], [ %idxprom.i.i88.i.us, %while.cond2.us.us ], [ %idxprom.i.i88.i.us, %while.cond2.us ]
-  %.pre.i122 = phi i8 [ %14, %while.cond5.preheader.loopexit165 ], [ %.pre.i.us, %while.body.split.us.split.split.us.split ], [ %.pre.i.us, %while.cond2.us.us ], [ %.pre.i.us, %while.cond2.us ]
-  %__first.addr.1134 = phi ptr [ %__first.addr.1, %while.cond5.preheader.loopexit165 ], [ %__first.addr.0, %while.body.split.us.split.split.us.split ], [ %__first.addr.1.us.us, %while.cond2.us.us ], [ %__first.addr.1.us, %while.cond2.us ]
-  %36 = phi i32 [ %16, %while.cond5.preheader.loopexit165 ], [ %8, %while.body.split.us.split.split.us.split ], [ %5, %while.cond2.us.us ], [ %12, %while.cond2.us ]
+  %idxprom.i.i26.pre-phi = phi i64 [ %.pre171, %while.cond5.preheader.loopexit165 ], [ %idxprom.i.i88.i.us, %while.cond2.us.us ], [ %idxprom.i.i88.i.us, %while.body.split.us.split.split.us.split ], [ %idxprom.i.i88.i.us, %while.cond2.us ]
+  %.pre.i122 = phi i8 [ %14, %while.cond5.preheader.loopexit165 ], [ %.pre.i.us, %while.cond2.us.us ], [ %.pre.i.us, %while.body.split.us.split.split.us.split ], [ %.pre.i.us, %while.cond2.us ]
+  %__first.addr.1134 = phi ptr [ %__first.addr.1, %while.cond5.preheader.loopexit165 ], [ %__first.addr.1.us.us, %while.cond2.us.us ], [ %__first.addr.0, %while.body.split.us.split.split.us.split ], [ %__first.addr.1.us, %while.cond2.us ]
+  %36 = phi i32 [ %16, %while.cond5.preheader.loopexit165 ], [ %5, %while.cond2.us.us ], [ %8, %while.body.split.us.split.split.us.split ], [ %12, %while.cond2.us ]
   %hasExtraNulls_.i.i18 = getelementptr inbounds nuw i8, ptr %0, i64 57
   %div2.i.i.i.i106 = lshr i64 %idxprom.i.i26.pre-phi, 6
   %arrayidx.i.i.i.i107 = getelementptr inbounds nuw i64, ptr %1, i64 %div2.i.i.i.i106
@@ -24420,10 +24420,10 @@ while.cond5.preheader.loopexit165:                ; preds = %if.then4.i67.i, %if
   br label %while.cond5.preheader
 
 while.cond5.preheader:                            ; preds = %while.cond2.us, %while.cond2.us.us, %while.cond5.preheader.loopexit165, %while.body.split.us.split.split.us.split
-  %idxprom.i.i26.pre-phi = phi i64 [ %.pre171, %while.cond5.preheader.loopexit165 ], [ %idxprom.i.i88.i.us, %while.body.split.us.split.split.us.split ], [ %idxprom.i.i88.i.us, %while.cond2.us.us ], [ %idxprom.i.i88.i.us, %while.cond2.us ]
-  %.pre.i122 = phi i8 [ %14, %while.cond5.preheader.loopexit165 ], [ %.pre.i.us, %while.body.split.us.split.split.us.split ], [ %.pre.i.us, %while.cond2.us.us ], [ %.pre.i.us, %while.cond2.us ]
-  %__first.addr.1134 = phi ptr [ %__first.addr.1, %while.cond5.preheader.loopexit165 ], [ %__first.addr.0, %while.body.split.us.split.split.us.split ], [ %__first.addr.1.us.us, %while.cond2.us.us ], [ %__first.addr.1.us, %while.cond2.us ]
-  %36 = phi i32 [ %16, %while.cond5.preheader.loopexit165 ], [ %8, %while.body.split.us.split.split.us.split ], [ %5, %while.cond2.us.us ], [ %12, %while.cond2.us ]
+  %idxprom.i.i26.pre-phi = phi i64 [ %.pre171, %while.cond5.preheader.loopexit165 ], [ %idxprom.i.i88.i.us, %while.cond2.us.us ], [ %idxprom.i.i88.i.us, %while.body.split.us.split.split.us.split ], [ %idxprom.i.i88.i.us, %while.cond2.us ]
+  %.pre.i122 = phi i8 [ %14, %while.cond5.preheader.loopexit165 ], [ %.pre.i.us, %while.cond2.us.us ], [ %.pre.i.us, %while.body.split.us.split.split.us.split ], [ %.pre.i.us, %while.cond2.us ]
+  %__first.addr.1134 = phi ptr [ %__first.addr.1, %while.cond5.preheader.loopexit165 ], [ %__first.addr.1.us.us, %while.cond2.us.us ], [ %__first.addr.0, %while.body.split.us.split.split.us.split ], [ %__first.addr.1.us, %while.cond2.us ]
+  %36 = phi i32 [ %16, %while.cond5.preheader.loopexit165 ], [ %5, %while.cond2.us.us ], [ %8, %while.body.split.us.split.split.us.split ], [ %12, %while.cond2.us ]
   %hasExtraNulls_.i.i18 = getelementptr inbounds nuw i8, ptr %0, i64 57
   %div2.i.i.i.i106 = lshr i64 %idxprom.i.i26.pre-phi, 6
   %arrayidx.i.i.i.i107 = getelementptr inbounds nuw i64, ptr %1, i64 %div2.i.i.i.i106
@@ -29423,10 +29423,10 @@ while.cond5.preheader.loopexit165:                ; preds = %if.then4.i67.i, %if
   br label %while.cond5.preheader
 
 while.cond5.preheader:                            ; preds = %while.cond2.us, %while.cond2.us.us, %while.cond5.preheader.loopexit165, %while.body.split.us.split.split.us.split
-  %idxprom.i.i26.pre-phi = phi i64 [ %.pre171, %while.cond5.preheader.loopexit165 ], [ %idxprom.i.i88.i.us, %while.body.split.us.split.split.us.split ], [ %idxprom.i.i88.i.us, %while.cond2.us.us ], [ %idxprom.i.i88.i.us, %while.cond2.us ]
-  %.pre.i122 = phi i8 [ %14, %while.cond5.preheader.loopexit165 ], [ %.pre.i.us, %while.body.split.us.split.split.us.split ], [ %.pre.i.us, %while.cond2.us.us ], [ %.pre.i.us, %while.cond2.us ]
-  %__first.addr.1134 = phi ptr [ %__first.addr.1, %while.cond5.preheader.loopexit165 ], [ %__first.addr.0, %while.body.split.us.split.split.us.split ], [ %__first.addr.1.us.us, %while.cond2.us.us ], [ %__first.addr.1.us, %while.cond2.us ]
-  %36 = phi i32 [ %16, %while.cond5.preheader.loopexit165 ], [ %8, %while.body.split.us.split.split.us.split ], [ %5, %while.cond2.us.us ], [ %12, %while.cond2.us ]
+  %idxprom.i.i26.pre-phi = phi i64 [ %.pre171, %while.cond5.preheader.loopexit165 ], [ %idxprom.i.i88.i.us, %while.cond2.us.us ], [ %idxprom.i.i88.i.us, %while.body.split.us.split.split.us.split ], [ %idxprom.i.i88.i.us, %while.cond2.us ]
+  %.pre.i122 = phi i8 [ %14, %while.cond5.preheader.loopexit165 ], [ %.pre.i.us, %while.cond2.us.us ], [ %.pre.i.us, %while.body.split.us.split.split.us.split ], [ %.pre.i.us, %while.cond2.us ]
+  %__first.addr.1134 = phi ptr [ %__first.addr.1, %while.cond5.preheader.loopexit165 ], [ %__first.addr.1.us.us, %while.cond2.us.us ], [ %__first.addr.0, %while.body.split.us.split.split.us.split ], [ %__first.addr.1.us, %while.cond2.us ]
+  %36 = phi i32 [ %16, %while.cond5.preheader.loopexit165 ], [ %5, %while.cond2.us.us ], [ %8, %while.body.split.us.split.split.us.split ], [ %12, %while.cond2.us ]
   %hasExtraNulls_.i.i18 = getelementptr inbounds nuw i8, ptr %0, i64 57
   %div2.i.i.i.i106 = lshr i64 %idxprom.i.i26.pre-phi, 6
   %arrayidx.i.i.i.i107 = getelementptr inbounds nuw i64, ptr %1, i64 %div2.i.i.i.i106
@@ -34406,10 +34406,10 @@ while.cond5.preheader.loopexit165:                ; preds = %if.then4.i67.i, %if
   br label %while.cond5.preheader
 
 while.cond5.preheader:                            ; preds = %while.cond2.us, %while.cond2.us.us, %while.cond5.preheader.loopexit165, %while.body.split.us.split.split.us.split
-  %idxprom.i.i26.pre-phi = phi i64 [ %.pre171, %while.cond5.preheader.loopexit165 ], [ %idxprom.i.i88.i.us, %while.body.split.us.split.split.us.split ], [ %idxprom.i.i88.i.us, %while.cond2.us.us ], [ %idxprom.i.i88.i.us, %while.cond2.us ]
-  %.pre.i122 = phi i8 [ %14, %while.cond5.preheader.loopexit165 ], [ %.pre.i.us, %while.body.split.us.split.split.us.split ], [ %.pre.i.us, %while.cond2.us.us ], [ %.pre.i.us, %while.cond2.us ]
-  %__first.addr.1134 = phi ptr [ %__first.addr.1, %while.cond5.preheader.loopexit165 ], [ %__first.addr.0, %while.body.split.us.split.split.us.split ], [ %__first.addr.1.us.us, %while.cond2.us.us ], [ %__first.addr.1.us, %while.cond2.us ]
-  %36 = phi i32 [ %16, %while.cond5.preheader.loopexit165 ], [ %8, %while.body.split.us.split.split.us.split ], [ %5, %while.cond2.us.us ], [ %12, %while.cond2.us ]
+  %idxprom.i.i26.pre-phi = phi i64 [ %.pre171, %while.cond5.preheader.loopexit165 ], [ %idxprom.i.i88.i.us, %while.cond2.us.us ], [ %idxprom.i.i88.i.us, %while.body.split.us.split.split.us.split ], [ %idxprom.i.i88.i.us, %while.cond2.us ]
+  %.pre.i122 = phi i8 [ %14, %while.cond5.preheader.loopexit165 ], [ %.pre.i.us, %while.cond2.us.us ], [ %.pre.i.us, %while.body.split.us.split.split.us.split ], [ %.pre.i.us, %while.cond2.us ]
+  %__first.addr.1134 = phi ptr [ %__first.addr.1, %while.cond5.preheader.loopexit165 ], [ %__first.addr.1.us.us, %while.cond2.us.us ], [ %__first.addr.0, %while.body.split.us.split.split.us.split ], [ %__first.addr.1.us, %while.cond2.us ]
+  %36 = phi i32 [ %16, %while.cond5.preheader.loopexit165 ], [ %5, %while.cond2.us.us ], [ %8, %while.body.split.us.split.split.us.split ], [ %12, %while.cond2.us ]
   %hasExtraNulls_.i.i18 = getelementptr inbounds nuw i8, ptr %0, i64 57
   %div2.i.i.i.i106 = lshr i64 %idxprom.i.i26.pre-phi, 6
   %arrayidx.i.i.i.i107 = getelementptr inbounds nuw i64, ptr %1, i64 %div2.i.i.i.i106
@@ -39662,7 +39662,7 @@ while.cond5.backedge:                             ; preds = %_ZNK8facebook5velox
   br label %while.cond5, !llvm.loop !481
 
 while.end9:                                       ; preds = %_ZNK8facebook5velox13DecodedVector8isNullAtEi.exit.i111, %_ZNK8facebook5velox9functions3lib23Index2ValueNullableLessInEclERKiS6_.exit133, %_ZNK8facebook5velox13DecodedVector8isNullAtEi.exit39.i106, %if.then4.i67.i128, %if.end11.i52.i38, %while.cond5.us, %while.cond5.us.us, %while.cond5.preheader.split.us.split.split.us.split
-  %.us-phi = phi ptr [ %__last.addr.1.us.us162, %while.cond5.preheader.split.us.split.split.us.split ], [ %__last.addr.1.us, %while.cond5.us ], [ %__last.addr.1.us.us, %while.cond5.us.us ], [ %__last.addr.1, %if.end11.i52.i38 ], [ %__last.addr.1, %if.then4.i67.i128 ], [ %__last.addr.1, %_ZNK8facebook5velox13DecodedVector8isNullAtEi.exit39.i106 ], [ %__last.addr.1, %_ZNK8facebook5velox9functions3lib23Index2ValueNullableLessInEclERKiS6_.exit133 ], [ %__last.addr.1, %_ZNK8facebook5velox13DecodedVector8isNullAtEi.exit.i111 ]
+  %.us-phi = phi ptr [ %__last.addr.1.us, %while.cond5.us ], [ %__last.addr.1.us.us, %while.cond5.us.us ], [ %__last.addr.1.us.us162, %while.cond5.preheader.split.us.split.split.us.split ], [ %__last.addr.1, %if.end11.i52.i38 ], [ %__last.addr.1, %if.then4.i67.i128 ], [ %__last.addr.1, %_ZNK8facebook5velox13DecodedVector8isNullAtEi.exit39.i106 ], [ %__last.addr.1, %_ZNK8facebook5velox9functions3lib23Index2ValueNullableLessInEclERKiS6_.exit133 ], [ %__last.addr.1, %_ZNK8facebook5velox13DecodedVector8isNullAtEi.exit.i111 ]
   %cmp = icmp ult ptr %__first.addr.1, %.us-phi
   br i1 %cmp, label %if.end, label %if.then
 
@@ -44597,10 +44597,10 @@ while.cond5.preheader.loopexit165:                ; preds = %if.then4.i67.i, %if
   br label %while.cond5.preheader
 
 while.cond5.preheader:                            ; preds = %while.cond2.us, %while.cond2.us.us, %while.cond5.preheader.loopexit165, %while.body.split.us.split.split.us.split
-  %idxprom.i.i26.pre-phi = phi i64 [ %.pre171, %while.cond5.preheader.loopexit165 ], [ %idxprom.i.i88.i.us, %while.body.split.us.split.split.us.split ], [ %idxprom.i.i88.i.us, %while.cond2.us.us ], [ %idxprom.i.i88.i.us, %while.cond2.us ]
-  %.pre.i122 = phi i8 [ %14, %while.cond5.preheader.loopexit165 ], [ %.pre.i.us, %while.body.split.us.split.split.us.split ], [ %.pre.i.us, %while.cond2.us.us ], [ %.pre.i.us, %while.cond2.us ]
-  %__first.addr.1134 = phi ptr [ %__first.addr.1, %while.cond5.preheader.loopexit165 ], [ %__first.addr.0, %while.body.split.us.split.split.us.split ], [ %__first.addr.1.us.us, %while.cond2.us.us ], [ %__first.addr.1.us, %while.cond2.us ]
-  %36 = phi i32 [ %16, %while.cond5.preheader.loopexit165 ], [ %8, %while.body.split.us.split.split.us.split ], [ %5, %while.cond2.us.us ], [ %12, %while.cond2.us ]
+  %idxprom.i.i26.pre-phi = phi i64 [ %.pre171, %while.cond5.preheader.loopexit165 ], [ %idxprom.i.i88.i.us, %while.cond2.us.us ], [ %idxprom.i.i88.i.us, %while.body.split.us.split.split.us.split ], [ %idxprom.i.i88.i.us, %while.cond2.us ]
+  %.pre.i122 = phi i8 [ %14, %while.cond5.preheader.loopexit165 ], [ %.pre.i.us, %while.cond2.us.us ], [ %.pre.i.us, %while.body.split.us.split.split.us.split ], [ %.pre.i.us, %while.cond2.us ]
+  %__first.addr.1134 = phi ptr [ %__first.addr.1, %while.cond5.preheader.loopexit165 ], [ %__first.addr.1.us.us, %while.cond2.us.us ], [ %__first.addr.0, %while.body.split.us.split.split.us.split ], [ %__first.addr.1.us, %while.cond2.us ]
+  %36 = phi i32 [ %16, %while.cond5.preheader.loopexit165 ], [ %5, %while.cond2.us.us ], [ %8, %while.body.split.us.split.split.us.split ], [ %12, %while.cond2.us ]
   %hasExtraNulls_.i.i18 = getelementptr inbounds nuw i8, ptr %0, i64 57
   %div2.i.i.i.i106 = lshr i64 %idxprom.i.i26.pre-phi, 6
   %arrayidx.i.i.i.i107 = getelementptr inbounds nuw i64, ptr %1, i64 %div2.i.i.i.i106
@@ -49650,10 +49650,10 @@ while.cond5.preheader.loopexit165:                ; preds = %if.then4.i67.i, %if
   br label %while.cond5.preheader
 
 while.cond5.preheader:                            ; preds = %while.cond2.us, %while.cond2.us.us, %while.cond5.preheader.loopexit165, %while.body.split.us.split.split.us.split
-  %idxprom.i.i26.pre-phi = phi i64 [ %.pre171, %while.cond5.preheader.loopexit165 ], [ %idxprom.i.i88.i.us, %while.body.split.us.split.split.us.split ], [ %idxprom.i.i88.i.us, %while.cond2.us.us ], [ %idxprom.i.i88.i.us, %while.cond2.us ]
-  %.pre.i122 = phi i8 [ %14, %while.cond5.preheader.loopexit165 ], [ %.pre.i.us, %while.body.split.us.split.split.us.split ], [ %.pre.i.us, %while.cond2.us.us ], [ %.pre.i.us, %while.cond2.us ]
-  %__first.addr.1134 = phi ptr [ %__first.addr.1, %while.cond5.preheader.loopexit165 ], [ %__first.addr.0, %while.body.split.us.split.split.us.split ], [ %__first.addr.1.us.us, %while.cond2.us.us ], [ %__first.addr.1.us, %while.cond2.us ]
-  %36 = phi i32 [ %16, %while.cond5.preheader.loopexit165 ], [ %8, %while.body.split.us.split.split.us.split ], [ %5, %while.cond2.us.us ], [ %12, %while.cond2.us ]
+  %idxprom.i.i26.pre-phi = phi i64 [ %.pre171, %while.cond5.preheader.loopexit165 ], [ %idxprom.i.i88.i.us, %while.cond2.us.us ], [ %idxprom.i.i88.i.us, %while.body.split.us.split.split.us.split ], [ %idxprom.i.i88.i.us, %while.cond2.us ]
+  %.pre.i122 = phi i8 [ %14, %while.cond5.preheader.loopexit165 ], [ %.pre.i.us, %while.cond2.us.us ], [ %.pre.i.us, %while.body.split.us.split.split.us.split ], [ %.pre.i.us, %while.cond2.us ]
+  %__first.addr.1134 = phi ptr [ %__first.addr.1, %while.cond5.preheader.loopexit165 ], [ %__first.addr.1.us.us, %while.cond2.us.us ], [ %__first.addr.0, %while.body.split.us.split.split.us.split ], [ %__first.addr.1.us, %while.cond2.us ]
+  %36 = phi i32 [ %16, %while.cond5.preheader.loopexit165 ], [ %5, %while.cond2.us.us ], [ %8, %while.body.split.us.split.split.us.split ], [ %12, %while.cond2.us ]
   %hasExtraNulls_.i.i18 = getelementptr inbounds nuw i8, ptr %0, i64 57
   %div2.i.i.i.i106 = lshr i64 %idxprom.i.i26.pre-phi, 6
   %arrayidx.i.i.i.i107 = getelementptr inbounds nuw i64, ptr %1, i64 %div2.i.i.i.i106

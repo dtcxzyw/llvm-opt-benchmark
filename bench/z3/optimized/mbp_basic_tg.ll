@@ -405,7 +405,7 @@ _ZNSt14_Function_baseD2Ev.exit151:                ; preds = %_ZNSt14_Function_ba
   br i1 %.not27.old.i.i.i.i, label %.loopexit332, label %.lr.ph38.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.backedge:                        ; preds = %134, %131
-  %.137.i.i.i.i.be = phi ptr [ %.old.i.i.i.i, %134 ], [ %133, %131 ]
+  %.137.i.i.i.i.be = phi ptr [ %133, %131 ], [ %.old.i.i.i.i, %134 ]
   br label %.lr.ph38.i.i.i.i, !llvm.loop !59
 
 .loopexit335:                                     ; preds = %.invoke464, %.invoke, %164, %168, %172, %187, %158, %162, %170, %186, %189, %216, %222, %226, %230, %238, %248, %254, %258, %380
@@ -882,13 +882,13 @@ _ZNKSt8functionIFbP4exprEEclES1_.exit.i223:       ; preds = %.lr.ph.i220
   br i1 %319, label %_Z6all_ofI3appSt8functionIFbP4exprEEEbRKT_RKT0_.exit217.thread, label %314
 
 _Z6all_ofI3appSt8functionIFbP4exprEEEbRKT_RKT0_.exit217: ; preds = %314, %.noexc216, %_Z6any_ofI3appSt8functionIFbP4exprEEEbRKT_RKT0_.exit.thread299
-  %320 = phi i1 [ %300, %_Z6any_ofI3appSt8functionIFbP4exprEEEbRKT_RKT0_.exit.thread299 ], [ %290, %.noexc216 ], [ %300, %314 ]
+  %320 = phi i1 [ %290, %.noexc216 ], [ %300, %_Z6any_ofI3appSt8functionIFbP4exprEEEbRKT_RKT0_.exit.thread299 ], [ %300, %314 ]
   br i1 %320, label %_Z6all_ofI3appSt8functionIFbP4exprEEEbRKT_RKT0_.exit217.thread, label %_ZNK11ast_manager6is_andEPK4expr.exit.thread
 
 _Z6all_ofI3appSt8functionIFbP4exprEEEbRKT_RKT0_.exit217.thread: ; preds = %.noexc227, %305, %_ZNK11ast_manager5is_orEPK4expr.exit196.thread, %281, %_Z6any_ofI3appSt8functionIFbP4exprEEEbRKT_RKT0_.exit.thread, %_Z6all_ofI3appSt8functionIFbP4exprEEEbRKT_RKT0_.exit217
-  %321 = phi i1 [ false, %_Z6all_ofI3appSt8functionIFbP4exprEEEbRKT_RKT0_.exit217 ], [ true, %_Z6any_ofI3appSt8functionIFbP4exprEEEbRKT_RKT0_.exit.thread ], [ true, %281 ], [ false, %_ZNK11ast_manager5is_orEPK4expr.exit196.thread ], [ true, %305 ], [ true, %.noexc227 ]
-  %322 = phi i1 [ %274, %_Z6all_ofI3appSt8functionIFbP4exprEEEbRKT_RKT0_.exit217 ], [ true, %_Z6any_ofI3appSt8functionIFbP4exprEEEbRKT_RKT0_.exit.thread ], [ true, %281 ], [ false, %_ZNK11ast_manager5is_orEPK4expr.exit196.thread ], [ true, %305 ], [ false, %.noexc227 ]
-  %323 = phi i1 [ true, %_Z6all_ofI3appSt8functionIFbP4exprEEEbRKT_RKT0_.exit217 ], [ %290, %_Z6any_ofI3appSt8functionIFbP4exprEEEbRKT_RKT0_.exit.thread ], [ false, %281 ], [ true, %_ZNK11ast_manager5is_orEPK4expr.exit196.thread ], [ %290, %305 ], [ %300, %.noexc227 ]
+  %321 = phi i1 [ false, %_Z6all_ofI3appSt8functionIFbP4exprEEEbRKT_RKT0_.exit217 ], [ true, %281 ], [ true, %_Z6any_ofI3appSt8functionIFbP4exprEEEbRKT_RKT0_.exit.thread ], [ true, %305 ], [ false, %_ZNK11ast_manager5is_orEPK4expr.exit196.thread ], [ true, %.noexc227 ]
+  %322 = phi i1 [ %274, %_Z6all_ofI3appSt8functionIFbP4exprEEEbRKT_RKT0_.exit217 ], [ true, %281 ], [ true, %_Z6any_ofI3appSt8functionIFbP4exprEEEbRKT_RKT0_.exit.thread ], [ true, %305 ], [ false, %_ZNK11ast_manager5is_orEPK4expr.exit196.thread ], [ false, %.noexc227 ]
+  %323 = phi i1 [ true, %_Z6all_ofI3appSt8functionIFbP4exprEEEbRKT_RKT0_.exit217 ], [ false, %281 ], [ %290, %_Z6any_ofI3appSt8functionIFbP4exprEEEbRKT_RKT0_.exit.thread ], [ %290, %305 ], [ true, %_ZNK11ast_manager5is_orEPK4expr.exit196.thread ], [ %300, %.noexc227 ]
   %324 = load ptr, ptr %57, align 8, !tbaa !49
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %101, ptr %5, align 8, !tbaa !48
@@ -1084,7 +1084,7 @@ _ZN3mbp10term_graph6add_eqEP4exprS2_.exit232:     ; preds = %325
   br i1 %.not.i.i237, label %.lr.ph.preheader._crit_edge, label %.lr.ph486
 
 _ZNK11ast_manager6is_andEPK4expr.exit.thread:     ; preds = %.critedge137, %359, %.critedge, %346, %264, %350, %334, %_ZN3mbp10term_graph6add_eqEP4exprS2_.exit180, %_Z6all_ofI3appSt8functionIFbP4exprEEEbRKT_RKT0_.exit217, %_ZNK11ast_manager6is_andEPK4expr.exit
-  %.4104 = phi i1 [ %.3103, %_ZNK11ast_manager6is_andEPK4expr.exit ], [ %.3103, %_Z6all_ofI3appSt8functionIFbP4exprEEEbRKT_RKT0_.exit217 ], [ %.3103, %_ZN3mbp10term_graph6add_eqEP4exprS2_.exit180 ], [ true, %334 ], [ true, %350 ], [ %.3103, %264 ], [ true, %.critedge ], [ true, %346 ], [ true, %359 ], [ true, %.critedge137 ]
+  %.4104 = phi i1 [ %.3103, %_ZNK11ast_manager6is_andEPK4expr.exit ], [ %.3103, %_Z6all_ofI3appSt8functionIFbP4exprEEEbRKT_RKT0_.exit217 ], [ %.3103, %_ZN3mbp10term_graph6add_eqEP4exprS2_.exit180 ], [ true, %.critedge ], [ true, %334 ], [ true, %350 ], [ %.3103, %264 ], [ true, %346 ], [ true, %359 ], [ true, %.critedge137 ]
   %363 = load i8, ptr %25, align 8, !tbaa !10, !range !31, !noundef !32
   %364 = trunc nuw i8 %363 to i1
   br i1 %364, label %365, label %_ZN12mbp_basic_tg4impl7is_seenEP4expr.exit
@@ -1261,8 +1261,8 @@ _ZN3mbp10term_graph6add_eqEP4exprS2_.exit247:     ; preds = %412, %407
           to label %_ZN12mbp_basic_tg4impl7is_seenEP4expr.exit unwind label %388
 
 _ZN12mbp_basic_tg4impl7is_seenEP4expr.exit:       ; preds = %115, %126, %.critedge398.invoke, %369, %365, %_ZNK11ast_manager6is_andEPK4expr.exit.thread, %_ZNK11ast_manager11is_distinctEPK4expr.exit
-  %430 = phi ptr [ %191, %.critedge398.invoke ], [ %191, %_ZNK11ast_manager6is_andEPK4expr.exit.thread ], [ %191, %_ZNK11ast_manager11is_distinctEPK4expr.exit ], [ %191, %365 ], [ %191, %369 ], [ %100, %126 ], [ %100, %115 ]
-  %.1101 = phi i1 [ true, %.critedge398.invoke ], [ %.4104, %_ZNK11ast_manager6is_andEPK4expr.exit.thread ], [ %.4104, %_ZNK11ast_manager11is_distinctEPK4expr.exit ], [ %.4104, %365 ], [ %.4104, %369 ], [ %.0100393, %126 ], [ %.0100393, %115 ]
+  %430 = phi ptr [ %191, %.critedge398.invoke ], [ %191, %_ZNK11ast_manager6is_andEPK4expr.exit.thread ], [ %191, %_ZNK11ast_manager11is_distinctEPK4expr.exit ], [ %100, %126 ], [ %191, %369 ], [ %191, %365 ], [ %100, %115 ]
+  %.1101 = phi i1 [ true, %.critedge398.invoke ], [ %.4104, %_ZNK11ast_manager6is_andEPK4expr.exit.thread ], [ %.4104, %_ZNK11ast_manager11is_distinctEPK4expr.exit ], [ %.0100393, %126 ], [ %.4104, %369 ], [ %.4104, %365 ], [ %.0100393, %115 ]
   %431 = getelementptr inbounds nuw i8, ptr %.0107392, i64 8
   %.not = icmp eq ptr %431, %56
   br i1 %.not, label %._crit_edge396, label %99

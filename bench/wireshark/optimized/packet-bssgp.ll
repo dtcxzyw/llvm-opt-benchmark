@@ -2272,7 +2272,7 @@ define internal zeroext i16 @de_bssgp_ran_information_app_cont_unit(ptr noundef 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %67, %71, %75, %61, %._crit_edge, %95, %89, %55, %48
-  %.2 = phi i32 [ %97, %95 ], [ %.1.lcssa, %._crit_edge ], [ %54, %48 ], [ %58, %55 ], [ %66, %61 ], [ %70, %67 ], [ %74, %71 ], [ %78, %75 ], [ %94, %89 ], [ %25, %.preheader ], [ %29, %.lr.ph ]
+  %.2 = phi i32 [ %97, %95 ], [ %94, %89 ], [ %.1.lcssa, %._crit_edge ], [ %54, %48 ], [ %58, %55 ], [ %66, %61 ], [ %70, %67 ], [ %74, %71 ], [ %78, %75 ], [ %25, %.preheader ], [ %29, %.lr.ph ]
   %98 = sub i32 %.2, %3
   br label %99
 
@@ -2979,7 +2979,7 @@ define internal noundef zeroext i16 @de_bssgp_sipsi_container(ptr noundef %0, pt
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph40, %.preheader34, %.preheader
-  %.131 = phi i32 [ %15, %.preheader ], [ %15, %.preheader34 ], [ %20, %.lr.ph40 ], [ %24, %.lr.ph ]
+  %.131 = phi i32 [ %20, %.lr.ph40 ], [ %15, %.preheader ], [ %15, %.preheader34 ], [ %24, %.lr.ph ]
   %25 = sub i32 %.131, %3
   %26 = trunc i32 %25 to i16
   ret i16 %26

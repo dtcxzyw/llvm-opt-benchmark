@@ -1802,7 +1802,7 @@ parametric_mv_refine.exit132.i.i:                 ; preds = %215, %201, %199, %p
   br i1 %248, label %.preheader.us.i.i, label %.sink.split.i, !llvm.loop !178
 
 .sink.split.i:                                    ; preds = %._crit_edge.us.i.i, %.preheader.lr.ph.i.i, %.loopexit.i.i, %pred_get_refs.exit.i
-  %.4 = phi i32 [ %spec.select41, %.preheader.lr.ph.i.i ], [ %spec.select41, %.loopexit.i.i ], [ %spec.select, %pred_get_refs.exit.i ], [ %spec.select41, %._crit_edge.us.i.i ]
+  %.4 = phi i32 [ %spec.select, %pred_get_refs.exit.i ], [ %spec.select41, %.preheader.lr.ph.i.i ], [ %spec.select41, %.loopexit.i.i ], [ %spec.select41, %._crit_edge.us.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %derive_sb_mv.exit
 

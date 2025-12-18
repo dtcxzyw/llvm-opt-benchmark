@@ -710,7 +710,7 @@ define nonnull ptr @_sfcvt(ptr noundef readonly captures(none) %0, i32 noundef %
   br i1 %320, label %.lr.ph341.split, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %309, %319, %.preheader.preheader, %294, %290, %292
-  %.4262 = phi ptr [ %291, %290 ], [ %.3261, %292 ], [ %.3261, %294 ], [ %.3261, %.preheader.preheader ], [ %.3261, %319 ], [ %.6264.us, %309 ]
+  %.4262 = phi ptr [ %291, %290 ], [ %.3261, %.preheader.preheader ], [ %.3261, %292 ], [ %.3261, %294 ], [ %.3261, %319 ], [ %.6264.us, %309 ]
   %321 = getelementptr inbounds i8, ptr %.4262, i64 -1
   store i8 0, ptr %321, align 1, !tbaa !13
   %322 = ptrtoint ptr %321 to i64
@@ -719,8 +719,8 @@ define nonnull ptr @_sfcvt(ptr noundef readonly captures(none) %0, i32 noundef %
   br label %.thread
 
 .thread:                                          ; preds = %19, %241, %5, %.loopexit
-  %.sink375 = phi i64 [ 1, %5 ], [ %324, %.loopexit ], [ 3, %241 ], [ 3, %19 ]
-  %.1 = phi ptr [ @.str, %5 ], [ %.1257, %.loopexit ], [ @.str.1, %241 ], [ @.str.1, %19 ]
+  %.sink375 = phi i64 [ 1, %5 ], [ 3, %241 ], [ %324, %.loopexit ], [ 3, %19 ]
+  %.1 = phi ptr [ @.str, %5 ], [ @.str.1, %241 ], [ %.1257, %.loopexit ], [ @.str.1, %19 ]
   store i64 %.sink375, ptr @_Sfi, align 8, !tbaa !18
   ret ptr %.1
 }

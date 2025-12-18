@@ -732,7 +732,7 @@ X509_ATTRIBUTE_count.exit:                        ; preds = %29
   br label %X509at_get_attr_by_OBJ.exit.thread
 
 X509at_get_attr_by_OBJ.exit.thread:               ; preds = %9, %23, %29, %4, %X509_ATTRIBUTE_count.exit, %34
-  %.0 = phi ptr [ %36, %34 ], [ null, %29 ], [ null, %X509_ATTRIBUTE_count.exit ], [ null, %4 ], [ null, %23 ], [ null, %9 ]
+  %.0 = phi ptr [ %36, %34 ], [ null, %23 ], [ null, %4 ], [ null, %X509_ATTRIBUTE_count.exit ], [ null, %29 ], [ null, %9 ]
   ret ptr %.0
 }
 

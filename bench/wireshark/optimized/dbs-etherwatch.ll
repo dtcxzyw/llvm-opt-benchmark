@@ -1052,7 +1052,7 @@ define internal fastcc i32 @parse_single_hex_dump_line(ptr noundef readonly capt
   br i1 %93, label %89, label %.loopexit.i, !llvm.loop !11
 
 parse_hex_dump.exit:                              ; preds = %5, %.lr.ph, %29, %.preheader, %56, %.lr.ph.i, %.loopexit.i, %44, %38
-  %.037 = phi i32 [ 0, %38 ], [ 0, %44 ], [ 0, %.lr.ph ], [ %49, %.loopexit.i ], [ 0, %.preheader ], [ 0, %29 ], [ 0, %56 ], [ 0, %.lr.ph.i ], [ 0, %5 ]
+  %.037 = phi i32 [ 0, %.lr.ph ], [ 0, %29 ], [ 0, %.preheader ], [ %49, %.loopexit.i ], [ 0, %38 ], [ 0, %44 ], [ 0, %56 ], [ 0, %.lr.ph.i ], [ 0, %5 ]
   ret i32 %.037
 }
 

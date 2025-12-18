@@ -9675,8 +9675,8 @@ define hidden noundef i64 @_ZN11polars_core13chunked_array3ops13search_sorted11l
   br i1 %20, label %._crit_edge, label %.lr.ph.split
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.us, %.lr.ph.split, %3
-  %.sroa.022.0.lcssa = phi i64 [ %1, %3 ], [ %unswitched.select, %.lr.ph.split ], [ %1, %.lr.ph.split.us ]
-  %.sroa.0.028.lcssa = phi i64 [ %0, %3 ], [ %spec.select29, %.lr.ph.split ], [ %8, %.lr.ph.split.us ]
+  %.sroa.022.0.lcssa = phi i64 [ %unswitched.select, %.lr.ph.split ], [ %1, %3 ], [ %1, %.lr.ph.split.us ]
+  %.sroa.0.028.lcssa = phi i64 [ %spec.select29, %.lr.ph.split ], [ %0, %3 ], [ %8, %.lr.ph.split.us ]
   %21 = icmp ult i64 %.sroa.0.028.lcssa, %.val1.i16.pre
   tail call void @llvm.assume(i1 %21)
   %22 = getelementptr inbounds nuw double, ptr %.val.i15.pre, i64 %.sroa.0.028.lcssa
@@ -11300,8 +11300,8 @@ define hidden noundef i64 @_ZN11polars_core13chunked_array3ops13search_sorted11l
   br i1 %20, label %._crit_edge, label %.lr.ph.split
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.us, %.lr.ph.split, %3
-  %.sroa.022.0.lcssa = phi i64 [ %1, %3 ], [ %unswitched.select, %.lr.ph.split ], [ %1, %.lr.ph.split.us ]
-  %.sroa.0.028.lcssa = phi i64 [ %0, %3 ], [ %spec.select29, %.lr.ph.split ], [ %8, %.lr.ph.split.us ]
+  %.sroa.022.0.lcssa = phi i64 [ %unswitched.select, %.lr.ph.split ], [ %1, %3 ], [ %1, %.lr.ph.split.us ]
+  %.sroa.0.028.lcssa = phi i64 [ %spec.select29, %.lr.ph.split ], [ %0, %3 ], [ %8, %.lr.ph.split.us ]
   %21 = icmp ult i64 %.sroa.0.028.lcssa, %.val1.i16.pre
   tail call void @llvm.assume(i1 %21)
   %22 = getelementptr inbounds nuw float, ptr %.val.i15.pre, i64 %.sroa.0.028.lcssa
@@ -12582,8 +12582,8 @@ define hidden noundef i64 @_ZN11polars_core13chunked_array3ops13search_sorted11l
   br i1 %20, label %._crit_edge, label %.lr.ph.split
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %3
-  %.sroa.021.0.lcssa = phi i64 [ %1, %3 ], [ %8, %.lr.ph.split.us ], [ %unswitched.select, %.lr.ph.split ]
-  %.sroa.0.027.lcssa = phi i64 [ %0, %3 ], [ %0, %.lr.ph.split.us ], [ %spec.select28, %.lr.ph.split ]
+  %.sroa.021.0.lcssa = phi i64 [ %8, %.lr.ph.split.us ], [ %1, %3 ], [ %unswitched.select, %.lr.ph.split ]
+  %.sroa.0.027.lcssa = phi i64 [ %0, %.lr.ph.split.us ], [ %0, %3 ], [ %spec.select28, %.lr.ph.split ]
   %21 = icmp ult i64 %.sroa.0.027.lcssa, %.val1.i16.pre
   tail call void @llvm.assume(i1 %21)
   %22 = getelementptr inbounds nuw float, ptr %.val.i15.pre, i64 %.sroa.0.027.lcssa
@@ -13672,8 +13672,8 @@ define hidden noundef i64 @_ZN11polars_core13chunked_array3ops13search_sorted11l
   br i1 %20, label %._crit_edge, label %.lr.ph.split
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %3
-  %.sroa.021.0.lcssa = phi i64 [ %1, %3 ], [ %8, %.lr.ph.split.us ], [ %unswitched.select, %.lr.ph.split ]
-  %.sroa.0.027.lcssa = phi i64 [ %0, %3 ], [ %0, %.lr.ph.split.us ], [ %spec.select28, %.lr.ph.split ]
+  %.sroa.021.0.lcssa = phi i64 [ %8, %.lr.ph.split.us ], [ %1, %3 ], [ %unswitched.select, %.lr.ph.split ]
+  %.sroa.0.027.lcssa = phi i64 [ %0, %.lr.ph.split.us ], [ %0, %3 ], [ %spec.select28, %.lr.ph.split ]
   %21 = icmp ult i64 %.sroa.0.027.lcssa, %.val1.i16.pre
   tail call void @llvm.assume(i1 %21)
   %22 = getelementptr inbounds nuw float, ptr %.val.i15.pre, i64 %.sroa.0.027.lcssa
@@ -31356,8 +31356,8 @@ define hidden noundef i64 @_ZN11polars_core13chunked_array3ops13search_sorted11l
   br i1 %20, label %._crit_edge, label %.lr.ph.split
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %3
-  %.sroa.021.0.lcssa = phi i64 [ %1, %3 ], [ %8, %.lr.ph.split.us ], [ %unswitched.select, %.lr.ph.split ]
-  %.sroa.0.027.lcssa = phi i64 [ %0, %3 ], [ %0, %.lr.ph.split.us ], [ %spec.select28, %.lr.ph.split ]
+  %.sroa.021.0.lcssa = phi i64 [ %8, %.lr.ph.split.us ], [ %1, %3 ], [ %unswitched.select, %.lr.ph.split ]
+  %.sroa.0.027.lcssa = phi i64 [ %0, %.lr.ph.split.us ], [ %0, %3 ], [ %spec.select28, %.lr.ph.split ]
   %21 = icmp ult i64 %.sroa.0.027.lcssa, %.val1.i16.pre
   tail call void @llvm.assume(i1 %21)
   %22 = getelementptr inbounds nuw double, ptr %.val.i15.pre, i64 %.sroa.0.027.lcssa
@@ -35051,8 +35051,8 @@ define hidden noundef i64 @_ZN11polars_core13chunked_array3ops13search_sorted11l
   br i1 %20, label %._crit_edge, label %.lr.ph.split
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %3
-  %.sroa.021.0.lcssa = phi i64 [ %1, %3 ], [ %8, %.lr.ph.split.us ], [ %unswitched.select, %.lr.ph.split ]
-  %.sroa.0.027.lcssa = phi i64 [ %0, %3 ], [ %0, %.lr.ph.split.us ], [ %spec.select28, %.lr.ph.split ]
+  %.sroa.021.0.lcssa = phi i64 [ %8, %.lr.ph.split.us ], [ %1, %3 ], [ %unswitched.select, %.lr.ph.split ]
+  %.sroa.0.027.lcssa = phi i64 [ %0, %.lr.ph.split.us ], [ %0, %3 ], [ %spec.select28, %.lr.ph.split ]
   %21 = icmp ult i64 %.sroa.0.027.lcssa, %.val1.i16.pre
   tail call void @llvm.assume(i1 %21)
   %22 = getelementptr inbounds nuw double, ptr %.val.i15.pre, i64 %.sroa.0.027.lcssa
@@ -35400,8 +35400,8 @@ define hidden noundef i64 @_ZN11polars_core13chunked_array3ops13search_sorted11l
   br i1 %20, label %._crit_edge, label %.lr.ph.split
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.us, %.lr.ph.split, %3
-  %.sroa.022.0.lcssa = phi i64 [ %1, %3 ], [ %unswitched.select, %.lr.ph.split ], [ %1, %.lr.ph.split.us ]
-  %.sroa.0.028.lcssa = phi i64 [ %0, %3 ], [ %spec.select29, %.lr.ph.split ], [ %8, %.lr.ph.split.us ]
+  %.sroa.022.0.lcssa = phi i64 [ %unswitched.select, %.lr.ph.split ], [ %1, %3 ], [ %1, %.lr.ph.split.us ]
+  %.sroa.0.028.lcssa = phi i64 [ %spec.select29, %.lr.ph.split ], [ %0, %3 ], [ %8, %.lr.ph.split.us ]
   %21 = icmp ult i64 %.sroa.0.028.lcssa, %.val1.i16.pre
   tail call void @llvm.assume(i1 %21)
   %22 = getelementptr inbounds nuw double, ptr %.val.i15.pre, i64 %.sroa.0.028.lcssa
@@ -36910,8 +36910,8 @@ define hidden noundef i64 @_ZN11polars_core13chunked_array3ops13search_sorted11l
   br i1 %20, label %._crit_edge, label %.lr.ph.split
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.us, %.lr.ph.split, %3
-  %.sroa.022.0.lcssa = phi i64 [ %1, %3 ], [ %unswitched.select, %.lr.ph.split ], [ %1, %.lr.ph.split.us ]
-  %.sroa.0.028.lcssa = phi i64 [ %0, %3 ], [ %spec.select29, %.lr.ph.split ], [ %8, %.lr.ph.split.us ]
+  %.sroa.022.0.lcssa = phi i64 [ %unswitched.select, %.lr.ph.split ], [ %1, %3 ], [ %1, %.lr.ph.split.us ]
+  %.sroa.0.028.lcssa = phi i64 [ %spec.select29, %.lr.ph.split ], [ %0, %3 ], [ %8, %.lr.ph.split.us ]
   %21 = icmp ult i64 %.sroa.0.028.lcssa, %.val1.i16.pre
   tail call void @llvm.assume(i1 %21)
   %22 = getelementptr inbounds nuw float, ptr %.val.i15.pre, i64 %.sroa.0.028.lcssa
@@ -177389,12 +177389,12 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h4973698b5167380fE.exit.i.i: 
   br label %206
 
 "_ZN127_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h760aa736e060b78eE.exit.thread.i.i.i": ; preds = %"_ZN123_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hf93167cd95175d69E.exit9.i.i.i.i.i", %262, %252, %248
-  %.sroa.36.3.i = phi i64 [ %263, %262 ], [ %.sroa.36.1.i, %252 ], [ %.sroa.36.4.i, %248 ], [ %.sroa.36.4.i, %"_ZN123_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hf93167cd95175d69E.exit9.i.i.i.i.i" ]
-  %.sroa.33.3.i = phi i64 [ %.sroa.33.1.i, %262 ], [ %.sroa.33.1.i, %252 ], [ %.sroa.33.4.i, %248 ], [ %.sroa.33.4.i, %"_ZN123_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hf93167cd95175d69E.exit9.i.i.i.i.i" ]
-  %.sroa.40.2.i = phi i64 [ 0, %262 ], [ %253, %252 ], [ %.sroa.40.1.i, %248 ], [ %.sroa.40.1.i, %"_ZN123_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hf93167cd95175d69E.exit9.i.i.i.i.i" ]
-  %.sroa.45104.3.i = phi i64 [ %.sroa.45104.1.i, %262 ], [ %.sroa.45104.1.i, %252 ], [ %.sroa.45104.4.i, %248 ], [ %.sroa.45104.4.i, %"_ZN123_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hf93167cd95175d69E.exit9.i.i.i.i.i" ]
-  %.sroa.47.3.i = phi i64 [ %.sroa.47.1.i, %262 ], [ %.sroa.47.1.i, %252 ], [ %.sroa.47.4.i, %248 ], [ %.sroa.47.4.i, %"_ZN123_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hf93167cd95175d69E.exit9.i.i.i.i.i" ]
-  %.sroa.0.0.i.i.i14.i.i.i = phi i8 [ %266, %262 ], [ %261, %252 ], [ %249, %248 ], [ %247, %"_ZN123_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hf93167cd95175d69E.exit9.i.i.i.i.i" ]
+  %.sroa.36.3.i = phi i64 [ %.sroa.36.4.i, %248 ], [ %263, %262 ], [ %.sroa.36.1.i, %252 ], [ %.sroa.36.4.i, %"_ZN123_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hf93167cd95175d69E.exit9.i.i.i.i.i" ]
+  %.sroa.33.3.i = phi i64 [ %.sroa.33.4.i, %248 ], [ %.sroa.33.1.i, %262 ], [ %.sroa.33.1.i, %252 ], [ %.sroa.33.4.i, %"_ZN123_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hf93167cd95175d69E.exit9.i.i.i.i.i" ]
+  %.sroa.40.2.i = phi i64 [ %.sroa.40.1.i, %248 ], [ 0, %262 ], [ %253, %252 ], [ %.sroa.40.1.i, %"_ZN123_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hf93167cd95175d69E.exit9.i.i.i.i.i" ]
+  %.sroa.45104.3.i = phi i64 [ %.sroa.45104.4.i, %248 ], [ %.sroa.45104.1.i, %262 ], [ %.sroa.45104.1.i, %252 ], [ %.sroa.45104.4.i, %"_ZN123_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hf93167cd95175d69E.exit9.i.i.i.i.i" ]
+  %.sroa.47.3.i = phi i64 [ %.sroa.47.4.i, %248 ], [ %.sroa.47.1.i, %262 ], [ %.sroa.47.1.i, %252 ], [ %.sroa.47.4.i, %"_ZN123_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hf93167cd95175d69E.exit9.i.i.i.i.i" ]
+  %.sroa.0.0.i.i.i14.i.i.i = phi i8 [ %249, %248 ], [ %266, %262 ], [ %261, %252 ], [ %247, %"_ZN123_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hf93167cd95175d69E.exit9.i.i.i.i.i" ]
   %270 = add i64 %.sroa.01.0.i.i.i, -1
   %271 = trunc i8 %.sroa.0.0.i.i.i14.i.i.i to i1
   br i1 %271, label %299, label %203

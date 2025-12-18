@@ -174,8 +174,8 @@ define hidden i32 @GetColorPalette(ptr noundef readonly captures(none) %0, ptr n
   br i1 %39, label %.loopexit65, label %.loopexit.us
 
 .loopexit.us:                                     ; preds = %.lr.ph.us, %._crit_edge.us, %16
-  %.249.ph.us = phi i32 [ %38, %._crit_edge.us ], [ %.14877.us, %16 ], [ %.14877.us, %.lr.ph.us ]
-  %.2.ph.us = phi i32 [ %18, %._crit_edge.us ], [ %.178.us, %16 ], [ %18, %.lr.ph.us ]
+  %.249.ph.us = phi i32 [ %.14877.us, %16 ], [ %38, %._crit_edge.us ], [ %.14877.us, %.lr.ph.us ]
+  %.2.ph.us = phi i32 [ %.178.us, %16 ], [ %18, %._crit_edge.us ], [ %18, %.lr.ph.us ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge80.us, label %16, !llvm.loop !18

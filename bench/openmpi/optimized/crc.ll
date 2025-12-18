@@ -435,12 +435,12 @@ define i64 @prte_bcopy_csum_partial(ptr noundef %0, ptr noundef %1, i64 noundef 
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.lr.ph559, %.lr.ph598, %.lr.ph612, %._crit_edge, %.loopexit496, %.preheader491, %.preheader488, %._crit_edge586, %.loopexit490, %20, %._crit_edge534, %._crit_edge547, %._crit_edge521
-  %.sink806 = phi ptr [ %5, %20 ], [ %4, %._crit_edge586 ], [ %5, %._crit_edge521 ], [ %5, %.preheader491 ], [ %4, %.preheader488 ], [ %4, %._crit_edge547 ], [ %5, %._crit_edge534 ], [ %4, %.loopexit490 ], [ %4, %.loopexit496 ], [ %4, %._crit_edge ], [ %4, %.lr.ph598 ], [ %5, %.lr.ph612 ], [ %5, %.lr.ph559 ]
-  %.sink = phi ptr [ %4, %20 ], [ %5, %._crit_edge586 ], [ %4, %._crit_edge521 ], [ %4, %.preheader491 ], [ %5, %.preheader488 ], [ %5, %._crit_edge547 ], [ %4, %._crit_edge534 ], [ %5, %.loopexit490 ], [ %5, %.loopexit496 ], [ %5, %._crit_edge ], [ %5, %.lr.ph598 ], [ %4, %.lr.ph612 ], [ %4, %.lr.ph559 ]
-  %.2395.ph = phi ptr [ %26, %20 ], [ %.3396.lcssa, %._crit_edge586 ], [ %.13406.lcssa, %._crit_edge521 ], [ %1, %.preheader491 ], [ %1, %.preheader488 ], [ %.7400.lcssa, %._crit_edge547 ], [ %.8401.lcssa, %._crit_edge534 ], [ %.5398.lcssa, %.loopexit490 ], [ %.12405.lcssa, %.loopexit496 ], [ %.10403.lcssa, %._crit_edge ], [ %90, %.lr.ph598 ], [ %35, %.lr.ph612 ], [ %128, %.lr.ph559 ]
-  %.2377.ph804 = phi i64 [ %29, %20 ], [ %.3378.lcssa, %._crit_edge586 ], [ %.13388.lcssa, %._crit_edge521 ], [ 0, %.preheader491 ], [ 0, %.preheader488 ], [ %.7382.lcssa, %._crit_edge547 ], [ %.8383.lcssa, %._crit_edge534 ], [ %.5380.lcssa, %.loopexit490 ], [ %.12387.lcssa, %.loopexit496 ], [ %.10385.lcssa, %._crit_edge ], [ %89, %.lr.ph598 ], [ %34, %.lr.ph612 ], [ %127, %.lr.ph559 ]
-  %.2358.ph805 = phi ptr [ %24, %20 ], [ %.3359.lcssa, %._crit_edge586 ], [ %.13.lcssa, %._crit_edge521 ], [ %0, %.preheader491 ], [ %0, %.preheader488 ], [ %.7363.lcssa, %._crit_edge547 ], [ %.8364.lcssa, %._crit_edge534 ], [ %.5361.lcssa, %.loopexit490 ], [ %.12.lcssa, %.loopexit496 ], [ %.10366.lcssa, %._crit_edge ], [ %87, %.lr.ph598 ], [ %33, %.lr.ph612 ], [ %126, %.lr.ph559 ]
-  %.2.ph = phi i64 [ %30, %20 ], [ %80, %._crit_edge586 ], [ %.11.lcssa, %._crit_edge521 ], [ %2, %.preheader491 ], [ %2, %.preheader488 ], [ %.6.lcssa, %._crit_edge547 ], [ %.7.lcssa, %._crit_edge534 ], [ %.4.lcssa, %.loopexit490 ], [ %.10.lcssa, %.loopexit496 ], [ %160, %._crit_edge ], [ %91, %.lr.ph598 ], [ %36, %.lr.ph612 ], [ %129, %.lr.ph559 ]
+  %.sink806 = phi ptr [ %5, %20 ], [ %4, %._crit_edge586 ], [ %5, %._crit_edge521 ], [ %5, %.preheader491 ], [ %4, %.preheader488 ], [ %4, %._crit_edge547 ], [ %5, %._crit_edge534 ], [ %4, %._crit_edge ], [ %4, %.loopexit490 ], [ %4, %.lr.ph598 ], [ %5, %.lr.ph612 ], [ %4, %.loopexit496 ], [ %5, %.lr.ph559 ]
+  %.sink = phi ptr [ %4, %20 ], [ %5, %._crit_edge586 ], [ %4, %._crit_edge521 ], [ %4, %.preheader491 ], [ %5, %.preheader488 ], [ %5, %._crit_edge547 ], [ %4, %._crit_edge534 ], [ %5, %._crit_edge ], [ %5, %.loopexit490 ], [ %5, %.lr.ph598 ], [ %4, %.lr.ph612 ], [ %5, %.loopexit496 ], [ %4, %.lr.ph559 ]
+  %.2395.ph = phi ptr [ %26, %20 ], [ %.3396.lcssa, %._crit_edge586 ], [ %.13406.lcssa, %._crit_edge521 ], [ %1, %.preheader491 ], [ %1, %.preheader488 ], [ %.7400.lcssa, %._crit_edge547 ], [ %.8401.lcssa, %._crit_edge534 ], [ %.10403.lcssa, %._crit_edge ], [ %.5398.lcssa, %.loopexit490 ], [ %90, %.lr.ph598 ], [ %35, %.lr.ph612 ], [ %.12405.lcssa, %.loopexit496 ], [ %128, %.lr.ph559 ]
+  %.2377.ph804 = phi i64 [ %29, %20 ], [ %.3378.lcssa, %._crit_edge586 ], [ %.13388.lcssa, %._crit_edge521 ], [ 0, %.preheader491 ], [ 0, %.preheader488 ], [ %.7382.lcssa, %._crit_edge547 ], [ %.8383.lcssa, %._crit_edge534 ], [ %.10385.lcssa, %._crit_edge ], [ %.5380.lcssa, %.loopexit490 ], [ %89, %.lr.ph598 ], [ %34, %.lr.ph612 ], [ %.12387.lcssa, %.loopexit496 ], [ %127, %.lr.ph559 ]
+  %.2358.ph805 = phi ptr [ %24, %20 ], [ %.3359.lcssa, %._crit_edge586 ], [ %.13.lcssa, %._crit_edge521 ], [ %0, %.preheader491 ], [ %0, %.preheader488 ], [ %.7363.lcssa, %._crit_edge547 ], [ %.8364.lcssa, %._crit_edge534 ], [ %.10366.lcssa, %._crit_edge ], [ %.5361.lcssa, %.loopexit490 ], [ %87, %.lr.ph598 ], [ %33, %.lr.ph612 ], [ %.12.lcssa, %.loopexit496 ], [ %126, %.lr.ph559 ]
+  %.2.ph = phi i64 [ %30, %20 ], [ %80, %._crit_edge586 ], [ %.11.lcssa, %._crit_edge521 ], [ %2, %.preheader491 ], [ %2, %.preheader488 ], [ %.6.lcssa, %._crit_edge547 ], [ %.7.lcssa, %._crit_edge534 ], [ %160, %._crit_edge ], [ %.4.lcssa, %.loopexit490 ], [ %91, %.lr.ph598 ], [ %36, %.lr.ph612 ], [ %.10.lcssa, %.loopexit496 ], [ %129, %.lr.ph559 ]
   store i64 0, ptr %.sink806, align 8, !tbaa !3
   store i64 0, ptr %.sink, align 8, !tbaa !3
   br label %173
@@ -632,9 +632,9 @@ define i64 @prte_bcopy_csum_partial(ptr noundef %0, ptr noundef %1, i64 noundef 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph633, %.loopexit.loopexit, %.preheader486, %.preheader
-  %.17392 = phi i64 [ %.15390, %.preheader ], [ %.15390, %.preheader486 ], [ %240, %.loopexit.loopexit ], [ %243, %.lr.ph633 ]
-  %.4372 = phi i64 [ 0, %.preheader ], [ 0, %.preheader486 ], [ %237, %.loopexit.loopexit ], [ %237, %.lr.ph633 ]
-  %.16 = phi ptr [ %.14, %.preheader ], [ %.14, %.preheader486 ], [ %scevgep, %.loopexit.loopexit ], [ %244, %.lr.ph633 ]
+  %.17392 = phi i64 [ %240, %.loopexit.loopexit ], [ %.15390, %.preheader ], [ %.15390, %.preheader486 ], [ %243, %.lr.ph633 ]
+  %.4372 = phi i64 [ %237, %.loopexit.loopexit ], [ 0, %.preheader ], [ 0, %.preheader486 ], [ %237, %.lr.ph633 ]
+  %.16 = phi ptr [ %scevgep, %.loopexit.loopexit ], [ %.14, %.preheader ], [ %.14, %.preheader486 ], [ %244, %.lr.ph633 ]
   %247 = shl nuw i64 %.4372, 3
   %.not449 = icmp eq i64 %.0374, %247
   br i1 %.not449, label %252, label %248
@@ -1267,9 +1267,9 @@ define i32 @prte_bcopy_uicsum_partial(ptr noundef %0, ptr noundef %1, i64 nounde
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph633, %.loopexit.loopexit, %.preheader486, %.preheader
-  %.17392 = phi i32 [ %.15390, %.preheader ], [ %.15390, %.preheader486 ], [ %213, %.loopexit.loopexit ], [ %216, %.lr.ph633 ]
-  %.4372 = phi i64 [ 0, %.preheader ], [ 0, %.preheader486 ], [ %210, %.loopexit.loopexit ], [ %210, %.lr.ph633 ]
-  %.16 = phi ptr [ %.14, %.preheader ], [ %.14, %.preheader486 ], [ %scevgep, %.loopexit.loopexit ], [ %217, %.lr.ph633 ]
+  %.17392 = phi i32 [ %213, %.loopexit.loopexit ], [ %.15390, %.preheader ], [ %.15390, %.preheader486 ], [ %216, %.lr.ph633 ]
+  %.4372 = phi i64 [ %210, %.loopexit.loopexit ], [ 0, %.preheader ], [ 0, %.preheader486 ], [ %210, %.lr.ph633 ]
+  %.16 = phi ptr [ %scevgep, %.loopexit.loopexit ], [ %.14, %.preheader ], [ %.14, %.preheader486 ], [ %217, %.lr.ph633 ]
   %220 = shl nuw i64 %.4372, 2
   %.not449 = icmp eq i64 %.0374, %220
   br i1 %.not449, label %225, label %221
@@ -1788,9 +1788,9 @@ define i32 @prte_uicsum_partial(ptr noundef %0, i64 noundef %1, ptr noundef capt
   br label %78
 
 78:                                               ; preds = %._crit_edge199, %._crit_edge189, %._crit_edge, %._crit_edge211, %._crit_edge221
-  %.1147 = phi i64 [ %68, %._crit_edge ], [ %62, %._crit_edge189 ], [ %.2148.lcssa, %._crit_edge199 ], [ %27, %._crit_edge211 ], [ %41, %._crit_edge221 ]
-  %.2142 = phi ptr [ %.4144.lcssa, %._crit_edge ], [ %.3143.lcssa, %._crit_edge189 ], [ %.5145.lcssa, %._crit_edge199 ], [ %.0140.lcssa, %._crit_edge211 ], [ %.1141.lcssa, %._crit_edge221 ]
-  %.2138 = phi i32 [ %.4.lcssa, %._crit_edge ], [ %.3139.lcssa, %._crit_edge189 ], [ %.5.lcssa, %._crit_edge199 ], [ %.0136.lcssa, %._crit_edge211 ], [ %.1137.lcssa, %._crit_edge221 ]
+  %.1147 = phi i64 [ %68, %._crit_edge ], [ %62, %._crit_edge189 ], [ %41, %._crit_edge221 ], [ %.2148.lcssa, %._crit_edge199 ], [ %27, %._crit_edge211 ]
+  %.2142 = phi ptr [ %.4144.lcssa, %._crit_edge ], [ %.3143.lcssa, %._crit_edge189 ], [ %.1141.lcssa, %._crit_edge221 ], [ %.5145.lcssa, %._crit_edge199 ], [ %.0140.lcssa, %._crit_edge211 ]
+  %.2138 = phi i32 [ %.4.lcssa, %._crit_edge ], [ %.3139.lcssa, %._crit_edge189 ], [ %.1137.lcssa, %._crit_edge221 ], [ %.5.lcssa, %._crit_edge199 ], [ %.0136.lcssa, %._crit_edge211 ]
   %.not167 = icmp eq i64 %.1147, 0
   br i1 %.not167, label %.thread, label %79
 
@@ -1996,7 +1996,7 @@ define i32 @prte_bcopy_uicrc_partial(ptr noundef %0, ptr noundef %1, i64 noundef
   br i1 %.not67, label %.loopexit, label %.lr.ph85, !llvm.loop !53
 
 .loopexit:                                        ; preds = %.lr.ph85, %.lr.ph111, %.preheader71, %.preheader
-  %.4 = phi i32 [ %.259.lcssa, %.preheader ], [ %.5.lcssa, %.preheader71 ], [ %52, %.lr.ph111 ], [ %75, %.lr.ph85 ]
+  %.4 = phi i32 [ %52, %.lr.ph111 ], [ %.259.lcssa, %.preheader ], [ %.5.lcssa, %.preheader71 ], [ %75, %.lr.ph85 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.4
 }
@@ -2102,7 +2102,7 @@ define i32 @prte_uicrc_partial(ptr noundef %0, i64 noundef %1, i32 noundef %2) l
   br i1 %.not32, label %.loopexit, label %.lr.ph, !llvm.loop !57
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph55, %.preheader34, %.preheader
-  %.3 = phi i32 [ %.026.lcssa, %.preheader ], [ %2, %.preheader34 ], [ %34, %.lr.ph55 ], [ %45, %.lr.ph ]
+  %.3 = phi i32 [ %34, %.lr.ph55 ], [ %.026.lcssa, %.preheader ], [ %2, %.preheader34 ], [ %45, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.3
 }

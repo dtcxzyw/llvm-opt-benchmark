@@ -4349,7 +4349,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1117: ; preds = %1
 1643:                                             ; preds = %1637
   br i1 %.1472, label %.thread1391, label %.critedge696
 
-.thread1391.thread:                               ; preds = %1632, %1629
+.thread1391.thread:                               ; preds = %1629, %1632
   call void @_ZNSt12__shared_ptrIN2cv3dnn14dnn4_v2024122310PowerLayerELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %108) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %108)
   br label %.critedge696.thread

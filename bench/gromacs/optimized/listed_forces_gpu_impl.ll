@@ -1341,7 +1341,7 @@ _ZN15InteractionListD2Ev.exit.i.i.i27.i.i.i:      ; preds = %367, %363
   br i1 %373, label %.body.i.i.i, label %363
 
 .body.i.i.i:                                      ; preds = %_ZN15InteractionListD2Ev.exit.i.i.i.i.i.i, %_ZN15InteractionListD2Ev.exit.i.i5.i.i.i.i, %_ZN15InteractionListD2Ev.exit.i.i.i27.i.i.i, %182
-  %.pn.i.i.i = phi { ptr, i32 } [ %lpad.phi.i.i.i.i.i.i, %182 ], [ %lpad.phi.i.i.i.i.i.i.i, %_ZN15InteractionListD2Ev.exit.i.i5.i.i.i.i ], [ %lpad.phi.i.i.i.i11.i.i.i, %_ZN15InteractionListD2Ev.exit.i.i.i27.i.i.i ], [ %lpad.phi.i.i.i.i.i.i, %_ZN15InteractionListD2Ev.exit.i.i.i.i.i.i ]
+  %.pn.i.i.i = phi { ptr, i32 } [ %lpad.phi.i.i.i.i11.i.i.i, %_ZN15InteractionListD2Ev.exit.i.i.i27.i.i.i ], [ %lpad.phi.i.i.i.i.i.i.i, %_ZN15InteractionListD2Ev.exit.i.i5.i.i.i.i ], [ %lpad.phi.i.i.i.i.i.i, %182 ], [ %lpad.phi.i.i.i.i.i.i, %_ZN15InteractionListD2Ev.exit.i.i.i.i.i.i ]
   %374 = getelementptr inbounds nuw i8, ptr %5, i64 2280
   br label %375
 
@@ -1392,7 +1392,7 @@ _ZN15InteractionListD2Ev.exit.i.i7.i.i:           ; preds = %392, %388
   br i1 %398, label %411, label %388
 
 .body.i.i:                                        ; preds = %_ZN15InteractionListD2Ev.exit.i.i.i.i.i, %_ZN15InteractionListD2Ev.exit.i.i30.i.i.i, %145
-  %eh.lpad-body.i.i = phi { ptr, i32 } [ %lpad.phi.i.i.i.i.i, %145 ], [ %.pn.i.i.i, %_ZN15InteractionListD2Ev.exit.i.i30.i.i.i ], [ %lpad.phi.i.i.i.i.i, %_ZN15InteractionListD2Ev.exit.i.i.i.i.i ]
+  %eh.lpad-body.i.i = phi { ptr, i32 } [ %.pn.i.i.i, %_ZN15InteractionListD2Ev.exit.i.i30.i.i.i ], [ %lpad.phi.i.i.i.i.i, %145 ], [ %lpad.phi.i.i.i.i.i, %_ZN15InteractionListD2Ev.exit.i.i.i.i.i ]
   %399 = getelementptr inbounds nuw i8, ptr %6, i64 2280
   br label %400
 
@@ -1442,7 +1442,7 @@ _ZN15InteractionListD2Ev.exit.i.i6.i:             ; preds = %417, %413
   br i1 %423, label %436, label %413
 
 .body.i:                                          ; preds = %_ZN15InteractionListD2Ev.exit.i.i.i.i, %_ZN15InteractionListD2Ev.exit.i.i9.i.i, %108
-  %eh.lpad-body.i = phi { ptr, i32 } [ %lpad.phi.i.i.i.i, %108 ], [ %eh.lpad-body.i.i, %_ZN15InteractionListD2Ev.exit.i.i9.i.i ], [ %lpad.phi.i.i.i.i, %_ZN15InteractionListD2Ev.exit.i.i.i.i ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %eh.lpad-body.i.i, %_ZN15InteractionListD2Ev.exit.i.i9.i.i ], [ %lpad.phi.i.i.i.i, %108 ], [ %lpad.phi.i.i.i.i, %_ZN15InteractionListD2Ev.exit.i.i.i.i ]
   %424 = getelementptr inbounds nuw i8, ptr %7, i64 2280
   br label %425
 
@@ -1496,7 +1496,7 @@ _ZN15InteractionListD2Ev.exit.i.i:                ; preds = %442, %438
   ret i1 %449
 
 .body:                                            ; preds = %_ZN15InteractionListD2Ev.exit.i.i.i, %_ZN15InteractionListD2Ev.exit.i.i8.i, %71
-  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i.i.i, %71 ], [ %eh.lpad-body.i, %_ZN15InteractionListD2Ev.exit.i.i8.i ], [ %lpad.phi.i.i.i, %_ZN15InteractionListD2Ev.exit.i.i.i ]
+  %eh.lpad-body = phi { ptr, i32 } [ %eh.lpad-body.i, %_ZN15InteractionListD2Ev.exit.i.i8.i ], [ %lpad.phi.i.i.i, %71 ], [ %lpad.phi.i.i.i, %_ZN15InteractionListD2Ev.exit.i.i.i ]
   %450 = getelementptr inbounds nuw i8, ptr %8, i64 2280
   br label %451
 

@@ -7794,7 +7794,7 @@ define noundef i64 @_ZN21uv_distribution_types24prioritized_distribution15implie
   ]
 
 ._crit_edge62:                                    ; preds = %69, %1, %._crit_edge62.loopexit
-  %.sroa.0.0 = phi i64 [ %.pre, %._crit_edge62.loopexit ], [ 1, %1 ], [ 0, %69 ]
+  %.sroa.0.0 = phi i64 [ 1, %1 ], [ %.pre, %._crit_edge62.loopexit ], [ 0, %69 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   ret i64 %.sroa.0.0
 

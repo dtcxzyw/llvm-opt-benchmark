@@ -2412,7 +2412,7 @@ _ZNK8aiStringeqERKS_.exit.thread.i.i:             ; preds = %_ZNK8aiStringeqERKS
   br i1 %exitcond.not.i.i, label %.critedge, label %43, !llvm.loop !11
 
 .critedge:                                        ; preds = %_ZNK8aiStringeqERKS_.exit.thread.i.i, %.noexc.i, %49, %54, %58
-  %64 = phi i1 [ true, %54 ], [ false, %.noexc.i ], [ false, %49 ], [ true, %58 ], [ false, %_ZNK8aiStringeqERKS_.exit.thread.i.i ]
+  %64 = phi i1 [ false, %49 ], [ false, %.noexc.i ], [ true, %58 ], [ true, %54 ], [ false, %_ZNK8aiStringeqERKS_.exit.thread.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %65 = icmp eq ptr %37, %27
   br i1 %65, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -16248,7 +16248,7 @@ _ZN9rapidjson6WriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph, %91, %_ZN9rapidjson6WriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE3KeyEPKcjb.exit, %109, %12, %222, %220, %214, %209, %204, %_ZN9rapidjson6WriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE6StringEPKcjb.exit, %_ZN9rapidjson6WriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE8EndArrayEj.exit, %_ZN9rapidjson6WriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE9EndObjectEj.exit, %10, %8, %6
-  %.030 = phi i1 [ %206, %204 ], [ %211, %209 ], [ %216, %214 ], [ %221, %220 ], [ %223, %222 ], [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %201, %_ZN9rapidjson6WriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE6StringEPKcjb.exit ], [ true, %_ZN9rapidjson6WriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE9EndObjectEj.exit ], [ false, %12 ], [ true, %_ZN9rapidjson6WriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE8EndArrayEj.exit ], [ false, %109 ], [ false, %91 ], [ false, %_ZN9rapidjson6WriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE3KeyEPKcjb.exit ], [ false, %.lr.ph ]
+  %.030 = phi i1 [ %206, %204 ], [ %211, %209 ], [ %216, %214 ], [ %221, %220 ], [ %223, %222 ], [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %201, %_ZN9rapidjson6WriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE6StringEPKcjb.exit ], [ true, %_ZN9rapidjson6WriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE9EndObjectEj.exit ], [ false, %91 ], [ false, %12 ], [ true, %_ZN9rapidjson6WriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE8EndArrayEj.exit ], [ false, %109 ], [ false, %_ZN9rapidjson6WriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE3KeyEPKcjb.exit ], [ false, %.lr.ph ]
   ret i1 %.030
 }
 
@@ -20058,7 +20058,7 @@ _ZN9rapidjson12PrettyWriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocat
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph, %149, %.lr.ph57, %257, %255, %249, %_ZN9rapidjson12PrettyWriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE3IntEi.exit, %216, %199, %._crit_edge, %._crit_edge58, %_ZN9rapidjson12PrettyWriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE4BoolEb.exit36, %_ZN9rapidjson12PrettyWriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE4BoolEb.exit, %_ZN9rapidjson12PrettyWriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE4NullEv.exit
-  %.030 = phi i1 [ %218, %216 ], [ true, %_ZN9rapidjson12PrettyWriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE3IntEi.exit ], [ %251, %249 ], [ %256, %255 ], [ %258, %257 ], [ true, %_ZN9rapidjson12PrettyWriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE4NullEv.exit ], [ true, %_ZN9rapidjson12PrettyWriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE4BoolEb.exit ], [ true, %_ZN9rapidjson12PrettyWriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE4BoolEb.exit36 ], [ %213, %199 ], [ %153, %._crit_edge58 ], [ %198, %._crit_edge ], [ false, %149 ], [ false, %.lr.ph57 ], [ false, %.lr.ph ]
+  %.030 = phi i1 [ %218, %216 ], [ true, %_ZN9rapidjson12PrettyWriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE3IntEi.exit ], [ %251, %249 ], [ %256, %255 ], [ %258, %257 ], [ true, %_ZN9rapidjson12PrettyWriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE4NullEv.exit ], [ true, %_ZN9rapidjson12PrettyWriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE4BoolEb.exit ], [ true, %_ZN9rapidjson12PrettyWriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE4BoolEb.exit36 ], [ %213, %199 ], [ %153, %._crit_edge58 ], [ false, %149 ], [ %198, %._crit_edge ], [ false, %.lr.ph57 ], [ false, %.lr.ph ]
   ret i1 %.030
 }
 
@@ -24650,8 +24650,8 @@ _ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAlloca
   br i1 %exitcond.not.i.i.i122, label %_ZN10glTFCommonL10ReadMemberINS_8NullableIA4_fEEEEbRN9rapidjson12GenericValueINS4_4UTF8IcEENS4_19MemoryPoolAllocatorINS4_12CrtAllocatorEEEEEPKcRT_.exit.sink.split, label %299, !llvm.loop !236
 
 _ZN10glTFCommonL10ReadMemberINS_8NullableIA4_fEEEEbRN9rapidjson12GenericValueINS4_4UTF8IcEENS4_19MemoryPoolAllocatorINS4_12CrtAllocatorEEEEEPKcRT_.exit.sink.split: ; preds = %238, %332, %292, %_ZN10glTFCommon9FindArrayERN9rapidjson12GenericValueINS0_4UTF8IcEENS0_19MemoryPoolAllocatorINS0_12CrtAllocatorEEEEEPKc.exit99
-  %.sink = phi i64 [ 184, %_ZN10glTFCommon9FindArrayERN9rapidjson12GenericValueINS0_4UTF8IcEENS0_19MemoryPoolAllocatorINS0_12CrtAllocatorEEEEEPKc.exit99 ], [ 220, %292 ], [ 220, %332 ], [ 184, %238 ]
-  %or.cond.i.i.i115.sink = phi i8 [ 0, %_ZN10glTFCommon9FindArrayERN9rapidjson12GenericValueINS0_4UTF8IcEENS0_19MemoryPoolAllocatorINS0_12CrtAllocatorEEEEEPKc.exit99 ], [ 0, %292 ], [ 1, %332 ], [ 1, %238 ]
+  %.sink = phi i64 [ 184, %_ZN10glTFCommon9FindArrayERN9rapidjson12GenericValueINS0_4UTF8IcEENS0_19MemoryPoolAllocatorINS0_12CrtAllocatorEEEEEPKc.exit99 ], [ 220, %332 ], [ 220, %292 ], [ 184, %238 ]
+  %or.cond.i.i.i115.sink = phi i8 [ 0, %_ZN10glTFCommon9FindArrayERN9rapidjson12GenericValueINS0_4UTF8IcEENS0_19MemoryPoolAllocatorINS0_12CrtAllocatorEEEEEPKc.exit99 ], [ 1, %332 ], [ 0, %292 ], [ 1, %238 ]
   %333 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
   store i8 %or.cond.i.i.i115.sink, ptr %333, align 4
   br label %_ZN10glTFCommonL10ReadMemberINS_8NullableIA4_fEEEEbRN9rapidjson12GenericValueINS4_4UTF8IcEENS4_19MemoryPoolAllocatorINS4_12CrtAllocatorEEEEEPKcRT_.exit
@@ -33108,7 +33108,7 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   br label %_ZN4glTF10AttribType10FromStringEPKc.exit
 
 _ZN4glTF10AttribType10FromStringEPKc.exit:        ; preds = %375, %357, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberEPKc.exit.i, %_ZN10glTFCommonL15MemberOrDefaultIjEET_RN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEEPKcS1_.exit70, %377
-  %379 = phi i32 [ %378, %377 ], [ 0, %_ZN10glTFCommonL15MemberOrDefaultIjEET_RN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEEPKcS1_.exit70 ], [ 0, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberEPKc.exit.i ], [ 0, %357 ], [ 0, %375 ]
+  %379 = phi i32 [ 0, %357 ], [ %378, %377 ], [ 0, %_ZN10glTFCommonL15MemberOrDefaultIjEET_RN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEEPKcS1_.exit70 ], [ 0, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberEPKc.exit.i ], [ 0, %375 ]
   %380 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 %379, ptr %380, align 8
   ret void
@@ -40983,7 +40983,7 @@ define linkonce_odr hidden noundef i32 @_ZN5o3dgc13SC3DMCDecoderItE12DecodeHeade
   br label %_ZNK5o3dgc12BinaryStream10ReadUInt32ERmNS_15O3DGCStreamTypeE.exit
 
 _ZNK5o3dgc12BinaryStream10ReadUInt32ERmNS_15O3DGCStreamTypeE.exit: ; preds = %12, %36
-  %.0.i = phi i64 [ %35, %12 ], [ %59, %36 ]
+  %.0.i = phi i64 [ %59, %36 ], [ %35, %12 ]
   %.not = icmp eq i64 %.0.i, 497
   br i1 %.not, label %71, label %.preheader222
 
@@ -41115,7 +41115,7 @@ _ZNK5o3dgc12BinaryStream10ReadUInt32ERmNS_15O3DGCStreamTypeE.exit115: ; preds = 
   br label %_ZNK5o3dgc12BinaryStream11ReadFloat32ERmNS_15O3DGCStreamTypeE.exit
 
 _ZNK5o3dgc12BinaryStream11ReadFloat32ERmNS_15O3DGCStreamTypeE.exit: ; preds = %.preheader178, %102, %124
-  %.0.in.i = phi i32 [ %123, %102 ], [ %145, %124 ], [ %91, %.preheader178 ]
+  %.0.in.i = phi i32 [ %145, %124 ], [ %123, %102 ], [ %91, %.preheader178 ]
   %146 = getelementptr inbounds nuw i8, ptr %1, i64 79992
   store i32 %.0.in.i, ptr %146, align 8
   %147 = load i64, ptr %0, align 8
@@ -41268,7 +41268,7 @@ _ZNK5o3dgc12BinaryStream11ReadFloat32ERmNS_15O3DGCStreamTypeE.exit: ; preds = %.
   br label %_ZNK5o3dgc12BinaryStream11ReadFloat32ERmNS_15O3DGCStreamTypeE.exit127
 
 _ZNK5o3dgc12BinaryStream11ReadFloat32ERmNS_15O3DGCStreamTypeE.exit127: ; preds = %185, %205, %227
-  %.0.in.i120 = phi i32 [ %226, %205 ], [ %248, %227 ], [ %193, %185 ]
+  %.0.in.i120 = phi i32 [ %248, %227 ], [ %226, %205 ], [ %193, %185 ]
   %249 = getelementptr inbounds nuw float, ptr %172, i64 %indvars.iv
   store i32 %.0.in.i120, ptr %249, align 4
   %250 = load i32, ptr %73, align 8
@@ -41364,7 +41364,7 @@ _ZNK5o3dgc12BinaryStream11ReadFloat32ERmNS_15O3DGCStreamTypeE.exit127: ; preds =
   br label %_ZNK5o3dgc12BinaryStream11ReadFloat32ERmNS_15O3DGCStreamTypeE.exit135
 
 _ZNK5o3dgc12BinaryStream11ReadFloat32ERmNS_15O3DGCStreamTypeE.exit135: ; preds = %253, %273, %295
-  %.0.in.i128 = phi i32 [ %294, %273 ], [ %316, %295 ], [ %261, %253 ]
+  %.0.in.i128 = phi i32 [ %316, %295 ], [ %294, %273 ], [ %261, %253 ]
   %317 = getelementptr inbounds nuw float, ptr %173, i64 %indvars.iv
   store i32 %.0.in.i128, ptr %317, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -41491,7 +41491,7 @@ _ZNK5o3dgc12BinaryStream11ReadFloat32ERmNS_15O3DGCStreamTypeE.exit135: ; preds =
   br label %_ZNK5o3dgc12BinaryStream11ReadFloat32ERmNS_15O3DGCStreamTypeE.exit145
 
 _ZNK5o3dgc12BinaryStream11ReadFloat32ERmNS_15O3DGCStreamTypeE.exit145: ; preds = %337, %357, %379
-  %.0.in.i138 = phi i32 [ %378, %357 ], [ %400, %379 ], [ %345, %337 ]
+  %.0.in.i138 = phi i32 [ %400, %379 ], [ %378, %357 ], [ %345, %337 ]
   %401 = getelementptr inbounds nuw float, ptr %323, i64 %indvars.iv205
   store i32 %.0.in.i138, ptr %401, align 4
   %402 = load i32, ptr %73, align 8
@@ -41587,7 +41587,7 @@ _ZNK5o3dgc12BinaryStream11ReadFloat32ERmNS_15O3DGCStreamTypeE.exit145: ; preds =
   br label %_ZNK5o3dgc12BinaryStream11ReadFloat32ERmNS_15O3DGCStreamTypeE.exit153
 
 _ZNK5o3dgc12BinaryStream11ReadFloat32ERmNS_15O3DGCStreamTypeE.exit153: ; preds = %405, %425, %447
-  %.0.in.i146 = phi i32 [ %446, %425 ], [ %468, %447 ], [ %413, %405 ]
+  %.0.in.i146 = phi i32 [ %468, %447 ], [ %446, %425 ], [ %413, %405 ]
   %469 = getelementptr inbounds nuw float, ptr %324, i64 %indvars.iv205
   store i32 %.0.in.i146, ptr %469, align 4
   %indvars.iv.next206 = add nuw nsw i64 %indvars.iv205, 1
@@ -41766,7 +41766,7 @@ _ZNK5o3dgc12BinaryStream11ReadFloat32ERmNS_15O3DGCStreamTypeE.exit153: ; preds =
   br label %_ZNK5o3dgc12BinaryStream11ReadFloat32ERmNS_15O3DGCStreamTypeE.exit165
 
 _ZNK5o3dgc12BinaryStream11ReadFloat32ERmNS_15O3DGCStreamTypeE.exit165: ; preds = %514, %534, %556
-  %.0.in.i158 = phi i32 [ %555, %534 ], [ %577, %556 ], [ %522, %514 ]
+  %.0.in.i158 = phi i32 [ %577, %556 ], [ %555, %534 ], [ %522, %514 ]
   %578 = getelementptr float, ptr %495, i64 %indvars.iv209
   store i32 %.0.in.i158, ptr %578, align 4
   %579 = load i32, ptr %73, align 8
@@ -41862,7 +41862,7 @@ _ZNK5o3dgc12BinaryStream11ReadFloat32ERmNS_15O3DGCStreamTypeE.exit165: ; preds =
   br label %_ZNK5o3dgc12BinaryStream11ReadFloat32ERmNS_15O3DGCStreamTypeE.exit173
 
 _ZNK5o3dgc12BinaryStream11ReadFloat32ERmNS_15O3DGCStreamTypeE.exit173: ; preds = %582, %602, %624
-  %.0.in.i166 = phi i32 [ %623, %602 ], [ %645, %624 ], [ %590, %582 ]
+  %.0.in.i166 = phi i32 [ %645, %624 ], [ %623, %602 ], [ %590, %582 ]
   %646 = getelementptr float, ptr %496, i64 %indvars.iv209
   store i32 %.0.in.i166, ptr %646, align 4
   %indvars.iv.next210 = add nuw nsw i64 %indvars.iv209, 1
@@ -43126,7 +43126,7 @@ define linkonce_odr hidden noundef i64 @_ZNK5o3dgc12BinaryStream10ReadUInt32ERmN
   br label %_ZNK5o3dgc12BinaryStream15ReadUInt32ASCIIERm.exit
 
 _ZNK5o3dgc12BinaryStream15ReadUInt32ASCIIERm.exit: ; preds = %6, %51, %27
-  %.0 = phi i64 [ %50, %27 ], [ %74, %51 ], [ %15, %6 ]
+  %.0 = phi i64 [ %74, %51 ], [ %50, %27 ], [ %15, %6 ]
   ret i64 %.0
 }
 
@@ -44332,7 +44332,7 @@ _ZN5o3dgc6InsertENS_13SC3DMCTripletERmPNS_15SC3DMCPredictorE.exit: ; preds = %.l
   br i1 %exitcond649.not, label %_ZN5o3dgc6InsertENS_13SC3DMCTripletERmPNS_15SC3DMCPredictorE.exit.thread, label %315, !llvm.loop !346
 
 _ZN5o3dgc6InsertENS_13SC3DMCTripletERmPNS_15SC3DMCPredictorE.exit.thread: ; preds = %_ZN5o3dgceqERKNS_13SC3DMCTripletES2_.exit.i, %315, %_ZN5o3dgc6InsertENS_13SC3DMCTripletERmPNS_15SC3DMCPredictorE.exit, %270, %.thread33.i
-  %.6 = phi i64 [ %.9, %_ZN5o3dgc6InsertENS_13SC3DMCTripletERmPNS_15SC3DMCPredictorE.exit ], [ %.5582, %270 ], [ %.5582, %.thread33.i ], [ %.9, %315 ], [ %.5582, %_ZN5o3dgceqERKNS_13SC3DMCTripletES2_.exit.i ]
+  %.6 = phi i64 [ %.9, %_ZN5o3dgc6InsertENS_13SC3DMCTripletERmPNS_15SC3DMCPredictorE.exit ], [ %.9, %315 ], [ %.5582, %270 ], [ %.5582, %.thread33.i ], [ %.5582, %_ZN5o3dgceqERKNS_13SC3DMCTripletES2_.exit.i ]
   %326 = add nsw i64 %.0246583, 1
   %exitcond650.not = icmp eq i64 %326, %259
   br i1 %exitcond650.not, label %.critedge, label %265, !llvm.loop !347
@@ -44448,7 +44448,7 @@ _ZN5o3dgc6InsertENS_13SC3DMCTripletERmPNS_15SC3DMCPredictorE.exit355: ; preds = 
   br label %_ZN5o3dgc6InsertENS_13SC3DMCTripletERmPNS_15SC3DMCPredictorE.exit355.thread
 
 _ZN5o3dgc6InsertENS_13SC3DMCTripletERmPNS_15SC3DMCPredictorE.exit355.thread: ; preds = %_ZN5o3dgceqERKNS_13SC3DMCTripletES2_.exit.i354, %.lr.ph588, %_ZN5o3dgc6InsertENS_13SC3DMCTripletERmPNS_15SC3DMCPredictorE.exit355, %.thread33.i342, %328
-  %.8 = phi i64 [ %.12, %_ZN5o3dgc6InsertENS_13SC3DMCTripletERmPNS_15SC3DMCPredictorE.exit355 ], [ %.7589, %328 ], [ %.7589, %.thread33.i342 ], [ %.12, %.lr.ph588 ], [ %.7589, %_ZN5o3dgceqERKNS_13SC3DMCTripletES2_.exit.i354 ]
+  %.8 = phi i64 [ %.12, %_ZN5o3dgc6InsertENS_13SC3DMCTripletERmPNS_15SC3DMCPredictorE.exit355 ], [ %.12, %.lr.ph588 ], [ %.7589, %328 ], [ %.7589, %.thread33.i342 ], [ %.7589, %_ZN5o3dgceqERKNS_13SC3DMCTripletES2_.exit.i354 ]
   %366 = add nuw nsw i64 %.0241590, 1
   %exitcond655.not = icmp eq i64 %366, 3
   br i1 %exitcond655.not, label %.loopexit524, label %328, !llvm.loop !348
@@ -44603,7 +44603,7 @@ _ZN5o3dgc16Arithmetic_Codec15ExpGolombDecodeEiRNS_16Static_Bit_ModelERNS_18Adapt
   br label %_ZNK5o3dgc12BinaryStream12ReadIntASCIIERm.exit362
 
 _ZNK5o3dgc12BinaryStream12ReadIntASCIIERm.exit362: ; preds = %.preheader.i.i358, %_ZN5o3dgc16Arithmetic_Codec15ExpGolombDecodeEiRNS_16Static_Bit_ModelERNS_18Adaptive_Bit_ModelE.exit.i, %.noexc367, %391
-  %.0.i363.sink738 = phi i64 [ %397, %391 ], [ %426, %_ZN5o3dgc16Arithmetic_Codec15ExpGolombDecodeEiRNS_16Static_Bit_ModelERNS_18Adaptive_Bit_ModelE.exit.i ], [ %412, %.noexc367 ], [ %407, %.preheader.i.i358 ]
+  %.0.i363.sink738 = phi i64 [ %412, %.noexc367 ], [ %397, %391 ], [ %426, %_ZN5o3dgc16Arithmetic_Codec15ExpGolombDecodeEiRNS_16Static_Bit_ModelERNS_18Adaptive_Bit_ModelE.exit.i ], [ %407, %.preheader.i.i358 ]
   %427 = and i64 %.0.i363.sink738, 1
   %.not.i10.i = icmp eq i64 %427, 0
   %428 = add i64 %.0.i363.sink738, 1
@@ -44745,7 +44745,7 @@ _ZN5o3dgc16Arithmetic_Codec15ExpGolombDecodeEiRNS_16Static_Bit_ModelERNS_18Adapt
   br label %_ZNK5o3dgc12BinaryStream12ReadIntASCIIERm.exit376
 
 _ZNK5o3dgc12BinaryStream12ReadIntASCIIERm.exit376: ; preds = %.preheader.i.i372, %_ZN5o3dgc16Arithmetic_Codec15ExpGolombDecodeEiRNS_16Static_Bit_ModelERNS_18Adaptive_Bit_ModelE.exit.i391, %.noexc393, %447
-  %.0.i377.sink742 = phi i64 [ %453, %447 ], [ %482, %_ZN5o3dgc16Arithmetic_Codec15ExpGolombDecodeEiRNS_16Static_Bit_ModelERNS_18Adaptive_Bit_ModelE.exit.i391 ], [ %468, %.noexc393 ], [ %463, %.preheader.i.i372 ]
+  %.0.i377.sink742 = phi i64 [ %468, %.noexc393 ], [ %453, %447 ], [ %482, %_ZN5o3dgc16Arithmetic_Codec15ExpGolombDecodeEiRNS_16Static_Bit_ModelERNS_18Adaptive_Bit_ModelE.exit.i391 ], [ %463, %.preheader.i.i372 ]
   %483 = and i64 %.0.i377.sink742, 1
   %.not.i10.i378 = icmp eq i64 %483, 0
   %484 = add i64 %.0.i377.sink742, 1
@@ -44867,7 +44867,7 @@ _ZN5o3dgc16Arithmetic_Codec15ExpGolombDecodeEiRNS_16Static_Bit_ModelERNS_18Adapt
   br label %_ZNK5o3dgc12BinaryStream13ReadUIntASCIIERm.exit
 
 _ZNK5o3dgc12BinaryStream13ReadUIntASCIIERm.exit:  ; preds = %.preheader.i397, %_ZN5o3dgc16Arithmetic_Codec15ExpGolombDecodeEiRNS_16Static_Bit_ModelERNS_18Adaptive_Bit_ModelE.exit.i414, %.noexc416, %500
-  %.2 = phi i64 [ %506, %500 ], [ %535, %_ZN5o3dgc16Arithmetic_Codec15ExpGolombDecodeEiRNS_16Static_Bit_ModelERNS_18Adaptive_Bit_ModelE.exit.i414 ], [ %521, %.noexc416 ], [ %516, %.preheader.i397 ]
+  %.2 = phi i64 [ %521, %.noexc416 ], [ %506, %500 ], [ %535, %_ZN5o3dgc16Arithmetic_Codec15ExpGolombDecodeEiRNS_16Static_Bit_ModelERNS_18Adaptive_Bit_ModelE.exit.i414 ], [ %516, %.preheader.i397 ]
   %536 = load ptr, ptr %206, align 8
   %537 = getelementptr i64, ptr %536, i64 %443
   %538 = getelementptr i64, ptr %537, i64 %.0231602
@@ -44877,7 +44877,7 @@ _ZNK5o3dgc12BinaryStream13ReadUIntASCIIERm.exit:  ; preds = %.preheader.i397, %_
   br i1 %exitcond659.not, label %.loopexit526, label %497, !llvm.loop !352
 
 .loopexit526:                                     ; preds = %_ZNK5o3dgc12BinaryStream12ReadIntASCIIERm.exit376, %_ZNK5o3dgc12BinaryStream12ReadIntASCIIERm.exit362, %_ZNK5o3dgc12BinaryStream13ReadUIntASCIIERm.exit, %384, %.preheader527, %.preheader525
-  %.3470 = phi i64 [ %.1468604, %.preheader527 ], [ %.1468604, %.preheader525 ], [ %.2469, %384 ], [ %.2469, %_ZNK5o3dgc12BinaryStream12ReadIntASCIIERm.exit362 ], [ %.1468604, %_ZNK5o3dgc12BinaryStream13ReadUIntASCIIERm.exit ], [ %.1468604, %_ZNK5o3dgc12BinaryStream12ReadIntASCIIERm.exit376 ]
+  %.3470 = phi i64 [ %.1468604, %.preheader525 ], [ %.1468604, %.preheader527 ], [ %.2469, %384 ], [ %.1468604, %_ZNK5o3dgc12BinaryStream13ReadUIntASCIIERm.exit ], [ %.2469, %_ZNK5o3dgc12BinaryStream12ReadIntASCIIERm.exit362 ], [ %.1468604, %_ZNK5o3dgc12BinaryStream12ReadIntASCIIERm.exit376 ]
   %540 = add nuw nsw i64 %.0244605, 1
   %exitcond660.not = icmp eq i64 %540, %2
   br i1 %exitcond660.not, label %._crit_edge610, label %211, !llvm.loop !353
@@ -45503,7 +45503,7 @@ _ZN5o3dgc6InsertENS_13SC3DMCTripletERmPNS_15SC3DMCPredictorE.exit: ; preds = %.l
   br label %_ZN5o3dgc6InsertENS_13SC3DMCTripletERmPNS_15SC3DMCPredictorE.exit.thread
 
 _ZN5o3dgc6InsertENS_13SC3DMCTripletERmPNS_15SC3DMCPredictorE.exit.thread: ; preds = %_ZN5o3dgceqERKNS_13SC3DMCTripletES2_.exit.i, %.lr.ph, %_ZN5o3dgc6InsertENS_13SC3DMCTripletERmPNS_15SC3DMCPredictorE.exit, %.thread33.i, %103
-  %.3 = phi i64 [ %.4, %_ZN5o3dgc6InsertENS_13SC3DMCTripletERmPNS_15SC3DMCPredictorE.exit ], [ %.2228311, %103 ], [ %.2228311, %.thread33.i ], [ %.4, %.lr.ph ], [ %.2228311, %_ZN5o3dgceqERKNS_13SC3DMCTripletES2_.exit.i ]
+  %.3 = phi i64 [ %.4, %_ZN5o3dgc6InsertENS_13SC3DMCTripletERmPNS_15SC3DMCPredictorE.exit ], [ %.4, %.lr.ph ], [ %.2228311, %103 ], [ %.2228311, %.thread33.i ], [ %.2228311, %_ZN5o3dgceqERKNS_13SC3DMCTripletES2_.exit.i ]
   %140 = add nuw nsw i64 %.0116312, 1
   %exitcond.not = icmp eq i64 %140, 3
   br i1 %exitcond.not, label %141, label %103, !llvm.loop !358
@@ -45658,7 +45658,7 @@ _ZN5o3dgc16Arithmetic_Codec15ExpGolombDecodeEiRNS_16Static_Bit_ModelERNS_18Adapt
   br label %_ZNK5o3dgc12BinaryStream12ReadIntASCIIERm.exit
 
 _ZNK5o3dgc12BinaryStream12ReadIntASCIIERm.exit:   ; preds = %.preheader.i.i, %_ZN5o3dgc16Arithmetic_Codec15ExpGolombDecodeEiRNS_16Static_Bit_ModelERNS_18Adaptive_Bit_ModelE.exit.i, %.noexc169, %167
-  %.0.i165.sink392 = phi i64 [ %173, %167 ], [ %202, %_ZN5o3dgc16Arithmetic_Codec15ExpGolombDecodeEiRNS_16Static_Bit_ModelERNS_18Adaptive_Bit_ModelE.exit.i ], [ %188, %.noexc169 ], [ %183, %.preheader.i.i ]
+  %.0.i165.sink392 = phi i64 [ %188, %.noexc169 ], [ %173, %167 ], [ %202, %_ZN5o3dgc16Arithmetic_Codec15ExpGolombDecodeEiRNS_16Static_Bit_ModelERNS_18Adaptive_Bit_ModelE.exit.i ], [ %183, %.preheader.i.i ]
   %203 = and i64 %.0.i165.sink392, 1
   %.not.i10.i = icmp eq i64 %203, 0
   %204 = add i64 %.0.i165.sink392, 1
@@ -45801,7 +45801,7 @@ _ZN5o3dgc16Arithmetic_Codec15ExpGolombDecodeEiRNS_16Static_Bit_ModelERNS_18Adapt
   br label %_ZNK5o3dgc12BinaryStream12ReadIntASCIIERm.exit178
 
 _ZNK5o3dgc12BinaryStream12ReadIntASCIIERm.exit178: ; preds = %.preheader.i.i174, %_ZN5o3dgc16Arithmetic_Codec15ExpGolombDecodeEiRNS_16Static_Bit_ModelERNS_18Adaptive_Bit_ModelE.exit.i193, %.noexc195, %224
-  %.0.i179.sink396 = phi i64 [ %230, %224 ], [ %259, %_ZN5o3dgc16Arithmetic_Codec15ExpGolombDecodeEiRNS_16Static_Bit_ModelERNS_18Adaptive_Bit_ModelE.exit.i193 ], [ %245, %.noexc195 ], [ %240, %.preheader.i.i174 ]
+  %.0.i179.sink396 = phi i64 [ %245, %.noexc195 ], [ %230, %224 ], [ %259, %_ZN5o3dgc16Arithmetic_Codec15ExpGolombDecodeEiRNS_16Static_Bit_ModelERNS_18Adaptive_Bit_ModelE.exit.i193 ], [ %240, %.preheader.i.i174 ]
   %260 = and i64 %.0.i179.sink396, 1
   %.not.i10.i180 = icmp eq i64 %260, 0
   %261 = add i64 %.0.i179.sink396, 1
@@ -45920,7 +45920,7 @@ _ZN5o3dgc16Arithmetic_Codec15ExpGolombDecodeEiRNS_16Static_Bit_ModelERNS_18Adapt
   br label %.loopexit.split-lp262
 
 _ZNK5o3dgc12BinaryStream13ReadUIntASCIIERm.exit:  ; preds = %.preheader.i199, %_ZN5o3dgc16Arithmetic_Codec15ExpGolombDecodeEiRNS_16Static_Bit_ModelERNS_18Adaptive_Bit_ModelE.exit.i216, %.noexc218, %274
-  %.2 = phi i64 [ %280, %274 ], [ %309, %_ZN5o3dgc16Arithmetic_Codec15ExpGolombDecodeEiRNS_16Static_Bit_ModelERNS_18Adaptive_Bit_ModelE.exit.i216 ], [ %295, %.noexc218 ], [ %290, %.preheader.i199 ]
+  %.2 = phi i64 [ %295, %.noexc218 ], [ %280, %274 ], [ %309, %_ZN5o3dgc16Arithmetic_Codec15ExpGolombDecodeEiRNS_16Static_Bit_ModelERNS_18Adaptive_Bit_ModelE.exit.i216 ], [ %290, %.preheader.i199 ]
   %310 = getelementptr i64, ptr %220, i64 %.0322
   store i64 %.2, ptr %310, align 8
   %311 = add nuw i64 %.0322, 1
@@ -45928,7 +45928,7 @@ _ZNK5o3dgc12BinaryStream13ReadUIntASCIIERm.exit:  ; preds = %.preheader.i199, %_
   br i1 %exitcond352.not, label %.loopexit271, label %271, !llvm.loop !362
 
 .loopexit271:                                     ; preds = %_ZNK5o3dgc12BinaryStream12ReadIntASCIIERm.exit178, %_ZNK5o3dgc12BinaryStream12ReadIntASCIIERm.exit, %_ZNK5o3dgc12BinaryStream13ReadUIntASCIIERm.exit, %159, %.preheader272, %.preheader270
-  %.3232 = phi i64 [ %.1230324, %.preheader272 ], [ %.1230324, %.preheader270 ], [ %.2231, %159 ], [ %.2231, %_ZNK5o3dgc12BinaryStream12ReadIntASCIIERm.exit ], [ %.1230324, %_ZNK5o3dgc12BinaryStream13ReadUIntASCIIERm.exit ], [ %.1230324, %_ZNK5o3dgc12BinaryStream12ReadIntASCIIERm.exit178 ]
+  %.3232 = phi i64 [ %.1230324, %.preheader270 ], [ %.1230324, %.preheader272 ], [ %.2231, %159 ], [ %.1230324, %_ZNK5o3dgc12BinaryStream13ReadUIntASCIIERm.exit ], [ %.2231, %_ZNK5o3dgc12BinaryStream12ReadIntASCIIERm.exit ], [ %.1230324, %_ZNK5o3dgc12BinaryStream12ReadIntASCIIERm.exit178 ]
   %312 = add nuw nsw i64 %.0121325, 1
   %exitcond353.not = icmp eq i64 %312, %2
   br i1 %exitcond353.not, label %._crit_edge, label %83, !llvm.loop !363
@@ -84814,7 +84814,7 @@ _ZN5o3dgc6InsertENS_13SC3DMCTripletERmPNS_15SC3DMCPredictorE.exit: ; preds = %.l
   br i1 %exitcond735.not, label %_ZN5o3dgc6InsertENS_13SC3DMCTripletERmPNS_15SC3DMCPredictorE.exit.thread, label %371, !llvm.loop !911
 
 _ZN5o3dgc6InsertENS_13SC3DMCTripletERmPNS_15SC3DMCPredictorE.exit.thread: ; preds = %_ZN5o3dgceqERKNS_13SC3DMCTripletES2_.exit.i, %371, %_ZN5o3dgc6InsertENS_13SC3DMCTripletERmPNS_15SC3DMCPredictorE.exit, %.thread33.i, %320
-  %.4 = phi i64 [ %.9, %_ZN5o3dgc6InsertENS_13SC3DMCTripletERmPNS_15SC3DMCPredictorE.exit ], [ %.3650, %320 ], [ %.3650, %.thread33.i ], [ %.9, %371 ], [ %.3650, %_ZN5o3dgceqERKNS_13SC3DMCTripletES2_.exit.i ]
+  %.4 = phi i64 [ %.9, %_ZN5o3dgc6InsertENS_13SC3DMCTripletERmPNS_15SC3DMCPredictorE.exit ], [ %.9, %371 ], [ %.3650, %320 ], [ %.3650, %.thread33.i ], [ %.3650, %_ZN5o3dgceqERKNS_13SC3DMCTripletES2_.exit.i ]
   %382 = add nsw i64 %.0297651, 1
   %exitcond736.not = icmp eq i64 %382, %311
   br i1 %exitcond736.not, label %.thread554, label %315, !llvm.loop !912
@@ -84933,7 +84933,7 @@ _ZN5o3dgc6InsertENS_13SC3DMCTripletERmPNS_15SC3DMCPredictorE.exit397: ; preds = 
   br i1 %exitcond741.not, label %_ZN5o3dgc6InsertENS_13SC3DMCTripletERmPNS_15SC3DMCPredictorE.exit397.thread, label %424, !llvm.loop !913
 
 _ZN5o3dgc6InsertENS_13SC3DMCTripletERmPNS_15SC3DMCPredictorE.exit397.thread: ; preds = %_ZN5o3dgceqERKNS_13SC3DMCTripletES2_.exit.i396, %424, %_ZN5o3dgc6InsertENS_13SC3DMCTripletERmPNS_15SC3DMCPredictorE.exit397, %.thread33.i384, %384
-  %.8 = phi i64 [ %.12, %_ZN5o3dgc6InsertENS_13SC3DMCTripletERmPNS_15SC3DMCPredictorE.exit397 ], [ %.7656, %384 ], [ %.7656, %.thread33.i384 ], [ %.12, %424 ], [ %.7656, %_ZN5o3dgceqERKNS_13SC3DMCTripletES2_.exit.i396 ]
+  %.8 = phi i64 [ %.12, %_ZN5o3dgc6InsertENS_13SC3DMCTripletERmPNS_15SC3DMCPredictorE.exit397 ], [ %.12, %424 ], [ %.7656, %384 ], [ %.7656, %.thread33.i384 ], [ %.7656, %_ZN5o3dgceqERKNS_13SC3DMCTripletES2_.exit.i396 ]
   %429 = add nuw nsw i64 %.0292657, 1
   %exitcond742.not = icmp eq i64 %429, 3
   br i1 %exitcond742.not, label %.loopexit603, label %384, !llvm.loop !914
@@ -87032,7 +87032,7 @@ _ZN5o3dgc6InsertENS_13SC3DMCTripletERmPNS_15SC3DMCPredictorE.exit: ; preds = %.l
   br i1 %exitcond.not, label %_ZN5o3dgc6InsertENS_13SC3DMCTripletERmPNS_15SC3DMCPredictorE.exit.thread, label %187, !llvm.loop !928
 
 _ZN5o3dgc6InsertENS_13SC3DMCTripletERmPNS_15SC3DMCPredictorE.exit.thread: ; preds = %_ZN5o3dgceqERKNS_13SC3DMCTripletES2_.exit.i, %187, %_ZN5o3dgc6InsertENS_13SC3DMCTripletERmPNS_15SC3DMCPredictorE.exit, %.thread33.i, %148
-  %.3 = phi i64 [ %.4, %_ZN5o3dgc6InsertENS_13SC3DMCTripletERmPNS_15SC3DMCPredictorE.exit ], [ %.2430, %148 ], [ %.2430, %.thread33.i ], [ %.4, %187 ], [ %.2430, %_ZN5o3dgceqERKNS_13SC3DMCTripletES2_.exit.i ]
+  %.3 = phi i64 [ %.4, %_ZN5o3dgc6InsertENS_13SC3DMCTripletERmPNS_15SC3DMCPredictorE.exit ], [ %.4, %187 ], [ %.2430, %148 ], [ %.2430, %.thread33.i ], [ %.2430, %_ZN5o3dgceqERKNS_13SC3DMCTripletES2_.exit.i ]
   %192 = add nuw nsw i64 %.0183431, 1
   %exitcond493.not = icmp eq i64 %192, 3
   br i1 %exitcond493.not, label %146, label %148, !llvm.loop !929

@@ -1163,7 +1163,7 @@ _ZL20_alloc_scratch_spacemmmmPm.exit.i151:        ; preds = %.lr.ph.i.i.i148, %4
   unreachable
 
 _ZL9_box_meanILm1ELb0EEvPfmmmj.exit.sink.split:   ; preds = %._crit_edge.us.i160, %.preheader.i161, %._crit_edge.us.i135, %.preheader.i145, %._crit_edge.us.i91, %.preheader.i102, %._crit_edge.us.i53, %.preheader.i57, %._crit_edge.us.i, %.preheader.i, %.preheader25.i154, %.preheader33.i, %.preheader25.i66, %.preheader25.i37, %.preheader25.i
-  %.sink = phi ptr [ %343, %.preheader33.i ], [ %211, %.preheader25.i66 ], [ %104, %.preheader25.i37 ], [ %20, %.preheader25.i ], [ %450, %.preheader25.i154 ], [ %450, %.preheader.i161 ], [ %20, %.preheader.i ], [ %20, %._crit_edge.us.i ], [ %104, %.preheader.i57 ], [ %104, %._crit_edge.us.i53 ], [ %211, %.preheader.i102 ], [ %211, %._crit_edge.us.i91 ], [ %343, %.preheader.i145 ], [ %343, %._crit_edge.us.i135 ], [ %450, %._crit_edge.us.i160 ]
+  %.sink = phi ptr [ %343, %.preheader33.i ], [ %211, %.preheader25.i66 ], [ %104, %.preheader25.i37 ], [ %20, %.preheader25.i ], [ %343, %.preheader.i145 ], [ %450, %.preheader25.i154 ], [ %450, %.preheader.i161 ], [ %343, %._crit_edge.us.i135 ], [ %20, %._crit_edge.us.i ], [ %20, %.preheader.i ], [ %104, %._crit_edge.us.i53 ], [ %104, %.preheader.i57 ], [ %211, %._crit_edge.us.i91 ], [ %211, %.preheader.i102 ], [ %450, %._crit_edge.us.i160 ]
   tail call void @free(ptr noundef nonnull %.sink) #12
   br label %_ZL9_box_meanILm1ELb0EEvPfmmmj.exit
 

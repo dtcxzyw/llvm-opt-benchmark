@@ -1220,20 +1220,16 @@ _ZN4llvm5APIntD2Ev.exit.i:                        ; preds = %80, %77, %_ZNK5clan
   %81 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %82 = load i32, ptr %81, align 8, !tbaa !58
   %83 = icmp ugt i32 %82, 64
-  br i1 %83, label %84, label %_ZN4llvm5APIntD2Ev.exit19.i
+  br i1 %83, label %84, label %_ZL32templateArgumentExpressionsEqualRKN5clang10ASTContextERKNS_16TemplateArgumentES5_.exit
 
 84:                                               ; preds = %_ZN4llvm5APIntD2Ev.exit.i
   %85 = load ptr, ptr %8, align 8, !tbaa !13
   %86 = icmp eq ptr %85, null
-  br i1 %86, label %_ZN4llvm5APIntD2Ev.exit19.i, label %87
+  br i1 %86, label %_ZL32templateArgumentExpressionsEqualRKN5clang10ASTContextERKNS_16TemplateArgumentES5_.exit, label %87
 
 87:                                               ; preds = %84
   call void @_ZdaPv(ptr noundef nonnull %85) #20
-  br label %_ZN4llvm5APIntD2Ev.exit19.i
-
-_ZN4llvm5APIntD2Ev.exit19.i:                      ; preds = %87, %84, %_ZN4llvm5APIntD2Ev.exit.i
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br i1 %.not.i.i, label %.thread49, label %_ZL32templateArgumentExpressionsEqualRKN5clang10ASTContextERKNS_16TemplateArgumentES5_.exit.thread
+  br label %_ZL32templateArgumentExpressionsEqualRKN5clang10ASTContextERKNS_16TemplateArgumentES5_.exit
 
 88:                                               ; preds = %54
   %89 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1274,23 +1270,27 @@ _ZN4llvm5APIntD2Ev.exit21.i:                      ; preds = %104, %101, %96
   %105 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %106 = load i32, ptr %105, align 8, !tbaa !58
   %107 = icmp ugt i32 %106, 64
-  br i1 %107, label %108, label %_ZL32templateArgumentExpressionsEqualRKN5clang10ASTContextERKNS_16TemplateArgumentES5_.exit
+  br i1 %107, label %108, label %_ZN4llvm5APIntD2Ev.exit22.i
 
 108:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit21.i
   %109 = load ptr, ptr %10, align 8, !tbaa !13
   %110 = icmp eq ptr %109, null
-  br i1 %110, label %_ZL32templateArgumentExpressionsEqualRKN5clang10ASTContextERKNS_16TemplateArgumentES5_.exit, label %111
+  br i1 %110, label %_ZN4llvm5APIntD2Ev.exit22.i, label %111
 
 111:                                              ; preds = %108
   call void @_ZdaPv(ptr noundef nonnull %109) #20
-  br label %_ZL32templateArgumentExpressionsEqualRKN5clang10ASTContextERKNS_16TemplateArgumentES5_.exit
+  br label %_ZN4llvm5APIntD2Ev.exit22.i
 
-_ZL32templateArgumentExpressionsEqualRKN5clang10ASTContextERKNS_16TemplateArgumentES5_.exit: ; preds = %_ZN4llvm5APIntD2Ev.exit21.i, %108, %111
+_ZN4llvm5APIntD2Ev.exit22.i:                      ; preds = %111, %108, %_ZN4llvm5APIntD2Ev.exit21.i
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br i1 %.not.i20.i, label %.thread49, label %_ZL32templateArgumentExpressionsEqualRKN5clang10ASTContextERKNS_16TemplateArgumentES5_.exit.thread
 
-_ZL32templateArgumentExpressionsEqualRKN5clang10ASTContextERKNS_16TemplateArgumentES5_.exit.thread: ; preds = %17, %54, %94, %52, %47, %88, %_ZN4llvm5APIntD2Ev.exit19.i, %_ZL32templateArgumentExpressionsEqualRKN5clang10ASTContextERKNS_16TemplateArgumentES5_.exit
-  %112 = phi ptr [ %48, %54 ], [ %48, %94 ], [ %48, %52 ], [ %48, %47 ], [ %48, %88 ], [ %48, %_ZL32templateArgumentExpressionsEqualRKN5clang10ASTContextERKNS_16TemplateArgumentES5_.exit ], [ %48, %_ZN4llvm5APIntD2Ev.exit19.i ], [ %21, %17 ]
+_ZL32templateArgumentExpressionsEqualRKN5clang10ASTContextERKNS_16TemplateArgumentES5_.exit: ; preds = %_ZN4llvm5APIntD2Ev.exit.i, %84, %87
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  br i1 %.not.i.i, label %.thread49, label %_ZL32templateArgumentExpressionsEqualRKN5clang10ASTContextERKNS_16TemplateArgumentES5_.exit.thread
+
+_ZL32templateArgumentExpressionsEqualRKN5clang10ASTContextERKNS_16TemplateArgumentES5_.exit.thread: ; preds = %17, %54, %94, %52, %47, %88, %_ZN4llvm5APIntD2Ev.exit22.i, %_ZL32templateArgumentExpressionsEqualRKN5clang10ASTContextERKNS_16TemplateArgumentES5_.exit
+  %112 = phi ptr [ %48, %54 ], [ %48, %94 ], [ %48, %52 ], [ %48, %47 ], [ %48, %88 ], [ %48, %_ZL32templateArgumentExpressionsEqualRKN5clang10ASTContextERKNS_16TemplateArgumentES5_.exit ], [ %48, %_ZN4llvm5APIntD2Ev.exit22.i ], [ %21, %17 ]
   %113 = load i32, ptr %1, align 8
   %114 = and i32 %113, 2147483647
   %115 = load i32, ptr %2, align 8
@@ -1352,8 +1352,8 @@ _ZN4llvm16dyn_cast_or_nullIN5clang24TemplateTemplateParmDeclENS1_12TemplateDeclE
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %.thread49
 
-.thread49:                                        ; preds = %117, %44, %40, %35, %126, %123, %142, %_ZN4llvm5APIntD2Ev.exit19.i, %_ZL32templateArgumentExpressionsEqualRKN5clang10ASTContextERKNS_16TemplateArgumentES5_.exit.thread, %_ZL32templateArgumentExpressionsEqualRKN5clang10ASTContextERKNS_16TemplateArgumentES5_.exit, %6, %118
-  %.0 = phi i1 [ false, %_ZL32templateArgumentExpressionsEqualRKN5clang10ASTContextERKNS_16TemplateArgumentES5_.exit.thread ], [ true, %6 ], [ true, %_ZL32templateArgumentExpressionsEqualRKN5clang10ASTContextERKNS_16TemplateArgumentES5_.exit ], [ %122, %118 ], [ true, %_ZN4llvm5APIntD2Ev.exit19.i ], [ %143, %142 ], [ false, %126 ], [ false, %117 ], [ false, %123 ], [ false, %35 ], [ false, %40 ], [ %46, %44 ]
+.thread49:                                        ; preds = %117, %44, %40, %35, %126, %123, %142, %_ZN4llvm5APIntD2Ev.exit22.i, %_ZL32templateArgumentExpressionsEqualRKN5clang10ASTContextERKNS_16TemplateArgumentES5_.exit.thread, %_ZL32templateArgumentExpressionsEqualRKN5clang10ASTContextERKNS_16TemplateArgumentES5_.exit, %6, %118
+  %.0 = phi i1 [ false, %_ZL32templateArgumentExpressionsEqualRKN5clang10ASTContextERKNS_16TemplateArgumentES5_.exit.thread ], [ true, %6 ], [ true, %_ZL32templateArgumentExpressionsEqualRKN5clang10ASTContextERKNS_16TemplateArgumentES5_.exit ], [ %122, %118 ], [ true, %_ZN4llvm5APIntD2Ev.exit22.i ], [ %143, %142 ], [ false, %126 ], [ false, %117 ], [ false, %123 ], [ false, %35 ], [ false, %40 ], [ %46, %44 ]
   ret i1 %.0
 }
 
@@ -4692,7 +4692,7 @@ _ZNK5clang10ASTContext16getQualifiedTypeENS_8QualTypeENS_10QualifiersE.exit: ; p
   br i1 %or.cond185.not, label %.lr.ph, label %.loopexit, !llvm.loop !183
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %133, %142, %122, %119, %105
-  %.9 = phi i1 [ undef, %105 ], [ false, %133 ], [ false, %142 ], [ false, %119 ], [ false, %122 ], [ true, %.preheader ], [ %149, %.lr.ph ]
+  %.9 = phi i1 [ undef, %105 ], [ false, %133 ], [ false, %142 ], [ false, %122 ], [ false, %119 ], [ true, %.preheader ], [ %149, %.lr.ph ]
   %spec.select83 = and i1 %.not78, %.9
   br label %150
 
@@ -7307,7 +7307,7 @@ _ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionPr
   br label %_ZNK5clang17FunctionProtoType19getExtParameterInfoEj.exit.i
 
 _ZNK5clang17FunctionProtoType19getExtParameterInfoEj.exit.i: ; preds = %_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEESC_JSE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISE_EE.exit.i.i.i117.i, %_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEESC_JSE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISE_EE.exit.i.i.i.i
-  %phi.call.in.i = phi ptr [ %738, %_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEESC_JSE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISE_EE.exit.i.i.i.i ], [ %787, %_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEESC_JSE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISE_EE.exit.i.i.i117.i ]
+  %phi.call.in.i = phi ptr [ %787, %_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEESC_JSE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISE_EE.exit.i.i.i117.i ], [ %738, %_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEESC_JSE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISE_EE.exit.i.i.i.i ]
   %phi.call.i = load i8, ptr %phi.call.in.i, align 1, !tbaa !13
   %788 = and i8 %phi.call.i, 16
   %.not336.i = icmp eq i8 %788, 0

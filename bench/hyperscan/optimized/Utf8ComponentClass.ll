@@ -9933,7 +9933,7 @@ _ZSt22__uninitialized_move_aIPN3ue212PositionInfoES2_SaIS1_EET0_T_S5_S4_RT1_.exi
   br i1 %.not.i.i56, label %_ZSt7advanceISt23_Rb_tree_const_iteratorIjEmEvRT_T0_.exit, label %.lr.ph.i.i55, !llvm.loop !70
 
 _ZSt7advanceISt23_Rb_tree_const_iteratorIjEmEvRT_T0_.exit: ; preds = %.lr.ph.i.i55, %.preheader.i.i, %.preheader7.i.i
-  %.sroa.0.0 = phi ptr [ %2, %.preheader7.i.i ], [ %42, %.preheader.i.i ], [ %45, %.lr.ph.i.i55 ]
+  %.sroa.0.0 = phi ptr [ %42, %.preheader.i.i ], [ %2, %.preheader7.i.i ], [ %45, %.lr.ph.i.i55 ]
   %.not11.i.i.i.i = icmp eq ptr %.sroa.0.0, %3
   br i1 %.not11.i.i.i.i, label %_ZSt22__uninitialized_copy_aISt23_Rb_tree_const_iteratorIjEPN3ue212PositionInfoES3_ET0_T_S6_S5_RSaIT1_E.exit, label %.lr.ph.i.i.i.i
 

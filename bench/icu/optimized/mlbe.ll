@@ -610,7 +610,7 @@ define void @_ZN6icu_7713MlBreakEngineC2ERKNS_10UnicodeSetES3_R10UErrorCode(ptr 
   br i1 %31, label %.loopexit, label %30
 
 .loopexit:                                        ; preds = %.preheader, %30, %22
-  %.pn = phi { ptr, i32 } [ %23, %22 ], [ %27, %30 ], [ %23, %.preheader ]
+  %.pn = phi { ptr, i32 } [ %27, %30 ], [ %23, %22 ], [ %23, %.preheader ]
   call void @_ZN6icu_7710UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %7) #13
   br label %32
 

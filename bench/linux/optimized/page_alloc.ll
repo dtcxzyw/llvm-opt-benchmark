@@ -1486,7 +1486,7 @@ define dso_local ptr @__pageblock_pfn_to_page(i64 noundef %0, i64 noundef %1, pt
   br label %65
 
 65:                                               ; preds = %62, %54
-  %66 = phi i32 [ %55, %54 ], [ %64, %62 ]
+  %66 = phi i32 [ %64, %62 ], [ %55, %54 ]
   %67 = icmp ne i32 %66, 0
   %68 = icmp ult i64 %0, 4503599627370496
   %or.cond = and i1 %68, %67
@@ -1598,7 +1598,7 @@ define dso_local ptr @__pageblock_pfn_to_page(i64 noundef %0, i64 noundef %1, pt
   br label %128
 
 128:                                              ; preds = %125, %117
-  %129 = phi i32 [ %118, %117 ], [ %127, %125 ]
+  %129 = phi i32 [ %127, %125 ], [ %118, %117 ]
   %130 = icmp eq i32 %129, 0
   %131 = load i64, ptr @vmemmap_base, align 8
   %132 = inttoptr i64 %131 to ptr
@@ -1999,12 +1999,12 @@ define dso_local i32 @find_suitable_fallback(ptr noundef %0, i32 noundef %1, i32
   br i1 %60, label %.loopexit.sink.split, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %43, %.split6.us.split.split.us, %.split6.us.split.us, %._crit_edge, %57
-  %.ph = phi i32 [ %.lcssa, %._crit_edge ], [ %.lcssa, %57 ], [ %29, %.split6.us.split.split.us ], [ %19, %.split6.us.split.us ], [ %38, %43 ]
+  %.ph = phi i32 [ %19, %.split6.us.split.us ], [ %.lcssa, %._crit_edge ], [ %29, %.split6.us.split.split.us ], [ %.lcssa, %57 ], [ %38, %43 ]
   store i8 1, ptr %4, align 1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %45, %44, %34, %24, %.loopexit.sink.split, %.backedge.preheader, %57, %5
-  %61 = phi i32 [ -1, %5 ], [ %.lcssa, %57 ], [ -1, %.backedge.preheader ], [ %.ph, %.loopexit.sink.split ], [ -1, %34 ], [ -1, %24 ], [ -1, %44 ], [ -1, %45 ]
+  %61 = phi i32 [ -1, %5 ], [ -1, %34 ], [ %.lcssa, %57 ], [ -1, %.backedge.preheader ], [ -1, %24 ], [ %.ph, %.loopexit.sink.split ], [ -1, %44 ], [ -1, %45 ]
   ret i32 %61
 }
 
@@ -3422,9 +3422,9 @@ define dso_local void @free_unref_page_list(ptr noundef readonly captures(addres
   br i1 %98, label %104, label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %96, %.thread24
-  %.be = phi ptr [ %71, %96 ], [ null, %.thread24 ]
-  %.be28 = phi ptr [ %70, %96 ], [ null, %.thread24 ]
-  %.be29 = phi i32 [ %97, %96 ], [ 0, %.thread24 ]
+  %.be = phi ptr [ null, %.thread24 ], [ %71, %96 ]
+  %.be28 = phi ptr [ null, %.thread24 ], [ %70, %96 ]
+  %.be29 = phi i32 [ 0, %.thread24 ], [ %97, %96 ]
   br label %.preheader, !llvm.loop !82
 
 .thread24:                                        ; preds = %66, %63, %59
@@ -3882,7 +3882,7 @@ define dso_local noundef zeroext i1 @__zone_watermark_ok(ptr noundef %0, i32 nou
   br i1 %83, label %.thread3, label %.split, !llvm.loop !88
 
 .thread3:                                         ; preds = %81, %77, %.preheader, %.loopexit, %.preheader.us, %44, %42, %33
-  %84 = phi i1 [ false, %33 ], [ true, %42 ], [ false, %44 ], [ true, %.preheader.us ], [ false, %.loopexit ], [ true, %.preheader ], [ true, %77 ], [ false, %81 ]
+  %84 = phi i1 [ false, %33 ], [ true, %42 ], [ false, %44 ], [ false, %.loopexit ], [ true, %.preheader.us ], [ true, %.preheader ], [ true, %77 ], [ false, %81 ]
   ret i1 %84
 }
 
@@ -4719,8 +4719,8 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__alloc_pages_bulk(i32 
   br label %.thread22
 
 .thread22:                                        ; preds = %179, %143, %127, %91, %.thread22.sink.split, %189, %225, %196, %.thread.thread, %20
-  %313 = phi i32 [ %15, %20 ], [ %220, %225 ], [ %15, %196 ], [ %15, %.thread.thread ], [ %15, %189 ], [ %.ph, %.thread22.sink.split ], [ %15, %127 ], [ %15, %91 ], [ %15, %143 ], [ %15, %179 ]
-  %314 = phi i32 [ %0, %20 ], [ %56, %225 ], [ %56, %196 ], [ %56, %.thread.thread ], [ %56, %189 ], [ %56, %.thread22.sink.split ], [ %56, %127 ], [ %56, %91 ], [ %56, %143 ], [ %56, %179 ]
+  %313 = phi i32 [ %15, %20 ], [ %15, %127 ], [ %220, %225 ], [ %15, %196 ], [ %15, %.thread.thread ], [ %.ph, %.thread22.sink.split ], [ %15, %189 ], [ %15, %91 ], [ %15, %143 ], [ %15, %179 ]
+  %314 = phi i32 [ %0, %20 ], [ %56, %127 ], [ %56, %225 ], [ %56, %196 ], [ %56, %.thread.thread ], [ %56, %.thread22.sink.split ], [ %56, %189 ], [ %56, %91 ], [ %56, %143 ], [ %56, %179 ]
   %315 = tail call ptr @__alloc_pages(i32 noundef %314, i32 noundef 0, i32 noundef %1, ptr noundef %2)
   %316 = icmp eq ptr %315, null
   br i1 %316, label %310, label %317
@@ -6417,7 +6417,7 @@ find_suitable_fallback.exit:                      ; preds = %.backedge.i, %375
   br label %zone_statistics.exit
 
 467:                                              ; preds = %449, %.thread57, %.thread53
-  %468 = phi ptr [ %327, %.thread53 ], [ %446, %449 ], [ %351, %.thread57 ]
+  %468 = phi ptr [ %327, %.thread53 ], [ %351, %.thread57 ], [ %446, %449 ]
   tail call void @__mod_zone_page_state(ptr noundef nonnull %74, i32 noundef 0, i64 noundef %20) #23
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %309, i64 noundef %321) #23
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @check_pages_enabled, i32 2) #23
@@ -6509,7 +6509,7 @@ find_suitable_fallback.exit:                      ; preds = %.backedge.i, %375
   br label %zone_statistics.exit
 
 zone_statistics.exit:                             ; preds = %519, %.loopexit71, %281, %305, %.loopexit73
-  %523 = phi ptr [ null, %.loopexit73 ], [ %272, %305 ], [ %272, %281 ], [ %468, %.loopexit71 ], [ %468, %519 ]
+  %523 = phi ptr [ null, %.loopexit73 ], [ %272, %281 ], [ %272, %305 ], [ %468, %.loopexit71 ], [ %468, %519 ]
   br i1 %73, label %536, label %524
 
 524:                                              ; preds = %zone_statistics.exit
@@ -7486,8 +7486,8 @@ wake_all_kswapds.exit29:                          ; preds = %257, %230, %214
   call void @mutex_unlock(ptr noundef nonnull @oom_lock) #23
   br label %.sink.split
 
-.thread50:                                        ; preds = %518, %542
-  %.ph49 = phi ptr [ %543, %542 ], [ %519, %518 ]
+.thread50:                                        ; preds = %542, %518
+  %.ph49 = phi ptr [ %519, %518 ], [ %543, %542 ]
   call void @mutex_unlock(ptr noundef nonnull @oom_lock) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread37
@@ -7641,7 +7641,7 @@ wake_all_kswapds.exit29:                          ; preds = %257, %230, %214
   br label %.thread37
 
 .thread37:                                        ; preds = %601, %604, %196, %wake_all_kswapds.exit, %545, %333, %.thread36, %336, %304, %.thread50, %609
-  %611 = phi ptr [ null, %609 ], [ %.ph49, %.thread50 ], [ %546, %545 ], [ %340, %.thread36 ], [ %334, %333 ], [ %306, %304 ], [ %338, %336 ], [ %159, %wake_all_kswapds.exit ], [ %605, %604 ], [ %602, %601 ], [ %197, %196 ]
+  %611 = phi ptr [ null, %609 ], [ %546, %545 ], [ %340, %.thread36 ], [ %.ph49, %.thread50 ], [ %334, %333 ], [ %306, %304 ], [ %338, %336 ], [ %159, %wake_all_kswapds.exit ], [ %605, %604 ], [ %602, %601 ], [ %197, %196 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %611
 }
@@ -8195,7 +8195,7 @@ define dso_local noalias ptr @alloc_pages_exact(i64 noundef %0, i32 noundef %1) 
   br i1 %48, label %.preheader, label %.thread, !llvm.loop !183
 
 .thread:                                          ; preds = %.preheader, %6, %.loopexit, %14
-  %49 = phi i64 [ 0, %14 ], [ %20, %.loopexit ], [ 0, %6 ], [ %20, %.preheader ]
+  %49 = phi i64 [ 0, %14 ], [ 0, %6 ], [ %20, %.loopexit ], [ %20, %.preheader ]
   %50 = inttoptr i64 %49 to ptr
   ret ptr %50
 }
@@ -11921,7 +11921,7 @@ define internal fastcc void @build_zonelists(ptr noundef %0) unnamed_addr #0 ali
   br label %find_next_best_node.exit
 
 find_next_best_node.exit:                         ; preds = %32, %80
-  %82 = phi i32 [ %4, %32 ], [ %66, %80 ]
+  %82 = phi i32 [ %66, %80 ], [ %4, %32 ]
   %83 = icmp sgt i32 %82, -1
   br i1 %83, label %9, label %find_next_best_node.exit.thread, !llvm.loop !236
 

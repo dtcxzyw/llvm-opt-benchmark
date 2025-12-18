@@ -2312,7 +2312,7 @@ define internal fastcc range(i32 -536870912, 536870912) i32 @UL_sounding_command
   br i1 %exitcond295.not, label %.loopexit, label %.lr.ph277, !llvm.loop !12
 
 .loopexit:                                        ; preds = %._crit_edge, %._crit_edge283, %164, %64
-  %.7 = phi i32 [ %77, %64 ], [ %180, %164 ], [ %.3.lcssa, %._crit_edge283 ], [ %.9.lcssa, %._crit_edge ]
+  %.7 = phi i32 [ %.3.lcssa, %._crit_edge283 ], [ %77, %64 ], [ %180, %164 ], [ %.9.lcssa, %._crit_edge ]
   %222 = srem i32 %.7, 8
   %223 = sdiv i32 %.7, 8
   %.not266 = icmp eq i32 %222, 0
@@ -2427,7 +2427,7 @@ define internal fastcc range(i32 -536870912, 536870912) i32 @HARQ_ULMAP_IE(ptr n
   br label %38
 
 .loopexit:                                        ; preds = %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us248, %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us240, %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us232, %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us224, %UL_HARQ_IR_CC_Sub_Burst_IE.exit.us, %UL_HARQ_IR_CTC_Sub_Burst_IE.exit.us, %UL_HARQ_Chase_Sub_Burst_IE.exit.us, %69
-  %.us-phi = phi i32 [ %79, %69 ], [ %.3.us241, %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us240 ], [ %146, %UL_HARQ_Chase_Sub_Burst_IE.exit.us ], [ %212, %UL_HARQ_IR_CTC_Sub_Burst_IE.exit.us ], [ %281, %UL_HARQ_IR_CC_Sub_Burst_IE.exit.us ], [ %.3.us225, %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us224 ], [ %.3.us233, %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us232 ], [ %.3.us249, %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us248 ]
+  %.us-phi = phi i32 [ %.3.us225, %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us224 ], [ %.3.us241, %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us240 ], [ %146, %UL_HARQ_Chase_Sub_Burst_IE.exit.us ], [ %79, %69 ], [ %212, %UL_HARQ_IR_CTC_Sub_Burst_IE.exit.us ], [ %281, %UL_HARQ_IR_CC_Sub_Burst_IE.exit.us ], [ %.3.us233, %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us232 ], [ %.3.us249, %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us248 ]
   %37 = icmp slt i32 %.us-phi, %34
   br i1 %37, label %38, label %._crit_edge, !llvm.loop !13
 
@@ -2921,7 +2921,7 @@ UL_HARQ_IR_CC_Sub_Burst_IE.exit.us:               ; preds = %251, %232, %.split.
   br i1 %408, label %.lr.ph.split.us.split.us.i.us, label %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us224, !llvm.loop !15
 
 MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us224:       ; preds = %.lr.ph.split.split.i.us, %.lr.ph.split.split.us.i.us, %.lr.ph.split.us.split.i.us, %.lr.ph.split.us.split.us.i.us, %346
-  %.3.us225 = phi i32 [ %349, %346 ], [ %372, %.lr.ph.split.split.us.i.us ], [ %405, %.lr.ph.split.us.split.us.i.us ], [ %390, %.lr.ph.split.us.split.i.us ], [ %363, %.lr.ph.split.split.i.us ]
+  %.3.us225 = phi i32 [ %390, %.lr.ph.split.us.split.i.us ], [ %405, %.lr.ph.split.us.split.us.i.us ], [ %349, %346 ], [ %372, %.lr.ph.split.split.us.i.us ], [ %363, %.lr.ph.split.split.i.us ]
   %409 = add nuw nsw i32 %.0204.us222, 1
   %exitcond293.not = icmp eq i32 %.0204.us222, %76
   br i1 %exitcond293.not, label %.loopexit, label %.split.us221, !llvm.loop !14
@@ -3094,7 +3094,7 @@ MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us224:       ; preds = %.lr.ph.split.split.
   br i1 %529, label %.lr.ph.split.us.split.us.i150.us, label %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us232, !llvm.loop !16
 
 MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us232:       ; preds = %.lr.ph.split.split.i140.us, %.lr.ph.split.split.us.i143.us, %.lr.ph.split.us.split.i147.us, %.lr.ph.split.us.split.us.i150.us, %473
-  %.3.us233 = phi i32 [ %476, %473 ], [ %493, %.lr.ph.split.split.us.i143.us ], [ %526, %.lr.ph.split.us.split.us.i150.us ], [ %511, %.lr.ph.split.us.split.i147.us ], [ %487, %.lr.ph.split.split.i140.us ]
+  %.3.us233 = phi i32 [ %511, %.lr.ph.split.us.split.i147.us ], [ %476, %473 ], [ %526, %.lr.ph.split.us.split.us.i150.us ], [ %493, %.lr.ph.split.split.us.i143.us ], [ %487, %.lr.ph.split.split.i140.us ]
   %530 = add nuw nsw i32 %.0204.us230, 1
   %exitcond292.not = icmp eq i32 %.0204.us230, %76
   br i1 %exitcond292.not, label %.loopexit, label %.split.us229, !llvm.loop !14
@@ -3260,7 +3260,7 @@ MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us232:       ; preds = %.lr.ph.split.split.
   br i1 %646, label %.lr.ph.split.us.i159.us, label %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us240, !llvm.loop !17
 
 MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us240:       ; preds = %.lr.ph.split.split.i157.us, %.lr.ph.split.split.us.i158.us, %628, %594
-  %.3.us241 = phi i32 [ %597, %594 ], [ %620, %.lr.ph.split.split.us.i158.us ], [ %643, %628 ], [ %611, %.lr.ph.split.split.i157.us ]
+  %.3.us241 = phi i32 [ %643, %628 ], [ %620, %.lr.ph.split.split.us.i158.us ], [ %597, %594 ], [ %611, %.lr.ph.split.split.i157.us ]
   %647 = add nuw nsw i32 %.0204.us238, 1
   %exitcond291.not = icmp eq i32 %.0204.us238, %76
   br i1 %exitcond291.not, label %.loopexit, label %.split.us237, !llvm.loop !14

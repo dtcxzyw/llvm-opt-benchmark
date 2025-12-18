@@ -4885,8 +4885,8 @@ write_substr.exit.i:                              ; preds = %2298
   br label %2406
 
 .preheader59.i.i:                                 ; preds = %.split.us.us.i.i, %.split.i.i, %2369
-  %.049.lcssa.i.i = phi i32 [ 0, %2369 ], [ %spec.select.i.i164, %.split.i.i ], [ %spec.select.us.us.i.i, %.split.us.us.i.i ]
-  %.0.lcssa.i.i = phi i32 [ 0, %2369 ], [ %2424, %.split.i.i ], [ %2400, %.split.us.us.i.i ]
+  %.049.lcssa.i.i = phi i32 [ %spec.select.i.i164, %.split.i.i ], [ 0, %2369 ], [ %spec.select.us.us.i.i, %.split.us.us.i.i ]
+  %.0.lcssa.i.i = phi i32 [ %2424, %.split.i.i ], [ 0, %2369 ], [ %2400, %.split.us.us.i.i ]
   %2402 = load i32, ptr %2368, align 8, !tbaa !37
   %2403 = icmp slt i32 %2372, %2402
   br i1 %2403, label %.preheader.preheader.i.i, label %input_data.exit
@@ -5098,8 +5098,8 @@ clear_channel_params.exit.us.us:                  ; preds = %clear_channel_param
   br i1 %2506, label %clear_channel_params.exit.us.us, label %._crit_edge321.split.us.us, !llvm.loop !171
 
 ._crit_edge325:                                   ; preds = %._crit_edge321.split, %._crit_edge321.split.us.us, %2481
-  %2507 = phi i32 [ %2485, %2481 ], [ %2484, %._crit_edge321.split.us.us ], [ %2485, %._crit_edge321.split ]
-  %2508 = phi i32 [ %2486, %2481 ], [ %2484, %._crit_edge321.split.us.us ], [ %2485, %._crit_edge321.split ]
+  %2507 = phi i32 [ %2484, %._crit_edge321.split.us.us ], [ %2485, %2481 ], [ %2485, %._crit_edge321.split ]
+  %2508 = phi i32 [ %2484, %._crit_edge321.split.us.us ], [ %2486, %2481 ], [ %2485, %._crit_edge321.split ]
   %.not139 = icmp eq i32 %2490, 0
   br i1 %.not139, label %.loopexit, label %.preheader
 

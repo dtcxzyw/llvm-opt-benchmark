@@ -1089,7 +1089,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %switch.lookup, %_ZN
   br label %.thread
 
 .thread:                                          ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread, %.thread.loopexit51, %60, %._crit_edge, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %._crit_edge ], [ %63, %60 ], [ %65, %.thread.loopexit51 ], [ null, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ]
+  %.0 = phi ptr [ null, %2 ], [ null, %._crit_edge ], [ %65, %.thread.loopexit51 ], [ %63, %60 ], [ null, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }

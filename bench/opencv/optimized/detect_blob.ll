@@ -5790,7 +5790,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EED2Ev.exit388:  ; preds = %_ZNSt6vectorIN2cv8K
   br label %_ZNSt6vectorIN2cv8KeyPointESaIS1_EED2Ev.exit390
 
 _ZNSt6vectorIN2cv8KeyPointESaIS1_EED2Ev.exit390:  ; preds = %_ZNSt6vectorIN2cv8KeyPointESaIS1_EED2Ev.exit377, %1646, %.body299, %1823, %1825
-  %.merged100 = phi { ptr, i32 } [ %1647, %1646 ], [ %.pn122.pn.pn.pn.pn.pn.pn.i, %.body299 ], [ %1826, %1825 ], [ %1824, %1823 ], [ %.pn87.pn.pn.pn.pn, %_ZNSt6vectorIN2cv8KeyPointESaIS1_EED2Ev.exit377 ]
+  %.merged100 = phi { ptr, i32 } [ %1647, %1646 ], [ %1824, %1823 ], [ %.pn122.pn.pn.pn.pn.pn.pn.i, %.body299 ], [ %1826, %1825 ], [ %.pn87.pn.pn.pn.pn, %_ZNSt6vectorIN2cv8KeyPointESaIS1_EED2Ev.exit377 ]
   %1827 = load ptr, ptr %69, align 8, !tbaa !15
   %1828 = icmp eq ptr %1827, %362
   br i1 %1828, label %_ZNSt6vectorIdSaIdEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i391

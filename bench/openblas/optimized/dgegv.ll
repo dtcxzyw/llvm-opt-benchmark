@@ -975,7 +975,7 @@ define void @dgegv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.critedge, %.loopexit.sink.split, %329, %.loopexit800
-  %.0 = phi i32 [ %253, %329 ], [ %253, %.loopexit800 ], [ %.0.ph, %.loopexit.sink.split ], [ %253, %.critedge ]
+  %.0 = phi i32 [ %253, %329 ], [ %.0.ph, %.loopexit.sink.split ], [ %253, %.loopexit800 ], [ %253, %.critedge ]
   %485 = uitofp nneg i32 %.0 to double
   store double %485, ptr %14, align 8, !tbaa !7
   br label %486

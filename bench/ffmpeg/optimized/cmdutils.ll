@@ -435,8 +435,8 @@ find_option.exit41.thread.sink.split:             ; preds = %find_option.exit, %
   br label %find_option.exit41.thread
 
 find_option.exit41.thread:                        ; preds = %34, %find_option.exit41.thread.sink.split, %24, %find_option.exit41
-  %.not29 = phi ptr [ @parse_option.opt_avoptions, %24 ], [ @parse_option.opt_avoptions, %find_option.exit41 ], [ %.not29.ph, %find_option.exit41.thread.sink.split ], [ @parse_option.opt_avoptions, %34 ]
-  %.026 = phi ptr [ %2, %24 ], [ %2, %find_option.exit41 ], [ %spec.select31, %find_option.exit41.thread.sink.split ], [ %2, %34 ]
+  %.not29 = phi ptr [ @parse_option.opt_avoptions, %24 ], [ %.not29.ph, %find_option.exit41.thread.sink.split ], [ @parse_option.opt_avoptions, %find_option.exit41 ], [ @parse_option.opt_avoptions, %34 ]
+  %.026 = phi ptr [ %2, %24 ], [ %spec.select31, %find_option.exit41.thread.sink.split ], [ %2, %find_option.exit41 ], [ %2, %34 ]
   %40 = load ptr, ptr %.not29, align 8, !tbaa !14
   %.not30 = icmp eq ptr %40, null
   br i1 %.not30, label %41, label %42
@@ -1264,7 +1264,7 @@ define range(i32 -2147483648, 1) i32 @parse_options(ptr noundef %0, i32 noundef 
   br i1 %67, label %.lr.ph.split, label %.outer._crit_edge, !llvm.loop !48
 
 .outer._crit_edge:                                ; preds = %.outer.loopexit.split, %55, %63, %66, %.outer.loopexit.split.us.us, %20, %28, %35, %40, %5
-  %.022 = phi i32 [ 0, %66 ], [ 0, %40 ], [ 0, %5 ], [ %24, %20 ], [ 0, %.outer.loopexit.split.us.us ], [ %38, %35 ], [ 0, %28 ], [ %59, %55 ], [ %64, %63 ], [ 0, %.outer.loopexit.split ]
+  %.022 = phi i32 [ 0, %.outer.loopexit.split.us.us ], [ 0, %40 ], [ 0, %66 ], [ 0, %5 ], [ %24, %20 ], [ %38, %35 ], [ 0, %28 ], [ %64, %63 ], [ %59, %55 ], [ 0, %.outer.loopexit.split ]
   ret i32 %.022
 }
 
@@ -1339,7 +1339,7 @@ define range(i32 -2147483648, 1) i32 @parse_optgroup(ptr noundef %0, ptr noundef
   br label %.loopexit
 
 .loopexit:                                        ; preds = %32, %.thread, %._crit_edge
-  %.2 = phi i32 [ 0, %._crit_edge ], [ -22, %.thread ], [ %42, %32 ]
+  %.2 = phi i32 [ -22, %.thread ], [ 0, %._crit_edge ], [ %42, %32 ]
   ret i32 %.2
 }
 
@@ -2454,7 +2454,7 @@ define noundef ptr @get_preset_file(ptr noundef %0, i64 noundef %1, ptr noundef 
   br i1 %35, label %.preheader.split, label %.loopexit, !llvm.loop !97
 
 .loopexit:                                        ; preds = %25, %33, %17, %20
-  %.0 = phi ptr [ %22, %20 ], [ %.2.us, %17 ], [ %28, %25 ], [ %.2, %33 ]
+  %.0 = phi ptr [ %22, %20 ], [ %.2.us, %17 ], [ %.2, %33 ], [ %28, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
 }
@@ -2948,7 +2948,7 @@ define range(i32 -2147483648, 1) i32 @stream_specifier_parse(ptr noundef initial
   br i1 %.not, label %.thread123, label %16, !llvm.loop !108
 
 .thread123:                                       ; preds = %170, %117, %118, %134, %159, %162, %155, %133, %26
-  %.ph = phi ptr [ %130, %133 ], [ %.pre189, %155 ], [ %160, %162 ], [ %18, %159 ], [ %18, %134 ], [ %18, %118 ], [ %18, %117 ], [ %23, %26 ], [ %172, %170 ]
+  %.ph = phi ptr [ %23, %26 ], [ %130, %133 ], [ %.pre189, %155 ], [ %160, %162 ], [ %18, %159 ], [ %18, %134 ], [ %18, %118 ], [ %18, %117 ], [ %172, %170 ]
   %.pr = load i8, ptr %.ph, align 1, !tbaa !11
   %.not112 = icmp eq i8 %.pr, 0
   br i1 %.not112, label %.thread123.thread, label %173
@@ -3535,7 +3535,7 @@ define range(i32 -2147483648, 1) i32 @filter_codec_opts(ptr noundef %0, i32 %1, 
   br label %69
 
 69:                                               ; preds = %.sink.split, %55, %60
-  %70 = phi i1 [ false, %60 ], [ false, %55 ], [ true, %.sink.split ]
+  %70 = phi i1 [ false, %55 ], [ false, %60 ], [ true, %.sink.split ]
   br i1 %.not56, label %72, label %71
 
 71:                                               ; preds = %69

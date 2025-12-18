@@ -1909,8 +1909,8 @@ _ZN5arrow6StatusD2Ev.exit176.i.i:                 ; preds = %_ZN5arrow6StatusD2E
   br label %.loopexit256.i.i
 
 .loopexit256.i.i:                                 ; preds = %.loopexit256.loopexit.i.i, %478, %.preheader255.i.i, %._crit_edge.i.i
-  %.187.i.i = phi i16 [ %.288.lcssa.i.i, %._crit_edge.i.i ], [ %479, %478 ], [ %.086270.i.i, %.preheader255.i.i ], [ %475, %.loopexit256.loopexit.i.i ]
-  %.183.i.i = phi i64 [ %443, %._crit_edge.i.i ], [ %481, %478 ], [ %.082271.i.i, %.preheader255.i.i ], [ %482, %.loopexit256.loopexit.i.i ]
+  %.187.i.i = phi i16 [ %479, %478 ], [ %.288.lcssa.i.i, %._crit_edge.i.i ], [ %.086270.i.i, %.preheader255.i.i ], [ %475, %.loopexit256.loopexit.i.i ]
+  %.183.i.i = phi i64 [ %481, %478 ], [ %443, %._crit_edge.i.i ], [ %.082271.i.i, %.preheader255.i.i ], [ %482, %.loopexit256.loopexit.i.i ]
   %483 = zext i16 %.187.i.i to i64
   %484 = load i64, ptr %112, align 8, !tbaa !61, !noalias !69
   %.not.i.i = icmp sgt i64 %484, %483
@@ -3418,8 +3418,8 @@ _ZN5arrow6StatusD2Ev.exit176.i103.i:              ; preds = %_ZN5arrow6StatusD2E
   br label %.loopexit257.i104.i
 
 .loopexit257.i104.i:                              ; preds = %.loopexit257.loopexit.i.i, %1091, %.preheader256.i.i, %._crit_edge.i113.i
-  %.187.i105.i = phi i32 [ %.288.lcssa.i114.i, %._crit_edge.i113.i ], [ %1093, %1091 ], [ %.086271.i.i, %.preheader256.i.i ], [ %1088, %.loopexit257.loopexit.i.i ]
-  %.183.i106.i = phi i64 [ %1056, %._crit_edge.i113.i ], [ %1095, %1091 ], [ %.082272.i.i, %.preheader256.i.i ], [ %1096, %.loopexit257.loopexit.i.i ]
+  %.187.i105.i = phi i32 [ %1093, %1091 ], [ %.288.lcssa.i114.i, %._crit_edge.i113.i ], [ %.086271.i.i, %.preheader256.i.i ], [ %1088, %.loopexit257.loopexit.i.i ]
+  %.183.i106.i = phi i64 [ %1095, %1091 ], [ %1056, %._crit_edge.i113.i ], [ %.082272.i.i, %.preheader256.i.i ], [ %1096, %.loopexit257.loopexit.i.i ]
   %1097 = zext i32 %.187.i105.i to i64
   %1098 = load i64, ptr %112, align 8, !tbaa !61, !noalias !232
   %.not.i107.i = icmp sgt i64 %1098, %1097
@@ -8369,8 +8369,8 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit28.i.i:        ; preds = %.preheader11.i.i, %
   br label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %180, %255, %214, %258, %.preheader11.i.i, %.preheader.i.i, %183, %.preheader14.i.i, %153
-  %.183.i.i.i = phi i64 [ %.082.i32.i.i, %258 ], [ %149, %183 ], [ %.082.i32.i.i, %.preheader.i.i ], [ %.082.i32.i.i, %.preheader11.i.i ], [ %149, %.preheader14.i.i ], [ %149, %153 ], [ %.587.i.i.i, %255 ], [ %.385.i.i.i, %214 ], [ %149, %180 ]
-  %.3.i.i.i = phi i64 [ %259, %258 ], [ %184, %183 ], [ %.081.i33.i.i, %.preheader.i.i ], [ %.081.i33.i.i, %.preheader11.i.i ], [ %.081.i33.i.i, %.preheader14.i.i ], [ %spec.select.i.i, %153 ], [ %256, %255 ], [ %215, %214 ], [ %181, %180 ]
+  %.183.i.i.i = phi i64 [ %.385.i.i.i, %214 ], [ %149, %153 ], [ %.082.i32.i.i, %258 ], [ %149, %183 ], [ %149, %.preheader14.i.i ], [ %.082.i32.i.i, %.preheader.i.i ], [ %.082.i32.i.i, %.preheader11.i.i ], [ %.587.i.i.i, %255 ], [ %149, %180 ]
+  %.3.i.i.i = phi i64 [ %215, %214 ], [ %spec.select.i.i, %153 ], [ %259, %258 ], [ %184, %183 ], [ %.081.i33.i.i, %.preheader14.i.i ], [ %.081.i33.i.i, %.preheader.i.i ], [ %.081.i33.i.i, %.preheader11.i.i ], [ %256, %255 ], [ %181, %180 ]
   %260 = icmp slt i64 %.3.i.i.i, %105
   br i1 %260, label %141, label %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi0EhLb0EEEE16ExecuteWithNullsILb0EhEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i, !llvm.loop !549
 
@@ -8649,8 +8649,8 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit28.i48.i:      ; preds = %.preheader11.i47.i,
   br label %.loopexit.i36.i
 
 .loopexit.i36.i:                                  ; preds = %348, %423, %382, %426, %.preheader11.i47.i, %.preheader.i57.i, %351, %.preheader14.i39.i, %321
-  %.183.i.i37.i = phi i64 [ %.082.i32.i29.i, %426 ], [ %317, %351 ], [ %.082.i32.i29.i, %.preheader.i57.i ], [ %.082.i32.i29.i, %.preheader11.i47.i ], [ %317, %.preheader14.i39.i ], [ %317, %321 ], [ %.587.i.i55.i, %423 ], [ %.385.i.i63.i, %382 ], [ %317, %348 ]
-  %.3.i.i38.i = phi i64 [ %427, %426 ], [ %352, %351 ], [ %.081.i33.i28.i, %.preheader.i57.i ], [ %.081.i33.i28.i, %.preheader11.i47.i ], [ %.081.i33.i28.i, %.preheader14.i39.i ], [ %spec.select.i45.i, %321 ], [ %424, %423 ], [ %383, %382 ], [ %349, %348 ]
+  %.183.i.i37.i = phi i64 [ %.385.i.i63.i, %382 ], [ %317, %321 ], [ %.082.i32.i29.i, %426 ], [ %317, %351 ], [ %317, %.preheader14.i39.i ], [ %.082.i32.i29.i, %.preheader.i57.i ], [ %.082.i32.i29.i, %.preheader11.i47.i ], [ %.587.i.i55.i, %423 ], [ %317, %348 ]
+  %.3.i.i38.i = phi i64 [ %383, %382 ], [ %spec.select.i45.i, %321 ], [ %427, %426 ], [ %352, %351 ], [ %.081.i33.i28.i, %.preheader14.i39.i ], [ %.081.i33.i28.i, %.preheader.i57.i ], [ %.081.i33.i28.i, %.preheader11.i47.i ], [ %424, %423 ], [ %349, %348 ]
   %428 = icmp slt i64 %.3.i.i38.i, %273
   br i1 %428, label %309, label %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi0EtLb0EEEE16ExecuteWithNullsILb0EtEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i, !llvm.loop !556
 
@@ -8929,8 +8929,8 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit28.i93.i:      ; preds = %.preheader11.i92.i,
   br label %.loopexit.i81.i
 
 .loopexit.i81.i:                                  ; preds = %516, %591, %550, %594, %.preheader11.i92.i, %.preheader.i102.i, %519, %.preheader14.i84.i, %489
-  %.183.i.i82.i = phi i64 [ %.082.i32.i74.i, %594 ], [ %485, %519 ], [ %.082.i32.i74.i, %.preheader.i102.i ], [ %.082.i32.i74.i, %.preheader11.i92.i ], [ %485, %.preheader14.i84.i ], [ %485, %489 ], [ %.587.i.i100.i, %591 ], [ %.385.i.i108.i, %550 ], [ %485, %516 ]
-  %.3.i.i83.i = phi i64 [ %595, %594 ], [ %520, %519 ], [ %.081.i33.i73.i, %.preheader.i102.i ], [ %.081.i33.i73.i, %.preheader11.i92.i ], [ %.081.i33.i73.i, %.preheader14.i84.i ], [ %spec.select.i90.i, %489 ], [ %592, %591 ], [ %551, %550 ], [ %517, %516 ]
+  %.183.i.i82.i = phi i64 [ %.385.i.i108.i, %550 ], [ %485, %489 ], [ %.082.i32.i74.i, %594 ], [ %485, %519 ], [ %485, %.preheader14.i84.i ], [ %.082.i32.i74.i, %.preheader.i102.i ], [ %.082.i32.i74.i, %.preheader11.i92.i ], [ %.587.i.i100.i, %591 ], [ %485, %516 ]
+  %.3.i.i83.i = phi i64 [ %551, %550 ], [ %spec.select.i90.i, %489 ], [ %595, %594 ], [ %520, %519 ], [ %.081.i33.i73.i, %.preheader14.i84.i ], [ %.081.i33.i73.i, %.preheader.i102.i ], [ %.081.i33.i73.i, %.preheader11.i92.i ], [ %592, %591 ], [ %517, %516 ]
   %596 = icmp slt i64 %.3.i.i83.i, %441
   br i1 %596, label %477, label %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi0EjLb0EEEE16ExecuteWithNullsILb0EjEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i, !llvm.loop !563
 
@@ -9207,8 +9207,8 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit28.i138.i:     ; preds = %.preheader11.i137.i
   br label %.loopexit.i126.i
 
 .loopexit.i126.i:                                 ; preds = %684, %757, %717, %760, %.preheader11.i137.i, %.preheader.i147.i, %687, %.preheader14.i129.i, %657
-  %.183.i.i127.i = phi i64 [ %.082.i32.i119.i, %760 ], [ %653, %687 ], [ %.082.i32.i119.i, %.preheader.i147.i ], [ %.082.i32.i119.i, %.preheader11.i137.i ], [ %653, %.preheader14.i129.i ], [ %653, %657 ], [ %.587.i.i145.i, %757 ], [ %.385.i.i153.i, %717 ], [ %653, %684 ]
-  %.3.i.i128.i = phi i64 [ %761, %760 ], [ %688, %687 ], [ %.081.i33.i118.i, %.preheader.i147.i ], [ %.081.i33.i118.i, %.preheader11.i137.i ], [ %.081.i33.i118.i, %.preheader14.i129.i ], [ %spec.select.i135.i, %657 ], [ %758, %757 ], [ %718, %717 ], [ %685, %684 ]
+  %.183.i.i127.i = phi i64 [ %.385.i.i153.i, %717 ], [ %653, %657 ], [ %.082.i32.i119.i, %760 ], [ %653, %687 ], [ %653, %.preheader14.i129.i ], [ %.082.i32.i119.i, %.preheader.i147.i ], [ %.082.i32.i119.i, %.preheader11.i137.i ], [ %.587.i.i145.i, %757 ], [ %653, %684 ]
+  %.3.i.i128.i = phi i64 [ %718, %717 ], [ %spec.select.i135.i, %657 ], [ %761, %760 ], [ %688, %687 ], [ %.081.i33.i118.i, %.preheader14.i129.i ], [ %.081.i33.i118.i, %.preheader.i147.i ], [ %.081.i33.i118.i, %.preheader11.i137.i ], [ %758, %757 ], [ %685, %684 ]
   %762 = icmp slt i64 %.3.i.i128.i, %609
   br i1 %762, label %645, label %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi0EmLb0EEEE16ExecuteWithNullsILb0EmEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i, !llvm.loop !570
 
@@ -9623,8 +9623,8 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit30.i.i:        ; preds = %.preheader28.i.i, %
   br label %.loopexit.i.i86
 
 .loopexit.i.i86:                                  ; preds = %924, %.lr.ph39.i.i, %1029, %973, %1032, %.preheader28.i.i, %.preheader.i.i90, %927, %.preheader31.i.i, %856
-  %.174.i.i.i = phi i64 [ %.073.i51.i.i, %1032 ], [ %852, %927 ], [ %852, %856 ], [ %.073.i51.i.i, %.preheader.i.i90 ], [ %.073.i51.i.i, %.preheader28.i.i ], [ %852, %.preheader31.i.i ], [ %852, %.lr.ph39.i.i ], [ %.376.i.i.i, %973 ], [ %.578.i.i.i, %1029 ], [ %852, %924 ]
-  %.3.i.i.i87 = phi i64 [ %1033, %1032 ], [ %928, %927 ], [ %.072.i52.i.i, %856 ], [ %.072.i52.i.i, %.preheader.i.i90 ], [ %.072.i52.i.i, %.preheader28.i.i ], [ %.072.i52.i.i, %.preheader31.i.i ], [ %881, %.lr.ph39.i.i ], [ %974, %973 ], [ %1030, %1029 ], [ %925, %924 ]
+  %.174.i.i.i = phi i64 [ %852, %.lr.ph39.i.i ], [ %852, %856 ], [ %.073.i51.i.i, %1032 ], [ %852, %927 ], [ %852, %.preheader31.i.i ], [ %.073.i51.i.i, %.preheader.i.i90 ], [ %.073.i51.i.i, %.preheader28.i.i ], [ %.376.i.i.i, %973 ], [ %.578.i.i.i, %1029 ], [ %852, %924 ]
+  %.3.i.i.i87 = phi i64 [ %881, %.lr.ph39.i.i ], [ %.072.i52.i.i, %856 ], [ %1033, %1032 ], [ %928, %927 ], [ %.072.i52.i.i, %.preheader31.i.i ], [ %.072.i52.i.i, %.preheader.i.i90 ], [ %.072.i52.i.i, %.preheader28.i.i ], [ %974, %973 ], [ %1030, %1029 ], [ %925, %924 ]
   %1034 = icmp slt i64 %.3.i.i.i87, %808
   br i1 %1034, label %844, label %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi1EhLb0EEEE16ExecuteWithNullsILb1EhEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i, !llvm.loop !582
 
@@ -10024,8 +10024,8 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit30.i58.i:      ; preds = %.preheader28.i57.i,
   br label %.loopexit.i41.i
 
 .loopexit.i41.i:                                  ; preds = %1189, %.lr.ph39.i51.i, %1294, %1238, %1297, %.preheader28.i57.i, %.preheader.i68.i, %1192, %.preheader31.i44.i, %1121
-  %.174.i.i42.i = phi i64 [ %.073.i51.i34.i, %1297 ], [ %1117, %1192 ], [ %1117, %1121 ], [ %.073.i51.i34.i, %.preheader.i68.i ], [ %.073.i51.i34.i, %.preheader28.i57.i ], [ %1117, %.preheader31.i44.i ], [ %1117, %.lr.ph39.i51.i ], [ %.376.i.i75.i, %1238 ], [ %.578.i.i66.i, %1294 ], [ %1117, %1189 ]
-  %.3.i.i43.i = phi i64 [ %1298, %1297 ], [ %1193, %1192 ], [ %.072.i52.i33.i, %1121 ], [ %.072.i52.i33.i, %.preheader.i68.i ], [ %.072.i52.i33.i, %.preheader28.i57.i ], [ %.072.i52.i33.i, %.preheader31.i44.i ], [ %1146, %.lr.ph39.i51.i ], [ %1239, %1238 ], [ %1295, %1294 ], [ %1190, %1189 ]
+  %.174.i.i42.i = phi i64 [ %1117, %.lr.ph39.i51.i ], [ %1117, %1121 ], [ %.073.i51.i34.i, %1297 ], [ %1117, %1192 ], [ %1117, %.preheader31.i44.i ], [ %.073.i51.i34.i, %.preheader.i68.i ], [ %.073.i51.i34.i, %.preheader28.i57.i ], [ %.376.i.i75.i, %1238 ], [ %.578.i.i66.i, %1294 ], [ %1117, %1189 ]
+  %.3.i.i43.i = phi i64 [ %1146, %.lr.ph39.i51.i ], [ %.072.i52.i33.i, %1121 ], [ %1298, %1297 ], [ %1193, %1192 ], [ %.072.i52.i33.i, %.preheader31.i44.i ], [ %.072.i52.i33.i, %.preheader.i68.i ], [ %.072.i52.i33.i, %.preheader28.i57.i ], [ %1239, %1238 ], [ %1295, %1294 ], [ %1190, %1189 ]
   %1299 = icmp slt i64 %.3.i.i43.i, %1073
   br i1 %1299, label %1109, label %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi1EtLb0EEEE16ExecuteWithNullsILb1EtEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i, !llvm.loop !591
 
@@ -10425,8 +10425,8 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit30.i115.i:     ; preds = %.preheader28.i114.i
   br label %.loopexit.i98.i
 
 .loopexit.i98.i:                                  ; preds = %1454, %.lr.ph39.i108.i, %1559, %1503, %1562, %.preheader28.i114.i, %.preheader.i125.i, %1457, %.preheader31.i101.i, %1386
-  %.174.i.i99.i = phi i64 [ %.073.i51.i91.i, %1562 ], [ %1382, %1457 ], [ %1382, %1386 ], [ %.073.i51.i91.i, %.preheader.i125.i ], [ %.073.i51.i91.i, %.preheader28.i114.i ], [ %1382, %.preheader31.i101.i ], [ %1382, %.lr.ph39.i108.i ], [ %.376.i.i132.i, %1503 ], [ %.578.i.i123.i, %1559 ], [ %1382, %1454 ]
-  %.3.i.i100.i = phi i64 [ %1563, %1562 ], [ %1458, %1457 ], [ %.072.i52.i90.i, %1386 ], [ %.072.i52.i90.i, %.preheader.i125.i ], [ %.072.i52.i90.i, %.preheader28.i114.i ], [ %.072.i52.i90.i, %.preheader31.i101.i ], [ %1411, %.lr.ph39.i108.i ], [ %1504, %1503 ], [ %1560, %1559 ], [ %1455, %1454 ]
+  %.174.i.i99.i = phi i64 [ %1382, %.lr.ph39.i108.i ], [ %1382, %1386 ], [ %.073.i51.i91.i, %1562 ], [ %1382, %1457 ], [ %1382, %.preheader31.i101.i ], [ %.073.i51.i91.i, %.preheader.i125.i ], [ %.073.i51.i91.i, %.preheader28.i114.i ], [ %.376.i.i132.i, %1503 ], [ %.578.i.i123.i, %1559 ], [ %1382, %1454 ]
+  %.3.i.i100.i = phi i64 [ %1411, %.lr.ph39.i108.i ], [ %.072.i52.i90.i, %1386 ], [ %1563, %1562 ], [ %1458, %1457 ], [ %.072.i52.i90.i, %.preheader31.i101.i ], [ %.072.i52.i90.i, %.preheader.i125.i ], [ %.072.i52.i90.i, %.preheader28.i114.i ], [ %1504, %1503 ], [ %1560, %1559 ], [ %1455, %1454 ]
   %1564 = icmp slt i64 %.3.i.i100.i, %1338
   br i1 %1564, label %1374, label %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi1EjLb0EEEE16ExecuteWithNullsILb1EjEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i, !llvm.loop !600
 
@@ -10822,8 +10822,8 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit30.i172.i:     ; preds = %.preheader28.i171.i
   br label %.loopexit.i155.i
 
 .loopexit.i155.i:                                 ; preds = %1717, %.lr.ph39.i165.i, %1820, %1765, %1823, %.preheader28.i171.i, %.preheader.i182.i, %1720, %.preheader31.i158.i, %1651
-  %.174.i.i156.i = phi i64 [ %.073.i51.i148.i, %1823 ], [ %1647, %1720 ], [ %1647, %1651 ], [ %.073.i51.i148.i, %.preheader.i182.i ], [ %.073.i51.i148.i, %.preheader28.i171.i ], [ %1647, %.preheader31.i158.i ], [ %1647, %.lr.ph39.i165.i ], [ %.376.i.i189.i, %1765 ], [ %.578.i.i180.i, %1820 ], [ %1647, %1717 ]
-  %.3.i.i157.i = phi i64 [ %1824, %1823 ], [ %1721, %1720 ], [ %.072.i52.i147.i, %1651 ], [ %.072.i52.i147.i, %.preheader.i182.i ], [ %.072.i52.i147.i, %.preheader28.i171.i ], [ %.072.i52.i147.i, %.preheader31.i158.i ], [ %1675, %.lr.ph39.i165.i ], [ %1766, %1765 ], [ %1821, %1820 ], [ %1718, %1717 ]
+  %.174.i.i156.i = phi i64 [ %1647, %.lr.ph39.i165.i ], [ %1647, %1651 ], [ %.073.i51.i148.i, %1823 ], [ %1647, %1720 ], [ %1647, %.preheader31.i158.i ], [ %.073.i51.i148.i, %.preheader.i182.i ], [ %.073.i51.i148.i, %.preheader28.i171.i ], [ %.376.i.i189.i, %1765 ], [ %.578.i.i180.i, %1820 ], [ %1647, %1717 ]
+  %.3.i.i157.i = phi i64 [ %1675, %.lr.ph39.i165.i ], [ %.072.i52.i147.i, %1651 ], [ %1824, %1823 ], [ %1721, %1720 ], [ %.072.i52.i147.i, %.preheader31.i158.i ], [ %.072.i52.i147.i, %.preheader.i182.i ], [ %.072.i52.i147.i, %.preheader28.i171.i ], [ %1766, %1765 ], [ %1821, %1820 ], [ %1718, %1717 ]
   %1825 = icmp slt i64 %.3.i.i157.i, %1603
   br i1 %1825, label %1639, label %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi1EmLb0EEEE16ExecuteWithNullsILb1EmEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i, !llvm.loop !609
 
@@ -10862,7 +10862,7 @@ _ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi1EmLb0EEEE16ExecuteWithNullsILb
   br i1 %exitcond.not.i141.i, label %_ZN5arrow7compute8internal12_GLOBAL__N_117TakeIndexDispatchITtTpTyENS2_18FixedWidthTakeImplEJSt17integral_constantIiLi1EES5_IbLb1EEEEENS_6StatusEPNS0_13KernelContextERKNS_9ArraySpanESD_PNS_9ArrayDataEl.exit, label %.lr.ph.i138.i, !llvm.loop !610
 
 _ZN5arrow7compute8internal12_GLOBAL__N_117TakeIndexDispatchITtTpTyENS2_18FixedWidthTakeImplEJSt17integral_constantIiLi1EES5_IbLb1EEEEENS_6StatusEPNS0_13KernelContextERKNS_9ArraySpanESD_PNS_9ArrayDataEl.exit: ; preds = %.lr.ph.i81.i, %.lr.ph.i24.i, %.lr.ph.i.i, %.lr.ph.i138.i, %.preheader33.i.i, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi1EhLb0EEEE16ExecuteWithNullsILb1EhEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i, %.preheader33.i22.i, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi1EtLb0EEEE16ExecuteWithNullsILb1EtEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i, %.preheader33.i79.i, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi1EjLb0EEEE16ExecuteWithNullsILb1EjEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i, %.preheader33.i136.i, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi1EmLb0EEEE16ExecuteWithNullsILb1EmEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i
-  %.0.i137.sink.i = phi i64 [ %.073.i.lcssa.i.i, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi1EhLb0EEEE16ExecuteWithNullsILb1EhEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i ], [ %808, %.preheader33.i.i ], [ %.073.i.lcssa.i31.i, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi1EtLb0EEEE16ExecuteWithNullsILb1EtEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i ], [ %1073, %.preheader33.i22.i ], [ %.073.i.lcssa.i88.i, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi1EjLb0EEEE16ExecuteWithNullsILb1EjEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i ], [ %1338, %.preheader33.i79.i ], [ %.073.i.lcssa.i145.i, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi1EmLb0EEEE16ExecuteWithNullsILb1EmEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i ], [ %1603, %.preheader33.i136.i ], [ %1073, %.lr.ph.i24.i ], [ %1603, %.lr.ph.i138.i ], [ %808, %.lr.ph.i.i ], [ %1338, %.lr.ph.i81.i ]
+  %.0.i137.sink.i = phi i64 [ %1073, %.lr.ph.i24.i ], [ %808, %.lr.ph.i.i ], [ %1603, %.lr.ph.i138.i ], [ %.073.i.lcssa.i.i, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi1EhLb0EEEE16ExecuteWithNullsILb1EhEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i ], [ %808, %.preheader33.i.i ], [ %.073.i.lcssa.i31.i, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi1EtLb0EEEE16ExecuteWithNullsILb1EtEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i ], [ %1073, %.preheader33.i22.i ], [ %.073.i.lcssa.i88.i, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi1EjLb0EEEE16ExecuteWithNullsILb1EjEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i ], [ %1338, %.preheader33.i79.i ], [ %.073.i.lcssa.i145.i, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi1EmLb0EEEE16ExecuteWithNullsILb1EmEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i ], [ %1603, %.preheader33.i136.i ], [ %1338, %.lr.ph.i81.i ]
   %1848 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %1849 = load i64, ptr %1848, align 8, !tbaa !212, !noalias !572
   %1850 = sub nsw i64 %1849, %.0.i137.sink.i
@@ -11202,8 +11202,8 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit28.i.i137:     ; preds = %.preheader28.i.i136
   br label %.loopexit.i.i124
 
 .loopexit.i.i124:                                 ; preds = %1963, %.lr.ph39.i.i132, %2046, %2000, %.loopexit.sink.split.i.i, %.preheader28.i.i136, %.preheader.i.i145, %.preheader31.i.i127, %1924
-  %.183.i.i.i125 = phi i64 [ %1920, %1924 ], [ %.082.i51.i.i, %.preheader.i.i145 ], [ %.082.i51.i.i, %.preheader28.i.i136 ], [ %1920, %.preheader31.i.i127 ], [ %.183.i.ph.i.i, %.loopexit.sink.split.i.i ], [ %1920, %.lr.ph39.i.i132 ], [ %.385.i.i.i149, %2000 ], [ %.587.i.i.i143, %2046 ], [ %1920, %1963 ]
-  %.3.i.i.i126 = phi i64 [ %.081.i52.i.i, %1924 ], [ %.081.i52.i.i, %.preheader.i.i145 ], [ %.081.i52.i.i, %.preheader28.i.i136 ], [ %.081.i52.i.i, %.preheader31.i.i127 ], [ %2050, %.loopexit.sink.split.i.i ], [ %1933, %.lr.ph39.i.i132 ], [ %2001, %2000 ], [ %2047, %2046 ], [ %1965, %1963 ]
+  %.183.i.i.i125 = phi i64 [ %.183.i.ph.i.i, %.loopexit.sink.split.i.i ], [ %1920, %1924 ], [ %.587.i.i.i143, %2046 ], [ %1920, %.lr.ph39.i.i132 ], [ %1920, %.preheader31.i.i127 ], [ %.082.i51.i.i, %.preheader.i.i145 ], [ %.082.i51.i.i, %.preheader28.i.i136 ], [ %.385.i.i.i149, %2000 ], [ %1920, %1963 ]
+  %.3.i.i.i126 = phi i64 [ %2050, %.loopexit.sink.split.i.i ], [ %.081.i52.i.i, %1924 ], [ %2047, %2046 ], [ %1933, %.lr.ph39.i.i132 ], [ %.081.i52.i.i, %.preheader31.i.i127 ], [ %.081.i52.i.i, %.preheader.i.i145 ], [ %.081.i52.i.i, %.preheader28.i.i136 ], [ %2001, %2000 ], [ %1965, %1963 ]
   %2051 = icmp slt i64 %.3.i.i.i126, %1875
   br i1 %2051, label %1912, label %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi8EhLb0EEEE16ExecuteWithNullsILb0EhEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i, !llvm.loop !621
 
@@ -11538,8 +11538,8 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit28.i59.i:      ; preds = %.preheader28.i58.i,
   br label %.loopexit.i43.i
 
 .loopexit.i43.i:                                  ; preds = %2160, %.lr.ph39.i53.i, %2243, %2197, %.loopexit.sink.split.i40.i, %.preheader28.i58.i, %.preheader.i68.i104, %.preheader31.i46.i, %2121
-  %.183.i.i44.i = phi i64 [ %2117, %2121 ], [ %.082.i51.i33.i, %.preheader.i68.i104 ], [ %.082.i51.i33.i, %.preheader28.i58.i ], [ %2117, %.preheader31.i46.i ], [ %.183.i.ph.i42.i, %.loopexit.sink.split.i40.i ], [ %2117, %.lr.ph39.i53.i ], [ %.385.i.i74.i, %2197 ], [ %.587.i.i66.i, %2243 ], [ %2117, %2160 ]
-  %.3.i.i45.i = phi i64 [ %.081.i52.i32.i, %2121 ], [ %.081.i52.i32.i, %.preheader.i68.i104 ], [ %.081.i52.i32.i, %.preheader28.i58.i ], [ %.081.i52.i32.i, %.preheader31.i46.i ], [ %2247, %.loopexit.sink.split.i40.i ], [ %2130, %.lr.ph39.i53.i ], [ %2198, %2197 ], [ %2244, %2243 ], [ %2162, %2160 ]
+  %.183.i.i44.i = phi i64 [ %.183.i.ph.i42.i, %.loopexit.sink.split.i40.i ], [ %2117, %2121 ], [ %.587.i.i66.i, %2243 ], [ %2117, %.lr.ph39.i53.i ], [ %2117, %.preheader31.i46.i ], [ %.082.i51.i33.i, %.preheader.i68.i104 ], [ %.082.i51.i33.i, %.preheader28.i58.i ], [ %.385.i.i74.i, %2197 ], [ %2117, %2160 ]
+  %.3.i.i45.i = phi i64 [ %2247, %.loopexit.sink.split.i40.i ], [ %.081.i52.i32.i, %2121 ], [ %2244, %2243 ], [ %2130, %.lr.ph39.i53.i ], [ %.081.i52.i32.i, %.preheader31.i46.i ], [ %.081.i52.i32.i, %.preheader.i68.i104 ], [ %.081.i52.i32.i, %.preheader28.i58.i ], [ %2198, %2197 ], [ %2162, %2160 ]
   %2248 = icmp slt i64 %.3.i.i45.i, %2072
   br i1 %2248, label %2109, label %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi8EtLb0EEEE16ExecuteWithNullsILb0EtEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i, !llvm.loop !630
 
@@ -11874,8 +11874,8 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit28.i115.i:     ; preds = %.preheader28.i114.i
   br label %.loopexit.i99.i
 
 .loopexit.i99.i:                                  ; preds = %2357, %.lr.ph39.i109.i, %2440, %2394, %.loopexit.sink.split.i96.i, %.preheader28.i114.i92, %.preheader.i124.i, %.preheader31.i102.i, %2318
-  %.183.i.i100.i = phi i64 [ %2314, %2318 ], [ %.082.i51.i89.i, %.preheader.i124.i ], [ %.082.i51.i89.i, %.preheader28.i114.i92 ], [ %2314, %.preheader31.i102.i ], [ %.183.i.ph.i98.i, %.loopexit.sink.split.i96.i ], [ %2314, %.lr.ph39.i109.i ], [ %.385.i.i130.i, %2394 ], [ %.587.i.i122.i, %2440 ], [ %2314, %2357 ]
-  %.3.i.i101.i = phi i64 [ %.081.i52.i88.i, %2318 ], [ %.081.i52.i88.i, %.preheader.i124.i ], [ %.081.i52.i88.i, %.preheader28.i114.i92 ], [ %.081.i52.i88.i, %.preheader31.i102.i ], [ %2444, %.loopexit.sink.split.i96.i ], [ %2327, %.lr.ph39.i109.i ], [ %2395, %2394 ], [ %2441, %2440 ], [ %2359, %2357 ]
+  %.183.i.i100.i = phi i64 [ %.183.i.ph.i98.i, %.loopexit.sink.split.i96.i ], [ %2314, %2318 ], [ %.587.i.i122.i, %2440 ], [ %2314, %.lr.ph39.i109.i ], [ %2314, %.preheader31.i102.i ], [ %.082.i51.i89.i, %.preheader.i124.i ], [ %.082.i51.i89.i, %.preheader28.i114.i92 ], [ %.385.i.i130.i, %2394 ], [ %2314, %2357 ]
+  %.3.i.i101.i = phi i64 [ %2444, %.loopexit.sink.split.i96.i ], [ %.081.i52.i88.i, %2318 ], [ %2441, %2440 ], [ %2327, %.lr.ph39.i109.i ], [ %.081.i52.i88.i, %.preheader31.i102.i ], [ %.081.i52.i88.i, %.preheader.i124.i ], [ %.081.i52.i88.i, %.preheader28.i114.i92 ], [ %2395, %2394 ], [ %2359, %2357 ]
   %2445 = icmp slt i64 %.3.i.i101.i, %2269
   br i1 %2445, label %2306, label %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi8EjLb0EEEE16ExecuteWithNullsILb0EjEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i, !llvm.loop !639
 
@@ -12206,8 +12206,8 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit28.i171.i:     ; preds = %.preheader28.i170.i
   br label %.loopexit.i155.i151
 
 .loopexit.i155.i151:                              ; preds = %2552, %.lr.ph39.i165.i158, %2633, %2588, %.loopexit.sink.split.i152.i, %.preheader28.i170.i, %.preheader.i180.i, %.preheader31.i158.i153, %2515
-  %.183.i.i156.i = phi i64 [ %2511, %2515 ], [ %.082.i51.i145.i, %.preheader.i180.i ], [ %.082.i51.i145.i, %.preheader28.i170.i ], [ %2511, %.preheader31.i158.i153 ], [ %.183.i.ph.i154.i, %.loopexit.sink.split.i152.i ], [ %2511, %.lr.ph39.i165.i158 ], [ %.385.i.i186.i, %2588 ], [ %.587.i.i178.i, %2633 ], [ %2511, %2552 ]
-  %.3.i.i157.i152 = phi i64 [ %.081.i52.i144.i, %2515 ], [ %.081.i52.i144.i, %.preheader.i180.i ], [ %.081.i52.i144.i, %.preheader28.i170.i ], [ %.081.i52.i144.i, %.preheader31.i158.i153 ], [ %2637, %.loopexit.sink.split.i152.i ], [ %2523, %.lr.ph39.i165.i158 ], [ %2589, %2588 ], [ %2634, %2633 ], [ %2554, %2552 ]
+  %.183.i.i156.i = phi i64 [ %.183.i.ph.i154.i, %.loopexit.sink.split.i152.i ], [ %2511, %2515 ], [ %.587.i.i178.i, %2633 ], [ %2511, %.lr.ph39.i165.i158 ], [ %2511, %.preheader31.i158.i153 ], [ %.082.i51.i145.i, %.preheader.i180.i ], [ %.082.i51.i145.i, %.preheader28.i170.i ], [ %.385.i.i186.i, %2588 ], [ %2511, %2552 ]
+  %.3.i.i157.i152 = phi i64 [ %2637, %.loopexit.sink.split.i152.i ], [ %.081.i52.i144.i, %2515 ], [ %2634, %2633 ], [ %2523, %.lr.ph39.i165.i158 ], [ %.081.i52.i144.i, %.preheader31.i158.i153 ], [ %.081.i52.i144.i, %.preheader.i180.i ], [ %.081.i52.i144.i, %.preheader28.i170.i ], [ %2589, %2588 ], [ %2554, %2552 ]
   %2638 = icmp slt i64 %.3.i.i157.i152, %2466
   br i1 %2638, label %2503, label %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi8EmLb0EEEE16ExecuteWithNullsILb0EmEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i, !llvm.loop !648
 
@@ -12229,7 +12229,7 @@ _ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi8EmLb0EEEE16ExecuteWithNullsILb
   br i1 %exitcond.not.i138.i, label %_ZN5arrow7compute8internal12_GLOBAL__N_117TakeIndexDispatchITtTpTyENS2_18FixedWidthTakeImplEJSt17integral_constantIiLi8EEEEENS_6StatusEPNS0_13KernelContextERKNS_9ArraySpanESC_PNS_9ArrayDataEl.exit, label %.lr.ph.i136.i, !llvm.loop !649
 
 _ZN5arrow7compute8internal12_GLOBAL__N_117TakeIndexDispatchITtTpTyENS2_18FixedWidthTakeImplEJSt17integral_constantIiLi8EEEEENS_6StatusEPNS0_13KernelContextERKNS_9ArraySpanESC_PNS_9ArrayDataEl.exit: ; preds = %.lr.ph.i80.i, %.lr.ph.i24.i101, %.lr.ph.i.i110, %.lr.ph.i136.i, %.preheader33.i.i109, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi8EhLb0EEEE16ExecuteWithNullsILb0EhEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i, %.preheader33.i22.i100, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi8EtLb0EEEE16ExecuteWithNullsILb0EtEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i, %.preheader33.i78.i, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi8EjLb0EEEE16ExecuteWithNullsILb0EjEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i, %.preheader33.i134.i, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi8EmLb0EEEE16ExecuteWithNullsILb0EmEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i
-  %.0.i135.sink.i = phi i64 [ %.082.i.lcssa.i.i116, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi8EhLb0EEEE16ExecuteWithNullsILb0EhEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i ], [ %1875, %.preheader33.i.i109 ], [ %.082.i.lcssa.i30.i, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi8EtLb0EEEE16ExecuteWithNullsILb0EtEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i ], [ %2072, %.preheader33.i22.i100 ], [ %.082.i.lcssa.i86.i, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi8EjLb0EEEE16ExecuteWithNullsILb0EjEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i ], [ %2269, %.preheader33.i78.i ], [ %.082.i.lcssa.i142.i, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi8EmLb0EEEE16ExecuteWithNullsILb0EmEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i ], [ %2466, %.preheader33.i134.i ], [ %2072, %.lr.ph.i24.i101 ], [ %2466, %.lr.ph.i136.i ], [ %1875, %.lr.ph.i.i110 ], [ %2269, %.lr.ph.i80.i ]
+  %.0.i135.sink.i = phi i64 [ %2072, %.lr.ph.i24.i101 ], [ %1875, %.lr.ph.i.i110 ], [ %2466, %.lr.ph.i136.i ], [ %.082.i.lcssa.i.i116, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi8EhLb0EEEE16ExecuteWithNullsILb0EhEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i ], [ %1875, %.preheader33.i.i109 ], [ %.082.i.lcssa.i30.i, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi8EtLb0EEEE16ExecuteWithNullsILb0EtEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i ], [ %2072, %.preheader33.i22.i100 ], [ %.082.i.lcssa.i86.i, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi8EjLb0EEEE16ExecuteWithNullsILb0EjEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i ], [ %2269, %.preheader33.i78.i ], [ %.082.i.lcssa.i142.i, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi8EmLb0EEEE16ExecuteWithNullsILb0EmEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i ], [ %2466, %.preheader33.i134.i ], [ %2269, %.lr.ph.i80.i ]
   %2645 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %2646 = load i64, ptr %2645, align 8, !tbaa !212, !noalias !611
   %2647 = sub nsw i64 %2646, %.0.i135.sink.i
@@ -12585,8 +12585,8 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit28.i.i240:     ; preds = %.preheader28.i.i239
   br label %.loopexit.i.i225
 
 .loopexit.i.i225:                                 ; preds = %2768, %.lr.ph39.i.i234, %2855, %2806, %.loopexit.sink.split.i.i222, %.preheader28.i.i239, %.preheader.i.i249, %.preheader31.i.i228, %2721
-  %.183.i.i.i226 = phi i64 [ %2717, %2721 ], [ %.082.i51.i.i215, %.preheader.i.i249 ], [ %.082.i51.i.i215, %.preheader28.i.i239 ], [ %2717, %.preheader31.i.i228 ], [ %.183.i.ph.i.i224, %.loopexit.sink.split.i.i222 ], [ %2717, %.lr.ph39.i.i234 ], [ %.385.i.i.i255, %2806 ], [ %.587.i.i.i247, %2855 ], [ %2717, %2768 ]
-  %.3.i.i.i227 = phi i64 [ %.081.i52.i.i214, %2721 ], [ %.081.i52.i.i214, %.preheader.i.i249 ], [ %.081.i52.i.i214, %.preheader28.i.i239 ], [ %.081.i52.i.i214, %.preheader31.i.i228 ], [ %2861, %.loopexit.sink.split.i.i222 ], [ %2732, %.lr.ph39.i.i234 ], [ %2807, %2806 ], [ %2856, %2855 ], [ %2769, %2768 ]
+  %.183.i.i.i226 = phi i64 [ %.183.i.ph.i.i224, %.loopexit.sink.split.i.i222 ], [ %2717, %2721 ], [ %.587.i.i.i247, %2855 ], [ %2717, %.lr.ph39.i.i234 ], [ %2717, %.preheader31.i.i228 ], [ %.082.i51.i.i215, %.preheader.i.i249 ], [ %.082.i51.i.i215, %.preheader28.i.i239 ], [ %.385.i.i.i255, %2806 ], [ %2717, %2768 ]
+  %.3.i.i.i227 = phi i64 [ %2861, %.loopexit.sink.split.i.i222 ], [ %.081.i52.i.i214, %2721 ], [ %2856, %2855 ], [ %2732, %.lr.ph39.i.i234 ], [ %.081.i52.i.i214, %.preheader31.i.i228 ], [ %.081.i52.i.i214, %.preheader.i.i249 ], [ %.081.i52.i.i214, %.preheader28.i.i239 ], [ %2807, %2806 ], [ %2769, %2768 ]
   %2862 = icmp slt i64 %.3.i.i.i227, %2672
   br i1 %2862, label %2709, label %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi16EhLb0EEEE16ExecuteWithNullsILb0EhEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i, !llvm.loop !660
 
@@ -12939,8 +12939,8 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit28.i58.i:      ; preds = %.preheader28.i57.i1
   br label %.loopexit.i43.i188
 
 .loopexit.i43.i188:                               ; preds = %2981, %.lr.ph39.i52.i, %3068, %3019, %.loopexit.sink.split.i40.i185, %.preheader28.i57.i197, %.preheader.i67.i, %.preheader31.i46.i191, %2934
-  %.183.i.i44.i189 = phi i64 [ %2930, %2934 ], [ %.082.i51.i33.i178, %.preheader.i67.i ], [ %.082.i51.i33.i178, %.preheader28.i57.i197 ], [ %2930, %.preheader31.i46.i191 ], [ %.183.i.ph.i42.i187, %.loopexit.sink.split.i40.i185 ], [ %2930, %.lr.ph39.i52.i ], [ %.385.i.i73.i, %3019 ], [ %.587.i.i65.i, %3068 ], [ %2930, %2981 ]
-  %.3.i.i45.i190 = phi i64 [ %.081.i52.i32.i177, %2934 ], [ %.081.i52.i32.i177, %.preheader.i67.i ], [ %.081.i52.i32.i177, %.preheader28.i57.i197 ], [ %.081.i52.i32.i177, %.preheader31.i46.i191 ], [ %3074, %.loopexit.sink.split.i40.i185 ], [ %2945, %.lr.ph39.i52.i ], [ %3020, %3019 ], [ %3069, %3068 ], [ %2982, %2981 ]
+  %.183.i.i44.i189 = phi i64 [ %.183.i.ph.i42.i187, %.loopexit.sink.split.i40.i185 ], [ %2930, %2934 ], [ %.587.i.i65.i, %3068 ], [ %2930, %.lr.ph39.i52.i ], [ %2930, %.preheader31.i46.i191 ], [ %.082.i51.i33.i178, %.preheader.i67.i ], [ %.082.i51.i33.i178, %.preheader28.i57.i197 ], [ %.385.i.i73.i, %3019 ], [ %2930, %2981 ]
+  %.3.i.i45.i190 = phi i64 [ %3074, %.loopexit.sink.split.i40.i185 ], [ %.081.i52.i32.i177, %2934 ], [ %3069, %3068 ], [ %2945, %.lr.ph39.i52.i ], [ %.081.i52.i32.i177, %.preheader31.i46.i191 ], [ %.081.i52.i32.i177, %.preheader.i67.i ], [ %.081.i52.i32.i177, %.preheader28.i57.i197 ], [ %3020, %3019 ], [ %2982, %2981 ]
   %3075 = icmp slt i64 %.3.i.i45.i190, %2885
   br i1 %3075, label %2922, label %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi16EtLb0EEEE16ExecuteWithNullsILb0EtEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i, !llvm.loop !669
 
@@ -13295,8 +13295,8 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit28.i113.i:     ; preds = %.preheader28.i112.i
   br label %.loopexit.i98.i160
 
 .loopexit.i98.i160:                               ; preds = %3194, %.lr.ph39.i107.i, %3283, %3233, %.loopexit.sink.split.i95.i, %.preheader28.i112.i, %.preheader.i122.i, %.preheader31.i101.i162, %3147
-  %.183.i.i99.i = phi i64 [ %3143, %3147 ], [ %.082.i51.i88.i, %.preheader.i122.i ], [ %.082.i51.i88.i, %.preheader28.i112.i ], [ %3143, %.preheader31.i101.i162 ], [ %.183.i.ph.i97.i, %.loopexit.sink.split.i95.i ], [ %3143, %.lr.ph39.i107.i ], [ %.385.i.i128.i, %3233 ], [ %.587.i.i120.i, %3283 ], [ %3143, %3194 ]
-  %.3.i.i100.i161 = phi i64 [ %.081.i52.i87.i, %3147 ], [ %.081.i52.i87.i, %.preheader.i122.i ], [ %.081.i52.i87.i, %.preheader28.i112.i ], [ %.081.i52.i87.i, %.preheader31.i101.i162 ], [ %3289, %.loopexit.sink.split.i95.i ], [ %3158, %.lr.ph39.i107.i ], [ %3234, %3233 ], [ %3284, %3283 ], [ %3195, %3194 ]
+  %.183.i.i99.i = phi i64 [ %.183.i.ph.i97.i, %.loopexit.sink.split.i95.i ], [ %3143, %3147 ], [ %.587.i.i120.i, %3283 ], [ %3143, %.lr.ph39.i107.i ], [ %3143, %.preheader31.i101.i162 ], [ %.082.i51.i88.i, %.preheader.i122.i ], [ %.082.i51.i88.i, %.preheader28.i112.i ], [ %.385.i.i128.i, %3233 ], [ %3143, %3194 ]
+  %.3.i.i100.i161 = phi i64 [ %3289, %.loopexit.sink.split.i95.i ], [ %.081.i52.i87.i, %3147 ], [ %3284, %3283 ], [ %3158, %.lr.ph39.i107.i ], [ %.081.i52.i87.i, %.preheader31.i101.i162 ], [ %.081.i52.i87.i, %.preheader.i122.i ], [ %.081.i52.i87.i, %.preheader28.i112.i ], [ %3234, %3233 ], [ %3195, %3194 ]
   %3290 = icmp slt i64 %.3.i.i100.i161, %3098
   br i1 %3290, label %3135, label %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi16EjLb0EEEE16ExecuteWithNullsILb0EjEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i, !llvm.loop !678
 
@@ -13645,8 +13645,8 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit28.i168.i:     ; preds = %.preheader28.i167.i
   br label %.loopexit.i153.i
 
 .loopexit.i153.i:                                 ; preds = %3407, %.lr.ph39.i162.i, %3492, %3444, %.loopexit.sink.split.i150.i, %.preheader28.i167.i, %.preheader.i177.i, %.preheader31.i156.i, %3362
-  %.183.i.i154.i = phi i64 [ %3358, %3362 ], [ %.082.i51.i143.i, %.preheader.i177.i ], [ %.082.i51.i143.i, %.preheader28.i167.i ], [ %3358, %.preheader31.i156.i ], [ %.183.i.ph.i152.i, %.loopexit.sink.split.i150.i ], [ %3358, %.lr.ph39.i162.i ], [ %.385.i.i183.i, %3444 ], [ %.587.i.i175.i, %3492 ], [ %3358, %3407 ]
-  %.3.i.i155.i = phi i64 [ %.081.i52.i142.i, %3362 ], [ %.081.i52.i142.i, %.preheader.i177.i ], [ %.081.i52.i142.i, %.preheader28.i167.i ], [ %.081.i52.i142.i, %.preheader31.i156.i ], [ %3498, %.loopexit.sink.split.i150.i ], [ %3372, %.lr.ph39.i162.i ], [ %3445, %3444 ], [ %3493, %3492 ], [ %3408, %3407 ]
+  %.183.i.i154.i = phi i64 [ %.183.i.ph.i152.i, %.loopexit.sink.split.i150.i ], [ %3358, %3362 ], [ %.587.i.i175.i, %3492 ], [ %3358, %.lr.ph39.i162.i ], [ %3358, %.preheader31.i156.i ], [ %.082.i51.i143.i, %.preheader.i177.i ], [ %.082.i51.i143.i, %.preheader28.i167.i ], [ %.385.i.i183.i, %3444 ], [ %3358, %3407 ]
+  %.3.i.i155.i = phi i64 [ %3498, %.loopexit.sink.split.i150.i ], [ %.081.i52.i142.i, %3362 ], [ %3493, %3492 ], [ %3372, %.lr.ph39.i162.i ], [ %.081.i52.i142.i, %.preheader31.i156.i ], [ %.081.i52.i142.i, %.preheader.i177.i ], [ %.081.i52.i142.i, %.preheader28.i167.i ], [ %3445, %3444 ], [ %3408, %3407 ]
   %3499 = icmp slt i64 %.3.i.i155.i, %3313
   br i1 %3499, label %3350, label %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi16EmLb0EEEE16ExecuteWithNullsILb0EmEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i, !llvm.loop !687
 
@@ -13670,7 +13670,7 @@ _ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi16EmLb0EEEE16ExecuteWithNullsIL
   br i1 %exitcond.not.i136.i, label %_ZN5arrow7compute8internal12_GLOBAL__N_117TakeIndexDispatchITtTpTyENS2_18FixedWidthTakeImplEJSt17integral_constantIiLi16EEEEENS_6StatusEPNS0_13KernelContextERKNS_9ArraySpanESC_PNS_9ArrayDataEl.exit, label %.lr.ph.i134.i, !llvm.loop !688
 
 _ZN5arrow7compute8internal12_GLOBAL__N_117TakeIndexDispatchITtTpTyENS2_18FixedWidthTakeImplEJSt17integral_constantIiLi16EEEEENS_6StatusEPNS0_13KernelContextERKNS_9ArraySpanESC_PNS_9ArrayDataEl.exit: ; preds = %.lr.ph.i79.i, %.lr.ph.i24.i169, %.lr.ph.i.i206, %.lr.ph.i134.i, %.preheader33.i.i205, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi16EhLb0EEEE16ExecuteWithNullsILb0EhEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i, %.preheader33.i22.i168, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi16EtLb0EEEE16ExecuteWithNullsILb0EtEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i, %.preheader33.i77.i, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi16EjLb0EEEE16ExecuteWithNullsILb0EjEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i, %.preheader33.i132.i, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi16EmLb0EEEE16ExecuteWithNullsILb0EmEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i
-  %.0.i133.sink.i = phi i64 [ %.082.i.lcssa.i.i212, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi16EhLb0EEEE16ExecuteWithNullsILb0EhEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i ], [ %2672, %.preheader33.i.i205 ], [ %.082.i.lcssa.i30.i175, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi16EtLb0EEEE16ExecuteWithNullsILb0EtEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i ], [ %2885, %.preheader33.i22.i168 ], [ %.082.i.lcssa.i85.i, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi16EjLb0EEEE16ExecuteWithNullsILb0EjEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i ], [ %3098, %.preheader33.i77.i ], [ %.082.i.lcssa.i140.i, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi16EmLb0EEEE16ExecuteWithNullsILb0EmEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i ], [ %3313, %.preheader33.i132.i ], [ %2885, %.lr.ph.i24.i169 ], [ %3313, %.lr.ph.i134.i ], [ %2672, %.lr.ph.i.i206 ], [ %3098, %.lr.ph.i79.i ]
+  %.0.i133.sink.i = phi i64 [ %2885, %.lr.ph.i24.i169 ], [ %2672, %.lr.ph.i.i206 ], [ %3313, %.lr.ph.i134.i ], [ %.082.i.lcssa.i.i212, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi16EhLb0EEEE16ExecuteWithNullsILb0EhEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i ], [ %2672, %.preheader33.i.i205 ], [ %.082.i.lcssa.i30.i175, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi16EtLb0EEEE16ExecuteWithNullsILb0EtEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i ], [ %2885, %.preheader33.i22.i168 ], [ %.082.i.lcssa.i85.i, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi16EjLb0EEEE16ExecuteWithNullsILb0EjEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i ], [ %3098, %.preheader33.i77.i ], [ %.082.i.lcssa.i140.i, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi16EmLb0EEEE16ExecuteWithNullsILb0EmEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i ], [ %3313, %.preheader33.i132.i ], [ %3098, %.lr.ph.i79.i ]
   %3508 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %3509 = load i64, ptr %3508, align 8, !tbaa !212, !noalias !650
   %3510 = sub nsw i64 %3509, %.0.i133.sink.i
@@ -14026,8 +14026,8 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit28.i.i403:     ; preds = %.preheader28.i.i402
   br label %.loopexit.i.i388
 
 .loopexit.i.i388:                                 ; preds = %3631, %.lr.ph39.i.i397, %3718, %3669, %.loopexit.sink.split.i.i385, %.preheader28.i.i402, %.preheader.i.i412, %.preheader31.i.i391, %3584
-  %.183.i.i.i389 = phi i64 [ %3580, %3584 ], [ %.082.i51.i.i378, %.preheader.i.i412 ], [ %.082.i51.i.i378, %.preheader28.i.i402 ], [ %3580, %.preheader31.i.i391 ], [ %.183.i.ph.i.i387, %.loopexit.sink.split.i.i385 ], [ %3580, %.lr.ph39.i.i397 ], [ %.385.i.i.i418, %3669 ], [ %.587.i.i.i410, %3718 ], [ %3580, %3631 ]
-  %.3.i.i.i390 = phi i64 [ %.081.i52.i.i377, %3584 ], [ %.081.i52.i.i377, %.preheader.i.i412 ], [ %.081.i52.i.i377, %.preheader28.i.i402 ], [ %.081.i52.i.i377, %.preheader31.i.i391 ], [ %3724, %.loopexit.sink.split.i.i385 ], [ %3595, %.lr.ph39.i.i397 ], [ %3670, %3669 ], [ %3719, %3718 ], [ %3632, %3631 ]
+  %.183.i.i.i389 = phi i64 [ %.183.i.ph.i.i387, %.loopexit.sink.split.i.i385 ], [ %3580, %3584 ], [ %.587.i.i.i410, %3718 ], [ %3580, %.lr.ph39.i.i397 ], [ %3580, %.preheader31.i.i391 ], [ %.082.i51.i.i378, %.preheader.i.i412 ], [ %.082.i51.i.i378, %.preheader28.i.i402 ], [ %.385.i.i.i418, %3669 ], [ %3580, %3631 ]
+  %.3.i.i.i390 = phi i64 [ %3724, %.loopexit.sink.split.i.i385 ], [ %.081.i52.i.i377, %3584 ], [ %3719, %3718 ], [ %3595, %.lr.ph39.i.i397 ], [ %.081.i52.i.i377, %.preheader31.i.i391 ], [ %.081.i52.i.i377, %.preheader.i.i412 ], [ %.081.i52.i.i377, %.preheader28.i.i402 ], [ %3670, %3669 ], [ %3632, %3631 ]
   %3725 = icmp slt i64 %.3.i.i.i390, %3535
   br i1 %3725, label %3572, label %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi32EhLb0EEEE16ExecuteWithNullsILb0EhEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i, !llvm.loop !699
 
@@ -14380,8 +14380,8 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit28.i58.i349:   ; preds = %.preheader28.i57.i3
   br label %.loopexit.i43.i334
 
 .loopexit.i43.i334:                               ; preds = %3844, %.lr.ph39.i52.i343, %3931, %3882, %.loopexit.sink.split.i40.i331, %.preheader28.i57.i348, %.preheader.i67.i358, %.preheader31.i46.i337, %3797
-  %.183.i.i44.i335 = phi i64 [ %3793, %3797 ], [ %.082.i51.i33.i324, %.preheader.i67.i358 ], [ %.082.i51.i33.i324, %.preheader28.i57.i348 ], [ %3793, %.preheader31.i46.i337 ], [ %.183.i.ph.i42.i333, %.loopexit.sink.split.i40.i331 ], [ %3793, %.lr.ph39.i52.i343 ], [ %.385.i.i73.i364, %3882 ], [ %.587.i.i65.i356, %3931 ], [ %3793, %3844 ]
-  %.3.i.i45.i336 = phi i64 [ %.081.i52.i32.i323, %3797 ], [ %.081.i52.i32.i323, %.preheader.i67.i358 ], [ %.081.i52.i32.i323, %.preheader28.i57.i348 ], [ %.081.i52.i32.i323, %.preheader31.i46.i337 ], [ %3937, %.loopexit.sink.split.i40.i331 ], [ %3808, %.lr.ph39.i52.i343 ], [ %3883, %3882 ], [ %3932, %3931 ], [ %3845, %3844 ]
+  %.183.i.i44.i335 = phi i64 [ %.183.i.ph.i42.i333, %.loopexit.sink.split.i40.i331 ], [ %3793, %3797 ], [ %.587.i.i65.i356, %3931 ], [ %3793, %.lr.ph39.i52.i343 ], [ %3793, %.preheader31.i46.i337 ], [ %.082.i51.i33.i324, %.preheader.i67.i358 ], [ %.082.i51.i33.i324, %.preheader28.i57.i348 ], [ %.385.i.i73.i364, %3882 ], [ %3793, %3844 ]
+  %.3.i.i45.i336 = phi i64 [ %3937, %.loopexit.sink.split.i40.i331 ], [ %.081.i52.i32.i323, %3797 ], [ %3932, %3931 ], [ %3808, %.lr.ph39.i52.i343 ], [ %.081.i52.i32.i323, %.preheader31.i46.i337 ], [ %.081.i52.i32.i323, %.preheader.i67.i358 ], [ %.081.i52.i32.i323, %.preheader28.i57.i348 ], [ %3883, %3882 ], [ %3845, %3844 ]
   %3938 = icmp slt i64 %.3.i.i45.i336, %3748
   br i1 %3938, label %3785, label %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi32EtLb0EEEE16ExecuteWithNullsILb0EtEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i, !llvm.loop !708
 
@@ -14736,8 +14736,8 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit28.i113.i295:  ; preds = %.preheader28.i112.i
   br label %.loopexit.i98.i280
 
 .loopexit.i98.i280:                               ; preds = %4057, %.lr.ph39.i107.i289, %4146, %4096, %.loopexit.sink.split.i95.i277, %.preheader28.i112.i294, %.preheader.i122.i304, %.preheader31.i101.i283, %4010
-  %.183.i.i99.i281 = phi i64 [ %4006, %4010 ], [ %.082.i51.i88.i270, %.preheader.i122.i304 ], [ %.082.i51.i88.i270, %.preheader28.i112.i294 ], [ %4006, %.preheader31.i101.i283 ], [ %.183.i.ph.i97.i279, %.loopexit.sink.split.i95.i277 ], [ %4006, %.lr.ph39.i107.i289 ], [ %.385.i.i128.i310, %4096 ], [ %.587.i.i120.i302, %4146 ], [ %4006, %4057 ]
-  %.3.i.i100.i282 = phi i64 [ %.081.i52.i87.i269, %4010 ], [ %.081.i52.i87.i269, %.preheader.i122.i304 ], [ %.081.i52.i87.i269, %.preheader28.i112.i294 ], [ %.081.i52.i87.i269, %.preheader31.i101.i283 ], [ %4152, %.loopexit.sink.split.i95.i277 ], [ %4021, %.lr.ph39.i107.i289 ], [ %4097, %4096 ], [ %4147, %4146 ], [ %4058, %4057 ]
+  %.183.i.i99.i281 = phi i64 [ %.183.i.ph.i97.i279, %.loopexit.sink.split.i95.i277 ], [ %4006, %4010 ], [ %.587.i.i120.i302, %4146 ], [ %4006, %.lr.ph39.i107.i289 ], [ %4006, %.preheader31.i101.i283 ], [ %.082.i51.i88.i270, %.preheader.i122.i304 ], [ %.082.i51.i88.i270, %.preheader28.i112.i294 ], [ %.385.i.i128.i310, %4096 ], [ %4006, %4057 ]
+  %.3.i.i100.i282 = phi i64 [ %4152, %.loopexit.sink.split.i95.i277 ], [ %.081.i52.i87.i269, %4010 ], [ %4147, %4146 ], [ %4021, %.lr.ph39.i107.i289 ], [ %.081.i52.i87.i269, %.preheader31.i101.i283 ], [ %.081.i52.i87.i269, %.preheader.i122.i304 ], [ %.081.i52.i87.i269, %.preheader28.i112.i294 ], [ %4097, %4096 ], [ %4058, %4057 ]
   %4153 = icmp slt i64 %.3.i.i100.i282, %3961
   br i1 %4153, label %3998, label %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi32EjLb0EEEE16ExecuteWithNullsILb0EjEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i, !llvm.loop !717
 
@@ -15086,8 +15086,8 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit28.i168.i457:  ; preds = %.preheader28.i167.i
   br label %.loopexit.i153.i442
 
 .loopexit.i153.i442:                              ; preds = %4270, %.lr.ph39.i162.i451, %4355, %4307, %.loopexit.sink.split.i150.i439, %.preheader28.i167.i456, %.preheader.i177.i466, %.preheader31.i156.i445, %4225
-  %.183.i.i154.i443 = phi i64 [ %4221, %4225 ], [ %.082.i51.i143.i432, %.preheader.i177.i466 ], [ %.082.i51.i143.i432, %.preheader28.i167.i456 ], [ %4221, %.preheader31.i156.i445 ], [ %.183.i.ph.i152.i441, %.loopexit.sink.split.i150.i439 ], [ %4221, %.lr.ph39.i162.i451 ], [ %.385.i.i183.i472, %4307 ], [ %.587.i.i175.i464, %4355 ], [ %4221, %4270 ]
-  %.3.i.i155.i444 = phi i64 [ %.081.i52.i142.i431, %4225 ], [ %.081.i52.i142.i431, %.preheader.i177.i466 ], [ %.081.i52.i142.i431, %.preheader28.i167.i456 ], [ %.081.i52.i142.i431, %.preheader31.i156.i445 ], [ %4361, %.loopexit.sink.split.i150.i439 ], [ %4235, %.lr.ph39.i162.i451 ], [ %4308, %4307 ], [ %4356, %4355 ], [ %4271, %4270 ]
+  %.183.i.i154.i443 = phi i64 [ %.183.i.ph.i152.i441, %.loopexit.sink.split.i150.i439 ], [ %4221, %4225 ], [ %.587.i.i175.i464, %4355 ], [ %4221, %.lr.ph39.i162.i451 ], [ %4221, %.preheader31.i156.i445 ], [ %.082.i51.i143.i432, %.preheader.i177.i466 ], [ %.082.i51.i143.i432, %.preheader28.i167.i456 ], [ %.385.i.i183.i472, %4307 ], [ %4221, %4270 ]
+  %.3.i.i155.i444 = phi i64 [ %4361, %.loopexit.sink.split.i150.i439 ], [ %.081.i52.i142.i431, %4225 ], [ %4356, %4355 ], [ %4235, %.lr.ph39.i162.i451 ], [ %.081.i52.i142.i431, %.preheader31.i156.i445 ], [ %.081.i52.i142.i431, %.preheader.i177.i466 ], [ %.081.i52.i142.i431, %.preheader28.i167.i456 ], [ %4308, %4307 ], [ %4271, %4270 ]
   %4362 = icmp slt i64 %.3.i.i155.i444, %4176
   br i1 %4362, label %4213, label %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi32EmLb0EEEE16ExecuteWithNullsILb0EmEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i, !llvm.loop !726
 
@@ -15111,7 +15111,7 @@ _ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi32EmLb0EEEE16ExecuteWithNullsIL
   br i1 %exitcond.not.i136.i425, label %_ZN5arrow7compute8internal12_GLOBAL__N_117TakeIndexDispatchITtTpTyENS2_18FixedWidthTakeImplEJSt17integral_constantIiLi32EEEEENS_6StatusEPNS0_13KernelContextERKNS_9ArraySpanESC_PNS_9ArrayDataEl.exit, label %.lr.ph.i134.i423, !llvm.loop !727
 
 _ZN5arrow7compute8internal12_GLOBAL__N_117TakeIndexDispatchITtTpTyENS2_18FixedWidthTakeImplEJSt17integral_constantIiLi32EEEEENS_6StatusEPNS0_13KernelContextERKNS_9ArraySpanESC_PNS_9ArrayDataEl.exit: ; preds = %.lr.ph.i79.i261, %.lr.ph.i24.i315, %.lr.ph.i.i369, %.lr.ph.i134.i423, %.preheader33.i.i368, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi32EhLb0EEEE16ExecuteWithNullsILb0EhEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i, %.preheader33.i22.i314, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi32EtLb0EEEE16ExecuteWithNullsILb0EtEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i, %.preheader33.i77.i259, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi32EjLb0EEEE16ExecuteWithNullsILb0EjEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i, %.preheader33.i132.i422, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi32EmLb0EEEE16ExecuteWithNullsILb0EmEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i
-  %.0.i133.sink.i260 = phi i64 [ %.082.i.lcssa.i.i375, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi32EhLb0EEEE16ExecuteWithNullsILb0EhEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i ], [ %3535, %.preheader33.i.i368 ], [ %.082.i.lcssa.i30.i321, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi32EtLb0EEEE16ExecuteWithNullsILb0EtEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i ], [ %3748, %.preheader33.i22.i314 ], [ %.082.i.lcssa.i85.i267, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi32EjLb0EEEE16ExecuteWithNullsILb0EjEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i ], [ %3961, %.preheader33.i77.i259 ], [ %.082.i.lcssa.i140.i429, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi32EmLb0EEEE16ExecuteWithNullsILb0EmEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i ], [ %4176, %.preheader33.i132.i422 ], [ %3748, %.lr.ph.i24.i315 ], [ %4176, %.lr.ph.i134.i423 ], [ %3535, %.lr.ph.i.i369 ], [ %3961, %.lr.ph.i79.i261 ]
+  %.0.i133.sink.i260 = phi i64 [ %3748, %.lr.ph.i24.i315 ], [ %3535, %.lr.ph.i.i369 ], [ %4176, %.lr.ph.i134.i423 ], [ %.082.i.lcssa.i.i375, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi32EhLb0EEEE16ExecuteWithNullsILb0EhEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i ], [ %3535, %.preheader33.i.i368 ], [ %.082.i.lcssa.i30.i321, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi32EtLb0EEEE16ExecuteWithNullsILb0EtEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i ], [ %3748, %.preheader33.i22.i314 ], [ %.082.i.lcssa.i85.i267, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi32EjLb0EEEE16ExecuteWithNullsILb0EjEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i ], [ %3961, %.preheader33.i77.i259 ], [ %.082.i.lcssa.i140.i429, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi32EmLb0EEEE16ExecuteWithNullsILb0EmEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i ], [ %4176, %.preheader33.i132.i422 ], [ %3961, %.lr.ph.i79.i261 ]
   %4371 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %4372 = load i64, ptr %4371, align 8, !tbaa !212, !noalias !689
   %4373 = sub nsw i64 %4372, %.0.i133.sink.i260
@@ -15467,8 +15467,8 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit28.i.i620:     ; preds = %.preheader28.i.i619
   br label %.loopexit.i.i605
 
 .loopexit.i.i605:                                 ; preds = %4494, %.lr.ph39.i.i614, %4581, %4532, %.loopexit.sink.split.i.i602, %.preheader28.i.i619, %.preheader.i.i629, %.preheader31.i.i608, %4447
-  %.183.i.i.i606 = phi i64 [ %4443, %4447 ], [ %.082.i51.i.i595, %.preheader.i.i629 ], [ %.082.i51.i.i595, %.preheader28.i.i619 ], [ %4443, %.preheader31.i.i608 ], [ %.183.i.ph.i.i604, %.loopexit.sink.split.i.i602 ], [ %4443, %.lr.ph39.i.i614 ], [ %.385.i.i.i635, %4532 ], [ %.587.i.i.i627, %4581 ], [ %4443, %4494 ]
-  %.3.i.i.i607 = phi i64 [ %.081.i52.i.i594, %4447 ], [ %.081.i52.i.i594, %.preheader.i.i629 ], [ %.081.i52.i.i594, %.preheader28.i.i619 ], [ %.081.i52.i.i594, %.preheader31.i.i608 ], [ %4587, %.loopexit.sink.split.i.i602 ], [ %4458, %.lr.ph39.i.i614 ], [ %4533, %4532 ], [ %4582, %4581 ], [ %4495, %4494 ]
+  %.183.i.i.i606 = phi i64 [ %.183.i.ph.i.i604, %.loopexit.sink.split.i.i602 ], [ %4443, %4447 ], [ %.587.i.i.i627, %4581 ], [ %4443, %.lr.ph39.i.i614 ], [ %4443, %.preheader31.i.i608 ], [ %.082.i51.i.i595, %.preheader.i.i629 ], [ %.082.i51.i.i595, %.preheader28.i.i619 ], [ %.385.i.i.i635, %4532 ], [ %4443, %4494 ]
+  %.3.i.i.i607 = phi i64 [ %4587, %.loopexit.sink.split.i.i602 ], [ %.081.i52.i.i594, %4447 ], [ %4582, %4581 ], [ %4458, %.lr.ph39.i.i614 ], [ %.081.i52.i.i594, %.preheader31.i.i608 ], [ %.081.i52.i.i594, %.preheader.i.i629 ], [ %.081.i52.i.i594, %.preheader28.i.i619 ], [ %4533, %4532 ], [ %4495, %4494 ]
   %4588 = icmp slt i64 %.3.i.i.i607, %4398
   br i1 %4588, label %4435, label %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi64EhLb0EEEE16ExecuteWithNullsILb0EhEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i, !llvm.loop !738
 
@@ -15821,8 +15821,8 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit28.i58.i566:   ; preds = %.preheader28.i57.i5
   br label %.loopexit.i43.i551
 
 .loopexit.i43.i551:                               ; preds = %4707, %.lr.ph39.i52.i560, %4794, %4745, %.loopexit.sink.split.i40.i548, %.preheader28.i57.i565, %.preheader.i67.i575, %.preheader31.i46.i554, %4660
-  %.183.i.i44.i552 = phi i64 [ %4656, %4660 ], [ %.082.i51.i33.i541, %.preheader.i67.i575 ], [ %.082.i51.i33.i541, %.preheader28.i57.i565 ], [ %4656, %.preheader31.i46.i554 ], [ %.183.i.ph.i42.i550, %.loopexit.sink.split.i40.i548 ], [ %4656, %.lr.ph39.i52.i560 ], [ %.385.i.i73.i581, %4745 ], [ %.587.i.i65.i573, %4794 ], [ %4656, %4707 ]
-  %.3.i.i45.i553 = phi i64 [ %.081.i52.i32.i540, %4660 ], [ %.081.i52.i32.i540, %.preheader.i67.i575 ], [ %.081.i52.i32.i540, %.preheader28.i57.i565 ], [ %.081.i52.i32.i540, %.preheader31.i46.i554 ], [ %4800, %.loopexit.sink.split.i40.i548 ], [ %4671, %.lr.ph39.i52.i560 ], [ %4746, %4745 ], [ %4795, %4794 ], [ %4708, %4707 ]
+  %.183.i.i44.i552 = phi i64 [ %.183.i.ph.i42.i550, %.loopexit.sink.split.i40.i548 ], [ %4656, %4660 ], [ %.587.i.i65.i573, %4794 ], [ %4656, %.lr.ph39.i52.i560 ], [ %4656, %.preheader31.i46.i554 ], [ %.082.i51.i33.i541, %.preheader.i67.i575 ], [ %.082.i51.i33.i541, %.preheader28.i57.i565 ], [ %.385.i.i73.i581, %4745 ], [ %4656, %4707 ]
+  %.3.i.i45.i553 = phi i64 [ %4800, %.loopexit.sink.split.i40.i548 ], [ %.081.i52.i32.i540, %4660 ], [ %4795, %4794 ], [ %4671, %.lr.ph39.i52.i560 ], [ %.081.i52.i32.i540, %.preheader31.i46.i554 ], [ %.081.i52.i32.i540, %.preheader.i67.i575 ], [ %.081.i52.i32.i540, %.preheader28.i57.i565 ], [ %4746, %4745 ], [ %4708, %4707 ]
   %4801 = icmp slt i64 %.3.i.i45.i553, %4611
   br i1 %4801, label %4648, label %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi64EtLb0EEEE16ExecuteWithNullsILb0EtEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i, !llvm.loop !747
 
@@ -16177,8 +16177,8 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit28.i113.i512:  ; preds = %.preheader28.i112.i
   br label %.loopexit.i98.i497
 
 .loopexit.i98.i497:                               ; preds = %4920, %.lr.ph39.i107.i506, %5009, %4959, %.loopexit.sink.split.i95.i494, %.preheader28.i112.i511, %.preheader.i122.i521, %.preheader31.i101.i500, %4873
-  %.183.i.i99.i498 = phi i64 [ %4869, %4873 ], [ %.082.i51.i88.i487, %.preheader.i122.i521 ], [ %.082.i51.i88.i487, %.preheader28.i112.i511 ], [ %4869, %.preheader31.i101.i500 ], [ %.183.i.ph.i97.i496, %.loopexit.sink.split.i95.i494 ], [ %4869, %.lr.ph39.i107.i506 ], [ %.385.i.i128.i527, %4959 ], [ %.587.i.i120.i519, %5009 ], [ %4869, %4920 ]
-  %.3.i.i100.i499 = phi i64 [ %.081.i52.i87.i486, %4873 ], [ %.081.i52.i87.i486, %.preheader.i122.i521 ], [ %.081.i52.i87.i486, %.preheader28.i112.i511 ], [ %.081.i52.i87.i486, %.preheader31.i101.i500 ], [ %5015, %.loopexit.sink.split.i95.i494 ], [ %4884, %.lr.ph39.i107.i506 ], [ %4960, %4959 ], [ %5010, %5009 ], [ %4921, %4920 ]
+  %.183.i.i99.i498 = phi i64 [ %.183.i.ph.i97.i496, %.loopexit.sink.split.i95.i494 ], [ %4869, %4873 ], [ %.587.i.i120.i519, %5009 ], [ %4869, %.lr.ph39.i107.i506 ], [ %4869, %.preheader31.i101.i500 ], [ %.082.i51.i88.i487, %.preheader.i122.i521 ], [ %.082.i51.i88.i487, %.preheader28.i112.i511 ], [ %.385.i.i128.i527, %4959 ], [ %4869, %4920 ]
+  %.3.i.i100.i499 = phi i64 [ %5015, %.loopexit.sink.split.i95.i494 ], [ %.081.i52.i87.i486, %4873 ], [ %5010, %5009 ], [ %4884, %.lr.ph39.i107.i506 ], [ %.081.i52.i87.i486, %.preheader31.i101.i500 ], [ %.081.i52.i87.i486, %.preheader.i122.i521 ], [ %.081.i52.i87.i486, %.preheader28.i112.i511 ], [ %4960, %4959 ], [ %4921, %4920 ]
   %5016 = icmp slt i64 %.3.i.i100.i499, %4824
   br i1 %5016, label %4861, label %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi64EjLb0EEEE16ExecuteWithNullsILb0EjEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i, !llvm.loop !756
 
@@ -16527,8 +16527,8 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit28.i168.i674:  ; preds = %.preheader28.i167.i
   br label %.loopexit.i153.i659
 
 .loopexit.i153.i659:                              ; preds = %5133, %.lr.ph39.i162.i668, %5218, %5170, %.loopexit.sink.split.i150.i656, %.preheader28.i167.i673, %.preheader.i177.i683, %.preheader31.i156.i662, %5088
-  %.183.i.i154.i660 = phi i64 [ %5084, %5088 ], [ %.082.i51.i143.i649, %.preheader.i177.i683 ], [ %.082.i51.i143.i649, %.preheader28.i167.i673 ], [ %5084, %.preheader31.i156.i662 ], [ %.183.i.ph.i152.i658, %.loopexit.sink.split.i150.i656 ], [ %5084, %.lr.ph39.i162.i668 ], [ %.385.i.i183.i689, %5170 ], [ %.587.i.i175.i681, %5218 ], [ %5084, %5133 ]
-  %.3.i.i155.i661 = phi i64 [ %.081.i52.i142.i648, %5088 ], [ %.081.i52.i142.i648, %.preheader.i177.i683 ], [ %.081.i52.i142.i648, %.preheader28.i167.i673 ], [ %.081.i52.i142.i648, %.preheader31.i156.i662 ], [ %5224, %.loopexit.sink.split.i150.i656 ], [ %5098, %.lr.ph39.i162.i668 ], [ %5171, %5170 ], [ %5219, %5218 ], [ %5134, %5133 ]
+  %.183.i.i154.i660 = phi i64 [ %.183.i.ph.i152.i658, %.loopexit.sink.split.i150.i656 ], [ %5084, %5088 ], [ %.587.i.i175.i681, %5218 ], [ %5084, %.lr.ph39.i162.i668 ], [ %5084, %.preheader31.i156.i662 ], [ %.082.i51.i143.i649, %.preheader.i177.i683 ], [ %.082.i51.i143.i649, %.preheader28.i167.i673 ], [ %.385.i.i183.i689, %5170 ], [ %5084, %5133 ]
+  %.3.i.i155.i661 = phi i64 [ %5224, %.loopexit.sink.split.i150.i656 ], [ %.081.i52.i142.i648, %5088 ], [ %5219, %5218 ], [ %5098, %.lr.ph39.i162.i668 ], [ %.081.i52.i142.i648, %.preheader31.i156.i662 ], [ %.081.i52.i142.i648, %.preheader.i177.i683 ], [ %.081.i52.i142.i648, %.preheader28.i167.i673 ], [ %5171, %5170 ], [ %5134, %5133 ]
   %5225 = icmp slt i64 %.3.i.i155.i661, %5039
   br i1 %5225, label %5076, label %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi64EmLb0EEEE16ExecuteWithNullsILb0EmEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i, !llvm.loop !765
 
@@ -16552,7 +16552,7 @@ _ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi64EmLb0EEEE16ExecuteWithNullsIL
   br i1 %exitcond.not.i136.i642, label %_ZN5arrow7compute8internal12_GLOBAL__N_117TakeIndexDispatchITtTpTyENS2_18FixedWidthTakeImplEJSt17integral_constantIiLi64EEEEENS_6StatusEPNS0_13KernelContextERKNS_9ArraySpanESC_PNS_9ArrayDataEl.exit, label %.lr.ph.i134.i640, !llvm.loop !766
 
 _ZN5arrow7compute8internal12_GLOBAL__N_117TakeIndexDispatchITtTpTyENS2_18FixedWidthTakeImplEJSt17integral_constantIiLi64EEEEENS_6StatusEPNS0_13KernelContextERKNS_9ArraySpanESC_PNS_9ArrayDataEl.exit: ; preds = %.lr.ph.i79.i478, %.lr.ph.i24.i532, %.lr.ph.i.i586, %.lr.ph.i134.i640, %.preheader33.i.i585, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi64EhLb0EEEE16ExecuteWithNullsILb0EhEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i, %.preheader33.i22.i531, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi64EtLb0EEEE16ExecuteWithNullsILb0EtEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i, %.preheader33.i77.i476, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi64EjLb0EEEE16ExecuteWithNullsILb0EjEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i, %.preheader33.i132.i639, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi64EmLb0EEEE16ExecuteWithNullsILb0EmEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i
-  %.0.i133.sink.i477 = phi i64 [ %.082.i.lcssa.i.i592, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi64EhLb0EEEE16ExecuteWithNullsILb0EhEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i ], [ %4398, %.preheader33.i.i585 ], [ %.082.i.lcssa.i30.i538, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi64EtLb0EEEE16ExecuteWithNullsILb0EtEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i ], [ %4611, %.preheader33.i22.i531 ], [ %.082.i.lcssa.i85.i484, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi64EjLb0EEEE16ExecuteWithNullsILb0EjEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i ], [ %4824, %.preheader33.i77.i476 ], [ %.082.i.lcssa.i140.i646, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi64EmLb0EEEE16ExecuteWithNullsILb0EmEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i ], [ %5039, %.preheader33.i132.i639 ], [ %4611, %.lr.ph.i24.i532 ], [ %5039, %.lr.ph.i134.i640 ], [ %4398, %.lr.ph.i.i586 ], [ %4824, %.lr.ph.i79.i478 ]
+  %.0.i133.sink.i477 = phi i64 [ %4611, %.lr.ph.i24.i532 ], [ %4398, %.lr.ph.i.i586 ], [ %5039, %.lr.ph.i134.i640 ], [ %.082.i.lcssa.i.i592, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi64EhLb0EEEE16ExecuteWithNullsILb0EhEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i ], [ %4398, %.preheader33.i.i585 ], [ %.082.i.lcssa.i30.i538, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi64EtLb0EEEE16ExecuteWithNullsILb0EtEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i ], [ %4611, %.preheader33.i22.i531 ], [ %.082.i.lcssa.i85.i484, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi64EjLb0EEEE16ExecuteWithNullsILb0EjEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i ], [ %4824, %.preheader33.i77.i476 ], [ %.082.i.lcssa.i140.i646, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi64EmLb0EEEE16ExecuteWithNullsILb0EmEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i ], [ %5039, %.preheader33.i132.i639 ], [ %4824, %.lr.ph.i79.i478 ]
   %5234 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %5235 = load i64, ptr %5234, align 8, !tbaa !212, !noalias !728
   %5236 = sub nsw i64 %5235, %.0.i133.sink.i477
@@ -16904,8 +16904,8 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit28.i.i837:     ; preds = %.preheader28.i.i836
   br label %.loopexit.i.i822
 
 .loopexit.i.i822:                                 ; preds = %5355, %.lr.ph39.i.i831, %5440, %5392, %.loopexit.sink.split.i.i819, %.preheader28.i.i836, %.preheader.i.i846, %.preheader31.i.i825, %5310
-  %.183.i.i.i823 = phi i64 [ %5306, %5310 ], [ %.082.i51.i.i812, %.preheader.i.i846 ], [ %.082.i51.i.i812, %.preheader28.i.i836 ], [ %5306, %.preheader31.i.i825 ], [ %.183.i.ph.i.i821, %.loopexit.sink.split.i.i819 ], [ %5306, %.lr.ph39.i.i831 ], [ %.385.i.i.i852, %5392 ], [ %.587.i.i.i844, %5440 ], [ %5306, %5355 ]
-  %.3.i.i.i824 = phi i64 [ %.081.i52.i.i811, %5310 ], [ %.081.i52.i.i811, %.preheader.i.i846 ], [ %.081.i52.i.i811, %.preheader28.i.i836 ], [ %.081.i52.i.i811, %.preheader31.i.i825 ], [ %5446, %.loopexit.sink.split.i.i819 ], [ %5320, %.lr.ph39.i.i831 ], [ %5393, %5392 ], [ %5441, %5440 ], [ %5356, %5355 ]
+  %.183.i.i.i823 = phi i64 [ %.183.i.ph.i.i821, %.loopexit.sink.split.i.i819 ], [ %5306, %5310 ], [ %.587.i.i.i844, %5440 ], [ %5306, %.lr.ph39.i.i831 ], [ %5306, %.preheader31.i.i825 ], [ %.082.i51.i.i812, %.preheader.i.i846 ], [ %.082.i51.i.i812, %.preheader28.i.i836 ], [ %.385.i.i.i852, %5392 ], [ %5306, %5355 ]
+  %.3.i.i.i824 = phi i64 [ %5446, %.loopexit.sink.split.i.i819 ], [ %.081.i52.i.i811, %5310 ], [ %5441, %5440 ], [ %5320, %.lr.ph39.i.i831 ], [ %.081.i52.i.i811, %.preheader31.i.i825 ], [ %.081.i52.i.i811, %.preheader.i.i846 ], [ %.081.i52.i.i811, %.preheader28.i.i836 ], [ %5393, %5392 ], [ %5356, %5355 ]
   %5447 = icmp slt i64 %.3.i.i.i824, %5261
   br i1 %5447, label %5298, label %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi128EhLb0EEEE16ExecuteWithNullsILb0EhEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i, !llvm.loop !777
 
@@ -17253,8 +17253,8 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit28.i58.i783:   ; preds = %.preheader28.i57.i7
   br label %.loopexit.i43.i768
 
 .loopexit.i43.i768:                               ; preds = %5563, %.lr.ph39.i52.i777, %5648, %5600, %.loopexit.sink.split.i40.i765, %.preheader28.i57.i782, %.preheader.i67.i792, %.preheader31.i46.i771, %5518
-  %.183.i.i44.i769 = phi i64 [ %5514, %5518 ], [ %.082.i51.i33.i758, %.preheader.i67.i792 ], [ %.082.i51.i33.i758, %.preheader28.i57.i782 ], [ %5514, %.preheader31.i46.i771 ], [ %.183.i.ph.i42.i767, %.loopexit.sink.split.i40.i765 ], [ %5514, %.lr.ph39.i52.i777 ], [ %.385.i.i73.i798, %5600 ], [ %.587.i.i65.i790, %5648 ], [ %5514, %5563 ]
-  %.3.i.i45.i770 = phi i64 [ %.081.i52.i32.i757, %5518 ], [ %.081.i52.i32.i757, %.preheader.i67.i792 ], [ %.081.i52.i32.i757, %.preheader28.i57.i782 ], [ %.081.i52.i32.i757, %.preheader31.i46.i771 ], [ %5654, %.loopexit.sink.split.i40.i765 ], [ %5528, %.lr.ph39.i52.i777 ], [ %5601, %5600 ], [ %5649, %5648 ], [ %5564, %5563 ]
+  %.183.i.i44.i769 = phi i64 [ %.183.i.ph.i42.i767, %.loopexit.sink.split.i40.i765 ], [ %5514, %5518 ], [ %.587.i.i65.i790, %5648 ], [ %5514, %.lr.ph39.i52.i777 ], [ %5514, %.preheader31.i46.i771 ], [ %.082.i51.i33.i758, %.preheader.i67.i792 ], [ %.082.i51.i33.i758, %.preheader28.i57.i782 ], [ %.385.i.i73.i798, %5600 ], [ %5514, %5563 ]
+  %.3.i.i45.i770 = phi i64 [ %5654, %.loopexit.sink.split.i40.i765 ], [ %.081.i52.i32.i757, %5518 ], [ %5649, %5648 ], [ %5528, %.lr.ph39.i52.i777 ], [ %.081.i52.i32.i757, %.preheader31.i46.i771 ], [ %.081.i52.i32.i757, %.preheader.i67.i792 ], [ %.081.i52.i32.i757, %.preheader28.i57.i782 ], [ %5601, %5600 ], [ %5564, %5563 ]
   %5655 = icmp slt i64 %.3.i.i45.i770, %5469
   br i1 %5655, label %5506, label %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi128EtLb0EEEE16ExecuteWithNullsILb0EtEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i, !llvm.loop !786
 
@@ -17604,8 +17604,8 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit28.i113.i729:  ; preds = %.preheader28.i112.i
   br label %.loopexit.i98.i714
 
 .loopexit.i98.i714:                               ; preds = %5771, %.lr.ph39.i107.i723, %5858, %5809, %.loopexit.sink.split.i95.i711, %.preheader28.i112.i728, %.preheader.i122.i738, %.preheader31.i101.i717, %5726
-  %.183.i.i99.i715 = phi i64 [ %5722, %5726 ], [ %.082.i51.i88.i704, %.preheader.i122.i738 ], [ %.082.i51.i88.i704, %.preheader28.i112.i728 ], [ %5722, %.preheader31.i101.i717 ], [ %.183.i.ph.i97.i713, %.loopexit.sink.split.i95.i711 ], [ %5722, %.lr.ph39.i107.i723 ], [ %.385.i.i128.i744, %5809 ], [ %.587.i.i120.i736, %5858 ], [ %5722, %5771 ]
-  %.3.i.i100.i716 = phi i64 [ %.081.i52.i87.i703, %5726 ], [ %.081.i52.i87.i703, %.preheader.i122.i738 ], [ %.081.i52.i87.i703, %.preheader28.i112.i728 ], [ %.081.i52.i87.i703, %.preheader31.i101.i717 ], [ %5864, %.loopexit.sink.split.i95.i711 ], [ %5736, %.lr.ph39.i107.i723 ], [ %5810, %5809 ], [ %5859, %5858 ], [ %5772, %5771 ]
+  %.183.i.i99.i715 = phi i64 [ %.183.i.ph.i97.i713, %.loopexit.sink.split.i95.i711 ], [ %5722, %5726 ], [ %.587.i.i120.i736, %5858 ], [ %5722, %.lr.ph39.i107.i723 ], [ %5722, %.preheader31.i101.i717 ], [ %.082.i51.i88.i704, %.preheader.i122.i738 ], [ %.082.i51.i88.i704, %.preheader28.i112.i728 ], [ %.385.i.i128.i744, %5809 ], [ %5722, %5771 ]
+  %.3.i.i100.i716 = phi i64 [ %5864, %.loopexit.sink.split.i95.i711 ], [ %.081.i52.i87.i703, %5726 ], [ %5859, %5858 ], [ %5736, %.lr.ph39.i107.i723 ], [ %.081.i52.i87.i703, %.preheader31.i101.i717 ], [ %.081.i52.i87.i703, %.preheader.i122.i738 ], [ %.081.i52.i87.i703, %.preheader28.i112.i728 ], [ %5810, %5809 ], [ %5772, %5771 ]
   %5865 = icmp slt i64 %.3.i.i100.i716, %5677
   br i1 %5865, label %5714, label %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi128EjLb0EEEE16ExecuteWithNullsILb0EjEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i, !llvm.loop !795
 
@@ -17949,8 +17949,8 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit28.i168.i891:  ; preds = %.preheader28.i167.i
   br label %.loopexit.i153.i876
 
 .loopexit.i153.i876:                              ; preds = %5979, %.lr.ph39.i162.i885, %6062, %6015, %.loopexit.sink.split.i150.i873, %.preheader28.i167.i890, %.preheader.i177.i900, %.preheader31.i156.i879, %5936
-  %.183.i.i154.i877 = phi i64 [ %5932, %5936 ], [ %.082.i51.i143.i866, %.preheader.i177.i900 ], [ %.082.i51.i143.i866, %.preheader28.i167.i890 ], [ %5932, %.preheader31.i156.i879 ], [ %.183.i.ph.i152.i875, %.loopexit.sink.split.i150.i873 ], [ %5932, %.lr.ph39.i162.i885 ], [ %.385.i.i183.i906, %6015 ], [ %.587.i.i175.i898, %6062 ], [ %5932, %5979 ]
-  %.3.i.i155.i878 = phi i64 [ %.081.i52.i142.i865, %5936 ], [ %.081.i52.i142.i865, %.preheader.i177.i900 ], [ %.081.i52.i142.i865, %.preheader28.i167.i890 ], [ %.081.i52.i142.i865, %.preheader31.i156.i879 ], [ %6068, %.loopexit.sink.split.i150.i873 ], [ %5945, %.lr.ph39.i162.i885 ], [ %6016, %6015 ], [ %6063, %6062 ], [ %5980, %5979 ]
+  %.183.i.i154.i877 = phi i64 [ %.183.i.ph.i152.i875, %.loopexit.sink.split.i150.i873 ], [ %5932, %5936 ], [ %.587.i.i175.i898, %6062 ], [ %5932, %.lr.ph39.i162.i885 ], [ %5932, %.preheader31.i156.i879 ], [ %.082.i51.i143.i866, %.preheader.i177.i900 ], [ %.082.i51.i143.i866, %.preheader28.i167.i890 ], [ %.385.i.i183.i906, %6015 ], [ %5932, %5979 ]
+  %.3.i.i155.i878 = phi i64 [ %6068, %.loopexit.sink.split.i150.i873 ], [ %.081.i52.i142.i865, %5936 ], [ %6063, %6062 ], [ %5945, %.lr.ph39.i162.i885 ], [ %.081.i52.i142.i865, %.preheader31.i156.i879 ], [ %.081.i52.i142.i865, %.preheader.i177.i900 ], [ %.081.i52.i142.i865, %.preheader28.i167.i890 ], [ %6016, %6015 ], [ %5980, %5979 ]
   %6069 = icmp slt i64 %.3.i.i155.i878, %5887
   br i1 %6069, label %5924, label %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi128EmLb0EEEE16ExecuteWithNullsILb0EmEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i, !llvm.loop !804
 
@@ -17973,7 +17973,7 @@ _ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi128EmLb0EEEE16ExecuteWithNullsI
   br i1 %exitcond.not.i136.i859, label %_ZN5arrow7compute8internal12_GLOBAL__N_117TakeIndexDispatchITtTpTyENS2_18FixedWidthTakeImplEJSt17integral_constantIiLi128EEEEENS_6StatusEPNS0_13KernelContextERKNS_9ArraySpanESC_PNS_9ArrayDataEl.exit, label %.lr.ph.i134.i857, !llvm.loop !805
 
 _ZN5arrow7compute8internal12_GLOBAL__N_117TakeIndexDispatchITtTpTyENS2_18FixedWidthTakeImplEJSt17integral_constantIiLi128EEEEENS_6StatusEPNS0_13KernelContextERKNS_9ArraySpanESC_PNS_9ArrayDataEl.exit: ; preds = %.lr.ph.i79.i695, %.lr.ph.i24.i749, %.lr.ph.i.i803, %.lr.ph.i134.i857, %.preheader33.i.i802, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi128EhLb0EEEE16ExecuteWithNullsILb0EhEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i, %.preheader33.i22.i748, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi128EtLb0EEEE16ExecuteWithNullsILb0EtEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i, %.preheader33.i77.i693, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi128EjLb0EEEE16ExecuteWithNullsILb0EjEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i, %.preheader33.i132.i856, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi128EmLb0EEEE16ExecuteWithNullsILb0EmEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i
-  %.0.i133.sink.i694 = phi i64 [ %.082.i.lcssa.i.i809, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi128EhLb0EEEE16ExecuteWithNullsILb0EhEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i ], [ %5261, %.preheader33.i.i802 ], [ %.082.i.lcssa.i30.i755, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi128EtLb0EEEE16ExecuteWithNullsILb0EtEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i ], [ %5469, %.preheader33.i22.i748 ], [ %.082.i.lcssa.i85.i701, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi128EjLb0EEEE16ExecuteWithNullsILb0EjEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i ], [ %5677, %.preheader33.i77.i693 ], [ %.082.i.lcssa.i140.i863, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi128EmLb0EEEE16ExecuteWithNullsILb0EmEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i ], [ %5887, %.preheader33.i132.i856 ], [ %5469, %.lr.ph.i24.i749 ], [ %5887, %.lr.ph.i134.i857 ], [ %5261, %.lr.ph.i.i803 ], [ %5677, %.lr.ph.i79.i695 ]
+  %.0.i133.sink.i694 = phi i64 [ %5469, %.lr.ph.i24.i749 ], [ %5261, %.lr.ph.i.i803 ], [ %5887, %.lr.ph.i134.i857 ], [ %.082.i.lcssa.i.i809, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi128EhLb0EEEE16ExecuteWithNullsILb0EhEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i ], [ %5261, %.preheader33.i.i802 ], [ %.082.i.lcssa.i30.i755, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi128EtLb0EEEE16ExecuteWithNullsILb0EtEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i ], [ %5469, %.preheader33.i22.i748 ], [ %.082.i.lcssa.i85.i701, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi128EjLb0EEEE16ExecuteWithNullsILb0EjEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i ], [ %5677, %.preheader33.i77.i693 ], [ %.082.i.lcssa.i140.i863, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi128EmLb0EEEE16ExecuteWithNullsILb0EmEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i ], [ %5887, %.preheader33.i132.i856 ], [ %5677, %.lr.ph.i79.i695 ]
   %6077 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %6078 = load i64, ptr %6077, align 8, !tbaa !212, !noalias !767
   %6079 = sub nsw i64 %6078, %.0.i133.sink.i694
@@ -18325,8 +18325,8 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit28.i.i1054:    ; preds = %.preheader28.i.i105
   br label %.loopexit.i.i1039
 
 .loopexit.i.i1039:                                ; preds = %6198, %.lr.ph39.i.i1048, %6283, %6235, %.loopexit.sink.split.i.i1036, %.preheader28.i.i1053, %.preheader.i.i1063, %.preheader31.i.i1042, %6153
-  %.183.i.i.i1040 = phi i64 [ %6149, %6153 ], [ %.082.i51.i.i1029, %.preheader.i.i1063 ], [ %.082.i51.i.i1029, %.preheader28.i.i1053 ], [ %6149, %.preheader31.i.i1042 ], [ %.183.i.ph.i.i1038, %.loopexit.sink.split.i.i1036 ], [ %6149, %.lr.ph39.i.i1048 ], [ %.385.i.i.i1069, %6235 ], [ %.587.i.i.i1061, %6283 ], [ %6149, %6198 ]
-  %.3.i.i.i1041 = phi i64 [ %.081.i52.i.i1028, %6153 ], [ %.081.i52.i.i1028, %.preheader.i.i1063 ], [ %.081.i52.i.i1028, %.preheader28.i.i1053 ], [ %.081.i52.i.i1028, %.preheader31.i.i1042 ], [ %6289, %.loopexit.sink.split.i.i1036 ], [ %6163, %.lr.ph39.i.i1048 ], [ %6236, %6235 ], [ %6284, %6283 ], [ %6199, %6198 ]
+  %.183.i.i.i1040 = phi i64 [ %.183.i.ph.i.i1038, %.loopexit.sink.split.i.i1036 ], [ %6149, %6153 ], [ %.587.i.i.i1061, %6283 ], [ %6149, %.lr.ph39.i.i1048 ], [ %6149, %.preheader31.i.i1042 ], [ %.082.i51.i.i1029, %.preheader.i.i1063 ], [ %.082.i51.i.i1029, %.preheader28.i.i1053 ], [ %.385.i.i.i1069, %6235 ], [ %6149, %6198 ]
+  %.3.i.i.i1041 = phi i64 [ %6289, %.loopexit.sink.split.i.i1036 ], [ %.081.i52.i.i1028, %6153 ], [ %6284, %6283 ], [ %6163, %.lr.ph39.i.i1048 ], [ %.081.i52.i.i1028, %.preheader31.i.i1042 ], [ %.081.i52.i.i1028, %.preheader.i.i1063 ], [ %.081.i52.i.i1028, %.preheader28.i.i1053 ], [ %6236, %6235 ], [ %6199, %6198 ]
   %6290 = icmp slt i64 %.3.i.i.i1041, %6104
   br i1 %6290, label %6141, label %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi256EhLb0EEEE16ExecuteWithNullsILb0EhEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i, !llvm.loop !816
 
@@ -18674,8 +18674,8 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit28.i58.i1000:  ; preds = %.preheader28.i57.i9
   br label %.loopexit.i43.i985
 
 .loopexit.i43.i985:                               ; preds = %6406, %.lr.ph39.i52.i994, %6491, %6443, %.loopexit.sink.split.i40.i982, %.preheader28.i57.i999, %.preheader.i67.i1009, %.preheader31.i46.i988, %6361
-  %.183.i.i44.i986 = phi i64 [ %6357, %6361 ], [ %.082.i51.i33.i975, %.preheader.i67.i1009 ], [ %.082.i51.i33.i975, %.preheader28.i57.i999 ], [ %6357, %.preheader31.i46.i988 ], [ %.183.i.ph.i42.i984, %.loopexit.sink.split.i40.i982 ], [ %6357, %.lr.ph39.i52.i994 ], [ %.385.i.i73.i1015, %6443 ], [ %.587.i.i65.i1007, %6491 ], [ %6357, %6406 ]
-  %.3.i.i45.i987 = phi i64 [ %.081.i52.i32.i974, %6361 ], [ %.081.i52.i32.i974, %.preheader.i67.i1009 ], [ %.081.i52.i32.i974, %.preheader28.i57.i999 ], [ %.081.i52.i32.i974, %.preheader31.i46.i988 ], [ %6497, %.loopexit.sink.split.i40.i982 ], [ %6371, %.lr.ph39.i52.i994 ], [ %6444, %6443 ], [ %6492, %6491 ], [ %6407, %6406 ]
+  %.183.i.i44.i986 = phi i64 [ %.183.i.ph.i42.i984, %.loopexit.sink.split.i40.i982 ], [ %6357, %6361 ], [ %.587.i.i65.i1007, %6491 ], [ %6357, %.lr.ph39.i52.i994 ], [ %6357, %.preheader31.i46.i988 ], [ %.082.i51.i33.i975, %.preheader.i67.i1009 ], [ %.082.i51.i33.i975, %.preheader28.i57.i999 ], [ %.385.i.i73.i1015, %6443 ], [ %6357, %6406 ]
+  %.3.i.i45.i987 = phi i64 [ %6497, %.loopexit.sink.split.i40.i982 ], [ %.081.i52.i32.i974, %6361 ], [ %6492, %6491 ], [ %6371, %.lr.ph39.i52.i994 ], [ %.081.i52.i32.i974, %.preheader31.i46.i988 ], [ %.081.i52.i32.i974, %.preheader.i67.i1009 ], [ %.081.i52.i32.i974, %.preheader28.i57.i999 ], [ %6444, %6443 ], [ %6407, %6406 ]
   %6498 = icmp slt i64 %.3.i.i45.i987, %6312
   br i1 %6498, label %6349, label %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi256EtLb0EEEE16ExecuteWithNullsILb0EtEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i, !llvm.loop !825
 
@@ -19025,8 +19025,8 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit28.i113.i946:  ; preds = %.preheader28.i112.i
   br label %.loopexit.i98.i931
 
 .loopexit.i98.i931:                               ; preds = %6614, %.lr.ph39.i107.i940, %6701, %6652, %.loopexit.sink.split.i95.i928, %.preheader28.i112.i945, %.preheader.i122.i955, %.preheader31.i101.i934, %6569
-  %.183.i.i99.i932 = phi i64 [ %6565, %6569 ], [ %.082.i51.i88.i921, %.preheader.i122.i955 ], [ %.082.i51.i88.i921, %.preheader28.i112.i945 ], [ %6565, %.preheader31.i101.i934 ], [ %.183.i.ph.i97.i930, %.loopexit.sink.split.i95.i928 ], [ %6565, %.lr.ph39.i107.i940 ], [ %.385.i.i128.i961, %6652 ], [ %.587.i.i120.i953, %6701 ], [ %6565, %6614 ]
-  %.3.i.i100.i933 = phi i64 [ %.081.i52.i87.i920, %6569 ], [ %.081.i52.i87.i920, %.preheader.i122.i955 ], [ %.081.i52.i87.i920, %.preheader28.i112.i945 ], [ %.081.i52.i87.i920, %.preheader31.i101.i934 ], [ %6707, %.loopexit.sink.split.i95.i928 ], [ %6579, %.lr.ph39.i107.i940 ], [ %6653, %6652 ], [ %6702, %6701 ], [ %6615, %6614 ]
+  %.183.i.i99.i932 = phi i64 [ %.183.i.ph.i97.i930, %.loopexit.sink.split.i95.i928 ], [ %6565, %6569 ], [ %.587.i.i120.i953, %6701 ], [ %6565, %.lr.ph39.i107.i940 ], [ %6565, %.preheader31.i101.i934 ], [ %.082.i51.i88.i921, %.preheader.i122.i955 ], [ %.082.i51.i88.i921, %.preheader28.i112.i945 ], [ %.385.i.i128.i961, %6652 ], [ %6565, %6614 ]
+  %.3.i.i100.i933 = phi i64 [ %6707, %.loopexit.sink.split.i95.i928 ], [ %.081.i52.i87.i920, %6569 ], [ %6702, %6701 ], [ %6579, %.lr.ph39.i107.i940 ], [ %.081.i52.i87.i920, %.preheader31.i101.i934 ], [ %.081.i52.i87.i920, %.preheader.i122.i955 ], [ %.081.i52.i87.i920, %.preheader28.i112.i945 ], [ %6653, %6652 ], [ %6615, %6614 ]
   %6708 = icmp slt i64 %.3.i.i100.i933, %6520
   br i1 %6708, label %6557, label %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi256EjLb0EEEE16ExecuteWithNullsILb0EjEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i, !llvm.loop !834
 
@@ -19370,8 +19370,8 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit28.i168.i1108: ; preds = %.preheader28.i167.i
   br label %.loopexit.i153.i1093
 
 .loopexit.i153.i1093:                             ; preds = %6822, %.lr.ph39.i162.i1102, %6905, %6858, %.loopexit.sink.split.i150.i1090, %.preheader28.i167.i1107, %.preheader.i177.i1117, %.preheader31.i156.i1096, %6779
-  %.183.i.i154.i1094 = phi i64 [ %6775, %6779 ], [ %.082.i51.i143.i1083, %.preheader.i177.i1117 ], [ %.082.i51.i143.i1083, %.preheader28.i167.i1107 ], [ %6775, %.preheader31.i156.i1096 ], [ %.183.i.ph.i152.i1092, %.loopexit.sink.split.i150.i1090 ], [ %6775, %.lr.ph39.i162.i1102 ], [ %.385.i.i183.i1123, %6858 ], [ %.587.i.i175.i1115, %6905 ], [ %6775, %6822 ]
-  %.3.i.i155.i1095 = phi i64 [ %.081.i52.i142.i1082, %6779 ], [ %.081.i52.i142.i1082, %.preheader.i177.i1117 ], [ %.081.i52.i142.i1082, %.preheader28.i167.i1107 ], [ %.081.i52.i142.i1082, %.preheader31.i156.i1096 ], [ %6911, %.loopexit.sink.split.i150.i1090 ], [ %6788, %.lr.ph39.i162.i1102 ], [ %6859, %6858 ], [ %6906, %6905 ], [ %6823, %6822 ]
+  %.183.i.i154.i1094 = phi i64 [ %.183.i.ph.i152.i1092, %.loopexit.sink.split.i150.i1090 ], [ %6775, %6779 ], [ %.587.i.i175.i1115, %6905 ], [ %6775, %.lr.ph39.i162.i1102 ], [ %6775, %.preheader31.i156.i1096 ], [ %.082.i51.i143.i1083, %.preheader.i177.i1117 ], [ %.082.i51.i143.i1083, %.preheader28.i167.i1107 ], [ %.385.i.i183.i1123, %6858 ], [ %6775, %6822 ]
+  %.3.i.i155.i1095 = phi i64 [ %6911, %.loopexit.sink.split.i150.i1090 ], [ %.081.i52.i142.i1082, %6779 ], [ %6906, %6905 ], [ %6788, %.lr.ph39.i162.i1102 ], [ %.081.i52.i142.i1082, %.preheader31.i156.i1096 ], [ %.081.i52.i142.i1082, %.preheader.i177.i1117 ], [ %.081.i52.i142.i1082, %.preheader28.i167.i1107 ], [ %6859, %6858 ], [ %6823, %6822 ]
   %6912 = icmp slt i64 %.3.i.i155.i1095, %6730
   br i1 %6912, label %6767, label %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi256EmLb0EEEE16ExecuteWithNullsILb0EmEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i, !llvm.loop !843
 
@@ -19394,7 +19394,7 @@ _ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi256EmLb0EEEE16ExecuteWithNullsI
   br i1 %exitcond.not.i136.i1076, label %_ZN5arrow7compute8internal12_GLOBAL__N_117TakeIndexDispatchITtTpTyENS2_18FixedWidthTakeImplEJSt17integral_constantIiLi256EEEEENS_6StatusEPNS0_13KernelContextERKNS_9ArraySpanESC_PNS_9ArrayDataEl.exit, label %.lr.ph.i134.i1074, !llvm.loop !844
 
 _ZN5arrow7compute8internal12_GLOBAL__N_117TakeIndexDispatchITtTpTyENS2_18FixedWidthTakeImplEJSt17integral_constantIiLi256EEEEENS_6StatusEPNS0_13KernelContextERKNS_9ArraySpanESC_PNS_9ArrayDataEl.exit: ; preds = %.lr.ph.i79.i912, %.lr.ph.i24.i966, %.lr.ph.i.i1020, %.lr.ph.i134.i1074, %.preheader33.i.i1019, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi256EhLb0EEEE16ExecuteWithNullsILb0EhEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i, %.preheader33.i22.i965, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi256EtLb0EEEE16ExecuteWithNullsILb0EtEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i, %.preheader33.i77.i910, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi256EjLb0EEEE16ExecuteWithNullsILb0EjEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i, %.preheader33.i132.i1073, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi256EmLb0EEEE16ExecuteWithNullsILb0EmEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i
-  %.0.i133.sink.i911 = phi i64 [ %.082.i.lcssa.i.i1026, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi256EhLb0EEEE16ExecuteWithNullsILb0EhEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i ], [ %6104, %.preheader33.i.i1019 ], [ %.082.i.lcssa.i30.i972, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi256EtLb0EEEE16ExecuteWithNullsILb0EtEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i ], [ %6312, %.preheader33.i22.i965 ], [ %.082.i.lcssa.i85.i918, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi256EjLb0EEEE16ExecuteWithNullsILb0EjEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i ], [ %6520, %.preheader33.i77.i910 ], [ %.082.i.lcssa.i140.i1080, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi256EmLb0EEEE16ExecuteWithNullsILb0EmEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i ], [ %6730, %.preheader33.i132.i1073 ], [ %6312, %.lr.ph.i24.i966 ], [ %6730, %.lr.ph.i134.i1074 ], [ %6104, %.lr.ph.i.i1020 ], [ %6520, %.lr.ph.i79.i912 ]
+  %.0.i133.sink.i911 = phi i64 [ %6312, %.lr.ph.i24.i966 ], [ %6104, %.lr.ph.i.i1020 ], [ %6730, %.lr.ph.i134.i1074 ], [ %.082.i.lcssa.i.i1026, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi256EhLb0EEEE16ExecuteWithNullsILb0EhEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i ], [ %6104, %.preheader33.i.i1019 ], [ %.082.i.lcssa.i30.i972, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi256EtLb0EEEE16ExecuteWithNullsILb0EtEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i ], [ %6312, %.preheader33.i22.i965 ], [ %.082.i.lcssa.i85.i918, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi256EjLb0EEEE16ExecuteWithNullsILb0EjEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i ], [ %6520, %.preheader33.i77.i910 ], [ %.082.i.lcssa.i140.i1080, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi256EmLb0EEEE16ExecuteWithNullsILb0EmEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i ], [ %6730, %.preheader33.i132.i1073 ], [ %6520, %.lr.ph.i79.i912 ]
   %6920 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %6921 = load i64, ptr %6920, align 8, !tbaa !212, !noalias !806
   %6922 = sub nsw i64 %6921, %.0.i133.sink.i911
@@ -19756,8 +19756,8 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit28.i.i1202:    ; preds = %.preheader37.i.i, %
   br label %.loopexit.i.i1196
 
 .loopexit.i.i1196:                                ; preds = %7045, %.lr.ph48.i.i, %7130, %7082, %.loopexit.sink.split.i.i1194, %.preheader37.i.i, %.preheader.i.i1204, %.preheader40.i.i, %7000
-  %.183.i.i.i1197 = phi i64 [ %6996, %7000 ], [ %.082.i60.i.i, %.preheader.i.i1204 ], [ %.082.i60.i.i, %.preheader37.i.i ], [ %6996, %.preheader40.i.i ], [ %.183.i.ph.i.i1195, %.loopexit.sink.split.i.i1194 ], [ %6996, %.lr.ph48.i.i ], [ %.385.i.i.i1206, %7082 ], [ %.587.i.i.i1203, %7130 ], [ %6996, %7045 ]
-  %.3.i.i.i1198 = phi i64 [ %.081.i61.i.i, %7000 ], [ %.081.i61.i.i, %.preheader.i.i1204 ], [ %.081.i61.i.i, %.preheader37.i.i ], [ %.081.i61.i.i, %.preheader40.i.i ], [ %7136, %.loopexit.sink.split.i.i1194 ], [ %7010, %.lr.ph48.i.i ], [ %7083, %7082 ], [ %7131, %7130 ], [ %7046, %7045 ]
+  %.183.i.i.i1197 = phi i64 [ %.183.i.ph.i.i1195, %.loopexit.sink.split.i.i1194 ], [ %6996, %7000 ], [ %.587.i.i.i1203, %7130 ], [ %6996, %.lr.ph48.i.i ], [ %6996, %.preheader40.i.i ], [ %.082.i60.i.i, %.preheader.i.i1204 ], [ %.082.i60.i.i, %.preheader37.i.i ], [ %.385.i.i.i1206, %7082 ], [ %6996, %7045 ]
+  %.3.i.i.i1198 = phi i64 [ %7136, %.loopexit.sink.split.i.i1194 ], [ %.081.i61.i.i, %7000 ], [ %7131, %7130 ], [ %7010, %.lr.ph48.i.i ], [ %.081.i61.i.i, %.preheader40.i.i ], [ %.081.i61.i.i, %.preheader.i.i1204 ], [ %.081.i61.i.i, %.preheader37.i.i ], [ %7083, %7082 ], [ %7046, %7045 ]
   %7137 = icmp slt i64 %.3.i.i.i1198, %6951
   br i1 %7137, label %6988, label %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi8EhLb1EEEE16ExecuteWithNullsILb0EhEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i, !llvm.loop !856
 
@@ -20105,8 +20105,8 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit28.i58.i1175:  ; preds = %.preheader37.i57.i,
   br label %.loopexit.i43.i1169
 
 .loopexit.i43.i1169:                              ; preds = %7253, %.lr.ph48.i52.i, %7338, %7290, %.loopexit.sink.split.i40.i1167, %.preheader37.i57.i, %.preheader.i67.i1177, %.preheader40.i46.i, %7208
-  %.183.i.i44.i1170 = phi i64 [ %7204, %7208 ], [ %.082.i60.i33.i, %.preheader.i67.i1177 ], [ %.082.i60.i33.i, %.preheader37.i57.i ], [ %7204, %.preheader40.i46.i ], [ %.183.i.ph.i42.i1168, %.loopexit.sink.split.i40.i1167 ], [ %7204, %.lr.ph48.i52.i ], [ %.385.i.i73.i1179, %7290 ], [ %.587.i.i65.i1176, %7338 ], [ %7204, %7253 ]
-  %.3.i.i45.i1171 = phi i64 [ %.081.i61.i32.i, %7208 ], [ %.081.i61.i32.i, %.preheader.i67.i1177 ], [ %.081.i61.i32.i, %.preheader37.i57.i ], [ %.081.i61.i32.i, %.preheader40.i46.i ], [ %7344, %.loopexit.sink.split.i40.i1167 ], [ %7218, %.lr.ph48.i52.i ], [ %7291, %7290 ], [ %7339, %7338 ], [ %7254, %7253 ]
+  %.183.i.i44.i1170 = phi i64 [ %.183.i.ph.i42.i1168, %.loopexit.sink.split.i40.i1167 ], [ %7204, %7208 ], [ %.587.i.i65.i1176, %7338 ], [ %7204, %.lr.ph48.i52.i ], [ %7204, %.preheader40.i46.i ], [ %.082.i60.i33.i, %.preheader.i67.i1177 ], [ %.082.i60.i33.i, %.preheader37.i57.i ], [ %.385.i.i73.i1179, %7290 ], [ %7204, %7253 ]
+  %.3.i.i45.i1171 = phi i64 [ %7344, %.loopexit.sink.split.i40.i1167 ], [ %.081.i61.i32.i, %7208 ], [ %7339, %7338 ], [ %7218, %.lr.ph48.i52.i ], [ %.081.i61.i32.i, %.preheader40.i46.i ], [ %.081.i61.i32.i, %.preheader.i67.i1177 ], [ %.081.i61.i32.i, %.preheader37.i57.i ], [ %7291, %7290 ], [ %7254, %7253 ]
   %7345 = icmp slt i64 %.3.i.i45.i1171, %7159
   br i1 %7345, label %7196, label %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi8EtLb1EEEE16ExecuteWithNullsILb0EtEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i, !llvm.loop !865
 
@@ -20454,8 +20454,8 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit28.i113.i1148: ; preds = %.preheader37.i112.i
   br label %.loopexit.i98.i1142
 
 .loopexit.i98.i1142:                              ; preds = %7461, %.lr.ph48.i107.i, %7546, %7498, %.loopexit.sink.split.i95.i1140, %.preheader37.i112.i, %.preheader.i122.i1150, %.preheader40.i101.i, %7416
-  %.183.i.i99.i1143 = phi i64 [ %7412, %7416 ], [ %.082.i60.i88.i, %.preheader.i122.i1150 ], [ %.082.i60.i88.i, %.preheader37.i112.i ], [ %7412, %.preheader40.i101.i ], [ %.183.i.ph.i97.i1141, %.loopexit.sink.split.i95.i1140 ], [ %7412, %.lr.ph48.i107.i ], [ %.385.i.i128.i1152, %7498 ], [ %.587.i.i120.i1149, %7546 ], [ %7412, %7461 ]
-  %.3.i.i100.i1144 = phi i64 [ %.081.i61.i87.i, %7416 ], [ %.081.i61.i87.i, %.preheader.i122.i1150 ], [ %.081.i61.i87.i, %.preheader37.i112.i ], [ %.081.i61.i87.i, %.preheader40.i101.i ], [ %7552, %.loopexit.sink.split.i95.i1140 ], [ %7426, %.lr.ph48.i107.i ], [ %7499, %7498 ], [ %7547, %7546 ], [ %7462, %7461 ]
+  %.183.i.i99.i1143 = phi i64 [ %.183.i.ph.i97.i1141, %.loopexit.sink.split.i95.i1140 ], [ %7412, %7416 ], [ %.587.i.i120.i1149, %7546 ], [ %7412, %.lr.ph48.i107.i ], [ %7412, %.preheader40.i101.i ], [ %.082.i60.i88.i, %.preheader.i122.i1150 ], [ %.082.i60.i88.i, %.preheader37.i112.i ], [ %.385.i.i128.i1152, %7498 ], [ %7412, %7461 ]
+  %.3.i.i100.i1144 = phi i64 [ %7552, %.loopexit.sink.split.i95.i1140 ], [ %.081.i61.i87.i, %7416 ], [ %7547, %7546 ], [ %7426, %.lr.ph48.i107.i ], [ %.081.i61.i87.i, %.preheader40.i101.i ], [ %.081.i61.i87.i, %.preheader.i122.i1150 ], [ %.081.i61.i87.i, %.preheader37.i112.i ], [ %7499, %7498 ], [ %7462, %7461 ]
   %7553 = icmp slt i64 %.3.i.i100.i1144, %7367
   br i1 %7553, label %7404, label %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi8EjLb1EEEE16ExecuteWithNullsILb0EjEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i, !llvm.loop !874
 
@@ -20799,8 +20799,8 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit28.i168.i1229: ; preds = %.preheader37.i167.i
   br label %.loopexit.i153.i1223
 
 .loopexit.i153.i1223:                             ; preds = %7667, %.lr.ph48.i162.i, %7750, %7703, %.loopexit.sink.split.i150.i1221, %.preheader37.i167.i, %.preheader.i177.i1231, %.preheader40.i156.i, %7624
-  %.183.i.i154.i1224 = phi i64 [ %7620, %7624 ], [ %.082.i60.i143.i, %.preheader.i177.i1231 ], [ %.082.i60.i143.i, %.preheader37.i167.i ], [ %7620, %.preheader40.i156.i ], [ %.183.i.ph.i152.i1222, %.loopexit.sink.split.i150.i1221 ], [ %7620, %.lr.ph48.i162.i ], [ %.385.i.i183.i1233, %7703 ], [ %.587.i.i175.i1230, %7750 ], [ %7620, %7667 ]
-  %.3.i.i155.i1225 = phi i64 [ %.081.i61.i142.i, %7624 ], [ %.081.i61.i142.i, %.preheader.i177.i1231 ], [ %.081.i61.i142.i, %.preheader37.i167.i ], [ %.081.i61.i142.i, %.preheader40.i156.i ], [ %7756, %.loopexit.sink.split.i150.i1221 ], [ %7633, %.lr.ph48.i162.i ], [ %7704, %7703 ], [ %7751, %7750 ], [ %7668, %7667 ]
+  %.183.i.i154.i1224 = phi i64 [ %.183.i.ph.i152.i1222, %.loopexit.sink.split.i150.i1221 ], [ %7620, %7624 ], [ %.587.i.i175.i1230, %7750 ], [ %7620, %.lr.ph48.i162.i ], [ %7620, %.preheader40.i156.i ], [ %.082.i60.i143.i, %.preheader.i177.i1231 ], [ %.082.i60.i143.i, %.preheader37.i167.i ], [ %.385.i.i183.i1233, %7703 ], [ %7620, %7667 ]
+  %.3.i.i155.i1225 = phi i64 [ %7756, %.loopexit.sink.split.i150.i1221 ], [ %.081.i61.i142.i, %7624 ], [ %7751, %7750 ], [ %7633, %.lr.ph48.i162.i ], [ %.081.i61.i142.i, %.preheader40.i156.i ], [ %.081.i61.i142.i, %.preheader.i177.i1231 ], [ %.081.i61.i142.i, %.preheader37.i167.i ], [ %7704, %7703 ], [ %7668, %7667 ]
   %7757 = icmp slt i64 %.3.i.i155.i1225, %7575
   br i1 %7757, label %7612, label %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi8EmLb1EEEE16ExecuteWithNullsILb0EmEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i, !llvm.loop !883
 
@@ -20823,7 +20823,7 @@ _ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi8EmLb1EEEE16ExecuteWithNullsILb
   br i1 %exitcond.not.i136.i1210, label %_ZN5arrow7compute8internal12_GLOBAL__N_117TakeIndexDispatchITtTpTyENS2_18FixedWidthTakeImplEJSt17integral_constantIiLi8EES5_IbLb0EES5_IbLb1EEEEENS_6StatusEPNS0_13KernelContextERKNS_9ArraySpanESE_PNS_9ArrayDataEl.exit, label %.lr.ph.i134.i1209, !llvm.loop !884
 
 _ZN5arrow7compute8internal12_GLOBAL__N_117TakeIndexDispatchITtTpTyENS2_18FixedWidthTakeImplEJSt17integral_constantIiLi8EES5_IbLb0EES5_IbLb1EEEEENS_6StatusEPNS0_13KernelContextERKNS_9ArraySpanESE_PNS_9ArrayDataEl.exit: ; preds = %.lr.ph.i79.i1128, %.lr.ph.i24.i1155, %.lr.ph.i.i1182, %.lr.ph.i134.i1209, %.preheader42.i.i, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi8EhLb1EEEE16ExecuteWithNullsILb0EhEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i, %.preheader42.i22.i, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi8EtLb1EEEE16ExecuteWithNullsILb0EtEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i, %.preheader42.i77.i, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi8EjLb1EEEE16ExecuteWithNullsILb0EjEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i, %.preheader42.i132.i, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi8EmLb1EEEE16ExecuteWithNullsILb0EmEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i
-  %.0.i133.sink.i1127 = phi i64 [ %.082.i.lcssa.i.i1187, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi8EhLb1EEEE16ExecuteWithNullsILb0EhEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i ], [ %6951, %.preheader42.i.i ], [ %.082.i.lcssa.i30.i1160, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi8EtLb1EEEE16ExecuteWithNullsILb0EtEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i ], [ %7159, %.preheader42.i22.i ], [ %.082.i.lcssa.i85.i1133, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi8EjLb1EEEE16ExecuteWithNullsILb0EjEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i ], [ %7367, %.preheader42.i77.i ], [ %.082.i.lcssa.i140.i1214, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi8EmLb1EEEE16ExecuteWithNullsILb0EmEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i ], [ %7575, %.preheader42.i132.i ], [ %7159, %.lr.ph.i24.i1155 ], [ %7575, %.lr.ph.i134.i1209 ], [ %6951, %.lr.ph.i.i1182 ], [ %7367, %.lr.ph.i79.i1128 ]
+  %.0.i133.sink.i1127 = phi i64 [ %7159, %.lr.ph.i24.i1155 ], [ %6951, %.lr.ph.i.i1182 ], [ %7575, %.lr.ph.i134.i1209 ], [ %.082.i.lcssa.i.i1187, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi8EhLb1EEEE16ExecuteWithNullsILb0EhEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i ], [ %6951, %.preheader42.i.i ], [ %.082.i.lcssa.i30.i1160, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi8EtLb1EEEE16ExecuteWithNullsILb0EtEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i ], [ %7159, %.preheader42.i22.i ], [ %.082.i.lcssa.i85.i1133, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi8EjLb1EEEE16ExecuteWithNullsILb0EjEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i ], [ %7367, %.preheader42.i77.i ], [ %.082.i.lcssa.i140.i1214, %_ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi8EmLb1EEEE16ExecuteWithNullsILb0EmEElRKNS_9ArraySpanElPKT0_S8_Ph.exit.i.i ], [ %7575, %.preheader42.i132.i ], [ %7367, %.lr.ph.i79.i1128 ]
   %7765 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %7766 = load i64, ptr %7765, align 8, !tbaa !212, !noalias !846
   %7767 = sub nsw i64 %7766, %.0.i133.sink.i1127
@@ -43993,7 +43993,7 @@ _ZNSt12__shared_ptrIN5arrow5ArrayELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i: ; p
   br i1 %117, label %.loopexit.i, label %.body.i
 
 .loopexit.i:                                      ; preds = %.body.i, %.loopexit.loopexit3.i, %.thread.i
-  %.pn.i = phi { ptr, i32 } [ %49, %.thread.i ], [ %114, %.loopexit.loopexit3.i ], [ %59, %.body.i ]
+  %.pn.i = phi { ptr, i32 } [ %114, %.loopexit.loopexit3.i ], [ %49, %.thread.i ], [ %59, %.body.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !1603
   br label %120
 

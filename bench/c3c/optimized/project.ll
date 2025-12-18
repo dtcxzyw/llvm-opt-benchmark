@@ -395,7 +395,7 @@ define dso_local ptr @project_select_target(ptr noundef readonly captures(none) 
   unreachable
 
 project_select_default_target.exit:               ; preds = %.preheader, %.lr.ph.i, %._crit_edge.i
-  %.023 = phi ptr [ %14, %._crit_edge.i ], [ %11, %.lr.ph.i ], [ %18, %.preheader ]
+  %.023 = phi ptr [ %11, %.lr.ph.i ], [ %14, %._crit_edge.i ], [ %18, %.preheader ]
   ret ptr %.023
 }
 
@@ -832,7 +832,7 @@ get_string.exit379:                               ; preds = %get_string.exit, %6
   br label %78
 
 78:                                               ; preds = %76, %75
-  %.0327540 = phi ptr [ %.0327541, %76 ], [ %66, %75 ]
+  %.0327540 = phi ptr [ %66, %75 ], [ %.0327541, %76 ]
   %.not353 = icmp eq ptr %.0327540, null
   br i1 %.not353, label %.thread542, label %79
 

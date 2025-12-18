@@ -3238,7 +3238,7 @@ _ZN4core5slice4sort6shared17find_existing_run17h8cbabc63b09e8d78E.exit.i: ; pred
   br label %_ZN4core5slice4sort6stable5drift10create_run17h868fbbe08bf72413E.exit
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h7ac0c933a536f148E.exit.i": ; preds = %_ZN4core10intrinsics10typed_swap17hf8eaefe23e55f33aE.exit.i.i.i, %.preheader13.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h0146927f4f236ef2E.exit.i", %41, %25
-  %.sroa.0.0.i912.i = phi i64 [ %.sroa.0.0.i.i, %41 ], [ %.sroa.0.0.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h0146927f4f236ef2E.exit.i" ], [ %22, %25 ], [ 2, %.preheader13.i ], [ %.sroa.0.0.i364346.i, %_ZN4core10intrinsics10typed_swap17hf8eaefe23e55f33aE.exit.i.i.i ]
+  %.sroa.0.0.i912.i = phi i64 [ %22, %25 ], [ %.sroa.0.0.i.i, %41 ], [ %.sroa.0.0.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h0146927f4f236ef2E.exit.i" ], [ 2, %.preheader13.i ], [ %.sroa.0.0.i364346.i, %_ZN4core10intrinsics10typed_swap17hf8eaefe23e55f33aE.exit.i.i.i ]
   %47 = shl i64 %.sroa.0.0.i912.i, 1
   %48 = or disjoint i64 %47, 1
   br label %_ZN4core5slice4sort6stable5drift10create_run17h868fbbe08bf72413E.exit
@@ -11795,7 +11795,7 @@ define void @"_ZN82_$LT$command_palette..CommandPaletteDelegate$u20$as$u20$picke
   unreachable
 
 .thread20:                                        ; preds = %64, %80, %.thread28
-  %eh.lpad-body23 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread28 ], [ %83, %80 ], [ %67, %64 ]
+  %eh.lpad-body23 = phi { ptr, i32 } [ %83, %80 ], [ %lpad.thr_comm, %.thread28 ], [ %67, %64 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h60d12e177dacb0a8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9) #42
           to label %104 unwind label %101
 

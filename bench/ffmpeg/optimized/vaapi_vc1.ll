@@ -468,23 +468,23 @@ vc1_has_DIRECTMB_bitplane.exit:                   ; preds = %vc1_has_MVTYPEMB_bi
 
 287:                                              ; preds = %vc1_has_DIRECTMB_bitplane.exit
   switch i32 %146, label %vc1_has_SKIPMB_bitplane.exit.thread [
-    i32 2, label %vc1_has_SKIPMB_bitplane.exit
-    i32 3, label %288
+    i32 2, label %288
+    i32 3, label %vc1_has_SKIPMB_bitplane.exit
   ]
 
 288:                                              ; preds = %287
-  %289 = getelementptr inbounds nuw i8, ptr %7, i64 10548
-  %290 = load i32, ptr %289, align 4, !tbaa !104
-  %.fr = freeze i32 %290
-  %.not9.i = icmp eq i32 %.fr, 0
-  br i1 %.not9.i, label %293, label %vc1_has_SKIPMB_bitplane.exit.thread
-
-vc1_has_SKIPMB_bitplane.exit:                     ; preds = %287
-  %291 = getelementptr inbounds nuw i8, ptr %7, i64 10544
-  %292 = load i32, ptr %291, align 8, !tbaa !97
-  %.fr434 = freeze i32 %292
+  %289 = getelementptr inbounds nuw i8, ptr %7, i64 10544
+  %290 = load i32, ptr %289, align 8, !tbaa !97
+  %.fr434 = freeze i32 %290
   %.not8.i280 = icmp eq i32 %.fr434, 0
   br i1 %.not8.i280, label %293, label %vc1_has_SKIPMB_bitplane.exit.thread
+
+vc1_has_SKIPMB_bitplane.exit:                     ; preds = %287
+  %291 = getelementptr inbounds nuw i8, ptr %7, i64 10548
+  %292 = load i32, ptr %291, align 4, !tbaa !104
+  %.fr = freeze i32 %292
+  %.not9.i = icmp eq i32 %.fr, 0
+  br i1 %.not9.i, label %293, label %vc1_has_SKIPMB_bitplane.exit.thread
 
 293:                                              ; preds = %288, %vc1_has_SKIPMB_bitplane.exit
   %294 = or disjoint i8 %.0.i275, 4

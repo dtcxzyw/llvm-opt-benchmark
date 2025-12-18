@@ -1313,7 +1313,7 @@ _ZNSt10_HashtableIPKN4cvc58internal9ProofNodeESt4pairIKS4_bESaIS7_ENSt8__detail1
   br label %.body
 
 .loopexit100:                                     ; preds = %53, %.noexc29, %48
-  %.pn.i.i = phi ptr [ %49, %48 ], [ %64, %.noexc29 ], [ %55, %53 ]
+  %.pn.i.i = phi ptr [ %64, %.noexc29 ], [ %49, %48 ], [ %55, %53 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   store i8 0, ptr %.1.i.i, align 1, !tbaa !245
   %.not.i30 = icmp eq ptr %17, %.sroa.26.1
@@ -1476,7 +1476,7 @@ _ZNSt6vectorIPKN4cvc58internal9ProofNodeESaIS4_EE9push_backEOS4_.exit: ; preds =
   br label %.body
 
 _ZNSt13unordered_mapIPKN4cvc58internal9ProofNodeEbSt4hashIS4_ESt8equal_toIS4_ESaISt4pairIKS4_bEEE4findERSA_.exit: ; preds = %36, %20, %31
-  %.sroa.06.1.i.i = phi ptr [ %32, %31 ], [ %.sroa.06.0.i.i, %20 ], [ %38, %36 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %20 ], [ %32, %31 ], [ %38, %36 ]
   %115 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %116 = load i8, ptr %115, align 8, !tbaa !244, !range !252, !noundef !253
   %117 = trunc nuw i8 %116 to i1
@@ -1544,8 +1544,8 @@ _ZNSt10_HashtableIPKN4cvc58internal9ProofNodeESt4pairIKS4_bESaIS7_ENSt8__detail1
   br label %.body
 
 .loopexit101:                                     ; preds = %130, %.noexc54..loopexit101_crit_edge, %125
-  %143 = phi ptr [ %18, %125 ], [ %.pre, %.noexc54..loopexit101_crit_edge ], [ %18, %130 ]
-  %.pn.i.i52 = phi ptr [ %126, %125 ], [ %141, %.noexc54..loopexit101_crit_edge ], [ %132, %130 ]
+  %143 = phi ptr [ %.pre, %.noexc54..loopexit101_crit_edge ], [ %18, %125 ], [ %18, %130 ]
+  %.pn.i.i52 = phi ptr [ %141, %.noexc54..loopexit101_crit_edge ], [ %126, %125 ], [ %132, %130 ]
   %.1.i.i53 = getelementptr inbounds nuw i8, ptr %.pn.i.i52, i64 16
   store i8 1, ptr %.1.i.i53, align 1, !tbaa !245
   %144 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc58internal9ProofNode11getChildrenEv(ptr noundef nonnull align 8 dereferenceable(65) %143)
@@ -2102,9 +2102,9 @@ _ZNSt6vectorIPKN4cvc58internal9ProofNodeESaIS4_EE9push_backEOS4_.exit: ; preds =
   br label %105
 
 _ZNSt13unordered_setIPKN4cvc58internal9ProofNodeESt4hashIS4_ESt8equal_toIS4_ESaIS4_EE4findERKS4_.exit: ; preds = %35, %19, %_ZNSt6vectorIPKN4cvc58internal9ProofNodeESaIS4_EE9push_backEOS4_.exit, %62, %30
-  %.sroa.21.4 = phi ptr [ %.sroa.21.1, %30 ], [ %.sroa.21.1, %62 ], [ %.sroa.21.1, %19 ], [ %.sroa.21.6, %_ZNSt6vectorIPKN4cvc58internal9ProofNodeESaIS4_EE9push_backEOS4_.exit ], [ %.sroa.21.1, %35 ]
-  %.sroa.11.2 = phi ptr [ %16, %30 ], [ %16, %62 ], [ %16, %19 ], [ %.sroa.11.4, %_ZNSt6vectorIPKN4cvc58internal9ProofNodeESaIS4_EE9push_backEOS4_.exit ], [ %16, %35 ]
-  %.sroa.031.4 = phi ptr [ %.sroa.031.1, %30 ], [ %.sroa.031.1, %62 ], [ %.sroa.031.1, %19 ], [ %.sroa.031.6, %_ZNSt6vectorIPKN4cvc58internal9ProofNodeESaIS4_EE9push_backEOS4_.exit ], [ %.sroa.031.1, %35 ]
+  %.sroa.21.4 = phi ptr [ %.sroa.21.1, %19 ], [ %.sroa.21.6, %_ZNSt6vectorIPKN4cvc58internal9ProofNodeESaIS4_EE9push_backEOS4_.exit ], [ %.sroa.21.1, %30 ], [ %.sroa.21.1, %62 ], [ %.sroa.21.1, %35 ]
+  %.sroa.11.2 = phi ptr [ %16, %19 ], [ %.sroa.11.4, %_ZNSt6vectorIPKN4cvc58internal9ProofNodeESaIS4_EE9push_backEOS4_.exit ], [ %16, %30 ], [ %16, %62 ], [ %16, %35 ]
+  %.sroa.031.4 = phi ptr [ %.sroa.031.1, %19 ], [ %.sroa.031.6, %_ZNSt6vectorIPKN4cvc58internal9ProofNodeESaIS4_EE9push_backEOS4_.exit ], [ %.sroa.031.1, %30 ], [ %.sroa.031.1, %62 ], [ %.sroa.031.1, %35 ]
   %90 = icmp eq ptr %.sroa.031.4, %.sroa.11.2
   br i1 %90, label %91, label %15, !llvm.loop !275
 
@@ -6843,8 +6843,8 @@ _ZNSt10_HashtableIPKN4cvc58internal9ProofNodeES4_SaIS4_ENSt8__detail9_IdentityES
   resume { ptr, i32 } %47
 
 _ZNKSt10_HashtableIPKN4cvc58internal9ProofNodeES4_SaIS4_ENSt8__detail9_IdentityESt8equal_toIS4_ESt4hashIS4_ENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb1ELb1EEEE15_M_find_node_trIS4_EEPNS6_10_Hash_nodeIS4_Lb0EEEmRKT_m.exit: ; preds = %33, %19, %.critedge, %28
-  %.sroa.031.1 = phi ptr [ %29, %28 ], [ %46, %.critedge ], [ %.sroa.028.0, %19 ], [ %35, %33 ]
-  %.sroa.432.1 = phi i8 [ 0, %28 ], [ 1, %.critedge ], [ 0, %19 ], [ 0, %33 ]
+  %.sroa.031.1 = phi ptr [ %.sroa.028.0, %19 ], [ %46, %.critedge ], [ %29, %28 ], [ %35, %33 ]
+  %.sroa.432.1 = phi i8 [ 0, %19 ], [ 1, %.critedge ], [ 0, %28 ], [ 0, %33 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.031.1, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.432.1, 1
   ret { ptr, i8 } %.fca.1.insert

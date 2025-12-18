@@ -4754,8 +4754,8 @@ _ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEET_S8_S8_
   br i1 %8, label %.invoke, label %_ZNKSt6vectorIlSaIlEE2atEm.exit
 
 .invoke:                                          ; preds = %39, %62, %25
-  %26 = phi i64 [ 0, %25 ], [ %indvars.iv.i30, %62 ], [ %indvars.iv.i, %39 ]
-  %27 = phi i64 [ 0, %25 ], [ %58, %62 ], [ %36, %39 ]
+  %26 = phi i64 [ %indvars.iv.i30, %62 ], [ 0, %25 ], [ %indvars.iv.i, %39 ]
+  %27 = phi i64 [ %58, %62 ], [ 0, %25 ], [ %36, %39 ]
   invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.94, i64 noundef %26, i64 noundef %27) #32
           to label %.cont unwind label %.loopexit.split-lp
 
@@ -10274,8 +10274,8 @@ _ZSt6removeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEElET_S7_S7_RKT0_.
   br label %_ZSt6removeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEElET_S7_S7_RKT0_.exit
 
 _ZSt6removeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEElET_S7_S7_RKT0_.exit: ; preds = %_ZSt6removeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEElET_S7_S7_RKT0_.exit.loopexit, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops16_Iter_equals_valIKlEEET_SB_SB_T0_.exit.i.i
-  %53 = phi ptr [ %6, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops16_Iter_equals_valIKlEEET_SB_SB_T0_.exit.i.i ], [ %.pre, %_ZSt6removeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEElET_S7_S7_RKT0_.exit.loopexit ]
-  %.sroa.013.0.i.i = phi ptr [ %.sroa.08.0.in.sroa.speculated.i.i.i.i, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops16_Iter_equals_valIKlEEET_SB_SB_T0_.exit.i.i ], [ %.sroa.013.2.i.i, %_ZSt6removeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEElET_S7_S7_RKT0_.exit.loopexit ]
+  %53 = phi ptr [ %.pre, %_ZSt6removeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEElET_S7_S7_RKT0_.exit.loopexit ], [ %6, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops16_Iter_equals_valIKlEEET_SB_SB_T0_.exit.i.i ]
+  %.sroa.013.0.i.i = phi ptr [ %.sroa.013.2.i.i, %_ZSt6removeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEElET_S7_S7_RKT0_.exit.loopexit ], [ %.sroa.08.0.in.sroa.speculated.i.i.i.i, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops16_Iter_equals_valIKlEEET_SB_SB_T0_.exit.i.i ]
   %.not.i.i7 = icmp eq ptr %.sroa.013.0.i.i, %53
   br i1 %.not.i.i7, label %_ZNSt6vectorIlSaIlEE5eraseEN9__gnu_cxx17__normal_iteratorIPKlS1_EES6_.exit, label %._crit_edge.i.i
 

@@ -1415,7 +1415,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit190: ; preds = %419, %425
   br label %_ZNSt6vectorIPKN32pxrInternal_v0_24__pxrReserved__12UsdValidatorESaIS3_EED2Ev.exit192
 
 _ZNSt6vectorIPKN32pxrInternal_v0_24__pxrReserved__12UsdValidatorESaIS3_EED2Ev.exit192: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit190, %413, %408, %436, %434, %.thread
-  %.pn41.pn = phi { ptr, i32 } [ %116, %.thread ], [ %.pn41, %434 ], [ %.pn41, %436 ], [ %409, %413 ], [ %409, %408 ], [ %.pn39, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit190 ]
+  %.pn41.pn = phi { ptr, i32 } [ %409, %413 ], [ %.pn41, %436 ], [ %116, %.thread ], [ %.pn41, %434 ], [ %409, %408 ], [ %.pn39, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit190 ]
   %442 = load ptr, ptr %19, align 8
   %443 = ptrtoint ptr %442 to i64
   %444 = and i64 %443, 7
@@ -1528,7 +1528,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit202: ; preds = %470, %476
   br label %_ZNSt6vectorIPKN32pxrInternal_v0_24__pxrReserved__12UsdValidatorESaIS3_EED2Ev.exit204
 
 _ZNSt6vectorIPKN32pxrInternal_v0_24__pxrReserved__12UsdValidatorESaIS3_EED2Ev.exit204: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit202, %464, %459, %487, %485, %.thread250
-  %.pn48.pn = phi { ptr, i32 } [ %220, %.thread250 ], [ %.pn48, %485 ], [ %.pn48, %487 ], [ %460, %464 ], [ %460, %459 ], [ %.pn46, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit202 ]
+  %.pn48.pn = phi { ptr, i32 } [ %460, %464 ], [ %.pn48, %487 ], [ %220, %.thread250 ], [ %.pn48, %485 ], [ %460, %459 ], [ %.pn46, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit202 ]
   %493 = load ptr, ptr %27, align 8
   %494 = ptrtoint ptr %493 to i64
   %495 = and i64 %494, 7
@@ -1587,7 +1587,7 @@ _ZNSt6vectorIPKN32pxrInternal_v0_24__pxrReserved__12UsdValidatorESaIS3_EED2Ev.ex
   br label %_ZNSt6vectorIPKN32pxrInternal_v0_24__pxrReserved__12UsdValidatorESaIS3_EED2Ev.exit210
 
 _ZNSt6vectorIPKN32pxrInternal_v0_24__pxrReserved__12UsdValidatorESaIS3_EED2Ev.exit210: ; preds = %503, %.body148, %513, %511, %496
-  %.pn53.pn = phi { ptr, i32 } [ %497, %496 ], [ %.pn53, %511 ], [ %.pn53, %513 ], [ %.pn51, %.body148 ], [ %.pn51, %503 ]
+  %.pn53.pn = phi { ptr, i32 } [ %497, %496 ], [ %.pn53, %513 ], [ %.pn53, %511 ], [ %.pn51, %.body148 ], [ %.pn51, %503 ]
   %519 = load ptr, ptr %32, align 8
   %520 = ptrtoint ptr %519 to i64
   %521 = and i64 %520, 7
@@ -4544,7 +4544,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
           to label %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_41UsdValidatorKeywordTokens_StaticTokenTypeEE3NewEv.exit.i.i.i unwind label %1161
 
 common.resume:                                    ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit596, %1431, %1426, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit562, %.loopexit1089, %.loopexit1085, %_ZNSt6vectorIPKN32pxrInternal_v0_24__pxrReserved__12UsdValidatorESaIS3_EED2Ev.exit612, %.body539, %1926, %.body646, %.body662, %1311, %1316, %1361, %1366, %1408, %1413, %1417, %1422, %1521, %1526, %1530, %1535, %1580, %1161
-  %common.resume.op = phi { ptr, i32 } [ %1162, %1161 ], [ %1581, %1580 ], [ %.pn143, %.body539 ], [ %.pn137.pn.pn.pn.pn, %.body662 ], [ %.pn135, %.body646 ], [ %1927, %1926 ], [ %1522, %1526 ], [ %1418, %1422 ], [ %.pn130.pn, %_ZNSt6vectorIPKN32pxrInternal_v0_24__pxrReserved__12UsdValidatorESaIS3_EED2Ev.exit612 ], [ %1531, %1535 ], [ %1409, %1413 ], [ %1362, %1366 ], [ %.pn123.pn, %.loopexit1085 ], [ %1312, %1316 ], [ %.pn118.pn, %.loopexit1089 ], [ %.pn111.pn.pn.pn.pn.pn, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit562 ], [ %1312, %1311 ], [ %1362, %1361 ], [ %1409, %1408 ], [ %1418, %1417 ], [ %1522, %1521 ], [ %1531, %1530 ], [ %1427, %1426 ], [ %1427, %1431 ], [ %.pn126, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit596 ]
+  %common.resume.op = phi { ptr, i32 } [ %1162, %1161 ], [ %1581, %1580 ], [ %.pn143, %.body539 ], [ %.pn137.pn.pn.pn.pn, %.body662 ], [ %.pn135, %.body646 ], [ %1927, %1926 ], [ %1522, %1526 ], [ %1418, %1422 ], [ %.pn130.pn, %_ZNSt6vectorIPKN32pxrInternal_v0_24__pxrReserved__12UsdValidatorESaIS3_EED2Ev.exit612 ], [ %1531, %1530 ], [ %1531, %1535 ], [ %1427, %1431 ], [ %1409, %1413 ], [ %1362, %1366 ], [ %.pn123.pn, %.loopexit1085 ], [ %1312, %1316 ], [ %.pn118.pn, %.loopexit1089 ], [ %.pn111.pn.pn.pn.pn.pn, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit562 ], [ %1312, %1311 ], [ %1362, %1361 ], [ %1409, %1408 ], [ %1418, %1417 ], [ %1522, %1521 ], [ %1427, %1426 ], [ %.pn126, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit596 ]
   resume { ptr, i32 } %common.resume.op
 
 1161:                                             ; preds = %1159
@@ -4917,7 +4917,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit572: ; pr
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit562
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit562: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit566, %1256, %1251, %.thread, %1247, %1242, %1310, %1240
-  %.pn111.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn111.pn.pn.pn.pn, %1310 ], [ %122, %.thread ], [ %1241, %1240 ], [ %1243, %1242 ], [ %1243, %1247 ], [ %1252, %1256 ], [ %1252, %1251 ], [ %1260, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit566 ]
+  %.pn111.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn111.pn.pn.pn.pn, %1310 ], [ %1243, %1247 ], [ %122, %.thread ], [ %1252, %1256 ], [ %1241, %1240 ], [ %1243, %1242 ], [ %1252, %1251 ], [ %1260, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit566 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__20UsdValidatorMetadataD2Ev(ptr noundef nonnull align 8 dereferenceable(105) %53) #21
   br label %common.resume
 
@@ -5024,7 +5024,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit580: ; preds = %1349, %135
   br label %.loopexit1089
 
 .loopexit1089:                                    ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit576, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit578, %.thread1057, %1360, %1320
-  %.pn118.pn = phi { ptr, i32 } [ %.pn118, %1360 ], [ %444, %.thread1057 ], [ %1321, %1320 ], [ %1335, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit578 ], [ %1323, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit576 ]
+  %.pn118.pn = phi { ptr, i32 } [ %.pn118, %1360 ], [ %1321, %1320 ], [ %444, %.thread1057 ], [ %1335, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit578 ], [ %1323, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit576 ]
   call void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__20UsdValidatorMetadataESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %66) #21
   br label %common.resume
 
@@ -5127,7 +5127,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit588: ; preds = %1395, %140
   br label %.loopexit1085
 
 .loopexit1085:                                    ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit586, %1377, %1372, %.thread1059, %.loopexit1082, %1370
-  %.pn123.pn = phi { ptr, i32 } [ %.pn123, %.loopexit1082 ], [ %633, %.thread1059 ], [ %1371, %1370 ], [ %1373, %1377 ], [ %1373, %1372 ], [ %1381, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit586 ]
+  %.pn123.pn = phi { ptr, i32 } [ %.pn123, %.loopexit1082 ], [ %1371, %1370 ], [ %633, %.thread1059 ], [ %1373, %1377 ], [ %1373, %1372 ], [ %1381, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit586 ]
   call void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__20UsdValidatorMetadataESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %72) #21
   br label %common.resume
 
@@ -5344,7 +5344,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit610: ; preds = %1510, %151
   br i1 %1520, label %_ZNSt6vectorIPKN32pxrInternal_v0_24__pxrReserved__12UsdValidatorESaIS3_EED2Ev.exit612, label %1510
 
 _ZNSt6vectorIPKN32pxrInternal_v0_24__pxrReserved__12UsdValidatorESaIS3_EED2Ev.exit612: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit602, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit610, %1504, %1499, %1464, %1459, %.thread1065, %1495, %1490, %1486, %1481, %.thread1063, %1455, %1450, %1448
-  %.pn130.pn = phi { ptr, i32 } [ %1067, %.thread1065 ], [ %1449, %1448 ], [ %1482, %1486 ], [ %1451, %1455 ], [ %941, %.thread1063 ], [ %1451, %1450 ], [ %1482, %1481 ], [ %1491, %1490 ], [ %1491, %1495 ], [ %1500, %1504 ], [ %1460, %1464 ], [ %1460, %1459 ], [ %1500, %1499 ], [ %.pn130, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit610 ], [ %.pn128, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit602 ]
+  %.pn130.pn = phi { ptr, i32 } [ %1491, %1495 ], [ %1067, %.thread1065 ], [ %1460, %1464 ], [ %1449, %1448 ], [ %1482, %1486 ], [ %1451, %1455 ], [ %.pn130, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit610 ], [ %941, %.thread1063 ], [ %1500, %1504 ], [ %1451, %1450 ], [ %1482, %1481 ], [ %1491, %1490 ], [ %1460, %1459 ], [ %1500, %1499 ], [ %.pn128, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit602 ]
   call void @_ZdlPvm(ptr noundef nonnull %911, i64 noundef %904) #24
   br label %common.resume
 
@@ -6327,7 +6327,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit725: ; preds = %_ZN32pxrIn
   br i1 %1925, label %1754, label %._crit_edge1131, !llvm.loop !49
 
 .body539:                                         ; preds = %1545, %.body554, %1541, %1184, %1549, %1539
-  %.pn143 = phi { ptr, i32 } [ %1550, %1549 ], [ %1540, %1539 ], [ %1542, %1541 ], [ %1185, %1184 ], [ %1543, %.body554 ], [ %1543, %1545 ]
+  %.pn143 = phi { ptr, i32 } [ %1550, %1549 ], [ %1185, %1184 ], [ %1540, %1539 ], [ %1542, %1541 ], [ %1543, %.body554 ], [ %1543, %1545 ]
   call void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__20UsdValidatorMetadataESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %91) #21
   br label %common.resume
 

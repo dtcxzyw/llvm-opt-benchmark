@@ -1056,7 +1056,7 @@ ifilter_alloc.exit:                               ; preds = %73
   br label %.thread118
 
 .thread118:                                       ; preds = %70, %68, %73, %110, %159, %116, %92, %164, %37, %169, %163
-  %.066 = phi i32 [ %41, %37 ], [ %167, %164 ], [ %167, %169 ], [ -38, %163 ], [ -38, %92 ], [ -12, %159 ], [ -12, %116 ], [ -12, %110 ], [ -12, %73 ], [ -12, %68 ], [ -12, %70 ]
+  %.066 = phi i32 [ %41, %37 ], [ %167, %164 ], [ %167, %169 ], [ -38, %163 ], [ -12, %159 ], [ -38, %92 ], [ -12, %116 ], [ -12, %110 ], [ -12, %73 ], [ -12, %68 ], [ -12, %70 ]
   %.066.fr = freeze i32 %.066
   call void @avfilter_inout_free(ptr noundef nonnull %6) #17
   call void @avfilter_inout_free(ptr noundef nonnull %7) #17
@@ -1370,7 +1370,7 @@ graph_opts_apply.exit:                            ; preds = %graph_opts_apply.ex
   br label %graph_opts_apply.exit.thread
 
 graph_opts_apply.exit.thread:                     ; preds = %33, %filter_opt_apply.exit.i, %110, %15, %graph_opts_apply.exit
-  %.026 = phi i32 [ %17, %15 ], [ %124, %graph_opts_apply.exit ], [ %.031.i.i, %110 ], [ %.034.i.i, %filter_opt_apply.exit.i ], [ -12, %33 ]
+  %.026 = phi i32 [ %17, %15 ], [ %.034.i.i, %filter_opt_apply.exit.i ], [ %124, %graph_opts_apply.exit ], [ %.031.i.i, %110 ], [ -12, %33 ]
   call void @avfilter_graph_segment_free(ptr noundef nonnull %12) #17
   br label %125
 
@@ -2285,7 +2285,7 @@ ifilter_has_all_input_formats.exit.i:             ; preds = %357
   br label %send_frame.exit
 
 send_frame.exit:                                  ; preds = %322, %av_ts_make_string.exit.i, %262, %281, %341, %.thread190.i, %446, %448, %455, %456
-  %.0.i95 = phi i32 [ 0, %av_ts_make_string.exit.i ], [ %.1.ph.i, %.thread190.i ], [ -12, %446 ], [ -541478725, %455 ], [ 0, %448 ], [ %453, %456 ], [ %305, %281 ], [ %263, %262 ], [ %342, %341 ], [ %326, %322 ]
+  %.0.i95 = phi i32 [ 0, %av_ts_make_string.exit.i ], [ %.1.ph.i, %.thread190.i ], [ -12, %446 ], [ -541478725, %455 ], [ 0, %448 ], [ %453, %456 ], [ %342, %341 ], [ %305, %281 ], [ %263, %262 ], [ %326, %322 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %send_eof.exit
@@ -2515,8 +2515,8 @@ send_eof.exit:                                    ; preds = %.lr.ph.i.i101, %541
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %70
 
-.preheader:                                       ; preds = %76, %562, %567, %563
-  %.3.ph183 = phi i32 [ -541478725, %563 ], [ -541478725, %567 ], [ -541478725, %562 ], [ %.2, %76 ]
+.preheader:                                       ; preds = %76, %563, %562, %567
+  %.3.ph183 = phi i32 [ -541478725, %567 ], [ -541478725, %562 ], [ -541478725, %563 ], [ %.2, %76 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %575 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %576 = load i32, ptr %22, align 8, !tbaa !96
@@ -3307,7 +3307,7 @@ fg_complex_bind_input.exit.i:                     ; preds = %ifilter_bind_fg.exi
   br i1 %.not, label %9, label %.preheader, !llvm.loop !321
 
 .loopexit47:                                      ; preds = %43, %fg_complex_bind_input.exit.thread29.i, %244, %228, %.loopexit36.i, %38
-  %.ph.i = phi i32 [ %.8.ph.i.ph.i, %fg_complex_bind_input.exit.thread29.i ], [ %.0.i161.i.i, %.loopexit36.i ], [ -22, %38 ], [ -22, %228 ], [ %242, %244 ], [ %48, %43 ]
+  %.ph.i = phi i32 [ %.8.ph.i.ph.i, %fg_complex_bind_input.exit.thread29.i ], [ %.0.i161.i.i, %.loopexit36.i ], [ %242, %244 ], [ -22, %38 ], [ -22, %228 ], [ %48, %43 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -5240,7 +5240,7 @@ switch.early.test:                                ; preds = %._crit_edge331.thre
   ]
 
 .thread240:                                       ; preds = %806, %.loopexit286, %95, %77, %62, %.thread259, %switch.early.test, %672, %.thread, %665, %359
-  %.4 = phi i32 [ %101, %.thread ], [ %.0.i, %359 ], [ %.0.i211, %665 ], [ %674, %672 ], [ %.fr, %switch.early.test ], [ %.14, %.thread259 ], [ %.7, %.loopexit286 ], [ %89, %95 ], [ %81, %77 ], [ %63, %62 ], [ %812, %806 ]
+  %.4 = phi i32 [ %101, %.thread ], [ %.0.i, %359 ], [ %.0.i211, %665 ], [ %674, %672 ], [ %.fr, %switch.early.test ], [ %63, %62 ], [ %.14, %.thread259 ], [ %.7, %.loopexit286 ], [ %89, %95 ], [ %81, %77 ], [ %812, %806 ]
   %821 = load i32, ptr %37, align 8, !tbaa !96
   %822 = icmp sgt i32 %821, 0
   br i1 %822, label %.lr.ph.i228, label %.preheader.i222
@@ -6049,7 +6049,7 @@ fg_output_step.exit:                              ; preds = %109, %99, %103, %12
   br label %.thread78
 
 .thread78:                                        ; preds = %79, %fg_output_step.exit, %fg_output_step.exit.thread, %75, %74, %.critedge, %.loopexit
-  %.3 = phi i32 [ -541478725, %74 ], [ %258, %.loopexit ], [ 0, %.critedge ], [ %44, %75 ], [ %.0.i.ph, %fg_output_step.exit.thread ], [ %.0.i, %fg_output_step.exit ], [ 0, %79 ]
+  %.3 = phi i32 [ -541478725, %74 ], [ %258, %.loopexit ], [ 0, %.critedge ], [ %44, %75 ], [ %.0.i, %fg_output_step.exit ], [ %.0.i.ph, %fg_output_step.exit.thread ], [ 0, %79 ]
   ret i32 %.3
 }
 
@@ -6450,7 +6450,7 @@ clone_side_data.exit.i:                           ; preds = %192, %.thread128
   br label %close_output.exit
 
 close_output.exit:                                ; preds = %.thread.us.us, %.thread.us, %.lr.ph.i.i, %135, %clone_side_data.exit.i, %201, %.loopexit.i, %166, %.thread127, %139
-  %.5 = phi i32 [ 0, %.thread127 ], [ 0, %139 ], [ %215, %clone_side_data.exit.i ], [ -12, %.loopexit.i ], [ %199, %201 ], [ %169, %166 ], [ %137, %135 ], [ %75, %.thread.us ], [ %182, %.lr.ph.i.i ], [ %49, %.thread.us.us ]
+  %.5 = phi i32 [ %75, %.thread.us ], [ 0, %.thread127 ], [ 0, %139 ], [ %215, %clone_side_data.exit.i ], [ %169, %166 ], [ -12, %.loopexit.i ], [ %199, %201 ], [ %137, %135 ], [ %182, %.lr.ph.i.i ], [ %49, %.thread.us.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.5

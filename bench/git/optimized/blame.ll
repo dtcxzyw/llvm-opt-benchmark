@@ -3434,7 +3434,7 @@ find_copy_in_parent.exit.i:                       ; preds = %.lr.ph.i120.i.i, %1
   br i1 %1196, label %729, label %.loopexit464.i, !llvm.loop !198
 
 .loopexit464.i:                                   ; preds = %277, %drop_origin_blob.exit.i, %1191, %find_copy_in_parent.exit.i, %find_copy_in_parent.exit.thread.i, %first_scapegoat.exit316.i, %715, %707, %.loopexit465.i, %.loopexit.i, %num_scapegoats.exit.i
-  %.0169.i = phi ptr [ %.1170.i, %.loopexit.i ], [ %29, %num_scapegoats.exit.i ], [ %.1170.i, %707 ], [ %.1170.i, %.loopexit465.i ], [ %.1170.i, %find_copy_in_parent.exit.thread.i ], [ %.1170.i, %first_scapegoat.exit316.i ], [ %.1170.i, %715 ], [ %.1170.i, %drop_origin_blob.exit.i ], [ %.1170.i, %1191 ], [ %.1170.i, %find_copy_in_parent.exit.i ], [ %.1170.i, %277 ]
+  %.0169.i = phi ptr [ %.1170.i, %.loopexit.i ], [ %29, %num_scapegoats.exit.i ], [ %.1170.i, %first_scapegoat.exit316.i ], [ %.1170.i, %find_copy_in_parent.exit.thread.i ], [ %.1170.i, %1191 ], [ %.1170.i, %707 ], [ %.1170.i, %.loopexit465.i ], [ %.1170.i, %715 ], [ %.1170.i, %drop_origin_blob.exit.i ], [ %.1170.i, %find_copy_in_parent.exit.i ], [ %.1170.i, %277 ]
   %1197 = load ptr, ptr %32, align 8, !tbaa !110
   store ptr null, ptr %1197, align 8, !tbaa !31
   %1198 = load ptr, ptr %31, align 8, !tbaa !31

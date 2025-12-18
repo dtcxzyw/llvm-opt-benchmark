@@ -1446,7 +1446,7 @@ define hidden void @_ZN2cv3dnn20depthWiseBlockConv1DEPKfiiiiS2_S2_S2_iPfiib(ptr 
   br i1 %exitcond145.not, label %.preheader, label %.lr.ph.split.split.us, !llvm.loop !95
 
 .preheader:                                       ; preds = %.lr.ph.split.split, %.lr.ph.split.split.us, %.lr.ph.split.us.split, %.lr.ph.split.us.split.us, %46
-  %.1.lcssa = phi i32 [ %.0109, %46 ], [ %.sroa.speculated, %.lr.ph.split.split.us ], [ %.sroa.speculated, %.lr.ph.split.us.split.us ], [ %.sroa.speculated, %.lr.ph.split.us.split ], [ %.sroa.speculated, %.lr.ph.split.split ]
+  %.1.lcssa = phi i32 [ %.0109, %46 ], [ %.sroa.speculated, %.lr.ph.split.split.us ], [ %.sroa.speculated, %.lr.ph.split.us.split ], [ %.sroa.speculated, %.lr.ph.split.us.split.us ], [ %.sroa.speculated, %.lr.ph.split.split ]
   %98 = icmp slt i32 %.1.lcssa, %11
   br i1 %98, label %.lr.ph131, label %._crit_edge
 

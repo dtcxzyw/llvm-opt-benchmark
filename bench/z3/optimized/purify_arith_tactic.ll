@@ -9177,7 +9177,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN17purify_arith_proc6rw_cfg9get
   br label %24
 
 24:                                               ; preds = %.sink.split, %16, %13
-  %.0 = phi i1 [ false, %13 ], [ false, %16 ], [ true, %.sink.split ]
+  %.0 = phi i1 [ false, %16 ], [ false, %13 ], [ true, %.sink.split ]
   ret i1 %.0
 }
 
@@ -9742,7 +9742,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK13rewriter_core10is_blockedEP
   br i1 %.not27.old.i.i, label %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit, label %.lr.ph38.i.i.backedge
 
 .lr.ph38.i.i.backedge:                            ; preds = %35, %32
-  %.137.i.i.be = phi ptr [ %.old.i.i, %35 ], [ %34, %32 ]
+  %.137.i.i.be = phi ptr [ %34, %32 ], [ %.old.i.i, %35 ]
   br label %.lr.ph38.i.i, !llvm.loop !306
 
 _ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit: ; preds = %16, %21, %27, %32, %35, %.preheader.i.i
@@ -11733,7 +11733,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN17purify_arith_proc6rw_cfg17al
   br i1 %.not27.old.i.i.i, label %_ZNK7obj_mapI3appP4exprE4findEPS0_RS2_.exit.thread, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %38, %35
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %38 ], [ %37, %35 ]
+  %.137.i.i.i.be = phi ptr [ %37, %35 ], [ %.old.i.i.i, %38 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !332
 
 .loopexit:                                        ; preds = %19, %30
@@ -13220,7 +13220,7 @@ _ZNK4decl13get_family_idEv.exit:                  ; preds = %6
   br i1 %.not27.old.i.i, label %_ZNK4decl13get_decl_kindEv.exit, label %.lr.ph38.i.i.backedge
 
 .lr.ph38.i.i.backedge:                            ; preds = %44, %41
-  %.137.i.i.be = phi ptr [ %.old.i.i, %44 ], [ %43, %41 ]
+  %.137.i.i.be = phi ptr [ %43, %41 ], [ %.old.i.i, %44 ]
   br label %.lr.ph38.i.i, !llvm.loop !361
 
 _ZNK4decl13get_decl_kindEv.exit:                  ; preds = %30, %41, %44, %.preheader.i.i
@@ -20567,7 +20567,7 @@ _Z17is_uninterp_constPK4expr.exit.thread23:       ; preds = %16, %_Z17is_uninter
   br i1 %.not27.old.i.i.i, label %.loopexit, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %60, %57
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %60 ], [ %59, %57 ]
+  %.137.i.i.i.be = phi ptr [ %59, %57 ], [ %.old.i.i.i, %60 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !367
 
 _ZNK7obj_mapI3appSt4pairIP4exprS3_EE4findEPS0_RS4_.exit: ; preds = %41, %52

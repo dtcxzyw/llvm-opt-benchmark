@@ -984,7 +984,7 @@ define internal fastcc ptr @xas_create(ptr noundef captures(none) %0, i1 noundef
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %87, %221, %325, %269, %.critedge.thread.sink.split, %201, %184, %.critedge
-  %331 = phi ptr [ null, %.critedge ], [ null, %184 ], [ %205, %201 ], [ null, %.critedge.thread.sink.split ], [ %327, %325 ], [ null, %221 ], [ %218, %269 ], [ null, %87 ]
+  %331 = phi ptr [ null, %.critedge ], [ null, %184 ], [ %205, %201 ], [ null, %.critedge.thread.sink.split ], [ %327, %325 ], [ %218, %269 ], [ null, %221 ], [ null, %87 ]
   ret ptr %331
 }
 
@@ -1591,7 +1591,7 @@ xas_init_marks.exit:                              ; preds = %.loopexit.i, %.loop
   br i1 %368, label %.lr.ph34, label %.thread15
 
 .thread15:                                        ; preds = %.loopexit20, %362, %.lr.ph34, %322, %359, %33, %303, %.thread16, %._crit_edge, %269, %253, %17
-  %369 = phi ptr [ %18, %17 ], [ %18, %33 ], [ %153, %253 ], [ %153, %269 ], [ %153, %._crit_edge ], [ %153, %.thread16 ], [ %153, %303 ], [ %153, %362 ], [ %153, %359 ], [ %153, %322 ], [ %153, %.lr.ph34 ], [ %18, %.loopexit20 ]
+  %369 = phi ptr [ %18, %17 ], [ %18, %33 ], [ %153, %253 ], [ %153, %269 ], [ %153, %._crit_edge ], [ %153, %303 ], [ %153, %.thread16 ], [ %153, %362 ], [ %153, %359 ], [ %153, %322 ], [ %153, %.lr.ph34 ], [ %18, %.loopexit20 ]
   ret ptr %369
 }
 
@@ -3027,8 +3027,8 @@ define dso_local ptr @xas_find_conflict(ptr noundef captures(none) %0) #0 align 
   br label %67
 
 67:                                               ; preds = %66, %33, %18
-  %68 = phi i64 [ %54, %66 ], [ %20, %33 ], [ %20, %18 ]
-  %69 = phi ptr [ %47, %66 ], [ %37, %33 ], [ %27, %18 ]
+  %68 = phi i64 [ %20, %18 ], [ %54, %66 ], [ %20, %33 ]
+  %69 = phi ptr [ %27, %18 ], [ %47, %66 ], [ %37, %33 ]
   %70 = icmp eq ptr %69, null
   br i1 %70, label %.thread, label %71
 
@@ -3228,7 +3228,7 @@ define dso_local ptr @xas_find_conflict(ptr noundef captures(none) %0) #0 align 
   br label %.thread
 
 .thread:                                          ; preds = %.loopexit, %71, %38, %57, %65, %.loopexit8, %135, %133, %67, %1
-  %195 = phi ptr [ null, %.loopexit8 ], [ null, %1 ], [ null, %67 ], [ %129, %133 ], [ null, %135 ], [ null, %38 ], [ null, %65 ], [ null, %57 ], [ %69, %71 ], [ %189, %.loopexit ]
+  %195 = phi ptr [ null, %.loopexit8 ], [ null, %1 ], [ null, %67 ], [ %129, %133 ], [ null, %135 ], [ %69, %71 ], [ null, %38 ], [ null, %65 ], [ null, %57 ], [ %189, %.loopexit ]
   ret ptr %195
 }
 
@@ -3383,8 +3383,8 @@ define dso_local ptr @xa_load(ptr noundef %0, i64 noundef %1) #1 align 16 {
   br i1 %81, label %xas_load.exit, label %.split6.us.i.thread21
 
 xas_load.exit:                                    ; preds = %.split6.us.i, %.split6.us.i.thread21, %.split.us.i, %46, %31, %45, %53
-  %.sroa.134.4 = phi ptr [ %.sroa.134.2, %53 ], [ inttoptr (i64 1 to ptr), %45 ], [ inttoptr (i64 1 to ptr), %46 ], [ %.sroa.134.0, %31 ], [ %68, %.split.us.i ], [ %68, %.split6.us.i.thread21 ], [ %68, %.split6.us.i ]
-  %109 = phi ptr [ %54, %53 ], [ null, %45 ], [ null, %46 ], [ null, %31 ], [ %87, %.split.us.i ], [ %75, %.split6.us.i ], [ %60, %.split6.us.i.thread21 ]
+  %.sroa.134.4 = phi ptr [ %.sroa.134.2, %53 ], [ %68, %.split.us.i ], [ inttoptr (i64 1 to ptr), %45 ], [ %.sroa.134.0, %31 ], [ inttoptr (i64 1 to ptr), %46 ], [ %68, %.split6.us.i.thread21 ], [ %68, %.split6.us.i ]
+  %109 = phi ptr [ %54, %53 ], [ %87, %.split.us.i ], [ null, %45 ], [ null, %31 ], [ null, %46 ], [ %60, %.split6.us.i.thread21 ], [ %75, %.split6.us.i ]
   %110 = icmp eq ptr %109, inttoptr (i64 1030 to ptr)
   %111 = select i1 %110, ptr null, ptr %109
   %112 = ptrtoint ptr %111 to i64
@@ -5069,7 +5069,7 @@ define dso_local ptr @xa_find_after(ptr noundef %0, ptr noundef captures(none) %
   br label %.split4.us, !llvm.loop !77
 
 .split4.us:                                       ; preds = %63, %38, %.split, %..split4_crit_edge, %.split.us, %..split4.us_crit_edge
-  %.us-phi = phi ptr [ %22, %..split4.us_crit_edge ], [ %16, %.split.us ], [ %50, %..split4_crit_edge ], [ %44, %.split ], [ %39, %38 ], [ %64, %63 ]
+  %.us-phi = phi ptr [ %39, %38 ], [ %22, %..split4.us_crit_edge ], [ %16, %.split.us ], [ %50, %..split4_crit_edge ], [ %44, %.split ], [ %64, %63 ]
   tail call void @__rcu_read_unlock() #9
   %72 = icmp eq ptr %.us-phi, null
   br i1 %72, label %75, label %73

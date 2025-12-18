@@ -1678,7 +1678,7 @@ rb_type.exit.thread.sink.split:                   ; preds = %452, %rb_execarg_ad
   br label %rb_type.exit.thread
 
 rb_type.exit.thread:                              ; preds = %22, %rb_type.exit.thread.sink.split, %27, %rb_type.exit, %236, %.critedge
-  %.1 = phi i32 [ 1, %236 ], [ 1, %.critedge ], [ 1, %rb_type.exit ], [ 0, %rb_type.exit.thread.sink.split ], [ 1, %27 ], [ 1, %22 ]
+  %.1 = phi i32 [ 1, %236 ], [ 1, %27 ], [ 1, %.critedge ], [ 0, %rb_type.exit.thread.sink.split ], [ 1, %rb_type.exit ], [ 1, %22 ]
   ret i32 %.1
 }
 
@@ -3702,7 +3702,7 @@ RSTRING_PTR.exit17.thread22:                      ; preds = %40, %RSTRING_PTR.ex
   br label %proc_exec_sh.exit
 
 proc_exec_sh.exit:                                ; preds = %22, %36, %63, %61, %55, %RSTRING_PTR.exit17, %33, %6
-  %.013 = phi i32 [ %8, %6 ], [ %35, %33 ], [ 2, %RSTRING_PTR.exit17 ], [ %58, %55 ], [ 8, %61 ], [ 8, %63 ], [ 2, %36 ], [ 2, %22 ]
+  %.013 = phi i32 [ %8, %6 ], [ 2, %36 ], [ %35, %33 ], [ 2, %RSTRING_PTR.exit17 ], [ %58, %55 ], [ 8, %61 ], [ 8, %63 ], [ 2, %22 ]
   ret i32 %.013
 }
 
@@ -4573,7 +4573,7 @@ fd_set_cloexec.exit242.i:                         ; preds = %368, %361, %358, %f
   br i1 %.not203.i, label %.loopexit.i, label %.lr.ph290.i, !llvm.loop !188
 
 .loopexit.i:                                      ; preds = %385, %fd_set_cloexec.exit242.i, %fd_clear_cloexec.exit.i, %316
-  %.1182.i = phi i32 [ %.0181291.i, %316 ], [ %.0181291.i, %fd_clear_cloexec.exit.i ], [ %.0181291.sink.i, %fd_set_cloexec.exit242.i ], [ %.0181291.sink.i, %385 ]
+  %.1182.i = phi i32 [ %.0181291.i, %fd_clear_cloexec.exit.i ], [ %.0181291.i, %316 ], [ %.0181291.sink.i, %fd_set_cloexec.exit242.i ], [ %.0181291.sink.i, %385 ]
   %388 = add nuw nsw i64 %.3292.i, 1
   %exitcond300.not.i = icmp eq i64 %388, %.0.i.i
   br i1 %exitcond300.not.i, label %._crit_edge294.i, label %316, !llvm.loop !189
@@ -4981,8 +4981,8 @@ stdfd_clear_nonblock.exit:                        ; preds = %set_blocking.exit.i
   store i32 %568, ptr %577, align 4, !tbaa !60
   br label %run_exec_pgroup.exit.thread
 
-run_exec_pgroup.exit.thread:                      ; preds = %272, %RARRAY_AREF.exit30.i, %491, %488, %429, %432, %334, %327, %382, %371, %341, %383, %372, %.thread324.i, %342, %303, %294, %282, %285, %393, %394, %.sink.split.i231.i, %.sink.split.i.i, %30, %33, %run_exec_rlimit.exit, %544, %541, %531, %528, %518, %515, %stdfd_clear_nonblock.exit
-  %.0 = phi i32 [ -1, %30 ], [ -1, %544 ], [ -1, %run_exec_rlimit.exit ], [ -1, %429 ], [ -1, %518 ], [ -1, %531 ], [ 0, %stdfd_clear_nonblock.exit ], [ -1, %515 ], [ -1, %528 ], [ -1, %541 ], [ -1, %33 ], [ -1, %.sink.split.i.i ], [ -1, %.sink.split.i231.i ], [ -1, %394 ], [ -1, %393 ], [ -1, %285 ], [ -1, %282 ], [ -1, %294 ], [ -1, %303 ], [ -1, %342 ], [ -1, %.thread324.i ], [ -1, %372 ], [ -1, %383 ], [ -1, %341 ], [ -1, %371 ], [ -1, %382 ], [ -1, %327 ], [ -1, %334 ], [ -1, %432 ], [ -1, %488 ], [ -1, %491 ], [ -1, %RARRAY_AREF.exit30.i ], [ -1, %272 ]
+run_exec_pgroup.exit.thread:                      ; preds = %272, %RARRAY_AREF.exit30.i, %491, %488, %432, %429, %334, %327, %382, %371, %341, %383, %372, %.thread324.i, %342, %303, %294, %282, %285, %393, %394, %.sink.split.i231.i, %.sink.split.i.i, %30, %33, %run_exec_rlimit.exit, %544, %541, %531, %528, %518, %515, %stdfd_clear_nonblock.exit
+  %.0 = phi i32 [ -1, %30 ], [ -1, %544 ], [ -1, %run_exec_rlimit.exit ], [ -1, %RARRAY_AREF.exit30.i ], [ -1, %432 ], [ -1, %518 ], [ -1, %531 ], [ 0, %stdfd_clear_nonblock.exit ], [ -1, %515 ], [ -1, %528 ], [ -1, %541 ], [ -1, %33 ], [ -1, %.sink.split.i.i ], [ -1, %.sink.split.i231.i ], [ -1, %394 ], [ -1, %393 ], [ -1, %285 ], [ -1, %282 ], [ -1, %294 ], [ -1, %303 ], [ -1, %342 ], [ -1, %.thread324.i ], [ -1, %372 ], [ -1, %383 ], [ -1, %341 ], [ -1, %371 ], [ -1, %382 ], [ -1, %327 ], [ -1, %334 ], [ -1, %429 ], [ -1, %488 ], [ -1, %491 ], [ -1, %272 ]
   ret i32 %.0
 }
 
@@ -11723,7 +11723,7 @@ define internal fastcc range(i32 -1, 1) i32 @disable_child_handler_fork_child(pt
   br label %27
 
 27:                                               ; preds = %.sink.split, %11, %20, %23
-  %.2 = phi i32 [ 0, %20 ], [ -1, %23 ], [ -1, %11 ], [ -1, %.sink.split ]
+  %.2 = phi i32 [ 0, %20 ], [ -1, %11 ], [ -1, %23 ], [ -1, %.sink.split ]
   ret i32 %.2
 }
 

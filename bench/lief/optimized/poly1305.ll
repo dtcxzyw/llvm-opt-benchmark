@@ -112,8 +112,8 @@ define hidden noundef i32 @mbedtls_poly1305_update(ptr noundef captures(none) %0
   br label %17
 
 17:                                               ; preds = %15, %4
-  %.038 = phi i64 [ %16, %15 ], [ %2, %4 ]
-  %.0 = phi i64 [ %8, %15 ], [ 0, %4 ]
+  %.038 = phi i64 [ %2, %4 ], [ %16, %15 ]
+  %.0 = phi i64 [ 0, %4 ], [ %8, %15 ]
   %18 = icmp ugt i64 %.038, 15
   br i1 %18, label %19, label %25
 

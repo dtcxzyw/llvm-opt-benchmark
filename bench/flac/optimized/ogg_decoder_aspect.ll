@@ -644,7 +644,7 @@ check_size_of_link_allocation_.exit.thread155:    ; preds = %156, %143, %135, %1
   br label %check_size_of_link_allocation_.exit
 
 check_size_of_link_allocation_.exit:              ; preds = %156, %147, %143, %145, %138, %128, %126, %124, %62, %.thread.i151, %.critedge, %42, %163
-  %.1 = phi i32 [ %., %42 ], [ 1, %163 ], [ 0, %.critedge ], [ 6, %.thread.i151 ], [ 8, %147 ], [ %144, %143 ], [ 3, %145 ], [ 4, %126 ], [ 4, %124 ], [ 3, %138 ], [ 7, %156 ], [ 5, %128 ], [ 8, %62 ]
+  %.1 = phi i32 [ %., %42 ], [ 1, %163 ], [ 0, %.critedge ], [ 6, %.thread.i151 ], [ 8, %147 ], [ %144, %143 ], [ 3, %145 ], [ 4, %126 ], [ 5, %128 ], [ 3, %138 ], [ 7, %156 ], [ 4, %124 ], [ 8, %62 ]
   ret i32 %.1
 }
 
@@ -1429,8 +1429,8 @@ check_size_of_link_allocation_.exit264:           ; preds = %268, %267, %250, %2
   %.not226 = icmp ugt i64 %.1181, %.1174
   br i1 %.not226, label %100, label %.thread
 
-.thread:                                          ; preds = %check_size_of_link_allocation_.exit264, %120, %268, %267, %100, %230, %203, %243, %246, %145, %139, %78, %.thread.i259, %261, %234, %258, %237, %75, %77, %70, %74
-  %.4 = phi i32 [ 7, %74 ], [ 9, %75 ], [ 7, %77 ], [ 9, %70 ], [ 3, %258 ], [ 7, %145 ], [ 6, %.thread.i259 ], [ 1, %237 ], [ 1, %261 ], [ 3, %234 ], [ 7, %78 ], [ 8, %139 ], [ 8, %203 ], [ 7, %check_size_of_link_allocation_.exit264 ], [ %245, %243 ], [ 0, %120 ], [ 3, %268 ], [ 7, %267 ], [ 7, %100 ], [ 7, %230 ], [ 0, %246 ]
+.thread:                                          ; preds = %check_size_of_link_allocation_.exit264, %120, %268, %267, %100, %203, %230, %243, %246, %145, %139, %78, %.thread.i259, %261, %234, %258, %237, %75, %77, %70, %74
+  %.4 = phi i32 [ 7, %74 ], [ 9, %75 ], [ 7, %77 ], [ 9, %70 ], [ 3, %258 ], [ 7, %145 ], [ 6, %.thread.i259 ], [ 1, %237 ], [ 1, %261 ], [ 3, %234 ], [ 7, %78 ], [ 8, %139 ], [ 7, %230 ], [ 7, %check_size_of_link_allocation_.exit264 ], [ %245, %243 ], [ 0, %120 ], [ 3, %268 ], [ 7, %267 ], [ 7, %100 ], [ 8, %203 ], [ 0, %246 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %check_size_of_link_allocation_.exit

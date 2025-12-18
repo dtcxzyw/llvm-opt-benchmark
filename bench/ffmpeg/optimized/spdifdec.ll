@@ -180,7 +180,7 @@ spdif_get_offset_and_codec.exit:                  ; preds = %33, %41
   br label %.loopexit
 
 .loopexit:                                        ; preds = %28, %3, %63, %._crit_edge
-  %.046 = phi i32 [ %., %63 ], [ 0, %._crit_edge ], [ 0, %3 ], [ 100, %28 ]
+  %.046 = phi i32 [ 0, %._crit_edge ], [ %., %63 ], [ 0, %3 ], [ 100, %28 ]
   ret i32 %.046
 }
 
@@ -394,7 +394,7 @@ spdif_get_offset_and_codec.exit:                  ; preds = %46, %47, %58, %59
   br label %.critedge
 
 .critedge:                                        ; preds = %8, %spdif_get_offset_and_codec.exit, %67, %82, %85, %93, %25, %20, %81
-  %.0 = phi i32 [ -12, %67 ], [ %24, %20 ], [ -541478725, %25 ], [ -1163346256, %81 ], [ 0, %82 ], [ %.0.i59, %spdif_get_offset_and_codec.exit ], [ 0, %93 ], [ 0, %85 ], [ -541478725, %8 ]
+  %.0 = phi i32 [ -12, %67 ], [ 0, %85 ], [ %24, %20 ], [ -541478725, %25 ], [ -1163346256, %81 ], [ 0, %82 ], [ %.0.i59, %spdif_get_offset_and_codec.exit ], [ 0, %93 ], [ -541478725, %8 ]
   ret i32 %.0
 }
 

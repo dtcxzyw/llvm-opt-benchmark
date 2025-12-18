@@ -3946,7 +3946,7 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit40:          ; preds = %81, %87
   br i1 %99, label %.critedge, label %_ZNK6vectorIN3smt8qi_queue5entryELb0EjE4sizeEv.exit36, !llvm.loop !722
 
 .critedge:                                        ; preds = %_ZNK6vectorIN3smt8qi_queue5entryELb0EjE4sizeEv.exit36, %97, %60, %12, %_ZNK6vectorIN3smt8qi_queue5entryELb0EjE4sizeEv.exit, %.preheader46
-  %.0.in = phi i1 [ true, %.preheader46 ], [ true, %12 ], [ true, %_ZNK6vectorIN3smt8qi_queue5entryELb0EjE4sizeEv.exit ], [ %.125, %60 ], [ %.02149, %_ZNK6vectorIN3smt8qi_queue5entryELb0EjE4sizeEv.exit36 ], [ %.1, %97 ]
+  %.0.in = phi i1 [ true, %_ZNK6vectorIN3smt8qi_queue5entryELb0EjE4sizeEv.exit ], [ %.125, %60 ], [ true, %.preheader46 ], [ true, %12 ], [ %.02149, %_ZNK6vectorIN3smt8qi_queue5entryELb0EjE4sizeEv.exit36 ], [ %.1, %97 ]
   ret i1 %.0.in
 }
 
@@ -4090,7 +4090,7 @@ _ZN6vectorIP10quantifierLb0EjE3endEv.exit:        ; preds = %._crit_edge
   br i1 %.not27.old.i.i.i, label %.loopexit87, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %64, %61
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %64 ], [ %63, %61 ]
+  %.137.i.i.i.be = phi ptr [ %63, %61 ], [ %.old.i.i.i, %64 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !738
 
 .loopexit:                                        ; preds = %45, %56
@@ -4282,7 +4282,7 @@ _ZN7obj_mapI10quantifierN3smt15delayed_qa_infoEED2Ev.exit: ; preds = %_ZN6vector
   br i1 %.not27.old.i.i.i47, label %_ZNK7obj_mapI10quantifierN3smt15delayed_qa_infoEE4findEPS0_RS2_.exit54, label %.lr.ph38.i.i.i43.backedge
 
 .lr.ph38.i.i.i43.backedge:                        ; preds = %138, %135
-  %.137.i.i.i44.be = phi ptr [ %.old.i.i.i46, %138 ], [ %137, %135 ]
+  %.137.i.i.i44.be = phi ptr [ %137, %135 ], [ %.old.i.i.i46, %138 ]
   br label %.lr.ph38.i.i.i43, !llvm.loop !738
 
 _ZNK7obj_mapI10quantifierN3smt15delayed_qa_infoEE9find_coreEPS0_.exit.i50: ; preds = %119, %130
@@ -4299,9 +4299,9 @@ _ZNK7obj_mapI10quantifierN3smt15delayed_qa_infoEE9find_coreEPS0_.exit.i50: ; pre
   br label %_ZNK7obj_mapI10quantifierN3smt15delayed_qa_infoEE4findEPS0_RS2_.exit54
 
 _ZNK7obj_mapI10quantifierN3smt15delayed_qa_infoEE4findEPS0_RS2_.exit54: ; preds = %124, %138, %135, %_ZNK7obj_mapI10quantifierN3smt15delayed_qa_infoEE9find_coreEPS0_.exit.i50, %.preheader.i.i.i41
-  %.sroa.8.0 = phi double [ 0.000000e+00, %.preheader.i.i.i41 ], [ %142, %_ZNK7obj_mapI10quantifierN3smt15delayed_qa_infoEE9find_coreEPS0_.exit.i50 ], [ 0.000000e+00, %138 ], [ 0.000000e+00, %135 ], [ 0.000000e+00, %124 ]
-  %.sroa.6.0 = phi double [ 0.000000e+00, %.preheader.i.i.i41 ], [ %141, %_ZNK7obj_mapI10quantifierN3smt15delayed_qa_infoEE9find_coreEPS0_.exit.i50 ], [ 0.000000e+00, %138 ], [ 0.000000e+00, %135 ], [ 0.000000e+00, %124 ]
-  %.sroa.0.0 = phi i64 [ 0, %.preheader.i.i.i41 ], [ %140, %_ZNK7obj_mapI10quantifierN3smt15delayed_qa_infoEE9find_coreEPS0_.exit.i50 ], [ 0, %138 ], [ 0, %135 ], [ 0, %124 ]
+  %.sroa.8.0 = phi double [ 0.000000e+00, %.preheader.i.i.i41 ], [ 0.000000e+00, %138 ], [ %142, %_ZNK7obj_mapI10quantifierN3smt15delayed_qa_infoEE9find_coreEPS0_.exit.i50 ], [ 0.000000e+00, %135 ], [ 0.000000e+00, %124 ]
+  %.sroa.6.0 = phi double [ 0.000000e+00, %.preheader.i.i.i41 ], [ 0.000000e+00, %138 ], [ %141, %_ZNK7obj_mapI10quantifierN3smt15delayed_qa_infoEE9find_coreEPS0_.exit.i50 ], [ 0.000000e+00, %135 ], [ 0.000000e+00, %124 ]
+  %.sroa.0.0 = phi i64 [ 0, %.preheader.i.i.i41 ], [ 0, %138 ], [ %140, %_ZNK7obj_mapI10quantifierN3smt15delayed_qa_infoEE9find_coreEPS0_.exit.i50 ], [ 0, %135 ], [ 0, %124 ]
   %143 = getelementptr inbounds nuw i8, ptr %106, i64 56
   %.sroa.0.0.copyload = load ptr, ptr %143, align 8, !tbaa !741
   %144 = ptrtoint ptr %.sroa.0.0.copyload to i64

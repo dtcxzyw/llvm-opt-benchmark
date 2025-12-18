@@ -1194,7 +1194,7 @@ tailrecurse:                                      ; preds = %27, %4
   br label %.loopexit29
 
 .loopexit29:                                      ; preds = %tailrecurse, %.loopexit29.loopexit, %182, %143
-  %.sroa.0.0 = phi i1 [ %.sroa.0.2, %182 ], [ false, %.loopexit29.loopexit ], [ %.sroa.0.1, %143 ], [ true, %tailrecurse ]
+  %.sroa.0.0 = phi i1 [ %.sroa.0.2, %182 ], [ %.sroa.0.1, %143 ], [ false, %.loopexit29.loopexit ], [ true, %tailrecurse ]
   ret i1 %.sroa.0.0
 
 30:                                               ; preds = %17

@@ -16700,7 +16700,7 @@ _ZN12polars_arrow7compute11concatenate18concatenate_struct17hddd7b0e81b98f6a4E.e
   br label %.body170.i
 
 .loopexit.split-lp271.loopexit.split-lp.i:        ; preds = %1565, %._crit_edge373.i, %1516
-  %.sroa.061.2.ph.ph.i = phi i1 [ true, %1516 ], [ false, %._crit_edge373.i ], [ true, %1565 ]
+  %.sroa.061.2.ph.ph.i = phi i1 [ false, %._crit_edge373.i ], [ true, %1565 ], [ true, %1516 ]
   %lpad.loopexit.split-lp276.i = landingpad { ptr, i32 }
           cleanup
   br label %.body170.i
@@ -18038,7 +18038,7 @@ _ZN12polars_arrow7compute11concatenate16concatenate_view17h65b6b1a0a65fc1c2E.exi
   br label %.body170.i462
 
 .loopexit.split-lp271.loopexit.split-lp.i459:     ; preds = %2087, %._crit_edge373.i502, %2038
-  %.sroa.061.2.ph.ph.i460 = phi i1 [ true, %2038 ], [ false, %._crit_edge373.i502 ], [ true, %2087 ]
+  %.sroa.061.2.ph.ph.i460 = phi i1 [ false, %._crit_edge373.i502 ], [ true, %2087 ], [ true, %2038 ]
   %lpad.loopexit.split-lp276.i461 = landingpad { ptr, i32 }
           cleanup
   br label %.body170.i462
@@ -24241,7 +24241,7 @@ _ZN12polars_arrow7compute11concatenate18concatenate_struct17hf7790cd4c5ef6fa3E.e
   br label %.body180.i
 
 .loopexit.split-lp283.loopexit.split-lp.i:        ; preds = %1722, %._crit_edge385.i, %1670
-  %.sroa.061.2.ph.ph.i = phi i1 [ false, %._crit_edge385.i ], [ true, %1670 ], [ true, %1722 ]
+  %.sroa.061.2.ph.ph.i = phi i1 [ true, %1722 ], [ true, %1670 ], [ false, %._crit_edge385.i ]
   %lpad.loopexit.split-lp288.i = landingpad { ptr, i32 }
           cleanup
   br label %.body180.i
@@ -25626,7 +25626,7 @@ _ZN12polars_arrow7compute11concatenate16concatenate_view17h1e88bfe4b6a3271dE.exi
   br label %.body180.i483
 
 .loopexit.split-lp283.loopexit.split-lp.i480:     ; preds = %2270, %._crit_edge385.i524, %2218
-  %.sroa.061.2.ph.ph.i481 = phi i1 [ false, %._crit_edge385.i524 ], [ true, %2218 ], [ true, %2270 ]
+  %.sroa.061.2.ph.ph.i481 = phi i1 [ true, %2270 ], [ true, %2218 ], [ false, %._crit_edge385.i524 ]
   %lpad.loopexit.split-lp288.i482 = landingpad { ptr, i32 }
           cleanup
   br label %.body180.i483
@@ -31660,7 +31660,7 @@ _ZN12polars_arrow7compute11concatenate18concatenate_struct17h237d1f8c8717a4d1E.e
   br label %.body174.i
 
 .loopexit.split-lp277.loopexit.split-lp.i:        ; preds = %1587, %._crit_edge379.i, %1538
-  %.sroa.061.2.ph.ph.i = phi i1 [ true, %1538 ], [ false, %._crit_edge379.i ], [ true, %1587 ]
+  %.sroa.061.2.ph.ph.i = phi i1 [ false, %._crit_edge379.i ], [ true, %1587 ], [ true, %1538 ]
   %lpad.loopexit.split-lp282.i = landingpad { ptr, i32 }
           cleanup
   br label %.body174.i
@@ -33010,7 +33010,7 @@ _ZN12polars_arrow7compute11concatenate16concatenate_view17h2522be610b9dcfc3E.exi
   br label %.body174.i584
 
 .loopexit.split-lp277.loopexit.split-lp.i581:     ; preds = %2111, %._crit_edge379.i625, %2062
-  %.sroa.061.2.ph.ph.i582 = phi i1 [ true, %2062 ], [ false, %._crit_edge379.i625 ], [ true, %2111 ]
+  %.sroa.061.2.ph.ph.i582 = phi i1 [ false, %._crit_edge379.i625 ], [ true, %2111 ], [ true, %2062 ]
   %lpad.loopexit.split-lp282.i583 = landingpad { ptr, i32 }
           cleanup
   br label %.body174.i584

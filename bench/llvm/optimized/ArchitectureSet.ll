@@ -300,7 +300,7 @@ _ZNK4llvm5MachO15ArchitectureSet5beginEv.exit:    ; preds = %6
   br label %12
 
 ._crit_edge:                                      ; preds = %.preheader.i.i.i, %_ZN4llvm5MachO15ArchitectureSet13arch_iteratorIKjEppEv.exit, %46, %_ZNK4llvm5MachO15ArchitectureSet5beginEv.exit
-  %.lcssa = phi ptr [ null, %_ZNK4llvm5MachO15ArchitectureSet5beginEv.exit ], [ %42, %_ZN4llvm5MachO15ArchitectureSet13arch_iteratorIKjEppEv.exit ], [ %42, %46 ], [ null, %.preheader.i.i.i ]
+  %.lcssa = phi ptr [ null, %_ZNK4llvm5MachO15ArchitectureSet5beginEv.exit ], [ %42, %46 ], [ %42, %_ZN4llvm5MachO15ArchitectureSet13arch_iteratorIKjEppEv.exit ], [ null, %.preheader.i.i.i ]
   store ptr %.lcssa, ptr %0, align 8
   ret void
 

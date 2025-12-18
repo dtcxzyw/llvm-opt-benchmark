@@ -2394,7 +2394,7 @@ define internal i32 @dissect_sdp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %117, label %.lr.ph, label %.outer._crit_edge, !llvm.loop !20
 
 .outer._crit_edge:                                ; preds = %.outer, %56, %49, %38
-  %.0.lcssa = phi i32 [ 0, %38 ], [ %.0230, %49 ], [ %60, %56 ], [ %116, %.outer ]
+  %.0.lcssa = phi i32 [ %.0230, %49 ], [ 0, %38 ], [ %60, %56 ], [ %116, %.outer ]
   %118 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %119 = load ptr, ptr %118, align 8
   %.not182 = icmp eq ptr %119, null

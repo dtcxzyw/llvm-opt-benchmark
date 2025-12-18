@@ -878,7 +878,7 @@ get_protocol_config.exit.thread:                  ; preds = %39, %45, %43, %41
   br label %54
 
 get_protocol_config.exit:                         ; preds = %parse_protocol_config.exit.i, %parse_protocol_config.exit22.i, %47
-  %.0.i = phi i32 [ %..i, %47 ], [ %.0.i.i, %parse_protocol_config.exit.i ], [ %.0.i21.i, %parse_protocol_config.exit22.i ]
+  %.0.i = phi i32 [ %.0.i21.i, %parse_protocol_config.exit22.i ], [ %..i, %47 ], [ %.0.i.i, %parse_protocol_config.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   switch i32 %.0.i, label %default.unreachable14 [
     i32 2, label %54
@@ -2518,7 +2518,7 @@ define dso_local range(i32 -1, 1) i32 @transport_get_remote_bundle_uri(ptr nound
   br label %37
 
 37:                                               ; preds = %.sink.split, %30, %7, %1
-  %.0 = phi i32 [ 0, %1 ], [ 0, %7 ], [ 0, %30 ], [ -1, %.sink.split ]
+  %.0 = phi i32 [ 0, %1 ], [ 0, %30 ], [ 0, %7 ], [ -1, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }

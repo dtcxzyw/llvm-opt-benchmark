@@ -814,7 +814,7 @@ tailrecurse:                                      ; preds = %13
   br label %.loopexit
 
 .loopexit:                                        ; preds = %tailrecurse, %3, %71, %33, %.critedge, %.thread, %96, %83, %67, %59, %49
-  %.0 = phi ptr [ %97, %.thread ], [ null, %71 ], [ %24, %.critedge ], [ null, %49 ], [ null, %59 ], [ %.091, %67 ], [ null, %33 ], [ null, %83 ], [ null, %96 ], [ %1, %3 ], [ %1, %tailrecurse ]
+  %.0 = phi ptr [ %97, %.thread ], [ null, %71 ], [ null, %96 ], [ %24, %.critedge ], [ null, %49 ], [ null, %59 ], [ %.091, %67 ], [ null, %33 ], [ null, %83 ], [ %1, %3 ], [ %1, %tailrecurse ]
   ret ptr %.0
 }
 

@@ -505,7 +505,7 @@ define noundef zeroext i1 @hex_str_to_bytes_encoding(ptr noundef %0, ptr noundef
   br i1 %83, label %.split.us, label %84
 
 .split.us:                                        ; preds = %.lr.ph.split.us, %.lr.ph.split.split.us, %.lr.ph.split.split
-  %.us-phi = phi ptr [ %0, %.lr.ph.split.split ], [ %.177.us85, %.lr.ph.split.split.us ], [ %.177.us, %.lr.ph.split.us ]
+  %.us-phi = phi ptr [ %.177.us85, %.lr.ph.split.split.us ], [ %0, %.lr.ph.split.split ], [ %.177.us, %.lr.ph.split.us ]
   br i1 %4, label %.thread51.thread, label %.thread51
 
 84:                                               ; preds = %.lr.ph.split.split
@@ -515,6 +515,10 @@ define noundef zeroext i1 @hex_str_to_bytes_encoding(ptr noundef %0, ptr noundef
   %88 = load i8, ptr %87, align 1
   %89 = icmp slt i8 %88, 0
   br i1 %89, label %.split79.us, label %.threadthread-pre-split
+
+.split79.us:                                      ; preds = %38, %70, %84
+  %.us-phi80 = phi ptr [ %.177.us85, %70 ], [ %0, %84 ], [ %.177.us, %38 ]
+  br i1 %4, label %.thread51.thread, label %.thread51
 
 .threadthread-pre-split:                          ; preds = %84
   %90 = shl i8 %.pre112, 4
@@ -529,17 +533,13 @@ define noundef zeroext i1 @hex_str_to_bytes_encoding(ptr noundef %0, ptr noundef
   %.us-phi83 = phi ptr [ %59, %.thread.us ], [ %23, %.threadthread-pre-split ]
   br i1 %4, label %.thread51.thread, label %.thread51
 
-.split79.us:                                      ; preds = %38, %70, %84
-  %.us-phi80 = phi ptr [ %0, %84 ], [ %.177.us85, %70 ], [ %.177.us, %38 ]
-  br i1 %4, label %.thread51.thread, label %.thread51
-
-.thread51.thread:                                 ; preds = %.split82.us, %.split.us, %.split79.us, %15, %7, %9
+.thread51.thread:                                 ; preds = %.split.us, %.split79.us, %.split82.us, %15, %7, %9
   %93 = call ptr @g_byte_array_set_size(ptr noundef nonnull %1, i32 noundef 0)
   br label %.thread51
 
-.thread51:                                        ; preds = %.thread.us._crit_edge, %77, %.thread.us, %.threadthread-pre-split, %.split82.us, %.split.us, %.split79.us, %5, %.thread51.thread
-  %.05569 = phi i1 [ false, %.thread51.thread ], [ false, %5 ], [ true, %.split82.us ], [ true, %.split79.us ], [ true, %.split.us ], [ true, %.threadthread-pre-split ], [ true, %.thread.us ], [ true, %77 ], [ true, %.thread.us._crit_edge ]
-  %.3 = phi ptr [ %0, %.thread51.thread ], [ %0, %5 ], [ %.us-phi83, %.split82.us ], [ %.us-phi80, %.split79.us ], [ %.us-phi, %.split.us ], [ %23, %.threadthread-pre-split ], [ %59, %.thread.us ], [ %81, %77 ], [ %53, %.thread.us._crit_edge ]
+.thread51:                                        ; preds = %.thread.us._crit_edge, %77, %.thread.us, %.threadthread-pre-split, %.split.us, %.split79.us, %.split82.us, %5, %.thread51.thread
+  %.05569 = phi i1 [ true, %.split79.us ], [ false, %.thread51.thread ], [ false, %5 ], [ true, %.split.us ], [ true, %.split82.us ], [ true, %.thread.us ], [ true, %77 ], [ true, %.threadthread-pre-split ], [ true, %.thread.us._crit_edge ]
+  %.3 = phi ptr [ %.us-phi80, %.split79.us ], [ %0, %.thread51.thread ], [ %0, %5 ], [ %.us-phi, %.split.us ], [ %.us-phi83, %.split82.us ], [ %59, %.thread.us ], [ %81, %77 ], [ %23, %.threadthread-pre-split ], [ %53, %.thread.us._crit_edge ]
   %.not46 = icmp eq ptr %2, null
   br i1 %.not46, label %95, label %94
 
@@ -874,7 +874,7 @@ define noundef zeroext i1 @rel_oid_str_to_bytes(ptr noundef readonly captures(ad
   br i1 %.not61, label %.loopexit, label %.preheader, !llvm.loop !15
 
 .loopexit:                                        ; preds = %16, %.lr.ph.split.us, %.lr.ph.split, %26, %28, %58, %60, %.thread, %3, %36, %._crit_edge
-  %.058 = phi i1 [ false, %._crit_edge ], [ true, %36 ], [ false, %3 ], [ false, %.lr.ph.split ], [ true, %.thread ], [ false, %58 ], [ false, %60 ], [ false, %28 ], [ false, %26 ], [ false, %.lr.ph.split.us ], [ false, %16 ]
+  %.058 = phi i1 [ false, %.lr.ph.split ], [ false, %._crit_edge ], [ true, %.thread ], [ true, %36 ], [ false, %3 ], [ false, %58 ], [ false, %60 ], [ false, %28 ], [ false, %26 ], [ false, %.lr.ph.split.us ], [ false, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.058
 }
@@ -1158,7 +1158,7 @@ define noalias ptr @convert_string_to_hex(ptr noundef readonly captures(none) %0
   br label %.loopexit
 
 .loopexit:                                        ; preds = %20, %18, %2, %.outer50._crit_edge, %.outer._crit_edge
-  %.0 = phi ptr [ %32, %.outer._crit_edge ], [ null, %.outer50._crit_edge ], [ null, %2 ], [ null, %18 ], [ null, %20 ]
+  %.0 = phi ptr [ null, %.outer50._crit_edge ], [ %32, %.outer._crit_edge ], [ null, %2 ], [ null, %18 ], [ null, %20 ]
   ret ptr %.0
 }
 

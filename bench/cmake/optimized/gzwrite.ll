@@ -228,7 +228,7 @@ gz_zero.exit:                                     ; preds = %27, %24, %12
   br i1 %.not67, label %.critedge70, label %85, !llvm.loop !27
 
 .critedge70:                                      ; preds = %37, %89, %85, %55, %74, %21, %80, %9, %3
-  %.056 = phi i64 [ 0, %3 ], [ 0, %9 ], [ 0, %80 ], [ 0, %21 ], [ 0, %85 ], [ %2, %55 ], [ 0, %74 ], [ %2, %89 ], [ 0, %37 ]
+  %.056 = phi i64 [ %2, %55 ], [ 0, %3 ], [ 0, %9 ], [ 0, %80 ], [ 0, %21 ], [ %2, %89 ], [ 0, %74 ], [ 0, %85 ], [ 0, %37 ]
   ret i64 %.056
 }
 
@@ -979,7 +979,7 @@ define internal fastcc range(i32 -1, 1) i32 @gz_comp(ptr noundef nonnull %0, i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %28, %.preheader, %.split81.us, %119, %37, %7, %.split79.us, %.split83.us, %24
-  %.0 = phi i32 [ 0, %37 ], [ -1, %24 ], [ -1, %7 ], [ -1, %.split83.us ], [ -1, %.split79.us ], [ 0, %119 ], [ 0, %.split81.us ], [ 0, %.preheader ], [ 0, %28 ]
+  %.0 = phi i32 [ 0, %37 ], [ -1, %24 ], [ -1, %7 ], [ 0, %.split81.us ], [ -1, %.split83.us ], [ -1, %.split79.us ], [ 0, %119 ], [ 0, %.preheader ], [ 0, %28 ]
   ret i32 %.0
 }
 

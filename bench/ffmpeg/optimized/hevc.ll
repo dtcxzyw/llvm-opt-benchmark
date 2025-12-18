@@ -651,7 +651,7 @@ hvcc_parse_nal_unit.exit.thread.sink.split:       ; preds = %hvcc_parse_nal_unit
   br label %hvcc_parse_nal_unit.exit.thread
 
 hvcc_parse_nal_unit.exit.thread:                  ; preds = %354, %.lr.ph199, %299, %hvcc_parse_nal_unit.exit.thread.sink.split
-  %.6 = phi i32 [ %363, %hvcc_parse_nal_unit.exit.thread.sink.split ], [ 0, %.lr.ph199 ], [ %301, %299 ], [ %356, %354 ]
+  %.6 = phi i32 [ 0, %.lr.ph199 ], [ %363, %hvcc_parse_nal_unit.exit.thread.sink.split ], [ %301, %299 ], [ %356, %354 ]
   %364 = getelementptr inbounds nuw i8, ptr %7, i64 32
   br label %365
 
@@ -4798,8 +4798,8 @@ get_ue_golomb_long.exit121.i.i:                   ; preds = %2281, %2278, %.lr.p
   br i1 %exitcond147.not.i.i, label %.loopexit634.i, label %.lr.ph135.i.i, !llvm.loop !83
 
 .loopexit634.i:                                   ; preds = %2053, %get_ue_golomb_long.exit121.i.i, %.preheader.i519.i
-  %2290 = phi i32 [ %2058, %.preheader.i519.i ], [ %2058, %get_ue_golomb_long.exit121.i.i ], [ %1973, %2053 ]
-  %.promoted644650.i = phi i32 [ %.promoted644648.i, %.preheader.i519.i ], [ %2288, %get_ue_golomb_long.exit121.i.i ], [ %2055, %2053 ]
+  %2290 = phi i32 [ %2058, %get_ue_golomb_long.exit121.i.i ], [ %2058, %.preheader.i519.i ], [ %1973, %2053 ]
+  %.promoted644650.i = phi i32 [ %2288, %get_ue_golomb_long.exit121.i.i ], [ %.promoted644648.i, %.preheader.i519.i ], [ %2055, %2053 ]
   %indvars.iv.next714.i = add nuw nsw i64 %indvars.iv713.i, 1
   %exitcond717.not.i = icmp eq i64 %indvars.iv.next714.i, %wide.trip.count716.i
   br i1 %exitcond717.not.i, label %._crit_edge.i60, label %1972, !llvm.loop !84
@@ -5912,7 +5912,7 @@ get_ue_golomb_long.exit224.sink.split.i.i:        ; preds = %get_ue_golomb_long.
   br label %hvcc_parse_sps.exit
 
 hvcc_parse_sps.exit:                              ; preds = %652, %get_ue_golomb_long.exit87.i.i, %.preheader638.i, %1906, %get_ue_golomb_long.exit501.i, %2304, %get_ue_golomb_long.exit537.i, %.loopexit.i61, %2795, %get_ue_golomb_long.exit207.i.i, %get_ue_golomb_long.exit224.sink.split.i.i
-  %.2.i = phi i32 [ 0, %.loopexit.i61 ], [ -1094995529, %get_ue_golomb_long.exit537.i ], [ -1094995529, %get_ue_golomb_long.exit501.i ], [ -1094995529, %2304 ], [ 0, %get_ue_golomb_long.exit224.sink.split.i.i ], [ -1094995529, %1906 ], [ 0, %2795 ], [ 0, %get_ue_golomb_long.exit207.i.i ], [ -1094995529, %.preheader638.i ], [ -1094995529, %get_ue_golomb_long.exit87.i.i ], [ -1094995529, %652 ]
+  %.2.i = phi i32 [ 0, %.loopexit.i61 ], [ -1094995529, %get_ue_golomb_long.exit537.i ], [ -1094995529, %get_ue_golomb_long.exit501.i ], [ -1094995529, %2304 ], [ 0, %get_ue_golomb_long.exit224.sink.split.i.i ], [ -1094995529, %1906 ], [ -1094995529, %.preheader638.i ], [ 0, %2795 ], [ 0, %get_ue_golomb_long.exit207.i.i ], [ -1094995529, %get_ue_golomb_long.exit87.i.i ], [ -1094995529, %652 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %hvcc_parse_vps.exit
 

@@ -3554,7 +3554,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit152: ; preds = %24
   br label %406
 
 _ZN2cv2ml18DTreesImplForBoost9scaleTreeEid.exit:  ; preds = %239, %200, %.preheader.i
-  %.2116 = phi double [ %210, %200 ], [ %.1115.lcssa, %.preheader.i ], [ %228, %239 ]
+  %.2116 = phi double [ %.1115.lcssa, %.preheader.i ], [ %210, %200 ], [ %228, %239 ]
   %250 = fcmp ogt double %.2116, 0x3E80000000000000
   br i1 %250, label %251, label %_ZN2cv2ml18DTreesImplForBoost16normalizeWeightsEv.exit
 
@@ -3658,7 +3658,7 @@ _ZN2cv2ml18DTreesImplForBoost16normalizeWeightsEv.exit.thread: ; preds = %.prehe
   br i1 %exitcond254.not, label %._crit_edge212, label %296, !llvm.loop !176
 
 ._crit_edge212:                                   ; preds = %296, %_ZN2cv2ml18DTreesImplForBoost16normalizeWeightsEv.exit.thread, %.preheader
-  %303 = phi ptr [ %283, %.preheader ], [ %287, %_ZN2cv2ml18DTreesImplForBoost16normalizeWeightsEv.exit.thread ], [ %283, %296 ]
+  %303 = phi ptr [ %287, %_ZN2cv2ml18DTreesImplForBoost16normalizeWeightsEv.exit.thread ], [ %283, %.preheader ], [ %283, %296 ]
   %.not.i.i153 = icmp eq i64 %sext138, 0
   br i1 %.not.i.i153, label %_ZSt4sortIPdEvT_S1_.exit, label %304
 

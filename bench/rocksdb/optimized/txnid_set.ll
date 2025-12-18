@@ -577,8 +577,8 @@ _ZNK4toku3omtImmLb0EE5fetchEjPm.exit:             ; preds = %_ZNK4toku3omtImmLb0
   %.sink.i = load i64, ptr %.sink.in.i, align 8, !tbaa !4
   br label %41
 
-41:                                               ; preds = %5, %_ZNK4toku3omtImmLb0EE4sizeEv.exit.thread10.i, %_ZNK4toku3omtImmLb0EE4sizeEv.exit.i, %_ZNK4toku3omtImmLb0EE5fetchEjPm.exit
-  %42 = phi i64 [ %.sink.i, %_ZNK4toku3omtImmLb0EE5fetchEjPm.exit ], [ 0, %_ZNK4toku3omtImmLb0EE4sizeEv.exit.i ], [ 0, %_ZNK4toku3omtImmLb0EE4sizeEv.exit.thread10.i ], [ 0, %5 ]
+41:                                               ; preds = %_ZNK4toku3omtImmLb0EE4sizeEv.exit.thread10.i, %5, %_ZNK4toku3omtImmLb0EE4sizeEv.exit.i, %_ZNK4toku3omtImmLb0EE5fetchEjPm.exit
+  %42 = phi i64 [ %.sink.i, %_ZNK4toku3omtImmLb0EE5fetchEjPm.exit ], [ 0, %_ZNK4toku3omtImmLb0EE4sizeEv.exit.i ], [ 0, %5 ], [ 0, %_ZNK4toku3omtImmLb0EE4sizeEv.exit.thread10.i ]
   ret i64 %42
 }
 
@@ -949,7 +949,7 @@ define linkonce_odr void @_ZN4toku3omtImmLb0EE15insert_internalEPNS_12omt_intern
   br label %21
 
 tailrecurse.outer._crit_edge:                     ; preds = %_ZNK4toku3omtImmLb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit39, %tailrecurse, %5
-  %.tr40.lcssa = phi ptr [ %1, %5 ], [ %29, %tailrecurse ], [ %111, %_ZNK4toku3omtImmLb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit39 ]
+  %.tr40.lcssa = phi ptr [ %29, %tailrecurse ], [ %1, %5 ], [ %111, %_ZNK4toku3omtImmLb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit39 ]
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %11 = load i32, ptr %10, align 4, !tbaa !14
   %12 = add i32 %11, 1

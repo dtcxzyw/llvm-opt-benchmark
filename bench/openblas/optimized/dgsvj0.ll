@@ -878,11 +878,11 @@ thread-pre-split:                                 ; preds = %152, %170
   br label %.loopexit1425
 
 .loopexit1425:                                    ; preds = %.loopexit1425.loopexit, %490, %491
-  %493 = phi double [ %492, %491 ], [ %.pre1604, %490 ], [ %.pre, %.loopexit1425.loopexit ]
-  %.51278 = phi double [ %.41277, %491 ], [ %.41277, %490 ], [ %.31276, %.loopexit1425.loopexit ]
-  %.61262 = phi double [ %.51261, %491 ], [ %.51261, %490 ], [ %.31259, %.loopexit1425.loopexit ]
-  %.81248 = phi i32 [ 0, %491 ], [ 0, %490 ], [ %.31243, %.loopexit1425.loopexit ]
-  %.6 = phi i32 [ %.5, %491 ], [ %.5, %490 ], [ %.3, %.loopexit1425.loopexit ]
+  %493 = phi double [ %.pre1604, %490 ], [ %492, %491 ], [ %.pre, %.loopexit1425.loopexit ]
+  %.51278 = phi double [ %.41277, %490 ], [ %.41277, %491 ], [ %.31276, %.loopexit1425.loopexit ]
+  %.61262 = phi double [ %.51261, %490 ], [ %.51261, %491 ], [ %.31259, %.loopexit1425.loopexit ]
+  %.81248 = phi i32 [ 0, %490 ], [ 0, %491 ], [ %.31243, %.loopexit1425.loopexit ]
+  %.6 = phi i32 [ %.5, %490 ], [ %.5, %491 ], [ %.3, %.loopexit1425.loopexit ]
   store double %493, ptr %123, align 8, !tbaa !7
   br label %500
 

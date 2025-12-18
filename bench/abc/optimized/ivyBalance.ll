@@ -1063,7 +1063,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br label %.loopexit
 
 .loopexit:                                        ; preds = %20, %25, %24, %.preheader47, %77, %86, %Vec_PtrPush.exit
-  %.034 = phi i32 [ %90, %86 ], [ -1, %77 ], [ 0, %Vec_PtrPush.exit ], [ 0, %.preheader47 ], [ 0, %24 ], [ -1, %25 ], [ 1, %20 ]
+  %.034 = phi i32 [ %90, %86 ], [ 0, %24 ], [ -1, %77 ], [ 0, %Vec_PtrPush.exit ], [ 0, %.preheader47 ], [ -1, %25 ], [ 1, %20 ]
   ret i32 %.034
 }
 

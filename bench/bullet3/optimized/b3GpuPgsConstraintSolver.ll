@@ -7138,10 +7138,10 @@ _ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i.i142: ; preds = %114, %_ZNK20b
   br i1 %exitcond201.not, label %.loopexit, label %192, !llvm.loop !248
 
 .loopexit:                                        ; preds = %192, %.preheader, %185, %148
-  %.1162 = phi i32 [ %187, %185 ], [ %.0161177, %148 ], [ 0, %.preheader ], [ 0, %192 ]
-  %.294 = phi i32 [ %186, %185 ], [ %.193179, %148 ], [ %186, %.preheader ], [ %186, %192 ]
-  %.289 = phi i32 [ %.4, %185 ], [ %.188180, %148 ], [ 0, %.preheader ], [ 0, %192 ]
-  %.2 = phi i32 [ %.3, %185 ], [ %.1181, %148 ], [ %.3, %.preheader ], [ %.3, %192 ]
+  %.1162 = phi i32 [ %.0161177, %148 ], [ %187, %185 ], [ 0, %.preheader ], [ 0, %192 ]
+  %.294 = phi i32 [ %.193179, %148 ], [ %186, %185 ], [ %186, %.preheader ], [ %186, %192 ]
+  %.289 = phi i32 [ %.188180, %148 ], [ %.4, %185 ], [ 0, %.preheader ], [ 0, %192 ]
+  %.2 = phi i32 [ %.1181, %148 ], [ %.3, %185 ], [ %.3, %.preheader ], [ %.3, %192 ]
   %indvars.iv.next203 = add nsw i64 %indvars.iv202, 1
   %exitcond206.not = icmp eq i64 %indvars.iv.next203, %wide.trip.count205
   br i1 %exitcond206.not, label %._crit_edge183, label %.lr.ph182, !llvm.loop !249

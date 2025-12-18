@@ -3151,7 +3151,7 @@ define hidden noundef zeroext i1 @_ZN11quinn_proto10connection7streams5state12St
   br label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h02004744877c64ceE.exit.thread"
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h02004744877c64ceE.exit.thread": ; preds = %._crit_edge.i.i, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h02004744877c64ceE.exit", %2, %40
-  %.sroa.0.0 = phi i1 [ %43, %40 ], [ false, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h02004744877c64ceE.exit" ], [ false, %2 ], [ false, %._crit_edge.i.i ]
+  %.sroa.0.0 = phi i1 [ %43, %40 ], [ false, %2 ], [ false, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h02004744877c64ceE.exit" ], [ false, %._crit_edge.i.i ]
   ret i1 %.sroa.0.0
 }
 
@@ -3317,7 +3317,7 @@ define hidden void @_ZN11quinn_proto10connection7streams5state12StreamsState20wr
   br label %147
 
 .thread:                                          ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h3963a0157a2ea48aE.exit", %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$13get_inner_mut17ha1f76031d9475efaE.exit.thread", %.lr.ph.lr.ph, %6
-  %126 = phi i64 [ %98, %6 ], [ %98, %.lr.ph.lr.ph ], [ %712, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$13get_inner_mut17ha1f76031d9475efaE.exit.thread" ], [ %789, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h3963a0157a2ea48aE.exit" ]
+  %126 = phi i64 [ %98, %.lr.ph.lr.ph ], [ %98, %6 ], [ %712, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$13get_inner_mut17ha1f76031d9475efaE.exit.thread" ], [ %789, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h3963a0157a2ea48aE.exit" ]
   %127 = add nuw i64 %126, 17
   %128 = icmp ult i64 %127, %5
   br i1 %128, label %.lr.ph780, label %.loopexit753

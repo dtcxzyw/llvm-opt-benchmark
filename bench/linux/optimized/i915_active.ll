@@ -1163,7 +1163,7 @@ define internal fastcc i32 @await_active(ptr noundef %0, i32 noundef %1, ptr nou
   br label %.thread14
 
 .thread14:                                        ; preds = %14, %.lr.ph26, %5, %104, %100
-  %105 = phi i32 [ %84, %104 ], [ %84, %100 ], [ 0, %5 ], [ %84, %.lr.ph26 ], [ 0, %14 ]
+  %105 = phi i32 [ 0, %5 ], [ %84, %104 ], [ %84, %100 ], [ %84, %.lr.ph26 ], [ 0, %14 ]
   ret i32 %105
 }
 

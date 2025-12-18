@@ -289,7 +289,7 @@ define dso_local ptr @client_req_init(i32 noundef %0, ptr noundef %1) local_unna
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %46, %.critedge.loopexit69.i, %.critedge.loopexit.split.loop.exit.i, %41, %38
-  %.1.i = phi i32 [ 4, %38 ], [ 4, %41 ], [ %50, %.critedge.loopexit69.i ], [ %indvars.le.i, %.critedge.loopexit.split.loop.exit.i ], [ %smax.i, %46 ]
+  %.1.i = phi i32 [ %50, %.critedge.loopexit69.i ], [ 4, %38 ], [ 4, %41 ], [ %indvars.le.i, %.critedge.loopexit.split.loop.exit.i ], [ %smax.i, %46 ]
   %51 = load i32, ptr %4, align 8
   %.not52.i = icmp slt i32 %.1.i, %51
   br i1 %.not52.i, label %54, label %52
@@ -1183,7 +1183,7 @@ _client_req_get_val.exit.i44:                     ; preds = %.lr.ph.i.i40
   br label %client_req_get_int.exit46
 
 client_req_get_int.exit46:                        ; preds = %44, %client_req_get_int.exit.thread, %client_req_get_int.exit, %_client_req_get_val.exit.i44, %57
-  %60 = phi ptr [ %6, %client_req_get_int.exit.thread ], [ %43, %client_req_get_int.exit ], [ %43, %_client_req_get_val.exit.i44 ], [ %43, %57 ], [ %43, %44 ]
+  %60 = phi ptr [ %6, %client_req_get_int.exit.thread ], [ %43, %client_req_get_int.exit ], [ %43, %57 ], [ %43, %_client_req_get_val.exit.i44 ], [ %43, %44 ]
   %61 = load i32, ptr %60, align 4
   %62 = zext i32 %61 to i64
   %63 = tail call ptr @slurm_xcalloc(i64 noundef %62, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 447, ptr noundef nonnull @__func__.client_req_parse_spawn_subcmd) #11
@@ -1713,7 +1713,7 @@ define dso_local range(i32 -1, 1) i32 @client_resp_send(ptr noundef readonly cap
   br label %.lr.ph83.split, !llvm.loop !23
 
 .thread:                                          ; preds = %.split85.us, %.loopexit, %57, %.split88.us, %29, %.split71.us, %11
-  %.0 = phi i32 [ -1, %29 ], [ -1, %11 ], [ -1, %.split71.us ], [ -1, %.split88.us ], [ -1, %57 ], [ 0, %.loopexit ], [ 0, %.split85.us ]
+  %.0 = phi i32 [ -1, %57 ], [ -1, %29 ], [ -1, %11 ], [ -1, %.split71.us ], [ -1, %.split88.us ], [ 0, %.loopexit ], [ 0, %.split85.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

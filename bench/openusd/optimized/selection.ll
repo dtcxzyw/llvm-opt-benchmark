@@ -872,12 +872,12 @@ define noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__11HdSelection21GetPrim
   br label %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_11HdSelection18PrimSelectionStateENS1_4HashESt8equal_toIS1_ESaISt4pairIKS1_S3_EEE4findERS8_.exit.thread, !llvm.loop !6
 
 _ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_11HdSelection18PrimSelectionStateENS1_4HashESt8equal_toIS1_ESaISt4pairIKS1_S3_EEE4findERS8_.exit: ; preds = %52, %22, %44
-  %.sroa.06.1.i.i = phi ptr [ %45, %44 ], [ %.sroa.06.0.i.i, %22 ], [ %57, %52 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %22 ], [ %45, %44 ], [ %57, %52 ]
   %62 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   br label %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_11HdSelection18PrimSelectionStateENS1_4HashESt8equal_toIS1_ESaISt4pairIKS1_S3_EEE4findERS8_.exit.thread
 
 _ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_11HdSelection18PrimSelectionStateENS1_4HashESt8equal_toIS1_ESaISt4pairIKS1_S3_EEE4findERS8_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %21, %25, %..loopexit_crit_edge22.i.i.i.i, %7, %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_11HdSelection18PrimSelectionStateENS1_4HashESt8equal_toIS1_ESaISt4pairIKS1_S3_EEE4findERS8_.exit
-  %.0 = phi ptr [ null, %7 ], [ %62, %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_11HdSelection18PrimSelectionStateENS1_4HashESt8equal_toIS1_ESaISt4pairIKS1_S3_EEE4findERS8_.exit ], [ null, %..loopexit_crit_edge22.i.i.i.i ], [ null, %25 ], [ null, %21 ], [ null, %.lr.ph.i.i.i.i ]
+  %.0 = phi ptr [ null, %7 ], [ %62, %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_11HdSelection18PrimSelectionStateENS1_4HashESt8equal_toIS1_ESaISt4pairIKS1_S3_EEE4findERS8_.exit ], [ null, %..loopexit_crit_edge22.i.i.i.i ], [ null, %21 ], [ null, %25 ], [ null, %.lr.ph.i.i.i.i ]
   ret ptr %.0
 }
 
@@ -3510,7 +3510,7 @@ _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__7GfVec4fEEE8alloca
   br i1 %51, label %.loopexit, label %50
 
 .loopexit:                                        ; preds = %.preheader, %50, %45
-  %.pn = phi { ptr, i32 } [ %46, %45 ], [ %49, %50 ], [ %46, %.preheader ]
+  %.pn = phi { ptr, i32 } [ %49, %50 ], [ %46, %45 ], [ %46, %.preheader ]
   resume { ptr, i32 } %.pn
 }
 

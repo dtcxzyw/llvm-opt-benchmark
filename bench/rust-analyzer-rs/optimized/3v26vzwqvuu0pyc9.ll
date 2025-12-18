@@ -4005,8 +4005,8 @@ _ZN8lz4_flex5block10decompress9duplicate17h453689ed96a7505cE.exit.i.i.i.i: ; pre
   br label %.backedge.i.i.i.i
 
 .loopexit.i.i.i:                                  ; preds = %_ZN8lz4_flex5block10decompress9duplicate17h453689ed96a7505cE.exit.i.i.i.i, %128, %111, %62, %.preheader38.i.i.i.i, %.preheader.i.i.i.i, %135, %108, %.noexc.i
-  %.sroa.13.0.ph.i.i.i = phi i64 [ %110, %108 ], [ %136, %135 ], [ undef, %.noexc.i ], [ undef, %.preheader38.i.i.i.i ], [ undef, %.preheader.i.i.i.i ], [ undef, %62 ], [ undef, %111 ], [ undef, %128 ], [ undef, %_ZN8lz4_flex5block10decompress9duplicate17h453689ed96a7505cE.exit.i.i.i.i ]
-  %.sroa.0.021.ph.i.i.i = phi i64 [ 0, %108 ], [ 0, %135 ], [ 2, %.noexc.i ], [ 2, %.preheader38.i.i.i.i ], [ 2, %.preheader.i.i.i.i ], [ 2, %_ZN8lz4_flex5block10decompress9duplicate17h453689ed96a7505cE.exit.i.i.i.i ], [ 3, %128 ], [ 2, %111 ], [ 1, %62 ]
+  %.sroa.13.0.ph.i.i.i = phi i64 [ undef, %.preheader.i.i.i.i ], [ %110, %108 ], [ undef, %.preheader38.i.i.i.i ], [ undef, %.noexc.i ], [ %136, %135 ], [ undef, %62 ], [ undef, %111 ], [ undef, %128 ], [ undef, %_ZN8lz4_flex5block10decompress9duplicate17h453689ed96a7505cE.exit.i.i.i.i ]
+  %.sroa.0.021.ph.i.i.i = phi i64 [ 2, %.preheader.i.i.i.i ], [ 0, %108 ], [ 2, %.preheader38.i.i.i.i ], [ 2, %.noexc.i ], [ 0, %135 ], [ 3, %128 ], [ 2, %111 ], [ 1, %62 ], [ 2, %_ZN8lz4_flex5block10decompress9duplicate17h453689ed96a7505cE.exit.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !707
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h5891a58152962f9dE.llvm.3524786003483496519"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8)
           to label %.noexc5.i unwind label %205

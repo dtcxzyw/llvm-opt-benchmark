@@ -783,7 +783,7 @@ read_old_huffman_tables.exit:                     ; preds = %205
   br i1 %.not192, label %.thread, label %321
 
 .thread:                                          ; preds = %206, %321, %322, %.thread223, %240, %220, %read_old_huffman_tables.exit, %1, %99, %319, %310
-  %.0172 = phi i32 [ %8, %1 ], [ %212, %read_old_huffman_tables.exit ], [ -1094995529, %310 ], [ -1094995529, %319 ], [ -1094995529, %240 ], [ -1094995529, %220 ], [ %107, %99 ], [ -1094995529, %.thread223 ], [ 0, %321 ], [ -12, %322 ], [ %210, %206 ]
+  %.0172 = phi i32 [ %8, %1 ], [ %212, %read_old_huffman_tables.exit ], [ -1094995529, %310 ], [ -1094995529, %319 ], [ -1094995529, %240 ], [ 0, %321 ], [ -1094995529, %220 ], [ %107, %99 ], [ -1094995529, %.thread223 ], [ -12, %322 ], [ %210, %206 ]
   ret i32 %.0172
 }
 
@@ -3317,7 +3317,7 @@ define internal fastcc void @decode_plane_bitstream(ptr noundef %0, i32 noundef 
   br i1 %exitcond789.not, label %.critedge, label %176, !llvm.loop !112
 
 .critedge:                                        ; preds = %175, %27, %320, %.preheader732, %.preheader
-  %.4638 = phi i32 [ %10, %.preheader ], [ %10, %.preheader732 ], [ %.8642, %320 ], [ %.3637, %175 ], [ %.0634753, %27 ]
+  %.4638 = phi i32 [ %.8642, %320 ], [ %10, %.preheader ], [ %10, %.preheader732 ], [ %.3637, %175 ], [ %.0634753, %27 ]
   %321 = and i32 %1, 1
   %.not703 = icmp eq i32 %321, 0
   br i1 %.not703, label %394, label %322
@@ -4308,7 +4308,7 @@ get_vlc2.exit715:                                 ; preds = %get_vlc2.exit711, %
   br i1 %exitcond771.not, label %.critedge4, label %940, !llvm.loop !116
 
 .critedge4:                                       ; preds = %get_vlc2.exit707, %788, %get_vlc2.exit715, %.preheader738, %.preheader737
-  %.val727 = phi i32 [ %398, %.preheader737 ], [ %398, %.preheader738 ], [ %1082, %get_vlc2.exit715 ], [ %934, %get_vlc2.exit707 ], [ %789, %788 ]
+  %.val727 = phi i32 [ %1082, %get_vlc2.exit715 ], [ %398, %.preheader737 ], [ %398, %.preheader738 ], [ %789, %788 ], [ %934, %get_vlc2.exit707 ]
   %1088 = and i32 %1, 1
   %.not697 = icmp ne i32 %1088, 0
   %1089 = icmp sgt i32 %.val722, %.val727
@@ -5622,7 +5622,7 @@ define internal fastcc void @decode_422_bitstream(ptr noundef captures(none) %0,
   br i1 %exitcond711.not, label %.loopexit, label %638, !llvm.loop !120
 
 .loopexit:                                        ; preds = %618, %625, %924, %.critedge, %.preheader
-  %.15 = phi i32 [ %4, %.preheader ], [ %.8, %.critedge ], [ %.8, %625 ], [ %.22, %924 ], [ %.14, %618 ]
+  %.15 = phi i32 [ %.8, %.critedge ], [ %4, %.preheader ], [ %.8, %625 ], [ %.22, %924 ], [ %.14, %618 ]
   store i32 %.15, ptr %3, align 8, !tbaa !105
   ret void
 }
@@ -6057,7 +6057,7 @@ define internal fastcc void @decode_gray_bitstream(ptr noundef captures(none) %0
   br i1 %exitcond261.not, label %.loopexit, label %178, !llvm.loop !123
 
 .loopexit:                                        ; preds = %164, %169, %322, %.critedge, %.preheader
-  %.4 = phi i32 [ %4, %.preheader ], [ %.0212.lcssa, %.critedge ], [ %.0212.lcssa, %169 ], [ %.8, %322 ], [ %.3, %164 ]
+  %.4 = phi i32 [ %.0212.lcssa, %.critedge ], [ %4, %.preheader ], [ %.0212.lcssa, %169 ], [ %.8, %322 ], [ %.3, %164 ]
   store i32 %.4, ptr %3, align 8, !tbaa !105
   ret void
 }

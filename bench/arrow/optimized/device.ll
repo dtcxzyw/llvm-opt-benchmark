@@ -4553,7 +4553,7 @@ _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %68, %64, %_ZNKSt7__
   br label %common.resume
 
 _ZNSt13unordered_mapIN5arrow20DeviceAllocationTypeESt8functionIFNS0_6ResultISt10shared_ptrINS0_13MemoryManagerEEEElEESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S9_EEE4findERSF_.exit.i: ; preds = %41, %23, %36
-  %.sroa.06.1.i.i.i = phi ptr [ %37, %36 ], [ %.sroa.06.0.i.i.i, %23 ], [ %43, %41 ]
+  %.sroa.06.1.i.i.i = phi ptr [ %.sroa.06.0.i.i.i, %23 ], [ %37, %36 ], [ %43, %41 ]
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 32

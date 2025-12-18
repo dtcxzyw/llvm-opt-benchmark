@@ -700,7 +700,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit.sink.split: ; p
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit: ; preds = %.critedge77, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit.sink.split, %.critedge.preheader, %64
-  %.045 = phi i32 [ 0, %64 ], [ 0, %.critedge.preheader ], [ -1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit.sink.split ], [ 0, %.critedge77 ]
+  %.045 = phi i32 [ 0, %64 ], [ -1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit.sink.split ], [ 0, %.critedge.preheader ], [ 0, %.critedge77 ]
   %208 = load ptr, ptr %7, align 8, !tbaa !7
   %209 = icmp eq ptr %208, %32
   br i1 %209, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit118, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i116
@@ -1548,12 +1548,12 @@ _ZNK4ncnn3Mat5emptyEv.exit268:                    ; preds = %301
   br i1 %357, label %.noexc270, label %._crit_edge390, !llvm.loop !81
 
 .critedge:                                        ; preds = %.preheader359, %.preheader360, %.preheader361, %.preheader, %153, %301, %243, %198, %165, %_ZNK4ncnn3Mat5emptyEv.exit268, %_ZNK4ncnn3Mat5emptyEv.exit267, %_ZNK4ncnn3Mat5emptyEv.exit266, %_ZNK4ncnn3Mat5emptyEv.exit265
-  %.4 = phi i32 [ -100, %_ZNK4ncnn3Mat5emptyEv.exit268 ], [ -100, %301 ], [ -100, %198 ], [ -100, %165 ], [ -100, %243 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit267 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit265 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit266 ], [ 0, %153 ], [ 0, %.preheader360 ], [ 0, %.preheader ], [ 0, %.preheader361 ], [ 0, %.preheader359 ]
+  %.4 = phi i32 [ -100, %_ZNK4ncnn3Mat5emptyEv.exit268 ], [ -100, %301 ], [ -100, %198 ], [ -100, %165 ], [ -100, %243 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit267 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit265 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit266 ], [ 0, %.preheader ], [ 0, %153 ], [ 0, %.preheader360 ], [ 0, %.preheader361 ], [ 0, %.preheader359 ]
   %.not.i.i.i = icmp eq ptr %158, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit277, label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %._crit_edge398, %.lr.ph371, %._crit_edge379, %._crit_edge388, %.critedge
-  %.4502 = phi i32 [ %.4, %.critedge ], [ 0, %._crit_edge388 ], [ 0, %._crit_edge379 ], [ 0, %.lr.ph371 ], [ 0, %._crit_edge398 ]
+  %.4502 = phi i32 [ %.4, %.critedge ], [ 0, %.lr.ph371 ], [ 0, %._crit_edge379 ], [ 0, %._crit_edge388 ], [ 0, %._crit_edge398 ]
   %358 = ptrtoint ptr %157 to i64
   %359 = ptrtoint ptr %158 to i64
   %360 = sub i64 %358, %359
@@ -2075,7 +2075,7 @@ _ZN4ncnnL17get_indexed_valueERKNS_3MatERKNSt7__cxx1112basic_stringIcSt11char_tra
   br i1 %164, label %155, label %.loopexit, !llvm.loop !111
 
 .loopexit:                                        ; preds = %155, %_ZN4ncnnL17get_indexed_valueERKNS_3MatERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorIiSaIiEE.exit, %.preheader32, %.preheader
-  %.029 = phi nsz float [ 1.000000e+00, %.preheader ], [ 0.000000e+00, %.preheader32 ], [ %153, %_ZN4ncnnL17get_indexed_valueERKNS_3MatERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorIiSaIiEE.exit ], [ %159, %155 ]
+  %.029 = phi nsz float [ %153, %_ZN4ncnnL17get_indexed_valueERKNS_3MatERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorIiSaIiEE.exit ], [ 1.000000e+00, %.preheader ], [ 0.000000e+00, %.preheader32 ], [ %159, %155 ]
   ret float %.029
 }
 

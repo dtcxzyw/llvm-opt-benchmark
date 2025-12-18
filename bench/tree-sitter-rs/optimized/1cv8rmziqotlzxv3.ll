@@ -1097,9 +1097,9 @@ define void @_ZN21tree_sitter_highlight19injection_for_match17he9a09c7c5997cc6bE
   br i1 %41, label %._crit_edge, label %.lr.ph.split.split.us
 
 ._crit_edge:                                      ; preds = %87, %40, %30, %.lr.ph.split.us, %8
-  %.sroa.11.0.lcssa = phi i64 [ undef, %8 ], [ undef, %.lr.ph.split.us ], [ %.sroa.11.3.us115, %40 ], [ undef, %30 ], [ %.sroa.11.3, %87 ]
-  %.sroa.05.0.lcssa = phi ptr [ null, %8 ], [ null, %.lr.ph.split.us ], [ %.sroa.05.3.us116, %40 ], [ null, %30 ], [ %.sroa.05.3, %87 ]
-  %.sroa.029.0.lcssa = phi i64 [ 0, %8 ], [ 0, %.lr.ph.split.us ], [ 0, %40 ], [ %.sroa.029.2.us, %30 ], [ %.sroa.029.2, %87 ]
+  %.sroa.11.0.lcssa = phi i64 [ undef, %8 ], [ %.sroa.11.3.us115, %40 ], [ undef, %30 ], [ undef, %.lr.ph.split.us ], [ %.sroa.11.3, %87 ]
+  %.sroa.05.0.lcssa = phi ptr [ null, %8 ], [ %.sroa.05.3.us116, %40 ], [ null, %30 ], [ null, %.lr.ph.split.us ], [ %.sroa.05.3, %87 ]
+  %.sroa.029.0.lcssa = phi i64 [ 0, %8 ], [ 0, %40 ], [ %.sroa.029.2.us, %30 ], [ 0, %.lr.ph.split.us ], [ %.sroa.029.2, %87 ]
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %43 = load i64, ptr %42, align 8, !noundef !4
   %44 = tail call { ptr, i64 } @_ZN11tree_sitter5Query17property_settings17hebe827cc356ef0f4E(ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %4, i64 noundef %43)

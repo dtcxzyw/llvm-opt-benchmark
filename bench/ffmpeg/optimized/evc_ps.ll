@@ -2198,7 +2198,7 @@ get_se_golomb_long.exit:                          ; preds = %1397, %1452, %1456
   br label %.loopexit
 
 .loopexit:                                        ; preds = %1264, %1279, %get_ue_golomb.exit478, %.loopexit.sink.split, %1269, %get_ue_golomb.exit462, %get_ue_golomb_long.exit448, %get_ue_golomb.exit430, %get_ue_golomb.exit418, %44, %1496
-  %.0191 = phi i32 [ -1094995529, %get_ue_golomb.exit418 ], [ -1094995529, %44 ], [ -1094995529, %get_ue_golomb.exit430 ], [ -1094995529, %get_ue_golomb_long.exit448 ], [ %1498, %1496 ], [ -1094995529, %get_ue_golomb.exit462 ], [ -1094995529, %1269 ], [ -1094995529, %.loopexit.sink.split ], [ %1281, %1279 ], [ -1094995529, %get_ue_golomb.exit478 ], [ %1266, %1264 ]
+  %.0191 = phi i32 [ -1094995529, %get_ue_golomb.exit418 ], [ -1094995529, %44 ], [ -1094995529, %get_ue_golomb.exit430 ], [ -1094995529, %get_ue_golomb_long.exit448 ], [ %1498, %1496 ], [ %1281, %1279 ], [ -1094995529, %get_ue_golomb.exit462 ], [ -1094995529, %.loopexit.sink.split ], [ -1094995529, %get_ue_golomb.exit478 ], [ -1094995529, %1269 ], [ %1266, %1264 ]
   tail call void @av_free(ptr noundef nonnull %43) #5
   br label %get_ue_golomb.exit.thread
 

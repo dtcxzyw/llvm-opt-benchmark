@@ -4283,11 +4283,11 @@ do_ssl_trace_str.exit.i337.i:                     ; preds = %396, %393
   br label %ssl_print_extension.exit.thread68
 
 ssl_print_extension.exit:                         ; preds = %150, %340, %406
-  %.0.i = phi i32 [ %408, %406 ], [ %152, %150 ], [ %342, %340 ]
+  %.0.i = phi i32 [ %342, %340 ], [ %408, %406 ], [ %152, %150 ]
   %.not64 = icmp eq i32 %.0.i, 0
   br i1 %.not64, label %.critedge, label %ssl_print_extension.exit.thread68
 
-ssl_print_extension.exit.thread68:                ; preds = %do_ssl_trace_str.exit.i325.i, %ssl_print_hex.exit307.i, %do_ssl_trace_str.exit288.i, %169, %do_ssl_trace_str.exit.i280.i, %do_ssl_trace_str.exit.i.i, %do_ssl_trace_str.exit.us.i.i, %268, %164, %do_ssl_trace_str.exit.i337.i, %.preheader.i, %349, %.preheader.i.i, %365, %409, %219, %222, %ssl_print_hex.exit.i, %225, %363, %.critedge255.i, %do_ssl_trace_str.exit312.i, %124, %do_ssl_trace_str.exit297.i, %ssl_print_extension.exit
+ssl_print_extension.exit.thread68:                ; preds = %do_ssl_trace_str.exit.i325.i, %ssl_print_hex.exit307.i, %do_ssl_trace_str.exit288.i, %169, %do_ssl_trace_str.exit.i280.i, %do_ssl_trace_str.exit.i.i, %do_ssl_trace_str.exit.us.i.i, %.preheader.i.i, %124, %do_ssl_trace_str.exit.i337.i, %.preheader.i, %do_ssl_trace_str.exit312.i, %.critedge255.i, %363, %268, %225, %349, %ssl_print_hex.exit.i, %222, %219, %409, %365, %164, %do_ssl_trace_str.exit297.i, %ssl_print_extension.exit
   %411 = getelementptr inbounds nuw i8, ptr %61, i64 %53
   %412 = sub i64 %.055103, %54
   %.not = icmp eq i64 %412, 0
@@ -4299,7 +4299,7 @@ ssl_print_extension.exit.thread68:                ; preds = %do_ssl_trace_str.ex
   br label %.critedge
 
 .critedge:                                        ; preds = %400, %386, %364, %345, %343, %336, %334, %259, %256, %217, %210, %208, %179, %177, %402, %314, %153, %141, %139, %120, %118, %101, %75, %73, %155, %35, %ssl_print_extension.exit, %271, %.lr.ph.i, %166, %56, %26, %6, %413, %24, %10
-  %.0 = phi i32 [ 1, %10 ], [ 1, %413 ], [ 1, %24 ], [ 0, %6 ], [ 0, %26 ], [ 0, %56 ], [ 0, %271 ], [ 0, %166 ], [ 0, %.lr.ph.i ], [ 0, %ssl_print_extension.exit ], [ 0, %35 ], [ 0, %155 ], [ 0, %73 ], [ 0, %75 ], [ 0, %101 ], [ 0, %118 ], [ 0, %120 ], [ 0, %139 ], [ 0, %141 ], [ 0, %153 ], [ 0, %314 ], [ 0, %402 ], [ 0, %177 ], [ 0, %179 ], [ 0, %208 ], [ 0, %210 ], [ 0, %217 ], [ 0, %256 ], [ 0, %259 ], [ 0, %334 ], [ 0, %336 ], [ 0, %343 ], [ 0, %345 ], [ 0, %364 ], [ 0, %386 ], [ 0, %400 ]
+  %.0 = phi i32 [ 1, %10 ], [ 1, %413 ], [ 1, %24 ], [ 0, %6 ], [ 0, %26 ], [ 0, %166 ], [ 0, %56 ], [ 0, %271 ], [ 0, %.lr.ph.i ], [ 0, %ssl_print_extension.exit ], [ 0, %35 ], [ 0, %155 ], [ 0, %73 ], [ 0, %75 ], [ 0, %101 ], [ 0, %118 ], [ 0, %120 ], [ 0, %139 ], [ 0, %141 ], [ 0, %153 ], [ 0, %314 ], [ 0, %402 ], [ 0, %177 ], [ 0, %179 ], [ 0, %208 ], [ 0, %210 ], [ 0, %217 ], [ 0, %256 ], [ 0, %259 ], [ 0, %334 ], [ 0, %336 ], [ 0, %343 ], [ 0, %345 ], [ 0, %364 ], [ 0, %386 ], [ 0, %400 ]
   ret i32 %.0
 }
 

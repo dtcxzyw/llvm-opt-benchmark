@@ -63914,7 +63914,7 @@ _ZN10serde_json3ser6to_vec17hbf2e39a0898b49f4E.exit.i.i.i.i: ; preds = %854
   br label %1192
 
 .thread52.i:                                      ; preds = %"_ZN4core3ptr52drop_in_place$LT$gpui..app..entity_map..AnyModel$GT$17h1e76fcba355d84a3E.exit.i.i.i", %171, %170
-  %.sroa.1133.0.ph.i = phi ptr [ %165, %170 ], [ %.sroa.10226.sroa.0.0.copyload.i.i, %171 ], [ %.sroa.7304.2.i.i, %"_ZN4core3ptr52drop_in_place$LT$gpui..app..entity_map..AnyModel$GT$17h1e76fcba355d84a3E.exit.i.i.i" ]
+  %.sroa.1133.0.ph.i = phi ptr [ %.sroa.7304.2.i.i, %"_ZN4core3ptr52drop_in_place$LT$gpui..app..entity_map..AnyModel$GT$17h1e76fcba355d84a3E.exit.i.i.i" ], [ %.sroa.10226.sroa.0.0.copyload.i.i, %171 ], [ %165, %170 ]
   store i8 1, ptr %134, align 4, !noalias !17560
   call void @llvm.lifetime.end.p0(ptr nonnull %60), !noalias !17538
   call void @llvm.lifetime.end.p0(ptr nonnull %62), !noalias !17538

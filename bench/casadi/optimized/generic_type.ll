@@ -4348,8 +4348,8 @@ _ZSt8_DestroyISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS
   br i1 %.not.i.i.i.i177, label %_ZSt8_DestroyIPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EES8_EvT_SA_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i169, !llvm.loop !54
 
 _ZSt8_DestroyIPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EES8_EvT_SA_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEEvPT_.exit.i.i.i.i, %92, %.thread.thread.thread
-  %228 = phi i1 [ %210, %.thread.thread.thread ], [ true, %92 ], [ %210, %_ZSt8_DestroyISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEEvPT_.exit.i.i.i.i ]
-  %.pr.i178589 = phi ptr [ %98, %.thread.thread.thread ], [ %93, %92 ], [ %98, %_ZSt8_DestroyISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEEvPT_.exit.i.i.i.i ]
+  %228 = phi i1 [ true, %92 ], [ %210, %.thread.thread.thread ], [ %210, %_ZSt8_DestroyISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEEvPT_.exit.i.i.i.i ]
+  %.pr.i178589 = phi ptr [ %93, %92 ], [ %98, %.thread.thread.thread ], [ %98, %_ZSt8_DestroyISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEEvPT_.exit.i.i.i.i ]
   %.not.i.i.i179 = icmp eq ptr %.pr.i178589, null
   br i1 %.not.i.i.i179, label %_ZNSt6vectorIS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EESaIS7_EED2Ev.exit, label %229
 
@@ -4402,8 +4402,8 @@ _ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i
   br i1 %.not.i.i.i.i183, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i181, !llvm.loop !48
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i, %76, %.thread.thread.thread.thread
-  %244 = phi i1 [ %237, %.thread.thread.thread.thread ], [ true, %76 ], [ %237, %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i ]
-  %.pr.i184593 = phi ptr [ %.pr.i184, %.thread.thread.thread.thread ], [ %77, %76 ], [ %.pr.i184, %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i ]
+  %244 = phi i1 [ true, %76 ], [ %237, %.thread.thread.thread.thread ], [ %237, %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i ]
+  %.pr.i184593 = phi ptr [ %77, %76 ], [ %.pr.i184, %.thread.thread.thread.thread ], [ %.pr.i184, %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i ]
   %.not.i.i.i185 = icmp eq ptr %.pr.i184593, null
   br i1 %.not.i.i.i185, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %245
 
@@ -10046,7 +10046,7 @@ _ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i
   br i1 %.not.i.i.i.i157, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !48
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i, %156, %._crit_edge305
-  %.pr.i420 = phi ptr [ %170, %._crit_edge305 ], [ %144, %156 ], [ %170, %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i ]
+  %.pr.i420 = phi ptr [ %144, %156 ], [ %170, %._crit_edge305 ], [ %170, %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i ]
   %.not.i.i.i158 = icmp eq ptr %.pr.i420, null
   br i1 %.not.i.i.i158, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %189
 
@@ -10376,7 +10376,7 @@ _ZSt8_DestroyISt6vectorIdSaIdEEEvPT_.exit.i.i.i.i: ; preds = %309, %.lr.ph.i.i.i
   br i1 %.not.i.i.i.i180, label %_ZSt8_DestroyIPSt6vectorIdSaIdEES2_EvT_S4_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i178, !llvm.loop !36
 
 _ZSt8_DestroyIPSt6vectorIdSaIdEES2_EvT_S4_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyISt6vectorIdSaIdEEEvPT_.exit.i.i.i.i, %281, %._crit_edge316
-  %.pr.i181424 = phi ptr [ %295, %._crit_edge316 ], [ %269, %281 ], [ %295, %_ZSt8_DestroyISt6vectorIdSaIdEEEvPT_.exit.i.i.i.i ]
+  %.pr.i181424 = phi ptr [ %269, %281 ], [ %295, %._crit_edge316 ], [ %295, %_ZSt8_DestroyISt6vectorIdSaIdEEEvPT_.exit.i.i.i.i ]
   %.not.i.i.i182 = icmp eq ptr %.pr.i181424, null
   br i1 %.not.i.i.i182, label %_ZNSt6vectorIS_IdSaIdEESaIS1_EED2Ev.exit, label %316
 
@@ -21405,7 +21405,7 @@ _ZNK6casadi11GenericType20is_int_vector_vectorEv.exit148: ; preds = %213
   br i1 %exitcond245.not, label %.loopexit208, label %.lr.ph225, !llvm.loop !305
 
 .loopexit208:                                     ; preds = %.lr.ph225, %.critedge, %.lr.ph222, %.preheader209, %222
-  %.5 = phi i1 [ true, %222 ], [ false, %.preheader209 ], [ true, %.lr.ph222 ], [ %.not102.not.not, %.critedge ], [ %.not102.not.not, %.lr.ph225 ]
+  %.5 = phi i1 [ true, %222 ], [ true, %.lr.ph222 ], [ false, %.preheader209 ], [ %.not102.not.not, %.critedge ], [ %.not102.not.not, %.lr.ph225 ]
   %.not4.i.i.i.i = icmp eq ptr %232, %231
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPSt6vectorIxSaIxEES2_EvT_S4_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
@@ -21587,7 +21587,7 @@ _ZNK6casadi11GenericType23is_double_vector_vectorEv.exit163: ; preds = %293
   br i1 %exitcond249.not, label %.loopexit, label %.lr.ph233, !llvm.loop !307
 
 .loopexit:                                        ; preds = %.lr.ph233, %.critedge115, %.lr.ph230, %.preheader205, %302
-  %.9 = phi i1 [ true, %302 ], [ false, %.preheader205 ], [ true, %.lr.ph230 ], [ %.not98.not.not, %.critedge115 ], [ %.not98.not.not, %.lr.ph233 ]
+  %.9 = phi i1 [ true, %302 ], [ true, %.lr.ph230 ], [ false, %.preheader205 ], [ %.not98.not.not, %.critedge115 ], [ %.not98.not.not, %.lr.ph233 ]
   %.not4.i.i.i.i164 = icmp eq ptr %312, %311
   br i1 %.not4.i.i.i.i164, label %_ZSt8_DestroyIPSt6vectorIdSaIdEES2_EvT_S4_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i165
 

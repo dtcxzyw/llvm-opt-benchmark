@@ -8317,7 +8317,7 @@ _ZN2cv4util3getIPNS_3MatEJPNS_4UMatES3_PNS_4RMatEPNS_7Scalar_IdEEPNS_10MediaFram
   unreachable
 
 _ZNKSt13unordered_mapIiN2cv4RMatESt4hashIiESt8equal_toIiESaISt4pairIKiS1_EEE2atERS7_.exit.i: ; preds = %634, %618, %629
-  %.sroa.06.1.i.i.i.i220 = phi ptr [ %630, %629 ], [ %.sroa.06.0.i.i.i.i226, %618 ], [ %636, %634 ]
+  %.sroa.06.1.i.i.i.i220 = phi ptr [ %.sroa.06.0.i.i.i.i226, %618 ], [ %630, %629 ], [ %636, %634 ]
   %642 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i220, i64 16
   %643 = load ptr, ptr %642, align 8, !tbaa !265
   %.not.i27.i = icmp eq ptr %643, null
@@ -14432,7 +14432,7 @@ _ZNSt10_HashtableIPKvSt4pairIKS1_iESaIS4_ENSt8__detail10_Select1stESt8equal_toIS
   br label %.body
 
 .loopexit:                                        ; preds = %60, %.noexc, %55
-  %.pn.i.i = phi ptr [ %56, %55 ], [ %71, %.noexc ], [ %62, %60 ]
+  %.pn.i.i = phi ptr [ %71, %.noexc ], [ %56, %55 ], [ %62, %60 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   store i32 %2, ptr %.1.i.i, align 4, !tbaa !81
   ret void
@@ -14587,7 +14587,7 @@ define linkonce_odr hidden void @_ZN2cv5gimpl9GExecutor6Output4metaERKNS_4util7v
   unreachable
 
 _ZNSt13unordered_mapIPKviSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_iEEE2atERS7_.exit: ; preds = %29, %11, %24
-  %.sroa.06.1.i.i.i = phi ptr [ %25, %24 ], [ %.sroa.06.0.i.i.i, %11 ], [ %31, %29 ]
+  %.sroa.06.1.i.i.i = phi ptr [ %.sroa.06.0.i.i.i, %11 ], [ %25, %24 ], [ %31, %29 ]
   %37 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 16
   %38 = load i32, ptr %37, align 4, !tbaa !81
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 32

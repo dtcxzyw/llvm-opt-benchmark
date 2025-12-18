@@ -2077,8 +2077,8 @@ _ZN14arrow_vendored10fast_float21fastfloat_strncasecmpEPKcS2_m.exit55: ; preds =
   br label %.loopexit
 
 .loopexit:                                        ; preds = %38, %34, %3, %_ZN14arrow_vendored10fast_float21fastfloat_strncasecmpEPKcS2_m.exit50, %21, %24, %.lr.ph._crit_edge, %64
-  %.sroa.0.2 = phi ptr [ %65, %64 ], [ %22, %21 ], [ %22, %24 ], [ %30, %.lr.ph._crit_edge ], [ %0, %_ZN14arrow_vendored10fast_float21fastfloat_strncasecmpEPKcS2_m.exit50 ], [ %0, %3 ], [ %22, %34 ], [ %22, %38 ]
-  %.sroa.6.0 = phi i32 [ 0, %64 ], [ 0, %21 ], [ 0, %24 ], [ 0, %.lr.ph._crit_edge ], [ 22, %_ZN14arrow_vendored10fast_float21fastfloat_strncasecmpEPKcS2_m.exit50 ], [ 22, %3 ], [ 0, %34 ], [ 0, %38 ]
+  %.sroa.0.2 = phi ptr [ %0, %3 ], [ %65, %64 ], [ %22, %21 ], [ %22, %24 ], [ %30, %.lr.ph._crit_edge ], [ %0, %_ZN14arrow_vendored10fast_float21fastfloat_strncasecmpEPKcS2_m.exit50 ], [ %22, %34 ], [ %22, %38 ]
+  %.sroa.6.0 = phi i32 [ 22, %3 ], [ 0, %64 ], [ 0, %21 ], [ 0, %24 ], [ 0, %.lr.ph._crit_edge ], [ 22, %_ZN14arrow_vendored10fast_float21fastfloat_strncasecmpEPKcS2_m.exit50 ], [ 0, %34 ], [ 0, %38 ]
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %.sroa.0.2, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %.sroa.6.0, 1
   ret { ptr, i32 } %.fca.1.insert
@@ -3542,7 +3542,7 @@ _ZN14arrow_vendored10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i21: ; pr
   br label %_ZN14arrow_vendored10fast_float9large_mulILt62EEEbRNS0_8stackvecIXT_EEENS0_4spanImEE.exit
 
 _ZN14arrow_vendored10fast_float9large_mulILt62EEEbRNS0_8stackvecIXT_EEENS0_4spanImEE.exit: ; preds = %.lr.ph, %23, %31, %._crit_edge.i18, %_ZN14arrow_vendored10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i21, %._crit_edge, %50
-  %.0 = phi i1 [ false, %50 ], [ true, %._crit_edge ], [ true, %_ZN14arrow_vendored10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i21 ], [ true, %._crit_edge.i18 ], [ true, %31 ], [ false, %23 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ true, %31 ], [ false, %23 ], [ false, %50 ], [ true, %._crit_edge ], [ true, %_ZN14arrow_vendored10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i21 ], [ true, %._crit_edge.i18 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -3848,7 +3848,7 @@ _ZN14arrow_vendored10fast_float8stackvecILt62EE10try_extendENS0_4spanImEE.exit: 
   br i1 %.not.i51, label %.critedge32, label %109, !llvm.loop !97
 
 .critedge32:                                      ; preds = %115, %109, %27, %.critedge34, %_ZN14arrow_vendored10fast_float8stackvecILt62EE10try_extendENS0_4spanImEE.exit
-  %.6 = phi i1 [ false, %_ZN14arrow_vendored10fast_float8stackvecILt62EE10try_extendENS0_4spanImEE.exit ], [ true, %.critedge34 ], [ false, %27 ], [ true, %109 ], [ true, %115 ]
+  %.6 = phi i1 [ false, %27 ], [ false, %_ZN14arrow_vendored10fast_float8stackvecILt62EE10try_extendENS0_4spanImEE.exit ], [ true, %.critedge34 ], [ true, %109 ], [ true, %115 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.6
 }
@@ -3999,8 +3999,8 @@ _ZN14arrow_vendored10fast_float21fastfloat_strncasecmpEPKcS2_m.exit55: ; preds =
   br label %.loopexit
 
 .loopexit:                                        ; preds = %38, %34, %3, %_ZN14arrow_vendored10fast_float21fastfloat_strncasecmpEPKcS2_m.exit50, %21, %24, %.lr.ph._crit_edge, %64
-  %.sroa.0.2 = phi ptr [ %65, %64 ], [ %22, %21 ], [ %22, %24 ], [ %30, %.lr.ph._crit_edge ], [ %0, %_ZN14arrow_vendored10fast_float21fastfloat_strncasecmpEPKcS2_m.exit50 ], [ %0, %3 ], [ %22, %34 ], [ %22, %38 ]
-  %.sroa.6.0 = phi i32 [ 0, %64 ], [ 0, %21 ], [ 0, %24 ], [ 0, %.lr.ph._crit_edge ], [ 22, %_ZN14arrow_vendored10fast_float21fastfloat_strncasecmpEPKcS2_m.exit50 ], [ 22, %3 ], [ 0, %34 ], [ 0, %38 ]
+  %.sroa.0.2 = phi ptr [ %0, %3 ], [ %65, %64 ], [ %22, %21 ], [ %22, %24 ], [ %30, %.lr.ph._crit_edge ], [ %0, %_ZN14arrow_vendored10fast_float21fastfloat_strncasecmpEPKcS2_m.exit50 ], [ %22, %34 ], [ %22, %38 ]
+  %.sroa.6.0 = phi i32 [ 22, %3 ], [ 0, %64 ], [ 0, %21 ], [ 0, %24 ], [ 0, %.lr.ph._crit_edge ], [ 22, %_ZN14arrow_vendored10fast_float21fastfloat_strncasecmpEPKcS2_m.exit50 ], [ 0, %34 ], [ 0, %38 ]
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %.sroa.0.2, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %.sroa.6.0, 1
   ret { ptr, i32 } %.fca.1.insert
@@ -5425,41 +5425,41 @@ _ZN5arrow4util17CastSecondsToUnitENS_8TimeUnit4typeEl.exit95.i: ; preds = %304, 
 316:                                              ; preds = %314, %312, %309
   %.pn.i.i = phi i64 [ 3, %312 ], [ 6, %314 ], [ 9, %309 ]
   %317 = icmp eq i64 %.pn.i.i, %311
-  br i1 %317, label %318, label %320, !prof !108
+  br i1 %317, label %_ZN5arrow8internal6detailL15ParseSubSecondsEPKcmNS_8TimeUnit4typeEPj.exit.i, label %318, !prof !108
 
 318:                                              ; preds = %316
-  %319 = call noundef zeroext i1 @_ZN5arrow8internal13ParseUnsignedEPKcmPj(ptr noundef nonnull %310, i64 noundef range(i64 0, -20) %311, ptr noundef nonnull %9)
-  br i1 %319, label %switch.lookup34, label %_ZN5arrow8internal6detailL15ParseSubSecondsEPKcmNS_8TimeUnit4typeEPj.exit.thread.i, !prof !120
-
-320:                                              ; preds = %316
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4, !tbaa !106
-  %321 = call noundef zeroext i1 @_ZN5arrow8internal13ParseUnsignedEPKcmPj(ptr noundef nonnull %310, i64 noundef range(i64 0, -20) %311, ptr noundef nonnull %7)
-  br i1 %321, label %322, label %_ZN5arrow8internal6detailL15ParseSubSecondsEPKcmNS_8TimeUnit4typeEPj.exit.i, !prof !108
+  %319 = call noundef zeroext i1 @_ZN5arrow8internal13ParseUnsignedEPKcmPj(ptr noundef nonnull %310, i64 noundef range(i64 0, -20) %311, ptr noundef nonnull %7)
+  br i1 %319, label %320, label %324, !prof !108
 
-322:                                              ; preds = %320
+320:                                              ; preds = %318
   %reass.sub = sub i64 %.pn.i.i, %.062.i
   %switch.tableidx = add i64 %reass.sub, 19
-  %323 = icmp ult i64 %switch.tableidx, 8
-  br i1 %323, label %switch.lookup, label %_ZN5arrow8internal6detailL15ParseSubSecondsEPKcmNS_8TimeUnit4typeEPj.exit.thread123.i
+  %321 = icmp ult i64 %switch.tableidx, 8
+  br i1 %321, label %switch.lookup, label %.thread123.i
 
-switch.lookup:                                    ; preds = %322
+switch.lookup:                                    ; preds = %320
   %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK5arrow8internal12_GLOBAL__N_113ISO8601ParserclEPKcmNS_8TimeUnit4typeEPlPb, i64 %switch.tableidx
   %switch.load = load i32, ptr %switch.gep, align 4
-  %324 = load i32, ptr %7, align 4, !tbaa !106
-  %325 = mul i32 %324, %switch.load
-  store i32 %325, ptr %9, align 4, !tbaa !106
-  br label %_ZN5arrow8internal6detailL15ParseSubSecondsEPKcmNS_8TimeUnit4typeEPj.exit.thread123.i
+  %322 = load i32, ptr %7, align 4, !tbaa !106
+  %323 = mul i32 %322, %switch.load
+  store i32 %323, ptr %9, align 4, !tbaa !106
+  br label %.thread123.i
 
-_ZN5arrow8internal6detailL15ParseSubSecondsEPKcmNS_8TimeUnit4typeEPj.exit.thread123.i: ; preds = %322, %switch.lookup
+.thread123.i:                                     ; preds = %320, %switch.lookup
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %switch.lookup34
 
-_ZN5arrow8internal6detailL15ParseSubSecondsEPKcmNS_8TimeUnit4typeEPj.exit.i: ; preds = %320
+324:                                              ; preds = %318
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN5arrow8internal6detailL15ParseSubSecondsEPKcmNS_8TimeUnit4typeEPj.exit.thread.i
 
-switch.lookup34:                                  ; preds = %_ZN5arrow8internal6detailL15ParseSubSecondsEPKcmNS_8TimeUnit4typeEPj.exit.thread123.i, %318
+_ZN5arrow8internal6detailL15ParseSubSecondsEPKcmNS_8TimeUnit4typeEPj.exit.i: ; preds = %316
+  %325 = call noundef zeroext i1 @_ZN5arrow8internal13ParseUnsignedEPKcmPj(ptr noundef nonnull %310, i64 noundef range(i64 0, -20) %311, ptr noundef nonnull %9)
+  br i1 %325, label %switch.lookup34, label %_ZN5arrow8internal6detailL15ParseSubSecondsEPKcmNS_8TimeUnit4typeEPj.exit.thread.i, !prof !120
+
+switch.lookup34:                                  ; preds = %_ZN5arrow8internal6detailL15ParseSubSecondsEPKcmNS_8TimeUnit4typeEPj.exit.i, %.thread123.i
   %326 = sext i32 %3 to i64
   %327 = getelementptr i64, ptr @switch.table._ZNK5arrow8internal12_GLOBAL__N_113ISO8601ParserclEPKcmNS_8TimeUnit4typeEPlPb.39, i64 %326
   %switch.gep35 = getelementptr i8, ptr %327, i64 -8
@@ -5471,8 +5471,8 @@ switch.lookup34:                                  ; preds = %_ZN5arrow8internal6
   store i64 %331, ptr %4, align 8, !tbaa !17
   br label %_ZN5arrow8internal6detailL15ParseSubSecondsEPKcmNS_8TimeUnit4typeEPj.exit.thread.i
 
-_ZN5arrow8internal6detailL15ParseSubSecondsEPKcmNS_8TimeUnit4typeEPj.exit.thread.i: ; preds = %switch.lookup34, %_ZN5arrow8internal6detailL15ParseSubSecondsEPKcmNS_8TimeUnit4typeEPj.exit.i, %318, %314, %312, %309
-  %.0.i96120.i = phi i1 [ false, %318 ], [ false, %_ZN5arrow8internal6detailL15ParseSubSecondsEPKcmNS_8TimeUnit4typeEPj.exit.i ], [ true, %switch.lookup34 ], [ false, %309 ], [ false, %314 ], [ false, %312 ]
+_ZN5arrow8internal6detailL15ParseSubSecondsEPKcmNS_8TimeUnit4typeEPj.exit.thread.i: ; preds = %switch.lookup34, %_ZN5arrow8internal6detailL15ParseSubSecondsEPKcmNS_8TimeUnit4typeEPj.exit.i, %324, %314, %312, %309
+  %.0.i96120.i = phi i1 [ false, %324 ], [ false, %_ZN5arrow8internal6detailL15ParseSubSecondsEPKcmNS_8TimeUnit4typeEPj.exit.i ], [ true, %switch.lookup34 ], [ false, %309 ], [ false, %314 ], [ false, %312 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZN5arrow8internal6detailL7ParseHHINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit.thread.i
 

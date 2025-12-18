@@ -741,7 +741,7 @@ define dso_local noundef range(i32 -22, 1) i32 @usb_sg_init(ptr noundef %0, ptr 
   br i1 %144, label %.preheader13.split.split, label %.split17.us, !llvm.loop !7
 
 .split17.us:                                      ; preds = %127, %.loopexit12.us, %82
-  %.us-phi18 = phi i64 [ %92, %.loopexit12.us ], [ %42, %82 ], [ %123, %127 ]
+  %.us-phi18 = phi i64 [ %42, %82 ], [ %92, %.loopexit12.us ], [ %123, %127 ]
   %145 = shl i64 %.us-phi18, 32
   %146 = ashr exact i64 %145, 32
   %.pre = load ptr, ptr %34, align 8
@@ -769,7 +769,7 @@ define dso_local noundef range(i32 -22, 1) i32 @usb_sg_init(ptr noundef %0, ptr 
   br label %174
 
 .split.us:                                        ; preds = %.preheader13.split.split, %.preheader13.split.split.us, %.preheader13.split.us
-  %.us-phi = phi i64 [ %92, %.preheader13.split.split.us ], [ %42, %.preheader13.split.us ], [ %123, %.preheader13.split.split ]
+  %.us-phi = phi i64 [ %42, %.preheader13.split.us ], [ %92, %.preheader13.split.split.us ], [ %123, %.preheader13.split.split ]
   %160 = trunc i64 %.us-phi to i32
   store i32 %160, ptr %29, align 4
   %.pr = load ptr, ptr %34, align 8
@@ -1350,7 +1350,7 @@ define dso_local i32 @usb_string(ptr noundef %0, i32 noundef %1, ptr noundef %2,
   br label %58
 
 58:                                               ; preds = %24, %36, %49, %44
-  %59 = phi i32 [ %55, %49 ], [ %47, %44 ], [ -32, %36 ], [ -32, %24 ]
+  %59 = phi i32 [ %55, %49 ], [ %47, %44 ], [ -32, %24 ], [ -32, %36 ]
   tail call void @kfree(ptr noundef nonnull %17) #12
   br label %60
 

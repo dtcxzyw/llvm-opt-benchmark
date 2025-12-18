@@ -1430,7 +1430,7 @@ _.exit58:                                         ; preds = %.thread, %118
   br i1 %122, label %24, label %.lr.ph.i59.preheader, !llvm.loop !119
 
 .thread87:                                        ; preds = %24, %_.exit, %_.exit58
-  %.not50 = phi i32 [ 1, %_.exit ], [ 1, %_.exit58 ], [ 0, %24 ]
+  %.not50 = phi i32 [ 1, %_.exit58 ], [ 1, %_.exit ], [ 0, %24 ]
   %.not16.i = icmp eq ptr %.0130, null
   br i1 %.not16.i, label %validate_mixed_bloom_settings.exit, label %.lr.ph.i59.preheader
 
@@ -1527,8 +1527,8 @@ _.exit.i65:                                       ; preds = %152, %149
   br i1 %.not.i67, label %validate_mixed_bloom_settings.exit, label %.lr.ph.i63, !llvm.loop !122
 
 validate_mixed_bloom_settings.exit:               ; preds = %156, %4, %.thread87
-  %.not50173 = phi i32 [ %.not50, %.thread87 ], [ 0, %4 ], [ %.not50179, %156 ]
-  %.0110172 = phi ptr [ null, %.thread87 ], [ null, %4 ], [ %.0110178, %156 ]
+  %.not50173 = phi i32 [ 0, %4 ], [ %.not50, %.thread87 ], [ %.not50179, %156 ]
+  %.0110172 = phi ptr [ null, %4 ], [ null, %.thread87 ], [ %.0110178, %156 ]
   call void @free(ptr noundef %19) #24
   %159 = call i32 @fclose(ptr noundef %7)
   call void @strbuf_release(ptr noundef nonnull %6) #24
@@ -3632,7 +3632,7 @@ strbuf_setlen.exit.i:                             ; preds = %240, %238
   br label %.thread.i
 
 .thread.i:                                        ; preds = %256, %.thread.sink.split.i, %228
-  %.not166 = phi i1 [ true, %228 ], [ false, %.thread.sink.split.i ], [ true, %256 ]
+  %.not166 = phi i1 [ false, %.thread.sink.split.i ], [ true, %228 ], [ true, %256 ]
   %265 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !47
   %.not4.i.i.i = icmp eq i32 %265, 0
   br i1 %.not4.i.i.i, label %fill_oids_from_packs.exit, label %266

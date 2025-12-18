@@ -1072,7 +1072,7 @@ define noundef range(i32 0, 2) i32 @_Z5SolvePKdS0_Pdi(ptr noundef readonly captu
   br i1 %exitcond173.not, label %._crit_edge144, label %.lr.ph143, !llvm.loop !11
 
 ._crit_edge144:                                   ; preds = %._crit_edge, %.lr.ph143, %4, %.preheader121
-  %.0107 = phi i32 [ 1, %.preheader121 ], [ 1, %4 ], [ 1, %.lr.ph143 ], [ 0, %._crit_edge ]
+  %.0107 = phi i32 [ 1, %.lr.ph143 ], [ 1, %4 ], [ 1, %.preheader121 ], [ 0, %._crit_edge ]
   tail call void @_ZdaPv(ptr noundef nonnull %9) #16
   tail call void @_ZdaPv(ptr noundef nonnull %17) #16
   tail call void @_ZdaPv(ptr noundef nonnull %14) #16

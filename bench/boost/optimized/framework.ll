@@ -4409,7 +4409,7 @@ _ZN5boost9unit_testeqIKcS2_EEbRKNS0_13basic_cstringIT_EERKNS3_IT0_EE.exit317: ; 
   br i1 %exitcond756.not, label %.thread, label %.preheader, !llvm.loop !210
 
 531:                                              ; preds = %.loopexit564, %510
-  %.0129 = phi i32 [ %514, %510 ], [ %529, %.loopexit564 ]
+  %.0129 = phi i32 [ %529, %.loopexit564 ], [ %514, %510 ]
   %.not161 = icmp eq i32 %.0129, -1
   br i1 %.not161, label %.thread, label %572
 
@@ -7169,8 +7169,8 @@ _ZN5boost9unit_test9framework3getEmNS0_14test_unit_typeE.exit93: ; preds = %_ZNS
   br i1 %130, label %.lr.ph33.i, label %.preheader.i.preheader, !llvm.loop !307
 
 .preheader.i.preheader:                           ; preds = %_ZN5boost9unit_test9framework3getEmNS0_14test_unit_typeE.exit93, %_ZN5boost9unit_test9framework3getEmNS0_14test_unit_typeE.exit99, %.preheader28.i
-  %.ph = phi i64 [ %1, %.preheader28.i ], [ %78, %_ZN5boost9unit_test9framework3getEmNS0_14test_unit_typeE.exit99 ], [ %1, %_ZN5boost9unit_test9framework3getEmNS0_14test_unit_typeE.exit93 ]
-  %.1.i.ph = phi i64 [ %25, %.preheader28.i ], [ %25, %_ZN5boost9unit_test9framework3getEmNS0_14test_unit_typeE.exit99 ], [ %128, %_ZN5boost9unit_test9framework3getEmNS0_14test_unit_typeE.exit93 ]
+  %.ph = phi i64 [ %78, %_ZN5boost9unit_test9framework3getEmNS0_14test_unit_typeE.exit99 ], [ %1, %.preheader28.i ], [ %1, %_ZN5boost9unit_test9framework3getEmNS0_14test_unit_typeE.exit93 ]
+  %.1.i.ph = phi i64 [ %25, %_ZN5boost9unit_test9framework3getEmNS0_14test_unit_typeE.exit99 ], [ %25, %.preheader28.i ], [ %128, %_ZN5boost9unit_test9framework3getEmNS0_14test_unit_typeE.exit93 ]
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %_ZN5boost9unit_test9framework3getEmNS0_14test_unit_typeE.exit
@@ -12014,7 +12014,7 @@ _ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit327: ; preds
   ret void
 
 .body156:                                         ; preds = %.body196, %620, %629, %707, %701, %690, %681, %671, %650, %641, %662, %611, %602, %130, %139, %256, %180, %171, %159, %150, %192, %247, %115, %106, %97, %569, %593, %716, %119, %580, %270, %321, %.body208, %729
-  %.merged148 = phi { ptr, i32 } [ %.pn144, %729 ], [ %257, %256 ], [ %322, %321 ], [ %717, %716 ], [ %116, %115 ], [ %107, %106 ], [ %.pn132.pn.pn.pn, %.body208 ], [ %612, %611 ], [ %603, %602 ], [ %98, %97 ], [ %271, %270 ], [ %570, %569 ], [ %581, %580 ], [ %594, %593 ], [ %120, %119 ], [ %702, %701 ], [ %691, %690 ], [ %140, %139 ], [ %131, %130 ], [ %708, %707 ], [ %672, %671 ], [ %193, %192 ], [ %181, %180 ], [ %642, %641 ], [ %160, %159 ], [ %172, %171 ], [ %248, %247 ], [ %151, %150 ], [ %630, %629 ], [ %621, %620 ], [ %651, %650 ], [ %663, %662 ], [ %682, %681 ], [ %.pn117.pn, %.body196 ]
+  %.merged148 = phi { ptr, i32 } [ %.pn144, %729 ], [ %257, %256 ], [ %322, %321 ], [ %717, %716 ], [ %116, %115 ], [ %107, %106 ], [ %.pn132.pn.pn.pn, %.body208 ], [ %612, %611 ], [ %603, %602 ], [ %98, %97 ], [ %271, %270 ], [ %570, %569 ], [ %581, %580 ], [ %594, %593 ], [ %120, %119 ], [ %702, %701 ], [ %691, %690 ], [ %140, %139 ], [ %131, %130 ], [ %708, %707 ], [ %672, %671 ], [ %193, %192 ], [ %181, %180 ], [ %642, %641 ], [ %160, %159 ], [ %682, %681 ], [ %172, %171 ], [ %248, %247 ], [ %151, %150 ], [ %630, %629 ], [ %621, %620 ], [ %651, %650 ], [ %663, %662 ], [ %.pn117.pn, %.body196 ]
   call void @_ZN5boost9unit_test9framework24register_observer_helperD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %12) #26
   br label %.body153
 
@@ -13229,8 +13229,8 @@ _ZNSt6vectorIN5boost9unit_test9framework5state13context_frameESaIS4_EE5clearEv.e
   br label %_ZNSt6vectorImSaImEED2Ev.exit
 
 .critedge13:                                      ; preds = %289, %.thread673, %327, %260, %457, %.critedge18._crit_edge, %_ZNSt6vectorIN5boost9unit_test9framework5state13context_frameESaIS4_EE5clearEv.exit
-  %.22 = phi i32 [ %469, %_ZNSt6vectorIN5boost9unit_test9framework5state13context_frameESaIS4_EE5clearEv.exit ], [ %.18.lcssa, %457 ], [ %.18.lcssa, %.critedge18._crit_edge ], [ 0, %260 ], [ 0, %327 ], [ %.14, %.thread673 ], [ %.sroa.speculated565, %289 ]
-  %.15327 = phi i64 [ %489, %_ZNSt6vectorIN5boost9unit_test9framework5state13context_frameESaIS4_EE5clearEv.exit ], [ %.11323.lcssa, %457 ], [ %.11323.lcssa, %.critedge18._crit_edge ], [ 0, %260 ], [ 0, %327 ], [ %310, %.thread673 ], [ %.3315935, %289 ]
+  %.22 = phi i32 [ %469, %_ZNSt6vectorIN5boost9unit_test9framework5state13context_frameESaIS4_EE5clearEv.exit ], [ %.18.lcssa, %.critedge18._crit_edge ], [ %.18.lcssa, %457 ], [ 0, %260 ], [ 0, %327 ], [ %.14, %.thread673 ], [ %.sroa.speculated565, %289 ]
+  %.15327 = phi i64 [ %489, %_ZNSt6vectorIN5boost9unit_test9framework5state13context_frameESaIS4_EE5clearEv.exit ], [ %.11323.lcssa, %.critedge18._crit_edge ], [ %.11323.lcssa, %457 ], [ 0, %260 ], [ 0, %327 ], [ %310, %.thread673 ], [ %.3315935, %289 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %502
@@ -13619,7 +13619,7 @@ _ZN5boost10test_tools16assertion_resultD2Ev.exit: ; preds = %.critedge7, %636, %
   resume { ptr, i32 } %.pn388.pn.pn.pn
 
 .critedge:                                        ; preds = %35, %50, %29, %44, %_ZN5boost10test_tools16assertion_resultD2Ev.exit
-  %.0 = phi i32 [ %.1, %_ZN5boost10test_tools16assertion_resultD2Ev.exit ], [ -4, %44 ], [ 0, %29 ], [ -4, %50 ], [ 0, %35 ]
+  %.0 = phi i32 [ -4, %44 ], [ %.1, %_ZN5boost10test_tools16assertion_resultD2Ev.exit ], [ 0, %29 ], [ -4, %50 ], [ 0, %35 ]
   ret i32 %.0
 }
 
@@ -17444,7 +17444,7 @@ _ZN5boost9unit_test9ut_detail20bcs_char_traits_implIKcE7compareEPS3_S5_m.exit.i:
   br i1 %or.cond74.not, label %.lr.ph.i.i.i, label %_ZN5boost9unit_testeqIKcS2_EEbRKNS0_13basic_cstringIT_EERKNS3_IT0_EE.exit, !llvm.loop !129
 
 _ZN5boost9unit_testeqIKcS2_EEbRKNS0_13basic_cstringIT_EERKNS3_IT0_EE.exit: ; preds = %_ZN5boost9unit_test9ut_detail20bcs_char_traits_implIKcE7compareEPS3_S5_m.exit.i, %.lr.ph.i.i6, %.lr.ph.i.i, %.lr.ph.i.i.i, %_ZN5boost9unit_test9ut_detail20bcs_char_traits_implIKcE7compareEPS3_S5_m.exit.thread.i, %65, %59, %53, %89, %80, %30, %38, %46, %23, %9, %2
-  %.0 = phi i1 [ false, %65 ], [ false, %59 ], [ true, %2 ], [ %78, %_ZN5boost9unit_test9ut_detail20bcs_char_traits_implIKcE7compareEPS3_S5_m.exit.thread.i ], [ false, %9 ], [ true, %23 ], [ false, %30 ], [ false, %38 ], [ true, %46 ], [ false, %80 ], [ true, %89 ], [ false, %53 ], [ %49, %.lr.ph.i.i6 ], [ %92, %.lr.ph.i.i.i ], [ %26, %.lr.ph.i.i ], [ false, %_ZN5boost9unit_test9ut_detail20bcs_char_traits_implIKcE7compareEPS3_S5_m.exit.i ]
+  %.0 = phi i1 [ false, %65 ], [ false, %59 ], [ true, %2 ], [ %78, %_ZN5boost9unit_test9ut_detail20bcs_char_traits_implIKcE7compareEPS3_S5_m.exit.thread.i ], [ false, %9 ], [ true, %23 ], [ %49, %.lr.ph.i.i6 ], [ false, %30 ], [ false, %38 ], [ true, %46 ], [ %92, %.lr.ph.i.i.i ], [ false, %80 ], [ true, %89 ], [ %26, %.lr.ph.i.i ], [ false, %53 ], [ false, %_ZN5boost9unit_test9ut_detail20bcs_char_traits_implIKcE7compareEPS3_S5_m.exit.i ]
   ret i1 %.0
 }
 
@@ -20519,7 +20519,7 @@ _ZN5boost9unit_test5utils9ut_detail12delim_policyIcNS2_20default_char_compareIcE
   br i1 %.not, label %.critedge.thread98, label %17, !llvm.loop !588
 
 .critedge.thread:                                 ; preds = %19, %17, %_ZN5boost9unit_test5utils9ut_detail12delim_policyIcNS2_20default_char_compareIcEEEclEc.exit, %27, %.split.preheader.i
-  %33 = phi ptr [ %.promoted156, %.split.preheader.i ], [ %.promoted156, %19 ], [ %11, %17 ], [ %.promoted156, %_ZN5boost9unit_test5utils9ut_detail12delim_policyIcNS2_20default_char_compareIcEEEclEc.exit ], [ %.promoted156, %27 ]
+  %33 = phi ptr [ %.promoted156, %.split.preheader.i ], [ %11, %17 ], [ %.promoted156, %_ZN5boost9unit_test5utils9ut_detail12delim_policyIcNS2_20default_char_compareIcEEEclEc.exit ], [ %.promoted156, %27 ], [ %.promoted156, %19 ]
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %35 = load i64, ptr %34, align 8, !tbaa !26
   %36 = icmp eq i64 %35, 1
@@ -20677,7 +20677,7 @@ _ZN5boost9unit_test5utils9ut_detail12delim_policyIcNS2_20default_char_compareIcE
   br label %.critedge2
 
 .critedge2:                                       ; preds = %_ZN5boost9unit_test5utils9ut_detail12delim_policyIcNS2_20default_char_compareIcEEEclEc.exit64, %_ZN5boost9unit_test5utils9ut_detail12delim_policyIcNS2_20default_char_compareIcEEEclEc.exit64.thread, %_ZN5boost9unit_test5utils9ut_detail12delim_policyIcNS2_20default_char_compareIcEEEclEc.exit58, %71, %84, %.lr.ph.i54, %.lr.ph.i60, %.critedge2.sink.split, %.preheader145, %.preheader
-  %90 = phi ptr [ %.promoted156, %.preheader145 ], [ %.promoted156, %.preheader ], [ %scevgep.sink, %.critedge2.sink.split ], [ %61, %.lr.ph.i60 ], [ %61, %.lr.ph.i54 ], [ %61, %71 ], [ %61, %84 ], [ %61, %_ZN5boost9unit_test5utils9ut_detail12delim_policyIcNS2_20default_char_compareIcEEEclEc.exit64 ], [ %89, %_ZN5boost9unit_test5utils9ut_detail12delim_policyIcNS2_20default_char_compareIcEEEclEc.exit64.thread ], [ %61, %_ZN5boost9unit_test5utils9ut_detail12delim_policyIcNS2_20default_char_compareIcEEEclEc.exit58 ]
+  %90 = phi ptr [ %61, %.lr.ph.i54 ], [ %scevgep.sink, %.critedge2.sink.split ], [ %61, %.lr.ph.i60 ], [ %.promoted156, %.preheader145 ], [ %.promoted156, %.preheader ], [ %61, %_ZN5boost9unit_test5utils9ut_detail12delim_policyIcNS2_20default_char_compareIcEEEclEc.exit64 ], [ %89, %_ZN5boost9unit_test5utils9ut_detail12delim_policyIcNS2_20default_char_compareIcEEEclEc.exit64.thread ], [ %61, %_ZN5boost9unit_test5utils9ut_detail12delim_policyIcNS2_20default_char_compareIcEEEclEc.exit58 ], [ %61, %71 ], [ %61, %84 ]
   %91 = add i64 %35, -1
   store i64 %91, ptr %34, align 8, !tbaa !26
   br label %204
@@ -20961,7 +20961,7 @@ _ZN5boost9unit_test5utils9ut_detail12delim_policyIcNS2_20default_char_compareIcE
   br i1 %.not46, label %.critedge4, label %173, !llvm.loop !590
 
 .critedge4:                                       ; preds = %_ZN5boost9unit_test5utils9ut_detail12delim_policyIcNS2_20default_char_compareIcEEEclEc.exit94, %_ZN5boost9unit_test5utils9ut_detail12delim_policyIcNS2_20default_char_compareIcEEEclEc.exit94.thread, %_ZN5boost9unit_test5utils9ut_detail12delim_policyIcNS2_20default_char_compareIcEEEclEc.exit88, %184, %197, %.lr.ph.i84, %.lr.ph.i90, %_ZN5boost9unit_test5utils9ut_detail12delim_policyIcNS2_20default_char_compareIcEEEclEc.exit82.thread
-  %203 = phi ptr [ %170, %_ZN5boost9unit_test5utils9ut_detail12delim_policyIcNS2_20default_char_compareIcEEEclEc.exit82.thread ], [ %174, %.lr.ph.i90 ], [ %174, %.lr.ph.i84 ], [ %174, %_ZN5boost9unit_test5utils9ut_detail12delim_policyIcNS2_20default_char_compareIcEEEclEc.exit94 ], [ %202, %_ZN5boost9unit_test5utils9ut_detail12delim_policyIcNS2_20default_char_compareIcEEEclEc.exit94.thread ], [ %174, %_ZN5boost9unit_test5utils9ut_detail12delim_policyIcNS2_20default_char_compareIcEEEclEc.exit88 ], [ %174, %184 ], [ %174, %197 ]
+  %203 = phi ptr [ %174, %.lr.ph.i84 ], [ %174, %.lr.ph.i90 ], [ %170, %_ZN5boost9unit_test5utils9ut_detail12delim_policyIcNS2_20default_char_compareIcEEEclEc.exit82.thread ], [ %202, %_ZN5boost9unit_test5utils9ut_detail12delim_policyIcNS2_20default_char_compareIcEEEclEc.exit94.thread ], [ %174, %_ZN5boost9unit_test5utils9ut_detail12delim_policyIcNS2_20default_char_compareIcEEEclEc.exit88 ], [ %174, %184 ], [ %174, %197 ], [ %174, %_ZN5boost9unit_test5utils9ut_detail12delim_policyIcNS2_20default_char_compareIcEEEclEc.exit94 ]
   store i8 1, ptr %125, align 8, !tbaa !27
   br label %204
 
@@ -20973,7 +20973,7 @@ _ZN5boost9unit_test5utils9ut_detail12delim_policyIcNS2_20default_char_compareIcE
   br label %.critedge.thread98
 
 .critedge.thread98:                               ; preds = %_ZN5boost9unit_test5utils9ut_detail12delim_policyIcNS2_20default_char_compareIcEEEclEc.exit.thread96, %.preheader147, %93, %204
-  %.038 = phi i1 [ true, %204 ], [ false, %93 ], [ false, %.preheader147 ], [ false, %_ZN5boost9unit_test5utils9ut_detail12delim_policyIcNS2_20default_char_compareIcEEEclEc.exit.thread96 ]
+  %.038 = phi i1 [ false, %93 ], [ true, %204 ], [ false, %.preheader147 ], [ false, %_ZN5boost9unit_test5utils9ut_detail12delim_policyIcNS2_20default_char_compareIcEEEclEc.exit.thread96 ]
   ret i1 %.038
 }
 
@@ -25805,8 +25805,8 @@ _ZNSt8_Rb_treeImSt4pairIKmPN5boost9unit_test9test_unitEESt10_Select1stIS6_ESt4le
   br i1 %.not.i, label %_ZNSt8_Rb_treeImSt4pairIKmPN5boost9unit_test9test_unitEESt10_Select1stIS6_ESt4lessImESaIS6_EE11equal_rangeERS1_.exit, label %6, !llvm.loop !650
 
 _ZNSt8_Rb_treeImSt4pairIKmPN5boost9unit_test9test_unitEESt10_Select1stIS6_ESt4lessImESaIS6_EE11equal_rangeERS1_.exit: ; preds = %23, %.lr.ph.i25.i, %2, %_ZNSt8_Rb_treeImSt4pairIKmPN5boost9unit_test9test_unitEESt10_Select1stIS6_ESt4lessImESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS1_.exit.i
-  %.sroa.037.0.i = phi ptr [ %.08.lcssa.i.i, %_ZNSt8_Rb_treeImSt4pairIKmPN5boost9unit_test9test_unitEESt10_Select1stIS6_ESt4lessImESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS1_.exit.i ], [ %4, %2 ], [ %.08.lcssa.i.i, %.lr.ph.i25.i ], [ %.123.i, %23 ]
-  %.sroa.3.0.i = phi ptr [ %.02243.i, %_ZNSt8_Rb_treeImSt4pairIKmPN5boost9unit_test9test_unitEESt10_Select1stIS6_ESt4lessImESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS1_.exit.i ], [ %4, %2 ], [ %.19.i28.i, %.lr.ph.i25.i ], [ %.123.i, %23 ]
+  %.sroa.037.0.i = phi ptr [ %.08.lcssa.i.i, %.lr.ph.i25.i ], [ %.08.lcssa.i.i, %_ZNSt8_Rb_treeImSt4pairIKmPN5boost9unit_test9test_unitEESt10_Select1stIS6_ESt4lessImESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS1_.exit.i ], [ %4, %2 ], [ %.123.i, %23 ]
+  %.sroa.3.0.i = phi ptr [ %.19.i28.i, %.lr.ph.i25.i ], [ %.02243.i, %_ZNSt8_Rb_treeImSt4pairIKmPN5boost9unit_test9test_unitEESt10_Select1stIS6_ESt4lessImESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS1_.exit.i ], [ %4, %2 ], [ %.123.i, %23 ]
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %26 = load i64, ptr %25, align 8, !tbaa !70
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -26261,8 +26261,8 @@ _ZNK5boost9unit_test9framework5state14priority_orderclEPNS0_13test_observerES5_.
   br i1 %.not, label %_ZNSt8_Rb_treeIPN5boost9unit_test13test_observerES3_St9_IdentityIS3_ENS1_9framework5state14priority_orderESaIS3_EE14_M_upper_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit, label %.lr.ph, !llvm.loop !655
 
 _ZNSt8_Rb_treeIPN5boost9unit_test13test_observerES3_St9_IdentityIS3_ENS1_9framework5state14priority_orderESaIS3_EE14_M_upper_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit: ; preds = %_ZNK5boost9unit_test9framework5state14priority_orderclEPNS0_13test_observerES5_.exit.thread, %_ZNK5boost9unit_test9framework5state14priority_orderclEPNS0_13test_observerES5_.exit.thread.i33, %2, %_ZNSt8_Rb_treeIPN5boost9unit_test13test_observerES3_St9_IdentityIS3_ENS1_9framework5state14priority_orderESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit
-  %.sroa.042.0 = phi ptr [ %.08.lcssa.i, %_ZNSt8_Rb_treeIPN5boost9unit_test13test_observerES3_St9_IdentityIS3_ENS1_9framework5state14priority_orderESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit ], [ %4, %2 ], [ %.08.lcssa.i, %_ZNK5boost9unit_test9framework5state14priority_orderclEPNS0_13test_observerES5_.exit.thread.i33 ], [ %.123, %_ZNK5boost9unit_test9framework5state14priority_orderclEPNS0_13test_observerES5_.exit.thread ]
-  %.sroa.3.0 = phi ptr [ %.02248, %_ZNSt8_Rb_treeIPN5boost9unit_test13test_observerES3_St9_IdentityIS3_ENS1_9framework5state14priority_orderESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit ], [ %4, %2 ], [ %.19.i35, %_ZNK5boost9unit_test9framework5state14priority_orderclEPNS0_13test_observerES5_.exit.thread.i33 ], [ %.123, %_ZNK5boost9unit_test9framework5state14priority_orderclEPNS0_13test_observerES5_.exit.thread ]
+  %.sroa.042.0 = phi ptr [ %.08.lcssa.i, %_ZNK5boost9unit_test9framework5state14priority_orderclEPNS0_13test_observerES5_.exit.thread.i33 ], [ %.08.lcssa.i, %_ZNSt8_Rb_treeIPN5boost9unit_test13test_observerES3_St9_IdentityIS3_ENS1_9framework5state14priority_orderESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit ], [ %4, %2 ], [ %.123, %_ZNK5boost9unit_test9framework5state14priority_orderclEPNS0_13test_observerES5_.exit.thread ]
+  %.sroa.3.0 = phi ptr [ %.19.i35, %_ZNK5boost9unit_test9framework5state14priority_orderclEPNS0_13test_observerES5_.exit.thread.i33 ], [ %.02248, %_ZNSt8_Rb_treeIPN5boost9unit_test13test_observerES3_St9_IdentityIS3_ENS1_9framework5state14priority_orderESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit ], [ %4, %2 ], [ %.123, %_ZNK5boost9unit_test9framework5state14priority_orderclEPNS0_13test_observerES5_.exit.thread ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.042.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.3.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -26340,8 +26340,8 @@ _ZNSt8_Rb_treeIPN5boost9unit_test14global_fixtureES3_St9_IdentityIS3_ESt4lessIS3
   br i1 %.not.i, label %_ZNSt8_Rb_treeIPN5boost9unit_test14global_fixtureES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE11equal_rangeERKS3_.exit, label %6, !llvm.loop !658
 
 _ZNSt8_Rb_treeIPN5boost9unit_test14global_fixtureES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE11equal_rangeERKS3_.exit: ; preds = %23, %.lr.ph.i25.i, %2, %_ZNSt8_Rb_treeIPN5boost9unit_test14global_fixtureES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i
-  %.sroa.037.0.i = phi ptr [ %.08.lcssa.i.i, %_ZNSt8_Rb_treeIPN5boost9unit_test14global_fixtureES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i ], [ %4, %2 ], [ %.08.lcssa.i.i, %.lr.ph.i25.i ], [ %.123.i, %23 ]
-  %.sroa.3.0.i = phi ptr [ %.02243.i, %_ZNSt8_Rb_treeIPN5boost9unit_test14global_fixtureES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i ], [ %4, %2 ], [ %.19.i28.i, %.lr.ph.i25.i ], [ %.123.i, %23 ]
+  %.sroa.037.0.i = phi ptr [ %.08.lcssa.i.i, %.lr.ph.i25.i ], [ %.08.lcssa.i.i, %_ZNSt8_Rb_treeIPN5boost9unit_test14global_fixtureES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i ], [ %4, %2 ], [ %.123.i, %23 ]
+  %.sroa.3.0.i = phi ptr [ %.19.i28.i, %.lr.ph.i25.i ], [ %.02243.i, %_ZNSt8_Rb_treeIPN5boost9unit_test14global_fixtureES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i ], [ %4, %2 ], [ %.123.i, %23 ]
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %26 = load i64, ptr %25, align 8, !tbaa !70
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 24

@@ -488,7 +488,7 @@ _ZNK4llvm13StringMapImpl7FindKeyENS_9StringRefE.exit: ; preds = %_ZN4llvmeqENS_9
   br label %_ZNK4llvm13StringMapImpl7FindKeyENS_9StringRefE.exit.thread
 
 _ZNK4llvm13StringMapImpl7FindKeyENS_9StringRefE.exit.thread: ; preds = %.split.i.i, %.split.us.i.i, %3, %_ZNK4llvm13StringMapImpl7FindKeyENS_9StringRefE.exit
-  %.0 = phi ptr [ %45, %_ZNK4llvm13StringMapImpl7FindKeyENS_9StringRefE.exit ], [ null, %3 ], [ null, %.split.us.i.i ], [ null, %.split.i.i ]
+  %.0 = phi ptr [ %45, %_ZNK4llvm13StringMapImpl7FindKeyENS_9StringRefE.exit ], [ null, %.split.us.i.i ], [ null, %3 ], [ null, %.split.i.i ]
   ret ptr %.0
 }
 

@@ -316,7 +316,7 @@ define internal i32 @buffer_read(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   br label %15
 
 .loopexit:                                        ; preds = %17, %.lr.ph, %55, %._crit_edge, %3, %7, %57, %38
-  %.0 = phi i32 [ 0, %3 ], [ %40, %38 ], [ %.2.lcssa, %._crit_edge ], [ %59, %57 ], [ 0, %7 ], [ %.1, %55 ], [ %42, %.lr.ph ], [ %27, %17 ]
+  %.0 = phi i32 [ %.1, %55 ], [ 0, %3 ], [ %40, %38 ], [ %42, %.lr.ph ], [ %.2.lcssa, %._crit_edge ], [ %59, %57 ], [ 0, %7 ], [ %27, %17 ]
   ret i32 %.0
 }
 

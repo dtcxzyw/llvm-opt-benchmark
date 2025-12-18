@@ -556,10 +556,10 @@ read_arbitrary.exit160.i.i:                       ; preds = %.lr.ph.i155.i.i, %1
   br label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %161, %read_arbitrary.exit160.i.i, %read_arbitrary.exit153.i.i, %.thread.i.i, %91
-  %.394.i.i = phi i32 [ %.091180.i.i, %read_arbitrary.exit160.i.i ], [ %.091180.i.i, %91 ], [ %.091180.i.i, %read_arbitrary.exit153.i.i ], [ %.192171.i.i, %.thread.i.i ], [ %.293.i.i, %161 ]
-  %.388.i.i = phi i32 [ %.085181.i.i, %read_arbitrary.exit160.i.i ], [ %.085181.i.i, %91 ], [ %.085181.i.i, %read_arbitrary.exit153.i.i ], [ %.186173.i.i, %.thread.i.i ], [ %.287.i.i, %161 ]
-  %.384.i.i = phi i32 [ %.081182.i.i, %read_arbitrary.exit160.i.i ], [ %.081182.i.i, %91 ], [ %.081182.i.i, %read_arbitrary.exit153.i.i ], [ %.182174.i.i, %.thread.i.i ], [ %.283.i.i, %161 ]
-  %.3.i.i = phi i1 [ true, %read_arbitrary.exit160.i.i ], [ true, %91 ], [ true, %read_arbitrary.exit153.i.i ], [ %159, %.thread.i.i ], [ true, %161 ]
+  %.394.i.i = phi i32 [ %.091180.i.i, %read_arbitrary.exit160.i.i ], [ %.091180.i.i, %read_arbitrary.exit153.i.i ], [ %.091180.i.i, %91 ], [ %.192171.i.i, %.thread.i.i ], [ %.293.i.i, %161 ]
+  %.388.i.i = phi i32 [ %.085181.i.i, %read_arbitrary.exit160.i.i ], [ %.085181.i.i, %read_arbitrary.exit153.i.i ], [ %.085181.i.i, %91 ], [ %.186173.i.i, %.thread.i.i ], [ %.287.i.i, %161 ]
+  %.384.i.i = phi i32 [ %.081182.i.i, %read_arbitrary.exit160.i.i ], [ %.081182.i.i, %read_arbitrary.exit153.i.i ], [ %.081182.i.i, %91 ], [ %.182174.i.i, %.thread.i.i ], [ %.283.i.i, %161 ]
+  %.3.i.i = phi i1 [ true, %read_arbitrary.exit160.i.i ], [ true, %read_arbitrary.exit153.i.i ], [ true, %91 ], [ %159, %.thread.i.i ], [ true, %161 ]
   %181 = tail call i32 @avio_feof(ptr noundef %82) #4
   %.not.i88.i = icmp eq i32 %181, 0
   %182 = and i1 %.3.i.i, %.not.i88.i
@@ -1353,8 +1353,8 @@ define internal i32 @ea_read_packet(ptr noundef %0, ptr noundef %1) #1 {
   br label %.loopexit186
 
 .loopexit186:                                     ; preds = %35, %35, %35, %35, %.loopexit186.loopexit, %106
-  %.2150 = phi i32 [ %108, %106 ], [ %36, %.loopexit186.loopexit ], [ %36, %35 ], [ %36, %35 ], [ %36, %35 ], [ %36, %35 ]
-  %.3 = phi i32 [ %.0139.ph183, %106 ], [ %.0139.ph183, %.loopexit186.loopexit ], [ 1, %35 ], [ 1, %35 ], [ 1, %35 ], [ 1, %35 ]
+  %.2150 = phi i32 [ %36, %.loopexit186.loopexit ], [ %108, %106 ], [ %36, %35 ], [ %36, %35 ], [ %36, %35 ], [ %36, %35 ]
+  %.3 = phi i32 [ %.0139.ph183, %.loopexit186.loopexit ], [ %.0139.ph183, %106 ], [ 1, %35 ], [ 1, %35 ], [ 1, %35 ], [ 1, %35 ]
   %.not161 = icmp eq i32 %.2150, 0
   br i1 %.not161, label %.outer182, label %.loopexit181, !llvm.loop !90
 
@@ -1476,7 +1476,7 @@ define internal i32 @ea_read_packet(ptr noundef %0, ptr noundef %1) #1 {
   br label %.loopexit179
 
 .loopexit179:                                     ; preds = %.loopexit181, %.loopexit180, %58, %104, %51, %47, %37, %32, %.critedge, %155, %67
-  %.0 = phi i32 [ %.0144., %155 ], [ -1094995529, %67 ], [ -541478725, %.critedge ], [ -1094995529, %104 ], [ -1094995529, %47 ], [ -1094995529, %51 ], [ -1094995529, %37 ], [ -1094995529, %32 ], [ %59, %58 ], [ -1094995529, %.loopexit180 ], [ -1094995529, %.loopexit181 ]
+  %.0 = phi i32 [ %.0144., %155 ], [ -1094995529, %67 ], [ -1094995529, %104 ], [ -541478725, %.critedge ], [ -1094995529, %47 ], [ -1094995529, %51 ], [ -1094995529, %37 ], [ -1094995529, %32 ], [ %59, %58 ], [ -1094995529, %.loopexit180 ], [ -1094995529, %.loopexit181 ]
   ret i32 %.0
 }
 

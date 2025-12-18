@@ -438,8 +438,8 @@ define dso_local i32 @nfs4_handle_exception(ptr noundef %0, i32 noundef %1, ptr 
   store i8 %75, ptr %6, align 2
   br label %.thread6.thread8
 
-.thread6.thread8:                                 ; preds = %.thread5, %44, %59, %.thread6.thread, %.thread6, %67, %64, %61
-  %76 = phi i32 [ -11, %59 ], [ -35, %64 ], [ -5, %67 ], [ %5, %61 ], [ 0, %.thread6.thread ], [ %68, %.thread6 ], [ -4, %.thread5 ], [ %49, %44 ]
+.thread6.thread8:                                 ; preds = %44, %.thread5, %59, %.thread6.thread, %.thread6, %67, %64, %61
+  %76 = phi i32 [ -11, %59 ], [ -35, %64 ], [ -5, %67 ], [ %5, %61 ], [ 0, %.thread6.thread ], [ %68, %.thread6 ], [ %49, %44 ], [ -4, %.thread5 ]
   ret i32 %76
 }
 
@@ -610,7 +610,7 @@ define internal fastcc range(i32 -1000, -2147483648) i32 @nfs4_do_handle_excepti
   br label %.thread14
 
 87:                                               ; preds = %57, %53, %32
-  %88 = phi i32 [ %58, %57 ], [ %54, %53 ], [ %1, %32 ]
+  %88 = phi i32 [ %1, %32 ], [ %58, %57 ], [ %54, %53 ]
   %89 = icmp sgt i32 %88, -1001
   br i1 %89, label %.thread15, label %.thread14
 
@@ -16490,8 +16490,8 @@ define internal fastcc i32 @nfs4_retry_setlk(ptr noundef nonnull %0, i32 noundef
   br label %nfs4_handle_exception.exit
 
 nfs4_handle_exception.exit:                       ; preds = %95, %.thread5.i, %108, %110, %113, %116, %.thread6.i, %.thread6.thread.i
-  %124 = phi i8 [ %109, %108 ], [ %64, %113 ], [ %64, %116 ], [ %64, %110 ], [ %123, %.thread6.thread.i ], [ %64, %.thread6.i ], [ %64, %.thread5.i ], [ %64, %95 ]
-  %125 = phi i32 [ -11, %108 ], [ -35, %113 ], [ -5, %116 ], [ %63, %110 ], [ 0, %.thread6.thread.i ], [ %117, %.thread6.i ], [ -4, %.thread5.i ], [ %99, %95 ]
+  %124 = phi i8 [ %109, %108 ], [ %64, %113 ], [ %64, %116 ], [ %64, %110 ], [ %123, %.thread6.thread.i ], [ %64, %.thread6.i ], [ %64, %95 ], [ %64, %.thread5.i ]
+  %125 = phi i32 [ -11, %108 ], [ -35, %113 ], [ -5, %116 ], [ %63, %110 ], [ 0, %.thread6.thread.i ], [ %117, %.thread6.i ], [ %99, %95 ], [ -4, %.thread5.i ]
   %126 = and i8 %124, 8
   %127 = icmp eq i8 %126, 0
   br i1 %127, label %128, label %32, !llvm.loop !223

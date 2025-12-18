@@ -3523,7 +3523,7 @@ compute_band_indexes.exit.i:                      ; preds = %1112, %1109, %1104
   br label %.loopexit418.i
 
 .loopexit418.i:                                   ; preds = %.loopexit418.loopexit523.i, %.lr.ph477.preheader.i, %.preheader417.i, %.preheader419.i
-  %.14.i = phi i32 [ %.11322480.i, %.preheader417.i ], [ %.11322480.i, %.preheader419.i ], [ %1459, %.lr.ph477.preheader.i ], [ %1477, %.loopexit418.loopexit523.i ]
+  %.14.i = phi i32 [ %1459, %.lr.ph477.preheader.i ], [ %.11322480.i, %.preheader417.i ], [ %.11322480.i, %.preheader419.i ], [ %1477, %.loopexit418.loopexit523.i ]
   %indvars.iv.next594.i = add nuw nsw i64 %indvars.iv593.i, 1
   %exitcond596.not.i = icmp eq i64 %indvars.iv.next594.i, 4
   br i1 %exitcond596.not.i, label %.preheader432.i, label %1449, !llvm.loop !170
@@ -4410,7 +4410,7 @@ switch_buffer.exit215.i.i:                        ; preds = %1939, %1934, %1932
   br label %.thread288.i.i
 
 .thread288.i.i:                                   ; preds = %.thread288.sink.split.i.i, %2009, %2008, %2005
-  %.9.i.i = phi i32 [ %.6.i.i, %2009 ], [ %.6.i.i, %2008 ], [ %.6.i.i, %2005 ], [ 0, %.thread288.sink.split.i.i ]
+  %.9.i.i = phi i32 [ %.6.i.i, %2005 ], [ %.6.i.i, %2008 ], [ %.6.i.i, %2009 ], [ 0, %.thread288.sink.split.i.i ]
   %2013 = sext i32 %.9.i.i to i64
   %2014 = getelementptr inbounds float, ptr %1563, i64 %2013
   %2015 = sub nsw i32 576, %.9.i.i
@@ -4899,7 +4899,7 @@ huffman_decode.exit.i:                            ; preds = %2030, %2025, %.thre
   br i1 %exitcond293.not.i.i, label %.loopexit.i393.i, label %.lr.ph206.i.i, !llvm.loop !193
 
 .loopexit.i393.i:                                 ; preds = %.lr.ph206.i.i, %.lr.ph204.i.i, %.preheader.i.i, %2200
-  %.2128.i.i = phi i32 [ %.1127.i.i, %.preheader.i.i ], [ 0, %2200 ], [ 0, %.lr.ph204.i.i ], [ %.1127.i.i, %.lr.ph206.i.i ]
+  %.2128.i.i = phi i32 [ %.1127.i.i, %.preheader.i.i ], [ 0, %.lr.ph204.i.i ], [ 0, %2200 ], [ %.1127.i.i, %.lr.ph206.i.i ]
   %indvars.iv.next300.i.i = add nsw i64 %indvars.iv299.i.i, -1
   %2219 = icmp sgt i64 %indvars.iv299.i.i, 0
   br i1 %2219, label %.lr.ph213.split.i.i, label %compute_stereo.exit.i, !llvm.loop !192
@@ -4918,7 +4918,7 @@ huffman_decode.exit.i:                            ; preds = %2030, %2025, %.thre
   br label %compute_stereo.exit.i
 
 compute_stereo.exit.i:                            ; preds = %.loopexit.i393.i, %.loopexit152.us.i.i, %2222, %2220, %._crit_edge179.i.i
-  %.pre675.i = phi i32 [ %.pre675.pre.i, %2222 ], [ %.pre675688.i, %._crit_edge179.i.i ], [ %.pre675688.i, %2220 ], [ %.pre675688.i, %.loopexit152.us.i.i ], [ %.pre675688.i, %.loopexit.i393.i ]
+  %.pre675.i = phi i32 [ %.pre675688.i, %.loopexit152.us.i.i ], [ %.pre675.pre.i, %2222 ], [ %.pre675688.i, %._crit_edge179.i.i ], [ %.pre675688.i, %2220 ], [ %.pre675688.i, %.loopexit.i393.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %2226
 

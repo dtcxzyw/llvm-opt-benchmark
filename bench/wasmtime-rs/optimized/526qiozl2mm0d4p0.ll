@@ -5431,7 +5431,7 @@ _ZN16wasmtime_environ9component5types21ComponentTypesBuilder7valtype17h391df8f17
   br i1 %80, label %"_ZN16wasmtime_environ9component5types21ComponentTypesBuilder12variant_type28_$u7b$$u7b$closure$u7d$$u7d$17h48d42a358a0cb84aE.exit.thread.i", label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h04c84334cf42cbadE.exit"
 
 "_ZN16wasmtime_environ9component5types21ComponentTypesBuilder12variant_type28_$u7b$$u7b$closure$u7d$$u7d$17h48d42a358a0cb84aE.exit.thread.i": ; preds = %"_ZN16wasmtime_environ9component5types21ComponentTypesBuilder12variant_type28_$u7b$$u7b$closure$u7d$$u7d$17h48d42a358a0cb84aE.exit.i", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2c22d33eaacbbdacE.exit.i.i", %32
-  %.sroa.69.017.i = phi ptr [ %37, %32 ], [ %68, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2c22d33eaacbbdacE.exit.i.i" ], [ %.sroa.0.i.sroa.5.0.copyload.i, %"_ZN16wasmtime_environ9component5types21ComponentTypesBuilder12variant_type28_$u7b$$u7b$closure$u7d$$u7d$17h48d42a358a0cb84aE.exit.i" ]
+  %.sroa.69.017.i = phi ptr [ %68, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2c22d33eaacbbdacE.exit.i.i" ], [ %37, %32 ], [ %.sroa.0.i.sroa.5.0.copyload.i, %"_ZN16wasmtime_environ9component5types21ComponentTypesBuilder12variant_type28_$u7b$$u7b$closure$u7d$$u7d$17h48d42a358a0cb84aE.exit.i" ]
   %.val518.in.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val518.i = load ptr, ptr %.val518.in.i, align 8, !alias.scope !1612, !noalias !1615, !nonnull !49, !noundef !49
   %81 = load ptr, ptr %.val518.i, align 8, !alias.scope !1662, !noalias !1665, !noundef !49

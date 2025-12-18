@@ -2420,7 +2420,7 @@ return.loopexit.split.loop.exit45.i.i.i:          ; preds = %if.end16.i.i.i
   br label %invoke.cont60
 
 invoke.cont60:                                    ; preds = %for.body.i.i.i, %return.loopexit.split.loop.exit45.i.i.i, %return.loopexit.split.loop.exit43.i.i.i, %return.loopexit.split.loop.exit41.i.i.i, %sw.bb38.i.i.i, %sw.bb31.i.i.i, %sw.bb.i.i.i
-  %retval.sroa.0.0.in.sroa.speculated.i.i.i = phi ptr [ %__first.sroa.0.1.i.i.i, %sw.bb31.i.i.i ], [ %spec.select.i.i.i, %sw.bb38.i.i.i ], [ %__first.sroa.0.0.lcssa.i.i.i, %sw.bb.i.i.i ], [ %incdec.ptr.i11.le.i.i.i, %return.loopexit.split.loop.exit43.i.i.i ], [ %incdec.ptr.i.le.i.i.i, %return.loopexit.split.loop.exit41.i.i.i ], [ %incdec.ptr.i14.le.i.i.i, %return.loopexit.split.loop.exit45.i.i.i ], [ %__first.sroa.0.051.i.i.i, %for.body.i.i.i ]
+  %retval.sroa.0.0.in.sroa.speculated.i.i.i = phi ptr [ %__first.sroa.0.1.i.i.i, %sw.bb31.i.i.i ], [ %spec.select.i.i.i, %sw.bb38.i.i.i ], [ %incdec.ptr.i14.le.i.i.i, %return.loopexit.split.loop.exit45.i.i.i ], [ %__first.sroa.0.0.lcssa.i.i.i, %sw.bb.i.i.i ], [ %incdec.ptr.i11.le.i.i.i, %return.loopexit.split.loop.exit43.i.i.i ], [ %incdec.ptr.i.le.i.i.i, %return.loopexit.split.loop.exit41.i.i.i ], [ %__first.sroa.0.051.i.i.i, %for.body.i.i.i ]
   %cmp.i62 = icmp eq ptr %retval.sroa.0.0.in.sroa.speculated.i.i.i, %37
   br i1 %cmp.i62, label %if.then68, label %if.end73
 
@@ -3034,7 +3034,7 @@ return.loopexit.split.loop.exit45.i.i.i:          ; preds = %if.end16.i.i.i
   br label %invoke.cont60
 
 invoke.cont60:                                    ; preds = %for.body.i.i.i, %return.loopexit.split.loop.exit45.i.i.i, %return.loopexit.split.loop.exit43.i.i.i, %return.loopexit.split.loop.exit41.i.i.i, %sw.bb38.i.i.i, %sw.bb31.i.i.i, %sw.bb.i.i.i
-  %retval.sroa.0.0.in.sroa.speculated.i.i.i = phi ptr [ %__first.sroa.0.1.i.i.i, %sw.bb31.i.i.i ], [ %spec.select.i.i.i, %sw.bb38.i.i.i ], [ %__first.sroa.0.0.lcssa.i.i.i, %sw.bb.i.i.i ], [ %incdec.ptr.i11.le.i.i.i, %return.loopexit.split.loop.exit43.i.i.i ], [ %incdec.ptr.i.le.i.i.i, %return.loopexit.split.loop.exit41.i.i.i ], [ %incdec.ptr.i14.le.i.i.i, %return.loopexit.split.loop.exit45.i.i.i ], [ %__first.sroa.0.051.i.i.i, %for.body.i.i.i ]
+  %retval.sroa.0.0.in.sroa.speculated.i.i.i = phi ptr [ %__first.sroa.0.1.i.i.i, %sw.bb31.i.i.i ], [ %spec.select.i.i.i, %sw.bb38.i.i.i ], [ %incdec.ptr.i14.le.i.i.i, %return.loopexit.split.loop.exit45.i.i.i ], [ %__first.sroa.0.0.lcssa.i.i.i, %sw.bb.i.i.i ], [ %incdec.ptr.i11.le.i.i.i, %return.loopexit.split.loop.exit43.i.i.i ], [ %incdec.ptr.i.le.i.i.i, %return.loopexit.split.loop.exit41.i.i.i ], [ %__first.sroa.0.051.i.i.i, %for.body.i.i.i ]
   %cmp.i62 = icmp eq ptr %retval.sroa.0.0.in.sroa.speculated.i.i.i, %36
   br i1 %cmp.i62, label %if.then68, label %if.end73
 

@@ -3718,7 +3718,7 @@ _ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0
   br i1 %65, label %.lr.ph18.i, label %_ZN15G1FullCollector21truncate_parallel_cpsEv.exit, !llvm.loop !15
 
 _ZN15G1FullCollector21truncate_parallel_cpsEv.exit: ; preds = %62, %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKcP7GCTimerN7GCCause5CauseEb.exit, %.preheader.i
-  %.0.lcssa26.i = phi i32 [ %.1.i, %.preheader.i ], [ -1, %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKcP7GCTimerN7GCCause5CauseEb.exit ], [ %.1.i, %62 ]
+  %.0.lcssa26.i = phi i32 [ -1, %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKcP7GCTimerN7GCCause5CauseEb.exit ], [ %.1.i, %.preheader.i ], [ %.1.i, %62 ]
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %67 = load ptr, ptr %0, align 8
   %68 = zext i32 %.0.lcssa26.i to i64
@@ -4218,7 +4218,7 @@ define hidden noundef i32 @_ZN15G1FullCollector21truncate_parallel_cpsEv(ptr nou
   br i1 %30, label %21, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %27, %1, %.preheader
-  %.0.lcssa26 = phi i32 [ %.1, %.preheader ], [ -1, %1 ], [ %.1, %27 ]
+  %.0.lcssa26 = phi i32 [ -1, %1 ], [ %.1, %.preheader ], [ %.1, %27 ]
   ret i32 %.0.lcssa26
 }
 

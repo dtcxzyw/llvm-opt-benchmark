@@ -160,7 +160,7 @@ define internal range(i32 -1, 31) i32 @archive_read_format_lha_bid(ptr noundef %
   br i1 %39, label %.outer.split.preheader, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %._crit_edge, %21, %.lr.ph, %11, %14, %8, %5, %2
-  %.0 = phi i32 [ -1, %2 ], [ -1, %5 ], [ 30, %8 ], [ 0, %14 ], [ 0, %11 ], [ 0, %21 ], [ 30, %.lr.ph ], [ 0, %._crit_edge ]
+  %.0 = phi i32 [ 0, %11 ], [ -1, %2 ], [ -1, %5 ], [ 30, %8 ], [ 30, %.lr.ph ], [ 0, %14 ], [ 0, %21 ], [ 0, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -1037,7 +1037,7 @@ lha_read_file_header_2.exit.sink.split:           ; preds = %450, %442, %340, %3
   br label %lha_read_file_header_2.exit
 
 lha_read_file_header_2.exit:                      ; preds = %lha_read_file_header_2.exit.sink.split, %lha_crc16.exit.i, %450
-  %.0.i224 = phi i32 [ %433, %lha_crc16.exit.i ], [ %433, %450 ], [ -30, %lha_read_file_header_2.exit.sink.split ]
+  %.0.i224 = phi i32 [ %433, %450 ], [ %433, %lha_crc16.exit.i ], [ -30, %lha_read_file_header_2.exit.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %lha_read_file_header_0.exit
@@ -1205,7 +1205,7 @@ lha_read_file_header_3.exit.sink.split:           ; preds = %457, %459, %552, %4
   br label %lha_read_file_header_3.exit
 
 lha_read_file_header_3.exit:                      ; preds = %lha_read_file_header_3.exit.sink.split, %lha_crc16.exit.i245, %552
-  %.0.i227 = phi i32 [ %550, %lha_crc16.exit.i245 ], [ %550, %552 ], [ -30, %lha_read_file_header_3.exit.sink.split ]
+  %.0.i227 = phi i32 [ %550, %552 ], [ %550, %lha_crc16.exit.i245 ], [ -30, %lha_read_file_header_3.exit.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %lha_read_file_header_0.exit
@@ -1216,7 +1216,7 @@ lha_read_file_header_3.exit:                      ; preds = %lha_read_file_heade
   br label %lha_read_file_header_0.exit.thread
 
 lha_read_file_header_0.exit:                      ; preds = %lha_read_file_header_3.exit, %lha_read_file_header_2.exit, %lha_read_file_header_1.exit
-  %.0 = phi i32 [ %.0.i227, %lha_read_file_header_3.exit ], [ %.0.i217, %lha_read_file_header_1.exit ], [ %.0.i224, %lha_read_file_header_2.exit ]
+  %.0 = phi i32 [ %.0.i224, %lha_read_file_header_2.exit ], [ %.0.i227, %lha_read_file_header_3.exit ], [ %.0.i217, %lha_read_file_header_1.exit ]
   %558 = icmp slt i32 %.0, -20
   br i1 %558, label %lha_read_file_header_0.exit.thread, label %lha_read_file_header_0.exit.thread249
 
@@ -3130,9 +3130,9 @@ lzh_decode_huffman.exit266.i.i.i:                 ; preds = %739, %737, %.lr.ph.
   br label %.thread274.i.i.i
 
 .thread274.i.i.i:                                 ; preds = %.thread274.loopexit.i.i.i, %814, %808, %770, %676, %662
-  %.6193.i.i.i = phi i32 [ %.3190.i.i.i, %770 ], [ %.2189.i.i.i, %676 ], [ 0, %662 ], [ 0, %814 ], [ 0, %808 ], [ %822, %.thread274.loopexit.i.i.i ]
-  %.3168.i.i.i = phi i32 [ 11, %770 ], [ 10, %676 ], [ 9, %662 ], [ 12, %814 ], [ 9, %808 ], [ 9, %.thread274.loopexit.i.i.i ]
-  %.6.i.i.i = phi i32 [ %.3.i19.i.i, %770 ], [ %.2.i.i.i, %676 ], [ %657, %662 ], [ %.4.i.i.i, %814 ], [ %.4.i.i.i, %808 ], [ %.5.i.i.i, %.thread274.loopexit.i.i.i ]
+  %.6193.i.i.i = phi i32 [ 0, %808 ], [ %.3190.i.i.i, %770 ], [ %.2189.i.i.i, %676 ], [ 0, %662 ], [ 0, %814 ], [ %822, %.thread274.loopexit.i.i.i ]
+  %.3168.i.i.i = phi i32 [ 9, %808 ], [ 11, %770 ], [ 10, %676 ], [ 9, %662 ], [ 12, %814 ], [ 9, %.thread274.loopexit.i.i.i ]
+  %.6.i.i.i = phi i32 [ %.4.i.i.i, %808 ], [ %.3.i19.i.i, %770 ], [ %.2.i.i.i, %676 ], [ %657, %662 ], [ %.4.i.i.i, %814 ], [ %.5.i.i.i, %.thread274.loopexit.i.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %535, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !157
   store i32 %.6.i.i.i, ptr %542, align 8, !tbaa !142
   store i32 %.3168.i.i.i, ptr %193, align 8, !tbaa !114
@@ -3150,7 +3150,7 @@ lzh_read_blocks.exit.i.i:                         ; preds = %222, %lzh_decode_bl
   br i1 %823, label %190, label %lzh_read_blocks.exit.thread.i.i, !llvm.loop !161
 
 lzh_read_blocks.exit.thread.i.i:                  ; preds = %lzh_read_blocks.exit.i.i, %lzh_make_fake_table.exit.thread.i.i.i, %.thread281.i.i.i, %422, %386, %363, %353, %330, %322, %284, %261, %236, %232, %228
-  %.043.i.i = phi i32 [ 1, %232 ], [ 0, %228 ], [ 0, %236 ], [ 0, %261 ], [ 0, %330 ], [ 0, %363 ], [ 0, %422 ], [ 0, %.thread281.i.i.i ], [ 0, %386 ], [ 0, %353 ], [ 0, %322 ], [ 0, %284 ], [ -25, %lzh_make_fake_table.exit.thread.i.i.i ], [ %.0.i60.i, %lzh_read_blocks.exit.i.i ]
+  %.043.i.i = phi i32 [ -25, %lzh_make_fake_table.exit.thread.i.i.i ], [ 1, %232 ], [ 0, %228 ], [ 0, %236 ], [ 0, %261 ], [ 0, %330 ], [ 0, %363 ], [ 0, %422 ], [ 0, %.thread281.i.i.i ], [ 0, %386 ], [ 0, %353 ], [ 0, %322 ], [ 0, %284 ], [ %.0.i60.i, %lzh_read_blocks.exit.i.i ]
   %824 = load i32, ptr %178, align 8, !tbaa !162
   %825 = sub nsw i32 %177, %824
   %826 = sext i32 %825 to i64
@@ -4626,7 +4626,7 @@ define internal fastcc range(i32 0, 2) i32 @lzh_br_fillup(ptr noundef captures(n
   br label %.loopexit
 
 .loopexit:                                        ; preds = %11, %123, %.loopexit.sink.split
-  %.1.ph = phi i32 [ 1, %.loopexit.sink.split ], [ 1, %11 ], [ 0, %123 ]
+  %.1.ph = phi i32 [ 1, %.loopexit.sink.split ], [ 0, %123 ], [ 1, %11 ]
   ret i32 %.1.ph
 }
 
@@ -5164,7 +5164,7 @@ define internal fastcc range(i32 0, 2) i32 @lzh_make_huffman_table(ptr noundef c
   br i1 %exitcond292.not, label %.thread221, label %65, !llvm.loop !183
 
 .thread221:                                       ; preds = %209, %129, %78, %140, %204, %200, %142, %180, %162, %.loopexit225, %13, %14
-  %.0184 = phi i32 [ 0, %13 ], [ 0, %14 ], [ 1, %.loopexit225 ], [ 0, %180 ], [ 0, %162 ], [ 0, %200 ], [ 0, %204 ], [ 0, %140 ], [ 0, %78 ], [ 0, %129 ], [ 1, %209 ], [ 0, %142 ]
+  %.0184 = phi i32 [ 0, %13 ], [ 0, %180 ], [ 0, %14 ], [ 1, %.loopexit225 ], [ 0, %162 ], [ 0, %204 ], [ 0, %200 ], [ 0, %78 ], [ 0, %129 ], [ 1, %209 ], [ 0, %140 ], [ 0, %142 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0184

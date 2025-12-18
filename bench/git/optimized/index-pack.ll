@@ -2406,7 +2406,7 @@ use.exit.i:                                       ; preds = %1035
   br i1 %1052, label %.split.split.i.i.i, label %.split30.us.i.i.i, !llvm.loop !93
 
 .split30.us.i.i.i:                                ; preds = %use.exit.i, %use.exit70.i, %use.exit82.i, %use.exit94.i
-  %.us-phi.i.i.i = phi i32 [ %916, %use.exit70.i ], [ %748, %use.exit94.i ], [ %832, %use.exit82.i ], [ %1009, %use.exit.i ]
+  %.us-phi.i.i.i = phi i32 [ %916, %use.exit70.i ], [ %832, %use.exit82.i ], [ %748, %use.exit94.i ], [ %1009, %use.exit.i ]
   %1053 = load i64, ptr %460, align 8, !tbaa !94
   %1054 = icmp ne i64 %1053, %674
   %1055 = icmp ne i32 %.us-phi.i.i.i, 1
@@ -4150,7 +4150,7 @@ oidset_iter_next.exit.i:                          ; preds = %1806
   br i1 %.not16.i.i256, label %oidset_iter_next.exit.thread.i, label %.lr.ph.i.i248
 
 oidset_iter_next.exit.thread.i:                   ; preds = %1863, %oidset_iter_next.exit.i, %1816, %.preheader.i247
-  %.026.i = phi ptr [ null, %.preheader.i247 ], [ %.029.i249, %1816 ], [ %.1.i255, %1863 ], [ %.029.i249, %oidset_iter_next.exit.i ]
+  %.026.i = phi ptr [ %.029.i249, %1816 ], [ null, %.preheader.i247 ], [ %.029.i249, %oidset_iter_next.exit.i ], [ %.1.i255, %1863 ]
   %1865 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %1866 = load i64, ptr %1865, align 8, !tbaa !149
   %.not9.i = icmp eq i64 %1866, 0

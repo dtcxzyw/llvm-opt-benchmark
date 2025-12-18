@@ -1352,9 +1352,9 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i360, %793
   br label %.loopexit403.backedge
 
 .loopexit403.backedge:                            ; preds = %._crit_edge.i379, %814, %1030
-  %.0309.be = phi ptr [ %1028, %1030 ], [ %739, %814 ], [ %1028, %._crit_edge.i379 ]
-  %.0301.be = phi ptr [ %1038, %1030 ], [ %816, %814 ], [ %1038, %._crit_edge.i379 ]
-  %.0296.be = phi i32 [ %1043, %1030 ], [ %815, %814 ], [ %1084, %._crit_edge.i379 ]
+  %.0309.be = phi ptr [ %739, %814 ], [ %1028, %1030 ], [ %1028, %._crit_edge.i379 ]
+  %.0301.be = phi ptr [ %816, %814 ], [ %1038, %1030 ], [ %1038, %._crit_edge.i379 ]
+  %.0296.be = phi i32 [ %815, %814 ], [ %1043, %1030 ], [ %1084, %._crit_edge.i379 ]
   br label %.loopexit403
 
 817:                                              ; preds = %722
@@ -3346,7 +3346,7 @@ boot_yy_delete_buffer.exit.i:                     ; preds = %36, %33, %.critedge
   br label %boot_yypop_buffer_state.exit
 
 boot_yypop_buffer_state.exit:                     ; preds = %27, %46, %49
-  %58 = phi ptr [ %26, %27 ], [ %45, %46 ], [ %45, %49 ]
+  %58 = phi ptr [ %45, %49 ], [ %26, %27 ], [ %45, %46 ]
   %59 = load i64, ptr %4, align 8
   %60 = getelementptr inbounds nuw ptr, ptr %58, i64 %59
   %61 = load ptr, ptr %60, align 8

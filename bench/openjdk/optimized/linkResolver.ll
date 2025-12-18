@@ -3362,31 +3362,31 @@ switch.edge:
   %trunc = trunc nuw i32 %2 to i8
   switch i8 %trunc, label %.critedge [
     i8 -77, label %129
-    i8 -21, label %131
-    i8 -75, label %131
+    i8 -21, label %133
+    i8 -75, label %133
   ]
 
 129:                                              ; preds = %126
   %.sroa.0.0.copyload.i.i.i96 = load i32, ptr %55, align 4
   %130 = and i32 %.sroa.0.0.copyload.i.i.i96, 8
   %.not123 = icmp eq i32 %130, 0
-  br i1 %.not123, label %.critedge, label %.thread
+  br i1 %.not123, label %.critedge, label %131
 
-131:                                              ; preds = %126, %126
+131:                                              ; preds = %129
+  %132 = tail call noundef zeroext i1 @_ZNK6Method21is_static_initializerEv(ptr noundef nonnull align 8 dereferenceable(88) %128) #11
+  br i1 %132, label %.critedge, label %136
+
+133:                                              ; preds = %126, %126
   %.sroa.0.0.copyload.i.i.i97 = load i32, ptr %55, align 4
-  %132 = and i32 %.sroa.0.0.copyload.i.i.i97, 8
-  %.not122 = icmp eq i32 %132, 0
-  br i1 %.not122, label %133, label %.critedge.thread
+  %134 = and i32 %.sroa.0.0.copyload.i.i.i97, 8
+  %.not122 = icmp eq i32 %134, 0
+  br i1 %.not122, label %.thread, label %.critedge.thread
 
-133:                                              ; preds = %131
-  %134 = tail call noundef zeroext i1 @_ZNK6Method21is_object_initializerEv(ptr noundef nonnull align 8 dereferenceable(88) %128) #11
-  br i1 %134, label %.critedge.thread, label %136
+.thread:                                          ; preds = %133
+  %135 = tail call noundef zeroext i1 @_ZNK6Method21is_object_initializerEv(ptr noundef nonnull align 8 dereferenceable(88) %128) #11
+  br i1 %135, label %.critedge.thread, label %136
 
-.thread:                                          ; preds = %129
-  %135 = tail call noundef zeroext i1 @_ZNK6Method21is_static_initializerEv(ptr noundef nonnull align 8 dereferenceable(88) %128) #11
-  br i1 %135, label %.critedge, label %136
-
-136:                                              ; preds = %133, %.thread
+136:                                              ; preds = %131, %.thread
   %137 = getelementptr inbounds nuw i8, ptr %4, i64 800
   %138 = load ptr, ptr %137, align 8
   store ptr %138, ptr %9, align 8
@@ -3443,7 +3443,7 @@ switch.edge:
   call void @_ZN12ResourceMarkD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %9) #11
   br label %_ZN12ResourceMarkD2Ev.exit
 
-.critedge:                                        ; preds = %126, %129, %87, %119, %.thread
+.critedge:                                        ; preds = %131, %126, %129, %87, %119
   %or.cond7 = and i1 %3, %12
   br i1 %or.cond7, label %174, label %.critedge.thread
 
@@ -3460,7 +3460,7 @@ switch.edge:
   %or.cond120 = select i1 %179, i1 %182, i1 false
   br i1 %or.cond120, label %183, label %_ZN12ResourceMarkD2Ev.exit
 
-.critedge.thread:                                 ; preds = %131, %133, %.critedge, %45
+.critedge.thread:                                 ; preds = %.thread, %133, %.critedge, %45
   %.old = getelementptr inbounds nuw i8, ptr %1, i64 49
   %.old118 = load i8, ptr %.old, align 1
   %.old119 = trunc i8 %.old118 to i1
@@ -4160,7 +4160,7 @@ _ZN12LinkResolver33lookup_instance_method_in_klassesEP5KlassP6SymbolS3_NS0_17Pri
   store ptr %4, ptr %102, align 8
   br label %_ZN12methodHandleC2EP6ThreadP6Method.exit54
 
-_ZN12LinkResolver33lookup_instance_method_in_klassesEP5KlassP6SymbolS3_NS0_17PrivateLookupModeE.exit.thread100: ; preds = %.lr.ph.i, %82
+_ZN12LinkResolver33lookup_instance_method_in_klassesEP5KlassP6SymbolS3_NS0_17PrivateLookupModeE.exit.thread100: ; preds = %82, %.lr.ph.i
   store ptr %.02131.i, ptr %7, align 8
   %103 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %4, ptr %103, align 8
@@ -5354,7 +5354,7 @@ _ZN12LinkResolver33lookup_instance_method_in_klassesEP5KlassP6SymbolS3_NS0_17Pri
   store ptr %7, ptr %92, align 8
   br label %_ZN12methodHandleC2EP6ThreadP6Method.exit
 
-_ZN12LinkResolver33lookup_instance_method_in_klassesEP5KlassP6SymbolS3_NS0_17PrivateLookupModeE.exit.thread93: ; preds = %.lr.ph.i, %72
+_ZN12LinkResolver33lookup_instance_method_in_klassesEP5KlassP6SymbolS3_NS0_17PrivateLookupModeE.exit.thread93: ; preds = %72, %.lr.ph.i
   store ptr %.02131.i, ptr %12, align 8
   %93 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %7, ptr %93, align 8

@@ -1782,7 +1782,7 @@ format_param_str.exit.i:                          ; preds = %193, %189
   br i1 %216, label %173, label %dissect_event_params.exit, !llvm.loop !14
 
 dissect_event_params.exit:                        ; preds = %.lr.ph169, %211, %173, %170, %103
-  %.0128 = phi ptr [ %28, %103 ], [ %28, %170 ], [ %.1129, %173 ], [ %.2, %211 ], [ %28, %.lr.ph169 ]
+  %.0128 = phi ptr [ %28, %103 ], [ %.1129, %173 ], [ %28, %170 ], [ %.2, %211 ], [ %28, %.lr.ph169 ]
   %217 = load i32, ptr @hf_se_event_name, align 4
   %218 = call ptr @proto_tree_add_string(ptr noundef %80, i32 noundef %217, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef %.0128)
   %219 = load ptr, ptr @sinsp_dissector_handle, align 8

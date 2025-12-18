@@ -1014,7 +1014,7 @@ _ZNSt7__cxx114listIiSaIiEE6spliceESt20_List_const_iteratorIiERS2_.exit: ; preds 
   br i1 %.not.i.i.i8, label %_ZNSt7__cxx114listIiSaIiEED2Ev.exit, label %.lr.ph.i.i.i6, !llvm.loop !12
 
 _ZNSt7__cxx114listIiSaIiEED2Ev.exit:              ; preds = %.lr.ph.i.i.i6, %4, %23
-  %.sroa.04.020 = phi ptr [ %.sroa.04.0, %23 ], [ %1, %4 ], [ %.sroa.04.0, %.lr.ph.i.i.i6 ]
+  %.sroa.04.020 = phi ptr [ %1, %4 ], [ %.sroa.04.0, %23 ], [ %.sroa.04.0, %.lr.ph.i.i.i6 ]
   ret ptr %.sroa.04.020
 }
 
@@ -1610,8 +1610,8 @@ _ZN12MeshDocument22ConstMeshRangeIterator3endEv.exit130: ; preds = %107, %108
   br i1 %.not513, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %_ZN12MeshDocument22ConstMeshRangeIterator3endEv.exit130, %108, %_ZN12MeshDocument22ConstMeshRangeIterator3endEv.exit, %95, %_ZN12MeshDocument22ConstMeshRangeIterator3endEv.exit130.preheader, %_ZN12MeshDocument22ConstMeshRangeIterator3endEv.exit.preheader
-  %.069 = phi ptr [ %80, %_ZN12MeshDocument22ConstMeshRangeIterator3endEv.exit130.preheader ], [ %80, %_ZN12MeshDocument22ConstMeshRangeIterator3endEv.exit.preheader ], [ %92, %95 ], [ %80, %_ZN12MeshDocument22ConstMeshRangeIterator3endEv.exit ], [ %80, %108 ], [ %80, %_ZN12MeshDocument22ConstMeshRangeIterator3endEv.exit130 ]
-  %.0 = phi ptr [ %78, %_ZN12MeshDocument22ConstMeshRangeIterator3endEv.exit130.preheader ], [ %78, %_ZN12MeshDocument22ConstMeshRangeIterator3endEv.exit.preheader ], [ %78, %_ZN12MeshDocument22ConstMeshRangeIterator3endEv.exit ], [ %78, %95 ], [ %78, %_ZN12MeshDocument22ConstMeshRangeIterator3endEv.exit130 ], [ %105, %108 ]
+  %.069 = phi ptr [ %92, %95 ], [ %80, %_ZN12MeshDocument22ConstMeshRangeIterator3endEv.exit130.preheader ], [ %80, %_ZN12MeshDocument22ConstMeshRangeIterator3endEv.exit.preheader ], [ %80, %_ZN12MeshDocument22ConstMeshRangeIterator3endEv.exit ], [ %80, %108 ], [ %80, %_ZN12MeshDocument22ConstMeshRangeIterator3endEv.exit130 ]
+  %.0 = phi ptr [ %78, %_ZN12MeshDocument22ConstMeshRangeIterator3endEv.exit ], [ %78, %_ZN12MeshDocument22ConstMeshRangeIterator3endEv.exit130.preheader ], [ %78, %_ZN12MeshDocument22ConstMeshRangeIterator3endEv.exit.preheader ], [ %78, %95 ], [ %105, %108 ], [ %78, %_ZN12MeshDocument22ConstMeshRangeIterator3endEv.exit130 ]
   %113 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %114 = load ptr, ptr %113, align 8
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 144

@@ -157,8 +157,8 @@ define dso_local noundef ptr @jinit_write_bmp(ptr noundef %0, i32 noundef %1, i3
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %61, %70
-  %78 = phi i32 [ %75, %70 ], [ %67, %61 ], [ %47, %.loopexit.loopexit ]
-  %.1 = phi i32 [ %75, %70 ], [ %66, %61 ], [ %52, %.loopexit.loopexit ]
+  %78 = phi i32 [ %67, %61 ], [ %75, %70 ], [ %47, %.loopexit.loopexit ]
+  %.1 = phi i32 [ %66, %61 ], [ %75, %70 ], [ %52, %.loopexit.loopexit ]
   %79 = and i32 %78, 3
   %.not8590 = icmp eq i32 %79, 0
   br i1 %.not8590, label %85, label %.lr.ph.preheader
@@ -597,7 +597,7 @@ define internal void @put_pixel_rows(ptr noundef %0, ptr noundef captures(none) 
   br i1 %.not87, label %.loopexit, label %101, !llvm.loop !83
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph101, %101, %54, %35, %85, %26
-  %.179 = phi ptr [ %34, %26 ], [ %.078, %85 ], [ %.078, %35 ], [ %.078, %54 ], [ %51, %.lr.ph101 ], [ %110, %101 ], [ %83, %.lr.ph ]
+  %.179 = phi ptr [ %34, %26 ], [ %51, %.lr.ph101 ], [ %110, %101 ], [ %.078, %85 ], [ %.078, %35 ], [ %.078, %54 ], [ %83, %.lr.ph ]
   %113 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %114 = load i32, ptr %113, align 8, !tbaa !56
   %115 = icmp sgt i32 %114, 0
@@ -1066,7 +1066,7 @@ define internal fastcc void @write_colormap(ptr noundef %0, ptr captures(none) %
   br i1 %exitcond41.not, label %.loopexit, label %.preheader.split, !llvm.loop !89
 
 .loopexit:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us, %.lr.ph7.split, %.lr.ph7.split.us, %.preheader.split, %.preheader.split.us
-  %.2 = phi i32 [ %7, %.lr.ph.split.us ], [ 256, %.preheader.split.us ], [ 256, %.preheader.split ], [ %7, %.lr.ph7.split.us ], [ %7, %.lr.ph7.split ], [ %7, %.lr.ph.split ]
+  %.2 = phi i32 [ 256, %.preheader.split.us ], [ %7, %.lr.ph7.split ], [ %7, %.lr.ph7.split.us ], [ %7, %.lr.ph.split.us ], [ 256, %.preheader.split ], [ %7, %.lr.ph.split ]
   %89 = icmp samesign ugt i32 %.2, %1
   br i1 %89, label %90, label %96
 

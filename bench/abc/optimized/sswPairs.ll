@@ -1243,7 +1243,7 @@ Vec_IntFree.exit223:                              ; preds = %.critedge9, %320
   br label %.critedge
 
 .critedge:                                        ; preds = %184, %Vec_IntPushFirst.exit, %Vec_IntPush.exit141, %Vec_IntPushUniqueOrder.exit167, %Vec_IntFree.exit, %Vec_IntFree.exit223, %189, %Vec_IntPushUniqueOrder.exit
-  %.5 = phi i32 [ %.1251, %Vec_IntPush.exit141 ], [ %.1251, %Vec_IntPushUniqueOrder.exit ], [ %.1251, %Vec_IntPushUniqueOrder.exit167 ], [ %.1251, %189 ], [ %.3.lcssa, %Vec_IntFree.exit ], [ %.4.lcssa, %Vec_IntFree.exit223 ], [ 0, %Vec_IntPushFirst.exit ], [ %.val128, %184 ]
+  %.5 = phi i32 [ %.1251, %Vec_IntPush.exit141 ], [ %.1251, %Vec_IntPushUniqueOrder.exit ], [ %.1251, %Vec_IntPushUniqueOrder.exit167 ], [ %.4.lcssa, %Vec_IntFree.exit223 ], [ %.1251, %189 ], [ %.3.lcssa, %Vec_IntFree.exit ], [ 0, %Vec_IntPushFirst.exit ], [ %.val128, %184 ]
   %321 = add nsw i32 %.5, 2
   %.val129 = load i32, ptr %10, align 4, !tbaa !36
   %322 = icmp slt i32 %321, %.val129

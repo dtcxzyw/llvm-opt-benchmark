@@ -3557,7 +3557,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.thread24
 
 316:                                              ; preds = %17, %.tail.thread
-  %317 = phi i32 [ -22, %.tail.thread ], [ -14, %17 ]
+  %317 = phi i32 [ -14, %17 ], [ -22, %.tail.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread
 

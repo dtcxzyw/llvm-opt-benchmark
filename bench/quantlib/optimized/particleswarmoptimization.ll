@@ -3473,8 +3473,8 @@ for.body56:                                       ; preds = %if.then45, %for.bod
   br i1 %exitcond61.not, label %if.end68, label %for.body56, !llvm.loop !145
 
 if.end68:                                         ; preds = %for.body32, %for.body56, %for.cond25.preheader, %if.then45, %if.else
-  %bestX.4 = phi i64 [ %bestX.0.lcssa, %if.else ], [ %bestX.0.lcssa, %if.then45 ], [ %bestX.0.lcssa, %for.cond25.preheader ], [ %bestX.6, %for.body56 ], [ %bestX.3, %for.body32 ]
-  %bestF.4 = phi double [ %bestF.0.lcssa, %if.else ], [ %bestF.0.lcssa, %if.then45 ], [ %bestF.0.lcssa, %for.cond25.preheader ], [ %bestF.6, %for.body56 ], [ %bestF.3, %for.body32 ]
+  %bestX.4 = phi i64 [ %bestX.0.lcssa, %if.else ], [ %bestX.6, %for.body56 ], [ %bestX.0.lcssa, %if.then45 ], [ %bestX.0.lcssa, %for.cond25.preheader ], [ %bestX.3, %for.body32 ]
+  %bestF.4 = phi double [ %bestF.0.lcssa, %if.else ], [ %bestF.6, %for.body56 ], [ %bestF.0.lcssa, %if.then45 ], [ %bestF.0.lcssa, %for.cond25.preheader ], [ %bestF.3, %for.body32 ]
   %11 = load ptr, ptr %pBX_, align 8, !tbaa !103
   %12 = load ptr, ptr %11, align 8, !tbaa !44
   %add.ptr.i = getelementptr inbounds nuw %"class.QuantLib::Array", ptr %12, i64 %bestX.4
@@ -5961,8 +5961,8 @@ for.body90.lr.ph:                                 ; preds = %if.end83
   br label %for.body90
 
 for.cond.cleanup89:                               ; preds = %for.inc105, %if.then67, %cond.end.i, %cond.end.i103, %if.else79, %if.end83
-  %bestNeighborF.0.lcssa = phi double [ 0x7FEFFFFFFFFFFFFF, %if.end83 ], [ 0x7FEFFFFFFFFFFFFF, %if.else79 ], [ 0x7FEFFFFFFFFFFFFF, %cond.end.i103 ], [ 0x7FEFFFFFFFFFFFFF, %cond.end.i ], [ 0x7FEFFFFFFFFFFFFF, %if.then67 ], [ %bestNeighborF.1, %for.inc105 ]
-  %bestNeighborX.0.lcssa = phi i64 [ 0, %if.end83 ], [ 0, %if.else79 ], [ 0, %cond.end.i103 ], [ 0, %cond.end.i ], [ 0, %if.then67 ], [ %bestNeighborX.1, %for.inc105 ]
+  %bestNeighborF.0.lcssa = phi double [ 0x7FEFFFFFFFFFFFFF, %if.end83 ], [ 0x7FEFFFFFFFFFFFFF, %if.then67 ], [ 0x7FEFFFFFFFFFFFFF, %if.else79 ], [ 0x7FEFFFFFFFFFFFFF, %cond.end.i103 ], [ 0x7FEFFFFFFFFFFFFF, %cond.end.i ], [ %bestNeighborF.1, %for.inc105 ]
+  %bestNeighborX.0.lcssa = phi i64 [ 0, %if.end83 ], [ 0, %if.then67 ], [ 0, %if.else79 ], [ 0, %cond.end.i103 ], [ 0, %cond.end.i ], [ %bestNeighborX.1, %for.inc105 ]
   %66 = load ptr, ptr %pBX_, align 8, !tbaa !103
   %67 = load ptr, ptr %66, align 8, !tbaa !44
   %add.ptr.i189 = getelementptr inbounds nuw %"class.QuantLib::Array", ptr %67, i64 %bestNeighborX.0.lcssa

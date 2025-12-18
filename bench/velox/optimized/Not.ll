@@ -28878,7 +28878,7 @@ return.sink.split:                                ; preds = %if.then.i, %_ZZN8fa
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.then27, %if.then3, %for.end, %entry
-  %retval.0 = phi i1 [ true, %entry ], [ true, %for.end ], [ true, %if.then3 ], [ true, %if.then27 ], [ false, %return.sink.split ]
+  %retval.0 = phi i1 [ true, %entry ], [ true, %for.end ], [ true, %if.then27 ], [ true, %if.then3 ], [ false, %return.sink.split ]
   ret i1 %retval.0
 }
 
@@ -35256,7 +35256,7 @@ for.body:                                         ; preds = %for.body.lr.ph.spli
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !310
 
 for.end:                                          ; preds = %for.body, %for.body.us154, %for.body.us, %for.body.us.us, %entry
-  %i.0.lcssa = phi i64 [ 0, %entry ], [ %add153.us155, %for.body.us154 ], [ %add153.us.us, %for.body.us.us ], [ %add153.us, %for.body.us ], [ %add153, %for.body ]
+  %i.0.lcssa = phi i64 [ 0, %entry ], [ %add153.us155, %for.body.us154 ], [ %add153.us, %for.body.us ], [ %add153.us.us, %for.body.us.us ], [ %add153, %for.body ]
   %add4 = or disjoint i64 %i.0.lcssa, 32
   %cmp5.not = icmp ugt i64 %add4, %numBits
   br i1 %cmp5.not, label %if.end, label %if.then

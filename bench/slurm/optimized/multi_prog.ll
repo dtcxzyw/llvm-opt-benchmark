@@ -320,7 +320,7 @@ define dso_local range(i32 -1, 1) i32 @mpir_set_multi_name(i32 noundef %0, ptr n
   br i1 %exitcond.not.i42.i, label %_set_range.exit35.i, label %.lr.ph.split.i38.i, !llvm.loop !12
 
 _set_range.exit35.i:                              ; preds = %128, %106, %113, %91
-  %129 = phi ptr [ %89, %91 ], [ %111, %113 ], [ %89, %106 ], [ %111, %128 ]
+  %129 = phi ptr [ %89, %106 ], [ %89, %91 ], [ %111, %113 ], [ %111, %128 ]
   %130 = load i8, ptr %129, align 1
   %131 = icmp eq i8 %130, 0
   br i1 %131, label %_set_exec_names.exit, label %132

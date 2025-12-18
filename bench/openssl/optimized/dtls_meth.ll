@@ -136,7 +136,7 @@ define range(i32 -2147483648, 2) i32 @dtls_get_more_records(ptr noundef initiali
   %.not109 = icmp eq i64 %78, 13
   br i1 %.not109, label %81, label %.backedge.sink.split
 
-.backedge.sink.split.sink.split:                  ; preds = %435, %240, %242, %265, %262, %231, %satsub64be.exit.thread15.i, %148, %143, %126, %123, %119, %117
+.backedge.sink.split.sink.split:                  ; preds = %435, %240, %242, %265, %262, %satsub64be.exit.thread15.i, %231, %148, %143, %126, %123, %119, %117
   store i64 0, ptr %24, align 8, !tbaa !35
   br label %.backedge.sink.split
 
@@ -494,7 +494,7 @@ satsub64be.exit.thread15.i:                       ; preds = %228, %225
   br label %282
 
 282:                                              ; preds = %280, %274, %272
-  %.078.i = phi i64 [ 0, %272 ], [ %281, %280 ], [ 0, %274 ]
+  %.078.i = phi i64 [ 0, %272 ], [ 0, %274 ], [ %281, %280 ]
   %283 = load i32, ptr %48, align 8, !tbaa !60
   %.not88.i = icmp eq i32 %283, 0
   br i1 %.not88.i, label %303, label %284

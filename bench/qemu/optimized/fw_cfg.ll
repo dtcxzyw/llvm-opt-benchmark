@@ -944,8 +944,8 @@ get_fw_cfg_order.exit:                            ; preds = %35, %45, %49
   br label %.critedge
 
 .critedge:                                        ; preds = %59, %53, %66, %.critedge.loopexit.split.loop.exit
-  %.192 = phi i32 [ %68, %.critedge.loopexit.split.loop.exit ], [ 0, %66 ], [ 0, %59 ], [ %.091103, %53 ]
-  %.0 = phi i32 [ 0, %.critedge.loopexit.split.loop.exit ], [ 0, %66 ], [ %.09.i, %53 ], [ %.09.i, %59 ]
+  %.192 = phi i32 [ 0, %66 ], [ %68, %.critedge.loopexit.split.loop.exit ], [ %.091103, %53 ], [ 0, %59 ]
+  %.0 = phi i32 [ 0, %66 ], [ 0, %.critedge.loopexit.split.loop.exit ], [ %.09.i, %53 ], [ %.09.i, %59 ]
   %69 = icmp sgt i32 %24, %.192
   br i1 %69, label %.lr.ph112, label %.critedge.._crit_edge_crit_edge
 
@@ -2323,7 +2323,7 @@ define internal fastcc void @fw_cfg_common_realize(ptr noundef %0, ptr noundef %
   br label %fw_cfg_bootsplash.exit
 
 .critedge22.i:                                    ; preds = %59, %57
-  %.str.61.sink.i = phi ptr [ @.str.60, %57 ], [ @.str.61, %59 ]
+  %.str.61.sink.i = phi ptr [ @.str.61, %59 ], [ @.str.60, %57 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %64 = load ptr, ptr @boot_splash_filedata, align 8

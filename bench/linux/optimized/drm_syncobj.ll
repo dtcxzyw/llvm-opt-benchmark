@@ -3008,7 +3008,7 @@ define dso_local noundef range(i32 -95, 1) i32 @drm_syncobj_timeline_signal_ioct
   br i1 %98, label %77, label %.thread, !llvm.loop !45
 
 .thread:                                          ; preds = %.thread13, %.preheader45, %53, %65, %56
-  %99 = phi i32 [ -12, %65 ], [ 0, %56 ], [ 0, %53 ], [ -12, %.preheader45 ], [ 0, %.thread13 ]
+  %99 = phi i32 [ -12, %65 ], [ 0, %56 ], [ -12, %.preheader45 ], [ 0, %53 ], [ 0, %.thread13 ]
   tail call void @kfree(ptr noundef nonnull %51) #12
   br label %100
 
@@ -3253,7 +3253,7 @@ define dso_local noundef range(i32 -95, 1) i32 @drm_syncobj_query_ioctl(ptr noun
   br i1 %110, label %.critedge20, label %76, !llvm.loop !47
 
 .critedge20:                                      ; preds = %108, %87, %89, %90
-  %111 = phi ptr [ %77, %90 ], [ %77, %89 ], [ %77, %87 ], [ %78, %108 ]
+  %111 = phi ptr [ %77, %90 ], [ %77, %87 ], [ %77, %89 ], [ %78, %108 ]
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 48
   %113 = load volatile i64, ptr %112, align 8
   %114 = and i64 %113, 1
@@ -3817,7 +3817,7 @@ define internal fastcc i64 @drm_syncobj_array_wait_timeout(ptr noundef readonly 
   br label %.critedge
 
 .loopexit28:                                      ; preds = %.preheader27.split.split, %172, %163
-  %.us-phi46 = phi i32 [ 0, %172 ], [ %164, %163 ], [ %spec.select, %.preheader27.split.split ]
+  %.us-phi46 = phi i32 [ %164, %163 ], [ 0, %172 ], [ %spec.select, %.preheader27.split.split ]
   %187 = icmp eq i32 %.us-phi46, %2
   br i1 %187, label %.critedge, label %188
 

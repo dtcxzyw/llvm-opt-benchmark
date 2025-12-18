@@ -1087,7 +1087,7 @@ _ZNK6icu_7710NFRuleListixEj.exit:                 ; preds = %.preheader, %60
   br i1 %69, label %60, label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread
 
 _ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread:   ; preds = %58, %57, %_ZN6icu_77L15util_equalRulesEPKNS_6NFRuleES2_.exit, %_ZNK6icu_7710NFRuleListixEj.exit, %60, %.preheader, %25, %21, %2, %10, %_ZNK6icu_7713UnicodeStringeqERKS0_.exit
-  %.119 = phi i1 [ false, %2 ], [ false, %25 ], [ false, %_ZNK6icu_7713UnicodeStringeqERKS0_.exit ], [ false, %10 ], [ false, %21 ], [ true, %.preheader ], [ %69, %_ZNK6icu_7710NFRuleListixEj.exit ], [ %69, %60 ], [ false, %_ZN6icu_77L15util_equalRulesEPKNS_6NFRuleES2_.exit ], [ false, %57 ], [ false, %58 ]
+  %.119 = phi i1 [ false, %2 ], [ %69, %_ZNK6icu_7710NFRuleListixEj.exit ], [ false, %25 ], [ false, %_ZNK6icu_7713UnicodeStringeqERKS0_.exit ], [ false, %10 ], [ false, %21 ], [ true, %.preheader ], [ %69, %60 ], [ false, %_ZN6icu_77L15util_equalRulesEPKNS_6NFRuleES2_.exit ], [ false, %57 ], [ false, %58 ]
   ret i1 %.119
 }
 

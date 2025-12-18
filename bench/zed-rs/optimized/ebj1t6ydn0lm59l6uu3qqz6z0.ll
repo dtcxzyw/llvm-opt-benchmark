@@ -6679,9 +6679,9 @@ _ZN3std3ffi6os_str5OsStr15to_string_lossy17h96d38b1cf20636d8E.exit.i: ; preds = 
   br label %413
 
 411:                                              ; preds = %401, %397, %"_ZN4core3ptr76drop_in_place$LT$gpui..app..entity_map..Model$LT$headless..DevServer$GT$$GT$17h30e330d8e26ab08aE.exit.sink.split.i"
-  %.sroa.10.0 = phi i64 [ %.sroa.5124.0.copyload.i, %401 ], [ %.sroa.5124.0.copyload.i, %397 ], [ %.sroa.8116.0.ph.i, %"_ZN4core3ptr76drop_in_place$LT$gpui..app..entity_map..Model$LT$headless..DevServer$GT$$GT$17h30e330d8e26ab08aE.exit.sink.split.i" ]
-  %.sroa.8.0 = phi ptr [ %.sroa.4123.0.copyload.i, %401 ], [ %.sroa.4123.0.copyload.i, %397 ], [ %.sroa.5113.2.ph.i, %"_ZN4core3ptr76drop_in_place$LT$gpui..app..entity_map..Model$LT$headless..DevServer$GT$$GT$17h30e330d8e26ab08aE.exit.sink.split.i" ]
-  %.sroa.0.0 = phi i64 [ %.sroa.0122.0.copyload.i, %401 ], [ %.sroa.0122.0.copyload.i, %397 ], [ %.sroa.0111.2.ph.i, %"_ZN4core3ptr76drop_in_place$LT$gpui..app..entity_map..Model$LT$headless..DevServer$GT$$GT$17h30e330d8e26ab08aE.exit.sink.split.i" ]
+  %.sroa.10.0 = phi i64 [ %.sroa.8116.0.ph.i, %"_ZN4core3ptr76drop_in_place$LT$gpui..app..entity_map..Model$LT$headless..DevServer$GT$$GT$17h30e330d8e26ab08aE.exit.sink.split.i" ], [ %.sroa.5124.0.copyload.i, %397 ], [ %.sroa.5124.0.copyload.i, %401 ]
+  %.sroa.8.0 = phi ptr [ %.sroa.5113.2.ph.i, %"_ZN4core3ptr76drop_in_place$LT$gpui..app..entity_map..Model$LT$headless..DevServer$GT$$GT$17h30e330d8e26ab08aE.exit.sink.split.i" ], [ %.sroa.4123.0.copyload.i, %397 ], [ %.sroa.4123.0.copyload.i, %401 ]
+  %.sroa.0.0 = phi i64 [ %.sroa.0111.2.ph.i, %"_ZN4core3ptr76drop_in_place$LT$gpui..app..entity_map..Model$LT$headless..DevServer$GT$$GT$17h30e330d8e26ab08aE.exit.sink.split.i" ], [ %.sroa.0122.0.copyload.i, %397 ], [ %.sroa.0122.0.copyload.i, %401 ]
   store i8 1, ptr %50, align 8, !noalias !1169
   %412 = icmp eq i64 %.sroa.0.0, -9223372036854775807
   br i1 %412, label %414, label %413

@@ -3168,7 +3168,7 @@ _ZN12clap_builder7mkeymap7MKeyMap3get17h7e95d0fa05320e69E.exit.thread.i: ; preds
   br i1 %.0.i.i.i.i.i3309, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h1b9694ed45a69a69E.exit.i3295", label %906
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h1b9694ed45a69a69E.exit.i3295": ; preds = %.critedge.backedge.i.i.i, %908, %906, %894
-  %.051.i = phi i1 [ false, %894 ], [ %.not140.not.i.not.not, %908 ], [ %.not140.not.i.not.not, %906 ], [ false, %.critedge.backedge.i.i.i ]
+  %.051.i = phi i1 [ %.not140.not.i.not.not, %908 ], [ false, %894 ], [ %.not140.not.i.not.not, %906 ], [ false, %.critedge.backedge.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %26), !noalias !577
   call void @llvm.lifetime.start.p0(ptr nonnull %25), !noalias !577
   call void @llvm.lifetime.start.p0(ptr nonnull %24), !noalias !577
@@ -5238,7 +5238,7 @@ _ZN12clap_builder7builder3arg3Arg11is_multiple17h26534e53669df396E.exit.thread.i
   br label %"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h2e5894533a9a8a8bE.exit.thread"
 
 "_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h2e5894533a9a8a8bE.exit.thread": ; preds = %.backedge.i.i, %1540, %"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h2e5894533a9a8a8bE.exit", %352, %1503
-  %.0216 = phi i1 [ false, %352 ], [ false, %1503 ], [ %.not1052, %1540 ], [ false, %"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h2e5894533a9a8a8bE.exit" ], [ false, %.backedge.i.i ]
+  %.0216 = phi i1 [ false, %"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h2e5894533a9a8a8bE.exit" ], [ false, %352 ], [ false, %1503 ], [ %.not1052, %1540 ], [ false, %.backedge.i.i ]
   %1544 = load ptr, ptr %248, align 8, !nonnull !5, !align !133, !noundef !5
   call void @llvm.experimental.noalias.scope.decl(metadata !1364)
   call void @llvm.lifetime.start.p0(ptr nonnull %108), !noalias !1367
@@ -6801,8 +6801,8 @@ _ZN12clap_builder7builder12value_parser11ValueParser9parse_ref17he6c26e3c7a41b22
           to label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h1b9694ed45a69a69E.exit.thread.i" unwind label %1990
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h1b9694ed45a69a69E.exit.thread.i": ; preds = %2056, %2067, %.noexc659, %.noexc653
-  %2069 = phi ptr [ %2050, %.noexc659 ], [ %.pre2338, %.noexc653 ], [ %2050, %2067 ], [ %2050, %2056 ]
-  %.030.i = phi i1 [ true, %.noexc659 ], [ false, %.noexc653 ], [ %2068, %2067 ], [ false, %2056 ]
+  %2069 = phi ptr [ %2050, %2067 ], [ %2050, %.noexc659 ], [ %.pre2338, %.noexc653 ], [ %2050, %2056 ]
+  %.030.i = phi i1 [ %2068, %2067 ], [ true, %.noexc659 ], [ false, %.noexc653 ], [ false, %2056 ]
   %2070 = getelementptr inbounds nuw i8, ptr %2069, i64 192
   %2071 = load i64, ptr %2070, align 8, !noundef !5
   %.not47.i = icmp eq i64 %2071, 0
@@ -9148,8 +9148,8 @@ define internal fastcc void @_ZN12clap_builder6parser6parser6Parser5react17he346
           to label %90 unwind label %88
 
 .body:                                            ; preds = %744, %669, %605, %88, %753, %.thread341, %.thread313
-  %.1140 = phi i8 [ %.8, %744 ], [ %.6, %.thread313 ], [ %.6, %605 ], [ %.7, %.thread341 ], [ %.7, %669 ], [ %.8, %753 ], [ %.0139, %88 ]
-  %.pn168 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp371, %744 ], [ %.pn162316, %.thread313 ], [ %lpad.thr_comm.split-lp320, %605 ], [ %.pn158344, %.thread341 ], [ %lpad.thr_comm.split-lp348, %669 ], [ %lpad.thr_comm370, %753 ], [ %89, %88 ]
+  %.1140 = phi i8 [ %.7, %.thread341 ], [ %.7, %669 ], [ %.8, %744 ], [ %.6, %.thread313 ], [ %.6, %605 ], [ %.8, %753 ], [ %.0139, %88 ]
+  %.pn168 = phi { ptr, i32 } [ %.pn158344, %.thread341 ], [ %lpad.thr_comm.split-lp348, %669 ], [ %lpad.thr_comm.split-lp371, %744 ], [ %.pn162316, %.thread313 ], [ %lpad.thr_comm.split-lp320, %605 ], [ %lpad.thr_comm370, %753 ], [ %89, %88 ]
   %87 = trunc nuw i8 %.1140 to i1
   br i1 %87, label %.thread, label %.thread277
 
@@ -9946,7 +9946,7 @@ _ZN12clap_builder6parser6parser6Parser15verify_num_args17hf07cb5a4e9e4655dE.exit
   br i1 %or.cond, label %"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17hcf15c03c5b193b03E.exit", label %347
 
 345:                                              ; preds = %651, %715, %751
-  %.2141 = phi i8 [ %.6, %651 ], [ %.7, %715 ], [ %.8, %751 ]
+  %.2141 = phi i8 [ %.7, %715 ], [ %.8, %751 ], [ %.6, %651 ]
   %346 = trunc nuw i8 %.2141 to i1
   br i1 %346, label %.thread283, label %.thread286
 
@@ -10528,7 +10528,7 @@ _ZN12clap_builder6parser6parser6Parser15verify_num_args17hf07cb5a4e9e4655dE.exit
   br label %.thread286
 
 575:                                              ; preds = %750, %713, %649
-  %.5 = phi i8 [ %.6, %649 ], [ %.7, %713 ], [ %.8, %750 ]
+  %.5 = phi i8 [ %.8, %750 ], [ %.7, %713 ], [ %.6, %649 ]
   %576 = trunc nuw i8 %.5 to i1
   br i1 %576, label %.thread307, label %.thread286
 

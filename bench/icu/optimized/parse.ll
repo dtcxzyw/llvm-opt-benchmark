@@ -4123,7 +4123,7 @@ _ZL9peekTokenP10ParseStatejPP7UStringPjS2_P10UErrorCode.exit102: ; preds = %125,
   br label %.loopexit112
 
 .loopexit112:                                     ; preds = %55, %.loopexit112.sink.split, %.invoke172, %59, %60, %32, %17, %19
-  %.073 = phi ptr [ null, %17 ], [ %33, %32 ], [ null, %59 ], [ null, %.invoke172 ], [ null, %60 ], [ null, %19 ], [ null, %.loopexit112.sink.split ], [ %16, %55 ]
+  %.073 = phi ptr [ null, %17 ], [ %33, %32 ], [ null, %.loopexit112.sink.split ], [ null, %59 ], [ null, %.invoke172 ], [ null, %19 ], [ null, %60 ], [ %16, %55 ]
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %8) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %7) #21

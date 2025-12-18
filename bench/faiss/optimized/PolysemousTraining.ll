@@ -831,8 +831,8 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc35
   br label %69
 
 .loopexit:                                        ; preds = %30, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i, %._crit_edge
-  %.sroa.14.18391 = phi ptr [ %17, %._crit_edge ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ], [ %17, %30 ]
-  %.sroa.038.18589 = phi ptr [ %16, %._crit_edge ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ], [ %16, %30 ]
+  %.sroa.14.18391 = phi ptr [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ], [ %17, %._crit_edge ], [ %17, %30 ]
+  %.sroa.038.18589 = phi ptr [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ], [ %16, %._crit_edge ], [ %16, %30 ]
   %41 = invoke noundef double @_ZN5faiss27SimulatedAnnealingOptimizer8optimizeEPi(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %.sroa.038.18589)
           to label %42 unwind label %67
 
@@ -3189,7 +3189,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit106:            ; preds = %91, %.noexc105
   br i1 %103, label %.invoke, label %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i162
 
 .invoke:                                          ; preds = %179, %101, %94, %71, %40, %215
-  %104 = phi ptr [ @.str.20, %215 ], [ @.str.11, %94 ], [ @.str.11, %71 ], [ @.str, %40 ], [ @.str, %179 ], [ @.str.11, %101 ]
+  %104 = phi ptr [ @.str.20, %215 ], [ @.str.11, %71 ], [ @.str, %40 ], [ @.str, %179 ], [ @.str.11, %101 ], [ @.str.11, %94 ]
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull %104) #29
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp
 

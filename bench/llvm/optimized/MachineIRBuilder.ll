@@ -1909,7 +1909,7 @@ _ZSt6fill_nIPN4llvm5DstOpEmS1_ET_S3_T0_RKT1_.exit.i.i: ; preds = %_ZNK4llvm3LLT1
   br i1 %.not.i.i.i.i.i, label %_ZN4llvm11SmallVectorINS_5DstOpELj8EEC2EmRKS1_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !287
 
 _ZN4llvm11SmallVectorINS_5DstOpELj8EEC2EmRKS1_.exit: ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i, %_ZSt6fill_nIPN4llvm5DstOpEmS1_ET_S3_T0_RKT1_.exit.i.i
-  %storemerge.in = phi i64 [ %71, %_ZSt6fill_nIPN4llvm5DstOpEmS1_ET_S3_T0_RKT1_.exit.i.i ], [ %72, %.lr.ph.i.i.i.i.i.i ], [ %71, %.lr.ph.i.i.i.i.i ]
+  %storemerge.in = phi i64 [ %72, %.lr.ph.i.i.i.i.i.i ], [ %71, %_ZSt6fill_nIPN4llvm5DstOpEmS1_ET_S3_T0_RKT1_.exit.i.i ], [ %71, %.lr.ph.i.i.i.i.i ]
   %storemerge = trunc i64 %storemerge.in to i32
   store i32 %storemerge, ptr %74, align 8, !tbaa !276
   %82 = load ptr, ptr %6, align 8, !tbaa !277
@@ -5499,7 +5499,7 @@ _ZSt6fill_nIPN4llvm5DstOpEmS1_ET_S3_T0_RKT1_.exit.i.i: ; preds = %_ZNK4llvm3LLT1
   br i1 %.not.i.i.i.i.i, label %_ZN4llvm11SmallVectorINS_5DstOpELj8EEC2EmRKS1_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !287
 
 _ZN4llvm11SmallVectorINS_5DstOpELj8EEC2EmRKS1_.exit: ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i, %_ZSt6fill_nIPN4llvm5DstOpEmS1_ET_S3_T0_RKT1_.exit.i.i
-  %storemerge.in = phi i64 [ %72, %_ZSt6fill_nIPN4llvm5DstOpEmS1_ET_S3_T0_RKT1_.exit.i.i ], [ %73, %.lr.ph.i.i.i.i.i.i ], [ %72, %.lr.ph.i.i.i.i.i ]
+  %storemerge.in = phi i64 [ %73, %.lr.ph.i.i.i.i.i.i ], [ %72, %_ZSt6fill_nIPN4llvm5DstOpEmS1_ET_S3_T0_RKT1_.exit.i.i ], [ %72, %.lr.ph.i.i.i.i.i ]
   %storemerge = trunc i64 %storemerge.in to i32
   store i32 %storemerge, ptr %75, align 8, !tbaa !276
   %83 = load ptr, ptr %7, align 8, !tbaa !277

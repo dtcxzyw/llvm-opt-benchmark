@@ -1878,7 +1878,7 @@ if.else.i140:                                     ; preds = %while.body113
   br i1 %cmp.i.i.i144, label %if.then.i.i.i162.invoke, label %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i145
 
 if.then.i.i.i162.invoke:                          ; preds = %if.else.i, %if.else.i140, %do.end, %do.end102
-  %89 = phi ptr [ @.str.53, %do.end102 ], [ @.str.53, %do.end ], [ @.str.54, %if.else.i140 ], [ @.str.54, %if.else.i ]
+  %89 = phi ptr [ @.str.53, %do.end102 ], [ @.str.54, %if.else.i140 ], [ @.str.53, %do.end ], [ @.str.54, %if.else.i ]
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull %89) #31
           to label %if.then.i.i.i162.cont unwind label %lpad41.loopexit.split-lp.loopexit.split-lp
 
@@ -3345,7 +3345,7 @@ if.else.i145:                                     ; preds = %while.body111
   br i1 %cmp.i.i.i149, label %if.then.i.i.i167.invoke, label %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i150
 
 if.then.i.i.i167.invoke:                          ; preds = %if.else.i, %if.else.i145, %do.end, %do.end100
-  %88 = phi ptr [ @.str.53, %do.end100 ], [ @.str.53, %do.end ], [ @.str.54, %if.else.i145 ], [ @.str.54, %if.else.i ]
+  %88 = phi ptr [ @.str.53, %do.end100 ], [ @.str.54, %if.else.i145 ], [ @.str.53, %do.end ], [ @.str.54, %if.else.i ]
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull %88) #31
           to label %if.then.i.i.i167.cont unwind label %lpad39.loopexit.split-lp.loopexit.split-lp
 
@@ -4437,7 +4437,7 @@ if.else.i105:                                     ; preds = %while.body68
   br i1 %cmp.i.i.i109, label %if.then.i.i.i127.invoke, label %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i110
 
 if.then.i.i.i127.invoke:                          ; preds = %if.else.i105, %if.else.i, %invoke.cont37, %invoke.cont56
-  %69 = phi ptr [ @.str.53, %invoke.cont56 ], [ @.str.53, %invoke.cont37 ], [ @.str.54, %if.else.i ], [ @.str.54, %if.else.i105 ]
+  %69 = phi ptr [ @.str.53, %invoke.cont56 ], [ @.str.54, %if.else.i ], [ @.str.53, %invoke.cont37 ], [ @.str.54, %if.else.i105 ]
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull %69) #31
           to label %if.then.i.i.i127.cont unwind label %lpad36.loopexit.split-lp.loopexit.split-lp
 
@@ -4650,8 +4650,8 @@ ehcleanup112:                                     ; preds = %ehcleanup111, %lpad
   br label %ehcleanup156
 
 if.end116:                                        ; preds = %_ZNSt6vectorIdSaIdEE9push_backERKd.exit131, %_ZNSt6vectorIdSaIdEE9push_backERKd.exit, %_ZNSt6vectorIdSaIdEE7reserveEm.exit86, %_ZNSt6vectorIdSaIdEE7reserveEm.exit
-  %95 = phi ptr [ %37, %_ZNSt6vectorIdSaIdEE7reserveEm.exit ], [ %60, %_ZNSt6vectorIdSaIdEE7reserveEm.exit86 ], [ %49, %_ZNSt6vectorIdSaIdEE9push_backERKd.exit ], [ %73, %_ZNSt6vectorIdSaIdEE9push_backERKd.exit131 ]
-  %96 = phi ptr [ %36, %_ZNSt6vectorIdSaIdEE7reserveEm.exit ], [ %59, %_ZNSt6vectorIdSaIdEE7reserveEm.exit86 ], [ %48, %_ZNSt6vectorIdSaIdEE9push_backERKd.exit ], [ %72, %_ZNSt6vectorIdSaIdEE9push_backERKd.exit131 ]
+  %95 = phi ptr [ %49, %_ZNSt6vectorIdSaIdEE9push_backERKd.exit ], [ %37, %_ZNSt6vectorIdSaIdEE7reserveEm.exit ], [ %60, %_ZNSt6vectorIdSaIdEE7reserveEm.exit86 ], [ %73, %_ZNSt6vectorIdSaIdEE9push_backERKd.exit131 ]
+  %96 = phi ptr [ %48, %_ZNSt6vectorIdSaIdEE9push_backERKd.exit ], [ %36, %_ZNSt6vectorIdSaIdEE7reserveEm.exit ], [ %59, %_ZNSt6vectorIdSaIdEE7reserveEm.exit86 ], [ %72, %_ZNSt6vectorIdSaIdEE9push_backERKd.exit131 ]
   %cmp.i159.not383 = icmp eq ptr %96, %95
   br i1 %cmp.i159.not383, label %for.end, label %for.body.lr.ph
 
@@ -5798,7 +5798,7 @@ if.else.i110:                                     ; preds = %while.body66
   br i1 %cmp.i.i.i114, label %if.then.i.i.i132.invoke, label %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i115
 
 if.then.i.i.i132.invoke:                          ; preds = %if.else.i110, %if.else.i, %invoke.cont35, %invoke.cont54
-  %68 = phi ptr [ @.str.53, %invoke.cont54 ], [ @.str.53, %invoke.cont35 ], [ @.str.54, %if.else.i ], [ @.str.54, %if.else.i110 ]
+  %68 = phi ptr [ @.str.53, %invoke.cont54 ], [ @.str.54, %if.else.i ], [ @.str.53, %invoke.cont35 ], [ @.str.54, %if.else.i110 ]
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull %68) #31
           to label %if.then.i.i.i132.cont unwind label %lpad34.loopexit.split-lp.loopexit.split-lp
 
@@ -6011,8 +6011,8 @@ ehcleanup110:                                     ; preds = %ehcleanup109, %lpad
   br label %ehcleanup151
 
 if.end114:                                        ; preds = %_ZNSt6vectorIdSaIdEE9push_backERKd.exit136, %_ZNSt6vectorIdSaIdEE9push_backERKd.exit, %_ZNSt6vectorIdSaIdEE7reserveEm.exit91, %_ZNSt6vectorIdSaIdEE7reserveEm.exit
-  %94 = phi ptr [ %36, %_ZNSt6vectorIdSaIdEE7reserveEm.exit ], [ %59, %_ZNSt6vectorIdSaIdEE7reserveEm.exit91 ], [ %48, %_ZNSt6vectorIdSaIdEE9push_backERKd.exit ], [ %72, %_ZNSt6vectorIdSaIdEE9push_backERKd.exit136 ]
-  %95 = phi ptr [ %35, %_ZNSt6vectorIdSaIdEE7reserveEm.exit ], [ %58, %_ZNSt6vectorIdSaIdEE7reserveEm.exit91 ], [ %47, %_ZNSt6vectorIdSaIdEE9push_backERKd.exit ], [ %71, %_ZNSt6vectorIdSaIdEE9push_backERKd.exit136 ]
+  %94 = phi ptr [ %48, %_ZNSt6vectorIdSaIdEE9push_backERKd.exit ], [ %36, %_ZNSt6vectorIdSaIdEE7reserveEm.exit ], [ %59, %_ZNSt6vectorIdSaIdEE7reserveEm.exit91 ], [ %72, %_ZNSt6vectorIdSaIdEE9push_backERKd.exit136 ]
+  %95 = phi ptr [ %47, %_ZNSt6vectorIdSaIdEE9push_backERKd.exit ], [ %35, %_ZNSt6vectorIdSaIdEE7reserveEm.exit ], [ %58, %_ZNSt6vectorIdSaIdEE7reserveEm.exit91 ], [ %71, %_ZNSt6vectorIdSaIdEE9push_backERKd.exit136 ]
   %cmp.i164.not388 = icmp eq ptr %95, %94
   br i1 %cmp.i164.not388, label %for.end, label %for.body.lr.ph
 
@@ -13767,8 +13767,8 @@ if.end18.i:                                       ; preds = %if.else.i, %while.b
   br i1 %cmp.not.i, label %_ZNSt8_Rb_treeIPN8QuantLib8ObserverES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE11equal_rangeERKS2_.exit, label %while.body.i, !llvm.loop !183
 
 _ZNSt8_Rb_treeIPN8QuantLib8ObserverES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE11equal_rangeERKS2_.exit: ; preds = %if.end18.i, %while.body.i23.i, %entry, %_ZNSt8_Rb_treeIPN8QuantLib8ObserverES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i
-  %retval.sroa.0.0.i = phi ptr [ %__y.addr.0.lcssa.i.i, %_ZNSt8_Rb_treeIPN8QuantLib8ObserverES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i ], [ %add.ptr.i.i, %entry ], [ %__y.addr.0.lcssa.i.i, %while.body.i23.i ], [ %__y.1.i, %if.end18.i ]
-  %retval.sroa.3.0.i = phi ptr [ %__y.040.i, %_ZNSt8_Rb_treeIPN8QuantLib8ObserverES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i ], [ %add.ptr.i.i, %entry ], [ %__y.addr.1.i28.i, %while.body.i23.i ], [ %__y.1.i, %if.end18.i ]
+  %retval.sroa.0.0.i = phi ptr [ %__y.addr.0.lcssa.i.i, %while.body.i23.i ], [ %__y.addr.0.lcssa.i.i, %_ZNSt8_Rb_treeIPN8QuantLib8ObserverES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i ], [ %add.ptr.i.i, %entry ], [ %__y.1.i, %if.end18.i ]
+  %retval.sroa.3.0.i = phi ptr [ %__y.addr.1.i28.i, %while.body.i23.i ], [ %__y.040.i, %_ZNSt8_Rb_treeIPN8QuantLib8ObserverES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i ], [ %add.ptr.i.i, %entry ], [ %__y.1.i, %if.end18.i ]
   %_M_node_count.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %6 = load i64, ptr %_M_node_count.i, align 8, !tbaa !16
   %_M_left.i.i1 = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -14739,8 +14739,8 @@ if.end18.i.i.i.i:                                 ; preds = %if.else.i.i.i.i, %w
   br i1 %cmp.not.i.i.i.i, label %_ZNSt3setIN5boost10shared_ptrIN8QuantLib10ObservableEEESt4lessIS4_ESaIS4_EE5eraseERKS4_.exit.i, label %while.body.i.i.i.i, !llvm.loop !201
 
 _ZNSt3setIN5boost10shared_ptrIN8QuantLib10ObservableEEESt4lessIS4_ESaIS4_EE5eraseERKS4_.exit.i: ; preds = %if.end18.i.i.i.i, %while.body.i26.i.i.i.i, %_ZNSt8_Rb_treeIN5boost10shared_ptrIN8QuantLib10ObservableEEES4_St9_IdentityIS4_ESt4lessIS4_ESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRKS4_.exit.i.i.i.i, %if.end.i
-  %retval.sroa.0.0.i.i.i.i = phi ptr [ %__y.addr.0.lcssa.i.i.i.i.i, %_ZNSt8_Rb_treeIN5boost10shared_ptrIN8QuantLib10ObservableEEES4_St9_IdentityIS4_ESt4lessIS4_ESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRKS4_.exit.i.i.i.i ], [ %add.ptr.i.i.i.i.i, %if.end.i ], [ %__y.addr.0.lcssa.i.i.i.i.i, %while.body.i26.i.i.i.i ], [ %__y.1.i.i.i.i, %if.end18.i.i.i.i ]
-  %retval.sroa.3.0.i.i.i.i = phi ptr [ %__y.043.i.i.i.i, %_ZNSt8_Rb_treeIN5boost10shared_ptrIN8QuantLib10ObservableEEES4_St9_IdentityIS4_ESt4lessIS4_ESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRKS4_.exit.i.i.i.i ], [ %add.ptr.i.i.i.i.i, %if.end.i ], [ %__y.addr.1.i31.i.i.i.i, %while.body.i26.i.i.i.i ], [ %__y.1.i.i.i.i, %if.end18.i.i.i.i ]
+  %retval.sroa.0.0.i.i.i.i = phi ptr [ %__y.addr.0.lcssa.i.i.i.i.i, %while.body.i26.i.i.i.i ], [ %__y.addr.0.lcssa.i.i.i.i.i, %_ZNSt8_Rb_treeIN5boost10shared_ptrIN8QuantLib10ObservableEEES4_St9_IdentityIS4_ESt4lessIS4_ESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRKS4_.exit.i.i.i.i ], [ %add.ptr.i.i.i.i.i, %if.end.i ], [ %__y.1.i.i.i.i, %if.end18.i.i.i.i ]
+  %retval.sroa.3.0.i.i.i.i = phi ptr [ %__y.addr.1.i31.i.i.i.i, %while.body.i26.i.i.i.i ], [ %__y.043.i.i.i.i, %_ZNSt8_Rb_treeIN5boost10shared_ptrIN8QuantLib10ObservableEEES4_St9_IdentityIS4_ESt4lessIS4_ESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRKS4_.exit.i.i.i.i ], [ %add.ptr.i.i.i.i.i, %if.end.i ], [ %__y.1.i.i.i.i, %if.end18.i.i.i.i ]
   %observables_.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   invoke void @_ZNSt8_Rb_treeIN5boost10shared_ptrIN8QuantLib10ObservableEEES4_St9_IdentityIS4_ESt4lessIS4_ESaIS4_EE12_M_erase_auxESt23_Rb_tree_const_iteratorIS4_ESC_(ptr noundef nonnull align 8 dereferenceable(48) %observables_.i, ptr %retval.sroa.0.0.i.i.i.i, ptr %retval.sroa.3.0.i.i.i.i)
           to label %invoke.cont unwind label %lpad

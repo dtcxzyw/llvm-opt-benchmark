@@ -3192,7 +3192,7 @@ GC_is_black_listed.exit.thread.i:                 ; preds = %GC_is_black_listed.
   br label %76
 
 print_hblkfreelist_item.exit:                     ; preds = %103, %30, %38, %57, %GC_is_black_listed.exit.i, %62, %69, %96
-  %109 = phi ptr [ @.str.129, %57 ], [ @.str.129, %GC_is_black_listed.exit.i ], [ @.str.129, %30 ], [ @.str.129, %38 ], [ %100, %96 ], [ @.str.130, %69 ], [ @.str.130, %62 ], [ @.str.131, %103 ]
+  %109 = phi ptr [ @.str.129, %57 ], [ @.str.129, %GC_is_black_listed.exit.i ], [ @.str.129, %30 ], [ @.str.129, %38 ], [ @.str.130, %62 ], [ %100, %96 ], [ @.str.130, %69 ], [ @.str.131, %103 ]
   tail call void (ptr, ...) @GC_printf(ptr noundef nonnull @.str.128, ptr noundef nonnull %.011.i, i64 noundef %27, ptr noundef nonnull %109)
   %110 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GC_arrays, i64 224), align 8
   br label %111
@@ -10346,7 +10346,7 @@ define internal fastcc range(i32 0, 5) i32 @GC_move_disappearing_link_inner(ptr 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph81, %.lr.ph64, %.thread72, %6, %58, %62, %.lr.ph._crit_edge, %3
-  %.0 = phi i32 [ 4, %3 ], [ 0, %62 ], [ 0, %.lr.ph._crit_edge ], [ 0, %58 ], [ 4, %6 ], [ 0, %.thread72 ], [ 1, %.lr.ph64 ], [ 4, %.lr.ph81 ]
+  %.0 = phi i32 [ 0, %58 ], [ 4, %3 ], [ 0, %62 ], [ 0, %.lr.ph._crit_edge ], [ 4, %6 ], [ 0, %.thread72 ], [ 1, %.lr.ph64 ], [ 4, %.lr.ph81 ]
   ret i32 %.0
 }
 
@@ -10599,10 +10599,10 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   br i1 %84, label %.split165.us, label %.lr.ph226, !llvm.loop !149
 
 .split165.us:                                     ; preds = %.lr.ph.preheader, %.lr.ph, %61, %.lr.ph.us
-  %.us-phi = phi ptr [ null, %.lr.ph.us ], [ %.085, %.lr.ph ], [ null, %61 ], [ %.085, %.lr.ph.preheader ]
-  %.us-phi166 = phi i64 [ %58, %.lr.ph.us ], [ %76, %.lr.ph ], [ %58, %61 ], [ %76, %.lr.ph.preheader ]
-  %.us-phi167 = phi ptr [ null, %.lr.ph.us ], [ %.084163225, %.lr.ph ], [ %.084163.us177, %61 ], [ null, %.lr.ph.preheader ]
-  %.us-phi168 = phi ptr [ %.084160.us, %.lr.ph.us ], [ %.084, %.lr.ph ], [ %.084.us, %61 ], [ %.084160, %.lr.ph.preheader ]
+  %.us-phi = phi ptr [ null, %61 ], [ null, %.lr.ph.us ], [ %.085, %.lr.ph ], [ %.085, %.lr.ph.preheader ]
+  %.us-phi166 = phi i64 [ %58, %61 ], [ %58, %.lr.ph.us ], [ %76, %.lr.ph ], [ %76, %.lr.ph.preheader ]
+  %.us-phi167 = phi ptr [ %.084163.us177, %61 ], [ null, %.lr.ph.us ], [ %.084163225, %.lr.ph ], [ null, %.lr.ph.preheader ]
+  %.us-phi168 = phi ptr [ %.084.us, %61 ], [ %.084160.us, %.lr.ph.us ], [ %.084, %.lr.ph ], [ %.084160, %.lr.ph.preheader ]
   %.not124 = icmp eq ptr %4, null
   br i1 %.not124, label %88, label %85
 
@@ -11732,8 +11732,8 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   br label %.thread
 
 .thread:                                          ; preds = %36, %.thread.sink.split, %29, %25
-  %.046 = phi i32 [ %.052, %29 ], [ %.052, %25 ], [ %.052, %.thread.sink.split ], [ %43, %36 ]
-  %.118 = phi i64 [ %.219, %29 ], [ %.01751, %25 ], [ %.118.ph, %.thread.sink.split ], [ %.219, %36 ]
+  %.046 = phi i32 [ %.052, %25 ], [ %.052, %29 ], [ %.052, %.thread.sink.split ], [ %43, %36 ]
+  %.118 = phi i64 [ %.01751, %25 ], [ %.219, %29 ], [ %.118.ph, %.thread.sink.split ], [ %.219, %36 ]
   %.not30 = icmp eq i32 %.046, 0
   %46 = load i64, ptr getelementptr inbounds nuw (i8, ptr @GC_arrays, i64 96), align 8
   %.not31 = icmp eq i64 %.118, %46
@@ -14681,7 +14681,7 @@ GC_reclaim_uninit.exit:                           ; preds = %97, %89
   br label %GC_disclaim_and_reclaim.exit
 
 GC_disclaim_and_reclaim.exit:                     ; preds = %58, %41, %87, %76, %64, %14, %GC_reclaim_uninit.exit
-  %.0 = phi ptr [ %.0.lcssa.i44, %GC_reclaim_uninit.exit ], [ %4, %14 ], [ %4, %64 ], [ %.1.us.i, %41 ], [ %.1.us.i32, %76 ], [ %.1.i26, %87 ], [ %.1.i, %58 ]
+  %.0 = phi ptr [ %.0.lcssa.i44, %GC_reclaim_uninit.exit ], [ %.1.us.i, %41 ], [ %4, %14 ], [ %.1.i26, %87 ], [ %4, %64 ], [ %.1.us.i32, %76 ], [ %.1.i, %58 ]
   %102 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %103 = load i8, ptr %102, align 8, !tbaa !84
   %104 = and i8 %103, -2
@@ -17091,7 +17091,7 @@ GC_next_exclusion.exit.thread:                    ; preds = %._crit_edge.i
   br i1 %41, label %.lr.ph, label %GC_next_exclusion.exit.thread.thread, !llvm.loop !237
 
 GC_next_exclusion.exit.thread.thread:             ; preds = %.lr.ph, %33, %._crit_edge.i.thread, %2, %GC_next_exclusion.exit.thread
-  %.019 = phi i64 [ %3, %GC_next_exclusion.exit.thread ], [ 0, %2 ], [ 1, %._crit_edge.i.thread ], [ %36, %33 ], [ %36, %.lr.ph ]
+  %.019 = phi i64 [ 1, %._crit_edge.i.thread ], [ %3, %GC_next_exclusion.exit.thread ], [ 0, %2 ], [ %36, %33 ], [ %36, %.lr.ph ]
   %42 = getelementptr inbounds nuw %struct.exclusion, ptr getelementptr inbounds nuw (i8, ptr @GC_arrays, i64 158224), i64 %.019
   store ptr %0, ptr %42, align 8, !tbaa !235
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
@@ -17782,7 +17782,7 @@ GC_add_ext_descriptor.exit:                       ; preds = %._crit_edge.i, %114
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %14, %77, %80, %.critedge.preheader, %._crit_edge66.loopexit, %GC_add_ext_descriptor.exit, %117, %._crit_edge
-  %.0 = phi i64 [ %30, %._crit_edge ], [ 8, %.critedge.preheader ], [ %123, %117 ], [ %30, %GC_add_ext_descriptor.exit ], [ %43, %._crit_edge66.loopexit ], [ %30, %77 ], [ %30, %80 ], [ 0, %14 ]
+  %.0 = phi i64 [ %30, %._crit_edge ], [ %30, %77 ], [ %43, %._crit_edge66.loopexit ], [ %123, %117 ], [ %30, %GC_add_ext_descriptor.exit ], [ 8, %.critedge.preheader ], [ %30, %80 ], [ 0, %14 ]
   ret i64 %.0
 }
 
@@ -21288,7 +21288,7 @@ GC_unpromote_black_lists.exit:                    ; preds = %102, %106
   br label %.loopexit
 
 .loopexit:                                        ; preds = %16, %145, %147, %GC_unpromote_black_lists.exit, %100, %1, %5, %41
-  %.0 = phi i8 [ 0, %41 ], [ 0, %1 ], [ 0, %GC_unpromote_black_lists.exit ], [ 0, %5 ], [ 0, %100 ], [ 1, %147 ], [ 1, %145 ], [ 0, %16 ]
+  %.0 = phi i8 [ 0, %41 ], [ 0, %1 ], [ 0, %GC_unpromote_black_lists.exit ], [ 1, %145 ], [ 0, %5 ], [ 0, %100 ], [ 1, %147 ], [ 0, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i8 %.0
 }
@@ -24515,7 +24515,7 @@ define internal fastcc ptr @GC_find_limit_with_bound(ptr noundef %0, i8 noundef 
   br i1 %27, label %.lr.ph, label %.sink.split
 
 .sink.split:                                      ; preds = %.lr.ph, %.lr.ph7, %.preheader.split.us, %.preheader.split
-  %.sink = phi ptr [ %2, %.preheader.split ], [ %9, %.preheader.split.us ], [ %9, %.lr.ph7 ], [ %2, %.lr.ph ]
+  %.sink = phi ptr [ %2, %.preheader.split ], [ %9, %.lr.ph7 ], [ %9, %.preheader.split.us ], [ %2, %.lr.ph ]
   store volatile ptr %.sink, ptr @GC_find_limit_with_bound.result, align 8, !tbaa !42
   br label %28
 
@@ -29927,7 +29927,7 @@ GC_push_obj.exit.i41.i:                           ; preds = %GC_custom_push_proc
   br i1 %.not23.i.i, label %GC_push_unconditionally.exit.sink.split.i, label %199, !llvm.loop !392
 
 GC_push_unconditionally.exit.sink.split.i:        ; preds = %GC_push_obj.exit.i.i, %GC_push_obj.exit.i41.i, %188, %157
-  %.021.lcssa.i.sink.i = phi ptr [ %165, %157 ], [ %197, %188 ], [ %.1.i42.i, %GC_push_obj.exit.i41.i ], [ %.1.i.i, %GC_push_obj.exit.i.i ]
+  %.021.lcssa.i.sink.i = phi ptr [ %.1.i42.i, %GC_push_obj.exit.i41.i ], [ %165, %157 ], [ %197, %188 ], [ %.1.i.i, %GC_push_obj.exit.i.i ]
   store volatile ptr %.021.lcssa.i.sink.i, ptr getelementptr inbounds nuw (i8, ptr @GC_arrays, i64 168), align 8, !tbaa !116
   %.pre116 = load i64, ptr %149, align 8, !tbaa !58
   br label %GC_push_unconditionally.exit.i
@@ -29940,7 +29940,7 @@ GC_push_unconditionally.exit.i:                   ; preds = %GC_push_uncondition
   br label %GC_push_next_marked_dirty.exit
 
 GC_push_next_marked_dirty.exit:                   ; preds = %.preheader41.i.i, %GC_next_block.exit.i, %52, %68, %GC_push_unconditionally.exit.i
-  %.019.i = phi ptr [ %221, %GC_push_unconditionally.exit.i ], [ null, %52 ], [ null, %68 ], [ null, %GC_next_block.exit.i ], [ null, %.preheader41.i.i ]
+  %.019.i = phi ptr [ %221, %GC_push_unconditionally.exit.i ], [ null, %68 ], [ null, %52 ], [ null, %GC_next_block.exit.i ], [ null, %.preheader41.i.i ]
   store ptr %.019.i, ptr getelementptr inbounds nuw (i8, ptr @GC_arrays, i64 232), align 8, !tbaa !88
   %222 = icmp ne ptr %.019.i, null
   %223 = load i32, ptr @GC_print_stats, align 4
@@ -30260,7 +30260,7 @@ GC_push_obj.exit.i32.i:                           ; preds = %GC_custom_push_proc
   br i1 %376, label %371, label %GC_find_header.exit38.i.loopexit, !llvm.loop !56
 
 GC_push_marked.exit.sink.split.i:                 ; preds = %GC_push_obj.exit.i32.i, %GC_push_obj.exit.i.i42, %336, %295
-  %.016.lcssa.i.sink.i = phi ptr [ %304, %295 ], [ %344, %336 ], [ %.1.i.i43, %GC_push_obj.exit.i.i42 ], [ %.1.i33.i, %GC_push_obj.exit.i32.i ]
+  %.016.lcssa.i.sink.i = phi ptr [ %.1.i.i43, %GC_push_obj.exit.i.i42 ], [ %304, %295 ], [ %344, %336 ], [ %.1.i33.i, %GC_push_obj.exit.i32.i ]
   store volatile ptr %.016.lcssa.i.sink.i, ptr getelementptr inbounds nuw (i8, ptr @GC_arrays, i64 168), align 8, !tbaa !116
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.1.i23, i64 32
   %.pre115 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !58
@@ -32875,7 +32875,7 @@ GC_set_mark_bit.exit140.i:                        ; preds = %511, %465, %GC_find
   br i1 %.not94.i, label %.loopexit.i, label %427, !llvm.loop !432
 
 .loopexit.i:                                      ; preds = %GC_set_mark_bit.exit140.i, %425, %._crit_edge190.i, %._crit_edge184.i
-  %.481.i = phi i8 [ %.077.lcssa.i, %._crit_edge190.i ], [ %.077.lcssa.i, %._crit_edge184.i ], [ %.077.lcssa.i, %425 ], [ %.6.i, %GC_set_mark_bit.exit140.i ]
+  %.481.i = phi i8 [ %.077.lcssa.i, %._crit_edge184.i ], [ %.077.lcssa.i, %._crit_edge190.i ], [ %.077.lcssa.i, %425 ], [ %.6.i, %GC_set_mark_bit.exit140.i ]
   %514 = icmp ne i8 %.481.i, 0
   %.b.i = load i1, ptr @GC_manual_vdb, align 1
   %or.cond.i = select i1 %514, i1 %.b.i, i1 false
@@ -33946,8 +33946,8 @@ GC_custom_push_proc.exit.i.i212:                  ; preds = %GC_signal_mark_stac
   br label %.backedge
 
 .backedge:                                        ; preds = %160, %167, %34, %..loopexit_crit_edge, %142, %121, %.thread, %259, %262, %._crit_edge366
-  %.0141.be = phi i64 [ %.0141263, %._crit_edge366 ], [ %152, %262 ], [ %152, %259 ], [ %37, %34 ], [ %37, %..loopexit_crit_edge ], [ %.0141263, %142 ], [ %123, %121 ], [ %.0141263, %.thread ], [ %152, %167 ], [ %152, %160 ]
-  %.0.be = phi ptr [ %145, %._crit_edge366 ], [ %263, %262 ], [ %.10.lcssa, %259 ], [ %35, %34 ], [ %.4, %..loopexit_crit_edge ], [ %143, %142 ], [ %129, %121 ], [ %136, %.thread ], [ %.8, %167 ], [ %.8, %160 ]
+  %.0141.be = phi i64 [ %.0141263, %.thread ], [ %.0141263, %._crit_edge366 ], [ %152, %259 ], [ %152, %262 ], [ %123, %121 ], [ %37, %34 ], [ %37, %..loopexit_crit_edge ], [ %.0141263, %142 ], [ %152, %167 ], [ %152, %160 ]
+  %.0.be = phi ptr [ %136, %.thread ], [ %145, %._crit_edge366 ], [ %.10.lcssa, %259 ], [ %263, %262 ], [ %129, %121 ], [ %35, %34 ], [ %.4, %..loopexit_crit_edge ], [ %143, %142 ], [ %.8, %167 ], [ %.8, %160 ]
   %264 = ptrtoint ptr %.0.be to i64
   %265 = sub i64 %264, %7
   %266 = or i64 %265, %.0141.be
@@ -35302,7 +35302,7 @@ define internal fastcc ptr @GC_next_block(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not36, label %.loopexit, label %.preheader, !llvm.loop !389
 
 .loopexit:                                        ; preds = %21, %39, %.preheader41, %.thread
-  %.3 = phi ptr [ %32, %.thread ], [ null, %.preheader41 ], [ null, %39 ], [ null, %21 ]
+  %.3 = phi ptr [ %32, %.thread ], [ null, %39 ], [ null, %.preheader41 ], [ null, %21 ]
   ret ptr %.3
 }
 
@@ -39249,7 +39249,7 @@ GC_reclaim_small_nonempty_block.exit:             ; preds = %55
   br label %.loopexit
 
 .loopexit:                                        ; preds = %24, %._crit_edge32, %91
-  %.0 = phi i8 [ 1, %91 ], [ 1, %._crit_edge32 ], [ 0, %24 ]
+  %.0 = phi i8 [ 1, %._crit_edge32 ], [ 1, %91 ], [ 0, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i8 %.0
 }
@@ -41548,7 +41548,7 @@ next_hblk_fits_better.exit:                       ; preds = %108, %112
   %.not215 = icmp eq ptr %125, null
   br i1 %.not215, label %next_hblk_fits_better.exit.thread187, label %next_hblk_fits_better.exit.thread
 
-next_hblk_fits_better.exit.thread:                ; preds = %80, %88, %69, %48, %62, %next_hblk_fits_better.exit, %47
+next_hblk_fits_better.exit.thread:                ; preds = %88, %80, %69, %48, %62, %next_hblk_fits_better.exit, %47
   br i1 %brmerge, label %126, label %129
 
 126:                                              ; preds = %next_hblk_fits_better.exit.thread
@@ -41731,7 +41731,7 @@ GC_is_black_listed.exit.i:                        ; preds = %208, %204
   br i1 %.not19.i, label %find_nonbl_hblk.exit.thread, label %.split.i, !llvm.loop !529
 
 find_nonbl_hblk.exit:                             ; preds = %GC_is_black_listed.exit.i, %GC_is_black_listed.exit.us.i, %214, %181
-  %.2.i = phi ptr [ %142, %GC_is_black_listed.exit.us.i ], [ %142, %181 ], [ %191, %214 ], [ %191, %GC_is_black_listed.exit.i ]
+  %.2.i = phi ptr [ %142, %181 ], [ %142, %GC_is_black_listed.exit.us.i ], [ %191, %214 ], [ %191, %GC_is_black_listed.exit.i ]
   %.not144 = icmp eq ptr %.2.i, %.0110255
   %or.cond150 = or i1 %18, %.not144
   br i1 %or.cond150, label %.loopexit, label %220
@@ -42431,7 +42431,7 @@ GC_install_counts.exit:                           ; preds = %586, %.preheader.i1
   br label %.thread205
 
 .thread205:                                       ; preds = %.loopexit226, %next_hblk_fits_better.exit.thread187, %.lr.ph.i, %6, %._crit_edge.i, %331, %GC_get_first_part.exit.thread, %597, %596
-  %.3 = phi ptr [ null, %GC_get_first_part.exit.thread ], [ null, %596 ], [ %.1111, %597 ], [ null, %331 ], [ null, %._crit_edge.i ], [ null, %6 ], [ null, %next_hblk_fits_better.exit.thread187 ], [ null, %.lr.ph.i ], [ null, %.loopexit226 ]
+  %.3 = phi ptr [ null, %GC_get_first_part.exit.thread ], [ null, %.lr.ph.i ], [ null, %._crit_edge.i ], [ null, %596 ], [ %.1111, %597 ], [ null, %331 ], [ null, %next_hblk_fits_better.exit.thread187 ], [ null, %6 ], [ null, %.loopexit226 ]
   ret ptr %.3
 }
 
@@ -42973,7 +42973,7 @@ tailrecurse:                                      ; preds = %39, %4
   unreachable
 
 .loopexit:                                        ; preds = %32, %.lr.ph, %29, %.lr.ph73, %21, %.preheader, %6
-  %.0 = phi ptr [ null, %6 ], [ %.tr52, %.preheader ], [ %.tr52, %21 ], [ %27, %29 ], [ %17, %.lr.ph73 ], [ null, %.lr.ph ], [ null, %32 ]
+  %.0 = phi ptr [ %.tr52, %21 ], [ %17, %.lr.ph73 ], [ null, %6 ], [ %.tr52, %.preheader ], [ %27, %29 ], [ null, %.lr.ph ], [ null, %32 ]
   ret ptr %.0
 }
 

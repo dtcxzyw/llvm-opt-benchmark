@@ -17882,7 +17882,7 @@ _ZN9hashbrown3map9make_hash17h0e9db1d07af3c39aE.exit.i.i.i.i.i.i: ; preds = %_ZN
   br label %.split.i.i.i.i.i.i.i
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h8c5cb200d6b65b92E.exit.i.i.i.i.i": ; preds = %.lr.ph.us.i.i.i.i.i.i.i, %163, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hcba3a083ed20d153E.exit.us.us.i.i.i.i.i.i.i"
-  %.pre-phi.i.i.i.i.i.i = phi i64 [ %159, %163 ], [ %145, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hcba3a083ed20d153E.exit.us.us.i.i.i.i.i.i.i" ], [ %133, %.lr.ph.us.i.i.i.i.i.i.i ]
+  %.pre-phi.i.i.i.i.i.i = phi i64 [ %145, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hcba3a083ed20d153E.exit.us.us.i.i.i.i.i.i.i" ], [ %159, %163 ], [ %133, %.lr.ph.us.i.i.i.i.i.i.i ]
   %173 = getelementptr inbounds { ptr, { ptr, i32, i32 } }, ptr %119, i64 %.pre-phi.i.i.i.i.i.i
   %174 = getelementptr inbounds i8, ptr %173, i64 -8
   %175 = load i32, ptr %174, align 8, !noalias !1477, !noundef !3
@@ -18667,7 +18667,7 @@ _ZN9hashbrown3map9make_hash17he84c09d983e5b19fE.exit.i.i.i.i.i.i: ; preds = %_ZN
   br label %.split.i.i.i.i.i.i.i
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h6cfbaeb722f2d2a3E.exit.i.i.i.i.i": ; preds = %.lr.ph.us.i.i.i.i.i.i.i, %164, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hdae7db544925c61eE.exit.us.us.i.i.i.i.i.i.i"
-  %.pre-phi.i.i.i.i.i.i = phi i64 [ %160, %164 ], [ %146, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hdae7db544925c61eE.exit.us.us.i.i.i.i.i.i.i" ], [ %134, %.lr.ph.us.i.i.i.i.i.i.i ]
+  %.pre-phi.i.i.i.i.i.i = phi i64 [ %146, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hdae7db544925c61eE.exit.us.us.i.i.i.i.i.i.i" ], [ %160, %164 ], [ %134, %.lr.ph.us.i.i.i.i.i.i.i ]
   %174 = getelementptr inbounds { ptr, { ptr, i32, i32 } }, ptr %120, i64 %.pre-phi.i.i.i.i.i.i
   %175 = getelementptr inbounds i8, ptr %174, i64 -8
   %176 = load i32, ptr %175, align 8, !noalias !1654, !noundef !3
@@ -19143,7 +19143,7 @@ _ZN9hashbrown3map9make_hash17hb81cc2a482abb44fE.exit.i.i.i.i.i.i: ; preds = %_ZN
   br label %.split.i.i.i.i.i.i.i
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h8e9716c7f588c3bfE.exit.i.i.i.i.i": ; preds = %.lr.ph.us.i.i.i.i.i.i.i, %166, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hc996faec5ced131aE.exit.us.us.i.i.i.i.i.i.i"
-  %.pre-phi.i.i.i.i.i.i = phi i64 [ %162, %166 ], [ %148, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hc996faec5ced131aE.exit.us.us.i.i.i.i.i.i.i" ], [ %136, %.lr.ph.us.i.i.i.i.i.i.i ]
+  %.pre-phi.i.i.i.i.i.i = phi i64 [ %148, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hc996faec5ced131aE.exit.us.us.i.i.i.i.i.i.i" ], [ %162, %166 ], [ %136, %.lr.ph.us.i.i.i.i.i.i.i ]
   %176 = getelementptr inbounds { ptr, { ptr, i32, i32 } }, ptr %122, i64 %.pre-phi.i.i.i.i.i.i
   %177 = getelementptr inbounds i8, ptr %176, i64 -8
   %178 = load i32, ptr %177, align 8, !noalias !1756, !noundef !3
@@ -20238,7 +20238,7 @@ _ZN9hashbrown3map9make_hash17ha18b6473f8575c09E.exit.i.i.i.i.i.i: ; preds = %_ZN
   br label %.split.i.i.i.i.i.i.i
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hd73760c1c298598dE.exit.i.i.i.i.i": ; preds = %.lr.ph.us.i.i.i.i.i.i.i, %167, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h86baf48d546555c7E.exit.us.us.i.i.i.i.i.i.i"
-  %.pre-phi.i.i.i.i.i.i = phi i64 [ %163, %167 ], [ %149, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h86baf48d546555c7E.exit.us.us.i.i.i.i.i.i.i" ], [ %137, %.lr.ph.us.i.i.i.i.i.i.i ]
+  %.pre-phi.i.i.i.i.i.i = phi i64 [ %149, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h86baf48d546555c7E.exit.us.us.i.i.i.i.i.i.i" ], [ %163, %167 ], [ %137, %.lr.ph.us.i.i.i.i.i.i.i ]
   %177 = getelementptr inbounds { ptr, { ptr, i32, i32 } }, ptr %123, i64 %.pre-phi.i.i.i.i.i.i
   %178 = getelementptr inbounds i8, ptr %177, i64 -8
   %179 = load i32, ptr %178, align 8, !noalias !1987, !noundef !3
@@ -38716,8 +38716,8 @@ define void @"_ZN103_$LT$polars_expr..expressions..gather..GatherExpr$u20$as$u20
           to label %120 unwind label %118
 
 .critedge166:                                     ; preds = %701, %705, %673, %678, %118
-  %.sroa.082.1 = phi i8 [ %.sroa.082.0, %118 ], [ %.sroa.082.4, %673 ], [ %.sroa.082.4, %678 ], [ %.sroa.082.3.ph, %705 ], [ %.sroa.082.3.ph, %701 ]
-  %.pn163 = phi { ptr, i32 } [ %119, %118 ], [ %674, %673 ], [ %674, %678 ], [ %.pn161.ph, %705 ], [ %.pn161.ph, %701 ]
+  %.sroa.082.1 = phi i8 [ %.sroa.082.0, %118 ], [ %.sroa.082.3.ph, %701 ], [ %.sroa.082.4, %673 ], [ %.sroa.082.4, %678 ], [ %.sroa.082.3.ph, %705 ]
+  %.pn163 = phi { ptr, i32 } [ %119, %118 ], [ %.pn161.ph, %701 ], [ %674, %673 ], [ %674, %678 ], [ %.pn161.ph, %705 ]
   %117 = trunc nuw i8 %.sroa.082.1 to i1
   br i1 %117, label %706, label %.critedge166.thread
 
@@ -44525,8 +44525,8 @@ define void @"_ZN103_$LT$polars_expr..expressions..window..WindowExpr$u20$as$u20
   br i1 %.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17heaa7d4771a7f15aaE.exit", label %123
 
 .thread364.thread451.thread:                      ; preds = %382, %.thread364, %.thread435, %628, %.thread364.thread451
-  %.sroa.0108.0 = phi i8 [ %.sroa.0108.2350, %628 ], [ %.sroa.0108.2350, %.thread364.thread451 ], [ %.sroa.0108.20, %.thread435 ], [ %.sroa.0108.7, %382 ], [ %.sroa.0108.19422, %.thread364 ]
-  %.pn234 = phi { ptr, i32 } [ %.pn229.pn352, %628 ], [ %.pn229.pn352, %.thread364.thread451 ], [ %612, %.thread435 ], [ %.pn227, %382 ], [ %lpad.thr_comm.split-lp457, %.thread364 ]
+  %.sroa.0108.0 = phi i8 [ %.sroa.0108.2350, %.thread364.thread451 ], [ %.sroa.0108.2350, %628 ], [ %.sroa.0108.20, %.thread435 ], [ %.sroa.0108.7, %382 ], [ %.sroa.0108.19422, %.thread364 ]
+  %.pn234 = phi { ptr, i32 } [ %.pn229.pn352, %.thread364.thread451 ], [ %.pn229.pn352, %628 ], [ %612, %.thread435 ], [ %.pn227, %382 ], [ %lpad.thr_comm.split-lp457, %.thread364 ]
   %128 = trunc nuw i8 %.sroa.0108.0 to i1
   br i1 %128, label %.thread335, label %639
 
@@ -45581,7 +45581,7 @@ select.unfold388:                                 ; preds = %.noexc287, %409
   invoke void @_ZN11polars_expr11expressions18AggregationContext10aggregated17hf8d4b3c221f0ce8fE(ptr noalias noundef nonnull sret([160 x i8]) align 16 captures(none) dereferenceable(160) %51, ptr noalias noundef nonnull align 16 dereferenceable(272) %58)
           to label %532 unwind label %407
 
-427:                                              ; preds = %.noexc288, %.noexc287
+427:                                              ; preds = %.noexc287, %.noexc288
   call void @llvm.lifetime.start.p0(ptr nonnull %49)
   invoke void @_ZN11polars_expr11expressions18AggregationContext10aggregated17hf8d4b3c221f0ce8fE(ptr noalias noundef nonnull sret([160 x i8]) align 16 captures(none) dereferenceable(160) %49, ptr noalias noundef nonnull align 16 dereferenceable(272) %58)
           to label %556 unwind label %407
@@ -72957,8 +72957,8 @@ define { ptr, ptr } @_ZN11polars_expr10hot_groups20new_hash_hot_grouper17h6b0831
           to label %283 unwind label %50
 
 .body82:                                          ; preds = %50, %.body.thread134
-  %.sroa.04.1 = phi i8 [ %.sroa.04.2.lpad-body138, %.body.thread134 ], [ %.sroa.04.0, %50 ]
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body139, %.body.thread134 ], [ %51, %50 ]
+  %.sroa.04.1 = phi i8 [ %.sroa.04.0, %50 ], [ %.sroa.04.2.lpad-body138, %.body.thread134 ]
+  %.pn = phi { ptr, i32 } [ %51, %50 ], [ %eh.lpad-body139, %.body.thread134 ]
   %49 = trunc nuw i8 %.sroa.04.1 to i1
   br i1 %49, label %.body82.thread, label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17h6f645ccca2c89720E.exit128"
 
@@ -73147,7 +73147,7 @@ define { ptr, ptr } @_ZN11polars_expr10hot_groups20new_hash_hot_grouper17h6b0831
   br label %.body82.thread
 
 .body:                                            ; preds = %61, %75
-  %.sroa.04.2.ph = phi i8 [ 1, %75 ], [ 0, %61 ]
+  %.sroa.04.2.ph = phi i8 [ 0, %61 ], [ 1, %75 ]
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread134

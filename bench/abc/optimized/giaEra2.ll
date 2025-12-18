@@ -2171,8 +2171,8 @@ Gia_StaAreSharpVar.exit:                          ; preds = %95
   br label %Gia_StaAreDisjoint.exit
 
 Gia_StaAreDisjoint.exit:                          ; preds = %26, %84, %106, %111, %Gia_StaAreSharpVar.exit, %17, %70
-  %.val52.val = phi ptr [ %.val52.val.pre, %70 ], [ %.val52.val21, %106 ], [ %.val52.val21, %111 ], [ %.val52.val21, %Gia_StaAreSharpVar.exit ], [ %.val52.val21, %17 ], [ %.val52.val21, %84 ], [ %.val52.val21, %26 ]
-  %.val52 = phi ptr [ %.val53.pre, %70 ], [ %.val5219, %106 ], [ %.val5219, %111 ], [ %.val5219, %Gia_StaAreSharpVar.exit ], [ %.val5219, %17 ], [ %.val5219, %84 ], [ %.val5219, %26 ]
+  %.val52.val = phi ptr [ %.val52.val21, %84 ], [ %.val52.val.pre, %70 ], [ %.val52.val21, %106 ], [ %.val52.val21, %111 ], [ %.val52.val21, %Gia_StaAreSharpVar.exit ], [ %.val52.val21, %17 ], [ %.val52.val21, %26 ]
+  %.val52 = phi ptr [ %.val5219, %84 ], [ %.val53.pre, %70 ], [ %.val5219, %106 ], [ %.val5219, %111 ], [ %.val5219, %Gia_StaAreSharpVar.exit ], [ %.val5219, %17 ], [ %.val5219, %26 ]
   %.val54 = load i32, ptr %4, align 8, !tbaa !40
   %115 = getelementptr i8, ptr %.04414, i64 4
   %.044.val = load i32, ptr %115, align 4
@@ -2189,7 +2189,7 @@ Gia_StaAreDisjoint.exit:                          ; preds = %26, %84, %106, %111
   br i1 %.not8, label %Gia_ManAreRycycleSta.exit, label %17, !llvm.loop !88
 
 Gia_ManAreRycycleSta.exit:                        ; preds = %Gia_StaAreDisjoint.exit, %2, %62, %56, %.thread
-  %.0 = phi i32 [ 0, %.thread ], [ 0, %56 ], [ 0, %62 ], [ 1, %2 ], [ 1, %Gia_StaAreDisjoint.exit ]
+  %.0 = phi i32 [ 0, %62 ], [ 0, %.thread ], [ 0, %56 ], [ 1, %2 ], [ 1, %Gia_StaAreDisjoint.exit ]
   ret i32 %.0
 }
 
@@ -3427,7 +3427,7 @@ tailrecurse.backedge:                             ; preds = %Gia_StaAreSharpVar.
   br label %tailrecurse
 
 Gia_StaAreDisjoint.exit:                          ; preds = %48, %106, %Gia_StaAreSharpVar.exit, %42, %92
-  %133 = phi ptr [ %.pre, %92 ], [ %29, %Gia_StaAreSharpVar.exit ], [ %29, %42 ], [ %29, %106 ], [ %29, %48 ]
+  %133 = phi ptr [ %29, %106 ], [ %.pre, %92 ], [ %29, %Gia_StaAreSharpVar.exit ], [ %29, %42 ], [ %29, %48 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %134 = getelementptr i8, ptr %133, i64 4
   %.val90 = load i32, ptr %134, align 4, !tbaa !47
@@ -3622,7 +3622,7 @@ Gia_StaAreSharpVar.exit157:                       ; preds = %228
   br i1 %229, label %Gia_StaAreDisjoint.exit122, label %tailrecurse.backedge
 
 Gia_StaAreDisjoint.exit122:                       ; preds = %159, %217, %Gia_StaAreSharpVar.exit157, %153, %203
-  %230 = phi ptr [ %.pre231, %203 ], [ %140, %Gia_StaAreSharpVar.exit157 ], [ %140, %153 ], [ %140, %217 ], [ %140, %159 ]
+  %230 = phi ptr [ %140, %217 ], [ %.pre231, %203 ], [ %140, %Gia_StaAreSharpVar.exit157 ], [ %140, %153 ], [ %140, %159 ]
   %indvars.iv.next229 = add nuw nsw i64 %indvars.iv228, 1
   %231 = getelementptr i8, ptr %230, i64 4
   %.val89 = load i32, ptr %231, align 4, !tbaa !47
@@ -3631,7 +3631,7 @@ Gia_StaAreDisjoint.exit122:                       ; preds = %159, %217, %Gia_Sta
   br i1 %233, label %.lr.ph211, label %.critedge2, !llvm.loop !96
 
 .critedge2:                                       ; preds = %.critedge, %Gia_StaAreDisjoint.exit122, %.lr.ph211, %195, %189, %.thread167, %84, %78, %.thread
-  %.070 = phi i32 [ 0, %195 ], [ 0, %84 ], [ 0, %189 ], [ 0, %.thread ], [ 0, %78 ], [ 0, %.thread167 ], [ 1, %Gia_StaAreDisjoint.exit122 ], [ 1, %.lr.ph211 ], [ 1, %.critedge ]
+  %.070 = phi i32 [ 0, %.thread167 ], [ 0, %195 ], [ 0, %84 ], [ 0, %189 ], [ 0, %78 ], [ 0, %.thread ], [ 1, %Gia_StaAreDisjoint.exit122 ], [ 1, %.lr.ph211 ], [ 1, %.critedge ]
   ret i32 %.070
 }
 
@@ -4007,7 +4007,7 @@ Abc_Clock.exit:                                   ; preds = %77, %80
   store ptr %84, ptr %115, align 8, !tbaa !110
   br label %.critedge4
 
-.thread:                                          ; preds = %110, %87, %.lr.ph.i102, %Abc_Clock.exit
+.thread:                                          ; preds = %110, %.lr.ph.i102, %87, %Abc_Clock.exit
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 0, ptr %116, align 4, !tbaa !109
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 164

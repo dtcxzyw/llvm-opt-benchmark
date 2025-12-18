@@ -584,9 +584,9 @@ define dso_local void @cpu_freq_init(ptr noundef readonly captures(none) %0) loc
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %216, %.loopexit.loopexit.i, %.preheader.i, %.preheader29.i
-  %217 = phi ptr [ %.pre58.i, %.preheader.i ], [ %.pre58.i, %.preheader29.i ], [ %.pre57.i, %.loopexit.loopexit.i ], [ %.pre58.i, %216 ]
-  %218 = phi i32 [ %.pre56.i, %.preheader.i ], [ %.pre56.i, %.preheader29.i ], [ %.pre.i, %.loopexit.loopexit.i ], [ %.pre56.i, %216 ]
-  %.02533.i = phi i32 [ %207, %.preheader.i ], [ 0, %.preheader29.i ], [ %207, %.loopexit.loopexit.i ], [ %198, %216 ]
+  %217 = phi ptr [ %.pre58.i, %.preheader.i ], [ %.pre57.i, %.loopexit.loopexit.i ], [ %.pre58.i, %.preheader29.i ], [ %.pre58.i, %216 ]
+  %218 = phi i32 [ %.pre56.i, %.preheader.i ], [ %.pre.i, %.loopexit.loopexit.i ], [ %.pre56.i, %.preheader29.i ], [ %.pre56.i, %216 ]
+  %.02533.i = phi i32 [ %207, %.preheader.i ], [ %207, %.loopexit.loopexit.i ], [ 0, %.preheader29.i ], [ %198, %216 ]
   %219 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %217, i64 %indvars.iv68
   %220 = getelementptr inbounds nuw i8, ptr %219, i64 4
   %221 = zext nneg i32 %.02533.i to i64
@@ -1026,7 +1026,7 @@ define dso_local void @cpu_freq_recv_info(i32 noundef %0) local_unnamed_addr #0 
   br label %.thread
 
 .split67.us:                                      ; preds = %.lr.ph104, %.lr.ph89.preheader, %.lr.ph104.preheader, %.lr.ph89.preheader.preheader
-  %.us-phi68 = phi i64 [ %14, %.lr.ph89.preheader.preheader ], [ %3, %.lr.ph104.preheader ], [ %32, %.lr.ph89.preheader ], [ %11, %.lr.ph104 ]
+  %.us-phi68 = phi i64 [ %32, %.lr.ph89.preheader ], [ %14, %.lr.ph89.preheader.preheader ], [ %3, %.lr.ph104.preheader ], [ %11, %.lr.ph104 ]
   %38 = and i64 %.us-phi68, 2147483647
   %39 = getelementptr inbounds nuw i8, ptr %.037.ph106, i64 %38
   %40 = sub i64 %.0.ph108, %38
@@ -1087,7 +1087,7 @@ define dso_local void @cpu_freq_recv_info(i32 noundef %0) local_unnamed_addr #0 
   br label %.lr.ph234
 
 .split114.us:                                     ; preds = %.outer, %82, %.lr.ph111.preheader
-  %.035.ph130217 = phi i64 [ %55, %.lr.ph111.preheader ], [ %.035.ph130237, %82 ], [ %94, %.outer ]
+  %.035.ph130217 = phi i64 [ %.035.ph130237, %82 ], [ %55, %.lr.ph111.preheader ], [ %94, %.outer ]
   %63 = load i16, ptr @cpu_freq_count, align 2
   %64 = zext i16 %63 to i64
   %65 = mul nuw nsw i64 %64, 332
@@ -2462,20 +2462,20 @@ switch.early.test:                                ; preds = %.thread, %11
   br label %_cpu_freq_next_cpu.exit
 
 _cpu_freq_next_cpu.exit:                          ; preds = %.lr.ph.i, %.lr.ph19.i, %139
-  %.240 = phi i16 [ %.139, %139 ], [ %87, %.lr.ph19.i ], [ %126, %.lr.ph.i ]
-  %.3 = phi i16 [ %.237, %139 ], [ %.035, %.lr.ph19.i ], [ -1, %.lr.ph.i ]
-  %.2 = phi ptr [ %.1, %139 ], [ %88, %.lr.ph19.i ], [ %.3.i, %.lr.ph.i ]
-  %.049.i = phi i16 [ %140, %139 ], [ %87, %.lr.ph19.i ], [ %126, %.lr.ph.i ]
+  %.240 = phi i16 [ %87, %.lr.ph19.i ], [ %.139, %139 ], [ %126, %.lr.ph.i ]
+  %.3 = phi i16 [ %.035, %.lr.ph19.i ], [ %.237, %139 ], [ -1, %.lr.ph.i ]
+  %.2 = phi ptr [ %88, %.lr.ph19.i ], [ %.1, %139 ], [ %.3.i, %.lr.ph.i ]
+  %.049.i = phi i16 [ %87, %.lr.ph19.i ], [ %140, %139 ], [ %126, %.lr.ph.i ]
   %141 = zext i16 %.049.i to i32
   %.not28 = icmp eq i16 %.049.i, -1
   br i1 %.not28, label %_cpu_freq_next_cpu.exit.thread, label %_cpu_freq_next_cpu.exit.thread47
 
-_cpu_freq_next_cpu.exit.thread47:                 ; preds = %.preheader1.i, %75, %_cpu_freq_next_cpu.exit
-  %142 = phi i32 [ %141, %_cpu_freq_next_cpu.exit ], [ 0, %75 ], [ 0, %.preheader1.i ]
-  %.049.i56 = phi i16 [ %.049.i, %_cpu_freq_next_cpu.exit ], [ 0, %75 ], [ 0, %.preheader1.i ]
-  %.255 = phi ptr [ %.2, %_cpu_freq_next_cpu.exit ], [ %.0.i, %75 ], [ %.32.i, %.preheader1.i ]
-  %.354 = phi i16 [ %.3, %_cpu_freq_next_cpu.exit ], [ %.035, %75 ], [ -1, %.preheader1.i ]
-  %.24053 = phi i16 [ %.240, %_cpu_freq_next_cpu.exit ], [ 0, %75 ], [ 0, %.preheader1.i ]
+_cpu_freq_next_cpu.exit.thread47:                 ; preds = %75, %.preheader1.i, %_cpu_freq_next_cpu.exit
+  %142 = phi i32 [ %141, %_cpu_freq_next_cpu.exit ], [ 0, %.preheader1.i ], [ 0, %75 ]
+  %.049.i56 = phi i16 [ %.049.i, %_cpu_freq_next_cpu.exit ], [ 0, %.preheader1.i ], [ 0, %75 ]
+  %.255 = phi ptr [ %.2, %_cpu_freq_next_cpu.exit ], [ %.32.i, %.preheader1.i ], [ %.0.i, %75 ]
+  %.354 = phi i16 [ %.3, %_cpu_freq_next_cpu.exit ], [ -1, %.preheader1.i ], [ %.035, %75 ]
+  %.24053 = phi i16 [ %.240, %_cpu_freq_next_cpu.exit ], [ 0, %.preheader1.i ], [ 0, %75 ]
   %143 = load i16, ptr @cpu_freq_count, align 2
   %.not29 = icmp ult i16 %.049.i56, %143
   br i1 %.not29, label %147, label %144
@@ -3098,7 +3098,7 @@ _fd_lock_retry.exit.i:                            ; preds = %57, %54
   br label %121
 
 .split55.i:                                       ; preds = %.lr.ph92.i, %.lr.ph77.preheader.i, %.lr.ph92.i.preheader, %.lr.ph77.preheader.i.preheader
-  %.us-phi56.i = phi i64 [ %103, %.lr.ph77.preheader.i.preheader ], [ %91, %.lr.ph92.i.preheader ], [ %77, %.lr.ph77.preheader.i ], [ %100, %.lr.ph92.i ]
+  %.us-phi56.i = phi i64 [ %77, %.lr.ph77.preheader.i ], [ %103, %.lr.ph77.preheader.i.preheader ], [ %91, %.lr.ph92.i.preheader ], [ %100, %.lr.ph92.i ]
   %83 = and i64 %.us-phi56.i, 2147483647
   %84 = getelementptr inbounds nuw i8, ptr %.032.ph96.i, i64 %83
   %85 = sub i64 %.033.ph94.i, %83

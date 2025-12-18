@@ -14916,7 +14916,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit106: ; preds = %_Z
   br i1 %.not37, label %.loopexit, label %.lr.ph, !llvm.loop !334
 
 .loopexit:                                        ; preds = %167, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit83, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit97, %39
-  %.217 = phi i64 [ %.318165, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit97 ], [ %.015166, %39 ], [ %46, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit83 ], [ %168, %167 ]
+  %.217 = phi i64 [ %.015166, %39 ], [ %.318165, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit97 ], [ %46, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit83 ], [ %168, %167 ]
   %172 = add i64 %.217, 1
   %173 = load i64, ptr %25, align 8, !tbaa !47
   %174 = icmp ult i64 %172, %173
@@ -15989,8 +15989,8 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br label %.critedge144
 
 .critedge144:                                     ; preds = %..critedge144_crit_edge, %357, %359
-  %362 = phi ptr [ %.pre374, %..critedge144_crit_edge ], [ %.pre375, %359 ], [ %.pre375, %357 ]
-  %363 = phi i1 [ false, %..critedge144_crit_edge ], [ %361, %359 ], [ true, %357 ]
+  %362 = phi ptr [ %.pre375, %357 ], [ %.pre375, %359 ], [ %.pre374, %..critedge144_crit_edge ]
+  %363 = phi i1 [ true, %357 ], [ %361, %359 ], [ false, %..critedge144_crit_edge ]
   %364 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %365 = icmp eq ptr %362, %364
   br i1 %365, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i275, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i274
@@ -16207,8 +16207,8 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br label %.critedge152
 
 .critedge152:                                     ; preds = %..critedge152_crit_edge, %434, %436
-  %439 = phi ptr [ %.pre380, %..critedge152_crit_edge ], [ %.pre381, %436 ], [ %.pre381, %434 ]
-  %440 = phi i1 [ false, %..critedge152_crit_edge ], [ %438, %436 ], [ true, %434 ]
+  %439 = phi ptr [ %.pre381, %434 ], [ %.pre381, %436 ], [ %.pre380, %..critedge152_crit_edge ]
+  %440 = phi i1 [ true, %434 ], [ %438, %436 ], [ false, %..critedge152_crit_edge ]
   %441 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %442 = icmp eq ptr %439, %441
   br i1 %442, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i299, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i298

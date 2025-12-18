@@ -216,7 +216,7 @@ define void @Extra_PrintKMap(ptr noundef captures(none) %0, ptr noundef %1, ptr 
   br i1 %exitcond509.not, label %.loopexit, label %.lr.ph, !llvm.loop !37
 
 .loopexit:                                        ; preds = %.lr.ph, %63, %.lr.ph440, %._crit_edge445
-  %.0 = phi i32 [ %73, %._crit_edge445 ], [ %4, %63 ], [ %4, %.lr.ph440 ], [ %4, %.lr.ph ]
+  %.0 = phi i32 [ %4, %63 ], [ %4, %.lr.ph440 ], [ %73, %._crit_edge445 ], [ %4, %.lr.ph ]
   %87 = sdiv i32 %.0, 2
   %88 = sub i32 %.0, %87
   %89 = shl nuw nsw i32 1, %87

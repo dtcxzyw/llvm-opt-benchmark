@@ -208,7 +208,7 @@ thread-pre-split.thread:                          ; preds = %10, %thread-pre-spl
   br label %.critedge
 
 .critedge:                                        ; preds = %47, %50, %56, %75, %69, %66, %.critedge108, %28, %thread-pre-split, %10, %4, %88
-  %.0 = phi i32 [ -1094995529, %4 ], [ -1094995529, %10 ], [ -12, %28 ], [ %93, %88 ], [ %86, %.critedge108 ], [ -1094995529, %thread-pre-split ], [ -1094995529, %75 ], [ -1094995529, %66 ], [ -1094995529, %69 ], [ -1094995529, %56 ], [ -1094995529, %50 ], [ -1094995529, %47 ]
+  %.0 = phi i32 [ -1094995529, %4 ], [ -1094995529, %10 ], [ -12, %28 ], [ %93, %88 ], [ %86, %.critedge108 ], [ -1094995529, %75 ], [ -1094995529, %thread-pre-split ], [ -1094995529, %66 ], [ -1094995529, %69 ], [ -1094995529, %56 ], [ -1094995529, %50 ], [ -1094995529, %47 ]
   ret i32 %.0
 }
 
@@ -265,10 +265,10 @@ define internal range(i32 -1094995529, 1) i32 @decode_slices(ptr noundef readonl
   br label %bits_init8_be.exit.i
 
 bits_init8_be.exit.i:                             ; preds = %24, %21
-  %.sroa.74.0.i = phi i32 [ %25, %24 ], [ 0, %21 ]
-  %.sroa.56.3.i = phi i32 [ 64, %24 ], [ 0, %21 ]
-  %.sroa.36.3.i = phi ptr [ %28, %24 ], [ %12, %21 ]
-  %.sroa.069.2.i = phi i64 [ %27, %24 ], [ 0, %21 ]
+  %.sroa.74.0.i = phi i32 [ 0, %21 ], [ %25, %24 ]
+  %.sroa.56.3.i = phi i32 [ 0, %21 ], [ 64, %24 ]
+  %.sroa.36.3.i = phi ptr [ %12, %21 ], [ %28, %24 ]
+  %.sroa.069.2.i = phi i64 [ 0, %21 ], [ %27, %24 ]
   %29 = icmp ugt i32 %18, 268435455
   %.not.i.i28.i = icmp eq ptr %14, null
   %or.cond145.i = or i1 %.not.i.i28.i, %29
@@ -288,10 +288,10 @@ bits_init8_be.exit.i:                             ; preds = %24, %21
   br label %bits_init8_be.exit31.i
 
 bits_init8_be.exit31.i:                           ; preds = %33, %30
-  %.sroa.67.0.i = phi i32 [ %34, %33 ], [ 0, %30 ]
-  %.sroa.50.3.i = phi i32 [ 64, %33 ], [ 0, %30 ]
-  %.sroa.34.3.i = phi ptr [ %37, %33 ], [ %14, %30 ]
-  %.sroa.0.2.i = phi i64 [ %36, %33 ], [ 0, %30 ]
+  %.sroa.67.0.i = phi i32 [ 0, %30 ], [ %34, %33 ]
+  %.sroa.50.3.i = phi i32 [ 0, %30 ], [ 64, %33 ]
+  %.sroa.34.3.i = phi ptr [ %14, %30 ], [ %37, %33 ]
+  %.sroa.0.2.i = phi i64 [ 0, %30 ], [ %36, %33 ]
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %40 = sext i32 %19 to i64

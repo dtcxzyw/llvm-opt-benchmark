@@ -3128,7 +3128,7 @@ Vec_QuePrio.exit30.i.i:                           ; preds = %.lr.ph43.i.i
   br i1 %230, label %Vec_QuePrio.exit30.i.i, label %Vec_QuePush.exit, !llvm.loop !87
 
 Vec_QuePush.exit:                                 ; preds = %Vec_QuePrio.exit30.i.i, %.lr.ph43.i.i, %Vec_QuePrio.exit30.us.i.i, %.lr.ph48.i.i, %Vec_QuePrio.exit.i.i, %Vec_QuePrio.exit.thread.i.i, %.lr.ph.split.us.i.i, %.lr.ph.split.i.i
-  %.027.lcssa.i.i = phi i32 [ %189, %.lr.ph.split.us.i.i ], [ %193, %.lr.ph.split.i.i ], [ %193, %Vec_QuePrio.exit.thread.i.i ], [ %189, %Vec_QuePrio.exit.i.i ], [ %.02634.us46.i.i, %Vec_QuePrio.exit30.us.i.i ], [ %.02634.us46.i.i, %.lr.ph48.i.i ], [ %.0263441.i.i, %.lr.ph43.i.i ], [ %.0263441.i.i, %Vec_QuePrio.exit30.i.i ]
+  %.027.lcssa.i.i = phi i32 [ %.02634.us46.i.i, %Vec_QuePrio.exit30.us.i.i ], [ %189, %Vec_QuePrio.exit.i.i ], [ %189, %.lr.ph.split.us.i.i ], [ %193, %.lr.ph.split.i.i ], [ %193, %Vec_QuePrio.exit.thread.i.i ], [ %.02634.us46.i.i, %.lr.ph48.i.i ], [ %.0263441.i.i, %.lr.ph43.i.i ], [ %.0263441.i.i, %Vec_QuePrio.exit30.i.i ]
   %231 = sext i32 %.027.lcssa.i.i to i64
   %232 = getelementptr inbounds i32, ptr %183, i64 %231
   store i32 %9, ptr %232, align 4, !tbaa !52
@@ -3406,7 +3406,7 @@ Vec_IntPushOrder.exit.i.i.i:                      ; preds = %345, %._crit_edge.l
   br label %Gia_PolynMergeConstOne.exit.i
 
 Gia_PolynMergeConstOne.exit.i:                    ; preds = %.critedge.i.i, %.lr.ph.i35.i.i, %Vec_IntPushOrder.exit.i.i.i, %286
-  %351 = phi ptr [ %.pre.i48, %Vec_IntPushOrder.exit.i.i.i ], [ %260, %286 ], [ %260, %.lr.ph.i35.i.i ], [ %260, %.critedge.i.i ]
+  %351 = phi ptr [ %260, %.lr.ph.i35.i.i ], [ %.pre.i48, %Vec_IntPushOrder.exit.i.i.i ], [ %260, %286 ], [ %260, %.critedge.i.i ]
   %352 = getelementptr inbounds nuw i8, ptr %351, i64 8
   %353 = load ptr, ptr %352, align 8, !tbaa !61
   %354 = getelementptr inbounds nuw i8, ptr %351, i64 16

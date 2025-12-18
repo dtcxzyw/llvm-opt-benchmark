@@ -7120,8 +7120,8 @@ if.end.i.i.i.i690.i:                              ; preds = %_ZNSt10_HashtableIm
   br label %_ZN8facebook6hermes7tracing12_GLOBAL__N_18getCallsEmRKSt6vectorISt10unique_ptrINS1_10SynthTrace6RecordESt14default_deleteIS6_EESaIS9_EE.exit
 
 ehcleanup208.i:                                   ; preds = %lpad.i.i667.i, %if.then.i.i.i.i635.i, %lpad166.i, %lpad.i.i592.i, %if.then.i.i.i.i568.i, %ehcleanup130.i, %lpad.i.i437.i, %if.then.i.i.i.i414.i, %ehcleanup100.i, %lpad.i.i284.i, %if.then.i.i.i.i261.i, %ehcleanup66.i, %lpad.i.i130.i, %lpad35.i, %lpad21.i, %lpad.loopexit.split-lp.i, %lpad.loopexit.i
-  %stack.sroa.0.3.i = phi ptr [ %stack.sroa.0.1.lcssa.i, %lpad.i.i667.i ], [ %stack.sroa.0.12.i, %if.then.i.i.i.i568.i ], [ %stack.sroa.0.1776.i, %lpad21.i ], [ %stack.sroa.0.1776.i, %lpad35.i ], [ %stack.sroa.0.8.i, %if.then.i.i.i.i261.i ], [ %stack.sroa.0.10.i, %if.then.i.i.i.i414.i ], [ %stack.sroa.0.1776.i, %lpad.i.i130.i ], [ %stack.sroa.0.1776.i, %lpad.i.i284.i ], [ %stack.sroa.0.1776.i, %lpad.i.i437.i ], [ %stack.sroa.0.1776.i, %lpad.i.i592.i ], [ %stack.sroa.0.2.i, %if.then.i.i.i.i635.i ], [ %stack.sroa.0.8.i, %ehcleanup66.i ], [ %stack.sroa.0.10.i, %ehcleanup100.i ], [ %stack.sroa.0.12.i, %ehcleanup130.i ], [ %stack.sroa.0.2.i, %lpad166.i ], [ %stack.sroa.0.0.ph.i, %lpad.loopexit.i ], [ %stack.sroa.0.0.ph720.i, %lpad.loopexit.split-lp.i ]
-  %.pn38.i = phi { ptr, i32 } [ %216, %lpad.i.i667.i ], [ %.pn32.i, %if.then.i.i.i.i568.i ], [ %46, %lpad21.i ], [ %49, %lpad35.i ], [ %.pn36.i, %if.then.i.i.i.i261.i ], [ %.pn34.i, %if.then.i.i.i.i414.i ], [ %60, %lpad.i.i130.i ], [ %100, %lpad.i.i284.i ], [ %139, %lpad.i.i437.i ], [ %178, %lpad.i.i592.i ], [ %193, %if.then.i.i.i.i635.i ], [ %.pn36.i, %ehcleanup66.i ], [ %.pn34.i, %ehcleanup100.i ], [ %.pn32.i, %ehcleanup130.i ], [ %193, %lpad166.i ], [ %lpad.loopexit721.i, %lpad.loopexit.i ], [ %lpad.loopexit.split-lp722.i, %lpad.loopexit.split-lp.i ]
+  %stack.sroa.0.3.i = phi ptr [ %stack.sroa.0.1.lcssa.i, %lpad.i.i667.i ], [ %stack.sroa.0.12.i, %if.then.i.i.i.i568.i ], [ %stack.sroa.0.1776.i, %lpad21.i ], [ %stack.sroa.0.1776.i, %lpad35.i ], [ %stack.sroa.0.2.i, %if.then.i.i.i.i635.i ], [ %stack.sroa.0.8.i, %if.then.i.i.i.i261.i ], [ %stack.sroa.0.10.i, %if.then.i.i.i.i414.i ], [ %stack.sroa.0.2.i, %lpad166.i ], [ %stack.sroa.0.12.i, %ehcleanup130.i ], [ %stack.sroa.0.1776.i, %lpad.i.i130.i ], [ %stack.sroa.0.1776.i, %lpad.i.i284.i ], [ %stack.sroa.0.1776.i, %lpad.i.i437.i ], [ %stack.sroa.0.1776.i, %lpad.i.i592.i ], [ %stack.sroa.0.8.i, %ehcleanup66.i ], [ %stack.sroa.0.10.i, %ehcleanup100.i ], [ %stack.sroa.0.0.ph.i, %lpad.loopexit.i ], [ %stack.sroa.0.0.ph720.i, %lpad.loopexit.split-lp.i ]
+  %.pn38.i = phi { ptr, i32 } [ %216, %lpad.i.i667.i ], [ %.pn32.i, %if.then.i.i.i.i568.i ], [ %46, %lpad21.i ], [ %49, %lpad35.i ], [ %193, %if.then.i.i.i.i635.i ], [ %.pn36.i, %if.then.i.i.i.i261.i ], [ %.pn34.i, %if.then.i.i.i.i414.i ], [ %193, %lpad166.i ], [ %.pn32.i, %ehcleanup130.i ], [ %60, %lpad.i.i130.i ], [ %100, %lpad.i.i284.i ], [ %139, %lpad.i.i437.i ], [ %178, %lpad.i.i592.i ], [ %.pn36.i, %ehcleanup66.i ], [ %.pn34.i, %ehcleanup100.i ], [ %lpad.loopexit721.i, %lpad.loopexit.i ], [ %lpad.loopexit.split-lp722.i, %lpad.loopexit.split-lp.i ]
   %tobool.not.i.i.i692.i = icmp eq ptr %stack.sroa.0.3.i, null
   br i1 %tobool.not.i.i.i692.i, label %_ZNSt6vectorIZN8facebook6hermes7tracing12_GLOBAL__N_18getCallsEmRKS_ISt10unique_ptrINS2_10SynthTrace6RecordESt14default_deleteIS6_EESaIS9_EEE10StackValueSaISE_EED2Ev.exit694.i, label %if.then.i.i.i693.i
 
@@ -8077,7 +8077,7 @@ if.then.i.i134.i:                                 ; preds = %if.end15.i.i.i.i, %
   unreachable
 
 invoke.cont134.i:                                 ; preds = %for.cond.i.i.i.i.i.i, %for.body.i.i.i.i, %if.end.i.i.i.i.i.i55
-  %retval.sroa.0.1.i.i.i.i = phi ptr [ %322, %if.end.i.i.i.i.i.i55 ], [ %retval.sroa.0.0.i.i.i.i, %for.body.i.i.i.i ], [ %324, %for.cond.i.i.i.i.i.i ]
+  %retval.sroa.0.1.i.i.i.i = phi ptr [ %retval.sroa.0.0.i.i.i.i, %for.body.i.i.i.i ], [ %322, %if.end.i.i.i.i.i.i55 ], [ %324, %for.cond.i.i.i.i.i.i ]
   %second.i.i.i58 = getelementptr inbounds nuw i8, ptr %retval.sroa.0.1.i.i.i.i, i64 16
   %326 = load i64, ptr %second.i.i.i58, align 8
   %cmp.i59 = icmp eq i64 %326, -1
@@ -8318,7 +8318,7 @@ _ZNSt10_HashtableImSt4pairIKmN8facebook6hermes7tracing16TraceInterpreter9DefAndU
   br label %lpad185.body.i
 
 invoke.cont201.i:                                 ; preds = %for.cond.i.i.i.i211.i, %call5.i.i.i.i.i.i.noexc213.i, %if.end.i.i.i.i194.i
-  %retval.0.i.pn.i.i209.i = phi ptr [ %348, %if.end.i.i.i.i194.i ], [ %call7.i.i208.i, %call5.i.i.i.i.i.i.noexc213.i ], [ %350, %for.cond.i.i.i.i211.i ]
+  %retval.0.i.pn.i.i209.i = phi ptr [ %call7.i.i208.i, %call5.i.i.i.i.i.i.noexc213.i ], [ %348, %if.end.i.i.i.i194.i ], [ %350, %for.cond.i.i.i.i211.i ]
   %retval.0.i.i210.i = getelementptr inbounds nuw i8, ptr %retval.0.i.pn.i.i209.i, i64 16
   store i64 %344, ptr %retval.0.i.i210.i, align 8
   %ref.tmp198.sroa.2.0.call202.sroa_idx.i = getelementptr inbounds nuw i8, ptr %retval.0.i.pn.i.i209.i, i64 24
@@ -8614,7 +8614,7 @@ if.then.i.i77:                                    ; preds = %if.end3.i.i.i.i.i, 
   unreachable
 
 invoke.cont8:                                     ; preds = %for.cond.i.i.i.i.i, %for.body.i.i.i, %if.end.i.i.i.i.i
-  %retval.sroa.0.1.i.i.i = phi ptr [ %391, %if.end.i.i.i.i.i ], [ %retval.sroa.0.0.i.i.i, %for.body.i.i.i ], [ %393, %for.cond.i.i.i.i.i ]
+  %retval.sroa.0.1.i.i.i = phi ptr [ %retval.sroa.0.0.i.i.i, %for.body.i.i.i ], [ %391, %if.end.i.i.i.i.i ], [ %393, %for.cond.i.i.i.i.i ]
   %second.i.i = getelementptr inbounds nuw i8, ptr %retval.sroa.0.1.i.i.i, i64 16
   %_M_finish.i.i.i82 = getelementptr inbounds nuw i8, ptr %retval.sroa.0.1.i.i.i, i64 24
   %395 = load ptr, ptr %_M_finish.i.i.i82, align 8
@@ -9324,7 +9324,7 @@ if.then.i.i:                                      ; preds = %if.end3.i.i.i.i.i, 
   unreachable
 
 _ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEEC2EOS9_.exit.i: ; preds = %for.cond.i.i.i.i.i, %for.body.i.i.i, %if.end.i.i.i.i.i
-  %retval.sroa.0.1.i.i.i = phi ptr [ %7, %if.end.i.i.i.i.i ], [ %retval.sroa.0.0.i.i.i, %for.body.i.i.i ], [ %9, %for.cond.i.i.i.i.i ]
+  %retval.sroa.0.1.i.i.i = phi ptr [ %retval.sroa.0.0.i.i.i, %for.body.i.i.i ], [ %7, %if.end.i.i.i.i.i ], [ %9, %for.cond.i.i.i.i.i ]
   %second.i.i = getelementptr inbounds nuw i8, ptr %retval.sroa.0.1.i.i.i, i64 16
   %11 = load ptr, ptr %this, align 8
   %paramCount_ = getelementptr inbounds nuw i8, ptr %rec, i64 28
@@ -9500,7 +9500,7 @@ if.then.i.i:                                      ; preds = %if.end3.i.i.i.i.i, 
   unreachable
 
 _ZNKSt13unordered_mapImN8facebook6hermes7tracing16TraceInterpreter14HostObjectInfoESt4hashImESt8equal_toImESaISt4pairIKmS4_EEE2atERSA_.exit: ; preds = %for.cond.i.i.i.i.i, %for.body.i.i.i, %if.end.i.i.i.i.i
-  %retval.sroa.0.1.i.i.i = phi ptr [ %7, %if.end.i.i.i.i.i ], [ %retval.sroa.0.0.i.i.i, %for.body.i.i.i ], [ %9, %for.cond.i.i.i.i.i ]
+  %retval.sroa.0.1.i.i.i = phi ptr [ %retval.sroa.0.0.i.i.i, %for.body.i.i.i ], [ %7, %if.end.i.i.i.i.i ], [ %9, %for.cond.i.i.i.i.i ]
   %second.i.i = getelementptr inbounds nuw i8, ptr %retval.sroa.0.1.i.i.i, i64 16
   %call5.i.i.i5.i.i.i.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #37, !noalias !114
   %_M_use_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i, i64 8
@@ -14884,7 +14884,7 @@ lor.lhs.false.return.loopexit_crit_edge.i.i.i.i:  ; preds = %lor.lhs.false.i.i.i
   br label %if.end26, !llvm.loop !319
 
 if.then:                                          ; preds = %for.cond.i.i.i.i, %for.body.i.i, %if.end.i.i.i.i
-  %retval.sroa.0.1.i.i = phi ptr [ %8, %if.end.i.i.i.i ], [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ %10, %for.cond.i.i.i.i ]
+  %retval.sroa.0.1.i.i = phi ptr [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ %8, %if.end.i.i.i.i ], [ %10, %for.cond.i.i.i.i ]
   %12 = load ptr, ptr %0, align 8
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %retval.sroa.0.1.i.i, i64 8
   %second = getelementptr inbounds nuw i8, ptr %retval.sroa.0.1.i.i, i64 16
@@ -14951,7 +14951,7 @@ lor.lhs.false.return.loopexit_crit_edge.i.i.i.i19: ; preds = %lor.lhs.false.i.i.
   br label %return, !llvm.loop !101
 
 land.rhs:                                         ; preds = %for.cond.i.i.i.i21, %for.body.i.i29, %if.end.i.i.i.i9
-  %retval.sroa.0.1.i.i20 = phi ptr [ %20, %if.end.i.i.i.i9 ], [ %retval.sroa.0.0.i.i27, %for.body.i.i29 ], [ %22, %for.cond.i.i.i.i21 ]
+  %retval.sroa.0.1.i.i20 = phi ptr [ %retval.sroa.0.0.i.i27, %for.body.i.i29 ], [ %20, %if.end.i.i.i.i9 ], [ %22, %for.cond.i.i.i.i21 ]
   %lastUse = getelementptr inbounds nuw i8, ptr %retval.sroa.0.1.i.i20, i64 24
   %24 = load i64, ptr %lastUse, align 8
   %25 = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -15149,7 +15149,7 @@ if.end3.i.i.i.i81:                                ; preds = %if.end15.i.i73, %if
   br i1 %cmp.i.i.i.i.i.i.i91, label %_ZNSt13unordered_mapImN8facebook3jsi5ValueESt4hashImESt8equal_toImESaISt4pairIKmS2_EEE4findERS8_.exit101, label %if.end3.i.i.i.i81, !llvm.loop !319
 
 _ZNSt13unordered_mapImN8facebook3jsi5ValueESt4hashImESt8equal_toImESaISt4pairIKmS2_EEE4findERS8_.exit101: ; preds = %if.end3.i.i.i.i81, %for.cond.i.i94, %if.end15.i.i73
-  %retval.sroa.0.1.i.i89 = phi ptr [ %56, %if.end15.i.i73 ], [ %retval.sroa.0.0.i.i96, %for.cond.i.i94 ], [ %58, %if.end3.i.i.i.i81 ]
+  %retval.sroa.0.1.i.i89 = phi ptr [ %retval.sroa.0.0.i.i96, %for.cond.i.i94 ], [ %56, %if.end15.i.i73 ], [ %58, %if.end3.i.i.i.i81 ]
   %60 = load ptr, ptr %0, align 8
   %second38 = getelementptr inbounds nuw i8, ptr %retval.sroa.0.1.i.i89, i64 16
   tail call void @_ZN8facebook3jsi5ValueC1ERNS0_7RuntimeERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %60, ptr noundef nonnull align 8 dereferenceable(16) %second38)
@@ -15320,7 +15320,7 @@ lor.lhs.false.return.loopexit_crit_edge.i.i.i.i:  ; preds = %lor.lhs.false.i.i.i
   br label %if.end26, !llvm.loop !322
 
 if.then:                                          ; preds = %for.cond.i.i.i.i, %for.body.i.i, %if.end.i.i.i.i
-  %retval.sroa.0.1.i.i = phi ptr [ %8, %if.end.i.i.i.i ], [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ %10, %for.cond.i.i.i.i ]
+  %retval.sroa.0.1.i.i = phi ptr [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ %8, %if.end.i.i.i.i ], [ %10, %for.cond.i.i.i.i ]
   %12 = load ptr, ptr %0, align 8
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %retval.sroa.0.1.i.i, i64 8
   %second = getelementptr inbounds nuw i8, ptr %retval.sroa.0.1.i.i, i64 16
@@ -15392,7 +15392,7 @@ lor.lhs.false.return.loopexit_crit_edge.i.i.i.i19: ; preds = %lor.lhs.false.i.i.
   br label %return, !llvm.loop !101
 
 land.rhs:                                         ; preds = %for.cond.i.i.i.i21, %for.body.i.i29, %if.end.i.i.i.i9
-  %retval.sroa.0.1.i.i20 = phi ptr [ %22, %if.end.i.i.i.i9 ], [ %retval.sroa.0.0.i.i27, %for.body.i.i29 ], [ %24, %for.cond.i.i.i.i21 ]
+  %retval.sroa.0.1.i.i20 = phi ptr [ %retval.sroa.0.0.i.i27, %for.body.i.i29 ], [ %22, %if.end.i.i.i.i9 ], [ %24, %for.cond.i.i.i.i21 ]
   %lastUse = getelementptr inbounds nuw i8, ptr %retval.sroa.0.1.i.i20, i64 24
   %26 = load i64, ptr %lastUse, align 8
   %27 = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -15607,7 +15607,7 @@ if.end3.i.i.i.i82:                                ; preds = %if.end15.i.i74, %if
   br i1 %cmp.i.i.i.i.i.i.i92, label %_ZNSt13unordered_mapImN8facebook3jsi10PropNameIDESt4hashImESt8equal_toImESaISt4pairIKmS2_EEE4findERS8_.exit102, label %if.end3.i.i.i.i82, !llvm.loop !322
 
 _ZNSt13unordered_mapImN8facebook3jsi10PropNameIDESt4hashImESt8equal_toImESaISt4pairIKmS2_EEE4findERS8_.exit102: ; preds = %if.end3.i.i.i.i82, %for.cond.i.i95, %if.end15.i.i74
-  %retval.sroa.0.1.i.i90 = phi ptr [ %62, %if.end15.i.i74 ], [ %retval.sroa.0.0.i.i97, %for.cond.i.i95 ], [ %64, %if.end3.i.i.i.i82 ]
+  %retval.sroa.0.1.i.i90 = phi ptr [ %retval.sroa.0.0.i.i97, %for.cond.i.i95 ], [ %62, %if.end15.i.i74 ], [ %64, %if.end3.i.i.i.i82 ]
   %66 = load ptr, ptr %0, align 8
   %second38 = getelementptr inbounds nuw i8, ptr %retval.sroa.0.1.i.i90, i64 16
   %67 = load ptr, ptr %second38, align 8
@@ -19294,7 +19294,7 @@ if.end36:                                         ; preds = %if.end3.i.i, %invok
           to label %_ZNSt10_HashtableImSt4pairIKmSt6vectorIN8facebook6hermes7tracing16TraceInterpreter4CallESaIS7_EEESaISA_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit unwind label %lpad
 
 if.then.i:                                        ; preds = %for.cond.i.i, %invoke.cont, %if.end.i.i
-  %retval.sroa.0.0.ph = phi ptr [ %11, %if.end.i.i ], [ %__it.sroa.0.0, %invoke.cont ], [ %13, %for.cond.i.i ]
+  %retval.sroa.0.0.ph = phi ptr [ %__it.sroa.0.0, %invoke.cont ], [ %11, %if.end.i.i ], [ %13, %for.cond.i.i ]
   invoke void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN8facebook6hermes7tracing16TraceInterpreter4CallEEEvT_S8_(ptr noundef %1, ptr noundef %2)
           to label %invoke.cont.i.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i
 
@@ -19521,7 +19521,7 @@ if.end36:                                         ; preds = %if.end3.i.i, %invok
           to label %_ZNSt10_HashtableImSt4pairIKmN8facebook6hermes7tracing16TraceInterpreter14HostObjectInfoEESaIS7_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit unwind label %lpad
 
 if.then.i:                                        ; preds = %for.cond.i.i, %invoke.cont, %if.end.i.i
-  %retval.sroa.0.0.ph = phi ptr [ %14, %if.end.i.i ], [ %__it.sroa.0.0, %invoke.cont ], [ %16, %for.cond.i.i ]
+  %retval.sroa.0.0.ph = phi ptr [ %__it.sroa.0.0, %invoke.cont ], [ %14, %if.end.i.i ], [ %16, %for.cond.i.i ]
   tail call void @_ZN8facebook6hermes7tracing16TraceInterpreter14HostObjectInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %second.i.i.i.i.i) #32
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i) #34
   br label %_ZNSt10_HashtableImSt4pairIKmN8facebook6hermes7tracing16TraceInterpreter14HostObjectInfoEESaIS7_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
@@ -21391,7 +21391,7 @@ _ZNSt10_HashtableImSt4pairIKmN8facebook6hermes7tracing16TraceInterpreter9DefAndU
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %for.cond.i.i.i.i, %call5.i.i.i.i.i.i.noexc, %if.end.i.i.i.i
-  %retval.0.i.pn.i.i = phi ptr [ %17, %if.end.i.i.i.i ], [ %call7.i.i, %call5.i.i.i.i.i.i.noexc ], [ %19, %for.cond.i.i.i.i ]
+  %retval.0.i.pn.i.i = phi ptr [ %call7.i.i, %call5.i.i.i.i.i.i.noexc ], [ %17, %if.end.i.i.i.i ], [ %19, %for.cond.i.i.i.i ]
   %lastUse = getelementptr inbounds nuw i8, ptr %retval.0.i.pn.i.i, i64 24
   store i64 %recordNum.078, ptr %lastUse, align 8
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin5.sroa.0.073, i64 8
@@ -21486,7 +21486,7 @@ _ZNSt10_HashtableImSt4pairIKmN8facebook6hermes7tracing16TraceInterpreter9DefAndU
   br label %lpad41.body
 
 invoke.cont42:                                    ; preds = %for.cond.i.i.i.i49, %call5.i.i.i.i.i.i.noexc51, %if.end.i.i.i.i31
-  %retval.0.i.pn.i.i47 = phi ptr [ %29, %if.end.i.i.i.i31 ], [ %call7.i.i45, %call5.i.i.i.i.i.i.noexc51 ], [ %31, %for.cond.i.i.i.i49 ]
+  %retval.0.i.pn.i.i47 = phi ptr [ %call7.i.i45, %call5.i.i.i.i.i.i.noexc51 ], [ %29, %if.end.i.i.i.i31 ], [ %31, %for.cond.i.i.i.i49 ]
   %lastUse44 = getelementptr inbounds nuw i8, ptr %retval.0.i.pn.i.i47, i64 24
   %34 = load i64, ptr %lastUse44, align 8
   %cmp = icmp eq i64 %34, -1
@@ -22316,7 +22316,7 @@ lor.lhs.false.return.loopexit_crit_edge.i.i.i.i:  ; preds = %lor.lhs.false.i.i.i
   br label %if.end, !llvm.loop !101
 
 land.rhs:                                         ; preds = %for.cond.i.i.i.i, %for.body.i.i, %if.end.i.i.i.i
-  %retval.sroa.0.1.i.i = phi ptr [ %6, %if.end.i.i.i.i ], [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ %8, %for.cond.i.i.i.i ]
+  %retval.sroa.0.1.i.i = phi ptr [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ %6, %if.end.i.i.i.i ], [ %8, %for.cond.i.i.i.i ]
   %second = getelementptr inbounds nuw i8, ptr %retval.sroa.0.1.i.i, i64 16
   %10 = load i64, ptr %second, align 8
   %cmp = icmp eq i64 %globalRecordNum, %10
@@ -22425,7 +22425,7 @@ if.end3.i.i.i.i45:                                ; preds = %if.end15.i.i37, %if
   br i1 %cmp.i.i.i.i.i.i.i55, label %_ZNKSt13unordered_mapImN8facebook6hermes7tracing16TraceInterpreter9DefAndUseESt4hashImESt8equal_toImESaISt4pairIKmS4_EEE4findERSA_.exit65, label %if.end3.i.i.i.i45, !llvm.loop !101
 
 _ZNKSt13unordered_mapImN8facebook6hermes7tracing16TraceInterpreter9DefAndUseESt4hashImESt8equal_toImESaISt4pairIKmS4_EEE4findERSA_.exit65: ; preds = %if.end3.i.i.i.i45, %for.cond.i.i58, %if.end15.i.i37
-  %retval.sroa.0.1.i.i53 = phi ptr [ %25, %if.end15.i.i37 ], [ %retval.sroa.0.0.i.i60, %for.cond.i.i58 ], [ %27, %if.end3.i.i.i.i45 ]
+  %retval.sroa.0.1.i.i53 = phi ptr [ %retval.sroa.0.0.i.i60, %for.cond.i.i58 ], [ %25, %if.end15.i.i37 ], [ %27, %if.end3.i.i.i.i45 ]
   %lastUse = getelementptr inbounds nuw i8, ptr %retval.sroa.0.1.i.i53, i64 24
   %29 = load i64, ptr %lastUse, align 8
   %cmp27.not = icmp eq i64 %29, -1
@@ -22566,7 +22566,7 @@ if.end36:                                         ; preds = %if.end3.i.i, %invok
           to label %_ZNSt10_HashtableImSt4pairIKmN8facebook3jsi5ValueEESaIS5_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit unwind label %lpad
 
 if.then.i:                                        ; preds = %for.cond.i.i, %invoke.cont, %if.end.i.i
-  %retval.sroa.0.0.ph = phi ptr [ %17, %if.end.i.i ], [ %__it.sroa.0.0, %invoke.cont ], [ %19, %for.cond.i.i ]
+  %retval.sroa.0.0.ph = phi ptr [ %__it.sroa.0.0, %invoke.cont ], [ %17, %if.end.i.i ], [ %19, %for.cond.i.i ]
   tail call void @_ZN8facebook3jsi5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %second.i.i.i.i.i) #32
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i) #34
   br label %_ZNSt10_HashtableImSt4pairIKmN8facebook3jsi5ValueEESaIS5_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
@@ -22861,7 +22861,7 @@ lor.lhs.false.return.loopexit_crit_edge.i.i.i.i:  ; preds = %lor.lhs.false.i.i.i
   br label %if.end, !llvm.loop !101
 
 land.rhs:                                         ; preds = %for.cond.i.i.i.i, %for.body.i.i, %if.end.i.i.i.i
-  %retval.sroa.0.1.i.i = phi ptr [ %6, %if.end.i.i.i.i ], [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ %8, %for.cond.i.i.i.i ]
+  %retval.sroa.0.1.i.i = phi ptr [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ %6, %if.end.i.i.i.i ], [ %8, %for.cond.i.i.i.i ]
   %second = getelementptr inbounds nuw i8, ptr %retval.sroa.0.1.i.i, i64 16
   %10 = load i64, ptr %second, align 8
   %cmp = icmp eq i64 %globalRecordNum, %10
@@ -22970,7 +22970,7 @@ if.end3.i.i.i.i45:                                ; preds = %if.end15.i.i37, %if
   br i1 %cmp.i.i.i.i.i.i.i55, label %_ZNKSt13unordered_mapImN8facebook6hermes7tracing16TraceInterpreter9DefAndUseESt4hashImESt8equal_toImESaISt4pairIKmS4_EEE4findERSA_.exit65, label %if.end3.i.i.i.i45, !llvm.loop !101
 
 _ZNKSt13unordered_mapImN8facebook6hermes7tracing16TraceInterpreter9DefAndUseESt4hashImESt8equal_toImESaISt4pairIKmS4_EEE4findERSA_.exit65: ; preds = %if.end3.i.i.i.i45, %for.cond.i.i58, %if.end15.i.i37
-  %retval.sroa.0.1.i.i53 = phi ptr [ %25, %if.end15.i.i37 ], [ %retval.sroa.0.0.i.i60, %for.cond.i.i58 ], [ %27, %if.end3.i.i.i.i45 ]
+  %retval.sroa.0.1.i.i53 = phi ptr [ %retval.sroa.0.0.i.i60, %for.cond.i.i58 ], [ %25, %if.end15.i.i37 ], [ %27, %if.end3.i.i.i.i45 ]
   %lastUse = getelementptr inbounds nuw i8, ptr %retval.sroa.0.1.i.i53, i64 24
   %29 = load i64, ptr %lastUse, align 8
   %cmp27.not = icmp eq i64 %29, -1
@@ -23077,7 +23077,7 @@ if.end36:                                         ; preds = %if.end3.i.i, %invok
           to label %_ZNSt10_HashtableImSt4pairIKmN8facebook3jsi10PropNameIDEESaIS5_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit unwind label %lpad
 
 if.then.i:                                        ; preds = %for.cond.i.i, %invoke.cont, %if.end.i.i
-  %retval.sroa.0.0.ph = phi ptr [ %9, %if.end.i.i ], [ %__it.sroa.0.0, %invoke.cont ], [ %11, %for.cond.i.i ]
+  %retval.sroa.0.0.ph = phi ptr [ %__it.sroa.0.0, %invoke.cont ], [ %9, %if.end.i.i ], [ %11, %for.cond.i.i ]
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKmN8facebook3jsi10PropNameIDEELb0EEEEE18_M_deallocate_nodeEPS8_.exit.i, label %if.then.i.i.i.i.i.i.i
 
@@ -23540,7 +23540,7 @@ if.end36:                                         ; preds = %if.end3.i.i, %invok
           to label %_ZNSt10_HashtableImSt4pairIKmN8facebook3jsi5ValueEESaIS5_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit unwind label %lpad
 
 if.then.i:                                        ; preds = %for.cond.i.i, %invoke.cont, %if.end.i.i
-  %retval.sroa.0.0.ph = phi ptr [ %9, %if.end.i.i ], [ %__it.sroa.0.0, %invoke.cont ], [ %11, %for.cond.i.i ]
+  %retval.sroa.0.0.ph = phi ptr [ %__it.sroa.0.0, %invoke.cont ], [ %9, %if.end.i.i ], [ %11, %for.cond.i.i ]
   tail call void @_ZN8facebook3jsi5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %second.i.i.i.i.i) #32
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i) #34
   br label %_ZNSt10_HashtableImSt4pairIKmN8facebook3jsi5ValueEESaIS5_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit

@@ -162,7 +162,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__hugetlb_cgroup_charge_cg
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge, %.loopexit.sink.split, %6
-  %45 = phi ptr [ %12, %6 ], [ %17, %.loopexit.sink.split ], [ %40, %._crit_edge ]
+  %45 = phi ptr [ %17, %.loopexit.sink.split ], [ %12, %6 ], [ %40, %._crit_edge ]
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 84
   tail call void @__rcu_read_unlock() #9
   %47 = sext i32 %0 to i64

@@ -23400,11 +23400,11 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   br label %1164
 
 1164:                                             ; preds = %1162, %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17hd54322d274637df2E.exit.i.i.i.i.i.i"
-  %.sroa.045.2.i.i.i.i.i = phi ptr [ null, %1162 ], [ %.sroa.045.1.i.i.i.i.i, %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17hd54322d274637df2E.exit.i.i.i.i.i.i" ]
-  %.sroa.546.2.i.i.i.i.i = phi ptr [ %1163, %1162 ], [ %.sroa.546.1.i.i.i.i.i, %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17hd54322d274637df2E.exit.i.i.i.i.i.i" ]
-  %.sroa.1047.1.i.i.i.i.i = phi i16 [ %.sroa.1047.0.i.i.i.i.i, %1162 ], [ %1157, %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17hd54322d274637df2E.exit.i.i.i.i.i.i" ]
-  %.sroa.1248.1.i.i.i.i.i = phi i64 [ %.sroa.1248.0.i.i.i.i.i, %1162 ], [ %1160, %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17hd54322d274637df2E.exit.i.i.i.i.i.i" ]
-  %.sroa.0.1.i.i.i.i.i.i = phi ptr [ %.sroa.546.0.i.i.i.i.i, %1162 ], [ %1161, %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17hd54322d274637df2E.exit.i.i.i.i.i.i" ]
+  %.sroa.045.2.i.i.i.i.i = phi ptr [ %.sroa.045.1.i.i.i.i.i, %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17hd54322d274637df2E.exit.i.i.i.i.i.i" ], [ null, %1162 ]
+  %.sroa.546.2.i.i.i.i.i = phi ptr [ %.sroa.546.1.i.i.i.i.i, %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17hd54322d274637df2E.exit.i.i.i.i.i.i" ], [ %1163, %1162 ]
+  %.sroa.1047.1.i.i.i.i.i = phi i16 [ %1157, %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17hd54322d274637df2E.exit.i.i.i.i.i.i" ], [ %.sroa.1047.0.i.i.i.i.i, %1162 ]
+  %.sroa.1248.1.i.i.i.i.i = phi i64 [ %1160, %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17hd54322d274637df2E.exit.i.i.i.i.i.i" ], [ %.sroa.1248.0.i.i.i.i.i, %1162 ]
+  %.sroa.0.1.i.i.i.i.i.i = phi ptr [ %1161, %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17hd54322d274637df2E.exit.i.i.i.i.i.i" ], [ %.sroa.546.0.i.i.i.i.i, %1162 ]
   %.sroa.3.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i.i.i.i.i, i64 16
   %.sroa.3.0.i.i.i.i.i = load i64, ptr %.sroa.3.0.in.i.i.i.i.i, align 8, !noalias !2647, !noundef !6
   %.sroa.018.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i.i.i.i.i, i64 8
@@ -30795,11 +30795,11 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   br label %1986
 
 1986:                                             ; preds = %1984, %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17hd54322d274637df2E.exit.i.i.i.i.i.i"
-  %.sroa.06.2.i.i.i.i.i = phi ptr [ null, %1984 ], [ %.sroa.06.1.i.i.i.i.i, %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17hd54322d274637df2E.exit.i.i.i.i.i.i" ]
-  %.sroa.57.2.i.i.i.i.i = phi ptr [ %1985, %1984 ], [ %.sroa.57.1.i.i.i.i.i, %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17hd54322d274637df2E.exit.i.i.i.i.i.i" ]
-  %.sroa.108.1.i.i.i.i.i = phi i16 [ %.sroa.108.0.i.i.i.i.i, %1984 ], [ %1979, %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17hd54322d274637df2E.exit.i.i.i.i.i.i" ]
-  %.sroa.129.1.i.i.i.i.i = phi i64 [ %.sroa.129.0.i.i.i.i.i, %1984 ], [ %1982, %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17hd54322d274637df2E.exit.i.i.i.i.i.i" ]
-  %.sroa.0.1.i.i.i.i.i.i = phi ptr [ %.sroa.57.0.i.i.i.i.i, %1984 ], [ %1983, %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17hd54322d274637df2E.exit.i.i.i.i.i.i" ]
+  %.sroa.06.2.i.i.i.i.i = phi ptr [ %.sroa.06.1.i.i.i.i.i, %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17hd54322d274637df2E.exit.i.i.i.i.i.i" ], [ null, %1984 ]
+  %.sroa.57.2.i.i.i.i.i = phi ptr [ %.sroa.57.1.i.i.i.i.i, %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17hd54322d274637df2E.exit.i.i.i.i.i.i" ], [ %1985, %1984 ]
+  %.sroa.108.1.i.i.i.i.i = phi i16 [ %1979, %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17hd54322d274637df2E.exit.i.i.i.i.i.i" ], [ %.sroa.108.0.i.i.i.i.i, %1984 ]
+  %.sroa.129.1.i.i.i.i.i = phi i64 [ %1982, %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17hd54322d274637df2E.exit.i.i.i.i.i.i" ], [ %.sroa.129.0.i.i.i.i.i, %1984 ]
+  %.sroa.0.1.i.i.i.i.i.i = phi ptr [ %1983, %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17hd54322d274637df2E.exit.i.i.i.i.i.i" ], [ %.sroa.57.0.i.i.i.i.i, %1984 ]
   %.sroa.3.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i.i.i.i.i, i64 16
   %.sroa.3.0.i.i.i.i.i = load i64, ptr %.sroa.3.0.in.i.i.i.i.i, align 8, !noalias !4196, !noundef !6
   %.sroa.018.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i.i.i.i.i, i64 8

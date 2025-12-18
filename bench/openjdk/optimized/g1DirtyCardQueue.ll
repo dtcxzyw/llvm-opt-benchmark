@@ -1637,8 +1637,8 @@ _ZN21G1RefineBufferedCards11clean_cardsEv.exit:   ; preds = %1, %._crit_edge.loo
   br i1 %.not18.i, label %53, label %_ZN21G1RefineBufferedCards20refine_cleaned_cardsEm.exit, !llvm.loop !20
 
 _ZN21G1RefineBufferedCards20refine_cleaned_cardsEm.exit: ; preds = %62, %.lr.ph.i.i, %45
-  %.015.i = phi i64 [ %29, %45 ], [ %.016.i, %.lr.ph.i.i ], [ %68, %62 ]
-  %70 = phi i1 [ true, %45 ], [ false, %.lr.ph.i.i ], [ true, %62 ]
+  %.015.i = phi i64 [ %.016.i, %.lr.ph.i.i ], [ %29, %45 ], [ %68, %62 ]
+  %70 = phi i1 [ false, %.lr.ph.i.i ], [ true, %45 ], [ true, %62 ]
   %71 = load ptr, ptr %0, align 8
   %72 = trunc i64 %.015.i to i32
   store i32 %72, ptr %71, align 8

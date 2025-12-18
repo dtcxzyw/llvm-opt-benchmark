@@ -1063,7 +1063,7 @@ _mdnblocks.exit:                                  ; preds = %.lr.ph.split
   br i1 %exitcond.not, label %.critedge, label %.lr.ph.split, !llvm.loop !9
 
 .critedge:                                        ; preds = %101, %61, %42, %29, %84, %92, %27, %18, %12
-  %.0 = phi ptr [ %17, %12 ], [ null, %18 ], [ null, %27 ], [ null, %92 ], [ null, %84 ], [ %.057, %29 ], [ %59, %61 ], [ %40, %42 ], [ %81, %101 ]
+  %.0 = phi ptr [ %17, %12 ], [ null, %18 ], [ null, %84 ], [ null, %27 ], [ null, %92 ], [ %.057, %29 ], [ %59, %61 ], [ %40, %42 ], [ %81, %101 ]
   ret ptr %.0
 }
 

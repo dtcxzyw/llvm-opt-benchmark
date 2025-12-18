@@ -3103,7 +3103,7 @@ define internal fastcc i32 @_controller_index() unnamed_addr #5 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %._crit_edge, %.thread, %37
-  %.013 = phi i32 [ 0, %37 ], [ -1, %.thread ], [ -1, %._crit_edge ], [ %38, %.loopexit.loopexit ]
+  %.013 = phi i32 [ 0, %37 ], [ -1, %._crit_edge ], [ -1, %.thread ], [ %38, %.loopexit.loopexit ]
   ret i32 %.013
 }
 
@@ -5648,7 +5648,7 @@ _send_reconfig_replies.exit:                      ; preds = %.lr.ph.i, %12, %11
   br label %148
 
 .split85.us.i:                                    ; preds = %.lr.ph122.i, %.lr.ph107.preheader.i, %.lr.ph122.i.preheader, %.lr.ph107.preheader.i.preheader
-  %.us-phi86.i = phi i64 [ %109, %.lr.ph107.preheader.i.preheader ], [ %96, %.lr.ph122.i.preheader ], [ %129, %.lr.ph107.preheader.i ], [ %106, %.lr.ph122.i ]
+  %.us-phi86.i = phi i64 [ %129, %.lr.ph107.preheader.i ], [ %109, %.lr.ph107.preheader.i.preheader ], [ %96, %.lr.ph122.i.preheader ], [ %106, %.lr.ph122.i ]
   %135 = and i64 %.us-phi86.i, 2147483647
   %136 = getelementptr inbounds nuw i8, ptr %.043.ph127.i, i64 %135
   %137 = sub i64 %.044.ph125.i, %135

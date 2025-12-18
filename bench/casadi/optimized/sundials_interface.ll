@@ -6053,7 +6053,7 @@ define noundef range(i32 0, 2) i32 @_ZNK6casadi17SundialsInterface8init_memEPv(p
   br i1 %exitcond119.not, label %._crit_edge109, label %.preheader.us, !llvm.loop !227
 
 ._crit_edge109:                                   ; preds = %._crit_edge.us111, %43, %.preheader.lr.ph
-  %.249.lcssa = phi ptr [ %.047.lcssa144, %.preheader.lr.ph ], [ %51, %43 ], [ %79, %._crit_edge.us111 ]
+  %.249.lcssa = phi ptr [ %51, %43 ], [ %.047.lcssa144, %.preheader.lr.ph ], [ %79, %._crit_edge.us111 ]
   %82 = load i64, ptr %15, align 8, !tbaa !149
   %83 = getelementptr inbounds double, ptr %51, i64 %82
   %84 = load i64, ptr %17, align 8, !tbaa !144

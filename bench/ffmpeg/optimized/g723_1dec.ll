@@ -609,7 +609,7 @@ define internal i32 @g723_1_decode_frame(ptr noundef %0, ptr noundef %1, ptr nou
   %392 = and i32 %391, %.sink218.i
   br label %404
 
-.loopexit259:                                     ; preds = %184, %.split.us.i, %90, %114, %124
+.loopexit259:                                     ; preds = %184, %.split.us.i, %124, %90, %114
   %393 = getelementptr inbounds nuw i8, ptr %91, i64 116
   %394 = load i32, ptr %393, align 4, !tbaa !33
   %395 = icmp eq i32 %394, 0

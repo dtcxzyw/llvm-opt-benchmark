@@ -1036,8 +1036,8 @@ _ZL7scalbnAdi.exit304.i:                          ; preds = %334, %331, %323, %3
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.loopexit.loopexit.i, %354, %343
-  %.2233.i = phi i32 [ %351, %343 ], [ %.0231.i, %354 ], [ %357, %.loopexit.loopexit.i ]
-  %.1230.i = phi i32 [ %.neg262.i, %343 ], [ %130, %354 ], [ %.0229.i, %.loopexit.loopexit.i ]
+  %.2233.i = phi i32 [ %.0231.i, %354 ], [ %351, %343 ], [ %357, %.loopexit.loopexit.i ]
+  %.1230.i = phi i32 [ %130, %354 ], [ %.neg262.i, %343 ], [ %.0229.i, %.loopexit.loopexit.i ]
   %358 = add nsw i32 %.1230.i, 1023
   %359 = icmp sgt i32 %.1230.i, 1023
   br i1 %359, label %_ZL7scalbnAdi.exit318.i, label %360

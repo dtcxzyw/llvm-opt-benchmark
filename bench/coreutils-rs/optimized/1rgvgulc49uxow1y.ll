@@ -2306,9 +2306,9 @@ _ZN4core4iter6traits8iterator8Iterator4fold17hde8715c775152395E.exit: ; preds = 
   br i1 %441, label %_ZN13unicode_width6tables9charwidth12lookup_width17he24707c595d80dd8E.exit.i.i.i.i110, label %.invoke, !prof !227
 
 .invoke:                                          ; preds = %_ZN4core4iter6traits8iterator8Iterator4fold17hde8715c775152395E.exit, %354, %343, %433, %422
-  %442 = phi i64 [ %361, %354 ], [ %431, %422 ], [ %440, %433 ], [ %352, %343 ], [ %.sroa.7147.0210, %_ZN4core4iter6traits8iterator8Iterator4fold17hde8715c775152395E.exit ]
-  %443 = phi i64 [ 3888, %354 ], [ 2432, %422 ], [ 3888, %433 ], [ 2432, %343 ], [ %373, %_ZN4core4iter6traits8iterator8Iterator4fold17hde8715c775152395E.exit ]
-  %444 = phi ptr [ @anon.0038b4077a4fc1436dad5fe124ddbe2e.3, %354 ], [ @anon.0038b4077a4fc1436dad5fe124ddbe2e.2, %422 ], [ @anon.0038b4077a4fc1436dad5fe124ddbe2e.3, %433 ], [ @anon.0038b4077a4fc1436dad5fe124ddbe2e.2, %343 ], [ @anon.0038b4077a4fc1436dad5fe124ddbe2e.51, %_ZN4core4iter6traits8iterator8Iterator4fold17hde8715c775152395E.exit ]
+  %442 = phi i64 [ %431, %422 ], [ %361, %354 ], [ %440, %433 ], [ %352, %343 ], [ %.sroa.7147.0210, %_ZN4core4iter6traits8iterator8Iterator4fold17hde8715c775152395E.exit ]
+  %443 = phi i64 [ 2432, %422 ], [ 3888, %354 ], [ 3888, %433 ], [ 2432, %343 ], [ %373, %_ZN4core4iter6traits8iterator8Iterator4fold17hde8715c775152395E.exit ]
+  %444 = phi ptr [ @anon.0038b4077a4fc1436dad5fe124ddbe2e.2, %422 ], [ @anon.0038b4077a4fc1436dad5fe124ddbe2e.3, %354 ], [ @anon.0038b4077a4fc1436dad5fe124ddbe2e.3, %433 ], [ @anon.0038b4077a4fc1436dad5fe124ddbe2e.2, %343 ], [ @anon.0038b4077a4fc1436dad5fe124ddbe2e.51, %_ZN4core4iter6traits8iterator8Iterator4fold17hde8715c775152395E.exit ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %442, i64 noundef %443, ptr noalias noundef readonly align 8 dereferenceable(24) %444) #17
           to label %.cont unwind label %194
 

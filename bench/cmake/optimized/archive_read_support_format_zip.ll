@@ -2117,7 +2117,7 @@ rsrc_basename.exit198.i:                          ; preds = %259, %.thread.i, %2
   %279 = icmp eq ptr %278, null
   br i1 %279, label %slurp_central_directory.exit.thread, label %82
 
-slurp_central_directory.exit.thread:              ; preds = %._crit_edge.i, %202, %89, %275, %.preheader207.i.preheader, %24, %88, %95, %201, %63
+slurp_central_directory.exit.thread:              ; preds = %._crit_edge.i, %202, %89, %275, %.preheader207.i.preheader, %63, %24, %88, %95, %201
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %zip_read_mac_metadata.exit.thread
 
@@ -4054,7 +4054,7 @@ define internal fastcc range(i32 -25, 1) i32 @process_extra(ptr noundef %0, ptr 
   br i1 %.not, label %.critedge, label %38, !llvm.loop !155
 
 .critedge:                                        ; preds = %.thread377, %32, %145, %106, %89, %72, %51, %317, %36, %5
-  %.0248 = phi i32 [ 0, %5 ], [ -25, %36 ], [ -25, %317 ], [ -25, %145 ], [ -25, %72 ], [ -25, %89 ], [ -25, %106 ], [ -25, %51 ], [ 0, %32 ], [ 0, %.thread377 ]
+  %.0248 = phi i32 [ -25, %51 ], [ 0, %5 ], [ 0, %32 ], [ -25, %36 ], [ -25, %317 ], [ -25, %145 ], [ -25, %72 ], [ -25, %89 ], [ -25, %106 ], [ 0, %.thread377 ]
   ret i32 %.0248
 }
 

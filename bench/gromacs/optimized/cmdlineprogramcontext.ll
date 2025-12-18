@@ -533,7 +533,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit34.i:      ; preds = %_ZNSt10filesystem7_
   br label %_ZNSt10filesystem7__cxx114pathC2EOS1_.exit.i
 
 _ZNSt10filesystem7__cxx114pathC2EOS1_.exit.i:     ; preds = %_ZNSt10filesystem7__cxx114pathD2Ev.exit29.i, %.critedge.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i
-  %133 = phi i1 [ false, %.critedge.i ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i ], [ true, %_ZNSt10filesystem7__cxx114pathD2Ev.exit29.i ]
+  %133 = phi i1 [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i ], [ false, %.critedge.i ], [ true, %_ZNSt10filesystem7__cxx114pathD2Ev.exit29.i ]
   %134 = load ptr, ptr %37, align 8, !tbaa !23, !noalias !16
   %.not.i.i.i35.i = icmp eq ptr %134, null
   br i1 %.not.i.i.i35.i, label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit.i36.i, label %135

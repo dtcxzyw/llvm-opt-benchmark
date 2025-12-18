@@ -1266,7 +1266,7 @@ _ZN4llvm9GCOVBlock7addLineEj.exit:                ; preds = %478, %481
   br label %.critedge182
 
 _ZN4llvm11raw_ostreamlsEPKc.exit148:              ; preds = %490, %_ZNSt10unique_ptrIN4llvm7GCOVArcESt14default_deleteIS1_EED2Ev.exit, %_ZNSt10unique_ptrIN4llvm9GCOVBlockESt14default_deleteIS1_EED2Ev.exit142, %_ZNSt10unique_ptrIN4llvm9GCOVBlockESt14default_deleteIS1_EED2Ev.exit, %309, %196, %.preheader, %.critedge, %415
-  %.2102 = phi ptr [ %89, %.critedge ], [ %.0100204, %415 ], [ %.0100204, %309 ], [ %.0100204, %.preheader ], [ %.0100204, %196 ], [ %.0100204, %_ZNSt10unique_ptrIN4llvm7GCOVArcESt14default_deleteIS1_EED2Ev.exit ], [ %.0100204, %_ZNSt10unique_ptrIN4llvm9GCOVBlockESt14default_deleteIS1_EED2Ev.exit ], [ %.0100204, %_ZNSt10unique_ptrIN4llvm9GCOVBlockESt14default_deleteIS1_EED2Ev.exit142 ], [ %.0100204, %490 ]
+  %.2102 = phi ptr [ %89, %.critedge ], [ %.0100204, %415 ], [ %.0100204, %196 ], [ %.0100204, %309 ], [ %.0100204, %.preheader ], [ %.0100204, %_ZNSt10unique_ptrIN4llvm9GCOVBlockESt14default_deleteIS1_EED2Ev.exit142 ], [ %.0100204, %_ZNSt10unique_ptrIN4llvm7GCOVArcESt14default_deleteIS1_EED2Ev.exit ], [ %.0100204, %_ZNSt10unique_ptrIN4llvm9GCOVBlockESt14default_deleteIS1_EED2Ev.exit ], [ %.0100204, %490 ]
   %494 = load i32, ptr %12, align 4, !tbaa !37
   %495 = icmp sgt i32 %494, 4
   %496 = load i32, ptr %3, align 4
@@ -4207,7 +4207,7 @@ define dso_local noundef i64 @_ZN4llvm9GCOVBlock14getCyclesCountERKNS_11SmallVec
   br i1 %.not50, label %.preheader._crit_edge, label %.lr.ph.preheader, !llvm.loop !234
 
 .preheader._crit_edge:                            ; preds = %.thread46, %.thread, %1
-  %.068 = phi i64 [ 0, %1 ], [ %.071, %.thread ], [ %21, %.thread46 ]
+  %.068 = phi i64 [ %.071, %.thread ], [ 0, %1 ], [ %21, %.thread46 ]
   %26 = load ptr, ptr %2, align 8, !tbaa !212
   %.not.i.i.i = icmp eq ptr %26, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorISt4pairIPN4llvm9GCOVBlockEmESaIS4_EED2Ev.exit, label %27
@@ -5804,7 +5804,7 @@ _ZN4llvm12is_containedIRNS_11SmallVectorIPKNS_9GCOVBlockELj1EEEPS2_EEbOT_RKT0_.e
   br i1 %.not90.i.i, label %.loopexit5.i.i, label %.lr.ph.i.i
 
 .loopexit5.i.i:                                   ; preds = %708, %.lr.ph23.i.i, %664, %652
-  %.2.i.i = phi i64 [ %.030.i.i, %652 ], [ %.030.i.i, %664 ], [ %662, %.lr.ph23.i.i ], [ %.4.i.i, %708 ]
+  %.2.i.i = phi i64 [ %662, %.lr.ph23.i.i ], [ %.030.i.i, %652 ], [ %.030.i.i, %664 ], [ %.4.i.i, %708 ]
   %710 = getelementptr inbounds nuw i8, ptr %649, i64 48
   %711 = load ptr, ptr %710, align 8, !tbaa !68
   %712 = getelementptr inbounds nuw i8, ptr %649, i64 56

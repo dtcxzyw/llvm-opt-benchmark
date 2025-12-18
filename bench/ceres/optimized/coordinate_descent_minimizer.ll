@@ -4581,7 +4581,7 @@ _ZNSt10_HashtableIPdSt4pairIKS0_iESaIS3_ENSt8__detail10_Select1stESt8equal_toIS0
   br label %.body
 
 .loopexit:                                        ; preds = %58, %.noexc14, %53
-  %.pn.i.i = phi ptr [ %54, %53 ], [ %69, %.noexc14 ], [ %60, %58 ]
+  %.pn.i.i = phi ptr [ %69, %.noexc14 ], [ %54, %53 ], [ %60, %58 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   store i32 %45, ptr %.1.i.i, align 4, !tbaa !54
   %71 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.032.056) #36

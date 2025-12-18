@@ -207,7 +207,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_security_jgss_wrapper_GSSLibStub_init
   br label %54
 
 54:                                               ; preds = %.sink.split, %42, %44, %41, %30, %10, %6
-  %.0 = phi i8 [ 0, %30 ], [ 0, %6 ], [ 0, %10 ], [ 1, %41 ], [ 0, %44 ], [ 0, %42 ], [ 0, %.sink.split ]
+  %.0 = phi i8 [ 0, %30 ], [ 0, %6 ], [ 0, %10 ], [ 1, %41 ], [ 0, %42 ], [ 0, %44 ], [ 0, %.sink.split ]
   ret i8 %.0
 }
 

@@ -4442,7 +4442,7 @@ lean_inc.exit:                                    ; preds = %1211, %1210, %1208,
   store ptr %.0392.lcssa.sink, ptr %1225, align 8, !tbaa !9
   br label %1226
 
-1226:                                             ; preds = %.sink.split, %lean_dec.exit494, %lean_dec.exit486
+1226:                                             ; preds = %.sink.split, %lean_dec.exit486, %lean_dec.exit494
   %.1.ph = phi ptr [ %97, %lean_dec.exit486 ], [ %240, %lean_dec.exit494 ], [ %.sink1619, %.sink.split ]
   ret ptr %.1.ph
 }

@@ -415,7 +415,7 @@ ir2_decode_plane_inter.exit103:                   ; preds = %ir2_decode_plane_in
   br label %ir2_decode_plane_inter.exit.thread
 
 ir2_decode_plane_inter.exit.thread:               ; preds = %88, %109, %164, %185, %ir2_decode_plane_inter.exit, %83, %232, %ir2_decode_plane_inter.exit103, %72, %59, %56, %19, %4, %235, %44, %17
-  %.0 = phi i32 [ -1094995529, %17 ], [ %13, %4 ], [ -1094995529, %44 ], [ -1094995529, %19 ], [ %57, %56 ], [ %70, %59 ], [ %230, %ir2_decode_plane_inter.exit103 ], [ %10, %235 ], [ %81, %72 ], [ %233, %232 ], [ -1094995529, %83 ], [ -1094995529, %ir2_decode_plane_inter.exit ], [ -1094995529, %164 ], [ -1094995529, %185 ], [ -1094995529, %109 ], [ -1094995529, %88 ]
+  %.0 = phi i32 [ -1094995529, %164 ], [ -1094995529, %17 ], [ %13, %4 ], [ -1094995529, %44 ], [ -1094995529, %19 ], [ %57, %56 ], [ %70, %59 ], [ %230, %ir2_decode_plane_inter.exit103 ], [ %10, %235 ], [ %81, %72 ], [ %233, %232 ], [ -1094995529, %83 ], [ -1094995529, %ir2_decode_plane_inter.exit ], [ -1094995529, %185 ], [ -1094995529, %109 ], [ -1094995529, %88 ]
   ret i32 %.0
 }
 
@@ -666,7 +666,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @ir2_decode_plane(ptr nound
   br i1 %exitcond136.not, label %.critedge, label %.preheader107.us, !llvm.loop !54
 
 .critedge:                                        ; preds = %39, %49, %._crit_edge123.us, %124, %87, %66, %.preheader111, %._crit_edge, %6, %8
-  %.0 = phi i32 [ -1094995529, %6 ], [ -1094995529, %8 ], [ 0, %._crit_edge ], [ 0, %.preheader111 ], [ 0, %._crit_edge123.us ], [ -1094995529, %124 ], [ -1094995529, %66 ], [ -1094995529, %87 ], [ -1094995529, %49 ], [ -1094995529, %39 ]
+  %.0 = phi i32 [ -1094995529, %6 ], [ 0, %._crit_edge ], [ 0, %._crit_edge123.us ], [ -1094995529, %8 ], [ -1094995529, %124 ], [ 0, %.preheader111 ], [ -1094995529, %66 ], [ -1094995529, %87 ], [ -1094995529, %49 ], [ -1094995529, %39 ]
   ret i32 %.0
 }
 
@@ -786,7 +786,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @ir2_decode_plane_inter(ptr
   br i1 %exitcond.not, label %.loopexit, label %.preheader.us, !llvm.loop !50
 
 .loopexit:                                        ; preds = %._crit_edge.us, %36, %15, %.preheader.lr.ph, %.preheader42, %6
-  %.0 = phi i32 [ -1094995529, %6 ], [ 0, %.preheader42 ], [ 0, %.preheader.lr.ph ], [ -1094995529, %36 ], [ -1094995529, %15 ], [ 0, %._crit_edge.us ]
+  %.0 = phi i32 [ 0, %.preheader42 ], [ -1094995529, %6 ], [ -1094995529, %36 ], [ 0, %.preheader.lr.ph ], [ -1094995529, %15 ], [ 0, %._crit_edge.us ]
   ret i32 %.0
 }
 

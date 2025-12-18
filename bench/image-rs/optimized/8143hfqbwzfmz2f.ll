@@ -8025,7 +8025,7 @@ define hidden void @"_ZN3png7encoder15Writer$LT$W$GT$16write_image_data17h0f9329
   br label %112
 
 .loopexit.split-lp469:                            ; preds = %114, %136, %165, %107, %119, %189
-  %.2.ph = phi i8 [ 1, %107 ], [ 1, %119 ], [ 1, %189 ], [ 0, %114 ], [ 0, %136 ], [ 0, %165 ]
+  %.2.ph = phi i8 [ 1, %119 ], [ 1, %189 ], [ 1, %107 ], [ 0, %114 ], [ 0, %136 ], [ 0, %165 ]
   %lpad.loopexit.split-lp471 = landingpad { ptr, i32 }
           cleanup
   br label %112
@@ -9151,7 +9151,7 @@ define hidden void @"_ZN3png7encoder15Writer$LT$W$GT$16write_image_data17h3045c3
   br label %112
 
 .loopexit.split-lp469:                            ; preds = %114, %136, %165, %107, %119, %189
-  %.2.ph = phi i8 [ 1, %107 ], [ 1, %119 ], [ 1, %189 ], [ 0, %114 ], [ 0, %136 ], [ 0, %165 ]
+  %.2.ph = phi i8 [ 1, %119 ], [ 1, %189 ], [ 1, %107 ], [ 0, %114 ], [ 0, %136 ], [ 0, %165 ]
   %lpad.loopexit.split-lp471 = landingpad { ptr, i32 }
           cleanup
   br label %112
@@ -29177,7 +29177,7 @@ define internal fastcc void @_ZN5image6codecs3dxt17encode_dxt_colors17h151bdd4f3
   br i1 %181, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he201eaffdca02422E.exit.thread", label %187
 
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he201eaffdca02422E.exit.thread": ; preds = %.loopexit, %307, %248, %173
-  %.1 = phi i8 [ 0, %173 ], [ %.0360, %307 ], [ %.sroa.061.0349.us, %248 ], [ %.2.lcssa, %.loopexit ]
+  %.1 = phi i8 [ %.0360, %307 ], [ %.sroa.061.0349.us, %248 ], [ 0, %173 ], [ %.2.lcssa, %.loopexit ]
   %182 = getelementptr inbounds nuw i8, ptr %7, i64 3
   %.sroa.0.0.copyload.i.i.i.i.i.i.i = load i24, ptr %7, align 4, !alias.scope !7248, !noalias !7253
   %.2.extract.shift.i.i.i.i.i.i.i.i210 = lshr i24 %.sroa.0.0.copyload.i.i.i.i.i.i.i, 16
@@ -30217,7 +30217,7 @@ _ZN5image6codecs3dxt17encode_dxt5_alpha17h9fea82578024f908E.exit.i: ; preds = %9
   br i1 %108, label %_ZN4core4iter6traits8iterator8Iterator6max_by17h983b0e9a43ebbbf1E.exit.i, label %105
 
 _ZN4core4iter6traits8iterator8Iterator6max_by17h983b0e9a43ebbbf1E.exit.i: ; preds = %100, %105, %102
-  %.049.i = phi i8 [ %.val.i.i.i.i.i.i.i, %102 ], [ %.0.i.i.i.i.i.i.i.i.i, %105 ], [ -1, %100 ]
+  %.049.i = phi i8 [ %.0.i.i.i.i.i.i.i.i.i, %105 ], [ %.val.i.i.i.i.i.i.i, %102 ], [ -1, %100 ]
   br label %109
 
 109:                                              ; preds = %110, %_ZN4core4iter6traits8iterator8Iterator6max_by17h983b0e9a43ebbbf1E.exit.i
@@ -30254,7 +30254,7 @@ _ZN4core4iter6traits8iterator8Iterator6max_by17h983b0e9a43ebbbf1E.exit.i: ; pred
   br i1 %117, label %_ZN4core4iter6traits8iterator8Iterator6min_by17h9813b99652d2db9bE.exit.i, label %114
 
 _ZN4core4iter6traits8iterator8Iterator6min_by17h9813b99652d2db9bE.exit.i: ; preds = %109, %114, %111
-  %spec.select.i = phi i8 [ %.val.i.i.i.i.i.i66.i, %111 ], [ %.0.i.i.i.i.i.i.i.i73.i, %114 ], [ 0, %109 ]
+  %spec.select.i = phi i8 [ %.0.i.i.i.i.i.i.i.i73.i, %114 ], [ %.val.i.i.i.i.i.i66.i, %111 ], [ 0, %109 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7482)
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !7485
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !7485

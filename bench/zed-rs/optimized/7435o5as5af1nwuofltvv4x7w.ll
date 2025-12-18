@@ -8850,7 +8850,7 @@ define hidden void @"_ZN129_$LT$futures_util..stream..futures_unordered..ready_t
 35:                                               ; preds = %12
   ret void
 
-36:                                               ; preds = %19, %21
+36:                                               ; preds = %21, %19
   call void @_ZN12futures_util6stream17futures_unordered5abort5abort17he441bd176a2489f8E(ptr noalias noundef nonnull readonly align 1 @anon.67d7a2358c9ff13cddc2d8934df242e6.14.llvm.9059106379889279541, i64 noundef 20) #31
   unreachable
 }

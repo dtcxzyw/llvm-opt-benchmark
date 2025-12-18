@@ -252,7 +252,7 @@ copy_fh.exit:                                     ; preds = %92, %.loopexit
   br i1 %.not124, label %.thread.thread173, label %51
 
 .thread.thread173:                                ; preds = %copy_fh.exit, %91, %51, %92, %54, %87, %101, %.loopexit, %106, %.lr.ph.split.us.i, %35, %28
-  %.094149180 = phi i32 [ 6, %28 ], [ 0, %35 ], [ 3, %.lr.ph.split.us.i ], [ 8, %91 ], [ 3, %51 ], [ %95, %92 ], [ 8, %54 ], [ 0, %copy_fh.exit ], [ 6, %101 ], [ 8, %87 ], [ 9, %.loopexit ], [ %107, %106 ]
+  %.094149180 = phi i32 [ 6, %28 ], [ 0, %35 ], [ 3, %.lr.ph.split.us.i ], [ 3, %51 ], [ %95, %92 ], [ 8, %54 ], [ 0, %copy_fh.exit ], [ 6, %101 ], [ 8, %87 ], [ 8, %91 ], [ 9, %.loopexit ], [ %107, %106 ]
   %119 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %120 = load ptr, ptr %119, align 8, !tbaa !30
   call void %120(ptr noundef nonnull %27) #6
@@ -485,7 +485,7 @@ copy_fh.exit:                                     ; preds = %108, %102
   br label %.thread.thread174
 
 .thread.thread174:                                ; preds = %58, %55, %95, %copy_fh.exit, %53, %.lr.ph.split.us.i, %39, %112, %32
-  %.099158182 = phi i32 [ 6, %32 ], [ %.2.ph, %112 ], [ 0, %39 ], [ 3, %.lr.ph.split.us.i ], [ 0, %53 ], [ 9, %copy_fh.exit ], [ 6, %95 ], [ 3, %55 ], [ 8, %58 ]
+  %.099158182 = phi i32 [ 6, %32 ], [ 0, %39 ], [ %.2.ph, %112 ], [ 3, %.lr.ph.split.us.i ], [ 9, %copy_fh.exit ], [ 6, %95 ], [ 3, %55 ], [ 8, %58 ], [ 0, %53 ]
   %113 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %114 = load ptr, ptr %113, align 8, !tbaa !30
   call void %114(ptr noundef nonnull %31) #6

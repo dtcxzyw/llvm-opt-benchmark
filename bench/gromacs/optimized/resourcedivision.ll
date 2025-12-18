@@ -663,7 +663,7 @@ _ZL19nthreads_omp_fasterRKN3gmx7CpuInfoEb.exit65.i: ; preds = %.thread.i53.i, %2
   br label %_ZL28get_tmpi_omp_thread_divisionPK13gmx_hw_info_tRK12gmx_hw_opt_tii.exit
 
 _ZL28get_tmpi_omp_thread_divisionPK13gmx_hw_info_tRK12gmx_hw_opt_tii.exit: ; preds = %200, %.preheader.i, %190, %191, %206, %_ZL19nthreads_omp_fasterRKN3gmx7CpuInfoEb.exit65.i
-  %.1.i = phi i32 [ %., %.preheader.i ], [ %2, %191 ], [ %2, %190 ], [ %.sroa.speculated.i, %206 ], [ %..i, %_ZL19nthreads_omp_fasterRKN3gmx7CpuInfoEb.exit65.i ], [ %195, %200 ]
+  %.1.i = phi i32 [ %..i, %_ZL19nthreads_omp_fasterRKN3gmx7CpuInfoEb.exit65.i ], [ %., %.preheader.i ], [ %2, %191 ], [ %2, %190 ], [ %.sroa.speculated.i, %206 ], [ %195, %200 ]
   %230 = load i32, ptr %34, align 4, !tbaa !30
   switch i32 %230, label %231 [
     i32 5, label %232

@@ -830,7 +830,7 @@ ossl_namemap_name2num.exit:                       ; preds = %ossl_ht_strcase.exi
   br label %.thread
 
 48:                                               ; preds = %46, %ossl_namemap_name2num.exit
-  %.1 = phi i32 [ %.04779, %46 ], [ %.0.i, %ossl_namemap_name2num.exit ]
+  %.1 = phi i32 [ %.0.i, %ossl_namemap_name2num.exit ], [ %.04779, %46 ]
   %49 = load i8, ptr %.052105, align 1, !tbaa !25
   %.not59 = icmp eq i8 %49, 0
   br i1 %.not59, label %.preheader, label %21, !llvm.loop !34
@@ -861,7 +861,7 @@ ossl_namemap_name2num.exit:                       ; preds = %ossl_ht_strcase.exi
   br i1 %57, label %.lr.ph83, label %.thread, !llvm.loop !35
 
 .thread:                                          ; preds = %56, %.preheader71, %.preheader, %47, %29, %.thread68
-  %.3 = phi i32 [ 0, %.thread68 ], [ 0, %29 ], [ 0, %47 ], [ %.1, %.preheader ], [ %1, %.preheader71 ], [ %.6, %56 ]
+  %.3 = phi i32 [ 0, %47 ], [ 0, %.thread68 ], [ 0, %29 ], [ %.1, %.preheader ], [ %1, %.preheader71 ], [ %.6, %56 ]
   %58 = load ptr, ptr %11, align 8, !tbaa !11
   %59 = call i32 @CRYPTO_THREAD_unlock(ptr noundef %58) #6
   call void @CRYPTO_free(ptr noundef nonnull %8, ptr noundef nonnull @.str, i32 noundef 369) #6

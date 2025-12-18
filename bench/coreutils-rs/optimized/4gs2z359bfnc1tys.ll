@@ -1396,9 +1396,9 @@ _ZN6uu_fmt9linebreak17write_with_spaces17h0d1c56e388841e4eE.exit.i.i: ; preds = 
   br i1 %532, label %.loopexit.i40, label %_ZN6uu_fmt9linebreak13write_newline17h20c93d642033101cE.exit.thread90
 
 .loopexit.i40:                                    ; preds = %421, %.noexc52, %_ZN6uu_fmt9linebreak17write_with_spaces17h0d1c56e388841e4eE.exit.thread.i.i, %.noexc48
-  %.sroa.0.3 = phi ptr [ %424, %_ZN6uu_fmt9linebreak17write_with_spaces17h0d1c56e388841e4eE.exit.thread.i.i ], [ %424, %.noexc52 ], [ %424, %.noexc48 ], [ %.sroa.0.1, %421 ]
-  %.sroa.4.1.i = phi i8 [ %452, %_ZN6uu_fmt9linebreak17write_with_spaces17h0d1c56e388841e4eE.exit.thread.i.i ], [ %452, %.noexc52 ], [ %452, %.noexc48 ], [ %.041.i.i, %421 ]
-  %.sroa.6.1.i = phi i1 [ false, %_ZN6uu_fmt9linebreak17write_with_spaces17h0d1c56e388841e4eE.exit.thread.i.i ], [ false, %.noexc52 ], [ true, %.noexc48 ], [ %.040.i.i, %421 ]
+  %.sroa.0.3 = phi ptr [ %424, %.noexc48 ], [ %424, %_ZN6uu_fmt9linebreak17write_with_spaces17h0d1c56e388841e4eE.exit.thread.i.i ], [ %424, %.noexc52 ], [ %.sroa.0.1, %421 ]
+  %.sroa.4.1.i = phi i8 [ %452, %.noexc48 ], [ %452, %_ZN6uu_fmt9linebreak17write_with_spaces17h0d1c56e388841e4eE.exit.thread.i.i ], [ %452, %.noexc52 ], [ %.041.i.i, %421 ]
+  %.sroa.6.1.i = phi i1 [ true, %.noexc48 ], [ false, %_ZN6uu_fmt9linebreak17write_with_spaces17h0d1c56e388841e4eE.exit.thread.i.i ], [ false, %.noexc52 ], [ %.040.i.i, %421 ]
   %533 = icmp eq ptr %382, %398
   br i1 %533, label %.loopexit106, label %396
 

@@ -808,7 +808,7 @@ define internal i32 @software_key_eds_op(ptr noundef readonly captures(none) %0,
   unreachable
 
 .thread:                                          ; preds = %93, %100, %107
-  %114 = phi i32 [ %112, %107 ], [ %105, %100 ], [ %98, %93 ]
+  %114 = phi i32 [ %112, %107 ], [ %98, %93 ], [ %105, %100 ]
   %.fr = freeze i32 %114
   %115 = icmp eq i32 %.fr, 0
   %spec.select = select i1 %115, i32 %90, i32 %.fr
@@ -822,7 +822,7 @@ define internal i32 @software_key_eds_op(ptr noundef readonly captures(none) %0,
   call void @crypto_destroy_tfm(ptr noundef %118, ptr noundef %118) #8
   br label %122
 
-.thread.thread21:                                 ; preds = %106, %70, %.thread
+.thread.thread21:                                 ; preds = %70, %106, %.thread
   %119 = phi i32 [ %spec.select, %.thread ], [ -22, %106 ], [ %80, %70 ]
   %120 = phi ptr [ %88, %.thread ], [ %88, %106 ], [ %65, %70 ]
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 8

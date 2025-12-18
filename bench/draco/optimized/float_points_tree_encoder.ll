@@ -3984,7 +3984,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi0EE14EncodingStatusIN9_
   br i1 %189, label %_ZSt9partitionIN9__gnu_cxx17__normal_iteratorIPN5draco7VectorDIjLi3EEESt6vectorIS4_SaIS4_EEEENS2_33DynamicIntegerPointsKdTreeEncoderILi0EE8SplitterEET_SD_SD_T0_.exit, label %.lr.ph.i.i, !llvm.loop !123
 
 _ZSt9partitionIN9__gnu_cxx17__normal_iteratorIPN5draco7VectorDIjLi3EEESt6vectorIS4_SaIS4_EEEENS2_33DynamicIntegerPointsKdTreeEncoderILi0EE8SplitterEET_SD_SD_T0_.exit: ; preds = %187, %179, %.preheader.i.i, %163
-  %.sroa.011.118.i.i = phi ptr [ %93, %163 ], [ %180, %179 ], [ %.sroa.011.120.i.i, %.preheader.i.i ], [ %188, %187 ]
+  %.sroa.011.118.i.i = phi ptr [ %180, %179 ], [ %.sroa.011.120.i.i, %.preheader.i.i ], [ %93, %163 ], [ %188, %187 ]
   %190 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %111, i1 true)
   %191 = xor i32 %190, 31
   %192 = ptrtoint ptr %.sroa.011.118.i.i to i64
@@ -5555,7 +5555,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi1EE14EncodingStatusIN9_
   br i1 %189, label %_ZSt9partitionIN9__gnu_cxx17__normal_iteratorIPN5draco7VectorDIjLi3EEESt6vectorIS4_SaIS4_EEEENS2_33DynamicIntegerPointsKdTreeEncoderILi1EE8SplitterEET_SD_SD_T0_.exit, label %.lr.ph.i.i, !llvm.loop !161
 
 _ZSt9partitionIN9__gnu_cxx17__normal_iteratorIPN5draco7VectorDIjLi3EEESt6vectorIS4_SaIS4_EEEENS2_33DynamicIntegerPointsKdTreeEncoderILi1EE8SplitterEET_SD_SD_T0_.exit: ; preds = %187, %179, %.preheader.i.i, %163
-  %.sroa.011.118.i.i = phi ptr [ %93, %163 ], [ %180, %179 ], [ %.sroa.011.120.i.i, %.preheader.i.i ], [ %188, %187 ]
+  %.sroa.011.118.i.i = phi ptr [ %180, %179 ], [ %.sroa.011.120.i.i, %.preheader.i.i ], [ %93, %163 ], [ %188, %187 ]
   %190 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %111, i1 true)
   %191 = xor i32 %190, 31
   %192 = ptrtoint ptr %.sroa.011.118.i.i to i64
@@ -6554,7 +6554,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi2EE14EncodingStatusIN9_
   br i1 %189, label %_ZSt9partitionIN9__gnu_cxx17__normal_iteratorIPN5draco7VectorDIjLi3EEESt6vectorIS4_SaIS4_EEEENS2_33DynamicIntegerPointsKdTreeEncoderILi2EE8SplitterEET_SD_SD_T0_.exit, label %.lr.ph.i.i, !llvm.loop !194
 
 _ZSt9partitionIN9__gnu_cxx17__normal_iteratorIPN5draco7VectorDIjLi3EEESt6vectorIS4_SaIS4_EEEENS2_33DynamicIntegerPointsKdTreeEncoderILi2EE8SplitterEET_SD_SD_T0_.exit: ; preds = %187, %179, %.preheader.i.i, %163
-  %.sroa.011.118.i.i = phi ptr [ %93, %163 ], [ %180, %179 ], [ %.sroa.011.120.i.i, %.preheader.i.i ], [ %188, %187 ]
+  %.sroa.011.118.i.i = phi ptr [ %180, %179 ], [ %.sroa.011.120.i.i, %.preheader.i.i ], [ %93, %163 ], [ %188, %187 ]
   %190 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %111, i1 true)
   %191 = xor i32 %190, 31
   %192 = ptrtoint ptr %.sroa.011.118.i.i to i64
@@ -7553,7 +7553,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi3EE14EncodingStatusIN9_
   br i1 %189, label %_ZSt9partitionIN9__gnu_cxx17__normal_iteratorIPN5draco7VectorDIjLi3EEESt6vectorIS4_SaIS4_EEEENS2_33DynamicIntegerPointsKdTreeEncoderILi3EE8SplitterEET_SD_SD_T0_.exit, label %.lr.ph.i.i, !llvm.loop !226
 
 _ZSt9partitionIN9__gnu_cxx17__normal_iteratorIPN5draco7VectorDIjLi3EEESt6vectorIS4_SaIS4_EEEENS2_33DynamicIntegerPointsKdTreeEncoderILi3EE8SplitterEET_SD_SD_T0_.exit: ; preds = %187, %179, %.preheader.i.i, %163
-  %.sroa.011.118.i.i = phi ptr [ %93, %163 ], [ %180, %179 ], [ %.sroa.011.120.i.i, %.preheader.i.i ], [ %188, %187 ]
+  %.sroa.011.118.i.i = phi ptr [ %180, %179 ], [ %.sroa.011.120.i.i, %.preheader.i.i ], [ %93, %163 ], [ %188, %187 ]
   %190 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %111, i1 true)
   %191 = xor i32 %190, 31
   %192 = ptrtoint ptr %.sroa.011.118.i.i to i64
@@ -8548,7 +8548,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi4EE14EncodingStatusIN9_
   br i1 %189, label %_ZSt9partitionIN9__gnu_cxx17__normal_iteratorIPN5draco7VectorDIjLi3EEESt6vectorIS4_SaIS4_EEEENS2_33DynamicIntegerPointsKdTreeEncoderILi4EE8SplitterEET_SD_SD_T0_.exit, label %.lr.ph.i.i, !llvm.loop !259
 
 _ZSt9partitionIN9__gnu_cxx17__normal_iteratorIPN5draco7VectorDIjLi3EEESt6vectorIS4_SaIS4_EEEENS2_33DynamicIntegerPointsKdTreeEncoderILi4EE8SplitterEET_SD_SD_T0_.exit: ; preds = %187, %179, %.preheader.i.i, %163
-  %.sroa.011.118.i.i = phi ptr [ %93, %163 ], [ %180, %179 ], [ %.sroa.011.120.i.i, %.preheader.i.i ], [ %188, %187 ]
+  %.sroa.011.118.i.i = phi ptr [ %180, %179 ], [ %.sroa.011.120.i.i, %.preheader.i.i ], [ %93, %163 ], [ %188, %187 ]
   %190 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %111, i1 true)
   %191 = xor i32 %190, 31
   %192 = ptrtoint ptr %.sroa.011.118.i.i to i64
@@ -9593,7 +9593,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi5EE14EncodingStatusIN9_
   br i1 %189, label %_ZSt9partitionIN9__gnu_cxx17__normal_iteratorIPN5draco7VectorDIjLi3EEESt6vectorIS4_SaIS4_EEEENS2_33DynamicIntegerPointsKdTreeEncoderILi5EE8SplitterEET_SD_SD_T0_.exit, label %.lr.ph.i.i, !llvm.loop !292
 
 _ZSt9partitionIN9__gnu_cxx17__normal_iteratorIPN5draco7VectorDIjLi3EEESt6vectorIS4_SaIS4_EEEENS2_33DynamicIntegerPointsKdTreeEncoderILi5EE8SplitterEET_SD_SD_T0_.exit: ; preds = %187, %179, %.preheader.i.i, %163
-  %.sroa.011.118.i.i = phi ptr [ %93, %163 ], [ %180, %179 ], [ %.sroa.011.120.i.i, %.preheader.i.i ], [ %188, %187 ]
+  %.sroa.011.118.i.i = phi ptr [ %180, %179 ], [ %.sroa.011.120.i.i, %.preheader.i.i ], [ %93, %163 ], [ %188, %187 ]
   %190 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %111, i1 true)
   %191 = xor i32 %190, 31
   %192 = ptrtoint ptr %.sroa.011.118.i.i to i64
@@ -10641,7 +10641,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi6EE14EncodingStatusIN9_
   br i1 %189, label %_ZSt9partitionIN9__gnu_cxx17__normal_iteratorIPN5draco7VectorDIjLi3EEESt6vectorIS4_SaIS4_EEEENS2_33DynamicIntegerPointsKdTreeEncoderILi6EE8SplitterEET_SD_SD_T0_.exit, label %.lr.ph.i.i, !llvm.loop !325
 
 _ZSt9partitionIN9__gnu_cxx17__normal_iteratorIPN5draco7VectorDIjLi3EEESt6vectorIS4_SaIS4_EEEENS2_33DynamicIntegerPointsKdTreeEncoderILi6EE8SplitterEET_SD_SD_T0_.exit: ; preds = %187, %179, %.preheader.i.i, %163
-  %.sroa.011.118.i.i = phi ptr [ %93, %163 ], [ %180, %179 ], [ %.sroa.011.120.i.i, %.preheader.i.i ], [ %188, %187 ]
+  %.sroa.011.118.i.i = phi ptr [ %180, %179 ], [ %.sroa.011.120.i.i, %.preheader.i.i ], [ %93, %163 ], [ %188, %187 ]
   %190 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %108, i1 true)
   %191 = xor i32 %190, 31
   %192 = ptrtoint ptr %.sroa.011.118.i.i to i64

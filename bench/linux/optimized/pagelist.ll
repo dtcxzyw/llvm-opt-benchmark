@@ -867,7 +867,7 @@ nfs_page_group_destroy.exit17.sink.split:         ; preds = %201, %182
   br label %nfs_page_group_destroy.exit17
 
 nfs_page_group_destroy.exit17:                    ; preds = %35, %.loopexit.i15, %nfs_page_group_destroy.exit17.sink.split, %182, %201, %30
-  %204 = phi i32 [ 0, %30 ], [ %67, %201 ], [ %67, %182 ], [ %67, %nfs_page_group_destroy.exit17.sink.split ], [ %67, %.loopexit.i15 ], [ 0, %35 ]
+  %204 = phi i32 [ 0, %30 ], [ %67, %.loopexit.i15 ], [ %67, %nfs_page_group_destroy.exit17.sink.split ], [ %67, %182 ], [ %67, %201 ], [ 0, %35 ]
   %205 = icmp slt i32 %204, 0
   br i1 %205, label %.loopexit28, label %8, !llvm.loop !42
 
@@ -2188,7 +2188,7 @@ define dso_local range(i32 -22, 1) i32 @nfs_generic_pgio(ptr noundef %0, ptr nou
   br i1 %113, label %.thread10, label %.lr.ph
 
 .thread10:                                        ; preds = %.thread9, %107, %52
-  %114 = phi i32 [ 0, %52 ], [ %108, %107 ], [ %81, %.thread9 ]
+  %114 = phi i32 [ %108, %107 ], [ 0, %52 ], [ %81, %.thread9 ]
   %115 = icmp eq i32 %114, %32
   br i1 %115, label %123, label %116, !prof !13
 
@@ -2624,7 +2624,7 @@ thread-pre-split:                                 ; preds = %135, %138
   br i1 %174, label %157, label %.loopexit, !llvm.loop !75
 
 .loopexit:                                        ; preds = %129, %167, %.thread13, %149
-  %175 = phi i32 [ 0, %149 ], [ 0, %.thread13 ], [ 0, %167 ], [ 1, %129 ]
+  %175 = phi i32 [ 0, %167 ], [ 0, %149 ], [ 0, %.thread13 ], [ 1, %129 ]
   ret i32 %175
 }
 

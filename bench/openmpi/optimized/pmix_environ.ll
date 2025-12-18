@@ -282,7 +282,7 @@ define ptr @pmix_getenv(ptr noundef nonnull readonly captures(none) %0, ptr noun
   br i1 %.not, label %.thread40, label %.preheader, !llvm.loop !13
 
 .thread40:                                        ; preds = %.loopexit, %10, %.preheader43, %.split.us, %26, %2
-  %.030 = phi ptr [ null, %2 ], [ %28, %26 ], [ %19, %.split.us ], [ null, %.preheader43 ], [ null, %10 ], [ null, %.loopexit ]
+  %.030 = phi ptr [ null, %2 ], [ %19, %.split.us ], [ %28, %26 ], [ null, %.preheader43 ], [ null, %10 ], [ null, %.loopexit ]
   ret ptr %.030
 }
 
@@ -784,7 +784,7 @@ pmix_obj_run_destructors.exit113:                 ; preds = %.lr.ph.i110, %147
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge153, %.loopexit.sink.split, %.lr.ph156, %.preheader, %._crit_edge145
-  %.0 = phi i32 [ 0, %.preheader ], [ 0, %.lr.ph156 ], [ 0, %._crit_edge145 ], [ %.0.ph, %.loopexit.sink.split ], [ 0, %._crit_edge153 ]
+  %.0 = phi i32 [ 0, %.preheader ], [ %.0.ph, %.loopexit.sink.split ], [ 0, %.lr.ph156 ], [ 0, %._crit_edge145 ], [ 0, %._crit_edge153 ]
   ret i32 %.0
 }
 

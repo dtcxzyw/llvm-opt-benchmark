@@ -2270,7 +2270,7 @@ define align 8 ptr @"_ZN79_$LT$yara_x_proto..yara..FieldOptions$u20$as$u20$proto
   br i1 %.not55, label %17, label %14
 
 .loopexit:                                        ; preds = %25, %51, %45, %36, %30, %14, %5
-  %.sroa.0.0 = phi ptr [ %10, %5 ], [ %53, %51 ], [ %16, %14 ], [ %32, %30 ], [ %41, %36 ], [ %50, %45 ], [ %26, %25 ]
+  %.sroa.0.0 = phi ptr [ %50, %45 ], [ %10, %5 ], [ %53, %51 ], [ %16, %14 ], [ %32, %30 ], [ %41, %36 ], [ %26, %25 ]
   ret ptr %.sroa.0.0
 
 14:                                               ; preds = %11
@@ -3183,7 +3183,7 @@ define align 8 ptr @"_ZN75_$LT$yara_x_proto..yara..AclEntry$u20$as$u20$protobuf.
   br i1 %.not44, label %20, label %14
 
 .loopexit:                                        ; preds = %28, %42, %48, %14, %5
-  %.sroa.0.0 = phi ptr [ %10, %5 ], [ %50, %48 ], [ %19, %14 ], [ %47, %42 ], [ %33, %28 ]
+  %.sroa.0.0 = phi ptr [ %47, %42 ], [ %10, %5 ], [ %19, %14 ], [ %50, %48 ], [ %33, %28 ]
   ret ptr %.sroa.0.0
 
 14:                                               ; preds = %11

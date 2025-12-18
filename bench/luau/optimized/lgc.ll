@@ -1849,7 +1849,7 @@ _ZL13traversetableP12global_StateP8LuaTable.exit: ; preds = %_ZL11removeentryP7L
   br i1 %230, label %215, label %_ZL15traverseclosureP12global_StateP7Closure.exit, !llvm.loop !115
 
 _ZL15traverseclosureP12global_StateP7Closure.exit: ; preds = %200, %227, %.preheader.i, %211
-  %231 = phi i8 [ 0, %211 ], [ 0, %.preheader.i ], [ %228, %227 ], [ %201, %200 ]
+  %231 = phi i8 [ %228, %227 ], [ 0, %211 ], [ 0, %.preheader.i ], [ %201, %200 ]
   %232 = load i8, ptr %183, align 1, !tbaa !112
   %.not = icmp eq i8 %232, 0
   %233 = zext i8 %231 to i64

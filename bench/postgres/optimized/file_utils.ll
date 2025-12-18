@@ -617,7 +617,7 @@ define range(i32 0, 5) i32 @get_dirent_type(ptr noundef %0, ptr noundef readonly
   br label %25
 
 25:                                               ; preds = %19, %.fold.split, %24, %23, %18
-  %.2 = phi i32 [ 0, %18 ], [ 3, %23 ], [ 4, %24 ], [ 2, %19 ], [ 1, %.fold.split ]
+  %.2 = phi i32 [ 0, %18 ], [ 2, %19 ], [ 3, %23 ], [ 4, %24 ], [ 1, %.fold.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread
 

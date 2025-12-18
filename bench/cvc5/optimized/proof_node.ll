@@ -1752,10 +1752,10 @@ _ZNKSt6vectorIPKN4cvc58internal9ProofNodeESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i
   br label %.loopexit196
 
 .loopexit196:                                     ; preds = %34, %.lr.ph.i.i.i.i, %.loopexit196.loopexit, %..loopexit_crit_edge21.i.i.i.i
-  %.pre-phi373 = phi i64 [ %37, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre372, %.loopexit196.loopexit ], [ %37, %.lr.ph.i.i.i.i ], [ %37, %34 ]
-  %.pre-phi = phi i64 [ %35, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre371, %.loopexit196.loopexit ], [ %35, %.lr.ph.i.i.i.i ], [ %35, %34 ]
-  %54 = phi ptr [ %38, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre370, %.loopexit196.loopexit ], [ %38, %.lr.ph.i.i.i.i ], [ %38, %34 ]
-  %55 = phi i64 [ %36, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre369, %.loopexit196.loopexit ], [ %36, %.lr.ph.i.i.i.i ], [ %36, %34 ]
+  %.pre-phi373 = phi i64 [ %37, %.lr.ph.i.i.i.i ], [ %37, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre372, %.loopexit196.loopexit ], [ %37, %34 ]
+  %.pre-phi = phi i64 [ %35, %.lr.ph.i.i.i.i ], [ %35, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre371, %.loopexit196.loopexit ], [ %35, %34 ]
+  %54 = phi ptr [ %38, %.lr.ph.i.i.i.i ], [ %38, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre370, %.loopexit196.loopexit ], [ %38, %34 ]
+  %55 = phi i64 [ %36, %.lr.ph.i.i.i.i ], [ %36, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre369, %.loopexit196.loopexit ], [ %36, %34 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   %56 = getelementptr inbounds nuw ptr, ptr %54, i64 %.pre-phi373
@@ -2024,7 +2024,7 @@ _ZNSt6vectorIPKN4cvc58internal9ProofNodeESaIS4_EE9push_backEOS4_.exit43: ; preds
   br label %481
 
 _ZNSt13unordered_mapIPKN4cvc58internal9ProofNodeESt10shared_ptrIS2_ESt4hashIS4_ESt8equal_toIS4_ESaISt4pairIKS4_S6_EEE4findERSC_.exit: ; preds = %46, %30, %41
-  %.sroa.06.1.i.i = phi ptr [ %42, %41 ], [ %.sroa.06.0.i.i, %30 ], [ %48, %46 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %30 ], [ %42, %41 ], [ %48, %46 ]
   %149 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %150 = load ptr, ptr %149, align 8, !tbaa !49
   %151 = icmp eq ptr %150, null

@@ -209,10 +209,10 @@ define nonnull ptr @png_format_number(ptr noundef readnone captures(address) %0,
   br label %48
 
 48:                                               ; preds = %.sink.split, %.thread, %45, %34
-  %49 = phi i32 [ 5, %45 ], [ %36, %34 ], [ %42, %.thread ], [ 5, %.sink.split ]
-  %.251 = phi i32 [ 0, %45 ], [ 0, %34 ], [ 1, %.thread ], [ %.251.ph, %.sink.split ]
-  %.13349 = phi i64 [ %35, %45 ], [ %35, %34 ], [ %33, %.thread ], [ %.13349.ph, %.sink.split ]
-  %.337 = phi ptr [ %.03452, %45 ], [ %.03452, %34 ], [ %41, %.thread ], [ %47, %.sink.split ]
+  %49 = phi i32 [ %42, %.thread ], [ %36, %34 ], [ 5, %45 ], [ 5, %.sink.split ]
+  %.251 = phi i32 [ 1, %.thread ], [ 0, %34 ], [ 0, %45 ], [ %.251.ph, %.sink.split ]
+  %.13349 = phi i64 [ %33, %.thread ], [ %35, %34 ], [ %35, %45 ], [ %.13349.ph, %.sink.split ]
+  %.337 = phi ptr [ %41, %.thread ], [ %.03452, %34 ], [ %.03452, %45 ], [ %47, %.sink.split ]
   %50 = icmp ugt ptr %.337, %0
   br i1 %50, label %.lr.ph.split, label %.critedge, !llvm.loop !27
 
@@ -443,11 +443,11 @@ define void @png_warning_parameter_unsigned(ptr noundef writeonly captures(addre
   br label %51
 
 51:                                               ; preds = %.sink.split.i, %48, %.thread.i, %37
-  %52 = phi i8 [ %30, %48 ], [ %30, %37 ], [ %43, %.thread.i ], [ %.sink.i, %.sink.split.i ]
-  %53 = phi i32 [ 5, %48 ], [ %39, %37 ], [ %45, %.thread.i ], [ 5, %.sink.split.i ]
-  %.251.i = phi i32 [ 0, %48 ], [ 0, %37 ], [ 1, %.thread.i ], [ %.251.ph.i, %.sink.split.i ]
-  %.13349.i = phi i64 [ %38, %48 ], [ %38, %37 ], [ %36, %.thread.i ], [ %.13349.ph.i, %.sink.split.i ]
-  %.337.i = phi ptr [ %.03452.i, %48 ], [ %.03452.i, %37 ], [ %44, %.thread.i ], [ %50, %.sink.split.i ]
+  %52 = phi i8 [ %43, %.thread.i ], [ %30, %37 ], [ %30, %48 ], [ %.sink.i, %.sink.split.i ]
+  %53 = phi i32 [ %45, %.thread.i ], [ %39, %37 ], [ 5, %48 ], [ 5, %.sink.split.i ]
+  %.251.i = phi i32 [ 1, %.thread.i ], [ 0, %37 ], [ 0, %48 ], [ %.251.ph.i, %.sink.split.i ]
+  %.13349.i = phi i64 [ %36, %.thread.i ], [ %38, %37 ], [ %38, %48 ], [ %.13349.ph.i, %.sink.split.i ]
+  %.337.i = phi ptr [ %44, %.thread.i ], [ %.03452.i, %37 ], [ %.03452.i, %48 ], [ %50, %.sink.split.i ]
   %54 = icmp ugt ptr %.337.i, %5
   br i1 %54, label %.lr.ph.split.i, label %png_format_number.exit, !llvm.loop !27
 
@@ -616,11 +616,11 @@ define void @png_warning_parameter_signed(ptr noundef writeonly captures(address
   br label %53
 
 53:                                               ; preds = %.sink.split.i, %50, %.thread.i, %39
-  %54 = phi i8 [ %32, %50 ], [ %32, %39 ], [ %45, %.thread.i ], [ %.sink.i, %.sink.split.i ]
-  %55 = phi i32 [ 5, %50 ], [ %41, %39 ], [ %47, %.thread.i ], [ 5, %.sink.split.i ]
-  %.251.i = phi i32 [ 0, %50 ], [ 0, %39 ], [ 1, %.thread.i ], [ %.251.ph.i, %.sink.split.i ]
-  %.13349.i = phi i64 [ %40, %50 ], [ %40, %39 ], [ %38, %.thread.i ], [ %.13349.ph.i, %.sink.split.i ]
-  %.337.i = phi ptr [ %.03452.i, %50 ], [ %.03452.i, %39 ], [ %46, %.thread.i ], [ %52, %.sink.split.i ]
+  %54 = phi i8 [ %45, %.thread.i ], [ %32, %39 ], [ %32, %50 ], [ %.sink.i, %.sink.split.i ]
+  %55 = phi i32 [ %47, %.thread.i ], [ %41, %39 ], [ 5, %50 ], [ 5, %.sink.split.i ]
+  %.251.i = phi i32 [ 1, %.thread.i ], [ 0, %39 ], [ 0, %50 ], [ %.251.ph.i, %.sink.split.i ]
+  %.13349.i = phi i64 [ %38, %.thread.i ], [ %40, %39 ], [ %40, %50 ], [ %.13349.ph.i, %.sink.split.i ]
+  %.337.i = phi ptr [ %46, %.thread.i ], [ %.03452.i, %39 ], [ %.03452.i, %50 ], [ %52, %.sink.split.i ]
   %56 = icmp ugt ptr %.337.i, %5
   br i1 %56, label %.lr.ph.split.i, label %png_format_number.exit, !llvm.loop !27
 

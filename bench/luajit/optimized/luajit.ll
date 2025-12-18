@@ -329,7 +329,7 @@ handle_luainit.exit.thread:                       ; preds = %55, %64
   store i32 0, ptr @smain.2, align 4, !tbaa !21
   br label %72
 
-handle_luainit.exit.thread80:                     ; preds = %.thread.i.i, %68
+handle_luainit.exit.thread80:                     ; preds = %68, %.thread.i.i
   store i32 1, ptr @smain.2, align 4, !tbaa !21
   br label %214
 
@@ -557,7 +557,7 @@ dobytecode.exit.sink.split.i:                     ; preds = %158, %108
   br label %runargs.exit.thread
 
 runargs.exit.thread:                              ; preds = %dojitcmd.exit.i, %132, %138, %95, %141, %._crit_edge.i.i, %158, %108, %dobytecode.exit.sink.split.i
-  %.348.i.ph = phi i32 [ %.348.ph.i, %dobytecode.exit.sink.split.i ], [ 1, %108 ], [ -1, %158 ], [ -1, %._crit_edge.i.i ], [ 1, %141 ], [ 1, %95 ], [ 1, %138 ], [ 1, %132 ], [ 1, %dojitcmd.exit.i ]
+  %.348.i.ph = phi i32 [ %.348.ph.i, %dobytecode.exit.sink.split.i ], [ 1, %141 ], [ -1, %._crit_edge.i.i ], [ 1, %108 ], [ -1, %158 ], [ 1, %95 ], [ 1, %138 ], [ 1, %132 ], [ 1, %dojitcmd.exit.i ]
   store i32 %.348.i.ph, ptr @smain.2, align 4, !tbaa !21
   br label %214
 

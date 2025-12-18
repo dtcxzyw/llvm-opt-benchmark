@@ -1342,7 +1342,7 @@ define internal void @_GLOBAL__sub_I_python_utils.cpp() #8 section ".text.startu
   br i1 %33, label %common.resume, label %30
 
 common.resume:                                    ; preds = %30, %157, %161
-  %common.resume.op = phi { ptr, i32 } [ %156, %157 ], [ %lpad.phi.i.i.i.i, %161 ], [ %29, %30 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i.i.i.i, %161 ], [ %156, %157 ], [ %29, %30 ]
   resume { ptr, i32 } %common.resume.op
 
 __cxx_global_var_init.exit:                       ; preds = %26

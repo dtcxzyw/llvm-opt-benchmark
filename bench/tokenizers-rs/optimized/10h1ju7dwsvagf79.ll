@@ -2733,7 +2733,7 @@ define hidden void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %._crit_edge, %27, %33
-  %.sroa.2471.084.lcssa.sink = phi i64 [ %.0.lcssa, %33 ], [ %.sroa.2471.0.lcssa, %27 ], [ %.sroa.2471.0.lcssa, %._crit_edge ], [ %.sroa.2471.084, %.lr.ph ]
+  %.sroa.2471.084.lcssa.sink = phi i64 [ %.sroa.2471.0.lcssa, %._crit_edge ], [ %.0.lcssa, %33 ], [ %.sroa.2471.0.lcssa, %27 ], [ %.sroa.2471.084, %.lr.ph ]
   %35 = getelementptr inbounds { i64, i32, i32 }, ptr %5, i64 %.sroa.2471.084.lcssa.sink
   store i64 %.sroa.16.16.copyload, ptr %35, align 8
   %.sroa.22.16..sroa_idx63 = getelementptr inbounds nuw i8, ptr %35, i64 8
@@ -3896,7 +3896,7 @@ define hidden void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT
   br i1 %.not.not.i, label %.lr.ph.i, label %._crit_edge.i
 
 "_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$15sift_down_range17h1738f0e441636867E.llvm.11083375685992158394.exit": ; preds = %.lr.ph.i, %._crit_edge.i, %28, %34
-  %.sroa.2471.084.lcssa.sink.i = phi i64 [ %.0.lcssa.i, %34 ], [ %.sroa.2471.0.lcssa.i, %28 ], [ %.sroa.2471.0.lcssa.i, %._crit_edge.i ], [ %.sroa.2471.084.i, %.lr.ph.i ]
+  %.sroa.2471.084.lcssa.sink.i = phi i64 [ %.sroa.2471.0.lcssa.i, %._crit_edge.i ], [ %.0.lcssa.i, %34 ], [ %.sroa.2471.0.lcssa.i, %28 ], [ %.sroa.2471.084.i, %.lr.ph.i ]
   %38 = getelementptr inbounds { i64, i32, i32 }, ptr %6, i64 %.sroa.2471.084.lcssa.sink.i
   store i64 %.sroa.16.16.copyload.i, ptr %38, align 8, !noalias !1098
   %.sroa.22.16..sroa_idx63.i = getelementptr inbounds nuw i8, ptr %38, i64 8

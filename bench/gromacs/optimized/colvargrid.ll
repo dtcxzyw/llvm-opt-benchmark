@@ -24591,7 +24591,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit45: ; preds = %31,
   br i1 %exitcond58.not, label %.loopexit, label %.lr.ph51, !llvm.loop !511
 
 .loopexit:                                        ; preds = %64, %.lr.ph51, %.preheader, %69
-  %.1 = phi double [ 0.000000e+00, %69 ], [ 0.000000e+00, %.preheader ], [ %75, %.lr.ph51 ], [ %67, %64 ]
+  %.1 = phi double [ %75, %.lr.ph51 ], [ 0.000000e+00, %69 ], [ 0.000000e+00, %.preheader ], [ %67, %64 ]
   %77 = uitofp i64 %19 to double
   %78 = fdiv double %.1, %77
   %79 = tail call double @sqrt(double noundef %78) #26, !tbaa !83
@@ -28005,9 +28005,9 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %_ZStlsISt11char_tra
   ret void
 
 _ZNSt6vectorIiSaIiEED2Ev.exit73.thread140:        ; preds = %216, %39, %180, %179, %_ZNSt6vectorIiSaIiEED2Ev.exit73.thread132
-  %.pn42.pn139 = phi { ptr, i32 } [ %83, %_ZNSt6vectorIiSaIiEED2Ev.exit73.thread132 ], [ %lpad.phi, %179 ], [ %217, %216 ], [ %40, %39 ], [ %lpad.phi, %180 ]
-  %.sroa.0104.1138 = phi ptr [ %31, %_ZNSt6vectorIiSaIiEED2Ev.exit73.thread132 ], [ %.sroa.0104.3, %179 ], [ %.sroa.0104.3, %216 ], [ %.sroa.0104.2, %39 ], [ %.sroa.0104.3, %180 ]
-  %.sroa.18.1137 = phi ptr [ %32, %_ZNSt6vectorIiSaIiEED2Ev.exit73.thread132 ], [ %.sroa.18.3, %179 ], [ %.sroa.18.3, %216 ], [ %.sroa.18.2, %39 ], [ %.sroa.18.3, %180 ]
+  %.pn42.pn139 = phi { ptr, i32 } [ %83, %_ZNSt6vectorIiSaIiEED2Ev.exit73.thread132 ], [ %lpad.phi, %180 ], [ %lpad.phi, %179 ], [ %217, %216 ], [ %40, %39 ]
+  %.sroa.0104.1138 = phi ptr [ %31, %_ZNSt6vectorIiSaIiEED2Ev.exit73.thread132 ], [ %.sroa.0104.3, %180 ], [ %.sroa.0104.3, %179 ], [ %.sroa.0104.3, %216 ], [ %.sroa.0104.2, %39 ]
+  %.sroa.18.1137 = phi ptr [ %32, %_ZNSt6vectorIiSaIiEED2Ev.exit73.thread132 ], [ %.sroa.18.3, %180 ], [ %.sroa.18.3, %179 ], [ %.sroa.18.3, %216 ], [ %.sroa.18.2, %39 ]
   %256 = ptrtoint ptr %.sroa.18.1137 to i64
   %257 = ptrtoint ptr %.sroa.0104.1138 to i64
   %258 = sub i64 %256, %257
@@ -30441,7 +30441,7 @@ _ZN19integrate_potential6l2normERKSt6vectorIdSaIdEE.exit: ; preds = %.lr.ph.i, %
   br i1 %exitcond167.not, label %.loopexit123, label %.lr.ph139, !llvm.loop !591
 
 .loopexit123:                                     ; preds = %.lr.ph139, %.lr.ph141, %75
-  %.065.lcssa199 = phi double [ 0.000000e+00, %75 ], [ %81, %.lr.ph141 ], [ %81, %.lr.ph139 ]
+  %.065.lcssa199 = phi double [ %81, %.lr.ph141 ], [ 0.000000e+00, %75 ], [ %81, %.lr.ph139 ]
   call void @_ZN19integrate_potential6atimesERKSt6vectorIdSaIdEERS2_(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %10)
   %92 = load i64, ptr %11, align 8, !tbaa !358
   %93 = trunc i64 %92 to i32

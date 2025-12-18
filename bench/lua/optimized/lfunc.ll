@@ -176,7 +176,7 @@ define hidden ptr @luaF_findupval(ptr noundef %0, ptr noundef %1) local_unnamed_
   br label %newupval.exit
 
 newupval.exit:                                    ; preds = %.lr.ph33, %26, %23
-  %.0 = phi ptr [ %16, %23 ], [ %16, %26 ], [ %10, %.lr.ph33 ]
+  %.0 = phi ptr [ %16, %26 ], [ %16, %23 ], [ %10, %.lr.ph33 ]
   ret ptr %.0
 }
 
@@ -619,7 +619,7 @@ poptbclist.exit:                                  ; preds = %.lr.ph.i15, %132, %
   br i1 %.not, label %._crit_edge, label %.lr.ph.split.split
 
 ._crit_edge:                                      ; preds = %poptbclist.exit, %poptbclist.exit.us20, %prepcallclosemth.exit.us, %luaF_closeupval.exit
-  %.0.lcssa = phi ptr [ %1, %luaF_closeupval.exit ], [ %119, %poptbclist.exit.us20 ], [ %83, %prepcallclosemth.exit.us ], [ %154, %poptbclist.exit ]
+  %.0.lcssa = phi ptr [ %1, %luaF_closeupval.exit ], [ %83, %prepcallclosemth.exit.us ], [ %119, %poptbclist.exit.us20 ], [ %154, %poptbclist.exit ]
   ret ptr %.0.lcssa
 }
 

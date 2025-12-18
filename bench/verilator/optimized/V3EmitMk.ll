@@ -19781,7 +19781,7 @@ _ZN9EmitGroup27FileOrConcatenatedFilesListD2Ev.exit: ; preds = %_ZNSt6vectorINSt
   br label %161
 
 .loopexit:                                        ; preds = %_ZN9EmitGroup27FileOrConcatenatedFilesListD2Ev.exit, %.thread69, %.thread
-  %.142 = phi i1 [ true, %.thread ], [ false, %.thread69 ], [ true, %_ZN9EmitGroup27FileOrConcatenatedFilesListD2Ev.exit ]
+  %.142 = phi i1 [ false, %.thread69 ], [ true, %.thread ], [ true, %_ZN9EmitGroup27FileOrConcatenatedFilesListD2Ev.exit ]
   ret i1 %.142
 
 161:                                              ; preds = %159, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit36, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit23

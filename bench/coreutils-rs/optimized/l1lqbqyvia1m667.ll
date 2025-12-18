@@ -6147,7 +6147,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit: ; p
   br i1 %53, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %50, %.critedge34, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.critedge30.split, %.critedge25, %.critedge25, %.critedge25, %.critedge25, %.critedge25, %.critedge25, %12, %12, %12, %12, %12, %12, %42, %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit, %_ZN6uu_ptx20assert_str_integrity17hd01f6ce8f3091f8fE.exit
-  %.1 = phi i64 [ %2, %42 ], [ %2, %.critedge25 ], [ %2, %12 ], [ %2, %_ZN6uu_ptx20assert_str_integrity17hd01f6ce8f3091f8fE.exit ], [ %2, %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit ], [ %2, %12 ], [ %2, %12 ], [ %2, %12 ], [ %2, %12 ], [ %2, %12 ], [ %2, %.critedge25 ], [ %2, %.critedge25 ], [ %2, %.critedge25 ], [ %2, %.critedge25 ], [ %2, %.critedge25 ], [ %2, %.critedge30.split ], [ %.037, %50 ], [ %umax, %.critedge34 ], [ %.037, %.lr.ph ], [ %.037, %.lr.ph ], [ %.037, %.lr.ph ], [ %.037, %.lr.ph ], [ %.037, %.lr.ph ], [ %.037, %.lr.ph ]
+  %.1 = phi i64 [ %2, %42 ], [ %2, %.critedge25 ], [ %2, %12 ], [ %2, %_ZN6uu_ptx20assert_str_integrity17hd01f6ce8f3091f8fE.exit ], [ %2, %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit ], [ %2, %.critedge25 ], [ %2, %.critedge25 ], [ %2, %.critedge25 ], [ %2, %12 ], [ %2, %12 ], [ %2, %12 ], [ %2, %12 ], [ %2, %12 ], [ %2, %.critedge25 ], [ %2, %.critedge25 ], [ %2, %.critedge30.split ], [ %.037, %50 ], [ %umax, %.critedge34 ], [ %.037, %.lr.ph ], [ %.037, %.lr.ph ], [ %.037, %.lr.ph ], [ %.037, %.lr.ph ], [ %.037, %.lr.ph ], [ %.037, %.lr.ph ]
   ret i64 %.1
 }
 
@@ -6311,7 +6311,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit: ; p
   br i1 %59, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %57, %.critedge34, %51, %51, %51, %51, %51, %51, %.critedge30, %40, %40, %40, %40, %40, %40, %13, %13, %13, %13, %13, %13, %46, %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit, %_ZN6uu_ptx20assert_str_integrity17hd01f6ce8f3091f8fE.exit
-  %.1 = phi i64 [ %3, %46 ], [ %3, %40 ], [ %3, %13 ], [ %3, %_ZN6uu_ptx20assert_str_integrity17hd01f6ce8f3091f8fE.exit ], [ %3, %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit ], [ %3, %13 ], [ %3, %13 ], [ %3, %13 ], [ %3, %13 ], [ %3, %13 ], [ %3, %40 ], [ %3, %40 ], [ %3, %40 ], [ %3, %40 ], [ %3, %40 ], [ %3, %.critedge30 ], [ %.037, %57 ], [ %umin, %.critedge34 ], [ %.037, %51 ], [ %.037, %51 ], [ %.037, %51 ], [ %.037, %51 ], [ %.037, %51 ], [ %.037, %51 ]
+  %.1 = phi i64 [ %3, %46 ], [ %3, %40 ], [ %3, %13 ], [ %3, %_ZN6uu_ptx20assert_str_integrity17hd01f6ce8f3091f8fE.exit ], [ %3, %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit ], [ %3, %40 ], [ %3, %40 ], [ %3, %40 ], [ %3, %13 ], [ %3, %13 ], [ %3, %13 ], [ %3, %13 ], [ %3, %13 ], [ %3, %40 ], [ %3, %40 ], [ %3, %.critedge30 ], [ %.037, %57 ], [ %umin, %.critedge34 ], [ %.037, %51 ], [ %.037, %51 ], [ %.037, %51 ], [ %.037, %51 ], [ %.037, %51 ], [ %.037, %51 ]
   ret i64 %.1
 }
 

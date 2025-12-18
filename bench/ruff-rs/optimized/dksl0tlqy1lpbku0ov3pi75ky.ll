@@ -3897,7 +3897,7 @@ _ZN4core3cmp9PartialEq2ne17hb5aba9e74e757cbcE.exit.loopexit.i: ; preds = %.prehe
   br i1 %.not6.i.i.i.i.i, label %.preheader.split.i.i.i.i.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h310bf50e111562deE.exit"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h310bf50e111562deE.exit": ; preds = %_ZN4core3cmp9PartialEq2ne17hb5aba9e74e757cbcE.exit.loopexit.i, %.lr.ph.i, %19, %"_ZN73_$LT$ruff_db..diagnostic..UnifiedFile$u20$as$u20$core..cmp..PartialEq$GT$2eq17h65a8446fbc4a98caE.exit.i.i.i", %34, %35, %36, %42, %54, %55, %56, %62, %68, %73, %0, %_ZN4core3cmp9PartialEq2ne17hb5aba9e74e757cbcE.exit.preheader.i
-  %.sroa.0.0.i = phi i1 [ false, %0 ], [ true, %_ZN4core3cmp9PartialEq2ne17hb5aba9e74e757cbcE.exit.preheader.i ], [ false, %73 ], [ false, %68 ], [ true, %_ZN4core3cmp9PartialEq2ne17hb5aba9e74e757cbcE.exit.loopexit.i ], [ false, %56 ], [ false, %62 ], [ false, %54 ], [ false, %36 ], [ false, %34 ], [ false, %"_ZN73_$LT$ruff_db..diagnostic..UnifiedFile$u20$as$u20$core..cmp..PartialEq$GT$2eq17h65a8446fbc4a98caE.exit.i.i.i" ], [ false, %55 ], [ false, %35 ], [ false, %.lr.ph.i ], [ false, %19 ], [ false, %42 ]
+  %.sroa.0.0.i = phi i1 [ false, %0 ], [ false, %73 ], [ true, %_ZN4core3cmp9PartialEq2ne17hb5aba9e74e757cbcE.exit.preheader.i ], [ true, %_ZN4core3cmp9PartialEq2ne17hb5aba9e74e757cbcE.exit.loopexit.i ], [ false, %56 ], [ false, %62 ], [ false, %54 ], [ false, %36 ], [ false, %34 ], [ false, %"_ZN73_$LT$ruff_db..diagnostic..UnifiedFile$u20$as$u20$core..cmp..PartialEq$GT$2eq17h65a8446fbc4a98caE.exit.i.i.i" ], [ false, %55 ], [ false, %35 ], [ false, %.lr.ph.i ], [ false, %19 ], [ false, %42 ], [ false, %68 ]
   ret i1 %.sroa.0.0.i
 }
 
@@ -4137,7 +4137,7 @@ define internal fastcc noundef zeroext i1 @"_ZN5alloc3vec10partial_eq117_$LT$imp
   br i1 %136, label %.preheader.split.backedge.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h8185fcc4630d65c6E.exit"
 
 _ZN4core3cmp9PartialEq2ne17h6e92d4a882e029c9E.exit.i: ; preds = %129, %94, %59
-  %.sroa.0.0.shrunk.i.i.i = phi i1 [ %.mux.i.i.i.i, %59 ], [ %.mux.i9.i.i.i, %129 ], [ %.mux.i5.i.i.i, %94 ]
+  %.sroa.0.0.shrunk.i.i.i = phi i1 [ %.mux.i9.i.i.i, %129 ], [ %.mux.i.i.i.i, %59 ], [ %.mux.i5.i.i.i, %94 ]
   br i1 %.sroa.0.0.shrunk.i.i.i, label %.preheader.split.backedge.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h8185fcc4630d65c6E.exit"
 
 .preheader.split.backedge.i:                      ; preds = %_ZN4core3cmp9PartialEq2ne17h6e92d4a882e029c9E.exit.i, %135, %100, %65
@@ -4145,7 +4145,7 @@ _ZN4core3cmp9PartialEq2ne17h6e92d4a882e029c9E.exit.i: ; preds = %129, %94, %59
   br i1 %exitcond.not.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h8185fcc4630d65c6E.exit", label %.lr.ph
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h8185fcc4630d65c6E.exit": ; preds = %_ZN4core3cmp9PartialEq2ne17h6e92d4a882e029c9E.exit.i, %135, %123, %117, %113, %107, %102, %100, %88, %82, %78, %72, %67, %65, %57, %56, %55, %43, %37, %33, %27, %23, %.lr.ph, %.preheader.split.backedge.i, %.preheader.split.i.preheader, %0
-  %.sroa.0.0.i = phi i1 [ false, %0 ], [ true, %.preheader.split.i.preheader ], [ false, %.lr.ph ], [ false, %23 ], [ false, %100 ], [ false, %33 ], [ false, %65 ], [ false, %56 ], [ false, %43 ], [ false, %37 ], [ false, %27 ], [ false, %57 ], [ false, %55 ], [ false, %78 ], [ false, %88 ], [ false, %82 ], [ false, %72 ], [ false, %113 ], [ false, %123 ], [ false, %117 ], [ false, %107 ], [ false, %135 ], [ false, %67 ], [ false, %102 ], [ false, %_ZN4core3cmp9PartialEq2ne17h6e92d4a882e029c9E.exit.i ], [ true, %.preheader.split.backedge.i ]
+  %.sroa.0.0.i = phi i1 [ false, %0 ], [ true, %.preheader.split.i.preheader ], [ false, %.lr.ph ], [ false, %23 ], [ false, %100 ], [ false, %33 ], [ false, %65 ], [ false, %56 ], [ false, %43 ], [ false, %37 ], [ false, %27 ], [ false, %57 ], [ false, %55 ], [ false, %78 ], [ false, %88 ], [ false, %82 ], [ false, %72 ], [ false, %113 ], [ false, %123 ], [ false, %117 ], [ false, %107 ], [ false, %135 ], [ false, %_ZN4core3cmp9PartialEq2ne17h6e92d4a882e029c9E.exit.i ], [ false, %102 ], [ false, %67 ], [ true, %.preheader.split.backedge.i ]
   ret i1 %.sroa.0.0.i
 }
 
@@ -11736,7 +11736,7 @@ _ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17h462316f1a2bf
           to label %"_ZN4core3ptr194drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$salsa..id..Id$C$dashmap..util..SharedValue$LT$$LP$$RP$$GT$$RP$$GT$$GT$$GT$17h917f62fd00e34417E.exit" unwind label %627
 
 345:                                              ; preds = %335, %331
-  %.sroa.3.0.i.i166.ph = phi i64 [ %.sroa.4.1.i.i, %331 ], [ %341, %335 ]
+  %.sroa.3.0.i.i166.ph = phi i64 [ %341, %335 ], [ %.sroa.4.1.i.i, %331 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %65)
   invoke void @_ZN5salsa11zalsa_local10ZalsaLocal12active_query17h91279985bdbcfd77E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %65, ptr noundef nonnull align 8 %75)
           to label %485 unwind label %.loopexit.split-lp
@@ -13318,7 +13318,7 @@ _ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17h462316f1a2bf
   br label %.body
 
 .loopexit.split-lp:                               ; preds = %.invoke303, %.invoke301, %351, %352, %358, %366, %367, %376, %387, %486, %493, %504, %630, %535, %.noexc37.thread, %555, %.noexc41, %579, %609, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i, %400, %.noexc78.thread, %420, %.noexc82, %444, %474, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i50, %479, %614, %303, %371, %624
-  %.sroa.018.2.ph = phi i8 [ 1, %.noexc78.thread ], [ 1, %400 ], [ 1, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i50 ], [ 1, %479 ], [ 0, %614 ], [ 0, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i ], [ 0, %609 ], [ 0, %.invoke301 ], [ 0, %579 ], [ 0, %.noexc41 ], [ 0, %555 ], [ 1, %474 ], [ 1, %.invoke303 ], [ 0, %.noexc37.thread ], [ 0, %535 ], [ 1, %420 ], [ 1, %.noexc82 ], [ 1, %352 ], [ 1, %358 ], [ 1, %366 ], [ 1, %371 ], [ 1, %376 ], [ 1, %367 ], [ 1, %486 ], [ 1, %387 ], [ 1, %303 ], [ 0, %624 ], [ 1, %351 ], [ 0, %493 ], [ 0, %504 ], [ 1, %444 ], [ 0, %630 ]
+  %.sroa.018.2.ph = phi i8 [ 1, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i50 ], [ 1, %479 ], [ 0, %614 ], [ 0, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i ], [ 0, %609 ], [ 0, %.invoke301 ], [ 0, %579 ], [ 0, %.noexc41 ], [ 0, %555 ], [ 1, %474 ], [ 1, %.invoke303 ], [ 0, %.noexc37.thread ], [ 0, %535 ], [ 1, %420 ], [ 1, %.noexc82 ], [ 1, %400 ], [ 1, %352 ], [ 1, %358 ], [ 1, %366 ], [ 1, %371 ], [ 1, %376 ], [ 1, %367 ], [ 1, %.noexc78.thread ], [ 1, %486 ], [ 1, %387 ], [ 1, %303 ], [ 0, %624 ], [ 1, %351 ], [ 0, %493 ], [ 0, %504 ], [ 1, %444 ], [ 0, %630 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -13335,7 +13335,7 @@ _ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17h462316f1a2bf
           to label %"_ZN4core3ptr194drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$salsa..id..Id$C$dashmap..util..SharedValue$LT$$LP$$RP$$GT$$RP$$GT$$GT$$GT$17h917f62fd00e34417E.exit" unwind label %638
 
 351:                                              ; preds = %341, %337
-  %.sroa.3.0.i.i172.ph = phi i64 [ %.sroa.4.1.i.i, %337 ], [ %347, %341 ]
+  %.sroa.3.0.i.i172.ph = phi i64 [ %347, %341 ], [ %.sroa.4.1.i.i, %337 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %65)
   invoke void @_ZN5salsa11zalsa_local10ZalsaLocal12active_query17h91279985bdbcfd77E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %65, ptr noundef nonnull align 8 %78)
           to label %493 unwind label %.loopexit.split-lp
@@ -14158,8 +14158,8 @@ _ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exi
   unreachable
 
 "_ZN4core3ptr194drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$salsa..id..Id$C$dashmap..util..SharedValue$LT$$LP$$RP$$GT$$RP$$GT$$GT$$GT$17h917f62fd00e34417E.exit": ; preds = %.body, %350, %74
-  %.sroa.018.1 = phi i8 [ %.sroa.018.0, %74 ], [ %.sroa.018.2.lpad-body, %350 ], [ %.sroa.018.2.lpad-body, %.body ]
-  %.pn = phi { ptr, i32 } [ %75, %74 ], [ %eh.lpad-body, %350 ], [ %eh.lpad-body, %.body ]
+  %.sroa.018.1 = phi i8 [ %.sroa.018.0, %74 ], [ %.sroa.018.2.lpad-body, %.body ], [ %.sroa.018.2.lpad-body, %350 ]
+  %.pn = phi { ptr, i32 } [ %75, %74 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body, %350 ]
   %640 = trunc nuw i8 %.sroa.018.1 to i1
   br i1 %640, label %"_ZN4core3ptr194drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$salsa..id..Id$C$dashmap..util..SharedValue$LT$$LP$$RP$$GT$$RP$$GT$$GT$$GT$17h917f62fd00e34417E.exit.thread", label %"_ZN4core3ptr138drop_in_place$LT$$LP$ty_python_semantic..types..Type$C$ruff_python_ast..name..Name$C$ty_python_semantic..types..MemberLookupPolicy$RP$$GT$17hf76fe329667d8873E.exit"
 
@@ -14953,7 +14953,7 @@ _ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17h462316f1a2bf
   br label %.body
 
 .loopexit.split-lp:                               ; preds = %.invoke302, %.invoke300, %353, %354, %360, %368, %369, %378, %389, %488, %495, %509, %635, %540, %.noexc37.thread, %560, %.noexc41, %584, %614, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i, %402, %.noexc78.thread, %422, %.noexc82, %446, %476, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i50, %481, %619, %305, %373, %629
-  %.sroa.018.2.ph = phi i8 [ 1, %.noexc78.thread ], [ 1, %402 ], [ 1, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i50 ], [ 1, %481 ], [ 0, %619 ], [ 0, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i ], [ 0, %614 ], [ 0, %.invoke300 ], [ 0, %584 ], [ 0, %.noexc41 ], [ 0, %560 ], [ 1, %476 ], [ 1, %.invoke302 ], [ 0, %.noexc37.thread ], [ 0, %540 ], [ 1, %422 ], [ 1, %.noexc82 ], [ 1, %354 ], [ 1, %360 ], [ 1, %368 ], [ 1, %373 ], [ 1, %378 ], [ 1, %369 ], [ 1, %488 ], [ 1, %389 ], [ 1, %305 ], [ 0, %629 ], [ 1, %353 ], [ 0, %495 ], [ 0, %509 ], [ 1, %446 ], [ 0, %635 ]
+  %.sroa.018.2.ph = phi i8 [ 1, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i50 ], [ 1, %481 ], [ 0, %619 ], [ 0, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i ], [ 0, %614 ], [ 0, %.invoke300 ], [ 0, %584 ], [ 0, %.noexc41 ], [ 0, %560 ], [ 1, %476 ], [ 1, %.invoke302 ], [ 0, %.noexc37.thread ], [ 0, %540 ], [ 1, %422 ], [ 1, %.noexc82 ], [ 1, %402 ], [ 1, %354 ], [ 1, %360 ], [ 1, %368 ], [ 1, %373 ], [ 1, %378 ], [ 1, %369 ], [ 1, %.noexc78.thread ], [ 1, %488 ], [ 1, %389 ], [ 1, %305 ], [ 0, %629 ], [ 1, %353 ], [ 0, %495 ], [ 0, %509 ], [ 1, %446 ], [ 0, %635 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -14970,7 +14970,7 @@ _ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17h462316f1a2bf
           to label %"_ZN4core3ptr194drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$salsa..id..Id$C$dashmap..util..SharedValue$LT$$LP$$RP$$GT$$RP$$GT$$GT$$GT$17h917f62fd00e34417E.exit" unwind label %643
 
 353:                                              ; preds = %343, %339
-  %.sroa.3.0.i.i172.ph = phi i64 [ %.sroa.4.1.i.i, %339 ], [ %349, %343 ]
+  %.sroa.3.0.i.i172.ph = phi i64 [ %349, %343 ], [ %.sroa.4.1.i.i, %339 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %66)
   invoke void @_ZN5salsa11zalsa_local10ZalsaLocal12active_query17h91279985bdbcfd77E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %66, ptr noundef nonnull align 8 %81)
           to label %495 unwind label %.loopexit.split-lp
@@ -15797,8 +15797,8 @@ _ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exi
   unreachable
 
 "_ZN4core3ptr194drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$salsa..id..Id$C$dashmap..util..SharedValue$LT$$LP$$RP$$GT$$RP$$GT$$GT$$GT$17h917f62fd00e34417E.exit": ; preds = %.body, %352, %77
-  %.sroa.018.1 = phi i8 [ %.sroa.018.0, %77 ], [ %.sroa.018.2.lpad-body, %352 ], [ %.sroa.018.2.lpad-body, %.body ]
-  %.pn = phi { ptr, i32 } [ %78, %77 ], [ %eh.lpad-body, %352 ], [ %eh.lpad-body, %.body ]
+  %.sroa.018.1 = phi i8 [ %.sroa.018.0, %77 ], [ %.sroa.018.2.lpad-body, %.body ], [ %.sroa.018.2.lpad-body, %352 ]
+  %.pn = phi { ptr, i32 } [ %78, %77 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body, %352 ]
   %645 = trunc nuw i8 %.sroa.018.1 to i1
   br i1 %645, label %"_ZN4core3ptr194drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$salsa..id..Id$C$dashmap..util..SharedValue$LT$$LP$$RP$$GT$$RP$$GT$$GT$$GT$17h917f62fd00e34417E.exit.thread", label %646
 
@@ -16588,7 +16588,7 @@ _ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17h462316f1a2bf
   br label %.body
 
 .loopexit.split-lp:                               ; preds = %.invoke302, %.invoke300, %351, %352, %358, %366, %367, %376, %387, %485, %492, %503, %628, %533, %.noexc37.thread, %553, %.noexc41, %577, %607, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i, %399, %.noexc78.thread, %419, %.noexc82, %443, %473, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i50, %478, %612, %302, %371, %622
-  %.sroa.018.2.ph = phi i8 [ 1, %.noexc78.thread ], [ 1, %399 ], [ 1, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i50 ], [ 1, %478 ], [ 0, %612 ], [ 0, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i ], [ 0, %607 ], [ 0, %.invoke300 ], [ 0, %577 ], [ 0, %.noexc41 ], [ 0, %553 ], [ 1, %473 ], [ 1, %.invoke302 ], [ 0, %.noexc37.thread ], [ 0, %533 ], [ 1, %419 ], [ 1, %.noexc82 ], [ 1, %352 ], [ 1, %358 ], [ 1, %366 ], [ 1, %371 ], [ 1, %376 ], [ 1, %367 ], [ 1, %485 ], [ 1, %387 ], [ 1, %302 ], [ 0, %622 ], [ 1, %351 ], [ 0, %492 ], [ 0, %503 ], [ 1, %443 ], [ 0, %628 ]
+  %.sroa.018.2.ph = phi i8 [ 1, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i50 ], [ 1, %478 ], [ 0, %612 ], [ 0, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i ], [ 0, %607 ], [ 0, %.invoke300 ], [ 0, %577 ], [ 0, %.noexc41 ], [ 0, %553 ], [ 1, %473 ], [ 1, %.invoke302 ], [ 0, %.noexc37.thread ], [ 0, %533 ], [ 1, %419 ], [ 1, %.noexc82 ], [ 1, %399 ], [ 1, %352 ], [ 1, %358 ], [ 1, %366 ], [ 1, %371 ], [ 1, %376 ], [ 1, %367 ], [ 1, %.noexc78.thread ], [ 1, %485 ], [ 1, %387 ], [ 1, %302 ], [ 0, %622 ], [ 1, %351 ], [ 0, %492 ], [ 0, %503 ], [ 1, %443 ], [ 0, %628 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -16605,7 +16605,7 @@ _ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17h462316f1a2bf
           to label %"_ZN4core3ptr194drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$salsa..id..Id$C$dashmap..util..SharedValue$LT$$LP$$RP$$GT$$RP$$GT$$GT$$GT$17h917f62fd00e34417E.exit" unwind label %636
 
 351:                                              ; preds = %341, %337
-  %.sroa.3.0.i.i172.ph = phi i64 [ %.sroa.4.1.i.i, %337 ], [ %347, %341 ]
+  %.sroa.3.0.i.i172.ph = phi i64 [ %347, %341 ], [ %.sroa.4.1.i.i, %337 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %65)
   invoke void @_ZN5salsa11zalsa_local10ZalsaLocal12active_query17h91279985bdbcfd77E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %65, ptr noundef nonnull align 8 %78)
           to label %492 unwind label %.loopexit.split-lp
@@ -17426,8 +17426,8 @@ _ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exi
   unreachable
 
 "_ZN4core3ptr194drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$salsa..id..Id$C$dashmap..util..SharedValue$LT$$LP$$RP$$GT$$RP$$GT$$GT$$GT$17h917f62fd00e34417E.exit": ; preds = %.body, %350, %74
-  %.sroa.018.1 = phi i8 [ %.sroa.018.0, %74 ], [ %.sroa.018.2.lpad-body, %350 ], [ %.sroa.018.2.lpad-body, %.body ]
-  %.pn = phi { ptr, i32 } [ %75, %74 ], [ %eh.lpad-body, %350 ], [ %eh.lpad-body, %.body ]
+  %.sroa.018.1 = phi i8 [ %.sroa.018.0, %74 ], [ %.sroa.018.2.lpad-body, %.body ], [ %.sroa.018.2.lpad-body, %350 ]
+  %.pn = phi { ptr, i32 } [ %75, %74 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body, %350 ]
   %638 = trunc nuw i8 %.sroa.018.1 to i1
   br i1 %638, label %"_ZN4core3ptr194drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$salsa..id..Id$C$dashmap..util..SharedValue$LT$$LP$$RP$$GT$$RP$$GT$$GT$$GT$17h917f62fd00e34417E.exit.thread", label %639
 
@@ -18220,7 +18220,7 @@ _ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17h462316f1a2bf
   br label %.body
 
 .loopexit.split-lp:                               ; preds = %.invoke302, %.invoke300, %353, %354, %360, %368, %369, %378, %389, %488, %495, %509, %635, %540, %.noexc37.thread, %560, %.noexc41, %584, %614, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i, %402, %.noexc78.thread, %422, %.noexc82, %446, %476, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i50, %481, %619, %305, %373, %629
-  %.sroa.018.2.ph = phi i8 [ 1, %.noexc78.thread ], [ 1, %402 ], [ 1, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i50 ], [ 1, %481 ], [ 0, %619 ], [ 0, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i ], [ 0, %614 ], [ 0, %.invoke300 ], [ 0, %584 ], [ 0, %.noexc41 ], [ 0, %560 ], [ 1, %476 ], [ 1, %.invoke302 ], [ 0, %.noexc37.thread ], [ 0, %540 ], [ 1, %422 ], [ 1, %.noexc82 ], [ 1, %354 ], [ 1, %360 ], [ 1, %368 ], [ 1, %373 ], [ 1, %378 ], [ 1, %369 ], [ 1, %488 ], [ 1, %389 ], [ 1, %305 ], [ 0, %629 ], [ 1, %353 ], [ 0, %495 ], [ 0, %509 ], [ 1, %446 ], [ 0, %635 ]
+  %.sroa.018.2.ph = phi i8 [ 1, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i50 ], [ 1, %481 ], [ 0, %619 ], [ 0, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i ], [ 0, %614 ], [ 0, %.invoke300 ], [ 0, %584 ], [ 0, %.noexc41 ], [ 0, %560 ], [ 1, %476 ], [ 1, %.invoke302 ], [ 0, %.noexc37.thread ], [ 0, %540 ], [ 1, %422 ], [ 1, %.noexc82 ], [ 1, %402 ], [ 1, %354 ], [ 1, %360 ], [ 1, %368 ], [ 1, %373 ], [ 1, %378 ], [ 1, %369 ], [ 1, %.noexc78.thread ], [ 1, %488 ], [ 1, %389 ], [ 1, %305 ], [ 0, %629 ], [ 1, %353 ], [ 0, %495 ], [ 0, %509 ], [ 1, %446 ], [ 0, %635 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -18237,7 +18237,7 @@ _ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17h462316f1a2bf
           to label %"_ZN4core3ptr194drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$salsa..id..Id$C$dashmap..util..SharedValue$LT$$LP$$RP$$GT$$RP$$GT$$GT$$GT$17h917f62fd00e34417E.exit" unwind label %643
 
 353:                                              ; preds = %343, %339
-  %.sroa.3.0.i.i172.ph = phi i64 [ %.sroa.4.1.i.i, %339 ], [ %349, %343 ]
+  %.sroa.3.0.i.i172.ph = phi i64 [ %349, %343 ], [ %.sroa.4.1.i.i, %339 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %66)
   invoke void @_ZN5salsa11zalsa_local10ZalsaLocal12active_query17h91279985bdbcfd77E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %66, ptr noundef nonnull align 8 %81)
           to label %495 unwind label %.loopexit.split-lp
@@ -19064,8 +19064,8 @@ _ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exi
   unreachable
 
 "_ZN4core3ptr194drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$salsa..id..Id$C$dashmap..util..SharedValue$LT$$LP$$RP$$GT$$RP$$GT$$GT$$GT$17h917f62fd00e34417E.exit": ; preds = %.body, %352, %77
-  %.sroa.018.1 = phi i8 [ %.sroa.018.0, %77 ], [ %.sroa.018.2.lpad-body, %352 ], [ %.sroa.018.2.lpad-body, %.body ]
-  %.pn = phi { ptr, i32 } [ %78, %77 ], [ %eh.lpad-body, %352 ], [ %eh.lpad-body, %.body ]
+  %.sroa.018.1 = phi i8 [ %.sroa.018.0, %77 ], [ %.sroa.018.2.lpad-body, %.body ], [ %.sroa.018.2.lpad-body, %352 ]
+  %.pn = phi { ptr, i32 } [ %78, %77 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body, %352 ]
   %645 = trunc nuw i8 %.sroa.018.1 to i1
   br i1 %645, label %"_ZN4core3ptr194drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$salsa..id..Id$C$dashmap..util..SharedValue$LT$$LP$$RP$$GT$$RP$$GT$$GT$$GT$17h917f62fd00e34417E.exit.thread", label %646
 
@@ -19854,7 +19854,7 @@ _ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17h462316f1a2bf
   br label %.body
 
 .loopexit.split-lp:                               ; preds = %.invoke302, %.invoke300, %350, %351, %357, %365, %366, %375, %386, %485, %492, %503, %629, %534, %.noexc37.thread, %554, %.noexc41, %578, %608, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i, %399, %.noexc78.thread, %419, %.noexc82, %443, %473, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i50, %478, %613, %302, %370, %623
-  %.sroa.018.2.ph = phi i8 [ 1, %.noexc78.thread ], [ 1, %399 ], [ 1, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i50 ], [ 1, %478 ], [ 0, %613 ], [ 0, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i ], [ 0, %608 ], [ 0, %.invoke300 ], [ 0, %578 ], [ 0, %.noexc41 ], [ 0, %554 ], [ 1, %473 ], [ 1, %.invoke302 ], [ 0, %.noexc37.thread ], [ 0, %534 ], [ 1, %419 ], [ 1, %.noexc82 ], [ 1, %351 ], [ 1, %357 ], [ 1, %365 ], [ 1, %370 ], [ 1, %375 ], [ 1, %366 ], [ 1, %485 ], [ 1, %386 ], [ 1, %302 ], [ 0, %623 ], [ 1, %350 ], [ 0, %492 ], [ 0, %503 ], [ 1, %443 ], [ 0, %629 ]
+  %.sroa.018.2.ph = phi i8 [ 1, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i50 ], [ 1, %478 ], [ 0, %613 ], [ 0, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i ], [ 0, %608 ], [ 0, %.invoke300 ], [ 0, %578 ], [ 0, %.noexc41 ], [ 0, %554 ], [ 1, %473 ], [ 1, %.invoke302 ], [ 0, %.noexc37.thread ], [ 0, %534 ], [ 1, %419 ], [ 1, %.noexc82 ], [ 1, %399 ], [ 1, %351 ], [ 1, %357 ], [ 1, %365 ], [ 1, %370 ], [ 1, %375 ], [ 1, %366 ], [ 1, %.noexc78.thread ], [ 1, %485 ], [ 1, %386 ], [ 1, %302 ], [ 0, %623 ], [ 1, %350 ], [ 0, %492 ], [ 0, %503 ], [ 1, %443 ], [ 0, %629 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -19871,7 +19871,7 @@ _ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17h462316f1a2bf
           to label %"_ZN4core3ptr194drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$salsa..id..Id$C$dashmap..util..SharedValue$LT$$LP$$RP$$GT$$RP$$GT$$GT$$GT$17h917f62fd00e34417E.exit" unwind label %637
 
 350:                                              ; preds = %340, %336
-  %.sroa.3.0.i.i172.ph = phi i64 [ %.sroa.4.1.i.i, %336 ], [ %346, %340 ]
+  %.sroa.3.0.i.i172.ph = phi i64 [ %346, %340 ], [ %.sroa.4.1.i.i, %336 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %65)
   invoke void @_ZN5salsa11zalsa_local10ZalsaLocal12active_query17h91279985bdbcfd77E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %65, ptr noundef nonnull align 8 %78)
           to label %492 unwind label %.loopexit.split-lp
@@ -20694,8 +20694,8 @@ _ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exi
   unreachable
 
 "_ZN4core3ptr194drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$salsa..id..Id$C$dashmap..util..SharedValue$LT$$LP$$RP$$GT$$RP$$GT$$GT$$GT$17h917f62fd00e34417E.exit": ; preds = %.body, %349, %74
-  %.sroa.018.1 = phi i8 [ %.sroa.018.0, %74 ], [ %.sroa.018.2.lpad-body, %349 ], [ %.sroa.018.2.lpad-body, %.body ]
-  %.pn = phi { ptr, i32 } [ %75, %74 ], [ %eh.lpad-body, %349 ], [ %eh.lpad-body, %.body ]
+  %.sroa.018.1 = phi i8 [ %.sroa.018.0, %74 ], [ %.sroa.018.2.lpad-body, %.body ], [ %.sroa.018.2.lpad-body, %349 ]
+  %.pn = phi { ptr, i32 } [ %75, %74 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body, %349 ]
   %639 = trunc nuw i8 %.sroa.018.1 to i1
   br i1 %639, label %"_ZN4core3ptr194drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$salsa..id..Id$C$dashmap..util..SharedValue$LT$$LP$$RP$$GT$$RP$$GT$$GT$$GT$17h917f62fd00e34417E.exit.thread", label %640
 
@@ -21484,7 +21484,7 @@ _ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17h462316f1a2bf
   br label %.body
 
 .loopexit.split-lp:                               ; preds = %.invoke302, %.invoke300, %350, %351, %357, %365, %366, %375, %386, %485, %492, %503, %629, %534, %.noexc37.thread, %554, %.noexc41, %578, %608, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i, %399, %.noexc78.thread, %419, %.noexc82, %443, %473, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i50, %478, %613, %302, %370, %623
-  %.sroa.018.2.ph = phi i8 [ 1, %.noexc78.thread ], [ 1, %399 ], [ 1, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i50 ], [ 1, %478 ], [ 0, %613 ], [ 0, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i ], [ 0, %608 ], [ 0, %.invoke300 ], [ 0, %578 ], [ 0, %.noexc41 ], [ 0, %554 ], [ 1, %473 ], [ 1, %.invoke302 ], [ 0, %.noexc37.thread ], [ 0, %534 ], [ 1, %419 ], [ 1, %.noexc82 ], [ 1, %351 ], [ 1, %357 ], [ 1, %365 ], [ 1, %370 ], [ 1, %375 ], [ 1, %366 ], [ 1, %485 ], [ 1, %386 ], [ 1, %302 ], [ 0, %623 ], [ 1, %350 ], [ 0, %492 ], [ 0, %503 ], [ 1, %443 ], [ 0, %629 ]
+  %.sroa.018.2.ph = phi i8 [ 1, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i50 ], [ 1, %478 ], [ 0, %613 ], [ 0, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i ], [ 0, %608 ], [ 0, %.invoke300 ], [ 0, %578 ], [ 0, %.noexc41 ], [ 0, %554 ], [ 1, %473 ], [ 1, %.invoke302 ], [ 0, %.noexc37.thread ], [ 0, %534 ], [ 1, %419 ], [ 1, %.noexc82 ], [ 1, %399 ], [ 1, %351 ], [ 1, %357 ], [ 1, %365 ], [ 1, %370 ], [ 1, %375 ], [ 1, %366 ], [ 1, %.noexc78.thread ], [ 1, %485 ], [ 1, %386 ], [ 1, %302 ], [ 0, %623 ], [ 1, %350 ], [ 0, %492 ], [ 0, %503 ], [ 1, %443 ], [ 0, %629 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -21501,7 +21501,7 @@ _ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17h462316f1a2bf
           to label %"_ZN4core3ptr194drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$salsa..id..Id$C$dashmap..util..SharedValue$LT$$LP$$RP$$GT$$RP$$GT$$GT$$GT$17h917f62fd00e34417E.exit" unwind label %637
 
 350:                                              ; preds = %340, %336
-  %.sroa.3.0.i.i172.ph = phi i64 [ %.sroa.4.1.i.i, %336 ], [ %346, %340 ]
+  %.sroa.3.0.i.i172.ph = phi i64 [ %346, %340 ], [ %.sroa.4.1.i.i, %336 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %65)
   invoke void @_ZN5salsa11zalsa_local10ZalsaLocal12active_query17h91279985bdbcfd77E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %65, ptr noundef nonnull align 8 %78)
           to label %492 unwind label %.loopexit.split-lp
@@ -22324,8 +22324,8 @@ _ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exi
   unreachable
 
 "_ZN4core3ptr194drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$salsa..id..Id$C$dashmap..util..SharedValue$LT$$LP$$RP$$GT$$RP$$GT$$GT$$GT$17h917f62fd00e34417E.exit": ; preds = %.body, %349, %74
-  %.sroa.018.1 = phi i8 [ %.sroa.018.0, %74 ], [ %.sroa.018.2.lpad-body, %349 ], [ %.sroa.018.2.lpad-body, %.body ]
-  %.pn = phi { ptr, i32 } [ %75, %74 ], [ %eh.lpad-body, %349 ], [ %eh.lpad-body, %.body ]
+  %.sroa.018.1 = phi i8 [ %.sroa.018.0, %74 ], [ %.sroa.018.2.lpad-body, %.body ], [ %.sroa.018.2.lpad-body, %349 ]
+  %.pn = phi { ptr, i32 } [ %75, %74 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body, %349 ]
   %639 = trunc nuw i8 %.sroa.018.1 to i1
   br i1 %639, label %"_ZN4core3ptr194drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$salsa..id..Id$C$dashmap..util..SharedValue$LT$$LP$$RP$$GT$$RP$$GT$$GT$$GT$17h917f62fd00e34417E.exit.thread", label %640
 
@@ -23110,7 +23110,7 @@ _ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17h462316f1a2bf
           to label %"_ZN4core3ptr194drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$salsa..id..Id$C$dashmap..util..SharedValue$LT$$LP$$RP$$GT$$RP$$GT$$GT$$GT$17h917f62fd00e34417E.exit" unwind label %627
 
 345:                                              ; preds = %335, %331
-  %.sroa.3.0.i.i166.ph = phi i64 [ %.sroa.4.1.i.i, %331 ], [ %341, %335 ]
+  %.sroa.3.0.i.i166.ph = phi i64 [ %341, %335 ], [ %.sroa.4.1.i.i, %331 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %65)
   invoke void @_ZN5salsa11zalsa_local10ZalsaLocal12active_query17h91279985bdbcfd77E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %65, ptr noundef nonnull align 8 %75)
           to label %485 unwind label %.loopexit.split-lp
@@ -24693,7 +24693,7 @@ _ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17h462316f1a2bf
   br label %.body
 
 .loopexit.split-lp:                               ; preds = %.invoke302, %.invoke300, %352, %353, %359, %367, %368, %377, %388, %487, %494, %505, %631, %536, %.noexc37.thread, %556, %.noexc41, %580, %610, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i, %401, %.noexc78.thread, %421, %.noexc82, %445, %475, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i50, %480, %615, %303, %372, %625
-  %.sroa.018.2.ph = phi i8 [ 1, %.noexc78.thread ], [ 1, %401 ], [ 1, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i50 ], [ 1, %480 ], [ 0, %615 ], [ 0, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i ], [ 0, %610 ], [ 0, %.invoke300 ], [ 0, %580 ], [ 0, %.noexc41 ], [ 0, %556 ], [ 1, %475 ], [ 1, %.invoke302 ], [ 0, %.noexc37.thread ], [ 0, %536 ], [ 1, %421 ], [ 1, %.noexc82 ], [ 1, %353 ], [ 1, %359 ], [ 1, %367 ], [ 1, %372 ], [ 1, %377 ], [ 1, %368 ], [ 1, %487 ], [ 1, %388 ], [ 1, %303 ], [ 0, %625 ], [ 1, %352 ], [ 0, %494 ], [ 0, %505 ], [ 1, %445 ], [ 0, %631 ]
+  %.sroa.018.2.ph = phi i8 [ 1, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i50 ], [ 1, %480 ], [ 0, %615 ], [ 0, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i ], [ 0, %610 ], [ 0, %.invoke300 ], [ 0, %580 ], [ 0, %.noexc41 ], [ 0, %556 ], [ 1, %475 ], [ 1, %.invoke302 ], [ 0, %.noexc37.thread ], [ 0, %536 ], [ 1, %421 ], [ 1, %.noexc82 ], [ 1, %401 ], [ 1, %353 ], [ 1, %359 ], [ 1, %367 ], [ 1, %372 ], [ 1, %377 ], [ 1, %368 ], [ 1, %.noexc78.thread ], [ 1, %487 ], [ 1, %388 ], [ 1, %303 ], [ 0, %625 ], [ 1, %352 ], [ 0, %494 ], [ 0, %505 ], [ 1, %445 ], [ 0, %631 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -24710,7 +24710,7 @@ _ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17h462316f1a2bf
           to label %"_ZN4core3ptr194drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$salsa..id..Id$C$dashmap..util..SharedValue$LT$$LP$$RP$$GT$$RP$$GT$$GT$$GT$17h917f62fd00e34417E.exit" unwind label %639
 
 352:                                              ; preds = %342, %338
-  %.sroa.3.0.i.i172.ph = phi i64 [ %.sroa.4.1.i.i, %338 ], [ %348, %342 ]
+  %.sroa.3.0.i.i172.ph = phi i64 [ %348, %342 ], [ %.sroa.4.1.i.i, %338 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %65)
   invoke void @_ZN5salsa11zalsa_local10ZalsaLocal12active_query17h91279985bdbcfd77E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %65, ptr noundef nonnull align 8 %78)
           to label %494 unwind label %.loopexit.split-lp
@@ -25533,8 +25533,8 @@ _ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exi
   unreachable
 
 "_ZN4core3ptr194drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$salsa..id..Id$C$dashmap..util..SharedValue$LT$$LP$$RP$$GT$$RP$$GT$$GT$$GT$17h917f62fd00e34417E.exit": ; preds = %.body, %351, %74
-  %.sroa.018.1 = phi i8 [ %.sroa.018.0, %74 ], [ %.sroa.018.2.lpad-body, %351 ], [ %.sroa.018.2.lpad-body, %.body ]
-  %.pn = phi { ptr, i32 } [ %75, %74 ], [ %eh.lpad-body, %351 ], [ %eh.lpad-body, %.body ]
+  %.sroa.018.1 = phi i8 [ %.sroa.018.0, %74 ], [ %.sroa.018.2.lpad-body, %.body ], [ %.sroa.018.2.lpad-body, %351 ]
+  %.pn = phi { ptr, i32 } [ %75, %74 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body, %351 ]
   %641 = trunc nuw i8 %.sroa.018.1 to i1
   br i1 %641, label %"_ZN4core3ptr194drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$salsa..id..Id$C$dashmap..util..SharedValue$LT$$LP$$RP$$GT$$RP$$GT$$GT$$GT$17h917f62fd00e34417E.exit.thread", label %642
 
@@ -26324,7 +26324,7 @@ _ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17h462316f1a2bf
           to label %"_ZN4core3ptr194drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$salsa..id..Id$C$dashmap..util..SharedValue$LT$$LP$$RP$$GT$$RP$$GT$$GT$$GT$17h917f62fd00e34417E.exit" unwind label %636
 
 349:                                              ; preds = %339, %335
-  %.sroa.3.0.i.i166.ph = phi i64 [ %.sroa.4.1.i.i, %335 ], [ %345, %339 ]
+  %.sroa.3.0.i.i166.ph = phi i64 [ %345, %339 ], [ %.sroa.4.1.i.i, %335 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %66)
   invoke void @_ZN5salsa11zalsa_local10ZalsaLocal12active_query17h91279985bdbcfd77E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %66, ptr noundef nonnull align 8 %78)
           to label %490 unwind label %.loopexit.split-lp
@@ -27915,7 +27915,7 @@ _ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17h462316f1a2bf
   br label %.body
 
 .loopexit.split-lp:                               ; preds = %.invoke302, %.invoke300, %353, %354, %360, %368, %369, %378, %389, %488, %495, %509, %635, %540, %.noexc37.thread, %560, %.noexc41, %584, %614, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i, %402, %.noexc78.thread, %422, %.noexc82, %446, %476, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i50, %481, %619, %305, %373, %629
-  %.sroa.018.2.ph = phi i8 [ 1, %.noexc78.thread ], [ 1, %402 ], [ 1, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i50 ], [ 1, %481 ], [ 0, %619 ], [ 0, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i ], [ 0, %614 ], [ 0, %.invoke300 ], [ 0, %584 ], [ 0, %.noexc41 ], [ 0, %560 ], [ 1, %476 ], [ 1, %.invoke302 ], [ 0, %.noexc37.thread ], [ 0, %540 ], [ 1, %422 ], [ 1, %.noexc82 ], [ 1, %354 ], [ 1, %360 ], [ 1, %368 ], [ 1, %373 ], [ 1, %378 ], [ 1, %369 ], [ 1, %488 ], [ 1, %389 ], [ 1, %305 ], [ 0, %629 ], [ 1, %353 ], [ 0, %495 ], [ 0, %509 ], [ 1, %446 ], [ 0, %635 ]
+  %.sroa.018.2.ph = phi i8 [ 1, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i50 ], [ 1, %481 ], [ 0, %619 ], [ 0, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i ], [ 0, %614 ], [ 0, %.invoke300 ], [ 0, %584 ], [ 0, %.noexc41 ], [ 0, %560 ], [ 1, %476 ], [ 1, %.invoke302 ], [ 0, %.noexc37.thread ], [ 0, %540 ], [ 1, %422 ], [ 1, %.noexc82 ], [ 1, %402 ], [ 1, %354 ], [ 1, %360 ], [ 1, %368 ], [ 1, %373 ], [ 1, %378 ], [ 1, %369 ], [ 1, %.noexc78.thread ], [ 1, %488 ], [ 1, %389 ], [ 1, %305 ], [ 0, %629 ], [ 1, %353 ], [ 0, %495 ], [ 0, %509 ], [ 1, %446 ], [ 0, %635 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -27932,7 +27932,7 @@ _ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17h462316f1a2bf
           to label %"_ZN4core3ptr194drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$salsa..id..Id$C$dashmap..util..SharedValue$LT$$LP$$RP$$GT$$RP$$GT$$GT$$GT$17h917f62fd00e34417E.exit" unwind label %643
 
 353:                                              ; preds = %343, %339
-  %.sroa.3.0.i.i172.ph = phi i64 [ %.sroa.4.1.i.i, %339 ], [ %349, %343 ]
+  %.sroa.3.0.i.i172.ph = phi i64 [ %349, %343 ], [ %.sroa.4.1.i.i, %339 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %66)
   invoke void @_ZN5salsa11zalsa_local10ZalsaLocal12active_query17h91279985bdbcfd77E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %66, ptr noundef nonnull align 8 %81)
           to label %495 unwind label %.loopexit.split-lp
@@ -28759,8 +28759,8 @@ _ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exi
   unreachable
 
 "_ZN4core3ptr194drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$salsa..id..Id$C$dashmap..util..SharedValue$LT$$LP$$RP$$GT$$RP$$GT$$GT$$GT$17h917f62fd00e34417E.exit": ; preds = %.body, %352, %77
-  %.sroa.018.1 = phi i8 [ %.sroa.018.0, %77 ], [ %.sroa.018.2.lpad-body, %352 ], [ %.sroa.018.2.lpad-body, %.body ]
-  %.pn = phi { ptr, i32 } [ %78, %77 ], [ %eh.lpad-body, %352 ], [ %eh.lpad-body, %.body ]
+  %.sroa.018.1 = phi i8 [ %.sroa.018.0, %77 ], [ %.sroa.018.2.lpad-body, %.body ], [ %.sroa.018.2.lpad-body, %352 ]
+  %.pn = phi { ptr, i32 } [ %78, %77 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body, %352 ]
   %645 = trunc nuw i8 %.sroa.018.1 to i1
   br i1 %645, label %"_ZN4core3ptr194drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$salsa..id..Id$C$dashmap..util..SharedValue$LT$$LP$$RP$$GT$$RP$$GT$$GT$$GT$17h917f62fd00e34417E.exit.thread", label %646
 
@@ -29551,7 +29551,7 @@ _ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17h462316f1a2bf
   br label %.body
 
 .loopexit.split-lp:                               ; preds = %.invoke302, %.invoke300, %352, %353, %359, %367, %368, %377, %388, %487, %494, %505, %631, %536, %.noexc37.thread, %556, %.noexc41, %580, %610, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i, %401, %.noexc78.thread, %421, %.noexc82, %445, %475, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i50, %480, %615, %303, %372, %625
-  %.sroa.018.2.ph = phi i8 [ 1, %.noexc78.thread ], [ 1, %401 ], [ 1, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i50 ], [ 1, %480 ], [ 0, %615 ], [ 0, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i ], [ 0, %610 ], [ 0, %.invoke300 ], [ 0, %580 ], [ 0, %.noexc41 ], [ 0, %556 ], [ 1, %475 ], [ 1, %.invoke302 ], [ 0, %.noexc37.thread ], [ 0, %536 ], [ 1, %421 ], [ 1, %.noexc82 ], [ 1, %353 ], [ 1, %359 ], [ 1, %367 ], [ 1, %372 ], [ 1, %377 ], [ 1, %368 ], [ 1, %487 ], [ 1, %388 ], [ 1, %303 ], [ 0, %625 ], [ 1, %352 ], [ 0, %494 ], [ 0, %505 ], [ 1, %445 ], [ 0, %631 ]
+  %.sroa.018.2.ph = phi i8 [ 1, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i50 ], [ 1, %480 ], [ 0, %615 ], [ 0, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i ], [ 0, %610 ], [ 0, %.invoke300 ], [ 0, %580 ], [ 0, %.noexc41 ], [ 0, %556 ], [ 1, %475 ], [ 1, %.invoke302 ], [ 0, %.noexc37.thread ], [ 0, %536 ], [ 1, %421 ], [ 1, %.noexc82 ], [ 1, %401 ], [ 1, %353 ], [ 1, %359 ], [ 1, %367 ], [ 1, %372 ], [ 1, %377 ], [ 1, %368 ], [ 1, %.noexc78.thread ], [ 1, %487 ], [ 1, %388 ], [ 1, %303 ], [ 0, %625 ], [ 1, %352 ], [ 0, %494 ], [ 0, %505 ], [ 1, %445 ], [ 0, %631 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -29568,7 +29568,7 @@ _ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17h462316f1a2bf
           to label %"_ZN4core3ptr194drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$salsa..id..Id$C$dashmap..util..SharedValue$LT$$LP$$RP$$GT$$RP$$GT$$GT$$GT$17h917f62fd00e34417E.exit" unwind label %639
 
 352:                                              ; preds = %342, %338
-  %.sroa.3.0.i.i172.ph = phi i64 [ %.sroa.4.1.i.i, %338 ], [ %348, %342 ]
+  %.sroa.3.0.i.i172.ph = phi i64 [ %348, %342 ], [ %.sroa.4.1.i.i, %338 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %65)
   invoke void @_ZN5salsa11zalsa_local10ZalsaLocal12active_query17h91279985bdbcfd77E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %65, ptr noundef nonnull align 8 %78)
           to label %494 unwind label %.loopexit.split-lp
@@ -30391,8 +30391,8 @@ _ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exi
   unreachable
 
 "_ZN4core3ptr194drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$salsa..id..Id$C$dashmap..util..SharedValue$LT$$LP$$RP$$GT$$RP$$GT$$GT$$GT$17h917f62fd00e34417E.exit": ; preds = %.body, %351, %74
-  %.sroa.018.1 = phi i8 [ %.sroa.018.0, %74 ], [ %.sroa.018.2.lpad-body, %351 ], [ %.sroa.018.2.lpad-body, %.body ]
-  %.pn = phi { ptr, i32 } [ %75, %74 ], [ %eh.lpad-body, %351 ], [ %eh.lpad-body, %.body ]
+  %.sroa.018.1 = phi i8 [ %.sroa.018.0, %74 ], [ %.sroa.018.2.lpad-body, %.body ], [ %.sroa.018.2.lpad-body, %351 ]
+  %.pn = phi { ptr, i32 } [ %75, %74 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body, %351 ]
   %641 = trunc nuw i8 %.sroa.018.1 to i1
   br i1 %641, label %"_ZN4core3ptr194drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$salsa..id..Id$C$dashmap..util..SharedValue$LT$$LP$$RP$$GT$$RP$$GT$$GT$$GT$17h917f62fd00e34417E.exit.thread", label %642
 
@@ -31150,7 +31150,7 @@ _ZN9hashbrown3raw5inner13RawTableInner30find_or_find_insert_slot_inner17h941045d
           to label %"_ZN4core3ptr194drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$salsa..id..Id$C$dashmap..util..SharedValue$LT$$LP$$RP$$GT$$RP$$GT$$GT$$GT$17h917f62fd00e34417E.exit" unwind label %617
 
 337:                                              ; preds = %313, %317
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.4.1.i.i, %313 ], [ %323, %317 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %323, %317 ], [ %.sroa.4.1.i.i, %313 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %65)
   invoke void @_ZN5salsa11zalsa_local10ZalsaLocal12active_query17h91279985bdbcfd77E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %65, ptr noundef nonnull align 8 %75)
           to label %476 unwind label %332
@@ -32731,7 +32731,7 @@ _ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17h462316f1a2bf
   br label %.body
 
 .loopexit.split-lp:                               ; preds = %.invoke302, %.invoke300, %352, %353, %359, %367, %368, %377, %388, %487, %494, %505, %631, %536, %.noexc37.thread, %556, %.noexc41, %580, %610, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i, %401, %.noexc78.thread, %421, %.noexc82, %445, %475, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i50, %480, %615, %303, %372, %625
-  %.sroa.018.2.ph = phi i8 [ 1, %.noexc78.thread ], [ 1, %401 ], [ 1, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i50 ], [ 1, %480 ], [ 0, %615 ], [ 0, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i ], [ 0, %610 ], [ 0, %.invoke300 ], [ 0, %580 ], [ 0, %.noexc41 ], [ 0, %556 ], [ 1, %475 ], [ 1, %.invoke302 ], [ 0, %.noexc37.thread ], [ 0, %536 ], [ 1, %421 ], [ 1, %.noexc82 ], [ 1, %353 ], [ 1, %359 ], [ 1, %367 ], [ 1, %372 ], [ 1, %377 ], [ 1, %368 ], [ 1, %487 ], [ 1, %388 ], [ 1, %303 ], [ 0, %625 ], [ 1, %352 ], [ 0, %494 ], [ 0, %505 ], [ 1, %445 ], [ 0, %631 ]
+  %.sroa.018.2.ph = phi i8 [ 1, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i50 ], [ 1, %480 ], [ 0, %615 ], [ 0, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i ], [ 0, %610 ], [ 0, %.invoke300 ], [ 0, %580 ], [ 0, %.noexc41 ], [ 0, %556 ], [ 1, %475 ], [ 1, %.invoke302 ], [ 0, %.noexc37.thread ], [ 0, %536 ], [ 1, %421 ], [ 1, %.noexc82 ], [ 1, %401 ], [ 1, %353 ], [ 1, %359 ], [ 1, %367 ], [ 1, %372 ], [ 1, %377 ], [ 1, %368 ], [ 1, %.noexc78.thread ], [ 1, %487 ], [ 1, %388 ], [ 1, %303 ], [ 0, %625 ], [ 1, %352 ], [ 0, %494 ], [ 0, %505 ], [ 1, %445 ], [ 0, %631 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -32748,7 +32748,7 @@ _ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17h462316f1a2bf
           to label %"_ZN4core3ptr194drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$salsa..id..Id$C$dashmap..util..SharedValue$LT$$LP$$RP$$GT$$RP$$GT$$GT$$GT$17h917f62fd00e34417E.exit" unwind label %639
 
 352:                                              ; preds = %342, %338
-  %.sroa.3.0.i.i172.ph = phi i64 [ %.sroa.4.1.i.i, %338 ], [ %348, %342 ]
+  %.sroa.3.0.i.i172.ph = phi i64 [ %348, %342 ], [ %.sroa.4.1.i.i, %338 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %65)
   invoke void @_ZN5salsa11zalsa_local10ZalsaLocal12active_query17h91279985bdbcfd77E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %65, ptr noundef nonnull align 8 %78)
           to label %494 unwind label %.loopexit.split-lp
@@ -33571,8 +33571,8 @@ _ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exi
   unreachable
 
 "_ZN4core3ptr194drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$salsa..id..Id$C$dashmap..util..SharedValue$LT$$LP$$RP$$GT$$RP$$GT$$GT$$GT$17h917f62fd00e34417E.exit": ; preds = %.body, %351, %74
-  %.sroa.018.1 = phi i8 [ %.sroa.018.0, %74 ], [ %.sroa.018.2.lpad-body, %351 ], [ %.sroa.018.2.lpad-body, %.body ]
-  %.pn = phi { ptr, i32 } [ %75, %74 ], [ %eh.lpad-body, %351 ], [ %eh.lpad-body, %.body ]
+  %.sroa.018.1 = phi i8 [ %.sroa.018.0, %74 ], [ %.sroa.018.2.lpad-body, %.body ], [ %.sroa.018.2.lpad-body, %351 ]
+  %.pn = phi { ptr, i32 } [ %75, %74 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body, %351 ]
   %641 = trunc nuw i8 %.sroa.018.1 to i1
   br i1 %641, label %"_ZN4core3ptr194drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$salsa..id..Id$C$dashmap..util..SharedValue$LT$$LP$$RP$$GT$$RP$$GT$$GT$$GT$17h917f62fd00e34417E.exit.thread", label %642
 
@@ -34360,7 +34360,7 @@ _ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17h462316f1a2bf
           to label %"_ZN4core3ptr194drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$salsa..id..Id$C$dashmap..util..SharedValue$LT$$LP$$RP$$GT$$RP$$GT$$GT$$GT$17h917f62fd00e34417E.exit" unwind label %634
 
 347:                                              ; preds = %337, %333
-  %.sroa.3.0.i.i166.ph = phi i64 [ %.sroa.4.1.i.i, %333 ], [ %343, %337 ]
+  %.sroa.3.0.i.i166.ph = phi i64 [ %343, %337 ], [ %.sroa.4.1.i.i, %333 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %66)
   invoke void @_ZN5salsa11zalsa_local10ZalsaLocal12active_query17h91279985bdbcfd77E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %66, ptr noundef nonnull align 8 %78)
           to label %488 unwind label %.loopexit.split-lp
@@ -35946,7 +35946,7 @@ _ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17h462316f1a2bf
           to label %"_ZN4core3ptr194drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$salsa..id..Id$C$dashmap..util..SharedValue$LT$$LP$$RP$$GT$$RP$$GT$$GT$$GT$17h917f62fd00e34417E.exit" unwind label %632
 
 347:                                              ; preds = %337, %333
-  %.sroa.3.0.i.i166.ph = phi i64 [ %.sroa.4.1.i.i, %333 ], [ %343, %337 ]
+  %.sroa.3.0.i.i166.ph = phi i64 [ %343, %337 ], [ %.sroa.4.1.i.i, %333 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %65)
   invoke void @_ZN5salsa11zalsa_local10ZalsaLocal12active_query17h91279985bdbcfd77E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %65, ptr noundef nonnull align 8 %76)
           to label %488 unwind label %.loopexit.split-lp
@@ -37529,7 +37529,7 @@ _ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17h462316f1a2bf
           to label %"_ZN4core3ptr194drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$salsa..id..Id$C$dashmap..util..SharedValue$LT$$LP$$RP$$GT$$RP$$GT$$GT$$GT$17h917f62fd00e34417E.exit" unwind label %634
 
 347:                                              ; preds = %337, %333
-  %.sroa.3.0.i.i166.ph = phi i64 [ %.sroa.4.1.i.i, %333 ], [ %343, %337 ]
+  %.sroa.3.0.i.i166.ph = phi i64 [ %343, %337 ], [ %.sroa.4.1.i.i, %333 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %66)
   invoke void @_ZN5salsa11zalsa_local10ZalsaLocal12active_query17h91279985bdbcfd77E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %66, ptr noundef nonnull align 8 %78)
           to label %488 unwind label %.loopexit.split-lp
@@ -39116,7 +39116,7 @@ _ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17h462316f1a2bf
   br label %.body
 
 .loopexit.split-lp:                               ; preds = %.invoke302, %.invoke300, %350, %351, %357, %365, %366, %375, %386, %485, %492, %503, %629, %534, %.noexc37.thread, %554, %.noexc41, %578, %608, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i, %399, %.noexc78.thread, %419, %.noexc82, %443, %473, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i50, %478, %613, %302, %370, %623
-  %.sroa.018.2.ph = phi i8 [ 1, %.noexc78.thread ], [ 1, %399 ], [ 1, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i50 ], [ 1, %478 ], [ 0, %613 ], [ 0, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i ], [ 0, %608 ], [ 0, %.invoke300 ], [ 0, %578 ], [ 0, %.noexc41 ], [ 0, %554 ], [ 1, %473 ], [ 1, %.invoke302 ], [ 0, %.noexc37.thread ], [ 0, %534 ], [ 1, %419 ], [ 1, %.noexc82 ], [ 1, %351 ], [ 1, %357 ], [ 1, %365 ], [ 1, %370 ], [ 1, %375 ], [ 1, %366 ], [ 1, %485 ], [ 1, %386 ], [ 1, %302 ], [ 0, %623 ], [ 1, %350 ], [ 0, %492 ], [ 0, %503 ], [ 1, %443 ], [ 0, %629 ]
+  %.sroa.018.2.ph = phi i8 [ 1, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i50 ], [ 1, %478 ], [ 0, %613 ], [ 0, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i ], [ 0, %608 ], [ 0, %.invoke300 ], [ 0, %578 ], [ 0, %.noexc41 ], [ 0, %554 ], [ 1, %473 ], [ 1, %.invoke302 ], [ 0, %.noexc37.thread ], [ 0, %534 ], [ 1, %419 ], [ 1, %.noexc82 ], [ 1, %399 ], [ 1, %351 ], [ 1, %357 ], [ 1, %365 ], [ 1, %370 ], [ 1, %375 ], [ 1, %366 ], [ 1, %.noexc78.thread ], [ 1, %485 ], [ 1, %386 ], [ 1, %302 ], [ 0, %623 ], [ 1, %350 ], [ 0, %492 ], [ 0, %503 ], [ 1, %443 ], [ 0, %629 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -39133,7 +39133,7 @@ _ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17h462316f1a2bf
           to label %"_ZN4core3ptr194drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$salsa..id..Id$C$dashmap..util..SharedValue$LT$$LP$$RP$$GT$$RP$$GT$$GT$$GT$17h917f62fd00e34417E.exit" unwind label %637
 
 350:                                              ; preds = %340, %336
-  %.sroa.3.0.i.i172.ph = phi i64 [ %.sroa.4.1.i.i, %336 ], [ %346, %340 ]
+  %.sroa.3.0.i.i172.ph = phi i64 [ %346, %340 ], [ %.sroa.4.1.i.i, %336 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %65)
   invoke void @_ZN5salsa11zalsa_local10ZalsaLocal12active_query17h91279985bdbcfd77E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %65, ptr noundef nonnull align 8 %78)
           to label %492 unwind label %.loopexit.split-lp
@@ -39956,8 +39956,8 @@ _ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exi
   unreachable
 
 "_ZN4core3ptr194drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$salsa..id..Id$C$dashmap..util..SharedValue$LT$$LP$$RP$$GT$$RP$$GT$$GT$$GT$17h917f62fd00e34417E.exit": ; preds = %.body, %349, %74
-  %.sroa.018.1 = phi i8 [ %.sroa.018.0, %74 ], [ %.sroa.018.2.lpad-body, %349 ], [ %.sroa.018.2.lpad-body, %.body ]
-  %.pn = phi { ptr, i32 } [ %75, %74 ], [ %eh.lpad-body, %349 ], [ %eh.lpad-body, %.body ]
+  %.sroa.018.1 = phi i8 [ %.sroa.018.0, %74 ], [ %.sroa.018.2.lpad-body, %.body ], [ %.sroa.018.2.lpad-body, %349 ]
+  %.pn = phi { ptr, i32 } [ %75, %74 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body, %349 ]
   %639 = trunc nuw i8 %.sroa.018.1 to i1
   br i1 %639, label %"_ZN4core3ptr194drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$salsa..id..Id$C$dashmap..util..SharedValue$LT$$LP$$RP$$GT$$RP$$GT$$GT$$GT$17h917f62fd00e34417E.exit.thread", label %640
 
@@ -40715,7 +40715,7 @@ _ZN9hashbrown3raw5inner13RawTableInner30find_or_find_insert_slot_inner17h941045d
           to label %"_ZN4core3ptr194drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$salsa..id..Id$C$dashmap..util..SharedValue$LT$$LP$$RP$$GT$$RP$$GT$$GT$$GT$17h917f62fd00e34417E.exit" unwind label %617
 
 337:                                              ; preds = %313, %317
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.4.1.i.i, %313 ], [ %323, %317 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %323, %317 ], [ %.sroa.4.1.i.i, %313 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %65)
   invoke void @_ZN5salsa11zalsa_local10ZalsaLocal12active_query17h91279985bdbcfd77E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %65, ptr noundef nonnull align 8 %75)
           to label %476 unwind label %332
@@ -42289,7 +42289,7 @@ _ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17h462316f1a2bf
           to label %"_ZN4core3ptr194drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$salsa..id..Id$C$dashmap..util..SharedValue$LT$$LP$$RP$$GT$$RP$$GT$$GT$$GT$17h917f62fd00e34417E.exit" unwind label %628
 
 344:                                              ; preds = %334, %330
-  %.sroa.3.0.i.i166.ph = phi i64 [ %.sroa.4.1.i.i, %330 ], [ %340, %334 ]
+  %.sroa.3.0.i.i166.ph = phi i64 [ %340, %334 ], [ %.sroa.4.1.i.i, %330 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %65)
   invoke void @_ZN5salsa11zalsa_local10ZalsaLocal12active_query17h91279985bdbcfd77E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %65, ptr noundef nonnull align 8 %75)
           to label %485 unwind label %.loopexit.split-lp
@@ -43874,7 +43874,7 @@ _ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17h462316f1a2bf
   br label %.body
 
 .loopexit.split-lp:                               ; preds = %.invoke302, %.invoke300, %352, %353, %359, %367, %368, %377, %388, %487, %494, %505, %631, %536, %.noexc37.thread, %556, %.noexc41, %580, %610, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i, %401, %.noexc78.thread, %421, %.noexc82, %445, %475, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i50, %480, %615, %303, %372, %625
-  %.sroa.018.2.ph = phi i8 [ 1, %.noexc78.thread ], [ 1, %401 ], [ 1, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i50 ], [ 1, %480 ], [ 0, %615 ], [ 0, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i ], [ 0, %610 ], [ 0, %.invoke300 ], [ 0, %580 ], [ 0, %.noexc41 ], [ 0, %556 ], [ 1, %475 ], [ 1, %.invoke302 ], [ 0, %.noexc37.thread ], [ 0, %536 ], [ 1, %421 ], [ 1, %.noexc82 ], [ 1, %353 ], [ 1, %359 ], [ 1, %367 ], [ 1, %372 ], [ 1, %377 ], [ 1, %368 ], [ 1, %487 ], [ 1, %388 ], [ 1, %303 ], [ 0, %625 ], [ 1, %352 ], [ 0, %494 ], [ 0, %505 ], [ 1, %445 ], [ 0, %631 ]
+  %.sroa.018.2.ph = phi i8 [ 1, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i50 ], [ 1, %480 ], [ 0, %615 ], [ 0, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i ], [ 0, %610 ], [ 0, %.invoke300 ], [ 0, %580 ], [ 0, %.noexc41 ], [ 0, %556 ], [ 1, %475 ], [ 1, %.invoke302 ], [ 0, %.noexc37.thread ], [ 0, %536 ], [ 1, %421 ], [ 1, %.noexc82 ], [ 1, %401 ], [ 1, %353 ], [ 1, %359 ], [ 1, %367 ], [ 1, %372 ], [ 1, %377 ], [ 1, %368 ], [ 1, %.noexc78.thread ], [ 1, %487 ], [ 1, %388 ], [ 1, %303 ], [ 0, %625 ], [ 1, %352 ], [ 0, %494 ], [ 0, %505 ], [ 1, %445 ], [ 0, %631 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -43891,7 +43891,7 @@ _ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17h462316f1a2bf
           to label %"_ZN4core3ptr194drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$salsa..id..Id$C$dashmap..util..SharedValue$LT$$LP$$RP$$GT$$RP$$GT$$GT$$GT$17h917f62fd00e34417E.exit" unwind label %639
 
 352:                                              ; preds = %342, %338
-  %.sroa.3.0.i.i172.ph = phi i64 [ %.sroa.4.1.i.i, %338 ], [ %348, %342 ]
+  %.sroa.3.0.i.i172.ph = phi i64 [ %348, %342 ], [ %.sroa.4.1.i.i, %338 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %65)
   invoke void @_ZN5salsa11zalsa_local10ZalsaLocal12active_query17h91279985bdbcfd77E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %65, ptr noundef nonnull align 8 %78)
           to label %494 unwind label %.loopexit.split-lp
@@ -44714,8 +44714,8 @@ _ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exi
   unreachable
 
 "_ZN4core3ptr194drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$salsa..id..Id$C$dashmap..util..SharedValue$LT$$LP$$RP$$GT$$RP$$GT$$GT$$GT$17h917f62fd00e34417E.exit": ; preds = %.body, %351, %74
-  %.sroa.018.1 = phi i8 [ %.sroa.018.0, %74 ], [ %.sroa.018.2.lpad-body, %351 ], [ %.sroa.018.2.lpad-body, %.body ]
-  %.pn = phi { ptr, i32 } [ %75, %74 ], [ %eh.lpad-body, %351 ], [ %eh.lpad-body, %.body ]
+  %.sroa.018.1 = phi i8 [ %.sroa.018.0, %74 ], [ %.sroa.018.2.lpad-body, %.body ], [ %.sroa.018.2.lpad-body, %351 ]
+  %.pn = phi { ptr, i32 } [ %75, %74 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body, %351 ]
   %641 = trunc nuw i8 %.sroa.018.1 to i1
   br i1 %641, label %"_ZN4core3ptr194drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$salsa..id..Id$C$dashmap..util..SharedValue$LT$$LP$$RP$$GT$$RP$$GT$$GT$$GT$17h917f62fd00e34417E.exit.thread", label %642
 
@@ -45505,7 +45505,7 @@ _ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17h462316f1a2bf
   br label %.body
 
 .loopexit.split-lp:                               ; preds = %.invoke303, %.invoke301, %351, %352, %358, %366, %367, %376, %387, %486, %493, %504, %630, %535, %.noexc37.thread, %555, %.noexc41, %579, %609, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i, %400, %.noexc78.thread, %420, %.noexc82, %444, %474, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i50, %479, %614, %303, %371, %624
-  %.sroa.018.2.ph = phi i8 [ 1, %.noexc78.thread ], [ 1, %400 ], [ 1, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i50 ], [ 1, %479 ], [ 0, %614 ], [ 0, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i ], [ 0, %609 ], [ 0, %.invoke301 ], [ 0, %579 ], [ 0, %.noexc41 ], [ 0, %555 ], [ 1, %474 ], [ 1, %.invoke303 ], [ 0, %.noexc37.thread ], [ 0, %535 ], [ 1, %420 ], [ 1, %.noexc82 ], [ 1, %352 ], [ 1, %358 ], [ 1, %366 ], [ 1, %371 ], [ 1, %376 ], [ 1, %367 ], [ 1, %486 ], [ 1, %387 ], [ 1, %303 ], [ 0, %624 ], [ 1, %351 ], [ 0, %493 ], [ 0, %504 ], [ 1, %444 ], [ 0, %630 ]
+  %.sroa.018.2.ph = phi i8 [ 1, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i50 ], [ 1, %479 ], [ 0, %614 ], [ 0, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i ], [ 0, %609 ], [ 0, %.invoke301 ], [ 0, %579 ], [ 0, %.noexc41 ], [ 0, %555 ], [ 1, %474 ], [ 1, %.invoke303 ], [ 0, %.noexc37.thread ], [ 0, %535 ], [ 1, %420 ], [ 1, %.noexc82 ], [ 1, %400 ], [ 1, %352 ], [ 1, %358 ], [ 1, %366 ], [ 1, %371 ], [ 1, %376 ], [ 1, %367 ], [ 1, %.noexc78.thread ], [ 1, %486 ], [ 1, %387 ], [ 1, %303 ], [ 0, %624 ], [ 1, %351 ], [ 0, %493 ], [ 0, %504 ], [ 1, %444 ], [ 0, %630 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -45522,7 +45522,7 @@ _ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17h462316f1a2bf
           to label %"_ZN4core3ptr194drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$salsa..id..Id$C$dashmap..util..SharedValue$LT$$LP$$RP$$GT$$RP$$GT$$GT$$GT$17h917f62fd00e34417E.exit" unwind label %638
 
 351:                                              ; preds = %341, %337
-  %.sroa.3.0.i.i172.ph = phi i64 [ %.sroa.4.1.i.i, %337 ], [ %347, %341 ]
+  %.sroa.3.0.i.i172.ph = phi i64 [ %347, %341 ], [ %.sroa.4.1.i.i, %337 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %65)
   invoke void @_ZN5salsa11zalsa_local10ZalsaLocal12active_query17h91279985bdbcfd77E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %65, ptr noundef nonnull align 8 %78)
           to label %493 unwind label %.loopexit.split-lp
@@ -46345,8 +46345,8 @@ _ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exi
   unreachable
 
 "_ZN4core3ptr194drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$salsa..id..Id$C$dashmap..util..SharedValue$LT$$LP$$RP$$GT$$RP$$GT$$GT$$GT$17h917f62fd00e34417E.exit": ; preds = %.body, %350, %74
-  %.sroa.018.1 = phi i8 [ %.sroa.018.0, %74 ], [ %.sroa.018.2.lpad-body, %350 ], [ %.sroa.018.2.lpad-body, %.body ]
-  %.pn = phi { ptr, i32 } [ %75, %74 ], [ %eh.lpad-body, %350 ], [ %eh.lpad-body, %.body ]
+  %.sroa.018.1 = phi i8 [ %.sroa.018.0, %74 ], [ %.sroa.018.2.lpad-body, %.body ], [ %.sroa.018.2.lpad-body, %350 ]
+  %.pn = phi { ptr, i32 } [ %75, %74 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body, %350 ]
   %640 = trunc nuw i8 %.sroa.018.1 to i1
   br i1 %640, label %"_ZN4core3ptr194drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$salsa..id..Id$C$dashmap..util..SharedValue$LT$$LP$$RP$$GT$$RP$$GT$$GT$$GT$17h917f62fd00e34417E.exit.thread", label %"_ZN4core3ptr138drop_in_place$LT$$LP$ty_python_semantic..types..Type$C$ruff_python_ast..name..Name$C$ty_python_semantic..types..MemberLookupPolicy$RP$$GT$17hf76fe329667d8873E.exit"
 
@@ -47135,7 +47135,7 @@ _ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17h462316f1a2bf
           to label %"_ZN4core3ptr194drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$salsa..id..Id$C$dashmap..util..SharedValue$LT$$LP$$RP$$GT$$RP$$GT$$GT$$GT$17h917f62fd00e34417E.exit" unwind label %634
 
 347:                                              ; preds = %337, %333
-  %.sroa.3.0.i.i166.ph = phi i64 [ %.sroa.4.1.i.i, %333 ], [ %343, %337 ]
+  %.sroa.3.0.i.i166.ph = phi i64 [ %343, %337 ], [ %.sroa.4.1.i.i, %333 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %66)
   invoke void @_ZN5salsa11zalsa_local10ZalsaLocal12active_query17h91279985bdbcfd77E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %66, ptr noundef nonnull align 8 %78)
           to label %488 unwind label %.loopexit.split-lp
@@ -48717,7 +48717,7 @@ _ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17h462316f1a2bf
           to label %"_ZN4core3ptr194drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$salsa..id..Id$C$dashmap..util..SharedValue$LT$$LP$$RP$$GT$$RP$$GT$$GT$$GT$17h917f62fd00e34417E.exit" unwind label %628
 
 344:                                              ; preds = %334, %330
-  %.sroa.3.0.i.i166.ph = phi i64 [ %.sroa.4.1.i.i, %330 ], [ %340, %334 ]
+  %.sroa.3.0.i.i166.ph = phi i64 [ %340, %334 ], [ %.sroa.4.1.i.i, %330 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %65)
   invoke void @_ZN5salsa11zalsa_local10ZalsaLocal12active_query17h91279985bdbcfd77E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %65, ptr noundef nonnull align 8 %75)
           to label %485 unwind label %.loopexit.split-lp
@@ -50295,7 +50295,7 @@ _ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17h462316f1a2bf
           to label %"_ZN4core3ptr194drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$salsa..id..Id$C$dashmap..util..SharedValue$LT$$LP$$RP$$GT$$RP$$GT$$GT$$GT$17h917f62fd00e34417E.exit" unwind label %628
 
 344:                                              ; preds = %334, %330
-  %.sroa.3.0.i.i166.ph = phi i64 [ %.sroa.4.1.i.i, %330 ], [ %340, %334 ]
+  %.sroa.3.0.i.i166.ph = phi i64 [ %340, %334 ], [ %.sroa.4.1.i.i, %330 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %65)
   invoke void @_ZN5salsa11zalsa_local10ZalsaLocal12active_query17h91279985bdbcfd77E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %65, ptr noundef nonnull align 8 %75)
           to label %485 unwind label %.loopexit.split-lp
@@ -51877,7 +51877,7 @@ _ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17h462316f1a2bf
           to label %"_ZN4core3ptr194drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$salsa..id..Id$C$dashmap..util..SharedValue$LT$$LP$$RP$$GT$$RP$$GT$$GT$$GT$17h917f62fd00e34417E.exit" unwind label %634
 
 347:                                              ; preds = %337, %333
-  %.sroa.3.0.i.i166.ph = phi i64 [ %.sroa.4.1.i.i, %333 ], [ %343, %337 ]
+  %.sroa.3.0.i.i166.ph = phi i64 [ %343, %337 ], [ %.sroa.4.1.i.i, %333 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %66)
   invoke void @_ZN5salsa11zalsa_local10ZalsaLocal12active_query17h91279985bdbcfd77E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %66, ptr noundef nonnull align 8 %78)
           to label %488 unwind label %.loopexit.split-lp
@@ -53466,7 +53466,7 @@ _ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17h462316f1a2bf
   br label %.body
 
 .loopexit.split-lp:                               ; preds = %.invoke302, %.invoke300, %352, %353, %359, %367, %368, %377, %388, %487, %494, %505, %631, %536, %.noexc37.thread, %556, %.noexc41, %580, %610, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i, %401, %.noexc78.thread, %421, %.noexc82, %445, %475, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i50, %480, %615, %303, %372, %625
-  %.sroa.018.2.ph = phi i8 [ 1, %.noexc78.thread ], [ 1, %401 ], [ 1, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i50 ], [ 1, %480 ], [ 0, %615 ], [ 0, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i ], [ 0, %610 ], [ 0, %.invoke300 ], [ 0, %580 ], [ 0, %.noexc41 ], [ 0, %556 ], [ 1, %475 ], [ 1, %.invoke302 ], [ 0, %.noexc37.thread ], [ 0, %536 ], [ 1, %421 ], [ 1, %.noexc82 ], [ 1, %353 ], [ 1, %359 ], [ 1, %367 ], [ 1, %372 ], [ 1, %377 ], [ 1, %368 ], [ 1, %487 ], [ 1, %388 ], [ 1, %303 ], [ 0, %625 ], [ 1, %352 ], [ 0, %494 ], [ 0, %505 ], [ 1, %445 ], [ 0, %631 ]
+  %.sroa.018.2.ph = phi i8 [ 1, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i50 ], [ 1, %480 ], [ 0, %615 ], [ 0, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i ], [ 0, %610 ], [ 0, %.invoke300 ], [ 0, %580 ], [ 0, %.noexc41 ], [ 0, %556 ], [ 1, %475 ], [ 1, %.invoke302 ], [ 0, %.noexc37.thread ], [ 0, %536 ], [ 1, %421 ], [ 1, %.noexc82 ], [ 1, %401 ], [ 1, %353 ], [ 1, %359 ], [ 1, %367 ], [ 1, %372 ], [ 1, %377 ], [ 1, %368 ], [ 1, %.noexc78.thread ], [ 1, %487 ], [ 1, %388 ], [ 1, %303 ], [ 0, %625 ], [ 1, %352 ], [ 0, %494 ], [ 0, %505 ], [ 1, %445 ], [ 0, %631 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -53483,7 +53483,7 @@ _ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17h462316f1a2bf
           to label %"_ZN4core3ptr194drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$salsa..id..Id$C$dashmap..util..SharedValue$LT$$LP$$RP$$GT$$RP$$GT$$GT$$GT$17h917f62fd00e34417E.exit" unwind label %639
 
 352:                                              ; preds = %342, %338
-  %.sroa.3.0.i.i172.ph = phi i64 [ %.sroa.4.1.i.i, %338 ], [ %348, %342 ]
+  %.sroa.3.0.i.i172.ph = phi i64 [ %348, %342 ], [ %.sroa.4.1.i.i, %338 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %65)
   invoke void @_ZN5salsa11zalsa_local10ZalsaLocal12active_query17h91279985bdbcfd77E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %65, ptr noundef nonnull align 8 %78)
           to label %494 unwind label %.loopexit.split-lp
@@ -54306,8 +54306,8 @@ _ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exi
   unreachable
 
 "_ZN4core3ptr194drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$salsa..id..Id$C$dashmap..util..SharedValue$LT$$LP$$RP$$GT$$RP$$GT$$GT$$GT$17h917f62fd00e34417E.exit": ; preds = %.body, %351, %74
-  %.sroa.018.1 = phi i8 [ %.sroa.018.0, %74 ], [ %.sroa.018.2.lpad-body, %351 ], [ %.sroa.018.2.lpad-body, %.body ]
-  %.pn = phi { ptr, i32 } [ %75, %74 ], [ %eh.lpad-body, %351 ], [ %eh.lpad-body, %.body ]
+  %.sroa.018.1 = phi i8 [ %.sroa.018.0, %74 ], [ %.sroa.018.2.lpad-body, %.body ], [ %.sroa.018.2.lpad-body, %351 ]
+  %.pn = phi { ptr, i32 } [ %75, %74 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body, %351 ]
   %641 = trunc nuw i8 %.sroa.018.1 to i1
   br i1 %641, label %"_ZN4core3ptr194drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$salsa..id..Id$C$dashmap..util..SharedValue$LT$$LP$$RP$$GT$$RP$$GT$$GT$$GT$17h917f62fd00e34417E.exit.thread", label %642
 
@@ -55091,7 +55091,7 @@ _ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17h462316f1a2bf
           to label %"_ZN4core3ptr194drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$salsa..id..Id$C$dashmap..util..SharedValue$LT$$LP$$RP$$GT$$RP$$GT$$GT$$GT$17h917f62fd00e34417E.exit" unwind label %628
 
 344:                                              ; preds = %334, %330
-  %.sroa.3.0.i.i166.ph = phi i64 [ %.sroa.4.1.i.i, %330 ], [ %340, %334 ]
+  %.sroa.3.0.i.i166.ph = phi i64 [ %340, %334 ], [ %.sroa.4.1.i.i, %330 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %65)
   invoke void @_ZN5salsa11zalsa_local10ZalsaLocal12active_query17h91279985bdbcfd77E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %65, ptr noundef nonnull align 8 %75)
           to label %485 unwind label %.loopexit.split-lp
@@ -56678,7 +56678,7 @@ _ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17h462316f1a2bf
   br label %.body
 
 .loopexit.split-lp:                               ; preds = %.invoke302, %.invoke300, %353, %354, %360, %368, %369, %378, %389, %488, %495, %509, %635, %540, %.noexc37.thread, %560, %.noexc41, %584, %614, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i, %402, %.noexc78.thread, %422, %.noexc82, %446, %476, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i50, %481, %619, %305, %373, %629
-  %.sroa.018.2.ph = phi i8 [ 1, %.noexc78.thread ], [ 1, %402 ], [ 1, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i50 ], [ 1, %481 ], [ 0, %619 ], [ 0, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i ], [ 0, %614 ], [ 0, %.invoke300 ], [ 0, %584 ], [ 0, %.noexc41 ], [ 0, %560 ], [ 1, %476 ], [ 1, %.invoke302 ], [ 0, %.noexc37.thread ], [ 0, %540 ], [ 1, %422 ], [ 1, %.noexc82 ], [ 1, %354 ], [ 1, %360 ], [ 1, %368 ], [ 1, %373 ], [ 1, %378 ], [ 1, %369 ], [ 1, %488 ], [ 1, %389 ], [ 1, %305 ], [ 0, %629 ], [ 1, %353 ], [ 0, %495 ], [ 0, %509 ], [ 1, %446 ], [ 0, %635 ]
+  %.sroa.018.2.ph = phi i8 [ 1, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i50 ], [ 1, %481 ], [ 0, %619 ], [ 0, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i ], [ 0, %614 ], [ 0, %.invoke300 ], [ 0, %584 ], [ 0, %.noexc41 ], [ 0, %560 ], [ 1, %476 ], [ 1, %.invoke302 ], [ 0, %.noexc37.thread ], [ 0, %540 ], [ 1, %422 ], [ 1, %.noexc82 ], [ 1, %402 ], [ 1, %354 ], [ 1, %360 ], [ 1, %368 ], [ 1, %373 ], [ 1, %378 ], [ 1, %369 ], [ 1, %.noexc78.thread ], [ 1, %488 ], [ 1, %389 ], [ 1, %305 ], [ 0, %629 ], [ 1, %353 ], [ 0, %495 ], [ 0, %509 ], [ 1, %446 ], [ 0, %635 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -56695,7 +56695,7 @@ _ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17h462316f1a2bf
           to label %"_ZN4core3ptr194drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$salsa..id..Id$C$dashmap..util..SharedValue$LT$$LP$$RP$$GT$$RP$$GT$$GT$$GT$17h917f62fd00e34417E.exit" unwind label %643
 
 353:                                              ; preds = %343, %339
-  %.sroa.3.0.i.i172.ph = phi i64 [ %.sroa.4.1.i.i, %339 ], [ %349, %343 ]
+  %.sroa.3.0.i.i172.ph = phi i64 [ %349, %343 ], [ %.sroa.4.1.i.i, %339 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %66)
   invoke void @_ZN5salsa11zalsa_local10ZalsaLocal12active_query17h91279985bdbcfd77E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %66, ptr noundef nonnull align 8 %81)
           to label %495 unwind label %.loopexit.split-lp
@@ -57522,8 +57522,8 @@ _ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exi
   unreachable
 
 "_ZN4core3ptr194drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$salsa..id..Id$C$dashmap..util..SharedValue$LT$$LP$$RP$$GT$$RP$$GT$$GT$$GT$17h917f62fd00e34417E.exit": ; preds = %.body, %352, %77
-  %.sroa.018.1 = phi i8 [ %.sroa.018.0, %77 ], [ %.sroa.018.2.lpad-body, %352 ], [ %.sroa.018.2.lpad-body, %.body ]
-  %.pn = phi { ptr, i32 } [ %78, %77 ], [ %eh.lpad-body, %352 ], [ %eh.lpad-body, %.body ]
+  %.sroa.018.1 = phi i8 [ %.sroa.018.0, %77 ], [ %.sroa.018.2.lpad-body, %.body ], [ %.sroa.018.2.lpad-body, %352 ]
+  %.pn = phi { ptr, i32 } [ %78, %77 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body, %352 ]
   %645 = trunc nuw i8 %.sroa.018.1 to i1
   br i1 %645, label %"_ZN4core3ptr194drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$salsa..id..Id$C$dashmap..util..SharedValue$LT$$LP$$RP$$GT$$RP$$GT$$GT$$GT$17h917f62fd00e34417E.exit.thread", label %646
 
@@ -58316,7 +58316,7 @@ _ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17h462316f1a2bf
   br label %.body
 
 .loopexit.split-lp:                               ; preds = %.invoke302, %.invoke300, %353, %354, %360, %368, %369, %378, %389, %488, %495, %509, %635, %540, %.noexc37.thread, %560, %.noexc41, %584, %614, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i, %402, %.noexc78.thread, %422, %.noexc82, %446, %476, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i50, %481, %619, %305, %373, %629
-  %.sroa.018.2.ph = phi i8 [ 1, %.noexc78.thread ], [ 1, %402 ], [ 1, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i50 ], [ 1, %481 ], [ 0, %619 ], [ 0, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i ], [ 0, %614 ], [ 0, %.invoke300 ], [ 0, %584 ], [ 0, %.noexc41 ], [ 0, %560 ], [ 1, %476 ], [ 1, %.invoke302 ], [ 0, %.noexc37.thread ], [ 0, %540 ], [ 1, %422 ], [ 1, %.noexc82 ], [ 1, %354 ], [ 1, %360 ], [ 1, %368 ], [ 1, %373 ], [ 1, %378 ], [ 1, %369 ], [ 1, %488 ], [ 1, %389 ], [ 1, %305 ], [ 0, %629 ], [ 1, %353 ], [ 0, %495 ], [ 0, %509 ], [ 1, %446 ], [ 0, %635 ]
+  %.sroa.018.2.ph = phi i8 [ 1, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i50 ], [ 1, %481 ], [ 0, %619 ], [ 0, %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exit.i ], [ 0, %614 ], [ 0, %.invoke300 ], [ 0, %584 ], [ 0, %.noexc41 ], [ 0, %560 ], [ 1, %476 ], [ 1, %.invoke302 ], [ 0, %.noexc37.thread ], [ 0, %540 ], [ 1, %422 ], [ 1, %.noexc82 ], [ 1, %402 ], [ 1, %354 ], [ 1, %360 ], [ 1, %368 ], [ 1, %373 ], [ 1, %378 ], [ 1, %369 ], [ 1, %.noexc78.thread ], [ 1, %488 ], [ 1, %389 ], [ 1, %305 ], [ 0, %629 ], [ 1, %353 ], [ 0, %495 ], [ 0, %509 ], [ 1, %446 ], [ 0, %635 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -58333,7 +58333,7 @@ _ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17h462316f1a2bf
           to label %"_ZN4core3ptr194drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$salsa..id..Id$C$dashmap..util..SharedValue$LT$$LP$$RP$$GT$$RP$$GT$$GT$$GT$17h917f62fd00e34417E.exit" unwind label %643
 
 353:                                              ; preds = %343, %339
-  %.sroa.3.0.i.i172.ph = phi i64 [ %.sroa.4.1.i.i, %339 ], [ %349, %343 ]
+  %.sroa.3.0.i.i172.ph = phi i64 [ %349, %343 ], [ %.sroa.4.1.i.i, %339 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %66)
   invoke void @_ZN5salsa11zalsa_local10ZalsaLocal12active_query17h91279985bdbcfd77E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %66, ptr noundef nonnull align 8 %81)
           to label %495 unwind label %.loopexit.split-lp
@@ -59160,8 +59160,8 @@ _ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exi
   unreachable
 
 "_ZN4core3ptr194drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$salsa..id..Id$C$dashmap..util..SharedValue$LT$$LP$$RP$$GT$$RP$$GT$$GT$$GT$17h917f62fd00e34417E.exit": ; preds = %.body, %352, %77
-  %.sroa.018.1 = phi i8 [ %.sroa.018.0, %77 ], [ %.sroa.018.2.lpad-body, %352 ], [ %.sroa.018.2.lpad-body, %.body ]
-  %.pn = phi { ptr, i32 } [ %78, %77 ], [ %eh.lpad-body, %352 ], [ %eh.lpad-body, %.body ]
+  %.sroa.018.1 = phi i8 [ %.sroa.018.0, %77 ], [ %.sroa.018.2.lpad-body, %.body ], [ %.sroa.018.2.lpad-body, %352 ]
+  %.pn = phi { ptr, i32 } [ %78, %77 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body, %352 ]
   %645 = trunc nuw i8 %.sroa.018.1 to i1
   br i1 %645, label %"_ZN4core3ptr194drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$salsa..id..Id$C$dashmap..util..SharedValue$LT$$LP$$RP$$GT$$RP$$GT$$GT$$GT$17h917f62fd00e34417E.exit.thread", label %646
 
@@ -60344,7 +60344,7 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
   br i1 %8, label %_ZN4core3cmp9PartialEq2ne17hb56fabed2423d5d0E.exit, label %9
 
 _ZN4core3cmp9PartialEq2ne17hb56fabed2423d5d0E.exit.thread: ; preds = %_ZN4core3cmp9PartialEq2ne17hb56fabed2423d5d0E.exit, %17, %43, %9, %33, %27, %49, %_ZN4core3cmp9PartialEq2ne17h3fdedd2fd7fb376eE.exit.i.i.i.i.i.i, %63, %54, %.preheader, %4
-  %.sroa.0.0 = phi i1 [ false, %4 ], [ true, %.preheader ], [ false, %_ZN4core3cmp9PartialEq2ne17h3fdedd2fd7fb376eE.exit.i.i.i.i.i.i ], [ false, %54 ], [ false, %63 ], [ false, %27 ], [ false, %33 ], [ false, %9 ], [ false, %43 ], [ false, %17 ], [ true, %_ZN4core3cmp9PartialEq2ne17hb56fabed2423d5d0E.exit ], [ false, %49 ]
+  %.sroa.0.0 = phi i1 [ false, %4 ], [ false, %_ZN4core3cmp9PartialEq2ne17h3fdedd2fd7fb376eE.exit.i.i.i.i.i.i ], [ true, %.preheader ], [ false, %54 ], [ false, %63 ], [ false, %33 ], [ false, %9 ], [ false, %43 ], [ false, %17 ], [ false, %27 ], [ true, %_ZN4core3cmp9PartialEq2ne17hb56fabed2423d5d0E.exit ], [ false, %49 ]
   ret i1 %.sroa.0.0
 
 9:                                                ; preds = %.lr.ph
@@ -62346,7 +62346,7 @@ define internal fastcc noundef zeroext i1 @"_ZN76_$LT$ruff_python_ast..generated
   br i1 %58, label %.preheader.split.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5889c66ab1a6ed2aE.exit.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5889c66ab1a6ed2aE.exit.thread": ; preds = %41, %54, %.preheader.split.i, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5889c66ab1a6ed2aE.exit", %32, %8, %20, %26, %2, %14
-  %.sroa.0.0 = phi i1 [ false, %8 ], [ false, %14 ], [ false, %2 ], [ false, %26 ], [ false, %20 ], [ false, %32 ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5889c66ab1a6ed2aE.exit" ], [ %exitcond.not.i, %54 ], [ %exitcond.not.i, %.preheader.split.i ], [ false, %41 ]
+  %.sroa.0.0 = phi i1 [ %exitcond.not.i, %54 ], [ false, %8 ], [ false, %14 ], [ false, %2 ], [ false, %26 ], [ false, %20 ], [ false, %32 ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5889c66ab1a6ed2aE.exit" ], [ %exitcond.not.i, %.preheader.split.i ], [ false, %41 ]
   ret i1 %.sroa.0.0
 }
 
@@ -62585,7 +62585,7 @@ define internal fastcc noundef zeroext i1 @"_ZN76_$LT$ruff_python_ast..generated
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5889c66ab1a6ed2aE.exit.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5889c66ab1a6ed2aE.exit.thread": ; preds = %23, %86, %58, %44, %57, %68, %.lr.ph, %56, %64, %72, %76, %80, %95, %108, %121, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5889c66ab1a6ed2aE.exit7", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h0dfe03d88f0e25c4E.exit", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5889c66ab1a6ed2aE.exit", %14, %8, %2, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5889c66ab1a6ed2aE.exit11"
-  %.sroa.0.0 = phi i1 [ %130, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5889c66ab1a6ed2aE.exit11" ], [ false, %8 ], [ false, %2 ], [ false, %14 ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5889c66ab1a6ed2aE.exit" ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h0dfe03d88f0e25c4E.exit" ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5889c66ab1a6ed2aE.exit7" ], [ false, %86 ], [ false, %121 ], [ false, %108 ], [ false, %95 ], [ false, %80 ], [ false, %76 ], [ false, %72 ], [ false, %64 ], [ false, %56 ], [ false, %.lr.ph ], [ false, %68 ], [ false, %57 ], [ false, %44 ], [ false, %58 ], [ false, %23 ]
+  %.sroa.0.0 = phi i1 [ %130, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5889c66ab1a6ed2aE.exit11" ], [ false, %86 ], [ false, %121 ], [ false, %95 ], [ false, %8 ], [ false, %2 ], [ false, %14 ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5889c66ab1a6ed2aE.exit" ], [ false, %108 ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5889c66ab1a6ed2aE.exit7" ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h0dfe03d88f0e25c4E.exit" ], [ false, %80 ], [ false, %76 ], [ false, %72 ], [ false, %64 ], [ false, %56 ], [ false, %.lr.ph ], [ false, %68 ], [ false, %57 ], [ false, %44 ], [ false, %58 ], [ false, %23 ]
   ret i1 %.sroa.0.0
 }
 

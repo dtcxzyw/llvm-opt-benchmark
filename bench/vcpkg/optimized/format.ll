@@ -3130,7 +3130,7 @@ define noundef zeroext i1 @_ZN3fmt3v116detail12is_printableEj(i32 noundef %0) lo
   br label %_ZN3fmt3v116detail12is_printableEtPKNS1_9singletonEmPKhS6_m.exit
 
 _ZN3fmt3v116detail12is_printableEtPKNS1_9singletonEmPKhS6_m.exit: ; preds = %.lr.ph.i63, %76, %72, %.lr.ph.i, %36, %32, %80
-  %.0 = phi i1 [ %spec.select, %80 ], [ %.04575.i57, %72 ], [ %37, %36 ], [ false, %.lr.ph.i ], [ %.04575.i, %32 ], [ %77, %76 ], [ false, %.lr.ph.i63 ]
+  %.0 = phi i1 [ %spec.select, %80 ], [ false, %.lr.ph.i ], [ %.04575.i57, %72 ], [ %37, %36 ], [ %.04575.i, %32 ], [ %77, %76 ], [ false, %.lr.ph.i63 ]
   ret i1 %.0
 }
 
@@ -6914,7 +6914,7 @@ _ZN3fmt3v116detail12write_paddedIcLNS0_5align4typeE2ENS0_14basic_appenderIcEEZNS
   br label %_ZN3fmt3v116detail9write_intIcNS0_14basic_appenderIcEEjEET0_S5_NS1_13write_int_argIT1_EERKNS0_12format_specsENS1_10locale_refE.exit
 
 _ZN3fmt3v116detail9write_intIcNS0_14basic_appenderIcEEjEET0_S5_NS1_13write_int_argIT1_EERKNS0_12format_specsENS1_10locale_refE.exit: ; preds = %288, %167, %409, %_ZN3fmt3v116detail12write_paddedIcLNS0_5align4typeE2ENS0_14basic_appenderIcEEZNS1_9write_intIcS6_ZNS1_9write_intIcS6_jEET0_S9_NS1_13write_int_argIT1_EERKNS0_12format_specsENS1_10locale_refEEUlS6_E0_EES9_S9_ijSF_SB_EUlS6_E_EESB_SB_SF_mOT2_.exit, %_ZN3fmt3v116detail11format_uintILj4EcjEEPT0_S4_T1_ib.exit19.i.i, %_ZN3fmt3v116detail12write_paddedIcLNS0_5align4typeE2ENS0_14basic_appenderIcEEZNS1_9write_intIcS6_ZNS1_9write_intIcS6_jEET0_S9_NS1_13write_int_argIT1_EERKNS0_12format_specsENS1_10locale_refEEUlS6_E2_EES9_S9_ijSF_SB_EUlS6_E_EESB_SB_SF_mOT2_.exit, %_ZN3fmt3v116detail11format_uintILj1EcjEEPT0_S4_T1_ib.exit18.i.i, %_ZN3fmt3v116detail12write_paddedIcLNS0_5align4typeE2ENS0_14basic_appenderIcEEZNS1_9write_intIcS6_ZNS1_9write_intIcS6_jEET0_S9_NS1_13write_int_argIT1_EERKNS0_12format_specsENS1_10locale_refEEUlS6_E1_EES9_S9_ijSF_SB_EUlS6_E_EESB_SB_SF_mOT2_.exit, %_ZN3fmt3v116detail11format_uintILj3EcjEEPT0_S4_T1_ib.exit18.i.i, %_ZN3fmt3v116detail14write_int_dataIcEC2EijRKNS0_12format_specsE.exit, %_ZZN3fmt3v116detail9write_intIcNS0_14basic_appenderIcEEjEET0_S5_NS1_13write_int_argIT1_EERKNS0_12format_specsENS1_10locale_refEENKUlS4_E_clES4_.exit, %470
-  %.sroa.045.0.i = phi ptr [ %473, %470 ], [ %103, %_ZN3fmt3v116detail14write_int_dataIcEC2EijRKNS0_12format_specsE.exit ], [ %83, %_ZZN3fmt3v116detail9write_intIcNS0_14basic_appenderIcEEjEET0_S5_NS1_13write_int_argIT1_EERKNS0_12format_specsENS1_10locale_refEENKUlS4_E_clES4_.exit ], [ %.sroa.09.1.i.i52, %_ZN3fmt3v116detail12write_paddedIcLNS0_5align4typeE2ENS0_14basic_appenderIcEEZNS1_9write_intIcS6_ZNS1_9write_intIcS6_jEET0_S9_NS1_13write_int_argIT1_EERKNS0_12format_specsENS1_10locale_refEEUlS6_E1_EES9_S9_ijSF_SB_EUlS6_E_EESB_SB_SF_mOT2_.exit ], [ %301, %_ZN3fmt3v116detail11format_uintILj3EcjEEPT0_S4_T1_ib.exit18.i.i ], [ %.sroa.09.1.i.i77, %_ZN3fmt3v116detail12write_paddedIcLNS0_5align4typeE2ENS0_14basic_appenderIcEEZNS1_9write_intIcS6_ZNS1_9write_intIcS6_jEET0_S9_NS1_13write_int_argIT1_EERKNS0_12format_specsENS1_10locale_refEEUlS6_E2_EES9_S9_ijSF_SB_EUlS6_E_EESB_SB_SF_mOT2_.exit ], [ %422, %_ZN3fmt3v116detail11format_uintILj1EcjEEPT0_S4_T1_ib.exit18.i.i ], [ %.sroa.09.1.i.i, %_ZN3fmt3v116detail12write_paddedIcLNS0_5align4typeE2ENS0_14basic_appenderIcEEZNS1_9write_intIcS6_ZNS1_9write_intIcS6_jEET0_S9_NS1_13write_int_argIT1_EERKNS0_12format_specsENS1_10locale_refEEUlS6_E0_EES9_S9_ijSF_SB_EUlS6_E_EESB_SB_SF_mOT2_.exit ], [ %182, %_ZN3fmt3v116detail11format_uintILj4EcjEEPT0_S4_T1_ib.exit19.i.i ], [ %0, %167 ], [ %0, %409 ], [ %0, %288 ]
+  %.sroa.045.0.i = phi ptr [ %473, %470 ], [ %0, %409 ], [ %103, %_ZN3fmt3v116detail14write_int_dataIcEC2EijRKNS0_12format_specsE.exit ], [ %0, %167 ], [ %83, %_ZZN3fmt3v116detail9write_intIcNS0_14basic_appenderIcEEjEET0_S5_NS1_13write_int_argIT1_EERKNS0_12format_specsENS1_10locale_refEENKUlS4_E_clES4_.exit ], [ %.sroa.09.1.i.i52, %_ZN3fmt3v116detail12write_paddedIcLNS0_5align4typeE2ENS0_14basic_appenderIcEEZNS1_9write_intIcS6_ZNS1_9write_intIcS6_jEET0_S9_NS1_13write_int_argIT1_EERKNS0_12format_specsENS1_10locale_refEEUlS6_E1_EES9_S9_ijSF_SB_EUlS6_E_EESB_SB_SF_mOT2_.exit ], [ %301, %_ZN3fmt3v116detail11format_uintILj3EcjEEPT0_S4_T1_ib.exit18.i.i ], [ %.sroa.09.1.i.i77, %_ZN3fmt3v116detail12write_paddedIcLNS0_5align4typeE2ENS0_14basic_appenderIcEEZNS1_9write_intIcS6_ZNS1_9write_intIcS6_jEET0_S9_NS1_13write_int_argIT1_EERKNS0_12format_specsENS1_10locale_refEEUlS6_E2_EES9_S9_ijSF_SB_EUlS6_E_EESB_SB_SF_mOT2_.exit ], [ %422, %_ZN3fmt3v116detail11format_uintILj1EcjEEPT0_S4_T1_ib.exit18.i.i ], [ %.sroa.09.1.i.i, %_ZN3fmt3v116detail12write_paddedIcLNS0_5align4typeE2ENS0_14basic_appenderIcEEZNS1_9write_intIcS6_ZNS1_9write_intIcS6_jEET0_S9_NS1_13write_int_argIT1_EERKNS0_12format_specsENS1_10locale_refEEUlS6_E0_EES9_S9_ijSF_SB_EUlS6_E_EESB_SB_SF_mOT2_.exit ], [ %182, %_ZN3fmt3v116detail11format_uintILj4EcjEEPT0_S4_T1_ib.exit19.i.i ], [ %0, %288 ]
   ret ptr %.sroa.045.0.i
 }
 
@@ -15476,7 +15476,7 @@ _ZN3fmt3v116detail16adjust_precisionERii.exit:    ; preds = %321
   br label %_ZN3fmt3v116detail7compareERKNS1_6bigintES4_.exit
 
 _ZN3fmt3v116detail7compareERKNS1_6bigintES4_.exit: ; preds = %.loopexit.i, %367, %366, %349
-  %.0.i235 = phi i32 [ %351, %349 ], [ %369, %367 ], [ 0, %366 ], [ %371, %.loopexit.i ]
+  %.0.i235 = phi i32 [ %351, %349 ], [ 0, %366 ], [ %369, %367 ], [ %371, %.loopexit.i ]
   %372 = icmp sge i32 %.0.i235, %187
   %373 = load i64, ptr %spec.store.select.sroa.sel421, align 8, !tbaa !324
   %374 = trunc i64 %373 to i32
@@ -15577,7 +15577,7 @@ _ZZN3fmt3v116detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i
   br label %_ZN3fmt3v116detail11add_compareERKNS1_6bigintES4_S4_.exit253
 
 _ZN3fmt3v116detail11add_compareERKNS1_6bigintES4_S4_.exit253: ; preds = %420, %.thread.loopexit.i252, %386, %_ZN3fmt3v116detail7compareERKNS1_6bigintES4_.exit
-  %.0.i237 = phi i32 [ -1, %_ZN3fmt3v116detail7compareERKNS1_6bigintES4_.exit ], [ 0, %386 ], [ %426, %.thread.loopexit.i252 ], [ -1, %420 ]
+  %.0.i237 = phi i32 [ %426, %.thread.loopexit.i252 ], [ -1, %_ZN3fmt3v116detail7compareERKNS1_6bigintES4_.exit ], [ 0, %386 ], [ -1, %420 ]
   %427 = icmp slt i32 %.0.i237, %186
   %428 = trunc i32 %339 to i8
   %429 = add i8 %428, 48
@@ -15694,24 +15694,24 @@ _ZZN3fmt3v116detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i
   br label %483
 
 483:                                              ; preds = %453, %.thread.loopexit.i270
-  %.0.i255.ph = phi i1 [ %482, %.thread.loopexit.i270 ], [ false, %453 ]
+  %.0.i255.ph = phi i1 [ false, %453 ], [ %482, %.thread.loopexit.i270 ]
   %484 = and i32 %339, 1
   %.not109 = icmp eq i32 %484, 0
   %or.cond = or i1 %.not109, %.0.i255.ph
   br i1 %or.cond, label %.thread, label %.thread.sink.split
 
 .thread.sink.split:                               ; preds = %_ZZN3fmt3v116detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i268, %483, %451, %431, %.thread660
-  %.sink712 = phi i8 [ %428, %431 ], [ %432, %.thread660 ], [ %440, %451 ], [ %440, %483 ], [ %440, %_ZZN3fmt3v116detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i268 ]
-  %indvars.iv.next552657666.ph = phi i64 [ %indvars.iv.next552, %431 ], [ %indvars.iv.next552654, %.thread660 ], [ %indvars.iv.next552657667672, %451 ], [ %indvars.iv.next552657667672, %483 ], [ %indvars.iv.next552657667672, %_ZZN3fmt3v116detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i268 ]
-  %or.cond.not659663.ph = phi i1 [ %427, %431 ], [ false, %.thread660 ], [ false, %451 ], [ false, %483 ], [ false, %_ZZN3fmt3v116detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i268 ]
+  %.sink712 = phi i8 [ %428, %431 ], [ %432, %.thread660 ], [ %440, %483 ], [ %440, %451 ], [ %440, %_ZZN3fmt3v116detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i268 ]
+  %indvars.iv.next552657666.ph = phi i64 [ %indvars.iv.next552, %431 ], [ %indvars.iv.next552654, %.thread660 ], [ %indvars.iv.next552657667672, %483 ], [ %indvars.iv.next552657667672, %451 ], [ %indvars.iv.next552657667672, %_ZZN3fmt3v116detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i268 ]
+  %or.cond.not659663.ph = phi i1 [ %427, %431 ], [ false, %.thread660 ], [ false, %483 ], [ false, %451 ], [ false, %_ZZN3fmt3v116detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i268 ]
   %485 = getelementptr i8, ptr %335, i64 %indvars.iv551
   %486 = add i8 %.sink712, 49
   store i8 %486, ptr %485, align 1, !tbaa !39
   br label %.thread
 
 .thread:                                          ; preds = %477, %.thread.sink.split, %.thread669, %439, %483
-  %indvars.iv.next552657666 = phi i64 [ %indvars.iv.next552657667672, %483 ], [ %indvars.iv.next552657667672, %.thread669 ], [ %indvars.iv.next552, %439 ], [ %indvars.iv.next552657666.ph, %.thread.sink.split ], [ %indvars.iv.next552657667672, %477 ]
-  %or.cond.not659663 = phi i1 [ false, %483 ], [ false, %.thread669 ], [ false, %439 ], [ %or.cond.not659663.ph, %.thread.sink.split ], [ false, %477 ]
+  %indvars.iv.next552657666 = phi i64 [ %indvars.iv.next552657667672, %483 ], [ %indvars.iv.next552657667672, %.thread669 ], [ %indvars.iv.next552657666.ph, %.thread.sink.split ], [ %indvars.iv.next552, %439 ], [ %indvars.iv.next552657667672, %477 ]
+  %or.cond.not659663 = phi i1 [ false, %483 ], [ false, %.thread669 ], [ %or.cond.not659663.ph, %.thread.sink.split ], [ false, %439 ], [ false, %477 ]
   %487 = load i64, ptr %336, align 8, !tbaa !21
   %.not652 = icmp ugt i64 %487, %indvars.iv551
   br i1 %.not652, label %490, label %488
@@ -16272,7 +16272,7 @@ _ZZN3fmt3v116detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i
   br label %727
 
 727:                                              ; preds = %697, %.thread.loopexit.i384
-  %.0.i369.ph = phi i1 [ %726, %.thread.loopexit.i384 ], [ false, %697 ]
+  %.0.i369.ph = phi i1 [ false, %697 ], [ %726, %.thread.loopexit.i384 ]
   %728 = and i32 %654, 1
   %.not105 = icmp eq i32 %728, 0
   %or.cond121 = or i1 %.not105, %.0.i369.ph
@@ -22063,7 +22063,7 @@ _ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail13width_checkerEE
   unreachable
 
 _ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail13width_checkerEEEDTclfp_Li0EEEOT_.exit: ; preds = %18, %12, %9, %16, %22
-  %.0.i = phi i64 [ %.sroa.011.0.extract.trunc.i, %18 ], [ %11, %9 ], [ %17, %16 ], [ %13, %12 ], [ %.sroa.05.0.extract.trunc.i, %22 ]
+  %.0.i = phi i64 [ %.sroa.05.0.extract.trunc.i, %22 ], [ %13, %12 ], [ %.sroa.011.0.extract.trunc.i, %18 ], [ %11, %9 ], [ %17, %16 ]
   %34 = icmp ugt i64 %.0.i, 2147483647
   br i1 %34, label %_ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail13width_checkerEEEDTclfp_Li0EEEOT_.exit.thread11, label %35
 
@@ -22285,7 +22285,7 @@ _ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail17precision_check
   unreachable
 
 _ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail17precision_checkerEEEDTclfp_Li0EEEOT_.exit: ; preds = %18, %12, %9, %16, %22
-  %.0.i = phi i64 [ %.sroa.011.0.extract.trunc.i, %18 ], [ %11, %9 ], [ %17, %16 ], [ %13, %12 ], [ %.sroa.05.0.extract.trunc.i, %22 ]
+  %.0.i = phi i64 [ %.sroa.05.0.extract.trunc.i, %22 ], [ %13, %12 ], [ %.sroa.011.0.extract.trunc.i, %18 ], [ %11, %9 ], [ %17, %16 ]
   %34 = icmp ugt i64 %.0.i, 2147483647
   br i1 %34, label %_ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail17precision_checkerEEEDTclfp_Li0EEEOT_.exit.thread11, label %35
 
@@ -23256,7 +23256,7 @@ _ZN3fmt3v116detail12write_paddedIcLNS0_5align4typeE2ENS0_14basic_appenderIcEEZNS
   br label %_ZN3fmt3v116detail9write_intIcNS0_14basic_appenderIcEEmEET0_S5_NS1_13write_int_argIT1_EERKNS0_12format_specsENS1_10locale_refE.exit
 
 _ZN3fmt3v116detail9write_intIcNS0_14basic_appenderIcEEmEET0_S5_NS1_13write_int_argIT1_EERKNS0_12format_specsENS1_10locale_refE.exit: ; preds = %282, %166, %404, %_ZN3fmt3v116detail12write_paddedIcLNS0_5align4typeE2ENS0_14basic_appenderIcEEZNS1_9write_intIcS6_ZNS1_9write_intIcS6_mEET0_S9_NS1_13write_int_argIT1_EERKNS0_12format_specsENS1_10locale_refEEUlS6_E0_EES9_S9_ijSF_SB_EUlS6_E_EESB_SB_SF_mOT2_.exit, %_ZN3fmt3v116detail11format_uintILj4EcmEEPT0_S4_T1_ib.exit19.i.i, %_ZN3fmt3v116detail12write_paddedIcLNS0_5align4typeE2ENS0_14basic_appenderIcEEZNS1_9write_intIcS6_ZNS1_9write_intIcS6_mEET0_S9_NS1_13write_int_argIT1_EERKNS0_12format_specsENS1_10locale_refEEUlS6_E2_EES9_S9_ijSF_SB_EUlS6_E_EESB_SB_SF_mOT2_.exit, %_ZN3fmt3v116detail11format_uintILj1EcmEEPT0_S4_T1_ib.exit18.i.i, %_ZN3fmt3v116detail12write_paddedIcLNS0_5align4typeE2ENS0_14basic_appenderIcEEZNS1_9write_intIcS6_ZNS1_9write_intIcS6_mEET0_S9_NS1_13write_int_argIT1_EERKNS0_12format_specsENS1_10locale_refEEUlS6_E1_EES9_S9_ijSF_SB_EUlS6_E_EESB_SB_SF_mOT2_.exit, %_ZN3fmt3v116detail11format_uintILj3EcmEEPT0_S4_T1_ib.exit18.i.i, %_ZN3fmt3v116detail14write_int_dataIcEC2EijRKNS0_12format_specsE.exit, %_ZZN3fmt3v116detail9write_intIcNS0_14basic_appenderIcEEmEET0_S5_NS1_13write_int_argIT1_EERKNS0_12format_specsENS1_10locale_refEENKUlS4_E_clES4_.exit, %465
-  %.sroa.045.0.i = phi ptr [ %468, %465 ], [ %103, %_ZN3fmt3v116detail14write_int_dataIcEC2EijRKNS0_12format_specsE.exit ], [ %83, %_ZZN3fmt3v116detail9write_intIcNS0_14basic_appenderIcEEmEET0_S5_NS1_13write_int_argIT1_EERKNS0_12format_specsENS1_10locale_refEENKUlS4_E_clES4_.exit ], [ %.sroa.09.1.i.i57, %_ZN3fmt3v116detail12write_paddedIcLNS0_5align4typeE2ENS0_14basic_appenderIcEEZNS1_9write_intIcS6_ZNS1_9write_intIcS6_mEET0_S9_NS1_13write_int_argIT1_EERKNS0_12format_specsENS1_10locale_refEEUlS6_E1_EES9_S9_ijSF_SB_EUlS6_E_EESB_SB_SF_mOT2_.exit ], [ %295, %_ZN3fmt3v116detail11format_uintILj3EcmEEPT0_S4_T1_ib.exit18.i.i ], [ %.sroa.09.1.i.i85, %_ZN3fmt3v116detail12write_paddedIcLNS0_5align4typeE2ENS0_14basic_appenderIcEEZNS1_9write_intIcS6_ZNS1_9write_intIcS6_mEET0_S9_NS1_13write_int_argIT1_EERKNS0_12format_specsENS1_10locale_refEEUlS6_E2_EES9_S9_ijSF_SB_EUlS6_E_EESB_SB_SF_mOT2_.exit ], [ %417, %_ZN3fmt3v116detail11format_uintILj1EcmEEPT0_S4_T1_ib.exit18.i.i ], [ %.sroa.09.1.i.i, %_ZN3fmt3v116detail12write_paddedIcLNS0_5align4typeE2ENS0_14basic_appenderIcEEZNS1_9write_intIcS6_ZNS1_9write_intIcS6_mEET0_S9_NS1_13write_int_argIT1_EERKNS0_12format_specsENS1_10locale_refEEUlS6_E0_EES9_S9_ijSF_SB_EUlS6_E_EESB_SB_SF_mOT2_.exit ], [ %179, %_ZN3fmt3v116detail11format_uintILj4EcmEEPT0_S4_T1_ib.exit19.i.i ], [ %0, %166 ], [ %0, %404 ], [ %0, %282 ]
+  %.sroa.045.0.i = phi ptr [ %468, %465 ], [ %0, %404 ], [ %103, %_ZN3fmt3v116detail14write_int_dataIcEC2EijRKNS0_12format_specsE.exit ], [ %0, %166 ], [ %83, %_ZZN3fmt3v116detail9write_intIcNS0_14basic_appenderIcEEmEET0_S5_NS1_13write_int_argIT1_EERKNS0_12format_specsENS1_10locale_refEENKUlS4_E_clES4_.exit ], [ %.sroa.09.1.i.i57, %_ZN3fmt3v116detail12write_paddedIcLNS0_5align4typeE2ENS0_14basic_appenderIcEEZNS1_9write_intIcS6_ZNS1_9write_intIcS6_mEET0_S9_NS1_13write_int_argIT1_EERKNS0_12format_specsENS1_10locale_refEEUlS6_E1_EES9_S9_ijSF_SB_EUlS6_E_EESB_SB_SF_mOT2_.exit ], [ %295, %_ZN3fmt3v116detail11format_uintILj3EcmEEPT0_S4_T1_ib.exit18.i.i ], [ %.sroa.09.1.i.i85, %_ZN3fmt3v116detail12write_paddedIcLNS0_5align4typeE2ENS0_14basic_appenderIcEEZNS1_9write_intIcS6_ZNS1_9write_intIcS6_mEET0_S9_NS1_13write_int_argIT1_EERKNS0_12format_specsENS1_10locale_refEEUlS6_E2_EES9_S9_ijSF_SB_EUlS6_E_EESB_SB_SF_mOT2_.exit ], [ %417, %_ZN3fmt3v116detail11format_uintILj1EcmEEPT0_S4_T1_ib.exit18.i.i ], [ %.sroa.09.1.i.i, %_ZN3fmt3v116detail12write_paddedIcLNS0_5align4typeE2ENS0_14basic_appenderIcEEZNS1_9write_intIcS6_ZNS1_9write_intIcS6_mEET0_S9_NS1_13write_int_argIT1_EERKNS0_12format_specsENS1_10locale_refEEUlS6_E0_EES9_S9_ijSF_SB_EUlS6_E_EESB_SB_SF_mOT2_.exit ], [ %179, %_ZN3fmt3v116detail11format_uintILj4EcmEEPT0_S4_T1_ib.exit19.i.i ], [ %0, %282 ]
   ret ptr %.sroa.045.0.i
 }
 
@@ -24902,7 +24902,7 @@ _ZN3fmt3v116detail12write_paddedIcLNS0_5align4typeE2ENS0_14basic_appenderIcEEZNS
   br label %_ZN3fmt3v116detail9write_intIcNS0_14basic_appenderIcEEoEET0_S5_NS1_13write_int_argIT1_EERKNS0_12format_specsENS1_10locale_refE.exit
 
 _ZN3fmt3v116detail9write_intIcNS0_14basic_appenderIcEEoEET0_S5_NS1_13write_int_argIT1_EERKNS0_12format_specsENS1_10locale_refE.exit: ; preds = %290, %172, %412, %_ZN3fmt3v116detail12write_paddedIcLNS0_5align4typeE2ENS0_14basic_appenderIcEEZNS1_9write_intIcS6_ZNS1_9write_intIcS6_oEET0_S9_NS1_13write_int_argIT1_EERKNS0_12format_specsENS1_10locale_refEEUlS6_E0_EES9_S9_ijSF_SB_EUlS6_E_EESB_SB_SF_mOT2_.exit, %_ZN3fmt3v116detail11format_uintILj4EcoEEPT0_S4_T1_ib.exit28.i.i, %_ZN3fmt3v116detail12write_paddedIcLNS0_5align4typeE2ENS0_14basic_appenderIcEEZNS1_9write_intIcS6_ZNS1_9write_intIcS6_oEET0_S9_NS1_13write_int_argIT1_EERKNS0_12format_specsENS1_10locale_refEEUlS6_E2_EES9_S9_ijSF_SB_EUlS6_E_EESB_SB_SF_mOT2_.exit, %_ZN3fmt3v116detail11format_uintILj1EcoEEPT0_S4_T1_ib.exit27.i.i, %_ZN3fmt3v116detail12write_paddedIcLNS0_5align4typeE2ENS0_14basic_appenderIcEEZNS1_9write_intIcS6_ZNS1_9write_intIcS6_oEET0_S9_NS1_13write_int_argIT1_EERKNS0_12format_specsENS1_10locale_refEEUlS6_E1_EES9_S9_ijSF_SB_EUlS6_E_EESB_SB_SF_mOT2_.exit, %_ZN3fmt3v116detail11format_uintILj3EcoEEPT0_S4_T1_ib.exit27.i.i, %_ZN3fmt3v116detail14write_int_dataIcEC2EijRKNS0_12format_specsE.exit, %_ZZN3fmt3v116detail9write_intIcNS0_14basic_appenderIcEEoEET0_S5_NS1_13write_int_argIT1_EERKNS0_12format_specsENS1_10locale_refEENKUlS4_E_clES4_.exit, %473
-  %.sroa.045.0.i = phi ptr [ %476, %473 ], [ %109, %_ZN3fmt3v116detail14write_int_dataIcEC2EijRKNS0_12format_specsE.exit ], [ %89, %_ZZN3fmt3v116detail9write_intIcNS0_14basic_appenderIcEEoEET0_S5_NS1_13write_int_argIT1_EERKNS0_12format_specsENS1_10locale_refEENKUlS4_E_clES4_.exit ], [ %.sroa.09.1.i.i62, %_ZN3fmt3v116detail12write_paddedIcLNS0_5align4typeE2ENS0_14basic_appenderIcEEZNS1_9write_intIcS6_ZNS1_9write_intIcS6_oEET0_S9_NS1_13write_int_argIT1_EERKNS0_12format_specsENS1_10locale_refEEUlS6_E1_EES9_S9_ijSF_SB_EUlS6_E_EESB_SB_SF_mOT2_.exit ], [ %303, %_ZN3fmt3v116detail11format_uintILj3EcoEEPT0_S4_T1_ib.exit27.i.i ], [ %.sroa.09.1.i.i94, %_ZN3fmt3v116detail12write_paddedIcLNS0_5align4typeE2ENS0_14basic_appenderIcEEZNS1_9write_intIcS6_ZNS1_9write_intIcS6_oEET0_S9_NS1_13write_int_argIT1_EERKNS0_12format_specsENS1_10locale_refEEUlS6_E2_EES9_S9_ijSF_SB_EUlS6_E_EESB_SB_SF_mOT2_.exit ], [ %425, %_ZN3fmt3v116detail11format_uintILj1EcoEEPT0_S4_T1_ib.exit27.i.i ], [ %.sroa.09.1.i.i, %_ZN3fmt3v116detail12write_paddedIcLNS0_5align4typeE2ENS0_14basic_appenderIcEEZNS1_9write_intIcS6_ZNS1_9write_intIcS6_oEET0_S9_NS1_13write_int_argIT1_EERKNS0_12format_specsENS1_10locale_refEEUlS6_E0_EES9_S9_ijSF_SB_EUlS6_E_EESB_SB_SF_mOT2_.exit ], [ %187, %_ZN3fmt3v116detail11format_uintILj4EcoEEPT0_S4_T1_ib.exit28.i.i ], [ %0, %172 ], [ %0, %412 ], [ %0, %290 ]
+  %.sroa.045.0.i = phi ptr [ %476, %473 ], [ %0, %412 ], [ %109, %_ZN3fmt3v116detail14write_int_dataIcEC2EijRKNS0_12format_specsE.exit ], [ %0, %172 ], [ %89, %_ZZN3fmt3v116detail9write_intIcNS0_14basic_appenderIcEEoEET0_S5_NS1_13write_int_argIT1_EERKNS0_12format_specsENS1_10locale_refEENKUlS4_E_clES4_.exit ], [ %.sroa.09.1.i.i62, %_ZN3fmt3v116detail12write_paddedIcLNS0_5align4typeE2ENS0_14basic_appenderIcEEZNS1_9write_intIcS6_ZNS1_9write_intIcS6_oEET0_S9_NS1_13write_int_argIT1_EERKNS0_12format_specsENS1_10locale_refEEUlS6_E1_EES9_S9_ijSF_SB_EUlS6_E_EESB_SB_SF_mOT2_.exit ], [ %303, %_ZN3fmt3v116detail11format_uintILj3EcoEEPT0_S4_T1_ib.exit27.i.i ], [ %.sroa.09.1.i.i94, %_ZN3fmt3v116detail12write_paddedIcLNS0_5align4typeE2ENS0_14basic_appenderIcEEZNS1_9write_intIcS6_ZNS1_9write_intIcS6_oEET0_S9_NS1_13write_int_argIT1_EERKNS0_12format_specsENS1_10locale_refEEUlS6_E2_EES9_S9_ijSF_SB_EUlS6_E_EESB_SB_SF_mOT2_.exit ], [ %425, %_ZN3fmt3v116detail11format_uintILj1EcoEEPT0_S4_T1_ib.exit27.i.i ], [ %.sroa.09.1.i.i, %_ZN3fmt3v116detail12write_paddedIcLNS0_5align4typeE2ENS0_14basic_appenderIcEEZNS1_9write_intIcS6_ZNS1_9write_intIcS6_oEET0_S9_NS1_13write_int_argIT1_EERKNS0_12format_specsENS1_10locale_refEEUlS6_E0_EES9_S9_ijSF_SB_EUlS6_E_EESB_SB_SF_mOT2_.exit ], [ %187, %_ZN3fmt3v116detail11format_uintILj4EcoEEPT0_S4_T1_ib.exit28.i.i ], [ %0, %290 ]
   ret ptr %.sroa.045.0.i
 }
 
@@ -26880,7 +26880,7 @@ _ZZN3fmt3v116detail12format_floatIdEEiT_iNS1_11float_specsERNS1_6bufferIcEEENKUl
   %295 = trunc nuw i32 %294 to i1
   br i1 %295, label %.critedge149, label %.critedge151
 
-.critedge149.thread:                              ; preds = %272, %284, %220, %216, %_ZZN3fmt3v116detail12format_floatIdEEiT_iNS1_11float_specsERNS1_6bufferIcEEENKUljPcE_clEjS8_.exit166.thread, %280
+.critedge149.thread:                              ; preds = %284, %272, %220, %216, %_ZZN3fmt3v116detail12format_floatIdEEiT_iNS1_11float_specsERNS1_6bufferIcEEENKUljPcE_clEjS8_.exit166.thread, %280
   %296 = load ptr, ptr %3, align 8, !tbaa !20
   %297 = zext nneg i32 %.0211 to i64
   %298 = getelementptr i8, ptr %296, i64 %297
@@ -26950,8 +26950,8 @@ _ZZN3fmt3v116detail12format_floatIdEEiT_iNS1_11float_specsERNS1_6bufferIcEEENKUl
   store i32 %332, ptr %5, align 4, !tbaa !70
   br label %.critedge151
 
-.critedge151:                                     ; preds = %272, %284, %220, %218, %282, %.critedge, %331, %327, %288
-  %.1212 = phi i32 [ %328, %327 ], [ %.0211, %331 ], [ %.0211, %.critedge ], [ %.0211, %288 ], [ 9, %218 ], [ 18, %282 ], [ 9, %220 ], [ 18, %284 ], [ %.0211, %272 ]
+.critedge151:                                     ; preds = %284, %272, %220, %282, %218, %.critedge, %331, %327, %288
+  %.1212 = phi i32 [ %328, %327 ], [ %.0211, %331 ], [ %.0211, %.critedge ], [ %.0211, %288 ], [ 9, %218 ], [ 18, %282 ], [ 9, %220 ], [ %.0211, %272 ], [ 18, %284 ]
   %333 = zext nneg i32 %.1212 to i64
   %334 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %335 = load i64, ptr %334, align 8, !tbaa !21
@@ -30673,7 +30673,7 @@ _ZN3fmt3v116detail10write_charIcNS0_14basic_appenderIcEEEET0_S5_T_RKNS0_12format
   br label %164
 
 .loopexit:                                        ; preds = %98, %72, %123, %_ZN3fmt3v116detail14format_decimalIcmNS0_14basic_appenderIcEETnNSt9enable_ifIXntsr3std10is_pointerINSt9remove_cvINSt16remove_referenceIT1_E4typeEE4typeEEE5valueEiE4typeELi0EEENS1_21format_decimal_resultIS8_EES8_T0_i.exit
-  %.0 = phi i32 [ %28, %_ZN3fmt3v116detail14format_decimalIcmNS0_14basic_appenderIcEETnNSt9enable_ifIXntsr3std10is_pointerINSt9remove_cvINSt16remove_referenceIT1_E4typeEE4typeEEE5valueEiE4typeELi0EEENS1_21format_decimal_resultIS8_EES8_T0_i.exit ], [ %64, %72 ], [ %116, %123 ], [ %78, %98 ]
+  %.0 = phi i32 [ %64, %72 ], [ %28, %_ZN3fmt3v116detail14format_decimalIcmNS0_14basic_appenderIcEETnNSt9enable_ifIXntsr3std10is_pointerINSt9remove_cvINSt16remove_referenceIT1_E4typeEE4typeEEE5valueEiE4typeELi0EEENS1_21format_decimal_resultIS8_EES8_T0_i.exit ], [ %116, %123 ], [ %78, %98 ]
   %133 = load i32, ptr %8, align 4, !tbaa !70
   %134 = lshr i32 %133, 24
   %135 = add i32 %134, %.0
@@ -31229,7 +31229,7 @@ _ZN3fmt3v116detail10write_charIcNS0_14basic_appenderIcEEEET0_S5_T_RKNS0_12format
   br label %175
 
 .loopexit:                                        ; preds = %109, %82, %134, %_ZN3fmt3v116detail14format_decimalIcoNS0_14basic_appenderIcEETnNSt9enable_ifIXntsr3std10is_pointerINSt9remove_cvINSt16remove_referenceIT1_E4typeEE4typeEEE5valueEiE4typeELi0EEENS1_21format_decimal_resultIS8_EES8_T0_i.exit
-  %.0 = phi i32 [ %.012.i.i142146, %_ZN3fmt3v116detail14format_decimalIcoNS0_14basic_appenderIcEETnNSt9enable_ifIXntsr3std10is_pointerINSt9remove_cvINSt16remove_referenceIT1_E4typeEE4typeEEE5valueEiE4typeELi0EEENS1_21format_decimal_resultIS8_EES8_T0_i.exit ], [ %74, %82 ], [ %127, %134 ], [ %89, %109 ]
+  %.0 = phi i32 [ %74, %82 ], [ %.012.i.i142146, %_ZN3fmt3v116detail14format_decimalIcoNS0_14basic_appenderIcEETnNSt9enable_ifIXntsr3std10is_pointerINSt9remove_cvINSt16remove_referenceIT1_E4typeEE4typeEEE5valueEiE4typeELi0EEENS1_21format_decimal_resultIS8_EES8_T0_i.exit ], [ %127, %134 ], [ %89, %109 ]
   %144 = load i32, ptr %9, align 4, !tbaa !70
   %145 = lshr i32 %144, 24
   %146 = add i32 %145, %.0

@@ -931,25 +931,25 @@ _ZL9bocu1Previ.exit.thread:                       ; preds = %162, %164, %166, %1
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %_ZL20decodeBocu1TrailByteii.exit255, %.loopexit.sink.split.sink.split, %157, %.outer.split
-  %.sink = phi i32 [ 15, %.outer.split ], [ 12, %157 ], [ %.sink.ph, %.loopexit.sink.split.sink.split ], [ 12, %_ZL20decodeBocu1TrailByteii.exit255 ]
-  %.7222.ph = phi ptr [ %.4219.ph263.lcssa378, %.outer.split ], [ %.0215, %157 ], [ %.7222.ph.ph, %.loopexit.sink.split.sink.split ], [ %.0215, %_ZL20decodeBocu1TrailByteii.exit255 ]
-  %.7214.ph = phi ptr [ %.4211.ph264.lcssa373, %.outer.split ], [ %.0207, %157 ], [ %.7214.ph.ph, %.loopexit.sink.split.sink.split ], [ %.0207, %_ZL20decodeBocu1TrailByteii.exit255 ]
-  %.7206.ph = phi i32 [ %.5204.ph265.lcssa, %.outer.split ], [ %.0199, %157 ], [ %.7206.ph.ph, %.loopexit.sink.split.sink.split ], [ %.0199, %_ZL20decodeBocu1TrailByteii.exit255 ]
-  %.7198.ph = phi i32 [ %.3194.ph, %.outer.split ], [ 0, %157 ], [ %.7198.ph.ph, %.loopexit.sink.split.sink.split ], [ %.6197, %_ZL20decodeBocu1TrailByteii.exit255 ]
-  %.6190.ph = phi i32 [ %.1185.ph, %.outer.split ], [ %154, %157 ], [ %.6190.ph.ph, %.loopexit.sink.split.sink.split ], [ %.5189, %_ZL20decodeBocu1TrailByteii.exit255 ]
-  %.6181.ph = phi i8 [ %.2177.ph, %.outer.split ], [ 0, %157 ], [ %.6181.ph.ph, %.loopexit.sink.split.sink.split ], [ %135, %_ZL20decodeBocu1TrailByteii.exit255 ]
-  %.7174.ph = phi ptr [ %.3170.ph269.lcssa, %.outer.split ], [ %133, %157 ], [ %.7174.ph.ph, %.loopexit.sink.split.sink.split ], [ %133, %_ZL20decodeBocu1TrailByteii.exit255 ]
+  %.sink = phi i32 [ 15, %.outer.split ], [ %.sink.ph, %.loopexit.sink.split.sink.split ], [ 12, %157 ], [ 12, %_ZL20decodeBocu1TrailByteii.exit255 ]
+  %.7222.ph = phi ptr [ %.4219.ph263.lcssa378, %.outer.split ], [ %.7222.ph.ph, %.loopexit.sink.split.sink.split ], [ %.0215, %157 ], [ %.0215, %_ZL20decodeBocu1TrailByteii.exit255 ]
+  %.7214.ph = phi ptr [ %.4211.ph264.lcssa373, %.outer.split ], [ %.7214.ph.ph, %.loopexit.sink.split.sink.split ], [ %.0207, %157 ], [ %.0207, %_ZL20decodeBocu1TrailByteii.exit255 ]
+  %.7206.ph = phi i32 [ %.5204.ph265.lcssa, %.outer.split ], [ %.7206.ph.ph, %.loopexit.sink.split.sink.split ], [ %.0199, %157 ], [ %.0199, %_ZL20decodeBocu1TrailByteii.exit255 ]
+  %.7198.ph = phi i32 [ %.3194.ph, %.outer.split ], [ %.7198.ph.ph, %.loopexit.sink.split.sink.split ], [ 0, %157 ], [ %.6197, %_ZL20decodeBocu1TrailByteii.exit255 ]
+  %.6190.ph = phi i32 [ %.1185.ph, %.outer.split ], [ %.6190.ph.ph, %.loopexit.sink.split.sink.split ], [ %154, %157 ], [ %.5189, %_ZL20decodeBocu1TrailByteii.exit255 ]
+  %.6181.ph = phi i8 [ %.2177.ph, %.outer.split ], [ %.6181.ph.ph, %.loopexit.sink.split.sink.split ], [ 0, %157 ], [ %135, %_ZL20decodeBocu1TrailByteii.exit255 ]
+  %.7174.ph = phi ptr [ %.3170.ph269.lcssa, %.outer.split ], [ %.7174.ph.ph, %.loopexit.sink.split.sink.split ], [ %133, %157 ], [ %133, %_ZL20decodeBocu1TrailByteii.exit255 ]
   store i32 %.sink, ptr %1, align 4, !tbaa !32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %131, %58, %.loopexit.sink.split, %.outer.split
-  %.7222 = phi ptr [ %.4219.ph263.lcssa378, %.outer.split ], [ %.7222.ph, %.loopexit.sink.split ], [ %.4219.ph263385, %58 ], [ %.0215, %131 ]
-  %.7214 = phi ptr [ %.4211.ph264.lcssa373, %.outer.split ], [ %.7214.ph, %.loopexit.sink.split ], [ %.4211.ph264386, %58 ], [ %.0207, %131 ]
-  %.7206 = phi i32 [ %.5204.ph265.lcssa, %.outer.split ], [ %.7206.ph, %.loopexit.sink.split ], [ %.5204.us, %58 ], [ %.0199, %131 ]
-  %.7198 = phi i32 [ %.3194.ph, %.outer.split ], [ %.7198.ph, %.loopexit.sink.split ], [ %.3194.ph, %58 ], [ %.6197, %131 ]
-  %.6190 = phi i32 [ %.1185.ph, %.outer.split ], [ %.6190.ph, %.loopexit.sink.split ], [ %.1185.ph, %58 ], [ %.5189, %131 ]
-  %.6181 = phi i8 [ %.2177.ph, %.outer.split ], [ %.6181.ph, %.loopexit.sink.split ], [ %.2177.ph, %58 ], [ %.5180, %131 ]
-  %.7174 = phi ptr [ %.3170.ph269.lcssa, %.outer.split ], [ %.7174.ph, %.loopexit.sink.split ], [ %.3170.us, %58 ], [ %.6173, %131 ]
+  %.7222 = phi ptr [ %.4219.ph263.lcssa378, %.outer.split ], [ %.4219.ph263385, %58 ], [ %.7222.ph, %.loopexit.sink.split ], [ %.0215, %131 ]
+  %.7214 = phi ptr [ %.4211.ph264.lcssa373, %.outer.split ], [ %.4211.ph264386, %58 ], [ %.7214.ph, %.loopexit.sink.split ], [ %.0207, %131 ]
+  %.7206 = phi i32 [ %.5204.ph265.lcssa, %.outer.split ], [ %.5204.us, %58 ], [ %.7206.ph, %.loopexit.sink.split ], [ %.0199, %131 ]
+  %.7198 = phi i32 [ %.3194.ph, %.outer.split ], [ %.3194.ph, %58 ], [ %.7198.ph, %.loopexit.sink.split ], [ %.6197, %131 ]
+  %.6190 = phi i32 [ %.1185.ph, %.outer.split ], [ %.1185.ph, %58 ], [ %.6190.ph, %.loopexit.sink.split ], [ %.5189, %131 ]
+  %.6181 = phi i8 [ %.2177.ph, %.outer.split ], [ %.2177.ph, %58 ], [ %.6181.ph, %.loopexit.sink.split ], [ %.5180, %131 ]
+  %.7174 = phi ptr [ %.3170.ph269.lcssa, %.outer.split ], [ %.3170.us, %58 ], [ %.7174.ph, %.loopexit.sink.split ], [ %.6173, %131 ]
   %198 = load i32, ptr %1, align 4, !tbaa !32
   %199 = icmp eq i32 %198, 12
   %200 = shl i32 %.6190, 2
@@ -1375,10 +1375,10 @@ select.unfold:                                    ; preds = %115, %110
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %.preheader, %187, %.lr.ph246._crit_edge, %80
-  %.5179 = phi ptr [ %.4178241.lcssa, %.lr.ph246._crit_edge ], [ %.11, %187 ], [ %.0174, %80 ], [ %.4178.ph, %.preheader ], [ %64, %.loopexit.loopexit ]
-  %.6164 = phi i32 [ %.5163243.lcssa, %.lr.ph246._crit_edge ], [ %97, %187 ], [ %.0158, %80 ], [ %.5163.ph, %.preheader ], [ %spec.select200, %.loopexit.loopexit ]
-  %.5156 = phi i32 [ %.4155244.lcssa, %.lr.ph246._crit_edge ], [ %.6157, %187 ], [ %81, %80 ], [ %.4155.ph, %.preheader ], [ %189, %.loopexit.loopexit ]
-  %.4 = phi ptr [ %.3245.lcssa, %.lr.ph246._crit_edge ], [ %.5, %187 ], [ %.0147, %80 ], [ %.3.ph, %.preheader ], [ %59, %.loopexit.loopexit ]
+  %.5179 = phi ptr [ %.4178241.lcssa, %.lr.ph246._crit_edge ], [ %.0174, %80 ], [ %.11, %187 ], [ %.4178.ph, %.preheader ], [ %64, %.loopexit.loopexit ]
+  %.6164 = phi i32 [ %.5163243.lcssa, %.lr.ph246._crit_edge ], [ %.0158, %80 ], [ %97, %187 ], [ %.5163.ph, %.preheader ], [ %spec.select200, %.loopexit.loopexit ]
+  %.5156 = phi i32 [ %.4155244.lcssa, %.lr.ph246._crit_edge ], [ %81, %80 ], [ %.6157, %187 ], [ %.4155.ph, %.preheader ], [ %189, %.loopexit.loopexit ]
+  %.4 = phi ptr [ %.3245.lcssa, %.lr.ph246._crit_edge ], [ %.0147, %80 ], [ %.5, %187 ], [ %.3.ph, %.preheader ], [ %59, %.loopexit.loopexit ]
   %190 = icmp slt i32 %.5156, 0
   %191 = sub nsw i32 0, %.5156
   %192 = select i1 %190, i32 %191, i32 0
@@ -1858,11 +1858,11 @@ select.unfold:                                    ; preds = %120, %115
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %.preheader, %202, %.lr.ph331._crit_edge, %84
-  %.5241 = phi ptr [ %.4240324.lcssa, %.lr.ph331._crit_edge ], [ %.12248, %202 ], [ %.0236, %84 ], [ %.4240.ph, %.preheader ], [ %66, %.loopexit.loopexit ]
-  %.5223 = phi ptr [ %.4222326.lcssa, %.lr.ph331._crit_edge ], [ %.12, %202 ], [ %.0218, %84 ], [ %.4222.ph, %.preheader ], [ %67, %.loopexit.loopexit ]
-  %.6216 = phi i32 [ %.5215327.lcssa, %.lr.ph331._crit_edge ], [ %101, %202 ], [ %.0210, %84 ], [ %.5215.ph, %.preheader ], [ %spec.select268, %.loopexit.loopexit ]
-  %.5207 = phi i32 [ %.4206328.lcssa, %.lr.ph331._crit_edge ], [ %.6208, %202 ], [ %85, %84 ], [ %.4206.ph, %.preheader ], [ %204, %.loopexit.loopexit ]
-  %.5 = phi ptr [ %.4330.lcssa, %.lr.ph331._crit_edge ], [ %.6, %202 ], [ %.0186, %84 ], [ %.4.ph, %.preheader ], [ %60, %.loopexit.loopexit ]
+  %.5241 = phi ptr [ %.4240324.lcssa, %.lr.ph331._crit_edge ], [ %.0236, %84 ], [ %.12248, %202 ], [ %.4240.ph, %.preheader ], [ %66, %.loopexit.loopexit ]
+  %.5223 = phi ptr [ %.4222326.lcssa, %.lr.ph331._crit_edge ], [ %.0218, %84 ], [ %.12, %202 ], [ %.4222.ph, %.preheader ], [ %67, %.loopexit.loopexit ]
+  %.6216 = phi i32 [ %.5215327.lcssa, %.lr.ph331._crit_edge ], [ %.0210, %84 ], [ %101, %202 ], [ %.5215.ph, %.preheader ], [ %spec.select268, %.loopexit.loopexit ]
+  %.5207 = phi i32 [ %.4206328.lcssa, %.lr.ph331._crit_edge ], [ %85, %84 ], [ %.6208, %202 ], [ %.4206.ph, %.preheader ], [ %204, %.loopexit.loopexit ]
+  %.5 = phi ptr [ %.4330.lcssa, %.lr.ph331._crit_edge ], [ %.0186, %84 ], [ %.6, %202 ], [ %.4.ph, %.preheader ], [ %60, %.loopexit.loopexit ]
   %205 = icmp slt i32 %.5207, 0
   %206 = sub nsw i32 0, %.5207
   %207 = select i1 %205, i32 %206, i32 0

@@ -256,7 +256,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit21.i: ; preds = %_ZS
   br i1 %.not27.old.i.i.i.i.i, label %_ZNK10model_core16get_const_interpEP9func_decl.exit.i, label %.lr.ph38.i.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.i.backedge:                      ; preds = %104, %101
-  %.137.i.i.i.i.i.be = phi ptr [ %.old.i.i.i.i.i, %104 ], [ %103, %101 ]
+  %.137.i.i.i.i.i.be = phi ptr [ %103, %101 ], [ %.old.i.i.i.i.i, %104 ]
   br label %.lr.ph38.i.i.i.i.i, !llvm.loop !48
 
 .loopexit.i.i:                                    ; preds = %85, %96
@@ -464,7 +464,7 @@ _ZlsRSo6symbol.exit.i:                            ; preds = %153, %151, %_ZStlsI
   br i1 %.not27.old.i.i.i.i.i23, label %_ZNK10model_core15get_func_interpEP9func_decl.exit.i, label %.lr.ph38.i.i.i.i.i19.backedge
 
 .lr.ph38.i.i.i.i.i19.backedge:                    ; preds = %191, %188
-  %.137.i.i.i.i.i20.be = phi ptr [ %.old.i.i.i.i.i22, %191 ], [ %190, %188 ]
+  %.137.i.i.i.i.i20.be = phi ptr [ %190, %188 ], [ %.old.i.i.i.i.i22, %191 ]
   br label %.lr.ph38.i.i.i.i.i19, !llvm.loop !66
 
 .loopexit.i.i34:                                  ; preds = %172, %183

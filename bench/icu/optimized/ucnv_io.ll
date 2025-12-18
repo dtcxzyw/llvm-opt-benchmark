@@ -96,7 +96,7 @@ define noundef ptr @ucnv_io_stripASCIIForCompare_77(ptr noundef returned writeon
   br i1 %.not28, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !6
 
 .outer._crit_edge:                                ; preds = %.critedge, %.backedge, %2
-  %.018.ph.lcssa = phi ptr [ %0, %2 ], [ %.018.ph32, %.backedge ], [ %25, %.critedge ]
+  %.018.ph.lcssa = phi ptr [ %.018.ph32, %.backedge ], [ %0, %2 ], [ %25, %.critedge ]
   store i8 0, ptr %.018.ph.lcssa, align 1, !tbaa !3
   ret ptr %0
 }
@@ -173,7 +173,7 @@ define noundef ptr @ucnv_io_stripEBCDICForCompare_77(ptr noundef returned writeo
   br i1 %.not29, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !8
 
 .outer._crit_edge:                                ; preds = %.critedge, %.backedge, %2
-  %.018.ph.lcssa = phi ptr [ %0, %2 ], [ %.018.ph33, %.backedge ], [ %27, %.critedge ]
+  %.018.ph.lcssa = phi ptr [ %.018.ph33, %.backedge ], [ %0, %2 ], [ %27, %.critedge ]
   store i8 0, ptr %.018.ph.lcssa, align 1, !tbaa !3
   ret ptr %0
 }
@@ -1430,7 +1430,7 @@ _ZL13isAliasInListPKcj.exit49.thread.i:           ; preds = %81, %68, %65
   %84 = sub i32 %83, %37
   br label %_ZL22findTaggedConverterNumPKcS0_P10UErrorCode.exit
 
-_ZL22findTaggedConverterNumPKcS0_P10UErrorCode.exit.thread: ; preds = %_ZL13isAliasInListPKcj.exit49.thread.i, %_ZL13isAliasInListPKcj.exit.thread.i, %32, %28, %59
+_ZL22findTaggedConverterNumPKcS0_P10UErrorCode.exit.thread: ; preds = %_ZL13isAliasInListPKcj.exit49.thread.i, %59, %28, %_ZL13isAliasInListPKcj.exit.thread.i, %32
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread
 

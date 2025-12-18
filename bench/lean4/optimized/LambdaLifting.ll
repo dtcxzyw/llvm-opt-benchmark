@@ -24978,8 +24978,8 @@ lean_dec.exit:                                    ; preds = %277, %276, %274, %l
   unreachable
 
 lean_dec.exit133:                                 ; preds = %lean_dec.exit134, %159, %161, %162, %lean_dec.exit126, %233
-  %.4107 = phi ptr [ %61, %lean_dec.exit126 ], [ %61, %233 ], [ %139, %162 ], [ %139, %161 ], [ %139, %159 ], [ %139, %lean_dec.exit134 ]
-  %.4102 = phi ptr [ %243, %lean_dec.exit126 ], [ %234, %233 ], [ %155, %162 ], [ %155, %161 ], [ %155, %159 ], [ %155, %lean_dec.exit134 ]
+  %.4107 = phi ptr [ %61, %233 ], [ %61, %lean_dec.exit126 ], [ %139, %162 ], [ %139, %161 ], [ %139, %159 ], [ %139, %lean_dec.exit134 ]
+  %.4102 = phi ptr [ %234, %233 ], [ %243, %lean_dec.exit126 ], [ %155, %162 ], [ %155, %161 ], [ %155, %159 ], [ %155, %lean_dec.exit134 ]
   %.497 = add i64 %.093234, 1
   %.not = icmp eq i64 %.497, %2
   br i1 %.not, label %._crit_edge, label %19

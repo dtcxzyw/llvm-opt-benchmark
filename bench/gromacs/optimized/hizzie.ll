@@ -322,8 +322,8 @@ _ZL10in_stringsPciPPKc.exit145.thread:            ; preds = %52, %_ZL10in_string
   br i1 %exitcond.not.i149, label %.loopexit.i, label %114, !llvm.loop !48
 
 .loopexit.i:                                      ; preds = %140, %104, %105, %.preheader.i
-  %indvars.iv.next27.pre-phi.i = phi i64 [ %73, %.preheader.i ], [ %109, %105 ], [ %73, %104 ], [ %109, %140 ]
-  %.3.i = phi i32 [ %.04911.i, %.preheader.i ], [ %.04911.i, %105 ], [ %.2.i, %104 ], [ %.5.i, %140 ]
+  %indvars.iv.next27.pre-phi.i = phi i64 [ %73, %104 ], [ %109, %105 ], [ %73, %.preheader.i ], [ %109, %140 ]
+  %.3.i = phi i32 [ %.2.i, %104 ], [ %.04911.i, %105 ], [ %.04911.i, %.preheader.i ], [ %.5.i, %140 ]
   %indvars.iv.next.i147 = add nuw nsw i64 %indvars.iv.i146, 1
   %141 = getelementptr inbounds nuw i32, ptr %65, i64 %indvars.iv.i146
   store i32 %.3.i, ptr %141, align 4, !tbaa !43

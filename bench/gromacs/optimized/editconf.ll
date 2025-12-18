@@ -1289,7 +1289,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit408: ; preds = %_Z
   br i1 %453, label %329, label %.loopexit565, !llvm.loop !82
 
 .loopexit565:                                     ; preds = %447, %271, %315, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i389
-  %.0307837 = phi ptr [ %280, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i389 ], [ %280, %315 ], [ null, %271 ], [ %280, %447 ]
+  %.0307837 = phi ptr [ null, %271 ], [ %280, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i389 ], [ %280, %315 ], [ %280, %447 ]
   %454 = icmp slt i32 %207, 1
   br i1 %454, label %._crit_edge.thread, label %.preheader564.lr.ph
 
@@ -5033,7 +5033,7 @@ define internal fastcc noundef float @_ZL9calc_geomiPKiPA3_fPfS3_S3_b(i32 nounde
   br i1 %exitcond142.not, label %.loopexit.us, label %45, !llvm.loop !150
 
 .loopexit.us:                                     ; preds = %45, %64, %.preheader88.us, %.preheader.us
-  %.4.us = phi float [ %.185101.us, %.preheader.us ], [ %.185101.us, %.preheader88.us ], [ %.sroa.speculated.us, %64 ], [ %.sroa.speculated81.us, %45 ]
+  %.4.us = phi float [ %.sroa.speculated.us, %64 ], [ %.185101.us, %.preheader.us ], [ %.185101.us, %.preheader88.us ], [ %.sroa.speculated81.us, %45 ]
   %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
   %exitcond154.not = icmp eq i64 %43, %wide.trip.count153
   br i1 %exitcond154.not, label %._crit_edge, label %.lr.ph104.split.us, !llvm.loop !151
@@ -5239,7 +5239,7 @@ define internal fastcc noundef float @_ZL9calc_geomiPKiPA3_fPfS3_S3_b(i32 nounde
   br i1 %exitcond122.not, label %._crit_edge, label %.lr.ph104.split.split, !llvm.loop !151
 
 ._crit_edge:                                      ; preds = %164, %115, %.loopexit.us, %.preheader90
-  %.185.lcssa = phi float [ 0.000000e+00, %.preheader90 ], [ 0.000000e+00, %115 ], [ %.4.us, %.loopexit.us ], [ 0.000000e+00, %164 ]
+  %.185.lcssa = phi float [ 0.000000e+00, %.preheader90 ], [ %.4.us, %.loopexit.us ], [ 0.000000e+00, %115 ], [ 0.000000e+00, %164 ]
   %165 = sitofp i32 %0 to double
   %166 = fdiv double 1.000000e+00, %165
   %167 = fptrunc double %166 to float

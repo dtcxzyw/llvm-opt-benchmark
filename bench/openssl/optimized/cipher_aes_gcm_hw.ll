@@ -181,7 +181,7 @@ define internal range(i32 0, 2) i32 @vaes_gcm_aadupdate(ptr noundef %0, ptr noun
   br label %53
 
 53:                                               ; preds = %.sink.split, %8, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %8 ], [ 1, %.sink.split ]
+  %.0 = phi i32 [ 0, %8 ], [ 0, %3 ], [ 1, %.sink.split ]
   ret i32 %.0
 }
 

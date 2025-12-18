@@ -6015,7 +6015,7 @@ _ZN5serde2de10EnumAccess7variant17ha11a66b57a7f47e2E.llvm.5246528701130514578.ex
   br label %30
 
 28:                                               ; preds = %.thread.i.i.i, %_ZN5serde2de10EnumAccess7variant17ha11a66b57a7f47e2E.llvm.5246528701130514578.exit.i.i.i.i.i.i.i.i.i, %.thread23.i.i.i.i.i.i.i.i.i
-  %.sroa.8.025.ph = phi ptr [ %14, %.thread.i.i.i ], [ %24, %.thread23.i.i.i.i.i.i.i.i.i ], [ %27, %_ZN5serde2de10EnumAccess7variant17ha11a66b57a7f47e2E.llvm.5246528701130514578.exit.i.i.i.i.i.i.i.i.i ]
+  %.sroa.8.025.ph = phi ptr [ %14, %.thread.i.i.i ], [ %27, %_ZN5serde2de10EnumAccess7variant17ha11a66b57a7f47e2E.llvm.5246528701130514578.exit.i.i.i.i.i.i.i.i.i ], [ %24, %.thread23.i.i.i.i.i.i.i.i.i ]
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.8.025.ph, ptr %29, align 8
   store i32 3, ptr %0, align 8
@@ -7614,7 +7614,7 @@ _ZN5serde2de10EnumAccess7variant17ha11a66b57a7f47e2E.llvm.5246528701130514578.ex
   br label %33
 
 31:                                               ; preds = %.thread23.i.i.i.i.i.i, %_ZN5serde2de10EnumAccess7variant17ha11a66b57a7f47e2E.llvm.5246528701130514578.exit.i.i.i.i.i.i, %28
-  %.sink73 = phi ptr [ %29, %28 ], [ %25, %_ZN5serde2de10EnumAccess7variant17ha11a66b57a7f47e2E.llvm.5246528701130514578.exit.i.i.i.i.i.i ], [ %22, %.thread23.i.i.i.i.i.i ]
+  %.sink73 = phi ptr [ %29, %28 ], [ %22, %.thread23.i.i.i.i.i.i ], [ %25, %_ZN5serde2de10EnumAccess7variant17ha11a66b57a7f47e2E.llvm.5246528701130514578.exit.i.i.i.i.i.i ]
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink73, ptr %32, align 8
   store i32 2, ptr %0, align 8
@@ -12736,7 +12736,7 @@ define hidden void @"_ZN201_$LT$wasmtime_environ..component..types.._..$LT$impl$
   br i1 %30, label %37, label %33
 
 31:                                               ; preds = %7, %"_ZN7bincode5error97_$LT$impl$u20$serde..de..Error$u20$for$u20$alloc..boxed..Box$LT$bincode..error..ErrorKind$GT$$GT$6custom17h9a2991031324268eE.exit.i.i.i.i", %24
-  %.sink = phi ptr [ %25, %24 ], [ %16, %"_ZN7bincode5error97_$LT$impl$u20$serde..de..Error$u20$for$u20$alloc..boxed..Box$LT$bincode..error..ErrorKind$GT$$GT$6custom17h9a2991031324268eE.exit.i.i.i.i" ], [ %12, %7 ]
+  %.sink = phi ptr [ %25, %24 ], [ %12, %7 ], [ %16, %"_ZN7bincode5error97_$LT$impl$u20$serde..de..Error$u20$for$u20$alloc..boxed..Box$LT$bincode..error..ErrorKind$GT$$GT$6custom17h9a2991031324268eE.exit.i.i.i.i" ]
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %32, align 8
   br label %55
@@ -44544,7 +44544,7 @@ _ZN5serde2de10EnumAccess7variant17ha11a66b57a7f47e2E.llvm.5246528701130514578.ex
   br label %"_ZN16wasmtime_environ6module1_88_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_environ..module..TablePlan$GT$11deserialize17h2f69e20a3412199bE.exit"
 
 24:                                               ; preds = %_ZN5serde2de10EnumAccess7variant17ha11a66b57a7f47e2E.llvm.5246528701130514578.exit.i.i.i.i.i.i.i.i, %.thread23.i.i.i.i.i.i.i.i
-  %.sink73.i.i = phi ptr [ %19, %.thread23.i.i.i.i.i.i.i.i ], [ %22, %_ZN5serde2de10EnumAccess7variant17ha11a66b57a7f47e2E.llvm.5246528701130514578.exit.i.i.i.i.i.i.i.i ]
+  %.sink73.i.i = phi ptr [ %22, %_ZN5serde2de10EnumAccess7variant17ha11a66b57a7f47e2E.llvm.5246528701130514578.exit.i.i.i.i.i.i.i.i ], [ %19, %.thread23.i.i.i.i.i.i.i.i ]
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink73.i.i, ptr %25, align 8, !alias.scope !19808, !noalias !19809
   store i32 2, ptr %0, align 8, !alias.scope !19808, !noalias !19809

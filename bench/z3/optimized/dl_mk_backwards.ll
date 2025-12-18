@@ -585,7 +585,7 @@ _ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE5resetEv.exit: 
   br i1 %.not27.old.i.i.i, label %.loopexit, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %205, %202
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %205 ], [ %204, %202 ]
+  %.137.i.i.i.be = phi ptr [ %204, %202 ], [ %.old.i.i.i, %205 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !309
 
 .loopexit:                                        ; preds = %191, %202, %205, %.preheader.i.i.i
@@ -680,7 +680,7 @@ _ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.e
   br label %.body
 
 _ZNK7datalog8rule_set19is_output_predicateEP9func_decl.exit: ; preds = %186, %197, %234
-  %247 = phi ptr [ %236, %234 ], [ %160, %197 ], [ %160, %186 ]
+  %247 = phi ptr [ %160, %197 ], [ %236, %234 ], [ %160, %186 ]
   %248 = icmp ult i32 %168, %170
   br i1 %248, label %.lr.ph, label %.preheader
 

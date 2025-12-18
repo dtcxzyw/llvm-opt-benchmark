@@ -15133,7 +15133,7 @@ _ZN5boost25simple_segregated_storageImE12try_malloc_nERPvmm.exit.thread.i: ; pre
   br label %_ZN5boost25simple_segregated_storageImE8malloc_nEmm.exit
 
 _ZN5boost25simple_segregated_storageImE8malloc_nEmm.exit: ; preds = %.lr.ph, %.preheader.split.i, %8, %.preheader.split.us.i, %_ZN5boost25simple_segregated_storageImE12try_malloc_nERPvmm.exit.thread.i
-  %.0.i36 = phi ptr [ null, %8 ], [ %32, %_ZN5boost25simple_segregated_storageImE12try_malloc_nERPvmm.exit.thread.i ], [ null, %.preheader.split.us.i ], [ null, %.preheader.split.i ], [ null, %.lr.ph ]
+  %.0.i36 = phi ptr [ null, %8 ], [ %32, %_ZN5boost25simple_segregated_storageImE12try_malloc_nERPvmm.exit.thread.i ], [ null, %.preheader.split.i ], [ null, %.preheader.split.us.i ], [ null, %.lr.ph ]
   %33 = icmp ne ptr %.0.i36, null
   %34 = icmp eq i64 %1, 0
   %or.cond = or i1 %34, %33
@@ -15243,8 +15243,8 @@ _ZN5boost25simple_segregated_storageImE9find_prevEPv.exit.i: ; preds = %.prehead
   br i1 %.not.i.i40, label %_ZN5boost25simple_segregated_storageImE9add_blockEPvmm.exit.sink.split.i, label %.lr.ph.i.i, !llvm.loop !347
 
 _ZN5boost25simple_segregated_storageImE9add_blockEPvmm.exit.sink.split.i: ; preds = %.lr.ph.i.i, %.lr.ph.i.i.i, %76, %69
-  %.022.lcssa.i.sink.i = phi ptr [ %67, %69 ], [ %74, %76 ], [ %.029.i.i.i, %.lr.ph.i.i.i ], [ %.029.i.i, %.lr.ph.i.i ]
-  %.0.i.lcssa.sink.ph.i = phi ptr [ %0, %69 ], [ %.0.i.i39, %76 ], [ %0, %.lr.ph.i.i.i ], [ %.0.i.i39, %.lr.ph.i.i ]
+  %.022.lcssa.i.sink.i = phi ptr [ %.029.i.i.i, %.lr.ph.i.i.i ], [ %67, %69 ], [ %74, %76 ], [ %.029.i.i, %.lr.ph.i.i ]
+  %.0.i.lcssa.sink.ph.i = phi ptr [ %0, %.lr.ph.i.i.i ], [ %0, %69 ], [ %.0.i.i39, %76 ], [ %.0.i.i39, %.lr.ph.i.i ]
   store ptr %.022.lcssa.i.sink.i, ptr %55, align 8, !tbaa !17
   br label %_ZN5boost25simple_segregated_storageImE17add_ordered_blockEPvmm.exit
 

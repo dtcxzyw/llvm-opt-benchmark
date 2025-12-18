@@ -931,7 +931,7 @@ uniname2ctype.exit:                               ; preds = %116
   br label %uniname2ctype.exit.thread
 
 uniname2ctype.exit.thread:                        ; preds = %14, %12, %3, %uniname2ctype_hash.exit.i.i, %._crit_edge, %116, %112, %107, %102, %uniname2ctype.exit
-  %.0 = phi i32 [ %121, %uniname2ctype.exit ], [ -223, %102 ], [ -223, %107 ], [ -223, %112 ], [ -223, %116 ], [ -223, %._crit_edge ], [ -223, %uniname2ctype_hash.exit.i.i ], [ -223, %3 ], [ -223, %12 ], [ -223, %14 ]
+  %.0 = phi i32 [ -223, %uniname2ctype_hash.exit.i.i ], [ -223, %._crit_edge ], [ %121, %uniname2ctype.exit ], [ -223, %102 ], [ -223, %107 ], [ -223, %112 ], [ -223, %116 ], [ -223, %3 ], [ -223, %12 ], [ -223, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -1064,7 +1064,7 @@ onigenc_unicode_CaseFold_11_lookup.exit:          ; preds = %25, %47, %52, %19
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !34
 
 .loopexit:                                        ; preds = %.lr.ph, %69, %57, %onigenc_unicode_CaseFold_11_lookup.exit, %63
-  %.042 = phi i32 [ %68, %63 ], [ %60, %57 ], [ %20, %onigenc_unicode_CaseFold_11_lookup.exit ], [ %76, %69 ], [ %20, %.lr.ph ]
+  %.042 = phi i32 [ %68, %63 ], [ %20, %onigenc_unicode_CaseFold_11_lookup.exit ], [ %60, %57 ], [ %76, %69 ], [ %20, %.lr.ph ]
   ret i32 %.042
 }
 
@@ -1249,7 +1249,7 @@ define dso_local i32 @onigenc_unicode_apply_all_case_fold(i32 noundef %0, ptr no
   br i1 %exitcond292.not, label %.loopexit, label %.lr.ph232, !llvm.loop !49
 
 .loopexit:                                        ; preds = %17, %13, %22, %.lr.ph, %34, %39, %._crit_edge233, %50, %55, %26, %.preheader204, %.preheader195, %.loopexit205
-  %.0164 = phi i32 [ %44, %.preheader195 ], [ 0, %.loopexit205 ], [ %25, %.preheader204 ], [ 0, %._crit_edge233 ], [ %27, %26 ], [ %41, %39 ], [ %53, %50 ], [ %37, %34 ], [ %21, %.lr.ph ], [ %57, %55 ], [ %24, %22 ], [ %18, %17 ], [ %16, %13 ]
+  %.0164 = phi i32 [ %57, %55 ], [ %44, %.preheader195 ], [ %41, %39 ], [ %21, %.lr.ph ], [ %53, %50 ], [ %25, %.preheader204 ], [ 0, %.loopexit205 ], [ %37, %34 ], [ 0, %._crit_edge233 ], [ %27, %26 ], [ %24, %22 ], [ %18, %17 ], [ %16, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0164
 }
@@ -1859,7 +1859,7 @@ onigenc_unicode_CaseUnfold_13_lookup.exit:        ; preds = %331, %335
   br i1 %exitcond456.not, label %.thread, label %331, !llvm.loop !61
 
 .thread:                                          ; preds = %onigenc_unicode_CaseUnfold_13_lookup.exit, %onigenc_unicode_CaseUnfold_12_lookup.exit, %205, %._crit_edge393, %245, %241, %235, %209, %268, %264, %._crit_edge, %324, %321, %315, %310, %272
-  %.7235 = phi i32 [ %.8236.lcssa, %310 ], [ %.3231.lcssa, %209 ], [ %.8236.lcssa, %272 ], [ %.3231.lcssa, %205 ], [ %.3231.lcssa, %._crit_edge393 ], [ %.3231.lcssa, %245 ], [ %.3231.lcssa, %241 ], [ %.3231.lcssa, %235 ], [ %.8236.lcssa, %268 ], [ %.8236.lcssa, %264 ], [ %.8236.lcssa, %._crit_edge ], [ %.8236.lcssa, %324 ], [ %.8236.lcssa, %321 ], [ %.8236.lcssa, %315 ], [ %.6234, %onigenc_unicode_CaseUnfold_12_lookup.exit ], [ %.12, %onigenc_unicode_CaseUnfold_13_lookup.exit ]
+  %.7235 = phi i32 [ %.8236.lcssa, %315 ], [ %.8236.lcssa, %310 ], [ %.3231.lcssa, %209 ], [ %.6234, %onigenc_unicode_CaseUnfold_12_lookup.exit ], [ %.8236.lcssa, %272 ], [ %.3231.lcssa, %205 ], [ %.3231.lcssa, %._crit_edge393 ], [ %.3231.lcssa, %245 ], [ %.3231.lcssa, %241 ], [ %.3231.lcssa, %235 ], [ %.8236.lcssa, %268 ], [ %.8236.lcssa, %264 ], [ %.8236.lcssa, %._crit_edge ], [ %.8236.lcssa, %324 ], [ %.8236.lcssa, %321 ], [ %.12, %onigenc_unicode_CaseUnfold_13_lookup.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %onigenc_unicode_CaseUnfold_13_lookup.exit324.thread
@@ -1940,8 +1940,8 @@ onigenc_unicode_CaseUnfold_11_lookup.exit291:     ; preds = %369
   br i1 %exitcond.not, label %onigenc_unicode_CaseUnfold_11_lookup.exit.thread, label %378, !llvm.loop !62
 
 onigenc_unicode_CaseUnfold_11_lookup.exit.thread: ; preds = %378, %110, %.preheader358, %.preheader, %342, %364, %369, %.thread23.i, %65, %87, %92, %59, %onigenc_unicode_CaseUnfold_11_lookup.exit, %onigenc_unicode_CaseUnfold_11_lookup.exit291, %111
-  %.13 = phi i32 [ 1, %65 ], [ 1, %onigenc_unicode_CaseUnfold_11_lookup.exit ], [ 0, %111 ], [ 0, %onigenc_unicode_CaseUnfold_11_lookup.exit291 ], [ 1, %59 ], [ 1, %92 ], [ 1, %87 ], [ 0, %.thread23.i ], [ 0, %369 ], [ 0, %364 ], [ 0, %342 ], [ 1, %.preheader ], [ 0, %.preheader358 ], [ %.2230, %110 ], [ %376, %378 ]
-  %.0223 = phi i32 [ %62, %65 ], [ %62, %onigenc_unicode_CaseUnfold_11_lookup.exit ], [ %10, %111 ], [ %10, %onigenc_unicode_CaseUnfold_11_lookup.exit291 ], [ %62, %59 ], [ %62, %92 ], [ %62, %87 ], [ %10, %.thread23.i ], [ %10, %369 ], [ %10, %364 ], [ %10, %342 ], [ %62, %.preheader ], [ %10, %.preheader358 ], [ %62, %110 ], [ %10, %378 ]
+  %.13 = phi i32 [ 1, %65 ], [ 1, %onigenc_unicode_CaseUnfold_11_lookup.exit ], [ 0, %111 ], [ %.2230, %110 ], [ 0, %onigenc_unicode_CaseUnfold_11_lookup.exit291 ], [ 0, %342 ], [ 1, %59 ], [ 1, %92 ], [ 1, %87 ], [ 0, %.thread23.i ], [ 0, %369 ], [ 0, %364 ], [ 1, %.preheader ], [ 0, %.preheader358 ], [ %376, %378 ]
+  %.0223 = phi i32 [ %62, %65 ], [ %62, %onigenc_unicode_CaseUnfold_11_lookup.exit ], [ %10, %111 ], [ %62, %110 ], [ %10, %onigenc_unicode_CaseUnfold_11_lookup.exit291 ], [ %10, %342 ], [ %62, %59 ], [ %62, %92 ], [ %62, %87 ], [ %10, %.thread23.i ], [ %10, %369 ], [ %10, %364 ], [ %62, %.preheader ], [ %10, %.preheader358 ], [ %10, %378 ]
   %384 = and i32 %1, 1073741824
   %.not262 = icmp eq i32 %384, 0
   br i1 %.not262, label %onigenc_unicode_CaseUnfold_13_lookup.exit324.thread, label %385
@@ -2109,7 +2109,7 @@ onigenc_unicode_CaseUnfold_12_lookup.exit306:     ; preds = %.lr.ph406, %onigenc
   br i1 %exitcond483.not, label %onigenc_unicode_CaseUnfold_12_lookup.exit306.thread, label %onigenc_unicode_CaseUnfold_12_lookup.exit306, !llvm.loop !63
 
 onigenc_unicode_CaseUnfold_12_lookup.exit306.thread: ; preds = %onigenc_unicode_CaseUnfold_12_lookup.exit306, %441, %467, %473, %477, %436
-  %.16 = phi i32 [ %.13, %441 ], [ %.13, %467 ], [ %.13, %436 ], [ %.13, %477 ], [ %.13, %473 ], [ %490, %onigenc_unicode_CaseUnfold_12_lookup.exit306 ]
+  %.16 = phi i32 [ %.13, %473 ], [ %.13, %441 ], [ %.13, %467 ], [ %.13, %436 ], [ %.13, %477 ], [ %490, %onigenc_unicode_CaseUnfold_12_lookup.exit306 ]
   %491 = sext i32 %437 to i64
   %492 = getelementptr i8, ptr %387, i64 %491
   %493 = icmp ult ptr %492, %3
@@ -2297,7 +2297,7 @@ onigenc_unicode_CaseUnfold_13_lookup.exit324:     ; preds = %.lr.ph410, %onigenc
   br i1 %exitcond489.not, label %onigenc_unicode_CaseUnfold_13_lookup.exit324.thread, label %onigenc_unicode_CaseUnfold_13_lookup.exit324, !llvm.loop !64
 
 onigenc_unicode_CaseUnfold_13_lookup.exit324.thread: ; preds = %onigenc_unicode_CaseUnfold_13_lookup.exit324, %548, %586, %591, %597, %600, %541, %546, %.thread, %onigenc_unicode_CaseUnfold_12_lookup.exit306.thread, %385, %onigenc_unicode_CaseUnfold_11_lookup.exit.thread
-  %.15 = phi i32 [ %.13, %onigenc_unicode_CaseUnfold_11_lookup.exit.thread ], [ %.13, %385 ], [ %.16, %586 ], [ %.7235, %.thread ], [ %.16, %onigenc_unicode_CaseUnfold_12_lookup.exit306.thread ], [ %.16, %546 ], [ %.16, %548 ], [ %.16, %541 ], [ %.16, %600 ], [ %.16, %597 ], [ %.16, %591 ], [ %613, %onigenc_unicode_CaseUnfold_13_lookup.exit324 ]
+  %.15 = phi i32 [ %.13, %onigenc_unicode_CaseUnfold_11_lookup.exit.thread ], [ %.13, %385 ], [ %.16, %591 ], [ %.16, %586 ], [ %.7235, %.thread ], [ %.16, %onigenc_unicode_CaseUnfold_12_lookup.exit306.thread ], [ %.16, %546 ], [ %.16, %548 ], [ %.16, %541 ], [ %.16, %600 ], [ %.16, %597 ], [ %613, %onigenc_unicode_CaseUnfold_13_lookup.exit324 ]
   ret i32 %.15
 }
 

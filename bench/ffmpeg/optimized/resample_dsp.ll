@@ -298,9 +298,9 @@ define internal i32 @resample_common_int16(ptr noundef captures(none) %0, ptr no
   br i1 %exitcond.not, label %._crit_edge108, label %.lr.ph107.split.split, !llvm.loop !31
 
 ._crit_edge108:                                   ; preds = %._crit_edge100, %._crit_edge100.us130, %._crit_edge100.us, %.preheader
-  %.169.lcssa = phi i32 [ %.068.lcssa, %.preheader ], [ %.3.lcssa.us127, %._crit_edge100.us130 ], [ %.3.lcssa.us, %._crit_edge100.us ], [ %.3.lcssa, %._crit_edge100 ]
-  %.066.lcssa = phi i32 [ %9, %.preheader ], [ %.167.us122, %._crit_edge100.us130 ], [ %.167.us, %._crit_edge100.us ], [ %.167, %._crit_edge100 ]
-  %.165.lcssa = phi i32 [ %.064.lcssa, %.preheader ], [ %.2.lcssa.us128, %._crit_edge100.us130 ], [ %.2.lcssa.us, %._crit_edge100.us ], [ %.2.lcssa, %._crit_edge100 ]
+  %.169.lcssa = phi i32 [ %.068.lcssa, %.preheader ], [ %.3.lcssa.us, %._crit_edge100.us ], [ %.3.lcssa.us127, %._crit_edge100.us130 ], [ %.3.lcssa, %._crit_edge100 ]
+  %.066.lcssa = phi i32 [ %9, %.preheader ], [ %.167.us, %._crit_edge100.us ], [ %.167.us122, %._crit_edge100.us130 ], [ %.167, %._crit_edge100 ]
+  %.165.lcssa = phi i32 [ %.064.lcssa, %.preheader ], [ %.2.lcssa.us, %._crit_edge100.us ], [ %.2.lcssa.us128, %._crit_edge100.us130 ], [ %.2.lcssa, %._crit_edge100 ]
   %.not78 = icmp eq i32 %4, 0
   br i1 %.not78, label %118, label %117
 
@@ -1039,9 +1039,9 @@ define internal i32 @resample_common_float(ptr noundef captures(none) %0, ptr no
   br i1 %exitcond.not, label %._crit_edge108, label %.lr.ph107.split.split, !llvm.loop !52
 
 ._crit_edge108:                                   ; preds = %._crit_edge100, %._crit_edge100.us129, %._crit_edge100.us, %.preheader
-  %.169.lcssa = phi i32 [ %.068.lcssa, %.preheader ], [ %.3.lcssa.us126, %._crit_edge100.us129 ], [ %.3.lcssa.us, %._crit_edge100.us ], [ %.3.lcssa, %._crit_edge100 ]
-  %.066.lcssa = phi i32 [ %9, %.preheader ], [ %.167.us121, %._crit_edge100.us129 ], [ %.167.us, %._crit_edge100.us ], [ %.167, %._crit_edge100 ]
-  %.165.lcssa = phi i32 [ %.064.lcssa, %.preheader ], [ %.2.lcssa.us127, %._crit_edge100.us129 ], [ %.2.lcssa.us, %._crit_edge100.us ], [ %.2.lcssa, %._crit_edge100 ]
+  %.169.lcssa = phi i32 [ %.068.lcssa, %.preheader ], [ %.3.lcssa.us, %._crit_edge100.us ], [ %.3.lcssa.us126, %._crit_edge100.us129 ], [ %.3.lcssa, %._crit_edge100 ]
+  %.066.lcssa = phi i32 [ %9, %.preheader ], [ %.167.us, %._crit_edge100.us ], [ %.167.us121, %._crit_edge100.us129 ], [ %.167, %._crit_edge100 ]
+  %.165.lcssa = phi i32 [ %.064.lcssa, %.preheader ], [ %.2.lcssa.us, %._crit_edge100.us ], [ %.2.lcssa.us127, %._crit_edge100.us129 ], [ %.2.lcssa, %._crit_edge100 ]
   %.not78 = icmp eq i32 %4, 0
   br i1 %.not78, label %89, label %88
 
@@ -1451,9 +1451,9 @@ define internal i32 @resample_common_double(ptr noundef captures(none) %0, ptr n
   br i1 %exitcond.not, label %._crit_edge108, label %.lr.ph107.split.split, !llvm.loop !62
 
 ._crit_edge108:                                   ; preds = %._crit_edge100, %._crit_edge100.us129, %._crit_edge100.us, %.preheader
-  %.169.lcssa = phi i32 [ %.068.lcssa, %.preheader ], [ %.3.lcssa.us126, %._crit_edge100.us129 ], [ %.3.lcssa.us, %._crit_edge100.us ], [ %.3.lcssa, %._crit_edge100 ]
-  %.066.lcssa = phi i32 [ %9, %.preheader ], [ %.167.us121, %._crit_edge100.us129 ], [ %.167.us, %._crit_edge100.us ], [ %.167, %._crit_edge100 ]
-  %.165.lcssa = phi i32 [ %.064.lcssa, %.preheader ], [ %.2.lcssa.us127, %._crit_edge100.us129 ], [ %.2.lcssa.us, %._crit_edge100.us ], [ %.2.lcssa, %._crit_edge100 ]
+  %.169.lcssa = phi i32 [ %.068.lcssa, %.preheader ], [ %.3.lcssa.us, %._crit_edge100.us ], [ %.3.lcssa.us126, %._crit_edge100.us129 ], [ %.3.lcssa, %._crit_edge100 ]
+  %.066.lcssa = phi i32 [ %9, %.preheader ], [ %.167.us, %._crit_edge100.us ], [ %.167.us121, %._crit_edge100.us129 ], [ %.167, %._crit_edge100 ]
+  %.165.lcssa = phi i32 [ %.064.lcssa, %.preheader ], [ %.2.lcssa.us, %._crit_edge100.us ], [ %.2.lcssa.us127, %._crit_edge100.us129 ], [ %.2.lcssa, %._crit_edge100 ]
   %.not78 = icmp eq i32 %4, 0
   br i1 %.not78, label %89, label %88
 

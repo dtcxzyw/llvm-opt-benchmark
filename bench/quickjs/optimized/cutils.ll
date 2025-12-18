@@ -128,7 +128,7 @@ define dso_local range(i32 0, 2) i32 @strstart(ptr noundef %0, ptr noundef reado
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %._crit_edge, %11
-  %.011 = phi i32 [ 1, %11 ], [ 1, %._crit_edge ], [ 0, %.lr.ph ]
+  %.011 = phi i32 [ 1, %._crit_edge ], [ 1, %11 ], [ 0, %.lr.ph ]
   ret i32 %.011
 }
 
@@ -766,7 +766,7 @@ switch.lookup:                                    ; preds = %9
   br label %.loopexit
 
 .loopexit:                                        ; preds = %22, %9, %.loopexit.sink.split, %31, %switch.lookup
-  %.024 = phi i32 [ -1, %31 ], [ -1, %9 ], [ -1, %switch.lookup ], [ %.024.ph, %.loopexit.sink.split ], [ -1, %22 ]
+  %.024 = phi i32 [ -1, %31 ], [ %.024.ph, %.loopexit.sink.split ], [ -1, %9 ], [ -1, %switch.lookup ], [ -1, %22 ]
   ret i32 %.024
 }
 
@@ -1181,9 +1181,9 @@ med3.exit:                                        ; preds = %108, %110, %114, %1
   br i1 %175, label %.lr.ph257, label %heapsortx.exit, !llvm.loop !38
 
 heapsortx.exit:                                   ; preds = %172, %._crit_edge95.i, %35, %.preheader.i
-  %.0180225 = phi ptr [ %.0180253, %.preheader.i ], [ %37, %35 ], [ %.0180253, %._crit_edge95.i ], [ %.1181, %172 ]
-  %.1167223 = phi ptr [ %.1167255, %.preheader.i ], [ %36, %35 ], [ %.1167255, %._crit_edge95.i ], [ %.2168, %172 ]
-  %.1 = phi i64 [ 0, %.preheader.i ], [ %39, %35 ], [ 0, %._crit_edge95.i ], [ %.2, %172 ]
+  %.0180225 = phi ptr [ %.0180253, %._crit_edge95.i ], [ %.0180253, %.preheader.i ], [ %37, %35 ], [ %.1181, %172 ]
+  %.1167223 = phi ptr [ %.1167255, %._crit_edge95.i ], [ %.1167255, %.preheader.i ], [ %36, %35 ], [ %.2168, %172 ]
+  %.1 = phi i64 [ 0, %._crit_edge95.i ], [ 0, %.preheader.i ], [ %39, %35 ], [ %.2, %172 ]
   %176 = mul i64 %.1, %2
   %177 = getelementptr inbounds nuw i8, ptr %.0180225, i64 %176
   %178 = icmp samesign ult i64 %2, %176

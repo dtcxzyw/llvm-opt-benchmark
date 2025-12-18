@@ -240,7 +240,7 @@ Vec_PtrFind.exit:                                 ; preds = %24
   br i1 %exitcond.not, label %.critedge, label %10, !llvm.loop !38
 
 .critedge:                                        ; preds = %Vec_PtrFind.exit, %Saig_ObjIsPo.exit.thread, %10, %28, %4
-  %.012 = phi i32 [ 1, %4 ], [ 0, %28 ], [ 1, %Vec_PtrFind.exit ], [ 0, %10 ], [ 0, %Saig_ObjIsPo.exit.thread ]
+  %.012 = phi i32 [ 1, %4 ], [ 0, %28 ], [ 0, %10 ], [ 1, %Vec_PtrFind.exit ], [ 0, %Saig_ObjIsPo.exit.thread ]
   ret i32 %.012
 }
 
@@ -428,8 +428,8 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br label %Cgt_ManCheckGateComplete.exit.thread
 
 Cgt_ManCheckGateComplete.exit.thread:             ; preds = %Saig_ObjIsPo.exit.thread.i, %38, %56, %Vec_PtrPush.exit, %.lr.ph
-  %83 = phi i32 [ %23, %.lr.ph ], [ %78, %Vec_PtrPush.exit ], [ %23, %56 ], [ %23, %38 ], [ %23, %Saig_ObjIsPo.exit.thread.i ]
-  %84 = phi i32 [ %24, %.lr.ph ], [ %80, %Vec_PtrPush.exit ], [ %24, %56 ], [ %24, %38 ], [ %24, %Saig_ObjIsPo.exit.thread.i ]
+  %83 = phi i32 [ %23, %56 ], [ %23, %.lr.ph ], [ %78, %Vec_PtrPush.exit ], [ %23, %38 ], [ %23, %Saig_ObjIsPo.exit.thread.i ]
+  %84 = phi i32 [ %24, %56 ], [ %24, %.lr.ph ], [ %80, %Vec_PtrPush.exit ], [ %24, %38 ], [ %24, %Saig_ObjIsPo.exit.thread.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val45 = load ptr, ptr %15, align 8, !tbaa !35
   %85 = getelementptr inbounds nuw ptr, ptr %.val45, i64 %indvars.iv67

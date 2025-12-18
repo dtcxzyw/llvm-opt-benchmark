@@ -113,7 +113,7 @@ define void @_ZN4YAML6StreamC2ERSi(ptr noundef nonnull align 8 dereferenceable(1
   br label %_ZN4YAML15IntroCharTypeOfEi.exit
 
 _ZN4YAML15IntroCharTypeOfEi.exit:                 ; preds = %24, %28, %29, %30, %31, %32, %33, %.fold.split.i
-  %.0.i = phi i64 [ 5, %32 ], [ %..i, %33 ], [ 7, %24 ], [ 1, %28 ], [ 2, %29 ], [ 3, %30 ], [ 4, %31 ], [ 0, %.fold.split.i ]
+  %.0.i = phi i64 [ 5, %32 ], [ %..i, %33 ], [ 4, %31 ], [ 7, %24 ], [ 1, %28 ], [ 2, %29 ], [ 3, %30 ], [ 0, %.fold.split.i ]
   %35 = getelementptr inbounds nuw [8 x i32], ptr @_ZN4YAMLL18s_introTransitionsE, i64 %22
   %36 = getelementptr inbounds nuw i32, ptr %35, i64 %.0.i
   %37 = load i32, ptr %36, align 4, !tbaa !34

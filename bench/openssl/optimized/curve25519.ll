@@ -2687,7 +2687,7 @@ fe_neg.exit63:                                    ; preds = %46
   br label %.thread
 
 .thread:                                          ; preds = %38, %fe_neg.exit63, %.loopexit, %30, %23, %20, %11, %69
-  %.046 = phi i32 [ 0, %30 ], [ 0, %11 ], [ 0, %20 ], [ 0, %23 ], [ 0, %fe_neg.exit63 ], [ 0, %.loopexit ], [ %.0, %69 ], [ 0, %38 ]
+  %.046 = phi i32 [ 0, %30 ], [ 0, %11 ], [ 0, %20 ], [ 0, %23 ], [ %.0, %69 ], [ 0, %fe_neg.exit63 ], [ 0, %.loopexit ], [ 0, %38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)

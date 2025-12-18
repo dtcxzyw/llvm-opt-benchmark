@@ -703,7 +703,7 @@ _ZN6icu_7722RuleBasedBreakIterator10BreakCache4seekEi.exit: ; preds = %27, %31, 
   store i32 %.sink.i, ptr %7, align 8, !tbaa !75
   br label %52
 
-50:                                               ; preds = %18, %10
+50:                                               ; preds = %10, %18
   %51 = tail call noundef signext i8 @_ZN6icu_7722RuleBasedBreakIterator10BreakCache12populateNearEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(832) %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
   %.not6 = icmp eq i8 %51, 0
   br i1 %.not6, label %84, label %52
@@ -843,7 +843,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7722RuleBasedBreakIterator10Br
   br label %43
 
 43:                                               ; preds = %.sink.split, %2, %10
-  %.019 = phi i8 [ 0, %10 ], [ 0, %2 ], [ 1, %.sink.split ]
+  %.019 = phi i8 [ 0, %2 ], [ 0, %10 ], [ 1, %.sink.split ]
   ret i8 %.019
 }
 
@@ -1285,7 +1285,7 @@ _ZN6icu_7722RuleBasedBreakIterator10BreakCache4seekEi.exit: ; preds = %27, %31, 
   store i32 %.sink.i, ptr %7, align 8, !tbaa !75
   br label %52
 
-50:                                               ; preds = %18, %10
+50:                                               ; preds = %10, %18
   %51 = tail call noundef signext i8 @_ZN6icu_7722RuleBasedBreakIterator10BreakCache12populateNearEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(832) %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
   %.not8 = icmp eq i8 %51, 0
   br i1 %.not8, label %_ZN6icu_7722RuleBasedBreakIterator10BreakCache8previousER10UErrorCode.exit, label %._crit_edge
@@ -1775,7 +1775,7 @@ _ZN6icu_7722RuleBasedBreakIterator10BreakCache12addFollowingEiiNS1_20UpdatePosit
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN6icu_7722RuleBasedBreakIterator10BreakCache12addFollowingEiiNS1_20UpdatePositionValuesE.exit32, %129, %125, %.loopexit.sink.split, %54
-  %.08 = phi i8 [ 0, %54 ], [ 1, %.loopexit.sink.split ], [ 1, %125 ], [ 1, %129 ], [ 1, %_ZN6icu_7722RuleBasedBreakIterator10BreakCache12addFollowingEiiNS1_20UpdatePositionValuesE.exit32 ]
+  %.08 = phi i8 [ 1, %.loopexit.sink.split ], [ 0, %54 ], [ 1, %125 ], [ 1, %129 ], [ 1, %_ZN6icu_7722RuleBasedBreakIterator10BreakCache12addFollowingEiiNS1_20UpdatePositionValuesE.exit32 ]
   ret i8 %.08
 }
 

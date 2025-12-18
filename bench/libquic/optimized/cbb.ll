@@ -769,8 +769,8 @@ define hidden range(i32 0, 2) i32 @CBB_add_asn1(ptr noundef captures(none) %0, p
   store i8 1, ptr %70, align 1, !tbaa !26
   br label %CBB_add_u8.exit.thread
 
-CBB_add_u8.exit.thread:                           ; preds = %52, %55, %43, %40, %33, %22, %25, %13, %10, %8, %63, %6, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %6 ], [ 0, %22 ], [ 1, %63 ], [ 0, %8 ], [ 0, %10 ], [ 0, %13 ], [ 0, %25 ], [ 0, %33 ], [ 0, %40 ], [ 0, %43 ], [ 0, %55 ], [ 0, %52 ]
+CBB_add_u8.exit.thread:                           ; preds = %55, %43, %40, %52, %33, %25, %13, %10, %22, %8, %63, %6, %3
+  %.0 = phi i32 [ 0, %3 ], [ 0, %6 ], [ 0, %25 ], [ 1, %63 ], [ 0, %8 ], [ 0, %22 ], [ 0, %10 ], [ 0, %13 ], [ 0, %33 ], [ 0, %52 ], [ 0, %40 ], [ 0, %43 ], [ 0, %55 ]
   ret i32 %.0
 }
 
@@ -835,7 +835,7 @@ define hidden range(i32 0, 2) i32 @CBB_add_u8(ptr noundef captures(none) %0, i8 
   br label %cbb_buffer_add_u.exit, !llvm.loop !30
 
 cbb_buffer_add_u.exit:                            ; preds = %.lr.ph.preheader.i, %19, %16, %7, %4, %2
-  %.0 = phi i32 [ 0, %2 ], [ 0, %4 ], [ 0, %7 ], [ 0, %19 ], [ 0, %16 ], [ 1, %.lr.ph.preheader.i ]
+  %.0 = phi i32 [ 0, %2 ], [ 0, %16 ], [ 0, %4 ], [ 0, %7 ], [ 0, %19 ], [ 1, %.lr.ph.preheader.i ]
   ret i32 %.0
 }
 
@@ -1133,7 +1133,7 @@ define hidden range(i32 0, 2) i32 @CBB_add_u16(ptr noundef captures(none) %0, i1
   br i1 %29, label %.lr.ph.i, label %cbb_buffer_add_u.exit, !llvm.loop !30
 
 cbb_buffer_add_u.exit:                            ; preds = %.lr.ph.i, %19, %16, %7, %4, %2
-  %.0 = phi i32 [ 0, %2 ], [ 0, %4 ], [ 0, %7 ], [ 0, %19 ], [ 0, %16 ], [ 1, %.lr.ph.i ]
+  %.0 = phi i32 [ 0, %2 ], [ 0, %16 ], [ 0, %4 ], [ 0, %7 ], [ 0, %19 ], [ 1, %.lr.ph.i ]
   ret i32 %.0
 }
 
@@ -1208,7 +1208,7 @@ define hidden range(i32 0, 2) i32 @CBB_add_u24(ptr noundef captures(none) %0, i3
   br i1 %32, label %.lr.ph.i, label %cbb_buffer_add_u.exit, !llvm.loop !30
 
 cbb_buffer_add_u.exit:                            ; preds = %.lr.ph.i, %19, %16, %7, %4, %2
-  %.0 = phi i32 [ 0, %2 ], [ 0, %4 ], [ 0, %7 ], [ 0, %19 ], [ 0, %16 ], [ 1, %.lr.ph.i ]
+  %.0 = phi i32 [ 0, %2 ], [ 0, %16 ], [ 0, %4 ], [ 0, %7 ], [ 0, %19 ], [ 1, %.lr.ph.i ]
   ret i32 %.0
 }
 
@@ -1376,8 +1376,8 @@ CBB_add_u8.exit:                                  ; preds = %.cbb_buffer_add.exi
   br i1 %exitcond.not, label %72, label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %67, %.thread77
-  %.not20.be = phi i1 [ true, %67 ], [ false, %.thread77 ]
-  %.01657.be = phi i64 [ %68, %67 ], [ %71, %.thread77 ]
+  %.not20.be = phi i1 [ false, %.thread77 ], [ true, %67 ]
+  %.01657.be = phi i64 [ %71, %.thread77 ], [ %68, %67 ]
   br label %.preheader, !llvm.loop !31
 
 .thread77:                                        ; preds = %66, %.cbb_buffer_add.exit_crit_edge.i.i25
@@ -1454,8 +1454,8 @@ CBB_add_u8.exit47:                                ; preds = %.cbb_buffer_add.exi
   %99 = call i32 @CBB_flush(ptr noundef %0)
   br label %.thread
 
-.thread:                                          ; preds = %29, %32, %20, %17, %15, %56, %59, %47, %44, %42, %86, %89, %77, %74, %72, %2, %.thread82
-  %.0 = phi i32 [ %99, %.thread82 ], [ 0, %2 ], [ 0, %72 ], [ 0, %74 ], [ 0, %77 ], [ 0, %89 ], [ 0, %86 ], [ 0, %42 ], [ 0, %44 ], [ 0, %47 ], [ 0, %59 ], [ 0, %56 ], [ 0, %15 ], [ 0, %17 ], [ 0, %20 ], [ 0, %32 ], [ 0, %29 ]
+.thread:                                          ; preds = %32, %20, %17, %29, %15, %59, %47, %44, %56, %42, %89, %77, %74, %86, %72, %2, %.thread82
+  %.0 = phi i32 [ 0, %89 ], [ %99, %.thread82 ], [ 0, %2 ], [ 0, %77 ], [ 0, %74 ], [ 0, %86 ], [ 0, %72 ], [ 0, %42 ], [ 0, %56 ], [ 0, %44 ], [ 0, %47 ], [ 0, %59 ], [ 0, %15 ], [ 0, %29 ], [ 0, %17 ], [ 0, %20 ], [ 0, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

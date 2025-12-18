@@ -1934,8 +1934,8 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread: ; preds = %10, %_ZNK4llvm9Stri
   br label %"_ZZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcbENK3$_0clIPKcS8_EEDaT_T0_S4_b.exit.us"
 
 "_ZZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcbENK3$_0clIPKcS8_EEDaT_T0_S4_b.exit.us": ; preds = %.critedge.i.us, %.thread1.sink.split.i.us, %.split.us
-  %38 = phi i8 [ %23, %.thread1.sink.split.i.us ], [ %20, %.split.us ], [ %23, %.critedge.i.us ]
-  %.0187.i.us = phi ptr [ %.0189.i.us, %.thread1.sink.split.i.us ], [ %18, %.split.us ], [ %18, %.critedge.i.us ]
+  %38 = phi i8 [ %20, %.split.us ], [ %23, %.thread1.sink.split.i.us ], [ %23, %.critedge.i.us ]
+  %.0187.i.us = phi ptr [ %18, %.split.us ], [ %.0189.i.us, %.thread1.sink.split.i.us ], [ %18, %.critedge.i.us ]
   %.not8.i26.us = icmp eq ptr %.020.us, %19
   br i1 %.not8.i26.us, label %.split73.us, label %.lr.ph.split.us.i.us
 
@@ -2054,8 +2054,8 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread: ; preds = %10, %_ZNK4llvm9Stri
   br label %"_ZZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcbENK3$_0clIPKcS8_EEDaT_T0_S4_b.exit"
 
 "_ZZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcbENK3$_0clIPKcS8_EEDaT_T0_S4_b.exit": ; preds = %.critedge.i, %.split, %.thread1.sink.split.i
-  %91 = phi i8 [ %76, %.thread1.sink.split.i ], [ %73, %.split ], [ %76, %.critedge.i ]
-  %.0187.i = phi ptr [ %.0189.i, %.thread1.sink.split.i ], [ %18, %.split ], [ %18, %.critedge.i ]
+  %91 = phi i8 [ %73, %.split ], [ %76, %.thread1.sink.split.i ], [ %76, %.critedge.i ]
+  %.0187.i = phi ptr [ %18, %.split ], [ %.0189.i, %.thread1.sink.split.i ], [ %18, %.critedge.i ]
   %.not8.i26 = icmp eq ptr %.020, %19
   br i1 %.not8.i26, label %.split73.us, label %.lr.ph.split.i29
 
@@ -2123,7 +2123,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread: ; preds = %10, %_ZNK4llvm9Stri
   br label %.split, !llvm.loop !111
 
 .split73.us:                                      ; preds = %"_ZZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcbENK3$_0clIPKcS8_EEDaT_T0_S4_b.exit", %"_ZZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcbENK3$_0clIPKcS8_EEDaT_T0_S4_b.exit39", %.critedge.i37, %"_ZZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcbENK3$_0clIPKcS8_EEDaT_T0_S4_b.exit.us", %"_ZZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcbENK3$_0clIPKcS8_EEDaT_T0_S4_b.exit39.us", %.critedge.us.i.us
-  %.us-phi = phi ptr [ %.0187.i, %.critedge.i37 ], [ %.0187.i.us, %.critedge.us.i.us ], [ %.0187.i.us, %"_ZZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcbENK3$_0clIPKcS8_EEDaT_T0_S4_b.exit.us" ], [ %.0187.i.us, %"_ZZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcbENK3$_0clIPKcS8_EEDaT_T0_S4_b.exit39.us" ], [ %.0187.i, %"_ZZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcbENK3$_0clIPKcS8_EEDaT_T0_S4_b.exit39" ], [ %.0187.i, %"_ZZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcbENK3$_0clIPKcS8_EEDaT_T0_S4_b.exit" ]
+  %.us-phi = phi ptr [ %.0187.i.us, %"_ZZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcbENK3$_0clIPKcS8_EEDaT_T0_S4_b.exit.us" ], [ %.0187.i.us, %.critedge.us.i.us ], [ %.0187.i, %.critedge.i37 ], [ %.0187.i.us, %"_ZZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcbENK3$_0clIPKcS8_EEDaT_T0_S4_b.exit39.us" ], [ %.0187.i, %"_ZZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcbENK3$_0clIPKcS8_EEDaT_T0_S4_b.exit39" ], [ %.0187.i, %"_ZZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcbENK3$_0clIPKcS8_EEDaT_T0_S4_b.exit" ]
   %124 = ptrtoint ptr %.us-phi to i64
   %125 = ptrtoint ptr %0 to i64
   %126 = sub i64 %124, %125

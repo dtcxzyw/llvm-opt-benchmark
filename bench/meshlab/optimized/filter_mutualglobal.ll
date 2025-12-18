@@ -1112,7 +1112,7 @@ _ZNSt7__cxx114listIiSaIiEE6spliceESt20_List_const_iteratorIiERS2_.exit: ; preds 
   br i1 %.not.i.i.i8, label %_ZNSt7__cxx114listIiSaIiEED2Ev.exit, label %.lr.ph.i.i.i6, !llvm.loop !11
 
 _ZNSt7__cxx114listIiSaIiEED2Ev.exit:              ; preds = %.lr.ph.i.i.i6, %4, %23
-  %.sroa.04.020 = phi ptr [ %.sroa.04.0, %23 ], [ %1, %4 ], [ %.sroa.04.0, %.lr.ph.i.i.i6 ]
+  %.sroa.04.020 = phi ptr [ %1, %4 ], [ %.sroa.04.0, %23 ], [ %.sroa.04.0, %.lr.ph.i.i.i6 ]
   ret ptr %.sroa.04.020
 }
 
@@ -3496,7 +3496,7 @@ _ZNSt6vectorIN3vcg4ShotIfNS0_8Matrix44IfEEEESaIS4_EE9push_backERKS4_.exit: ; pre
   br label %395
 
 .loopexit.split-lp283:                            ; preds = %89, %91, %_ZN12MeshDocument19RasterRangeIterator5beginEv.exit, %101, %125, %128
-  %.sroa.0234.0.ph = phi ptr [ null, %89 ], [ null, %91 ], [ null, %_ZN12MeshDocument19RasterRangeIterator5beginEv.exit ], [ %.sroa.0234.1.lcssa, %125 ], [ %.sroa.0234.1.lcssa, %128 ], [ %.sroa.0234.1342, %101 ]
+  %.sroa.0234.0.ph = phi ptr [ null, %91 ], [ null, %_ZN12MeshDocument19RasterRangeIterator5beginEv.exit ], [ %.sroa.0234.1.lcssa, %125 ], [ %.sroa.0234.1.lcssa, %128 ], [ null, %89 ], [ %.sroa.0234.1342, %101 ]
   %lpad.loopexit.split-lp285 = landingpad { ptr, i32 }
           cleanup
   br label %395
@@ -3559,7 +3559,7 @@ _ZNK19MeshLabPluginLogger3logIJmEEEvPKcDpOT_.exit: ; preds = %_ZN11GLLogStream4l
   br label %.body
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %.noexc.i.i137.invoke, %373, %367, %335, %172, %159, %358, %353, %.loopexit277, %_ZNSt6vectorI8SubGraphSaIS0_EED2Ev.exit, %181, %168, %158, %153, %138, %134, %_ZNK19MeshLabPluginLogger3logIJmEEEvPKcDpOT_.exit
-  %.sroa.0234.3.ph.ph = phi ptr [ %.sroa.0234.1.lcssa, %138 ], [ %.sroa.0234.8, %373 ], [ %.sroa.0234.8, %367 ], [ %.sroa.0234.5, %353 ], [ %.sroa.0234.5, %.loopexit277 ], [ %.sroa.0234.7348, %335 ], [ %.sroa.0234.6.ph, %.noexc.i.i137.invoke ], [ %.sroa.0234.1.lcssa, %_ZNK19MeshLabPluginLogger3logIJmEEEvPKcDpOT_.exit ], [ %.sroa.0234.1.lcssa, %_ZNSt6vectorI8SubGraphSaIS0_EED2Ev.exit ], [ %.sroa.0234.1.lcssa, %181 ], [ %.sroa.0234.1.lcssa, %172 ], [ %.sroa.0234.1.lcssa, %168 ], [ %.sroa.0234.1.lcssa, %159 ], [ %.sroa.0234.1.lcssa, %158 ], [ %.sroa.0234.1.lcssa, %153 ], [ %.sroa.0234.1.lcssa, %134 ], [ %.sroa.0234.1.lcssa, %358 ]
+  %.sroa.0234.3.ph.ph = phi ptr [ %.sroa.0234.1.lcssa, %_ZNK19MeshLabPluginLogger3logIJmEEEvPKcDpOT_.exit ], [ %.sroa.0234.7348, %335 ], [ %.sroa.0234.5, %.loopexit277 ], [ %.sroa.0234.5, %353 ], [ %.sroa.0234.6.ph, %.noexc.i.i137.invoke ], [ %.sroa.0234.8, %367 ], [ %.sroa.0234.1.lcssa, %358 ], [ %.sroa.0234.8, %373 ], [ %.sroa.0234.1.lcssa, %138 ], [ %.sroa.0234.1.lcssa, %_ZNSt6vectorI8SubGraphSaIS0_EED2Ev.exit ], [ %.sroa.0234.1.lcssa, %181 ], [ %.sroa.0234.1.lcssa, %172 ], [ %.sroa.0234.1.lcssa, %168 ], [ %.sroa.0234.1.lcssa, %159 ], [ %.sroa.0234.1.lcssa, %158 ], [ %.sroa.0234.1.lcssa, %153 ], [ %.sroa.0234.1.lcssa, %134 ]
   %lpad.loopexit.split-lp275 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -8211,7 +8211,7 @@ _ZN12MeshDocument19RasterRangeIterator3endEv.exit139.preheader: ; preds = %_ZN12
           cleanup
   br label %.thread
 
-.thread284:                                       ; preds = %175, %177, %_ZN12MeshDocument19RasterRangeIterator5beginEv.exit138
+.thread284:                                       ; preds = %_ZN12MeshDocument19RasterRangeIterator5beginEv.exit138, %177, %175
   %lpad.thr_comm282 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorI9AlignPairSaIS0_EED2Ev.exit
@@ -9274,9 +9274,9 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit97
 
 _ZNSt6vectorIiSaIiEE9push_backERKi.exit97:        ; preds = %.lr.ph287, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i94, %103
-  %.sroa.23.2 = phi ptr [ %116, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i94 ], [ %.sroa.23.1, %103 ], [ %.sroa.23.1, %.lr.ph287 ]
-  %.sroa.12.2 = phi ptr [ %114, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i94 ], [ %104, %103 ], [ %.sroa.12.1, %.lr.ph287 ]
-  %.sroa.0189.4 = phi ptr [ %110, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i94 ], [ %.sroa.0189.1, %103 ], [ %.sroa.0189.1, %.lr.ph287 ]
+  %.sroa.23.2 = phi ptr [ %.sroa.23.1, %103 ], [ %116, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i94 ], [ %.sroa.23.1, %.lr.ph287 ]
+  %.sroa.12.2 = phi ptr [ %104, %103 ], [ %114, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i94 ], [ %.sroa.12.1, %.lr.ph287 ]
+  %.sroa.0189.4 = phi ptr [ %.sroa.0189.1, %103 ], [ %110, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i94 ], [ %.sroa.0189.1, %.lr.ph287 ]
   %117 = add i32 %.062293, 1
   %118 = zext i32 %117 to i64
   %119 = load ptr, ptr %24, align 8
@@ -12249,7 +12249,7 @@ define noundef zeroext i1 @_ZN18FilterMutualGlobal9AlignNodeER12MeshDocument4Nod
   br i1 %.not.i.i, label %_ZSt7advanceISt14_List_iteratorI11RasterModelEiEvRT_T0_.exit, label %.lr.ph.i.i, !llvm.loop !140
 
 _ZSt7advanceISt14_List_iteratorI11RasterModelEiEvRT_T0_.exit: ; preds = %.lr.ph.i.i, %.preheader.i.i, %.preheader7.i.i
-  %.sroa.0238.0 = phi ptr [ %7, %.preheader7.i.i ], [ %15, %.preheader.i.i ], [ %19, %.lr.ph.i.i ]
+  %.sroa.0238.0 = phi ptr [ %15, %.preheader.i.i ], [ %7, %.preheader7.i.i ], [ %19, %.lr.ph.i.i ]
   %20 = getelementptr inbounds nuw i8, ptr %.sroa.0238.0, i64 16
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.0238.0, i64 160
   %22 = load ptr, ptr %21, align 8
@@ -12305,7 +12305,7 @@ _ZSt7advanceISt14_List_iteratorI11RasterModelEiEvRT_T0_.exit: ; preds = %.lr.ph.
   br i1 %.not.i.i86, label %_ZSt7advanceISt14_List_iteratorI11RasterModelEiEvRT_T0_.exit91, label %.lr.ph.i.i84, !llvm.loop !140
 
 _ZSt7advanceISt14_List_iteratorI11RasterModelEiEvRT_T0_.exit91: ; preds = %.lr.ph.i.i84, %.preheader.i.i87, %.preheader7.i.i80
-  %.sroa.0237.0 = phi ptr [ %31, %.preheader7.i.i80 ], [ %41, %.preheader.i.i87 ], [ %45, %.lr.ph.i.i84 ]
+  %.sroa.0237.0 = phi ptr [ %41, %.preheader.i.i87 ], [ %31, %.preheader7.i.i80 ], [ %45, %.lr.ph.i.i84 ]
   %46 = getelementptr inbounds nuw i8, ptr %.sroa.0237.0, i64 16
   %47 = getelementptr inbounds nuw i8, ptr %.sroa.0237.0, i64 160
   %48 = load ptr, ptr %47, align 8
@@ -12580,7 +12580,7 @@ _ZNSt6vectorIfSaIfEE9push_backERKf.exit:          ; preds = %_ZNSt6vectorIfSaIfE
   br i1 %.not.i.i108, label %_ZSt7advanceISt14_List_iteratorI11RasterModelEiEvRT_T0_.exit113, label %.lr.ph.i.i106, !llvm.loop !140
 
 _ZSt7advanceISt14_List_iteratorI11RasterModelEiEvRT_T0_.exit113: ; preds = %.lr.ph.i.i106, %.preheader.i.i109, %.preheader7.i.i102
-  %.sroa.0232.0 = phi ptr [ %146, %.preheader7.i.i102 ], [ %155, %.preheader.i.i109 ], [ %159, %.lr.ph.i.i106 ]
+  %.sroa.0232.0 = phi ptr [ %155, %.preheader.i.i109 ], [ %146, %.preheader7.i.i102 ], [ %159, %.lr.ph.i.i106 ]
   %160 = getelementptr inbounds nuw i8, ptr %.sroa.0232.0, i64 16
   %161 = getelementptr inbounds nuw i8, ptr %.sroa.0232.0, i64 160
   %162 = load ptr, ptr %161, align 8
@@ -12988,7 +12988,7 @@ _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIP
   br i1 %.not.i.i180, label %_ZSt7advanceISt14_List_iteratorI11RasterModelEiEvRT_T0_.exit185, label %.lr.ph.i.i178, !llvm.loop !140
 
 _ZSt7advanceISt14_List_iteratorI11RasterModelEiEvRT_T0_.exit185: ; preds = %.lr.ph.i.i178, %.preheader.i.i181, %.preheader7.i.i174
-  %.sroa.0223.0 = phi ptr [ %319, %.preheader7.i.i174 ], [ %328, %.preheader.i.i181 ], [ %332, %.lr.ph.i.i178 ]
+  %.sroa.0223.0 = phi ptr [ %328, %.preheader.i.i181 ], [ %319, %.preheader7.i.i174 ], [ %332, %.lr.ph.i.i178 ]
   %333 = getelementptr inbounds nuw i8, ptr %.sroa.0223.0, i64 16
   %334 = getelementptr inbounds nuw i8, ptr %.sroa.0223.0, i64 160
   %335 = load ptr, ptr %334, align 8
@@ -13811,7 +13811,7 @@ define noundef zeroext i1 @_ZN18FilterMutualGlobal11UpdateGraphER12MeshDocument8
   br i1 %.not.i.i, label %_ZSt7advanceISt14_List_iteratorI11RasterModelEiEvRT_T0_.exit, label %.lr.ph.i.i, !llvm.loop !140
 
 _ZSt7advanceISt14_List_iteratorI11RasterModelEiEvRT_T0_.exit: ; preds = %.lr.ph.i.i, %.preheader.i.i, %.preheader7.i.i
-  %.sroa.0.0 = phi ptr [ %151, %.preheader7.i.i ], [ %157, %.preheader.i.i ], [ %161, %.lr.ph.i.i ]
+  %.sroa.0.0 = phi ptr [ %157, %.preheader.i.i ], [ %151, %.preheader7.i.i ], [ %161, %.lr.ph.i.i ]
   %162 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 16
   %163 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 160
   %164 = load ptr, ptr %163, align 8

@@ -5482,8 +5482,8 @@ select.unfold.us.i.i.i.i.i.i:                     ; preds = %.sink.split.i.us.i.
   br label %34
 
 34:                                               ; preds = %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hade2471cd25a74bdE.exit.sink.split.i.i.us.i.i.i.i.i.i", %26
-  %.sroa.3.0.i.us.i.i.i.i.i.i = phi ptr [ inttoptr (i64 8 to ptr), %26 ], [ %33, %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hade2471cd25a74bdE.exit.sink.split.i.i.us.i.i.i.i.i.i" ]
-  %.sroa.0.0.i6.us.i.i.i.i.i.i = phi ptr [ inttoptr (i64 8 to ptr), %26 ], [ %30, %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hade2471cd25a74bdE.exit.sink.split.i.i.us.i.i.i.i.i.i" ]
+  %.sroa.3.0.i.us.i.i.i.i.i.i = phi ptr [ %33, %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hade2471cd25a74bdE.exit.sink.split.i.i.us.i.i.i.i.i.i" ], [ inttoptr (i64 8 to ptr), %26 ]
+  %.sroa.0.0.i6.us.i.i.i.i.i.i = phi ptr [ %30, %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hade2471cd25a74bdE.exit.sink.split.i.i.us.i.i.i.i.i.i" ], [ inttoptr (i64 8 to ptr), %26 ]
   store ptr %.sroa.0.0.i6.us.i.i.i.i.i.i, ptr %11, align 8, !alias.scope !1662, !noalias !1663
   store ptr %.sroa.3.0.i.us.i.i.i.i.i.i, ptr %12, align 8, !alias.scope !1662, !noalias !1663
   br label %.split.us.i.i.i.i.i.i
@@ -5517,7 +5517,7 @@ select.unfold.i.i.i.i.i.i:                        ; preds = %.sink.split.i.i.i.i
   br i1 %41, label %.loopexit16, label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %.sink.split.i.us.i.i.i.i.i.i, %.sink.split.i7.i.i.i.i.i.i, %.sink.split.i.i.i.i.i.i.i
-  %.sroa.0.0.i.i.ph.i.i.i.i = phi ptr [ %.promoted.i.i.i.i.i.i, %.sink.split.i.i.i.i.i.i.i ], [ %38, %.sink.split.i7.i.i.i.i.i.i ], [ %spec.select.i16.us.i.i.i.i.i.i, %.sink.split.i.us.i.i.i.i.i.i ]
+  %.sroa.0.0.i.i.ph.i.i.i.i = phi ptr [ %38, %.sink.split.i7.i.i.i.i.i.i ], [ %.promoted.i.i.i.i.i.i, %.sink.split.i.i.i.i.i.i.i ], [ %spec.select.i16.us.i.i.i.i.i.i, %.sink.split.i.us.i.i.i.i.i.i ]
   call void @"_ZN13outline_panel12OutlinePanel16outline_location28_$u7b$$u7b$closure$u7d$$u7d$17h564c403aee1b6936E.llvm.981029652891059309"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %17, ptr noalias noundef nonnull align 8 dereferenceable(24) %16, ptr noalias noundef nonnull readonly align 8 dereferenceable(272) %.sroa.0.0.i.i.ph.i.i.i.i), !noalias !1694
   %.sroa.2.0.copyload.i.i = load ptr, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !noalias !1643
   %43 = icmp eq ptr %.sroa.2.0.copyload.i.i, null
@@ -5648,8 +5648,8 @@ select.unfold.us.i.i.i.i.i.i.i.i:                 ; preds = %.sink.split.i.us.i.
   br label %83
 
 83:                                               ; preds = %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hade2471cd25a74bdE.exit.sink.split.i.i.us.i.i.i.i.i.i.i.i", %75
-  %.sroa.3.0.i.us.i.i.i.i.i.i.i.i = phi ptr [ inttoptr (i64 8 to ptr), %75 ], [ %82, %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hade2471cd25a74bdE.exit.sink.split.i.i.us.i.i.i.i.i.i.i.i" ]
-  %.sroa.0.0.i6.us.i.i.i.i.i.i.i.i = phi ptr [ inttoptr (i64 8 to ptr), %75 ], [ %79, %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hade2471cd25a74bdE.exit.sink.split.i.i.us.i.i.i.i.i.i.i.i" ]
+  %.sroa.3.0.i.us.i.i.i.i.i.i.i.i = phi ptr [ %82, %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hade2471cd25a74bdE.exit.sink.split.i.i.us.i.i.i.i.i.i.i.i" ], [ inttoptr (i64 8 to ptr), %75 ]
+  %.sroa.0.0.i6.us.i.i.i.i.i.i.i.i = phi ptr [ %79, %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hade2471cd25a74bdE.exit.sink.split.i.i.us.i.i.i.i.i.i.i.i" ], [ inttoptr (i64 8 to ptr), %75 ]
   store ptr %.sroa.0.0.i6.us.i.i.i.i.i.i.i.i, ptr %59, align 8, !alias.scope !1738, !noalias !1739
   store ptr %.sroa.3.0.i.us.i.i.i.i.i.i.i.i, ptr %60, align 8, !alias.scope !1738, !noalias !1739
   br label %.split.us.i.i.i.i.i.i.i.i
@@ -5683,7 +5683,7 @@ select.unfold.i.i.i.i.i.i.i.i:                    ; preds = %.sink.split.i.i.i.i
   br i1 %90, label %.loopexit, label %.loopexit.i.i.i.i
 
 .loopexit.i.i.i.i:                                ; preds = %.sink.split.i.us.i.i.i.i.i.i.i.i, %.sink.split.i7.i.i.i.i.i.i.i.i, %.sink.split.i.i.i.i.i.i.i.i.i
-  %.sroa.0.0.i.i.ph.i.i.i.i.i.i = phi ptr [ %.promoted.i.i.i.i.i.i.i.i, %.sink.split.i.i.i.i.i.i.i.i.i ], [ %87, %.sink.split.i7.i.i.i.i.i.i.i.i ], [ %spec.select.i16.us.i.i.i.i.i.i.i.i, %.sink.split.i.us.i.i.i.i.i.i.i.i ]
+  %.sroa.0.0.i.i.ph.i.i.i.i.i.i = phi ptr [ %87, %.sink.split.i7.i.i.i.i.i.i.i.i ], [ %.promoted.i.i.i.i.i.i.i.i, %.sink.split.i.i.i.i.i.i.i.i.i ], [ %spec.select.i16.us.i.i.i.i.i.i.i.i, %.sink.split.i.us.i.i.i.i.i.i.i.i ]
   invoke void @"_ZN13outline_panel12OutlinePanel16outline_location28_$u7b$$u7b$closure$u7d$$u7d$17h564c403aee1b6936E.llvm.981029652891059309"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %65, ptr noalias noundef nonnull align 8 dereferenceable(24) %64, ptr noalias noundef nonnull readonly align 8 dereferenceable(272) %.sroa.0.0.i.i.ph.i.i.i.i.i.i)
           to label %.noexc unwind label %.loopexit14
 

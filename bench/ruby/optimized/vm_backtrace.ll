@@ -627,7 +627,7 @@ rb_obj_written.exit:                              ; preds = %bt_update_cfunc_loc
   br i1 %.not101, label %.loopexit, label %.lr.ph144.split, !llvm.loop !78
 
 .loopexit:                                        ; preds = %149, %127, %.preheader126, %146, %rb_obj_written.exit, %.critedge
-  %.082.lcssa173 = phi i64 [ %.082.lcssa, %.critedge ], [ %.082.lcssa, %146 ], [ %.082.lcssa, %rb_obj_written.exit ], [ %1, %.preheader126 ], [ %.082.lcssa, %127 ], [ %.082.lcssa, %149 ]
+  %.082.lcssa173 = phi i64 [ %.082.lcssa, %127 ], [ %1, %.preheader126 ], [ %.082.lcssa, %.critedge ], [ %.082.lcssa, %146 ], [ %.082.lcssa, %rb_obj_written.exit ], [ %.082.lcssa, %149 ]
   %.not104 = icmp eq ptr %3, null
   br i1 %.not104, label %154, label %151
 

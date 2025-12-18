@@ -81,7 +81,7 @@ tailrecurse:                                      ; preds = %tailrecurse.prehead
   br label %40
 
 40:                                               ; preds = %4, %.loopexit, %38, %36, %7
-  %.0 = phi i32 [ 0, %.loopexit ], [ %11, %7 ], [ %37, %36 ], [ %39, %38 ], [ 1, %4 ]
+  %.0 = phi i32 [ %39, %38 ], [ 0, %.loopexit ], [ %11, %7 ], [ %37, %36 ], [ 1, %4 ]
   ret i32 %.0
 }
 

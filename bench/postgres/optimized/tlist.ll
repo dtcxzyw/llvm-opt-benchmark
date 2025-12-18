@@ -108,7 +108,7 @@ list_length.exit:                                 ; preds = %2, %3
   br i1 %28, label %tlist_member.exit, label %19
 
 .critedge:                                        ; preds = %tlist_member.exit, %.lr.ph, %list_length.exit
-  %.0.lcssa = phi ptr [ %0, %list_length.exit ], [ %0, %.lr.ph ], [ %.1, %tlist_member.exit ]
+  %.0.lcssa = phi ptr [ %0, %.lr.ph ], [ %0, %list_length.exit ], [ %.1, %tlist_member.exit ]
   ret ptr %.0.lcssa
 
 .loopexit:                                        ; preds = %19, %.lr.ph.i, %.lr.ph30
@@ -181,7 +181,7 @@ define dso_local ptr @get_tlist_exprs(ptr noundef readonly captures(address_is_n
   br i1 %22, label %27, label %23
 
 .critedge:                                        ; preds = %27, %.lr.ph34, %.lr.ph.split.us.split, %.lr.ph.split.split, %2
-  %.0.lcssa = phi ptr [ null, %2 ], [ null, %.lr.ph.split.us.split ], [ null, %.lr.ph.split.split ], [ %12, %.lr.ph34 ], [ %.1, %27 ]
+  %.0.lcssa = phi ptr [ null, %2 ], [ null, %.lr.ph.split.split ], [ null, %.lr.ph.split.us.split ], [ %12, %.lr.ph34 ], [ %.1, %27 ]
   ret ptr %.0.lcssa
 
 23:                                               ; preds = %.lr.ph29
@@ -426,7 +426,7 @@ list_head.exit:                                   ; preds = %3, %4
   br i1 %54, label %.lr.ph64, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.thread37, %32, %.lr.ph.split.us.split, %.lr.ph.split.split, %list_head.exit
-  %.021.lcssa = phi ptr [ %7, %list_head.exit ], [ %7, %.lr.ph.split.us.split ], [ %7, %.lr.ph.split.split ], [ %.22340.us, %32 ], [ %..i, %.thread37 ]
+  %.021.lcssa = phi ptr [ %7, %list_head.exit ], [ %7, %.lr.ph.split.split ], [ %7, %.lr.ph.split.us.split ], [ %.22340.us, %32 ], [ %..i, %.thread37 ]
   %.not28 = icmp eq ptr %.021.lcssa, null
   br label %.thread42
 
@@ -546,7 +546,7 @@ list_head.exit:                                   ; preds = %3, %4
   br i1 %54, label %.lr.ph64, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.thread37, %32, %.lr.ph.split.us.split, %.lr.ph.split.split, %list_head.exit
-  %.021.lcssa = phi ptr [ %7, %list_head.exit ], [ %7, %.lr.ph.split.us.split ], [ %7, %.lr.ph.split.split ], [ %.22340.us, %32 ], [ %..i, %.thread37 ]
+  %.021.lcssa = phi ptr [ %7, %list_head.exit ], [ %7, %.lr.ph.split.split ], [ %7, %.lr.ph.split.us.split ], [ %.22340.us, %32 ], [ %..i, %.thread37 ]
   %.not28 = icmp eq ptr %.021.lcssa, null
   br label %.thread42
 
@@ -1705,7 +1705,7 @@ define dso_local void @apply_pathtarget_labeling_to_tlist(ptr noundef readonly c
   unreachable
 
 tlist_member.exit:                                ; preds = %.lr.ph31.i37, %80, %.lr.ph31.i
-  %.0 = phi ptr [ %59, %80 ], [ %30, %.lr.ph31.i ], [ %45, %.lr.ph31.i37 ]
+  %.0 = phi ptr [ %30, %.lr.ph31.i ], [ %59, %80 ], [ %45, %.lr.ph31.i37 ]
   %88 = getelementptr inbounds nuw i8, ptr %.0, i64 32
   %89 = load i32, ptr %88, align 8
   %.not33 = icmp eq i32 %89, 0

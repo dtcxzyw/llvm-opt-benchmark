@@ -1505,9 +1505,9 @@ get_max_fd_limit.exit.i:                          ; preds = %21, %18
   br i1 %.not30.i.i.i, label %find_lru_pack.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !90
 
 find_lru_pack.exit.i.i:                           ; preds = %89, %84, %74, %64, %.lr.ph.i.us16.us.i.i, %.lr.ph.i.us.i.i, %47, %.lr.ph.i.us.us.i.i, %43, %37, %36, %.lr.ph.i.i
-  %.212.i.i = phi ptr [ %.01039.i.i, %.lr.ph.i.i ], [ %.01039.i.i, %36 ], [ %.042.i.i, %43 ], [ %.01039.i.i, %64 ], [ %spec.select76.i.i, %37 ], [ %.042.i.i, %47 ], [ %.042.i.i, %.lr.ph.i.us.i.i ], [ %.01039.i.i, %.lr.ph.i.us.us.i.i ], [ %.01039.i.i, %.lr.ph.i.us16.us.i.i ], [ %.042.i.i, %74 ], [ %.01039.i.i, %84 ], [ %.042.i.i, %89 ]
-  %.29.i.i = phi ptr [ %.0740.fr.i.i, %.lr.ph.i.i ], [ null, %36 ], [ null, %43 ], [ %.0740.fr.i.i, %64 ], [ null, %37 ], [ %spec.select.i.us.us.i.i, %47 ], [ %spec.select.i.us.i.i, %.lr.ph.i.us.i.i ], [ null, %.lr.ph.i.us.us.i.i ], [ %.0740.fr.i.i, %.lr.ph.i.us16.us.i.i ], [ %spec.select.i.us22.us.i.i, %74 ], [ %.0740.fr.i.i, %84 ], [ %spec.select.i.i.i, %89 ]
-  %.2.i.i = phi i32 [ %.0641.fr.i.i, %.lr.ph.i.i ], [ %.0641.fr.i.i, %36 ], [ 0, %43 ], [ 0, %74 ], [ %spec.select77.i.i, %37 ], [ 0, %47 ], [ %spec.select.i.i, %.lr.ph.i.us.i.i ], [ 0, %.lr.ph.i.us.us.i.i ], [ 0, %.lr.ph.i.us16.us.i.i ], [ 0, %64 ], [ 1, %84 ], [ %spec.select49.i.i, %89 ]
+  %.212.i.i = phi ptr [ %.01039.i.i, %.lr.ph.i.i ], [ %.01039.i.i, %36 ], [ %spec.select76.i.i, %37 ], [ %.042.i.i, %43 ], [ %.01039.i.i, %.lr.ph.i.us16.us.i.i ], [ %.042.i.i, %47 ], [ %.042.i.i, %.lr.ph.i.us.i.i ], [ %.01039.i.i, %.lr.ph.i.us.us.i.i ], [ %.01039.i.i, %64 ], [ %.042.i.i, %74 ], [ %.01039.i.i, %84 ], [ %.042.i.i, %89 ]
+  %.29.i.i = phi ptr [ %.0740.fr.i.i, %.lr.ph.i.i ], [ null, %36 ], [ null, %37 ], [ null, %43 ], [ %.0740.fr.i.i, %.lr.ph.i.us16.us.i.i ], [ %spec.select.i.us.us.i.i, %47 ], [ %spec.select.i.us.i.i, %.lr.ph.i.us.i.i ], [ null, %.lr.ph.i.us.us.i.i ], [ %.0740.fr.i.i, %64 ], [ %spec.select.i.us22.us.i.i, %74 ], [ %.0740.fr.i.i, %84 ], [ %spec.select.i.i.i, %89 ]
+  %.2.i.i = phi i32 [ %.0641.fr.i.i, %.lr.ph.i.i ], [ %.0641.fr.i.i, %36 ], [ %spec.select77.i.i, %37 ], [ 0, %43 ], [ 0, %74 ], [ 0, %47 ], [ %spec.select.i.i, %.lr.ph.i.us.i.i ], [ 0, %.lr.ph.i.us.us.i.i ], [ 0, %.lr.ph.i.us16.us.i.i ], [ 0, %64 ], [ 1, %84 ], [ %spec.select49.i.i, %89 ]
   %91 = getelementptr inbounds nuw i8, ptr %.042.i.i, i64 16
   %.0.i.i = load ptr, ptr %91, align 8, !tbaa !63
   %.not.i.i = icmp eq ptr %.0.i.i, null
@@ -2294,7 +2294,7 @@ define internal fastcc void @prepare_packed_git(ptr noundef %0) unnamed_addr #0 
   br i1 %exitcond.not.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i, !llvm.loop !129
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i, %45, %.lr.ph.i.i
-  %.135.ph.i.i = phi i32 [ 0, %45 ], [ %.03465.i.i, %.lr.ph.i.i ], [ 0, %.lr.ph.i.i.i ]
+  %.135.ph.i.i = phi i32 [ %.03465.i.i, %.lr.ph.i.i ], [ 0, %45 ], [ 0, %.lr.ph.i.i.i ]
   %53 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %38, i32 noundef 46) #26
   %.not47.not.i.i = icmp eq ptr %53, null
   br i1 %.not47.not.i.i, label %.thread.i.i, label %55
@@ -3889,7 +3889,7 @@ get_delta_base_oid.exit.thread107:                ; preds = %.lr.ph.i.i81, %get_
   br label %324
 
 get_delta_base_oid.exit:                          ; preds = %292, %273, %.split.loop.exit9.i.i.i.i, %.split.loop.exit9.i.i33.i.i
-  %.2.i.i.sink.i.i = phi i32 [ %275, %.split.loop.exit9.i.i.i.i ], [ %294, %.split.loop.exit9.i.i33.i.i ], [ 0, %273 ], [ 0, %292 ]
+  %.2.i.i.sink.i.i = phi i32 [ 0, %273 ], [ %275, %.split.loop.exit9.i.i.i.i ], [ %294, %.split.loop.exit9.i.i33.i.i ], [ 0, %292 ]
   %295 = getelementptr inbounds nuw i8, ptr %189, i64 32
   store i32 %.2.i.i.sink.i.i, ptr %295, align 4, !tbaa !154
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -4244,7 +4244,7 @@ st_mult.exit28.i:                                 ; preds = %94
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %132, %114, %.split.loop.exit9.i.i33.i, %.split.loop.exit9.i.i.i
-  %.2.i.i.sink.i = phi i32 [ %116, %.split.loop.exit9.i.i.i ], [ %134, %.split.loop.exit9.i.i33.i ], [ 0, %114 ], [ 0, %132 ]
+  %.2.i.i.sink.i = phi i32 [ 0, %114 ], [ %116, %.split.loop.exit9.i.i.i ], [ %134, %.split.loop.exit9.i.i33.i ], [ 0, %132 ]
   %135 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store i32 %.2.i.i.sink.i, ptr %135, align 4, !tbaa !154
   br label %nth_packed_object_id.exit
@@ -4599,7 +4599,7 @@ st_mult.exit28.i163:                              ; preds = %247
   br label %.sink.split.i167
 
 .sink.split.i167:                                 ; preds = %287, %268, %.split.loop.exit9.i.i33.i169, %.split.loop.exit9.i.i.i174
-  %.2.i.i.sink.i168 = phi i32 [ %270, %.split.loop.exit9.i.i.i174 ], [ %289, %.split.loop.exit9.i.i33.i169 ], [ 0, %268 ], [ 0, %287 ]
+  %.2.i.i.sink.i168 = phi i32 [ 0, %268 ], [ %270, %.split.loop.exit9.i.i.i174 ], [ %289, %.split.loop.exit9.i.i33.i169 ], [ 0, %287 ]
   store i32 %.2.i.i.sink.i168, ptr %216, align 4, !tbaa !154
   br label %nth_packed_object_id.exit176
 
@@ -4973,7 +4973,7 @@ st_mult.exit28:                                   ; preds = %19
   br label %.sink.split
 
 .sink.split:                                      ; preds = %60, %41, %.split.loop.exit9.i.i33, %.split.loop.exit9.i.i
-  %.2.i.i.sink = phi i32 [ %43, %.split.loop.exit9.i.i ], [ %62, %.split.loop.exit9.i.i33 ], [ 0, %41 ], [ 0, %60 ]
+  %.2.i.i.sink = phi i32 [ 0, %41 ], [ %43, %.split.loop.exit9.i.i ], [ %62, %.split.loop.exit9.i.i33 ], [ 0, %60 ]
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %.2.i.i.sink, ptr %63, align 4, !tbaa !154
   br label %64
@@ -5643,7 +5643,7 @@ st_mult.exit.us79.i:                              ; preds = %57
   br i1 %mul.ov.i.i, label %.split.us.i, label %st_mult.exit.i
 
 .split.us.i:                                      ; preds = %73, %57, %41
-  %.us-phi.i = phi i64 [ %..us77.i, %57 ], [ %..us.i, %41 ], [ %..i, %73 ]
+  %.us-phi.i = phi i64 [ %..us.i, %41 ], [ %..us77.i, %57 ], [ %..i, %73 ]
   tail call void (ptr, ...) @die(ptr noundef nonnull @.str.47, i64 noundef 8, i64 noundef %.us-phi.i) #25
   unreachable
 
@@ -5669,9 +5669,9 @@ st_mult.exit.i:                                   ; preds = %73
   br i1 %.not46.i, label %._crit_edge.i, label %.lr.ph.split.split.i, !llvm.loop !198
 
 ._crit_edge.i:                                    ; preds = %81, %65, %49, %.lr.ph.split.us.i, %get_all_packs.exit.i
-  %.038.lcssa.i = phi ptr [ null, %get_all_packs.exit.i ], [ null, %.lr.ph.split.us.i ], [ %.240.us82.i, %65 ], [ %.240.us.i, %49 ], [ %.240.i, %81 ]
-  %.036.lcssa.i = phi i64 [ 0, %get_all_packs.exit.i ], [ 0, %.lr.ph.split.us.i ], [ %.137.us83.i, %65 ], [ %.137.us.i, %49 ], [ %.137.i, %81 ]
-  %.035.lcssa.i = phi i64 [ 0, %get_all_packs.exit.i ], [ 0, %.lr.ph.split.us.i ], [ %.3.us84.i, %65 ], [ %.3.us.i, %49 ], [ %.3.i, %81 ]
+  %.038.lcssa.i = phi ptr [ null, %get_all_packs.exit.i ], [ %.240.us82.i, %65 ], [ %.240.us.i, %49 ], [ null, %.lr.ph.split.us.i ], [ %.240.i, %81 ]
+  %.036.lcssa.i = phi i64 [ 0, %get_all_packs.exit.i ], [ %.137.us83.i, %65 ], [ %.137.us.i, %49 ], [ 0, %.lr.ph.split.us.i ], [ %.137.i, %81 ]
+  %.035.lcssa.i = phi i64 [ 0, %get_all_packs.exit.i ], [ %.3.us84.i, %65 ], [ %.3.us.i, %49 ], [ 0, %.lr.ph.split.us.i ], [ %.3.i, %81 ]
   %83 = add i64 %.036.lcssa.i, 1
   %84 = icmp ugt i64 %83, %.035.lcssa.i
   br i1 %84, label %85, label %92
@@ -5948,7 +5948,7 @@ st_mult.exit28.i:                                 ; preds = %34
   br label %.loopexit40.sink.split
 
 .loopexit:                                        ; preds = %74, %55, %.split.loop.exit9.i.i33.i, %.split.loop.exit9.i.i.i
-  %.2.i.i.sink.i = phi i32 [ %57, %.split.loop.exit9.i.i.i ], [ %76, %.split.loop.exit9.i.i33.i ], [ 0, %55 ], [ 0, %74 ]
+  %.2.i.i.sink.i = phi i32 [ 0, %55 ], [ %57, %.split.loop.exit9.i.i.i ], [ %76, %.split.loop.exit9.i.i33.i ], [ 0, %74 ]
   store i32 %.2.i.i.sink.i, ptr %17, align 4, !tbaa !154
   %79 = call i32 %1(ptr noundef nonnull %5, ptr noundef %0, i32 noundef %.0, ptr noundef %2) #21
   %.not30 = icmp eq i32 %79, 0
@@ -6794,7 +6794,7 @@ st_mult.exit28.i:                                 ; preds = %26
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %65, %47, %.split.loop.exit9.i.i33.i, %.split.loop.exit9.i.i.i
-  %.2.i.i.sink.i = phi i32 [ %49, %.split.loop.exit9.i.i.i ], [ %67, %.split.loop.exit9.i.i33.i ], [ 0, %47 ], [ 0, %65 ]
+  %.2.i.i.sink.i = phi i32 [ 0, %47 ], [ %49, %.split.loop.exit9.i.i.i ], [ %67, %.split.loop.exit9.i.i33.i ], [ 0, %65 ]
   %68 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i32 %.2.i.i.sink.i, ptr %68, align 4, !tbaa !154
   br label %nth_packed_object_id.exit

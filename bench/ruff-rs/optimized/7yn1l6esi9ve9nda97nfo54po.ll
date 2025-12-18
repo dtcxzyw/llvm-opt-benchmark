@@ -1452,14 +1452,14 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
   %10 = icmp eq i8 %8, %9
   br i1 %10, label %11, label %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit.thread"
 
-"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit.thread": ; preds = %18, %137, %75, %135, %40, %84, %60, %91, %97, %112, %152, %154, %160, %174, %213, %180, %150, %215, %202, %12, %.backedge, %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit", %.lr.ph, %44, %24, %34, %69, %54, %110, %108, %139, %166, %118, %195, %191, %193, %200, %126, %.preheader.split, %4
-  %.sroa.0.0 = phi i1 [ false, %4 ], [ true, %.preheader.split ], [ false, %18 ], [ false, %137 ], [ false, %75 ], [ false, %135 ], [ false, %40 ], [ false, %84 ], [ false, %60 ], [ false, %91 ], [ false, %97 ], [ false, %112 ], [ false, %152 ], [ false, %154 ], [ false, %160 ], [ false, %174 ], [ false, %213 ], [ false, %180 ], [ false, %150 ], [ false, %215 ], [ false, %202 ], [ false, %12 ], [ false, %200 ], [ false, %193 ], [ false, %191 ], [ false, %195 ], [ false, %118 ], [ false, %166 ], [ false, %139 ], [ false, %108 ], [ false, %110 ], [ false, %54 ], [ false, %69 ], [ false, %34 ], [ false, %24 ], [ false, %44 ], [ false, %.lr.ph ], [ false, %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit" ], [ true, %.backedge ], [ false, %126 ]
+"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit.thread": ; preds = %12, %18, %150, %137, %202, %91, %75, %215, %154, %160, %40, %84, %60, %152, %174, %213, %180, %112, %97, %135, %.backedge, %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit", %.lr.ph, %44, %24, %34, %69, %54, %110, %108, %139, %166, %118, %195, %191, %193, %200, %126, %.preheader.split, %4
+  %.sroa.0.0 = phi i1 [ false, %4 ], [ true, %.preheader.split ], [ false, %12 ], [ false, %18 ], [ false, %150 ], [ false, %137 ], [ false, %202 ], [ false, %91 ], [ false, %75 ], [ false, %215 ], [ false, %154 ], [ false, %160 ], [ false, %40 ], [ false, %84 ], [ false, %60 ], [ false, %152 ], [ false, %174 ], [ false, %213 ], [ false, %180 ], [ false, %112 ], [ false, %97 ], [ false, %135 ], [ false, %200 ], [ false, %193 ], [ false, %191 ], [ false, %195 ], [ false, %118 ], [ false, %166 ], [ false, %139 ], [ false, %108 ], [ false, %110 ], [ false, %54 ], [ false, %69 ], [ false, %34 ], [ false, %24 ], [ false, %44 ], [ false, %.lr.ph ], [ false, %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit" ], [ true, %.backedge ], [ false, %126 ]
   ret i1 %.sroa.0.0
 
 11:                                               ; preds = %.lr.ph
   switch i8 %8, label %.backedge [
-    i8 1, label %12
-    i8 3, label %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit"
+    i8 1, label %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit"
+    i8 3, label %12
     i8 4, label %18
     i8 5, label %24
     i8 6, label %34
@@ -1469,11 +1469,11 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
   ]
 
 12:                                               ; preds = %11
-  %13 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %14 = load i8, ptr %13, align 1, !range !191, !noundef !3
-  %15 = getelementptr inbounds nuw i8, ptr %7, i64 1
-  %16 = load i8, ptr %15, align 1, !range !191, !noundef !3
-  %17 = icmp eq i8 %14, %16
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %14 = load i32, ptr %13, align 4, !noundef !3
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %16 = load i32, ptr %15, align 4, !noundef !3
+  %17 = icmp eq i32 %14, %16
   br i1 %17, label %.backedge, label %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit.thread"
 
 18:                                               ; preds = %11
@@ -1517,22 +1517,22 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
 44:                                               ; preds = %11
   %45 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %46 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !192)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !195)
-  %47 = load ptr, ptr %45, align 8, !alias.scope !192, !noalias !195, !nonnull !3, !noundef !3
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !191)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !194)
+  %47 = load ptr, ptr %45, align 8, !alias.scope !191, !noalias !194, !nonnull !3, !noundef !3
   %48 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %49 = load i64, ptr %48, align 8, !alias.scope !192, !noalias !195, !noundef !3
-  %50 = load ptr, ptr %46, align 8, !alias.scope !195, !noalias !192, !nonnull !3, !noundef !3
+  %49 = load i64, ptr %48, align 8, !alias.scope !191, !noalias !194, !noundef !3
+  %50 = load ptr, ptr %46, align 8, !alias.scope !194, !noalias !191, !nonnull !3, !noundef !3
   %51 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %52 = load i64, ptr %51, align 8, !alias.scope !195, !noalias !192, !noundef !3
-  %53 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h00b6a6192d6fb377E"(ptr noundef nonnull align 8 %47, i64 noundef %49, ptr noundef nonnull align 8 %50, i64 noundef %52), !noalias !197
+  %52 = load i64, ptr %51, align 8, !alias.scope !194, !noalias !191, !noundef !3
+  %53 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h00b6a6192d6fb377E"(ptr noundef nonnull align 8 %47, i64 noundef %49, ptr noundef nonnull align 8 %50, i64 noundef %52), !noalias !196
   br i1 %53, label %84, label %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit.thread"
 
 54:                                               ; preds = %11
   %55 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %56 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %57 = load i8, ptr %55, align 8, !range !198, !noundef !3
-  %58 = load i8, ptr %56, align 8, !range !198, !noundef !3
+  %57 = load i8, ptr %55, align 8, !range !197, !noundef !3
+  %58 = load i8, ptr %56, align 8, !range !197, !noundef !3
   %59 = icmp eq i8 %57, %58
   br i1 %59, label %90, label %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit.thread"
 
@@ -1597,9 +1597,9 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
 
 91:                                               ; preds = %90
   %92 = getelementptr inbounds nuw i8, ptr %6, i64 9
-  %93 = load i8, ptr %92, align 1, !range !199, !noundef !3
+  %93 = load i8, ptr %92, align 1, !range !198, !noundef !3
   %94 = getelementptr inbounds nuw i8, ptr %7, i64 9
-  %95 = load i8, ptr %94, align 1, !range !199, !noundef !3
+  %95 = load i8, ptr %94, align 1, !range !198, !noundef !3
   %96 = icmp eq i8 %93, %95
   br i1 %96, label %.backedge, label %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit.thread"
 
@@ -1693,9 +1693,9 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
 
 154:                                              ; preds = %90
   %155 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  %156 = load i32, ptr %155, align 4, !range !200, !noundef !3
+  %156 = load i32, ptr %155, align 4, !range !199, !noundef !3
   %157 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  %158 = load i32, ptr %157, align 4, !range !200, !noundef !3
+  %158 = load i32, ptr %157, align 4, !range !199, !noundef !3
   %159 = icmp eq i32 %156, %158
   br i1 %159, label %.backedge, label %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit.thread"
 
@@ -1709,9 +1709,9 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
 
 166:                                              ; preds = %90
   %167 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  %168 = load i32, ptr %167, align 4, !range !201, !noundef !3
+  %168 = load i32, ptr %167, align 4, !range !200, !noundef !3
   %169 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  %170 = load i32, ptr %169, align 4, !range !201, !noundef !3
+  %170 = load i32, ptr %169, align 4, !range !200, !noundef !3
   %171 = icmp eq i32 %168, %170
   br i1 %171, label %172, label %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit.thread"
 
@@ -1790,14 +1790,14 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
   br i1 %216, label %.backedge, label %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit.thread"
 
 "_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit": ; preds = %11
-  %217 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %218 = load i32, ptr %217, align 4, !noundef !3
-  %219 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %220 = load i32, ptr %219, align 4, !noundef !3
-  %221 = icmp eq i32 %218, %220
+  %217 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %218 = load i8, ptr %217, align 1, !range !201, !noundef !3
+  %219 = getelementptr inbounds nuw i8, ptr %7, i64 1
+  %220 = load i8, ptr %219, align 1, !range !201, !noundef !3
+  %221 = icmp eq i8 %218, %220
   br i1 %221, label %.backedge, label %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit.thread"
 
-.backedge:                                        ; preds = %18, %137, %75, %135, %40, %84, %60, %91, %97, %112, %152, %154, %160, %174, %213, %180, %150, %215, %202, %12, %11, %90, %172, %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit"
+.backedge:                                        ; preds = %12, %18, %150, %137, %202, %91, %75, %215, %154, %160, %40, %84, %60, %152, %174, %213, %180, %112, %97, %135, %11, %172, %90, %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit"
   %exitcond.not = icmp eq i64 %5, %1
   br i1 %exitcond.not, label %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit.thread", label %.lr.ph
 }
@@ -2246,17 +2246,17 @@ attributes #17 = { noreturn }
 !188 = !{!179, !181, !176}
 !189 = !{!187, !179, !181, !176, !182}
 !190 = !{i8 0, i8 11}
-!191 = !{i8 0, i8 4}
-!192 = !{!193}
-!193 = distinct !{!193, !194, !"_ZN92_$LT$ruff_formatter..format_element..BestFittingVariants$u20$as$u20$core..cmp..PartialEq$GT$2eq17h878333ad76786518E: argument 0"}
-!194 = distinct !{!194, !"_ZN92_$LT$ruff_formatter..format_element..BestFittingVariants$u20$as$u20$core..cmp..PartialEq$GT$2eq17h878333ad76786518E"}
-!195 = !{!196}
-!196 = distinct !{!196, !194, !"_ZN92_$LT$ruff_formatter..format_element..BestFittingVariants$u20$as$u20$core..cmp..PartialEq$GT$2eq17h878333ad76786518E: argument 1"}
-!197 = !{!193, !196}
-!198 = !{i8 0, i8 30}
-!199 = !{i8 1, i8 0}
-!200 = !{i32 1, i32 0}
-!201 = !{i32 0, i32 3}
+!191 = !{!192}
+!192 = distinct !{!192, !193, !"_ZN92_$LT$ruff_formatter..format_element..BestFittingVariants$u20$as$u20$core..cmp..PartialEq$GT$2eq17h878333ad76786518E: argument 0"}
+!193 = distinct !{!193, !"_ZN92_$LT$ruff_formatter..format_element..BestFittingVariants$u20$as$u20$core..cmp..PartialEq$GT$2eq17h878333ad76786518E"}
+!194 = !{!195}
+!195 = distinct !{!195, !193, !"_ZN92_$LT$ruff_formatter..format_element..BestFittingVariants$u20$as$u20$core..cmp..PartialEq$GT$2eq17h878333ad76786518E: argument 1"}
+!196 = !{!192, !195}
+!197 = !{i8 0, i8 30}
+!198 = !{i8 1, i8 0}
+!199 = !{i32 1, i32 0}
+!200 = !{i32 0, i32 3}
+!201 = !{i8 0, i8 4}
 !202 = !{!203}
 !203 = distinct !{!203, !204, !"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$11write_usize17h0c7441d8d417fd75E: argument 0"}
 !204 = distinct !{!204, !"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$11write_usize17h0c7441d8d417fd75E"}

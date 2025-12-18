@@ -2227,7 +2227,7 @@ repeatIsDead.exit.thread:                         ; preds = %138, %repeatIsDead.
   br label %lbrInAccept.exit
 
 lbrInAccept.exit:                                 ; preds = %179, %177, %175, %173, %154, %152
-  %.0.i91 = phi i32 [ %153, %152 ], [ %..i93, %154 ], [ %180, %179 ], [ %174, %173 ], [ %176, %175 ], [ %178, %177 ]
+  %.0.i91 = phi i32 [ %178, %177 ], [ %153, %152 ], [ %..i93, %154 ], [ %180, %179 ], [ %174, %173 ], [ %176, %175 ]
   %.not = icmp eq i32 %.0.i91, 1
   br i1 %.not, label %nfaExecLbrDot_TopScan.exit, label %lbrInAccept.exit.lbrInAccept.exit.thread_crit_edge
 
@@ -2305,7 +2305,7 @@ lbrInAccept.exit.thread:                          ; preds = %lbrInAccept.exit.lb
   br label %repeatHasMatch.exit
 
 repeatHasMatch.exit:                              ; preds = %191, %212, %214, %216, %218
-  %.0.i90 = phi i32 [ %192, %191 ], [ %213, %212 ], [ %215, %214 ], [ %217, %216 ], [ %219, %218 ]
+  %.0.i90 = phi i32 [ %219, %218 ], [ %192, %191 ], [ %217, %216 ], [ %215, %214 ], [ %213, %212 ]
   %220 = icmp eq i32 %.0.i90, 1
   br i1 %220, label %nfaExecLbrDot_TopScan.exit, label %repeatHasMatch.exit.repeatHasMatch.exit.threadthread-pre-split_crit_edge
 
@@ -2371,7 +2371,7 @@ repeatHasMatch.exit.thread.thread:                ; preds = %207, %193, %200, %r
   br label %repeatNextMatch.exit
 
 repeatNextMatch.exit:                             ; preds = %230, %222, %238, %240, %242, %244, %246
-  %.0.i111 = phi i64 [ %247, %246 ], [ %223, %222 ], [ %239, %238 ], [ %241, %240 ], [ %243, %242 ], [ %245, %244 ], [ %237, %230 ]
+  %.0.i111 = phi i64 [ %247, %246 ], [ %223, %222 ], [ %245, %244 ], [ %239, %238 ], [ %241, %240 ], [ %243, %242 ], [ %237, %230 ]
   %.0.i111.fr = freeze i64 %.0.i111
   %.not.i87 = icmp eq i64 %.0.i111.fr, 0
   br i1 %.not.i87, label %repeatNextMatch.exit.thread, label %nfaExecLbrDot_TopScan.exit
@@ -2380,7 +2380,7 @@ repeatNextMatch.exit.thread:                      ; preds = %230, %repeatHasMatc
   br label %nfaExecLbrDot_TopScan.exit
 
 nfaExecLbrDot_TopScan.exit:                       ; preds = %repeatIsDead.exit82.thread117, %49, %.lr.ph, %168, %repeatHasMatch.exit.thread.thread, %lbrInAccept.exit.thread, %193, %207, %143, %138, %repeatHasMatch.exit, %repeatNextMatch.exit, %repeatNextMatch.exit.thread, %repeatIsDead.exit, %lbrInAccept.exit, %3
-  %.0 = phi i8 [ 1, %3 ], [ 0, %138 ], [ 2, %lbrInAccept.exit ], [ 0, %repeatIsDead.exit ], [ 1, %lbrInAccept.exit.thread ], [ 2, %143 ], [ 1, %repeatHasMatch.exit ], [ 0, %repeatNextMatch.exit.thread ], [ 1, %repeatNextMatch.exit ], [ 1, %207 ], [ 1, %193 ], [ 1, %repeatHasMatch.exit.thread.thread ], [ 2, %168 ], [ 0, %49 ], [ 0, %.lr.ph ], [ 0, %repeatIsDead.exit82.thread117 ]
+  %.0 = phi i8 [ 1, %3 ], [ 0, %138 ], [ 2, %lbrInAccept.exit ], [ 0, %repeatIsDead.exit ], [ 1, %repeatHasMatch.exit.thread.thread ], [ 1, %193 ], [ 1, %lbrInAccept.exit.thread ], [ 2, %143 ], [ 1, %repeatHasMatch.exit ], [ 0, %repeatNextMatch.exit.thread ], [ 1, %repeatNextMatch.exit ], [ 1, %207 ], [ 0, %49 ], [ 2, %168 ], [ 0, %.lr.ph ], [ 0, %repeatIsDead.exit82.thread117 ]
   ret i8 %.0
 }
 
@@ -2950,7 +2950,7 @@ vermUnalign.exit:                                 ; preds = %vermSearchAligned.e
   br label %vermicelliExec.exit
 
 vermicelliExec.exit:                              ; preds = %.lr.ph169, %75, %.preheader147, %103, %114, %vermUnalign.exit39, %vermUnalign.exit
-  %.0.i34 = phi ptr [ %89, %vermUnalign.exit39 ], [ %130, %vermUnalign.exit ], [ %106, %103 ], [ %117, %114 ], [ %67, %.preheader147 ], [ %.042.i168, %.lr.ph169 ], [ %76, %75 ]
+  %.0.i34 = phi ptr [ %117, %114 ], [ %106, %103 ], [ %89, %vermUnalign.exit39 ], [ %130, %vermUnalign.exit ], [ %67, %.preheader147 ], [ %.042.i168, %.lr.ph169 ], [ %76, %75 ]
   %131 = icmp eq ptr %.0.i34, %68
   %132 = ptrtoint ptr %.0.i34 to i64
   %133 = ptrtoint ptr %63 to i64
@@ -3268,7 +3268,7 @@ rvermUnalign.exit:                                ; preds = %279, %283
   br label %rvermicelliExec.exit
 
 rvermicelliExec.exit:                             ; preds = %.preheader, %243, %rvermSearchAligned.exit, %.thread104, %260, %rvermUnalign.exit
-  %.0.i50 = phi ptr [ %262, %260 ], [ %291, %rvermUnalign.exit ], [ %278, %rvermSearchAligned.exit ], [ %259, %.thread104 ], [ %.046.i, %243 ], [ %.046.i, %.preheader ]
+  %.0.i50 = phi ptr [ %259, %.thread104 ], [ %278, %rvermSearchAligned.exit ], [ %262, %260 ], [ %291, %rvermUnalign.exit ], [ %.046.i, %243 ], [ %.046.i, %.preheader ]
   %292 = getelementptr inbounds i8, ptr %238, i64 -1
   %293 = icmp eq ptr %.0.i50, %292
   br i1 %293, label %.thread116, label %294
@@ -3934,7 +3934,7 @@ vermUnalign.exit:                                 ; preds = %vermSearchAligned.e
   br label %vermicelliExec.exit
 
 vermicelliExec.exit:                              ; preds = %.lr.ph182, %72, %.preheader160, %100, %111, %vermUnalign.exit39, %vermUnalign.exit
-  %.0.i34 = phi ptr [ %86, %vermUnalign.exit39 ], [ %127, %vermUnalign.exit ], [ %103, %100 ], [ %114, %111 ], [ %64, %.preheader160 ], [ %.042.i181, %.lr.ph182 ], [ %73, %72 ]
+  %.0.i34 = phi ptr [ %114, %111 ], [ %103, %100 ], [ %86, %vermUnalign.exit39 ], [ %127, %vermUnalign.exit ], [ %64, %.preheader160 ], [ %.042.i181, %.lr.ph182 ], [ %73, %72 ]
   %128 = icmp eq ptr %.0.i34, %65
   %129 = ptrtoint ptr %.0.i34 to i64
   %130 = ptrtoint ptr %60 to i64
@@ -4253,7 +4253,7 @@ rvermUnalign.exit:                                ; preds = %276, %280
   br label %rvermicelliExec.exit
 
 rvermicelliExec.exit:                             ; preds = %.preheader, %240, %rvermSearchAligned.exit, %.thread117, %257, %rvermUnalign.exit
-  %.0.i50 = phi ptr [ %259, %257 ], [ %288, %rvermUnalign.exit ], [ %275, %rvermSearchAligned.exit ], [ %256, %.thread117 ], [ %.046.i, %240 ], [ %.046.i, %.preheader ]
+  %.0.i50 = phi ptr [ %256, %.thread117 ], [ %275, %rvermSearchAligned.exit ], [ %259, %257 ], [ %288, %rvermUnalign.exit ], [ %.046.i, %240 ], [ %.046.i, %.preheader ]
   %289 = getelementptr inbounds i8, ptr %235, i64 -1
   %290 = icmp eq ptr %.0.i50, %289
   br i1 %290, label %.thread129, label %291
@@ -4908,7 +4908,7 @@ vermUnalign.exit140:                              ; preds = %vermSearchAligned.e
   br label %vermicelliExec.exit
 
 vermicelliExec.exit:                              ; preds = %.lr.ph310, %68, %.preheader290, %96, %107, %vermUnalign.exit144, %vermUnalign.exit140
-  %.0.i122 = phi ptr [ %82, %vermUnalign.exit144 ], [ %123, %vermUnalign.exit140 ], [ %99, %96 ], [ %110, %107 ], [ %53, %.preheader290 ], [ %.042.i309, %.lr.ph310 ], [ %69, %68 ]
+  %.0.i122 = phi ptr [ %110, %107 ], [ %99, %96 ], [ %82, %vermUnalign.exit144 ], [ %123, %vermUnalign.exit140 ], [ %53, %.preheader290 ], [ %.042.i309, %.lr.ph310 ], [ %69, %68 ]
   %124 = icmp eq ptr %.0.i122, %62
   br i1 %124, label %nfaExecLbrVerm_StreamSilent.exit, label %125
 
@@ -4923,7 +4923,7 @@ nfaExecLbrVerm_StreamSilent.exit.sink.split:      ; preds = %125
   br label %nfaExecLbrVerm_StreamSilent.exit
 
 nfaExecLbrVerm_StreamSilent.exit:                 ; preds = %125, %nfaExecLbrVerm_StreamSilent.exit.sink.split, %vermicelliExec.exit, %47, %repeatIsDead.exit82.thread
-  %.165 = phi i64 [ %.064327, %repeatIsDead.exit82.thread ], [ %., %125 ], [ %., %47 ], [ %., %vermicelliExec.exit ], [ %., %nfaExecLbrVerm_StreamSilent.exit.sink.split ]
+  %.165 = phi i64 [ %.064327, %repeatIsDead.exit82.thread ], [ %., %125 ], [ %., %vermicelliExec.exit ], [ %., %47 ], [ %., %nfaExecLbrVerm_StreamSilent.exit.sink.split ]
   %128 = load i8, ptr %21, align 4
   switch i8 %128, label %repeatIsDead.exit82.thread178 [
     i8 0, label %repeatIsDead.exit79
@@ -5079,7 +5079,7 @@ vermUnalign.exit:                                 ; preds = %vermSearchAligned.e
   br label %vermicelliExec.exit131
 
 vermicelliExec.exit131:                           ; preds = %.lr.ph320, %148, %176, %187, %vermUnalign.exit136, %vermUnalign.exit
-  %.0.i126 = phi ptr [ %162, %vermUnalign.exit136 ], [ %203, %vermUnalign.exit ], [ %179, %176 ], [ %190, %187 ], [ %.042.i130319, %.lr.ph320 ], [ %149, %148 ]
+  %.0.i126 = phi ptr [ %190, %187 ], [ %179, %176 ], [ %162, %vermUnalign.exit136 ], [ %203, %vermUnalign.exit ], [ %.042.i130319, %.lr.ph320 ], [ %149, %148 ]
   %204 = icmp eq ptr %.0.i126, %142
   br i1 %204, label %nfaExecLbrVerm_StreamSilent.exit90, label %205
 
@@ -5282,7 +5282,7 @@ rvermUnalign.exit:                                ; preds = %289, %293
   br label %rvermicelliExec.exit
 
 rvermicelliExec.exit:                             ; preds = %.preheader, %253, %rvermSearchAligned.exit, %.thread225, %270, %rvermUnalign.exit
-  %.0.i163 = phi ptr [ %272, %270 ], [ %301, %rvermUnalign.exit ], [ %288, %rvermSearchAligned.exit ], [ %269, %.thread225 ], [ %.046.i, %253 ], [ %.046.i, %.preheader ]
+  %.0.i163 = phi ptr [ %269, %.thread225 ], [ %288, %rvermSearchAligned.exit ], [ %272, %270 ], [ %301, %rvermUnalign.exit ], [ %.046.i, %253 ], [ %.046.i, %.preheader ]
   %302 = getelementptr inbounds i8, ptr %248, i64 -1
   %303 = icmp eq ptr %.0.i163, %302
   br i1 %303, label %.thread237, label %304
@@ -5713,7 +5713,7 @@ repeatIsDead.exit.thread:                         ; preds = %._crit_edge, %repea
   br label %lbrInAccept.exit
 
 lbrInAccept.exit:                                 ; preds = %443, %441, %439, %437, %418, %416
-  %.0.i95 = phi i32 [ %417, %416 ], [ %..i97, %418 ], [ %444, %443 ], [ %438, %437 ], [ %440, %439 ], [ %442, %441 ]
+  %.0.i95 = phi i32 [ %442, %441 ], [ %417, %416 ], [ %..i97, %418 ], [ %444, %443 ], [ %438, %437 ], [ %440, %439 ]
   %.not = icmp eq i32 %.0.i95, 1
   br i1 %.not, label %nfaExecLbrVerm_TopScan.exit, label %lbrInAccept.exit.lbrInAccept.exit.thread_crit_edge
 
@@ -5791,7 +5791,7 @@ lbrInAccept.exit.thread:                          ; preds = %lbrInAccept.exit.lb
   br label %repeatHasMatch.exit
 
 repeatHasMatch.exit:                              ; preds = %455, %476, %478, %480, %482
-  %.0.i94 = phi i32 [ %456, %455 ], [ %477, %476 ], [ %479, %478 ], [ %481, %480 ], [ %483, %482 ]
+  %.0.i94 = phi i32 [ %483, %482 ], [ %456, %455 ], [ %481, %480 ], [ %479, %478 ], [ %477, %476 ]
   %484 = icmp eq i32 %.0.i94, 1
   br i1 %484, label %nfaExecLbrVerm_TopScan.exit, label %repeatHasMatch.exit.repeatHasMatch.exit.threadthread-pre-split_crit_edge
 
@@ -5857,7 +5857,7 @@ repeatHasMatch.exit.thread.thread:                ; preds = %471, %457, %464, %r
   br label %repeatNextMatch.exit
 
 repeatNextMatch.exit:                             ; preds = %494, %486, %502, %504, %506, %508, %510
-  %.0.i115 = phi i64 [ %511, %510 ], [ %487, %486 ], [ %503, %502 ], [ %505, %504 ], [ %507, %506 ], [ %509, %508 ], [ %501, %494 ]
+  %.0.i115 = phi i64 [ %511, %510 ], [ %487, %486 ], [ %509, %508 ], [ %503, %502 ], [ %505, %504 ], [ %507, %506 ], [ %501, %494 ]
   %.0.i115.fr = freeze i64 %.0.i115
   %.not.i85 = icmp eq i64 %.0.i115.fr, 0
   br i1 %.not.i85, label %repeatNextMatch.exit.thread, label %nfaExecLbrVerm_TopScan.exit
@@ -5866,7 +5866,7 @@ repeatNextMatch.exit.thread:                      ; preds = %494, %repeatHasMatc
   br label %nfaExecLbrVerm_TopScan.exit
 
 nfaExecLbrVerm_TopScan.exit:                      ; preds = %repeatIsDead.exit82.thread178, %304, %233, %222, %432, %repeatHasMatch.exit.thread.thread, %lbrInAccept.exit.thread, %457, %471, %407, %._crit_edge, %repeatHasMatch.exit, %repeatNextMatch.exit, %repeatNextMatch.exit.thread, %repeatIsDead.exit, %lbrInAccept.exit, %3
-  %.0 = phi i8 [ 1, %3 ], [ 0, %._crit_edge ], [ 2, %lbrInAccept.exit ], [ 0, %repeatIsDead.exit ], [ 1, %lbrInAccept.exit.thread ], [ 2, %407 ], [ 1, %repeatHasMatch.exit ], [ 0, %repeatNextMatch.exit.thread ], [ 1, %repeatNextMatch.exit ], [ 1, %471 ], [ 1, %457 ], [ 1, %repeatHasMatch.exit.thread.thread ], [ 2, %432 ], [ 0, %304 ], [ 0, %233 ], [ 0, %222 ], [ 0, %repeatIsDead.exit82.thread178 ]
+  %.0 = phi i8 [ 1, %3 ], [ 0, %._crit_edge ], [ 2, %lbrInAccept.exit ], [ 0, %repeatIsDead.exit ], [ 1, %repeatHasMatch.exit.thread.thread ], [ 1, %457 ], [ 1, %lbrInAccept.exit.thread ], [ 2, %407 ], [ 1, %repeatHasMatch.exit ], [ 0, %repeatNextMatch.exit.thread ], [ 1, %repeatNextMatch.exit ], [ 1, %471 ], [ 0, %233 ], [ 2, %432 ], [ 0, %304 ], [ 0, %222 ], [ 0, %repeatIsDead.exit82.thread178 ]
   ret i8 %.0
 }
 
@@ -6437,7 +6437,7 @@ vermUnalign.exit.i:                               ; preds = %126, %vermSearchAli
   br label %nvermicelliExec.exit
 
 nvermicelliExec.exit:                             ; preds = %.lr.ph154, %74, %.preheader132, %102, %114, %vermUnalign.exit56.i, %vermUnalign.exit.i
-  %.0.i34 = phi ptr [ %88, %vermUnalign.exit56.i ], [ %130, %vermUnalign.exit.i ], [ %106, %102 ], [ %117, %114 ], [ %67, %.preheader132 ], [ %.042.i153, %.lr.ph154 ], [ %75, %74 ]
+  %.0.i34 = phi ptr [ %117, %114 ], [ %106, %102 ], [ %88, %vermUnalign.exit56.i ], [ %130, %vermUnalign.exit.i ], [ %67, %.preheader132 ], [ %.042.i153, %.lr.ph154 ], [ %75, %74 ]
   %131 = icmp eq ptr %.0.i34, %68
   %132 = ptrtoint ptr %.0.i34 to i64
   %133 = ptrtoint ptr %63 to i64
@@ -6755,7 +6755,7 @@ rvermUnalign.exit.i:                              ; preds = %282, %278
   br label %rnvermicelliExec.exit
 
 rnvermicelliExec.exit:                            ; preds = %.preheader, %243, %rvermSearchAligned.exit.i, %.thread89, %259, %rvermUnalign.exit.i
-  %.0.i40 = phi ptr [ %261, %259 ], [ %290, %rvermUnalign.exit.i ], [ %277, %rvermSearchAligned.exit.i ], [ %258, %.thread89 ], [ %.046.i, %243 ], [ %.046.i, %.preheader ]
+  %.0.i40 = phi ptr [ %258, %.thread89 ], [ %277, %rvermSearchAligned.exit.i ], [ %261, %259 ], [ %290, %rvermUnalign.exit.i ], [ %.046.i, %243 ], [ %.046.i, %.preheader ]
   %291 = getelementptr inbounds i8, ptr %238, i64 -1
   %292 = icmp eq ptr %.0.i40, %291
   br i1 %292, label %.thread101, label %293
@@ -7422,7 +7422,7 @@ vermUnalign.exit.i:                               ; preds = %123, %vermSearchAli
   br label %nvermicelliExec.exit
 
 nvermicelliExec.exit:                             ; preds = %.lr.ph167, %71, %.preheader145, %99, %111, %vermUnalign.exit56.i, %vermUnalign.exit.i
-  %.0.i34 = phi ptr [ %85, %vermUnalign.exit56.i ], [ %127, %vermUnalign.exit.i ], [ %103, %99 ], [ %114, %111 ], [ %64, %.preheader145 ], [ %.042.i166, %.lr.ph167 ], [ %72, %71 ]
+  %.0.i34 = phi ptr [ %114, %111 ], [ %103, %99 ], [ %85, %vermUnalign.exit56.i ], [ %127, %vermUnalign.exit.i ], [ %64, %.preheader145 ], [ %.042.i166, %.lr.ph167 ], [ %72, %71 ]
   %128 = icmp eq ptr %.0.i34, %65
   %129 = ptrtoint ptr %.0.i34 to i64
   %130 = ptrtoint ptr %60 to i64
@@ -7741,7 +7741,7 @@ rvermUnalign.exit.i:                              ; preds = %279, %275
   br label %rnvermicelliExec.exit
 
 rnvermicelliExec.exit:                            ; preds = %.preheader, %240, %rvermSearchAligned.exit.i, %.thread102, %256, %rvermUnalign.exit.i
-  %.0.i40 = phi ptr [ %258, %256 ], [ %287, %rvermUnalign.exit.i ], [ %274, %rvermSearchAligned.exit.i ], [ %255, %.thread102 ], [ %.046.i, %240 ], [ %.046.i, %.preheader ]
+  %.0.i40 = phi ptr [ %255, %.thread102 ], [ %274, %rvermSearchAligned.exit.i ], [ %258, %256 ], [ %287, %rvermUnalign.exit.i ], [ %.046.i, %240 ], [ %.046.i, %.preheader ]
   %288 = getelementptr inbounds i8, ptr %235, i64 -1
   %289 = icmp eq ptr %.0.i40, %288
   br i1 %289, label %.thread114, label %290
@@ -8397,7 +8397,7 @@ vermUnalign.exit.i:                               ; preds = %119, %vermSearchAli
   br label %nvermicelliExec.exit
 
 nvermicelliExec.exit:                             ; preds = %.lr.ph296, %67, %.preheader276, %95, %107, %vermUnalign.exit56.i, %vermUnalign.exit.i
-  %.0.i122 = phi ptr [ %81, %vermUnalign.exit56.i ], [ %123, %vermUnalign.exit.i ], [ %99, %95 ], [ %110, %107 ], [ %53, %.preheader276 ], [ %.042.i295, %.lr.ph296 ], [ %68, %67 ]
+  %.0.i122 = phi ptr [ %110, %107 ], [ %99, %95 ], [ %81, %vermUnalign.exit56.i ], [ %123, %vermUnalign.exit.i ], [ %53, %.preheader276 ], [ %.042.i295, %.lr.ph296 ], [ %68, %67 ]
   %124 = icmp eq ptr %.0.i122, %62
   br i1 %124, label %nfaExecLbrNVerm_StreamSilent.exit, label %125
 
@@ -8412,7 +8412,7 @@ nfaExecLbrNVerm_StreamSilent.exit.sink.split:     ; preds = %125
   br label %nfaExecLbrNVerm_StreamSilent.exit
 
 nfaExecLbrNVerm_StreamSilent.exit:                ; preds = %125, %nfaExecLbrNVerm_StreamSilent.exit.sink.split, %nvermicelliExec.exit, %47, %repeatIsDead.exit82.thread
-  %.165 = phi i64 [ %.064313, %repeatIsDead.exit82.thread ], [ %., %125 ], [ %., %47 ], [ %., %nvermicelliExec.exit ], [ %., %nfaExecLbrNVerm_StreamSilent.exit.sink.split ]
+  %.165 = phi i64 [ %.064313, %repeatIsDead.exit82.thread ], [ %., %125 ], [ %., %nvermicelliExec.exit ], [ %., %47 ], [ %., %nfaExecLbrNVerm_StreamSilent.exit.sink.split ]
   %128 = load i8, ptr %21, align 4
   switch i8 %128, label %repeatIsDead.exit82.thread164 [
     i8 0, label %repeatIsDead.exit79
@@ -8569,7 +8569,7 @@ vermUnalign.exit.i140:                            ; preds = %199, %vermSearchAli
   br label %nvermicelliExec.exit149
 
 nvermicelliExec.exit149:                          ; preds = %.lr.ph306, %147, %175, %187, %vermUnalign.exit56.i126, %vermUnalign.exit.i140
-  %.0.i130 = phi ptr [ %161, %vermUnalign.exit56.i126 ], [ %203, %vermUnalign.exit.i140 ], [ %179, %175 ], [ %190, %187 ], [ %.042.i147305, %.lr.ph306 ], [ %148, %147 ]
+  %.0.i130 = phi ptr [ %190, %187 ], [ %179, %175 ], [ %161, %vermUnalign.exit56.i126 ], [ %203, %vermUnalign.exit.i140 ], [ %.042.i147305, %.lr.ph306 ], [ %148, %147 ]
   %204 = icmp eq ptr %.0.i130, %142
   br i1 %204, label %nfaExecLbrNVerm_StreamSilent.exit90, label %205
 
@@ -8772,7 +8772,7 @@ rvermUnalign.exit.i:                              ; preds = %292, %288
   br label %rnvermicelliExec.exit
 
 rnvermicelliExec.exit:                            ; preds = %.preheader, %253, %rvermSearchAligned.exit.i, %.thread211, %269, %rvermUnalign.exit.i
-  %.0.i154 = phi ptr [ %271, %269 ], [ %300, %rvermUnalign.exit.i ], [ %287, %rvermSearchAligned.exit.i ], [ %268, %.thread211 ], [ %.046.i, %253 ], [ %.046.i, %.preheader ]
+  %.0.i154 = phi ptr [ %268, %.thread211 ], [ %287, %rvermSearchAligned.exit.i ], [ %271, %269 ], [ %300, %rvermUnalign.exit.i ], [ %.046.i, %253 ], [ %.046.i, %.preheader ]
   %301 = getelementptr inbounds i8, ptr %248, i64 -1
   %302 = icmp eq ptr %.0.i154, %301
   br i1 %302, label %.thread223, label %303
@@ -9203,7 +9203,7 @@ repeatIsDead.exit.thread:                         ; preds = %._crit_edge, %repea
   br label %lbrInAccept.exit
 
 lbrInAccept.exit:                                 ; preds = %442, %440, %438, %436, %417, %415
-  %.0.i95 = phi i32 [ %416, %415 ], [ %..i97, %417 ], [ %443, %442 ], [ %437, %436 ], [ %439, %438 ], [ %441, %440 ]
+  %.0.i95 = phi i32 [ %441, %440 ], [ %416, %415 ], [ %..i97, %417 ], [ %443, %442 ], [ %437, %436 ], [ %439, %438 ]
   %.not = icmp eq i32 %.0.i95, 1
   br i1 %.not, label %nfaExecLbrNVerm_TopScan.exit, label %lbrInAccept.exit.lbrInAccept.exit.thread_crit_edge
 
@@ -9281,7 +9281,7 @@ lbrInAccept.exit.thread:                          ; preds = %lbrInAccept.exit.lb
   br label %repeatHasMatch.exit
 
 repeatHasMatch.exit:                              ; preds = %454, %475, %477, %479, %481
-  %.0.i94 = phi i32 [ %455, %454 ], [ %476, %475 ], [ %478, %477 ], [ %480, %479 ], [ %482, %481 ]
+  %.0.i94 = phi i32 [ %482, %481 ], [ %455, %454 ], [ %480, %479 ], [ %478, %477 ], [ %476, %475 ]
   %483 = icmp eq i32 %.0.i94, 1
   br i1 %483, label %nfaExecLbrNVerm_TopScan.exit, label %repeatHasMatch.exit.repeatHasMatch.exit.threadthread-pre-split_crit_edge
 
@@ -9347,7 +9347,7 @@ repeatHasMatch.exit.thread.thread:                ; preds = %470, %456, %463, %r
   br label %repeatNextMatch.exit
 
 repeatNextMatch.exit:                             ; preds = %493, %485, %501, %503, %505, %507, %509
-  %.0.i115 = phi i64 [ %510, %509 ], [ %486, %485 ], [ %502, %501 ], [ %504, %503 ], [ %506, %505 ], [ %508, %507 ], [ %500, %493 ]
+  %.0.i115 = phi i64 [ %510, %509 ], [ %486, %485 ], [ %508, %507 ], [ %502, %501 ], [ %504, %503 ], [ %506, %505 ], [ %500, %493 ]
   %.0.i115.fr = freeze i64 %.0.i115
   %.not.i85 = icmp eq i64 %.0.i115.fr, 0
   br i1 %.not.i85, label %repeatNextMatch.exit.thread, label %nfaExecLbrNVerm_TopScan.exit
@@ -9356,7 +9356,7 @@ repeatNextMatch.exit.thread:                      ; preds = %493, %repeatHasMatc
   br label %nfaExecLbrNVerm_TopScan.exit
 
 nfaExecLbrNVerm_TopScan.exit:                     ; preds = %repeatIsDead.exit82.thread164, %303, %233, %222, %431, %repeatHasMatch.exit.thread.thread, %lbrInAccept.exit.thread, %456, %470, %406, %._crit_edge, %repeatHasMatch.exit, %repeatNextMatch.exit, %repeatNextMatch.exit.thread, %repeatIsDead.exit, %lbrInAccept.exit, %3
-  %.0 = phi i8 [ 1, %3 ], [ 0, %._crit_edge ], [ 2, %lbrInAccept.exit ], [ 0, %repeatIsDead.exit ], [ 1, %lbrInAccept.exit.thread ], [ 2, %406 ], [ 1, %repeatHasMatch.exit ], [ 0, %repeatNextMatch.exit.thread ], [ 1, %repeatNextMatch.exit ], [ 1, %470 ], [ 1, %456 ], [ 1, %repeatHasMatch.exit.thread.thread ], [ 2, %431 ], [ 0, %303 ], [ 0, %233 ], [ 0, %222 ], [ 0, %repeatIsDead.exit82.thread164 ]
+  %.0 = phi i8 [ 1, %3 ], [ 0, %._crit_edge ], [ 2, %lbrInAccept.exit ], [ 0, %repeatIsDead.exit ], [ 1, %repeatHasMatch.exit.thread.thread ], [ 1, %456 ], [ 1, %lbrInAccept.exit.thread ], [ 2, %406 ], [ 1, %repeatHasMatch.exit ], [ 0, %repeatNextMatch.exit.thread ], [ 1, %repeatNextMatch.exit ], [ 1, %470 ], [ 0, %233 ], [ 2, %431 ], [ 0, %303 ], [ 0, %222 ], [ 0, %repeatIsDead.exit82.thread164 ]
   ret i8 %.0
 }
 
@@ -11346,7 +11346,7 @@ nfaExecLbrShuf_StreamSilent.exit.sink.split:      ; preds = %67
   br label %nfaExecLbrShuf_StreamSilent.exit
 
 nfaExecLbrShuf_StreamSilent.exit:                 ; preds = %67, %nfaExecLbrShuf_StreamSilent.exit.sink.split, %54, %48, %repeatIsDead.exit82.thread
-  %.165 = phi i64 [ %.064210, %repeatIsDead.exit82.thread ], [ %., %67 ], [ %., %48 ], [ %., %54 ], [ %., %nfaExecLbrShuf_StreamSilent.exit.sink.split ]
+  %.165 = phi i64 [ %.064210, %repeatIsDead.exit82.thread ], [ %., %67 ], [ %., %54 ], [ %., %48 ], [ %., %nfaExecLbrShuf_StreamSilent.exit.sink.split ]
   %70 = load i8, ptr %21, align 4
   switch i8 %70, label %repeatIsDead.exit82.thread126 [
     i8 0, label %repeatIsDead.exit79
@@ -11918,7 +11918,7 @@ repeatIsDead.exit.thread:                         ; preds = %._crit_edge, %repea
   br label %lbrInAccept.exit
 
 lbrInAccept.exit:                                 ; preds = %276, %274, %272, %270, %251, %249
-  %.0.i95 = phi i32 [ %250, %249 ], [ %..i97, %251 ], [ %277, %276 ], [ %271, %270 ], [ %273, %272 ], [ %275, %274 ]
+  %.0.i95 = phi i32 [ %275, %274 ], [ %250, %249 ], [ %..i97, %251 ], [ %277, %276 ], [ %271, %270 ], [ %273, %272 ]
   %.not = icmp eq i32 %.0.i95, 1
   br i1 %.not, label %nfaExecLbrShuf_TopScan.exit, label %lbrInAccept.exit.lbrInAccept.exit.thread_crit_edge
 
@@ -11996,7 +11996,7 @@ lbrInAccept.exit.thread:                          ; preds = %lbrInAccept.exit.lb
   br label %repeatHasMatch.exit
 
 repeatHasMatch.exit:                              ; preds = %288, %309, %311, %313, %315
-  %.0.i94 = phi i32 [ %289, %288 ], [ %310, %309 ], [ %312, %311 ], [ %314, %313 ], [ %316, %315 ]
+  %.0.i94 = phi i32 [ %316, %315 ], [ %289, %288 ], [ %314, %313 ], [ %312, %311 ], [ %310, %309 ]
   %317 = icmp eq i32 %.0.i94, 1
   br i1 %317, label %nfaExecLbrShuf_TopScan.exit, label %repeatHasMatch.exit.repeatHasMatch.exit.threadthread-pre-split_crit_edge
 
@@ -12062,7 +12062,7 @@ repeatHasMatch.exit.thread.thread:                ; preds = %304, %290, %297, %r
   br label %repeatNextMatch.exit
 
 repeatNextMatch.exit:                             ; preds = %327, %319, %335, %337, %339, %341, %343
-  %.0.i115 = phi i64 [ %344, %343 ], [ %320, %319 ], [ %336, %335 ], [ %338, %337 ], [ %340, %339 ], [ %342, %341 ], [ %334, %327 ]
+  %.0.i115 = phi i64 [ %344, %343 ], [ %320, %319 ], [ %342, %341 ], [ %336, %335 ], [ %338, %337 ], [ %340, %339 ], [ %334, %327 ]
   %.0.i115.fr = freeze i64 %.0.i115
   %.not.i85 = icmp eq i64 %.0.i115.fr, 0
   br i1 %.not.i85, label %repeatNextMatch.exit.thread, label %nfaExecLbrShuf_TopScan.exit
@@ -12071,7 +12071,7 @@ repeatNextMatch.exit.thread:                      ; preds = %327, %repeatHasMatc
   br label %nfaExecLbrShuf_TopScan.exit
 
 nfaExecLbrShuf_TopScan.exit:                      ; preds = %repeatIsDead.exit82.thread126, %137, %116, %105, %265, %repeatHasMatch.exit.thread.thread, %lbrInAccept.exit.thread, %290, %304, %240, %._crit_edge, %repeatHasMatch.exit, %repeatNextMatch.exit, %repeatNextMatch.exit.thread, %repeatIsDead.exit, %lbrInAccept.exit, %3
-  %.0 = phi i8 [ 1, %3 ], [ 0, %._crit_edge ], [ 2, %lbrInAccept.exit ], [ 0, %repeatIsDead.exit ], [ 1, %lbrInAccept.exit.thread ], [ 2, %240 ], [ 1, %repeatHasMatch.exit ], [ 0, %repeatNextMatch.exit.thread ], [ 1, %repeatNextMatch.exit ], [ 1, %304 ], [ 1, %290 ], [ 1, %repeatHasMatch.exit.thread.thread ], [ 2, %265 ], [ 0, %137 ], [ 0, %116 ], [ 0, %105 ], [ 0, %repeatIsDead.exit82.thread126 ]
+  %.0 = phi i8 [ 1, %3 ], [ 0, %._crit_edge ], [ 2, %lbrInAccept.exit ], [ 0, %repeatIsDead.exit ], [ 1, %repeatHasMatch.exit.thread.thread ], [ 1, %290 ], [ 1, %lbrInAccept.exit.thread ], [ 2, %240 ], [ 1, %repeatHasMatch.exit ], [ 0, %repeatNextMatch.exit.thread ], [ 1, %repeatNextMatch.exit ], [ 1, %304 ], [ 0, %116 ], [ 2, %265 ], [ 0, %137 ], [ 0, %105 ], [ 0, %repeatIsDead.exit82.thread126 ]
   ret i8 %.0
 }
 
@@ -14061,7 +14061,7 @@ nfaExecLbrTruf_StreamSilent.exit.sink.split:      ; preds = %67
   br label %nfaExecLbrTruf_StreamSilent.exit
 
 nfaExecLbrTruf_StreamSilent.exit:                 ; preds = %67, %nfaExecLbrTruf_StreamSilent.exit.sink.split, %54, %48, %repeatIsDead.exit82.thread
-  %.165 = phi i64 [ %.064210, %repeatIsDead.exit82.thread ], [ %., %67 ], [ %., %48 ], [ %., %54 ], [ %., %nfaExecLbrTruf_StreamSilent.exit.sink.split ]
+  %.165 = phi i64 [ %.064210, %repeatIsDead.exit82.thread ], [ %., %67 ], [ %., %54 ], [ %., %48 ], [ %., %nfaExecLbrTruf_StreamSilent.exit.sink.split ]
   %70 = load i8, ptr %21, align 4
   switch i8 %70, label %repeatIsDead.exit82.thread126 [
     i8 0, label %repeatIsDead.exit79
@@ -14633,7 +14633,7 @@ repeatIsDead.exit.thread:                         ; preds = %._crit_edge, %repea
   br label %lbrInAccept.exit
 
 lbrInAccept.exit:                                 ; preds = %276, %274, %272, %270, %251, %249
-  %.0.i95 = phi i32 [ %250, %249 ], [ %..i97, %251 ], [ %277, %276 ], [ %271, %270 ], [ %273, %272 ], [ %275, %274 ]
+  %.0.i95 = phi i32 [ %275, %274 ], [ %250, %249 ], [ %..i97, %251 ], [ %277, %276 ], [ %271, %270 ], [ %273, %272 ]
   %.not = icmp eq i32 %.0.i95, 1
   br i1 %.not, label %nfaExecLbrTruf_TopScan.exit, label %lbrInAccept.exit.lbrInAccept.exit.thread_crit_edge
 
@@ -14711,7 +14711,7 @@ lbrInAccept.exit.thread:                          ; preds = %lbrInAccept.exit.lb
   br label %repeatHasMatch.exit
 
 repeatHasMatch.exit:                              ; preds = %288, %309, %311, %313, %315
-  %.0.i94 = phi i32 [ %289, %288 ], [ %310, %309 ], [ %312, %311 ], [ %314, %313 ], [ %316, %315 ]
+  %.0.i94 = phi i32 [ %316, %315 ], [ %289, %288 ], [ %314, %313 ], [ %312, %311 ], [ %310, %309 ]
   %317 = icmp eq i32 %.0.i94, 1
   br i1 %317, label %nfaExecLbrTruf_TopScan.exit, label %repeatHasMatch.exit.repeatHasMatch.exit.threadthread-pre-split_crit_edge
 
@@ -14777,7 +14777,7 @@ repeatHasMatch.exit.thread.thread:                ; preds = %304, %290, %297, %r
   br label %repeatNextMatch.exit
 
 repeatNextMatch.exit:                             ; preds = %327, %319, %335, %337, %339, %341, %343
-  %.0.i115 = phi i64 [ %344, %343 ], [ %320, %319 ], [ %336, %335 ], [ %338, %337 ], [ %340, %339 ], [ %342, %341 ], [ %334, %327 ]
+  %.0.i115 = phi i64 [ %344, %343 ], [ %320, %319 ], [ %342, %341 ], [ %336, %335 ], [ %338, %337 ], [ %340, %339 ], [ %334, %327 ]
   %.0.i115.fr = freeze i64 %.0.i115
   %.not.i85 = icmp eq i64 %.0.i115.fr, 0
   br i1 %.not.i85, label %repeatNextMatch.exit.thread, label %nfaExecLbrTruf_TopScan.exit
@@ -14786,7 +14786,7 @@ repeatNextMatch.exit.thread:                      ; preds = %327, %repeatHasMatc
   br label %nfaExecLbrTruf_TopScan.exit
 
 nfaExecLbrTruf_TopScan.exit:                      ; preds = %repeatIsDead.exit82.thread126, %137, %116, %105, %265, %repeatHasMatch.exit.thread.thread, %lbrInAccept.exit.thread, %290, %304, %240, %._crit_edge, %repeatHasMatch.exit, %repeatNextMatch.exit, %repeatNextMatch.exit.thread, %repeatIsDead.exit, %lbrInAccept.exit, %3
-  %.0 = phi i8 [ 1, %3 ], [ 0, %._crit_edge ], [ 2, %lbrInAccept.exit ], [ 0, %repeatIsDead.exit ], [ 1, %lbrInAccept.exit.thread ], [ 2, %240 ], [ 1, %repeatHasMatch.exit ], [ 0, %repeatNextMatch.exit.thread ], [ 1, %repeatNextMatch.exit ], [ 1, %304 ], [ 1, %290 ], [ 1, %repeatHasMatch.exit.thread.thread ], [ 2, %265 ], [ 0, %137 ], [ 0, %116 ], [ 0, %105 ], [ 0, %repeatIsDead.exit82.thread126 ]
+  %.0 = phi i8 [ 1, %3 ], [ 0, %._crit_edge ], [ 2, %lbrInAccept.exit ], [ 0, %repeatIsDead.exit ], [ 1, %repeatHasMatch.exit.thread.thread ], [ 1, %290 ], [ 1, %lbrInAccept.exit.thread ], [ 2, %240 ], [ 1, %repeatHasMatch.exit ], [ 0, %repeatNextMatch.exit.thread ], [ 1, %repeatNextMatch.exit ], [ 1, %304 ], [ 0, %116 ], [ 2, %265 ], [ 0, %137 ], [ 0, %105 ], [ 0, %repeatIsDead.exit82.thread126 ]
   ret i8 %.0
 }
 

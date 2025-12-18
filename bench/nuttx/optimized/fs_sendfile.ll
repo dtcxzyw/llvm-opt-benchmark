@@ -103,7 +103,7 @@ define i64 @file_sendfile(ptr noundef %0, ptr noundef %1, ptr noundef captures(a
   br i1 %.not113.i, label %.preheader.i, label %.critedge.thread.thread.i, !llvm.loop !9
 
 .critedge.thread.thread.i:                        ; preds = %.critedge.thread.i, %24, %.preheader.split.us.i, %30, %.preheader.split.i, %37
-  %.260107.i = phi i64 [ %31, %37 ], [ %.05886.fr.i, %.preheader.split.i ], [ %26, %30 ], [ 0, %.preheader.split.us.i ], [ %22, %24 ], [ %.4.i, %.critedge.thread.i ]
+  %.260107.i = phi i64 [ %.05886.fr.i, %.preheader.split.i ], [ %31, %37 ], [ %26, %30 ], [ 0, %.preheader.split.us.i ], [ %.4.i, %.critedge.thread.i ], [ %22, %24 ]
   tail call void @free(ptr noundef %19)
   br i1 %.not.i, label %copyfile.exit, label %42
 

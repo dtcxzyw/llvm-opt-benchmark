@@ -496,7 +496,7 @@ count_paired_channels.exit.thread.sink.split.i.i: ; preds = %._crit_edge177.loop
   br i1 %exitcond74.not.i, label %sniff_channel_order.exit, label %.lr.ph56.i, !llvm.loop !43
 
 sniff_channel_order.exit:                         ; preds = %.lr.ph.i, %54, %57, %72, %.lr.ph56.i, %48, %.loopexit.i
-  %.029.i = phi i64 [ 0, %48 ], [ %117, %.loopexit.i ], [ 0, %72 ], [ %117, %.lr.ph56.i ], [ 0, %57 ], [ 0, %54 ], [ 0, %.lr.ph.i ]
+  %.029.i = phi i64 [ 0, %72 ], [ %117, %.loopexit.i ], [ 0, %48 ], [ %117, %.lr.ph56.i ], [ 0, %57 ], [ 0, %54 ], [ 0, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -672,7 +672,7 @@ sniff_channel_order.exit:                         ; preds = %.lr.ph.i, %54, %57,
   br i1 %214, label %200, label %frame_configure_elements.exit, !llvm.loop !80
 
 frame_configure_elements.exit:                    ; preds = %132, %211, %.preheader.i83, %187, %167, %192, %44
-  %.2 = phi i32 [ -1163346256, %44 ], [ %195, %192 ], [ 0, %167 ], [ 0, %187 ], [ 0, %.preheader.i83 ], [ 0, %211 ], [ %147, %132 ]
+  %.2 = phi i32 [ -1163346256, %44 ], [ 0, %211 ], [ %195, %192 ], [ 0, %167 ], [ 0, %187 ], [ 0, %.preheader.i83 ], [ %147, %132 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
@@ -3824,8 +3824,8 @@ read_payload_length_info.exit.i:                  ; preds = %261
   br i1 %286, label %read_payload_length_info.exit.thread34.i, label %read_payload_length_info.exit.thread.i
 
 read_payload_length_info.exit.thread.i:           ; preds = %268, %read_payload_length_info.exit.i, %281, %261
-  %.val27.i = phi i32 [ %.promoted.i.i, %read_payload_length_info.exit.i ], [ %283, %281 ], [ %.promoted.i.i, %261 ], [ %278, %268 ]
-  %.1.i33.i = phi i32 [ %285, %read_payload_length_info.exit.i ], [ 0, %281 ], [ 0, %261 ], [ %279, %268 ]
+  %.val27.i = phi i32 [ %.promoted.i.i, %read_payload_length_info.exit.i ], [ %.promoted.i.i, %261 ], [ %283, %281 ], [ %278, %268 ]
+  %.1.i33.i = phi i32 [ %285, %read_payload_length_info.exit.i ], [ 0, %261 ], [ 0, %281 ], [ %279, %268 ]
   %287 = zext nneg i32 %.1.i33.i to i64
   %288 = shl nuw nsw i64 %287, 3
   %.val28.i = load i32, ptr %16, align 4, !tbaa !102
@@ -3954,8 +3954,8 @@ push_output_configuration.exit:                   ; preds = %316, %320
   %.0. = select i1 %350, i32 %.0, i32 %34
   br label %.thread
 
-.thread:                                          ; preds = %220, %read_payload_length_info.exit.thread34.i, %298, %latm_get_value.exit55.i.i, %118, %103, %122, %349, %301, %26, %23, %4, %339, %328, %308
-  %.035 = phi i32 [ %309, %308 ], [ -1094995529, %4 ], [ -1094995529, %23 ], [ -1094995529, %26 ], [ -1094995529, %339 ], [ %.0., %349 ], [ %302, %301 ], [ %326, %328 ], [ -1094995529, %read_payload_length_info.exit.thread34.i ], [ -1094995529, %298 ], [ %169, %latm_get_value.exit55.i.i ], [ -1163346256, %118 ], [ -1163346256, %103 ], [ %123, %122 ], [ -1094995529, %220 ]
+.thread:                                          ; preds = %220, %read_payload_length_info.exit.thread34.i, %298, %122, %latm_get_value.exit55.i.i, %118, %103, %349, %301, %26, %23, %4, %339, %328, %308
+  %.035 = phi i32 [ %309, %308 ], [ -1094995529, %4 ], [ -1094995529, %23 ], [ -1094995529, %26 ], [ -1094995529, %339 ], [ %.0., %349 ], [ %302, %301 ], [ %326, %328 ], [ -1094995529, %read_payload_length_info.exit.thread34.i ], [ -1094995529, %298 ], [ %123, %122 ], [ %169, %latm_get_value.exit55.i.i ], [ -1163346256, %118 ], [ -1163346256, %103 ], [ -1094995529, %220 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.035
 }
@@ -4636,7 +4636,7 @@ count_paired_channels.exit.thread.sink.split:     ; preds = %7, %._crit_edge169.
   br label %count_paired_channels.exit.thread
 
 count_paired_channels.exit.thread:                ; preds = %23, %33, %115, %120, %68, %count_paired_channels.exit.thread.sink.split, %.lr.ph, %.lr.ph168, %._crit_edge.i
-  %.0 = phi i32 [ 0, %._crit_edge.i ], [ -1, %.lr.ph168 ], [ -1, %.lr.ph ], [ 0, %count_paired_channels.exit.thread.sink.split ], [ 0, %33 ], [ -1, %68 ], [ -1, %115 ], [ -1, %120 ], [ 0, %23 ]
+  %.0 = phi i32 [ 0, %33 ], [ 0, %._crit_edge.i ], [ -1, %68 ], [ -1, %.lr.ph ], [ -1, %.lr.ph168 ], [ -1, %115 ], [ 0, %count_paired_channels.exit.thread.sink.split ], [ -1, %120 ], [ 0, %23 ]
   ret i32 %.0
 }
 
@@ -6206,7 +6206,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @aac_decode_er_frame(ptr no
   br label %frame_configure_elements.exit
 
 frame_configure_elements.exit:                    ; preds = %114, %90, %.thread, %34, %120, %119, %92
-  %.0 = phi i32 [ 0, %120 ], [ -1094995529, %92 ], [ -1094995529, %119 ], [ %37, %34 ], [ -1094995529, %.thread ], [ %.272.us, %90 ], [ %.272, %114 ]
+  %.0 = phi i32 [ 0, %120 ], [ -1094995529, %92 ], [ -1094995529, %.thread ], [ -1094995529, %119 ], [ %37, %34 ], [ %.272.us, %90 ], [ %.272, %114 ]
   ret i32 %.0
 }
 
@@ -6907,8 +6907,8 @@ push_output_configuration.exit.i48:               ; preds = %345
   br label %pop_output_configuration.exit.i
 
 pop_output_configuration.exit.i:                  ; preds = %368, %.thread312.i, %360, %358, %356, %.thread.i, %349
-  %.2159.i = phi i32 [ %.0157.i, %349 ], [ 1, %.thread312.i ], [ 1, %368 ], [ 1, %356 ], [ 1, %358 ], [ 1, %360 ], [ 0, %.thread.i ]
-  %.2139.i = phi i32 [ %350, %349 ], [ %367, %.thread312.i ], [ 0, %368 ], [ 0, %356 ], [ 0, %358 ], [ 0, %360 ], [ %352, %.thread.i ]
+  %.2159.i = phi i32 [ 1, %368 ], [ %.0157.i, %349 ], [ 1, %.thread312.i ], [ 1, %356 ], [ 1, %358 ], [ 1, %360 ], [ 0, %.thread.i ]
+  %.2139.i = phi i32 [ 0, %368 ], [ %350, %349 ], [ %367, %.thread312.i ], [ 0, %356 ], [ 0, %358 ], [ 0, %360 ], [ %352, %.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %skip_data_stream_element.exit.i
 
@@ -7517,10 +7517,10 @@ decode_extension_payload.exit.i:                  ; preds = %708, %decode_fill.e
   br i1 %717, label %decode_frame_ga.exit.thread, label %390
 
 skip_data_stream_element.exit.i:                  ; preds = %pop_output_configuration.exit.i, %286, %283, %281, %277
-  %.1162.i = phi i32 [ 1, %277 ], [ 1, %281 ], [ %.0161.i, %283 ], [ 1, %286 ], [ %.0161.i, %pop_output_configuration.exit.i ]
-  %.1158.i = phi i32 [ %.0157.i, %277 ], [ %.0157.i, %281 ], [ %.0157.i, %283 ], [ %.0157.i, %286 ], [ %.2159.i, %pop_output_configuration.exit.i ]
-  %.1156.i = phi i32 [ %280, %277 ], [ %.0155.i, %281 ], [ %.0155.i, %283 ], [ %.0155.i, %286 ], [ %.0155.i, %pop_output_configuration.exit.i ]
-  %.1138.i = phi i32 [ %279, %277 ], [ %282, %281 ], [ %285, %283 ], [ %288, %286 ], [ %.2139.i, %pop_output_configuration.exit.i ]
+  %.1162.i = phi i32 [ %.0161.i, %pop_output_configuration.exit.i ], [ 1, %277 ], [ 1, %281 ], [ %.0161.i, %283 ], [ 1, %286 ]
+  %.1158.i = phi i32 [ %.2159.i, %pop_output_configuration.exit.i ], [ %.0157.i, %277 ], [ %.0157.i, %281 ], [ %.0157.i, %283 ], [ %.0157.i, %286 ]
+  %.1156.i = phi i32 [ %.0155.i, %pop_output_configuration.exit.i ], [ %280, %277 ], [ %.0155.i, %281 ], [ %.0155.i, %283 ], [ %.0155.i, %286 ]
+  %.1138.i = phi i32 [ %.2139.i, %pop_output_configuration.exit.i ], [ %279, %277 ], [ %282, %281 ], [ %285, %283 ], [ %288, %286 ]
   %.not185.i = icmp eq i32 %.1138.i, 0
   br i1 %.not185.i, label %skip_data_stream_element.exit._crit_edge.i, label %decode_frame_ga.exit
 
@@ -7670,7 +7670,7 @@ default.unreachable:                              ; preds = %276
   unreachable
 
 decode_frame_ga.exit.thread:                      ; preds = %265, %253, %decode_extension_payload.exit.i, %722, %.critedge.critedge.i, %389, %271, %336, %752
-  %.1.i.ph = phi i32 [ -1094995529, %752 ], [ -1094995529, %336 ], [ -1094995529, %271 ], [ -1094995529, %389 ], [ -1094995529, %.critedge.critedge.i ], [ -1094995529, %722 ], [ %.0.i196.i, %decode_extension_payload.exit.i ], [ -1094995529, %253 ], [ -1094995529, %265 ]
+  %.1.i.ph = phi i32 [ %.0.i196.i, %decode_extension_payload.exit.i ], [ -1094995529, %.critedge.critedge.i ], [ -1094995529, %722 ], [ -1094995529, %752 ], [ -1094995529, %336 ], [ -1094995529, %271 ], [ -1094995529, %389 ], [ -1094995529, %253 ], [ -1094995529, %265 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %frame_configure_elements.exit

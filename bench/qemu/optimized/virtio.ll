@@ -3167,8 +3167,8 @@ virtqueue_split_read_next_desc.exit.i:            ; preds = %253, %251
   br label %134
 
 .loopexit.i:                                      ; preds = %160, %.thread.i, %.thread95.i, %.thread100.i
-  %.453.i = phi i32 [ %.352.i, %.thread95.i ], [ 0, %.thread100.i ], [ 0, %.thread.i ], [ %.049.i, %160 ]
-  %.4.i37 = phi i32 [ %.3.i40, %.thread95.i ], [ 0, %.thread100.i ], [ 0, %.thread.i ], [ %.047.i, %160 ]
+  %.453.i = phi i32 [ %.352.i, %.thread95.i ], [ 0, %.thread.i ], [ 0, %.thread100.i ], [ %.049.i, %160 ]
+  %.4.i37 = phi i32 [ %.3.i40, %.thread95.i ], [ 0, %.thread.i ], [ 0, %.thread100.i ], [ %.047.i, %160 ]
   call void @address_space_cache_destroy(ptr noundef nonnull %6) #24
   %.not72.i = icmp eq ptr %1, null
   br i1 %.not72.i, label %263, label %262
@@ -7729,7 +7729,7 @@ vring_avail_idx.exit:                             ; preds = %204, %virtio_lduw_p
   br label %.loopexit
 
 .loopexit:                                        ; preds = %98, %144, %128, %126, %121, %49, %17, %13, %285, %149, %93, %58
-  %.0 = phi i32 [ -1, %149 ], [ %16, %13 ], [ -1, %17 ], [ -1, %58 ], [ %50, %49 ], [ -1, %93 ], [ %122, %121 ], [ %127, %126 ], [ %.5, %285 ], [ -1, %144 ], [ %129, %128 ], [ %101, %98 ]
+  %.0 = phi i32 [ -1, %149 ], [ %16, %13 ], [ -1, %17 ], [ -1, %58 ], [ %50, %49 ], [ -1, %93 ], [ %129, %128 ], [ %122, %121 ], [ %127, %126 ], [ %.5, %285 ], [ -1, %144 ], [ %101, %98 ]
   ret i32 %.0
 }
 
@@ -10104,8 +10104,8 @@ define internal fastcc noundef zeroext i1 @virtqueue_map_desc(ptr noundef %0, pt
   br i1 %.not47, label %.thread, label %15
 
 .thread:                                          ; preds = %25, %24, %17, %14
-  %.041 = phi i32 [ %10, %14 ], [ %4, %17 ], [ %.14257, %24 ], [ %30, %25 ]
-  %.040 = phi i1 [ false, %14 ], [ false, %17 ], [ false, %24 ], [ true, %25 ]
+  %.041 = phi i32 [ %.14257, %24 ], [ %10, %14 ], [ %4, %17 ], [ %30, %25 ]
+  %.040 = phi i1 [ false, %24 ], [ false, %14 ], [ false, %17 ], [ true, %25 ]
   store i32 %.041, ptr %1, align 4
   ret i1 %.040
 }

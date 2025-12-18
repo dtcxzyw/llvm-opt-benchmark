@@ -983,7 +983,7 @@ define dso_local ptr @slurm_job_step_layout_get(ptr noundef readonly captures(no
   br label %.loopexit
 
 .loopexit:                                        ; preds = %33, %.critedge, %40, %48, %44, %42
-  %.1 = phi ptr [ null, %48 ], [ null, %40 ], [ %43, %42 ], [ null, %44 ], [ null, %.critedge ], [ null, %33 ]
+  %.1 = phi ptr [ null, %44 ], [ null, %48 ], [ null, %40 ], [ %43, %42 ], [ null, %.critedge ], [ null, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)

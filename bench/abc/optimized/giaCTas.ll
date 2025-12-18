@@ -941,7 +941,7 @@ Tas_QuePush.exit:                                 ; preds = %._crit_edge.i, %325
   br label %Tas_ManPropagateOne.exit.thread
 
 Tas_ManPropagateOne.exit:                         ; preds = %254, %258, %260, %285
-  %.0.i = phi i32 [ %286, %285 ], [ %255, %254 ], [ %259, %258 ], [ %261, %260 ]
+  %.0.i = phi i32 [ %286, %285 ], [ %261, %260 ], [ %255, %254 ], [ %259, %258 ]
   %.not43 = icmp eq i32 %.0.i, 0
   br i1 %.not43, label %Tas_ManPropagateOne.exit.thread, label %Tas_ManPropagateOne.exit.thread55
 
@@ -1116,7 +1116,7 @@ Tas_ManPropagateTwo.exit.thread..critedge2.loopexit_crit_edge: ; preds = %Tas_Ma
   br label %16
 
 Tas_ManPropagateOne.exit.thread55:                ; preds = %.critedge2, %Tas_ManPropagateWatch.exit.i, %Tas_ManPropagateOne.exit, %Tas_ManPropagateTwo.exit
-  %.035 = phi i32 [ %.0.i, %Tas_ManPropagateOne.exit ], [ %413, %Tas_ManPropagateTwo.exit ], [ %203, %Tas_ManPropagateWatch.exit.i ], [ 0, %.critedge2 ]
+  %.035 = phi i32 [ %413, %Tas_ManPropagateTwo.exit ], [ %203, %Tas_ManPropagateWatch.exit.i ], [ %.0.i, %Tas_ManPropagateOne.exit ], [ 0, %.critedge2 ]
   ret i32 %.035
 }
 
@@ -1384,7 +1384,7 @@ Tas_QueStore.exit:                                ; preds = %Tas_QuePush.exit.i,
   br label %Tas_ManFindActive.exit
 
 Tas_ManFindActive.exit:                           ; preds = %102, %99, %115, %112, %121
-  %.058 = phi ptr [ %.1.i95, %115 ], [ %122, %121 ], [ %.01012.i93, %112 ], [ %.1.i86, %102 ], [ %.01012.i, %99 ]
+  %.058 = phi ptr [ %122, %121 ], [ %.01012.i93, %112 ], [ %.1.i95, %115 ], [ %.01012.i, %99 ], [ %.1.i86, %102 ]
   %.not69 = icmp eq ptr %.058, null
   br i1 %.not69, label %Tas_ManFindActive.exit.thread, label %123
 
@@ -3268,7 +3268,7 @@ Tas_ManCheckLimits.exit80:                        ; preds = %.critedge6
   br label %Tas_ManCheckLimits.exit80.thread
 
 Tas_ManCheckLimits.exit80.thread:                 ; preds = %16, %Tas_ManCheckLimits.exit80, %.critedge6
-  %.064 = phi i32 [ -1, %.critedge6 ], [ %spec.select, %Tas_ManCheckLimits.exit80 ], [ 1, %16 ]
+  %.064 = phi i32 [ %spec.select, %Tas_ManCheckLimits.exit80 ], [ -1, %.critedge6 ], [ 1, %16 ]
   ret i32 %.064
 }
 
@@ -4073,7 +4073,7 @@ define range(i32 0, 2) i32 @Tas_StorePatternTry(ptr noundef readonly captures(no
   br i1 %exitcond47.not, label %.loopexit, label %39, !llvm.loop !153
 
 .loopexit:                                        ; preds = %29, %60, %5
-  %.032 = phi i32 [ 1, %5 ], [ 1, %60 ], [ 0, %29 ]
+  %.032 = phi i32 [ 1, %60 ], [ 1, %5 ], [ 0, %29 ]
   ret i32 %.032
 }
 

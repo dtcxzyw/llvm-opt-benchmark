@@ -1044,7 +1044,7 @@ define internal noalias noundef ptr @_handle_accept(ptr noundef %0) #0 {
   br label %.thread
 
 .split111.us:                                     ; preds = %.lr.ph148, %.lr.ph133.preheader, %.lr.ph148.preheader, %.lr.ph133.preheader.preheader
-  %.us-phi112 = phi i64 [ %27, %.lr.ph133.preheader.preheader ], [ %16, %.lr.ph148.preheader ], [ %45, %.lr.ph133.preheader ], [ %24, %.lr.ph148 ]
+  %.us-phi112 = phi i64 [ %45, %.lr.ph133.preheader ], [ %27, %.lr.ph133.preheader.preheader ], [ %16, %.lr.ph148.preheader ], [ %24, %.lr.ph148 ]
   %51 = and i64 %.us-phi112, 2147483647
   %52 = getelementptr inbounds nuw i8, ptr %.064.ph152, i64 %51
   %53 = sub i64 %.065.ph150, %51
@@ -1894,7 +1894,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_signal_container(i32 nounde
   br label %.thread
 
 .split373.us:                                     ; preds = %.lr.ph410, %.lr.ph395.preheader, %.lr.ph410.preheader, %.lr.ph395.preheader.preheader
-  %.us-phi374 = phi i64 [ %27, %.lr.ph395.preheader.preheader ], [ %16, %.lr.ph410.preheader ], [ %45, %.lr.ph395.preheader ], [ %24, %.lr.ph410 ]
+  %.us-phi374 = phi i64 [ %45, %.lr.ph395.preheader ], [ %27, %.lr.ph395.preheader.preheader ], [ %16, %.lr.ph410.preheader ], [ %24, %.lr.ph410 ]
   %51 = and i64 %.us-phi374, 2147483647
   %52 = getelementptr inbounds nuw i8, ptr %.0207.ph412, i64 %51
   %53 = sub i64 %.0206.ph414, %51
@@ -1969,7 +1969,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_signal_container(i32 nounde
   br label %.thread
 
 .split422:                                        ; preds = %.lr.ph460, %.lr.ph445.preheader, %.lr.ph460.preheader, %.lr.ph445.preheader.preheader
-  %.us-phi423 = phi i64 [ %96, %.lr.ph445.preheader.preheader ], [ %85, %.lr.ph460.preheader ], [ %71, %.lr.ph445.preheader ], [ %93, %.lr.ph460 ]
+  %.us-phi423 = phi i64 [ %71, %.lr.ph445.preheader ], [ %96, %.lr.ph445.preheader.preheader ], [ %85, %.lr.ph460.preheader ], [ %93, %.lr.ph460 ]
   %77 = and i64 %.us-phi423, 2147483647
   %78 = getelementptr inbounds nuw i8, ptr %.0211.ph463, i64 %77
   %79 = sub i64 %.0209.ph465, %77
@@ -2095,7 +2095,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_signal_container(i32 nounde
   br label %.thread
 
 .split473:                                        ; preds = %.lr.ph511, %.lr.ph496.preheader, %.lr.ph511.preheader, %.lr.ph496.preheader.preheader
-  %.us-phi474 = phi i64 [ %139, %.lr.ph496.preheader.preheader ], [ %128, %.lr.ph511.preheader ], [ %114, %.lr.ph496.preheader ], [ %136, %.lr.ph511 ]
+  %.us-phi474 = phi i64 [ %114, %.lr.ph496.preheader ], [ %139, %.lr.ph496.preheader.preheader ], [ %128, %.lr.ph511.preheader ], [ %136, %.lr.ph511 ]
   %120 = and i64 %.us-phi474, 2147483647
   %121 = getelementptr inbounds nuw i8, ptr %.0213.ph514, i64 %120
   %122 = sub i64 %.0212.ph516, %120
@@ -2289,7 +2289,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_signal_container(i32 nounde
   br label %.thread
 
 .split524.us:                                     ; preds = %.lr.ph562, %.lr.ph547.preheader, %.lr.ph562.preheader, %.lr.ph547.preheader.preheader
-  %.us-phi525 = phi i64 [ %161, %.lr.ph547.preheader.preheader ], [ %150, %.lr.ph562.preheader ], [ %179, %.lr.ph547.preheader ], [ %158, %.lr.ph562 ]
+  %.us-phi525 = phi i64 [ %179, %.lr.ph547.preheader ], [ %161, %.lr.ph547.preheader.preheader ], [ %150, %.lr.ph562.preheader ], [ %158, %.lr.ph562 ]
   %185 = and i64 %.us-phi525, 2147483647
   %186 = getelementptr inbounds nuw i8, ptr %.0217.ph566, i64 %185
   %187 = sub i64 %.0216.ph568, %185
@@ -2364,7 +2364,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_signal_container(i32 nounde
   br label %.thread
 
 .split577:                                        ; preds = %.lr.ph615, %.lr.ph600.preheader, %.lr.ph615.preheader, %.lr.ph600.preheader.preheader
-  %.us-phi578 = phi i64 [ %230, %.lr.ph600.preheader.preheader ], [ %219, %.lr.ph615.preheader ], [ %205, %.lr.ph600.preheader ], [ %227, %.lr.ph615 ]
+  %.us-phi578 = phi i64 [ %205, %.lr.ph600.preheader ], [ %230, %.lr.ph600.preheader.preheader ], [ %219, %.lr.ph615.preheader ], [ %227, %.lr.ph615 ]
   %211 = and i64 %.us-phi578, 2147483647
   %212 = getelementptr inbounds nuw i8, ptr %.0214.ph620, i64 %211
   %213 = sub i64 %.0215.ph618, %211
@@ -3067,7 +3067,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_state(i32 noundef %0, ptr n
   br label %.lr.ph.split, !llvm.loop !27
 
 .thread:                                          ; preds = %.split.us, %14, %.split26.us
-  %22 = phi i32 [ -1, %.split26.us ], [ -1, %14 ], [ 0, %.split.us ]
+  %22 = phi i32 [ -1, %14 ], [ -1, %.split26.us ], [ 0, %.split.us ]
   ret i32 %22
 }
 
@@ -3189,7 +3189,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_mem_limits(i32 noundef %0, 
   br label %.lr.ph68.split, !llvm.loop !29
 
 .thread:                                          ; preds = %.split70.us, %33, %.split73.us, %14, %.split56.us
-  %.0 = phi i32 [ -1, %14 ], [ -1, %.split56.us ], [ -1, %.split73.us ], [ -1, %33 ], [ 0, %.split70.us ]
+  %.0 = phi i32 [ -1, %33 ], [ -1, %14 ], [ -1, %.split56.us ], [ -1, %.split73.us ], [ 0, %.split70.us ]
   ret i32 %.0
 }
 
@@ -3253,7 +3253,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_uid(i32 noundef %0, ptr nou
   br label %.lr.ph.split, !llvm.loop !30
 
 .thread:                                          ; preds = %.split.us, %14, %.split26.us
-  %22 = phi i32 [ -1, %.split26.us ], [ -1, %14 ], [ 0, %.split.us ]
+  %22 = phi i32 [ -1, %14 ], [ -1, %.split26.us ], [ 0, %.split.us ]
   ret i32 %22
 }
 
@@ -3317,7 +3317,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_nodeid(i32 noundef %0, ptr 
   br label %.lr.ph.split, !llvm.loop !31
 
 .thread:                                          ; preds = %.split.us, %14, %.split26.us
-  %22 = phi i32 [ -1, %.split26.us ], [ -1, %14 ], [ 0, %.split.us ]
+  %22 = phi i32 [ -1, %14 ], [ -1, %.split26.us ], [ 0, %.split.us ]
   ret i32 %22
 }
 
@@ -3469,7 +3469,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_attach(i32 noundef %0, ptr 
   br label %.thread
 
 .split496.us:                                     ; preds = %.lr.ph533, %.lr.ph518.preheader, %.lr.ph533.preheader, %.lr.ph518.preheader.preheader
-  %.us-phi497 = phi i64 [ %33, %.lr.ph518.preheader.preheader ], [ %22, %.lr.ph533.preheader ], [ %51, %.lr.ph518.preheader ], [ %30, %.lr.ph533 ]
+  %.us-phi497 = phi i64 [ %51, %.lr.ph518.preheader ], [ %33, %.lr.ph518.preheader.preheader ], [ %22, %.lr.ph533.preheader ], [ %30, %.lr.ph533 ]
   %57 = and i64 %.us-phi497, 2147483647
   %58 = getelementptr inbounds nuw i8, ptr %.0244.ph535, i64 %57
   %59 = sub i64 %.0241.ph537, %57
@@ -3599,7 +3599,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_attach(i32 noundef %0, ptr 
   br label %.thread
 
 .split545.us:                                     ; preds = %.lr.ph583, %.lr.ph568.preheader, %.lr.ph583.preheader, %.lr.ph568.preheader.preheader
-  %.us-phi546 = phi i64 [ %77, %.lr.ph568.preheader.preheader ], [ %66, %.lr.ph583.preheader ], [ %95, %.lr.ph568.preheader ], [ %74, %.lr.ph583 ]
+  %.us-phi546 = phi i64 [ %95, %.lr.ph568.preheader ], [ %77, %.lr.ph568.preheader.preheader ], [ %66, %.lr.ph583.preheader ], [ %74, %.lr.ph583 ]
   %101 = and i64 %.us-phi546, 2147483647
   %102 = getelementptr inbounds nuw i8, ptr %.0254.ph586, i64 %101
   %103 = sub i64 %.0251.ph588, %101
@@ -3674,7 +3674,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_attach(i32 noundef %0, ptr 
   br label %.thread
 
 .split597:                                        ; preds = %.lr.ph635, %.lr.ph620.preheader, %.lr.ph635.preheader, %.lr.ph620.preheader.preheader
-  %.us-phi598 = phi i64 [ %146, %.lr.ph620.preheader.preheader ], [ %135, %.lr.ph635.preheader ], [ %121, %.lr.ph620.preheader ], [ %143, %.lr.ph635 ]
+  %.us-phi598 = phi i64 [ %121, %.lr.ph620.preheader ], [ %146, %.lr.ph620.preheader.preheader ], [ %135, %.lr.ph635.preheader ], [ %143, %.lr.ph635 ]
   %127 = and i64 %.us-phi598, 2147483647
   %128 = getelementptr inbounds nuw i8, ptr %.0260.ph638, i64 %127
   %129 = sub i64 %.0257.ph640, %127
@@ -3865,7 +3865,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_attach(i32 noundef %0, ptr 
   br label %.thread
 
 .split649.us:                                     ; preds = %.lr.ph687, %.lr.ph672.preheader, %.lr.ph687.preheader, %.lr.ph672.preheader.preheader
-  %.us-phi650 = phi i64 [ %169, %.lr.ph672.preheader.preheader ], [ %158, %.lr.ph687.preheader ], [ %187, %.lr.ph672.preheader ], [ %166, %.lr.ph687 ]
+  %.us-phi650 = phi i64 [ %187, %.lr.ph672.preheader ], [ %169, %.lr.ph672.preheader.preheader ], [ %158, %.lr.ph687.preheader ], [ %166, %.lr.ph687 ]
   %193 = and i64 %.us-phi650, 2147483647
   %194 = getelementptr inbounds nuw i8, ptr %.0264.ph691, i64 %193
   %195 = sub i64 %.0263.ph693, %193
@@ -3995,7 +3995,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_attach(i32 noundef %0, ptr 
   br label %.thread
 
 .split702.us:                                     ; preds = %.lr.ph740, %.lr.ph725.preheader, %.lr.ph740.preheader, %.lr.ph725.preheader.preheader
-  %.us-phi703 = phi i64 [ %213, %.lr.ph725.preheader.preheader ], [ %202, %.lr.ph740.preheader ], [ %231, %.lr.ph725.preheader ], [ %210, %.lr.ph740 ]
+  %.us-phi703 = phi i64 [ %231, %.lr.ph725.preheader ], [ %213, %.lr.ph725.preheader.preheader ], [ %202, %.lr.ph740.preheader ], [ %210, %.lr.ph740 ]
   %237 = and i64 %.us-phi703, 2147483647
   %238 = getelementptr inbounds nuw i8, ptr %.0261.ph745, i64 %237
   %239 = sub i64 %.0262.ph743, %237
@@ -4125,7 +4125,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_attach(i32 noundef %0, ptr 
   br label %.thread
 
 .split754.us:                                     ; preds = %.lr.ph792, %.lr.ph777.preheader, %.lr.ph792.preheader, %.lr.ph777.preheader.preheader
-  %.us-phi755 = phi i64 [ %257, %.lr.ph777.preheader.preheader ], [ %246, %.lr.ph792.preheader ], [ %275, %.lr.ph777.preheader ], [ %254, %.lr.ph792 ]
+  %.us-phi755 = phi i64 [ %275, %.lr.ph777.preheader ], [ %257, %.lr.ph777.preheader.preheader ], [ %246, %.lr.ph792.preheader ], [ %254, %.lr.ph792 ]
   %281 = and i64 %.us-phi755, 2147483647
   %282 = getelementptr inbounds nuw i8, ptr %.0258.ph797, i64 %281
   %283 = sub i64 %.0259.ph795, %281
@@ -4881,7 +4881,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_pid_in_container(i32 nounde
   br label %.thread
 
 .split66.us:                                      ; preds = %.lr.ph103, %.lr.ph88.preheader, %.lr.ph103.preheader, %.lr.ph88.preheader.preheader
-  %.us-phi67 = phi i64 [ %21, %.lr.ph88.preheader.preheader ], [ %10, %.lr.ph103.preheader ], [ %39, %.lr.ph88.preheader ], [ %18, %.lr.ph103 ]
+  %.us-phi67 = phi i64 [ %39, %.lr.ph88.preheader ], [ %21, %.lr.ph88.preheader.preheader ], [ %10, %.lr.ph103.preheader ], [ %18, %.lr.ph103 ]
   %45 = and i64 %.us-phi67, 2147483647
   %46 = getelementptr inbounds nuw i8, ptr %.037.ph105, i64 %45
   %47 = sub i64 %.036.ph107, %45
@@ -5038,7 +5038,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_daemon_pid(i32 noundef %0, 
   br label %.lr.ph.split, !llvm.loop !49
 
 .thread:                                          ; preds = %.split.us, %14, %.split26.us
-  %22 = phi i32 [ -1, %.split26.us ], [ -1, %14 ], [ 0, %.split.us ]
+  %22 = phi i32 [ -1, %14 ], [ -1, %.split26.us ], [ 0, %.split.us ]
   ret i32 %22
 }
 
@@ -5301,7 +5301,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_suspend(i32 noundef %0, ptr
   br label %86
 
 .thread:                                          ; preds = %.split101, %93, %.split104, %78, %.split87.us
-  %.0 = phi i32 [ -1, %78 ], [ -1, %.split87.us ], [ -1, %.split104 ], [ -1, %93 ], [ 0, %.split101 ]
+  %.0 = phi i32 [ -1, %93 ], [ -1, %78 ], [ -1, %.split87.us ], [ -1, %.split104 ], [ 0, %.split101 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -5545,7 +5545,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_resume(i32 noundef %0, ptr 
   br label %73
 
 .thread:                                          ; preds = %.split99, %80, %.split102, %65, %.split85.us
-  %.0 = phi i32 [ -1, %65 ], [ -1, %.split85.us ], [ -1, %.split102 ], [ -1, %80 ], [ 0, %.split99 ]
+  %.0 = phi i32 [ -1, %80 ], [ -1, %65 ], [ -1, %.split85.us ], [ -1, %.split102 ], [ 0, %.split99 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -5841,7 +5841,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_terminate(i32 noundef %0, p
   br label %100
 
 .thread:                                          ; preds = %.split110, %107, %.split113, %92, %.split96.us
-  %.0 = phi i32 [ -1, %92 ], [ -1, %.split96.us ], [ -1, %.split113 ], [ -1, %107 ], [ 0, %.split110 ]
+  %.0 = phi i32 [ -1, %107 ], [ -1, %92 ], [ -1, %.split96.us ], [ -1, %.split113 ], [ 0, %.split110 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -6081,7 +6081,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_completion(i32 noundef %0, 
   br label %.thread449
 
 .split574:                                        ; preds = %.lr.ph611, %.lr.ph596.preheader, %.lr.ph611.preheader, %.lr.ph596.preheader.preheader
-  %.us-phi575 = phi i64 [ %110, %.lr.ph596.preheader.preheader ], [ %99, %.lr.ph611.preheader ], [ %85, %.lr.ph596.preheader ], [ %107, %.lr.ph611 ]
+  %.us-phi575 = phi i64 [ %85, %.lr.ph596.preheader ], [ %110, %.lr.ph596.preheader.preheader ], [ %99, %.lr.ph611.preheader ], [ %107, %.lr.ph611 ]
   %91 = and i64 %.us-phi575, 2147483647
   %92 = getelementptr inbounds nuw i8, ptr %.0259.ph614, i64 %91
   %93 = sub i64 %.0258.ph616, %91
@@ -6207,7 +6207,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_completion(i32 noundef %0, 
   br label %.thread449
 
 .split624:                                        ; preds = %.lr.ph662, %.lr.ph647.preheader, %.lr.ph662.preheader, %.lr.ph647.preheader.preheader
-  %.us-phi625 = phi i64 [ %153, %.lr.ph647.preheader.preheader ], [ %142, %.lr.ph662.preheader ], [ %128, %.lr.ph647.preheader ], [ %150, %.lr.ph662 ]
+  %.us-phi625 = phi i64 [ %128, %.lr.ph647.preheader ], [ %153, %.lr.ph647.preheader.preheader ], [ %142, %.lr.ph662.preheader ], [ %150, %.lr.ph662 ]
   %134 = and i64 %.us-phi625, 2147483647
   %135 = getelementptr inbounds nuw i8, ptr %.0261.ph665, i64 %134
   %136 = sub i64 %.0260.ph667, %134
@@ -6333,7 +6333,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_completion(i32 noundef %0, 
   br label %.thread449
 
 .split675:                                        ; preds = %.lr.ph713, %.lr.ph698.preheader, %.lr.ph713.preheader, %.lr.ph698.preheader.preheader
-  %.us-phi676 = phi i64 [ %196, %.lr.ph698.preheader.preheader ], [ %185, %.lr.ph713.preheader ], [ %171, %.lr.ph698.preheader ], [ %193, %.lr.ph713 ]
+  %.us-phi676 = phi i64 [ %171, %.lr.ph698.preheader ], [ %196, %.lr.ph698.preheader.preheader ], [ %185, %.lr.ph713.preheader ], [ %193, %.lr.ph713 ]
   %177 = and i64 %.us-phi676, 2147483647
   %178 = getelementptr inbounds nuw i8, ptr %.0265.ph716, i64 %177
   %179 = sub i64 %.0262.ph718, %177
@@ -6459,7 +6459,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_completion(i32 noundef %0, 
   br label %.thread449
 
 .split726:                                        ; preds = %.lr.ph764, %.lr.ph749.preheader, %.lr.ph764.preheader, %.lr.ph749.preheader.preheader
-  %.us-phi727 = phi i64 [ %239, %.lr.ph749.preheader.preheader ], [ %228, %.lr.ph764.preheader ], [ %214, %.lr.ph749.preheader ], [ %236, %.lr.ph764 ]
+  %.us-phi727 = phi i64 [ %214, %.lr.ph749.preheader ], [ %239, %.lr.ph749.preheader.preheader ], [ %228, %.lr.ph764.preheader ], [ %236, %.lr.ph764 ]
   %220 = and i64 %.us-phi727, 2147483647
   %221 = getelementptr inbounds nuw i8, ptr %.0269.ph767, i64 %220
   %222 = sub i64 %.0268.ph769, %220
@@ -6585,7 +6585,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_completion(i32 noundef %0, 
   br label %.thread449
 
 .split777:                                        ; preds = %.lr.ph815, %.lr.ph800.preheader, %.lr.ph815.preheader, %.lr.ph800.preheader.preheader
-  %.us-phi778 = phi i64 [ %282, %.lr.ph800.preheader.preheader ], [ %271, %.lr.ph815.preheader ], [ %257, %.lr.ph800.preheader ], [ %279, %.lr.ph815 ]
+  %.us-phi778 = phi i64 [ %257, %.lr.ph800.preheader ], [ %282, %.lr.ph800.preheader.preheader ], [ %271, %.lr.ph815.preheader ], [ %279, %.lr.ph815 ]
   %263 = and i64 %.us-phi778, 2147483647
   %264 = getelementptr inbounds nuw i8, ptr %.0271.ph818, i64 %263
   %265 = sub i64 %.0270.ph820, %263
@@ -6711,7 +6711,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_completion(i32 noundef %0, 
   br label %.thread449
 
 .split828:                                        ; preds = %.lr.ph866, %.lr.ph851.preheader, %.lr.ph866.preheader, %.lr.ph851.preheader.preheader
-  %.us-phi829 = phi i64 [ %325, %.lr.ph851.preheader.preheader ], [ %314, %.lr.ph866.preheader ], [ %300, %.lr.ph851.preheader ], [ %322, %.lr.ph866 ]
+  %.us-phi829 = phi i64 [ %300, %.lr.ph851.preheader ], [ %325, %.lr.ph851.preheader.preheader ], [ %314, %.lr.ph866.preheader ], [ %322, %.lr.ph866 ]
   %306 = and i64 %.us-phi829, 2147483647
   %307 = getelementptr inbounds nuw i8, ptr %.0273.ph869, i64 %306
   %308 = sub i64 %.0272.ph871, %306
@@ -6896,7 +6896,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_completion(i32 noundef %0, 
   br label %.thread449
 
 .split880.us:                                     ; preds = %.lr.ph918, %.lr.ph903.preheader, %.lr.ph918.preheader, %.lr.ph903.preheader.preheader
-  %.us-phi881 = phi i64 [ %344, %.lr.ph903.preheader.preheader ], [ %333, %.lr.ph918.preheader ], [ %362, %.lr.ph903.preheader ], [ %341, %.lr.ph918 ]
+  %.us-phi881 = phi i64 [ %362, %.lr.ph903.preheader ], [ %344, %.lr.ph903.preheader.preheader ], [ %333, %.lr.ph918.preheader ], [ %341, %.lr.ph918 ]
   %368 = and i64 %.us-phi881, 2147483647
   %369 = getelementptr inbounds nuw i8, ptr %.0275.ph922, i64 %368
   %370 = sub i64 %.0274.ph924, %368
@@ -7377,7 +7377,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_completion(i32 noundef %0, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.split553, %442, %.thread449, %.thread445, %542, %543, %530
-  %.0 = phi i32 [ -1, %542 ], [ %443, %442 ], [ 0, %530 ], [ -1, %543 ], [ -1, %.thread445 ], [ -1, %.thread449 ], [ 0, %.split553 ]
+  %.0 = phi i32 [ -1, %542 ], [ %443, %442 ], [ 0, %530 ], [ -1, %543 ], [ -1, %.thread449 ], [ -1, %.thread445 ], [ 0, %.split553 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -8334,7 +8334,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_reconfig(i32 noundef %0, pt
   br label %.thread130
 
 .split157:                                        ; preds = %.lr.ph194, %.lr.ph179.preheader, %.lr.ph194.preheader, %.lr.ph179.preheader.preheader
-  %.us-phi158 = phi i64 [ %56, %.lr.ph179.preheader.preheader ], [ %45, %.lr.ph194.preheader ], [ %31, %.lr.ph179.preheader ], [ %53, %.lr.ph194 ]
+  %.us-phi158 = phi i64 [ %31, %.lr.ph179.preheader ], [ %56, %.lr.ph179.preheader.preheader ], [ %45, %.lr.ph194.preheader ], [ %53, %.lr.ph194 ]
   %37 = and i64 %.us-phi158, 2147483647
   %38 = getelementptr inbounds nuw i8, ptr %.082.ph196, i64 %37
   %39 = sub i64 %.076.ph198, %37
@@ -8524,7 +8524,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_reconfig(i32 noundef %0, pt
   br label %157
 
 .split207.us:                                     ; preds = %.lr.ph245, %.lr.ph230.preheader, %.lr.ph245.preheader, %.lr.ph230.preheader.preheader
-  %.us-phi208 = phi i64 [ %79, %.lr.ph230.preheader.preheader ], [ %68, %.lr.ph245.preheader ], [ %97, %.lr.ph230.preheader ], [ %76, %.lr.ph245 ]
+  %.us-phi208 = phi i64 [ %97, %.lr.ph230.preheader ], [ %79, %.lr.ph230.preheader.preheader ], [ %68, %.lr.ph245.preheader ], [ %76, %.lr.ph245 ]
   %103 = and i64 %.us-phi208, 2147483647
   %104 = getelementptr inbounds nuw i8, ptr %.077.ph250, i64 %103
   %105 = sub i64 %.078.ph248, %103
@@ -8690,7 +8690,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_reconfig(i32 noundef %0, pt
   br label %.thread130
 
 .thread130:                                       ; preds = %.split273, %146, %.split276, %131, %.split258.us, %36, %.split160, %26, %21, %157, %158
-  %.0 = phi i32 [ -1, %157 ], [ -1, %158 ], [ -1, %21 ], [ -1, %26 ], [ -1, %.split160 ], [ -1, %36 ], [ -1, %.split258.us ], [ -1, %131 ], [ -1, %.split276 ], [ -1, %146 ], [ 0, %.split273 ]
+  %.0 = phi i32 [ -1, %157 ], [ -1, %158 ], [ -1, %146 ], [ -1, %21 ], [ -1, %26 ], [ -1, %.split160 ], [ -1, %36 ], [ -1, %.split258.us ], [ -1, %131 ], [ -1, %.split276 ], [ 0, %.split273 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -8952,7 +8952,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_notify_job(i32 noundef %0, 
   br label %.outer._crit_edge
 
 .split116.us:                                     ; preds = %.lr.ph153, %.lr.ph138.preheader, %.lr.ph153.preheader, %.lr.ph138.preheader.preheader
-  %.us-phi117 = phi i64 [ %23, %.lr.ph138.preheader.preheader ], [ %12, %.lr.ph153.preheader ], [ %41, %.lr.ph138.preheader ], [ %20, %.lr.ph153 ]
+  %.us-phi117 = phi i64 [ %41, %.lr.ph138.preheader ], [ %23, %.lr.ph138.preheader.preheader ], [ %12, %.lr.ph153.preheader ], [ %20, %.lr.ph153 ]
   %47 = and i64 %.us-phi117, 2147483647
   %48 = getelementptr inbounds nuw i8, ptr %.062.ph155, i64 %47
   %49 = sub i64 %.058.ph157, %47
@@ -9092,7 +9092,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_notify_job(i32 noundef %0, 
   br label %.outer._crit_edge
 
 .split165.us:                                     ; preds = %.lr.ph203, %.lr.ph188.preheader, %.lr.ph203.preheader, %.lr.ph188.preheader.preheader
-  %.us-phi166 = phi i64 [ %72, %.lr.ph188.preheader.preheader ], [ %61, %.lr.ph203.preheader ], [ %90, %.lr.ph188.preheader ], [ %69, %.lr.ph203 ]
+  %.us-phi166 = phi i64 [ %90, %.lr.ph188.preheader ], [ %72, %.lr.ph188.preheader.preheader ], [ %61, %.lr.ph203.preheader ], [ %69, %.lr.ph203 ]
   %96 = and i64 %.us-phi166, 2147483647
   %97 = getelementptr inbounds nuw i8, ptr %.059.ph208, i64 %96
   %98 = sub i64 %.060.ph206, %96
@@ -9212,7 +9212,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_notify_job(i32 noundef %0, 
   br label %.lr.ph211.split, !llvm.loop !89
 
 .outer._crit_edge:                                ; preds = %.split214.us, %31, %36, %.split119.us, %46, %80, %85, %.split168.us, %95, %.split217.us, %134
-  %.0 = phi i32 [ -1, %134 ], [ -1, %.split217.us ], [ -1, %95 ], [ -1, %.split168.us ], [ -1, %85 ], [ -1, %80 ], [ -1, %46 ], [ -1, %.split119.us ], [ -1, %36 ], [ -1, %31 ], [ 0, %.split214.us ]
+  %.0 = phi i32 [ -1, %31 ], [ -1, %134 ], [ -1, %.split217.us ], [ -1, %95 ], [ -1, %.split168.us ], [ -1, %85 ], [ -1, %80 ], [ -1, %46 ], [ -1, %.split119.us ], [ -1, %36 ], [ 0, %.split214.us ]
   call void @slurm_xfree(ptr noundef nonnull %6) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -9335,7 +9335,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_add_extern_pid(i32 noundef 
   br label %.thread
 
 .split68.us:                                      ; preds = %.lr.ph105, %.lr.ph90.preheader, %.lr.ph105.preheader, %.lr.ph90.preheader.preheader
-  %.us-phi69 = phi i64 [ %18, %.lr.ph90.preheader.preheader ], [ %7, %.lr.ph105.preheader ], [ %36, %.lr.ph90.preheader ], [ %15, %.lr.ph105 ]
+  %.us-phi69 = phi i64 [ %36, %.lr.ph90.preheader ], [ %18, %.lr.ph90.preheader.preheader ], [ %7, %.lr.ph105.preheader ], [ %15, %.lr.ph105 ]
   %42 = and i64 %.us-phi69, 2147483647
   %43 = getelementptr inbounds nuw i8, ptr %.039.ph107, i64 %42
   %44 = sub i64 %.038.ph109, %42
@@ -9831,7 +9831,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_getpw(i32 noundef %0, ptr n
   br label %.thread
 
 .split579.us:                                     ; preds = %.lr.ph616, %.lr.ph601.preheader, %.lr.ph616.preheader, %.lr.ph601.preheader.preheader
-  %.us-phi580 = phi i64 [ %21, %.lr.ph601.preheader.preheader ], [ %10, %.lr.ph616.preheader ], [ %39, %.lr.ph601.preheader ], [ %18, %.lr.ph616 ]
+  %.us-phi580 = phi i64 [ %39, %.lr.ph601.preheader ], [ %21, %.lr.ph601.preheader.preheader ], [ %10, %.lr.ph616.preheader ], [ %18, %.lr.ph616 ]
   %45 = and i64 %.us-phi580, 2147483647
   %46 = getelementptr inbounds nuw i8, ptr %.0271.ph618, i64 %45
   %47 = sub i64 %.0268.ph620, %45
@@ -9906,7 +9906,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_getpw(i32 noundef %0, ptr n
   br label %.thread
 
 .split628:                                        ; preds = %.lr.ph666, %.lr.ph651.preheader, %.lr.ph666.preheader, %.lr.ph651.preheader.preheader
-  %.us-phi629 = phi i64 [ %90, %.lr.ph651.preheader.preheader ], [ %79, %.lr.ph666.preheader ], [ %65, %.lr.ph651.preheader ], [ %87, %.lr.ph666 ]
+  %.us-phi629 = phi i64 [ %65, %.lr.ph651.preheader ], [ %90, %.lr.ph651.preheader.preheader ], [ %79, %.lr.ph666.preheader ], [ %87, %.lr.ph666 ]
   %71 = and i64 %.us-phi629, 2147483647
   %72 = getelementptr inbounds nuw i8, ptr %.0280.ph669, i64 %71
   %73 = sub i64 %.0277.ph671, %71
@@ -10032,7 +10032,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_getpw(i32 noundef %0, ptr n
   br label %.thread
 
 .split679:                                        ; preds = %.lr.ph717, %.lr.ph702.preheader, %.lr.ph717.preheader, %.lr.ph702.preheader.preheader
-  %.us-phi680 = phi i64 [ %133, %.lr.ph702.preheader.preheader ], [ %122, %.lr.ph717.preheader ], [ %108, %.lr.ph702.preheader ], [ %130, %.lr.ph717 ]
+  %.us-phi680 = phi i64 [ %108, %.lr.ph702.preheader ], [ %133, %.lr.ph702.preheader.preheader ], [ %122, %.lr.ph717.preheader ], [ %130, %.lr.ph717 ]
   %114 = and i64 %.us-phi680, 2147483647
   %115 = getelementptr inbounds nuw i8, ptr %.0286.ph720, i64 %114
   %116 = sub i64 %.0283.ph722, %114
@@ -10223,7 +10223,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_getpw(i32 noundef %0, ptr n
   br label %.thread
 
 .split730.us:                                     ; preds = %.lr.ph768, %.lr.ph753.preheader, %.lr.ph768.preheader, %.lr.ph753.preheader.preheader
-  %.us-phi731 = phi i64 [ %156, %.lr.ph753.preheader.preheader ], [ %145, %.lr.ph768.preheader ], [ %174, %.lr.ph753.preheader ], [ %153, %.lr.ph768 ]
+  %.us-phi731 = phi i64 [ %174, %.lr.ph753.preheader ], [ %156, %.lr.ph753.preheader.preheader ], [ %145, %.lr.ph768.preheader ], [ %153, %.lr.ph768 ]
   %180 = and i64 %.us-phi731, 2147483647
   %181 = getelementptr inbounds nuw i8, ptr %.0292.ph771, i64 %180
   %182 = sub i64 %.0289.ph773, %180
@@ -11249,7 +11249,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_getgr(i32 noundef %0, ptr n
   br label %.thread
 
 .split230.us:                                     ; preds = %.lr.ph267, %.lr.ph252.preheader, %.lr.ph267.preheader, %.lr.ph252.preheader.preheader
-  %.us-phi231 = phi i64 [ %21, %.lr.ph252.preheader.preheader ], [ %10, %.lr.ph267.preheader ], [ %39, %.lr.ph252.preheader ], [ %18, %.lr.ph267 ]
+  %.us-phi231 = phi i64 [ %39, %.lr.ph252.preheader ], [ %21, %.lr.ph252.preheader.preheader ], [ %10, %.lr.ph267.preheader ], [ %18, %.lr.ph267 ]
   %45 = and i64 %.us-phi231, 2147483647
   %46 = getelementptr inbounds nuw i8, ptr %.0122.ph269, i64 %45
   %47 = sub i64 %.0119.ph271, %45
@@ -11324,7 +11324,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_getgr(i32 noundef %0, ptr n
   br label %.thread
 
 .split279:                                        ; preds = %.lr.ph317, %.lr.ph302.preheader, %.lr.ph317.preheader, %.lr.ph302.preheader.preheader
-  %.us-phi280 = phi i64 [ %90, %.lr.ph302.preheader.preheader ], [ %79, %.lr.ph317.preheader ], [ %65, %.lr.ph302.preheader ], [ %87, %.lr.ph317 ]
+  %.us-phi280 = phi i64 [ %65, %.lr.ph302.preheader ], [ %90, %.lr.ph302.preheader.preheader ], [ %79, %.lr.ph317.preheader ], [ %87, %.lr.ph317 ]
   %71 = and i64 %.us-phi280, 2147483647
   %72 = getelementptr inbounds nuw i8, ptr %.0123.ph322, i64 %71
   %73 = sub i64 %.0124.ph320, %71
@@ -11450,7 +11450,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_getgr(i32 noundef %0, ptr n
   br label %.thread
 
 .split330:                                        ; preds = %.lr.ph368, %.lr.ph353.preheader, %.lr.ph368.preheader, %.lr.ph353.preheader.preheader
-  %.us-phi331 = phi i64 [ %133, %.lr.ph353.preheader.preheader ], [ %122, %.lr.ph368.preheader ], [ %108, %.lr.ph353.preheader ], [ %130, %.lr.ph368 ]
+  %.us-phi331 = phi i64 [ %108, %.lr.ph353.preheader ], [ %133, %.lr.ph353.preheader.preheader ], [ %122, %.lr.ph368.preheader ], [ %130, %.lr.ph368 ]
   %114 = and i64 %.us-phi331, 2147483647
   %115 = getelementptr inbounds nuw i8, ptr %.0120.ph373, i64 %114
   %116 = sub i64 %.0121.ph371, %114
@@ -11641,7 +11641,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_getgr(i32 noundef %0, ptr n
   br label %.thread
 
 .split381.us:                                     ; preds = %.lr.ph419, %.lr.ph404.preheader, %.lr.ph419.preheader, %.lr.ph404.preheader.preheader
-  %.us-phi382 = phi i64 [ %156, %.lr.ph404.preheader.preheader ], [ %145, %.lr.ph419.preheader ], [ %174, %.lr.ph404.preheader ], [ %153, %.lr.ph419 ]
+  %.us-phi382 = phi i64 [ %174, %.lr.ph404.preheader ], [ %156, %.lr.ph404.preheader.preheader ], [ %145, %.lr.ph419.preheader ], [ %153, %.lr.ph419 ]
   %180 = and i64 %.us-phi382, 2147483647
   %181 = getelementptr inbounds nuw i8, ptr %.0117.ph424, i64 %180
   %182 = sub i64 %.0118.ph422, %180
@@ -12110,7 +12110,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_gethost(i32 noundef %0, ptr
   br label %.thread
 
 .split481.us:                                     ; preds = %.lr.ph518, %.lr.ph503.preheader, %.lr.ph518.preheader, %.lr.ph503.preheader.preheader
-  %.us-phi482 = phi i64 [ %26, %.lr.ph503.preheader.preheader ], [ %15, %.lr.ph518.preheader ], [ %44, %.lr.ph503.preheader ], [ %23, %.lr.ph518 ]
+  %.us-phi482 = phi i64 [ %44, %.lr.ph503.preheader ], [ %26, %.lr.ph503.preheader.preheader ], [ %15, %.lr.ph518.preheader ], [ %23, %.lr.ph518 ]
   %50 = and i64 %.us-phi482, 2147483647
   %51 = getelementptr inbounds nuw i8, ptr %.0211.ph520, i64 %50
   %52 = sub i64 %.0208.ph522, %50
@@ -12185,7 +12185,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_gethost(i32 noundef %0, ptr
   br label %.thread
 
 .split530:                                        ; preds = %.lr.ph568, %.lr.ph553.preheader, %.lr.ph568.preheader, %.lr.ph553.preheader.preheader
-  %.us-phi531 = phi i64 [ %95, %.lr.ph553.preheader.preheader ], [ %84, %.lr.ph568.preheader ], [ %70, %.lr.ph553.preheader ], [ %92, %.lr.ph568 ]
+  %.us-phi531 = phi i64 [ %70, %.lr.ph553.preheader ], [ %95, %.lr.ph553.preheader.preheader ], [ %84, %.lr.ph568.preheader ], [ %92, %.lr.ph568 ]
   %76 = and i64 %.us-phi531, 2147483647
   %77 = getelementptr inbounds nuw i8, ptr %.0220.ph571, i64 %76
   %78 = sub i64 %.0217.ph573, %76
@@ -12376,7 +12376,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_gethost(i32 noundef %0, ptr
   br label %.thread
 
 .split581.us:                                     ; preds = %.lr.ph619, %.lr.ph604.preheader, %.lr.ph619.preheader, %.lr.ph604.preheader.preheader
-  %.us-phi582 = phi i64 [ %118, %.lr.ph604.preheader.preheader ], [ %107, %.lr.ph619.preheader ], [ %136, %.lr.ph604.preheader ], [ %115, %.lr.ph619 ]
+  %.us-phi582 = phi i64 [ %136, %.lr.ph604.preheader ], [ %118, %.lr.ph604.preheader.preheader ], [ %107, %.lr.ph619.preheader ], [ %115, %.lr.ph619 ]
   %142 = and i64 %.us-phi582, 2147483647
   %143 = getelementptr inbounds nuw i8, ptr %.0226.ph622, i64 %142
   %144 = sub i64 %.0223.ph624, %142
@@ -13893,7 +13893,7 @@ define internal fastcc i32 @_handle_stepmgr_relay_msg(i32 noundef %0, i32 nounde
   br label %.thread
 
 .split146.us:                                     ; preds = %.lr.ph183, %.lr.ph168.preheader, %.lr.ph183.preheader, %.lr.ph168.preheader.preheader
-  %.us-phi147 = phi i64 [ %21, %.lr.ph168.preheader.preheader ], [ %10, %.lr.ph183.preheader ], [ %39, %.lr.ph168.preheader ], [ %18, %.lr.ph183 ]
+  %.us-phi147 = phi i64 [ %39, %.lr.ph168.preheader ], [ %21, %.lr.ph168.preheader.preheader ], [ %10, %.lr.ph183.preheader ], [ %18, %.lr.ph183 ]
   %45 = and i64 %.us-phi147, 2147483647
   %46 = getelementptr inbounds nuw i8, ptr %.082.ph187, i64 %45
   %47 = sub i64 %.083.ph185, %45
@@ -14023,7 +14023,7 @@ define internal fastcc i32 @_handle_stepmgr_relay_msg(i32 noundef %0, i32 nounde
   br label %.thread
 
 .split196.us:                                     ; preds = %.lr.ph234, %.lr.ph219.preheader, %.lr.ph234.preheader, %.lr.ph219.preheader.preheader
-  %.us-phi197 = phi i64 [ %65, %.lr.ph219.preheader.preheader ], [ %54, %.lr.ph234.preheader ], [ %83, %.lr.ph219.preheader ], [ %62, %.lr.ph234 ]
+  %.us-phi197 = phi i64 [ %83, %.lr.ph219.preheader ], [ %65, %.lr.ph219.preheader.preheader ], [ %54, %.lr.ph234.preheader ], [ %62, %.lr.ph234 ]
   %89 = and i64 %.us-phi197, 2147483647
   %90 = getelementptr inbounds nuw i8, ptr %.079.ph239, i64 %89
   %91 = sub i64 %.080.ph237, %89
@@ -14157,7 +14157,7 @@ define internal fastcc i32 @_handle_stepmgr_relay_msg(i32 noundef %0, i32 nounde
   br label %.thread
 
 .split248.us:                                     ; preds = %.lr.ph286, %.lr.ph271.preheader, %.lr.ph286.preheader, %.lr.ph271.preheader.preheader
-  %.us-phi249 = phi i64 [ %111, %.lr.ph271.preheader.preheader ], [ %100, %.lr.ph286.preheader ], [ %129, %.lr.ph271.preheader ], [ %108, %.lr.ph286 ]
+  %.us-phi249 = phi i64 [ %129, %.lr.ph271.preheader ], [ %111, %.lr.ph271.preheader.preheader ], [ %100, %.lr.ph286.preheader ], [ %108, %.lr.ph286 ]
   %135 = and i64 %.us-phi249, 2147483647
   %136 = getelementptr inbounds nuw i8, ptr %.076.ph292, i64 %135
   %137 = sub i64 %.077.ph290, %135
@@ -15035,7 +15035,7 @@ define internal fastcc range(i32 -1, 1) i32 @_send_one_struct_group(i32 noundef 
   br label %.lr.ph326.split, !llvm.loop !147
 
 .thread:                                          ; preds = %.split328.us, %.outer192._crit_edge, %144, %.split331.us, %124, %.split313.us, %102, %.split294.us, %78, %.split275, %63, %.split256.us, %45, %.split237.us, %23, %.split219.us, %3
-  %.0 = phi i32 [ -1, %124 ], [ -1, %102 ], [ -1, %78 ], [ -1, %63 ], [ -1, %45 ], [ -1, %23 ], [ -1, %3 ], [ -1, %.split219.us ], [ -1, %.split237.us ], [ -1, %.split256.us ], [ -1, %.split275 ], [ -1, %.split294.us ], [ -1, %.split313.us ], [ -1, %.split331.us ], [ -1, %144 ], [ 0, %.outer192._crit_edge ], [ 0, %.split328.us ]
+  %.0 = phi i32 [ -1, %144 ], [ -1, %124 ], [ -1, %102 ], [ -1, %78 ], [ -1, %63 ], [ -1, %45 ], [ -1, %23 ], [ -1, %3 ], [ -1, %.split219.us ], [ -1, %.split237.us ], [ -1, %.split256.us ], [ -1, %.split275 ], [ -1, %.split294.us ], [ -1, %.split313.us ], [ -1, %.split331.us ], [ 0, %.outer192._crit_edge ], [ 0, %.split328.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }

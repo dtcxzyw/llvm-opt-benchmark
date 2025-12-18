@@ -306,7 +306,7 @@ X509V3_EXT_get_nid.exit.thread:                   ; preds = %2, %10
   br label %18
 
 X509V3_EXT_get_nid.exit:                          ; preds = %8, %12
-  %.0.i = phi ptr [ %9, %8 ], [ %16, %12 ]
+  %.0.i = phi ptr [ %16, %12 ], [ %9, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %17 = icmp eq ptr %.0.i, null
@@ -357,7 +357,7 @@ X509V3_EXT_add.exit.sink.split:                   ; preds = %18, %.sink.split.i
   br label %X509V3_EXT_add.exit
 
 X509V3_EXT_add.exit:                              ; preds = %X509V3_EXT_add.exit.sink.split, %31, %19
-  %.0 = phi i32 [ 0, %19 ], [ 1, %31 ], [ 0, %X509V3_EXT_add.exit.sink.split ]
+  %.0 = phi i32 [ 1, %31 ], [ 0, %19 ], [ 0, %X509V3_EXT_add.exit.sink.split ]
   ret i32 %.0
 }
 

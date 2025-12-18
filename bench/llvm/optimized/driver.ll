@@ -2618,7 +2618,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit262:              ; preds = %_ZN4llvm11raw_ostre
   br label %.critedge122
 
 _ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.exit.thread: ; preds = %.thread25.i.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i223, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i229, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i237, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i245, %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit.i, %_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.exit
-  %.2107 = phi i32 [ 1, %_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.exit ], [ 1, %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit.i ], [ 2, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i237 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i223 ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i229 ], [ 3, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i245 ], [ 1, %.thread25.i.i.i.i ]
+  %.2107 = phi i32 [ 1, %_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.exit ], [ 3, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i245 ], [ 1, %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit.i ], [ 2, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i237 ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i229 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i223 ], [ 1, %.thread25.i.i.i.i ]
   %936 = call ptr @getenv(ptr noundef nonnull @.str.17) #17
   %.not114 = icmp eq ptr %936, null
   %spec.select123 = select i1 %.not114, i32 %.2107, i32 3

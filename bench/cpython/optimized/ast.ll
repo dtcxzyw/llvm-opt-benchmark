@@ -190,7 +190,7 @@ validate_exprs.exit:                              ; preds = %5
   br label %.thread
 
 42:                                               ; preds = %11, %15, %19, %.loopexit
-  %.015.ph = phi i32 [ %40, %.loopexit ], [ %22, %19 ], [ %18, %15 ], [ %14, %11 ]
+  %.015.ph = phi i32 [ %14, %11 ], [ %18, %15 ], [ %40, %.loopexit ], [ %22, %19 ]
   %.not20 = icmp eq i32 %.015.ph, 0
   br i1 %.not20, label %.thread, label %43
 
@@ -1615,7 +1615,7 @@ validate_stmt.exit.thread875:                     ; preds = %.critedge.us.i855, 
   br label %.thread138
 
 validate_stmt.exit:                               ; preds = %88, %151, %validate_assignlist.exit, %198, %218, %234, %250, %266, %278, %.critedge425.i, %.critedge429.i, %290, %400, %635, %591, %674, %508, %582
-  %.0278.i.ph = phi i32 [ %583, %582 ], [ %509, %508 ], [ %675, %674 ], [ %592, %591 ], [ %638, %635 ], [ %401, %400 ], [ %293, %290 ], [ %351, %.critedge429.i ], [ %322, %.critedge425.i ], [ %281, %278 ], [ %269, %266 ], [ %253, %250 ], [ %237, %234 ], [ %221, %218 ], [ %201, %198 ], [ %193, %validate_assignlist.exit ], [ %152, %151 ], [ %89, %88 ]
+  %.0278.i.ph = phi i32 [ %592, %591 ], [ %638, %635 ], [ %89, %88 ], [ %583, %582 ], [ %152, %151 ], [ %193, %validate_assignlist.exit ], [ %675, %674 ], [ %201, %198 ], [ %221, %218 ], [ %237, %234 ], [ %401, %400 ], [ %509, %508 ], [ %253, %250 ], [ %269, %266 ], [ %281, %278 ], [ %322, %.critedge425.i ], [ %293, %290 ], [ %351, %.critedge429.i ]
   %683 = load i32, ptr %0, align 4, !tbaa !21
   %684 = add i32 %683, -1
   store i32 %684, ptr %0, align 4, !tbaa !21
@@ -1628,7 +1628,7 @@ validate_stmt.exit:                               ; preds = %88, %151, %validate
   tail call void @PyErr_SetString(ptr noundef %685, ptr noundef nonnull @.str.2) #6
   br label %.thread138
 
-.sink.split:                                      ; preds = %_validate_nonempty_seq.exit56, %.lr.ph349, %164, %140, %.loopexit880, %.lr.ph.i851, %51, %51, %51, %402, %.critedge447.i, %.critedge463.i, %597, %612, %621, %.loopexit, %148, %397, %505, %579, %588, %.loopexit891, %.lr.ph.i.i63, %630
+.sink.split:                                      ; preds = %_validate_nonempty_seq.exit56, %.lr.ph349, %164, %140, %.loopexit880, %.lr.ph.i851, %51, %51, %51, %148, %.loopexit, %621, %612, %597, %.critedge463.i, %.critedge447.i, %402, %397, %505, %579, %588, %.loopexit891, %.lr.ph.i.i63, %630
   %686 = load i32, ptr %0, align 4, !tbaa !21
   %687 = add i32 %686, -1
   store i32 %687, ptr %0, align 4, !tbaa !21
@@ -1639,7 +1639,7 @@ validate_stmt.exit:                               ; preds = %88, %151, %validate
   br label %6, !llvm.loop !73
 
 .thread138:                                       ; preds = %validate_body.exit48, %352, %validate_body.exit38, %validate_stmt.exit, %9, %558, %validate_body.exit33, %484, %validate_body.exit43, %371, %380, %validate_body.exit53, %344, %335, %315, %306, %validate_stmt.exit.thread875, %validate_body.exit33.thread, %458, %split555, %478, %validate_body.exit43.thread, %validate_body.exit53.thread, %_validate_nonempty_seq.exit56.thread, %.critedge453.i, %543, %validate_body.exit38.thread, %.critedge437.i, %440, %validate_body.exit48.thread, %405, %_validate_nonempty_seq.exit59.thread, %_validate_nonempty_seq.exit62.thread, %606, %226, %209, %49, %41, %split, %21, %validate_stmt.exit.thread127, %validate_stmt.exit.thread122, %.critedge
-  %690 = phi i32 [ 0, %.critedge ], [ 0, %validate_stmt.exit.thread122 ], [ 0, %validate_stmt.exit.thread127 ], [ 0, %21 ], [ 0, %split ], [ 0, %41 ], [ 0, %49 ], [ 0, %209 ], [ 0, %226 ], [ 0, %606 ], [ 0, %_validate_nonempty_seq.exit62.thread ], [ 0, %_validate_nonempty_seq.exit59.thread ], [ 0, %405 ], [ 0, %validate_body.exit48.thread ], [ 0, %440 ], [ 0, %.critedge437.i ], [ 0, %validate_body.exit38.thread ], [ 0, %543 ], [ 0, %.critedge453.i ], [ 0, %_validate_nonempty_seq.exit56.thread ], [ 0, %validate_body.exit53.thread ], [ 0, %validate_body.exit43.thread ], [ 0, %478 ], [ 0, %split555 ], [ 0, %458 ], [ 0, %validate_body.exit33.thread ], [ 0, %validate_stmt.exit.thread875 ], [ 0, %558 ], [ 0, %315 ], [ 0, %344 ], [ 0, %371 ], [ 0, %484 ], [ 0, %306 ], [ 0, %335 ], [ 0, %validate_body.exit53 ], [ 0, %380 ], [ 0, %validate_body.exit43 ], [ 0, %validate_body.exit33 ], [ 1, %9 ], [ 0, %validate_stmt.exit ], [ 0, %validate_body.exit38 ], [ 0, %352 ], [ 0, %validate_body.exit48 ]
+  %690 = phi i32 [ 0, %458 ], [ 0, %.critedge ], [ 0, %split555 ], [ 0, %validate_stmt.exit.thread122 ], [ 0, %validate_stmt.exit.thread127 ], [ 0, %21 ], [ 0, %split ], [ 0, %41 ], [ 0, %49 ], [ 0, %209 ], [ 0, %226 ], [ 0, %validate_body.exit43.thread ], [ 0, %606 ], [ 0, %484 ], [ 0, %_validate_nonempty_seq.exit62.thread ], [ 0, %validate_stmt.exit.thread875 ], [ 0, %_validate_nonempty_seq.exit59.thread ], [ 0, %405 ], [ 0, %validate_body.exit48.thread ], [ 0, %440 ], [ 0, %.critedge437.i ], [ 0, %371 ], [ 0, %validate_body.exit38.thread ], [ 0, %543 ], [ 0, %.critedge453.i ], [ 0, %558 ], [ 0, %_validate_nonempty_seq.exit56.thread ], [ 0, %478 ], [ 0, %validate_body.exit33.thread ], [ 0, %validate_body.exit53.thread ], [ 0, %344 ], [ 0, %315 ], [ 0, %306 ], [ 0, %335 ], [ 0, %validate_body.exit53 ], [ 0, %380 ], [ 0, %validate_body.exit43 ], [ 0, %validate_body.exit33 ], [ 0, %validate_body.exit48 ], [ 0, %352 ], [ 0, %validate_body.exit38 ], [ 0, %validate_stmt.exit ], [ 1, %9 ]
   ret i32 %690
 }
 
@@ -2530,7 +2530,7 @@ validate_typeparam.exit:                          ; preds = %validate_name.exit6
   %.not14 = icmp eq i32 %86, 0
   br i1 %.not14, label %validate_typeparam.exit.thread, label %.critedge
 
-.critedge:                                        ; preds = %validate_name.exit68.i, %validate_name.exit63.i, %59, %43, %validate_typeparam.exit, %11
+.critedge:                                        ; preds = %59, %43, %validate_name.exit63.i, %validate_name.exit68.i, %validate_typeparam.exit, %11
   %87 = add nuw i64 %.011, 1
   br label %5, !llvm.loop !92
 
@@ -2727,7 +2727,7 @@ validate_exprs.exit.thread55.sink.split:          ; preds = %.lr.ph60, %63, %47
   br label %validate_exprs.exit.thread55
 
 validate_exprs.exit.thread55:                     ; preds = %.critedge.i, %83, %.critedge.i52, %validate_exprs.exit.thread55.sink.split, %validate_exprs.exit, %validate_exprs.exit.split, %27, %17, %15, %2, %5
-  %.0 = phi i32 [ 0, %27 ], [ 0, %17 ], [ 0, %15 ], [ 0, %2 ], [ 0, %5 ], [ 1, %validate_exprs.exit ], [ 1, %validate_exprs.exit.split ], [ 0, %validate_exprs.exit.thread55.sink.split ], [ 1, %.critedge.i52 ], [ 0, %83 ], [ 0, %.critedge.i ]
+  %.0 = phi i32 [ 0, %83 ], [ 1, %validate_exprs.exit ], [ 0, %27 ], [ 0, %17 ], [ 0, %15 ], [ 0, %2 ], [ 0, %5 ], [ 0, %validate_exprs.exit.thread55.sink.split ], [ 1, %validate_exprs.exit.split ], [ 1, %.critedge.i52 ], [ 0, %.critedge.i ]
   ret i32 %.0
 }
 
@@ -3432,7 +3432,7 @@ ensure_literal_negative.exit.thread32.sink.split: ; preds = %ensure_literal_nega
   br label %ensure_literal_negative.exit.thread32
 
 ensure_literal_negative.exit.thread32:            ; preds = %ensure_literal_negative.exit.thread32.sink.split, %19, %ensure_literal_complex.exit, %ensure_literal_negative.exit, %4, %4, %8, %6, %2
-  %.0 = phi i32 [ 0, %6 ], [ 0, %2 ], [ 1, %8 ], [ 1, %4 ], [ 1, %ensure_literal_negative.exit ], [ 1, %ensure_literal_complex.exit ], [ 1, %4 ], [ 1, %19 ], [ 0, %ensure_literal_negative.exit.thread32.sink.split ]
+  %.0 = phi i32 [ 1, %19 ], [ 0, %6 ], [ 1, %4 ], [ 0, %2 ], [ 1, %8 ], [ 1, %4 ], [ 1, %ensure_literal_negative.exit ], [ 1, %ensure_literal_complex.exit ], [ 0, %ensure_literal_negative.exit.thread32.sink.split ]
   ret i32 %.0
 }
 
@@ -3577,7 +3577,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @validate_comprehension(ptr n
   br label %.thread
 
 .thread:                                          ; preds = %.critedge25, %9, %14, %.critedge.i, %.thread.sink.split, %.preheader
-  %.0 = phi i32 [ 1, %.preheader ], [ 0, %.thread.sink.split ], [ 0, %.critedge.i ], [ 0, %9 ], [ 1, %.critedge25 ], [ 0, %14 ]
+  %.0 = phi i32 [ 1, %.preheader ], [ 0, %.thread.sink.split ], [ 0, %.critedge.i ], [ 1, %.critedge25 ], [ 0, %9 ], [ 0, %14 ]
   ret i32 %.0
 }
 

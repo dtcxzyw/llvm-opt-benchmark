@@ -2710,7 +2710,7 @@ adaptation_set_add_stream.exit224.i:              ; preds = %419
   br label %parse_adaptation_sets.exit.thread
 
 parse_adaptation_sets.exit.thread:                ; preds = %.critedge200.i, %200, %._crit_edge.i.i, %add_adaptation_set.exit208.thread.i, %266, %302, %325, %.thread278.i, %169, %.thread283.i, %.preheader._crit_edge.i
-  %.0.i440.ph = phi i32 [ -22, %.preheader._crit_edge.i ], [ -22, %.thread283.i ], [ -22, %169 ], [ -22, %.thread278.i ], [ -22, %325 ], [ -22, %302 ], [ %262, %266 ], [ %.3.i, %add_adaptation_set.exit208.thread.i ], [ -12, %._crit_edge.i.i ], [ -22, %200 ], [ -22, %.critedge200.i ]
+  %.0.i440.ph = phi i32 [ -12, %._crit_edge.i.i ], [ %262, %266 ], [ %.3.i, %add_adaptation_set.exit208.thread.i ], [ -22, %.preheader._crit_edge.i ], [ -22, %.thread283.i ], [ -22, %169 ], [ -22, %.thread278.i ], [ -22, %325 ], [ -22, %302 ], [ -22, %200 ], [ -22, %.critedge200.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %init_segment_types.exit.thread
 
@@ -6419,7 +6419,7 @@ get_start_index_number.exit.i.i:                  ; preds = %647, %.critedge.i
   br i1 %834, label %827, label %._crit_edge163.i.i, !llvm.loop !256
 
 ._crit_edge163.i.i:                               ; preds = %809, %827, %814, %768, %._crit_edge.i.i, %704
-  %.str.231.sink.i.i = phi ptr [ @.str.225, %704 ], [ @.str.231, %768 ], [ @.str.225, %._crit_edge.i.i ], [ @.str.231, %814 ], [ @.str.231, %827 ], [ @.str.231, %809 ]
+  %.str.231.sink.i.i = phi ptr [ @.str.225, %704 ], [ @.str.231, %768 ], [ @.str.225, %._crit_edge.i.i ], [ @.str.231, %827 ], [ @.str.231, %814 ], [ @.str.231, %809 ]
   %835 = call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %54, ptr noundef nonnull %.str.231.sink.i.i) #15
   %836 = getelementptr inbounds nuw i8, ptr %644, i64 1396
   %837 = load i32, ptr %836, align 4, !tbaa !118

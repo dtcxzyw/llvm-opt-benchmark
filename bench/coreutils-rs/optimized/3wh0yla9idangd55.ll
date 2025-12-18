@@ -4301,7 +4301,7 @@ default.unreachable:                              ; preds = %226, %"_ZN4core3ptr
   br label %.body110
 
 _ZN5uu_dd24flush_caches_full_length17hf085c8358d566aaeE.exit: ; preds = %.noexc115, %.noexc113
-  %.0.i = phi ptr [ %128, %.noexc113 ], [ %141, %.noexc115 ]
+  %.0.i = phi ptr [ %141, %.noexc115 ], [ %128, %.noexc113 ]
   %147 = icmp eq ptr %.0.i, null
   br i1 %147, label %_ZN5uu_dd24flush_caches_full_length17hf085c8358d566aaeE.exit.thread, label %491
 

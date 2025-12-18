@@ -677,8 +677,8 @@ _ZNSt6vectorIN4absl16strings_internal18ViableSubstitutionESaIS2_EE12emplace_back
   br i1 %.not, label %._crit_edge, label %.lr.ph72.split
 
 ._crit_edge:                                      ; preds = %.critedge, %9, %_ZNSt12_Vector_baseIN4absl16strings_internal18ViableSubstitutionESaIS2_EE11_M_allocateEm.exit.i
-  %.lcssa66 = phi ptr [ %13, %_ZNSt12_Vector_baseIN4absl16strings_internal18ViableSubstitutionESaIS2_EE11_M_allocateEm.exit.i ], [ null, %9 ], [ %87, %.critedge ]
-  %.lcssa62 = phi ptr [ %14, %_ZNSt12_Vector_baseIN4absl16strings_internal18ViableSubstitutionESaIS2_EE11_M_allocateEm.exit.i ], [ null, %9 ], [ %88, %.critedge ]
+  %.lcssa66 = phi ptr [ null, %9 ], [ %13, %_ZNSt12_Vector_baseIN4absl16strings_internal18ViableSubstitutionESaIS2_EE11_M_allocateEm.exit.i ], [ %87, %.critedge ]
+  %.lcssa62 = phi ptr [ null, %9 ], [ %14, %_ZNSt12_Vector_baseIN4absl16strings_internal18ViableSubstitutionESaIS2_EE11_M_allocateEm.exit.i ], [ %88, %.critedge ]
   store ptr %.lcssa62, ptr %10, align 8
   store ptr %.lcssa66, ptr %0, align 8
   ret void

@@ -279,7 +279,7 @@ define void @_RINvMs0_NtNtNtNtCsapf13pIxsjn_3std3sys4sync4once5futexNtB6_4Once4c
   br i1 %.sroa.18.0.in.i.us, label %.split17.us, label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %65, %62, %60
-  %.sroa.0.0.us.be = phi i32 [ %64, %62 ], [ %.sroa.08.0.i.us, %65 ], [ %.sroa.08.0.i13.us, %60 ]
+  %.sroa.0.0.us.be = phi i32 [ %.sroa.08.0.i13.us, %60 ], [ %64, %62 ], [ %.sroa.08.0.i.us, %65 ]
   br label %.split.us
 
 .split:                                           ; preds = %4, %.split.backedge
@@ -3055,7 +3055,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtNtNtCsapf13pIxsjn_3std3sys4sy
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %921, %71, %919
-  %.sroa.0.0.be = phi i32 [ %923, %921 ], [ %.sroa.08.0.i, %71 ], [ %.sroa.08.0.i13, %919 ]
+  %.sroa.0.0.be = phi i32 [ %.sroa.08.0.i13, %919 ], [ %923, %921 ], [ %.sroa.08.0.i, %71 ]
   br label %.split
 }
 
@@ -3096,7 +3096,7 @@ define void @_RINvMs0_NtNtNtNtCsapf13pIxsjn_3std3sys4sync4once5futexNtB6_4Once4c
   br i1 %.sroa.18.0.in.i.us, label %.split17.us, label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %15, %12, %10
-  %.sroa.0.0.us.be = phi i32 [ %14, %12 ], [ %.sroa.08.0.i.us, %15 ], [ %.sroa.08.0.i13.us, %10 ]
+  %.sroa.0.0.us.be = phi i32 [ %.sroa.08.0.i13.us, %10 ], [ %14, %12 ], [ %.sroa.08.0.i.us, %15 ]
   br label %.split.us
 
 .split:                                           ; preds = %4, %.split.backedge
@@ -3202,7 +3202,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtNtNtCsapf13pIxsjn_3std3sys4sy
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %41, %21, %39
-  %.sroa.0.0.be = phi i32 [ %43, %41 ], [ %.sroa.08.0.i, %21 ], [ %.sroa.08.0.i13, %39 ]
+  %.sroa.0.0.be = phi i32 [ %.sroa.08.0.i13, %39 ], [ %43, %41 ], [ %.sroa.08.0.i, %21 ]
   br label %.split
 }
 
@@ -3245,7 +3245,7 @@ define void @_RINvMs0_NtNtNtNtCsapf13pIxsjn_3std3sys4sync4once5futexNtB6_4Once4c
   br i1 %.sroa.18.0.in.i.us, label %.split23.us, label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %17, %14, %12
-  %.sroa.0.0.us.be = phi i32 [ %16, %14 ], [ %.sroa.08.0.i.us, %17 ], [ %.sroa.08.0.i15.us, %12 ]
+  %.sroa.0.0.us.be = phi i32 [ %.sroa.08.0.i15.us, %12 ], [ %16, %14 ], [ %.sroa.08.0.i.us, %17 ]
   br label %.split.us
 
 .split:                                           ; preds = %4, %.split.backedge
@@ -3446,7 +3446,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtNtNtCsapf13pIxsjn_3std3sys4sy
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %60, %23, %58
-  %.sroa.0.0.be = phi i32 [ %62, %60 ], [ %.sroa.08.0.i, %23 ], [ %.sroa.08.0.i15, %58 ]
+  %.sroa.0.0.be = phi i32 [ %.sroa.08.0.i15, %58 ], [ %62, %60 ], [ %.sroa.08.0.i, %23 ]
   br label %.split
 }
 

@@ -1546,7 +1546,7 @@ decode_slice.exit.i.i:                            ; preds = %685, %slice_init_en
   br i1 %704, label %136, label %decode_nal_units.exit, !llvm.loop !268
 
 .loopexit.i:                                      ; preds = %698, %685, %680, %566, %561, %422, %385, %317, %312, %179, %160, %203, %646, %475, %frame_start.exit.thread.i.i.i.i, %frame_context_for_each_tl.exit.thread.i.i.i.i.i.i, %slices_realloc.exit.i.i.i, %150
-  %.0.i.ph.i = phi i32 [ -12, %slices_realloc.exit.i.i.i ], [ %.0.i.i.i.i.i, %frame_start.exit.thread.i.i.i.i ], [ -12, %frame_context_for_each_tl.exit.thread.i.i.i.i.i.i ], [ -1163346256, %150 ], [ %473, %475 ], [ %649, %646 ], [ %205, %203 ], [ -12, %160 ], [ -1094995529, %385 ], [ %683, %680 ], [ %694, %685 ], [ %424, %422 ], [ -12, %312 ], [ -12, %317 ], [ %180, %179 ], [ -1094995529, %566 ], [ -12, %561 ], [ %699, %698 ]
+  %.0.i.ph.i = phi i32 [ %205, %203 ], [ -1163346256, %150 ], [ %.0.i.i.i.i.i, %frame_start.exit.thread.i.i.i.i ], [ -12, %slices_realloc.exit.i.i.i ], [ -12, %frame_context_for_each_tl.exit.thread.i.i.i.i.i.i ], [ %649, %646 ], [ %473, %475 ], [ -1094995529, %385 ], [ %683, %680 ], [ %694, %685 ], [ %424, %422 ], [ -12, %312 ], [ -12, %317 ], [ %180, %179 ], [ -12, %561 ], [ -1094995529, %566 ], [ %699, %698 ], [ -12, %160 ]
   %.03787108.i = trunc i64 %indvars.iv.i to i32
   %705 = load ptr, ptr %8, align 8, !tbaa !38
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %705, i32 noundef 24, ptr noundef nonnull @.str.6, i32 noundef %.03787108.i) #10

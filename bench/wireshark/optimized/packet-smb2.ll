@@ -4420,7 +4420,7 @@ define internal noundef zeroext i1 @seskey_list_update_cb(ptr noundef readonly c
   br label %25
 
 25:                                               ; preds = %.sink.split, %21, %22, %22
-  %.0 = phi i1 [ true, %22 ], [ true, %22 ], [ true, %21 ], [ false, %.sink.split ]
+  %.0 = phi i1 [ true, %21 ], [ true, %22 ], [ true, %22 ], [ false, %.sink.split ]
   ret i1 %.0
 }
 
@@ -5932,7 +5932,7 @@ get_special_packet_title.exit.thread.fold.split:  ; preds = %284
   br label %get_special_packet_title.exit.thread
 
 get_special_packet_title.exit.thread:             ; preds = %284, %get_special_packet_title.exit.thread.fold.split, %283, %281, %280
-  %.0.i317346 = phi ptr [ @.str.2137, %280 ], [ @.str.2138, %283 ], [ %.str.2135..str.2136.i, %281 ], [ @.str.2139, %284 ], [ @.str.2140, %get_special_packet_title.exit.thread.fold.split ]
+  %.0.i317346 = phi ptr [ @.str.2139, %284 ], [ @.str.2137, %280 ], [ @.str.2138, %283 ], [ %.str.2135..str.2136.i, %281 ], [ @.str.2140, %get_special_packet_title.exit.thread.fold.split ]
   %285 = load ptr, ptr %60, align 8
   call void @col_append_str(ptr noundef %285, i32 noundef 25, ptr noundef nonnull %.0.i317346)
   br label %299
@@ -6260,7 +6260,7 @@ get_special_packet_title.exit.thread.fold.split.i: ; preds = %441
   br label %get_special_packet_title.exit.thread.i
 
 get_special_packet_title.exit.thread.i:           ; preds = %get_special_packet_title.exit.thread.fold.split.i, %441, %440, %438, %437
-  %.0.i43.i = phi ptr [ @.str.2137, %437 ], [ @.str.2138, %440 ], [ %.str.2135..str.2136.i.i, %438 ], [ @.str.2139, %441 ], [ @.str.2140, %get_special_packet_title.exit.thread.fold.split.i ]
+  %.0.i43.i = phi ptr [ @.str.2139, %441 ], [ @.str.2137, %437 ], [ @.str.2138, %440 ], [ %.str.2135..str.2136.i.i, %438 ], [ @.str.2140, %get_special_packet_title.exit.thread.fold.split.i ]
   %442 = load i32, ptr @ett_smb2_command, align 4
   %443 = load i16, ptr %35, align 8
   %444 = zext i16 %443 to i32
@@ -9341,7 +9341,7 @@ proto_item_set_generated.exit153.sink.split:      ; preds = %137, %126
   br label %proto_item_set_generated.exit153
 
 proto_item_set_generated.exit153:                 ; preds = %proto_item_set_generated.exit153.sink.split, %137, %134, %126, %123, %131, %129, %72
-  %.0 = phi ptr [ %.1, %129 ], [ null, %72 ], [ %.1, %131 ], [ %.1, %123 ], [ %.1, %126 ], [ %.1, %134 ], [ %.1, %137 ], [ %.1, %proto_item_set_generated.exit153.sink.split ]
+  %.0 = phi ptr [ %.1, %129 ], [ %.1, %137 ], [ null, %72 ], [ %.1, %131 ], [ %.1, %123 ], [ %.1, %126 ], [ %.1, %134 ], [ %.1, %proto_item_set_generated.exit153.sink.split ]
   %143 = load i32, ptr @hf_smb2_filename, align 4
   %144 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 %143, ptr %144, align 4
@@ -10295,7 +10295,7 @@ proto_item_set_generated.exit166.sink.split:      ; preds = %171, %159
   br label %proto_item_set_generated.exit166
 
 proto_item_set_generated.exit166:                 ; preds = %proto_item_set_generated.exit166.sink.split, %171, %170, %159, %156, %71, %21
-  %.0111 = phi i32 [ %22, %21 ], [ %61, %71 ], [ %61, %156 ], [ %61, %159 ], [ %61, %170 ], [ %61, %171 ], [ %61, %proto_item_set_generated.exit166.sink.split ]
+  %.0111 = phi i32 [ %22, %21 ], [ %61, %71 ], [ %61, %171 ], [ %61, %156 ], [ %61, %159 ], [ %61, %170 ], [ %61, %proto_item_set_generated.exit166.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0111
 }
@@ -10692,7 +10692,7 @@ proto_item_set_generated.exit118.sink.split:      ; preds = %129, %117
   br label %proto_item_set_generated.exit118
 
 proto_item_set_generated.exit118:                 ; preds = %proto_item_set_generated.exit118.sink.split, %129, %128, %117, %114, %25, %21
-  %.069 = phi i32 [ %22, %21 ], [ %28, %25 ], [ %28, %114 ], [ %28, %117 ], [ %28, %128 ], [ %28, %129 ], [ %28, %proto_item_set_generated.exit118.sink.split ]
+  %.069 = phi i32 [ %22, %21 ], [ %28, %25 ], [ %28, %129 ], [ %28, %114 ], [ %28, %117 ], [ %28, %128 ], [ %28, %proto_item_set_generated.exit118.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.069
 }
@@ -11739,7 +11739,7 @@ proto_item_set_generated.exit134.sink.split:      ; preds = %141, %129
   br label %proto_item_set_generated.exit134
 
 proto_item_set_generated.exit134:                 ; preds = %proto_item_set_generated.exit134.sink.split, %141, %140, %129, %126, %25, %21
-  %.085 = phi i32 [ %22, %21 ], [ %40, %25 ], [ %40, %126 ], [ %40, %129 ], [ %40, %140 ], [ %40, %141 ], [ %40, %proto_item_set_generated.exit134.sink.split ]
+  %.085 = phi i32 [ %22, %21 ], [ %40, %25 ], [ %40, %141 ], [ %40, %126 ], [ %40, %129 ], [ %40, %140 ], [ %40, %proto_item_set_generated.exit134.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.085
 }
@@ -12223,7 +12223,7 @@ proto_item_set_generated.exit118.sink.split:      ; preds = %129, %117
   br label %proto_item_set_generated.exit118
 
 proto_item_set_generated.exit118:                 ; preds = %proto_item_set_generated.exit118.sink.split, %129, %128, %117, %114, %25, %21
-  %.069 = phi i32 [ %22, %21 ], [ %28, %25 ], [ %28, %114 ], [ %28, %117 ], [ %28, %128 ], [ %28, %129 ], [ %28, %proto_item_set_generated.exit118.sink.split ]
+  %.069 = phi i32 [ %22, %21 ], [ %28, %25 ], [ %28, %129 ], [ %28, %114 ], [ %28, %117 ], [ %28, %128 ], [ %28, %proto_item_set_generated.exit118.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.069
 }
@@ -15145,7 +15145,7 @@ define internal fastcc i32 @dissect_smb2_negotiate_context(ptr noundef %0, ptr n
   br label %.loopexit
 
 .loopexit:                                        ; preds = %146, %.lr.ph.split.us, %.lr.ph8, %.lr.ph12, %74, %.lr.ph16.split.us, %123, %106, %81, %51, %._crit_edge, %46, %159, %153, %102, %96
-  %.1 = phi i32 [ %164, %159 ], [ %50, %46 ], [ %.0.lcssa, %._crit_edge ], [ %101, %96 ], [ %105, %102 ], [ %158, %153 ], [ %54, %51 ], [ %88, %81 ], [ %115, %106 ], [ %126, %123 ], [ %132, %.lr.ph.split.us ], [ %60, %.lr.ph16.split.us ], [ %77, %74 ], [ %92, %.lr.ph12 ], [ %119, %.lr.ph8 ], [ %149, %146 ]
+  %.1 = phi i32 [ %164, %159 ], [ %50, %46 ], [ %.0.lcssa, %._crit_edge ], [ %158, %153 ], [ %60, %.lr.ph16.split.us ], [ %101, %96 ], [ %105, %102 ], [ %119, %.lr.ph8 ], [ %132, %.lr.ph.split.us ], [ %54, %51 ], [ %92, %.lr.ph12 ], [ %88, %81 ], [ %115, %106 ], [ %126, %123 ], [ %77, %74 ], [ %149, %146 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)

@@ -735,7 +735,7 @@ define hidden zeroext i1 @"_ZN14cranelift_isle9serialize13Decomposition17best_co
   br label %.outer.backedge.i.i.i
 
 "_ZN14cranelift_isle9serialize13Decomposition17best_control_flow28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hea11f12726b25874E.exit.i": ; preds = %.outer.backedge.i.i.i, %.loopexit.i.i.i, %23
-  %.0.ph.lcssa34.i.i.i = phi i64 [ 0, %23 ], [ %.0.ph38.i.i.i, %.loopexit.i.i.i ], [ %.0.ph.be.i.i.i, %.outer.backedge.i.i.i ]
+  %.0.ph.lcssa34.i.i.i = phi i64 [ %.0.ph38.i.i.i, %.loopexit.i.i.i ], [ 0, %23 ], [ %.0.ph.be.i.i.i, %.outer.backedge.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %58 = icmp ne i64 %.0.ph.lcssa34.i.i.i, 0
   %59 = call i64 @_ZN14cranelift_isle9serialize16respect_priority17h48727fe3094c7d24E(ptr nonnull align 8 %21, ptr nonnull align 8 %18, i64 %20, i64 %.0.ph.lcssa34.i.i.i)
@@ -862,7 +862,7 @@ default.unreachable:                              ; preds = %45
   br i1 %40, label %.outer.backedge, label %.preheader
 
 .outer._crit_edge:                                ; preds = %.outer.backedge, %.loopexit, %4
-  %.0.ph.lcssa49 = phi i64 [ 0, %4 ], [ %.0.ph55, %.loopexit ], [ %.0.ph.be, %.outer.backedge ]
+  %.0.ph.lcssa49 = phi i64 [ %.0.ph55, %.loopexit ], [ 0, %4 ], [ %.0.ph.be, %.outer.backedge ]
   ret i64 %.0.ph.lcssa49
 
 .outer.backedge:                                  ; preds = %"_ZN14cranelift_isle9serialize14HasControlFlow9partition28_$u7b$$u7b$closure$u7d$$u7d$17hfff108d51210a57bE.exit", %32, %34, %60
@@ -985,7 +985,7 @@ define hidden i64 @_ZN14cranelift_isle9serialize18partition_in_place17hf07aa0dfc
   br i1 %.not17, label %.preheader, label %.outer.backedge
 
 .outer._crit_edge:                                ; preds = %.outer.backedge, %.loopexit, %4
-  %.0.ph.lcssa36 = phi i64 [ 0, %4 ], [ %.0.ph40, %.loopexit ], [ %.0.ph.be, %.outer.backedge ]
+  %.0.ph.lcssa36 = phi i64 [ %.0.ph40, %.loopexit ], [ 0, %4 ], [ %.0.ph.be, %.outer.backedge ]
   ret i64 %.0.ph.lcssa36
 
 .preheader:                                       ; preds = %"_ZN14cranelift_isle9serialize16respect_priority28_$u7b$$u7b$closure$u7d$$u7d$17h102909d29f230ca6E.exit", %"_ZN14cranelift_isle9serialize16respect_priority28_$u7b$$u7b$closure$u7d$$u7d$17h102909d29f230ca6E.exit16"

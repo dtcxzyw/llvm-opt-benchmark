@@ -872,7 +872,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__14PcpInstanceKey4_ArceqERKS1_.exit.i.i.i.i
   br i1 %.not.i.i.i.i.i7, label %_ZSteqISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EEbRKSt6vectorIT_T0_ESE_.exit, label %.lr.ph.i.i.i.i.i4, !llvm.loop !17
 
 _ZSteqISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EEbRKSt6vectorIT_T0_ESE_.exit: ; preds = %.lr.ph.i.i.i.i.i, %47, %_ZNK32pxrInternal_v0_24__pxrReserved__14PcpInstanceKey4_ArceqERKS1_.exit.i.i.i.i.i, %40, %.lr.ph.i.i.i.i.i4, %36, %.loopexit, %2
-  %50 = phi i1 [ false, %2 ], [ false, %.loopexit ], [ true, %36 ], [ false, %.lr.ph.i.i.i.i.i4 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__14PcpInstanceKey4_ArceqERKS1_.exit.i.i.i.i.i ], [ true, %47 ], [ false, %40 ], [ false, %.lr.ph.i.i.i.i.i ]
+  %50 = phi i1 [ false, %.lr.ph.i.i.i.i.i4 ], [ false, %2 ], [ false, %.loopexit ], [ true, %36 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__14PcpInstanceKey4_ArceqERKS1_.exit.i.i.i.i.i ], [ true, %47 ], [ false, %40 ], [ false, %.lr.ph.i.i.i.i.i ]
   ret i1 %50
 }
 
@@ -958,7 +958,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__14PcpInstanceKey4_ArceqERKS1_.exit.i.i.i.i
   br i1 %.not.i.i.i.i.i7.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__14PcpInstanceKeyeqERKS0_.exit, label %.lr.ph.i.i.i.i.i4.i, !llvm.loop !17
 
 _ZNK32pxrInternal_v0_24__pxrReserved__14PcpInstanceKeyeqERKS0_.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i4.i, %40, %_ZNK32pxrInternal_v0_24__pxrReserved__14PcpInstanceKey4_ArceqERKS1_.exit.i.i.i.i.i.i, %47, %2, %.loopexit.i, %36
-  %50 = phi i1 [ true, %2 ], [ true, %.loopexit.i ], [ false, %36 ], [ true, %.lr.ph.i.i.i.i.i4.i ], [ true, %40 ], [ false, %47 ], [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__14PcpInstanceKey4_ArceqERKS1_.exit.i.i.i.i.i.i ], [ true, %.lr.ph.i.i.i.i.i.i ]
+  %50 = phi i1 [ true, %.lr.ph.i.i.i.i.i4.i ], [ true, %2 ], [ true, %.loopexit.i ], [ false, %36 ], [ true, %40 ], [ false, %47 ], [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__14PcpInstanceKey4_ArceqERKS1_.exit.i.i.i.i.i.i ], [ true, %.lr.ph.i.i.i.i.i.i ]
   ret i1 %50
 }
 
@@ -2769,8 +2769,8 @@ _ZSt4copyISt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_tra
   br label %_ZSt4copyISt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEPS1_IS7_S7_EET0_T_SE_SD_.exit27
 
 _ZSt4copyISt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEPS1_IS7_S7_EET0_T_SE_SD_.exit27: ; preds = %_ZSt4copyISt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEPS1_IS7_S7_EET0_T_SE_SD_.exit27.loopexit, %.preheader7.i.i, %_ZSt7advanceISt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEmEvRT_T0_.exit
-  %63 = phi ptr [ %33, %_ZSt7advanceISt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEmEvRT_T0_.exit ], [ %33, %.preheader7.i.i ], [ %.pre, %_ZSt4copyISt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEPS1_IS7_S7_EET0_T_SE_SD_.exit27.loopexit ]
-  %.sroa.0.035 = phi ptr [ %.sroa.0.0, %_ZSt7advanceISt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEmEvRT_T0_.exit ], [ %1, %.preheader7.i.i ], [ %.sroa.0.0, %_ZSt4copyISt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEPS1_IS7_S7_EET0_T_SE_SD_.exit27.loopexit ]
+  %63 = phi ptr [ %33, %.preheader7.i.i ], [ %33, %_ZSt7advanceISt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEmEvRT_T0_.exit ], [ %.pre, %_ZSt4copyISt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEPS1_IS7_S7_EET0_T_SE_SD_.exit27.loopexit ]
+  %.sroa.0.035 = phi ptr [ %1, %.preheader7.i.i ], [ %.sroa.0.0, %_ZSt7advanceISt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEmEvRT_T0_.exit ], [ %.sroa.0.0, %_ZSt4copyISt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEPS1_IS7_S7_EET0_T_SE_SD_.exit27.loopexit ]
   %64 = tail call noundef ptr @_ZSt16__do_uninit_copyISt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEPS1_IS7_S7_EET0_T_SE_SD_(ptr %.sroa.0.035, ptr %2, ptr noundef %63)
   store ptr %64, ptr %32, align 8
   br label %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE15_M_erase_at_endEPS7_.exit

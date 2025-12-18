@@ -2431,8 +2431,8 @@ php_ap_memstr.exit50:                             ; preds = %.lr.ph.split.i
   br label %php_ap_memstr.exit50.thread
 
 php_ap_memstr.exit50.thread:                      ; preds = %56, %69, %php_ap_memstr.exit, %fill_buffer.exit, %php_ap_memstr.exit50
-  %.not53 = phi i1 [ false, %php_ap_memstr.exit50 ], [ false, %php_ap_memstr.exit ], [ true, %fill_buffer.exit ], [ false, %69 ], [ true, %56 ]
-  %.037 = phi i64 [ %61, %php_ap_memstr.exit50 ], [ %61, %php_ap_memstr.exit ], [ %46, %fill_buffer.exit ], [ %61, %69 ], [ %46, %56 ]
+  %.not53 = phi i1 [ false, %php_ap_memstr.exit50 ], [ false, %69 ], [ false, %php_ap_memstr.exit ], [ true, %fill_buffer.exit ], [ true, %56 ]
+  %.037 = phi i64 [ %61, %php_ap_memstr.exit50 ], [ %61, %69 ], [ %61, %php_ap_memstr.exit ], [ %46, %fill_buffer.exit ], [ %46, %56 ]
   %74 = tail call i64 @llvm.umin.i64(i64 %.037, i64 5119)
   %.not44 = icmp eq i64 %.037, 0
   br i1 %.not44, label %90, label %75

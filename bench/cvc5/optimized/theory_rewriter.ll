@@ -1857,13 +1857,13 @@ _ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv.exit: ; preds
           cleanup
   %62 = load ptr, ptr %6, align 8, !tbaa !84
   %63 = icmp eq ptr %62, %22
-  br i1 %63, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.thread, label %.body
+  br i1 %63, label %.body.thread25, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.thread: ; preds = %.body14.thread
+.body.thread25:                                   ; preds = %.body14.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %68
 
-.body:                                            ; preds = %.body14.thread
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %.body14.thread
   %64 = load i64, ptr %22, align 8, !tbaa !78
   %65 = add i64 %64, 1
   call void @_ZdlPvm(ptr noundef %62, i64 noundef %65) #30
@@ -1879,13 +1879,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %.body.thread
 
 .body.thread:                                     ; preds = %.body.thread.sink.split, %.body14, %36
-  %.pn18 = phi { ptr, i32 } [ %37, %36 ], [ %58, %.body14 ], [ %.pn18.ph, %.body.thread.sink.split ]
+  %.pn18 = phi { ptr, i32 } [ %58, %.body14 ], [ %37, %36 ], [ %.pn18.ph, %.body.thread.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @__cxa_free_exception(ptr %21) #27
   br label %68
 
-68:                                               ; preds = %.body, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.thread, %.body.thread, %16
-  %.pn.pn = phi { ptr, i32 } [ %.pn18, %.body.thread ], [ %61, %.body ], [ %17, %16 ], [ %61, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.thread ]
+68:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %.body.thread25, %.body.thread, %16
+  %.pn.pn = phi { ptr, i32 } [ %.pn18, %.body.thread ], [ %61, %.body.thread25 ], [ %17, %16 ], [ %61, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ]
   %69 = load ptr, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, align 8
   store ptr %69, ptr %5, align 8, !tbaa !23
   %70 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8

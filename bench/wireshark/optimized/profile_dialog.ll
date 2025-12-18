@@ -4789,7 +4789,7 @@ _ZN5QListI11QModelIndexElsEOS0_.exit188:          ; preds = %205
   br label %_ZN9QtPrivate17QForeachContainerI5QListI11QModelIndexEED2Ev.exit180
 
 _ZN9QtPrivate17QForeachContainerI5QListI11QModelIndexEED2Ev.exit: ; preds = %174, %114, %_ZN17QArrayDataPointerI11QModelIndexE5derefEv.exit.i.i.i, %._crit_edge
-  %.2 = phi i32 [ %.049.lcssa, %._crit_edge ], [ %.049.lcssa, %_ZN17QArrayDataPointerI11QModelIndexE5derefEv.exit.i.i.i ], [ %.049.lcssa, %114 ], [ 0, %174 ]
+  %.2 = phi i32 [ %.049.lcssa, %114 ], [ %.049.lcssa, %._crit_edge ], [ %.049.lcssa, %_ZN17QArrayDataPointerI11QModelIndexE5derefEv.exit.i.i.i ], [ 0, %174 ]
   %225 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %226 = load i64, ptr %225, align 8
   %227 = icmp eq i64 %226, 0

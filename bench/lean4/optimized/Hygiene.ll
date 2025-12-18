@@ -2094,7 +2094,7 @@ lean_dec.exit78:                                  ; preds = %178, %177, %175, %l
   br label %lean_dec.exit.backedge
 
 lean_dec.exit.backedge:                           ; preds = %183, %187, %193, %195, %196
-  %.064.be = phi ptr [ %190, %196 ], [ %190, %193 ], [ %190, %195 ], [ %188, %187 ], [ %186, %183 ]
+  %.064.be = phi ptr [ %190, %196 ], [ %190, %195 ], [ %190, %193 ], [ %188, %187 ], [ %186, %183 ]
   br label %lean_dec.exit
 
 187:                                              ; preds = %179

@@ -1086,7 +1086,7 @@ OGLTR_DisableGlyphModeState.exit.i134:            ; preds = %417, %412
   %504 = icmp samesign ult i32 %440, %415
   br i1 %504, label %.lr.ph.us.i135, label %OGLTR_DrawGrayscaleGlyphViaCache.exit.thread, !llvm.loop !10
 
-OGLTR_DrawGrayscaleGlyphViaCache.exit.thread:     ; preds = %._crit_edge.us.i136, %._crit_edge.us.i, %.lr.ph120.i, %434, %OGLTR_AddToGlyphCache.exit.i132, %385, %169, %OGLTR_AddToGlyphCache.exit.i, %119, %116, %114, %OGLTR_DrawColorGlyphNoCache.exit, %133, %270, %81
+OGLTR_DrawGrayscaleGlyphViaCache.exit.thread:     ; preds = %._crit_edge.us.i136, %._crit_edge.us.i, %434, %.lr.ph120.i, %OGLTR_AddToGlyphCache.exit.i132, %385, %169, %OGLTR_AddToGlyphCache.exit.i, %119, %116, %114, %OGLTR_DrawColorGlyphNoCache.exit, %133, %270, %81
   %505 = add nuw nsw i32 %.0107151, 1
   %exitcond.not = icmp eq i32 %505, %3
   br i1 %exitcond.not, label %OGLTR_DrawGrayscaleGlyphViaCache.exit, label %40, !llvm.loop !11

@@ -110,9 +110,9 @@ define dso_local noundef zeroext i1 @fixup_umip_exception(ptr noundef %0) local_
   br label %.thread
 
 .thread:                                          ; preds = %32, %.thread.fold.split, %26, %30, %31
-  %36 = phi i64 [ -65536, %31 ], [ -131072, %26 ], [ -65536, %30 ], [ -65536, %32 ], [ -65536, %.thread.fold.split ]
-  %37 = phi i1 [ false, %31 ], [ true, %26 ], [ true, %30 ], [ false, %32 ], [ false, %.thread.fold.split ]
-  %38 = phi i32 [ 2, %31 ], [ %29, %26 ], [ %29, %30 ], [ 3, %32 ], [ 4, %.thread.fold.split ]
+  %36 = phi i64 [ -65536, %32 ], [ -65536, %31 ], [ -131072, %26 ], [ -65536, %30 ], [ -65536, %.thread.fold.split ]
+  %37 = phi i1 [ false, %32 ], [ false, %31 ], [ true, %26 ], [ true, %30 ], [ false, %.thread.fold.split ]
+  %38 = phi i32 [ 3, %32 ], [ 2, %31 ], [ %29, %26 ], [ %29, %30 ], [ 4, %.thread.fold.split ]
   %39 = zext nneg i32 %38 to i64
   %40 = getelementptr ptr, ptr @umip_insns, i64 %39
   %41 = load ptr, ptr %40, align 8
@@ -195,8 +195,8 @@ default.unreachable:                              ; preds = %54
   br label %.critedge
 
 79:                                               ; preds = %49, %69
-  %80 = phi i32 [ %46, %49 ], [ %70, %69 ]
-  %81 = phi i32 [ %53, %49 ], [ %76, %69 ]
+  %80 = phi i32 [ %70, %69 ], [ %46, %49 ]
+  %81 = phi i32 [ %76, %69 ], [ %53, %49 ]
   %82 = and i32 %80, 192
   %83 = icmp eq i32 %82, 192
   br i1 %83, label %84, label %93

@@ -1791,7 +1791,7 @@ mv_merge_spatial_candidates.exit:                 ; preds = %compare_mv_ref_idx.
   br label %mv_merge_history_candidates.exit
 
 check_available.exit.i.thread:                    ; preds = %.critedge.i59.i, %.critedge.i.i, %151, %.thread.i.i, %175, %.check_available.exit_crit_edge.i, %259, %mv_merge_from_nb.exit82.i, %check_available.exit.i, %.thread98.i
-  %.2.ph = phi i32 [ %.34197.i, %.check_available.exit_crit_edge.i ], [ %260, %259 ], [ %.34197.i, %check_available.exit.i ], [ 4, %.thread98.i ], [ %.34197.i, %mv_merge_from_nb.exit82.i ], [ %.34197.i, %175 ], [ %.34197.i, %.thread.i.i ], [ %.34197.i, %151 ], [ %.34197.i, %.critedge.i.i ], [ %.34197.i, %.critedge.i59.i ]
+  %.2.ph = phi i32 [ %.34197.i, %.check_available.exit_crit_edge.i ], [ %.34197.i, %check_available.exit.i ], [ %.34197.i, %.critedge.i.i ], [ 4, %.thread98.i ], [ %.34197.i, %mv_merge_from_nb.exit82.i ], [ %260, %259 ], [ %.34197.i, %151 ], [ %.34197.i, %175 ], [ %.34197.i, %.thread.i.i ], [ %.34197.i, %.critedge.i59.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %261 = sext i32 %.2.ph to i64
   %262 = getelementptr inbounds %struct.MvField, ptr %2, i64 %261
@@ -2171,9 +2171,9 @@ mv_merge_temporal_candidate.exit.thread:          ; preds = %check_available.exi
   br label %.critedge34.i
 
 .critedge34.i:                                    ; preds = %.critedge.i43.i, %.critedge.i.i30, %459
-  %.4 = phi i32 [ %460, %459 ], [ %.3, %.critedge.i.i30 ], [ %.3, %.critedge.i43.i ]
-  %461 = phi i32 [ %.pre50.i, %459 ], [ %404, %.critedge.i.i30 ], [ %404, %.critedge.i43.i ]
-  %462 = phi i32 [ %460, %459 ], [ %405, %.critedge.i.i30 ], [ %405, %.critedge.i43.i ]
+  %.4 = phi i32 [ %.3, %.critedge.i.i30 ], [ %460, %459 ], [ %.3, %.critedge.i43.i ]
+  %461 = phi i32 [ %404, %.critedge.i.i30 ], [ %.pre50.i, %459 ], [ %404, %.critedge.i43.i ]
+  %462 = phi i32 [ %405, %.critedge.i.i30 ], [ %460, %459 ], [ %405, %.critedge.i43.i ]
   %463 = add nuw nsw i32 %.02513.i, 1
   %.not.not.i = icmp slt i32 %.02513.i, %461
   br i1 %.not.not.i, label %.lr.ph.split.split.i, label %.loopexit, !llvm.loop !185
@@ -2912,7 +2912,7 @@ ff_vvc_set_mvf.exit.loopexit.us.i.i:              ; preds = %._crit_edge.us.i.us
   br i1 %265, label %.lr.ph.split.us.i.i, label %._crit_edge.i.i, !llvm.loop !198
 
 ._crit_edge.i.i:                                  ; preds = %ff_vvc_set_mvf.exit.i.i, %ff_vvc_set_mvf.exit.loopexit.us.i.i, %.preheader.i.i
-  %266 = phi i32 [ %232, %.preheader.i.i ], [ %264, %ff_vvc_set_mvf.exit.loopexit.us.i.i ], [ %274, %ff_vvc_set_mvf.exit.i.i ]
+  %266 = phi i32 [ %264, %ff_vvc_set_mvf.exit.loopexit.us.i.i ], [ %232, %.preheader.i.i ], [ %274, %ff_vvc_set_mvf.exit.i.i ]
   %267 = add nuw nsw i32 %.05871.i.i, 1
   %268 = load i32, ptr %103, align 4, !tbaa !98
   %269 = icmp slt i32 %267, %268
@@ -4682,7 +4682,7 @@ ibc_spatial_candidates.exit:                      ; preds = %.lr.ph19.split.us.i
   br label %ibc_history_candidates.exit.thread
 
 ibc_history_candidates.exit.thread:               ; preds = %.thread4.us.i, %._crit_edge..thread4_crit_edge.i.us, %.thread4.i, %.critedge.sink.split.i.thread, %.critedge.sink.split.i, %ibc_spatial_candidates.exit
-  %storemerge = phi i64 [ %163, %ibc_spatial_candidates.exit ], [ 0, %.critedge.sink.split.i ], [ 0, %.critedge.sink.split.i.thread ], [ 0, %._crit_edge..thread4_crit_edge.i.us ], [ 0, %.thread4.i ], [ 0, %.thread4.us.i ]
+  %storemerge = phi i64 [ %163, %ibc_spatial_candidates.exit ], [ 0, %.critedge.sink.split.i.thread ], [ 0, %.critedge.sink.split.i ], [ 0, %.thread4.i ], [ 0, %._crit_edge..thread4_crit_edge.i.us ], [ 0, %.thread4.us.i ]
   store i64 %storemerge, ptr %2, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
@@ -6981,7 +6981,7 @@ ff_vvc_round_mv.exit:                             ; preds = %ff_vvc_round_mv.exi
   %exitcond79.not = icmp eq i64 %indvars.iv.next76, %wide.trip.count78
   br i1 %exitcond79.not, label %.critedge, label %ff_vvc_round_mv.exit, !llvm.loop !232
 
-affine_mvp_candidate.exit.thread:                 ; preds = %197, %199, %156, %158, %103, %check_available.exit
+affine_mvp_candidate.exit.thread:                 ; preds = %199, %197, %158, %156, %103, %check_available.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %40, !llvm.loop !233

@@ -891,7 +891,7 @@ define internal fastcc void @convert_mask_to_strength_mask(ptr noundef captures(
   br i1 %exitcond131.not, label %._crit_edge109, label %.preheader.us, !llvm.loop !84
 
 ._crit_edge109:                                   ; preds = %._crit_edge.us110, %6, %.preheader82, %.preheader80
-  %.us-phi104139 = phi i32 [ 2, %.preheader82 ], [ %49, %.preheader80 ], [ 2, %6 ], [ %49, %._crit_edge.us110 ]
+  %.us-phi104139 = phi i32 [ 2, %6 ], [ %49, %.preheader80 ], [ 2, %.preheader82 ], [ %49, %._crit_edge.us110 ]
   %56 = lshr i32 %.us-phi104139, 2
   %57 = add nuw nsw i32 %56, %.us-phi104139
   store i32 %57, ptr %5, align 4, !tbaa !25

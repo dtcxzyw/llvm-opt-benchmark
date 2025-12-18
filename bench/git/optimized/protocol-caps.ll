@@ -90,7 +90,7 @@ parse_oid.exit:                                   ; preds = %19
   br i1 %28, label %13, label %.outer._crit_edge, !llvm.loop !14
 
 .outer._crit_edge:                                ; preds = %.outer, %.backedge, %2
-  %.sroa.0.0.ph.lcssa = phi i1 [ true, %2 ], [ %12, %.backedge ], [ false, %.outer ]
+  %.sroa.0.0.ph.lcssa = phi i1 [ %12, %.backedge ], [ true, %2 ], [ false, %.outer ]
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %30 = load i32, ptr %29, align 8, !tbaa !18
   %.not = icmp eq i32 %30, 2

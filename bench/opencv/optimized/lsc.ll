@@ -3362,7 +3362,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit78:                  ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %exitcond.not, label %.thread, label %51, !llvm.loop !148
 
 .thread:                                          ; preds = %76, %71, %63
-  %.3 = phi i32 [ %spec.select, %71 ], [ %.1453, %63 ], [ %.1453, %76 ]
+  %.3 = phi i32 [ %.1453, %63 ], [ %spec.select, %71 ], [ %.1453, %76 ]
   store i8 1, ptr %38, align 1, !tbaa !145
   %77 = ptrtoint ptr %.sroa.17.1449 to i64
   %78 = ptrtoint ptr %.sroa.0175.2450 to i64
@@ -3794,12 +3794,12 @@ _ZNSt6vectorIiSaIiEE6insertEN9__gnu_cxx17__normal_iteratorIPKiS1_EERS4_.exit122:
   br i1 %exitcond525.not, label %_ZNSt6vectorIiSaIiEE5clearEv.exit, label %212, !llvm.loop !152
 
 _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %212, %_ZNSt6vectorIiSaIiEE6insertEN9__gnu_cxx17__normal_iteratorIPKiS1_EERS4_.exit94, %._crit_edge434
-  %.sroa.0175.4.lcssa565 = phi ptr [ %.sroa.0175.5.lcssa, %._crit_edge434 ], [ %.sroa.0175.10, %_ZNSt6vectorIiSaIiEE6insertEN9__gnu_cxx17__normal_iteratorIPKiS1_EERS4_.exit94 ], [ %.sroa.0175.5.lcssa, %212 ]
-  %.sroa.17.2.lcssa564 = phi ptr [ %.sroa.17.3.lcssa, %._crit_edge434 ], [ %.sroa.17.7, %_ZNSt6vectorIiSaIiEE6insertEN9__gnu_cxx17__normal_iteratorIPKiS1_EERS4_.exit94 ], [ %.sroa.17.3.lcssa, %212 ]
-  %.sroa.31.2.lcssa563 = phi ptr [ %.sroa.31.3.lcssa, %._crit_edge434 ], [ %.sroa.31.7, %_ZNSt6vectorIiSaIiEE6insertEN9__gnu_cxx17__normal_iteratorIPKiS1_EERS4_.exit94 ], [ %.sroa.31.3.lcssa, %212 ]
-  %.sroa.0163.4.lcssa562 = phi ptr [ %.sroa.0163.5.lcssa, %._crit_edge434 ], [ %.sroa.0163.9, %_ZNSt6vectorIiSaIiEE6insertEN9__gnu_cxx17__normal_iteratorIPKiS1_EERS4_.exit94 ], [ %.sroa.0163.5.lcssa, %212 ]
-  %.sroa.15.2.lcssa561 = phi ptr [ %.sroa.15.3.lcssa, %._crit_edge434 ], [ %.sroa.15.7, %_ZNSt6vectorIiSaIiEE6insertEN9__gnu_cxx17__normal_iteratorIPKiS1_EERS4_.exit94 ], [ %.sroa.15.3.lcssa, %212 ]
-  %.sroa.27.2.lcssa560 = phi ptr [ %.sroa.27.3.lcssa, %._crit_edge434 ], [ %.sroa.27.7, %_ZNSt6vectorIiSaIiEE6insertEN9__gnu_cxx17__normal_iteratorIPKiS1_EERS4_.exit94 ], [ %.sroa.27.3.lcssa, %212 ]
+  %.sroa.0175.4.lcssa565 = phi ptr [ %.sroa.0175.10, %_ZNSt6vectorIiSaIiEE6insertEN9__gnu_cxx17__normal_iteratorIPKiS1_EERS4_.exit94 ], [ %.sroa.0175.5.lcssa, %._crit_edge434 ], [ %.sroa.0175.5.lcssa, %212 ]
+  %.sroa.17.2.lcssa564 = phi ptr [ %.sroa.17.7, %_ZNSt6vectorIiSaIiEE6insertEN9__gnu_cxx17__normal_iteratorIPKiS1_EERS4_.exit94 ], [ %.sroa.17.3.lcssa, %._crit_edge434 ], [ %.sroa.17.3.lcssa, %212 ]
+  %.sroa.31.2.lcssa563 = phi ptr [ %.sroa.31.7, %_ZNSt6vectorIiSaIiEE6insertEN9__gnu_cxx17__normal_iteratorIPKiS1_EERS4_.exit94 ], [ %.sroa.31.3.lcssa, %._crit_edge434 ], [ %.sroa.31.3.lcssa, %212 ]
+  %.sroa.0163.4.lcssa562 = phi ptr [ %.sroa.0163.9, %_ZNSt6vectorIiSaIiEE6insertEN9__gnu_cxx17__normal_iteratorIPKiS1_EERS4_.exit94 ], [ %.sroa.0163.5.lcssa, %._crit_edge434 ], [ %.sroa.0163.5.lcssa, %212 ]
+  %.sroa.15.2.lcssa561 = phi ptr [ %.sroa.15.7, %_ZNSt6vectorIiSaIiEE6insertEN9__gnu_cxx17__normal_iteratorIPKiS1_EERS4_.exit94 ], [ %.sroa.15.3.lcssa, %._crit_edge434 ], [ %.sroa.15.3.lcssa, %212 ]
+  %.sroa.27.2.lcssa560 = phi ptr [ %.sroa.27.7, %_ZNSt6vectorIiSaIiEE6insertEN9__gnu_cxx17__normal_iteratorIPKiS1_EERS4_.exit94 ], [ %.sroa.27.3.lcssa, %._crit_edge434 ], [ %.sroa.27.3.lcssa, %212 ]
   %.not.i.i = icmp eq ptr %.sroa.17.2.lcssa564, %.sroa.0175.4.lcssa565
   %spec.select204 = select i1 %.not.i.i, ptr %.sroa.17.2.lcssa564, ptr %.sroa.0175.4.lcssa565
   %.not.i.i123 = icmp eq ptr %.sroa.15.2.lcssa561, %.sroa.0163.4.lcssa562

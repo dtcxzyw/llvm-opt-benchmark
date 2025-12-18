@@ -1983,8 +1983,8 @@ define internal fastcc noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deseria
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %101
 
-100:                                              ; preds = %82, %75, %65, %58, %48, %41, %124, %117, %109, %101
-  %.sroa.0.0 = phi ptr [ %126, %124 ], [ %102, %101 ], [ %94, %117 ], [ %42, %41 ], [ %59, %58 ], [ %111, %109 ], [ %49, %48 ], [ %66, %65 ], [ %83, %82 ], [ %76, %75 ]
+100:                                              ; preds = %75, %82, %58, %65, %41, %48, %124, %117, %109, %101
+  %.sroa.0.0 = phi ptr [ %126, %124 ], [ %102, %101 ], [ %94, %117 ], [ %49, %48 ], [ %66, %65 ], [ %111, %109 ], [ %42, %41 ], [ %59, %58 ], [ %76, %75 ], [ %83, %82 ]
   ret ptr %.sroa.0.0
 
 101:                                              ; preds = %122, %.thread44, %112, %107, %"_ZN4core3ptr84drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$serde_json..error..Error$GT$$GT$17h07821f7553ce8a6bE.exit30", %"_ZN4core3ptr84drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$serde_json..error..Error$GT$$GT$17h07821f7553ce8a6bE.exit29", %"_ZN4core3ptr84drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$serde_json..error..Error$GT$$GT$17h07821f7553ce8a6bE.exit", %97, %95
@@ -4066,9 +4066,9 @@ _ZN3std2io4Seek15stream_position17hd8ef70643f0d01d2E.exit.i.i.i: ; preds = %322
   br label %.loopexit179.i.i
 
 .loopexit179.i.i:                                 ; preds = %338, %330, %346, %340, %332
-  %.sroa.9.sroa.0.0.i.i = phi i64 [ 0, %346 ], [ %335, %340 ], [ 0, %332 ], [ 1, %330 ], [ 1, %338 ]
-  %.sroa.20.sroa.15.0.in.in.i.i = phi i64 [ %348, %346 ], [ %337, %340 ], [ %328, %332 ], [ ptrtoint (ptr @anon.fa5457ecfb1cbdc43f235845554de6e0.23 to i64), %338 ], [ ptrtoint (ptr @anon.fa5457ecfb1cbdc43f235845554de6e0.24 to i64), %330 ]
-  %.sroa.20.sroa.0.0.i.i = phi i8 [ %.sroa.20.sroa.0.0.extract.trunc78.i.i, %346 ], [ %.sroa.20.sroa.0.0.extract.trunc79.i.i, %340 ], [ %.sroa.20.sroa.0.0.extract.trunc77.i.i, %332 ], [ ptrtoint (ptr @anon.fa5457ecfb1cbdc43f235845554de6e0.23 to i8), %338 ], [ ptrtoint (ptr @anon.fa5457ecfb1cbdc43f235845554de6e0.24 to i8), %330 ]
+  %.sroa.9.sroa.0.0.i.i = phi i64 [ 0, %332 ], [ 0, %346 ], [ %335, %340 ], [ 1, %330 ], [ 1, %338 ]
+  %.sroa.20.sroa.15.0.in.in.i.i = phi i64 [ %328, %332 ], [ %348, %346 ], [ %337, %340 ], [ ptrtoint (ptr @anon.fa5457ecfb1cbdc43f235845554de6e0.23 to i64), %338 ], [ ptrtoint (ptr @anon.fa5457ecfb1cbdc43f235845554de6e0.24 to i64), %330 ]
+  %.sroa.20.sroa.0.0.i.i = phi i8 [ %.sroa.20.sroa.0.0.extract.trunc77.i.i, %332 ], [ %.sroa.20.sroa.0.0.extract.trunc78.i.i, %346 ], [ %.sroa.20.sroa.0.0.extract.trunc79.i.i, %340 ], [ ptrtoint (ptr @anon.fa5457ecfb1cbdc43f235845554de6e0.23 to i8), %338 ], [ ptrtoint (ptr @anon.fa5457ecfb1cbdc43f235845554de6e0.24 to i8), %330 ]
   invoke void @"_ZN4core3ptr44drop_in_place$LT$zip..types..ZipFileData$GT$17hc92d0e00fb9f33afE"(ptr noalias noundef nonnull align 8 dereferenceable(208) %24)
           to label %.noexc38.i.i unwind label %.loopexit.split-lp.i.i, !noalias !405
 
@@ -19000,7 +19000,7 @@ define hidden void @_ZN8tempfile4util13create_helper17hcd10ac1b0ca9094cE(ptr dea
   br label %.body
 
 .loopexit.split-lp:                               ; preds = %9, %31, %83, %_ZN3std4path4Path4join17h5fa613a8f3bf72e3E.exit, %48, %_ZN4core3ops8function6FnOnce9call_once17he13109488aa44460E.exit.i, %"_ZN111_$LT$core..result..Result$LT$T$C$std..io..error..Error$GT$$u20$as$u20$tempfile..error..IoResultExt$LT$T$GT$$GT$13with_err_path28_$u7b$$u7b$closure$u7d$$u7d$17ha086e3e8c39996f7E.exit.i"
-  %.sroa.014.0.ph = phi i8 [ 0, %9 ], [ 0, %31 ], [ 1, %48 ], [ %.sroa.014.2, %_ZN4core3ops8function6FnOnce9call_once17he13109488aa44460E.exit.i ], [ %.sroa.014.2, %83 ], [ %.sroa.014.2, %"_ZN111_$LT$core..result..Result$LT$T$C$std..io..error..Error$GT$$u20$as$u20$tempfile..error..IoResultExt$LT$T$GT$$GT$13with_err_path28_$u7b$$u7b$closure$u7d$$u7d$17ha086e3e8c39996f7E.exit.i" ], [ 1, %_ZN3std4path4Path4join17h5fa613a8f3bf72e3E.exit ]
+  %.sroa.014.0.ph = phi i8 [ %.sroa.014.2, %"_ZN111_$LT$core..result..Result$LT$T$C$std..io..error..Error$GT$$u20$as$u20$tempfile..error..IoResultExt$LT$T$GT$$GT$13with_err_path28_$u7b$$u7b$closure$u7d$$u7d$17ha086e3e8c39996f7E.exit.i" ], [ 1, %_ZN3std4path4Path4join17h5fa613a8f3bf72e3E.exit ], [ %.sroa.014.2, %83 ], [ %.sroa.014.2, %_ZN4core3ops8function6FnOnce9call_once17he13109488aa44460E.exit.i ], [ 1, %48 ], [ 0, %31 ], [ 0, %9 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -37303,7 +37303,7 @@ _ZN5uv_fs15replace_symlink17hc9c207fef0318f31E.exit.thread: ; preds = %.noexc608
   invoke void @"_ZN4core3ptr140drop_in_place$LT$alloc..collections..btree..set..BTreeSet$LT$$LP$alloc..string..String$C$std..path..PathBuf$C$std..path..PathBuf$RP$$GT$$GT$17hee68c636f5ae2f64E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %159)
           to label %760 unwind label %219
 
-.thread727:                                       ; preds = %.thread734.loopexit, %.thread734.loopexit.split-lp, %381, %423, %751, %.body.i
+.thread727:                                       ; preds = %.thread734.loopexit, %.thread734.loopexit.split-lp, %423, %381, %751, %.body.i
   %.pn552726 = phi { ptr, i32 } [ %lpad.thr_comm.i.i616, %751 ], [ %.pn, %381 ], [ %.pn35.i, %.body.i ], [ %424, %423 ], [ %lpad.loopexit, %.thread734.loopexit ], [ %lpad.loopexit.split-lp, %.thread734.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr140drop_in_place$LT$alloc..collections..btree..set..BTreeSet$LT$$LP$alloc..string..String$C$std..path..PathBuf$C$std..path..PathBuf$RP$$GT$$GT$17hee68c636f5ae2f64E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %159) #43
           to label %.body unwind label %398

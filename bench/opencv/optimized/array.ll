@@ -5105,7 +5105,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %50, %
   resume { ptr, i32 } %51
 
 .loopexit:                                        ; preds = %38, %42, %45, %33, %26, %27, %17, %18
-  %.042 = phi i32 [ %35, %33 ], [ 2, %17 ], [ 2, %26 ], [ 2, %18 ], [ 2, %27 ], [ %44, %45 ], [ %44, %42 ], [ %35, %38 ]
+  %.042 = phi i32 [ %35, %33 ], [ 2, %17 ], [ 2, %26 ], [ 2, %18 ], [ 2, %27 ], [ %44, %42 ], [ %44, %45 ], [ %35, %38 ]
   ret i32 %.042
 }
 
@@ -6227,7 +6227,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit175: ; preds = %22
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %236, %234
-  %.1 = phi i32 [ %238, %236 ], [ 1, %234 ], [ %233, %.preheader ]
+  %.1 = phi i32 [ 1, %234 ], [ %238, %236 ], [ %233, %.preheader ]
   %239 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr null, ptr %239, align 8, !tbaa !23
   %240 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -7895,7 +7895,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit148: ; preds = %17
   br label %178
 
 .loopexit:                                        ; preds = %147, %132, %154, %._crit_edge, %118, %57, %70, %81
-  %.1 = phi ptr [ %89, %81 ], [ %78, %70 ], [ %62, %57 ], [ %131, %118 ], [ %155, %154 ], [ %168, %._crit_edge ], [ %133, %132 ], [ %.4, %147 ]
+  %.1 = phi ptr [ %168, %._crit_edge ], [ %89, %81 ], [ %78, %70 ], [ %62, %57 ], [ %131, %118 ], [ %155, %154 ], [ %133, %132 ], [ %.4, %147 ]
   ret ptr %.1
 
 178:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit148, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit145, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -8280,8 +8280,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %122
   br i1 %exitcond.not.i137, label %._crit_edge169.loopexit, label %147, !llvm.loop !153
 
 _ZL19cvGetNextSparseNodeP19CvSparseMatIterator.exit: ; preds = %138, %150
-  %.sroa.5.2 = phi ptr [ %149, %150 ], [ %140, %138 ]
-  %.sroa.9.2 = phi i32 [ %151, %150 ], [ %.sroa.9.0166, %138 ]
+  %.sroa.5.2 = phi ptr [ %140, %138 ], [ %149, %150 ]
+  %.sroa.9.2 = phi i32 [ %.sroa.9.0166, %138 ], [ %151, %150 ]
   %153 = load i32, ptr %.1100167, align 8, !tbaa !147
   %154 = and i32 %153, %97
   %155 = zext nneg i32 %154 to i64

@@ -844,7 +844,7 @@ switch.early.test172.i.i:                         ; preds = %245
   br i1 %267, label %T1_Get_Private_Dict.exit.thread.i, label %T1_Get_Private_Dict.exit.i
 
 T1_Get_Private_Dict.exit.thread.i:                ; preds = %121, %143, %185, %182, %.critedge4.i.i, %259, %218, %203, %153, %130, %128, %.loopexit207.i.i, %read_pfb_tag.exit.i168.i
-  %.ph.i = phi i32 [ 3, %259 ], [ 3, %203 ], [ %119, %read_pfb_tag.exit.i168.i ], [ %129, %128 ], [ %134, %130 ], [ 3, %153 ], [ 3, %.loopexit207.i.i ], [ %221, %218 ], [ %147, %143 ], [ 3, %.critedge4.i.i ], [ 3, %185 ], [ 3, %182 ], [ %125, %121 ]
+  %.ph.i = phi i32 [ %147, %143 ], [ 3, %259 ], [ 3, %.critedge4.i.i ], [ %221, %218 ], [ 3, %203 ], [ %119, %read_pfb_tag.exit.i168.i ], [ 3, %185 ], [ %129, %128 ], [ %134, %130 ], [ 3, %153 ], [ 3, %.loopexit207.i.i ], [ 3, %182 ], [ %125, %121 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   store i32 %.ph.i, ptr %16, align 4, !tbaa !19
   br label %415
@@ -1162,8 +1162,8 @@ T1_Get_Private_Dict.exit.i:                       ; preds = %259
   br label %.thread206.us.i
 
 .thread206.us.i:                                  ; preds = %395, %399, %396, %.lr.ph235.split.us.i
-  %.1119.us.i = phi i32 [ %.0118233.us.i, %.lr.ph235.split.us.i ], [ %spec.select.us.i, %399 ], [ %.0118233.us.i, %396 ], [ %.0118233.us.i, %395 ]
-  %.1.us.i = phi i32 [ %.0117234.us.i, %.lr.ph235.split.us.i ], [ %spec.select165.us.i, %399 ], [ %.0117234.us.i, %396 ], [ %.0117234.us.i, %395 ]
+  %.1119.us.i = phi i32 [ %.0118233.us.i, %.lr.ph235.split.us.i ], [ %.0118233.us.i, %396 ], [ %spec.select.us.i, %399 ], [ %.0118233.us.i, %395 ]
+  %.1.us.i = phi i32 [ %.0117234.us.i, %.lr.ph235.split.us.i ], [ %.0117234.us.i, %396 ], [ %spec.select165.us.i, %399 ], [ %.0117234.us.i, %395 ]
   %indvars.iv.next261.i = add nuw nsw i64 %indvars.iv260.i, 1
   %exitcond264.not.i = icmp eq i64 %indvars.iv.next261.i, %wide.trip.count263.i
   br i1 %exitcond264.not.i, label %._crit_edge.i, label %.lr.ph235.split.us.i, !llvm.loop !158
@@ -3781,7 +3781,7 @@ switch.lookup540:                                 ; preds = %21
   br label %.thread498
 
 345:                                              ; preds = %128, %120, %339, %336, %332, %329, %325, %322, %318, %315, %311, %308, %101, %93, %73, %65, %60, %52, %37, %34
-  %.0326 = phi i64 [ %324, %322 ], [ %127, %120 ], [ %310, %311 ], [ %36, %37 ], [ %127, %128 ], [ %36, %34 ], [ %324, %325 ], [ %310, %308 ], [ %317, %318 ], [ %59, %60 ], [ %59, %52 ], [ %72, %73 ], [ %338, %336 ], [ %72, %65 ], [ %331, %332 ], [ %100, %101 ], [ %338, %339 ], [ %100, %93 ], [ %331, %329 ], [ %317, %315 ]
+  %.0326 = phi i64 [ %317, %315 ], [ %324, %322 ], [ %331, %329 ], [ %127, %120 ], [ %310, %311 ], [ %100, %93 ], [ %338, %339 ], [ %100, %101 ], [ %331, %332 ], [ %72, %65 ], [ %338, %336 ], [ %36, %37 ], [ %127, %128 ], [ %36, %34 ], [ %72, %73 ], [ %59, %52 ], [ %59, %60 ], [ %324, %325 ], [ %310, %308 ], [ %317, %318 ]
   %.0326.fr = freeze i64 %.0326
   %346 = icmp eq i64 %.0326.fr, 0
   br i1 %346, label %.thread502, label %.thread498
@@ -6196,8 +6196,8 @@ t1_load_keyword.exit.thread:                      ; preds = %202
   br label %.thread.i219
 
 .thread.i219:                                     ; preds = %.thread.sink.split.i, %202, %197, %196, %194
-  %.03952.i = phi i32 [ %.039.i, %202 ], [ 0, %194 ], [ 0, %196 ], [ 0, %197 ], [ 0, %.thread.sink.split.i ]
-  %.04051.i = phi ptr [ %.040.i, %202 ], [ %5, %194 ], [ %5, %196 ], [ %5, %197 ], [ %5, %.thread.sink.split.i ]
+  %.03952.i = phi i32 [ %.039.i, %202 ], [ 0, %197 ], [ 0, %196 ], [ 0, %194 ], [ 0, %.thread.sink.split.i ]
+  %.04051.i = phi ptr [ %.040.i, %202 ], [ %5, %197 ], [ %5, %196 ], [ %5, %194 ], [ %5, %.thread.sink.split.i ]
   %.off.i = add i32 %185, -9
   %switch.i = icmp ult i32 %.off.i, 2
   br i1 %switch.i, label %204, label %207
@@ -6242,15 +6242,15 @@ t1_load_keyword.exit:                             ; preds = %187, %204, %207
   br i1 %.not, label %.thread259, label %.thread271
 
 .thread259:                                       ; preds = %214, %t1_load_keyword.exit.thread, %175, %213, %t1_load_keyword.exit, %166, %150, %65, %read_binary_data.exit, %read_binary_data.exit217, %70, %.thread235
-  %.5173 = phi i8 [ %.0168287, %65 ], [ 1, %70 ], [ 0, %read_binary_data.exit ], [ 0, %read_binary_data.exit217 ], [ 0, %.thread235 ], [ 0, %150 ], [ 0, %166 ], [ 0, %t1_load_keyword.exit ], [ 0, %213 ], [ 0, %175 ], [ 0, %t1_load_keyword.exit.thread ], [ 0, %214 ]
-  %.2165 = phi ptr [ %.0163288, %65 ], [ %25, %70 ], [ %.0163288, %read_binary_data.exit ], [ %.0163288, %read_binary_data.exit217 ], [ %.0163288, %.thread235 ], [ %.0163288, %150 ], [ %.0163288, %166 ], [ %.0163288, %t1_load_keyword.exit ], [ %.0163288, %213 ], [ %.0163288, %175 ], [ %.0163288, %t1_load_keyword.exit.thread ], [ %.0163288, %214 ]
+  %.5173 = phi i8 [ %.0168287, %65 ], [ 1, %70 ], [ 0, %read_binary_data.exit ], [ 0, %read_binary_data.exit217 ], [ 0, %.thread235 ], [ 0, %150 ], [ 0, %t1_load_keyword.exit.thread ], [ 0, %166 ], [ 0, %t1_load_keyword.exit ], [ 0, %213 ], [ 0, %175 ], [ 0, %214 ]
+  %.2165 = phi ptr [ %.0163288, %65 ], [ %25, %70 ], [ %.0163288, %read_binary_data.exit ], [ %.0163288, %read_binary_data.exit217 ], [ %.0163288, %.thread235 ], [ %.0163288, %150 ], [ %.0163288, %t1_load_keyword.exit.thread ], [ %.0163288, %166 ], [ %.0163288, %t1_load_keyword.exit ], [ %.0163288, %213 ], [ %.0163288, %175 ], [ %.0163288, %214 ]
   %219 = load ptr, ptr %9, align 8, !tbaa !98
   call void %219(ptr noundef nonnull %1) #17
   %220 = load ptr, ptr %1, align 8, !tbaa !90
   %221 = icmp ult ptr %220, %6
   br i1 %221, label %24, label %.thread271
 
-.thread271:                                       ; preds = %.thread259, %70, %35, %46, %.thread235, %146, %4
+.thread271:                                       ; preds = %.thread259, %70, %35, %46, %146, %.thread235, %4
   %222 = load i32, ptr %8, align 8, !tbaa !97
   br label %.thread265
 
@@ -6726,8 +6726,8 @@ define internal void @parse_encoding(ptr noundef captures(none) %0, ptr noundef 
   br i1 %.not180, label %139, label %.critedge
 
 139:                                              ; preds = %134, %132, %136
-  %.5 = phi i32 [ %.1161197, %136 ], [ %.1161197, %134 ], [ %133, %132 ]
-  %.4 = phi ptr [ %73, %136 ], [ %102, %134 ], [ %110, %132 ]
+  %.5 = phi i32 [ %.1161197, %136 ], [ %133, %132 ], [ %.1161197, %134 ]
+  %.4 = phi ptr [ %73, %136 ], [ %110, %132 ], [ %102, %134 ]
   %140 = load ptr, ptr %8, align 8, !tbaa !98
   call void %140(ptr noundef nonnull %1) #17
   %141 = load ptr, ptr %1, align 8, !tbaa !90
@@ -7672,12 +7672,12 @@ read_binary_data.exit:                            ; preds = %111
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.thread, %.thread269, %48, %2, %.loopexit.loopexit, %.thread294, %243, %234, %224, %214, %205, %195, %186, %179, %44, %40, %35
-  %301 = phi i32 [ %.pre341, %.loopexit.loopexit ], [ %297, %.thread294 ], [ 3, %2 ], [ %251, %243 ], [ %242, %234 ], [ %233, %224 ], [ %223, %214 ], [ %213, %205 ], [ %204, %195 ], [ %194, %186 ], [ %185, %179 ], [ %47, %44 ], [ %43, %40 ], [ %39, %35 ], [ 3, %48 ], [ 3, %.thread269 ], [ 3, %.thread ]
+  %301 = phi i32 [ %.pre341, %.loopexit.loopexit ], [ %297, %.thread294 ], [ 3, %2 ], [ %251, %243 ], [ %242, %234 ], [ %233, %224 ], [ %223, %214 ], [ %213, %205 ], [ %204, %195 ], [ %194, %186 ], [ %185, %179 ], [ %47, %44 ], [ %43, %40 ], [ %39, %35 ], [ 3, %.thread269 ], [ 3, %48 ], [ 3, %.thread ]
   %302 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 %301, ptr %302, align 8, !tbaa !97
   br label %.thread279
 
-.thread279:                                       ; preds = %read_binary_data.exit, %87, %122, %.thread.i, %298, %174, %243, %20, %29, %.loopexit
+.thread279:                                       ; preds = %read_binary_data.exit, %87, %.thread.i, %122, %298, %174, %243, %20, %29, %.loopexit
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }

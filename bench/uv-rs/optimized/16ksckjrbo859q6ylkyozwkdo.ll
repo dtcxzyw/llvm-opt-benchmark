@@ -918,9 +918,9 @@ default.unreachable952:                           ; preds = %159
   unreachable
 
 .body628:                                         ; preds = %114, %387, %182
-  %.sroa.0285.1 = phi i8 [ %.sroa.0285.15, %387 ], [ %.sroa.0285.3, %182 ], [ %.sroa.0285.0, %114 ]
-  %.sroa.0288.3 = phi i8 [ %.sroa.0288.11, %387 ], [ %.sroa.0288.5, %182 ], [ %.sroa.0288.2, %114 ]
-  %.pn516 = phi { ptr, i32 } [ %.pn500, %387 ], [ %.pn511, %182 ], [ %115, %114 ]
+  %.sroa.0285.1 = phi i8 [ %.sroa.0285.3, %182 ], [ %.sroa.0285.15, %387 ], [ %.sroa.0285.0, %114 ]
+  %.sroa.0288.3 = phi i8 [ %.sroa.0288.5, %182 ], [ %.sroa.0288.11, %387 ], [ %.sroa.0288.2, %114 ]
+  %.pn516 = phi { ptr, i32 } [ %.pn511, %182 ], [ %.pn500, %387 ], [ %115, %114 ]
   %113 = trunc nuw i8 %.sroa.0285.1 to i1
   br i1 %113, label %.thread, label %105
 
@@ -1820,8 +1820,8 @@ _ZN12reflink_copy7reflink17h7c7819c864495175E.exit544: ; preds = %.noexc542
   br label %381
 
 381:                                              ; preds = %483, %380
-  %.sroa.0285.13 = phi i8 [ %.sroa.0285.5, %380 ], [ %.sroa.0285.16801, %483 ]
-  %.sroa.0288.9 = phi i8 [ %.sroa.0288.7, %380 ], [ %.sroa.0288.12803, %483 ]
+  %.sroa.0285.13 = phi i8 [ %.sroa.0285.16801, %483 ], [ %.sroa.0285.5, %380 ]
+  %.sroa.0288.9 = phi i8 [ %.sroa.0288.12803, %483 ], [ %.sroa.0288.7, %380 ]
   %382 = trunc nuw i8 %.sroa.0285.13 to i1
   br i1 %382, label %.thread791, label %718
 

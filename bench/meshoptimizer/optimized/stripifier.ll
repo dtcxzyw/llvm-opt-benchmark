@@ -256,7 +256,7 @@ _ZN7meshoptL13findStripNextEPA3_Kjjjj.exit.thread: ; preds = %98, %_ZN7meshoptL1
   br i1 %exitcond.not.i220, label %_ZN7meshoptL13findStripNextEPA3_Kjjjj.exit221.thread, label %.lr.ph.i215, !llvm.loop !14
 
 _ZN7meshoptL13findStripNextEPA3_Kjjjj.exit221:    ; preds = %126, %120, %113
-  %132 = phi i32 [ %116, %113 ], [ %129, %126 ], [ %122, %120 ]
+  %132 = phi i32 [ %122, %120 ], [ %116, %113 ], [ %129, %126 ]
   %133 = icmp sgt i32 %132, -1
   br i1 %133, label %134, label %_ZN7meshoptL13findStripNextEPA3_Kjjjj.exit221.thread
 
@@ -269,7 +269,7 @@ _ZN7meshoptL13findStripNextEPA3_Kjjjj.exit221:    ; preds = %126, %120, %113
   br label %308
 
 _ZN7meshoptL13findStripNextEPA3_Kjjjj.exit221.thread: ; preds = %130, %39, %_ZN7meshoptL13findStripNextEPA3_Kjjjj.exit, %_ZN7meshoptL13findStripNextEPA3_Kjjjj.exit221
-  %138 = phi i32 [ %102, %_ZN7meshoptL13findStripNextEPA3_Kjjjj.exit221 ], [ -1, %39 ], [ %100, %_ZN7meshoptL13findStripNextEPA3_Kjjjj.exit ], [ %102, %130 ]
+  %138 = phi i32 [ %102, %_ZN7meshoptL13findStripNextEPA3_Kjjjj.exit221 ], [ %100, %_ZN7meshoptL13findStripNextEPA3_Kjjjj.exit ], [ -1, %39 ], [ %102, %130 ]
   %139 = add i64 %.0183277, 1
   %140 = getelementptr inbounds nuw i32, ptr %0, i64 %.0183277
   store i32 %51, ptr %140, align 4, !tbaa !8

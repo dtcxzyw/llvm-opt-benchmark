@@ -568,9 +568,9 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i140, %236
   br label %.loopexit185.backedge
 
 .loopexit185.backedge:                            ; preds = %._crit_edge.i160, %258, %468
-  %.0121.be = phi ptr [ %466, %468 ], [ %184, %258 ], [ %466, %._crit_edge.i160 ]
-  %.0113.be = phi ptr [ %475, %468 ], [ %260, %258 ], [ %475, %._crit_edge.i160 ]
-  %.0108.be = phi i32 [ %476, %468 ], [ %259, %258 ], [ %519, %._crit_edge.i160 ]
+  %.0121.be = phi ptr [ %184, %258 ], [ %466, %468 ], [ %466, %._crit_edge.i160 ]
+  %.0113.be = phi ptr [ %260, %258 ], [ %475, %468 ], [ %475, %._crit_edge.i160 ]
+  %.0108.be = phi i32 [ %259, %258 ], [ %476, %468 ], [ %519, %._crit_edge.i160 ]
   br label %.loopexit185
 
 261:                                              ; preds = %168
@@ -2445,7 +2445,7 @@ GUC_yy_delete_buffer.exit.i:                      ; preds = %32, %.critedge.i.i
   br label %GUC_yypop_buffer_state.exit
 
 GUC_yypop_buffer_state.exit:                      ; preds = %26, %44, %47
-  %56 = phi ptr [ %25, %26 ], [ %43, %44 ], [ %43, %47 ]
+  %56 = phi ptr [ %43, %47 ], [ %25, %26 ], [ %43, %44 ]
   %57 = load i64, ptr %2, align 8
   %58 = getelementptr inbounds nuw ptr, ptr %56, i64 %57
   %59 = load ptr, ptr %58, align 8
@@ -3329,7 +3329,7 @@ record_config_file_error.exit179:                 ; preds = %203, %202, %177, %1
   br label %.preheader, !llvm.loop !18
 
 .thread213:                                       ; preds = %146, %.loopexit, %.preheader, %208, %210, %record_config_file_error.exit
-  %.0196 = phi ptr [ undef, %record_config_file_error.exit ], [ %calloc.i, %208 ], [ %calloc.i, %210 ], [ %calloc.i, %.preheader ], [ %calloc.i, %.loopexit ], [ %calloc.i, %146 ]
+  %.0196 = phi ptr [ undef, %record_config_file_error.exit ], [ %calloc.i, %208 ], [ %calloc.i, %.preheader ], [ %calloc.i, %210 ], [ %calloc.i, %.loopexit ], [ %calloc.i, %146 ]
   %.0..0..0..0.86 = load volatile ptr, ptr %11, align 8
   %.not.i182 = icmp eq ptr %.0..0..0..0.86, null
   br i1 %.not.i182, label %GUC_yy_delete_buffer.exit, label %215

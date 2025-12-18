@@ -2294,7 +2294,7 @@ define hidden range(i64 0, -4294967295) i64 @"_ZN4core3num21_$LT$impl$u20$u32$GT
   ]
 
 .loopexit56:                                      ; preds = %37, %39, %29, %57, %45, %59, %.lr.ph.split.us, %.lr.ph.split, %7, %7, %6, %.loopexit
-  %.sroa.8.0.insert.insert = phi i64 [ 1, %6 ], [ 257, %7 ], [ %44, %.loopexit ], [ 257, %7 ], [ 257, %.lr.ph.split.us ], [ 513, %59 ], [ 257, %.lr.ph.split ], [ 257, %45 ], [ 513, %57 ], [ 257, %29 ], [ 513, %37 ], [ 513, %39 ]
+  %.sroa.8.0.insert.insert = phi i64 [ 1, %6 ], [ 257, %7 ], [ %44, %.loopexit ], [ 257, %7 ], [ 513, %59 ], [ 257, %.lr.ph.split.us ], [ 257, %.lr.ph.split ], [ 257, %45 ], [ 513, %57 ], [ 257, %29 ], [ 513, %39 ], [ 513, %37 ]
   ret i64 %.sroa.8.0.insert.insert
 
 7:                                                ; preds = %6
@@ -2397,7 +2397,7 @@ thread-pre-split:                                 ; preds = %6
   br i1 %.not, label %.loopexit, label %45
 
 .loopexit:                                        ; preds = %.preheader57.split.us, %.preheader57.split, %16, %70, %.preheader
-  %.sroa.016.1 = phi i32 [ 0, %.preheader ], [ %.sroa.016.0, %.preheader57.split ], [ %74, %70 ], [ %20, %16 ], [ %.sroa.016.0.us, %.preheader57.split.us ]
+  %.sroa.016.1 = phi i32 [ %74, %70 ], [ 0, %.preheader ], [ %.sroa.016.0, %.preheader57.split ], [ %20, %16 ], [ %.sroa.016.0.us, %.preheader57.split.us ]
   %43 = zext i32 %.sroa.016.1 to i64
   %44 = shl nuw i64 %43, 32
   br label %.loopexit56
@@ -2544,7 +2544,7 @@ define hidden range(i64 0, -4294967295) i64 @"_ZN4core3num60_$LT$impl$u20$core..
   br label %"_ZN4core3num21_$LT$impl$u20$u32$GT$16from_ascii_radix17h9db09a45631ff61cE.llvm.13452247604522872897.exit"
 
 "_ZN4core3num21_$LT$impl$u20$u32$GT$16from_ascii_radix17h9db09a45631ff61cE.llvm.13452247604522872897.exit": ; preds = %20, %28, %30, %.lr.ph.split.us.i, %2, %3, %3, %.loopexit.i
-  %.sroa.8.0.insert.insert.i = phi i64 [ 1, %2 ], [ 257, %3 ], [ %35, %.loopexit.i ], [ 257, %3 ], [ 257, %.lr.ph.split.us.i ], [ 513, %28 ], [ 257, %20 ], [ 513, %30 ]
+  %.sroa.8.0.insert.insert.i = phi i64 [ 1, %2 ], [ 257, %3 ], [ %35, %.loopexit.i ], [ 257, %3 ], [ 257, %.lr.ph.split.us.i ], [ 513, %30 ], [ 513, %28 ], [ 257, %20 ]
   ret i64 %.sroa.8.0.insert.insert.i
 }
 
@@ -2640,7 +2640,7 @@ define hidden range(i64 0, -4294967295) i64 @_ZN4core3ops8function5FnMut8call_mu
   br label %"_ZN4core3str21_$LT$impl$u20$str$GT$5parse17h6d08b54dfe7f4588E.llvm.13452247604522872897.exit"
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$5parse17h6d08b54dfe7f4588E.llvm.13452247604522872897.exit": ; preds = %21, %29, %31, %.lr.ph.split.us.i.i.i, %3, %4, %4, %.loopexit.i.i.i
-  %.sroa.8.0.insert.insert.i.i.i = phi i64 [ 1, %3 ], [ 257, %4 ], [ %36, %.loopexit.i.i.i ], [ 257, %4 ], [ 257, %.lr.ph.split.us.i.i.i ], [ 513, %29 ], [ 257, %21 ], [ 513, %31 ]
+  %.sroa.8.0.insert.insert.i.i.i = phi i64 [ 1, %3 ], [ 257, %4 ], [ %36, %.loopexit.i.i.i ], [ 257, %4 ], [ 257, %.lr.ph.split.us.i.i.i ], [ 513, %31 ], [ 513, %29 ], [ 257, %21 ]
   ret i64 %.sroa.8.0.insert.insert.i.i.i
 }
 
@@ -2790,7 +2790,7 @@ define hidden range(i64 0, -4294967295) i64 @"_ZN4core3ops8function5impls80_$LT$
   br label %_ZN4core3ops8function5FnMut8call_mut17h2e73faab25d8966eE.llvm.13452247604522872897.exit
 
 _ZN4core3ops8function5FnMut8call_mut17h2e73faab25d8966eE.llvm.13452247604522872897.exit: ; preds = %21, %29, %31, %.lr.ph.split.us.i.i.i.i, %3, %4, %4, %.loopexit.i.i.i.i
-  %.sroa.8.0.insert.insert.i.i.i.i = phi i64 [ 1, %3 ], [ 257, %4 ], [ %36, %.loopexit.i.i.i.i ], [ 257, %4 ], [ 257, %.lr.ph.split.us.i.i.i.i ], [ 513, %31 ], [ 257, %21 ], [ 513, %29 ]
+  %.sroa.8.0.insert.insert.i.i.i.i = phi i64 [ 1, %3 ], [ 257, %4 ], [ %36, %.loopexit.i.i.i.i ], [ 257, %4 ], [ 257, %.lr.ph.split.us.i.i.i.i ], [ 513, %29 ], [ 513, %31 ], [ 257, %21 ]
   ret i64 %.sroa.8.0.insert.insert.i.i.i.i
 }
 
@@ -4965,7 +4965,7 @@ define hidden range(i64 0, -4294967295) i64 @"_ZN4core3str21_$LT$impl$u20$str$GT
   br label %"_ZN4core3num60_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$u32$GT$8from_str17h97726dcafe2d40b6E.llvm.13452247604522872897.exit"
 
 "_ZN4core3num60_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$u32$GT$8from_str17h97726dcafe2d40b6E.llvm.13452247604522872897.exit": ; preds = %20, %28, %30, %.lr.ph.split.us.i.i, %2, %3, %3, %.loopexit.i.i
-  %.sroa.8.0.insert.insert.i.i = phi i64 [ 1, %2 ], [ 257, %3 ], [ %35, %.loopexit.i.i ], [ 257, %3 ], [ 257, %.lr.ph.split.us.i.i ], [ 513, %30 ], [ 257, %20 ], [ 513, %28 ]
+  %.sroa.8.0.insert.insert.i.i = phi i64 [ 1, %2 ], [ 257, %3 ], [ %35, %.loopexit.i.i ], [ 257, %3 ], [ 257, %.lr.ph.split.us.i.i ], [ 513, %28 ], [ 513, %30 ], [ 257, %20 ]
   ret i64 %.sroa.8.0.insert.insert.i.i
 }
 
@@ -14534,7 +14534,7 @@ define hidden void @_ZN8tempfile4util13create_helper17hb704cdf440e5eff1E(ptr dea
   br label %.body
 
 .loopexit.split-lp:                               ; preds = %9, %31, %85, %_ZN3std4path4Path4join17he73e727f4181a93cE.exit, %_ZN4core3ops8function6FnOnce9call_once17h6d3a0cd56c34c79fE.exit.i, %"_ZN111_$LT$core..result..Result$LT$T$C$std..io..error..Error$GT$$u20$as$u20$tempfile..error..IoResultExt$LT$T$GT$$GT$13with_err_path28_$u7b$$u7b$closure$u7d$$u7d$17h19f8c323644ea984E.exit.i"
-  %.sroa.014.0.ph = phi i8 [ 0, %31 ], [ 1, %_ZN3std4path4Path4join17he73e727f4181a93cE.exit ], [ %.sroa.014.2, %_ZN4core3ops8function6FnOnce9call_once17h6d3a0cd56c34c79fE.exit.i ], [ %.sroa.014.2, %85 ], [ %.sroa.014.2, %"_ZN111_$LT$core..result..Result$LT$T$C$std..io..error..Error$GT$$u20$as$u20$tempfile..error..IoResultExt$LT$T$GT$$GT$13with_err_path28_$u7b$$u7b$closure$u7d$$u7d$17h19f8c323644ea984E.exit.i" ], [ 0, %9 ]
+  %.sroa.014.0.ph = phi i8 [ 0, %9 ], [ %.sroa.014.2, %"_ZN111_$LT$core..result..Result$LT$T$C$std..io..error..Error$GT$$u20$as$u20$tempfile..error..IoResultExt$LT$T$GT$$GT$13with_err_path28_$u7b$$u7b$closure$u7d$$u7d$17h19f8c323644ea984E.exit.i" ], [ %.sroa.014.2, %85 ], [ %.sroa.014.2, %_ZN4core3ops8function6FnOnce9call_once17h6d3a0cd56c34c79fE.exit.i ], [ 1, %_ZN3std4path4Path4join17he73e727f4181a93cE.exit ], [ 0, %31 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body

@@ -544,7 +544,7 @@ intlist_read.exit:                                ; preds = %.lr.ph.i
   br i1 %43, label %35, label %._crit_edge, !llvm.loop !65
 
 ._crit_edge:                                      ; preds = %35, %23, %intlist_read.exit
-  %44 = phi i32 [ %.pre, %intlist_read.exit ], [ %28, %23 ], [ %41, %35 ]
+  %44 = phi i32 [ %28, %23 ], [ %.pre, %intlist_read.exit ], [ %41, %35 ]
   %45 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %46 = load i32, ptr %45, align 8, !tbaa !40
   %.not = icmp eq i32 %46, 0
@@ -931,7 +931,7 @@ predictor_calc_error.exit163:                     ; preds = %.lr.ph.i154, %._cri
   br i1 %242, label %232, label %.loopexit168, !llvm.loop !77
 
 .loopexit168:                                     ; preds = %232, %221, %207, %._crit_edge191, %.preheader171, %.preheader169, %.preheader167
-  %.pre227 = phi i32 [ %.pre227.pre, %.preheader167 ], [ %.pre227.pre, %.preheader171 ], [ %.pre227.pre, %.preheader169 ], [ %.pre227.pre, %._crit_edge191 ], [ %230, %221 ], [ %219, %207 ], [ %241, %232 ]
+  %.pre227 = phi i32 [ %230, %221 ], [ %.pre227.pre, %._crit_edge191 ], [ %219, %207 ], [ %.pre227.pre, %.preheader167 ], [ %.pre227.pre, %.preheader171 ], [ %.pre227.pre, %.preheader169 ], [ %241, %232 ]
   %243 = load i32, ptr %45, align 8, !tbaa !40
   %.not130 = icmp eq i32 %243, 0
   br i1 %.not130, label %.preheader, label %.loopexit
@@ -1438,7 +1438,7 @@ get_rac.exit36:                                   ; preds = %245, %240, %226, %2
   br label %get_rac.exit.thread
 
 get_rac.exit.thread:                              ; preds = %129, %61, %56, %39, %get_rac.exit36
-  %.027 = phi i32 [ %251, %get_rac.exit36 ], [ 0, %39 ], [ 0, %56 ], [ 0, %61 ], [ -1094995529, %129 ]
+  %.027 = phi i32 [ 0, %61 ], [ %251, %get_rac.exit36 ], [ 0, %39 ], [ 0, %56 ], [ -1094995529, %129 ]
   ret i32 %.027
 }
 

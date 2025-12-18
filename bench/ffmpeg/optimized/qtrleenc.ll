@@ -671,7 +671,7 @@ define internal range(i32 -2147483648, 1) i32 @qtrle_encode_frame(ptr noundef %0
   br label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %.lr.ph213.i.i, %283, %.preheader.i.i
-  %.7.i = phi ptr [ %248, %.preheader.i.i ], [ %289, %283 ], [ %278, %.lr.ph213.i.i ]
+  %.7.i = phi ptr [ %289, %283 ], [ %248, %.preheader.i.i ], [ %278, %.lr.ph213.i.i ]
   %290 = add nsw i32 %.2214.i.i, %247
   br label %311
 
@@ -710,7 +710,7 @@ define internal range(i32 -2147483648, 1) i32 @qtrle_encode_frame(ptr noundef %0
   br label %.loopexit199.i.i
 
 .loopexit199.i.i:                                 ; preds = %.lr.ph211.i.i, %304, %.preheader198.i.i
-  %.4.i = phi ptr [ %248, %.preheader198.i.i ], [ %309, %304 ], [ %300, %.lr.ph211.i.i ]
+  %.4.i = phi ptr [ %309, %304 ], [ %248, %.preheader198.i.i ], [ %300, %.lr.ph211.i.i ]
   %310 = sub nsw i32 %.2214.i.i, %247
   br label %311
 

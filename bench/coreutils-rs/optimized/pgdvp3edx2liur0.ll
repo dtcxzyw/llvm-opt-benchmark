@@ -667,7 +667,7 @@ _ZN7uu_join4Repr17print_line_ending17hae63dff723b77cfeE.exit.us.us: ; preds = %8
   br label %97
 
 _ZN7uu_join4Repr12print_format17h2e2d56df4791540dE.exit.thread: ; preds = %.loopexit.split, %_ZN7uu_join4Repr17print_line_ending17hae63dff723b77cfeE.exit, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h3021e2fc1b351f11E.exit26.i", %.loopexit.split.us.us, %_ZN7uu_join4Repr11print_field17h64553d81e0893f63E.exit.us.us, %73, %76, %_ZN7uu_join4Repr17print_line_ending17hae63dff723b77cfeE.exit.us.us, %119
-  %.0 = phi ptr [ %116, %119 ], [ %.0.i.i58, %_ZN7uu_join4Repr17print_line_ending17hae63dff723b77cfeE.exit ], [ %.0.i.i58.us.us, %_ZN7uu_join4Repr17print_line_ending17hae63dff723b77cfeE.exit.us.us ], [ null, %.loopexit.split.us.us ], [ %.0.i25.i, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h3021e2fc1b351f11E.exit26.i" ], [ %68, %_ZN7uu_join4Repr11print_field17h64553d81e0893f63E.exit.us.us ], [ %74, %73 ], [ %77, %76 ], [ null, %.loopexit.split ]
+  %.0 = phi ptr [ %.0.i25.i, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h3021e2fc1b351f11E.exit26.i" ], [ %116, %119 ], [ %.0.i.i58, %_ZN7uu_join4Repr17print_line_ending17hae63dff723b77cfeE.exit ], [ null, %.loopexit.split.us.us ], [ %.0.i.i58.us.us, %_ZN7uu_join4Repr17print_line_ending17hae63dff723b77cfeE.exit.us.us ], [ %68, %_ZN7uu_join4Repr11print_field17h64553d81e0893f63E.exit.us.us ], [ %74, %73 ], [ %77, %76 ], [ null, %.loopexit.split ]
   ret ptr %.0
 
 97:                                               ; preds = %_ZN7uu_join4Repr17print_line_ending17hae63dff723b77cfeE.exit, %.split

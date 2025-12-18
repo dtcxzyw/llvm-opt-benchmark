@@ -628,7 +628,7 @@ _ZNSt10_HashtableImSt4pairIKmmESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4
   br label %.body
 
 _ZNSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEEixERS5_.exit.i.i: ; preds = %209, %.noexc, %204
-  %.pn.i.i.i.i = phi ptr [ %205, %204 ], [ %219, %.noexc ], [ %211, %209 ]
+  %.pn.i.i.i.i = phi ptr [ %219, %.noexc ], [ %205, %204 ], [ %211, %209 ]
   %.1.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i.i, i64 16
   %221 = load i64, ptr %.1.i.i.i.i, align 8, !tbaa !160
   %222 = add i64 %221, 1
@@ -932,8 +932,8 @@ _ZL17execute_insn_fastP11processor_tm12insn_fetch_t.exit: ; preds = %_ZN5mmu_t13
   br label %.thread117
 
 .thread117:                                       ; preds = %310, %_ZN11processor_t9slow_pathEv.exit, %230, %229, %306, %307, %89, %339, %323, %302, %298
-  %.10 = phi i64 [ %.2, %339 ], [ %.2, %323 ], [ %.2, %298 ], [ %304, %302 ], [ %308, %307 ], [ %.165182, %89 ], [ %.7.lcssa192, %306 ], [ %.165182, %229 ], [ %231, %230 ], [ %.0184, %_ZN11processor_t9slow_pathEv.exit ], [ %311, %310 ]
-  %.1 = phi i64 [ %.2, %339 ], [ %.0184, %323 ], [ %.0184, %298 ], [ %304, %302 ], [ %.0184, %307 ], [ %.0184, %89 ], [ %.0184, %306 ], [ %.0184, %229 ], [ %.0184, %230 ], [ %.0184, %_ZN11processor_t9slow_pathEv.exit ], [ %.0184, %310 ]
+  %.10 = phi i64 [ %.2, %339 ], [ %.2, %323 ], [ %.2, %298 ], [ %304, %302 ], [ %308, %307 ], [ %.165182, %89 ], [ %231, %230 ], [ %.0184, %_ZN11processor_t9slow_pathEv.exit ], [ %.7.lcssa192, %306 ], [ %.165182, %229 ], [ %311, %310 ]
+  %.1 = phi i64 [ %.2, %339 ], [ %.0184, %323 ], [ %.0184, %298 ], [ %304, %302 ], [ %.0184, %307 ], [ %.0184, %89 ], [ %.0184, %230 ], [ %.0184, %_ZN11processor_t9slow_pathEv.exit ], [ %.0184, %306 ], [ %.0184, %229 ], [ %.0184, %310 ]
   %340 = load ptr, ptr %52, align 8, !tbaa !213
   %341 = load ptr, ptr %340, align 8, !tbaa !143
   %342 = getelementptr inbounds nuw i8, ptr %341, i64 8

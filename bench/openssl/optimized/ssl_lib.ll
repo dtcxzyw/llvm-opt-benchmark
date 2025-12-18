@@ -1292,8 +1292,8 @@ define range(i32 0, 2) i32 @SSL_is_dtls(ptr noundef %0) local_unnamed_addr #0 {
   br label %12
 
 12:                                               ; preds = %3, %8
-  %switch = phi i1 [ %11, %8 ], [ false, %3 ]
-  %13 = phi ptr [ %9, %8 ], [ %0, %3 ]
+  %switch = phi i1 [ false, %3 ], [ %11, %8 ]
+  %13 = phi ptr [ %0, %3 ], [ %9, %8 ]
   %14 = icmp eq ptr %13, null
   %or.cond = select i1 %switch, i1 true, i1 %14
   br i1 %or.cond, label %.thread, label %15
@@ -1337,8 +1337,8 @@ define range(i32 0, 2) i32 @SSL_is_tls(ptr noundef %0) local_unnamed_addr #0 {
   br label %12
 
 12:                                               ; preds = %3, %8
-  %switch = phi i1 [ %11, %8 ], [ false, %3 ]
-  %13 = phi ptr [ %9, %8 ], [ %0, %3 ]
+  %switch = phi i1 [ false, %3 ], [ %11, %8 ]
+  %13 = phi ptr [ %0, %3 ], [ %9, %8 ]
   %14 = icmp eq ptr %13, null
   %or.cond = select i1 %switch, i1 true, i1 %14
   br i1 %or.cond, label %.thread, label %15
@@ -1539,7 +1539,7 @@ define range(i32 0, 2) i32 @SSL_has_matching_session_id(ptr noundef %0, ptr noun
   br label %13
 
 13:                                               ; preds = %6, %11
-  %14 = phi ptr [ %12, %11 ], [ %0, %6 ]
+  %14 = phi ptr [ %0, %6 ], [ %12, %11 ]
   %15 = icmp eq ptr %14, null
   %16 = icmp ugt i32 %2, 32
   %or.cond = or i1 %16, %15
@@ -6741,7 +6741,7 @@ define range(i64 -1, 1) i64 @SSL_sendfile(ptr noundef captures(address_is_null) 
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %5, %7
-  %.0 = phi i64 [ 0, %7 ], [ 0, %5 ], [ -1, %.thread.sink.split ]
+  %.0 = phi i64 [ 0, %5 ], [ 0, %7 ], [ -1, %.thread.sink.split ]
   ret i64 %.0
 }
 
@@ -7867,7 +7867,7 @@ ssl_check_allowed_versions.exit136:               ; preds = %186, %185
   br label %.thread138
 
 .thread138:                                       ; preds = %tailrecurse, %28, %186, %174, %158, %146, %ssl_check_allowed_versions.exit136, %ssl_check_allowed_versions.exit, %141, %134, %137, %139, %125, %126, %93, %99, %91, %85, %70, %65, %205, %198, %170, %130, %116, %108, %106, %102, %89, %78, %67, %62, %55, %40, %35, %31, %22
-  %.0 = phi i64 [ %27, %22 ], [ %201, %198 ], [ 0, %186 ], [ %210, %205 ], [ %34, %31 ], [ %38, %35 ], [ %54, %40 ], [ %61, %55 ], [ %64, %62 ], [ %69, %67 ], [ 0, %65 ], [ 1, %78 ], [ 0, %70 ], [ 1, %89 ], [ 0, %85 ], [ 0, %91 ], [ %105, %102 ], [ 1, %106 ], [ %115, %108 ], [ %124, %116 ], [ 1, %93 ], [ %133, %130 ], [ 0, %126 ], [ 2, %125 ], [ %., %141 ], [ -1, %134 ], [ -1, %137 ], [ %173, %170 ], [ %169, %ssl_check_allowed_versions.exit ], [ 1, %99 ], [ -1, %139 ], [ 0, %158 ], [ %197, %ssl_check_allowed_versions.exit136 ], [ 0, %146 ], [ 0, %174 ], [ 0, %28 ], [ 0, %tailrecurse ]
+  %.0 = phi i64 [ %27, %22 ], [ %201, %198 ], [ 0, %186 ], [ %210, %205 ], [ %34, %31 ], [ %38, %35 ], [ %54, %40 ], [ %61, %55 ], [ %64, %62 ], [ 0, %174 ], [ %69, %67 ], [ 0, %65 ], [ 1, %78 ], [ 0, %70 ], [ 1, %89 ], [ 0, %85 ], [ 0, %91 ], [ %105, %102 ], [ 1, %106 ], [ %115, %108 ], [ %124, %116 ], [ 1, %93 ], [ %133, %130 ], [ 0, %126 ], [ 2, %125 ], [ %., %141 ], [ -1, %134 ], [ -1, %137 ], [ %173, %170 ], [ %169, %ssl_check_allowed_versions.exit ], [ 1, %99 ], [ -1, %139 ], [ 0, %146 ], [ 0, %158 ], [ %197, %ssl_check_allowed_versions.exit136 ], [ 0, %28 ], [ 0, %tailrecurse ]
   ret i64 %.0
 }
 
@@ -9134,7 +9134,7 @@ PACKET_get_length_prefixed_1.exit33.thread.sink.split: ; preds = %PACKET_equal.e
   br label %PACKET_get_length_prefixed_1.exit33.thread
 
 PACKET_get_length_prefixed_1.exit33.thread:       ; preds = %.backedge, %.lr.ph, %PACKET_get_length_prefixed_1.exit33.thread.sink.split, %14
-  %.0 = phi i32 [ 2, %14 ], [ %.0.ph, %PACKET_get_length_prefixed_1.exit33.thread.sink.split ], [ 2, %.lr.ph ], [ 2, %.backedge ]
+  %.0 = phi i32 [ %.0.ph, %PACKET_get_length_prefixed_1.exit33.thread.sink.split ], [ 2, %14 ], [ 2, %.lr.ph ], [ 2, %.backedge ]
   ret i32 %.0
 }
 
@@ -11287,7 +11287,7 @@ define i32 @SSL_set_ssl_method(ptr noundef %0, ptr noundef %1) local_unnamed_add
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %7, %2, %.thread52, %45, %9, %13, %.thread50, %19, %22
-  %.0 = phi i32 [ 0, %9 ], [ 0, %22 ], [ 0, %19 ], [ 0, %.thread50 ], [ 0, %13 ], [ 1, %.thread52 ], [ %.1, %45 ], [ 0, %2 ], [ 0, %7 ], [ %.1, %.thread.sink.split ]
+  %.0 = phi i32 [ 0, %9 ], [ 0, %22 ], [ 0, %19 ], [ 0, %.thread50 ], [ 0, %13 ], [ 1, %.thread52 ], [ %.1, %45 ], [ 0, %7 ], [ 0, %2 ], [ %.1, %.thread.sink.split ]
   ret i32 %.0
 }
 
@@ -11575,7 +11575,7 @@ SSL_want.exit98.thread:                           ; preds = %.thread128.thread, 
   br label %.thread100
 
 .thread100:                                       ; preds = %.thread, %65, %42, %104, %97, %94, %SSL_want.exit98.thread, %SSL_want.exit98, %SSL_want.exit90, %61, %57, %38, %SSL_get_rbio.exit, %26, %21, %19, %12, %108
-  %.0 = phi i32 [ 2, %61 ], [ 0, %12 ], [ %20, %19 ], [ %., %26 ], [ 1, %21 ], [ 4, %SSL_want.exit90 ], [ 12, %SSL_want.exit98 ], [ 9, %SSL_want.exit98.thread ], [ 10, %94 ], [ 11, %97 ], [ 5, %108 ], [ %switch.select67, %65 ], [ 2, %SSL_get_rbio.exit ], [ 3, %38 ], [ %switch.select63, %42 ], [ 6, %104 ], [ 3, %57 ], [ %spec.select, %.thread ]
+  %.0 = phi i32 [ 6, %104 ], [ 0, %12 ], [ %20, %19 ], [ %., %26 ], [ 1, %21 ], [ 3, %57 ], [ 4, %SSL_want.exit90 ], [ 12, %SSL_want.exit98 ], [ 9, %SSL_want.exit98.thread ], [ 10, %94 ], [ 11, %97 ], [ 5, %108 ], [ %switch.select67, %65 ], [ 2, %SSL_get_rbio.exit ], [ 3, %38 ], [ %switch.select63, %42 ], [ 2, %61 ], [ %spec.select, %.thread ]
   ret i32 %.0
 }
 
@@ -14161,7 +14161,7 @@ define range(i32 0, 2) i32 @SSL_set_block_padding_ex(ptr noundef %0, i64 noundef
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %8, %3, %23, %18, %10, %.thread28
-  %.0 = phi i32 [ 0, %10 ], [ 0, %23 ], [ 0, %18 ], [ 0, %.thread28 ], [ 0, %3 ], [ 0, %8 ], [ 1, %.thread.sink.split ]
+  %.0 = phi i32 [ 0, %10 ], [ 0, %23 ], [ 0, %18 ], [ 0, %.thread28 ], [ 0, %8 ], [ 0, %3 ], [ 1, %.thread.sink.split ]
   ret i32 %.0
 }
 
@@ -14211,7 +14211,7 @@ define range(i32 0, 2) i32 @SSL_set_block_padding(ptr noundef %0, i64 noundef %1
   br label %SSL_set_block_padding_ex.exit
 
 SSL_set_block_padding_ex.exit:                    ; preds = %2, %7, %9, %.thread28.i, %16, %.thread.sink.split.i
-  %.0.i = phi i32 [ 0, %9 ], [ 1, %.thread.sink.split.i ], [ 0, %16 ], [ 0, %.thread28.i ], [ 0, %2 ], [ 0, %7 ]
+  %.0.i = phi i32 [ 0, %9 ], [ 1, %.thread.sink.split.i ], [ 0, %16 ], [ 0, %.thread28.i ], [ 0, %7 ], [ 0, %2 ]
   ret i32 %.0.i
 }
 
@@ -15053,9 +15053,9 @@ ct_extract_ocsp_response_scts.exit:               ; preds = %46
   br label %.thread
 
 .critedge:                                        ; preds = %50, %.preheader.i, %37, %33, %29, %ct_extract_tls_extension_scts.exit.thread
-  %.026.i.ph = phi ptr [ %38, %.preheader.i ], [ null, %37 ], [ null, %33 ], [ null, %29 ], [ null, %ct_extract_tls_extension_scts.exit.thread ], [ %38, %50 ]
-  %.025.i.ph = phi ptr [ %35, %.preheader.i ], [ %35, %37 ], [ null, %33 ], [ null, %29 ], [ null, %ct_extract_tls_extension_scts.exit.thread ], [ %35, %50 ]
-  %.024.i.ph = phi ptr [ null, %.preheader.i ], [ null, %37 ], [ null, %33 ], [ null, %29 ], [ null, %ct_extract_tls_extension_scts.exit.thread ], [ %.2.ph.i, %50 ]
+  %.026.i.ph = phi ptr [ null, %ct_extract_tls_extension_scts.exit.thread ], [ %38, %.preheader.i ], [ null, %37 ], [ null, %33 ], [ null, %29 ], [ %38, %50 ]
+  %.025.i.ph = phi ptr [ null, %ct_extract_tls_extension_scts.exit.thread ], [ %35, %.preheader.i ], [ %35, %37 ], [ null, %33 ], [ null, %29 ], [ %35, %50 ]
+  %.024.i.ph = phi ptr [ null, %ct_extract_tls_extension_scts.exit.thread ], [ null, %.preheader.i ], [ null, %37 ], [ null, %33 ], [ null, %29 ], [ %.2.ph.i, %50 ]
   call void @SCT_LIST_free(ptr noundef %.024.i.ph) #20
   call void @OCSP_BASICRESP_free(ptr noundef %.026.i.ph) #20
   call void @OCSP_RESPONSE_free(ptr noundef %.025.i.ph) #20
@@ -15953,7 +15953,7 @@ define range(i32 0, 2) i32 @SSL_client_hello_get_extension_order(ptr noundef %0,
   br label %.thread
 
 .thread:                                          ; preds = %40, %.thread.sink.split, %8, %3, %31, %.thread48, %10
-  %.0 = phi i32 [ 0, %10 ], [ 0, %.thread48 ], [ 0, %31 ], [ 0, %3 ], [ 0, %8 ], [ 1, %.thread.sink.split ], [ 0, %40 ]
+  %.0 = phi i32 [ 1, %.thread.sink.split ], [ 0, %10 ], [ 0, %3 ], [ 0, %8 ], [ 0, %.thread48 ], [ 0, %31 ], [ 0, %40 ]
   ret i32 %.0
 }
 
@@ -16034,7 +16034,7 @@ define range(i32 0, 2) i32 @SSL_client_hello_get0_ext(ptr noundef %0, i32 nounde
   br i1 %exitcond.not, label %.thread, label %22, !llvm.loop !510
 
 .thread:                                          ; preds = %35, %.preheader, %9, %4, %32, %33, %.thread31, %11
-  %.0 = phi i32 [ 1, %32 ], [ 0, %11 ], [ 0, %.thread31 ], [ 1, %33 ], [ 0, %4 ], [ 0, %9 ], [ 0, %.preheader ], [ 0, %35 ]
+  %.0 = phi i32 [ 1, %32 ], [ 0, %11 ], [ 0, %.thread31 ], [ 1, %33 ], [ 0, %9 ], [ 0, %4 ], [ 0, %.preheader ], [ 0, %35 ]
   ret i32 %.0
 }
 
@@ -16391,7 +16391,7 @@ PACKET_memdup.exit:                               ; preds = %38
   br label %.critedge
 
 .critedge:                                        ; preds = %33, %21, %36, %42, %20, %PACKET_copy_bytes.exit.thread, %PACKET_memdup.exit, %10, %6
-  %.031 = phi i32 [ 0, %6 ], [ 0, %10 ], [ 0, %PACKET_memdup.exit ], [ 0, %20 ], [ 0, %PACKET_copy_bytes.exit.thread ], [ 1, %42 ], [ 1, %36 ], [ 1, %21 ], [ 1, %33 ]
+  %.031 = phi i32 [ 0, %6 ], [ 0, %10 ], [ 0, %PACKET_memdup.exit ], [ 1, %36 ], [ 0, %20 ], [ 0, %PACKET_copy_bytes.exit.thread ], [ 1, %42 ], [ 1, %21 ], [ 1, %33 ]
   ret i32 %.031
 }
 
@@ -16609,7 +16609,7 @@ define range(i32 0, 2) i32 @ossl_bytes_to_cipher_list(ptr noundef %0, ptr nounde
   br i1 %53, label %._crit_edge, label %.lr.ph.split, !llvm.loop !522
 
 ._crit_edge:                                      ; preds = %.backedge.us, %.backedge, %.preheader
-  %.val = phi i64 [ %.val.i.i67, %.preheader ], [ %.val.i.i, %.backedge ], [ %.val.i.i.us, %.backedge.us ]
+  %.val = phi i64 [ %.val.i.i, %.backedge ], [ %.val.i.i67, %.preheader ], [ %.val.i.i.us, %.backedge.us ]
   %.not48 = icmp eq i64 %.val, 0
   br i1 %.not48, label %57, label %54
 

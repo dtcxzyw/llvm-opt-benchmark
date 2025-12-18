@@ -2986,7 +2986,7 @@ _ZL21align_allocation_sizemm.exit.i.i.i:          ; preds = %.preheader.i.i.i.i
   br i1 %.not.i.i, label %_ZN14JfrMemorySpaceI19JfrEpochStorageHostI9JfrBuffer24JfrMspaceRemoveRetrievalLb1EES2_18JfrConcurrentQueueIS1_11JfrCHeapObjE13JfrLinkedListIS1_S5_ELb1EE16add_to_live_listEPS1_b.exit, label %17, !llvm.loop !10
 
 _ZN14JfrMemorySpaceI19JfrEpochStorageHostI9JfrBuffer24JfrMspaceRemoveRetrievalLb1EES2_18JfrConcurrentQueueIS1_11JfrCHeapObjE13JfrLinkedListIS1_S5_ELb1EE16add_to_live_listEPS1_b.exit: ; preds = %17, %3, %10, %_ZL21align_allocation_sizemm.exit.i.i.i
-  %.0 = phi ptr [ null, %_ZL21align_allocation_sizemm.exit.i.i.i ], [ null, %10 ], [ null, %3 ], [ %12, %17 ]
+  %.0 = phi ptr [ null, %3 ], [ null, %_ZL21align_allocation_sizemm.exit.i.i.i ], [ null, %10 ], [ %12, %17 ]
   ret ptr %.0
 }
 
@@ -3302,7 +3302,7 @@ _ZNK16JfrVersionSystem16synchronize_withEmPNS_4NodeE.exit.i.i: ; preds = %.lr.ph
   br label %.lr.ph.i.preheader.i.i
 
 _ZN16JfrVersionSystem4Node6commitEv.exit:         ; preds = %_Z13find_adjacentI9JfrBuffer14RefCountHandleIN16JfrVersionSystem4NodeEE8HeadNodeEPT_S7_PKS6_PS7_RT0_RT1_IS6_E.exit, %135, %_ZN16JfrVersionSystem7inc_tipEv.exit.i
-  %.0 = phi ptr [ %40, %_ZN16JfrVersionSystem7inc_tipEv.exit.i ], [ %40, %135 ], [ null, %_Z13find_adjacentI9JfrBuffer14RefCountHandleIN16JfrVersionSystem4NodeEE8HeadNodeEPT_S7_PKS6_PS7_RT0_RT1_IS6_E.exit ]
+  %.0 = phi ptr [ %40, %135 ], [ %40, %_ZN16JfrVersionSystem7inc_tipEv.exit.i ], [ null, %_Z13find_adjacentI9JfrBuffer14RefCountHandleIN16JfrVersionSystem4NodeEE8HeadNodeEPT_S7_PKS6_PS7_RT0_RT1_IS6_E.exit ]
   %139 = load i64, ptr %27, align 8
   %140 = add nsw i64 %139, -1
   store i64 %140, ptr %27, align 8

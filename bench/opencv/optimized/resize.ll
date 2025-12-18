@@ -7968,7 +7968,7 @@ define linkonce_odr hidden void @_ZNK2cv13HResizeLinearIhisLi2048ENS_12HResizeNo
   br label %.preheader97
 
 .preheader97:                                     ; preds = %.preheader98.preheader, %.preheader97.loopexit131, %.preheader97.loopexit, %11
-  %.095.lcssa = phi i32 [ 0, %11 ], [ %99, %.preheader97.loopexit ], [ %100, %.preheader97.loopexit131 ], [ %74, %.preheader98.preheader ]
+  %.095.lcssa = phi i32 [ 0, %11 ], [ %100, %.preheader97.loopexit131 ], [ %99, %.preheader97.loopexit ], [ %74, %.preheader98.preheader ]
   %101 = icmp slt i32 %.095.lcssa, %3
   br i1 %101, label %.lr.ph119, label %._crit_edge120
 
@@ -8671,7 +8671,7 @@ define linkonce_odr hidden void @_ZNK2cv13HResizeLinearItffLi1ENS_12HResizeNoVec
   br label %.preheader97
 
 .preheader97:                                     ; preds = %.preheader98.preheader, %.preheader97.loopexit131, %.preheader97.loopexit, %11
-  %.095.lcssa = phi i32 [ 0, %11 ], [ %91, %.preheader97.loopexit ], [ %92, %.preheader97.loopexit131 ], [ %68, %.preheader98.preheader ]
+  %.095.lcssa = phi i32 [ 0, %11 ], [ %92, %.preheader97.loopexit131 ], [ %91, %.preheader97.loopexit ], [ %68, %.preheader98.preheader ]
   %93 = icmp slt i32 %.095.lcssa, %3
   br i1 %93, label %.lr.ph119, label %._crit_edge120
 
@@ -9369,7 +9369,7 @@ define linkonce_odr hidden void @_ZNK2cv13HResizeLinearIsffLi1ENS_12HResizeNoVec
   br label %.preheader97
 
 .preheader97:                                     ; preds = %.preheader98.preheader, %.preheader97.loopexit131, %.preheader97.loopexit, %11
-  %.095.lcssa = phi i32 [ 0, %11 ], [ %91, %.preheader97.loopexit ], [ %92, %.preheader97.loopexit131 ], [ %68, %.preheader98.preheader ]
+  %.095.lcssa = phi i32 [ 0, %11 ], [ %92, %.preheader97.loopexit131 ], [ %91, %.preheader97.loopexit ], [ %68, %.preheader98.preheader ]
   %93 = icmp slt i32 %.095.lcssa, %3
   br i1 %93, label %.lr.ph119, label %._crit_edge120
 
@@ -10054,7 +10054,7 @@ define linkonce_odr hidden void @_ZNK2cv13HResizeLinearIfffLi1ENS_12HResizeNoVec
   br label %.preheader97
 
 .preheader97:                                     ; preds = %.preheader98.preheader, %.preheader97.loopexit131, %.preheader97.loopexit, %11
-  %.095.lcssa = phi i32 [ 0, %11 ], [ %83, %.preheader97.loopexit ], [ %84, %.preheader97.loopexit131 ], [ %62, %.preheader98.preheader ]
+  %.095.lcssa = phi i32 [ 0, %11 ], [ %84, %.preheader97.loopexit131 ], [ %83, %.preheader97.loopexit ], [ %62, %.preheader98.preheader ]
   %85 = icmp slt i32 %.095.lcssa, %3
   br i1 %85, label %.lr.ph119, label %._crit_edge120
 
@@ -10739,7 +10739,7 @@ define linkonce_odr hidden void @_ZNK2cv13HResizeLinearIddfLi1ENS_12HResizeNoVec
   br label %.preheader97
 
 .preheader97:                                     ; preds = %.preheader98.preheader, %.preheader97.loopexit131, %.preheader97.loopexit, %11
-  %.095.lcssa = phi i32 [ 0, %11 ], [ %85, %.preheader97.loopexit ], [ %86, %.preheader97.loopexit131 ], [ %64, %.preheader98.preheader ]
+  %.095.lcssa = phi i32 [ 0, %11 ], [ %86, %.preheader97.loopexit131 ], [ %85, %.preheader97.loopexit ], [ %64, %.preheader98.preheader ]
   %87 = icmp slt i32 %.095.lcssa, %3
   br i1 %87, label %.lr.ph119, label %._crit_edge120
 
@@ -17651,7 +17651,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %109, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph114, %.loopexit.loopexit117, %.loopexit.loopexit116, %.preheader107, %.preheader105, %.preheader, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %.preheader ], [ 0, %.preheader105 ], [ 0, %.preheader107 ], [ %200, %.loopexit.loopexit117 ], [ %199, %.loopexit.loopexit116 ], [ %3, %.lr.ph114 ]
+  %.0 = phi i32 [ 0, %4 ], [ %199, %.loopexit.loopexit116 ], [ %200, %.loopexit.loopexit117 ], [ 0, %.preheader ], [ 0, %.preheader105 ], [ 0, %.preheader107 ], [ %3, %.lr.ph114 ]
   ret i32 %.0
 }
 
@@ -18256,7 +18256,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %109, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph114, %.loopexit.loopexit117, %.loopexit.loopexit116, %.preheader107, %.preheader105, %.preheader, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %.preheader ], [ 0, %.preheader105 ], [ 0, %.preheader107 ], [ %200, %.loopexit.loopexit117 ], [ %199, %.loopexit.loopexit116 ], [ %3, %.lr.ph114 ]
+  %.0 = phi i32 [ 0, %4 ], [ %199, %.loopexit.loopexit116 ], [ %200, %.loopexit.loopexit117 ], [ 0, %.preheader ], [ 0, %.preheader105 ], [ 0, %.preheader107 ], [ %3, %.lr.ph114 ]
   ret i32 %.0
 }
 
@@ -18861,7 +18861,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %109, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph114, %.loopexit.loopexit117, %.loopexit.loopexit116, %.preheader107, %.preheader105, %.preheader, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %.preheader ], [ 0, %.preheader105 ], [ 0, %.preheader107 ], [ %200, %.loopexit.loopexit117 ], [ %199, %.loopexit.loopexit116 ], [ %3, %.lr.ph114 ]
+  %.0 = phi i32 [ 0, %4 ], [ %199, %.loopexit.loopexit116 ], [ %200, %.loopexit.loopexit117 ], [ 0, %.preheader ], [ 0, %.preheader105 ], [ 0, %.preheader107 ], [ %3, %.lr.ph114 ]
   ret i32 %.0
 }
 
@@ -19747,7 +19747,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %2, %19
   br i1 %exitcond.not.i202, label %_ZN2cv10inter_area3mulIfEEvPKT_iS2_PS2_.exit, label %.lr.ph.i199, !llvm.loop !812
 
 _ZN2cv10inter_area3mulIfEEvPKT_iS2_PS2_.exit:     ; preds = %.lr.ph.i193, %.lr.ph.i199, %200, %178
-  %.1186 = phi i32 [ %61, %178 ], [ %.0185238, %200 ], [ %.0185238, %.lr.ph.i199 ], [ %61, %.lr.ph.i193 ]
+  %.1186 = phi i32 [ %.0185238, %.lr.ph.i199 ], [ %61, %178 ], [ %.0185238, %200 ], [ %61, %.lr.ph.i193 ]
   %indvars.iv.next276 = add nsw i64 %indvars.iv275, 1
   %exitcond279.not = icmp eq i64 %indvars.iv.next276, %wide.trip.count278
   br i1 %exitcond279.not, label %._crit_edge241.loopexit, label %55, !llvm.loop !813
@@ -20157,7 +20157,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %2, %19
   br i1 %exitcond.not.i202, label %_ZN2cv10inter_area3mulIfEEvPKT_iS2_PS2_.exit, label %.lr.ph.i199, !llvm.loop !812
 
 _ZN2cv10inter_area3mulIfEEvPKT_iS2_PS2_.exit:     ; preds = %.lr.ph.i193, %.lr.ph.i199, %198, %179
-  %.1186 = phi i32 [ %68, %179 ], [ %.0185238, %198 ], [ %.0185238, %.lr.ph.i199 ], [ %68, %.lr.ph.i193 ]
+  %.1186 = phi i32 [ %.0185238, %.lr.ph.i199 ], [ %68, %179 ], [ %.0185238, %198 ], [ %68, %.lr.ph.i193 ]
   %indvars.iv.next276 = add nsw i64 %indvars.iv275, 1
   %exitcond279.not = icmp eq i64 %indvars.iv.next276, %wide.trip.count278
   br i1 %exitcond279.not, label %._crit_edge241, label %63, !llvm.loop !821
@@ -20559,7 +20559,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %2, %19
   br i1 %exitcond.not.i202, label %_ZN2cv10inter_area3mulIfEEvPKT_iS2_PS2_.exit, label %.lr.ph.i199, !llvm.loop !812
 
 _ZN2cv10inter_area3mulIfEEvPKT_iS2_PS2_.exit:     ; preds = %.lr.ph.i193, %.lr.ph.i199, %198, %179
-  %.1186 = phi i32 [ %68, %179 ], [ %.0185238, %198 ], [ %.0185238, %.lr.ph.i199 ], [ %68, %.lr.ph.i193 ]
+  %.1186 = phi i32 [ %.0185238, %.lr.ph.i199 ], [ %68, %179 ], [ %.0185238, %198 ], [ %68, %.lr.ph.i193 ]
   %indvars.iv.next276 = add nsw i64 %indvars.iv275, 1
   %exitcond279.not = icmp eq i64 %indvars.iv.next276, %wide.trip.count278
   br i1 %exitcond279.not, label %._crit_edge241, label %63, !llvm.loop !829
@@ -20943,7 +20943,7 @@ _ZN2cv10inter_area14saturate_storeIfEEvPKT_iPS2_.exit: ; preds = %167
   br i1 %exitcond.not.i196, label %_ZN2cv10inter_area3mulIfEEvPKT_iS2_PS2_.exit, label %.lr.ph.i193, !llvm.loop !812
 
 _ZN2cv10inter_area3mulIfEEvPKT_iS2_PS2_.exit:     ; preds = %.lr.ph.i, %.lr.ph.i193, %167, %181, %_ZN2cv10inter_area14saturate_storeIfEEvPKT_iPS2_.exit
-  %.1186 = phi i32 [ %61, %_ZN2cv10inter_area14saturate_storeIfEEvPKT_iPS2_.exit ], [ %.0185228, %181 ], [ %61, %167 ], [ %.0185228, %.lr.ph.i193 ], [ %61, %.lr.ph.i ]
+  %.1186 = phi i32 [ %.0185228, %.lr.ph.i193 ], [ %61, %167 ], [ %61, %_ZN2cv10inter_area14saturate_storeIfEEvPKT_iPS2_.exit ], [ %.0185228, %181 ], [ %61, %.lr.ph.i ]
   %indvars.iv.next266 = add nsw i64 %indvars.iv265, 1
   %exitcond269.not = icmp eq i64 %indvars.iv.next266, %wide.trip.count268
   br i1 %exitcond269.not, label %._crit_edge231, label %55, !llvm.loop !836
@@ -21327,7 +21327,7 @@ _ZN2cv10inter_area14saturate_storeIdEEvPKT_iPS2_.exit: ; preds = %173
   br i1 %exitcond.not.i196, label %_ZN2cv10inter_area3mulEPKdidPd.exit, label %.lr.ph.i193, !llvm.loop !844
 
 _ZN2cv10inter_area3mulEPKdidPd.exit:              ; preds = %.lr.ph.i, %.lr.ph.i193, %173, %187, %_ZN2cv10inter_area14saturate_storeIdEEvPKT_iPS2_.exit
-  %.1186 = phi i32 [ %62, %_ZN2cv10inter_area14saturate_storeIdEEvPKT_iPS2_.exit ], [ %.0185228, %187 ], [ %62, %173 ], [ %.0185228, %.lr.ph.i193 ], [ %62, %.lr.ph.i ]
+  %.1186 = phi i32 [ %.0185228, %.lr.ph.i193 ], [ %62, %173 ], [ %62, %_ZN2cv10inter_area14saturate_storeIdEEvPKT_iPS2_.exit ], [ %.0185228, %187 ], [ %62, %.lr.ph.i ]
   %indvars.iv.next266 = add nsw i64 %indvars.iv265, 1
   %exitcond269.not = icmp eq i64 %indvars.iv.next266, %wide.trip.count268
   br i1 %exitcond269.not, label %._crit_edge231, label %55, !llvm.loop !845

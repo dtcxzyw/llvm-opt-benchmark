@@ -5196,7 +5196,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit56: ; preds = %183, %188
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit56, %235
-  %.sroa.07.0.be = phi ptr [ %196, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit56 ], [ %210, %235 ]
+  %.sroa.07.0.be = phi ptr [ %210, %235 ], [ %196, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit56 ]
   br label %.backedge, !llvm.loop !131
 
 197:                                              ; preds = %180
@@ -5291,7 +5291,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130Ts_SplineChangedIntervalHel
   br i1 %234, label %.backedge.backedge, label %.loopexit37
 
 .loopexit37:                                      ; preds = %82, %235, %176, %.critedge, %56, %28, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130Ts_SplineChangedIntervalHelper16_GetLastKeyFrameERKNS_8TsSplineEN9__gnu_cxx17__normal_iteratorIPKNS_10TsKeyFrameESt6vectorIS7_SaIS7_EEEE.exit67, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130Ts_SplineChangedIntervalHelper16_GetLastKeyFrameERKNS_8TsSplineEN9__gnu_cxx17__normal_iteratorIPKNS_10TsKeyFrameESt6vectorIS7_SaIS7_EEEE.exit
-  %.sroa.017.0 = phi ptr [ %.sroa.0.0.i62, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130Ts_SplineChangedIntervalHelper16_GetLastKeyFrameERKNS_8TsSplineEN9__gnu_cxx17__normal_iteratorIPKNS_10TsKeyFrameESt6vectorIS7_SaIS7_EEEE.exit67 ], [ %25, %28 ], [ %57, %56 ], [ %.sroa.0.0.i, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130Ts_SplineChangedIntervalHelper16_GetLastKeyFrameERKNS_8TsSplineEN9__gnu_cxx17__normal_iteratorIPKNS_10TsKeyFrameESt6vectorIS7_SaIS7_EEEE.exit ], [ %.sroa.07.0, %.critedge ], [ %.sroa.07.0, %176 ], [ %.sroa.07.0, %235 ], [ %.sroa.07.0, %82 ]
+  %.sroa.017.0 = phi ptr [ %.sroa.0.0.i62, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130Ts_SplineChangedIntervalHelper16_GetLastKeyFrameERKNS_8TsSplineEN9__gnu_cxx17__normal_iteratorIPKNS_10TsKeyFrameESt6vectorIS7_SaIS7_EEEE.exit67 ], [ %.sroa.0.0.i, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130Ts_SplineChangedIntervalHelper16_GetLastKeyFrameERKNS_8TsSplineEN9__gnu_cxx17__normal_iteratorIPKNS_10TsKeyFrameESt6vectorIS7_SaIS7_EEEE.exit ], [ %25, %28 ], [ %57, %56 ], [ %.sroa.07.0, %.critedge ], [ %.sroa.07.0, %176 ], [ %.sroa.07.0, %235 ], [ %.sroa.07.0, %82 ]
   %236 = load ptr, ptr %26, align 8
   %237 = ptrtoint ptr %236 to i64
   %.not.i.i68 = icmp eq ptr %236, null

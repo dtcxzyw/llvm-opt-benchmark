@@ -442,7 +442,7 @@ safe_malloc_add_2op_.exit:                        ; preds = %.thread
   br label %180
 
 safe_realloc_nofree_add_2op_.exit.thread:         ; preds = %54, %57, %safe_realloc_nofree_add_2op_.exit, %102, %108, %safe_malloc_add_2op_.exit, %88, %.thread
-  %.0112 = phi ptr [ %.1113.lcssa, %safe_realloc_nofree_add_2op_.exit ], [ %.1113.lcssa, %102 ], [ %109, %safe_malloc_add_2op_.exit ], [ %.1113.lcssa, %108 ], [ %.1113.lcssa, %88 ], [ %109, %.thread ], [ %.1113202, %57 ], [ %.1113202, %54 ]
+  %.0112 = phi ptr [ %109, %.thread ], [ %.1113.lcssa, %88 ], [ %.1113.lcssa, %safe_realloc_nofree_add_2op_.exit ], [ %.1113.lcssa, %102 ], [ %109, %safe_malloc_add_2op_.exit ], [ %.1113.lcssa, %108 ], [ %.1113202, %57 ], [ %.1113202, %54 ]
   call void @free(ptr noundef nonnull %.0112) #8
   br label %.thread174
 

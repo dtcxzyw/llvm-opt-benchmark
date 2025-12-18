@@ -444,7 +444,7 @@ bytestream2_get_be24.exit:                        ; preds = %188, %189
   br label %.loopexit
 
 .loopexit:                                        ; preds = %bytestream2_get_byte.exit243, %bytestream2_get_byte.exit241, %bytestream2_get_be24.exit, %.preheader, %132, %158, %140, %178, %218, %210
-  %.0199 = phi i32 [ 16, %218 ], [ 2, %210 ], [ %141, %140 ], [ 0, %178 ], [ %159, %158 ], [ %141, %bytestream2_get_byte.exit241 ], [ 4, %132 ], [ 4, %.preheader ], [ %181, %bytestream2_get_be24.exit ], [ %159, %bytestream2_get_byte.exit243 ]
+  %.0199 = phi i32 [ 16, %218 ], [ 4, %.preheader ], [ 0, %178 ], [ %159, %158 ], [ 2, %210 ], [ %141, %140 ], [ %181, %bytestream2_get_be24.exit ], [ %141, %bytestream2_get_byte.exit241 ], [ 4, %132 ], [ %159, %bytestream2_get_byte.exit243 ]
   %219 = zext nneg i32 %.0199 to i64
   %220 = getelementptr inbounds nuw i32, ptr %116, i64 %219
   %221 = shl nuw nsw i32 %.0199, 2
@@ -1149,9 +1149,9 @@ define internal fastcc void @picmemset(ptr noundef readonly captures(none) %0, p
   br i1 %122, label %.preheader127.us.backedge, label %.thread
 
 .thread:                                          ; preds = %._crit_edge.split.us232, %94, %._crit_edge.split.us.us.us, %41, %8
-  %.6 = phi i32 [ %13, %8 ], [ 0, %94 ], [ 0, %41 ], [ %.295.lcssa.us.us.us, %._crit_edge.split.us.us.us ], [ %.295.lcssa.us226, %._crit_edge.split.us232 ]
-  %.592 = phi i32 [ %14, %8 ], [ %96, %94 ], [ %43, %41 ], [ %.289.lcssa.us.us.us, %._crit_edge.split.us.us.us ], [ %.289.lcssa.us227, %._crit_edge.split.us232 ]
-  %.5 = phi i32 [ %9, %8 ], [ %97, %94 ], [ %44, %41 ], [ %.284.lcssa.us.us.us, %._crit_edge.split.us.us.us ], [ %.284.lcssa.us228, %._crit_edge.split.us232 ]
+  %.6 = phi i32 [ 0, %94 ], [ 0, %41 ], [ %13, %8 ], [ %.295.lcssa.us.us.us, %._crit_edge.split.us.us.us ], [ %.295.lcssa.us226, %._crit_edge.split.us232 ]
+  %.592 = phi i32 [ %96, %94 ], [ %43, %41 ], [ %14, %8 ], [ %.289.lcssa.us.us.us, %._crit_edge.split.us.us.us ], [ %.289.lcssa.us227, %._crit_edge.split.us232 ]
+  %.5 = phi i32 [ %97, %94 ], [ %44, %41 ], [ %9, %8 ], [ %.284.lcssa.us.us.us, %._crit_edge.split.us.us.us ], [ %.284.lcssa.us228, %._crit_edge.split.us232 ]
   store i32 %.6, ptr %4, align 4, !tbaa !43
   store i32 %.592, ptr %5, align 4, !tbaa !43
   store i32 %.5, ptr %6, align 4, !tbaa !43

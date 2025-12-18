@@ -4197,8 +4197,8 @@ define hidden { i64, ptr } @_ZN3std2io4copy17stack_buffer_copy17hdc7814122b9f650
   br i1 %17, label %8, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2, %._crit_edge.loopexit
-  %.sroa.4.0 = phi ptr [ null, %2 ], [ %13, %._crit_edge.loopexit ], [ %16, %.lr.ph ]
-  %.sroa.0.0 = phi i64 [ 0, %2 ], [ 0, %._crit_edge.loopexit ], [ 1, %.lr.ph ]
+  %.sroa.4.0 = phi ptr [ %13, %._crit_edge.loopexit ], [ null, %2 ], [ %16, %.lr.ph ]
+  %.sroa.0.0 = phi i64 [ 0, %._crit_edge.loopexit ], [ 0, %2 ], [ 1, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %18 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %19 = insertvalue { i64, ptr } %18, ptr %.sroa.4.0, 1
@@ -7638,8 +7638,8 @@ define hidden { i64, ptr } @"_ZN55_$LT$W$u20$as$u20$std..io..copy..BufferedWrite
   br i1 %17, label %8, label %_ZN3std2io4copy17stack_buffer_copy17hdc7814122b9f6505E.llvm.11381115128112186458.exit
 
 _ZN3std2io4copy17stack_buffer_copy17hdc7814122b9f6505E.llvm.11381115128112186458.exit: ; preds = %.lr.ph.i, %2, %._crit_edge.loopexit.i
-  %.sroa.4.0.i = phi ptr [ null, %2 ], [ %13, %._crit_edge.loopexit.i ], [ %16, %.lr.ph.i ]
-  %.sroa.0.0.i = phi i64 [ 0, %2 ], [ 0, %._crit_edge.loopexit.i ], [ 1, %.lr.ph.i ]
+  %.sroa.4.0.i = phi ptr [ %13, %._crit_edge.loopexit.i ], [ null, %2 ], [ %16, %.lr.ph.i ]
+  %.sroa.0.0.i = phi i64 [ 0, %._crit_edge.loopexit.i ], [ 0, %2 ], [ 1, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !1730
   %18 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0.i, 0
   %19 = insertvalue { i64, ptr } %18, ptr %.sroa.4.0.i, 1
@@ -35142,8 +35142,8 @@ _ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17h5ac2ae42596d
   %70 = zext nneg i16 %69 to i64
   br label %_ZN9hashbrown3raw5inner13RawTableInner30find_or_find_insert_slot_inner17h905c416281a1f195E.exit.thread
 
-_ZN9hashbrown3raw5inner13RawTableInner30find_or_find_insert_slot_inner17h905c416281a1f195E.exit.thread: ; preds = %64, %60
-  %.sroa.3.0.i.ph = phi i64 [ %.sroa.4.1.i, %60 ], [ %70, %64 ]
+_ZN9hashbrown3raw5inner13RawTableInner30find_or_find_insert_slot_inner17h905c416281a1f195E.exit.thread: ; preds = %60, %64
+  %.sroa.3.0.i.ph = phi i64 [ %70, %64 ], [ %.sroa.4.1.i, %60 ]
   %71 = inttoptr i64 %.sroa.3.0.i.ph to ptr
   br label %.loopexit
 

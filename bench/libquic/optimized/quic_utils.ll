@@ -348,7 +348,7 @@ define noundef zeroext i1 @_ZN3net9QuicUtils13FindMutualTagERKSt6vectorIjSaIjEEP
   br label %.critedge50
 
 .critedge50:                                      ; preds = %..critedge_crit_edge.us, %.critedge50.sink.split, %11, %.split.us, %6
-  %.040 = phi i1 [ false, %6 ], [ true, %.split.us ], [ false, %11 ], [ true, %.critedge50.sink.split ], [ false, %..critedge_crit_edge.us ]
+  %.040 = phi i1 [ false, %6 ], [ true, %.critedge50.sink.split ], [ true, %.split.us ], [ false, %11 ], [ false, %..critedge_crit_edge.us ]
   ret i1 %.040
 }
 

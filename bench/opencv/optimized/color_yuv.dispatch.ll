@@ -2154,9 +2154,9 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_120RGB8toYUV420pInvo
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !217
 
 ._crit_edge:                                      ; preds = %159, %139, %.thread, %68
-  %.1110 = phi ptr [ %.088, %.thread ], [ %.1, %68 ], [ %.1, %139 ], [ %.088, %159 ]
-  %.157108 = phi ptr [ %.05687, %.thread ], [ %.157, %68 ], [ %.157, %139 ], [ %.05687, %159 ]
-  %.160106 = phi ptr [ %.05986, %.thread ], [ %.160, %68 ], [ %.160, %139 ], [ %.05986, %159 ]
+  %.1110 = phi ptr [ %.088, %.thread ], [ %.1, %139 ], [ %.1, %68 ], [ %.088, %159 ]
+  %.157108 = phi ptr [ %.05687, %.thread ], [ %.157, %139 ], [ %.157, %68 ], [ %.05687, %159 ]
+  %.160106 = phi ptr [ %.05986, %.thread ], [ %.160, %139 ], [ %.160, %68 ], [ %.05986, %159 ]
   %indvars.iv.next100 = add nsw i64 %indvars.iv99, 1
   %184 = load i32, ptr %4, align 4, !tbaa !14
   %185 = shl nsw i32 %184, 1

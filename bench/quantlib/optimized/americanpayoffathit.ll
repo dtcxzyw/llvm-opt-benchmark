@@ -1348,7 +1348,7 @@ if.then.i.i.i:                                    ; preds = %cond.true.i
   br label %if.end381
 
 if.end381:                                        ; preds = %cond.true.i, %if.then.i.i.i
-  %coo.sroa.5.0 = phi ptr [ %154, %if.then.i.i.i ], [ null, %cond.true.i ]
+  %coo.sroa.5.0 = phi ptr [ null, %cond.true.i ], [ %154, %if.then.i.i.i ]
   %cashPayoff_.i = getelementptr inbounds nuw i8, ptr %153, i64 24
   %156 = load double, ptr %cashPayoff_.i, align 8, !tbaa !69
   %K_ = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -1378,7 +1378,7 @@ if.then.i.i.i211:                                 ; preds = %cond.true.i207
   br label %if.then383
 
 if.then383:                                       ; preds = %if.then.i.i.i211, %cond.true.i207
-  %aoo.sroa.5.0 = phi ptr [ %160, %if.then.i.i.i211 ], [ null, %cond.true.i207 ]
+  %aoo.sroa.5.0 = phi ptr [ null, %cond.true.i207 ], [ %160, %if.then.i.i.i211 ]
   %162 = load i8, ptr %inTheMoney_346, align 8, !tbaa !61, !range !76, !noundef !65
   %loadedv385 = trunc nuw i8 %162 to i1
   %strike_.i219 = getelementptr inbounds nuw i8, ptr %159, i64 16

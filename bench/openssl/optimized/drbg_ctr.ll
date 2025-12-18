@@ -362,7 +362,7 @@ define internal range(i32 0, 2) i32 @drbg_ctr_verify_zeroization(ptr noundef rea
   br label %.thread
 
 .thread:                                          ; preds = %12, %18, %24, %29, %32
-  %.032 = phi i32 [ %spec.select, %32 ], [ 0, %18 ], [ 0, %29 ], [ 0, %24 ], [ 0, %12 ]
+  %.032 = phi i32 [ %spec.select, %32 ], [ 0, %29 ], [ 0, %18 ], [ 0, %24 ], [ 0, %12 ]
   %35 = load ptr, ptr %0, align 8, !tbaa !20
   %.not42 = icmp eq ptr %35, null
   br i1 %.not42, label %38, label %36
@@ -1297,7 +1297,7 @@ ctr_BCC_blocks.exit56:                            ; preds = %48
   br label %.loopexit
 
 .loopexit:                                        ; preds = %ctr_BCC_blocks.exit56, %ctr_BCC_blocks.exit, %._crit_edge, %61, %3
-  %.031 = phi i32 [ 1, %._crit_edge ], [ 1, %3 ], [ 1, %61 ], [ 0, %ctr_BCC_blocks.exit ], [ 0, %ctr_BCC_blocks.exit56 ]
+  %.031 = phi i32 [ 1, %._crit_edge ], [ 1, %3 ], [ 0, %ctr_BCC_blocks.exit ], [ 1, %61 ], [ 0, %ctr_BCC_blocks.exit56 ]
   ret i32 %.031
 }
 

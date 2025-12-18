@@ -462,8 +462,8 @@ _ZN18serde_wasm_bindgen2de12Deserializer12invalid_type17h67015615cbdaceefE.exit.
   br label %"_ZN80_$LT$serde_wasm_bindgen..de..Deserializer$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h10ca7544e7364ca8E.exit"
 
 .body.i:                                          ; preds = %143, %98, %12
-  %.sroa.014.1.i = phi i8 [ %.sroa.014.6.i, %98 ], [ %.sroa.014.6.i, %143 ], [ %.sroa.014.0.i, %12 ]
-  %.pn31.i = phi { ptr, i32 } [ %.pn.i, %98 ], [ %.pn.i, %143 ], [ %13, %12 ]
+  %.sroa.014.1.i = phi i8 [ %.sroa.014.6.i, %98 ], [ %.sroa.014.0.i, %12 ], [ %.sroa.014.6.i, %143 ]
+  %.pn31.i = phi { ptr, i32 } [ %.pn.i, %98 ], [ %13, %12 ], [ %.pn.i, %143 ]
   %146 = trunc nuw i8 %.sroa.014.1.i to i1
   %.val.i = load i32, ptr %10, align 4, !noalias !3
   %147 = icmp ugt i32 %.val.i, 131
@@ -1803,7 +1803,7 @@ define hidden void @"_ZN80_$LT$serde_wasm_bindgen..de..Deserializer$u20$as$u20$s
           to label %35 unwind label %87, !noalias !114
 
 .thread.i:                                        ; preds = %49, %.noexc4.i, %61
-  %.sroa.10.1.ph.i = phi i32 [ %76, %.noexc4.i ], [ %60, %61 ], [ %48, %49 ]
+  %.sroa.10.1.ph.i = phi i32 [ %60, %61 ], [ %76, %.noexc4.i ], [ %48, %49 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.516.i)
   br label %.loopexit30.i
 
@@ -4114,7 +4114,7 @@ _ZN5serde2de9MapAccess8next_key17hdeda554ca55f0869E.exit.i: ; preds = %"_ZN81_$L
   ]
 
 .thread290.i:                                     ; preds = %103, %70, %.noexc220.i, %20
-  %.sroa.087.0379.i = phi i8 [ 3, %20 ], [ %.sroa.087.0404.i, %.noexc220.i ], [ %.sroa.087.1.i, %103 ], [ %.sroa.087.0404.i, %70 ]
+  %.sroa.087.0379.i = phi i8 [ %.sroa.087.0404.i, %.noexc220.i ], [ 3, %20 ], [ %.sroa.087.0404.i, %70 ], [ %.sroa.087.1.i, %103 ]
   %73 = load i64, ptr %16, align 8, !range !325, !noalias !313, !noundef !6
   %.not195.i = icmp eq i64 %73, -9223372036854775806
   br i1 %.not195.i, label %179, label %178

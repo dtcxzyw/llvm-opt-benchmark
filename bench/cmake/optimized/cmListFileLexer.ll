@@ -306,6 +306,12 @@ cmListFileLexer_yy_create_buffer.exit:            ; preds = %49
   %.not291 = icmp eq i16 %137, 298
   br i1 %.not291, label %.preheader454.outer, label %96, !llvm.loop !43
 
+.preheader454.outer.backedge:                     ; preds = %._crit_edge.i442, %yy_get_next_buffer.exit.thread447, %yy_try_NUL_trans.exit
+  %.1278.ph.be = phi ptr [ %702, %yy_try_NUL_trans.exit ], [ %1006, %yy_get_next_buffer.exit.thread447 ], [ %1006, %._crit_edge.i442 ]
+  %.2269.ph.be = phi ptr [ %705, %yy_try_NUL_trans.exit ], [ %1008, %yy_get_next_buffer.exit.thread447 ], [ %1008, %._crit_edge.i442 ]
+  %.3.ph.be = phi i32 [ %.021.lcssa.i, %yy_try_NUL_trans.exit ], [ %1009, %yy_get_next_buffer.exit.thread447 ], [ %1050, %._crit_edge.i442 ]
+  br label %.preheader454.outer
+
 .preheader454.outer:                              ; preds = %._crit_edge, %.preheader454.outer.backedge
   %.1278.ph = phi ptr [ %.1278.ph.be, %.preheader454.outer.backedge ], [ %.0277, %._crit_edge ]
   %.2269.ph = phi ptr [ %.2269.ph.be, %.preheader454.outer.backedge ], [ %134, %._crit_edge ]
@@ -1744,9 +1750,9 @@ yy_try_NUL_trans.exit:                            ; preds = %769, %753
   br label %.loopexit451.backedge
 
 .loopexit451.backedge:                            ; preds = %._crit_edge.i427, %781, %955
-  %.0277.be = phi ptr [ %954, %955 ], [ %702, %781 ], [ %954, %._crit_edge.i427 ]
-  %.0267.be = phi ptr [ %962, %955 ], [ %783, %781 ], [ %962, %._crit_edge.i427 ]
-  %.0260.be = phi i32 [ %963, %955 ], [ %782, %781 ], [ %1004, %._crit_edge.i427 ]
+  %.0277.be = phi ptr [ %702, %781 ], [ %954, %955 ], [ %954, %._crit_edge.i427 ]
+  %.0267.be = phi ptr [ %783, %781 ], [ %962, %955 ], [ %962, %._crit_edge.i427 ]
+  %.0260.be = phi i32 [ %782, %781 ], [ %963, %955 ], [ %1004, %._crit_edge.i427 ]
   br label %.loopexit451
 
 784:                                              ; preds = %689
@@ -2200,12 +2206,6 @@ yy_get_next_buffer.exit.thread447:                ; preds = %795, %yy_get_next_b
   %1009 = load i32, ptr %74, align 4, !tbaa !16
   %1010 = icmp ult ptr %1006, %1008
   br i1 %1010, label %.lr.ph31.i432, label %.preheader454.outer.backedge
-
-.preheader454.outer.backedge:                     ; preds = %._crit_edge.i442, %yy_get_next_buffer.exit.thread447, %yy_try_NUL_trans.exit
-  %.1278.ph.be = phi ptr [ %1006, %yy_get_next_buffer.exit.thread447 ], [ %702, %yy_try_NUL_trans.exit ], [ %1006, %._crit_edge.i442 ]
-  %.2269.ph.be = phi ptr [ %1008, %yy_get_next_buffer.exit.thread447 ], [ %705, %yy_try_NUL_trans.exit ], [ %1008, %._crit_edge.i442 ]
-  %.3.ph.be = phi i32 [ %1009, %yy_get_next_buffer.exit.thread447 ], [ %.021.lcssa.i, %yy_try_NUL_trans.exit ], [ %1050, %._crit_edge.i442 ]
-  br label %.preheader454.outer
 
 .lr.ph31.i432:                                    ; preds = %yy_get_next_buffer.exit.thread447, %._crit_edge.i442
   %.02129.i433 = phi i32 [ %1050, %._crit_edge.i442 ], [ %1009, %yy_get_next_buffer.exit.thread447 ]

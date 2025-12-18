@@ -2633,7 +2633,7 @@ define range(i32 0, 2) i32 @Zyx_ManAddCnfStart(ptr noundef readonly captures(non
   br i1 %112, label %.preheader, label %.loopexit, !llvm.loop !109
 
 .loopexit:                                        ; preds = %._crit_edge, %._crit_edge93, %95, %109, %68, %59, %._crit_edge97
-  %.263 = phi i32 [ 1, %._crit_edge97 ], [ 1, %59 ], [ 0, %._crit_edge93 ], [ 0, %68 ], [ 1, %109 ], [ 0, %95 ], [ 0, %._crit_edge ]
+  %.263 = phi i32 [ 1, %59 ], [ 1, %109 ], [ 0, %68 ], [ 1, %._crit_edge97 ], [ 0, %._crit_edge93 ], [ 0, %95 ], [ 0, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.263
 }
@@ -4570,7 +4570,7 @@ Zyx_ManCollectFanins.exit:                        ; preds = %14, %._crit_edge.lo
   br i1 %352, label %.critedge, label %.thread, !llvm.loop !149
 
 .thread:                                          ; preds = %62, %58, %._crit_edge247, %._crit_edge243, %._crit_edge263, %347, %.preheader, %._crit_edge, %._crit_edge.thread
-  %.2 = phi i32 [ %.1179, %._crit_edge ], [ 0, %._crit_edge.thread ], [ %.2180.lcssa, %.preheader ], [ -1, %._crit_edge247 ], [ %.5, %347 ], [ -1, %._crit_edge263 ], [ -1, %._crit_edge243 ], [ -1, %58 ], [ -1, %62 ]
+  %.2 = phi i32 [ %.5, %347 ], [ 0, %._crit_edge.thread ], [ %.1179, %._crit_edge ], [ -1, %._crit_edge247 ], [ %.2180.lcssa, %.preheader ], [ -1, %._crit_edge263 ], [ -1, %._crit_edge243 ], [ -1, %58 ], [ -1, %62 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0345)
@@ -5604,7 +5604,7 @@ define range(i32 0, 2) i32 @Zyx_ManAddCnfLazyFunc(ptr noundef %0, i32 noundef %1
   br i1 %189, label %.preheader161, label %.loopexit, !llvm.loop !171
 
 .loopexit:                                        ; preds = %._crit_edge176, %._crit_edge, %._crit_edge191, %._crit_edge181, %99, %11, %2
-  %.0136 = phi i32 [ 1, %2 ], [ 1, %11 ], [ 1, %99 ], [ 0, %._crit_edge ], [ 0, %._crit_edge181 ], [ 1, %._crit_edge191 ], [ 1, %._crit_edge176 ]
+  %.0136 = phi i32 [ 0, %._crit_edge181 ], [ 1, %99 ], [ 1, %2 ], [ 1, %11 ], [ 0, %._crit_edge ], [ 1, %._crit_edge191 ], [ 1, %._crit_edge176 ]
   ret i32 %.0136
 }
 
@@ -6357,8 +6357,8 @@ Abc_Clock.exit111:                                ; preds = %Abc_Clock.exit109, 
   br label %83
 
 .loopexit128:                                     ; preds = %338, %390, %301, %84, %.thread.thread, %348
-  %.169 = phi i32 [ %.068, %348 ], [ %.068, %.thread.thread ], [ %.068, %84 ], [ %304, %338 ], [ %.068, %390 ], [ %.068, %301 ]
-  %.167 = phi i32 [ %.0.i98, %348 ], [ %.066, %.thread.thread ], [ %.066, %84 ], [ -1, %338 ], [ %.0.i98, %390 ], [ -1, %301 ]
+  %.169 = phi i32 [ %.068, %.thread.thread ], [ %.068, %348 ], [ %.068, %84 ], [ %.068, %390 ], [ %.068, %301 ], [ %304, %338 ]
+  %.167 = phi i32 [ %.066, %.thread.thread ], [ %.0.i98, %348 ], [ %.066, %84 ], [ %.0.i98, %390 ], [ -1, %301 ], [ -1, %338 ]
   %394 = load i32, ptr %77, align 4, !tbaa !184
   %.not92 = icmp eq i32 %394, 0
   br i1 %.not92, label %420, label %395
@@ -7543,7 +7543,7 @@ Abc_TtOr.exit.us109:                              ; preds = %.lr.ph.i81.us105, %
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph93.split.split.us, !llvm.loop !201
 
 .loopexit:                                        ; preds = %Abc_TtOr.exit.us109, %Abc_TtOr.exit.us.us, %.lr.ph93.split, %.lr.ph93.split.us, %Abc_TtConst0.exit, %32, %46, %42
-  %.0 = phi i32 [ 0, %32 ], [ 0, %42 ], [ 0, %46 ], [ 1, %Abc_TtConst0.exit ], [ 1, %.lr.ph93.split ], [ 1, %.lr.ph93.split.us ], [ 1, %Abc_TtOr.exit.us.us ], [ 1, %Abc_TtOr.exit.us109 ]
+  %.0 = phi i32 [ 0, %32 ], [ 0, %42 ], [ 0, %46 ], [ 1, %.lr.ph93.split ], [ 1, %Abc_TtConst0.exit ], [ 1, %Abc_TtOr.exit.us.us ], [ 1, %.lr.ph93.split.us ], [ 1, %Abc_TtOr.exit.us109 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }

@@ -961,7 +961,7 @@ elv_rqhash_find.exit6:                            ; preds = %135
   br i1 %148, label %elv_rqhash_find.exit.thread, label %.preheader.i4, !llvm.loop !12
 
 elv_rqhash_find.exit.thread:                      ; preds = %78, %.preheader, %elv_rqhash_find.exit6, %144, %23, %elv_rqhash_find.exit, %19, %14, %3
-  %149 = phi i1 [ true, %14 ], [ false, %3 ], [ false, %19 ], [ false, %elv_rqhash_find.exit ], [ false, %23 ], [ true, %.preheader ], [ true, %144 ], [ true, %elv_rqhash_find.exit6 ], [ false, %78 ]
+  %149 = phi i1 [ true, %14 ], [ false, %3 ], [ false, %19 ], [ true, %.preheader ], [ false, %elv_rqhash_find.exit ], [ true, %144 ], [ false, %23 ], [ true, %elv_rqhash_find.exit6 ], [ false, %78 ]
   ret i1 %149
 }
 

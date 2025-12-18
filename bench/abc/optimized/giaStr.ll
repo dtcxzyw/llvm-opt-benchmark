@@ -4286,8 +4286,8 @@ Vec_IntAppend.exit250:                            ; preds = %Vec_IntPush.exit.i2
   br i1 %exitcond311.not, label %.critedge12, label %.lr.ph286, !llvm.loop !102
 
 .critedge12:                                      ; preds = %.lr.ph286, %Gia_ManSuperCollect.exit, %Vec_IntAppend.exit250
-  %.val354 = phi i32 [ %.val.pre, %Vec_IntAppend.exit250 ], [ %.val166, %Gia_ManSuperCollect.exit ], [ %.val.pre, %.lr.ph286 ]
-  %534 = phi ptr [ %.pre317, %Vec_IntAppend.exit250 ], [ %481, %Gia_ManSuperCollect.exit ], [ %527, %.lr.ph286 ]
+  %.val354 = phi i32 [ %.val166, %Gia_ManSuperCollect.exit ], [ %.val.pre, %Vec_IntAppend.exit250 ], [ %.val.pre, %.lr.ph286 ]
+  %534 = phi ptr [ %481, %Gia_ManSuperCollect.exit ], [ %.pre317, %Vec_IntAppend.exit250 ], [ %527, %.lr.ph286 ]
   %.val201 = load i64, ptr %2, align 4
   %.val201.fr = freeze i64 %.val201
   %535 = and i64 %.val201.fr, 2147483648
@@ -5306,7 +5306,7 @@ transpose64.exit:                                 ; preds = %203
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader.preheader, %183, %182, %209
-  %.0 = phi i32 [ %.2158315320, %209 ], [ 0, %182 ], [ 0, %183 ], [ 0, %.preheader.preheader ]
+  %.0 = phi i32 [ %.2158315320, %209 ], [ 0, %183 ], [ 0, %182 ], [ 0, %.preheader.preheader ]
   ret i32 %.0
 }
 

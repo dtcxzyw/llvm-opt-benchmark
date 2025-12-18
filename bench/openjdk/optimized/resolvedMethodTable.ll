@@ -5011,7 +5011,7 @@ _ZN13GlobalCounter22critical_section_beginEP6Thread.exit44: ; preds = %._crit_ed
   br label %_ZN18GrowableArrayCHeapIPN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE4NodeELS2_1EED2Ev.exit
 
 _ZN18GrowableArrayCHeapIPN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE4NodeELS2_1EED2Ev.exit: ; preds = %_ZN30ResolvedMethodTableDeleteCheckclEP10WeakHandle.exit.i, %22, %_ZN13GlobalCounter22critical_section_beginEP6Thread.exit44, %.loopexit.thread.i.i.i
-  %.1 = phi i64 [ %144, %_ZN13GlobalCounter22critical_section_beginEP6Thread.exit44 ], [ %144, %.loopexit.thread.i.i.i ], [ %.069, %22 ], [ %.069, %_ZN30ResolvedMethodTableDeleteCheckclEP10WeakHandle.exit.i ]
+  %.1 = phi i64 [ %144, %_ZN13GlobalCounter22critical_section_beginEP6Thread.exit44 ], [ %.069, %22 ], [ %144, %.loopexit.thread.i.i.i ], [ %.069, %_ZN30ResolvedMethodTableDeleteCheckclEP10WeakHandle.exit.i ]
   %exitcond73.not = icmp eq i64 %25, %3
   br i1 %exitcond73.not, label %._crit_edge71, label %22, !llvm.loop !36
 

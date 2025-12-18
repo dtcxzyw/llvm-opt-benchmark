@@ -2693,7 +2693,7 @@ _ZN6icu_77L5toHMSEPKNS_7MeasureEiPNS_11FormattableER10UErrorCode.exit.thread: ; 
   br i1 %97, label %.loopexit101, label %94
 
 .loopexit101:                                     ; preds = %.preheader103, %94, %81
-  %.pn = phi { ptr, i32 } [ %82, %81 ], [ %lpad.phi, %94 ], [ %82, %.preheader103 ]
+  %.pn = phi { ptr, i32 } [ %lpad.phi, %94 ], [ %82, %81 ], [ %82, %.preheader103 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %.pn
 

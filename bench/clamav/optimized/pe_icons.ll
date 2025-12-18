@@ -880,7 +880,7 @@ fmap_readn.exit.thread.i:                         ; preds = %fmap_readn.exit.i, 
   br i1 %exitcond.not.i, label %.loopexit655.i, label %260
 
 .loopexit655.i:                                   ; preds = %260, %237, %205, %194, %173
-  %.1552.i = phi i32 [ %.0551677.i, %173 ], [ %.0551677.i, %237 ], [ %.0551677.i, %194 ], [ %.0551677.i, %205 ], [ %289, %260 ]
+  %.1552.i = phi i32 [ %.0551677.i, %173 ], [ %.0551677.i, %194 ], [ %.0551677.i, %205 ], [ %.0551677.i, %237 ], [ %289, %260 ]
   %indvars.iv.next754.i = add nuw nsw i64 %indvars.iv753.i, 1
   %exitcond757.not.i = icmp eq i64 %indvars.iv.next754.i, %158
   br i1 %exitcond757.not.i, label %._crit_edge.loopexit.i, label %173
@@ -1495,8 +1495,8 @@ fmap_readn.exit.thread.i:                         ; preds = %fmap_readn.exit.i, 
   br i1 %exitcond807.not.i, label %parseicon.exit, label %511
 
 parseicon.exit:                                   ; preds = %630, %.loopexit649.i, %161, %141, %14, %17, %5, %110, %140, %160, %109, %96, %84, %72, %fmap_readn.exit.thread.i, %48, %629, %.thread.i
-  %.0521.i.sink = phi i32 [ 20, %.thread.i ], [ 1, %629 ], [ 0, %48 ], [ 0, %fmap_readn.exit.thread.i ], [ 0, %72 ], [ 0, %84 ], [ 0, %96 ], [ 0, %109 ], [ 0, %160 ], [ 0, %140 ], [ 0, %110 ], [ 0, %5 ], [ 0, %17 ], [ 0, %14 ], [ 0, %141 ], [ 0, %161 ], [ 0, %.loopexit649.i ], [ 0, %630 ]
-  %631 = phi i32 [ 1, %.thread.i ], [ 1, %629 ], [ 0, %48 ], [ 0, %fmap_readn.exit.thread.i ], [ 0, %72 ], [ 0, %84 ], [ 0, %96 ], [ 0, %109 ], [ 0, %160 ], [ 0, %140 ], [ 0, %110 ], [ 0, %5 ], [ 0, %17 ], [ 0, %14 ], [ 0, %141 ], [ 0, %161 ], [ 0, %.loopexit649.i ], [ 0, %630 ]
+  %.0521.i.sink = phi i32 [ 1, %629 ], [ 20, %.thread.i ], [ 0, %.loopexit649.i ], [ 0, %48 ], [ 0, %fmap_readn.exit.thread.i ], [ 0, %72 ], [ 0, %84 ], [ 0, %96 ], [ 0, %109 ], [ 0, %160 ], [ 0, %140 ], [ 0, %110 ], [ 0, %5 ], [ 0, %17 ], [ 0, %14 ], [ 0, %141 ], [ 0, %161 ], [ 0, %630 ]
+  %631 = phi i32 [ 1, %629 ], [ 1, %.thread.i ], [ 0, %.loopexit649.i ], [ 0, %48 ], [ 0, %fmap_readn.exit.thread.i ], [ 0, %72 ], [ 0, %84 ], [ 0, %96 ], [ 0, %109 ], [ 0, %160 ], [ 0, %140 ], [ 0, %110 ], [ 0, %5 ], [ 0, %17 ], [ 0, %14 ], [ 0, %141 ], [ 0, %161 ], [ 0, %630 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

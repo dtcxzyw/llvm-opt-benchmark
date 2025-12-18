@@ -1800,7 +1800,7 @@ define noundef zeroext i1 @_ZN7globset7GlobSet18is_match_candidate17h3c2818de7b7
   br label %37
 
 _ZN7globset20GlobSetMatchStrategy8is_match17h3ba31e145b4cd393E.exit.thread: ; preds = %.backedge, %63, %54, %44, %_ZN7globset14SuffixStrategy8is_match17heb7dd0419ee04fd6E.exit.i, %_ZN7globset14PrefixStrategy8is_match17h3e261617962f431bE.exit.i, %174, %169, %22, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %22 ], [ true, %169 ], [ true, %_ZN7globset14PrefixStrategy8is_match17h3e261617962f431bE.exit.i ], [ true, %_ZN7globset14SuffixStrategy8is_match17heb7dd0419ee04fd6E.exit.i ], [ true, %44 ], [ true, %54 ], [ true, %63 ], [ false, %.backedge ], [ true, %174 ]
+  %.0 = phi i1 [ true, %169 ], [ false, %2 ], [ false, %22 ], [ true, %_ZN7globset14PrefixStrategy8is_match17h3e261617962f431bE.exit.i ], [ true, %_ZN7globset14SuffixStrategy8is_match17heb7dd0419ee04fd6E.exit.i ], [ true, %44 ], [ true, %54 ], [ true, %63 ], [ false, %.backedge ], [ true, %174 ]
   ret i1 %.0
 
 37:                                               ; preds = %.lr.ph, %.backedge

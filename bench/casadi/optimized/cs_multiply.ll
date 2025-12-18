@@ -147,7 +147,7 @@ define ptr @cs_multiply(ptr noundef %0, ptr noundef readonly captures(address_is
   br i1 %exitcond176.not, label %.loopexit.us.us, label %.lr.ph115.us.us, !llvm.loop !20
 
 .loopexit.us.us:                                  ; preds = %.lr.ph115.us.us, %65, %._crit_edge.split.us.us.us
-  %.193.lcssa.us.us200 = phi i32 [ %88, %._crit_edge.split.us.us.us ], [ %.092116.us.us, %65 ], [ %88, %.lr.ph115.us.us ]
+  %.193.lcssa.us.us200 = phi i32 [ %.092116.us.us, %65 ], [ %88, %._crit_edge.split.us.us.us ], [ %88, %.lr.ph115.us.us ]
   %exitcond181.not = icmp eq i64 %indvars.iv.next178, %wide.trip.count180
   br i1 %exitcond181.not, label %._crit_edge120, label %.lr.ph119.split.us.split.us, !llvm.loop !22
 
@@ -271,7 +271,7 @@ define ptr @cs_multiply(ptr noundef %0, ptr noundef readonly captures(address_is
   br label %.sink.split
 
 .sink.split:                                      ; preds = %119, %95, %61, %45, %._crit_edge120
-  %.sink = phi i32 [ 1, %._crit_edge120 ], [ 0, %45 ], [ 0, %95 ], [ 0, %61 ], [ 0, %119 ]
+  %.sink = phi i32 [ 1, %._crit_edge120 ], [ 0, %45 ], [ 0, %61 ], [ 0, %95 ], [ 0, %119 ]
   %140 = tail call ptr @cs_done(ptr noundef %48, ptr noundef %36, ptr noundef %46, i32 noundef %.sink) #2
   br label %141
 

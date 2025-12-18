@@ -4173,8 +4173,8 @@ ZSTD_buildBlockEntropyStats_literals.exit.thread: ; preds = %42, %40, %31, %ZSTD
   store i64 0, ptr %73, align 8, !tbaa !212
   br label %78
 
-ZSTD_buildBlockEntropyStats_literals.exit.thread48: ; preds = %50, %.critedge.i
-  %.0.i34.ph = phi i64 [ %38, %.critedge.i ], [ %54, %50 ]
+ZSTD_buildBlockEntropyStats_literals.exit.thread48: ; preds = %.critedge.i, %50
+  %.0.i34.ph = phi i64 [ %54, %50 ], [ %38, %.critedge.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %74 = getelementptr inbounds nuw i8, ptr %4, i64 136
   store i64 %.0.i34.ph, ptr %74, align 8, !tbaa !212
@@ -11216,8 +11216,8 @@ ZSTD_rleCompressBlock.exit.thread.i:              ; preds = %.thread.i
   %.not.i = icmp eq i64 %.1133.i, 0
   br i1 %.not.i, label %ZSTD_compressSequences_internal.exit, label %43
 
-ZSTD_compressSequences_internal.exit.thread:      ; preds = %.thread.i, %80, %blockSize_explicitDelimiter.exit.i.i, %62, %determine_blockSize.exit.i, %90, %47, %ZSTD_noCompressBlock.exit166.i, %92, %69, %118, %49, %29
-  %.2.i.ph = phi i64 [ -70, %29 ], [ -107, %49 ], [ -70, %.thread.i ], [ -70, %80 ], [ %spec.select.i.i.i, %blockSize_explicitDelimiter.exit.i.i ], [ -107, %62 ], [ %66, %determine_blockSize.exit.i ], [ -70, %90 ], [ -107, %47 ], [ %119, %ZSTD_noCompressBlock.exit166.i ], [ %99, %92 ], [ %75, %69 ], [ -70, %118 ]
+ZSTD_compressSequences_internal.exit.thread:      ; preds = %.thread.i, %blockSize_explicitDelimiter.exit.i.i, %62, %80, %determine_blockSize.exit.i, %90, %47, %ZSTD_noCompressBlock.exit166.i, %92, %69, %118, %49, %29
+  %.2.i.ph = phi i64 [ -107, %49 ], [ -70, %29 ], [ -70, %.thread.i ], [ %spec.select.i.i.i, %blockSize_explicitDelimiter.exit.i.i ], [ -107, %62 ], [ -70, %80 ], [ %66, %determine_blockSize.exit.i ], [ -70, %90 ], [ -107, %47 ], [ %119, %ZSTD_noCompressBlock.exit166.i ], [ %99, %92 ], [ %75, %69 ], [ -70, %118 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %170
 
@@ -14552,7 +14552,7 @@ ZSTD_matchState_dictMode.exit:                    ; preds = %45, %48, %51
   br label %ZSTD_postProcessSequenceProducerResult.exit
 
 ZSTD_postProcessSequenceProducerResult.exit:      ; preds = %121, %129
-  %.0.i = phi i64 [ %130, %129 ], [ %118, %121 ]
+  %.0.i = phi i64 [ %118, %121 ], [ %130, %129 ]
   %131 = icmp ult i64 %.0.i, -119
   br i1 %131, label %132, label %ZSTD_postProcessSequenceProducerResult.exit.thread
 

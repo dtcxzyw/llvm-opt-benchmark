@@ -2951,7 +2951,7 @@ _build_jobid_str.exit:                            ; preds = %56, %60, %62
   br label %.fold.split
 
 .fold.split:                                      ; preds = %71, %52, %33, %22, %.fold.split.loopexit41, %.fold.split.loopexit40, %.fold.split.loopexit39, %.fold.split.loopexit38
-  %.0 = phi i32 [ 0, %52 ], [ 1, %.fold.split.loopexit41 ], [ 0, %22 ], [ 0, %33 ], [ 1, %.fold.split.loopexit38 ], [ 1, %.fold.split.loopexit39 ], [ 1, %.fold.split.loopexit40 ], [ 0, %71 ]
+  %.0 = phi i32 [ 0, %22 ], [ 0, %33 ], [ 1, %.fold.split.loopexit41 ], [ 1, %.fold.split.loopexit39 ], [ 1, %.fold.split.loopexit38 ], [ 1, %.fold.split.loopexit40 ], [ 0, %52 ], [ 0, %71 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0

@@ -2256,7 +2256,7 @@ define zeroext range(i8 0, 3) i8 @l___private_Lake_Util_Log_0__Lake_ordLogLevel_
   br label %lean_dec.exit25
 
 lean_dec.exit25:                                  ; preds = %7, %3, %6, %5
-  %.1 = phi i8 [ %switch.select41, %6 ], [ %spec.select42, %7 ], [ %spec.select, %3 ], [ %switch.select37, %5 ]
+  %.1 = phi i8 [ %switch.select41, %6 ], [ %switch.select37, %5 ], [ %spec.select, %3 ], [ %spec.select42, %7 ]
   ret i8 %.1
 }
 
@@ -2345,7 +2345,7 @@ lean_dec.exit:                                    ; preds = %24, %23, %21, %lean
   br label %l___private_Lake_Util_Log_0__Lake_ordLogLevel____x40_Lake_Util_Log___hyg_756_.exit
 
 l___private_Lake_Util_Log_0__Lake_ordLogLevel____x40_Lake_Util_Log___hyg_756_.exit: ; preds = %25, %27, %28, %29
-  %.1.i = phi i64 [ %switch.select41.i, %28 ], [ %spec.select42.i, %29 ], [ %spec.select.i, %25 ], [ %switch.select37.i, %27 ]
+  %.1.i = phi i64 [ %switch.select41.i, %28 ], [ %switch.select37.i, %27 ], [ %spec.select.i, %25 ], [ %spec.select42.i, %29 ]
   %31 = shl nuw nsw i64 %.1.i, 1
   %32 = and i64 %31, 510
   %33 = or disjoint i64 %32, 1

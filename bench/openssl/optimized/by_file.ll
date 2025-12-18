@@ -442,7 +442,7 @@ define i32 @X509_load_cert_crl_file_ex(ptr noundef readonly captures(none) %0, p
   br label %.loopexit
 
 .loopexit:                                        ; preds = %31, %23, %._crit_edge, %._crit_edge.thread
-  %.2 = phi i32 [ %.3, %._crit_edge ], [ 0, %._crit_edge.thread ], [ 0, %23 ], [ 0, %31 ]
+  %.2 = phi i32 [ 0, %._crit_edge.thread ], [ %.3, %._crit_edge ], [ 0, %23 ], [ 0, %31 ]
   tail call void @OPENSSL_sk_pop_free(ptr noundef nonnull %13, ptr noundef nonnull @X509_INFO_free) #4
   br label %41
 

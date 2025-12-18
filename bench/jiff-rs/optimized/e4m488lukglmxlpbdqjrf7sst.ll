@@ -5306,8 +5306,8 @@ _ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit.i: ; preds = %
   %.not53.i = icmp eq ptr %353, null
   br i1 %.not53.i, label %.thread.thread131.i, label %_ZN4jiff6shared5posix6Parser16parse_posix_time17hbb7444d7a9a4c15aE.exit.thread
 
-.thread.thread131.i.thread:                       ; preds = %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit5.i.i, %_ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit.i.i, %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit.i.i38
-  %.ph = phi i32 [ -1, %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit.i.i38 ], [ 1, %_ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit.i.i ], [ 1, %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit5.i.i ]
+.thread.thread131.i.thread:                       ; preds = %_ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit.i.i, %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit5.i.i, %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit.i.i38
+  %.ph = phi i32 [ -1, %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit.i.i38 ], [ 1, %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit5.i.i ], [ 1, %_ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !274
   br label %360
 

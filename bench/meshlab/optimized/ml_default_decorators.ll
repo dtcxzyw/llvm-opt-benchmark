@@ -2602,7 +2602,7 @@ _ZNKSt4lessISt4pairIP8CVertexOS2_EEclERKS3_S6_.exit.thread.i.thread.i: ; preds =
   br i1 %.not.i13.i, label %._crit_edge.i.thread.i, label %.lr.ph.i.i.backedge
 
 .lr.ph.i.i.backedge:                              ; preds = %_ZNKSt4lessISt4pairIP8CVertexOS2_EEclERKS3_S6_.exit.thread.i.thread.i, %_ZNKSt4lessISt4pairIP8CVertexOS2_EEclERKS3_S6_.exit.thread.i.i
-  %.02126.i.i.be = phi ptr [ %.021.i.i, %_ZNKSt4lessISt4pairIP8CVertexOS2_EEclERKS3_S6_.exit.thread.i.i ], [ %.021.i12.i, %_ZNKSt4lessISt4pairIP8CVertexOS2_EEclERKS3_S6_.exit.thread.i.thread.i ]
+  %.02126.i.i.be = phi ptr [ %.021.i12.i, %_ZNKSt4lessISt4pairIP8CVertexOS2_EEclERKS3_S6_.exit.thread.i.thread.i ], [ %.021.i.i, %_ZNKSt4lessISt4pairIP8CVertexOS2_EEclERKS3_S6_.exit.thread.i.i ]
   br label %.lr.ph.i.i, !llvm.loop !43
 
 ._crit_edge.thread.i.i:                           ; preds = %_ZNKSt4lessISt4pairIP8CVertexOS2_EEclERKS3_S6_.exit.thread.i.i, %113
@@ -2701,7 +2701,7 @@ _ZNKSt4lessISt4pairIP8CVertexOS2_EEclERKS3_S6_.exit.thread.i.thread.i187: ; pred
   br i1 %.not.i13.i189, label %._crit_edge.i.thread.i192, label %.lr.ph.i.i184.backedge
 
 .lr.ph.i.i184.backedge:                           ; preds = %_ZNKSt4lessISt4pairIP8CVertexOS2_EEclERKS3_S6_.exit.thread.i.thread.i187, %_ZNKSt4lessISt4pairIP8CVertexOS2_EEclERKS3_S6_.exit.thread.i.i202
-  %.02126.i.i185.be = phi ptr [ %.021.i.i203, %_ZNKSt4lessISt4pairIP8CVertexOS2_EEclERKS3_S6_.exit.thread.i.i202 ], [ %.021.i12.i188, %_ZNKSt4lessISt4pairIP8CVertexOS2_EEclERKS3_S6_.exit.thread.i.thread.i187 ]
+  %.02126.i.i185.be = phi ptr [ %.021.i12.i188, %_ZNKSt4lessISt4pairIP8CVertexOS2_EEclERKS3_S6_.exit.thread.i.thread.i187 ], [ %.021.i.i203, %_ZNKSt4lessISt4pairIP8CVertexOS2_EEclERKS3_S6_.exit.thread.i.i202 ]
   br label %.lr.ph.i.i184, !llvm.loop !43
 
 ._crit_edge.thread.i.i205:                        ; preds = %_ZNKSt4lessISt4pairIP8CVertexOS2_EEclERKS3_S6_.exit.thread.i.i202, %150

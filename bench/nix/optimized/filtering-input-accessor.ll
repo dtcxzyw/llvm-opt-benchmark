@@ -3225,8 +3225,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit.thread.threa
   br label %131
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit.thread: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i, %.backedge
-  %.083.lcssa = phi i64 [ %.083.be, %.backedge ], [ %.083113, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i ], [ %.083113, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit ]
-  %.lcssa = phi i64 [ %64, %.backedge ], [ %39, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i ], [ %39, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit ]
+  %.083.lcssa = phi i64 [ %.083113, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i ], [ %.083.be, %.backedge ], [ %.083113, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit ]
+  %.lcssa = phi i64 [ %39, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i ], [ %64, %.backedge ], [ %39, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit ]
   %125 = icmp eq i64 %indvars.iv, 0
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %127 = load ptr, ptr %0, align 8
@@ -3854,7 +3854,7 @@ define linkonce_odr { i64, i64 } @_ZN5boost2io18basic_altstringbufIcSt11char_tra
   br label %64
 
 64:                                               ; preds = %.sink.split, %13, %27, %36, %20, %18, %49, %46, %44
-  %.sroa.021.0 = phi i64 [ -1, %46 ], [ %1, %36 ], [ %1, %27 ], [ -1, %44 ], [ -1, %18 ], [ -1, %20 ], [ -1, %49 ], [ -1, %13 ], [ %1, %.sink.split ]
+  %.sroa.021.0 = phi i64 [ -1, %46 ], [ -1, %13 ], [ %1, %36 ], [ %1, %27 ], [ -1, %44 ], [ -1, %49 ], [ -1, %18 ], [ -1, %20 ], [ %1, %.sink.split ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.021.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 0, 1
   ret { i64, i64 } %.fca.1.insert
@@ -4302,7 +4302,7 @@ _ZN5boost2io6detail18wrap_scan_notdigitIN9__gnu_cxx17__normal_iteratorIPKcNSt7__
   br i1 %59, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.lr.ph, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit.thread, !llvm.loop !33
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit.thread: ; preds = %.outer, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i, %37, %4, %29
-  %.131 = phi i32 [ %30, %29 ], [ 0, %4 ], [ %.030.ph55, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit ], [ %.030.ph55, %37 ], [ %.030.ph55, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i ], [ %58, %.outer ]
+  %.131 = phi i32 [ %30, %29 ], [ %.030.ph55, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit ], [ 0, %4 ], [ %.030.ph55, %37 ], [ %.030.ph55, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i ], [ %58, %.outer ]
   ret i32 %.131
 }
 
@@ -13646,8 +13646,8 @@ _ZNKSt4lessIN3nix9CanonPathEEclERKS1_S4_.exit57.thread: ; preds = %117, %125, %_
   br label %_ZNKSt4lessIN3nix9CanonPathEEclERKS1_S4_.exit.thread80
 
 _ZNKSt4lessIN3nix9CanonPathEEclERKS1_S4_.exit.thread80: ; preds = %95, %103, %22, %_ZNKSt4lessIN3nix9CanonPathEEclERKS1_S4_.exit57.thread92, %_ZNKSt4lessIN3nix9CanonPathEEclERKS1_S4_.exit33.thread86, %_ZNKSt4lessIN3nix9CanonPathEEclERKS1_S4_.exit45, %_ZNKSt4lessIN3nix9CanonPathEEclERKS1_S4_.exit45.thread89, %_ZNKSt4lessIN3nix9CanonPathEEclERKS1_S4_.exit21.thread83, %_ZNKSt4lessIN3nix9CanonPathEEclERKS1_S4_.exit, %_ZNKSt4lessIN3nix9CanonPathEEclERKS1_S4_.exit57.thread, %_ZNKSt4lessIN3nix9CanonPathEEclERKS1_S4_.exit33.thread, %_ZNKSt4lessIN3nix9CanonPathEEclERKS1_S4_.exit.thread
-  %.sroa.078.0 = phi ptr [ %36, %_ZNKSt4lessIN3nix9CanonPathEEclERKS1_S4_.exit.thread ], [ null, %_ZNKSt4lessIN3nix9CanonPathEEclERKS1_S4_.exit ], [ %63, %_ZNKSt4lessIN3nix9CanonPathEEclERKS1_S4_.exit21.thread83 ], [ %91, %_ZNKSt4lessIN3nix9CanonPathEEclERKS1_S4_.exit33.thread ], [ %spec.select95, %_ZNKSt4lessIN3nix9CanonPathEEclERKS1_S4_.exit57.thread92 ], [ null, %_ZNKSt4lessIN3nix9CanonPathEEclERKS1_S4_.exit45.thread89 ], [ %spec.select, %_ZNKSt4lessIN3nix9CanonPathEEclERKS1_S4_.exit33.thread86 ], [ %136, %_ZNKSt4lessIN3nix9CanonPathEEclERKS1_S4_.exit57.thread ], [ %1, %_ZNKSt4lessIN3nix9CanonPathEEclERKS1_S4_.exit45 ], [ null, %22 ], [ %1, %103 ], [ %1, %95 ]
-  %.sroa.12.0 = phi ptr [ %37, %_ZNKSt4lessIN3nix9CanonPathEEclERKS1_S4_.exit.thread ], [ %11, %_ZNKSt4lessIN3nix9CanonPathEEclERKS1_S4_.exit ], [ %63, %_ZNKSt4lessIN3nix9CanonPathEEclERKS1_S4_.exit21.thread83 ], [ %92, %_ZNKSt4lessIN3nix9CanonPathEEclERKS1_S4_.exit33.thread ], [ %spec.select96, %_ZNKSt4lessIN3nix9CanonPathEEclERKS1_S4_.exit57.thread92 ], [ %110, %_ZNKSt4lessIN3nix9CanonPathEEclERKS1_S4_.exit45.thread89 ], [ %spec.select94, %_ZNKSt4lessIN3nix9CanonPathEEclERKS1_S4_.exit33.thread86 ], [ %137, %_ZNKSt4lessIN3nix9CanonPathEEclERKS1_S4_.exit57.thread ], [ null, %_ZNKSt4lessIN3nix9CanonPathEEclERKS1_S4_.exit45 ], [ %11, %22 ], [ null, %103 ], [ null, %95 ]
+  %.sroa.078.0 = phi ptr [ %36, %_ZNKSt4lessIN3nix9CanonPathEEclERKS1_S4_.exit.thread ], [ null, %22 ], [ null, %_ZNKSt4lessIN3nix9CanonPathEEclERKS1_S4_.exit ], [ %63, %_ZNKSt4lessIN3nix9CanonPathEEclERKS1_S4_.exit21.thread83 ], [ %1, %_ZNKSt4lessIN3nix9CanonPathEEclERKS1_S4_.exit45 ], [ %91, %_ZNKSt4lessIN3nix9CanonPathEEclERKS1_S4_.exit33.thread ], [ %spec.select95, %_ZNKSt4lessIN3nix9CanonPathEEclERKS1_S4_.exit57.thread92 ], [ null, %_ZNKSt4lessIN3nix9CanonPathEEclERKS1_S4_.exit45.thread89 ], [ %spec.select, %_ZNKSt4lessIN3nix9CanonPathEEclERKS1_S4_.exit33.thread86 ], [ %136, %_ZNKSt4lessIN3nix9CanonPathEEclERKS1_S4_.exit57.thread ], [ %1, %103 ], [ %1, %95 ]
+  %.sroa.12.0 = phi ptr [ %37, %_ZNKSt4lessIN3nix9CanonPathEEclERKS1_S4_.exit.thread ], [ %11, %22 ], [ %11, %_ZNKSt4lessIN3nix9CanonPathEEclERKS1_S4_.exit ], [ %63, %_ZNKSt4lessIN3nix9CanonPathEEclERKS1_S4_.exit21.thread83 ], [ null, %_ZNKSt4lessIN3nix9CanonPathEEclERKS1_S4_.exit45 ], [ %92, %_ZNKSt4lessIN3nix9CanonPathEEclERKS1_S4_.exit33.thread ], [ %spec.select96, %_ZNKSt4lessIN3nix9CanonPathEEclERKS1_S4_.exit57.thread92 ], [ %110, %_ZNKSt4lessIN3nix9CanonPathEEclERKS1_S4_.exit45.thread89 ], [ %spec.select94, %_ZNKSt4lessIN3nix9CanonPathEEclERKS1_S4_.exit33.thread86 ], [ %137, %_ZNKSt4lessIN3nix9CanonPathEEclERKS1_S4_.exit57.thread ], [ null, %103 ], [ null, %95 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.078.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert

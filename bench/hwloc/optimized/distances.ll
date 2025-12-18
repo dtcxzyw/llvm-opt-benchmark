@@ -450,7 +450,7 @@ hwloc_internal_distances_dup_one.exit.thread.sink.split: ; preds = %103, %49, %2
   br label %hwloc_internal_distances_dup_one.exit.thread
 
 hwloc_internal_distances_dup_one.exit.thread:     ; preds = %121, %hwloc_tma_malloc.exit.i, %hwloc_internal_distances_dup_one.exit.thread.sink.split, %2
-  %.0 = phi i32 [ 0, %2 ], [ -1, %hwloc_internal_distances_dup_one.exit.thread.sink.split ], [ 0, %121 ], [ -1, %hwloc_tma_malloc.exit.i ]
+  %.0 = phi i32 [ 0, %2 ], [ -1, %hwloc_internal_distances_dup_one.exit.thread.sink.split ], [ -1, %hwloc_tma_malloc.exit.i ], [ 0, %121 ]
   ret i32 %.0
 }
 
@@ -613,7 +613,7 @@ define range(i32 -1, 1) i32 @hwloc_distances_remove_by_depth(ptr noundef %0, i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %42, %.loopexit.sink.split, %12
-  %.0 = phi i32 [ 0, %12 ], [ -1, %.loopexit.sink.split ], [ 0, %42 ]
+  %.0 = phi i32 [ -1, %.loopexit.sink.split ], [ 0, %12 ], [ 0, %42 ]
   ret i32 %.0
 }
 
@@ -2251,9 +2251,9 @@ hwloc_backend_distances_add_create.exit.thread.sink.split: ; preds = %12, %hwloc
   br label %hwloc_backend_distances_add_create.exit.thread
 
 hwloc_backend_distances_add_create.exit.thread:   ; preds = %hwloc_backend_distances_add_create.exit.thread.sink.split, %9, %42
-  %.021 = phi ptr [ null, %42 ], [ %6, %9 ], [ %6, %hwloc_backend_distances_add_create.exit.thread.sink.split ]
-  %.020 = phi ptr [ null, %42 ], [ %5, %9 ], [ %5, %hwloc_backend_distances_add_create.exit.thread.sink.split ]
-  %.019 = phi ptr [ null, %42 ], [ %3, %9 ], [ %3, %hwloc_backend_distances_add_create.exit.thread.sink.split ]
+  %.021 = phi ptr [ %6, %9 ], [ null, %42 ], [ %6, %hwloc_backend_distances_add_create.exit.thread.sink.split ]
+  %.020 = phi ptr [ %5, %9 ], [ null, %42 ], [ %5, %hwloc_backend_distances_add_create.exit.thread.sink.split ]
+  %.019 = phi ptr [ %3, %9 ], [ null, %42 ], [ %3, %hwloc_backend_distances_add_create.exit.thread.sink.split ]
   tail call void @free(ptr noundef %.020) #29
   tail call void @free(ptr noundef %.019) #29
   tail call void @free(ptr noundef %.021) #29
@@ -2694,7 +2694,7 @@ define hidden void @hwloc_internal_distances_refresh(ptr noundef %0) local_unnam
   br label %hwloc_get_next_obj_by_type.exit.i.us.i
 
 hwloc_get_next_obj_by_type.exit.i.us.i:           ; preds = %33, %30
-  %.0.i.i.us.i = phi ptr [ %34, %33 ], [ %32, %30 ]
+  %.0.i.i.us.i = phi ptr [ %32, %30 ], [ %34, %33 ]
   %.not.i.us.i = icmp eq ptr %.0.i.i.us.i, null
   br i1 %.not.i.us.i, label %hwloc_get_pu_obj_by_os_index.exit.loopexit.us.i, label %35
 
@@ -2749,7 +2749,7 @@ hwloc_get_pu_obj_by_os_index.exit.loopexit.us.i:  ; preds = %35, %hwloc_get_next
   br label %hwloc_get_next_obj_by_type.exit.i58.us.i
 
 hwloc_get_next_obj_by_type.exit.i58.us.i:         ; preds = %53, %50
-  %.0.i.i59.us.i = phi ptr [ %54, %53 ], [ %52, %50 ]
+  %.0.i.i59.us.i = phi ptr [ %52, %50 ], [ %54, %53 ]
   %.not.i60.us.i = icmp eq ptr %.0.i.i59.us.i, null
   br i1 %.not.i60.us.i, label %hwloc_get_pu_obj_by_os_index.exit.loopexit61.us.i, label %55
 
@@ -2808,7 +2808,7 @@ hwloc_get_pu_obj_by_os_index.exit.i:              ; preds = %.lr.ph.split.i, %hw
   br i1 %exitcond95.not.i, label %._crit_edge.i, label %hwloc_get_pu_obj_by_os_index.exit.i, !llvm.loop !115
 
 ._crit_edge.i:                                    ; preds = %hwloc_get_pu_obj_by_os_index.exit.loopexit61.us.i, %hwloc_get_pu_obj_by_os_index.exit.loopexit.us.i, %hwloc_get_pu_obj_by_os_index.exit.i, %hwloc_get_pu_obj_by_os_index.exit.us76.i
-  %.045.lcssa.i = phi i32 [ %spec.select.us.i, %hwloc_get_pu_obj_by_os_index.exit.loopexit.us.i ], [ %spec.select.us78.i, %hwloc_get_pu_obj_by_os_index.exit.us76.i ], [ %spec.select.i, %hwloc_get_pu_obj_by_os_index.exit.i ], [ %spec.select.us71.i, %hwloc_get_pu_obj_by_os_index.exit.loopexit61.us.i ]
+  %.045.lcssa.i = phi i32 [ %spec.select.us78.i, %hwloc_get_pu_obj_by_os_index.exit.us76.i ], [ %spec.select.us.i, %hwloc_get_pu_obj_by_os_index.exit.loopexit.us.i ], [ %spec.select.i, %hwloc_get_pu_obj_by_os_index.exit.i ], [ %spec.select.us71.i, %hwloc_get_pu_obj_by_os_index.exit.loopexit61.us.i ]
   %73 = sub i32 %13, %.045.lcssa.i
   %74 = icmp ult i32 %73, 2
   br i1 %74, label %86, label %75
@@ -3647,7 +3647,7 @@ is_nvswitch.exit63.thread.i:                      ; preds = %144, %is_nvswitch.e
   br label %hwloc__distances_transform_links.exit
 
 hwloc__distances_transform_links.exit:            ; preds = %.loopexit.i, %.lr.ph61.i, %100, %hwloc__distances_transform_merge_switch_ports.exit, %.loopexit.sink.split.i, %._crit_edge.i, %.preheader51.i, %.loopexit, %160, %11, %8
-  %.011 = phi i32 [ -1, %8 ], [ -1, %160 ], [ %12, %11 ], [ %99, %.loopexit ], [ -1, %hwloc__distances_transform_merge_switch_ports.exit ], [ 0, %._crit_edge.i ], [ -1, %.loopexit.sink.split.i ], [ 0, %.preheader51.i ], [ 0, %100 ], [ 0, %.lr.ph61.i ], [ 0, %.loopexit.i ]
+  %.011 = phi i32 [ -1, %8 ], [ -1, %160 ], [ %12, %11 ], [ %99, %.loopexit ], [ -1, %.loopexit.sink.split.i ], [ -1, %hwloc__distances_transform_merge_switch_ports.exit ], [ 0, %.lr.ph61.i ], [ 0, %._crit_edge.i ], [ 0, %.preheader51.i ], [ 0, %100 ], [ 0, %.loopexit.i ]
   ret i32 %.011
 }
 

@@ -542,8 +542,8 @@ define internal range(i32 0, 2) i32 @DispatchAlpha_SSE2(ptr noalias noundef read
   br label %._crit_edge73
 
 ._crit_edge73:                                    ; preds = %._crit_edge.us86, %.preheader59.lr.ph.split, %._crit_edge73.loopexit, %6
-  %.056.lcssa = phi i32 [ 65535, %6 ], [ %62, %._crit_edge73.loopexit ], [ 65535, %.preheader59.lr.ph.split ], [ 65535, %._crit_edge.us86 ]
-  %.052.lcssa = phi i32 [ 255, %6 ], [ %.1.lcssa.us, %._crit_edge73.loopexit ], [ 255, %.preheader59.lr.ph.split ], [ %55, %._crit_edge.us86 ]
+  %.056.lcssa = phi i32 [ 65535, %6 ], [ 65535, %.preheader59.lr.ph.split ], [ %62, %._crit_edge73.loopexit ], [ 65535, %._crit_edge.us86 ]
+  %.052.lcssa = phi i32 [ 255, %6 ], [ 255, %.preheader59.lr.ph.split ], [ %.1.lcssa.us, %._crit_edge73.loopexit ], [ %55, %._crit_edge.us86 ]
   %63 = and i32 %.052.lcssa, %.056.lcssa
   %64 = icmp ne i32 %63, 255
   %65 = zext i1 %64 to i32
@@ -780,8 +780,8 @@ define internal range(i32 0, 2) i32 @ExtractAlpha_SSE2(ptr noalias noundef reado
   br label %._crit_edge64
 
 ._crit_edge64:                                    ; preds = %._crit_edge.us77, %.preheader50.lr.ph.split, %._crit_edge64.loopexit, %6
-  %.047.lcssa = phi i32 [ 65535, %6 ], [ %55, %._crit_edge64.loopexit ], [ 65535, %.preheader50.lr.ph.split ], [ 65535, %._crit_edge.us77 ]
-  %.043.lcssa = phi i32 [ 255, %6 ], [ %.1.lcssa.us, %._crit_edge64.loopexit ], [ 255, %.preheader50.lr.ph.split ], [ %48, %._crit_edge.us77 ]
+  %.047.lcssa = phi i32 [ 65535, %6 ], [ 65535, %.preheader50.lr.ph.split ], [ %55, %._crit_edge64.loopexit ], [ 65535, %._crit_edge.us77 ]
+  %.043.lcssa = phi i32 [ 255, %6 ], [ 255, %.preheader50.lr.ph.split ], [ %.1.lcssa.us, %._crit_edge64.loopexit ], [ %48, %._crit_edge.us77 ]
   %56 = and i32 %.043.lcssa, %.047.lcssa
   %57 = icmp eq i32 %56, 255
   %58 = zext i1 %57 to i32

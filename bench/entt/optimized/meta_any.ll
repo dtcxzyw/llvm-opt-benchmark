@@ -105801,7 +105801,7 @@ _ZN4entt7locatorINS_8meta_ctxEE8value_orIS1_JEEERS1_DpOT0_.exit.i268: ; preds = 
   br label %_ZNK4entt8meta_anyeqERKS0_.exit274
 
 _ZNK4entt8meta_anyeqERKS0_.exit274:               ; preds = %477, %488
-  %490 = phi i1 [ %.mux.mux.i273, %477 ], [ %489, %488 ]
+  %490 = phi i1 [ %489, %488 ], [ %.mux.mux.i273, %477 ]
   %491 = xor i1 %490, true
   %492 = zext i1 %491 to i8
   store i8 %492, ptr %27, align 8, !tbaa !43
@@ -106030,7 +106030,7 @@ _ZN4entt7locatorINS_8meta_ctxEE8value_orIS1_JEEERS1_DpOT0_.exit.i298: ; preds = 
   br label %_ZNK4entt8meta_anyneERKS0_.exit
 
 _ZNK4entt8meta_anyneERKS0_.exit:                  ; preds = %557, %568
-  %570 = phi i1 [ %.mux.mux.i.i, %557 ], [ %569, %568 ]
+  %570 = phi i1 [ %569, %568 ], [ %.mux.mux.i.i, %557 ]
   %571 = xor i1 %570, true
   %572 = zext i1 %571 to i8
   store i8 %572, ptr %32, align 8, !tbaa !43
@@ -107243,7 +107243,7 @@ _ZN4entt7locatorINS_8meta_ctxEE8value_orIS1_JEEERS1_DpOT0_.exit.i165: ; preds = 
   br label %_ZNK4entt8meta_anyeqERKS0_.exit171
 
 _ZNK4entt8meta_anyeqERKS0_.exit171:               ; preds = %304, %315
-  %317 = phi i1 [ %.mux.mux.i170, %304 ], [ %316, %315 ]
+  %317 = phi i1 [ %316, %315 ], [ %.mux.mux.i170, %304 ]
   %318 = xor i1 %317, true
   %319 = zext i1 %318 to i8
   store i8 %319, ptr %18, align 8, !tbaa !43
@@ -108850,7 +108850,7 @@ _ZN4entt7locatorINS_8meta_ctxEE8value_orIS1_JEEERS1_DpOT0_.exit.i262: ; preds = 
   br label %_ZNK4entt8meta_anyeqERKS0_.exit268
 
 _ZNK4entt8meta_anyeqERKS0_.exit268:               ; preds = %453, %464
-  %466 = phi i1 [ %.mux.mux.i267, %453 ], [ %465, %464 ]
+  %466 = phi i1 [ %465, %464 ], [ %.mux.mux.i267, %453 ]
   %467 = xor i1 %466, true
   %468 = zext i1 %467 to i8
   store i8 %468, ptr %27, align 8, !tbaa !43
@@ -109079,7 +109079,7 @@ _ZN4entt7locatorINS_8meta_ctxEE8value_orIS1_JEEERS1_DpOT0_.exit.i292: ; preds = 
   br label %_ZNK4entt8meta_anyneERKS0_.exit
 
 _ZNK4entt8meta_anyneERKS0_.exit:                  ; preds = %533, %544
-  %546 = phi i1 [ %.mux.mux.i.i, %533 ], [ %545, %544 ]
+  %546 = phi i1 [ %545, %544 ], [ %.mux.mux.i.i, %533 ]
   %547 = xor i1 %546, true
   %548 = zext i1 %547 to i8
   store i8 %548, ptr %32, align 8, !tbaa !43
@@ -189016,8 +189016,8 @@ _ZNK4entt9meta_type4infoEv.exit65.us:             ; preds = %71, %69, %66, %_ZNK
   br label %_ZN4entt8internal11find_memberITnDaXadL_ZNS0_14meta_base_node4typeEEESt6vectorIS2_SaIS2_EEjEEPDaRT0_T1_.exit.us
 
 _ZN4entt8internal11find_memberITnDaXadL_ZNS0_14meta_base_node4typeEEESt6vectorIS2_SaIS2_EEjEEPDaRT0_T1_.exit.us: ; preds = %.lr.ph.i.us, %.lr.ph.i68.us, %97, %.loopexit.us, %82, %79
-  %.044.us = phi i1 [ false, %82 ], [ true, %97 ], [ true, %79 ], [ false, %.loopexit.us ], [ %.not.i70.us, %.lr.ph.i68.us ], [ true, %.lr.ph.i.us ]
-  %.343.us = phi i64 [ %.040104.us, %82 ], [ %98, %97 ], [ %.040104.us, %79 ], [ %.040104.us, %.loopexit.us ], [ %.040104.us, %.lr.ph.i68.us ], [ %.040104.us, %.lr.ph.i.us ]
+  %.044.us = phi i1 [ false, %82 ], [ %.not.i70.us, %.lr.ph.i68.us ], [ true, %97 ], [ true, %79 ], [ false, %.loopexit.us ], [ true, %.lr.ph.i.us ]
+  %.343.us = phi i64 [ %.040104.us, %82 ], [ %.040104.us, %.lr.ph.i68.us ], [ %98, %97 ], [ %.040104.us, %79 ], [ %.040104.us, %.loopexit.us ], [ %.040104.us, %.lr.ph.i.us ]
   %.not.i.i.i.i.us = icmp eq ptr %.sroa.14.4.us, null
   br i1 %.not.i.i.i.i.us, label %_ZNSt12__shared_ptrIN4entt8internal20meta_type_descriptorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i.us, label %99
 
@@ -189355,8 +189355,8 @@ _ZZNK4entt9meta_type6invokeEjNS_11meta_handleEPNS_8meta_anyEmENUlvE_clEv.exit87.
   br i1 %.not58.us129, label %235, label %225
 
 ._crit_edge:                                      ; preds = %201, %235, %219
-  %.046.lcssa = phi i1 [ %.147.us133, %235 ], [ %.147.us133.us, %219 ], [ %.147.us, %201 ]
-  %.0.lcssa = phi ptr [ %.1.us134, %235 ], [ %.1.us134.us, %219 ], [ %.1.us, %201 ]
+  %.046.lcssa = phi i1 [ %.147.us133.us, %219 ], [ %.147.us133, %235 ], [ %.147.us, %201 ]
+  %.0.lcssa = phi ptr [ %.1.us134.us, %219 ], [ %.1.us134, %235 ], [ %.1.us, %201 ]
   %cond.fr = freeze i1 %.046.lcssa
   %spec.select = select i1 %cond.fr, ptr null, ptr %.0.lcssa
   br label %._crit_edge.thread

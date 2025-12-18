@@ -579,9 +579,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit65: ; preds = %74,
   br label %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit62.thread.thread.thread
 
 _ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit62.thread.thread: ; preds = %.lr.ph, %.lr.ph190, %.critedge8
-  %79 = phi i64 [ %50, %.critedge8 ], [ %43, %.lr.ph190 ], [ %24, %.lr.ph ]
-  %.14784 = phi double [ %.147, %.critedge8 ], [ %48, %.lr.ph190 ], [ %29, %.lr.ph ]
-  %.183 = phi i8 [ %.1, %.critedge8 ], [ %42, %.lr.ph190 ], [ %23, %.lr.ph ]
+  %79 = phi i64 [ %43, %.lr.ph190 ], [ %50, %.critedge8 ], [ %24, %.lr.ph ]
+  %.14784 = phi double [ %48, %.lr.ph190 ], [ %.147, %.critedge8 ], [ %29, %.lr.ph ]
+  %.183 = phi i8 [ %42, %.lr.ph190 ], [ %.1, %.critedge8 ], [ %23, %.lr.ph ]
   %80 = and i8 %.183, -33
   %or.cond11 = icmp eq i8 %80, 69
   br i1 %or.cond11, label %81, label %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit62.thread.thread.thread

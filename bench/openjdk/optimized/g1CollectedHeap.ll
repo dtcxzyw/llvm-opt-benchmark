@@ -1216,8 +1216,8 @@ define hidden void @_ZN15G1CollectedHeap22set_humongous_metadataEP12G1HeapRegion
   br i1 %.not44, label %._crit_edge, label %.lr.ph.split, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %.thread, %19
-  %44 = phi i32 [ %30, %.thread ], [ %26, %19 ], [ %26, %.lr.ph.split.us ], [ %30, %.lr.ph.split ]
-  %45 = phi i32 [ %28, %.thread ], [ %24, %19 ], [ %24, %.lr.ph.split.us ], [ %28, %.lr.ph.split ]
+  %44 = phi i32 [ %30, %.thread ], [ %26, %.lr.ph.split.us ], [ %26, %19 ], [ %30, %.lr.ph.split ]
+  %45 = phi i32 [ %28, %.thread ], [ %24, %.lr.ph.split.us ], [ %24, %19 ], [ %28, %.lr.ph.split ]
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !8
   %46 = icmp ult i32 %45, %44
   br i1 %46, label %.lr.ph50, label %._crit_edge51
@@ -1733,7 +1733,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %47, %48
   br label %29, !llvm.loop !13
 
 .loopexit:                                        ; preds = %_ZN11MutexLockerD2Ev.exit, %65, %66
-  %.2 = phi ptr [ %50, %66 ], [ null, %65 ], [ %.1, %_ZN11MutexLockerD2Ev.exit ]
+  %.2 = phi ptr [ null, %65 ], [ %50, %66 ], [ %.1, %_ZN11MutexLockerD2Ev.exit ]
   %101 = load ptr, ptr %9, align 8
   %.not.i.i.i.i = icmp eq ptr %101, null
   br i1 %.not.i.i.i.i, label %103, label %102
@@ -5388,13 +5388,13 @@ _ZN12ResourceMarkD2Ev.exit66:                     ; preds = %195, %193, %201, %1
   br label %406
 
 406:                                              ; preds = %325, %_ZN12ResourceMarkD2Ev.exit66, %347, %349, %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit94, %.thread199, %403, %405
-  %.140 = phi i32 [ %.039, %325 ], [ %.039, %349 ], [ %.241, %_ZN12ResourceMarkD2Ev.exit66 ], [ %.039, %.thread199 ], [ %.039, %347 ], [ %.039, %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit94 ], [ %.241, %403 ], [ %.241, %405 ]
+  %.140 = phi i32 [ %.241, %405 ], [ %.241, %403 ], [ %.039, %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit94 ], [ %.039, %325 ], [ %.039, %347 ], [ %.039, %.thread199 ], [ %.039, %349 ], [ %.241, %_ZN12ResourceMarkD2Ev.exit66 ]
   call void @_ZN15VM_GC_OperationD2Ev(ptr noundef nonnull align 8 dereferenceable(38) %6) #23
   %407 = add i32 %.038, 1
   br label %41, !llvm.loop !22
 
 .loopexit:                                        ; preds = %_ZN13MonitorLockerD2Ev.exit, %_ZN12ResourceMarkD2Ev.exit53, %143, %101, %204, %234, %127, %169, %230, %260, %125, %167, %228, %258
-  %.1.ph = phi i1 [ true, %258 ], [ true, %228 ], [ true, %167 ], [ false, %125 ], [ true, %260 ], [ true, %230 ], [ true, %169 ], [ false, %127 ], [ true, %234 ], [ true, %204 ], [ false, %101 ], [ true, %143 ], [ %97, %_ZN12ResourceMarkD2Ev.exit53 ], [ true, %_ZN13MonitorLockerD2Ev.exit ]
+  %.1.ph = phi i1 [ true, %258 ], [ true, %228 ], [ true, %167 ], [ false, %125 ], [ true, %260 ], [ true, %230 ], [ true, %169 ], [ false, %127 ], [ %97, %_ZN12ResourceMarkD2Ev.exit53 ], [ true, %234 ], [ true, %204 ], [ false, %101 ], [ true, %143 ], [ true, %_ZN13MonitorLockerD2Ev.exit ]
   call void @_ZN15VM_GC_OperationD2Ev(ptr noundef nonnull align 8 dereferenceable(38) %6) #23
   ret i1 %.1.ph
 }
@@ -5497,7 +5497,7 @@ _ZN11MutexLockerD2Ev.exit.us:                     ; preds = %_ZN11MutexLockerC2E
   br i1 %26, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread.us, %18, %_ZN11MutexLockerD2Ev.exit.us, %3, %.split.us
-  %.19.ph = phi i1 [ %.pre23, %3 ], [ true, %.split.us ], [ true, %_ZN11MutexLockerD2Ev.exit.us ], [ true, %18 ], [ true, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread.us ]
+  %.19.ph = phi i1 [ true, %.split.us ], [ %.pre23, %3 ], [ true, %_ZN11MutexLockerD2Ev.exit.us ], [ true, %18 ], [ true, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread.us ]
   call void @_ZN15VM_GC_OperationD2Ev(ptr noundef nonnull align 8 dereferenceable(34) %4) #23
   ret i1 %.19.ph
 }

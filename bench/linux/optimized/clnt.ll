@@ -3700,12 +3700,12 @@ define internal i32 @rpc_pipefs_event(ptr readnone captures(none) %0, i64 nounde
   br i1 %71, label %.thread, label %.preheader13.split, !llvm.loop !78
 
 .thread:                                          ; preds = %.loopexit, %58, %45, %69, %3
-  %72 = phi ptr [ %13, %3 ], [ %30, %58 ], [ %30, %69 ], [ %30, %45 ], [ %24, %.loopexit ]
+  %72 = phi ptr [ %30, %45 ], [ %30, %58 ], [ %30, %69 ], [ %13, %3 ], [ %24, %.loopexit ]
   tail call void @_raw_spin_unlock(ptr noundef nonnull %72) #20
   br label %.thread10
 
 .split.us:                                        ; preds = %42, %.split.split, %.split.split.us
-  %.us-phi = phi ptr [ %68, %.split.split ], [ %61, %.split.split.us ], [ %32, %42 ]
+  %.us-phi = phi ptr [ %61, %.split.split.us ], [ %68, %.split.split ], [ %32, %42 ]
   tail call void @_raw_spin_unlock(ptr noundef nonnull %30) #20
   %73 = icmp eq ptr %.us-phi, null
   br i1 %73, label %.thread10, label %.preheader
@@ -3770,7 +3770,7 @@ define internal i32 @rpc_pipefs_event(ptr readnone captures(none) %0, i64 nounde
   br i1 %106, label %.loopexit, label %.preheader, !llvm.loop !77
 
 .thread10:                                        ; preds = %.split.us, %95, %92, %102, %.thread
-  %107 = phi i32 [ -524, %102 ], [ 0, %.thread ], [ %98, %95 ], [ -2, %92 ], [ 0, %.split.us ]
+  %107 = phi i32 [ -524, %102 ], [ %98, %95 ], [ 0, %.thread ], [ -2, %92 ], [ 0, %.split.us ]
   ret i32 %107
 }
 

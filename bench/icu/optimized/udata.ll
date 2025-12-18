@@ -1645,7 +1645,7 @@ thread-pre-split:                                 ; preds = %199, %196, %.thread
   br label %.thread
 
 .thread:                                          ; preds = %.thread237, %177, %178, %225, %221, %222, %211, %212, %203, %204, %188, %189
-  %.1 = phi ptr [ null, %225 ], [ %202, %203 ], [ %210, %211 ], [ %220, %221 ], [ %187, %188 ], [ null, %189 ], [ null, %204 ], [ null, %212 ], [ null, %222 ], [ null, %178 ], [ %176, %177 ], [ null, %.thread237 ]
+  %.1 = phi ptr [ null, %225 ], [ %202, %203 ], [ %210, %211 ], [ %220, %221 ], [ %187, %188 ], [ null, %189 ], [ null, %204 ], [ null, %212 ], [ null, %222 ], [ %176, %177 ], [ null, %178 ], [ null, %.thread237 ]
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %11) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %10) #15
@@ -2311,7 +2311,7 @@ _ZL13extendICUDataP10UErrorCode.exit:             ; preds = %86
   br i1 %.not45, label %.loopexit5, label %15, !llvm.loop !63
 
 .loopexit5:                                       ; preds = %57, %_ZL13extendICUDataP10UErrorCode.exit, %53, %_ZL13extendICUDataP10UErrorCode.exit.thread, %.loopexit, %52
-  %.3 = phi ptr [ null, %52 ], [ %.2, %.loopexit ], [ null, %_ZL13extendICUDataP10UErrorCode.exit.thread ], [ null, %53 ], [ null, %_ZL13extendICUDataP10UErrorCode.exit ], [ null, %57 ]
+  %.3 = phi ptr [ null, %52 ], [ null, %_ZL13extendICUDataP10UErrorCode.exit.thread ], [ %.2, %.loopexit ], [ null, %53 ], [ null, %_ZL13extendICUDataP10UErrorCode.exit ], [ null, %57 ]
   ret ptr %.3
 }
 

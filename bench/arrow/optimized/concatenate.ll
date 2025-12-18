@@ -4978,7 +4978,7 @@ _ZZN5arrow12_GLOBAL__N_118PutListViewOffsetsIiEENS_6ResultINS0_21OffsetBufferOpO
   br i1 %exitcond.not.i.i.i, label %.loopexit.i.i.i, label %1283, !llvm.loop !309
 
 .loopexit.i.i.i:                                  ; preds = %_ZZN5arrow12_GLOBAL__N_118PutListViewOffsetsIiEENS_6ResultINS0_21OffsetBufferOpOutcomeEEERKNS_9ArrayDataEPT_RKNS_6BufferES8_S9_ENKUllE_clEl.exit36.i.i.i, %_ZZN5arrow12_GLOBAL__N_118PutListViewOffsetsIiEENS_6ResultINS0_21OffsetBufferOpOutcomeEEERKNS_9ArrayDataEPT_RKNS_6BufferES8_S9_ENKUllE_clEl.exit.i.i.i, %1279, %.preheader60.i.i.i, %.preheader.i.i.i
-  %.2.i.i.i = phi i64 [ %1282, %1279 ], [ %.02968.i.i.i, %.preheader.i.i.i ], [ %.02968.i.i.i, %.preheader60.i.i.i ], [ %1274, %_ZZN5arrow12_GLOBAL__N_118PutListViewOffsetsIiEENS_6ResultINS0_21OffsetBufferOpOutcomeEEERKNS_9ArrayDataEPT_RKNS_6BufferES8_S9_ENKUllE_clEl.exit.i.i.i ], [ %1304, %_ZZN5arrow12_GLOBAL__N_118PutListViewOffsetsIiEENS_6ResultINS0_21OffsetBufferOpOutcomeEEERKNS_9ArrayDataEPT_RKNS_6BufferES8_S9_ENKUllE_clEl.exit36.i.i.i ]
+  %.2.i.i.i = phi i64 [ %1274, %_ZZN5arrow12_GLOBAL__N_118PutListViewOffsetsIiEENS_6ResultINS0_21OffsetBufferOpOutcomeEEERKNS_9ArrayDataEPT_RKNS_6BufferES8_S9_ENKUllE_clEl.exit.i.i.i ], [ %1282, %1279 ], [ %.02968.i.i.i, %.preheader.i.i.i ], [ %.02968.i.i.i, %.preheader60.i.i.i ], [ %1304, %_ZZN5arrow12_GLOBAL__N_118PutListViewOffsetsIiEENS_6ResultINS0_21OffsetBufferOpOutcomeEEERKNS_9ArrayDataEPT_RKNS_6BufferES8_S9_ENKUllE_clEl.exit36.i.i.i ]
   %1305 = load i64, ptr %1199, align 8, !tbaa !106, !noalias !289
   %1306 = icmp slt i64 %.2.i.i.i, %1305
   br i1 %1306, label %.lr.ph69.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !310
@@ -7498,7 +7498,7 @@ _ZZN5arrow12_GLOBAL__N_118PutListViewOffsetsIlEENS_6ResultINS0_21OffsetBufferOpO
   br i1 %exitcond.not.i.i.i243, label %.loopexit.i.i.i221, label %.lr.ph.i78.i.i239, !llvm.loop !397
 
 .loopexit.i.i.i221:                               ; preds = %_ZZN5arrow12_GLOBAL__N_118PutListViewOffsetsIlEENS_6ResultINS0_21OffsetBufferOpOutcomeEEERKNS_9ArrayDataEPT_RKNS_6BufferES8_S9_ENKUllE_clEl.exit36.i.i.i, %_ZZN5arrow12_GLOBAL__N_118PutListViewOffsetsIlEENS_6ResultINS0_21OffsetBufferOpOutcomeEEERKNS_9ArrayDataEPT_RKNS_6BufferES8_S9_ENKUllE_clEl.exit.i.i.i, %2314, %.preheader60.i.i.i238, %.preheader.i.i.i219
-  %.2.i.i.i222 = phi i64 [ %2317, %2314 ], [ %.02968.i.i.i214, %.preheader.i.i.i219 ], [ %.02968.i.i.i214, %.preheader60.i.i.i238 ], [ %2310, %_ZZN5arrow12_GLOBAL__N_118PutListViewOffsetsIlEENS_6ResultINS0_21OffsetBufferOpOutcomeEEERKNS_9ArrayDataEPT_RKNS_6BufferES8_S9_ENKUllE_clEl.exit.i.i.i ], [ %2339, %_ZZN5arrow12_GLOBAL__N_118PutListViewOffsetsIlEENS_6ResultINS0_21OffsetBufferOpOutcomeEEERKNS_9ArrayDataEPT_RKNS_6BufferES8_S9_ENKUllE_clEl.exit36.i.i.i ]
+  %.2.i.i.i222 = phi i64 [ %2310, %_ZZN5arrow12_GLOBAL__N_118PutListViewOffsetsIlEENS_6ResultINS0_21OffsetBufferOpOutcomeEEERKNS_9ArrayDataEPT_RKNS_6BufferES8_S9_ENKUllE_clEl.exit.i.i.i ], [ %2317, %2314 ], [ %.02968.i.i.i214, %.preheader.i.i.i219 ], [ %.02968.i.i.i214, %.preheader60.i.i.i238 ], [ %2339, %_ZZN5arrow12_GLOBAL__N_118PutListViewOffsetsIlEENS_6ResultINS0_21OffsetBufferOpOutcomeEEERKNS_9ArrayDataEPT_RKNS_6BufferES8_S9_ENKUllE_clEl.exit36.i.i.i ]
   %2340 = load i64, ptr %2233, align 8, !tbaa !106, !noalias !386
   %2341 = icmp slt i64 %.2.i.i.i222, %2340
   br i1 %2341, label %.lr.ph69.i.i.i213, label %._crit_edge.i.i.i198, !llvm.loop !398
@@ -16687,8 +16687,8 @@ _ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE9push_backERKS3_.exit: ; pre
   br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !739
 
 .loopexit.i:                                      ; preds = %263, %.lr.ph14.i.preheader, %.preheader.i, %.preheader8.i, %.preheader10.i
-  %.6 = phi i64 [ %.2, %.preheader10.i ], [ %spec.select, %.preheader.i ], [ %.2, %.preheader8.i ], [ %251, %.lr.ph14.i.preheader ], [ %.5, %263 ]
-  %.pre-phi.i = phi i64 [ %247, %.preheader10.i ], [ %242, %.preheader.i ], [ %247, %.preheader8.i ], [ %247, %.lr.ph14.i.preheader ], [ %247, %263 ]
+  %.6 = phi i64 [ %.2, %.preheader10.i ], [ %spec.select, %.preheader.i ], [ %251, %.lr.ph14.i.preheader ], [ %.2, %.preheader8.i ], [ %.5, %263 ]
+  %.pre-phi.i = phi i64 [ %247, %.preheader10.i ], [ %242, %.preheader.i ], [ %247, %.lr.ph14.i.preheader ], [ %247, %.preheader8.i ], [ %247, %263 ]
   %265 = add nsw i64 %.pre-phi.i, %.02417.i
   %266 = add nsw i64 %.pre-phi.i, %.02318.i
   %267 = icmp slt i64 %265, %234

@@ -9249,7 +9249,7 @@ _ZNSt10_HashtableIlSt4pairIKllESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4
   br label %.body
 
 _ZNSt13unordered_mapIllSt4hashIlESt8equal_toIlESaISt4pairIKllEEE7reserveEm.exit: ; preds = %291, %.noexc119, %286
-  %.pn.i.i = phi ptr [ %287, %286 ], [ %301, %.noexc119 ], [ %293, %291 ]
+  %.pn.i.i = phi ptr [ %301, %.noexc119 ], [ %287, %286 ], [ %293, %291 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   store i64 %.sroa.5.0.copyload, ptr %.1.i.i, align 8, !tbaa !25
   %303 = getelementptr inbounds nuw i8, ptr %.sroa.0127.0146, i64 16

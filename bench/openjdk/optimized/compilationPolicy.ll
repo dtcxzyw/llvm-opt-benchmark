@@ -484,7 +484,7 @@ _ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i.i:   ; preds = %_ZN14CompilerConfig
   br i1 %spec.select.i, label %_ZL36adjust_level_for_compilability_query9CompLevel.exit.thread, label %_ZN19AbstractInterpreter15can_be_compiledERK12methodHandle.exit
 
 _ZL36adjust_level_for_compilability_query9CompLevel.exit.thread: ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i.i, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i, %21, %34
-  %37 = phi i32 [ -1, %21 ], [ %35, %34 ], [ %spec.select, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i.i ], [ 1, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i ]
+  %37 = phi i32 [ %spec.select, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i.i ], [ %35, %34 ], [ -1, %21 ], [ 1, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i ]
   %38 = tail call noundef zeroext i1 @_ZNK6Method17is_not_compilableEi(ptr noundef nonnull align 8 dereferenceable(88) %3, i32 noundef %37) #12
   %39 = xor i1 %38, true
   br label %_ZN19AbstractInterpreter15can_be_compiledERK12methodHandle.exit
@@ -642,8 +642,8 @@ _ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.fold.sp
   br label %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit
 
 _ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit: ; preds = %12, %1, %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.fold.split3, %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.fold.split2, %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.fold.split, %3, %6, %8
-  %.pre31.i.i = phi i32 [ %2, %1 ], [ %2, %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.fold.split3 ], [ 3, %3 ], [ 3, %6 ], [ 3, %8 ], [ %14, %12 ], [ %2, %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.fold.split ], [ %2, %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.fold.split2 ]
-  %.0 = phi i8 [ 3, %1 ], [ -1, %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.fold.split3 ], [ 4, %3 ], [ 4, %6 ], [ 4, %8 ], [ %spec.select, %12 ], [ 1, %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.fold.split ], [ 4, %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.fold.split2 ]
+  %.pre31.i.i = phi i32 [ %2, %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.fold.split2 ], [ %2, %1 ], [ %14, %12 ], [ %2, %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.fold.split ], [ %2, %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.fold.split3 ], [ 3, %3 ], [ 3, %6 ], [ 3, %8 ]
+  %.0 = phi i8 [ 4, %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.fold.split2 ], [ 3, %1 ], [ %spec.select, %12 ], [ 1, %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.fold.split ], [ -1, %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.fold.split3 ], [ 4, %3 ], [ 4, %6 ], [ 4, %8 ]
   %15 = load i32, ptr @_ZN9Arguments5_modeE, align 4
   %16 = icmp eq i32 %15, 0
   %17 = load i64, ptr @TieredStopAtLevel, align 8
@@ -1005,7 +1005,7 @@ _ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i.i:   ; preds = %_ZN14CompilerConfig
   br i1 %spec.select.i, label %_ZL36adjust_level_for_compilability_query9CompLevel.exit.thread, label %.critedge
 
 _ZL36adjust_level_for_compilability_query9CompLevel.exit.thread: ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i.i, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i, %5, %18
-  %21 = phi i32 [ -1, %5 ], [ %19, %18 ], [ %spec.select, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i.i ], [ 1, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i ]
+  %21 = phi i32 [ %spec.select, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i.i ], [ %19, %18 ], [ -1, %5 ], [ 1, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i ]
   %22 = load ptr, ptr %0, align 8
   %23 = tail call noundef zeroext i1 @_ZNK6Method21is_not_osr_compilableEi(ptr noundef nonnull align 8 dereferenceable(88) %22, i32 noundef %21) #12
   br i1 %23, label %.critedge, label %24
@@ -2739,7 +2739,7 @@ _ZN14CompilerConfig10is_c1_onlyEv.exit.i.i:       ; preds = %50
   br i1 %spec.select.i.i, label %_ZL36adjust_level_for_compilability_query9CompLevel.exit.thread.i, label %_ZN11MutexLockerD2Ev.exit
 
 _ZL36adjust_level_for_compilability_query9CompLevel.exit.thread.i: ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i, %61, %50
-  %62 = phi i32 [ -1, %50 ], [ %43, %61 ], [ %spec.select, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i ]
+  %62 = phi i32 [ %spec.select, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i ], [ %43, %61 ], [ -1, %50 ]
   %63 = load ptr, ptr %0, align 8
   %64 = tail call noundef zeroext i1 @_ZNK6Method21is_not_osr_compilableEi(ptr noundef nonnull align 8 dereferenceable(88) %63, i32 noundef %62) #12
   br i1 %64, label %_ZN17CompilationPolicy19can_be_osr_compiledERK12methodHandlei.exit.thread, label %_ZN17CompilationPolicy19can_be_osr_compiledERK12methodHandlei.exit
@@ -3420,7 +3420,7 @@ _ZN13CompileBroker10queue_sizeEi.exit58:          ; preds = %113, %115
   br label %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.thread
 
 _ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.thread: ; preds = %96, %112, %124, %110, %19, %_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit.thread67, %135, %132, %_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit, %_ZN13CompileBroker10queue_sizeEi.exit, %33, %_ZN17CompilationPolicy10is_trivialERK12methodHandle.exit.thread, %54
-  %.0 = phi i8 [ %31, %_ZN17CompilationPolicy10is_trivialERK12methodHandle.exit.thread ], [ 4, %_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit.thread67 ], [ 3, %54 ], [ 4, %33 ], [ 2, %_ZN13CompileBroker10queue_sizeEi.exit ], [ 1, %19 ], [ 4, %_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit ], [ 3, %112 ], [ %.mux, %96 ], [ 4, %132 ], [ %spec.select, %135 ], [ 3, %110 ], [ 3, %124 ]
+  %.0 = phi i8 [ 4, %_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit.thread67 ], [ %31, %_ZN17CompilationPolicy10is_trivialERK12methodHandle.exit.thread ], [ %spec.select, %135 ], [ 4, %_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit ], [ 4, %132 ], [ 3, %54 ], [ 4, %33 ], [ %.mux, %96 ], [ 2, %_ZN13CompileBroker10queue_sizeEi.exit ], [ 1, %19 ], [ 3, %112 ], [ 3, %110 ], [ 3, %124 ]
   %.not45 = icmp eq i8 %.0, %1
   br i1 %.not45, label %.thread, label %153
 
@@ -3761,7 +3761,7 @@ _ZN13CompileBroker10queue_sizeEi.exit58:          ; preds = %113, %115
   br label %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.thread
 
 _ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.thread: ; preds = %96, %112, %124, %110, %19, %_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit.thread67, %135, %132, %_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit, %_ZN13CompileBroker10queue_sizeEi.exit, %33, %_ZN17CompilationPolicy10is_trivialERK12methodHandle.exit.thread, %54
-  %.0 = phi i8 [ %31, %_ZN17CompilationPolicy10is_trivialERK12methodHandle.exit.thread ], [ 4, %_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit.thread67 ], [ 3, %54 ], [ 4, %33 ], [ 2, %_ZN13CompileBroker10queue_sizeEi.exit ], [ 1, %19 ], [ 4, %_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit ], [ 3, %112 ], [ %.mux, %96 ], [ 4, %132 ], [ %spec.select, %135 ], [ 3, %110 ], [ 3, %124 ]
+  %.0 = phi i8 [ 4, %_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit.thread67 ], [ %31, %_ZN17CompilationPolicy10is_trivialERK12methodHandle.exit.thread ], [ %spec.select, %135 ], [ 4, %_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit ], [ 4, %132 ], [ 3, %54 ], [ 4, %33 ], [ %.mux, %96 ], [ 2, %_ZN13CompileBroker10queue_sizeEi.exit ], [ 1, %19 ], [ 3, %112 ], [ 3, %110 ], [ 3, %124 ]
   %.not45 = icmp eq i8 %.0, %1
   br i1 %.not45, label %.thread, label %153
 

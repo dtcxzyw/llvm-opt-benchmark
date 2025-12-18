@@ -473,7 +473,7 @@ define internal fastcc noundef zeroext i1 @has_join_restriction(ptr noundef read
   br i1 %65, label %.lr.ph79, label %.thread60
 
 .thread60:                                        ; preds = %23, %62, %53, %57, %.critedge50, %.lr.ph68, %2, %5
-  %.0 = phi i1 [ true, %2 ], [ true, %5 ], [ false, %.critedge50 ], [ false, %.lr.ph68 ], [ true, %57 ], [ true, %53 ], [ false, %62 ], [ true, %23 ]
+  %.0 = phi i1 [ true, %57 ], [ true, %2 ], [ true, %5 ], [ false, %.critedge50 ], [ false, %.lr.ph68 ], [ true, %53 ], [ false, %62 ], [ true, %23 ]
   ret i1 %.0
 }
 
@@ -629,7 +629,7 @@ define dso_local noundef zeroext i1 @have_join_order_restriction(ptr noundef %0,
   br label %.critedge67
 
 .critedge67:                                      ; preds = %29, %84, %.lr.ph79, %.critedge65, %91, %89, %3, %9
-  %.0 = phi i1 [ true, %3 ], [ true, %9 ], [ false, %91 ], [ true, %89 ], [ false, %.critedge65 ], [ false, %.lr.ph79 ], [ false, %84 ], [ true, %29 ]
+  %.0 = phi i1 [ true, %3 ], [ false, %.critedge65 ], [ true, %9 ], [ false, %91 ], [ true, %89 ], [ false, %.lr.ph79 ], [ false, %84 ], [ true, %29 ]
   ret i1 %.0
 }
 
@@ -1360,7 +1360,7 @@ define dso_local ptr @add_outer_joins_to_relids(ptr noundef readonly captures(no
   br i1 %108, label %.lr.ph92, label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph.split, %66, %.lr.ph.split.preheader, %24, %.lr.ph.split.us.split, %19, %15, %4, %6, %13
-  %.0 = phi ptr [ %1, %4 ], [ %14, %13 ], [ %1, %15 ], [ %1, %6 ], [ %21, %19 ], [ %21, %24 ], [ %21, %.lr.ph.split.us.split ], [ %21, %.lr.ph.split.preheader ], [ %.2.us, %66 ], [ %.2, %.lr.ph.split ]
+  %.0 = phi ptr [ %1, %4 ], [ %14, %13 ], [ %1, %15 ], [ %1, %6 ], [ %21, %19 ], [ %21, %24 ], [ %21, %.lr.ph.split.us.split ], [ %.2.us, %66 ], [ %21, %.lr.ph.split.preheader ], [ %.2, %.lr.ph.split ]
   ret ptr %.0
 }
 

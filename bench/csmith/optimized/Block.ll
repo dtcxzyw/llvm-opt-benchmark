@@ -1755,7 +1755,7 @@ _ZNK5Block12get_last_stmEv.exit.thread:           ; preds = %2
   br i1 %89, label %66, label %.critedge40, !llvm.loop !153
 
 .critedge40:                                      ; preds = %42, %54, %.critedge38, %78, %66, %.preheader, %_ZNK5Block12get_last_stmEv.exit.thread, %_ZNK5Block12get_last_stmEv.exit, %23, %.thread
-  %.5 = phi i1 [ false, %_ZNK5Block12get_last_stmEv.exit ], [ false, %.thread ], [ false, %23 ], [ false, %_ZNK5Block12get_last_stmEv.exit.thread ], [ false, %.preheader ], [ true, %66 ], [ true, %78 ], [ false, %.critedge38 ], [ true, %54 ], [ true, %42 ]
+  %.5 = phi i1 [ false, %_ZNK5Block12get_last_stmEv.exit ], [ false, %.preheader ], [ false, %.thread ], [ false, %23 ], [ false, %_ZNK5Block12get_last_stmEv.exit.thread ], [ true, %66 ], [ true, %78 ], [ false, %.critedge38 ], [ true, %54 ], [ true, %42 ]
   ret i1 %.5
 }
 

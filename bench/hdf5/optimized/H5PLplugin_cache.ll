@@ -357,7 +357,7 @@ define range(i32 -1, 1) i32 @H5PL__find_plugin_in_cache(ptr noundef readonly cap
   br label %.loopexit
 
 .split.us:                                        ; preds = %56, %63, %40, %33, %17
-  %.us-phi = phi ptr [ %24, %40 ], [ %15, %17 ], [ %24, %33 ], [ %47, %63 ], [ %47, %56 ]
+  %.us-phi = phi ptr [ %15, %17 ], [ %24, %40 ], [ %24, %33 ], [ %47, %63 ], [ %47, %56 ]
   %76 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 24
   %77 = load ptr, ptr %76, align 8, !tbaa !17
   %78 = tail call ptr @dlsym(ptr noundef %77, ptr noundef nonnull @.str.4) #8
@@ -392,7 +392,7 @@ define range(i32 -1, 1) i32 @H5PL__find_plugin_in_cache(ptr noundef readonly cap
   br i1 %exitcond93.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !29
 
 .loopexit:                                        ; preds = %69, %46, %23, %92, %10, %72, %91, %87, %80, %3
-  %.037 = phi i32 [ 0, %3 ], [ -1, %72 ], [ 0, %91 ], [ -1, %80 ], [ -1, %87 ], [ 0, %10 ], [ 0, %46 ], [ 0, %92 ], [ 0, %23 ], [ 0, %69 ]
+  %.037 = phi i32 [ 0, %3 ], [ 0, %91 ], [ -1, %87 ], [ -1, %72 ], [ -1, %80 ], [ 0, %46 ], [ 0, %23 ], [ 0, %10 ], [ 0, %92 ], [ 0, %69 ]
   ret i32 %.037
 }
 

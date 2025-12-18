@@ -2194,7 +2194,7 @@ _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit264: ; preds = %516, %514
   br label %597
 
 .sink.split:                                      ; preds = %506, %473, %508
-  %.sink = phi ptr [ %496, %508 ], [ %471, %473 ], [ %496, %506 ]
+  %.sink = phi ptr [ %471, %473 ], [ %496, %508 ], [ %496, %506 ]
   call void @_ZdaPv(ptr noundef nonnull %.sink) #31
   br label %544
 

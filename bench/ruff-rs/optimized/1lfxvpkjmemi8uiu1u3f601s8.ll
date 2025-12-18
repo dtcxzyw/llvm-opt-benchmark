@@ -19866,7 +19866,7 @@ _ZN5serde2de9MapAccess10next_value17h2626998bcfd1721eE.exit.i: ; preds = %61
   br i1 %.not54.i, label %73, label %_ZN5serde2de9MapAccess10next_value17h2626998bcfd1721eE.exit.thread.i
 
 _ZN5serde2de9MapAccess10next_value17h2626998bcfd1721eE.exit.thread.i: ; preds = %_ZN5serde2de9MapAccess10next_value17h2626998bcfd1721eE.exit.i, %.loopexit106.i, %.invoke.i, %.loopexit163.i, %63, %49
-  %.sink.i = phi ptr [ %51, %49 ], [ %70, %.loopexit163.i ], [ %85, %.loopexit106.i ], [ %79, %.invoke.i ], [ %64, %63 ], [ %62, %_ZN5serde2de9MapAccess10next_value17h2626998bcfd1721eE.exit.i ]
+  %.sink.i = phi ptr [ %51, %49 ], [ %70, %.loopexit163.i ], [ %64, %63 ], [ %85, %.loopexit106.i ], [ %79, %.invoke.i ], [ %62, %_ZN5serde2de9MapAccess10next_value17h2626998bcfd1721eE.exit.i ]
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink.i, ptr %90, align 8, !alias.scope !2031, !noalias !2034
   store i64 -9223372036854775807, ptr %0, align 8, !alias.scope !2031, !noalias !2034
@@ -20078,7 +20078,7 @@ define hidden void @"_ZN94_$LT$serde..__private..de..FlatMapDeserializer$LT$E$GT
   br label %.body.i
 
 .loopexit.split-lp.loopexit.split-lp.i:           ; preds = %"_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h4473a8a050e64778E.exit.i", %103, %88, %71, %67, %65
-  %.sroa.053.1.ph.ph.i = phi i1 [ true, %67 ], [ true, %71 ], [ true, %88 ], [ true, %65 ], [ false, %"_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h4473a8a050e64778E.exit.i" ], [ true, %103 ]
+  %.sroa.053.1.ph.ph.i = phi i1 [ false, %"_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h4473a8a050e64778E.exit.i" ], [ true, %103 ], [ true, %65 ], [ true, %88 ], [ true, %71 ], [ true, %67 ]
   %lpad.loopexit.split-lp117.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i

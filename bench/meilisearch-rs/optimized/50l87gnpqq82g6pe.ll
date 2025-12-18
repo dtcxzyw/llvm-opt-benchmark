@@ -2957,7 +2957,7 @@ define hidden void @"_ZN243_$LT$$LT$meilisearch_types..keys.._..$LT$impl$u20$ser
   br label %39
 
 "_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_option17h57ebb81ada931540E.llvm.17679927419414190380.exit.thread": ; preds = %29, %36, %"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_option17h57ebb81ada931540E.llvm.17679927419414190380.exit.thread28"
-  %.sroa.0.120 = phi ptr [ %21, %"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_option17h57ebb81ada931540E.llvm.17679927419414190380.exit.thread28" ], [ %30, %29 ], [ %37, %36 ]
+  %.sroa.0.120 = phi ptr [ %21, %"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_option17h57ebb81ada931540E.llvm.17679927419414190380.exit.thread28" ], [ %37, %36 ], [ %30, %29 ]
   store ptr %.sroa.0.120, ptr %0, align 8
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 11
   store i8 2, ptr %38, align 1
@@ -3186,7 +3186,7 @@ define hidden void @"_ZN243_$LT$$LT$meilisearch_types..keys.._..$LT$impl$u20$ser
   br label %39
 
 "_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_option17h57ebb81ada931540E.llvm.17679927419414190380.exit.thread": ; preds = %29, %36, %"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_option17h57ebb81ada931540E.llvm.17679927419414190380.exit.thread28"
-  %.sroa.0.120 = phi ptr [ %21, %"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_option17h57ebb81ada931540E.llvm.17679927419414190380.exit.thread28" ], [ %30, %29 ], [ %37, %36 ]
+  %.sroa.0.120 = phi ptr [ %21, %"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_option17h57ebb81ada931540E.llvm.17679927419414190380.exit.thread28" ], [ %37, %36 ], [ %30, %29 ]
   store ptr %.sroa.0.120, ptr %0, align 8
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 11
   store i8 2, ptr %38, align 1
@@ -4617,8 +4617,8 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   store i8 1, ptr %.sroa.3.0..sroa_idx.i, align 1, !alias.scope !2714
   br label %43
 
-41:                                               ; preds = %39, %32
-  %.sroa.0.0.i.ph = phi ptr [ %40, %39 ], [ %33, %32 ]
+41:                                               ; preds = %32, %39
+  %.sroa.0.0.i.ph = phi ptr [ %33, %32 ], [ %40, %39 ]
   store ptr %.sroa.0.0.i.ph, ptr %0, align 8
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 11
   store i8 2, ptr %42, align 1

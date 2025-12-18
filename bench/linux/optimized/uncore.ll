@@ -3887,7 +3887,7 @@ define internal fastcc ptr @uncore_pci_find_dev_pmu(ptr noundef readonly capture
   br i1 %106, label %.loopexit9, label %69, !llvm.loop !80
 
 .loopexit9:                                       ; preds = %104, %69, %.loopexit8.us, %12, %94, %.split19.us, %8
-  %107 = phi ptr [ %103, %94 ], [ %68, %.split19.us ], [ null, %8 ], [ null, %12 ], [ null, %.loopexit8.us ], [ null, %69 ], [ null, %104 ]
+  %107 = phi ptr [ %103, %94 ], [ %68, %.split19.us ], [ null, %8 ], [ null, %.loopexit8.us ], [ null, %12 ], [ null, %69 ], [ null, %104 ]
   ret ptr %107
 }
 
@@ -4888,7 +4888,7 @@ define internal fastcc range(i32 -22, 1) i32 @uncore_validate_group(ptr noundef 
   br i1 %88, label %.loopexit, label %67, !llvm.loop !97
 
 .loopexit:                                        ; preds = %85, %61, %56
-  %89 = phi i32 [ %57, %56 ], [ %57, %61 ], [ %86, %85 ]
+  %89 = phi i32 [ %57, %61 ], [ %57, %56 ], [ %86, %85 ]
   %90 = icmp slt i32 %89, 0
   br i1 %90, label %.thread12, label %91
 
@@ -5367,7 +5367,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @uncore_box_ref(ptr noundef
   br label %.loopexit15
 
 .loopexit15:                                      ; preds = %.loopexit, %.loopexit15.sink.split, %.loopexit16
-  %147 = phi i32 [ 0, %.loopexit16 ], [ %.ph, %.loopexit15.sink.split ], [ 0, %.loopexit ]
+  %147 = phi i32 [ %.ph, %.loopexit15.sink.split ], [ 0, %.loopexit16 ], [ 0, %.loopexit ]
   ret i32 %147
 }
 

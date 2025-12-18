@@ -1040,9 +1040,9 @@ sdslen.exit:                                      ; preds = %47, %50, %54, %58, 
   %.pre = load i32, ptr %3, align 4, !tbaa !21
   br label %.thread111.thread167
 
-.thread111.thread167:                             ; preds = %._crit_edge, %123, %120, %.thread111.thread167.loopexit
-  %143 = phi i32 [ %.pre, %.thread111.thread167.loopexit ], [ %118, %120 ], [ %118, %123 ], [ %118, %._crit_edge ]
-  %.182131.ph = phi ptr [ @.str.25, %.thread111.thread167.loopexit ], [ @.str.24, %120 ], [ @.str.24, %123 ], [ @.str.24, %._crit_edge ]
+.thread111.thread167:                             ; preds = %120, %123, %._crit_edge, %.thread111.thread167.loopexit
+  %143 = phi i32 [ %.pre, %.thread111.thread167.loopexit ], [ %118, %._crit_edge ], [ %118, %123 ], [ %118, %120 ]
+  %.182131.ph = phi ptr [ @.str.25, %.thread111.thread167.loopexit ], [ @.str.24, %._crit_edge ], [ @.str.24, %123 ], [ @.str.24, %120 ]
   call void @sdsfreesplitres(ptr noundef nonnull %66, i32 noundef %143) #20
   br label %.thread111.thread156
 
@@ -1050,7 +1050,7 @@ sdslen.exit:                                      ; preds = %47, %50, %54, %58, 
   call void @sdsfreesplitres(ptr noundef nonnull %66, i32 noundef %68) #20
   br label %.thread136
 
-.thread111.thread156:                             ; preds = %128, %134, %126, %.thread111.thread167
+.thread111.thread156:                             ; preds = %134, %128, %126, %.thread111.thread167
   %.182118165 = phi ptr [ %.182131.ph, %.thread111.thread167 ], [ @.str.28, %126 ], [ @.str.26, %128 ], [ @.str.27, %134 ]
   call void @aofInfoFree(ptr noundef nonnull %73)
   br label %.thread136
@@ -1712,7 +1712,7 @@ sdslen.exit:                                      ; preds = %26, %29, %33, %37, 
   br label %91
 
 91:                                               ; preds = %81, %54, %57, %65, %68, %74, %77, %84, %87
-  %.030 = phi i32 [ 0, %81 ], [ -1, %57 ], [ -1, %68 ], [ -1, %77 ], [ -1, %54 ], [ -1, %65 ], [ -1, %74 ], [ -1, %84 ], [ -1, %87 ]
+  %.030 = phi i32 [ 0, %81 ], [ -1, %87 ], [ -1, %57 ], [ -1, %68 ], [ -1, %77 ], [ -1, %84 ], [ -1, %54 ], [ -1, %65 ], [ -1, %74 ]
   %92 = tail call i32 @close(i32 noundef %12) #20
   br label %.thread
 
@@ -4702,7 +4702,7 @@ define dso_local range(i32 0, 6) i32 @loadSingleAppendOnlyFile(ptr noundef %0) l
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread218
 
-.thread183:                                       ; preds = %64, %69
+.thread183:                                       ; preds = %69, %64
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %71
 
@@ -6328,7 +6328,7 @@ rioWrite.exit78:                                  ; preds = %79
   br label %.thread
 
 .thread:                                          ; preds = %37, %30, %28, %32, %17, %24, %26, %.thread.sink.split, %.preheader
-  %.043 = phi i32 [ 1, %.preheader ], [ 0, %.thread.sink.split ], [ 0, %26 ], [ 0, %24 ], [ 0, %17 ], [ 1, %32 ], [ 0, %28 ], [ 0, %30 ], [ 1, %37 ]
+  %.043 = phi i32 [ 1, %.preheader ], [ 0, %26 ], [ 0, %.thread.sink.split ], [ 0, %24 ], [ 0, %17 ], [ 1, %32 ], [ 0, %28 ], [ 0, %30 ], [ 1, %37 ]
   call void @hashTypeReleaseIterator(ptr noundef %8) #20
   ret i32 %.043
 }
@@ -7935,9 +7935,9 @@ rioWrite.exit135:                                 ; preds = %282
   br label %.thread159
 
 303:                                              ; preds = %289, %302, %300, %232
-  %cond = phi i1 [ false, %232 ], [ false, %289 ], [ true, %302 ], [ true, %300 ]
-  %.373 = phi i64 [ %.272, %232 ], [ %.272, %289 ], [ %.5, %302 ], [ %.5, %300 ]
-  %.3 = phi i64 [ %.2, %232 ], [ %.2, %289 ], [ %292, %302 ], [ %292, %300 ]
+  %cond = phi i1 [ true, %300 ], [ false, %232 ], [ true, %302 ], [ false, %289 ]
+  %.373 = phi i64 [ %.5, %300 ], [ %.272, %232 ], [ %.5, %302 ], [ %.272, %289 ]
+  %.3 = phi i64 [ %292, %300 ], [ %.2, %232 ], [ %292, %302 ], [ %.2, %289 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %cond, label %200, label %.thread159, !llvm.loop !230
 
@@ -7957,7 +7957,7 @@ rioWrite.exit135:                                 ; preds = %282
   br i1 %307, label %169, label %.thread175, !llvm.loop !231
 
 .thread159:                                       ; preds = %175, %rioWrite.exit112, %303, %.thread.i111, %.thread153
-  %.075 = phi ptr [ %198, %.thread153 ], [ %.176218, %.thread.i111 ], [ %198, %303 ], [ %.176218, %rioWrite.exit112 ], [ %.176218, %175 ]
+  %.075 = phi ptr [ %198, %303 ], [ %198, %.thread153 ], [ %.176218, %.thread.i111 ], [ %.176218, %rioWrite.exit112 ], [ %.176218, %175 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not92 = icmp eq ptr %.075, null
   br i1 %.not92, label %.thread175, label %308
@@ -7967,7 +7967,7 @@ rioWrite.exit135:                                 ; preds = %282
   br label %.thread175
 
 .thread175:                                       ; preds = %.thread166, %rewriteFunctions.exit, %rioWrite.exit.thread, %rewriteFunctions.exit.thread, %.thread159, %308
-  %.0 = phi i32 [ -1, %.thread159 ], [ -1, %308 ], [ -1, %rewriteFunctions.exit.thread ], [ -1, %rioWrite.exit.thread ], [ 0, %rewriteFunctions.exit ], [ 0, %.thread166 ]
+  %.0 = phi i32 [ -1, %.thread159 ], [ -1, %rioWrite.exit.thread ], [ -1, %308 ], [ -1, %rewriteFunctions.exit.thread ], [ 0, %rewriteFunctions.exit ], [ 0, %.thread166 ]
   ret i32 %.0
 }
 

@@ -77,7 +77,7 @@ define i32 @ff_mov_iso639_to_lang(ptr noundef readonly captures(none) %0, i32 no
   br label %.loopexit
 
 .loopexit:                                        ; preds = %14, %10, %.loopexit.loopexit44, %.critedge
-  %.027 = phi i32 [ -1, %.critedge ], [ %19, %.loopexit.loopexit44 ], [ -1, %10 ], [ %18, %14 ]
+  %.027 = phi i32 [ %19, %.loopexit.loopexit44 ], [ -1, %.critedge ], [ -1, %10 ], [ %18, %14 ]
   ret i32 %.027
 }
 
@@ -122,7 +122,7 @@ define range(i32 0, 2) i32 @ff_mov_lang_to_iso639(i32 noundef %0, ptr noundef wr
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %12, %10, %16
-  %.014 = phi i32 [ 0, %10 ], [ 1, %16 ], [ 0, %12 ], [ 1, %.preheader ]
+  %.014 = phi i32 [ 0, %10 ], [ 0, %12 ], [ 1, %16 ], [ 1, %.preheader ]
   ret i32 %.014
 }
 

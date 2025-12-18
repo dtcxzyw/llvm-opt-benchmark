@@ -895,7 +895,7 @@ read_major_sync.exit:                             ; preds = %52
   br label %379
 
 379:                                              ; preds = %372, %368
-  %.1176 = phi i32 [ %.0181, %372 ], [ %.0175427, %368 ]
+  %.1176 = phi i32 [ %.0175427, %368 ], [ %.0181, %372 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %380 = load i8, ptr %282, align 1, !tbaa !65
   %381 = zext i8 %380 to i64
@@ -1985,8 +1985,8 @@ read_matrix_params.exit.i:                        ; preds = %985, %.preheader.i.
   br i1 %exitcond.not, label %.loopexit.i262, label %1053, !llvm.loop !127
 
 .loopexit.i262:                                   ; preds = %1053, %..loopexit.i262_crit_edge, %1038
-  %1072 = phi i8 [ %.pre522, %1038 ], [ %.pre521, %..loopexit.i262_crit_edge ], [ %.pre522, %1053 ]
-  %.083.i = phi i32 [ 0, %1038 ], [ 0, %..loopexit.i262_crit_edge ], [ %1071, %1053 ]
+  %1072 = phi i8 [ %.pre521, %..loopexit.i262_crit_edge ], [ %.pre522, %1038 ], [ %.pre522, %1053 ]
+  %.083.i = phi i32 [ 0, %..loopexit.i262_crit_edge ], [ 0, %1038 ], [ %1071, %1053 ]
   %1073 = load i8, ptr %423, align 4, !tbaa !102
   %.not109145.i = icmp ugt i8 %1073, %1072
   br i1 %.not109145.i, label %read_channel_params.exit.thread.i, label %.lr.ph.i263
@@ -2888,7 +2888,7 @@ read_block_data.exit:                             ; preds = %1496, %._crit_edge5
   %.not217 = icmp eq i32 %417, %.val227
   br i1 %.not217, label %read_restart_header.exit.thread, label %.loopexit
 
-read_restart_header.exit.thread:                  ; preds = %548, %read_decoding_params.exit, %987, %867, %842, %.critedge.i, %546, %543, %508, %494, %.thread310, %1292, %1282
+read_restart_header.exit.thread:                  ; preds = %548, %read_decoding_params.exit, %867, %987, %842, %.critedge.i, %546, %543, %508, %494, %.thread310, %1292, %1282
   %.pr313 = load i8, ptr %413, align 16, !tbaa !80
   %.not218 = icmp eq i8 %.pr313, 0
   br i1 %.not218, label %.thread315, label %1603
@@ -2949,7 +2949,7 @@ read_restart_header.exit.thread:                  ; preds = %548, %read_decoding
   br label %.thread326
 
 .thread326:                                       ; preds = %1554, %1521, %1376, %1620, %1319, %1608, %18, %4, %.thread, %.loopexit, %286
-  %.0 = phi i32 [ %23, %286 ], [ -1094995529, %4 ], [ -1094995529, %.thread ], [ -1094995529, %18 ], [ -1094995529, %.loopexit ], [ %1610, %1608 ], [ -1094995529, %1319 ], [ -1094995529, %1376 ], [ %23, %1620 ], [ -1094995529, %1521 ], [ -1094995529, %1554 ]
+  %.0 = phi i32 [ %23, %286 ], [ -1094995529, %4 ], [ -1094995529, %.thread ], [ -1094995529, %18 ], [ %23, %1620 ], [ -1094995529, %.loopexit ], [ %1610, %1608 ], [ -1094995529, %1319 ], [ -1094995529, %1376 ], [ -1094995529, %1521 ], [ -1094995529, %1554 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

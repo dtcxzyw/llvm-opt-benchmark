@@ -1038,8 +1038,8 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h02
   ret void
 
 54:                                               ; preds = %44, %40
-  %55 = phi i8 [ %42, %40 ], [ %.pre, %44 ]
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.19.i.i, %40 ], [ %50, %44 ]
+  %55 = phi i8 [ %.pre, %44 ], [ %42, %40 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %50, %44 ], [ %.sroa.6.19.i.i, %40 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !125)
   %56 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %.sroa.3.0.i.ph.i
   %57 = and i8 %55, 1
@@ -1179,8 +1179,8 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h0e
   br label %51
 
 51:                                               ; preds = %40, %44
-  %52 = phi i8 [ %42, %40 ], [ %.pre, %44 ]
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.19.i.i, %40 ], [ %50, %44 ]
+  %52 = phi i8 [ %.pre, %44 ], [ %42, %40 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %50, %44 ], [ %.sroa.6.19.i.i, %40 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !145)
   %53 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %.sroa.3.0.i.ph.i
   %54 = and i8 %52, 1
@@ -1324,8 +1324,8 @@ define hidden { i64, i64 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   br label %49
 
 49:                                               ; preds = %38, %42
-  %50 = phi i8 [ %40, %38 ], [ %.pre, %42 ]
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.19.i.i, %38 ], [ %48, %42 ]
+  %50 = phi i8 [ %.pre, %42 ], [ %40, %38 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %48, %42 ], [ %.sroa.6.19.i.i, %38 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !161)
   %51 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %.sroa.3.0.i.ph.i
   %52 = and i8 %50, 1
@@ -1462,8 +1462,8 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
   br label %48
 
 48:                                               ; preds = %37, %41
-  %49 = phi i8 [ %39, %37 ], [ %.pre, %41 ]
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.19.i.i, %37 ], [ %47, %41 ]
+  %49 = phi i8 [ %.pre, %41 ], [ %39, %37 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %47, %41 ], [ %.sroa.6.19.i.i, %37 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !178)
   %50 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %.sroa.3.0.i.ph.i
   %51 = and i8 %49, 1
@@ -1589,8 +1589,8 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
   br label %48
 
 48:                                               ; preds = %37, %41
-  %49 = phi i8 [ %39, %37 ], [ %.pre, %41 ]
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.19.i.i, %37 ], [ %47, %41 ]
+  %49 = phi i8 [ %.pre, %41 ], [ %39, %37 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %47, %41 ], [ %.sroa.6.19.i.i, %37 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !195)
   %50 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %.sroa.3.0.i.ph.i
   %51 = and i8 %49, 1
@@ -3574,7 +3574,7 @@ define void @_ZN6quiche2h35frame5Frame8to_bytes17h66693563852c3f01E(ptr dead_on_
   br label %.loopexit245
 
 .loopexit245:                                     ; preds = %282, %287, %76, %69, %11, %361, %354, %63, %350, %346, %341, %53, %337, %333, %328, %43, %324, %317, %39, %313, %306, %35, %302, %298, %293, %25, %268, %261, %257, %253, %247, %242, %236, %231, %225, %220, %214, %209, %203, %198, %193, %.loopexit242, %101, %94, %19, %90, %83, %15, %.loopexit
-  %.sink = phi i64 [ 21, %350 ], [ 21, %63 ], [ 21, %354 ], [ 21, %337 ], [ 21, %53 ], [ 21, %341 ], [ 21, %346 ], [ 21, %324 ], [ 21, %43 ], [ 21, %328 ], [ 21, %333 ], [ 21, %313 ], [ 21, %39 ], [ 21, %317 ], [ 21, %302 ], [ 21, %35 ], [ 21, %306 ], [ 21, %25 ], [ 21, %293 ], [ 21, %298 ], [ 21, %257 ], [ 21, %261 ], [ 21, %236 ], [ 21, %242 ], [ 21, %247 ], [ 21, %253 ], [ 21, %225 ], [ 21, %231 ], [ 21, %214 ], [ 21, %220 ], [ 21, %203 ], [ 21, %209 ], [ 21, %101 ], [ 21, %.loopexit242 ], [ 21, %268 ], [ 21, %198 ], [ 21, %193 ], [ 21, %90 ], [ 21, %19 ], [ 21, %94 ], [ 40, %.loopexit ], [ 21, %15 ], [ 21, %83 ], [ 21, %361 ], [ 21, %11 ], [ 21, %69 ], [ 21, %76 ], [ 21, %287 ], [ 21, %282 ]
+  %.sink = phi i64 [ 21, %350 ], [ 21, %63 ], [ 21, %354 ], [ 21, %337 ], [ 21, %53 ], [ 21, %341 ], [ 21, %346 ], [ 21, %324 ], [ 21, %43 ], [ 21, %328 ], [ 21, %333 ], [ 21, %313 ], [ 21, %39 ], [ 21, %317 ], [ 21, %302 ], [ 21, %35 ], [ 21, %306 ], [ 21, %76 ], [ 21, %25 ], [ 21, %293 ], [ 21, %298 ], [ 21, %257 ], [ 21, %261 ], [ 21, %236 ], [ 21, %242 ], [ 21, %247 ], [ 21, %253 ], [ 21, %225 ], [ 21, %231 ], [ 21, %214 ], [ 21, %220 ], [ 21, %203 ], [ 21, %209 ], [ 21, %101 ], [ 21, %.loopexit242 ], [ 21, %268 ], [ 21, %198 ], [ 21, %193 ], [ 21, %90 ], [ 21, %19 ], [ 21, %94 ], [ 40, %.loopexit ], [ 21, %15 ], [ 21, %83 ], [ 21, %361 ], [ 21, %11 ], [ 21, %69 ], [ 21, %287 ], [ 21, %282 ]
   store i64 %.sink, ptr %0, align 8
   ret void
 

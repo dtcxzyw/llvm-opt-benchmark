@@ -452,7 +452,7 @@ VP8LSetError.exit:                                ; preds = %BuildPackedTable.ex
   br label %173
 
 .loopexit:                                        ; preds = %.thread, %.preheader.split.us, %.preheader.split, %.thread157, %7, %32, %30
-  %.0124.ph = phi ptr [ %20, %30 ], [ %20, %32 ], [ null, %7 ], [ %20, %.preheader.split.us ], [ %20, %.thread157 ], [ %20, %.preheader.split ], [ %20, %.thread ]
+  %.0124.ph = phi ptr [ null, %7 ], [ %20, %30 ], [ %20, %.preheader.split ], [ %20, %32 ], [ %20, %.preheader.split.us ], [ %20, %.thread157 ], [ %20, %.thread ]
   tail call void @WebPSafeFree(ptr noundef %.0124.ph) #8
   tail call void @VP8LHuffmanTablesDeallocate(ptr noundef %5) #8
   %172 = load ptr, ptr %6, align 8, !tbaa !10
@@ -1383,7 +1383,7 @@ VP8LSetError.exit.thread.sink.split:              ; preds = %183, %183, %159, %1
   br label %VP8LSetError.exit.thread
 
 VP8LSetError.exit.thread:                         ; preds = %VP8LSetError.exit.thread.sink.split, %183, %159, %.thread110, %90, %VP8LSetError.exit74, %VP8LSetError.exit
-  %.053122 = phi ptr [ %181, %VP8LSetError.exit ], [ null, %159 ], [ null, %.thread110 ], [ null, %90 ], [ %181, %VP8LSetError.exit74 ], [ null, %183 ], [ null, %VP8LSetError.exit.thread.sink.split ]
+  %.053122 = phi ptr [ %181, %VP8LSetError.exit ], [ null, %183 ], [ null, %159 ], [ null, %.thread110 ], [ null, %90 ], [ %181, %VP8LSetError.exit74 ], [ null, %VP8LSetError.exit.thread.sink.split ]
   call void @WebPSafeFree(ptr noundef %.053122) #8
   %187 = getelementptr inbounds nuw i8, ptr %3, i64 208
   %188 = load ptr, ptr %187, align 8, !tbaa !53
@@ -2963,11 +2963,11 @@ GetHtreeGroupForPos.exit284:                      ; preds = %402, %405
   br label %.sink.split
 
 .thread304:                                       ; preds = %420, %295, %418, %293, %285
-  %.2192 = phi ptr [ %.5195, %418 ], [ %.1191, %293 ], [ %.1191, %285 ], [ %.1191, %295 ], [ %.5195, %420 ]
-  %.2184 = phi ptr [ %.0182370, %418 ], [ %.1183, %293 ], [ %.1183, %285 ], [ %296, %295 ], [ %421, %420 ]
-  %.2179 = phi ptr [ %391, %418 ], [ %286, %293 ], [ %286, %285 ], [ %286, %295 ], [ %391, %420 ]
-  %.1173 = phi i32 [ %.4176.lcssa, %418 ], [ 0, %293 ], [ %287, %285 ], [ 0, %295 ], [ %.4176.lcssa, %420 ]
-  %.2 = phi i32 [ %.5.lcssa, %418 ], [ %289, %293 ], [ %.0171374, %285 ], [ %289, %295 ], [ %.5.lcssa, %420 ]
+  %.2192 = phi ptr [ %.1191, %293 ], [ %.1191, %295 ], [ %.5195, %418 ], [ %.1191, %285 ], [ %.5195, %420 ]
+  %.2184 = phi ptr [ %.1183, %293 ], [ %296, %295 ], [ %.0182370, %418 ], [ %.1183, %285 ], [ %421, %420 ]
+  %.2179 = phi ptr [ %286, %293 ], [ %286, %295 ], [ %391, %418 ], [ %286, %285 ], [ %391, %420 ]
+  %.1173 = phi i32 [ 0, %293 ], [ 0, %295 ], [ %.4176.lcssa, %418 ], [ %287, %285 ], [ %.4176.lcssa, %420 ]
+  %.2 = phi i32 [ %289, %293 ], [ %289, %295 ], [ %.5.lcssa, %418 ], [ %.0171374, %285 ], [ %.5.lcssa, %420 ]
   %442 = icmp ult ptr %.2179, %20
   br i1 %442, label %65, label %.thread318
 
@@ -3674,7 +3674,7 @@ Export.exit.i:                                    ; preds = %102, %WebPRescalerH
   br i1 %114, label %110, label %EmitRescaledRowsRGBA.exit, !llvm.loop !154
 
 EmitRescaledRowsRGBA.exit:                        ; preds = %Export.exit.i, %110, %108, %73
-  %115 = phi i32 [ 0, %73 ], [ %53, %108 ], [ %53, %110 ], [ %106, %Export.exit.i ]
+  %115 = phi i32 [ %53, %110 ], [ 0, %73 ], [ %53, %108 ], [ %106, %Export.exit.i ]
   %116 = load i32, ptr %62, align 4, !tbaa !97
   %117 = add nsw i32 %116, %115
   store i32 %117, ptr %62, align 4, !tbaa !97
@@ -3863,7 +3863,7 @@ ConvertToYUVA.exit.i:                             ; preds = %226, %195
   br i1 %237, label %195, label %EmitRescaledRowsYUVA.exit, !llvm.loop !166
 
 EmitRescaledRowsYUVA.exit:                        ; preds = %ExportYUVA.exit.i, %ConvertToYUVA.exit.i, %193, %124
-  %238 = phi i32 [ %122, %124 ], [ %122, %193 ], [ %236, %ConvertToYUVA.exit.i ], [ %191, %ExportYUVA.exit.i ]
+  %238 = phi i32 [ %236, %ConvertToYUVA.exit.i ], [ %122, %124 ], [ %122, %193 ], [ %191, %ExportYUVA.exit.i ]
   %239 = getelementptr inbounds nuw i8, ptr %0, i64 148
   store i32 %238, ptr %239, align 4, !tbaa !97
   br label %SetCropWindow.exit.thread

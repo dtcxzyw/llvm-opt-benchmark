@@ -1539,15 +1539,15 @@ define void @stbvox_make_mesh_for_block_with_geo(ptr noundef %0, i24 %1, i32 nou
   %138 = and i8 %84, 15
   br label %.loopexit910.thread
 
-.loopexit910.thread:                              ; preds = %99, %.loopexit910.loopexit
-  %.0795.ph.in.in = phi i8 [ %84, %.loopexit910.loopexit ], [ %101, %99 ]
-  %.0792.ph = phi i8 [ %138, %.loopexit910.loopexit ], [ %84, %99 ]
+.loopexit910.thread:                              ; preds = %.loopexit910.loopexit, %99
+  %.0795.ph.in.in = phi i8 [ %101, %99 ], [ %84, %.loopexit910.loopexit ]
+  %.0792.ph = phi i8 [ %84, %99 ], [ %138, %.loopexit910.loopexit ]
   %.0795.ph.in = lshr i8 %.0795.ph.in.in, 4
   %.0795.ph = and i8 %.0795.ph.in, 3
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 336
   br label %175
 
-.loopexit910.thread983:                           ; preds = %98, %131
+.loopexit910.thread983:                           ; preds = %131, %98
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 336
   br label %145
 
@@ -3153,7 +3153,7 @@ stbvox_bring_up_to_date.exit._crit_edge:          ; preds = %stbvox_bring_up_to_
   br i1 %65, label %.lr.ph53.split, label %.loopexit, !llvm.loop !97
 
 .loopexit:                                        ; preds = %35, %._crit_edge, %.lr.ph53, %39, %stbvox_bring_up_to_date.exit._crit_edge, %56
-  %.042 = phi i32 [ 0, %stbvox_bring_up_to_date.exit._crit_edge ], [ 0, %56 ], [ 1, %39 ], [ 1, %.lr.ph53 ], [ 1, %._crit_edge ], [ 0, %35 ]
+  %.042 = phi i32 [ 1, %39 ], [ 0, %stbvox_bring_up_to_date.exit._crit_edge ], [ 0, %56 ], [ 1, %.lr.ph53 ], [ 1, %._crit_edge ], [ 0, %35 ]
   ret i32 %.042
 }
 

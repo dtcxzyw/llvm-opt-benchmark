@@ -9990,8 +9990,8 @@ exec_eval_cleanup.exit105:                        ; preds = %127, %129
   br i1 %.not, label %.thread, label %.preheader
 
 .thread:                                          ; preds = %154, %146, %148, %exec_eval_cleanup.exit105, %26, %29, %139, %137, %134, %142
-  %.084123 = phi ptr [ %.084128, %134 ], [ %.084128, %142 ], [ %.084128, %139 ], [ %.084128, %137 ], [ %18, %29 ], [ %18, %26 ], [ %.084128, %146 ], [ %.084128, %exec_eval_cleanup.exit105 ], [ %.084128, %148 ], [ %155, %154 ]
-  %.482 = phi i32 [ 0, %134 ], [ 0, %142 ], [ 1, %139 ], [ 1, %137 ], [ 0, %29 ], [ 0, %26 ], [ %133, %146 ], [ %133, %exec_eval_cleanup.exit105 ], [ %133, %148 ], [ %.381, %154 ]
+  %.084123 = phi ptr [ %18, %26 ], [ %.084128, %134 ], [ %.084128, %142 ], [ %.084128, %139 ], [ %.084128, %137 ], [ %.084128, %146 ], [ %18, %29 ], [ %.084128, %exec_eval_cleanup.exit105 ], [ %.084128, %148 ], [ %155, %154 ]
+  %.482 = phi i32 [ 0, %26 ], [ 0, %134 ], [ 0, %142 ], [ 1, %139 ], [ 1, %137 ], [ %133, %146 ], [ 0, %29 ], [ %133, %exec_eval_cleanup.exit105 ], [ %133, %148 ], [ %.381, %154 ]
   tail call void @SPI_freetuptable(ptr noundef %.084123) #11
   tail call void @UnpinPortal(ptr noundef %2) #11
   %157 = load ptr, ptr %5, align 8
@@ -11434,7 +11434,7 @@ define internal noundef ptr @plpgsql_param_fetch(ptr noundef readonly captures(n
   store i32 0, ptr %48, align 4
   br label %76
 
-.critedge50:                                      ; preds = %19, %19, %19, %19, %31, %41, %45
+.critedge50:                                      ; preds = %41, %19, %19, %19, %19, %31, %45
   %49 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %50 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @exec_eval_datum(ptr noundef nonnull %8, ptr noundef %15, ptr noundef nonnull %49, ptr noundef nonnull %5, ptr noundef %3, ptr noundef nonnull %50)
@@ -12680,8 +12680,8 @@ expanded_record_get_tupdesc.exit:                 ; preds = %25, %28
   br label %.critedge186
 
 .critedge186:                                     ; preds = %101, %.critedge5, %108, %._crit_edge215, %expanded_record_get_tupdesc.exit
-  %.0161 = phi ptr [ %4, %expanded_record_get_tupdesc.exit ], [ %.0168, %._crit_edge215 ], [ %.0168, %.critedge5 ], [ %.0168, %108 ], [ %.0168, %101 ]
-  %.0160 = phi ptr [ %3, %expanded_record_get_tupdesc.exit ], [ %.0169, %._crit_edge215 ], [ %.0169, %.critedge5 ], [ %.0169, %108 ], [ %.0169, %101 ]
+  %.0161 = phi ptr [ %4, %expanded_record_get_tupdesc.exit ], [ %.0168, %.critedge5 ], [ %.0168, %._crit_edge215 ], [ %.0168, %108 ], [ %.0168, %101 ]
+  %.0160 = phi ptr [ %3, %expanded_record_get_tupdesc.exit ], [ %.0169, %.critedge5 ], [ %.0169, %._crit_edge215 ], [ %.0169, %108 ], [ %.0169, %101 ]
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 47
   %114 = load i8, ptr %113, align 1, !range !3, !noundef !4
   %115 = trunc nuw i8 %114 to i1

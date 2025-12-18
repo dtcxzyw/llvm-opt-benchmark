@@ -7600,9 +7600,9 @@ _ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.exit1032: ; preds =
   br label %.loopexit
 
 .loopexit:                                        ; preds = %160, %.thread1154, %3187, %_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.exit1032.thread.us.preheader, %3164, %3192
-  %.0331 = phi i32 [ 2, %3192 ], [ 1, %3164 ], [ 1, %_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.exit1032.thread.us.preheader ], [ 1, %3187 ], [ 0, %.thread1154 ], [ 1, %160 ]
-  %.6314 = phi ptr [ %.0308, %3192 ], [ %.2310, %3164 ], [ %scevgep, %_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.exit1032.thread.us.preheader ], [ %3189, %3187 ], [ %.2310, %.thread1154 ], [ %153, %160 ]
-  %.5 = phi ptr [ %.0290, %3192 ], [ %.1291, %3164 ], [ %.1291, %_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.exit1032.thread.us.preheader ], [ %.1291, %3187 ], [ %.1291, %.thread1154 ], [ %145, %160 ]
+  %.0331 = phi i32 [ 2, %3192 ], [ 1, %3187 ], [ 1, %3164 ], [ 1, %_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.exit1032.thread.us.preheader ], [ 1, %160 ], [ 0, %.thread1154 ]
+  %.6314 = phi ptr [ %.0308, %3192 ], [ %3189, %3187 ], [ %.2310, %3164 ], [ %scevgep, %_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.exit1032.thread.us.preheader ], [ %153, %160 ], [ %.2310, %.thread1154 ]
+  %.5 = phi ptr [ %.0290, %3192 ], [ %.1291, %3187 ], [ %.1291, %3164 ], [ %.1291, %_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.exit1032.thread.us.preheader ], [ %145, %160 ], [ %.1291, %.thread1154 ]
   %3193 = load i32, ptr @rtlil_frontend_yychar, align 4, !tbaa !32
   %.not419 = icmp eq i32 %3193, -2
   br i1 %.not419, label %_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.exit1037, label %3194

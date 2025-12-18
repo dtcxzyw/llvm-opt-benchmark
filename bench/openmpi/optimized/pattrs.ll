@@ -1137,7 +1137,7 @@ pmix_obj_run_destructors.exit320:                 ; preds = %.lr.ph.i317, %._cri
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph383, %.preheader, %198, %402, %._crit_edge379, %._crit_edge374, %411, %202, %380, %pmix_obj_run_destructors.exit
-  %.0146 = phi i32 [ 0, %202 ], [ %345, %pmix_obj_run_destructors.exit ], [ %379, %380 ], [ %406, %402 ], [ 0, %._crit_edge379 ], [ 0, %._crit_edge374 ], [ -27, %411 ], [ 0, %198 ], [ 0, %.preheader ], [ 0, %.lr.ph383 ]
+  %.0146 = phi i32 [ 0, %198 ], [ 0, %202 ], [ %345, %pmix_obj_run_destructors.exit ], [ %379, %380 ], [ %406, %402 ], [ 0, %._crit_edge379 ], [ 0, %._crit_edge374 ], [ -27, %411 ], [ 0, %.preheader ], [ 0, %.lr.ph383 ]
   %479 = call i32 @PMIx_tool_finalize() #13
   br label %480
 

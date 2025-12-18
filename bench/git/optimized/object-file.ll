@@ -654,13 +654,13 @@ select.unfold:                                    ; preds = %65, %44, %58
   br label %.split
 
 .loopexit.sink.split:                             ; preds = %65, %48, %62, %32, %25
-  %.024.lcssa7579.sink = phi ptr [ %.024.us, %25 ], [ %.024.us, %32 ], [ %.024, %48 ], [ %.024, %62 ], [ %.024, %65 ]
-  %.126.ph = phi i32 [ %..us, %25 ], [ -3, %32 ], [ -3, %48 ], [ %., %62 ], [ -2, %65 ]
+  %.024.lcssa7579.sink = phi ptr [ %.024.us, %25 ], [ %.024.us, %32 ], [ %.024, %62 ], [ %.024, %48 ], [ %.024, %65 ]
+  %.126.ph = phi i32 [ %..us, %25 ], [ -3, %32 ], [ %., %62 ], [ -3, %48 ], [ -2, %65 ]
   store i8 47, ptr %.024.lcssa7579.sink, align 1, !tbaa !51
   br label %.loopexit
 
 .loopexit:                                        ; preds = %37, %.critedge, %8, %.critedge.us, %.loopexit.sink.split
-  %.126 = phi i32 [ %.126.ph, %.loopexit.sink.split ], [ 0, %.critedge ], [ 0, %.critedge.us ], [ 0, %8 ], [ 0, %37 ]
+  %.126 = phi i32 [ 0, %.critedge.us ], [ %.126.ph, %.loopexit.sink.split ], [ 0, %.critedge ], [ 0, %8 ], [ 0, %37 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.126
 }
@@ -3762,7 +3762,7 @@ find_cached_object.exit.outer:                    ; preds = %find_cached_object.
   br label %.loopexit
 
 .loopexit:                                        ; preds = %loose_object_info.exit, %267, %264, %253, %240, %247, %lookup_replace_object.exit, %261, %102
-  %.0 = phi i32 [ -1, %lookup_replace_object.exit ], [ 0, %102 ], [ -1, %240 ], [ %263, %261 ], [ 0, %253 ], [ -1, %247 ], [ 0, %264 ], [ 0, %267 ], [ 0, %loose_object_info.exit ]
+  %.0 = phi i32 [ -1, %lookup_replace_object.exit ], [ 0, %102 ], [ -1, %240 ], [ %263, %261 ], [ 0, %253 ], [ 0, %267 ], [ -1, %247 ], [ 0, %264 ], [ 0, %loose_object_info.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret i32 %.0
 }
@@ -4217,7 +4217,7 @@ _.exit40.i.us:                                    ; preds = %49, %47
   br label %.thread50.i.us
 
 .thread50.i.us:                                   ; preds = %40, %_.exit40.i.us, %_.exit43.i.us, %_.exit46.i.us
-  %.02556.i.us = phi i32 [ -1, %_.exit43.i.us ], [ -1, %_.exit40.i.us ], [ -1, %_.exit46.i.us ], [ 0, %40 ]
+  %.02556.i.us = phi i32 [ -1, %_.exit43.i.us ], [ -1, %_.exit46.i.us ], [ -1, %_.exit40.i.us ], [ 0, %40 ]
   %52 = call i32 @close(i32 noundef %23) #27
   br label %check_collision.exit.us
 
@@ -4369,7 +4369,7 @@ _.exit39:                                         ; preds = %96, %98
   br label %.loopexit46
 
 .loopexit46:                                      ; preds = %check_collision.exit.us, %check_collision.exit.thread, %.loopexit, %_.exit39, %_.exit36, %_.exit
-  %.0 = phi i32 [ -1, %_.exit ], [ -1, %_.exit39 ], [ -1, %_.exit36 ], [ 0, %.loopexit ], [ -1, %check_collision.exit.thread ], [ -1, %check_collision.exit.us ]
+  %.0 = phi i32 [ -1, %_.exit ], [ -1, %_.exit39 ], [ -1, %check_collision.exit.thread ], [ -1, %_.exit36 ], [ 0, %.loopexit ], [ -1, %check_collision.exit.us ]
   ret i32 %.0
 }
 

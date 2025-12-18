@@ -487,8 +487,8 @@ _ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread49.i.i: ; pred
   br i1 %178, label %.split130.us.i, label %180, !prof !31
 
 .split130.us.i:                                   ; preds = %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread49.i.i, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread49.i.us146.i, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread49.i.us.i
-  %.us-phi131.i = phi ptr [ %.039.i.us138.i, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread49.i.us146.i ], [ %.039.i.us.i, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread49.i.us.i ], [ %.039.i.i, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread49.i.i ]
-  %.us-phi132.i = phi ptr [ %161, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread49.i.us146.i ], [ %151, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread49.i.us.i ], [ %173, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread49.i.i ]
+  %.us-phi131.i = phi ptr [ %.039.i.us.i, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread49.i.us.i ], [ %.039.i.us138.i, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread49.i.us146.i ], [ %.039.i.i, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread49.i.i ]
+  %.us-phi132.i = phi ptr [ %151, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread49.i.us.i ], [ %161, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread49.i.us146.i ], [ %173, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread49.i.i ]
   %.not.i64.i = icmp eq ptr %.us-phi131.i, null
   %179 = select i1 %.not.i64.i, ptr %.us-phi132.i, ptr %.us-phi131.i
   %.pre.i = load i32, ptr %61, align 8, !tbaa !48, !noalias !45
@@ -552,7 +552,7 @@ _ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.i.i.i.i: ; preds = %
   br label %205
 
 ._crit_edge.i.i:                                  ; preds = %176, %174, %164, %162, %.split.split.us.i, %153, %152, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.i.us.i
-  %.us-phi.i = phi ptr [ %161, %164 ], [ %151, %153 ], [ %151, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.i.us.i ], [ %151, %152 ], [ %161, %.split.split.us.i ], [ %161, %162 ], [ %173, %174 ], [ %173, %176 ]
+  %.us-phi.i = phi ptr [ %151, %153 ], [ %161, %164 ], [ %151, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.i.us.i ], [ %151, %152 ], [ %161, %.split.split.us.i ], [ %161, %162 ], [ %173, %174 ], [ %173, %176 ]
   %204 = getelementptr inbounds nuw i8, ptr %.us-phi.i, i64 16
   %.pre.i41.i = load i32, ptr %204, align 4, !tbaa !58
   br label %_ZN4llvm9MapVectorINS_9StringRefEjNS_8DenseMapIS1_jNS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_jEEEENS_11SmallVectorISt4pairIS1_jELj0EEEEixERKS1_.exit.i

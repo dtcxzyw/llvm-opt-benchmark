@@ -1075,9 +1075,9 @@ qdm2_get_vlc.exit.i.i:                            ; preds = %365, %get_vlc2.exit
   br label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %qdm2_get_vlc.exit.i.i, %.preheader.i.i, %403, %391, %389, %308
-  %408 = phi i32 [ %299, %389 ], [ %299, %391 ], [ %299, %403 ], [ %302, %308 ], [ %299, %.preheader.i.i ], [ %299, %qdm2_get_vlc.exit.i.i ]
-  %.sroa.14223.2.ph.i.i = phi i32 [ %.sroa.14223.11.i.i, %389 ], [ %.sroa.14223.11.i.i, %391 ], [ %.sroa.14223.11.i.i, %403 ], [ %.sroa.14223.11.i.i, %308 ], [ %322, %.preheader.i.i ], [ %.sroa.14223.12.i.i, %qdm2_get_vlc.exit.i.i ]
-  %.1119.ph.i.i = phi i32 [ %.0118302.i.i, %389 ], [ %.0118302.i.i, %391 ], [ %.0118302.i.i, %403 ], [ %312, %308 ], [ %.0118302.i.i, %.preheader.i.i ], [ %.0118302.i.i, %qdm2_get_vlc.exit.i.i ]
+  %408 = phi i32 [ %299, %.preheader.i.i ], [ %302, %308 ], [ %299, %389 ], [ %299, %391 ], [ %299, %403 ], [ %299, %qdm2_get_vlc.exit.i.i ]
+  %.sroa.14223.2.ph.i.i = phi i32 [ %322, %.preheader.i.i ], [ %.sroa.14223.11.i.i, %308 ], [ %.sroa.14223.11.i.i, %389 ], [ %.sroa.14223.11.i.i, %391 ], [ %.sroa.14223.11.i.i, %403 ], [ %.sroa.14223.12.i.i, %qdm2_get_vlc.exit.i.i ]
+  %.1119.ph.i.i = phi i32 [ %.0118302.i.i, %.preheader.i.i ], [ %312, %308 ], [ %.0118302.i.i, %389 ], [ %.0118302.i.i, %391 ], [ %.0118302.i.i, %403 ], [ %.0118302.i.i, %qdm2_get_vlc.exit.i.i ]
   %indvars.iv.next349.i.i = add nuw nsw i64 %indvars.iv348.i.i, 1
   %409 = icmp sgt i32 %408, 0
   br i1 %409, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !88
@@ -2212,8 +2212,8 @@ qdm2_get_vlc.exit108.us.i.i.i.i:                  ; preds = %1057, %get_vlc2.exi
   br i1 %exitcond198.not.i.i.i.i, label %process_subpacket_10.exit.i.i, label %.preheader110.us.i.i.i.i, !llvm.loop !107
 
 process_subpacket_10.exit.i.i:                    ; preds = %634, %.lr.ph.i37.i.i.i, %._crit_edge.us147.i.i.i.i, %.preheader110.lr.ph.i.i.i.i, %.preheader112.lr.ph.i.i.i.i, %.preheader118.lr.ph.i.i.i.i
-  %.sink.i.i = phi i32 [ 1, %.preheader110.lr.ph.i.i.i.i ], [ 1, %.preheader118.lr.ph.i.i.i.i ], [ 1, %.preheader112.lr.ph.i.i.i.i ], [ 1, %._crit_edge.us147.i.i.i.i ], [ 0, %.lr.ph.i37.i.i.i ], [ 0, %634 ]
-  %or.cond99.i.i.i = phi i1 [ %412, %.preheader110.lr.ph.i.i.i.i ], [ %412, %.preheader118.lr.ph.i.i.i.i ], [ %412, %.preheader112.lr.ph.i.i.i.i ], [ %412, %._crit_edge.us147.i.i.i.i ], [ false, %.lr.ph.i37.i.i.i ], [ false, %634 ]
+  %.sink.i.i = phi i32 [ 1, %.preheader110.lr.ph.i.i.i.i ], [ 1, %._crit_edge.us147.i.i.i.i ], [ 1, %.preheader118.lr.ph.i.i.i.i ], [ 1, %.preheader112.lr.ph.i.i.i.i ], [ 0, %.lr.ph.i37.i.i.i ], [ 0, %634 ]
+  %or.cond99.i.i.i = phi i1 [ %412, %.preheader110.lr.ph.i.i.i.i ], [ %412, %._crit_edge.us147.i.i.i.i ], [ %412, %.preheader118.lr.ph.i.i.i.i ], [ %412, %.preheader112.lr.ph.i.i.i.i ], [ false, %.lr.ph.i37.i.i.i ], [ false, %634 ]
   call fastcc void @fill_tone_level_array(ptr noundef %13, i32 noundef %.sink.i.i)
   br label %.lr.ph.i44.i.i.i
 
@@ -4180,7 +4180,7 @@ define internal fastcc void @process_subpacket_11(ptr noundef captures(none) %0,
   br i1 %exitcond11.not.i, label %fill_coding_method_array.exit, label %.preheader1.i, !llvm.loop !180
 
 fill_coding_method_array.exit:                    ; preds = %41, %2, %35, %.preheader2.i, %21, %4
-  %.017 = phi i32 [ %8, %21 ], [ %8, %4 ], [ %8, %.preheader2.i ], [ %8, %35 ], [ 0, %2 ], [ %8, %41 ]
+  %.017 = phi i32 [ 0, %2 ], [ %8, %21 ], [ %8, %4 ], [ %8, %.preheader2.i ], [ %8, %35 ], [ %8, %41 ]
   call fastcc void @synthfilt_build_sb_samples(ptr noundef %0, ptr noundef %3, i32 noundef %.017, i32 noundef 0, i32 noundef 8)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
@@ -4979,9 +4979,9 @@ fix_coding_method_array.exit:                     ; preds = %108
   br i1 %175, label %.lr.ph399, label %build_sb_samples_from_noise.exit302
 
 .lr.ph399:                                        ; preds = %145, %64, %66, %.thread
-  %.0229576 = phi i32 [ %59, %.thread ], [ %59, %64 ], [ %59, %66 ], [ 1, %145 ]
-  %.0228313575 = phi i64 [ 0, %.thread ], [ 0, %64 ], [ 0, %66 ], [ 1, %145 ]
-  %.not314574 = phi i1 [ true, %.thread ], [ true, %64 ], [ true, %66 ], [ false, %145 ]
+  %.0229576 = phi i32 [ %59, %.thread ], [ %59, %66 ], [ %59, %64 ], [ 1, %145 ]
+  %.0228313575 = phi i64 [ 0, %.thread ], [ 0, %66 ], [ 0, %64 ], [ 1, %145 ]
+  %.not314574 = phi i1 [ true, %.thread ], [ true, %66 ], [ true, %64 ], [ false, %145 ]
   %.val273 = load i32, ptr %11, align 4, !tbaa !114
   %invariant.gep400 = getelementptr inbounds nuw [64 x i8], ptr %13, i64 %indvars.iv499
   %176 = getelementptr inbounds nuw float, ptr @sb_noise_attenuation, i64 %indvars.iv499
@@ -5097,7 +5097,7 @@ fix_coding_method_array.exit:                     ; preds = %108
   br label %.preheader332
 
 .preheader332:                                    ; preds = %.preheader332.preheader, %257
-  %225 = phi i32 [ %.val270, %.preheader332.preheader ], [ %.val516, %257 ]
+  %225 = phi i32 [ %.val270, %.preheader332.preheader ], [ %.val518, %257 ]
   %indvars.iv470 = phi i64 [ 0, %.preheader332.preheader ], [ %indvars.iv.next471, %257 ]
   %226 = shl nuw nsw i64 %indvars.iv470, 1
   %227 = add nuw nsw i64 %226, %224
@@ -5142,7 +5142,7 @@ fix_coding_method_array.exit:                     ; preds = %108
   br label %257
 
 257:                                              ; preds = %229, %242
-  %.val516 = phi i32 [ %spec.select.i305, %242 ], [ %spec.select.i304, %229 ]
+  %.val518 = phi i32 [ %spec.select.i305, %242 ], [ %spec.select.i304, %229 ]
   %258 = phi nsz float [ %256, %242 ], [ 0.000000e+00, %229 ]
   %259 = getelementptr inbounds nuw float, ptr %6, i64 %226
   store float %258, ptr %259, align 8, !tbaa !27
@@ -5190,7 +5190,7 @@ fix_coding_method_array.exit:                     ; preds = %108
   br i1 %exitcond477.not, label %.loopexit331, label %276, !llvm.loop !200
 
 .loopexit331:                                     ; preds = %257, %.preheader332, %276
-  %.val270546 = phi i32 [ %271, %276 ], [ %.val516, %257 ], [ %225, %.preheader332 ]
+  %.val270546 = phi i32 [ %271, %276 ], [ %225, %.preheader332 ], [ %.val518, %257 ]
   %283 = load float, ptr %176, align 4, !tbaa !27
   %284 = sext i32 %.lcssa381410 to i64
   br label %285
@@ -5511,7 +5511,7 @@ fix_coding_method_array.exit:                     ; preds = %108
   br label %qdm2_get_vlc.exit
 
 qdm2_get_vlc.exit:                                ; preds = %435, %455
-  %.val518 = phi i32 [ %476, %455 ], [ %453, %435 ]
+  %.val514 = phi i32 [ %476, %455 ], [ %453, %435 ]
   %.020.i = phi i32 [ %473, %455 ], [ %448, %435 ]
   %477 = icmp samesign ult i32 %.020.i, 8
   br i1 %477, label %.thread322, label %481
@@ -5621,7 +5621,7 @@ qdm2_get_vlc.exit:                                ; preds = %435, %455
   br label %qdm2_get_vlc.exit310
 
 qdm2_get_vlc.exit310:                             ; preds = %520, %532
-  %.val517 = phi i32 [ %553, %532 ], [ %530, %520 ]
+  %.val513 = phi i32 [ %553, %532 ], [ %530, %520 ]
   %.020.i309 = phi i32 [ %550, %532 ], [ %525, %520 ]
   %554 = icmp samesign ult i32 %.020.i309, 10
   br i1 %554, label %.thread323, label %560
@@ -5682,17 +5682,17 @@ qdm2_get_vlc.exit310:                             ; preds = %520, %532
   br label %.loopexit337
 
 .loopexit337:                                     ; preds = %419, %367, %386, %.loopexit345, %.loopexit341, %.loopexit335, %.loopexit329, %.thread323, %.thread322, %561, %501, %482, %568, %329
-  %.val270550 = phi i32 [ %.val270, %568 ], [ %.val270, %482 ], [ %.val270545, %329 ], [ %.val518, %.thread322 ], [ %515, %501 ], [ %.val517, %.thread323 ], [ %.val270, %561 ], [ %.val270546, %.loopexit329 ], [ %.val270, %.loopexit335 ], [ %.val270, %.loopexit345 ], [ %.val270, %.loopexit341 ], [ %spec.select.i308372, %367 ], [ %381, %386 ], [ %414, %419 ]
-  %.val268541 = phi i32 [ %.val268, %568 ], [ %.val268, %482 ], [ %.val268539, %329 ], [ %.val518, %.thread322 ], [ %515, %501 ], [ %.val517, %.thread323 ], [ %.val268, %561 ], [ %.val270546, %.loopexit329 ], [ %.val270, %.loopexit335 ], [ %.val268, %.loopexit345 ], [ %.val268, %.loopexit341 ], [ %spec.select.i308372, %367 ], [ %381, %386 ], [ %414, %419 ]
-  %.val266535 = phi i32 [ %.promoted371, %568 ], [ %.promoted371, %482 ], [ %.val268539, %329 ], [ %.val518, %.thread322 ], [ %515, %501 ], [ %.val517, %.thread323 ], [ %.promoted371, %561 ], [ %.val270546, %.loopexit329 ], [ %.val270, %.loopexit335 ], [ %.promoted371, %.loopexit345 ], [ %.promoted371, %.loopexit341 ], [ %spec.select.i308372, %367 ], [ %381, %386 ], [ %414, %419 ]
-  %.val264530 = phi i32 [ %.val264, %568 ], [ %.val264, %482 ], [ %.val268539, %329 ], [ %.val518, %.thread322 ], [ %515, %501 ], [ %.val517, %.thread323 ], [ %.val264, %561 ], [ %.val270546, %.loopexit329 ], [ %.val270, %.loopexit335 ], [ %.val264, %.loopexit345 ], [ %.promoted371, %.loopexit341 ], [ %spec.select.i308372, %367 ], [ %381, %386 ], [ %414, %419 ]
-  %.val262525 = phi i32 [ %.val262, %568 ], [ %.val262, %482 ], [ %.val268539, %329 ], [ %.val518, %.thread322 ], [ %515, %501 ], [ %.val517, %.thread323 ], [ %.val262, %561 ], [ %.val270546, %.loopexit329 ], [ %.val270, %.loopexit335 ], [ %.val264, %.loopexit345 ], [ %.promoted371, %.loopexit341 ], [ %spec.select.i308372, %367 ], [ %381, %386 ], [ %414, %419 ]
-  %.val512 = phi i32 [ %.val, %568 ], [ %.val262, %482 ], [ %.val268539, %329 ], [ %.val518, %.thread322 ], [ %515, %501 ], [ %.val517, %.thread323 ], [ %.val, %561 ], [ %.val270546, %.loopexit329 ], [ %.val270, %.loopexit335 ], [ %.val264, %.loopexit345 ], [ %.promoted371, %.loopexit341 ], [ %spec.select.i308372, %367 ], [ %381, %386 ], [ %414, %419 ]
-  %.lcssa381411 = phi i32 [ %569, %568 ], [ %483, %482 ], [ %.lcssa381409, %329 ], [ %.lcssa381410, %.thread322 ], [ %.lcssa381410, %501 ], [ %.lcssa381410, %.thread323 ], [ %562, %561 ], [ %575, %.loopexit329 ], [ %576, %.loopexit335 ], [ %578, %.loopexit345 ], [ %577, %.loopexit341 ], [ %.lcssa381410, %367 ], [ %.lcssa381410, %386 ], [ %.lcssa381410, %419 ]
-  %.0230 = phi i32 [ 1, %568 ], [ 1, %482 ], [ 1, %329 ], [ 1, %.thread322 ], [ 1, %501 ], [ 1, %.thread323 ], [ 1, %561 ], [ 10, %.loopexit329 ], [ 10, %.loopexit335 ], [ 3, %.loopexit345 ], [ 5, %.loopexit341 ], [ 5, %367 ], [ 5, %386 ], [ 3, %419 ]
-  %.1223 = phi i32 [ %.0222394, %568 ], [ %.0222394, %482 ], [ %.0222394, %329 ], [ %.0222394, %.thread322 ], [ 0, %501 ], [ 0, %.thread323 ], [ %.0222394, %561 ], [ %.0222394, %.loopexit329 ], [ %.0222394, %.loopexit335 ], [ %.0222394, %.loopexit345 ], [ %.0222394, %.loopexit341 ], [ %.0222394, %367 ], [ %.0222394, %386 ], [ %.0222394, %419 ]
-  %.4220 = phi nsz float [ %.3219395, %568 ], [ %.3219395, %482 ], [ %.3219395, %329 ], [ %.3219395, %.thread322 ], [ %506, %501 ], [ %.3219395, %.thread323 ], [ %.3219395, %561 ], [ %.3219395, %.loopexit329 ], [ %.3219395, %.loopexit335 ], [ %.3219395, %.loopexit345 ], [ %.3219395, %.loopexit341 ], [ %.3219395, %367 ], [ %.3219395, %386 ], [ %.3219395, %419 ]
-  %.1213 = phi nsz float [ %.0212396, %568 ], [ %.0212396, %482 ], [ %.0212396, %329 ], [ %.0212396, %.thread322 ], [ %519, %501 ], [ %559, %.thread323 ], [ %.0212396, %561 ], [ %.0212396, %.loopexit329 ], [ %.0212396, %.loopexit335 ], [ %.0212396, %.loopexit345 ], [ %.0212396, %.loopexit341 ], [ %.0212396, %367 ], [ %.0212396, %386 ], [ %.0212396, %419 ]
+  %.val270550 = phi i32 [ %.val270, %568 ], [ %.val270, %482 ], [ %.val270545, %329 ], [ %.val270, %561 ], [ %.val270, %.loopexit335 ], [ %.val270, %.loopexit341 ], [ %.val270546, %.loopexit329 ], [ %381, %386 ], [ %.val270, %.loopexit345 ], [ %spec.select.i308372, %367 ], [ %.val514, %.thread322 ], [ %515, %501 ], [ %.val513, %.thread323 ], [ %414, %419 ]
+  %.val268541 = phi i32 [ %.val268, %568 ], [ %.val268, %482 ], [ %.val268539, %329 ], [ %.val268, %561 ], [ %.val270, %.loopexit335 ], [ %.val268, %.loopexit341 ], [ %.val270546, %.loopexit329 ], [ %381, %386 ], [ %.val268, %.loopexit345 ], [ %spec.select.i308372, %367 ], [ %.val514, %.thread322 ], [ %515, %501 ], [ %.val513, %.thread323 ], [ %414, %419 ]
+  %.val266535 = phi i32 [ %.promoted371, %568 ], [ %.promoted371, %482 ], [ %.val268539, %329 ], [ %.promoted371, %561 ], [ %.val270, %.loopexit335 ], [ %.promoted371, %.loopexit341 ], [ %.val270546, %.loopexit329 ], [ %381, %386 ], [ %.promoted371, %.loopexit345 ], [ %spec.select.i308372, %367 ], [ %.val514, %.thread322 ], [ %515, %501 ], [ %.val513, %.thread323 ], [ %414, %419 ]
+  %.val264530 = phi i32 [ %.val264, %568 ], [ %.val264, %482 ], [ %.val268539, %329 ], [ %.val264, %561 ], [ %.val270, %.loopexit335 ], [ %.promoted371, %.loopexit341 ], [ %.val270546, %.loopexit329 ], [ %381, %386 ], [ %.val264, %.loopexit345 ], [ %spec.select.i308372, %367 ], [ %.val514, %.thread322 ], [ %515, %501 ], [ %.val513, %.thread323 ], [ %414, %419 ]
+  %.val262525 = phi i32 [ %.val262, %568 ], [ %.val262, %482 ], [ %.val268539, %329 ], [ %.val262, %561 ], [ %.val270, %.loopexit335 ], [ %.promoted371, %.loopexit341 ], [ %.val270546, %.loopexit329 ], [ %381, %386 ], [ %.val264, %.loopexit345 ], [ %spec.select.i308372, %367 ], [ %.val514, %.thread322 ], [ %515, %501 ], [ %.val513, %.thread323 ], [ %414, %419 ]
+  %.val512 = phi i32 [ %.val, %568 ], [ %.val262, %482 ], [ %.val268539, %329 ], [ %.val, %561 ], [ %.val270, %.loopexit335 ], [ %.promoted371, %.loopexit341 ], [ %.val270546, %.loopexit329 ], [ %381, %386 ], [ %.val264, %.loopexit345 ], [ %spec.select.i308372, %367 ], [ %.val514, %.thread322 ], [ %515, %501 ], [ %.val513, %.thread323 ], [ %414, %419 ]
+  %.lcssa381411 = phi i32 [ %569, %568 ], [ %483, %482 ], [ %.lcssa381409, %329 ], [ %562, %561 ], [ %576, %.loopexit335 ], [ %577, %.loopexit341 ], [ %575, %.loopexit329 ], [ %.lcssa381410, %386 ], [ %578, %.loopexit345 ], [ %.lcssa381410, %367 ], [ %.lcssa381410, %.thread322 ], [ %.lcssa381410, %501 ], [ %.lcssa381410, %.thread323 ], [ %.lcssa381410, %419 ]
+  %.0230 = phi i32 [ 1, %568 ], [ 1, %482 ], [ 1, %329 ], [ 1, %561 ], [ 10, %.loopexit335 ], [ 5, %.loopexit341 ], [ 10, %.loopexit329 ], [ 5, %386 ], [ 3, %.loopexit345 ], [ 5, %367 ], [ 1, %.thread322 ], [ 1, %501 ], [ 1, %.thread323 ], [ 3, %419 ]
+  %.1223 = phi i32 [ %.0222394, %568 ], [ %.0222394, %482 ], [ %.0222394, %329 ], [ %.0222394, %561 ], [ %.0222394, %.loopexit335 ], [ %.0222394, %.loopexit341 ], [ %.0222394, %.loopexit329 ], [ %.0222394, %386 ], [ %.0222394, %.loopexit345 ], [ %.0222394, %367 ], [ %.0222394, %.thread322 ], [ 0, %501 ], [ 0, %.thread323 ], [ %.0222394, %419 ]
+  %.4220 = phi nsz float [ %.3219395, %568 ], [ %.3219395, %482 ], [ %.3219395, %329 ], [ %.3219395, %561 ], [ %.3219395, %.loopexit335 ], [ %.3219395, %.loopexit341 ], [ %.3219395, %.loopexit329 ], [ %.3219395, %386 ], [ %.3219395, %.loopexit345 ], [ %.3219395, %367 ], [ %.3219395, %.thread322 ], [ %506, %501 ], [ %.3219395, %.thread323 ], [ %.3219395, %419 ]
+  %.1213 = phi nsz float [ %.0212396, %568 ], [ %.0212396, %482 ], [ %.0212396, %329 ], [ %.0212396, %561 ], [ %.0212396, %.loopexit335 ], [ %.0212396, %.loopexit341 ], [ %.0212396, %.loopexit329 ], [ %.0212396, %386 ], [ %.0212396, %.loopexit345 ], [ %.0212396, %367 ], [ %.0212396, %.thread322 ], [ %519, %501 ], [ %559, %.thread323 ], [ %.0212396, %419 ]
   br i1 %.not314574, label %.preheader325.preheader, label %.preheader327
 
 .preheader325.preheader:                          ; preds = %.loopexit337
@@ -5781,7 +5781,7 @@ qdm2_get_vlc.exit310:                             ; preds = %520, %532
   br i1 %exitcond498.not, label %build_sb_samples_from_noise.exit302, label %182, !llvm.loop !211
 
 build_sb_samples_from_noise.exit302:              ; preds = %618, %.thread, %..loopexit_crit_edge.i301, %150
-  %.1217 = phi nsz float [ %.0216412, %150 ], [ %.0216412, %..loopexit_crit_edge.i301 ], [ %.0216412, %.thread ], [ %.4220, %618 ]
+  %.1217 = phi nsz float [ %.0216412, %..loopexit_crit_edge.i301 ], [ %.0216412, %150 ], [ %.0216412, %.thread ], [ %.4220, %618 ]
   %indvars.iv.next500 = add nuw nsw i64 %indvars.iv499, 1
   %exitcond503.not = icmp eq i64 %indvars.iv.next500, %wide.trip.count502
   br i1 %exitcond503.not, label %.loopexit, label %58, !llvm.loop !212

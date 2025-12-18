@@ -193,7 +193,7 @@ Div_AddLit.exit50:                                ; preds = %71, %75
   br i1 %77, label %66, label %Div_AddLit.exit, !llvm.loop !15
 
 Div_AddLit.exit:                                  ; preds = %46, %37, %60, %Div_AddLit.exit50, %72, %.preheader
-  %.0 = phi i32 [ %.035.lcssa, %.preheader ], [ -1, %60 ], [ -1, %72 ], [ %.035.lcssa, %Div_AddLit.exit50 ], [ -1, %37 ], [ -1, %46 ]
+  %.0 = phi i32 [ -1, %60 ], [ -1, %72 ], [ %.035.lcssa, %.preheader ], [ %.035.lcssa, %Div_AddLit.exit50 ], [ -1, %37 ], [ -1, %46 ]
   ret i32 %.0
 }
 
@@ -873,8 +873,8 @@ Bmc_FxDivMux.exit109.i:                           ; preds = %157
   br label %Div_FindDiv.exit.thread
 
 Div_FindDiv.exit.thread:                          ; preds = %75, %70, %85, %93, %157, %123, %118, %106, %98, %101, %163, %Div_FindDiv.exit
-  %.val64145 = phi i32 [ %.val64146, %Div_FindDiv.exit ], [ %.val64146, %157 ], [ %.val64146, %123 ], [ %.val64146, %118 ], [ %.val64146, %106 ], [ %.val64146, %98 ], [ %.val64146, %101 ], [ %.val63.pre, %163 ], [ %.val64146, %85 ], [ %.val64146, %93 ], [ %.val64146, %70 ], [ %.val64146, %75 ]
-  %.val63 = phi i32 [ %.val63141, %Div_FindDiv.exit ], [ %.val63141, %157 ], [ %.val63141, %123 ], [ %.val63141, %118 ], [ %.val63141, %106 ], [ %.val63141, %98 ], [ %.val63141, %101 ], [ %.val63.pre, %163 ], [ %.val63141, %85 ], [ %.val63141, %93 ], [ %.val63141, %70 ], [ %.val63141, %75 ]
+  %.val64145 = phi i32 [ %.val64146, %85 ], [ %.val64146, %93 ], [ %.val64146, %Div_FindDiv.exit ], [ %.val64146, %157 ], [ %.val64146, %123 ], [ %.val64146, %118 ], [ %.val64146, %106 ], [ %.val64146, %98 ], [ %.val64146, %101 ], [ %.val63.pre, %163 ], [ %.val64146, %70 ], [ %.val64146, %75 ]
+  %.val63 = phi i32 [ %.val63141, %85 ], [ %.val63141, %93 ], [ %.val63141, %Div_FindDiv.exit ], [ %.val63141, %157 ], [ %.val63141, %123 ], [ %.val63141, %118 ], [ %.val63141, %106 ], [ %.val63141, %98 ], [ %.val63141, %101 ], [ %.val63.pre, %163 ], [ %.val63141, %70 ], [ %.val63141, %75 ]
   %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
   %164 = trunc nuw i64 %indvars.iv.next131 to i32
   %165 = icmp sgt i32 %.val63, %164

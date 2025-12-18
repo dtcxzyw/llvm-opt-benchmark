@@ -363,8 +363,8 @@ query_supports_distinctness.exit.i.i:             ; preds = %60
   %206 = call ptr @lappend(ptr noundef %.0629097.i, ptr noundef nonnull %167) #6
   br label %clause_sides_match_join.exit.thread
 
-clause_sides_match_join.exit.thread:              ; preds = %200, %197, %204, %183, %179, %175, %171, %.lr.ph98.i
-  %.163.i = phi ptr [ %.0629097.i, %179 ], [ %.0629097.i, %.lr.ph98.i ], [ %.0629097.i, %171 ], [ %206, %204 ], [ %.0629097.i, %175 ], [ %.0629097.i, %183 ], [ %.0629097.i, %197 ], [ %.0629097.i, %200 ]
+clause_sides_match_join.exit.thread:              ; preds = %197, %200, %204, %183, %179, %175, %171, %.lr.ph98.i
+  %.163.i = phi ptr [ %.0629097.i, %179 ], [ %.0629097.i, %.lr.ph98.i ], [ %.0629097.i, %171 ], [ %206, %204 ], [ %.0629097.i, %175 ], [ %.0629097.i, %183 ], [ %.0629097.i, %200 ], [ %.0629097.i, %197 ]
   %indvars.iv.next106.i = add nuw nsw i64 %indvars.iv105.i, 1
   %207 = load i32, ptr %160, align 4
   %208 = sext i32 %207 to i64
@@ -482,7 +482,7 @@ remove_leftjoinrel_from_query.exit:               ; preds = %247, %211, %.lr.ph.
   br i1 %.not, label %.critedge._crit_edge, label %.lr.ph
 
 .critedge._crit_edge:                             ; preds = %.critedge, %.lr.ph, %.thread, %2
-  %.0.lcssa = phi ptr [ %1, %2 ], [ %.054, %.thread ], [ %254, %.critedge ], [ %.054, %.lr.ph ]
+  %.0.lcssa = phi ptr [ %.054, %.thread ], [ %1, %2 ], [ %254, %.critedge ], [ %.054, %.lr.ph ]
   ret ptr %.0.lcssa
 }
 
@@ -742,8 +742,8 @@ query_supports_distinctness.exit.i:               ; preds = %52
   br label %rel_supports_distinctness.exit
 
 rel_supports_distinctness.exit:                   ; preds = %.critedge.i, %27, %30, %.lr.ph.i, %80, %query_supports_distinctness.exit.i, %22, %.loopexit, %18, %10, %94
-  %.sroa.0.1 = phi ptr [ %.sroa.0.030, %10 ], [ %97, %94 ], [ %.sroa.0.030, %.loopexit ], [ %.sroa.0.030, %18 ], [ %.sroa.0.030, %22 ], [ %.sroa.0.030, %query_supports_distinctness.exit.i ], [ %.sroa.0.030, %80 ], [ %.sroa.0.030, %.lr.ph.i ], [ %.sroa.0.030, %30 ], [ %.sroa.0.030, %27 ], [ %.sroa.0.030, %.critedge.i ]
-  %.sroa.7.1 = phi i32 [ %.sroa.7.031, %10 ], [ %96, %94 ], [ %.sroa.7.031, %.loopexit ], [ %.sroa.7.031, %18 ], [ %.sroa.7.031, %22 ], [ %.sroa.7.031, %query_supports_distinctness.exit.i ], [ %.sroa.7.031, %80 ], [ %.sroa.7.031, %.lr.ph.i ], [ %.sroa.7.031, %30 ], [ %.sroa.7.031, %27 ], [ %.sroa.7.031, %.critedge.i ]
+  %.sroa.0.1 = phi ptr [ %.sroa.0.030, %10 ], [ %97, %94 ], [ %.sroa.0.030, %.loopexit ], [ %.sroa.0.030, %18 ], [ %.sroa.0.030, %22 ], [ %.sroa.0.030, %query_supports_distinctness.exit.i ], [ %.sroa.0.030, %80 ], [ %.sroa.0.030, %27 ], [ %.sroa.0.030, %.lr.ph.i ], [ %.sroa.0.030, %30 ], [ %.sroa.0.030, %.critedge.i ]
+  %.sroa.7.1 = phi i32 [ %.sroa.7.031, %10 ], [ %96, %94 ], [ %.sroa.7.031, %.loopexit ], [ %.sroa.7.031, %18 ], [ %.sroa.7.031, %22 ], [ %.sroa.7.031, %query_supports_distinctness.exit.i ], [ %.sroa.7.031, %80 ], [ %.sroa.7.031, %27 ], [ %.sroa.7.031, %.lr.ph.i ], [ %.sroa.7.031, %30 ], [ %.sroa.7.031, %.critedge.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %98 = add i32 %.sroa.7.1, 1
   %.not = icmp eq ptr %.sroa.0.1, null
@@ -1218,7 +1218,7 @@ select.unfold:                                    ; preds = %.select.unfold_crit
   br i1 %201, label %.lr.ph217, label %.thread144
 
 .thread144:                                       ; preds = %18, %74, %select.unfold, %195, %distinct_col_search.exit139, %182, %184, %select.unfold.us, %61, %.preheader173, %.preheader, %list_head.exit, %.lr.ph188.split.split, %.lr.ph188.split.us.split, %129, %distinct_col_search.exit125.thread.thread, %120, %124, %113, %distinct_col_search.exit.thread.thread, %119
-  %.0 = phi i1 [ false, %distinct_col_search.exit.thread.thread ], [ true, %.preheader ], [ false, %119 ], [ true, %113 ], [ false, %129 ], [ true, %120 ], [ true, %124 ], [ false, %distinct_col_search.exit125.thread.thread ], [ false, %61 ], [ true, %.lr.ph188.split.split ], [ true, %list_head.exit ], [ true, %.preheader173 ], [ true, %.lr.ph188.split.us.split ], [ true, %74 ], [ %155, %select.unfold.us ], [ false, %182 ], [ false, %distinct_col_search.exit139 ], [ false, %184 ], [ false, %195 ], [ true, %select.unfold ], [ true, %18 ]
+  %.0 = phi i1 [ false, %distinct_col_search.exit.thread.thread ], [ true, %.preheader ], [ false, %182 ], [ true, %list_head.exit ], [ false, %119 ], [ true, %113 ], [ false, %129 ], [ true, %120 ], [ true, %124 ], [ true, %.lr.ph188.split.split ], [ false, %distinct_col_search.exit125.thread.thread ], [ true, %.preheader173 ], [ true, %74 ], [ %155, %select.unfold.us ], [ false, %61 ], [ true, %.lr.ph188.split.us.split ], [ false, %distinct_col_search.exit139 ], [ false, %184 ], [ true, %select.unfold ], [ false, %195 ], [ true, %18 ]
   ret i1 %.0
 }
 
@@ -1505,7 +1505,7 @@ query_supports_distinctness.exit.i:               ; preds = %41
   br label %clause_sides_match_join.exit.thread.us.i
 
 clause_sides_match_join.exit.thread.us.i:         ; preds = %151, %147, %144, %131, %.lr.ph.split.us.i
-  %.1.us.i = phi ptr [ %.026.us.i, %.lr.ph.split.us.i ], [ %.026.us.i, %147 ], [ %153, %151 ], [ %.026.us.i, %144 ], [ %.026.us.i, %131 ]
+  %.1.us.i = phi ptr [ %.026.us.i, %.lr.ph.split.us.i ], [ %.026.us.i, %144 ], [ %153, %151 ], [ %.026.us.i, %147 ], [ %.026.us.i, %131 ]
   %indvars.iv.next30.i = add nuw nsw i64 %indvars.iv29.i, 1
   %154 = load i32, ptr %119, align 4
   %155 = sext i32 %154 to i64
@@ -1573,7 +1573,7 @@ clause_sides_match_join.exit.thread.us.i:         ; preds = %151, %147, %144, %1
   br label %clause_sides_match_join.exit.thread.i
 
 clause_sides_match_join.exit.thread.i:            ; preds = %190, %186, %183, %170, %166, %162, %.lr.ph.split.i
-  %.1.i = phi ptr [ %.026.i, %166 ], [ %.026.i, %.lr.ph.split.i ], [ %192, %190 ], [ %.026.i, %162 ], [ %.026.i, %170 ], [ %.026.i, %183 ], [ %.026.i, %186 ]
+  %.1.i = phi ptr [ %.026.i, %166 ], [ %.026.i, %.lr.ph.split.i ], [ %192, %190 ], [ %.026.i, %162 ], [ %.026.i, %170 ], [ %.026.i, %186 ], [ %.026.i, %183 ]
   %indvars.iv.next.i81 = add nuw nsw i64 %indvars.iv.i80, 1
   %193 = load i32, ptr %119, align 4
   %194 = sext i32 %193 to i64
@@ -1633,7 +1633,7 @@ is_innerrel_unique_for.exit:                      ; preds = %clause_sides_match_
   br label %rel_supports_distinctness.exit
 
 rel_supports_distinctness.exit:                   ; preds = %.critedge.i, %.lr.ph99, %.lr.ph105, %16, %19, %.lr.ph.i, %70, %query_supports_distinctness.exit.i, %13, %.split.us, %211, %214, %196, %208, %8
-  %.0 = phi i1 [ false, %8 ], [ true, %.split.us ], [ true, %196 ], [ false, %211 ], [ true, %208 ], [ false, %214 ], [ false, %16 ], [ false, %13 ], [ false, %query_supports_distinctness.exit.i ], [ false, %70 ], [ false, %.lr.ph.i ], [ false, %19 ], [ true, %.lr.ph99 ], [ false, %.lr.ph105 ], [ false, %.critedge.i ]
+  %.0 = phi i1 [ false, %8 ], [ true, %.split.us ], [ true, %196 ], [ true, %.lr.ph99 ], [ false, %211 ], [ true, %208 ], [ false, %214 ], [ false, %16 ], [ false, %13 ], [ false, %query_supports_distinctness.exit.i ], [ false, %70 ], [ false, %.lr.ph105 ], [ false, %.lr.ph.i ], [ false, %19 ], [ false, %.critedge.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i1 %.0
 }
@@ -2028,8 +2028,8 @@ define internal fastcc ptr @remove_self_joins_recurse(ptr noundef %0, ptr nounde
   br i1 %.not108.i, label %.critedge110.thread.i, label %match_unique_clauses.exit.i, !llvm.loop !17
 
 .critedge110.thread.i:                            ; preds = %169, %.critedge110.i, %.lr.ph166.i, %.critedge217.i
-  %.192262.i = phi ptr [ %.293.i, %.critedge110.i ], [ %.293.i, %169 ], [ null, %.critedge217.i ], [ null, %.lr.ph166.i ]
-  %.195261.i = phi ptr [ %.296.i, %.critedge110.i ], [ %.296.i, %169 ], [ null, %.critedge217.i ], [ null, %.lr.ph166.i ]
+  %.192262.i = phi ptr [ %.293.i, %.critedge110.i ], [ %.293.i, %169 ], [ null, %.lr.ph166.i ], [ null, %.critedge217.i ]
+  %.195261.i = phi ptr [ %.296.i, %.critedge110.i ], [ %.296.i, %169 ], [ null, %.lr.ph166.i ], [ null, %.critedge217.i ]
   %174 = call ptr @bms_add_member(ptr noundef null, i32 noundef %109) #6
   %175 = call ptr @bms_add_member(ptr noundef %174, i32 noundef %120) #6
   %176 = load ptr, ptr %116, align 8
@@ -3145,7 +3145,7 @@ list_length.exit.i:                               ; preds = %38
   br label %get_rightop.exit
 
 get_rightop.exit:                                 ; preds = %46, %42
-  %.0.in = phi ptr [ %44, %42 ], [ %.val.i53, %46 ]
+  %.0.in = phi ptr [ %.val.i53, %46 ], [ %44, %42 ]
   %.0 = load ptr, ptr %.0.in, align 8
   %.not48 = icmp eq ptr %.0, null
   br i1 %.not48, label %.thread, label %48

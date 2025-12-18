@@ -2296,7 +2296,7 @@ llvm_update_vector.exit65.i:                      ; preds = %1017, %.lr.ph256
   br i1 %exitcond317.not, label %llvm_emit_vector_initializer_list.exit, label %975, !llvm.loop !16
 
 llvm_emit_vector_initializer_list.exit:           ; preds = %.loopexit, %llvm_update_vector.exit.i, %967, %937, %970, %940
-  %.1.i179 = phi ptr [ %938, %940 ], [ %968, %970 ], [ %938, %937 ], [ %968, %967 ], [ %965, %llvm_update_vector.exit.i ], [ %.4.i, %.loopexit ]
+  %.1.i179 = phi ptr [ %938, %937 ], [ %938, %940 ], [ %968, %970 ], [ %968, %967 ], [ %965, %llvm_update_vector.exit.i ], [ %.4.i, %.loopexit ]
   call void @llvm_value_set(ptr noundef %1, ptr noundef %.1.i179, ptr noundef %931) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %common.ret468
@@ -3000,7 +3000,7 @@ type_flatten.exit196:                             ; preds = %1357
   br label %.backedge
 
 .backedge:                                        ; preds = %1394, %1388
-  %.0.i189.in.be = phi ptr [ %1393, %1388 ], [ %1395, %1394 ]
+  %.0.i189.in.be = phi ptr [ %1395, %1394 ], [ %1393, %1388 ]
   br label %1384
 
 1396:                                             ; preds = %1384
@@ -11905,7 +11905,7 @@ llvm_get_current_block_if_in_use.exit167:         ; preds = %251, %254
   br label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %283, %277
-  %.0.i168.in.be = phi ptr [ %282, %277 ], [ %284, %283 ]
+  %.0.i168.in.be = phi ptr [ %284, %283 ], [ %282, %277 ]
   br label %.preheader
 
 285:                                              ; preds = %.preheader
@@ -19192,7 +19192,7 @@ llvm_emit_logical_and_or.exit:                    ; preds = %102, %125, %.crited
   br label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %147, %141
-  %.0.i.in.be = phi ptr [ %146, %141 ], [ %148, %147 ]
+  %.0.i.in.be = phi ptr [ %148, %147 ], [ %146, %141 ]
   br label %.preheader
 
 149:                                              ; preds = %.preheader

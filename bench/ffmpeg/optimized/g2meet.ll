@@ -1148,8 +1148,8 @@ bytestream2_get_be32.exit.i:                      ; preds = %.lr.ph.i, %478
   br label %g2m_init_buffers.exit
 
 g2m_init_buffers.exit:                            ; preds = %._crit_edge.i, %._crit_edge187.i, %279, %._crit_edge180.i, %406, %405, %399, %397, %377, %256, %247, %209, %83, %83, %296, %297, %299, %490, %321, %bytestream2_get_be16.exit241, %304, %278, %265, %262, %86
-  %.sroa.0253.1 = phi ptr [ %.sroa.0253.12, %490 ], [ %.sroa.0253.12, %86 ], [ %.sroa.0253.12, %83 ], [ %.sroa.0253.12, %262 ], [ %.sroa.0253.12, %265 ], [ %.sroa.0253.15, %296 ], [ %.sroa.0253.15, %297 ], [ %.sroa.0253.15, %299 ], [ %.sroa.0253.15, %278 ], [ %.sroa.0253.12, %304 ], [ %.sroa.0253.17, %bytestream2_get_be16.exit241 ], [ %.sroa.0253.12, %321 ], [ %.sroa.0253.12, %83 ], [ %182, %209 ], [ %182, %247 ], [ %182, %256 ], [ %.sroa.0253.12, %377 ], [ %.sroa.0253.12, %397 ], [ %.sroa.0253.12, %399 ], [ %.sroa.0253.12, %405 ], [ %.sroa.0253.12, %406 ], [ %.sroa.0253.12, %._crit_edge180.i ], [ %.sroa.0253.15, %279 ], [ %.sroa.0253.12, %._crit_edge187.i ], [ %.sroa.0253.12, %._crit_edge.i ]
-  %.1173 = phi i32 [ %.0172472, %490 ], [ 0, %86 ], [ %.0172472, %83 ], [ %.0172472, %262 ], [ %.0172472, %265 ], [ %.0172472, %296 ], [ %.0172472, %297 ], [ %.0172472, %299 ], [ %.0172472, %278 ], [ %.0172472, %304 ], [ %.0172472, %bytestream2_get_be16.exit241 ], [ %.0172472, %321 ], [ %.0172472, %83 ], [ 1, %209 ], [ 1, %247 ], [ 1, %256 ], [ %.0172472, %377 ], [ %.0172472, %397 ], [ %.0172472, %399 ], [ %.0172472, %405 ], [ %.0172472, %406 ], [ %.0172472, %._crit_edge180.i ], [ %.0172472, %279 ], [ %.0172472, %._crit_edge187.i ], [ %.0172472, %._crit_edge.i ]
+  %.sroa.0253.1 = phi ptr [ %.sroa.0253.12, %490 ], [ %.sroa.0253.12, %86 ], [ %.sroa.0253.12, %83 ], [ %.sroa.0253.12, %262 ], [ %.sroa.0253.12, %265 ], [ %.sroa.0253.15, %296 ], [ %.sroa.0253.15, %297 ], [ %.sroa.0253.15, %299 ], [ %.sroa.0253.15, %278 ], [ %.sroa.0253.12, %304 ], [ %.sroa.0253.17, %bytestream2_get_be16.exit241 ], [ %.sroa.0253.12, %321 ], [ %.sroa.0253.12, %._crit_edge187.i ], [ %.sroa.0253.12, %83 ], [ %182, %209 ], [ %182, %247 ], [ %182, %256 ], [ %.sroa.0253.12, %377 ], [ %.sroa.0253.12, %397 ], [ %.sroa.0253.12, %399 ], [ %.sroa.0253.12, %405 ], [ %.sroa.0253.12, %406 ], [ %.sroa.0253.12, %._crit_edge180.i ], [ %.sroa.0253.15, %279 ], [ %.sroa.0253.12, %._crit_edge.i ]
+  %.1173 = phi i32 [ %.0172472, %490 ], [ 0, %86 ], [ %.0172472, %83 ], [ %.0172472, %262 ], [ %.0172472, %265 ], [ %.0172472, %296 ], [ %.0172472, %297 ], [ %.0172472, %299 ], [ %.0172472, %278 ], [ %.0172472, %304 ], [ %.0172472, %bytestream2_get_be16.exit241 ], [ %.0172472, %321 ], [ %.0172472, %._crit_edge187.i ], [ %.0172472, %83 ], [ 1, %209 ], [ 1, %247 ], [ 1, %256 ], [ %.0172472, %377 ], [ %.0172472, %397 ], [ %.0172472, %399 ], [ %.0172472, %405 ], [ %.0172472, %406 ], [ %.0172472, %._crit_edge180.i ], [ %.0172472, %279 ], [ %.0172472, %._crit_edge.i ]
   %491 = add i32 %70, %78
   %492 = ptrtoint ptr %.sroa.0253.1 to i64
   %.neg = sub i64 %16, %492
@@ -1248,7 +1248,7 @@ g2m_init_buffers.exit:                            ; preds = %._crit_edge.i, %._c
   br label %546
 
 g2m_init_buffers.exit.thread:                     ; preds = %243, %245, %188, %213, %250, %104, %.loopexit354, %bytestream2_get_be32.exit230.thread, %167, %.loopexit353, %.loopexit352, %.loopexit351
-  %.0 = phi i32 [ -1094995529, %.loopexit351 ], [ -1163346256, %.loopexit352 ], [ -1094995529, %.loopexit353 ], [ -1094995529, %167 ], [ -1163346256, %bytestream2_get_be32.exit230.thread ], [ -1163346256, %.loopexit354 ], [ %105, %104 ], [ -12, %250 ], [ -12, %213 ], [ -12, %188 ], [ -12, %245 ], [ -12, %243 ]
+  %.0 = phi i32 [ -1094995529, %.loopexit351 ], [ -1163346256, %.loopexit354 ], [ -1163346256, %.loopexit352 ], [ -1094995529, %.loopexit353 ], [ -1094995529, %167 ], [ -1163346256, %bytestream2_get_be32.exit230.thread ], [ %105, %104 ], [ -12, %250 ], [ -12, %213 ], [ -12, %188 ], [ -12, %245 ], [ -12, %243 ]
   store i32 0, ptr %44, align 4, !tbaa !49
   store i32 0, ptr %43, align 8, !tbaa !48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %47, i8 0, i64 16, i1 false)
@@ -2054,7 +2054,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @kempf_decode_tile(ptr noun
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge.us, %130, %125, %42, %94, %79, %.loopexit200, %59, %5, %.thread196, %101, %52
-  %.0159 = phi i32 [ -1094995529, %94 ], [ -1094995529, %5 ], [ %54, %52 ], [ -1094995529, %59 ], [ 0, %.loopexit200 ], [ -1094995529, %79 ], [ 0, %101 ], [ 0, %.thread196 ], [ 0, %42 ], [ -1094995529, %130 ], [ -1094995529, %125 ], [ 0, %._crit_edge.us ]
+  %.0159 = phi i32 [ -1094995529, %94 ], [ -1094995529, %5 ], [ %54, %52 ], [ 0, %42 ], [ -1094995529, %59 ], [ 0, %.loopexit200 ], [ -1094995529, %79 ], [ 0, %101 ], [ 0, %.thread196 ], [ -1094995529, %130 ], [ -1094995529, %125 ], [ 0, %._crit_edge.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -3132,10 +3132,10 @@ is_pixel_on_stack.exit.thread.i155.us:            ; preds = %409, %is_pixel_on_s
   br i1 %.not30.i154.us, label %.split98.us, label %401, !llvm.loop !137
 
 .split98.us:                                      ; preds = %398, %424, %.critedge.i.thread.us, %.critedge.i.thread.us.thread, %376, %epic_hash_find.exit.i149.us
-  %.sink = phi i32 [ %.091283.us, %376 ], [ %.091283.us, %epic_hash_find.exit.i149.us ], [ 0, %.critedge.i.thread.us.thread ], [ 0, %.critedge.i.thread.us ], [ %.091283.us, %424 ], [ %.091283.us, %398 ]
-  %.not111.us378 = phi i1 [ false, %376 ], [ false, %epic_hash_find.exit.i149.us ], [ true, %.critedge.i.thread.us.thread ], [ true, %.critedge.i.thread.us ], [ false, %424 ], [ false, %398 ]
-  %427 = phi i32 [ %377, %376 ], [ %377, %epic_hash_find.exit.i149.us ], [ %305, %.critedge.i.thread.us.thread ], [ %375, %.critedge.i.thread.us ], [ %377, %424 ], [ %377, %398 ]
-  %.0181206231234.us376 = phi i32 [ %.0181206231234.us383, %376 ], [ %.0181206231234.us383, %epic_hash_find.exit.i149.us ], [ 1, %.critedge.i.thread.us.thread ], [ %.0181206.us, %.critedge.i.thread.us ], [ %.0181206231234.us383, %424 ], [ %.0181206231234.us383, %398 ]
+  %.sink = phi i32 [ %.091283.us, %376 ], [ %.091283.us, %424 ], [ 0, %.critedge.i.thread.us ], [ %.091283.us, %epic_hash_find.exit.i149.us ], [ 0, %.critedge.i.thread.us.thread ], [ %.091283.us, %398 ]
+  %.not111.us378 = phi i1 [ false, %376 ], [ false, %424 ], [ true, %.critedge.i.thread.us ], [ false, %epic_hash_find.exit.i149.us ], [ true, %.critedge.i.thread.us.thread ], [ false, %398 ]
+  %427 = phi i32 [ %377, %376 ], [ %377, %424 ], [ %375, %.critedge.i.thread.us ], [ %377, %epic_hash_find.exit.i149.us ], [ %305, %.critedge.i.thread.us.thread ], [ %377, %398 ]
+  %.0181206231234.us376 = phi i32 [ %.0181206231234.us383, %376 ], [ %.0181206231234.us383, %424 ], [ %.0181206.us, %.critedge.i.thread.us ], [ %.0181206231234.us383, %epic_hash_find.exit.i149.us ], [ 1, %.critedge.i.thread.us.thread ], [ %.0181206231234.us383, %398 ]
   %428 = tail call fastcc i32 @epic_decode_pixel_pred(ptr noundef %0, i32 noundef %.sink, i32 noundef %.097287.us, ptr noundef %.086290.us, ptr noundef %.096288.us)
   %429 = load i32, ptr %12, align 8, !tbaa !129
   %430 = icmp sgt i32 %429, 0
@@ -3267,8 +3267,8 @@ epic_decode_from_cache.exit.us:                   ; preds = %is_pixel_on_stack.e
   br label %.lr.ph.us.preheader
 
 epic_predict_from_NW_NE.exit.us:                  ; preds = %epic_decode_from_cache.exit.us, %epic_add_pixel_to_cache.exit.us, %416, %414, %is_pixel_on_stack.exit61.thread.i.us, %is_pixel_on_stack.exit.thread.i132.us, %epic_handle_edges.exit.us
-  %.0181207.us = phi i32 [ %.0181206231234.us376, %epic_decode_from_cache.exit.us ], [ %.0181206231234.us376, %epic_add_pixel_to_cache.exit.us ], [ %.pn, %epic_handle_edges.exit.us ], [ %.0181206.us, %is_pixel_on_stack.exit61.thread.i.us ], [ %.0181206.us, %is_pixel_on_stack.exit.thread.i132.us ], [ %.0181206231234.us383, %414 ], [ %.0181206231234.us383, %416 ]
-  %.1188.us = phi i32 [ %428, %epic_decode_from_cache.exit.us ], [ %428, %epic_add_pixel_to_cache.exit.us ], [ %.6.us, %epic_handle_edges.exit.us ], [ %355, %is_pixel_on_stack.exit61.thread.i.us ], [ %327, %is_pixel_on_stack.exit.thread.i132.us ], [ %413, %414 ], [ %413, %416 ]
+  %.0181207.us = phi i32 [ %.0181206231234.us376, %epic_decode_from_cache.exit.us ], [ %.0181206231234.us376, %epic_add_pixel_to_cache.exit.us ], [ %.pn, %epic_handle_edges.exit.us ], [ %.0181206.us, %is_pixel_on_stack.exit61.thread.i.us ], [ %.0181206.us, %is_pixel_on_stack.exit.thread.i132.us ], [ %.0181206231234.us383, %416 ], [ %.0181206231234.us383, %414 ]
+  %.1188.us = phi i32 [ %428, %epic_decode_from_cache.exit.us ], [ %428, %epic_add_pixel_to_cache.exit.us ], [ %.6.us, %epic_handle_edges.exit.us ], [ %355, %is_pixel_on_stack.exit61.thread.i.us ], [ %327, %is_pixel_on_stack.exit.thread.i132.us ], [ %413, %416 ], [ %413, %414 ]
   %486 = icmp sgt i32 %.0181207.us, 0
   br i1 %486, label %.lr.ph.us.preheader, label %.loopexit.us
 
@@ -3308,7 +3308,7 @@ epic_predict_from_NW_NE.exit.us:                  ; preds = %epic_decode_from_ca
   br label %.thread
 
 .thread:                                          ; preds = %._crit_edge.us, %epic_decode_from_cache.exit.us, %epic_hash_find.exit.i163.us, %463, %.loopexit.i.us, %109, %30, %.lr.ph293.split, %5
-  %.2 = phi i32 [ 0, %5 ], [ 0, %.lr.ph293.split ], [ -1094995529, %30 ], [ -12, %epic_hash_find.exit.i163.us ], [ -12, %.loopexit.i.us ], [ -1094995529, %epic_decode_from_cache.exit.us ], [ -12, %463 ], [ %126, %109 ], [ 0, %._crit_edge.us ]
+  %.2 = phi i32 [ 0, %.lr.ph293.split ], [ -1094995529, %30 ], [ 0, %5 ], [ -12, %epic_hash_find.exit.i163.us ], [ -12, %.loopexit.i.us ], [ -1094995529, %epic_decode_from_cache.exit.us ], [ -12, %463 ], [ %126, %109 ], [ 0, %._crit_edge.us ]
   ret i32 %.2
 }
 
@@ -3733,7 +3733,7 @@ jpg_unescape.exit:                                ; preds = %jpg_unescape.exit.l
   br i1 %exitcond224.not, label %.loopexit, label %.preheader138.us, !llvm.loop !162
 
 .loopexit:                                        ; preds = %._crit_edge.us, %91, %150, %161, %173, %.preheader138.lr.ph, %56, %jpg_unescape.exit, %11
-  %.0 = phi i32 [ %17, %11 ], [ -1094995529, %jpg_unescape.exit ], [ 0, %56 ], [ 0, %.preheader138.lr.ph ], [ 0, %91 ], [ %175, %173 ], [ %162, %161 ], [ %154, %150 ], [ 0, %._crit_edge.us ]
+  %.0 = phi i32 [ 0, %.preheader138.lr.ph ], [ %17, %11 ], [ -1094995529, %jpg_unescape.exit ], [ %154, %150 ], [ 0, %91 ], [ 0, %56 ], [ %175, %173 ], [ %162, %161 ], [ 0, %._crit_edge.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i32 %.0
 }

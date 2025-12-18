@@ -1428,7 +1428,7 @@ define internal fastcc i64 @png_image_size(ptr noalias noundef readonly captures
   br label %.loopexit
 
 .loopexit:                                        ; preds = %89, %53, %1, %90
-  %.0 = phi i64 [ %93, %90 ], [ 4294967295, %1 ], [ %.1.us, %53 ], [ %.1, %89 ]
+  %.0 = phi i64 [ 4294967295, %1 ], [ %93, %90 ], [ %.1.us, %53 ], [ %.1, %89 ]
   ret i64 %.0
 }
 
@@ -1738,7 +1738,7 @@ png_write_chunk_data.exit.i:                      ; preds = %89, %.split.i
   br label %.split.i
 
 .split23.us.i:                                    ; preds = %png_write_chunk_data.exit.i, %png_write_chunk_data.exit.us.i, %.split.us.i
-  %.us-phi.i = phi i1 [ %81, %.split.us.i ], [ %87, %png_write_chunk_data.exit.us.i ], [ %92, %png_write_chunk_data.exit.i ]
+  %.us-phi.i = phi i1 [ %87, %png_write_chunk_data.exit.us.i ], [ %81, %.split.us.i ], [ %92, %png_write_chunk_data.exit.i ]
   br i1 %.us-phi.i, label %png_write_compressed_data_out.exit, label %97
 
 97:                                               ; preds = %.split23.us.i
@@ -3279,7 +3279,7 @@ png_write_chunk_data.exit.i:                      ; preds = %62, %.split.i
   br label %.split.i
 
 .split23.us.i:                                    ; preds = %png_write_chunk_data.exit.i, %png_write_chunk_data.exit.us.i, %.split.us.i
-  %.us-phi.i = phi i1 [ %54, %.split.us.i ], [ %60, %png_write_chunk_data.exit.us.i ], [ %65, %png_write_chunk_data.exit.i ]
+  %.us-phi.i = phi i1 [ %60, %png_write_chunk_data.exit.us.i ], [ %54, %.split.us.i ], [ %65, %png_write_chunk_data.exit.i ]
   br i1 %.us-phi.i, label %png_write_compressed_data_out.exit, label %70
 
 70:                                               ; preds = %.split23.us.i
@@ -4481,8 +4481,8 @@ define void @png_do_write_interlace(ptr noundef captures(none) %0, ptr noundef c
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.thread196, %.thread182, %.thread, %120, %.loopexit.sink.split, %72, %40, %9, %104, %._crit_edge, %._crit_edge131, %._crit_edge141
-  %.pre-phi149 = phi i32 [ %76, %72 ], [ %110, %104 ], [ %76, %._crit_edge ], [ %44, %._crit_edge131 ], [ %13, %._crit_edge141 ], [ %13, %9 ], [ %44, %40 ], [ %.pre-phi149.ph, %.loopexit.sink.split ], [ %44, %.thread182 ], [ %110, %120 ], [ %13, %.thread ], [ %76, %.thread196 ]
-  %.pre-phi = phi i64 [ %73, %72 ], [ %107, %104 ], [ %73, %._crit_edge ], [ %41, %._crit_edge131 ], [ %10, %._crit_edge141 ], [ %10, %9 ], [ %41, %40 ], [ %.pre-phi.ph, %.loopexit.sink.split ], [ %41, %.thread182 ], [ %107, %120 ], [ %10, %.thread ], [ %73, %.thread196 ]
+  %.pre-phi149 = phi i32 [ %76, %72 ], [ %110, %104 ], [ %76, %._crit_edge ], [ %44, %40 ], [ %44, %._crit_edge131 ], [ %44, %.thread182 ], [ %13, %._crit_edge141 ], [ %13, %.thread ], [ %110, %120 ], [ %13, %9 ], [ %.pre-phi149.ph, %.loopexit.sink.split ], [ %76, %.thread196 ]
+  %.pre-phi = phi i64 [ %73, %72 ], [ %107, %104 ], [ %73, %._crit_edge ], [ %41, %40 ], [ %41, %._crit_edge131 ], [ %41, %.thread182 ], [ %10, %._crit_edge141 ], [ %10, %.thread ], [ %107, %120 ], [ %10, %9 ], [ %.pre-phi.ph, %.loopexit.sink.split ], [ %73, %.thread196 ]
   %125 = load i32, ptr %0, align 8, !tbaa !254
   %126 = getelementptr inbounds i8, ptr @png_pass_inc, i64 %.pre-phi
   %127 = load i8, ptr %126, align 1, !tbaa !3
@@ -5162,7 +5162,7 @@ png_setup_paeth_row.exit:                         ; preds = %.lr.ph100.i, %.preh
   br label %.thread212.thread
 
 .thread212.thread:                                ; preds = %.lr.ph80.i, %.lr.ph44.i, %.lr.ph.i138, %.lr.ph12.i, %.preheader.i172, %.preheader.i153, %77, %.preheader.i, %png_setup_paeth_row.exit, %253, %250, %.thread212
-  %.6 = phi ptr [ %111, %.preheader.i153 ], [ %.4, %.thread212 ], [ %209, %253 ], [ %209, %250 ], [ %.4, %png_setup_paeth_row.exit ], [ %79, %77 ], [ %.val128, %.preheader.i ], [ %180, %.preheader.i172 ], [ %111, %.lr.ph44.i ], [ %.val128, %.lr.ph12.i ], [ %79, %.lr.ph.i138 ], [ %180, %.lr.ph80.i ]
+  %.6 = phi ptr [ %111, %.preheader.i153 ], [ %.4, %.thread212 ], [ %209, %253 ], [ %209, %250 ], [ %.4, %png_setup_paeth_row.exit ], [ %79, %77 ], [ %.val128, %.preheader.i ], [ %180, %.preheader.i172 ], [ %79, %.lr.ph.i138 ], [ %111, %.lr.ph44.i ], [ %.val128, %.lr.ph12.i ], [ %180, %.lr.ph80.i ]
   %254 = load i64, ptr %6, align 8, !tbaa !259
   %255 = add i64 %254, 1
   tail call void @png_compress_IDAT(ptr noundef nonnull %0, ptr noundef %.6, i64 noundef %255, i32 noundef 0)

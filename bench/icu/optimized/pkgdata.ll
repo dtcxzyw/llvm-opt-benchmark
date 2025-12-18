@@ -2578,7 +2578,7 @@ _ZL18pkg_executeOptionsP12UPKGOptions_.exit:      ; preds = %353, %_ZL19pkg_inst
   br label %.loopexit
 
 .loopexit:                                        ; preds = %135, %890, %891, %284, %99, %91, %83, %39
-  %.052 = phi i32 [ 1, %83 ], [ 2, %284 ], [ 1, %39 ], [ 1, %99 ], [ 1, %91 ], [ %.0.i, %891 ], [ %.0.i, %890 ], [ 1, %135 ]
+  %.052 = phi i32 [ 1, %83 ], [ 2, %284 ], [ %.0.i, %890 ], [ 1, %39 ], [ 1, %99 ], [ 1, %91 ], [ %.0.i, %891 ], [ 1, %135 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   ret i32 %.052
 }

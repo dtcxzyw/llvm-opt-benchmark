@@ -366,7 +366,7 @@ copy_address.exit.i61:                            ; preds = %98, %92
   br i1 %155, label %145, label %.thread83, !llvm.loop !9
 
 .thread83:                                        ; preds = %145, %.preheader, %90, %89, %.thread87, %.thread79, %139, %5
-  %.0 = phi i32 [ 0, %.thread87 ], [ 0, %5 ], [ 1, %139 ], [ 1, %.thread79 ], [ 0, %89 ], [ 0, %90 ], [ 1, %.preheader ], [ 1, %145 ]
+  %.0 = phi i32 [ 0, %.thread87 ], [ 0, %5 ], [ 1, %139 ], [ 0, %90 ], [ 1, %.thread79 ], [ 0, %89 ], [ 1, %.preheader ], [ 1, %145 ]
   ret i32 %.0
 }
 

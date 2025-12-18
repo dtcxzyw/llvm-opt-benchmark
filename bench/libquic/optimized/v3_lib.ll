@@ -72,7 +72,7 @@ ext_list_free.exit.sink.split:                    ; preds = %12, %5
   br label %ext_list_free.exit
 
 ext_list_free.exit:                               ; preds = %ext_list_free.exit.sink.split, %12, %5, %9
-  %.0 = phi i32 [ 1, %9 ], [ 0, %5 ], [ 0, %12 ], [ 0, %ext_list_free.exit.sink.split ]
+  %.0 = phi i32 [ 1, %9 ], [ 0, %12 ], [ 0, %5 ], [ 0, %ext_list_free.exit.sink.split ]
   ret i32 %.0
 }
 

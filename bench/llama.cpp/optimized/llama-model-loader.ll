@@ -8140,7 +8140,7 @@ define noundef zeroext i1 @_ZN18llama_model_loader13load_all_dataEP12ggml_contex
   unreachable
 
 .loopexit.i:                                      ; preds = %69, %64, %48, %.thread.thread.i
-  %.sroa.06.1.i.i.i68.i = phi ptr [ %.pre, %.thread.thread.i ], [ %49, %48 ], [ %.sroa.06.0.i.i.i70.i, %64 ], [ %71, %69 ]
+  %.sroa.06.1.i.i.i68.i = phi ptr [ %.sroa.06.0.i.i.i70.i, %64 ], [ %.pre, %.thread.thread.i ], [ %49, %48 ], [ %71, %69 ]
   %77 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i68.i, i64 16
   %78 = load ptr, ptr %77, align 8, !tbaa !258
   %.not52.i = icmp eq ptr %78, null
@@ -8538,7 +8538,7 @@ _ZNSt6vectorIP18ggml_backend_eventSaIS1_EE17_M_realloc_insertIJRS1_EEEvN9__gnu_c
   unreachable
 
 .loopexit584:                                     ; preds = %190, %176, %185
-  %.sroa.06.1.i.i.i = phi ptr [ %186, %185 ], [ %.sroa.06.0.i.i.i, %176 ], [ %192, %190 ]
+  %.sroa.06.1.i.i.i = phi ptr [ %.sroa.06.0.i.i.i, %176 ], [ %186, %185 ], [ %192, %190 ]
   %198 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 16
   %199 = load ptr, ptr %198, align 8, !tbaa !258
   %200 = invoke ptr @ggml_backend_buffer_get_type(ptr noundef %199)
@@ -8832,7 +8832,7 @@ _ZNSt6vectorIP18ggml_backend_eventSaIS1_EE17_M_realloc_insertIJRS1_EEEvN9__gnu_c
   unreachable
 
 .loopexit557:                                     ; preds = %297, %287, %.thread504.thread
-  %.sroa.06.1.i.i.i242 = phi ptr [ %293, %.thread504.thread ], [ %.sroa.06.0.i.i.i244, %287 ], [ %299, %297 ]
+  %.sroa.06.1.i.i.i242 = phi ptr [ %.sroa.06.0.i.i.i244, %287 ], [ %293, %.thread504.thread ], [ %299, %297 ]
   %305 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i242, i64 16
   %306 = load ptr, ptr %305, align 8, !tbaa !258
   br label %.thread
@@ -8853,7 +8853,7 @@ _ZNSt6vectorIP18ggml_backend_eventSaIS1_EE17_M_realloc_insertIJRS1_EEEvN9__gnu_c
   br label %.body308
 
 .thread:                                          ; preds = %.lr.ph.i.i.i.i.i224, %.preheader921, %268, %..loopexit_crit_edge21.i.i.i.i.i228, %.loopexit557
-  %.0150 = phi ptr [ %306, %.loopexit557 ], [ null, %..loopexit_crit_edge21.i.i.i.i.i228 ], [ null, %268 ], [ null, %.preheader921 ], [ null, %.lr.ph.i.i.i.i.i224 ]
+  %.0150 = phi ptr [ %306, %.loopexit557 ], [ null, %..loopexit_crit_edge21.i.i.i.i.i228 ], [ null, %.preheader921 ], [ null, %268 ], [ null, %.lr.ph.i.i.i.i.i224 ]
   %313 = load ptr, ptr %261, align 8, !tbaa !187
   %314 = invoke noundef ptr @_ZNK10llama_mmap4addrEv(ptr noundef nonnull align 8 dereferenceable(8) %313)
           to label %315 unwind label %.loopexit569

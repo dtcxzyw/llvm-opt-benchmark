@@ -352,7 +352,7 @@ onas_send_fdpass.exit.i:                          ; preds = %115
   br label %276
 
 onas_fdpass.exit:                                 ; preds = %134, %133, %onas_send_stream.exit, %55
-  %.0122 = phi i32 [ %38, %55 ], [ %.032.i, %onas_send_stream.exit ], [ %.011.i, %134 ], [ %.011.i, %133 ]
+  %.0122 = phi i32 [ %.011.i, %133 ], [ %38, %55 ], [ %.032.i, %onas_send_stream.exit ], [ %.011.i, %134 ]
   %136 = icmp slt i32 %.0122, 1
   br i1 %136, label %138, label %.preheader
 

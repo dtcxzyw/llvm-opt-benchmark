@@ -224,9 +224,9 @@ define hidden i32 @ir_patch(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr 
   br label %.loopexit56.i.i
 
 .loopexit56.i.i:                                  ; preds = %58, %107, %97, %85, %81, %74
-  %.252.i.i = phi ptr [ %75, %74 ], [ %.050.i.i.ph, %85 ], [ %99, %97 ], [ %.050.i.i.ph, %107 ], [ %.050.i.i.ph, %81 ], [ %.050.i.i.ph, %58 ]
-  %.3.i.i = phi i32 [ %.047.i.i.ph.ph, %74 ], [ %.047.i.i.ph.ph, %85 ], [ %100, %97 ], [ %109, %107 ], [ %.047.i.i.ph.ph, %81 ], [ %.047.i.i.ph.ph, %58 ]
-  %.2.i.i = phi i32 [ %.0.i.i.ph, %74 ], [ %spec.store.select.i.i, %85 ], [ %98, %97 ], [ %.0.i.i.ph, %107 ], [ 2, %81 ], [ %.0.i.i.ph, %58 ]
+  %.252.i.i = phi ptr [ %75, %74 ], [ %.050.i.i.ph, %81 ], [ %.050.i.i.ph, %85 ], [ %99, %97 ], [ %.050.i.i.ph, %107 ], [ %.050.i.i.ph, %58 ]
+  %.3.i.i = phi i32 [ %.047.i.i.ph.ph, %74 ], [ %.047.i.i.ph.ph, %81 ], [ %.047.i.i.ph.ph, %85 ], [ %100, %97 ], [ %109, %107 ], [ %.047.i.i.ph.ph, %58 ]
+  %.2.i.i = phi i32 [ %.0.i.i.ph, %74 ], [ 2, %81 ], [ %spec.store.select.i.i, %85 ], [ %98, %97 ], [ %.0.i.i.ph, %107 ], [ %.0.i.i.ph, %58 ]
   %110 = and i32 %.2.i.i, 15
   %111 = add i32 %110, %.3.i.i
   %112 = getelementptr inbounds nuw i8, ptr %.252.i.i, i64 1

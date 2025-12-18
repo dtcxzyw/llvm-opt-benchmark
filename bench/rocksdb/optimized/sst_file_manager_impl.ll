@@ -2910,8 +2910,8 @@ _ZN7rocksdb9MutexLockD2Ev.exit:                   ; preds = %158
   br i1 %.0, label %38, label %165
 
 .body:                                            ; preds = %_ZN7rocksdb6StatusD2Ev.exit44, %_ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EED2Ev.exit14.i.i, %128, %130, %152, %88
-  %.sroa.4184.2 = phi ptr [ %.sroa.4184.0, %88 ], [ %.sroa.4184.3, %152 ], [ %.sroa.4184.4, %128 ], [ %49, %130 ], [ %104, %_ZN7rocksdb6StatusD2Ev.exit44 ], [ %104, %_ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EED2Ev.exit14.i.i ]
-  %.pn19 = phi { ptr, i32 } [ %89, %88 ], [ %153, %152 ], [ %129, %128 ], [ %131, %130 ], [ %132, %_ZN7rocksdb6StatusD2Ev.exit44 ], [ %118, %_ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EED2Ev.exit14.i.i ]
+  %.sroa.4184.2 = phi ptr [ %.sroa.4184.0, %88 ], [ %.sroa.4184.3, %152 ], [ %104, %_ZN7rocksdb6StatusD2Ev.exit44 ], [ %.sroa.4184.4, %128 ], [ %49, %130 ], [ %104, %_ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EED2Ev.exit14.i.i ]
+  %.pn19 = phi { ptr, i32 } [ %89, %88 ], [ %153, %152 ], [ %132, %_ZN7rocksdb6StatusD2Ev.exit44 ], [ %129, %128 ], [ %131, %130 ], [ %118, %_ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EED2Ev.exit14.i.i ]
   %.not.i.i58 = icmp eq ptr %.sroa.4184.2, null
   br i1 %.not.i.i58, label %_ZN7rocksdb6StatusD2Ev.exit60, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i59
 

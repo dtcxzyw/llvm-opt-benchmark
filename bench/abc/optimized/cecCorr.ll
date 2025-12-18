@@ -239,7 +239,7 @@ Gia_ObjReprObj.exit.thread:                       ; preds = %76, %Gia_ObjReprObj
   br i1 %92, label %76, label %.critedge2, !llvm.loop !40
 
 .critedge2:                                       ; preds = %Gia_ObjReprObj.exit.thread, %Abc_UtilStrsav.exit283, %.lr.ph397, %.critedge
-  %.val5.i289535 = phi ptr [ %.val5.i289, %.critedge ], [ %.val5.i289, %.lr.ph397 ], [ %.val6.i, %Abc_UtilStrsav.exit283 ], [ %.val5.i289, %Gia_ObjReprObj.exit.thread ]
+  %.val5.i289535 = phi ptr [ %.val6.i, %Abc_UtilStrsav.exit283 ], [ %.val5.i289, %.critedge ], [ %.val5.i289, %.lr.ph397 ], [ %.val5.i289, %Gia_ObjReprObj.exit.thread ]
   %93 = icmp sgt i32 %7, 0
   br i1 %93, label %.lr.ph407, label %._crit_edge
 
@@ -1376,7 +1376,7 @@ Gia_ObjReprObj.exit360.thread:                    ; preds = %512, %527, %Vec_Int
   br i1 %632, label %512, label %.critedge6, !llvm.loop !47
 
 .critedge6:                                       ; preds = %Gia_ObjIsHead.exit.thread, %Gia_ObjReprObj.exit360.thread, %.preheader388, %.preheader
-  %633 = phi ptr [ %186, %.preheader ], [ %186, %.preheader388 ], [ %.pre.i377472, %Gia_ObjReprObj.exit360.thread ], [ %.pre.i311469, %Gia_ObjIsHead.exit.thread ]
+  %633 = phi ptr [ %.pre.i377472, %Gia_ObjReprObj.exit360.thread ], [ %186, %.preheader ], [ %186, %.preheader388 ], [ %.pre.i311469, %Gia_ObjIsHead.exit.thread ]
   %.val243 = load i32, ptr %185, align 4, !tbaa !31
   %634 = icmp sgt i32 %.val243, 0
   br i1 %634, label %.lr.ph419, label %.critedge17
@@ -2959,7 +2959,7 @@ define range(i32 0, 2) i32 @Cec_ManLoadCounterExamplesTry(ptr noundef readonly c
   br i1 %exitcond47.not, label %.loopexit, label %39, !llvm.loop !71
 
 .loopexit:                                        ; preds = %29, %60, %5
-  %.032 = phi i32 [ 1, %5 ], [ 1, %60 ], [ 0, %29 ]
+  %.032 = phi i32 [ 1, %60 ], [ 1, %5 ], [ 0, %29 ]
   ret i32 %.032
 }
 
@@ -3222,7 +3222,7 @@ Cec_ManLoadCounterExamplesTry.exit.thread.loopexit: ; preds = %122
   br i1 %123, label %.loopexit.thread, label %.outer.backedge
 
 .outer.backedge:                                  ; preds = %Cec_ManLoadCounterExamplesTry.exit.us, %.lr.ph, %.preheader, %Cec_ManLoadCounterExamplesTry.exit.thread.loopexit
-  %.pre.i101.be = phi ptr [ %.val43, %Cec_ManLoadCounterExamplesTry.exit.thread.loopexit ], [ %.pre.i104, %.preheader ], [ %.val43, %.lr.ph ], [ %.val43, %Cec_ManLoadCounterExamplesTry.exit.us ]
+  %.pre.i101.be = phi ptr [ %.val43, %Cec_ManLoadCounterExamplesTry.exit.thread.loopexit ], [ %.val43, %.lr.ph ], [ %.pre.i104, %.preheader ], [ %.val43, %Cec_ManLoadCounterExamplesTry.exit.us ]
   br label %.outer, !llvm.loop !74
 
 .loopexit:                                        ; preds = %39
@@ -7136,7 +7136,7 @@ Vec_IntFind.exit:                                 ; preds = %43
   br i1 %59, label %53, label %Vec_IntDrop.exit, !llvm.loop !170
 
 Vec_IntDrop.exit:                                 ; preds = %48, %53, %Vec_IntFind.exit
-  %.val103 = phi i32 [ %50, %Vec_IntFind.exit ], [ %57, %53 ], [ %.val104, %48 ]
+  %.val103 = phi i32 [ %57, %53 ], [ %50, %Vec_IntFind.exit ], [ %.val104, %48 ]
   %.not95 = icmp eq i32 %.val103, 1
   br i1 %.not95, label %60, label %Vec_IntDrop.exit.thread
 

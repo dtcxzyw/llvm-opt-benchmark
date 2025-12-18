@@ -1201,7 +1201,7 @@ even.exit43:                                      ; preds = %even.exit38.thread
   br label %even.exit43.thread
 
 even.exit43.thread:                               ; preds = %11, %even.exit33.thread, %even.exit28.thread, %even.exit.thread, %16, %even.exit43, %even.exit38.thread, %.thread, %5, %1
-  %.016 = phi i32 [ 0, %1 ], [ 0, %even.exit33.thread ], [ 0, %even.exit28.thread ], [ 0, %even.exit.thread ], [ 0, %16 ], [ 0, %.thread ], [ 0, %5 ], [ 1, %even.exit38.thread ], [ %spec.select, %even.exit43 ], [ 0, %11 ]
+  %.016 = phi i32 [ 0, %1 ], [ 0, %even.exit33.thread ], [ %spec.select, %even.exit43 ], [ 0, %even.exit28.thread ], [ 0, %even.exit.thread ], [ 0, %16 ], [ 0, %.thread ], [ 0, %5 ], [ 1, %even.exit38.thread ], [ 0, %11 ]
   ret i32 %.016
 }
 
@@ -2443,7 +2443,7 @@ get_mix_any_func_s32.exit:                        ; preds = %548, %595, %599
   br i1 %exitcond309.not, label %.loopexit, label %.preheader, !llvm.loop !65
 
 .loopexit:                                        ; preds = %622, %39, %480, %369, %257, %34, %492
-  %.2 = phi i32 [ -12, %480 ], [ %35, %34 ], [ -12, %257 ], [ -12, %492 ], [ -12, %369 ], [ -12, %39 ], [ 0, %622 ]
+  %.2 = phi i32 [ -12, %480 ], [ -12, %39 ], [ %35, %34 ], [ -12, %257 ], [ -12, %492 ], [ -12, %369 ], [ 0, %622 ]
   ret i32 %.2
 }
 

@@ -954,7 +954,7 @@ blk_mq_sched_free_rqs.exit12:                     ; preds = %119, %105, %108
   br label %.thread
 
 .thread:                                          ; preds = %96, %19, %143, %blk_mq_sched_free_rqs.exit, %55
-  %145 = phi i32 [ %99, %143 ], [ %68, %blk_mq_sched_free_rqs.exit ], [ 0, %55 ], [ -12, %19 ], [ 0, %96 ]
+  %145 = phi i32 [ %99, %143 ], [ %68, %blk_mq_sched_free_rqs.exit ], [ -12, %19 ], [ 0, %55 ], [ 0, %96 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %145
 }

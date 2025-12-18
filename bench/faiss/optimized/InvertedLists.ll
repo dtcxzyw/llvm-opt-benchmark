@@ -3935,7 +3935,7 @@ _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit188.us: ; preds = %240
   br i1 %245, label %.lr.ph347.us, label %._crit_edge348.us, !llvm.loop !91
 
 246:                                              ; preds = %._crit_edge348.us, %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit.us, %196, %.lr.ph355.split.split.us
-  %.3136.us416 = phi i64 [ %.0133351.us414, %.lr.ph355.split.split.us ], [ %.0133351.us414, %196 ], [ %226, %._crit_edge348.us ], [ %218, %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit.us ]
+  %.3136.us416 = phi i64 [ %.0133351.us414, %.lr.ph355.split.split.us ], [ %.0133351.us414, %196 ], [ %218, %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit.us ], [ %226, %._crit_edge348.us ]
   %247 = load ptr, ptr %0, align 8, !tbaa !4
   %248 = getelementptr inbounds nuw i8, ptr %247, i64 48
   %249 = load ptr, ptr %248, align 8
@@ -4013,7 +4013,7 @@ _ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit193.us419: ; preds = %246
   br label %.split375
 
 ._crit_edge356:                                   ; preds = %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit193.us388, %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit193.us, %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit193, %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit193.us419, %_ZNK5faiss13InvertedLists14compute_ntotalEv.exit
-  %.0133.lcssa = phi i64 [ 0, %_ZNK5faiss13InvertedLists14compute_ntotalEv.exit ], [ %.1134.lcssa.us, %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit193.us ], [ %.3136.us416, %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit193.us419 ], [ %346, %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit193 ], [ %.4137.lcssa.us, %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit193.us388 ]
+  %.0133.lcssa = phi i64 [ 0, %_ZNK5faiss13InvertedLists14compute_ntotalEv.exit ], [ %.3136.us416, %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit193.us419 ], [ %346, %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit193 ], [ %.1134.lcssa.us, %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit193.us ], [ %.4137.lcssa.us, %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit193.us388 ]
   ret i64 %.0133.lcssa
 
 .lr.ph355.split.split:                            ; preds = %.lr.ph355.split, %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit193

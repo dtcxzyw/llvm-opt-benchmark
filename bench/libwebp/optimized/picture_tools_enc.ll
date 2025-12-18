@@ -366,10 +366,10 @@ Flatten.exit163:                                  ; preds = %114
   br i1 %exitcond.not.i166, label %Flatten.exit167, label %118, !llvm.loop !38
 
 Flatten.exit167:                                  ; preds = %118, %._crit_edge.us72.i, %SmoothenBlock.exit
-  %.sroa.0.3 = phi i8 [ %.sroa.0.1277, %SmoothenBlock.exit ], [ %.sroa.0.1277, %._crit_edge.us72.i ], [ %.sroa.0.2, %118 ]
-  %.sroa.5.3 = phi i8 [ %.sroa.5.1278, %SmoothenBlock.exit ], [ %.sroa.5.1278, %._crit_edge.us72.i ], [ %.sroa.5.2, %118 ]
-  %.sroa.7.3 = phi i8 [ %.sroa.7.1279, %SmoothenBlock.exit ], [ %.sroa.7.1279, %._crit_edge.us72.i ], [ %.sroa.7.2, %118 ]
-  %.2114 = phi i32 [ 1, %SmoothenBlock.exit ], [ 1, %._crit_edge.us72.i ], [ 0, %118 ]
+  %.sroa.0.3 = phi i8 [ %.sroa.0.1277, %._crit_edge.us72.i ], [ %.sroa.0.1277, %SmoothenBlock.exit ], [ %.sroa.0.2, %118 ]
+  %.sroa.5.3 = phi i8 [ %.sroa.5.1278, %._crit_edge.us72.i ], [ %.sroa.5.1278, %SmoothenBlock.exit ], [ %.sroa.5.2, %118 ]
+  %.sroa.7.3 = phi i8 [ %.sroa.7.1279, %._crit_edge.us72.i ], [ %.sroa.7.1279, %SmoothenBlock.exit ], [ %.sroa.7.2, %118 ]
+  %.2114 = phi i32 [ 1, %._crit_edge.us72.i ], [ 1, %SmoothenBlock.exit ], [ 0, %118 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 8
   %.not141 = icmp sgt i64 %indvars.iv.next, %69
   %indvars.iv.next311 = add nuw nsw i64 %indvars.iv310, 8

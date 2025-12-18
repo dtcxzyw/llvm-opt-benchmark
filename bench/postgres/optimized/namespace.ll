@@ -2308,13 +2308,13 @@ MatchNamedCall.exit:                              ; preds = %192, %.critedge.thr
   br label %.thread286
 
 .thread286:                                       ; preds = %280, %257, %261, %.loopexit, %253, %.loopexit296
-  %.2 = phi ptr [ %.0192331, %253 ], [ null, %.loopexit296 ], [ %.5, %.loopexit ], [ %.0192331, %261 ], [ %.0192331, %257 ], [ %.0192331, %280 ]
+  %.2 = phi ptr [ %.0192331, %253 ], [ null, %.loopexit296 ], [ %.5, %.loopexit ], [ %.0192331, %257 ], [ %.0192331, %261 ], [ %.0192331, %280 ]
   store ptr %.2, ptr %219, align 8
   br label %.thread260
 
 .thread260:                                       ; preds = %61, %.lr.ph317, %49, %.lr.ph, %.thread274.thread291, %.thread277, %MatchNamedCall.exit.thread, %210, %203, %100, %94, %88, %46, %.thread286
-  %.1195 = phi i1 [ %.0194327, %46 ], [ %.0194327, %88 ], [ %.2196, %.thread286 ], [ %.2196, %.thread274.thread291 ], [ %.0194327, %100 ], [ %.0194327, %94 ], [ %.0194327, %MatchNamedCall.exit.thread ], [ %.3197, %203 ], [ %.4198, %210 ], [ %.2196, %.thread277 ], [ %.0194327, %49 ], [ %.0194327, %.lr.ph ], [ %.0194327, %.lr.ph317 ], [ %.0194327, %61 ]
-  %.1193 = phi ptr [ %.0192331, %46 ], [ %.0192331, %88 ], [ %219, %.thread286 ], [ %.0192331, %.thread274.thread291 ], [ %.0192331, %100 ], [ %.0192331, %94 ], [ %.0192331, %MatchNamedCall.exit.thread ], [ %.0192331, %203 ], [ %.0192331, %210 ], [ %.0192331, %.thread277 ], [ %.0192331, %49 ], [ %.0192331, %.lr.ph ], [ %.0192331, %.lr.ph317 ], [ %.0192331, %61 ]
+  %.1195 = phi i1 [ %.2196, %.thread277 ], [ %.0194327, %46 ], [ %.0194327, %88 ], [ %.2196, %.thread286 ], [ %.2196, %.thread274.thread291 ], [ %.0194327, %100 ], [ %.0194327, %94 ], [ %.0194327, %MatchNamedCall.exit.thread ], [ %.3197, %203 ], [ %.4198, %210 ], [ %.0194327, %49 ], [ %.0194327, %.lr.ph ], [ %.0194327, %.lr.ph317 ], [ %.0194327, %61 ]
+  %.1193 = phi ptr [ %.0192331, %.thread277 ], [ %.0192331, %46 ], [ %.0192331, %88 ], [ %219, %.thread286 ], [ %.0192331, %.thread274.thread291 ], [ %.0192331, %100 ], [ %.0192331, %94 ], [ %.0192331, %MatchNamedCall.exit.thread ], [ %.0192331, %203 ], [ %.0192331, %210 ], [ %.0192331, %49 ], [ %.0192331, %.lr.ph ], [ %.0192331, %.lr.ph317 ], [ %.0192331, %61 ]
   %indvars.iv.next365 = add nuw nsw i64 %indvars.iv364, 1
   %303 = load i32, ptr %24, align 8
   %304 = sext i32 %303 to i64
@@ -2836,8 +2836,8 @@ define dso_local ptr @OpernameGetCandidates(ptr noundef readonly captures(addres
   br i1 %exitcond.not, label %.thread105.us, label %.lr.ph127.split.us144
 
 .thread105.us:                                    ; preds = %90, %.lr.ph127.us, %.lr.ph.us, %.thread117.us, %72, %.loopexit.us, %36
-  %.181.us = phi i32 [ %.080131.us, %.loopexit.us ], [ %.080131.us, %36 ], [ %77, %.thread117.us ], [ %.080131.us, %72 ], [ %.080131.us, %.lr.ph.us ], [ %.080131.us, %.lr.ph127.us ], [ %.080131.us, %90 ]
-  %.175.us = phi ptr [ %.074132.us, %.loopexit.us ], [ %.074132.us, %36 ], [ %76, %.thread117.us ], [ %.074132.us, %72 ], [ %.074132.us, %.lr.ph.us ], [ %.074132.us, %.lr.ph127.us ], [ %.074132.us, %90 ]
+  %.181.us = phi i32 [ %.080131.us, %72 ], [ %.080131.us, %36 ], [ %77, %.thread117.us ], [ %.080131.us, %.loopexit.us ], [ %.080131.us, %.lr.ph.us ], [ %.080131.us, %.lr.ph127.us ], [ %.080131.us, %90 ]
+  %.175.us = phi ptr [ %.074132.us, %72 ], [ %.074132.us, %36 ], [ %76, %.thread117.us ], [ %.074132.us, %.loopexit.us ], [ %.074132.us, %.lr.ph.us ], [ %.074132.us, %.lr.ph127.us ], [ %.074132.us, %90 ]
   %indvars.iv.next177 = add nuw nsw i64 %indvars.iv176, 1
   %91 = load i32, ptr %15, align 8
   %92 = sext i32 %91 to i64
@@ -2978,7 +2978,7 @@ define dso_local ptr @OpernameGetCandidates(ptr noundef readonly captures(addres
   br i1 %156, label %.lr.ph136.split.split, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.thread105, %.thread105.us151, %.thread105.us, %.lr.ph136.split.us, %11, %18
-  %.074.lcssa = phi ptr [ null, %18 ], [ null, %11 ], [ null, %.lr.ph136.split.us ], [ %.175.us153, %.thread105.us151 ], [ %.175.us, %.thread105.us ], [ %.175, %.thread105 ]
+  %.074.lcssa = phi ptr [ null, %18 ], [ %.175.us, %.thread105.us ], [ null, %11 ], [ null, %.lr.ph136.split.us ], [ %.175.us153, %.thread105.us151 ], [ %.175, %.thread105 ]
   tail call void @ReleaseCatCacheList(ptr noundef nonnull %14) #18
   br label %157
 
@@ -3758,7 +3758,7 @@ define dso_local i32 @get_statistics_object_oid(ptr noundef readonly captures(ad
   br i1 %35, label %.lr.ph36, label %.critedge
 
 .critedge:                                        ; preds = %31, %14, %.lr.ph, %6, %9
-  %.0 = phi i32 [ %13, %9 ], [ 0, %6 ], [ 0, %.lr.ph ], [ 0, %14 ], [ 0, %31 ]
+  %.0 = phi i32 [ %13, %9 ], [ 0, %6 ], [ 0, %14 ], [ 0, %.lr.ph ], [ 0, %31 ]
   %36 = icmp ne i32 %.0, 0
   %or.cond3 = or i1 %1, %36
   br i1 %or.cond3, label %.critedge.thread, label %37
@@ -4005,7 +4005,7 @@ define dso_local i32 @get_ts_parser_oid(ptr noundef readonly captures(address_is
   br i1 %35, label %.lr.ph36, label %.critedge
 
 .critedge:                                        ; preds = %31, %14, %.lr.ph, %6, %9
-  %.0 = phi i32 [ %13, %9 ], [ 0, %6 ], [ 0, %.lr.ph ], [ 0, %14 ], [ 0, %31 ]
+  %.0 = phi i32 [ %13, %9 ], [ 0, %6 ], [ 0, %14 ], [ 0, %.lr.ph ], [ 0, %31 ]
   %36 = icmp ne i32 %.0, 0
   %or.cond3 = or i1 %1, %36
   br i1 %or.cond3, label %.critedge.thread, label %37
@@ -4203,7 +4203,7 @@ define dso_local i32 @get_ts_dict_oid(ptr noundef readonly captures(address_is_n
   br i1 %35, label %.lr.ph36, label %.critedge
 
 .critedge:                                        ; preds = %31, %14, %.lr.ph, %6, %9
-  %.0 = phi i32 [ %13, %9 ], [ 0, %6 ], [ 0, %.lr.ph ], [ 0, %14 ], [ 0, %31 ]
+  %.0 = phi i32 [ %13, %9 ], [ 0, %6 ], [ 0, %14 ], [ 0, %.lr.ph ], [ 0, %31 ]
   %36 = icmp ne i32 %.0, 0
   %or.cond3 = or i1 %1, %36
   br i1 %or.cond3, label %.critedge.thread, label %37
@@ -4401,7 +4401,7 @@ define dso_local i32 @get_ts_template_oid(ptr noundef readonly captures(address_
   br i1 %35, label %.lr.ph36, label %.critedge
 
 .critedge:                                        ; preds = %31, %14, %.lr.ph, %6, %9
-  %.0 = phi i32 [ %13, %9 ], [ 0, %6 ], [ 0, %.lr.ph ], [ 0, %14 ], [ 0, %31 ]
+  %.0 = phi i32 [ %13, %9 ], [ 0, %6 ], [ 0, %14 ], [ 0, %.lr.ph ], [ 0, %31 ]
   %36 = icmp ne i32 %.0, 0
   %or.cond3 = or i1 %1, %36
   br i1 %or.cond3, label %.critedge.thread, label %37
@@ -4599,7 +4599,7 @@ define dso_local i32 @get_ts_config_oid(ptr noundef readonly captures(address_is
   br i1 %35, label %.lr.ph36, label %.critedge
 
 .critedge:                                        ; preds = %31, %14, %.lr.ph, %6, %9
-  %.0 = phi i32 [ %13, %9 ], [ 0, %6 ], [ 0, %.lr.ph ], [ 0, %14 ], [ 0, %31 ]
+  %.0 = phi i32 [ %13, %9 ], [ 0, %6 ], [ 0, %14 ], [ 0, %.lr.ph ], [ 0, %31 ]
   %36 = icmp ne i32 %.0, 0
   %or.cond3 = or i1 %1, %36
   br i1 %or.cond3, label %.critedge.thread, label %37
@@ -5446,7 +5446,7 @@ list_head.exit.thread:                            ; preds = %6
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph67, %60, %.thread45, %list_head.exit.thread, %.critedge, %49, %32, %33, %16, %17, %1, %71
-  %.0 = phi i1 [ true, %1 ], [ false, %32 ], [ false, %49 ], [ true, %71 ], [ false, %.critedge ], [ false, %16 ], [ false, %17 ], [ false, %33 ], [ false, %list_head.exit.thread ], [ false, %.thread45 ], [ false, %60 ], [ false, %.lr.ph67 ]
+  %.0 = phi i1 [ true, %1 ], [ false, %32 ], [ false, %49 ], [ true, %71 ], [ false, %.critedge ], [ false, %16 ], [ false, %17 ], [ false, %33 ], [ false, %.thread45 ], [ false, %list_head.exit.thread ], [ false, %60 ], [ false, %.lr.ph67 ]
   ret i1 %.0
 }
 
@@ -5676,7 +5676,7 @@ define dso_local i32 @get_conversion_oid(ptr noundef readonly captures(address_i
   br i1 %35, label %.lr.ph46, label %.thread39
 
 .thread39:                                        ; preds = %31, %14, %.lr.ph, %6, %9
-  %.024 = phi i32 [ %13, %9 ], [ 0, %6 ], [ 0, %.lr.ph ], [ 0, %14 ], [ 0, %31 ]
+  %.024 = phi i32 [ %13, %9 ], [ 0, %6 ], [ 0, %14 ], [ 0, %.lr.ph ], [ 0, %31 ]
   %36 = icmp ne i32 %.024, 0
   %or.cond3 = or i1 %1, %36
   br i1 %or.cond3, label %.loopexit, label %37

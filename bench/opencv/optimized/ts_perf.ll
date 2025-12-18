@@ -18730,7 +18730,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %140,
   br label %170
 
 170:                                              ; preds = %151, %165, %92
-  %.068.shrunk = phi i1 [ %narrow, %92 ], [ false, %151 ], [ %169, %165 ]
+  %.068.shrunk = phi i1 [ %169, %165 ], [ %narrow, %92 ], [ false, %151 ]
   %.b = load i1, ptr @_ZL23perf_validation_enabled, align 1
   %.not = xor i1 %.b, true
   %or.cond = select i1 %.not, i1 true, i1 %.068.shrunk
@@ -29856,8 +29856,8 @@ define internal fastcc void @"_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_c
   %spec.select = select i1 %53, i64 %54, i64 %11
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiSF_EEbT_T0_.exit.thread36"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiSF_EEbT_T0_.exit.thread36": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiSF_EEbT_T0_.exit", %42, %40, %32, %24, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiSF_EEbT_T0_.exit.thread"
-  %55 = phi i64 [ %11, %42 ], [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiSF_EEbT_T0_.exit" ], [ %50, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiSF_EEbT_T0_.exit.thread" ], [ %11, %24 ], [ %11, %32 ], [ %11, %40 ]
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiSF_EEbT_T0_.exit.thread36": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiSF_EEbT_T0_.exit", %32, %40, %24, %42, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiSF_EEbT_T0_.exit.thread"
+  %55 = phi i64 [ %11, %32 ], [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiSF_EEbT_T0_.exit" ], [ %50, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiSF_EEbT_T0_.exit.thread" ], [ %11, %42 ], [ %11, %24 ], [ %11, %40 ]
   %56 = getelementptr inbounds nuw i32, ptr %0, i64 %55
   %57 = load i32, ptr %56, align 4, !tbaa !136
   %58 = getelementptr inbounds nuw i32, ptr %0, i64 %.040
@@ -29965,7 +29965,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_c
   br i1 %115, label %81, label %"_ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS7_EERKNS6_17_InputOutputArrayEE3$_0EEEvT_T0_SH_T1_RT2_.exit", !llvm.loop !508
 
 "_ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS7_EERKNS6_17_InputOutputArrayEE3$_0EEEvT_T0_SH_T1_RT2_.exit": ; preds = %88, %95, %102, %104, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiiEEbT_RT0_.exit.i", %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiiEEbT_RT0_.exit.thread.i", %72
-  %.013.lcssa.i = phi i64 [ %.128, %72 ], [ %.0138.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiiEEbT_RT0_.exit.i" ], [ %.0928.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiiEEbT_RT0_.exit.thread.i" ], [ %.0138.i, %88 ], [ %.0138.i, %95 ], [ %.0138.i, %102 ], [ %.0138.i, %104 ]
+  %.013.lcssa.i = phi i64 [ %.128, %72 ], [ %.0138.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiiEEbT_RT0_.exit.i" ], [ %.0928.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiiEEbT_RT0_.exit.thread.i" ], [ %.0138.i, %104 ], [ %.0138.i, %88 ], [ %.0138.i, %102 ], [ %.0138.i, %95 ]
   %116 = getelementptr inbounds nuw i32, ptr %0, i64 %.013.lcssa.i
   store i32 %3, ptr %116, align 4, !tbaa !136
   ret void
@@ -30058,7 +30058,7 @@ define internal fastcc void @"_ZSt16__insertion_sortIPiN9__gnu_cxx5__ops15_Iter_
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %50, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %47, i1 false)
   br label %"_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_comp_iterIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS7_EERKNS6_17_InputOutputArrayEE3$_0EEEvT_T0_.exit"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiSF_EEbT_T0_.exit.thread21": ; preds = %34, %32, %24, %16, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiSF_EEbT_T0_.exit"
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiSF_EEbT_T0_.exit.thread21": ; preds = %24, %32, %16, %34, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiSF_EEbT_T0_.exit"
   %51 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %52 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %53 = getelementptr inbounds nuw i8, ptr %8, i64 4

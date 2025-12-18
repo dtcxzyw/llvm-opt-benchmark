@@ -507,7 +507,7 @@ _ZN10smt_logics12logic_is_allERK6symbol.exit:     ; preds = %110
           to label %117 unwind label %188
 
 117:                                              ; preds = %90, %94, %97, %100, %103, %106, %109, %_ZN10smt_logics12logic_is_allERK6symbol.exit, %114, %115
-  %118 = phi i1 [ true, %90 ], [ true, %94 ], [ true, %97 ], [ true, %100 ], [ true, %103 ], [ true, %106 ], [ true, %109 ], [ true, %_ZN10smt_logics12logic_is_allERK6symbol.exit ], [ true, %114 ], [ %116, %115 ]
+  %118 = phi i1 [ %116, %115 ], [ true, %114 ], [ true, %_ZN10smt_logics12logic_is_allERK6symbol.exit ], [ true, %109 ], [ true, %106 ], [ true, %103 ], [ true, %100 ], [ true, %97 ], [ true, %90 ], [ true, %94 ]
   %119 = load ptr, ptr %10, align 8, !tbaa !11
   %120 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %121 = icmp eq ptr %119, %120
@@ -1475,7 +1475,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i68: ; preds = %_ZNSt11char_traitsI
   br i1 %.not33.i.i70, label %.loopexit, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i63, !llvm.loop !12
 
 .loopexit:                                        ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i63, %70, %56, %65
-  %.027.i.i60 = phi i1 [ false, %56 ], [ %69, %65 ], [ false, %70 ], [ false, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i63 ]
+  %.027.i.i60 = phi i1 [ %69, %65 ], [ false, %56 ], [ false, %70 ], [ false, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i63 ]
   %74 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %75 = icmp eq ptr %.pre, %74
   br i1 %75, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i

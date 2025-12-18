@@ -816,7 +816,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm5SUnit7addPredERKNS_4SDepEb(ptr nou
   br i1 %.0.i, label %.split.us, label %106
 
 .split.us:                                        ; preds = %24, %17, %.lr.ph.split.us
-  %.us-phi104 = phi ptr [ %7, %.lr.ph.split.us ], [ %21, %17 ], [ %.047101, %24 ]
+  %.us-phi104 = phi ptr [ %21, %17 ], [ %7, %.lr.ph.split.us ], [ %.047101, %24 ]
   %28 = getelementptr inbounds nuw i8, ptr %.us-phi104, i64 12
   %29 = load i32, ptr %28, align 4, !tbaa !182
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -1197,7 +1197,7 @@ _ZN4llvm11SmallVectorIPNS_5SUnitELj8EED2Ev.exit.i83: ; preds = %218, %215
   br label %.critedge56.thread
 
 .critedge56.thread:                               ; preds = %.lr.ph.split, %.critedge56.thread.sink.split, %.split.us
-  %.not96 = phi i1 [ false, %.split.us ], [ %.not96.ph, %.critedge56.thread.sink.split ], [ false, %.lr.ph.split ]
+  %.not96 = phi i1 [ %.not96.ph, %.critedge56.thread.sink.split ], [ false, %.split.us ], [ false, %.lr.ph.split ]
   ret i1 %.not96
 }
 

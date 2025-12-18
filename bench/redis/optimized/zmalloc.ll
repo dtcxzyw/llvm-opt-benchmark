@@ -1213,7 +1213,7 @@ define dso_local range(i32 0, 2) i32 @get_proc_stat_ll(i32 noundef %0, ptr nound
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader34, %.lr.ph, %7, %34, %24, %21, %2
-  %.021 = phi i32 [ 0, %2 ], [ 0, %21 ], [ 0, %24 ], [ %., %34 ], [ 0, %7 ], [ 0, %.lr.ph ], [ 0, %.preheader34 ]
+  %.021 = phi i32 [ 0, %2 ], [ 0, %.lr.ph ], [ 0, %21 ], [ 0, %7 ], [ 0, %24 ], [ %., %34 ], [ 0, %.preheader34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.021

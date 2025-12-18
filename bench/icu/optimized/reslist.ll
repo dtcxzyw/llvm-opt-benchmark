@@ -4055,7 +4055,7 @@ _ZNK7SRBRoot12getKeyStringEi.exit:                ; preds = %139, %.lr.ph223
   br i1 %exitcond275.not, label %.critedge176, label %.lr.ph236, !llvm.loop !145
 
 .critedge176:                                     ; preds = %203, %.critedge4, %193, %.critedge4.preheader
-  %.0129 = phi i32 [ %194, %.critedge4.preheader ], [ %194, %193 ], [ %.2, %.critedge4 ], [ %194, %203 ]
+  %.0129 = phi i32 [ %194, %193 ], [ %194, %.critedge4.preheader ], [ %.2, %.critedge4 ], [ %194, %203 ]
   store i32 %.0129, ptr %117, align 4, !tbaa !24
   invoke void @uprv_sortArray_77(ptr noundef nonnull %56, i32 noundef %45, i32 noundef 8, ptr noundef nonnull @_ZL16compareKeyOldposPKvS0_S0_, ptr noundef null, i8 noundef signext 0, ptr noundef nonnull %1)
           to label %220 unwind label %224

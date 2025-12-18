@@ -6299,10 +6299,10 @@ _ZNSt6vectorIPN5Yosys5RTLIL8CaseRuleESaIS3_EE6insertIN9__gnu_cxx17__normal_itera
   br label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_6ModuleEED2Ev.exit970
 
 .thread405:                                       ; preds = %.loopexit530, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i11.i, %1270
-  %.sroa.29.2675 = phi ptr [ %.sroa.29.21436, %1270 ], [ %.sroa.29.21436, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i11.i ], [ %.sroa.29.3.lcssa, %.loopexit530 ]
-  %.sroa.0104.2671 = phi ptr [ %.sroa.0104.21438, %1270 ], [ %.sroa.0104.21438, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i11.i ], [ %.sroa.0104.3.lcssa, %.loopexit530 ]
-  %1326 = phi i1 [ false, %1270 ], [ false, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i11.i ], [ true, %.loopexit530 ]
-  %.44496 = phi i32 [ %1190, %1270 ], [ %1190, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i11.i ], [ %.42494.lcssa, %.loopexit530 ]
+  %.sroa.29.2675 = phi ptr [ %.sroa.29.21436, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i11.i ], [ %.sroa.29.21436, %1270 ], [ %.sroa.29.3.lcssa, %.loopexit530 ]
+  %.sroa.0104.2671 = phi ptr [ %.sroa.0104.21438, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i11.i ], [ %.sroa.0104.21438, %1270 ], [ %.sroa.0104.3.lcssa, %.loopexit530 ]
+  %1326 = phi i1 [ false, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i11.i ], [ false, %1270 ], [ true, %.loopexit530 ]
+  %.44496 = phi i32 [ %1190, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i11.i ], [ %1190, %1270 ], [ %.42494.lcssa, %.loopexit530 ]
   %.not.i.i.i959 = icmp eq ptr %.sroa.0104.2671, null
   br i1 %.not.i.i.i959, label %_ZNSt6vectorIPN5Yosys5RTLIL8CaseRuleESaIS3_EED2Ev.exit960, label %1327
 
@@ -6317,7 +6317,7 @@ _ZNSt6vectorIPN5Yosys5RTLIL8CaseRuleESaIS3_EED2Ev.exit960: ; preds = %.thread405
   br i1 %1326, label %1158, label %.thread2476
 
 _ZNK5Yosys5RTLIL6Module22get_blackbox_attributeEb.exit949.thread: ; preds = %1158, %.noexc947, %_ZNK5Yosys5RTLIL6Module22get_blackbox_attributeEb.exit949
-  %.38490.ph = phi i32 [ %.364881444, %_ZNK5Yosys5RTLIL6Module22get_blackbox_attributeEb.exit949 ], [ %.364881444, %.noexc947 ], [ %.39491, %1158 ]
+  %.38490.ph = phi i32 [ %.364881444, %.noexc947 ], [ %.364881444, %_ZNK5Yosys5RTLIL6Module22get_blackbox_attributeEb.exit949 ], [ %.39491, %1158 ]
   %1331 = icmp eq i64 %indvars.iv1931, 0
   br i1 %1331, label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_6ModuleEED2Ev.exit968.thread.sink.split, label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_6ModuleEEppEv.exit964
 
@@ -6860,7 +6860,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5Yosys5RTLIL5StateESt6vectorIS4_SaIS4
   br i1 %.not517, label %.loopexit528, label %.lr.ph1466
 
 _ZNK5Yosys5RTLIL6Module22get_blackbox_attributeEb.exit980.thread: ; preds = %.loopexit528, %1365, %.noexc978, %_ZNK5Yosys5RTLIL6Module22get_blackbox_attributeEb.exit980
-  %.48500.ph = phi i32 [ %.464981480, %_ZNK5Yosys5RTLIL6Module22get_blackbox_attributeEb.exit980 ], [ %.464981480, %.noexc978 ], [ %.464981480, %1365 ], [ %.51503.lcssa, %.loopexit528 ]
+  %.48500.ph = phi i32 [ %.464981480, %.noexc978 ], [ %.464981480, %_ZNK5Yosys5RTLIL6Module22get_blackbox_attributeEb.exit980 ], [ %.464981480, %1365 ], [ %.51503.lcssa, %.loopexit528 ]
   %1584 = icmp eq i64 %indvars.iv1937, 0
   br i1 %1584, label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_6ModuleEED2Ev.exit1014.thread.sink.split, label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_6ModuleEEppEv.exit1010
 

@@ -1278,7 +1278,7 @@ _ZNK18indic_shape_plan_t17load_virama_glyphEP9hb_font_tPj.exit.i: ; preds = %_ZN
   br i1 %.not12.not.i.i, label %158, label %_ZL28consonant_position_from_facePK18indic_shape_plan_tjjP9hb_face_t.exit.i
 
 _ZL28consonant_position_from_facePK18indic_shape_plan_tjjP9hb_face_t.exit.i: ; preds = %.lr.ph.i.i.i, %.lr.ph.i21.i.i, %.lr.ph.i29.i.i, %.lr.ph.i37.i.i, %.lr.ph.i45.i.i, %.lr.ph.i53.i.i, %.lr.ph.i20.i, %.lr.ph.i.i, %158, %154, %.thread73.i.i
-  %.0.i.i = phi i8 [ 4, %.thread73.i.i ], [ 4, %154 ], [ 8, %.lr.ph.i21.i.i ], [ 11, %.lr.ph.i.i ], [ 11, %.lr.ph.i20.i ], [ 11, %.lr.ph.i53.i.i ], [ 11, %.lr.ph.i45.i.i ], [ 8, %.lr.ph.i37.i.i ], [ 8, %.lr.ph.i29.i.i ], [ 4, %158 ], [ 8, %.lr.ph.i.i.i ]
+  %.0.i.i = phi i8 [ 8, %.lr.ph.i29.i.i ], [ 8, %.lr.ph.i21.i.i ], [ 11, %.lr.ph.i20.i ], [ 11, %.lr.ph.i53.i.i ], [ 11, %.lr.ph.i45.i.i ], [ 8, %.lr.ph.i37.i.i ], [ 11, %.lr.ph.i.i ], [ 4, %.thread73.i.i ], [ 4, %154 ], [ 4, %158 ], [ 8, %.lr.ph.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   store i8 %.0.i.i, ptr %65, align 1
   br label %166
@@ -1661,9 +1661,9 @@ _ZL9is_joinerRK15hb_glyph_info_t.exit482.i:       ; preds = %325
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %295, %317, %_ZL9is_joinerRK15hb_glyph_info_t.exit482.i, %325, %.preheader81.i, %237, %.critedge.loopexit333.split.loop.exit345.i, %.critedge.loopexit333.split.loop.exit.i, %319, %.thread.i, %_ZNK35hb_indic_would_substitute_feature_t16would_substituteEPKjjP9hb_face_t.exit.i, %289, %.loopexit85.i, %251, %_ZL9is_joinerRK15hb_glyph_info_t.exit.i
-  %.037.i = phi i32 [ %.073, %319 ], [ %.073, %.thread.i ], [ %.073, %.loopexit85.i ], [ %.073, %289 ], [ %.02472, %_ZNK35hb_indic_would_substitute_feature_t16would_substituteEPKjjP9hb_face_t.exit.i ], [ %.073, %_ZL9is_joinerRK15hb_glyph_info_t.exit.i ], [ %.073, %251 ], [ %.02472, %.critedge.loopexit333.split.loop.exit.i ], [ %.02472, %.critedge.loopexit333.split.loop.exit345.i ], [ %.073, %237 ], [ %.02472, %317 ], [ %.02472, %_ZL9is_joinerRK15hb_glyph_info_t.exit482.i ], [ %.02472, %.preheader81.i ], [ %.02472, %325 ], [ %.073, %295 ]
-  %.1364.i = phi i32 [ %.02472, %319 ], [ %.02472, %.thread.i ], [ %.02472, %.loopexit85.i ], [ %.02472, %289 ], [ %304, %_ZNK35hb_indic_would_substitute_feature_t16would_substituteEPKjjP9hb_face_t.exit.i ], [ %.02472, %_ZL9is_joinerRK15hb_glyph_info_t.exit.i ], [ %.02472, %251 ], [ %337, %.critedge.loopexit333.split.loop.exit.i ], [ %338, %.critedge.loopexit333.split.loop.exit345.i ], [ %.02472, %237 ], [ %.073, %317 ], [ %.2.i, %_ZL9is_joinerRK15hb_glyph_info_t.exit482.i ], [ %.2.i, %325 ], [ %umax.i50, %.preheader81.i ], [ %.02472, %295 ]
-  %.0357.i = phi i1 [ false, %319 ], [ false, %.thread.i ], [ false, %.loopexit85.i ], [ false, %289 ], [ true, %_ZNK35hb_indic_would_substitute_feature_t16would_substituteEPKjjP9hb_face_t.exit.i ], [ false, %_ZL9is_joinerRK15hb_glyph_info_t.exit.i ], [ false, %251 ], [ true, %.critedge.loopexit333.split.loop.exit.i ], [ true, %.critedge.loopexit333.split.loop.exit345.i ], [ false, %237 ], [ true, %317 ], [ true, %_ZL9is_joinerRK15hb_glyph_info_t.exit482.i ], [ true, %.preheader81.i ], [ true, %325 ], [ false, %295 ]
+  %.037.i = phi i32 [ %.02472, %_ZNK35hb_indic_would_substitute_feature_t16would_substituteEPKjjP9hb_face_t.exit.i ], [ %.073, %319 ], [ %.073, %.thread.i ], [ %.073, %.loopexit85.i ], [ %.073, %289 ], [ %.073, %251 ], [ %.073, %237 ], [ %.02472, %.critedge.loopexit333.split.loop.exit.i ], [ %.073, %_ZL9is_joinerRK15hb_glyph_info_t.exit.i ], [ %.02472, %_ZL9is_joinerRK15hb_glyph_info_t.exit482.i ], [ %.02472, %.critedge.loopexit333.split.loop.exit345.i ], [ %.02472, %317 ], [ %.02472, %.preheader81.i ], [ %.02472, %325 ], [ %.073, %295 ]
+  %.1364.i = phi i32 [ %304, %_ZNK35hb_indic_would_substitute_feature_t16would_substituteEPKjjP9hb_face_t.exit.i ], [ %.02472, %319 ], [ %.02472, %.thread.i ], [ %.02472, %.loopexit85.i ], [ %.02472, %289 ], [ %.02472, %251 ], [ %.02472, %237 ], [ %337, %.critedge.loopexit333.split.loop.exit.i ], [ %.02472, %_ZL9is_joinerRK15hb_glyph_info_t.exit.i ], [ %.2.i, %_ZL9is_joinerRK15hb_glyph_info_t.exit482.i ], [ %338, %.critedge.loopexit333.split.loop.exit345.i ], [ %.073, %317 ], [ %.2.i, %325 ], [ %umax.i50, %.preheader81.i ], [ %.02472, %295 ]
+  %.0357.i = phi i1 [ true, %_ZNK35hb_indic_would_substitute_feature_t16would_substituteEPKjjP9hb_face_t.exit.i ], [ false, %319 ], [ false, %.thread.i ], [ false, %.loopexit85.i ], [ false, %289 ], [ false, %251 ], [ false, %237 ], [ true, %.critedge.loopexit333.split.loop.exit.i ], [ false, %_ZL9is_joinerRK15hb_glyph_info_t.exit.i ], [ true, %_ZL9is_joinerRK15hb_glyph_info_t.exit482.i ], [ true, %.critedge.loopexit333.split.loop.exit345.i ], [ true, %317 ], [ true, %.preheader81.i ], [ true, %325 ], [ false, %295 ]
   br label %339
 
 339:                                              ; preds = %367, %.critedge.i
@@ -1949,7 +1949,7 @@ _ZL12is_consonantRK15hb_glyph_info_t.exit488.thread.i: ; preds = %.lr.ph100.i
   br label %.loopexit78.i
 
 .loopexit78.i:                                    ; preds = %.preheader77.i, %465, %453, %452, %441
-  %.1393.i = phi i32 [ 2, %452 ], [ %.0392101.i, %453 ], [ %.0392101.i, %441 ], [ %466, %465 ], [ 2, %.preheader77.i ]
+  %.1393.i = phi i32 [ 2, %452 ], [ %466, %465 ], [ %.0392101.i, %453 ], [ %.0392101.i, %441 ], [ 2, %.preheader77.i ]
   %indvars.iv.next207.i = add nuw nsw i64 %indvars.iv206.i, 1
   %exitcond215.not.i = icmp eq i64 %indvars.iv.next207.i, %wide.trip.count214.i
   br i1 %exitcond215.not.i, label %.preheader76.i, label %.lr.ph104.i, !llvm.loop !23
@@ -2311,7 +2311,7 @@ _ZN11hb_buffer_t13reverse_rangeEjj.exit516.i:     ; preds = %.lr.ph.i10.i504.i, 
   br i1 %.not419.i, label %.loopexit73.i, label %_ZN11hb_buffer_t13reverse_rangeEjj.exit.i, !llvm.loop !32
 
 .loopexit73.i:                                    ; preds = %_ZN11hb_buffer_t13reverse_rangeEjj.exit516.i, %._crit_edge122.i, %_ZL14hb_stable_sortI15hb_glyph_info_tS0_iEvPT_jPFiPKT0_S5_EPT1_.exit.i
-  %.4330.i = phi i32 [ %.4.i, %._crit_edge122.i ], [ %.073, %_ZL14hb_stable_sortI15hb_glyph_info_tS0_iEvPT_jPFiPKT0_S5_EPT1_.exit.i ], [ %.4.i, %_ZN11hb_buffer_t13reverse_rangeEjj.exit516.i ]
+  %.4330.i = phi i32 [ %.073, %_ZL14hb_stable_sortI15hb_glyph_info_tS0_iEvPT_jPFiPKT0_S5_EPT1_.exit.i ], [ %.4.i, %._crit_edge122.i ], [ %.4.i, %_ZN11hb_buffer_t13reverse_rangeEjj.exit516.i ]
   %591 = load i8, ptr %389, align 8
   %592 = trunc i8 %591 to i1
   %593 = icmp ugt i32 %500, 127
@@ -2948,8 +2948,8 @@ _ZL17_hb_next_syllableP11hb_buffer_tj.exit.split.loop.exit: ; preds = %19
   br i1 %exitcond668.not.i, label %.critedge.i, label %.preheader573.i, !llvm.loop !47
 
 .critedge.i:                                      ; preds = %85, %80, %.preheader572.i, %68
-  %.3333.i = phi i32 [ %59, %68 ], [ %81, %80 ], [ %71, %.preheader572.i ], [ %59, %85 ]
-  %.2325.i = phi i1 [ true, %68 ], [ false, %80 ], [ false, %.preheader572.i ], [ true, %85 ]
+  %.3333.i = phi i32 [ %59, %68 ], [ %71, %.preheader572.i ], [ %81, %80 ], [ %59, %85 ]
+  %.2325.i = phi i1 [ true, %68 ], [ false, %.preheader572.i ], [ false, %80 ], [ true, %85 ]
   %86 = icmp eq i32 %.3333.i, %.059
   br i1 %86, label %.loopexit575.i.thread, label %.critedge._crit_edge.i
 
@@ -3113,7 +3113,7 @@ _ZL12is_consonantRK15hb_glyph_info_t.exit.i:      ; preds = %_ZL9is_joinerRK15hb
   br i1 %150, label %.loopexit575.i.thread, label %_ZL9is_one_ofRK15hb_glyph_info_tj.exit.thread.i
 
 .loopexit575.i.thread:                            ; preds = %149, %78, %.critedge.i, %.loopexit575.i
-  %.0323.i120 = phi i1 [ %.1324.i, %.loopexit575.i ], [ %.2325.i, %.critedge.i ], [ false, %78 ], [ %49, %149 ]
+  %.0323.i120 = phi i1 [ %.1324.i, %.loopexit575.i ], [ false, %78 ], [ %.2325.i, %.critedge.i ], [ %49, %149 ]
   %151 = add i32 %.059, -1
   %152 = zext i32 %151 to i64
   %153 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %31, i64 %152
@@ -3352,7 +3352,7 @@ _ZN11hb_buffer_t14merge_clustersEjj.exit.i:       ; preds = %235, %223
   br i1 %exitcond690.not.i, label %_ZN11hb_buffer_t14merge_clustersEjj.exit461.i, label %.lr.ph623.i, !llvm.loop !55
 
 _ZN11hb_buffer_t14merge_clustersEjj.exit461.i:    ; preds = %237, %249, %243, %.critedge6.i
-  %.11.i = phi i32 [ %.9.i, %.critedge6.i ], [ %.9.i, %243 ], [ %.9.i, %249 ], [ %.14.i, %237 ]
+  %.11.i = phi i32 [ %.9.i, %243 ], [ %.9.i, %.critedge6.i ], [ %.9.i, %249 ], [ %.14.i, %237 ]
   br i1 %174, label %.critedge6.thread.i, label %386
 
 .critedge6.thread.i:                              ; preds = %171, %.critedge6.thread753.i._crit_edge, %248, %_ZN11hb_buffer_t14merge_clustersEjj.exit461.i
@@ -3623,7 +3623,7 @@ _ZL9is_joinerRK15hb_glyph_info_t.exit475.i:       ; preds = %331
   br i1 %372, label %.lr.ph631.i, label %_ZL9is_joinerRK15hb_glyph_info_t.exit468.thread.i, !llvm.loop !61
 
 _ZL9is_joinerRK15hb_glyph_info_t.exit468.thread.i: ; preds = %.lr.ph631.i, %353, %.critedge18.i, %_ZL9is_joinerRK15hb_glyph_info_t.exit475.i, %331, %.critedge16.i, %.critedge14.i, %.critedge12.i, %_ZL9is_joinerRK15hb_glyph_info_t.exit468.i, %279, %.critedge10.i
-  %.1327.i = phi i32 [ %.2328.lcssa.i, %.critedge12.i ], [ %276, %279 ], [ %328, %.critedge16.i ], [ %.5.lcssa.i, %.critedge18.i ], [ %.5.lcssa.i, %353 ], [ %.3.lcssa.i, %.critedge14.i ], [ %276, %.critedge10.i ], [ %328, %331 ], [ %spec.select547.i, %_ZL9is_joinerRK15hb_glyph_info_t.exit475.i ], [ %spec.select546.i, %_ZL9is_joinerRK15hb_glyph_info_t.exit468.i ], [ %.7.i, %.lr.ph631.i ]
+  %.1327.i = phi i32 [ %.2328.lcssa.i, %.critedge12.i ], [ %276, %279 ], [ %328, %.critedge16.i ], [ %.5.lcssa.i, %.critedge18.i ], [ %spec.select546.i, %_ZL9is_joinerRK15hb_glyph_info_t.exit468.i ], [ %.5.lcssa.i, %353 ], [ %.3.lcssa.i, %.critedge14.i ], [ %276, %.critedge10.i ], [ %328, %331 ], [ %spec.select547.i, %_ZL9is_joinerRK15hb_glyph_info_t.exit475.i ], [ %.7.i, %.lr.ph631.i ]
   %373 = add i32 %.1327.i, 1
   %374 = sub i32 %373, %.02056
   %375 = icmp ult i32 %374, 2
@@ -4925,7 +4925,7 @@ _ZN11hb_buffer_t23_infos_find_min_clusterEPK15hb_glyph_info_tjjj.exit56: ; preds
   br i1 %exitcond.not.i83, label %_ZN11hb_buffer_t22_infos_set_glyph_flagsEP15hb_glyph_info_tjjjj.exit89, label %.lr.ph.i78, !llvm.loop !84
 
 _ZN11hb_buffer_t22_infos_set_glyph_flagsEP15hb_glyph_info_tjjjj.exit89: ; preds = %.lr.ph.i78, %209, %195, %200, %191, %_ZN11hb_buffer_t23_infos_find_min_clusterEPK15hb_glyph_info_tjjj.exit56, %.loopexit.thread, %.preheader55.i77, %.preheader.i84
-  %.013.i57129 = phi i32 [ %.013.i57.ph182, %.loopexit.thread ], [ %.sroa.speculated.i, %.preheader55.i77 ], [ %.sroa.speculated.i, %.preheader.i84 ], [ %.013.i46, %_ZN11hb_buffer_t23_infos_find_min_clusterEPK15hb_glyph_info_tjjj.exit56 ], [ %.sroa.speculated.i, %195 ], [ %.013.i57.ph182, %191 ], [ %.sroa.speculated.i, %200 ], [ %.sroa.speculated.i, %209 ], [ %.sroa.speculated.i, %.lr.ph.i78 ]
+  %.013.i57129 = phi i32 [ %.013.i57.ph182, %191 ], [ %.013.i57.ph182, %.loopexit.thread ], [ %.013.i46, %_ZN11hb_buffer_t23_infos_find_min_clusterEPK15hb_glyph_info_tjjj.exit56 ], [ %.sroa.speculated.i, %.preheader55.i77 ], [ %.sroa.speculated.i, %.preheader.i84 ], [ %.sroa.speculated.i, %195 ], [ %.sroa.speculated.i, %200 ], [ %.sroa.speculated.i, %209 ], [ %.sroa.speculated.i, %.lr.ph.i78 ]
   %215 = load ptr, ptr %122, align 8
   %216 = load i32, ptr %124, align 4
   %217 = icmp eq i32 %216, %.sroa.speculated

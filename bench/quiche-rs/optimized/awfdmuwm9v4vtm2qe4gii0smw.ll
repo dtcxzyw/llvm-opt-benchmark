@@ -2056,9 +2056,9 @@ define hidden void @_ZN7inquire5utils8paginate17hf3ce1d03ad40a313E(ptr dead_on_u
   br label %23
 
 23:                                               ; preds = %20, %16
-  %.sroa.09.0 = phi i64 [ %21, %20 ], [ %18, %16 ]
-  %.sroa.5.0 = phi i64 [ %22, %20 ], [ %10, %16 ]
-  %.sroa.0.0 = phi i64 [ %3, %20 ], [ %19, %16 ]
+  %.sroa.09.0 = phi i64 [ %18, %16 ], [ %21, %20 ]
+  %.sroa.5.0 = phi i64 [ %10, %16 ], [ %22, %20 ]
+  %.sroa.0.0 = phi i64 [ %19, %16 ], [ %3, %20 ]
   %24 = icmp eq i64 %.sroa.09.0, 0
   %25 = icmp ult i64 %.sroa.0.0, %.sroa.09.0
   br i1 %25, label %28, label %.thread, !prof !120
@@ -2965,7 +2965,7 @@ define void @_ZN3h3i6client11sync_client7connect17h9144acda92c265a6E(ptr dead_on
   br label %.body355
 
 .loopexit.split-lp520:                            ; preds = %297, %351, %355, %945, %1003, %._crit_edge, %302, %357, %376
-  %.sroa.075.11.ph = phi i8 [ 1, %297 ], [ 1, %302 ], [ 1, %._crit_edge ], [ 0, %357 ], [ 1, %355 ], [ 0, %376 ], [ 0, %945 ], [ 0, %1003 ], [ 1, %351 ]
+  %.sroa.075.11.ph = phi i8 [ 1, %._crit_edge ], [ 1, %302 ], [ 0, %357 ], [ 1, %355 ], [ 0, %376 ], [ 0, %945 ], [ 0, %1003 ], [ 1, %351 ], [ 1, %297 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body355
@@ -5775,8 +5775,8 @@ define internal fastcc { i64, i32 } @_ZN3h3i6client11sync_client14handle_actions
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h18831e4601ab3f45E.exit.thread"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h18831e4601ab3f45E.exit.thread": ; preds = %.lr.ph, %37, %.preheader, %53, %48, %17, %21
-  %.sroa.6.0 = phi i32 [ 1000000000, %17 ], [ 1000000000, %21 ], [ %52, %48 ], [ 1000000000, %53 ], [ 1000000000, %.preheader ], [ 1000000000, %37 ], [ 1000000000, %.lr.ph ]
-  %.sroa.0.0 = phi i64 [ undef, %17 ], [ undef, %21 ], [ %50, %48 ], [ undef, %53 ], [ undef, %.preheader ], [ undef, %37 ], [ undef, %.lr.ph ]
+  %.sroa.6.0 = phi i32 [ 1000000000, %53 ], [ 1000000000, %17 ], [ 1000000000, %21 ], [ %52, %48 ], [ 1000000000, %.preheader ], [ 1000000000, %37 ], [ 1000000000, %.lr.ph ]
+  %.sroa.0.0 = phi i64 [ undef, %53 ], [ undef, %17 ], [ undef, %21 ], [ %50, %48 ], [ undef, %.preheader ], [ undef, %37 ], [ undef, %.lr.ph ]
   %31 = insertvalue { i64, i32 } poison, i64 %.sroa.0.0, 0
   %32 = insertvalue { i64, i32 } %31, i32 %.sroa.6.0, 1
   ret { i64, i32 } %32

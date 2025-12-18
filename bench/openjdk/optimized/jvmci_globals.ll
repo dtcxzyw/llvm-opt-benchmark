@@ -658,7 +658,7 @@ _ZN13JVMFlagAccess8set_boolEP7JVMFlagPb13JVMFlagOrigin.exit18: ; preds = %22
   br label %_ZN13JVMFlagAccess8set_boolEP7JVMFlagPb13JVMFlagOrigin.exit.thread
 
 _ZN13JVMFlagAccess8set_boolEP7JVMFlagPb13JVMFlagOrigin.exit.thread: ; preds = %4, %22, %19, %14, %11, %_ZN13JVMFlagAccess8set_boolEP7JVMFlagPb13JVMFlagOrigin.exit18, %_ZN13JVMFlagAccess8set_boolEP7JVMFlagPb13JVMFlagOrigin.exit, %26
-  %.0 = phi i1 [ true, %26 ], [ false, %_ZN13JVMFlagAccess8set_boolEP7JVMFlagPb13JVMFlagOrigin.exit ], [ false, %_ZN13JVMFlagAccess8set_boolEP7JVMFlagPb13JVMFlagOrigin.exit18 ], [ false, %14 ], [ false, %11 ], [ false, %19 ], [ false, %22 ], [ false, %4 ]
+  %.0 = phi i1 [ true, %26 ], [ false, %22 ], [ false, %_ZN13JVMFlagAccess8set_boolEP7JVMFlagPb13JVMFlagOrigin.exit ], [ false, %_ZN13JVMFlagAccess8set_boolEP7JVMFlagPb13JVMFlagOrigin.exit18 ], [ false, %14 ], [ false, %11 ], [ false, %19 ], [ false, %4 ]
   ret i1 %.0
 }
 

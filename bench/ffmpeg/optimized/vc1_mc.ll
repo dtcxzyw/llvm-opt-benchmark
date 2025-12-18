@@ -1441,13 +1441,13 @@ get_luma_mv.exit:                                 ; preds = %get_luma_mv.exit.si
   br label %.thread406
 
 .thread406:                                       ; preds = %.thread406.loopexit, %.thread389, %83
-  %295 = phi i32 [ %6, %.thread389 ], [ %.pre483, %.thread406.loopexit ], [ %6, %83 ]
-  %296 = phi ptr [ %89, %.thread389 ], [ %85, %.thread406.loopexit ], [ %85, %83 ]
-  %.0292404 = phi i32 [ %52, %.thread389 ], [ %84, %.thread406.loopexit ], [ %84, %83 ]
-  %.0302375382402 = phi i32 [ %.0302, %.thread389 ], [ %.0302375381562, %.thread406.loopexit ], [ %.0302375381562, %83 ]
-  %.0374384400 = phi ptr [ %.0, %.thread389 ], [ %.0374383561, %.thread406.loopexit ], [ %.0374383561, %83 ]
-  %.0300373386398 = phi ptr [ %65, %.thread389 ], [ %.0300373385560, %.thread406.loopexit ], [ %.0300373385560, %83 ]
-  %.0301372388396 = phi i32 [ %.0301, %.thread389 ], [ %.0301372387559, %.thread406.loopexit ], [ %.0301372387559, %83 ]
+  %295 = phi i32 [ %6, %.thread389 ], [ %6, %83 ], [ %.pre483, %.thread406.loopexit ]
+  %296 = phi ptr [ %89, %.thread389 ], [ %85, %83 ], [ %85, %.thread406.loopexit ]
+  %.0292404 = phi i32 [ %52, %.thread389 ], [ %84, %83 ], [ %84, %.thread406.loopexit ]
+  %.0302375382402 = phi i32 [ %.0302, %.thread389 ], [ %.0302375381562, %83 ], [ %.0302375381562, %.thread406.loopexit ]
+  %.0374384400 = phi ptr [ %.0, %.thread389 ], [ %.0374383561, %83 ], [ %.0374383561, %.thread406.loopexit ]
+  %.0300373386398 = phi ptr [ %65, %.thread389 ], [ %.0300373385560, %83 ], [ %.0300373385560, %.thread406.loopexit ]
+  %.0301372388396 = phi i32 [ %.0301, %.thread389 ], [ %.0301372387559, %83 ], [ %.0301372387559, %.thread406.loopexit ]
   %297 = icmp eq i32 %295, 1
   br i1 %297, label %299, label %.thread412
 

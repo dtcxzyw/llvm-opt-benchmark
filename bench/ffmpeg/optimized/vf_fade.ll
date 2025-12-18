@@ -242,7 +242,7 @@ thread-pre-split99.thread:                        ; preds = %2, %thread-pre-spli
   store i32 2, ptr %7, align 8, !tbaa !24
   br label %.thread119
 
-.thread117:                                       ; preds = %2, %9, %15, %44, %28
+.thread117:                                       ; preds = %2, %15, %9, %44, %28
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 12
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !40
   %.pre.fr = freeze i32 %.pre

@@ -1312,8 +1312,8 @@ _ZNK4goal3depEj.exit:                             ; preds = %_ZNK11ast_manager3g
   br i1 %.not63, label %._crit_edge, label %.lr.ph, !llvm.loop !69
 
 ._crit_edge149:                                   ; preds = %250, %66, %_ZNK4goal4sizeEv.exit.thread, %_ZNK4goal4sizeEv.exit, %._crit_edge, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit
-  %.lcssa145 = phi ptr [ %209, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit ], [ %209, %._crit_edge ], [ %27, %_ZNK4goal4sizeEv.exit ], [ %27, %_ZNK4goal4sizeEv.exit.thread ], [ %67, %66 ], [ %251, %250 ]
-  %.lcssa = phi i32 [ %211, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit ], [ %211, %._crit_edge ], [ %50, %_ZNK4goal4sizeEv.exit ], [ %32, %_ZNK4goal4sizeEv.exit.thread ], [ %69, %66 ], [ %253, %250 ]
+  %.lcssa145 = phi ptr [ %209, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit ], [ %67, %66 ], [ %27, %_ZNK4goal4sizeEv.exit.thread ], [ %209, %._crit_edge ], [ %27, %_ZNK4goal4sizeEv.exit ], [ %251, %250 ]
+  %.lcssa = phi i32 [ %211, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit ], [ %69, %66 ], [ %32, %_ZNK4goal4sizeEv.exit.thread ], [ %211, %._crit_edge ], [ %50, %_ZNK4goal4sizeEv.exit ], [ %253, %250 ]
   %215 = getelementptr inbounds nuw i8, ptr %.lcssa145, i64 120
   %216 = add i32 %.lcssa, 1
   %217 = and i32 %216, 67108863

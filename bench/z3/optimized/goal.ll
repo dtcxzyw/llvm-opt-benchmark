@@ -1912,13 +1912,13 @@ _ZN7obj_refI4expr11ast_managerEaSEPS0_.exit:      ; preds = %238, %230, %232
           to label %.loopexitthread-pre-split unwind label %115
 
 .loopexitthread-pre-split:                        ; preds = %239, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit, %86, %131
-  %.1.ph = phi i1 [ %.035168, %131 ], [ %.035168, %86 ], [ false, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit ], [ false, %239 ]
+  %.1.ph = phi i1 [ %.035168, %131 ], [ false, %239 ], [ %.035168, %86 ], [ false, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit ]
   %.pr.pr = load i32, ptr %53, align 8, !tbaa !141
   br label %.loopexit
 
 .loopexit:                                        ; preds = %153, %108, %.loopexitthread-pre-split, %195
-  %.pr = phi i32 [ %.pr.pr, %.loopexitthread-pre-split ], [ %199, %195 ], [ %114, %108 ], [ %159, %153 ]
-  %.1 = phi i1 [ %.1.ph, %.loopexitthread-pre-split ], [ %.035168, %195 ], [ %.035168, %108 ], [ %.035168, %153 ]
+  %.pr = phi i32 [ %.pr.pr, %.loopexitthread-pre-split ], [ %114, %108 ], [ %199, %195 ], [ %159, %153 ]
+  %.1 = phi i1 [ %.1.ph, %.loopexitthread-pre-split ], [ %.035168, %108 ], [ %.035168, %195 ], [ %.035168, %153 ]
   %240 = icmp eq i32 %.pr, 0
   br i1 %240, label %._crit_edge, label %60, !llvm.loop !148
 
@@ -3889,11 +3889,11 @@ _ZN6vectorIP4exprLb0EjE3endEv.exit:               ; preds = %79
   br i1 %.not145, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertERKPS1_.exit, %79, %_ZN6vectorIP4exprLb0EjE3endEv.exit
-  %87 = phi ptr [ %43, %_ZN6vectorIP4exprLb0EjE3endEv.exit ], [ %43, %79 ], [ %209, %_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertERKPS1_.exit ]
-  %88 = phi ptr [ %44, %_ZN6vectorIP4exprLb0EjE3endEv.exit ], [ %44, %79 ], [ %210, %_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertERKPS1_.exit ]
-  %89 = phi i32 [ %45, %_ZN6vectorIP4exprLb0EjE3endEv.exit ], [ %45, %79 ], [ %211, %_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertERKPS1_.exit ]
-  %90 = phi i32 [ %46, %_ZN6vectorIP4exprLb0EjE3endEv.exit ], [ %46, %79 ], [ %212, %_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertERKPS1_.exit ]
-  %91 = phi i32 [ %47, %_ZN6vectorIP4exprLb0EjE3endEv.exit ], [ %47, %79 ], [ %213, %_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertERKPS1_.exit ]
+  %87 = phi ptr [ %43, %79 ], [ %43, %_ZN6vectorIP4exprLb0EjE3endEv.exit ], [ %209, %_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertERKPS1_.exit ]
+  %88 = phi ptr [ %44, %79 ], [ %44, %_ZN6vectorIP4exprLb0EjE3endEv.exit ], [ %210, %_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertERKPS1_.exit ]
+  %89 = phi i32 [ %45, %79 ], [ %45, %_ZN6vectorIP4exprLb0EjE3endEv.exit ], [ %211, %_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertERKPS1_.exit ]
+  %90 = phi i32 [ %46, %79 ], [ %46, %_ZN6vectorIP4exprLb0EjE3endEv.exit ], [ %212, %_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertERKPS1_.exit ]
+  %91 = phi i32 [ %47, %79 ], [ %47, %_ZN6vectorIP4exprLb0EjE3endEv.exit ], [ %213, %_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertERKPS1_.exit ]
   %92 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.5, i64 noundef 3)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit54 unwind label %93
 
@@ -5762,8 +5762,8 @@ _ZNK4goal4sizeEv.exit:                            ; preds = %17, %21, %25
   br label %34
 
 ._crit_edge:                                      ; preds = %80, %2, %_ZNK4goal4sizeEv.exit
-  %29 = phi ptr [ %6, %_ZNK4goal4sizeEv.exit ], [ %6, %2 ], [ %83, %80 ]
-  %30 = phi i32 [ 0, %_ZNK4goal4sizeEv.exit ], [ 0, %2 ], [ %86, %80 ]
+  %29 = phi ptr [ %6, %2 ], [ %6, %_ZNK4goal4sizeEv.exit ], [ %83, %80 ]
+  %30 = phi i32 [ 0, %2 ], [ 0, %_ZNK4goal4sizeEv.exit ], [ %86, %80 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %31 = load ptr, ptr %0, align 8, !tbaa !102
   store ptr null, ptr %4, align 8, !tbaa !119

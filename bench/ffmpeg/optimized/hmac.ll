@@ -114,7 +114,7 @@ define ptr @av_hmac_alloc(i32 noundef %0) local_unnamed_addr #0 {
   br label %47
 
 47:                                               ; preds = %.sink.split, %46, %1
-  %.0 = phi ptr [ null, %1 ], [ %2, %46 ], [ null, %.sink.split ]
+  %.0 = phi ptr [ %2, %46 ], [ null, %1 ], [ null, %.sink.split ]
   ret ptr %.0
 }
 

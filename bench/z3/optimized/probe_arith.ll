@@ -5987,7 +5987,7 @@ _ZNK12_GLOBAL__N_124is_non_qfauflira_functor15compatible_sortEP3app.exit: ; pred
   %42 = icmp eq i32 %41, 0
   br i1 %42, label %_ZNK12_GLOBAL__N_124is_non_qfauflira_functor15compatible_sortEP3app.exit.thread, label %_ZNK12_GLOBAL__N_124is_non_qfauflira_functor15compatible_sortEP3app.exit.thread10
 
-_ZNK12_GLOBAL__N_124is_non_qfauflira_functor15compatible_sortEP3app.exit.thread10: ; preds = %_ZNK17arith_recognizers7is_realEPK4expr.exit.thread.i, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i7.i, %_ZNK12_GLOBAL__N_124is_non_qfauflira_functor15compatible_sortEP3app.exit
+_ZNK12_GLOBAL__N_124is_non_qfauflira_functor15compatible_sortEP3app.exit.thread10: ; preds = %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i7.i, %_ZNK17arith_recognizers7is_realEPK4expr.exit.thread.i, %_ZNK12_GLOBAL__N_124is_non_qfauflira_functor15compatible_sortEP3app.exit
   %43 = tail call ptr @__cxa_allocate_exception(i64 8) #22
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_124is_non_qfauflira_functor5foundE, i64 16), ptr %43, align 8, !tbaa !8
   tail call void @__cxa_throw(ptr nonnull %43, ptr nonnull @_ZTIN12_GLOBAL__N_124is_non_qfauflira_functor5foundE, ptr nonnull @_ZNSt9exceptionD2Ev) #24
@@ -6452,7 +6452,7 @@ _ZNK17arith_recognizers5is_gtEPK4expr.exit:       ; preds = %_ZNK17arith_recogni
   %121 = select i1 %117, i1 %120, i1 false
   br i1 %121, label %.critedge23, label %.critedge25
 
-.critedge23:                                      ; preds = %_ZNK17arith_recognizers5is_gtEPK4expr.exit, %_ZNK17arith_recognizers5is_ltEPK4expr.exit, %_ZNK17arith_recognizers5is_geEPK4expr.exit, %_ZNK17arith_recognizers5is_leEPK4expr.exit, %_ZNK4decl13get_family_idEv.exit
+.critedge23:                                      ; preds = %_ZNK17arith_recognizers5is_leEPK4expr.exit, %_ZNK17arith_recognizers5is_gtEPK4expr.exit, %_ZNK17arith_recognizers5is_ltEPK4expr.exit, %_ZNK17arith_recognizers5is_geEPK4expr.exit, %_ZNK4decl13get_family_idEv.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge25, label %24, !llvm.loop !185

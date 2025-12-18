@@ -913,9 +913,9 @@ _ZN12_GLOBAL__N_111clear_untilERSt6vectorINS_10ApproxItemESaIS1_EEmm.exit.i114: 
   br i1 %exitcond.not.i116, label %_ZN12_GLOBAL__N_114calc_new_startERSt6vectorINS_10ApproxItemESaIS1_EERm.exit, label %.lr.ph.i110, !llvm.loop !61
 
 _ZN12_GLOBAL__N_114calc_new_startERSt6vectorINS_10ApproxItemESaIS1_EERm.exit: ; preds = %269, %_ZN12_GLOBAL__N_111clear_untilERSt6vectorINS_10ApproxItemESaIS1_EEmm.exit.i114, %_ZN12_GLOBAL__N_16pass_0ERKSt6vectorIaSaIaEEN2cv6Point_IiEEbb.exit, %.critedge.i, %.critedge, %._crit_edge
-  %.pre-phi259 = phi i64 [ %83, %._crit_edge ], [ %83, %.critedge.i ], [ %.pre-phi250, %.critedge ], [ %83, %_ZN12_GLOBAL__N_16pass_0ERKSt6vectorIaSaIaEEN2cv6Point_IiEEbb.exit ], [ %.pre-phi250, %_ZN12_GLOBAL__N_111clear_untilERSt6vectorINS_10ApproxItemESaIS1_EEmm.exit.i114 ], [ %83, %269 ]
-  %.sroa.0.0 = phi ptr [ %.sroa.0.6, %._crit_edge ], [ %.sroa.0.6, %.critedge.i ], [ %.sroa.0.3, %.critedge ], [ %.sroa.0.6, %_ZN12_GLOBAL__N_16pass_0ERKSt6vectorIaSaIaEEN2cv6Point_IiEEbb.exit ], [ %.sroa.0.3, %_ZN12_GLOBAL__N_111clear_untilERSt6vectorINS_10ApproxItemESaIS1_EEmm.exit.i114 ], [ %.sroa.0.6, %269 ]
-  %.sroa.26.0 = phi ptr [ %.sroa.26.5.fr, %._crit_edge ], [ %.sroa.26.5.fr, %.critedge.i ], [ %.sroa.26.2, %.critedge ], [ %.sroa.26.5.fr, %_ZN12_GLOBAL__N_16pass_0ERKSt6vectorIaSaIaEEN2cv6Point_IiEEbb.exit ], [ %.sroa.26.2, %_ZN12_GLOBAL__N_111clear_untilERSt6vectorINS_10ApproxItemESaIS1_EEmm.exit.i114 ], [ %.sroa.26.5.fr, %269 ]
+  %.pre-phi259 = phi i64 [ %.pre-phi250, %_ZN12_GLOBAL__N_111clear_untilERSt6vectorINS_10ApproxItemESaIS1_EEmm.exit.i114 ], [ %83, %_ZN12_GLOBAL__N_16pass_0ERKSt6vectorIaSaIaEEN2cv6Point_IiEEbb.exit ], [ %83, %._crit_edge ], [ %83, %.critedge.i ], [ %.pre-phi250, %.critedge ], [ %83, %269 ]
+  %.sroa.0.0 = phi ptr [ %.sroa.0.3, %_ZN12_GLOBAL__N_111clear_untilERSt6vectorINS_10ApproxItemESaIS1_EEmm.exit.i114 ], [ %.sroa.0.6, %_ZN12_GLOBAL__N_16pass_0ERKSt6vectorIaSaIaEEN2cv6Point_IiEEbb.exit ], [ %.sroa.0.6, %._crit_edge ], [ %.sroa.0.6, %.critedge.i ], [ %.sroa.0.3, %.critedge ], [ %.sroa.0.6, %269 ]
+  %.sroa.26.0 = phi ptr [ %.sroa.26.2, %_ZN12_GLOBAL__N_111clear_untilERSt6vectorINS_10ApproxItemESaIS1_EEmm.exit.i114 ], [ %.sroa.26.5.fr, %_ZN12_GLOBAL__N_16pass_0ERKSt6vectorIaSaIaEEN2cv6Point_IiEEbb.exit ], [ %.sroa.26.5.fr, %._crit_edge ], [ %.sroa.26.5.fr, %.critedge.i ], [ %.sroa.26.2, %.critedge ], [ %.sroa.26.5.fr, %269 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !62)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !62
   %358 = lshr i64 %.pre-phi259, 1
@@ -1092,8 +1092,8 @@ _ZN12_GLOBAL__N_112gatherPointsERKSt6vectorINS_10ApproxItemESaIS1_EE.exit: ; pre
   br label %.body
 
 .body:                                            ; preds = %408, %406, %405, %309
-  %.sroa.0.1 = phi ptr [ %.sroa.0.6, %309 ], [ %.sroa.0.0, %405 ], [ %.sroa.0.0, %406 ], [ %.sroa.0.0, %408 ]
-  %.pn = phi { ptr, i32 } [ %310, %309 ], [ %.pn.i131, %405 ], [ %.pn.i131, %406 ], [ %409, %408 ]
+  %.sroa.0.1 = phi ptr [ %.sroa.0.0, %408 ], [ %.sroa.0.0, %406 ], [ %.sroa.0.6, %309 ], [ %.sroa.0.0, %405 ]
+  %.pn = phi { ptr, i32 } [ %409, %408 ], [ %.pn.i131, %406 ], [ %310, %309 ], [ %.pn.i131, %405 ]
   %.not.i.i.i142 = icmp eq ptr %.sroa.0.1, null
   br i1 %.not.i.i.i142, label %common.resume, label %.body.thread
 

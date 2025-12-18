@@ -253,7 +253,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit:
   br i1 %.not27.old.i.i.i.i, label %.loopexit, label %.lr.ph38.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.backedge:                        ; preds = %78, %75
-  %.137.i.i.i.i.be = phi ptr [ %.old.i.i.i.i, %78 ], [ %77, %75 ]
+  %.137.i.i.i.i.be = phi ptr [ %77, %75 ], [ %.old.i.i.i.i, %78 ]
   br label %.lr.ph38.i.i.i.i, !llvm.loop !55
 
 .loopexit:                                        ; preds = %64, %78, %75, %.preheader.i.i.i.i
@@ -372,7 +372,7 @@ _ZNK11ast_manager6is_notEPK4expr.exit.i:          ; preds = %118
   br label %_ZN3mbp9mbp_dt_tg4impl7is_seenEP4expr.exit
 
 _ZN3mbp9mbp_dt_tg4impl7is_seenEP4expr.exit:       ; preds = %59, %70, %118, %114, %_ZNK11ast_manager6is_notEPK4expr.exit.i, %129, %111, %133, %.loopexit, %137, %107, %104
-  %.1 = phi i1 [ %.01524, %111 ], [ %.01524, %.loopexit ], [ true, %104 ], [ true, %107 ], [ true, %137 ], [ %.01524, %133 ], [ %.01524, %129 ], [ %.01524, %_ZNK11ast_manager6is_notEPK4expr.exit.i ], [ %.01524, %114 ], [ %.01524, %118 ], [ %.01524, %70 ], [ %.01524, %59 ]
+  %.1 = phi i1 [ %.01524, %111 ], [ %.01524, %.loopexit ], [ true, %104 ], [ true, %107 ], [ true, %137 ], [ %.01524, %133 ], [ %.01524, %118 ], [ %.01524, %70 ], [ %.01524, %129 ], [ %.01524, %_ZNK11ast_manager6is_notEPK4expr.exit.i ], [ %.01524, %114 ], [ %.01524, %59 ]
   %141 = load ptr, ptr %31, align 8, !tbaa !43
   %142 = icmp eq ptr %141, null
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

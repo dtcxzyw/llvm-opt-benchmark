@@ -694,11 +694,11 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE15getValueAsFloatERS2_Rf.exit: ; preds =
   br i1 %.sroa.10.0148, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE15getValueAsFloatERS2_Rf.exit.thread, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE15getValueAsFloatERS2_Rf.exit.thread.sink.split
 
 _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE15getValueAsFloatERS2_Rf.exit.thread.sink.split: ; preds = %200, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE15getValueAsFloatERS2_Rf.exit, %193, %_ZNK4pugi8xml_text5_dataEv.exit.i.i96, %204
-  %.0.i.i95.sink = phi float [ 0.000000e+00, %_ZNK4pugi8xml_text5_dataEv.exit.i.i96 ], [ %206, %204 ], [ 0.000000e+00, %193 ], [ 1.000000e+00, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE15getValueAsFloatERS2_Rf.exit ], [ 0.000000e+00, %200 ]
-  %.sroa.0.1131.ph = phi i1 [ %.sroa.0.0150, %_ZNK4pugi8xml_text5_dataEv.exit.i.i96 ], [ %.sroa.0.0150, %204 ], [ %.sroa.0.0150, %193 ], [ %.sroa.0.1, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE15getValueAsFloatERS2_Rf.exit ], [ %.sroa.0.0150, %200 ]
-  %.sroa.6.1130.ph = phi i1 [ %.sroa.6.0149, %_ZNK4pugi8xml_text5_dataEv.exit.i.i96 ], [ %.sroa.6.0149, %204 ], [ %.sroa.6.0149, %193 ], [ %.sroa.6.1, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE15getValueAsFloatERS2_Rf.exit ], [ %.sroa.6.0149, %200 ]
-  %.sroa.10.1129.ph = phi i1 [ true, %_ZNK4pugi8xml_text5_dataEv.exit.i.i96 ], [ true, %204 ], [ true, %193 ], [ false, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE15getValueAsFloatERS2_Rf.exit ], [ true, %200 ]
-  %.sroa.8.1128.ph = phi i1 [ %.sroa.8.0147, %_ZNK4pugi8xml_text5_dataEv.exit.i.i96 ], [ %.sroa.8.0147, %204 ], [ %.sroa.8.0147, %193 ], [ %.sroa.8.1, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE15getValueAsFloatERS2_Rf.exit ], [ %.sroa.8.0147, %200 ]
+  %.0.i.i95.sink = phi float [ 1.000000e+00, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE15getValueAsFloatERS2_Rf.exit ], [ 0.000000e+00, %_ZNK4pugi8xml_text5_dataEv.exit.i.i96 ], [ %206, %204 ], [ 0.000000e+00, %193 ], [ 0.000000e+00, %200 ]
+  %.sroa.0.1131.ph = phi i1 [ %.sroa.0.1, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE15getValueAsFloatERS2_Rf.exit ], [ %.sroa.0.0150, %_ZNK4pugi8xml_text5_dataEv.exit.i.i96 ], [ %.sroa.0.0150, %204 ], [ %.sroa.0.0150, %193 ], [ %.sroa.0.0150, %200 ]
+  %.sroa.6.1130.ph = phi i1 [ %.sroa.6.1, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE15getValueAsFloatERS2_Rf.exit ], [ %.sroa.6.0149, %_ZNK4pugi8xml_text5_dataEv.exit.i.i96 ], [ %.sroa.6.0149, %204 ], [ %.sroa.6.0149, %193 ], [ %.sroa.6.0149, %200 ]
+  %.sroa.10.1129.ph = phi i1 [ false, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE15getValueAsFloatERS2_Rf.exit ], [ true, %_ZNK4pugi8xml_text5_dataEv.exit.i.i96 ], [ true, %204 ], [ true, %193 ], [ true, %200 ]
+  %.sroa.8.1128.ph = phi i1 [ %.sroa.8.1, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE15getValueAsFloatERS2_Rf.exit ], [ %.sroa.8.0147, %_ZNK4pugi8xml_text5_dataEv.exit.i.i96 ], [ %.sroa.8.0147, %204 ], [ %.sroa.8.0147, %193 ], [ %.sroa.8.0147, %200 ]
   store float %.0.i.i95.sink, ptr %62, align 4
   br label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE15getValueAsFloatERS2_Rf.exit.thread
 
@@ -1501,7 +1501,7 @@ _ZN4pugi4impl14get_value_uintEPKc.exit.i:         ; preds = %_ZN4pugi4impl17stri
   br label %_ZNK4pugi13xml_attribute7as_uintEj.exit.thread224
 
 _ZNK4pugi13xml_attribute7as_uintEj.exit.thread224: ; preds = %53, %_ZNK4pugi8xml_node9attributeEPKc.exit64, %_ZN4pugi4impl14get_value_uintEPKc.exit.i
-  %.0.i67226 = phi i32 [ 0, %_ZNK4pugi8xml_node9attributeEPKc.exit64 ], [ %.0.i.i.i, %_ZN4pugi4impl14get_value_uintEPKc.exit.i ], [ 0, %53 ]
+  %.0.i67226 = phi i32 [ %.0.i.i.i, %_ZN4pugi4impl14get_value_uintEPKc.exit.i ], [ 0, %_ZNK4pugi8xml_node9attributeEPKc.exit64 ], [ 0, %53 ]
   br label %.lr.ph.i71
 
 .lr.ph.i71:                                       ; preds = %_ZNK4pugi13xml_attribute7as_uintEj.exit.thread224, %133
@@ -1669,7 +1669,7 @@ _ZN4pugi4impl14get_value_uintEPKc.exit.i91:       ; preds = %_ZN4pugi4impl17stri
   br label %_ZNK4pugi13xml_attribute7as_uintEj.exit108.thread233
 
 _ZNK4pugi13xml_attribute7as_uintEj.exit108.thread233: ; preds = %133, %_ZNK4pugi8xml_node9attributeEPKc.exit77, %_ZN4pugi4impl14get_value_uintEPKc.exit.i91
-  %.0.i93237 = phi i32 [ 0, %_ZNK4pugi8xml_node9attributeEPKc.exit77 ], [ %.0.i.i.i92, %_ZN4pugi4impl14get_value_uintEPKc.exit.i91 ], [ 0, %133 ]
+  %.0.i93237 = phi i32 [ %.0.i.i.i92, %_ZN4pugi4impl14get_value_uintEPKc.exit.i91 ], [ 0, %_ZNK4pugi8xml_node9attributeEPKc.exit77 ], [ 0, %133 ]
   br label %.lr.ph.i112
 
 .thread:                                          ; preds = %46
@@ -4727,7 +4727,7 @@ define linkonce_odr hidden void @_ZSt9__find_ifISt16reverse_iteratorIN9__gnu_cxx
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %._crit_edge, %78, %70, %59, %50, %38, %30, %22
-  %.sink = phi i64 [ %72, %70 ], [ %61, %59 ], [ %47, %50 ], [ %.cast17, %38 ], [ %.cast16, %30 ], [ %.cast, %22 ], [ %.pre, %78 ], [ %46, %._crit_edge ], [ %10, %.lr.ph ]
+  %.sink = phi i64 [ %72, %70 ], [ %61, %59 ], [ %47, %50 ], [ %46, %._crit_edge ], [ %.cast17, %38 ], [ %.cast16, %30 ], [ %.cast, %22 ], [ %.pre, %78 ], [ %10, %.lr.ph ]
   store i64 %.sink, ptr %0, align 8
   ret void
 }

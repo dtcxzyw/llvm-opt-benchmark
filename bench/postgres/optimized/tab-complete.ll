@@ -2997,7 +2997,7 @@ define internal ptr @psql_completion(ptr readnone captures(none) %0, i32 noundef
   br i1 %98, label %.preheader97.i, label %.thread91.i
 
 .thread91.i:                                      ; preds = %48, %._crit_edge.i, %65
-  %.072101.i = phi i32 [ %88, %._crit_edge.i ], [ %.072112.i, %65 ], [ 0, %48 ]
+  %.072101.i = phi i32 [ %.072112.i, %65 ], [ %88, %._crit_edge.i ], [ 0, %48 ]
   %99 = load ptr, ptr @rl_line_buffer, align 8
   %.not89.i = icmp eq ptr %.076.i, %99
   br i1 %.not89.i, label %get_previous_words.exit, label %100
@@ -3066,8 +3066,8 @@ get_previous_words.exit:                          ; preds = %.thread91.i, %100
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 4
   %124 = load i32, ptr %123, align 4
   switch i32 %124, label %.critedge.thread [
-    i32 0, label %125
-    i32 1, label %HeadMatchesArray.exit
+    i32 0, label %HeadMatchesArray.exit
+    i32 1, label %125
     i32 2, label %131
     i32 3, label %147
     i32 4, label %163
@@ -3079,7 +3079,7 @@ get_previous_words.exit:                          ; preds = %.thread91.i, %100
   %127 = load i32, ptr %126, align 8
   %128 = getelementptr inbounds nuw i8, ptr %122, i64 16
   %129 = load ptr, ptr %128, align 8
-  %130 = tail call fastcc zeroext i1 @MatchesArray(i1 noundef zeroext false, i32 noundef %.072101.i, ptr noundef %43, i32 noundef %127, ptr noundef %129)
+  %130 = tail call fastcc zeroext i1 @MatchesArray(i1 noundef zeroext true, i32 noundef %.072101.i, ptr noundef %43, i32 noundef %127, ptr noundef %129)
   br i1 %130, label %.critedge, label %.critedge.thread
 
 131:                                              ; preds = %.preheader151
@@ -3207,7 +3207,7 @@ HeadMatchesArray.exit:                            ; preds = %.preheader151
   %196 = load i32, ptr %195, align 8
   %197 = getelementptr inbounds nuw i8, ptr %122, i64 16
   %198 = load ptr, ptr %197, align 8
-  %199 = tail call fastcc zeroext i1 @MatchesArray(i1 noundef zeroext true, i32 noundef %.072101.i, ptr noundef %43, i32 noundef %196, ptr noundef %198)
+  %199 = tail call fastcc zeroext i1 @MatchesArray(i1 noundef zeroext false, i32 noundef %.072101.i, ptr noundef %43, i32 noundef %196, ptr noundef %198)
   br i1 %199, label %.critedge, label %.critedge.thread
 
 .critedge:                                        ; preds = %185, %169, %153, %137, %HeadMatchesArray.exit, %125
@@ -3216,7 +3216,7 @@ HeadMatchesArray.exit:                            ; preds = %.preheader151
   %.not88 = icmp eq ptr %201, null
   br i1 %.not88, label %.critedge.thread, label %.thread.thread
 
-.critedge.thread:                                 ; preds = %.lr.ph.i118, %.lr.ph.i110, %.lr.ph.i101, %.lr.ph.i95, %179, %163, %147, %131, %125, %HeadMatchesArray.exit, %.preheader151, %.critedge
+.critedge.thread:                                 ; preds = %.lr.ph.i118, %.lr.ph.i110, %.lr.ph.i101, %.lr.ph.i95, %163, %147, %179, %131, %125, %HeadMatchesArray.exit, %.preheader151, %.critedge
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 904
   br i1 %exitcond.not, label %.loopexit, label %.preheader151, !llvm.loop !11
@@ -3603,7 +3603,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse
   br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.thread, %.thread.us, %8
-  %78 = phi i8 [ %.pre31, %8 ], [ 1, %.thread.us ], [ %70, %.thread ]
+  %78 = phi i8 [ 1, %.thread.us ], [ %.pre31, %8 ], [ %70, %.thread ]
   %79 = trunc nuw i8 %78 to i1
   %80 = load i32, ptr @complete_from_list.matches, align 4
   %81 = icmp eq i32 %80, 0
@@ -3622,7 +3622,7 @@ pg_strdup_keyword_case.exit.sink.split:           ; preds = %43, %.split.us
   br label %pg_strdup_keyword_case.exit
 
 pg_strdup_keyword_case.exit:                      ; preds = %._crit_edge, %.lr.ph.i, %.lr.ph6.i, %pg_strdup_keyword_case.exit.sink.split, %.thread.i, %59
-  %.0 = phi ptr [ %45, %59 ], [ %45, %.thread.i ], [ %84, %pg_strdup_keyword_case.exit.sink.split ], [ %45, %.lr.ph.i ], [ %45, %.lr.ph6.i ], [ null, %._crit_edge ]
+  %.0 = phi ptr [ %45, %.thread.i ], [ %45, %.lr.ph6.i ], [ %84, %pg_strdup_keyword_case.exit.sink.split ], [ %45, %.lr.ph.i ], [ %45, %59 ], [ null, %._crit_edge ]
   ret ptr %.0
 }
 
@@ -3864,7 +3864,7 @@ define internal fastcc noundef zeroext i1 @MatchesArray(i1 noundef zeroext %0, i
   br i1 %or.cond88.not, label %.lr.ph.i50, label %HeadMatchesArray.exit, !llvm.loop !10
 
 HeadMatchesArray.exit:                            ; preds = %.lr.ph.i41, %.lr.ph.i50, %.lr.ph.i, %.preheader.i47, %.preheader.i, %.loopexit, %25, %.thread58, %5
-  %.0 = phi i1 [ false, %5 ], [ true, %.preheader.i ], [ false, %.thread58 ], [ true, %.preheader.i47 ], [ false, %25 ], [ false, %.loopexit ], [ %53, %.lr.ph.i50 ], [ %24, %.lr.ph.i ], [ false, %.lr.ph.i41 ]
+  %.0 = phi i1 [ %24, %.lr.ph.i ], [ false, %5 ], [ true, %.preheader.i ], [ false, %.thread58 ], [ true, %.preheader.i47 ], [ false, %25 ], [ false, %.loopexit ], [ %53, %.lr.ph.i50 ], [ false, %.lr.ph.i41 ]
   ret i1 %.0
 }
 
@@ -10993,7 +10993,7 @@ define internal ptr @complete_from_const(ptr noundef readonly captures(none) %0,
   br i1 %.not19.i, label %pg_strdup_keyword_case.exit, label %.lr.ph.i, !llvm.loop !16
 
 pg_strdup_keyword_case.exit:                      ; preds = %.lr.ph.i, %.lr.ph6.i, %.thread.i, %23, %2, %6
-  %.0 = phi ptr [ %7, %6 ], [ null, %2 ], [ %9, %23 ], [ %9, %.thread.i ], [ %9, %.lr.ph6.i ], [ %9, %.lr.ph.i ]
+  %.0 = phi ptr [ %7, %6 ], [ null, %2 ], [ %9, %23 ], [ %9, %.lr.ph6.i ], [ %9, %.thread.i ], [ %9, %.lr.ph.i ]
   ret ptr %.0
 }
 
@@ -11184,8 +11184,8 @@ tailrecurse:                                      ; preds = %.lr.ph.preheader, %
   br i1 %74, label %.thread69, label %.split
 
 .thread69:                                        ; preds = %.critedge67, %60, %70, %.critedge67.us, %37, %27, %3
-  %accumulator.tr80 = phi i1 [ false, %3 ], [ %accumulator.tr81.lcssa, %.critedge67.us ], [ %accumulator.tr81.lcssa, %27 ], [ %accumulator.tr81.lcssa, %37 ], [ %accumulator.tr81.lcssa, %70 ], [ %accumulator.tr81.lcssa, %60 ], [ %accumulator.tr81.lcssa, %.critedge67 ]
-  %.0 = phi i1 [ true, %3 ], [ false, %.critedge67.us ], [ true, %37 ], [ true, %27 ], [ false, %.critedge67 ], [ true, %60 ], [ true, %70 ]
+  %accumulator.tr80 = phi i1 [ %accumulator.tr81.lcssa, %.critedge67.us ], [ false, %3 ], [ %accumulator.tr81.lcssa, %27 ], [ %accumulator.tr81.lcssa, %37 ], [ %accumulator.tr81.lcssa, %70 ], [ %accumulator.tr81.lcssa, %60 ], [ %accumulator.tr81.lcssa, %.critedge67 ]
+  %.0 = phi i1 [ false, %.critedge67.us ], [ true, %3 ], [ true, %37 ], [ true, %27 ], [ false, %.critedge67 ], [ true, %60 ], [ true, %70 ]
   %accumulator.ret.tr = xor i1 %accumulator.tr80, %.0
   ret i1 %accumulator.ret.tr
 }
@@ -11626,7 +11626,7 @@ define internal fastcc ptr @create_or_drop_command_generator(ptr noundef %0, i32
   br i1 %.not, label %pg_strdup_keyword_case.exit, label %.lr.ph, !llvm.loop !28
 
 pg_strdup_keyword_case.exit:                      ; preds = %47, %.lr.ph.i, %.lr.ph6.i, %7, %.thread.i, %36
-  %.0 = phi ptr [ %22, %36 ], [ %22, %.thread.i ], [ null, %7 ], [ %22, %.lr.ph.i ], [ %22, %.lr.ph6.i ], [ null, %47 ]
+  %.0 = phi ptr [ null, %7 ], [ %22, %36 ], [ %22, %.lr.ph.i ], [ %22, %.thread.i ], [ %22, %.lr.ph6.i ], [ null, %47 ]
   ret ptr %.0
 }
 
@@ -12313,10 +12313,10 @@ identifier_needs_quotes.exit175:                  ; preds = %281, %278, %identif
   br label %322, !llvm.loop !33
 
 .loopexit95.i:                                    ; preds = %322, %315, %312, %294
-  %.not.i176206 = phi i1 [ true, %294 ], [ false, %312 ], [ false, %315 ], [ false, %322 ]
-  %328 = phi i1 [ %300, %294 ], [ %305, %312 ], [ %305, %315 ], [ %320, %322 ]
-  %.062.i = phi i1 [ %298, %294 ], [ false, %312 ], [ false, %315 ], [ true, %322 ]
-  %.056.i = phi i64 [ 1, %294 ], [ %306, %312 ], [ %306, %315 ], [ %.157.i, %322 ]
+  %.not.i176206 = phi i1 [ true, %294 ], [ false, %315 ], [ false, %312 ], [ false, %322 ]
+  %328 = phi i1 [ %300, %294 ], [ %305, %315 ], [ %305, %312 ], [ %320, %322 ]
+  %.062.i = phi i1 [ %298, %294 ], [ false, %315 ], [ false, %312 ], [ true, %322 ]
+  %.056.i = phi i64 [ 1, %294 ], [ %306, %315 ], [ %306, %312 ], [ %.157.i, %322 ]
   br i1 %285, label %.loopexit.i177, label %329
 
 329:                                              ; preds = %.loopexit95.i
@@ -12372,8 +12372,8 @@ identifier_needs_quotes.exit175:                  ; preds = %281, %278, %identif
   br label %346, !llvm.loop !34
 
 .loopexit.i177:                                   ; preds = %346, %341, %338, %.loopexit95.i
-  %.064.i = phi i1 [ %328, %.loopexit95.i ], [ false, %338 ], [ false, %341 ], [ true, %346 ]
-  %.359.i = phi i64 [ %.056.i, %.loopexit95.i ], [ %331, %338 ], [ %331, %341 ], [ %.460.i, %346 ]
+  %.064.i = phi i1 [ %328, %.loopexit95.i ], [ false, %341 ], [ false, %338 ], [ true, %346 ]
+  %.359.i = phi i64 [ %.056.i, %.loopexit95.i ], [ %331, %341 ], [ %331, %338 ], [ %.460.i, %346 ]
   %352 = call ptr @pg_malloc(i64 noundef %.359.i) #11
   br i1 %.not.i176206, label %371, label %353
 
@@ -12708,7 +12708,7 @@ pg_strdup_keyword_case.exit201:                   ; preds = %444, %.lr.ph255
   br label %.thread222
 
 .thread222:                                       ; preds = %.lr.ph.i183, %.lr.ph6.i, %.lr.ph.i190, %.lr.ph6.i196, %.thread.i188, %467, %requote_identifier.exit, %.split.us, %.thread.i182, %427, %486
-  %.11 = phi ptr [ null, %486 ], [ %225, %.split.us ], [ %413, %.thread.i182 ], [ %413, %427 ], [ %352, %requote_identifier.exit ], [ %453, %467 ], [ %453, %.thread.i188 ], [ %413, %.lr.ph6.i ], [ %453, %.lr.ph6.i196 ], [ %453, %.lr.ph.i190 ], [ %413, %.lr.ph.i183 ]
+  %.11 = phi ptr [ null, %486 ], [ %225, %.split.us ], [ %413, %.lr.ph6.i ], [ %413, %.thread.i182 ], [ %453, %.lr.ph.i190 ], [ %413, %427 ], [ %352, %requote_identifier.exit ], [ %453, %467 ], [ %453, %.lr.ph6.i196 ], [ %453, %.thread.i188 ], [ %413, %.lr.ph.i183 ]
   ret ptr %.11
 }
 

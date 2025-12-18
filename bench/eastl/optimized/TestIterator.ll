@@ -380,7 +380,7 @@ while.body3.i.i.i:                                ; preds = %while.cond1.prehead
   br i1 %tobool2.not.i.i.i, label %invoke.cont39, label %while.body3.i.i.i, !llvm.loop !29
 
 invoke.cont39:                                    ; preds = %while.body3.i.i.i, %while.body.i.i.i44, %while.cond1.preheader.i.i.i
-  %it30.sroa.0.1 = phi ptr [ %16, %while.cond1.preheader.i.i.i ], [ %19, %while.body.i.i.i44 ], [ %21, %while.body3.i.i.i ]
+  %it30.sroa.0.1 = phi ptr [ %19, %while.body.i.i.i44 ], [ %16, %while.cond1.preheader.i.i.i ], [ %21, %while.body3.i.i.i ]
   %cmp.i47 = icmp eq ptr %it30.sroa.0.1, %intList
   %call43 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp.i47, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 78, ptr noundef nonnull @.str.3)
           to label %invoke.cont44 unwind label %lpad22
@@ -658,7 +658,7 @@ eh.resume.sink.split:                             ; preds = %lpad99.thread504, %
   br label %eh.resume
 
 eh.resume:                                        ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i374, %eh.resume.sink.split, %ehcleanup, %lpad
-  %.pn6 = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %lpad.thr_comm.split-lp455, %lpad ], [ %.pn6.ph, %eh.resume.sink.split ], [ %.pn, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i374 ]
+  %.pn6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp455, %lpad ], [ %.pn, %ehcleanup ], [ %.pn6.ph, %eh.resume.sink.split ], [ %.pn, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i374 ]
   resume { ptr, i32 } %.pn6
 }
 
@@ -2060,7 +2060,7 @@ _ZN5eastl6vectorI10TestObjectNS_9allocatorEED2Ev.exit446: ; preds = %invoke.cont
           to label %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit464 unwind label %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit843
 
 common.resume:                                    ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i852, %ehcleanup251, %lpad256, %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit843, %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit1093, %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit1098, %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit1103, %lpad, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i, %ehcleanup189, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i189, %ehcleanup380, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i868, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i873, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i878, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i883, %lpad489, %if.then.i.i948, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i950
-  %common.resume.op = phi { ptr, i32 } [ %lpad.phi1284, %lpad256 ], [ %lpad.phi1307, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i ], [ %.pn34, %ehcleanup251 ], [ %lpad.thr_comm, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i878 ], [ %162, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i883 ], [ %194, %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit1103 ], [ %193, %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit1098 ], [ %.pn32, %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit1093 ], [ %160, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i873 ], [ %158, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i868 ], [ %lpad.phi1281, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i950 ], [ %.pn38, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i189 ], [ %150, %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit843 ], [ %lpad.phi1307, %lpad ], [ %.pn38, %ehcleanup189 ], [ %lpad.phi1281, %if.then.i.i948 ], [ %.pn27.pn.pn, %ehcleanup380 ], [ %lpad.phi1281, %lpad489 ], [ %.pn27.pn.pn, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i852 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi1284, %lpad256 ], [ %lpad.phi1307, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i ], [ %.pn34, %ehcleanup251 ], [ %lpad.thr_comm, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i878 ], [ %162, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i883 ], [ %194, %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit1103 ], [ %193, %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit1098 ], [ %.pn32, %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit1093 ], [ %160, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i873 ], [ %158, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i868 ], [ %lpad.phi1281, %lpad489 ], [ %lpad.phi1281, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i950 ], [ %.pn38, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i189 ], [ %150, %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit843 ], [ %lpad.phi1307, %lpad ], [ %.pn38, %ehcleanup189 ], [ %lpad.phi1281, %if.then.i.i948 ], [ %.pn27.pn.pn, %ehcleanup380 ], [ %.pn27.pn.pn, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i852 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit464:    ; preds = %_ZN5eastl6vectorI10TestObjectNS_9allocatorEED2Ev.exit446

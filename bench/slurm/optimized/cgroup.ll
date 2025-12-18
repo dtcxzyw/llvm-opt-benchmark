@@ -906,7 +906,7 @@ define dso_local range(i32 -1, 1) i32 @cgroup_write_state(i32 noundef %0) local_
   br label %.lr.ph77.split, !llvm.loop !13
 
 .thread:                                          ; preds = %.split79.us, %43, %.split82.us, %24, %.split65.us, %.outer58._crit_edge
-  %.0 = phi i32 [ 0, %.outer58._crit_edge ], [ -1, %24 ], [ -1, %.split65.us ], [ -1, %.split82.us ], [ -1, %43 ], [ 0, %.split79.us ]
+  %.0 = phi i32 [ -1, %43 ], [ 0, %.outer58._crit_edge ], [ -1, %24 ], [ -1, %.split65.us ], [ -1, %.split82.us ], [ 0, %.split79.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -1030,7 +1030,7 @@ define dso_local range(i32 -1, 1) i32 @cgroup_read_state(i32 noundef %0) local_u
   br label %.thread
 
 .split75.us:                                      ; preds = %.lr.ph112, %.lr.ph97.preheader, %.lr.ph112.preheader, %.lr.ph97.preheader.preheader
-  %.us-phi76 = phi i64 [ %15, %.lr.ph97.preheader.preheader ], [ %4, %.lr.ph112.preheader ], [ %33, %.lr.ph97.preheader ], [ %12, %.lr.ph112 ]
+  %.us-phi76 = phi i64 [ %33, %.lr.ph97.preheader ], [ %15, %.lr.ph97.preheader.preheader ], [ %4, %.lr.ph112.preheader ], [ %12, %.lr.ph112 ]
   %39 = and i64 %.us-phi76, 2147483647
   %40 = getelementptr inbounds nuw i8, ptr %.039.ph114, i64 %39
   %41 = sub i64 %.038.ph116, %39
@@ -1166,7 +1166,7 @@ define dso_local range(i32 -1, 1) i32 @cgroup_read_state(i32 noundef %0) local_u
   br label %.thread
 
 .split124.us:                                     ; preds = %.lr.ph162, %.lr.ph147.preheader, %.lr.ph162.preheader, %.lr.ph147.preheader.preheader
-  %.us-phi125 = phi i64 [ %61, %.lr.ph147.preheader.preheader ], [ %50, %.lr.ph162.preheader ], [ %79, %.lr.ph147.preheader ], [ %58, %.lr.ph162 ]
+  %.us-phi125 = phi i64 [ %79, %.lr.ph147.preheader ], [ %61, %.lr.ph147.preheader.preheader ], [ %50, %.lr.ph162.preheader ], [ %58, %.lr.ph162 ]
   %85 = and i64 %.us-phi125, 2147483647
   %86 = getelementptr inbounds nuw i8, ptr %.035.ph167, i64 %85
   %87 = sub i64 %.036.ph165, %85
@@ -1186,7 +1186,7 @@ define dso_local range(i32 -1, 1) i32 @cgroup_read_state(i32 noundef %0) local_u
   br label %.lr.ph119, !llvm.loop !15
 
 .thread:                                          ; preds = %.split124.us, %84, %.split127.us, %74, %69, %38, %.split78.us, %28, %23, %.outer61._crit_edge
-  %.0 = phi i32 [ 0, %.outer61._crit_edge ], [ -1, %38 ], [ -1, %23 ], [ -1, %28 ], [ -1, %.split78.us ], [ -1, %69 ], [ -1, %74 ], [ -1, %.split127.us ], [ -1, %84 ], [ 0, %.split124.us ]
+  %.0 = phi i32 [ -1, %84 ], [ 0, %.outer61._crit_edge ], [ -1, %38 ], [ -1, %23 ], [ -1, %28 ], [ -1, %.split78.us ], [ -1, %69 ], [ -1, %74 ], [ -1, %.split127.us ], [ 0, %.split124.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -1436,7 +1436,7 @@ define dso_local range(i32 -1, 1) i32 @cgroup_read_conf(i32 noundef %0) local_un
   br label %.thread83
 
 .split104:                                        ; preds = %.lr.ph141, %.lr.ph126.preheader, %.lr.ph141.preheader, %.lr.ph126.preheader.preheader
-  %.us-phi105 = phi i64 [ %48, %.lr.ph126.preheader.preheader ], [ %37, %.lr.ph141.preheader ], [ %23, %.lr.ph126.preheader ], [ %45, %.lr.ph141 ]
+  %.us-phi105 = phi i64 [ %23, %.lr.ph126.preheader ], [ %48, %.lr.ph126.preheader.preheader ], [ %37, %.lr.ph141.preheader ], [ %45, %.lr.ph141 ]
   %29 = and i64 %.us-phi105, 2147483647
   %30 = getelementptr inbounds nuw i8, ptr %.053.ph143, i64 %29
   %31 = sub i64 %.049.ph145, %29
@@ -1625,7 +1625,7 @@ define dso_local range(i32 -1, 1) i32 @cgroup_read_conf(i32 noundef %0) local_un
   br label %.thread80
 
 .split154.us:                                     ; preds = %.lr.ph192, %.lr.ph177.preheader, %.lr.ph192.preheader, %.lr.ph177.preheader.preheader
-  %.us-phi155 = phi i64 [ %70, %.lr.ph177.preheader.preheader ], [ %59, %.lr.ph192.preheader ], [ %88, %.lr.ph177.preheader ], [ %67, %.lr.ph192 ]
+  %.us-phi155 = phi i64 [ %88, %.lr.ph177.preheader ], [ %70, %.lr.ph177.preheader.preheader ], [ %59, %.lr.ph192.preheader ], [ %67, %.lr.ph192 ]
   %94 = and i64 %.us-phi155, 2147483647
   %95 = getelementptr inbounds nuw i8, ptr %.050.ph198, i64 %94
   %96 = sub i64 %.051.ph196, %94

@@ -959,8 +959,8 @@ _is_valid_timespec.exit:                          ; preds = %42, %37
   %68 = add nsw i32 %66, %67
   br label %_is_valid_timespec.exit.thread
 
-_is_valid_timespec.exit.thread:                   ; preds = %22, %23, %16, %42, %40, %37, %35, %30, %._crit_edge.i, %10, %12, %14, %1, %7, %60
-  %.0 = phi i32 [ -2, %1 ], [ %68, %60 ], [ -1, %10 ], [ -2, %7 ], [ -1, %14 ], [ -1, %12 ], [ -2, %._crit_edge.i ], [ -2, %30 ], [ -2, %35 ], [ -2, %37 ], [ -2, %40 ], [ -2, %42 ], [ -2, %16 ], [ -2, %23 ], [ -2, %22 ]
+_is_valid_timespec.exit.thread:                   ; preds = %22, %23, %16, %37, %35, %30, %._crit_edge.i, %40, %42, %10, %12, %14, %1, %7, %60
+  %.0 = phi i32 [ -2, %1 ], [ %68, %60 ], [ -1, %10 ], [ -2, %7 ], [ -1, %14 ], [ -1, %12 ], [ -2, %42 ], [ -2, %40 ], [ -2, %._crit_edge.i ], [ -2, %30 ], [ -2, %35 ], [ -2, %37 ], [ -2, %16 ], [ -2, %23 ], [ -2, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

@@ -964,8 +964,8 @@ Vec_IntPush.exit329:                              ; preds = %.Vec_IntGrow.exit10
   br i1 %456, label %378, label %.critedge6, !llvm.loop !59
 
 .critedge6:                                       ; preds = %374, %453, %.preheader416, %.preheader415
-  %.pre546 = phi ptr [ %278, %.preheader415 ], [ %278, %.preheader416 ], [ %454, %453 ], [ %375, %374 ]
-  %.val260509 = phi ptr [ %.val260, %.preheader415 ], [ %.val260, %.preheader416 ], [ %.val260512, %453 ], [ %.val260510, %374 ]
+  %.pre546 = phi ptr [ %454, %453 ], [ %278, %.preheader415 ], [ %278, %.preheader416 ], [ %375, %374 ]
+  %.val260509 = phi ptr [ %.val260512, %453 ], [ %.val260, %.preheader415 ], [ %.val260, %.preheader416 ], [ %.val260510, %374 ]
   %457 = icmp eq i32 %286, 1
   br i1 %457, label %.critedge4.backedge, label %458
 
@@ -1904,7 +1904,7 @@ Vec_IntPush.exit399:                              ; preds = %.Vec_IntGrow.exit10
   br i1 %895, label %814, label %.critedge4.backedge, !llvm.loop !63
 
 .critedge4.backedge:                              ; preds = %885, %629, %.critedge10, %548, %458, %.critedge14, %803, %712, %.preheader413, %.preheader418, %.critedge6, %640
-  %.val260503 = phi ptr [ %.val260, %640 ], [ %.val260506, %.critedge10 ], [ %.val260506, %548 ], [ %.val260509, %458 ], [ %.val260499, %.critedge14 ], [ %.val260499, %803 ], [ %.val260502, %712 ], [ %.val260506, %.preheader413 ], [ %.val260499, %.preheader418 ], [ %.val260509, %.critedge6 ], [ %.val260504, %629 ], [ %.val260497, %885 ]
+  %.val260503 = phi ptr [ %.val260504, %629 ], [ %.val260, %640 ], [ %.val260506, %.critedge10 ], [ %.val260506, %548 ], [ %.val260509, %458 ], [ %.val260499, %.critedge14 ], [ %.val260499, %803 ], [ %.val260502, %712 ], [ %.val260506, %.preheader413 ], [ %.val260499, %.preheader418 ], [ %.val260509, %.critedge6 ], [ %.val260497, %885 ]
   %.val205 = load i32, ptr %5, align 4, !tbaa !24
   %896 = sext i32 %.val205 to i64
   %897 = icmp slt i64 %indvars.iv.next489, %896
@@ -2253,7 +2253,7 @@ define range(i32 0, 2) i32 @dfsfast_e(ptr noundef %0, ptr noundef %1) local_unna
   br i1 %97, label %65, label %.critedge, !llvm.loop !69
 
 .critedge:                                        ; preds = %61, %94, %.preheader123, %.preheader121
-  %.pre171 = phi ptr [ %23, %.preheader121 ], [ %23, %.preheader123 ], [ %95, %94 ], [ %62, %61 ]
+  %.pre171 = phi ptr [ %95, %94 ], [ %23, %.preheader121 ], [ %23, %.preheader123 ], [ %62, %61 ]
   %.val103 = load i32, ptr %19, align 4
   %98 = and i32 %.val103, 15
   %.not117 = icmp eq i32 %98, 8
@@ -2569,7 +2569,7 @@ define range(i32 0, 2) i32 @dfsfast_e(ptr noundef %0, ptr noundef %1) local_unna
   br i1 %exitcond134.not.i, label %.critedge.i, label %252, !llvm.loop !73
 
 .critedge.i:                                      ; preds = %239, %252, %.preheader111.i, %.preheader112.i
-  %.2.i = phi i32 [ 30000, %.preheader111.i ], [ 30000, %.preheader112.i ], [ %.4.i, %252 ], [ %.1.i, %239 ]
+  %.2.i = phi i32 [ %.4.i, %252 ], [ 30000, %.preheader111.i ], [ 30000, %.preheader112.i ], [ %.1.i, %239 ]
   %.val99.i = load i32, ptr %19, align 4
   %265 = and i32 %.val99.i, 15
   %.not109.i = icmp eq i32 %265, 8
@@ -3175,7 +3175,7 @@ define range(i32 0, 2) i32 @dfsfast_r(ptr noundef %0, ptr noundef %1) local_unna
   br i1 %exitcond94.not.i, label %.critedge2.i, label %226, !llvm.loop !79
 
 .critedge2.i:                                     ; preds = %226, %.preheader.i, %.critedge.i, %193
-  %.1.i = phi i32 [ %.2.lcssa.i, %.critedge.i ], [ %.0.i, %193 ], [ %.2.lcssa.i, %.preheader.i ], [ %.5.i, %226 ]
+  %.1.i = phi i32 [ %.0.i, %193 ], [ %.2.lcssa.i, %.critedge.i ], [ %.2.lcssa.i, %.preheader.i ], [ %.5.i, %226 ]
   %236 = add nuw nsw i32 %.1.i, 1
   %237 = icmp sgt i32 %.1.i, 29998
   %spec.store.select.i = select i1 %237, i32 0, i32 %236
@@ -3384,7 +3384,7 @@ define range(i32 0, 2) i32 @dfsplain_e(ptr noundef %0, ptr noundef %1) local_unn
   br i1 %72, label %51, label %.critedge, !llvm.loop !81
 
 .critedge:                                        ; preds = %47, %69, %.preheader96, %.preheader94
-  %.pre143 = phi ptr [ %20, %.preheader94 ], [ %20, %.preheader96 ], [ %70, %69 ], [ %48, %47 ]
+  %.pre143 = phi ptr [ %70, %69 ], [ %20, %.preheader94 ], [ %20, %.preheader96 ], [ %48, %47 ]
   %.val77 = load i32, ptr %16, align 4
   %73 = and i32 %.val77, 15
   %.not91 = icmp eq i32 %73, 8
@@ -3815,7 +3815,7 @@ define range(i32 0, 2) i32 @dfsplain_r(ptr noundef %0, ptr noundef %1) local_unn
   br label %.critedge2
 
 .critedge2:                                       ; preds = %82, %110, %108, %.critedge2.sink.split, %.preheader, %57, %.critedge, %2, %9, %10
-  %.0 = phi i32 [ 1, %2 ], [ 0, %57 ], [ 1, %10 ], [ 1, %9 ], [ 0, %.critedge ], [ 0, %.preheader ], [ 1, %.critedge2.sink.split ], [ 1, %108 ], [ 0, %110 ], [ 1, %82 ]
+  %.0 = phi i32 [ 1, %2 ], [ 0, %57 ], [ 1, %10 ], [ 1, %9 ], [ 0, %.critedge ], [ 0, %110 ], [ 1, %.critedge2.sink.split ], [ 0, %.preheader ], [ 1, %108 ], [ 1, %82 ]
   ret i32 %.0
 }
 

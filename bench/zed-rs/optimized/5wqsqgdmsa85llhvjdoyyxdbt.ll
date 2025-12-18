@@ -2044,8 +2044,8 @@ define internal fastcc void @"_ZN10serde_json5value2de77_$LT$impl$u20$serde..de.
   %207 = icmp eq i8 %206, 0
   br i1 %207, label %449, label %452
 
-208:                                              ; preds = %128, %135
-  %.sroa.0.0.i48.ph = phi ptr [ %136, %135 ], [ %129, %128 ]
+208:                                              ; preds = %135, %128
+  %.sroa.0.0.i48.ph = phi ptr [ %129, %128 ], [ %136, %135 ]
   %209 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.0.0.i48.ph, ptr %209, align 8, !alias.scope !414, !noalias !417
   store i64 -9223372036854775803, ptr %0, align 8, !alias.scope !414, !noalias !417
@@ -2061,8 +2061,8 @@ define internal fastcc void @"_ZN10serde_json5value2de77_$LT$impl$u20$serde..de.
   call void @llvm.lifetime.end.p0(ptr nonnull %96), !noalias !419
   br label %"_ZN101_$LT$$RF$mut$u20$serde_json_lenient..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h62bb92d281e66b72E.exit"
 
-212:                                              ; preds = %150, %157
-  %.sroa.0.0.i43.ph = phi ptr [ %158, %157 ], [ %151, %150 ]
+212:                                              ; preds = %157, %150
+  %.sroa.0.0.i43.ph = phi ptr [ %151, %150 ], [ %158, %157 ]
   %213 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.0.0.i43.ph, ptr %213, align 8, !alias.scope !414, !noalias !417
   store i64 -9223372036854775803, ptr %0, align 8, !alias.scope !414, !noalias !417
@@ -2076,8 +2076,8 @@ define internal fastcc void @"_ZN10serde_json5value2de77_$LT$impl$u20$serde..de.
   call void @llvm.lifetime.end.p0(ptr nonnull %96), !noalias !419
   br label %"_ZN101_$LT$$RF$mut$u20$serde_json_lenient..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h62bb92d281e66b72E.exit"
 
-215:                                              ; preds = %172, %179
-  %.sroa.0.0.i40.ph = phi ptr [ %180, %179 ], [ %173, %172 ]
+215:                                              ; preds = %179, %172
+  %.sroa.0.0.i40.ph = phi ptr [ %173, %172 ], [ %180, %179 ]
   %216 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.0.0.i40.ph, ptr %216, align 8, !alias.scope !414, !noalias !417
   store i64 -9223372036854775803, ptr %0, align 8, !alias.scope !414, !noalias !417
@@ -2511,7 +2511,7 @@ _ZN5serde2de9SeqAccess12next_element17hd77a385f6a1bf36cE.exit.i: ; preds = %323,
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$serde_json..value..Value$GT$$GT$17h02d33f0a599b9248E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %36) #32
           to label %common.resume unwind label %361, !noalias !534
 
-_ZN5serde2de9SeqAccess12next_element17hd77a385f6a1bf36cE.exit.i.thread222: ; preds = %304, %300, %275, %_ZN5serde2de9SeqAccess12next_element17hd77a385f6a1bf36cE.exit.i
+_ZN5serde2de9SeqAccess12next_element17hd77a385f6a1bf36cE.exit.i.thread222: ; preds = %300, %275, %304, %_ZN5serde2de9SeqAccess12next_element17hd77a385f6a1bf36cE.exit.i
   %.sroa.22.2228 = phi ptr [ %.sroa.22.0.copyload186, %_ZN5serde2de9SeqAccess12next_element17hd77a385f6a1bf36cE.exit.i ], [ %299, %300 ], [ %.sroa.22.0, %304 ], [ %.sroa.22.0, %275 ]
   %.sroa.0180.1227 = phi i64 [ %.sroa.0180.0.copyload182, %_ZN5serde2de9SeqAccess12next_element17hd77a385f6a1bf36cE.exit.i ], [ %297, %300 ], [ -9223372036854775803, %304 ], [ -9223372036854775803, %275 ]
   %.sroa.15178.2226 = phi i8 [ %.sroa.15178.0, %_ZN5serde2de9SeqAccess12next_element17hd77a385f6a1bf36cE.exit.i ], [ 0, %300 ], [ %.sroa.15178.0, %304 ], [ %.sroa.15178.0, %275 ]
@@ -7987,8 +7987,8 @@ define internal fastcc noundef nonnull align 8 ptr @"_ZN18serde_json_lenient2de2
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %104
 
-103:                                              ; preds = %85, %78, %67, %60, %49, %42, %127, %120, %112, %104
-  %.sroa.0.0 = phi ptr [ %129, %127 ], [ %105, %104 ], [ %97, %120 ], [ %43, %42 ], [ %61, %60 ], [ %114, %112 ], [ %50, %49 ], [ %68, %67 ], [ %86, %85 ], [ %79, %78 ]
+103:                                              ; preds = %78, %85, %60, %67, %42, %49, %127, %120, %112, %104
+  %.sroa.0.0 = phi ptr [ %129, %127 ], [ %105, %104 ], [ %97, %120 ], [ %50, %49 ], [ %68, %67 ], [ %114, %112 ], [ %43, %42 ], [ %61, %60 ], [ %79, %78 ], [ %86, %85 ]
   ret ptr %.sroa.0.0
 
 104:                                              ; preds = %125, %.thread24, %115, %110, %"_ZN18serde_json_lenient2de21Deserializer$LT$R$GT$11parse_ident17heb3dac71e27ec4adE.exit32", %"_ZN18serde_json_lenient2de21Deserializer$LT$R$GT$11parse_ident17heb3dac71e27ec4adE.exit27", %"_ZN18serde_json_lenient2de21Deserializer$LT$R$GT$11parse_ident17heb3dac71e27ec4adE.exit", %100, %98

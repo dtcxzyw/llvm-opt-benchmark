@@ -940,7 +940,7 @@ _ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.i: ; preds = %1
   br label %uregex_matches64_77.exit
 
 uregex_matches64_77.exit:                         ; preds = %3, %.sink.split.i.i, %21, %23
-  %.011.i = phi i8 [ %24, %23 ], [ %22, %21 ], [ 0, %3 ], [ 0, %.sink.split.i.i ]
+  %.011.i = phi i8 [ %24, %23 ], [ %22, %21 ], [ 0, %.sink.split.i.i ], [ 0, %3 ]
   ret i8 %.011.i
 }
 
@@ -990,8 +990,8 @@ _ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit: ; preds = %14,
   %23 = tail call noundef signext i8 @_ZN6icu_7712RegexMatcher7matchesElR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336) %19, i64 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
   br label %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread
 
-_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread: ; preds = %.sink.split.i, %3, %20, %22
-  %.011 = phi i8 [ %23, %22 ], [ %21, %20 ], [ 0, %3 ], [ 0, %.sink.split.i ]
+_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread: ; preds = %3, %.sink.split.i, %20, %22
+  %.011 = phi i8 [ %23, %22 ], [ %21, %20 ], [ 0, %.sink.split.i ], [ 0, %3 ]
   ret i8 %.011
 }
 
@@ -1047,7 +1047,7 @@ _ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.i: ; preds = %1
   br label %uregex_lookingAt64_77.exit
 
 uregex_lookingAt64_77.exit:                       ; preds = %3, %.sink.split.i.i, %21, %23
-  %.011.i = phi i8 [ %24, %23 ], [ %22, %21 ], [ 0, %3 ], [ 0, %.sink.split.i.i ]
+  %.011.i = phi i8 [ %24, %23 ], [ %22, %21 ], [ 0, %.sink.split.i.i ], [ 0, %3 ]
   ret i8 %.011.i
 }
 
@@ -1097,8 +1097,8 @@ _ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit: ; preds = %14,
   %23 = tail call noundef signext i8 @_ZN6icu_7712RegexMatcher9lookingAtElR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336) %19, i64 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
   br label %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread
 
-_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread: ; preds = %.sink.split.i, %3, %20, %22
-  %.011 = phi i8 [ %23, %22 ], [ %21, %20 ], [ 0, %3 ], [ 0, %.sink.split.i ]
+_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread: ; preds = %3, %.sink.split.i, %20, %22
+  %.011 = phi i8 [ %23, %22 ], [ %21, %20 ], [ 0, %.sink.split.i ], [ 0, %3 ]
   ret i8 %.011
 }
 
@@ -1156,7 +1156,7 @@ _ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.i: ; preds = %1
   br label %uregex_find64_77.exit
 
 uregex_find64_77.exit:                            ; preds = %3, %.sink.split.i.i, %21, %24
-  %.012.i = phi i8 [ %25, %24 ], [ %23, %21 ], [ 0, %3 ], [ 0, %.sink.split.i.i ]
+  %.012.i = phi i8 [ %25, %24 ], [ %23, %21 ], [ 0, %.sink.split.i.i ], [ 0, %3 ]
   ret i8 %.012.i
 }
 
@@ -1208,8 +1208,8 @@ _ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit: ; preds = %14,
   %24 = tail call noundef signext i8 @_ZN6icu_7712RegexMatcher4findElR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336) %19, i64 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
   br label %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread
 
-_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread: ; preds = %.sink.split.i, %3, %20, %23
-  %.012 = phi i8 [ %24, %23 ], [ %22, %20 ], [ 0, %3 ], [ 0, %.sink.split.i ]
+_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread: ; preds = %3, %.sink.split.i, %20, %23
+  %.012 = phi i8 [ %24, %23 ], [ %22, %20 ], [ 0, %.sink.split.i ], [ 0, %3 ]
   ret i8 %.012
 }
 
@@ -1257,8 +1257,8 @@ _ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit: ; preds = %13,
   %18 = tail call noundef signext i8 @_ZN6icu_7712RegexMatcher4findER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336) %17, ptr noundef nonnull align 4 dereferenceable(4) %1)
   br label %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread
 
-_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread: ; preds = %.sink.split.i, %2, %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit
-  %.0 = phi i8 [ %18, %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit ], [ 0, %2 ], [ 0, %.sink.split.i ]
+_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread: ; preds = %2, %.sink.split.i, %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit
+  %.0 = phi i8 [ %18, %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit ], [ 0, %.sink.split.i ], [ 0, %2 ]
   ret i8 %.0
 }
 
@@ -1488,8 +1488,8 @@ _ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit: ; preds = %16,
   %60 = tail call i32 @utext_extract_77(ptr noundef %59, i64 noundef %52, i64 noundef %54, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4)
   br label %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread
 
-_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread: ; preds = %.sink.split.i, %5, %57, %51, %28, %46, %44, %23
-  %.0 = phi i32 [ %35, %44 ], [ 0, %23 ], [ 0, %51 ], [ 0, %28 ], [ %35, %46 ], [ %60, %57 ], [ 0, %5 ], [ 0, %.sink.split.i ]
+_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread: ; preds = %5, %.sink.split.i, %57, %51, %28, %46, %44, %23
+  %.0 = phi i32 [ %35, %44 ], [ 0, %23 ], [ 0, %51 ], [ 0, %28 ], [ %35, %46 ], [ %60, %57 ], [ 0, %.sink.split.i ], [ 0, %5 ]
   ret i32 %.0
 }
 
@@ -1534,7 +1534,7 @@ define ptr @uregex_groupUText_77(ptr noundef readonly captures(address_is_null) 
   store i32 %.sink.i, ptr %4, align 4, !tbaa !19
   br label %20
 
-20:                                               ; preds = %5, %.sink.split.i
+20:                                               ; preds = %.sink.split.i, %5
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !tbaa !19
   %.not = icmp eq ptr %2, null
@@ -1602,7 +1602,7 @@ _ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.i: ; preds = %1
   br label %uregex_start64_77.exit
 
 uregex_start64_77.exit:                           ; preds = %3, %.sink.split.i.i, %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.i
-  %.0.i = phi i32 [ %20, %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.i ], [ 0, %3 ], [ 0, %.sink.split.i.i ]
+  %.0.i = phi i32 [ %20, %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.i ], [ 0, %.sink.split.i.i ], [ 0, %3 ]
   ret i32 %.0.i
 }
 
@@ -1644,8 +1644,8 @@ _ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit: ; preds = %14,
   %19 = tail call noundef i64 @_ZNK6icu_7712RegexMatcher7start64EiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336) %18, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
   br label %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread
 
-_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread: ; preds = %.sink.split.i, %3, %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit
-  %.0 = phi i64 [ %19, %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit ], [ 0, %3 ], [ 0, %.sink.split.i ]
+_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread: ; preds = %3, %.sink.split.i, %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit
+  %.0 = phi i64 [ %19, %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit ], [ 0, %.sink.split.i ], [ 0, %3 ]
   ret i64 %.0
 }
 
@@ -1689,7 +1689,7 @@ _ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.i: ; preds = %1
   br label %uregex_end64_77.exit
 
 uregex_end64_77.exit:                             ; preds = %3, %.sink.split.i.i, %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.i
-  %.0.i = phi i32 [ %20, %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.i ], [ 0, %3 ], [ 0, %.sink.split.i.i ]
+  %.0.i = phi i32 [ %20, %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.i ], [ 0, %.sink.split.i.i ], [ 0, %3 ]
   ret i32 %.0.i
 }
 
@@ -1731,8 +1731,8 @@ _ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit: ; preds = %14,
   %19 = tail call noundef i64 @_ZNK6icu_7712RegexMatcher5end64EiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336) %18, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
   br label %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread
 
-_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread: ; preds = %.sink.split.i, %3, %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit
-  %.0 = phi i64 [ %19, %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit ], [ 0, %3 ], [ 0, %.sink.split.i ]
+_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread: ; preds = %3, %.sink.split.i, %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit
+  %.0 = phi i64 [ %19, %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit ], [ 0, %.sink.split.i ], [ 0, %3 ]
   ret i64 %.0
 }
 
@@ -1817,7 +1817,7 @@ _ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit: ; preds = %14,
   %19 = tail call noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7712RegexMatcher5resetElR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336) %18, i64 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
   br label %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread
 
-_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread: ; preds = %.sink.split.i, %3, %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit
+_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread: ; preds = %3, %.sink.split.i, %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit
   ret void
 }
 
@@ -1905,7 +1905,7 @@ _ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit: ; preds = %15,
   %20 = tail call noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7712RegexMatcher6regionEllR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336) %19, i64 noundef %1, i64 noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %3)
   br label %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread
 
-_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread: ; preds = %.sink.split.i, %4, %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit
+_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread: ; preds = %4, %.sink.split.i, %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit
   ret void
 }
 
@@ -1949,7 +1949,7 @@ _ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit: ; preds = %16,
   %21 = tail call noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7712RegexMatcher6regionElllR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336) %20, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %4)
   br label %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread
 
-_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread: ; preds = %.sink.split.i, %5, %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit
+_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread: ; preds = %5, %.sink.split.i, %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit
   ret void
 }
 
@@ -1994,7 +1994,7 @@ _ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.i: ; preds = %1
   br label %uregex_regionStart64_77.exit
 
 uregex_regionStart64_77.exit:                     ; preds = %2, %.sink.split.i.i, %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.i
-  %.0.i = phi i32 [ %18, %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.i ], [ 0, %2 ], [ 0, %.sink.split.i.i ]
+  %.0.i = phi i32 [ %18, %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.i ], [ 0, %.sink.split.i.i ], [ 0, %2 ]
   ret i32 %.0.i
 }
 
@@ -2037,8 +2037,8 @@ _ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit: ; preds = %13,
   %19 = sext i32 %18 to i64
   br label %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread
 
-_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread: ; preds = %.sink.split.i, %2, %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit
-  %.0 = phi i64 [ %19, %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit ], [ 0, %2 ], [ 0, %.sink.split.i ]
+_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread: ; preds = %2, %.sink.split.i, %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit
+  %.0 = phi i64 [ %19, %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit ], [ 0, %.sink.split.i ], [ 0, %2 ]
   ret i64 %.0
 }
 
@@ -2083,7 +2083,7 @@ _ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.i: ; preds = %1
   br label %uregex_regionEnd64_77.exit
 
 uregex_regionEnd64_77.exit:                       ; preds = %2, %.sink.split.i.i, %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.i
-  %.0.i = phi i32 [ %18, %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.i ], [ 0, %2 ], [ 0, %.sink.split.i.i ]
+  %.0.i = phi i32 [ %18, %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.i ], [ 0, %.sink.split.i.i ], [ 0, %2 ]
   ret i32 %.0.i
 }
 
@@ -2126,8 +2126,8 @@ _ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit: ; preds = %13,
   %19 = sext i32 %18 to i64
   br label %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread
 
-_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread: ; preds = %.sink.split.i, %2, %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit
-  %.0 = phi i64 [ %19, %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit ], [ 0, %2 ], [ 0, %.sink.split.i ]
+_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread: ; preds = %2, %.sink.split.i, %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit
+  %.0 = phi i64 [ %19, %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit ], [ 0, %.sink.split.i ], [ 0, %2 ]
   ret i64 %.0
 }
 
@@ -2297,8 +2297,8 @@ _ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit: ; preds = %13,
   %18 = tail call noundef signext i8 @_ZNK6icu_7712RegexMatcher6hitEndEv(ptr noundef nonnull align 8 dereferenceable(336) %17)
   br label %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread
 
-_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread: ; preds = %.sink.split.i, %2, %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit
-  %.0 = phi i8 [ %18, %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit ], [ 0, %2 ], [ 0, %.sink.split.i ]
+_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread: ; preds = %2, %.sink.split.i, %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit
+  %.0 = phi i8 [ %18, %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit ], [ 0, %.sink.split.i ], [ 0, %2 ]
   ret i8 %.0
 }
 
@@ -2342,8 +2342,8 @@ _ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit: ; preds = %13,
   %18 = tail call noundef signext i8 @_ZNK6icu_7712RegexMatcher10requireEndEv(ptr noundef nonnull align 8 dereferenceable(336) %17)
   br label %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread
 
-_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread: ; preds = %.sink.split.i, %2, %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit
-  %.0 = phi i8 [ %18, %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit ], [ 0, %2 ], [ 0, %.sink.split.i ]
+_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread: ; preds = %2, %.sink.split.i, %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit
+  %.0 = phi i8 [ %18, %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit ], [ 0, %.sink.split.i ], [ 0, %2 ]
   ret i8 %.0
 }
 
@@ -2734,8 +2734,8 @@ uregex_findNext_77.exit.thread:                   ; preds = %uregex_findNext_77.
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread
 
-_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread: ; preds = %.sink.split.i, %6, %58, %29
-  %.025 = phi i32 [ %54, %58 ], [ 0, %29 ], [ 0, %6 ], [ 0, %.sink.split.i ]
+_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread: ; preds = %6, %.sink.split.i, %58, %29
+  %.025 = phi i32 [ %54, %58 ], [ 0, %29 ], [ 0, %.sink.split.i ], [ 0, %6 ]
   ret i32 %.025
 }
 
@@ -2797,8 +2797,8 @@ _ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit: ; preds = %15,
   %23 = tail call noundef ptr @_ZN6icu_7712RegexMatcher10replaceAllEP5UTextS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336) %22, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %3)
   br label %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread
 
-_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread: ; preds = %.sink.split.i, %4, %20, %19
-  %.0 = phi ptr [ %23, %20 ], [ null, %19 ], [ null, %4 ], [ null, %.sink.split.i ]
+_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread: ; preds = %4, %.sink.split.i, %20, %19
+  %.0 = phi ptr [ %23, %20 ], [ null, %19 ], [ null, %.sink.split.i ], [ null, %4 ]
   ret ptr %.0
 }
 
@@ -2910,14 +2910,14 @@ uregex_find_77.exit:                              ; preds = %39, %42
   %48 = call noundef i32 @_ZN6icu_7710RegexCImpl17appendReplacementEPNS_17RegularExpressionEPKDsiPPDsPiP10UErrorCode(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %2, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %5)
   br label %uregex_find_77.exit.thread
 
-uregex_find_77.exit.thread:                       ; preds = %.sink.split.i.i.i, %uregex_reset_77.exit, %.sink.split.i.i.i28, %47, %uregex_find_77.exit
-  %.024 = phi i32 [ %48, %47 ], [ 0, %uregex_find_77.exit ], [ 0, %.sink.split.i.i.i28 ], [ 0, %uregex_reset_77.exit ], [ 0, %.sink.split.i.i.i ]
+uregex_find_77.exit.thread:                       ; preds = %.sink.split.i.i.i, %.sink.split.i.i.i28, %uregex_reset_77.exit, %47, %uregex_find_77.exit
+  %.024 = phi i32 [ %48, %47 ], [ 0, %uregex_find_77.exit ], [ 0, %uregex_reset_77.exit ], [ 0, %.sink.split.i.i.i28 ], [ 0, %.sink.split.i.i.i ]
   %49 = call noundef i32 @_ZN6icu_7710RegexCImpl10appendTailEPNS_17RegularExpressionEPPDsPiP10UErrorCode(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %5)
   %50 = add nsw i32 %49, %.024
   br label %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread
 
-_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread: ; preds = %.sink.split.i, %6, %uregex_find_77.exit.thread, %28
-  %.0 = phi i32 [ %50, %uregex_find_77.exit.thread ], [ 0, %28 ], [ 0, %6 ], [ 0, %.sink.split.i ]
+_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread: ; preds = %6, %.sink.split.i, %uregex_find_77.exit.thread, %28
+  %.0 = phi i32 [ %50, %uregex_find_77.exit.thread ], [ 0, %28 ], [ 0, %.sink.split.i ], [ 0, %6 ]
   ret i32 %.0
 }
 
@@ -2967,8 +2967,8 @@ _ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit: ; preds = %15,
   %23 = tail call noundef ptr @_ZN6icu_7712RegexMatcher12replaceFirstEP5UTextS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336) %22, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %3)
   br label %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread
 
-_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread: ; preds = %.sink.split.i, %4, %20, %19
-  %.0 = phi ptr [ %23, %20 ], [ null, %19 ], [ null, %4 ], [ null, %.sink.split.i ]
+_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread: ; preds = %4, %.sink.split.i, %20, %19
+  %.0 = phi ptr [ %23, %20 ], [ null, %19 ], [ null, %.sink.split.i ], [ null, %4 ]
   ret ptr %.0
 }
 
@@ -3583,7 +3583,7 @@ _ZL11appendToBufDsPiPDsi.exit262:                 ; preds = %148, %150
   br label %.loopexit
 
 .loopexit:                                        ; preds = %312, %.loopexit.sink.split, %309, %270
-  %.4206314 = phi i32 [ 0, %270 ], [ %308, %309 ], [ 0, %.loopexit.sink.split ], [ 0, %312 ]
+  %.4206314 = phi i32 [ 0, %.loopexit.sink.split ], [ 0, %270 ], [ %308, %309 ], [ 0, %312 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %10) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.thread292
@@ -3702,8 +3702,8 @@ _ZL11appendToBufDsPiPDsi.exit262:                 ; preds = %148, %150
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread
 
-_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread: ; preds = %14, %.sink.split.i, %thread-pre-split, %46, %362, %39
-  %.0 = phi i32 [ %.3, %362 ], [ 0, %39 ], [ 0, %46 ], [ 0, %thread-pre-split ], [ 0, %.sink.split.i ], [ 0, %14 ]
+_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread: ; preds = %14, %thread-pre-split, %.sink.split.i, %46, %362, %39
+  %.0 = phi i32 [ %.3, %362 ], [ 0, %39 ], [ 0, %46 ], [ 0, %.sink.split.i ], [ 0, %thread-pre-split ], [ 0, %14 ]
   ret i32 %.0
 }
 
@@ -3933,7 +3933,7 @@ _ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit: ; preds = %21,
   br label %.thread107
 
 .thread107:                                       ; preds = %71, %62, %82, %52, %.split.us, %.split130.us, %91
-  %.3 = phi i32 [ %96, %91 ], [ %81, %.split.us ], [ %.us-phi131, %.split130.us ], [ 0, %52 ], [ %61, %62 ], [ %72, %82 ], [ %61, %71 ]
+  %.3 = phi i32 [ %96, %91 ], [ %.us-phi131, %.split130.us ], [ %81, %.split.us ], [ 0, %52 ], [ %72, %82 ], [ %61, %62 ], [ %61, %71 ]
   %97 = icmp slt i32 %.3, %29
   br i1 %97, label %101, label %98
 
@@ -3982,7 +3982,7 @@ _ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread.sink.spl
   br label %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread
 
 _ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread: ; preds = %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread.sink.split, %9, %thread-pre-split, %111, %112
-  %.079 = phi i32 [ %.3, %111 ], [ 0, %thread-pre-split ], [ 0, %9 ], [ %.3, %112 ], [ %.079.ph, %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread.sink.split ]
+  %.079 = phi i32 [ %.3, %111 ], [ 0, %9 ], [ 0, %thread-pre-split ], [ %.3, %112 ], [ %.079.ph, %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread.sink.split ]
   ret i32 %.079
 }
 
@@ -4048,8 +4048,8 @@ _ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit: ; preds = %18,
   %28 = tail call noundef i32 @_ZN6icu_7710RegexCImpl5splitEPNS_17RegularExpressionEPDsiPiPS3_iP10UErrorCode(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %5, ptr noundef nonnull %6)
   br label %_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread
 
-_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread: ; preds = %.sink.split.i, %7, %27, %26
-  %.0 = phi i32 [ %28, %27 ], [ 0, %26 ], [ 0, %7 ], [ 0, %.sink.split.i ]
+_ZL10validateREPKN6icu_7717RegularExpressionEaP10UErrorCode.exit.thread: ; preds = %7, %.sink.split.i, %27, %26
+  %.0 = phi i32 [ %28, %27 ], [ 0, %26 ], [ 0, %.sink.split.i ], [ 0, %7 ]
   ret i32 %.0
 }
 

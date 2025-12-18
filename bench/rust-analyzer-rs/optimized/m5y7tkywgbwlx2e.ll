@@ -796,7 +796,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17h7e4cb27e0290175fE(ptr noa
   br i1 %59, label %.loopexit, label %.lr.ph337
 
 .loopexit:                                        ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hf974e4fb209562c8E.exit171", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hf974e4fb209562c8E.exit148", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hf974e4fb209562c8E.exit125", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hf974e4fb209562c8E.exit102", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hf974e4fb209562c8E.exit79", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hf974e4fb209562c8E.exit194", %.preheader296, %.preheader294, %.preheader292, %.preheader290, %.preheader288, %.preheader
-  %.sroa.27.6 = phi i64 [ %58, %.preheader ], [ %58, %.preheader288 ], [ %58, %.preheader290 ], [ %58, %.preheader292 ], [ %58, %.preheader294 ], [ %58, %.preheader296 ], [ %97, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hf974e4fb209562c8E.exit148" ], [ %118, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hf974e4fb209562c8E.exit194" ], [ %65, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hf974e4fb209562c8E.exit79" ], [ %76, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hf974e4fb209562c8E.exit102" ], [ %87, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hf974e4fb209562c8E.exit125" ], [ %108, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hf974e4fb209562c8E.exit171" ]
+  %.sroa.27.6 = phi i64 [ %118, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hf974e4fb209562c8E.exit194" ], [ %97, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hf974e4fb209562c8E.exit148" ], [ %65, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hf974e4fb209562c8E.exit79" ], [ %76, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hf974e4fb209562c8E.exit102" ], [ %87, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hf974e4fb209562c8E.exit125" ], [ %58, %.preheader ], [ %58, %.preheader288 ], [ %58, %.preheader290 ], [ %58, %.preheader292 ], [ %58, %.preheader294 ], [ %58, %.preheader296 ], [ %108, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hf974e4fb209562c8E.exit171" ]
   %60 = sub i64 %.0.i.i, %.sroa.27.6
   store i64 %60, ptr %43, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %17, i64 24, i1 false)
@@ -1766,7 +1766,7 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.exit: ; preds = %1
   br label %.lr.ph.i.i
 
 .body:                                            ; preds = %.loopexit43, %.loopexit.split-lp44.loopexit.split-lp, %.loopexit.split-lp44.loopexit, %51, %56, %31, %25
-  %.pn = phi { ptr, i32 } [ %26, %25 ], [ %lpad.phi, %51 ], [ %26, %31 ], [ %lpad.phi, %56 ], [ %lpad.loopexit45, %.loopexit43 ], [ %lpad.loopexit49, %.loopexit.split-lp44.loopexit ], [ %lpad.loopexit.split-lp50, %.loopexit.split-lp44.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %26, %25 ], [ %26, %31 ], [ %lpad.phi, %51 ], [ %lpad.phi, %56 ], [ %lpad.loopexit45, %.loopexit43 ], [ %lpad.loopexit49, %.loopexit.split-lp44.loopexit ], [ %lpad.loopexit.split-lp50, %.loopexit.split-lp44.loopexit.split-lp ]
   %44 = icmp eq ptr %11, null
   br i1 %44, label %"_ZN4core3ptr341drop_in_place$LT$core..iter..adapters..filter_map..FilterMap$LT$core..iter..sources..successors..Successors$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$C$syntax..ast..edit..prev_tokens..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$$LT$syntax..ast..generated..tokens..Whitespace$u20$as$u20$syntax..ast..AstToken$GT$..cast$GT$$GT$17h715d93cf0aeb56feE.exit", label %45
 
@@ -2922,8 +2922,8 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %114
   br i1 %.not55.us.i, label %.loopexit244.i, label %.split141.us.invoke.i
 
 .loopexit244.i:                                   ; preds = %.preheader57.us.i, %.preheader.us.i.us, %.preheader.us.i.preheader.split
-  %.sroa.327.3.us.i = phi i64 [ -1, %.preheader.us.i.preheader.split ], [ -1, %.preheader.us.i.us ], [ 0, %.preheader57.us.i ]
-  %.sroa.6.4.us.i = phi i64 [ %179, %.preheader.us.i.preheader.split ], [ %179, %.preheader.us.i.us ], [ %137, %.preheader57.us.i ]
+  %.sroa.327.3.us.i = phi i64 [ -1, %.preheader.us.i.us ], [ -1, %.preheader.us.i.preheader.split ], [ 0, %.preheader57.us.i ]
+  %.sroa.6.4.us.i = phi i64 [ %179, %.preheader.us.i.us ], [ %179, %.preheader.us.i.preheader.split ], [ %137, %.preheader57.us.i ]
   %.sroa.20.3.us.i = add i64 %.sroa.6.4.us.i, %.sroa.03.sroa.15.0.copyload.i.fr
   %198 = getelementptr inbounds i8, ptr %.sroa.0.0.i31, i64 %.0.us.i
   %199 = sub i64 %.sroa.6.4.us.i, %.0.us.i
@@ -3155,9 +3155,9 @@ _ZN4core3str11validations15next_code_point17h4b896f4b2b36dcc5E.exit.thread.i.i.i
   br label %.split141.us.invoke.i
 
 .split141.us.invoke.i:                            ; preds = %.preheader.us.i.preheader.split, %152, %149, %188, %.split148.us.i, %.split136.us.i
-  %304 = phi i64 [ %umax.i41.i, %.split136.us.i ], [ %umax.i.i, %.split148.us.i ], [ %153, %152 ], [ %190, %188 ], [ %150, %149 ], [ %130, %.preheader.us.i.preheader.split ]
-  %305 = phi i64 [ %.sroa.03.sroa.13.0.copyload.i, %.split136.us.i ], [ %.sroa.03.sroa.13.0.copyload.i, %.split148.us.i ], [ %.sroa.03.sroa.13.0.copyload.i, %152 ], [ %.sroa.03.sroa.13.0.copyload.i, %188 ], [ %.sroa.03.sroa.15.0.copyload.i.fr, %149 ], [ %.sroa.03.sroa.15.0.copyload.i.fr, %.preheader.us.i.preheader.split ]
-  %306 = phi ptr [ @anon.82b27cccaf6c1d93c3497edc733a2d28.25, %.split136.us.i ], [ @anon.82b27cccaf6c1d93c3497edc733a2d28.25, %.split148.us.i ], [ @anon.82b27cccaf6c1d93c3497edc733a2d28.23, %152 ], [ @anon.82b27cccaf6c1d93c3497edc733a2d28.23, %188 ], [ @anon.82b27cccaf6c1d93c3497edc733a2d28.22, %149 ], [ @anon.82b27cccaf6c1d93c3497edc733a2d28.22, %.preheader.us.i.preheader.split ]
+  %304 = phi i64 [ %umax.i41.i, %.split136.us.i ], [ %190, %188 ], [ %umax.i.i, %.split148.us.i ], [ %153, %152 ], [ %150, %149 ], [ %130, %.preheader.us.i.preheader.split ]
+  %305 = phi i64 [ %.sroa.03.sroa.13.0.copyload.i, %.split136.us.i ], [ %.sroa.03.sroa.13.0.copyload.i, %188 ], [ %.sroa.03.sroa.13.0.copyload.i, %.split148.us.i ], [ %.sroa.03.sroa.13.0.copyload.i, %152 ], [ %.sroa.03.sroa.15.0.copyload.i.fr, %149 ], [ %.sroa.03.sroa.15.0.copyload.i.fr, %.preheader.us.i.preheader.split ]
+  %306 = phi ptr [ @anon.82b27cccaf6c1d93c3497edc733a2d28.25, %.split136.us.i ], [ @anon.82b27cccaf6c1d93c3497edc733a2d28.23, %188 ], [ @anon.82b27cccaf6c1d93c3497edc733a2d28.25, %.split148.us.i ], [ @anon.82b27cccaf6c1d93c3497edc733a2d28.23, %152 ], [ @anon.82b27cccaf6c1d93c3497edc733a2d28.22, %149 ], [ @anon.82b27cccaf6c1d93c3497edc733a2d28.22, %.preheader.us.i.preheader.split ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %304, i64 noundef %305, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %306) #25
           to label %.split141.us.cont.i unwind label %.loopexit.split-lp.i, !noalias !658
 
@@ -3180,7 +3180,7 @@ _ZN4core3str11validations15next_code_point17h4b896f4b2b36dcc5E.exit.thread.i.i.i
   br label %.loopexit.i
 
 "_ZN4core3str4iter29MatchIndicesInternal$LT$P$GT$4next17h85c324ec0ef1f85dE.exit.thread.i": ; preds = %.thread.i.i.i.i, %177, %134, %294, %.sink.split.i.us.i, %240, %.split.i
-  %.0116.i = phi i64 [ 0, %.split.i ], [ %.0.us.i, %177 ], [ %.0.us.i, %240 ], [ %.0.us.i, %.sink.split.i.us.i ], [ %.0158.i, %294 ], [ %.0.us.i, %134 ], [ %.0158.i, %.thread.i.i.i.i ]
+  %.0116.i = phi i64 [ %.0.us.i, %240 ], [ %.0.us.i, %177 ], [ %.0158.i, %294 ], [ %.0.us.i, %.sink.split.i.us.i ], [ 0, %.split.i ], [ %.0.us.i, %134 ], [ %.0158.i, %.thread.i.i.i.i ]
   %308 = sub i64 %.sroa.3.0.i30, %.0116.i
   %309 = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !725, !noalias !732, !noundef !5
   %310 = load i64, ptr %8, align 8, !alias.scope !725, !noalias !732, !noundef !5

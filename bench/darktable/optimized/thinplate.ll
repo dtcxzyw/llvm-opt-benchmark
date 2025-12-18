@@ -1587,7 +1587,7 @@ compute_error.exit:                               ; preds = %.lr.ph.i428
   br i1 %exitcond683.not, label %._crit_edge549, label %143
 
 ._crit_edge549:                                   ; preds = %656, %143, %dsvd.exit.i, %._crit_edge501
-  %.3 = phi i32 [ -1, %._crit_edge501 ], [ %145, %dsvd.exit.i ], [ %145, %143 ], [ -1, %656 ]
+  %.3 = phi i32 [ -1, %._crit_edge501 ], [ %145, %dsvd.exit.i ], [ -1, %656 ], [ %145, %143 ]
   tail call void @free(ptr noundef %108) #15
   tail call void @free(ptr noundef %109) #15
   tail call void @free(ptr noundef %125) #15

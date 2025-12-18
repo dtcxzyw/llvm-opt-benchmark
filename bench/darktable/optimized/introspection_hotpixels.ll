@@ -1103,7 +1103,7 @@ process_xtrans.exit:                              ; preds = %._crit_edge.split.u
   br i1 %exitcond145.not.i, label %process_monochrome.exit, label %.lr.ph105.us.i
 
 process_monochrome.exit:                          ; preds = %._crit_edge.split.us156.i, %._crit_edge.split.us.us.us.i, %._crit_edge.split.us127.i, %._crit_edge.split.us.us.us.i62, %.lr.ph109.i, %335, %.lr.ph136.i, %28, %process_xtrans.exit
-  %.0 = phi i32 [ %.0119.lcssa.i, %process_xtrans.exit ], [ 0, %28 ], [ 0, %.lr.ph136.i ], [ 0, %335 ], [ 0, %.lr.ph109.i ], [ %.2105.us.us.us.i, %._crit_edge.split.us.us.us.i ], [ %.283.us.us.us.i, %._crit_edge.split.us.us.us.i62 ], [ %.283.us126.i, %._crit_edge.split.us127.i ], [ %.2105.us154.i, %._crit_edge.split.us156.i ]
+  %.0 = phi i32 [ %.2105.us.us.us.i, %._crit_edge.split.us.us.us.i ], [ %.0119.lcssa.i, %process_xtrans.exit ], [ 0, %28 ], [ 0, %.lr.ph136.i ], [ %.283.us126.i, %._crit_edge.split.us127.i ], [ 0, %335 ], [ 0, %.lr.ph109.i ], [ %.283.us.us.us.i, %._crit_edge.split.us.us.us.i62 ], [ %.2105.us154.i, %._crit_edge.split.us156.i ]
   %.not32 = icmp eq ptr %9, null
   br i1 %.not32, label %467, label %455
 

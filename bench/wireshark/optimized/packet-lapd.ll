@@ -898,7 +898,7 @@ define internal i32 @dissect_lapd_frame(ptr noundef %0, ptr noundef initializes(
   br label %15
 
 15:                                               ; preds = %12, %4
-  %.0 = phi i32 [ %switch.select8, %12 ], [ 0, %4 ]
+  %.0 = phi i32 [ 0, %4 ], [ %switch.select8, %12 ]
   call fastcc void @dissect_lapd_full(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.0)
   %16 = call i32 @tvb_captured_length(ptr noundef %0)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

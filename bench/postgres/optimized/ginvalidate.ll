@@ -187,7 +187,7 @@ define dso_local zeroext i1 @ginvalidate(i32 noundef %0) local_unnamed_addr #0 {
   br label %96
 
 96:                                               ; preds = %.sink.split, %61, %65, %69, %73, %77, %57, %83, %87, %81, %52
-  %.2 = phi i1 [ false, %81 ], [ %.1, %52 ], [ %.1, %83 ], [ false, %87 ], [ %.1, %57 ], [ %.1, %77 ], [ %.1, %73 ], [ %.1, %69 ], [ %.1, %65 ], [ %.1, %61 ], [ false, %.sink.split ]
+  %.2 = phi i1 [ false, %81 ], [ %.1, %52 ], [ %.1, %61 ], [ %.1, %83 ], [ %.1, %65 ], [ false, %87 ], [ %.1, %57 ], [ %.1, %77 ], [ %.1, %73 ], [ %.1, %69 ], [ false, %.sink.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %97 = load i32, ptr %24, align 8
   %98 = sext i32 %97 to i64

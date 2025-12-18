@@ -10871,7 +10871,7 @@ _ZN10rayon_core5scope5Scope5spawn17h980b84161f198099E.exit.i.i.i.i.i.i: ; preds 
           to label %.loopexit.i.i unwind label %133
 
 .loopexit.i.i:                                    ; preds = %81, %.backedge.i.i.i.i.i.i, %92, %2
-  %95 = phi i1 [ true, %2 ], [ false, %92 ], [ true, %.backedge.i.i.i.i.i.i ], [ true, %81 ]
+  %95 = phi i1 [ false, %92 ], [ true, %2 ], [ true, %.backedge.i.i.i.i.i.i ], [ true, %81 ]
   %96 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %97 = atomicrmw sub ptr %96, i64 1 seq_cst, align 8, !noalias !806
   %98 = icmp eq i64 %97, 1
@@ -26125,7 +26125,7 @@ define hidden noundef range(i64 0, -1) i64 @"_ZN5alloc11collections11binary_heap
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %18, %._crit_edge, %13
-  %.sroa.22.0133.lcssa.sink = phi i64 [ %.sroa.04.0.lcssa, %18 ], [ %.sroa.22.0.lcssa, %13 ], [ %.sroa.22.0.lcssa, %._crit_edge ], [ %.sroa.22.0133, %.lr.ph ]
+  %.sroa.22.0133.lcssa.sink = phi i64 [ %.sroa.22.0.lcssa, %._crit_edge ], [ %.sroa.04.0.lcssa, %18 ], [ %.sroa.22.0.lcssa, %13 ], [ %.sroa.22.0133, %.lr.ph ]
   %20 = getelementptr inbounds nuw { { i64, [7 x i64] }, i64 }, ptr %5, i64 %.sroa.22.0133.lcssa.sink
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %20, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0, i64 64, i1 false)
   %.sroa.7.0..sroa_idx106 = getelementptr inbounds nuw i8, ptr %20, i64 64
@@ -26209,7 +26209,7 @@ define hidden noundef range(i64 0, -1) i64 @"_ZN5alloc11collections11binary_heap
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %18, %._crit_edge, %13
-  %.sroa.22.0133.lcssa.sink = phi i64 [ %.sroa.04.0.lcssa, %18 ], [ %.sroa.22.0.lcssa, %13 ], [ %.sroa.22.0.lcssa, %._crit_edge ], [ %.sroa.22.0133, %.lr.ph ]
+  %.sroa.22.0133.lcssa.sink = phi i64 [ %.sroa.22.0.lcssa, %._crit_edge ], [ %.sroa.04.0.lcssa, %18 ], [ %.sroa.22.0.lcssa, %13 ], [ %.sroa.22.0133, %.lr.ph ]
   %20 = getelementptr inbounds nuw { { i64, [8 x i64] }, i64 }, ptr %5, i64 %.sroa.22.0133.lcssa.sink
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %20, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.0, i64 72, i1 false)
   %.sroa.7.0..sroa_idx106 = getelementptr inbounds nuw i8, ptr %20, i64 72
@@ -26293,7 +26293,7 @@ define hidden noundef range(i64 0, -1) i64 @"_ZN5alloc11collections11binary_heap
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %18, %._crit_edge, %13
-  %.sroa.22.0133.lcssa.sink = phi i64 [ %.sroa.04.0.lcssa, %18 ], [ %.sroa.22.0.lcssa, %13 ], [ %.sroa.22.0.lcssa, %._crit_edge ], [ %.sroa.22.0133, %.lr.ph ]
+  %.sroa.22.0133.lcssa.sink = phi i64 [ %.sroa.22.0.lcssa, %._crit_edge ], [ %.sroa.04.0.lcssa, %18 ], [ %.sroa.22.0.lcssa, %13 ], [ %.sroa.22.0133, %.lr.ph ]
   %20 = getelementptr inbounds nuw { { i64, [7 x i64] }, i64 }, ptr %5, i64 %.sroa.22.0133.lcssa.sink
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %20, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0, i64 64, i1 false)
   %.sroa.7.0..sroa_idx106 = getelementptr inbounds nuw i8, ptr %20, i64 64
@@ -26377,7 +26377,7 @@ define hidden noundef range(i64 0, -1) i64 @"_ZN5alloc11collections11binary_heap
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %18, %._crit_edge, %13
-  %.sroa.22.0133.lcssa.sink = phi i64 [ %.sroa.04.0.lcssa, %18 ], [ %.sroa.22.0.lcssa, %13 ], [ %.sroa.22.0.lcssa, %._crit_edge ], [ %.sroa.22.0133, %.lr.ph ]
+  %.sroa.22.0133.lcssa.sink = phi i64 [ %.sroa.22.0.lcssa, %._crit_edge ], [ %.sroa.04.0.lcssa, %18 ], [ %.sroa.22.0.lcssa, %13 ], [ %.sroa.22.0133, %.lr.ph ]
   %20 = getelementptr inbounds nuw { { i64, [8 x i64] }, i64 }, ptr %5, i64 %.sroa.22.0133.lcssa.sink
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %20, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.0, i64 72, i1 false)
   %.sroa.7.0..sroa_idx106 = getelementptr inbounds nuw i8, ptr %20, i64 72
@@ -27546,7 +27546,7 @@ define hidden void @"_ZN75_$LT$$u5b$T$u5d$$u20$as$u20$alloc..slice..SpecCloneInt
           to label %19 unwind label %26
 
 common.resume:                                    ; preds = %19, %44, %46
-  %common.resume.op = phi { ptr, i32 } [ %45, %44 ], [ %47, %46 ], [ %22, %19 ]
+  %common.resume.op = phi { ptr, i32 } [ %47, %46 ], [ %45, %44 ], [ %22, %19 ]
   resume { ptr, i32 } %common.resume.op
 
 26:                                               ; preds = %23
@@ -52376,7 +52376,7 @@ _ZN3std4sync6poison4once4Once9call_once17h24a03b47283a33a5E.exit.i: ; preds = %.
   br label %.body.i
 
 .loopexit.split-lp.i:                             ; preds = %.invoke.i, %_ZN10rayon_core8registry8Registry9in_worker17hf3c0d6b8901bef62E.exit.i, %311, %310, %304, %.noexc200.i, %298, %295, %290, %285, %255, %_ZN3std4sync6poison4once4Once9call_once17h24a03b47283a33a5E.exit184.i, %242, %223, %212, %205
-  %.sroa.067.0.ph.i = phi i8 [ 0, %205 ], [ %.sroa.067.3.i, %310 ], [ %.sroa.067.3.i, %.invoke.i ], [ %.sroa.067.3.i, %304 ], [ %.sroa.067.3.i, %.noexc200.i ], [ %.sroa.067.3.i, %298 ], [ %.sroa.067.3.i, %295 ], [ %.sroa.067.3.i, %290 ], [ %.sroa.067.3.i, %285 ], [ 0, %212 ], [ 0, %242 ], [ 0, %223 ], [ %.sroa.067.3.i, %_ZN3std4sync6poison4once4Once9call_once17h24a03b47283a33a5E.exit184.i ], [ %.sroa.067.3.i, %255 ], [ %.sroa.067.3.i, %311 ], [ %.sroa.067.3.i, %_ZN10rayon_core8registry8Registry9in_worker17hf3c0d6b8901bef62E.exit.i ]
+  %.sroa.067.0.ph.i = phi i8 [ %.sroa.067.3.i, %.invoke.i ], [ %.sroa.067.3.i, %304 ], [ %.sroa.067.3.i, %.noexc200.i ], [ %.sroa.067.3.i, %298 ], [ %.sroa.067.3.i, %295 ], [ %.sroa.067.3.i, %290 ], [ %.sroa.067.3.i, %285 ], [ 0, %212 ], [ 0, %242 ], [ 0, %223 ], [ %.sroa.067.3.i, %_ZN3std4sync6poison4once4Once9call_once17h24a03b47283a33a5E.exit184.i ], [ %.sroa.067.3.i, %255 ], [ %.sroa.067.3.i, %310 ], [ 0, %205 ], [ %.sroa.067.3.i, %311 ], [ %.sroa.067.3.i, %_ZN10rayon_core8registry8Registry9in_worker17hf3c0d6b8901bef62E.exit.i ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
@@ -53549,8 +53549,8 @@ _ZN9polars_io3csv4read6parser15is_comment_line17hdae6b36d99c2d9a4E.exit.thread: 
   br i1 %101, label %.lr.ph233, label %_ZN9polars_io3csv4read6parser15is_comment_line17hdae6b36d99c2d9a4E.exit.thread
 
 _ZN9polars_io3csv4read6parser14skip_this_line17hdc001ded78c5d549E.exit: ; preds = %120, %111, %127, %117, %105, %_ZN9polars_io3csv4read6parser15is_comment_line17hdae6b36d99c2d9a4E.exit.thread
-  %.sroa.27.3 = phi i64 [ %.sroa.27.2.lcssa, %_ZN9polars_io3csv4read6parser15is_comment_line17hdae6b36d99c2d9a4E.exit.thread ], [ %128, %127 ], [ 0, %117 ], [ 0, %105 ], [ 0, %111 ], [ 0, %120 ]
-  %.sroa.0.3 = phi ptr [ %.sroa.0.2.lcssa, %_ZN9polars_io3csv4read6parser15is_comment_line17hdae6b36d99c2d9a4E.exit.thread ], [ %129, %127 ], [ inttoptr (i64 1 to ptr), %117 ], [ inttoptr (i64 1 to ptr), %105 ], [ inttoptr (i64 1 to ptr), %111 ], [ inttoptr (i64 1 to ptr), %120 ]
+  %.sroa.27.3 = phi i64 [ %.sroa.27.2.lcssa, %_ZN9polars_io3csv4read6parser15is_comment_line17hdae6b36d99c2d9a4E.exit.thread ], [ %128, %127 ], [ 0, %111 ], [ 0, %117 ], [ 0, %105 ], [ 0, %120 ]
+  %.sroa.0.3 = phi ptr [ %.sroa.0.2.lcssa, %_ZN9polars_io3csv4read6parser15is_comment_line17hdae6b36d99c2d9a4E.exit.thread ], [ %129, %127 ], [ inttoptr (i64 1 to ptr), %111 ], [ inttoptr (i64 1 to ptr), %117 ], [ inttoptr (i64 1 to ptr), %105 ], [ inttoptr (i64 1 to ptr), %120 ]
   %.not137 = icmp eq i64 %9, 0
   br i1 %.not137, label %131, label %136
 
@@ -53608,7 +53608,7 @@ _ZN9polars_io3csv4read6parser14skip_this_line17hdc001ded78c5d549E.exit: ; preds 
   br label %_ZN9polars_io3csv4read6parser11find_quoted17he4ea86d45845a0ceE.exit.i
 
 _ZN9polars_io3csv4read6parser11find_quoted17he4ea86d45845a0ceE.exit.i: ; preds = %124, %115
-  %.sroa.3.0.i.pn.i = phi i64 [ %116, %115 ], [ %.sroa.02.012.i.i145, %124 ]
+  %.sroa.3.0.i.pn.i = phi i64 [ %.sroa.02.012.i.i145, %124 ], [ %116, %115 ]
   %126 = add nuw i64 %.sroa.3.0.i.pn.i, 1
   %.not.i148 = icmp ult i64 %.sroa.3.0.i.pn.i, %.sroa.27.2.lcssa
   br i1 %.not.i148, label %127, label %130, !prof !252

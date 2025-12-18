@@ -14462,8 +14462,8 @@ _ZN4core3ops8function6FnOnce9call_once17h4ef4b3d5b0576240E.exit.fold.split: ; pr
   br label %_ZN4core3ops8function6FnOnce9call_once17h4ef4b3d5b0576240E.exit
 
 _ZN4core3ops8function6FnOnce9call_once17h4ef4b3d5b0576240E.exit: ; preds = %32, %_ZN4core3ops8function6FnOnce9call_once17h4ef4b3d5b0576240E.exit.fold.split, %45, %44, %43, %42, %41, %40, %39, %38
-  %.sroa.06.0 = phi i32 [ 0, %32 ], [ 1, %38 ], [ 1, %39 ], [ 1, %40 ], [ 1, %41 ], [ 1, %42 ], [ 1, %43 ], [ 1, %44 ], [ 1, %45 ], [ 1, %_ZN4core3ops8function6FnOnce9call_once17h4ef4b3d5b0576240E.exit.fold.split ]
-  %.sroa.57.0 = phi float [ undef, %32 ], [ 2.000000e+02, %38 ], [ 3.000000e+02, %39 ], [ 4.000000e+02, %40 ], [ 5.000000e+02, %41 ], [ 6.000000e+02, %42 ], [ 7.000000e+02, %43 ], [ 8.000000e+02, %44 ], [ 9.000000e+02, %45 ], [ 1.000000e+02, %_ZN4core3ops8function6FnOnce9call_once17h4ef4b3d5b0576240E.exit.fold.split ]
+  %.sroa.06.0 = phi i32 [ 0, %32 ], [ 1, %45 ], [ 1, %38 ], [ 1, %39 ], [ 1, %40 ], [ 1, %41 ], [ 1, %42 ], [ 1, %43 ], [ 1, %44 ], [ 1, %_ZN4core3ops8function6FnOnce9call_once17h4ef4b3d5b0576240E.exit.fold.split ]
+  %.sroa.57.0 = phi float [ undef, %32 ], [ 9.000000e+02, %45 ], [ 2.000000e+02, %38 ], [ 3.000000e+02, %39 ], [ 4.000000e+02, %40 ], [ 5.000000e+02, %41 ], [ 6.000000e+02, %42 ], [ 7.000000e+02, %43 ], [ 8.000000e+02, %44 ], [ 1.000000e+02, %_ZN4core3ops8function6FnOnce9call_once17h4ef4b3d5b0576240E.exit.fold.split ]
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.0.sroa.4.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.627, i64 16, i1 false)
   %.sroa.6.sroa.4.0..sroa.6.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56

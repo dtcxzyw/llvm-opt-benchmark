@@ -899,7 +899,7 @@ ivi_init_tiles.exit:                              ; preds = %._crit_edge.i, %.pr
   br i1 %exitcond.not, label %ivi_init_tiles.exit.thread, label %12, !llvm.loop !100
 
 ivi_init_tiles.exit.thread:                       ; preds = %._crit_edge, %18, %.lr.ph.split.i, %.lr.ph.split.us.i, %126, %54, %17
-  %.052 = phi i32 [ -12, %54 ], [ -1163346256, %17 ], [ -1094995529, %126 ], [ -12, %.lr.ph.split.i ], [ -12, %.lr.ph.split.us.i ], [ -22, %18 ], [ 0, %._crit_edge ]
+  %.052 = phi i32 [ -12, %.lr.ph.split.i ], [ -12, %.lr.ph.split.us.i ], [ -12, %54 ], [ -1163346256, %17 ], [ -1094995529, %126 ], [ -22, %18 ], [ 0, %._crit_edge ]
   ret i32 %.052
 }
 
@@ -2370,7 +2370,7 @@ ivi_decode_coded_blocks.exit.i.i:                 ; preds = %819
   br label %859
 
 .loopexit.i:                                      ; preds = %612, %609, %603, %597, %592, %586, %578, %568, %840, %825, %ivi_decode_coded_blocks.exit.i.i, %ivi_decode_coded_blocks.exit.thread.i.i
-  %.4.i.ph.i = phi i32 [ -1094995529, %ivi_decode_coded_blocks.exit.thread.i.i ], [ %823, %ivi_decode_coded_blocks.exit.i.i ], [ %841, %840 ], [ -1094995529, %825 ], [ -1094995529, %568 ], [ -1094995529, %578 ], [ -1094995529, %586 ], [ -1094995529, %592 ], [ -1094995529, %597 ], [ -1094995529, %603 ], [ -1094995529, %609 ], [ -1094995529, %612 ]
+  %.4.i.ph.i = phi i32 [ %823, %ivi_decode_coded_blocks.exit.i.i ], [ -1094995529, %ivi_decode_coded_blocks.exit.thread.i.i ], [ %841, %840 ], [ -1094995529, %825 ], [ -1094995529, %568 ], [ -1094995529, %578 ], [ -1094995529, %586 ], [ -1094995529, %592 ], [ -1094995529, %597 ], [ -1094995529, %603 ], [ -1094995529, %609 ], [ -1094995529, %612 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.24) #10
   br label %ivi_process_empty_tile.exit.i
@@ -2394,7 +2394,7 @@ ivi_decode_coded_blocks.exit.i.i:                 ; preds = %819
   br label %ivi_process_empty_tile.exit.thread.i
 
 ivi_process_empty_tile.exit.thread.i:             ; preds = %450, %.split275.us.i, %864, %401, %300
-  %.1166.i = phi i32 [ %866, %864 ], [ %.0165276.i, %401 ], [ %.0165276.i, %300 ], [ %.0165276.i, %.split275.us.i ], [ %.0165276.i, %450 ]
+  %.1166.i = phi i32 [ %866, %864 ], [ %.0165276.i, %401 ], [ %.0165276.i, %.split275.us.i ], [ %.0165276.i, %300 ], [ %.0165276.i, %450 ]
   %indvars.iv.next334.i = add nuw nsw i64 %indvars.iv333.i, 1
   %867 = load i32, ptr %226, align 8, !tbaa !77
   %868 = sext i32 %867 to i64
@@ -2402,7 +2402,7 @@ ivi_process_empty_tile.exit.thread.i:             ; preds = %450, %.split275.us.
   br i1 %869, label %246, label %ivi_process_empty_tile.exit.i, !llvm.loop !171
 
 ivi_process_empty_tile.exit.i:                    ; preds = %ivi_process_empty_tile.exit.thread.i, %499, %.split.us.i, %.split.i, %863, %.loopexit.i, %498, %.critedge.i.i, %299, %._crit_edge.i
-  %.1.i = phi i32 [ -1094995529, %.critedge.i.i ], [ %.4.i.ph.i, %.loopexit.i ], [ -1094995529, %863 ], [ -1094995529, %498 ], [ -1094995529, %299 ], [ 0, %._crit_edge.i ], [ %423, %.split.us.i ], [ %435, %.split.i ], [ %501, %499 ], [ 0, %ivi_process_empty_tile.exit.thread.i ]
+  %.1.i = phi i32 [ -1094995529, %.critedge.i.i ], [ 0, %._crit_edge.i ], [ %.4.i.ph.i, %.loopexit.i ], [ -1094995529, %863 ], [ -1094995529, %498 ], [ -1094995529, %299 ], [ %423, %.split.us.i ], [ %435, %.split.i ], [ 0, %ivi_process_empty_tile.exit.thread.i ], [ %501, %499 ]
   %870 = load i32, ptr %177, align 8, !tbaa !133
   %871 = icmp sgt i32 %870, 0
   br i1 %871, label %.lr.ph284.i, label %._crit_edge285.i
@@ -2774,7 +2774,7 @@ decode_band.exit.thread:                          ; preds = %155, %prepare_buf.e
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader171, %1009, %.thread, %1068, %959, %951, %948, %.loopexit172, %933, %46, %49, %33, %4, %decode_band.exit.thread, %59, %54, %32
-  %.0 = phi i32 [ -1094995529, %59 ], [ %31, %32 ], [ -1094995529, %4 ], [ -1094995529, %33 ], [ -1163346256, %54 ], [ %.0.i169, %decode_band.exit.thread ], [ %14, %948 ], [ %957, %951 ], [ %960, %959 ], [ %14, %.thread ], [ -1, %.loopexit172 ], [ %14, %46 ], [ -1094995529, %933 ], [ %14, %49 ], [ %14, %1068 ], [ -1094995529, %1009 ], [ -1094995529, %.preheader171 ]
+  %.0 = phi i32 [ -1094995529, %59 ], [ %31, %32 ], [ -1094995529, %4 ], [ -1094995529, %33 ], [ -1163346256, %54 ], [ %.0.i169, %decode_band.exit.thread ], [ -1094995529, %1009 ], [ %14, %948 ], [ %957, %951 ], [ %960, %959 ], [ %14, %.thread ], [ -1, %.loopexit172 ], [ %14, %46 ], [ -1094995529, %933 ], [ %14, %49 ], [ %14, %1068 ], [ -1094995529, %.preheader171 ]
   ret i32 %.0
 }
 

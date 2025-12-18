@@ -6806,7 +6806,7 @@ _ZSt4copyIPN2cv5Size_IiEES3_ET0_T_S5_S4_.exit.i:  ; preds = %2059, %2058
   br i1 %.not.i.i.i.i.i678, label %_ZNSt6vectorIN2cv5Size_IiEESaIS2_EEaSERKS4_.exit, label %.lr.ph.i.i.i.i.i677, !llvm.loop !145
 
 _ZNSt6vectorIN2cv5Size_IiEESaIS2_EEaSERKS4_.exit: ; preds = %.lr.ph.i.i.i.i.i677, %_ZSt4copyIPN2cv5Size_IiEES3_ET0_T_S5_S4_.exit.i, %2057, %2056, %_ZNSt6vectorIN2cv5Size_IiEESaIS2_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS2_S4_EEEEPS2_mT_SC_.exit.i
-  %.sroa.01256.7 = phi ptr [ %.sroa.01256.6, %2057 ], [ %.sroa.01256.6, %_ZSt4copyIPN2cv5Size_IiEES3_ET0_T_S5_S4_.exit.i ], [ %.sroa.01256.6, %2056 ], [ %2048, %_ZNSt6vectorIN2cv5Size_IiEESaIS2_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS2_S4_EEEEPS2_mT_SC_.exit.i ], [ %.sroa.01256.6, %.lr.ph.i.i.i.i.i677 ]
+  %.sroa.01256.7 = phi ptr [ %.sroa.01256.6, %2057 ], [ %.sroa.01256.6, %_ZSt4copyIPN2cv5Size_IiEES3_ET0_T_S5_S4_.exit.i ], [ %2048, %_ZNSt6vectorIN2cv5Size_IiEESaIS2_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS2_S4_EEEEPS2_mT_SC_.exit.i ], [ %.sroa.01256.6, %2056 ], [ %.sroa.01256.6, %.lr.ph.i.i.i.i.i677 ]
   %2064 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Z9img_namesB5cxx11, i64 8), align 8, !tbaa !10
   %2065 = load ptr, ptr @_Z9img_namesB5cxx11, align 8, !tbaa !4
   %2066 = ptrtoint ptr %2064 to i64

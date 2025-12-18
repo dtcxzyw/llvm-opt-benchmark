@@ -7795,7 +7795,7 @@ define internal fastcc i32 @ext4_mb_regular_allocator(ptr noundef nonnull %0) un
   br label %184
 
 .thread77.thread:                                 ; preds = %45, %28
-  %183 = phi i32 [ -117, %28 ], [ %47, %45 ]
+  %183 = phi i32 [ %47, %45 ], [ -117, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread77.thread437
 
@@ -9393,8 +9393,8 @@ default.unreachable427:                           ; preds = %901
   unreachable
 
 .loopexit78:                                      ; preds = %965, %.loopexit81, %1163, %.loopexit80, %1042, %956, %915, %902, %.critedge44, %893
-  %1169 = phi i32 [ %294, %.loopexit81 ], [ %1165, %1163 ], [ %294, %.loopexit80 ], [ %1044, %1042 ], [ %294, %902 ], [ %958, %956 ], [ %900, %.critedge44 ], [ %294, %893 ], [ %294, %915 ], [ %294, %965 ]
-  %1170 = phi i32 [ 3, %.loopexit81 ], [ %871, %1163 ], [ %1050, %.loopexit80 ], [ %871, %1042 ], [ 0, %902 ], [ %871, %956 ], [ %871, %.critedge44 ], [ %871, %893 ], [ 1, %915 ], [ 1, %965 ]
+  %1169 = phi i32 [ %294, %915 ], [ %294, %.loopexit81 ], [ %1165, %1163 ], [ %294, %.loopexit80 ], [ %1044, %1042 ], [ %294, %902 ], [ %958, %956 ], [ %900, %.critedge44 ], [ %294, %893 ], [ %294, %965 ]
+  %1170 = phi i32 [ 1, %915 ], [ 3, %.loopexit81 ], [ %871, %1163 ], [ %1050, %.loopexit80 ], [ %871, %1042 ], [ 0, %902 ], [ %871, %956 ], [ %871, %.critedge44 ], [ %871, %893 ], [ 1, %965 ]
   %1171 = icmp eq i32 %869, %23
   br i1 %1171, label %.thread67.loopexit, label %288, !llvm.loop !247
 

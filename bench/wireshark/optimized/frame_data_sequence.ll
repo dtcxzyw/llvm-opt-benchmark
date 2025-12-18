@@ -371,7 +371,7 @@ define void @free_frame_data_sequence(ptr noundef %0) local_unnamed_addr #0 {
   br label %9
 
 9:                                                ; preds = %3, %5, %7
-  %.0 = phi i32 [ 2, %5 ], [ 1, %3 ], [ %., %7 ]
+  %.0 = phi i32 [ 2, %5 ], [ %., %7 ], [ 1, %3 ]
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call fastcc void @free_frame_data_array(ptr noundef %11, i32 noundef %2, i32 noundef %.0, i1 noundef zeroext true)

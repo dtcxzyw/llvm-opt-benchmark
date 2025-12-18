@@ -793,7 +793,7 @@ list_length.exit:                                 ; preds = %._crit_edge138
   br label %process_duplicate_ors.exit
 
 process_duplicate_ors.exit:                       ; preds = %169, %32, %is_orclause.exit, %.split, %3, %2, %.split164, %list_length.exit139.thread.i, %146, %.critedge121.thread.i, %50, %43, %199, %204, %207
-  %.5 = phi ptr [ %0, %3 ], [ %0, %is_orclause.exit ], [ %200, %199 ], [ %206, %204 ], [ %208, %207 ], [ %44, %43 ], [ %52, %50 ], [ %106, %.critedge121.thread.i ], [ %148, %146 ], [ %150, %list_length.exit139.thread.i ], [ %30, %.split164 ], [ null, %2 ], [ %191, %.split ], [ %18, %32 ], [ %161, %169 ]
+  %.5 = phi ptr [ %0, %3 ], [ %191, %.split ], [ %0, %is_orclause.exit ], [ %200, %199 ], [ %206, %204 ], [ %208, %207 ], [ %44, %43 ], [ %52, %50 ], [ %106, %.critedge121.thread.i ], [ %148, %146 ], [ %150, %list_length.exit139.thread.i ], [ %30, %.split164 ], [ %18, %32 ], [ null, %2 ], [ %161, %169 ]
   ret ptr %.5
 }
 

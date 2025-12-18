@@ -459,7 +459,7 @@ define dso_local i32 @utf16s_to_utf8s(ptr noundef readonly captures(none) %0, i3
   br i1 %91, label %.loopexit10, label %62, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit12, %69
-  %.ph = phi i32 [ %65, %69 ], [ 0, %.loopexit12 ], [ %65, %.preheader ]
+  %.ph = phi i32 [ 0, %.loopexit12 ], [ %65, %69 ], [ %65, %.preheader ]
   %92 = sext i32 %.ph to i64
   %93 = getelementptr i8, ptr %12, i64 %92
   %94 = sub i32 %13, %.ph

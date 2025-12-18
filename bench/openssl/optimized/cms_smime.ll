@@ -147,8 +147,8 @@ cms_get_text_bio.exit:                            ; preds = %6, %11
   br label %.loopexit
 
 .loopexit:                                        ; preds = %27, %29, %31, %26, %22, %33, %16
-  %.0.i30 = phi ptr [ null, %16 ], [ %.0.i31, %22 ], [ %.0.i31, %33 ], [ %.0.i31, %26 ], [ %.0.i31, %31 ], [ %.0.i31, %29 ], [ %.0.i31, %27 ]
-  %.0 = phi i32 [ 0, %16 ], [ 0, %22 ], [ 0, %33 ], [ 0, %26 ], [ 1, %31 ], [ 1, %29 ], [ 0, %27 ]
+  %.0.i30 = phi ptr [ null, %16 ], [ %.0.i31, %22 ], [ %.0.i31, %29 ], [ %.0.i31, %33 ], [ %.0.i31, %26 ], [ %.0.i31, %31 ], [ %.0.i31, %27 ]
+  %.0 = phi i32 [ 0, %16 ], [ 0, %22 ], [ 1, %29 ], [ 0, %33 ], [ 0, %26 ], [ 1, %31 ], [ 0, %27 ]
   %.not24 = icmp eq ptr %.0.i30, %0
   br i1 %.not24, label %36, label %34
 
@@ -852,7 +852,7 @@ cms_signerinfo_verify_cert.exit.thread:           ; preds = %80, %91, %84
   br i1 %exitcond243.not, label %.loopexit216, label %.lr.ph229.split, !llvm.loop !18
 
 .loopexit216:                                     ; preds = %124, %117, %68, %.loopexit218
-  %.1135270 = phi ptr [ %.1135, %.loopexit218 ], [ %.2, %68 ], [ %.1135, %117 ], [ %.1135, %124 ]
+  %.1135270 = phi ptr [ %.1135, %117 ], [ %.2, %68 ], [ %.1135, %.loopexit218 ], [ %.1135, %124 ]
   br i1 %15, label %126, label %.thread206
 
 126:                                              ; preds = %.loopexit216
@@ -994,12 +994,12 @@ cms_get_text_bio.exit.thread:                     ; preds = %146, %cms_get_text_
   br label %.loopexit
 
 .loopexit:                                        ; preds = %121, %113, %106, %172, %.preheader214, %cms_signerinfo_verify_cert.exit.thread, %168, %166, %.thread206, %156, %cms_get_text_bio.exit.thread, %66, %61, %56, %51, %179, %163, %153, %46, %33
-  %.0148 = phi i32 [ 0, %33 ], [ %.3151, %46 ], [ %.3151, %51 ], [ %.3151, %cms_signerinfo_verify_cert.exit.thread ], [ %.3151, %153 ], [ %.3151, %cms_get_text_bio.exit.thread ], [ %.3151, %56 ], [ %.3151, %179 ], [ %.3151, %163 ], [ %.3151, %156 ], [ %.3151, %.thread206 ], [ %.3151, %166 ], [ %.3151, %66 ], [ %.3151, %61 ], [ %.3151, %168 ], [ %.3151, %.preheader214 ], [ %.3151, %113 ], [ %.3151, %172 ], [ %.3151, %106 ], [ %.3151, %121 ]
-  %.0146 = phi i32 [ 0, %33 ], [ 0, %46 ], [ 0, %51 ], [ 0, %cms_signerinfo_verify_cert.exit.thread ], [ 0, %153 ], [ 0, %cms_get_text_bio.exit.thread ], [ 0, %56 ], [ 0, %179 ], [ 0, %163 ], [ 0, %156 ], [ 0, %.thread206 ], [ 0, %166 ], [ 0, %66 ], [ 0, %61 ], [ 1, %168 ], [ 1, %.preheader214 ], [ 0, %113 ], [ 1, %172 ], [ 0, %106 ], [ 0, %121 ]
-  %.0144 = phi ptr [ null, %33 ], [ null, %46 ], [ null, %51 ], [ null, %cms_signerinfo_verify_cert.exit.thread ], [ null, %153 ], [ null, %cms_get_text_bio.exit.thread ], [ null, %56 ], [ %.1145, %179 ], [ %154, %163 ], [ %154, %156 ], [ null, %.thread206 ], [ %164, %166 ], [ null, %66 ], [ null, %61 ], [ %.1145, %168 ], [ %.1145, %.preheader214 ], [ null, %113 ], [ %.1145, %172 ], [ null, %106 ], [ null, %121 ]
-  %.0142 = phi ptr [ null, %33 ], [ null, %46 ], [ null, %51 ], [ null, %cms_signerinfo_verify_cert.exit.thread ], [ %.1143, %153 ], [ %.1143, %cms_get_text_bio.exit.thread ], [ null, %56 ], [ %.1143210, %179 ], [ %.1143, %163 ], [ %.1143, %156 ], [ %.1143209, %.thread206 ], [ %.1143209, %166 ], [ null, %66 ], [ null, %61 ], [ %.1143210, %168 ], [ %.1143210, %.preheader214 ], [ null, %113 ], [ %.1143210, %172 ], [ null, %106 ], [ null, %121 ]
-  %.0140 = phi ptr [ null, %33 ], [ null, %46 ], [ null, %51 ], [ null, %cms_signerinfo_verify_cert.exit.thread ], [ null, %153 ], [ %.0.i190212, %cms_get_text_bio.exit.thread ], [ null, %56 ], [ %.1141, %179 ], [ %.0.i190212, %163 ], [ %.0.i190212, %156 ], [ null, %.thread206 ], [ null, %166 ], [ null, %66 ], [ null, %61 ], [ %.1141, %168 ], [ %.1141, %.preheader214 ], [ null, %113 ], [ %.1141, %172 ], [ null, %106 ], [ null, %121 ]
-  %.0134 = phi ptr [ null, %33 ], [ null, %46 ], [ null, %51 ], [ %.2, %cms_signerinfo_verify_cert.exit.thread ], [ %.1135270, %153 ], [ %.1135270, %cms_get_text_bio.exit.thread ], [ %.2, %56 ], [ %.1135270, %179 ], [ %.1135270, %163 ], [ %.1135270, %156 ], [ %.1135270, %.thread206 ], [ %.1135270, %166 ], [ %.2, %66 ], [ %.2, %61 ], [ %.1135270, %168 ], [ %.1135270, %.preheader214 ], [ %.1135, %113 ], [ %.1135270, %172 ], [ %.1135, %106 ], [ %.1135, %121 ]
+  %.0148 = phi i32 [ 0, %33 ], [ %.3151, %46 ], [ %.3151, %51 ], [ %.3151, %cms_signerinfo_verify_cert.exit.thread ], [ %.3151, %.preheader214 ], [ %.3151, %168 ], [ %.3151, %153 ], [ %.3151, %cms_get_text_bio.exit.thread ], [ %.3151, %56 ], [ %.3151, %179 ], [ %.3151, %163 ], [ %.3151, %156 ], [ %.3151, %.thread206 ], [ %.3151, %166 ], [ %.3151, %66 ], [ %.3151, %61 ], [ %.3151, %113 ], [ %.3151, %172 ], [ %.3151, %106 ], [ %.3151, %121 ]
+  %.0146 = phi i32 [ 0, %33 ], [ 0, %46 ], [ 0, %51 ], [ 0, %cms_signerinfo_verify_cert.exit.thread ], [ 1, %.preheader214 ], [ 1, %168 ], [ 0, %153 ], [ 0, %cms_get_text_bio.exit.thread ], [ 0, %56 ], [ 0, %179 ], [ 0, %163 ], [ 0, %156 ], [ 0, %.thread206 ], [ 0, %166 ], [ 0, %66 ], [ 0, %61 ], [ 0, %113 ], [ 1, %172 ], [ 0, %106 ], [ 0, %121 ]
+  %.0144 = phi ptr [ null, %33 ], [ null, %46 ], [ null, %51 ], [ null, %cms_signerinfo_verify_cert.exit.thread ], [ %.1145, %.preheader214 ], [ %.1145, %168 ], [ null, %153 ], [ null, %cms_get_text_bio.exit.thread ], [ null, %56 ], [ %.1145, %179 ], [ %154, %163 ], [ %154, %156 ], [ null, %.thread206 ], [ %164, %166 ], [ null, %66 ], [ null, %61 ], [ null, %113 ], [ %.1145, %172 ], [ null, %106 ], [ null, %121 ]
+  %.0142 = phi ptr [ null, %33 ], [ null, %46 ], [ null, %51 ], [ null, %cms_signerinfo_verify_cert.exit.thread ], [ %.1143210, %.preheader214 ], [ %.1143210, %168 ], [ %.1143, %153 ], [ %.1143, %cms_get_text_bio.exit.thread ], [ null, %56 ], [ %.1143210, %179 ], [ %.1143, %163 ], [ %.1143, %156 ], [ %.1143209, %.thread206 ], [ %.1143209, %166 ], [ null, %66 ], [ null, %61 ], [ null, %113 ], [ %.1143210, %172 ], [ null, %106 ], [ null, %121 ]
+  %.0140 = phi ptr [ null, %33 ], [ null, %46 ], [ null, %51 ], [ null, %cms_signerinfo_verify_cert.exit.thread ], [ %.1141, %.preheader214 ], [ %.1141, %168 ], [ null, %153 ], [ %.0.i190212, %cms_get_text_bio.exit.thread ], [ null, %56 ], [ %.1141, %179 ], [ %.0.i190212, %163 ], [ %.0.i190212, %156 ], [ null, %.thread206 ], [ null, %166 ], [ null, %66 ], [ null, %61 ], [ null, %113 ], [ %.1141, %172 ], [ null, %106 ], [ null, %121 ]
+  %.0134 = phi ptr [ null, %33 ], [ null, %46 ], [ null, %51 ], [ %.2, %cms_signerinfo_verify_cert.exit.thread ], [ %.1135270, %.preheader214 ], [ %.1135270, %168 ], [ %.1135270, %153 ], [ %.1135270, %cms_get_text_bio.exit.thread ], [ %.2, %56 ], [ %.1135270, %179 ], [ %.1135270, %163 ], [ %.1135270, %156 ], [ %.1135270, %.thread206 ], [ %.1135270, %166 ], [ %.2, %66 ], [ %.2, %61 ], [ %.1135, %113 ], [ %.1135270, %172 ], [ %.1135, %106 ], [ %.1135, %121 ]
   %180 = and i32 %.0131, 128
   %181 = icmp eq i32 %180, 0
   %or.cond7 = and i1 %15, %181
@@ -1345,8 +1345,8 @@ define ptr @CMS_sign_receipt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   br label %43
 
 41:                                               ; preds = %37, %35, %33, %27, %24, %18, %11, %23
-  %.038 = phi ptr [ null, %11 ], [ null, %24 ], [ %25, %27 ], [ %25, %37 ], [ %25, %35 ], [ %25, %33 ], [ null, %23 ], [ null, %18 ]
-  %.037 = phi ptr [ null, %11 ], [ null, %24 ], [ null, %27 ], [ %31, %37 ], [ %31, %35 ], [ %31, %33 ], [ null, %23 ], [ null, %18 ]
+  %.038 = phi ptr [ null, %11 ], [ null, %24 ], [ %25, %27 ], [ %25, %37 ], [ null, %18 ], [ %25, %35 ], [ %25, %33 ], [ null, %23 ]
+  %.037 = phi ptr [ null, %11 ], [ null, %24 ], [ null, %27 ], [ %31, %37 ], [ null, %18 ], [ %31, %35 ], [ %31, %33 ], [ null, %23 ]
   %42 = tail call i32 @BIO_free(ptr noundef %.037) #4
   tail call void @CMS_ContentInfo_free(ptr noundef %16) #4
   tail call void @ASN1_OCTET_STRING_free(ptr noundef %.038) #4
@@ -1427,8 +1427,8 @@ define ptr @CMS_encrypt_ex(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
   br i1 %.not28, label %.loopexit, label %31
 
 .loopexit:                                        ; preds = %.lr.ph, %29, %13
-  %.sink33 = phi i32 [ 653, %13 ], [ 671, %29 ], [ 659, %.lr.ph ]
-  %.sink = phi i32 [ 524334, %13 ], [ 524334, %29 ], [ 137, %.lr.ph ]
+  %.sink33 = phi i32 [ 671, %29 ], [ 653, %13 ], [ 659, %.lr.ph ]
+  %.sink = phi i32 [ 524334, %29 ], [ 524334, %13 ], [ 137, %.lr.ph ]
   tail call void @ERR_new() #4
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink33, ptr noundef nonnull @__func__.CMS_encrypt_ex) #4
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 46, i32 noundef %.sink, ptr noundef null) #4
@@ -1593,7 +1593,7 @@ define range(i32 0, 2) i32 @CMS_decrypt_set1_pkey_and_peer(ptr noundef %0, ptr n
   br i1 %or.cond74, label %cms_kari_set1_pkey_and_peer.exit.thread81, label %cms_kari_set1_pkey_and_peer.exit
 
 cms_kari_set1_pkey_and_peer.exit:                 ; preds = %34, %.split.i, %57, %45, %29, %23
-  %.161 = phi i32 [ %.06092, %23 ], [ 1, %29 ], [ 1, %45 ], [ 1, %57 ], [ 1, %.split.i ], [ 1, %34 ]
+  %.161 = phi i32 [ %.06092, %23 ], [ 1, %29 ], [ 1, %.split.i ], [ 1, %45 ], [ 1, %57 ], [ 1, %34 ]
   %59 = add nuw nsw i32 %.05993, 1
   %60 = tail call i32 @OPENSSL_sk_num(ptr noundef %5) #4
   %61 = icmp slt i32 %59, %60
@@ -1719,15 +1719,15 @@ define range(i32 0, 2) i32 @CMS_decrypt_set1_key(ptr noundef %0, ptr noundef %1,
   br i1 %36, label %.loopexit.sink.split, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %32, %._crit_edge, %5, %27
-  %.sink35 = phi i32 [ 822, %27 ], [ 830, %5 ], [ 830, %._crit_edge ], [ 830, %32 ]
-  %.sink = phi i32 [ 112, %27 ], [ 132, %5 ], [ 132, %._crit_edge ], [ 132, %32 ]
+  %.sink35 = phi i32 [ 822, %27 ], [ 830, %._crit_edge ], [ 830, %5 ], [ 830, %32 ]
+  %.sink = phi i32 [ 112, %27 ], [ 132, %._crit_edge ], [ 132, %5 ], [ 132, %32 ]
   tail call void @ERR_new() #4
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink35, ptr noundef nonnull @__func__.CMS_decrypt_set1_key) #4
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 46, i32 noundef %.sink, ptr noundef null) #4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %12, %.loopexit.sink.split, %27, %._crit_edge
-  %.020 = phi i32 [ 0, %._crit_edge ], [ 1, %27 ], [ 0, %.loopexit.sink.split ], [ 1, %12 ]
+  %.020 = phi i32 [ 0, %._crit_edge ], [ 0, %.loopexit.sink.split ], [ 1, %27 ], [ 1, %12 ]
   ret i32 %.020
 }
 
@@ -1789,7 +1789,7 @@ define range(i32 0, 2) i32 @CMS_decrypt_set1_password(ptr noundef %0, ptr nounde
   br label %.loopexit
 
 .loopexit:                                        ; preds = %16, %._crit_edge, %._crit_edge.thread
-  %.0 = phi i32 [ 0, %._crit_edge.thread ], [ 0, %._crit_edge ], [ 1, %16 ]
+  %.0 = phi i32 [ 0, %._crit_edge ], [ 0, %._crit_edge.thread ], [ 1, %16 ]
   ret i32 %.0
 }
 

@@ -965,7 +965,7 @@ define dso_local noundef zeroext i1 @intel_dsi_vbt_init(ptr noundef initializes(
   br i1 %194, label %.critedge, label %179, !llvm.loop !23
 
 .critedge:                                        ; preds = %192, %125, %140
-  %195 = phi i1 [ false, %140 ], [ false, %125 ], [ true, %192 ]
+  %195 = phi i1 [ false, %125 ], [ false, %140 ], [ true, %192 ]
   ret i1 %195
 }
 

@@ -15620,7 +15620,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit16: ; pred
   br label %.thread
 
 .thread:                                          ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, %52, %37, %.lr.ph, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.us, %21, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.us, %.preheader.split.us, %67, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit, %.preheader.split
-  %.135 = phi i64 [ 0, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit ], [ %69, %67 ], [ 0, %.preheader.split.us ], [ 0, %.preheader.split ], [ %39, %37 ], [ %.013.us45, %21 ], [ %.013.us45, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.us ], [ %.013.us45, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.us ], [ %.013.us45, %.lr.ph ], [ 0, %52 ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ]
+  %.135 = phi i64 [ %.013.us45, %21 ], [ %69, %67 ], [ 0, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit ], [ 0, %.preheader.split.us ], [ 0, %.preheader.split ], [ %39, %37 ], [ %.013.us45, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.us ], [ %.013.us45, %.lr.ph ], [ %.013.us45, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.us ], [ 0, %52 ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ]
   %70 = sub i64 %0, %.135
   %71 = load i64, ptr %13, align 8, !tbaa !66
   %72 = sub i64 4611686018427387903, %71
@@ -28992,7 +28992,7 @@ _ZSt8_DestroyISt6threadEvPT_.exit.i.i.i.i:        ; preds = %._crit_edge, %6
   unreachable
 
 _ZSt8_DestroyIPSt6threadS0_EvT_S2_RSaIT0_E.exit.i: ; preds = %6, %1, %._crit_edge
-  %9 = phi ptr [ %.pre, %._crit_edge ], [ %3, %1 ], [ %.pre, %6 ]
+  %9 = phi ptr [ %3, %1 ], [ %.pre, %._crit_edge ], [ %.pre, %6 ]
   %.not.i.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorISt6threadSaIS0_EED2Ev.exit, label %10
 
@@ -29058,7 +29058,7 @@ _ZSt8_DestroyISt6threadEvPT_.exit.i.i.i.i.i:      ; preds = %._crit_edge.i, %6
   unreachable
 
 _ZSt8_DestroyIPSt6threadS0_EvT_S2_RSaIT0_E.exit.i.i: ; preds = %6, %._crit_edge.i, %1
-  %9 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %3, %1 ], [ %.pre.i, %6 ]
+  %9 = phi ptr [ %3, %1 ], [ %.pre.i, %._crit_edge.i ], [ %.pre.i, %6 ]
   %.not.i.i.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i.i.i, label %_ZN13sentencepiece10ThreadPoolD2Ev.exit, label %10
 

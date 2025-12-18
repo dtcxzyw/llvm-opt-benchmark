@@ -3650,7 +3650,7 @@ define range(i32 -1366, 1) i32 @pmix_hwloc_compute_distances(ptr noundef readonl
   br i1 %exitcond.not, label %.loopexit471, label %.lr.ph, !llvm.loop !129
 
 .loopexit471:                                     ; preds = %32, %18, %.preheader472
-  %.1258 = phi i64 [ 0, %.preheader472 ], [ 63, %18 ], [ %.3260, %32 ]
+  %.1258 = phi i64 [ 63, %18 ], [ 0, %.preheader472 ], [ %.3260, %32 ]
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = load ptr, ptr %34, align 8, !tbaa !41
   %36 = call i32 @hwloc_topology_get_depth(ptr noundef %35) #18
@@ -5038,7 +5038,7 @@ pmix_obj_run_destructors.exit441:                 ; preds = %.lr.ph.i437, %._cri
   br label %.critedge314
 
 .critedge314:                                     ; preds = %.lr.ph.i362, %.lr.ph.i418, %.lr.ph.i401, %.lr.ph.i349, %.lr.ph.i333, %.loopexit471, %._crit_edge539, %._crit_edge541, %._crit_edge543, %._crit_edge545, %._crit_edge547, %581, %dsearch.exit.thread, %14, %16, %6, %11, %pmix_obj_run_destructors.exit441
-  %.0 = phi i32 [ 0, %pmix_obj_run_destructors.exit441 ], [ -27, %6 ], [ -1366, %14 ], [ -46, %581 ], [ -64, %dsearch.exit.thread ], [ -27, %11 ], [ -1366, %16 ], [ -1, %._crit_edge547 ], [ -1, %._crit_edge545 ], [ -46, %._crit_edge543 ], [ -1, %._crit_edge541 ], [ -1, %._crit_edge539 ], [ -64, %.loopexit471 ], [ -1, %.lr.ph.i418 ], [ -1, %.lr.ph.i333 ], [ -1, %.lr.ph.i349 ], [ -46, %.lr.ph.i401 ], [ -1, %.lr.ph.i362 ]
+  %.0 = phi i32 [ 0, %pmix_obj_run_destructors.exit441 ], [ -27, %6 ], [ -1366, %14 ], [ -1, %.lr.ph.i418 ], [ -1, %.lr.ph.i333 ], [ -46, %581 ], [ -46, %.lr.ph.i401 ], [ -64, %dsearch.exit.thread ], [ -27, %11 ], [ -1366, %16 ], [ -1, %._crit_edge539 ], [ -1, %._crit_edge547 ], [ -1, %._crit_edge545 ], [ -46, %._crit_edge543 ], [ -1, %._crit_edge541 ], [ -64, %.loopexit471 ], [ -1, %.lr.ph.i349 ], [ -1, %.lr.ph.i362 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0

@@ -3558,7 +3558,7 @@ if.then14:                                        ; preds = %while.cond
   br label %return
 
 return:                                           ; preds = %while.cond.i, %while.cond, %while.body, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i, %entry, %if.then14
-  %retval.0 = phi i1 [ true, %if.then14 ], [ false, %entry ], [ false, %while.cond ], [ false, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i ], [ false, %while.body ], [ false, %while.cond.i ]
+  %retval.0 = phi i1 [ false, %entry ], [ true, %if.then14 ], [ false, %while.cond ], [ false, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i ], [ false, %while.body ], [ false, %while.cond.i ]
   ret i1 %retval.0
 }
 

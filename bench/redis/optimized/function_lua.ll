@@ -279,10 +279,10 @@ luaRegisterFunctionReadFlags.exit.i.i:            ; preds = %._crit_edge.loopexi
   br label %63
 
 63:                                               ; preds = %62, %31
-  %.166.i.i = phi i64 [ %.267.i.i, %62 ], [ %.065143.i.i, %31 ]
-  %.245.i.i = phi ptr [ %.346.i.i, %62 ], [ %.144144.i.i, %31 ]
-  %.242.i.i = phi ptr [ %.3.i.i, %62 ], [ %.141145.i.i, %31 ]
-  %.239.i.i = phi ptr [ %.138146.i.i, %62 ], [ %33, %31 ]
+  %.166.i.i = phi i64 [ %.065143.i.i, %31 ], [ %.267.i.i, %62 ]
+  %.245.i.i = phi ptr [ %.144144.i.i, %31 ], [ %.346.i.i, %62 ]
+  %.242.i.i = phi ptr [ %.141145.i.i, %31 ], [ %.3.i.i, %62 ]
+  %.239.i.i = phi ptr [ %33, %31 ], [ %.138146.i.i, %62 ]
   %64 = tail call i32 @lua_next(ptr noundef %0, i32 noundef -2) #9
   %.not.i.i = icmp eq i32 %64, 0
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
@@ -361,10 +361,10 @@ luaRegisterFunctionReadFlags.exit.i.i:            ; preds = %._crit_edge.loopexi
   br label %89
 
 luaRegisterFunctionReadArgs.exit:                 ; preds = %75, %65
-  %.sroa.0.0 = phi ptr [ %71, %75 ], [ %.245.i.i, %65 ]
-  %.sroa.7.0 = phi ptr [ null, %75 ], [ %.242.i.i, %65 ]
-  %.sroa.11.0 = phi ptr [ %77, %75 ], [ %.239.i.i, %65 ]
-  %.sroa.16.0 = phi i64 [ 0, %75 ], [ %.166.i.i, %65 ]
+  %.sroa.0.0 = phi ptr [ %.245.i.i, %65 ], [ %71, %75 ]
+  %.sroa.7.0 = phi ptr [ %.242.i.i, %65 ], [ null, %75 ]
+  %.sroa.11.0 = phi ptr [ %.239.i.i, %65 ], [ %77, %75 ]
+  %.sroa.16.0 = phi i64 [ %.166.i.i, %65 ], [ 0, %75 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !22
   %80 = load ptr, ptr %3, align 8, !tbaa !23

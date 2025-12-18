@@ -1153,7 +1153,7 @@ define hidden ptr @_PyCodec_Lookup(ptr noundef %0) local_unnamed_addr #0 {
   br label %normalizestring.exit
 
 normalizestring.exit:                             ; preds = %20, %26
-  %.0.i = phi ptr [ %21, %20 ], [ %27, %26 ]
+  %.0.i = phi ptr [ %27, %26 ], [ %21, %20 ]
   store ptr %.0.i, ptr %2, align 8, !tbaa !21
   %28 = icmp eq ptr %.0.i, null
   br i1 %28, label %normalizestring.exit.thread, label %29
@@ -1296,7 +1296,7 @@ Py_DECREF.exit40:                                 ; preds = %Py_DECREF.exit40thr
   call void @_Py_Dealloc(ptr noundef nonnull %83) #10
   br label %Py_DECREF.exit34
 
-89:                                               ; preds = %74, %69, %71
+89:                                               ; preds = %71, %69, %74
   %90 = add nuw nsw i64 %.02457, 1
   %exitcond.not = icmp eq i64 %90, %48
   br i1 %exitcond.not, label %Py_DECREF.exit38, label %.lr.ph, !llvm.loop !108
@@ -3386,7 +3386,7 @@ PyUnicode_READ_CHAR.exit.us:                      ; preds = %PyUnicode_READ_CHAR
   br i1 %exitcond172.not, label %._crit_edge, label %PyUnicode_READ_CHAR.exit.us, !llvm.loop !121
 
 ._crit_edge:                                      ; preds = %_PyUnicode_DATA.exit17.i.us, %_PyUnicode_DATA.exit17.i.us.us, %PyUnicode_READ_CHAR.exit, %PyUnicode_READ_CHAR.exit.us, %PyUnicode_READ_CHAR.exit.thread.thread.us.preheader, %84
-  %.066.lcssa = phi i64 [ 0, %84 ], [ %95, %PyUnicode_READ_CHAR.exit.thread.thread.us.preheader ], [ %.167.us147.us, %_PyUnicode_DATA.exit17.i.us.us ], [ %108, %PyUnicode_READ_CHAR.exit.us ], [ %116, %PyUnicode_READ_CHAR.exit ], [ %.167.us147, %_PyUnicode_DATA.exit17.i.us ]
+  %.066.lcssa = phi i64 [ 0, %84 ], [ %108, %PyUnicode_READ_CHAR.exit.us ], [ %116, %PyUnicode_READ_CHAR.exit ], [ %95, %PyUnicode_READ_CHAR.exit.thread.thread.us.preheader ], [ %.167.us147.us, %_PyUnicode_DATA.exit17.i.us.us ], [ %.167.us147, %_PyUnicode_DATA.exit17.i.us ]
   %110 = call ptr @PyUnicode_New(i64 noundef %.066.lcssa, i32 noundef 127) #10
   %111 = icmp eq ptr %110, null
   br i1 %111, label %118, label %125
@@ -5565,7 +5565,7 @@ define internal fastcc range(i32 -1, 5) i32 @get_standard_encoding(ptr noundef n
   br label %.thread48
 
 .thread48:                                        ; preds = %27, %29, %34, %50, %43, %68, %75, %59, %84, %79, %54, %63, %38, %87, %33
-  %.0 = phi i32 [ 0, %33 ], [ 0, %87 ], [ 2, %38 ], [ %switch.select43, %54 ], [ %switch.select47, %79 ], [ 4, %63 ], [ -1, %84 ], [ -1, %27 ], [ -1, %59 ], [ -1, %75 ], [ -1, %68 ], [ -1, %43 ], [ -1, %50 ], [ -1, %34 ], [ -1, %29 ]
+  %.0 = phi i32 [ 0, %33 ], [ 0, %87 ], [ 2, %38 ], [ %switch.select43, %54 ], [ 4, %63 ], [ %switch.select47, %79 ], [ -1, %84 ], [ -1, %27 ], [ -1, %59 ], [ -1, %75 ], [ -1, %68 ], [ -1, %43 ], [ -1, %50 ], [ -1, %34 ], [ -1, %29 ]
   ret i32 %.0
 }
 

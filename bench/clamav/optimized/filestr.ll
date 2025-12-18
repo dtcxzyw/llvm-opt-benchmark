@@ -113,13 +113,13 @@ _ZN5ArrayIhEC2Em.exit:                            ; preds = %_ZN5ArrayIhEC2Em.ex
   %43 = icmp eq ptr %42, null
   br i1 %43, label %44, label %_ZN5ArrayIhEC2Em.exit.outer.backedge
 
+_ZN5ArrayIhEC2Em.exit.outer.backedge:             ; preds = %38, %44
+  %.sroa.0226.0.ph.be = phi ptr [ null, %44 ], [ %42, %38 ]
+  br label %_ZN5ArrayIhEC2Em.exit.outer
+
 44:                                               ; preds = %38
   invoke void @_ZN12ErrorHandler11MemoryErrorEv(ptr noundef nonnull align 4 dereferenceable(14) @ErrHandler)
           to label %_ZN5ArrayIhEC2Em.exit.outer.backedge unwind label %.loopexit364.loopexit.split-lp
-
-_ZN5ArrayIhEC2Em.exit.outer.backedge:             ; preds = %44, %38
-  %.sroa.0226.0.ph.be = phi ptr [ %42, %38 ], [ null, %44 ]
-  br label %_ZN5ArrayIhEC2Em.exit.outer
 
 45:                                               ; preds = %28
   %46 = landingpad { ptr, i32 }
@@ -280,8 +280,8 @@ _ZN5ArrayIhE5AllocEm.exit:                        ; preds = %47, %55, %49
   br label %.thread34.thread.i
 
 .thread34.thread.i:                               ; preds = %.thread34.i, %107
-  %or.cond45.i = phi i1 [ %113, %.thread34.i ], [ %110, %107 ]
-  %114 = phi i64 [ %spec.select.i, %.thread34.i ], [ 2, %107 ]
+  %or.cond45.i = phi i1 [ %110, %107 ], [ %113, %.thread34.i ]
+  %114 = phi i64 [ 2, %107 ], [ %spec.select.i, %.thread34.i ]
   %.not3135.i = icmp samesign ult i64 %114, %29
   %or.cond38.i = and i1 %or.cond45.i, %.not3135.i
   br i1 %or.cond38.i, label %.lr.ph.i, label %_Z18DetectTextEncodingPKhm.exit.thread
@@ -326,11 +326,11 @@ _Z18DetectTextEncodingPKhm.exit:                  ; preds = %.thread278, %.threa
   br i1 %127, label %_Z18DetectTextEncodingPKhm.exit.thread, label %_Z18DetectTextEncodingPKhm.exit.thread301
 
 _Z18DetectTextEncodingPKhm.exit.thread:           ; preds = %119, %.thread279, %104, %.thread.i, %.thread34.thread.i, %_Z18DetectTextEncodingPKhm.exit
-  %.087295 = phi i32 [ %4, %_Z18DetectTextEncodingPKhm.exit ], [ 0, %.thread34.thread.i ], [ 0, %.thread.i ], [ 0, %104 ], [ 0, %.thread279 ], [ 0, %119 ]
-  %128 = phi i1 [ %126, %_Z18DetectTextEncodingPKhm.exit ], [ %81, %.thread34.thread.i ], [ %81, %.thread.i ], [ %81, %104 ], [ %69, %.thread279 ], [ %81, %119 ]
-  %129 = phi i1 [ %125, %_Z18DetectTextEncodingPKhm.exit ], [ %82, %.thread34.thread.i ], [ %82, %.thread.i ], [ %82, %104 ], [ %.ph418, %.thread279 ], [ %82, %119 ]
-  %130 = phi i64 [ %124, %_Z18DetectTextEncodingPKhm.exit ], [ %83, %.thread34.thread.i ], [ %83, %.thread.i ], [ %83, %104 ], [ %68, %.thread279 ], [ %83, %119 ]
-  %131 = phi i64 [ %123, %_Z18DetectTextEncodingPKhm.exit ], [ %84, %.thread34.thread.i ], [ %84, %.thread.i ], [ %84, %104 ], [ 0, %.thread279 ], [ %84, %119 ]
+  %.087295 = phi i32 [ %4, %_Z18DetectTextEncodingPKhm.exit ], [ 0, %.thread34.thread.i ], [ 0, %.thread279 ], [ 0, %.thread.i ], [ 0, %104 ], [ 0, %119 ]
+  %128 = phi i1 [ %126, %_Z18DetectTextEncodingPKhm.exit ], [ %81, %.thread34.thread.i ], [ %69, %.thread279 ], [ %81, %.thread.i ], [ %81, %104 ], [ %81, %119 ]
+  %129 = phi i1 [ %125, %_Z18DetectTextEncodingPKhm.exit ], [ %82, %.thread34.thread.i ], [ %.ph418, %.thread279 ], [ %82, %.thread.i ], [ %82, %104 ], [ %82, %119 ]
+  %130 = phi i64 [ %124, %_Z18DetectTextEncodingPKhm.exit ], [ %83, %.thread34.thread.i ], [ %68, %.thread279 ], [ %83, %.thread.i ], [ %83, %104 ], [ %83, %119 ]
+  %131 = phi i64 [ %123, %_Z18DetectTextEncodingPKhm.exit ], [ %84, %.thread34.thread.i ], [ 0, %.thread279 ], [ %84, %.thread.i ], [ %84, %104 ], [ %84, %119 ]
   %132 = add nuw nsw i64 %29, 1
   %.not361 = icmp ugt i64 %.sroa.48.3, %29
   br i1 %.not361, label %140, label %133

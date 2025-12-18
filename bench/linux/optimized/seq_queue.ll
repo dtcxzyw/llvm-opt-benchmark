@@ -219,7 +219,7 @@ define dso_local noundef ptr @snd_seq_queue_alloc(i32 noundef %0, i32 noundef %1
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %3, %55
-  %69 = phi ptr [ %5, %55 ], [ inttoptr (i64 -12 to ptr), %3 ], [ inttoptr (i64 -12 to ptr), %.thread.sink.split ]
+  %69 = phi ptr [ inttoptr (i64 -12 to ptr), %3 ], [ %5, %55 ], [ inttoptr (i64 -12 to ptr), %.thread.sink.split ]
   ret ptr %69
 }
 

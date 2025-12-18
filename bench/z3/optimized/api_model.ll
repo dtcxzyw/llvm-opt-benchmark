@@ -630,7 +630,7 @@ define ptr @Z3_model_get_const_interp(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %.not27.old.i.i.i.i, label %_ZNK10model_core16get_const_interpEP9func_decl.exit.thread, label %.lr.ph38.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.backedge:                        ; preds = %49, %46
-  %.137.i.i.i.i.be = phi ptr [ %.old.i.i.i.i, %49 ], [ %48, %46 ]
+  %.137.i.i.i.i.be = phi ptr [ %48, %46 ], [ %.old.i.i.i.i, %49 ]
   br label %.lr.ph38.i.i.i.i, !llvm.loop !188
 
 _ZNK10model_core16get_const_interpEP9func_decl.exit: ; preds = %30, %41
@@ -910,7 +910,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK10model_core18has_interpretat
   br i1 %.not27.old.i.i.i, label %.loopexit, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %35, %32
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %35 ], [ %34, %32 ]
+  %.137.i.i.i.be = phi ptr [ %34, %32 ], [ %.old.i.i.i, %35 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !188
 
 .loopexit:                                        ; preds = %21, %32, %35, %.preheader.i.i.i
@@ -982,11 +982,11 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK10model_core18has_interpretat
   br i1 %.not27.old.i.i.i16, label %_ZNK7obj_mapI9func_declSt4pairIjP4exprEE8containsEPS0_.exit, label %.lr.ph38.i.i.i12.backedge
 
 .lr.ph38.i.i.i12.backedge:                        ; preds = %66, %63
-  %.137.i.i.i13.be = phi ptr [ %.old.i.i.i15, %66 ], [ %65, %63 ]
+  %.137.i.i.i13.be = phi ptr [ %65, %63 ], [ %.old.i.i.i15, %66 ]
   br label %.lr.ph38.i.i.i12, !llvm.loop !199
 
 _ZNK7obj_mapI9func_declSt4pairIjP4exprEE8containsEPS0_.exit: ; preds = %16, %27, %52, %47, %66, %63, %58, %.preheader.i.i.i10
-  %67 = phi i1 [ false, %.preheader.i.i.i10 ], [ true, %27 ], [ true, %58 ], [ %.not.i7.not.not, %52 ], [ false, %66 ], [ false, %63 ], [ %.not.i7.not.not, %47 ], [ true, %16 ]
+  %67 = phi i1 [ %.not.i7.not.not, %52 ], [ true, %27 ], [ false, %.preheader.i.i.i10 ], [ true, %58 ], [ false, %66 ], [ false, %63 ], [ %.not.i7.not.not, %47 ], [ true, %16 ]
   ret i1 %67
 }
 
@@ -1089,7 +1089,7 @@ define noundef ptr @Z3_model_get_func_interp(ptr noundef %0, ptr noundef %1, ptr
   br i1 %.not27.old.i.i.i.i, label %_ZNK10model_core15get_func_interpEP9func_decl.exit.thread, label %.lr.ph38.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.backedge:                        ; preds = %49, %46
-  %.137.i.i.i.i.be = phi ptr [ %.old.i.i.i.i, %49 ], [ %48, %46 ]
+  %.137.i.i.i.i.be = phi ptr [ %48, %46 ], [ %.old.i.i.i.i, %49 ]
   br label %.lr.ph38.i.i.i.i, !llvm.loop !199
 
 _ZNK10model_core15get_func_interpEP9func_decl.exit: ; preds = %30, %41

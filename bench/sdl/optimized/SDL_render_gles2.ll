@@ -1690,7 +1690,7 @@ GL_CheckAllErrors.exit251.thread:                 ; preds = %.preheader.i244, %3
   br label %GLES2_GetFBO.exit
 
 GLES2_GetFBO.exit:                                ; preds = %350, %GL_CheckAllErrors.exit251.thread, %.critedge22.i
-  %.sink = phi ptr [ %354, %.critedge22.i ], [ null, %GL_CheckAllErrors.exit251.thread ], [ %.026.i, %350 ]
+  %.sink = phi ptr [ null, %GL_CheckAllErrors.exit251.thread ], [ %354, %.critedge22.i ], [ %.026.i, %350 ]
   %361 = getelementptr inbounds nuw i8, ptr %35, i64 88
   store ptr %.sink, ptr %361, align 8
   %.val186 = load ptr, ptr %4, align 8
@@ -1731,7 +1731,7 @@ switch.lookup367:                                 ; preds = %.lr.ph.i258
   br i1 %.not.i262, label %GL_CheckAllErrors.exit197, label %.lr.ph.i258
 
 GL_CheckAllErrors.exit197:                        ; preds = %242, %270, %142, %181, %206, %303, %330, %373, %.preheader.i256, %GLES2_GetFBO.exit, %95, %.thread, %284, %220, %33, %28
-  %.0163 = phi i1 [ %29, %28 ], [ %34, %33 ], [ %221, %220 ], [ false, %.thread ], [ %285, %284 ], [ false, %95 ], [ true, %GLES2_GetFBO.exit ], [ true, %.preheader.i256 ], [ false, %270 ], [ false, %373 ], [ false, %330 ], [ false, %303 ], [ false, %206 ], [ false, %181 ], [ false, %142 ], [ false, %242 ]
+  %.0163 = phi i1 [ %29, %28 ], [ %34, %33 ], [ false, %142 ], [ false, %206 ], [ false, %181 ], [ %221, %220 ], [ false, %303 ], [ false, %270 ], [ false, %.thread ], [ %285, %284 ], [ false, %373 ], [ false, %330 ], [ false, %95 ], [ true, %GLES2_GetFBO.exit ], [ true, %.preheader.i256 ], [ false, %242 ]
   ret i1 %.0163
 }
 
@@ -3802,7 +3802,7 @@ define internal noundef zeroext i1 @GLES2_RunCommandQueue(ptr noundef readonly c
   br i1 %210, label %357, label %SetCopyState.exit.thread
 
 211:                                              ; preds = %208, %207, %206, %205, %204, %203, %202, %200, %197, %196, %195, %194, %193, %192, %191, %190, %189, %188, %186, %184, %183, %183, %180
-  %.094.i = phi i32 [ 3, %200 ], [ %185, %184 ], [ 9, %208 ], [ 6, %183 ], [ %187, %186 ], [ 2, %188 ], [ 3, %189 ], [ 5, %190 ], [ 2, %191 ], [ 5, %192 ], [ 4, %193 ], [ 3, %194 ], [ 8, %207 ], [ 7, %195 ], [ 8, %196 ], [ 9, %197 ], [ 6, %183 ], [ 2, %180 ], [ 2, %202 ], [ 4, %203 ], [ 5, %204 ], [ 6, %205 ], [ 7, %206 ]
+  %.094.i = phi i32 [ 3, %200 ], [ %185, %184 ], [ 9, %208 ], [ 7, %206 ], [ %187, %186 ], [ 6, %183 ], [ 2, %188 ], [ 3, %189 ], [ 5, %190 ], [ 6, %205 ], [ 2, %191 ], [ 5, %192 ], [ 4, %193 ], [ 3, %194 ], [ 8, %207 ], [ 7, %195 ], [ 8, %196 ], [ 9, %197 ], [ 6, %183 ], [ 2, %180 ], [ 2, %202 ], [ 4, %203 ], [ 5, %204 ]
   %212 = call fastcc zeroext i1 @SetDrawState(ptr noundef %.val189, ptr noundef nonnull readonly %.0142251, i32 noundef %.094.i, ptr noundef %2)
   %213 = getelementptr inbounds nuw i8, ptr %.val189, i64 608
   %214 = load ptr, ptr %213, align 8
@@ -4100,7 +4100,7 @@ SetTextureScaleMode.exit112.thread.i:             ; preds = %switch.lookup320, %
 SetCopyState.exit:                                ; preds = %306
   br i1 %212, label %357, label %SetCopyState.exit.thread
 
-357:                                              ; preds = %209, %344, %198, %355, %SetCopyState.exit
+357:                                              ; preds = %198, %344, %209, %355, %SetCopyState.exit
   %358 = icmp eq i32 %66, 5
   %spec.store.select = select i1 %358, i32 0, i32 4
   %359 = load ptr, ptr %51, align 8
@@ -4108,8 +4108,8 @@ SetCopyState.exit:                                ; preds = %306
   call void %359(i32 noundef %spec.store.select, i32 noundef 0, i32 noundef %360) #10
   br label %SetCopyState.exit.thread
 
-SetCopyState.exit.thread:                         ; preds = %SetTextureScaleMode.exit108.i, %SetTextureScaleMode.exit.i, %SetTextureScaleMode.exit110.i, %SetTextureScaleMode.exit112.i, %209, %344, %198, %355, %SetCopyState.exit, %357, %127, %.thread, %77, %79, %67, %70, %121, %119, %65
-  %.1 = phi ptr [ %.0142251, %65 ], [ %.0142251, %77 ], [ %.0142251, %121 ], [ %.0157.lcssa, %.thread ], [ %.0142251, %67 ], [ %.0142251, %119 ], [ %.0142251, %70 ], [ %.0142251, %79 ], [ %.0142251, %127 ], [ %.0149.lcssa, %357 ], [ %.0149.lcssa, %SetCopyState.exit ], [ %.0149.lcssa, %209 ], [ %.0149.lcssa, %355 ], [ %.0149.lcssa, %198 ], [ %.0149.lcssa, %344 ], [ %.0149.lcssa, %SetTextureScaleMode.exit112.i ], [ %.0149.lcssa, %SetTextureScaleMode.exit110.i ], [ %.0149.lcssa, %SetTextureScaleMode.exit.i ], [ %.0149.lcssa, %SetTextureScaleMode.exit108.i ]
+SetCopyState.exit.thread:                         ; preds = %SetTextureScaleMode.exit108.i, %SetTextureScaleMode.exit.i, %SetTextureScaleMode.exit110.i, %SetTextureScaleMode.exit112.i, %198, %344, %209, %355, %SetCopyState.exit, %357, %127, %.thread, %77, %79, %67, %70, %121, %119, %65
+  %.1 = phi ptr [ %.0142251, %65 ], [ %.0142251, %77 ], [ %.0142251, %121 ], [ %.0157.lcssa, %.thread ], [ %.0142251, %67 ], [ %.0142251, %119 ], [ %.0142251, %70 ], [ %.0142251, %79 ], [ %.0142251, %127 ], [ %.0149.lcssa, %357 ], [ %.0149.lcssa, %SetCopyState.exit ], [ %.0149.lcssa, %198 ], [ %.0149.lcssa, %355 ], [ %.0149.lcssa, %209 ], [ %.0149.lcssa, %344 ], [ %.0149.lcssa, %SetTextureScaleMode.exit112.i ], [ %.0149.lcssa, %SetTextureScaleMode.exit110.i ], [ %.0149.lcssa, %SetTextureScaleMode.exit.i ], [ %.0149.lcssa, %SetTextureScaleMode.exit108.i ]
   %361 = getelementptr inbounds nuw i8, ptr %.1, i64 80
   %362 = load ptr, ptr %361, align 8
   %.not170 = icmp eq ptr %362, null

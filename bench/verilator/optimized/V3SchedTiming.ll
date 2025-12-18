@@ -1089,7 +1089,7 @@ _ZNSt6vectorIP10AstSenTreeSaIS1_EE7reserveEm.exit: ; preds = %_ZNSt12_Vector_bas
   unreachable
 
 .loopexit:                                        ; preds = %86, %70, %81
-  %.sroa.06.1.i.i.i = phi ptr [ %82, %81 ], [ %.sroa.06.0.i.i.i, %70 ], [ %88, %86 ]
+  %.sroa.06.1.i.i.i = phi ptr [ %.sroa.06.0.i.i.i, %70 ], [ %82, %81 ], [ %88, %86 ]
   %94 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 16
   %95 = load ptr, ptr %62, align 8, !tbaa !41
   %.not.i = icmp eq ptr %95, %66

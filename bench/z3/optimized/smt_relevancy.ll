@@ -1390,7 +1390,7 @@ _ZN3smt24relevancy_propagator_imp10push_trailERKNS0_8eh_trailE.exit: ; preds = %
   br i1 %.not27.old.i.i.i.i, label %_ZN3smt24relevancy_propagator_imp12set_handlersEP4exprP4listIPNS_12relevancy_ehEE.exit, label %.lr.ph38.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.backedge:                        ; preds = %82, %79
-  %.137.i.i.i.i.be = phi ptr [ %.old.i.i.i.i, %82 ], [ %81, %79 ]
+  %.137.i.i.i.i.be = phi ptr [ %81, %79 ], [ %.old.i.i.i.i, %82 ]
   br label %.lr.ph38.i.i.i.i, !llvm.loop !569
 
 _ZNK7obj_mapI4exprP4listIPN3smt12relevancy_ehEEE9find_coreEPS0_.exit.i.i: ; preds = %63, %74
@@ -1400,7 +1400,7 @@ _ZNK7obj_mapI4exprP4listIPN3smt12relevancy_ehEEE9find_coreEPS0_.exit.i.i: ; pred
   br label %_ZN3smt24relevancy_propagator_imp12set_handlersEP4exprP4listIPNS_12relevancy_ehEE.exit
 
 _ZN3smt24relevancy_propagator_imp12set_handlersEP4exprP4listIPNS_12relevancy_ehEE.exit: ; preds = %68, %82, %79, %_ZNK7obj_mapI4exprP4listIPN3smt12relevancy_ehEEE9find_coreEPS0_.exit.i.i, %.preheader.i.i.i.i
-  %.0.i = phi ptr [ null, %.preheader.i.i.i.i ], [ %84, %_ZNK7obj_mapI4exprP4listIPN3smt12relevancy_ehEEE9find_coreEPS0_.exit.i.i ], [ null, %82 ], [ null, %79 ], [ null, %68 ]
+  %.0.i = phi ptr [ null, %.preheader.i.i.i.i ], [ null, %82 ], [ %84, %_ZNK7obj_mapI4exprP4listIPN3smt12relevancy_ehEEE9find_coreEPS0_.exit.i.i ], [ null, %79 ], [ null, %68 ]
   store ptr %2, ptr %48, align 8, !tbaa !571
   %85 = getelementptr inbounds nuw i8, ptr %48, i64 8
   store ptr %.0.i, ptr %85, align 8, !tbaa !574
@@ -1511,7 +1511,7 @@ define linkonce_odr hidden void @_ZN3smt24relevancy_propagator_imp9add_watchEP4e
   br i1 %.not27.old.i.i.i.i, label %_ZN3smt24relevancy_propagator_imp11set_watchesEP4exprbP4listIPNS_12relevancy_ehEE.exit, label %.lr.ph38.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.backedge:                        ; preds = %52, %49
-  %.137.i.i.i.i.be = phi ptr [ %.old.i.i.i.i, %52 ], [ %51, %49 ]
+  %.137.i.i.i.i.be = phi ptr [ %51, %49 ], [ %.old.i.i.i.i, %52 ]
   br label %.lr.ph38.i.i.i.i, !llvm.loop !569
 
 _ZNK7obj_mapI4exprP4listIPN3smt12relevancy_ehEEE9find_coreEPS0_.exit.i.i: ; preds = %33, %44
@@ -1521,7 +1521,7 @@ _ZNK7obj_mapI4exprP4listIPN3smt12relevancy_ehEEE9find_coreEPS0_.exit.i.i: ; pred
   br label %_ZN3smt24relevancy_propagator_imp11set_watchesEP4exprbP4listIPNS_12relevancy_ehEE.exit
 
 _ZN3smt24relevancy_propagator_imp11set_watchesEP4exprbP4listIPNS_12relevancy_ehEE.exit: ; preds = %38, %52, %49, %_ZNK7obj_mapI4exprP4listIPN3smt12relevancy_ehEEE9find_coreEPS0_.exit.i.i, %.preheader.i.i.i.i
-  %.0.i = phi ptr [ null, %.preheader.i.i.i.i ], [ %54, %_ZNK7obj_mapI4exprP4listIPN3smt12relevancy_ehEEE9find_coreEPS0_.exit.i.i ], [ null, %52 ], [ null, %49 ], [ null, %38 ]
+  %.0.i = phi ptr [ null, %.preheader.i.i.i.i ], [ null, %52 ], [ %54, %_ZNK7obj_mapI4exprP4listIPN3smt12relevancy_ehEEE9find_coreEPS0_.exit.i.i ], [ null, %49 ], [ null, %38 ]
   store ptr %3, ptr %16, align 8, !tbaa !571
   %55 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %.0.i, ptr %55, align 8, !tbaa !574
@@ -1780,7 +1780,7 @@ _ZNK3smt24relevancy_propagator_imp16is_relevant_coreEP4expr.exit.thread: ; preds
   br i1 %.not27.old.i.i.i.i, label %.loopexit, label %.lr.ph38.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.backedge:                        ; preds = %81, %78
-  %.137.i.i.i.i.be = phi ptr [ %.old.i.i.i.i, %81 ], [ %80, %78 ]
+  %.137.i.i.i.i.be = phi ptr [ %80, %78 ], [ %.old.i.i.i.i, %81 ]
   br label %.lr.ph38.i.i.i.i, !llvm.loop !569
 
 _ZN3smt24relevancy_propagator_imp11get_watchesEP4exprb.exit: ; preds = %62, %73
@@ -2185,7 +2185,7 @@ _ZN3smt24relevancy_propagator_imp22propagate_relevant_iteEP3app.exit: ; preds = 
   br i1 %.not27.old.i.i.i.i, label %.loopexit, label %.lr.ph38.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.backedge:                        ; preds = %111, %108
-  %.137.i.i.i.i.be = phi ptr [ %.old.i.i.i.i, %111 ], [ %110, %108 ]
+  %.137.i.i.i.i.be = phi ptr [ %110, %108 ], [ %.old.i.i.i.i, %111 ]
   br label %.lr.ph38.i.i.i.i, !llvm.loop !569
 
 _ZN3smt24relevancy_propagator_imp12get_handlersEP4expr.exit: ; preds = %92, %103
@@ -2837,7 +2837,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI4exprP4listIPN3sm
   br i1 %.not32.old, label %.loopexit, label %.lr.ph48.backedge
 
 .lr.ph48.backedge:                                ; preds = %36, %33
-  %.247.be = phi ptr [ %.old, %36 ], [ %35, %33 ]
+  %.247.be = phi ptr [ %35, %33 ], [ %.old, %36 ]
   br label %.lr.ph48, !llvm.loop !620
 
 .loopexit38:                                      ; preds = %17, %28

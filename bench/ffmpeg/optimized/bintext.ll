@@ -518,7 +518,7 @@ default.unreachable177:                           ; preds = %.lr.ph141
   unreachable
 
 .loopexit114:                                     ; preds = %draw_char.exit107, %draw_char.exit106, %draw_char.exit105, %draw_char.exit, %184, %139, %95, %.preheader113
-  %.1 = phi ptr [ %48, %.preheader113 ], [ %43, %95 ], [ %43, %139 ], [ %187, %184 ], [ %146, %draw_char.exit106 ], [ %89, %draw_char.exit ], [ %99, %draw_char.exit105 ], [ %187, %draw_char.exit107 ]
+  %.1 = phi ptr [ %146, %draw_char.exit106 ], [ %187, %184 ], [ %89, %draw_char.exit ], [ %48, %.preheader113 ], [ %43, %95 ], [ %43, %139 ], [ %99, %draw_char.exit105 ], [ %187, %draw_char.exit107 ]
   %226 = getelementptr inbounds nuw i8, ptr %.1, i64 2
   %227 = icmp ult ptr %226, %12
   br i1 %227, label %.lr.ph141, label %.loopexit, !llvm.loop !59

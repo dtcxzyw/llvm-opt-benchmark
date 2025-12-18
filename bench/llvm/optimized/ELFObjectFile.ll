@@ -2053,14 +2053,14 @@ _ZN4llvm5ErrorD2Ev.exit10:                        ; preds = %2
   br label %_ZNK4llvm18ELFAttributeParser17getAttributeValueEj.exit.thread, !llvm.loop !123
 
 _ZNK4llvm18ELFAttributeParser17getAttributeValueEj.exit: ; preds = %62, %47, %57
-  %.sroa.06.1.i.i.i = phi ptr [ %58, %57 ], [ %.sroa.06.0.i.i.i, %47 ], [ %64, %62 ]
+  %.sroa.06.1.i.i.i = phi ptr [ %.sroa.06.0.i.i.i, %47 ], [ %58, %57 ], [ %64, %62 ]
   %70 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 12
   %71 = load i32, ptr %70, align 4, !tbaa !118
   %72 = icmp eq i32 %71, 10
   br label %_ZNK4llvm18ELFAttributeParser17getAttributeValueEj.exit.thread
 
 _ZNK4llvm18ELFAttributeParser17getAttributeValueEj.exit.thread: ; preds = %.lr.ph.i.i.i.i.i, %.preheader256, %..loopexit_crit_edge21.i.i.i.i.i, %_ZNK4llvm18ELFAttributeParser17getAttributeValueEj.exit
-  %.08 = phi i1 [ %72, %_ZNK4llvm18ELFAttributeParser17getAttributeValueEj.exit ], [ false, %..loopexit_crit_edge21.i.i.i.i.i ], [ false, %.preheader256 ], [ false, %.lr.ph.i.i.i.i.i ]
+  %.08 = phi i1 [ %72, %_ZNK4llvm18ELFAttributeParser17getAttributeValueEj.exit ], [ false, %.preheader256 ], [ false, %..loopexit_crit_edge21.i.i.i.i.i ], [ false, %.lr.ph.i.i.i.i.i ]
   br i1 %.not.not.i.i.i, label %.preheader253, label %_ZNK4llvm18ELFAttributeParser17getAttributeValueEj.exit.thread._ZNK4llvm18ELFAttributeParser17getAttributeValueEj.exit.thread.thread_crit_edge
 
 _ZNK4llvm18ELFAttributeParser17getAttributeValueEj.exit.thread._ZNK4llvm18ELFAttributeParser17getAttributeValueEj.exit.thread.thread_crit_edge: ; preds = %_ZNK4llvm18ELFAttributeParser17getAttributeValueEj.exit.thread
@@ -2119,8 +2119,8 @@ _ZNK4llvm18ELFAttributeParser17getAttributeValueEj.exit.thread.thread: ; preds =
   br label %_ZNK4llvm18ELFAttributeParser17getAttributeValueEj.exit25.thread, !llvm.loop !123
 
 _ZNK4llvm18ELFAttributeParser17getAttributeValueEj.exit25: ; preds = %87, %73, %82
-  %.08237 = phi i1 [ %.08238, %82 ], [ %.08, %73 ], [ %.08238, %87 ]
-  %.sroa.06.1.i.i.i21 = phi ptr [ %83, %82 ], [ %.sroa.06.0.i.i.i23, %73 ], [ %89, %87 ]
+  %.08237 = phi i1 [ %.08, %73 ], [ %.08238, %82 ], [ %.08238, %87 ]
+  %.sroa.06.1.i.i.i21 = phi ptr [ %.sroa.06.0.i.i.i23, %73 ], [ %83, %82 ], [ %89, %87 ]
   %95 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i21, i64 12
   %96 = load i32, ptr %95, align 4, !tbaa !118
   switch i32 %96, label %_ZNK4llvm18ELFAttributeParser17getAttributeValueEj.exit25.thread [
@@ -2204,7 +2204,7 @@ _ZNK4llvm18ELFAttributeParser17getAttributeValueEj.exit25.thread: ; preds = %.lr
   br label %_ZNK4llvm18ELFAttributeParser17getAttributeValueEj.exit39.thread, !llvm.loop !123
 
 _ZNK4llvm18ELFAttributeParser17getAttributeValueEj.exit39: ; preds = %118, %103, %113
-  %.sroa.06.1.i.i.i35 = phi ptr [ %114, %113 ], [ %.sroa.06.0.i.i.i37, %103 ], [ %120, %118 ]
+  %.sroa.06.1.i.i.i35 = phi ptr [ %.sroa.06.0.i.i.i37, %103 ], [ %114, %113 ], [ %120, %118 ]
   %126 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i35, i64 12
   %127 = load i32, ptr %126, align 4, !tbaa !118
   switch i32 %127, label %_ZNK4llvm18ELFAttributeParser17getAttributeValueEj.exit39.thread [
@@ -2276,7 +2276,7 @@ _ZNK4llvm18ELFAttributeParser17getAttributeValueEj.exit39.thread: ; preds = %.lr
   br label %_ZNK4llvm18ELFAttributeParser17getAttributeValueEj.exit53.thread, !llvm.loop !123
 
 _ZNK4llvm18ELFAttributeParser17getAttributeValueEj.exit53: ; preds = %146, %131, %141
-  %.sroa.06.1.i.i.i49 = phi ptr [ %142, %141 ], [ %.sroa.06.0.i.i.i51, %131 ], [ %148, %146 ]
+  %.sroa.06.1.i.i.i49 = phi ptr [ %.sroa.06.0.i.i.i51, %131 ], [ %142, %141 ], [ %148, %146 ]
   %154 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i49, i64 12
   %155 = load i32, ptr %154, align 4, !tbaa !118
   switch i32 %155, label %_ZNK4llvm18ELFAttributeParser17getAttributeValueEj.exit53.thread [
@@ -2361,7 +2361,7 @@ _ZNK4llvm18ELFAttributeParser17getAttributeValueEj.exit53.thread: ; preds = %.lr
   br label %_ZNK4llvm18ELFAttributeParser17getAttributeValueEj.exit67.thread, !llvm.loop !123
 
 _ZNK4llvm18ELFAttributeParser17getAttributeValueEj.exit67: ; preds = %176, %161, %171
-  %.sroa.06.1.i.i.i63 = phi ptr [ %172, %171 ], [ %.sroa.06.0.i.i.i65, %161 ], [ %178, %176 ]
+  %.sroa.06.1.i.i.i63 = phi ptr [ %.sroa.06.0.i.i.i65, %161 ], [ %172, %171 ], [ %178, %176 ]
   %184 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i63, i64 12
   %185 = load i32, ptr %184, align 4, !tbaa !118
   switch i32 %185, label %_ZNK4llvm18ELFAttributeParser17getAttributeValueEj.exit67.thread [
@@ -2439,7 +2439,7 @@ _ZNK4llvm18ELFAttributeParser17getAttributeValueEj.exit67.thread: ; preds = %.lr
   br label %_ZNK4llvm18ELFAttributeParser17getAttributeValueEj.exit81.thread, !llvm.loop !123
 
 _ZNK4llvm18ELFAttributeParser17getAttributeValueEj.exit81: ; preds = %205, %190, %200
-  %.sroa.06.1.i.i.i77 = phi ptr [ %201, %200 ], [ %.sroa.06.0.i.i.i79, %190 ], [ %207, %205 ]
+  %.sroa.06.1.i.i.i77 = phi ptr [ %.sroa.06.0.i.i.i79, %190 ], [ %201, %200 ], [ %207, %205 ]
   %213 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i77, i64 12
   %214 = load i32, ptr %213, align 4, !tbaa !118
   switch i32 %214, label %_ZNK4llvm18ELFAttributeParser17getAttributeValueEj.exit81.thread [
@@ -2517,7 +2517,7 @@ _ZNK4llvm18ELFAttributeParser17getAttributeValueEj.exit81.thread: ; preds = %.lr
   br label %_ZNK4llvm18ELFAttributeParser17getAttributeValueEj.exit95.thread, !llvm.loop !123
 
 _ZNK4llvm18ELFAttributeParser17getAttributeValueEj.exit95: ; preds = %234, %219, %229
-  %.sroa.06.1.i.i.i91 = phi ptr [ %230, %229 ], [ %.sroa.06.0.i.i.i93, %219 ], [ %236, %234 ]
+  %.sroa.06.1.i.i.i91 = phi ptr [ %.sroa.06.0.i.i.i93, %219 ], [ %230, %229 ], [ %236, %234 ]
   %242 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i91, i64 12
   %243 = load i32, ptr %242, align 4, !tbaa !118
   switch i32 %243, label %_ZNK4llvm18ELFAttributeParser17getAttributeValueEj.exit95.thread [
@@ -2693,7 +2693,7 @@ define linkonce_odr hidden i64 @_ZNK4llvm18ELFAttributeParser17getAttributeValue
   br label %.loopexit, !llvm.loop !123
 
 _ZNKSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE4findERS5_.exit: ; preds = %26, %8, %21
-  %.sroa.06.1.i.i = phi ptr [ %22, %21 ], [ %.sroa.06.0.i.i, %8 ], [ %28, %26 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %8 ], [ %22, %21 ], [ %28, %26 ]
   %34 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 12
   %35 = load i32, ptr %34, align 4, !tbaa !118
   %36 = zext i32 %35 to i64
@@ -2701,7 +2701,7 @@ _ZNKSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE4findERS5_.exit
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %7, %12, %..loopexit_crit_edge21.i.i.i.i, %_ZNKSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE4findERS5_.exit
-  %.sroa.2.0 = phi i64 [ %37, %_ZNKSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE4findERS5_.exit ], [ 0, %..loopexit_crit_edge21.i.i.i.i ], [ 0, %12 ], [ 0, %7 ], [ 0, %.lr.ph.i.i.i.i ]
+  %.sroa.2.0 = phi i64 [ %37, %_ZNKSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE4findERS5_.exit ], [ 0, %..loopexit_crit_edge21.i.i.i.i ], [ 0, %7 ], [ 0, %12 ], [ 0, %.lr.ph.i.i.i.i ]
   ret i64 %.sroa.2.0
 }
 
@@ -2863,7 +2863,7 @@ _ZN4llvm5ErrorD2Ev.exit14:                        ; preds = %2
   br label %_ZNK4llvm18ELFAttributeParser17getAttributeValueEj.exit.thread, !llvm.loop !123
 
 _ZNK4llvm18ELFAttributeParser17getAttributeValueEj.exit: ; preds = %64, %49, %59
-  %.sroa.06.1.i.i.i = phi ptr [ %60, %59 ], [ %.sroa.06.0.i.i.i, %49 ], [ %66, %64 ]
+  %.sroa.06.1.i.i.i = phi ptr [ %.sroa.06.0.i.i.i, %49 ], [ %60, %59 ], [ %66, %64 ]
   %72 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 12
   %73 = load i32, ptr %72, align 4, !tbaa !118
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -2901,7 +2901,7 @@ _ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb
   br label %_ZNK4llvm18ELFAttributeParser17getAttributeValueEj.exit.thread
 
 _ZNK4llvm18ELFAttributeParser17getAttributeValueEj.exit.thread: ; preds = %.lr.ph.i.i.i.i.i, %..loopexit_crit_edge21.i.i.i.i.i, %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit
-  %88 = phi i64 [ %.pre285, %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit ], [ %48, %..loopexit_crit_edge21.i.i.i.i.i ], [ %48, %.lr.ph.i.i.i.i.i ]
+  %88 = phi i64 [ %48, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre285, %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit ], [ %48, %.lr.ph.i.i.i.i.i ]
   %.not.not.i.i.i16 = icmp eq i64 %88, 0
   br i1 %.not.not.i.i.i16, label %.preheader223.preheader, label %_ZNK4llvm18ELFAttributeParser17getAttributeValueEj.exit.thread.thread321
 
@@ -2959,7 +2959,7 @@ _ZNK4llvm18ELFAttributeParser17getAttributeValueEj.exit.thread.thread321: ; pred
   br label %_ZNK4llvm18ELFAttributeParser17getAttributeValueEj.exit29.thread, !llvm.loop !123
 
 _ZNK4llvm18ELFAttributeParser17getAttributeValueEj.exit29: ; preds = %104, %89, %99
-  %.sroa.06.1.i.i.i25 = phi ptr [ %100, %99 ], [ %.sroa.06.0.i.i.i27, %89 ], [ %106, %104 ]
+  %.sroa.06.1.i.i.i25 = phi ptr [ %.sroa.06.0.i.i.i27, %89 ], [ %100, %99 ], [ %106, %104 ]
   %112 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i25, i64 12
   %113 = load i32, ptr %112, align 4, !tbaa !118
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -3018,7 +3018,7 @@ _ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb
   br label %_ZNK4llvm18ELFAttributeParser17getAttributeValueEj.exit29.thread
 
 _ZNK4llvm18ELFAttributeParser17getAttributeValueEj.exit29.thread: ; preds = %.lr.ph.i.i.i.i.i18, %..loopexit_crit_edge21.i.i.i.i.i22, %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit32
-  %136 = phi i64 [ %.pre287, %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit32 ], [ %93, %..loopexit_crit_edge21.i.i.i.i.i22 ], [ %93, %.lr.ph.i.i.i.i.i18 ]
+  %136 = phi i64 [ %93, %..loopexit_crit_edge21.i.i.i.i.i22 ], [ %.pre287, %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit32 ], [ %93, %.lr.ph.i.i.i.i.i18 ]
   %.not.not.i.i.i33 = icmp eq i64 %136, 0
   br i1 %.not.not.i.i.i33, label %.preheader220.preheader, label %_ZNK4llvm18ELFAttributeParser17getAttributeValueEj.exit29.thread.thread324
 
@@ -3076,8 +3076,8 @@ _ZNK4llvm18ELFAttributeParser17getAttributeValueEj.exit29.thread.thread324: ; pr
   br label %_ZNK4llvm18ELFAttributeParser17getAttributeValueEj.exit46.thread, !llvm.loop !123
 
 _ZNK4llvm18ELFAttributeParser17getAttributeValueEj.exit46: ; preds = %152, %137, %147
-  %160 = phi i64 [ %141, %147 ], [ 0, %137 ], [ %141, %152 ]
-  %.sroa.06.1.i.i.i42 = phi ptr [ %148, %147 ], [ %.sroa.06.0.i.i.i44, %137 ], [ %154, %152 ]
+  %160 = phi i64 [ 0, %137 ], [ %141, %147 ], [ %141, %152 ]
+  %.sroa.06.1.i.i.i42 = phi ptr [ %.sroa.06.0.i.i.i44, %137 ], [ %148, %147 ], [ %154, %152 ]
   %161 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i42, i64 12
   %162 = load i32, ptr %161, align 4, !tbaa !118
   %.not = icmp eq i32 %162, 0
@@ -3089,7 +3089,7 @@ _ZNK4llvm18ELFAttributeParser17getAttributeValueEj.exit46: ; preds = %152, %137,
   br label %_ZNK4llvm18ELFAttributeParser17getAttributeValueEj.exit46.thread
 
 _ZNK4llvm18ELFAttributeParser17getAttributeValueEj.exit46.thread: ; preds = %.lr.ph.i.i.i.i.i35, %..loopexit_crit_edge21.i.i.i.i.i39, %163, %_ZNK4llvm18ELFAttributeParser17getAttributeValueEj.exit46
-  %164 = phi i64 [ %160, %_ZNK4llvm18ELFAttributeParser17getAttributeValueEj.exit46 ], [ %.pre288, %163 ], [ %141, %..loopexit_crit_edge21.i.i.i.i.i39 ], [ %141, %.lr.ph.i.i.i.i.i35 ]
+  %164 = phi i64 [ %141, %..loopexit_crit_edge21.i.i.i.i.i39 ], [ %160, %_ZNK4llvm18ELFAttributeParser17getAttributeValueEj.exit46 ], [ %.pre288, %163 ], [ %141, %.lr.ph.i.i.i.i.i35 ]
   %.not.not.i.i.i47 = icmp eq i64 %164, 0
   br i1 %.not.not.i.i.i47, label %.preheader217.preheader, label %_ZNK4llvm18ELFAttributeParser17getAttributeValueEj.exit46.thread.thread327
 
@@ -3147,8 +3147,8 @@ _ZNK4llvm18ELFAttributeParser17getAttributeValueEj.exit46.thread.thread327: ; pr
   br label %_ZNK4llvm18ELFAttributeParser17getAttributeValueEj.exit60.thread, !llvm.loop !123
 
 _ZNK4llvm18ELFAttributeParser17getAttributeValueEj.exit60: ; preds = %180, %165, %175
-  %188 = phi i64 [ %169, %175 ], [ 0, %165 ], [ %169, %180 ]
-  %.sroa.06.1.i.i.i56 = phi ptr [ %176, %175 ], [ %.sroa.06.0.i.i.i58, %165 ], [ %182, %180 ]
+  %188 = phi i64 [ 0, %165 ], [ %169, %175 ], [ %169, %180 ]
+  %.sroa.06.1.i.i.i56 = phi ptr [ %.sroa.06.0.i.i.i58, %165 ], [ %176, %175 ], [ %182, %180 ]
   %189 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i56, i64 12
   %190 = load i32, ptr %189, align 4, !tbaa !118
   %.not9 = icmp eq i32 %190, 0
@@ -3160,7 +3160,7 @@ _ZNK4llvm18ELFAttributeParser17getAttributeValueEj.exit60: ; preds = %180, %165,
   br label %_ZNK4llvm18ELFAttributeParser17getAttributeValueEj.exit60.thread
 
 _ZNK4llvm18ELFAttributeParser17getAttributeValueEj.exit60.thread: ; preds = %.lr.ph.i.i.i.i.i49, %..loopexit_crit_edge21.i.i.i.i.i53, %191, %_ZNK4llvm18ELFAttributeParser17getAttributeValueEj.exit60
-  %192 = phi i64 [ %188, %_ZNK4llvm18ELFAttributeParser17getAttributeValueEj.exit60 ], [ %.pre289, %191 ], [ %169, %..loopexit_crit_edge21.i.i.i.i.i53 ], [ %169, %.lr.ph.i.i.i.i.i49 ]
+  %192 = phi i64 [ %169, %..loopexit_crit_edge21.i.i.i.i.i53 ], [ %188, %_ZNK4llvm18ELFAttributeParser17getAttributeValueEj.exit60 ], [ %.pre289, %191 ], [ %169, %.lr.ph.i.i.i.i.i49 ]
   %.not.not.i.i.i61 = icmp eq i64 %192, 0
   br i1 %.not.not.i.i.i61, label %.preheader214.preheader, label %_ZNK4llvm18ELFAttributeParser17getAttributeValueEj.exit60.thread.thread330
 
@@ -3218,8 +3218,8 @@ _ZNK4llvm18ELFAttributeParser17getAttributeValueEj.exit60.thread.thread330: ; pr
   br label %_ZNK4llvm18ELFAttributeParser17getAttributeValueEj.exit74.thread, !llvm.loop !123
 
 _ZNK4llvm18ELFAttributeParser17getAttributeValueEj.exit74: ; preds = %208, %193, %203
-  %216 = phi i64 [ %197, %203 ], [ 0, %193 ], [ %197, %208 ]
-  %.sroa.06.1.i.i.i70 = phi ptr [ %204, %203 ], [ %.sroa.06.0.i.i.i72, %193 ], [ %210, %208 ]
+  %216 = phi i64 [ 0, %193 ], [ %197, %203 ], [ %197, %208 ]
+  %.sroa.06.1.i.i.i70 = phi ptr [ %.sroa.06.0.i.i.i72, %193 ], [ %204, %203 ], [ %210, %208 ]
   %217 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i70, i64 12
   %218 = load i32, ptr %217, align 4, !tbaa !118
   %.not10 = icmp eq i32 %218, 0
@@ -3231,7 +3231,7 @@ _ZNK4llvm18ELFAttributeParser17getAttributeValueEj.exit74: ; preds = %208, %193,
   br label %_ZNK4llvm18ELFAttributeParser17getAttributeValueEj.exit74.thread
 
 _ZNK4llvm18ELFAttributeParser17getAttributeValueEj.exit74.thread: ; preds = %.lr.ph.i.i.i.i.i63, %..loopexit_crit_edge21.i.i.i.i.i67, %219, %_ZNK4llvm18ELFAttributeParser17getAttributeValueEj.exit74
-  %220 = phi i64 [ %216, %_ZNK4llvm18ELFAttributeParser17getAttributeValueEj.exit74 ], [ %.pre290, %219 ], [ %197, %..loopexit_crit_edge21.i.i.i.i.i67 ], [ %197, %.lr.ph.i.i.i.i.i63 ]
+  %220 = phi i64 [ %197, %..loopexit_crit_edge21.i.i.i.i.i67 ], [ %216, %_ZNK4llvm18ELFAttributeParser17getAttributeValueEj.exit74 ], [ %.pre290, %219 ], [ %197, %.lr.ph.i.i.i.i.i63 ]
   %.not.not.i.i.i75 = icmp eq i64 %220, 0
   br i1 %.not.not.i.i.i75, label %.preheader211.preheader, label %_ZNK4llvm18ELFAttributeParser17getAttributeValueEj.exit74.thread.thread333
 
@@ -3289,8 +3289,8 @@ _ZNK4llvm18ELFAttributeParser17getAttributeValueEj.exit74.thread.thread333: ; pr
   br label %_ZNK4llvm18ELFAttributeParser17getAttributeValueEj.exit88.thread.thread, !llvm.loop !123
 
 _ZNK4llvm18ELFAttributeParser17getAttributeValueEj.exit88: ; preds = %236, %221, %231
-  %244 = phi i64 [ %225, %231 ], [ 0, %221 ], [ %225, %236 ]
-  %.sroa.06.1.i.i.i84 = phi ptr [ %232, %231 ], [ %.sroa.06.0.i.i.i86, %221 ], [ %238, %236 ]
+  %244 = phi i64 [ 0, %221 ], [ %225, %231 ], [ %225, %236 ]
+  %.sroa.06.1.i.i.i84 = phi ptr [ %.sroa.06.0.i.i.i86, %221 ], [ %232, %231 ], [ %238, %236 ]
   %245 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i84, i64 12
   %246 = load i32, ptr %245, align 4, !tbaa !118
   %.not11 = icmp eq i32 %246, 0
@@ -3359,7 +3359,7 @@ _ZNK4llvm18ELFAttributeParser17getAttributeValueEj.exit88.thread.thread: ; preds
   br label %_ZNK4llvm18ELFAttributeParser17getAttributeValueEj.exit102.thread, !llvm.loop !123
 
 _ZNK4llvm18ELFAttributeParser17getAttributeValueEj.exit102: ; preds = %263, %249, %258
-  %.sroa.06.1.i.i.i98 = phi ptr [ %259, %258 ], [ %.sroa.06.0.i.i.i100, %249 ], [ %265, %263 ]
+  %.sroa.06.1.i.i.i98 = phi ptr [ %.sroa.06.0.i.i.i100, %249 ], [ %259, %258 ], [ %265, %263 ]
   %271 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i98, i64 12
   %272 = load i32, ptr %271, align 4, !tbaa !118
   %.not12 = icmp eq i32 %272, 0
@@ -3653,7 +3653,7 @@ _ZN4llvm5ErrorD2Ev.exit7:                         ; preds = %14
   br label %_ZNK4llvm18ELFAttributeParser18getAttributeStringEj.exit.thread, !llvm.loop !148
 
 .loopexit:                                        ; preds = %58, %43, %53
-  %.sroa.06.1.i.i.i = phi ptr [ %54, %53 ], [ %.sroa.06.0.i.i.i, %43 ], [ %60, %58 ]
+  %.sroa.06.1.i.i.i = phi ptr [ %.sroa.06.0.i.i.i, %43 ], [ %54, %53 ], [ %60, %58 ]
   %66 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 16
   %.sroa.019.0.copyload = load ptr, ptr %66, align 8, !tbaa !6
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 24
@@ -4461,7 +4461,7 @@ _ZN4llvm5ErrorD2Ev.exit5:                         ; preds = %11
   br label %_ZNK4llvm18ELFAttributeParser17getAttributeValueEj.exit.thread, !llvm.loop !123
 
 _ZNK4llvm18ELFAttributeParser17getAttributeValueEj.exit: ; preds = %75, %60, %70
-  %.sroa.06.1.i.i.i = phi ptr [ %71, %70 ], [ %.sroa.06.0.i.i.i, %60 ], [ %77, %75 ]
+  %.sroa.06.1.i.i.i = phi ptr [ %.sroa.06.0.i.i.i, %60 ], [ %71, %70 ], [ %77, %75 ]
   %83 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 12
   %84 = load i32, ptr %83, align 4, !tbaa !118
   switch i32 %84, label %_ZNK4llvm18ELFAttributeParser17getAttributeValueEj.exit.thread [
@@ -19985,7 +19985,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i25: ;
   br i1 %.2, label %.sink.split, label %43
 
 .sink.split:                                      ; preds = %41, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i25, %17, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i
-  %.sink = phi ptr [ %16, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i ], [ null, %17 ], [ null, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i25 ], [ null, %41 ]
+  %.sink = phi ptr [ %16, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i ], [ null, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i25 ], [ null, %17 ], [ null, %41 ]
   store ptr %.sink, ptr %0, align 8, !tbaa !114
   br label %43
 
@@ -29604,7 +29604,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i25: ;
   br i1 %.2, label %.sink.split, label %43
 
 .sink.split:                                      ; preds = %41, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i25, %17, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i
-  %.sink = phi ptr [ %16, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i ], [ null, %17 ], [ null, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i25 ], [ null, %41 ]
+  %.sink = phi ptr [ %16, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i ], [ null, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i25 ], [ null, %17 ], [ null, %41 ]
   store ptr %.sink, ptr %0, align 8, !tbaa !114
   br label %43
 
@@ -38766,7 +38766,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i25: ;
   br i1 %.2, label %.sink.split, label %43
 
 .sink.split:                                      ; preds = %41, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i25, %17, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i
-  %.sink = phi ptr [ %16, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i ], [ null, %17 ], [ null, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i25 ], [ null, %41 ]
+  %.sink = phi ptr [ %16, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i ], [ null, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i25 ], [ null, %17 ], [ null, %41 ]
   store ptr %.sink, ptr %0, align 8, !tbaa !114
   br label %43
 
@@ -48325,7 +48325,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i25: ;
   br i1 %.2, label %.sink.split, label %43
 
 .sink.split:                                      ; preds = %41, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i25, %17, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i
-  %.sink = phi ptr [ %16, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i ], [ null, %17 ], [ null, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i25 ], [ null, %41 ]
+  %.sink = phi ptr [ %16, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i ], [ null, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i25 ], [ null, %17 ], [ null, %41 ]
   store ptr %.sink, ptr %0, align 8, !tbaa !114
   br label %43
 

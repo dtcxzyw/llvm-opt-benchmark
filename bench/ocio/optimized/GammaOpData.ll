@@ -1891,7 +1891,7 @@ define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev11GammaOpData9isInver
   br i1 %or.cond90.not, label %.lr.ph.i.i.i.i.i58, label %_ZSteqIdSaIdEEbRKSt6vectorIT_T0_ES6_.exit, !llvm.loop !79
 
 _ZSteqIdSaIdEEbRKSt6vectorIT_T0_ES6_.exit:        ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i.i46, %.lr.ph.i.i.i.i.i52, %.lr.ph.i.i.i.i.i58, %118, %33, %36, %.loopexit67, %.loopexit65, %.loopexit
-  %.0 = phi i1 [ false, %33 ], [ true, %118 ], [ false, %.loopexit ], [ false, %.loopexit65 ], [ false, %.loopexit67 ], [ false, %36 ], [ false, %.lr.ph.i.i.i.i.i46 ], [ %121, %.lr.ph.i.i.i.i.i58 ], [ false, %.lr.ph.i.i.i.i.i52 ], [ false, %.lr.ph.i.i.i.i.i ]
+  %.0 = phi i1 [ false, %33 ], [ true, %118 ], [ false, %.loopexit ], [ %121, %.lr.ph.i.i.i.i.i58 ], [ false, %.loopexit65 ], [ false, %.lr.ph.i.i.i.i.i52 ], [ false, %.loopexit67 ], [ false, %.lr.ph.i.i.i.i.i46 ], [ false, %36 ], [ false, %.lr.ph.i.i.i.i.i ]
   ret i1 %.0
 }
 
@@ -2598,7 +2598,7 @@ define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev11GammaOpData21areAll
   br i1 %or.cond.not, label %.lr.ph.i.i.i.i.i8, label %_ZSteqIdSaIdEEbRKSt6vectorIT_T0_ES6_.exit, !llvm.loop !79
 
 _ZSteqIdSaIdEEbRKSt6vectorIT_T0_ES6_.exit:        ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i.i2, %.lr.ph.i.i.i.i.i8, %.loopexit, %.loopexit15.thread, %.loopexit15, %1
-  %59 = phi i1 [ false, %1 ], [ false, %.loopexit15 ], [ %not., %.loopexit ], [ false, %.loopexit15.thread ], [ false, %.lr.ph.i.i.i.i.i2 ], [ %56, %.lr.ph.i.i.i.i.i8 ], [ false, %.lr.ph.i.i.i.i.i ]
+  %59 = phi i1 [ %56, %.lr.ph.i.i.i.i.i8 ], [ false, %.loopexit15.thread ], [ false, %1 ], [ false, %.loopexit15 ], [ %not., %.loopexit ], [ false, %.lr.ph.i.i.i.i.i2 ], [ false, %.lr.ph.i.i.i.i.i ]
   ret i1 %59
 }
 
@@ -2729,7 +2729,7 @@ define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev11GammaOpData21isNonC
   br label %_ZSteqIdSaIdEEbRKSt6vectorIT_T0_ES6_.exit
 
 _ZSteqIdSaIdEEbRKSt6vectorIT_T0_ES6_.exit:        ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i.i2, %.loopexit8.thread, %70, %67, %59, %57, %49, %.loopexit, %.loopexit8, %1
-  %74 = phi i1 [ false, %1 ], [ false, %.loopexit8 ], [ false, %.loopexit ], [ %58, %57 ], [ false, %49 ], [ false, %59 ], [ false, %67 ], [ %73, %70 ], [ false, %.loopexit8.thread ], [ false, %.lr.ph.i.i.i.i.i2 ], [ false, %.lr.ph.i.i.i.i.i ]
+  %74 = phi i1 [ false, %.loopexit8.thread ], [ %73, %70 ], [ false, %1 ], [ false, %.loopexit8 ], [ false, %.loopexit ], [ %58, %57 ], [ false, %49 ], [ false, %59 ], [ false, %67 ], [ false, %.lr.ph.i.i.i.i.i2 ], [ false, %.lr.ph.i.i.i.i.i ]
   ret i1 %74
 }
 
@@ -3003,7 +3003,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_118IsMonCurveIdentityERKSt6vectorIdSaIdEE.e
   %139 = fcmp oeq double %138, 0.000000e+00
   br i1 %139, label %140, label %_ZNK19OpenColorIO_v2_5dev11GammaOpData21areAllComponentsEqualEv.exit.thread
 
-_ZNK19OpenColorIO_v2_5dev11GammaOpData21areAllComponentsEqualEv.exit.thread: ; preds = %.lr.ph.i.i.i.i.i.i4, %.lr.ph.i.i.i.i.i2.i9, %.lr.ph.i.i.i.i.i8.i16, %.lr.ph.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i2.i, %.lr.ph.i.i.i.i.i8.i, %.loopexit.i13, %.loopexit.i, %_ZNK19OpenColorIO_v2_5dev11GammaOpData21areAllComponentsEqualEv.exit21.thread27, %.loopexit15.thread.i20, %.loopexit15.i8, %70, %.loopexit15.thread.i, %.loopexit15.i, %4, %.loopexit.i13.thread, %.loopexit.i.thread, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_118IsMonCurveIdentityERKSt6vectorIdSaIdEE.exit, %_ZNK19OpenColorIO_v2_5dev11GammaOpData21areAllComponentsEqualEv.exit.thread24, %1
+_ZNK19OpenColorIO_v2_5dev11GammaOpData21areAllComponentsEqualEv.exit.thread: ; preds = %.lr.ph.i.i.i.i.i.i4, %.lr.ph.i.i.i.i.i2.i9, %.lr.ph.i.i.i.i.i8.i16, %.lr.ph.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i2.i, %.lr.ph.i.i.i.i.i8.i, %.loopexit.i13, %.loopexit.i, %_ZNK19OpenColorIO_v2_5dev11GammaOpData21areAllComponentsEqualEv.exit21.thread27, %.loopexit15.i8, %70, %.loopexit15.thread.i20, %.loopexit15.i, %4, %.loopexit15.thread.i, %.loopexit.i13.thread, %.loopexit.i.thread, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_118IsMonCurveIdentityERKSt6vectorIdSaIdEE.exit, %_ZNK19OpenColorIO_v2_5dev11GammaOpData21areAllComponentsEqualEv.exit.thread24, %1
   br label %140
 
 140:                                              ; preds = %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_118IsMonCurveIdentityERKSt6vectorIdSaIdEE.exit, %_ZNK19OpenColorIO_v2_5dev11GammaOpData21areAllComponentsEqualEv.exit.thread24, %_ZNK19OpenColorIO_v2_5dev11GammaOpData21areAllComponentsEqualEv.exit.thread
@@ -3640,7 +3640,7 @@ define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev11GammaOpData6equalsE
   br i1 %or.cond.not, label %.lr.ph.i.i.i.i.i22, label %_ZSteqIdSaIdEEbRKSt6vectorIT_T0_ES6_.exit, !llvm.loop !79
 
 _ZSteqIdSaIdEEbRKSt6vectorIT_T0_ES6_.exit:        ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i.i10, %.lr.ph.i.i.i.i.i16, %.lr.ph.i.i.i.i.i22, %92, %.loopexit, %.loopexit29, %.loopexit31, %10, %4, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %4 ], [ false, %10 ], [ false, %.loopexit31 ], [ false, %.loopexit29 ], [ false, %.loopexit ], [ true, %92 ], [ false, %.lr.ph.i.i.i.i.i10 ], [ %95, %.lr.ph.i.i.i.i.i22 ], [ false, %.lr.ph.i.i.i.i.i16 ], [ false, %.lr.ph.i.i.i.i.i ]
+  %.0 = phi i1 [ false, %2 ], [ false, %.lr.ph.i.i.i.i.i16 ], [ false, %.lr.ph.i.i.i.i.i10 ], [ %95, %.lr.ph.i.i.i.i.i22 ], [ false, %4 ], [ false, %10 ], [ false, %.loopexit31 ], [ false, %.loopexit29 ], [ false, %.loopexit ], [ true, %92 ], [ false, %.lr.ph.i.i.i.i.i ]
   ret i1 %.0
 }
 

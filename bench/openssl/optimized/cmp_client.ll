@@ -179,7 +179,7 @@ save_senderNonce_if_waiting.exit.thread.sink.split: ; preds = %38, %34
   br label %save_senderNonce_if_waiting.exit.thread
 
 save_senderNonce_if_waiting.exit.thread:          ; preds = %save_senderNonce_if_waiting.exit.thread.sink.split, %22, %38, %26, %4
-  %.0 = phi i32 [ 0, %26 ], [ 1, %38 ], [ 0, %4 ], [ 0, %22 ], [ 0, %save_senderNonce_if_waiting.exit.thread.sink.split ]
+  %.0 = phi i32 [ 0, %22 ], [ 0, %4 ], [ 0, %26 ], [ 1, %38 ], [ 0, %save_senderNonce_if_waiting.exit.thread.sink.split ]
   ret i32 %.0
 }
 
@@ -691,7 +691,7 @@ define internal fastcc noundef range(i32 -1, 2) i32 @poll_for_response(ptr nound
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.loopexit
 
-.thread66:                                        ; preds = %85, %84
+.thread66:                                        ; preds = %84, %85
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %123
@@ -1882,8 +1882,8 @@ define internal range(i32 -1, 2) i32 @unprotected_exception(ptr noundef %0, ptr 
   %38 = icmp eq i32 %37, 2
   br i1 %38, label %select.unfold, label %.critedge
 
-select.unfold:                                    ; preds = %19, %34, %22, %12
-  %.027.ph = phi ptr [ @.str.31, %34 ], [ @.str.30, %22 ], [ @.str.28, %12 ], [ @.str.29, %19 ]
+select.unfold:                                    ; preds = %19, %34, %12, %22
+  %.027.ph = phi ptr [ @.str.31, %34 ], [ @.str.28, %12 ], [ @.str.30, %22 ], [ @.str.29, %19 ]
   %.not37 = icmp eq i32 %2, 0
   %39 = select i1 %.not37, ptr @.str.34, ptr @.str.33
   %40 = tail call i32 (i32, ptr, ptr, ptr, i32, ptr, ptr, ...) @ossl_cmp_print_log(i32 noundef 4, ptr noundef nonnull %0, ptr noundef nonnull @__func__.unprotected_exception, ptr noundef nonnull @.str, i32 noundef 83, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.32, ptr noundef nonnull %39, ptr noundef nonnull %.027.ph) #4

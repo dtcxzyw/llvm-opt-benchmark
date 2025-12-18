@@ -1027,9 +1027,9 @@ sdslen.exit247:                                   ; preds = %92, %95, %99, %103,
   br i1 %129, label %.lr.ph, label %.thread
 
 .thread:                                          ; preds = %127, %125
-  %.0189.lcssa = phi i64 [ %126, %127 ], [ %.0189305, %125 ]
-  %.0186.lcssa = phi ptr [ %.0181307, %127 ], [ %.0186306, %125 ]
-  %.0181.lcssa = phi ptr [ %128, %127 ], [ %.0181307, %125 ]
+  %.0189.lcssa = phi i64 [ %.0189305, %125 ], [ %126, %127 ]
+  %.0186.lcssa = phi ptr [ %.0186306, %125 ], [ %.0181307, %127 ]
+  %.0181.lcssa = phi ptr [ %.0181307, %125 ], [ %128, %127 ]
   %.not228 = icmp ult ptr %.0181.lcssa, %110
   br i1 %.not228, label %130, label %.thread.thread
 
@@ -2811,7 +2811,7 @@ sdslen.exit:                                      ; preds = %.lr.ph, %44, %47, %
   br label %92
 
 65:                                               ; preds = %63, %sdslen.exit
-  %.3 = phi i32 [ %.140, %sdslen.exit ], [ %64, %63 ]
+  %.3 = phi i32 [ %64, %63 ], [ %.140, %sdslen.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %66 = load i32, ptr %32, align 8, !tbaa !79
   %67 = sext i32 %66 to i64

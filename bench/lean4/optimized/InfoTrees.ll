@@ -1632,8 +1632,8 @@ lean_alloc_ctor.exit382:                          ; preds = %548
   br label %557
 
 556:                                              ; preds = %lean_inc.exit225, %lean_alloc_ctor.exit369
-  %.1180 = phi ptr [ %185, %lean_inc.exit225 ], [ %431, %lean_alloc_ctor.exit369 ]
-  %.1175 = phi ptr [ %.0174465, %lean_inc.exit225 ], [ %470, %lean_alloc_ctor.exit369 ]
+  %.1180 = phi ptr [ %431, %lean_alloc_ctor.exit369 ], [ %185, %lean_inc.exit225 ]
+  %.1175 = phi ptr [ %470, %lean_alloc_ctor.exit369 ], [ %.0174465, %lean_inc.exit225 ]
   %.1168 = add nuw i64 %.0167466, 1
   %exitcond.not = icmp eq i64 %.1168, %6
   br i1 %exitcond.not, label %._crit_edge, label %40
@@ -3643,8 +3643,8 @@ lean_alloc_ctor.exit188:                          ; preds = %lean_alloc_ctor.exi
   br label %263
 
 262:                                              ; preds = %lean_alloc_ctor.exit171, %lean_inc.exit129
-  %.1108 = phi ptr [ %128, %lean_alloc_ctor.exit171 ], [ %109, %lean_inc.exit129 ]
-  %.1104 = phi ptr [ %152, %lean_alloc_ctor.exit171 ], [ %104, %lean_inc.exit129 ]
+  %.1108 = phi ptr [ %109, %lean_inc.exit129 ], [ %128, %lean_alloc_ctor.exit171 ]
+  %.1104 = phi ptr [ %104, %lean_inc.exit129 ], [ %152, %lean_alloc_ctor.exit171 ]
   %.1100 = add nuw i64 %.099225, 1
   %exitcond.not = icmp eq i64 %.1100, %5
   br i1 %exitcond.not, label %._crit_edge, label %39
@@ -4396,8 +4396,8 @@ lean_alloc_ctor.exit188:                          ; preds = %lean_alloc_ctor.exi
   br label %263
 
 262:                                              ; preds = %lean_alloc_ctor.exit171, %lean_inc.exit129
-  %.1108 = phi ptr [ %128, %lean_alloc_ctor.exit171 ], [ %109, %lean_inc.exit129 ]
-  %.1104 = phi ptr [ %152, %lean_alloc_ctor.exit171 ], [ %104, %lean_inc.exit129 ]
+  %.1108 = phi ptr [ %109, %lean_inc.exit129 ], [ %128, %lean_alloc_ctor.exit171 ]
+  %.1104 = phi ptr [ %104, %lean_inc.exit129 ], [ %152, %lean_alloc_ctor.exit171 ]
   %.1100 = add nuw i64 %.099225, 1
   %exitcond.not = icmp eq i64 %.1100, %5
   br i1 %exitcond.not, label %._crit_edge, label %39

@@ -1334,7 +1334,7 @@ _ZN2cv3Mat2atIfEERT_i.exit:                       ; preds = %53
   br i1 %133, label %.loopexit, label %130
 
 .loopexit:                                        ; preds = %130, %.loopexit.loopexit65, %.thread61
-  %.pn49.pn.pn.pn = phi { ptr, i32 } [ %27, %.thread61 ], [ %.pn, %.loopexit.loopexit65 ], [ %.pn49.pn.pn, %130 ]
+  %.pn49.pn.pn.pn = phi { ptr, i32 } [ %.pn, %.loopexit.loopexit65 ], [ %27, %.thread61 ], [ %.pn49.pn.pn, %130 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn49.pn.pn.pn
 }
@@ -2065,7 +2065,7 @@ define hidden void @_Z12filter2DFreqRKN2cv3MatERS0_S2_(ptr noundef nonnull align
   br i1 %134, label %.loopexit90, label %131
 
 .loopexit90:                                      ; preds = %131, %.loopexit90.loopexit93, %.thread87, %.thread83
-  %.pn60.pn.pn = phi { ptr, i32 } [ %60, %.thread87 ], [ %117, %.thread83 ], [ %.pn47, %.loopexit90.loopexit93 ], [ %.pn60.pn, %131 ]
+  %.pn60.pn.pn = phi { ptr, i32 } [ %117, %.thread83 ], [ %60, %.thread87 ], [ %.pn47, %.loopexit90.loopexit93 ], [ %.pn60.pn, %131 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %135
 
@@ -2084,7 +2084,7 @@ define hidden void @_Z12filter2DFreqRKN2cv3MatERS0_S2_(ptr noundef nonnull align
   br i1 %140, label %.loopexit, label %137
 
 .loopexit:                                        ; preds = %137, %.loopexit.loopexit94, %.thread80
-  %.pn60.pn.pn.pn.pn = phi { ptr, i32 } [ %28, %.thread80 ], [ %.pn, %.loopexit.loopexit94 ], [ %.pn60.pn.pn.pn, %137 ]
+  %.pn60.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn, %.loopexit.loopexit94 ], [ %28, %.thread80 ], [ %.pn60.pn.pn.pn, %137 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn60.pn.pn.pn.pn
 }

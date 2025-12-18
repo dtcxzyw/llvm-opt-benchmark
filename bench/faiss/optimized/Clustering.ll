@@ -1367,7 +1367,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit326.thread:          ; preds = %.lr.ph644
   br label %890
 
 .loopexit484:                                     ; preds = %482, %.lr.ph646, %469, %455
-  %486 = phi i64 [ %453, %455 ], [ %453, %469 ], [ %467, %.lr.ph646 ], [ %483, %482 ]
+  %486 = phi i64 [ %467, %.lr.ph646 ], [ %453, %455 ], [ %453, %469 ], [ %483, %482 ]
   %487 = load i8, ptr %376, align 1, !tbaa !42, !range !43, !noundef !44
   %488 = trunc nuw i8 %487 to i1
   br i1 %488, label %489, label %.noexc277
@@ -3448,7 +3448,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %._crit_edge, %36
   br i1 %exitcond68.not, label %.loopexit, label %.lr.ph61, !llvm.loop !95
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph61, %62, %76, %.lr.ph63
-  %88 = phi i64 [ %40, %.lr.ph63 ], [ 0, %62 ], [ 0, %76 ], [ %81, %.lr.ph61 ], [ %69, %.lr.ph ]
+  %88 = phi i64 [ %81, %.lr.ph61 ], [ %40, %.lr.ph63 ], [ 0, %62 ], [ 0, %76 ], [ %69, %.lr.ph ]
   %89 = add nuw i64 %.04562, 1
   %90 = load i64, ptr %4, align 8, !tbaa !41
   %91 = icmp ult i64 %89, %90

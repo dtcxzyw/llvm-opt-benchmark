@@ -3027,7 +3027,7 @@ _ZN14core_hashtableIN7obj_mapI4exprPS1_E13obj_map_entryE8obj_hashINS3_8key_dataE
   br i1 %.not37, label %_ZNK26model_reconstruction_trail5entry7is_hideEv.exit.thread, label %.lr.ph43
 
 _ZNK26model_reconstruction_trail5entry7is_hideEv.exit.thread: ; preds = %.lr.ph, %.lr.ph43, %_ZN14core_hashtableIN7obj_mapI4exprPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE8iteratorppEv.exit, %_ZNK7obj_mapI4exprPS0_E5beginEv.exit, %6, %._crit_edge, %_ZNK26model_reconstruction_trail5entry7is_hideEv.exit
-  %.0 = phi i1 [ false, %._crit_edge ], [ false, %6 ], [ false, %_ZNK26model_reconstruction_trail5entry7is_hideEv.exit ], [ false, %_ZNK7obj_mapI4exprPS0_E5beginEv.exit ], [ %36, %.lr.ph43 ], [ %36, %_ZN14core_hashtableIN7obj_mapI4exprPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE8iteratorppEv.exit ], [ true, %.lr.ph ]
+  %.0 = phi i1 [ false, %._crit_edge ], [ false, %6 ], [ false, %_ZNK7obj_mapI4exprPS0_E5beginEv.exit ], [ false, %_ZNK26model_reconstruction_trail5entry7is_hideEv.exit ], [ %36, %.lr.ph43 ], [ %36, %_ZN14core_hashtableIN7obj_mapI4exprPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE8iteratorppEv.exit ], [ true, %.lr.ph ]
   ret i1 %.0
 }
 

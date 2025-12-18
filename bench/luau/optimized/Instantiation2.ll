@@ -1512,7 +1512,7 @@ _ZN4Luau3getINS_9ClassTypeEEEPKT_PKNS_4TypeE.exit.fold.split: ; preds = %3
   br label %_ZN4Luau3getINS_9ClassTypeEEEPKT_PKNS_4TypeE.exit
 
 _ZN4Luau3getINS_9ClassTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %30, %.loopexit, %61, %3, %_ZN4Luau3getINS_9ClassTypeEEEPKT_PKNS_4TypeE.exit.fold.split, %.lr.ph60, %.critedge, %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit, %2
-  %.0 = phi i1 [ true, %3 ], [ false, %2 ], [ false, %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit ], [ false, %.critedge ], [ false, %.lr.ph60 ], [ false, %_ZN4Luau3getINS_9ClassTypeEEEPKT_PKNS_4TypeE.exit.fold.split ], [ false, %.loopexit ], [ true, %61 ], [ true, %30 ]
+  %.0 = phi i1 [ true, %3 ], [ false, %.critedge ], [ false, %2 ], [ false, %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit ], [ false, %.loopexit ], [ false, %_ZN4Luau3getINS_9ClassTypeEEEPKT_PKNS_4TypeE.exit.fold.split ], [ true, %61 ], [ false, %.lr.ph60 ], [ true, %30 ]
   ret i1 %.0
 }
 

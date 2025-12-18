@@ -2205,7 +2205,7 @@ _ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit: 
   br i1 %.not27.old.i.i.i, label %.loopexit164, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %171, %168
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %171 ], [ %170, %168 ]
+  %.137.i.i.i.be = phi ptr [ %170, %168 ], [ %.old.i.i.i, %171 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !112
 
 _ZNK7obj_mapI3appjE4findEPS0_Rj.exit:             ; preds = %152, %163

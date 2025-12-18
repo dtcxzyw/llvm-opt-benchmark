@@ -2513,7 +2513,7 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #4 ali
   br label %.thread119
 
 .thread119:                                       ; preds = %1040, %956, %1097, %1054, %.thread120, %1005, %985, %.thread117
-  %1098 = phi ptr [ null, %1097 ], [ null, %1054 ], [ %180, %.thread120 ], [ %180, %1005 ], [ %180, %985 ], [ %180, %.thread117 ], [ %180, %956 ], [ %180, %1040 ]
+  %1098 = phi ptr [ null, %1097 ], [ null, %1054 ], [ %180, %956 ], [ %180, %.thread120 ], [ %180, %1005 ], [ %180, %985 ], [ %180, %.thread117 ], [ %180, %1040 ]
   %1099 = load i16, ptr %28, align 8
   %1100 = add i16 %1099, -3
   %1101 = icmp ult i16 %1100, 5
@@ -2875,7 +2875,7 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #4 ali
   br label %.thread130
 
 .thread130:                                       ; preds = %1298, %.thread130.fold.split, %.preheader
-  %1299 = phi i32 [ %1292, %.preheader ], [ 0, %1298 ], [ 1, %.thread130.fold.split ]
+  %1299 = phi i32 [ 0, %1298 ], [ %1292, %.preheader ], [ 1, %.thread130.fold.split ]
   %1300 = getelementptr i8, ptr %1287, i64 -46
   %1301 = load i16, ptr %1300, align 2
   %1302 = and i16 %1301, 1
@@ -3241,7 +3241,7 @@ default.unreachable316:                           ; preds = %1475
   unreachable
 
 1486:                                             ; preds = %1475, %1476, %1477, %1478, %1479, %1480, %1481, %1482, %1483, %1484, %1485
-  %1487 = phi i32 [ 270000, %1480 ], [ 540000, %1479 ], [ 810000, %1478 ], [ 1000000, %1477 ], [ 1350000, %1476 ], [ 810000, %1482 ], [ 162000, %1481 ], [ 270000, %1484 ], [ 540000, %1483 ], [ 162000, %1485 ], [ 2000000, %1475 ]
+  %1487 = phi i32 [ 810000, %1482 ], [ 162000, %1485 ], [ 270000, %1480 ], [ 540000, %1479 ], [ 810000, %1478 ], [ 1000000, %1477 ], [ 1350000, %1476 ], [ 270000, %1484 ], [ 162000, %1481 ], [ 540000, %1483 ], [ 2000000, %1475 ]
   br i1 %1320, label %1491, label %1488
 
 1488:                                             ; preds = %1486
@@ -5090,7 +5090,7 @@ default.unreachable279:                           ; preds = %1148, %1016, %802
   br i1 %.not72, label %.critedge, label %.preheader111, !llvm.loop !63
 
 1061:                                             ; preds = %1052, %1053, %1058
-  %1062 = phi i64 [ 4294967295, %1058 ], [ 0, %1052 ], [ %1057, %1053 ]
+  %1062 = phi i64 [ %1057, %1053 ], [ 4294967295, %1058 ], [ 0, %1052 ]
   %1063 = getelementptr inbounds nuw i8, ptr %1, i64 240
   store i16 0, ptr %1063, align 8
   br label %1064
@@ -6296,7 +6296,7 @@ define dso_local noundef zeroext i1 @intel_bios_get_dsc_params(ptr noundef reado
   br i1 %119, label %.thread, label %24, !llvm.loop !77
 
 .thread:                                          ; preds = %117, %42, %97, %3
-  %120 = phi i1 [ false, %3 ], [ false, %42 ], [ true, %97 ], [ false, %117 ]
+  %120 = phi i1 [ false, %3 ], [ true, %97 ], [ false, %42 ], [ false, %117 ]
   ret i1 %120
 }
 
@@ -7042,7 +7042,7 @@ define internal i32 @pnpid_get_panel_type(ptr noundef readonly captures(address)
   br label %72
 
 .thread:                                          ; preds = %50, %.preheader10, %75, %72, %68, %58, %4
-  %91 = phi i32 [ -1, %4 ], [ -1, %58 ], [ -1, %68 ], [ -1, %.preheader10 ], [ %.ph, %72 ], [ %84, %75 ], [ -1, %50 ]
+  %91 = phi i32 [ -1, %4 ], [ -1, %58 ], [ -1, %68 ], [ %.ph, %72 ], [ -1, %.preheader10 ], [ %84, %75 ], [ -1, %50 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %91
 }

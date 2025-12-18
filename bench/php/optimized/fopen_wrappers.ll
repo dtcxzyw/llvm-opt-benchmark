@@ -687,7 +687,7 @@ sub_0:
   br label %.loopexit
 
 .loopexit:                                        ; preds = %38, %._crit_edge, %82, %94, %78, %91, %17, %14
-  %.0 = phi i32 [ -1, %17 ], [ -1, %14 ], [ 0, %91 ], [ -1, %94 ], [ 0, %82 ], [ -1, %78 ], [ -1, %._crit_edge ], [ -1, %38 ]
+  %.0 = phi i32 [ -1, %17 ], [ -1, %14 ], [ -1, %._crit_edge ], [ 0, %91 ], [ -1, %94 ], [ 0, %82 ], [ -1, %78 ], [ -1, %38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -1360,7 +1360,7 @@ tsrm_realpath_str.exit220:                        ; preds = %146
   br label %tsrm_realpath_str.exit
 
 select.unfold:                                    ; preds = %146, %144, %128, %125, %110
-  %.1141 = phi ptr [ %111, %110 ], [ %.2142, %125 ], [ %.2142, %144 ], [ %.2142, %128 ], [ %.2142, %146 ]
+  %.1141 = phi ptr [ %111, %110 ], [ %.2142, %125 ], [ %.2142, %128 ], [ %.2142, %144 ], [ %.2142, %146 ]
   %.not169 = icmp eq ptr %.1141, null
   br i1 %.not169, label %.critedge6, label %69
 
@@ -1504,7 +1504,7 @@ switch.early.test215:                             ; preds = %177
   br label %tsrm_realpath_str.exit
 
 tsrm_realpath_str.exit:                           ; preds = %144, %217, %201, %.thread241, %198, %218, %161, %tsrm_realpath_str.exit220, %.thread224, %.critedge6, %159, %170, %zend_string_alloc.exit.i, %58, %36, %3, %8, %39
-  %.0132 = phi ptr [ null, %161 ], [ null, %3 ], [ null, %39 ], [ %38, %36 ], [ null, %.critedge6 ], [ null, %58 ], [ null, %8 ], [ %63, %zend_string_alloc.exit.i ], [ null, %217 ], [ null, %170 ], [ %152, %tsrm_realpath_str.exit220 ], [ null, %159 ], [ %138, %.thread224 ], [ %211, %.thread241 ], [ null, %198 ], [ %220, %218 ], [ null, %201 ], [ null, %144 ]
+  %.0132 = phi ptr [ null, %161 ], [ null, %3 ], [ null, %39 ], [ %38, %36 ], [ null, %.critedge6 ], [ null, %58 ], [ null, %8 ], [ %63, %zend_string_alloc.exit.i ], [ null, %201 ], [ null, %170 ], [ %152, %tsrm_realpath_str.exit220 ], [ null, %159 ], [ %138, %.thread224 ], [ null, %217 ], [ %211, %.thread241 ], [ null, %198 ], [ %220, %218 ], [ null, %144 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0132
@@ -1983,7 +1983,7 @@ define dso_local ptr @expand_filepath_with_mode(ptr noundef %0, ptr noundef writ
   br label %52
 
 52:                                               ; preds = %14, %29, %5, %50, %38
-  %.037 = phi ptr [ null, %38 ], [ %.5, %50 ], [ null, %5 ], [ null, %14 ], [ %.242, %29 ]
+  %.037 = phi ptr [ null, %38 ], [ %.5, %50 ], [ null, %5 ], [ %.242, %29 ], [ null, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.037

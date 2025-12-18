@@ -3254,8 +3254,8 @@ predict32.exit.i:                                 ; preds = %1029, %1027, %1026,
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.loopexit.loopexit352.i, %.preheader278.i, %.preheader279.i
-  %.6138.i.i = phi i32 [ %.2134.i335.i, %.preheader278.i ], [ %.2134.i335.i, %.preheader279.i ], [ %1035, %.loopexit.loopexit352.i ]
-  %.6.i.i = phi i32 [ %.3130.i.i, %.preheader278.i ], [ %.3130.i.i, %.preheader279.i ], [ %1030, %.loopexit.loopexit352.i ]
+  %.6138.i.i = phi i32 [ %1035, %.loopexit.loopexit352.i ], [ %.2134.i335.i, %.preheader278.i ], [ %.2134.i335.i, %.preheader279.i ]
+  %.6.i.i = phi i32 [ %1030, %.loopexit.loopexit352.i ], [ %.3130.i.i, %.preheader278.i ], [ %.3130.i.i, %.preheader279.i ]
   %1036 = icmp slt i32 %.6.i.i, 1
   br i1 %1036, label %1037, label %1044
 
@@ -3754,8 +3754,8 @@ predict32.exit257.i:                              ; preds = %1281, %1279, %1278,
   br label %.loopexit283.i
 
 .loopexit283.i:                                   ; preds = %.loopexit283.loopexit353.i, %.preheader282.i, %.preheader284.i
-  %.6138.i191.i = phi i32 [ %.2134.i169310.i, %.preheader282.i ], [ %.2134.i169310.i, %.preheader284.i ], [ %1287, %.loopexit283.loopexit353.i ]
-  %.6.i192.i = phi i32 [ %.3130.i186.i, %.preheader282.i ], [ %.3130.i186.i, %.preheader284.i ], [ %1282, %.loopexit283.loopexit353.i ]
+  %.6138.i191.i = phi i32 [ %1287, %.loopexit283.loopexit353.i ], [ %.2134.i169310.i, %.preheader282.i ], [ %.2134.i169310.i, %.preheader284.i ]
+  %.6.i192.i = phi i32 [ %1282, %.loopexit283.loopexit353.i ], [ %.3130.i186.i, %.preheader282.i ], [ %.3130.i186.i, %.preheader284.i ]
   %1288 = icmp slt i32 %.6.i192.i, 1
   br i1 %1288, label %1289, label %1296
 
@@ -4632,8 +4632,8 @@ predict.exit.i:                                   ; preds = %1799, %1797, %1796,
   br label %.loopexit.i325
 
 .loopexit.i325:                                   ; preds = %.loopexit.loopexit381.i, %.preheader294.i, %.preheader295.i324
-  %.6138.i.i326 = phi i32 [ %.2134.i356.i, %.preheader294.i ], [ %.2134.i356.i, %.preheader295.i324 ], [ %1806, %.loopexit.loopexit381.i ]
-  %.6.i.i327 = phi i32 [ %.3130.i.i321, %.preheader294.i ], [ %.3130.i.i321, %.preheader295.i324 ], [ %1801, %.loopexit.loopexit381.i ]
+  %.6138.i.i326 = phi i32 [ %1806, %.loopexit.loopexit381.i ], [ %.2134.i356.i, %.preheader294.i ], [ %.2134.i356.i, %.preheader295.i324 ]
+  %.6.i.i327 = phi i32 [ %1801, %.loopexit.loopexit381.i ], [ %.3130.i.i321, %.preheader294.i ], [ %.3130.i.i321, %.preheader295.i324 ]
   %1807 = icmp slt i32 %.6.i.i327, 1
   br i1 %1807, label %1808, label %1815
 
@@ -5153,8 +5153,8 @@ predict.exit273.i:                                ; preds = %2065, %2063, %2062,
   br label %.loopexit299.i
 
 .loopexit299.i:                                   ; preds = %.loopexit299.loopexit382.i, %.preheader298.i, %.preheader300.i
-  %.6138.i207.i = phi i32 [ %.2134.i185326.i, %.preheader298.i ], [ %.2134.i185326.i, %.preheader300.i ], [ %2072, %.loopexit299.loopexit382.i ]
-  %.6.i208.i = phi i32 [ %.3130.i202.i, %.preheader298.i ], [ %.3130.i202.i, %.preheader300.i ], [ %2067, %.loopexit299.loopexit382.i ]
+  %.6138.i207.i = phi i32 [ %2072, %.loopexit299.loopexit382.i ], [ %.2134.i185326.i, %.preheader298.i ], [ %.2134.i185326.i, %.preheader300.i ]
+  %.6.i208.i = phi i32 [ %2067, %.loopexit299.loopexit382.i ], [ %.3130.i202.i, %.preheader298.i ], [ %.3130.i202.i, %.preheader300.i ]
   %2073 = icmp slt i32 %.6.i208.i, 1
   br i1 %2073, label %2074, label %2081
 
@@ -5238,7 +5238,7 @@ predict.exit277.i:                                ; preds = %2107, %2105, %2104,
   br label %.loopexit303.i
 
 .loopexit303.i:                                   ; preds = %1640, %._crit_edge335.us.i, %._crit_edge.i346, %.preheader297.preheader.i, %.preheader307.i, %.lr.ph345.preheader.i, %.preheader305.i, %._crit_edge361.i, %.preheader302.i
-  %2113 = phi i32 [ %1562, %.preheader302.i ], [ %.0121.i188.lcssa.i, %._crit_edge.i346 ], [ %1562, %.preheader297.preheader.i ], [ %1562, %.preheader307.i ], [ %1562, %.lr.ph345.preheader.i ], [ %1562, %.preheader305.i ], [ %.0121.i.lcssa.i306, %._crit_edge361.i ], [ %1562, %._crit_edge335.us.i ], [ %1562, %1640 ]
+  %2113 = phi i32 [ %1562, %._crit_edge335.us.i ], [ %1562, %.preheader302.i ], [ %.0121.i188.lcssa.i, %._crit_edge.i346 ], [ %1562, %.preheader297.preheader.i ], [ %1562, %.preheader307.i ], [ %1562, %.lr.ph345.preheader.i ], [ %1562, %.preheader305.i ], [ %.0121.i.lcssa.i306, %._crit_edge361.i ], [ %1562, %1640 ]
   %exitcond436.not.i = icmp eq i64 %1574, %wide.trip.count435.i
   br i1 %exitcond436.not.i, label %.preheader311.i, label %.lr.ph376.i, !llvm.loop !185
 
@@ -6185,8 +6185,8 @@ predict.exit:                                     ; preds = %302, %304, %305, %3
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit394, %.preheader285, %.preheader284
-  %.6138.i = phi i32 [ %.2134.i355, %.preheader284 ], [ %.2134.i355, %.preheader285 ], [ %314, %.loopexit.loopexit394 ]
-  %.6.i = phi i32 [ %.3130.i, %.preheader284 ], [ %.3130.i, %.preheader285 ], [ %309, %.loopexit.loopexit394 ]
+  %.6138.i = phi i32 [ %314, %.loopexit.loopexit394 ], [ %.2134.i355, %.preheader284 ], [ %.2134.i355, %.preheader285 ]
+  %.6.i = phi i32 [ %309, %.loopexit.loopexit394 ], [ %.3130.i, %.preheader284 ], [ %.3130.i, %.preheader285 ]
   %315 = icmp slt i32 %.6.i, 1
   br i1 %315, label %316, label %323
 
@@ -6738,8 +6738,8 @@ predict.exit221:                                  ; preds = %581, %583, %584, %5
   br label %.loopexit289
 
 .loopexit289:                                     ; preds = %.loopexit289.loopexit395, %.preheader290, %.preheader288
-  %.6138.i153 = phi i32 [ %.2134.i131320, %.preheader288 ], [ %.2134.i131320, %.preheader290 ], [ %593, %.loopexit289.loopexit395 ]
-  %.6.i154 = phi i32 [ %.3130.i148, %.preheader288 ], [ %.3130.i148, %.preheader290 ], [ %588, %.loopexit289.loopexit395 ]
+  %.6138.i153 = phi i32 [ %593, %.loopexit289.loopexit395 ], [ %.2134.i131320, %.preheader288 ], [ %.2134.i131320, %.preheader290 ]
+  %.6.i154 = phi i32 [ %588, %.loopexit289.loopexit395 ], [ %.3130.i148, %.preheader288 ], [ %.3130.i148, %.preheader290 ]
   %594 = icmp slt i32 %.6.i154, 1
   br i1 %594, label %595, label %602
 
@@ -7381,7 +7381,7 @@ get_rac.exit36:                                   ; preds = %245, %240, %226, %2
   br label %get_rac.exit.thread
 
 get_rac.exit.thread:                              ; preds = %129, %61, %56, %39, %get_rac.exit36
-  %.027 = phi i32 [ %251, %get_rac.exit36 ], [ 0, %39 ], [ 0, %56 ], [ 0, %61 ], [ -1094995529, %129 ]
+  %.027 = phi i32 [ 0, %61 ], [ %251, %get_rac.exit36 ], [ 0, %39 ], [ 0, %56 ], [ -1094995529, %129 ]
   ret i32 %.027
 }
 

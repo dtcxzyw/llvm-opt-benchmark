@@ -283,7 +283,7 @@ _ZN5clang22getStandardSelectorLocEjNS_8SelectorEbN4llvm8ArrayRefIPNS_4ExprEEENS_
   br i1 %.not40.i, label %90, label %_ZN12_GLOBAL__N_118hasStandardSelLocsIN5clang4ExprEEENS1_21SelectorLocationsKindENS1_8SelectorEN4llvm8ArrayRefINS1_14SourceLocationEEENS6_IPT_EES7_.exit
 
 _ZN12_GLOBAL__N_118hasStandardSelLocsIN5clang4ExprEEENS1_21SelectorLocationsKindENS1_8SelectorEN4llvm8ArrayRefINS1_14SourceLocationEEENS6_IPT_EES7_.exit: ; preds = %33, %13, %90, %_ZN5clang22getStandardSelectorLocEjNS_8SelectorEbN4llvm8ArrayRefIPNS_4ExprEEENS_14SourceLocationE.exit33.i, %70, %_ZN5clang22getStandardSelectorLocEjNS_8SelectorEbN4llvm8ArrayRefIPNS_4ExprEEENS_14SourceLocationE.exit33.us.i, %6
-  %.0.i = phi i32 [ 1, %6 ], [ 1, %13 ], [ 0, %_ZN5clang22getStandardSelectorLocEjNS_8SelectorEbN4llvm8ArrayRefIPNS_4ExprEEENS_14SourceLocationE.exit33.us.i ], [ 0, %_ZN5clang22getStandardSelectorLocEjNS_8SelectorEbN4llvm8ArrayRefIPNS_4ExprEEENS_14SourceLocationE.exit33.i ], [ 2, %70 ], [ 2, %90 ], [ 1, %33 ]
+  %.0.i = phi i32 [ 2, %90 ], [ 0, %_ZN5clang22getStandardSelectorLocEjNS_8SelectorEbN4llvm8ArrayRefIPNS_4ExprEEENS_14SourceLocationE.exit33.us.i ], [ 1, %6 ], [ 1, %13 ], [ 2, %70 ], [ 0, %_ZN5clang22getStandardSelectorLocEjNS_8SelectorEbN4llvm8ArrayRefIPNS_4ExprEEENS_14SourceLocationE.exit33.i ], [ 1, %33 ]
   ret i32 %.0.i
 }
 
@@ -635,7 +635,7 @@ _ZN5clang22getStandardSelectorLocEjNS_8SelectorEbN4llvm8ArrayRefIPNS_11ParmVarDe
   br i1 %.not41.i, label %90, label %_ZN12_GLOBAL__N_118hasStandardSelLocsIN5clang11ParmVarDeclEEENS1_21SelectorLocationsKindENS1_8SelectorEN4llvm8ArrayRefINS1_14SourceLocationEEENS6_IPT_EES7_.exit
 
 _ZN12_GLOBAL__N_118hasStandardSelLocsIN5clang11ParmVarDeclEEENS1_21SelectorLocationsKindENS1_8SelectorEN4llvm8ArrayRefINS1_14SourceLocationEEENS6_IPT_EES7_.exit: ; preds = %33, %13, %90, %_ZN5clang22getStandardSelectorLocEjNS_8SelectorEbN4llvm8ArrayRefIPNS_11ParmVarDeclEEENS_14SourceLocationE.exit34.i, %70, %_ZN5clang22getStandardSelectorLocEjNS_8SelectorEbN4llvm8ArrayRefIPNS_11ParmVarDeclEEENS_14SourceLocationE.exit34.us.i, %6
-  %.0.i = phi i32 [ 1, %6 ], [ 1, %13 ], [ 0, %_ZN5clang22getStandardSelectorLocEjNS_8SelectorEbN4llvm8ArrayRefIPNS_11ParmVarDeclEEENS_14SourceLocationE.exit34.us.i ], [ 0, %_ZN5clang22getStandardSelectorLocEjNS_8SelectorEbN4llvm8ArrayRefIPNS_11ParmVarDeclEEENS_14SourceLocationE.exit34.i ], [ 2, %70 ], [ 2, %90 ], [ 1, %33 ]
+  %.0.i = phi i32 [ 2, %90 ], [ 0, %_ZN5clang22getStandardSelectorLocEjNS_8SelectorEbN4llvm8ArrayRefIPNS_11ParmVarDeclEEENS_14SourceLocationE.exit34.us.i ], [ 1, %6 ], [ 1, %13 ], [ 2, %70 ], [ 0, %_ZN5clang22getStandardSelectorLocEjNS_8SelectorEbN4llvm8ArrayRefIPNS_11ParmVarDeclEEENS_14SourceLocationE.exit34.i ], [ 1, %33 ]
   ret i32 %.0.i
 }
 

@@ -330,7 +330,7 @@ ikcp_segment_delete.exit:                         ; preds = %30, %31
   br i1 %.not59, label %.preheader76, label %.lr.ph.split, !llvm.loop !62
 
 .preheader75:                                     ; preds = %ikcp_segment_delete.exit66, %ikcp_segment_delete.exit66.us, %.preheader76.thread, %.preheader76
-  %.pre97.pre98.pre.pre = phi ptr [ null, %.preheader76.thread ], [ %.pre97.pre98.pre.pre.pre, %.preheader76 ], [ null, %ikcp_segment_delete.exit66.us ], [ %.pre97.pre98.pre.pre107, %ikcp_segment_delete.exit66 ]
+  %.pre97.pre98.pre.pre = phi ptr [ null, %ikcp_segment_delete.exit66.us ], [ null, %.preheader76.thread ], [ %.pre97.pre98.pre.pre.pre, %.preheader76 ], [ %.pre97.pre98.pre.pre107, %ikcp_segment_delete.exit66 ]
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %35 = load ptr, ptr %34, align 8, !tbaa !30
   %.not6181 = icmp eq ptr %34, %35
@@ -479,7 +479,7 @@ ikcp_segment_delete.exit70:                       ; preds = %82, %83
   br i1 %.not62, label %._crit_edge, label %.lr.ph84.split, !llvm.loop !68
 
 ._crit_edge:                                      ; preds = %ikcp_segment_delete.exit70, %ikcp_segment_delete.exit70.us, %.preheader.thread, %.preheader
-  %.pre97.pre98 = phi ptr [ null, %.preheader.thread ], [ %.pre97.pre98.pre, %.preheader ], [ null, %ikcp_segment_delete.exit70.us ], [ %.pre97.pre98101, %ikcp_segment_delete.exit70 ]
+  %.pre97.pre98 = phi ptr [ null, %ikcp_segment_delete.exit70.us ], [ null, %.preheader.thread ], [ %.pre97.pre98.pre, %.preheader ], [ %.pre97.pre98101, %ikcp_segment_delete.exit70 ]
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %87 = load ptr, ptr %86, align 8, !tbaa !29
   %.not63 = icmp eq ptr %87, null

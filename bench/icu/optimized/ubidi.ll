@@ -221,7 +221,7 @@ define signext range(i8 0, 2) i8 @ubidi_getMemory_77(ptr noundef captures(none) 
   br label %18
 
 18:                                               ; preds = %.sink.split, %14, %13, %11, %7, %8
-  %.0 = phi i8 [ 1, %11 ], [ 0, %7 ], [ 0, %13 ], [ 0, %8 ], [ 0, %14 ], [ 1, %.sink.split ]
+  %.0 = phi i8 [ 0, %14 ], [ 1, %11 ], [ 0, %7 ], [ 0, %13 ], [ 0, %8 ], [ 1, %.sink.split ]
   ret i8 %.0
 }
 
@@ -478,11 +478,11 @@ define range(i32 0, 4) i32 @ubidi_getBaseDirection_77(ptr noundef %0, i32 nounde
   ]
 
 .fold.split.loopexit37:                           ; preds = %10, %32
-  %.0.ph = phi i32 [ 3, %10 ], [ %33, %32 ]
+  %.0.ph = phi i32 [ %33, %32 ], [ 3, %10 ]
   br label %.fold.split
 
 .fold.split:                                      ; preds = %32, %32, %.fold.split.loopexit37, %2
-  %.0 = phi i32 [ 3, %2 ], [ %.0.ph, %.fold.split.loopexit37 ], [ 1, %32 ], [ 1, %32 ]
+  %.0 = phi i32 [ %.0.ph, %.fold.split.loopexit37 ], [ 3, %2 ], [ 1, %32 ], [ 1, %32 ]
   ret i32 %.0
 }
 
@@ -1856,7 +1856,7 @@ select.unfold.i:                                  ; preds = %.lr.ph354.i
   store i32 7, ptr %5, align 4, !tbaa !23
   br label %881
 
-602:                                              ; preds = %275, %281, %276, %282
+602:                                              ; preds = %282, %275, %281, %276
   store i32 7, ptr %5, align 4, !tbaa !23
   br label %881
 
@@ -3725,13 +3725,13 @@ _ZL22bracketProcessBoundaryP11BracketDataihh.exit358: ; preds = %556, %566
   br label %_ZL18directionFromFlagsP5UBiDi.exit366
 
 _ZL18directionFromFlagsP5UBiDi.exit366:           ; preds = %587, %615, %612
-  %spec.select306 = phi i32 [ 0, %612 ], [ %..i361, %615 ], [ -1, %587 ]
+  %spec.select306 = phi i32 [ %..i361, %615 ], [ 0, %612 ], [ -1, %587 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZL18directionFromFlagsP5UBiDi.exit.thread
 
 _ZL18directionFromFlagsP5UBiDi.exit.thread:       ; preds = %._crit_edge402, %.preheader, %53, %50, %_ZL18directionFromFlagsP5UBiDi.exit366, %42, %.loopexit
-  %.0258 = phi i32 [ %.1259, %.loopexit ], [ 0, %42 ], [ %spec.select306, %_ZL18directionFromFlagsP5UBiDi.exit366 ], [ 0, %50 ], [ 1, %53 ], [ 2, %.preheader ], [ 2, %._crit_edge402 ]
+  %.0258 = phi i32 [ %.1259, %.loopexit ], [ 0, %42 ], [ %spec.select306, %_ZL18directionFromFlagsP5UBiDi.exit366 ], [ 1, %53 ], [ 0, %50 ], [ 2, %.preheader ], [ 2, %._crit_edge402 ]
   ret i32 %.0258
 }
 
@@ -4123,7 +4123,7 @@ _ZL10lastL_R_ALP5UBiDi.exit.loopexit286:          ; preds = %ubidi_getCustomized
   br label %_ZL10lastL_R_ALP5UBiDi.exit
 
 _ZL10lastL_R_ALP5UBiDi.exit:                      ; preds = %ubidi_getCustomizedClass_77.exit.i, %_ZL10lastL_R_ALP5UBiDi.exit.loopexit286, %_ZL10lastL_R_ALP5UBiDi.exit.loopexit, %68, %46
-  %.0 = phi i8 [ %3, %46 ], [ %3, %68 ], [ 1, %_ZL10lastL_R_ALP5UBiDi.exit.loopexit286 ], [ %3, %_ZL10lastL_R_ALP5UBiDi.exit.loopexit ], [ 0, %ubidi_getCustomizedClass_77.exit.i ]
+  %.0 = phi i8 [ %3, %46 ], [ %3, %68 ], [ %3, %_ZL10lastL_R_ALP5UBiDi.exit.loopexit ], [ 1, %_ZL10lastL_R_ALP5UBiDi.exit.loopexit286 ], [ 0, %ubidi_getCustomizedClass_77.exit.i ]
   %112 = getelementptr inbounds i8, ptr %8, i64 %53
   %113 = load i8, ptr %112, align 1, !tbaa !59
   %114 = icmp eq i8 %113, 22
@@ -4430,7 +4430,7 @@ _ZL17firstL_R_AL_EN_ANP5UBiDi.exit.loopexit:      ; preds = %ubidi_getCustomized
   br label %_ZL17firstL_R_AL_EN_ANP5UBiDi.exit
 
 _ZL17firstL_R_AL_EN_ANP5UBiDi.exit:               ; preds = %ubidi_getCustomizedClass_77.exit.i208, %ubidi_getCustomizedClass_77.exit.i208, %_ZL17firstL_R_AL_EN_ANP5UBiDi.exit.loopexit, %_ZL17firstL_R_AL_EN_ANP5UBiDi.exit.loopexit277, %198, %.critedge._crit_edge
-  %.0163 = phi i8 [ %4, %.critedge._crit_edge ], [ %4, %198 ], [ 1, %_ZL17firstL_R_AL_EN_ANP5UBiDi.exit.loopexit277 ], [ %.0163.ph, %_ZL17firstL_R_AL_EN_ANP5UBiDi.exit.loopexit ], [ %trunc.i210, %ubidi_getCustomizedClass_77.exit.i208 ], [ %trunc.i210, %ubidi_getCustomizedClass_77.exit.i208 ]
+  %.0163 = phi i8 [ %4, %.critedge._crit_edge ], [ %4, %198 ], [ %.0163.ph, %_ZL17firstL_R_AL_EN_ANP5UBiDi.exit.loopexit ], [ 1, %_ZL17firstL_R_AL_EN_ANP5UBiDi.exit.loopexit277 ], [ %trunc.i210, %ubidi_getCustomizedClass_77.exit.i208 ], [ %trunc.i210, %ubidi_getCustomizedClass_77.exit.i208 ]
   %240 = sext i32 %2 to i64
   %241 = add i32 %2, -1
   %smin254 = tail call i32 @llvm.smin.i32(i32 %1, i32 %241)
@@ -5931,7 +5931,7 @@ _ZL21bracketProcessClosingP11BracketDataii.exit:  ; preds = %99, %107, %.critedg
   br i1 %exitcond.not, label %.thread171, label %214, !llvm.loop !156
 
 .thread171:                                       ; preds = %222, %.thread175, %159, %155, %137, %157, %.thread178, %201
-  %.1 = phi i8 [ 1, %.thread178 ], [ 1, %201 ], [ 0, %159 ], [ 0, %155 ], [ 1, %137 ], [ 0, %157 ], [ 1, %.thread175 ], [ 1, %222 ]
+  %.1 = phi i8 [ 1, %.thread178 ], [ 0, %157 ], [ 1, %201 ], [ 0, %159 ], [ 0, %155 ], [ 1, %137 ], [ 1, %.thread175 ], [ 1, %222 ]
   ret i8 %.1
 }
 
@@ -7047,7 +7047,7 @@ _ZL8addPointP5UBiDiii.exit265:                    ; preds = %327, %.thread.i264,
   unreachable
 
 _ZL24setLevelsOutsideIsolatesP5UBiDiiih.exit:     ; preds = %409, %.loopexit, %70, %51, %396, %365, %._crit_edge.i253, %.thread.i255, %292, %54, %35, %5, %30, %32, %178, %199, %205, %211, %.critedge204, %._crit_edge, %_ZL8addPointP5UBiDiii.exit229, %124, %168, %._crit_edge300, %210, %206, %_ZL8addPointP5UBiDiii.exit265, %314
-  %.0186 = phi i32 [ %3, %30 ], [ %34, %32 ], [ %3, %5 ], [ %.1187, %_ZL8addPointP5UBiDiii.exit229 ], [ %.1187, %124 ], [ %3, %168 ], [ %3, %._crit_edge300 ], [ %3, %178 ], [ %3, %199 ], [ %3, %205 ], [ %3, %210 ], [ %3, %206 ], [ %3, %211 ], [ %3, %.critedge204 ], [ %3, %_ZL8addPointP5UBiDiii.exit265 ], [ %3, %314 ], [ %3, %._crit_edge ], [ %3, %35 ], [ %3, %54 ], [ %3, %292 ], [ %3, %.thread.i255 ], [ %3, %._crit_edge.i253 ], [ %3, %365 ], [ %3, %396 ], [ %3, %.loopexit ], [ %3, %51 ], [ %3, %70 ], [ %3, %409 ]
+  %.0186 = phi i32 [ %3, %30 ], [ %34, %32 ], [ %3, %5 ], [ %3, %._crit_edge.i253 ], [ %.1187, %_ZL8addPointP5UBiDiii.exit229 ], [ %.1187, %124 ], [ %3, %168 ], [ %3, %._crit_edge300 ], [ %3, %178 ], [ %3, %199 ], [ %3, %205 ], [ %3, %210 ], [ %3, %206 ], [ %3, %211 ], [ %3, %.critedge204 ], [ %3, %365 ], [ %3, %_ZL8addPointP5UBiDiii.exit265 ], [ %3, %314 ], [ %3, %._crit_edge ], [ %3, %396 ], [ %3, %.loopexit ], [ %3, %35 ], [ %3, %54 ], [ %3, %292 ], [ %3, %.thread.i255 ], [ %3, %51 ], [ %3, %70 ], [ %3, %409 ]
   %.not202 = icmp ne i8 %28, 0
   %413 = icmp slt i32 %.0186, %3
   %or.cond = select i1 %.not202, i1 true, i1 %413

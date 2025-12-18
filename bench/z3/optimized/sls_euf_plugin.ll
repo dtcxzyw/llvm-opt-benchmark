@@ -1382,7 +1382,7 @@ _ZNK3euf5enode8get_sortEv.exit135:                ; preds = %348
   br i1 %.not27.old.i.i.i, label %_ZNK7obj_mapI4sortjE4findEPS0_Rj.exit, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %384, %381
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %384 ], [ %383, %381 ]
+  %.137.i.i.i.be = phi ptr [ %383, %381 ], [ %.old.i.i.i, %384 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !274
 
 _ZNK7obj_mapI4sortjE9find_coreEPS0_.exit.i:       ; preds = %365, %376
@@ -1392,7 +1392,7 @@ _ZNK7obj_mapI4sortjE9find_coreEPS0_.exit.i:       ; preds = %365, %376
   br label %_ZNK7obj_mapI4sortjE4findEPS0_Rj.exit
 
 _ZNK7obj_mapI4sortjE4findEPS0_Rj.exit:            ; preds = %370, %384, %381, %_ZNK7obj_mapI4sortjE9find_coreEPS0_.exit.i, %.preheader.i.i.i
-  %.0159 = phi i32 [ 0, %.preheader.i.i.i ], [ %386, %_ZNK7obj_mapI4sortjE9find_coreEPS0_.exit.i ], [ 0, %384 ], [ 0, %381 ], [ 0, %370 ]
+  %.0159 = phi i32 [ 0, %.preheader.i.i.i ], [ 0, %384 ], [ %386, %_ZNK7obj_mapI4sortjE9find_coreEPS0_.exit.i ], [ 0, %381 ], [ 0, %370 ]
   %387 = load ptr, ptr %23, align 8, !tbaa !61
   %388 = load ptr, ptr %336, align 8, !tbaa !269
   %389 = invoke noundef ptr @_ZNK4expr8get_sortEv(ptr noundef nonnull align 4 dereferenceable(16) %388)
@@ -1594,7 +1594,7 @@ define hidden void @_ZN3sls10euf_plugin13register_termEP4expr(ptr noundef nonnul
   br i1 %.not27.old.i.i.i, label %.loopexit, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %48, %45
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %48 ], [ %47, %45 ]
+  %.137.i.i.i.be = phi ptr [ %47, %45 ], [ %.old.i.i.i, %48 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !284
 
 .loopexit:                                        ; preds = %34, %45, %48, %.preheader.i.i.i
@@ -1647,12 +1647,12 @@ _ZN6vectorIP3appLb0EjED2Ev.exit:                  ; preds = %52, %50
   br label %_ZNK7obj_mapI9func_decl10ptr_vectorI3appEE8containsEPS0_.exit
 
 _ZNK7obj_mapI9func_decl10ptr_vectorI3appEE8containsEPS0_.exit: ; preds = %29, %40, %_ZN6vectorIP3appLb0EjED2Ev.exit
-  %.pre-phi31 = phi i64 [ %.pre30, %_ZN6vectorIP3appLb0EjED2Ev.exit ], [ %26, %40 ], [ %26, %29 ]
-  %.idx.i.i.i.i.pre-phi = phi i64 [ %.pre29, %_ZN6vectorIP3appLb0EjED2Ev.exit ], [ %.idx.i.i.i, %40 ], [ %.idx.i.i.i, %29 ]
-  %.pre-phi26 = phi i32 [ %.pre25, %_ZN6vectorIP3appLb0EjED2Ev.exit ], [ %22, %40 ], [ %22, %29 ]
-  %58 = phi ptr [ %.pre19.pre, %_ZN6vectorIP3appLb0EjED2Ev.exit ], [ %23, %40 ], [ %23, %29 ]
-  %59 = phi i32 [ %.pre18.pre, %_ZN6vectorIP3appLb0EjED2Ev.exit ], [ %20, %40 ], [ %20, %29 ]
-  %60 = phi i32 [ %.pre.pre, %_ZN6vectorIP3appLb0EjED2Ev.exit ], [ %18, %40 ], [ %18, %29 ]
+  %.pre-phi31 = phi i64 [ %26, %40 ], [ %.pre30, %_ZN6vectorIP3appLb0EjED2Ev.exit ], [ %26, %29 ]
+  %.idx.i.i.i.i.pre-phi = phi i64 [ %.idx.i.i.i, %40 ], [ %.pre29, %_ZN6vectorIP3appLb0EjED2Ev.exit ], [ %.idx.i.i.i, %29 ]
+  %.pre-phi26 = phi i32 [ %22, %40 ], [ %.pre25, %_ZN6vectorIP3appLb0EjED2Ev.exit ], [ %22, %29 ]
+  %58 = phi ptr [ %23, %40 ], [ %.pre19.pre, %_ZN6vectorIP3appLb0EjED2Ev.exit ], [ %23, %29 ]
+  %59 = phi i32 [ %20, %40 ], [ %.pre18.pre, %_ZN6vectorIP3appLb0EjED2Ev.exit ], [ %20, %29 ]
+  %60 = phi i32 [ %18, %40 ], [ %.pre.pre, %_ZN6vectorIP3appLb0EjED2Ev.exit ], [ %18, %29 ]
   %61 = getelementptr inbounds nuw %"class.obj_map<func_decl, ptr_vector<app>>::obj_map_entry", ptr %58, i64 %.pre-phi31
   %.not34.i.i.i.i = icmp eq i32 %.pre-phi26, %59
   br i1 %.not34.i.i.i.i, label %.lr.ph38.i.i.i.i.preheader, label %.lr.ph.i.i.i.i.preheader
@@ -3396,7 +3396,7 @@ _ZNK6vectorIPN3euf5enodeELb0EjE4sizeEv.exit.i.i:  ; preds = %_ZN10scoped_ptrIN3e
   br i1 %.not27.old.i.i.i, label %.loopexit, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %77, %74
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %77 ], [ %76, %74 ]
+  %.137.i.i.i.be = phi ptr [ %76, %74 ], [ %.old.i.i.i, %77 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !314
 
 _ZNK7obj_mapIN3euf5enodeEP4exprE4findEPS1_RS3_.exit: ; preds = %58, %69
@@ -4067,7 +4067,7 @@ _ZN14core_hashtableIN7obj_mapI9func_decl10ptr_vectorI3appEE13obj_map_entryE8obj_
   br i1 %.not80, label %.loopexit, label %35
 
 .loopexit:                                        ; preds = %_ZN14core_hashtableIN7obj_mapI9func_decl10ptr_vectorI3appEE13obj_map_entryE8obj_hashINS5_8key_dataEE10default_eqIS8_EE8iteratorppEv.exit, %_ZN7obj_refI4expr11ast_managerED2Ev.exit32, %_ZNK7obj_mapI9func_decl10ptr_vectorI3appEE5beginEv.exit
-  %.not80106 = phi i1 [ true, %_ZNK7obj_mapI9func_decl10ptr_vectorI3appEE5beginEv.exit ], [ false, %_ZN7obj_refI4expr11ast_managerED2Ev.exit32 ], [ true, %_ZN14core_hashtableIN7obj_mapI9func_decl10ptr_vectorI3appEE13obj_map_entryE8obj_hashINS5_8key_dataEE10default_eqIS8_EE8iteratorppEv.exit ]
+  %.not80106 = phi i1 [ false, %_ZN7obj_refI4expr11ast_managerED2Ev.exit32 ], [ true, %_ZNK7obj_mapI9func_decl10ptr_vectorI3appEE5beginEv.exit ], [ true, %_ZN14core_hashtableIN7obj_mapI9func_decl10ptr_vectorI3appEE13obj_map_entryE8obj_hashINS5_8key_dataEE10default_eqIS8_EE8iteratorppEv.exit ]
   ret i1 %.not80106
 }
 

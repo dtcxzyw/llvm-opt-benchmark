@@ -248,7 +248,7 @@ Io_ReadBlifNetwork.exit.thread:                   ; preds = %5, %42
   br i1 %87, label %.split.us.i, label %.lr.ph
 
 .split.us.i:                                      ; preds = %.lr.ph.backedge.i, %.lr.ph, %61, %65, %.lr.ph.preheader.i, %.split32.us.i, %81, %.split32.us.thread.i, %69
-  %.us-phi.i = phi ptr [ %71, %.split32.us.i ], [ %71, %.split32.us.thread.i ], [ null, %69 ], [ null, %81 ], [ %71, %.lr.ph.preheader.i ], [ %71, %65 ], [ %71, %61 ], [ %71, %.lr.ph ], [ %71, %.lr.ph.backedge.i ]
+  %.us-phi.i = phi ptr [ %71, %.split32.us.thread.i ], [ %71, %.split32.us.i ], [ null, %81 ], [ null, %69 ], [ %71, %.lr.ph.preheader.i ], [ %71, %65 ], [ %71, %61 ], [ %71, %.lr.ph ], [ %71, %.lr.ph.backedge.i ]
   %88 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 1152
   %89 = load i32, ptr %88, align 8, !tbaa !42
   %.not30.i = icmp eq i32 %89, 0
@@ -1339,10 +1339,10 @@ define range(i32 0, 2) i32 @Io_ReadBlifNetworkConnectBoxesOneBox(ptr noundef %0,
   br i1 %144, label %.lr.ph270, label %.critedge2, !llvm.loop !92
 
 .critedge2:                                       ; preds = %142, %.preheader, %.critedge, %109, %139
-  %.val193273 = phi ptr [ %.val192, %139 ], [ %.val193273.pre, %109 ], [ %.val193273370, %.critedge ], [ %.val193273370, %.preheader ], [ %.val192, %142 ]
-  %145 = phi ptr [ %134, %139 ], [ %.pre, %109 ], [ %10, %.critedge ], [ %10, %.preheader ], [ %134, %142 ]
-  %.0153 = phi ptr [ %44, %139 ], [ %44, %109 ], [ null, %.critedge ], [ null, %.preheader ], [ %44, %142 ]
-  %.0 = phi i32 [ %141, %139 ], [ %111, %109 ], [ 1, %.critedge ], [ -1, %.preheader ], [ -1, %142 ]
+  %.val193273 = phi ptr [ %.val193273370, %.critedge ], [ %.val192, %139 ], [ %.val193273.pre, %109 ], [ %.val193273370, %.preheader ], [ %.val192, %142 ]
+  %145 = phi ptr [ %10, %.critedge ], [ %134, %139 ], [ %.pre, %109 ], [ %10, %.preheader ], [ %134, %142 ]
+  %.0153 = phi ptr [ null, %.critedge ], [ %44, %139 ], [ %44, %109 ], [ null, %.preheader ], [ %44, %142 ]
+  %.0 = phi i32 [ 1, %.critedge ], [ %141, %139 ], [ %111, %109 ], [ -1, %.preheader ], [ -1, %142 ]
   %146 = getelementptr i8, ptr %.val193273, i64 4
   %.val193.val274 = load i32, ptr %146, align 4, !tbaa !20
   %147 = icmp sgt i32 %.val193.val274, 0
@@ -1408,7 +1408,7 @@ define range(i32 0, 2) i32 @Io_ReadBlifNetworkConnectBoxesOneBox(ptr noundef %0,
   br i1 %182, label %.lr.ph277, label %.critedge4.preheader, !llvm.loop !93
 
 .critedge6.preheader:                             ; preds = %.critedge4, %.critedge2, %.critedge4.preheader
-  %.lcssa272398 = phi ptr [ %178, %.critedge4.preheader ], [ %145, %.critedge2 ], [ %178, %.critedge4 ]
+  %.lcssa272398 = phi ptr [ %145, %.critedge2 ], [ %178, %.critedge4.preheader ], [ %178, %.critedge4 ]
   %183 = getelementptr i8, ptr %.lcssa272398, i64 48
   %.val186285 = load ptr, ptr %183, align 8, !tbaa !81
   %184 = getelementptr i8, ptr %.val186285, i64 4
@@ -5051,8 +5051,8 @@ Io_ReadBlifNetworkInputDrive.exit:                ; preds = %1253, %1255, %1274,
   br label %Io_ReadBlifNetworkNames.exit
 
 Io_ReadBlifNetworkNames.exit:                     ; preds = %.lr.ph.i147, %.lr.ph.i143, %767, %753, %750, %749, %748, %744, %742, %721, %710, %708, %691, %686, %669, %662, %660, %634, %632, %604, %602, %583, %581, %569, %567, %554, %552, %266, %264, %152, %150, %121, %119, %314, %316, %Io_ReadBlifNetworkInputArrival.exit, %Io_ReadBlifNetworkDefaultInputArrival.exit, %Io_ReadBlifNetworkInputDrive.exit, %1438, %1446, %1458, %1456, %1442, %1434, %Io_ReadBlifNetworkDefaultOutputRequired.exit, %Io_ReadBlifNetworkOutputRequired.exit
-  %.199.ph = phi i32 [ 0, %767 ], [ 0, %753 ], [ 0, %749 ], [ 0, %748 ], [ 0, %744 ], [ 0, %742 ], [ 0, %721 ], [ 0, %710 ], [ 0, %708 ], [ 0, %686 ], [ 0, %669 ], [ 0, %662 ], [ 0, %660 ], [ 0, %634 ], [ 0, %632 ], [ 0, %604 ], [ 0, %602 ], [ 0, %583 ], [ 0, %581 ], [ 0, %569 ], [ 0, %567 ], [ 1, %554 ], [ 1, %552 ], [ 1, %266 ], [ 1, %264 ], [ 1, %152 ], [ 1, %150 ], [ 1, %121 ], [ 1, %119 ], [ 1, %314 ], [ 1, %316 ], [ 0, %691 ], [ 0, %750 ], [ 0, %Io_ReadBlifNetworkInputArrival.exit ], [ 0, %Io_ReadBlifNetworkOutputRequired.exit ], [ 0, %Io_ReadBlifNetworkDefaultInputArrival.exit ], [ 0, %Io_ReadBlifNetworkDefaultOutputRequired.exit ], [ 0, %Io_ReadBlifNetworkInputDrive.exit ], [ 0, %1434 ], [ 0, %1438 ], [ 0, %1442 ], [ 0, %1446 ], [ 0, %1456 ], [ 0, %1458 ], [ 0, %.lr.ph.i143 ], [ 0, %.lr.ph.i147 ]
-  %.197.ph = phi i32 [ 0, %767 ], [ 0, %753 ], [ 0, %749 ], [ 0, %748 ], [ 1, %744 ], [ 1, %742 ], [ 0, %721 ], [ 1, %710 ], [ 1, %708 ], [ 0, %686 ], [ 0, %669 ], [ 1, %662 ], [ 1, %660 ], [ 1, %634 ], [ 1, %632 ], [ 1, %604 ], [ 1, %602 ], [ 1, %583 ], [ 1, %581 ], [ 1, %569 ], [ 1, %567 ], [ 1, %554 ], [ 1, %552 ], [ 1, %266 ], [ 1, %264 ], [ 1, %152 ], [ 1, %150 ], [ 1, %121 ], [ 1, %119 ], [ 1, %314 ], [ 1, %316 ], [ 0, %691 ], [ 0, %750 ], [ %.0.i151, %Io_ReadBlifNetworkInputArrival.exit ], [ %.0.i158, %Io_ReadBlifNetworkOutputRequired.exit ], [ %.0.i174, %Io_ReadBlifNetworkDefaultInputArrival.exit ], [ %.0.i176, %Io_ReadBlifNetworkDefaultOutputRequired.exit ], [ %.0.i180, %Io_ReadBlifNetworkInputDrive.exit ], [ %1435, %1434 ], [ %1439, %1438 ], [ %1443, %1442 ], [ %1447, %1446 ], [ 0, %1456 ], [ 0, %1458 ], [ 0, %.lr.ph.i143 ], [ 0, %.lr.ph.i147 ]
+  %.199.ph = phi i32 [ 0, %.lr.ph.i143 ], [ 0, %767 ], [ 0, %753 ], [ 0, %749 ], [ 0, %748 ], [ 0, %744 ], [ 0, %742 ], [ 0, %721 ], [ 0, %710 ], [ 0, %708 ], [ 0, %686 ], [ 0, %669 ], [ 0, %662 ], [ 0, %660 ], [ 0, %634 ], [ 0, %632 ], [ 0, %604 ], [ 0, %602 ], [ 0, %583 ], [ 0, %581 ], [ 0, %569 ], [ 0, %567 ], [ 1, %554 ], [ 1, %552 ], [ 1, %266 ], [ 1, %264 ], [ 1, %152 ], [ 1, %150 ], [ 1, %121 ], [ 1, %119 ], [ 1, %314 ], [ 1, %316 ], [ 0, %691 ], [ 0, %750 ], [ 0, %1458 ], [ 0, %Io_ReadBlifNetworkInputArrival.exit ], [ 0, %Io_ReadBlifNetworkOutputRequired.exit ], [ 0, %Io_ReadBlifNetworkDefaultInputArrival.exit ], [ 0, %Io_ReadBlifNetworkDefaultOutputRequired.exit ], [ 0, %Io_ReadBlifNetworkInputDrive.exit ], [ 0, %1434 ], [ 0, %1438 ], [ 0, %1442 ], [ 0, %1446 ], [ 0, %1456 ], [ 0, %.lr.ph.i147 ]
+  %.197.ph = phi i32 [ 0, %.lr.ph.i143 ], [ 0, %767 ], [ 0, %753 ], [ 0, %749 ], [ 0, %748 ], [ 1, %744 ], [ 1, %742 ], [ 0, %721 ], [ 1, %710 ], [ 1, %708 ], [ 0, %686 ], [ 0, %669 ], [ 1, %662 ], [ 1, %660 ], [ 1, %634 ], [ 1, %632 ], [ 1, %604 ], [ 1, %602 ], [ 1, %583 ], [ 1, %581 ], [ 1, %569 ], [ 1, %567 ], [ 1, %554 ], [ 1, %552 ], [ 1, %266 ], [ 1, %264 ], [ 1, %152 ], [ 1, %150 ], [ 1, %121 ], [ 1, %119 ], [ 1, %314 ], [ 1, %316 ], [ 0, %691 ], [ 0, %750 ], [ 0, %1458 ], [ %.0.i151, %Io_ReadBlifNetworkInputArrival.exit ], [ %.0.i158, %Io_ReadBlifNetworkOutputRequired.exit ], [ %.0.i174, %Io_ReadBlifNetworkDefaultInputArrival.exit ], [ %.0.i176, %Io_ReadBlifNetworkDefaultOutputRequired.exit ], [ %.0.i180, %Io_ReadBlifNetworkInputDrive.exit ], [ %1435, %1434 ], [ %1439, %1438 ], [ %1443, %1442 ], [ %1447, %1446 ], [ 0, %1456 ], [ 0, %.lr.ph.i147 ]
   %.pr = load ptr, ptr %14, align 8, !tbaa !39
   %1463 = icmp eq ptr %.pr, null
   br i1 %1463, label %.loopexit, label %1465

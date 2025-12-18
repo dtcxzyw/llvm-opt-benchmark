@@ -4740,7 +4740,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit101: ; preds = %16
   br label %.loopexit.split-lp
 
 .loopexit:                                        ; preds = %.preheader133, %.preheader129, %.preheader124, %.preheader120, %.preheader115, %.preheader
-  %.3 = phi double [ %.5, %.preheader129 ], [ %.0, %.preheader ], [ %.1, %.preheader115 ], [ %.2, %.preheader120 ], [ %.4, %.preheader124 ], [ %.6, %.preheader133 ]
+  %.3 = phi double [ %.0, %.preheader ], [ %.1, %.preheader115 ], [ %.2, %.preheader120 ], [ %.4, %.preheader124 ], [ %.5, %.preheader129 ], [ %.6, %.preheader133 ]
   br i1 %30, label %171, label %173
 
 171:                                              ; preds = %.loopexit

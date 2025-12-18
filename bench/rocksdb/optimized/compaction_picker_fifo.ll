@@ -2070,7 +2070,7 @@ _ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EED2Ev.exit146: ; preds = %_ZNSt7__c
   br label %.body
 
 .body:                                            ; preds = %.body132, %210, %114, %111
-  %.pn122.pn.pn = phi { ptr, i32 } [ %211, %210 ], [ %112, %114 ], [ %112, %111 ], [ %.pn122.pn, %.body132 ]
+  %.pn122.pn.pn = phi { ptr, i32 } [ %112, %111 ], [ %211, %210 ], [ %112, %114 ], [ %.pn122.pn, %.body132 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @_ZdlPvm(ptr noundef nonnull %67, i64 noundef 4928) #24
   br label %241

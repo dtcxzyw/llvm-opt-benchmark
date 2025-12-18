@@ -6863,7 +6863,7 @@ _ZNK4llvm6Triple10isOSDarwinEv.exit.thread.fold.split: ; preds = %5
   br label %_ZNK4llvm6Triple10isOSDarwinEv.exit.thread
 
 _ZNK4llvm6Triple10isOSDarwinEv.exit.thread:       ; preds = %switch.edge, %5, %5, %5, %5, %5, %_ZNK4llvm6Triple10isOSDarwinEv.exit.thread.fold.split, %1, %6
-  %.0 = phi i32 [ 0, %6 ], [ 3, %5 ], [ 3, %5 ], [ 3, %5 ], [ 3, %5 ], [ 3, %5 ], [ 3, %1 ], [ 6, %_ZNK4llvm6Triple10isOSDarwinEv.exit.thread.fold.split ], [ 5, %switch.edge ]
+  %.0 = phi i32 [ 3, %1 ], [ 0, %6 ], [ 3, %5 ], [ 3, %5 ], [ 3, %5 ], [ 3, %5 ], [ 3, %5 ], [ 6, %_ZNK4llvm6Triple10isOSDarwinEv.exit.thread.fold.split ], [ 5, %switch.edge ]
   ret i32 %.0
 }
 
@@ -6923,7 +6923,7 @@ _ZNK4llvm6Triple10isOSDarwinEv.exit.thread.fold.split.i: ; preds = %14
   br label %_ZN4llvm6object7Archive23getDefaultKindForTripleERKNS_6TripleE.exit
 
 _ZN4llvm6object7Archive23getDefaultKindForTripleERKNS_6TripleE.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %14, %14, %14, %14, %14, %switch.edge.i, %15, %_ZNK4llvm6Triple10isOSDarwinEv.exit.thread.fold.split.i
-  %.0.i = phi i32 [ 0, %15 ], [ 3, %14 ], [ 3, %14 ], [ 3, %14 ], [ 3, %14 ], [ 3, %14 ], [ 3, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ 6, %_ZNK4llvm6Triple10isOSDarwinEv.exit.thread.fold.split.i ], [ 5, %switch.edge.i ]
+  %.0.i = phi i32 [ 3, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ 0, %15 ], [ 3, %14 ], [ 3, %14 ], [ 3, %14 ], [ 3, %14 ], [ 3, %14 ], [ 6, %_ZNK4llvm6Triple10isOSDarwinEv.exit.thread.fold.split.i ], [ 5, %switch.edge.i ]
   %16 = load ptr, ptr %1, align 8, !tbaa !44
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %18 = icmp eq ptr %16, %17

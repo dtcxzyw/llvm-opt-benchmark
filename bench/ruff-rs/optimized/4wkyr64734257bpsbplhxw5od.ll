@@ -104,8 +104,8 @@ define hidden { i64, ptr } @"_ZN106_$LT$itertools..merge_join..MergeBy$LT$I$C$J$
   br label %.thread53
 
 .thread53:                                        ; preds = %.thread53.sink.split, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h91e8eb168d18d5d3E.exit", %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h91e8eb168d18d5d3E.exit.thread", %27, %.thread
-  %.sroa.5.0 = phi ptr [ %.sroa.52.0, %27 ], [ %35, %.thread ], [ %22, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h91e8eb168d18d5d3E.exit.thread" ], [ %.sroa.625.0, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h91e8eb168d18d5d3E.exit" ], [ %35, %.thread53.sink.split ]
-  %.sroa.0.0 = phi i64 [ %.sroa.01.0, %27 ], [ %33, %.thread ], [ 1, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h91e8eb168d18d5d3E.exit.thread" ], [ %16, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h91e8eb168d18d5d3E.exit" ], [ %33, %.thread53.sink.split ]
+  %.sroa.5.0 = phi ptr [ %.sroa.52.0, %27 ], [ %.sroa.625.0, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h91e8eb168d18d5d3E.exit" ], [ %22, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h91e8eb168d18d5d3E.exit.thread" ], [ %35, %.thread ], [ %35, %.thread53.sink.split ]
+  %.sroa.0.0 = phi i64 [ %.sroa.01.0, %27 ], [ %16, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h91e8eb168d18d5d3E.exit" ], [ 1, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h91e8eb168d18d5d3E.exit.thread" ], [ %33, %.thread ], [ %33, %.thread53.sink.split ]
   %29 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %30 = insertvalue { i64, ptr } %29, ptr %.sroa.5.0, 1
   ret { i64, ptr } %30
@@ -840,7 +840,7 @@ _ZN3std2io5Write14write_vectored17ha54ac3f8b861545bE.exit: ; preds = %26, %33
   br label %.loopexit
 
 .loopexit:                                        ; preds = %88, %.loopexit.sink.split, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hc3bdbf28376822a1E.exit.i", %3
-  %.sroa.0.0 = phi ptr [ null, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hc3bdbf28376822a1E.exit.i" ], [ null, %3 ], [ %.sroa.0.0.ph, %.loopexit.sink.split ], [ null, %88 ]
+  %.sroa.0.0 = phi ptr [ null, %3 ], [ %.sroa.0.0.ph, %.loopexit.sink.split ], [ null, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hc3bdbf28376822a1E.exit.i" ], [ null, %88 ]
   ret ptr %.sroa.0.0
 
 40:                                               ; preds = %_ZN3std2io5Write14write_vectored17ha54ac3f8b861545bE.exit

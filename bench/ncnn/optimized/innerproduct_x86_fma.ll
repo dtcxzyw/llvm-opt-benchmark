@@ -8687,7 +8687,7 @@ _ZL13activation_ssfiRKN4ncnn3MatE.exit:           ; preds = %3963, %3959, %3947,
   br i1 %exitcond5356.not, label %.loopexit, label %3886, !llvm.loop !107
 
 .loopexit:                                        ; preds = %_ZL13activation_ssfiRKN4ncnn3MatE.exit, %1143, %39, %1432, %2012, %2238, %2824, %3428, %3627, %3860, %.loopexit5035
-  %3968 = phi i32 [ %3857, %.loopexit5035 ], [ 1, %3860 ], [ 4, %3627 ], [ 1, %3428 ], [ 4, %2824 ], [ 8, %39 ], [ 1, %1143 ], [ 4, %1432 ], [ 8, %2012 ], [ 8, %2238 ], [ %3857, %_ZL13activation_ssfiRKN4ncnn3MatE.exit ]
+  %3968 = phi i32 [ 8, %2238 ], [ %3857, %.loopexit5035 ], [ 1, %3860 ], [ 4, %3627 ], [ 1, %3428 ], [ 4, %2824 ], [ 8, %39 ], [ 1, %1143 ], [ 4, %1432 ], [ 8, %2012 ], [ %3857, %_ZL13activation_ssfiRKN4ncnn3MatE.exit ]
   %indvars.iv.next5358 = add nsw i64 %indvars.iv5357, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next5358 to i32
   %exitcond5360.not = icmp eq i32 %33, %lftr.wideiv

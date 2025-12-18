@@ -596,7 +596,7 @@ asn1_primitive_print.exit.thread154:              ; preds = %48, %124, %.thread1
   br label %.critedge
 
 .critedge:                                        ; preds = %189, %192, %48, %.thread104.i, %111, %124, %108, %122, %82, %85, %42, %205, %201, %179, %175, %172, %164, %157, %154, %144, %139, %137, %130, %asn1_primitive_print.exit, %40, %33, %31, %asn1_primitive_print.exit.thread154, %208, %181, %142, %36
-  %.0 = phi i32 [ 0, %31 ], [ 1, %36 ], [ 0, %157 ], [ 0, %208 ], [ 1, %asn1_primitive_print.exit.thread154 ], [ 0, %33 ], [ 0, %40 ], [ %138, %137 ], [ 1, %142 ], [ 0, %130 ], [ 0, %139 ], [ 0, %asn1_primitive_print.exit ], [ %., %154 ], [ 0, %144 ], [ 0, %172 ], [ 0, %164 ], [ 0, %175 ], [ 1, %181 ], [ 0, %205 ], [ 0, %201 ], [ %180, %179 ], [ 0, %42 ], [ 0, %85 ], [ 0, %82 ], [ 0, %122 ], [ 0, %108 ], [ 0, %124 ], [ 0, %111 ], [ 0, %.thread104.i ], [ 0, %48 ], [ 0, %192 ], [ 0, %189 ]
+  %.0 = phi i32 [ 0, %31 ], [ 1, %36 ], [ 0, %157 ], [ 0, %208 ], [ 1, %asn1_primitive_print.exit.thread154 ], [ 0, %33 ], [ 0, %40 ], [ %138, %137 ], [ 1, %142 ], [ 0, %130 ], [ 0, %139 ], [ 0, %asn1_primitive_print.exit ], [ %., %154 ], [ 0, %144 ], [ 0, %172 ], [ 0, %164 ], [ 0, %175 ], [ 1, %181 ], [ 0, %.thread104.i ], [ 0, %205 ], [ 0, %201 ], [ %180, %179 ], [ 0, %111 ], [ 0, %42 ], [ 0, %85 ], [ 0, %82 ], [ 0, %122 ], [ 0, %108 ], [ 0, %124 ], [ 0, %48 ], [ 0, %192 ], [ 0, %189 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
 }
@@ -667,7 +667,7 @@ define internal fastcc range(i32 0, 2) i32 @asn1_print_fsname(ptr noundef %0, i3
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %31, %28, %25, %21, %12, %._crit_edge
-  %.0 = phi i32 [ 0, %._crit_edge ], [ 1, %12 ], [ 0, %21 ], [ %., %31 ], [ 0, %28 ], [ 0, %25 ], [ 0, %.lr.ph ]
+  %.0 = phi i32 [ 0, %._crit_edge ], [ 0, %25 ], [ 1, %12 ], [ 0, %21 ], [ %., %31 ], [ 0, %28 ], [ 0, %.lr.ph ]
   ret i32 %.0
 }
 
@@ -805,7 +805,7 @@ define internal fastcc range(i32 0, 2) i32 @asn1_template_print_ctx(ptr noundef 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %51, %48, %66, %._crit_edge.thread, %38, %32, %69
-  %.0 = phi i32 [ 0, %32 ], [ 0, %38 ], [ 0, %._crit_edge.thread ], [ 1, %69 ], [ 0, %66 ], [ 0, %48 ], [ 0, %51 ]
+  %.0 = phi i32 [ 0, %32 ], [ 0, %38 ], [ 0, %66 ], [ 1, %69 ], [ 0, %._crit_edge.thread ], [ 0, %48 ], [ 0, %51 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %75
 

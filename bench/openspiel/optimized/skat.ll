@@ -3188,7 +3188,7 @@ _ZNK10open_spiel4skat9SkatState10TrumpOrderEi.exit: ; preds = %_ZNK10open_spiel4
   %26 = add nsw i32 %.0.i7, 7
   br label %_ZNK10open_spiel4skat9SkatState9NullOrderENS0_4RankE.exit
 
-_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread: ; preds = %10, %11, %13, %16, %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit
+_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread: ; preds = %10, %13, %11, %16, %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit
   %27 = sdiv i32 %1, 8
   %28 = sdiv i32 %2, 8
   %29 = icmp eq i32 %27, %28
@@ -3260,7 +3260,7 @@ _ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit:   ; preds = %9
   %19 = icmp eq i32 %18, 16
   br i1 %19, label %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread6, label %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread
 
-_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread6: ; preds = %6, %10, %12, %15, %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit
+_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread6: ; preds = %6, %12, %10, %15, %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit
   %20 = srem i32 %1, 8
   %21 = sdiv i32 %1, 8
   %22 = icmp eq i32 %20, 7
@@ -3270,8 +3270,8 @@ _ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread6: ; preds = %6, %10, %12, 
   %24 = add nuw nsw i32 %21, 7
   br label %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread
 
-_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread: ; preds = %9, %2, %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread6, %10, %12, %15, %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit, %23
-  %.0 = phi i32 [ %24, %23 ], [ -1, %10 ], [ -1, %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit ], [ %20, %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread6 ], [ -1, %15 ], [ -1, %12 ], [ -1, %2 ], [ -1, %9 ]
+_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread: ; preds = %9, %2, %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread6, %12, %10, %15, %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit, %23
+  %.0 = phi i32 [ %24, %23 ], [ -1, %12 ], [ -1, %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit ], [ %20, %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread6 ], [ -1, %15 ], [ -1, %10 ], [ -1, %2 ], [ -1, %9 ]
   ret i32 %.0
 }
 
@@ -5342,7 +5342,7 @@ _ZNSt6vectorIlSaIlEE9push_backEOl.exit:           ; preds = %_ZNSt6vectorIlSaIlE
 _ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit:   ; preds = %96
   br i1 %35, label %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread65, label %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread
 
-_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread65: ; preds = %95, %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit, %99, %98, %97
+_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread65: ; preds = %95, %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit, %99, %97, %98
   %100 = trunc nuw nsw i64 %indvars.iv to i32
   %101 = and i32 %100, 7
   %102 = icmp eq i32 %101, 7
@@ -5375,7 +5375,7 @@ _ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit36: ; preds = %103
   %113 = icmp eq i32 %112, 8
   br i1 %113, label %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit36.thread, label %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread
 
-_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread: ; preds = %103, %96, %89, %106, %104, %109, %97, %98, %99, %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit36, %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit
+_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread: ; preds = %103, %96, %89, %106, %104, %109, %98, %97, %99, %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit36, %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit
   %114 = trunc nuw nsw i64 %indvars.iv to i32
   %.zext = lshr i32 %114, 3
   %115 = icmp eq i32 %27, %.zext
@@ -13535,8 +13535,8 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ESt16
   br i1 %510, label %.body289.i, label %.body292.i
 
 .body289.i:                                       ; preds = %.body292.i, %506, %.body8
-  %.pn.i4 = phi { ptr, i32 } [ %507, %506 ], [ %431, %.body8 ], [ %434, %.body292.i ]
-  %511 = phi i1 [ false, %506 ], [ false, %.body8 ], [ true, %.body292.i ]
+  %.pn.i4 = phi { ptr, i32 } [ %431, %.body8 ], [ %507, %506 ], [ %434, %.body292.i ]
+  %511 = phi i1 [ false, %.body8 ], [ false, %506 ], [ true, %.body292.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %67) #28
   br label %.body284.i
 

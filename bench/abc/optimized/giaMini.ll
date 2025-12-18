@@ -3690,7 +3690,7 @@ define noalias noundef ptr @Abc_FrameGiaOutputMiniLutAttr(ptr noundef %0, ptr no
   br i1 %exitcond.not.i19, label %Gia_ManToMiniLutAttr.exit, label %39, !llvm.loop !110
 
 Gia_ManToMiniLutAttr.exit:                        ; preds = %33, %56, %.split6, %.split
-  %phi.call = phi ptr [ %10, %.split ], [ %36, %.split6 ], [ %36, %56 ], [ %10, %33 ]
+  %phi.call = phi ptr [ %36, %56 ], [ %10, %.split ], [ %36, %.split6 ], [ %10, %33 ]
   ret ptr %phi.call
 }
 
@@ -6765,7 +6765,7 @@ Vec_IntPush.exit128:                              ; preds = %Vec_IntPush.exit128
   br i1 %151, label %.critedge, label %.preheader, !llvm.loop !154
 
 .critedge5.preheader:                             ; preds = %154, %.preheader143, %.preheader
-  %152 = phi ptr [ %.pre.i124175, %.preheader ], [ %59, %.preheader143 ], [ %.pre.i124175, %154 ]
+  %152 = phi ptr [ %59, %.preheader143 ], [ %.pre.i124175, %.preheader ], [ %.pre.i124175, %154 ]
   %.val89 = load i32, ptr %58, align 4, !tbaa !34
   %153 = icmp sgt i32 %.val89, 0
   br i1 %153, label %.lr.ph151, label %.critedge9

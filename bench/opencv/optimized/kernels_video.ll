@@ -7059,7 +7059,7 @@ _ZN2cv4GArgD2Ev.exit32:                           ; preds = %130, %_ZNKSt14defau
   br i1 %138, label %.loopexit, label %130
 
 .loopexit:                                        ; preds = %_ZN2cv4GArgD2Ev.exit29, %_ZN2cv4GArgD2Ev.exit32, %.body.thread
-  %.pn.pn = phi { ptr, i32 } [ %27, %.body.thread ], [ %.pn, %_ZN2cv4GArgD2Ev.exit32 ], [ %eh.lpad-body, %_ZN2cv4GArgD2Ev.exit29 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN2cv4GArgD2Ev.exit32 ], [ %27, %.body.thread ], [ %eh.lpad-body, %_ZN2cv4GArgD2Ev.exit29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %.pn.pn
@@ -10255,7 +10255,7 @@ _ZN2cv4GArgD2Ev.exit54:                           ; preds = %232, %_ZNKSt14defau
   br i1 %240, label %.loopexit, label %232
 
 .loopexit:                                        ; preds = %_ZN2cv4GArgD2Ev.exit51, %_ZN2cv4GArgD2Ev.exit54, %.body.thread
-  %.pn.pn = phi { ptr, i32 } [ %32, %.body.thread ], [ %.pn, %_ZN2cv4GArgD2Ev.exit54 ], [ %eh.lpad-body, %_ZN2cv4GArgD2Ev.exit51 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN2cv4GArgD2Ev.exit54 ], [ %32, %.body.thread ], [ %eh.lpad-body, %_ZN2cv4GArgD2Ev.exit51 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   resume { ptr, i32 } %.pn.pn
@@ -14860,7 +14860,7 @@ _ZN2cv4GArgD2Ev.exit60:                           ; preds = %268, %_ZNKSt14defau
   br i1 %276, label %.loopexit, label %268
 
 .loopexit:                                        ; preds = %_ZN2cv4GArgD2Ev.exit57, %_ZN2cv4GArgD2Ev.exit60, %.body.thread
-  %.pn.pn = phi { ptr, i32 } [ %46, %.body.thread ], [ %.pn, %_ZN2cv4GArgD2Ev.exit60 ], [ %eh.lpad-body, %_ZN2cv4GArgD2Ev.exit57 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN2cv4GArgD2Ev.exit60 ], [ %46, %.body.thread ], [ %eh.lpad-body, %_ZN2cv4GArgD2Ev.exit57 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   resume { ptr, i32 } %.pn.pn
@@ -15551,7 +15551,7 @@ _ZN2cv4GArgD2Ev.exit20:                           ; preds = %63, %_ZNKSt14defaul
   br i1 %71, label %.loopexit, label %63
 
 .loopexit:                                        ; preds = %_ZN2cv4GArgD2Ev.exit20, %_ZN2cv4GArgD2Ev.exit17, %.body.thread
-  %.pn.pn = phi { ptr, i32 } [ %21, %.body.thread ], [ %60, %_ZN2cv4GArgD2Ev.exit17 ], [ %.pn, %_ZN2cv4GArgD2Ev.exit20 ]
+  %.pn.pn = phi { ptr, i32 } [ %60, %_ZN2cv4GArgD2Ev.exit17 ], [ %21, %.body.thread ], [ %.pn, %_ZN2cv4GArgD2Ev.exit20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn.pn
@@ -16319,7 +16319,7 @@ _ZN2cv4GArgD2Ev.exit33:                           ; preds = %137, %_ZNKSt14defau
   br i1 %145, label %.loopexit, label %137
 
 .loopexit:                                        ; preds = %_ZN2cv4GArgD2Ev.exit30, %_ZN2cv4GArgD2Ev.exit33, %.body.thread
-  %.pn.pn = phi { ptr, i32 } [ %25, %.body.thread ], [ %.pn, %_ZN2cv4GArgD2Ev.exit33 ], [ %eh.lpad-body, %_ZN2cv4GArgD2Ev.exit30 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN2cv4GArgD2Ev.exit33 ], [ %25, %.body.thread ], [ %eh.lpad-body, %_ZN2cv4GArgD2Ev.exit30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   resume { ptr, i32 } %.pn.pn
@@ -17402,7 +17402,7 @@ _ZN2cv4GArgD2Ev.exit25:                           ; preds = %112, %_ZNKSt14defau
   br i1 %120, label %.loopexit, label %112
 
 .loopexit:                                        ; preds = %_ZN2cv4GArgD2Ev.exit22, %_ZN2cv4GArgD2Ev.exit25, %.body.thread
-  %.pn.pn = phi { ptr, i32 } [ %23, %.body.thread ], [ %.pn, %_ZN2cv4GArgD2Ev.exit25 ], [ %eh.lpad-body, %_ZN2cv4GArgD2Ev.exit22 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN2cv4GArgD2Ev.exit25 ], [ %23, %.body.thread ], [ %eh.lpad-body, %_ZN2cv4GArgD2Ev.exit22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %.pn.pn

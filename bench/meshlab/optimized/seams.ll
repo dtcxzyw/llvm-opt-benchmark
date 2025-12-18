@@ -2699,7 +2699,7 @@ _ZNSt10_HashtableIP10MeshVertexS1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_E
   br label %.body
 
 .loopexit274:                                     ; preds = %227, %214, %.noexc149, %222
-  %243 = phi ptr [ %202, %222 ], [ %235, %.noexc149 ], [ %211, %214 ], [ %202, %227 ]
+  %243 = phi ptr [ %211, %214 ], [ %202, %222 ], [ %235, %.noexc149 ], [ %202, %227 ]
   %244 = load ptr, ptr %87, align 8
   %245 = getelementptr inbounds nuw i8, ptr %244, i64 24
   %246 = load ptr, ptr %22, align 8
@@ -3167,7 +3167,7 @@ _ZNSt10_HashtableIP10MeshVertexS1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_E
   br label %.body
 
 .loopexit:                                        ; preds = %429, %416, %424, %.noexc191
-  %445 = phi ptr [ %437, %.noexc191 ], [ %404, %424 ], [ %413, %416 ], [ %404, %429 ]
+  %445 = phi ptr [ %413, %416 ], [ %437, %.noexc191 ], [ %404, %424 ], [ %404, %429 ]
   %446 = load ptr, ptr %299, align 8
   %447 = getelementptr inbounds nuw i8, ptr %446, i64 24
   %448 = load ptr, ptr %22, align 8
@@ -5296,7 +5296,7 @@ _ZNSt6vectorIN3vcg3tri14UpdateTopologyI8SeamMeshE11PVertexEdgeESaIS5_EE9push_bac
   br label %38
 
 .loopexit.split-lp:                               ; preds = %24, %42, %.noexc11
-  %.sroa.051.2.ph = phi ptr [ %.sroa.051.4, %42 ], [ %.sroa.051.4, %.noexc11 ], [ %.sroa.051.380, %24 ]
+  %.sroa.051.2.ph = phi ptr [ %.sroa.051.4, %.noexc11 ], [ %.sroa.051.4, %42 ], [ %.sroa.051.380, %24 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %38
@@ -10904,7 +10904,7 @@ _ZN3vcg4edge8VEStarVEI8SeamEdgeEEvPKNT_10VertexTypeERSt6vectorIPS3_SaIS8_EE.exit
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke747, %.noexc3.i.i, %.noexc.i.i, %202
-  %.sroa.0233.5.ph.ph = phi ptr [ %.sroa.0233.6, %202 ], [ %.sroa.0233.8613, %.invoke747 ], [ %.sroa.0233.8613, %.noexc.i.i ], [ %.sroa.0233.8613, %.noexc3.i.i ]
+  %.sroa.0233.5.ph.ph = phi ptr [ %.sroa.0233.8613, %.invoke747 ], [ %.sroa.0233.8613, %.noexc.i.i ], [ %.sroa.0233.8613, %.noexc3.i.i ], [ %.sroa.0233.6, %202 ]
   %lpad.loopexit.split-lp293 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp

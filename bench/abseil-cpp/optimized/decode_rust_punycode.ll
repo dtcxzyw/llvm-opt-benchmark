@@ -322,7 +322,7 @@ _ZN4absl18debugging_internal25BoundedUtf8LengthSequenceILj256EE32InsertAndReturn
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_126ConsumeOptionalAsciiPrefixERPKcS3_PcS5_Rj.exit
 
 _ZN4absl18debugging_internal12_GLOBAL__N_126ConsumeOptionalAsciiPrefixERPKcS3_PcS5_Rj.exit: ; preds = %23, %.critedge, %28, %30, %1
-  %.0 = phi ptr [ null, %1 ], [ %.3, %.critedge ], [ null, %28 ], [ null, %30 ], [ null, %23 ]
+  %.0 = phi ptr [ null, %1 ], [ %.3, %.critedge ], [ null, %30 ], [ null, %28 ], [ null, %23 ]
   ret ptr %.0
 }
 

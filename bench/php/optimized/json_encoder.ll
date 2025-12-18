@@ -3479,7 +3479,7 @@ smart_str_appendc_ex.exit.i473:                   ; preds = %614, %611
   br label %php_json_pretty_print_indent.exit
 
 php_json_pretty_print_indent.exit:                ; preds = %smart_str_appendl_ex.exit.i, %370, %smart_str_appendc_ex.exit.i473, %smart_str_appendc_ex.exit389, %.preheader.i
-  %.0243 = phi ptr [ %.3246547, %smart_str_appendc_ex.exit.i473 ], [ %.0219, %.preheader.i ], [ %.3246547, %smart_str_appendc_ex.exit389 ], [ %.0219, %370 ], [ %.0219, %smart_str_appendl_ex.exit.i ]
+  %.0243 = phi ptr [ %.0219, %370 ], [ %.3246547, %smart_str_appendc_ex.exit.i473 ], [ %.0219, %.preheader.i ], [ %.3246547, %smart_str_appendc_ex.exit389 ], [ %.0219, %smart_str_appendl_ex.exit.i ]
   %620 = call i32 @php_json_encode_zval(ptr noundef nonnull %0, ptr noundef %.0243, i32 noundef %2, ptr noundef nonnull %3)
   %621 = icmp eq i32 %620, -1
   %or.cond305 = and i1 %.not288, %621

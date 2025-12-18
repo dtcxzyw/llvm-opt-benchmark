@@ -1706,7 +1706,7 @@ add_sdnv64_to_tree.exit253.thread.i:              ; preds = %add_sdnv64_to_tree.
   br label %411
 
 411:                                              ; preds = %409, %405
-  %.0208.i = phi ptr [ %408, %405 ], [ %410, %409 ]
+  %.0208.i = phi ptr [ %410, %409 ], [ %408, %405 ]
   %.not245.i = icmp eq ptr %.0208.i, null
   br i1 %.not245.i, label %.thread276.i, label %412
 

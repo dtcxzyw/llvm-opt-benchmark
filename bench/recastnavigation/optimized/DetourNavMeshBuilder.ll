@@ -126,8 +126,8 @@ define noundef zeroext i1 @_Z19dtCreateNavMeshDataP21dtNavMeshCreateParamsPPhPi(
   br i1 %exitcond644.not, label %.loopexit532, label %49, !llvm.loop !6
 
 .loopexit532:                                     ; preds = %.lr.ph, %49, %.preheader533, %41
-  %.1436 = phi float [ 0xC7EFFFFFE0000000, %41 ], [ 0xC7EFFFFFE0000000, %.preheader533 ], [ %58, %49 ], [ %40, %.lr.ph ]
-  %.1430 = phi float [ 0x47EFFFFFE0000000, %41 ], [ 0x47EFFFFFE0000000, %.preheader533 ], [ %56, %49 ], [ %38, %.lr.ph ]
+  %.1436 = phi float [ %58, %49 ], [ 0xC7EFFFFFE0000000, %41 ], [ 0xC7EFFFFFE0000000, %.preheader533 ], [ %40, %.lr.ph ]
+  %.1430 = phi float [ %56, %49 ], [ 0x47EFFFFFE0000000, %41 ], [ 0x47EFFFFFE0000000, %.preheader533 ], [ %38, %.lr.ph ]
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %60 = load float, ptr %59, align 4
   %61 = fsub float %.1430, %60
@@ -459,10 +459,10 @@ _ZL20classifyOffMeshPointPKfS0_S0_.exit512:       ; preds = %_ZL20classifyOffMes
   br i1 %exitcond681.not, label %.loopexit529, label %196, !llvm.loop !13
 
 .loopexit529:                                     ; preds = %._crit_edge, %._crit_edge584, %._crit_edge565.thread, %.thread747
-  %207 = phi ptr [ %166, %.thread747 ], [ %166, %._crit_edge565.thread ], [ %171, %._crit_edge584 ], [ %176, %._crit_edge ]
-  %208 = phi i32 [ %165, %.thread747 ], [ %165, %._crit_edge565.thread ], [ %170, %._crit_edge584 ], [ %175, %._crit_edge ]
-  %.0462 = phi i32 [ %169, %.thread747 ], [ 0, %._crit_edge565.thread ], [ %206, %._crit_edge584 ], [ %178, %._crit_edge ]
-  %.1456 = phi i32 [ 0, %.thread747 ], [ 0, %._crit_edge565.thread ], [ 0, %._crit_edge584 ], [ %195, %._crit_edge ]
+  %207 = phi ptr [ %171, %._crit_edge584 ], [ %166, %._crit_edge565.thread ], [ %166, %.thread747 ], [ %176, %._crit_edge ]
+  %208 = phi i32 [ %170, %._crit_edge584 ], [ %165, %._crit_edge565.thread ], [ %165, %.thread747 ], [ %175, %._crit_edge ]
+  %.0462 = phi i32 [ %206, %._crit_edge584 ], [ 0, %._crit_edge565.thread ], [ %169, %.thread747 ], [ %178, %._crit_edge ]
+  %.1456 = phi i32 [ 0, %._crit_edge584 ], [ 0, %._crit_edge565.thread ], [ 0, %.thread747 ], [ %195, %._crit_edge ]
   %209 = mul i32 %137, 12
   %210 = shl i32 %134, 5
   %211 = mul i32 %208, 12

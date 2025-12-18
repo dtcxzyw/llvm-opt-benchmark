@@ -2547,7 +2547,7 @@ mask_mix.exit78:                                  ; preds = %.lr.ph89.split, %ma
   br i1 %94, label %mask_mix.exit78, label %.loopexit, !llvm.loop !85
 
 .loopexit:                                        ; preds = %mask_mix.exit, %mask_mix.exit76, %mask_mix.exit78, %.lr.ph89, %mask_mix.exit78.us91.preheader, %.preheader83, %.preheader, %68, %18, %14, %10, %5
-  %.0 = phi i32 [ 1, %18 ], [ 1, %5 ], [ 1, %10 ], [ 1, %14 ], [ 2, %.preheader ], [ 2, %68 ], [ 2, %.preheader83 ], [ 2, %mask_mix.exit78.us91.preheader ], [ 2, %.lr.ph89 ], [ 2, %mask_mix.exit76 ], [ 2, %mask_mix.exit78 ], [ 2, %mask_mix.exit ]
+  %.0 = phi i32 [ 1, %18 ], [ 1, %5 ], [ 1, %10 ], [ 1, %14 ], [ 2, %68 ], [ 2, %.preheader ], [ 2, %.preheader83 ], [ 2, %mask_mix.exit78.us91.preheader ], [ 2, %mask_mix.exit76 ], [ 2, %.lr.ph89 ], [ 2, %mask_mix.exit78 ], [ 2, %mask_mix.exit ]
   ret i32 %.0
 }
 

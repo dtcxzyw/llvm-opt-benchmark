@@ -359,15 +359,15 @@ SubsetCountMinterm.exit:                          ; preds = %42
   br i1 %.b.i109, label %100, label %SubsetCountNodes.exit
 
 .sink.split.sink.split.sink.split.i:              ; preds = %83, %._crit_edge.thread.i, %._crit_edge.i, %._crit_edge86.i
-  %.pre114.sink.i = phi ptr [ %.pre114.i, %._crit_edge86.i ], [ %71, %._crit_edge.thread.i ], [ %71, %._crit_edge.i ], [ %.pre114.i, %83 ]
-  %nodeDataPages.sink133.i = phi ptr [ @nodeDataPages, %._crit_edge86.i ], [ @currentNodePage, %._crit_edge.thread.i ], [ @currentNodePage, %._crit_edge.i ], [ @nodeDataPages, %83 ]
+  %.pre114.sink.i = phi ptr [ %.pre114.i, %._crit_edge86.i ], [ %71, %._crit_edge.i ], [ %71, %._crit_edge.thread.i ], [ %.pre114.i, %83 ]
+  %nodeDataPages.sink133.i = phi ptr [ @nodeDataPages, %._crit_edge86.i ], [ @currentNodePage, %._crit_edge.i ], [ @currentNodePage, %._crit_edge.thread.i ], [ @nodeDataPages, %83 ]
   tail call void @free(ptr noundef %.pre114.sink.i) #8
   store ptr null, ptr %nodeDataPages.sink133.i, align 8, !tbaa !40
   br label %.sink.split.sink.split.i110
 
 .sink.split.sink.split.i110:                      ; preds = %69, %.sink.split.sink.split.sink.split.i, %._crit_edge86.i, %._crit_edge95.i
-  %.pre116.sink.i = phi ptr [ %.pre116.i, %._crit_edge95.i ], [ %53, %._crit_edge86.i ], [ %53, %.sink.split.sink.split.sink.split.i ], [ %.pre116.i, %69 ]
-  %nodeDataPages.sink.i = phi ptr [ @nodeDataPages, %._crit_edge95.i ], [ @lightNodePages, %._crit_edge86.i ], [ @lightNodePages, %.sink.split.sink.split.sink.split.i ], [ @nodeDataPages, %69 ]
+  %.pre116.sink.i = phi ptr [ %53, %._crit_edge86.i ], [ %.pre116.i, %._crit_edge95.i ], [ %53, %.sink.split.sink.split.sink.split.i ], [ %.pre116.i, %69 ]
+  %nodeDataPages.sink.i = phi ptr [ @lightNodePages, %._crit_edge86.i ], [ @nodeDataPages, %._crit_edge95.i ], [ @lightNodePages, %.sink.split.sink.split.sink.split.i ], [ @nodeDataPages, %69 ]
   tail call void @free(ptr noundef %.pre116.sink.i) #8
   store ptr null, ptr %nodeDataPages.sink.i, align 8, !tbaa !40
   br label %.sink.split.i111

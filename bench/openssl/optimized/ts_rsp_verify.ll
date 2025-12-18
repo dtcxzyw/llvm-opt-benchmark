@@ -839,8 +839,8 @@ ts_find_name.exit.thread:                         ; preds = %14
   br i1 %.not, label %ts_find_name.exit, label %.preheader, !llvm.loop !82
 
 ts_find_name.exit:                                ; preds = %ts_find_name.exit.thread, %16, %12
-  %.01217 = phi ptr [ null, %12 ], [ %.01219, %16 ], [ null, %ts_find_name.exit.thread ]
-  %.1 = phi i32 [ 0, %12 ], [ 1, %16 ], [ 0, %ts_find_name.exit.thread ]
+  %.01217 = phi ptr [ %.01219, %16 ], [ null, %12 ], [ null, %ts_find_name.exit.thread ]
+  %.1 = phi i32 [ 1, %16 ], [ 0, %12 ], [ 0, %ts_find_name.exit.thread ]
   call void @GENERAL_NAMES_free(ptr noundef %.01217) #7
   br label %21
 

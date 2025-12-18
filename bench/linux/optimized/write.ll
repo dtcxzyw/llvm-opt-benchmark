@@ -1879,7 +1879,7 @@ define dso_local i32 @nfs_update_folio(ptr noundef readonly captures(none) %0, p
   tail call void @_raw_spin_unlock(ptr noundef nonnull %36) #16
   br i1 %.not, label %142, label %.thread33
 
-.thread35:                                        ; preds = %117, %91
+.thread35:                                        ; preds = %91, %117
   %140 = add i32 %3, %2
   %141 = tail call i32 @llvm.umax.i32(i32 %140, i32 %23)
   br label %.thread33

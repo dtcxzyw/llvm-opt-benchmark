@@ -3795,9 +3795,9 @@ _ZN6casadi9casadi_mvIdEEvPKT_PKxS3_PS1_x.exit.thread.thread: ; preds = %.lr.ph.i
   br i1 %exitcond.not.i300, label %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit303, label %.lr.ph.i296, !llvm.loop !128
 
 _ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit303:    ; preds = %.lr.ph.i296, %_ZN6casadi9casadi_mvIdEEvPKT_PKxS3_PS1_x.exit, %.preheader49.i, %.preheader.i284, %_ZN6casadi12casadi_clearIdEEvPT_x.exit279, %_ZN6casadi9casadi_mvIdEEvPKT_PKxS3_PS1_x.exit.thread.thread, %._crit_edge426, %_ZN6casadi13casadi_norm_2IdEET_xPKS1_.exit
-  %95 = phi double [ 0.000000e+00, %_ZN6casadi12casadi_clearIdEEvPT_x.exit279 ], [ %34, %._crit_edge426 ], [ %34, %_ZN6casadi13casadi_norm_2IdEET_xPKS1_.exit ], [ %34, %_ZN6casadi9casadi_mvIdEEvPKT_PKxS3_PS1_x.exit.thread.thread ], [ %34, %_ZN6casadi9casadi_mvIdEEvPKT_PKxS3_PS1_x.exit ], [ %34, %.preheader.i284 ], [ %34, %.preheader49.i ], [ %34, %.lr.ph.i296 ]
-  %96 = phi i1 [ %24, %_ZN6casadi12casadi_clearIdEEvPT_x.exit279 ], [ true, %._crit_edge426 ], [ %24, %_ZN6casadi13casadi_norm_2IdEET_xPKS1_.exit ], [ true, %_ZN6casadi9casadi_mvIdEEvPKT_PKxS3_PS1_x.exit.thread.thread ], [ false, %_ZN6casadi9casadi_mvIdEEvPKT_PKxS3_PS1_x.exit ], [ false, %.preheader.i284 ], [ false, %.preheader49.i ], [ true, %.lr.ph.i296 ]
-  %.0257400 = phi double [ 0.000000e+00, %_ZN6casadi12casadi_clearIdEEvPT_x.exit279 ], [ %83, %._crit_edge426 ], [ 0.000000e+00, %_ZN6casadi13casadi_norm_2IdEET_xPKS1_.exit ], [ %83, %_ZN6casadi9casadi_mvIdEEvPKT_PKxS3_PS1_x.exit.thread.thread ], [ 0.000000e+00, %_ZN6casadi9casadi_mvIdEEvPKT_PKxS3_PS1_x.exit ], [ 0.000000e+00, %.preheader.i284 ], [ 0.000000e+00, %.preheader49.i ], [ %83, %.lr.ph.i296 ]
+  %95 = phi double [ %34, %_ZN6casadi13casadi_norm_2IdEET_xPKS1_.exit ], [ 0.000000e+00, %_ZN6casadi12casadi_clearIdEEvPT_x.exit279 ], [ %34, %._crit_edge426 ], [ %34, %_ZN6casadi9casadi_mvIdEEvPKT_PKxS3_PS1_x.exit.thread.thread ], [ %34, %_ZN6casadi9casadi_mvIdEEvPKT_PKxS3_PS1_x.exit ], [ %34, %.preheader.i284 ], [ %34, %.preheader49.i ], [ %34, %.lr.ph.i296 ]
+  %96 = phi i1 [ %24, %_ZN6casadi13casadi_norm_2IdEET_xPKS1_.exit ], [ %24, %_ZN6casadi12casadi_clearIdEEvPT_x.exit279 ], [ true, %._crit_edge426 ], [ true, %_ZN6casadi9casadi_mvIdEEvPKT_PKxS3_PS1_x.exit.thread.thread ], [ false, %_ZN6casadi9casadi_mvIdEEvPKT_PKxS3_PS1_x.exit ], [ false, %.preheader.i284 ], [ false, %.preheader49.i ], [ true, %.lr.ph.i296 ]
+  %.0257400 = phi double [ 0.000000e+00, %_ZN6casadi13casadi_norm_2IdEET_xPKS1_.exit ], [ 0.000000e+00, %_ZN6casadi12casadi_clearIdEEvPT_x.exit279 ], [ %83, %._crit_edge426 ], [ %83, %_ZN6casadi9casadi_mvIdEEvPKT_PKxS3_PS1_x.exit.thread.thread ], [ 0.000000e+00, %_ZN6casadi9casadi_mvIdEEvPKT_PKxS3_PS1_x.exit ], [ 0.000000e+00, %.preheader.i284 ], [ 0.000000e+00, %.preheader49.i ], [ %83, %.lr.ph.i296 ]
   %97 = fmul double %95, %.0257400
   %98 = fcmp oeq double %97, 0.000000e+00
   br i1 %98, label %105, label %.preheader415
@@ -4086,7 +4086,7 @@ _ZN6casadi9casadi_mvIdEEvPKT_PKxS3_PS1_x.exit365: ; preds = %.loopexit.i360, %.l
   br i1 %exitcond.not.i.i371, label %_ZN6casadi13casadi_norm_2IdEET_xPKS1_.exit372, label %.lr.ph.i.i367, !llvm.loop !129
 
 _ZN6casadi13casadi_norm_2IdEET_xPKS1_.exit372:    ; preds = %.lr.ph.i.i367, %.preheader.i355, %.preheader49.i344, %_ZN6casadi9casadi_mvIdEEvPKT_PKxS3_PS1_x.exit365
-  %.0.lcssa.i.i366 = phi double [ 0.000000e+00, %_ZN6casadi9casadi_mvIdEEvPKT_PKxS3_PS1_x.exit365 ], [ 0.000000e+00, %.preheader49.i344 ], [ 0.000000e+00, %.preheader.i355 ], [ %203, %.lr.ph.i.i367 ]
+  %.0.lcssa.i.i366 = phi double [ 0.000000e+00, %_ZN6casadi9casadi_mvIdEEvPKT_PKxS3_PS1_x.exit365 ], [ 0.000000e+00, %.preheader.i355 ], [ 0.000000e+00, %.preheader49.i344 ], [ %203, %.lr.ph.i.i367 ]
   %205 = tail call noundef double @sqrt(double noundef %.0.lcssa.i.i366) #27, !tbaa !97
   %206 = fcmp ule double %205, 0.000000e+00
   %brmerge449 = select i1 %206, i1 true, i1 %103
@@ -4107,10 +4107,10 @@ _ZN6casadi13casadi_norm_2IdEET_xPKS1_.exit372:    ; preds = %.lr.ph.i.i367, %.pr
   br i1 %exitcond461.not, label %.loopexit, label %208, !llvm.loop !139
 
 .loopexit:                                        ; preds = %208, %_ZN6casadi9casadi_mvIdEEvPKT_PKxS3_PS1_x.exit333, %_ZN6casadi13casadi_norm_2IdEET_xPKS1_.exit372, %_ZN6casadi13casadi_norm_2IdEET_xPKS1_.exit340
-  %213 = phi double [ 1.000000e+00, %_ZN6casadi13casadi_norm_2IdEET_xPKS1_.exit372 ], [ %151, %_ZN6casadi13casadi_norm_2IdEET_xPKS1_.exit340 ], [ 0.000000e+00, %_ZN6casadi9casadi_mvIdEEvPKT_PKxS3_PS1_x.exit333 ], [ 1.000000e+00, %208 ]
-  %214 = phi double [ %151, %_ZN6casadi13casadi_norm_2IdEET_xPKS1_.exit372 ], [ %151, %_ZN6casadi13casadi_norm_2IdEET_xPKS1_.exit340 ], [ 0.000000e+00, %_ZN6casadi9casadi_mvIdEEvPKT_PKxS3_PS1_x.exit333 ], [ %151, %208 ]
-  %.2259 = phi double [ %205, %_ZN6casadi13casadi_norm_2IdEET_xPKS1_.exit372 ], [ %.1258, %_ZN6casadi13casadi_norm_2IdEET_xPKS1_.exit340 ], [ %.1258, %_ZN6casadi9casadi_mvIdEEvPKT_PKxS3_PS1_x.exit333 ], [ %205, %208 ]
-  %.1241 = phi double [ %sqrt, %_ZN6casadi13casadi_norm_2IdEET_xPKS1_.exit372 ], [ %.0240, %_ZN6casadi13casadi_norm_2IdEET_xPKS1_.exit340 ], [ %.0240, %_ZN6casadi9casadi_mvIdEEvPKT_PKxS3_PS1_x.exit333 ], [ %sqrt, %208 ]
+  %213 = phi double [ %151, %_ZN6casadi13casadi_norm_2IdEET_xPKS1_.exit340 ], [ 1.000000e+00, %_ZN6casadi13casadi_norm_2IdEET_xPKS1_.exit372 ], [ 0.000000e+00, %_ZN6casadi9casadi_mvIdEEvPKT_PKxS3_PS1_x.exit333 ], [ 1.000000e+00, %208 ]
+  %214 = phi double [ %151, %_ZN6casadi13casadi_norm_2IdEET_xPKS1_.exit340 ], [ %151, %_ZN6casadi13casadi_norm_2IdEET_xPKS1_.exit372 ], [ 0.000000e+00, %_ZN6casadi9casadi_mvIdEEvPKT_PKxS3_PS1_x.exit333 ], [ %151, %208 ]
+  %.2259 = phi double [ %.1258, %_ZN6casadi13casadi_norm_2IdEET_xPKS1_.exit340 ], [ %205, %_ZN6casadi13casadi_norm_2IdEET_xPKS1_.exit372 ], [ %.1258, %_ZN6casadi9casadi_mvIdEEvPKT_PKxS3_PS1_x.exit333 ], [ %205, %208 ]
+  %.1241 = phi double [ %.0240, %_ZN6casadi13casadi_norm_2IdEET_xPKS1_.exit340 ], [ %sqrt, %_ZN6casadi13casadi_norm_2IdEET_xPKS1_.exit372 ], [ %.0240, %_ZN6casadi9casadi_mvIdEEvPKT_PKxS3_PS1_x.exit333 ], [ %sqrt, %208 ]
   %215 = tail call double @llvm.fmuladd.f64(double %.0260, double %.0260, double 0.000000e+00)
   %sqrt407 = tail call double @llvm.sqrt.f64(double %215)
   %216 = fdiv double %.0260, %sqrt407

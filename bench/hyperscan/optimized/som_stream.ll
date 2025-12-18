@@ -240,8 +240,8 @@ mmbit_iterate.exit:                               ; preds = %119, %58
   %.not125 = icmp eq i32 %.011.i, -1
   br i1 %.not125, label %._crit_edge128, label %.lr.ph127
 
-.lr.ph127:                                        ; preds = %95, %51, %mmbit_iterate.exit
-  %.011.i158 = phi i32 [ %.011.i, %mmbit_iterate.exit ], [ %98, %95 ], [ %53, %51 ]
+.lr.ph127:                                        ; preds = %51, %95, %mmbit_iterate.exit
+  %.011.i158 = phi i32 [ %.011.i, %mmbit_iterate.exit ], [ %53, %51 ], [ %98, %95 ]
   %131 = zext i8 %20 to i32
   %132 = icmp ugt i32 %6, 256
   %133 = zext nneg i32 %6 to i64
@@ -598,7 +598,7 @@ mmbit_get_flat_block.exit71:                      ; preds = %261, %264, %267, %2
   br label %.backedge
 
 mmbit_iterate.exit24:                             ; preds = %305, %192, %.thread93, %245, %282
-  %.011.i23 = phi i32 [ %194, %192 ], [ %250, %245 ], [ %237, %.thread93 ], [ %285, %282 ], [ %309, %305 ]
+  %.011.i23 = phi i32 [ %250, %245 ], [ %285, %282 ], [ %237, %.thread93 ], [ %194, %192 ], [ %309, %305 ]
   %.not = icmp eq i32 %.011.i23, -1
   br i1 %.not, label %._crit_edge128, label %151
 }
@@ -838,8 +838,8 @@ mmbit_iterate.exit25:                             ; preds = %119, %58
   %.not123 = icmp eq i32 %.011.i24, -1
   br i1 %.not123, label %._crit_edge126, label %.lr.ph125
 
-.lr.ph125:                                        ; preds = %95, %51, %mmbit_iterate.exit25
-  %.011.i24172 = phi i32 [ %.011.i24, %mmbit_iterate.exit25 ], [ %98, %95 ], [ %53, %51 ]
+.lr.ph125:                                        ; preds = %51, %95, %mmbit_iterate.exit25
+  %.011.i24172 = phi i32 [ %.011.i24, %mmbit_iterate.exit25 ], [ %53, %51 ], [ %98, %95 ]
   %131 = zext i8 %20 to i32
   %132 = zext nneg i32 %.fr143 to i64
   %133 = lshr i32 %.fr143, 6

@@ -6446,7 +6446,7 @@ lean_dec.exit41:                                  ; preds = %81, %80, %78, %74
   br label %lean_dec.exit46.backedge
 
 lean_dec.exit46.backedge:                         ; preds = %85, %89, %95, %97, %98
-  %.033.be = phi ptr [ %92, %98 ], [ %92, %95 ], [ %92, %97 ], [ %90, %89 ], [ %88, %85 ]
+  %.033.be = phi ptr [ %92, %98 ], [ %92, %97 ], [ %92, %95 ], [ %90, %89 ], [ %88, %85 ]
   br label %lean_dec.exit46
 
 89:                                               ; preds = %82

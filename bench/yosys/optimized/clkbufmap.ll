@@ -13285,7 +13285,7 @@ _ZNSt4pairIN5Yosys5RTLIL8IdStringEiED2Ev.exit1336: ; preds = %_ZNSt4pairIN5Yosys
   br label %.body4155
 
 .critedge:                                        ; preds = %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.i.i1212, %5289, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.i1234, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.us.i1238, %._crit_edge.i.i1227, %.loopexit4925, %.noexc1198.thread, %.loopexit4909
-  %.4480 = phi i1 [ %.34797936, %.noexc1198.thread ], [ true, %.loopexit4909 ], [ %.34797936, %.loopexit4925 ], [ %.34797936, %._crit_edge.i.i1227 ], [ %.34797936, %5289 ], [ %.34797936, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.us.i1238 ], [ %.34797936, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.i1234 ], [ %.34797936, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.i.i1212 ]
+  %.4480 = phi i1 [ %.34797936, %.noexc1198.thread ], [ true, %.loopexit4909 ], [ %.34797936, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.us.i1238 ], [ %.34797936, %.loopexit4925 ], [ %.34797936, %._crit_edge.i.i1227 ], [ %.34797936, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.i1234 ], [ %.34797936, %5289 ], [ %.34797936, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.i.i1212 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %106)
   %6046 = load i32, ptr %102, align 8, !tbaa !30, !noalias !252
   %.not.i.i.i.i1337 = icmp eq i32 %6046, 0

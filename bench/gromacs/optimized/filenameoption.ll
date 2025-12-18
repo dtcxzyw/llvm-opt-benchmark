@@ -2599,9 +2599,9 @@ _ZNSt6vectorIPKcSaIS1_EE9push_backEOS1_.exit:     ; preds = %_ZNSt6vectorIPKcSaI
   br label %83
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIPKcSaIS1_EE9push_backEOS1_.exit, %_ZNSt6vectorIPKcSaIS1_EE9push_backEOS1_.exit.us, %14, %.thread
-  %82 = phi ptr [ %7, %.thread ], [ %17, %14 ], [ %18, %_ZNSt6vectorIPKcSaIS1_EE9push_backEOS1_.exit.us ], [ %18, %_ZNSt6vectorIPKcSaIS1_EE9push_backEOS1_.exit ]
-  %.lcssa24 = phi ptr [ null, %.thread ], [ null, %14 ], [ %50, %_ZNSt6vectorIPKcSaIS1_EE9push_backEOS1_.exit.us ], [ %80, %_ZNSt6vectorIPKcSaIS1_EE9push_backEOS1_.exit ]
-  %.lcssa = phi ptr [ null, %.thread ], [ null, %14 ], [ %51, %_ZNSt6vectorIPKcSaIS1_EE9push_backEOS1_.exit.us ], [ %81, %_ZNSt6vectorIPKcSaIS1_EE9push_backEOS1_.exit ]
+  %82 = phi ptr [ %18, %_ZNSt6vectorIPKcSaIS1_EE9push_backEOS1_.exit.us ], [ %7, %.thread ], [ %17, %14 ], [ %18, %_ZNSt6vectorIPKcSaIS1_EE9push_backEOS1_.exit ]
+  %.lcssa24 = phi ptr [ %50, %_ZNSt6vectorIPKcSaIS1_EE9push_backEOS1_.exit.us ], [ null, %.thread ], [ null, %14 ], [ %80, %_ZNSt6vectorIPKcSaIS1_EE9push_backEOS1_.exit ]
+  %.lcssa = phi ptr [ %51, %_ZNSt6vectorIPKcSaIS1_EE9push_backEOS1_.exit.us ], [ null, %.thread ], [ null, %14 ], [ %81, %_ZNSt6vectorIPKcSaIS1_EE9push_backEOS1_.exit ]
   store ptr %.lcssa, ptr %82, align 1
   store ptr %.lcssa24, ptr %0, align 8
   ret void

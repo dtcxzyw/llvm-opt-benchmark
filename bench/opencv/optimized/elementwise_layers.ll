@@ -11432,8 +11432,8 @@ _ZNSt12__shared_ptrIN2cv3dnn14dnn4_v202412235LayerELN9__gnu_cxx12_Lock_policyE2E
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 257:                                              ; preds = %247, %252, %251, %176
-  %.sroa.0108.0119 = phi ptr [ %.sroa.0108.0118126, %176 ], [ %.sroa.0108.0118127, %252 ], [ %.sroa.0108.0118127, %251 ], [ %.sroa.0108.0118127, %247 ]
-  %.pn49 = phi { ptr, i32 } [ %177, %176 ], [ %.pn43142, %252 ], [ %196, %251 ], [ %248, %247 ]
+  %.sroa.0108.0119 = phi ptr [ %.sroa.0108.0118126, %176 ], [ %.sroa.0108.0118127, %247 ], [ %.sroa.0108.0118127, %251 ], [ %.sroa.0108.0118127, %252 ]
+  %.pn49 = phi { ptr, i32 } [ %177, %176 ], [ %248, %247 ], [ %196, %251 ], [ %.pn43142, %252 ]
   %.not.i.i.i99 = icmp eq ptr %.sroa.0108.0119, null
   br i1 %.not.i.i.i99, label %.body, label %.thread
 

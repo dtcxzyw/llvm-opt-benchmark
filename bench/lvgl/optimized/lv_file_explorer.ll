@@ -836,7 +836,7 @@ is_end_with.exit:                                 ; preds = %.loopexit, %29, %41
   br i1 %.not49133, label %.lr.ph, label %.outer._crit_edge
 
 .outer._crit_edge:                                ; preds = %.outer, %14, %129, %10
-  %.0.ph.lcssa = phi i16 [ 1, %10 ], [ %.0.ph138, %14 ], [ %.0.ph138, %129 ], [ %139, %.outer ]
+  %.0.ph.lcssa = phi i16 [ %.0.ph138, %14 ], [ 1, %10 ], [ %.0.ph138, %129 ], [ %139, %.outer ]
   %141 = call i32 @lv_fs_dir_close(ptr noundef nonnull %4) #6
   %142 = load ptr, ptr %7, align 8, !tbaa !24
   %143 = zext i16 %.0.ph.lcssa to i32

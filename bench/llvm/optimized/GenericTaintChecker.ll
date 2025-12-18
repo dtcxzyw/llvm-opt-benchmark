@@ -44457,35 +44457,35 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i33:            ; preds = %_ZN4llvm4yaml6isNul
 _ZN4llvmeqENS_9StringRefES0_.exit20.i:            ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i33
   %bcmp.i19.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %0, ptr noundef nonnull dereferenceable(4) @.str.161, i64 4)
   %17 = icmp eq i32 %bcmp.i19.i, 0
-  br i1 %17, label %_ZN4llvm4yaml6isBoolENS_9StringRefE.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit24.i
-
-_ZN4llvmeqENS_9StringRefES0_.exit24.i:            ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit20.i
-  %bcmp.i23.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %0, ptr noundef nonnull dereferenceable(4) @.str.162, i64 4)
-  %bcmp.i23.i.fr = freeze i32 %bcmp.i23.i
-  %18 = icmp eq i32 %bcmp.i23.i.fr, 0
-  br i1 %18, label %_ZN4llvm4yaml6isBoolENS_9StringRefE.exit.thread, label %_ZN4llvm4yaml6isBoolENS_9StringRefE.exit.thread52
+  br i1 %17, label %_ZN4llvm4yaml6isBoolENS_9StringRefE.exit.thread, label %_ZN4llvm4yaml6isBoolENS_9StringRefE.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit28.i:            ; preds = %10
   %bcmp.i27.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %0, ptr noundef nonnull dereferenceable(5) @.str.163, i64 5)
-  %19 = icmp eq i32 %bcmp.i27.i, 0
-  br i1 %19, label %_ZN4llvm4yaml6isBoolENS_9StringRefE.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit32.i
+  %18 = icmp eq i32 %bcmp.i27.i, 0
+  br i1 %18, label %_ZN4llvm4yaml6isBoolENS_9StringRefE.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit32.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit32.i:            ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit28.i
   %bcmp.i31.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %0, ptr noundef nonnull dereferenceable(5) @.str.164, i64 5)
-  %20 = icmp eq i32 %bcmp.i31.i, 0
-  br i1 %20, label %_ZN4llvm4yaml6isBoolENS_9StringRefE.exit.thread, label %_ZN4llvm4yaml6isBoolENS_9StringRefE.exit
+  %19 = icmp eq i32 %bcmp.i31.i, 0
+  br i1 %19, label %_ZN4llvm4yaml6isBoolENS_9StringRefE.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit32.thread60.i
 
-_ZN4llvm4yaml6isBoolENS_9StringRefE.exit:         ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit32.i
+_ZN4llvmeqENS_9StringRefES0_.exit32.thread60.i:   ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit32.i
   %bcmp.i35.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %0, ptr noundef nonnull dereferenceable(5) @.str.165, i64 5)
   %bcmp.i35.i.fr = freeze i32 %bcmp.i35.i
-  %21 = icmp eq i32 %bcmp.i35.i.fr, 0
+  %20 = icmp eq i32 %bcmp.i35.i.fr, 0
+  br i1 %20, label %_ZN4llvm4yaml6isBoolENS_9StringRefE.exit.thread, label %_ZN4llvm4yaml6isBoolENS_9StringRefE.exit.thread52
+
+_ZN4llvm4yaml6isBoolENS_9StringRefE.exit:         ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit20.i
+  %bcmp.i23.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %0, ptr noundef nonnull dereferenceable(4) @.str.162, i64 4)
+  %bcmp.i23.i.fr = freeze i32 %bcmp.i23.i
+  %21 = icmp eq i32 %bcmp.i23.i.fr, 0
   br i1 %21, label %_ZN4llvm4yaml6isBoolENS_9StringRefE.exit.thread, label %_ZN4llvm4yaml6isBoolENS_9StringRefE.exit.thread52
 
-_ZN4llvm4yaml6isBoolENS_9StringRefE.exit.thread:  ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i33, %_ZN4llvmeqENS_9StringRefES0_.exit20.i, %_ZN4llvmeqENS_9StringRefES0_.exit28.i, %_ZN4llvmeqENS_9StringRefES0_.exit32.i, %_ZN4llvmeqENS_9StringRefES0_.exit24.i, %_ZN4llvm4yaml6isBoolENS_9StringRefE.exit
+_ZN4llvm4yaml6isBoolENS_9StringRefE.exit.thread:  ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i33, %_ZN4llvmeqENS_9StringRefES0_.exit20.i, %_ZN4llvmeqENS_9StringRefES0_.exit28.i, %_ZN4llvmeqENS_9StringRefES0_.exit32.i, %_ZN4llvmeqENS_9StringRefES0_.exit32.thread60.i, %_ZN4llvm4yaml6isBoolENS_9StringRefE.exit
   br label %_ZN4llvm4yaml6isBoolENS_9StringRefE.exit.thread52
 
-_ZN4llvm4yaml6isBoolENS_9StringRefE.exit.thread52: ; preds = %_ZN4llvm4yaml6isNullENS_9StringRefE.exit, %10, %_ZN4llvmeqENS_9StringRefES0_.exit24.i, %_ZN4llvm4yaml6isBoolENS_9StringRefE.exit, %_ZN4llvm4yaml6isBoolENS_9StringRefE.exit.thread
-  %22 = phi i32 [ 1, %_ZN4llvm4yaml6isBoolENS_9StringRefE.exit.thread ], [ %.020, %_ZN4llvm4yaml6isBoolENS_9StringRefE.exit ], [ %15, %_ZN4llvmeqENS_9StringRefES0_.exit24.i ], [ %.020, %10 ], [ %spec.select, %_ZN4llvm4yaml6isNullENS_9StringRefE.exit ]
+_ZN4llvm4yaml6isBoolENS_9StringRefE.exit.thread52: ; preds = %_ZN4llvm4yaml6isNullENS_9StringRefE.exit, %10, %_ZN4llvmeqENS_9StringRefES0_.exit32.thread60.i, %_ZN4llvm4yaml6isBoolENS_9StringRefE.exit, %_ZN4llvm4yaml6isBoolENS_9StringRefE.exit.thread
+  %22 = phi i32 [ 1, %_ZN4llvm4yaml6isBoolENS_9StringRefE.exit.thread ], [ %15, %_ZN4llvm4yaml6isBoolENS_9StringRefE.exit ], [ %.020, %_ZN4llvmeqENS_9StringRefES0_.exit32.thread60.i ], [ %.020, %10 ], [ %spec.select, %_ZN4llvm4yaml6isNullENS_9StringRefE.exit ]
   %23 = tail call noundef zeroext i1 @_ZN4llvm4yaml9isNumericENS_9StringRefE(ptr nonnull %0, i64 %1)
   %spec.select31 = select i1 %23, i32 1, i32 %22
   %.pre = load i8, ptr %0, align 1, !tbaa !53
@@ -51130,7 +51130,7 @@ _ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEEeqERKS3_.exit.t
   br label %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEEeqERKS3_.exit36
 
 _ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEEeqERKS3_.exit36: ; preds = %108, %.critedge, %227, %226, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEEeqERKS3_.exit.thread, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEEeqERKS3_.exit
-  %.1 = phi i1 [ false, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEEeqERKS3_.exit ], [ true, %226 ], [ false, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEEeqERKS3_.exit.thread ], [ %.not9.i.i.i.i.i.i.i35, %227 ], [ false, %.critedge ], [ false, %108 ]
+  %.1 = phi i1 [ false, %.critedge ], [ false, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEEeqERKS3_.exit ], [ true, %226 ], [ false, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEEeqERKS3_.exit.thread ], [ %.not9.i.i.i.i.i.i.i35, %227 ], [ false, %108 ]
   %231 = load ptr, ptr %6, align 8, !tbaa !79
   %232 = icmp eq ptr %231, %40
   br i1 %232, label %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEED2Ev.exit, label %233
@@ -52961,7 +52961,7 @@ _ZN4llvm21iterator_adaptor_baseINS_20ImutAVLValueIteratorINS_12ImmutableSetIiNS_
   br label %61
 
 _ZNSt6vectorIPKN5clang4ento7SymExprESaIS4_EED2Ev.exit53.thread79.i: ; preds = %45, %183, %_ZNSt6vectorIiSaIiEED2Ev.exit51.i
-  %.sroa.045.377.i = phi ptr [ %170, %_ZNSt6vectorIiSaIiEED2Ev.exit51.i ], [ %170, %183 ], [ %28, %45 ]
+  %.sroa.045.377.i = phi ptr [ %170, %183 ], [ %170, %_ZNSt6vectorIiSaIiEED2Ev.exit51.i ], [ %28, %45 ]
   %383 = load i32, ptr %38, align 4, !tbaa !640
   %384 = add i32 %383, -1
   store i32 %384, ptr %38, align 4, !tbaa !640

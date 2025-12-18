@@ -8777,12 +8777,12 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   %85 = icmp eq i32 %.val7, %.val5.i.i.i
   br i1 %85, label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h18cee799f533457cE.exit.backedge", label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h18cee799f533457cE.exit.thread"
 
-"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h18cee799f533457cE.exit.backedge": ; preds = %84, %82, %80, %78, %76, %74, %72, %70, %68, %66, %61, %65
+"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h18cee799f533457cE.exit.backedge": ; preds = %84, %80, %78, %76, %74, %72, %70, %68, %66, %61, %82, %65
   %.not59 = icmp eq ptr %24, %7
   br i1 %.not59, label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h18cee799f533457cE.exit.thread", label %.lr.ph.split
 
-"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h18cee799f533457cE.exit.thread": ; preds = %61, %66, %68, %70, %72, %74, %76, %78, %80, %82, %84, %63, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h18cee799f533457cE.exit.backedge", %2, %.lr.ph.split.us, %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_index_of17hec99efe18eb18928E.exit.i.i.i"
-  %86 = phi i1 [ true, %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_index_of17hec99efe18eb18928E.exit.i.i.i" ], [ false, %2 ], [ true, %.lr.ph.split.us ], [ true, %61 ], [ true, %66 ], [ true, %68 ], [ true, %70 ], [ true, %72 ], [ true, %74 ], [ true, %76 ], [ true, %78 ], [ true, %80 ], [ true, %82 ], [ true, %84 ], [ true, %63 ], [ false, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h18cee799f533457cE.exit.backedge" ]
+"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h18cee799f533457cE.exit.thread": ; preds = %82, %61, %66, %68, %70, %72, %74, %76, %78, %80, %84, %63, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h18cee799f533457cE.exit.backedge", %2, %.lr.ph.split.us, %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_index_of17hec99efe18eb18928E.exit.i.i.i"
+  %86 = phi i1 [ true, %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_index_of17hec99efe18eb18928E.exit.i.i.i" ], [ false, %2 ], [ true, %.lr.ph.split.us ], [ true, %82 ], [ true, %61 ], [ true, %66 ], [ true, %68 ], [ true, %70 ], [ true, %72 ], [ true, %74 ], [ true, %76 ], [ true, %78 ], [ true, %80 ], [ true, %84 ], [ true, %63 ], [ false, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h18cee799f533457cE.exit.backedge" ]
   ret i1 %86
 }
 
@@ -10502,8 +10502,8 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
   %.not16 = icmp eq i64 %1, 0
   br i1 %.not16, label %.thread, label %.lr.ph
 
-.thread:                                          ; preds = %26, %32, %38, %44, %50, %56, %62, %68, %20, %_ZN4core3cmp9PartialEq2ne17hae6b4b806d168ad4E.exit, %.critedge.backedge, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h305c803186b0d211E.exit.i.i", %13, %.lr.ph, %.critedge.preheader.split, %4
-  %.0 = phi i1 [ false, %4 ], [ true, %.critedge.preheader.split ], [ false, %26 ], [ false, %32 ], [ false, %38 ], [ false, %44 ], [ false, %50 ], [ false, %56 ], [ false, %62 ], [ false, %68 ], [ false, %20 ], [ false, %13 ], [ false, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h305c803186b0d211E.exit.i.i" ], [ true, %.critedge.backedge ], [ false, %_ZN4core3cmp9PartialEq2ne17hae6b4b806d168ad4E.exit ], [ false, %.lr.ph ]
+.thread:                                          ; preds = %68, %20, %26, %32, %38, %44, %50, %56, %62, %_ZN4core3cmp9PartialEq2ne17hae6b4b806d168ad4E.exit, %.critedge.backedge, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h305c803186b0d211E.exit.i.i", %13, %.lr.ph, %.critedge.preheader.split, %4
+  %.0 = phi i1 [ false, %4 ], [ true, %.critedge.preheader.split ], [ false, %68 ], [ false, %20 ], [ false, %26 ], [ false, %32 ], [ false, %38 ], [ false, %44 ], [ false, %50 ], [ false, %56 ], [ false, %62 ], [ false, %13 ], [ false, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h305c803186b0d211E.exit.i.i" ], [ true, %.critedge.backedge ], [ false, %_ZN4core3cmp9PartialEq2ne17hae6b4b806d168ad4E.exit ], [ false, %.lr.ph ]
   ret i1 %.0
 
 .lr.ph:                                           ; preds = %.critedge.preheader.split, %.critedge.backedge
@@ -10544,15 +10544,15 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
 19:                                               ; preds = %13
   switch i32 %16, label %.critedge.backedge [
     i32 13, label %20
-    i32 14, label %_ZN4core3cmp9PartialEq2ne17hae6b4b806d168ad4E.exit
-    i32 15, label %26
-    i32 16, label %32
-    i32 17, label %38
-    i32 18, label %44
-    i32 19, label %50
-    i32 20, label %56
-    i32 21, label %62
-    i32 22, label %68
+    i32 14, label %26
+    i32 15, label %32
+    i32 16, label %38
+    i32 17, label %44
+    i32 18, label %50
+    i32 19, label %56
+    i32 20, label %62
+    i32 21, label %68
+    i32 22, label %_ZN4core3cmp9PartialEq2ne17hae6b4b806d168ad4E.exit
   ]
 
 20:                                               ; preds = %19
@@ -10635,7 +10635,7 @@ _ZN4core3cmp9PartialEq2ne17hae6b4b806d168ad4E.exit: ; preds = %19
   %78 = icmp eq i32 %75, %77
   br i1 %78, label %.critedge.backedge, label %.thread
 
-.critedge.backedge:                               ; preds = %26, %32, %38, %44, %50, %56, %62, %68, %20, %_ZN4core3cmp9PartialEq2ne17hae6b4b806d168ad4E.exit, %19
+.critedge.backedge:                               ; preds = %68, %20, %26, %32, %38, %44, %50, %56, %62, %_ZN4core3cmp9PartialEq2ne17hae6b4b806d168ad4E.exit, %19
   %exitcond.not = icmp eq i64 %5, %1
   br i1 %exitcond.not, label %.thread, label %.lr.ph
 }

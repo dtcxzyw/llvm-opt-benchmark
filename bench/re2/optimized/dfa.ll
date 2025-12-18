@@ -1357,7 +1357,7 @@ if.end152:                                        ; preds = %for.inc149, %invoke
           to label %_ZN3re28PODArrayIiED2Ev.exit100 unwind label %_ZN3re28PODArrayIiED2Ev.exit.loopexit.split-lp
 
 _ZN3re28PODArrayIiED2Ev.exit100:                  ; preds = %land.lhs.true38, %invoke.cont36, %if.end152, %22
-  %retval.0 = phi ptr [ inttoptr (i64 1 to ptr), %22 ], [ %call157, %if.end152 ], [ inttoptr (i64 2 to ptr), %invoke.cont36 ], [ inttoptr (i64 2 to ptr), %land.lhs.true38 ]
+  %retval.0 = phi ptr [ %call157, %if.end152 ], [ inttoptr (i64 1 to ptr), %22 ], [ inttoptr (i64 2 to ptr), %invoke.cont36 ], [ inttoptr (i64 2 to ptr), %land.lhs.true38 ]
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i3.i) #24
   ret ptr %retval.0
 }
@@ -1805,7 +1805,7 @@ if.end.i.i.i:                                     ; preds = %if.end.i
   br label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %if.end60, %sw.bb, %Loop, %_ZNK3re210SparseSetTIvE8containsEi.exit, %invoke.cont18, %if.end.i.i.i, %if.end.i, %if.then
-  %nstk.0.be = phi i32 [ %nstk.1.ph, %if.end.i.i.i ], [ %nstk.1.ph, %if.then ], [ %nstk.1.ph, %if.end.i ], [ %nstk.1.ph, %invoke.cont18 ], [ %nstk.1.ph, %sw.bb ], [ %nstk.1.ph, %_ZNK3re210SparseSetTIvE8containsEi.exit ], [ %nstk.1.ph, %Loop ], [ %nstk.5, %if.end60 ]
+  %nstk.0.be = phi i32 [ %nstk.1.ph, %sw.bb ], [ %nstk.1.ph, %if.end.i.i.i ], [ %nstk.1.ph, %invoke.cont18 ], [ %nstk.1.ph, %if.then ], [ %nstk.1.ph, %if.end.i ], [ %nstk.1.ph, %_ZNK3re210SparseSetTIvE8containsEi.exit ], [ %nstk.1.ph, %Loop ], [ %nstk.5, %if.end60 ]
   %cmp = icmp sgt i32 %nstk.0.be, 0
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !42
 
@@ -3140,8 +3140,8 @@ _ZN3re210SparseSetTIvE6insertEi.exit:             ; preds = %_ZNK3re210SparseSet
   br i1 %cmp12, label %for.body, label %if.end18, !llvm.loop !47
 
 if.end18:                                         ; preds = %_ZN3re210SparseSetTIvE6insertEi.exit, %for.body, %if.then11, %if.then, %entry
-  %matched.0 = phi i8 [ 1, %if.then ], [ 0, %entry ], [ 1, %if.then11 ], [ 1, %for.body ], [ 1, %_ZN3re210SparseSetTIvE6insertEi.exit ]
-  %lastmatch.0 = phi ptr [ %add.ptr, %if.then ], [ null, %entry ], [ %add.ptr, %if.then11 ], [ %add.ptr, %for.body ], [ %add.ptr, %_ZN3re210SparseSetTIvE6insertEi.exit ]
+  %matched.0 = phi i8 [ 0, %entry ], [ 1, %if.then ], [ 1, %if.then11 ], [ 1, %for.body ], [ 1, %_ZN3re210SparseSetTIvE6insertEi.exit ]
+  %lastmatch.0 = phi ptr [ null, %entry ], [ %add.ptr, %if.then ], [ %add.ptr, %if.then11 ], [ %add.ptr, %for.body ], [ %add.ptr, %_ZN3re210SparseSetTIvE6insertEi.exit ]
   %cmp19.not281 = icmp eq i64 %2, 0
   br i1 %cmp19.not281, label %while.end, label %while.body.lr.ph
 
@@ -3512,8 +3512,8 @@ _ZN3re210SparseSetTIvE6insertEi.exit128:          ; preds = %_ZNK3re210SparseSet
   br i1 %cmp83, label %for.body84, label %if.end98, !llvm.loop !48
 
 if.end98:                                         ; preds = %_ZN3re210SparseSetTIvE6insertEi.exit128, %for.body84, %if.then78, %if.then74, %if.end72
-  %matched.2 = phi i8 [ 1, %if.then74 ], [ %matched.1284, %if.end72 ], [ 1, %if.then78 ], [ 1, %for.body84 ], [ 1, %_ZN3re210SparseSetTIvE6insertEi.exit128 ]
-  %lastmatch.2 = phi ptr [ %p.0282, %if.then74 ], [ %lastmatch.1285, %if.end72 ], [ %p.0282, %if.then78 ], [ %p.0282, %for.body84 ], [ %p.0282, %_ZN3re210SparseSetTIvE6insertEi.exit128 ]
+  %matched.2 = phi i8 [ %matched.1284, %if.end72 ], [ 1, %if.then74 ], [ 1, %if.then78 ], [ 1, %for.body84 ], [ 1, %_ZN3re210SparseSetTIvE6insertEi.exit128 ]
+  %lastmatch.2 = phi ptr [ %lastmatch.1285, %if.end72 ], [ %p.0282, %if.then74 ], [ %p.0282, %if.then78 ], [ %p.0282, %for.body84 ], [ %p.0282, %_ZN3re210SparseSetTIvE6insertEi.exit128 ]
   %cmp19.not = icmp eq ptr %incdec.ptr, %1
   br i1 %cmp19.not, label %while.end, label %while.body, !llvm.loop !49
 
@@ -3820,15 +3820,15 @@ _ZN3re210SparseSetTIvE6insertEi.exit202:          ; preds = %_ZNK3re210SparseSet
   br i1 %cmp169, label %for.body170, label %if.end184, !llvm.loop !50
 
 if.end184:                                        ; preds = %_ZN3re210SparseSetTIvE6insertEi.exit202, %for.body170, %if.then164, %if.then161, %if.end159
-  %matched.3 = phi i8 [ 1, %if.then161 ], [ %matched.1.lcssa, %if.end159 ], [ 1, %if.then164 ], [ 1, %for.body170 ], [ 1, %_ZN3re210SparseSetTIvE6insertEi.exit202 ]
-  %lastmatch.3 = phi ptr [ %p.0.lcssa, %if.then161 ], [ %lastmatch.1.lcssa, %if.end159 ], [ %p.0.lcssa, %if.then164 ], [ %p.0.lcssa, %for.body170 ], [ %p.0.lcssa, %_ZN3re210SparseSetTIvE6insertEi.exit202 ]
+  %matched.3 = phi i8 [ %matched.1.lcssa, %if.end159 ], [ 1, %if.then161 ], [ 1, %if.then164 ], [ 1, %for.body170 ], [ 1, %_ZN3re210SparseSetTIvE6insertEi.exit202 ]
+  %lastmatch.3 = phi ptr [ %lastmatch.1.lcssa, %if.end159 ], [ %p.0.lcssa, %if.then161 ], [ %p.0.lcssa, %if.then164 ], [ %p.0.lcssa, %for.body170 ], [ %p.0.lcssa, %_ZN3re210SparseSetTIvE6insertEi.exit202 ]
   %ep185 = getelementptr inbounds nuw i8, ptr %params, i64 64
   store ptr %lastmatch.3, ptr %ep185, align 8
   %tobool186 = trunc nuw i8 %matched.3 to i1
   br label %return
 
 return:                                           ; preds = %cleanup, %cleanup145.thread, %if.end184, %if.end157, %if.then154, %if.end70, %if.then67, %if.then36
-  %retval.2 = phi i1 [ false, %if.then36 ], [ %tobool69, %if.then67 ], [ true, %if.end70 ], [ %tobool156, %if.then154 ], [ true, %if.end157 ], [ %tobool186, %if.end184 ], [ false, %cleanup145.thread ], [ false, %cleanup ]
+  %retval.2 = phi i1 [ false, %if.then36 ], [ %tobool69, %if.then67 ], [ true, %if.end70 ], [ false, %cleanup145.thread ], [ %tobool156, %if.then154 ], [ true, %if.end157 ], [ %tobool186, %if.end184 ], [ false, %cleanup ]
   ret i1 %retval.2
 }
 
@@ -3932,8 +3932,8 @@ _ZN3re210SparseSetTIvE6insertEi.exit:             ; preds = %_ZNK3re210SparseSet
   br i1 %cmp12, label %for.body, label %if.end18, !llvm.loop !51
 
 if.end18:                                         ; preds = %_ZN3re210SparseSetTIvE6insertEi.exit, %for.body, %if.then11, %if.then, %entry
-  %matched.0 = phi i8 [ 1, %if.then ], [ 0, %entry ], [ 1, %if.then11 ], [ 1, %for.body ], [ 1, %_ZN3re210SparseSetTIvE6insertEi.exit ]
-  %lastmatch.0 = phi ptr [ %1, %if.then ], [ null, %entry ], [ %1, %if.then11 ], [ %1, %for.body ], [ %1, %_ZN3re210SparseSetTIvE6insertEi.exit ]
+  %matched.0 = phi i8 [ 0, %entry ], [ 1, %if.then ], [ 1, %if.then11 ], [ 1, %for.body ], [ 1, %_ZN3re210SparseSetTIvE6insertEi.exit ]
+  %lastmatch.0 = phi ptr [ null, %entry ], [ %1, %if.then ], [ %1, %if.then11 ], [ %1, %for.body ], [ %1, %_ZN3re210SparseSetTIvE6insertEi.exit ]
   %cmp19.not281 = icmp eq i64 %2, 0
   br i1 %cmp19.not281, label %while.end, label %while.body.lr.ph
 
@@ -4304,8 +4304,8 @@ _ZN3re210SparseSetTIvE6insertEi.exit135:          ; preds = %_ZNK3re210SparseSet
   br i1 %cmp83, label %for.body84, label %if.end98, !llvm.loop !52
 
 if.end98:                                         ; preds = %_ZN3re210SparseSetTIvE6insertEi.exit135, %for.body84, %if.then78, %if.then74, %if.end72
-  %matched.2 = phi i8 [ 1, %if.then74 ], [ %matched.1283, %if.end72 ], [ 1, %if.then78 ], [ 1, %for.body84 ], [ 1, %_ZN3re210SparseSetTIvE6insertEi.exit135 ]
-  %lastmatch.2 = phi ptr [ %p.0286, %if.then74 ], [ %lastmatch.1284, %if.end72 ], [ %p.0286, %if.then78 ], [ %p.0286, %for.body84 ], [ %p.0286, %_ZN3re210SparseSetTIvE6insertEi.exit135 ]
+  %matched.2 = phi i8 [ %matched.1283, %if.end72 ], [ 1, %if.then74 ], [ 1, %if.then78 ], [ 1, %for.body84 ], [ 1, %_ZN3re210SparseSetTIvE6insertEi.exit135 ]
+  %lastmatch.2 = phi ptr [ %lastmatch.1284, %if.end72 ], [ %p.0286, %if.then74 ], [ %p.0286, %if.then78 ], [ %p.0286, %for.body84 ], [ %p.0286, %_ZN3re210SparseSetTIvE6insertEi.exit135 ]
   %cmp19.not = icmp eq ptr %incdec.ptr, %add.ptr
   br i1 %cmp19.not, label %while.end, label %while.body, !llvm.loop !53
 
@@ -4616,15 +4616,15 @@ _ZN3re210SparseSetTIvE6insertEi.exit211:          ; preds = %_ZNK3re210SparseSet
   br i1 %cmp169, label %for.body170, label %if.end184, !llvm.loop !54
 
 if.end184:                                        ; preds = %_ZN3re210SparseSetTIvE6insertEi.exit211, %for.body170, %if.then164, %if.then161, %if.end159
-  %matched.3 = phi i8 [ 1, %if.then161 ], [ %matched.1.lcssa, %if.end159 ], [ 1, %if.then164 ], [ 1, %for.body170 ], [ 1, %_ZN3re210SparseSetTIvE6insertEi.exit211 ]
-  %lastmatch.3 = phi ptr [ %p.0.lcssa, %if.then161 ], [ %lastmatch.1.lcssa, %if.end159 ], [ %p.0.lcssa, %if.then164 ], [ %p.0.lcssa, %for.body170 ], [ %p.0.lcssa, %_ZN3re210SparseSetTIvE6insertEi.exit211 ]
+  %matched.3 = phi i8 [ %matched.1.lcssa, %if.end159 ], [ 1, %if.then161 ], [ 1, %if.then164 ], [ 1, %for.body170 ], [ 1, %_ZN3re210SparseSetTIvE6insertEi.exit211 ]
+  %lastmatch.3 = phi ptr [ %lastmatch.1.lcssa, %if.end159 ], [ %p.0.lcssa, %if.then161 ], [ %p.0.lcssa, %if.then164 ], [ %p.0.lcssa, %for.body170 ], [ %p.0.lcssa, %_ZN3re210SparseSetTIvE6insertEi.exit211 ]
   %ep185 = getelementptr inbounds nuw i8, ptr %params, i64 64
   store ptr %lastmatch.3, ptr %ep185, align 8
   %tobool186 = trunc nuw i8 %matched.3 to i1
   br label %return
 
 return:                                           ; preds = %cleanup, %cleanup145.thread, %if.end184, %if.end157, %if.then154, %if.end70, %if.then67, %if.then36
-  %retval.2 = phi i1 [ false, %if.then36 ], [ %tobool69, %if.then67 ], [ true, %if.end70 ], [ %tobool156, %if.then154 ], [ true, %if.end157 ], [ %tobool186, %if.end184 ], [ false, %cleanup145.thread ], [ false, %cleanup ]
+  %retval.2 = phi i1 [ false, %if.then36 ], [ %tobool69, %if.then67 ], [ true, %if.end70 ], [ false, %cleanup145.thread ], [ %tobool156, %if.then154 ], [ true, %if.end157 ], [ %tobool186, %if.end184 ], [ false, %cleanup ]
   ret i1 %retval.2
 }
 
@@ -5364,7 +5364,7 @@ _ZN3re210SparseSetTIvE6insertEi.exit196:          ; preds = %_ZNK3re210SparseSet
   br i1 %cmp171, label %for.body172, label %if.end186, !llvm.loop !58
 
 if.end186:                                        ; preds = %_ZN3re210SparseSetTIvE6insertEi.exit196, %for.body172, %if.then166, %if.then163, %if.end161
-  %lastmatch.0 = phi ptr [ %1, %if.then163 ], [ null, %if.end161 ], [ %1, %if.then166 ], [ %1, %for.body172 ], [ %1, %_ZN3re210SparseSetTIvE6insertEi.exit196 ]
+  %lastmatch.0 = phi ptr [ null, %if.end161 ], [ %1, %if.then163 ], [ %1, %if.then166 ], [ %1, %for.body172 ], [ %1, %_ZN3re210SparseSetTIvE6insertEi.exit196 ]
   %ep187 = getelementptr inbounds nuw i8, ptr %params, i64 64
   store ptr %lastmatch.0, ptr %ep187, align 8
   br label %return
@@ -6121,7 +6121,7 @@ _ZN3re210SparseSetTIvE6insertEi.exit205:          ; preds = %_ZNK3re210SparseSet
   br i1 %cmp171, label %for.body172, label %if.end186, !llvm.loop !62
 
 if.end186:                                        ; preds = %_ZN3re210SparseSetTIvE6insertEi.exit205, %for.body172, %if.then166, %if.then163, %if.end161
-  %lastmatch.0 = phi ptr [ %add.ptr, %if.then163 ], [ null, %if.end161 ], [ %add.ptr, %if.then166 ], [ %add.ptr, %for.body172 ], [ %add.ptr, %_ZN3re210SparseSetTIvE6insertEi.exit205 ]
+  %lastmatch.0 = phi ptr [ null, %if.end161 ], [ %add.ptr, %if.then163 ], [ %add.ptr, %if.then166 ], [ %add.ptr, %for.body172 ], [ %add.ptr, %_ZN3re210SparseSetTIvE6insertEi.exit205 ]
   %ep187 = getelementptr inbounds nuw i8, ptr %params, i64 64
   store ptr %lastmatch.0, ptr %ep187, align 8
   br label %return
@@ -6238,8 +6238,8 @@ _ZN3re210SparseSetTIvE6insertEi.exit:             ; preds = %_ZNK3re210SparseSet
   br i1 %cmp12, label %for.body, label %if.end18, !llvm.loop !63
 
 if.end18:                                         ; preds = %_ZN3re210SparseSetTIvE6insertEi.exit, %for.body, %if.then11, %if.then, %entry
-  %matched.0 = phi i8 [ 1, %if.then ], [ 0, %entry ], [ 1, %if.then11 ], [ 1, %for.body ], [ 1, %_ZN3re210SparseSetTIvE6insertEi.exit ]
-  %lastmatch.0 = phi ptr [ %add.ptr, %if.then ], [ null, %entry ], [ %add.ptr, %if.then11 ], [ %add.ptr, %for.body ], [ %add.ptr, %_ZN3re210SparseSetTIvE6insertEi.exit ]
+  %matched.0 = phi i8 [ 0, %entry ], [ 1, %if.then ], [ 1, %if.then11 ], [ 1, %for.body ], [ 1, %_ZN3re210SparseSetTIvE6insertEi.exit ]
+  %lastmatch.0 = phi ptr [ null, %entry ], [ %add.ptr, %if.then ], [ %add.ptr, %if.then11 ], [ %add.ptr, %for.body ], [ %add.ptr, %_ZN3re210SparseSetTIvE6insertEi.exit ]
   %cmp19.not280 = icmp eq i64 %2, 0
   br i1 %cmp19.not280, label %while.end, label %while.body.lr.ph
 
@@ -6650,8 +6650,8 @@ _ZN3re210SparseSetTIvE6insertEi.exit134:          ; preds = %_ZNK3re210SparseSet
   br i1 %cmp95, label %for.body96, label %if.end110, !llvm.loop !64
 
 if.end110:                                        ; preds = %_ZN3re210SparseSetTIvE6insertEi.exit134, %for.body96, %if.then90, %if.then86, %if.end84
-  %matched.2 = phi i8 [ 1, %if.then86 ], [ %matched.1283, %if.end84 ], [ 1, %if.then90 ], [ 1, %for.body96 ], [ 1, %_ZN3re210SparseSetTIvE6insertEi.exit134 ]
-  %lastmatch.2 = phi ptr [ %p.2, %if.then86 ], [ %lastmatch.1284, %if.end84 ], [ %p.2, %if.then90 ], [ %p.2, %for.body96 ], [ %p.2, %_ZN3re210SparseSetTIvE6insertEi.exit134 ]
+  %matched.2 = phi i8 [ %matched.1283, %if.end84 ], [ 1, %if.then86 ], [ 1, %if.then90 ], [ 1, %for.body96 ], [ 1, %_ZN3re210SparseSetTIvE6insertEi.exit134 ]
+  %lastmatch.2 = phi ptr [ %lastmatch.1284, %if.end84 ], [ %p.2, %if.then86 ], [ %p.2, %if.then90 ], [ %p.2, %for.body96 ], [ %p.2, %_ZN3re210SparseSetTIvE6insertEi.exit134 ]
   %cmp19.not = icmp eq ptr %incdec.ptr, %1
   br i1 %cmp19.not, label %while.end, label %while.body, !llvm.loop !65
 
@@ -6958,8 +6958,8 @@ _ZN3re210SparseSetTIvE6insertEi.exit210:          ; preds = %_ZNK3re210SparseSet
   br i1 %cmp181, label %for.body182, label %if.end196, !llvm.loop !66
 
 if.end196:                                        ; preds = %_ZN3re210SparseSetTIvE6insertEi.exit210, %for.body182, %if.then176, %if.then173, %if.end171
-  %matched.3 = phi i8 [ 1, %if.then173 ], [ %matched.1.lcssa, %if.end171 ], [ 1, %if.then176 ], [ 1, %for.body182 ], [ 1, %_ZN3re210SparseSetTIvE6insertEi.exit210 ]
-  %lastmatch.3 = phi ptr [ %p.1, %if.then173 ], [ %lastmatch.1.lcssa, %if.end171 ], [ %p.1, %if.then176 ], [ %p.1, %for.body182 ], [ %p.1, %_ZN3re210SparseSetTIvE6insertEi.exit210 ]
+  %matched.3 = phi i8 [ %matched.1.lcssa, %if.end171 ], [ 1, %if.then173 ], [ 1, %if.then176 ], [ 1, %for.body182 ], [ 1, %_ZN3re210SparseSetTIvE6insertEi.exit210 ]
+  %lastmatch.3 = phi ptr [ %lastmatch.1.lcssa, %if.end171 ], [ %p.1, %if.then173 ], [ %p.1, %if.then176 ], [ %p.1, %for.body182 ], [ %p.1, %_ZN3re210SparseSetTIvE6insertEi.exit210 ]
   %ep197 = getelementptr inbounds nuw i8, ptr %params, i64 64
   store ptr %lastmatch.3, ptr %ep197, align 8
   %tobool198 = trunc nuw i8 %matched.3 to i1
@@ -7070,8 +7070,8 @@ _ZN3re210SparseSetTIvE6insertEi.exit:             ; preds = %_ZNK3re210SparseSet
   br i1 %cmp12, label %for.body, label %if.end18, !llvm.loop !67
 
 if.end18:                                         ; preds = %_ZN3re210SparseSetTIvE6insertEi.exit, %for.body, %if.then11, %if.then, %entry
-  %matched.0 = phi i8 [ 1, %if.then ], [ 0, %entry ], [ 1, %if.then11 ], [ 1, %for.body ], [ 1, %_ZN3re210SparseSetTIvE6insertEi.exit ]
-  %lastmatch.0 = phi ptr [ %1, %if.then ], [ null, %entry ], [ %1, %if.then11 ], [ %1, %for.body ], [ %1, %_ZN3re210SparseSetTIvE6insertEi.exit ]
+  %matched.0 = phi i8 [ 0, %entry ], [ 1, %if.then ], [ 1, %if.then11 ], [ 1, %for.body ], [ 1, %_ZN3re210SparseSetTIvE6insertEi.exit ]
+  %lastmatch.0 = phi ptr [ null, %entry ], [ %1, %if.then ], [ %1, %if.then11 ], [ %1, %for.body ], [ %1, %_ZN3re210SparseSetTIvE6insertEi.exit ]
   %cmp19.not282 = icmp eq i64 %2, 0
   br i1 %cmp19.not282, label %while.end, label %while.body.lr.ph
 
@@ -7482,8 +7482,8 @@ _ZN3re210SparseSetTIvE6insertEi.exit145:          ; preds = %_ZNK3re210SparseSet
   br i1 %cmp95, label %for.body96, label %if.end110, !llvm.loop !68
 
 if.end110:                                        ; preds = %_ZN3re210SparseSetTIvE6insertEi.exit145, %for.body96, %if.then90, %if.then86, %if.end84
-  %matched.2 = phi i8 [ 1, %if.then86 ], [ %matched.1284, %if.end84 ], [ 1, %if.then90 ], [ 1, %for.body96 ], [ 1, %_ZN3re210SparseSetTIvE6insertEi.exit145 ]
-  %lastmatch.2 = phi ptr [ %p.2, %if.then86 ], [ %lastmatch.1285, %if.end84 ], [ %p.2, %if.then90 ], [ %p.2, %for.body96 ], [ %p.2, %_ZN3re210SparseSetTIvE6insertEi.exit145 ]
+  %matched.2 = phi i8 [ %matched.1284, %if.end84 ], [ 1, %if.then86 ], [ 1, %if.then90 ], [ 1, %for.body96 ], [ 1, %_ZN3re210SparseSetTIvE6insertEi.exit145 ]
+  %lastmatch.2 = phi ptr [ %lastmatch.1285, %if.end84 ], [ %p.2, %if.then86 ], [ %p.2, %if.then90 ], [ %p.2, %for.body96 ], [ %p.2, %_ZN3re210SparseSetTIvE6insertEi.exit145 ]
   %cmp19.not = icmp eq ptr %incdec.ptr, %add.ptr
   br i1 %cmp19.not, label %while.end, label %while.body, !llvm.loop !69
 
@@ -7794,8 +7794,8 @@ _ZN3re210SparseSetTIvE6insertEi.exit223:          ; preds = %_ZNK3re210SparseSet
   br i1 %cmp181, label %for.body182, label %if.end196, !llvm.loop !70
 
 if.end196:                                        ; preds = %_ZN3re210SparseSetTIvE6insertEi.exit223, %for.body182, %if.then176, %if.then173, %if.end171
-  %matched.3 = phi i8 [ 1, %if.then173 ], [ %matched.1.lcssa, %if.end171 ], [ 1, %if.then176 ], [ 1, %for.body182 ], [ 1, %_ZN3re210SparseSetTIvE6insertEi.exit223 ]
-  %lastmatch.3 = phi ptr [ %p.1, %if.then173 ], [ %lastmatch.1.lcssa, %if.end171 ], [ %p.1, %if.then176 ], [ %p.1, %for.body182 ], [ %p.1, %_ZN3re210SparseSetTIvE6insertEi.exit223 ]
+  %matched.3 = phi i8 [ %matched.1.lcssa, %if.end171 ], [ 1, %if.then173 ], [ 1, %if.then176 ], [ 1, %for.body182 ], [ 1, %_ZN3re210SparseSetTIvE6insertEi.exit223 ]
+  %lastmatch.3 = phi ptr [ %lastmatch.1.lcssa, %if.end171 ], [ %p.1, %if.then173 ], [ %p.1, %if.then176 ], [ %p.1, %for.body182 ], [ %p.1, %_ZN3re210SparseSetTIvE6insertEi.exit223 ]
   %ep197 = getelementptr inbounds nuw i8, ptr %params, i64 64
   store ptr %lastmatch.3, ptr %ep197, align 8
   %tobool198 = trunc nuw i8 %matched.3 to i1
@@ -8583,7 +8583,7 @@ _ZN3re210SparseSetTIvE6insertEi.exit204:          ; preds = %_ZNK3re210SparseSet
   br i1 %cmp183, label %for.body184, label %if.end198, !llvm.loop !74
 
 if.end198:                                        ; preds = %_ZN3re210SparseSetTIvE6insertEi.exit204, %for.body184, %if.then178, %if.then175, %if.end173
-  %lastmatch.0 = phi ptr [ %p.1, %if.then175 ], [ null, %if.end173 ], [ %p.1, %if.then178 ], [ %p.1, %for.body184 ], [ %p.1, %_ZN3re210SparseSetTIvE6insertEi.exit204 ]
+  %lastmatch.0 = phi ptr [ null, %if.end173 ], [ %p.1, %if.then175 ], [ %p.1, %if.then178 ], [ %p.1, %for.body184 ], [ %p.1, %_ZN3re210SparseSetTIvE6insertEi.exit204 ]
   %ep199 = getelementptr inbounds nuw i8, ptr %params, i64 64
   store ptr %lastmatch.0, ptr %ep199, align 8
   br label %return
@@ -9381,7 +9381,7 @@ _ZN3re210SparseSetTIvE6insertEi.exit217:          ; preds = %_ZNK3re210SparseSet
   br i1 %cmp183, label %for.body184, label %if.end198, !llvm.loop !78
 
 if.end198:                                        ; preds = %_ZN3re210SparseSetTIvE6insertEi.exit217, %for.body184, %if.then178, %if.then175, %if.end173
-  %lastmatch.0 = phi ptr [ %p.1, %if.then175 ], [ null, %if.end173 ], [ %p.1, %if.then178 ], [ %p.1, %for.body184 ], [ %p.1, %_ZN3re210SparseSetTIvE6insertEi.exit217 ]
+  %lastmatch.0 = phi ptr [ null, %if.end173 ], [ %p.1, %if.then175 ], [ %p.1, %if.then178 ], [ %p.1, %for.body184 ], [ %p.1, %_ZN3re210SparseSetTIvE6insertEi.exit217 ]
   %ep199 = getelementptr inbounds nuw i8, ptr %params, i64 64
   store ptr %lastmatch.0, ptr %ep199, align 8
   br label %return
@@ -11383,7 +11383,7 @@ invoke.cont107:                                   ; preds = %for.end106
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont30, %invoke.cont44, %for.inc99, %invoke.cont83, %invoke.cont107
-  %retval.2 = phi i1 [ %not.call108, %invoke.cont107 ], [ false, %invoke.cont44 ], [ true, %for.inc99 ], [ false, %invoke.cont83 ], [ false, %invoke.cont30 ]
+  %retval.2 = phi i1 [ %not.call108, %invoke.cont107 ], [ true, %for.inc99 ], [ false, %invoke.cont44 ], [ false, %invoke.cont83 ], [ false, %invoke.cont30 ]
   invoke void @_ZN4absl7debian25Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %mutex_)
           to label %cleanup111 unwind label %terminate.lpad.i35
 

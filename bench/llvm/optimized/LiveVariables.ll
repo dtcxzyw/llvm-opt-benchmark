@@ -3367,14 +3367,14 @@ _ZNK4llvm12ImmutableSetIPKN5clang4ExprENS_17ImutContainerInfoIS4_EEEeqERKS7_.exi
   %.not.i3.i = icmp eq ptr %792, null
   %.not4.i5.i = icmp eq ptr %.sroa.10146.2.lcssa, null
   %or.cond.i6.i = select i1 %.not.i3.i, i1 true, i1 %.not4.i5.i
-  br i1 %or.cond.i6.i, label %_ZNK5clang13LiveVariables14LivenessValues6equalsERKS1_.exit, label %793
+  br i1 %or.cond.i6.i, label %793, label %_ZNK5clang13LiveVariables14LivenessValues6equalsERKS1_.exit
 
 793:                                              ; preds = %790
-  %794 = call noundef zeroext i1 @_ZNK4llvm11ImutAVLTreeINS_17ImutContainerInfoIPKN5clang7VarDeclEEEE7isEqualERKS7_(ptr noundef nonnull align 8 dereferenceable(64) %792, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.10146.2.lcssa)
+  %794 = icmp eq ptr %792, %.sroa.10146.2.lcssa
   br i1 %794, label %_ZN5clang24BackwardDataflowWorklist19enqueuePredecessorsEPKNS_8CFGBlockE.exit, label %_ZNK5clang13LiveVariables14LivenessValues6equalsERKS1_.exit.thread, !llvm.loop !276
 
 _ZNK5clang13LiveVariables14LivenessValues6equalsERKS1_.exit: ; preds = %790
-  %795 = icmp eq ptr %792, %.sroa.10146.2.lcssa
+  %795 = call noundef zeroext i1 @_ZNK4llvm11ImutAVLTreeINS_17ImutContainerInfoIPKN5clang7VarDeclEEEE7isEqualERKS7_(ptr noundef nonnull align 8 dereferenceable(64) %792, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.10146.2.lcssa)
   br i1 %795, label %_ZN5clang24BackwardDataflowWorklist19enqueuePredecessorsEPKNS_8CFGBlockE.exit, label %_ZNK5clang13LiveVariables14LivenessValues6equalsERKS1_.exit.thread, !llvm.loop !276
 
 _ZNK5clang13LiveVariables14LivenessValues6equalsERKS1_.exit.thread: ; preds = %_ZNK4llvm12ImmutableSetIPKN5clang4ExprENS_17ImutContainerInfoIS4_EEEeqERKS7_.exit.i, %793, %_ZNK5clang13LiveVariables14LivenessValues6equalsERKS1_.exit, %783
@@ -6643,7 +6643,7 @@ _ZN4llvm12ImmutableSetIPKN5clang4ExprENS_17ImutContainerInfoIS4_EEED2Ev.exit100:
   br label %_ZN5clang16PseudoObjectExpr13getResultExprEv.exit.thread
 
 .loopexit:                                        ; preds = %203, %_ZL6FindVAN5clang8QualTypeE.exit91.loopexit, %231, %.lr.ph, %194, %186, %146, %_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEED2Ev.exit69, %139, %141, %133, %286, %283, %136
-  %.0 = phi ptr [ %1, %133 ], [ %138, %136 ], [ %288, %286 ], [ %1, %139 ], [ %1, %146 ], [ %285, %283 ], [ %1, %141 ], [ %1, %_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEED2Ev.exit69 ], [ %1, %186 ], [ %1, %194 ], [ %1, %.lr.ph ], [ %1, %_ZL6FindVAN5clang8QualTypeE.exit91.loopexit ], [ %1, %231 ], [ %1, %203 ]
+  %.0 = phi ptr [ %1, %133 ], [ %138, %136 ], [ %288, %286 ], [ %1, %139 ], [ %1, %146 ], [ %285, %283 ], [ %1, %141 ], [ %1, %_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEED2Ev.exit69 ], [ %1, %186 ], [ %1, %_ZL6FindVAN5clang8QualTypeE.exit91.loopexit ], [ %1, %.lr.ph ], [ %1, %194 ], [ %1, %231 ], [ %1, %203 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN5clang4Stmt8childrenEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::iterator_range.164") align 8 %9, ptr noundef nonnull align 8 dereferenceable(8) %.0) #21
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -17407,7 +17407,7 @@ _ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIPKN5clang4ExprEEEEe
   br label %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIPKN5clang4ExprEEEEeqERKS7_.exit36
 
 _ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIPKN5clang4ExprEEEEeqERKS7_.exit36: ; preds = %108, %.critedge, %227, %226, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIPKN5clang4ExprEEEEeqERKS7_.exit.thread, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIPKN5clang4ExprEEEEeqERKS7_.exit
-  %.1 = phi i1 [ false, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIPKN5clang4ExprEEEEeqERKS7_.exit ], [ true, %226 ], [ false, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIPKN5clang4ExprEEEEeqERKS7_.exit.thread ], [ %.not9.i.i.i.i.i.i.i35, %227 ], [ false, %.critedge ], [ false, %108 ]
+  %.1 = phi i1 [ false, %.critedge ], [ false, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIPKN5clang4ExprEEEEeqERKS7_.exit ], [ true, %226 ], [ false, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIPKN5clang4ExprEEEEeqERKS7_.exit.thread ], [ %.not9.i.i.i.i.i.i.i35, %227 ], [ false, %108 ]
   %231 = load ptr, ptr %6, align 8, !tbaa !172
   %232 = icmp eq ptr %231, %40
   br i1 %232, label %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIPKN5clang4ExprEEEED2Ev.exit, label %233
@@ -17987,7 +17987,7 @@ _ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIPKN5clang7VarDeclEE
   br label %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIPKN5clang7VarDeclEEEEeqERKS7_.exit36
 
 _ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIPKN5clang7VarDeclEEEEeqERKS7_.exit36: ; preds = %108, %.critedge, %227, %226, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIPKN5clang7VarDeclEEEEeqERKS7_.exit.thread, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIPKN5clang7VarDeclEEEEeqERKS7_.exit
-  %.1 = phi i1 [ false, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIPKN5clang7VarDeclEEEEeqERKS7_.exit ], [ true, %226 ], [ false, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIPKN5clang7VarDeclEEEEeqERKS7_.exit.thread ], [ %.not9.i.i.i.i.i.i.i35, %227 ], [ false, %.critedge ], [ false, %108 ]
+  %.1 = phi i1 [ false, %.critedge ], [ false, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIPKN5clang7VarDeclEEEEeqERKS7_.exit ], [ true, %226 ], [ false, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIPKN5clang7VarDeclEEEEeqERKS7_.exit.thread ], [ %.not9.i.i.i.i.i.i.i35, %227 ], [ false, %108 ]
   %231 = load ptr, ptr %6, align 8, !tbaa !172
   %232 = icmp eq ptr %231, %40
   br i1 %232, label %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIPKN5clang7VarDeclEEEED2Ev.exit, label %233

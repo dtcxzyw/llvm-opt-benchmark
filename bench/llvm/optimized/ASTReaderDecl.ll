@@ -7473,7 +7473,7 @@ _ZN5clangneENS_22specific_attr_iteratorINS_24SYCLKernelEntryPointAttrEN4llvm11Sm
   br i1 %1032, label %_ZNK5clang4Decl7getAttrINS_24SYCLKernelEntryPointAttrEEEPT_v.exit, label %.lr.ph.i.i.i.i, !llvm.loop !1254
 
 _ZNK5clang4Decl7getAttrINS_24SYCLKernelEntryPointAttrEEEPT_v.exit: ; preds = %1020, %.lr.ph.i.i.i.i, %1006, %1009, %_ZN5clangneENS_22specific_attr_iteratorINS_24SYCLKernelEntryPointAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, %1022
-  %1033 = phi ptr [ null, %1006 ], [ null, %_ZN5clangneENS_22specific_attr_iteratorINS_24SYCLKernelEntryPointAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i ], [ %1023, %1022 ], [ null, %1009 ], [ %1029, %.lr.ph.i.i.i.i ], [ null, %1020 ]
+  %1033 = phi ptr [ null, %1006 ], [ null, %1009 ], [ null, %_ZN5clangneENS_22specific_attr_iteratorINS_24SYCLKernelEntryPointAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i ], [ %1023, %1022 ], [ %1029, %.lr.ph.i.i.i.i ], [ null, %1020 ]
   %1034 = load ptr, ptr %0, align 8, !tbaa !114
   %1035 = getelementptr inbounds nuw i8, ptr %1034, i64 144
   %1036 = load ptr, ptr %1035, align 8, !tbaa !115
@@ -52012,7 +52012,7 @@ _ZN4llvm3isaIN5clang7VarDeclENS1_12FunctionDeclEJNS1_7TagDeclENS1_24Redeclarable
   br label %_ZNK5clang4Decl15getOwningModuleEv.exit
 
 _ZNK5clang4Decl15getOwningModuleEv.exit:          ; preds = %32, %35
-  %38 = phi ptr [ %33, %32 ], [ %37, %35 ]
+  %38 = phi ptr [ %37, %35 ], [ %33, %32 ]
   %.not16 = icmp eq ptr %38, null
   br i1 %.not16, label %_ZNK5clang4Decl15getOwningModuleEv.exit.thread, label %39
 

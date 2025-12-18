@@ -263,7 +263,7 @@ define hidden noundef nonnull ptr @_ZN11BoxLockNode8IdentityEP8PhaseGVN(ptr noun
   br label %22
 
 22:                                               ; preds = %.sink.split, %21, %2, %5, %15, %9
-  %.0 = phi ptr [ %12, %15 ], [ %0, %9 ], [ %12, %21 ], [ %0, %5 ], [ %0, %2 ], [ %12, %.sink.split ]
+  %.0 = phi ptr [ %12, %15 ], [ %0, %9 ], [ %0, %2 ], [ %12, %21 ], [ %0, %5 ], [ %12, %.sink.split ]
   ret ptr %.0
 }
 
@@ -512,7 +512,7 @@ define hidden noundef zeroext i1 @_ZN11BoxLockNode21is_simple_lock_regionEPP8Loc
   br label %93
 
 .split.us:                                        ; preds = %78, %48, %25
-  %.us-phi = phi ptr [ %37, %48 ], [ %14, %25 ], [ %67, %78 ]
+  %.us-phi = phi ptr [ %14, %25 ], [ %37, %48 ], [ %67, %78 ]
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %._crit_edge.thread, label %92
 

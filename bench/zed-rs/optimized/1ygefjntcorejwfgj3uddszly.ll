@@ -180,7 +180,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN113_$LT$futures_util..stream..futur
   br label %26
 
 "_ZN5alloc11collections11binary_heap20PeekMut$LT$T$C$A$GT$3pop17h02131ce95cf35d35E.exit": ; preds = %26, %20, %14, %30, %43
-  %.sroa.0.0 = phi i8 [ 1, %43 ], [ 0, %30 ], [ 1, %14 ], [ 1, %20 ], [ 2, %26 ]
+  %.sroa.0.0 = phi i8 [ 1, %20 ], [ 1, %43 ], [ 0, %30 ], [ 1, %14 ], [ 2, %26 ]
   ret i8 %.sroa.0.0
 
 26:                                               ; preds = %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$4push17h7e1d57e815ce628fE.exit", %.thread

@@ -1562,9 +1562,9 @@ define hidden void @_ZN22cranelift_codegen_meta8gen_inst16gen_inst_builder17hd5d
   br label %.thread
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke173, %.invoke, %314, %184, %182, %181, %159, %95
-  %.0117.ph.ph = phi i8 [ %.10127, %314 ], [ 1, %181 ], [ 1, %182 ], [ 1, %184 ], [ 1, %159 ], [ 1, %.invoke ], [ 1, %95 ], [ 1, %.invoke173 ]
-  %.0109.ph.ph = phi i8 [ %.11, %314 ], [ 1, %181 ], [ 1, %182 ], [ 1, %184 ], [ 1, %159 ], [ 1, %.invoke ], [ 1, %95 ], [ 1, %.invoke173 ]
-  %.0.ph.ph = phi i8 [ 0, %314 ], [ 1, %181 ], [ 1, %182 ], [ 1, %184 ], [ 1, %159 ], [ 1, %.invoke ], [ 1, %95 ], [ 1, %.invoke173 ]
+  %.0117.ph.ph = phi i8 [ 1, %.invoke ], [ 1, %.invoke173 ], [ %.10127, %314 ], [ 1, %181 ], [ 1, %159 ], [ 1, %95 ], [ 1, %184 ], [ 1, %182 ]
+  %.0109.ph.ph = phi i8 [ 1, %.invoke ], [ 1, %.invoke173 ], [ %.11, %314 ], [ 1, %181 ], [ 1, %159 ], [ 1, %95 ], [ 1, %184 ], [ 1, %182 ]
+  %.0.ph.ph = phi i8 [ 1, %.invoke ], [ 1, %.invoke173 ], [ 0, %314 ], [ 1, %181 ], [ 1, %159 ], [ 1, %95 ], [ 1, %184 ], [ 1, %182 ]
   %lpad.loopexit.split-lp164 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -2582,7 +2582,7 @@ define internal fastcc void @_ZN22cranelift_codegen_meta8gen_inst15gen_common_is
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %273, %272, %271, %266, %265, %264, %263, %262, %261, %260, %255, %254, %253, %252, %251, %250, %249, %246, %208, %204, %203, %202, %199, %174, %170, %169, %168, %163, %145, %143, %129, %127
-  %.0.ph.ph = phi i1 [ false, %273 ], [ false, %272 ], [ false, %271 ], [ false, %266 ], [ false, %265 ], [ false, %264 ], [ false, %263 ], [ false, %262 ], [ false, %261 ], [ false, %260 ], [ false, %255 ], [ false, %254 ], [ false, %253 ], [ false, %252 ], [ false, %251 ], [ false, %250 ], [ false, %249 ], [ false, %246 ], [ false, %208 ], [ false, %204 ], [ false, %203 ], [ false, %202 ], [ false, %199 ], [ false, %174 ], [ false, %170 ], [ false, %169 ], [ false, %168 ], [ false, %163 ], [ false, %145 ], [ true, %143 ], [ true, %129 ], [ true, %127 ]
+  %.0.ph.ph = phi i1 [ true, %129 ], [ true, %127 ], [ true, %143 ], [ false, %145 ], [ false, %163 ], [ false, %168 ], [ false, %169 ], [ false, %273 ], [ false, %272 ], [ false, %271 ], [ false, %266 ], [ false, %265 ], [ false, %264 ], [ false, %263 ], [ false, %262 ], [ false, %261 ], [ false, %260 ], [ false, %255 ], [ false, %254 ], [ false, %253 ], [ false, %252 ], [ false, %251 ], [ false, %250 ], [ false, %249 ], [ false, %246 ], [ false, %208 ], [ false, %204 ], [ false, %203 ], [ false, %202 ], [ false, %199 ], [ false, %174 ], [ false, %170 ]
   %lpad.loopexit.split-lp334 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp

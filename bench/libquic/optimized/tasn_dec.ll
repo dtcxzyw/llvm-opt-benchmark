@@ -858,8 +858,8 @@ asn1_check_eoc.exit:                              ; preds = %41
   %49 = tail call fastcc i32 @asn1_template_noexp_d2i(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %2, ptr noundef nonnull %3, i8 noundef signext %4, ptr noundef %5)
   br label %53
 
-50:                                               ; preds = %46, %asn1_check_eoc.exit
-  %51 = phi ptr [ %32, %46 ], [ %44, %asn1_check_eoc.exit ]
+50:                                               ; preds = %asn1_check_eoc.exit, %46
+  %51 = phi ptr [ %44, %asn1_check_eoc.exit ], [ %32, %46 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   store ptr %51, ptr %1, align 8, !tbaa !20
   br label %53
@@ -1683,7 +1683,7 @@ define hidden i32 @asn1_ex_c2i(ptr noundef %0, ptr noundef %1, i32 noundef %2, i
   br label %.thread
 
 .thread:                                          ; preds = %39, %31, %42, %74, %73, %.thread112, %80, %77, %83, %82, %13
-  %.0 = phi i32 [ %14, %13 ], [ 0, %82 ], [ 0, %83 ], [ 1, %80 ], [ 1, %77 ], [ 0, %.thread112 ], [ 1, %73 ], [ 1, %74 ], [ 1, %42 ], [ 1, %31 ], [ 1, %39 ]
+  %.0 = phi i32 [ %14, %13 ], [ 0, %82 ], [ 0, %83 ], [ 0, %.thread112 ], [ 1, %77 ], [ 1, %80 ], [ 1, %73 ], [ 1, %74 ], [ 1, %42 ], [ 1, %31 ], [ 1, %39 ]
   ret i32 %.0
 }
 

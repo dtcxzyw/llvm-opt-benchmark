@@ -2024,7 +2024,7 @@ define internal fastcc void @mon_bin_event(ptr noundef %0, ptr noundef %1, i8 no
   br label %119
 
 119:                                              ; preds = %117, %112, %110, %109
-  %120 = phi i32 [ %114, %112 ], [ %86, %109 ], [ %86, %110 ], [ %114, %117 ]
+  %120 = phi i32 [ %114, %112 ], [ %114, %117 ], [ %86, %110 ], [ %86, %109 ]
   %121 = icmp eq i32 %120, -1
   br i1 %121, label %.thread, label %125
 

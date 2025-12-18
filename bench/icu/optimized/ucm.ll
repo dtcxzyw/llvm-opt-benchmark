@@ -498,7 +498,7 @@ _ZL12compareBytesP8UCMTablePK9UCMappingS0_S3_a.exit.thread63.i: ; preds = %76, %
   br label %_ZL15compareMappingsP8UCMTablePK9UCMappingS0_S3_a.exit
 
 _ZL15compareMappingsP8UCMTablePK9UCMappingS0_S3_a.exit: ; preds = %.lr.ph.i.i, %.lr.ph.i30.i, %42, %_ZL14compareUnicodeP8UCMTablePK9UCMappingS0_S3_.exit.i, %_ZL12compareBytesP8UCMTablePK9UCMappingS0_S3_a.exit.thread63.i
-  %.023.i = phi i32 [ %90, %_ZL12compareBytesP8UCMTablePK9UCMappingS0_S3_a.exit.thread63.i ], [ %.028.i.i, %_ZL14compareUnicodeP8UCMTablePK9UCMappingS0_S3_.exit.i ], [ %49, %42 ], [ %83, %.lr.ph.i30.i ], [ %37, %.lr.ph.i.i ]
+  %.023.i = phi i32 [ %90, %_ZL12compareBytesP8UCMTablePK9UCMappingS0_S3_a.exit.thread63.i ], [ %.028.i.i, %_ZL14compareUnicodeP8UCMTablePK9UCMappingS0_S3_.exit.i ], [ %83, %.lr.ph.i30.i ], [ %49, %42 ], [ %37, %.lr.ph.i.i ]
   ret i32 %.023.i
 }
 
@@ -1483,7 +1483,7 @@ _ZL14compareUnicodeP8UCMTablePK9UCMappingS0_S3_.exit.i: ; preds = %.lr.ph.i.i, %
   br i1 %182, label %_ZL19checkBaseExtUnicodeP9UCMStatesP8UCMTableS2_aa.exit, label %.lr.ph.i, !llvm.loop !49
 
 _ZL19checkBaseExtUnicodeP9UCMStatesP8UCMTableS2_aa.exit: ; preds = %.preheader.i, %181, %39, %44, %19
-  %.015.i = phi i8 [ 0, %19 ], [ %.025.i, %39 ], [ %.025.i, %44 ], [ %.2.i, %181 ], [ %.025.i, %.preheader.i ]
+  %.015.i = phi i8 [ %.025.i, %39 ], [ 0, %19 ], [ %.025.i, %44 ], [ %.2.i, %181 ], [ %.025.i, %.preheader.i ]
   %183 = getelementptr i8, ptr %0, i64 132113
   %.val = load i8, ptr %183, align 1, !tbaa !50
   %184 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -1829,7 +1829,7 @@ _ZL12compareBytesP8UCMTablePK9UCMappingS0_S3_a.exit.i: ; preds = %.lr.ph.i.i36, 
   br i1 %366, label %_ZL17checkBaseExtBytesP9UCMStatesP8UCMTableS2_aa.exit, label %.lr.ph.i29, !llvm.loop !54
 
 _ZL17checkBaseExtBytesP9UCMStatesP8UCMTableS2_aa.exit: ; preds = %.split.us.i, %365, %218, %209, %231, %_ZL19checkBaseExtUnicodeP9UCMStatesP8UCMTableS2_aa.exit
-  %.08111.i = phi i8 [ 0, %_ZL19checkBaseExtUnicodeP9UCMStatesP8UCMTableS2_aa.exit ], [ %.08125.i, %231 ], [ %.08125.i, %209 ], [ %.08125.i, %218 ], [ %.2.i32, %365 ], [ %.08125.i, %.split.us.i ]
+  %.08111.i = phi i8 [ %.08125.i, %231 ], [ %.08125.i, %218 ], [ %.08125.i, %209 ], [ 0, %_ZL19checkBaseExtUnicodeP9UCMStatesP8UCMTableS2_aa.exit ], [ %.2.i32, %365 ], [ %.08125.i, %.split.us.i ]
   %367 = or i8 %.08111.i, %.015.i
   %.not25 = icmp samesign ult i8 %367, 2
   br i1 %.not25, label %368, label %454
@@ -2737,7 +2737,7 @@ ucm_mappingType.exit:                             ; preds = %59
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %89, %.thread18.i, %85, %75, %79
-  %.146 = phi i8 [ %.04561, %89 ], [ %.04561, %79 ], [ %.04561, %75 ], [ %.04561, %85 ], [ %.04561, %.thread18.i ], [ 1, %.thread.sink.split ]
+  %.146 = phi i8 [ %.04561, %.thread18.i ], [ %.04561, %89 ], [ %.04561, %85 ], [ %.04561, %79 ], [ %.04561, %75 ], [ 1, %.thread.sink.split ]
   %112 = getelementptr inbounds nuw i8, ptr %.04859, i64 12
   %113 = icmp ult ptr %112, %8
   br i1 %113, label %15, label %._crit_edge, !llvm.loop !62

@@ -421,7 +421,7 @@ _ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit.i: ; preds = %3
   br i1 %.not.i.i.i.i, label %_ZNK5clang13SourceManager17getFileEntryForIDENS_6FileIDE.exit, label %.preheader.i
 
 _ZNK5clang13SourceManager17getFileEntryForIDENS_6FileIDE.exit: ; preds = %.preheader.i, %33, %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit.i
-  %58 = phi ptr [ null, %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit.i ], [ null, %33 ], [ %57, %.preheader.i ]
+  %58 = phi ptr [ null, %33 ], [ null, %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit.i ], [ %57, %.preheader.i ]
   %59 = call noundef zeroext i1 @_ZN5clang9api_notes15compileAPINotesEN4llvm9StringRefEPKNS_9FileEntryERNS1_11raw_ostreamEPFvRKNS1_12SMDiagnosticEPvESB_(ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i, ptr noundef %58, ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull @_ZN5clang16SourceMgrAdapter10handleDiagERKN4llvm12SMDiagnosticEPv, ptr noundef nonnull %7) #17
   br i1 %59, label %60, label %_ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EEaSEOS4_.exit
 
@@ -3296,7 +3296,7 @@ _ZN5clang11FileManager23getOptionalDirectoryRefEN4llvm9StringRefEb.exit: ; preds
   br label %.thread202
 
 .thread202:                                       ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit127.thread199, %_ZN4llvm15SmallPtrSetImplIPKN5clang14DirectoryEntryEE6insertES4_.exit.i110, %315, %.thread208, %.lr.ph.i.i.i117, %.thread202.sink.split, %198, %155
-  %.sroa.0160.1205 = phi ptr [ %.sroa.0160.1205.ph, %.thread202.sink.split ], [ %.sroa.0160.2, %198 ], [ %.sroa.0160.0, %155 ], [ null, %.lr.ph.i.i.i117 ], [ %.sroa.0160.0, %315 ], [ null, %.thread208 ], [ null, %_ZN4llvmeqENS_9StringRefES0_.exit127.thread199 ], [ null, %_ZN4llvm15SmallPtrSetImplIPKN5clang14DirectoryEntryEE6insertES4_.exit.i110 ]
+  %.sroa.0160.1205 = phi ptr [ %.sroa.0160.0, %155 ], [ %.sroa.0160.2, %198 ], [ null, %.lr.ph.i.i.i117 ], [ %.sroa.0160.1205.ph, %.thread202.sink.split ], [ null, %_ZN4llvmeqENS_9StringRefES0_.exit127.thread199 ], [ null, %.thread208 ], [ null, %_ZN4llvm15SmallPtrSetImplIPKN5clang14DirectoryEntryEE6insertES4_.exit.i110 ], [ %.sroa.0160.0, %315 ]
   %323 = load ptr, ptr %73, align 8, !tbaa !212
   %324 = load i32, ptr %75, align 8, !tbaa !213
   %325 = zext i32 %324 to i64

@@ -8715,7 +8715,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit524: ; preds = %.critedge2, %1304,
   br label %1352
 
 .critedge:                                        ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit524, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit356, %.preheader941, %.preheader940, %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEbSt4lessIS3_ESaISt4pairIKS3_bEEE4findERS7_.exit, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit, %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEbSt4lessIS3_ESaISt4pairIKS3_bEEE4findERS7_.exit256
-  %1327 = phi ptr [ %125, %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEbSt4lessIS3_ESaISt4pairIKS3_bEEE4findERS7_.exit256 ], [ %125, %.preheader941 ], [ %125, %.preheader940 ], [ %125, %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEbSt4lessIS3_ESaISt4pairIKS3_bEEE4findERS7_.exit ], [ %125, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit ], [ %749, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit356 ], [ %.pre1100, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit524 ]
+  %1327 = phi ptr [ %749, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit356 ], [ %125, %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEbSt4lessIS3_ESaISt4pairIKS3_bEEE4findERS7_.exit256 ], [ %125, %.preheader941 ], [ %125, %.preheader940 ], [ %125, %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEbSt4lessIS3_ESaISt4pairIKS3_bEEE4findERS7_.exit ], [ %125, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit ], [ %.pre1100, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit524 ]
   %1328 = load i64, ptr %1327, align 8
   %1329 = and i64 %1328, 1152920405095219200
   %.not.i.i525 = icmp eq i64 %1329, 1152920405095219200

@@ -11832,7 +11832,7 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i1374: ; preds =
   br label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit1379
 
 _ZNK5Yosys7hashlib4poolIPNS_5RTLIL4CellENS0_8hash_opsIS4_EEE5countERKS4_.exit: ; preds = %4204, %4845, %4216
-  %.2385 = phi i32 [ %.13844890, %4216 ], [ %.4387, %4845 ], [ %.13844890, %4204 ]
+  %.2385 = phi i32 [ %.4387, %4845 ], [ %.13844890, %4216 ], [ %.13844890, %4204 ]
   %indvars.iv.next5873 = add nsw i64 %indvars.iv5872, -1
   %4869 = icmp eq i64 %indvars.iv5872, 0
   br i1 %4869, label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit1217.thread6716, label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEEppEv.exit1377

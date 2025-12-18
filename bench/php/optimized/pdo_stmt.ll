@@ -1602,7 +1602,7 @@ zend_parse_arg_long_ex.exit:                      ; preds = %30
   %36 = call zeroext i1 @zend_parse_arg_long_slow(ptr noundef nonnull %31, ptr noundef nonnull %5, i32 noundef 3) #17
   br i1 %36, label %.critedge, label %.thread, !prof !83
 
-.thread:                                          ; preds = %zend_parse_arg_long_ex.exit, %zend_parse_arg_long_ex.exit97, %zend_parse_arg_long_ex.exit95, %10
+.thread:                                          ; preds = %zend_parse_arg_long_ex.exit, %zend_parse_arg_long_ex.exit95, %zend_parse_arg_long_ex.exit97, %10
   %.0111 = phi i32 [ 3, %zend_parse_arg_long_ex.exit ], [ 0, %10 ], [ 2, %zend_parse_arg_long_ex.exit95 ], [ 1, %zend_parse_arg_long_ex.exit97 ]
   %.083110 = phi ptr [ %31, %zend_parse_arg_long_ex.exit ], [ null, %10 ], [ %23, %zend_parse_arg_long_ex.exit95 ], [ %14, %zend_parse_arg_long_ex.exit97 ]
   %.086109 = phi i32 [ 9, %zend_parse_arg_long_ex.exit ], [ 1, %10 ], [ 9, %zend_parse_arg_long_ex.exit95 ], [ 9, %zend_parse_arg_long_ex.exit97 ]
@@ -1764,7 +1764,7 @@ zval_ptr_dtor_nogc.exit:                          ; preds = %79, %82, %87
   store i32 2, ptr %104, align 8, !tbaa !37
   br label %105
 
-105:                                              ; preds = %65, %.critedge.sink.split.i, %.thread, %41, %93, %92, %72, %103
+105:                                              ; preds = %.critedge.sink.split.i, %65, %.thread, %41, %93, %92, %72, %103
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -3034,7 +3034,7 @@ define internal fastcc noundef zeroext i1 @do_fetch_common(ptr noundef %0, i32 n
   br i1 %.not33, label %dispatch_param_event.exit, label %105
 
 dispatch_param_event.exit:                        ; preds = %35, %82, %126, %94, %.loopexit, %52, %.loopexit53, %3
-  %.027 = phi i1 [ false, %52 ], [ false, %.loopexit53 ], [ true, %.loopexit ], [ false, %3 ], [ true, %94 ], [ false, %82 ], [ true, %126 ], [ false, %35 ]
+  %.027 = phi i1 [ true, %94 ], [ false, %52 ], [ false, %.loopexit53 ], [ true, %.loopexit ], [ false, %3 ], [ false, %82 ], [ true, %126 ], [ false, %35 ]
   ret i1 %.027
 }
 
@@ -4300,10 +4300,10 @@ zend_parse_arg_long_ex.exit125:                   ; preds = %33
   br label %.critedge
 
 47:                                               ; preds = %10, %zend_parse_arg_str_or_long.exit, %zend_parse_arg_long_ex.exit, %zend_parse_arg_long_ex.exit125
-  %.0110 = phi i32 [ 1, %10 ], [ 9, %zend_parse_arg_long_ex.exit ], [ 9, %zend_parse_arg_str_or_long.exit ], [ 9, %zend_parse_arg_long_ex.exit125 ]
-  %.0109 = phi i32 [ 0, %10 ], [ 0, %zend_parse_arg_long_ex.exit ], [ 28, %zend_parse_arg_str_or_long.exit ], [ 0, %zend_parse_arg_long_ex.exit125 ]
-  %.0108 = phi ptr [ null, %10 ], [ %25, %zend_parse_arg_long_ex.exit ], [ %12, %zend_parse_arg_str_or_long.exit ], [ %34, %zend_parse_arg_long_ex.exit125 ]
-  %.0 = phi i32 [ 0, %10 ], [ 3, %zend_parse_arg_long_ex.exit ], [ 1, %zend_parse_arg_str_or_long.exit ], [ 4, %zend_parse_arg_long_ex.exit125 ]
+  %.0110 = phi i32 [ 1, %10 ], [ 9, %zend_parse_arg_long_ex.exit125 ], [ 9, %zend_parse_arg_long_ex.exit ], [ 9, %zend_parse_arg_str_or_long.exit ]
+  %.0109 = phi i32 [ 0, %10 ], [ 0, %zend_parse_arg_long_ex.exit125 ], [ 0, %zend_parse_arg_long_ex.exit ], [ 28, %zend_parse_arg_str_or_long.exit ]
+  %.0108 = phi ptr [ null, %10 ], [ %34, %zend_parse_arg_long_ex.exit125 ], [ %25, %zend_parse_arg_long_ex.exit ], [ %12, %zend_parse_arg_str_or_long.exit ]
+  %.0 = phi i32 [ 0, %10 ], [ 4, %zend_parse_arg_long_ex.exit125 ], [ 3, %zend_parse_arg_long_ex.exit ], [ 1, %zend_parse_arg_str_or_long.exit ]
   call void @zend_wrong_parameter_error(i32 noundef %.0110, i32 noundef %.0, ptr noundef null, i32 noundef %.0109, ptr noundef %.0108) #17
   br label %105
 
@@ -5609,8 +5609,8 @@ zend_gc_try_addref.exit:                          ; preds = %175, %179
   store i32 %42, ptr %9, align 4, !tbaa !84
   br label %.critedge
 
-.critedge:                                        ; preds = %49, %.critedge.sink.split.i, %200, %199, %192, %186, %148, %147, %140, %134, %131, %130, %123, %117, %115, %114, %107, %101, %85, %84, %77, %71, %69, %68, %61, %55, %152, %164, %174, %157, %212, %211, %204, %94, %89
-  %.0 = phi i1 [ false, %211 ], [ false, %115 ], [ true, %212 ], [ false, %69 ], [ false, %89 ], [ false, %94 ], [ false, %85 ], [ false, %200 ], [ false, %148 ], [ false, %204 ], [ false, %157 ], [ false, %174 ], [ false, %164 ], [ false, %152 ], [ false, %131 ], [ false, %55 ], [ false, %61 ], [ false, %68 ], [ false, %71 ], [ false, %77 ], [ false, %84 ], [ false, %101 ], [ false, %107 ], [ false, %114 ], [ false, %117 ], [ false, %123 ], [ false, %130 ], [ false, %134 ], [ false, %140 ], [ false, %147 ], [ false, %186 ], [ false, %192 ], [ false, %199 ], [ false, %.critedge.sink.split.i ], [ false, %49 ]
+.critedge:                                        ; preds = %.critedge.sink.split.i, %49, %200, %199, %192, %186, %148, %147, %140, %134, %131, %130, %123, %117, %115, %114, %107, %101, %85, %84, %77, %71, %69, %68, %61, %55, %152, %164, %174, %157, %212, %211, %204, %94, %89
+  %.0 = phi i1 [ false, %211 ], [ false, %115 ], [ true, %212 ], [ false, %69 ], [ false, %89 ], [ false, %94 ], [ false, %85 ], [ false, %200 ], [ false, %148 ], [ false, %204 ], [ false, %157 ], [ false, %174 ], [ false, %164 ], [ false, %152 ], [ false, %131 ], [ false, %55 ], [ false, %61 ], [ false, %68 ], [ false, %71 ], [ false, %77 ], [ false, %84 ], [ false, %101 ], [ false, %107 ], [ false, %114 ], [ false, %117 ], [ false, %123 ], [ false, %130 ], [ false, %134 ], [ false, %140 ], [ false, %147 ], [ false, %186 ], [ false, %192 ], [ false, %199 ], [ false, %49 ], [ false, %.critedge.sink.split.i ]
   ret i1 %.0
 }
 
@@ -7351,7 +7351,7 @@ i_zend_is_true.exit.loopexit:                     ; preds = %.preheader
   br label %i_zend_is_true.exit
 
 i_zend_is_true.exit:                              ; preds = %.preheader, %i_zend_is_true.exit.loopexit, %72, %70, %63, %59, %58, %55, %54, %48, %45, %43, %79
-  %.in = phi i1 [ %82, %79 ], [ false, %i_zend_is_true.exit.loopexit ], [ %71, %70 ], [ %.not.i15, %72 ], [ true, %48 ], [ false, %45 ], [ true, %58 ], [ false, %55 ], [ false, %54 ], [ %.not16.i, %43 ], [ true, %63 ], [ %.not13.i, %59 ], [ true, %.preheader ]
+  %.in = phi i1 [ %82, %79 ], [ %.not13.i, %59 ], [ false, %i_zend_is_true.exit.loopexit ], [ %71, %70 ], [ %.not.i15, %72 ], [ true, %48 ], [ false, %45 ], [ true, %58 ], [ false, %55 ], [ false, %54 ], [ %.not16.i, %43 ], [ true, %63 ], [ true, %.preheader ]
   %83 = getelementptr inbounds nuw i8, ptr %6, i64 9
   %84 = load i8, ptr %83, align 1, !tbaa !37
   %.not.i = icmp eq i8 %84, 0
@@ -7612,7 +7612,7 @@ i_zend_is_true.exit.loopexit:                     ; preds = %28
   br label %i_zend_is_true.exit
 
 i_zend_is_true.exit:                              ; preds = %28, %i_zend_is_true.exit.loopexit, %31, %33, %36, %42, %43, %46, %47, %51, %58, %60
-  %.0.i = phi i1 [ false, %i_zend_is_true.exit.loopexit ], [ %59, %58 ], [ %.not.i29, %60 ], [ true, %36 ], [ false, %33 ], [ true, %46 ], [ false, %43 ], [ false, %42 ], [ %.not16.i, %31 ], [ true, %51 ], [ %.not13.i, %47 ], [ true, %28 ]
+  %.0.i = phi i1 [ %.not13.i, %47 ], [ false, %i_zend_is_true.exit.loopexit ], [ %59, %58 ], [ %.not.i29, %60 ], [ true, %36 ], [ false, %33 ], [ true, %46 ], [ false, %43 ], [ false, %42 ], [ %.not16.i, %31 ], [ true, %51 ], [ true, %28 ]
   %67 = load i8, ptr %.0.i31.sroa.gep, align 1, !tbaa !37
   %.not.i = icmp eq i8 %67, 0
   br i1 %.not.i, label %zval_ptr_dtor_nogc.exit, label %68

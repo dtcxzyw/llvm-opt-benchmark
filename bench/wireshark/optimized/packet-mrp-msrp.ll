@@ -658,7 +658,7 @@ dissect_msrp_three_packed_event.exit.us:          ; preds = %103, %.lr.ph.split.
   br label %dissect_msrp_three_packed_event.exit
 
 dissect_msrp_three_packed_event.exit:             ; preds = %290, %238, %192, %134, %241, %195, %293
-  %.2 = phi i32 [ %.1187, %293 ], [ %135, %134 ], [ %215, %195 ], [ %267, %241 ], [ %239, %238 ], [ %193, %192 ], [ %291, %290 ]
+  %.2 = phi i32 [ %239, %238 ], [ %.1187, %293 ], [ %267, %241 ], [ %193, %192 ], [ %215, %195 ], [ %135, %134 ], [ %291, %290 ]
   %295 = add i32 %.0137, %.0188
   %296 = add i32 %295, %37
   %297 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %296)

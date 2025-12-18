@@ -1527,8 +1527,8 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.ex
   br i1 %.not, label %.loopexit, label %135, !llvm.loop !92
 
 .loopexit:                                        ; preds = %178, %124, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.thread
-  %.sroa.0294.0421 = phi ptr [ null, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.thread ], [ %50, %124 ], [ %50, %178 ]
-  %180 = phi ptr [ %40, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.thread ], [ %125, %124 ], [ %179, %178 ]
+  %.sroa.0294.0421 = phi ptr [ %50, %124 ], [ null, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.thread ], [ %50, %178 ]
+  %180 = phi ptr [ %125, %124 ], [ %40, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.thread ], [ %179, %178 ]
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %182 = load i8, ptr %181, align 4, !tbaa !93, !range !84, !noundef !85
   %183 = trunc nuw i8 %182 to i1
@@ -2565,8 +2565,8 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.ex
   br i1 %.not, label %.loopexit, label %135, !llvm.loop !125
 
 .loopexit:                                        ; preds = %178, %124, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.thread
-  %.sroa.0294.0421 = phi ptr [ null, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.thread ], [ %50, %124 ], [ %50, %178 ]
-  %180 = phi ptr [ %40, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.thread ], [ %125, %124 ], [ %179, %178 ]
+  %.sroa.0294.0421 = phi ptr [ %50, %124 ], [ null, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.thread ], [ %50, %178 ]
+  %180 = phi ptr [ %125, %124 ], [ %40, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.thread ], [ %179, %178 ]
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %182 = load i8, ptr %181, align 4, !tbaa !93, !range !84, !noundef !85
   %183 = trunc nuw i8 %182 to i1
@@ -3603,8 +3603,8 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.ex
   br i1 %.not, label %.loopexit, label %135, !llvm.loop !148
 
 .loopexit:                                        ; preds = %178, %124, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.thread
-  %.sroa.0294.0421 = phi ptr [ null, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.thread ], [ %50, %124 ], [ %50, %178 ]
-  %180 = phi ptr [ %40, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.thread ], [ %125, %124 ], [ %179, %178 ]
+  %.sroa.0294.0421 = phi ptr [ %50, %124 ], [ null, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.thread ], [ %50, %178 ]
+  %180 = phi ptr [ %125, %124 ], [ %40, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.thread ], [ %179, %178 ]
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %182 = load i8, ptr %181, align 4, !tbaa !93, !range !84, !noundef !85
   %183 = trunc nuw i8 %182 to i1
@@ -4641,8 +4641,8 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.ex
   br i1 %.not, label %.loopexit, label %135, !llvm.loop !168
 
 .loopexit:                                        ; preds = %178, %124, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.thread
-  %.sroa.0294.0421 = phi ptr [ null, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.thread ], [ %50, %124 ], [ %50, %178 ]
-  %180 = phi ptr [ %40, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.thread ], [ %125, %124 ], [ %179, %178 ]
+  %.sroa.0294.0421 = phi ptr [ %50, %124 ], [ null, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.thread ], [ %50, %178 ]
+  %180 = phi ptr [ %125, %124 ], [ %40, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.thread ], [ %179, %178 ]
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %182 = load i8, ptr %181, align 4, !tbaa !93, !range !84, !noundef !85
   %183 = trunc nuw i8 %182 to i1
@@ -5679,8 +5679,8 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.ex
   br i1 %.not, label %.loopexit, label %135, !llvm.loop !188
 
 .loopexit:                                        ; preds = %178, %124, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.thread
-  %.sroa.0294.0421 = phi ptr [ null, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.thread ], [ %50, %124 ], [ %50, %178 ]
-  %180 = phi ptr [ %40, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.thread ], [ %125, %124 ], [ %179, %178 ]
+  %.sroa.0294.0421 = phi ptr [ %50, %124 ], [ null, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.thread ], [ %50, %178 ]
+  %180 = phi ptr [ %125, %124 ], [ %40, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.thread ], [ %179, %178 ]
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %182 = load i8, ptr %181, align 4, !tbaa !93, !range !84, !noundef !85
   %183 = trunc nuw i8 %182 to i1
@@ -6717,8 +6717,8 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.ex
   br i1 %.not, label %.loopexit, label %135, !llvm.loop !213
 
 .loopexit:                                        ; preds = %178, %124, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.thread
-  %.sroa.0294.0421 = phi ptr [ null, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.thread ], [ %50, %124 ], [ %50, %178 ]
-  %180 = phi ptr [ %40, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.thread ], [ %125, %124 ], [ %179, %178 ]
+  %.sroa.0294.0421 = phi ptr [ %50, %124 ], [ null, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.thread ], [ %50, %178 ]
+  %180 = phi ptr [ %125, %124 ], [ %40, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.thread ], [ %179, %178 ]
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %182 = load i8, ptr %181, align 4, !tbaa !93, !range !84, !noundef !85
   %183 = trunc nuw i8 %182 to i1

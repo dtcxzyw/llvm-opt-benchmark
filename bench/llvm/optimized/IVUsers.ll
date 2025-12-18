@@ -969,8 +969,8 @@ tailrecurse:                                      ; preds = %66
   br label %.thread
 
 .thread:                                          ; preds = %66, %.lr.ph.i.i.i.i, %78, %._crit_edge.loopexit, %.thread68, %_ZNK4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE10getLoopForEPKS1_.exit, %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsINS_11InstructionEEEbPKT_.exit, %12
-  %accumulator.tr94 = phi i1 [ %accumulator.tr98, %12 ], [ %accumulator.tr98, %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsINS_11InstructionEEEbPKT_.exit ], [ %accumulator.tr98, %_ZNK4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE10getLoopForEPKS1_.exit ], [ %accumulator.tr.lcssa, %.thread68 ], [ %accumulator.tr.lcssa, %78 ], [ %accumulator.tr.lcssa, %._crit_edge.loopexit ], [ %accumulator.tr98, %.lr.ph.i.i.i.i ], [ %accumulator.tr98, %66 ]
-  %.1 = phi i1 [ true, %12 ], [ false, %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsINS_11InstructionEEEbPKT_.exit ], [ %65, %_ZNK4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE10getLoopForEPKS1_.exit ], [ false, %.thread68 ], [ false, %78 ], [ %91, %._crit_edge.loopexit ], [ false, %.lr.ph.i.i.i.i ], [ false, %66 ]
+  %accumulator.tr94 = phi i1 [ %accumulator.tr98, %12 ], [ %accumulator.tr.lcssa, %.thread68 ], [ %accumulator.tr.lcssa, %78 ], [ %accumulator.tr98, %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsINS_11InstructionEEEbPKT_.exit ], [ %accumulator.tr98, %_ZNK4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE10getLoopForEPKS1_.exit ], [ %accumulator.tr98, %.lr.ph.i.i.i.i ], [ %accumulator.tr.lcssa, %._crit_edge.loopexit ], [ %accumulator.tr98, %66 ]
+  %.1 = phi i1 [ true, %12 ], [ false, %.thread68 ], [ false, %78 ], [ false, %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsINS_11InstructionEEEbPKT_.exit ], [ %65, %_ZNK4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE10getLoopForEPKS1_.exit ], [ false, %.lr.ph.i.i.i.i ], [ %91, %._crit_edge.loopexit ], [ false, %66 ]
   %accumulator.ret.tr = xor i1 %accumulator.tr94, %.1
   ret i1 %accumulator.ret.tr
 }
@@ -1970,7 +1970,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
   br i1 %.not38, label %21, label %.thread
 
 .thread:                                          ; preds = %.lr.ph, %.lr.ph56, %21, %15, %tailrecurse._crit_edge
-  %.1 = phi ptr [ null, %tailrecurse._crit_edge ], [ null, %15 ], [ null, %21 ], [ %24, %.lr.ph56 ], [ %.tr52, %.lr.ph ]
+  %.1 = phi ptr [ null, %15 ], [ null, %tailrecurse._crit_edge ], [ null, %21 ], [ %24, %.lr.ph56 ], [ %.tr52, %.lr.ph ]
   ret ptr %.1
 }
 
@@ -2612,7 +2612,7 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i: ; preds = %._crit_edge.i
   br label %"_ZZN4llvm7IVUsers21AddUsersIfInterestingEPNS_11InstructionEENK3$_0clEPKNS_14SCEVAddRecExprE.exit"
 
 "_ZZN4llvm7IVUsers21AddUsersIfInterestingEPNS_11InstructionEENK3$_0clEPKNS_14SCEVAddRecExprE.exit": ; preds = %.lr.ph.i.i.i.i.i.i, %51, %.lr.ph.i.i.i, %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsINS_11InstructionEEEbPKT_.exit.i.i, %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsINS_11InstructionEEEbPKT_.exit.thread.i.i, %35, %76, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i
-  %.0.i2.i = phi i1 [ false, %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsINS_11InstructionEEEbPKT_.exit.i.i ], [ false, %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsINS_11InstructionEEEbPKT_.exit.thread.i.i ], [ false, %35 ], [ true, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i ], [ true, %76 ], [ false, %51 ], [ true, %.lr.ph.i.i.i ], [ false, %.lr.ph.i.i.i.i.i.i ]
+  %.0.i2.i = phi i1 [ true, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i ], [ false, %51 ], [ false, %35 ], [ false, %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsINS_11InstructionEEEbPKT_.exit.i.i ], [ false, %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsINS_11InstructionEEEbPKT_.exit.thread.i.i ], [ true, %.lr.ph.i.i.i ], [ true, %76 ], [ false, %.lr.ph.i.i.i.i.i.i ]
   ret i1 %.0.i2.i
 }
 

@@ -3088,7 +3088,7 @@ _ZN3std2io7BufRead10read_until17h1cb7998f71d54764E.exit: ; preds = %.split.split
   br i1 %130, label %.split119.us, label %133
 
 .split116.us:                                     ; preds = %_ZN3std2io7BufRead10read_until17h1cb7998f71d54764E.exit.us, %_ZN3std2io7BufRead10read_until17h1cb7998f71d54764E.exit, %_ZN3std2io7BufRead10read_until17h1cb7998f71d54764E.exit.us133, %_ZN3std2io7BufRead10read_until17h1cb7998f71d54764E.exit.us.us
-  %.us-phi117 = phi i64 [ %74, %_ZN3std2io7BufRead10read_until17h1cb7998f71d54764E.exit.us.us ], [ %124, %_ZN3std2io7BufRead10read_until17h1cb7998f71d54764E.exit.us133 ], [ %128, %_ZN3std2io7BufRead10read_until17h1cb7998f71d54764E.exit ], [ %79, %_ZN3std2io7BufRead10read_until17h1cb7998f71d54764E.exit.us ]
+  %.us-phi117 = phi i64 [ %128, %_ZN3std2io7BufRead10read_until17h1cb7998f71d54764E.exit ], [ %74, %_ZN3std2io7BufRead10read_until17h1cb7998f71d54764E.exit.us.us ], [ %124, %_ZN3std2io7BufRead10read_until17h1cb7998f71d54764E.exit.us133 ], [ %79, %_ZN3std2io7BufRead10read_until17h1cb7998f71d54764E.exit.us ]
   %131 = inttoptr i64 %.us-phi117 to ptr
   %132 = invoke { ptr, ptr } @"_ZN6uucore4mods5error139_$LT$impl$u20$core..convert..From$LT$std..io..error..Error$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$4from17h5f3f9db19071e545E"(ptr noundef nonnull %131)
           to label %205 unwind label %.loopexit.split-lp

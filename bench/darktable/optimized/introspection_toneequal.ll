@@ -2027,12 +2027,12 @@ _triangular_descent_fast.exit.i:                  ; preds = %._crit_edge.i60.i, 
   br i1 %191, label %.lr.ph.i76.i, label %._crit_edge.i73.i
 
 .critedge.sink.split.i:                           ; preds = %.thread.i.i, %.thread.i67.i, %159, %119, %50
-  %.str.131.sink.i = phi ptr [ @.str.131, %50 ], [ @.str.132, %119 ], [ @.str.133, %159 ], [ @.str.133, %.thread.i67.i ], [ @.str.132, %.thread.i.i ]
+  %.str.131.sink.i = phi ptr [ @.str.131, %50 ], [ @.str.132, %119 ], [ @.str.133, %.thread.i67.i ], [ @.str.133, %159 ], [ @.str.132, %.thread.i.i ]
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull %.str.131.sink.i) #28, !noalias !252
   br label %_solve_hermitian.exit
 
 _solve_hermitian.exit:                            ; preds = %._crit_edge.i73.i, %42, %85, %159, %.critedge.sink.split.i
-  %.1.i = phi i32 [ %.036.ph.i64.i, %159 ], [ 0, %85 ], [ 0, %42 ], [ 0, %.critedge.sink.split.i ], [ 1, %._crit_edge.i73.i ]
+  %.1.i = phi i32 [ %.036.ph.i64.i, %159 ], [ 0, %85 ], [ 0, %.critedge.sink.split.i ], [ 0, %42 ], [ 1, %._crit_edge.i73.i ]
   tail call void @free(ptr noundef %36) #28, !noalias !252
   tail call void @free(ptr noundef %37) #28, !noalias !252
   %.not = icmp eq i32 %.1.i, 0

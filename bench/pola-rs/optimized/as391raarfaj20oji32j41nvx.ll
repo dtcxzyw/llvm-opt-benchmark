@@ -3166,7 +3166,7 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %79, %._crit_edge, %101, %84, %58, %45, %36
-  %.sroa.017.2.ph.ph = phi i1 [ false, %84 ], [ true, %101 ], [ true, %36 ], [ true, %45 ], [ false, %._crit_edge ], [ true, %79 ], [ true, %58 ]
+  %.sroa.017.2.ph.ph = phi i1 [ true, %101 ], [ true, %58 ], [ false, %84 ], [ true, %36 ], [ true, %45 ], [ true, %79 ], [ false, %._crit_edge ]
   %lpad.loopexit.split-lp62 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -3231,7 +3231,7 @@ define hidden noundef range(i64 1, 0) i64 @_ZN10polars_row8variable4utf815len_fr
   br i1 %23, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17hefa29a20834b184aE.exit", label %.lr.ph.i7
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17hefa29a20834b184aE.exit": ; preds = %.lr.ph.i, %.lr.ph.i7, %17, %10
-  %.sroa.02.011.i8.lcssa.sink = phi i64 [ 0, %10 ], [ 0, %17 ], [ %21, %.lr.ph.i7 ], [ %14, %.lr.ph.i ]
+  %.sroa.02.011.i8.lcssa.sink = phi i64 [ %21, %.lr.ph.i7 ], [ 0, %10 ], [ 0, %17 ], [ %14, %.lr.ph.i ]
   %24 = icmp ult i64 %.sroa.02.011.i8.lcssa.sink, %1
   tail call void @llvm.assume(i1 %24)
   %25 = add nuw i64 %.sroa.02.011.i8.lcssa.sink, 1
@@ -3781,7 +3781,7 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   br label %220
 
 .loopexit.split-lp:                               ; preds = %78, %92, %126, %._crit_edge, %113
-  %.sroa.019.3.ph = phi i1 [ true, %92 ], [ true, %113 ], [ false, %._crit_edge ], [ true, %78 ], [ true, %126 ]
+  %.sroa.019.3.ph = phi i1 [ true, %78 ], [ false, %._crit_edge ], [ true, %113 ], [ true, %92 ], [ true, %126 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %220

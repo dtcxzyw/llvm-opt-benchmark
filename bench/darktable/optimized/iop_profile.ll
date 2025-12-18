@@ -1968,7 +1968,7 @@ dt_apply_transposed_color_matrix.exit.i25.i:      ; preds = %342
   br label %_transform_matrix.exit
 
 _transform_matrix.exit:                           ; preds = %dt_XYZ_to_Lab.exit.i.i, %dt_XYZ_to_Lab.exit44.i.i, %401, %396, %382, %371, %359, %._crit_edge.i.i, %119, %.preheader.i.i
-  %404 = phi ptr [ @.str.3, %371 ], [ @.str.3, %.preheader.i.i ], [ @.str.3, %119 ], [ @.str.3, %._crit_edge.i.i ], [ @.str.3, %359 ], [ @.str.21, %382 ], [ @.str.21, %396 ], [ @.str.21, %401 ], [ @.str.3, %dt_XYZ_to_Lab.exit44.i.i ], [ @.str.3, %dt_XYZ_to_Lab.exit.i.i ]
+  %404 = phi ptr [ @.str.3, %371 ], [ @.str.3, %.preheader.i.i ], [ @.str.3, %119 ], [ @.str.3, %dt_XYZ_to_Lab.exit44.i.i ], [ @.str.21, %401 ], [ @.str.3, %._crit_edge.i.i ], [ @.str.3, %359 ], [ @.str.21, %382 ], [ @.str.21, %396 ], [ @.str.3, %dt_XYZ_to_Lab.exit.i.i ]
   %405 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !64
   %406 = and i32 %405, 16
   %.not83.not = icmp eq i32 %406, 0

@@ -3933,7 +3933,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv3dnn23FullyConnectedLayerIm
   br label %23
 
 23:                                               ; preds = %2, %2, %2, %2, %20, %.fold.split, %16, %12
-  %24 = phi i1 [ true, %2 ], [ true, %2 ], [ true, %16 ], [ true, %12 ], [ true, %2 ], [ %spec.select, %20 ], [ false, %.fold.split ], [ true, %2 ]
+  %24 = phi i1 [ true, %2 ], [ true, %2 ], [ true, %16 ], [ true, %12 ], [ true, %2 ], [ %spec.select, %20 ], [ true, %2 ], [ false, %.fold.split ]
   ret i1 %24
 }
 

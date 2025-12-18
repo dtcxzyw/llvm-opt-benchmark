@@ -17375,7 +17375,7 @@ define internal fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_17No
   br i1 %35, label %.lr.ph.i.i.i, label %.loopexit, !llvm.loop !538
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i, %14, %19
-  %.sroa.6.0.i.i = phi ptr [ %18, %14 ], [ %.sroa.0.0.copyload.i.i.i.i, %19 ], [ %33, %.lr.ph.i.i.i ]
+  %.sroa.6.0.i.i = phi ptr [ %.sroa.0.0.copyload.i.i.i.i, %19 ], [ %18, %14 ], [ %33, %.lr.ph.i.i.i ]
   %.val31.val = load ptr, ptr %.sroa.6.0.i.i, align 8, !tbaa !529
   %36 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #42
           to label %_ZNSt16allocator_traitsISaISt4pairIKiZN4absl18container_internal12_GLOBAL__N_132NodeHashMap_AssignRecursive_Test8TestBodyEvE4TreeEEE8allocateERS8_m.exit unwind label %42
@@ -34958,8 +34958,8 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearE
   br label %._crit_edge137.i
 
 .lr.ph136.i:                                      ; preds = %.lr.ph.i.i.i, %12, %15
-  %.sroa.6.0.i.i.ph = phi ptr [ %.sroa.0.0.copyload.i.i.i.i, %15 ], [ %14, %12 ], [ %29, %.lr.ph.i.i.i ]
-  %.sroa.0.0.i.i.ph = phi ptr [ %.val3.i.i, %15 ], [ @_ZN4absl18container_internal11kSooControlE, %12 ], [ %28, %.lr.ph.i.i.i ]
+  %.sroa.6.0.i.i.ph = phi ptr [ %14, %12 ], [ %.sroa.0.0.copyload.i.i.i.i, %15 ], [ %29, %.lr.ph.i.i.i ]
+  %.sroa.0.0.i.i.ph = phi ptr [ @_ZN4absl18container_internal11kSooControlE, %12 ], [ %.val3.i.i, %15 ], [ %28, %.lr.ph.i.i.i ]
   %34 = getelementptr inbounds nuw i8, ptr %8, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1011
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -51681,7 +51681,7 @@ define linkonce_odr dso_local void @_ZN4absl18container_internal12raw_hash_setIN
   br i1 %40, label %.lr.ph.i.i.i, label %.loopexit, !llvm.loop !1294
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i, %18, %23
-  %.sroa.6.0.i.i = phi ptr [ %22, %18 ], [ %.sroa.0.0.copyload.i.i.i.i, %23 ], [ %38, %.lr.ph.i.i.i ]
+  %.sroa.6.0.i.i = phi ptr [ %.sroa.0.0.copyload.i.i.i.i, %23 ], [ %22, %18 ], [ %38, %.lr.ph.i.i.i ]
   %41 = load ptr, ptr %.sroa.6.0.i.i, align 8, !tbaa !1097
   %42 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #42
           to label %43 unwind label %45
@@ -58409,8 +58409,8 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   br i1 %58, label %.lr.ph.i.i.i, label %.lr.ph, !llvm.loop !1994
 
 .lr.ph:                                           ; preds = %.lr.ph.i.i.i, %38, %41
-  %.sroa.6.0.i.i.ph = phi ptr [ %.sroa.0.0.copyload.i.i.i.i, %41 ], [ %40, %38 ], [ %56, %.lr.ph.i.i.i ]
-  %.sroa.0.0.i.i.ph = phi ptr [ %42, %41 ], [ @_ZN4absl18container_internal11kSooControlE, %38 ], [ %55, %.lr.ph.i.i.i ]
+  %.sroa.6.0.i.i.ph = phi ptr [ %40, %38 ], [ %.sroa.0.0.copyload.i.i.i.i, %41 ], [ %56, %.lr.ph.i.i.i ]
+  %.sroa.0.0.i.i.ph = phi ptr [ @_ZN4absl18container_internal11kSooControlE, %38 ], [ %42, %41 ], [ %55, %.lr.ph.i.i.i ]
   %59 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %60 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %61 = getelementptr inbounds nuw i8, ptr %10, i64 32
@@ -59144,7 +59144,7 @@ _ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcE
   br i1 %.not50, label %_ZN7testing8internal15PrintIfNotEmptyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSo.exit, label %.lr.ph210, !llvm.loop !2196
 
 _ZN7testing8internal15PrintIfNotEmptyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSo.exit: ; preds = %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit, %_ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit, %_ZN7testing19MatchResultListenerlsIA16_cEERS0_RKT_.exit, %291, %_ZN7testing19MatchResultListenerlsIA15_cEERS0_RKT_.exit, %.noexc96, %310, %290, %229, %_ZN7testing7MessageD2Ev.exit
-  %.0 = phi i1 [ false, %290 ], [ false, %229 ], [ false, %_ZN7testing7MessageD2Ev.exit ], [ true, %310 ], [ false, %_ZN7testing19MatchResultListenerlsIA15_cEERS0_RKT_.exit ], [ false, %.noexc96 ], [ false, %_ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit ], [ false, %291 ], [ false, %_ZN7testing19MatchResultListenerlsIA16_cEERS0_RKT_.exit ], [ true, %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit ]
+  %.0 = phi i1 [ false, %290 ], [ false, %229 ], [ false, %_ZN7testing7MessageD2Ev.exit ], [ true, %310 ], [ false, %_ZN7testing19MatchResultListenerlsIA15_cEERS0_RKT_.exit ], [ false, %.noexc96 ], [ false, %_ZN7testing19MatchResultListenerlsIA16_cEERS0_RKT_.exit ], [ false, %_ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit ], [ false, %291 ], [ true, %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit ]
   %338 = load ptr, ptr %9, align 8, !tbaa !45
   %339 = load ptr, ptr %33, align 8, !tbaa !48
   %.not4.i.i.i.i = icmp eq ptr %338, %339
@@ -97762,8 +97762,8 @@ _ZNSt6vectorISt4pairIiiESaIS1_EE7reserveEm.exit:  ; preds = %_ZNSt12_Vector_base
   br i1 %36, label %.lr.ph.i.i.i, label %.lr.ph, !llvm.loop !2319
 
 .lr.ph:                                           ; preds = %.lr.ph.i.i.i, %16, %19
-  %.sroa.6.0.i.i.ph = phi ptr [ %.sroa.0.0.copyload.i.i.i.i, %19 ], [ %18, %16 ], [ %34, %.lr.ph.i.i.i ]
-  %.sroa.0.0.i.i.ph = phi ptr [ %20, %19 ], [ @_ZN4absl18container_internal11kSooControlE, %16 ], [ %33, %.lr.ph.i.i.i ]
+  %.sroa.6.0.i.i.ph = phi ptr [ %18, %16 ], [ %.sroa.0.0.copyload.i.i.i.i, %19 ], [ %34, %.lr.ph.i.i.i ]
+  %.sroa.0.0.i.i.ph = phi ptr [ @_ZN4absl18container_internal11kSooControlE, %16 ], [ %20, %19 ], [ %33, %.lr.ph.i.i.i ]
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyIiiEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocISt4pairIKiiEEEE14const_iteratorppEv.exit
 
@@ -100703,8 +100703,8 @@ define linkonce_odr dso_local void @_ZN4absl18container_internal5itemsINS_13node
   br i1 %30, label %.lr.ph.i.i.i, label %.lr.ph, !llvm.loop !2377
 
 .lr.ph:                                           ; preds = %.lr.ph.i.i.i, %10, %13
-  %.sroa.6.0.i.i.ph = phi ptr [ %.sroa.0.0.copyload.i.i.i.i, %13 ], [ %12, %10 ], [ %28, %.lr.ph.i.i.i ]
-  %.sroa.0.0.i.i.ph = phi ptr [ %14, %13 ], [ @_ZN4absl18container_internal11kSooControlE, %10 ], [ %27, %.lr.ph.i.i.i ]
+  %.sroa.6.0.i.i.ph = phi ptr [ %12, %10 ], [ %.sroa.0.0.copyload.i.i.i.i, %13 ], [ %28, %.lr.ph.i.i.i ]
+  %.sroa.0.0.i.i.ph = phi ptr [ @_ZN4absl18container_internal11kSooControlE, %10 ], [ %14, %13 ], [ %27, %.lr.ph.i.i.i ]
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocISt4pairIKS8_S8_EEEE14const_iteratorppEv.exit
@@ -117421,8 +117421,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4absl18container_internaleq
   br i1 %37, label %.lr.ph.i.i.i, label %.lr.ph, !llvm.loop !2319
 
 .lr.ph:                                           ; preds = %.lr.ph.i.i.i, %16, %20
-  %.sroa.6.0.i.i.ph = phi ptr [ %.sroa.0.0.copyload.i.i.i.i, %20 ], [ %19, %16 ], [ %35, %.lr.ph.i.i.i ]
-  %.sroa.0.0.i.i.ph = phi ptr [ %21, %20 ], [ @_ZN4absl18container_internal11kSooControlE, %16 ], [ %34, %.lr.ph.i.i.i ]
+  %.sroa.6.0.i.i.ph = phi ptr [ %19, %16 ], [ %.sroa.0.0.copyload.i.i.i.i, %20 ], [ %35, %.lr.ph.i.i.i ]
+  %.sroa.0.0.i.i.ph = phi ptr [ @_ZN4absl18container_internal11kSooControlE, %16 ], [ %21, %20 ], [ %34, %.lr.ph.i.i.i ]
   %38 = icmp ult i64 %13, 2
   %39 = getelementptr inbounds nuw i8, ptr %spec.select, i64 16
   %40 = load ptr, ptr %39, align 8
@@ -117597,7 +117597,7 @@ _ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyIiiEENS0_19Sta
   br i1 %139, label %.critedge, label %.lr.ph.split, !prof !254
 
 .critedge:                                        ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyIiiEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocISt4pairIKiiEEEE8iterator21skip_empty_or_deletedEv.exit.i.i, %109, %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyIiiEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocISt4pairIKiiEEEE12find_non_sooIiEENSB_8iteratorERS8_m.exit.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i, %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyIiiEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocISt4pairIKiiEEEE8iterator21skip_empty_or_deletedEv.exit.i.i.us, %51, %_ZN4absl18container_internal18hash_policy_traitsINS0_17NodeHashMapPolicyIiiEEvE5applyINS0_12raw_hash_setIS3_NS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocISt4pairIKiiEEEE11FindElementEJRKSC_ES3_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSJ_DpOSK_.exit.us, %.lr.ph.split.us, %11, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %.lr.ph.split.us ], [ true, %11 ], [ true, %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyIiiEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocISt4pairIKiiEEEE8iterator21skip_empty_or_deletedEv.exit.i.i.us ], [ false, %._crit_edge.i.i.i.i.i.i.i.i ], [ false, %51 ], [ false, %_ZN4absl18container_internal18hash_policy_traitsINS0_17NodeHashMapPolicyIiiEEvE5applyINS0_12raw_hash_setIS3_NS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocISt4pairIKiiEEEE11FindElementEJRKSC_ES3_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSJ_DpOSK_.exit.us ], [ false, %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyIiiEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocISt4pairIKiiEEEE12find_non_sooIiEENSB_8iteratorERS8_m.exit.i.i.i.i.i.i.i ], [ true, %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyIiiEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocISt4pairIKiiEEEE8iterator21skip_empty_or_deletedEv.exit.i.i ], [ false, %109 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %.lr.ph.split.us ], [ true, %11 ], [ false, %._crit_edge.i.i.i.i.i.i.i.i ], [ true, %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyIiiEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocISt4pairIKiiEEEE8iterator21skip_empty_or_deletedEv.exit.i.i.us ], [ false, %51 ], [ false, %_ZN4absl18container_internal18hash_policy_traitsINS0_17NodeHashMapPolicyIiiEEvE5applyINS0_12raw_hash_setIS3_NS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocISt4pairIKiiEEEE11FindElementEJRKSC_ES3_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSJ_DpOSK_.exit.us ], [ false, %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyIiiEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocISt4pairIKiiEEEE12find_non_sooIiEENSB_8iteratorERS8_m.exit.i.i.i.i.i.i.i ], [ true, %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyIiiEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocISt4pairIKiiEEEE8iterator21skip_empty_or_deletedEv.exit.i.i ], [ false, %109 ]
   ret i1 %.0
 }
 
@@ -131806,8 +131806,8 @@ _ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyIiiEENS0_19Sta
   br i1 %59, label %.lr.ph.i.i, label %.lr.ph, !llvm.loop !2319
 
 .lr.ph:                                           ; preds = %.lr.ph.i.i, %39, %42
-  %.sroa.6.0.i.ph = phi ptr [ %.sroa.0.0.copyload.i.i.i, %42 ], [ %41, %39 ], [ %57, %.lr.ph.i.i ]
-  %.sroa.0.0.i.ph = phi ptr [ %43, %42 ], [ @_ZN4absl18container_internal11kSooControlE, %39 ], [ %56, %.lr.ph.i.i ]
+  %.sroa.6.0.i.ph = phi ptr [ %41, %39 ], [ %.sroa.0.0.copyload.i.i.i, %42 ], [ %57, %.lr.ph.i.i ]
+  %.sroa.0.0.i.ph = phi ptr [ @_ZN4absl18container_internal11kSooControlE, %39 ], [ %43, %42 ], [ %56, %.lr.ph.i.i ]
   %60 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.sroa.2.0..sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyIiiEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocISt4pairIKiiEEEE8iteratorppEv.exit
@@ -133054,8 +133054,8 @@ _ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyINSt7__cxx1112
   br i1 %61, label %.lr.ph.i.i, label %.lr.ph, !llvm.loop !2377
 
 .lr.ph:                                           ; preds = %.lr.ph.i.i, %41, %44
-  %.sroa.6.0.i.ph = phi ptr [ %.sroa.0.0.copyload.i.i.i, %44 ], [ %43, %41 ], [ %59, %.lr.ph.i.i ]
-  %.sroa.0.0.i.ph = phi ptr [ %45, %44 ], [ @_ZN4absl18container_internal11kSooControlE, %41 ], [ %58, %.lr.ph.i.i ]
+  %.sroa.6.0.i.ph = phi ptr [ %43, %41 ], [ %.sroa.0.0.copyload.i.i.i, %44 ], [ %59, %.lr.ph.i.i ]
+  %.sroa.0.0.i.ph = phi ptr [ @_ZN4absl18container_internal11kSooControlE, %41 ], [ %45, %44 ], [ %58, %.lr.ph.i.i ]
   %62 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocISt4pairIKS8_S8_EEEE8iteratorppEv.exit
 
@@ -148405,7 +148405,7 @@ define linkonce_odr dso_local void @_ZN4absl18container_internal12raw_hash_setIN
   br i1 %42, label %.lr.ph.i.i.i, label %.loopexit, !llvm.loop !2319
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i, %20, %25
-  %.sroa.6.0.i.i = phi ptr [ %24, %20 ], [ %.sroa.0.0.copyload.i.i.i.i, %25 ], [ %40, %.lr.ph.i.i.i ]
+  %.sroa.6.0.i.i = phi ptr [ %.sroa.0.0.copyload.i.i.i.i, %25 ], [ %24, %20 ], [ %40, %.lr.ph.i.i.i ]
   %43 = load ptr, ptr %.sroa.6.0.i.i, align 8, !tbaa !1097
   %44 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #42
           to label %45 unwind label %47
@@ -148886,7 +148886,7 @@ _ZN7testing8internal8EqHelper7CompareIN4absl18container_internal19StatefulTestin
   br i1 %82, label %.loopexit, label %79
 
 .loopexit:                                        ; preds = %73, %79, %.thread
-  %.pn = phi { ptr, i32 } [ %27, %.thread ], [ %eh.lpad-body, %79 ], [ %72, %73 ]
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %79 ], [ %27, %.thread ], [ %72, %73 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocISt4pairIKS8_S8_EEEED2Ev.exit81
 
@@ -149526,7 +149526,7 @@ define linkonce_odr dso_local void @_ZN4absl18container_internal12raw_hash_setIN
   br i1 %42, label %.lr.ph.i.i.i, label %.loopexit, !llvm.loop !2377
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i, %20, %25
-  %.sroa.6.0.i.i = phi ptr [ %24, %20 ], [ %.sroa.0.0.copyload.i.i.i.i, %25 ], [ %40, %.lr.ph.i.i.i ]
+  %.sroa.6.0.i.i = phi ptr [ %.sroa.0.0.copyload.i.i.i.i, %25 ], [ %24, %20 ], [ %40, %.lr.ph.i.i.i ]
   %43 = load ptr, ptr %.sroa.6.0.i.i, align 8, !tbaa !1981
   %44 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #42
           to label %.noexc unwind label %46
@@ -152820,7 +152820,7 @@ _ZN7testing8internal8EqHelper7CompareIN4absl18container_internal19StatefulTestin
   br i1 %92, label %.loopexit, label %89
 
 .loopexit:                                        ; preds = %83, %89, %.thread
-  %.pn = phi { ptr, i32 } [ %29, %.thread ], [ %eh.lpad-body, %89 ], [ %82, %83 ]
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %89 ], [ %29, %.thread ], [ %82, %83 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocISt4pairIKS8_S8_EEEED2Ev.exit87
 
@@ -159659,7 +159659,7 @@ _ZN7testing8internal8EqHelper7CompareIN4absl13node_hash_mapINSt7__cxx1112basic_s
   br i1 %88, label %.loopexit56, label %85
 
 .loopexit56:                                      ; preds = %79, %85, %.thread
-  %.pn.pn.pn = phi { ptr, i32 } [ %17, %.thread ], [ %eh.lpad-body, %85 ], [ %78, %79 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %eh.lpad-body, %85 ], [ %17, %.thread ], [ %78, %79 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocISt4pairIKS8_S8_EEEED2Ev.exit54
 
@@ -163034,7 +163034,7 @@ _ZN7testing8internal8EqHelper7CompareIN4absl13node_hash_mapINSt7__cxx1112basic_s
   br i1 %103, label %.loopexit61, label %100
 
 .loopexit61:                                      ; preds = %94, %100, %.thread
-  %.pn.pn.pn = phi { ptr, i32 } [ %19, %.thread ], [ %eh.lpad-body, %100 ], [ %93, %94 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %eh.lpad-body, %100 ], [ %19, %.thread ], [ %93, %94 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocISt4pairIKS8_S8_EEEED2Ev.exit59
 
@@ -194845,8 +194845,8 @@ _ZN7testing15AssertionResultD2Ev.exit74:          ; preds = %161, %_ZNKSt14defau
   br i1 %193, label %.lr.ph.i.i81, label %.loopexit186, !llvm.loop !2319
 
 .loopexit186:                                     ; preds = %.lr.ph.i.i81, %173, %176
-  %.sroa.6.0.i77.ph = phi ptr [ %.sroa.0.0.copyload.i.i.i76, %176 ], [ %175, %173 ], [ %191, %.lr.ph.i.i81 ]
-  %.sroa.0.0.i78.ph = phi ptr [ %177, %176 ], [ @_ZN4absl18container_internal11kSooControlE, %173 ], [ %190, %.lr.ph.i.i81 ]
+  %.sroa.6.0.i77.ph = phi ptr [ %175, %173 ], [ %.sroa.0.0.copyload.i.i.i76, %176 ], [ %191, %.lr.ph.i.i81 ]
+  %.sroa.0.0.i78.ph = phi ptr [ @_ZN4absl18container_internal11kSooControlE, %173 ], [ %177, %176 ], [ %190, %.lr.ph.i.i81 ]
   store ptr %.sroa.0.0.i78.ph, ptr %19, align 8
   %194 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %.sroa.6.0.i77.ph, ptr %194, align 8
@@ -195023,8 +195023,8 @@ _ZN7testing15AssertionResultD2Ev.exit97:          ; preds = %225, %_ZNKSt14defau
   br i1 %257, label %.lr.ph.i.i.i.i104, label %.loopexit, !llvm.loop !2319
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i104, %237, %240
-  %.sroa.6.0.i.i.i100.ph = phi ptr [ %.sroa.0.0.copyload.i.i.i.i.i99, %240 ], [ %239, %237 ], [ %255, %.lr.ph.i.i.i.i104 ]
-  %.sroa.0.0.i.i.i101.ph = phi ptr [ %241, %240 ], [ @_ZN4absl18container_internal11kSooControlE, %237 ], [ %254, %.lr.ph.i.i.i.i104 ]
+  %.sroa.6.0.i.i.i100.ph = phi ptr [ %239, %237 ], [ %.sroa.0.0.copyload.i.i.i.i.i99, %240 ], [ %255, %.lr.ph.i.i.i.i104 ]
+  %.sroa.0.0.i.i.i101.ph = phi ptr [ @_ZN4absl18container_internal11kSooControlE, %237 ], [ %241, %240 ], [ %254, %.lr.ph.i.i.i.i104 ]
   store ptr %.sroa.0.0.i.i.i101.ph, ptr %24, align 8
   %258 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store ptr %.sroa.6.0.i.i.i100.ph, ptr %258, align 8
@@ -197469,8 +197469,8 @@ _ZN7testing15AssertionResultD2Ev.exit81:          ; preds = %169, %_ZNKSt14defau
   br i1 %201, label %.lr.ph.i.i88, label %.loopexit198, !llvm.loop !2377
 
 .loopexit198:                                     ; preds = %.lr.ph.i.i88, %181, %184
-  %.sroa.6.0.i84.ph = phi ptr [ %.sroa.0.0.copyload.i.i.i83, %184 ], [ %183, %181 ], [ %199, %.lr.ph.i.i88 ]
-  %.sroa.0.0.i85.ph = phi ptr [ %185, %184 ], [ @_ZN4absl18container_internal11kSooControlE, %181 ], [ %198, %.lr.ph.i.i88 ]
+  %.sroa.6.0.i84.ph = phi ptr [ %183, %181 ], [ %.sroa.0.0.copyload.i.i.i83, %184 ], [ %199, %.lr.ph.i.i88 ]
+  %.sroa.0.0.i85.ph = phi ptr [ @_ZN4absl18container_internal11kSooControlE, %181 ], [ %185, %184 ], [ %198, %.lr.ph.i.i88 ]
   store ptr %.sroa.0.0.i85.ph, ptr %16, align 8
   %202 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %.sroa.6.0.i84.ph, ptr %202, align 8
@@ -240291,7 +240291,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br i1 %174, label %.lr.ph.i.i, label %.loopexit221, !llvm.loop !2319
 
 .loopexit221:                                     ; preds = %.lr.ph.i.i, %151, %157
-  %.sroa.6.0.i = phi ptr [ %156, %151 ], [ %.sroa.0.0.copyload.i.i.i, %157 ], [ %172, %.lr.ph.i.i ]
+  %.sroa.6.0.i = phi ptr [ %.sroa.0.0.copyload.i.i.i, %157 ], [ %156, %151 ], [ %172, %.lr.ph.i.i ]
   %175 = load ptr, ptr %.sroa.6.0.i, align 8, !tbaa !1097
   %176 = load ptr, ptr %5, align 8, !tbaa !1097
   %177 = load ptr, ptr %32, align 8, !tbaa !1097
@@ -240337,8 +240337,8 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br i1 %198, label %.lr.ph.i.i.i, label %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyIiiEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocISt4pairIKiiEEEE5beginEv.exit.i, !llvm.loop !2319
 
 _ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyIiiEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocISt4pairIKiiEEEE5beginEv.exit.i: ; preds = %.lr.ph.i.i.i, %181, %._crit_edge
-  %.sroa.6.0.i.i = phi ptr [ %156, %._crit_edge ], [ %.sroa.0.0.copyload.i.i.i.i, %181 ], [ %196, %.lr.ph.i.i.i ]
-  %.sroa.0.0.i.i = phi ptr [ @_ZN4absl18container_internal11kSooControlE, %._crit_edge ], [ %182, %181 ], [ %195, %.lr.ph.i.i.i ]
+  %.sroa.6.0.i.i = phi ptr [ %.sroa.0.0.copyload.i.i.i.i, %181 ], [ %156, %._crit_edge ], [ %196, %.lr.ph.i.i.i ]
+  %.sroa.0.0.i.i = phi ptr [ %182, %181 ], [ @_ZN4absl18container_internal11kSooControlE, %._crit_edge ], [ %195, %.lr.ph.i.i.i ]
   %199 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 1
   %200 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.i.i, i64 8
   %201 = load i8, ptr %199, align 1, !tbaa !453
@@ -241822,7 +241822,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br i1 %209, label %.lr.ph.i.i, label %.loopexit, !llvm.loop !2377
 
 .loopexit:                                        ; preds = %.lr.ph.i.i, %187, %192
-  %.sroa.6.0.i = phi ptr [ %191, %187 ], [ %.sroa.0.0.copyload.i.i.i, %192 ], [ %207, %.lr.ph.i.i ]
+  %.sroa.6.0.i = phi ptr [ %.sroa.0.0.copyload.i.i.i, %192 ], [ %191, %187 ], [ %207, %.lr.ph.i.i ]
   %210 = load ptr, ptr %.sroa.6.0.i, align 8, !tbaa !1981
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
@@ -242839,8 +242839,8 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNK4absl18container_internal10Erase
   br i1 %25, label %.lr.ph.i.i, label %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocISt4pairIKS8_S8_EEEE5beginEv.exit, !llvm.loop !2377
 
 _ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocISt4pairIKS8_S8_EEEE5beginEv.exit: ; preds = %.lr.ph.i.i, %2, %8
-  %.sroa.6.0.i = phi ptr [ %7, %2 ], [ %.sroa.0.0.copyload.i.i.i, %8 ], [ %23, %.lr.ph.i.i ]
-  %.sroa.0.0.i = phi ptr [ @_ZN4absl18container_internal11kSooControlE, %2 ], [ %9, %8 ], [ %22, %.lr.ph.i.i ]
+  %.sroa.6.0.i = phi ptr [ %.sroa.0.0.copyload.i.i.i, %8 ], [ %7, %2 ], [ %23, %.lr.ph.i.i ]
+  %.sroa.0.0.i = phi ptr [ %9, %8 ], [ @_ZN4absl18container_internal11kSooControlE, %2 ], [ %22, %.lr.ph.i.i ]
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 1
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.i, i64 8
   %28 = load i8, ptr %26, align 1, !tbaa !453
@@ -249864,8 +249864,8 @@ _ZSt5countIN4absl18container_internal12raw_hash_setINS1_17NodeHashMapPolicyIiiEE
   br label %256
 
 .lr.ph.i.i97:                                     ; preds = %.lr.ph.i.i, %203, %206
-  %.sroa.6.0.i.ph = phi ptr [ %.sroa.0.0.copyload.i.i.i, %206 ], [ %205, %203 ], [ %221, %.lr.ph.i.i ]
-  %.sroa.0.0.i.ph = phi ptr [ %207, %206 ], [ @_ZN4absl18container_internal11kSooControlE, %203 ], [ %220, %.lr.ph.i.i ]
+  %.sroa.6.0.i.ph = phi ptr [ %205, %203 ], [ %.sroa.0.0.copyload.i.i.i, %206 ], [ %221, %.lr.ph.i.i ]
+  %.sroa.0.0.i.ph = phi ptr [ @_ZN4absl18container_internal11kSooControlE, %203 ], [ %207, %206 ], [ %220, %.lr.ph.i.i ]
   %224 = load ptr, ptr %5, align 8, !tbaa !2858
   %225 = load i32, ptr %224, align 4, !tbaa !1094
   %226 = getelementptr inbounds nuw i8, ptr %224, i64 4

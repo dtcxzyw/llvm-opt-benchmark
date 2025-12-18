@@ -533,7 +533,7 @@ define noundef i32 @_ZN14dtPathCorridor11findCornersEPfPhPjiP14dtNavMeshQueryPK1
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph41, !llvm.loop !13
 
 .loopexit:                                        ; preds = %43, %57, %20, %._crit_edge, %54
-  %58 = phi i32 [ %.lcssa, %._crit_edge ], [ %56, %54 ], [ 0, %20 ], [ %.lcssa, %57 ], [ 0, %43 ]
+  %58 = phi i32 [ %.lcssa, %57 ], [ %.lcssa, %._crit_edge ], [ %56, %54 ], [ 0, %20 ], [ 0, %43 ]
   ret i32 %58
 }
 

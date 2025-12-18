@@ -1419,7 +1419,7 @@ define dso_local noundef i32 @_ZN18DFSRndNumGenerator13random_choiceEiPK6FilterP
   br i1 %77, label %81, label %.critedge.thread124
 
 .critedge.thread124:                              ; preds = %.lr.ph164.split, %.lr.ph164.split.us.split, %.lr.ph164.split.us.split.us
-  %.us-phi = phi i32 [ %63, %.lr.ph164.split.us.split.us ], [ %67, %.lr.ph164.split.us.split ], [ %76, %.lr.ph164.split ]
+  %.us-phi = phi i32 [ %67, %.lr.ph164.split.us.split ], [ %63, %.lr.ph164.split.us.split.us ], [ %76, %.lr.ph164.split ]
   store i32 %.us-phi, ptr %61, align 4, !tbaa !10
   store i32 %11, ptr %9, align 4, !tbaa !56
   %78 = tail call noundef i32 @_ZN9CGOptions20max_exhaustive_depthEv()
@@ -1582,7 +1582,7 @@ _ZN18DFSRndNumGenerator19filter_invalid_numsEPSt6vectorIiSaIiEEi.exit: ; preds =
   br label %.loopexit
 
 .critedge.thread:                                 ; preds = %_ZN18DFSRndNumGenerator19filter_invalid_numsEPSt6vectorIiSaIiEEi.exit, %._crit_edge.i.i.i.i, %69, %.lr.ph164.split.us.split.us
-  %144 = phi i32 [ %63, %.lr.ph164.split.us.split.us ], [ %67, %69 ], [ %76, %._crit_edge.i.i.i.i ], [ %76, %_ZN18DFSRndNumGenerator19filter_invalid_numsEPSt6vectorIiSaIiEEi.exit ]
+  %144 = phi i32 [ %67, %69 ], [ %63, %.lr.ph164.split.us.split.us ], [ %76, %._crit_edge.i.i.i.i ], [ %76, %_ZN18DFSRndNumGenerator19filter_invalid_numsEPSt6vectorIiSaIiEEi.exit ]
   store i32 %144, ptr %61, align 4, !tbaa !10
   %145 = load i32, ptr @_ZN5Error8r_error_E, align 4, !tbaa !74
   %.not95 = icmp eq i32 %145, 0
@@ -1825,7 +1825,7 @@ _ZN18DFSRndNumGenerator19filter_invalid_numsEPSt6vectorIiSaIiEEi.exit120: ; pred
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.critedge2.backedge, %.critedge2.backedge.us, %._crit_edge, %60, %44, %236, %238, %.critedge4.thread, %143, %146, %.critedge.thread, %57, %27, %36, %5
-  %.077 = phi i32 [ %21, %27 ], [ -1, %5 ], [ %21, %36 ], [ -1, %44 ], [ %58, %57 ], [ -1, %.critedge.thread ], [ %144, %146 ], [ -1, %143 ], [ %.076148, %238 ], [ -1, %236 ], [ -1, %.critedge4.thread ], [ -1, %60 ], [ -1, %.critedge2.backedge.us ], [ -1, %._crit_edge ], [ -1, %.critedge2.backedge ]
+  %.077 = phi i32 [ %21, %27 ], [ -1, %5 ], [ %21, %36 ], [ -1, %44 ], [ %58, %57 ], [ -1, %.critedge.thread ], [ %144, %146 ], [ -1, %143 ], [ -1, %.critedge4.thread ], [ %.076148, %238 ], [ -1, %236 ], [ -1, %60 ], [ -1, %.critedge2.backedge.us ], [ -1, %._crit_edge ], [ -1, %.critedge2.backedge ]
   ret i32 %.077
 }
 

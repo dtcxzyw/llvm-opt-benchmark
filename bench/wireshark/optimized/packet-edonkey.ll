@@ -2536,7 +2536,7 @@ lookup_str_index.exit.i:                          ; preds = %110
   br label %edonkey_metatag_name_get_type.exit
 
 edonkey_metatag_name_get_type.exit:               ; preds = %edonkey_tree_add_metatag_name.exit325, %lookup_str_index.exit.i
-  %.1.i = phi i8 [ %120, %lookup_str_index.exit.i ], [ %.0319, %edonkey_tree_add_metatag_name.exit325 ]
+  %.1.i = phi i8 [ %.0319, %edonkey_tree_add_metatag_name.exit325 ], [ %120, %lookup_str_index.exit.i ]
   switch i8 %.1.i, label %edonkey_metatag_name_get_type.exit.thread [
     i8 16, label %121
     i8 -111, label %124

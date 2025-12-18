@@ -582,7 +582,7 @@ _ZL8parseRowPcS_S_i.exit92:                       ; preds = %.lr.ph, %._crit_edg
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %_ZL8parseRowPcS_S_i.exit92, %.preheader, %139, %_ZL8parseRowPcS_S_i.exit, %105, %102, %172, %136, %96
-  %.1 = phi ptr [ %71, %96 ], [ %71, %_ZL8parseRowPcS_S_i.exit ], [ %71, %105 ], [ %71, %102 ], [ %71, %136 ], [ %71, %172 ], [ %71, %139 ], [ %71, %.preheader ], [ %.0.lcssa.i81, %_ZL8parseRowPcS_S_i.exit92 ]
+  %.1 = phi ptr [ %71, %96 ], [ %71, %_ZL8parseRowPcS_S_i.exit ], [ %71, %105 ], [ %71, %102 ], [ %71, %.preheader ], [ %71, %136 ], [ %71, %172 ], [ %71, %139 ], [ %.0.lcssa.i81, %_ZL8parseRowPcS_S_i.exit92 ]
   %174 = icmp ult ptr %.1, %39
   br i1 %174, label %69, label %._crit_edge, !llvm.loop !9
 

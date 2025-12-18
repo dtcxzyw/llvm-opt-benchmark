@@ -7115,7 +7115,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:       ; preds = %.loopexit187._ZL7us
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit212, %.loopexit.loopexit, %.preheader185, %.preheader184
-  %.184 = phi i32 [ 1, %.preheader184 ], [ 1, %.preheader185 ], [ %427, %.loopexit.loopexit ], [ %428, %.loopexit.loopexit212 ]
+  %.184 = phi i32 [ %427, %.loopexit.loopexit ], [ 1, %.preheader184 ], [ 1, %.preheader185 ], [ %428, %.loopexit.loopexit212 ]
   %429 = getelementptr inbounds nuw i8, ptr %0, i64 468
   %430 = load i8, ptr %429, align 4, !tbaa !248, !range !249, !noundef !250
   %431 = trunc nuw i8 %430 to i1

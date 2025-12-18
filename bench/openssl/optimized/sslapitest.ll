@@ -1968,7 +1968,7 @@ define internal range(i32 0, 2) i32 @test_no_ems() #1 {
   br label %31
 
 31:                                               ; preds = %.sink.split, %22, %28
-  %.0 = phi i32 [ 1, %28 ], [ 1, %22 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 1, %22 ], [ 1, %28 ], [ 0, %.sink.split ]
   %32 = load ptr, ptr %4, align 8, !tbaa !21
   call void @SSL_free(ptr noundef %32) #24
   %33 = load ptr, ptr %3, align 8, !tbaa !21
@@ -4957,8 +4957,8 @@ define internal range(i32 0, 2) i32 @test_ccs_change_cipher() #1 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %162, %159, %151, %148, %168, %174, %180, %186, %190, %192, %101, %110, %116, %123, %127, %133, %139, %50, %59, %65, %71, %78, %84, %90, %94, %96, %0, %16, %22, %29, %35, %42, %46, %197
-  %.09 = phi ptr [ %48, %197 ], [ %48, %192 ], [ %48, %190 ], [ %48, %186 ], [ %48, %180 ], [ %48, %174 ], [ %48, %168 ], [ %48, %139 ], [ %48, %133 ], [ %48, %127 ], [ %48, %123 ], [ %48, %116 ], [ %48, %110 ], [ %48, %101 ], [ %48, %96 ], [ %48, %94 ], [ %48, %90 ], [ %48, %84 ], [ %48, %78 ], [ %48, %71 ], [ %48, %65 ], [ %48, %59 ], [ %48, %50 ], [ %48, %46 ], [ null, %42 ], [ null, %35 ], [ null, %29 ], [ null, %22 ], [ null, %16 ], [ null, %0 ], [ %48, %148 ], [ %48, %151 ], [ %48, %159 ], [ %48, %162 ]
-  %.08 = phi i32 [ 1, %197 ], [ 0, %192 ], [ 0, %190 ], [ 0, %186 ], [ 0, %180 ], [ 0, %174 ], [ 0, %168 ], [ 0, %139 ], [ 0, %133 ], [ 0, %127 ], [ 0, %123 ], [ 0, %116 ], [ 0, %110 ], [ 0, %101 ], [ 0, %96 ], [ 0, %94 ], [ 0, %90 ], [ 0, %84 ], [ 0, %78 ], [ 0, %71 ], [ 0, %65 ], [ 0, %59 ], [ 0, %50 ], [ 0, %46 ], [ 0, %42 ], [ 0, %35 ], [ 0, %29 ], [ 0, %22 ], [ 0, %16 ], [ 0, %0 ], [ 0, %148 ], [ 0, %151 ], [ 0, %159 ], [ 0, %162 ]
+  %.09 = phi ptr [ null, %0 ], [ null, %16 ], [ null, %22 ], [ null, %29 ], [ %48, %197 ], [ %48, %192 ], [ %48, %190 ], [ %48, %186 ], [ %48, %180 ], [ %48, %174 ], [ %48, %168 ], [ %48, %139 ], [ %48, %133 ], [ %48, %127 ], [ %48, %123 ], [ %48, %116 ], [ %48, %110 ], [ %48, %101 ], [ %48, %96 ], [ %48, %94 ], [ %48, %90 ], [ %48, %84 ], [ %48, %78 ], [ %48, %71 ], [ %48, %65 ], [ %48, %59 ], [ %48, %50 ], [ %48, %46 ], [ null, %42 ], [ null, %35 ], [ %48, %148 ], [ %48, %151 ], [ %48, %159 ], [ %48, %162 ]
+  %.08 = phi i32 [ 0, %0 ], [ 0, %16 ], [ 0, %22 ], [ 0, %29 ], [ 1, %197 ], [ 0, %192 ], [ 0, %190 ], [ 0, %186 ], [ 0, %180 ], [ 0, %174 ], [ 0, %168 ], [ 0, %139 ], [ 0, %133 ], [ 0, %127 ], [ 0, %123 ], [ 0, %116 ], [ 0, %110 ], [ 0, %101 ], [ 0, %96 ], [ 0, %94 ], [ 0, %90 ], [ 0, %84 ], [ 0, %78 ], [ 0, %71 ], [ 0, %65 ], [ 0, %59 ], [ 0, %50 ], [ 0, %46 ], [ 0, %42 ], [ 0, %35 ], [ 0, %148 ], [ 0, %151 ], [ 0, %159 ], [ 0, %162 ]
   %200 = load ptr, ptr %4, align 8, !tbaa !21
   call void @SSL_free(ptr noundef %200) #24
   %201 = load ptr, ptr %3, align 8, !tbaa !21
@@ -10368,7 +10368,7 @@ define internal range(i32 0, 2) i32 @test_key_update() #1 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit24.split.loop.exit, %47, %43, %51, %31, %37, %0, %15, %22
-  %.07 = phi i32 [ 0, %0 ], [ 0, %22 ], [ 0, %15 ], [ 0, %31 ], [ 0, %37 ], [ 0, %43 ], [ %.mux.le, %.loopexit.loopexit24.split.loop.exit ], [ 0, %47 ], [ 0, %51 ]
+  %.07 = phi i32 [ 0, %22 ], [ 0, %15 ], [ 0, %31 ], [ 0, %0 ], [ 0, %37 ], [ %.mux.le, %.loopexit.loopexit24.split.loop.exit ], [ 0, %47 ], [ 0, %43 ], [ 0, %51 ]
   %59 = load ptr, ptr %4, align 8, !tbaa !21
   call void @SSL_free(ptr noundef %59) #24
   %60 = load ptr, ptr %3, align 8, !tbaa !21
@@ -11640,8 +11640,8 @@ PACKET_get_1.exit.i:                              ; preds = %143, %142
   br label %get_MFL_from_client_hello.exit
 
 get_MFL_from_client_hello.exit:                   ; preds = %.preheader.i, %PACKET_get_net_2.exit.i, %PACKET_get_net_2.exit.thread.i, %PACKET_get_length_prefixed_2.exit46.i, %PACKET_get_1.exit.i, %37, %41, %PACKET_buf_init.exit.i, %PACKET_buf_init.exit.thread.i, %PACKET_forward.exit22.i, %PACKET_forward.exit25.i, %PACKET_get_length_prefixed_1.exit.i, %PACKET_get_length_prefixed_1.exit.thread.i, %PACKET_get_length_prefixed_2.exit.i, %PACKET_get_length_prefixed_2.exit.thread.i, %PACKET_get_length_prefixed_1.exit36.i, %PACKET_as_length_prefixed_2.exit.i, %139
-  %.023 = phi i32 [ 0, %37 ], [ 0, %41 ], [ 0, %PACKET_buf_init.exit.thread.i ], [ 0, %PACKET_buf_init.exit.i ], [ 0, %PACKET_forward.exit22.i ], [ 0, %PACKET_forward.exit25.i ], [ 0, %PACKET_get_length_prefixed_1.exit.thread.i ], [ 0, %PACKET_get_length_prefixed_2.exit.thread.i ], [ 0, %PACKET_get_length_prefixed_1.exit36.i ], [ 0, %PACKET_as_length_prefixed_2.exit.i ], [ 0, %139 ], [ %spec.select24, %PACKET_get_1.exit.i ], [ 0, %PACKET_get_length_prefixed_2.exit.i ], [ 0, %PACKET_get_length_prefixed_1.exit.i ], [ 0, %PACKET_get_length_prefixed_2.exit46.i ], [ 0, %PACKET_get_net_2.exit.thread.i ], [ 0, %PACKET_get_net_2.exit.i ], [ 0, %.preheader.i ]
-  %.0.i = phi i32 [ 0, %37 ], [ 0, %41 ], [ 0, %PACKET_buf_init.exit.thread.i ], [ 0, %PACKET_buf_init.exit.i ], [ 0, %PACKET_forward.exit22.i ], [ 0, %PACKET_forward.exit25.i ], [ 0, %PACKET_get_length_prefixed_1.exit.thread.i ], [ 0, %PACKET_get_length_prefixed_2.exit.thread.i ], [ 0, %PACKET_get_length_prefixed_1.exit36.i ], [ 0, %PACKET_as_length_prefixed_2.exit.i ], [ 0, %139 ], [ %spec.select25, %PACKET_get_1.exit.i ], [ 0, %PACKET_get_length_prefixed_2.exit.i ], [ 0, %PACKET_get_length_prefixed_1.exit.i ], [ 0, %PACKET_get_length_prefixed_2.exit46.i ], [ 0, %PACKET_get_net_2.exit.thread.i ], [ 0, %PACKET_get_net_2.exit.i ], [ 0, %.preheader.i ]
+  %.023 = phi i32 [ 0, %37 ], [ 0, %41 ], [ 0, %PACKET_buf_init.exit.thread.i ], [ 0, %PACKET_buf_init.exit.i ], [ 0, %PACKET_forward.exit22.i ], [ 0, %PACKET_forward.exit25.i ], [ 0, %PACKET_get_length_prefixed_1.exit.thread.i ], [ 0, %PACKET_get_length_prefixed_2.exit.thread.i ], [ 0, %PACKET_get_length_prefixed_1.exit36.i ], [ 0, %PACKET_as_length_prefixed_2.exit.i ], [ 0, %PACKET_get_length_prefixed_1.exit.i ], [ 0, %PACKET_get_length_prefixed_2.exit.i ], [ 0, %139 ], [ %spec.select24, %PACKET_get_1.exit.i ], [ 0, %PACKET_get_length_prefixed_2.exit46.i ], [ 0, %PACKET_get_net_2.exit.thread.i ], [ 0, %PACKET_get_net_2.exit.i ], [ 0, %.preheader.i ]
+  %.0.i = phi i32 [ 0, %37 ], [ 0, %41 ], [ 0, %PACKET_buf_init.exit.thread.i ], [ 0, %PACKET_buf_init.exit.i ], [ 0, %PACKET_forward.exit22.i ], [ 0, %PACKET_forward.exit25.i ], [ 0, %PACKET_get_length_prefixed_1.exit.thread.i ], [ 0, %PACKET_get_length_prefixed_2.exit.thread.i ], [ 0, %PACKET_get_length_prefixed_1.exit36.i ], [ 0, %PACKET_as_length_prefixed_2.exit.i ], [ 0, %PACKET_get_length_prefixed_1.exit.i ], [ 0, %PACKET_get_length_prefixed_2.exit.i ], [ 0, %139 ], [ %spec.select25, %PACKET_get_1.exit.i ], [ 0, %PACKET_get_length_prefixed_2.exit46.i ], [ 0, %PACKET_get_net_2.exit.thread.i ], [ 0, %PACKET_get_net_2.exit.i ], [ 0, %.preheader.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %147 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 7451, ptr noundef nonnull @.str.759, i32 noundef %.0.i) #24
   %.not21 = icmp eq i32 %147, 0
@@ -13552,7 +13552,7 @@ define internal range(i32 0, 2) i32 @test_multiblock_write(i32 noundef %0) #1 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %._crit_edge, %59, %65, %52, %44, %37, %31, %22
-  %.016 = phi i32 [ 0, %22 ], [ %spec.select, %._crit_edge ], [ 0, %65 ], [ 0, %59 ], [ 0, %52 ], [ 0, %44 ], [ 0, %37 ], [ 0, %31 ], [ 0, %.lr.ph ]
+  %.016 = phi i32 [ 0, %31 ], [ 0, %22 ], [ %spec.select, %._crit_edge ], [ 0, %65 ], [ 0, %59 ], [ 0, %52 ], [ 0, %44 ], [ 0, %37 ], [ 0, %.lr.ph ]
   %80 = load ptr, ptr %5, align 8, !tbaa !21
   call void @SSL_free(ptr noundef %80) #24
   %81 = load ptr, ptr %4, align 8, !tbaa !21
@@ -17274,7 +17274,7 @@ define internal range(i32 0, 2) i32 @test_tls13_record_padding(i32 noundef %0) #
   br label %.loopexit
 
 .loopexit:                                        ; preds = %118, %108, %114, %99, %105, %123, %89, %83, %77, %71, %65, %59, %52, %44, %38, %32, %26, %20, %1, %126
-  %.015 = phi i32 [ 1, %126 ], [ 0, %123 ], [ 0, %89 ], [ 0, %52 ], [ 0, %65 ], [ 0, %59 ], [ 0, %83 ], [ 0, %77 ], [ 0, %71 ], [ 0, %44 ], [ 0, %20 ], [ 0, %32 ], [ 0, %26 ], [ 0, %38 ], [ 0, %1 ], [ 0, %105 ], [ 0, %99 ], [ 0, %114 ], [ 0, %108 ], [ 0, %118 ]
+  %.015 = phi i32 [ 0, %1 ], [ 0, %38 ], [ 0, %26 ], [ 0, %32 ], [ 0, %20 ], [ 1, %126 ], [ 0, %123 ], [ 0, %89 ], [ 0, %52 ], [ 0, %65 ], [ 0, %59 ], [ 0, %83 ], [ 0, %77 ], [ 0, %71 ], [ 0, %44 ], [ 0, %105 ], [ 0, %99 ], [ 0, %114 ], [ 0, %108 ], [ 0, %118 ]
   %127 = load ptr, ptr %5, align 8, !tbaa !21
   call void @SSL_free(ptr noundef %127) #24
   %128 = load ptr, ptr %4, align 8, !tbaa !21
@@ -17714,11 +17714,11 @@ define internal range(i32 0, 2) i32 @test_pipelining(i32 noundef %0) #1 {
   br label %.thread148
 
 .thread148:                                       ; preds = %.preheader157, %116, %.preheader, %.thread152, %142, %119, %124, %98, %101, %79, %84, %72, %62, %67, %56, %.thread, %45, %42, %33, %26, %23, %12
-  %.0101 = phi i32 [ 0, %23 ], [ 0, %26 ], [ 0, %12 ], [ %spec.select139, %142 ], [ 0, %.thread152 ], [ 0, %124 ], [ 0, %119 ], [ 0, %101 ], [ 0, %98 ], [ 0, %84 ], [ 0, %79 ], [ 0, %72 ], [ 0, %67 ], [ 0, %62 ], [ 0, %56 ], [ 0, %.thread ], [ 0, %45 ], [ 0, %42 ], [ 0, %33 ], [ 0, %116 ], [ 0, %.preheader ], [ 0, %.preheader157 ]
-  %.098 = phi ptr [ @.str.1249, %23 ], [ @.str.1249, %26 ], [ @.str.1249, %12 ], [ %.199145, %142 ], [ %.199145, %.thread152 ], [ %.199145, %124 ], [ %.199145, %119 ], [ %.199145, %101 ], [ %.199145, %98 ], [ %.199145, %84 ], [ %.199145, %79 ], [ %.199145, %72 ], [ %.199145, %67 ], [ %.199145, %62 ], [ %.199145, %56 ], [ %.199145, %.thread ], [ %43, %45 ], [ %43, %42 ], [ @.str.1249, %33 ], [ %.199145, %116 ], [ %.199145, %.preheader ], [ %.199145, %.preheader157 ]
-  %.092 = phi i64 [ 10, %23 ], [ 10, %26 ], [ 10, %12 ], [ %.193146, %142 ], [ %.193146, %.thread152 ], [ %.193146, %124 ], [ %.193146, %119 ], [ %.193146, %101 ], [ %.193146, %98 ], [ %.193146, %84 ], [ %.193146, %79 ], [ %.193146, %72 ], [ %.193146, %67 ], [ %.193146, %62 ], [ %.193146, %56 ], [ %.193146, %.thread ], [ 16384, %45 ], [ 16384, %42 ], [ 10, %33 ], [ %.193146, %116 ], [ %.193146, %.preheader ], [ %.193146, %.preheader157 ]
-  %.089 = phi ptr [ null, %23 ], [ null, %26 ], [ null, %12 ], [ %53, %142 ], [ %53, %.thread152 ], [ %53, %124 ], [ %53, %119 ], [ %53, %101 ], [ %53, %98 ], [ %53, %84 ], [ %53, %79 ], [ %53, %72 ], [ %53, %67 ], [ %53, %62 ], [ %53, %56 ], [ %53, %.thread ], [ null, %45 ], [ null, %42 ], [ null, %33 ], [ %53, %116 ], [ %53, %.preheader ], [ %53, %.preheader157 ]
-  %.188 = phi ptr [ null, %23 ], [ %.2, %26 ], [ %.087, %12 ], [ %.2, %142 ], [ %.2, %.thread152 ], [ %.2, %124 ], [ %.2, %119 ], [ %.2, %101 ], [ %.2, %98 ], [ %.2, %84 ], [ %.2, %79 ], [ %.2, %72 ], [ %.2, %67 ], [ %.2, %62 ], [ %.2, %56 ], [ %.2, %.thread ], [ %.2, %45 ], [ %.2, %42 ], [ %.2, %33 ], [ %.2, %116 ], [ %.2, %.preheader ], [ %.2, %.preheader157 ]
+  %.0101 = phi i32 [ 0, %23 ], [ 0, %116 ], [ 0, %26 ], [ 0, %12 ], [ %spec.select139, %142 ], [ 0, %.thread152 ], [ 0, %124 ], [ 0, %119 ], [ 0, %101 ], [ 0, %98 ], [ 0, %84 ], [ 0, %79 ], [ 0, %72 ], [ 0, %67 ], [ 0, %62 ], [ 0, %56 ], [ 0, %.thread ], [ 0, %45 ], [ 0, %42 ], [ 0, %33 ], [ 0, %.preheader ], [ 0, %.preheader157 ]
+  %.098 = phi ptr [ @.str.1249, %23 ], [ %.199145, %116 ], [ @.str.1249, %26 ], [ @.str.1249, %12 ], [ %.199145, %142 ], [ %.199145, %.thread152 ], [ %.199145, %124 ], [ %.199145, %119 ], [ %.199145, %101 ], [ %.199145, %98 ], [ %.199145, %84 ], [ %.199145, %79 ], [ %.199145, %72 ], [ %.199145, %67 ], [ %.199145, %62 ], [ %.199145, %56 ], [ %.199145, %.thread ], [ %43, %45 ], [ %43, %42 ], [ @.str.1249, %33 ], [ %.199145, %.preheader ], [ %.199145, %.preheader157 ]
+  %.092 = phi i64 [ 10, %23 ], [ %.193146, %116 ], [ 10, %26 ], [ 10, %12 ], [ %.193146, %142 ], [ %.193146, %.thread152 ], [ %.193146, %124 ], [ %.193146, %119 ], [ %.193146, %101 ], [ %.193146, %98 ], [ %.193146, %84 ], [ %.193146, %79 ], [ %.193146, %72 ], [ %.193146, %67 ], [ %.193146, %62 ], [ %.193146, %56 ], [ %.193146, %.thread ], [ 16384, %45 ], [ 16384, %42 ], [ 10, %33 ], [ %.193146, %.preheader ], [ %.193146, %.preheader157 ]
+  %.089 = phi ptr [ null, %23 ], [ %53, %116 ], [ null, %26 ], [ null, %12 ], [ %53, %142 ], [ %53, %.thread152 ], [ %53, %124 ], [ %53, %119 ], [ %53, %101 ], [ %53, %98 ], [ %53, %84 ], [ %53, %79 ], [ %53, %72 ], [ %53, %67 ], [ %53, %62 ], [ %53, %56 ], [ %53, %.thread ], [ null, %45 ], [ null, %42 ], [ null, %33 ], [ %53, %.preheader ], [ %53, %.preheader157 ]
+  %.188 = phi ptr [ null, %23 ], [ %.2, %116 ], [ %.2, %26 ], [ %.087, %12 ], [ %.2, %142 ], [ %.2, %.thread152 ], [ %.2, %124 ], [ %.2, %119 ], [ %.2, %101 ], [ %.2, %98 ], [ %.2, %84 ], [ %.2, %79 ], [ %.2, %72 ], [ %.2, %67 ], [ %.2, %62 ], [ %.2, %56 ], [ %.2, %.thread ], [ %.2, %45 ], [ %.2, %42 ], [ %.2, %33 ], [ %.2, %.preheader ], [ %.2, %.preheader157 ]
   %145 = load ptr, ptr %5, align 8, !tbaa !21
   call void @SSL_free(ptr noundef %145) #24
   %146 = load ptr, ptr %4, align 8, !tbaa !21
@@ -18514,9 +18514,9 @@ define internal range(i32 0, 2) i32 @test_data_retry() #1 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %63, %.lr.ph, %73, %84, %86, %.preheader40, %._crit_edge, %54, %90, %49, %45, %39, %32, %25, %15, %0
-  %.024 = phi i32 [ 0, %54 ], [ %spec.select, %._crit_edge ], [ 0, %90 ], [ 0, %0 ], [ 0, %49 ], [ 0, %45 ], [ 0, %39 ], [ 0, %32 ], [ 0, %25 ], [ 0, %15 ], [ 0, %.preheader40 ], [ 0, %86 ], [ 0, %84 ], [ 0, %73 ], [ 0, %.lr.ph ], [ 0, %63 ]
-  %.022 = phi ptr [ null, %54 ], [ null, %._crit_edge ], [ null, %90 ], [ null, %0 ], [ %47, %49 ], [ %47, %45 ], [ null, %39 ], [ null, %32 ], [ null, %25 ], [ null, %15 ], [ null, %.preheader40 ], [ null, %86 ], [ null, %84 ], [ null, %73 ], [ null, %.lr.ph ], [ null, %63 ]
-  %.021 = phi ptr [ null, %54 ], [ %10, %._crit_edge ], [ %10, %90 ], [ %10, %0 ], [ %10, %49 ], [ %10, %45 ], [ %10, %39 ], [ %10, %32 ], [ %10, %25 ], [ %10, %15 ], [ %10, %.preheader40 ], [ %10, %86 ], [ %10, %84 ], [ %10, %73 ], [ %10, %.lr.ph ], [ %10, %63 ]
+  %.024 = phi i32 [ 0, %54 ], [ %spec.select, %._crit_edge ], [ 0, %90 ], [ 0, %15 ], [ 0, %25 ], [ 0, %32 ], [ 0, %39 ], [ 0, %45 ], [ 0, %0 ], [ 0, %49 ], [ 0, %.preheader40 ], [ 0, %86 ], [ 0, %84 ], [ 0, %73 ], [ 0, %.lr.ph ], [ 0, %63 ]
+  %.022 = phi ptr [ null, %54 ], [ null, %._crit_edge ], [ null, %90 ], [ null, %15 ], [ null, %25 ], [ null, %32 ], [ null, %39 ], [ %47, %45 ], [ null, %0 ], [ %47, %49 ], [ null, %.preheader40 ], [ null, %86 ], [ null, %84 ], [ null, %73 ], [ null, %.lr.ph ], [ null, %63 ]
+  %.021 = phi ptr [ null, %54 ], [ %10, %._crit_edge ], [ %10, %90 ], [ %10, %15 ], [ %10, %25 ], [ %10, %32 ], [ %10, %39 ], [ %10, %45 ], [ %10, %0 ], [ %10, %49 ], [ %10, %.preheader40 ], [ %10, %86 ], [ %10, %84 ], [ %10, %73 ], [ %10, %.lr.ph ], [ %10, %63 ]
   %101 = load ptr, ptr %4, align 8, !tbaa !21
   call void @SSL_free(ptr noundef %101) #24
   %102 = load ptr, ptr %3, align 8, !tbaa !21
@@ -19321,7 +19321,7 @@ define internal range(i32 0, 2) i32 @test_quic_tls() #1 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %88, %124, %106, %112, %118, %96, %101, %59, %65, %71, %77, %52, %28, %34, %40, %46, %21, %0
-  %.07 = phi i32 [ 0, %0 ], [ %spec.select, %124 ], [ 0, %118 ], [ 0, %112 ], [ 0, %106 ], [ 0, %101 ], [ 0, %96 ], [ 0, %77 ], [ 0, %71 ], [ 0, %65 ], [ 0, %59 ], [ 0, %52 ], [ 0, %46 ], [ 0, %40 ], [ 0, %34 ], [ 0, %28 ], [ 0, %21 ], [ 0, %88 ]
+  %.07 = phi i32 [ 0, %21 ], [ 0, %0 ], [ %spec.select, %124 ], [ 0, %118 ], [ 0, %112 ], [ 0, %106 ], [ 0, %101 ], [ 0, %96 ], [ 0, %77 ], [ 0, %71 ], [ 0, %65 ], [ 0, %59 ], [ 0, %52 ], [ 0, %46 ], [ 0, %40 ], [ 0, %34 ], [ 0, %28 ], [ 0, %88 ]
   %129 = load ptr, ptr %3, align 8, !tbaa !21
   call void @SSL_free(ptr noundef %129) #24
   %130 = load ptr, ptr %4, align 8, !tbaa !21
@@ -20387,7 +20387,7 @@ define internal fastcc range(i32 0, 2) i32 @execute_test_session(i32 noundef ran
   br label %.thread
 
 .thread:                                          ; preds = %273, %316, %293, %283
-  %.1 = phi ptr [ %267, %293 ], [ %267, %283 ], [ %296, %316 ], [ %267, %273 ]
+  %.1 = phi ptr [ %296, %316 ], [ %267, %283 ], [ %267, %293 ], [ %267, %273 ]
   store i32 0, ptr @get_called, align 4, !tbaa !14
   store i32 0, ptr @remove_called, align 4, !tbaa !14
   store i32 0, ptr @new_called, align 4, !tbaa !14
@@ -21151,7 +21151,7 @@ define internal range(i32 0, 2) i32 @find_session_cb(ptr readnone captures(none)
   br label %19
 
 19:                                               ; preds = %.sink.split, %8, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %8 ], [ 1, %.sink.split ]
+  %.0 = phi i32 [ 0, %8 ], [ 0, %4 ], [ 1, %.sink.split ]
   ret i32 %.0
 }
 
@@ -21671,7 +21671,7 @@ define internal fastcc range(i32 0, 2) i32 @test_keylog_output(ptr noundef %0, p
   br label %.loopexit
 
 .loopexit:                                        ; preds = %109, %106, %103, %100, %97, %42, %39, %36, %33, %30, %27, %24, %16, %13, %10, %162, %._crit_edge, %127, %132, %137, %142, %147, %152, %157, %112
-  %.088 = phi i32 [ 0, %112 ], [ 0, %._crit_edge ], [ %spec.select113, %162 ], [ 0, %157 ], [ 0, %152 ], [ 0, %147 ], [ 0, %142 ], [ 0, %137 ], [ 0, %132 ], [ 0, %127 ], [ 0, %10 ], [ 0, %13 ], [ 0, %16 ], [ 0, %24 ], [ 0, %27 ], [ 0, %30 ], [ 0, %33 ], [ 0, %36 ], [ 0, %39 ], [ 0, %42 ], [ 0, %97 ], [ 0, %100 ], [ 0, %103 ], [ 0, %106 ], [ 0, %109 ]
+  %.088 = phi i32 [ 0, %127 ], [ 0, %132 ], [ 0, %137 ], [ 0, %142 ], [ 0, %147 ], [ 0, %152 ], [ 0, %157 ], [ %spec.select113, %162 ], [ 0, %._crit_edge ], [ 0, %112 ], [ 0, %10 ], [ 0, %13 ], [ 0, %16 ], [ 0, %24 ], [ 0, %27 ], [ 0, %30 ], [ 0, %33 ], [ 0, %36 ], [ 0, %39 ], [ 0, %42 ], [ 0, %97 ], [ 0, %100 ], [ 0, %103 ], [ 0, %106 ], [ 0, %109 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.088
@@ -24393,9 +24393,9 @@ define internal fastcc range(i32 0, 2) i32 @test_ca_names_int(i32 noundef range(
   br label %.loopexit
 
 .loopexit:                                        ; preds = %10, %14, %157, %145, %149, %152, %143, %127, %129, %132, %137, %109, %116, %72, %75, %83, %91, %94, %100, %34, %37, %44, %52, %55, %61, %21
-  %.052 = phi i32 [ 0, %21 ], [ %spec.select, %157 ], [ 0, %152 ], [ 0, %149 ], [ 0, %145 ], [ 0, %137 ], [ 0, %132 ], [ 0, %129 ], [ 0, %127 ], [ 0, %143 ], [ 0, %116 ], [ 0, %109 ], [ 0, %100 ], [ 0, %94 ], [ 0, %91 ], [ 0, %83 ], [ 0, %75 ], [ 0, %72 ], [ 0, %61 ], [ 0, %55 ], [ 0, %52 ], [ 0, %44 ], [ 0, %37 ], [ 0, %34 ], [ 0, %14 ], [ 0, %10 ]
-  %.047 = phi ptr [ null, %21 ], [ null, %157 ], [ null, %152 ], [ null, %149 ], [ null, %145 ], [ null, %137 ], [ null, %132 ], [ null, %129 ], [ null, %127 ], [ null, %143 ], [ null, %116 ], [ null, %109 ], [ %73, %100 ], [ %73, %94 ], [ %73, %91 ], [ %73, %83 ], [ %73, %75 ], [ %73, %72 ], [ %35, %61 ], [ %35, %55 ], [ %35, %52 ], [ %35, %44 ], [ %35, %37 ], [ %35, %34 ], [ null, %14 ], [ null, %10 ]
-  %.0 = phi ptr [ null, %21 ], [ null, %157 ], [ null, %152 ], [ null, %149 ], [ null, %145 ], [ null, %137 ], [ null, %132 ], [ null, %129 ], [ null, %127 ], [ null, %143 ], [ null, %116 ], [ null, %109 ], [ %92, %100 ], [ %92, %94 ], [ %92, %91 ], [ null, %83 ], [ null, %75 ], [ null, %72 ], [ %53, %61 ], [ %53, %55 ], [ %53, %52 ], [ null, %44 ], [ null, %37 ], [ null, %34 ], [ null, %14 ], [ null, %10 ]
+  %.052 = phi i32 [ 0, %34 ], [ 0, %37 ], [ 0, %21 ], [ %spec.select, %157 ], [ 0, %152 ], [ 0, %149 ], [ 0, %145 ], [ 0, %137 ], [ 0, %132 ], [ 0, %129 ], [ 0, %127 ], [ 0, %143 ], [ 0, %116 ], [ 0, %109 ], [ 0, %100 ], [ 0, %94 ], [ 0, %91 ], [ 0, %83 ], [ 0, %75 ], [ 0, %72 ], [ 0, %61 ], [ 0, %55 ], [ 0, %52 ], [ 0, %44 ], [ 0, %14 ], [ 0, %10 ]
+  %.047 = phi ptr [ %35, %34 ], [ %35, %37 ], [ null, %21 ], [ null, %157 ], [ null, %152 ], [ null, %149 ], [ null, %145 ], [ null, %137 ], [ null, %132 ], [ null, %129 ], [ null, %127 ], [ null, %143 ], [ null, %116 ], [ null, %109 ], [ %73, %100 ], [ %73, %94 ], [ %73, %91 ], [ %73, %83 ], [ %73, %75 ], [ %73, %72 ], [ %35, %61 ], [ %35, %55 ], [ %35, %52 ], [ %35, %44 ], [ null, %14 ], [ null, %10 ]
+  %.0 = phi ptr [ null, %34 ], [ null, %37 ], [ null, %21 ], [ null, %157 ], [ null, %152 ], [ null, %149 ], [ null, %145 ], [ null, %137 ], [ null, %132 ], [ null, %129 ], [ null, %127 ], [ null, %143 ], [ null, %116 ], [ null, %109 ], [ %92, %100 ], [ %92, %94 ], [ %92, %91 ], [ null, %83 ], [ null, %75 ], [ null, %72 ], [ %53, %61 ], [ %53, %55 ], [ %53, %52 ], [ null, %44 ], [ null, %14 ], [ null, %10 ]
   %162 = load ptr, ptr %6, align 8, !tbaa !21
   call void @SSL_free(ptr noundef %162) #24
   %163 = load ptr, ptr %5, align 8, !tbaa !21

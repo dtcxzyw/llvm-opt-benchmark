@@ -4326,7 +4326,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1488: ; preds = %2
   br label %.thread1517
 
 .thread1517:                                      ; preds = %13, %1492, %1507, %1516
-  %.014321515 = phi i32 [ 2, %1516 ], [ 1, %1507 ], [ 0, %13 ], [ 1, %1492 ]
+  %.014321515 = phi i32 [ 2, %1516 ], [ 1, %1507 ], [ 1, %1492 ], [ 0, %13 ]
   %.614981509 = phi ptr [ %.21494, %1516 ], [ %.31495, %1507 ], [ %.01544, %1492 ], [ %.01544, %13 ]
   %.not1480 = icmp eq ptr %.614981509, %6
   br i1 %.not1480, label %1519, label %1518
@@ -4695,7 +4695,7 @@ _ZL9yytnamerrPcPKc.exit68:                        ; preds = %62, %.preheader, %.
   br label %.preheader, !llvm.loop !28
 
 _ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread8: ; preds = %_ZL9yytnamerrPcPKc.exit, %.preheader, %.critedge.i.i, %59, %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit
-  %.041 = phi i32 [ %.2.i.i, %.critedge.i.i ], [ -2, %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit ], [ -1, %59 ], [ 0, %.preheader ], [ -2, %_ZL9yytnamerrPcPKc.exit ]
+  %.041 = phi i32 [ %.2.i.i, %.critedge.i.i ], [ -2, %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit ], [ 0, %.preheader ], [ -1, %59 ], [ -2, %_ZL9yytnamerrPcPKc.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.041
 }

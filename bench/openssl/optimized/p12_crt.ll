@@ -215,7 +215,7 @@ pkcs12_remove_bag.exit129:                        ; preds = %86, %83, %80
   br i1 %89, label %.lr.ph.split, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %pkcs12_remove_bag.exit129, %pkcs12_remove_bag.exit129.us, %pkcs12_remove_bag.exit.thread, %pkcs12_remove_bag.exit
-  %.087173 = phi ptr [ %.1, %pkcs12_remove_bag.exit.thread ], [ %.087, %pkcs12_remove_bag.exit ], [ %.087174177, %pkcs12_remove_bag.exit129.us ], [ %.087, %pkcs12_remove_bag.exit129 ]
+  %.087173 = phi ptr [ %.1, %pkcs12_remove_bag.exit.thread ], [ %.087174177, %pkcs12_remove_bag.exit129.us ], [ %.087, %pkcs12_remove_bag.exit ], [ %.087, %pkcs12_remove_bag.exit129 ]
   %90 = load ptr, ptr %18, align 8, !tbaa !8
   %.not111 = icmp eq ptr %90, null
   br i1 %.not111, label %93, label %91
@@ -373,7 +373,7 @@ PKCS12_add_safes_ex.exit:                         ; preds = %138
   br i1 %.not124, label %PKCS12_add_safe_ex.exit.thread, label %145
 
 PKCS12_add_safe_ex.exit.thread:                   ; preds = %.lr.ph.split, %.lr.ph.split.us, %PKCS12_add_safe_ex.exit, %140, %133, %122, %141, %111, %107, %copy_bag_attr.exit132, %copy_bag_attr.exit, %94, %91, %116, %82, %52
-  %.085 = phi ptr [ null, %52 ], [ null, %82 ], [ null, %116 ], [ null, %133 ], [ %136, %141 ], [ null, %91 ], [ null, %111 ], [ null, %107 ], [ null, %copy_bag_attr.exit132 ], [ null, %copy_bag_attr.exit ], [ null, %94 ], [ null, %122 ], [ null, %140 ], [ null, %PKCS12_add_safe_ex.exit ], [ null, %.lr.ph.split.us ], [ null, %.lr.ph.split ]
+  %.085 = phi ptr [ null, %52 ], [ null, %PKCS12_add_safe_ex.exit ], [ null, %82 ], [ null, %116 ], [ null, %133 ], [ %136, %141 ], [ null, %91 ], [ null, %111 ], [ null, %107 ], [ null, %copy_bag_attr.exit132 ], [ null, %copy_bag_attr.exit ], [ null, %94 ], [ null, %122 ], [ null, %140 ], [ null, %.lr.ph.split.us ], [ null, %.lr.ph.split ]
   call void @PKCS12_free(ptr noundef %.085) #3
   %143 = load ptr, ptr %17, align 8, !tbaa !3
   call void @OPENSSL_sk_pop_free(ptr noundef %143, ptr noundef nonnull @PKCS7_free) #3

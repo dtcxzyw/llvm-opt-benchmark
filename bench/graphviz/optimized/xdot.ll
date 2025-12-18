@@ -678,7 +678,7 @@ gv_recalloc.exit60:                               ; preds = %233, %231, %214
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %245
 
-.loopexit:                                        ; preds = %121, %124, %127, %130, %133, %135, %144, %146, %155, %166, %176, %183, %186, %205, %parseRect.exit.i, %parseRect.exit218.i, %parseReal.exit.i, %parseReal.exit221.i, %parseReal.exit224.i, %parseReal.exit226.i, %parseRect.exit229.i, %208, %84, %parseRect.exit.thread.i, %parseRect.exit218.thread.i, %parseReal.exit.thread.i, %parseReal.exit221.thread.i, %parseReal.exit224.thread.i, %parseReal.exit226.thread.i, %parseRect.exit229.thread.i
+.loopexit:                                        ; preds = %208, %parseRect.exit229.i, %parseReal.exit226.i, %parseReal.exit224.i, %parseReal.exit221.i, %parseReal.exit.i, %121, %parseRect.exit218.i, %parseRect.exit.i, %124, %205, %127, %186, %183, %130, %133, %176, %166, %135, %144, %155, %146, %84, %parseRect.exit.thread.i, %parseRect.exit218.thread.i, %parseRect.exit229.thread.i, %parseReal.exit226.thread.i, %parseReal.exit224.thread.i, %parseReal.exit221.thread.i, %parseReal.exit.thread.i
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %242 = getelementptr inbounds nuw i8, ptr %.044176, i64 32
@@ -1537,7 +1537,7 @@ agxbuf_trim_zeros.exit.thread.i388:               ; preds = %89
   br label %95
 
 agxbuf_trim_zeros.exit.i320:                      ; preds = %61, %69, %90, %86, %82, %.critedge.i.i381
-  %.val.i14.i321 = phi i8 [ %91, %90 ], [ %.val.i39.i.i379, %.critedge.i.i381 ], [ %.val.i39.i.i379, %86 ], [ %.val.i39.i.i379, %82 ], [ %.val.i3951.i.i316, %69 ], [ %.val.i.i.i310, %61 ]
+  %.val.i14.i321 = phi i8 [ %91, %90 ], [ %.val.i39.i.i379, %82 ], [ %.val.i39.i.i379, %.critedge.i.i381 ], [ %.val.i3951.i.i316, %69 ], [ %.val.i39.i.i379, %86 ], [ %.val.i.i.i310, %61 ]
   switch i8 %.val.i14.i321, label %agxblen.exit.i.i.i377 [
     i8 -1, label %agxbuf_trim_zeros.exit.i320._crit_edge
     i8 31, label %agxbclear.exit.thread.i.i322
@@ -1701,7 +1701,7 @@ agxbuf_trim_zeros.exit40.thread.i364:             ; preds = %148
   br label %154
 
 agxbuf_trim_zeros.exit40.i334:                    ; preds = %120, %128, %149, %145, %141, %.critedge.i32.i357
-  %.val.i41.i335 = phi i8 [ %150, %149 ], [ %.val.i39.i30.i355, %.critedge.i32.i357 ], [ %.val.i39.i30.i355, %145 ], [ %.val.i39.i30.i355, %141 ], [ %.val.i3951.i25.i330, %128 ], [ %.val.i.i16.i324, %120 ]
+  %.val.i41.i335 = phi i8 [ %150, %149 ], [ %.val.i39.i30.i355, %141 ], [ %.val.i39.i30.i355, %.critedge.i32.i357 ], [ %.val.i3951.i25.i330, %128 ], [ %.val.i39.i30.i355, %145 ], [ %.val.i.i16.i324, %120 ]
   switch i8 %.val.i41.i335, label %agxblen.exit.i.i55.i353 [
     i8 -1, label %agxbuf_trim_zeros.exit40.i334._crit_edge
     i8 31, label %agxbclear.exit.thread.i42.i336
@@ -1899,7 +1899,7 @@ agxbuf_trim_zeros.exit.thread.i304:               ; preds = %217
   br label %223
 
 agxbuf_trim_zeros.exit.i236:                      ; preds = %189, %197, %218, %214, %210, %.critedge.i.i297
-  %.val.i14.i237 = phi i8 [ %219, %218 ], [ %.val.i39.i.i295, %.critedge.i.i297 ], [ %.val.i39.i.i295, %214 ], [ %.val.i39.i.i295, %210 ], [ %.val.i3951.i.i232, %197 ], [ %.val.i.i.i226, %189 ]
+  %.val.i14.i237 = phi i8 [ %219, %218 ], [ %.val.i39.i.i295, %210 ], [ %.val.i39.i.i295, %.critedge.i.i297 ], [ %.val.i3951.i.i232, %197 ], [ %.val.i39.i.i295, %214 ], [ %.val.i.i.i226, %189 ]
   switch i8 %.val.i14.i237, label %agxblen.exit.i.i.i293 [
     i8 -1, label %agxbuf_trim_zeros.exit.i236._crit_edge
     i8 31, label %agxbclear.exit.thread.i.i238
@@ -2063,7 +2063,7 @@ agxbuf_trim_zeros.exit40.thread.i280:             ; preds = %276
   br label %282
 
 agxbuf_trim_zeros.exit40.i250:                    ; preds = %248, %256, %277, %273, %269, %.critedge.i32.i273
-  %.val.i41.i251 = phi i8 [ %278, %277 ], [ %.val.i39.i30.i271, %.critedge.i32.i273 ], [ %.val.i39.i30.i271, %273 ], [ %.val.i39.i30.i271, %269 ], [ %.val.i3951.i25.i246, %256 ], [ %.val.i.i16.i240, %248 ]
+  %.val.i41.i251 = phi i8 [ %278, %277 ], [ %.val.i39.i30.i271, %269 ], [ %.val.i39.i30.i271, %.critedge.i32.i273 ], [ %.val.i3951.i25.i246, %256 ], [ %.val.i39.i30.i271, %273 ], [ %.val.i.i16.i240, %248 ]
   switch i8 %.val.i41.i251, label %agxblen.exit.i.i55.i269 [
     i8 -1, label %agxbuf_trim_zeros.exit40.i250._crit_edge
     i8 31, label %agxbclear.exit.thread.i42.i252
@@ -2261,7 +2261,7 @@ agxbuf_trim_zeros.exit.thread.i220:               ; preds = %345
   br label %351
 
 agxbuf_trim_zeros.exit.i152:                      ; preds = %317, %325, %346, %342, %338, %.critedge.i.i213
-  %.val.i14.i153 = phi i8 [ %347, %346 ], [ %.val.i39.i.i211, %.critedge.i.i213 ], [ %.val.i39.i.i211, %342 ], [ %.val.i39.i.i211, %338 ], [ %.val.i3951.i.i148, %325 ], [ %.val.i.i.i142, %317 ]
+  %.val.i14.i153 = phi i8 [ %347, %346 ], [ %.val.i39.i.i211, %338 ], [ %.val.i39.i.i211, %.critedge.i.i213 ], [ %.val.i3951.i.i148, %325 ], [ %.val.i39.i.i211, %342 ], [ %.val.i.i.i142, %317 ]
   switch i8 %.val.i14.i153, label %agxblen.exit.i.i.i209 [
     i8 -1, label %agxbuf_trim_zeros.exit.i152._crit_edge
     i8 31, label %agxbclear.exit.thread.i.i154
@@ -2425,7 +2425,7 @@ agxbuf_trim_zeros.exit40.thread.i196:             ; preds = %404
   br label %410
 
 agxbuf_trim_zeros.exit40.i166:                    ; preds = %376, %384, %405, %401, %397, %.critedge.i32.i189
-  %.val.i41.i167 = phi i8 [ %406, %405 ], [ %.val.i39.i30.i187, %.critedge.i32.i189 ], [ %.val.i39.i30.i187, %401 ], [ %.val.i39.i30.i187, %397 ], [ %.val.i3951.i25.i162, %384 ], [ %.val.i.i16.i156, %376 ]
+  %.val.i41.i167 = phi i8 [ %406, %405 ], [ %.val.i39.i30.i187, %397 ], [ %.val.i39.i30.i187, %.critedge.i32.i189 ], [ %.val.i3951.i25.i162, %384 ], [ %.val.i39.i30.i187, %401 ], [ %.val.i.i16.i156, %376 ]
   switch i8 %.val.i41.i167, label %agxblen.exit.i.i55.i185 [
     i8 -1, label %agxbuf_trim_zeros.exit40.i166._crit_edge
     i8 31, label %agxbclear.exit.thread.i42.i168
@@ -2623,7 +2623,7 @@ agxbuf_trim_zeros.exit.thread.i136:               ; preds = %473
   br label %479
 
 agxbuf_trim_zeros.exit.i68:                       ; preds = %445, %453, %474, %470, %466, %.critedge.i.i129
-  %.val.i14.i69 = phi i8 [ %475, %474 ], [ %.val.i39.i.i127, %.critedge.i.i129 ], [ %.val.i39.i.i127, %470 ], [ %.val.i39.i.i127, %466 ], [ %.val.i3951.i.i64, %453 ], [ %.val.i.i.i58, %445 ]
+  %.val.i14.i69 = phi i8 [ %475, %474 ], [ %.val.i39.i.i127, %466 ], [ %.val.i39.i.i127, %.critedge.i.i129 ], [ %.val.i3951.i.i64, %453 ], [ %.val.i39.i.i127, %470 ], [ %.val.i.i.i58, %445 ]
   switch i8 %.val.i14.i69, label %agxblen.exit.i.i.i125 [
     i8 -1, label %agxbuf_trim_zeros.exit.i68._crit_edge
     i8 31, label %agxbclear.exit.thread.i.i70
@@ -2787,7 +2787,7 @@ agxbuf_trim_zeros.exit40.thread.i112:             ; preds = %532
   br label %538
 
 agxbuf_trim_zeros.exit40.i82:                     ; preds = %504, %512, %533, %529, %525, %.critedge.i32.i105
-  %.val.i41.i83 = phi i8 [ %534, %533 ], [ %.val.i39.i30.i103, %.critedge.i32.i105 ], [ %.val.i39.i30.i103, %529 ], [ %.val.i39.i30.i103, %525 ], [ %.val.i3951.i25.i78, %512 ], [ %.val.i.i16.i72, %504 ]
+  %.val.i41.i83 = phi i8 [ %534, %533 ], [ %.val.i39.i30.i103, %525 ], [ %.val.i39.i30.i103, %.critedge.i32.i105 ], [ %.val.i3951.i25.i78, %512 ], [ %.val.i39.i30.i103, %529 ], [ %.val.i.i16.i72, %504 ]
   switch i8 %.val.i41.i83, label %agxblen.exit.i.i55.i101 [
     i8 -1, label %agxbuf_trim_zeros.exit40.i82._crit_edge
     i8 31, label %agxbclear.exit.thread.i42.i84
@@ -3151,7 +3151,7 @@ agxbuf_trim_zeros.exit.thread.i53:                ; preds = %659
   br label %665
 
 agxbuf_trim_zeros.exit.i27:                       ; preds = %631, %639, %660, %656, %652, %.critedge.i.i46
-  %.val.i14.i = phi i8 [ %661, %660 ], [ %.val.i39.i.i44, %.critedge.i.i46 ], [ %.val.i39.i.i44, %656 ], [ %.val.i39.i.i44, %652 ], [ %.val.i3951.i.i23, %639 ], [ %.val.i.i.i17, %631 ]
+  %.val.i14.i = phi i8 [ %661, %660 ], [ %.val.i39.i.i44, %652 ], [ %.val.i39.i.i44, %.critedge.i.i46 ], [ %.val.i3951.i.i23, %639 ], [ %.val.i39.i.i44, %656 ], [ %.val.i.i.i17, %631 ]
   switch i8 %.val.i14.i, label %agxblen.exit.i.i.i42 [
     i8 -1, label %agxbuf_trim_zeros.exit.i27._crit_edge
     i8 31, label %agxbclear.exit.thread.i.i28
@@ -3315,7 +3315,7 @@ agxbuf_trim_zeros.exit40.thread.i:                ; preds = %718
   br label %724
 
 agxbuf_trim_zeros.exit40.i:                       ; preds = %690, %698, %719, %715, %711, %.critedge.i32.i
-  %.val.i41.i = phi i8 [ %720, %719 ], [ %.val.i39.i30.i, %.critedge.i32.i ], [ %.val.i39.i30.i, %715 ], [ %.val.i39.i30.i, %711 ], [ %.val.i3951.i25.i, %698 ], [ %.val.i.i16.i, %690 ]
+  %.val.i41.i = phi i8 [ %720, %719 ], [ %.val.i39.i30.i, %711 ], [ %.val.i39.i30.i, %.critedge.i32.i ], [ %.val.i3951.i25.i, %698 ], [ %.val.i39.i30.i, %715 ], [ %.val.i.i16.i, %690 ]
   switch i8 %.val.i41.i, label %agxblen.exit.i.i55.i [
     i8 -1, label %agxbuf_trim_zeros.exit40.i._crit_edge
     i8 31, label %agxbclear.exit.thread.i42.i
@@ -3522,7 +3522,7 @@ agxbuf_trim_zeros.exit.thread.i:                  ; preds = %801
   br label %807
 
 agxbuf_trim_zeros.exit.i:                         ; preds = %773, %781, %802, %798, %794, %.critedge.i.i
-  %.val.i5.i = phi i8 [ %803, %802 ], [ %.val.i39.i.i, %.critedge.i.i ], [ %.val.i39.i.i, %798 ], [ %.val.i39.i.i, %794 ], [ %.val.i3951.i.i, %781 ], [ %.val.i.i.i, %773 ]
+  %.val.i5.i = phi i8 [ %803, %802 ], [ %.val.i39.i.i, %794 ], [ %.val.i39.i.i, %.critedge.i.i ], [ %.val.i3951.i.i, %781 ], [ %.val.i39.i.i, %798 ], [ %.val.i.i.i, %773 ]
   switch i8 %.val.i5.i, label %agxblen.exit.i.i.i14 [
     i8 -1, label %agxbuf_trim_zeros.exit.i._crit_edge
     i8 31, label %agxbuse.exit.i4
@@ -4375,7 +4375,7 @@ agxbuf_trim_zeros.exit.thread.i:                  ; preds = %300
   br label %306
 
 agxbuf_trim_zeros.exit.i:                         ; preds = %272, %280, %301, %297, %293, %.critedge.i.i
-  %.val.i5.i = phi i8 [ %302, %301 ], [ %.val.i39.i.i, %.critedge.i.i ], [ %.val.i39.i.i, %297 ], [ %.val.i39.i.i, %293 ], [ %.val.i3951.i.i, %280 ], [ %.val.i.i.i, %272 ]
+  %.val.i5.i = phi i8 [ %302, %301 ], [ %.val.i39.i.i, %293 ], [ %.val.i39.i.i, %.critedge.i.i ], [ %.val.i3951.i.i, %280 ], [ %.val.i39.i.i, %297 ], [ %.val.i.i.i, %272 ]
   switch i8 %.val.i5.i, label %agxblen.exit.i.i.i17 [
     i8 -1, label %agxbuf_trim_zeros.exit.i._crit_edge
     i8 31, label %agxbuse.exit.i7
@@ -5892,7 +5892,7 @@ agxbuf_trim_zeros.exit.thread:                    ; preds = %40
   br label %46
 
 agxbuf_trim_zeros.exit:                           ; preds = %12, %20, %.critedge.i, %33, %37, %41
-  %.val.i13 = phi i8 [ %42, %41 ], [ %.val.i39.i, %.critedge.i ], [ %.val.i39.i, %37 ], [ %.val.i39.i, %33 ], [ %.val.i3951.i, %20 ], [ %.val.i.i, %12 ]
+  %.val.i13 = phi i8 [ %42, %41 ], [ %.val.i39.i, %33 ], [ %.val.i39.i, %.critedge.i ], [ %.val.i3951.i, %20 ], [ %.val.i39.i, %37 ], [ %.val.i.i, %12 ]
   switch i8 %.val.i13, label %agxblen.exit.i.i [
     i8 -1, label %46
     i8 31, label %agxbclear.exit.thread.i
@@ -6059,7 +6059,7 @@ agxbuf_trim_zeros.exit39.thread:                  ; preds = %102
   br label %108
 
 agxbuf_trim_zeros.exit39:                         ; preds = %74, %82, %.critedge.i31, %95, %99, %103
-  %.val.i40 = phi i8 [ %104, %103 ], [ %.val.i39.i29, %.critedge.i31 ], [ %.val.i39.i29, %99 ], [ %.val.i39.i29, %95 ], [ %.val.i3951.i24, %82 ], [ %.val.i.i15, %74 ]
+  %.val.i40 = phi i8 [ %104, %103 ], [ %.val.i39.i29, %95 ], [ %.val.i39.i29, %.critedge.i31 ], [ %.val.i3951.i24, %82 ], [ %.val.i39.i29, %99 ], [ %.val.i.i15, %74 ]
   switch i8 %.val.i40, label %agxblen.exit.i.i54 [
     i8 -1, label %108
     i8 31, label %agxbclear.exit.thread.i41
@@ -6226,7 +6226,7 @@ agxbuf_trim_zeros.exit80.thread:                  ; preds = %164
   br label %170
 
 agxbuf_trim_zeros.exit80:                         ; preds = %136, %144, %.critedge.i72, %157, %161, %165
-  %.val.i81 = phi i8 [ %166, %165 ], [ %.val.i39.i70, %.critedge.i72 ], [ %.val.i39.i70, %161 ], [ %.val.i39.i70, %157 ], [ %.val.i3951.i65, %144 ], [ %.val.i.i56, %136 ]
+  %.val.i81 = phi i8 [ %166, %165 ], [ %.val.i39.i70, %157 ], [ %.val.i39.i70, %.critedge.i72 ], [ %.val.i3951.i65, %144 ], [ %.val.i39.i70, %161 ], [ %.val.i.i56, %136 ]
   switch i8 %.val.i81, label %agxblen.exit.i.i95 [
     i8 -1, label %170
     i8 31, label %agxbclear.exit.thread.i82
@@ -6393,7 +6393,7 @@ agxbuf_trim_zeros.exit121.thread:                 ; preds = %226
   br label %232
 
 agxbuf_trim_zeros.exit121:                        ; preds = %198, %206, %.critedge.i113, %219, %223, %227
-  %.val.i122 = phi i8 [ %228, %227 ], [ %.val.i39.i111, %.critedge.i113 ], [ %.val.i39.i111, %223 ], [ %.val.i39.i111, %219 ], [ %.val.i3951.i106, %206 ], [ %.val.i.i97, %198 ]
+  %.val.i122 = phi i8 [ %228, %227 ], [ %.val.i39.i111, %219 ], [ %.val.i39.i111, %.critedge.i113 ], [ %.val.i3951.i106, %206 ], [ %.val.i39.i111, %223 ], [ %.val.i.i97, %198 ]
   switch i8 %.val.i122, label %agxblen.exit.i.i136 [
     i8 -1, label %232
     i8 31, label %agxbclear.exit.thread.i123
@@ -6609,7 +6609,7 @@ agxbuf_trim_zeros.exit.thread:                    ; preds = %50
   br label %56
 
 agxbuf_trim_zeros.exit:                           ; preds = %22, %30, %.critedge.i, %43, %47, %51
-  %.val.i14 = phi i8 [ %52, %51 ], [ %.val.i39.i, %.critedge.i ], [ %.val.i39.i, %47 ], [ %.val.i39.i, %43 ], [ %.val.i3951.i, %30 ], [ %.val.i.i, %22 ]
+  %.val.i14 = phi i8 [ %52, %51 ], [ %.val.i39.i, %43 ], [ %.val.i39.i, %.critedge.i ], [ %.val.i3951.i, %30 ], [ %.val.i39.i, %47 ], [ %.val.i.i, %22 ]
   switch i8 %.val.i14, label %agxblen.exit.i.i [
     i8 -1, label %56
     i8 31, label %agxbclear.exit.thread.i
@@ -6777,7 +6777,7 @@ agxbuf_trim_zeros.exit40.thread:                  ; preds = %113
   br label %119
 
 agxbuf_trim_zeros.exit40:                         ; preds = %85, %93, %.critedge.i32, %106, %110, %114
-  %.val.i41 = phi i8 [ %115, %114 ], [ %.val.i39.i30, %.critedge.i32 ], [ %.val.i39.i30, %110 ], [ %.val.i39.i30, %106 ], [ %.val.i3951.i25, %93 ], [ %.val.i.i16, %85 ]
+  %.val.i41 = phi i8 [ %115, %114 ], [ %.val.i39.i30, %106 ], [ %.val.i39.i30, %.critedge.i32 ], [ %.val.i3951.i25, %93 ], [ %.val.i39.i30, %110 ], [ %.val.i.i16, %85 ]
   switch i8 %.val.i41, label %agxblen.exit.i.i55 [
     i8 -1, label %119
     i8 31, label %agxbclear.exit.thread.i42
@@ -7233,7 +7233,7 @@ agxbuf_trim_zeros.exit.thread:                    ; preds = %40
   br label %46
 
 agxbuf_trim_zeros.exit:                           ; preds = %12, %20, %.critedge.i, %33, %37, %41
-  %.val.i5 = phi i8 [ %42, %41 ], [ %.val.i39.i, %.critedge.i ], [ %.val.i39.i, %37 ], [ %.val.i39.i, %33 ], [ %.val.i3951.i, %20 ], [ %.val.i.i, %12 ]
+  %.val.i5 = phi i8 [ %42, %41 ], [ %.val.i39.i, %33 ], [ %.val.i39.i, %.critedge.i ], [ %.val.i3951.i, %20 ], [ %.val.i39.i, %37 ], [ %.val.i.i, %12 ]
   switch i8 %.val.i5, label %agxblen.exit.i.i [
     i8 -1, label %46
     i8 31, label %agxbclear.exit.thread.i

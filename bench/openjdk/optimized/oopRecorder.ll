@@ -577,7 +577,7 @@ _ZNK17GrowableArrayViewIiE8containsERKi.exit:     ; preds = %53, %44
   br i1 %62, label %44, label %.loopexit28, !llvm.loop !9
 
 .loopexit28:                                      ; preds = %_ZNK17GrowableArrayViewIiE8containsERKi.exit, %.thread, %.loopexit, %58, %32, %23, %8, %2
-  %.018 = phi i32 [ %19, %23 ], [ 0, %2 ], [ -1, %8 ], [ -1, %32 ], [ %.0.in3439, %58 ], [ %.0.in3439, %.loopexit ], [ -1, %.thread ], [ -1, %_ZNK17GrowableArrayViewIiE8containsERKi.exit ]
+  %.018 = phi i32 [ %19, %23 ], [ 0, %2 ], [ -1, %8 ], [ %.0.in3439, %.loopexit ], [ -1, %32 ], [ %.0.in3439, %58 ], [ -1, %.thread ], [ -1, %_ZNK17GrowableArrayViewIiE8containsERKi.exit ]
   ret i32 %.018
 }
 
@@ -1105,7 +1105,7 @@ _ZNK17GrowableArrayViewIiE8containsERKi.exit:     ; preds = %53, %44
   br i1 %62, label %44, label %.loopexit28, !llvm.loop !11
 
 .loopexit28:                                      ; preds = %_ZNK17GrowableArrayViewIiE8containsERKi.exit, %.thread, %.loopexit, %58, %32, %23, %8, %2
-  %.018 = phi i32 [ %19, %23 ], [ 0, %2 ], [ -1, %8 ], [ -1, %32 ], [ %.0.in3439, %58 ], [ %.0.in3439, %.loopexit ], [ -1, %.thread ], [ -1, %_ZNK17GrowableArrayViewIiE8containsERKi.exit ]
+  %.018 = phi i32 [ %19, %23 ], [ 0, %2 ], [ -1, %8 ], [ %.0.in3439, %.loopexit ], [ -1, %32 ], [ %.0.in3439, %58 ], [ -1, %.thread ], [ -1, %_ZNK17GrowableArrayViewIiE8containsERKi.exit ]
   ret i32 %.018
 }
 
@@ -2130,7 +2130,7 @@ _ZNK17GrowableArrayViewIiE8containsERKi.exit:     ; preds = %53, %44
   br i1 %62, label %44, label %.loopexit28, !llvm.loop !16
 
 .loopexit28:                                      ; preds = %_ZNK17GrowableArrayViewIiE8containsERKi.exit, %.thread, %.loopexit, %58, %32, %23, %8, %2
-  %.018 = phi i32 [ %19, %23 ], [ 0, %2 ], [ -1, %8 ], [ -1, %32 ], [ %.0.in3439, %58 ], [ %.0.in3439, %.loopexit ], [ -1, %.thread ], [ -1, %_ZNK17GrowableArrayViewIiE8containsERKi.exit ]
+  %.018 = phi i32 [ %19, %23 ], [ 0, %2 ], [ -1, %8 ], [ %.0.in3439, %.loopexit ], [ -1, %32 ], [ %.0.in3439, %58 ], [ -1, %.thread ], [ -1, %_ZNK17GrowableArrayViewIiE8containsERKi.exit ]
   ret i32 %.018
 }
 

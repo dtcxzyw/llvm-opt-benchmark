@@ -2934,7 +2934,7 @@ define hidden void @_ZN6spacer12dl_interface15get_cover_deltaEiP9func_decl(ptr d
   br i1 %.not27.old.i.i.i, label %_ZNK7obj_mapI9func_declPS0_E4findES1_RS1_.exit, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %38, %35
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %38 ], [ %37, %35 ]
+  %.137.i.i.i.be = phi ptr [ %37, %35 ], [ %.old.i.i.i, %38 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !374
 
 _ZNK7obj_mapI9func_declPS0_E9find_coreES1_.exit.i: ; preds = %19, %30
@@ -2944,7 +2944,7 @@ _ZNK7obj_mapI9func_declPS0_E9find_coreES1_.exit.i: ; preds = %19, %30
   br label %_ZNK7obj_mapI9func_declPS0_E4findES1_RS1_.exit
 
 _ZNK7obj_mapI9func_declPS0_E4findES1_RS1_.exit:   ; preds = %24, %35, %38, %.preheader.i.i.i, %_ZNK7obj_mapI9func_declPS0_E9find_coreES1_.exit.i
-  %.0 = phi ptr [ %3, %.preheader.i.i.i ], [ %40, %_ZNK7obj_mapI9func_declPS0_E9find_coreES1_.exit.i ], [ %3, %35 ], [ %3, %38 ], [ %3, %24 ]
+  %.0 = phi ptr [ %3, %.preheader.i.i.i ], [ %3, %35 ], [ %40, %_ZNK7obj_mapI9func_declPS0_E9find_coreES1_.exit.i ], [ %3, %38 ], [ %3, %24 ]
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 552
   %42 = load ptr, ptr %41, align 8, !tbaa !214
   tail call void @_ZN6spacer7context15get_cover_deltaEiP9func_declS2_(ptr dead_on_unwind writable sret(%class.obj_ref) align 8 %0, ptr noundef nonnull align 8 dereferenceable(712) %42, i32 noundef %2, ptr noundef %3, ptr noundef %.0)
@@ -3415,7 +3415,7 @@ define hidden noundef i32 @_ZN6spacer12dl_interface14get_num_levelsEP9func_decl(
   br i1 %.not27.old.i.i.i, label %_ZNK7obj_mapI9func_declPS0_E4findES1_RS1_.exit, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %36, %33
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %36 ], [ %35, %33 ]
+  %.137.i.i.i.be = phi ptr [ %35, %33 ], [ %.old.i.i.i, %36 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !374
 
 _ZNK7obj_mapI9func_declPS0_E9find_coreES1_.exit.i: ; preds = %17, %28
@@ -3425,7 +3425,7 @@ _ZNK7obj_mapI9func_declPS0_E9find_coreES1_.exit.i: ; preds = %17, %28
   br label %_ZNK7obj_mapI9func_declPS0_E4findES1_RS1_.exit
 
 _ZNK7obj_mapI9func_declPS0_E4findES1_RS1_.exit:   ; preds = %22, %33, %36, %.preheader.i.i.i, %_ZNK7obj_mapI9func_declPS0_E9find_coreES1_.exit.i
-  %.0 = phi ptr [ %1, %.preheader.i.i.i ], [ %38, %_ZNK7obj_mapI9func_declPS0_E9find_coreES1_.exit.i ], [ %1, %33 ], [ %1, %36 ], [ %1, %22 ]
+  %.0 = phi ptr [ %1, %.preheader.i.i.i ], [ %1, %33 ], [ %38, %_ZNK7obj_mapI9func_declPS0_E9find_coreES1_.exit.i ], [ %1, %36 ], [ %1, %22 ]
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %40 = load ptr, ptr %39, align 8, !tbaa !214
   %41 = tail call noundef i32 @_ZN6spacer7context14get_num_levelsEP9func_decl(ptr noundef nonnull align 8 dereferenceable(712) %40, ptr noundef %.0)

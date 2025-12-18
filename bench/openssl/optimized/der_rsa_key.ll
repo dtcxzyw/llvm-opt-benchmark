@@ -144,7 +144,7 @@ define range(i32 0, 2) i32 @ossl_DER_w_RSASSA_PSS_params(ptr noundef %0, i32 nou
   br label %DER_w_MaskGenAlgorithm.exit
 
 DER_w_MaskGenAlgorithm.exit:                      ; preds = %37, %39, %40, %41, %42, %43
-  %.09.i = phi ptr [ @der_aid_mgf1SHA512_256Identifier, %43 ], [ @der_aid_mgf1SHA256Identifier, %39 ], [ @der_aid_mgf1SHA384Identifier, %40 ], [ @der_aid_mgf1SHA512Identifier, %41 ], [ @der_aid_mgf1SHA512_224Identifier, %42 ], [ @der_aid_mgf1SHA224Identifier, %37 ]
+  %.09.i = phi ptr [ @der_aid_mgf1SHA512_256Identifier, %43 ], [ @der_aid_mgf1SHA512_224Identifier, %42 ], [ @der_aid_mgf1SHA256Identifier, %39 ], [ @der_aid_mgf1SHA384Identifier, %40 ], [ @der_aid_mgf1SHA512Identifier, %41 ], [ @der_aid_mgf1SHA224Identifier, %37 ]
   %44 = tail call i32 @ossl_DER_w_precompiled(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %.09.i, i64 noundef 28) #2
   %.not37 = icmp eq i32 %44, 0
   br i1 %.not37, label %.critedge, label %DER_w_MaskGenAlgorithm.exit.thread41

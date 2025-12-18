@@ -2534,9 +2534,9 @@ define internal fastcc ptr @ieee80211_tdls_build_mgmt_packet_data(ptr noundef %0
   br label %.thread47
 
 .thread47:                                        ; preds = %392, %397, %395, %372, %.thread45
-  %401 = phi i8 [ %365, %395 ], [ %365, %.thread45 ], [ %.pre70.pre, %372 ], [ %365, %397 ], [ %365, %392 ]
-  %402 = phi i32 [ %363, %395 ], [ %363, %.thread45 ], [ %.pre69.pre, %372 ], [ %363, %397 ], [ %363, %392 ]
-  %403 = phi ptr [ null, %395 ], [ null, %.thread45 ], [ null, %372 ], [ %spec.select, %397 ], [ null, %392 ]
+  %401 = phi i8 [ %365, %397 ], [ %365, %395 ], [ %365, %.thread45 ], [ %.pre70.pre, %372 ], [ %365, %392 ]
+  %402 = phi i32 [ %363, %397 ], [ %363, %395 ], [ %363, %.thread45 ], [ %.pre69.pre, %372 ], [ %363, %392 ]
+  %403 = phi ptr [ %spec.select, %397 ], [ null, %395 ], [ null, %.thread45 ], [ null, %372 ], [ null, %392 ]
   %404 = icmp eq i8 %401, 0
   br i1 %404, label %407, label %405
 

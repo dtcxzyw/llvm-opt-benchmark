@@ -4164,7 +4164,7 @@ _ZN6duckdb11NumericCastIlmvEET_T0_.exit:          ; preds = %238
   br i1 %263, label %.lr.ph141.split, label %_ZN6duckdb17ListFilterFunctor13PushEmptyListERNS_6vectorImLb1EEE.exit, !llvm.loop !284
 
 _ZN6duckdb17ListFilterFunctor13PushEmptyListERNS_6vectorImLb1EEE.exit: ; preds = %260, %195, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i, %126, %_ZN6duckdb17ListFilterFunctor14SetResultEntryEPNS_12list_entry_tERmRKS1_mRNS_6vectorImLb1EEE.exit
-  %.160 = phi i64 [ %.059159, %_ZN6duckdb17ListFilterFunctor14SetResultEntryEPNS_12list_entry_tERmRKS1_mRNS_6vectorImLb1EEE.exit ], [ %.059159, %126 ], [ %.059159, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i ], [ %196, %195 ], [ %261, %260 ]
+  %.160 = phi i64 [ %.059159, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i ], [ %.059159, %_ZN6duckdb17ListFilterFunctor14SetResultEntryEPNS_12list_entry_tERmRKS1_mRNS_6vectorImLb1EEE.exit ], [ %.059159, %126 ], [ %196, %195 ], [ %261, %260 ]
   %264 = add nuw i64 %.064157, 1
   %265 = load i64, ptr %52, align 8, !tbaa !250
   %266 = icmp ult i64 %264, %265

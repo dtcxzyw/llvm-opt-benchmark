@@ -3414,7 +3414,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit: ; preds = %_ZN32
   ret void
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit141, %.loopexit.split-lp.loopexit138, %.loopexit118, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %299, %237
-  %.pn42.pn = phi { ptr, i32 } [ %238, %237 ], [ %300, %299 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit118 ], [ %lpad.loopexit120, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit126, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %169, %.loopexit.split-lp.loopexit138 ], [ %388, %.loopexit.split-lp.loopexit141 ]
+  %.pn42.pn = phi { ptr, i32 } [ %300, %299 ], [ %169, %.loopexit.split-lp.loopexit138 ], [ %238, %237 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit118 ], [ %lpad.loopexit120, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit126, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %388, %.loopexit.split-lp.loopexit141 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver16RemovedPrimEntryELj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(136) %6) #20
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br i1 %14, label %420, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit104

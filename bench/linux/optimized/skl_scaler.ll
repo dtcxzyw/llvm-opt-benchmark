@@ -862,7 +862,7 @@ define dso_local i32 @intel_atomic_setup_scalers(ptr noundef %0, ptr noundef rea
   br i1 %224, label %.thread34, label %29, !llvm.loop !25
 
 .thread34:                                        ; preds = %.thread32, %206, %119, %.thread35, %27
-  %225 = phi i32 [ -22, %27 ], [ %57, %.thread35 ], [ -22, %119 ], [ -22, %206 ], [ 0, %.thread32 ]
+  %225 = phi i32 [ -22, %27 ], [ %57, %.thread35 ], [ -22, %206 ], [ -22, %119 ], [ 0, %.thread32 ]
   ret i32 %225
 }
 

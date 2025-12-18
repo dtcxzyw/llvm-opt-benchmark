@@ -1332,7 +1332,7 @@ oid_parse_number.exit86.thread:                   ; preds = %70, %.lr.ph.i82
   br label %96
 
 oid_parse_number.exit.thread:                     ; preds = %28, %.lr.ph177, %.lr.ph185, %.lr.ph.i82.preheader, %77, %82, %.lr.ph193, %.lr.ph.i75.preheader, %.lr.ph.i.preheader, %84, %56, %51, %oid_parse_number.exit79.thread118, %31, %oid_parse_number.exit.thread107, %60
-  %.052 = phi i32 [ -104, %oid_parse_number.exit79.thread118 ], [ -104, %oid_parse_number.exit.thread107 ], [ -104, %51 ], [ %62, %60 ], [ -104, %56 ], [ -104, %31 ], [ -106, %84 ], [ -104, %.lr.ph.i75.preheader ], [ -104, %.lr.ph.i.preheader ], [ -104, %.lr.ph185 ], [ -104, %.lr.ph193 ], [ %83, %82 ], [ -104, %.lr.ph.i82.preheader ], [ -104, %77 ], [ -104, %.lr.ph177 ], [ -104, %28 ]
+  %.052 = phi i32 [ -104, %.lr.ph185 ], [ -104, %oid_parse_number.exit79.thread118 ], [ -104, %oid_parse_number.exit.thread107 ], [ -106, %84 ], [ -104, %.lr.ph.i.preheader ], [ -104, %51 ], [ %62, %60 ], [ -104, %.lr.ph.i75.preheader ], [ -104, %.lr.ph193 ], [ -104, %56 ], [ -104, %77 ], [ -104, %31 ], [ -104, %.lr.ph.i82.preheader ], [ %83, %82 ], [ -104, %.lr.ph177 ], [ -104, %28 ]
   %94 = load ptr, ptr %15, align 8, !tbaa !13
   tail call void @free(ptr noundef %94) #13
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 8

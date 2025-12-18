@@ -2383,7 +2383,7 @@ define internal fastcc noundef i32 @_ZL14fixupShortcutsPjiP14dtNavMeshQuery(ptr 
   br i1 %exitcond75.not, label %.loopexit, label %.lr.ph65, !llvm.loop !18
 
 .loopexit:                                        ; preds = %.lr.ph65, %13, %.preheader.lr.ph, %45, %._crit_edge61, %8, %3
-  %.037 = phi i32 [ %1, %8 ], [ %1, %3 ], [ %1, %._crit_edge61 ], [ %47, %45 ], [ %1, %.preheader.lr.ph ], [ %1, %13 ], [ %47, %.lr.ph65 ]
+  %.037 = phi i32 [ %1, %8 ], [ %1, %3 ], [ %1, %._crit_edge61 ], [ %47, %45 ], [ %1, %13 ], [ %1, %.preheader.lr.ph ], [ %47, %.lr.ph65 ]
   ret i32 %.037
 }
 

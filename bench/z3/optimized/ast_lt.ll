@@ -285,24 +285,24 @@ _ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i.i.i:   ; preds = %102, %_ZNK9paramete
   %117 = load i8, ptr %116, align 4
   %118 = and i8 %117, 1
   %119 = icmp eq i8 %118, 0
-  br i1 %119, label %120, label %_ZneRK8rationalS1_.exit
+  br i1 %119, label %120, label %125
 
 120:                                              ; preds = %113
   %121 = getelementptr inbounds nuw i8, ptr %96, i64 20
   %122 = load i8, ptr %121, align 4
   %123 = and i8 %122, 1
   %124 = icmp eq i8 %123, 0
-  br i1 %124, label %125, label %_ZneRK8rationalS1_.exit
+  br i1 %124, label %_ZneRK8rationalS1_.exit, label %125
 
-125:                                              ; preds = %120
-  %126 = load i32, ptr %114, align 8, !tbaa !27
-  %127 = load i32, ptr %115, align 8, !tbaa !27
-  %128 = icmp eq i32 %126, %127
-  br i1 %128, label %_ZltRK8rationalS1_.exit, label %_ZneRK8rationalS1_.exit.thread
+125:                                              ; preds = %120, %113
+  %126 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %97, ptr noundef nonnull align 8 dereferenceable(16) %114, ptr noundef nonnull align 8 dereferenceable(16) %115)
+  %127 = icmp eq i32 %126, 0
+  br i1 %127, label %_ZltRK8rationalS1_.exit, label %_ZneRK8rationalS1_.exit.thread
 
-_ZneRK8rationalS1_.exit:                          ; preds = %113, %120
-  %129 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %97, ptr noundef nonnull align 8 dereferenceable(16) %114, ptr noundef nonnull align 8 dereferenceable(16) %115)
-  %130 = icmp eq i32 %129, 0
+_ZneRK8rationalS1_.exit:                          ; preds = %120
+  %128 = load i32, ptr %114, align 8, !tbaa !27
+  %129 = load i32, ptr %115, align 8, !tbaa !27
+  %130 = icmp eq i32 %128, %129
   br i1 %130, label %_ZltRK8rationalS1_.exit, label %_ZneRK8rationalS1_.exit.thread
 
 _ZneRK8rationalS1_.exit.thread:                   ; preds = %125, %107, %_ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i.i.i, %_ZneRK8rationalS1_.exit
@@ -676,24 +676,24 @@ _ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i.i.i401: ; preds = %297, %_ZNK9paramet
   %312 = load i8, ptr %311, align 4
   %313 = and i8 %312, 1
   %314 = icmp eq i8 %313, 0
-  br i1 %314, label %315, label %_ZneRK8rationalS1_.exit402
+  br i1 %314, label %315, label %320
 
 315:                                              ; preds = %308
   %316 = getelementptr inbounds nuw i8, ptr %291, i64 20
   %317 = load i8, ptr %316, align 4
   %318 = and i8 %317, 1
   %319 = icmp eq i8 %318, 0
-  br i1 %319, label %320, label %_ZneRK8rationalS1_.exit402
+  br i1 %319, label %_ZneRK8rationalS1_.exit402, label %320
 
-320:                                              ; preds = %315
-  %321 = load i32, ptr %309, align 8, !tbaa !27
-  %322 = load i32, ptr %310, align 8, !tbaa !27
-  %323 = icmp eq i32 %321, %322
-  br i1 %323, label %_ZltRK8rationalS1_.exit408, label %_ZneRK8rationalS1_.exit402.thread
+320:                                              ; preds = %315, %308
+  %321 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %292, ptr noundef nonnull align 8 dereferenceable(16) %309, ptr noundef nonnull align 8 dereferenceable(16) %310)
+  %322 = icmp eq i32 %321, 0
+  br i1 %322, label %_ZltRK8rationalS1_.exit408, label %_ZneRK8rationalS1_.exit402.thread
 
-_ZneRK8rationalS1_.exit402:                       ; preds = %308, %315
-  %324 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %292, ptr noundef nonnull align 8 dereferenceable(16) %309, ptr noundef nonnull align 8 dereferenceable(16) %310)
-  %325 = icmp eq i32 %324, 0
+_ZneRK8rationalS1_.exit402:                       ; preds = %315
+  %323 = load i32, ptr %309, align 8, !tbaa !27
+  %324 = load i32, ptr %310, align 8, !tbaa !27
+  %325 = icmp eq i32 %323, %324
   br i1 %325, label %_ZltRK8rationalS1_.exit408, label %_ZneRK8rationalS1_.exit402.thread
 
 _ZneRK8rationalS1_.exit402.thread:                ; preds = %320, %302, %_ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i.i.i401, %_ZneRK8rationalS1_.exit402
@@ -885,8 +885,8 @@ _ZltRK8rationalS1_.exit408:                       ; preds = %320, %_ZNK9paramete
   br label %.backedge
 
 .backedge:                                        ; preds = %490, %503, %516, %436, %_ZNK9parameter7get_astEv.exit378, %404, %_ZNK9parameter7get_astEv.exit, %._crit_edge1126, %._crit_edge1110, %532, %428
-  %.0246.be = phi ptr [ %534, %532 ], [ %412, %._crit_edge1126 ], [ %432, %428 ], [ %524, %._crit_edge1110 ], [ %507, %503 ], [ %93, %_ZNK9parameter7get_astEv.exit ], [ %408, %404 ], [ %288, %_ZNK9parameter7get_astEv.exit378 ], [ %440, %436 ], [ %520, %516 ], [ %494, %490 ]
-  %.0236.be = phi ptr [ %533, %532 ], [ %410, %._crit_edge1126 ], [ %430, %428 ], [ %522, %._crit_edge1110 ], [ %505, %503 ], [ %92, %_ZNK9parameter7get_astEv.exit ], [ %406, %404 ], [ %287, %_ZNK9parameter7get_astEv.exit378 ], [ %438, %436 ], [ %518, %516 ], [ %492, %490 ]
+  %.0246.be = phi ptr [ %534, %532 ], [ %412, %._crit_edge1126 ], [ %520, %516 ], [ %93, %_ZNK9parameter7get_astEv.exit ], [ %440, %436 ], [ %432, %428 ], [ %524, %._crit_edge1110 ], [ %408, %404 ], [ %288, %_ZNK9parameter7get_astEv.exit378 ], [ %507, %503 ], [ %494, %490 ]
+  %.0236.be = phi ptr [ %533, %532 ], [ %410, %._crit_edge1126 ], [ %518, %516 ], [ %92, %_ZNK9parameter7get_astEv.exit ], [ %438, %436 ], [ %430, %428 ], [ %522, %._crit_edge1110 ], [ %406, %404 ], [ %287, %_ZNK9parameter7get_astEv.exit378 ], [ %505, %503 ], [ %492, %490 ]
   %413 = icmp eq ptr %.0236.be, %.0246.be
   br i1 %413, label %.thread445, label %.lr.ph1141
 
@@ -1139,7 +1139,7 @@ _ZltRK8rationalS1_.exit408:                       ; preds = %320, %_ZNK9paramete
   br label %.thread445
 
 .thread445:                                       ; preds = %.backedge, %2, %257, %253, %_ZNK4decl18get_num_parametersEv.exit366, %62, %58, %_ZNK4decl18get_num_parametersEv.exit310, %281, %_ZNK9parameter11get_zstringEv.exit432, %_ZNK9parameter7get_intEv.exit376, %_ZNK9parameter10get_symbolEv.exit396, %_ZNK9parameter10get_doubleEv.exit416, %_ZNK9parameter10get_ext_idEv.exit424, %366, %370, %373, %86, %_ZNK9parameter11get_zstringEv.exit363, %_ZNK9parameter7get_intEv.exit318, %_ZNK9parameter10get_symbolEv.exit335, %_ZNK9parameter10get_doubleEv.exit349, %_ZNK9parameter10get_ext_idEv.exit356, %171, %175, %178, %.thread479, %535, %530, %479, %467, %460, %453, %446, %.preheader._crit_edge, %426, %419, %219, %210, %_ZNK4decl18get_num_parametersEv.exit312.split._crit_edge, %22, %14
-  %.1 = phi i1 [ %531, %530 ], [ %15, %14 ], [ false, %535 ], [ %25, %22 ], [ %372, %370 ], [ false, %_ZNK4decl18get_num_parametersEv.exit312.split._crit_edge ], [ %213, %210 ], [ %220, %219 ], [ false, %58 ], [ %177, %175 ], [ %420, %419 ], [ %427, %426 ], [ false, %.preheader._crit_edge ], [ %447, %446 ], [ %454, %453 ], [ %461, %460 ], [ %468, %467 ], [ %480, %479 ], [ %489, %.thread479 ], [ %87, %86 ], [ %203, %_ZNK9parameter11get_zstringEv.exit363 ], [ %91, %_ZNK9parameter7get_intEv.exit318 ], [ %94, %_ZNK9parameter10get_symbolEv.exit335 ], [ %183, %_ZNK9parameter10get_doubleEv.exit349 ], [ %186, %_ZNK9parameter10get_ext_idEv.exit356 ], [ %179, %178 ], [ %174, %171 ], [ %282, %281 ], [ %398, %_ZNK9parameter11get_zstringEv.exit432 ], [ %286, %_ZNK9parameter7get_intEv.exit376 ], [ %289, %_ZNK9parameter10get_symbolEv.exit396 ], [ %378, %_ZNK9parameter10get_doubleEv.exit416 ], [ %381, %_ZNK9parameter10get_ext_idEv.exit424 ], [ %374, %373 ], [ %369, %366 ], [ false, %_ZNK4decl18get_num_parametersEv.exit310 ], [ %65, %62 ], [ false, %_ZNK4decl18get_num_parametersEv.exit366 ], [ %260, %257 ], [ false, %253 ], [ false, %2 ], [ false, %.backedge ]
+  %.1 = phi i1 [ %531, %530 ], [ %15, %14 ], [ false, %535 ], [ %25, %22 ], [ %372, %370 ], [ false, %253 ], [ false, %_ZNK4decl18get_num_parametersEv.exit312.split._crit_edge ], [ %213, %210 ], [ %220, %219 ], [ false, %58 ], [ %177, %175 ], [ %420, %419 ], [ %427, %426 ], [ false, %.preheader._crit_edge ], [ %447, %446 ], [ %454, %453 ], [ %461, %460 ], [ %468, %467 ], [ %480, %479 ], [ %489, %.thread479 ], [ %87, %86 ], [ %203, %_ZNK9parameter11get_zstringEv.exit363 ], [ %91, %_ZNK9parameter7get_intEv.exit318 ], [ %94, %_ZNK9parameter10get_symbolEv.exit335 ], [ %183, %_ZNK9parameter10get_doubleEv.exit349 ], [ %186, %_ZNK9parameter10get_ext_idEv.exit356 ], [ %179, %178 ], [ %174, %171 ], [ %282, %281 ], [ %398, %_ZNK9parameter11get_zstringEv.exit432 ], [ %286, %_ZNK9parameter7get_intEv.exit376 ], [ %289, %_ZNK9parameter10get_symbolEv.exit396 ], [ %378, %_ZNK9parameter10get_doubleEv.exit416 ], [ %381, %_ZNK9parameter10get_ext_idEv.exit424 ], [ %374, %373 ], [ %369, %366 ], [ false, %_ZNK4decl18get_num_parametersEv.exit310 ], [ %65, %62 ], [ false, %_ZNK4decl18get_num_parametersEv.exit366 ], [ %260, %257 ], [ false, %2 ], [ false, %.backedge ]
   ret i1 %.1
 }
 

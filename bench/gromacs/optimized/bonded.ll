@@ -2061,7 +2061,7 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor0EEEvfPKfiiPA4_fiPA3_f.
   br i1 %123, label %.lr.ph, label %.outer._crit_edge, !llvm.loop !44
 
 .outer._crit_edge:                                ; preds = %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor0EEEvfPKfiiPA4_fiPA3_f.exit, %79, %14
-  %.0.ph.lcssa = phi float [ 0.000000e+00, %14 ], [ %.0.ph98, %79 ], [ %122, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor0EEEvfPKfiiPA4_fiPA3_f.exit ]
+  %.0.ph.lcssa = phi float [ %.0.ph98, %79 ], [ 0.000000e+00, %14 ], [ %122, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor0EEEvfPKfiiPA4_fiPA3_f.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.0.ph.lcssa
 }
@@ -2262,7 +2262,7 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor0EEEvfPKfiiPA4_fiPA3_f.
   br label %.outer, !llvm.loop !45
 
 .split:                                           ; preds = %86, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor0EEEvfPKfiiPA4_fiPA3_f.exit.us, %37, %.split60.us
-  %.us-phi = phi float [ 0.000000e+00, %.split60.us ], [ %34, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor0EEEvfPKfiiPA4_fiPA3_f.exit.us ], [ %.0.ph.us92, %37 ], [ %.0.ph, %86 ]
+  %.us-phi = phi float [ %34, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor0EEEvfPKfiiPA4_fiPA3_f.exit.us ], [ %.0.ph.us92, %37 ], [ 0.000000e+00, %.split60.us ], [ %.0.ph, %86 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.us-phi
 }
@@ -2571,7 +2571,7 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor0EEEvfPKfiiPA4_fiPA3_f.
   br label %.outer, !llvm.loop !51
 
 .split:                                           ; preds = %84, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor0EEEvfPKfiiPA4_fiPA3_f.exit.us, %46, %.split71.us
-  %.us-phi = phi float [ 0.000000e+00, %.split71.us ], [ %43, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor0EEEvfPKfiiPA4_fiPA3_f.exit.us ], [ %.0.ph.us107, %46 ], [ %.0.ph, %84 ]
+  %.us-phi = phi float [ %43, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor0EEEvfPKfiiPA4_fiPA3_f.exit.us ], [ %.0.ph.us107, %46 ], [ 0.000000e+00, %.split71.us ], [ %.0.ph, %84 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.us-phi
 }
@@ -8028,7 +8028,7 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor1EEEvfPKfiiPA4_fiPA3_f.
   br i1 %123, label %.lr.ph, label %.outer._crit_edge, !llvm.loop !104
 
 .outer._crit_edge:                                ; preds = %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor1EEEvfPKfiiPA4_fiPA3_f.exit, %79, %14
-  %.0.ph.lcssa = phi float [ 0.000000e+00, %14 ], [ %.0.ph98, %79 ], [ %122, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor1EEEvfPKfiiPA4_fiPA3_f.exit ]
+  %.0.ph.lcssa = phi float [ %.0.ph98, %79 ], [ 0.000000e+00, %14 ], [ %122, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor1EEEvfPKfiiPA4_fiPA3_f.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.0.ph.lcssa
 }
@@ -8229,7 +8229,7 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor1EEEvfPKfiiPA4_fiPA3_f.
   br label %.outer, !llvm.loop !105
 
 .split:                                           ; preds = %86, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor1EEEvfPKfiiPA4_fiPA3_f.exit.us, %37, %.split60.us
-  %.us-phi = phi float [ 0.000000e+00, %.split60.us ], [ %34, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor1EEEvfPKfiiPA4_fiPA3_f.exit.us ], [ %.0.ph.us92, %37 ], [ %.0.ph, %86 ]
+  %.us-phi = phi float [ %34, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor1EEEvfPKfiiPA4_fiPA3_f.exit.us ], [ %.0.ph.us92, %37 ], [ 0.000000e+00, %.split60.us ], [ %.0.ph, %86 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.us-phi
 }
@@ -8458,7 +8458,7 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor1EEEvfPKfiiPA4_fiPA3_f.
   br label %.outer, !llvm.loop !106
 
 .split:                                           ; preds = %84, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor1EEEvfPKfiiPA4_fiPA3_f.exit.us, %46, %.split71.us
-  %.us-phi = phi float [ 0.000000e+00, %.split71.us ], [ %43, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor1EEEvfPKfiiPA4_fiPA3_f.exit.us ], [ %.0.ph.us107, %46 ], [ %.0.ph, %84 ]
+  %.us-phi = phi float [ %43, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor1EEEvfPKfiiPA4_fiPA3_f.exit.us ], [ %.0.ph.us107, %46 ], [ 0.000000e+00, %.split71.us ], [ %.0.ph, %84 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.us-phi
 }
@@ -12931,7 +12931,7 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor2EEEvfPKfiiPA4_fiPA3_f.
   br i1 %132, label %.lr.ph, label %.outer._crit_edge, !llvm.loop !152
 
 .outer._crit_edge:                                ; preds = %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor2EEEvfPKfiiPA4_fiPA3_f.exit, %81, %14
-  %.0.ph.lcssa = phi float [ 0.000000e+00, %14 ], [ %.0.ph98, %81 ], [ %131, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor2EEEvfPKfiiPA4_fiPA3_f.exit ]
+  %.0.ph.lcssa = phi float [ %.0.ph98, %81 ], [ 0.000000e+00, %14 ], [ %131, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor2EEEvfPKfiiPA4_fiPA3_f.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.0.ph.lcssa
 }
@@ -13148,7 +13148,7 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor2EEEvfPKfiiPA4_fiPA3_f.
   br label %.outer, !llvm.loop !153
 
 .split:                                           ; preds = %91, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor2EEEvfPKfiiPA4_fiPA3_f.exit.us, %42, %.split62.us
-  %.us-phi = phi float [ 0.000000e+00, %.split62.us ], [ %39, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor2EEEvfPKfiiPA4_fiPA3_f.exit.us ], [ %.0.ph.us94, %42 ], [ %.0.ph, %91 ]
+  %.us-phi = phi float [ %39, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor2EEEvfPKfiiPA4_fiPA3_f.exit.us ], [ %.0.ph.us94, %42 ], [ 0.000000e+00, %.split62.us ], [ %.0.ph, %91 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.us-phi
 }
@@ -13393,7 +13393,7 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor2EEEvfPKfiiPA4_fiPA3_f.
   br label %.outer, !llvm.loop !154
 
 .split:                                           ; preds = %89, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor2EEEvfPKfiiPA4_fiPA3_f.exit.us, %51, %.split73.us
-  %.us-phi = phi float [ 0.000000e+00, %.split73.us ], [ %48, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor2EEEvfPKfiiPA4_fiPA3_f.exit.us ], [ %.0.ph.us109, %51 ], [ %.0.ph, %89 ]
+  %.us-phi = phi float [ %48, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor2EEEvfPKfiiPA4_fiPA3_f.exit.us ], [ %.0.ph.us109, %51 ], [ 0.000000e+00, %.split73.us ], [ %.0.ph, %89 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.us-phi
 }
@@ -18650,7 +18650,7 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor3EEEvfPKfiiPA4_fiPA3_f.
   br i1 %123, label %.lr.ph, label %.outer._crit_edge, !llvm.loop !200
 
 .outer._crit_edge:                                ; preds = %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor3EEEvfPKfiiPA4_fiPA3_f.exit, %79, %14
-  %.0.ph.lcssa = phi float [ 0.000000e+00, %14 ], [ %.0.ph98, %79 ], [ %122, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor3EEEvfPKfiiPA4_fiPA3_f.exit ]
+  %.0.ph.lcssa = phi float [ %.0.ph98, %79 ], [ 0.000000e+00, %14 ], [ %122, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor3EEEvfPKfiiPA4_fiPA3_f.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.0.ph.lcssa
 }
@@ -18851,7 +18851,7 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor3EEEvfPKfiiPA4_fiPA3_f.
   br label %.outer, !llvm.loop !201
 
 .split:                                           ; preds = %86, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor3EEEvfPKfiiPA4_fiPA3_f.exit.us, %37, %.split60.us
-  %.us-phi = phi float [ 0.000000e+00, %.split60.us ], [ %34, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor3EEEvfPKfiiPA4_fiPA3_f.exit.us ], [ %.0.ph.us92, %37 ], [ %.0.ph, %86 ]
+  %.us-phi = phi float [ %34, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor3EEEvfPKfiiPA4_fiPA3_f.exit.us ], [ %.0.ph.us92, %37 ], [ 0.000000e+00, %.split60.us ], [ %.0.ph, %86 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.us-phi
 }
@@ -19080,7 +19080,7 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor3EEEvfPKfiiPA4_fiPA3_f.
   br label %.outer, !llvm.loop !202
 
 .split:                                           ; preds = %84, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor3EEEvfPKfiiPA4_fiPA3_f.exit.us, %46, %.split71.us
-  %.us-phi = phi float [ 0.000000e+00, %.split71.us ], [ %43, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor3EEEvfPKfiiPA4_fiPA3_f.exit.us ], [ %.0.ph.us107, %46 ], [ %.0.ph, %84 ]
+  %.us-phi = phi float [ %43, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor3EEEvfPKfiiPA4_fiPA3_f.exit.us ], [ %.0.ph.us107, %46 ], [ 0.000000e+00, %.split71.us ], [ %.0.ph, %84 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.us-phi
 }

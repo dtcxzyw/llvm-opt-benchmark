@@ -5186,12 +5186,12 @@ _ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i40:   ; preds = %_ZNK3sat3big9connec
   br i1 %.not.i45, label %_ZNK3sat11npn3_finder7impliesENS_7literalES1_.exit49, label %.lr.ph.i42
 
 _ZNK3sat11npn3_finder7impliesENS_7literalES1_.exit49.sink.split: ; preds = %73, %113, %143, %_ZNK3sat3big7reachesENS_7literalES1_.exit.i.i, %_ZNK3sat3big9connectedENS_7literalES1_.exit.i, %_ZNK3sat3big7reachesENS_7literalES1_.exit.i.i36, %_ZNK3sat3big9connectedENS_7literalES1_.exit.i35, %_ZNK3sat3big7reachesENS_7literalES1_.exit.i.i48, %_ZNK3sat3big9connectedENS_7literalES1_.exit.i47, %23
-  %.sink = phi ptr [ %25, %23 ], [ null, %_ZNK3sat3big9connectedENS_7literalES1_.exit.i47 ], [ null, %_ZNK3sat3big7reachesENS_7literalES1_.exit.i.i48 ], [ null, %_ZNK3sat3big9connectedENS_7literalES1_.exit.i35 ], [ null, %_ZNK3sat3big7reachesENS_7literalES1_.exit.i.i36 ], [ null, %_ZNK3sat3big9connectedENS_7literalES1_.exit.i ], [ null, %_ZNK3sat3big7reachesENS_7literalES1_.exit.i.i ], [ null, %113 ], [ null, %143 ], [ null, %73 ]
+  %.sink = phi ptr [ %25, %23 ], [ null, %143 ], [ null, %113 ], [ null, %_ZNK3sat3big7reachesENS_7literalES1_.exit.i.i ], [ null, %_ZNK3sat3big9connectedENS_7literalES1_.exit.i47 ], [ null, %_ZNK3sat3big7reachesENS_7literalES1_.exit.i.i48 ], [ null, %_ZNK3sat3big9connectedENS_7literalES1_.exit.i35 ], [ null, %_ZNK3sat3big7reachesENS_7literalES1_.exit.i.i36 ], [ null, %_ZNK3sat3big9connectedENS_7literalES1_.exit.i ], [ null, %73 ]
   store ptr %.sink, ptr %5, align 8, !tbaa !77
   br label %_ZNK3sat11npn3_finder7impliesENS_7literalES1_.exit49
 
 _ZNK3sat11npn3_finder7impliesENS_7literalES1_.exit49: ; preds = %.critedge19.i44, %_ZNK3sat11npn3_finder7impliesENS_7literalES1_.exit49.sink.split, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i40, %_ZNK3sat3big9connectedENS_7literalES1_.exit.thread21.i39
-  %.0 = phi i1 [ false, %_ZNK3sat3big9connectedENS_7literalES1_.exit.thread21.i39 ], [ false, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i40 ], [ true, %_ZNK3sat11npn3_finder7impliesENS_7literalES1_.exit49.sink.split ], [ false, %.critedge19.i44 ]
+  %.0 = phi i1 [ true, %_ZNK3sat11npn3_finder7impliesENS_7literalES1_.exit49.sink.split ], [ false, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i40 ], [ false, %_ZNK3sat3big9connectedENS_7literalES1_.exit.thread21.i39 ], [ false, %.critedge19.i44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i1 %.0
 }
@@ -6076,7 +6076,7 @@ _ZNKSt8functionIFvN3sat7literalES1_S1_S1_EEclES1_S1_S1_S1_.exit: ; preds = %.loo
   br label %_ZNK3sat11npn3_finder7impliesENS_7literalES1_.exit
 
 _ZNK3sat11npn3_finder7impliesENS_7literalES1_.exit: ; preds = %.critedge19.i, %.critedge19.i34, %.critedge19.i46, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i42, %_ZNK3sat3big9connectedENS_7literalES1_.exit.thread21.i41, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i30, %_ZNK3sat3big9connectedENS_7literalES1_.exit.thread21.i29, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i, %_ZNK3sat3big9connectedENS_7literalES1_.exit.thread21.i, %_ZNKSt8functionIFvN3sat7literalES1_S1_S1_EEclES1_S1_S1_S1_.exit
-  %.0 = phi i1 [ true, %_ZNKSt8functionIFvN3sat7literalES1_S1_S1_EEclES1_S1_S1_S1_.exit ], [ false, %_ZNK3sat3big9connectedENS_7literalES1_.exit.thread21.i ], [ false, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i ], [ false, %_ZNK3sat3big9connectedENS_7literalES1_.exit.thread21.i29 ], [ false, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i30 ], [ false, %_ZNK3sat3big9connectedENS_7literalES1_.exit.thread21.i41 ], [ false, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i42 ], [ false, %.critedge19.i34 ], [ false, %.critedge19.i46 ], [ false, %.critedge19.i ]
+  %.0 = phi i1 [ true, %_ZNKSt8functionIFvN3sat7literalES1_S1_S1_EEclES1_S1_S1_S1_.exit ], [ false, %.critedge19.i46 ], [ false, %.critedge19.i34 ], [ false, %_ZNK3sat3big9connectedENS_7literalES1_.exit.thread21.i ], [ false, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i ], [ false, %_ZNK3sat3big9connectedENS_7literalES1_.exit.thread21.i29 ], [ false, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i30 ], [ false, %_ZNK3sat3big9connectedENS_7literalES1_.exit.thread21.i41 ], [ false, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i42 ], [ false, %.critedge19.i ]
   ret i1 %.0
 }
 

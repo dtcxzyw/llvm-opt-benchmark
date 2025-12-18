@@ -1253,7 +1253,7 @@ add_tree_entries.exit:                            ; preds = %_.exit.i, %87, %.th
   br i1 %169, label %74, label %.loopexit, !llvm.loop !129
 
 .loopexit:                                        ; preds = %add_tree_entries.exit, %51, %.critedge, %55, %.preheader, %.thread71
-  %.1 = phi i32 [ %64, %.thread71 ], [ %.05390, %.preheader ], [ 0, %55 ], [ 0, %.critedge ], [ 0, %51 ], [ %.0.i, %add_tree_entries.exit ]
+  %.1 = phi i32 [ %64, %.thread71 ], [ %.05390, %.preheader ], [ 0, %51 ], [ 0, %55 ], [ 0, %.critedge ], [ %.0.i, %add_tree_entries.exit ]
   call void @oid_array_clear(ptr noundef nonnull %10) #13
   call void @strmap_remove(ptr noundef nonnull %6, ptr noundef %1, i32 noundef 1) #13
   br label %.critedge.thread

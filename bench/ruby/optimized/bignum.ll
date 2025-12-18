@@ -1620,8 +1620,8 @@ bary_sub.exit:                                    ; preds = %.preheader68.i.i
   br i1 %exitcond31.not.i, label %bary_2comp.exit, label %.lr.ph26.i, !llvm.loop !49
 
 bary_2comp.exit:                                  ; preds = %109, %.lr.ph26.i, %.lr.ph93.i.i, %.loopexit74.i.i, %111
-  %.0.i.i448 = phi i32 [ 1, %111 ], [ 0, %.loopexit74.i.i ], [ 1, %.lr.ph26.i ], [ 0, %.lr.ph93.i.i ], [ 1, %109 ]
-  %.0194 = phi i32 [ 0, %111 ], [ 1, %.loopexit74.i.i ], [ 0, %.lr.ph26.i ], [ 1, %.lr.ph93.i.i ], [ 0, %109 ]
+  %.0.i.i448 = phi i32 [ 1, %111 ], [ 1, %.lr.ph26.i ], [ 0, %.lr.ph93.i.i ], [ 0, %.loopexit74.i.i ], [ 1, %109 ]
+  %.0194 = phi i32 [ 0, %111 ], [ 0, %.lr.ph26.i ], [ 1, %.lr.ph93.i.i ], [ 1, %.loopexit74.i.i ], [ 0, %109 ]
   br i1 %37, label %.critedge, label %126
 
 bary_2comp.exit.thread:                           ; preds = %bary_sub.exit
@@ -1722,7 +1722,7 @@ bary_mul_karatsuba_start.exit:                    ; preds = %.critedge, %119
   br i1 %exitcond31.not.i264, label %bary_2comp.exit266, label %.lr.ph26.i261, !llvm.loop !49
 
 bary_2comp.exit266:                               ; preds = %142, %.lr.ph26.i261, %._crit_edge.i.i225, %126, %bary_2comp.exit.thread, %144
-  %.2 = phi i32 [ %.0.i.i448, %144 ], [ %.0194, %._crit_edge.i.i225 ], [ %.0194, %126 ], [ 0, %bary_2comp.exit.thread ], [ %.0.i.i448, %.lr.ph26.i261 ], [ %.0.i.i448, %142 ]
+  %.2 = phi i32 [ 0, %bary_2comp.exit.thread ], [ %.0.i.i448, %.lr.ph26.i261 ], [ %.0.i.i448, %144 ], [ %.0194, %._crit_edge.i.i225 ], [ %.0194, %126 ], [ %.0.i.i448, %142 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
@@ -3025,8 +3025,8 @@ bary_add.exit:                                    ; preds = %91, %.preheader70.i
   br i1 %exitcond31.not.i, label %bary_2comp.exit, label %.lr.ph26.i, !llvm.loop !49
 
 bary_2comp.exit:                                  ; preds = %129, %.lr.ph26.i, %.lr.ph93.i.i, %.loopexit74.i.i, %131
-  %.not.not1998 = phi i1 [ false, %131 ], [ true, %.loopexit74.i.i ], [ true, %.lr.ph93.i.i ], [ false, %.lr.ph26.i ], [ false, %129 ]
-  %.0547 = phi i32 [ 0, %131 ], [ 1, %.loopexit74.i.i ], [ 1, %.lr.ph93.i.i ], [ 0, %.lr.ph26.i ], [ 0, %129 ]
+  %.not.not1998 = phi i1 [ false, %.lr.ph26.i ], [ true, %.lr.ph93.i.i ], [ false, %131 ], [ true, %.loopexit74.i.i ], [ false, %129 ]
+  %.0547 = phi i32 [ 0, %.lr.ph26.i ], [ 1, %.lr.ph93.i.i ], [ 0, %131 ], [ 1, %.loopexit74.i.i ], [ 0, %129 ]
   br i1 %.not97.i.i, label %.preheader72.i.i620.thread, label %.lr.ph.i.i616.preheader
 
 .preheader72.i.i620.thread:                       ; preds = %bary_2comp.exit
@@ -3379,8 +3379,8 @@ bary_small_lshift.exit:                           ; preds = %bary_2comp.exit727
   call void @llvm.memset.p0.i64(ptr align 4 %scevgep112.i.i708, i8 0, i64 %267, i1 false), !tbaa !18
   br label %.critedge597
 
-.critedge597:                                     ; preds = %179, %170, %.lr.ph91.i.i679, %.critedge597.sink.split, %.preheader70.i.i660, %.preheader.i.i705, %.loopexit74.i.i701, %.preheader.i.i675, %.loopexit71.i.i671
-  %.0547253825422545 = phi i32 [ %.0547253825422547, %.preheader70.i.i660 ], [ %.0547253825422546, %.preheader.i.i705 ], [ %.0547253825422546, %.loopexit74.i.i701 ], [ %.0547253825422547, %.preheader.i.i675 ], [ %.0547253825422547, %.loopexit71.i.i671 ], [ %.0547253825422545.ph, %.critedge597.sink.split ], [ %.0547253825422547, %170 ], [ %.0547253825422547, %.lr.ph91.i.i679 ], [ %.0547253825422547, %179 ]
+.critedge597:                                     ; preds = %179, %170, %.lr.ph91.i.i679, %.critedge597.sink.split, %.preheader70.i.i660, %.loopexit74.i.i701, %.preheader.i.i705, %.preheader.i.i675, %.loopexit71.i.i671
+  %.0547253825422545 = phi i32 [ %.0547253825422545.ph, %.critedge597.sink.split ], [ %.0547253825422547, %.preheader70.i.i660 ], [ %.0547253825422547, %170 ], [ %.0547253825422546, %.loopexit74.i.i701 ], [ %.0547253825422546, %.preheader.i.i705 ], [ %.0547253825422547, %.lr.ph91.i.i679 ], [ %.0547253825422547, %.preheader.i.i675 ], [ %.0547253825422547, %.loopexit71.i.i671 ], [ %.0547253825422547, %179 ]
   br label %268
 
 268:                                              ; preds = %268, %.critedge597
@@ -3462,8 +3462,8 @@ bary_small_lshift.exit776:                        ; preds = %268
   br i1 %exitcond31.not.i821, label %bary_add.exit768, label %.lr.ph26.i818, !llvm.loop !49
 
 bary_add.exit768:                                 ; preds = %295, %.lr.ph26.i818, %bary_small_lshift.exit776, %bary_small_lshift.exit, %.preheader72.i.i740, %261, %._crit_edge.i.i782, %.loopexit71.i.i786, %297
-  %.0547253825422544 = phi i32 [ %.0547253825422545, %.loopexit71.i.i786 ], [ %.0547253825422545, %297 ], [ %.0547253825422545, %._crit_edge.i.i782 ], [ %.0547253825422546, %bary_small_lshift.exit ], [ %.0547253825422546, %.preheader72.i.i740 ], [ %.0547253825422546, %261 ], [ %.0547253825422545, %bary_small_lshift.exit776 ], [ %.0547253825422545, %.lr.ph26.i818 ], [ %.0547253825422545, %295 ]
-  %.1549 = phi i32 [ 1, %.loopexit71.i.i786 ], [ 0, %297 ], [ 1, %._crit_edge.i.i782 ], [ 0, %bary_small_lshift.exit ], [ 0, %.preheader72.i.i740 ], [ 0, %261 ], [ 1, %bary_small_lshift.exit776 ], [ 0, %.lr.ph26.i818 ], [ 0, %295 ]
+  %.0547253825422544 = phi i32 [ %.0547253825422545, %.loopexit71.i.i786 ], [ %.0547253825422545, %297 ], [ %.0547253825422545, %._crit_edge.i.i782 ], [ %.0547253825422545, %.lr.ph26.i818 ], [ %.0547253825422545, %bary_small_lshift.exit776 ], [ %.0547253825422546, %bary_small_lshift.exit ], [ %.0547253825422546, %.preheader72.i.i740 ], [ %.0547253825422546, %261 ], [ %.0547253825422545, %295 ]
+  %.1549 = phi i32 [ 1, %.loopexit71.i.i786 ], [ 0, %297 ], [ 1, %._crit_edge.i.i782 ], [ 0, %.lr.ph26.i818 ], [ 1, %bary_small_lshift.exit776 ], [ 0, %bary_small_lshift.exit ], [ 0, %.preheader72.i.i740 ], [ 0, %261 ], [ 0, %295 ]
   br i1 %12, label %bary_add.exit1077, label %303
 
 303:                                              ; preds = %bary_add.exit768
@@ -3658,8 +3658,8 @@ bary_add.exit861:                                 ; preds = %331, %.preheader70.
   br i1 %exitcond31.not.i906, label %bary_2comp.exit908, label %.lr.ph26.i903, !llvm.loop !49
 
 bary_2comp.exit908:                               ; preds = %369, %.lr.ph26.i903, %.lr.ph93.i.i886, %.loopexit74.i.i878, %371
-  %.not572.not2010 = phi i1 [ false, %371 ], [ true, %.loopexit74.i.i878 ], [ true, %.lr.ph93.i.i886 ], [ false, %.lr.ph26.i903 ], [ false, %369 ]
-  %.1556 = phi i32 [ 0, %371 ], [ 1, %.loopexit74.i.i878 ], [ 1, %.lr.ph93.i.i886 ], [ 0, %.lr.ph26.i903 ], [ 0, %369 ]
+  %.not572.not2010 = phi i1 [ false, %.lr.ph26.i903 ], [ true, %.lr.ph93.i.i886 ], [ false, %371 ], [ true, %.loopexit74.i.i878 ], [ false, %369 ]
+  %.1556 = phi i32 [ 0, %.lr.ph26.i903 ], [ 1, %.lr.ph93.i.i886 ], [ 0, %371 ], [ 1, %.loopexit74.i.i878 ], [ 0, %369 ]
   br i1 %.not97.i.i, label %.preheader72.i.i918.thread, label %.lr.ph.i.i914.preheader
 
 .preheader72.i.i918.thread:                       ; preds = %bary_2comp.exit908
@@ -4012,8 +4012,8 @@ bary_small_lshift.exit1039:                       ; preds = %bary_2comp.exit1031
   call void @llvm.memset.p0.i64(ptr align 4 %scevgep112.i.i1008, i8 0, i64 %507, i1 false), !tbaa !18
   br label %.critedge599
 
-.critedge599:                                     ; preds = %419, %410, %.lr.ph91.i.i977, %.critedge599.sink.split, %.preheader70.i.i958, %.preheader.i.i1005, %.loopexit74.i.i1001, %.preheader.i.i973, %.loopexit71.i.i969
-  %.1556257525792581 = phi i32 [ %.1556257525792583, %.preheader70.i.i958 ], [ %.1556257525792582, %.preheader.i.i1005 ], [ %.1556257525792582, %.loopexit74.i.i1001 ], [ %.1556257525792583, %.preheader.i.i973 ], [ %.1556257525792583, %.loopexit71.i.i969 ], [ %.1556257525792581.ph, %.critedge599.sink.split ], [ %.1556257525792583, %410 ], [ %.1556257525792583, %.lr.ph91.i.i977 ], [ %.1556257525792583, %419 ]
+.critedge599:                                     ; preds = %419, %410, %.lr.ph91.i.i977, %.critedge599.sink.split, %.preheader70.i.i958, %.loopexit74.i.i1001, %.preheader.i.i1005, %.preheader.i.i973, %.loopexit71.i.i969
+  %.1556257525792581 = phi i32 [ %.1556257525792581.ph, %.critedge599.sink.split ], [ %.1556257525792583, %.preheader70.i.i958 ], [ %.1556257525792583, %410 ], [ %.1556257525792582, %.loopexit74.i.i1001 ], [ %.1556257525792582, %.preheader.i.i1005 ], [ %.1556257525792583, %.lr.ph91.i.i977 ], [ %.1556257525792583, %.preheader.i.i973 ], [ %.1556257525792583, %.loopexit71.i.i969 ], [ %.1556257525792583, %419 ]
   br label %508
 
 508:                                              ; preds = %508, %.critedge599
@@ -4095,11 +4095,11 @@ bary_small_lshift.exit1085:                       ; preds = %508
   br i1 %exitcond31.not.i1130, label %bary_add.exit1077, label %.lr.ph26.i1127, !llvm.loop !49
 
 bary_add.exit1077:                                ; preds = %535, %.lr.ph26.i1127, %bary_small_lshift.exit1085, %bary_small_lshift.exit1039, %.preheader72.i.i1049, %501, %._crit_edge.i.i1091, %.loopexit71.i.i1095, %537, %bary_add.exit768
-  %.0559 = phi i32 [ %.1549, %bary_add.exit768 ], [ 1, %.loopexit71.i.i1095 ], [ 0, %537 ], [ 1, %._crit_edge.i.i1091 ], [ 0, %bary_small_lshift.exit1039 ], [ 0, %.preheader72.i.i1049 ], [ 0, %501 ], [ 1, %bary_small_lshift.exit1085 ], [ 0, %.lr.ph26.i1127 ], [ 0, %535 ]
-  %.0558 = phi ptr [ %40, %bary_add.exit768 ], [ %43, %.loopexit71.i.i1095 ], [ %43, %537 ], [ %43, %._crit_edge.i.i1091 ], [ %43, %bary_small_lshift.exit1039 ], [ %43, %.preheader72.i.i1049 ], [ %43, %501 ], [ %43, %bary_small_lshift.exit1085 ], [ %43, %.lr.ph26.i1127 ], [ %43, %535 ]
-  %.0555 = phi i32 [ %.0547253825422544, %bary_add.exit768 ], [ %.1556257525792581, %.loopexit71.i.i1095 ], [ %.1556257525792581, %537 ], [ %.1556257525792581, %._crit_edge.i.i1091 ], [ %.1556257525792582, %bary_small_lshift.exit1039 ], [ %.1556257525792582, %.preheader72.i.i1049 ], [ %.1556257525792582, %501 ], [ %.1556257525792581, %bary_small_lshift.exit1085 ], [ %.1556257525792581, %.lr.ph26.i1127 ], [ %.1556257525792581, %535 ]
-  %.0554 = phi ptr [ %39, %bary_add.exit768 ], [ %42, %.loopexit71.i.i1095 ], [ %42, %537 ], [ %42, %._crit_edge.i.i1091 ], [ %42, %bary_small_lshift.exit1039 ], [ %42, %.preheader72.i.i1049 ], [ %42, %501 ], [ %42, %bary_small_lshift.exit1085 ], [ %42, %.lr.ph26.i1127 ], [ %42, %535 ]
-  %.0551 = phi ptr [ %.0532, %bary_add.exit768 ], [ %41, %.loopexit71.i.i1095 ], [ %41, %537 ], [ %41, %._crit_edge.i.i1091 ], [ %41, %bary_small_lshift.exit1039 ], [ %41, %.preheader72.i.i1049 ], [ %41, %501 ], [ %41, %bary_small_lshift.exit1085 ], [ %41, %.lr.ph26.i1127 ], [ %41, %535 ]
+  %.0559 = phi i32 [ %.1549, %bary_add.exit768 ], [ 1, %.loopexit71.i.i1095 ], [ 0, %537 ], [ 1, %._crit_edge.i.i1091 ], [ 0, %.lr.ph26.i1127 ], [ 1, %bary_small_lshift.exit1085 ], [ 0, %bary_small_lshift.exit1039 ], [ 0, %.preheader72.i.i1049 ], [ 0, %501 ], [ 0, %535 ]
+  %.0558 = phi ptr [ %40, %bary_add.exit768 ], [ %43, %.loopexit71.i.i1095 ], [ %43, %537 ], [ %43, %._crit_edge.i.i1091 ], [ %43, %.lr.ph26.i1127 ], [ %43, %bary_small_lshift.exit1085 ], [ %43, %bary_small_lshift.exit1039 ], [ %43, %.preheader72.i.i1049 ], [ %43, %501 ], [ %43, %535 ]
+  %.0555 = phi i32 [ %.0547253825422544, %bary_add.exit768 ], [ %.1556257525792581, %.loopexit71.i.i1095 ], [ %.1556257525792581, %537 ], [ %.1556257525792581, %._crit_edge.i.i1091 ], [ %.1556257525792581, %.lr.ph26.i1127 ], [ %.1556257525792581, %bary_small_lshift.exit1085 ], [ %.1556257525792582, %bary_small_lshift.exit1039 ], [ %.1556257525792582, %.preheader72.i.i1049 ], [ %.1556257525792582, %501 ], [ %.1556257525792581, %535 ]
+  %.0554 = phi ptr [ %39, %bary_add.exit768 ], [ %42, %.loopexit71.i.i1095 ], [ %42, %537 ], [ %42, %._crit_edge.i.i1091 ], [ %42, %.lr.ph26.i1127 ], [ %42, %bary_small_lshift.exit1085 ], [ %42, %bary_small_lshift.exit1039 ], [ %42, %.preheader72.i.i1049 ], [ %42, %501 ], [ %42, %535 ]
+  %.0551 = phi ptr [ %.0532, %bary_add.exit768 ], [ %41, %.loopexit71.i.i1095 ], [ %41, %537 ], [ %41, %._crit_edge.i.i1091 ], [ %41, %.lr.ph26.i1127 ], [ %41, %bary_small_lshift.exit1085 ], [ %41, %bary_small_lshift.exit1039 ], [ %41, %.preheader72.i.i1049 ], [ %41, %501 ], [ %41, %535 ]
   call void @bary_mul_toom3_start(ptr noundef %44, i64 noundef %17, ptr noundef %2, i64 noundef %14, ptr noundef %.0537, i64 noundef %14, ptr noundef %52, i64 noundef %53)
   call void @bary_mul_toom3_start(ptr noundef %45, i64 noundef %18, ptr noundef %.0532, i64 noundef %15, ptr noundef %.0551, i64 noundef %15, ptr noundef %52, i64 noundef %53)
   call void @bary_mul_toom3_start(ptr noundef %46, i64 noundef %18, ptr noundef %39, i64 noundef %15, ptr noundef %.0554, i64 noundef %15, ptr noundef %52, i64 noundef %53)
@@ -4182,7 +4182,7 @@ bary_add.exit1077:                                ; preds = %535, %.lr.ph26.i112
   br i1 %exitcond.not.i.i1188, label %bary_2comp.exit1179, label %.lr.ph.i.i1185, !llvm.loop !35
 
 bary_2comp.exit1179:                              ; preds = %.lr.ph.i.i1185, %560, %.lr.ph26.i1174, %._crit_edge.i.i1138, %562
-  %.0536.shrunk = phi i1 [ true, %._crit_edge.i.i1138 ], [ false, %562 ], [ false, %560 ], [ false, %.lr.ph26.i1174 ], [ false, %.lr.ph.i.i1185 ]
+  %.0536.shrunk = phi i1 [ false, %.lr.ph26.i1174 ], [ true, %._crit_edge.i.i1138 ], [ false, %560 ], [ false, %562 ], [ false, %.lr.ph.i.i1185 ]
   br label %580
 
 580:                                              ; preds = %580, %bary_2comp.exit1179
@@ -4278,8 +4278,8 @@ bigdivrem_single.exit:                            ; preds = %580
   br i1 %exitcond.not.i.i1276, label %bary_2comp.exit1267, label %.lr.ph.i.i1273, !llvm.loop !35
 
 bary_2comp.exit1267:                              ; preds = %.lr.ph.i.i1273, %606, %.lr.ph26.i1262, %._crit_edge.i.i1226, %608
-  %.not587 = phi i32 [ 0, %._crit_edge.i.i1226 ], [ 1, %608 ], [ 1, %606 ], [ 1, %.lr.ph26.i1262 ], [ 0, %.lr.ph.i.i1273 ]
-  %.0544 = phi i32 [ 1, %._crit_edge.i.i1226 ], [ 0, %608 ], [ 0, %606 ], [ 0, %.lr.ph26.i1262 ], [ 1, %.lr.ph.i.i1273 ]
+  %.not587 = phi i32 [ 1, %.lr.ph26.i1262 ], [ 0, %._crit_edge.i.i1226 ], [ 1, %606 ], [ 1, %608 ], [ 0, %.lr.ph.i.i1273 ]
+  %.0544 = phi i32 [ 0, %.lr.ph26.i1262 ], [ 1, %._crit_edge.i.i1226 ], [ 0, %606 ], [ 0, %608 ], [ 1, %.lr.ph.i.i1273 ]
   br label %626
 
 626:                                              ; preds = %626, %bary_2comp.exit1267
@@ -4588,8 +4588,8 @@ bary_small_rshift.exit1486:                       ; preds = %730
   br i1 %exitcond.not.i1489, label %.preheader.i, label %.lr.ph.i1487.backedge
 
 .lr.ph.i1487.backedge:                            ; preds = %750, %.thread2606
-  %.03036.i.be = phi i64 [ %757, %750 ], [ %758, %.thread2606 ]
-  %.03135.i.be = phi i64 [ %756, %750 ], [ 0, %.thread2606 ]
+  %.03036.i.be = phi i64 [ %758, %.thread2606 ], [ %757, %750 ]
+  %.03135.i.be = phi i64 [ 0, %.thread2606 ], [ %756, %750 ]
   br label %.lr.ph.i1487, !llvm.loop !20
 
 .thread2606:                                      ; preds = %.lr.ph.i1487
@@ -4673,8 +4673,8 @@ bary_mulsub_1xN.exit:                             ; preds = %774
   br i1 %exitcond31.not.i1502, label %bary_2comp.exit1504, label %.lr.ph26.i1499, !llvm.loop !49
 
 bary_2comp.exit1504:                              ; preds = %.thread2606, %786, %.lr.ph26.i1499, %.lr.ph41.i.preheader, %.preheader.i, %739, %788, %bary_mulsub_1xN.exit
-  %.not592 = phi i1 [ true, %bary_mulsub_1xN.exit ], [ false, %788 ], [ false, %739 ], [ false, %.preheader.i ], [ false, %.lr.ph41.i.preheader ], [ false, %786 ], [ false, %.lr.ph26.i1499 ], [ false, %.thread2606 ]
-  %.2 = phi i32 [ 0, %bary_mulsub_1xN.exit ], [ 1, %788 ], [ 1, %739 ], [ 1, %.preheader.i ], [ 1, %.lr.ph41.i.preheader ], [ 1, %786 ], [ 1, %.lr.ph26.i1499 ], [ 1, %.thread2606 ]
+  %.not592 = phi i1 [ false, %786 ], [ true, %bary_mulsub_1xN.exit ], [ false, %.lr.ph26.i1499 ], [ false, %788 ], [ false, %739 ], [ false, %.preheader.i ], [ false, %.lr.ph41.i.preheader ], [ false, %.thread2606 ]
+  %.2 = phi i32 [ 1, %786 ], [ 0, %bary_mulsub_1xN.exit ], [ 1, %.lr.ph26.i1499 ], [ 1, %788 ], [ 1, %739 ], [ 1, %.preheader.i ], [ 1, %.lr.ph41.i.preheader ], [ 1, %.thread2606 ]
   %794 = icmp eq i32 %.0544, %.05392025
   br i1 %794, label %.lr.ph.i.i1510, label %.lr.ph.i.i1544
 
@@ -4856,7 +4856,7 @@ bary_sub.exit1578.thread:                         ; preds = %.lr.ph.i.i1510, %._
   br label %bary_2comp.exit1636
 
 bary_2comp.exit1636:                              ; preds = %851, %.lr.ph26.i1631, %859, %830, %._crit_edge.i.i1595, %.preheader72.i.i1646, %872, %.loopexit71.i.i1599, %853
-  %.not591 = phi i1 [ false, %.loopexit71.i.i1599 ], [ true, %853 ], [ true, %.preheader72.i.i1646 ], [ false, %830 ], [ true, %872 ], [ false, %._crit_edge.i.i1595 ], [ true, %859 ], [ true, %.lr.ph26.i1631 ], [ true, %851 ]
+  %.not591 = phi i1 [ true, %.preheader72.i.i1646 ], [ false, %.loopexit71.i.i1599 ], [ true, %859 ], [ true, %853 ], [ true, %.lr.ph26.i1631 ], [ false, %830 ], [ true, %872 ], [ false, %._crit_edge.i.i1595 ], [ true, %851 ]
   %876 = icmp eq i32 %.0544, %.2
   br i1 %876, label %.lr.ph.i.i1676, label %.lr.ph.i.i1727
 
@@ -4931,7 +4931,7 @@ bary_2comp.exit1636:                              ; preds = %851, %.lr.ph26.i163
   br i1 %exitcond.not.i.i1730, label %bary_2comp.exit1721, label %.lr.ph.i.i1727, !llvm.loop !35
 
 bary_2comp.exit1721:                              ; preds = %.lr.ph.i.i1727, %891, %.lr.ph26.i1716, %._crit_edge.i.i1680, %893
-  %.1545 = phi i32 [ %.0544, %._crit_edge.i.i1680 ], [ %.not587, %893 ], [ %.not587, %891 ], [ %.not587, %.lr.ph26.i1716 ], [ %.0544, %.lr.ph.i.i1727 ]
+  %.1545 = phi i32 [ %.0544, %._crit_edge.i.i1680 ], [ %.not587, %.lr.ph26.i1716 ], [ %.not587, %891 ], [ %.not587, %893 ], [ %.0544, %.lr.ph.i.i1727 ]
   %910 = icmp ugt i64 %13, 6917529027641081855
   br i1 %910, label %911, label %rbimpl_size_mul_or_raise.exit, !prof !33
 
@@ -6528,7 +6528,7 @@ rbimpl_size_mul_or_raise.exit130:                 ; preds = %.thread147
   br label %bary_small_rshift.exit
 
 bary_small_rshift.exit:                           ; preds = %106, %bary_small_lshift.exit124, %119, %rbimpl_size_mul_or_raise.exit130
-  %.1145149 = phi ptr [ %.086141, %bary_small_lshift.exit124 ], [ %.2179183, %rbimpl_size_mul_or_raise.exit130 ], [ %.2179183, %119 ], [ %.086141, %106 ]
+  %.1145149 = phi ptr [ %.2179183, %119 ], [ %.086141, %bary_small_lshift.exit124 ], [ %.2179183, %rbimpl_size_mul_or_raise.exit130 ], [ %.086141, %106 ]
   %.not108152 = icmp eq i64 %3, %7
   br i1 %.not108152, label %.loopexit151, label %.lr.ph.preheader
 
@@ -7876,7 +7876,7 @@ BIGNUM_DIGITS.exit.i.i:                           ; preds = %16, %12
   br label %bignorm.exit
 
 bignorm.exit:                                     ; preds = %25, %1, %rbimpl_RB_TYPE_P_fastpath.exit.i, %BIGNUM_DIGITS.exit.i.i, %39, %44, %46
-  %.0.i = phi i64 [ %0, %rbimpl_RB_TYPE_P_fastpath.exit.i ], [ %45, %44 ], [ %0, %46 ], [ %41, %39 ], [ 1, %BIGNUM_DIGITS.exit.i.i ], [ %0, %1 ], [ 1, %25 ]
+  %.0.i = phi i64 [ %0, %1 ], [ %0, %rbimpl_RB_TYPE_P_fastpath.exit.i ], [ %45, %44 ], [ %0, %46 ], [ %41, %39 ], [ 1, %BIGNUM_DIGITS.exit.i.i ], [ 1, %25 ]
   ret i64 %.0.i
 }
 
@@ -7981,7 +7981,7 @@ BIGNUM_DIGITS.exit.i:                             ; preds = %16, %12
   br label %bigfixize.exit
 
 bigfixize.exit:                                   ; preds = %25, %1, %46, %44, %39, %BIGNUM_DIGITS.exit.i, %rbimpl_RB_TYPE_P_fastpath.exit
-  %.0 = phi i64 [ %0, %rbimpl_RB_TYPE_P_fastpath.exit ], [ %45, %44 ], [ %0, %46 ], [ %41, %39 ], [ 1, %BIGNUM_DIGITS.exit.i ], [ %0, %1 ], [ 1, %25 ]
+  %.0 = phi i64 [ %0, %1 ], [ %0, %rbimpl_RB_TYPE_P_fastpath.exit ], [ %45, %44 ], [ %0, %46 ], [ %41, %39 ], [ 1, %BIGNUM_DIGITS.exit.i ], [ 1, %25 ]
   ret i64 %.0
 }
 
@@ -8330,9 +8330,9 @@ BIGNUM_LEN.exit.loopexit.i:                       ; preds = %13
   br label %rb_integer_pack.exit
 
 rb_integer_pack.exit:                             ; preds = %23, %28, %BIGNUM_LEN.exit.loopexit.i
-  %.019.i = phi ptr [ %29, %28 ], [ %25, %23 ], [ %5, %BIGNUM_LEN.exit.loopexit.i ]
-  %.018.i = phi i64 [ %31, %28 ], [ %27, %23 ], [ 2, %BIGNUM_LEN.exit.loopexit.i ]
-  %.117.i = phi i32 [ %21, %28 ], [ %21, %23 ], [ %.016.i, %BIGNUM_LEN.exit.loopexit.i ]
+  %.019.i = phi ptr [ %25, %23 ], [ %29, %28 ], [ %5, %BIGNUM_LEN.exit.loopexit.i ]
+  %.018.i = phi i64 [ %27, %23 ], [ %31, %28 ], [ 2, %BIGNUM_LEN.exit.loopexit.i ]
+  %.117.i = phi i32 [ %21, %23 ], [ %21, %28 ], [ %.016.i, %BIGNUM_LEN.exit.loopexit.i ]
   %33 = call fastcc i32 @bary_pack(i32 noundef %.117.i, ptr noundef %.019.i, i64 noundef %.018.i, ptr noundef nonnull %1, i64 noundef %2, i64 noundef 8, i64 noundef 0, i32 noundef 194)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -8402,9 +8402,9 @@ BIGNUM_LEN.exit.loopexit:                         ; preds = %16
   br label %BIGNUM_LEN.exit
 
 BIGNUM_LEN.exit:                                  ; preds = %BIGNUM_LEN.exit.loopexit, %31, %26
-  %.019 = phi ptr [ %32, %31 ], [ %28, %26 ], [ %8, %BIGNUM_LEN.exit.loopexit ]
-  %.018 = phi i64 [ %34, %31 ], [ %30, %26 ], [ 2, %BIGNUM_LEN.exit.loopexit ]
-  %.117 = phi i32 [ %24, %31 ], [ %24, %26 ], [ %.016, %BIGNUM_LEN.exit.loopexit ]
+  %.019 = phi ptr [ %28, %26 ], [ %32, %31 ], [ %8, %BIGNUM_LEN.exit.loopexit ]
+  %.018 = phi i64 [ %30, %26 ], [ %34, %31 ], [ 2, %BIGNUM_LEN.exit.loopexit ]
+  %.117 = phi i32 [ %24, %26 ], [ %24, %31 ], [ %.016, %BIGNUM_LEN.exit.loopexit ]
   %36 = call fastcc i32 @bary_pack(i32 noundef %.117, ptr noundef %.019, i64 noundef %.018, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %36
@@ -9040,7 +9040,7 @@ BIGNUM_DIGITS.exit.i.i:                           ; preds = %264, %260
   br label %bigtrunc.exit
 
 bigtrunc.exit:                                    ; preds = %273, %165, %157, %.thread115, %293, %291, %286, %BIGNUM_DIGITS.exit.i.i, %252, %251, %BIGNUM_LEN.exit19.i, %BIGNUM_DIGITS.exit.i
-  %.1 = phi i64 [ %.2, %251 ], [ %.2, %BIGNUM_DIGITS.exit.i ], [ %.2, %BIGNUM_LEN.exit19.i ], [ 1, %.thread115 ], [ %292, %291 ], [ %.2, %293 ], [ %288, %286 ], [ 1, %BIGNUM_DIGITS.exit.i.i ], [ %.2, %252 ], [ %166, %165 ], [ %159, %157 ], [ 1, %273 ]
+  %.1 = phi i64 [ %159, %157 ], [ %.2, %251 ], [ %.2, %BIGNUM_DIGITS.exit.i ], [ %.2, %BIGNUM_LEN.exit19.i ], [ %.2, %252 ], [ 1, %.thread115 ], [ %292, %291 ], [ %.2, %293 ], [ %288, %286 ], [ 1, %BIGNUM_DIGITS.exit.i.i ], [ %166, %165 ], [ 1, %273 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i64 %.1
 }
@@ -10090,7 +10090,7 @@ rbimpl_size_mul_or_raise.exit370:                 ; preds = %186
   br label %ruby_nonempty_memcpy.exit373
 
 ruby_nonempty_memcpy.exit373:                     ; preds = %.lr.ph595.preheader, %ruby_nonempty_memcpy.exit369, %189
-  %.0284 = phi i32 [ 0, %.lr.ph595.preheader ], [ 1, %189 ], [ 0, %ruby_nonempty_memcpy.exit369 ]
+  %.0284 = phi i32 [ 1, %189 ], [ 0, %.lr.ph595.preheader ], [ 0, %ruby_nonempty_memcpy.exit369 ]
   %191 = icmp sgt i32 %spec.select, -1
   %192 = and i32 %7, 128
   %.not319 = icmp eq i32 %192, 0
@@ -10582,7 +10582,7 @@ integer_pack_fill_dd.exit392:                     ; preds = %323, %326
   br i1 %406, label %.thread494, label %385
 
 .thread494:                                       ; preds = %405, %.thread667, %117, %120, %89, %73, %.thread530, %bytes_2comp.exit.thread, %.thread526, %63, %50, %35, %359, %bary_swap.exit383, %20
-  %.0254 = phi i32 [ %.3260, %359 ], [ 0, %20 ], [ %61, %50 ], [ %spec.select357, %bary_swap.exit383 ], [ %164, %.thread526 ], [ %71, %63 ], [ %45, %35 ], [ %spec.select, %.thread530 ], [ %165, %bytes_2comp.exit.thread ], [ %124, %120 ], [ -1, %117 ], [ %101, %89 ], [ %84, %73 ], [ 0, %.thread667 ], [ %.3260, %405 ]
+  %.0254 = phi i32 [ %.3260, %359 ], [ 0, %20 ], [ %61, %50 ], [ %spec.select357, %bary_swap.exit383 ], [ %164, %.thread526 ], [ %71, %63 ], [ %84, %73 ], [ %45, %35 ], [ %spec.select, %.thread530 ], [ %165, %bytes_2comp.exit.thread ], [ %124, %120 ], [ -1, %117 ], [ %101, %89 ], [ 0, %.thread667 ], [ %.3260, %405 ]
   ret i32 %.0254
 }
 
@@ -11328,7 +11328,7 @@ bary_zero_p.exit:                                 ; preds = %.preheader.i, %._cr
   br i1 %exitcond31.not.i250, label %bary_2comp.exit, label %.lr.ph26.i247, !llvm.loop !49
 
 bary_2comp.exit:                                  ; preds = %240, %247, %.lr.ph26.i247, %131, %.lr.ph26.i227, %69, %.lr.ph26.i, %242, %241, %236, %228, %249, %128, %133, %64, %71, %integer_unpack_single_bdigit.exit, %integer_unpack_single_bdigit.exit201, %integer_unpack_single_bdigit.exit207, %220, %bary_zero_p.exit, %144, %143, %140, %86, %84, %85
-  %.1 = phi i32 [ 1, %140 ], [ %222, %220 ], [ %90, %86 ], [ %.0.i205, %integer_unpack_single_bdigit.exit207 ], [ -1, %84 ], [ 1, %85 ], [ -1, %143 ], [ %145, %144 ], [ -1, %bary_zero_p.exit ], [ %spec.select318, %integer_unpack_single_bdigit.exit ], [ %spec.select320, %integer_unpack_single_bdigit.exit201 ], [ -2, %64 ], [ -1, %71 ], [ -2, %128 ], [ -1, %133 ], [ -1, %249 ], [ 1, %228 ], [ -2, %236 ], [ 1, %242 ], [ 1, %241 ], [ -1, %247 ], [ -1, %.lr.ph26.i ], [ -2, %69 ], [ -1, %.lr.ph26.i227 ], [ -2, %131 ], [ -1, %.lr.ph26.i247 ], [ -2, %240 ]
+  %.1 = phi i32 [ 1, %140 ], [ %222, %220 ], [ %90, %86 ], [ %.0.i205, %integer_unpack_single_bdigit.exit207 ], [ -1, %84 ], [ 1, %85 ], [ 1, %241 ], [ -1, %143 ], [ %145, %144 ], [ -1, %.lr.ph26.i ], [ -1, %bary_zero_p.exit ], [ %spec.select318, %integer_unpack_single_bdigit.exit ], [ %spec.select320, %integer_unpack_single_bdigit.exit201 ], [ -2, %131 ], [ -2, %64 ], [ -1, %71 ], [ -1, %247 ], [ -2, %128 ], [ -1, %133 ], [ -1, %.lr.ph26.i247 ], [ -2, %69 ], [ -1, %249 ], [ -1, %.lr.ph26.i227 ], [ 1, %228 ], [ -2, %236 ], [ 1, %242 ], [ -2, %240 ]
   ret i32 %.1
 }
 
@@ -11993,8 +11993,8 @@ define dso_local i64 @rb_int_parse_cstr(ptr noundef %0, i64 noundef %1, ptr noun
   br label %str2big_scan_digits.exit
 
 str2big_scan_digits.exit:                         ; preds = %.thread9.i, %225
-  %265 = phi i64 [ %.146615.i, %.thread9.i ], [ 0, %225 ]
-  %.4258 = phi i64 [ %264, %.thread9.i ], [ 0, %225 ]
+  %265 = phi i64 [ 0, %225 ], [ %.146615.i, %.thread9.i ]
+  %.4258 = phi i64 [ 0, %225 ], [ %264, %.thread9.i ]
   br i1 %9, label %266, label %268
 
 266:                                              ; preds = %str2big_scan_digits.exit
@@ -12145,8 +12145,8 @@ BIGNUM_DIGITS.exit.i.i:                           ; preds = %310, %306
   br label %bignorm.exit
 
 str2big_scan_digits.exit.thread:                  ; preds = %.lr.ph, %.lr.ph.i, %172, %117, %107, %96, %85, %74, %55, %51, %47, %43, %30, %26, %6
-  %.0172 = phi i64 [ 4, %26 ], [ 4, %6 ], [ %spec.select, %172 ], [ 4, %30 ], [ 4, %117 ], [ 4, %43 ], [ 4, %47 ], [ 4, %51 ], [ 4, %55 ], [ 4, %74 ], [ 4, %85 ], [ 4, %96 ], [ 4, %107 ], [ 4, %.lr.ph.i ], [ 4, %.lr.ph ]
-  %.0163 = phi ptr [ %.2.lcssa, %26 ], [ null, %6 ], [ %.5, %172 ], [ %.2.lcssa, %30 ], [ %.4265, %117 ], [ %.1164, %43 ], [ %.1164, %47 ], [ %.1164, %51 ], [ %.1164, %55 ], [ %.1164, %74 ], [ %.1164, %85 ], [ %.1164, %96 ], [ %.1164, %107 ], [ %.5, %.lr.ph.i ], [ %scevgep, %.lr.ph ]
+  %.0172 = phi i64 [ 4, %.lr.ph.i ], [ 4, %26 ], [ 4, %6 ], [ %spec.select, %172 ], [ 4, %30 ], [ 4, %117 ], [ 4, %43 ], [ 4, %47 ], [ 4, %51 ], [ 4, %55 ], [ 4, %74 ], [ 4, %85 ], [ 4, %96 ], [ 4, %107 ], [ 4, %.lr.ph ]
+  %.0163 = phi ptr [ %.5, %.lr.ph.i ], [ %.2.lcssa, %26 ], [ null, %6 ], [ %.5, %172 ], [ %.2.lcssa, %30 ], [ %.4265, %117 ], [ %.1164, %43 ], [ %.1164, %47 ], [ %.1164, %51 ], [ %.1164, %55 ], [ %.1164, %74 ], [ %.1164, %85 ], [ %.1164, %96 ], [ %.1164, %107 ], [ %scevgep, %.lr.ph ]
   br i1 %9, label %341, label %str2big_scan_digits.exit.thread.thread
 
 341:                                              ; preds = %str2big_scan_digits.exit.thread
@@ -12164,7 +12164,7 @@ str2big_scan_digits.exit.thread.thread:           ; preds = %227, %235, %.loopex
   br label %bignorm.exit
 
 bignorm.exit:                                     ; preds = %319, %204, %198, %216, %213, %193, %218, %340, %338, %333, %BIGNUM_DIGITS.exit.i.i, %rbimpl_RB_TYPE_P_fastpath.exit.i, %295, %str2big_scan_digits.exit.thread.thread, %342
-  %.1 = phi i64 [ %.0172277, %str2big_scan_digits.exit.thread.thread ], [ %.0172277, %342 ], [ %.1173, %rbimpl_RB_TYPE_P_fastpath.exit.i ], [ %339, %338 ], [ %.1173, %340 ], [ %335, %333 ], [ 1, %BIGNUM_DIGITS.exit.i.i ], [ %.1173, %295 ], [ %217, %216 ], [ %215, %213 ], [ 4, %193 ], [ %223, %218 ], [ 4, %204 ], [ 4, %198 ], [ 1, %319 ]
+  %.1 = phi i64 [ 4, %198 ], [ %.0172277, %str2big_scan_digits.exit.thread.thread ], [ %.0172277, %342 ], [ %.1173, %295 ], [ %.1173, %rbimpl_RB_TYPE_P_fastpath.exit.i ], [ %339, %338 ], [ %.1173, %340 ], [ %335, %333 ], [ 1, %BIGNUM_DIGITS.exit.i.i ], [ %223, %218 ], [ %217, %216 ], [ %215, %213 ], [ 4, %193 ], [ 4, %204 ], [ 1, %319 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i64 %.1
@@ -13430,8 +13430,8 @@ define dso_local i64 @rb_str2big_poweroftwo(i64 noundef %0, i32 noundef %1, i32 
   unreachable
 
 str2big_scan_digits.exit:                         ; preds = %11, %.thread9.i
-  %.125 = phi i64 [ %.146615.i, %.thread9.i ], [ 0, %11 ]
-  %.1 = phi i64 [ %58, %.thread9.i ], [ 0, %11 ]
+  %.125 = phi i64 [ 0, %11 ], [ %.146615.i, %.thread9.i ]
+  %.1 = phi i64 [ 0, %11 ], [ %58, %.thread9.i ]
   %59 = add nsw i32 %1, -1
   %60 = getelementptr i8, ptr %.017, i64 %.1
   %61 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %59, i1 false)
@@ -13542,7 +13542,7 @@ BIGNUM_DIGITS.exit.i.i:                           ; preds = %80, %76
   br label %bignorm.exit
 
 bignorm.exit:                                     ; preds = %89, %str2big_scan_digits.exit, %rbimpl_RB_TYPE_P_fastpath.exit.i, %BIGNUM_DIGITS.exit.i.i, %103, %108, %110
-  %.0.i20 = phi i64 [ %63, %rbimpl_RB_TYPE_P_fastpath.exit.i ], [ %109, %108 ], [ %63, %110 ], [ %105, %103 ], [ 1, %BIGNUM_DIGITS.exit.i.i ], [ %63, %str2big_scan_digits.exit ], [ 1, %89 ]
+  %.0.i20 = phi i64 [ %63, %str2big_scan_digits.exit ], [ %63, %rbimpl_RB_TYPE_P_fastpath.exit.i ], [ %109, %108 ], [ %63, %110 ], [ %105, %103 ], [ 1, %BIGNUM_DIGITS.exit.i.i ], [ 1, %89 ]
   ret i64 %.0.i20
 }
 
@@ -13712,10 +13712,10 @@ define dso_local i64 @rb_str2big_normal(i64 noundef %0, i32 noundef %1, i32 noun
   unreachable
 
 str2big_scan_digits.exit:                         ; preds = %22, %.thread9.i
-  %.036 = phi i32 [ %.037, %.thread9.i ], [ %.0, %22 ]
-  %.01733 = phi ptr [ %.01734, %.thread9.i ], [ %.017, %22 ]
-  %.126 = phi i64 [ %60, %.thread9.i ], [ 0, %22 ]
-  %.1 = phi i64 [ %61, %.thread9.i ], [ -1, %22 ]
+  %.036 = phi i32 [ %.0, %22 ], [ %.037, %.thread9.i ]
+  %.01733 = phi ptr [ %.017, %22 ], [ %.01734, %.thread9.i ]
+  %.126 = phi i64 [ 0, %22 ], [ %60, %.thread9.i ]
+  %.1 = phi i64 [ -1, %22 ], [ %61, %.thread9.i ]
   %62 = getelementptr i8, ptr %.01733, i64 %.126
   %63 = zext nneg i32 %6 to i64
   %64 = getelementptr i32, ptr @maxpow64_exp, i64 %63
@@ -13830,7 +13830,7 @@ BIGNUM_DIGITS.exit.i.i:                           ; preds = %87, %83
   br label %bignorm.exit
 
 bignorm.exit:                                     ; preds = %96, %str2big_scan_digits.exit, %rbimpl_RB_TYPE_P_fastpath.exit.i, %BIGNUM_DIGITS.exit.i.i, %110, %115, %117
-  %.0.i20 = phi i64 [ %70, %rbimpl_RB_TYPE_P_fastpath.exit.i ], [ %116, %115 ], [ %70, %117 ], [ %112, %110 ], [ 1, %BIGNUM_DIGITS.exit.i.i ], [ %70, %str2big_scan_digits.exit ], [ 1, %96 ]
+  %.0.i20 = phi i64 [ %70, %str2big_scan_digits.exit ], [ %70, %rbimpl_RB_TYPE_P_fastpath.exit.i ], [ %116, %115 ], [ %70, %117 ], [ %112, %110 ], [ 1, %BIGNUM_DIGITS.exit.i.i ], [ 1, %96 ]
   ret i64 %.0.i20
 }
 
@@ -13999,10 +13999,10 @@ define dso_local i64 @rb_str2big_karatsuba(i64 noundef %0, i32 noundef %1, i32 n
   unreachable
 
 str2big_scan_digits.exit:                         ; preds = %22, %.thread9.i
-  %.036 = phi i32 [ %.037, %.thread9.i ], [ %.0, %22 ]
-  %.01733 = phi ptr [ %.01734, %.thread9.i ], [ %.017, %22 ]
-  %.126 = phi i64 [ %60, %.thread9.i ], [ 0, %22 ]
-  %.1 = phi i64 [ %.146615.i, %.thread9.i ], [ 0, %22 ]
+  %.036 = phi i32 [ %.0, %22 ], [ %.037, %.thread9.i ]
+  %.01733 = phi ptr [ %.017, %22 ], [ %.01734, %.thread9.i ]
+  %.126 = phi i64 [ 0, %22 ], [ %60, %.thread9.i ]
+  %.1 = phi i64 [ 0, %22 ], [ %.146615.i, %.thread9.i ]
   %61 = getelementptr i8, ptr %.01733, i64 %.126
   %62 = zext nneg i32 %6 to i64
   %63 = getelementptr i32, ptr @maxpow64_exp, i64 %62
@@ -14118,7 +14118,7 @@ BIGNUM_DIGITS.exit.i.i:                           ; preds = %87, %83
   br label %bignorm.exit
 
 bignorm.exit:                                     ; preds = %96, %str2big_scan_digits.exit, %rbimpl_RB_TYPE_P_fastpath.exit.i, %BIGNUM_DIGITS.exit.i.i, %110, %115, %117
-  %.0.i20 = phi i64 [ %70, %rbimpl_RB_TYPE_P_fastpath.exit.i ], [ %116, %115 ], [ %70, %117 ], [ %112, %110 ], [ 1, %BIGNUM_DIGITS.exit.i.i ], [ %70, %str2big_scan_digits.exit ], [ 1, %96 ]
+  %.0.i20 = phi i64 [ %70, %str2big_scan_digits.exit ], [ %70, %rbimpl_RB_TYPE_P_fastpath.exit.i ], [ %116, %115 ], [ %70, %117 ], [ %112, %110 ], [ 1, %BIGNUM_DIGITS.exit.i.i ], [ 1, %96 ]
   ret i64 %.0.i20
 }
 
@@ -14285,10 +14285,10 @@ define dso_local i64 @rb_str2big_gmp(i64 noundef %0, i32 noundef %1, i32 noundef
   unreachable
 
 str2big_scan_digits.exit:                         ; preds = %22, %.thread9.i
-  %.036 = phi i32 [ %.037, %.thread9.i ], [ %.0, %22 ]
-  %.01733 = phi ptr [ %.01734, %.thread9.i ], [ %.017, %22 ]
-  %.126 = phi i64 [ %60, %.thread9.i ], [ 0, %22 ]
-  %.1 = phi i64 [ %.146615.i, %.thread9.i ], [ 0, %22 ]
+  %.036 = phi i32 [ %.0, %22 ], [ %.037, %.thread9.i ]
+  %.01733 = phi ptr [ %.017, %22 ], [ %.01734, %.thread9.i ]
+  %.126 = phi i64 [ 0, %22 ], [ %60, %.thread9.i ]
+  %.1 = phi i64 [ 0, %22 ], [ %.146615.i, %.thread9.i ]
   %61 = getelementptr i8, ptr %.01733, i64 %.126
   %62 = zext nneg i32 %6 to i64
   %63 = getelementptr i32, ptr @maxpow64_exp, i64 %62
@@ -14404,7 +14404,7 @@ BIGNUM_DIGITS.exit.i.i:                           ; preds = %87, %83
   br label %bignorm.exit
 
 bignorm.exit:                                     ; preds = %96, %str2big_scan_digits.exit, %rbimpl_RB_TYPE_P_fastpath.exit.i, %BIGNUM_DIGITS.exit.i.i, %110, %115, %117
-  %.0.i20 = phi i64 [ %70, %rbimpl_RB_TYPE_P_fastpath.exit.i ], [ %116, %115 ], [ %70, %117 ], [ %112, %110 ], [ 1, %BIGNUM_DIGITS.exit.i.i ], [ %70, %str2big_scan_digits.exit ], [ 1, %96 ]
+  %.0.i20 = phi i64 [ %70, %str2big_scan_digits.exit ], [ %70, %rbimpl_RB_TYPE_P_fastpath.exit.i ], [ %116, %115 ], [ %70, %117 ], [ %112, %110 ], [ 1, %BIGNUM_DIGITS.exit.i.i ], [ 1, %96 ]
   ret i64 %.0.i20
 }
 
@@ -14932,9 +14932,9 @@ BIGNUM_LEN.exit.loopexit.i.i:                     ; preds = %47
   br label %rb_integer_pack.exit.i
 
 rb_integer_pack.exit.i:                           ; preds = %BIGNUM_LEN.exit.loopexit.i.i, %62, %57
-  %.019.i.i = phi ptr [ %63, %62 ], [ %59, %57 ], [ %4, %BIGNUM_LEN.exit.loopexit.i.i ]
-  %.018.i.i = phi i64 [ %65, %62 ], [ %61, %57 ], [ 2, %BIGNUM_LEN.exit.loopexit.i.i ]
-  %.117.i.i = phi i32 [ %55, %62 ], [ %55, %57 ], [ %.016.i.i, %BIGNUM_LEN.exit.loopexit.i.i ]
+  %.019.i.i = phi ptr [ %59, %57 ], [ %63, %62 ], [ %4, %BIGNUM_LEN.exit.loopexit.i.i ]
+  %.018.i.i = phi i64 [ %61, %57 ], [ %65, %62 ], [ 2, %BIGNUM_LEN.exit.loopexit.i.i ]
+  %.117.i.i = phi i32 [ %55, %57 ], [ %55, %62 ], [ %.016.i.i, %BIGNUM_LEN.exit.loopexit.i.i ]
   %67 = call fastcc i32 @bary_pack(i32 noundef %.117.i.i, ptr noundef %.019.i.i, i64 noundef %.018.i.i, ptr noundef nonnull %.0.i, i64 noundef %8, i64 noundef 1, i64 noundef %40, i32 noundef 17)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -15752,9 +15752,9 @@ BIGNUM_LEN.exit.loopexit.i.i.i:                   ; preds = %106
   br label %rb_integer_pack.exit.i.i
 
 rb_integer_pack.exit.i.i:                         ; preds = %BIGNUM_LEN.exit.loopexit.i.i.i, %121, %116
-  %.019.i.i.i = phi ptr [ %122, %121 ], [ %118, %116 ], [ %7, %BIGNUM_LEN.exit.loopexit.i.i.i ]
-  %.018.i.i.i = phi i64 [ %124, %121 ], [ %120, %116 ], [ 2, %BIGNUM_LEN.exit.loopexit.i.i.i ]
-  %.117.i.i.i = phi i32 [ %114, %121 ], [ %114, %116 ], [ %.016.i.i.i, %BIGNUM_LEN.exit.loopexit.i.i.i ]
+  %.019.i.i.i = phi ptr [ %118, %116 ], [ %122, %121 ], [ %7, %BIGNUM_LEN.exit.loopexit.i.i.i ]
+  %.018.i.i.i = phi i64 [ %120, %116 ], [ %124, %121 ], [ 2, %BIGNUM_LEN.exit.loopexit.i.i.i ]
+  %.117.i.i.i = phi i32 [ %114, %116 ], [ %114, %121 ], [ %.016.i.i.i, %BIGNUM_LEN.exit.loopexit.i.i.i ]
   %126 = call fastcc i32 @bary_pack(i32 noundef %.117.i.i.i, ptr noundef %.019.i.i.i, i64 noundef %.018.i.i.i, ptr noundef nonnull %.0.i30.i, i64 noundef %68, i64 noundef 1, i64 noundef %99, i32 noundef 17)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -16490,7 +16490,7 @@ BIGNUM_DIGITS.exit.i.i:                           ; preds = %17, %13
   br label %bignorm.exit
 
 bignorm.exit:                                     ; preds = %26, %1, %rbimpl_RB_TYPE_P_fastpath.exit.i, %BIGNUM_DIGITS.exit.i.i, %40, %45, %47
-  %.0.i = phi i64 [ %2, %rbimpl_RB_TYPE_P_fastpath.exit.i ], [ %46, %45 ], [ %2, %47 ], [ %42, %40 ], [ 1, %BIGNUM_DIGITS.exit.i.i ], [ %2, %1 ], [ 1, %26 ]
+  %.0.i = phi i64 [ %2, %1 ], [ %2, %rbimpl_RB_TYPE_P_fastpath.exit.i ], [ %46, %45 ], [ %2, %47 ], [ %42, %40 ], [ 1, %BIGNUM_DIGITS.exit.i.i ], [ 1, %26 ]
   ret i64 %.0.i
 }
 
@@ -17405,7 +17405,7 @@ BIGNUM_DIGITS.exit.i.i:                           ; preds = %20, %16
   br label %bignorm.exit
 
 bignorm.exit:                                     ; preds = %29, %5, %rbimpl_RB_TYPE_P_fastpath.exit.i, %BIGNUM_DIGITS.exit.i.i, %43, %48, %50
-  %.0.i17 = phi i64 [ %0, %rbimpl_RB_TYPE_P_fastpath.exit.i ], [ %49, %48 ], [ %0, %50 ], [ %45, %43 ], [ 1, %BIGNUM_DIGITS.exit.i.i ], [ %0, %5 ], [ 1, %29 ]
+  %.0.i17 = phi i64 [ %0, %5 ], [ %0, %rbimpl_RB_TYPE_P_fastpath.exit.i ], [ %49, %48 ], [ %0, %50 ], [ %45, %43 ], [ 1, %BIGNUM_DIGITS.exit.i.i ], [ 1, %29 ]
   %51 = icmp eq i64 %.0.i17, %1
   %52 = select i1 %51, i64 20, i64 0
   br label %130
@@ -18010,7 +18010,7 @@ BIGNUM_DIGITS.exit.i.i:                           ; preds = %17, %13
   br label %bignorm.exit
 
 bignorm.exit:                                     ; preds = %26, %1, %BIGNUM_DIGITS.exit.i.i, %40, %45, %47
-  %.0.i = phi i64 [ %46, %45 ], [ %2, %47 ], [ %42, %40 ], [ 1, %BIGNUM_DIGITS.exit.i.i ], [ %2, %1 ], [ 1, %26 ]
+  %.0.i = phi i64 [ %2, %1 ], [ 1, %BIGNUM_DIGITS.exit.i.i ], [ %46, %45 ], [ %2, %47 ], [ %42, %40 ], [ 1, %26 ]
   ret i64 %.0.i
 }
 
@@ -18251,7 +18251,7 @@ BIGNUM_DIGITS.exit.i.i:                           ; preds = %75, %71
   br label %bary_add_one.exit30
 
 bary_add_one.exit30:                              ; preds = %52, %84, %105, %103, %98, %BIGNUM_DIGITS.exit.i.i, %62, %BIGNUM_LEN.exit
-  %.0 = phi i64 [ -1, %BIGNUM_LEN.exit ], [ %104, %103 ], [ %2, %105 ], [ %100, %98 ], [ 1, %BIGNUM_DIGITS.exit.i.i ], [ %2, %62 ], [ 1, %84 ], [ -1, %52 ]
+  %.0 = phi i64 [ 1, %BIGNUM_DIGITS.exit.i.i ], [ -1, %BIGNUM_LEN.exit ], [ %2, %62 ], [ 1, %84 ], [ %104, %103 ], [ %2, %105 ], [ %100, %98 ], [ -1, %52 ]
   ret i64 %.0
 }
 
@@ -18470,7 +18470,7 @@ RB_FLOAT_TYPE_P.exit.thread35:                    ; preds = %rbimpl_RB_TYPE_P_fa
   br label %bignorm.exit
 
 bignorm.exit:                                     ; preds = %48, %101, %99, %95, %69, %67, %62, %BIGNUM_DIGITS.exit.i.i, %rbimpl_RB_TYPE_P_fastpath.exit.i, %23, %RB_FLOAT_TYPE_P.exit.thread35, %13, %11
-  %.021 = phi i64 [ %12, %11 ], [ %14, %13 ], [ %103, %RB_FLOAT_TYPE_P.exit.thread35 ], [ %24, %rbimpl_RB_TYPE_P_fastpath.exit.i ], [ %68, %67 ], [ %24, %69 ], [ %64, %62 ], [ 1, %BIGNUM_DIGITS.exit.i.i ], [ %24, %23 ], [ %98, %95 ], [ %102, %101 ], [ -9223372036854775806, %99 ], [ 1, %48 ]
+  %.021 = phi i64 [ %12, %11 ], [ %14, %13 ], [ %103, %RB_FLOAT_TYPE_P.exit.thread35 ], [ -9223372036854775806, %99 ], [ %24, %23 ], [ %24, %rbimpl_RB_TYPE_P_fastpath.exit.i ], [ %68, %67 ], [ %24, %69 ], [ %64, %62 ], [ 1, %BIGNUM_DIGITS.exit.i.i ], [ %98, %95 ], [ %102, %101 ], [ 1, %48 ]
   ret i64 %.021
 }
 
@@ -18695,7 +18695,7 @@ BIGNUM_DIGITS.exit88:                             ; preds = %51, %53
   br label %.loopexit, !llvm.loop !210
 
 .loopexit101:                                     ; preds = %72, %.preheader100, %.loopexit99
-  %.474 = phi i64 [ %.575, %.loopexit99 ], [ %68, %.preheader100 ], [ %77, %72 ]
+  %.474 = phi i64 [ %68, %.preheader100 ], [ %.575, %.loopexit99 ], [ %77, %72 ]
   %105 = icmp slt i64 %.474, 0
   br i1 %105, label %106, label %.loopexit101.thread
 
@@ -18905,7 +18905,7 @@ BIGNUM_DIGITS.exit.i.i:                           ; preds = %164, %160
   br label %rb_long2num_inline.exit
 
 rb_long2num_inline.exit:                          ; preds = %173, %194, %192, %187, %BIGNUM_DIGITS.exit.i.i, %rbimpl_RB_TYPE_P_fastpath.exit.i, %.loopexit101.thread, %20
-  %.0 = phi i64 [ %26, %.loopexit101.thread ], [ %21, %20 ], [ %26, %rbimpl_RB_TYPE_P_fastpath.exit.i ], [ %193, %192 ], [ %26, %194 ], [ %189, %187 ], [ 1, %BIGNUM_DIGITS.exit.i.i ], [ 1, %173 ]
+  %.0 = phi i64 [ 1, %BIGNUM_DIGITS.exit.i.i ], [ %21, %20 ], [ %189, %187 ], [ %26, %.loopexit101.thread ], [ %26, %rbimpl_RB_TYPE_P_fastpath.exit.i ], [ %193, %192 ], [ %26, %194 ], [ 1, %173 ]
   ret i64 %.0
 }
 
@@ -19311,7 +19311,7 @@ BIGNUM_DIGITS.exit.i.i:                           ; preds = %159, %155
   br label %rb_long2num_inline.exit
 
 rb_long2num_inline.exit:                          ; preds = %168, %189, %187, %182, %BIGNUM_DIGITS.exit.i.i, %rbimpl_RB_TYPE_P_fastpath.exit.i, %.loopexit92, %24, %55, %59
-  %.0 = phi i64 [ %31, %59 ], [ %26, %24 ], [ %31, %55 ], [ %65, %rbimpl_RB_TYPE_P_fastpath.exit.i ], [ %188, %187 ], [ %65, %189 ], [ %184, %182 ], [ 1, %BIGNUM_DIGITS.exit.i.i ], [ %65, %.loopexit92 ], [ 1, %168 ]
+  %.0 = phi i64 [ %31, %59 ], [ %26, %24 ], [ %31, %55 ], [ %65, %.loopexit92 ], [ %65, %rbimpl_RB_TYPE_P_fastpath.exit.i ], [ %188, %187 ], [ %65, %189 ], [ %184, %182 ], [ 1, %BIGNUM_DIGITS.exit.i.i ], [ 1, %168 ]
   ret i64 %.0
 }
 
@@ -19841,7 +19841,7 @@ RB_FLOAT_TYPE_P.exit.thread35:                    ; preds = %rbimpl_RB_TYPE_P_fa
   br label %bignorm.exit
 
 bignorm.exit:                                     ; preds = %48, %101, %99, %95, %69, %67, %62, %BIGNUM_DIGITS.exit.i.i, %rbimpl_RB_TYPE_P_fastpath.exit.i, %23, %RB_FLOAT_TYPE_P.exit.thread35, %13, %11
-  %.021 = phi i64 [ %12, %11 ], [ %14, %13 ], [ %103, %RB_FLOAT_TYPE_P.exit.thread35 ], [ %24, %rbimpl_RB_TYPE_P_fastpath.exit.i ], [ %68, %67 ], [ %24, %69 ], [ %64, %62 ], [ 1, %BIGNUM_DIGITS.exit.i.i ], [ %24, %23 ], [ %98, %95 ], [ %102, %101 ], [ -9223372036854775806, %99 ], [ 1, %48 ]
+  %.021 = phi i64 [ %12, %11 ], [ %14, %13 ], [ %103, %RB_FLOAT_TYPE_P.exit.thread35 ], [ -9223372036854775806, %99 ], [ %24, %23 ], [ %24, %rbimpl_RB_TYPE_P_fastpath.exit.i ], [ %68, %67 ], [ %24, %69 ], [ %64, %62 ], [ 1, %BIGNUM_DIGITS.exit.i.i ], [ %98, %95 ], [ %102, %101 ], [ 1, %48 ]
   ret i64 %.021
 }
 
@@ -20047,7 +20047,7 @@ BIGNUM_DIGITS.exit.i.i:                           ; preds = %65, %61
   br label %rb_float_new_inline.exit
 
 rb_float_new_inline.exit:                         ; preds = %74, %95, %93, %88, %BIGNUM_DIGITS.exit.i.i, %rbimpl_RB_TYPE_P_fastpath.exit.i, %49, %46, %44, %40, %RB_FLOAT_TYPE_P.exit.thread22
-  %.011 = phi i64 [ -9223372036854775806, %44 ], [ %48, %RB_FLOAT_TYPE_P.exit.thread22 ], [ %43, %40 ], [ %47, %46 ], [ %50, %rbimpl_RB_TYPE_P_fastpath.exit.i ], [ %94, %93 ], [ %50, %95 ], [ %90, %88 ], [ 1, %BIGNUM_DIGITS.exit.i.i ], [ %50, %49 ], [ 1, %74 ]
+  %.011 = phi i64 [ -9223372036854775806, %44 ], [ %48, %RB_FLOAT_TYPE_P.exit.thread22 ], [ %43, %40 ], [ %47, %46 ], [ %50, %49 ], [ %50, %rbimpl_RB_TYPE_P_fastpath.exit.i ], [ %94, %93 ], [ %50, %95 ], [ %90, %88 ], [ 1, %BIGNUM_DIGITS.exit.i.i ], [ 1, %74 ]
   ret i64 %.011
 }
 
@@ -20495,7 +20495,7 @@ BIGNUM_DIGITS.exit.i.i:                           ; preds = %87, %83
   br label %bignorm.exit
 
 bignorm.exit:                                     ; preds = %96, %117, %115, %110, %BIGNUM_DIGITS.exit.i.i, %rbimpl_RB_TYPE_P_fastpath.exit.i, %71, %RB_FLOAT_TYPE_P.exit.thread33, %rb_float_value_inline.exit26, %rb_float_new_inline.exit
-  %.0 = phi i64 [ %70, %RB_FLOAT_TYPE_P.exit.thread33 ], [ %41, %rb_float_new_inline.exit ], [ %69, %rb_float_value_inline.exit26 ], [ %72, %rbimpl_RB_TYPE_P_fastpath.exit.i ], [ %116, %115 ], [ %72, %117 ], [ %112, %110 ], [ 1, %BIGNUM_DIGITS.exit.i.i ], [ %72, %71 ], [ 1, %96 ]
+  %.0 = phi i64 [ %70, %RB_FLOAT_TYPE_P.exit.thread33 ], [ %41, %rb_float_new_inline.exit ], [ %69, %rb_float_value_inline.exit26 ], [ %72, %71 ], [ %72, %rbimpl_RB_TYPE_P_fastpath.exit.i ], [ %116, %115 ], [ %72, %117 ], [ %112, %110 ], [ 1, %BIGNUM_DIGITS.exit.i.i ], [ 1, %96 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.0
 }
@@ -20640,7 +20640,7 @@ BIGNUM_DIGITS.exit.i.i:                           ; preds = %34, %30
   br label %bignorm.exit
 
 bignorm.exit:                                     ; preds = %43, %64, %62, %57, %BIGNUM_DIGITS.exit.i.i, %rbimpl_RB_TYPE_P_fastpath.exit.i, %18, %rbimpl_RB_TYPE_P_fastpath.exit.thread
-  %.08 = phi i64 [ %17, %rbimpl_RB_TYPE_P_fastpath.exit.thread ], [ %19, %rbimpl_RB_TYPE_P_fastpath.exit.i ], [ %63, %62 ], [ %19, %64 ], [ %59, %57 ], [ 1, %BIGNUM_DIGITS.exit.i.i ], [ %19, %18 ], [ 1, %43 ]
+  %.08 = phi i64 [ %17, %rbimpl_RB_TYPE_P_fastpath.exit.thread ], [ %19, %18 ], [ %19, %rbimpl_RB_TYPE_P_fastpath.exit.i ], [ %63, %62 ], [ %19, %64 ], [ %59, %57 ], [ 1, %BIGNUM_DIGITS.exit.i.i ], [ 1, %43 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %.08
 }
@@ -20961,7 +20961,7 @@ BIGNUM_DIGITS.exit.i.i:                           ; preds = %35, %31
   br label %bignorm.exit
 
 bignorm.exit:                                     ; preds = %44, %65, %63, %58, %BIGNUM_DIGITS.exit.i.i, %rbimpl_RB_TYPE_P_fastpath.exit.i, %19, %rbimpl_intern_const.exit
-  %.0 = phi i64 [ %18, %rbimpl_intern_const.exit ], [ %20, %rbimpl_RB_TYPE_P_fastpath.exit.i ], [ %64, %63 ], [ %20, %65 ], [ %60, %58 ], [ 1, %BIGNUM_DIGITS.exit.i.i ], [ %20, %19 ], [ 1, %44 ]
+  %.0 = phi i64 [ %18, %rbimpl_intern_const.exit ], [ %20, %19 ], [ %20, %rbimpl_RB_TYPE_P_fastpath.exit.i ], [ %64, %63 ], [ %20, %65 ], [ %60, %58 ], [ 1, %BIGNUM_DIGITS.exit.i.i ], [ 1, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %.0
 }
@@ -21939,7 +21939,7 @@ BIGNUM_DIGITS.exit.i.i:                           ; preds = %35, %31
   br label %bignorm.exit
 
 bignorm.exit:                                     ; preds = %44, %19, %rbimpl_RB_TYPE_P_fastpath.exit.i, %BIGNUM_DIGITS.exit.i.i, %58, %63, %65
-  %.0.i9 = phi i64 [ %20, %rbimpl_RB_TYPE_P_fastpath.exit.i ], [ %64, %63 ], [ %20, %65 ], [ %60, %58 ], [ 1, %BIGNUM_DIGITS.exit.i.i ], [ %20, %19 ], [ 1, %44 ]
+  %.0.i9 = phi i64 [ %20, %19 ], [ %20, %rbimpl_RB_TYPE_P_fastpath.exit.i ], [ %64, %63 ], [ %20, %65 ], [ %60, %58 ], [ 1, %BIGNUM_DIGITS.exit.i.i ], [ 1, %44 ]
   %66 = load i64, ptr %4, align 8, !tbaa !7
   %67 = icmp eq i64 %66, 0
   %68 = and i64 %66, 7
@@ -22040,7 +22040,7 @@ BIGNUM_DIGITS.exit.i.i13:                         ; preds = %81, %77
   br label %bignorm.exit29
 
 bignorm.exit29:                                   ; preds = %90, %bignorm.exit, %rbimpl_RB_TYPE_P_fastpath.exit.i10, %BIGNUM_DIGITS.exit.i.i13, %104, %109, %111
-  %.0.i11 = phi i64 [ %66, %rbimpl_RB_TYPE_P_fastpath.exit.i10 ], [ %110, %109 ], [ %66, %111 ], [ %106, %104 ], [ 1, %BIGNUM_DIGITS.exit.i.i13 ], [ %66, %bignorm.exit ], [ 1, %90 ]
+  %.0.i11 = phi i64 [ %66, %bignorm.exit ], [ %66, %rbimpl_RB_TYPE_P_fastpath.exit.i10 ], [ %110, %109 ], [ %66, %111 ], [ %106, %104 ], [ 1, %BIGNUM_DIGITS.exit.i.i13 ], [ 1, %90 ]
   %112 = call i64 @rb_assoc_new(i64 noundef %.0.i9, i64 noundef %.0.i11) #28
   br label %113
 
@@ -22609,7 +22609,7 @@ BIGNUM_DIGITS.exit.i.i:                           ; preds = %68, %64
   br label %bignorm.exit
 
 bignorm.exit:                                     ; preds = %77, %BIGNUM_DIGITS.exit.i.i, %91, %96, %98
-  %.0.i69 = phi i64 [ 1, %BIGNUM_DIGITS.exit.i.i ], [ %97, %96 ], [ %.048, %98 ], [ %93, %91 ], [ 1, %77 ]
+  %.0.i69 = phi i64 [ 1, %BIGNUM_DIGITS.exit.i.i ], [ %93, %91 ], [ %97, %96 ], [ %.048, %98 ], [ 1, %77 ]
   %99 = and i64 %.0.i69, 1
   %.not124 = icmp eq i64 %99, 0
   br i1 %.not124, label %100, label %5
@@ -23021,7 +23021,7 @@ rb_float_new_inline.exit.loopexit192:             ; preds = %5
   br label %rb_float_new_inline.exit
 
 rb_float_new_inline.exit:                         ; preds = %241, %5, %rb_float_new_inline.exit.loopexit192, %285, %283, %279, %262, %260, %255, %BIGNUM_DIGITS.exit.i.i81, %rbimpl_RB_TYPE_P_fastpath.exit.i78, %217, %172, %170, %166, %263, %rb_integer_type_p.exit.thread, %rb_big2dbl.exit
-  %.0 = phi i64 [ %264, %263 ], [ 3, %rb_float_new_inline.exit.loopexit192 ], [ %58, %rb_big2dbl.exit ], [ %156, %rb_integer_type_p.exit.thread ], [ -9223372036854775806, %170 ], [ %169, %166 ], [ %173, %172 ], [ %.2, %rbimpl_RB_TYPE_P_fastpath.exit.i78 ], [ %261, %260 ], [ %.2, %262 ], [ %257, %255 ], [ 1, %BIGNUM_DIGITS.exit.i.i81 ], [ %.2, %217 ], [ %282, %279 ], [ %286, %285 ], [ -9223372036854775806, %283 ], [ %0, %5 ], [ 1, %241 ]
+  %.0 = phi i64 [ %264, %263 ], [ 3, %rb_float_new_inline.exit.loopexit192 ], [ -9223372036854775806, %283 ], [ %58, %rb_big2dbl.exit ], [ %156, %rb_integer_type_p.exit.thread ], [ %0, %5 ], [ -9223372036854775806, %170 ], [ %169, %166 ], [ %173, %172 ], [ %.2, %217 ], [ %.2, %rbimpl_RB_TYPE_P_fastpath.exit.i78 ], [ %261, %260 ], [ %.2, %262 ], [ %257, %255 ], [ 1, %BIGNUM_DIGITS.exit.i.i81 ], [ %282, %279 ], [ %286, %285 ], [ 1, %241 ]
   ret i64 %.0
 }
 
@@ -23613,7 +23613,7 @@ BIGNUM_DIGITS.exit.i.i68.i:                       ; preds = %167, %163
   br label %bigand_int.exit
 
 bigand_int.exit:                                  ; preds = %176, %34, %26, %twocomp2abs_bang.exit.i, %rbimpl_RB_TYPE_P_fastpath.exit.i.i, %BIGNUM_DIGITS.exit.i.i68.i, %190, %195, %197
-  %.0.i39 = phi i64 [ %spec.select62, %34 ], [ 1, %26 ], [ %50, %rbimpl_RB_TYPE_P_fastpath.exit.i.i ], [ %196, %195 ], [ %50, %197 ], [ %192, %190 ], [ 1, %BIGNUM_DIGITS.exit.i.i68.i ], [ %50, %twocomp2abs_bang.exit.i ], [ 1, %176 ]
+  %.0.i39 = phi i64 [ %spec.select62, %34 ], [ 1, %26 ], [ 1, %BIGNUM_DIGITS.exit.i.i68.i ], [ %50, %twocomp2abs_bang.exit.i ], [ %50, %rbimpl_RB_TYPE_P_fastpath.exit.i.i ], [ %196, %195 ], [ %50, %197 ], [ %192, %190 ], [ 1, %176 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %bignorm.exit
 
@@ -23987,7 +23987,7 @@ BIGNUM_DIGITS.exit.i.i54:                         ; preds = %334, %330
   br label %bignorm.exit
 
 bignorm.exit:                                     ; preds = %343, %364, %362, %357, %BIGNUM_DIGITS.exit.i.i54, %rbimpl_RB_TYPE_P_fastpath.exit.i, %twocomp2abs_bang.exit, %bigand_int.exit, %rb_integer_type_p.exit.thread57
-  %.0 = phi i64 [ %.0.i39, %bigand_int.exit ], [ %25, %rb_integer_type_p.exit.thread57 ], [ %231, %rbimpl_RB_TYPE_P_fastpath.exit.i ], [ %363, %362 ], [ %231, %364 ], [ %359, %357 ], [ 1, %BIGNUM_DIGITS.exit.i.i54 ], [ %231, %twocomp2abs_bang.exit ], [ 1, %343 ]
+  %.0 = phi i64 [ %.0.i39, %bigand_int.exit ], [ %25, %rb_integer_type_p.exit.thread57 ], [ %231, %twocomp2abs_bang.exit ], [ %231, %rbimpl_RB_TYPE_P_fastpath.exit.i ], [ %363, %362 ], [ %231, %364 ], [ %359, %357 ], [ 1, %BIGNUM_DIGITS.exit.i.i54 ], [ 1, %343 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i64 %.0
@@ -24678,7 +24678,7 @@ BIGNUM_DIGITS.exit.i.i72.i:                       ; preds = %171, %167
   br label %bigor_int.exit
 
 bigor_int.exit:                                   ; preds = %180, %34, %26, %twocomp2abs_bang.exit.i, %rbimpl_RB_TYPE_P_fastpath.exit.i.i, %BIGNUM_DIGITS.exit.i.i72.i, %194, %199, %201
-  %.0.i40 = phi i64 [ %spec.select62, %34 ], [ -1, %26 ], [ %51, %rbimpl_RB_TYPE_P_fastpath.exit.i.i ], [ %200, %199 ], [ %51, %201 ], [ %196, %194 ], [ 1, %BIGNUM_DIGITS.exit.i.i72.i ], [ %51, %twocomp2abs_bang.exit.i ], [ 1, %180 ]
+  %.0.i40 = phi i64 [ %spec.select62, %34 ], [ -1, %26 ], [ 1, %BIGNUM_DIGITS.exit.i.i72.i ], [ %51, %twocomp2abs_bang.exit.i ], [ %51, %rbimpl_RB_TYPE_P_fastpath.exit.i.i ], [ %200, %199 ], [ %51, %201 ], [ %196, %194 ], [ 1, %180 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %bignorm.exit
 
@@ -25052,7 +25052,7 @@ BIGNUM_DIGITS.exit.i.i54:                         ; preds = %338, %334
   br label %bignorm.exit
 
 bignorm.exit:                                     ; preds = %347, %368, %366, %361, %BIGNUM_DIGITS.exit.i.i54, %rbimpl_RB_TYPE_P_fastpath.exit.i, %twocomp2abs_bang.exit, %bigor_int.exit, %rb_integer_type_p.exit.thread57
-  %.0 = phi i64 [ %.0.i40, %bigor_int.exit ], [ %25, %rb_integer_type_p.exit.thread57 ], [ %235, %rbimpl_RB_TYPE_P_fastpath.exit.i ], [ %367, %366 ], [ %235, %368 ], [ %363, %361 ], [ 1, %BIGNUM_DIGITS.exit.i.i54 ], [ %235, %twocomp2abs_bang.exit ], [ 1, %347 ]
+  %.0 = phi i64 [ %.0.i40, %bigor_int.exit ], [ %25, %rb_integer_type_p.exit.thread57 ], [ %235, %twocomp2abs_bang.exit ], [ %235, %rbimpl_RB_TYPE_P_fastpath.exit.i ], [ %367, %366 ], [ %235, %368 ], [ %363, %361 ], [ 1, %BIGNUM_DIGITS.exit.i.i54 ], [ 1, %347 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i64 %.0
@@ -25472,7 +25472,7 @@ BIGNUM_DIGITS.exit.i.i50.i:                       ; preds = %158, %154
   br label %bigxor_int.exit
 
 bigxor_int.exit:                                  ; preds = %167, %twocomp2abs_bang.exit.i, %rbimpl_RB_TYPE_P_fastpath.exit.i.i, %BIGNUM_DIGITS.exit.i.i50.i, %181, %186, %188
-  %.0.i48.i = phi i64 [ %47, %rbimpl_RB_TYPE_P_fastpath.exit.i.i ], [ %187, %186 ], [ %47, %188 ], [ %183, %181 ], [ 1, %BIGNUM_DIGITS.exit.i.i50.i ], [ %47, %twocomp2abs_bang.exit.i ], [ 1, %167 ]
+  %.0.i48.i = phi i64 [ %47, %twocomp2abs_bang.exit.i ], [ %47, %rbimpl_RB_TYPE_P_fastpath.exit.i.i ], [ %187, %186 ], [ %47, %188 ], [ %183, %181 ], [ 1, %BIGNUM_DIGITS.exit.i.i50.i ], [ 1, %167 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %bignorm.exit
 
@@ -25842,7 +25842,7 @@ BIGNUM_DIGITS.exit.i.i50:                         ; preds = %323, %319
   br label %bignorm.exit
 
 bignorm.exit:                                     ; preds = %332, %353, %351, %346, %BIGNUM_DIGITS.exit.i.i50, %rbimpl_RB_TYPE_P_fastpath.exit.i, %twocomp2abs_bang.exit, %bigxor_int.exit, %rb_integer_type_p.exit.thread53
-  %.0 = phi i64 [ %.0.i48.i, %bigxor_int.exit ], [ %25, %rb_integer_type_p.exit.thread53 ], [ %221, %rbimpl_RB_TYPE_P_fastpath.exit.i ], [ %352, %351 ], [ %221, %353 ], [ %348, %346 ], [ 1, %BIGNUM_DIGITS.exit.i.i50 ], [ %221, %twocomp2abs_bang.exit ], [ 1, %332 ]
+  %.0 = phi i64 [ %.0.i48.i, %bigxor_int.exit ], [ %25, %rb_integer_type_p.exit.thread53 ], [ %221, %twocomp2abs_bang.exit ], [ %221, %rbimpl_RB_TYPE_P_fastpath.exit.i ], [ %352, %351 ], [ %221, %353 ], [ %348, %346 ], [ 1, %BIGNUM_DIGITS.exit.i.i50 ], [ 1, %332 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i64 %.0
@@ -26084,7 +26084,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %.lr.ph, %rbimpl_RB_
   br i1 %.not, label %.lr.ph, label %._crit_edge
 
 bignorm.exit:                                     ; preds = %88, %33, %109, %107, %102, %BIGNUM_DIGITS.exit.i.i24, %rbimpl_RB_TYPE_P_fastpath.exit.i21, %63, %54, %52, %47, %BIGNUM_DIGITS.exit.i.i, %rbimpl_RB_TYPE_P_fastpath.exit.i, %._crit_edge
-  %.016 = phi i64 [ %9, %rbimpl_RB_TYPE_P_fastpath.exit.i ], [ %53, %52 ], [ %9, %54 ], [ %49, %47 ], [ 1, %BIGNUM_DIGITS.exit.i.i ], [ %9, %._crit_edge ], [ %64, %rbimpl_RB_TYPE_P_fastpath.exit.i21 ], [ %108, %107 ], [ %64, %109 ], [ %104, %102 ], [ 1, %BIGNUM_DIGITS.exit.i.i24 ], [ %64, %63 ], [ 1, %33 ], [ 1, %88 ]
+  %.016 = phi i64 [ 1, %33 ], [ %9, %._crit_edge ], [ %9, %rbimpl_RB_TYPE_P_fastpath.exit.i ], [ %53, %52 ], [ %9, %54 ], [ %49, %47 ], [ 1, %BIGNUM_DIGITS.exit.i.i ], [ %64, %63 ], [ %64, %rbimpl_RB_TYPE_P_fastpath.exit.i21 ], [ %108, %107 ], [ %64, %109 ], [ %104, %102 ], [ 1, %BIGNUM_DIGITS.exit.i.i24 ], [ 1, %88 ]
   ret i64 %.016
 }
 
@@ -26698,9 +26698,9 @@ BIGNUM_LEN.exit.loopexit.i:                       ; preds = %38
   br label %rb_integer_pack.exit
 
 rb_integer_pack.exit:                             ; preds = %48, %53, %BIGNUM_LEN.exit.loopexit.i
-  %.019.i = phi ptr [ %54, %53 ], [ %50, %48 ], [ %5, %BIGNUM_LEN.exit.loopexit.i ]
-  %.018.i = phi i64 [ %56, %53 ], [ %52, %48 ], [ 2, %BIGNUM_LEN.exit.loopexit.i ]
-  %.117.i = phi i32 [ %46, %53 ], [ %46, %48 ], [ %.016.i, %BIGNUM_LEN.exit.loopexit.i ]
+  %.019.i = phi ptr [ %50, %48 ], [ %54, %53 ], [ %5, %BIGNUM_LEN.exit.loopexit.i ]
+  %.018.i = phi i64 [ %52, %48 ], [ %56, %53 ], [ 2, %BIGNUM_LEN.exit.loopexit.i ]
+  %.117.i = phi i32 [ %46, %48 ], [ %46, %53 ], [ %.016.i, %BIGNUM_LEN.exit.loopexit.i ]
   %58 = getelementptr i32, ptr %.019.i, i64 %.018.i
   br label %59
 
@@ -26764,7 +26764,7 @@ ruby_nonempty_memcpy.exit364.i:                   ; preds = %.critedge5.thread.i
   br label %bary_pack.exit
 
 bary_pack.exit:                                   ; preds = %ruby_nonempty_memcpy.exit364.i, %66, %.thread530.i
-  %.0254.i = phi i32 [ %spec.select.i, %.thread530.i ], [ 0, %66 ], [ %79, %ruby_nonempty_memcpy.exit364.i ]
+  %.0254.i = phi i32 [ %79, %ruby_nonempty_memcpy.exit364.i ], [ 0, %66 ], [ %spec.select.i, %.thread530.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.023 = call i32 @llvm.abs.i32(i32 %.0254.i, i1 true)
@@ -27046,7 +27046,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %.lr.ph, %rbimpl_RB_
   br i1 %.not, label %.lr.ph, label %._crit_edge
 
 bignorm.exit:                                     ; preds = %87, %32, %108, %106, %101, %BIGNUM_DIGITS.exit.i.i24, %rbimpl_RB_TYPE_P_fastpath.exit.i21, %62, %53, %51, %46, %BIGNUM_DIGITS.exit.i.i, %rbimpl_RB_TYPE_P_fastpath.exit.i, %._crit_edge
-  %.016 = phi i64 [ %8, %rbimpl_RB_TYPE_P_fastpath.exit.i ], [ %52, %51 ], [ %8, %53 ], [ %48, %46 ], [ 1, %BIGNUM_DIGITS.exit.i.i ], [ %8, %._crit_edge ], [ %63, %rbimpl_RB_TYPE_P_fastpath.exit.i21 ], [ %107, %106 ], [ %63, %108 ], [ %103, %101 ], [ 1, %BIGNUM_DIGITS.exit.i.i24 ], [ %63, %62 ], [ 1, %32 ], [ 1, %87 ]
+  %.016 = phi i64 [ 1, %32 ], [ %8, %._crit_edge ], [ %8, %rbimpl_RB_TYPE_P_fastpath.exit.i ], [ %52, %51 ], [ %8, %53 ], [ %48, %46 ], [ 1, %BIGNUM_DIGITS.exit.i.i ], [ %63, %62 ], [ %63, %rbimpl_RB_TYPE_P_fastpath.exit.i21 ], [ %107, %106 ], [ %63, %108 ], [ %103, %101 ], [ 1, %BIGNUM_DIGITS.exit.i.i24 ], [ 1, %87 ]
   ret i64 %.016
 }
 
@@ -27273,7 +27273,7 @@ rb_absint_size.exit:                              ; preds = %.critedge.i71, %98
   br label %108
 
 108:                                              ; preds = %BIGNUM_LEN.exit70, %rb_absint_size.exit
-  %109 = phi i64 [ %64, %BIGNUM_LEN.exit70 ], [ %.029.i, %rb_absint_size.exit ]
+  %109 = phi i64 [ %.029.i, %rb_absint_size.exit ], [ %64, %BIGNUM_LEN.exit70 ]
   %110 = icmp ugt i64 %109, 8
   br i1 %110, label %111, label %.thread95
 
@@ -28641,7 +28641,7 @@ BIGNUM_DIGITS.exit.i.i:                           ; preds = %153, %149
   br label %bignorm.exit
 
 bignorm.exit:                                     ; preds = %rb_bigzero_p.exit, %176, %181, %183
-  %.0.i54 = phi i64 [ %.034, %rb_bigzero_p.exit ], [ %182, %181 ], [ %.034, %183 ], [ %178, %176 ]
+  %.0.i54 = phi i64 [ %.034, %rb_bigzero_p.exit ], [ %178, %176 ], [ %182, %181 ], [ %.034, %183 ]
   %184 = icmp eq i64 %.0.i54, 3
   br i1 %184, label %337, label %bignorm.exit.thread
 
@@ -29005,7 +29005,7 @@ BIGNUM_DIGITS.exit.i.i.i.i:                       ; preds = %306, %302
   br label %int_pow_tmp3.exit
 
 int_pow_tmp3.exit:                                ; preds = %315, %285, %rbimpl_RB_TYPE_P_fastpath.exit.i.i.i, %BIGNUM_DIGITS.exit.i.i.i.i, %329, %334, %336
-  %.0.i.i.i = phi i64 [ %.0.i61, %rbimpl_RB_TYPE_P_fastpath.exit.i.i.i ], [ %335, %334 ], [ %.0.i61, %336 ], [ %331, %329 ], [ 1, %BIGNUM_DIGITS.exit.i.i.i.i ], [ %.0.i61, %285 ], [ 1, %315 ]
+  %.0.i.i.i = phi i64 [ %.0.i61, %285 ], [ %.0.i61, %rbimpl_RB_TYPE_P_fastpath.exit.i.i.i ], [ %335, %334 ], [ %.0.i61, %336 ], [ %331, %329 ], [ 1, %BIGNUM_DIGITS.exit.i.i.i.i ], [ 1, %315 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -29202,9 +29202,9 @@ define internal fastcc range(i32 0, 2) i32 @bary_mul_precheck(ptr noundef nonnul
   br i1 %.not136, label %.loopexit156, label %.preheader155, !llvm.loop !266
 
 .loopexit156:                                     ; preds = %18, %21, %.preheader155, %6
-  %.0124 = phi ptr [ %9, %6 ], [ %.1125, %.preheader155 ], [ %indvars.iv, %21 ], [ %9, %18 ]
-  %.1121 = phi i64 [ 0, %6 ], [ %.2122, %.preheader155 ], [ 0, %21 ], [ 0, %18 ]
-  %.0110 = phi i64 [ 0, %6 ], [ %.1, %.preheader155 ], [ %.0120161, %21 ], [ 0, %18 ]
+  %.0124 = phi ptr [ %.1125, %.preheader155 ], [ %9, %6 ], [ %indvars.iv, %21 ], [ %9, %18 ]
+  %.1121 = phi i64 [ %.2122, %.preheader155 ], [ 0, %6 ], [ 0, %21 ], [ 0, %18 ]
+  %.0110 = phi i64 [ %.1, %.preheader155 ], [ 0, %6 ], [ %.0120161, %21 ], [ 0, %18 ]
   %.not137162 = icmp eq i64 %12, 0
   br i1 %.not137162, label %.loopexit, label %.lr.ph164.preheader
 
@@ -29247,9 +29247,9 @@ define internal fastcc range(i32 0, 2) i32 @bary_mul_precheck(ptr noundef nonnul
   br i1 %.not139, label %.loopexit, label %.preheader153, !llvm.loop !268
 
 .loopexit:                                        ; preds = %31, %34, %.preheader153, %.loopexit156
-  %.0117 = phi ptr [ %11, %.loopexit156 ], [ %.1118, %.preheader153 ], [ %indvars.iv197, %34 ], [ %11, %31 ]
-  %.1114 = phi i64 [ 0, %.loopexit156 ], [ %.2115, %.preheader153 ], [ 0, %34 ], [ 0, %31 ]
-  %.2 = phi i64 [ %.0110, %.loopexit156 ], [ %.3, %.preheader153 ], [ %indvars.iv200, %34 ], [ %.0110, %31 ]
+  %.0117 = phi ptr [ %.1118, %.preheader153 ], [ %11, %.loopexit156 ], [ %indvars.iv197, %34 ], [ %11, %31 ]
+  %.1114 = phi i64 [ %.2115, %.preheader153 ], [ 0, %.loopexit156 ], [ 0, %34 ], [ 0, %31 ]
+  %.2 = phi i64 [ %.3, %.preheader153 ], [ %.0110, %.loopexit156 ], [ %indvars.iv200, %34 ], [ %.0110, %31 ]
   %.not140 = icmp eq i64 %.2, 0
   br i1 %.not140, label %41, label %.preheader152.preheader
 
@@ -29483,7 +29483,7 @@ bary_small_lshift.exit:                           ; preds = %63, %._crit_edge.lo
   br label %bary_mul_normal.exit
 
 bary_mul_normal.exit:                             ; preds = %.lr.ph41.i.i, %.lr.ph21.split.i.preheader, %.preheader.i.i, %.lr.ph171.preheader, %.lr.ph175.preheader, %.lr.ph179.preheader, %.lr.ph183.preheader, %118, %bary_small_lshift.exit, %ruby_nonempty_memcpy.exit, %.preheader, %.preheader.i, %.split129, %121
-  %.0109 = phi i32 [ 0, %121 ], [ 1, %.split129 ], [ 1, %.preheader.i ], [ 1, %118 ], [ 1, %.preheader ], [ 1, %ruby_nonempty_memcpy.exit ], [ 1, %bary_small_lshift.exit ], [ 1, %.lr.ph183.preheader ], [ 1, %.lr.ph179.preheader ], [ 1, %.lr.ph175.preheader ], [ 1, %.lr.ph171.preheader ], [ 1, %.preheader.i.i ], [ 1, %.lr.ph21.split.i.preheader ], [ 1, %.lr.ph41.i.i ]
+  %.0109 = phi i32 [ 0, %121 ], [ 1, %bary_small_lshift.exit ], [ 1, %118 ], [ 1, %.preheader ], [ 1, %ruby_nonempty_memcpy.exit ], [ 1, %.split129 ], [ 1, %.preheader.i ], [ 1, %.lr.ph171.preheader ], [ 1, %.lr.ph183.preheader ], [ 1, %.lr.ph179.preheader ], [ 1, %.lr.ph175.preheader ], [ 1, %.lr.ph21.split.i.preheader ], [ 1, %.preheader.i.i ], [ 1, %.lr.ph41.i.i ]
   ret i32 %.0109
 }
 
@@ -30898,9 +30898,9 @@ BIGNUM_DIGITS.exit150:                            ; preds = %151, %155
   br i1 %160, label %.lr.ph, label %.critedge.thread273, !llvm.loop !283
 
 .critedge:                                        ; preds = %136, %123, %._crit_edge.i, %133, %BIGNUM_DIGITS.exit
-  %.0123218 = phi ptr [ %.0.i140, %BIGNUM_DIGITS.exit ], [ %.0123219, %133 ], [ %.0123219, %._crit_edge.i ], [ %.0123219, %123 ], [ %.0123219, %136 ]
-  %.0122214 = phi i64 [ %.0.i138196, %BIGNUM_DIGITS.exit ], [ %2, %133 ], [ %2, %._crit_edge.i ], [ %2, %123 ], [ %2, %136 ]
-  %.0121210 = phi i32 [ %89, %BIGNUM_DIGITS.exit ], [ %.0121221, %133 ], [ %.0121221, %._crit_edge.i ], [ %.0121221, %123 ], [ %.0121221, %136 ]
+  %.0123218 = phi ptr [ %.0123219, %133 ], [ %.0.i140, %BIGNUM_DIGITS.exit ], [ %.0123219, %._crit_edge.i ], [ %.0123219, %123 ], [ %.0123219, %136 ]
+  %.0122214 = phi i64 [ %2, %133 ], [ %.0.i138196, %BIGNUM_DIGITS.exit ], [ %2, %._crit_edge.i ], [ %2, %123 ], [ %2, %136 ]
+  %.0121210 = phi i32 [ %.0121221, %133 ], [ %89, %BIGNUM_DIGITS.exit ], [ %.0121221, %._crit_edge.i ], [ %.0121221, %123 ], [ %.0121221, %136 ]
   %161 = icmp eq i32 %.0121210, 0
   br i1 %161, label %.critedge.thread273, label %.critedge.thread
 
@@ -31553,7 +31553,7 @@ bary_2comp.exit:                                  ; preds = %119, %.lr.ph26.i, %
   store i64 %128, ptr %28, align 8, !tbaa !11
   br label %bary_sub.exit.thread
 
-bary_sub.exit.thread:                             ; preds = %.lr.ph96.preheader.i.i, %.preheader.i.i, %.loopexit74.i.i, %bary_2comp.exit
+bary_sub.exit.thread:                             ; preds = %.lr.ph96.preheader.i.i, %.loopexit74.i.i, %.preheader.i.i, %bary_2comp.exit
   ret i64 %27
 }
 

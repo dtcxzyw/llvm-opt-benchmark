@@ -3014,7 +3014,7 @@ _find_srun_job.exit.thread:                       ; preds = %1, %_find_srun_job.
 
 35:                                               ; preds = %30
   %36 = and i32 %32, 127
-  switch i32 %36, label %40 [
+  switch i32 %36, label %43 [
     i32 0, label %37
     i32 127, label %.critedge100
   ]
@@ -3022,25 +3022,25 @@ _find_srun_job.exit.thread:                       ; preds = %1, %_find_srun_job.
 37:                                               ; preds = %35
   %38 = and i32 %32, 65280
   %39 = icmp eq i32 %38, 0
-  br i1 %39, label %47, label %.critedge
+  br i1 %39, label %40, label %.critedge
 
-40:                                               ; preds = %35
-  %41 = getelementptr inbounds nuw i8, ptr %11, i64 108
-  %42 = load i32, ptr %41, align 4
-  %43 = icmp ugt i32 %42, 3
-  br i1 %43, label %44, label %.critedge
+40:                                               ; preds = %37
+  %41 = tail call i32 @get_log_level() #17
+  %42 = icmp sgt i32 %41, 3
+  br i1 %42, label %.critedge, label %.critedge100
 
-44:                                               ; preds = %40
-  %45 = tail call i32 @get_log_level() #17
-  %46 = icmp sgt i32 %45, 3
-  br i1 %46, label %.critedge, label %.critedge100
+43:                                               ; preds = %35
+  %44 = getelementptr inbounds nuw i8, ptr %11, i64 108
+  %45 = load i32, ptr %44, align 4
+  %46 = icmp ugt i32 %45, 3
+  br i1 %46, label %47, label %.critedge
 
-47:                                               ; preds = %37
+47:                                               ; preds = %43
   %48 = tail call i32 @get_log_level() #17
   %49 = icmp sgt i32 %48, 3
   br i1 %49, label %.critedge, label %.critedge100
 
-.critedge:                                        ; preds = %44, %30, %37, %40, %47
+.critedge:                                        ; preds = %40, %30, %37, %43, %47
   %50 = load i32, ptr %0, align 8
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %52 = load ptr, ptr %51, align 8
@@ -3201,9 +3201,9 @@ _task_ids_to_host_list.exit:                      ; preds = %launch_common_get_s
   store ptr %.0.i112, ptr %6, align 8
   br label %.critedge100
 
-.critedge100:                                     ; preds = %35, %44, %47, %_task_ids_to_host_list.exit
-  %109 = phi ptr [ null, %44 ], [ null, %35 ], [ null, %47 ], [ %64, %_task_ids_to_host_list.exit ]
-  %110 = phi ptr [ null, %44 ], [ null, %35 ], [ null, %47 ], [ %.0.i112, %_task_ids_to_host_list.exit ]
+.critedge100:                                     ; preds = %35, %40, %47, %_task_ids_to_host_list.exit
+  %109 = phi ptr [ null, %40 ], [ null, %35 ], [ null, %47 ], [ %64, %_task_ids_to_host_list.exit ]
+  %110 = phi ptr [ null, %40 ], [ null, %35 ], [ null, %47 ], [ %.0.i112, %_task_ids_to_host_list.exit ]
   %111 = call i32 @pthread_mutex_lock(ptr noundef nonnull @launch_lock) #17
   %.not82 = icmp eq i32 %111, 0
   br i1 %.not82, label %114, label %112

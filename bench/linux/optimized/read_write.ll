@@ -3067,7 +3067,7 @@ define internal fastcc range(i64 -528, -529) i64 @do_iter_readv_writev(ptr nound
   br label %81
 
 81:                                               ; preds = %46, %51, %79, %78
-  %82 = phi i64 [ %75, %79 ], [ %75, %78 ], [ -95, %46 ], [ -95, %51 ]
+  %82 = phi i64 [ %75, %79 ], [ %75, %78 ], [ -95, %51 ], [ -95, %46 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i64 %82
 }

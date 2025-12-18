@@ -1304,11 +1304,11 @@ _ZN12_GLOBAL__N_116maybeFilterValueEjjjPFjPKvjES1_.exit295: ; preds = %228, %231
   br i1 %.not273, label %.loopexit, label %.lr.ph.split, !llvm.loop !31
 
 .loopexit:                                        ; preds = %233, %.lr.ph435, %.lr.ph431, %.lr.ph427, %_ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit292.us.us419, %.thread, %175, %126, %139
-  %.12250 = phi i32 [ %.5243, %126 ], [ %.0171, %139 ], [ %.11249, %175 ], [ %.5243, %.thread ], [ %.11249, %.lr.ph435 ], [ %.11249, %_ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit292.us.us419 ], [ %.11249, %.lr.ph427 ], [ %.11249, %.lr.ph431 ], [ %.11249496501, %233 ]
-  %.12237 = phi i8 [ %.5230, %126 ], [ 1, %139 ], [ 1, %175 ], [ 1, %.thread ], [ 1, %.lr.ph435 ], [ 1, %_ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit292.us.us419 ], [ 1, %.lr.ph427 ], [ 1, %.lr.ph431 ], [ 1, %233 ]
-  %.14 = phi i32 [ %.5200, %126 ], [ %.8203, %139 ], [ %.11206, %175 ], [ %.0.i285, %.thread ], [ %.11206, %.lr.ph435 ], [ -1, %_ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit292.us.us419 ], [ %.11206, %.lr.ph427 ], [ %.11206, %.lr.ph431 ], [ %.13208, %233 ]
-  %.10194 = phi i32 [ %127, %126 ], [ %141, %139 ], [ %176, %175 ], [ %178, %.thread ], [ %211, %.lr.ph435 ], [ %214, %_ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit292.us.us419 ], [ %191, %.lr.ph427 ], [ %200, %.lr.ph431 ], [ %234, %233 ]
-  %.6183 = phi i32 [ %.4181, %126 ], [ %.0209, %139 ], [ %.0209, %175 ], [ %.0209, %.thread ], [ %.0209, %.lr.ph435 ], [ %.0209, %_ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit292.us.us419 ], [ %.0209, %.lr.ph427 ], [ %.0209, %.lr.ph431 ], [ %.0209, %233 ]
+  %.12250 = phi i32 [ %.5243, %126 ], [ %.0171, %139 ], [ %.11249, %.lr.ph431 ], [ %.11249, %175 ], [ %.11249, %.lr.ph435 ], [ %.5243, %.thread ], [ %.11249, %_ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit292.us.us419 ], [ %.11249, %.lr.ph427 ], [ %.11249496501, %233 ]
+  %.12237 = phi i8 [ %.5230, %126 ], [ 1, %139 ], [ 1, %.lr.ph431 ], [ 1, %175 ], [ 1, %.lr.ph435 ], [ 1, %.thread ], [ 1, %_ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit292.us.us419 ], [ 1, %.lr.ph427 ], [ 1, %233 ]
+  %.14 = phi i32 [ %.5200, %126 ], [ %.8203, %139 ], [ %.11206, %.lr.ph431 ], [ %.11206, %175 ], [ %.11206, %.lr.ph435 ], [ %.0.i285, %.thread ], [ -1, %_ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit292.us.us419 ], [ %.11206, %.lr.ph427 ], [ %.13208, %233 ]
+  %.10194 = phi i32 [ %127, %126 ], [ %141, %139 ], [ %200, %.lr.ph431 ], [ %176, %175 ], [ %211, %.lr.ph435 ], [ %178, %.thread ], [ %214, %_ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit292.us.us419 ], [ %191, %.lr.ph427 ], [ %234, %233 ]
+  %.6183 = phi i32 [ %.4181, %126 ], [ %.0209, %139 ], [ %.0209, %.lr.ph431 ], [ %.0209, %175 ], [ %.0209, %.lr.ph435 ], [ %.0209, %.thread ], [ %.0209, %_ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit292.us.us419 ], [ %.0209, %.lr.ph427 ], [ %.0209, %233 ]
   %indvars.iv.next486 = add nsw i64 %indvars.iv485, 1
   %236 = icmp slt i64 %indvars.iv.next486, %.1216
   br i1 %236, label %97, label %.thread334, !llvm.loop !33
@@ -1318,12 +1318,12 @@ _ZN12_GLOBAL__N_116maybeFilterValueEjjjPFjPKvjES1_.exit295: ; preds = %228, %231
   br label %.thread322
 
 .thread334:                                       ; preds = %.loopexit, %72, %83
-  %.3175354 = phi i32 [ %.0172, %72 ], [ %68, %83 ], [ %.1173, %.loopexit ]
-  %.3180353 = phi i32 [ %.0177, %72 ], [ %84, %83 ], [ %.6183, %.loopexit ]
-  %.3187352 = phi i32 [ %73, %72 ], [ %86, %83 ], [ %.10194, %.loopexit ]
-  %.4199351 = phi i32 [ %.0195, %72 ], [ %.3198, %83 ], [ %.14, %.loopexit ]
-  %.4229347 = phi i8 [ %.0225, %72 ], [ 1, %83 ], [ %.12237, %.loopexit ]
-  %.4242346 = phi i32 [ %.0238, %72 ], [ %.0171, %83 ], [ %.12250, %.loopexit ]
+  %.3175354 = phi i32 [ %68, %83 ], [ %.0172, %72 ], [ %.1173, %.loopexit ]
+  %.3180353 = phi i32 [ %84, %83 ], [ %.0177, %72 ], [ %.6183, %.loopexit ]
+  %.3187352 = phi i32 [ %86, %83 ], [ %73, %72 ], [ %.10194, %.loopexit ]
+  %.4199351 = phi i32 [ %.3198, %83 ], [ %.0195, %72 ], [ %.14, %.loopexit ]
+  %.4229347 = phi i8 [ 1, %83 ], [ %.0225, %72 ], [ %.12237, %.loopexit ]
+  %.4242346 = phi i32 [ %.0171, %83 ], [ %.0238, %72 ], [ %.12250, %.loopexit ]
   %239 = load i32, ptr %10, align 8, !tbaa !27
   %240 = icmp slt i32 %.3187352, %239
   br i1 %240, label %46, label %241, !llvm.loop !34
@@ -1379,7 +1379,7 @@ _ZN12_GLOBAL__N_116maybeFilterValueEjjjPFjPKvjES1_.exit300: ; preds = %_ZN12_GLO
   br label %.thread322
 
 .thread322:                                       ; preds = %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us402, %.lr.ph.split.us.split, %.lr.ph.split.us.split.us389, %_ZN12_GLOBAL__N_116maybeFilterValueEjjjPFjPKvjES1_.exit295, %_ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit292.us.us405, %_ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit292.us.us392, %_ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit292.us.us, %134, %167, %237, %34, %12, %_ZN12_GLOBAL__N_116maybeFilterValueEjjjPFjPKvjES1_.exit300, %5
-  %.0 = phi i32 [ -1, %5 ], [ 1114111, %12 ], [ 1114111, %34 ], [ %238, %237 ], [ %.13, %_ZN12_GLOBAL__N_116maybeFilterValueEjjjPFjPKvjES1_.exit300 ], [ %168, %167 ], [ %135, %134 ], [ %.9193380, %_ZN12_GLOBAL__N_116maybeFilterValueEjjjPFjPKvjES1_.exit295 ], [ %190, %_ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit292.us.us ], [ %199, %_ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit292.us.us392 ], [ %210, %_ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit292.us.us405 ], [ %.4188, %.lr.ph.split.us.split.us389 ], [ %.4188, %.lr.ph.split.us.split ], [ %.4188, %.lr.ph.split.us.split.us402 ], [ %.4188, %.lr.ph.split.us.split.us ]
+  %.0 = phi i32 [ -1, %5 ], [ 1114111, %12 ], [ 1114111, %34 ], [ %238, %237 ], [ %.13, %_ZN12_GLOBAL__N_116maybeFilterValueEjjjPFjPKvjES1_.exit300 ], [ %135, %134 ], [ %168, %167 ], [ %190, %_ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit292.us.us ], [ %.9193380, %_ZN12_GLOBAL__N_116maybeFilterValueEjjjPFjPKvjES1_.exit295 ], [ %210, %_ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit292.us.us405 ], [ %199, %_ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit292.us.us392 ], [ %.4188, %.lr.ph.split.us.split.us389 ], [ %.4188, %.lr.ph.split.us.split ], [ %.4188, %.lr.ph.split.us.split.us402 ], [ %.4188, %.lr.ph.split.us.split.us ]
   ret i32 %.0
 }
 

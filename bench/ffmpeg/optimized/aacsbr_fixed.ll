@@ -3018,9 +3018,9 @@ get_bits1_vector.exit.i.i:                        ; preds = %.lr.ph.i53.i, %1350
   br label %read_sbr_data.exit
 
 read_sbr_channel_pair_element.exit.i:             ; preds = %.lr.ph127.i.i, %.lr.ph.i.i61, %1381, %get_bits1_vector.exit.i.i, %1149, %1133
-  %1411 = phi i32 [ %1140, %1133 ], [ %1341, %1381 ], [ %1341, %get_bits1_vector.exit.i.i ], [ %1140, %1149 ], [ %1140, %.lr.ph.i.i61 ], [ %1341, %.lr.ph127.i.i ]
-  %1412 = phi ptr [ %1135, %1133 ], [ %1336, %1381 ], [ %1336, %get_bits1_vector.exit.i.i ], [ %1135, %1149 ], [ %1135, %.lr.ph.i.i61 ], [ %1336, %.lr.ph127.i.i ]
-  %1413 = phi i32 [ %spec.select.i31.i.i, %1133 ], [ %spec.select.i123.i.i, %1381 ], [ %spec.select.i123.i.i, %get_bits1_vector.exit.i.i ], [ %spec.select.i31.i.i, %1149 ], [ %spec.select.i32.i.i, %.lr.ph.i.i61 ], [ %spec.select.i124.i.i, %.lr.ph127.i.i ]
+  %1411 = phi i32 [ %1140, %.lr.ph.i.i61 ], [ %1140, %1133 ], [ %1341, %1381 ], [ %1341, %get_bits1_vector.exit.i.i ], [ %1140, %1149 ], [ %1341, %.lr.ph127.i.i ]
+  %1412 = phi ptr [ %1135, %.lr.ph.i.i61 ], [ %1135, %1133 ], [ %1336, %1381 ], [ %1336, %get_bits1_vector.exit.i.i ], [ %1135, %1149 ], [ %1336, %.lr.ph127.i.i ]
+  %1413 = phi i32 [ %spec.select.i32.i.i, %.lr.ph.i.i61 ], [ %spec.select.i31.i.i, %1133 ], [ %spec.select.i123.i.i, %1381 ], [ %spec.select.i123.i.i, %get_bits1_vector.exit.i.i ], [ %spec.select.i31.i.i, %1149 ], [ %spec.select.i124.i.i, %.lr.ph127.i.i ]
   %1414 = lshr i32 %1413, 3
   %1415 = zext nneg i32 %1414 to i64
   %1416 = getelementptr inbounds nuw i8, ptr %1412, i64 %1415
@@ -9450,8 +9450,8 @@ get_bits1_vector.exit.loopexit256:                ; preds = %209
   br label %get_bits1_vector.exit
 
 get_bits1_vector.exit:                            ; preds = %.lr.ph226, %.lr.ph238, %get_bits1_vector.exit.loopexit256, %._crit_edge, %._crit_edge235
-  %354 = phi i32 [ %125, %._crit_edge235 ], [ %313, %._crit_edge ], [ %176, %get_bits1_vector.exit.loopexit256 ], [ %125, %.lr.ph238 ], [ %313, %.lr.ph226 ]
-  %.0186 = phi i32 [ %141, %._crit_edge235 ], [ %329, %._crit_edge ], [ %353, %get_bits1_vector.exit.loopexit256 ], [ %141, %.lr.ph238 ], [ %329, %.lr.ph226 ]
+  %354 = phi i32 [ %125, %._crit_edge235 ], [ %125, %.lr.ph238 ], [ %313, %._crit_edge ], [ %176, %get_bits1_vector.exit.loopexit256 ], [ %313, %.lr.ph226 ]
+  %.0186 = phi i32 [ %141, %._crit_edge235 ], [ %141, %.lr.ph238 ], [ %329, %._crit_edge ], [ %353, %get_bits1_vector.exit.loopexit256 ], [ %329, %.lr.ph226 ]
   store i32 %31, ptr %3, align 16, !tbaa !123
   %355 = icmp sgt i32 %.0186, -1
   br i1 %355, label %357, label %356

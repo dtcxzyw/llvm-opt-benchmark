@@ -260,7 +260,7 @@ lean_dec.exit22.backedge:                         ; preds = %lean_inc.exit26, %7
   br label %lean_dec.exit22.backedge
 
 lean_dec.exit22.thread:                           ; preds = %lean_obj_tag.exit, %48, %52, %54, %55
-  %.1 = phi i8 [ 1, %55 ], [ 1, %54 ], [ 1, %52 ], [ 1, %48 ], [ 0, %lean_obj_tag.exit ]
+  %.1 = phi i8 [ 1, %48 ], [ 1, %55 ], [ 1, %54 ], [ 1, %52 ], [ 0, %lean_obj_tag.exit ]
   ret i8 %.1
 }
 

@@ -441,8 +441,8 @@ _ZN4llvm23SmallVectorTemplateBaseIlLb1EE9push_backEl.exit: ; preds = %88, %91
   br label %_ZNSt8optionalIN4llvm23DbgVariableFragmentInfoEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_.exit
 
 _ZNSt8optionalIN4llvm23DbgVariableFragmentInfoEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_.exit: ; preds = %60, %73, %70, %87, %80, %_ZN4llvm23SmallVectorTemplateBaseIlLb1EE9push_backEl.exit, %76
-  %100 = phi ptr [ %57, %87 ], [ %57, %76 ], [ %.pre59, %_ZN4llvm23SmallVectorTemplateBaseIlLb1EE9push_backEl.exit ], [ %57, %80 ], [ %65, %73 ], [ %65, %70 ], [ %65, %60 ]
-  %.3 = phi i64 [ %.017.ph, %87 ], [ %79, %76 ], [ 0, %_ZN4llvm23SmallVectorTemplateBaseIlLb1EE9push_backEl.exit ], [ %.017.ph, %80 ], [ %75, %73 ], [ %72, %70 ], [ %.017.ph, %60 ]
+  %100 = phi ptr [ %57, %87 ], [ %57, %76 ], [ %.pre59, %_ZN4llvm23SmallVectorTemplateBaseIlLb1EE9push_backEl.exit ], [ %57, %80 ], [ %65, %70 ], [ %65, %73 ], [ %65, %60 ]
+  %.3 = phi i64 [ %.017.ph, %87 ], [ %79, %76 ], [ 0, %_ZN4llvm23SmallVectorTemplateBaseIlLb1EE9push_backEl.exit ], [ %.017.ph, %80 ], [ %72, %70 ], [ %75, %73 ], [ %.017.ph, %60 ]
   %101 = call noundef i32 @_ZNK4llvm12DIExpression11ExprOperand7getSizeEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #21
   %102 = zext i32 %101 to i64
   %103 = getelementptr inbounds nuw i64, ptr %100, i64 %102

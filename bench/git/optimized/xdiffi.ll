@@ -1382,12 +1382,12 @@ group_previous.exit110:                           ; preds = %287
   unreachable
 
 .loopexit246:                                     ; preds = %group_previous.exit87, %group_previous.exit110, %.preheader247, %.preheader, %119, %161, %group_next.exit118
-  %294 = phi ptr [ %22, %group_next.exit118 ], [ %115, %119 ], [ %115, %161 ], [ %115, %.preheader ], [ %115, %.preheader247 ], [ %286, %group_previous.exit110 ], [ %153, %group_previous.exit87 ]
-  %295 = phi ptr [ %23, %group_next.exit118 ], [ %116, %119 ], [ %116, %161 ], [ %116, %.preheader ], [ %116, %.preheader247 ], [ %274, %group_previous.exit110 ], [ %141, %group_previous.exit87 ]
-  %.sroa.21.1 = phi i64 [ %.sroa.0150.0, %group_next.exit118 ], [ %.sroa.21.3.lcssa, %119 ], [ %.sroa.21.4.lcssa, %161 ], [ %.sroa.21.4.lcssa, %.preheader ], [ %.sroa.21.4.lcssa, %.preheader247 ], [ %.0.lcssa, %group_previous.exit110 ], [ %139, %group_previous.exit87 ]
-  %.sroa.15.1 = phi i64 [ %.sroa.15.0, %group_next.exit118 ], [ %.sroa.15.4.lcssa, %119 ], [ %.sroa.15.4.lcssa, %161 ], [ %.sroa.15.4.lcssa, %.preheader ], [ %.sroa.15.4.lcssa, %.preheader247 ], [ %285, %group_previous.exit110 ], [ %152, %group_previous.exit87 ]
-  %.sroa.4.1 = phi i32 [ %.sroa.4.0, %group_next.exit118 ], [ %.sroa.4.0, %119 ], [ %.sroa.4.0, %161 ], [ %.sroa.4.2.lcssa, %.preheader ], [ %.sroa.4.0, %.preheader247 ], [ %.sroa.4.2.lcssa, %group_previous.exit110 ], [ %.sroa.4.0, %group_previous.exit87 ]
-  %.sroa.0133.1 = phi i32 [ %.sroa.0133.0, %group_next.exit118 ], [ %.sroa.0133.0, %119 ], [ %.sroa.0133.0, %161 ], [ %.sroa.0133.2.lcssa, %.preheader ], [ %.sroa.0133.0, %.preheader247 ], [ %.sroa.0133.2.lcssa, %group_previous.exit110 ], [ %.sroa.0133.0, %group_previous.exit87 ]
+  %294 = phi ptr [ %22, %group_next.exit118 ], [ %115, %119 ], [ %115, %161 ], [ %286, %group_previous.exit110 ], [ %115, %.preheader ], [ %115, %.preheader247 ], [ %153, %group_previous.exit87 ]
+  %295 = phi ptr [ %23, %group_next.exit118 ], [ %116, %119 ], [ %116, %161 ], [ %274, %group_previous.exit110 ], [ %116, %.preheader ], [ %116, %.preheader247 ], [ %141, %group_previous.exit87 ]
+  %.sroa.21.1 = phi i64 [ %.sroa.0150.0, %group_next.exit118 ], [ %.sroa.21.3.lcssa, %119 ], [ %.sroa.21.4.lcssa, %161 ], [ %.0.lcssa, %group_previous.exit110 ], [ %.sroa.21.4.lcssa, %.preheader ], [ %.sroa.21.4.lcssa, %.preheader247 ], [ %139, %group_previous.exit87 ]
+  %.sroa.15.1 = phi i64 [ %.sroa.15.0, %group_next.exit118 ], [ %.sroa.15.4.lcssa, %119 ], [ %.sroa.15.4.lcssa, %161 ], [ %285, %group_previous.exit110 ], [ %.sroa.15.4.lcssa, %.preheader ], [ %.sroa.15.4.lcssa, %.preheader247 ], [ %152, %group_previous.exit87 ]
+  %.sroa.4.1 = phi i32 [ %.sroa.4.0, %group_next.exit118 ], [ %.sroa.4.0, %119 ], [ %.sroa.4.0, %161 ], [ %.sroa.4.2.lcssa, %group_previous.exit110 ], [ %.sroa.4.2.lcssa, %.preheader ], [ %.sroa.4.0, %.preheader247 ], [ %.sroa.4.0, %group_previous.exit87 ]
+  %.sroa.0133.1 = phi i32 [ %.sroa.0133.0, %group_next.exit118 ], [ %.sroa.0133.0, %119 ], [ %.sroa.0133.0, %161 ], [ %.sroa.0133.2.lcssa, %group_previous.exit110 ], [ %.sroa.0133.2.lcssa, %.preheader ], [ %.sroa.0133.0, %.preheader247 ], [ %.sroa.0133.0, %group_previous.exit87 ]
   %296 = load i64, ptr %14, align 8, !tbaa !63
   %297 = icmp eq i64 %.sroa.21.1, %296
   %298 = load i64, ptr %15, align 8, !tbaa !63
@@ -2165,7 +2165,7 @@ record_matches_regex.exit33.i:                    ; preds = %168
   br i1 %177, label %.lr.ph37.splitthread-pre-split.i, label %._crit_edge38.i, !llvm.loop !113
 
 ._crit_edge38.i:                                  ; preds = %record_matches_regex.exit33.i, %record_matches_regex.exit33.thread64.i, %record_matches_regex.exit33.thread.i, %.lr.ph37.i, %._crit_edge.i21, %record_matches_regex.exit.thread57.i, %record_matches_regex.exit.thread.i, %.lr.ph.i23
-  %.124.lcssa.i = phi i32 [ 1, %._crit_edge.i21 ], [ 0, %record_matches_regex.exit33.thread64.i ], [ 0, %.lr.ph37.i ], [ 0, %record_matches_regex.exit33.thread.i ], [ 0, %.lr.ph.i23 ], [ 0, %record_matches_regex.exit.thread.i ], [ 0, %record_matches_regex.exit.thread57.i ], [ 1, %record_matches_regex.exit33.i ]
+  %.124.lcssa.i = phi i32 [ 1, %._crit_edge.i21 ], [ 0, %record_matches_regex.exit33.thread64.i ], [ 0, %.lr.ph37.i ], [ 0, %record_matches_regex.exit33.thread.i ], [ 0, %record_matches_regex.exit.thread57.i ], [ 0, %.lr.ph.i23 ], [ 0, %record_matches_regex.exit.thread.i ], [ 1, %record_matches_regex.exit33.i ]
   store i32 %.124.lcssa.i, ptr %119, align 8, !tbaa !92
   br label %178
 
@@ -2194,7 +2194,7 @@ xdl_mark_ignorable_regex.exit:                    ; preds = %178, %xdl_mark_igno
   br i1 %.not.i33, label %.sink.split, label %.lr.ph.i31, !llvm.loop !93
 
 .sink.split:                                      ; preds = %.lr.ph.i.i, %.lr.ph.i31, %.lr.ph.i27, %xdl_build_script.exit, %14, %56
-  %.0.ph = phi i32 [ -1, %56 ], [ 0, %14 ], [ 0, %xdl_build_script.exit ], [ 0, %.lr.ph.i31 ], [ -1, %.lr.ph.i27 ], [ -1, %.lr.ph.i.i ]
+  %.0.ph = phi i32 [ -1, %56 ], [ 0, %xdl_build_script.exit ], [ -1, %.lr.ph.i27 ], [ 0, %.lr.ph.i31 ], [ 0, %14 ], [ -1, %.lr.ph.i.i ]
   call void @xdl_free_env(ptr noundef nonnull %8) #10
   br label %184
 

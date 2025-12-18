@@ -382,7 +382,7 @@ define internal fastcc ptr @try_get_folio(ptr noundef %0, i32 noundef %1) unname
   br label %8
 
 .thread3:                                         ; preds = %66, %34, %43, %33
-  %74 = phi ptr [ null, %33 ], [ null, %43 ], [ null, %34 ], [ %29, %66 ]
+  %74 = phi ptr [ null, %33 ], [ null, %43 ], [ %29, %66 ], [ null, %34 ]
   ret ptr %74
 }
 
@@ -3715,13 +3715,13 @@ define dso_local i64 @get_user_pages_remote(ptr noundef %0, i64 noundef %1, i64 
   br label %.split48
 
 .loopexit:                                        ; preds = %128, %66, %.split56.us, %39
-  %199 = phi i64 [ %136, %.split56.us ], [ %44, %39 ], [ %68, %66 ], [ %130, %128 ]
-  %200 = phi i8 [ %.us-phi59, %.split56.us ], [ %29, %39 ], [ %54, %66 ], [ %116, %128 ]
+  %199 = phi i64 [ %44, %39 ], [ %136, %.split56.us ], [ %68, %66 ], [ %130, %128 ]
+  %200 = phi i8 [ %29, %39 ], [ %.us-phi59, %.split56.us ], [ %54, %66 ], [ %116, %128 ]
   %201 = icmp eq i8 %200, 0
   br i1 %201, label %209, label %.thread
 
 .thread:                                          ; preds = %189, %81, %186, %173, %.split38.us, %.loopexit
-  %202 = phi i64 [ %199, %.loopexit ], [ %188, %186 ], [ %176, %173 ], [ %162, %.split38.us ], [ %83, %81 ], [ %191, %189 ]
+  %202 = phi i64 [ %199, %.loopexit ], [ %162, %.split38.us ], [ %188, %186 ], [ %176, %173 ], [ %83, %81 ], [ %191, %189 ]
   %203 = load i32, ptr %12, align 4
   %204 = icmp eq i32 %203, 0
   br i1 %204, label %209, label %205
@@ -4187,9 +4187,9 @@ define dso_local i64 @get_user_pages(i64 noundef %0, i64 noundef %1, i32 noundef
   br label %.split43
 
 .loopexit:                                        ; preds = %112, %170, %65, %53, %167, %.split51.us
-  %180 = phi i32 [ 1, %.split51.us ], [ 1, %167 ], [ %45, %53 ], [ 1, %65 ], [ 1, %170 ], [ %104, %112 ]
-  %181 = phi i64 [ %120, %.split51.us ], [ %169, %167 ], [ %55, %53 ], [ %67, %65 ], [ %172, %170 ], [ %114, %112 ]
-  %182 = phi i8 [ %.us-phi54, %.split51.us ], [ 1, %167 ], [ %41, %53 ], [ 1, %65 ], [ 1, %170 ], [ %100, %112 ]
+  %180 = phi i32 [ 1, %167 ], [ 1, %.split51.us ], [ %45, %53 ], [ 1, %65 ], [ %104, %112 ], [ 1, %170 ]
+  %181 = phi i64 [ %169, %167 ], [ %120, %.split51.us ], [ %55, %53 ], [ %67, %65 ], [ %114, %112 ], [ %172, %170 ]
+  %182 = phi i8 [ 1, %167 ], [ %.us-phi54, %.split51.us ], [ %41, %53 ], [ 1, %65 ], [ %100, %112 ], [ 1, %170 ]
   %183 = icmp eq i8 %182, 0
   %184 = icmp eq i32 %180, 0
   %185 = or i1 %183, %184
@@ -4596,7 +4596,7 @@ define dso_local i64 @get_user_pages_unlocked(i64 noundef %0, i64 noundef %1, pt
   br i1 %188, label %192, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %176, %72, %173, %.split41.us, %.loopexit
-  %189 = phi i64 [ %187, %.loopexit ], [ %175, %173 ], [ %126, %.split41.us ], [ %74, %72 ], [ %178, %176 ]
+  %189 = phi i64 [ %187, %.loopexit ], [ %74, %72 ], [ %126, %.split41.us ], [ %175, %173 ], [ %178, %176 ]
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_mmap_lock_released, i64 8), i32 2) #9
           to label %191 [label %190], !srcloc !10
 
@@ -6503,13 +6503,13 @@ define internal fastcc i64 @__gup_longterm_locked(ptr noundef %0, i64 noundef %1
   br label %.split134
 
 .loopexit:                                        ; preds = %126, %64, %.split142.us, %37
-  %197 = phi i64 [ %134, %.split142.us ], [ %42, %37 ], [ %66, %64 ], [ %128, %126 ]
-  %198 = phi i8 [ %.us-phi145, %.split142.us ], [ %27, %37 ], [ %52, %64 ], [ %114, %126 ]
+  %197 = phi i64 [ %42, %37 ], [ %134, %.split142.us ], [ %66, %64 ], [ %128, %126 ]
+  %198 = phi i8 [ %27, %37 ], [ %.us-phi145, %.split142.us ], [ %52, %64 ], [ %114, %126 ]
   %199 = icmp eq i8 %198, 0
   br i1 %199, label %207, label %.thread
 
 .thread:                                          ; preds = %187, %79, %184, %171, %.split123.us, %.loopexit
-  %200 = phi i64 [ %197, %.loopexit ], [ %186, %184 ], [ %174, %171 ], [ %160, %.split123.us ], [ %81, %79 ], [ %189, %187 ]
+  %200 = phi i64 [ %197, %.loopexit ], [ %160, %.split123.us ], [ %186, %184 ], [ %174, %171 ], [ %81, %79 ], [ %189, %187 ]
   %201 = load i32, ptr %4, align 4
   %202 = icmp eq i32 %201, 0
   br i1 %202, label %207, label %203
@@ -6848,13 +6848,13 @@ define internal fastcc i64 @__gup_longterm_locked(ptr noundef %0, i64 noundef %1
   br label %.preheader38, !llvm.loop !138
 
 .loopexit39:                                      ; preds = %281, %288, %263
-  %372 = phi i64 [ %290, %288 ], [ %264, %263 ], [ %283, %281 ]
-  %373 = phi i8 [ %267, %288 ], [ %257, %263 ], [ %267, %281 ]
+  %372 = phi i64 [ %264, %263 ], [ %290, %288 ], [ %283, %281 ]
+  %373 = phi i8 [ %257, %263 ], [ %267, %288 ], [ %267, %281 ]
   %374 = icmp eq i8 %373, 0
   br i1 %374, label %381, label %.thread25
 
 .thread25:                                        ; preds = %362, %359, %345, %.split110.us, %.loopexit39
-  %375 = phi i64 [ %372, %.loopexit39 ], [ %361, %359 ], [ %348, %345 ], [ %334, %.split110.us ], [ %364, %362 ]
+  %375 = phi i64 [ %372, %.loopexit39 ], [ %334, %.split110.us ], [ %361, %359 ], [ %348, %345 ], [ %364, %362 ]
   %376 = load i32, ptr %4, align 4
   %377 = icmp eq i32 %376, 0
   br i1 %377, label %381, label %378

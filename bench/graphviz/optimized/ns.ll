@@ -2258,7 +2258,7 @@ gv_calloc.exit.i117:                              ; preds = %.thread.i, %.thread
   br i1 %.not114.i, label %.loopexit.i119, label %.lr.ph.i129, !llvm.loop !120
 
 .loopexit.i119:                                   ; preds = %1146, %1127, %1124, %gv_calloc.exit.i117
-  %.0101.i120 = phi i32 [ 0, %gv_calloc.exit.i117 ], [ 0, %1124 ], [ %.1102.ph.i, %1127 ], [ %.1102.ph.i, %1146 ]
+  %.0101.i120 = phi i32 [ 0, %1124 ], [ 0, %gv_calloc.exit.i117 ], [ %.1102.ph.i, %1127 ], [ %.1102.ph.i, %1146 ]
   %1148 = load ptr, ptr @G, align 8, !tbaa !36
   %1149 = getelementptr inbounds nuw i8, ptr %1148, i64 16
   %1150 = load ptr, ptr %1149, align 8, !tbaa !6

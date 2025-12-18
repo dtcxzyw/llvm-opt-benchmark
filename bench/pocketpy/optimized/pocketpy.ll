@@ -9784,7 +9784,7 @@ define linkonce_odr noundef ptr @_ZN4pkpy2VM19register_user_classINS_9RangeIterE
   br label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE8containsENS_7StrNameE.exit.i
 
 _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE8containsENS_7StrNameE.exit.i: ; preds = %.lr.ph.i._crit_edge.i.i.i, %26
-  %.in.i = phi ptr [ %28, %26 ], [ %46, %.lr.ph.i._crit_edge.i.i.i ]
+  %.in.i = phi ptr [ %46, %.lr.ph.i._crit_edge.i.i.i ], [ %28, %26 ]
   %47 = load ptr, ptr %.in.i, align 8
   %.not.i = icmp eq ptr %47, null
   br i1 %.not.i, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE8containsENS_7StrNameE.exit.thread.i, label %_ZN4pkpy2VM19register_user_classINS_9RangeIterEEEPNS_8PyObjectES4_NS_7StrNameEPFvPS0_S4_S4_ENS_4TypeEb.exit
@@ -9935,7 +9935,7 @@ define linkonce_odr noundef ptr @_ZN4pkpy2VM19register_user_classINS_9ArrayIterE
   br label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE8containsENS_7StrNameE.exit.i
 
 _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE8containsENS_7StrNameE.exit.i: ; preds = %.lr.ph.i._crit_edge.i.i.i, %26
-  %.in.i = phi ptr [ %28, %26 ], [ %46, %.lr.ph.i._crit_edge.i.i.i ]
+  %.in.i = phi ptr [ %46, %.lr.ph.i._crit_edge.i.i.i ], [ %28, %26 ]
   %47 = load ptr, ptr %.in.i, align 8
   %.not.i = icmp eq ptr %47, null
   br i1 %.not.i, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE8containsENS_7StrNameE.exit.thread.i, label %_ZN4pkpy2VM19register_user_classINS_9ArrayIterEEEPNS_8PyObjectES4_NS_7StrNameEPFvPS0_S4_S4_ENS_4TypeEb.exit
@@ -10086,7 +10086,7 @@ define linkonce_odr noundef ptr @_ZN4pkpy2VM19register_user_classINS_10StringIte
   br label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE8containsENS_7StrNameE.exit.i
 
 _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE8containsENS_7StrNameE.exit.i: ; preds = %.lr.ph.i._crit_edge.i.i.i, %26
-  %.in.i = phi ptr [ %28, %26 ], [ %46, %.lr.ph.i._crit_edge.i.i.i ]
+  %.in.i = phi ptr [ %46, %.lr.ph.i._crit_edge.i.i.i ], [ %28, %26 ]
   %47 = load ptr, ptr %.in.i, align 8
   %.not.i = icmp eq ptr %47, null
   br i1 %.not.i, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE8containsENS_7StrNameE.exit.thread.i, label %_ZN4pkpy2VM19register_user_classINS_10StringIterEEEPNS_8PyObjectES4_NS_7StrNameEPFvPS0_S4_S4_ENS_4TypeEb.exit
@@ -10237,7 +10237,7 @@ define linkonce_odr noundef ptr @_ZN4pkpy2VM19register_user_classINS_9GeneratorE
   br label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE8containsENS_7StrNameE.exit.i
 
 _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE8containsENS_7StrNameE.exit.i: ; preds = %.lr.ph.i._crit_edge.i.i.i, %26
-  %.in.i = phi ptr [ %28, %26 ], [ %46, %.lr.ph.i._crit_edge.i.i.i ]
+  %.in.i = phi ptr [ %46, %.lr.ph.i._crit_edge.i.i.i ], [ %28, %26 ]
   %47 = load ptr, ptr %.in.i, align 8
   %.not.i = icmp eq ptr %47, null
   br i1 %.not.i, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE8containsENS_7StrNameE.exit.thread.i, label %_ZN4pkpy2VM19register_user_classINS_9GeneratorEEEPNS_8PyObjectES4_NS_7StrNameEPFvPS0_S4_S4_ENS_4TypeEb.exit
@@ -10388,7 +10388,7 @@ define linkonce_odr noundef ptr @_ZN4pkpy2VM19register_user_classINS_13DictItems
   br label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE8containsENS_7StrNameE.exit.i
 
 _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE8containsENS_7StrNameE.exit.i: ; preds = %.lr.ph.i._crit_edge.i.i.i, %26
-  %.in.i = phi ptr [ %28, %26 ], [ %46, %.lr.ph.i._crit_edge.i.i.i ]
+  %.in.i = phi ptr [ %46, %.lr.ph.i._crit_edge.i.i.i ], [ %28, %26 ]
   %47 = load ptr, ptr %.in.i, align 8
   %.not.i = icmp eq ptr %47, null
   br i1 %.not.i, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE8containsENS_7StrNameE.exit.thread.i, label %_ZN4pkpy2VM19register_user_classINS_13DictItemsIterEEEPNS_8PyObjectES4_NS_7StrNameEPFvPS0_S4_S4_ENS_4TypeEb.exit
@@ -25684,7 +25684,7 @@ _ZSt13move_backwardIPPN4pkpy8PyObjectES3_ET0_T_S5_S4_.exit: ; preds = %49, %53
   br label %24, !llvm.loop !105
 
 _ZSt11swap_rangesIPPN4pkpy8PyObjectES3_ET0_T_S5_S4_.exit: ; preds = %._crit_edge, %._crit_edge92, %.lr.ph.i, %5, %3, %_ZSt13move_backwardIPPN4pkpy8PyObjectES3_ET0_T_S5_S4_.exit, %_ZSt4moveIPPN4pkpy8PyObjectES3_ET0_T_S5_S4_.exit
-  %.050 = phi ptr [ %2, %3 ], [ %23, %_ZSt4moveIPPN4pkpy8PyObjectES3_ET0_T_S5_S4_.exit ], [ %0, %5 ], [ %23, %_ZSt13move_backwardIPPN4pkpy8PyObjectES3_ET0_T_S5_S4_.exit ], [ %1, %.lr.ph.i ], [ %23, %._crit_edge92 ], [ %23, %._crit_edge ]
+  %.050 = phi ptr [ %1, %.lr.ph.i ], [ %2, %3 ], [ %23, %_ZSt13move_backwardIPPN4pkpy8PyObjectES3_ET0_T_S5_S4_.exit ], [ %23, %_ZSt4moveIPPN4pkpy8PyObjectES3_ET0_T_S5_S4_.exit ], [ %0, %5 ], [ %23, %._crit_edge92 ], [ %23, %._crit_edge ]
   ret ptr %.050
 }
 
@@ -27908,8 +27908,8 @@ _ZNSt8_Rb_treeIPN4pkpy8PyObjectES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_low
   br i1 %.not.i, label %_ZNSt8_Rb_treeIPN4pkpy8PyObjectES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE11equal_rangeERKS2_.exit, label %6, !llvm.loop !130
 
 _ZNSt8_Rb_treeIPN4pkpy8PyObjectES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE11equal_rangeERKS2_.exit: ; preds = %23, %.lr.ph.i25.i, %2, %_ZNSt8_Rb_treeIPN4pkpy8PyObjectES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i
-  %.sroa.037.0.i = phi ptr [ %.08.lcssa.i.i, %_ZNSt8_Rb_treeIPN4pkpy8PyObjectES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i ], [ %4, %2 ], [ %.08.lcssa.i.i, %.lr.ph.i25.i ], [ %.123.i, %23 ]
-  %.sroa.3.0.i = phi ptr [ %.02243.i, %_ZNSt8_Rb_treeIPN4pkpy8PyObjectES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i ], [ %4, %2 ], [ %.19.i28.i, %.lr.ph.i25.i ], [ %.123.i, %23 ]
+  %.sroa.037.0.i = phi ptr [ %.08.lcssa.i.i, %.lr.ph.i25.i ], [ %.08.lcssa.i.i, %_ZNSt8_Rb_treeIPN4pkpy8PyObjectES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i ], [ %4, %2 ], [ %.123.i, %23 ]
+  %.sroa.3.0.i = phi ptr [ %.19.i28.i, %.lr.ph.i25.i ], [ %.02243.i, %_ZNSt8_Rb_treeIPN4pkpy8PyObjectES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i ], [ %4, %2 ], [ %.123.i, %23 ]
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %26 = load i64, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -32748,7 +32748,7 @@ _ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.
   br label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit.i
 
 _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit.i: ; preds = %_ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i.i, %32
-  %.in.i = phi ptr [ %34, %32 ], [ %60, %_ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i.i ]
+  %.in.i = phi ptr [ %60, %_ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i.i ], [ %34, %32 ]
   %61 = load ptr, ptr %.in.i, align 8
   %62 = icmp eq ptr %61, null
   br i1 %62, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit.thread.i, label %"_ZZN4pkpy15__init_builtinsEPNS_2VMEENK5$_173clES1_PNS_8PyObjectES4_.exit"
@@ -32861,7 +32861,7 @@ _ZN4pkpy7py_castIRNS_3StrEEET_PNS_2VMEPNS_8PyObjectE.exit.i: ; preds = %14, %_ZN
   br label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.i
 
 _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.i: ; preds = %.lr.ph.i._crit_edge.i.i, %35
-  %.in.i = phi ptr [ %37, %35 ], [ %55, %.lr.ph.i._crit_edge.i.i ]
+  %.in.i = phi ptr [ %55, %.lr.ph.i._crit_edge.i.i ], [ %37, %35 ]
   %56 = load ptr, ptr %.in.i, align 8
   %57 = icmp eq ptr %56, null
   br i1 %57, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.thread.i, label %"_ZZN4pkpy15__init_builtinsEPNS_2VMEENK5$_174clES1_NS_8ArgsViewE.exit"
@@ -33262,7 +33262,7 @@ _ZN4pkpy7py_castIRNS_3StrEEET_PNS_2VMEPNS_8PyObjectE.exit.i: ; preds = %12, %_ZN
   br label %"_ZZN4pkpy15__init_builtinsEPNS_2VMEENK5$_176clES1_PNS_8PyObjectES4_.exit"
 
 "_ZZN4pkpy15__init_builtinsEPNS_2VMEENK5$_176clES1_PNS_8PyObjectES4_.exit": ; preds = %.lr.ph.i.i.i, %25, %30, %34, %.lr.ph.i._crit_edge.i.i.i
-  %53 = phi ptr [ %33, %30 ], [ %52, %.lr.ph.i._crit_edge.i.i.i ], [ null, %34 ], [ null, %25 ], [ null, %.lr.ph.i.i.i ]
+  %53 = phi ptr [ null, %25 ], [ %33, %30 ], [ %52, %.lr.ph.i._crit_edge.i.i.i ], [ null, %34 ], [ null, %.lr.ph.i.i.i ]
   %.not.i = icmp eq ptr %53, null
   %.in.v.i.i = select i1 %.not.i, i64 264536, i64 264528
   %.in.i.i = getelementptr inbounds nuw i8, ptr %0, i64 %.in.v.i.i
@@ -34800,7 +34800,7 @@ _ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.
   br label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit
 
 _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit: ; preds = %16, %_ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i
-  %.in = phi ptr [ %18, %16 ], [ %44, %_ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i ]
+  %.in = phi ptr [ %44, %_ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i ], [ %18, %16 ]
   %45 = load ptr, ptr %.in, align 8
   %46 = icmp eq ptr %45, null
   br i1 %46, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit.thread, label %60

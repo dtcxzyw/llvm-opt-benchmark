@@ -1404,8 +1404,8 @@ JsonItemFromDatum.exit:                           ; preds = %JsonbInitBinary.exi
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %22, %5, %.lr.ph, %JsonItemFromDatum.exit
-  %storemerge = phi i32 [ %.0324651, %JsonItemFromDatum.exit ], [ -1, %.lr.ph ], [ -1, %5 ], [ -1, %22 ]
-  %.0 = phi ptr [ %24, %JsonItemFromDatum.exit ], [ null, %.lr.ph ], [ null, %5 ], [ null, %22 ]
+  %storemerge = phi i32 [ %.0324651, %JsonItemFromDatum.exit ], [ -1, %5 ], [ -1, %.lr.ph ], [ -1, %22 ]
+  %.0 = phi ptr [ %24, %JsonItemFromDatum.exit ], [ null, %5 ], [ null, %.lr.ph ], [ null, %22 ]
   store i32 %storemerge, ptr %4, align 4
   ret ptr %.0
 }
@@ -2784,7 +2784,7 @@ select.unfold:                                    ; preds = %.lr.ph.split.split
   br i1 %.not669.not, label %.lr.ph.split.split, label %.thread711.thread845.thread, !llvm.loop !11
 
 .thread711.thread845:                             ; preds = %executeNextItem.exit682.thread.us, %select.unfold.us
-  %.7580847 = phi i32 [ %.8581.ph.us, %select.unfold.us ], [ 0, %executeNextItem.exit682.thread.us ]
+  %.7580847 = phi i32 [ 0, %executeNextItem.exit682.thread.us ], [ %.8581.ph.us, %select.unfold.us ]
   %331 = icmp ne i32 %.7580847, 0
   %or.cond27 = or i1 %266, %331
   br i1 %or.cond27, label %.thread711.thread845.thread, label %.thread717
@@ -5277,8 +5277,8 @@ executeStartsWith.exit.thread157.us:              ; preds = %executeStartsWith.e
   br label %JsonValueListNext.exit.us
 
 JsonValueListNext.exit.us:                        ; preds = %110, %executeStartsWith.exit.thread157.us
-  %.sroa.0.2.us = phi ptr [ %111, %110 ], [ null, %executeStartsWith.exit.thread157.us ]
-  %.sroa.15.2.us = phi ptr [ %..i.i.us, %110 ], [ null, %executeStartsWith.exit.thread157.us ]
+  %.sroa.0.2.us = phi ptr [ null, %executeStartsWith.exit.thread157.us ], [ %111, %110 ]
+  %.sroa.15.2.us = phi ptr [ null, %executeStartsWith.exit.thread157.us ], [ %..i.i.us, %110 ]
   %.not52.i.us = icmp eq ptr %.sroa.0.1192.us, null
   br i1 %.not52.i.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !16
 
@@ -5756,6 +5756,9 @@ JsonValueListInitIterator.exit:                   ; preds = %16, %13, %10
   store ptr null, ptr %4, align 8
   br label %.outer.us.us.outer.backedge
 
+.outer.us.us.outer.backedge:                      ; preds = %41, %executeNextItem.exit.thread.us.us, %47, %45
+  br label %.outer.us.us.outer, !llvm.loop !17
+
 43:                                               ; preds = %39
   %44 = load ptr, ptr %27, align 8
   %.not13.i.us.us = icmp eq ptr %44, null
@@ -5779,9 +5782,6 @@ executeNextItem.exit.us.us:                       ; preds = %35
 
 executeNextItem.exit.thread.us.us:                ; preds = %executeNextItem.exit.us.us
   br i1 %25, label %.outer.us.us.outer.backedge, label %executeNextItem.exit.thread.thread44
-
-.outer.us.us.outer.backedge:                      ; preds = %executeNextItem.exit.thread.us.us, %47, %45, %41
-  br label %.outer.us.us.outer, !llvm.loop !17
 
 49:                                               ; preds = %.outer.us.us
   %50 = load ptr, ptr %.sroa.11.0.ph.us.us, align 8
@@ -6201,7 +6201,7 @@ JsonValueListAppend.exit:                         ; preds = %.JsonValueListAppen
   br label %.split.split.split.outer, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.split.split.split.us, %85, %82, %.split.split.split, %107, %103, %99, %96, %.split.split.us, %59, %63, %67, %71, %31, %.split.us, %48, %44, %9
-  %.0 = phi i32 [ 1, %9 ], [ 0, %63 ], [ 2, %103 ], [ 0, %48 ], [ %.058.us.ph, %.split.us ], [ 0, %31 ], [ 2, %44 ], [ %.058.us70.ph, %.split.split.us ], [ 2, %59 ], [ 2, %67 ], [ 0, %71 ], [ %.058.ph, %.split.split.split ], [ 0, %99 ], [ 0, %107 ], [ 2, %96 ], [ %.058.us81.ph, %.split.split.split.us ], [ 2, %82 ], [ 0, %85 ]
+  %.0 = phi i32 [ 1, %9 ], [ 2, %59 ], [ 2, %103 ], [ 0, %48 ], [ %.058.us.ph, %.split.us ], [ 0, %31 ], [ 2, %44 ], [ %.058.us70.ph, %.split.split.us ], [ 2, %67 ], [ 0, %71 ], [ 0, %63 ], [ %.058.ph, %.split.split.split ], [ 0, %107 ], [ 0, %99 ], [ 2, %96 ], [ %.058.us81.ph, %.split.split.split.us ], [ 2, %82 ], [ 0, %85 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.0
@@ -6727,7 +6727,7 @@ select.unfold:                                    ; preds = %.lr.ph.split
   br label %.loopexit
 
 .loopexit:                                        ; preds = %select.unfold, %select.unfold.us, %.loopexit.sink.split, %54, %37, %JsonbType.exit.thread56
-  %.0 = phi i32 [ 2, %JsonbType.exit.thread56 ], [ 1, %37 ], [ 1, %54 ], [ %.0.ph, %.loopexit.sink.split ], [ %.239.us, %select.unfold.us ], [ 1, %select.unfold ]
+  %.0 = phi i32 [ 2, %JsonbType.exit.thread56 ], [ %.0.ph, %.loopexit.sink.split ], [ 1, %37 ], [ %.239.us, %select.unfold.us ], [ 1, %54 ], [ 1, %select.unfold ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -7046,8 +7046,8 @@ JsonValueListNext.exit66:                         ; preds = %62, %JsonValueListI
   br label %JsonValueListNext.exit71
 
 JsonValueListNext.exit71:                         ; preds = %83, %82
-  %.sroa.0.3 = phi ptr [ null, %82 ], [ %84, %83 ]
-  %.sroa.15.3 = phi ptr [ null, %82 ], [ %..i.i70, %83 ]
+  %.sroa.0.3 = phi ptr [ %84, %83 ], [ null, %82 ]
+  %.sroa.15.3 = phi ptr [ %..i.i70, %83 ], [ null, %82 ]
   %.not52 = icmp eq ptr %.sroa.0.295, null
   br i1 %.not52, label %JsonValueListInitIterator.exit.split.outer, label %74, !llvm.loop !16
 
@@ -7488,7 +7488,7 @@ compareStrings.exit.i:                            ; preds = %176, %cmpTimestampT
   br label %compareItems.exit
 
 compareItems.exit:                                ; preds = %11, %14, %17, %17, %17, %39, %43, %100, %100, %115, %115, %115, %126, %126, %126, %137, %137, %152, %152, %198
-  %.039.i = phi i32 [ %16, %14 ], [ %50, %43 ], [ %199, %198 ], [ 2, %11 ], [ 2, %17 ], [ 0, %39 ], [ 2, %17 ], [ 2, %17 ], [ 2, %152 ], [ 2, %152 ], [ 2, %137 ], [ 2, %137 ], [ 2, %100 ], [ 2, %100 ], [ 2, %115 ], [ 2, %115 ], [ 2, %115 ], [ 2, %126 ], [ 2, %126 ], [ 2, %126 ]
+  %.039.i = phi i32 [ %16, %14 ], [ %50, %43 ], [ %199, %198 ], [ 2, %11 ], [ 2, %17 ], [ 0, %39 ], [ 2, %17 ], [ 2, %17 ], [ 2, %152 ], [ 2, %152 ], [ 2, %137 ], [ 2, %137 ], [ 2, %126 ], [ 2, %126 ], [ 2, %126 ], [ 2, %100 ], [ 2, %100 ], [ 2, %115 ], [ 2, %115 ], [ 2, %115 ]
   ret i32 %.039.i
 }
 
@@ -8160,7 +8160,7 @@ JsonValueListNext.exit:                           ; preds = %19, %29
   unreachable
 
 JsonTablePlanScanNextRow.exit:                    ; preds = %32, %12, %53, %49, %31
-  %.0 = phi i1 [ false, %31 ], [ false, %49 ], [ true, %53 ], [ true, %12 ], [ true, %32 ]
+  %.0 = phi i1 [ true, %53 ], [ false, %31 ], [ false, %49 ], [ true, %12 ], [ true, %32 ]
   %current.ret.tr9 = or i1 %ret.known.tr, %.0
   ret i1 %current.ret.tr9
 }

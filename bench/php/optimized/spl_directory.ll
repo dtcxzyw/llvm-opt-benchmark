@@ -6154,27 +6154,27 @@ define internal fastcc range(i32 -1, 1) i32 @spl_filesystem_file_read_line(ptr n
 
 22:                                               ; preds = %20
   switch i64 %18, label %.critedge [
-    i64 1, label %23
-    i64 2, label %26
+    i64 1, label %is_line_empty.exit
+    i64 2, label %23
   ]
 
 23:                                               ; preds = %22
   %24 = load i8, ptr %16, align 1, !tbaa !18
-  %25 = icmp eq i8 %24, 10
-  br i1 %25, label %is_line_empty.exit.thread11, label %.critedge
+  %25 = icmp eq i8 %24, 13
+  br i1 %25, label %26, label %.critedge
 
-26:                                               ; preds = %22
-  %27 = load i8, ptr %16, align 1, !tbaa !18
-  %28 = icmp eq i8 %27, 13
-  br i1 %28, label %is_line_empty.exit, label %.critedge
+26:                                               ; preds = %23
+  %27 = getelementptr inbounds nuw i8, ptr %15, i64 25
+  %28 = load i8, ptr %27, align 1, !tbaa !18
+  %29 = icmp eq i8 %28, 10
+  br i1 %29, label %is_line_empty.exit.thread11, label %.critedge
 
-is_line_empty.exit:                               ; preds = %26
-  %29 = getelementptr inbounds nuw i8, ptr %15, i64 25
-  %30 = load i8, ptr %29, align 1, !tbaa !18
+is_line_empty.exit:                               ; preds = %22
+  %30 = load i8, ptr %16, align 1, !tbaa !18
   %31 = icmp eq i8 %30, 10
   br i1 %31, label %is_line_empty.exit.thread11, label %.critedge
 
-is_line_empty.exit.thread11:                      ; preds = %13, %is_line_empty.exit, %23
+is_line_empty.exit.thread11:                      ; preds = %13, %is_line_empty.exit, %26
   %32 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %33 = load i32, ptr %32, align 4, !tbaa !18
   %34 = and i32 %33, 64
@@ -6214,8 +6214,8 @@ spl_filesystem_file_free_line.exit:               ; preds = %41, %44
   %or.cond = select i1 %48, i1 %49, i1 false
   br i1 %or.cond, label %13, label %.critedge
 
-.critedge:                                        ; preds = %is_line_empty.exit, %spl_filesystem_file_free_line.exit, %23, %20, %26, %22, %3
-  %.0.lcssa = phi i32 [ %4, %3 ], [ 0, %22 ], [ 0, %26 ], [ 0, %20 ], [ 0, %23 ], [ %45, %spl_filesystem_file_free_line.exit ], [ 0, %is_line_empty.exit ]
+.critedge:                                        ; preds = %is_line_empty.exit, %spl_filesystem_file_free_line.exit, %26, %20, %23, %22, %3
+  %.0.lcssa = phi i32 [ %4, %3 ], [ 0, %22 ], [ 0, %23 ], [ 0, %20 ], [ 0, %26 ], [ %45, %spl_filesystem_file_free_line.exit ], [ 0, %is_line_empty.exit ]
   ret i32 %.0.lcssa
 }
 
@@ -6611,32 +6611,32 @@ define internal fastcc range(i32 -1, 1) i32 @spl_filesystem_file_read_csv(ptr no
 
 21:                                               ; preds = %19
   switch i64 %17, label %.critedge [
-    i64 1, label %22
-    i64 2, label %25
+    i64 1, label %is_line_empty.exit
+    i64 2, label %22
   ]
 
 22:                                               ; preds = %21
   %23 = load i8, ptr %15, align 1, !tbaa !18
-  %24 = icmp eq i8 %23, 10
-  br i1 %24, label %is_line_empty.exit.thread43, label %.critedge
+  %24 = icmp eq i8 %23, 13
+  br i1 %24, label %25, label %.critedge
 
-25:                                               ; preds = %21
-  %26 = load i8, ptr %15, align 1, !tbaa !18
-  %27 = icmp eq i8 %26, 13
-  br i1 %27, label %is_line_empty.exit, label %.critedge
+25:                                               ; preds = %22
+  %26 = getelementptr inbounds nuw i8, ptr %14, i64 25
+  %27 = load i8, ptr %26, align 1, !tbaa !18
+  %28 = icmp eq i8 %27, 10
+  br i1 %28, label %is_line_empty.exit.thread43, label %.critedge
 
-is_line_empty.exit:                               ; preds = %25
-  %28 = getelementptr inbounds nuw i8, ptr %14, i64 25
-  %29 = load i8, ptr %28, align 1, !tbaa !18
+is_line_empty.exit:                               ; preds = %21
+  %29 = load i8, ptr %15, align 1, !tbaa !18
   %30 = icmp eq i8 %29, 10
   br i1 %30, label %is_line_empty.exit.thread43, label %.critedge
 
-is_line_empty.exit.thread43:                      ; preds = %13, %22, %is_line_empty.exit
+is_line_empty.exit.thread43:                      ; preds = %13, %25, %is_line_empty.exit
   %31 = and i64 %.pre50, 4
   %.not41 = icmp eq i64 %31, 0
   br i1 %.not41, label %.critedge, label %9
 
-.critedge:                                        ; preds = %21, %25, %19, %22, %is_line_empty.exit, %is_line_empty.exit.thread43
+.critedge:                                        ; preds = %21, %22, %19, %25, %is_line_empty.exit, %is_line_empty.exit.thread43
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %33 = tail call noalias ptr @_estrndup(ptr noundef nonnull %15, i64 noundef %17) #18
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -6677,7 +6677,7 @@ is_line_empty.exit.thread43:                      ; preds = %13, %22, %is_line_e
   br label %.loopexit
 
 .loopexit:                                        ; preds = %9, %45, %46
-  %.2 = phi i32 [ 0, %46 ], [ 0, %45 ], [ -1, %9 ]
+  %.2 = phi i32 [ 0, %45 ], [ 0, %46 ], [ -1, %9 ]
   ret i32 %.2
 }
 

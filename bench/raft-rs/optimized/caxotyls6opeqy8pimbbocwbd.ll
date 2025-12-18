@@ -265,7 +265,7 @@ _ZN3std2io5Write14write_vectored17h2c207f61a1c48e25E.exit: ; preds = %26, %33
   br label %.loopexit
 
 .loopexit:                                        ; preds = %90, %.loopexit.sink.split, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h68d68ba7ce024e09E.exit.i", %3
-  %.sroa.0.0 = phi ptr [ null, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h68d68ba7ce024e09E.exit.i" ], [ null, %3 ], [ %.sroa.0.0.ph, %.loopexit.sink.split ], [ null, %90 ]
+  %.sroa.0.0 = phi ptr [ null, %3 ], [ %.sroa.0.0.ph, %.loopexit.sink.split ], [ null, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h68d68ba7ce024e09E.exit.i" ], [ null, %90 ]
   ret ptr %.sroa.0.0
 
 40:                                               ; preds = %_ZN3std2io5Write14write_vectored17h2c207f61a1c48e25E.exit
@@ -2024,7 +2024,7 @@ define hidden noundef ptr @"_ZN65_$LT$slog_term..CompactFormat$LT$D$GT$$u20$as$u
           to label %121 unwind label %124, !noalias !91
 
 "_ZN9slog_term22CompactFormat$LT$D$GT$14format_compact28_$u7b$$u7b$closure$u7d$$u7d$17hc4601014031fbbd3E.exit.i": ; preds = %.noexc8.i, %.noexc16.i, %.noexc15.i, %108, %.noexc12.i, %.noexc14.i, %.noexc11.i, %.noexc9.i, %.noexc7.i
-  %.sroa.0.0.i.i = phi ptr [ %43, %.noexc16.i ], [ %48, %.noexc15.i ], [ %56, %.noexc7.i ], [ %.sroa.0.1.i.i, %.noexc14.i ], [ %79, %.noexc9.i ], [ %101, %.noexc11.i ], [ %107, %.noexc12.i ], [ %109, %108 ], [ %63, %.noexc8.i ]
+  %.sroa.0.0.i.i = phi ptr [ %43, %.noexc16.i ], [ %48, %.noexc15.i ], [ %107, %.noexc12.i ], [ %109, %108 ], [ %56, %.noexc7.i ], [ %.sroa.0.1.i.i, %.noexc14.i ], [ %79, %.noexc9.i ], [ %101, %.noexc11.i ], [ %63, %.noexc8.i ]
   invoke void @"_ZN4core3ptr51drop_in_place$LT$slog_term..TermRecordDecorator$GT$17hdb48fdc9fafceff5E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %12)
           to label %"_ZN65_$LT$slog_term..TermDecorator$u20$as$u20$slog_term..Decorator$GT$11with_record17hc1d0a1f30627a723E.exit" unwind label %122, !noalias !91
 

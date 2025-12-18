@@ -122,7 +122,7 @@ define ptr @evp_get_cipherbyname_ex(ptr noundef %0, ptr noundef %1) local_unname
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph, %._crit_edge, %5, %2
-  %.0 = phi ptr [ null, %2 ], [ %6, %5 ], [ %spec.select, %._crit_edge ], [ null, %.lr.ph ]
+  %.0 = phi ptr [ null, %2 ], [ %spec.select, %._crit_edge ], [ %6, %5 ], [ null, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
@@ -204,7 +204,7 @@ define ptr @evp_get_digestbyname_ex(ptr noundef %0, ptr noundef %1) local_unname
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph, %._crit_edge, %5, %2
-  %.0 = phi ptr [ null, %2 ], [ %6, %5 ], [ %spec.select, %._crit_edge ], [ null, %.lr.ph ]
+  %.0 = phi ptr [ null, %2 ], [ %spec.select, %._crit_edge ], [ %6, %5 ], [ null, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }

@@ -2021,9 +2021,9 @@ _ZN4llvh11raw_ostream14copy_to_bufferEPKcm.exit41: ; preds = %if.end28, %sw.bb11
   br label %tailrecurse.outer.backedge
 
 if.end32:                                         ; preds = %tailrecurse.outer.backedge, %if.end, %entry
-  %Ptr.tr.ph.lcssa77 = phi ptr [ %Ptr, %entry ], [ %Ptr.tr.ph93, %if.end ], [ %Ptr.tr.ph.be, %tailrecurse.outer.backedge ]
-  %Size.tr.ph.lcssa75 = phi i64 [ %Size, %entry ], [ %Size.tr.ph94, %if.end ], [ %Size.tr.ph.be, %tailrecurse.outer.backedge ]
-  %.lcssa = phi ptr [ %1, %entry ], [ %8, %if.end ], [ %12, %tailrecurse.outer.backedge ]
+  %Ptr.tr.ph.lcssa77 = phi ptr [ %Ptr.tr.ph93, %if.end ], [ %Ptr, %entry ], [ %Ptr.tr.ph.be, %tailrecurse.outer.backedge ]
+  %Size.tr.ph.lcssa75 = phi i64 [ %Size.tr.ph94, %if.end ], [ %Size, %entry ], [ %Size.tr.ph.be, %tailrecurse.outer.backedge ]
+  %.lcssa = phi ptr [ %8, %if.end ], [ %1, %entry ], [ %12, %tailrecurse.outer.backedge ]
   switch i64 %Size.tr.ph.lcssa75, label %sw.default.i59 [
     i64 4, label %sw.bb.i55
     i64 3, label %sw.bb3.i51

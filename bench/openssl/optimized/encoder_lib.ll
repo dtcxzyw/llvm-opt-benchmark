@@ -1188,7 +1188,7 @@ define range(i32 0, 2) i32 @ossl_bio_print_labeled_buf(ptr noundef %0, ptr nound
   br label %.loopexit
 
 .loopexit:                                        ; preds = %20, %17, %14, %._crit_edge, %4
-  %.015 = phi i32 [ 0, %4 ], [ %., %._crit_edge ], [ 0, %14 ], [ 0, %17 ], [ 0, %20 ]
+  %.015 = phi i32 [ %., %._crit_edge ], [ 0, %4 ], [ 0, %14 ], [ 0, %17 ], [ 0, %20 ]
   ret i32 %.015
 }
 

@@ -1901,7 +1901,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN12PosixSignals4initEv() local_unn
   br label %33
 
 33:                                               ; preds = %28, %24, %20, %19, %14
-  %34 = phi i32 [ 10, %20 ], [ 10, %19 ], [ 16, %24 ], [ %32, %28 ], [ %18, %14 ]
+  %34 = phi i32 [ %18, %14 ], [ %32, %28 ], [ 10, %20 ], [ 10, %19 ], [ 16, %24 ]
   %35 = tail call ptr @__errno_location() #21
   store i32 0, ptr %35, align 4
   %36 = call i64 @strtoll(ptr noundef nonnull %8, ptr noundef nonnull %6, i32 noundef %34) #20

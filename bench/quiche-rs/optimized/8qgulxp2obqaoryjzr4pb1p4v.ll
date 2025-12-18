@@ -907,7 +907,7 @@ common.resume:                                    ; preds = %46, %39
   br i1 %.not42.i, label %.loopexit520, label %.lr.ph.i
 
 .loopexit519:                                     ; preds = %163, %161, %152, %.lr.ph.i, %143, %143, %140
-  %.sroa.4.0.ph = phi i8 [ 1, %143 ], [ 0, %140 ], [ 1, %143 ], [ 1, %.lr.ph.i ], [ 2, %163 ], [ 1, %152 ], [ 2, %161 ]
+  %.sroa.4.0.ph = phi i8 [ 1, %143 ], [ 1, %143 ], [ 0, %140 ], [ 1, %.lr.ph.i ], [ 2, %163 ], [ 1, %152 ], [ 2, %161 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !43
   store i8 %.sroa.4.0.ph, ptr %10, align 1, !noalias !43
   invoke void @_ZN4core6result13unwrap_failed17h563d6df1cad9fe9bE(ptr noalias noundef nonnull readonly align 1 @anon.3786974b39ff7e48a6ce3649d331098a.15, i64 noundef 43, ptr noundef nonnull align 1 %10, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.3786974b39ff7e48a6ce3649d331098a.14, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3786974b39ff7e48a6ce3649d331098a.41) #20
@@ -1059,7 +1059,7 @@ common.resume:                                    ; preds = %46, %39
   br i1 %.not42.i66, label %.loopexit516, label %.lr.ph.i62
 
 .loopexit515:                                     ; preds = %218, %216, %207, %.lr.ph.i62, %198, %198, %195
-  %.sroa.4349.0.ph = phi i8 [ 1, %198 ], [ 0, %195 ], [ 1, %198 ], [ 1, %.lr.ph.i62 ], [ 2, %218 ], [ 1, %207 ], [ 2, %216 ]
+  %.sroa.4349.0.ph = phi i8 [ 1, %198 ], [ 1, %198 ], [ 0, %195 ], [ 1, %.lr.ph.i62 ], [ 2, %218 ], [ 1, %207 ], [ 2, %216 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !57
   store i8 %.sroa.4349.0.ph, ptr %11, align 1, !noalias !57
   br label %.loopexit515.invoke
@@ -1167,7 +1167,7 @@ common.resume:                                    ; preds = %46, %39
   br i1 %.not42.i89, label %.loopexit512, label %.lr.ph.i85
 
 .loopexit511:                                     ; preds = %259, %257, %248, %.lr.ph.i85, %239, %239, %236
-  %.sroa.4353.0.ph = phi i8 [ 1, %239 ], [ 0, %236 ], [ 1, %239 ], [ 1, %.lr.ph.i85 ], [ 2, %259 ], [ 1, %248 ], [ 2, %257 ]
+  %.sroa.4353.0.ph = phi i8 [ 1, %239 ], [ 1, %239 ], [ 0, %236 ], [ 1, %.lr.ph.i85 ], [ 2, %259 ], [ 1, %248 ], [ 2, %257 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !66
   store i8 %.sroa.4353.0.ph, ptr %12, align 1, !noalias !66
   br label %.loopexit515.invoke
@@ -1266,7 +1266,7 @@ common.resume:                                    ; preds = %46, %39
   br i1 %.not42.i112, label %.loopexit508, label %.lr.ph.i108
 
 .loopexit507:                                     ; preds = %298, %296, %287, %.lr.ph.i108, %278, %278, %275
-  %.sroa.4357.0.ph = phi i8 [ 1, %278 ], [ 0, %275 ], [ 1, %278 ], [ 1, %.lr.ph.i108 ], [ 2, %298 ], [ 1, %287 ], [ 2, %296 ]
+  %.sroa.4357.0.ph = phi i8 [ 1, %278 ], [ 1, %278 ], [ 0, %275 ], [ 1, %.lr.ph.i108 ], [ 2, %298 ], [ 1, %287 ], [ 2, %296 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !75
   store i8 %.sroa.4357.0.ph, ptr %13, align 1, !noalias !75
   br label %.loopexit515.invoke
@@ -1365,7 +1365,7 @@ common.resume:                                    ; preds = %46, %39
   br i1 %.not42.i135, label %.loopexit504, label %.lr.ph.i131
 
 .loopexit503:                                     ; preds = %337, %335, %326, %.lr.ph.i131, %317, %317, %314
-  %.sroa.4361.0.ph = phi i8 [ 1, %317 ], [ 0, %314 ], [ 1, %317 ], [ 1, %.lr.ph.i131 ], [ 2, %337 ], [ 1, %326 ], [ 2, %335 ]
+  %.sroa.4361.0.ph = phi i8 [ 1, %317 ], [ 1, %317 ], [ 0, %314 ], [ 1, %.lr.ph.i131 ], [ 2, %337 ], [ 1, %326 ], [ 2, %335 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !84
   store i8 %.sroa.4361.0.ph, ptr %14, align 1, !noalias !84
   br label %.loopexit515.invoke
@@ -1464,7 +1464,7 @@ common.resume:                                    ; preds = %46, %39
   br i1 %.not42.i158, label %.loopexit500, label %.lr.ph.i154
 
 .loopexit499:                                     ; preds = %376, %374, %365, %.lr.ph.i154, %356, %356, %353
-  %.sroa.4365.0.ph = phi i8 [ 1, %356 ], [ 0, %353 ], [ 1, %356 ], [ 1, %.lr.ph.i154 ], [ 2, %376 ], [ 1, %365 ], [ 2, %374 ]
+  %.sroa.4365.0.ph = phi i8 [ 1, %356 ], [ 1, %356 ], [ 0, %353 ], [ 1, %.lr.ph.i154 ], [ 2, %376 ], [ 1, %365 ], [ 2, %374 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !93
   store i8 %.sroa.4365.0.ph, ptr %15, align 1, !noalias !93
   br label %.loopexit515.invoke
@@ -1563,7 +1563,7 @@ common.resume:                                    ; preds = %46, %39
   br i1 %.not42.i181, label %.loopexit496, label %.lr.ph.i177
 
 .loopexit495:                                     ; preds = %415, %413, %404, %.lr.ph.i177, %395, %395, %392
-  %.sroa.4369.0.ph = phi i8 [ 1, %395 ], [ 0, %392 ], [ 1, %395 ], [ 1, %.lr.ph.i177 ], [ 2, %415 ], [ 1, %404 ], [ 2, %413 ]
+  %.sroa.4369.0.ph = phi i8 [ 1, %395 ], [ 1, %395 ], [ 0, %392 ], [ 1, %.lr.ph.i177 ], [ 2, %415 ], [ 1, %404 ], [ 2, %413 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !102
   store i8 %.sroa.4369.0.ph, ptr %16, align 1, !noalias !102
   br label %.loopexit515.invoke
@@ -1662,7 +1662,7 @@ common.resume:                                    ; preds = %46, %39
   br i1 %.not42.i204, label %.loopexit492, label %.lr.ph.i200
 
 .loopexit491:                                     ; preds = %454, %452, %443, %.lr.ph.i200, %434, %434, %431
-  %.sroa.4373.0.ph = phi i8 [ 1, %434 ], [ 0, %431 ], [ 1, %434 ], [ 1, %.lr.ph.i200 ], [ 2, %454 ], [ 1, %443 ], [ 2, %452 ]
+  %.sroa.4373.0.ph = phi i8 [ 1, %434 ], [ 1, %434 ], [ 0, %431 ], [ 1, %.lr.ph.i200 ], [ 2, %454 ], [ 1, %443 ], [ 2, %452 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %17), !noalias !111
   store i8 %.sroa.4373.0.ph, ptr %17, align 1, !noalias !111
   br label %.loopexit515.invoke
@@ -1834,7 +1834,7 @@ common.resume:                                    ; preds = %46, %39
   br i1 %.not42.i232, label %.loopexit488, label %.lr.ph.i228
 
 .loopexit487:                                     ; preds = %525, %523, %514, %.lr.ph.i228, %505, %505, %502
-  %.sroa.4377.0.ph = phi i8 [ 1, %505 ], [ 0, %502 ], [ 1, %505 ], [ 1, %.lr.ph.i228 ], [ 2, %525 ], [ 1, %514 ], [ 2, %523 ]
+  %.sroa.4377.0.ph = phi i8 [ 1, %505 ], [ 1, %505 ], [ 0, %502 ], [ 1, %.lr.ph.i228 ], [ 2, %525 ], [ 1, %514 ], [ 2, %523 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %18), !noalias !125
   store i8 %.sroa.4377.0.ph, ptr %18, align 1, !noalias !125
   br label %.loopexit487.invoke
@@ -1961,7 +1961,7 @@ common.resume:                                    ; preds = %46, %39
   br i1 %.not42.i255, label %.loopexit484, label %.lr.ph.i251
 
 .loopexit483:                                     ; preds = %574, %572, %563, %.lr.ph.i251, %554, %554, %551
-  %.sroa.4381.0.ph = phi i8 [ 1, %554 ], [ 0, %551 ], [ 1, %554 ], [ 1, %.lr.ph.i251 ], [ 2, %574 ], [ 1, %563 ], [ 2, %572 ]
+  %.sroa.4381.0.ph = phi i8 [ 1, %554 ], [ 1, %554 ], [ 0, %551 ], [ 1, %.lr.ph.i251 ], [ 2, %574 ], [ 1, %563 ], [ 2, %572 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %19), !noalias !134
   store i8 %.sroa.4381.0.ph, ptr %19, align 1, !noalias !134
   br label %.loopexit487.invoke
@@ -2070,7 +2070,7 @@ common.resume:                                    ; preds = %46, %39
   br i1 %.not42.i278, label %.loopexit480, label %.lr.ph.i274
 
 .loopexit479:                                     ; preds = %618, %616, %607, %.lr.ph.i274, %598, %598, %595
-  %.sroa.4385.0.ph = phi i8 [ 1, %598 ], [ 0, %595 ], [ 1, %598 ], [ 1, %.lr.ph.i274 ], [ 2, %618 ], [ 1, %607 ], [ 2, %616 ]
+  %.sroa.4385.0.ph = phi i8 [ 1, %598 ], [ 1, %598 ], [ 0, %595 ], [ 1, %.lr.ph.i274 ], [ 2, %618 ], [ 1, %607 ], [ 2, %616 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %20), !noalias !143
   store i8 %.sroa.4385.0.ph, ptr %20, align 1, !noalias !143
   br label %.loopexit487.invoke
@@ -2179,7 +2179,7 @@ common.resume:                                    ; preds = %46, %39
   br i1 %.not42.i301, label %.loopexit476, label %.lr.ph.i297
 
 .loopexit475:                                     ; preds = %662, %660, %651, %.lr.ph.i297, %642, %642, %639
-  %.sroa.4389.0.ph = phi i8 [ 1, %642 ], [ 0, %639 ], [ 1, %642 ], [ 1, %.lr.ph.i297 ], [ 2, %662 ], [ 1, %651 ], [ 2, %660 ]
+  %.sroa.4389.0.ph = phi i8 [ 1, %642 ], [ 1, %642 ], [ 0, %639 ], [ 1, %.lr.ph.i297 ], [ 2, %662 ], [ 1, %651 ], [ 2, %660 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %21), !noalias !152
   store i8 %.sroa.4389.0.ph, ptr %21, align 1, !noalias !152
   br label %.loopexit487.invoke
@@ -2273,7 +2273,7 @@ common.resume:                                    ; preds = %46, %39
   br i1 %.not42.i324, label %.loopexit472, label %.lr.ph.i320
 
 .loopexit:                                        ; preds = %700, %698, %689, %.lr.ph.i320, %680, %680, %677
-  %.sroa.4393.0.ph = phi i8 [ 1, %680 ], [ 0, %677 ], [ 1, %680 ], [ 1, %.lr.ph.i320 ], [ 2, %700 ], [ 1, %689 ], [ 2, %698 ]
+  %.sroa.4393.0.ph = phi i8 [ 1, %680 ], [ 1, %680 ], [ 0, %677 ], [ 1, %.lr.ph.i320 ], [ 2, %700 ], [ 1, %689 ], [ 2, %698 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %22), !noalias !161
   store i8 %.sroa.4393.0.ph, ptr %22, align 1, !noalias !161
   br label %.loopexit487.invoke
@@ -2762,7 +2762,7 @@ common.resume:                                    ; preds = %"_ZN4core3ptr70drop
   br i1 %87, label %"_ZN4core3num21_$LT$impl$u20$u32$GT$16from_ascii_radix17h7a035ea0d84e4c28E.exit.thread", label %88, !prof !192
 
 "_ZN4core3num21_$LT$impl$u20$u32$GT$16from_ascii_radix17h7a035ea0d84e4c28E.exit.thread": ; preds = %66, %.lr.ph80.i, %44, %44, %41, %"_ZN4core3num21_$LT$impl$u20$u32$GT$16from_ascii_radix17h7a035ea0d84e4c28E.exit"
-  %.sroa.8.0.insert.insert.i148 = phi i64 [ %.sroa.8.0.insert.insert.i, %"_ZN4core3num21_$LT$impl$u20$u32$GT$16from_ascii_radix17h7a035ea0d84e4c28E.exit" ], [ 257, %44 ], [ 257, %44 ], [ 1, %41 ], [ 257, %.lr.ph80.i ], [ 257, %66 ]
+  %.sroa.8.0.insert.insert.i148 = phi i64 [ %.sroa.8.0.insert.insert.i, %"_ZN4core3num21_$LT$impl$u20$u32$GT$16from_ascii_radix17h7a035ea0d84e4c28E.exit" ], [ 257, %.lr.ph80.i ], [ 1, %41 ], [ 257, %44 ], [ 257, %44 ], [ 257, %66 ]
   %.sroa.4.0.extract.shift.i = lshr i64 %.sroa.8.0.insert.insert.i148, 8
   %.sroa.4.0.extract.trunc.i = trunc i64 %.sroa.4.0.extract.shift.i to i8
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -2950,7 +2950,7 @@ common.resume:                                    ; preds = %"_ZN4core3ptr70drop
   br i1 %.not42.i, label %.loopexit165, label %.lr.ph.i27
 
 .loopexit164:                                     ; preds = %143, %141, %132, %.lr.ph.i27, %123, %123, %120
-  %.sroa.4.0.ph = phi i8 [ 1, %123 ], [ 0, %120 ], [ 1, %123 ], [ 1, %.lr.ph.i27 ], [ 2, %143 ], [ 1, %132 ], [ 2, %141 ]
+  %.sroa.4.0.ph = phi i8 [ 1, %123 ], [ 1, %123 ], [ 0, %120 ], [ 1, %.lr.ph.i27 ], [ 2, %143 ], [ 1, %132 ], [ 2, %141 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !203
   store i8 %.sroa.4.0.ph, ptr %13, align 1, !noalias !203
   invoke void @_ZN4core6result13unwrap_failed17h563d6df1cad9fe9bE(ptr noalias noundef nonnull readonly align 1 @anon.3786974b39ff7e48a6ce3649d331098a.15, i64 noundef 43, ptr noundef nonnull align 1 %13, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.3786974b39ff7e48a6ce3649d331098a.14, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3786974b39ff7e48a6ce3649d331098a.80) #20
@@ -3126,7 +3126,7 @@ common.resume:                                    ; preds = %"_ZN4core3ptr70drop
   br i1 %.not42.i49, label %.loopexit161, label %.lr.ph.i45
 
 .loopexit:                                        ; preds = %197, %195, %186, %.lr.ph.i45, %177, %177, %174
-  %.sroa.4117.0.ph = phi i8 [ 1, %177 ], [ 0, %174 ], [ 1, %177 ], [ 1, %.lr.ph.i45 ], [ 2, %197 ], [ 1, %186 ], [ 2, %195 ]
+  %.sroa.4117.0.ph = phi i8 [ 1, %177 ], [ 1, %177 ], [ 0, %174 ], [ 1, %.lr.ph.i45 ], [ 2, %197 ], [ 1, %186 ], [ 2, %195 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !245
   store i8 %.sroa.4117.0.ph, ptr %11, align 1, !noalias !245
   invoke void @_ZN4core6result13unwrap_failed17h563d6df1cad9fe9bE(ptr noalias noundef nonnull readonly align 1 @anon.3786974b39ff7e48a6ce3649d331098a.15, i64 noundef 43, ptr noundef nonnull align 1 %11, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.3786974b39ff7e48a6ce3649d331098a.14, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3786974b39ff7e48a6ce3649d331098a.84) #20

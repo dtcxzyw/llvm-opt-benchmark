@@ -1389,7 +1389,7 @@ _ZNK4llvm10LiveStacks11hasIntervalEi.exit.thread57.i: ; preds = %_ZNK4llvm10Live
   br i1 %205, label %_ZN4llvm10LiveStacks11getIntervalEi.exit.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !329
 
 _ZN4llvm10LiveStacks11getIntervalEi.exit.i:       ; preds = %.lr.ph.i.i.i.i.i.i, %195, %180, %_ZNK4llvm10LiveStacks11hasIntervalEi.exit.thread57.i
-  %.sroa.06.1.i.i.i.i = phi ptr [ %.pre248, %_ZNK4llvm10LiveStacks11hasIntervalEi.exit.thread57.i ], [ %181, %180 ], [ %.sroa.06.0.i.i.i.i, %195 ], [ %200, %.lr.ph.i.i.i.i.i.i ]
+  %.sroa.06.1.i.i.i.i = phi ptr [ %.sroa.06.0.i.i.i.i, %195 ], [ %.pre248, %_ZNK4llvm10LiveStacks11hasIntervalEi.exit.thread57.i ], [ %181, %180 ], [ %200, %.lr.ph.i.i.i.i.i.i ]
   %206 = load i16, ptr %136, align 4, !tbaa !331
   %.off.i.i = add i16 %206, -14
   %switch.i.i = icmp ult i16 %.off.i.i, 5
@@ -3376,7 +3376,7 @@ _ZNK12_GLOBAL__N_117StackSlotColoring19ColorAssignmentInfo8overlapsEPN4llvm12Liv
   br label %.thread70.i.i
 
 .thread70.i.i:                                    ; preds = %960, %_ZNK4llvm9BitVector9find_nextEj.exit.i.i, %991, %984, %1017, %_ZNK12_GLOBAL__N_117StackSlotColoring19ColorAssignmentInfo8overlapsEPN4llvm12LiveIntervalE.exit.thread.i.i..thread70.i.i_crit_edge, %_ZNK4llvm9BitVector10find_firstEv.exit.i.i, %940, %924
-  %1038 = phi ptr [ %.pre251, %_ZNK12_GLOBAL__N_117StackSlotColoring19ColorAssignmentInfo8overlapsEPN4llvm12LiveIntervalE.exit.thread.i.i..thread70.i.i_crit_edge ], [ %.pre252, %924 ], [ %.pre252, %_ZNK4llvm9BitVector10find_firstEv.exit.i.i ], [ %.pre252, %940 ], [ %985, %_ZNK4llvm9BitVector9find_nextEj.exit.i.i ], [ %985, %1017 ], [ %985, %984 ], [ %985, %991 ], [ %.pre252, %960 ]
+  %1038 = phi ptr [ %.pre251, %_ZNK12_GLOBAL__N_117StackSlotColoring19ColorAssignmentInfo8overlapsEPN4llvm12LiveIntervalE.exit.thread.i.i..thread70.i.i_crit_edge ], [ %985, %_ZNK4llvm9BitVector9find_nextEj.exit.i.i ], [ %985, %1017 ], [ %.pre252, %924 ], [ %.pre252, %_ZNK4llvm9BitVector10find_firstEv.exit.i.i ], [ %.pre252, %940 ], [ %985, %984 ], [ %985, %991 ], [ %.pre252, %960 ]
   %1039 = load ptr, ptr %559, align 8, !tbaa !25
   %1040 = getelementptr inbounds nuw i32, ptr %1039, i64 %.pre119.i.i
   %1041 = load i32, ptr %1040, align 4, !tbaa !66
@@ -6484,7 +6484,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN4llvm12LiveIntervalESt6vec
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !461
 
 _ZSt11swap_rangesIN9__gnu_cxx17__normal_iteratorIPPN4llvm12LiveIntervalESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit: ; preds = %._crit_edge, %._crit_edge101, %.lr.ph.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN4llvm12LiveIntervalESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN4llvm12LiveIntervalESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit, %5, %3
-  %.sroa.024.0 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %23, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN4llvm12LiveIntervalESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit ], [ %23, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN4llvm12LiveIntervalESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit ], [ %1, %.lr.ph.i ], [ %23, %._crit_edge101 ], [ %23, %._crit_edge ]
+  %.sroa.024.0 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %23, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN4llvm12LiveIntervalESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit ], [ %1, %.lr.ph.i ], [ %23, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN4llvm12LiveIntervalESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit ], [ %23, %._crit_edge101 ], [ %23, %._crit_edge ]
   ret ptr %.sroa.024.0
 }
 

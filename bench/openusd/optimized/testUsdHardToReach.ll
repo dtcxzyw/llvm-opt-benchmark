@@ -8011,7 +8011,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit984: ; pr
   br label %.loopexit1312
 
 .loopexit1312:                                    ; preds = %.preheader1314, %.preheader, %.loopexit1399, %.loopexit.split-lp1400, %.body809.thread, %.body714.thread, %.body857, %.body662, %.body619, %.body809, %.body714, %.body794, %2223, %.body703
-  %.pn252.pn.pn.pn = phi { ptr, i32 } [ %.pn252.pn.pn, %.body857 ], [ %.pn226.pn.pn, %.body619 ], [ %.pn246.pn.pn.pn, %.body809 ], [ %.pn243.pn, %.body794 ], [ %lpad.phi1416, %2223 ], [ %.pn237.pn.pn.pn, %.body714 ], [ %.pn234.pn, %.body703 ], [ %.pn230.pn.pn, %.body662 ], [ %.pn237.pn.pn.pn.pn.ph, %.body714.thread ], [ %.pn246.pn.pn.pn.pn.ph, %.body809.thread ], [ %lpad.loopexit.split-lp1402, %.loopexit.split-lp1400 ], [ %lpad.loopexit1401, %.loopexit1399 ], [ %.pn246.pn.pn.pn, %.preheader ], [ %.pn237.pn.pn.pn, %.preheader1314 ]
+  %.pn252.pn.pn.pn = phi { ptr, i32 } [ %.pn252.pn.pn, %.body857 ], [ %.pn226.pn.pn, %.body619 ], [ %.pn246.pn.pn.pn, %.preheader ], [ %.pn246.pn.pn.pn, %.body809 ], [ %.pn246.pn.pn.pn.pn.ph, %.body809.thread ], [ %.pn243.pn, %.body794 ], [ %lpad.phi1416, %2223 ], [ %.pn237.pn.pn.pn, %.body714 ], [ %lpad.loopexit.split-lp1402, %.loopexit.split-lp1400 ], [ %.pn234.pn, %.body703 ], [ %.pn230.pn.pn, %.body662 ], [ %.pn237.pn.pn.pn.pn.ph, %.body714.thread ], [ %lpad.loopexit1401, %.loopexit1399 ], [ %.pn237.pn.pn.pn, %.preheader1314 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__15UsdRelationshipD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %129) #15
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit988
 

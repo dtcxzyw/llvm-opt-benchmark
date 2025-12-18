@@ -478,7 +478,7 @@ _ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit.loopexit174.split.lo
   br label %_ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit
 
 _ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit: ; preds = %200, %181, %_ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit.loopexit174.split.loop.exit177, %.thread, %183, %._crit_edge.loopexit.split.loop.exit11.i, %176
-  %.092 = phi i32 [ %182, %._crit_edge.loopexit.split.loop.exit11.i ], [ -1, %176 ], [ -1, %183 ], [ -1, %.thread ], [ %201, %_ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit.loopexit174.split.loop.exit177 ], [ -1, %181 ], [ -1, %200 ]
+  %.092 = phi i32 [ %182, %._crit_edge.loopexit.split.loop.exit11.i ], [ -1, %.thread ], [ -1, %176 ], [ -1, %183 ], [ -1, %181 ], [ %201, %_ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit.loopexit174.split.loop.exit177 ], [ -1, %200 ]
   ret i32 %.092
 }
 
@@ -720,7 +720,7 @@ define noundef zeroext i1 @_ZNK10OpenSubdiv6v3_6_03Bfr25RefinerSurfaceFactoryBas
   br label %.loopexit55
 
 .loopexit55:                                      ; preds = %49, %48, %38, %.loopexit, %51, %13, %3
-  %.0 = phi i1 [ false, %3 ], [ false, %13 ], [ true, %51 ], [ true, %.loopexit ], [ false, %38 ], [ false, %48 ], [ false, %49 ]
+  %.0 = phi i1 [ false, %3 ], [ true, %.loopexit ], [ true, %51 ], [ false, %13 ], [ false, %38 ], [ false, %48 ], [ false, %49 ]
   ret i1 %.0
 }
 

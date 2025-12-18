@@ -2725,9 +2725,9 @@ bytestream2_get_be32.exit.i:                      ; preds = %1466
   br label %bytestream2_get_be64.exit.i
 
 bytestream2_get_be64.exit.i:                      ; preds = %1483, %bytestream2_get_be32.exit.i
-  %.sroa.0.2.i = phi ptr [ %1474, %bytestream2_get_be32.exit.i ], [ %1484, %1483 ]
-  %.019.i = phi i64 [ %1471, %bytestream2_get_be32.exit.i ], [ %1486, %1483 ]
-  %.0.i65 = phi i64 [ 8, %bytestream2_get_be32.exit.i ], [ 16, %1483 ]
+  %.sroa.0.2.i = phi ptr [ %1484, %1483 ], [ %1474, %bytestream2_get_be32.exit.i ]
+  %.019.i = phi i64 [ %1486, %1483 ], [ %1471, %bytestream2_get_be32.exit.i ]
+  %.0.i65 = phi i64 [ 16, %1483 ], [ 8, %bytestream2_get_be32.exit.i ]
   %.not26.i = icmp ule i64 %.019.i, %.0.i65
   %1487 = sub nsw i64 2147483647, %1454
   %1488 = icmp ugt i64 %.019.i, %1487
@@ -3189,7 +3189,7 @@ default.unreachable:                              ; preds = %1
   unreachable
 
 .loopexit:                                        ; preds = %68, %40, %1, %86, %28, %16
-  %.0 = phi i64 [ %27, %16 ], [ %39, %28 ], [ %92, %86 ], [ 0, %1 ], [ %50, %40 ], [ %74, %68 ]
+  %.0 = phi i64 [ 0, %1 ], [ %27, %16 ], [ %39, %28 ], [ %92, %86 ], [ %50, %40 ], [ %74, %68 ]
   ret i64 %.0
 }
 
@@ -3764,7 +3764,7 @@ dist_bundle_close.exit:                           ; preds = %.lr.ph.i471, %._cri
   br label %read_dist_clustering.exit.thread
 
 .loopexit247:                                     ; preds = %get_bitsz.exit.i, %get_bitsz.exit.i.us, %.thread212
-  %303 = phi i32 [ %.pre, %.thread212 ], [ %200, %get_bitsz.exit.i.us ], [ %218, %get_bitsz.exit.i ]
+  %303 = phi i32 [ %200, %get_bitsz.exit.i.us ], [ %.pre, %.thread212 ], [ %218, %get_bitsz.exit.i ]
   %304 = icmp sgt i32 %303, 0
   br i1 %304, label %.lr.ph273, label %.loopexit247.._crit_edge274_crit_edge
 
@@ -4597,7 +4597,7 @@ read_simple_vlc_prefix.exit.i:                    ; preds = %534, %506
   br i1 %723, label %.lr.ph239.i, label %._crit_edge240.i, !llvm.loop !131
 
 .loopexit.i:                                      ; preds = %540, %629, %610, %._crit_edge240.i, %.thread205.i, %599, %585, %.loopexit209.i
-  %.1152.i = phi i32 [ -1094995529, %.thread205.i ], [ %587, %585 ], [ -12, %599 ], [ %711, %._crit_edge240.i ], [ -1094995529, %.loopexit209.i ], [ -1094995529, %610 ], [ -1397118274, %629 ], [ -1094995529, %540 ]
+  %.1152.i = phi i32 [ -1094995529, %.thread205.i ], [ %587, %585 ], [ -12, %599 ], [ %711, %._crit_edge240.i ], [ -1397118274, %629 ], [ -1094995529, %.loopexit209.i ], [ -1094995529, %610 ], [ -1094995529, %540 ]
   call void @av_freep(ptr noundef nonnull %16) #11
   call void @ff_vlc_free(ptr noundef nonnull %17) #11
   br label %read_vlc_prefix.exit
@@ -5333,7 +5333,7 @@ get_bitsz.exit.i179:                              ; preds = %.thread208.i, %1118
   %exitcond250.not.i = icmp eq i64 %indvars.iv.next247.i, %wide.trip.count249.i
   br i1 %exitcond250.not.i, label %._crit_edge233.i, label %1090, !llvm.loop !138
 
-populate_distribution.exit.thread:                ; preds = %887, %._crit_edge.i175, %jxl_u8.exit174.i, %jxl_u8.exit184.i, %get_bitsz.exit168.i, %jxl_u8.exit189.i, %1081
+populate_distribution.exit.thread:                ; preds = %887, %._crit_edge.i175, %jxl_u8.exit174.i, %jxl_u8.exit184.i, %1081, %get_bitsz.exit168.i, %jxl_u8.exit189.i
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %read_dist_clustering.exit.thread
@@ -5548,8 +5548,8 @@ select.unfold228:                                 ; preds = %933, %887, %._crit_
   br label %select.unfold.i
 
 select.unfold.i:                                  ; preds = %1235, %1234
-  %.498.i = phi i32 [ %.39717.i, %1234 ], [ %1213, %1235 ]
-  %.3.i182 = phi i32 [ %1217, %1234 ], [ %spec.select, %1235 ]
+  %.498.i = phi i32 [ %1213, %1235 ], [ %.39717.i, %1234 ]
+  %.3.i182 = phi i32 [ %spec.select, %1235 ], [ %1217, %1234 ]
   %.not.i183 = icmp eq i32 %.3.i182, 0
   br i1 %.not.i183, label %.preheader1.i, label %1211, !llvm.loop !143
 
@@ -5595,7 +5595,7 @@ select.unfold.i:                                  ; preds = %1235, %1234
   br label %read_dist_clustering.exit.thread
 
 read_dist_clustering.exit.thread:                 ; preds = %.lr.ph278, %366, %get_bitsz.exit, %725, %read_vlc_prefix.exit, %438, %select.unfold228, %.loopexit, %.preheader236, %populate_distribution.exit.thread, %.preheader241, %.preheader, %1251, %._crit_edge274, %302, %.thread, %323, %read_dist_clustering.exit, %160, %jxl_u32.exit137, %41
-  %.0105 = phi i32 [ %154, %jxl_u32.exit137 ], [ -1397118274, %read_dist_clustering.exit ], [ -1094995529, %41 ], [ -12, %160 ], [ -12, %323 ], [ 0, %.preheader ], [ -1094995529, %1251 ], [ 0, %.preheader241 ], [ -1094995529, %._crit_edge274 ], [ -12, %.thread ], [ %.1.i155, %302 ], [ -1094995529, %populate_distribution.exit.thread ], [ 0, %.preheader236 ], [ -1397118274, %select.unfold228 ], [ -1094995529, %get_bitsz.exit ], [ 0, %.loopexit ], [ 0, %438 ], [ -1397118274, %725 ], [ %.0.i159, %read_vlc_prefix.exit ], [ %364, %.lr.ph278 ], [ -1397118274, %366 ]
+  %.0105 = phi i32 [ %154, %jxl_u32.exit137 ], [ -1397118274, %read_dist_clustering.exit ], [ -1094995529, %41 ], [ -12, %160 ], [ -12, %323 ], [ -1094995529, %populate_distribution.exit.thread ], [ 0, %.preheader ], [ 0, %438 ], [ -1094995529, %1251 ], [ 0, %.preheader241 ], [ -1094995529, %._crit_edge274 ], [ -12, %.thread ], [ %.1.i155, %302 ], [ 0, %.preheader236 ], [ 0, %.loopexit ], [ -1094995529, %get_bitsz.exit ], [ -1397118274, %select.unfold228 ], [ -1397118274, %725 ], [ %.0.i159, %read_vlc_prefix.exit ], [ %364, %.lr.ph278 ], [ -1397118274, %366 ]
   ret i32 %.0105
 }
 

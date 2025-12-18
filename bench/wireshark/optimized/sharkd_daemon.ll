@@ -248,7 +248,7 @@ sub_034:                                          ; preds = %12, %.tail
   unreachable
 
 .loopexit:                                        ; preds = %.thread52, %33, %.thread, %.thread30.thread, %._crit_edge, %.thread30, %60, %.tail33.thread, %29, %4
-  %.020 = phi i32 [ -1, %4 ], [ -1, %.tail33.thread ], [ -1, %29 ], [ %61, %60 ], [ 0, %.thread30 ], [ 0, %._crit_edge ], [ 0, %.thread30.thread ], [ 0, %.thread ], [ -1, %33 ], [ 0, %.thread52 ]
+  %.020 = phi i32 [ -1, %4 ], [ -1, %.tail33.thread ], [ 0, %.thread30.thread ], [ -1, %29 ], [ %61, %60 ], [ 0, %.thread30 ], [ 0, %._crit_edge ], [ 0, %.thread ], [ -1, %33 ], [ 0, %.thread52 ]
   ret i32 %.020
 }
 

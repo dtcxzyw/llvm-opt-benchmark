@@ -507,7 +507,7 @@ thread-pre-split:                                 ; preds = %.lr.ph59
   br i1 %.not18, label %mbedtls_asn1_get_tag.exit.thread, label %100, !llvm.loop !15
 
 mbedtls_asn1_get_tag.exit.thread:                 ; preds = %100, %.thread.thread, %85, %34, %27, %13, %63, %25, %46, %4, %10, %.critedge, %90, %mbedtls_asn1_get_tag.exit
-  %.0 = phi i32 [ 0, %.thread.thread ], [ -100, %mbedtls_asn1_get_tag.exit ], [ -100, %90 ], [ -100, %.critedge ], [ -98, %10 ], [ -96, %34 ], [ -96, %27 ], [ -96, %13 ], [ -96, %63 ], [ -100, %25 ], [ -96, %46 ], [ -96, %4 ], [ -96, %85 ], [ 0, %100 ]
+  %.0 = phi i32 [ 0, %.thread.thread ], [ -96, %85 ], [ -100, %mbedtls_asn1_get_tag.exit ], [ -100, %90 ], [ -100, %.critedge ], [ -98, %10 ], [ -96, %34 ], [ -96, %27 ], [ -96, %13 ], [ -96, %63 ], [ -100, %25 ], [ -96, %46 ], [ -96, %4 ], [ 0, %100 ]
   ret i32 %.0
 }
 

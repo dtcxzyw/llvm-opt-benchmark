@@ -1878,7 +1878,7 @@ _ZN5vcpkg10ParserBase13is_whitespaceEDi.exit.thread: ; preds = %.critedge17, %.c
   br label %_ZN5vcpkg10ParserBase13is_whitespaceEDi.exit
 
 _ZN5vcpkg10ParserBase13is_whitespaceEDi.exit:     ; preds = %.lr.ph, %.critedge17, %_ZN5vcpkg10ParserBase13is_whitespaceEDi.exit.thread, %15
-  %.3 = phi i1 [ true, %_ZN5vcpkg10ParserBase13is_whitespaceEDi.exit.thread ], [ true, %15 ], [ false, %.critedge17 ], [ false, %.lr.ph ]
+  %.3 = phi i1 [ false, %.critedge17 ], [ true, %_ZN5vcpkg10ParserBase13is_whitespaceEDi.exit.thread ], [ true, %15 ], [ false, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.3
 }
@@ -5314,7 +5314,7 @@ _ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail13width_checkerEE
   unreachable
 
 _ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail13width_checkerEEEDTclfp_Li0EEEOT_.exit: ; preds = %18, %12, %9, %16, %22
-  %.0.i = phi i64 [ %.sroa.011.0.extract.trunc.i, %18 ], [ %11, %9 ], [ %17, %16 ], [ %13, %12 ], [ %.sroa.05.0.extract.trunc.i, %22 ]
+  %.0.i = phi i64 [ %.sroa.05.0.extract.trunc.i, %22 ], [ %13, %12 ], [ %.sroa.011.0.extract.trunc.i, %18 ], [ %11, %9 ], [ %17, %16 ]
   %34 = icmp ugt i64 %.0.i, 2147483647
   br i1 %34, label %_ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail13width_checkerEEEDTclfp_Li0EEEOT_.exit.thread11, label %35
 
@@ -5536,7 +5536,7 @@ _ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail17precision_check
   unreachable
 
 _ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail17precision_checkerEEEDTclfp_Li0EEEOT_.exit: ; preds = %18, %12, %9, %16, %22
-  %.0.i = phi i64 [ %.sroa.011.0.extract.trunc.i, %18 ], [ %11, %9 ], [ %17, %16 ], [ %13, %12 ], [ %.sroa.05.0.extract.trunc.i, %22 ]
+  %.0.i = phi i64 [ %.sroa.05.0.extract.trunc.i, %22 ], [ %13, %12 ], [ %.sroa.011.0.extract.trunc.i, %18 ], [ %11, %9 ], [ %17, %16 ]
   %34 = icmp ugt i64 %.0.i, 2147483647
   br i1 %34, label %_ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail17precision_checkerEEEDTclfp_Li0EEEOT_.exit.thread11, label %35
 

@@ -2624,8 +2624,8 @@ oidclr.exit.i:                                    ; preds = %141, %.split.loop.e
   br label %.critedge.thread110.i
 
 .critedge.thread110.i:                            ; preds = %174, %._crit_edge.i61, %.preheader.i60, %.critedge.i
-  %.153.ph.i = phi i32 [ 1, %.preheader.i60 ], [ %.05287.i, %.critedge.i ], [ %190, %._crit_edge.i61 ], [ %175, %174 ]
-  %.051.ph.i = phi ptr [ @.str.163, %.preheader.i60 ], [ @.str.163, %.critedge.i ], [ %spec.select.i, %._crit_edge.i61 ], [ @.str.163, %174 ]
+  %.153.ph.i = phi i32 [ %190, %._crit_edge.i61 ], [ 1, %.preheader.i60 ], [ %.05287.i, %.critedge.i ], [ %175, %174 ]
+  %.051.ph.i = phi ptr [ %spec.select.i, %._crit_edge.i61 ], [ @.str.163, %.preheader.i60 ], [ @.str.163, %.critedge.i ], [ @.str.163, %174 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) @__const.suggest_conflicts.msgbuf, i64 24, i1 false)
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %10, ptr noundef nonnull @.str.161, ptr noundef nonnull %135) #17

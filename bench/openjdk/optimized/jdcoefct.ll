@@ -902,8 +902,8 @@ define internal range(i32 0, 5) i32 @decompress_onepass(ptr noundef %0, ptr noun
   br label %.loopexit84
 
 .loopexit84:                                      ; preds = %.lr.ph92.split, %.loopexit84.loopexit, %49, %45
-  %99 = phi i32 [ %40, %45 ], [ %40, %49 ], [ %.pre123, %.loopexit84.loopexit ], [ %40, %.lr.ph92.split ]
-  %.1 = phi i32 [ %48, %45 ], [ %.075100, %49 ], [ %87, %.loopexit84.loopexit ], [ %98, %.lr.ph92.split ]
+  %99 = phi i32 [ %40, %45 ], [ %40, %49 ], [ %40, %.lr.ph92.split ], [ %.pre123, %.loopexit84.loopexit ]
+  %.1 = phi i32 [ %48, %45 ], [ %.075100, %49 ], [ %98, %.lr.ph92.split ], [ %87, %.loopexit84.loopexit ]
   %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
   %100 = sext i32 %99 to i64
   %101 = icmp slt i64 %indvars.iv.next120, %100

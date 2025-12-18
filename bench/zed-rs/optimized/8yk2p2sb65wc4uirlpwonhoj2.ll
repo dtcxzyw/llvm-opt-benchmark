@@ -451,8 +451,8 @@ define internal fastcc void @"_ZN101_$LT$$RF$mut$u20$serde_json_lenient..de..Des
   %160 = icmp eq i8 %159, 0
   br i1 %160, label %406, label %409
 
-161:                                              ; preds = %81, %88
-  %.sroa.0.0.i.ph = phi ptr [ %89, %88 ], [ %82, %81 ]
+161:                                              ; preds = %88, %81
+  %.sroa.0.0.i.ph = phi ptr [ %82, %81 ], [ %89, %88 ]
   %162 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.0.0.i.ph, ptr %162, align 8
   store i64 -9223372036854775803, ptr %0, align 8
@@ -471,8 +471,8 @@ define internal fastcc void @"_ZN101_$LT$$RF$mut$u20$serde_json_lenient..de..Des
   call void @llvm.lifetime.end.p0(ptr nonnull %49)
   br label %164
 
-166:                                              ; preds = %103, %110
-  %.sroa.0.0.i81.ph = phi ptr [ %111, %110 ], [ %104, %103 ]
+166:                                              ; preds = %110, %103
+  %.sroa.0.0.i81.ph = phi ptr [ %104, %103 ], [ %111, %110 ]
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.0.0.i81.ph, ptr %167, align 8
   store i64 -9223372036854775803, ptr %0, align 8
@@ -486,8 +486,8 @@ define internal fastcc void @"_ZN101_$LT$$RF$mut$u20$serde_json_lenient..de..Des
   call void @llvm.lifetime.end.p0(ptr nonnull %49)
   br label %164
 
-169:                                              ; preds = %125, %132
-  %.sroa.0.0.i86.ph = phi ptr [ %133, %132 ], [ %126, %125 ]
+169:                                              ; preds = %132, %125
+  %.sroa.0.0.i86.ph = phi ptr [ %126, %125 ], [ %133, %132 ]
   %170 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.0.0.i86.ph, ptr %170, align 8
   store i64 -9223372036854775803, ptr %0, align 8
@@ -921,7 +921,7 @@ default.unreachable:                              ; preds = %471, %172
   %290 = icmp eq i64 %.sroa.0151.0.copyload153, -9223372036854775802
   br i1 %290, label %.loopexit222, label %.thread183
 
-.thread183:                                       ; preds = %258, %254, %229, %289
+.thread183:                                       ; preds = %254, %229, %258, %289
   %.sroa.22.2189 = phi ptr [ %.sroa.22.0.copyload157, %289 ], [ %253, %254 ], [ %.sroa.22.0, %258 ], [ %.sroa.22.0, %229 ]
   %.sroa.0151.1188 = phi i64 [ %.sroa.0151.0.copyload153, %289 ], [ %251, %254 ], [ -9223372036854775803, %258 ], [ -9223372036854775803, %229 ]
   %.sroa.15.2187 = phi i8 [ %.sroa.15.0, %289 ], [ 0, %254 ], [ %.sroa.15.0, %258 ], [ %.sroa.15.0, %229 ]
@@ -3701,9 +3701,9 @@ _ZN12aho_corasick4util10primitives9PatternID3new17hfbe7a56c108857afE.exit: ; pre
   br i1 %.not.i, label %129, label %131
 
 .invoke:                                          ; preds = %133, %101, %76, %120
-  %126 = phi i64 [ %121, %120 ], [ %102, %101 ], [ %77, %76 ], [ %139, %133 ]
-  %127 = phi i64 [ %118, %120 ], [ %103, %101 ], [ %78, %76 ], [ %140, %133 ]
-  %128 = phi ptr [ @anon.52714b9d5394f08b8b37cc72b3ed8b0f.14, %120 ], [ @anon.52714b9d5394f08b8b37cc72b3ed8b0f.10, %101 ], [ @anon.52714b9d5394f08b8b37cc72b3ed8b0f.19, %76 ], [ @anon.52714b9d5394f08b8b37cc72b3ed8b0f.13, %133 ]
+  %126 = phi i64 [ %121, %120 ], [ %139, %133 ], [ %77, %76 ], [ %102, %101 ]
+  %127 = phi i64 [ %118, %120 ], [ %140, %133 ], [ %78, %76 ], [ %103, %101 ]
+  %128 = phi ptr [ @anon.52714b9d5394f08b8b37cc72b3ed8b0f.14, %120 ], [ @anon.52714b9d5394f08b8b37cc72b3ed8b0f.13, %133 ], [ @anon.52714b9d5394f08b8b37cc72b3ed8b0f.19, %76 ], [ @anon.52714b9d5394f08b8b37cc72b3ed8b0f.10, %101 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %126, i64 noundef %127, ptr noalias noundef readonly align 8 dereferenceable(24) %128) #49
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -5026,8 +5026,8 @@ define internal fastcc noundef nonnull align 8 ptr @"_ZN18serde_json_lenient2de2
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %104
 
-103:                                              ; preds = %85, %78, %67, %60, %49, %42, %127, %120, %112, %104
-  %.sroa.0.0 = phi ptr [ %129, %127 ], [ %105, %104 ], [ %97, %120 ], [ %43, %42 ], [ %61, %60 ], [ %114, %112 ], [ %50, %49 ], [ %68, %67 ], [ %86, %85 ], [ %79, %78 ]
+103:                                              ; preds = %78, %85, %60, %67, %42, %49, %127, %120, %112, %104
+  %.sroa.0.0 = phi ptr [ %129, %127 ], [ %105, %104 ], [ %97, %120 ], [ %50, %49 ], [ %68, %67 ], [ %114, %112 ], [ %43, %42 ], [ %61, %60 ], [ %79, %78 ], [ %86, %85 ]
   ret ptr %.sroa.0.0
 
 104:                                              ; preds = %125, %.thread24, %115, %110, %"_ZN18serde_json_lenient2de21Deserializer$LT$R$GT$11parse_ident17h59a6468ef46c136cE.exit32", %"_ZN18serde_json_lenient2de21Deserializer$LT$R$GT$11parse_ident17h59a6468ef46c136cE.exit27", %"_ZN18serde_json_lenient2de21Deserializer$LT$R$GT$11parse_ident17h59a6468ef46c136cE.exit", %100, %98

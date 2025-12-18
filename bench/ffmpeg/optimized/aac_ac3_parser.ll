@@ -129,8 +129,8 @@ define i32 @ff_aac_ac3_parse(ptr noundef captures(none) initializes((232, 236)) 
   br label %.thread
 
 .thread:                                          ; preds = %55, %44, %31, %42, %.thread.sink.split, %.preheader, %57
-  %.193 = phi i32 [ %49, %57 ], [ -100, %.preheader ], [ %.193.ph, %.thread.sink.split ], [ -100, %42 ], [ -100, %31 ], [ -100, %44 ], [ -100, %55 ]
-  %.291 = phi i32 [ 1, %57 ], [ 0, %.preheader ], [ %.291.ph, %.thread.sink.split ], [ %.190173, %42 ], [ 1, %55 ], [ %.190173, %44 ], [ %.190173, %31 ]
+  %.193 = phi i32 [ %.193.ph, %.thread.sink.split ], [ -100, %42 ], [ %49, %57 ], [ -100, %.preheader ], [ -100, %31 ], [ -100, %44 ], [ -100, %55 ]
+  %.291 = phi i32 [ %.291.ph, %.thread.sink.split ], [ %.190173, %42 ], [ 1, %57 ], [ 0, %.preheader ], [ %.190173, %44 ], [ %.190173, %31 ], [ 1, %55 ]
   %61 = call i32 @ff_combine_frame(ptr noundef nonnull %14, i32 noundef %.193, ptr noundef nonnull %7, ptr noundef nonnull %8) #5
   %62 = icmp slt i32 %61, 0
   br i1 %62, label %63, label %67

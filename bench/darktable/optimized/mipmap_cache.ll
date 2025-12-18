@@ -864,8 +864,8 @@ define internal void @_mipmap_cache_deallocate_dynamic(ptr noundef %0, ptr nound
   br label %67
 
 67:                                               ; preds = %62, %.fold.split, %66
-  %.038 = phi ptr [ @dt_mipmap_cache_exif_data_adobergb, %66 ], [ @dt_mipmap_cache_exif_data_srgb, %62 ], [ null, %.fold.split ]
-  %.0 = phi i32 [ 50, %66 ], [ 50, %62 ], [ 0, %.fold.split ]
+  %.038 = phi ptr [ @dt_mipmap_cache_exif_data_srgb, %62 ], [ @dt_mipmap_cache_exif_data_adobergb, %66 ], [ null, %.fold.split ]
+  %.0 = phi i32 [ 50, %62 ], [ 50, %66 ], [ 0, %.fold.split ]
   %68 = load ptr, ptr %1, align 8, !tbaa !23
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 64
   %70 = load i32, ptr %11, align 64, !tbaa !18

@@ -127,7 +127,7 @@ define internal range(i32 -1, 1) i32 @hwloc_look_pci(ptr noundef captures(none) 
   br label %hwloc_get_next_pcidev.exit.i
 
 hwloc_get_next_pcidev.exit.i:                     ; preds = %46, %41
-  %.0.i.i.i = phi ptr [ %42, %41 ], [ %48, %46 ]
+  %.0.i.i.i = phi ptr [ %48, %46 ], [ %42, %41 ]
   %.not.i = icmp eq ptr %.0.i.i.i, null
   br i1 %.not.i, label %.preheader.i, label %50
 
@@ -208,7 +208,7 @@ hwloc_pci_get_obj_names.exit.i:                   ; preds = %69, %67, %65
   br label %hwloc_get_next_bridge.exit.i
 
 hwloc_get_next_bridge.exit.i:                     ; preds = %79, %74
-  %.0.i.i14.i = phi ptr [ %75, %74 ], [ %81, %79 ]
+  %.0.i.i14.i = phi ptr [ %81, %79 ], [ %75, %74 ]
   %.not10.i = icmp eq ptr %.0.i.i14.i, null
   br i1 %.not10.i, label %hwloc_pci_get_names.exit, label %82
 

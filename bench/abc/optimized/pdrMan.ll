@@ -1744,7 +1744,7 @@ Vec_PtrFree.exit.i:                               ; preds = %167, %164
   br i1 %170, label %161, label %.critedge.i, !llvm.loop !138
 
 .critedge.i:                                      ; preds = %168, %Vec_PtrFree.exit, %._crit_edge
-  %.lcssa231305 = phi ptr [ %154, %._crit_edge ], [ %134, %Vec_PtrFree.exit ], [ %154, %168 ]
+  %.lcssa231305 = phi ptr [ %134, %Vec_PtrFree.exit ], [ %154, %._crit_edge ], [ %154, %168 ]
   %171 = getelementptr inbounds nuw i8, ptr %.lcssa231305, i64 8
   %172 = load ptr, ptr %171, align 8, !tbaa !107
   %.not.i9.i = icmp eq ptr %172, null

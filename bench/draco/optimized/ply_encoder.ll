@@ -2223,7 +2223,7 @@ _ZN5draco13EncoderBuffer6EncodeINS_9IndexTypeIjNS_20PointIndex_tag_type_EEEEEbRK
   br i1 %968, label %.lr.ph522.split, label %.critedge119, !llvm.loop !141
 
 .critedge119:                                     ; preds = %.critedge, %940, %.thread.loopexit.us, %714, %.preheader, %._crit_edge
-  %.4 = phi i1 [ true, %._crit_edge ], [ true, %.preheader ], [ false, %940 ], [ false, %714 ], [ true, %.thread.loopexit.us ], [ true, %.critedge ]
+  %.4 = phi i1 [ true, %._crit_edge ], [ true, %.preheader ], [ false, %714 ], [ false, %940 ], [ true, %.thread.loopexit.us ], [ true, %.critedge ]
   %969 = load ptr, ptr %3, align 8, !tbaa !93
   %970 = icmp eq ptr %969, %643
   br i1 %970, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i

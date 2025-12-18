@@ -1557,7 +1557,7 @@ define hidden noundef zeroext i1 @_ZN16JvmtiVTSuspender20is_vthread_suspendedEl(
   br i1 %or.cond18, label %_ZNK17GrowableArrayViewIlE8containsERKl.exit7, label %18, !llvm.loop !19
 
 _ZNK17GrowableArrayViewIlE8containsERKl.exit7:    ; preds = %18, %9, %1, %3, %12
-  %22 = phi i1 [ false, %12 ], [ false, %1 ], [ true, %3 ], [ %.not, %9 ], [ %21, %18 ]
+  %22 = phi i1 [ true, %3 ], [ %.not, %9 ], [ false, %12 ], [ false, %1 ], [ %21, %18 ]
   ret i1 %22
 }
 
@@ -2348,7 +2348,7 @@ define hidden noundef zeroext i1 @_ZN16JvmtiVTSuspender20is_vthread_suspendedEP7
   br i1 %or.cond10, label %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit, label %24, !llvm.loop !19
 
 _ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit: ; preds = %24, %15, %1, %9, %18
-  %28 = phi i1 [ false, %18 ], [ false, %1 ], [ true, %9 ], [ %.not.i.not, %15 ], [ %27, %24 ]
+  %28 = phi i1 [ true, %9 ], [ %.not.i.not, %15 ], [ false, %18 ], [ false, %1 ], [ %27, %24 ]
   ret i1 %28
 }
 

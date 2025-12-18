@@ -471,8 +471,8 @@ define range(i32 0, 2) i32 @CMAC_Update(ptr noundef %0, ptr noundef %1, i64 noun
   br label %.loopexit
 
 .loopexit:                                        ; preds = %50, %.preheader, %._crit_edge, %69
-  %.382 = phi ptr [ %71, %69 ], [ %.4.lcssa, %._crit_edge ], [ %.079, %.preheader ], [ %52, %50 ]
-  %.2 = phi i64 [ %70, %69 ], [ %.3.lcssa, %._crit_edge ], [ %.077, %.preheader ], [ %51, %50 ]
+  %.382 = phi ptr [ %.4.lcssa, %._crit_edge ], [ %71, %69 ], [ %.079, %.preheader ], [ %52, %50 ]
+  %.2 = phi i64 [ %.3.lcssa, %._crit_edge ], [ %70, %69 ], [ %.077, %.preheader ], [ %51, %50 ]
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 104
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %76, ptr align 1 %.382, i64 %.2, i1 false)
   %77 = trunc i64 %.2 to i32
@@ -480,7 +480,7 @@ define range(i32 0, 2) i32 @CMAC_Update(ptr noundef %0, ptr noundef %1, i64 noun
   br label %.thread
 
 .thread:                                          ; preds = %54, %46, %17, %63, %10, %8, %3, %28, %.loopexit
-  %.076 = phi i32 [ 0, %28 ], [ 0, %3 ], [ 1, %8 ], [ 0, %10 ], [ 1, %.loopexit ], [ 0, %63 ], [ 1, %17 ], [ 0, %46 ], [ 0, %54 ]
+  %.076 = phi i32 [ 0, %28 ], [ 0, %3 ], [ 1, %8 ], [ 0, %10 ], [ 1, %.loopexit ], [ 1, %17 ], [ 0, %46 ], [ 0, %63 ], [ 0, %54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.076
 }

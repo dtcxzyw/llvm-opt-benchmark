@@ -2121,7 +2121,7 @@ define i32 @ubidi_getLogicalIndex_77(ptr noundef %0, i32 noundef %1, ptr noundef
   br i1 %or.cond198, label %.lr.ph192.split, label %.loopexit174, !llvm.loop !97
 
 .loopexit174:                                     ; preds = %.lr.ph192.split, %.lr.ph192.split.us, %92, %._crit_edge
-  %.0145.pn = phi i32 [ %.0145.lcssa, %._crit_edge ], [ %.0145.lcssa, %92 ], [ %.3148.us, %.lr.ph192.split.us ], [ %.3148, %.lr.ph192.split ]
+  %.0145.pn = phi i32 [ %.0145.lcssa, %._crit_edge ], [ %.3148.us, %.lr.ph192.split.us ], [ %.0145.lcssa, %92 ], [ %.3148, %.lr.ph192.split ]
   %.2 = add nsw i32 %.0145.pn, %1
   br label %132
 
@@ -2551,7 +2551,7 @@ switch.early.test:                                ; preds = %.lr.ph153.split
   br i1 %exitcond.not, label %.loopexit139, label %.lr.ph153.split, !llvm.loop !105
 
 .loopexit139:                                     ; preds = %142, %122, %.lr.ph157, %.preheader140, %.preheader138, %91
-  %.1118 = phi i32 [ %.0117158, %91 ], [ %.0117158, %.preheader138 ], [ %.0117158, %.preheader140 ], [ %.3120.us, %122 ], [ %.0117158, %.lr.ph157 ], [ %.3120, %142 ]
+  %.1118 = phi i32 [ %.0117158, %91 ], [ %.0117158, %.preheader138 ], [ %.0117158, %.lr.ph157 ], [ %.0117158, %.preheader140 ], [ %.3120.us, %122 ], [ %.3120, %142 ]
   %indvars.iv.next195 = add nuw nsw i64 %indvars.iv194, 1
   %exitcond198.not = icmp eq i64 %indvars.iv.next195, %wide.trip.count197
   br i1 %exitcond198.not, label %.loopexit137, label %91, !llvm.loop !107
@@ -2963,7 +2963,7 @@ switch.early.test:                                ; preds = %.lr.ph177.split
   br label %.loopexit161
 
 .loopexit161:                                     ; preds = %162, %151, %115, %.loopexit161.loopexit, %131, %.preheader
-  %.1124 = phi i32 [ %.0123184, %.preheader ], [ %.0123184, %131 ], [ %163, %.loopexit161.loopexit ], [ %118, %115 ], [ %.4127.us, %151 ], [ %.4127, %162 ]
+  %.1124 = phi i32 [ %.4127.us, %151 ], [ %118, %115 ], [ %.0123184, %.preheader ], [ %.0123184, %131 ], [ %163, %.loopexit161.loopexit ], [ %.4127, %162 ]
   %indvars.iv.next238 = add nuw nsw i64 %indvars.iv237, 1
   %exitcond241.not = icmp eq i64 %indvars.iv.next238, %wide.trip.count240
   br i1 %exitcond241.not, label %.loopexit, label %115, !llvm.loop !116

@@ -1666,7 +1666,7 @@ InstructionSequenceType_addop_impl.exit.sink.split: ; preds = %instr_sequence_ne
   br label %InstructionSequenceType_addop_impl.exit
 
 InstructionSequenceType_addop_impl.exit:          ; preds = %InstructionSequenceType_addop_impl.exit.sink.split, %instr_sequence_next_inst.exit.i.i49, %.split33, %instr_sequence_next_inst.exit.i.i, %.split, %60, %43, %36, %29, %22, %15, %9
-  %.0 = phi ptr [ null, %15 ], [ null, %22 ], [ null, %29 ], [ null, %36 ], [ null, %43 ], [ null, %60 ], [ null, %9 ], [ null, %.split ], [ null, %instr_sequence_next_inst.exit.i.i ], [ null, %instr_sequence_next_inst.exit.i.i49 ], [ null, %.split33 ], [ @_Py_NoneStruct, %InstructionSequenceType_addop_impl.exit.sink.split ]
+  %.0 = phi ptr [ null, %15 ], [ null, %22 ], [ null, %29 ], [ null, %36 ], [ null, %43 ], [ null, %60 ], [ null, %9 ], [ null, %.split ], [ null, %.split33 ], [ null, %instr_sequence_next_inst.exit.i.i ], [ null, %instr_sequence_next_inst.exit.i.i49 ], [ @_Py_NoneStruct, %InstructionSequenceType_addop_impl.exit.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
@@ -2046,7 +2046,7 @@ Py_DECREF.exit.i:                                 ; preds = %71, %68, %65
   br label %InstructionSequenceType_get_instructions_impl.exit
 
 InstructionSequenceType_get_instructions_impl.exit: ; preds = %43, %_PyInstructionSequence_ApplyLabelMap.exit.i, %.preheader.i, %72, %74, %77
-  %.1.i = phi ptr [ null, %_PyInstructionSequence_ApplyLabelMap.exit.i ], [ null, %72 ], [ null, %74 ], [ null, %77 ], [ %37, %.preheader.i ], [ %37, %43 ]
+  %.1.i = phi ptr [ null, %77 ], [ null, %_PyInstructionSequence_ApplyLabelMap.exit.i ], [ null, %72 ], [ null, %74 ], [ %37, %.preheader.i ], [ %37, %43 ]
   ret ptr %.1.i
 }
 

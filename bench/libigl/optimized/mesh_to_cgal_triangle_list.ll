@@ -12218,7 +12218,7 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
   br label %454
 
 454:                                              ; preds = %.sink.split, %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE6resizeEmm.exit235, %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE6resizeEmm.exit242
-  %.2 = phi i64 [ %404, %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE6resizeEmm.exit235 ], [ %433, %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE6resizeEmm.exit242 ], [ %.sink289, %.sink.split ]
+  %.2 = phi i64 [ %433, %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE6resizeEmm.exit242 ], [ %404, %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE6resizeEmm.exit235 ], [ %.sink289, %.sink.split ]
   %.not138 = icmp eq i64 %.2, 0
   br i1 %.not138, label %.thread, label %.critedge.outer.backedge
 
@@ -19554,8 +19554,8 @@ _ZN4CGAL7Point_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backe
   ret void
 
 .body:                                            ; preds = %.preheader.i.i.i.i.i7, %.preheader.i.i.i.i.i15, %22, %31
-  %.0.lpad-body = phi ptr [ %.ptr26, %22 ], [ %.ptr32, %31 ], [ %.ptr32, %.preheader.i.i.i.i.i15 ], [ %.ptr26, %.preheader.i.i.i.i.i7 ]
-  %eh.lpad-body = phi { ptr, i32 } [ %23, %22 ], [ %32, %31 ], [ %32, %.preheader.i.i.i.i.i15 ], [ %23, %.preheader.i.i.i.i.i7 ]
+  %.0.lpad-body = phi ptr [ %.ptr32, %31 ], [ %.ptr32, %.preheader.i.i.i.i.i15 ], [ %.ptr26, %22 ], [ %.ptr26, %.preheader.i.i.i.i.i7 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %32, %31 ], [ %32, %.preheader.i.i.i.i.i15 ], [ %23, %22 ], [ %23, %.preheader.i.i.i.i.i7 ]
   br label %35
 
 35:                                               ; preds = %.body, %35
@@ -19566,7 +19566,7 @@ _ZN4CGAL7Point_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backe
   br i1 %38, label %.body.thread, label %35
 
 .body.thread:                                     ; preds = %.preheader.i.i.i.i.i, %35, %11
-  %eh.lpad-body23 = phi { ptr, i32 } [ %12, %11 ], [ %eh.lpad-body, %35 ], [ %12, %.preheader.i.i.i.i.i ]
+  %eh.lpad-body23 = phi { ptr, i32 } [ %eh.lpad-body, %35 ], [ %12, %11 ], [ %12, %.preheader.i.i.i.i.i ]
   resume { ptr, i32 } %eh.lpad-body23
 }
 

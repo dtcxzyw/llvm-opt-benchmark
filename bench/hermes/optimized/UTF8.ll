@@ -366,7 +366,7 @@ while.end25.loopexit:                             ; preds = %while.body19
   br label %return
 
 return:                                           ; preds = %while.body8, %if.end15, %while.end25.loopexit, %while.end
-  %retval.0 = phi i1 [ false, %while.end ], [ %5, %while.end25.loopexit ], [ true, %if.end15 ], [ false, %while.body8 ]
+  %retval.0 = phi i1 [ %5, %while.end25.loopexit ], [ false, %while.end ], [ true, %if.end15 ], [ false, %while.body8 ]
   ret i1 %retval.0
 }
 

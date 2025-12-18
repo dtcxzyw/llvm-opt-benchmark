@@ -1797,8 +1797,8 @@ define linkonce_odr ptr @_ZN15linked_hash_mapImN3net16TransmissionTypeESt4hashIm
   br i1 %30, label %_ZNSt13unordered_mapImSt14_List_iteratorISt4pairImN3net16TransmissionTypeEEESt4hashImESt8equal_toImESaIS1_IKmS5_EEE4findERSA_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !187
 
 _ZNSt13unordered_mapImSt14_List_iteratorISt4pairImN3net16TransmissionTypeEEESt4hashImESt8equal_toImESaIS1_IKmS5_EEE4findERSA_.exit: ; preds = %.lr.ph.i.i.i.i, %10, %14
-  %31 = phi i64 [ %15, %14 ], [ %9, %10 ], [ %15, %.lr.ph.i.i.i.i ]
-  %.sroa.06.1.i.i = phi ptr [ %22, %14 ], [ %.sroa.06.0.i.i, %10 ], [ %26, %.lr.ph.i.i.i.i ]
+  %31 = phi i64 [ %9, %10 ], [ %15, %14 ], [ %15, %.lr.ph.i.i.i.i ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %10 ], [ %22, %14 ], [ %26, %.lr.ph.i.i.i.i ]
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 8
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %34 = load ptr, ptr %33, align 8, !tbaa !188
@@ -2226,7 +2226,7 @@ define void @_ZN3net21QuicSentPacketManager21MarkForRetransmissionEmNS_16Transmi
   br label %_ZN4base11ContainsKeyI15linked_hash_mapImN3net16TransmissionTypeESt4hashImEEmEEbRKT_RKT0_.exit.thread, !llvm.loop !187
 
 _ZN4base11ContainsKeyI15linked_hash_mapImN3net16TransmissionTypeESt4hashImEEmEEbRKT_RKT0_.exit: ; preds = %49, %33, %44
-  %.sroa.06.1.i.i.i.i = phi ptr [ %45, %44 ], [ %.sroa.06.0.i.i.i.i, %33 ], [ %51, %49 ]
+  %.sroa.06.1.i.i.i.i = phi ptr [ %.sroa.06.0.i.i.i.i, %33 ], [ %45, %44 ], [ %51, %49 ]
   %56 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i, i64 16
   %57 = load ptr, ptr %56, align 8, !tbaa !188
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -2404,7 +2404,7 @@ define linkonce_odr noundef i64 @_ZN15linked_hash_mapImN3net16TransmissionTypeES
   br label %_ZNSt13unordered_mapImSt14_List_iteratorISt4pairImN3net16TransmissionTypeEEESt4hashImESt8equal_toImESaIS1_IKmS5_EEE4findERSA_.exit.thread, !llvm.loop !187
 
 _ZNSt13unordered_mapImSt14_List_iteratorISt4pairImN3net16TransmissionTypeEEESt4hashImESt8equal_toImESaIS1_IKmS5_EEE4findERSA_.exit: ; preds = %26, %9, %21
-  %.sroa.06.1.i.i = phi ptr [ %22, %21 ], [ %.sroa.06.0.i.i, %9 ], [ %28, %26 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %9 ], [ %22, %21 ], [ %28, %26 ]
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 8
   %34 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %35 = load ptr, ptr %34, align 8, !tbaa !188
@@ -2488,7 +2488,7 @@ _ZNSt13unordered_mapImSt14_List_iteratorISt4pairImN3net16TransmissionTypeEEESt4h
   br label %_ZNSt13unordered_mapImSt14_List_iteratorISt4pairImN3net16TransmissionTypeEEESt4hashImESt8equal_toImESaIS1_IKmS5_EEE4findERSA_.exit.thread
 
 _ZNSt13unordered_mapImSt14_List_iteratorISt4pairImN3net16TransmissionTypeEEESt4hashImESt8equal_toImESaIS1_IKmS5_EEE4findERSA_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %8, %13, %..loopexit_crit_edge21.i.i.i.i, %_ZNSt13unordered_mapImSt14_List_iteratorISt4pairImN3net16TransmissionTypeEEESt4hashImESt8equal_toImESaIS1_IKmS5_EEE5eraseENSt8__detail14_Node_iteratorISB_Lb0ELb0EEE.exit
-  %.0 = phi i64 [ 1, %_ZNSt13unordered_mapImSt14_List_iteratorISt4pairImN3net16TransmissionTypeEEESt4hashImESt8equal_toImESaIS1_IKmS5_EEE5eraseENSt8__detail14_Node_iteratorISB_Lb0ELb0EEE.exit ], [ 0, %..loopexit_crit_edge21.i.i.i.i ], [ 0, %13 ], [ 0, %8 ], [ 0, %.lr.ph.i.i.i.i ]
+  %.0 = phi i64 [ 1, %_ZNSt13unordered_mapImSt14_List_iteratorISt4pairImN3net16TransmissionTypeEEESt4hashImESt8equal_toImESaIS1_IKmS5_EEE5eraseENSt8__detail14_Node_iteratorISB_Lb0ELb0EEE.exit ], [ 0, %..loopexit_crit_edge21.i.i.i.i ], [ 0, %8 ], [ 0, %13 ], [ 0, %.lr.ph.i.i.i.i ]
   ret i64 %.0
 }
 
@@ -4271,7 +4271,7 @@ define linkonce_odr { ptr, i8 } @_ZN15linked_hash_mapImN3net16TransmissionTypeES
   br label %.loopexit, !llvm.loop !187
 
 _ZNSt13unordered_mapImSt14_List_iteratorISt4pairImN3net16TransmissionTypeEEESt4hashImESt8equal_toImESaIS1_IKmS5_EEE4findERSA_.exit: ; preds = %28, %11, %23
-  %.sroa.06.1.i.i = phi ptr [ %24, %23 ], [ %.sroa.06.0.i.i, %11 ], [ %30, %28 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %11 ], [ %24, %23 ], [ %30, %28 ]
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %36 = load i64, ptr %35, align 8, !tbaa !297
   %37 = inttoptr i64 %36 to ptr
@@ -4421,7 +4421,7 @@ _ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIS0_ImN3net16TransmissionTypeEEEE
   resume { ptr, i32 } %42
 
 _ZNKSt10_HashtableImSt4pairIKmSt14_List_iteratorIS0_ImN3net16TransmissionTypeEEEESaIS7_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS1_m.exit: ; preds = %33, %20, %28
-  %.sroa.042.0.ph = phi ptr [ %29, %28 ], [ %.sroa.034.0, %20 ], [ %35, %33 ]
+  %.sroa.042.0.ph = phi ptr [ %.sroa.034.0, %20 ], [ %29, %28 ], [ %35, %33 ]
   tail call void @_ZdlPv(ptr noundef nonnull %3) #19
   br label %_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIS0_ImN3net16TransmissionTypeEEEESaIS7_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 

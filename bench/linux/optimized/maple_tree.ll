@@ -1578,9 +1578,9 @@ define dso_local i32 @mas_empty_area(ptr noundef captures(none) %0, i64 noundef 
   br i1 %198, label %.loopexit, label %.split, !llvm.loop !22
 
 .loopexit:                                        ; preds = %195, %164, %.thread116, %.thread24, %132
-  %.pre-phi88 = phi ptr [ %89, %.thread116 ], [ %.pre87, %.thread24 ], [ %89, %132 ], [ %89, %164 ], [ %89, %195 ]
-  %199 = phi ptr [ %76, %.thread116 ], [ %191, %.thread24 ], [ %76, %132 ], [ %76, %164 ], [ %76, %195 ]
-  %200 = phi i8 [ %101, %.thread116 ], [ 0, %.thread24 ], [ %101, %132 ], [ %166, %164 ], [ %197, %195 ]
+  %.pre-phi88 = phi ptr [ %89, %164 ], [ %89, %.thread116 ], [ %.pre87, %.thread24 ], [ %89, %132 ], [ %89, %195 ]
+  %199 = phi ptr [ %76, %164 ], [ %76, %.thread116 ], [ %191, %.thread24 ], [ %76, %132 ], [ %76, %195 ]
+  %200 = phi i8 [ %166, %164 ], [ %101, %.thread116 ], [ 0, %.thread24 ], [ %101, %132 ], [ %197, %195 ]
   %201 = load ptr, ptr %.pre-phi88, align 256
   %202 = ptrtoint ptr %201 to i64
   %203 = and i64 %202, 1
@@ -5656,7 +5656,7 @@ mas_wr_walk_descend.exit:                         ; preds = %102, %105, %107, %1
   br label %13, !llvm.loop !77
 
 .thread:                                          ; preds = %156, %.thread30, %153, %149, %136, %135
-  %176 = phi i1 [ false, %135 ], [ false, %136 ], [ false, %149 ], [ false, %153 ], [ true, %.thread30 ], [ true, %156 ]
+  %176 = phi i1 [ false, %153 ], [ false, %135 ], [ false, %136 ], [ false, %149 ], [ true, %.thread30 ], [ true, %156 ]
   ret i1 %176
 }
 
@@ -6902,129 +6902,129 @@ define dso_local void @mas_pause(ptr noundef writeonly captures(none) initialize
 define dso_local ptr @mas_find(ptr noundef captures(none) %0, i64 noundef %1) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load i32, ptr %3, align 8
-  switch i32 %4, label %32 [
-    i32 0, label %50
+  switch i32 %4, label %35 [
+    i32 0, label %5
     i32 7, label %.thread7
-    i32 4, label %5
-    i32 3, label %11
-    i32 6, label %15
-    i32 5, label %23
+    i32 4, label %8
+    i32 3, label %14
+    i32 6, label %18
+    i32 5, label %26
   ]
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8
-  %8 = icmp ult i64 %7, %1
-  br i1 %8, label %9, label %.thread7, !prof !11
+  %.not = icmp ult i64 %7, %1
+  br i1 %.not, label %53, label %.thread7
 
-9:                                                ; preds = %5
-  %10 = add nuw i64 %7, 1
-  store i64 %10, ptr %6, align 8
+8:                                                ; preds = %2
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %10 = load i64, ptr %9, align 8
+  %11 = icmp ult i64 %10, %1
+  br i1 %11, label %12, label %.thread7, !prof !11
+
+12:                                               ; preds = %8
+  %13 = add nuw i64 %10, 1
+  store i64 %13, ptr %9, align 8
   br label %.thread
 
-11:                                               ; preds = %2
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = load i64, ptr %12, align 8
-  %14 = icmp ult i64 %13, %1
-  br i1 %14, label %.thread, label %.thread7, !prof !11
+14:                                               ; preds = %2
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %16 = load i64, ptr %15, align 8
+  %17 = icmp ult i64 %16, %1
+  br i1 %17, label %.thread, label %.thread7, !prof !11
 
-15:                                               ; preds = %2
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %17 = load i64, ptr %16, align 8
-  %18 = icmp ult i64 %17, %1
-  br i1 %18, label %20, label %19, !prof !11
+18:                                               ; preds = %2
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %20 = load i64, ptr %19, align 8
+  %21 = icmp ult i64 %20, %1
+  br i1 %21, label %23, label %22, !prof !11
 
-19:                                               ; preds = %15
+22:                                               ; preds = %18
   store i32 5, ptr %3, align 8
   br label %.thread7
 
-20:                                               ; preds = %15
+23:                                               ; preds = %18
   store i32 0, ptr %3, align 8
-  %21 = tail call ptr @mas_walk(ptr noundef %0)
-  %22 = icmp eq ptr %21, null
-  br i1 %22, label %thread-pre-split, label %.thread7
+  %24 = tail call ptr @mas_walk(ptr noundef %0)
+  %25 = icmp eq ptr %24, null
+  br i1 %25, label %thread-pre-split, label %.thread7
 
-23:                                               ; preds = %2
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %25 = load i64, ptr %24, align 8
-  %26 = icmp ult i64 %25, %1
-  br i1 %26, label %27, label %.thread7, !prof !11
+26:                                               ; preds = %2
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %28 = load i64, ptr %27, align 8
+  %29 = icmp ult i64 %28, %1
+  br i1 %29, label %30, label %.thread7, !prof !11
 
-27:                                               ; preds = %23
+30:                                               ; preds = %26
   store i32 0, ptr %3, align 8
-  %28 = tail call ptr @mas_walk(ptr noundef %0)
-  %29 = icmp eq ptr %28, null
-  br i1 %29, label %thread-pre-split, label %.thread7
+  %31 = tail call ptr @mas_walk(ptr noundef %0)
+  %32 = icmp eq ptr %31, null
+  br i1 %32, label %thread-pre-split, label %.thread7
 
-.thread:                                          ; preds = %9, %11
-  %30 = phi i64 [ %10, %9 ], [ %13, %11 ]
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %30, ptr %31, align 8
+.thread:                                          ; preds = %12, %14
+  %33 = phi i64 [ %13, %12 ], [ %16, %14 ]
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %33, ptr %34, align 8
   store i32 1, ptr %3, align 8
+  br label %38
+
+thread-pre-split:                                 ; preds = %23, %30
+  %.pr = load i32, ptr %3, align 8
   br label %35
 
-thread-pre-split:                                 ; preds = %20, %27
-  %.pr = load i32, ptr %3, align 8
-  br label %32
+35:                                               ; preds = %thread-pre-split, %2
+  %36 = phi i32 [ %.pr, %thread-pre-split ], [ %4, %2 ]
+  %37 = icmp eq i32 %36, 1
+  br i1 %37, label %._crit_edge, label %44
 
-32:                                               ; preds = %thread-pre-split, %2
-  %33 = phi i32 [ %.pr, %thread-pre-split ], [ %4, %2 ]
-  %34 = icmp eq i32 %33, 1
-  br i1 %34, label %._crit_edge, label %41
-
-._crit_edge:                                      ; preds = %32
+._crit_edge:                                      ; preds = %35
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre = load i64, ptr %.phi.trans.insert, align 8
-  br label %35
+  br label %38
 
-35:                                               ; preds = %._crit_edge, %.thread
-  %36 = phi i64 [ %.pre, %._crit_edge ], [ %30, %.thread ]
-  %37 = icmp ugt i64 %36, %1
-  br i1 %37, label %.thread7, label %38
+38:                                               ; preds = %._crit_edge, %.thread
+  %39 = phi i64 [ %.pre, %._crit_edge ], [ %33, %.thread ]
+  %40 = icmp ugt i64 %39, %1
+  br i1 %40, label %.thread7, label %41
 
-38:                                               ; preds = %35
-  %39 = tail call ptr @mas_walk(ptr noundef %0)
-  %40 = icmp eq ptr %39, null
-  br i1 %40, label %._crit_edge8, label %.thread7
+41:                                               ; preds = %38
+  %42 = tail call ptr @mas_walk(ptr noundef %0)
+  %43 = icmp eq ptr %42, null
+  br i1 %43, label %._crit_edge8, label %.thread7
 
-._crit_edge8:                                     ; preds = %38
+._crit_edge8:                                     ; preds = %41
   %.pre9 = load i32, ptr %3, align 8
-  br label %41
+  br label %44
 
-41:                                               ; preds = %._crit_edge8, %32
-  %42 = phi i32 [ %.pre9, %._crit_edge8 ], [ %33, %32 ]
-  switch i32 %42, label %43 [
-    i32 2, label %47
+44:                                               ; preds = %._crit_edge8, %35
+  %45 = phi i32 [ %.pre9, %._crit_edge8 ], [ %36, %35 ]
+  switch i32 %45, label %49 [
+    i32 2, label %46
     i32 3, label %.thread7
   ], !prof !87
 
-43:                                               ; preds = %41
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %45 = load i64, ptr %44, align 8
-  %46 = icmp eq i64 %45, %1
-  br i1 %46, label %.thread7, label %53
-
-47:                                               ; preds = %41
+46:                                               ; preds = %44
   store i32 3, ptr %3, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 1, ptr %48, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 -1, ptr %49, align 8
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 1, ptr %47, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 -1, ptr %48, align 8
   br label %.thread7
 
-50:                                               ; preds = %2
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %52 = load i64, ptr %51, align 8
-  %.not = icmp ult i64 %52, %1
-  br i1 %.not, label %53, label %.thread7
+49:                                               ; preds = %44
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %51 = load i64, ptr %50, align 8
+  %52 = icmp eq i64 %51, %1
+  br i1 %52, label %.thread7, label %53
 
-53:                                               ; preds = %43, %50
+53:                                               ; preds = %5, %49
   %54 = tail call fastcc ptr @mas_next_slot(ptr noundef %0, i64 noundef %1, i1 noundef zeroext false)
   store i32 0, ptr %3, align 8
   br label %.thread7
 
-.thread7:                                         ; preds = %41, %2, %5, %11, %19, %20, %23, %27, %38, %47, %35, %43, %53, %50
-  %55 = phi ptr [ %54, %53 ], [ null, %50 ], [ null, %43 ], [ null, %41 ], [ null, %2 ], [ null, %5 ], [ null, %11 ], [ null, %19 ], [ %21, %20 ], [ null, %23 ], [ %28, %27 ], [ %39, %38 ], [ null, %47 ], [ null, %35 ]
+.thread7:                                         ; preds = %44, %2, %8, %14, %22, %23, %26, %30, %41, %46, %38, %5, %53, %49
+  %55 = phi ptr [ %54, %53 ], [ null, %49 ], [ null, %5 ], [ null, %44 ], [ null, %2 ], [ null, %8 ], [ null, %14 ], [ null, %22 ], [ %24, %23 ], [ null, %26 ], [ %31, %30 ], [ %42, %41 ], [ null, %46 ], [ null, %38 ]
   ret ptr %55
 }
 
@@ -7032,128 +7032,128 @@ thread-pre-split:                                 ; preds = %20, %27
 define dso_local ptr @mas_find_range(ptr noundef captures(none) %0, i64 noundef %1) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load i32, ptr %3, align 8
-  switch i32 %4, label %32 [
-    i32 0, label %50
+  switch i32 %4, label %35 [
+    i32 0, label %5
     i32 7, label %.thread7
-    i32 4, label %5
-    i32 3, label %11
-    i32 6, label %15
-    i32 5, label %23
+    i32 4, label %8
+    i32 3, label %14
+    i32 6, label %18
+    i32 5, label %26
   ]
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8
-  %8 = icmp ult i64 %7, %1
-  br i1 %8, label %9, label %.thread7, !prof !11
+  %.not = icmp ult i64 %7, %1
+  br i1 %.not, label %53, label %.thread7
 
-9:                                                ; preds = %5
-  %10 = add nuw i64 %7, 1
-  store i64 %10, ptr %6, align 8
+8:                                                ; preds = %2
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %10 = load i64, ptr %9, align 8
+  %11 = icmp ult i64 %10, %1
+  br i1 %11, label %12, label %.thread7, !prof !11
+
+12:                                               ; preds = %8
+  %13 = add nuw i64 %10, 1
+  store i64 %13, ptr %9, align 8
   br label %.thread
 
-11:                                               ; preds = %2
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = load i64, ptr %12, align 8
-  %14 = icmp ult i64 %13, %1
-  br i1 %14, label %.thread, label %.thread7, !prof !11
+14:                                               ; preds = %2
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %16 = load i64, ptr %15, align 8
+  %17 = icmp ult i64 %16, %1
+  br i1 %17, label %.thread, label %.thread7, !prof !11
 
-15:                                               ; preds = %2
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %17 = load i64, ptr %16, align 8
-  %18 = icmp ult i64 %17, %1
-  br i1 %18, label %20, label %19, !prof !11
+18:                                               ; preds = %2
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %20 = load i64, ptr %19, align 8
+  %21 = icmp ult i64 %20, %1
+  br i1 %21, label %23, label %22, !prof !11
 
-19:                                               ; preds = %15
+22:                                               ; preds = %18
   store i32 5, ptr %3, align 8
   br label %.thread7
 
-20:                                               ; preds = %15
+23:                                               ; preds = %18
   store i32 0, ptr %3, align 8
-  %21 = tail call ptr @mas_walk(ptr noundef %0)
-  %22 = icmp eq ptr %21, null
-  br i1 %22, label %thread-pre-split, label %.thread7
+  %24 = tail call ptr @mas_walk(ptr noundef %0)
+  %25 = icmp eq ptr %24, null
+  br i1 %25, label %thread-pre-split, label %.thread7
 
-23:                                               ; preds = %2
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %25 = load i64, ptr %24, align 8
-  %26 = icmp ult i64 %25, %1
-  br i1 %26, label %27, label %.thread7, !prof !11
+26:                                               ; preds = %2
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %28 = load i64, ptr %27, align 8
+  %29 = icmp ult i64 %28, %1
+  br i1 %29, label %30, label %.thread7, !prof !11
 
-27:                                               ; preds = %23
+30:                                               ; preds = %26
   store i32 0, ptr %3, align 8
-  %28 = tail call ptr @mas_walk(ptr noundef %0)
-  %29 = icmp eq ptr %28, null
-  br i1 %29, label %thread-pre-split, label %.thread7
+  %31 = tail call ptr @mas_walk(ptr noundef %0)
+  %32 = icmp eq ptr %31, null
+  br i1 %32, label %thread-pre-split, label %.thread7
 
-.thread:                                          ; preds = %9, %11
-  %30 = phi i64 [ %10, %9 ], [ %13, %11 ]
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %30, ptr %31, align 8
+.thread:                                          ; preds = %12, %14
+  %33 = phi i64 [ %13, %12 ], [ %16, %14 ]
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %33, ptr %34, align 8
   store i32 1, ptr %3, align 8
+  br label %38
+
+thread-pre-split:                                 ; preds = %23, %30
+  %.pr = load i32, ptr %3, align 8
   br label %35
 
-thread-pre-split:                                 ; preds = %20, %27
-  %.pr = load i32, ptr %3, align 8
-  br label %32
+35:                                               ; preds = %thread-pre-split, %2
+  %36 = phi i32 [ %.pr, %thread-pre-split ], [ %4, %2 ]
+  %37 = icmp eq i32 %36, 1
+  br i1 %37, label %._crit_edge, label %44
 
-32:                                               ; preds = %thread-pre-split, %2
-  %33 = phi i32 [ %.pr, %thread-pre-split ], [ %4, %2 ]
-  %34 = icmp eq i32 %33, 1
-  br i1 %34, label %._crit_edge, label %41
-
-._crit_edge:                                      ; preds = %32
+._crit_edge:                                      ; preds = %35
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre = load i64, ptr %.phi.trans.insert, align 8
-  br label %35
+  br label %38
 
-35:                                               ; preds = %._crit_edge, %.thread
-  %36 = phi i64 [ %.pre, %._crit_edge ], [ %30, %.thread ]
-  %37 = icmp ugt i64 %36, %1
-  br i1 %37, label %.thread7, label %38
+38:                                               ; preds = %._crit_edge, %.thread
+  %39 = phi i64 [ %.pre, %._crit_edge ], [ %33, %.thread ]
+  %40 = icmp ugt i64 %39, %1
+  br i1 %40, label %.thread7, label %41
 
-38:                                               ; preds = %35
-  %39 = tail call ptr @mas_walk(ptr noundef %0)
-  %40 = icmp eq ptr %39, null
-  br i1 %40, label %._crit_edge8, label %.thread7
+41:                                               ; preds = %38
+  %42 = tail call ptr @mas_walk(ptr noundef %0)
+  %43 = icmp eq ptr %42, null
+  br i1 %43, label %._crit_edge8, label %.thread7
 
-._crit_edge8:                                     ; preds = %38
+._crit_edge8:                                     ; preds = %41
   %.pre9 = load i32, ptr %3, align 8
-  br label %41
+  br label %44
 
-41:                                               ; preds = %._crit_edge8, %32
-  %42 = phi i32 [ %.pre9, %._crit_edge8 ], [ %33, %32 ]
-  switch i32 %42, label %43 [
-    i32 2, label %47
+44:                                               ; preds = %._crit_edge8, %35
+  %45 = phi i32 [ %.pre9, %._crit_edge8 ], [ %36, %35 ]
+  switch i32 %45, label %49 [
+    i32 2, label %46
     i32 3, label %.thread7
   ], !prof !87
 
-43:                                               ; preds = %41
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %45 = load i64, ptr %44, align 8
-  %46 = icmp eq i64 %45, %1
-  br i1 %46, label %.thread7, label %53
-
-47:                                               ; preds = %41
+46:                                               ; preds = %44
   store i32 3, ptr %3, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 1, ptr %48, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 -1, ptr %49, align 8
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 1, ptr %47, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 -1, ptr %48, align 8
   br label %.thread7
 
-50:                                               ; preds = %2
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %52 = load i64, ptr %51, align 8
-  %.not = icmp ult i64 %52, %1
-  br i1 %.not, label %53, label %.thread7
+49:                                               ; preds = %44
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %51 = load i64, ptr %50, align 8
+  %52 = icmp eq i64 %51, %1
+  br i1 %52, label %.thread7, label %53
 
-53:                                               ; preds = %43, %50
+53:                                               ; preds = %5, %49
   %54 = tail call fastcc ptr @mas_next_slot(ptr noundef %0, i64 noundef %1, i1 noundef zeroext true)
   br label %.thread7
 
-.thread7:                                         ; preds = %41, %2, %5, %11, %19, %20, %23, %27, %38, %47, %35, %43, %53, %50
-  %55 = phi ptr [ %54, %53 ], [ null, %50 ], [ null, %43 ], [ null, %41 ], [ null, %2 ], [ null, %5 ], [ null, %11 ], [ null, %19 ], [ %21, %20 ], [ null, %23 ], [ %28, %27 ], [ %39, %38 ], [ null, %47 ], [ null, %35 ]
+.thread7:                                         ; preds = %44, %2, %8, %14, %22, %23, %26, %30, %41, %46, %38, %5, %53, %49
+  %55 = phi ptr [ %54, %53 ], [ null, %49 ], [ null, %5 ], [ null, %44 ], [ null, %2 ], [ null, %8 ], [ null, %14 ], [ null, %22 ], [ %24, %23 ], [ null, %26 ], [ %31, %30 ], [ %42, %41 ], [ null, %46 ], [ null, %38 ]
   ret ptr %55
 }
 
@@ -7643,7 +7643,7 @@ mas_nomem.exit:                                   ; preds = %170
   br label %127
 
 .thread4:                                         ; preds = %163, %170, %.loopexit, %.loopexit.thread, %.thread62, %153, %.thread, %120
-  %173 = phi ptr [ null, %120 ], [ null, %.thread ], [ null, %.loopexit.thread ], [ %124, %153 ], [ null, %.loopexit ], [ null, %.thread62 ], [ %124, %170 ], [ %124, %163 ]
+  %173 = phi ptr [ null, %120 ], [ null, %.thread ], [ null, %.loopexit ], [ %124, %153 ], [ null, %.loopexit.thread ], [ null, %.thread62 ], [ %124, %170 ], [ %124, %163 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %173
 }
@@ -11385,11 +11385,11 @@ define internal fastcc void @mas_wr_spanning_store(ptr noundef readonly captures
   br i1 %497, label %.loopexit86, label %413, !llvm.loop !126
 
 .loopexit86:                                      ; preds = %492, %.thread85, %.thread73, %388
-  %498 = phi ptr [ %346, %388 ], [ null, %.thread73 ], [ %483, %.thread85 ], [ %477, %492 ]
-  %499 = phi i64 [ %363, %388 ], [ %369, %.thread73 ], [ %.pre179, %.thread85 ], [ %480, %492 ]
-  %500 = phi ptr [ %394, %388 ], [ %380, %.thread73 ], [ %488, %.thread85 ], [ %496, %492 ]
-  %501 = phi ptr [ %391, %388 ], [ %377, %.thread73 ], [ %400, %.thread85 ], [ %400, %492 ]
-  %502 = phi ptr [ %390, %388 ], [ %376, %.thread73 ], [ %401, %.thread85 ], [ %401, %492 ]
+  %498 = phi ptr [ %483, %.thread85 ], [ %346, %388 ], [ null, %.thread73 ], [ %477, %492 ]
+  %499 = phi i64 [ %.pre179, %.thread85 ], [ %363, %388 ], [ %369, %.thread73 ], [ %480, %492 ]
+  %500 = phi ptr [ %488, %.thread85 ], [ %394, %388 ], [ %380, %.thread73 ], [ %496, %492 ]
+  %501 = phi ptr [ %400, %.thread85 ], [ %391, %388 ], [ %377, %.thread73 ], [ %400, %492 ]
+  %502 = phi ptr [ %401, %.thread85 ], [ %390, %388 ], [ %376, %.thread73 ], [ %401, %492 ]
   %503 = load ptr, ptr %10, align 8
   %504 = icmp eq ptr %503, null
   br i1 %504, label %505, label %.loopexit86._crit_edge
@@ -19511,8 +19511,8 @@ mas_adopt_children.exit:                          ; preds = %222, %.preheader38
   br i1 %249, label %.loopexit39, label %.preheader38.backedge
 
 .preheader38.backedge:                            ; preds = %.loopexit35, %mas_adopt_children.exit
-  %.be199 = phi i64 [ %237, %mas_adopt_children.exit ], [ 0, %.loopexit35 ]
-  %.be200 = phi i32 [ %236, %mas_adopt_children.exit ], [ 0, %.loopexit35 ]
+  %.be199 = phi i64 [ 0, %.loopexit35 ], [ %237, %mas_adopt_children.exit ]
+  %.be200 = phi i32 [ 0, %.loopexit35 ], [ %236, %mas_adopt_children.exit ]
   br label %.preheader38, !llvm.loop !162
 
 250:                                              ; preds = %250, %243

@@ -1455,7 +1455,7 @@ Vec_QuePrio.exit30.i.i:                           ; preds = %.lr.ph43.i.i
   br i1 %162, label %Vec_QuePrio.exit30.i.i, label %Vec_QuePush.exit, !llvm.loop !77
 
 Vec_QuePush.exit:                                 ; preds = %Vec_QuePrio.exit30.i.i, %.lr.ph43.i.i, %Vec_QuePrio.exit30.us.i.i, %.lr.ph48.i.i, %Vec_QuePrio.exit.i.i, %Vec_QuePrio.exit.thread.i.i, %.lr.ph.split.us.i.i, %.lr.ph.split.i.i
-  %.027.lcssa.i.i = phi i32 [ %121, %.lr.ph.split.us.i.i ], [ %125, %.lr.ph.split.i.i ], [ %125, %Vec_QuePrio.exit.thread.i.i ], [ %121, %Vec_QuePrio.exit.i.i ], [ %.02634.us46.i.i, %Vec_QuePrio.exit30.us.i.i ], [ %.02634.us46.i.i, %.lr.ph48.i.i ], [ %.0263441.i.i, %.lr.ph43.i.i ], [ %.0263441.i.i, %Vec_QuePrio.exit30.i.i ]
+  %.027.lcssa.i.i = phi i32 [ %.02634.us46.i.i, %Vec_QuePrio.exit30.us.i.i ], [ %121, %Vec_QuePrio.exit.i.i ], [ %121, %.lr.ph.split.us.i.i ], [ %125, %.lr.ph.split.i.i ], [ %125, %Vec_QuePrio.exit.thread.i.i ], [ %.02634.us46.i.i, %.lr.ph48.i.i ], [ %.0263441.i.i, %.lr.ph43.i.i ], [ %.0263441.i.i, %Vec_QuePrio.exit30.i.i ]
   %163 = sext i32 %.027.lcssa.i.i to i64
   %164 = getelementptr inbounds i32, ptr %114, i64 %163
   store i32 %118, ptr %164, align 4, !tbaa !59
@@ -4808,7 +4808,7 @@ Vec_IntUniqifyPairs.exit367:                      ; preds = %1177, %._crit_edge.
   br i1 %1275, label %.sink.split, label %1282
 
 .sink.split:                                      ; preds = %.lr.ph408, %._crit_edge405, %._crit_edge400, %.preheader370, %.preheader368
-  %.ph = phi i32 [ %1247, %._crit_edge400 ], [ %1247, %.preheader368 ], [ %1247, %.preheader370 ], [ %1272, %._crit_edge405 ], [ %1255, %.lr.ph408 ]
+  %.ph = phi i32 [ %1272, %._crit_edge405 ], [ %1247, %._crit_edge400 ], [ %1247, %.preheader368 ], [ %1247, %.preheader370 ], [ %1255, %.lr.ph408 ]
   %1276 = load ptr, ptr %0, align 8, !tbaa !3
   %1277 = getelementptr i8, ptr %1276, i64 8
   %.val212 = load ptr, ptr %1277, align 8, !tbaa !38
@@ -6053,7 +6053,7 @@ Vec_IntPush.exit263:                              ; preds = %.Vec_IntGrow.exit10
   br label %.critedge2
 
 .critedge2:                                       ; preds = %Vec_IntRemove.exit202, %Vec_IntPush.exit, %Vec_IntPush.exit263, %._crit_edge314.thread
-  %.0145 = phi ptr [ %272, %Vec_IntPush.exit263 ], [ %272, %._crit_edge314.thread ], [ %25, %Vec_IntPush.exit ], [ %25, %Vec_IntRemove.exit202 ]
+  %.0145 = phi ptr [ %272, %._crit_edge314.thread ], [ %272, %Vec_IntPush.exit263 ], [ %25, %Vec_IntPush.exit ], [ %25, %Vec_IntRemove.exit202 ]
   %555 = load ptr, ptr %37, align 8, !tbaa !24
   %.not.i264 = icmp eq ptr %555, null
   br i1 %.not.i264, label %Vec_IntFree.exit, label %556

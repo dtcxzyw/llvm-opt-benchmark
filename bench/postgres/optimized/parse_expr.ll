@@ -1226,9 +1226,9 @@ define internal fastcc noundef ptr @transformArrayExpr(ptr noundef %0, ptr nound
   br i1 %92, label %.split.us, label %107
 
 .critedge99:                                      ; preds = %107, %.lr.ph132, %.lr.ph111.split.us.split, %.lr.ph111.split.split, %67
-  %.076158 = phi i32 [ %2, %67 ], [ %.076.ph, %.lr.ph111.split.us.split ], [ %2, %.lr.ph111.split.split ], [ %.076.ph, %.lr.ph132 ], [ %2, %107 ]
-  %.077156 = phi i32 [ %3, %67 ], [ %.077.ph, %.lr.ph111.split.us.split ], [ %3, %.lr.ph111.split.split ], [ %.077.ph, %.lr.ph132 ], [ %3, %107 ]
-  %.081.lcssa = phi ptr [ null, %67 ], [ null, %.lr.ph111.split.us.split ], [ null, %.lr.ph111.split.split ], [ %79, %.lr.ph132 ], [ %108, %107 ]
+  %.076158 = phi i32 [ %2, %67 ], [ %2, %.lr.ph111.split.split ], [ %.076.ph, %.lr.ph111.split.us.split ], [ %.076.ph, %.lr.ph132 ], [ %2, %107 ]
+  %.077156 = phi i32 [ %3, %67 ], [ %3, %.lr.ph111.split.split ], [ %.077.ph, %.lr.ph111.split.us.split ], [ %.077.ph, %.lr.ph132 ], [ %3, %107 ]
+  %.081.lcssa = phi ptr [ null, %67 ], [ null, %.lr.ph111.split.split ], [ null, %.lr.ph111.split.us.split ], [ %79, %.lr.ph132 ], [ %108, %107 ]
   %93 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %.076158, ptr %93, align 4
   %94 = getelementptr inbounds nuw i8, ptr %6, i64 12
@@ -2057,7 +2057,7 @@ list_length.exit.thread:                          ; preds = %41, %45, %.critedge
   br i1 %83, label %84, label %95
 
 .critedge120:                                     ; preds = %108, %.lr.ph157, %.tail, %.lr.ph, %list_length.exit.thread
-  %.2.lcssa = phi ptr [ %.0, %list_length.exit.thread ], [ null, %.lr.ph ], [ null, %.tail ], [ %.0, %.lr.ph157 ], [ %.3, %108 ]
+  %.2.lcssa = phi ptr [ %.0, %list_length.exit.thread ], [ null, %.tail ], [ null, %.lr.ph ], [ %.0, %.lr.ph157 ], [ %.3, %108 ]
   ret ptr %.2.lcssa
 
 84:                                               ; preds = %.lr.ph185
@@ -3003,8 +3003,8 @@ define internal fastcc noundef ptr @transformCaseExpr(ptr noundef %0, ptr nounde
   br i1 %81, label %.lr.ph127, label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph127, %.lr.ph136, %.thread, %.lr.ph.split.us.split, %.lr.ph.split.split, %14
-  %.085.lcssa = phi ptr [ null, %14 ], [ null, %.thread ], [ null, %.lr.ph.split.split ], [ null, %.lr.ph.split.us.split ], [ %51, %.lr.ph136 ], [ %78, %.lr.ph127 ]
-  %.084.lcssa = phi ptr [ null, %14 ], [ null, %.thread ], [ null, %.lr.ph.split.split ], [ null, %.lr.ph.split.us.split ], [ %49, %.lr.ph136 ], [ %76, %.lr.ph127 ]
+  %.085.lcssa = phi ptr [ null, %14 ], [ null, %.lr.ph.split.split ], [ null, %.lr.ph.split.us.split ], [ null, %.thread ], [ %51, %.lr.ph136 ], [ %78, %.lr.ph127 ]
+  %.084.lcssa = phi ptr [ null, %14 ], [ null, %.lr.ph.split.split ], [ null, %.lr.ph.split.us.split ], [ null, %.thread ], [ %49, %.lr.ph136 ], [ %76, %.lr.ph127 ]
   %82 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %.084.lcssa, ptr %82, align 8
   %83 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -5580,7 +5580,7 @@ list_length.exit178:                              ; preds = %list_length.exit, %
   %exitcond269.not = icmp eq i64 %indvars.iv.next266, %wide.trip.count268
   br i1 %exitcond269.not, label %.preheader, label %.lr.ph215, !llvm.loop !14
 
-.critedge169.thread:                              ; preds = %.lr.ph215, %.lr.ph208, %.critedge169, %144
+.critedge169.thread:                              ; preds = %.lr.ph208, %.lr.ph215, %.critedge169, %144
   %153 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   %154 = tail call i32 @errcode(i32 noundef 1088) #8
   %155 = getelementptr i8, ptr %1, i64 4

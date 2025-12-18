@@ -12305,7 +12305,7 @@ lean_dec.exit27:                                  ; preds = %67, %66, %64, %lean
   br label %lean_dec.exit.thread
 
 lean_dec.exit.thread:                             ; preds = %lean_obj_tag.exit38, %69, %73, %75, %76, %lean_alloc_ctor.exit
-  %.1 = phi ptr [ %13, %lean_alloc_ctor.exit ], [ inttoptr (i64 1 to ptr), %76 ], [ inttoptr (i64 1 to ptr), %75 ], [ inttoptr (i64 1 to ptr), %73 ], [ inttoptr (i64 1 to ptr), %69 ], [ inttoptr (i64 1 to ptr), %lean_obj_tag.exit38 ]
+  %.1 = phi ptr [ %13, %lean_alloc_ctor.exit ], [ inttoptr (i64 1 to ptr), %69 ], [ inttoptr (i64 1 to ptr), %76 ], [ inttoptr (i64 1 to ptr), %75 ], [ inttoptr (i64 1 to ptr), %73 ], [ inttoptr (i64 1 to ptr), %lean_obj_tag.exit38 ]
   ret ptr %.1
 }
 
@@ -13116,8 +13116,8 @@ lean_alloc_ctor.exit176:                          ; preds = %lean_dec.exit111
   br label %.backedge
 
 .backedge:                                        ; preds = %lean_alloc_ctor.exit176, %lean_dec.exit116
-  %.0102.be = phi ptr [ %52, %lean_dec.exit116 ], [ %165, %lean_alloc_ctor.exit176 ]
-  %.098.be = phi ptr [ %.094, %lean_dec.exit116 ], [ %181, %lean_alloc_ctor.exit176 ]
+  %.0102.be = phi ptr [ %165, %lean_alloc_ctor.exit176 ], [ %52, %lean_dec.exit116 ]
+  %.098.be = phi ptr [ %181, %lean_alloc_ctor.exit176 ], [ %.094, %lean_dec.exit116 ]
   br label %8
 
 187:                                              ; preds = %lean_obj_tag.exit169
@@ -14815,8 +14815,8 @@ lean_alloc_ctor.exit491:                          ; preds = %lean_dec.exit258
   br label %.thread.sink.split
 
 lean_dec.exit275:                                 ; preds = %lean_inc.exit282, %461, %463, %464, %237, %236, %234, %lean_inc.exit296, %418, %417, %415, %lean_inc.exit284
-  %.3235 = phi ptr [ %403, %lean_inc.exit284 ], [ %222, %lean_inc.exit296 ], [ %222, %237 ], [ %222, %236 ], [ %222, %234 ], [ %403, %418 ], [ %403, %417 ], [ %403, %415 ], [ %449, %464 ], [ %449, %463 ], [ %449, %461 ], [ %449, %lean_inc.exit282 ]
-  %.3231 = phi ptr [ %393, %lean_inc.exit284 ], [ %212, %lean_inc.exit296 ], [ %212, %237 ], [ %212, %236 ], [ %212, %234 ], [ %393, %418 ], [ %393, %417 ], [ %393, %415 ], [ %439, %464 ], [ %439, %463 ], [ %439, %461 ], [ %439, %lean_inc.exit282 ]
+  %.3235 = phi ptr [ %222, %236 ], [ %403, %lean_inc.exit284 ], [ %403, %415 ], [ %222, %lean_inc.exit296 ], [ %403, %417 ], [ %403, %418 ], [ %222, %234 ], [ %222, %237 ], [ %449, %464 ], [ %449, %463 ], [ %449, %461 ], [ %449, %lean_inc.exit282 ]
+  %.3231 = phi ptr [ %212, %236 ], [ %393, %lean_inc.exit284 ], [ %393, %415 ], [ %212, %lean_inc.exit296 ], [ %393, %417 ], [ %393, %418 ], [ %212, %234 ], [ %212, %237 ], [ %439, %464 ], [ %439, %463 ], [ %439, %461 ], [ %439, %lean_inc.exit282 ]
   %552 = tail call zeroext i8 @l_Lean_Exception_isInterrupt(ptr noundef %.3231) #7
   %553 = icmp eq i8 %552, 0
   br i1 %553, label %554, label %675
@@ -28705,7 +28705,7 @@ lean_nat_lt.exit.thread34.us:                     ; preds = %lean_obj_tag.exit.u
   br i1 %23, label %.split41.us, label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %.critedge.i.us, %lean_nat_lt.exit.thread34.us
-  %.021.us.be = phi ptr [ %21, %.critedge.i.us ], [ %15, %lean_nat_lt.exit.thread34.us ]
+  %.021.us.be = phi ptr [ %15, %lean_nat_lt.exit.thread34.us ], [ %21, %.critedge.i.us ]
   br label %.split.us
 
 .split:                                           ; preds = %2, %.split.backedge
@@ -28758,7 +28758,7 @@ lean_nat_lt.exit.thread:                          ; preds = %33
   br i1 %45, label %.split41.us, label %.split.backedge
 
 .split.backedge:                                  ; preds = %.thread, %lean_nat_lt.exit.thread, %lean_nat_lt.exit, %lean_nat_eq.exit
-  %.021.be = phi ptr [ %41, %lean_nat_eq.exit ], [ %35, %lean_nat_lt.exit.thread ], [ %35, %lean_nat_lt.exit ], [ %41, %.thread ]
+  %.021.be = phi ptr [ %41, %.thread ], [ %41, %lean_nat_eq.exit ], [ %35, %lean_nat_lt.exit.thread ], [ %35, %lean_nat_lt.exit ]
   br label %.split
 
 lean_nat_eq.exit:                                 ; preds = %lean_nat_lt.exit

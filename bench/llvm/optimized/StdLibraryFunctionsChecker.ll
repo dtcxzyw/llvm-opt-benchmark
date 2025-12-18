@@ -3074,7 +3074,7 @@ _ZN4llvm11SmallVectorIcLj128EED2Ev.exit.i:        ; preds = %462, %_ZN4llvm18Int
   br label %463
 
 463:                                              ; preds = %_ZN4llvm11SmallVectorIcLj128EED2Ev.exit.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit76.i
-  %.1.i = phi ptr [ %450, %_ZN4llvm11SmallVectorIcLj128EED2Ev.exit.i ], [ %.037172.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit76.i ]
+  %.1.i = phi ptr [ %.037172.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit76.i ], [ %450, %_ZN4llvm11SmallVectorIcLj128EED2Ev.exit.i ]
   %464 = load ptr, ptr %23, align 8, !tbaa !248
   %.not.i.i98.i = icmp eq ptr %464, null
   br i1 %.not.i.i98.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit99.i, label %465
@@ -63779,7 +63779,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %216, %218
   store ptr %232, ptr %225, align 8, !tbaa !463
   br label %.critedge
 
-_ZN12_GLOBAL__N_126StdLibraryFunctionsChecker7Summary13matchesAndSetERKNS0_9SignatureEPKN5clang12FunctionDeclE.exit.thread: ; preds = %79, %_ZNK12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraint13checkValidityEPKN5clang12FunctionDeclE.exit45.i.i, %119, %_ZNK12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraint13checkValidityEPKN5clang12FunctionDeclE.exit.i.i, %106, %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit.i.i, %42, %_ZNK5clang12DeclListNode8iteratordeEv.exit
+_ZN12_GLOBAL__N_126StdLibraryFunctionsChecker7Summary13matchesAndSetERKNS0_9SignatureEPKN5clang12FunctionDeclE.exit.thread: ; preds = %79, %_ZNK12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraint13checkValidityEPKN5clang12FunctionDeclE.exit45.i.i, %119, %_ZNK12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraint13checkValidityEPKN5clang12FunctionDeclE.exit.i.i, %106, %42, %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit.i.i, %_ZNK5clang12DeclListNode8iteratordeEv.exit
   br i1 %.not.not.i, label %.critedge, label %_ZN5clang12DeclListNode8iteratorppEv.exit
 
 _ZN5clang12DeclListNode8iteratorppEv.exit:        ; preds = %_ZN12_GLOBAL__N_126StdLibraryFunctionsChecker7Summary13matchesAndSetERKNS0_9SignatureEPKN5clang12FunctionDeclE.exit.thread
@@ -64771,8 +64771,8 @@ _ZNK5clang4Type16isFixedPointTypeEv.exit.i:       ; preds = %_ZN5clang4ento3Loc9
   %or.cond = select i1 %74, i1 %spec.select16.i.i, i1 false
   br i1 %or.cond, label %_ZNK5clang4Type24isUnsignedFixedPointTypeEv.exit.thread40, label %_ZNK5clang4Type24isUnsignedFixedPointTypeEv.exit.thread
 
-_ZNK5clang4Type24isUnsignedFixedPointTypeEv.exit.thread40: ; preds = %73, %67, %71, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread
-  %.sroa.017.044 = phi i32 [ %50, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread ], [ %54, %73 ], [ %54, %71 ], [ %54, %67 ]
+_ZNK5clang4Type24isUnsignedFixedPointTypeEv.exit.thread40: ; preds = %73, %71, %67, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread
+  %.sroa.017.044 = phi i32 [ %50, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread ], [ %54, %73 ], [ %54, %67 ], [ %54, %71 ]
   br label %_ZNK5clang4Type24isUnsignedFixedPointTypeEv.exit.thread
 
 _ZNK5clang4Type24isUnsignedFixedPointTypeEv.exit.thread: ; preds = %69, %73, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread24, %_ZNK5clang4Type16isFixedPointTypeEv.exit.i, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread, %_ZNK5clang4Type24isUnsignedFixedPointTypeEv.exit.thread40
@@ -72256,7 +72256,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit134.i: ; pred
   br label %425
 
 425:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit134.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit107.i
-  %.045.i = phi ptr [ %340, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit107.i ], [ %422, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit134.i ]
+  %.045.i = phi ptr [ %422, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit134.i ], [ %340, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit107.i ]
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %171) #23
   %426 = icmp eq ptr %.045.i, %89
   %427 = icmp ne ptr %171, %87

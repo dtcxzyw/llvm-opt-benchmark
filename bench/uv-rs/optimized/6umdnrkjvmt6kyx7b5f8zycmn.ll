@@ -6092,7 +6092,7 @@ define void @_ZN13uv_pypi_types8metadata17metadata_resolver18ResolutionMetadata1
           to label %"_ZN4core3ptr205drop_in_place$LT$core..iter..adapters..filter..Filter$LT$alloc..vec..into_iter..IntoIter$LT$alloc..string..String$GT$$C$uv_pypi_types..metadata..Headers..get_all_values..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h41bf67f31b4cc61aE.exit" unwind label %197
 
 .loopexit453:                                     ; preds = %224, %99, %75
-  %.sroa.0139.0470 = phi i8 [ 0, %75 ], [ %.sroa.0139.0473, %99 ], [ %218, %224 ]
+  %.sroa.0139.0470 = phi i8 [ %.sroa.0139.0473, %99 ], [ 0, %75 ], [ %218, %224 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.831)
   invoke void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hfedbdaa8cd3e4d1eE.llvm.12183228291158203711"(ptr noalias noundef nonnull align 8 dereferenceable(32) %34)
           to label %"_ZN4core3ptr205drop_in_place$LT$core..iter..adapters..filter..Filter$LT$alloc..vec..into_iter..IntoIter$LT$alloc..string..String$GT$$C$uv_pypi_types..metadata..Headers..get_all_values..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h41bf67f31b4cc61aE.exit250" unwind label %60

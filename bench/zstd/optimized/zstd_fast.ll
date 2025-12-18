@@ -747,8 +747,8 @@ ZSTD_match4Found_cmov.exit28.thread.i:            ; preds = %ZSTD_match4Found_cm
   br label %.critedge.i.i
 
 131:                                              ; preds = %112, %ZSTD_match4Found_cmov.exit28.thread.i
-  %.1244.i.ph.i = phi i64 [ %.0243.i.i, %ZSTD_match4Found_cmov.exit28.thread.i ], [ %113, %112 ]
-  %.1241.i.ph.i = phi ptr [ %.0240.i.i, %ZSTD_match4Found_cmov.exit28.thread.i ], [ %116, %112 ]
+  %.1244.i.ph.i = phi i64 [ %113, %112 ], [ %.0243.i.i, %ZSTD_match4Found_cmov.exit28.thread.i ]
+  %.1241.i.ph.i = phi ptr [ %116, %112 ], [ %.0240.i.i, %ZSTD_match4Found_cmov.exit28.thread.i ]
   %132 = icmp ult ptr %111, %36
   br i1 %132, label %83, label %ZSTD_compressBlock_fast_noDict_4_1.exit, !llvm.loop !35
 
@@ -1237,9 +1237,9 @@ ZSTD_storeSeqOnly.exit7.i:                        ; preds = %338, %ZSTD_storeSeq
   br i1 %.not287.i.i, label %.critedge3.i.i, label %.lr.ph190.i
 
 .critedge3.i.i:                                   ; preds = %ZSTD_storeSeqOnly.exit7.i, %.lr.ph190.i, %260, %ZSTD_storeSeqOnly.exit.i
-  %.3271.i.i = phi i32 [ 0, %260 ], [ %.2270.i.i, %ZSTD_storeSeqOnly.exit.i ], [ %.4272.i187.i, %.lr.ph190.i ], [ %.4239.i188.i, %ZSTD_storeSeqOnly.exit7.i ]
-  %.3238.i.i = phi i32 [ %.2237.i.i, %260 ], [ %.2237.i.i, %ZSTD_storeSeqOnly.exit.i ], [ %.4239.i188.i, %.lr.ph190.i ], [ %.4272.i187.i, %ZSTD_storeSeqOnly.exit7.i ]
-  %.1.i.i = phi ptr [ %259, %260 ], [ %259, %ZSTD_storeSeqOnly.exit.i ], [ %.2.i189.i, %.lr.ph190.i ], [ %331, %ZSTD_storeSeqOnly.exit7.i ]
+  %.3271.i.i = phi i32 [ %.2270.i.i, %ZSTD_storeSeqOnly.exit.i ], [ 0, %260 ], [ %.4272.i187.i, %.lr.ph190.i ], [ %.4239.i188.i, %ZSTD_storeSeqOnly.exit7.i ]
+  %.3238.i.i = phi i32 [ %.2237.i.i, %ZSTD_storeSeqOnly.exit.i ], [ %.2237.i.i, %260 ], [ %.4239.i188.i, %.lr.ph190.i ], [ %.4272.i187.i, %ZSTD_storeSeqOnly.exit7.i ]
+  %.1.i.i = phi ptr [ %259, %ZSTD_storeSeqOnly.exit.i ], [ %259, %260 ], [ %.2.i189.i, %.lr.ph190.i ], [ %331, %ZSTD_storeSeqOnly.exit7.i ]
   %348 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 %17
   %349 = getelementptr inbounds nuw i8, ptr %348, i64 1
   %.not281.i.i = icmp ult ptr %349, %36
@@ -1386,8 +1386,8 @@ ZSTD_match4Found_cmov.exit28.thread.i86:          ; preds = %ZSTD_match4Found_cm
   br label %.critedge.i.i97
 
 423:                                              ; preds = %404, %ZSTD_match4Found_cmov.exit28.thread.i86
-  %.1244.i.ph.i89 = phi i64 [ %.0243.i.i68, %ZSTD_match4Found_cmov.exit28.thread.i86 ], [ %405, %404 ]
-  %.1241.i.ph.i90 = phi ptr [ %.0240.i.i69, %ZSTD_match4Found_cmov.exit28.thread.i86 ], [ %408, %404 ]
+  %.1244.i.ph.i89 = phi i64 [ %405, %404 ], [ %.0243.i.i68, %ZSTD_match4Found_cmov.exit28.thread.i86 ]
+  %.1241.i.ph.i90 = phi ptr [ %408, %404 ], [ %.0240.i.i69, %ZSTD_match4Found_cmov.exit28.thread.i86 ]
   %424 = icmp ult ptr %403, %36
   br i1 %424, label %376, label %ZSTD_compressBlock_fast_noDict_4_1.exit, !llvm.loop !35
 
@@ -1874,9 +1874,9 @@ ZSTD_storeSeqOnly.exit7.i149:                     ; preds = %627, %ZSTD_storeSeq
   br i1 %.not287.i.i150, label %.critedge3.i.i130, label %.lr.ph190.i124
 
 .critedge3.i.i130:                                ; preds = %ZSTD_storeSeqOnly.exit7.i149, %.lr.ph190.i124, %552, %ZSTD_storeSeqOnly.exit.i119
-  %.3271.i.i131 = phi i32 [ 0, %552 ], [ %.2270.i.i99, %ZSTD_storeSeqOnly.exit.i119 ], [ %.4272.i187.i127, %.lr.ph190.i124 ], [ %.4239.i188.i126, %ZSTD_storeSeqOnly.exit7.i149 ]
-  %.3238.i.i132 = phi i32 [ %.2237.i.i103, %552 ], [ %.2237.i.i103, %ZSTD_storeSeqOnly.exit.i119 ], [ %.4239.i188.i126, %.lr.ph190.i124 ], [ %.4272.i187.i127, %ZSTD_storeSeqOnly.exit7.i149 ]
-  %.1.i.i133 = phi ptr [ %551, %552 ], [ %551, %ZSTD_storeSeqOnly.exit.i119 ], [ %.2.i189.i125, %.lr.ph190.i124 ], [ %620, %ZSTD_storeSeqOnly.exit7.i149 ]
+  %.3271.i.i131 = phi i32 [ %.2270.i.i99, %ZSTD_storeSeqOnly.exit.i119 ], [ 0, %552 ], [ %.4272.i187.i127, %.lr.ph190.i124 ], [ %.4239.i188.i126, %ZSTD_storeSeqOnly.exit7.i149 ]
+  %.3238.i.i132 = phi i32 [ %.2237.i.i103, %ZSTD_storeSeqOnly.exit.i119 ], [ %.2237.i.i103, %552 ], [ %.4239.i188.i126, %.lr.ph190.i124 ], [ %.4272.i187.i127, %ZSTD_storeSeqOnly.exit7.i149 ]
+  %.1.i.i133 = phi ptr [ %551, %ZSTD_storeSeqOnly.exit.i119 ], [ %551, %552 ], [ %.2.i189.i125, %.lr.ph190.i124 ], [ %620, %ZSTD_storeSeqOnly.exit7.i149 ]
   %637 = getelementptr inbounds nuw i8, ptr %.1.i.i133, i64 %17
   %638 = getelementptr inbounds nuw i8, ptr %637, i64 1
   %.not281.i.i134 = icmp ult ptr %638, %36
@@ -2023,8 +2023,8 @@ ZSTD_match4Found_cmov.exit28.thread.i261:         ; preds = %ZSTD_match4Found_cm
   br label %.critedge.i.i273
 
 712:                                              ; preds = %693, %ZSTD_match4Found_cmov.exit28.thread.i261
-  %.1244.i.ph.i264 = phi i64 [ %.0243.i.i243, %ZSTD_match4Found_cmov.exit28.thread.i261 ], [ %694, %693 ]
-  %.1241.i.ph.i265 = phi ptr [ %.0240.i.i244, %ZSTD_match4Found_cmov.exit28.thread.i261 ], [ %697, %693 ]
+  %.1244.i.ph.i264 = phi i64 [ %694, %693 ], [ %.0243.i.i243, %ZSTD_match4Found_cmov.exit28.thread.i261 ]
+  %.1241.i.ph.i265 = phi ptr [ %697, %693 ], [ %.0240.i.i244, %ZSTD_match4Found_cmov.exit28.thread.i261 ]
   %713 = icmp ult ptr %692, %36
   br i1 %713, label %665, label %ZSTD_compressBlock_fast_noDict_4_1.exit, !llvm.loop !35
 
@@ -2511,9 +2511,9 @@ ZSTD_storeSeqOnly.exit7.i326:                     ; preds = %916, %ZSTD_storeSeq
   br i1 %.not287.i.i327, label %.critedge3.i.i306, label %.lr.ph190.i300
 
 .critedge3.i.i306:                                ; preds = %ZSTD_storeSeqOnly.exit7.i326, %.lr.ph190.i300, %841, %ZSTD_storeSeqOnly.exit.i295
-  %.3271.i.i307 = phi i32 [ 0, %841 ], [ %.2270.i.i275, %ZSTD_storeSeqOnly.exit.i295 ], [ %.4272.i187.i303, %.lr.ph190.i300 ], [ %.4239.i188.i302, %ZSTD_storeSeqOnly.exit7.i326 ]
-  %.3238.i.i308 = phi i32 [ %.2237.i.i279, %841 ], [ %.2237.i.i279, %ZSTD_storeSeqOnly.exit.i295 ], [ %.4239.i188.i302, %.lr.ph190.i300 ], [ %.4272.i187.i303, %ZSTD_storeSeqOnly.exit7.i326 ]
-  %.1.i.i309 = phi ptr [ %840, %841 ], [ %840, %ZSTD_storeSeqOnly.exit.i295 ], [ %.2.i189.i301, %.lr.ph190.i300 ], [ %909, %ZSTD_storeSeqOnly.exit7.i326 ]
+  %.3271.i.i307 = phi i32 [ %.2270.i.i275, %ZSTD_storeSeqOnly.exit.i295 ], [ 0, %841 ], [ %.4272.i187.i303, %.lr.ph190.i300 ], [ %.4239.i188.i302, %ZSTD_storeSeqOnly.exit7.i326 ]
+  %.3238.i.i308 = phi i32 [ %.2237.i.i279, %ZSTD_storeSeqOnly.exit.i295 ], [ %.2237.i.i279, %841 ], [ %.4239.i188.i302, %.lr.ph190.i300 ], [ %.4272.i187.i303, %ZSTD_storeSeqOnly.exit7.i326 ]
+  %.1.i.i309 = phi ptr [ %840, %ZSTD_storeSeqOnly.exit.i295 ], [ %840, %841 ], [ %.2.i189.i301, %.lr.ph190.i300 ], [ %909, %ZSTD_storeSeqOnly.exit7.i326 ]
   %926 = getelementptr inbounds nuw i8, ptr %.1.i.i309, i64 %17
   %927 = getelementptr inbounds nuw i8, ptr %926, i64 1
   %.not281.i.i310 = icmp ult ptr %927, %36
@@ -2660,8 +2660,8 @@ ZSTD_match4Found_cmov.exit28.thread.i442:         ; preds = %ZSTD_match4Found_cm
   br label %.critedge.i.i454
 
 1001:                                             ; preds = %982, %ZSTD_match4Found_cmov.exit28.thread.i442
-  %.1244.i.ph.i445 = phi i64 [ %.0243.i.i424, %ZSTD_match4Found_cmov.exit28.thread.i442 ], [ %983, %982 ]
-  %.1241.i.ph.i446 = phi ptr [ %.0240.i.i425, %ZSTD_match4Found_cmov.exit28.thread.i442 ], [ %986, %982 ]
+  %.1244.i.ph.i445 = phi i64 [ %983, %982 ], [ %.0243.i.i424, %ZSTD_match4Found_cmov.exit28.thread.i442 ]
+  %.1241.i.ph.i446 = phi ptr [ %986, %982 ], [ %.0240.i.i425, %ZSTD_match4Found_cmov.exit28.thread.i442 ]
   %1002 = icmp ult ptr %981, %36
   br i1 %1002, label %954, label %ZSTD_compressBlock_fast_noDict_4_1.exit, !llvm.loop !35
 
@@ -3148,9 +3148,9 @@ ZSTD_storeSeqOnly.exit7.i507:                     ; preds = %1205, %ZSTD_storeSe
   br i1 %.not287.i.i508, label %.critedge3.i.i487, label %.lr.ph190.i481
 
 .critedge3.i.i487:                                ; preds = %ZSTD_storeSeqOnly.exit7.i507, %.lr.ph190.i481, %1130, %ZSTD_storeSeqOnly.exit.i476
-  %.3271.i.i488 = phi i32 [ 0, %1130 ], [ %.2270.i.i456, %ZSTD_storeSeqOnly.exit.i476 ], [ %.4272.i187.i484, %.lr.ph190.i481 ], [ %.4239.i188.i483, %ZSTD_storeSeqOnly.exit7.i507 ]
-  %.3238.i.i489 = phi i32 [ %.2237.i.i460, %1130 ], [ %.2237.i.i460, %ZSTD_storeSeqOnly.exit.i476 ], [ %.4239.i188.i483, %.lr.ph190.i481 ], [ %.4272.i187.i484, %ZSTD_storeSeqOnly.exit7.i507 ]
-  %.1.i.i490 = phi ptr [ %1129, %1130 ], [ %1129, %ZSTD_storeSeqOnly.exit.i476 ], [ %.2.i189.i482, %.lr.ph190.i481 ], [ %1198, %ZSTD_storeSeqOnly.exit7.i507 ]
+  %.3271.i.i488 = phi i32 [ %.2270.i.i456, %ZSTD_storeSeqOnly.exit.i476 ], [ 0, %1130 ], [ %.4272.i187.i484, %.lr.ph190.i481 ], [ %.4239.i188.i483, %ZSTD_storeSeqOnly.exit7.i507 ]
+  %.3238.i.i489 = phi i32 [ %.2237.i.i460, %ZSTD_storeSeqOnly.exit.i476 ], [ %.2237.i.i460, %1130 ], [ %.4239.i188.i483, %.lr.ph190.i481 ], [ %.4272.i187.i484, %ZSTD_storeSeqOnly.exit7.i507 ]
+  %.1.i.i490 = phi ptr [ %1129, %ZSTD_storeSeqOnly.exit.i476 ], [ %1129, %1130 ], [ %.2.i189.i482, %.lr.ph190.i481 ], [ %1198, %ZSTD_storeSeqOnly.exit7.i507 ]
   %1215 = getelementptr inbounds nuw i8, ptr %.1.i.i490, i64 %17
   %1216 = getelementptr inbounds nuw i8, ptr %1215, i64 1
   %.not281.i.i491 = icmp ult ptr %1216, %36
@@ -3273,8 +3273,8 @@ ZSTD_match4Found_branch.exit28.thread.us.i:       ; preds = %ZSTD_match4Found_br
   br label %1268
 
 1268:                                             ; preds = %1263, %ZSTD_match4Found_branch.exit28.thread.us.i
-  %.1244.i.ph.us.i = phi i64 [ %.0243.i.us.i, %ZSTD_match4Found_branch.exit28.thread.us.i ], [ %1264, %1263 ]
-  %.1241.i.ph.us.i = phi ptr [ %.0240.i.us.i, %ZSTD_match4Found_branch.exit28.thread.us.i ], [ %1267, %1263 ]
+  %.1244.i.ph.us.i = phi i64 [ %1264, %1263 ], [ %.0243.i.us.i, %ZSTD_match4Found_branch.exit28.thread.us.i ]
+  %.1241.i.ph.us.i = phi ptr [ %1267, %1263 ], [ %.0240.i.us.i, %ZSTD_match4Found_branch.exit28.thread.us.i ]
   %1269 = icmp ult ptr %1262, %36
   br i1 %1269, label %.split.us.i, label %ZSTD_compressBlock_fast_noDict_4_1.exit, !llvm.loop !35
 
@@ -3382,17 +3382,17 @@ ZSTD_match4Found_branch.exit28.thread.i:          ; preds = %ZSTD_match4Found_br
   br label %.critedge.i.i616
 
 1313:                                             ; preds = %1294, %ZSTD_match4Found_branch.exit28.thread.i
-  %.1244.i.ph.i611 = phi i64 [ %.0243.i.i596, %ZSTD_match4Found_branch.exit28.thread.i ], [ %1295, %1294 ]
-  %.1241.i.ph.i612 = phi ptr [ %.0240.i.i597, %ZSTD_match4Found_branch.exit28.thread.i ], [ %1298, %1294 ]
+  %.1244.i.ph.i611 = phi i64 [ %1295, %1294 ], [ %.0243.i.i596, %ZSTD_match4Found_branch.exit28.thread.i ]
+  %.1241.i.ph.i612 = phi ptr [ %1298, %1294 ], [ %.0240.i.i597, %ZSTD_match4Found_branch.exit28.thread.i ]
   %1314 = icmp ult ptr %1293, %36
   br i1 %1314, label %.split.i, label %ZSTD_compressBlock_fast_noDict_4_1.exit, !llvm.loop !35
 
 .sink.split.i693:                                 ; preds = %ZSTD_match4Found_branch.exit.i, %ZSTD_match4Found_branch.exit.us.i, %.split183.us.i
-  %.us-phi178.sink.i = phi ptr [ %.us-phi188.i, %.split183.us.i ], [ %.0228.i.us.i, %ZSTD_match4Found_branch.exit.us.i ], [ %.0228.i.i600, %ZSTD_match4Found_branch.exit.i ]
-  %.us-phi180.sink.i = phi i64 [ %.us-phi185.i, %.split183.us.i ], [ %.0262.i.us.i, %ZSTD_match4Found_branch.exit.us.i ], [ %.0262.i.i604, %ZSTD_match4Found_branch.exit.i ]
-  %.1261.i.ph.ph.i694 = phi i32 [ %.us-phi184.i, %.split183.us.i ], [ %.0260.i.us.i, %ZSTD_match4Found_branch.exit.us.i ], [ %.0260.i.i595, %ZSTD_match4Found_branch.exit.i ]
-  %.0234.i.ph.ph.i695 = phi i32 [ %.us-phi186.i, %.split183.us.i ], [ %1245, %ZSTD_match4Found_branch.exit.us.i ], [ %1273, %ZSTD_match4Found_branch.exit.i ]
-  %.2227.i.ph.ph.i696 = phi ptr [ %.us-phi189.i, %.split183.us.i ], [ %.1226.i.us.i, %ZSTD_match4Found_branch.exit.us.i ], [ %.1226.i.i601, %ZSTD_match4Found_branch.exit.i ]
+  %.us-phi178.sink.i = phi ptr [ %.0228.i.us.i, %ZSTD_match4Found_branch.exit.us.i ], [ %.us-phi188.i, %.split183.us.i ], [ %.0228.i.i600, %ZSTD_match4Found_branch.exit.i ]
+  %.us-phi180.sink.i = phi i64 [ %.0262.i.us.i, %ZSTD_match4Found_branch.exit.us.i ], [ %.us-phi185.i, %.split183.us.i ], [ %.0262.i.i604, %ZSTD_match4Found_branch.exit.i ]
+  %.1261.i.ph.ph.i694 = phi i32 [ %.0260.i.us.i, %ZSTD_match4Found_branch.exit.us.i ], [ %.us-phi184.i, %.split183.us.i ], [ %.0260.i.i595, %ZSTD_match4Found_branch.exit.i ]
+  %.0234.i.ph.ph.i695 = phi i32 [ %1245, %ZSTD_match4Found_branch.exit.us.i ], [ %.us-phi186.i, %.split183.us.i ], [ %1273, %ZSTD_match4Found_branch.exit.i ]
+  %.2227.i.ph.ph.i696 = phi ptr [ %.1226.i.us.i, %ZSTD_match4Found_branch.exit.us.i ], [ %.us-phi189.i, %.split183.us.i ], [ %.1226.i.i601, %ZSTD_match4Found_branch.exit.i ]
   %1315 = ptrtoint ptr %.us-phi178.sink.i to i64
   %1316 = sub i64 %1315, %21
   %1317 = trunc i64 %1316 to i32
@@ -3870,9 +3870,9 @@ ZSTD_storeSeqOnly.exit7.i652:                     ; preds = %1522, %ZSTD_storeSe
   br i1 %.not287.i.i653, label %.critedge3.i.i644, label %.lr.ph206.i
 
 .critedge3.i.i644:                                ; preds = %ZSTD_storeSeqOnly.exit7.i652, %.lr.ph206.i, %1444, %ZSTD_storeSeqOnly.exit.i637
-  %.3271.i.i645 = phi i32 [ 0, %1444 ], [ %.2270.i.i617, %ZSTD_storeSeqOnly.exit.i637 ], [ %.4272.i203.i, %.lr.ph206.i ], [ %.4239.i204.i, %ZSTD_storeSeqOnly.exit7.i652 ]
-  %.3238.i.i646 = phi i32 [ %.2237.i.i621, %1444 ], [ %.2237.i.i621, %ZSTD_storeSeqOnly.exit.i637 ], [ %.4239.i204.i, %.lr.ph206.i ], [ %.4272.i203.i, %ZSTD_storeSeqOnly.exit7.i652 ]
-  %.1.i.i647 = phi ptr [ %1443, %1444 ], [ %1443, %ZSTD_storeSeqOnly.exit.i637 ], [ %.2.i205.i, %.lr.ph206.i ], [ %1515, %ZSTD_storeSeqOnly.exit7.i652 ]
+  %.3271.i.i645 = phi i32 [ %.2270.i.i617, %ZSTD_storeSeqOnly.exit.i637 ], [ 0, %1444 ], [ %.4272.i203.i, %.lr.ph206.i ], [ %.4239.i204.i, %ZSTD_storeSeqOnly.exit7.i652 ]
+  %.3238.i.i646 = phi i32 [ %.2237.i.i621, %ZSTD_storeSeqOnly.exit.i637 ], [ %.2237.i.i621, %1444 ], [ %.4239.i204.i, %.lr.ph206.i ], [ %.4272.i203.i, %ZSTD_storeSeqOnly.exit7.i652 ]
+  %.1.i.i647 = phi ptr [ %1443, %ZSTD_storeSeqOnly.exit.i637 ], [ %1443, %1444 ], [ %.2.i205.i, %.lr.ph206.i ], [ %1515, %ZSTD_storeSeqOnly.exit7.i652 ]
   %1532 = getelementptr inbounds nuw i8, ptr %.1.i.i647, i64 %17
   %1533 = getelementptr inbounds nuw i8, ptr %1532, i64 1
   %.not281.i.i648 = icmp ult ptr %1533, %36
@@ -3986,8 +3986,8 @@ ZSTD_match4Found_branch.exit28.thread.us.i908:    ; preds = %ZSTD_match4Found_br
   br label %1583
 
 1583:                                             ; preds = %1578, %ZSTD_match4Found_branch.exit28.thread.us.i908
-  %.1244.i.ph.us.i911 = phi i64 [ %.0243.i.us.i889, %ZSTD_match4Found_branch.exit28.thread.us.i908 ], [ %1579, %1578 ]
-  %.1241.i.ph.us.i912 = phi ptr [ %.0240.i.us.i890, %ZSTD_match4Found_branch.exit28.thread.us.i908 ], [ %1582, %1578 ]
+  %.1244.i.ph.us.i911 = phi i64 [ %1579, %1578 ], [ %.0243.i.us.i889, %ZSTD_match4Found_branch.exit28.thread.us.i908 ]
+  %.1241.i.ph.us.i912 = phi ptr [ %1582, %1578 ], [ %.0240.i.us.i890, %ZSTD_match4Found_branch.exit28.thread.us.i908 ]
   %1584 = icmp ult ptr %1577, %36
   br i1 %1584, label %.split.us.i885, label %ZSTD_compressBlock_fast_noDict_4_1.exit, !llvm.loop !35
 
@@ -4094,17 +4094,17 @@ ZSTD_match4Found_branch.exit28.thread.i746:       ; preds = %ZSTD_match4Found_br
   br label %.critedge.i.i761
 
 1627:                                             ; preds = %1608, %ZSTD_match4Found_branch.exit28.thread.i746
-  %.1244.i.ph.i749 = phi i64 [ %.0243.i.i724, %ZSTD_match4Found_branch.exit28.thread.i746 ], [ %1609, %1608 ]
-  %.1241.i.ph.i750 = phi ptr [ %.0240.i.i725, %ZSTD_match4Found_branch.exit28.thread.i746 ], [ %1612, %1608 ]
+  %.1244.i.ph.i749 = phi i64 [ %1609, %1608 ], [ %.0243.i.i724, %ZSTD_match4Found_branch.exit28.thread.i746 ]
+  %.1241.i.ph.i750 = phi ptr [ %1612, %1608 ], [ %.0240.i.i725, %ZSTD_match4Found_branch.exit28.thread.i746 ]
   %1628 = icmp ult ptr %1607, %36
   br i1 %1628, label %.split.i720, label %ZSTD_compressBlock_fast_noDict_4_1.exit, !llvm.loop !35
 
 .sink.split.i878:                                 ; preds = %ZSTD_match4Found_branch.exit.i735, %ZSTD_match4Found_branch.exit.us.i898, %.split183.us.i751
-  %.us-phi178.sink.i879 = phi ptr [ %.us-phi188.i756, %.split183.us.i751 ], [ %.0228.i.us.i893, %ZSTD_match4Found_branch.exit.us.i898 ], [ %.0228.i.i728, %ZSTD_match4Found_branch.exit.i735 ]
-  %.us-phi180.sink.i880 = phi i64 [ %.us-phi185.i753, %.split183.us.i751 ], [ %.0262.i.us.i896, %ZSTD_match4Found_branch.exit.us.i898 ], [ %.0262.i.i731, %ZSTD_match4Found_branch.exit.i735 ]
-  %.1261.i.ph.ph.i881 = phi i32 [ %.us-phi184.i752, %.split183.us.i751 ], [ %.0260.i.us.i888, %ZSTD_match4Found_branch.exit.us.i898 ], [ %.0260.i.i723, %ZSTD_match4Found_branch.exit.i735 ]
-  %.0234.i.ph.ph.i882 = phi i32 [ %.us-phi186.i754, %.split183.us.i751 ], [ %1561, %ZSTD_match4Found_branch.exit.us.i898 ], [ %1588, %ZSTD_match4Found_branch.exit.i735 ]
-  %.2227.i.ph.ph.i883 = phi ptr [ %.us-phi189.i757, %.split183.us.i751 ], [ %.1226.i.us.i894, %ZSTD_match4Found_branch.exit.us.i898 ], [ %.1226.i.i729, %ZSTD_match4Found_branch.exit.i735 ]
+  %.us-phi178.sink.i879 = phi ptr [ %.0228.i.us.i893, %ZSTD_match4Found_branch.exit.us.i898 ], [ %.us-phi188.i756, %.split183.us.i751 ], [ %.0228.i.i728, %ZSTD_match4Found_branch.exit.i735 ]
+  %.us-phi180.sink.i880 = phi i64 [ %.0262.i.us.i896, %ZSTD_match4Found_branch.exit.us.i898 ], [ %.us-phi185.i753, %.split183.us.i751 ], [ %.0262.i.i731, %ZSTD_match4Found_branch.exit.i735 ]
+  %.1261.i.ph.ph.i881 = phi i32 [ %.0260.i.us.i888, %ZSTD_match4Found_branch.exit.us.i898 ], [ %.us-phi184.i752, %.split183.us.i751 ], [ %.0260.i.i723, %ZSTD_match4Found_branch.exit.i735 ]
+  %.0234.i.ph.ph.i882 = phi i32 [ %1561, %ZSTD_match4Found_branch.exit.us.i898 ], [ %.us-phi186.i754, %.split183.us.i751 ], [ %1588, %ZSTD_match4Found_branch.exit.i735 ]
+  %.2227.i.ph.ph.i883 = phi ptr [ %.1226.i.us.i894, %ZSTD_match4Found_branch.exit.us.i898 ], [ %.us-phi189.i757, %.split183.us.i751 ], [ %.1226.i.i729, %ZSTD_match4Found_branch.exit.i735 ]
   %1629 = ptrtoint ptr %.us-phi178.sink.i879 to i64
   %1630 = sub i64 %1629, %21
   %1631 = trunc i64 %1630 to i32
@@ -4580,9 +4580,9 @@ ZSTD_storeSeqOnly.exit7.i814:                     ; preds = %1833, %ZSTD_storeSe
   br i1 %.not287.i.i815, label %.critedge3.i.i794, label %.lr.ph206.i788
 
 .critedge3.i.i794:                                ; preds = %ZSTD_storeSeqOnly.exit7.i814, %.lr.ph206.i788, %1758, %ZSTD_storeSeqOnly.exit.i783
-  %.3271.i.i795 = phi i32 [ 0, %1758 ], [ %.2270.i.i763, %ZSTD_storeSeqOnly.exit.i783 ], [ %.4272.i203.i791, %.lr.ph206.i788 ], [ %.4239.i204.i790, %ZSTD_storeSeqOnly.exit7.i814 ]
-  %.3238.i.i796 = phi i32 [ %.2237.i.i767, %1758 ], [ %.2237.i.i767, %ZSTD_storeSeqOnly.exit.i783 ], [ %.4239.i204.i790, %.lr.ph206.i788 ], [ %.4272.i203.i791, %ZSTD_storeSeqOnly.exit7.i814 ]
-  %.1.i.i797 = phi ptr [ %1757, %1758 ], [ %1757, %ZSTD_storeSeqOnly.exit.i783 ], [ %.2.i205.i789, %.lr.ph206.i788 ], [ %1826, %ZSTD_storeSeqOnly.exit7.i814 ]
+  %.3271.i.i795 = phi i32 [ %.2270.i.i763, %ZSTD_storeSeqOnly.exit.i783 ], [ 0, %1758 ], [ %.4272.i203.i791, %.lr.ph206.i788 ], [ %.4239.i204.i790, %ZSTD_storeSeqOnly.exit7.i814 ]
+  %.3238.i.i796 = phi i32 [ %.2237.i.i767, %ZSTD_storeSeqOnly.exit.i783 ], [ %.2237.i.i767, %1758 ], [ %.4239.i204.i790, %.lr.ph206.i788 ], [ %.4272.i203.i791, %ZSTD_storeSeqOnly.exit7.i814 ]
+  %.1.i.i797 = phi ptr [ %1757, %ZSTD_storeSeqOnly.exit.i783 ], [ %1757, %1758 ], [ %.2.i205.i789, %.lr.ph206.i788 ], [ %1826, %ZSTD_storeSeqOnly.exit7.i814 ]
   %1843 = getelementptr inbounds nuw i8, ptr %.1.i.i797, i64 %17
   %1844 = getelementptr inbounds nuw i8, ptr %1843, i64 1
   %.not281.i.i798 = icmp ult ptr %1844, %36
@@ -4696,8 +4696,8 @@ ZSTD_match4Found_branch.exit28.thread.us.i1124:   ; preds = %ZSTD_match4Found_br
   br label %1894
 
 1894:                                             ; preds = %1889, %ZSTD_match4Found_branch.exit28.thread.us.i1124
-  %.1244.i.ph.us.i1127 = phi i64 [ %.0243.i.us.i1104, %ZSTD_match4Found_branch.exit28.thread.us.i1124 ], [ %1890, %1889 ]
-  %.1241.i.ph.us.i1128 = phi ptr [ %.0240.i.us.i1105, %ZSTD_match4Found_branch.exit28.thread.us.i1124 ], [ %1893, %1889 ]
+  %.1244.i.ph.us.i1127 = phi i64 [ %1890, %1889 ], [ %.0243.i.us.i1104, %ZSTD_match4Found_branch.exit28.thread.us.i1124 ]
+  %.1241.i.ph.us.i1128 = phi ptr [ %1893, %1889 ], [ %.0240.i.us.i1105, %ZSTD_match4Found_branch.exit28.thread.us.i1124 ]
   %1895 = icmp ult ptr %1888, %36
   br i1 %1895, label %.split.us.i1100, label %ZSTD_compressBlock_fast_noDict_4_1.exit, !llvm.loop !35
 
@@ -4804,17 +4804,17 @@ ZSTD_match4Found_branch.exit28.thread.i961:       ; preds = %ZSTD_match4Found_br
   br label %.critedge.i.i976
 
 1938:                                             ; preds = %1919, %ZSTD_match4Found_branch.exit28.thread.i961
-  %.1244.i.ph.i964 = phi i64 [ %.0243.i.i939, %ZSTD_match4Found_branch.exit28.thread.i961 ], [ %1920, %1919 ]
-  %.1241.i.ph.i965 = phi ptr [ %.0240.i.i940, %ZSTD_match4Found_branch.exit28.thread.i961 ], [ %1923, %1919 ]
+  %.1244.i.ph.i964 = phi i64 [ %1920, %1919 ], [ %.0243.i.i939, %ZSTD_match4Found_branch.exit28.thread.i961 ]
+  %.1241.i.ph.i965 = phi ptr [ %1923, %1919 ], [ %.0240.i.i940, %ZSTD_match4Found_branch.exit28.thread.i961 ]
   %1939 = icmp ult ptr %1918, %36
   br i1 %1939, label %.split.i935, label %ZSTD_compressBlock_fast_noDict_4_1.exit, !llvm.loop !35
 
 .sink.split.i1093:                                ; preds = %ZSTD_match4Found_branch.exit.i950, %ZSTD_match4Found_branch.exit.us.i1113, %.split183.us.i966
-  %.us-phi178.sink.i1094 = phi ptr [ %.us-phi188.i971, %.split183.us.i966 ], [ %.0228.i.us.i1108, %ZSTD_match4Found_branch.exit.us.i1113 ], [ %.0228.i.i943, %ZSTD_match4Found_branch.exit.i950 ]
-  %.us-phi180.sink.i1095 = phi i64 [ %.us-phi185.i968, %.split183.us.i966 ], [ %.0262.i.us.i1111, %ZSTD_match4Found_branch.exit.us.i1113 ], [ %.0262.i.i946, %ZSTD_match4Found_branch.exit.i950 ]
-  %.1261.i.ph.ph.i1096 = phi i32 [ %.us-phi184.i967, %.split183.us.i966 ], [ %.0260.i.us.i1103, %ZSTD_match4Found_branch.exit.us.i1113 ], [ %.0260.i.i938, %ZSTD_match4Found_branch.exit.i950 ]
-  %.0234.i.ph.ph.i1097 = phi i32 [ %.us-phi186.i969, %.split183.us.i966 ], [ %1872, %ZSTD_match4Found_branch.exit.us.i1113 ], [ %1899, %ZSTD_match4Found_branch.exit.i950 ]
-  %.2227.i.ph.ph.i1098 = phi ptr [ %.us-phi189.i972, %.split183.us.i966 ], [ %.1226.i.us.i1109, %ZSTD_match4Found_branch.exit.us.i1113 ], [ %.1226.i.i944, %ZSTD_match4Found_branch.exit.i950 ]
+  %.us-phi178.sink.i1094 = phi ptr [ %.0228.i.us.i1108, %ZSTD_match4Found_branch.exit.us.i1113 ], [ %.us-phi188.i971, %.split183.us.i966 ], [ %.0228.i.i943, %ZSTD_match4Found_branch.exit.i950 ]
+  %.us-phi180.sink.i1095 = phi i64 [ %.0262.i.us.i1111, %ZSTD_match4Found_branch.exit.us.i1113 ], [ %.us-phi185.i968, %.split183.us.i966 ], [ %.0262.i.i946, %ZSTD_match4Found_branch.exit.i950 ]
+  %.1261.i.ph.ph.i1096 = phi i32 [ %.0260.i.us.i1103, %ZSTD_match4Found_branch.exit.us.i1113 ], [ %.us-phi184.i967, %.split183.us.i966 ], [ %.0260.i.i938, %ZSTD_match4Found_branch.exit.i950 ]
+  %.0234.i.ph.ph.i1097 = phi i32 [ %1872, %ZSTD_match4Found_branch.exit.us.i1113 ], [ %.us-phi186.i969, %.split183.us.i966 ], [ %1899, %ZSTD_match4Found_branch.exit.i950 ]
+  %.2227.i.ph.ph.i1098 = phi ptr [ %.1226.i.us.i1109, %ZSTD_match4Found_branch.exit.us.i1113 ], [ %.us-phi189.i972, %.split183.us.i966 ], [ %.1226.i.i944, %ZSTD_match4Found_branch.exit.i950 ]
   %1940 = ptrtoint ptr %.us-phi178.sink.i1094 to i64
   %1941 = sub i64 %1940, %21
   %1942 = trunc i64 %1941 to i32
@@ -5290,9 +5290,9 @@ ZSTD_storeSeqOnly.exit7.i1029:                    ; preds = %2144, %ZSTD_storeSe
   br i1 %.not287.i.i1030, label %.critedge3.i.i1009, label %.lr.ph206.i1003
 
 .critedge3.i.i1009:                               ; preds = %ZSTD_storeSeqOnly.exit7.i1029, %.lr.ph206.i1003, %2069, %ZSTD_storeSeqOnly.exit.i998
-  %.3271.i.i1010 = phi i32 [ 0, %2069 ], [ %.2270.i.i978, %ZSTD_storeSeqOnly.exit.i998 ], [ %.4272.i203.i1006, %.lr.ph206.i1003 ], [ %.4239.i204.i1005, %ZSTD_storeSeqOnly.exit7.i1029 ]
-  %.3238.i.i1011 = phi i32 [ %.2237.i.i982, %2069 ], [ %.2237.i.i982, %ZSTD_storeSeqOnly.exit.i998 ], [ %.4239.i204.i1005, %.lr.ph206.i1003 ], [ %.4272.i203.i1006, %ZSTD_storeSeqOnly.exit7.i1029 ]
-  %.1.i.i1012 = phi ptr [ %2068, %2069 ], [ %2068, %ZSTD_storeSeqOnly.exit.i998 ], [ %.2.i205.i1004, %.lr.ph206.i1003 ], [ %2137, %ZSTD_storeSeqOnly.exit7.i1029 ]
+  %.3271.i.i1010 = phi i32 [ %.2270.i.i978, %ZSTD_storeSeqOnly.exit.i998 ], [ 0, %2069 ], [ %.4272.i203.i1006, %.lr.ph206.i1003 ], [ %.4239.i204.i1005, %ZSTD_storeSeqOnly.exit7.i1029 ]
+  %.3238.i.i1011 = phi i32 [ %.2237.i.i982, %ZSTD_storeSeqOnly.exit.i998 ], [ %.2237.i.i982, %2069 ], [ %.4239.i204.i1005, %.lr.ph206.i1003 ], [ %.4272.i203.i1006, %ZSTD_storeSeqOnly.exit7.i1029 ]
+  %.1.i.i1012 = phi ptr [ %2068, %ZSTD_storeSeqOnly.exit.i998 ], [ %2068, %2069 ], [ %.2.i205.i1004, %.lr.ph206.i1003 ], [ %2137, %ZSTD_storeSeqOnly.exit7.i1029 ]
   %2154 = getelementptr inbounds nuw i8, ptr %.1.i.i1012, i64 %17
   %2155 = getelementptr inbounds nuw i8, ptr %2154, i64 1
   %.not281.i.i1013 = icmp ult ptr %2155, %36
@@ -5406,8 +5406,8 @@ ZSTD_match4Found_branch.exit28.thread.us.i1340:   ; preds = %ZSTD_match4Found_br
   br label %2205
 
 2205:                                             ; preds = %2200, %ZSTD_match4Found_branch.exit28.thread.us.i1340
-  %.1244.i.ph.us.i1343 = phi i64 [ %.0243.i.us.i1320, %ZSTD_match4Found_branch.exit28.thread.us.i1340 ], [ %2201, %2200 ]
-  %.1241.i.ph.us.i1344 = phi ptr [ %.0240.i.us.i1321, %ZSTD_match4Found_branch.exit28.thread.us.i1340 ], [ %2204, %2200 ]
+  %.1244.i.ph.us.i1343 = phi i64 [ %2201, %2200 ], [ %.0243.i.us.i1320, %ZSTD_match4Found_branch.exit28.thread.us.i1340 ]
+  %.1241.i.ph.us.i1344 = phi ptr [ %2204, %2200 ], [ %.0240.i.us.i1321, %ZSTD_match4Found_branch.exit28.thread.us.i1340 ]
   %2206 = icmp ult ptr %2199, %36
   br i1 %2206, label %.split.us.i1316, label %ZSTD_compressBlock_fast_noDict_4_1.exit, !llvm.loop !35
 
@@ -5514,17 +5514,17 @@ ZSTD_match4Found_branch.exit28.thread.i1177:      ; preds = %ZSTD_match4Found_br
   br label %.critedge.i.i1192
 
 2249:                                             ; preds = %2230, %ZSTD_match4Found_branch.exit28.thread.i1177
-  %.1244.i.ph.i1180 = phi i64 [ %.0243.i.i1155, %ZSTD_match4Found_branch.exit28.thread.i1177 ], [ %2231, %2230 ]
-  %.1241.i.ph.i1181 = phi ptr [ %.0240.i.i1156, %ZSTD_match4Found_branch.exit28.thread.i1177 ], [ %2234, %2230 ]
+  %.1244.i.ph.i1180 = phi i64 [ %2231, %2230 ], [ %.0243.i.i1155, %ZSTD_match4Found_branch.exit28.thread.i1177 ]
+  %.1241.i.ph.i1181 = phi ptr [ %2234, %2230 ], [ %.0240.i.i1156, %ZSTD_match4Found_branch.exit28.thread.i1177 ]
   %2250 = icmp ult ptr %2229, %36
   br i1 %2250, label %.split.i1151, label %ZSTD_compressBlock_fast_noDict_4_1.exit, !llvm.loop !35
 
 .sink.split.i1309:                                ; preds = %ZSTD_match4Found_branch.exit.i1166, %ZSTD_match4Found_branch.exit.us.i1329, %.split183.us.i1182
-  %.us-phi178.sink.i1310 = phi ptr [ %.us-phi188.i1187, %.split183.us.i1182 ], [ %.0228.i.us.i1324, %ZSTD_match4Found_branch.exit.us.i1329 ], [ %.0228.i.i1159, %ZSTD_match4Found_branch.exit.i1166 ]
-  %.us-phi180.sink.i1311 = phi i64 [ %.us-phi185.i1184, %.split183.us.i1182 ], [ %.0262.i.us.i1327, %ZSTD_match4Found_branch.exit.us.i1329 ], [ %.0262.i.i1162, %ZSTD_match4Found_branch.exit.i1166 ]
-  %.1261.i.ph.ph.i1312 = phi i32 [ %.us-phi184.i1183, %.split183.us.i1182 ], [ %.0260.i.us.i1319, %ZSTD_match4Found_branch.exit.us.i1329 ], [ %.0260.i.i1154, %ZSTD_match4Found_branch.exit.i1166 ]
-  %.0234.i.ph.ph.i1313 = phi i32 [ %.us-phi186.i1185, %.split183.us.i1182 ], [ %2183, %ZSTD_match4Found_branch.exit.us.i1329 ], [ %2210, %ZSTD_match4Found_branch.exit.i1166 ]
-  %.2227.i.ph.ph.i1314 = phi ptr [ %.us-phi189.i1188, %.split183.us.i1182 ], [ %.1226.i.us.i1325, %ZSTD_match4Found_branch.exit.us.i1329 ], [ %.1226.i.i1160, %ZSTD_match4Found_branch.exit.i1166 ]
+  %.us-phi178.sink.i1310 = phi ptr [ %.0228.i.us.i1324, %ZSTD_match4Found_branch.exit.us.i1329 ], [ %.us-phi188.i1187, %.split183.us.i1182 ], [ %.0228.i.i1159, %ZSTD_match4Found_branch.exit.i1166 ]
+  %.us-phi180.sink.i1311 = phi i64 [ %.0262.i.us.i1327, %ZSTD_match4Found_branch.exit.us.i1329 ], [ %.us-phi185.i1184, %.split183.us.i1182 ], [ %.0262.i.i1162, %ZSTD_match4Found_branch.exit.i1166 ]
+  %.1261.i.ph.ph.i1312 = phi i32 [ %.0260.i.us.i1319, %ZSTD_match4Found_branch.exit.us.i1329 ], [ %.us-phi184.i1183, %.split183.us.i1182 ], [ %.0260.i.i1154, %ZSTD_match4Found_branch.exit.i1166 ]
+  %.0234.i.ph.ph.i1313 = phi i32 [ %2183, %ZSTD_match4Found_branch.exit.us.i1329 ], [ %.us-phi186.i1185, %.split183.us.i1182 ], [ %2210, %ZSTD_match4Found_branch.exit.i1166 ]
+  %.2227.i.ph.ph.i1314 = phi ptr [ %.1226.i.us.i1325, %ZSTD_match4Found_branch.exit.us.i1329 ], [ %.us-phi189.i1188, %.split183.us.i1182 ], [ %.1226.i.i1160, %ZSTD_match4Found_branch.exit.i1166 ]
   %2251 = ptrtoint ptr %.us-phi178.sink.i1310 to i64
   %2252 = sub i64 %2251, %21
   %2253 = trunc i64 %2252 to i32
@@ -6000,18 +6000,18 @@ ZSTD_storeSeqOnly.exit7.i1245:                    ; preds = %2455, %ZSTD_storeSe
   br i1 %.not287.i.i1246, label %.critedge3.i.i1225, label %.lr.ph206.i1219
 
 .critedge3.i.i1225:                               ; preds = %ZSTD_storeSeqOnly.exit7.i1245, %.lr.ph206.i1219, %2380, %ZSTD_storeSeqOnly.exit.i1214
-  %.3271.i.i1226 = phi i32 [ 0, %2380 ], [ %.2270.i.i1194, %ZSTD_storeSeqOnly.exit.i1214 ], [ %.4272.i203.i1222, %.lr.ph206.i1219 ], [ %.4239.i204.i1221, %ZSTD_storeSeqOnly.exit7.i1245 ]
-  %.3238.i.i1227 = phi i32 [ %.2237.i.i1198, %2380 ], [ %.2237.i.i1198, %ZSTD_storeSeqOnly.exit.i1214 ], [ %.4239.i204.i1221, %.lr.ph206.i1219 ], [ %.4272.i203.i1222, %ZSTD_storeSeqOnly.exit7.i1245 ]
-  %.1.i.i1228 = phi ptr [ %2379, %2380 ], [ %2379, %ZSTD_storeSeqOnly.exit.i1214 ], [ %.2.i205.i1220, %.lr.ph206.i1219 ], [ %2448, %ZSTD_storeSeqOnly.exit7.i1245 ]
+  %.3271.i.i1226 = phi i32 [ %.2270.i.i1194, %ZSTD_storeSeqOnly.exit.i1214 ], [ 0, %2380 ], [ %.4272.i203.i1222, %.lr.ph206.i1219 ], [ %.4239.i204.i1221, %ZSTD_storeSeqOnly.exit7.i1245 ]
+  %.3238.i.i1227 = phi i32 [ %.2237.i.i1198, %ZSTD_storeSeqOnly.exit.i1214 ], [ %.2237.i.i1198, %2380 ], [ %.4239.i204.i1221, %.lr.ph206.i1219 ], [ %.4272.i203.i1222, %ZSTD_storeSeqOnly.exit7.i1245 ]
+  %.1.i.i1228 = phi ptr [ %2379, %ZSTD_storeSeqOnly.exit.i1214 ], [ %2379, %2380 ], [ %.2.i205.i1220, %.lr.ph206.i1219 ], [ %2448, %ZSTD_storeSeqOnly.exit7.i1245 ]
   %2465 = getelementptr inbounds nuw i8, ptr %.1.i.i1228, i64 %17
   %2466 = getelementptr inbounds nuw i8, ptr %2465, i64 1
   %.not281.i.i1229 = icmp ult ptr %2466, %36
   br i1 %.not281.i.i1229, label %2170, label %ZSTD_compressBlock_fast_noDict_4_1.exit
 
 ZSTD_compressBlock_fast_noDict_4_1.exit:          ; preds = %.critedge3.i.i1009, %1938, %1894, %.critedge3.i.i794, %1627, %1583, %.critedge3.i.i1225, %2249, %2205, %.critedge3.i.i644, %1313, %1268, %.critedge3.i.i306, %712, %.critedge3.i.i130, %423, %.critedge3.i.i487, %1001, %.critedge3.i.i, %131, %2156, %1845, %1534, %1218, %928, %639, %350, %57
-  %.1236.i171.i1136.sink2955 = phi i32 [ %.0235.i.i, %57 ], [ %.0235.i.i, %350 ], [ %.0235.i.i, %639 ], [ %.0235.i.i, %928 ], [ %.0235.i.i, %1218 ], [ %.0235.i.i, %1534 ], [ %.0235.i.i, %1845 ], [ %.0235.i.i, %2156 ], [ %.1236.i216.fr.i931, %1938 ], [ %.1236.i200.i, %131 ], [ %.3238.i.i, %.critedge3.i.i ], [ %.1236.i200.i417, %1001 ], [ %.3238.i.i489, %.critedge3.i.i487 ], [ %.1236.i200.i61, %423 ], [ %.3238.i.i132, %.critedge3.i.i130 ], [ %.1236.i200.i236, %712 ], [ %.3238.i.i308, %.critedge3.i.i306 ], [ 0, %1268 ], [ %.1236.i216.fr.i, %1313 ], [ %.3238.i.i646, %.critedge3.i.i644 ], [ 0, %2205 ], [ %.1236.i216.fr.i1147, %2249 ], [ %.3238.i.i1227, %.critedge3.i.i1225 ], [ 0, %1583 ], [ %.1236.i216.fr.i716, %1627 ], [ %.3238.i.i796, %.critedge3.i.i794 ], [ 0, %1894 ], [ %.3238.i.i1011, %.critedge3.i.i1009 ]
-  %.1269.i173.i1135.sink2953 = phi i32 [ %spec.select.i.i, %57 ], [ %spec.select.i.i, %350 ], [ %spec.select.i.i, %639 ], [ %spec.select.i.i, %928 ], [ %spec.select.i.i, %1218 ], [ %spec.select.i.i, %1534 ], [ %spec.select.i.i, %1845 ], [ %spec.select.i.i, %2156 ], [ %.1269.i215.i930, %1938 ], [ %.1269.i199.i, %131 ], [ %.3271.i.i, %.critedge3.i.i ], [ %.1269.i199.i418, %1001 ], [ %.3271.i.i488, %.critedge3.i.i487 ], [ %.1269.i199.i62, %423 ], [ %.3271.i.i131, %.critedge3.i.i130 ], [ %.1269.i199.i237, %712 ], [ %.3271.i.i307, %.critedge3.i.i306 ], [ %.1269.i215.i, %1268 ], [ %.1269.i215.i, %1313 ], [ %.3271.i.i645, %.critedge3.i.i644 ], [ %.1269.i215.i1146, %2205 ], [ %.1269.i215.i1146, %2249 ], [ %.3271.i.i1226, %.critedge3.i.i1225 ], [ %.1269.i215.i715, %1583 ], [ %.1269.i215.i715, %1627 ], [ %.3271.i.i795, %.critedge3.i.i794 ], [ %.1269.i215.i930, %1894 ], [ %.3271.i.i1010, %.critedge3.i.i1009 ]
-  %.0223.i169.i1137.sink = phi ptr [ %3, %57 ], [ %3, %350 ], [ %3, %639 ], [ %3, %928 ], [ %3, %1218 ], [ %3, %1534 ], [ %3, %1845 ], [ %3, %2156 ], [ %.0223.i219.i927, %1938 ], [ %.0223.i202.i, %131 ], [ %.1.i.i, %.critedge3.i.i ], [ %.0223.i202.i415, %1001 ], [ %.1.i.i490, %.critedge3.i.i487 ], [ %.0223.i202.i59, %423 ], [ %.1.i.i133, %.critedge3.i.i130 ], [ %.0223.i202.i234, %712 ], [ %.1.i.i309, %.critedge3.i.i306 ], [ %.0223.i219.i, %1268 ], [ %.0223.i219.i, %1313 ], [ %.1.i.i647, %.critedge3.i.i644 ], [ %.0223.i219.i1143, %2205 ], [ %.0223.i219.i1143, %2249 ], [ %.1.i.i1228, %.critedge3.i.i1225 ], [ %.0223.i219.i712, %1583 ], [ %.0223.i219.i712, %1627 ], [ %.1.i.i797, %.critedge3.i.i794 ], [ %.0223.i219.i927, %1894 ], [ %.1.i.i1012, %.critedge3.i.i1009 ]
+  %.1236.i171.i1136.sink2955 = phi i32 [ %.1236.i216.fr.i716, %1627 ], [ %.1236.i216.fr.i1147, %2249 ], [ %.1236.i200.i236, %712 ], [ %.1236.i216.fr.i931, %1938 ], [ %.3238.i.i489, %.critedge3.i.i487 ], [ %.3238.i.i, %.critedge3.i.i ], [ %.3238.i.i796, %.critedge3.i.i794 ], [ %.1236.i216.fr.i, %1313 ], [ %.0235.i.i, %57 ], [ %.1236.i200.i, %131 ], [ %.0235.i.i, %350 ], [ %.1236.i200.i417, %1001 ], [ %.0235.i.i, %639 ], [ 0, %1894 ], [ %.0235.i.i, %928 ], [ %.3238.i.i132, %.critedge3.i.i130 ], [ %.1236.i200.i61, %423 ], [ %.0235.i.i, %1218 ], [ 0, %2205 ], [ %.3238.i.i646, %.critedge3.i.i644 ], [ %.0235.i.i, %1534 ], [ 0, %1583 ], [ %.3238.i.i1227, %.critedge3.i.i1225 ], [ %.0235.i.i, %1845 ], [ 0, %1268 ], [ %.3238.i.i308, %.critedge3.i.i306 ], [ %.0235.i.i, %2156 ], [ %.3238.i.i1011, %.critedge3.i.i1009 ]
+  %.1269.i173.i1135.sink2953 = phi i32 [ %.1269.i215.i715, %1627 ], [ %.1269.i215.i1146, %2249 ], [ %.1269.i199.i237, %712 ], [ %.1269.i215.i930, %1938 ], [ %.3271.i.i488, %.critedge3.i.i487 ], [ %.3271.i.i, %.critedge3.i.i ], [ %.3271.i.i795, %.critedge3.i.i794 ], [ %.1269.i215.i, %1313 ], [ %spec.select.i.i, %57 ], [ %.1269.i199.i, %131 ], [ %spec.select.i.i, %350 ], [ %.1269.i199.i418, %1001 ], [ %spec.select.i.i, %639 ], [ %.1269.i215.i930, %1894 ], [ %spec.select.i.i, %928 ], [ %.3271.i.i131, %.critedge3.i.i130 ], [ %.1269.i199.i62, %423 ], [ %spec.select.i.i, %1218 ], [ %.1269.i215.i1146, %2205 ], [ %.3271.i.i645, %.critedge3.i.i644 ], [ %spec.select.i.i, %1534 ], [ %.1269.i215.i715, %1583 ], [ %.3271.i.i1226, %.critedge3.i.i1225 ], [ %spec.select.i.i, %1845 ], [ %.1269.i215.i, %1268 ], [ %.3271.i.i307, %.critedge3.i.i306 ], [ %spec.select.i.i, %2156 ], [ %.3271.i.i1010, %.critedge3.i.i1009 ]
+  %.0223.i169.i1137.sink = phi ptr [ %.0223.i219.i712, %1627 ], [ %.0223.i219.i1143, %2249 ], [ %.0223.i202.i234, %712 ], [ %.0223.i219.i927, %1938 ], [ %.1.i.i490, %.critedge3.i.i487 ], [ %.1.i.i, %.critedge3.i.i ], [ %.1.i.i797, %.critedge3.i.i794 ], [ %.0223.i219.i, %1313 ], [ %3, %57 ], [ %.0223.i202.i, %131 ], [ %3, %350 ], [ %.0223.i202.i415, %1001 ], [ %3, %639 ], [ %.0223.i219.i927, %1894 ], [ %3, %928 ], [ %.1.i.i133, %.critedge3.i.i130 ], [ %.0223.i202.i59, %423 ], [ %3, %1218 ], [ %.0223.i219.i1143, %2205 ], [ %.1.i.i647, %.critedge3.i.i644 ], [ %3, %1534 ], [ %.0223.i219.i712, %1583 ], [ %.1.i.i1228, %.critedge3.i.i1225 ], [ %3, %1845 ], [ %.0223.i219.i, %1268 ], [ %.1.i.i309, %.critedge3.i.i306 ], [ %3, %2156 ], [ %.1.i.i1012, %.critedge3.i.i1009 ]
   %.0267.i.i1138 = select i1 %53, i32 %37, i32 0
   %spec.select289.i.i1139 = select i1 %52, i32 %39, i32 0
   %2467 = icmp ne i32 %.1236.i171.i1136.sink2955, 0
@@ -9437,9 +9437,9 @@ ZSTD_storeSeq.exit.i.i549:                        ; preds = %1544, %1539
   br i1 %.not333.i.i545, label %ZSTD_compressBlock_fast_dictMatchState_4_0.exit, label %1216
 
 ZSTD_compressBlock_fast_dictMatchState_4_0.exit:  ; preds = %.thread123.i322, %ZSTD_match4Found_cmov.exit.thread.i278, %.thread123.i104, %ZSTD_match4Found_cmov.exit.thread.i60, %.thread123.i540, %ZSTD_match4Found_cmov.exit.thread.i496, %.thread123.i, %ZSTD_match4Found_cmov.exit.thread.i, %.loopexit.i463, %.loopexit.i245, %.loopexit.i28, %.loopexit.i
-  %.0272.i173.i502.sink = phi i32 [ %24, %.loopexit.i ], [ %24, %.loopexit.i28 ], [ %24, %.loopexit.i245 ], [ %24, %.loopexit.i463 ], [ %.0272.i201.i252, %ZSTD_match4Found_cmov.exit.thread.i278 ], [ %.0272.i201.i, %ZSTD_match4Found_cmov.exit.thread.i ], [ %.6278.i.i, %.thread123.i ], [ %.0272.i201.i470, %ZSTD_match4Found_cmov.exit.thread.i496 ], [ %.6278.i.i542, %.thread123.i540 ], [ %.0272.i201.i35, %ZSTD_match4Found_cmov.exit.thread.i60 ], [ %.6278.i.i106, %.thread123.i104 ], [ %.6278.i.i324, %.thread123.i322 ]
-  %.0282.i175.i501.sink = phi i32 [ %26, %.loopexit.i ], [ %26, %.loopexit.i28 ], [ %26, %.loopexit.i245 ], [ %26, %.loopexit.i463 ], [ %.0282.i200.i253, %ZSTD_match4Found_cmov.exit.thread.i278 ], [ %.0282.i200.i, %ZSTD_match4Found_cmov.exit.thread.i ], [ %.6288.i.i, %.thread123.i ], [ %.0282.i200.i471, %ZSTD_match4Found_cmov.exit.thread.i496 ], [ %.6288.i.i541, %.thread123.i540 ], [ %.0282.i200.i36, %ZSTD_match4Found_cmov.exit.thread.i60 ], [ %.6288.i.i105, %.thread123.i104 ], [ %.6288.i.i323, %.thread123.i322 ]
-  %.0266.i171.i503.sink = phi ptr [ %3, %.loopexit.i ], [ %3, %.loopexit.i28 ], [ %3, %.loopexit.i245 ], [ %3, %.loopexit.i463 ], [ %.0266.i202.i251, %ZSTD_match4Found_cmov.exit.thread.i278 ], [ %.0266.i202.i, %ZSTD_match4Found_cmov.exit.thread.i ], [ %.2268.i.i, %.thread123.i ], [ %.0266.i202.i469, %ZSTD_match4Found_cmov.exit.thread.i496 ], [ %.2268.i.i543, %.thread123.i540 ], [ %.0266.i202.i34, %ZSTD_match4Found_cmov.exit.thread.i60 ], [ %.2268.i.i107, %.thread123.i104 ], [ %.2268.i.i325, %.thread123.i322 ]
+  %.0272.i173.i502.sink = phi i32 [ %.6278.i.i542, %.thread123.i540 ], [ %.6278.i.i, %.thread123.i ], [ %.0272.i201.i35, %ZSTD_match4Found_cmov.exit.thread.i60 ], [ %.0272.i201.i252, %ZSTD_match4Found_cmov.exit.thread.i278 ], [ %24, %.loopexit.i ], [ %.0272.i201.i, %ZSTD_match4Found_cmov.exit.thread.i ], [ %24, %.loopexit.i28 ], [ %.0272.i201.i470, %ZSTD_match4Found_cmov.exit.thread.i496 ], [ %24, %.loopexit.i245 ], [ %.6278.i.i106, %.thread123.i104 ], [ %24, %.loopexit.i463 ], [ %.6278.i.i324, %.thread123.i322 ]
+  %.0282.i175.i501.sink = phi i32 [ %.6288.i.i541, %.thread123.i540 ], [ %.6288.i.i, %.thread123.i ], [ %.0282.i200.i36, %ZSTD_match4Found_cmov.exit.thread.i60 ], [ %.0282.i200.i253, %ZSTD_match4Found_cmov.exit.thread.i278 ], [ %26, %.loopexit.i ], [ %.0282.i200.i, %ZSTD_match4Found_cmov.exit.thread.i ], [ %26, %.loopexit.i28 ], [ %.0282.i200.i471, %ZSTD_match4Found_cmov.exit.thread.i496 ], [ %26, %.loopexit.i245 ], [ %.6288.i.i105, %.thread123.i104 ], [ %26, %.loopexit.i463 ], [ %.6288.i.i323, %.thread123.i322 ]
+  %.0266.i171.i503.sink = phi ptr [ %.2268.i.i543, %.thread123.i540 ], [ %.2268.i.i, %.thread123.i ], [ %.0266.i202.i34, %ZSTD_match4Found_cmov.exit.thread.i60 ], [ %.0266.i202.i251, %ZSTD_match4Found_cmov.exit.thread.i278 ], [ %3, %.loopexit.i ], [ %.0266.i202.i, %ZSTD_match4Found_cmov.exit.thread.i ], [ %3, %.loopexit.i28 ], [ %.0266.i202.i469, %ZSTD_match4Found_cmov.exit.thread.i496 ], [ %3, %.loopexit.i245 ], [ %.2268.i.i107, %.thread123.i104 ], [ %3, %.loopexit.i463 ], [ %.2268.i.i325, %.thread123.i322 ]
   store i32 %.0272.i173.i502.sink, ptr %2, align 4, !tbaa !21
   store i32 %.0282.i175.i501.sink, ptr %25, align 4, !tbaa !21
   %1566 = ptrtoint ptr %22 to i64
@@ -10019,9 +10019,9 @@ ZSTD_hashPtr.exit377:                             ; preds = %160, %164, %167, %1
   br i1 %181, label %94, label %.loopexit, !llvm.loop !63
 
 .loopexit:                                        ; preds = %.thread, %180, %48
-  %.0296543 = phi ptr [ %3, %48 ], [ %.0296570, %180 ], [ %.6, %.thread ]
-  %.1289536 = phi i32 [ %spec.select368, %48 ], [ %.1289572, %180 ], [ %.3291, %.thread ]
-  %.1285529 = phi i32 [ %.0284, %48 ], [ %.1285573, %180 ], [ %.3287, %.thread ]
+  %.0296543 = phi ptr [ %.0296570, %180 ], [ %3, %48 ], [ %.6, %.thread ]
+  %.1289536 = phi i32 [ %.1289572, %180 ], [ %spec.select368, %48 ], [ %.3291, %.thread ]
+  %.1285529 = phi i32 [ %.1285573, %180 ], [ %.0284, %48 ], [ %.3287, %.thread ]
   %182 = icmp ne i32 %.0294, 0
   %183 = icmp ne i32 %.1285529, 0
   %or.cond = select i1 %182, i1 %183, i1 false

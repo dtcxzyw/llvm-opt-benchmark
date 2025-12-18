@@ -663,7 +663,7 @@ _ZN6vectorIN7min_cut4edgeELb0EjE3endEv.exit.i35:  ; preds = %_ZNK6vectorI7svecto
   br i1 %.not.i37, label %_ZN7min_cut16compute_distanceEj.exit, label %.lr.ph.i36
 
 _ZN7min_cut16compute_distanceEj.exit:             ; preds = %116, %_ZNK6vectorI7svectorIN7min_cut4edgeEjELb1EjE4sizeEv.exit34.thread.thread100, %_ZN6vectorIN7min_cut4edgeELb0EjE3endEv.exit.i35
-  %.017.lcssa.i = phi i32 [ -1, %_ZN6vectorIN7min_cut4edgeELb0EjE3endEv.exit.i35 ], [ -1, %_ZNK6vectorI7svectorIN7min_cut4edgeEjELb1EjE4sizeEv.exit34.thread.thread100 ], [ %.1.i, %116 ]
+  %.017.lcssa.i = phi i32 [ -1, %_ZNK6vectorI7svectorIN7min_cut4edgeEjELb1EjE4sizeEv.exit34.thread.thread100 ], [ -1, %_ZN6vectorIN7min_cut4edgeELb0EjE3endEv.exit.i35 ], [ %.1.i, %116 ]
   %118 = getelementptr inbounds nuw i32, ptr %63, i64 %69
   store i32 %.017.lcssa.i, ptr %118, align 4, !tbaa !12
   %.not = icmp eq i32 %.075, 0
@@ -1227,7 +1227,7 @@ _ZN6vectorIN7min_cut4edgeELb0EjE3endEv.exit:      ; preds = %2
   br label %_ZNK6vectorI7svectorIN7min_cut4edgeEjELb1EjE4sizeEv.exit
 
 _ZNK6vectorI7svectorIN7min_cut4edgeEjELb1EjE4sizeEv.exit: ; preds = %19, %._crit_edge.thread, %._crit_edge
-  %.3 = phi i32 [ %31, %._crit_edge.thread ], [ 0, %._crit_edge ], [ %21, %19 ]
+  %.3 = phi i32 [ 0, %._crit_edge ], [ %31, %._crit_edge.thread ], [ %21, %19 ]
   ret i32 %.3
 }
 
@@ -1709,7 +1709,7 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit:            ; preds = %40, %.noexc25
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %99, %22, %_ZN6vectorIN7min_cut4edgeELb0EjE3endEv.exit, %_ZN6vectorIjLb0EjE4backEv.exit
-  %103 = phi ptr [ %9, %_ZN6vectorIN7min_cut4edgeELb0EjE3endEv.exit ], [ %9, %_ZN6vectorIjLb0EjE4backEv.exit ], [ %9, %22 ], [ %100, %99 ]
+  %103 = phi ptr [ %9, %22 ], [ %9, %_ZN6vectorIN7min_cut4edgeELb0EjE3endEv.exit ], [ %9, %_ZN6vectorIjLb0EjE4backEv.exit ], [ %100, %99 ]
   %104 = icmp eq ptr %103, null
   br i1 %104, label %_ZN6vectorIjLb0EjED2Ev.exit, label %_ZNK6vectorIjLb0EjE5emptyEv.exit, !llvm.loop !46
 

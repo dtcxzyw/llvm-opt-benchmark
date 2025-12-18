@@ -17012,7 +17012,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK8LightGBM7Dataset10CheckAlignERKS0_(
   br i1 %exitcond.not, label %_ZNK8LightGBM9BinMapper10CheckAlignERKS0_.exit, label %30, !llvm.loop !591
 
 _ZNK8LightGBM9BinMapper10CheckAlignERKS0_.exit:   ; preds = %57, %30, %.loopexit, %83, %76, %.preheader, %12, %7, %2
-  %.011 = phi i1 [ false, %12 ], [ false, %2 ], [ false, %7 ], [ true, %.preheader ], [ false, %76 ], [ false, %83 ], [ false, %30 ], [ false, %57 ], [ true, %.loopexit ]
+  %.011 = phi i1 [ false, %12 ], [ false, %2 ], [ false, %7 ], [ false, %83 ], [ true, %.preheader ], [ false, %76 ], [ false, %57 ], [ false, %30 ], [ true, %.loopexit ]
   ret i1 %.011
 }
 
@@ -18416,8 +18416,8 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br label %.critedge85
 
 .critedge85:                                      ; preds = %..critedge85_crit_edge, %153, %155
-  %158 = phi ptr [ %.pre, %..critedge85_crit_edge ], [ %.pre172, %155 ], [ %.pre172, %153 ]
-  %159 = phi i1 [ false, %..critedge85_crit_edge ], [ %157, %155 ], [ true, %153 ]
+  %158 = phi ptr [ %.pre172, %153 ], [ %.pre172, %155 ], [ %.pre, %..critedge85_crit_edge ]
+  %159 = phi i1 [ true, %153 ], [ %157, %155 ], [ false, %..critedge85_crit_edge ]
   %160 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %161 = icmp eq ptr %158, %160
   br i1 %161, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i123, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i122
@@ -20541,7 +20541,7 @@ _ZNSt10_HashtableIiSt4pairIKidESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   br label %common.resume.sink.split
 
 _ZNSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEEixERS5_.exit: ; preds = %18, %13, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %14, %13 ], [ %29, %.loopexit.i.i ], [ %20, %18 ]
+  %.pn.i.i = phi ptr [ %29, %.loopexit.i.i ], [ %14, %13 ], [ %20, %18 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   %31 = load double, ptr %.1.i.i, align 8, !tbaa !314
   %32 = fadd double %5, %31

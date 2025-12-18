@@ -4271,7 +4271,7 @@ define hidden noundef zeroext i1 @_ZNK7datalog7context15has_sort_domainEP4sort(p
   br i1 %.not27.old.i.i.i, label %_ZNK7obj_mapIK4sortPN7datalog7context11sort_domainEE8containsEPS1_.exit, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %35, %32
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %35 ], [ %34, %32 ]
+  %.137.i.i.i.be = phi ptr [ %34, %32 ], [ %.old.i.i.i, %35 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !320
 
 _ZNK7obj_mapIK4sortPN7datalog7context11sort_domainEE8containsEPS1_.exit: ; preds = %16, %21, %27, %32, %35, %.preheader.i.i.i
@@ -5159,7 +5159,7 @@ define hidden void @_ZN7datalog7context18register_predicateEP9func_declb(ptr nou
   br i1 %.not27.old.i.i.i, label %.loopexit, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %38, %35
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %38 ], [ %37, %35 ]
+  %.137.i.i.i.be = phi ptr [ %37, %35 ], [ %.old.i.i.i, %38 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !354
 
 .loopexit:                                        ; preds = %24, %35, %38, %.preheader.i.i.i
@@ -5971,7 +5971,7 @@ define hidden void @_ZN7datalog7context19print_constant_nameEP4sortmRSo(ptr noun
   br i1 %.not27.old.i.i.i.i, label %.loopexit, label %.lr.ph38.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.backedge:                        ; preds = %37, %34
-  %.137.i.i.i.i.be = phi ptr [ %.old.i.i.i.i, %37 ], [ %36, %34 ]
+  %.137.i.i.i.i.be = phi ptr [ %36, %34 ], [ %.old.i.i.i.i, %37 ]
   br label %.lr.ph38.i.i.i.i, !llvm.loop !320
 
 _ZNK7datalog7context15has_sort_domainEP4sort.exit: ; preds = %18, %29
@@ -6118,7 +6118,7 @@ define hidden noundef zeroext i1 @_ZN7datalog7context27try_get_sort_constant_cou
   br i1 %.not27.old.i.i.i.i, label %_ZNK7datalog7context15has_sort_domainEP4sort.exit.thread, label %.lr.ph38.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.backedge:                        ; preds = %36, %33
-  %.137.i.i.i.i.be = phi ptr [ %.old.i.i.i.i, %36 ], [ %35, %33 ]
+  %.137.i.i.i.i.be = phi ptr [ %35, %33 ], [ %.old.i.i.i.i, %36 ]
   br label %.lr.ph38.i.i.i.i, !llvm.loop !320
 
 _ZNK7datalog7context15has_sort_domainEP4sort.exit: ; preds = %17, %28
@@ -6407,7 +6407,7 @@ define hidden ptr @_ZN7datalog7context17get_argument_nameEPK9func_declj(ptr noun
   br i1 %.not27.old.i.i, label %.loopexit, label %.lr.ph38.i.i.backedge
 
 .lr.ph38.i.i.backedge:                            ; preds = %41, %38
-  %.137.i.i.be = phi ptr [ %.old.i.i, %41 ], [ %40, %38 ]
+  %.137.i.i.be = phi ptr [ %40, %38 ], [ %.old.i.i, %41 ]
   br label %.lr.ph38.i.i, !llvm.loop !380
 
 .loopexit:                                        ; preds = %27, %41, %38, %.preheader.i.i
@@ -7592,7 +7592,7 @@ define hidden noundef zeroext i1 @_ZN7datalog7context14check_subsumesERKNS_4rule
   br i1 %exitcond43.not, label %.critedge, label %.lr.ph, !llvm.loop !466
 
 .critedge:                                        ; preds = %24, %18, %.preheader, %.lr.ph32, %3
-  %.0 = phi i1 [ false, %3 ], [ false, %.lr.ph32 ], [ true, %.preheader ], [ false, %18 ], [ true, %24 ]
+  %.0 = phi i1 [ false, %3 ], [ false, %.lr.ph32 ], [ false, %18 ], [ true, %.preheader ], [ true, %24 ]
   ret i1 %.0
 }
 
@@ -11240,7 +11240,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit1
   br i1 %.not27.old.i.i.i, label %.loopexit136, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %169, %166
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %169 ], [ %168, %166 ]
+  %.137.i.i.i.be = phi ptr [ %168, %166 ], [ %.old.i.i.i, %169 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !354
 
 .loopexit:                                        ; preds = %150, %161
@@ -12205,7 +12205,7 @@ _ZNK4decl13get_family_idEv.exit.thread:           ; preds = %162, %_ZNK4decl13ge
   br i1 %.not27.old.i.i.i, label %_ZNK7datalog7context12is_predicateEP9func_decl.exit.thread, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %202, %199
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %202 ], [ %201, %199 ]
+  %.137.i.i.i.be = phi ptr [ %201, %199 ], [ %.old.i.i.i, %202 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !354
 
 _ZNK7datalog7context12is_predicateEP9func_decl.exit: ; preds = %183, %194
@@ -13296,7 +13296,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit3
   br i1 %.not27.old.i.i.i.i, label %.loopexit, label %.lr.ph38.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.backedge:                        ; preds = %588, %585
-  %.137.i.i.i.i.be = phi ptr [ %.old.i.i.i.i, %588 ], [ %587, %585 ]
+  %.137.i.i.i.i.be = phi ptr [ %587, %585 ], [ %.old.i.i.i.i, %588 ]
   br label %.lr.ph38.i.i.i.i, !llvm.loop !354
 
 _ZNK7datalog7context12is_predicateEP9func_decl.exit.i: ; preds = %569, %580
@@ -15251,7 +15251,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit9
   br i1 %.not27.old.i.i.i, label %_ZNK7obj_mapI4sortjE4findEPS0_Rj.exit.thread, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %278, %275
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %278 ], [ %277, %275 ]
+  %.137.i.i.i.be = phi ptr [ %277, %275 ], [ %.old.i.i.i, %278 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !612
 
 .loopexit214:                                     ; preds = %259, %270
@@ -16430,7 +16430,7 @@ define hidden noundef zeroext i1 @_ZN7datalog7context8is_queryEP4expr(ptr nounde
   br i1 %.not27.old.i.i.i, label %.critedge, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %42, %39
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %42 ], [ %41, %39 ]
+  %.137.i.i.i.be = phi ptr [ %41, %39 ], [ %.old.i.i.i, %42 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !354
 
 _ZNK7datalog7context12is_predicateEP9func_decl.exit: ; preds = %23, %34
@@ -16467,7 +16467,7 @@ _ZNK7datalog7context12is_predicateEP9func_decl.exit: ; preds = %23, %34
   br i1 %.not, label %46, label %.critedge
 
 .critedge:                                        ; preds = %28, %42, %39, %.lr.ph, %53, %46, %_ZNK7datalog7context12is_predicateEP9func_decl.exit, %.preheader.i.i.i, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %.preheader.i.i.i ], [ true, %_ZNK7datalog7context12is_predicateEP9func_decl.exit ], [ false, %42 ], [ true, %46 ], [ false, %.lr.ph ], [ false, %53 ], [ false, %39 ], [ false, %28 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %42 ], [ false, %.preheader.i.i.i ], [ true, %46 ], [ true, %_ZNK7datalog7context12is_predicateEP9func_decl.exit ], [ false, %.lr.ph ], [ false, %53 ], [ false, %39 ], [ false, %28 ]
   ret i1 %.0
 }
 
@@ -17281,7 +17281,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN7datalog7context13contains_pre
   br i1 %.not27.old.i.i.i.i, label %_ZNK7datalog7context12is_predicateEP4expr.exit, label %.lr.ph38.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.backedge:                        ; preds = %44, %41
-  %.137.i.i.i.i.be = phi ptr [ %.old.i.i.i.i, %44 ], [ %43, %41 ]
+  %.137.i.i.i.i.be = phi ptr [ %43, %41 ], [ %.old.i.i.i.i, %44 ]
   br label %.lr.ph38.i.i.i.i, !llvm.loop !354
 
 _ZNK7datalog7context12is_predicateEP4expr.exit:   ; preds = %25, %30, %36, %41, %44, %2, %.preheader.i.i.i.i

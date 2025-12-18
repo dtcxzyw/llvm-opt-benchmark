@@ -3940,7 +3940,7 @@ define dso_local ptr @md_bitmap_create(ptr noundef %0, i32 noundef %1) local_unn
   br i1 %469, label %473, label %.thread43
 
 .thread43:                                        ; preds = %190, %230, %.thread27, %449, %453, %447, %444, %154, %59, %95, %465, %457
-  %470 = phi i32 [ -5, %465 ], [ %463, %457 ], [ -22, %449 ], [ %430, %447 ], [ %430, %444 ], [ -12, %154 ], [ -12, %59 ], [ -22, %95 ], [ -22, %453 ], [ -5, %.thread27 ], [ -5, %190 ], [ %238, %230 ]
+  %470 = phi i32 [ -5, %465 ], [ %463, %457 ], [ -22, %449 ], [ -22, %453 ], [ %430, %447 ], [ %430, %444 ], [ -12, %154 ], [ -12, %59 ], [ -22, %95 ], [ -5, %.thread27 ], [ -5, %190 ], [ %238, %230 ]
   tail call void @md_bitmap_free(ptr noundef nonnull %27)
   %471 = sext i32 %470 to i64
   %472 = inttoptr i64 %471 to ptr
@@ -5360,7 +5360,7 @@ define internal fastcc range(i32 -28, 1) i32 @md_bitmap_init_from_disk(ptr nound
   br i1 %295, label %.loopexit, label %248, !llvm.loop !81
 
 .thread23:                                        ; preds = %152, %94, %.thread.us, %235, %50
-  %296 = phi i32 [ -28, %50 ], [ -5, %94 ], [ -5, %235 ], [ -5, %.thread.us ], [ %154, %152 ]
+  %296 = phi i32 [ -28, %50 ], [ -5, %94 ], [ -5, %.thread.us ], [ -5, %235 ], [ %154, %152 ]
   %297 = load ptr, ptr %7, align 8
   %298 = icmp eq ptr %297, null
   br i1 %298, label %305, label %299

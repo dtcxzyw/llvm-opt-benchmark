@@ -11096,7 +11096,7 @@ define void @_ZN12uv_installer4plan7Planner5build17h93ac9a0d73a0fe51E(ptr dead_o
   br label %.body
 
 .loopexit.split-lp2139:                           ; preds = %366, %665, %"_ZN4core6result19Result$LT$T$C$E$GT$9is_ok_and17h0230827c962de73cE.exit", %.thread.i, %.loopexit, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h243c6938546aa0cbE.llvm.17527439469218822883.exit.i1532", %2988
-  %.sroa.0480.3.ph = phi i8 [ 1, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h243c6938546aa0cbE.llvm.17527439469218822883.exit.i1532" ], [ 1, %2988 ], [ 1, %366 ], [ 1, %665 ], [ 1, %.thread.i ], [ 0, %"_ZN4core6result19Result$LT$T$C$E$GT$9is_ok_and17h0230827c962de73cE.exit" ], [ 0, %.loopexit ]
+  %.sroa.0480.3.ph = phi i8 [ 1, %2988 ], [ 1, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h243c6938546aa0cbE.llvm.17527439469218822883.exit.i1532" ], [ 1, %366 ], [ 1, %665 ], [ 1, %.thread.i ], [ 0, %"_ZN4core6result19Result$LT$T$C$E$GT$9is_ok_and17h0230827c962de73cE.exit" ], [ 0, %.loopexit ]
   %lpad.loopexit.split-lp2141 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -11946,7 +11946,7 @@ _ZN12uv_installer13site_packages12SitePackages3any17ha534a9649c793bf3E.exit: ; p
     i64 3, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbcad14b3153bca0aE.exit.i"
     i64 10, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbcad14b3153bca0aE.exit10.i"
     i64 5, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbcad14b3153bca0aE.exit14.i"
-    i64 2, label %_ZN12uv_installer4plan15is_seed_package17h13547c577961525aE.exit
+    i64 2, label %738
   ]
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbcad14b3153bca0aE.exit.i": ; preds = %732
@@ -11957,7 +11957,7 @@ _ZN12uv_installer13site_packages12SitePackages3any17ha534a9649c793bf3E.exit: ; p
 734:                                              ; preds = %.noexc1348
   switch i64 %730, label %_ZN12uv_installer4plan15is_seed_package17h13547c577961525aE.exit.thread [
     i64 2, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbcad14b3153bca0aE.exit6.i"
-    i64 3, label %738
+    i64 3, label %_ZN12uv_installer4plan15is_seed_package17h13547c577961525aE.exit
   ]
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbcad14b3153bca0aE.exit6.i": ; preds = %734
@@ -11975,17 +11975,17 @@ _ZN12uv_installer13site_packages12SitePackages3any17ha534a9649c793bf3E.exit: ; p
   %737 = icmp eq i32 %bcmp.i13.i, 0
   br i1 %737, label %_ZN12uv_installer4plan15is_seed_package17h13547c577961525aE.exit.thread1657, label %_ZN12uv_installer4plan15is_seed_package17h13547c577961525aE.exit.thread
 
-738:                                              ; preds = %734
-  %bcmp.i21.i = call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(3) %729, ptr noundef nonnull dereferenceable(3) @anon.7ad7e8b0755bacfc28207375bcfa46a7.202, i64 3), !alias.scope !3833
-  %739 = icmp eq i32 %bcmp.i21.i, 0
+738:                                              ; preds = %732
+  %bcmp.i17.i = call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(2) %729, ptr noundef nonnull dereferenceable(2) @anon.7ad7e8b0755bacfc28207375bcfa46a7.205, i64 2), !alias.scope !3833
+  %739 = icmp eq i32 %bcmp.i17.i, 0
   br i1 %739, label %_ZN12uv_installer4plan15is_seed_package17h13547c577961525aE.exit.thread1657, label %_ZN12uv_installer4plan15is_seed_package17h13547c577961525aE.exit.thread
 
-_ZN12uv_installer4plan15is_seed_package17h13547c577961525aE.exit: ; preds = %732
-  %bcmp.i17.i = call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(2) %729, ptr noundef nonnull dereferenceable(2) @anon.7ad7e8b0755bacfc28207375bcfa46a7.205, i64 2), !alias.scope !3837
-  %740 = icmp eq i32 %bcmp.i17.i, 0
+_ZN12uv_installer4plan15is_seed_package17h13547c577961525aE.exit: ; preds = %734
+  %bcmp.i21.i = call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(3) %729, ptr noundef nonnull dereferenceable(3) @anon.7ad7e8b0755bacfc28207375bcfa46a7.202, i64 3), !alias.scope !3837
+  %740 = icmp eq i32 %bcmp.i21.i, 0
   br i1 %740, label %_ZN12uv_installer4plan15is_seed_package17h13547c577961525aE.exit.thread1657, label %_ZN12uv_installer4plan15is_seed_package17h13547c577961525aE.exit.thread
 
-_ZN12uv_installer4plan15is_seed_package17h13547c577961525aE.exit.thread: ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbcad14b3153bca0aE.exit.i", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbcad14b3153bca0aE.exit10.i", %732, %734, %_ZN12uv_installer4plan15is_seed_package17h13547c577961525aE.exit, %717, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbcad14b3153bca0aE.exit14.i", %738, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbcad14b3153bca0aE.exit6.i"
+_ZN12uv_installer4plan15is_seed_package17h13547c577961525aE.exit.thread: ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbcad14b3153bca0aE.exit.i", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbcad14b3153bca0aE.exit10.i", %732, %734, %_ZN12uv_installer4plan15is_seed_package17h13547c577961525aE.exit, %717, %738, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbcad14b3153bca0aE.exit14.i", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbcad14b3153bca0aE.exit6.i"
   %741 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17h787ea0ba59a7d36fE monotonic, align 8
   %742 = icmp ult i64 %741, 2
   br i1 %742, label %743, label %.critedge
@@ -12107,7 +12107,7 @@ _ZN12uv_installer4plan15is_seed_package17h13547c577961525aE.exit.thread: ; preds
   %778 = icmp eq ptr %777, null
   br i1 %778, label %.loopexit, label %.lr.ph.i
 
-_ZN12uv_installer4plan15is_seed_package17h13547c577961525aE.exit.thread1657: ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbcad14b3153bca0aE.exit10.i", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbcad14b3153bca0aE.exit.i", %_ZN12uv_installer4plan15is_seed_package17h13547c577961525aE.exit, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbcad14b3153bca0aE.exit14.i", %738, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbcad14b3153bca0aE.exit6.i"
+_ZN12uv_installer4plan15is_seed_package17h13547c577961525aE.exit.thread1657: ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbcad14b3153bca0aE.exit10.i", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbcad14b3153bca0aE.exit.i", %_ZN12uv_installer4plan15is_seed_package17h13547c577961525aE.exit, %738, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbcad14b3153bca0aE.exit14.i", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbcad14b3153bca0aE.exit6.i"
   %779 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17h787ea0ba59a7d36fE monotonic, align 8
   %780 = icmp ult i64 %779, 2
   br i1 %780, label %781, label %.critedge1253
@@ -12399,7 +12399,7 @@ select.unfold.i:                                  ; preds = %.noexc1357, %836
   br label %.body1393
 
 .loopexit.split-lp2100.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %2541, %2534, %2520, %2517, %2445, %2442, %2181, %2178, %2137, %2134, %1467, %3216, %3212, %.thread2089, %3191, %3153, %.thread2083, %3131, %.critedge1318, %.critedge1312, %2960, %.critedge1309, %.critedge1303, %2838, %.critedge1297, %.critedge1294, %.critedge1288, %2626, %.critedge1285, %.thread1919, %2608, %2549, %2532, %2530, %2527, %2226, %2223, %2221, %2218, %2215, %2198, %1934, %1931, %1929, %1926, %1923, %1902, %.critedge1260, %.thread1803, %1884, %1474, %1463, %1460, %1443, %1436, %1433, %1423, %1418, %1413, %1408, %.thread1683, %862
-  %.sroa.0476.1.ph.ph.ph.ph.ph.ph = phi i8 [ %.sroa.0476.0, %2134 ], [ %.sroa.0476.0, %3216 ], [ %.sroa.0476.0, %3212 ], [ %.sroa.0476.0, %.thread2089 ], [ %.sroa.0476.0, %3191 ], [ %.sroa.0476.0, %2178 ], [ %.sroa.0476.0, %2442 ], [ %.sroa.0476.0, %3153 ], [ %.sroa.0476.0, %.thread2083 ], [ %.sroa.0476.0, %3131 ], [ %.sroa.0476.0, %2517 ], [ %.sroa.0476.0, %.critedge1285 ], [ %.sroa.0476.0, %2626 ], [ %.sroa.0476.0, %.thread1919 ], [ %.sroa.0476.0, %2608 ], [ %.sroa.0476.0, %2549 ], [ %.sroa.0476.0, %2527 ], [ %.sroa.0476.0, %.critedge1294 ], [ %.sroa.0476.0, %.critedge1288 ], [ %.sroa.0476.0, %2530 ], [ %.sroa.0476.0, %.critedge1297 ], [ %.sroa.0476.0, %2532 ], [ %.sroa.0476.0, %.critedge1309 ], [ %.sroa.0476.0, %.critedge1303 ], [ %.sroa.0476.0, %2838 ], [ %.sroa.0476.0, %2534 ], [ %.sroa.0476.0, %.critedge1318 ], [ %.sroa.0476.0, %.critedge1312 ], [ %.sroa.0476.0, %2960 ], [ %.sroa.0476.0, %2541 ], [ %.sroa.0476.0, %.critedge1260 ], [ %.sroa.0476.0, %1902 ], [ %.sroa.0476.0, %.thread1803 ], [ %.sroa.0476.0, %1884 ], [ %.sroa.0476.0, %1474 ], [ %.sroa.0476.0, %1460 ], [ %.sroa.0476.0, %2181 ], [ %.sroa.0476.0, %2137 ], [ %.sroa.0476.0, %1934 ], [ %.sroa.0476.0, %1931 ], [ %.sroa.0476.0, %1929 ], [ %.sroa.0476.0, %1926 ], [ %.sroa.0476.0, %1923 ], [ %.sroa.0476.0, %1463 ], [ %.sroa.0476.0, %2520 ], [ %.sroa.0476.0, %2445 ], [ %.sroa.0476.0, %2226 ], [ %.sroa.0476.0, %2223 ], [ %.sroa.0476.0, %2221 ], [ %.sroa.0476.0, %2218 ], [ %.sroa.0476.0, %2215 ], [ %.sroa.0476.0, %2198 ], [ %.sroa.0476.0, %1467 ], [ %.sroa.0476.0, %1443 ], [ %.sroa.0476.0, %1436 ], [ %.sroa.0476.0, %1433 ], [ %.sroa.0476.0, %1423 ], [ 0, %1418 ], [ 1, %862 ], [ 0, %1413 ], [ 1, %.thread1683 ], [ 1, %1408 ]
+  %.sroa.0476.1.ph.ph.ph.ph.ph.ph = phi i8 [ %.sroa.0476.0, %3212 ], [ %.sroa.0476.0, %.thread2089 ], [ %.sroa.0476.0, %3191 ], [ %.sroa.0476.0, %2178 ], [ %.sroa.0476.0, %2442 ], [ %.sroa.0476.0, %3153 ], [ %.sroa.0476.0, %.thread2083 ], [ %.sroa.0476.0, %3131 ], [ %.sroa.0476.0, %2517 ], [ %.sroa.0476.0, %.critedge1285 ], [ %.sroa.0476.0, %2626 ], [ %.sroa.0476.0, %.thread1919 ], [ %.sroa.0476.0, %2608 ], [ %.sroa.0476.0, %3216 ], [ %.sroa.0476.0, %2134 ], [ %.sroa.0476.0, %2549 ], [ %.sroa.0476.0, %2527 ], [ %.sroa.0476.0, %.critedge1294 ], [ %.sroa.0476.0, %.critedge1288 ], [ %.sroa.0476.0, %2530 ], [ 1, %1408 ], [ %.sroa.0476.0, %.critedge1297 ], [ %.sroa.0476.0, %2532 ], [ %.sroa.0476.0, %.critedge1309 ], [ %.sroa.0476.0, %.critedge1303 ], [ %.sroa.0476.0, %2838 ], [ %.sroa.0476.0, %2534 ], [ %.sroa.0476.0, %.critedge1318 ], [ %.sroa.0476.0, %.critedge1312 ], [ %.sroa.0476.0, %2960 ], [ %.sroa.0476.0, %2541 ], [ %.sroa.0476.0, %.critedge1260 ], [ %.sroa.0476.0, %1902 ], [ %.sroa.0476.0, %.thread1803 ], [ %.sroa.0476.0, %1884 ], [ 1, %.thread1683 ], [ 0, %1413 ], [ 1, %862 ], [ %.sroa.0476.0, %1474 ], [ %.sroa.0476.0, %1460 ], [ %.sroa.0476.0, %2181 ], [ %.sroa.0476.0, %2137 ], [ %.sroa.0476.0, %1934 ], [ %.sroa.0476.0, %1931 ], [ %.sroa.0476.0, %1929 ], [ %.sroa.0476.0, %1926 ], [ %.sroa.0476.0, %1923 ], [ %.sroa.0476.0, %1463 ], [ %.sroa.0476.0, %2520 ], [ %.sroa.0476.0, %2445 ], [ %.sroa.0476.0, %2226 ], [ %.sroa.0476.0, %2223 ], [ %.sroa.0476.0, %2221 ], [ %.sroa.0476.0, %2218 ], [ %.sroa.0476.0, %2215 ], [ %.sroa.0476.0, %2198 ], [ %.sroa.0476.0, %1467 ], [ %.sroa.0476.0, %1443 ], [ %.sroa.0476.0, %1436 ], [ %.sroa.0476.0, %1433 ], [ %.sroa.0476.0, %1423 ], [ 0, %1418 ]
   %lpad.loopexit2143 = landingpad { ptr, i32 }
           cleanup
   br label %.body1393
@@ -14275,10 +14275,10 @@ select.unfold.i:                                  ; preds = %.noexc1357, %836
 1542:                                             ; preds = %1535
   switch i8 %narrow.i.i.i.i.i.i.i, label %1543 [
     i8 1, label %1544
-    i8 2, label %1553
-    i8 3, label %1563
-    i8 4, label %1573
-    i8 5, label %1583
+    i8 2, label %1559
+    i8 3, label %1569
+    i8 4, label %1579
+    i8 5, label %1589
     i8 0, label %"_ZN84_$LT$uv_platform_tags..language_tag..LanguageTag$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfdfa2ba761e15a5aE.exit.thread23.i.i.i.i.i.i"
   ]
 
@@ -14302,81 +14302,81 @@ select.unfold.i:                                  ; preds = %.noexc1357, %836
   br i1 %trunc3.i.i.i.i.i.i.i, label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h58728ec6a4060fbcE.exit.i", label %"_ZN84_$LT$uv_platform_tags..language_tag..LanguageTag$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfdfa2ba761e15a5aE.exit.thread23.i.i.i.i.i.i"
 
 1552:                                             ; preds = %1550
-  br i1 %trunc3.i.i.i.i.i.i.i, label %"_ZN84_$LT$uv_platform_tags..language_tag..LanguageTag$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfdfa2ba761e15a5aE.exit.i.i.i.i.i.i", label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h58728ec6a4060fbcE.exit.i"
+  br i1 %trunc3.i.i.i.i.i.i.i, label %1553, label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h58728ec6a4060fbcE.exit.i"
 
-1553:                                             ; preds = %1542
+1553:                                             ; preds = %1552
   %1554 = getelementptr inbounds i8, ptr %1481, i64 -50
   %1555 = load i8, ptr %1554, align 1, !alias.scope !4113, !noalias !4114, !noundef !3
   %1556 = getelementptr inbounds nuw i8, ptr %1498, i64 62
   %1557 = load i8, ptr %1556, align 2, !alias.scope !4115, !noalias !4116, !noundef !3
   %1558 = icmp eq i8 %1555, %1557
-  br i1 %1558, label %1559, label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h58728ec6a4060fbcE.exit.i"
+  br i1 %1558, label %"_ZN84_$LT$uv_platform_tags..language_tag..LanguageTag$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfdfa2ba761e15a5aE.exit.thread23.i.i.i.i.i.i", label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h58728ec6a4060fbcE.exit.i"
 
-1559:                                             ; preds = %1553
-  %1560 = getelementptr inbounds i8, ptr %1481, i64 -49
-  %1561 = getelementptr inbounds nuw i8, ptr %1498, i64 63
-  %.val10.i.i.i.i.i.i.i = load i8, ptr %1560, align 1, !alias.scope !4113, !noalias !4114, !noundef !3
-  %.val11.i.i.i.i.i.i.i = load i8, ptr %1561, align 1, !alias.scope !4115, !noalias !4116, !noundef !3
-  %1562 = icmp eq i8 %.val10.i.i.i.i.i.i.i, %.val11.i.i.i.i.i.i.i
-  br i1 %1562, label %"_ZN84_$LT$uv_platform_tags..language_tag..LanguageTag$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfdfa2ba761e15a5aE.exit.thread23.i.i.i.i.i.i", label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h58728ec6a4060fbcE.exit.i"
+1559:                                             ; preds = %1542
+  %1560 = getelementptr inbounds i8, ptr %1481, i64 -50
+  %1561 = load i8, ptr %1560, align 1, !alias.scope !4113, !noalias !4114, !noundef !3
+  %1562 = getelementptr inbounds nuw i8, ptr %1498, i64 62
+  %1563 = load i8, ptr %1562, align 2, !alias.scope !4115, !noalias !4116, !noundef !3
+  %1564 = icmp eq i8 %1561, %1563
+  br i1 %1564, label %1565, label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h58728ec6a4060fbcE.exit.i"
 
-1563:                                             ; preds = %1542
-  %1564 = getelementptr inbounds i8, ptr %1481, i64 -50
-  %1565 = load i8, ptr %1564, align 1, !alias.scope !4113, !noalias !4114, !noundef !3
-  %1566 = getelementptr inbounds nuw i8, ptr %1498, i64 62
-  %1567 = load i8, ptr %1566, align 2, !alias.scope !4115, !noalias !4116, !noundef !3
-  %1568 = icmp eq i8 %1565, %1567
-  br i1 %1568, label %1569, label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h58728ec6a4060fbcE.exit.i"
+1565:                                             ; preds = %1559
+  %1566 = getelementptr inbounds i8, ptr %1481, i64 -49
+  %1567 = getelementptr inbounds nuw i8, ptr %1498, i64 63
+  %.val10.i.i.i.i.i.i.i = load i8, ptr %1566, align 1, !alias.scope !4113, !noalias !4114, !noundef !3
+  %.val11.i.i.i.i.i.i.i = load i8, ptr %1567, align 1, !alias.scope !4115, !noalias !4116, !noundef !3
+  %1568 = icmp eq i8 %.val10.i.i.i.i.i.i.i, %.val11.i.i.i.i.i.i.i
+  br i1 %1568, label %"_ZN84_$LT$uv_platform_tags..language_tag..LanguageTag$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfdfa2ba761e15a5aE.exit.thread23.i.i.i.i.i.i", label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h58728ec6a4060fbcE.exit.i"
 
-1569:                                             ; preds = %1563
-  %1570 = getelementptr inbounds i8, ptr %1481, i64 -49
-  %1571 = getelementptr inbounds nuw i8, ptr %1498, i64 63
-  %.val8.i.i.i.i.i.i.i = load i8, ptr %1570, align 1, !alias.scope !4113, !noalias !4114, !noundef !3
-  %.val9.i.i.i.i.i.i.i = load i8, ptr %1571, align 1, !alias.scope !4115, !noalias !4116, !noundef !3
-  %1572 = icmp eq i8 %.val8.i.i.i.i.i.i.i, %.val9.i.i.i.i.i.i.i
-  br i1 %1572, label %"_ZN84_$LT$uv_platform_tags..language_tag..LanguageTag$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfdfa2ba761e15a5aE.exit.thread23.i.i.i.i.i.i", label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h58728ec6a4060fbcE.exit.i"
+1569:                                             ; preds = %1542
+  %1570 = getelementptr inbounds i8, ptr %1481, i64 -50
+  %1571 = load i8, ptr %1570, align 1, !alias.scope !4113, !noalias !4114, !noundef !3
+  %1572 = getelementptr inbounds nuw i8, ptr %1498, i64 62
+  %1573 = load i8, ptr %1572, align 2, !alias.scope !4115, !noalias !4116, !noundef !3
+  %1574 = icmp eq i8 %1571, %1573
+  br i1 %1574, label %1575, label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h58728ec6a4060fbcE.exit.i"
 
-1573:                                             ; preds = %1542
-  %1574 = getelementptr inbounds i8, ptr %1481, i64 -50
-  %1575 = load i8, ptr %1574, align 1, !alias.scope !4113, !noalias !4114, !noundef !3
-  %1576 = getelementptr inbounds nuw i8, ptr %1498, i64 62
-  %1577 = load i8, ptr %1576, align 2, !alias.scope !4115, !noalias !4116, !noundef !3
-  %1578 = icmp eq i8 %1575, %1577
-  br i1 %1578, label %1579, label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h58728ec6a4060fbcE.exit.i"
+1575:                                             ; preds = %1569
+  %1576 = getelementptr inbounds i8, ptr %1481, i64 -49
+  %1577 = getelementptr inbounds nuw i8, ptr %1498, i64 63
+  %.val8.i.i.i.i.i.i.i = load i8, ptr %1576, align 1, !alias.scope !4113, !noalias !4114, !noundef !3
+  %.val9.i.i.i.i.i.i.i = load i8, ptr %1577, align 1, !alias.scope !4115, !noalias !4116, !noundef !3
+  %1578 = icmp eq i8 %.val8.i.i.i.i.i.i.i, %.val9.i.i.i.i.i.i.i
+  br i1 %1578, label %"_ZN84_$LT$uv_platform_tags..language_tag..LanguageTag$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfdfa2ba761e15a5aE.exit.thread23.i.i.i.i.i.i", label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h58728ec6a4060fbcE.exit.i"
 
-1579:                                             ; preds = %1573
-  %1580 = getelementptr inbounds i8, ptr %1481, i64 -49
-  %1581 = getelementptr inbounds nuw i8, ptr %1498, i64 63
-  %.val6.i.i.i.i.i.i.i = load i8, ptr %1580, align 1, !alias.scope !4113, !noalias !4114, !noundef !3
-  %.val7.i.i.i.i.i.i.i = load i8, ptr %1581, align 1, !alias.scope !4115, !noalias !4116, !noundef !3
-  %1582 = icmp eq i8 %.val6.i.i.i.i.i.i.i, %.val7.i.i.i.i.i.i.i
-  br i1 %1582, label %"_ZN84_$LT$uv_platform_tags..language_tag..LanguageTag$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfdfa2ba761e15a5aE.exit.thread23.i.i.i.i.i.i", label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h58728ec6a4060fbcE.exit.i"
+1579:                                             ; preds = %1542
+  %1580 = getelementptr inbounds i8, ptr %1481, i64 -50
+  %1581 = load i8, ptr %1580, align 1, !alias.scope !4113, !noalias !4114, !noundef !3
+  %1582 = getelementptr inbounds nuw i8, ptr %1498, i64 62
+  %1583 = load i8, ptr %1582, align 2, !alias.scope !4115, !noalias !4116, !noundef !3
+  %1584 = icmp eq i8 %1581, %1583
+  br i1 %1584, label %1585, label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h58728ec6a4060fbcE.exit.i"
 
-1583:                                             ; preds = %1542
-  %1584 = getelementptr inbounds i8, ptr %1481, i64 -50
-  %1585 = load i8, ptr %1584, align 1, !alias.scope !4113, !noalias !4114, !noundef !3
-  %1586 = getelementptr inbounds nuw i8, ptr %1498, i64 62
-  %1587 = load i8, ptr %1586, align 2, !alias.scope !4115, !noalias !4116, !noundef !3
-  %1588 = icmp eq i8 %1585, %1587
-  br i1 %1588, label %1589, label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h58728ec6a4060fbcE.exit.i"
+1585:                                             ; preds = %1579
+  %1586 = getelementptr inbounds i8, ptr %1481, i64 -49
+  %1587 = getelementptr inbounds nuw i8, ptr %1498, i64 63
+  %.val6.i.i.i.i.i.i.i = load i8, ptr %1586, align 1, !alias.scope !4113, !noalias !4114, !noundef !3
+  %.val7.i.i.i.i.i.i.i = load i8, ptr %1587, align 1, !alias.scope !4115, !noalias !4116, !noundef !3
+  %1588 = icmp eq i8 %.val6.i.i.i.i.i.i.i, %.val7.i.i.i.i.i.i.i
+  br i1 %1588, label %"_ZN84_$LT$uv_platform_tags..language_tag..LanguageTag$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfdfa2ba761e15a5aE.exit.thread23.i.i.i.i.i.i", label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h58728ec6a4060fbcE.exit.i"
 
-1589:                                             ; preds = %1583
-  %1590 = getelementptr inbounds i8, ptr %1481, i64 -49
-  %1591 = getelementptr inbounds nuw i8, ptr %1498, i64 63
-  %.val.i.i.i.i.i.i.i = load i8, ptr %1590, align 1, !alias.scope !4113, !noalias !4114, !noundef !3
-  %.val5.i.i.i.i.i.i.i = load i8, ptr %1591, align 1, !alias.scope !4115, !noalias !4116, !noundef !3
-  %1592 = icmp eq i8 %.val.i.i.i.i.i.i.i, %.val5.i.i.i.i.i.i.i
-  br i1 %1592, label %"_ZN84_$LT$uv_platform_tags..language_tag..LanguageTag$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfdfa2ba761e15a5aE.exit.thread23.i.i.i.i.i.i", label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h58728ec6a4060fbcE.exit.i"
+1589:                                             ; preds = %1542
+  %1590 = getelementptr inbounds i8, ptr %1481, i64 -50
+  %1591 = load i8, ptr %1590, align 1, !alias.scope !4113, !noalias !4114, !noundef !3
+  %1592 = getelementptr inbounds nuw i8, ptr %1498, i64 62
+  %1593 = load i8, ptr %1592, align 2, !alias.scope !4115, !noalias !4116, !noundef !3
+  %1594 = icmp eq i8 %1591, %1593
+  br i1 %1594, label %"_ZN84_$LT$uv_platform_tags..language_tag..LanguageTag$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfdfa2ba761e15a5aE.exit.i.i.i.i.i.i", label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h58728ec6a4060fbcE.exit.i"
 
-"_ZN84_$LT$uv_platform_tags..language_tag..LanguageTag$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfdfa2ba761e15a5aE.exit.i.i.i.i.i.i": ; preds = %1552
-  %1593 = getelementptr inbounds i8, ptr %1481, i64 -50
-  %1594 = load i8, ptr %1593, align 1, !alias.scope !4113, !noalias !4114, !noundef !3
-  %1595 = getelementptr inbounds nuw i8, ptr %1498, i64 62
-  %1596 = load i8, ptr %1595, align 2, !alias.scope !4115, !noalias !4116, !noundef !3
-  %1597 = icmp eq i8 %1594, %1596
+"_ZN84_$LT$uv_platform_tags..language_tag..LanguageTag$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfdfa2ba761e15a5aE.exit.i.i.i.i.i.i": ; preds = %1589
+  %1595 = getelementptr inbounds i8, ptr %1481, i64 -49
+  %1596 = getelementptr inbounds nuw i8, ptr %1498, i64 63
+  %.val.i.i.i.i.i.i.i = load i8, ptr %1595, align 1, !alias.scope !4113, !noalias !4114, !noundef !3
+  %.val5.i.i.i.i.i.i.i = load i8, ptr %1596, align 1, !alias.scope !4115, !noalias !4116, !noundef !3
+  %1597 = icmp eq i8 %.val.i.i.i.i.i.i.i, %.val5.i.i.i.i.i.i.i
   br i1 %1597, label %"_ZN84_$LT$uv_platform_tags..language_tag..LanguageTag$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfdfa2ba761e15a5aE.exit.thread23.i.i.i.i.i.i", label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h58728ec6a4060fbcE.exit.i"
 
-"_ZN84_$LT$uv_platform_tags..language_tag..LanguageTag$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfdfa2ba761e15a5aE.exit.thread23.i.i.i.i.i.i": ; preds = %"_ZN84_$LT$uv_platform_tags..language_tag..LanguageTag$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfdfa2ba761e15a5aE.exit.i.i.i.i.i.i", %1589, %1579, %1569, %1559, %1551, %1542
+"_ZN84_$LT$uv_platform_tags..language_tag..LanguageTag$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfdfa2ba761e15a5aE.exit.thread23.i.i.i.i.i.i": ; preds = %"_ZN84_$LT$uv_platform_tags..language_tag..LanguageTag$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfdfa2ba761e15a5aE.exit.i.i.i.i.i.i", %1585, %1575, %1565, %1553, %1551, %1542
   %1598 = getelementptr inbounds i8, ptr %1481, i64 -56
   %1599 = getelementptr inbounds nuw i8, ptr %1498, i64 56
   call void @llvm.experimental.noalias.scope.decl(metadata !4117)
@@ -14395,7 +14395,7 @@ select.unfold.i:                                  ; preds = %.noexc1357, %836
 1607:                                             ; preds = %"_ZN84_$LT$uv_platform_tags..language_tag..LanguageTag$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfdfa2ba761e15a5aE.exit.thread23.i.i.i.i.i.i"
   switch i8 %narrow.i1.i.i.i.i.i.i, label %"_ZN74_$LT$uv_platform_tags..abi_tag..AbiTag$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5afe1d7a5a3bd731E.exit.thread26.i.i.i.i.i.i" [
     i8 2, label %1608
-    i8 3, label %1624
+    i8 3, label %1620
     i8 4, label %1643
     i8 5, label %1663
   ]
@@ -14414,50 +14414,50 @@ select.unfold.i:                                  ; preds = %.noexc1357, %836
   %1617 = getelementptr inbounds nuw i8, ptr %1498, i64 58
   %1618 = load i8, ptr %1617, align 2, !alias.scope !4124, !noalias !4125, !noundef !3
   %1619 = icmp eq i8 %1616, %1618
-  br i1 %1619, label %1620, label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h58728ec6a4060fbcE.exit.i"
+  br i1 %1619, label %"_ZN74_$LT$uv_platform_tags..abi_tag..AbiTag$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5afe1d7a5a3bd731E.exit.i.i.i.i.i.i", label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h58728ec6a4060fbcE.exit.i"
 
-1620:                                             ; preds = %1614
-  %1621 = getelementptr inbounds i8, ptr %1481, i64 -53
-  %1622 = getelementptr inbounds nuw i8, ptr %1498, i64 59
-  %.val15.i.i.i.i.i.i.i = load i8, ptr %1621, align 1, !alias.scope !4122, !noalias !4123, !noundef !3
-  %.val16.i.i.i.i.i.i.i = load i8, ptr %1622, align 1, !alias.scope !4124, !noalias !4125, !noundef !3
-  %1623 = icmp eq i8 %.val15.i.i.i.i.i.i.i, %.val16.i.i.i.i.i.i.i
-  br i1 %1623, label %"_ZN74_$LT$uv_platform_tags..abi_tag..AbiTag$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5afe1d7a5a3bd731E.exit.thread26.i.i.i.i.i.i", label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h58728ec6a4060fbcE.exit.i"
-
-1624:                                             ; preds = %1607
+1620:                                             ; preds = %1607
   %trunc.i9.i.i.i.i.i.i = trunc i8 %1600 to i1
   %trunc4.i.i.i.i.i.i.i = trunc i8 %1603 to i1
-  br i1 %trunc.i9.i.i.i.i.i.i, label %1626, label %1625
+  br i1 %trunc.i9.i.i.i.i.i.i, label %1622, label %1621
 
-1625:                                             ; preds = %1624
-  br i1 %trunc4.i.i.i.i.i.i.i, label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h58728ec6a4060fbcE.exit.i", label %1637
+1621:                                             ; preds = %1620
+  br i1 %trunc4.i.i.i.i.i.i.i, label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h58728ec6a4060fbcE.exit.i", label %1633
 
-1626:                                             ; preds = %1624
-  br i1 %trunc4.i.i.i.i.i.i.i, label %1631, label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h58728ec6a4060fbcE.exit.i"
+1622:                                             ; preds = %1620
+  br i1 %trunc4.i.i.i.i.i.i.i, label %1627, label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h58728ec6a4060fbcE.exit.i"
 
-1627:                                             ; preds = %1631
-  %1628 = getelementptr inbounds i8, ptr %1481, i64 -54
-  %1629 = getelementptr inbounds nuw i8, ptr %1498, i64 58
-  %.val13.i.i.i.i.i.i.i = load i8, ptr %1628, align 1, !alias.scope !4122, !noalias !4123, !noundef !3
-  %.val14.i.i.i.i.i.i.i = load i8, ptr %1629, align 2, !alias.scope !4124, !noalias !4125, !noundef !3
-  %1630 = icmp eq i8 %.val13.i.i.i.i.i.i.i, %.val14.i.i.i.i.i.i.i
-  br i1 %1630, label %1637, label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h58728ec6a4060fbcE.exit.i"
+1623:                                             ; preds = %1627
+  %1624 = getelementptr inbounds i8, ptr %1481, i64 -54
+  %1625 = getelementptr inbounds nuw i8, ptr %1498, i64 58
+  %.val13.i.i.i.i.i.i.i = load i8, ptr %1624, align 1, !alias.scope !4122, !noalias !4123, !noundef !3
+  %.val14.i.i.i.i.i.i.i = load i8, ptr %1625, align 2, !alias.scope !4124, !noalias !4125, !noundef !3
+  %1626 = icmp eq i8 %.val13.i.i.i.i.i.i.i, %.val14.i.i.i.i.i.i.i
+  br i1 %1626, label %1633, label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h58728ec6a4060fbcE.exit.i"
 
-1631:                                             ; preds = %1626
-  %1632 = getelementptr inbounds i8, ptr %1481, i64 -55
-  %1633 = load i8, ptr %1632, align 1, !alias.scope !4122, !noalias !4123, !noundef !3
-  %1634 = getelementptr inbounds nuw i8, ptr %1498, i64 57
-  %1635 = load i8, ptr %1634, align 1, !alias.scope !4124, !noalias !4125, !noundef !3
-  %1636 = icmp eq i8 %1633, %1635
-  br i1 %1636, label %1627, label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h58728ec6a4060fbcE.exit.i"
+1627:                                             ; preds = %1622
+  %1628 = getelementptr inbounds i8, ptr %1481, i64 -55
+  %1629 = load i8, ptr %1628, align 1, !alias.scope !4122, !noalias !4123, !noundef !3
+  %1630 = getelementptr inbounds nuw i8, ptr %1498, i64 57
+  %1631 = load i8, ptr %1630, align 1, !alias.scope !4124, !noalias !4125, !noundef !3
+  %1632 = icmp eq i8 %1629, %1631
+  br i1 %1632, label %1623, label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h58728ec6a4060fbcE.exit.i"
 
-1637:                                             ; preds = %1627, %1625
-  %1638 = getelementptr inbounds i8, ptr %1481, i64 -53
-  %1639 = load i8, ptr %1638, align 1, !alias.scope !4122, !noalias !4123, !noundef !3
-  %1640 = getelementptr inbounds nuw i8, ptr %1498, i64 59
-  %1641 = load i8, ptr %1640, align 1, !alias.scope !4124, !noalias !4125, !noundef !3
-  %1642 = icmp eq i8 %1639, %1641
-  br i1 %1642, label %"_ZN74_$LT$uv_platform_tags..abi_tag..AbiTag$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5afe1d7a5a3bd731E.exit.i.i.i.i.i.i", label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h58728ec6a4060fbcE.exit.i"
+1633:                                             ; preds = %1623, %1621
+  %1634 = getelementptr inbounds i8, ptr %1481, i64 -53
+  %1635 = load i8, ptr %1634, align 1, !alias.scope !4122, !noalias !4123, !noundef !3
+  %1636 = getelementptr inbounds nuw i8, ptr %1498, i64 59
+  %1637 = load i8, ptr %1636, align 1, !alias.scope !4124, !noalias !4125, !noundef !3
+  %1638 = icmp eq i8 %1635, %1637
+  br i1 %1638, label %1639, label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h58728ec6a4060fbcE.exit.i"
+
+1639:                                             ; preds = %1633
+  %1640 = getelementptr inbounds i8, ptr %1481, i64 -52
+  %1641 = getelementptr inbounds nuw i8, ptr %1498, i64 60
+  %.val11.i10.i.i.i.i.i.i = load i8, ptr %1640, align 1, !alias.scope !4122, !noalias !4123, !noundef !3
+  %.val12.i.i.i.i.i.i.i = load i8, ptr %1641, align 4, !alias.scope !4124, !noalias !4125, !noundef !3
+  %1642 = icmp eq i8 %.val11.i10.i.i.i.i.i.i, %.val12.i.i.i.i.i.i.i
+  br i1 %1642, label %"_ZN74_$LT$uv_platform_tags..abi_tag..AbiTag$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5afe1d7a5a3bd731E.exit.thread26.i.i.i.i.i.i", label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h58728ec6a4060fbcE.exit.i"
 
 1643:                                             ; preds = %1607
   %1644 = getelementptr inbounds i8, ptr %1481, i64 -55
@@ -14507,15 +14507,15 @@ select.unfold.i:                                  ; preds = %.noexc1357, %836
   %1672 = icmp eq i8 %.val.i3.i.i.i.i.i.i, %.val6.i4.i.i.i.i.i.i
   br i1 %1672, label %"_ZN74_$LT$uv_platform_tags..abi_tag..AbiTag$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5afe1d7a5a3bd731E.exit.thread26.i.i.i.i.i.i", label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h58728ec6a4060fbcE.exit.i"
 
-"_ZN74_$LT$uv_platform_tags..abi_tag..AbiTag$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5afe1d7a5a3bd731E.exit.i.i.i.i.i.i": ; preds = %1637
-  %1673 = getelementptr inbounds i8, ptr %1481, i64 -52
-  %1674 = getelementptr inbounds nuw i8, ptr %1498, i64 60
-  %.val11.i10.i.i.i.i.i.i = load i8, ptr %1673, align 1, !alias.scope !4122, !noalias !4123, !noundef !3
-  %.val12.i.i.i.i.i.i.i = load i8, ptr %1674, align 4, !alias.scope !4124, !noalias !4125, !noundef !3
-  %1675 = icmp eq i8 %.val11.i10.i.i.i.i.i.i, %.val12.i.i.i.i.i.i.i
+"_ZN74_$LT$uv_platform_tags..abi_tag..AbiTag$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5afe1d7a5a3bd731E.exit.i.i.i.i.i.i": ; preds = %1614
+  %1673 = getelementptr inbounds i8, ptr %1481, i64 -53
+  %1674 = getelementptr inbounds nuw i8, ptr %1498, i64 59
+  %.val15.i.i.i.i.i.i.i = load i8, ptr %1673, align 1, !alias.scope !4122, !noalias !4123, !noundef !3
+  %.val16.i.i.i.i.i.i.i = load i8, ptr %1674, align 1, !alias.scope !4124, !noalias !4125, !noundef !3
+  %1675 = icmp eq i8 %.val15.i.i.i.i.i.i.i, %.val16.i.i.i.i.i.i.i
   br i1 %1675, label %"_ZN74_$LT$uv_platform_tags..abi_tag..AbiTag$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5afe1d7a5a3bd731E.exit.thread26.i.i.i.i.i.i", label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h58728ec6a4060fbcE.exit.i"
 
-"_ZN74_$LT$uv_platform_tags..abi_tag..AbiTag$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5afe1d7a5a3bd731E.exit.thread26.i.i.i.i.i.i": ; preds = %"_ZN74_$LT$uv_platform_tags..abi_tag..AbiTag$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5afe1d7a5a3bd731E.exit.i.i.i.i.i.i", %1669, %1659, %1620, %1607
+"_ZN74_$LT$uv_platform_tags..abi_tag..AbiTag$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5afe1d7a5a3bd731E.exit.thread26.i.i.i.i.i.i": ; preds = %"_ZN74_$LT$uv_platform_tags..abi_tag..AbiTag$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5afe1d7a5a3bd731E.exit.i.i.i.i.i.i", %1669, %1659, %1639, %1607
   call void @llvm.experimental.noalias.scope.decl(metadata !4126)
   call void @llvm.experimental.noalias.scope.decl(metadata !4129)
   %1676 = load i8, ptr %1525, align 8, !range !3703, !alias.scope !4131, !noalias !4132, !noundef !3
@@ -14526,7 +14526,7 @@ select.unfold.i:                                  ; preds = %.noexc1357, %836
 1679:                                             ; preds = %"_ZN74_$LT$uv_platform_tags..abi_tag..AbiTag$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5afe1d7a5a3bd731E.exit.thread26.i.i.i.i.i.i"
   switch i8 %1676, label %"_ZN87_$LT$uv_distribution_filename..wheel..WheelFilename$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfe163e47f574c8f3E.exit.thread9.i.i.i" [
     i8 1, label %1680
-    i8 2, label %"_ZN87_$LT$uv_distribution_filename..wheel..WheelFilename$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfe163e47f574c8f3E.exit.i.i.i"
+    i8 2, label %1692
     i8 3, label %1698
     i8 4, label %1704
     i8 5, label %1710
@@ -14556,9 +14556,9 @@ select.unfold.i:                                  ; preds = %.noexc1357, %836
   %1689 = getelementptr inbounds nuw i8, ptr %1498, i64 44
   %1690 = load i16, ptr %1689, align 4, !alias.scope !4133, !noalias !4134, !noundef !3
   %1691 = icmp eq i16 %1688, %1690
-  br i1 %1691, label %1692, label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h58728ec6a4060fbcE.exit.i"
+  br i1 %1691, label %"_ZN87_$LT$uv_distribution_filename..wheel..WheelFilename$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfe163e47f574c8f3E.exit.i.i.i", label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h58728ec6a4060fbcE.exit.i"
 
-1692:                                             ; preds = %1686
+1692:                                             ; preds = %1679
   %1693 = getelementptr inbounds i8, ptr %1481, i64 -71
   %1694 = load i8, ptr %1693, align 1, !range !3706, !alias.scope !4131, !noalias !4132, !noundef !3
   %1695 = getelementptr inbounds nuw i8, ptr %1498, i64 41
@@ -14904,7 +14904,7 @@ select.unfold.i:                                  ; preds = %.noexc1357, %836
   %1868 = icmp eq i32 %bcmp.i.i20.i.i.i.i.i.i, 0
   br i1 %1868, label %"_ZN87_$LT$uv_distribution_filename..wheel..WheelFilename$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfe163e47f574c8f3E.exit.thread9.i.i.i", label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h58728ec6a4060fbcE.exit.i"
 
-"_ZN87_$LT$uv_distribution_filename..wheel..WheelFilename$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfe163e47f574c8f3E.exit.i.i.i": ; preds = %1679
+"_ZN87_$LT$uv_distribution_filename..wheel..WheelFilename$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfe163e47f574c8f3E.exit.i.i.i": ; preds = %1686
   %1869 = getelementptr inbounds i8, ptr %1481, i64 -71
   %1870 = load i8, ptr %1869, align 1, !range !3706, !alias.scope !4131, !noalias !4132, !noundef !3
   %1871 = getelementptr inbounds nuw i8, ptr %1498, i64 41
@@ -14919,7 +14919,7 @@ select.unfold.i:                                  ; preds = %.noexc1357, %836
   %1877 = select i1 %1876, i1 %833, i1 %829
   br i1 %1877, label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h58728ec6a4060fbcE.exit.i", label %1879
 
-"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h58728ec6a4060fbcE.exit.i": ; preds = %.noexc1386, %.noexc1389, %.noexc1392, %"_ZN87_$LT$uv_distribution_filename..wheel..WheelFilename$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfe163e47f574c8f3E.exit.thread9.i.i.i", %"_ZN87_$LT$uv_distribution_filename..wheel..WheelFilename$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfe163e47f574c8f3E.exit.i.i.i", %1865, %1860, %.noexc1391, %.noexc1388, %.noexc1385, %"_ZN64_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h669109e18a59e9a8E.exit.i.i.i.i.i.i", %1816, %1813, %1800, %1799, %1798, %1797, %1788, %1784, %1780, %1776, %1772, %1768, %1764, %1758, %1752, %1746, %1740, %1734, %1728, %1722, %1716, %1710, %1704, %1698, %1692, %1686, %1680, %"_ZN74_$LT$uv_platform_tags..abi_tag..AbiTag$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5afe1d7a5a3bd731E.exit.thread26.i.i.i.i.i.i", %"_ZN74_$LT$uv_platform_tags..abi_tag..AbiTag$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5afe1d7a5a3bd731E.exit.i.i.i.i.i.i", %1669, %1663, %1659, %1653, %1649, %1643, %1637, %1631, %1627, %1626, %1625, %1620, %1614, %1608, %"_ZN84_$LT$uv_platform_tags..language_tag..LanguageTag$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfdfa2ba761e15a5aE.exit.thread23.i.i.i.i.i.i", %"_ZN84_$LT$uv_platform_tags..language_tag..LanguageTag$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfdfa2ba761e15a5aE.exit.i.i.i.i.i.i", %1589, %1583, %1579, %1573, %1569, %1563, %1559, %1553, %1552, %1551, %1544, %1535, %1524, %1520, %.noexc1383, %"_ZN64_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h669109e18a59e9a8E.exit.i.i.i.i", %1503, %.noexc1381, %.noexc1380
+"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h58728ec6a4060fbcE.exit.i": ; preds = %.noexc1386, %.noexc1389, %.noexc1392, %"_ZN87_$LT$uv_distribution_filename..wheel..WheelFilename$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfe163e47f574c8f3E.exit.thread9.i.i.i", %"_ZN87_$LT$uv_distribution_filename..wheel..WheelFilename$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfe163e47f574c8f3E.exit.i.i.i", %1865, %1860, %.noexc1391, %.noexc1388, %.noexc1385, %"_ZN64_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h669109e18a59e9a8E.exit.i.i.i.i.i.i", %1816, %1813, %1800, %1799, %1798, %1797, %1788, %1784, %1780, %1776, %1772, %1768, %1764, %1758, %1752, %1746, %1740, %1734, %1728, %1722, %1716, %1710, %1704, %1698, %1692, %1686, %1680, %"_ZN74_$LT$uv_platform_tags..abi_tag..AbiTag$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5afe1d7a5a3bd731E.exit.thread26.i.i.i.i.i.i", %"_ZN74_$LT$uv_platform_tags..abi_tag..AbiTag$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5afe1d7a5a3bd731E.exit.i.i.i.i.i.i", %1669, %1663, %1659, %1653, %1649, %1643, %1639, %1633, %1627, %1623, %1622, %1621, %1614, %1608, %"_ZN84_$LT$uv_platform_tags..language_tag..LanguageTag$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfdfa2ba761e15a5aE.exit.thread23.i.i.i.i.i.i", %"_ZN84_$LT$uv_platform_tags..language_tag..LanguageTag$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfdfa2ba761e15a5aE.exit.i.i.i.i.i.i", %1589, %1585, %1579, %1575, %1569, %1565, %1559, %1553, %1552, %1551, %1544, %1535, %1524, %1520, %.noexc1383, %"_ZN64_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h669109e18a59e9a8E.exit.i.i.i.i", %1503, %.noexc1381, %.noexc1380
   %1878 = icmp eq ptr %1477, %1482
   br i1 %1878, label %.loopexit2115, label %.lr.ph.i1376
 

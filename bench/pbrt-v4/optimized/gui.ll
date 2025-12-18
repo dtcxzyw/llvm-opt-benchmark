@@ -5563,7 +5563,7 @@ _ZN4pstd6vectorIN4pbrt4HalfENS_3pmr21polymorphic_allocatorIS2_EEE7reserveEm.exit
   br i1 %exitcond.not.i, label %.loopexit61, label %102, !llvm.loop !367
 
 .loopexit61:                                      ; preds = %102, %_ZN4pstd6vectorIN4pbrt4HalfENS_3pmr21polymorphic_allocatorIS2_EEE7reserveEm.exit.i, %.loopexit62
-  %107 = phi i64 [ 0, %_ZN4pstd6vectorIN4pbrt4HalfENS_3pmr21polymorphic_allocatorIS2_EEE7reserveEm.exit.i ], [ 0, %.loopexit62 ], [ %.pre11.i54, %102 ]
+  %107 = phi i64 [ 0, %.loopexit62 ], [ 0, %_ZN4pstd6vectorIN4pbrt4HalfENS_3pmr21polymorphic_allocatorIS2_EEE7reserveEm.exit.i ], [ %.pre11.i54, %102 ]
   store i64 %107, ptr %81, align 8, !tbaa !240
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %109 = call noundef ptr @_ZN4pstd3pmr19new_delete_resourceEv() #30
@@ -5650,7 +5650,7 @@ _ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE7reserveEm.exit.i: ; preds =
   br i1 %exitcond.not.i43, label %.loopexit, label %134, !llvm.loop !369
 
 .loopexit:                                        ; preds = %134, %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE7reserveEm.exit.i, %.loopexit61
-  %139 = phi i64 [ 0, %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE7reserveEm.exit.i ], [ 0, %.loopexit61 ], [ %.pre11.i3959, %134 ]
+  %139 = phi i64 [ 0, %.loopexit61 ], [ 0, %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE7reserveEm.exit.i ], [ %.pre11.i3959, %134 ]
   store i64 %139, ptr %113, align 8, !tbaa !243
   ret void
 

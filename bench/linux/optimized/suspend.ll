@@ -775,7 +775,7 @@ s2idle_loop.exit.thread:                          ; preds = %.thread47, %210, %2
   br label %255
 
 s2idle_loop.exit:                                 ; preds = %119, %206, %204, %111, %103
-  %247 = phi i32 [ 0, %206 ], [ %105, %103 ], [ 0, %111 ], [ 0, %204 ], [ 0, %119 ]
+  %247 = phi i32 [ 0, %204 ], [ 0, %206 ], [ %105, %103 ], [ 0, %111 ], [ 0, %119 ]
   br i1 %5, label %248, label %255
 
 248:                                              ; preds = %s2idle_loop.exit

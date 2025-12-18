@@ -1601,8 +1601,8 @@ _ZN12_GLOBAL__N_116TypeStreamMerger14remapItemIndexERN4llvm8codeview9TypeIndexE.
   br label %_ZN12_GLOBAL__N_116TypeStreamMerger14remapItemIndexERN4llvm8codeview9TypeIndexE.exit.i
 
 _ZN12_GLOBAL__N_116TypeStreamMerger14remapItemIndexERN4llvm8codeview9TypeIndexE.exit.i: ; preds = %82, %_ZN12_GLOBAL__N_116TypeStreamMerger14remapItemIndexERN4llvm8codeview9TypeIndexE.exit.i.sink.split, %.critedge52.i, %3
-  %.sroa.5.0.i = phi i64 [ %.sroa.5.0.copyload.i, %3 ], [ %2, %.critedge52.i ], [ 0, %_ZN12_GLOBAL__N_116TypeStreamMerger14remapItemIndexERN4llvm8codeview9TypeIndexE.exit.i.sink.split ], [ %2, %82 ]
-  %.sroa.063.0.i = phi ptr [ %.sroa.063.0.copyload.i, %3 ], [ %1, %.critedge52.i ], [ null, %_ZN12_GLOBAL__N_116TypeStreamMerger14remapItemIndexERN4llvm8codeview9TypeIndexE.exit.i.sink.split ], [ %1, %82 ]
+  %.sroa.5.0.i = phi i64 [ %.sroa.5.0.copyload.i, %3 ], [ 0, %_ZN12_GLOBAL__N_116TypeStreamMerger14remapItemIndexERN4llvm8codeview9TypeIndexE.exit.i.sink.split ], [ %2, %.critedge52.i ], [ %2, %82 ]
+  %.sroa.063.0.i = phi ptr [ %.sroa.063.0.copyload.i, %3 ], [ null, %_ZN12_GLOBAL__N_116TypeStreamMerger14remapItemIndexERN4llvm8codeview9TypeIndexE.exit.i.sink.split ], [ %1, %.critedge52.i ], [ %1, %82 ]
   %87 = load ptr, ptr %4, align 8, !tbaa !205
   %88 = icmp eq ptr %87, %11
   br i1 %88, label %_ZN12_GLOBAL__N_116TypeStreamMerger12remapIndicesERKN4llvm8codeview8CVRecordINS2_12TypeLeafKindEEENS1_15MutableArrayRefIhEE.exit, label %89

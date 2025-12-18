@@ -2011,7 +2011,7 @@ _ZN10duckdb_hllL11hllDenseSetEPhlh.exit:          ; preds = %52, %34, %30, %68, 
   br i1 %exitcond45.not, label %.loopexit, label %26, !llvm.loop !43
 
 .loopexit:                                        ; preds = %7, %_ZN10duckdb_hllL11hllDenseSetEPhlh.exit, %_ZN10duckdb_hll11hll_destroyEPNS_4robjE.exit
-  %.2 = phi ptr [ null, %_ZN10duckdb_hll11hll_destroyEPNS_4robjE.exit ], [ %20, %_ZN10duckdb_hllL11hllDenseSetEPhlh.exit ], [ null, %7 ]
+  %.2 = phi ptr [ %20, %_ZN10duckdb_hllL11hllDenseSetEPhlh.exit ], [ null, %_ZN10duckdb_hll11hll_destroyEPNS_4robjE.exit ], [ null, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.2
 }

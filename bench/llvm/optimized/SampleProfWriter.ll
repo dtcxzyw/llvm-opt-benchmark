@@ -616,9 +616,9 @@ _ZNSt10unique_ptrIN4llvm11raw_ostreamESt14default_deleteIS1_EE5resetEPS1_.exit: 
   br label %53
 
 53:                                               ; preds = %.loopexit, %47, %.thread
-  %.sroa.6.1 = phi ptr [ %46, %.thread ], [ %51, %47 ], [ %52, %.loopexit ]
-  %.sroa.017.1 = phi i32 [ 3, %.thread ], [ 0, %47 ], [ %36, %.loopexit ]
-  %.sroa.0.0 = phi ptr [ %17, %.thread ], [ %48, %47 ], [ %17, %.loopexit ]
+  %.sroa.6.1 = phi ptr [ %51, %47 ], [ %46, %.thread ], [ %52, %.loopexit ]
+  %.sroa.017.1 = phi i32 [ 0, %47 ], [ 3, %.thread ], [ %36, %.loopexit ]
+  %.sroa.0.0 = phi ptr [ %48, %47 ], [ %17, %.thread ], [ %17, %.loopexit ]
   %54 = load ptr, ptr %5, align 8, !tbaa !30
   %55 = icmp eq ptr %54, %18
   br i1 %55, label %_ZN4llvm11SmallVectorIcLj40EED2Ev.exit, label %56
@@ -4836,7 +4836,7 @@ _ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase14addSectionFlagINS0_20Sec
   br i1 %.not.i36, label %_ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase14addSectionFlagINS0_19SecProfSummaryFlagsEEEvNS0_7SecTypeET_.exit, label %.lr.ph.i34
 
 _ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase14addSectionFlagINS0_19SecProfSummaryFlagsEEEvNS0_7SecTypeET_.exit: ; preds = %78, %45, %49, %65, %_ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase14addSectionFlagINS0_20SecFuncMetadataFlagsEEEvNS0_7SecTypeET_.exit31
-  %80 = phi i1 [ %64, %_ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase14addSectionFlagINS0_20SecFuncMetadataFlagsEEEvNS0_7SecTypeET_.exit31 ], [ true, %65 ], [ false, %45 ], [ false, %49 ], [ true, %78 ]
+  %80 = phi i1 [ false, %45 ], [ %64, %_ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase14addSectionFlagINS0_20SecFuncMetadataFlagsEEEvNS0_7SecTypeET_.exit31 ], [ true, %65 ], [ false, %49 ], [ true, %78 ]
   %81 = load i8, ptr @_ZN4llvm10sampleprof15FunctionSamples19ProfileIsPreInlinedE, align 1, !range !173
   %82 = trunc nuw i8 %81 to i1
   %or.cond7 = select i1 %80, i1 %82, i1 false
@@ -4906,7 +4906,7 @@ _ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase14addSectionFlagINS0_19Sec
   %.not.i47 = icmp eq ptr %114, %106
   br i1 %.not.i47, label %_ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase14addSectionFlagINS0_19SecProfSummaryFlagsEEEvNS0_7SecTypeET_.exit48, label %.lr.ph.i45
 
-_ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase14addSectionFlagINS0_19SecProfSummaryFlagsEEEvNS0_7SecTypeET_.exit48: ; preds = %113, %6, %9, %12, %100, %_ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase14addSectionFlagINS0_19SecProfSummaryFlagsEEEvNS0_7SecTypeET_.exit42
+_ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase14addSectionFlagINS0_19SecProfSummaryFlagsEEEvNS0_7SecTypeET_.exit48: ; preds = %113, %12, %6, %9, %100, %_ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase14addSectionFlagINS0_19SecProfSummaryFlagsEEEvNS0_7SecTypeET_.exit42
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %116 = load ptr, ptr %115, align 8, !tbaa !28
   %117 = load ptr, ptr %116, align 8, !tbaa !14
@@ -9071,7 +9071,7 @@ _ZNSt10_HashtableIN4llvm9hash_codeESt4pairIKS1_NS0_10sampleprof15FunctionSamples
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph.i, %.lr.ph, %..loopexit_crit_edge21.i, %23, %5, %_ZNSt10_HashtableIN4llvm9hash_codeESt4pairIKS1_NS0_10sampleprof15FunctionSamplesEESaIS6_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE8_M_eraseEmPNS8_15_Hash_node_baseEPNS8_10_Hash_nodeIS6_Lb1EEE.exit
-  %.0 = phi i64 [ 1, %_ZNSt10_HashtableIN4llvm9hash_codeESt4pairIKS1_NS0_10sampleprof15FunctionSamplesEESaIS6_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE8_M_eraseEmPNS8_15_Hash_node_baseEPNS8_10_Hash_nodeIS6_Lb1EEE.exit ], [ 0, %5 ], [ 0, %23 ], [ 0, %..loopexit_crit_edge21.i ], [ 0, %.lr.ph ], [ 0, %.lr.ph.i ]
+  %.0 = phi i64 [ 1, %_ZNSt10_HashtableIN4llvm9hash_codeESt4pairIKS1_NS0_10sampleprof15FunctionSamplesEESaIS6_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE8_M_eraseEmPNS8_15_Hash_node_baseEPNS8_10_Hash_nodeIS6_Lb1EEE.exit ], [ 0, %.lr.ph ], [ 0, %5 ], [ 0, %23 ], [ 0, %..loopexit_crit_edge21.i ], [ 0, %.lr.ph.i ]
   ret i64 %.0
 }
 
@@ -9608,7 +9608,7 @@ _ZNSt10_HashtableIN4llvm9hash_codeESt4pairIKS1_NS0_10sampleprof15FunctionSamples
   br label %_ZNSt10_HashtableIN4llvm9hash_codeESt4pairIKS1_NS0_10sampleprof15FunctionSamplesEESaIS6_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 
 _ZNKSt10_HashtableIN4llvm9hash_codeESt4pairIKS1_NS0_10sampleprof15FunctionSamplesEESaIS6_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit: ; preds = %77, %60, %67
-  %.sroa.031.0.ph = phi ptr [ %68, %67 ], [ %.sroa.024.0, %60 ], [ %83, %77 ]
+  %.sroa.031.0.ph = phi ptr [ %.sroa.024.0, %60 ], [ %68, %67 ], [ %83, %77 ]
   %120 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %121 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %122 = load ptr, ptr %121, align 8, !tbaa !200
@@ -12866,7 +12866,7 @@ _ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit:       ; preds = %47, %50
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !512
 
 _ZSt11swap_rangesIPcS0_ET0_T_S2_S1_.exit:         ; preds = %._crit_edge, %._crit_edge110, %.lr.ph.i, %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit, %_ZSt4moveIPcS0_ET0_T_S2_S1_.exit, %5, %3
-  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %21, %_ZSt4moveIPcS0_ET0_T_S2_S1_.exit ], [ %21, %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit ], [ %1, %.lr.ph.i ], [ %21, %._crit_edge110 ], [ %21, %._crit_edge ]
+  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %1, %.lr.ph.i ], [ %21, %_ZSt4moveIPcS0_ET0_T_S2_S1_.exit ], [ %21, %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit ], [ %21, %._crit_edge110 ], [ %21, %._crit_edge ]
   ret ptr %.053
 }
 
@@ -14009,7 +14009,7 @@ _ZSt13move_backwardIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRec
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !555
 
 _ZSt11swap_rangesIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_ET0_T_SB_SA_.exit: ; preds = %._crit_edge, %._crit_edge111, %.lr.ph.i, %_ZSt13move_backwardIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_ET0_T_SB_SA_.exit, %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_ET0_T_SB_SA_.exit, %5, %3
-  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %23, %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_ET0_T_SB_SA_.exit ], [ %23, %_ZSt13move_backwardIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_ET0_T_SB_SA_.exit ], [ %1, %.lr.ph.i ], [ %23, %._crit_edge111 ], [ %23, %._crit_edge ]
+  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %1, %.lr.ph.i ], [ %23, %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_ET0_T_SB_SA_.exit ], [ %23, %_ZSt13move_backwardIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_ET0_T_SB_SA_.exit ], [ %23, %._crit_edge111 ], [ %23, %._crit_edge ]
   ret ptr %.053
 }
 
@@ -15331,7 +15331,7 @@ _ZSt13move_backwardIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10Fu
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !569
 
 _ZSt11swap_rangesIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_ET0_T_SJ_SI_.exit: ; preds = %._crit_edge, %._crit_edge111, %.lr.ph.i, %_ZSt13move_backwardIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_ET0_T_SJ_SI_.exit, %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_ET0_T_SJ_SI_.exit, %5, %3
-  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %23, %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_ET0_T_SJ_SI_.exit ], [ %23, %_ZSt13move_backwardIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_ET0_T_SJ_SI_.exit ], [ %1, %.lr.ph.i ], [ %23, %._crit_edge111 ], [ %23, %._crit_edge ]
+  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %1, %.lr.ph.i ], [ %23, %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_ET0_T_SJ_SI_.exit ], [ %23, %_ZSt13move_backwardIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_ET0_T_SJ_SI_.exit ], [ %23, %._crit_edge111 ], [ %23, %._crit_edge ]
   ret ptr %.053
 }
 

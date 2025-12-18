@@ -359,7 +359,7 @@ define dso_local void @_ZNK4llvm15DWARFDebugMacro4dumpERNS_11raw_ostreamE(ptr no
   br i1 %.not106, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit, %34, %35
-  %.2121 = phi i32 [ 0, %35 ], [ 0, %34 ], [ %38, %_ZN4llvm11raw_ostreamlsEPKc.exit ]
+  %.2121 = phi i32 [ 0, %34 ], [ 0, %35 ], [ %38, %_ZN4llvm11raw_ostreamlsEPKc.exit ]
   %39 = load i32, ptr %.04995, align 8, !tbaa !61
   %40 = icmp eq i32 %39, 3
   %41 = zext i1 %40 to i32
@@ -1223,8 +1223,8 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i56: ;
 208:                                              ; preds = %_ZN4llvm15SmallVectorImplINS_15DWARFDebugMacro5EntryEE12emplace_backIJEEERS2_DpOT_.exit, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i56, %202, %195, %190, %110, %102
   br label %.backedge
 
-.backedge:                                        ; preds = %_ZN4llvm15SmallVectorImplINS_15DWARFDebugMacro5EntryEE12emplace_backIJEEERS2_DpOT_.exit, %208
-  %.2131 = phi ptr [ %.1, %208 ], [ null, %_ZN4llvm15SmallVectorImplINS_15DWARFDebugMacro5EntryEE12emplace_backIJEEERS2_DpOT_.exit ]
+.backedge:                                        ; preds = %208, %_ZN4llvm15SmallVectorImplINS_15DWARFDebugMacro5EntryEE12emplace_backIJEEERS2_DpOT_.exit
+  %.2131 = phi ptr [ null, %_ZN4llvm15SmallVectorImplINS_15DWARFDebugMacro5EntryEE12emplace_backIJEEERS2_DpOT_.exit ], [ %.1, %208 ]
   %209 = load i64, ptr %9, align 8, !tbaa !36
   %210 = load i64, ptr %20, align 8, !tbaa !80
   %211 = icmp ugt i64 %210, %209

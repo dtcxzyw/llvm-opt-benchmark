@@ -2790,12 +2790,12 @@ _ZN12EventLogBaseI9GCMessageE5printEP12outputStreamRNS1_11EventRecordIS0_EE.exit
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN12EventLogBaseI9GCMessageE5printEP12outputStreamRNS1_11EventRecordIS0_EE.exit43.us, %_ZN12EventLogBaseI9GCMessageE5printEP12outputStreamRNS1_11EventRecordIS0_EE.exit43, %.loopexit.loopexit, %.loopexit.loopexit64, %._crit_edge, %.preheader
-  %.1 = phi i32 [ 0, %.preheader ], [ %.2.lcssa, %._crit_edge ], [ %indvars84, %.loopexit.loopexit64 ], [ %indvars89.le, %.loopexit.loopexit ], [ %135, %_ZN12EventLogBaseI9GCMessageE5printEP12outputStreamRNS1_11EventRecordIS0_EE.exit43 ], [ %115, %_ZN12EventLogBaseI9GCMessageE5printEP12outputStreamRNS1_11EventRecordIS0_EE.exit43.us ]
+  %.1 = phi i32 [ %135, %_ZN12EventLogBaseI9GCMessageE5printEP12outputStreamRNS1_11EventRecordIS0_EE.exit43 ], [ 0, %.preheader ], [ %indvars84, %.loopexit.loopexit64 ], [ %indvars89.le, %.loopexit.loopexit ], [ %.2.lcssa, %._crit_edge ], [ %115, %_ZN12EventLogBaseI9GCMessageE5printEP12outputStreamRNS1_11EventRecordIS0_EE.exit43.us ]
   %139 = icmp eq i32 %.1, %2
   br i1 %139, label %.sink.split, label %140
 
 .sink.split:                                      ; preds = %.lr.ph52.split, %.lr.ph59.split, %.loopexit, %3
-  %.str.34.sink = phi ptr [ @.str.33, %3 ], [ @.str.34, %.loopexit ], [ @.str.34, %.lr.ph59.split ], [ @.str.34, %.lr.ph52.split ]
+  %.str.34.sink = phi ptr [ @.str.33, %3 ], [ @.str.34, %.lr.ph59.split ], [ @.str.34, %.loopexit ], [ @.str.34, %.lr.ph52.split ]
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull %.str.34.sink) #19
   br label %140
 

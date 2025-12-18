@@ -236,9 +236,9 @@ _Py_NewRef.exit39.us.i:                           ; preds = %66, %.loopexit.us.i
   br label %Py_XDECREF.exit.us.i
 
 Py_XDECREF.exit.us.i:                             ; preds = %_Py_NewRef.exit39.us.i, %contains.exit.us.i
-  %71 = phi ptr [ %63, %_Py_NewRef.exit39.us.i ], [ %41, %contains.exit.us.i ]
-  %72 = phi ptr [ %63, %_Py_NewRef.exit39.us.i ], [ %42, %contains.exit.us.i ]
-  %.228.us.i = phi i64 [ %70, %_Py_NewRef.exit39.us.i ], [ %.02655.us.i, %contains.exit.us.i ]
+  %71 = phi ptr [ %41, %contains.exit.us.i ], [ %63, %_Py_NewRef.exit39.us.i ]
+  %72 = phi ptr [ %42, %contains.exit.us.i ], [ %63, %_Py_NewRef.exit39.us.i ]
+  %.228.us.i = phi i64 [ %.02655.us.i, %contains.exit.us.i ], [ %70, %_Py_NewRef.exit39.us.i ]
   %73 = add nuw nsw i64 %.03053.us.i, 1
   %exitcond66.not.i = icmp eq i64 %73, %.sink.i2841
   br i1 %exitcond66.not.i, label %.thread43.i, label %.lr.ph.i.us.i, !llvm.loop !28
@@ -363,7 +363,7 @@ _Py_NewRef.exit39.i:                              ; preds = %112, %.loopexit.i
   %118 = icmp eq ptr %71, null
   br i1 %118, label %merge.exit.thread, label %merge.exit
 
-merge.exit.thread:                                ; preds = %95, %59, %94, %.split.us.i, %89, %91, %.thread43.i, %get_types.exit31
+merge.exit.thread:                                ; preds = %95, %59, %get_types.exit31, %91, %94, %.split.us.i, %89, %.thread43.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %121
 

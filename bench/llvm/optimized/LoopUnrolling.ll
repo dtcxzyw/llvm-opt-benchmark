@@ -2493,7 +2493,7 @@ _ZN5clang4ento12ExplodedNode12getFirstPredEv.exit.i.i: ; preds = %551, %_ZN4llvm
   br label %_ZN5clang4entoL17isPossiblyEscapedEPNS0_12ExplodedNodeEPKNS_11DeclRefExprE.exit.i
 
 _ZN5clang4entoL17isPossiblyEscapedEPNS0_12ExplodedNodeEPKNS_11DeclRefExprE.exit.i: ; preds = %_ZN5clang4ento12ExplodedNode12getFirstPredEv.exit.i.i, %.lr.ph.i.i.i, %.lr.ph.i62.i.i, %._crit_edge.i.i, %278, %_ZN5clang4entoL21isCapturedByReferenceEPNS0_12ExplodedNodeEPKNS_11DeclRefExprE.exit.i.i, %223
-  %558 = phi i1 [ false, %223 ], [ true, %._crit_edge.i.i ], [ false, %278 ], [ false, %_ZN5clang4entoL21isCapturedByReferenceEPNS0_12ExplodedNodeEPKNS_11DeclRefExprE.exit.i.i ], [ true, %.lr.ph.i.i.i ], [ true, %.lr.ph.i62.i.i ], [ false, %_ZN5clang4ento12ExplodedNode12getFirstPredEv.exit.i.i ]
+  %558 = phi i1 [ false, %223 ], [ true, %._crit_edge.i.i ], [ true, %.lr.ph.i.i.i ], [ false, %278 ], [ false, %_ZN5clang4entoL21isCapturedByReferenceEPNS0_12ExplodedNodeEPKNS_11DeclRefExprE.exit.i.i ], [ true, %.lr.ph.i62.i.i ], [ false, %_ZN5clang4ento12ExplodedNode12getFirstPredEv.exit.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)

@@ -4678,8 +4678,8 @@ arraydestroy.body235:                             ; preds = %arraydestroy.body23
   br i1 %arraydestroy.done238, label %ehcleanup240, label %arraydestroy.body235
 
 ehcleanup240:                                     ; preds = %arraydestroy.body235, %lpad211, %lpad.i160
-  %.pn16 = phi { ptr, i32 } [ %79, %lpad211 ], [ %62, %lpad.i160 ], [ %80, %arraydestroy.body235 ]
-  %82 = phi i1 [ false, %lpad211 ], [ false, %lpad.i160 ], [ true, %arraydestroy.body235 ]
+  %.pn16 = phi { ptr, i32 } [ %62, %lpad.i160 ], [ %79, %lpad211 ], [ %80, %arraydestroy.body235 ]
+  %82 = phi i1 [ false, %lpad.i160 ], [ false, %lpad211 ], [ true, %arraydestroy.body235 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp205) #25
   br label %ehcleanup241
 
@@ -4821,7 +4821,7 @@ _ZN4absl12lts_202308027CleanupINS0_16cleanup_internal3TagEZN6google8protobuf2io7
   br label %sw.epilog
 
 ehcleanup265:                                     ; preds = %arraydestroy.body254, %ehcleanup249.thread, %ehcleanup249, %lpad149
-  %.pn16.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn16.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup249 ], [ %71, %lpad149 ], [ %.pn16.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %ehcleanup249.thread ], [ %.pn16.pn.pn.pn.pn.pn.pn.pn.pn, %arraydestroy.body254 ]
+  %.pn16.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn16.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup249 ], [ %.pn16.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %ehcleanup249.thread ], [ %71, %lpad149 ], [ %.pn16.pn.pn.pn.pn.pn.pn.pn.pn, %arraydestroy.body254 ]
   call void @_ZN4absl12lts_202308027CleanupINS0_16cleanup_internal3TagEZN6google8protobuf2io7Printer8WithDefsENS0_4SpanIKNS7_3SubEEEbEUlvE_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %v) #25
   br label %ehcleanup266
 

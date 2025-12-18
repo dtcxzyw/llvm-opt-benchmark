@@ -4862,7 +4862,7 @@ _ZN9grpc_core12experimental4JsonD2Ev.exit93:      ; preds = %_ZN9grpc_core12expe
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader.preheader, %.thread128, %.thread, %.loopexit146
-  %.pn.pn.pn.pn.pn.pn127 = phi { ptr, i32 } [ %154, %.thread ], [ %.pn.pn.pn, %.loopexit146 ], [ %155, %.thread128 ], [ %.pn.pn.pn.pn145, %.preheader.preheader ]
+  %.pn.pn.pn.pn.pn.pn127 = phi { ptr, i32 } [ %154, %.thread ], [ %155, %.thread128 ], [ %.pn.pn.pn, %.loopexit146 ], [ %.pn.pn.pn.pn145, %.preheader.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)

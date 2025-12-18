@@ -2860,7 +2860,7 @@ for.inc.i21.i.i.i:                                ; preds = %while.body.i.i25.i.
   br i1 %cmp.i1.not.i24.i.i.i, label %invoke.cont187, label %for.body.i15.i.i.i, !llvm.loop !97
 
 invoke.cont187:                                   ; preds = %for.inc.i21.i.i.i, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i, %invoke.cont74, %if.else.i.i.i, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_less_iterEEvT_S9_T0_.exit.i.i.i, %for.end
-  %_M_finish.i161566 = phi ptr [ %_M_finish.i161, %for.end ], [ %_M_finish.i161, %if.else.i.i.i ], [ %_M_finish.i161, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_less_iterEEvT_S9_T0_.exit.i.i.i ], [ %_M_finish.i161564, %invoke.cont74 ], [ %_M_finish.i161, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i ], [ %_M_finish.i161, %for.inc.i21.i.i.i ]
+  %_M_finish.i161566 = phi ptr [ %_M_finish.i161, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i ], [ %_M_finish.i161564, %invoke.cont74 ], [ %_M_finish.i161, %for.end ], [ %_M_finish.i161, %if.else.i.i.i ], [ %_M_finish.i161, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_less_iterEEvT_S9_T0_.exit.i.i.i ], [ %_M_finish.i161, %for.inc.i21.i.i.i ]
   %104 = load ptr, ptr %allCashflowTimes, align 8, !tbaa !53
   %105 = load ptr, ptr %_M_finish.i161566, align 8, !tbaa !53
   %cmp.i.i.i.i = icmp eq ptr %104, %105

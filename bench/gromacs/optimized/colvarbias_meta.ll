@@ -4587,7 +4587,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit180: ; preds = %32
   br label %371
 
 _ZN11colvar_gridIdE19remove_small_valuesERKd.exit: ; preds = %289, %189, %257, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit159, %176, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit177
-  %.3 = phi i32 [ %314, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit177 ], [ %.2, %176 ], [ %.4, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit159 ], [ %.4, %257 ], [ %.2, %189 ], [ %.4, %289 ]
+  %.3 = phi i32 [ %314, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit177 ], [ %.4, %257 ], [ %.2, %176 ], [ %.2, %189 ], [ %.4, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit159 ], [ %.4, %289 ]
   %327 = load ptr, ptr %28, align 8, !tbaa !212
   %328 = invoke noundef double @_ZNK18colvar_grid_scalar8integralEv(ptr noundef nonnull align 8 dereferenceable(712) %327)
           to label %329 unwind label %365
@@ -8732,8 +8732,8 @@ _ZNK11colvar_gridIdE17get_colvars_indexERKSt6vectorI11colvarvalueSaIS2_EE.exit.l
   br label %_ZNK11colvar_gridIdE17get_colvars_indexERKSt6vectorI11colvarvalueSaIS2_EE.exit
 
 _ZNK11colvar_gridIdE17get_colvars_indexERKSt6vectorI11colvarvalueSaIS2_EE.exit: ; preds = %_ZNK11colvar_gridIdE17get_colvars_indexERKSt6vectorI11colvarvalueSaIS2_EE.exit.loopexit308, %_ZNK11colvar_gridIdE17get_colvars_indexERKSt6vectorI11colvarvalueSaIS2_EE.exit.loopexit
-  %.sroa.11.0 = phi ptr [ %90, %_ZNK11colvar_gridIdE17get_colvars_indexERKSt6vectorI11colvarvalueSaIS2_EE.exit.loopexit ], [ %91, %_ZNK11colvar_gridIdE17get_colvars_indexERKSt6vectorI11colvarvalueSaIS2_EE.exit.loopexit308 ]
-  %.sroa.0280.0 = phi ptr [ %54, %_ZNK11colvar_gridIdE17get_colvars_indexERKSt6vectorI11colvarvalueSaIS2_EE.exit.loopexit ], [ %30, %_ZNK11colvar_gridIdE17get_colvars_indexERKSt6vectorI11colvarvalueSaIS2_EE.exit.loopexit308 ]
+  %.sroa.11.0 = phi ptr [ %91, %_ZNK11colvar_gridIdE17get_colvars_indexERKSt6vectorI11colvarvalueSaIS2_EE.exit.loopexit308 ], [ %90, %_ZNK11colvar_gridIdE17get_colvars_indexERKSt6vectorI11colvarvalueSaIS2_EE.exit.loopexit ]
+  %.sroa.0280.0 = phi ptr [ %30, %_ZNK11colvar_gridIdE17get_colvars_indexERKSt6vectorI11colvarvalueSaIS2_EE.exit.loopexit308 ], [ %54, %_ZNK11colvar_gridIdE17get_colvars_indexERKSt6vectorI11colvarvalueSaIS2_EE.exit.loopexit ]
   %92 = ptrtoint ptr %.sroa.11.0 to i64
   %93 = ptrtoint ptr %.sroa.0280.0 to i64
   %94 = sub i64 %92, %93
@@ -8961,8 +8961,8 @@ _ZNK11colvar_gridIdE8index_okERKSt6vectorIiSaIiEE.exit: ; preds = %107, %_ZNSt6v
   br i1 %200, label %.lr.ph301, label %._crit_edge302, !llvm.loop !361
 
 ._crit_edge302:                                   ; preds = %192, %.critedge, %_ZNK11colvar_gridIdE8index_okERKSt6vectorIiSaIiEE.exit, %.loopexit289
-  %.sroa.15.3371 = phi ptr [ %.sroa.15.2, %.loopexit289 ], [ %.sroa.15.2, %.critedge ], [ %.sroa.15.0318366, %_ZNK11colvar_gridIdE8index_okERKSt6vectorIiSaIiEE.exit ], [ %.sroa.15.3377, %192 ]
-  %.sroa.0.3370 = phi ptr [ %.sroa.0.2, %.loopexit289 ], [ %.sroa.0.2, %.critedge ], [ %.sroa.0.0364, %_ZNK11colvar_gridIdE8index_okERKSt6vectorIiSaIiEE.exit ], [ %.sroa.0.3376, %192 ]
+  %.sroa.15.3371 = phi ptr [ %.sroa.15.0318366, %_ZNK11colvar_gridIdE8index_okERKSt6vectorIiSaIiEE.exit ], [ %.sroa.15.2, %.loopexit289 ], [ %.sroa.15.2, %.critedge ], [ %.sroa.15.3377, %192 ]
+  %.sroa.0.3370 = phi ptr [ %.sroa.0.0364, %_ZNK11colvar_gridIdE8index_okERKSt6vectorIiSaIiEE.exit ], [ %.sroa.0.2, %.loopexit289 ], [ %.sroa.0.2, %.critedge ], [ %.sroa.0.3376, %192 ]
   %.not.i.i.i276 = icmp eq ptr %.sroa.0.3370, null
   br i1 %.not.i.i.i276, label %_ZNSt6vectorIiSaIiEED2Ev.exit277, label %201
 
@@ -8977,9 +8977,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit277:                 ; preds = %._crit_edge302, %20
   ret i32 0
 
 _ZNSt6vectorIiSaIiEED2Ev.exit115:                 ; preds = %.loopexit, %.loopexit.split-lp
-  %.sroa.0.1 = phi ptr [ %.sroa.0.2, %.loopexit.split-lp ], [ %.sroa.0.3376, %.loopexit ]
-  %.sroa.15.1 = phi ptr [ %.sroa.15.2, %.loopexit.split-lp ], [ %.sroa.15.3377, %.loopexit ]
-  %.pn84.pn.pn.pn = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ]
+  %.sroa.0.1 = phi ptr [ %.sroa.0.3376, %.loopexit ], [ %.sroa.0.2, %.loopexit.split-lp ]
+  %.sroa.15.1 = phi ptr [ %.sroa.15.3377, %.loopexit ], [ %.sroa.15.2, %.loopexit.split-lp ]
+  %.pn84.pn.pn.pn = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.not.i.i.i278 = icmp eq ptr %.sroa.0.1, null
   br i1 %.not.i.i.i278, label %_ZNSt6vectorIiSaIiEED2Ev.exit279, label %205
 
@@ -9207,8 +9207,8 @@ _ZNK11colvar_gridIdE17get_colvars_indexERKSt6vectorI11colvarvalueSaIS2_EE.exit.l
   br label %_ZNK11colvar_gridIdE17get_colvars_indexERKSt6vectorI11colvarvalueSaIS2_EE.exit
 
 _ZNK11colvar_gridIdE17get_colvars_indexERKSt6vectorI11colvarvalueSaIS2_EE.exit: ; preds = %_ZNK11colvar_gridIdE17get_colvars_indexERKSt6vectorI11colvarvalueSaIS2_EE.exit.loopexit264, %_ZNK11colvar_gridIdE17get_colvars_indexERKSt6vectorI11colvarvalueSaIS2_EE.exit.loopexit
-  %.sroa.0201.0 = phi ptr [ %88, %_ZNK11colvar_gridIdE17get_colvars_indexERKSt6vectorI11colvarvalueSaIS2_EE.exit.loopexit ], [ %64, %_ZNK11colvar_gridIdE17get_colvars_indexERKSt6vectorI11colvarvalueSaIS2_EE.exit.loopexit264 ]
-  %.sroa.11.0 = phi ptr [ %124, %_ZNK11colvar_gridIdE17get_colvars_indexERKSt6vectorI11colvarvalueSaIS2_EE.exit.loopexit ], [ %125, %_ZNK11colvar_gridIdE17get_colvars_indexERKSt6vectorI11colvarvalueSaIS2_EE.exit.loopexit264 ]
+  %.sroa.0201.0 = phi ptr [ %64, %_ZNK11colvar_gridIdE17get_colvars_indexERKSt6vectorI11colvarvalueSaIS2_EE.exit.loopexit264 ], [ %88, %_ZNK11colvar_gridIdE17get_colvars_indexERKSt6vectorI11colvarvalueSaIS2_EE.exit.loopexit ]
+  %.sroa.11.0 = phi ptr [ %125, %_ZNK11colvar_gridIdE17get_colvars_indexERKSt6vectorI11colvarvalueSaIS2_EE.exit.loopexit264 ], [ %124, %_ZNK11colvar_gridIdE17get_colvars_indexERKSt6vectorI11colvarvalueSaIS2_EE.exit.loopexit ]
   %126 = ptrtoint ptr %.sroa.11.0 to i64
   %127 = ptrtoint ptr %.sroa.0201.0 to i64
   %128 = sub i64 %126, %127
@@ -9542,8 +9542,8 @@ _ZNK11colvar_gridIdE8index_okERKSt6vectorIiSaIiEE.exit: ; preds = %141, %_ZNSt6v
   br i1 %306, label %.preheader, label %._crit_edge254, !llvm.loop !381
 
 ._crit_edge254:                                   ; preds = %._crit_edge252, %.critedge, %_ZNK11colvar_gridIdE8index_okERKSt6vectorIiSaIiEE.exit, %.loopexit232
-  %.sroa.0208.2319 = phi ptr [ %.sroa.0208.2, %.loopexit232 ], [ %.sroa.0208.1, %.critedge ], [ %.sroa.0208.4313, %_ZNK11colvar_gridIdE8index_okERKSt6vectorIiSaIiEE.exit ], [ %.sroa.0208.2, %._crit_edge252 ]
-  %.sroa.15214.2318 = phi ptr [ %.sroa.15214.2, %.loopexit232 ], [ %.sroa.15214.1, %.critedge ], [ %.sroa.15214.4311, %_ZNK11colvar_gridIdE8index_okERKSt6vectorIiSaIiEE.exit ], [ %.sroa.15214.2, %._crit_edge252 ]
+  %.sroa.0208.2319 = phi ptr [ %.sroa.0208.4313, %_ZNK11colvar_gridIdE8index_okERKSt6vectorIiSaIiEE.exit ], [ %.sroa.0208.2, %.loopexit232 ], [ %.sroa.0208.1, %.critedge ], [ %.sroa.0208.2, %._crit_edge252 ]
+  %.sroa.15214.2318 = phi ptr [ %.sroa.15214.4311, %_ZNK11colvar_gridIdE8index_okERKSt6vectorIiSaIiEE.exit ], [ %.sroa.15214.2, %.loopexit232 ], [ %.sroa.15214.1, %.critedge ], [ %.sroa.15214.2, %._crit_edge252 ]
   %.not.i.i.i197 = icmp eq ptr %.sroa.0208.2319, null
   br i1 %.not.i.i.i197, label %_ZNSt6vectorIiSaIiEED2Ev.exit198, label %307
 
@@ -12242,7 +12242,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i30
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit309
 
 .critedge:                                        ; preds = %581, %570, %.noexc266, %602
-  %.125 = phi i1 [ true, %602 ], [ true, %.noexc266 ], [ false, %570 ], [ false, %581 ]
+  %.125 = phi i1 [ true, %.noexc266 ], [ true, %602 ], [ false, %570 ], [ false, %581 ]
   %710 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %711 = invoke noundef ptr @_ZNSt13basic_filebufIcSt11char_traitsIcEE5closeEv(ptr noundef nonnull align 8 dereferenceable(240) %710)
           to label %.noexc311 unwind label %.loopexit.split-lp

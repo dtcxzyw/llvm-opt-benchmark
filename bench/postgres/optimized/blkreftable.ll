@@ -967,13 +967,13 @@ define dso_local i32 @BlockRefTableEntryGetBlocks(ptr noundef readonly captures(
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.thread, %.thread116, %23, %.preheader
-  %.586.ph = phi i32 [ %.081153, %.preheader ], [ %.081153, %23 ], [ %.990120, %.thread116 ], [ %.384111, %.thread ]
+  %.586.ph = phi i32 [ %.990120, %.thread116 ], [ %.081153, %.preheader ], [ %.081153, %23 ], [ %.384111, %.thread ]
   %indvars.iv.next164 = add nuw nsw i64 %indvars.iv163, 1
   %exitcond166.not = icmp eq i64 %indvars.iv.next164, %wide.trip.count165
   br i1 %exitcond166.not, label %.thread113, label %23, !llvm.loop !18
 
 .thread113:                                       ; preds = %.loopexit, %42, %52, %5
-  %.13 = phi i32 [ 0, %5 ], [ %44, %42 ], [ %54, %52 ], [ %.586.ph, %.loopexit ]
+  %.13 = phi i32 [ %44, %42 ], [ %54, %52 ], [ 0, %5 ], [ %.586.ph, %.loopexit ]
   ret i32 %.13
 }
 
@@ -1769,7 +1769,7 @@ define dso_local i32 @BlockRefTableReaderGetBlocks(ptr noundef %0, ptr noundef w
   br label %.loopexit
 
 .loopexit:                                        ; preds = %46, %.loopexit.loopexit56, %.preheader50, %.preheader, %10
-  %.1 = phi i32 [ %.041, %10 ], [ %.041, %.preheader ], [ %.041, %.preheader50 ], [ %65, %.loopexit.loopexit56 ], [ %.3, %46 ]
+  %.1 = phi i32 [ %.041, %10 ], [ %65, %.loopexit.loopexit56 ], [ %.041, %.preheader ], [ %.041, %.preheader50 ], [ %.3, %46 ]
   %.not46 = icmp ult i32 %.1, %2
   br i1 %.not46, label %66, label %81
 

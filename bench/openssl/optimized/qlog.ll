@@ -843,7 +843,7 @@ lex_do.exit:                                      ; preds = %is_term_sep_ws.exit
   br label %.loopexit
 
 .loopexit:                                        ; preds = %validate_name.exit, %51, %.critedge.i, %is_name_char.exit44, %is_name_char.exit, %switch.early.test.i, %switch.early.test.i61, %lex_do.exit
-  %.021 = phi i32 [ 1, %lex_do.exit ], [ 0, %switch.early.test.i ], [ 0, %switch.early.test.i61 ], [ 0, %is_name_char.exit ], [ 0, %is_name_char.exit44 ], [ 0, %.critedge.i ], [ 0, %51 ], [ 0, %validate_name.exit ]
+  %.021 = phi i32 [ 1, %lex_do.exit ], [ 0, %switch.early.test.i61 ], [ 0, %switch.early.test.i ], [ 0, %is_name_char.exit ], [ 0, %is_name_char.exit44 ], [ 0, %.critedge.i ], [ 0, %51 ], [ 0, %validate_name.exit ]
   ret i32 %.021
 }
 

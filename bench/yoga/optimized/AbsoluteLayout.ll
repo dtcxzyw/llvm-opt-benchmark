@@ -2582,7 +2582,7 @@ _ZNK8facebook4yoga5Style23horizontalInsetsDefinedEv.exit: ; preds = %191
   br label %.thread195
 
 _ZNK8facebook4yoga5Style23horizontalInsetsDefinedEv.exit.thread: ; preds = %179, %175, %171, %167, %163, %.thread185
-  %198 = phi ptr [ %spec.select, %179 ], [ %0, %.thread185 ], [ %0, %163 ], [ %0, %167 ], [ %0, %171 ], [ %0, %175 ]
+  %198 = phi ptr [ %spec.select, %179 ], [ %0, %167 ], [ %0, %175 ], [ %0, %171 ], [ %0, %.thread185 ], [ %0, %163 ]
   %199 = icmp eq i8 %.0.i181188, 3
   %200 = getelementptr inbounds nuw i8, ptr %198, i64 436
   %201 = getelementptr inbounds nuw i8, ptr %70, i64 436
@@ -4749,7 +4749,7 @@ _ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit: ; preds = %23, %_ZNSt6v
   br label %_ZNK8facebook4yoga14StyleValuePool7getSizeENS0_16StyleValueHandleE.exit
 
 _ZNK8facebook4yoga14StyleValuePool7getSizeENS0_16StyleValueHandleE.exit: ; preds = %2, %7, %12, %15, %49, %51, %.fold.split.i
-  %.sroa.0.0.in.i = phi i64 [ %.sroa.03.sroa.0.0.insert.insert.i6.i, %51 ], [ 2143289344, %2 ], [ 19323158528, %7 ], [ 23618125824, %12 ], [ %.sroa.03.sroa.0.0.insert.insert.i.i, %49 ], [ 27913093120, %15 ], [ 15028191232, %.fold.split.i ]
+  %.sroa.0.0.in.i = phi i64 [ %.sroa.03.sroa.0.0.insert.insert.i6.i, %51 ], [ 2143289344, %2 ], [ 27913093120, %15 ], [ 19323158528, %7 ], [ 23618125824, %12 ], [ %.sroa.03.sroa.0.0.insert.insert.i.i, %49 ], [ 15028191232, %.fold.split.i ]
   ret i64 %.sroa.0.0.in.i
 }
 
@@ -4861,7 +4861,7 @@ _ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit: ; preds = %23, %_ZNSt6v
   br label %_ZNK8facebook4yoga14StyleValuePool7getSizeENS0_16StyleValueHandleE.exit
 
 _ZNK8facebook4yoga14StyleValuePool7getSizeENS0_16StyleValueHandleE.exit: ; preds = %2, %7, %12, %15, %49, %51, %.fold.split.i
-  %.sroa.0.0.in.i = phi i64 [ %.sroa.03.sroa.0.0.insert.insert.i6.i, %51 ], [ 2143289344, %2 ], [ 19323158528, %7 ], [ 23618125824, %12 ], [ %.sroa.03.sroa.0.0.insert.insert.i.i, %49 ], [ 27913093120, %15 ], [ 15028191232, %.fold.split.i ]
+  %.sroa.0.0.in.i = phi i64 [ %.sroa.03.sroa.0.0.insert.insert.i6.i, %51 ], [ 2143289344, %2 ], [ 27913093120, %15 ], [ 19323158528, %7 ], [ 23618125824, %12 ], [ %.sroa.03.sroa.0.0.insert.insert.i.i, %49 ], [ 15028191232, %.fold.split.i ]
   ret i64 %.sroa.0.0.in.i
 }
 

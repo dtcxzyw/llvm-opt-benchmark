@@ -1876,7 +1876,7 @@ hwloc_obj_get_info_by_name.exit.thread:           ; preds = %34, %28, %hwloc_obj
   br label %hwloc_get_next_obj_by_type.exit.i
 
 hwloc_get_next_obj_by_type.exit.i:                ; preds = %161, %156
-  %.0.i.i = phi ptr [ %157, %156 ], [ %163, %161 ]
+  %.0.i.i = phi ptr [ %163, %161 ], [ %157, %156 ]
   %.not.i = icmp eq ptr %.0.i.i, null
   br i1 %.not.i, label %.preheader.i, label %165
 
@@ -1919,7 +1919,7 @@ hwloc_get_next_obj_by_type.exit.i:                ; preds = %161, %156
   br label %hwloc_get_next_obj_by_type.exit39.i
 
 hwloc_get_next_obj_by_type.exit39.i:              ; preds = %177, %172
-  %.0.i38.i = phi ptr [ %173, %172 ], [ %179, %177 ]
+  %.0.i38.i = phi ptr [ %179, %177 ], [ %173, %172 ]
   %.not34.i = icmp eq ptr %.0.i38.i, null
   br i1 %.not34.i, label %output_align_PU_textwidth.exit, label %180
 
@@ -5155,7 +5155,7 @@ lstopo_pu_binding.exit.thread:                    ; preds = %61, %lstopo_pu_bind
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %15, %lstopo_pu_binding.exit, %54, %lstopo_numa_binding.exit, %32, %24, %26, %3, %47, %48, %49, %50, %69, %70, %71, %28, %lstopo_numa_binding.exit.thread, %lstopo_pu_binding.exit.thread
-  %.sink100 = phi i64 [ 64, %3 ], [ 512, %lstopo_numa_binding.exit ], [ 256, %lstopo_pu_binding.exit.thread ], [ 544, %54 ], [ 576, %24 ], [ 288, %lstopo_numa_binding.exit.thread ], [ 544, %32 ], [ 480, %28 ], [ 416, %71 ], [ 384, %70 ], [ 448, %69 ], [ 352, %50 ], [ 224, %49 ], [ 192, %48 ], [ 128, %47 ], [ 576, %26 ], [ 512, %lstopo_pu_binding.exit ], [ 160, %15 ]
+  %.sink100 = phi i64 [ 64, %3 ], [ 512, %lstopo_numa_binding.exit ], [ 256, %lstopo_pu_binding.exit.thread ], [ 544, %54 ], [ 576, %24 ], [ 288, %lstopo_numa_binding.exit.thread ], [ 544, %32 ], [ 512, %lstopo_pu_binding.exit ], [ 480, %28 ], [ 416, %71 ], [ 384, %70 ], [ 448, %69 ], [ 352, %50 ], [ 224, %49 ], [ 192, %48 ], [ 128, %47 ], [ 576, %26 ], [ 160, %15 ]
   %72 = getelementptr inbounds nuw i8, ptr %7, i64 %.sink100
   store ptr %72, ptr %2, align 8, !tbaa !59
   br label %.loopexit

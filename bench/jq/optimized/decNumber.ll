@@ -7804,7 +7804,7 @@ decCompareOp.exit.thread:                         ; preds = %301, %299, %decComp
   br label %decNumberCopy.exit
 
 decNumberCopy.exit:                               ; preds = %328, %135
-  %.0146 = phi ptr [ %.1, %328 ], [ null, %135 ]
+  %.0146 = phi ptr [ null, %135 ], [ %.1, %328 ]
   %.not176 = icmp eq ptr %.1149, null
   br i1 %.not176, label %336, label %335
 
@@ -8964,7 +8964,7 @@ decNumberFromUInt32.exit.i:                       ; preds = %79, %77, %83, %81, 
   br label %decNumberCopy.exit
 
 decNumberCopy.exit:                               ; preds = %.lr.ph.preheader.i, %134, %132, %113, %182, %184
-  %.064 = phi ptr [ null, %182 ], [ %.1, %184 ], [ null, %113 ], [ null, %132 ], [ null, %134 ], [ null, %.lr.ph.preheader.i ]
+  %.064 = phi ptr [ null, %113 ], [ null, %134 ], [ null, %132 ], [ null, %182 ], [ %.1, %184 ], [ null, %.lr.ph.preheader.i ]
   %.not87 = icmp eq ptr %.167, null
   br i1 %.not87, label %192, label %191
 
@@ -10804,7 +10804,7 @@ split.thread:                                     ; preds = %218, %226, %split
   br label %254
 
 254:                                              ; preds = %211, %245, %split.thread
-  %.0157 = phi ptr [ %.2, %split.thread ], [ %.1158, %245 ], [ null, %211 ]
+  %.0157 = phi ptr [ null, %211 ], [ %.1158, %245 ], [ %.2, %split.thread ]
   %.not208 = icmp eq ptr %.1155, null
   br i1 %.not208, label %256, label %255
 
@@ -11017,8 +11017,8 @@ define internal fastcc i32 @decShiftToMost(ptr noundef captures(address) %0, i32
   br label %.loopexit76
 
 .loopexit76:                                      ; preds = %.lr.ph86, %.loopexit76.loopexit92, %60, %.preheader
-  %.061 = phi i16 [ 0, %.preheader ], [ 0, %60 ], [ %88, %.loopexit76.loopexit92 ], [ 0, %.lr.ph86 ]
-  %.1 = phi ptr [ %43, %.preheader ], [ %43, %60 ], [ %87, %.loopexit76.loopexit92 ], [ %49, %.lr.ph86 ]
+  %.061 = phi i16 [ 0, %.preheader ], [ %88, %.loopexit76.loopexit92 ], [ 0, %60 ], [ 0, %.lr.ph86 ]
+  %.1 = phi ptr [ %43, %.preheader ], [ %87, %.loopexit76.loopexit92 ], [ %43, %60 ], [ %49, %.lr.ph86 ]
   %.not7588 = icmp ult ptr %.1, %0
   br i1 %.not7588, label %.loopexit, label %.lr.ph91
 
@@ -13749,8 +13749,8 @@ condstore.split:                                  ; preds = %418
   br label %decNumberCopy.exit
 
 decNumberCopy.exit:                               ; preds = %.lr.ph.preheader.i256, %.lr.ph.preheader.i280, %435, %433, %182, %180, %115
-  %.0198 = phi ptr [ %111, %115 ], [ %.1199, %180 ], [ %.1199, %182 ], [ %.1199, %433 ], [ %.1199, %435 ], [ %.1199, %.lr.ph.preheader.i280 ], [ %.1199, %.lr.ph.preheader.i256 ]
-  %.0196 = phi ptr [ %112, %115 ], [ %.1197, %180 ], [ %.1197, %182 ], [ %.1197, %433 ], [ %.1197, %435 ], [ %.1197, %.lr.ph.preheader.i280 ], [ %.1197, %.lr.ph.preheader.i256 ]
+  %.0198 = phi ptr [ %111, %115 ], [ %.1199, %.lr.ph.preheader.i280 ], [ %.1199, %435 ], [ %.1199, %433 ], [ %.1199, %182 ], [ %.1199, %180 ], [ %.1199, %.lr.ph.preheader.i256 ]
+  %.0196 = phi ptr [ %112, %115 ], [ %.1197, %.lr.ph.preheader.i280 ], [ %.1197, %435 ], [ %.1197, %433 ], [ %.1197, %182 ], [ %.1197, %180 ], [ %.1197, %.lr.ph.preheader.i256 ]
   %.not231 = icmp eq ptr %.1192, null
   br i1 %.not231, label %463, label %462
 
@@ -15405,8 +15405,8 @@ select.unfold123:                                 ; preds = %44, %37, %18, %9
   br i1 %122, label %._crit_edge161, label %.lr.ph160
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph160, %._crit_edge161, %._crit_edge
-  %123 = phi i32 [ %83, %._crit_edge161 ], [ %51, %._crit_edge ], [ %83, %.lr.ph160 ], [ %51, %.lr.ph ]
-  %.1135 = phi i32 [ -1, %._crit_edge161 ], [ 1, %._crit_edge ], [ -1, %.lr.ph160 ], [ 1, %.lr.ph ]
+  %123 = phi i32 [ %51, %._crit_edge ], [ %83, %._crit_edge161 ], [ %83, %.lr.ph160 ], [ %51, %.lr.ph ]
+  %.1135 = phi i32 [ 1, %._crit_edge ], [ -1, %._crit_edge161 ], [ -1, %.lr.ph160 ], [ 1, %.lr.ph ]
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %125 = icmp slt i32 %123, 50
   br i1 %125, label %126, label %131
@@ -15734,8 +15734,8 @@ define internal fastcc void @decSetSubnormal(ptr noundef %0, ptr noundef readonl
   br label %.loopexit76.i
 
 .loopexit76.i:                                    ; preds = %.loopexit76.loopexit92.i, %88
-  %.061.i = phi i16 [ %113, %.loopexit76.loopexit92.i ], [ 0, %88 ]
-  %.1.i = phi ptr [ %112, %.loopexit76.loopexit92.i ], [ %90, %88 ]
+  %.061.i = phi i16 [ 0, %88 ], [ %113, %.loopexit76.loopexit92.i ]
+  %.1.i = phi ptr [ %90, %88 ], [ %112, %.loopexit76.loopexit92.i ]
   %.not7588.i = icmp ult ptr %.1.i, %10
   br i1 %.not7588.i, label %decShiftToMost.exit, label %.lr.ph91.i
 

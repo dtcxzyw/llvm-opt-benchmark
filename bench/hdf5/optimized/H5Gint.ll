@@ -1256,8 +1256,8 @@ define range(i32 -1, -2147483648) i32 @H5G_iterate(ptr noundef %0, ptr noundef %
   %.not = icmp eq i64 %33, -1
   br i1 %.not, label %56, label %.thread37
 
-.thread37:                                        ; preds = %35, %42, %46
-  %.043 = phi i32 [ -1, %46 ], [ %40, %35 ], [ -1, %42 ]
+.thread37:                                        ; preds = %42, %35, %46
+  %.043 = phi i32 [ -1, %46 ], [ -1, %42 ], [ %40, %35 ]
   %50 = call i32 @H5I_dec_app_ref(i64 noundef %33) #11
   %51 = icmp slt i32 %50, 0
   br i1 %51, label %52, label %.thread44

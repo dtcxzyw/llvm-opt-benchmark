@@ -791,7 +791,7 @@ psh_glyph_load_points.exit:                       ; preds = %.lr.ph.split.i, %.l
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %373, %.preheader.i, %.loopexit.loopexit102.i, %395, %392, %390, %365
-  %.164.i = phi i32 [ %.2.i, %390 ], [ %.2.i, %392 ], [ %.2.i, %395 ], [ %397, %.loopexit.loopexit102.i ], [ %.2.i, %365 ], [ %.2.i, %.preheader.i ], [ %.2.i, %373 ]
+  %.164.i = phi i32 [ %397, %.loopexit.loopexit102.i ], [ %.2.i, %390 ], [ %.2.i, %365 ], [ %.2.i, %392 ], [ %.2.i, %.preheader.i ], [ %.2.i, %395 ], [ %.2.i, %373 ]
   %398 = add i32 %.164.i, 1
   br label %.loopexit90.i, !llvm.loop !85
 
@@ -2595,7 +2595,7 @@ define internal fastcc void @psh_glyph_interpolate_other_points(ptr noundef nonn
   br i1 %.not118, label %.loopexit, label %.preheader137.backedge
 
 .loopexit:                                        ; preds = %130, %.preheader137, %57, %17
-  %.2 = phi i64 [ %.086153, %17 ], [ %.1.ph, %57 ], [ %.086153, %.preheader137 ], [ %.086153, %130 ]
+  %.2 = phi i64 [ %.1.ph, %57 ], [ %.086153, %17 ], [ %.086153, %.preheader137 ], [ %.086153, %130 ]
   %131 = add i32 %.0101151, -1
   %132 = getelementptr inbounds nuw i8, ptr %.087152, i64 16
   %.not = icmp eq i32 %131, 0
@@ -3095,9 +3095,9 @@ psh_blues_snap_stem.exit.thread:                  ; preds = %37
   br i1 %.not.i, label %.loopexit50.i, label %64, !llvm.loop !211
 
 .loopexit50.i:                                    ; preds = %82, %64, %79, %75, %48
-  %.sroa.9136.1 = phi i64 [ 0, %48 ], [ 0, %75 ], [ %81, %79 ], [ 0, %64 ], [ 0, %82 ]
-  %.sroa.0.1 = phi i32 [ 0, %48 ], [ 0, %75 ], [ 1, %79 ], [ 0, %64 ], [ 0, %82 ]
-  %85 = phi i32 [ 2, %48 ], [ 2, %75 ], [ 3, %79 ], [ 2, %64 ], [ 2, %82 ]
+  %.sroa.9136.1 = phi i64 [ 0, %48 ], [ %81, %79 ], [ 0, %75 ], [ 0, %64 ], [ 0, %82 ]
+  %.sroa.0.1 = phi i32 [ 0, %48 ], [ 1, %79 ], [ 0, %75 ], [ 0, %64 ], [ 0, %82 ]
+  %85 = phi i32 [ 2, %48 ], [ 3, %79 ], [ 2, %75 ], [ 2, %64 ], [ 2, %82 ]
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 1600
   %87 = load i32, ptr %86, align 8, !tbaa !117
   %.not4758.i = icmp eq i32 %87, 0
@@ -4665,7 +4665,7 @@ ps_mask_ensure.exit.i47.i:                        ; preds = %174
   br label %195
 
 ps_dimension_add_counter.exit.thread:             ; preds = %.preheader, %ps_mask_ensure.exit.i47.i, %ps_mask_set_bit.exit43.i, %ps_mask_set_bit.exit.i, %ps_mask_table_alloc.exit.i, %11
-  %.025.ph = phi i32 [ 6, %11 ], [ %181, %ps_mask_ensure.exit.i47.i ], [ %151, %ps_mask_set_bit.exit43.i ], [ %120, %ps_mask_set_bit.exit.i ], [ %89, %ps_mask_table_alloc.exit.i ], [ %30, %.preheader ]
+  %.025.ph = phi i32 [ %89, %ps_mask_table_alloc.exit.i ], [ 6, %11 ], [ %181, %ps_mask_ensure.exit.i47.i ], [ %151, %ps_mask_set_bit.exit43.i ], [ %120, %ps_mask_set_bit.exit.i ], [ %30, %.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   store i32 %.025.ph, ptr %9, align 8, !tbaa !195
   br label %195

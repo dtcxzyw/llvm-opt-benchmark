@@ -5435,8 +5435,8 @@ _ZNK5clang4Type13isIntegerTypeEv.exit._crit_edge: ; preds = %_ZNK5clang4Type13is
   unreachable
 
 .critedge140.critedge:                            ; preds = %186, %187, %188, %189, %190
-  %.0129 = phi i32 [ 29, %190 ], [ 15, %187 ], [ 28, %188 ], [ 30, %189 ], [ 13, %186 ]
-  %.0128 = phi i32 [ 5, %190 ], [ 2, %187 ], [ 3, %188 ], [ 6, %189 ], [ 1, %186 ]
+  %.0129 = phi i32 [ 29, %190 ], [ 30, %189 ], [ 28, %188 ], [ 15, %187 ], [ 13, %186 ]
+  %.0128 = phi i32 [ 5, %190 ], [ 6, %189 ], [ 3, %188 ], [ 2, %187 ], [ 1, %186 ]
   %192 = load ptr, ptr %53, align 8, !tbaa !72
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 8
   %.sroa.0.0.copyload.i169 = load i64, ptr %193, align 8, !tbaa !3
@@ -6558,16 +6558,16 @@ _ZNK5clang4Type13isIntegerTypeEv.exit:            ; preds = %38
   %60 = getelementptr inbounds nuw i8, ptr %.val41, i64 32
   %61 = load i32, ptr %60, align 8, !tbaa !1177
   %62 = icmp ult i32 %61, 65
-  br i1 %62, label %_ZNK12_GLOBAL__N_19BinOpInfo28mayHaveIntegerDivisionByZeroEv.exit, label %63
+  br i1 %62, label %63, label %_ZNK12_GLOBAL__N_19BinOpInfo28mayHaveIntegerDivisionByZeroEv.exit
 
 63:                                               ; preds = %58
-  %64 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull readonly align 8 dereferenceable(12) %59) #22
-  %65 = icmp eq i32 %64, %61
+  %64 = load i64, ptr %59, align 8, !tbaa !3
+  %65 = icmp eq i64 %64, 0
   br i1 %65, label %_ZNK12_GLOBAL__N_19BinOpInfo28mayHaveIntegerDivisionByZeroEv.exit.thread, label %68
 
 _ZNK12_GLOBAL__N_19BinOpInfo28mayHaveIntegerDivisionByZeroEv.exit: ; preds = %58
-  %66 = load i64, ptr %59, align 8, !tbaa !3
-  %67 = icmp eq i64 %66, 0
+  %66 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull readonly align 8 dereferenceable(12) %59) #22
+  %67 = icmp eq i32 %66, %61
   br i1 %67, label %_ZNK12_GLOBAL__N_19BinOpInfo28mayHaveIntegerDivisionByZeroEv.exit.thread, label %68
 
 68:                                               ; preds = %63, %_ZNK12_GLOBAL__N_19BinOpInfo28mayHaveIntegerDivisionByZeroEv.exit
@@ -7106,16 +7106,16 @@ _ZNK5clang4Type13isIntegerTypeEv.exit:            ; preds = %31
   %53 = getelementptr inbounds nuw i8, ptr %.val, i64 32
   %54 = load i32, ptr %53, align 8, !tbaa !1177
   %55 = icmp ult i32 %54, 65
-  br i1 %55, label %_ZNK12_GLOBAL__N_19BinOpInfo28mayHaveIntegerDivisionByZeroEv.exit, label %56
+  br i1 %55, label %56, label %_ZNK12_GLOBAL__N_19BinOpInfo28mayHaveIntegerDivisionByZeroEv.exit
 
 56:                                               ; preds = %51
-  %57 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull readonly align 8 dereferenceable(12) %52) #22
-  %58 = icmp eq i32 %57, %54
+  %57 = load i64, ptr %52, align 8, !tbaa !3
+  %58 = icmp eq i64 %57, 0
   br i1 %58, label %_ZNK12_GLOBAL__N_19BinOpInfo28mayHaveIntegerDivisionByZeroEv.exit.thread, label %61
 
 _ZNK12_GLOBAL__N_19BinOpInfo28mayHaveIntegerDivisionByZeroEv.exit: ; preds = %51
-  %59 = load i64, ptr %52, align 8, !tbaa !3
-  %60 = icmp eq i64 %59, 0
+  %59 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull readonly align 8 dereferenceable(12) %52) #22
+  %60 = icmp eq i32 %59, %54
   br i1 %60, label %_ZNK12_GLOBAL__N_19BinOpInfo28mayHaveIntegerDivisionByZeroEv.exit.thread, label %61
 
 61:                                               ; preds = %56, %_ZNK12_GLOBAL__N_19BinOpInfo28mayHaveIntegerDivisionByZeroEv.exit
@@ -20052,7 +20052,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit186: ; preds = %267, %2
   br label %286
 
 286:                                              ; preds = %_ZN4llvm15SmallVectorImplIiE6resizeEmi.exit183, %283
-  %.5261 = phi ptr [ %285, %283 ], [ %.0256303, %_ZN4llvm15SmallVectorImplIiE6resizeEmi.exit183 ]
+  %.5261 = phi ptr [ %.0256303, %_ZN4llvm15SmallVectorImplIiE6resizeEmi.exit183 ], [ %285, %283 ]
   %.not.i187 = icmp eq i32 %265, 0
   br i1 %.not.i187, label %.preheader282, label %_ZN4llvm15SmallVectorImplIiE6resizeEmi.exit221
 
@@ -24642,7 +24642,7 @@ _ZN5clangneENS_22specific_attr_iteratorINS_14AlignValueAttrEN4llvm11SmallVectorI
   %109 = icmp eq i16 %108, 402
   br i1 %109, label %.loopexit, label %.lr.ph.i.i.i.i44, !llvm.loop !1525
 
-.loopexit74:                                      ; preds = %97, %62, %3, %_ZNK5clang8QualType19getNonReferenceTypeEv.exit, %45, %_ZN5clangneENS_22specific_attr_iteratorINS_14AlignValueAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, %51, %84, %_ZN5clangneENS_22specific_attr_iteratorINS_14AlignValueAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i42, %86
+.loopexit74:                                      ; preds = %97, %62, %3, %_ZNK5clang8QualType19getNonReferenceTypeEv.exit, %45, %51, %_ZN5clangneENS_22specific_attr_iteratorINS_14AlignValueAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, %84, %86, %_ZN5clangneENS_22specific_attr_iteratorINS_14AlignValueAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i42
   %110 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i46 = load i64, ptr %110, align 8, !tbaa !3
   %111 = and i64 %.sroa.0.0.copyload.i46, -16
@@ -24706,7 +24706,7 @@ _ZN5clangneENS_22specific_attr_iteratorINS_14AlignValueAttrEN4llvm11SmallVectorI
   br i1 %144, label %.loopexit, label %.lr.ph.i.i.i.i56, !llvm.loop !1525
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i44, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i56, %64, %99, %134
-  %.5.ph = phi ptr [ %135, %134 ], [ %100, %99 ], [ %65, %64 ], [ %71, %.lr.ph.i.i.i.i ], [ %141, %.lr.ph.i.i.i.i56 ], [ %106, %.lr.ph.i.i.i.i44 ]
+  %.5.ph = phi ptr [ %65, %64 ], [ %135, %134 ], [ %71, %.lr.ph.i.i.i.i ], [ %100, %99 ], [ %141, %.lr.ph.i.i.i.i56 ], [ %106, %.lr.ph.i.i.i.i44 ]
   %145 = load ptr, ptr %0, align 8, !tbaa !638
   %146 = getelementptr inbounds nuw i8, ptr %.5.ph, i64 40
   %147 = load ptr, ptr %146, align 8, !tbaa !1526
@@ -30233,7 +30233,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_8CastInstEEEPT_S4_RKNS_5TwineE.exit: ; preds 
   br label %_ZNK4llvm13IRBuilderBase6InsertEPNS_5ValueERKNS_5TwineE.exit.thread
 
 _ZNK4llvm13IRBuilderBase6InsertEPNS_5ValueERKNS_5TwineE.exit.thread: ; preds = %.lr.ph.i.i.i, %12, %21, %4, %_ZNK4llvm13IRBuilderBase6InsertINS_8CastInstEEEPT_S4_RKNS_5TwineE.exit
-  %.013 = phi ptr [ %1, %4 ], [ %38, %_ZNK4llvm13IRBuilderBase6InsertINS_8CastInstEEEPT_S4_RKNS_5TwineE.exit ], [ %18, %21 ], [ %18, %12 ], [ %18, %.lr.ph.i.i.i ]
+  %.013 = phi ptr [ %1, %4 ], [ %38, %_ZNK4llvm13IRBuilderBase6InsertINS_8CastInstEEEPT_S4_RKNS_5TwineE.exit ], [ %18, %12 ], [ %18, %21 ], [ %18, %.lr.ph.i.i.i ]
   ret ptr %.013
 }
 
@@ -33620,7 +33620,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %.lr.ph, %1
   unreachable
 
 1030:                                             ; preds = %1019, %913, %917, %837, %841, %787, %791, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit326, %.thread838, %263, %248, %303, %.thread841, %421, %423, %979, %976, %968, %964, %948, %944, %940, %937, %932, %925, %.critedge14, %.critedge12, %.critedge10, %745, %_ZNK5clang4Type6castAsINS_10VectorTypeEEEPKT_v.exit, %687, %682, %677, %672, %658, %653, %651, %642, %621, %583, %578, %575, %571, %566, %563, %551, %_ZN12_GLOBAL__N_118MustVisitNullValueEPKN5clang4ExprE.exit363.thread, %_ZN12_GLOBAL__N_118MustVisitNullValueEPKN5clang4ExprE.exit.thread, %496, %488, %484, %476, %468, %416, %_ZN5clang4Expr10EvalResultD2Ev.exit, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit287, %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit
-  %.0 = phi ptr [ %424, %423 ], [ %983, %979 ], [ %102, %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit ], [ %111, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit287 ], [ %1003, %1019 ], [ %.8, %_ZN5clang4Expr10EvalResultD2Ev.exit ], [ %418, %416 ], [ %936, %932 ], [ %475, %468 ], [ %483, %476 ], [ %487, %484 ], [ %495, %488 ], [ %498, %496 ], [ %520, %_ZN12_GLOBAL__N_118MustVisitNullValueEPKN5clang4ExprE.exit.thread ], [ %550, %_ZN12_GLOBAL__N_118MustVisitNullValueEPKN5clang4ExprE.exit363.thread ], [ %562, %551 ], [ %565, %563 ], [ %570, %566 ], [ %574, %571 ], [ %577, %575 ], [ %582, %578 ], [ %978, %976 ], [ %975, %968 ], [ %967, %964 ], [ %963, %948 ], [ %947, %944 ], [ %943, %940 ], [ %939, %937 ], [ %584, %583 ], [ %623, %621 ], [ %650, %642 ], [ null, %651 ], [ %657, %653 ], [ %671, %658 ], [ %676, %672 ], [ %681, %677 ], [ %686, %682 ], [ %691, %687 ], [ %732, %_ZNK5clang4Type6castAsINS_10VectorTypeEEEPKT_v.exit ], [ %748, %745 ], [ %266, %263 ], [ %798, %.critedge10 ], [ %794, %791 ], [ %848, %.critedge12 ], [ %844, %841 ], [ %924, %.critedge14 ], [ %931, %925 ], [ %422, %421 ], [ %1028, %.thread841 ], [ %340, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit326 ], [ %347, %.thread838 ], [ %314, %303 ], [ %260, %248 ], [ %790, %787 ], [ %840, %837 ], [ %916, %913 ], [ %920, %917 ]
+  %.0 = phi ptr [ %424, %423 ], [ %983, %979 ], [ %102, %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit ], [ %111, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit287 ], [ %1003, %1019 ], [ %.8, %_ZN5clang4Expr10EvalResultD2Ev.exit ], [ %418, %416 ], [ %936, %932 ], [ %475, %468 ], [ %483, %476 ], [ %487, %484 ], [ %495, %488 ], [ %498, %496 ], [ %520, %_ZN12_GLOBAL__N_118MustVisitNullValueEPKN5clang4ExprE.exit.thread ], [ %550, %_ZN12_GLOBAL__N_118MustVisitNullValueEPKN5clang4ExprE.exit363.thread ], [ %562, %551 ], [ %565, %563 ], [ %570, %566 ], [ %574, %571 ], [ %577, %575 ], [ %582, %578 ], [ %978, %976 ], [ %975, %968 ], [ %967, %964 ], [ %963, %948 ], [ %947, %944 ], [ %943, %940 ], [ %939, %937 ], [ %584, %583 ], [ %623, %621 ], [ %650, %642 ], [ null, %651 ], [ %657, %653 ], [ %671, %658 ], [ %676, %672 ], [ %681, %677 ], [ %686, %682 ], [ %691, %687 ], [ %732, %_ZNK5clang4Type6castAsINS_10VectorTypeEEEPKT_v.exit ], [ %748, %745 ], [ %260, %248 ], [ %798, %.critedge10 ], [ %794, %791 ], [ %848, %.critedge12 ], [ %844, %841 ], [ %924, %.critedge14 ], [ %931, %925 ], [ %422, %421 ], [ %1028, %.thread841 ], [ %340, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit326 ], [ %347, %.thread838 ], [ %314, %303 ], [ %266, %263 ], [ %790, %787 ], [ %840, %837 ], [ %916, %913 ], [ %920, %917 ]
   call void @_ZN5clang7CodeGen15CodeGenFunction15CGFPOptionsRAIID1Ev(ptr noundef nonnull align 8 dereferenceable(56) %20) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)

@@ -33748,7 +33748,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit211:         ; preds = %_ZNSt7__cxx1112basi
   br i1 %exitcond.not, label %.thread648, label %758, !llvm.loop !463
 
 .thread648:                                       ; preds = %1331, %.preheader, %_ZN5clang17DiagnosticBuilderD2Ev.exit194, %_ZN5clang17DiagnosticBuilderD2Ev.exit211, %_ZN5clang17DiagnosticBuilderD2Ev.exit180, %_ZN5clang17DiagnosticBuilderD2Ev.exit164
-  %.3 = phi i1 [ true, %_ZN5clang17DiagnosticBuilderD2Ev.exit164 ], [ true, %_ZN5clang17DiagnosticBuilderD2Ev.exit180 ], [ true, %_ZN5clang17DiagnosticBuilderD2Ev.exit211 ], [ true, %_ZN5clang17DiagnosticBuilderD2Ev.exit194 ], [ false, %.preheader ], [ false, %1331 ]
+  %.3 = phi i1 [ true, %_ZN5clang17DiagnosticBuilderD2Ev.exit164 ], [ true, %_ZN5clang17DiagnosticBuilderD2Ev.exit194 ], [ true, %_ZN5clang17DiagnosticBuilderD2Ev.exit180 ], [ true, %_ZN5clang17DiagnosticBuilderD2Ev.exit211 ], [ false, %.preheader ], [ false, %1331 ]
   %1332 = load ptr, ptr %21, align 8, !tbaa !54
   %1333 = icmp eq ptr %1332, %584
   br i1 %1333, label %_ZN4llvm11SmallVectorISt4pairIPKN5clang16EnumConstantDeclEjELj4EED2Ev.exit, label %1334
@@ -38974,7 +38974,7 @@ _ZSt13move_backwardIPPKN5clang16TemplateArgumentES4_ET0_T_S6_S5_.exit: ; preds =
   br i1 %.not50, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !534
 
 _ZSt4copyIN4llvm16pointer_iteratorIPKN5clang16TemplateArgumentES5_EEPS5_ET0_T_S9_S8_.exit: ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i, %._crit_edge, %_ZSt13move_backwardIPPKN5clang16TemplateArgumentES4_ET0_T_S6_S5_.exit, %_ZN4llvm15SmallVectorImplIPKN5clang16TemplateArgumentEE6appendINS_16pointer_iteratorIS4_S4_EEvEEvT_S9_.exit
-  %.0 = phi ptr [ %39, %_ZN4llvm15SmallVectorImplIPKN5clang16TemplateArgumentEE6appendINS_16pointer_iteratorIS4_S4_EEvEEvT_S9_.exit ], [ %45, %_ZSt13move_backwardIPPKN5clang16TemplateArgumentES4_ET0_T_S6_S5_.exit ], [ %45, %._crit_edge ], [ %45, %.lr.ph.i.i.i.i.i.i.i.i ], [ %45, %.lr.ph.i.i.i.i.i ]
+  %.0 = phi ptr [ %39, %_ZN4llvm15SmallVectorImplIPKN5clang16TemplateArgumentEE6appendINS_16pointer_iteratorIS4_S4_EEvEEvT_S9_.exit ], [ %45, %.lr.ph.i.i.i.i.i.i.i.i ], [ %45, %_ZSt13move_backwardIPPKN5clang16TemplateArgumentES4_ET0_T_S6_S5_.exit ], [ %45, %._crit_edge ], [ %45, %.lr.ph.i.i.i.i.i ]
   ret ptr %.0
 }
 

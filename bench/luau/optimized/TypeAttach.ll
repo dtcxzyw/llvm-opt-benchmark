@@ -2188,7 +2188,7 @@ _ZNSt10_HashtableIPKvSt4pairIKS1_PcESaIS5_ENSt8__detail10_Select1stESt8equal_toI
   br label %common.resume.i
 
 _ZNSt13unordered_mapIPKvPcSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S2_EEEixEOS1_.exit.i: ; preds = %23, %.loopexit.i.i.i, %18
-  %.pn.i.i.i = phi ptr [ %19, %18 ], [ %34, %.loopexit.i.i.i ], [ %25, %23 ]
+  %.pn.i.i.i = phi ptr [ %34, %.loopexit.i.i.i ], [ %19, %18 ], [ %25, %23 ]
   %.1.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i, i64 16
   %36 = load ptr, ptr %.1.i.i.i, align 8, !tbaa !127
   %.not.i = icmp eq ptr %36, null
@@ -3230,7 +3230,7 @@ _ZNSt10_HashtableIPKvSt4pairIKS1_PcESaIS5_ENSt8__detail10_Select1stESt8equal_toI
   br label %common.resume.i
 
 _ZNSt13unordered_mapIPKvPcSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S2_EEEixEOS1_.exit.i: ; preds = %27, %.loopexit.i.i.i, %22
-  %.pn.i.i.i = phi ptr [ %23, %22 ], [ %38, %.loopexit.i.i.i ], [ %29, %27 ]
+  %.pn.i.i.i = phi ptr [ %38, %.loopexit.i.i.i ], [ %23, %22 ], [ %29, %27 ]
   %.1.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i, i64 16
   %40 = load ptr, ptr %.1.i.i.i, align 8, !tbaa !127
   %.not.i = icmp eq ptr %40, null

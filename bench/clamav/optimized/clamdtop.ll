@@ -1395,8 +1395,8 @@ send_string.exit:                                 ; preds = %send_string.exit.lo
   br label %.critedge3.i
 
 .critedge3.i:                                     ; preds = %.lr.ph192.i, %.lr.ph192.i, %.lr.ph192.i, %..critedge3.loopexit_crit_edge.i, %.critedge.i57, %.preheader186.i
-  %613 = phi i8 [ %606, %.critedge.i57 ], [ %.pre.pre.i, %..critedge3.loopexit_crit_edge.i ], [ 0, %.preheader186.i ], [ %609, %.lr.ph192.i ], [ %609, %.lr.ph192.i ], [ %609, %.lr.ph192.i ]
-  %.1122.lcssa.i = phi ptr [ %.0121.lcssa.ph.i, %.critedge.i57 ], [ %scevgep.i, %..critedge3.loopexit_crit_edge.i ], [ %588, %.preheader186.i ], [ %.1122191.i, %.lr.ph192.i ], [ %.1122191.i, %.lr.ph192.i ], [ %.1122191.i, %.lr.ph192.i ]
+  %613 = phi i8 [ %606, %.critedge.i57 ], [ 0, %.preheader186.i ], [ %.pre.pre.i, %..critedge3.loopexit_crit_edge.i ], [ %609, %.lr.ph192.i ], [ %609, %.lr.ph192.i ], [ %609, %.lr.ph192.i ]
+  %.1122.lcssa.i = phi ptr [ %.0121.lcssa.ph.i, %.critedge.i57 ], [ %588, %.preheader186.i ], [ %scevgep.i, %..critedge3.loopexit_crit_edge.i ], [ %.1122191.i, %.lr.ph192.i ], [ %.1122191.i, %.lr.ph192.i ], [ %.1122191.i, %.lr.ph192.i ]
   %.not146.i = icmp ne i8 %613, 0
   %spec.select.idx.i = zext i1 %.not146.i to i64
   %spec.select.i = getelementptr inbounds nuw i8, ptr %.1122.lcssa.i, i64 %spec.select.idx.i
@@ -1823,7 +1823,7 @@ parse_queue.exit.thread.i:                        ; preds = %756
   br label %parse_queue.exit.i
 
 parse_queue.exit.i:                               ; preds = %739, %735, %797, %.thread180.i, %791, %790, %.thread.i61, %750, %749, %748
-  %.1.i60 = phi i32 [ %.0116203.i, %750 ], [ %.2.i59, %797 ], [ %.2.i59, %790 ], [ %.2.i59, %791 ], [ %.2.i59, %.thread.i61 ], [ %.0116203.i, %748 ], [ %.0116203.i, %749 ], [ %.2.i59, %.thread180.i ], [ %.0116203.i, %735 ], [ %.0116203.i, %739 ]
+  %.1.i60 = phi i32 [ %.2.i59, %.thread180.i ], [ %.0116203.i, %750 ], [ %.2.i59, %797 ], [ %.2.i59, %790 ], [ %.2.i59, %791 ], [ %.0116203.i, %749 ], [ %.2.i59, %.thread.i61 ], [ %.0116203.i, %748 ], [ %.0116203.i, %735 ], [ %.0116203.i, %739 ]
   %798 = call fastcc i32 @recv_line(ptr noundef %574, ptr noundef %9)
   %.not159.i = icmp eq i32 %798, 0
   br i1 %.not159.i, label %parse_stats.exit, label %711
@@ -2677,7 +2677,7 @@ detail_is_selected.exit.thread.i.i:               ; preds = %detail_is_selected.
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %detail_is_selected.exit.i14.i
 
 ._crit_edge.i.i:                                  ; preds = %1241, %detail_is_selected.exit.thread.us102.i.i, %detail_is_selected.exit.thread.us.preheader.i.i, %.preheader.i.i
-  %.067.lcssa.i.i = phi i64 [ 0, %.preheader.i.i ], [ %1222, %detail_is_selected.exit.thread.us.preheader.i.i ], [ %1222, %detail_is_selected.exit.thread.us102.i.i ], [ %.168.i.i, %1241 ]
+  %.067.lcssa.i.i = phi i64 [ 0, %.preheader.i.i ], [ %1222, %detail_is_selected.exit.thread.us102.i.i ], [ %1222, %detail_is_selected.exit.thread.us.preheader.i.i ], [ %.168.i.i, %1241 ]
   %1243 = load ptr, ptr @stats_window, align 8, !tbaa !34
   %1244 = call i32 @wattr_on(ptr noundef %1243, i32 noundef 1792, ptr noundef null) #26
   %1245 = load i32, ptr @detail_selected, align 4, !tbaa !38
@@ -3888,9 +3888,9 @@ make_ip.exit:                                     ; preds = %72, %74, %82
   br label %.thread95
 
 .thread95:                                        ; preds = %61, %.thread, %24, %.loopexit, %make_ip.exit, %42
-  %.171.ph = phi ptr [ null, %24 ], [ %26, %42 ], [ null, %.thread ], [ %.070, %.loopexit ], [ %.070, %make_ip.exit ], [ %26, %61 ]
-  %.168.ph = phi ptr [ null, %24 ], [ %.012.i, %42 ], [ null, %.thread ], [ %.067, %.loopexit ], [ %.067, %make_ip.exit ], [ %.012.i, %61 ]
-  %.266.ph = phi i32 [ -1, %24 ], [ -1, %42 ], [ -1, %.thread ], [ 0, %.loopexit ], [ 0, %make_ip.exit ], [ -1, %61 ]
+  %.171.ph = phi ptr [ %.070, %make_ip.exit ], [ null, %24 ], [ %26, %42 ], [ null, %.thread ], [ %.070, %.loopexit ], [ %26, %61 ]
+  %.168.ph = phi ptr [ %.067, %make_ip.exit ], [ null, %24 ], [ %.012.i, %42 ], [ null, %.thread ], [ %.067, %.loopexit ], [ %.012.i, %61 ]
+  %.266.ph = phi i32 [ 0, %make_ip.exit ], [ -1, %24 ], [ -1, %42 ], [ -1, %.thread ], [ 0, %.loopexit ], [ -1, %61 ]
   %.pr = load ptr, ptr %5, align 8, !tbaa !100
   %.not89 = icmp eq ptr %.pr, null
   br i1 %.not89, label %87, label %86

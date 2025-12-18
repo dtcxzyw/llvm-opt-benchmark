@@ -13409,8 +13409,8 @@ _ZNSt6vectorIPN9grpc_core19SubchannelInterface33ConnectivityStateWatcherInterfac
   br label %89
 
 ._crit_edge.i:                                    ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit.i, %.lr.ph92.i, %.preheader.i, %_ZNSt6vectorIPN9grpc_core19SubchannelInterface33ConnectivityStateWatcherInterfaceESaIS3_EE7reserveEm.exit.i
-  %.sroa.057.1.lcssa108.i = phi ptr [ %.sroa.057.4.i, %.lr.ph92.i ], [ %.sroa.057.4.i, %.preheader.i ], [ %.sroa.11.1.i, %_ZNSt6vectorIPN9grpc_core19SubchannelInterface33ConnectivityStateWatcherInterfaceESaIS3_EE7reserveEm.exit.i ], [ %.sroa.057.4.i, %_ZN4absl12lts_202407226StatusD2Ev.exit.i ]
-  %.sroa.17.1.lcssa107.i = phi ptr [ %.sroa.17.4.i, %.lr.ph92.i ], [ %.sroa.17.4.i, %.preheader.i ], [ %.sroa.17.3.i, %_ZNSt6vectorIPN9grpc_core19SubchannelInterface33ConnectivityStateWatcherInterfaceESaIS3_EE7reserveEm.exit.i ], [ %.sroa.17.4.i, %_ZN4absl12lts_202407226StatusD2Ev.exit.i ]
+  %.sroa.057.1.lcssa108.i = phi ptr [ %.sroa.11.1.i, %_ZNSt6vectorIPN9grpc_core19SubchannelInterface33ConnectivityStateWatcherInterfaceESaIS3_EE7reserveEm.exit.i ], [ %.sroa.057.4.i, %.lr.ph92.i ], [ %.sroa.057.4.i, %.preheader.i ], [ %.sroa.057.4.i, %_ZN4absl12lts_202407226StatusD2Ev.exit.i ]
+  %.sroa.17.1.lcssa107.i = phi ptr [ %.sroa.17.3.i, %_ZNSt6vectorIPN9grpc_core19SubchannelInterface33ConnectivityStateWatcherInterfaceESaIS3_EE7reserveEm.exit.i ], [ %.sroa.17.4.i, %.lr.ph92.i ], [ %.sroa.17.4.i, %.preheader.i ], [ %.sroa.17.4.i, %_ZN4absl12lts_202407226StatusD2Ev.exit.i ]
   br i1 %.0.i, label %82, label %84
 
 .lr.ph92.splitthread-pre-split.i:                 ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit.i
@@ -17150,7 +17150,7 @@ _ZN9grpc_core9Timestamp3NowEv.exit.i.i.i.i.i.i:   ; preds = %49, %47
   br label %_ZN9grpc_coremiENS_9TimestampENS_8DurationE.exit.i.i.i.i.i.i
 
 _ZN9grpc_coremiENS_9TimestampENS_8DurationE.exit.i.i.i.i.i.i: ; preds = %68, %62, %.noexc17.i.i.i.i.i
-  %.0.i.i.i.i.i.i.i.i = phi i64 [ 9223372036854775807, %.noexc17.i.i.i.i.i ], [ %69, %68 ], [ 9223372036854775807, %62 ]
+  %.0.i.i.i.i.i.i.i.i = phi i64 [ 9223372036854775807, %62 ], [ 9223372036854775807, %.noexc17.i.i.i.i.i ], [ %69, %68 ]
   %70 = load i64, ptr %48, align 8, !tbaa !603
   %71 = icmp slt i64 %70, %.0.i.i.i.i.i.i.i.i
   br i1 %71, label %72, label %_ZN9grpc_coremiENS_9TimestampENS_8DurationE.exit.thread.i.i.i.i.i.i

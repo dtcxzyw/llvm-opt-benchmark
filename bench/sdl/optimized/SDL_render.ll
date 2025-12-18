@@ -2526,7 +2526,7 @@ switch.lookup:                                    ; preds = %95
   br label %98
 
 98:                                               ; preds = %switch.lookup, %91, %75, %95
-  %.shrunk = phi i1 [ false, %95 ], [ %switch.selectcmp, %91 ], [ %switch.masked, %switch.lookup ], [ false, %75 ]
+  %.shrunk = phi i1 [ %switch.selectcmp, %91 ], [ false, %75 ], [ %switch.masked, %switch.lookup ], [ false, %95 ]
   %99 = zext i1 %.shrunk to i32
   %100 = getelementptr inbounds nuw i8, ptr %74, i64 32
   store i32 %99, ptr %100, align 8
@@ -3048,7 +3048,7 @@ switch.lookup:                                    ; preds = %62
   br label %65
 
 65:                                               ; preds = %switch.lookup, %58, %62
-  %.shrunk = phi i1 [ false, %62 ], [ %switch.selectcmp, %58 ], [ %switch.masked, %switch.lookup ]
+  %.shrunk = phi i1 [ %switch.selectcmp, %58 ], [ %switch.masked, %switch.lookup ], [ false, %62 ]
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %67 = load i32, ptr %66, align 8
   %.not183235 = icmp sgt i32 %67, 0
@@ -3099,7 +3099,7 @@ switch.lookup330:                                 ; preds = %80
   br label %83
 
 83:                                               ; preds = %switch.lookup330, %76, %80
-  %.shrunk315 = phi i1 [ false, %80 ], [ %switch.selectcmp314, %76 ], [ %switch.masked334, %switch.lookup330 ]
+  %.shrunk315 = phi i1 [ %switch.selectcmp314, %76 ], [ %switch.masked334, %switch.lookup330 ], [ false, %80 ]
   %84 = xor i1 %.shrunk315, %.shrunk
   br i1 %84, label %85, label %.thread214
 
@@ -3115,7 +3115,7 @@ switch.lookup330:                                 ; preds = %80
   br label %.thread214
 
 .thread214:                                       ; preds = %28, %83, %42, %51, %12, %17, %.loopexit
-  %.0 = phi i32 [ %88, %.loopexit ], [ %72, %83 ], [ 376840196, %17 ], [ 842094158, %12 ], [ %53, %51 ], [ %44, %42 ], [ %1, %28 ]
+  %.0 = phi i32 [ 376840196, %17 ], [ 842094158, %12 ], [ %88, %.loopexit ], [ %72, %83 ], [ %53, %51 ], [ %44, %42 ], [ %1, %28 ]
   ret i32 %.0
 }
 
@@ -3431,7 +3431,7 @@ switch.lookup:                                    ; preds = %34, %29, %.thread
   br i1 %or.cond288, label %.loopexit.thread, label %.thread335
 
 .loopexit.thread:                                 ; preds = %72, %67, %.preheader350, %.preheader348, %88, %.loopexit
-  %102 = phi i32 [ %90, %.loopexit ], [ 0, %88 ], [ 374740996, %.preheader350 ], [ 370546692, %.preheader348 ], [ 370546692, %67 ], [ 374740996, %72 ]
+  %102 = phi i32 [ %90, %.loopexit ], [ 370546692, %67 ], [ 370546692, %.preheader348 ], [ 0, %88 ], [ 374740996, %.preheader350 ], [ 374740996, %72 ]
   %103 = and i32 %102, 252641280
   %or.cond290 = icmp eq i32 %103, 101122048
   %104 = and i32 %102, 234881024
@@ -3516,7 +3516,7 @@ switch.lookup462:                                 ; preds = %131
   br label %134
 
 134:                                              ; preds = %switch.lookup462, %127, %131
-  %.shrunk = phi i1 [ false, %131 ], [ %switch.selectcmp, %127 ], [ %switch.masked, %switch.lookup462 ]
+  %.shrunk = phi i1 [ %switch.selectcmp, %127 ], [ %switch.masked, %switch.lookup462 ], [ false, %131 ]
   %135 = xor i1 %.shrunk, %.1
   br i1 %135, label %136, label %.thread338
 
@@ -3526,7 +3526,7 @@ switch.lookup462:                                 ; preds = %131
   br i1 %exitcond402.not, label %.thread338, label %121, !llvm.loop !25
 
 .thread338:                                       ; preds = %73, %68, %98, %111, %136, %134, %.thread335, %88
-  %.3204 = phi i32 [ %.pre, %88 ], [ %117, %.thread335 ], [ 372645892, %68 ], [ %123, %134 ], [ %113, %111 ], [ %100, %98 ], [ %117, %136 ], [ 376840196, %73 ]
+  %.3204 = phi i32 [ %123, %134 ], [ 372645892, %68 ], [ %113, %111 ], [ %.pre, %88 ], [ %100, %98 ], [ %117, %.thread335 ], [ %117, %136 ], [ 376840196, %73 ]
   %137 = call i32 @SDL_GetSurfaceColorspace_REAL(ptr noundef %1) #15
   %138 = icmp eq i32 %137, 301991168
   %139 = and i32 %137, 992
@@ -4353,7 +4353,7 @@ IsSupportedBlendMode.exit.thread:                 ; preds = %IsSupportedBlendMod
   br i1 %.not, label %.loopexit, label %tailrecurse
 
 .loopexit:                                        ; preds = %IsSupportedBlendMode.exit.thread.us, %IsSupportedBlendMode.exit.thread, %IsSupportedBlendMode.exit.thread13, %.split19.us, %.split17.us
-  %.0 = phi i1 [ %15, %.split19.us ], [ false, %.split17.us ], [ %17, %IsSupportedBlendMode.exit.thread13 ], [ true, %IsSupportedBlendMode.exit.thread ], [ true, %IsSupportedBlendMode.exit.thread.us ]
+  %.0 = phi i1 [ %15, %.split19.us ], [ %17, %IsSupportedBlendMode.exit.thread13 ], [ false, %.split17.us ], [ true, %IsSupportedBlendMode.exit.thread ], [ true, %IsSupportedBlendMode.exit.thread.us ]
   ret i1 %.0
 }
 
@@ -11430,7 +11430,7 @@ SDL_RenderTextureInternal.exit.thread:            ; preds = %86, %.split.us
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.critedge.us93, %72, %.lr.ph, %QueueCmdGeometry.exit.i.thread, %SDL_RenderTextureInternal.exit.thread, %140, %143
-  %.3 = phi i1 [ true, %143 ], [ false, %140 ], [ false, %QueueCmdGeometry.exit.i.thread ], [ false, %SDL_RenderTextureInternal.exit.thread ], [ false, %72 ], [ false, %.lr.ph ], [ false, %.critedge.us93 ]
+  %.3 = phi i1 [ true, %143 ], [ false, %140 ], [ false, %72 ], [ false, %QueueCmdGeometry.exit.i.thread ], [ false, %SDL_RenderTextureInternal.exit.thread ], [ false, %.lr.ph ], [ false, %.critedge.us93 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -13057,7 +13057,7 @@ QueueCmdGeometry.exit360.sink.split:              ; preds = %320, %332
   br label %QueueCmdGeometry.exit360
 
 QueueCmdGeometry.exit360:                         ; preds = %.thread, %318, %QueueCmdGeometry.exit360.sink.split, %SDL_GetTextureSize_REAL.exit, %332, %330, %._crit_edge
-  %.4 = phi i1 [ true, %._crit_edge ], [ true, %332 ], [ false, %330 ], [ true, %SDL_GetTextureSize_REAL.exit ], [ false, %QueueCmdGeometry.exit360.sink.split ], [ true, %.thread ], [ false, %318 ]
+  %.4 = phi i1 [ true, %._crit_edge ], [ false, %330 ], [ true, %SDL_GetTextureSize_REAL.exit ], [ true, %332 ], [ false, %QueueCmdGeometry.exit360.sink.split ], [ false, %318 ], [ true, %.thread ]
   %338 = call zeroext i1 @SDL_SetRenderDrawBlendMode_REAL(ptr noundef %0, i32 noundef %.0374)
   %339 = call zeroext i1 @SDL_ObjectValid(ptr noundef %0, i32 noundef 2) #15
   br i1 %339, label %342, label %340

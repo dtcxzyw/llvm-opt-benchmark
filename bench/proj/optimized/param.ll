@@ -191,7 +191,7 @@ define noundef ptr @_Z15pj_param_existsP8ARG_listPKc(ptr noundef captures(addres
   br i1 %.not25, label %.loopexit, label %.preheader, !llvm.loop !18
 
 .loopexit:                                        ; preds = %20, %17, %2, %15
-  %.020 = phi ptr [ %.02127, %15 ], [ null, %2 ], [ null, %17 ], [ null, %20 ]
+  %.020 = phi ptr [ null, %2 ], [ %.02127, %15 ], [ null, %17 ], [ null, %20 ]
   ret ptr %.020
 }
 
@@ -272,7 +272,7 @@ define i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %0, ptr noundef %1, ptr
   br i1 %.not25.i, label %_Z15pj_param_existsP8ARG_listPKc.exit, label %.preheader.i, !llvm.loop !18
 
 _Z15pj_param_existsP8ARG_listPKc.exit:            ; preds = %30, %33, %15, %28
-  %.020.i = phi ptr [ %.02127.i, %28 ], [ null, %15 ], [ null, %33 ], [ null, %30 ]
+  %.020.i = phi ptr [ null, %15 ], [ %.02127.i, %28 ], [ null, %33 ], [ null, %30 ]
   %35 = icmp eq i8 %9, 116
   br i1 %35, label %36, label %39
 

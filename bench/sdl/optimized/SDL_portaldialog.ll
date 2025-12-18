@@ -952,8 +952,8 @@ define internal range(i32 0, 2) i32 @DBus_MessageFilter(ptr noundef %0, ptr noun
   br label %131
 
 124:                                              ; preds = %.thread119, %._crit_edge
-  %.188137 = phi i64 [ %.188139, %.thread119 ], [ %.188.lcssa, %._crit_edge ]
-  %.082 = phi ptr [ %.486.ph, %.thread119 ], [ %.183.lcssa, %._crit_edge ]
+  %.188137 = phi i64 [ %.188.lcssa, %._crit_edge ], [ %.188139, %.thread119 ]
+  %.082 = phi ptr [ %.183.lcssa, %._crit_edge ], [ %.486.ph, %.thread119 ]
   %125 = getelementptr inbounds nuw i8, ptr %13, i64 88
   %126 = load ptr, ptr %125, align 8
   %127 = call i32 %126(ptr noundef %0, ptr noundef nonnull @DBus_MessageFilter, ptr noundef nonnull %2) #5

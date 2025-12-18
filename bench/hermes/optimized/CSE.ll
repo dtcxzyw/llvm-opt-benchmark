@@ -279,7 +279,7 @@ if.end.i.i.i.i.i.i:                               ; preds = %if.end.loopexit.i.i
   br label %_ZNK4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_18CSEValueEPNS_18ScopedHashTableValIS3_PN6hermes5ValueEEENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_E4findERKS3_.exit.i.i.i.i.i
 
 _ZNK4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_18CSEValueEPNS_18ScopedHashTableValIS3_PN6hermes5ValueEEENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_E4findERKS3_.exit.i.i.i.i.i: ; preds = %_ZN4llvh12DenseMapInfoIN12_GLOBAL__N_18CSEValueEE7isEqualES2_S2_.exit27.i.i.us.i.i.i.i.i, %_ZN4llvh12DenseMapInfoIN12_GLOBAL__N_18CSEValueEE7isEqualES2_S2_.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i, %if.end.i.i.split.us.i.i.i.i.i
-  %add.ptr.i.pn.i.i.i.i.i.i = phi ptr [ %add.ptr.i.i9.i.i.i.i.i.i, %if.end.i.i.i.i.i.i ], [ %add.ptr.i.i.us4.i.i.i.i.i, %if.end.i.i.split.us.i.i.i.i.i ], [ %add.ptr.i.i.i.i13.i.i.i, %_ZN4llvh12DenseMapInfoIN12_GLOBAL__N_18CSEValueEE7isEqualES2_S2_.exit.i.i.i.i.i.i.i ], [ %add.ptr.i.i.i.i13.i.i.i, %if.then.i.i.i.i.i.i.i.i ], [ %add.ptr.i.i.us.i.i.i.i.i, %_ZN4llvh12DenseMapInfoIN12_GLOBAL__N_18CSEValueEE7isEqualES2_S2_.exit27.i.i.us.i.i.i.i.i ]
+  %add.ptr.i.pn.i.i.i.i.i.i = phi ptr [ %add.ptr.i.i9.i.i.i.i.i.i, %if.end.i.i.i.i.i.i ], [ %add.ptr.i.i.i.i13.i.i.i, %_ZN4llvh12DenseMapInfoIN12_GLOBAL__N_18CSEValueEE7isEqualES2_S2_.exit.i.i.i.i.i.i.i ], [ %add.ptr.i.i.us4.i.i.i.i.i, %if.end.i.i.split.us.i.i.i.i.i ], [ %add.ptr.i.i.i.i13.i.i.i, %if.then.i.i.i.i.i.i.i.i ], [ %add.ptr.i.i.us.i.i.i.i.i, %_ZN4llvh12DenseMapInfoIN12_GLOBAL__N_18CSEValueEE7isEqualES2_S2_.exit27.i.i.us.i.i.i.i.i ]
   %this.val.i.i.i.i.i = load ptr, ptr %availableValues_.i, align 8
   %this.val1.i.i.i.i.i = load i32, ptr %6, align 8
   %idx.ext.i.i3.i.i.i.i.i = zext i32 %this.val1.i.i.i.i.i to i64
@@ -1268,7 +1268,7 @@ _ZN4llvh12DenseMapInfoIN12_GLOBAL__N_18CSEValueEE7isEqualES2_S2_.exit27.i.i36.i.
   br label %while.body.i.i21.i.i.i, !llvm.loop !4
 
 if.end12.i.i.i:                                   ; preds = %_ZN4llvh12DenseMapInfoIN12_GLOBAL__N_18CSEValueEE7isEqualES2_S2_.exit.i.i.i.i.i, %if.then.i.i.i.i.i.i, %_ZN4llvh12DenseMapInfoIN12_GLOBAL__N_18CSEValueEE7isEqualES2_S2_.exit.i.i54.i.i.i, %if.then.i.i.i31.i.i.i, %if.then20.i.i43.i.i.i, %if.then10.i.i.i, %if.else.i.i.i, %if.then20.i.i.i.i.i, %if.then.i.i.i
-  %TheBucket.addr.0.i.i.i = phi ptr [ %cond.sink.i.i.i, %if.else.i.i.i ], [ %cond.i.i.i.i.i, %if.then20.i.i.i.i.i ], [ null, %if.then.i.i.i ], [ %cond.i.i45.i.i.i, %if.then20.i.i43.i.i.i ], [ null, %if.then10.i.i.i ], [ %add.ptr.i.i27.i.i.i, %_ZN4llvh12DenseMapInfoIN12_GLOBAL__N_18CSEValueEE7isEqualES2_S2_.exit.i.i54.i.i.i ], [ %add.ptr.i.i27.i.i.i, %if.then.i.i.i31.i.i.i ], [ %add.ptr.i.i.i.i.i, %if.then.i.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i, %_ZN4llvh12DenseMapInfoIN12_GLOBAL__N_18CSEValueEE7isEqualES2_S2_.exit.i.i.i.i.i ]
+  %TheBucket.addr.0.i.i.i = phi ptr [ %cond.sink.i.i.i, %if.else.i.i.i ], [ %add.ptr.i.i27.i.i.i, %_ZN4llvh12DenseMapInfoIN12_GLOBAL__N_18CSEValueEE7isEqualES2_S2_.exit.i.i54.i.i.i ], [ %cond.i.i.i.i.i, %if.then20.i.i.i.i.i ], [ null, %if.then.i.i.i ], [ null, %if.then10.i.i.i ], [ %cond.i.i45.i.i.i, %if.then20.i.i43.i.i.i ], [ %add.ptr.i.i27.i.i.i, %if.then.i.i.i31.i.i.i ], [ %add.ptr.i.i.i.i.i, %if.then.i.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i, %_ZN4llvh12DenseMapInfoIN12_GLOBAL__N_18CSEValueEE7isEqualES2_S2_.exit.i.i.i.i.i ]
   %this.val.i.i.i.i = load i32, ptr %3, align 8
   %add.i.i.i.i = add i32 %this.val.i.i.i.i, 1
   store i32 %add.i.i.i.i, ptr %3, align 8

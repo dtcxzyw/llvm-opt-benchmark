@@ -562,7 +562,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %_ZNK4llvm9StringRef
   store ptr %94, ptr %83, align 8, !tbaa !417
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit
 
-.critedge109:                                     ; preds = %23, %4, %_ZN5clangneENS_22specific_attr_iteratorINS_12AsmLabelAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, %12
+.critedge109:                                     ; preds = %23, %4, %12, %_ZN5clangneENS_22specific_attr_iteratorINS_12AsmLabelAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i
   %95 = load i32, ptr %9, align 4
   %96 = and i32 %95, 127
   %97 = icmp ne i32 %96, 29
@@ -3127,7 +3127,7 @@ _ZNK5clang4Decl7hasAttrINS_14CUDAGlobalAttrEEEbv.exit.i: ; preds = %.lr.ph.i.i.i
   br label %_ZN5clang10GlobalDeclC2EPKNS_12FunctionDeclEj.exit
 
 _ZN5clang10GlobalDeclC2EPKNS_12FunctionDeclEj.exit: ; preds = %285, %271, %274, %_ZNK5clang4Decl7hasAttrINS_14CUDAGlobalAttrEEEbv.exit.i, %287
-  %storemerge.i = phi i64 [ %293, %287 ], [ %265, %_ZNK5clang4Decl7hasAttrINS_14CUDAGlobalAttrEEEbv.exit.i ], [ %265, %274 ], [ %265, %271 ], [ %265, %285 ]
+  %storemerge.i = phi i64 [ %293, %287 ], [ %265, %271 ], [ %265, %_ZNK5clang4Decl7hasAttrINS_14CUDAGlobalAttrEEEbv.exit.i ], [ %265, %274 ], [ %265, %285 ]
   %294 = load ptr, ptr %15, align 8, !tbaa !520
   %295 = load i64, ptr %267, align 8, !tbaa !531
   %296 = call noundef zeroext i1 @_ZN5clang10ASTContext23useAbbreviatedThunkNameENS_10GlobalDeclEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(23216) %25, i64 %storemerge.i, i32 0, ptr %294, i64 %295) #22

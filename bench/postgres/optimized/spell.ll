@@ -895,10 +895,10 @@ parse_affentry.exit.thread101:                    ; preds = %264
   br label %.critedge2.thread
 
 .critedge2.thread:                                ; preds = %48, %62, %135, %264, %.loopexit.i, %107, %102, %102, %102, %102, %70, %findchar2.exit.thread, %.critedge2, %67, %27, %27, %.tail105.thread, %parse_affentry.exit.thread101
-  %.175 = phi i8 [ %.074168, %27 ], [ %.074168, %27 ], [ 0, %.tail105.thread ], [ 1, %findchar2.exit.thread ], [ 0, %70 ], [ %.074168, %parse_affentry.exit.thread101 ], [ %.074168, %264 ], [ %.074168, %67 ], [ %.074168, %.critedge2 ], [ %.074168, %102 ], [ %.074168, %102 ], [ %.074168, %102 ], [ %.074168, %102 ], [ %.074168, %107 ], [ %.074168, %.loopexit.i ], [ %.074168, %62 ], [ %.074168, %135 ], [ %.074168, %48 ]
-  %.173 = phi i1 [ %.072170, %27 ], [ %.072170, %27 ], [ false, %.tail105.thread ], [ false, %findchar2.exit.thread ], [ true, %70 ], [ %.072170, %parse_affentry.exit.thread101 ], [ %.072170, %264 ], [ %.072170, %67 ], [ %.072170, %.critedge2 ], [ %.072170, %102 ], [ %.072170, %102 ], [ %.072170, %102 ], [ %.072170, %102 ], [ %.072170, %107 ], [ %.072170, %.loopexit.i ], [ %.072170, %62 ], [ %.072170, %135 ], [ %.072170, %48 ]
-  %.171 = phi i8 [ %.070172, %27 ], [ %.070172, %27 ], [ %.070172, %.tail105.thread ], [ %.070172, %findchar2.exit.thread ], [ %.070172, %70 ], [ %.070172, %parse_affentry.exit.thread101 ], [ %.070172, %264 ], [ %.070172, %67 ], [ %.070172, %.critedge2 ], [ %.2, %102 ], [ %.2, %102 ], [ %.2, %102 ], [ %.2, %102 ], [ %.2, %107 ], [ %.070172, %.loopexit.i ], [ %.070172, %62 ], [ %.070172, %135 ], [ %.070172, %48 ]
-  %.1 = phi i1 [ %.0174, %27 ], [ %.0174, %27 ], [ %.0174, %.tail105.thread ], [ true, %findchar2.exit.thread ], [ true, %70 ], [ %.0174, %parse_affentry.exit.thread101 ], [ %.0174, %264 ], [ true, %67 ], [ true, %.critedge2 ], [ true, %102 ], [ true, %102 ], [ true, %102 ], [ true, %102 ], [ true, %107 ], [ %.0174, %.loopexit.i ], [ true, %62 ], [ %.0174, %135 ], [ true, %48 ]
+  %.175 = phi i8 [ %.074168, %27 ], [ %.074168, %27 ], [ 0, %.tail105.thread ], [ %.074168, %62 ], [ 1, %findchar2.exit.thread ], [ 0, %70 ], [ %.074168, %parse_affentry.exit.thread101 ], [ %.074168, %264 ], [ %.074168, %67 ], [ %.074168, %.critedge2 ], [ %.074168, %102 ], [ %.074168, %102 ], [ %.074168, %102 ], [ %.074168, %102 ], [ %.074168, %107 ], [ %.074168, %.loopexit.i ], [ %.074168, %135 ], [ %.074168, %48 ]
+  %.173 = phi i1 [ %.072170, %27 ], [ %.072170, %27 ], [ false, %.tail105.thread ], [ %.072170, %62 ], [ false, %findchar2.exit.thread ], [ true, %70 ], [ %.072170, %parse_affentry.exit.thread101 ], [ %.072170, %264 ], [ %.072170, %67 ], [ %.072170, %.critedge2 ], [ %.072170, %102 ], [ %.072170, %102 ], [ %.072170, %102 ], [ %.072170, %102 ], [ %.072170, %107 ], [ %.072170, %.loopexit.i ], [ %.072170, %135 ], [ %.072170, %48 ]
+  %.171 = phi i8 [ %.070172, %27 ], [ %.070172, %27 ], [ %.070172, %.tail105.thread ], [ %.070172, %62 ], [ %.070172, %findchar2.exit.thread ], [ %.070172, %70 ], [ %.070172, %parse_affentry.exit.thread101 ], [ %.070172, %264 ], [ %.070172, %67 ], [ %.070172, %.critedge2 ], [ %.2, %102 ], [ %.2, %102 ], [ %.2, %102 ], [ %.2, %102 ], [ %.2, %107 ], [ %.070172, %.loopexit.i ], [ %.070172, %135 ], [ %.070172, %48 ]
+  %.1 = phi i1 [ %.0174, %27 ], [ %.0174, %27 ], [ %.0174, %.tail105.thread ], [ true, %62 ], [ true, %findchar2.exit.thread ], [ true, %70 ], [ %.0174, %parse_affentry.exit.thread101 ], [ %.0174, %264 ], [ true, %67 ], [ true, %.critedge2 ], [ true, %102 ], [ true, %102 ], [ true, %102 ], [ true, %102 ], [ true, %107 ], [ %.0174, %.loopexit.i ], [ %.0174, %135 ], [ true, %48 ]
   call void @pfree(ptr noundef nonnull %28) #13
   call void @pfree(ptr noundef nonnull %30) #13
   %269 = call ptr @tsearch_readline(ptr noundef nonnull %15) #13
@@ -2917,7 +2917,7 @@ strbncmp.exit.thread:                             ; preds = %.lr.ph.i61, %.crite
   br label %isAffixInUse.exit.thread
 
 isAffixInUse.exit.thread:                         ; preds = %50, %.critedge.i, %34, %strbncmp.exit.thread, %23
-  %.2 = phi ptr [ %.05271, %23 ], [ %95, %strbncmp.exit.thread ], [ %.05271, %.critedge.i ], [ %.05271, %34 ], [ %.05271, %50 ]
+  %.2 = phi ptr [ %.05271, %23 ], [ %.05271, %.critedge.i ], [ %95, %strbncmp.exit.thread ], [ %.05271, %34 ], [ %.05271, %50 ]
   %96 = add nuw i64 %.073, 1
   %97 = load i32, ptr %4, align 4
   %98 = sext i32 %97 to i64
@@ -4140,7 +4140,7 @@ addToResult.exit:                                 ; preds = %.loopexit248, %136,
   br label %FindWord.exit.thread
 
 FindWord.exit.thread:                             ; preds = %.preheader.i115, %128, %105, %103, %82, %124, %75, %70, %addToResult.exit
-  %.3 = phi ptr [ %143, %addToResult.exit ], [ %.2289, %70 ], [ %.2289, %75 ], [ %.2289, %124 ], [ %.2289, %82 ], [ %.2289, %103 ], [ %.2289, %105 ], [ %.2289, %128 ], [ %.2289, %.preheader.i115 ]
+  %.3 = phi ptr [ %143, %addToResult.exit ], [ %.2289, %70 ], [ %.2289, %124 ], [ %.2289, %75 ], [ %.2289, %82 ], [ %.2289, %103 ], [ %.2289, %105 ], [ %.2289, %128 ], [ %.2289, %.preheader.i115 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %144 = load i32, ptr %.0.i, align 8
   %145 = lshr i32 %144, 8
@@ -4155,7 +4155,7 @@ FindWord.exit.thread:                             ; preds = %.preheader.i115, %1
   br i1 %.not99, label %FindAffixes.exit.thread, label %31, !llvm.loop !47
 
 FindAffixes.exit.thread:                          ; preds = %._crit_edge, %37, %.preheader.split.us.i, %41, %59, %54, %24
-  %.192288 = phi ptr [ %.091, %24 ], [ %.192294, %.preheader.split.us.i ], [ %.192294, %54 ], [ %.192294, %59 ], [ %.192294, %41 ], [ %.3, %._crit_edge ], [ %.192294, %37 ]
+  %.192288 = phi ptr [ %.192294, %.preheader.split.us.i ], [ %.091, %24 ], [ %.192294, %54 ], [ %.192294, %59 ], [ %.192294, %41 ], [ %.3, %._crit_edge ], [ %.192294, %37 ]
   %.not101322 = icmp eq ptr %16, null
   br i1 %.not101322, label %.loopexit246, label %.lr.ph326
 
@@ -4257,7 +4257,7 @@ FindAffixes.exit.thread:                          ; preds = %._crit_edge, %37, %
   %.not45.i132 = icmp eq ptr %193, null
   br i1 %.not45.i132, label %.thread, label %.preheader.split.i, !llvm.loop !43
 
-.thread:                                          ; preds = %160, %.preheader.split.i, %164, %191, %187
+.thread:                                          ; preds = %160, %164, %.preheader.split.i, %191, %187
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.loopexit246
 
@@ -4425,7 +4425,7 @@ addToResult.exit157:                              ; preds = %.loopexit241, %262,
   br label %FindWord.exit154.thread
 
 FindWord.exit154.thread:                          ; preds = %.preheader.i135, %254, %231, %229, %208, %250, %201, %addToResult.exit157
-  %.8 = phi ptr [ %269, %addToResult.exit157 ], [ %.7317, %201 ], [ %.7317, %250 ], [ %.7317, %208 ], [ %.7317, %229 ], [ %.7317, %231 ], [ %.7317, %254 ], [ %.7317, %.preheader.i135 ]
+  %.8 = phi ptr [ %269, %addToResult.exit157 ], [ %.7317, %250 ], [ %.7317, %201 ], [ %.7317, %208 ], [ %.7317, %229 ], [ %.7317, %231 ], [ %.7317, %254 ], [ %.7317, %.preheader.i135 ]
   %270 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #16
   %271 = trunc i64 %270 to i32
   %.188307 = load ptr, ptr %25, align 8
@@ -4701,7 +4701,7 @@ addToResult.exit205:                              ; preds = %.loopexit, %390, %3
   br label %FindWord.exit202.thread
 
 FindWord.exit202.thread:                          ; preds = %.preheader.i183, %382, %359, %357, %336, %378, %332, %addToResult.exit205, %312
-  %.12 = phi ptr [ %.10302, %312 ], [ %397, %addToResult.exit205 ], [ %.10302, %332 ], [ %.10302, %378 ], [ %.10302, %336 ], [ %.10302, %357 ], [ %.10302, %359 ], [ %.10302, %382 ], [ %.10302, %.preheader.i183 ]
+  %.12 = phi ptr [ %.10302, %312 ], [ %397, %addToResult.exit205 ], [ %.10302, %378 ], [ %.10302, %332 ], [ %.10302, %336 ], [ %.10302, %357 ], [ %.10302, %359 ], [ %.10302, %382 ], [ %.10302, %.preheader.i183 ]
   %indvars.iv.next378 = add nuw nsw i64 %indvars.iv377, 1
   %398 = load i32, ptr %.0.i160, align 8
   %399 = lshr i32 %398, 8
@@ -5220,7 +5220,7 @@ AddStem.exit185:                                  ; preds = %._crit_edge.i182, %
   br i1 %237, label %52, label %.critedge.thread, !llvm.loop !59
 
 .critedge.thread:                                 ; preds = %AddStem.exit185, %.loopexit, %.critedge, %.preheader37.i, %CopyVar.exit
-  %.0134.ph228 = phi i32 [ %5, %CopyVar.exit ], [ %.0134.ph246, %.loopexit ], [ %.0134.ph246, %.preheader37.i ], [ %.0134.ph246, %.critedge ], [ %195, %AddStem.exit185 ]
+  %.0134.ph228 = phi i32 [ %.0134.ph246, %.loopexit ], [ %.0134.ph246, %.preheader37.i ], [ %5, %CopyVar.exit ], [ %.0134.ph246, %.critedge ], [ %195, %AddStem.exit185 ]
   %238 = sext i32 %.0134.ph228 to i64
   %239 = getelementptr inbounds i8, ptr %3, i64 %238
   %240 = sub i32 %4, %.0134.ph228
@@ -5922,7 +5922,7 @@ IsAffixFlagInUse.exit:                            ; preds = %49
   br i1 %.not51, label %.critedge, label %11, !llvm.loop !45
 
 .critedge:                                        ; preds = %11, %59, %36, %34, %13, %55, %IsAffixFlagInUse.exit.thread, %4
-  %.033 = phi i32 [ 1, %IsAffixFlagInUse.exit.thread ], [ 0, %4 ], [ 0, %55 ], [ 0, %13 ], [ 0, %34 ], [ 0, %36 ], [ 0, %59 ], [ 0, %11 ]
+  %.033 = phi i32 [ 0, %55 ], [ 0, %4 ], [ 1, %IsAffixFlagInUse.exit.thread ], [ 0, %13 ], [ 0, %34 ], [ 0, %36 ], [ 0, %59 ], [ 0, %11 ]
   ret i32 %.033
 }
 

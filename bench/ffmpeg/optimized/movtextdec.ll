@@ -1156,7 +1156,7 @@ styles_equivalent.exit51.thread:                  ; preds = %styles_equivalent.e
   br i1 %130, label %27, label %mov_text_cleanup.exit, !llvm.loop !86
 
 mov_text_cleanup.exit:                            ; preds = %styles_equivalent.exit51.thread, %15, %44, %11, %3
-  %.0 = phi i32 [ -1, %3 ], [ -12, %11 ], [ -1094995529, %44 ], [ 0, %15 ], [ 0, %styles_equivalent.exit51.thread ]
+  %.0 = phi i32 [ -1, %3 ], [ 0, %15 ], [ -12, %11 ], [ -1094995529, %44 ], [ 0, %styles_equivalent.exit51.thread ]
   ret i32 %.0
 }
 

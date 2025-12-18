@@ -5785,8 +5785,8 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17h0dc8b5391f253
   br i1 %.not.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h6ec287aaf99a555fE.llvm.8275445944285877352.exit._crit_edge", label %7
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h55dfda5b0fe86621E.llvm.8275445944285877352.exit": ; preds = %20, %16, %13, %2
-  %.sroa.7.2 = phi i64 [ 0, %2 ], [ %12, %13 ], [ %12, %20 ], [ %12, %16 ]
-  %.sroa.16.1 = phi i64 [ 0, %2 ], [ 1, %13 ], [ 1, %20 ], [ 1, %16 ]
+  %.sroa.7.2 = phi i64 [ 0, %2 ], [ %12, %16 ], [ %12, %13 ], [ %12, %20 ]
+  %.sroa.16.1 = phi i64 [ 0, %2 ], [ 1, %16 ], [ 1, %13 ], [ 1, %20 ]
   %.not1.i = icmp eq i64 %.sroa.7.2, %4
   br i1 %.not1.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h6ec287aaf99a555fE.llvm.8275445944285877352.exit", label %.lr.ph.i2.preheader
 
@@ -7125,8 +7125,8 @@ define hidden void @_ZN8language6buffer6Buffer4edit17hf1b876c72863dcc4E.llvm.827
   br label %.body97
 
 .body97:                                          ; preds = %74, %124, %126, %52
-  %.sroa.046.0.lpad-body = phi i1 [ true, %52 ], [ false, %126 ], [ false, %124 ], [ true, %74 ]
-  %eh.lpad-body98 = phi { ptr, i32 } [ %53, %52 ], [ %125, %126 ], [ %125, %124 ], [ %77, %74 ]
+  %.sroa.046.0.lpad-body = phi i1 [ false, %124 ], [ true, %52 ], [ false, %126 ], [ true, %74 ]
+  %eh.lpad-body98 = phi { ptr, i32 } [ %125, %124 ], [ %53, %52 ], [ %125, %126 ], [ %77, %74 ]
   %54 = extractvalue { ptr, i32 } %eh.lpad-body98, 0
   %55 = extractvalue { ptr, i32 } %eh.lpad-body98, 1
   br label %.thread

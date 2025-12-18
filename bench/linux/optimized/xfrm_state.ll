@@ -1598,9 +1598,9 @@ define dso_local range(i32 -3, 1) i32 @xfrm_state_flush(ptr noundef %0, i8 nound
   br i1 %116, label %.loopexit, label %.split.split, !llvm.loop !81
 
 .loopexit:                                        ; preds = %.thread, %28, %110, %43, %8
-  %117 = phi ptr [ %9, %8 ], [ %20, %28 ], [ %20, %43 ], [ %20, %110 ], [ %103, %.thread ]
-  %118 = phi i32 [ %12, %8 ], [ %23, %28 ], [ %23, %43 ], [ %23, %110 ], [ %102, %.thread ]
-  %119 = phi i32 [ %11, %8 ], [ %22, %28 ], [ %22, %43 ], [ %22, %110 ], [ %68, %.thread ]
+  %117 = phi ptr [ %9, %8 ], [ %20, %28 ], [ %20, %110 ], [ %20, %43 ], [ %103, %.thread ]
+  %118 = phi i32 [ %12, %8 ], [ %23, %28 ], [ %23, %110 ], [ %23, %43 ], [ %102, %.thread ]
+  %119 = phi i32 [ %11, %8 ], [ %22, %28 ], [ %22, %110 ], [ %22, %43 ], [ %68, %.thread ]
   %120 = add i32 %10, 1
   %121 = load i32, ptr %6, align 16
   %122 = icmp ugt i32 %120, %121
@@ -4549,7 +4549,7 @@ __xfrm_find_acq_byseq.exit:                       ; preds = %83, %72
   br i1 %105, label %.thread, label %__xfrm_find_acq_byseq.exit.thread
 
 __xfrm_find_acq_byseq.exit.thread:                ; preds = %76, %__xfrm_find_acq_byseq.exit, %102, %92, %36, %32, %31
-  %106 = phi ptr [ null, %31 ], [ null, %32 ], [ null, %36 ], [ %53, %92 ], [ %53, %102 ], [ %53, %__xfrm_find_acq_byseq.exit ], [ null, %76 ]
+  %106 = phi ptr [ %53, %__xfrm_find_acq_byseq.exit ], [ null, %31 ], [ null, %32 ], [ null, %36 ], [ %53, %92 ], [ %53, %102 ], [ null, %76 ]
   switch i8 %10, label %.thread [
     i8 -1, label %107
     i8 108, label %107
@@ -7597,7 +7597,7 @@ define dso_local i32 @__xfrm_init_state(ptr noundef %0, i1 noundef zeroext %1, i
   br i1 %.not, label %.thread, label %35
 
 35:                                               ; preds = %32, %27
-  %36 = phi ptr [ %29, %27 ], [ %34, %32 ]
+  %36 = phi ptr [ %34, %32 ], [ %29, %27 ]
   %37 = icmp eq ptr %36, null
   br i1 %37, label %.thread, label %40
 
@@ -7651,7 +7651,7 @@ define dso_local i32 @__xfrm_init_state(ptr noundef %0, i1 noundef zeroext %1, i
   br i1 %.not20, label %.thread24, label %60
 
 60:                                               ; preds = %57, %52
-  %61 = phi ptr [ %54, %52 ], [ %59, %57 ]
+  %61 = phi ptr [ %59, %57 ], [ %54, %52 ]
   %62 = icmp eq ptr %61, null
   br i1 %62, label %.thread24, label %65
 
@@ -7881,7 +7881,7 @@ define dso_local i32 @__xfrm_init_state(ptr noundef %0, i1 noundef zeroext %1, i
   br i1 %.not22, label %.thread38, label %160
 
 160:                                              ; preds = %157, %152
-  %161 = phi ptr [ %154, %152 ], [ %159, %157 ]
+  %161 = phi ptr [ %159, %157 ], [ %154, %152 ]
   %162 = icmp eq ptr %161, null
   br i1 %162, label %.thread38, label %165
 

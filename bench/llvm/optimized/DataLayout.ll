@@ -482,7 +482,7 @@ define dso_local noundef nonnull ptr @_ZN4llvm10DataLayout20getManglingComponent
   br label %15
 
 15:                                               ; preds = %1, %.fold.split, %13, %9
-  %.0 = phi ptr [ @.str, %1 ], [ %.str.2..str.3, %9 ], [ %.str.4..str.5, %13 ], [ @.str.1, %.fold.split ]
+  %.0 = phi ptr [ %.str.4..str.5, %13 ], [ @.str, %1 ], [ %.str.2..str.3, %9 ], [ @.str.1, %.fold.split ]
   ret ptr %.0
 }
 
@@ -5563,7 +5563,7 @@ _ZN4llvm11lower_boundIRKNS_11SmallVectorINS_10DataLayout13PrimitiveSpecELj10EEER
   unreachable
 
 _ZN4llvm12PowerOf2CeilEm.exit:                    ; preds = %tailrecurse, %140, %136, %111, %108, %133, %105, %49, %_ZNK4llvm10DataLayout22getPointerABIAlignmentEj.exit, %_ZNK4llvm10DataLayout23getPointerPrefAlignmentEj.exit, %8, %10, %_ZNK4llvm10DataLayout19getIntegerAlignmentEjb.exit, %_ZNK4llvm10DataLayout15getStructLayoutEPNS_10StructTypeE.exit
-  %.sroa.0118.0 = phi i8 [ %.sroa.0.0.copyload.i, %8 ], [ %.sroa.0.0.copyload.i51, %10 ], [ -1, %108 ], [ %.sroa.0.0.copyload.i54, %_ZNK4llvm10DataLayout22getPointerABIAlignmentEj.exit ], [ %.sroa.speculated, %_ZNK4llvm10DataLayout15getStructLayoutEPNS_10StructTypeE.exit ], [ %.sroa.0.0.copyload.i79, %_ZNK4llvm10DataLayout19getIntegerAlignmentEjb.exit ], [ 0, %49 ], [ %107, %105 ], [ %135, %133 ], [ %.sroa.0.0.copyload.i75, %_ZNK4llvm10DataLayout23getPointerPrefAlignmentEj.exit ], [ %115, %111 ], [ %144, %140 ], [ -1, %136 ], [ 6, %tailrecurse ]
+  %.sroa.0118.0 = phi i8 [ %.sroa.0.0.copyload.i, %8 ], [ %.sroa.0.0.copyload.i51, %10 ], [ -1, %108 ], [ -1, %136 ], [ %.sroa.0.0.copyload.i54, %_ZNK4llvm10DataLayout22getPointerABIAlignmentEj.exit ], [ %.sroa.speculated, %_ZNK4llvm10DataLayout15getStructLayoutEPNS_10StructTypeE.exit ], [ %.sroa.0.0.copyload.i79, %_ZNK4llvm10DataLayout19getIntegerAlignmentEjb.exit ], [ 0, %49 ], [ %107, %105 ], [ %135, %133 ], [ %.sroa.0.0.copyload.i75, %_ZNK4llvm10DataLayout23getPointerPrefAlignmentEj.exit ], [ %115, %111 ], [ %144, %140 ], [ 6, %tailrecurse ]
   ret i8 %.sroa.0118.0
 }
 

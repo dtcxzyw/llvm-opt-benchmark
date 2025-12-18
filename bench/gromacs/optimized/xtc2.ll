@@ -896,7 +896,7 @@ swapdecide.exit:                                  ; preds = %321, %323, %331
   br i1 %exitcond780.not, label %.preheader664.preheader, label %.preheader668, !llvm.loop !33
 
 .preheader666.preheader:                          ; preds = %positive_int.exit.i497, %positive_int.exit.i509, %is_quite_large.exit.thread, %330, %swapdecide.exit
-  %.3630896 = phi i32 [ 0, %330 ], [ %.0740, %is_quite_large.exit.thread ], [ 0, %swapdecide.exit ], [ %.0740, %positive_int.exit.i509 ], [ %.0740, %positive_int.exit.i497 ]
+  %.3630896 = phi i32 [ %.0740, %positive_int.exit.i509 ], [ 0, %330 ], [ %.0740, %is_quite_large.exit.thread ], [ 0, %swapdecide.exit ], [ %.0740, %positive_int.exit.i497 ]
   br label %.preheader666
 
 .preheader664.preheader:                          ; preds = %.preheader668

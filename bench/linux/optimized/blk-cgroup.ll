@@ -3364,7 +3364,7 @@ select.unfold18:                                  ; preds = %72, %64
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge, %.loopexit.sink.split, %.thread16
-  %148 = phi ptr [ null, %.thread16 ], [ %124, %.loopexit.sink.split ], [ null, %._crit_edge ]
+  %148 = phi ptr [ %124, %.loopexit.sink.split ], [ null, %.thread16 ], [ null, %._crit_edge ]
   tail call void @__rcu_read_unlock() #16
   br label %171
 

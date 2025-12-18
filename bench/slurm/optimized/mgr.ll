@@ -2816,7 +2816,7 @@ _setup_normal_io.exit.thread.i:                   ; preds = %475
   br label %580
 
 .thread.i.i:                                      ; preds = %547, %567, %.preheader.i.i, %542, %539
-  %.1.ph.i.i = phi i32 [ -2, %567 ], [ %.2.i.i, %542 ], [ %.2.i.i, %539 ], [ -2, %.preheader.i.i ], [ -2, %547 ]
+  %.1.ph.i.i = phi i32 [ -2, %567 ], [ %.2.i.i, %539 ], [ %.2.i.i, %542 ], [ -2, %.preheader.i.i ], [ -2, %547 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -3760,7 +3760,7 @@ exec_wait_kill_children.exit.thread.i:            ; preds = %._crit_edge.i198.i,
   br label %1052
 
 1052:                                             ; preds = %1050, %1047, %1020, %995, %967
-  %.5146.i = phi ptr [ %.0141.i, %1050 ], [ %.0141.i, %1047 ], [ %.2143.lcssa.i, %967 ], [ %.2143.lcssa.i, %995 ], [ %.2143.lcssa.i, %1020 ]
+  %.5146.i = phi ptr [ %.2143.lcssa.i, %1020 ], [ %.0141.i, %1050 ], [ %.0141.i, %1047 ], [ %.2143.lcssa.i, %995 ], [ %.2143.lcssa.i, %967 ]
   %.not184.i = icmp eq ptr %.5146.i, null
   br i1 %.not184.i, label %.thread226.i, label %1053
 
@@ -3769,7 +3769,7 @@ exec_wait_kill_children.exit.thread.i:            ; preds = %._crit_edge.i198.i,
   br label %.thread226.i
 
 .thread226.i:                                     ; preds = %.lr.ph265.i, %1053, %1052, %725, %711
-  %.7230.i = phi i32 [ -1, %1052 ], [ -1, %1053 ], [ %724, %725 ], [ -1, %711 ], [ -1, %.lr.ph265.i ]
+  %.7230.i = phi i32 [ -1, %1052 ], [ -1, %1053 ], [ -1, %711 ], [ %724, %725 ], [ -1, %.lr.ph265.i ]
   call void @io_close_task_fds(ptr noundef %0) #17
   br label %_fork_all_tasks.exit
 
@@ -5267,7 +5267,7 @@ define internal fastcc range(i32 -1, 1) i32 @_setup_x11_parent(ptr noundef nonnu
   br label %.thread
 
 .split84.us:                                      ; preds = %.lr.ph121, %.lr.ph106.preheader, %.lr.ph121.preheader, %.lr.ph106.preheader.preheader
-  %.us-phi85 = phi i64 [ %20, %.lr.ph106.preheader.preheader ], [ %8, %.lr.ph121.preheader ], [ %39, %.lr.ph106.preheader ], [ %17, %.lr.ph121 ]
+  %.us-phi85 = phi i64 [ %39, %.lr.ph106.preheader ], [ %20, %.lr.ph106.preheader.preheader ], [ %8, %.lr.ph121.preheader ], [ %17, %.lr.ph121 ]
   %45 = and i64 %.us-phi85, 2147483647
   %46 = getelementptr inbounds nuw i8, ptr %.046.ph123, i64 %45
   %47 = sub i64 %.045.ph125, %45
@@ -5407,7 +5407,7 @@ define internal fastcc range(i32 -1, 1) i32 @_setup_x11_parent(ptr noundef nonnu
   br label %.thread
 
 .split133.us:                                     ; preds = %.lr.ph171, %.lr.ph156.preheader, %.lr.ph171.preheader, %.lr.ph156.preheader.preheader
-  %.us-phi134 = phi i64 [ %70, %.lr.ph156.preheader.preheader ], [ %58, %.lr.ph171.preheader ], [ %89, %.lr.ph156.preheader ], [ %67, %.lr.ph171 ]
+  %.us-phi134 = phi i64 [ %89, %.lr.ph156.preheader ], [ %70, %.lr.ph156.preheader.preheader ], [ %58, %.lr.ph171.preheader ], [ %67, %.lr.ph171 ]
   %95 = and i64 %.us-phi134, 2147483647
   %96 = getelementptr inbounds nuw i8, ptr %.042.ph176, i64 %95
   %97 = sub i64 %.043.ph174, %95

@@ -3335,7 +3335,7 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
           to label %372 unwind label %413
 
 372:                                              ; preds = %367, %370
-  %373 = phi i1 [ false, %367 ], [ %371, %370 ]
+  %373 = phi i1 [ %371, %370 ], [ false, %367 ]
   %374 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %375 = load ptr, ptr %374, align 8, !tbaa !472
   %.not.i.i149 = icmp eq ptr %375, null
@@ -5077,7 +5077,7 @@ _ZN7rocksdb6StatusaSEOS0_.exit.thread:            ; preds = %136, %_ZNKSt14defau
   br i1 %201, label %.thread152, label %.critedge
 
 202:                                              ; preds = %.thread, %196
-  %203 = phi i8 [ %197, %196 ], [ %193, %.thread ]
+  %203 = phi i8 [ %193, %.thread ], [ %197, %196 ]
   switch i8 %203, label %.critedge [
     i8 7, label %204
     i8 0, label %204
@@ -13713,7 +13713,7 @@ _ZN7rocksdb10autovectorIPNS_16ColumnFamilyDataELm8EED2Ev.exit: ; preds = %_ZN7ro
   unreachable
 
 .body:                                            ; preds = %171, %.body27, %41, %38
-  %.pn.pn = phi { ptr, i32 } [ %39, %38 ], [ %39, %41 ], [ %.pn, %.body27 ], [ %.pn, %171 ]
+  %.pn.pn = phi { ptr, i32 } [ %39, %41 ], [ %39, %38 ], [ %.pn, %.body27 ], [ %.pn, %171 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %176

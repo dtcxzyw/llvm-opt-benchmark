@@ -737,7 +737,7 @@ define internal range(i32 -22, 1) i32 @argo_asf_write_init(ptr noundef %0) #3 {
   br label %37
 
 37:                                               ; preds = %.sink.split, %31, %23
-  %.0 = phi i32 [ -22, %23 ], [ 0, %31 ], [ -22, %.sink.split ]
+  %.0 = phi i32 [ 0, %31 ], [ -22, %23 ], [ -22, %.sink.split ]
   ret i32 %.0
 }
 

@@ -9314,7 +9314,7 @@ Gla_ManObj.exit47:                                ; preds = %Gla_ManObj.exit47.l
   br i1 %exitcond74.not, label %.critedge, label %Gla_ManObj.exit47, !llvm.loop !196
 
 .critedge:                                        ; preds = %Gla_ManObj.exit, %Gla_ManObj.exit45, %Gla_ManObj.exit47, %.preheader50, %.preheader48, %.preheader
-  %.1 = phi i32 [ 0, %.preheader ], [ 0, %.preheader48 ], [ 0, %.preheader50 ], [ %39, %Gla_ManObj.exit45 ], [ %47, %Gla_ManObj.exit47 ], [ %19, %Gla_ManObj.exit ]
+  %.1 = phi i32 [ %47, %Gla_ManObj.exit47 ], [ %39, %Gla_ManObj.exit45 ], [ 0, %.preheader ], [ 0, %.preheader48 ], [ 0, %.preheader50 ], [ %19, %Gla_ManObj.exit ]
   ret i32 %.1
 }
 
@@ -13338,7 +13338,7 @@ Gia_GlaAbsCount.exit:                             ; preds = %Gla_ManObj.exit47.i
   br i1 %or.cond323, label %.critedge, label %.thread517.thread, !llvm.loop !261
 
 .thread517:                                       ; preds = %Vec_IntFreeP.exit437, %Prf_ManStopP.exit, %819
-  %824 = phi i32 [ -1, %819 ], [ %243, %Prf_ManStopP.exit ], [ %747, %Vec_IntFreeP.exit437 ]
+  %824 = phi i32 [ %243, %Prf_ManStopP.exit ], [ -1, %819 ], [ %747, %Vec_IntFreeP.exit437 ]
   %825 = load ptr, ptr %139, align 8, !tbaa !30
   %826 = getelementptr inbounds nuw i8, ptr %825, i64 112
   %827 = load i32, ptr %826, align 8, !tbaa !184

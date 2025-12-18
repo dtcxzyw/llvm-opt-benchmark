@@ -2103,9 +2103,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit24.i: ; preds = %249, %243
   br label %common.resume
 
 .thread72.i:                                      ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit24.i, %238, %235, %228
-  %.sroa.039.06570.i = phi ptr [ %.sroa.039.06569.i, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit24.i ], [ %222, %238 ], [ %222, %228 ], [ %222, %235 ]
-  %.160.i = phi double [ %260, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit24.i ], [ %.059.i, %238 ], [ %.059.i, %228 ], [ %.059.i, %235 ]
-  %.1.i = phi double [ %258, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit24.i ], [ %.0.i, %238 ], [ %.0.i, %228 ], [ %.0.i, %235 ]
+  %.sroa.039.06570.i = phi ptr [ %.sroa.039.06569.i, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit24.i ], [ %222, %238 ], [ %222, %235 ], [ %222, %228 ]
+  %.160.i = phi double [ %260, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit24.i ], [ %.059.i, %238 ], [ %.059.i, %235 ], [ %.059.i, %228 ]
+  %.1.i = phi double [ %258, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit24.i ], [ %.0.i, %238 ], [ %.0.i, %235 ], [ %.0.i, %228 ]
   %.not7578.i = icmp eq ptr %.sroa.047.0.i, %.sroa.039.06570.i
   br i1 %.not7578.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -2392,9 +2392,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit24.i92: ; preds = %375, %3
   br label %common.resume
 
 .thread72.i63:                                    ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit24.i92, %364, %361, %354
-  %.sroa.039.06570.i64 = phi ptr [ %.sroa.039.06569.i87, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit24.i92 ], [ %348, %364 ], [ %348, %354 ], [ %348, %361 ]
-  %.160.i65 = phi float [ %386, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit24.i92 ], [ %.059.i61, %364 ], [ %.059.i61, %354 ], [ %.059.i61, %361 ]
-  %.1.i66 = phi float [ %384, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit24.i92 ], [ %.0.i62, %364 ], [ %.0.i62, %354 ], [ %.0.i62, %361 ]
+  %.sroa.039.06570.i64 = phi ptr [ %.sroa.039.06569.i87, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit24.i92 ], [ %348, %364 ], [ %348, %361 ], [ %348, %354 ]
+  %.160.i65 = phi float [ %386, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit24.i92 ], [ %.059.i61, %364 ], [ %.059.i61, %361 ], [ %.059.i61, %354 ]
+  %.1.i66 = phi float [ %384, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit24.i92 ], [ %.0.i62, %364 ], [ %.0.i62, %361 ], [ %.0.i62, %354 ]
   %.not7578.i67 = icmp eq ptr %.sroa.047.0.i60, %.sroa.039.06570.i64
   br i1 %.not7578.i67, label %._crit_edge.i77, label %.lr.ph.i68
 

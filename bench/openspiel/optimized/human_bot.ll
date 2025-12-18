@@ -3102,7 +3102,7 @@ _ZSt8_DestroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElEEvT
           to label %85 unwind label %79
 
 .split24.us:                                      ; preds = %44, %._crit_edge.i.i.us, %.split.us.preheader
-  %.us-phi = phi ptr [ %4, %.split.us.preheader ], [ %36, %._crit_edge.i.i.us ], [ %.0, %44 ]
+  %.us-phi = phi ptr [ %36, %._crit_edge.i.i.us ], [ %4, %.split.us.preheader ], [ %.0, %44 ]
   ret ptr %.us-phi
 
 79:                                               ; preds = %_ZSt8_DestroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElEEvT_S9_.exit

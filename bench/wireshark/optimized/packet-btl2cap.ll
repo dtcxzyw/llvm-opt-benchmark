@@ -3337,7 +3337,7 @@ proto_item_set_generated.exit584:                 ; preds = %1360, %1357, %1353,
   br label %.loopexit
 
 .loopexit:                                        ; preds = %dissect_comrej.exit, %.preheader, %1203, %1166, %1386, %1256
-  %.2 = phi i32 [ 6, %1166 ], [ %1204, %1203 ], [ %1257, %1256 ], [ %.5, %1386 ], [ 4, %.preheader ], [ %.1, %dissect_comrej.exit ]
+  %.2 = phi i32 [ %.5, %1386 ], [ 6, %1166 ], [ %1204, %1203 ], [ %1257, %1256 ], [ 4, %.preheader ], [ %.1, %dissect_comrej.exit ]
   ret i32 %.2
 }
 

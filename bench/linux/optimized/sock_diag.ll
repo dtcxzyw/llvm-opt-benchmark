@@ -417,7 +417,7 @@ define internal void @sock_diag_broadcast_destroy_work(ptr noundef %0) #0 align 
   br i1 %25, label %.thread5, label %26
 
 26:                                               ; preds = %20, %10
-  %27 = phi i32 [ %14, %10 ], [ %24, %20 ]
+  %27 = phi i32 [ %24, %20 ], [ %14, %10 ]
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %.thread, label %.thread5, !prof !19
 

@@ -1523,32 +1523,32 @@ _ZN4pugi4impl12_GLOBAL__N_113xml_allocator17deallocate_stringEPc.exit: ; preds =
   %68 = and i64 %.pre, %2
   %69 = icmp eq i64 %68, 0
   %.not57 = icmp ult i64 %67, %4
-  br i1 %69, label %70, label %71
+  br i1 %69, label %_ZN4pugi4impl12_GLOBAL__N_119strcpy_insitu_allowImEEbmRKT_mPc.exit, label %70
 
 70:                                               ; preds = %66
-  br i1 %.not57, label %_ZN4pugi4impl12_GLOBAL__N_119strcpy_insitu_allowImEEbmRKT_mPc.exit.thread, label %_ZN4pugi4impl12_GLOBAL__N_119strcpy_insitu_allowImEEbmRKT_mPc.exit.thread52
+  br i1 %.not57, label %_ZN4pugi4impl12_GLOBAL__N_119strcpy_insitu_allowImEEbmRKT_mPc.exit.thread, label %71
 
-71:                                               ; preds = %66
-  br i1 %.not57, label %_ZN4pugi4impl12_GLOBAL__N_119strcpy_insitu_allowImEEbmRKT_mPc.exit.thread, label %72
+71:                                               ; preds = %70
+  %72 = icmp ult i64 %67, 32
+  br i1 %72, label %_ZN4pugi4impl12_GLOBAL__N_119strcpy_insitu_allowImEEbmRKT_mPc.exit.thread52, label %73
 
-72:                                               ; preds = %71
-  %73 = icmp ult i64 %67, 32
-  br i1 %73, label %_ZN4pugi4impl12_GLOBAL__N_119strcpy_insitu_allowImEEbmRKT_mPc.exit.thread52, label %_ZN4pugi4impl12_GLOBAL__N_119strcpy_insitu_allowImEEbmRKT_mPc.exit
-
-_ZN4pugi4impl12_GLOBAL__N_119strcpy_insitu_allowImEEbmRKT_mPc.exit: ; preds = %72
+73:                                               ; preds = %71
   %74 = sub i64 %67, %4
   %75 = lshr i64 %67, 1
   %76 = icmp ult i64 %74, %75
   br i1 %76, label %_ZN4pugi4impl12_GLOBAL__N_119strcpy_insitu_allowImEEbmRKT_mPc.exit.thread52, label %_ZN4pugi4impl12_GLOBAL__N_119strcpy_insitu_allowImEEbmRKT_mPc.exit.thread
 
-_ZN4pugi4impl12_GLOBAL__N_119strcpy_insitu_allowImEEbmRKT_mPc.exit.thread52: ; preds = %72, %70, %_ZN4pugi4impl12_GLOBAL__N_119strcpy_insitu_allowImEEbmRKT_mPc.exit
+_ZN4pugi4impl12_GLOBAL__N_119strcpy_insitu_allowImEEbmRKT_mPc.exit: ; preds = %66
+  br i1 %.not57, label %_ZN4pugi4impl12_GLOBAL__N_119strcpy_insitu_allowImEEbmRKT_mPc.exit.thread, label %_ZN4pugi4impl12_GLOBAL__N_119strcpy_insitu_allowImEEbmRKT_mPc.exit.thread52
+
+_ZN4pugi4impl12_GLOBAL__N_119strcpy_insitu_allowImEEbmRKT_mPc.exit.thread52: ; preds = %71, %73, %_ZN4pugi4impl12_GLOBAL__N_119strcpy_insitu_allowImEEbmRKT_mPc.exit
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %64, ptr align 1 %3, i64 %4, i1 false)
   %77 = load ptr, ptr %0, align 8, !tbaa !39
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 %4
   store i8 0, ptr %78, align 1, !tbaa !28
   br label %154
 
-_ZN4pugi4impl12_GLOBAL__N_119strcpy_insitu_allowImEEbmRKT_mPc.exit.thread: ; preds = %71, %70, %_ZN4pugi4impl12_GLOBAL__N_119strcpy_insitu_allowImEEbmRKT_mPc.exit, %63
+_ZN4pugi4impl12_GLOBAL__N_119strcpy_insitu_allowImEEbmRKT_mPc.exit.thread: ; preds = %70, %73, %_ZN4pugi4impl12_GLOBAL__N_119strcpy_insitu_allowImEEbmRKT_mPc.exit, %63
   %79 = lshr i64 %.pre, 8
   %80 = sub nsw i64 0, %79
   %81 = getelementptr inbounds i8, ptr %1, i64 %80
@@ -9682,19 +9682,19 @@ _ZN4pugi4impl12_GLOBAL__N_114latin1_decoder7processINS1_11utf8_writerEEENT_10val
   store i8 0, ptr %445, align 1, !tbaa !28
   br label %_ZN4pugi4impl12_GLOBAL__N_114convert_bufferERPcRmNS_12xml_encodingEPKvmb.exit
 
-448:                                              ; preds = %410, %.noexc, %.noexc40, %.noexc39, %.noexc42, %.noexc41, %.noexc44, %.noexc43, %.noexc46, %.noexc45, %.noexc48, %.noexc47
+448:                                              ; preds = %410, %.noexc48, %.noexc47, %.noexc45, %.noexc46, %.noexc43, %.noexc, %.noexc40, %.noexc39, %.noexc42, %.noexc41, %.noexc44
   invoke void @_ZN4pugi16xml_parse_resultC1Ev(ptr noundef nonnull align 8 dereferenceable(20) %0)
           to label %_ZN4pugi4impl12_GLOBAL__N_117make_parse_resultENS_16xml_parse_statusEl.exit50 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %.critedge.i, %1171, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i, %458, %448, %_ZN4pugi4impl12_GLOBAL__N_114latin1_decoder7processINS1_12utf8_counterEEENT_10value_typeEPKhmS6_S5_.exit.i.i, %420, %_ZN4pugi4impl12_GLOBAL__N_113utf32_decoderINS1_8opt_trueEE7processINS1_12utf8_counterEEENT_10value_typeEPKjmS8_S7_.exit.thread.i.i, %_ZN4pugi4impl12_GLOBAL__N_113utf32_decoderINS1_8opt_trueEE7processINS1_12utf8_counterEEENT_10value_typeEPKjmS8_S7_.exit.i.i, %_ZN4pugi4impl12_GLOBAL__N_113utf32_decoderINS1_9opt_falseEE7processINS1_12utf8_counterEEENT_10value_typeEPKjmS8_S7_.exit.thread.i.i, %_ZN4pugi4impl12_GLOBAL__N_113utf32_decoderINS1_9opt_falseEE7processINS1_12utf8_counterEEENT_10value_typeEPKjmS8_S7_.exit.i.i, %_ZN4pugi4impl12_GLOBAL__N_113utf16_decoderINS1_8opt_trueEE7processINS1_12utf8_counterEEENT_10value_typeEPKtmS8_S7_.exit.thread.i.i, %_ZN4pugi4impl12_GLOBAL__N_113utf16_decoderINS1_8opt_trueEE7processINS1_12utf8_counterEEENT_10value_typeEPKtmS8_S7_.exit.i.i, %_ZN4pugi4impl12_GLOBAL__N_113utf16_decoderINS1_9opt_falseEE7processINS1_12utf8_counterEEENT_10value_typeEPKtmS8_S7_.exit.thread.i.i, %_ZN4pugi4impl12_GLOBAL__N_113utf16_decoderINS1_9opt_falseEE7processINS1_12utf8_counterEEENT_10value_typeEPKtmS8_S7_.exit.i.i, %30, %452
-  %.sroa.0.2.ph.ph = phi ptr [ null, %458 ], [ null, %1171 ], [ null, %.critedge.i ], [ null, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i ], [ null, %452 ], [ %18, %448 ], [ %18, %30 ], [ %18, %_ZN4pugi4impl12_GLOBAL__N_113utf16_decoderINS1_9opt_falseEE7processINS1_12utf8_counterEEENT_10value_typeEPKtmS8_S7_.exit.thread.i.i ], [ %18, %_ZN4pugi4impl12_GLOBAL__N_113utf16_decoderINS1_9opt_falseEE7processINS1_12utf8_counterEEENT_10value_typeEPKtmS8_S7_.exit.i.i ], [ %18, %_ZN4pugi4impl12_GLOBAL__N_113utf16_decoderINS1_8opt_trueEE7processINS1_12utf8_counterEEENT_10value_typeEPKtmS8_S7_.exit.thread.i.i ], [ %18, %_ZN4pugi4impl12_GLOBAL__N_113utf16_decoderINS1_8opt_trueEE7processINS1_12utf8_counterEEENT_10value_typeEPKtmS8_S7_.exit.i.i ], [ %18, %_ZN4pugi4impl12_GLOBAL__N_113utf32_decoderINS1_9opt_falseEE7processINS1_12utf8_counterEEENT_10value_typeEPKjmS8_S7_.exit.i.i ], [ %18, %_ZN4pugi4impl12_GLOBAL__N_113utf32_decoderINS1_9opt_falseEE7processINS1_12utf8_counterEEENT_10value_typeEPKjmS8_S7_.exit.thread.i.i ], [ %18, %_ZN4pugi4impl12_GLOBAL__N_113utf32_decoderINS1_8opt_trueEE7processINS1_12utf8_counterEEENT_10value_typeEPKjmS8_S7_.exit.i.i ], [ %18, %_ZN4pugi4impl12_GLOBAL__N_113utf32_decoderINS1_8opt_trueEE7processINS1_12utf8_counterEEENT_10value_typeEPKjmS8_S7_.exit.thread.i.i ], [ %18, %420 ], [ %18, %_ZN4pugi4impl12_GLOBAL__N_114latin1_decoder7processINS1_12utf8_counterEEENT_10value_typeEPKhmS6_S5_.exit.i.i ]
+  %.sroa.0.2.ph.ph = phi ptr [ %18, %420 ], [ %18, %_ZN4pugi4impl12_GLOBAL__N_114latin1_decoder7processINS1_12utf8_counterEEENT_10value_typeEPKhmS6_S5_.exit.i.i ], [ null, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i ], [ null, %.critedge.i ], [ null, %1171 ], [ null, %458 ], [ null, %452 ], [ %18, %448 ], [ %18, %30 ], [ %18, %_ZN4pugi4impl12_GLOBAL__N_113utf16_decoderINS1_9opt_falseEE7processINS1_12utf8_counterEEENT_10value_typeEPKtmS8_S7_.exit.thread.i.i ], [ %18, %_ZN4pugi4impl12_GLOBAL__N_113utf16_decoderINS1_9opt_falseEE7processINS1_12utf8_counterEEENT_10value_typeEPKtmS8_S7_.exit.i.i ], [ %18, %_ZN4pugi4impl12_GLOBAL__N_113utf16_decoderINS1_8opt_trueEE7processINS1_12utf8_counterEEENT_10value_typeEPKtmS8_S7_.exit.thread.i.i ], [ %18, %_ZN4pugi4impl12_GLOBAL__N_113utf16_decoderINS1_8opt_trueEE7processINS1_12utf8_counterEEENT_10value_typeEPKtmS8_S7_.exit.i.i ], [ %18, %_ZN4pugi4impl12_GLOBAL__N_113utf32_decoderINS1_9opt_falseEE7processINS1_12utf8_counterEEENT_10value_typeEPKjmS8_S7_.exit.i.i ], [ %18, %_ZN4pugi4impl12_GLOBAL__N_113utf32_decoderINS1_9opt_falseEE7processINS1_12utf8_counterEEENT_10value_typeEPKjmS8_S7_.exit.thread.i.i ], [ %18, %_ZN4pugi4impl12_GLOBAL__N_113utf32_decoderINS1_8opt_trueEE7processINS1_12utf8_counterEEENT_10value_typeEPKjmS8_S7_.exit.i.i ], [ %18, %_ZN4pugi4impl12_GLOBAL__N_113utf32_decoderINS1_8opt_trueEE7processINS1_12utf8_counterEEENT_10value_typeEPKjmS8_S7_.exit.thread.i.i ]
   %lpad.loopexit.split-lp105 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 _ZN4pugi4impl12_GLOBAL__N_114convert_bufferERPcRmNS_12xml_encodingEPKvmb.exit: ; preds = %29, %36, %_ZN4pugi4impl12_GLOBAL__N_113utf16_decoderINS1_9opt_falseEE7processINS1_11utf8_writerEEENT_10value_typeEPKtmS8_S7_.exit.i.i, %_ZN4pugi4impl12_GLOBAL__N_113utf16_decoderINS1_8opt_trueEE7processINS1_11utf8_writerEEENT_10value_typeEPKtmS8_S7_.exit.i.i, %_ZN4pugi4impl12_GLOBAL__N_113utf32_decoderINS1_9opt_falseEE7processINS1_11utf8_writerEEENT_10value_typeEPKjmS8_S7_.exit.i.i, %_ZN4pugi4impl12_GLOBAL__N_113utf32_decoderINS1_8opt_trueEE7processINS1_11utf8_writerEEENT_10value_typeEPKjmS8_S7_.exit.i.i, %_ZN4pugi4impl12_GLOBAL__N_129get_latin1_7bit_prefix_lengthEPKhm.exit.thread.i.i, %424, %_ZN4pugi4impl12_GLOBAL__N_114latin1_decoder7processINS1_11utf8_writerEEENT_10value_typeEPKhmS6_S5_.exit.i.i
-  %.077 = phi ptr [ %3, %29 ], [ %409, %_ZN4pugi4impl12_GLOBAL__N_113utf32_decoderINS1_8opt_trueEE7processINS1_11utf8_writerEEENT_10value_typeEPKjmS8_S7_.exit.i.i ], [ %348, %_ZN4pugi4impl12_GLOBAL__N_113utf32_decoderINS1_9opt_falseEE7processINS1_11utf8_writerEEENT_10value_typeEPKjmS8_S7_.exit.i.i ], [ %284, %_ZN4pugi4impl12_GLOBAL__N_113utf16_decoderINS1_8opt_trueEE7processINS1_11utf8_writerEEENT_10value_typeEPKtmS8_S7_.exit.i.i ], [ %163, %_ZN4pugi4impl12_GLOBAL__N_113utf16_decoderINS1_9opt_falseEE7processINS1_11utf8_writerEEENT_10value_typeEPKtmS8_S7_.exit.i.i ], [ %33, %36 ], [ %434, %_ZN4pugi4impl12_GLOBAL__N_114latin1_decoder7processINS1_11utf8_writerEEENT_10value_typeEPKhmS6_S5_.exit.i.i ], [ %423, %424 ], [ %3, %_ZN4pugi4impl12_GLOBAL__N_129get_latin1_7bit_prefix_lengthEPKhm.exit.thread.i.i ]
-  %.0 = phi i64 [ %4, %29 ], [ %.011.lcssa.i2937.i84.i, %_ZN4pugi4impl12_GLOBAL__N_113utf32_decoderINS1_8opt_trueEE7processINS1_11utf8_writerEEENT_10value_typeEPKjmS8_S7_.exit.i.i ], [ %.011.lcssa.i2937.i.i, %_ZN4pugi4impl12_GLOBAL__N_113utf32_decoderINS1_9opt_falseEE7processINS1_11utf8_writerEEENT_10value_typeEPKjmS8_S7_.exit.i.i ], [ %.029.lcssa.i3440.i.i, %_ZN4pugi4impl12_GLOBAL__N_113utf16_decoderINS1_8opt_trueEE7processINS1_11utf8_writerEEENT_10value_typeEPKtmS8_S7_.exit.i.i ], [ %.029.lcssa.i3541.i.i, %_ZN4pugi4impl12_GLOBAL__N_113utf16_decoderINS1_9opt_falseEE7processINS1_11utf8_writerEEENT_10value_typeEPKtmS8_S7_.exit.i.i ], [ %32, %36 ], [ %433, %_ZN4pugi4impl12_GLOBAL__N_114latin1_decoder7processINS1_11utf8_writerEEENT_10value_typeEPKhmS6_S5_.exit.i.i ], [ %422, %424 ], [ %4, %_ZN4pugi4impl12_GLOBAL__N_129get_latin1_7bit_prefix_lengthEPKhm.exit.thread.i.i ]
+  %.077 = phi ptr [ %3, %_ZN4pugi4impl12_GLOBAL__N_129get_latin1_7bit_prefix_lengthEPKhm.exit.thread.i.i ], [ %423, %424 ], [ %434, %_ZN4pugi4impl12_GLOBAL__N_114latin1_decoder7processINS1_11utf8_writerEEENT_10value_typeEPKhmS6_S5_.exit.i.i ], [ %33, %36 ], [ %163, %_ZN4pugi4impl12_GLOBAL__N_113utf16_decoderINS1_9opt_falseEE7processINS1_11utf8_writerEEENT_10value_typeEPKtmS8_S7_.exit.i.i ], [ %284, %_ZN4pugi4impl12_GLOBAL__N_113utf16_decoderINS1_8opt_trueEE7processINS1_11utf8_writerEEENT_10value_typeEPKtmS8_S7_.exit.i.i ], [ %348, %_ZN4pugi4impl12_GLOBAL__N_113utf32_decoderINS1_9opt_falseEE7processINS1_11utf8_writerEEENT_10value_typeEPKjmS8_S7_.exit.i.i ], [ %409, %_ZN4pugi4impl12_GLOBAL__N_113utf32_decoderINS1_8opt_trueEE7processINS1_11utf8_writerEEENT_10value_typeEPKjmS8_S7_.exit.i.i ], [ %3, %29 ]
+  %.0 = phi i64 [ %4, %_ZN4pugi4impl12_GLOBAL__N_129get_latin1_7bit_prefix_lengthEPKhm.exit.thread.i.i ], [ %422, %424 ], [ %433, %_ZN4pugi4impl12_GLOBAL__N_114latin1_decoder7processINS1_11utf8_writerEEENT_10value_typeEPKhmS6_S5_.exit.i.i ], [ %32, %36 ], [ %.029.lcssa.i3541.i.i, %_ZN4pugi4impl12_GLOBAL__N_113utf16_decoderINS1_9opt_falseEE7processINS1_11utf8_writerEEENT_10value_typeEPKtmS8_S7_.exit.i.i ], [ %.029.lcssa.i3440.i.i, %_ZN4pugi4impl12_GLOBAL__N_113utf16_decoderINS1_8opt_trueEE7processINS1_11utf8_writerEEENT_10value_typeEPKtmS8_S7_.exit.i.i ], [ %.011.lcssa.i2937.i.i, %_ZN4pugi4impl12_GLOBAL__N_113utf32_decoderINS1_9opt_falseEE7processINS1_11utf8_writerEEENT_10value_typeEPKjmS8_S7_.exit.i.i ], [ %.011.lcssa.i2937.i84.i, %_ZN4pugi4impl12_GLOBAL__N_113utf32_decoderINS1_8opt_trueEE7processINS1_11utf8_writerEEENT_10value_typeEPKjmS8_S7_.exit.i.i ], [ %4, %29 ]
   br i1 %8, label %449, label %.critedge
 
 449:                                              ; preds = %_ZN4pugi4impl12_GLOBAL__N_114convert_bufferERPcRmNS_12xml_encodingEPKvmb.exit
@@ -10474,8 +10474,8 @@ select.unfold333.i.i:                             ; preds = %570, %select.unfold
   br label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser14parse_questionEPcRPNS_15xml_node_structEjc.exit.i.i
 
 _ZN4pugi4impl12_GLOBAL__N_110xml_parser14parse_questionEPcRPNS_15xml_node_structEjc.exit.i.i: ; preds = %.split141.us.i.i.i, %776, %767, %740
-  %.9.i.i = phi ptr [ %744, %740 ], [ %.086.i.i.i, %776 ], [ %.0.ph.i.i, %.split141.us.i.i.i ], [ %770, %767 ]
-  %.0.i302.i.i = phi ptr [ %742, %740 ], [ %.183.i.i.i, %776 ], [ %785, %.split141.us.i.i.i ], [ %775, %767 ]
+  %.9.i.i = phi ptr [ %770, %767 ], [ %.0.ph.i.i, %.split141.us.i.i.i ], [ %.086.i.i.i, %776 ], [ %744, %740 ]
+  %.0.i302.i.i = phi ptr [ %775, %767 ], [ %785, %.split141.us.i.i.i ], [ %.183.i.i.i, %776 ], [ %742, %740 ]
   %786 = load i64, ptr %.9.i.i, align 8, !tbaa !64, !noalias !129
   %787 = and i64 %786, 15
   %788 = icmp eq i64 %787, 7
@@ -10679,7 +10679,7 @@ _ZN4pugi4impl12_GLOBAL__N_13gap4pushERPcm.exit.i.i.i.i: ; preds = %853, %852
   br label %.preheader371.i.i.backedge
 
 .preheader371.i.i.backedge:                       ; preds = %.thread31.i.i.i.i, %848
-  %.026.i.i.i.i.be = phi ptr [ %879, %.thread31.i.i.i.i ], [ %849, %848 ]
+  %.026.i.i.i.i.be = phi ptr [ %849, %848 ], [ %879, %.thread31.i.i.i.i ]
   br label %.preheader371.i.i, !llvm.loop !148
 
 _ZN4pugi4impl12_GLOBAL__N_115strconv_commentEPcc.exit.i.i.i: ; preds = %872, %870
@@ -11169,8 +11169,8 @@ _ZN4pugi4impl12_GLOBAL__N_115strconv_commentEPcc.exit.i.i.i: ; preds = %872, %87
   br label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser20parse_doctype_ignoreEPc.exit.i.i
 
 _ZN4pugi4impl12_GLOBAL__N_110xml_parser20parse_doctype_ignoreEPc.exit.i.i: ; preds = %1043, %1085, %1082, %.critedge4.i.i45.i, %.critedge2.i.i41.i, %1053, %1049
-  %.132.i.i = phi ptr [ %1086, %1085 ], [ %1018, %1049 ], [ %1084, %1082 ], [ %1079, %.critedge4.i.i45.i ], [ %1063, %.critedge2.i.i41.i ], [ %1054, %1053 ], [ %1044, %1043 ]
-  %.1.i.i = phi i64 [ %.0.i.i, %1085 ], [ %1050, %1049 ], [ %1083, %1082 ], [ %.0.i.i, %.critedge4.i.i45.i ], [ %.0.i.i, %.critedge2.i.i41.i ], [ %.0.i.i, %1053 ], [ %.0.i.i, %1043 ]
+  %.132.i.i = phi ptr [ %1086, %1085 ], [ %1018, %1049 ], [ %1063, %.critedge2.i.i41.i ], [ %1084, %1082 ], [ %1054, %1053 ], [ %1079, %.critedge4.i.i45.i ], [ %1044, %1043 ]
+  %.1.i.i = phi i64 [ %.0.i.i, %1085 ], [ %1050, %1049 ], [ %.0.i.i, %.critedge2.i.i41.i ], [ %1083, %1082 ], [ %.0.i.i, %1053 ], [ %.0.i.i, %.critedge4.i.i45.i ], [ %.0.i.i, %1043 ]
   %.pre.i = load i8, ptr %.132.i.i, align 1, !tbaa !28, !noalias !129
   br label %1012, !llvm.loop !155
 
@@ -11362,7 +11362,7 @@ _ZN4pugi4impl12_GLOBAL__N_110xml_parser19parse_doctype_groupEPcc.exit.thread58.i
   br label %.preheader377.i.i, !llvm.loop !159
 
 .loopexit.i.i:                                    ; preds = %1150, %.backedge.i.i, %.preheader377.i.i
-  %.1198.i.i = phi ptr [ %.0197.i.i, %.backedge.i.i ], [ %.21.i.i, %.preheader377.i.i ], [ %1123, %1150 ]
+  %.1198.i.i = phi ptr [ %.21.i.i, %.preheader377.i.i ], [ %.0197.i.i, %.backedge.i.i ], [ %1123, %1150 ]
   %.not263.i.i = icmp eq ptr %.0.ph.i.i, %2
   %spec.select.i = select i1 %.not263.i.i, ptr null, ptr %.1198.i.i
   %spec.select1070.i = select i1 %.not263.i.i, i32 0, i32 14
@@ -11401,8 +11401,8 @@ _ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.e
   br label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i
 
 _ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i: ; preds = %.noexc67, %.noexc65, %1087, %1002, %998, %994, %990, %986, %982, %.noexc64, %.noexc63, %745, %736, %.thread123.i.i.i, %.noexc61, %725, %701, %691, %690, %689, %656, %654, %645, %644, %642, %637, %.noexc58, %.thread46.thread.i.i, %.critedge.i.i39.i, %1014, %.preheader185.split.us.i.i.i, %.preheader185.split.i.i.i, %.preheader184.split.us.i.i.i, %.preheader184.split.i.i.i, %.preheader.split.us.i312.i.i, %.preheader.split.i313.i.i, %.preheader132.split.us.i.i.i, %.preheader132.split.i.i.i, %.preheader.split.us.i.i.i, %.preheader.split.i.i.i, %624, %618, %.loopexit1073.i.i, %.noexc59, %665, %1057, %1022, %1069, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit819.split.loop.exit, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit819.split.loop.exit1048, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit819.split.loop.exit1051, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit819.split.loop.exit1054, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit819.split.loop.exit1057, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit819.split.loop.exit1060, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit819.split.loop.exit1063, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.loopexit91.split.loop.exit372.i, %.loopexit.i.i, %1103, %.thread182.i.i.i, %1099, %953, %884, %678, %674, %621
-  %.sroa.11.2.i = phi ptr [ %790, %.thread182.i.i.i ], [ %886, %884 ], [ %.15.i.i, %674 ], [ %657, %678 ], [ %955, %953 ], [ %623, %621 ], [ %.2199.i.i, %1103 ], [ %790, %1099 ], [ %spec.select.i, %.loopexit.i.i ], [ %1155, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.loopexit91.split.loop.exit372.i ], [ %.5.i310.i.i, %.preheader184.split.i.i.i ], [ %1159, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit819.split.loop.exit1054 ], [ %.042.i.i.i, %.critedge.i.i39.i ], [ %1162, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit819.split.loop.exit1063 ], [ %1156, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit819.split.loop.exit ], [ %1161, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit819.split.loop.exit1060 ], [ %1157, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit819.split.loop.exit1048 ], [ %1160, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit819.split.loop.exit1057 ], [ %1158, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit819.split.loop.exit1051 ], [ %.4.i.i43.i, %1069 ], [ %.017.i.i.i, %1022 ], [ %.3.i.i40.i, %1057 ], [ %.5.us.i.i.i, %.preheader184.split.us.i.i.i ], [ %.3.i.i.i, %.preheader185.split.i.i.i ], [ %657, %665 ], [ %.11.i.i, %.loopexit1073.i.i ], [ %.6.i.i.i, %.preheader.split.i.i.i ], [ %.6.us.i.i.i, %.preheader.split.us.i.i.i ], [ %.284.i.i.i, %.preheader132.split.i.i.i ], [ %.284.us.i.i.i, %.preheader132.split.us.i.i.i ], [ %.0124.i.i.i, %.preheader.split.i313.i.i ], [ %.0124.us.i.i.i, %.preheader.split.us.i312.i.i ], [ %.3.us.i.i.i, %.preheader185.split.us.i.i.i ], [ %620, %624 ], [ %.7204.i.i, %.noexc59 ], [ %.13.i.i, %618 ], [ %.031.i.i, %.thread46.thread.i.i ], [ %.031.i.i, %1014 ], [ %790, %982 ], [ %790, %986 ], [ %565, %637 ], [ %790, %994 ], [ %790, %990 ], [ %790, %998 ], [ %554, %644 ], [ %.16.i.i, %690 ], [ %657, %656 ], [ %.16.i.i, %689 ], [ %.ptr98.i.i.i, %691 ], [ %734, %745 ], [ %790, %1002 ], [ %.031.i.i, %1087 ], [ %.082.ptr.i.i.i.le, %725 ], [ %.082.ptr.i.i.i.le, %.thread123.i.i.i ], [ %734, %736 ], [ %.082.ptr.i.i.i.le, %701 ], [ %.082.ptr.i.i.i.le, %.noexc61 ], [ %797, %.noexc63 ], [ %927, %.noexc64 ], [ %.7.i.i.i, %.noexc65 ], [ %.4201.ph.i.i, %654 ], [ %.7204.i.i, %642 ], [ %554, %645 ], [ %1123, %.noexc67 ], [ %.2199.i.i, %.noexc58 ]
-  %.sroa.57.2.i = phi i32 [ %spec.select66.i, %.thread182.i.i.i ], [ 7, %884 ], [ 13, %674 ], [ 14, %678 ], [ 8, %953 ], [ 12, %621 ], [ %spec.select67.i, %1103 ], [ 7, %1099 ], [ %spec.select1070.i, %.loopexit.i.i ], [ 9, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.loopexit91.split.loop.exit372.i ], [ 8, %.preheader184.split.i.i.i ], [ 8, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit819.split.loop.exit1054 ], [ 9, %.thread46.thread.i.i ], [ 8, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit819.split.loop.exit1063 ], [ 7, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit819.split.loop.exit ], [ 8, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit819.split.loop.exit1060 ], [ 8, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit819.split.loop.exit1048 ], [ 8, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit819.split.loop.exit1057 ], [ 8, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit819.split.loop.exit1051 ], [ 9, %1069 ], [ 9, %1022 ], [ 9, %1057 ], [ 8, %.preheader184.split.us.i.i.i ], [ 8, %.preheader185.split.i.i.i ], [ 14, %665 ], [ 12, %.loopexit1073.i.i ], [ 6, %.preheader.split.i.i.i ], [ 6, %.preheader.split.us.i.i.i ], [ 6, %.preheader132.split.i.i.i ], [ 6, %.preheader132.split.us.i.i.i ], [ 7, %.preheader.split.i313.i.i ], [ 7, %.preheader.split.us.i312.i.i ], [ 8, %.preheader185.split.us.i.i.i ], [ 12, %624 ], [ 3, %.noexc59 ], [ 12, %618 ], [ 9, %1014 ], [ 9, %.critedge.i.i39.i ], [ 5, %982 ], [ 5, %986 ], [ 11, %637 ], [ 5, %994 ], [ 5, %990 ], [ 5, %998 ], [ 11, %644 ], [ 13, %690 ], [ 14, %656 ], [ 13, %689 ], [ 6, %691 ], [ 6, %745 ], [ 5, %1002 ], [ 9, %1087 ], [ 6, %725 ], [ 3, %.thread123.i.i.i ], [ 6, %736 ], [ 6, %701 ], [ 3, %.noexc61 ], [ 3, %.noexc63 ], [ 3, %.noexc64 ], [ 3, %.noexc65 ], [ 11, %654 ], [ 11, %642 ], [ 11, %645 ], [ 3, %.noexc67 ], [ 3, %.noexc58 ]
+  %.sroa.11.2.i = phi ptr [ %.284.us.i.i.i, %.preheader132.split.us.i.i.i ], [ %657, %665 ], [ %.2199.i.i, %1103 ], [ %.6.us.i.i.i, %.preheader.split.us.i.i.i ], [ %790, %1099 ], [ %790, %.thread182.i.i.i ], [ %.15.i.i, %674 ], [ %.0124.us.i.i.i, %.preheader.split.us.i312.i.i ], [ %657, %678 ], [ %886, %884 ], [ %.3.us.i.i.i, %.preheader185.split.us.i.i.i ], [ %.017.i.i.i, %1022 ], [ %.6.i.i.i, %.preheader.split.i.i.i ], [ %1159, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit819.split.loop.exit1054 ], [ %.3.i.i.i, %.preheader185.split.i.i.i ], [ %1157, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit819.split.loop.exit1048 ], [ %1162, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit819.split.loop.exit1063 ], [ %623, %621 ], [ %.042.i.i.i, %.critedge.i.i39.i ], [ %.0124.i.i.i, %.preheader.split.i313.i.i ], [ %955, %953 ], [ %.284.i.i.i, %.preheader132.split.i.i.i ], [ %.11.i.i, %.loopexit1073.i.i ], [ %.3.i.i40.i, %1057 ], [ %spec.select.i, %.loopexit.i.i ], [ %1155, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.loopexit91.split.loop.exit372.i ], [ %1156, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit819.split.loop.exit ], [ %1161, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit819.split.loop.exit1060 ], [ %.4.i.i43.i, %1069 ], [ %1158, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit819.split.loop.exit1051 ], [ %.5.i310.i.i, %.preheader184.split.i.i.i ], [ %1160, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit819.split.loop.exit1057 ], [ %.5.us.i.i.i, %.preheader184.split.us.i.i.i ], [ %620, %624 ], [ %.7204.i.i, %.noexc59 ], [ %.13.i.i, %618 ], [ %.031.i.i, %.thread46.thread.i.i ], [ %.031.i.i, %1014 ], [ %.ptr98.i.i.i, %691 ], [ %734, %745 ], [ %790, %1002 ], [ %1123, %.noexc67 ], [ %.082.ptr.i.i.i.le, %725 ], [ %.082.ptr.i.i.i.le, %.thread123.i.i.i ], [ %734, %736 ], [ %.082.ptr.i.i.i.le, %701 ], [ %.082.ptr.i.i.i.le, %.noexc61 ], [ %797, %.noexc63 ], [ %927, %.noexc64 ], [ %.7.i.i.i, %.noexc65 ], [ %.4201.ph.i.i, %654 ], [ %.7204.i.i, %642 ], [ %554, %645 ], [ %657, %656 ], [ %790, %990 ], [ %565, %637 ], [ %.16.i.i, %689 ], [ %790, %982 ], [ %790, %994 ], [ %790, %998 ], [ %790, %986 ], [ %.031.i.i, %1087 ], [ %.2199.i.i, %.noexc58 ], [ %.16.i.i, %690 ], [ %554, %644 ]
+  %.sroa.57.2.i = phi i32 [ 6, %.preheader132.split.us.i.i.i ], [ 14, %665 ], [ %spec.select67.i, %1103 ], [ 6, %.preheader.split.us.i.i.i ], [ 7, %1099 ], [ %spec.select66.i, %.thread182.i.i.i ], [ 13, %674 ], [ 7, %.preheader.split.us.i312.i.i ], [ 14, %678 ], [ 7, %884 ], [ 8, %.preheader185.split.us.i.i.i ], [ 9, %1022 ], [ 6, %.preheader.split.i.i.i ], [ 8, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit819.split.loop.exit1054 ], [ 8, %.preheader185.split.i.i.i ], [ 8, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit819.split.loop.exit1048 ], [ 8, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit819.split.loop.exit1063 ], [ 12, %621 ], [ 9, %.thread46.thread.i.i ], [ 7, %.preheader.split.i313.i.i ], [ 8, %953 ], [ 6, %.preheader132.split.i.i.i ], [ 12, %.loopexit1073.i.i ], [ 9, %1057 ], [ %spec.select1070.i, %.loopexit.i.i ], [ 9, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.loopexit91.split.loop.exit372.i ], [ 7, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit819.split.loop.exit ], [ 8, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit819.split.loop.exit1060 ], [ 9, %1069 ], [ 8, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit819.split.loop.exit1051 ], [ 8, %.preheader184.split.i.i.i ], [ 8, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit819.split.loop.exit1057 ], [ 8, %.preheader184.split.us.i.i.i ], [ 12, %624 ], [ 3, %.noexc59 ], [ 12, %618 ], [ 9, %1014 ], [ 9, %.critedge.i.i39.i ], [ 6, %691 ], [ 6, %745 ], [ 5, %1002 ], [ 3, %.noexc67 ], [ 6, %725 ], [ 3, %.thread123.i.i.i ], [ 6, %736 ], [ 6, %701 ], [ 3, %.noexc61 ], [ 3, %.noexc63 ], [ 3, %.noexc64 ], [ 3, %.noexc65 ], [ 11, %654 ], [ 11, %642 ], [ 11, %645 ], [ 14, %656 ], [ 5, %990 ], [ 11, %637 ], [ 13, %689 ], [ 5, %982 ], [ 5, %994 ], [ 5, %998 ], [ 5, %986 ], [ 9, %1087 ], [ 3, %.noexc58 ], [ 13, %690 ], [ 11, %644 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !129
   %.not31.i = icmp eq ptr %.sroa.11.2.i, null
   %1163 = ptrtoint ptr %.sroa.11.2.i to i64
@@ -12081,7 +12081,7 @@ define noundef zeroext i1 @_ZN4pugi8xml_node8traverseERNS_15xml_tree_walkerE(ptr
   br label %45
 
 .thread46:                                        ; preds = %28, %31
-  %.1.ph = phi ptr [ %33, %31 ], [ %27, %28 ]
+  %.1.ph = phi ptr [ %27, %28 ], [ %33, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.pre = load ptr, ptr %0, align 8
   br label %45
@@ -13758,7 +13758,7 @@ _ZN4pugi8xml_text9_data_newEv.exit:               ; preds = %22, %2, %16
   br i1 %.not, label %28, label %_ZN4pugi8xml_text9_data_newEv.exit.thread
 
 _ZN4pugi8xml_text9_data_newEv.exit.thread:        ; preds = %.lr.ph.i.i, %5, %13, %_ZN4pugi8xml_text9_data_newEv.exit
-  %.0.i8 = phi ptr [ %24, %_ZN4pugi8xml_text9_data_newEv.exit ], [ %4, %5 ], [ %4, %13 ], [ %.0614.i.i, %.lr.ph.i.i ]
+  %.0.i8 = phi ptr [ %24, %_ZN4pugi8xml_text9_data_newEv.exit ], [ %4, %13 ], [ %4, %5 ], [ %.0614.i.i, %.lr.ph.i.i ]
   %25 = getelementptr inbounds nuw i8, ptr %.0.i8, i64 16
   %26 = call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #52
   %27 = call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull align 8 dereferenceable(8) %.0.i8, i64 noundef 16, ptr noundef nonnull %1, i64 noundef %26)
@@ -13825,7 +13825,7 @@ _ZN4pugi8xml_text9_data_newEv.exit:               ; preds = %23, %3, %17
   br i1 %.not, label %28, label %_ZN4pugi8xml_text9_data_newEv.exit.thread
 
 _ZN4pugi8xml_text9_data_newEv.exit.thread:        ; preds = %.lr.ph.i.i, %6, %14, %_ZN4pugi8xml_text9_data_newEv.exit
-  %.0.i7 = phi ptr [ %25, %_ZN4pugi8xml_text9_data_newEv.exit ], [ %5, %6 ], [ %5, %14 ], [ %.0614.i.i, %.lr.ph.i.i ]
+  %.0.i7 = phi ptr [ %25, %_ZN4pugi8xml_text9_data_newEv.exit ], [ %5, %14 ], [ %5, %6 ], [ %.0614.i.i, %.lr.ph.i.i ]
   %26 = getelementptr inbounds nuw i8, ptr %.0.i7, i64 16
   %27 = call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull align 8 dereferenceable(8) %.0.i7, i64 noundef 16, ptr noundef %1, i64 noundef %2)
   br label %28
@@ -13891,7 +13891,7 @@ _ZN4pugi8xml_text9_data_newEv.exit:               ; preds = %23, %3, %17
   br i1 %.not, label %28, label %_ZN4pugi8xml_text9_data_newEv.exit.thread
 
 _ZN4pugi8xml_text9_data_newEv.exit.thread:        ; preds = %.lr.ph.i.i, %6, %14, %_ZN4pugi8xml_text9_data_newEv.exit
-  %.0.i6 = phi ptr [ %25, %_ZN4pugi8xml_text9_data_newEv.exit ], [ %5, %6 ], [ %5, %14 ], [ %.0614.i.i, %.lr.ph.i.i ]
+  %.0.i6 = phi ptr [ %25, %_ZN4pugi8xml_text9_data_newEv.exit ], [ %5, %14 ], [ %5, %6 ], [ %.0614.i.i, %.lr.ph.i.i ]
   %26 = getelementptr inbounds nuw i8, ptr %.0.i6, i64 16
   %27 = call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull align 8 dereferenceable(8) %.0.i6, i64 noundef 16, ptr noundef %2, i64 noundef %1)
   br label %28
@@ -13958,7 +13958,7 @@ _ZN4pugi8xml_text9_data_newEv.exit:               ; preds = %23, %2, %17
   br i1 %.not, label %41, label %_ZN4pugi8xml_text9_data_newEv.exit.thread
 
 _ZN4pugi8xml_text9_data_newEv.exit.thread:        ; preds = %.lr.ph.i.i, %6, %14, %_ZN4pugi8xml_text9_data_newEv.exit
-  %.0.i8 = phi ptr [ %25, %_ZN4pugi8xml_text9_data_newEv.exit ], [ %5, %6 ], [ %5, %14 ], [ %.0614.i.i, %.lr.ph.i.i ]
+  %.0.i8 = phi ptr [ %25, %_ZN4pugi8xml_text9_data_newEv.exit ], [ %5, %14 ], [ %5, %6 ], [ %.0614.i.i, %.lr.ph.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 63
   %27 = call i32 @llvm.abs.i32(i32 %1, i1 false)
@@ -14051,7 +14051,7 @@ _ZN4pugi8xml_text9_data_newEv.exit:               ; preds = %23, %2, %17
   br i1 %.not, label %39, label %_ZN4pugi8xml_text9_data_newEv.exit.thread
 
 _ZN4pugi8xml_text9_data_newEv.exit.thread:        ; preds = %.lr.ph.i.i, %6, %14, %_ZN4pugi8xml_text9_data_newEv.exit
-  %.0.i7 = phi ptr [ %25, %_ZN4pugi8xml_text9_data_newEv.exit ], [ %5, %6 ], [ %5, %14 ], [ %.0614.i.i, %.lr.ph.i.i ]
+  %.0.i7 = phi ptr [ %25, %_ZN4pugi8xml_text9_data_newEv.exit ], [ %5, %14 ], [ %5, %6 ], [ %.0614.i.i, %.lr.ph.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 63
   br label %27
@@ -14141,7 +14141,7 @@ _ZN4pugi8xml_text9_data_newEv.exit:               ; preds = %23, %2, %17
   br i1 %.not, label %41, label %_ZN4pugi8xml_text9_data_newEv.exit.thread
 
 _ZN4pugi8xml_text9_data_newEv.exit.thread:        ; preds = %.lr.ph.i.i, %6, %14, %_ZN4pugi8xml_text9_data_newEv.exit
-  %.0.i8 = phi ptr [ %25, %_ZN4pugi8xml_text9_data_newEv.exit ], [ %5, %6 ], [ %5, %14 ], [ %.0614.i.i, %.lr.ph.i.i ]
+  %.0.i8 = phi ptr [ %25, %_ZN4pugi8xml_text9_data_newEv.exit ], [ %5, %14 ], [ %5, %6 ], [ %.0614.i.i, %.lr.ph.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 63
   %27 = call i64 @llvm.abs.i64(i64 %1, i1 false)
@@ -14234,7 +14234,7 @@ _ZN4pugi8xml_text9_data_newEv.exit:               ; preds = %23, %2, %17
   br i1 %.not, label %39, label %_ZN4pugi8xml_text9_data_newEv.exit.thread
 
 _ZN4pugi8xml_text9_data_newEv.exit.thread:        ; preds = %.lr.ph.i.i, %6, %14, %_ZN4pugi8xml_text9_data_newEv.exit
-  %.0.i7 = phi ptr [ %25, %_ZN4pugi8xml_text9_data_newEv.exit ], [ %5, %6 ], [ %5, %14 ], [ %.0614.i.i, %.lr.ph.i.i ]
+  %.0.i7 = phi ptr [ %25, %_ZN4pugi8xml_text9_data_newEv.exit ], [ %5, %14 ], [ %5, %6 ], [ %.0614.i.i, %.lr.ph.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 63
   br label %27
@@ -14324,7 +14324,7 @@ _ZN4pugi8xml_text9_data_newEv.exit:               ; preds = %23, %2, %17
   br i1 %.not, label %31, label %_ZN4pugi8xml_text9_data_newEv.exit.thread
 
 _ZN4pugi8xml_text9_data_newEv.exit.thread:        ; preds = %.lr.ph.i.i, %6, %14, %_ZN4pugi8xml_text9_data_newEv.exit
-  %.0.i7 = phi ptr [ %25, %_ZN4pugi8xml_text9_data_newEv.exit ], [ %5, %6 ], [ %5, %14 ], [ %.0614.i.i, %.lr.ph.i.i ]
+  %.0.i7 = phi ptr [ %25, %_ZN4pugi8xml_text9_data_newEv.exit ], [ %5, %14 ], [ %5, %6 ], [ %.0614.i.i, %.lr.ph.i.i ]
   %26 = getelementptr inbounds nuw i8, ptr %.0.i7, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %27 = fpext float %1 to double
@@ -14396,7 +14396,7 @@ _ZN4pugi8xml_text9_data_newEv.exit:               ; preds = %24, %3, %18
   br i1 %.not, label %32, label %_ZN4pugi8xml_text9_data_newEv.exit.thread
 
 _ZN4pugi8xml_text9_data_newEv.exit.thread:        ; preds = %.lr.ph.i.i, %7, %15, %_ZN4pugi8xml_text9_data_newEv.exit
-  %.0.i7 = phi ptr [ %26, %_ZN4pugi8xml_text9_data_newEv.exit ], [ %6, %7 ], [ %6, %15 ], [ %.0614.i.i, %.lr.ph.i.i ]
+  %.0.i7 = phi ptr [ %26, %_ZN4pugi8xml_text9_data_newEv.exit ], [ %6, %15 ], [ %6, %7 ], [ %.0614.i.i, %.lr.ph.i.i ]
   %27 = getelementptr inbounds nuw i8, ptr %.0.i7, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %28 = fpext float %1 to double
@@ -14468,7 +14468,7 @@ _ZN4pugi8xml_text9_data_newEv.exit:               ; preds = %23, %2, %17
   br i1 %.not, label %30, label %_ZN4pugi8xml_text9_data_newEv.exit.thread
 
 _ZN4pugi8xml_text9_data_newEv.exit.thread:        ; preds = %.lr.ph.i.i, %6, %14, %_ZN4pugi8xml_text9_data_newEv.exit
-  %.0.i7 = phi ptr [ %25, %_ZN4pugi8xml_text9_data_newEv.exit ], [ %5, %6 ], [ %5, %14 ], [ %.0614.i.i, %.lr.ph.i.i ]
+  %.0.i7 = phi ptr [ %25, %_ZN4pugi8xml_text9_data_newEv.exit ], [ %5, %14 ], [ %5, %6 ], [ %.0614.i.i, %.lr.ph.i.i ]
   %26 = getelementptr inbounds nuw i8, ptr %.0.i7, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %27 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 128, ptr noundef nonnull @.str.109, i32 noundef 17, double noundef %1) #51
@@ -14539,7 +14539,7 @@ _ZN4pugi8xml_text9_data_newEv.exit:               ; preds = %24, %3, %18
   br i1 %.not, label %31, label %_ZN4pugi8xml_text9_data_newEv.exit.thread
 
 _ZN4pugi8xml_text9_data_newEv.exit.thread:        ; preds = %.lr.ph.i.i, %7, %15, %_ZN4pugi8xml_text9_data_newEv.exit
-  %.0.i7 = phi ptr [ %26, %_ZN4pugi8xml_text9_data_newEv.exit ], [ %6, %7 ], [ %6, %15 ], [ %.0614.i.i, %.lr.ph.i.i ]
+  %.0.i7 = phi ptr [ %26, %_ZN4pugi8xml_text9_data_newEv.exit ], [ %6, %15 ], [ %6, %7 ], [ %.0614.i.i, %.lr.ph.i.i ]
   %27 = getelementptr inbounds nuw i8, ptr %.0.i7, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %28 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 128, ptr noundef nonnull @.str.109, i32 noundef %2, double noundef %1) #51
@@ -14609,7 +14609,7 @@ _ZN4pugi8xml_text9_data_newEv.exit:               ; preds = %22, %2, %16
   br i1 %.not, label %29, label %_ZN4pugi8xml_text9_data_newEv.exit.thread
 
 _ZN4pugi8xml_text9_data_newEv.exit.thread:        ; preds = %.lr.ph.i.i, %5, %13, %_ZN4pugi8xml_text9_data_newEv.exit
-  %.0.i6 = phi ptr [ %24, %_ZN4pugi8xml_text9_data_newEv.exit ], [ %4, %5 ], [ %4, %13 ], [ %.0614.i.i, %.lr.ph.i.i ]
+  %.0.i6 = phi ptr [ %24, %_ZN4pugi8xml_text9_data_newEv.exit ], [ %4, %13 ], [ %4, %5 ], [ %.0614.i.i, %.lr.ph.i.i ]
   %25 = getelementptr inbounds nuw i8, ptr %.0.i6, i64 16
   %26 = select i1 %1, ptr @.str.72, ptr @.str.51
   %27 = select i1 %1, i64 4, i64 5
@@ -14678,7 +14678,7 @@ _ZN4pugi8xml_text9_data_newEv.exit:               ; preds = %23, %2, %17
   br i1 %.not, label %41, label %_ZN4pugi8xml_text9_data_newEv.exit.thread
 
 _ZN4pugi8xml_text9_data_newEv.exit.thread:        ; preds = %.lr.ph.i.i, %6, %14, %_ZN4pugi8xml_text9_data_newEv.exit
-  %.0.i8 = phi ptr [ %25, %_ZN4pugi8xml_text9_data_newEv.exit ], [ %5, %6 ], [ %5, %14 ], [ %.0614.i.i, %.lr.ph.i.i ]
+  %.0.i8 = phi ptr [ %25, %_ZN4pugi8xml_text9_data_newEv.exit ], [ %5, %14 ], [ %5, %6 ], [ %.0614.i.i, %.lr.ph.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 63
   %27 = call i64 @llvm.abs.i64(i64 %1, i1 false)
@@ -14771,7 +14771,7 @@ _ZN4pugi8xml_text9_data_newEv.exit:               ; preds = %23, %2, %17
   br i1 %.not, label %39, label %_ZN4pugi8xml_text9_data_newEv.exit.thread
 
 _ZN4pugi8xml_text9_data_newEv.exit.thread:        ; preds = %.lr.ph.i.i, %6, %14, %_ZN4pugi8xml_text9_data_newEv.exit
-  %.0.i7 = phi ptr [ %25, %_ZN4pugi8xml_text9_data_newEv.exit ], [ %5, %6 ], [ %5, %14 ], [ %.0614.i.i, %.lr.ph.i.i ]
+  %.0.i7 = phi ptr [ %25, %_ZN4pugi8xml_text9_data_newEv.exit ], [ %5, %14 ], [ %5, %6 ], [ %.0614.i.i, %.lr.ph.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 63
   br label %27
@@ -14860,7 +14860,7 @@ _ZN4pugi8xml_text9_data_newEv.exit.i:             ; preds = %22, %16, %2
   br i1 %.not.i, label %_ZN4pugi8xml_text3setEPKc.exit, label %_ZN4pugi8xml_text9_data_newEv.exit.thread.i
 
 _ZN4pugi8xml_text9_data_newEv.exit.thread.i:      ; preds = %.lr.ph.i.i.i, %_ZN4pugi8xml_text9_data_newEv.exit.i, %13, %5
-  %.0.i8.i = phi ptr [ %24, %_ZN4pugi8xml_text9_data_newEv.exit.i ], [ %4, %5 ], [ %4, %13 ], [ %.0614.i.i.i, %.lr.ph.i.i.i ]
+  %.0.i8.i = phi ptr [ %24, %_ZN4pugi8xml_text9_data_newEv.exit.i ], [ %4, %13 ], [ %4, %5 ], [ %.0614.i.i.i, %.lr.ph.i.i.i ]
   %25 = getelementptr inbounds nuw i8, ptr %.0.i8.i, i64 16
   %26 = call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #52
   %27 = call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull align 8 dereferenceable(8) %.0.i8.i, i64 noundef 16, ptr noundef nonnull readonly %1, i64 noundef %26)
@@ -14962,7 +14962,7 @@ _ZN4pugi8xml_text9_data_newEv.exit.i:             ; preds = %22, %16, %2
   br i1 %.not.i, label %_ZN4pugi8xml_text3setEb.exit, label %_ZN4pugi8xml_text9_data_newEv.exit.thread.i
 
 _ZN4pugi8xml_text9_data_newEv.exit.thread.i:      ; preds = %.lr.ph.i.i.i, %_ZN4pugi8xml_text9_data_newEv.exit.i, %13, %5
-  %.0.i6.i = phi ptr [ %24, %_ZN4pugi8xml_text9_data_newEv.exit.i ], [ %4, %5 ], [ %4, %13 ], [ %.0614.i.i.i, %.lr.ph.i.i.i ]
+  %.0.i6.i = phi ptr [ %24, %_ZN4pugi8xml_text9_data_newEv.exit.i ], [ %4, %13 ], [ %4, %5 ], [ %.0614.i.i.i, %.lr.ph.i.i.i ]
   %25 = getelementptr inbounds nuw i8, ptr %.0.i6.i, i64 16
   %26 = select i1 %1, ptr @.str.72, ptr @.str.51
   %27 = select i1 %1, i64 4, i64 5
@@ -15029,7 +15029,7 @@ _ZN4pugi8xml_text9_data_newEv.exit.i:             ; preds = %23, %17, %3
   br i1 %.not.i, label %_ZN4pugi8xml_text3setESt17basic_string_viewIcSt11char_traitsIcEE.exit, label %_ZN4pugi8xml_text9_data_newEv.exit.thread.i
 
 _ZN4pugi8xml_text9_data_newEv.exit.thread.i:      ; preds = %.lr.ph.i.i.i, %_ZN4pugi8xml_text9_data_newEv.exit.i, %14, %6
-  %.0.i6.i = phi ptr [ %25, %_ZN4pugi8xml_text9_data_newEv.exit.i ], [ %5, %6 ], [ %5, %14 ], [ %.0614.i.i.i, %.lr.ph.i.i.i ]
+  %.0.i6.i = phi ptr [ %25, %_ZN4pugi8xml_text9_data_newEv.exit.i ], [ %5, %14 ], [ %5, %6 ], [ %.0614.i.i.i, %.lr.ph.i.i.i ]
   %26 = getelementptr inbounds nuw i8, ptr %.0.i6.i, i64 16
   %27 = call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull align 8 dereferenceable(8) %.0.i6.i, i64 noundef 16, ptr noundef readonly %2, i64 noundef %1)
   br label %_ZN4pugi8xml_text3setESt17basic_string_viewIcSt11char_traitsIcEE.exit
@@ -16982,8 +16982,8 @@ _ZN4pugi12xml_document5resetEv.exit:              ; preds = %.lr.ph22.i.i, %._cr
   br i1 %.not49.i.i, label %.lr.ph.i.i.preheader.i, label %.lr.ph.i.i5, !llvm.loop !244
 
 .thread.i.i:                                      ; preds = %80, %69, %.noexc.i.i, %85
-  %.sroa.0.5.i.i = phi ptr [ %.sroa.0.0.i.i, %85 ], [ %.sroa.0.0.i.i, %.noexc.i.i ], [ %.sroa.0.4.i.i, %80 ], [ %.sroa.0.4.i.i, %69 ]
-  %.2.i.i = phi i32 [ 3, %85 ], [ 3, %.noexc.i.i ], [ 3, %80 ], [ 2, %69 ]
+  %.sroa.0.5.i.i = phi ptr [ %.sroa.0.0.i.i, %85 ], [ %.sroa.0.4.i.i, %80 ], [ %.sroa.0.4.i.i, %69 ], [ %.sroa.0.0.i.i, %.noexc.i.i ]
+  %.2.i.i = phi i32 [ 3, %85 ], [ 3, %80 ], [ 2, %69 ], [ 3, %.noexc.i.i ]
   %.not.i56.i.i = icmp eq ptr %.sroa.0.5.i.i, null
   br i1 %.not.i56.i.i, label %_ZN4pugi4impl12_GLOBAL__N_123load_stream_data_noseekIcEENS_16xml_parse_statusERSt13basic_istreamIT_St11char_traitsIS5_EEPPvPm.exit.thread.i, label %.lr.ph.i.i.preheader.i
 
@@ -17369,8 +17369,8 @@ _ZN4pugi12xml_document5resetEv.exit:              ; preds = %.lr.ph22.i.i, %._cr
   br i1 %.not49.i.i, label %.lr.ph.i.i.preheader.i, label %.lr.ph.i.i4, !llvm.loop !263
 
 .thread.i.i:                                      ; preds = %80, %68, %.noexc.i.i, %85
-  %.sroa.0.5.i.i = phi ptr [ %.sroa.0.0.i.i, %85 ], [ %.sroa.0.0.i.i, %.noexc.i.i ], [ %.sroa.0.4.i.i, %80 ], [ %.sroa.0.4.i.i, %68 ]
-  %.2.i.i = phi i32 [ 3, %85 ], [ 3, %.noexc.i.i ], [ 3, %80 ], [ 2, %68 ]
+  %.sroa.0.5.i.i = phi ptr [ %.sroa.0.0.i.i, %85 ], [ %.sroa.0.4.i.i, %80 ], [ %.sroa.0.4.i.i, %68 ], [ %.sroa.0.0.i.i, %.noexc.i.i ]
+  %.2.i.i = phi i32 [ 3, %85 ], [ 3, %80 ], [ 2, %68 ], [ 3, %.noexc.i.i ]
   %.not.i56.i.i = icmp eq ptr %.sroa.0.5.i.i, null
   br i1 %.not.i56.i.i, label %_ZN4pugi4impl12_GLOBAL__N_123load_stream_data_noseekIwEENS_16xml_parse_statusERSt13basic_istreamIT_St11char_traitsIS5_EEPPvPm.exit.thread.i, label %.lr.ph.i.i.preheader.i
 
@@ -21111,7 +21111,7 @@ _ZN4pugi18xpath_variable_set3addEPKcNS_16xpath_value_typeE.exit.thread14: ; pred
   br label %_ZN4pugi14xpath_variable3setEb.exit
 
 _ZN4pugi14xpath_variable3setEb.exit:              ; preds = %_ZNK4pugi14xpath_variable4nameEv.exit.i, %_ZNK4pugi14xpath_variable4nameEv.exit.i.thread, %33, %._crit_edge.i, %_ZN4pugi18xpath_variable_set3addEPKcNS_16xpath_value_typeE.exit.thread14
-  %44 = phi i1 [ true, %_ZN4pugi18xpath_variable_set3addEPKcNS_16xpath_value_typeE.exit.thread14 ], [ false, %._crit_edge.i ], [ false, %33 ], [ false, %_ZNK4pugi14xpath_variable4nameEv.exit.i.thread ], [ false, %_ZNK4pugi14xpath_variable4nameEv.exit.i ]
+  %44 = phi i1 [ true, %_ZN4pugi18xpath_variable_set3addEPKcNS_16xpath_value_typeE.exit.thread14 ], [ false, %33 ], [ false, %._crit_edge.i ], [ false, %_ZNK4pugi14xpath_variable4nameEv.exit.i.thread ], [ false, %_ZNK4pugi14xpath_variable4nameEv.exit.i ]
   ret i1 %44
 }
 
@@ -21482,7 +21482,7 @@ _ZN4pugi14xpath_node_set7_assignEPKNS_10xpath_nodeES3_NS0_6type_tE.exit.i.i: ; p
   br label %_ZN4pugi14xpath_variable3setERKNS_14xpath_node_setE.exit
 
 _ZN4pugi14xpath_variable3setERKNS_14xpath_node_setE.exit: ; preds = %_ZNK4pugi14xpath_variable4nameEv.exit.i, %_ZNK4pugi14xpath_variable4nameEv.exit.i.thread, %33, %._crit_edge.i, %_ZN4pugi14xpath_node_set7_assignEPKNS_10xpath_nodeES3_NS0_6type_tE.exit.i.i, %_ZN4pugi18xpath_variable_set3addEPKcNS_16xpath_value_typeE.exit.thread16, %_ZN4pugi18xpath_variable_set3addEPKcNS_16xpath_value_typeE.exit
-  %71 = phi i1 [ true, %_ZN4pugi14xpath_node_set7_assignEPKNS_10xpath_nodeES3_NS0_6type_tE.exit.i.i ], [ false, %_ZN4pugi18xpath_variable_set3addEPKcNS_16xpath_value_typeE.exit ], [ true, %_ZN4pugi18xpath_variable_set3addEPKcNS_16xpath_value_typeE.exit.thread16 ], [ false, %33 ], [ false, %._crit_edge.i ], [ false, %_ZNK4pugi14xpath_variable4nameEv.exit.i.thread ], [ false, %_ZNK4pugi14xpath_variable4nameEv.exit.i ]
+  %71 = phi i1 [ true, %_ZN4pugi14xpath_node_set7_assignEPKNS_10xpath_nodeES3_NS0_6type_tE.exit.i.i ], [ false, %_ZN4pugi18xpath_variable_set3addEPKcNS_16xpath_value_typeE.exit ], [ true, %_ZN4pugi18xpath_variable_set3addEPKcNS_16xpath_value_typeE.exit.thread16 ], [ false, %._crit_edge.i ], [ false, %33 ], [ false, %_ZNK4pugi14xpath_variable4nameEv.exit.i.thread ], [ false, %_ZNK4pugi14xpath_variable4nameEv.exit.i ]
   ret i1 %71
 }
 
@@ -21698,7 +21698,7 @@ _ZN4pugi4impl12_GLOBAL__N_112auto_deleterINS1_16xpath_query_implEED2Ev.exit: ; p
           cleanup
   br label %49
 
-37:                                               ; preds = %.noexc20, %.noexc, %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser16parse_expressionEi.exit.thread.sink.split.i.i
+37:                                               ; preds = %.noexc, %.noexc20, %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser16parse_expressionEi.exit.thread.sink.split.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr null, ptr %7, align 8, !tbaa !343
   %38 = load i8, ptr %13, align 8, !tbaa !353, !range !324, !noundef !81
@@ -22823,7 +22823,7 @@ _ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit245: ; preds = %.no
   br i1 %.not120.i.not, label %.critedge130.i, label %125, !llvm.loop !409
 
 .critedge130.i:                                   ; preds = %.critedge.i, %_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit245, %114
-  %.not120.i377 = phi i1 [ false, %114 ], [ true, %_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit245 ], [ false, %.critedge.i ]
+  %.not120.i377 = phi i1 [ true, %_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit245 ], [ false, %114 ], [ false, %.critedge.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
   call fastcc void @_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %31) #51
@@ -23425,7 +23425,7 @@ _ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit287: ; preds = %.no
   br i1 %.not120.i135.not, label %.critedge130.i136, label %315, !llvm.loop !417
 
 .critedge130.i136:                                ; preds = %.critedge.i146, %_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit287, %304
-  %.not120.i135388 = phi i1 [ false, %304 ], [ true, %_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit287 ], [ false, %.critedge.i146 ]
+  %.not120.i135388 = phi i1 [ true, %_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit287 ], [ false, %304 ], [ false, %.critedge.i146 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call fastcc void @_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #51
@@ -24155,7 +24155,7 @@ _ZNK4pugi8xml_node6parentEv.exit:                 ; preds = %.thread358
   br label %603
 
 .loopexit:                                        ; preds = %_ZNK4pugi8xml_node6parentEv.exit, %.lr.ph444, %_ZNK4pugi10xpath_node4nodeEv.exit, %._crit_edge
-  %spec.select95 = phi i1 [ %spec.select, %._crit_edge ], [ false, %_ZNK4pugi10xpath_node4nodeEv.exit ], [ false, %.lr.ph444 ], [ false, %_ZNK4pugi8xml_node6parentEv.exit ]
+  %spec.select95 = phi i1 [ false, %_ZNK4pugi10xpath_node4nodeEv.exit ], [ %spec.select, %._crit_edge ], [ false, %.lr.ph444 ], [ false, %_ZNK4pugi8xml_node6parentEv.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %53)
   %593 = load ptr, ptr %537, align 8, !tbaa !350
   %594 = load ptr, ptr %538, align 8, !tbaa !350
@@ -24494,7 +24494,7 @@ _ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node10compare_eqINS1_8equal_toEEEbPS2_S5_
   br label %_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node10compare_eqINS1_8equal_toEEEbPS2_S5_RKNS1_13xpath_contextERKNS1_11xpath_stackERKT_.exit
 
 _ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node10compare_eqINS1_8equal_toEEEbPS2_S5_RKNS1_13xpath_contextERKNS1_11xpath_stackERKT_.exit: ; preds = %64, %59, %.lr.ph.i.i208, %tailrecurse, %_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node10compare_eqINS1_8equal_toEEEbPS2_S5_RKNS1_13xpath_contextERKNS1_11xpath_stackERKT_.exit.loopexit979, %680, %677, %672, %667, %_ZNK4pugi8xml_node9attributeEPKc.exit199, %_ZNK4pugi13xml_attribute5valueEv.exit204, %658, %.critedge134.i114, %.critedge132.i125, %343, %.critedge130.i136, %289, %282, %278, %.critedge134.i, %.critedge132.i, %154, %.critedge130.i, %99, %92, %88, %.loopexit371, %534, %_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit222, %_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit215, %_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit185, %_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit163, %_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit, %465, %459, %453, %447
-  %.0 = phi i1 [ false, %534 ], [ false, %667 ], [ %686, %_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit215 ], [ %705, %_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit222 ], [ %681, %680 ], [ false, %.loopexit371 ], [ false, %92 ], [ %452, %447 ], [ %458, %453 ], [ %464, %459 ], [ %470, %465 ], [ %.not.lcssa.i, %_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit ], [ %513, %_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit163 ], [ false, %343 ], [ %.not116.i124.lcssa, %.critedge132.i125 ], [ false, %677 ], [ %.not120.i135388, %.critedge130.i136 ], [ %spec.select95, %_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit185 ], [ false, %282 ], [ false, %_ZNK4pugi13xml_attribute5valueEv.exit204 ], [ true, %tailrecurse ], [ %675, %672 ], [ %91, %88 ], [ %101, %99 ], [ %.not.i.lcssa, %.critedge134.i ], [ %.not120.i377, %.critedge130.i ], [ %spec.select.i, %658 ], [ %.not116.i.lcssa, %.critedge132.i ], [ false, %154 ], [ false, %_ZNK4pugi8xml_node9attributeEPKc.exit199 ], [ %281, %278 ], [ %291, %289 ], [ %.not.i113.lcssa, %.critedge134.i114 ], [ true, %.lr.ph.i.i208 ], [ true, %59 ], [ false, %64 ], [ false, %_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node10compare_eqINS1_8equal_toEEEbPS2_S5_RKNS1_13xpath_contextERKNS1_11xpath_stackERKT_.exit.loopexit979 ]
+  %.0 = phi i1 [ false, %534 ], [ false, %667 ], [ %686, %_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit215 ], [ %705, %_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit222 ], [ false, %_ZNK4pugi13xml_attribute5valueEv.exit204 ], [ %681, %680 ], [ false, %.loopexit371 ], [ false, %92 ], [ %452, %447 ], [ %458, %453 ], [ %464, %459 ], [ %470, %465 ], [ %.not.lcssa.i, %_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit ], [ %513, %_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit163 ], [ false, %343 ], [ %.not116.i124.lcssa, %.critedge132.i125 ], [ false, %677 ], [ true, %.lr.ph.i.i208 ], [ %.not.i113.lcssa, %.critedge134.i114 ], [ %spec.select95, %_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit185 ], [ false, %282 ], [ %.not120.i135388, %.critedge130.i136 ], [ true, %tailrecurse ], [ %675, %672 ], [ %91, %88 ], [ %101, %99 ], [ %.not.i.lcssa, %.critedge134.i ], [ %.not120.i377, %.critedge130.i ], [ %spec.select.i, %658 ], [ %.not116.i.lcssa, %.critedge132.i ], [ false, %154 ], [ false, %_ZNK4pugi8xml_node9attributeEPKc.exit199 ], [ %281, %278 ], [ %291, %289 ], [ true, %59 ], [ false, %64 ], [ false, %_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node10compare_eqINS1_8equal_toEEEbPS2_S5_RKNS1_13xpath_contextERKNS1_11xpath_stackERKT_.exit.loopexit979 ]
   %accumulator.ret.tr367 = xor i1 %accumulator.tr.ph, %.0
   br label %common.ret
 }
@@ -30546,7 +30546,7 @@ define internal fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_126parse_de
   br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !486
 
 .critedge:                                        ; preds = %112, %.lr.ph, %79, %.preheader, %41, %48, %46, %53, %51, %58, %56, %63, %61, %68, %66, %81, %43, %40, %107, %.critedge4, %90, %4, %6, %25
-  %.0 = phi i1 [ false, %6 ], [ false, %4 ], [ false, %25 ], [ false, %90 ], [ false, %81 ], [ false, %68 ], [ false, %63 ], [ false, %58 ], [ false, %53 ], [ false, %48 ], [ false, %43 ], [ false, %66 ], [ false, %61 ], [ false, %56 ], [ false, %51 ], [ false, %46 ], [ false, %41 ], [ false, %.critedge4 ], [ false, %40 ], [ %.not146, %107 ], [ false, %79 ], [ false, %.preheader ], [ false, %.lr.ph ], [ false, %112 ]
+  %.0 = phi i1 [ false, %6 ], [ false, %4 ], [ false, %25 ], [ false, %.preheader ], [ %.not146, %107 ], [ false, %90 ], [ false, %79 ], [ false, %81 ], [ false, %68 ], [ false, %63 ], [ false, %58 ], [ false, %53 ], [ false, %48 ], [ false, %43 ], [ false, %66 ], [ false, %61 ], [ false, %56 ], [ false, %51 ], [ false, %46 ], [ false, %41 ], [ false, %.critedge4 ], [ false, %40 ], [ false, %.lr.ph ], [ false, %112 ]
   ret i1 %.0
 }
 
@@ -36308,7 +36308,7 @@ _ZNK4pugi10xpath_node6parentEv.exit78:            ; preds = %_ZNK4pugi10xpath_no
   br label %_ZN4pugi4impl12_GLOBAL__N_114node_is_beforeEPNS_15xml_node_structES3_.exit
 
 _ZN4pugi4impl12_GLOBAL__N_114node_is_beforeEPNS_15xml_node_structES3_.exit: ; preds = %.lr.ph.i50.i, %.lr.ph.i.i, %123, %._crit_edge.loopexit, %139, %_ZNK4pugi10xpath_node4nodeEv.exit89, %_ZNK4pugi10xpath_node4nodeEv.exit106, %_ZNK4pugi10xpath_node6parentEv.exit78, %148, %._crit_edge.i.i, %._crit_edge.i, %176, %._crit_edge.i53.i, %107
-  %.0 = phi i1 [ %108, %107 ], [ false, %_ZNK4pugi10xpath_node4nodeEv.exit89 ], [ false, %_ZNK4pugi10xpath_node6parentEv.exit78 ], [ true, %_ZNK4pugi10xpath_node4nodeEv.exit106 ], [ %140, %139 ], [ %161, %._crit_edge.i ], [ %188, %._crit_edge.i53.i ], [ %149, %148 ], [ %160, %._crit_edge.i.i ], [ %129, %._crit_edge.loopexit ], [ %177, %176 ], [ true, %123 ], [ %150, %.lr.ph.i.i ], [ %178, %.lr.ph.i50.i ]
+  %.0 = phi i1 [ %108, %107 ], [ false, %_ZNK4pugi10xpath_node4nodeEv.exit89 ], [ false, %_ZNK4pugi10xpath_node6parentEv.exit78 ], [ true, %_ZNK4pugi10xpath_node4nodeEv.exit106 ], [ %140, %139 ], [ %150, %.lr.ph.i.i ], [ %161, %._crit_edge.i ], [ %188, %._crit_edge.i53.i ], [ %149, %148 ], [ %160, %._crit_edge.i.i ], [ %129, %._crit_edge.loopexit ], [ %177, %176 ], [ true, %123 ], [ %178, %.lr.ph.i50.i ]
   ret i1 %.0
 }
 
@@ -36484,7 +36484,7 @@ define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_111xpath_lexer4nextEv(ptr
   br i1 %.not89, label %.loopexit100, label %.preheader99, !llvm.loop !555
 
 .loopexit100:                                     ; preds = %.preheader99, %66, %64
-  %.3 = phi ptr [ %.2, %66 ], [ %.2, %64 ], [ %.4, %.preheader99 ]
+  %.3 = phi ptr [ %.2, %64 ], [ %.2, %66 ], [ %.4, %.preheader99 ]
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.3, ptr %78, align 8, !tbaa !556
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -36725,7 +36725,7 @@ define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_111xpath_lexer4nextEv(ptr
   br i1 %.not94, label %.loopexit, label %.preheader, !llvm.loop !562
 
 .loopexit:                                        ; preds = %.preheader, %173, %175, %168
-  %.12 = phi ptr [ %174, %173 ], [ %.11, %175 ], [ %.11, %168 ], [ %.13, %.preheader ]
+  %.12 = phi ptr [ %174, %173 ], [ %.11, %168 ], [ %.11, %175 ], [ %.13, %.preheader ]
   %186 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.12, ptr %186, align 8, !tbaa !556
   %187 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -37471,8 +37471,8 @@ _ZN4pugi4impl12_GLOBAL__N_112xpath_parser24parse_primary_expressionEv.exit: ; pr
   %.not.i = icmp eq ptr %314, null
   br i1 %.not.i, label %.thread65, label %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser24parse_primary_expressionEv.exit.thread83
 
-_ZN4pugi4impl12_GLOBAL__N_112xpath_parser24parse_primary_expressionEv.exit.thread83: ; preds = %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser10alloc_nodeEv.exit.i68.i, %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser10alloc_nodeEv.exit.i56.i, %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser10alloc_nodeEv.exit.i.i, %140, %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser24parse_primary_expressionEv.exit
-  %.2.i86 = phi ptr [ %314, %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser24parse_primary_expressionEv.exit ], [ %.0.i.i.i69.i, %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser10alloc_nodeEv.exit.i68.i ], [ %.0.i.i.i57.i, %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser10alloc_nodeEv.exit.i56.i ], [ %.0.i.i.i.i, %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser10alloc_nodeEv.exit.i.i ], [ %128, %140 ]
+_ZN4pugi4impl12_GLOBAL__N_112xpath_parser24parse_primary_expressionEv.exit.thread83: ; preds = %140, %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser10alloc_nodeEv.exit.i.i, %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser10alloc_nodeEv.exit.i56.i, %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser10alloc_nodeEv.exit.i68.i, %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser24parse_primary_expressionEv.exit
+  %.2.i86 = phi ptr [ %314, %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser24parse_primary_expressionEv.exit ], [ %128, %140 ], [ %.0.i.i.i.i, %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser10alloc_nodeEv.exit.i.i ], [ %.0.i.i.i57.i, %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser10alloc_nodeEv.exit.i56.i ], [ %.0.i.i.i69.i, %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser10alloc_nodeEv.exit.i68.i ]
   %315 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %316 = load i64, ptr %315, align 8, !tbaa !367
   %.val21.i121 = load i32, ptr %4, align 8, !tbaa !368
@@ -37835,7 +37835,7 @@ _ZN4pugi4impl12_GLOBAL__N_112xpath_parser10alloc_nodeEv.exit.i: ; preds = %475, 
   br label %.thread65
 
 .thread65:                                        ; preds = %356, %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser16parse_expressionEi.exit, %455, %445, %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser10alloc_nodeEv.exit.i, %474, %471, %._crit_edge, %425, %428, %372, %375, %346, %167, %170, %126, %116, %268, %271, %_ZN4pugi4impl12_GLOBAL__N_132convert_string_to_number_scratchERA32_cPKcS5_Pd.exit.i, %192, %98, %101, %74, %_ZN4pugi4impl12_GLOBAL__N_120get_variable_scratchERA32_cPNS_18xpath_variable_setEPKcS7_PPNS_14xpath_variableE.exit.i, %130, %189, %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser16parse_expressionEi.exit.i, %24, %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser24parse_primary_expressionEv.exit.thread88, %387, %333, %321, %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser24parse_primary_expressionEv.exit, %20, %14, %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser16parse_expressionEi.exit188, %438, %402, %484
-  %.1 = phi ptr [ %485, %484 ], [ null, %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser16parse_expressionEi.exit188 ], [ %.010.i.lcssa, %._crit_edge ], [ %15, %14 ], [ null, %372 ], [ null, %402 ], [ %439, %438 ], [ null, %471 ], [ %21, %20 ], [ null, %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser24parse_primary_expressionEv.exit ], [ null, %321 ], [ null, %333 ], [ null, %387 ], [ null, %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser24parse_primary_expressionEv.exit.thread88 ], [ null, %425 ], [ null, %24 ], [ null, %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser16parse_expressionEi.exit.i ], [ null, %189 ], [ null, %130 ], [ null, %_ZN4pugi4impl12_GLOBAL__N_120get_variable_scratchERA32_cPNS_18xpath_variable_setEPKcS7_PPNS_14xpath_variableE.exit.i ], [ null, %74 ], [ null, %101 ], [ null, %98 ], [ null, %192 ], [ null, %_ZN4pugi4impl12_GLOBAL__N_132convert_string_to_number_scratchERA32_cPKcS5_Pd.exit.i ], [ null, %271 ], [ null, %268 ], [ null, %116 ], [ null, %126 ], [ null, %170 ], [ null, %167 ], [ null, %346 ], [ null, %375 ], [ null, %428 ], [ %.0.i.i.i190, %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser10alloc_nodeEv.exit.i ], [ null, %474 ], [ null, %445 ], [ null, %455 ], [ null, %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser16parse_expressionEi.exit ], [ null, %356 ]
+  %.1 = phi ptr [ %485, %484 ], [ null, %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser16parse_expressionEi.exit188 ], [ %.010.i.lcssa, %._crit_edge ], [ %15, %14 ], [ null, %372 ], [ null, %402 ], [ %439, %438 ], [ null, %471 ], [ %21, %20 ], [ null, %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser24parse_primary_expressionEv.exit ], [ null, %321 ], [ null, %333 ], [ null, %425 ], [ null, %387 ], [ null, %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser24parse_primary_expressionEv.exit.thread88 ], [ null, %375 ], [ null, %24 ], [ null, %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser16parse_expressionEi.exit.i ], [ null, %189 ], [ null, %130 ], [ null, %_ZN4pugi4impl12_GLOBAL__N_120get_variable_scratchERA32_cPNS_18xpath_variable_setEPKcS7_PPNS_14xpath_variableE.exit.i ], [ null, %74 ], [ null, %101 ], [ null, %98 ], [ null, %192 ], [ null, %_ZN4pugi4impl12_GLOBAL__N_132convert_string_to_number_scratchERA32_cPKcS5_Pd.exit.i ], [ null, %271 ], [ null, %268 ], [ null, %116 ], [ null, %126 ], [ null, %170 ], [ null, %167 ], [ null, %346 ], [ null, %428 ], [ null, %455 ], [ null, %445 ], [ %.0.i.i.i190, %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser10alloc_nodeEv.exit.i ], [ null, %474 ], [ null, %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser16parse_expressionEi.exit ], [ null, %356 ]
   ret ptr %.1
 }
 
@@ -38069,7 +38069,7 @@ _ZN4pugi4impl12_GLOBAL__N_112xpath_parser10alloc_nodeENS1_10ast_type_tENS_16xpat
   br i1 %105, label %10, label %.critedge, !llvm.loop !569
 
 .critedge:                                        ; preds = %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser10alloc_nodeENS1_10ast_type_tENS_16xpath_value_typeEPNS1_14xpath_ast_nodeES6_.exit, %24, %.lr.ph, %3, %77, %80, %55, %52, %85, %14
-  %.1 = phi ptr [ null, %14 ], [ null, %77 ], [ null, %85 ], [ null, %52 ], [ null, %55 ], [ null, %80 ], [ %1, %3 ], [ null, %.lr.ph ], [ %.0.i.i.i.sink99, %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser10alloc_nodeENS1_10ast_type_tENS_16xpath_value_typeEPNS1_14xpath_ast_nodeES6_.exit ], [ null, %24 ]
+  %.1 = phi ptr [ null, %14 ], [ null, %80 ], [ %1, %3 ], [ null, %85 ], [ null, %77 ], [ null, %52 ], [ null, %55 ], [ null, %.lr.ph ], [ %.0.i.i.i.sink99, %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser10alloc_nodeENS1_10ast_type_tENS_16xpath_value_typeEPNS1_14xpath_ast_nodeES6_.exit ], [ null, %24 ]
   ret ptr %.1
 }
 
@@ -38516,7 +38516,7 @@ define internal fastcc noundef ptr @_ZN4pugi4impl12_GLOBAL__N_112xpath_parser28p
   br label %.critedge24
 
 .critedge24:                                      ; preds = %53, %23, %26, %55, %43, %2
-  %.0 = phi ptr [ null, %2 ], [ %.011, %55 ], [ null, %43 ], [ null, %26 ], [ null, %23 ], [ null, %53 ]
+  %.0 = phi ptr [ null, %2 ], [ null, %23 ], [ %.011, %55 ], [ null, %43 ], [ null, %26 ], [ null, %53 ]
   ret ptr %.0
 }
 
@@ -41215,9 +41215,9 @@ _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit.thread: ; preds = %.
   br label %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser10alloc_nodeENS1_10ast_type_tEPNS1_14xpath_ast_nodeENS1_6axis_tENS1_10nodetest_tEPKc.exit
 
 337:                                              ; preds = %322, %313, %318, %303
-  %.sroa.0.1 = phi ptr [ %.sroa.0.0.copyload114, %303 ], [ %.sroa.0.0.ph, %313 ], [ %.sroa.0.0.ph, %322 ], [ %.sroa.0.0.ph, %318 ]
-  %.sroa.14.1 = phi ptr [ %.sroa.14.0.copyload122, %303 ], [ %.sroa.14.0.ph, %313 ], [ %spec.select, %322 ], [ %.sroa.14.0.ph, %318 ]
-  %.134 = phi i32 [ 6, %303 ], [ 1, %313 ], [ %spec.select166, %322 ], [ 1, %318 ]
+  %.sroa.0.1 = phi ptr [ %.sroa.0.0.ph, %313 ], [ %.sroa.0.0.copyload114, %303 ], [ %.sroa.0.0.ph, %318 ], [ %.sroa.0.0.ph, %322 ]
+  %.sroa.14.1 = phi ptr [ %.sroa.14.0.ph, %313 ], [ %.sroa.14.0.copyload122, %303 ], [ %.sroa.14.0.ph, %318 ], [ %spec.select, %322 ]
+  %.134 = phi i32 [ 1, %313 ], [ 6, %303 ], [ 1, %318 ], [ %spec.select166, %322 ]
   %.val75 = load ptr, ptr %0, align 8
   %.not.i = icmp eq ptr %.sroa.0.1, null
   br i1 %.not.i, label %.thread142, label %338
@@ -41504,7 +41504,7 @@ _ZN4pugi4impl12_GLOBAL__N_112xpath_parser16parse_expressionEi.exit: ; preds = %4
   br label %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser10alloc_nodeENS1_10ast_type_tEPNS1_14xpath_ast_nodeENS1_6axis_tENS1_10nodetest_tEPKc.exit
 
 _ZN4pugi4impl12_GLOBAL__N_112xpath_parser10alloc_nodeENS1_10ast_type_tEPNS1_14xpath_ast_nodeENS1_6axis_tENS1_10nodetest_tEPKc.exit: ; preds = %425, %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser16parse_expressionEi.exit, %441, %444, %415, %456, %380, %383, %21, %59, %44, %47, %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser10alloc_nodeEv.exit.i, %82, %85, %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser10alloc_nodeEv.exit.i80, %362, %359, %402, %._crit_edge, %327, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit.thread, %293, %282, %260, %242, %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser15parse_axis_nameERKNS1_18xpath_lexer_stringERb.exit, %100, %5
-  %.0 = phi ptr [ null, %5 ], [ null, %82 ], [ null, %21 ], [ null, %44 ], [ null, %59 ], [ %.0.i.i.i, %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser10alloc_nodeEv.exit.i ], [ null, %47 ], [ %.0.i.i.i81, %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser10alloc_nodeEv.exit.i80 ], [ null, %85 ], [ null, %100 ], [ null, %260 ], [ null, %327 ], [ null, %282 ], [ null, %293 ], [ null, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit.thread ], [ null, %242 ], [ null, %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser15parse_axis_nameERKNS1_18xpath_lexer_stringERb.exit ], [ %.0.i.i.i98, %._crit_edge ], [ null, %362 ], [ null, %402 ], [ null, %380 ], [ null, %359 ], [ null, %383 ], [ null, %456 ], [ null, %415 ], [ null, %444 ], [ null, %441 ], [ null, %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser16parse_expressionEi.exit ], [ null, %425 ]
+  %.0 = phi ptr [ null, %5 ], [ null, %82 ], [ null, %21 ], [ null, %44 ], [ null, %59 ], [ %.0.i.i.i, %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser10alloc_nodeEv.exit.i ], [ null, %47 ], [ %.0.i.i.i81, %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser10alloc_nodeEv.exit.i80 ], [ null, %85 ], [ null, %100 ], [ null, %260 ], [ null, %327 ], [ null, %282 ], [ null, %293 ], [ null, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit.thread ], [ null, %242 ], [ null, %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser15parse_axis_nameERKNS1_18xpath_lexer_stringERb.exit ], [ %.0.i.i.i98, %._crit_edge ], [ null, %362 ], [ null, %402 ], [ null, %380 ], [ null, %359 ], [ null, %383 ], [ null, %441 ], [ null, %456 ], [ null, %415 ], [ null, %444 ], [ null, %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser16parse_expressionEi.exit ], [ null, %425 ]
   ret ptr %.0
 }
 
@@ -44114,7 +44114,7 @@ _ZN4pugi4impl12_GLOBAL__N_113namespace_uriENS_13xml_attributeENS_8xml_nodeE.exit
   br label %_ZN4pugi4impl12_GLOBAL__N_113namespace_uriENS_13xml_attributeENS_8xml_nodeE.exit
 
 _ZN4pugi4impl12_GLOBAL__N_113namespace_uriENS_13xml_attributeENS_8xml_nodeE.exit: ; preds = %15, %31, %_ZN4pugi4impl12_GLOBAL__N_113namespace_uriENS_13xml_attributeENS_8xml_nodeE.exit.sink.split, %_ZNK4pugi10xpath_node4nodeEv.exit, %_ZNK4pugi13xml_attribute4nameEv.exit.i
-  %38 = phi ptr [ @.str, %_ZNK4pugi13xml_attribute4nameEv.exit.i ], [ @.str, %_ZNK4pugi10xpath_node4nodeEv.exit ], [ %37, %_ZN4pugi4impl12_GLOBAL__N_113namespace_uriENS_13xml_attributeENS_8xml_nodeE.exit.sink.split ], [ @.str, %31 ], [ @.str, %15 ]
+  %38 = phi ptr [ %37, %_ZN4pugi4impl12_GLOBAL__N_113namespace_uriENS_13xml_attributeENS_8xml_nodeE.exit.sink.split ], [ @.str, %_ZNK4pugi13xml_attribute4nameEv.exit.i ], [ @.str, %_ZNK4pugi10xpath_node4nodeEv.exit ], [ @.str, %31 ], [ @.str, %15 ]
   ret ptr %38
 }
 
@@ -44450,7 +44450,7 @@ _ZNK4pugi13xml_attribute4nameEv.exit.i.lr.ph:     ; preds = %_ZNK4pugi8xml_node1
   br i1 %.not.i5, label %_ZNK4pugi13xml_attribute4nameEv.exit.i.us, label %_ZNK4pugi13xml_attribute4nameEv.exit.i.lr.ph.split
 
 _ZNK4pugi13xml_attribute4nameEv.exit.i.us:        ; preds = %_ZNK4pugi13xml_attribute4nameEv.exit.i.lr.ph, %_ZNK4pugi13xml_attribute14next_attributeEv.exit.us
-  %storemerge4.us = phi ptr [ %24, %_ZNK4pugi13xml_attribute14next_attributeEv.exit.us ], [ %8, %_ZNK4pugi13xml_attribute4nameEv.exit.i.lr.ph ]
+  %storemerge4.us = phi ptr [ %23, %_ZNK4pugi13xml_attribute14next_attributeEv.exit.us ], [ %8, %_ZNK4pugi13xml_attribute4nameEv.exit.i.lr.ph ]
   %9 = getelementptr inbounds nuw i8, ptr %storemerge4.us, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !29
   %.not5.i.i.us = icmp eq ptr %10, null
@@ -44471,23 +44471,23 @@ _ZNK4pugi13xml_attribute4nameEv.exit.i.us:        ; preds = %_ZNK4pugi13xml_attr
   %.ptr.i.us = getelementptr inbounds nuw i8, ptr @.str.101, i64 %.010.i.add.i.us
   %17 = load i8, ptr %.ptr.i.us, align 1, !tbaa !28
   %exitcond.i.us = icmp eq i64 %.010.i.add.i.us, 5
-  br i1 %exitcond.i.us, label %18, label %.lr.ph.i.i.us, !llvm.loop !420
+  br i1 %exitcond.i.us, label %_ZNK4pugi4impl12_GLOBAL__N_123namespace_uri_predicateclENS_13xml_attributeE.exit.us, label %.lr.ph.i.i.us, !llvm.loop !420
 
-18:                                               ; preds = %15
-  %19 = getelementptr inbounds nuw i8, ptr %11, i64 5
-  %20 = load i8, ptr %19, align 1, !tbaa !28
-  %21 = icmp eq i8 %20, 0
-  br i1 %21, label %.loopexit, label %_ZNK4pugi13xml_attribute14next_attributeEv.exit.us
+_ZNK4pugi4impl12_GLOBAL__N_123namespace_uri_predicateclENS_13xml_attributeE.exit.us: ; preds = %15
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 5
+  %19 = load i8, ptr %18, align 1, !tbaa !28
+  %20 = icmp eq i8 %19, 0
+  br i1 %20, label %.loopexit, label %_ZNK4pugi13xml_attribute14next_attributeEv.exit.us
 
-_ZNK4pugi13xml_attribute14next_attributeEv.exit.us: ; preds = %.lr.ph.i.i.us, %18
+_ZNK4pugi13xml_attribute14next_attributeEv.exit.us: ; preds = %.lr.ph.i.i.us, %_ZNK4pugi4impl12_GLOBAL__N_123namespace_uri_predicateclENS_13xml_attributeE.exit.us
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %22 = getelementptr inbounds nuw i8, ptr %storemerge4.us, i64 32
-  %23 = load ptr, ptr %22, align 8, !tbaa !22
-  call void @_ZN4pugi13xml_attributeC1EPNS_20xml_attribute_structE(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %23)
-  %24 = load ptr, ptr %3, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %storemerge4.us, i64 32
+  %22 = load ptr, ptr %21, align 8, !tbaa !22
+  call void @_ZN4pugi13xml_attributeC1EPNS_20xml_attribute_structE(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %22)
+  %23 = load ptr, ptr %3, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  store ptr %24, ptr %5, align 8
-  %.not.i4.us = icmp eq ptr %24, null
+  store ptr %23, ptr %5, align 8
+  %.not.i4.us = icmp eq ptr %23, null
   br i1 %.not.i4.us, label %.loopexit.sink.split, label %_ZNK4pugi13xml_attribute4nameEv.exit.i.us, !llvm.loop !597
 
 _ZNK4pugi13xml_attribute4nameEv.exit.i.lr.ph.split: ; preds = %_ZNK4pugi13xml_attribute4nameEv.exit.i.lr.ph
@@ -44495,124 +44495,124 @@ _ZNK4pugi13xml_attribute4nameEv.exit.i.lr.ph.split: ; preds = %_ZNK4pugi13xml_at
   br i1 %.not14.i.i, label %_ZNK4pugi13xml_attribute4nameEv.exit.i.us5, label %_ZNK4pugi13xml_attribute4nameEv.exit.i
 
 _ZNK4pugi13xml_attribute4nameEv.exit.i.us5:       ; preds = %_ZNK4pugi13xml_attribute4nameEv.exit.i.lr.ph.split, %_ZNK4pugi13xml_attribute14next_attributeEv.exit.us14
-  %storemerge4.us6 = phi ptr [ %43, %_ZNK4pugi13xml_attribute14next_attributeEv.exit.us14 ], [ %8, %_ZNK4pugi13xml_attribute4nameEv.exit.i.lr.ph.split ]
-  %25 = getelementptr inbounds nuw i8, ptr %storemerge4.us6, i64 8
-  %26 = load ptr, ptr %25, align 8, !tbaa !29
-  %.not5.i.i.us7 = icmp eq ptr %26, null
-  %27 = select i1 %.not5.i.i.us7, ptr @.str, ptr %26
+  %storemerge4.us6 = phi ptr [ %42, %_ZNK4pugi13xml_attribute14next_attributeEv.exit.us14 ], [ %8, %_ZNK4pugi13xml_attribute4nameEv.exit.i.lr.ph.split ]
+  %24 = getelementptr inbounds nuw i8, ptr %storemerge4.us6, i64 8
+  %25 = load ptr, ptr %24, align 8, !tbaa !29
+  %.not5.i.i.us7 = icmp eq ptr %25, null
+  %26 = select i1 %.not5.i.i.us7, ptr @.str, ptr %25
   br label %.lr.ph.i.i.us8
 
-.lr.ph.i.i.us8:                                   ; preds = %31, %_ZNK4pugi13xml_attribute4nameEv.exit.i.us5
-  %28 = phi i8 [ %33, %31 ], [ 120, %_ZNK4pugi13xml_attribute4nameEv.exit.i.us5 ]
-  %.010.i.idx.i.us9 = phi i64 [ %.010.i.add.i.us11, %31 ], [ 0, %_ZNK4pugi13xml_attribute4nameEv.exit.i.us5 ]
-  %.069.i.i.us10 = phi ptr [ %32, %31 ], [ %27, %_ZNK4pugi13xml_attribute4nameEv.exit.i.us5 ]
-  %29 = load i8, ptr %.069.i.i.us10, align 1, !tbaa !28
-  %30 = icmp eq i8 %29, %28
-  br i1 %30, label %31, label %_ZNK4pugi13xml_attribute14next_attributeEv.exit.us14
+.lr.ph.i.i.us8:                                   ; preds = %30, %_ZNK4pugi13xml_attribute4nameEv.exit.i.us5
+  %27 = phi i8 [ %32, %30 ], [ 120, %_ZNK4pugi13xml_attribute4nameEv.exit.i.us5 ]
+  %.010.i.idx.i.us9 = phi i64 [ %.010.i.add.i.us11, %30 ], [ 0, %_ZNK4pugi13xml_attribute4nameEv.exit.i.us5 ]
+  %.069.i.i.us10 = phi ptr [ %31, %30 ], [ %26, %_ZNK4pugi13xml_attribute4nameEv.exit.i.us5 ]
+  %28 = load i8, ptr %.069.i.i.us10, align 1, !tbaa !28
+  %29 = icmp eq i8 %28, %27
+  br i1 %29, label %30, label %_ZNK4pugi13xml_attribute14next_attributeEv.exit.us14
 
-31:                                               ; preds = %.lr.ph.i.i.us8
-  %32 = getelementptr inbounds nuw i8, ptr %.069.i.i.us10, i64 1
+30:                                               ; preds = %.lr.ph.i.i.us8
+  %31 = getelementptr inbounds nuw i8, ptr %.069.i.i.us10, i64 1
   %.010.i.add.i.us11 = add nuw nsw i64 %.010.i.idx.i.us9, 1
   %.ptr.i.us12 = getelementptr inbounds nuw i8, ptr @.str.101, i64 %.010.i.add.i.us11
-  %33 = load i8, ptr %.ptr.i.us12, align 1, !tbaa !28
+  %32 = load i8, ptr %.ptr.i.us12, align 1, !tbaa !28
   %exitcond.i.us13 = icmp eq i64 %.010.i.add.i.us11, 5
-  br i1 %exitcond.i.us13, label %34, label %.lr.ph.i.i.us8, !llvm.loop !420
+  br i1 %exitcond.i.us13, label %33, label %.lr.ph.i.i.us8, !llvm.loop !420
 
-34:                                               ; preds = %31
-  %35 = getelementptr inbounds nuw i8, ptr %27, i64 5
-  %36 = load i8, ptr %35, align 1, !tbaa !28
-  %37 = icmp eq i8 %36, 58
-  br i1 %37, label %_ZNK4pugi4impl12_GLOBAL__N_123namespace_uri_predicateclENS_13xml_attributeE.exit.us, label %_ZNK4pugi13xml_attribute14next_attributeEv.exit.us14
+33:                                               ; preds = %30
+  %34 = getelementptr inbounds nuw i8, ptr %26, i64 5
+  %35 = load i8, ptr %34, align 1, !tbaa !28
+  %36 = icmp eq i8 %35, 58
+  br i1 %36, label %._crit_edge.i.i.us, label %_ZNK4pugi13xml_attribute14next_attributeEv.exit.us14
 
-_ZNK4pugi4impl12_GLOBAL__N_123namespace_uri_predicateclENS_13xml_attributeE.exit.us: ; preds = %34
-  %38 = getelementptr inbounds nuw i8, ptr %27, i64 6
-  %39 = load i8, ptr %38, align 1, !tbaa !28
-  %40 = icmp eq i8 %39, 0
-  br i1 %40, label %.loopexit, label %_ZNK4pugi13xml_attribute14next_attributeEv.exit.us14
+._crit_edge.i.i.us:                               ; preds = %33
+  %37 = getelementptr inbounds nuw i8, ptr %26, i64 6
+  %38 = load i8, ptr %37, align 1, !tbaa !28
+  %39 = icmp eq i8 %38, 0
+  br i1 %39, label %.loopexit, label %_ZNK4pugi13xml_attribute14next_attributeEv.exit.us14
 
-_ZNK4pugi13xml_attribute14next_attributeEv.exit.us14: ; preds = %.lr.ph.i.i.us8, %_ZNK4pugi4impl12_GLOBAL__N_123namespace_uri_predicateclENS_13xml_attributeE.exit.us, %34
+_ZNK4pugi13xml_attribute14next_attributeEv.exit.us14: ; preds = %.lr.ph.i.i.us8, %._crit_edge.i.i.us, %33
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %41 = getelementptr inbounds nuw i8, ptr %storemerge4.us6, i64 32
-  %42 = load ptr, ptr %41, align 8, !tbaa !22
-  call void @_ZN4pugi13xml_attributeC1EPNS_20xml_attribute_structE(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %42)
-  %43 = load ptr, ptr %3, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %storemerge4.us6, i64 32
+  %41 = load ptr, ptr %40, align 8, !tbaa !22
+  call void @_ZN4pugi13xml_attributeC1EPNS_20xml_attribute_structE(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %41)
+  %42 = load ptr, ptr %3, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  store ptr %43, ptr %5, align 8
-  %.not.i4.us15 = icmp eq ptr %43, null
+  store ptr %42, ptr %5, align 8
+  %.not.i4.us15 = icmp eq ptr %42, null
   br i1 %.not.i4.us15, label %.loopexit.sink.split, label %_ZNK4pugi13xml_attribute4nameEv.exit.i.us5, !llvm.loop !597
 
 _ZNK4pugi13xml_attribute4nameEv.exit.i:           ; preds = %_ZNK4pugi13xml_attribute4nameEv.exit.i.lr.ph.split, %_ZNK4pugi13xml_attribute14next_attributeEv.exit
-  %storemerge4 = phi ptr [ %69, %_ZNK4pugi13xml_attribute14next_attributeEv.exit ], [ %8, %_ZNK4pugi13xml_attribute4nameEv.exit.i.lr.ph.split ]
-  %44 = getelementptr inbounds nuw i8, ptr %storemerge4, i64 8
-  %45 = load ptr, ptr %44, align 8, !tbaa !29
-  %.not5.i.i = icmp eq ptr %45, null
-  %46 = select i1 %.not5.i.i, ptr @.str, ptr %45
+  %storemerge4 = phi ptr [ %68, %_ZNK4pugi13xml_attribute14next_attributeEv.exit ], [ %8, %_ZNK4pugi13xml_attribute4nameEv.exit.i.lr.ph.split ]
+  %43 = getelementptr inbounds nuw i8, ptr %storemerge4, i64 8
+  %44 = load ptr, ptr %43, align 8, !tbaa !29
+  %.not5.i.i = icmp eq ptr %44, null
+  %45 = select i1 %.not5.i.i, ptr @.str, ptr %44
   br label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %50, %_ZNK4pugi13xml_attribute4nameEv.exit.i
-  %47 = phi i8 [ %52, %50 ], [ 120, %_ZNK4pugi13xml_attribute4nameEv.exit.i ]
-  %.010.i.idx.i = phi i64 [ %.010.i.add.i, %50 ], [ 0, %_ZNK4pugi13xml_attribute4nameEv.exit.i ]
-  %.069.i.i = phi ptr [ %51, %50 ], [ %46, %_ZNK4pugi13xml_attribute4nameEv.exit.i ]
-  %48 = load i8, ptr %.069.i.i, align 1, !tbaa !28
-  %49 = icmp eq i8 %48, %47
-  br i1 %49, label %50, label %_ZNK4pugi13xml_attribute14next_attributeEv.exit
+.lr.ph.i.i:                                       ; preds = %49, %_ZNK4pugi13xml_attribute4nameEv.exit.i
+  %46 = phi i8 [ %51, %49 ], [ 120, %_ZNK4pugi13xml_attribute4nameEv.exit.i ]
+  %.010.i.idx.i = phi i64 [ %.010.i.add.i, %49 ], [ 0, %_ZNK4pugi13xml_attribute4nameEv.exit.i ]
+  %.069.i.i = phi ptr [ %50, %49 ], [ %45, %_ZNK4pugi13xml_attribute4nameEv.exit.i ]
+  %47 = load i8, ptr %.069.i.i, align 1, !tbaa !28
+  %48 = icmp eq i8 %47, %46
+  br i1 %48, label %49, label %_ZNK4pugi13xml_attribute14next_attributeEv.exit
 
-50:                                               ; preds = %.lr.ph.i.i
-  %51 = getelementptr inbounds nuw i8, ptr %.069.i.i, i64 1
+49:                                               ; preds = %.lr.ph.i.i
+  %50 = getelementptr inbounds nuw i8, ptr %.069.i.i, i64 1
   %.010.i.add.i = add nuw nsw i64 %.010.i.idx.i, 1
   %.ptr.i = getelementptr inbounds nuw i8, ptr @.str.101, i64 %.010.i.add.i
-  %52 = load i8, ptr %.ptr.i, align 1, !tbaa !28
+  %51 = load i8, ptr %.ptr.i, align 1, !tbaa !28
   %exitcond.i = icmp eq i64 %.010.i.add.i, 5
-  br i1 %exitcond.i, label %53, label %.lr.ph.i.i, !llvm.loop !420
+  br i1 %exitcond.i, label %52, label %.lr.ph.i.i, !llvm.loop !420
 
-53:                                               ; preds = %50
-  %54 = getelementptr inbounds nuw i8, ptr %46, i64 5
-  %55 = load i8, ptr %54, align 1, !tbaa !28
-  %56 = icmp eq i8 %55, 58
-  br i1 %56, label %.lr.ph.i8.i.preheader, label %_ZNK4pugi13xml_attribute14next_attributeEv.exit
+52:                                               ; preds = %49
+  %53 = getelementptr inbounds nuw i8, ptr %45, i64 5
+  %54 = load i8, ptr %53, align 1, !tbaa !28
+  %55 = icmp eq i8 %54, 58
+  br i1 %55, label %.lr.ph.i8.i.preheader, label %_ZNK4pugi13xml_attribute14next_attributeEv.exit
 
-.lr.ph.i8.i.preheader:                            ; preds = %53
-  %57 = getelementptr inbounds nuw i8, ptr %46, i64 6
+.lr.ph.i8.i.preheader:                            ; preds = %52
+  %56 = getelementptr inbounds nuw i8, ptr %45, i64 6
   br label %.lr.ph.i8.i
 
-58:                                               ; preds = %.lr.ph.i8.i
-  %59 = add nuw i64 %.01013.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %59, %.fr17
-  br i1 %exitcond.not.i.i, label %_ZNK4pugi4impl12_GLOBAL__N_123namespace_uri_predicateclENS_13xml_attributeE.exit.loopexit, label %.lr.ph.i8.i, !llvm.loop !188
+57:                                               ; preds = %.lr.ph.i8.i
+  %58 = add nuw i64 %.01013.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %58, %.fr17
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i.loopexit, label %.lr.ph.i8.i, !llvm.loop !188
 
-.lr.ph.i8.i:                                      ; preds = %.lr.ph.i8.i.preheader, %58
-  %.01013.i.i = phi i64 [ %59, %58 ], [ 0, %.lr.ph.i8.i.preheader ]
-  %60 = getelementptr inbounds nuw i8, ptr %57, i64 %.01013.i.i
-  %61 = load i8, ptr %60, align 1, !tbaa !28
-  %62 = getelementptr inbounds nuw i8, ptr %.fr, i64 %.01013.i.i
-  %63 = load i8, ptr %62, align 1, !tbaa !28
-  %.not.i9.i = icmp eq i8 %61, %63
-  br i1 %.not.i9.i, label %58, label %_ZNK4pugi13xml_attribute14next_attributeEv.exit
+.lr.ph.i8.i:                                      ; preds = %.lr.ph.i8.i.preheader, %57
+  %.01013.i.i = phi i64 [ %58, %57 ], [ 0, %.lr.ph.i8.i.preheader ]
+  %59 = getelementptr inbounds nuw i8, ptr %56, i64 %.01013.i.i
+  %60 = load i8, ptr %59, align 1, !tbaa !28
+  %61 = getelementptr inbounds nuw i8, ptr %.fr, i64 %.01013.i.i
+  %62 = load i8, ptr %61, align 1, !tbaa !28
+  %.not.i9.i = icmp eq i8 %60, %62
+  br i1 %.not.i9.i, label %57, label %_ZNK4pugi13xml_attribute14next_attributeEv.exit
 
-_ZNK4pugi4impl12_GLOBAL__N_123namespace_uri_predicateclENS_13xml_attributeE.exit.loopexit: ; preds = %58
-  %64 = getelementptr inbounds nuw i8, ptr %57, i64 %.fr17
-  %65 = load i8, ptr %64, align 1, !tbaa !28
-  %66 = icmp eq i8 %65, 0
-  br i1 %66, label %.loopexit, label %_ZNK4pugi13xml_attribute14next_attributeEv.exit
+._crit_edge.i.i.loopexit:                         ; preds = %57
+  %63 = getelementptr inbounds nuw i8, ptr %56, i64 %.fr17
+  %64 = load i8, ptr %63, align 1, !tbaa !28
+  %65 = icmp eq i8 %64, 0
+  br i1 %65, label %.loopexit, label %_ZNK4pugi13xml_attribute14next_attributeEv.exit
 
-_ZNK4pugi13xml_attribute14next_attributeEv.exit:  ; preds = %.lr.ph.i.i, %.lr.ph.i8.i, %53, %_ZNK4pugi4impl12_GLOBAL__N_123namespace_uri_predicateclENS_13xml_attributeE.exit.loopexit
+_ZNK4pugi13xml_attribute14next_attributeEv.exit:  ; preds = %.lr.ph.i.i, %.lr.ph.i8.i, %52, %._crit_edge.i.i.loopexit
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %67 = getelementptr inbounds nuw i8, ptr %storemerge4, i64 32
-  %68 = load ptr, ptr %67, align 8, !tbaa !22
-  call void @_ZN4pugi13xml_attributeC1EPNS_20xml_attribute_structE(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %68)
-  %69 = load ptr, ptr %3, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %storemerge4, i64 32
+  %67 = load ptr, ptr %66, align 8, !tbaa !22
+  call void @_ZN4pugi13xml_attributeC1EPNS_20xml_attribute_structE(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %67)
+  %68 = load ptr, ptr %3, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  store ptr %69, ptr %5, align 8
-  %.not.i4 = icmp eq ptr %69, null
+  store ptr %68, ptr %5, align 8
+  %.not.i4 = icmp eq ptr %68, null
   br i1 %.not.i4, label %.loopexit.sink.split, label %_ZNK4pugi13xml_attribute4nameEv.exit.i, !llvm.loop !597
 
 .loopexit.sink.split:                             ; preds = %_ZNK4pugi13xml_attribute14next_attributeEv.exit, %_ZNK4pugi13xml_attribute14next_attributeEv.exit.us14, %_ZNK4pugi13xml_attribute14next_attributeEv.exit.us, %_ZNK4pugi8xml_node15first_attributeEv.exit, %2
   call void @_ZN4pugi13xml_attributeC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %_ZNK4pugi4impl12_GLOBAL__N_123namespace_uri_predicateclENS_13xml_attributeE.exit.loopexit, %_ZNK4pugi4impl12_GLOBAL__N_123namespace_uri_predicateclENS_13xml_attributeE.exit.us, %18, %.loopexit.sink.split
-  %70 = load ptr, ptr %5, align 8
-  ret ptr %70
+.loopexit:                                        ; preds = %._crit_edge.i.i.loopexit, %._crit_edge.i.i.us, %_ZNK4pugi4impl12_GLOBAL__N_123namespace_uri_predicateclENS_13xml_attributeE.exit.us, %.loopexit.sink.split
+  %69 = load ptr, ptr %5, align 8
+  ret ptr %69
 }
 
 ; Function Attrs: nofree nounwind
@@ -48797,7 +48797,7 @@ _ZN4pugi4impl12_GLOBAL__N_118xpath_node_set_raw9push_backERKNS_10xpath_nodeEPNS1
   br label %_ZN4pugi4impl12_GLOBAL__N_111starts_withEPKcS3_.exit
 
 _ZN4pugi4impl12_GLOBAL__N_111starts_withEPKcS3_.exit: ; preds = %.lr.ph.i, %_ZN4pugi4impl12_GLOBAL__N_118is_xpath_attributeEPKc.exit40, %_ZN4pugi4impl12_GLOBAL__N_118is_xpath_attributeEPKc.exit40, %_ZN4pugi4impl12_GLOBAL__N_118is_xpath_attributeEPKc.exit29, %_ZN4pugi4impl12_GLOBAL__N_118is_xpath_attributeEPKc.exit29, %_ZN4pugi4impl12_GLOBAL__N_118is_xpath_attributeEPKc.exit, %_ZN4pugi4impl12_GLOBAL__N_118is_xpath_attributeEPKc.exit, %16, %4, %_ZN4pugi4impl12_GLOBAL__N_118xpath_node_set_raw9push_backERKNS_10xpath_nodeEPNS1_15xpath_allocatorE.exit42, %_ZN4pugi4impl12_GLOBAL__N_118xpath_node_set_raw9push_backERKNS_10xpath_nodeEPNS1_15xpath_allocatorE.exit31, %_ZN4pugi4impl12_GLOBAL__N_118xpath_node_set_raw9push_backERKNS_10xpath_nodeEPNS1_15xpath_allocatorE.exit
-  %.0 = phi i1 [ true, %_ZN4pugi4impl12_GLOBAL__N_118xpath_node_set_raw9push_backERKNS_10xpath_nodeEPNS1_15xpath_allocatorE.exit42 ], [ true, %_ZN4pugi4impl12_GLOBAL__N_118xpath_node_set_raw9push_backERKNS_10xpath_nodeEPNS1_15xpath_allocatorE.exit ], [ true, %_ZN4pugi4impl12_GLOBAL__N_118xpath_node_set_raw9push_backERKNS_10xpath_nodeEPNS1_15xpath_allocatorE.exit31 ], [ false, %4 ], [ false, %_ZN4pugi4impl12_GLOBAL__N_118is_xpath_attributeEPKc.exit ], [ false, %_ZN4pugi4impl12_GLOBAL__N_118is_xpath_attributeEPKc.exit40 ], [ false, %_ZN4pugi4impl12_GLOBAL__N_118is_xpath_attributeEPKc.exit29 ], [ false, %16 ], [ false, %_ZN4pugi4impl12_GLOBAL__N_118is_xpath_attributeEPKc.exit ], [ false, %_ZN4pugi4impl12_GLOBAL__N_118is_xpath_attributeEPKc.exit29 ], [ false, %_ZN4pugi4impl12_GLOBAL__N_118is_xpath_attributeEPKc.exit40 ], [ false, %.lr.ph.i ]
+  %.0 = phi i1 [ true, %_ZN4pugi4impl12_GLOBAL__N_118xpath_node_set_raw9push_backERKNS_10xpath_nodeEPNS1_15xpath_allocatorE.exit42 ], [ true, %_ZN4pugi4impl12_GLOBAL__N_118xpath_node_set_raw9push_backERKNS_10xpath_nodeEPNS1_15xpath_allocatorE.exit ], [ true, %_ZN4pugi4impl12_GLOBAL__N_118xpath_node_set_raw9push_backERKNS_10xpath_nodeEPNS1_15xpath_allocatorE.exit31 ], [ false, %4 ], [ false, %_ZN4pugi4impl12_GLOBAL__N_118is_xpath_attributeEPKc.exit ], [ false, %_ZN4pugi4impl12_GLOBAL__N_118is_xpath_attributeEPKc.exit40 ], [ false, %_ZN4pugi4impl12_GLOBAL__N_118is_xpath_attributeEPKc.exit29 ], [ false, %16 ], [ false, %_ZN4pugi4impl12_GLOBAL__N_118is_xpath_attributeEPKc.exit40 ], [ false, %_ZN4pugi4impl12_GLOBAL__N_118is_xpath_attributeEPKc.exit ], [ false, %_ZN4pugi4impl12_GLOBAL__N_118is_xpath_attributeEPKc.exit29 ], [ false, %.lr.ph.i ]
   ret i1 %.0
 }
 

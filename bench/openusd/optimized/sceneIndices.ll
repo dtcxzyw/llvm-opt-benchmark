@@ -2139,7 +2139,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit154: ; preds = %825, %831
   br i1 %835, label %.loopexit, label %825
 
 .loopexit:                                        ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit152, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit154, %.thread
-  %.pn31 = phi { ptr, i32 } [ %717, %.thread ], [ %823, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit154 ], [ %810, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit152 ]
+  %.pn31 = phi { ptr, i32 } [ %823, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit154 ], [ %717, %.thread ], [ %810, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit152 ]
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN32pxrInternal_v0_24__pxrReserved__28UsdImagingCreateSceneIndicesERKNS_32UsdImagingCreateSceneIndicesInfoEE23instanceDataSourceNames) #16
   br label %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_16HdSceneIndexBaseEEERKS3_EED2Ev.exit237
 

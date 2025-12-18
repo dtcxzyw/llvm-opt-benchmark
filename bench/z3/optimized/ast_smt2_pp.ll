@@ -3921,7 +3921,7 @@ _ZN6bufferIcLb0ELj16EE6expandEv.exit.i297:        ; preds = %.noexc302, %._crit_
   br label %636
 
 .loopexit:                                        ; preds = %578, %411, %.preheader339, %.preheader
-  %590 = phi i32 [ %.pre382, %.preheader ], [ %.pre381, %.preheader339 ], [ %417, %411 ], [ %584, %578 ]
+  %590 = phi i32 [ %417, %411 ], [ %.pre382, %.preheader ], [ %.pre381, %.preheader339 ], [ %584, %578 ]
   %591 = icmp ugt i32 %590, 3
   br i1 %591, label %.lr.ph.i.i305.preheader, label %_ZSt7reverseIPcEvT_S1_.exit
 
@@ -18772,7 +18772,7 @@ _ZNK14core_hashtableI18default_hash_entryI6symbolE16symbol_hash_proc14symbol_eq_
   br label %_ZNK14core_hashtableI18default_hash_entryI6symbolE16symbol_hash_proc14symbol_eq_procE8containsERKS1_.exit.thread
 
 _ZNK14core_hashtableI18default_hash_entryI6symbolE16symbol_hash_proc14symbol_eq_procE8containsERKS1_.exit.thread: ; preds = %.lr.ph.i.i, %92, %.lr.ph34.i.i, %.preheader.i.i, %_ZNK14core_hashtableI18default_hash_entryI6symbolE16symbol_hash_proc14symbol_eq_procE8containsERKS1_.exit, %42
-  %96 = phi i64 [ %44, %42 ], [ %51, %.preheader.i.i ], [ %95, %_ZNK14core_hashtableI18default_hash_entryI6symbolE16symbol_hash_proc14symbol_eq_procE8containsERKS1_.exit ], [ %51, %92 ], [ %51, %.lr.ph34.i.i ], [ %51, %.lr.ph.i.i ]
+  %96 = phi i64 [ %51, %92 ], [ %44, %42 ], [ %51, %.preheader.i.i ], [ %95, %_ZNK14core_hashtableI18default_hash_entryI6symbolE16symbol_hash_proc14symbol_eq_procE8containsERKS1_.exit ], [ %51, %.lr.ph34.i.i ], [ %51, %.lr.ph.i.i ]
   %97 = load ptr, ptr %16, align 8, !tbaa !393
   %98 = icmp eq ptr %97, null
   br i1 %98, label %105, label %99
@@ -22377,7 +22377,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN12smt2_printer10pp_aliasedEP4e
   br i1 %.not27.old.i.i.i, label %_ZNK7obj_mapI4exprjE4findEPS0_Rj.exit.thread, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %38, %35
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %38 ], [ %37, %35 ]
+  %.137.i.i.i.be = phi ptr [ %37, %35 ], [ %.old.i.i.i, %38 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !578
 
 .loopexit:                                        ; preds = %19, %30
@@ -22656,7 +22656,7 @@ _ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i
   br label %.thread
 
 .thread:                                          ; preds = %62, %.thread.sink.split, %3
-  %68 = phi i1 [ true, %3 ], [ false, %.thread.sink.split ], [ true, %62 ]
+  %68 = phi i1 [ false, %.thread.sink.split ], [ true, %3 ], [ true, %62 ]
   ret i1 %68
 }
 

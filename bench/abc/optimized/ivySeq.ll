@@ -1064,9 +1064,9 @@ Vec_PtrPush.exit.i:                               ; preds = %530, %Vec_PtrGrow.e
   br i1 %540, label %.lr.ph219.i, label %.critedge4.i, !llvm.loop !91
 
 .critedge4.i:                                     ; preds = %Vec_PtrPush.exit.i, %493, %Abc_Clock.exit175.i, %153, %.lr.ph224.i
-  %.1188.i = phi i32 [ %.2189.i, %Abc_Clock.exit175.i ], [ %.0187220.i, %.lr.ph224.i ], [ %.0187220.i, %153 ], [ %.2189.i, %493 ], [ %.2189.i, %Vec_PtrPush.exit.i ]
-  %.1138.i = phi i32 [ %.0137221.i, %Abc_Clock.exit175.i ], [ %.0137221.i, %.lr.ph224.i ], [ %.0137221.i, %153 ], [ %167, %493 ], [ %167, %Vec_PtrPush.exit.i ]
-  %.1.i = phi i32 [ %.0223.i, %Abc_Clock.exit175.i ], [ %.0223.i, %.lr.ph224.i ], [ %.0223.i, %153 ], [ %.2189.i, %493 ], [ %.2189.i, %Vec_PtrPush.exit.i ]
+  %.1188.i = phi i32 [ %.2189.i, %Abc_Clock.exit175.i ], [ %.0187220.i, %153 ], [ %.0187220.i, %.lr.ph224.i ], [ %.2189.i, %493 ], [ %.2189.i, %Vec_PtrPush.exit.i ]
+  %.1138.i = phi i32 [ %.0137221.i, %Abc_Clock.exit175.i ], [ %.0137221.i, %153 ], [ %.0137221.i, %.lr.ph224.i ], [ %167, %493 ], [ %167, %Vec_PtrPush.exit.i ]
+  %.1.i = phi i32 [ %.0223.i, %Abc_Clock.exit175.i ], [ %.0223.i, %153 ], [ %.0223.i, %.lr.ph224.i ], [ %.2189.i, %493 ], [ %.2189.i, %Vec_PtrPush.exit.i ]
   %indvars.iv.next249.i = add nuw nsw i64 %indvars.iv248.i, 1
   %541 = load i32, ptr @Ivy_CutComputeForNode.CutStore, align 4, !tbaa !38
   %542 = sext i32 %541 to i64
@@ -1656,9 +1656,9 @@ Ivy_ObjFaninId0.exit:                             ; preds = %.lr.ph, %41
   br i1 %.not, label %.lr.ph, label %.split65.us
 
 .split65.us:                                      ; preds = %Ivy_ObjFaninId0.exit, %._crit_edge.us, %.split
-  %.us-phi = phi i32 [ %1, %.split ], [ %.tr57.us, %._crit_edge.us ], [ %49, %Ivy_ObjFaninId0.exit ]
-  %.us-phi66 = phi ptr [ %34, %.split ], [ %27, %._crit_edge.us ], [ %53, %Ivy_ObjFaninId0.exit ]
-  %.us-phi67 = phi i32 [ %36, %.split ], [ %29, %._crit_edge.us ], [ %55, %Ivy_ObjFaninId0.exit ]
+  %.us-phi = phi i32 [ %.tr57.us, %._crit_edge.us ], [ %1, %.split ], [ %49, %Ivy_ObjFaninId0.exit ]
+  %.us-phi66 = phi ptr [ %27, %._crit_edge.us ], [ %34, %.split ], [ %53, %Ivy_ObjFaninId0.exit ]
+  %.us-phi67 = phi i32 [ %29, %._crit_edge.us ], [ %36, %.split ], [ %55, %Ivy_ObjFaninId0.exit ]
   %56 = getelementptr i8, ptr %.us-phi66, i64 16
   %.val47 = load ptr, ptr %56, align 8, !tbaa !77
   %.not.i51 = icmp eq ptr %.val47, null

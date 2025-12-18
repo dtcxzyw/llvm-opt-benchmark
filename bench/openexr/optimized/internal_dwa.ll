@@ -1156,8 +1156,8 @@ DctCoderChannelData_push_row.exit:                ; preds = %DctCoderChannelData
   br i1 %412, label %403, label %._crit_edge514, !llvm.loop !128
 
 .loopexit:                                        ; preds = %327, %._crit_edge522, %.preheader476, %333, %._crit_edge514
-  %.5309 = phi ptr [ %354, %333 ], [ %.3307528, %._crit_edge514 ], [ %.3307528, %.preheader476 ], [ %.3307528, %._crit_edge522 ], [ %.3307528, %327 ]
-  %.5303 = phi ptr [ %352, %333 ], [ %.3301529, %._crit_edge514 ], [ %.3301529, %.preheader476 ], [ %.3301529, %._crit_edge522 ], [ %.3301529, %327 ]
+  %.5309 = phi ptr [ %354, %333 ], [ %.3307528, %._crit_edge514 ], [ %.3307528, %._crit_edge522 ], [ %.3307528, %.preheader476 ], [ %.3307528, %327 ]
+  %.5303 = phi ptr [ %352, %333 ], [ %.3301529, %._crit_edge514 ], [ %.3301529, %._crit_edge522 ], [ %.3301529, %.preheader476 ], [ %.3301529, %327 ]
   store i32 1, ptr %310, align 32, !tbaa !105
   %.pre569 = load i32, ptr %113, align 8, !tbaa !45
   br label %413
@@ -1400,7 +1400,7 @@ DctCoderChannelData_push_row.exit:                ; preds = %DctCoderChannelData
   br label %DwaCompressor_writeRelevantChannelRules.exit.thread
 
 DwaCompressor_writeRelevantChannelRules.exit.thread: ; preds = %71, %195, %252, %333, %312, %432, %444, %21, %._crit_edge.i, %515, %.thread465, %465, %427, %526, %533, %516, %430, %._crit_edge.i.thread, %17, %1
-  %.0 = phi i32 [ 1, %1 ], [ %20, %17 ], [ 0, %526 ], [ 3, %430 ], [ 23, %516 ], [ %511, %515 ], [ %.21.ph, %.thread465 ], [ %443, %432 ], [ %463, %465 ], [ %423, %427 ], [ 1, %._crit_edge.i.thread ], [ 0, %533 ], [ 1, %._crit_edge.i ], [ 1, %21 ], [ 0, %444 ], [ 1, %195 ], [ 1, %333 ], [ 1, %252 ], [ 3, %312 ], [ 1, %71 ]
+  %.0 = phi i32 [ 1, %333 ], [ 1, %1 ], [ %20, %17 ], [ 1, %252 ], [ 0, %526 ], [ 3, %430 ], [ 23, %516 ], [ %511, %515 ], [ %.21.ph, %.thread465 ], [ %443, %432 ], [ %463, %465 ], [ %423, %427 ], [ 1, %195 ], [ 1, %._crit_edge.i.thread ], [ 0, %533 ], [ 1, %._crit_edge.i ], [ 1, %21 ], [ 0, %444 ], [ 3, %312 ], [ 1, %71 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -2268,8 +2268,8 @@ DwaCompressor_readChannelRules.exit:              ; preds = %Classifier_read.exi
   br i1 %.not460.not, label %.preheader559, label %.preheader558, !llvm.loop !156
 
 .preheader558:                                    ; preds = %._crit_edge582, %._crit_edge.thread, %._crit_edge
-  %.ph = phi ptr [ %257, %._crit_edge.thread ], [ %254, %._crit_edge ], [ %254, %._crit_edge582 ]
-  %.ph719 = phi ptr [ %256, %._crit_edge.thread ], [ %252, %._crit_edge ], [ %252, %._crit_edge582 ]
+  %.ph = phi ptr [ %254, %._crit_edge ], [ %257, %._crit_edge.thread ], [ %254, %._crit_edge582 ]
+  %.ph719 = phi ptr [ %252, %._crit_edge ], [ %256, %._crit_edge.thread ], [ %252, %._crit_edge582 ]
   %299 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %300 = load i32, ptr %299, align 4, !tbaa !113
   %.not468588 = icmp sgt i32 %300, 0
@@ -2691,8 +2691,8 @@ DwaCompressor_readChannelRules.exit:              ; preds = %Classifier_read.exi
   %.not476 = icmp slt i64 %indvars.iv.next659, %513
   br i1 %.not476, label %387, label %DwaCompressor_readChannelRules.exit.thread, !llvm.loop !173
 
-DwaCompressor_readChannelRules.exit.thread:       ; preds = %55, %275, %409, %406, %511, %493, %.preheader556, %.thread53.i.i, %44, %._crit_edge.i, %42, %._crit_edge.thread.i, %.thread533, %.thread508, %.thread503, %.thread, %223, %184, %185, %177, %179, %169, %165, %162, %138, %157, %DwaCompressor_readChannelRules.exit, %28, %15, %5, %197, %241
-  %.0333 = phi i32 [ 23, %184 ], [ 23, %5 ], [ 23, %15 ], [ 23, %28 ], [ 23, %.thread508 ], [ %137, %DwaCompressor_readChannelRules.exit ], [ 23, %138 ], [ 23, %197 ], [ 22, %162 ], [ 23, %165 ], [ 23, %169 ], [ %191, %185 ], [ 23, %177 ], [ 23, %223 ], [ 23, %42 ], [ %.14.ph, %.thread533 ], [ 23, %241 ], [ %.3.ph, %.thread503 ], [ 23, %157 ], [ 23, %179 ], [ %196, %.thread ], [ %.1.ph.i.i, %.thread53.i.i ], [ 1, %._crit_edge.thread.i ], [ 23, %44 ], [ %.0.i.ph.i, %._crit_edge.i ], [ 0, %.preheader556 ], [ 1, %275 ], [ 23, %493 ], [ 0, %511 ], [ %416, %409 ], [ 23, %406 ], [ 23, %55 ]
+DwaCompressor_readChannelRules.exit.thread:       ; preds = %55, %275, %409, %406, %511, %493, %.preheader556, %.thread53.i.i, %44, %._crit_edge.thread.i, %42, %._crit_edge.i, %.thread533, %.thread508, %.thread503, %.thread, %223, %184, %185, %177, %179, %169, %165, %162, %138, %157, %DwaCompressor_readChannelRules.exit, %28, %15, %5, %197, %241
+  %.0333 = phi i32 [ 23, %184 ], [ 23, %5 ], [ 23, %15 ], [ 23, %28 ], [ 23, %.thread508 ], [ %137, %DwaCompressor_readChannelRules.exit ], [ 23, %138 ], [ 23, %197 ], [ 22, %162 ], [ 23, %165 ], [ 23, %169 ], [ %191, %185 ], [ 23, %177 ], [ 23, %223 ], [ 23, %42 ], [ %.14.ph, %.thread533 ], [ 0, %511 ], [ 23, %241 ], [ %.3.ph, %.thread503 ], [ 23, %157 ], [ 23, %179 ], [ %196, %.thread ], [ 23, %493 ], [ %.1.ph.i.i, %.thread53.i.i ], [ 23, %44 ], [ %.0.i.ph.i, %._crit_edge.i ], [ 1, %._crit_edge.thread.i ], [ 1, %275 ], [ 0, %.preheader556 ], [ %416, %409 ], [ 23, %406 ], [ 23, %55 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0333
 }
@@ -7364,7 +7364,7 @@ DwaCompressor_classifyChannels.exit:              ; preds = %150, %202, %43, %.p
   br i1 %exitcond245, label %DwaCompressor_classifyChannels.exit.thread, label %313, !llvm.loop !202
 
 DwaCompressor_classifyChannels.exit.thread:       ; preds = %220, %327, %324, %37, %._crit_edge, %303, %288, %273
-  %.0121 = phi i32 [ 1, %37 ], [ 1, %303 ], [ 1, %288 ], [ 1, %273 ], [ 1, %._crit_edge ], [ 1, %324 ], [ 0, %327 ], [ 3, %220 ]
+  %.0121 = phi i32 [ 1, %37 ], [ 1, %303 ], [ 1, %324 ], [ 1, %288 ], [ 1, %273 ], [ 1, %._crit_edge ], [ 0, %327 ], [ 3, %220 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0121
 }
@@ -12906,7 +12906,7 @@ half_to_float.exit305.us:                         ; preds = %634, %632, %621, %6
   br i1 %exitcond509.not, label %.sink.split, label %.lr.ph439, !llvm.loop !264
 
 .sink.split:                                      ; preds = %135, %.loopexit, %.preheader346
-  %.0246.ph = phi i32 [ 0, %.preheader346 ], [ 0, %.loopexit ], [ 23, %135 ]
+  %.0246.ph = phi i32 [ 0, %.loopexit ], [ 0, %.preheader346 ], [ 23, %135 ]
   tail call void %1(ptr noundef nonnull %42) #21
   br label %638
 

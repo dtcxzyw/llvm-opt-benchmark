@@ -5951,15 +5951,15 @@ thread-pre-split.i.i244:                          ; preds = %.noexc430.i
   br label %.body234
 
 .loopexit.split-lp.loopexit:                      ; preds = %1050, %"_ZN4core3ptr81drop_in_place$LT$alloc..boxed..Box$LT$notify..event..EventAttributesInner$GT$$GT$17hf9516b0b05f1a6f2E.llvm.12436615190307095759.exit.i.i.i", %_ZN7uu_tail6follow5files12FileHandling12contains_key17h2e6c98d7cd146a47E.exit258.thread
-  %.0157.ph.ph = phi i8 [ %.5162, %1050 ], [ 0, %_ZN7uu_tail6follow5files12FileHandling12contains_key17h2e6c98d7cd146a47E.exit258.thread ], [ 1, %"_ZN4core3ptr81drop_in_place$LT$alloc..boxed..Box$LT$notify..event..EventAttributesInner$GT$$GT$17hf9516b0b05f1a6f2E.llvm.12436615190307095759.exit.i.i.i" ]
-  %.0154.ph.ph = phi i1 [ %.5, %1050 ], [ true, %_ZN7uu_tail6follow5files12FileHandling12contains_key17h2e6c98d7cd146a47E.exit258.thread ], [ false, %"_ZN4core3ptr81drop_in_place$LT$alloc..boxed..Box$LT$notify..event..EventAttributesInner$GT$$GT$17hf9516b0b05f1a6f2E.llvm.12436615190307095759.exit.i.i.i" ]
+  %.0157.ph.ph = phi i8 [ 1, %"_ZN4core3ptr81drop_in_place$LT$alloc..boxed..Box$LT$notify..event..EventAttributesInner$GT$$GT$17hf9516b0b05f1a6f2E.llvm.12436615190307095759.exit.i.i.i" ], [ %.5162, %1050 ], [ 0, %_ZN7uu_tail6follow5files12FileHandling12contains_key17h2e6c98d7cd146a47E.exit258.thread ]
+  %.0154.ph.ph = phi i1 [ false, %"_ZN4core3ptr81drop_in_place$LT$alloc..boxed..Box$LT$notify..event..EventAttributesInner$GT$$GT$17hf9516b0b05f1a6f2E.llvm.12436615190307095759.exit.i.i.i" ], [ %.5, %1050 ], [ true, %_ZN7uu_tail6follow5files12FileHandling12contains_key17h2e6c98d7cd146a47E.exit258.thread ]
   %lpad.loopexit380 = landingpad { ptr, i32 }
           cleanup
   br label %.body234
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %1101, %1095, %1048, %1030, %1024, %.loopexit404
-  %.0163.ph.ph = phi i8 [ 0, %1048 ], [ 1, %1024 ], [ 1, %1101 ], [ 1, %1095 ], [ 1, %1030 ], [ 1, %.loopexit404 ]
-  %.0154.ph.ph379 = phi i1 [ true, %1048 ], [ true, %1024 ], [ true, %1101 ], [ true, %1095 ], [ true, %1030 ], [ false, %.loopexit404 ]
+  %.0163.ph.ph = phi i8 [ 1, %1024 ], [ 0, %1048 ], [ 1, %1101 ], [ 1, %1095 ], [ 1, %1030 ], [ 1, %.loopexit404 ]
+  %.0154.ph.ph379 = phi i1 [ true, %1024 ], [ true, %1048 ], [ true, %1101 ], [ true, %1095 ], [ true, %1030 ], [ false, %.loopexit404 ]
   %lpad.loopexit.split-lp381 = landingpad { ptr, i32 }
           cleanup
   br label %.body234

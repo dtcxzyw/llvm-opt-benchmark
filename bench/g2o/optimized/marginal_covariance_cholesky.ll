@@ -313,7 +313,7 @@ define noundef double @_ZN3g2o26MarginalCovarianceCholesky12computeEntryEii(ptr 
   br label %.loopexit, !llvm.loop !44
 
 _ZNSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE4findERS5_.exit: ; preds = %30, %13, %25
-  %.sroa.06.1.i.i = phi ptr [ %26, %25 ], [ %.sroa.06.0.i.i, %13 ], [ %32, %30 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %13 ], [ %26, %25 ], [ %32, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %39 = load double, ptr %38, align 8, !tbaa !45
   br label %111
@@ -446,7 +446,7 @@ _ZNSt10_HashtableIiSt4pairIKidESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   resume { ptr, i32 } %110
 
 _ZNSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEEixERS5_.exit: ; preds = %98, %93, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %94, %93 ], [ %109, %.loopexit.i.i ], [ %100, %98 ]
+  %.pn.i.i = phi ptr [ %109, %.loopexit.i.i ], [ %94, %93 ], [ %100, %98 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   store double %.029, ptr %.1.i.i, align 8, !tbaa !38
   br label %111

@@ -1314,7 +1314,7 @@ calc_lsq_max_fit_error.exit.thread.i:             ; preds = %559
   br i1 %exitcond68.not.i310.i, label %calc_lsq_max_fit_error.exit311.i, label %.preheader.us.i299.i, !llvm.loop !71
 
 calc_lsq_max_fit_error.exit311.i:                 ; preds = %._crit_edge.us.i309.i, %calc_lsq_max_fit_error.exit.thread.i, %calc_lsq_max_fit_error.exit.i, %.preheader.lr.ph.i287.i
-  %632 = phi i32 [ %.0164210.i, %.preheader.lr.ph.i287.i ], [ %.0164210.i, %calc_lsq_max_fit_error.exit.i ], [ %spec.select.i46, %calc_lsq_max_fit_error.exit.thread.i ], [ %.3.us.i306.i, %._crit_edge.us.i309.i ]
+  %632 = phi i32 [ %spec.select.i46, %calc_lsq_max_fit_error.exit.thread.i ], [ %.0164210.i, %calc_lsq_max_fit_error.exit.i ], [ %.0164210.i, %.preheader.lr.ph.i287.i ], [ %.3.us.i306.i, %._crit_edge.us.i309.i ]
   %633 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv.i
   store i8 %.0.i.i, ptr %633, align 1, !tbaa !43
   %634 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv.i

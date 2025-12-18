@@ -16008,7 +16008,7 @@ terminate.lpad.i.i.i14:                           ; preds = %if.then.i.i.i12
   unreachable
 
 if.end:                                           ; preds = %if.end.i.i, %entry.if.end_crit_edge, %_ZN4asio6detail9scheduler12can_dispatchEv.exit
-  %.pre-phi.ph = phi ptr [ %3, %_ZN4asio6detail9scheduler12can_dispatchEv.exit ], [ %.pre, %entry.if.end_crit_edge ], [ %3, %if.end.i.i ]
+  %.pre-phi.ph = phi ptr [ %.pre, %entry.if.end_crit_edge ], [ %3, %_ZN4asio6detail9scheduler12can_dispatchEv.exit ], [ %3, %if.end.i.i ]
   %.pr = load ptr, ptr %.pre-phi.ph, align 8
   store ptr %this, ptr %p, align 8
   %v = getelementptr inbounds nuw i8, ptr %p, i64 8
@@ -17116,7 +17116,7 @@ lpad8:                                            ; preds = %lpad4
           to label %eh.resume unwind label %terminate.lpad
 
 if.end:                                           ; preds = %if.end.i.i, %entry.if.end_crit_edge, %_ZN4asio6detail9scheduler12can_dispatchEv.exit
-  %.pre-phi.ph = phi ptr [ %3, %_ZN4asio6detail9scheduler12can_dispatchEv.exit ], [ %.pre, %entry.if.end_crit_edge ], [ %3, %if.end.i.i ]
+  %.pre-phi.ph = phi ptr [ %.pre, %entry.if.end_crit_edge ], [ %3, %_ZN4asio6detail9scheduler12can_dispatchEv.exit ], [ %3, %if.end.i.i ]
   %.pr = load ptr, ptr %.pre-phi.ph, align 8
   store ptr %this, ptr %p, align 8
   %v = getelementptr inbounds nuw i8, ptr %p, i64 8
@@ -18461,7 +18461,7 @@ lpad8:                                            ; preds = %lpad4
           to label %eh.resume unwind label %terminate.lpad
 
 if.end:                                           ; preds = %if.end.i.i, %entry.if.end_crit_edge, %_ZN4asio6detail9scheduler12can_dispatchEv.exit
-  %.pre-phi.ph = phi ptr [ %3, %_ZN4asio6detail9scheduler12can_dispatchEv.exit ], [ %.pre, %entry.if.end_crit_edge ], [ %3, %if.end.i.i ]
+  %.pre-phi.ph = phi ptr [ %.pre, %entry.if.end_crit_edge ], [ %3, %_ZN4asio6detail9scheduler12can_dispatchEv.exit ], [ %3, %if.end.i.i ]
   %.pr = load ptr, ptr %.pre-phi.ph, align 8
   store ptr %this, ptr %p, align 8
   %v = getelementptr inbounds nuw i8, ptr %p, i64 8
@@ -23527,8 +23527,8 @@ for.inc17:                                        ; preds = %for.body13
   br i1 %cmp12, label %for.body13, label %for.end19, !llvm.loop !423
 
 for.end19:                                        ; preds = %for.inc17, %if.end, %for.cond10.preheader
-  %29 = phi ptr [ %.pre51, %for.cond10.preheader ], [ null, %if.end ], [ %.pre51, %for.inc17 ]
-  %30 = phi ptr [ %.pre51, %for.cond10.preheader ], [ null, %if.end ], [ %.pre, %for.inc17 ]
+  %29 = phi ptr [ null, %if.end ], [ %.pre51, %for.cond10.preheader ], [ %.pre51, %for.inc17 ]
+  %30 = phi ptr [ null, %if.end ], [ %.pre51, %for.cond10.preheader ], [ %.pre, %for.inc17 ]
   %promise_ = getelementptr inbounds nuw i8, ptr %this, i64 80
   call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i)
   %31 = load ptr, ptr %promise_, align 8
@@ -28905,7 +28905,7 @@ ehcleanup:                                        ; preds = %lpad8, %lpad10
   br label %eh.resume
 
 if.end:                                           ; preds = %if.end.i.i, %entry.if.end_crit_edge, %_ZN4asio6detail9scheduler12can_dispatchEv.exit
-  %.pre-phi.ph = phi ptr [ %3, %_ZN4asio6detail9scheduler12can_dispatchEv.exit ], [ %.pre, %entry.if.end_crit_edge ], [ %3, %if.end.i.i ]
+  %.pre-phi.ph = phi ptr [ %.pre, %entry.if.end_crit_edge ], [ %3, %_ZN4asio6detail9scheduler12can_dispatchEv.exit ], [ %3, %if.end.i.i ]
   %.pr = load ptr, ptr %.pre-phi.ph, align 8
   store ptr %this, ptr %p, align 8
   %v = getelementptr inbounds nuw i8, ptr %p, i64 8
@@ -46192,7 +46192,7 @@ return.sink.split:                                ; preds = %_ZNSt10error_codeC2
   br label %return
 
 return:                                           ; preds = %return.sink.split, %_ZNSt10error_codeC2IN4asio5error12basic_errorsEvEET_.exit26, %_ZNSt10error_codeC2IN4asio5error12basic_errorsEvEET_.exit16
-  %retval.0 = phi i1 [ false, %_ZNSt10error_codeC2IN4asio5error12basic_errorsEvEET_.exit16 ], [ false, %_ZNSt10error_codeC2IN4asio5error12basic_errorsEvEET_.exit26 ], [ true, %return.sink.split ]
+  %retval.0 = phi i1 [ false, %_ZNSt10error_codeC2IN4asio5error12basic_errorsEvEET_.exit26 ], [ false, %_ZNSt10error_codeC2IN4asio5error12basic_errorsEvEET_.exit16 ], [ true, %return.sink.split ]
   ret i1 %retval.0
 }
 
@@ -47295,7 +47295,7 @@ return.sink.split:                                ; preds = %_ZNSt10error_codeC2
   br label %return
 
 return:                                           ; preds = %return.sink.split, %_ZNSt10error_codeC2IN4asio5error12basic_errorsEvEET_.exit26, %_ZNSt10error_codeC2IN4asio5error12basic_errorsEvEET_.exit16
-  %retval.0 = phi i1 [ false, %_ZNSt10error_codeC2IN4asio5error12basic_errorsEvEET_.exit16 ], [ false, %_ZNSt10error_codeC2IN4asio5error12basic_errorsEvEET_.exit26 ], [ true, %return.sink.split ]
+  %retval.0 = phi i1 [ false, %_ZNSt10error_codeC2IN4asio5error12basic_errorsEvEET_.exit26 ], [ false, %_ZNSt10error_codeC2IN4asio5error12basic_errorsEvEET_.exit16 ], [ true, %return.sink.split ]
   ret i1 %retval.0
 }
 
@@ -49632,8 +49632,8 @@ return.sink.split:                                ; preds = %if.end.i29.i, %if.e
   store ptr %add.ptr.i14.i, ptr %.sink132, align 8
   br label %return
 
-return:                                           ; preds = %return.sink.split, %if.end.i43, %if.then27.i, %_ZN11struct_pack6detail13memory_reader9read_viewEm.exit, %sw.bb2.i, %sw.bb8.i, %entry, %if.end.i, %if.end9.i, %sw.bb.i, %sw.bb, %if.end.i77, %if.end3.i, %if.end7.i, %sw.bb.i89, %sw.bb2.i87, %sw.bb7.i, %sw.epilog.i85, %if.end13.i, %if.end17.i
-  %retval.0 = phi i32 [ 1, %if.then27.i ], [ 1, %if.end3.i ], [ 1, %sw.bb ], [ 0, %if.end.i77 ], [ 0, %if.end7.i ], [ 1, %sw.bb2.i87 ], [ 1, %sw.bb7.i ], [ 0, %sw.epilog.i85 ], [ 1, %sw.bb.i89 ], [ 1, %if.end13.i ], [ 0, %if.end17.i ], [ 1, %_ZN11struct_pack6detail13memory_reader9read_viewEm.exit ], [ 1, %sw.bb.i ], [ 1, %sw.bb2.i ], [ 1, %sw.bb8.i ], [ 1, %entry ], [ 2, %if.end.i ], [ 1, %if.end9.i ], [ 3, %if.end.i43 ], [ 0, %return.sink.split ]
+return:                                           ; preds = %return.sink.split, %if.end.i43, %if.then27.i, %_ZN11struct_pack6detail13memory_reader9read_viewEm.exit, %sw.bb2.i, %sw.bb.i, %entry, %if.end.i, %if.end9.i, %sw.bb8.i, %sw.bb, %if.end.i77, %if.end3.i, %if.end7.i, %sw.bb.i89, %sw.bb2.i87, %sw.bb7.i, %sw.epilog.i85, %if.end13.i, %if.end17.i
+  %retval.0 = phi i32 [ 3, %if.end.i43 ], [ 1, %if.then27.i ], [ 1, %if.end9.i ], [ 1, %if.end3.i ], [ 1, %sw.bb ], [ 0, %if.end.i77 ], [ 0, %if.end7.i ], [ 1, %sw.bb2.i87 ], [ 1, %sw.bb7.i ], [ 0, %sw.epilog.i85 ], [ 1, %sw.bb.i89 ], [ 1, %if.end13.i ], [ 0, %if.end17.i ], [ 1, %_ZN11struct_pack6detail13memory_reader9read_viewEm.exit ], [ 1, %sw.bb8.i ], [ 1, %sw.bb2.i ], [ 1, %sw.bb.i ], [ 1, %entry ], [ 2, %if.end.i ], [ 0, %return.sink.split ]
   ret i32 %retval.0
 }
 
@@ -51654,8 +51654,8 @@ _ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE15deserialize_oneILm2E
   %..i85 = zext i1 %cmp.i.i82 to i32
   br label %return
 
-return:                                           ; preds = %if.end.i30, %if.then27.i, %_ZN11struct_pack6detail13memory_reader9read_viewEm.exit, %sw.bb2.i.i, %sw.bb8.i.i, %entry, %if.end.i, %if.end9.i, %sw.bb.i.i, %_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE15deserialize_oneILm1ELm18446744073709551615ELb1ELm0ESt4errcEENS_4errcERT3_.exit, %_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE15deserialize_oneILm2ELm18446744073709551615ELb1ELm0ESt4errcEENS_4errcERT3_.exit
-  %retval.0 = phi i32 [ %..i, %_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE15deserialize_oneILm1ELm18446744073709551615ELb1ELm0ESt4errcEENS_4errcERT3_.exit ], [ 1, %if.then27.i ], [ %..i85, %_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE15deserialize_oneILm2ELm18446744073709551615ELb1ELm0ESt4errcEENS_4errcERT3_.exit ], [ 1, %_ZN11struct_pack6detail13memory_reader9read_viewEm.exit ], [ 1, %sw.bb.i.i ], [ 1, %sw.bb2.i.i ], [ 1, %sw.bb8.i.i ], [ 1, %entry ], [ 2, %if.end.i ], [ 1, %if.end9.i ], [ 3, %if.end.i30 ]
+return:                                           ; preds = %if.end.i30, %if.then27.i, %_ZN11struct_pack6detail13memory_reader9read_viewEm.exit, %sw.bb2.i.i, %sw.bb.i.i, %entry, %if.end.i, %if.end9.i, %sw.bb8.i.i, %_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE15deserialize_oneILm1ELm18446744073709551615ELb1ELm0ESt4errcEENS_4errcERT3_.exit, %_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE15deserialize_oneILm2ELm18446744073709551615ELb1ELm0ESt4errcEENS_4errcERT3_.exit
+  %retval.0 = phi i32 [ %..i, %_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE15deserialize_oneILm1ELm18446744073709551615ELb1ELm0ESt4errcEENS_4errcERT3_.exit ], [ 1, %if.then27.i ], [ %..i85, %_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE15deserialize_oneILm2ELm18446744073709551615ELb1ELm0ESt4errcEENS_4errcERT3_.exit ], [ 1, %_ZN11struct_pack6detail13memory_reader9read_viewEm.exit ], [ 1, %sw.bb8.i.i ], [ 1, %sw.bb2.i.i ], [ 1, %sw.bb.i.i ], [ 1, %entry ], [ 2, %if.end.i ], [ 1, %if.end9.i ], [ 3, %if.end.i30 ]
   ret i32 %retval.0
 }
 
@@ -53123,8 +53123,8 @@ sw.bb6:                                           ; preds = %if.end
   %call.i19 = tail call noundef i32 @_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE15deserialize_oneILm2ELm18446744073709551615ELb1ELm0E13response_partEENS_4errcERT3_(ptr noundef nonnull align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(41) %t)
   br label %return
 
-return:                                           ; preds = %if.end.i30, %if.then27.i, %_ZN11struct_pack6detail13memory_reader9read_viewEm.exit, %sw.bb2.i.i, %sw.bb8.i.i, %entry, %if.end.i, %if.end9.i, %sw.bb.i.i, %sw.bb6, %sw.bb, %if.end.i.i, %if.end3.i.i, %_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE15deserialize_oneILm1ELm18446744073709551615ELb1ELm0EbEENS_4errcERT3_.exit.i
-  %retval.0 = phi i32 [ 1, %sw.bb ], [ 1, %if.then27.i ], [ %call.i19, %sw.bb6 ], [ 1, %if.end.i.i ], [ %..i16.i, %_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE15deserialize_oneILm1ELm18446744073709551615ELb1ELm0EbEENS_4errcERT3_.exit.i ], [ 1, %if.end3.i.i ], [ 1, %_ZN11struct_pack6detail13memory_reader9read_viewEm.exit ], [ 1, %sw.bb.i.i ], [ 1, %sw.bb2.i.i ], [ 1, %sw.bb8.i.i ], [ 1, %entry ], [ 2, %if.end.i ], [ 1, %if.end9.i ], [ 3, %if.end.i30 ]
+return:                                           ; preds = %if.end.i30, %if.then27.i, %_ZN11struct_pack6detail13memory_reader9read_viewEm.exit, %sw.bb2.i.i, %sw.bb.i.i, %entry, %if.end.i, %if.end9.i, %sw.bb8.i.i, %sw.bb6, %sw.bb, %if.end.i.i, %if.end3.i.i, %_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE15deserialize_oneILm1ELm18446744073709551615ELb1ELm0EbEENS_4errcERT3_.exit.i
+  %retval.0 = phi i32 [ 1, %sw.bb ], [ 1, %if.then27.i ], [ %call.i19, %sw.bb6 ], [ 1, %if.end.i.i ], [ %..i16.i, %_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE15deserialize_oneILm1ELm18446744073709551615ELb1ELm0EbEENS_4errcERT3_.exit.i ], [ 1, %if.end3.i.i ], [ 1, %_ZN11struct_pack6detail13memory_reader9read_viewEm.exit ], [ 1, %sw.bb8.i.i ], [ 1, %sw.bb2.i.i ], [ 1, %sw.bb.i.i ], [ 1, %entry ], [ 2, %if.end.i ], [ 1, %if.end9.i ], [ 3, %if.end.i30 ]
   ret i32 %retval.0
 }
 

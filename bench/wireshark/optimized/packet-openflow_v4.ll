@@ -4610,7 +4610,7 @@ dissect_openflow_instruction_header_v4.exit:      ; preds = %4, %18
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %39, %56, %52, %48, %29, %22
-  %.0 = phi i32 [ %59, %56 ], [ %28, %22 ], [ %38, %29 ], [ %51, %48 ], [ %55, %52 ], [ %42, %39 ], [ %46, %.lr.ph ]
+  %.0 = phi i32 [ %59, %56 ], [ %28, %22 ], [ %38, %29 ], [ %55, %52 ], [ %51, %48 ], [ %42, %39 ], [ %46, %.lr.ph ]
   ret i32 %.0
 }
 
@@ -4866,7 +4866,7 @@ dissect_openflow_action_header_v4.exit.i:         ; preds = %88, %.lr.ph107.i
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %dissect_openflow_action_header_v4.exit.i, %.lr.ph110.i, %dissect_openflow_instruction_header_v4.exit.i, %127, %118, %96, %77, %72, %53
-  %.1.i = phi i32 [ %52, %127 ], [ %52, %118 ], [ %49, %53 ], [ %49, %72 ], [ %49, %77 ], [ %49, %96 ], [ %.0.i101.i, %dissect_openflow_action_header_v4.exit.i ], [ %.0.i.i, %dissect_openflow_instruction_header_v4.exit.i ], [ %75, %.lr.ph110.i ], [ %113, %.lr.ph.i ]
+  %.1.i = phi i32 [ %52, %127 ], [ %52, %118 ], [ %.0.i.i, %dissect_openflow_instruction_header_v4.exit.i ], [ %75, %.lr.ph110.i ], [ %.0.i101.i, %dissect_openflow_action_header_v4.exit.i ], [ %49, %53 ], [ %49, %72 ], [ %49, %77 ], [ %49, %96 ], [ %113, %.lr.ph.i ]
   %130 = add i16 %44, 7
   %131 = and i16 %130, -8
   %.not.i = icmp eq i16 %131, %44

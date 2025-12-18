@@ -4726,8 +4726,8 @@ Vec_WecPush.exit99.i.i:                           ; preds = %363, %Vec_IntGrow.e
   br i1 %376, label %231, label %.loopexit101.i.i, !llvm.loop !177
 
 .loopexit101.i.i:                                 ; preds = %._crit_edge.i.i, %.loopexit.i.i, %134, %.preheader100.i.i
-  %377 = phi i32 [ %115, %.preheader100.i.i ], [ %135, %134 ], [ %374, %.loopexit.i.i ], [ %225, %._crit_edge.i.i ]
-  %378 = phi i32 [ %115, %.preheader100.i.i ], [ %136, %134 ], [ %374, %.loopexit.i.i ], [ %226, %._crit_edge.i.i ]
+  %377 = phi i32 [ %374, %.loopexit.i.i ], [ %115, %.preheader100.i.i ], [ %135, %134 ], [ %225, %._crit_edge.i.i ]
+  %378 = phi i32 [ %374, %.loopexit.i.i ], [ %115, %.preheader100.i.i ], [ %136, %134 ], [ %226, %._crit_edge.i.i ]
   %indvars.iv.next127.i.i = add nsw i64 %indvars.iv126.i.i, 1
   %379 = load i32, ptr %90, align 8, !tbaa !168
   %380 = sext i32 %379 to i64

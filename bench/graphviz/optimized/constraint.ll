@@ -357,7 +357,7 @@ overlaps.exit:                                    ; preds = %137
   br i1 %exitcond.not, label %overlaps.exit.thread, label %.lr.ph93, !llvm.loop !51
 
 overlaps.exit.thread:                             ; preds = %.loopexit.i, %.lr.ph93, %._crit_edge
-  %.0 = phi i32 [ 0, %._crit_edge ], [ 1, %.lr.ph93 ], [ 0, %.loopexit.i ]
+  %.0 = phi i32 [ 1, %.lr.ph93 ], [ 0, %._crit_edge ], [ 0, %.loopexit.i ]
   call void @free(ptr noundef %18) #17
   ret i32 %.0
 }
@@ -1411,7 +1411,7 @@ mkOverlapSet.exit.thread:                         ; preds = %points_append.exit.
   br i1 %exitcond.not, label %compress.exit.thread, label %.lr.ph136, !llvm.loop !97
 
 compress.exit.thread:                             ; preds = %89, %.lr.ph136, %.thread126, %compress.exit, %62, %mkOverlapSet.exit.thread
-  %.0 = phi i32 [ 0, %mkOverlapSet.exit.thread ], [ 0, %compress.exit ], [ 0, %62 ], [ 1, %.thread126 ], [ 1, %.lr.ph136 ], [ 0, %89 ]
+  %.0 = phi i32 [ 0, %mkOverlapSet.exit.thread ], [ 0, %compress.exit ], [ 1, %.lr.ph136 ], [ 0, %62 ], [ 1, %.thread126 ], [ 0, %89 ]
   call void @free(ptr noundef %20) #17
   ret i32 %.0
 }

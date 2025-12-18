@@ -307,7 +307,7 @@ _ZL11pretty_nameN5Yosys5RTLIL8IdStringE.exit.loopexit: ; preds = %50
   br label %_ZL11pretty_nameN5Yosys5RTLIL8IdStringE.exit
 
 _ZL11pretty_nameN5Yosys5RTLIL8IdStringE.exit:     ; preds = %50, %_ZL11pretty_nameN5Yosys5RTLIL8IdStringE.exit.loopexit, %40, %36, %.critedge.i, %_ZNK5Yosys5RTLIL8IdString5c_strEv.exit.i
-  %.034.i = phi ptr [ %24, %.critedge.i ], [ %24, %_ZNK5Yosys5RTLIL8IdString5c_strEv.exit.i ], [ %24, %40 ], [ %27, %_ZL11pretty_nameN5Yosys5RTLIL8IdStringE.exit.loopexit ], [ %spec.select.i, %36 ], [ %24, %50 ]
+  %.034.i = phi ptr [ %24, %.critedge.i ], [ %24, %_ZNK5Yosys5RTLIL8IdString5c_strEv.exit.i ], [ %spec.select.i, %36 ], [ %24, %40 ], [ %27, %_ZL11pretty_nameN5Yosys5RTLIL8IdStringE.exit.loopexit ], [ %24, %50 ]
   %52 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1, !tbaa !34, !range !36, !noundef !37
   %53 = trunc nuw i8 %52 to i1
   %54 = icmp ne i32 %9, 0

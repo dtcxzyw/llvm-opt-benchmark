@@ -237,7 +237,7 @@ _insert_in_list.exit85:                           ; preds = %.preheader, %_inser
   br label %_insert_in_list.exit
 
 _insert_in_list.exit:                             ; preds = %_insert_in_list.exit85, %_insert_in_list.exit85.us, %76, %71, %69, %98, %70
-  %.164 = phi i32 [ %.06388, %69 ], [ 0, %70 ], [ 0, %98 ], [ 0, %71 ], [ 0, %76 ], [ 0, %_insert_in_list.exit85.us ], [ 0, %_insert_in_list.exit85 ]
+  %.164 = phi i32 [ %.06388, %69 ], [ 0, %70 ], [ 0, %76 ], [ 0, %98 ], [ 0, %71 ], [ 0, %_insert_in_list.exit85.us ], [ 0, %_insert_in_list.exit85 ]
   %101 = getelementptr inbounds nuw i8, ptr %.060, i64 32
   store i32 %.164, ptr %101, align 8, !tbaa !71
   %102 = getelementptr inbounds nuw i8, ptr %.060, i64 36

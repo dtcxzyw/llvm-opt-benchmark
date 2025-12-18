@@ -5666,8 +5666,8 @@ VULKAN_DestroyBuffer.exit:                        ; preds = %231, %233
   br label %251
 
 251:                                              ; preds = %.fold.split.i, %250, %241
-  %.0438.i = phi i32 [ 64, %250 ], [ 97, %241 ], [ 44, %.fold.split.i ]
-  %.0437.i = phi i32 [ 1000104008, %250 ], [ 1000104002, %241 ], [ 0, %.fold.split.i ]
+  %.0438.i = phi i32 [ 97, %241 ], [ 64, %250 ], [ 44, %.fold.split.i ]
+  %.0437.i = phi i32 [ 1000104002, %241 ], [ 1000104008, %250 ], [ 0, %.fold.split.i ]
   %252 = getelementptr inbounds nuw i8, ptr %20, i64 10360
   %253 = load i32, ptr %252, align 8
   %254 = icmp eq i32 %253, 1
@@ -10570,7 +10570,7 @@ define internal fastcc i32 @VULKAN_FindPhysicalDevice(ptr noundef %0) unnamed_ad
   %143 = icmp eq i32 %142, 0
   br i1 %143, label %.critedge, label %137
 
-.critedge.thread159:                              ; preds = %67, %.thread139, %112, %134, %125
+.critedge.thread159:                              ; preds = %67, %125, %.thread139, %134, %112
   %.2.ph158 = phi i32 [ -13, %112 ], [ %128, %134 ], [ -13, %.thread139 ], [ -13, %125 ], [ -13, %67 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -10583,10 +10583,10 @@ define internal fastcc i32 @VULKAN_FindPhysicalDevice(ptr noundef %0) unnamed_ad
   br label %.loopexit167
 
 .loopexit:                                        ; preds = %137, %.preheader, %48, %54, %.loopexit166, %102, %115
-  %.2111.ph = phi ptr [ %.3112, %115 ], [ %.3112, %102 ], [ %.3112, %.loopexit166 ], [ %.0109201, %54 ], [ %.0109201, %48 ], [ %.3112, %.preheader ], [ %.3112, %137 ]
-  %.1107.ph = phi i32 [ %.2108, %115 ], [ %.2108, %102 ], [ %.2108, %.loopexit166 ], [ %.0106202, %54 ], [ %.0106202, %48 ], [ %.2108, %.preheader ], [ %.2108, %137 ]
-  %.2104.ph = phi ptr [ %.0102203, %115 ], [ %.0102203, %102 ], [ %.0102203, %.loopexit166 ], [ %.0102203, %54 ], [ %.0102203, %48 ], [ %.3105, %.preheader ], [ %.3105, %137 ]
-  %.1100.ph = phi i32 [ %.099204, %115 ], [ %.099204, %102 ], [ %.099204, %.loopexit166 ], [ %.099204, %54 ], [ %.099204, %48 ], [ %.2101, %.preheader ], [ %.2101, %137 ]
+  %.2111.ph = phi ptr [ %.0109201, %48 ], [ %.3112, %115 ], [ %.3112, %102 ], [ %.3112, %.loopexit166 ], [ %.0109201, %54 ], [ %.3112, %.preheader ], [ %.3112, %137 ]
+  %.1107.ph = phi i32 [ %.0106202, %48 ], [ %.2108, %115 ], [ %.2108, %102 ], [ %.2108, %.loopexit166 ], [ %.0106202, %54 ], [ %.2108, %.preheader ], [ %.2108, %137 ]
+  %.2104.ph = phi ptr [ %.0102203, %48 ], [ %.0102203, %115 ], [ %.0102203, %102 ], [ %.0102203, %.loopexit166 ], [ %.0102203, %54 ], [ %.3105, %.preheader ], [ %.3105, %137 ]
+  %.1100.ph = phi i32 [ %.099204, %48 ], [ %.099204, %115 ], [ %.099204, %102 ], [ %.099204, %.loopexit166 ], [ %.099204, %54 ], [ %.2101, %.preheader ], [ %.2101, %137 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %indvars.iv.next241 = add nuw nsw i64 %indvars.iv240, 1

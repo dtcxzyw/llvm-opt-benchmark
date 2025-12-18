@@ -1404,8 +1404,8 @@ _ZN4cvc58internal8RationalD2Ev.exit165:           ; preds = %321, %319
   br label %338
 
 338:                                              ; preds = %336, %.fold.split, %337, %_ZN4cvc58internal8RationalD2Ev.exit163
-  %.124 = phi i32 [ %.023, %_ZN4cvc58internal8RationalD2Ev.exit163 ], [ %.023, %337 ], [ %175, %336 ], [ %.023, %.fold.split ]
-  %.1 = phi i32 [ %.0, %_ZN4cvc58internal8RationalD2Ev.exit163 ], [ %175, %337 ], [ %.0, %336 ], [ %.0, %.fold.split ]
+  %.124 = phi i32 [ %.023, %_ZN4cvc58internal8RationalD2Ev.exit163 ], [ %175, %336 ], [ %.023, %337 ], [ %.023, %.fold.split ]
+  %.1 = phi i32 [ %.0, %_ZN4cvc58internal8RationalD2Ev.exit163 ], [ %.0, %336 ], [ %175, %337 ], [ %.0, %.fold.split ]
   invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %19)
           to label %_ZN4cvc58internal8RationalD2Ev.exit169 unwind label %339
 

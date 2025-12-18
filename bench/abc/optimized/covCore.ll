@@ -710,8 +710,8 @@ Vec_IntPush.exit113:                              ; preds = %Vec_IntPush.exit113
   br label %253
 
 .preheader:                                       ; preds = %Vec_IntPush.exit120, %Vec_IntAlloc.exit, %.critedge
-  %.0.lcssa196 = phi i32 [ %.0.lcssa.ph, %.critedge ], [ 0, %Vec_IntAlloc.exit ], [ %.0.lcssa.ph, %Vec_IntPush.exit120 ]
-  %.pre.i123160 = phi ptr [ %.pre.i116157, %.critedge ], [ %68, %Vec_IntAlloc.exit ], [ %.pre.i116155, %Vec_IntPush.exit120 ]
+  %.0.lcssa196 = phi i32 [ 0, %Vec_IntAlloc.exit ], [ %.0.lcssa.ph, %.critedge ], [ %.0.lcssa.ph, %Vec_IntPush.exit120 ]
+  %.pre.i123160 = phi ptr [ %68, %Vec_IntAlloc.exit ], [ %.pre.i116157, %.critedge ], [ %.pre.i116155, %Vec_IntPush.exit120 ]
   %249 = load i32, ptr %8, align 4, !tbaa !43
   %250 = icmp slt i32 %.0.lcssa196, %249
   br i1 %250, label %.lr.ph137, label %._crit_edge
@@ -1942,7 +1942,7 @@ Min_CoverCountCubes.exit.thread.i.i:              ; preds = %.lr.ph.i85.i.i
   br i1 %.not12.i91.i.i, label %Abc_NodeCovSum.exit.i, label %434, !llvm.loop !94
 
 Abc_NodeCovSum.exit.i:                            ; preds = %434, %421, %345, %425, %417, %341, %261, %184
-  %.0109.i = phi ptr [ null, %184 ], [ %.1.i, %261 ], [ %.1.i, %341 ], [ %.1.i, %417 ], [ %.1.i, %425 ], [ %.1.i, %421 ], [ %.1.i, %345 ], [ %.1.i, %434 ]
+  %.0109.i = phi ptr [ null, %184 ], [ %.1.i, %261 ], [ %.1.i, %341 ], [ %.1.i, %345 ], [ %.1.i, %417 ], [ %.1.i, %421 ], [ %.1.i, %425 ], [ %.1.i, %434 ]
   %436 = icmp ne ptr %.0111.i, null
   %437 = icmp ne ptr %.0109.i, null
   %or.cond7.i = select i1 %436, i1 true, i1 %437
@@ -2469,7 +2469,7 @@ Min_CoverCountCubes.exit.thread:                  ; preds = %.lr.ph.i75
   br i1 %.not12.i81, label %Min_CoverRecycle.exit, label %145, !llvm.loop !94
 
 Min_CoverRecycle.exit:                            ; preds = %57, %145, %137, %Min_CoverCountCubes.exit.thread, %53
-  %.068 = phi ptr [ %139, %Min_CoverCountCubes.exit.thread ], [ null, %53 ], [ null, %137 ], [ null, %145 ], [ null, %57 ]
+  %.068 = phi ptr [ null, %145 ], [ %139, %Min_CoverCountCubes.exit.thread ], [ null, %53 ], [ null, %137 ], [ null, %57 ]
   ret ptr %.068
 }
 

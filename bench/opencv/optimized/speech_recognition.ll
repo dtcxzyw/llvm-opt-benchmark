@@ -6454,7 +6454,7 @@ _ZNSt10_HashtableIiSt4pairIKicESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit9
 
 .loopexit:                                        ; preds = %23, %.noexc, %17
-  %.pn.i.i = phi ptr [ %18, %17 ], [ %36, %.noexc ], [ %26, %23 ]
+  %.pn.i.i = phi ptr [ %36, %.noexc ], [ %18, %17 ], [ %26, %23 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 12
   store i8 %11, ptr %.1.i.i, align 1, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -7074,7 +7074,7 @@ _ZNSt6vectorIdSaIdEE9push_backEOd.exit:           ; preds = %78, %_ZNSt6vectorId
   br label %_ZNSt13unordered_mapIicSt4hashIiESt8equal_toIiESaISt4pairIKicEEE4findERS5_.exit.thread, !llvm.loop !189
 
 _ZNSt13unordered_mapIicSt4hashIiESt8equal_toIiESaISt4pairIKicEEE4findERS5_.exit: ; preds = %121, %105, %116
-  %.sroa.06.1.i.i = phi ptr [ %117, %116 ], [ %.sroa.06.0.i.i, %105 ], [ %123, %121 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %105 ], [ %117, %116 ], [ %123, %121 ]
   %129 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 12
   %130 = load i8, ptr %129, align 4, !tbaa !192
   %131 = load i64, ptr %64, align 8, !tbaa !15

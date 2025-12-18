@@ -649,7 +649,7 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   br label %66
 
 66:                                               ; preds = %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i, %32
-  %.sroa.019.0.i = phi i64 [ 0, %32 ], [ %65, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i ]
+  %.sroa.019.0.i = phi i64 [ %65, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i ], [ 0, %32 ]
   %67 = load i32, ptr %20, align 4, !tbaa !29
   %.not.i.i.not.i = icmp ult i32 %31, %67
   br i1 %.not.i.i.not.i, label %71, label %68, !prof !55
@@ -2720,7 +2720,7 @@ _ZN4llvm8ExpectedIjED2Ev.exit:                    ; preds = %129, %_ZNKSt14defau
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN4llvm8ExpectedIjED2Ev.exit, %46, %.loopexit.loopexit, %_ZN4llvm5ErrorD2Ev.exit27.thread, %_ZN4llvm5ErrorD2Ev.exit34, %_ZN4llvm5ErrorD2Ev.exit26
-  %.1 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit26 ], [ true, %_ZN4llvm5ErrorD2Ev.exit27.thread ], [ false, %_ZN4llvm5ErrorD2Ev.exit34 ], [ false, %46 ], [ true, %.loopexit.loopexit ], [ %.4, %_ZN4llvm8ExpectedIjED2Ev.exit ]
+  %.1 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit26 ], [ true, %.loopexit.loopexit ], [ true, %_ZN4llvm5ErrorD2Ev.exit27.thread ], [ false, %_ZN4llvm5ErrorD2Ev.exit34 ], [ false, %46 ], [ %.4, %_ZN4llvm8ExpectedIjED2Ev.exit ]
   %134 = load i8, ptr %29, align 8
   %135 = trunc i8 %134 to i1
   br i1 %135, label %136, label %_ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit64
@@ -3122,7 +3122,7 @@ _ZN4llvm8ExpectedIjED2Ev.exit:                    ; preds = %144, %_ZNKSt14defau
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN4llvm8ExpectedIjED2Ev.exit, %47, %.loopexit.loopexit, %_ZN4llvm5ErrorD2Ev.exit31.thread, %_ZN4llvm5ErrorD2Ev.exit38, %_ZN4llvm5ErrorD2Ev.exit30
-  %.1 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit30 ], [ true, %_ZN4llvm5ErrorD2Ev.exit31.thread ], [ false, %_ZN4llvm5ErrorD2Ev.exit38 ], [ false, %47 ], [ true, %.loopexit.loopexit ], [ %.4, %_ZN4llvm8ExpectedIjED2Ev.exit ]
+  %.1 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit30 ], [ true, %.loopexit.loopexit ], [ true, %_ZN4llvm5ErrorD2Ev.exit31.thread ], [ false, %_ZN4llvm5ErrorD2Ev.exit38 ], [ false, %47 ], [ %.4, %_ZN4llvm8ExpectedIjED2Ev.exit ]
   %149 = load i8, ptr %29, align 8
   %150 = trunc i8 %149 to i1
   br i1 %150, label %151, label %_ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit71
@@ -3490,7 +3490,7 @@ _ZN4llvm8ExpectedIjED2Ev.exit:                    ; preds = %129, %_ZNKSt14defau
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN4llvm8ExpectedIjED2Ev.exit, %46, %.loopexit.loopexit, %_ZN4llvm5ErrorD2Ev.exit27.thread, %_ZN4llvm5ErrorD2Ev.exit34, %_ZN4llvm5ErrorD2Ev.exit26
-  %.1 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit26 ], [ true, %_ZN4llvm5ErrorD2Ev.exit27.thread ], [ false, %_ZN4llvm5ErrorD2Ev.exit34 ], [ false, %46 ], [ true, %.loopexit.loopexit ], [ %.4, %_ZN4llvm8ExpectedIjED2Ev.exit ]
+  %.1 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit26 ], [ true, %.loopexit.loopexit ], [ true, %_ZN4llvm5ErrorD2Ev.exit27.thread ], [ false, %_ZN4llvm5ErrorD2Ev.exit34 ], [ false, %46 ], [ %.4, %_ZN4llvm8ExpectedIjED2Ev.exit ]
   %134 = load i8, ptr %29, align 8
   %135 = trunc i8 %134 to i1
   br i1 %135, label %136, label %_ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit64
@@ -3858,7 +3858,7 @@ _ZN4llvm8ExpectedIjED2Ev.exit:                    ; preds = %129, %_ZNKSt14defau
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN4llvm8ExpectedIjED2Ev.exit, %46, %.loopexit.loopexit, %_ZN4llvm5ErrorD2Ev.exit27.thread, %_ZN4llvm5ErrorD2Ev.exit34, %_ZN4llvm5ErrorD2Ev.exit26
-  %.1 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit26 ], [ true, %_ZN4llvm5ErrorD2Ev.exit27.thread ], [ false, %_ZN4llvm5ErrorD2Ev.exit34 ], [ false, %46 ], [ true, %.loopexit.loopexit ], [ %.4, %_ZN4llvm8ExpectedIjED2Ev.exit ]
+  %.1 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit26 ], [ true, %.loopexit.loopexit ], [ true, %_ZN4llvm5ErrorD2Ev.exit27.thread ], [ false, %_ZN4llvm5ErrorD2Ev.exit34 ], [ false, %46 ], [ %.4, %_ZN4llvm8ExpectedIjED2Ev.exit ]
   %134 = load i8, ptr %29, align 8
   %135 = trunc i8 %134 to i1
   br i1 %135, label %136, label %_ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit64
@@ -4226,7 +4226,7 @@ _ZN4llvm8ExpectedIjED2Ev.exit:                    ; preds = %129, %_ZNKSt14defau
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN4llvm8ExpectedIjED2Ev.exit, %46, %.loopexit.loopexit, %_ZN4llvm5ErrorD2Ev.exit27.thread, %_ZN4llvm5ErrorD2Ev.exit34, %_ZN4llvm5ErrorD2Ev.exit26
-  %.1 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit26 ], [ true, %_ZN4llvm5ErrorD2Ev.exit27.thread ], [ false, %_ZN4llvm5ErrorD2Ev.exit34 ], [ false, %46 ], [ true, %.loopexit.loopexit ], [ %.4, %_ZN4llvm8ExpectedIjED2Ev.exit ]
+  %.1 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit26 ], [ true, %.loopexit.loopexit ], [ true, %_ZN4llvm5ErrorD2Ev.exit27.thread ], [ false, %_ZN4llvm5ErrorD2Ev.exit34 ], [ false, %46 ], [ %.4, %_ZN4llvm8ExpectedIjED2Ev.exit ]
   %134 = load i8, ptr %29, align 8
   %135 = trunc i8 %134 to i1
   br i1 %135, label %136, label %_ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit64
@@ -4594,7 +4594,7 @@ _ZN4llvm8ExpectedIjED2Ev.exit:                    ; preds = %129, %_ZNKSt14defau
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN4llvm8ExpectedIjED2Ev.exit, %46, %.loopexit.loopexit, %_ZN4llvm5ErrorD2Ev.exit27.thread, %_ZN4llvm5ErrorD2Ev.exit34, %_ZN4llvm5ErrorD2Ev.exit26
-  %.1 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit26 ], [ true, %_ZN4llvm5ErrorD2Ev.exit27.thread ], [ false, %_ZN4llvm5ErrorD2Ev.exit34 ], [ false, %46 ], [ true, %.loopexit.loopexit ], [ %.4, %_ZN4llvm8ExpectedIjED2Ev.exit ]
+  %.1 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit26 ], [ true, %.loopexit.loopexit ], [ true, %_ZN4llvm5ErrorD2Ev.exit27.thread ], [ false, %_ZN4llvm5ErrorD2Ev.exit34 ], [ false, %46 ], [ %.4, %_ZN4llvm8ExpectedIjED2Ev.exit ]
   %134 = load i8, ptr %29, align 8
   %135 = trunc i8 %134 to i1
   br i1 %135, label %136, label %_ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit64
@@ -4962,7 +4962,7 @@ _ZN4llvm8ExpectedIjED2Ev.exit:                    ; preds = %129, %_ZNKSt14defau
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN4llvm8ExpectedIjED2Ev.exit, %46, %.loopexit.loopexit, %_ZN4llvm5ErrorD2Ev.exit27.thread, %_ZN4llvm5ErrorD2Ev.exit34, %_ZN4llvm5ErrorD2Ev.exit26
-  %.1 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit26 ], [ true, %_ZN4llvm5ErrorD2Ev.exit27.thread ], [ false, %_ZN4llvm5ErrorD2Ev.exit34 ], [ false, %46 ], [ true, %.loopexit.loopexit ], [ %.4, %_ZN4llvm8ExpectedIjED2Ev.exit ]
+  %.1 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit26 ], [ true, %.loopexit.loopexit ], [ true, %_ZN4llvm5ErrorD2Ev.exit27.thread ], [ false, %_ZN4llvm5ErrorD2Ev.exit34 ], [ false, %46 ], [ %.4, %_ZN4llvm8ExpectedIjED2Ev.exit ]
   %134 = load i8, ptr %29, align 8
   %135 = trunc i8 %134 to i1
   br i1 %135, label %136, label %_ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit64
@@ -5330,7 +5330,7 @@ _ZN4llvm8ExpectedIjED2Ev.exit:                    ; preds = %129, %_ZNKSt14defau
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN4llvm8ExpectedIjED2Ev.exit, %46, %.loopexit.loopexit, %_ZN4llvm5ErrorD2Ev.exit27.thread, %_ZN4llvm5ErrorD2Ev.exit34, %_ZN4llvm5ErrorD2Ev.exit26
-  %.1 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit26 ], [ true, %_ZN4llvm5ErrorD2Ev.exit27.thread ], [ false, %_ZN4llvm5ErrorD2Ev.exit34 ], [ false, %46 ], [ true, %.loopexit.loopexit ], [ %.4, %_ZN4llvm8ExpectedIjED2Ev.exit ]
+  %.1 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit26 ], [ true, %.loopexit.loopexit ], [ true, %_ZN4llvm5ErrorD2Ev.exit27.thread ], [ false, %_ZN4llvm5ErrorD2Ev.exit34 ], [ false, %46 ], [ %.4, %_ZN4llvm8ExpectedIjED2Ev.exit ]
   %134 = load i8, ptr %29, align 8
   %135 = trunc i8 %134 to i1
   br i1 %135, label %136, label %_ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit64
@@ -5698,7 +5698,7 @@ _ZN4llvm8ExpectedIjED2Ev.exit:                    ; preds = %129, %_ZNKSt14defau
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN4llvm8ExpectedIjED2Ev.exit, %46, %.loopexit.loopexit, %_ZN4llvm5ErrorD2Ev.exit27.thread, %_ZN4llvm5ErrorD2Ev.exit34, %_ZN4llvm5ErrorD2Ev.exit26
-  %.1 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit26 ], [ true, %_ZN4llvm5ErrorD2Ev.exit27.thread ], [ false, %_ZN4llvm5ErrorD2Ev.exit34 ], [ false, %46 ], [ true, %.loopexit.loopexit ], [ %.4, %_ZN4llvm8ExpectedIjED2Ev.exit ]
+  %.1 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit26 ], [ true, %.loopexit.loopexit ], [ true, %_ZN4llvm5ErrorD2Ev.exit27.thread ], [ false, %_ZN4llvm5ErrorD2Ev.exit34 ], [ false, %46 ], [ %.4, %_ZN4llvm8ExpectedIjED2Ev.exit ]
   %134 = load i8, ptr %29, align 8
   %135 = trunc i8 %134 to i1
   br i1 %135, label %136, label %_ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit64
@@ -6066,7 +6066,7 @@ _ZN4llvm8ExpectedIjED2Ev.exit:                    ; preds = %129, %_ZNKSt14defau
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN4llvm8ExpectedIjED2Ev.exit, %46, %.loopexit.loopexit, %_ZN4llvm5ErrorD2Ev.exit27.thread, %_ZN4llvm5ErrorD2Ev.exit34, %_ZN4llvm5ErrorD2Ev.exit26
-  %.1 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit26 ], [ true, %_ZN4llvm5ErrorD2Ev.exit27.thread ], [ false, %_ZN4llvm5ErrorD2Ev.exit34 ], [ false, %46 ], [ true, %.loopexit.loopexit ], [ %.4, %_ZN4llvm8ExpectedIjED2Ev.exit ]
+  %.1 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit26 ], [ true, %.loopexit.loopexit ], [ true, %_ZN4llvm5ErrorD2Ev.exit27.thread ], [ false, %_ZN4llvm5ErrorD2Ev.exit34 ], [ false, %46 ], [ %.4, %_ZN4llvm8ExpectedIjED2Ev.exit ]
   %134 = load i8, ptr %29, align 8
   %135 = trunc i8 %134 to i1
   br i1 %135, label %136, label %_ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit64
@@ -6434,7 +6434,7 @@ _ZN4llvm8ExpectedIjED2Ev.exit:                    ; preds = %129, %_ZNKSt14defau
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN4llvm8ExpectedIjED2Ev.exit, %46, %.loopexit.loopexit, %_ZN4llvm5ErrorD2Ev.exit27.thread, %_ZN4llvm5ErrorD2Ev.exit34, %_ZN4llvm5ErrorD2Ev.exit26
-  %.1 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit26 ], [ true, %_ZN4llvm5ErrorD2Ev.exit27.thread ], [ false, %_ZN4llvm5ErrorD2Ev.exit34 ], [ false, %46 ], [ true, %.loopexit.loopexit ], [ %.4, %_ZN4llvm8ExpectedIjED2Ev.exit ]
+  %.1 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit26 ], [ true, %.loopexit.loopexit ], [ true, %_ZN4llvm5ErrorD2Ev.exit27.thread ], [ false, %_ZN4llvm5ErrorD2Ev.exit34 ], [ false, %46 ], [ %.4, %_ZN4llvm8ExpectedIjED2Ev.exit ]
   %134 = load i8, ptr %29, align 8
   %135 = trunc i8 %134 to i1
   br i1 %135, label %136, label %_ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit64
@@ -6802,7 +6802,7 @@ _ZN4llvm8ExpectedIjED2Ev.exit:                    ; preds = %129, %_ZNKSt14defau
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN4llvm8ExpectedIjED2Ev.exit, %46, %.loopexit.loopexit, %_ZN4llvm5ErrorD2Ev.exit27.thread, %_ZN4llvm5ErrorD2Ev.exit34, %_ZN4llvm5ErrorD2Ev.exit26
-  %.1 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit26 ], [ true, %_ZN4llvm5ErrorD2Ev.exit27.thread ], [ false, %_ZN4llvm5ErrorD2Ev.exit34 ], [ false, %46 ], [ true, %.loopexit.loopexit ], [ %.4, %_ZN4llvm8ExpectedIjED2Ev.exit ]
+  %.1 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit26 ], [ true, %.loopexit.loopexit ], [ true, %_ZN4llvm5ErrorD2Ev.exit27.thread ], [ false, %_ZN4llvm5ErrorD2Ev.exit34 ], [ false, %46 ], [ %.4, %_ZN4llvm8ExpectedIjED2Ev.exit ]
   %134 = load i8, ptr %29, align 8
   %135 = trunc i8 %134 to i1
   br i1 %135, label %136, label %_ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit64
@@ -7855,7 +7855,7 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   br label %41
 
 41:                                               ; preds = %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i, %8
-  %.sroa.019.0.i = phi i32 [ 0, %8 ], [ %40, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i ]
+  %.sroa.019.0.i = phi i32 [ %40, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i ], [ 0, %8 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i)
   store i32 -1, ptr %.sroa.0.i.i.i.i.i.i.i, align 8, !noalias !638
   %.sroa.0.i.i.i.i.i.i.i.4.i.i.i.i.i.i.i.4.i.i.i.i.i.i.i.4.i.i.i.i.i.i.4.i.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.4.i.i.i.i.4.i.i.i.4.i.i.i.4.i.i.4.i.i.4.i.4.i.4..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i.i.i.i.i.i, i64 4
@@ -7951,7 +7951,7 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTable
   br label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit.thread
 
 _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit.thread: ; preds = %.critedge.i.i.i, %.critedge.i.i, %65, %41, %6, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i, %26, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit, %3
-  %.sroa.2.0 = phi i64 [ 0, %3 ], [ 0, %6 ], [ 0, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i ], [ 0, %26 ], [ %84, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit ], [ 0, %41 ], [ 0, %65 ], [ 0, %.critedge.i.i ], [ 0, %.critedge.i.i.i ]
+  %.sroa.2.0 = phi i64 [ 0, %3 ], [ 0, %.critedge.i.i ], [ 0, %6 ], [ 0, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i ], [ 0, %26 ], [ %84, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit ], [ 0, %41 ], [ 0, %65 ], [ 0, %.critedge.i.i.i ]
   ret i64 %.sroa.2.0
 }
 
@@ -8628,8 +8628,8 @@ _ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread:   ; preds = %49, %45, %_ZNK4llvm
   br label %_ZNK4llvm12VersionTuple5emptyEv.exit2.thread
 
 .loopexit30:                                      ; preds = %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread, %.lr.ph, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread, %_ZNSt8optionalIjEaSESt9nullopt_t.exit
-  %.ph = phi ptr [ %14, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ], [ %11, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread ], [ %14, %.lr.ph ], [ %14, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
-  %.ph29 = phi ptr [ %13, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ], [ %10, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread ], [ %13, %.lr.ph ], [ %13, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
+  %.ph = phi ptr [ %14, %.lr.ph ], [ %14, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ], [ %11, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread ], [ %14, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
+  %.ph29 = phi ptr [ %13, %.lr.ph ], [ %13, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ], [ %10, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread ], [ %13, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
   %53 = load ptr, ptr %0, align 8, !tbaa !26
   %54 = load i64, ptr %53, align 4
   %55 = and i64 %54, 9223372036854775807
@@ -8749,7 +8749,7 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   br label %41
 
 41:                                               ; preds = %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i, %8
-  %.sroa.019.0.i = phi i32 [ 0, %8 ], [ %40, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i ]
+  %.sroa.019.0.i = phi i32 [ %40, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i ], [ 0, %8 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i)
   store i32 -1, ptr %.sroa.0.i.i.i.i.i.i.i, align 8, !noalias !679
   %.sroa.0.i.i.i.i.i.i.i.4.i.i.i.i.i.i.i.4.i.i.i.i.i.i.i.4.i.i.i.i.i.i.4.i.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.4.i.i.i.i.4.i.i.i.4.i.i.i.4.i.i.4.i.i.4.i.4.i.4..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i.i.i.i.i.i, i64 4
@@ -8845,7 +8845,7 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTable
   br label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit.thread
 
 _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit.thread: ; preds = %.critedge.i.i.i, %.critedge.i.i, %65, %41, %6, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i, %26, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit, %3
-  %.sroa.2.0 = phi i64 [ 0, %3 ], [ 0, %6 ], [ 0, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i ], [ 0, %26 ], [ %84, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit ], [ 0, %41 ], [ 0, %65 ], [ 0, %.critedge.i.i ], [ 0, %.critedge.i.i.i ]
+  %.sroa.2.0 = phi i64 [ 0, %3 ], [ 0, %.critedge.i.i ], [ 0, %6 ], [ 0, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i ], [ 0, %26 ], [ %84, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit ], [ 0, %41 ], [ 0, %65 ], [ 0, %.critedge.i.i.i ]
   ret i64 %.sroa.2.0
 }
 
@@ -9131,7 +9131,7 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   br label %_ZN4llvm11SmallVectorISt4pairINS_12VersionTupleEN5clang9api_notes16ObjCPropertyInfoEELj1EED2Ev.exit
 
 59:                                               ; preds = %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i, %22
-  %.sroa.019.0.i = phi i32 [ 0, %22 ], [ %54, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i ]
+  %.sroa.019.0.i = phi i32 [ %54, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i ], [ 0, %22 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i)
   store i32 %2, ptr %.sroa.0.i.i.i.i.i.i, align 8, !noalias !698
   %.sroa.0.i.i.i.i.i.i.4.i.i.i.i.i.i.4.i.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.4.i.i.i.i.4.i.i.i.4.i.i.i.4.i.i.4.i.i.4.i.4.i.4..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i.i.i.i.i, i64 4
@@ -9663,8 +9663,8 @@ _ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread:   ; preds = %49, %45, %_ZNK4llvm
   br label %_ZNK4llvm12VersionTuple5emptyEv.exit2.thread
 
 .loopexit30:                                      ; preds = %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread, %.lr.ph, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread, %_ZNSt8optionalIjEaSESt9nullopt_t.exit
-  %.ph = phi ptr [ %14, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ], [ %11, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread ], [ %14, %.lr.ph ], [ %14, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
-  %.ph29 = phi ptr [ %13, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ], [ %10, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread ], [ %13, %.lr.ph ], [ %13, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
+  %.ph = phi ptr [ %14, %.lr.ph ], [ %14, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ], [ %11, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread ], [ %14, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
+  %.ph29 = phi ptr [ %13, %.lr.ph ], [ %13, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ], [ %10, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread ], [ %13, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
   %53 = load ptr, ptr %0, align 8, !tbaa !26
   %54 = load i64, ptr %53, align 4
   %55 = and i64 %54, 9223372036854775807
@@ -10310,8 +10310,8 @@ _ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread:   ; preds = %49, %45, %_ZNK4llvm
   br label %_ZNK4llvm12VersionTuple5emptyEv.exit2.thread
 
 .loopexit30:                                      ; preds = %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread, %.lr.ph, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread, %_ZNSt8optionalIjEaSESt9nullopt_t.exit
-  %.ph = phi ptr [ %14, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ], [ %11, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread ], [ %14, %.lr.ph ], [ %14, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
-  %.ph29 = phi ptr [ %13, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ], [ %10, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread ], [ %13, %.lr.ph ], [ %13, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
+  %.ph = phi ptr [ %14, %.lr.ph ], [ %14, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ], [ %11, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread ], [ %14, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
+  %.ph29 = phi ptr [ %13, %.lr.ph ], [ %13, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ], [ %10, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread ], [ %13, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
   %53 = load ptr, ptr %0, align 8, !tbaa !26
   %54 = load i64, ptr %53, align 4
   %55 = and i64 %54, 9223372036854775807
@@ -10459,7 +10459,7 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   br label %_ZN4llvm11SmallVectorISt4pairINS_12VersionTupleEN5clang9api_notes9FieldInfoEELj1EED2Ev.exit
 
 59:                                               ; preds = %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i, %20
-  %.sroa.019.0.i = phi i64 [ 0, %20 ], [ %54, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i ]
+  %.sroa.019.0.i = phi i64 [ %54, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i ], [ 0, %20 ]
   %.sroa.028.0.insert.ext = zext i32 %2 to i64
   %.sroa.028.0.insert.insert = or disjoint i64 %.sroa.019.0.i, %.sroa.028.0.insert.ext
   %.sroa.2.0.extract.shift.i.i = lshr exact i64 %.sroa.019.0.i, 32
@@ -10949,8 +10949,8 @@ _ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread:   ; preds = %49, %45, %_ZNK4llvm
   br label %_ZNK4llvm12VersionTuple5emptyEv.exit2.thread
 
 .loopexit30:                                      ; preds = %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread, %.lr.ph, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread, %_ZNSt8optionalIjEaSESt9nullopt_t.exit
-  %.ph = phi ptr [ %14, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ], [ %11, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread ], [ %14, %.lr.ph ], [ %14, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
-  %.ph29 = phi ptr [ %13, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ], [ %10, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread ], [ %13, %.lr.ph ], [ %13, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
+  %.ph = phi ptr [ %14, %.lr.ph ], [ %14, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ], [ %11, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread ], [ %14, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
+  %.ph29 = phi ptr [ %13, %.lr.ph ], [ %13, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ], [ %10, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread ], [ %13, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
   %53 = load ptr, ptr %0, align 8, !tbaa !26
   %54 = load i64, ptr %53, align 4
   %55 = and i64 %54, 9223372036854775807
@@ -11098,7 +11098,7 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   br label %_ZN4llvm11SmallVectorISt4pairINS_12VersionTupleEN5clang9api_notes13CXXMethodInfoEELj1EED2Ev.exit
 
 59:                                               ; preds = %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i, %20
-  %.sroa.019.0.i = phi i64 [ 0, %20 ], [ %54, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i ]
+  %.sroa.019.0.i = phi i64 [ %54, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i ], [ 0, %20 ]
   %.sroa.022.0.insert.ext = zext i32 %2 to i64
   %.sroa.022.0.insert.insert = or disjoint i64 %.sroa.019.0.i, %.sroa.022.0.insert.ext
   %.sroa.2.0.extract.shift.i.i = lshr exact i64 %.sroa.019.0.i, 32
@@ -11641,8 +11641,8 @@ _ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread:   ; preds = %49, %45, %_ZNK4llvm
   br label %_ZNK4llvm12VersionTuple5emptyEv.exit2.thread
 
 .loopexit30:                                      ; preds = %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread, %.lr.ph, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread, %_ZNSt8optionalIjEaSESt9nullopt_t.exit
-  %.ph = phi ptr [ %14, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ], [ %11, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread ], [ %14, %.lr.ph ], [ %14, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
-  %.ph29 = phi ptr [ %13, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ], [ %10, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread ], [ %13, %.lr.ph ], [ %13, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
+  %.ph = phi ptr [ %14, %.lr.ph ], [ %14, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ], [ %11, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread ], [ %14, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
+  %.ph29 = phi ptr [ %13, %.lr.ph ], [ %13, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ], [ %10, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread ], [ %13, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
   %53 = load ptr, ptr %0, align 8, !tbaa !26
   %54 = load i64, ptr %53, align 4
   %55 = and i64 %54, 9223372036854775807
@@ -11790,7 +11790,7 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   br label %_ZN4llvm11SmallVectorISt4pairINS_12VersionTupleEN5clang9api_notes18GlobalVariableInfoEELj1EED2Ev.exit
 
 60:                                               ; preds = %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i, %21
-  %.sroa.019.0.i = phi i64 [ 0, %21 ], [ %55, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i ]
+  %.sroa.019.0.i = phi i64 [ %55, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i ], [ 0, %21 ]
   %61 = trunc nuw i8 %5 to i1
   %62 = and i64 %4, 4294967295
   %.sroa.047.0.insert.ext = select i1 %61, i64 %62, i64 4294967295
@@ -12282,8 +12282,8 @@ _ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread:   ; preds = %49, %45, %_ZNK4llvm
   br label %_ZNK4llvm12VersionTuple5emptyEv.exit2.thread
 
 .loopexit30:                                      ; preds = %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread, %.lr.ph, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread, %_ZNSt8optionalIjEaSESt9nullopt_t.exit
-  %.ph = phi ptr [ %14, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ], [ %11, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread ], [ %14, %.lr.ph ], [ %14, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
-  %.ph29 = phi ptr [ %13, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ], [ %10, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread ], [ %13, %.lr.ph ], [ %13, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
+  %.ph = phi ptr [ %14, %.lr.ph ], [ %14, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ], [ %11, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread ], [ %14, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
+  %.ph29 = phi ptr [ %13, %.lr.ph ], [ %13, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ], [ %10, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread ], [ %13, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
   %53 = load ptr, ptr %0, align 8, !tbaa !26
   %54 = load i64, ptr %53, align 4
   %55 = and i64 %54, 9223372036854775807
@@ -12431,7 +12431,7 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   br label %_ZN4llvm11SmallVectorISt4pairINS_12VersionTupleEN5clang9api_notes18GlobalFunctionInfoEELj1EED2Ev.exit
 
 60:                                               ; preds = %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i, %21
-  %.sroa.019.0.i = phi i64 [ 0, %21 ], [ %55, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i ]
+  %.sroa.019.0.i = phi i64 [ %55, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i ], [ 0, %21 ]
   %61 = trunc nuw i8 %5 to i1
   %62 = and i64 %4, 4294967295
   %.sroa.037.0.insert.ext = select i1 %61, i64 %62, i64 4294967295
@@ -13105,8 +13105,8 @@ _ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread:   ; preds = %49, %45, %_ZNK4llvm
   br label %_ZNK4llvm12VersionTuple5emptyEv.exit2.thread
 
 .loopexit30:                                      ; preds = %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread, %.lr.ph, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread, %_ZNSt8optionalIjEaSESt9nullopt_t.exit
-  %.ph = phi ptr [ %14, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ], [ %11, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread ], [ %14, %.lr.ph ], [ %14, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
-  %.ph29 = phi ptr [ %13, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ], [ %10, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread ], [ %13, %.lr.ph ], [ %13, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
+  %.ph = phi ptr [ %14, %.lr.ph ], [ %14, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ], [ %11, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread ], [ %14, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
+  %.ph29 = phi ptr [ %13, %.lr.ph ], [ %13, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ], [ %10, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread ], [ %13, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
   %53 = load ptr, ptr %0, align 8, !tbaa !26
   %54 = load i64, ptr %53, align 4
   %55 = and i64 %54, 9223372036854775807
@@ -13253,7 +13253,7 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   br label %_ZN4llvm11SmallVectorISt4pairINS_12VersionTupleEN5clang9api_notes16EnumConstantInfoEELj1EED2Ev.exit
 
 57:                                               ; preds = %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i, %20
-  %.sroa.019.0.i = phi i32 [ 0, %20 ], [ %52, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i ]
+  %.sroa.019.0.i = phi i32 [ %52, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i ], [ 0, %20 ]
   %58 = zext nneg i32 %.sroa.019.0.i to i64
   %59 = mul i64 %58, -1225172306242737336
   %60 = add i64 %59, -4650441984963589867
@@ -13692,8 +13692,8 @@ _ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread:   ; preds = %49, %45, %_ZNK4llvm
   br label %_ZNK4llvm12VersionTuple5emptyEv.exit2.thread
 
 .loopexit30:                                      ; preds = %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread, %.lr.ph, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread, %_ZNSt8optionalIjEaSESt9nullopt_t.exit
-  %.ph = phi ptr [ %14, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ], [ %11, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread ], [ %14, %.lr.ph ], [ %14, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
-  %.ph29 = phi ptr [ %13, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ], [ %10, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread ], [ %13, %.lr.ph ], [ %13, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
+  %.ph = phi ptr [ %14, %.lr.ph ], [ %14, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ], [ %11, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread ], [ %14, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
+  %.ph29 = phi ptr [ %13, %.lr.ph ], [ %13, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ], [ %10, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread ], [ %13, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
   %53 = load ptr, ptr %0, align 8, !tbaa !26
   %54 = load i64, ptr %53, align 4
   %55 = and i64 %54, 9223372036854775807
@@ -13813,7 +13813,7 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   br label %43
 
 43:                                               ; preds = %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i, %10
-  %.sroa.019.0.i = phi i32 [ 0, %10 ], [ %42, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i ]
+  %.sroa.019.0.i = phi i32 [ %42, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i ], [ 0, %10 ]
   %44 = trunc nuw i8 %4 to i1
   %45 = and i64 %3, 4294967295
   %46 = or disjoint i64 %45, 12884901888
@@ -13914,7 +13914,7 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTable
   br label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit.thread
 
 _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit.thread: ; preds = %.critedge.i.i.i, %.critedge.i.i, %70, %43, %8, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i, %28, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit, %5
-  %.sroa.2.0 = phi i64 [ 0, %5 ], [ 0, %8 ], [ 0, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i ], [ 0, %28 ], [ %89, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit ], [ 0, %43 ], [ 0, %70 ], [ 0, %.critedge.i.i ], [ 0, %.critedge.i.i.i ]
+  %.sroa.2.0 = phi i64 [ 0, %5 ], [ 0, %.critedge.i.i ], [ 0, %8 ], [ 0, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i ], [ 0, %28 ], [ %89, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit ], [ 0, %43 ], [ 0, %70 ], [ 0, %.critedge.i.i.i ]
   ret i64 %.sroa.2.0
 }
 
@@ -14050,7 +14050,7 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   br label %_ZN4llvm11SmallVectorISt4pairINS_12VersionTupleEN5clang9api_notes7TagInfoEELj1EED2Ev.exit
 
 67:                                               ; preds = %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i, %28
-  %.sroa.019.0.i = phi i64 [ 0, %28 ], [ %62, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i ]
+  %.sroa.019.0.i = phi i64 [ %62, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i ], [ 0, %28 ]
   %68 = trunc nuw i8 %5 to i1
   %69 = and i64 %4, 4294967295
   %.sroa.042.0.insert.ext = select i1 %68, i64 %69, i64 4294967295
@@ -15215,8 +15215,8 @@ _ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread:   ; preds = %49, %45, %_ZNK4llvm
   br label %_ZNK4llvm12VersionTuple5emptyEv.exit2.thread
 
 .loopexit30:                                      ; preds = %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread, %.lr.ph, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread, %_ZNSt8optionalIjEaSESt9nullopt_t.exit
-  %.ph = phi ptr [ %14, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ], [ %11, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread ], [ %14, %.lr.ph ], [ %14, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
-  %.ph29 = phi ptr [ %13, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ], [ %10, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread ], [ %13, %.lr.ph ], [ %13, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
+  %.ph = phi ptr [ %14, %.lr.ph ], [ %14, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ], [ %11, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread ], [ %14, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
+  %.ph29 = phi ptr [ %13, %.lr.ph ], [ %13, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ], [ %10, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread ], [ %13, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
   %53 = load ptr, ptr %0, align 8, !tbaa !26
   %54 = load i64, ptr %53, align 4
   %55 = and i64 %54, 9223372036854775807
@@ -15364,7 +15364,7 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   br label %_ZN4llvm11SmallVectorISt4pairINS_12VersionTupleEN5clang9api_notes11TypedefInfoEELj1EED2Ev.exit
 
 60:                                               ; preds = %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i, %21
-  %.sroa.019.0.i = phi i64 [ 0, %21 ], [ %55, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i ]
+  %.sroa.019.0.i = phi i64 [ %55, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i ], [ 0, %21 ]
   %61 = trunc nuw i8 %5 to i1
   %62 = and i64 %4, 4294967295
   %.sroa.037.0.insert.ext = select i1 %61, i64 %62, i64 4294967295
@@ -15938,8 +15938,8 @@ _ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread:   ; preds = %49, %45, %_ZNK4llvm
   br label %_ZNK4llvm12VersionTuple5emptyEv.exit2.thread
 
 .loopexit30:                                      ; preds = %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread, %.lr.ph, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread, %_ZNSt8optionalIjEaSESt9nullopt_t.exit
-  %.ph = phi ptr [ %14, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ], [ %11, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread ], [ %14, %.lr.ph ], [ %14, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
-  %.ph29 = phi ptr [ %13, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ], [ %10, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread ], [ %13, %.lr.ph ], [ %13, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
+  %.ph = phi ptr [ %14, %.lr.ph ], [ %14, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ], [ %11, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread ], [ %14, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
+  %.ph29 = phi ptr [ %13, %.lr.ph ], [ %13, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ], [ %10, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread ], [ %13, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
   %53 = load ptr, ptr %0, align 8, !tbaa !26
   %54 = load i64, ptr %53, align 4
   %55 = and i64 %54, 9223372036854775807
@@ -16059,7 +16059,7 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   br label %42
 
 42:                                               ; preds = %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i, %9
-  %.sroa.019.0.i = phi i32 [ 0, %9 ], [ %41, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i ]
+  %.sroa.019.0.i = phi i32 [ %41, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.i ], [ 0, %9 ]
   %43 = and i64 %3, 4294967296
   %.not40 = icmp eq i64 %43, 0
   %44 = and i64 %3, 4294967295
@@ -16161,7 +16161,7 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTable
   br label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit.thread
 
 _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit.thread: ; preds = %.critedge.i.i.i, %.critedge.i.i, %69, %42, %7, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i, %27, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit, %4
-  %.sroa.233.0 = phi i64 [ 0, %4 ], [ 0, %7 ], [ 0, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i ], [ 0, %27 ], [ %88, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit ], [ 0, %42 ], [ 0, %69 ], [ 0, %.critedge.i.i ], [ 0, %.critedge.i.i.i ]
+  %.sroa.233.0 = phi i64 [ 0, %4 ], [ 0, %.critedge.i.i ], [ 0, %7 ], [ 0, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i ], [ 0, %27 ], [ %88, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit ], [ 0, %42 ], [ 0, %69 ], [ 0, %.critedge.i.i.i ]
   ret i64 %.sroa.233.0
 }
 

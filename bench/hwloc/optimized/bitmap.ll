@@ -450,8 +450,8 @@ define range(i32 -1, -2147483648) i32 @hwloc_bitmap_snprintf(ptr noalias noundef
   br label %66
 
 66:                                               ; preds = %54, %64, %60
-  %.199 = phi i32 [ %56, %54 ], [ %62, %60 ], [ %65, %64 ]
-  %.293 = phi i32 [ 1, %54 ], [ %.192139, %60 ], [ 1, %64 ]
+  %.199 = phi i32 [ %65, %64 ], [ %56, %54 ], [ %62, %60 ]
+  %.293 = phi i32 [ 1, %64 ], [ 1, %54 ], [ %.192139, %60 ]
   %67 = icmp sgt i32 %.199, -1
   br i1 %67, label %.thread, label %.critedge118
 
@@ -477,9 +477,9 @@ define range(i32 -1, -2147483648) i32 @hwloc_bitmap_snprintf(ptr noalias noundef
   br i1 %81, label %42, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %32, %.thread, %.preheader
-  %.1102.lcssa = phi ptr [ %21, %.preheader ], [ %77, %.thread ], [ %21, %32 ]
-  %.195.lcssa = phi i32 [ %9, %.preheader ], [ %68, %.thread ], [ %9, %32 ]
-  %.180.lcssa = phi i64 [ %22, %.preheader ], [ %78, %.thread ], [ %22, %32 ]
+  %.1102.lcssa = phi ptr [ %77, %.thread ], [ %21, %.preheader ], [ %21, %32 ]
+  %.195.lcssa = phi i32 [ %68, %.thread ], [ %9, %.preheader ], [ %9, %32 ]
+  %.180.lcssa = phi i64 [ %78, %.thread ], [ %22, %.preheader ], [ %22, %32 ]
   %.not111 = icmp eq i32 %.195.lcssa, 0
   br i1 %.not111, label %._crit_edge.thread, label %.critedge118
 
@@ -491,7 +491,7 @@ define range(i32 -1, -2147483648) i32 @hwloc_bitmap_snprintf(ptr noalias noundef
   br label %.critedge118
 
 .critedge118:                                     ; preds = %66, %._crit_edge.thread, %._crit_edge, %8
-  %.0 = phi i32 [ %.195.lcssa, %._crit_edge ], [ %spec.select, %._crit_edge.thread ], [ -1, %8 ], [ -1, %66 ]
+  %.0 = phi i32 [ -1, %8 ], [ %.195.lcssa, %._crit_edge ], [ %spec.select, %._crit_edge.thread ], [ -1, %66 ]
   ret i32 %.0
 }
 
@@ -1513,7 +1513,7 @@ hwloc_bitmap_set_range.exit.thread.sink.split:    ; preds = %.lr.ph.i.i27, %hwlo
   br label %hwloc_bitmap_set_range.exit.thread
 
 hwloc_bitmap_set_range.exit.thread:               ; preds = %hwloc_bitmap_set.exit, %hwloc_bitmap_set.exit.thread, %hwloc_bitmap_set_range.exit.thread.sink.split, %hwloc_bitmap_zero.exit, %43
-  %.0 = phi i32 [ 0, %43 ], [ 0, %hwloc_bitmap_zero.exit ], [ %.0.ph, %hwloc_bitmap_set_range.exit.thread.sink.split ], [ 0, %hwloc_bitmap_set.exit.thread ], [ 0, %hwloc_bitmap_set.exit ]
+  %.0 = phi i32 [ %.0.ph, %hwloc_bitmap_set_range.exit.thread.sink.split ], [ 0, %43 ], [ 0, %hwloc_bitmap_zero.exit ], [ 0, %hwloc_bitmap_set.exit.thread ], [ 0, %hwloc_bitmap_set.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -1854,9 +1854,9 @@ define range(i32 -1, -2147483648) i32 @hwloc_bitmap_taskset_snprintf(ptr noalias
   br i1 %.not180, label %._crit_edge, label %49, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %34, %.thread, %.preheader
-  %.188.lcssa = phi i64 [ %23, %.preheader ], [ %74, %.thread ], [ %23, %34 ]
-  %.185.lcssa = phi ptr [ %22, %.preheader ], [ %73, %.thread ], [ %22, %34 ]
-  %.178.lcssa = phi i32 [ %9, %.preheader ], [ %66, %.thread ], [ %9, %34 ]
+  %.188.lcssa = phi i64 [ %74, %.thread ], [ %23, %.preheader ], [ %23, %34 ]
+  %.185.lcssa = phi ptr [ %73, %.thread ], [ %22, %.preheader ], [ %22, %34 ]
+  %.178.lcssa = phi i32 [ %66, %.thread ], [ %9, %.preheader ], [ %9, %34 ]
   %.not96 = icmp eq i32 %.178.lcssa, 0
   br i1 %.not96, label %._crit_edge.thread, label %.critedge102
 
@@ -1868,7 +1868,7 @@ define range(i32 -1, -2147483648) i32 @hwloc_bitmap_taskset_snprintf(ptr noalias
   br label %.critedge102
 
 .critedge102:                                     ; preds = %64, %._crit_edge.thread, %._crit_edge, %8
-  %.0 = phi i32 [ %.178.lcssa, %._crit_edge ], [ %spec.select, %._crit_edge.thread ], [ -1, %8 ], [ -1, %64 ]
+  %.0 = phi i32 [ -1, %8 ], [ %.178.lcssa, %._crit_edge ], [ %spec.select, %._crit_edge.thread ], [ -1, %64 ]
   ret i32 %.0
 }
 
@@ -3291,7 +3291,7 @@ define range(i32 0, 2) i32 @hwloc_bitmap_isequal(ptr noundef readonly captures(n
   br label %.critedge
 
 .critedge:                                        ; preds = %11, %30, %34, %.loopexit
-  %.0 = phi i32 [ %., %.loopexit ], [ 0, %30 ], [ 0, %34 ], [ 0, %11 ]
+  %.0 = phi i32 [ 0, %34 ], [ %., %.loopexit ], [ 0, %30 ], [ 0, %11 ]
   ret i32 %.0
 }
 
@@ -3404,7 +3404,7 @@ define range(i32 0, 2) i32 @hwloc_bitmap_intersects(ptr noundef readonly capture
   br label %.loopexit40
 
 .loopexit40:                                      ; preds = %11, %25, %35, %.loopexit.thread, %41
-  %.031 = phi i32 [ 0, %41 ], [ 1, %.loopexit.thread ], [ 1, %25 ], [ 1, %35 ], [ 1, %11 ]
+  %.031 = phi i32 [ 0, %41 ], [ 1, %35 ], [ 1, %25 ], [ 1, %.loopexit.thread ], [ 1, %11 ]
   ret i32 %.031
 }
 
@@ -3517,7 +3517,7 @@ define range(i32 0, 2) i32 @hwloc_bitmap_isincluded(ptr noundef readonly capture
   br label %.loopexit44
 
 .loopexit44:                                      ; preds = %11, %25, %35, %.loopexit.thread, %41
-  %.033 = phi i32 [ 1, %41 ], [ 0, %.loopexit.thread ], [ 0, %25 ], [ 0, %35 ], [ 0, %11 ]
+  %.033 = phi i32 [ 0, %35 ], [ 0, %25 ], [ 1, %41 ], [ 0, %.loopexit.thread ], [ 0, %11 ]
   ret i32 %.033
 }
 
@@ -4753,7 +4753,7 @@ define range(i32 -64, 65) i32 @hwloc_bitmap_compare_first(ptr noundef readonly c
   br label %.loopexit88
 
 .loopexit88:                                      ; preds = %.lr.ph99.split.us, %.preheader.split.us, %.lr.ph99.split, %.preheader.split, %18, %.loopexit
-  %.3 = phi i32 [ %.1, %18 ], [ %72, %.loopexit ], [ %.neg76, %.preheader.split ], [ %64, %.lr.ph99.split ], [ 1, %.preheader.split.us ], [ -1, %.lr.ph99.split.us ]
+  %.3 = phi i32 [ %.1, %18 ], [ %64, %.lr.ph99.split ], [ %72, %.loopexit ], [ 1, %.preheader.split.us ], [ %.neg76, %.preheader.split ], [ -1, %.lr.ph99.split.us ]
   ret i32 %.3
 }
 
@@ -4864,7 +4864,7 @@ define range(i32 -1, 2) i32 @hwloc_bitmap_compare(ptr noundef readonly captures(
   br label %.thread
 
 .thread:                                          ; preds = %43, %.thread.loopexit.split.loop.exit, %.thread.loopexit83, %.thread.loopexit81, %14
-  %.0 = phi i32 [ %16, %14 ], [ %60, %.thread.loopexit83 ], [ %58, %.thread.loopexit81 ], [ %56, %.thread.loopexit.split.loop.exit ], [ 0, %43 ]
+  %.0 = phi i32 [ %16, %14 ], [ %58, %.thread.loopexit81 ], [ %60, %.thread.loopexit83 ], [ %56, %.thread.loopexit.split.loop.exit ], [ 0, %43 ]
   ret i32 %.0
 }
 

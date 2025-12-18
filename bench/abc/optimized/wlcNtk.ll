@@ -1696,7 +1696,7 @@ Vec_IntUpdateEntry.exit:                          ; preds = %Wlc_ObjFaninId.exit
   br i1 %55, label %28, label %.critedge.preheader, !llvm.loop !85
 
 .critedge4.preheader:                             ; preds = %.critedge, %Vec_IntFill.exit, %.critedge.preheader
-  %.0.lcssa91 = phi i32 [ %.1, %.critedge.preheader ], [ 0, %Vec_IntFill.exit ], [ %.1, %.critedge ]
+  %.0.lcssa91 = phi i32 [ 0, %Vec_IntFill.exit ], [ %.1, %.critedge.preheader ], [ %.1, %.critedge ]
   %56 = getelementptr i8, ptr %0, i64 52
   %.val73 = load i32, ptr %56, align 4, !tbaa !40
   %57 = icmp sgt i32 %.val73, 0
@@ -1921,7 +1921,7 @@ Wlc_ObjFaninId.exit50:                            ; preds = %Wlc_ObjFaninId.exit
   br i1 %exitcond80.not, label %.critedge2, label %Wlc_ObjFaninId.exit50, !llvm.loop !88
 
 .critedge2:                                       ; preds = %.critedge.us65, %.critedge, %.critedge.us, %.preheader, %.critedge.preheader
-  %.031.lcssa = phi i32 [ 0, %.critedge.preheader ], [ 0, %.preheader ], [ %.132, %.critedge ], [ %.132.us, %.critedge.us ], [ %.132.us66, %.critedge.us65 ]
+  %.031.lcssa = phi i32 [ 0, %.critedge.preheader ], [ %.132.us, %.critedge.us ], [ 0, %.preheader ], [ %.132, %.critedge ], [ %.132.us66, %.critedge.us65 ]
   %.val = load ptr, ptr %3, align 8, !tbaa !38
   %68 = ptrtoint ptr %.val to i64
   %69 = sub i64 %4, %68

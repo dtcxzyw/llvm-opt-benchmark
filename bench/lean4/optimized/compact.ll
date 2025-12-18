@@ -582,7 +582,7 @@ _ZNSt6vectorIP11lean_objectSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__
   br label %_ZNSt6vectorIP11lean_objectSaIS1_EE9push_backERKS1_.exit
 
 _ZNSt13unordered_mapIP11lean_objectS1_St4hashIS1_ESt8equal_toIS1_E16mi_stl_allocatorISt4pairIKS1_S1_EEE4findERS8_.exit: ; preds = %27, %11, %22
-  %.sroa.06.1.i.i = phi ptr [ %23, %22 ], [ %.sroa.06.0.i.i, %11 ], [ %29, %27 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %11 ], [ %23, %22 ], [ %29, %27 ]
   %63 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   br label %_ZNSt6vectorIP11lean_objectSaIS1_EE9push_backERKS1_.exit
 
@@ -2184,7 +2184,7 @@ _ZNSt13unordered_mapIP11lean_objectS1_St4hashIS1_ESt8equal_toIS1_E16mi_stl_alloc
   %121 = tail call noundef zeroext i1 @_ZN4lean16object_compactor12insert_arrayEP11lean_object(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull %71)
   br i1 %121, label %.critedge, label %124
 
-.critedge:                                        ; preds = %104, %106, %108, %110, %118, %101, %102, %103, %120
+.critedge:                                        ; preds = %110, %108, %106, %104, %118, %101, %102, %103, %120
   %122 = load ptr, ptr %35, align 8, !tbaa !67
   %123 = getelementptr inbounds i8, ptr %122, i64 -8
   br label %.sink.split
@@ -2194,7 +2194,7 @@ _ZNSt13unordered_mapIP11lean_objectS1_St4hashIS1_ESt8equal_toIS1_E16mi_stl_alloc
   store ptr %.sink, ptr %35, align 8, !tbaa !67
   br label %124
 
-124:                                              ; preds = %.sink.split, %104, %106, %108, %110, %118, %120
+124:                                              ; preds = %.sink.split, %110, %108, %106, %104, %118, %120
   %125 = load ptr, ptr %34, align 8, !tbaa !86
   %126 = load ptr, ptr %35, align 8, !tbaa !86
   %127 = icmp eq ptr %125, %126
@@ -2915,7 +2915,7 @@ _ZNSt10_HashtableIP11lean_objectSt4pairIKS1_S1_E16mi_stl_allocatorIS4_ENSt8__det
   resume { ptr, i32 } %78
 
 _ZNKSt10_HashtableIP11lean_objectSt4pairIKS1_S1_E16mi_stl_allocatorIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit: ; preds = %36, %22, %31
-  %.sroa.045.0 = phi ptr [ %32, %31 ], [ %.sroa.037.0, %22 ], [ %38, %36 ]
+  %.sroa.045.0 = phi ptr [ %.sroa.037.0, %22 ], [ %32, %31 ], [ %38, %36 ]
   tail call void @mi_free(ptr noundef nonnull %4) #24
   br label %_ZNSt10_HashtableIP11lean_objectSt4pairIKS1_S1_E16mi_stl_allocatorIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 

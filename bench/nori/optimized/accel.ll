@@ -669,7 +669,7 @@ _ZN4nori5FrameC2ERKNS_7TVectorIfLi3EEE.exit:      ; preds = %228
   br label %.loopexit
 
 .loopexit:                                        ; preds = %35, %.lr.ph.split.us, %4, %._crit_edge, %295, %_ZN4nori5FrameC2ERKNS_7TVectorIfLi3EEE.exit
-  %.0 = phi i1 [ true, %_ZN4nori5FrameC2ERKNS_7TVectorIfLi3EEE.exit ], [ true, %295 ], [ false, %._crit_edge ], [ false, %4 ], [ %34, %.lr.ph.split.us ], [ %34, %35 ]
+  %.0 = phi i1 [ false, %._crit_edge ], [ true, %_ZN4nori5FrameC2ERKNS_7TVectorIfLi3EEE.exit ], [ true, %295 ], [ false, %4 ], [ %34, %.lr.ph.split.us ], [ %34, %35 ]
   ret i1 %.0
 }
 
@@ -877,7 +877,7 @@ _ZN5Eigen6MatrixIfLin1ELi1ELi0ELin1ELi1EEC2INS_13CwiseBinaryOpINS_8internal13sca
   br i1 %exitcond94.not.i.i.i.i, label %_ZNK5Eigen10MatrixBaseINS_6MatrixIfLin1ELi1ELi0ELin1ELi1EEEE11squaredNormEv.exit, label %.lr.ph88.i.i.i.i, !llvm.loop !26
 
 _ZNK5Eigen10MatrixBaseINS_6MatrixIfLin1ELi1ELi0ELin1ELi1EEEE11squaredNormEv.exit: ; preds = %.lr.ph83.i.i.i.i, %.lr.ph88.i.i.i.i, %105, %95
-  %.0.i.i = phi float [ %107, %105 ], [ %98, %95 ], [ %112, %.lr.ph88.i.i.i.i ], [ %103, %.lr.ph83.i.i.i.i ]
+  %.0.i.i = phi float [ %112, %.lr.ph88.i.i.i.i ], [ %98, %95 ], [ %107, %105 ], [ %103, %.lr.ph83.i.i.i.i ]
   %114 = fcmp ogt float %.0.i.i, 0.000000e+00
   br i1 %114, label %115, label %_ZNK5Eigen10MatrixBaseINS_6MatrixIfLin1ELi1ELi0ELin1ELi1EEEE11squaredNormEv.exit.thread
 

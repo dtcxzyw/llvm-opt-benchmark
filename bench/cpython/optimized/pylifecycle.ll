@@ -3475,7 +3475,7 @@ define hidden void @_Py_DumpExtensionModules(i32 noundef %0, ptr noundef %1) loc
   br i1 %.not4165, label %.outer._crit_edge, label %.lr.ph66, !llvm.loop !306
 
 .outer._crit_edge:                                ; preds = %.outer, %.backedge, %.outer.us, %.backedge.us.us
-  %.028.ph.lcssa = phi i64 [ %.028.ph70, %.backedge ], [ %.028.ph70.us, %.backedge.us.us ], [ %44, %.outer.us ], [ %82, %.outer ]
+  %.028.ph.lcssa = phi i64 [ %44, %.outer.us ], [ %.028.ph70.us, %.backedge.us.us ], [ %.028.ph70, %.backedge ], [ %82, %.outer ]
   %.not42 = icmp eq i64 %.028.ph.lcssa, 0
   br i1 %.not42, label %.outer._crit_edge.thread, label %84
 

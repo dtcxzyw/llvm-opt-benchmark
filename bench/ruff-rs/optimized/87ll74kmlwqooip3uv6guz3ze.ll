@@ -3625,7 +3625,7 @@ _ZN7ty_test7matcher21discard_todo_metadata17hcb370254f1553faeE.exit.i.i: ; preds
   unreachable
 
 .thread80.i:                                      ; preds = %.noexc46.i, %.noexc39.i, %390, %.noexc33.i, %"_ZN7ty_test7matcher7Matcher7matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc4727e2fc1e7d15dE.exit.i.us.thread.i.i.i", %.noexc27.i, %.noexc25.i, %.noexc24.i, %.lr.ph.split.us.split.us.i.i.i
-  %.us-phi.i.i.i = phi i64 [ 0, %.lr.ph.split.us.split.us.i.i.i ], [ %.sroa.02.017.us26.i.i.i, %.noexc39.i ], [ %.sroa.02.017.us.us.i.i.i, %.noexc24.i ], [ %.sroa.02.017.us.us38.i.i.i, %.noexc25.i ], [ %.sroa.02.017.us.i.i.i, %.noexc27.i ], [ %.sroa.02.017.us19.i.i.i, %390 ], [ %.sroa.02.017.us19.i.i.i, %"_ZN7ty_test7matcher7Matcher7matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc4727e2fc1e7d15dE.exit.i.us.thread.i.i.i" ], [ %.sroa.02.017.us19.i.i.i, %.noexc33.i ], [ %.sroa.02.017.i.i.i, %.noexc46.i ]
+  %.us-phi.i.i.i = phi i64 [ %.sroa.02.017.us26.i.i.i, %.noexc39.i ], [ %.sroa.02.017.us.us38.i.i.i, %.noexc25.i ], [ %.sroa.02.017.us19.i.i.i, %390 ], [ %.sroa.02.017.us.us.i.i.i, %.noexc24.i ], [ %.sroa.02.017.us.i.i.i, %.noexc27.i ], [ 0, %.lr.ph.split.us.split.us.i.i.i ], [ %.sroa.02.017.us19.i.i.i, %"_ZN7ty_test7matcher7Matcher7matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc4727e2fc1e7d15dE.exit.i.us.thread.i.i.i" ], [ %.sroa.02.017.us19.i.i.i, %.noexc33.i ], [ %.sroa.02.017.i.i.i, %.noexc46.i ]
   %719 = icmp samesign ult i64 %.us-phi.i.i.i, %320
   call void @llvm.assume(i1 %719)
   call void @llvm.experimental.noalias.scope.decl(metadata !436)
@@ -4582,9 +4582,9 @@ _ZN4core3str7pattern13simd_contains17h3d353a735ba2a5d2E.exit.i: ; preds = %251, 
   br i1 %173, label %177, label %.invoke
 
 .invoke:                                          ; preds = %254, %171, %168, %221, %.preheader.i, %240, %190
-  %174 = phi i64 [ %umax.i42.i, %190 ], [ %203, %.preheader.i ], [ %umax.i.i, %240 ], [ %169, %168 ], [ %223, %221 ], [ %172, %171 ], [ %255, %254 ]
-  %175 = phi i64 [ %67, %190 ], [ %71, %.preheader.i ], [ %67, %240 ], [ %71, %168 ], [ %67, %221 ], [ %67, %171 ], [ %2, %254 ]
-  %176 = phi ptr [ @anon.fbfb765f9e1cde2b39affff493f3a7e5.49, %190 ], [ @anon.fbfb765f9e1cde2b39affff493f3a7e5.46, %.preheader.i ], [ @anon.fbfb765f9e1cde2b39affff493f3a7e5.49, %240 ], [ @anon.fbfb765f9e1cde2b39affff493f3a7e5.46, %168 ], [ @anon.fbfb765f9e1cde2b39affff493f3a7e5.47, %221 ], [ @anon.fbfb765f9e1cde2b39affff493f3a7e5.47, %171 ], [ @anon.fbfb765f9e1cde2b39affff493f3a7e5.45, %254 ]
+  %174 = phi i64 [ %223, %221 ], [ %umax.i.i, %240 ], [ %umax.i42.i, %190 ], [ %169, %168 ], [ %203, %.preheader.i ], [ %172, %171 ], [ %255, %254 ]
+  %175 = phi i64 [ %67, %221 ], [ %67, %240 ], [ %67, %190 ], [ %71, %168 ], [ %71, %.preheader.i ], [ %67, %171 ], [ %2, %254 ]
+  %176 = phi ptr [ @anon.fbfb765f9e1cde2b39affff493f3a7e5.47, %221 ], [ @anon.fbfb765f9e1cde2b39affff493f3a7e5.49, %240 ], [ @anon.fbfb765f9e1cde2b39affff493f3a7e5.49, %190 ], [ @anon.fbfb765f9e1cde2b39affff493f3a7e5.46, %168 ], [ @anon.fbfb765f9e1cde2b39affff493f3a7e5.46, %.preheader.i ], [ @anon.fbfb765f9e1cde2b39affff493f3a7e5.47, %171 ], [ @anon.fbfb765f9e1cde2b39affff493f3a7e5.45, %254 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h1a9bf3d94de0fc80E(i64 noundef %174, i64 noundef %175, ptr noalias noundef readonly align 8 dereferenceable(24) %176) #22
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -4726,7 +4726,7 @@ _ZN4core3str7pattern13simd_contains17h3d353a735ba2a5d2E.exit.i: ; preds = %251, 
   br label %216
 
 "_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h3cb23c7047c105e7E.exit.i": ; preds = %127, %.sink.split.i.i, %.preheader50.i, %216, %.preheader.i.us, %.preheader.i, %195, %137, %129, %.preheader.i21.i
-  %.sroa.0.0.i = phi i8 [ 0, %137 ], [ 0, %.preheader.i21.i ], [ 0, %195 ], [ %spec.select.i, %129 ], [ 1, %.preheader.i ], [ 0, %.sink.split.i.i ], [ 1, %.preheader.i.us ], [ 0, %216 ], [ 1, %.preheader50.i ], [ 1, %127 ]
+  %.sroa.0.0.i = phi i8 [ 0, %137 ], [ 0, %.sink.split.i.i ], [ 0, %.preheader.i21.i ], [ 0, %195 ], [ %spec.select.i, %129 ], [ 1, %.preheader50.i ], [ 1, %.preheader.i.us ], [ 0, %216 ], [ 1, %.preheader.i ], [ 1, %127 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !553
   br label %.loopexit
 

@@ -1028,9 +1028,9 @@ _ZN6icu_7713UnicodeString8truncateEi.exit.thread: ; preds = %54, %163, %90, %170
   br i1 %175, label %41, label %.outer._crit_edge, !llvm.loop !31
 
 .outer._crit_edge:                                ; preds = %.outer, %.backedge, %27
-  %.072.ph.lcssa142 = phi i32 [ %34, %27 ], [ %.072.ph152, %.backedge ], [ %.173, %.outer ]
-  %.075.lcssa = phi i32 [ %32, %27 ], [ %.075.be, %.backedge ], [ %.3, %.outer ]
-  %.069.lcssa = phi i32 [ -1, %27 ], [ %.069.be, %.backedge ], [ -1, %.outer ]
+  %.072.ph.lcssa142 = phi i32 [ %.072.ph152, %.backedge ], [ %34, %27 ], [ %.173, %.outer ]
+  %.075.lcssa = phi i32 [ %.075.be, %.backedge ], [ %32, %27 ], [ %.3, %.outer ]
+  %.069.lcssa = phi i32 [ %.069.be, %.backedge ], [ -1, %27 ], [ -1, %.outer ]
   %176 = load i32, ptr %33, align 4, !tbaa !25
   %177 = sub i32 %.072.ph.lcssa142, %176
   %178 = getelementptr inbounds nuw i8, ptr %2, i64 4

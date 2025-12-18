@@ -1641,7 +1641,7 @@ define hidden noundef i64 @_ZN19ParallelCompactData19live_words_in_spaceEPK12Mut
   br label %.loopexit
 
 .loopexit:                                        ; preds = %23, %.preheader, %._crit_edge, %._crit_edge.thread
-  %.126 = phi i64 [ %52, %._crit_edge ], [ %.2.lcssa46, %._crit_edge.thread ], [ 0, %.preheader ], [ %33, %23 ]
+  %.126 = phi i64 [ %.2.lcssa46, %._crit_edge.thread ], [ %52, %._crit_edge ], [ 0, %.preheader ], [ %33, %23 ]
   ret i64 %.126
 }
 

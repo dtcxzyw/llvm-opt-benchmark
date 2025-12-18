@@ -768,7 +768,7 @@ define internal ptr @H5FD__log_open(ptr noundef %0, i32 noundef %1, i64 noundef 
   %194 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__log_open, i32 noundef 582, i64 noundef %192, i64 noundef %193, ptr noundef nonnull @.str.23) #19
   br label %196
 
-.thread139:                                       ; preds = %84, %99
+.thread139:                                       ; preds = %99, %84
   %195 = call i32 @close(i32 noundef %62) #19
   br label %.thread135
 
@@ -778,7 +778,7 @@ define internal ptr @H5FD__log_open(ptr noundef %0, i32 noundef %1, i64 noundef 
   br label %.thread135
 
 .thread135:                                       ; preds = %64, %19, %49, %31, %25, %.thread139, %184, %187, %182, %4, %196
-  %.092 = phi ptr [ null, %196 ], [ null, %.thread139 ], [ null, %4 ], [ %97, %184 ], [ %97, %187 ], [ %97, %182 ], [ null, %25 ], [ null, %31 ], [ null, %49 ], [ null, %19 ], [ null, %64 ]
+  %.092 = phi ptr [ null, %196 ], [ null, %.thread139 ], [ null, %4 ], [ %97, %182 ], [ %97, %187 ], [ %97, %184 ], [ null, %25 ], [ null, %31 ], [ null, %49 ], [ null, %19 ], [ null, %64 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

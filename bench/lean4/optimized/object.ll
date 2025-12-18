@@ -2338,7 +2338,7 @@ _ZL8lean_decP11lean_object.exitthread-pre-split:  ; preds = %14, %50, %50, %50, 
   br label %_ZL8lean_decP11lean_object.exit
 
 _ZL8lean_decP11lean_object.exit:                  ; preds = %187, %158, %38, %_ZL8lean_decP11lean_object.exitthread-pre-split, %_ZN4lean6bufferIP11lean_objectLm16EE9push_backERKS2_.exit158, %_ZN4lean6bufferIP11lean_objectLm16EE9push_backERKS2_.exit147, %131, %108, %5
-  %.pr = phi i64 [ %.pr.pr, %_ZL8lean_decP11lean_object.exitthread-pre-split ], [ %267, %_ZN4lean6bufferIP11lean_objectLm16EE9push_backERKS2_.exit158 ], [ %244, %_ZN4lean6bufferIP11lean_objectLm16EE9push_backERKS2_.exit147 ], [ %135, %131 ], [ %112, %108 ], [ %11, %5 ], [ %164, %158 ], [ %44, %38 ], [ %193, %187 ]
+  %.pr = phi i64 [ %.pr.pr, %_ZL8lean_decP11lean_object.exitthread-pre-split ], [ %44, %38 ], [ %164, %158 ], [ %11, %5 ], [ %267, %_ZN4lean6bufferIP11lean_objectLm16EE9push_backERKS2_.exit158 ], [ %244, %_ZN4lean6bufferIP11lean_objectLm16EE9push_backERKS2_.exit147 ], [ %135, %131 ], [ %112, %108 ], [ %193, %187 ]
   %275 = icmp eq i64 %.pr, 0
   br i1 %275, label %276, label %5, !llvm.loop !69
 
@@ -3206,7 +3206,7 @@ _ZL8lean_decP11lean_object.exitthread-pre-split:  ; preds = %19, %57, %57, %57, 
   br label %_ZL8lean_decP11lean_object.exit
 
 _ZL8lean_decP11lean_object.exit:                  ; preds = %194, %165, %45, %_ZL8lean_decP11lean_object.exitthread-pre-split, %_ZN4lean6bufferIP11lean_objectLm16EE9push_backERKS2_.exit157, %_ZN4lean6bufferIP11lean_objectLm16EE9push_backERKS2_.exit146, %138, %115, %10
-  %.pr = phi i64 [ %.pr.pr, %_ZL8lean_decP11lean_object.exitthread-pre-split ], [ %274, %_ZN4lean6bufferIP11lean_objectLm16EE9push_backERKS2_.exit157 ], [ %251, %_ZN4lean6bufferIP11lean_objectLm16EE9push_backERKS2_.exit146 ], [ %142, %138 ], [ %119, %115 ], [ %16, %10 ], [ %171, %165 ], [ %51, %45 ], [ %200, %194 ]
+  %.pr = phi i64 [ %.pr.pr, %_ZL8lean_decP11lean_object.exitthread-pre-split ], [ %51, %45 ], [ %171, %165 ], [ %16, %10 ], [ %274, %_ZN4lean6bufferIP11lean_objectLm16EE9push_backERKS2_.exit157 ], [ %251, %_ZN4lean6bufferIP11lean_objectLm16EE9push_backERKS2_.exit146 ], [ %142, %138 ], [ %119, %115 ], [ %200, %194 ]
   %282 = icmp eq i64 %.pr, 0
   br i1 %282, label %283, label %10, !llvm.loop !73
 

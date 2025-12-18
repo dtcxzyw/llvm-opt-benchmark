@@ -812,7 +812,7 @@ mbedtls_nist_kw_setkey.exit100.thread:            ; preds = %90, %87, %93, %mbed
   br i1 %exitcond131.not, label %.loopexit, label %.preheader, !llvm.loop !17
 
 .loopexit:                                        ; preds = %107, %102, %103, %84, %85, %.loopexit116, %56, %32, %33, %mbedtls_nist_kw_setkey.exit100.thread, %96, %mbedtls_nist_kw_setkey.exit95.thread, %71, %mbedtls_nist_kw_setkey.exit89.thread, %44, %mbedtls_nist_kw_setkey.exit.thread, %19
-  %.1 = phi i32 [ %.0.i103, %19 ], [ %.0.i103, %mbedtls_nist_kw_setkey.exit.thread ], [ %.0.i87106, %44 ], [ %.0.i87106, %mbedtls_nist_kw_setkey.exit89.thread ], [ 1, %32 ], [ %.0.i93111, %71 ], [ %.0.i93111, %mbedtls_nist_kw_setkey.exit95.thread ], [ 1, %.loopexit116 ], [ %.0.i98114, %96 ], [ %.0.i98114, %mbedtls_nist_kw_setkey.exit100.thread ], [ 1, %84 ], [ 1, %33 ], [ 1, %56 ], [ 1, %85 ], [ 1, %103 ], [ 1, %102 ], [ 0, %107 ]
+  %.1 = phi i32 [ %.0.i103, %19 ], [ %.0.i103, %mbedtls_nist_kw_setkey.exit.thread ], [ 1, %102 ], [ %.0.i87106, %44 ], [ %.0.i87106, %mbedtls_nist_kw_setkey.exit89.thread ], [ 1, %32 ], [ %.0.i93111, %71 ], [ %.0.i93111, %mbedtls_nist_kw_setkey.exit95.thread ], [ 1, %.loopexit116 ], [ %.0.i98114, %96 ], [ %.0.i98114, %mbedtls_nist_kw_setkey.exit100.thread ], [ 1, %84 ], [ 1, %33 ], [ 1, %56 ], [ 1, %85 ], [ 1, %103 ], [ 0, %107 ]
   call void @mbedtls_cipher_free(ptr noundef nonnull %4) #10
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %4, i64 noundef 96) #10
   br i1 %.not71, label %109, label %108

@@ -347,7 +347,7 @@ thread-pre-split:                                 ; preds = %.lr.ph, %39
   br i1 %140, label %.lr.ph76, label %_ZNK4ncnn3Mat5emptyEv.exit.thread, !llvm.loop !51
 
 _ZNK4ncnn3Mat5emptyEv.exit.thread:                ; preds = %.lr.ph76, %117, %4, %.loopexit, %_ZNK4ncnn3Mat5emptyEv.exit
-  %.0 = phi i32 [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ 0, %.loopexit ], [ -100, %4 ], [ 0, %117 ], [ 0, %.lr.ph76 ]
+  %.0 = phi i32 [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ -100, %4 ], [ 0, %.loopexit ], [ 0, %117 ], [ 0, %.lr.ph76 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0

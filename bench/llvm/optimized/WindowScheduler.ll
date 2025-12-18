@@ -2213,7 +2213,7 @@ _ZNK4llvm12MachineInstr12isTerminatorENS0_9QueryTypeE.exit: ; preds = %62
   br label %90
 
 90:                                               ; preds = %.fold.split.i, %88, %87
-  %.sroa.016.1.i = phi i32 [ %.sroa.016.019.i, %88 ], [ %.sroa.6.0.copyload.i, %87 ], [ %.sroa.016.019.i, %.fold.split.i ]
+  %.sroa.016.1.i = phi i32 [ %.sroa.6.0.copyload.i, %87 ], [ %.sroa.016.019.i, %88 ], [ %.sroa.016.019.i, %.fold.split.i ]
   %91 = getelementptr inbounds nuw i8, ptr %.020.i, i64 32
   %.not.i59 = icmp eq ptr %91, %85
   br i1 %.not.i59, label %_ZN4llvm15WindowScheduler15getAntiRegisterEPNS_12MachineInstrE.exit.thread, label %87
@@ -2392,7 +2392,7 @@ _ZN4llvm12MachineInstr8all_defsEv.exit:           ; preds = %.lr.ph.i.i.i.i.i, %
   br i1 %.not251286, label %._crit_edge, label %.lr.ph288
 
 ._crit_edge:                                      ; preds = %172, %.critedge, %_ZN4llvm20filter_iterator_baseIPNS_14MachineOperandEPFbRKS1_ESt26bidirectional_iterator_tagEppEv.exit, %277, %_ZN4llvm12MachineInstr8all_defsEv.exit
-  %174 = phi ptr [ null, %_ZN4llvm12MachineInstr8all_defsEv.exit ], [ %272, %.critedge ], [ %272, %277 ], [ %272, %_ZN4llvm20filter_iterator_baseIPNS_14MachineOperandEPFbRKS1_ESt26bidirectional_iterator_tagEppEv.exit ], [ null, %172 ]
+  %174 = phi ptr [ %272, %.critedge ], [ null, %_ZN4llvm12MachineInstr8all_defsEv.exit ], [ %272, %277 ], [ %272, %_ZN4llvm20filter_iterator_baseIPNS_14MachineOperandEPFbRKS1_ESt26bidirectional_iterator_tagEppEv.exit ], [ null, %172 ]
   %175 = load i32, ptr %48, align 8, !tbaa !480
   %176 = icmp eq i32 %175, 0
   %177 = load ptr, ptr %2, align 8, !tbaa !483
@@ -3279,7 +3279,7 @@ define dso_local i32 @_ZN4llvm15WindowScheduler15getAntiRegisterEPNS_12MachineIn
   br label %18
 
 18:                                               ; preds = %15, %.fold.split, %16
-  %.sroa.016.1 = phi i32 [ %.sroa.016.019, %16 ], [ %.sroa.6.0.copyload, %15 ], [ %.sroa.016.019, %.fold.split ]
+  %.sroa.016.1 = phi i32 [ %.sroa.6.0.copyload, %15 ], [ %.sroa.016.019, %16 ], [ %.sroa.016.019, %.fold.split ]
   %19 = getelementptr inbounds nuw i8, ptr %.020, i64 32
   %.not = icmp eq ptr %19, %12
   br i1 %.not, label %.critedge, label %15
@@ -4365,7 +4365,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit: ; preds =
   br i1 %.not108, label %.loopexit, label %72
 
 .loopexit:                                        ; preds = %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit, %276, %_ZN4llvm15WindowScheduler16getScheduleRangeEjj.exit
-  %spec.select = phi i32 [ 0, %_ZN4llvm15WindowScheduler16getScheduleRangeEjj.exit ], [ %277, %276 ], [ %.241, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit ]
+  %spec.select = phi i32 [ %277, %276 ], [ 0, %_ZN4llvm15WindowScheduler16getScheduleRangeEjj.exit ], [ %.241, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit ]
   %297 = getelementptr inbounds nuw i8, ptr %5, i64 336
   %298 = load ptr, ptr %297, align 8, !tbaa !25
   %299 = getelementptr inbounds nuw i8, ptr %5, i64 352
@@ -5165,7 +5165,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPNS_12MachineInstrEPNS_5SUnitENS_12DenseMap
   br label %74
 
 74:                                               ; preds = %.fold.split.i, %72, %71
-  %.sroa.016.1.i = phi i32 [ %.sroa.016.019.i, %72 ], [ %.sroa.6.0.copyload.i, %71 ], [ %.sroa.016.019.i, %.fold.split.i ]
+  %.sroa.016.1.i = phi i32 [ %.sroa.6.0.copyload.i, %71 ], [ %.sroa.016.019.i, %72 ], [ %.sroa.016.019.i, %.fold.split.i ]
   %75 = getelementptr inbounds nuw i8, ptr %.020.i, i64 32
   %.not.i = icmp eq ptr %75, %69
   br i1 %.not.i, label %_ZN4llvm15WindowScheduler15getAntiRegisterEPNS_12MachineInstrE.exit.thread, label %71
@@ -11348,7 +11348,7 @@ _ZSt4moveIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_ET0_T_S7_S6_.exit58: ; preds 
   br label %_ZSt4moveIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_ET0_T_S7_S6_.exit44
 
 _ZSt4moveIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_ET0_T_S7_S6_.exit44: ; preds = %.lr.ph.i.i.i.i.i40, %.lr.ph.i.i.i.i.i61, %_ZSt4moveIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_ET0_T_S7_S6_.exit58, %_ZSt13move_backwardIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_ET0_T_S7_S6_.exit, %68, %9, %126
-  %.0 = phi ptr [ %2, %68 ], [ %127, %126 ], [ %0, %9 ], [ %0, %_ZSt13move_backwardIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_ET0_T_S7_S6_.exit ], [ %2, %_ZSt4moveIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_ET0_T_S7_S6_.exit58 ], [ %113, %.lr.ph.i.i.i.i.i61 ], [ %64, %.lr.ph.i.i.i.i.i40 ]
+  %.0 = phi ptr [ %2, %68 ], [ %127, %126 ], [ %113, %.lr.ph.i.i.i.i.i61 ], [ %0, %9 ], [ %0, %_ZSt13move_backwardIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_ET0_T_S7_S6_.exit ], [ %2, %_ZSt4moveIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_ET0_T_S7_S6_.exit58 ], [ %64, %.lr.ph.i.i.i.i.i40 ]
   ret ptr %.0
 }
 

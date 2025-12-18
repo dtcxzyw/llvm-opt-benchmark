@@ -978,8 +978,8 @@ define i32 @av_find_best_stream(ptr noundef readonly captures(none) %0, i32 noun
   br i1 %exitcond46.not.i, label %av_find_program_from_stream.exit.thread, label %16, !llvm.loop !104
 
 av_find_program_from_stream.exit.thread:          ; preds = %.loopexit.i, %25, %11, %6
-  %.089 = phi ptr [ null, %6 ], [ null, %11 ], [ %23, %25 ], [ null, %.loopexit.i ]
-  %.0 = phi i32 [ %8, %6 ], [ %8, %11 ], [ %21, %25 ], [ %8, %.loopexit.i ]
+  %.089 = phi ptr [ null, %6 ], [ %23, %25 ], [ null, %11 ], [ null, %.loopexit.i ]
+  %.0 = phi i32 [ %8, %6 ], [ %21, %25 ], [ %8, %11 ], [ %8, %.loopexit.i ]
   %.not = icmp eq i32 %.0, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -1653,7 +1653,7 @@ define internal fastcc range(i32 -22, 2) i32 @match_stream_specifier(ptr noundef
   br label %.thread246
 
 .loopexit250:                                     ; preds = %94, %.preheader249, %102, %101, %73
-  %.4143 = phi i32 [ 0, %73 ], [ 1, %101 ], [ 1, %102 ], [ 0, %.preheader249 ], [ 0, %94 ]
+  %.4143 = phi i32 [ 0, %73 ], [ 1, %102 ], [ 1, %101 ], [ 0, %.preheader249 ], [ 0, %94 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread
 
@@ -1739,8 +1739,8 @@ define internal fastcc range(i32 -22, 2) i32 @match_stream_specifier(ptr noundef
   br label %.loopexit
 
 .loopexit:                                        ; preds = %131, %.preheader, %136, %137, %121
-  %.2157 = phi i32 [ %.1156276, %121 ], [ 1, %137 ], [ 1, %136 ], [ %.1156276, %.preheader ], [ %.1156276, %131 ]
-  %.1153 = phi i32 [ %.0152277, %121 ], [ %119, %137 ], [ %119, %136 ], [ %.0152277, %.preheader ], [ %.0152277, %131 ]
+  %.2157 = phi i32 [ %.1156276, %121 ], [ 1, %136 ], [ 1, %137 ], [ %.1156276, %.preheader ], [ %.1156276, %131 ]
+  %.1153 = phi i32 [ %.0152277, %121 ], [ %119, %136 ], [ %119, %137 ], [ %.0152277, %.preheader ], [ %.0152277, %131 ]
   %138 = add i32 %.1153, 1
   %139 = icmp ult i32 %138, %119
   br i1 %139, label %121, label %._crit_edge, !llvm.loop !130

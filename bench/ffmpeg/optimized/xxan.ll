@@ -655,7 +655,7 @@ bytestream2_get_le32.exit.i23:                    ; preds = %210, %209
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.4, i32 noundef %25) #8
   br label %xan_decode_frame_type0.exit
 
-.loopexit:                                        ; preds = %._crit_edge86.i, %._crit_edge167.i, %.loopexit136.i, %.preheader.lr.ph.i, %._crit_edge83.i, %229
+.loopexit:                                        ; preds = %._crit_edge86.i, %._crit_edge167.i, %.preheader.lr.ph.i, %.loopexit136.i, %._crit_edge83.i, %229
   %302 = load ptr, ptr %7, align 8, !tbaa !38
   %303 = tail call i32 @av_frame_ref(ptr noundef %1, ptr noundef %302) #8
   %304 = icmp slt i32 %303, 0
@@ -667,7 +667,7 @@ bytestream2_get_le32.exit.i23:                    ; preds = %210, %209
   br label %xan_decode_frame_type0.exit
 
 xan_decode_frame_type0.exit:                      ; preds = %bytestream2_get_le32.exit.i, %66, %bytestream2_get_le32.exit.i23, %228, %.loopexit, %4, %305, %301
-  %.020 = phi i32 [ %306, %305 ], [ -1094995529, %301 ], [ %9, %4 ], [ %303, %.loopexit ], [ %48, %bytestream2_get_le32.exit.i ], [ %65, %66 ], [ %213, %bytestream2_get_le32.exit.i23 ], [ %227, %228 ]
+  %.020 = phi i32 [ %306, %305 ], [ -1094995529, %301 ], [ %9, %4 ], [ %303, %.loopexit ], [ %227, %228 ], [ %48, %bytestream2_get_le32.exit.i ], [ %65, %66 ], [ %213, %bytestream2_get_le32.exit.i23 ]
   ret i32 %.020
 }
 

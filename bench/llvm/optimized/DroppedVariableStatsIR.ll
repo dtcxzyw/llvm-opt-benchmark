@@ -2877,7 +2877,7 @@ _ZN4llvm6detail12DenseSetImplIPKNS_7DIScopeENS_8DenseMapIS4_NS0_13DenseSetEmptyE
   br i1 %.not.i.i10, label %._crit_edge.i.i11, label %.lr.ph.i.i8, !llvm.loop !174
 
 _ZN4llvm6detail12DenseSetImplIPKNS_7DIScopeENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_E5clearEv.exit: ; preds = %55, %3, %._crit_edge.i.i11, %68, %57, %._crit_edge.i.i, %49, %37
-  %.0 = phi i1 [ true, %._crit_edge.i.i ], [ true, %37 ], [ true, %49 ], [ false, %57 ], [ false, %68 ], [ false, %._crit_edge.i.i11 ], [ false, %3 ], [ false, %55 ]
+  %.0 = phi i1 [ false, %._crit_edge.i.i11 ], [ true, %._crit_edge.i.i ], [ true, %37 ], [ true, %49 ], [ false, %57 ], [ false, %68 ], [ false, %3 ], [ false, %55 ]
   ret i1 %.0
 }
 

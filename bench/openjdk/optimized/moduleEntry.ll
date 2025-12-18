@@ -1936,7 +1936,7 @@ _ZN11ModuleEntry18get_archived_entryEPS_.exit:    ; preds = %31
   br i1 %exitcond.not, label %.thread, label %16, !llvm.loop !15
 
 .thread:                                          ; preds = %_ZN11ModuleEntry18get_archived_entryEPS_.exit, %1, %3
-  %.013 = phi ptr [ null, %3 ], [ null, %1 ], [ %13, %_ZN11ModuleEntry18get_archived_entryEPS_.exit ]
+  %.013 = phi ptr [ null, %1 ], [ null, %3 ], [ %13, %_ZN11ModuleEntry18get_archived_entryEPS_.exit ]
   ret ptr %.013
 }
 
@@ -2014,7 +2014,7 @@ _ZN26GrowableArrayWithAllocatorIP11ModuleEntry13GrowableArrayIS1_EE6appendERKS1_
   br i1 %exitcond.not, label %.thread, label %18, !llvm.loop !16
 
 .thread:                                          ; preds = %_ZN26GrowableArrayWithAllocatorIP11ModuleEntry13GrowableArrayIS1_EE6appendERKS1_.exit, %1, %3
-  %.010 = phi ptr [ null, %3 ], [ null, %1 ], [ %7, %_ZN26GrowableArrayWithAllocatorIP11ModuleEntry13GrowableArrayIS1_EE6appendERKS1_.exit ]
+  %.010 = phi ptr [ null, %1 ], [ null, %3 ], [ %7, %_ZN26GrowableArrayWithAllocatorIP11ModuleEntry13GrowableArrayIS1_EE6appendERKS1_.exit ]
   ret ptr %.010
 }
 
@@ -2122,7 +2122,7 @@ _ZN11ModuleEntry18get_archived_entryEPS_.exit.i:  ; preds = %33
   br i1 %exitcond.not.i, label %_ZN11ModuleEntry20write_growable_arrayEP13GrowableArrayIPS_E.exit, label %18, !llvm.loop !15
 
 _ZN11ModuleEntry20write_growable_arrayEP13GrowableArrayIPS_E.exit: ; preds = %_ZN11ModuleEntry18get_archived_entryEPS_.exit.i, %1, %5
-  %.013.i = phi ptr [ null, %5 ], [ null, %1 ], [ %15, %_ZN11ModuleEntry18get_archived_entryEPS_.exit.i ]
+  %.013.i = phi ptr [ null, %1 ], [ null, %5 ], [ %15, %_ZN11ModuleEntry18get_archived_entryEPS_.exit.i ]
   store ptr %.013.i, ptr %2, align 8
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr null, ptr %42, align 8

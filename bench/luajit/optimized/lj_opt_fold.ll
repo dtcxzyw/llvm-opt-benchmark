@@ -324,7 +324,7 @@ lj_opt_cse.exit:                                  ; preds = %114
   unreachable
 
 lj_opt_cse.exit.thread:                           ; preds = %183, %lj_ir_nextins.exit.i, %.thread.i, %184, %174, %39, %27, %15
-  %.070 = phi i32 [ %28, %27 ], [ %40, %39 ], [ %182, %174 ], [ %186, %184 ], [ %16, %15 ], [ %140, %.thread.i ], [ %168, %lj_ir_nextins.exit.i ], [ 65535, %183 ]
+  %.070 = phi i32 [ %28, %27 ], [ %40, %39 ], [ %168, %lj_ir_nextins.exit.i ], [ %182, %174 ], [ %186, %184 ], [ %16, %15 ], [ %140, %.thread.i ], [ 65535, %183 ]
   ret i32 %.070
 }
 
@@ -1490,7 +1490,7 @@ define internal i32 @fold_bufput_bufstr(ptr noundef %0) #0 {
   br label %103
 
 103:                                              ; preds = %41, %92, %.thread70, %.thread77
-  %.7 = phi i32 [ %102, %.thread77 ], [ %43, %41 ], [ %91, %.thread70 ], [ %101, %92 ]
+  %.7 = phi i32 [ %102, %.thread77 ], [ %43, %41 ], [ %101, %92 ], [ %91, %.thread70 ]
   ret i32 %.7
 }
 
@@ -3603,7 +3603,7 @@ define internal range(i32 0, 2) i32 @fold_simplify_intsubadd_rightcancel(ptr nou
   br label %23
 
 23:                                               ; preds = %.sink.split, %1, %18, %7
-  %.0 = phi i32 [ 0, %7 ], [ 0, %18 ], [ 0, %1 ], [ 1, %.sink.split ]
+  %.0 = phi i32 [ 0, %7 ], [ 0, %1 ], [ 0, %18 ], [ 1, %.sink.split ]
   ret i32 %.0
 }
 
@@ -3681,7 +3681,7 @@ define internal range(i32 0, 2) i32 @fold_simplify_intsubaddadd_cancel(ptr nound
   br label %40
 
 40:                                               ; preds = %.sink.split, %1, %36, %12, %7
-  %.0 = phi i32 [ 0, %12 ], [ 0, %7 ], [ 0, %36 ], [ 0, %1 ], [ 1, %.sink.split ]
+  %.0 = phi i32 [ 0, %12 ], [ 0, %1 ], [ 0, %7 ], [ 0, %36 ], [ 1, %.sink.split ]
   ret i32 %.0
 }
 

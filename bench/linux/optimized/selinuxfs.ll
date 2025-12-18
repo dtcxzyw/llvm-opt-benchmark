@@ -601,7 +601,7 @@ define internal i32 @sel_fill_super(ptr noundef %0, ptr readnone captures(none) 
   br label %.thread
 
 .thread:                                          ; preds = %57, %120, %99, %88, %80, %2, %132, %.loopexit36, %149, %141, %110, %85, %48, %47, %22, %19, %6
-  %173 = phi i32 [ %10, %6 ], [ %21, %19 ], [ %50, %48 ], [ -12, %2 ], [ %87, %85 ], [ %112, %110 ], [ -12, %22 ], [ %143, %141 ], [ %151, %149 ], [ -12, %.loopexit36 ], [ -12, %47 ], [ -12, %132 ], [ -12, %80 ], [ -12, %88 ], [ -12, %99 ], [ -12, %120 ], [ -12, %57 ]
+  %173 = phi i32 [ -12, %99 ], [ %10, %6 ], [ %21, %19 ], [ %50, %48 ], [ -12, %2 ], [ %87, %85 ], [ -12, %120 ], [ %112, %110 ], [ -12, %22 ], [ %143, %141 ], [ %151, %149 ], [ -12, %.loopexit36 ], [ -12, %47 ], [ -12, %132 ], [ -12, %80 ], [ -12, %88 ], [ -12, %57 ]
   %174 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.31, ptr noundef nonnull @__func__.sel_fill_super) #15
   %175 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %176 = load ptr, ptr %175, align 8
@@ -1327,9 +1327,9 @@ thread-pre-split:                                 ; preds = %151, %230, %178, %1
   br label %.loopexit
 
 269:                                              ; preds = %.thread51, %.thread38, %251, %.loopexit55, %129
-  %270 = phi i32 [ %258, %251 ], [ %77, %.loopexit55 ], [ %77, %129 ], [ %.ph35, %.thread38 ], [ %77, %.thread51 ]
-  %271 = phi ptr [ %260, %251 ], [ %78, %.loopexit55 ], [ %78, %129 ], [ %.ph36, %.thread38 ], [ %78, %.thread51 ]
-  %272 = phi i32 [ 0, %251 ], [ %239, %.loopexit55 ], [ %120, %129 ], [ %.ph37, %.thread38 ], [ %132, %.thread51 ]
+  %270 = phi i32 [ %77, %.thread51 ], [ %.ph35, %.thread38 ], [ %258, %251 ], [ %77, %.loopexit55 ], [ %77, %129 ]
+  %271 = phi ptr [ %78, %.thread51 ], [ %.ph36, %.thread38 ], [ %260, %251 ], [ %78, %.loopexit55 ], [ %78, %129 ]
+  %272 = phi i32 [ %132, %.thread51 ], [ %.ph37, %.thread38 ], [ 0, %251 ], [ %239, %.loopexit55 ], [ %120, %129 ]
   %273 = load ptr, ptr %10, align 8
   %274 = icmp eq i32 %270, 0
   br i1 %274, label %.loopexit, label %275

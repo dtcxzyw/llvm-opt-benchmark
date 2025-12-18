@@ -1571,7 +1571,7 @@ default.unreachable:                              ; preds = %558
   unreachable
 
 decode_inter_block.exit.i:                        ; preds = %899, %.loopexit.i.i.i, %610, %587
-  %935 = phi ptr [ %668, %.loopexit.i.i.i ], [ %559, %587 ], [ %601, %610 ], [ %926, %899 ]
+  %935 = phi ptr [ %559, %587 ], [ %668, %.loopexit.i.i.i ], [ %601, %610 ], [ %926, %899 ]
   %indvars.iv.next291.i = add nuw nsw i64 %indvars.iv290.i, 1
   %exitcond293.not.i = icmp eq i64 %indvars.iv.next291.i, 6
   br i1 %exitcond293.not.i, label %.loopexit.i, label %558, !llvm.loop !82
@@ -1608,8 +1608,8 @@ decode_inter_block.exit.i:                        ; preds = %899, %.loopexit.i.i
   br i1 %exitcond297.not.i, label %.loopexit.i, label %.preheader.i, !llvm.loop !83
 
 .loopexit.i:                                      ; preds = %copy_block8.exit.i, %decode_inter_block.exit.i, %.preheader.i
-  %.sroa.5216.4.i = phi i32 [ %567, %decode_inter_block.exit.i ], [ %944, %.preheader.i ], [ %.sroa.5216.2259.i, %copy_block8.exit.i ]
-  %.sroa.0.3.i = phi ptr [ %.sroa.0.5.i, %decode_inter_block.exit.i ], [ %.sroa.0.2261.i, %.preheader.i ], [ %.sroa.0.5.i, %copy_block8.exit.i ]
+  %.sroa.5216.4.i = phi i32 [ %944, %.preheader.i ], [ %567, %decode_inter_block.exit.i ], [ %.sroa.5216.2259.i, %copy_block8.exit.i ]
+  %.sroa.0.3.i = phi ptr [ %.sroa.0.2261.i, %.preheader.i ], [ %.sroa.0.5.i, %decode_inter_block.exit.i ], [ %.sroa.0.5.i, %copy_block8.exit.i ]
   %956 = add nsw i32 %spec.store.select.i, 1
   %indvars.iv.next299.i = add nuw nsw i64 %indvars.iv298.i, 16
   %957 = load i32, ptr %327, align 8, !tbaa !64

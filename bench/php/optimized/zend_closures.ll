@@ -745,12 +745,12 @@ zend_parse_arg_obj_or_str.exit..critedge_crit_edge: ; preds = %zend_parse_arg_ob
   %.pre = load ptr, ptr %3, align 8, !tbaa !61
   br label %.critedge
 
-zend_parse_arg_object.exit.thread104:             ; preds = %zend_parse_arg_obj_or_str.exit, %zend_parse_arg_object.exit71, %26, %24, %10
-  %.058118 = phi i32 [ 1, %10 ], [ 9, %24 ], [ 9, %zend_parse_arg_object.exit71 ], [ 3, %26 ], [ 9, %zend_parse_arg_obj_or_str.exit ]
-  %.059117 = phi i32 [ 0, %10 ], [ 1, %24 ], [ 2, %zend_parse_arg_object.exit71 ], [ 1, %26 ], [ 3, %zend_parse_arg_obj_or_str.exit ]
-  %.060116 = phi ptr [ null, %10 ], [ null, %24 ], [ null, %zend_parse_arg_object.exit71 ], [ %29, %26 ], [ null, %zend_parse_arg_obj_or_str.exit ]
-  %.061115 = phi i32 [ 0, %10 ], [ 18, %24 ], [ 19, %zend_parse_arg_object.exit71 ], [ 0, %26 ], [ 33, %zend_parse_arg_obj_or_str.exit ]
-  %.062114 = phi ptr [ null, %10 ], [ %12, %24 ], [ %30, %zend_parse_arg_object.exit71 ], [ %12, %26 ], [ %36, %zend_parse_arg_obj_or_str.exit ]
+zend_parse_arg_object.exit.thread104:             ; preds = %zend_parse_arg_obj_or_str.exit, %zend_parse_arg_object.exit71, %24, %26, %10
+  %.058118 = phi i32 [ 1, %10 ], [ 9, %zend_parse_arg_object.exit71 ], [ 9, %24 ], [ 3, %26 ], [ 9, %zend_parse_arg_obj_or_str.exit ]
+  %.059117 = phi i32 [ 0, %10 ], [ 2, %zend_parse_arg_object.exit71 ], [ 1, %24 ], [ 1, %26 ], [ 3, %zend_parse_arg_obj_or_str.exit ]
+  %.060116 = phi ptr [ null, %10 ], [ null, %zend_parse_arg_object.exit71 ], [ null, %24 ], [ %29, %26 ], [ null, %zend_parse_arg_obj_or_str.exit ]
+  %.061115 = phi i32 [ 0, %10 ], [ 19, %zend_parse_arg_object.exit71 ], [ 18, %24 ], [ 0, %26 ], [ 33, %zend_parse_arg_obj_or_str.exit ]
+  %.062114 = phi ptr [ null, %10 ], [ %30, %zend_parse_arg_object.exit71 ], [ %12, %24 ], [ %12, %26 ], [ %36, %zend_parse_arg_obj_or_str.exit ]
   call void @zend_wrong_parameter_error(i32 noundef %.058118, i32 noundef %.059117, ptr noundef %.060116, i32 noundef %.061115, ptr noundef %.062114) #13
   br label %46
 
@@ -3080,7 +3080,7 @@ attributes #14 = { nounwind allocsize(0) }
 !61 = !{!48, !48, i64 0}
 !62 = !{!"branch_weights", i32 4000000, i32 4001}
 !63 = !{!"branch_weights", !"expected", i32 2145766520, i32 1717128}
-!64 = !{!"branch_weights", i32 1073205, i32 2146410443}
+!64 = !{!"branch_weights", i32 2146410443, i32 1073205}
 !65 = !{!"branch_weights", i32 1, i32 4002000, i32 2000}
 !66 = !{!"branch_weights", i32 1, i32 8004000, i32 4000, i32 1}
 !67 = !{!"branch_weights", !"expected", i32 0, i32 -2147483648}

@@ -369,7 +369,7 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   br i1 %145, label %.preheader.us.us.us, label %._crit_edge208.us.us
 
 .loopexit:                                        ; preds = %._crit_edge.us, %.preheader201.lr.ph, %57, %55
-  %.2 = phi ptr [ %.0168, %55 ], [ %56, %57 ], [ %56, %.preheader201.lr.ph ], [ %56, %._crit_edge.us ]
+  %.2 = phi ptr [ %.0168, %55 ], [ %56, %.preheader201.lr.ph ], [ %56, %57 ], [ %56, %._crit_edge.us ]
   %146 = fcmp reassoc nsz arcp contract afn une float %42, 0.000000e+00
   br i1 %146, label %147, label %155
 

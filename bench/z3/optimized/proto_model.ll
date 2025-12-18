@@ -800,7 +800,7 @@ define hidden void @_ZN11proto_model15reregister_declEP9func_declP11func_interpS
   br i1 %.not27.old.i.i.i.i, label %_ZNK10model_core15get_func_interpEP9func_decl.exit.thread, label %.lr.ph38.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.backedge:                        ; preds = %40, %37
-  %.137.i.i.i.i.be = phi ptr [ %.old.i.i.i.i, %40 ], [ %39, %37 ]
+  %.137.i.i.i.i.be = phi ptr [ %39, %37 ], [ %.old.i.i.i.i, %40 ]
   br label %.lr.ph38.i.i.i.i, !llvm.loop !92
 
 _ZNK10model_core15get_func_interpEP9func_decl.exit: ; preds = %21, %32
@@ -1151,7 +1151,7 @@ _Z17is_uninterp_constPK4expr.exit.thread135:      ; preds = %72, %_Z17is_uninter
   br i1 %.not27.old.i.i.i.i, label %_ZNK10model_core16get_const_interpEP9func_decl.exit.thread, label %.lr.ph38.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.backedge:                        ; preds = %111, %108
-  %.137.i.i.i.i.be = phi ptr [ %.old.i.i.i.i, %111 ], [ %110, %108 ]
+  %.137.i.i.i.i.be = phi ptr [ %110, %108 ], [ %.old.i.i.i.i, %111 ]
   br label %.lr.ph38.i.i.i.i, !llvm.loop !143
 
 _ZNK10model_core16get_const_interpEP9func_decl.exit: ; preds = %92, %103
@@ -1288,7 +1288,7 @@ _ZNK10model_core16get_const_interpEP9func_decl.exit.thread: ; preds = %97, %108,
   br i1 %.not27.old.i.i.i, label %.loopexit147, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %161, %158
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %161 ], [ %160, %158 ]
+  %.137.i.i.i.be = phi ptr [ %160, %158 ], [ %.old.i.i.i, %161 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !150
 
 .loopexit147:                                     ; preds = %.preheader.i.i.i, %147, %158, %161
@@ -1513,7 +1513,7 @@ _ZN6bufferIP4exprLb0ELj16EE6expandEv.exit.i:      ; preds = %.noexc78, %._crit_e
   br i1 %.not27.old.i.i, label %_ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit.thread, label %.lr.ph38.i.i.backedge
 
 .lr.ph38.i.i.backedge:                            ; preds = %237, %234
-  %.137.i.i.be = phi ptr [ %.old.i.i, %237 ], [ %236, %234 ]
+  %.137.i.i.be = phi ptr [ %236, %234 ], [ %.old.i.i, %237 ]
   br label %.lr.ph38.i.i, !llvm.loop !154
 
 _ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit: ; preds = %218, %229
@@ -1739,7 +1739,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0
   br i1 %.not27.old.i.i.i103, label %.loopexit, label %.lr.ph38.i.i.i99.backedge
 
 .lr.ph38.i.i.i99.backedge:                        ; preds = %318, %315
-  %.137.i.i.i100.be = phi ptr [ %.old.i.i.i102, %318 ], [ %317, %315 ]
+  %.137.i.i.i100.be = phi ptr [ %317, %315 ], [ %.old.i.i.i102, %318 ]
   br label %.lr.ph38.i.i.i99, !llvm.loop !150
 
 _ZNK7obj_mapI4exprPS0_E4findES1_RS1_.exit110:     ; preds = %299, %310
@@ -2067,7 +2067,7 @@ _ZN6vectorIP9func_declLb0EjE6shrinkEj.exit:       ; preds = %3, %._crit_edge.thr
   br i1 %.not27.old.i.i, label %_ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit33, label %.lr.ph38.i.i.backedge
 
 .lr.ph38.i.i.backedge:                            ; preds = %52, %49
-  %.137.i.i.be = phi ptr [ %.old.i.i, %52 ], [ %51, %49 ]
+  %.137.i.i.be = phi ptr [ %51, %49 ], [ %.old.i.i, %52 ]
   br label %.lr.ph38.i.i, !llvm.loop !154
 
 _ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit: ; preds = %33, %44
@@ -2132,7 +2132,7 @@ _ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_E
   br i1 %.not27.old.i.i27, label %_ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit33.thread, label %.lr.ph38.i.i23.backedge
 
 .lr.ph38.i.i23.backedge:                          ; preds = %76, %73
-  %.137.i.i24.be = phi ptr [ %.old.i.i26, %76 ], [ %75, %73 ]
+  %.137.i.i24.be = phi ptr [ %75, %73 ], [ %.old.i.i26, %76 ]
   br label %.lr.ph38.i.i23, !llvm.loop !154
 
 _ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit33: ; preds = %38, %49, %52, %57, %68, %.preheader.i.i
@@ -2580,7 +2580,7 @@ _ZNK6vectorIP9func_declLb0EjE4sizeEv.exit:        ; preds = %_ZNK6vectorIP9func_
   br i1 %.not27.old.i.i, label %.loopexit, label %.lr.ph38.i.i.backedge
 
 .lr.ph38.i.i.backedge:                            ; preds = %176, %173
-  %.137.i.i.be = phi ptr [ %.old.i.i, %176 ], [ %175, %173 ]
+  %.137.i.i.be = phi ptr [ %175, %173 ], [ %.old.i.i, %176 ]
   br label %.lr.ph38.i.i, !llvm.loop !154
 
 .loopexit:                                        ; preds = %162, %176, %173, %.preheader.i.i
@@ -3090,7 +3090,7 @@ _ZNK11ast_manager11is_uninterpEPK4sort.exit.thread: ; preds = %_ZNK11ast_manager
   br i1 %.not27.old.i.i.i, label %_ZNK17user_sort_factory9is_finiteEP4sort.exit, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %41, %38
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %41 ], [ %40, %38 ]
+  %.137.i.i.i.be = phi ptr [ %40, %38 ], [ %.old.i.i.i, %41 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !187
 
 _ZNK17user_sort_factory9is_finiteEP4sort.exit:    ; preds = %27, %22, %41, %38, %33, %_ZNK11ast_manager11is_uninterpEPK4sort.exit, %.preheader.i.i.i
@@ -3488,7 +3488,7 @@ define hidden void @_ZN11proto_model21complete_partial_funcEP9func_declb(ptr nou
   br i1 %.not27.old.i.i.i.i, label %_ZNK10model_core15get_func_interpEP9func_decl.exit.thread, label %.lr.ph38.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.backedge:                        ; preds = %37, %34
-  %.137.i.i.i.i.be = phi ptr [ %.old.i.i.i.i, %37 ], [ %36, %34 ]
+  %.137.i.i.i.i.be = phi ptr [ %36, %34 ], [ %.old.i.i.i.i, %37 ]
   br label %.lr.ph38.i.i.i.i, !llvm.loop !92
 
 _ZNK10model_core15get_func_interpEP9func_decl.exit: ; preds = %18, %29

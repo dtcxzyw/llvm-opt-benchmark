@@ -2427,7 +2427,7 @@ Gia_ManHashFind.exit:                             ; preds = %60, %Gia_ObjFaninLi
   br label %Gia_ManHashFind.exit.thread
 
 Gia_ManHashFind.exit.thread:                      ; preds = %68, %Gia_ManHashFind.exit, %16, %13, %11, %9, %5
-  %.0 = phi i32 [ %6, %5 ], [ %10, %9 ], [ 0, %13 ], [ %1, %11 ], [ %71, %Gia_ManHashFind.exit ], [ -1, %16 ], [ -1, %68 ]
+  %.0 = phi i32 [ %6, %5 ], [ %10, %9 ], [ 0, %13 ], [ %1, %11 ], [ -1, %16 ], [ %71, %Gia_ManHashFind.exit ], [ -1, %68 ]
   ret i32 %.0
 }
 
@@ -3420,7 +3420,7 @@ define i32 @Gia_ManMultiInputPerm(ptr noundef %0, ptr noundef captures(none) %1,
   br label %._crit_edge132
 
 ._crit_edge132:                                   ; preds = %.lr.ph131.split, %.lr.ph131.split.us.split.us, %._crit_edge132.loopexit135, %._crit_edge115.thread
-  %.0101.lcssa = phi i32 [ %68, %._crit_edge115.thread ], [ %80, %._crit_edge132.loopexit135 ], [ %72, %.lr.ph131.split.us.split.us ], [ %79, %.lr.ph131.split ]
+  %.0101.lcssa = phi i32 [ %68, %._crit_edge115.thread ], [ %72, %.lr.ph131.split.us.split.us ], [ %80, %._crit_edge132.loopexit135 ], [ %79, %.lr.ph131.split ]
   ret i32 %.0101.lcssa
 }
 

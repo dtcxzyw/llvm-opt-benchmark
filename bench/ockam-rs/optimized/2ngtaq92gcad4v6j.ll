@@ -20658,7 +20658,7 @@ define hidden noundef zeroext i1 @"_ZN12sharded_slab4page4slot17Slot$LT$T$C$C$GT
   br i1 %.sroa.18.0.in.i, label %15, label %_ZN12sharded_slab4page4slot19exponential_backoff17h706b616e4d895a53E.exit
 
 "_ZN107_$LT$sharded_slab..page..stack..TransferStack$LT$C$GT$$u20$as$u20$sharded_slab..page..FreeList$LT$C$GT$$GT$4push17h697217890b4a930aE.exit": ; preds = %_ZN12sharded_slab4page4slot19exponential_backoff17h706b616e4d895a53E.exit, %.lr.ph.i.i, %4, %18
-  %or.cond.not25 = phi i1 [ true, %18 ], [ false, %4 ], [ true, %.lr.ph.i.i ], [ false, %_ZN12sharded_slab4page4slot19exponential_backoff17h706b616e4d895a53E.exit ]
+  %or.cond.not25 = phi i1 [ true, %.lr.ph.i.i ], [ true, %18 ], [ false, %4 ], [ false, %_ZN12sharded_slab4page4slot19exponential_backoff17h706b616e4d895a53E.exit ]
   ret i1 %or.cond.not25
 
 15:                                               ; preds = %11
@@ -25898,7 +25898,7 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17hfefd6b2ba46b6d1dE.exit: ; preds = 
   br label %.thread
 
 .thread:                                          ; preds = %5, %.preheader.split, %.preheader.split.us, %.thread.loopexit18, %.thread.loopexit15, %.thread.loopexit13, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h8df38e2a1e7c79a7E.exit.thread17"
-  %.sroa.02.1 = phi i64 [ %.sroa.02.3, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h8df38e2a1e7c79a7E.exit.thread17" ], [ 3, %.preheader.split ], [ %6, %.thread.loopexit18 ], [ 3, %.preheader.split.us ], [ %8, %.thread.loopexit13 ], [ %15, %.thread.loopexit15 ], [ 3, %5 ]
+  %.sroa.02.1 = phi i64 [ %.sroa.02.3, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h8df38e2a1e7c79a7E.exit.thread17" ], [ %8, %.thread.loopexit13 ], [ %15, %.thread.loopexit15 ], [ %6, %.thread.loopexit18 ], [ 3, %.preheader.split ], [ 3, %.preheader.split.us ], [ 3, %5 ]
   ret i64 %.sroa.02.1
 }
 
@@ -27681,7 +27681,7 @@ _ZN17crossbeam_channel7context7Context4with17h00e6d15176661e62E.exit: ; preds = 
   br label %.backedge
 
 .critedge:                                        ; preds = %136, %43, %119, %107, %98, %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17h417cd09698b86fe0E.exit.sink.split.i"
-  %.0 = phi i8 [ 2, %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17h417cd09698b86fe0E.exit.sink.split.i" ], [ 2, %98 ], [ 2, %119 ], [ 2, %107 ], [ 0, %136 ], [ 1, %43 ]
+  %.0 = phi i8 [ 2, %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17h417cd09698b86fe0E.exit.sink.split.i" ], [ 2, %107 ], [ 2, %119 ], [ 2, %98 ], [ 0, %136 ], [ 1, %43 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i8 %.0
 }
@@ -44131,7 +44131,7 @@ _ZN3std2fs14remove_dir_all17h4e9e2056b91691b5E.exit.i.i.i.i.i.i: ; preds = %"_ZN
           to label %"_ZN4core3ptr220drop_in_place$LT$tracing..instrument..Instrumented$LT$ockam_api..cli_state..nodes..$LT$impl$u20$ockam_api..cli_state..cli_state..CliState$GT$..remove_node..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h208f3be3d794371aE.exit.i.i.i.i.i" unwind label %650, !noalias !6184
 
 649:                                              ; preds = %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17he778e50994e14118E.exit175.i.i.i.i.i.i", %420, %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17he778e50994e14118E.exit.i.i.i.i.i.i", %304
-  %.sink.i87.i.i.i.i.i = phi i8 [ 4, %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17he778e50994e14118E.exit.i.i.i.i.i.i" ], [ 5, %420 ], [ 3, %304 ], [ 6, %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17he778e50994e14118E.exit175.i.i.i.i.i.i" ]
+  %.sink.i87.i.i.i.i.i = phi i8 [ 4, %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17he778e50994e14118E.exit.i.i.i.i.i.i" ], [ 5, %420 ], [ 6, %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17he778e50994e14118E.exit175.i.i.i.i.i.i" ], [ 3, %304 ]
   store i8 %.sink.i87.i.i.i.i.i, ptr %226, align 1, !noalias !6225
   br label %"_ZN16futures_executor10local_pool8block_on28_$u7b$$u7b$closure$u7d$$u7d$17h06c433c6117e76e3E.exit.i"
 
@@ -70675,8 +70675,8 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$10re
   br i1 %exitcond.not, label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$8truncate17hfe3238862c6deaecE.exit", label %22
 
 .outer._crit_edge:                                ; preds = %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17ha5c39ea38926e13fE.exit", %176, %.loopexit
-  %.1.ph.lcssa44 = phi i64 [ %.046, %.loopexit ], [ %.1.ph58, %176 ], [ %186, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17ha5c39ea38926e13fE.exit" ]
-  %.2.lcssa = phi i64 [ %.121, %.loopexit ], [ %177, %176 ], [ %185, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17ha5c39ea38926e13fE.exit" ]
+  %.1.ph.lcssa44 = phi i64 [ %.1.ph58, %176 ], [ %.046, %.loopexit ], [ %186, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17ha5c39ea38926e13fE.exit" ]
+  %.2.lcssa = phi i64 [ %177, %176 ], [ %.121, %.loopexit ], [ %185, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17ha5c39ea38926e13fE.exit" ]
   %.not = icmp eq i64 %.2.lcssa, %.1.ph.lcssa44
   br i1 %.not, label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$8truncate17hfe3238862c6deaecE.exit", label %57
 
@@ -70823,7 +70823,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$10re
           to label %113 unwind label %120, !noalias !16149
 
 common.resume.i:                                  ; preds = %132, %113, %.body.i
-  %common.resume.op.i = phi { ptr, i32 } [ %95, %.body.i ], [ %116, %113 ], [ %135, %132 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %116, %113 ], [ %95, %.body.i ], [ %135, %132 ]
   resume { ptr, i32 } %common.resume.op.i
 
 120:                                              ; preds = %117
@@ -71065,8 +71065,8 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$10re
   br i1 %exitcond.not, label %.outer._crit_edge.thread, label %21
 
 .outer._crit_edge:                                ; preds = %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17hbf81d24a2f1196b5E.exit", %90, %.loopexit
-  %.1.ph.lcssa37 = phi i64 [ %.039, %.loopexit ], [ %.1.ph51, %90 ], [ %100, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17hbf81d24a2f1196b5E.exit" ]
-  %.2.lcssa = phi i64 [ %.121, %.loopexit ], [ %91, %90 ], [ %99, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17hbf81d24a2f1196b5E.exit" ]
+  %.1.ph.lcssa37 = phi i64 [ %.1.ph51, %90 ], [ %.039, %.loopexit ], [ %100, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17hbf81d24a2f1196b5E.exit" ]
+  %.2.lcssa = phi i64 [ %91, %90 ], [ %.121, %.loopexit ], [ %99, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17hbf81d24a2f1196b5E.exit" ]
   %.not = icmp eq i64 %.2.lcssa, %.1.ph.lcssa37
   br i1 %.not, label %.outer._crit_edge.thread, label %56
 
@@ -72226,7 +72226,7 @@ define internal fastcc void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$
           to label %61 unwind label %68
 
 common.resume:                                    ; preds = %80, %61, %.body
-  %common.resume.op = phi { ptr, i32 } [ %43, %.body ], [ %64, %61 ], [ %83, %80 ]
+  %common.resume.op = phi { ptr, i32 } [ %64, %61 ], [ %43, %.body ], [ %83, %80 ]
   resume { ptr, i32 } %common.resume.op
 
 68:                                               ; preds = %65
@@ -76436,8 +76436,8 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.2498697912442943783.exit.th
   br i1 %exitcond.not.i.i.i.i, label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$6retain17hddee74cb7733dcc6E.exit.i.i", label %345
 
 .outer._crit_edge.i.i.i.i:                        ; preds = %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17hbf81d24a2f1196b5E.exit.i.i.i.i", %406, %.loopexit.i.i.i.i
-  %.1.ph.lcssa37.i.i.i.i = phi i64 [ %.039.i.i.i.i, %.loopexit.i.i.i.i ], [ %.1.ph51.i.i.i.i, %406 ], [ %416, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17hbf81d24a2f1196b5E.exit.i.i.i.i" ]
-  %.2.lcssa.i.i.i.i = phi i64 [ %.121.i.i.i.i, %.loopexit.i.i.i.i ], [ %407, %406 ], [ %415, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17hbf81d24a2f1196b5E.exit.i.i.i.i" ]
+  %.1.ph.lcssa37.i.i.i.i = phi i64 [ %.1.ph51.i.i.i.i, %406 ], [ %.039.i.i.i.i, %.loopexit.i.i.i.i ], [ %416, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17hbf81d24a2f1196b5E.exit.i.i.i.i" ]
+  %.2.lcssa.i.i.i.i = phi i64 [ %407, %406 ], [ %.121.i.i.i.i, %.loopexit.i.i.i.i ], [ %415, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17hbf81d24a2f1196b5E.exit.i.i.i.i" ]
   %.not.i.i.i.i = icmp eq i64 %.2.lcssa.i.i.i.i, %.1.ph.lcssa37.i.i.i.i
   br i1 %.not.i.i.i.i, label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$6retain17hddee74cb7733dcc6E.exit.i.i", label %376
 
@@ -77388,8 +77388,8 @@ define hidden void @"_ZN5flume15Shared$LT$T$GT$4send17h94d3d50d7042d31bE"(ptr no
   unreachable
 
 .body69:                                          ; preds = %319, %40, %.thread142, %176, %172
-  %.151 = phi i8 [ %.555, %176 ], [ %.353.lpad-body.ph, %172 ], [ %.6, %319 ], [ %.555146, %.thread142 ], [ %.050, %40 ]
-  %.pn60 = phi { ptr, i32 } [ %.pn58, %176 ], [ %eh.lpad-body72.ph, %172 ], [ %320, %319 ], [ %.pn58147, %.thread142 ], [ %41, %40 ]
+  %.151 = phi i8 [ %.555, %176 ], [ %.353.lpad-body.ph, %172 ], [ %.050, %40 ], [ %.555146, %.thread142 ], [ %.6, %319 ]
+  %.pn60 = phi { ptr, i32 } [ %.pn58, %176 ], [ %eh.lpad-body72.ph, %172 ], [ %41, %40 ], [ %.pn58147, %.thread142 ], [ %320, %319 ]
   %39 = trunc nuw i8 %.151 to i1
   br i1 %39, label %.body69.thread, label %.body.thread
 
@@ -110603,7 +110603,7 @@ common.ret:                                       ; preds = %1705, %"_ZN4core3pt
           to label %"_ZN4core3ptr212drop_in_place$LT$tracing..instrument..Instrumented$LT$ockam_api..authenticator..enrollment_tokens..acceptor..EnrollmentTokenAcceptor..accept_token..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h1f42273b88d54061E.exit.i" unwind label %1564, !noalias !20597
 
 1563:                                             ; preds = %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17he778e50994e14118E.exit.i.i", %969, %805
-  %.sink.i95.i = phi i8 [ 4, %969 ], [ 3, %805 ], [ 5, %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17he778e50994e14118E.exit.i.i" ]
+  %.sink.i95.i = phi i8 [ 5, %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17he778e50994e14118E.exit.i.i" ], [ 4, %969 ], [ 3, %805 ]
   store i8 %.sink.i95.i, ptr %691, align 2, !noalias !20637
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.582.i.i)
   br label %1580
@@ -123539,8 +123539,8 @@ define hidden void @"_ZN100_$LT$ockam_api..nodes..models..relay..CreateRelay$u20
   br label %.thread509
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %333, %305, %263, %3
-  %.0363.ph.ph = phi i8 [ %.14377, %305 ], [ 1, %333 ], [ 1, %3 ], [ 1, %263 ]
-  %.0361.ph.ph = phi i1 [ false, %305 ], [ true, %333 ], [ true, %3 ], [ true, %263 ]
+  %.0363.ph.ph = phi i8 [ 1, %3 ], [ 1, %333 ], [ %.14377, %305 ], [ 1, %263 ]
+  %.0361.ph.ph = phi i1 [ true, %3 ], [ true, %333 ], [ false, %305 ], [ true, %263 ]
   %lpad.loopexit.split-lp592 = landingpad { ptr, i32 }
           cleanup
   br label %.thread509

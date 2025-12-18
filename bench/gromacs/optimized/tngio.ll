@@ -2325,7 +2325,7 @@ _ZL11IS_CHEMBONDi.exit.thread.i:                  ; preds = %183, %149, %_ZL11IS
   br i1 %230, label %.lr.ph20.i, label %.loopexit.i, !llvm.loop !255
 
 .loopexit.i:                                      ; preds = %221, %133, %._crit_edge.i, %.preheader7.i
-  %.2.lcssa66.i = phi i32 [ %114, %._crit_edge.i ], [ %90, %133 ], [ %.110422.i, %.preheader7.i ], [ %90, %221 ]
+  %.2.lcssa66.i = phi i32 [ %.110422.i, %.preheader7.i ], [ %114, %._crit_edge.i ], [ %90, %133 ], [ %90, %221 ]
   %231 = load i32, ptr %74, align 8, !tbaa !122
   %232 = add nsw i32 %231, %.123.i
   %233 = add nuw nsw i32 %.010621.i, 1

@@ -1311,7 +1311,7 @@ _ZN5uu_od13parse_formats11format_type17h5604a84489e7d84aE.exit: ; preds = %77
 133:                                              ; preds = %129
   br label %136
 
-134:                                              ; preds = %128, %.thread197, %129
+134:                                              ; preds = %129, %.thread197, %128
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i64 0, ptr %20, align 8
   store ptr inttoptr (i64 1 to ptr), ptr %.sroa.452.0..sroa_idx, align 8

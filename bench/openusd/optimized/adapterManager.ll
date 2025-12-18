@@ -5295,9 +5295,9 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_trai
   br label %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIPKN32pxrInternal_v0_24__pxrReserved__15UsdPrimTypeInfoENS4_25UsdImaging_AdapterManager13AdaptersEntryENS4_6TfHashESt8equal_toIS7_ENS1_13tbb_allocatorISt4pairIKS7_S9_EEELb0EEEE17adjust_table_sizeEmm.exit
 
 _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIPKN32pxrInternal_v0_24__pxrReserved__15UsdPrimTypeInfoENS4_25UsdImaging_AdapterManager13AdaptersEntryENS4_6TfHashESt8equal_toIS7_ENS1_13tbb_allocatorISt4pairIKS7_S9_EEELb0EEEE17adjust_table_sizeEmm.exit: ; preds = %35, %67, %85, %._crit_edge
-  %.sink77 = phi ptr [ null, %._crit_edge ], [ null, %85 ], [ %57, %67 ], [ null, %35 ]
-  %.sink75 = phi ptr [ %57, %._crit_edge ], [ %57, %85 ], [ %.025.i36, %67 ], [ %.025.i, %35 ]
-  %.sink = phi i8 [ 1, %._crit_edge ], [ 1, %85 ], [ 0, %67 ], [ 0, %35 ]
+  %.sink77 = phi ptr [ null, %85 ], [ %57, %67 ], [ null, %._crit_edge ], [ null, %35 ]
+  %.sink75 = phi ptr [ %57, %85 ], [ %.025.i36, %67 ], [ %57, %._crit_edge ], [ %.025.i, %35 ]
+  %.sink = phi i8 [ 1, %85 ], [ 0, %67 ], [ 1, %._crit_edge ], [ 0, %35 ]
   store ptr %.sink77, ptr %0, align 8
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink75, ptr %88, align 8
@@ -6321,9 +6321,9 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_trai
   br label %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS4_25UsdImaging_AdapterManager24_WrappedPrimAdapterEntryENS4_6TfHashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S7_EEELb0EEEE17adjust_table_sizeEmm.exit
 
 _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS4_25UsdImaging_AdapterManager24_WrappedPrimAdapterEntryENS4_6TfHashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S7_EEELb0EEEE17adjust_table_sizeEmm.exit: ; preds = %33, %79, %100, %._crit_edge
-  %.sink77 = phi ptr [ null, %._crit_edge ], [ null, %100 ], [ %43, %79 ], [ null, %33 ]
-  %.sink75 = phi ptr [ %43, %._crit_edge ], [ %43, %100 ], [ %.025.i36, %79 ], [ %.025.i, %33 ]
-  %.sink = phi i8 [ 1, %._crit_edge ], [ 1, %100 ], [ 0, %79 ], [ 0, %33 ]
+  %.sink77 = phi ptr [ null, %100 ], [ %43, %79 ], [ null, %._crit_edge ], [ null, %33 ]
+  %.sink75 = phi ptr [ %43, %100 ], [ %.025.i36, %79 ], [ %43, %._crit_edge ], [ %.025.i, %33 ]
+  %.sink = phi i8 [ 1, %100 ], [ 0, %79 ], [ 1, %._crit_edge ], [ 0, %33 ]
   store ptr %.sink77, ptr %0, align 8
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink75, ptr %103, align 8
@@ -8169,9 +8169,9 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_trai
   br label %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt10shared_ptrINS4_26UsdImagingAPISchemaAdapterEENS4_6TfHashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S8_EEELb0EEEE17adjust_table_sizeEmm.exit
 
 _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt10shared_ptrINS4_26UsdImagingAPISchemaAdapterEENS4_6TfHashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S8_EEELb0EEEE17adjust_table_sizeEmm.exit: ; preds = %32, %54, %75, %._crit_edge
-  %.sink77 = phi ptr [ null, %._crit_edge ], [ null, %75 ], [ %44, %54 ], [ null, %32 ]
-  %.sink75 = phi ptr [ %44, %._crit_edge ], [ %44, %75 ], [ %.025.i36, %54 ], [ %.025.i, %32 ]
-  %.sink = phi i8 [ 1, %._crit_edge ], [ 1, %75 ], [ 0, %54 ], [ 0, %32 ]
+  %.sink77 = phi ptr [ null, %75 ], [ %44, %54 ], [ null, %._crit_edge ], [ null, %32 ]
+  %.sink75 = phi ptr [ %44, %75 ], [ %.025.i36, %54 ], [ %44, %._crit_edge ], [ %.025.i, %32 ]
+  %.sink = phi i8 [ 1, %75 ], [ 0, %54 ], [ 1, %._crit_edge ], [ 0, %32 ]
   store ptr %.sink77, ptr %0, align 8
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink75, ptr %78, align 8

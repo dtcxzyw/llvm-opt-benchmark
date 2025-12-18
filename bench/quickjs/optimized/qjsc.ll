@@ -608,8 +608,8 @@ namelist_add.exit:                                ; preds = %10, %14
   br i1 %exitcond.not19.i, label %dump_hex.exit, label %.lr.ph.i.backedge
 
 .lr.ph.i.backedge:                                ; preds = %.thread.i, %42
-  %.013.i.be = phi i64 [ %40, %42 ], [ 0, %.thread.i ]
-  %.0912.i.be = phi i64 [ %43, %42 ], [ %44, %.thread.i ]
+  %.013.i.be = phi i64 [ 0, %.thread.i ], [ %40, %42 ]
+  %.0912.i.be = phi i64 [ %44, %.thread.i ], [ %43, %42 ]
   br label %.lr.ph.i, !llvm.loop !32
 
 ._crit_edge.i:                                    ; preds = %42

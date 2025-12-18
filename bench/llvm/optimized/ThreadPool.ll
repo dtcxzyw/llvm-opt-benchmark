@@ -639,7 +639,7 @@ _ZNK4llvm13StdThreadPool21workCompletedUnlockedEPNS_19ThreadPoolTaskGroupE.exit:
   %169 = icmp eq ptr %167, %168
   br i1 %169, label %210, label %171
 
-170:                                              ; preds = %_ZNK4llvm13StdThreadPool21workCompletedUnlockedEPNS_19ThreadPoolTaskGroupE.exit, %._crit_edge.i.i.i.i.i.i.i, %_ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEERKS7_PS8_EppEv.exit20.i.i.i.i.i.i.i
+170:                                              ; preds = %._crit_edge.i.i.i.i.i.i.i, %_ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEERKS7_PS8_EppEv.exit20.i.i.i.i.i.i.i, %_ZNK4llvm13StdThreadPool21workCompletedUnlockedEPNS_19ThreadPoolTaskGroupE.exit
   br i1 %.not91, label %._crit_edge, label %210
 
 ._crit_edge:                                      ; preds = %.lr.ph.i.split, %.lr.ph.i.split.us, %170

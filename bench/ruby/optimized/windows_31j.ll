@@ -147,7 +147,7 @@ mbc_enc_len.exit:                                 ; preds = %13
   br i1 %or.cond, label %.lr.ph, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %mbc_enc_len.exit.thread
-  %.017 = phi i32 [ %23, %mbc_enc_len.exit.thread ], [ %27, %.preheader ], [ %32, %.lr.ph ]
+  %.017 = phi i32 [ %27, %.preheader ], [ %23, %mbc_enc_len.exit.thread ], [ %32, %.lr.ph ]
   ret i32 %.017
 }
 
@@ -280,7 +280,7 @@ mbc_enc_len.exit.i:                               ; preds = %24
   br i1 %or.cond.i, label %.lr.ph.i, label %mbc_to_code.exit, !llvm.loop !11
 
 mbc_to_code.exit:                                 ; preds = %.lr.ph.i, %22, %.preheader.i
-  %.017.i = phi i32 [ %23, %22 ], [ %37, %.preheader.i ], [ %42, %.lr.ph.i ]
+  %.017.i = phi i32 [ %37, %.preheader.i ], [ %23, %22 ], [ %42, %.lr.ph.i ]
   %45 = add i32 %.017.i, -33376
   %46 = icmp ult i32 %45, 26
   br i1 %46, label %47, label %49

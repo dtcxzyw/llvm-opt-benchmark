@@ -1274,9 +1274,9 @@ define hidden void @"_ZN102_$LT$futures_util..future..future..map..Map$LT$Fut$C$
   br label %257
 
 .thread195.thread.i.i:                            ; preds = %190, %.thread195.i.i
-  %.sroa.069.2.i.i = phi i8 [ %.sroa.069.1246.i.i, %190 ], [ %.sroa.069.1.i.i, %.thread195.i.i ]
-  %.sroa.071.2.i.i = phi i8 [ %.sroa.071.1247.i.i, %190 ], [ %.sroa.071.1.i.i, %.thread195.i.i ]
-  %.pn142.i.i = phi { ptr, i32 } [ %.pn134.pn248.i.i, %190 ], [ %.pn134.pn.i.i, %.thread195.i.i ]
+  %.sroa.069.2.i.i = phi i8 [ %.sroa.069.1.i.i, %.thread195.i.i ], [ %.sroa.069.1246.i.i, %190 ]
+  %.sroa.071.2.i.i = phi i8 [ %.sroa.071.1.i.i, %.thread195.i.i ], [ %.sroa.071.1247.i.i, %190 ]
+  %.pn142.i.i = phi { ptr, i32 } [ %.pn134.pn.i.i, %.thread195.i.i ], [ %.pn134.pn248.i.i, %190 ]
   %.sroa.22.1.i.i = extractvalue { ptr, i32 } %.pn142.i.i, 1
   %.sroa.0126.1.i.i = extractvalue { ptr, i32 } %.pn142.i.i, 0
   %181 = trunc nuw i8 %.sroa.069.2.i.i to i1
@@ -2381,7 +2381,7 @@ common.resume.i:                                  ; preds = %31, %15
   unreachable
 
 "_ZN89_$LT$futures_channel..mpsc..Receiver$LT$T$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17hb820016d0f7f94b0E.exit": ; preds = %"_ZN15futures_channel4mpsc17Receiver$LT$T$GT$12next_message17h400af44974825245E.exit7.sink.split.i", %18
-  %.sroa.0.0.i = phi i1 [ false, %"_ZN15futures_channel4mpsc17Receiver$LT$T$GT$12next_message17h400af44974825245E.exit7.sink.split.i" ], [ true, %18 ]
+  %.sroa.0.0.i = phi i1 [ true, %18 ], [ false, %"_ZN15futures_channel4mpsc17Receiver$LT$T$GT$12next_message17h400af44974825245E.exit7.sink.split.i" ]
   ret i1 %.sroa.0.0.i
 }
 
@@ -20510,7 +20510,7 @@ switch.lookup:                                    ; preds = %189
   invoke void @"_ZN4core3ptr59drop_in_place$LT$http..request..Request$LT$$LP$$RP$$GT$$GT$17h264f490f68039f8cE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %45) #24
           to label %.thread402 unwind label %236
 
-.thread402:                                       ; preds = %268, %271, %273, %.thread324.thread459, %.thread330, %302
+.thread402:                                       ; preds = %271, %268, %273, %.thread324.thread459, %.thread330, %302
   %.pn256407 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp461, %.thread324.thread459 ], [ %.pn254337, %.thread330 ], [ %303, %302 ], [ %269, %268 ], [ %272, %271 ], [ %lpad.phi478, %273 ]
   %.sroa.0155.4406 = phi i8 [ 1, %.thread324.thread459 ], [ %.sroa.0155.3336, %.thread330 ], [ 0, %302 ], [ 0, %268 ], [ 0, %271 ], [ 1, %273 ]
   invoke void @"_ZN4core3ptr119drop_in_place$LT$http_body..combinators..box_body..UnsyncBoxBody$LT$bytes..bytes..Bytes$C$tonic..status..Status$GT$$GT$17h556da9bae3b44bacE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %46) #24

@@ -806,8 +806,8 @@ _ZL16getCallStackHashPKN4llvm10DILocationE.exit.loopexit: ; preds = %_ZNK4llvm6M
   br label %_ZL16getCallStackHashPKN4llvm10DILocationE.exit
 
 _ZL16getCallStackHashPKN4llvm10DILocationE.exit:  ; preds = %_ZL16getCallStackHashPKN4llvm10DILocationE.exit.loopexit, %_ZNK4llvm10DILocation12getInlinedAtEv.exit.i, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i, %_ZN4llvm8DebugLocD2Ev.exit
-  %231 = phi i64 [ %.pre225, %_ZN4llvm8DebugLocD2Ev.exit ], [ %.pre225, %_ZNK4llvm10DILocation12getInlinedAtEv.exit.i ], [ %.pre225, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i ], [ %.pre225, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i ], [ %.pre, %_ZL16getCallStackHashPKN4llvm10DILocationE.exit.loopexit ]
-  %.0152 = phi i64 [ 0, %_ZN4llvm8DebugLocD2Ev.exit ], [ 0, %_ZNK4llvm10DILocation12getInlinedAtEv.exit.i ], [ 0, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i ], [ 0, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i ], [ %214, %_ZL16getCallStackHashPKN4llvm10DILocationE.exit.loopexit ]
+  %231 = phi i64 [ %.pre225, %_ZN4llvm8DebugLocD2Ev.exit ], [ %.pre225, %_ZNK4llvm10DILocation12getInlinedAtEv.exit.i ], [ %.pre225, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i ], [ %.pre225, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i ], [ %.pre, %_ZL16getCallStackHashPKN4llvm10DILocationE.exit.loopexit ]
+  %.0152 = phi i64 [ 0, %_ZN4llvm8DebugLocD2Ev.exit ], [ 0, %_ZNK4llvm10DILocation12getInlinedAtEv.exit.i ], [ 0, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i ], [ 0, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i ], [ %214, %_ZL16getCallStackHashPKN4llvm10DILocationE.exit.loopexit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %232 = and i64 %231, 2
   %.not.i.i.i.i.i74 = icmp eq i64 %232, 0
@@ -1730,7 +1730,7 @@ _ZNK4llvm10DILocation12getInlinedAtEv.exit72.i:   ; preds = %662, %.thread.i.i68
   br i1 %.not.i92, label %_ZL18getCallStackHashV0RKN4llvm17MachineBasicBlockERKNS_12MachineInstrEPKNS_10DILocationE.exit, label %.lr.ph.i91, !llvm.loop !284
 
 _ZL18getCallStackHashV0RKN4llvm17MachineBasicBlockERKNS_12MachineInstrEPKNS_10DILocationE.exit: ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i71.i, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i66.i, %_ZNK4llvm10DILocation12getInlinedAtEv.exit72.i, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i93, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i88, %_ZNK4llvm10DILocation12getInlinedAtEv.exit.i90
-  %.0.lcssa.i = phi i64 [ %.0.i26.i, %_ZNK4llvm10DILocation12getInlinedAtEv.exit.i90 ], [ %.0.i26.i, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i88 ], [ %.0.i26.i, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i93 ], [ %.0.i63.i, %_ZNK4llvm10DILocation12getInlinedAtEv.exit72.i ], [ %.0.i63.i, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i66.i ], [ %.0.i63.i, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i71.i ]
+  %.0.lcssa.i = phi i64 [ %.0.i26.i, %_ZNK4llvm10DILocation12getInlinedAtEv.exit.i90 ], [ %.0.i26.i, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i93 ], [ %.0.i26.i, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i88 ], [ %.0.i63.i, %_ZNK4llvm10DILocation12getInlinedAtEv.exit72.i ], [ %.0.i63.i, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i66.i ], [ %.0.i63.i, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i71.i ]
   %669 = trunc i64 %.0.lcssa.i to i32
   %670 = add i32 %445, %669
   br label %671

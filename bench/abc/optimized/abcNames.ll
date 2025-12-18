@@ -1634,7 +1634,7 @@ define range(i32 0, 2) i32 @Abc_NodeCompareCiCo(ptr noundef readonly captures(no
   br i1 %.not23, label %47, label %.loopexit
 
 .loopexit:                                        ; preds = %27, %51, %47, %.preheader, %12, %7, %2
-  %.020 = phi i32 [ 0, %2 ], [ 0, %7 ], [ 0, %12 ], [ 1, %.preheader ], [ 1, %47 ], [ 0, %51 ], [ 0, %27 ]
+  %.020 = phi i32 [ 1, %.preheader ], [ 0, %2 ], [ 0, %7 ], [ 0, %12 ], [ 1, %47 ], [ 0, %51 ], [ 0, %27 ]
   ret i32 %.020
 }
 

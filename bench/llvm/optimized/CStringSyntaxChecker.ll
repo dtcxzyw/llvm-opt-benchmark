@@ -2859,7 +2859,7 @@ _ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.exit.thread.i55: ; preds =
   br label %431
 
 431:                                              ; preds = %429, %427, %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.exit.thread.i55
-  %.041.i = phi ptr [ %392, %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.exit.thread.i55 ], [ %430, %429 ], [ %392, %427 ]
+  %.041.i = phi ptr [ %392, %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.exit.thread.i55 ], [ %392, %427 ], [ %430, %429 ]
   %432 = tail call noundef ptr @_ZN5clang4Expr19IgnoreParenImpCastsEv(ptr noundef nonnull align 8 dereferenceable(16) %.041.i) #21
   %433 = load i16, ptr %432, align 8
   %434 = and i16 %433, 511

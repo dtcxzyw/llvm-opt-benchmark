@@ -4171,7 +4171,7 @@ _ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i:     ; preds = %_ZNK6vectorIjLb0EjE
   br label %_ZN6vectorIjLb0EjE6resizeIjEEvjT_z.exit
 
 _ZN6vectorIjLb0EjE6resizeIjEEvjT_z.exit:          ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.thread.i, %_ZN6vectorIjLb0EjE5resetEv.exit.thread, %.lr.ph.preheader.i, %_ZN6vectorIjLb0EjE5resetEv.exit, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i
-  %26 = phi ptr [ %7, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i ], [ %7, %_ZN6vectorIjLb0EjE5resetEv.exit ], [ %.ph474, %.lr.ph.preheader.i ], [ %11, %_ZN6vectorIjLb0EjE5resetEv.exit.thread ], [ %11, %_ZNK6vectorIjLb0EjE4sizeEv.exit.thread.i ]
+  %26 = phi ptr [ %7, %_ZN6vectorIjLb0EjE5resetEv.exit ], [ %7, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i ], [ %.ph474, %.lr.ph.preheader.i ], [ %11, %_ZN6vectorIjLb0EjE5resetEv.exit.thread ], [ %11, %_ZNK6vectorIjLb0EjE4sizeEv.exit.thread.i ]
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %28 = load ptr, ptr %27, align 8, !tbaa !532
   %.not.i95 = icmp eq ptr %28, null
@@ -4633,7 +4633,7 @@ _ZN3smt11theory_char14get_char_valueEiRj.exit117: ; preds = %209, %.noexc116, %_
   invoke void @_ZN3smt11theory_char16enforce_ackermanEii(ptr noundef nonnull align 8 dereferenceable(384) %0, i32 noundef %180, i32 noundef %indvars)
           to label %.critedge94 unwind label %.loopexit.split-lp262
 
-_ZN3smt11theory_char14get_char_valueEiRj.exit117.thread: ; preds = %189, %183, %_ZNK6vectorI7svectorIN3sat7literalEjELb1EjE4sizeEv.exit.i.i106, %_ZNK3smt11theory_char8has_bitsEi.exit.i107, %_ZN3smt11theory_char14get_char_valueEiRj.exit117
+_ZN3smt11theory_char14get_char_valueEiRj.exit117.thread: ; preds = %183, %_ZNK6vectorI7svectorIN3sat7literalEjELb1EjE4sizeEv.exit.i.i106, %189, %_ZNK3smt11theory_char8has_bitsEi.exit.i107, %_ZN3smt11theory_char14get_char_valueEiRj.exit117
   %219 = load ptr, ptr %5, align 8, !tbaa !546
   %220 = zext i32 %180 to i64
   %221 = getelementptr inbounds nuw i32, ptr %219, i64 %220
@@ -4716,7 +4716,7 @@ _ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i:   ; preds = %_ZNK6vectorIjLb0EjE
   store i32 %indvars, ptr %251, align 4, !tbaa !537
   br label %.critedge, !llvm.loop !644
 
-.critedge:                                        ; preds = %63, %57, %_ZNK6vectorI7svectorIN3sat7literalEjELb1EjE4sizeEv.exit.i.i, %_ZNK3smt11theory_char8has_bitsEi.exit.i, %242, %52, %47
+.critedge:                                        ; preds = %57, %_ZNK6vectorI7svectorIN3sat7literalEjELb1EjE4sizeEv.exit.i.i, %63, %_ZNK3smt11theory_char8has_bitsEi.exit.i, %242, %52, %47
   %.not = icmp eq i32 %indvars, 0
   br i1 %.not, label %.critedge92, label %40
 
@@ -5063,7 +5063,7 @@ _ZN8uint_set6insertEj.exit185:                    ; preds = %_ZNK6vectorIjLb0EjE
   br i1 %.not84, label %.critedge94, label %259, !llvm.loop !647
 
 .critedge94:                                      ; preds = %388, %.noexc143, %.critedge92, %_ZNK3smt6theory12get_num_varsEv.exit127, %294, %_ZNK3smt6theory12get_num_varsEv.exit.i, %218, %169, %178
-  %.8.ph = phi i1 [ true, %.critedge92 ], [ true, %_ZNK3smt6theory12get_num_varsEv.exit127 ], [ false, %294 ], [ false, %_ZNK3smt6theory12get_num_varsEv.exit.i ], [ false, %169 ], [ false, %178 ], [ false, %218 ], [ false, %.noexc143 ], [ true, %388 ]
+  %.8.ph = phi i1 [ true, %.critedge92 ], [ false, %218 ], [ false, %.noexc143 ], [ false, %294 ], [ false, %_ZNK3smt6theory12get_num_varsEv.exit.i ], [ true, %_ZNK3smt6theory12get_num_varsEv.exit127 ], [ false, %169 ], [ false, %178 ], [ true, %388 ]
   %.pr = load ptr, ptr %4, align 8, !tbaa !546
   %.not.i.i = icmp eq ptr %.pr, null
   br i1 %.not.i.i, label %_ZN6vectorIjLb0EjED2Ev.exit, label %389
@@ -5167,7 +5167,7 @@ _ZNK6vectorIN3sat7literalELb0EjE3endEv.exit:      ; preds = %17
   br i1 %.not, label %_ZNK3smt11theory_char8has_bitsEi.exit.thread, label %31
 
 _ZNK3smt11theory_char8has_bitsEi.exit.thread:     ; preds = %39, %17, %_ZNK6vectorIN3sat7literalELb0EjE3endEv.exit, %10, %3, %_ZNK6vectorI7svectorIN3sat7literalEjELb1EjE4sizeEv.exit.i, %_ZNK3smt11theory_char8has_bitsEi.exit
-  %43 = phi i1 [ false, %_ZNK3smt11theory_char8has_bitsEi.exit ], [ false, %_ZNK6vectorI7svectorIN3sat7literalEjELb1EjE4sizeEv.exit.i ], [ false, %3 ], [ false, %10 ], [ true, %_ZNK6vectorIN3sat7literalELb0EjE3endEv.exit ], [ true, %17 ], [ true, %39 ]
+  %43 = phi i1 [ false, %_ZNK3smt11theory_char8has_bitsEi.exit ], [ false, %10 ], [ false, %_ZNK6vectorI7svectorIN3sat7literalEjELb1EjE4sizeEv.exit.i ], [ false, %3 ], [ true, %_ZNK6vectorIN3sat7literalELb0EjE3endEv.exit ], [ true, %17 ], [ true, %39 ]
   ret i1 %43
 }
 

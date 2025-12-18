@@ -611,7 +611,7 @@ define dso_local noundef float @_ZN27btMultiBodyConstraintSolver20solveSingleIte
   br i1 %323, label %.lr.ph254.split, label %.loopexit, !llvm.loop !57
 
 .loopexit:                                        ; preds = %320, %283, %.lr.ph269, %.lr.ph254, %.preheader237, %.preheader
-  %.7 = phi float [ %.3.lcssa, %.preheader ], [ %.0231.lcssa, %.preheader237 ], [ %.3.lcssa, %.lr.ph269 ], [ %.0231.lcssa, %.lr.ph254 ], [ %.6, %283 ], [ %.9, %320 ]
+  %.7 = phi float [ %.0231.lcssa, %.lr.ph254 ], [ %.3.lcssa, %.preheader ], [ %.3.lcssa, %.lr.ph269 ], [ %.0231.lcssa, %.preheader237 ], [ %.6, %283 ], [ %.9, %320 ]
   ret float %.7
 }
 

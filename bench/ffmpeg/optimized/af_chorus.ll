@@ -810,7 +810,7 @@ define internal i32 @config_output(ptr noundef readonly captures(none) %0) #1 {
   br label %.critedge
 
 .critedge:                                        ; preds = %21, %.lr.ph91, %79, %74, %._crit_edge92
-  %.2 = phi i32 [ -12, %79 ], [ %101, %._crit_edge92 ], [ -12, %74 ], [ -12, %.lr.ph91 ], [ -12, %21 ]
+  %.2 = phi i32 [ -12, %.lr.ph91 ], [ -12, %79 ], [ %101, %._crit_edge92 ], [ -12, %74 ], [ -12, %21 ]
   ret i32 %.2
 }
 

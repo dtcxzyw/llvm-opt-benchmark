@@ -3301,8 +3301,8 @@ define internal fastcc range(i32 0, 2) i32 @ch_generate_transport_params(ptr nou
   br label %114
 
 114:                                              ; preds = %110, %10, %1, %14, %17, %76, %78, %113
-  %.097 = phi i32 [ 0, %113 ], [ 0, %1 ], [ 0, %10 ], [ 0, %14 ], [ 1, %110 ], [ 0, %78 ], [ 0, %76 ], [ 0, %17 ]
-  %.06195 = phi ptr [ %15, %113 ], [ null, %1 ], [ null, %10 ], [ null, %14 ], [ %15, %110 ], [ %15, %78 ], [ %15, %76 ], [ %15, %17 ]
+  %.097 = phi i32 [ 0, %113 ], [ 0, %1 ], [ 0, %10 ], [ 0, %14 ], [ 0, %17 ], [ 1, %110 ], [ 0, %78 ], [ 0, %76 ]
+  %.06195 = phi ptr [ %15, %113 ], [ null, %1 ], [ null, %10 ], [ null, %14 ], [ %15, %17 ], [ %15, %110 ], [ %15, %78 ], [ %15, %76 ]
   call void @BUF_MEM_free(ptr noundef %.06195) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)

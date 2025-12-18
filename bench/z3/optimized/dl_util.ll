@@ -2376,7 +2376,7 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit:                  ; preds = %.loopexit
   br i1 %or.cond.not, label %31, label %.critedge, !llvm.loop !307
 
 .critedge:                                        ; preds = %11, %31, %.loopexit, %_ZNK6vectorIjLb0EjE4sizeEv.exit
-  %.0 = phi i1 [ true, %_ZNK6vectorIjLb0EjE4sizeEv.exit ], [ true, %.loopexit ], [ %39, %31 ], [ false, %11 ]
+  %.0 = phi i1 [ %39, %31 ], [ true, %_ZNK6vectorIjLb0EjE4sizeEv.exit ], [ true, %.loopexit ], [ false, %11 ]
   ret i1 %.0
 }
 
@@ -5019,7 +5019,7 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit:            ; preds = %16, %22
   br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !410
 
 .critedge:                                        ; preds = %34, %_ZN6vectorIjLb0EjE9push_backERKj.exit, %2, %_ZNK6vectorIjLb0EjE4sizeEv.exit
-  %.not25 = phi i1 [ false, %_ZNK6vectorIjLb0EjE4sizeEv.exit ], [ false, %2 ], [ true, %_ZN6vectorIjLb0EjE9push_backERKj.exit ], [ false, %34 ]
+  %.not25 = phi i1 [ true, %_ZN6vectorIjLb0EjE9push_backERKj.exit ], [ false, %_ZNK6vectorIjLb0EjE4sizeEv.exit ], [ false, %2 ], [ false, %34 ]
   ret i1 %.not25
 }
 

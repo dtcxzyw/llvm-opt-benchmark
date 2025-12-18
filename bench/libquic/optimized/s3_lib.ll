@@ -811,7 +811,7 @@ define hidden ptr @ssl3_choose_cipher(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %.loopexit
 
 .loopexit:                                        ; preds = %70, %.critedge.us.us, %.loopexit.sink.split, %15
-  %.040 = phi ptr [ null, %15 ], [ %74, %.loopexit.sink.split ], [ null, %.critedge.us.us ], [ null, %70 ]
+  %.040 = phi ptr [ null, %15 ], [ null, %.critedge.us.us ], [ %74, %.loopexit.sink.split ], [ null, %70 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

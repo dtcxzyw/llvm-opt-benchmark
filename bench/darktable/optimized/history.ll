@@ -2133,8 +2133,8 @@ _create_deleted_modules.exit:                     ; preds = %102
   br label %_create_deleted_modules.exit.thread
 
 _create_deleted_modules.exit.thread:              ; preds = %45, %_create_deleted_modules.exit, %.critedge.critedge.i
-  %.174 = phi ptr [ %.453.i, %_create_deleted_modules.exit ], [ %.061, %.critedge.critedge.i ], [ %.061, %45 ]
-  %103 = phi i32 [ %spec.select, %_create_deleted_modules.exit ], [ 1, %.critedge.critedge.i ], [ 1, %45 ]
+  %.174 = phi ptr [ %.061, %.critedge.critedge.i ], [ %.453.i, %_create_deleted_modules.exit ], [ %.061, %45 ]
+  %103 = phi i32 [ 1, %.critedge.critedge.i ], [ %spec.select, %_create_deleted_modules.exit ], [ 1, %45 ]
   %.not111.i = icmp eq ptr %.174, null
   br i1 %.not111.i, label %212, label %.lr.ph.i51
 
@@ -2321,8 +2321,8 @@ _search_history_by_module.exit86.i:               ; preds = %175
   br i1 %.not.i91.i, label %.thread102.i, label %.lr.ph.i88.i
 
 .thread102.i:                                     ; preds = %178, %_search_history_by_module.exit86.i, %181
-  %.4107.i = phi ptr [ %.064112.i, %181 ], [ %157, %_search_history_by_module.exit86.i ], [ %.064112.i, %178 ]
-  %.370106.i = phi ptr [ %151, %181 ], [ %159, %_search_history_by_module.exit86.i ], [ %151, %178 ]
+  %.4107.i = phi ptr [ %.064112.i, %181 ], [ %.064112.i, %178 ], [ %157, %_search_history_by_module.exit86.i ]
+  %.370106.i = phi ptr [ %151, %181 ], [ %151, %178 ], [ %159, %_search_history_by_module.exit86.i ]
   %184 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !70
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 88
   %186 = load ptr, ptr %185, align 8, !tbaa !107

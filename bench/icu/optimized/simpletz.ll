@@ -2676,7 +2676,7 @@ _ZNK6icu_7714SimpleTimeZone20checkTransitionRulesER10UErrorCode.exit: ; preds = 
   br label %54
 
 54:                                               ; preds = %.sink.split, %50, %51
-  %.2 = phi i8 [ 0, %51 ], [ 0, %50 ], [ 1, %.sink.split ]
+  %.2 = phi i8 [ 0, %50 ], [ 0, %51 ], [ 1, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %55
@@ -2839,7 +2839,7 @@ _ZNK6icu_7714SimpleTimeZone20checkTransitionRulesER10UErrorCode.exit: ; preds = 
   br label %51
 
 51:                                               ; preds = %.sink.split, %47, %48
-  %.3 = phi i8 [ 0, %48 ], [ 0, %47 ], [ 1, %.sink.split ]
+  %.3 = phi i8 [ 0, %47 ], [ 0, %48 ], [ 1, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %52
@@ -3601,7 +3601,7 @@ _ZN6icu_7713UnicodeStringC2IA6_DsvEERKT_.exit:    ; preds = %136
   br label %.critedge170
 
 348:                                              ; preds = %313, %341
-  %349 = phi ptr [ %311, %313 ], [ %339, %341 ]
+  %349 = phi ptr [ %339, %341 ], [ %311, %313 ]
   store ptr %349, ptr %28, align 8, !tbaa !41
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

@@ -296,7 +296,7 @@ _ZNK12ObjectSample23is_alive_and_older_thanEl.exit27.thread: ; preds = %.lr.ph34
   br i1 %.not26, label %.loopexit, label %.lr.ph34, !llvm.loop !8
 
 .loopexit:                                        ; preds = %_ZNK12ObjectSample23is_alive_and_older_thanEl.exit27.thread, %7, %33, %._crit_edge
-  %.0.lcssa40 = phi i64 [ 0, %._crit_edge ], [ %.1, %33 ], [ 0, %7 ], [ %.1, %_ZNK12ObjectSample23is_alive_and_older_thanEl.exit27.thread ]
+  %.0.lcssa40 = phi i64 [ 0, %7 ], [ 0, %._crit_edge ], [ %.1, %33 ], [ %.1, %_ZNK12ObjectSample23is_alive_and_older_thanEl.exit27.thread ]
   ret i64 %.0.lcssa40
 }
 

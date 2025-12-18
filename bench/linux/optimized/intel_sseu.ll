@@ -267,9 +267,9 @@ define dso_local i32 @intel_sseu_copy_eumask_to_user(ptr noundef %0, ptr noundef
   br i1 %87, label %.split6.split, label %.loopexit4, !llvm.loop !20
 
 .loopexit4:                                       ; preds = %.loopexit, %.loopexit.us, %34, %.split6.us, %.split10
-  %88 = phi i8 [ %20, %.split10 ], [ %20, %.split6.us ], [ %20, %.loopexit.us ], [ %35, %34 ], [ %85, %.loopexit ]
-  %89 = phi i8 [ %21, %.split10 ], [ %21, %.split6.us ], [ %21, %.loopexit.us ], [ %35, %34 ], [ %85, %.loopexit ]
-  %90 = phi i8 [ 0, %.split10 ], [ %22, %.split6.us ], [ %21, %.loopexit.us ], [ %35, %34 ], [ %85, %.loopexit ]
+  %88 = phi i8 [ %20, %.split6.us ], [ %20, %.loopexit.us ], [ %35, %34 ], [ %20, %.split10 ], [ %85, %.loopexit ]
+  %89 = phi i8 [ %21, %.split6.us ], [ %21, %.loopexit.us ], [ %35, %34 ], [ %21, %.split10 ], [ %85, %.loopexit ]
+  %90 = phi i8 [ %22, %.split6.us ], [ %21, %.loopexit.us ], [ %35, %34 ], [ 0, %.split10 ], [ %85, %.loopexit ]
   %91 = add nuw nsw i64 %23, 1
   %92 = load i8, ptr %9, align 8
   %93 = zext i8 %92 to i64

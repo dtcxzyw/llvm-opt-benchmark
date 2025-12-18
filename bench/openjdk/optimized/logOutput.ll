@@ -706,7 +706,7 @@ define hidden noundef zeroext i1 @_ZN9LogOutput13parse_optionsEPKcP12outputStrea
   br label %.loopexit
 
 .loopexit:                                        ; preds = %33, %.loopexit.sink.split, %25
-  %.028.shrunk = phi i1 [ false, %25 ], [ false, %.loopexit.sink.split ], [ true, %33 ]
+  %.028.shrunk = phi i1 [ false, %.loopexit.sink.split ], [ false, %25 ], [ true, %33 ]
   tail call void @_ZN2os4freeEPv(ptr noundef %8) #13
   br label %39
 

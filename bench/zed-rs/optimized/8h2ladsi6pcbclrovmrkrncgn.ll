@@ -18611,8 +18611,8 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17h6fe7a014cf7c6
   br i1 %.not.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h1593a922bfd4f218E.llvm.3225449011375112997.exit._crit_edge", label %7
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h495bbff6420913fdE.llvm.3225449011375112997.exit": ; preds = %20, %16, %13, %2
-  %.sroa.7.2 = phi i64 [ 0, %2 ], [ %12, %13 ], [ %12, %20 ], [ %12, %16 ]
-  %.sroa.16.1 = phi i64 [ 0, %2 ], [ 1, %13 ], [ 1, %20 ], [ 1, %16 ]
+  %.sroa.7.2 = phi i64 [ 0, %2 ], [ %12, %16 ], [ %12, %13 ], [ %12, %20 ]
+  %.sroa.16.1 = phi i64 [ 0, %2 ], [ 1, %16 ], [ 1, %13 ], [ 1, %20 ]
   %.not1.i = icmp eq i64 %.sroa.7.2, %4
   br i1 %.not1.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h1593a922bfd4f218E.llvm.3225449011375112997.exit", label %.lr.ph.i2.preheader
 
@@ -31128,7 +31128,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17hc9774fd88a54a18dE.exit: ; preds = %.no
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke, %._crit_edge, %41
-  %.sroa.012.2.ph.ph = phi i1 [ true, %41 ], [ false, %._crit_edge ], [ true, %.invoke ]
+  %.sroa.012.2.ph.ph = phi i1 [ true, %41 ], [ true, %.invoke ], [ false, %._crit_edge ]
   %lpad.loopexit.split-lp54 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -31488,7 +31488,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17hc9774fd88a54a18dE.exit: ; preds = %.no
   br label %44
 
 .loopexit.split-lp:                               ; preds = %.invoke, %40, %._crit_edge
-  %.sroa.012.2.ph = phi i1 [ true, %.invoke ], [ true, %40 ], [ false, %._crit_edge ]
+  %.sroa.012.2.ph = phi i1 [ true, %40 ], [ true, %.invoke ], [ false, %._crit_edge ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %44
@@ -42715,9 +42715,9 @@ define hidden void @"_ZN3vim6visual26_$LT$impl$u20$vim..Vim$GT$19visual_block_mo
   br label %117
 
 117:                                              ; preds = %.thread111._crit_edge, %116
-  %118 = phi float [ %.pre142, %.thread111._crit_edge ], [ %115, %116 ]
-  %.sroa.12.1 = phi i32 [ %.sroa.12.0, %.thread111._crit_edge ], [ %114, %116 ]
-  %.sroa.028.1 = phi i32 [ %.sroa.028.0, %.thread111._crit_edge ], [ %113, %116 ]
+  %118 = phi float [ %115, %116 ], [ %.pre142, %.thread111._crit_edge ]
+  %.sroa.12.1 = phi i32 [ %114, %116 ], [ %.sroa.12.0, %.thread111._crit_edge ]
+  %.sroa.028.1 = phi i32 [ %113, %116 ], [ %.sroa.028.0, %.thread111._crit_edge ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %119 = load float, ptr %9, align 4, !noundef !11
   store float %119, ptr %8, align 4
@@ -43331,9 +43331,9 @@ define hidden void @"_ZN3vim6visual26_$LT$impl$u20$vim..Vim$GT$19visual_block_mo
   br label %140
 
 140:                                              ; preds = %.thread102._crit_edge, %139
-  %141 = phi float [ %.pre133, %.thread102._crit_edge ], [ %138, %139 ]
-  %.sroa.12.1 = phi i32 [ %105, %.thread102._crit_edge ], [ %137, %139 ]
-  %.sroa.028.1 = phi i32 [ %103, %.thread102._crit_edge ], [ %136, %139 ]
+  %141 = phi float [ %138, %139 ], [ %.pre133, %.thread102._crit_edge ]
+  %.sroa.12.1 = phi i32 [ %137, %139 ], [ %105, %.thread102._crit_edge ]
+  %.sroa.028.1 = phi i32 [ %136, %139 ], [ %103, %.thread102._crit_edge ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %142 = load float, ptr %11, align 4, !noundef !11
   store float %142, ptr %8, align 4

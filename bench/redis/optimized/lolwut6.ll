@@ -112,12 +112,12 @@ define dso_local void @generateSkyscraper(ptr noundef %0, ptr noundef readonly c
   br i1 %53, label %.lr.ph.split.us.split, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.us.split, %40, %90, %15
-  %54 = phi i32 [ %16, %15 ], [ %41, %40 ], [ %91, %90 ], [ %51, %.lr.ph.split.us.split ]
-  %55 = phi i32 [ %17, %15 ], [ %42, %40 ], [ %92, %90 ], [ %50, %.lr.ph.split.us.split ]
-  %56 = phi i32 [ %18, %15 ], [ %43, %40 ], [ %91, %90 ], [ %51, %.lr.ph.split.us.split ]
-  %57 = phi i32 [ %19, %15 ], [ %44, %40 ], [ %92, %90 ], [ %50, %.lr.ph.split.us.split ]
-  %58 = phi i32 [ %20, %15 ], [ %43, %40 ], [ %91, %90 ], [ %51, %.lr.ph.split.us.split ]
-  %59 = phi i32 [ %21, %15 ], [ %44, %40 ], [ %92, %90 ], [ %50, %.lr.ph.split.us.split ]
+  %54 = phi i32 [ %41, %40 ], [ %91, %90 ], [ %16, %15 ], [ %51, %.lr.ph.split.us.split ]
+  %55 = phi i32 [ %42, %40 ], [ %92, %90 ], [ %17, %15 ], [ %50, %.lr.ph.split.us.split ]
+  %56 = phi i32 [ %43, %40 ], [ %91, %90 ], [ %18, %15 ], [ %51, %.lr.ph.split.us.split ]
+  %57 = phi i32 [ %44, %40 ], [ %92, %90 ], [ %19, %15 ], [ %50, %.lr.ph.split.us.split ]
+  %58 = phi i32 [ %43, %40 ], [ %91, %90 ], [ %20, %15 ], [ %51, %.lr.ph.split.us.split ]
+  %59 = phi i32 [ %44, %40 ], [ %92, %90 ], [ %21, %15 ], [ %50, %.lr.ph.split.us.split ]
   %60 = add i32 %.065, -1
   %.not.not = icmp sgt i32 %60, %8
   br i1 %.not.not, label %15, label %._crit_edge70, !llvm.loop !19
@@ -256,7 +256,7 @@ define dso_local void @generateSkyline(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %29, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %.split
-  %30 = phi i32 [ %11, %.split ], [ %28, %.lr.ph.split.us ], [ %47, %.lr.ph.split ]
+  %30 = phi i32 [ %28, %.lr.ph.split.us ], [ %11, %.split ], [ %47, %.lr.ph.split ]
   %31 = add nsw i32 %.02427, -1
   %32 = icmp samesign ugt i32 %.02427, 1
   br i1 %32, label %.split, label %.split29, !llvm.loop !24

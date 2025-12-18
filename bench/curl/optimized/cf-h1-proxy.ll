@@ -1508,7 +1508,7 @@ h1_tunnel_go_state.exit190.i:                     ; preds = %606, %587
   store ptr null, ptr %104, align 8, !tbaa !124
   br label %.critedge
 
-.loopexit:                                        ; preds = %send_CONNECT.exit.i, %tunnel_is_established.exit.i, %.loopexit.i, %620, %616, %611
+.loopexit:                                        ; preds = %send_CONNECT.exit.i, %tunnel_is_established.exit.i, %.loopexit.i, %611, %620, %616
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %644 = load ptr, ptr @Curl_cfree, align 8, !tbaa !103
   %645 = getelementptr inbounds nuw i8, ptr %1, i64 5008
@@ -1544,7 +1544,7 @@ tunnel_is_established.exit:                       ; preds = %.loopexit
   br label %tunnel_init.exit.thread
 
 .critedge:                                        ; preds = %tunnel_is_established.exit.i, %640, %.thread226.i, %h1_tunnel_go_state.exit190.i
-  %.0.i54 = phi i32 [ 56, %h1_tunnel_go_state.exit190.i ], [ %.1.ph229.i, %.thread226.i ], [ %.1.ph229.i, %640 ], [ 56, %tunnel_is_established.exit.i ]
+  %.0.i54 = phi i32 [ 56, %h1_tunnel_go_state.exit190.i ], [ %.1.ph229.i, %640 ], [ %.1.ph229.i, %.thread226.i ], [ 56, %tunnel_is_established.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   store i8 0, ptr %3, align 1, !tbaa !84
   br label %tunnel_init.exit.thread

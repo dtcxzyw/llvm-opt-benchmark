@@ -5229,7 +5229,7 @@ _ZN4cvc58internal7Minisat4HeapINS1_6Solver10VarOrderLtEE13percolateDownEi.exit.i
   br label %.thread220
 
 .thread220:                                       ; preds = %thread-pre-split, %.critedge3, %.critedge130, %.thread, %1
-  %.sroa.064.0 = phi i32 [ -2, %1 ], [ %193, %.critedge130 ], [ %.pr228, %.thread ], [ -2, %.critedge3 ], [ -2, %thread-pre-split ]
+  %.sroa.064.0 = phi i32 [ -2, %1 ], [ -2, %.critedge3 ], [ %193, %.critedge130 ], [ %.pr228, %.thread ], [ -2, %thread-pre-split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.sroa.064.0
@@ -7844,9 +7844,9 @@ _ZN4cvc58internal7Minisat8OccListsINS1_3LitENS1_3vecINS1_6Solver7WatcherEEENS5_1
   br label %_ZN4cvc58internal7Minisat6Solver16uncheckedEnqueueENS1_3LitEj.exit
 
 _ZN4cvc58internal7Minisat6Solver16uncheckedEnqueueENS1_3LitEj.exit: ; preds = %.lr.ph157, %180, %122, %164, %187, %202, %96
-  %.174 = phi ptr [ %98, %96 ], [ %123, %122 ], [ %.073160, %164 ], [ %170, %187 ], [ %170, %202 ], [ %170, %180 ], [ %184, %.lr.ph157 ]
-  %.169 = phi ptr [ %97, %96 ], [ %113, %122 ], [ %113, %164 ], [ %113, %187 ], [ %113, %202 ], [ %113, %180 ], [ %183, %.lr.ph157 ]
-  %.2 = phi i32 [ %.1162, %96 ], [ %.1162, %122 ], [ %.1162, %164 ], [ %.1162, %187 ], [ %.1162, %202 ], [ %101, %180 ], [ %101, %.lr.ph157 ]
+  %.174 = phi ptr [ %98, %96 ], [ %123, %122 ], [ %170, %202 ], [ %.073160, %164 ], [ %170, %187 ], [ %170, %180 ], [ %184, %.lr.ph157 ]
+  %.169 = phi ptr [ %97, %96 ], [ %113, %122 ], [ %113, %202 ], [ %113, %164 ], [ %113, %187 ], [ %113, %180 ], [ %183, %.lr.ph157 ]
+  %.2 = phi i32 [ %.1162, %96 ], [ %.1162, %122 ], [ %.1162, %202 ], [ %.1162, %164 ], [ %.1162, %187 ], [ %101, %180 ], [ %101, %.lr.ph157 ]
   %.not = icmp eq ptr %.169, %84
   br i1 %.not, label %._crit_edge165, label %86
 
@@ -10845,9 +10845,9 @@ _ZNK4cvc58internal7Minisat6Solver9satisfiedERKNS1_6ClauseE.exit58.loopexit: ; pr
   br label %_ZNK4cvc58internal7Minisat6Solver9satisfiedERKNS1_6ClauseE.exit58
 
 _ZNK4cvc58internal7Minisat6Solver9satisfiedERKNS1_6ClauseE.exit58: ; preds = %70, %_ZNK4cvc58internal7Minisat6Solver9satisfiedERKNS1_6ClauseE.exit58.loopexit, %.loopexit
-  %140 = phi i32 [ %56, %.loopexit ], [ %.pre137, %_ZNK4cvc58internal7Minisat6Solver9satisfiedERKNS1_6ClauseE.exit58.loopexit ], [ %56, %70 ]
-  %141 = phi ptr [ %57, %.loopexit ], [ %135, %_ZNK4cvc58internal7Minisat6Solver9satisfiedERKNS1_6ClauseE.exit58.loopexit ], [ %57, %70 ]
-  %.lcssa97 = phi i32 [ %.lcssa98101, %.loopexit ], [ %136, %_ZNK4cvc58internal7Minisat6Solver9satisfiedERKNS1_6ClauseE.exit58.loopexit ], [ %.lcssa98101, %70 ]
+  %140 = phi i32 [ %.pre137, %_ZNK4cvc58internal7Minisat6Solver9satisfiedERKNS1_6ClauseE.exit58.loopexit ], [ %56, %.loopexit ], [ %56, %70 ]
+  %141 = phi ptr [ %135, %_ZNK4cvc58internal7Minisat6Solver9satisfiedERKNS1_6ClauseE.exit58.loopexit ], [ %57, %.loopexit ], [ %57, %70 ]
+  %.lcssa97 = phi i32 [ %136, %_ZNK4cvc58internal7Minisat6Solver9satisfiedERKNS1_6ClauseE.exit58.loopexit ], [ %.lcssa98101, %.loopexit ], [ %.lcssa98101, %70 ]
   %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
   %142 = sext i32 %140 to i64
   %143 = icmp slt i64 %indvars.iv.next129, %142
@@ -12660,7 +12660,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4cvc58internal7Minisat12Double
   br label %_ZN4cvc58internal7MinisatL5matchIPKcEEbRT_S4_.exit
 
 _ZN4cvc58internal7MinisatL5matchIPKcEEbRT_S4_.exit: ; preds = %.lr.ph.i15, %.lr.ph.i, %.loopexit, %50
-  %.0 = phi i1 [ %21, %50 ], [ false, %.loopexit ], [ false, %.lr.ph.i ], [ false, %.lr.ph.i15 ]
+  %.0 = phi i1 [ %21, %50 ], [ false, %.lr.ph.i ], [ false, %.loopexit ], [ false, %.lr.ph.i15 ]
   ret i1 %.0
 }
 
@@ -12858,7 +12858,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4cvc58internal7Minisat9IntOpti
   br label %_ZN4cvc58internal7MinisatL5matchIPKcEEbRT_S4_.exit
 
 _ZN4cvc58internal7MinisatL5matchIPKcEEbRT_S4_.exit: ; preds = %.lr.ph.i7, %.lr.ph.i, %.loopexit, %41
-  %.0 = phi i1 [ %22, %41 ], [ false, %.loopexit ], [ false, %.lr.ph.i ], [ false, %.lr.ph.i7 ]
+  %.0 = phi i1 [ %22, %41 ], [ false, %.lr.ph.i ], [ false, %.loopexit ], [ false, %.lr.ph.i7 ]
   ret i1 %.0
 }
 
@@ -13911,12 +13911,12 @@ _ZN4cvc58internal7Minisat6Solver8lemma_ltclENS1_3LitES4_.exit48.thread.loopexit.
   br label %_ZN4cvc58internal7Minisat6Solver8lemma_ltclENS1_3LitES4_.exit48.thread
 
 _ZN4cvc58internal7Minisat6Solver8lemma_ltclENS1_3LitES4_.exit48.thread: ; preds = %_ZN4cvc58internal7Minisat6Solver8lemma_ltclENS1_3LitES4_.exit.backedge.us, %_ZN4cvc58internal7Minisat6Solver8lemma_ltclENS1_3LitES4_.exit48.thread.loopexit.split.loop.exit140, %_ZN4cvc58internal7Minisat6Solver8lemma_ltclENS1_3LitES4_.exit48.thread.loopexit.split.loop.exit144, %_ZN4cvc58internal7Minisat6Solver8lemma_ltclENS1_3LitES4_.exit48.thread.loopexit107, %_ZN4cvc58internal7Minisat6Solver8lemma_ltclENS1_3LitES4_.exit.preheader.split82.us
-  %158 = phi ptr [ %111, %_ZN4cvc58internal7Minisat6Solver8lemma_ltclENS1_3LitES4_.exit.preheader.split82.us ], [ %112, %_ZN4cvc58internal7Minisat6Solver8lemma_ltclENS1_3LitES4_.exit48.thread.loopexit107 ], [ %111, %_ZN4cvc58internal7Minisat6Solver8lemma_ltclENS1_3LitES4_.exit48.thread.loopexit.split.loop.exit144 ], [ %111, %_ZN4cvc58internal7Minisat6Solver8lemma_ltclENS1_3LitES4_.exit48.thread.loopexit.split.loop.exit140 ], [ %111, %_ZN4cvc58internal7Minisat6Solver8lemma_ltclENS1_3LitES4_.exit.backedge.us ]
-  %.us-phi64134 = phi i32 [ %.us-phi64, %_ZN4cvc58internal7Minisat6Solver8lemma_ltclENS1_3LitES4_.exit.preheader.split82.us ], [ %.us-phi64135, %_ZN4cvc58internal7Minisat6Solver8lemma_ltclENS1_3LitES4_.exit48.thread.loopexit107 ], [ %.us-phi64, %_ZN4cvc58internal7Minisat6Solver8lemma_ltclENS1_3LitES4_.exit48.thread.loopexit.split.loop.exit144 ], [ %.us-phi64, %_ZN4cvc58internal7Minisat6Solver8lemma_ltclENS1_3LitES4_.exit48.thread.loopexit.split.loop.exit140 ], [ %.us-phi64, %_ZN4cvc58internal7Minisat6Solver8lemma_ltclENS1_3LitES4_.exit.backedge.us ]
-  %.us-phi63132 = phi i32 [ %110, %_ZN4cvc58internal7Minisat6Solver8lemma_ltclENS1_3LitES4_.exit.preheader.split82.us ], [ %.us-phi63133, %_ZN4cvc58internal7Minisat6Solver8lemma_ltclENS1_3LitES4_.exit48.thread.loopexit107 ], [ %110, %_ZN4cvc58internal7Minisat6Solver8lemma_ltclENS1_3LitES4_.exit48.thread.loopexit.split.loop.exit144 ], [ %110, %_ZN4cvc58internal7Minisat6Solver8lemma_ltclENS1_3LitES4_.exit48.thread.loopexit.split.loop.exit140 ], [ %110, %_ZN4cvc58internal7Minisat6Solver8lemma_ltclENS1_3LitES4_.exit.backedge.us ]
-  %.us-phi83 = phi i64 [ %115, %_ZN4cvc58internal7Minisat6Solver8lemma_ltclENS1_3LitES4_.exit.preheader.split82.us ], [ %indvars.iv.next121, %_ZN4cvc58internal7Minisat6Solver8lemma_ltclENS1_3LitES4_.exit48.thread.loopexit107 ], [ %indvars.iv124, %_ZN4cvc58internal7Minisat6Solver8lemma_ltclENS1_3LitES4_.exit48.thread.loopexit.split.loop.exit144 ], [ %indvars.iv124, %_ZN4cvc58internal7Minisat6Solver8lemma_ltclENS1_3LitES4_.exit48.thread.loopexit.split.loop.exit140 ], [ %indvars.iv.next125, %_ZN4cvc58internal7Minisat6Solver8lemma_ltclENS1_3LitES4_.exit.backedge.us ]
-  %.us-phi84 = phi i32 [ %114, %_ZN4cvc58internal7Minisat6Solver8lemma_ltclENS1_3LitES4_.exit.preheader.split82.us ], [ %155, %_ZN4cvc58internal7Minisat6Solver8lemma_ltclENS1_3LitES4_.exit48.thread.loopexit107 ], [ %157, %_ZN4cvc58internal7Minisat6Solver8lemma_ltclENS1_3LitES4_.exit48.thread.loopexit.split.loop.exit144 ], [ %156, %_ZN4cvc58internal7Minisat6Solver8lemma_ltclENS1_3LitES4_.exit48.thread.loopexit.split.loop.exit140 ], [ %138, %_ZN4cvc58internal7Minisat6Solver8lemma_ltclENS1_3LitES4_.exit.backedge.us ]
-  %.us-phi85 = phi i32 [ %.sroa.02.0.copyload.us88, %_ZN4cvc58internal7Minisat6Solver8lemma_ltclENS1_3LitES4_.exit.preheader.split82.us ], [ %.sroa.02.0.copyload, %_ZN4cvc58internal7Minisat6Solver8lemma_ltclENS1_3LitES4_.exit48.thread.loopexit107 ], [ %.sroa.02.0.copyload.us90, %_ZN4cvc58internal7Minisat6Solver8lemma_ltclENS1_3LitES4_.exit48.thread.loopexit.split.loop.exit144 ], [ %.sroa.02.0.copyload.us90, %_ZN4cvc58internal7Minisat6Solver8lemma_ltclENS1_3LitES4_.exit48.thread.loopexit.split.loop.exit140 ], [ %.sroa.02.0.copyload.us, %_ZN4cvc58internal7Minisat6Solver8lemma_ltclENS1_3LitES4_.exit.backedge.us ]
+  %158 = phi ptr [ %112, %_ZN4cvc58internal7Minisat6Solver8lemma_ltclENS1_3LitES4_.exit48.thread.loopexit107 ], [ %111, %_ZN4cvc58internal7Minisat6Solver8lemma_ltclENS1_3LitES4_.exit.preheader.split82.us ], [ %111, %_ZN4cvc58internal7Minisat6Solver8lemma_ltclENS1_3LitES4_.exit48.thread.loopexit.split.loop.exit140 ], [ %111, %_ZN4cvc58internal7Minisat6Solver8lemma_ltclENS1_3LitES4_.exit48.thread.loopexit.split.loop.exit144 ], [ %111, %_ZN4cvc58internal7Minisat6Solver8lemma_ltclENS1_3LitES4_.exit.backedge.us ]
+  %.us-phi64134 = phi i32 [ %.us-phi64135, %_ZN4cvc58internal7Minisat6Solver8lemma_ltclENS1_3LitES4_.exit48.thread.loopexit107 ], [ %.us-phi64, %_ZN4cvc58internal7Minisat6Solver8lemma_ltclENS1_3LitES4_.exit.preheader.split82.us ], [ %.us-phi64, %_ZN4cvc58internal7Minisat6Solver8lemma_ltclENS1_3LitES4_.exit48.thread.loopexit.split.loop.exit140 ], [ %.us-phi64, %_ZN4cvc58internal7Minisat6Solver8lemma_ltclENS1_3LitES4_.exit48.thread.loopexit.split.loop.exit144 ], [ %.us-phi64, %_ZN4cvc58internal7Minisat6Solver8lemma_ltclENS1_3LitES4_.exit.backedge.us ]
+  %.us-phi63132 = phi i32 [ %.us-phi63133, %_ZN4cvc58internal7Minisat6Solver8lemma_ltclENS1_3LitES4_.exit48.thread.loopexit107 ], [ %110, %_ZN4cvc58internal7Minisat6Solver8lemma_ltclENS1_3LitES4_.exit.preheader.split82.us ], [ %110, %_ZN4cvc58internal7Minisat6Solver8lemma_ltclENS1_3LitES4_.exit48.thread.loopexit.split.loop.exit140 ], [ %110, %_ZN4cvc58internal7Minisat6Solver8lemma_ltclENS1_3LitES4_.exit48.thread.loopexit.split.loop.exit144 ], [ %110, %_ZN4cvc58internal7Minisat6Solver8lemma_ltclENS1_3LitES4_.exit.backedge.us ]
+  %.us-phi83 = phi i64 [ %indvars.iv.next121, %_ZN4cvc58internal7Minisat6Solver8lemma_ltclENS1_3LitES4_.exit48.thread.loopexit107 ], [ %115, %_ZN4cvc58internal7Minisat6Solver8lemma_ltclENS1_3LitES4_.exit.preheader.split82.us ], [ %indvars.iv124, %_ZN4cvc58internal7Minisat6Solver8lemma_ltclENS1_3LitES4_.exit48.thread.loopexit.split.loop.exit140 ], [ %indvars.iv124, %_ZN4cvc58internal7Minisat6Solver8lemma_ltclENS1_3LitES4_.exit48.thread.loopexit.split.loop.exit144 ], [ %indvars.iv.next125, %_ZN4cvc58internal7Minisat6Solver8lemma_ltclENS1_3LitES4_.exit.backedge.us ]
+  %.us-phi84 = phi i32 [ %155, %_ZN4cvc58internal7Minisat6Solver8lemma_ltclENS1_3LitES4_.exit48.thread.loopexit107 ], [ %114, %_ZN4cvc58internal7Minisat6Solver8lemma_ltclENS1_3LitES4_.exit.preheader.split82.us ], [ %156, %_ZN4cvc58internal7Minisat6Solver8lemma_ltclENS1_3LitES4_.exit48.thread.loopexit.split.loop.exit140 ], [ %157, %_ZN4cvc58internal7Minisat6Solver8lemma_ltclENS1_3LitES4_.exit48.thread.loopexit.split.loop.exit144 ], [ %138, %_ZN4cvc58internal7Minisat6Solver8lemma_ltclENS1_3LitES4_.exit.backedge.us ]
+  %.us-phi85 = phi i32 [ %.sroa.02.0.copyload, %_ZN4cvc58internal7Minisat6Solver8lemma_ltclENS1_3LitES4_.exit48.thread.loopexit107 ], [ %.sroa.02.0.copyload.us88, %_ZN4cvc58internal7Minisat6Solver8lemma_ltclENS1_3LitES4_.exit.preheader.split82.us ], [ %.sroa.02.0.copyload.us90, %_ZN4cvc58internal7Minisat6Solver8lemma_ltclENS1_3LitES4_.exit48.thread.loopexit.split.loop.exit140 ], [ %.sroa.02.0.copyload.us90, %_ZN4cvc58internal7Minisat6Solver8lemma_ltclENS1_3LitES4_.exit48.thread.loopexit.split.loop.exit144 ], [ %.sroa.02.0.copyload.us, %_ZN4cvc58internal7Minisat6Solver8lemma_ltclENS1_3LitES4_.exit.backedge.us ]
   %.not = icmp slt i32 %.us-phi63132, %.us-phi84
   br i1 %.not, label %159, label %tailrecurse
 
@@ -14223,9 +14223,9 @@ _ZN4cvc58internal7Minisat11reduceDB_ltclEjj.exit40.preheader.loopexit105: ; pred
   br label %_ZN4cvc58internal7Minisat11reduceDB_ltclEjj.exit40.preheader
 
 _ZN4cvc58internal7Minisat11reduceDB_ltclEjj.exit40.preheader: ; preds = %_ZN4cvc58internal7Minisat11reduceDB_ltclEjj.exit40.preheader.loopexit105, %_ZN4cvc58internal7Minisat11reduceDB_ltclEjj.exit40.preheader.loopexit, %.lr.ph.split, %51
-  %.lcssa51 = phi i64 [ %53, %51 ], [ %53, %.lr.ph.split ], [ %indvars.iv.next96, %_ZN4cvc58internal7Minisat11reduceDB_ltclEjj.exit40.preheader.loopexit ], [ %indvars.iv.next, %_ZN4cvc58internal7Minisat11reduceDB_ltclEjj.exit40.preheader.loopexit105 ]
-  %.lcssa47 = phi i32 [ %52, %51 ], [ %52, %.lr.ph.split ], [ %93, %_ZN4cvc58internal7Minisat11reduceDB_ltclEjj.exit40.preheader.loopexit ], [ %94, %_ZN4cvc58internal7Minisat11reduceDB_ltclEjj.exit40.preheader.loopexit105 ]
-  %.lcssa45 = phi i32 [ %55, %51 ], [ %55, %.lr.ph.split ], [ %63, %_ZN4cvc58internal7Minisat11reduceDB_ltclEjj.exit40.preheader.loopexit ], [ %87, %_ZN4cvc58internal7Minisat11reduceDB_ltclEjj.exit40.preheader.loopexit105 ]
+  %.lcssa51 = phi i64 [ %53, %51 ], [ %indvars.iv.next96, %_ZN4cvc58internal7Minisat11reduceDB_ltclEjj.exit40.preheader.loopexit ], [ %53, %.lr.ph.split ], [ %indvars.iv.next, %_ZN4cvc58internal7Minisat11reduceDB_ltclEjj.exit40.preheader.loopexit105 ]
+  %.lcssa47 = phi i32 [ %52, %51 ], [ %93, %_ZN4cvc58internal7Minisat11reduceDB_ltclEjj.exit40.preheader.loopexit ], [ %52, %.lr.ph.split ], [ %94, %_ZN4cvc58internal7Minisat11reduceDB_ltclEjj.exit40.preheader.loopexit105 ]
+  %.lcssa45 = phi i32 [ %55, %51 ], [ %63, %_ZN4cvc58internal7Minisat11reduceDB_ltclEjj.exit40.preheader.loopexit ], [ %55, %.lr.ph.split ], [ %87, %_ZN4cvc58internal7Minisat11reduceDB_ltclEjj.exit40.preheader.loopexit105 ]
   %95 = getelementptr inbounds i32, ptr %.tr77, i64 %.lcssa51
   %96 = trunc i64 %.pre to i32
   %97 = icmp ugt i32 %96, 95

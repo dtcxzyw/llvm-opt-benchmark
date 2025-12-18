@@ -603,10 +603,10 @@ fsmonitor_hook_version.exit:                      ; preds = %44
   br label %.thread
 
 79:                                               ; preds = %57, %67, %66, %74
-  %.193 = phi i32 [ %73, %67 ], [ 0, %66 ], [ 0, %74 ], [ 0, %57 ]
-  %.190 = phi i64 [ %68, %67 ], [ 0, %66 ], [ 0, %74 ], [ 0, %57 ]
-  %.088 = phi i32 [ %spec.store.select, %67 ], [ %spec.store.select, %66 ], [ %.0.i133, %74 ], [ %.0.i133, %57 ]
-  %.186.shrunk = phi i1 [ true, %67 ], [ false, %66 ], [ false, %74 ], [ false, %57 ]
+  %.193 = phi i32 [ %73, %67 ], [ 0, %66 ], [ 0, %57 ], [ 0, %74 ]
+  %.190 = phi i64 [ %68, %67 ], [ 0, %66 ], [ 0, %57 ], [ 0, %74 ]
+  %.088 = phi i32 [ %spec.store.select, %67 ], [ %spec.store.select, %66 ], [ %.0.i133, %57 ], [ %.0.i133, %74 ]
+  %.186.shrunk = phi i1 [ true, %67 ], [ false, %66 ], [ false, %57 ], [ false, %74 ]
   %80 = icmp eq i32 %.088, 1
   br i1 %80, label %.thread, label %89
 
@@ -1370,7 +1370,7 @@ handle_using_dir_name_hash_icase.exit:            ; preds = %handle_using_name_h
   br i1 %.not24, label %190, label %.thread
 
 .thread:                                          ; preds = %invalidate_ce_fsm.exit.i, %125, %117, %58, %46, %186
-  %.184 = phi i64 [ %.1, %186 ], [ 1, %58 ], [ 1, %46 ], [ 1, %117 ], [ 1, %125 ], [ %40, %invalidate_ce_fsm.exit.i ]
+  %.184 = phi i64 [ %.1, %186 ], [ 1, %125 ], [ 1, %58 ], [ 1, %46 ], [ 1, %117 ], [ %40, %invalidate_ce_fsm.exit.i ]
   %trace_fsmonitor.val = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_fsmonitor, i64 8), align 8, !tbaa !35
   %trace_fsmonitor.val26 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_fsmonitor, i64 12), align 4
   %.not.i77 = icmp eq i32 %trace_fsmonitor.val, 0

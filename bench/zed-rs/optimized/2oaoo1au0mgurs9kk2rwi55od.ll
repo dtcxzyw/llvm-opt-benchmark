@@ -1556,8 +1556,8 @@ define internal fastcc noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deseria
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %100
 
-99:                                               ; preds = %81, %74, %64, %57, %47, %40, %123, %116, %108, %100
-  %.sroa.0.0 = phi ptr [ %125, %123 ], [ %101, %100 ], [ %93, %116 ], [ %41, %40 ], [ %58, %57 ], [ %110, %108 ], [ %48, %47 ], [ %65, %64 ], [ %82, %81 ], [ %75, %74 ]
+99:                                               ; preds = %74, %81, %57, %64, %40, %47, %123, %116, %108, %100
+  %.sroa.0.0 = phi ptr [ %125, %123 ], [ %101, %100 ], [ %93, %116 ], [ %48, %47 ], [ %65, %64 ], [ %110, %108 ], [ %41, %40 ], [ %58, %57 ], [ %75, %74 ], [ %82, %81 ]
   ret ptr %.sroa.0.0
 
 100:                                              ; preds = %121, %.thread24, %111, %106, %"_ZN10serde_json2de21Deserializer$LT$R$GT$11parse_ident17h749de29199ddabbeE.exit32", %"_ZN10serde_json2de21Deserializer$LT$R$GT$11parse_ident17h749de29199ddabbeE.exit27", %"_ZN10serde_json2de21Deserializer$LT$R$GT$11parse_ident17h749de29199ddabbeE.exit", %96, %94
@@ -2437,8 +2437,8 @@ define internal fastcc void @"_ZN10serde_json5value2de77_$LT$impl$u20$serde..de.
   %154 = trunc nuw i8 %153 to i1
   br i1 %154, label %340, label %335
 
-155:                                              ; preds = %94, %101
-  %.sroa.0.0.i43.ph = phi ptr [ %102, %101 ], [ %95, %94 ]
+155:                                              ; preds = %101, %94
+  %.sroa.0.0.i43.ph = phi ptr [ %95, %94 ], [ %102, %101 ]
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.0.0.i43.ph, ptr %156, align 8, !alias.scope !533, !noalias !536
   store i64 -9223372036854775803, ptr %0, align 8, !alias.scope !533, !noalias !536
@@ -2454,8 +2454,8 @@ define internal fastcc void @"_ZN10serde_json5value2de77_$LT$impl$u20$serde..de.
   call void @llvm.lifetime.end.p0(ptr nonnull %68), !noalias !557
   br label %"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h2b17d2406f7b15b2E.exit"
 
-159:                                              ; preds = %110, %117
-  %.sroa.0.0.i37.ph = phi ptr [ %118, %117 ], [ %111, %110 ]
+159:                                              ; preds = %117, %110
+  %.sroa.0.0.i37.ph = phi ptr [ %111, %110 ], [ %118, %117 ]
   %160 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.0.0.i37.ph, ptr %160, align 8, !alias.scope !533, !noalias !536
   store i64 -9223372036854775803, ptr %0, align 8, !alias.scope !533, !noalias !536
@@ -2469,8 +2469,8 @@ define internal fastcc void @"_ZN10serde_json5value2de77_$LT$impl$u20$serde..de.
   call void @llvm.lifetime.end.p0(ptr nonnull %68), !noalias !557
   br label %"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h2b17d2406f7b15b2E.exit"
 
-162:                                              ; preds = %126, %133
-  %.sroa.0.0.i.ph = phi ptr [ %134, %133 ], [ %127, %126 ]
+162:                                              ; preds = %133, %126
+  %.sroa.0.0.i.ph = phi ptr [ %127, %126 ], [ %134, %133 ]
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.0.0.i.ph, ptr %163, align 8, !alias.scope !533, !noalias !536
   store i64 -9223372036854775803, ptr %0, align 8, !alias.scope !533, !noalias !536
@@ -13429,7 +13429,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17h64a0c18a257c7f6bE.exit.i.i: ; preds = 
   br label %103
 
 .loopexit.split-lp.i.i:                           ; preds = %.invoke.i.i, %._crit_edge.i.i, %99
-  %.sroa.012.2.ph.i.i = phi i1 [ true, %.invoke.i.i ], [ true, %99 ], [ false, %._crit_edge.i.i ]
+  %.sroa.012.2.ph.i.i = phi i1 [ true, %99 ], [ true, %.invoke.i.i ], [ false, %._crit_edge.i.i ]
   %lpad.loopexit.split-lp.i.i = landingpad { ptr, i32 }
           cleanup
   br label %103

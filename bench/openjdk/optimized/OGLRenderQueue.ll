@@ -1406,7 +1406,7 @@ OGLRenderQueue_CheckPreviousOp.exit471:           ; preds = %443, %456, %.split7
   br i1 %602, label %.lr.ph, label %.outer._crit_edge, !llvm.loop !6
 
 .outer._crit_edge:                                ; preds = %.outer, %.backedge.us, %7
-  %.0.ph.lcssa628 = phi i8 [ 0, %7 ], [ %.0.ph1633, %.backedge.us ], [ %.1, %.outer ]
+  %.0.ph.lcssa628 = phi i8 [ %.0.ph1633, %.backedge.us ], [ 0, %7 ], [ %.1, %.outer ]
   %603 = load ptr, ptr @oglc, align 8
   %.not = icmp eq ptr %603, null
   br i1 %.not, label %617, label %604

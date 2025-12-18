@@ -1292,7 +1292,7 @@ define internal range(i32 0, 2) i32 @IDAApolynomialMalloc(ptr noundef readonly c
   br i1 %102, label %.thread, label %.loopexit
 
 .thread.sink.split:                               ; preds = %.lr.ph176, %69, %73
-  %.0100.lcssa.sink = phi ptr [ %.0100, %73 ], [ %.0100, %69 ], [ %46, %.lr.ph176 ]
+  %.0100.lcssa.sink = phi ptr [ %.0100, %69 ], [ %.0100, %73 ], [ %46, %.lr.ph176 ]
   tail call void @free(ptr noundef nonnull %.0100.lcssa.sink) #9
   br label %.thread
 
@@ -1909,7 +1909,7 @@ define internal range(i32 -107, 1) i32 @IDAApolynomialGetY(ptr noundef readonly 
   br label %._crit_edge
 
 .loopexit247:                                     ; preds = %.split, %.split.us.us, %.thread340, %109
-  %.0200345 = phi i32 [ %123, %.thread340 ], [ %113, %109 ], [ %.0200344351, %.split.us.us ], [ %.0200344351, %.split ]
+  %.0200345 = phi i32 [ %123, %.thread340 ], [ %.0200344351, %.split.us.us ], [ %113, %109 ], [ %.0200344351, %.split ]
   %221 = getelementptr inbounds nuw i8, ptr %0, i64 2040
   %222 = load ptr, ptr %221, align 8, !tbaa !64
   store double 1.000000e+00, ptr %222, align 8, !tbaa !65
@@ -2004,7 +2004,7 @@ define internal range(i32 -107, 1) i32 @IDAApolynomialGetY(ptr noundef readonly 
   br label %IDAAfindIndex.exit
 
 IDAAfindIndex.exit:                               ; preds = %173, %153, %.loopexit255, %259, %._crit_edge278, %240, %._crit_edge, %93, %89, %263, %98
-  %.0191 = phi i32 [ -28, %259 ], [ -28, %89 ], [ 0, %98 ], [ -28, %93 ], [ -28, %._crit_edge ], [ -28, %240 ], [ -28, %._crit_edge278 ], [ 0, %263 ], [ -107, %.loopexit255 ], [ -28, %153 ], [ -28, %173 ]
+  %.0191 = phi i32 [ -107, %.loopexit255 ], [ -28, %259 ], [ -28, %89 ], [ 0, %98 ], [ -28, %93 ], [ -28, %153 ], [ -28, %._crit_edge ], [ -28, %240 ], [ -28, %._crit_edge278 ], [ 0, %263 ], [ -28, %173 ]
   ret i32 %.0191
 }
 
@@ -4438,7 +4438,7 @@ define i32 @IDASolveB(ptr noundef %0, double noundef %1, i32 noundef %2) local_u
   br i1 %147, label %.loopexit, label %.lr.ph187
 
 .loopexit:                                        ; preds = %..critedge_crit_edge.split.us, %134, %..critedge_crit_edge.split.us204, %.lr.ph187.split.split.us203, %.lr.ph187.split.split.us.us
-  %.0138179 = phi ptr [ %.0138, %134 ], [ %.0138.us198, %.lr.ph187.split.split.us.us ], [ %.0138.us198, %.lr.ph187.split.split.us203 ], [ %.0138.us198, %..critedge_crit_edge.split.us204 ], [ %.0138, %..critedge_crit_edge.split.us ]
+  %.0138179 = phi ptr [ %.0138.us198, %..critedge_crit_edge.split.us204 ], [ %.0138, %134 ], [ %.0138.us198, %.lr.ph187.split.split.us203 ], [ %.0138.us198, %.lr.ph187.split.split.us.us ], [ %.0138, %..critedge_crit_edge.split.us ]
   %148 = getelementptr inbounds nuw i8, ptr %14, i64 88
   %149 = icmp eq i32 %2, 2
   %150 = getelementptr inbounds nuw i8, ptr %14, i64 64
@@ -4552,7 +4552,7 @@ define i32 @IDASolveB(ptr noundef %0, double noundef %1, i32 noundef %2) local_u
   br label %.split223
 
 .critedge164:                                     ; preds = %._crit_edge216, %156, %194, %153, %151, %.split223.us.split.us, %.split223.us.split.split.us, %.thread165, %94, %74, %70, %53, %47, %24, %18, %11, %6
-  %.0129 = phi i32 [ -20, %6 ], [ -101, %11 ], [ -103, %18 ], [ -102, %24 ], [ -104, %47 ], [ -22, %53 ], [ -22, %74 ], [ -22, %70 ], [ %180, %.thread165 ], [ -22, %94 ], [ 0, %.split223.us.split.split.us ], [ %154, %153 ], [ 0, %.split223.us.split.us ], [ %152, %151 ], [ %.5, %194 ], [ %.5, %._crit_edge216 ], [ %157, %156 ]
+  %.0129 = phi i32 [ -20, %6 ], [ -101, %11 ], [ -103, %18 ], [ -102, %24 ], [ -104, %47 ], [ -22, %53 ], [ -22, %74 ], [ -22, %70 ], [ %180, %.thread165 ], [ -22, %94 ], [ %.5, %194 ], [ %152, %151 ], [ 0, %.split223.us.split.split.us ], [ %154, %153 ], [ 0, %.split223.us.split.us ], [ %157, %156 ], [ %.5, %._crit_edge216 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0129
 }
@@ -4964,7 +4964,7 @@ IDAAckpntGet.exit:                                ; preds = %203, %42, %39
   br label %IDAAckpntGet.exit.thread
 
 IDAAckpntGet.exit.thread:                         ; preds = %224, %42, %31, %24, %11, %243
-  %.0 = phi i32 [ 0, %243 ], [ -105, %11 ], [ -105, %24 ], [ -105, %31 ], [ -105, %42 ], [ -106, %224 ]
+  %.0 = phi i32 [ 0, %243 ], [ -105, %42 ], [ -105, %11 ], [ -105, %24 ], [ -105, %31 ], [ -106, %224 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -5470,7 +5470,7 @@ define internal fastcc range(i32 0, 2) i32 @IDAAckpntAllocVectors(ptr noundef no
   br i1 %131, label %90, label %.loopexit
 
 .loopexit:                                        ; preds = %128, %122, %73, %35, %.lr.ph160, %.preheader102, %.preheader109, %.preheader114, %.loopexit110, %.loopexit103, %.preheader, %.loopexit113
-  %.096 = phi i32 [ 1, %.loopexit113 ], [ 0, %.loopexit110 ], [ 0, %.preheader ], [ 0, %.loopexit103 ], [ 0, %.preheader114 ], [ 0, %.preheader109 ], [ 0, %.preheader102 ], [ 0, %122 ], [ 0, %.lr.ph160 ], [ 0, %35 ], [ 0, %73 ], [ 1, %128 ]
+  %.096 = phi i32 [ 0, %.loopexit110 ], [ 1, %.loopexit113 ], [ 0, %73 ], [ 0, %.loopexit103 ], [ 0, %.preheader ], [ 0, %.preheader114 ], [ 0, %.preheader109 ], [ 0, %.preheader102 ], [ 0, %.lr.ph160 ], [ 0, %35 ], [ 0, %122 ], [ 1, %128 ]
   ret i32 %.096
 }
 

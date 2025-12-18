@@ -1134,7 +1134,7 @@ default.unreachable648:                           ; preds = %224, %162
   br label %169
 
 169:                                              ; preds = %167, %168, %162
-  %.079 = phi i16 [ 7, %167 ], [ 9, %168 ], [ 5, %162 ]
+  %.079 = phi i16 [ 5, %162 ], [ 7, %167 ], [ 9, %168 ]
   %170 = invoke noundef i64 @_ZN6parser5input5Input3len17hb3d1b394b2ee5637E(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %20)
           to label %.noexc117 unwind label %.loopexit.loopexit
 
@@ -1277,7 +1277,7 @@ _ZN6parser5input5Input9push_impl17he4623d7cc73ade4bE.exit121: ; preds = %"_ZN5al
   br label %229
 
 229:                                              ; preds = %227, %228, %224
-  %.080 = phi i16 [ 6, %227 ], [ 8, %228 ], [ 4, %224 ]
+  %.080 = phi i16 [ 4, %224 ], [ 6, %227 ], [ 8, %228 ]
   %230 = invoke noundef i64 @_ZN6parser5input5Input3len17hb3d1b394b2ee5637E(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %20)
           to label %.noexc131 unwind label %.loopexit.loopexit
 

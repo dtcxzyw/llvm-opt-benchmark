@@ -1423,11 +1423,11 @@ define dso_local i32 @drm_mode_setcrtc(ptr noundef %0, ptr noundef %1, ptr nound
   br label %.thread30
 
 .thread30:                                        ; preds = %.preheader, %180, %214, %209, %149
-  %216 = phi ptr [ null, %149 ], [ %189, %209 ], [ %189, %214 ], [ %105, %180 ], [ %105, %.preheader ]
-  %217 = phi ptr [ null, %149 ], [ %188, %209 ], [ %188, %214 ], [ %106, %180 ], [ %106, %.preheader ]
-  %218 = phi ptr [ null, %149 ], [ %190, %209 ], [ %190, %214 ], [ %155, %180 ], [ %155, %.preheader ]
-  %219 = phi i32 [ -22, %149 ], [ %213, %209 ], [ %215, %214 ], [ -2, %180 ], [ -14, %.preheader ]
-  %220 = phi i32 [ 0, %149 ], [ %191, %209 ], [ %191, %214 ], [ %160, %180 ], [ %160, %.preheader ]
+  %216 = phi ptr [ %189, %209 ], [ %189, %214 ], [ null, %149 ], [ %105, %180 ], [ %105, %.preheader ]
+  %217 = phi ptr [ %188, %209 ], [ %188, %214 ], [ null, %149 ], [ %106, %180 ], [ %106, %.preheader ]
+  %218 = phi ptr [ %190, %209 ], [ %190, %214 ], [ null, %149 ], [ %155, %180 ], [ %155, %.preheader ]
+  %219 = phi i32 [ %213, %209 ], [ %215, %214 ], [ -22, %149 ], [ -2, %180 ], [ -14, %.preheader ]
+  %220 = phi i32 [ %191, %209 ], [ %191, %214 ], [ 0, %149 ], [ %160, %180 ], [ %160, %.preheader ]
   %221 = icmp eq ptr %216, null
   br i1 %221, label %228, label %.thread35
 
@@ -1473,9 +1473,9 @@ define dso_local i32 @drm_mode_setcrtc(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %247, label %.thread39, label %238, !llvm.loop !59
 
 .thread39:                                        ; preds = %245, %.thread, %102, %228
-  %248 = phi ptr [ %232, %228 ], [ null, %102 ], [ null, %.thread ], [ %232, %245 ]
-  %249 = phi ptr [ %231, %228 ], [ null, %102 ], [ null, %.thread ], [ %231, %245 ]
-  %250 = phi i32 [ %230, %228 ], [ -2, %102 ], [ -22, %.thread ], [ %230, %245 ]
+  %248 = phi ptr [ %232, %228 ], [ null, %.thread ], [ null, %102 ], [ %232, %245 ]
+  %249 = phi ptr [ %231, %228 ], [ null, %.thread ], [ null, %102 ], [ %231, %245 ]
+  %250 = phi i32 [ %230, %228 ], [ -22, %.thread ], [ -2, %102 ], [ %230, %245 ]
   call void @kfree(ptr noundef %248) #11
   call void @drm_mode_destroy(ptr noundef %0, ptr noundef %249) #11
   br label %251

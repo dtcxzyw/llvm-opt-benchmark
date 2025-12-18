@@ -1012,7 +1012,7 @@ define internal i32 @dissect_selfm_tcp(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %49, label %33, label %clean_telnet_iac.exit, !llvm.loop !7
 
 clean_telnet_iac.exit:                            ; preds = %.outer.i, %45, %.thread.i
-  %.0.ph.lcssa.i = phi i32 [ %.0.ph41.i, %.thread.i ], [ %.0.ph41.i, %45 ], [ %40, %.outer.i ]
+  %.0.ph.lcssa.i = phi i32 [ %.0.ph41.i, %45 ], [ %.0.ph41.i, %.thread.i ], [ %40, %.outer.i ]
   %50 = sub i32 %5, %.0.ph.lcssa.i
   %51 = tail call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %32, i32 noundef %50, i32 noundef %50)
   tail call void @add_new_data_source(ptr noundef %1, ptr noundef %51, ptr noundef nonnull @.str.664)
@@ -2580,7 +2580,7 @@ region_lookup.exit495.i:                          ; preds = %825, %region_lookup
   br i1 %exitcond.not.i201, label %.loopexit.i198, label %849, !llvm.loop !32
 
 .loopexit.i198:                                   ; preds = %863, %835, %.loopexit498.i, %.lr.ph531.i, %.lr.ph536.i, %.lr.ph553.i, %region_lookup.exit495.i, %804, %._crit_edge.i202, %728, %726, %._crit_edge526.i, %681, %region_lookup.exit485.i, %639, %._crit_edge548.i, %555, %547, %region_lookup.exit473.i, %513, %503, %.preheader.i197, %496
-  %.0.i = phi i32 [ %500, %496 ], [ %512, %503 ], [ %522, %513 ], [ %546, %region_lookup.exit473.i ], [ %558, %555 ], [ %638, %._crit_edge548.i ], [ %680, %region_lookup.exit485.i ], [ %685, %681 ], [ %727, %726 ], [ %spec.select468.i, %804 ], [ %.8.lcssa.i, %._crit_edge.i202 ], [ %500, %547 ], [ %654, %639 ], [ %720, %._crit_edge526.i ], [ %732, %728 ], [ %831, %region_lookup.exit495.i ], [ %500, %.preheader.i197 ], [ %846, %835 ], [ %553, %.lr.ph553.i ], [ %658, %.lr.ph536.i ], [ %724, %.lr.ph531.i ], [ %.7.lcssa.i, %.loopexit498.i ], [ %.11.i, %863 ]
+  %.0.i = phi i32 [ %500, %496 ], [ %512, %503 ], [ %522, %513 ], [ %546, %region_lookup.exit473.i ], [ %.7.lcssa.i, %.loopexit498.i ], [ %558, %555 ], [ %638, %._crit_edge548.i ], [ %553, %.lr.ph553.i ], [ %680, %region_lookup.exit485.i ], [ %685, %681 ], [ %658, %.lr.ph536.i ], [ %727, %726 ], [ %724, %.lr.ph531.i ], [ %846, %835 ], [ %spec.select468.i, %804 ], [ %.8.lcssa.i, %._crit_edge.i202 ], [ %500, %547 ], [ %654, %639 ], [ %720, %._crit_edge526.i ], [ %732, %728 ], [ %831, %region_lookup.exit495.i ], [ %500, %.preheader.i197 ], [ %.11.i, %863 ]
   %865 = load i32, ptr @hf_selfm_fastmsg_crc16, align 4
   %866 = tail call ptr @proto_tree_add_item(ptr noundef %469, i32 noundef %865, ptr noundef %0, i32 noundef %.0.i, i32 noundef 2, i32 noundef 0)
   %867 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0.i)
@@ -3184,7 +3184,7 @@ proto_item_set_generated.exit253:                 ; preds = %proto_item_set_gene
   br i1 %.not236, label %.loopexit, label %.lr.ph, !llvm.loop !39
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph275, %.lr.ph280, %.lr.ph285, %.lr.ph290, %.lr.ph295, %.preheader267, %.preheader265, %.preheader263, %.preheader261, %.preheader, %121, %176, %proto_item_set_generated.exit253, %55
-  %.1 = phi i32 [ %.0212298, %proto_item_set_generated.exit253 ], [ %179, %176 ], [ %.0212298, %55 ], [ %.0212298, %121 ], [ %.0212298, %.preheader ], [ %.0212298, %.preheader261 ], [ %.0212298, %.preheader263 ], [ %.0212298, %.preheader265 ], [ %.0212298, %.preheader267 ], [ %222, %.lr.ph275 ], [ %173, %.lr.ph295 ], [ %189, %.lr.ph290 ], [ %200, %.lr.ph285 ], [ %211, %.lr.ph280 ], [ %233, %.lr.ph ]
+  %.1 = phi i32 [ %.0212298, %proto_item_set_generated.exit253 ], [ %.0212298, %55 ], [ %179, %176 ], [ %189, %.lr.ph290 ], [ %200, %.lr.ph285 ], [ %211, %.lr.ph280 ], [ %222, %.lr.ph275 ], [ %173, %.lr.ph295 ], [ %.0212298, %121 ], [ %.0212298, %.preheader ], [ %.0212298, %.preheader261 ], [ %.0212298, %.preheader263 ], [ %.0212298, %.preheader265 ], [ %.0212298, %.preheader267 ], [ %233, %.lr.ph ]
   %235 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.0299)
   %.not235 = icmp eq ptr %235, null
   br i1 %.not235, label %.critedge, label %.lr.ph300, !llvm.loop !40

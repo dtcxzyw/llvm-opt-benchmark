@@ -1273,7 +1273,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit61:                  ; preds = %132, %_ZNSt7__cxx11
           cleanup
   br label %_ZNKSt14default_deleteIN5faiss17AdditiveQuantizerEEclEPS1_.exit.i63
 
-_ZNKSt14default_deleteIN5faiss17AdditiveQuantizerEEclEPS1_.exit.i63: ; preds = %84, %_ZNSt6vectorIfSaIfEED2Ev.exit61, %146
+_ZNKSt14default_deleteIN5faiss17AdditiveQuantizerEEclEPS1_.exit.i63: ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit61, %84, %146
   %.pn45.pn.pn.pn.pn88 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %146 ], [ %85, %84 ], [ %.pn45.pn.pn, %_ZNSt6vectorIfSaIfEED2Ev.exit61 ]
   %147 = load ptr, ptr %.sroa.070.1, align 8, !tbaa !4
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 32

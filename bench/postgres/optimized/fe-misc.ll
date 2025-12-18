@@ -1178,7 +1178,7 @@ define range(i32 -1, 2) i32 @pqReadData(ptr noundef %0) local_unnamed_addr #2 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %61, %65, %57, %82, %.loopexit.loopexit143, %.loopexit.loopexit, %70, %69, %39, %.loopexit60, %86, %5
-  %.051 = phi i32 [ -1, %5 ], [ 1, %86 ], [ -1, %39 ], [ -1, %.loopexit60 ], [ %71, %70 ], [ 1, %69 ], [ -1, %57 ], [ -1, %82 ], [ 0, %.loopexit.loopexit ], [ %.0.ph, %.loopexit.loopexit143 ], [ 1, %65 ], [ 1, %61 ]
+  %.051 = phi i32 [ -1, %5 ], [ 1, %86 ], [ %.0.ph, %.loopexit.loopexit143 ], [ -1, %39 ], [ -1, %.loopexit60 ], [ %71, %70 ], [ 0, %.loopexit.loopexit ], [ 1, %69 ], [ -1, %57 ], [ -1, %82 ], [ 1, %65 ], [ 1, %61 ]
   ret i32 %.051
 }
 
@@ -1411,7 +1411,7 @@ PQsocketPoll.exit:                                ; preds = %.split.split, %40
   br label %.critedge19
 
 .critedge19:                                      ; preds = %PQsocketPoll.exit.us26, %PQsocketPoll.exit.us, %PQsocketPoll.exit, %16, %.critedge, %4, %15
-  %.014 = phi i32 [ -1, %4 ], [ -1, %15 ], [ %.us-phi24, %.critedge ], [ 0, %16 ], [ %22, %PQsocketPoll.exit.us ], [ %44, %PQsocketPoll.exit ], [ %28, %PQsocketPoll.exit.us26 ]
+  %.014 = phi i32 [ -1, %4 ], [ -1, %15 ], [ %22, %PQsocketPoll.exit.us ], [ %.us-phi24, %.critedge ], [ 0, %16 ], [ %44, %PQsocketPoll.exit ], [ %28, %PQsocketPoll.exit.us26 ]
   ret i32 %.014
 }
 

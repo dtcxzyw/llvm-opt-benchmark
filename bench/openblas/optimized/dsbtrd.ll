@@ -527,7 +527,7 @@ thread-pre-split708.us:                           ; preds = %.loopexit731.us
   br i1 %.in697750.us, label %.lr.ph752.us, label %.loopexit727.us
 
 .loopexit727.us:                                  ; preds = %.lr.ph749.us, %.lr.ph752.us, %261, %304, %.loopexit730.us
-  %.2622.us = phi i32 [ %.1621757.us, %.loopexit730.us ], [ %.1621757.us, %304 ], [ %262, %261 ], [ %.1621757.us, %.lr.ph752.us ], [ %262, %.lr.ph749.us ]
+  %.2622.us = phi i32 [ %.1621757.us, %304 ], [ %.1621757.us, %.loopexit730.us ], [ %.1621757.us, %.lr.ph752.us ], [ %262, %261 ], [ %262, %.lr.ph749.us ]
   %309 = add nsw i32 %90, %.
   %310 = load i32, ptr %2, align 4, !tbaa !3
   %311 = icmp sgt i32 %309, %310
@@ -1099,7 +1099,7 @@ thread-pre-split710.us:                           ; preds = %.loopexit721.us
   br i1 %.in677798.us, label %.lr.ph800.us, label %.loopexit717.us
 
 .loopexit717.us:                                  ; preds = %.lr.ph797.us, %.lr.ph800.us, %582, %625, %.loopexit720.us
-  %.5625.us = phi i32 [ %.4624806.us, %.loopexit720.us ], [ %.4624806.us, %625 ], [ %583, %582 ], [ %.4624806.us, %.lr.ph800.us ], [ %583, %.lr.ph797.us ]
+  %.5625.us = phi i32 [ %.4624806.us, %625 ], [ %.4624806.us, %.loopexit720.us ], [ %.4624806.us, %.lr.ph800.us ], [ %583, %582 ], [ %583, %.lr.ph797.us ]
   %630 = add nsw i32 %431, %.
   %631 = load i32, ptr %2, align 4, !tbaa !3
   %632 = icmp sgt i32 %630, %631

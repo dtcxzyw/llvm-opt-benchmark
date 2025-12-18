@@ -313,7 +313,7 @@ ASN1_STRING_TABLE_get.exit.i:                     ; preds = %22, %19
   br label %69
 
 stable_get.exit:                                  ; preds = %51, %36, %24
-  %.0.i = phi ptr [ %.0.i.i, %24 ], [ %29, %51 ], [ %29, %36 ]
+  %.0.i = phi ptr [ %29, %36 ], [ %29, %51 ], [ %.0.i.i, %24 ]
   %55 = icmp sgt i64 %1, -1
   br i1 %55, label %56, label %58
 

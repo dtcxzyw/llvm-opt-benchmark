@@ -16482,7 +16482,7 @@ terminate.lpad.i.i.i14:                           ; preds = %if.then.i.i.i12
   unreachable
 
 if.end:                                           ; preds = %if.end.i.i, %entry.if.end_crit_edge, %_ZN4asio6detail9scheduler12can_dispatchEv.exit
-  %.pre-phi.ph = phi ptr [ %3, %_ZN4asio6detail9scheduler12can_dispatchEv.exit ], [ %.pre, %entry.if.end_crit_edge ], [ %3, %if.end.i.i ]
+  %.pre-phi.ph = phi ptr [ %.pre, %entry.if.end_crit_edge ], [ %3, %_ZN4asio6detail9scheduler12can_dispatchEv.exit ], [ %3, %if.end.i.i ]
   %.pr = load ptr, ptr %.pre-phi.ph, align 8
   store ptr %this, ptr %p, align 8
   %v = getelementptr inbounds nuw i8, ptr %p, i64 8
@@ -17590,7 +17590,7 @@ lpad8:                                            ; preds = %lpad4
           to label %eh.resume unwind label %terminate.lpad
 
 if.end:                                           ; preds = %if.end.i.i, %entry.if.end_crit_edge, %_ZN4asio6detail9scheduler12can_dispatchEv.exit
-  %.pre-phi.ph = phi ptr [ %3, %_ZN4asio6detail9scheduler12can_dispatchEv.exit ], [ %.pre, %entry.if.end_crit_edge ], [ %3, %if.end.i.i ]
+  %.pre-phi.ph = phi ptr [ %.pre, %entry.if.end_crit_edge ], [ %3, %_ZN4asio6detail9scheduler12can_dispatchEv.exit ], [ %3, %if.end.i.i ]
   %.pr = load ptr, ptr %.pre-phi.ph, align 8
   store ptr %this, ptr %p, align 8
   %v = getelementptr inbounds nuw i8, ptr %p, i64 8
@@ -18935,7 +18935,7 @@ lpad8:                                            ; preds = %lpad4
           to label %eh.resume unwind label %terminate.lpad
 
 if.end:                                           ; preds = %if.end.i.i, %entry.if.end_crit_edge, %_ZN4asio6detail9scheduler12can_dispatchEv.exit
-  %.pre-phi.ph = phi ptr [ %3, %_ZN4asio6detail9scheduler12can_dispatchEv.exit ], [ %.pre, %entry.if.end_crit_edge ], [ %3, %if.end.i.i ]
+  %.pre-phi.ph = phi ptr [ %.pre, %entry.if.end_crit_edge ], [ %3, %_ZN4asio6detail9scheduler12can_dispatchEv.exit ], [ %3, %if.end.i.i ]
   %.pr = load ptr, ptr %.pre-phi.ph, align 8
   store ptr %this, ptr %p, align 8
   %v = getelementptr inbounds nuw i8, ptr %p, i64 8
@@ -23754,7 +23754,7 @@ if.end34:                                         ; preds = %if.end3.i.i, %invok
           to label %_ZNSt10_HashtableIjSt4pairIKjSt8functionIFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS7_ERSt10shared_ptrIN8coro_rpc14context_info_tINSE_8protocol17coro_rpc_protocolEEEESt7variantIJNSG_20struct_pack_protocolEEEEEESaISQ_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENSS_18_Mod_range_hashingENSS_20_Default_ranged_hashENSS_20_Prime_rehash_policyENSS_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit unwind label %lpad
 
 _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKjSt8functionIFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS9_ERSt10shared_ptrIN8coro_rpc14context_info_tINSG_8protocol17coro_rpc_protocolEEEESt7variantIJNSI_20struct_pack_protocolEEEEEELb0EEEEE18_M_deallocate_nodeEPST_.exit.i: ; preds = %for.cond.i.i, %invoke.cont, %if.end.i.i
-  %retval.sroa.0.0.ph = phi ptr [ %8, %if.end.i.i ], [ %__it.sroa.0.0, %invoke.cont ], [ %10, %for.cond.i.i ]
+  %retval.sroa.0.0.ph = phi ptr [ %__it.sroa.0.0, %invoke.cont ], [ %8, %if.end.i.i ], [ %10, %for.cond.i.i ]
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i) #37
   br label %_ZNSt10_HashtableIjSt4pairIKjSt8functionIFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS7_ERSt10shared_ptrIN8coro_rpc14context_info_tINSE_8protocol17coro_rpc_protocolEEEESt7variantIJNSG_20struct_pack_protocolEEEEEESaISQ_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENSS_18_Mod_range_hashingENSS_20_Default_ranged_hashENSS_20_Prime_rehash_policyENSS_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 
@@ -24483,8 +24483,8 @@ return.sink.split:                                ; preds = %if.end.i29.i, %if.e
   store ptr %add.ptr.i14.i, ptr %.sink132, align 8
   br label %return
 
-return:                                           ; preds = %return.sink.split, %if.end.i43, %if.then27.i, %_ZN11struct_pack6detail13memory_reader9read_viewEm.exit, %sw.bb2.i, %sw.bb8.i, %entry, %if.end.i, %if.end9.i, %sw.bb.i, %sw.bb, %if.end.i77, %if.end3.i, %if.end7.i, %sw.bb.i89, %sw.bb2.i87, %sw.bb7.i, %sw.epilog.i85, %if.end13.i, %if.end17.i
-  %retval.0 = phi i32 [ 1, %if.then27.i ], [ 1, %if.end3.i ], [ 1, %sw.bb ], [ 0, %if.end.i77 ], [ 0, %if.end7.i ], [ 1, %sw.bb2.i87 ], [ 1, %sw.bb7.i ], [ 0, %sw.epilog.i85 ], [ 1, %sw.bb.i89 ], [ 1, %if.end13.i ], [ 0, %if.end17.i ], [ 1, %_ZN11struct_pack6detail13memory_reader9read_viewEm.exit ], [ 1, %sw.bb.i ], [ 1, %sw.bb2.i ], [ 1, %sw.bb8.i ], [ 1, %entry ], [ 2, %if.end.i ], [ 1, %if.end9.i ], [ 3, %if.end.i43 ], [ 0, %return.sink.split ]
+return:                                           ; preds = %return.sink.split, %if.end.i43, %if.then27.i, %_ZN11struct_pack6detail13memory_reader9read_viewEm.exit, %sw.bb2.i, %sw.bb.i, %entry, %if.end.i, %if.end9.i, %sw.bb8.i, %sw.bb, %if.end.i77, %if.end3.i, %if.end7.i, %sw.bb.i89, %sw.bb2.i87, %sw.bb7.i, %sw.epilog.i85, %if.end13.i, %if.end17.i
+  %retval.0 = phi i32 [ 3, %if.end.i43 ], [ 1, %if.then27.i ], [ 1, %if.end9.i ], [ 1, %if.end3.i ], [ 1, %sw.bb ], [ 0, %if.end.i77 ], [ 0, %if.end7.i ], [ 1, %sw.bb2.i87 ], [ 1, %sw.bb7.i ], [ 0, %sw.epilog.i85 ], [ 1, %sw.bb.i89 ], [ 1, %if.end13.i ], [ 0, %if.end17.i ], [ 1, %_ZN11struct_pack6detail13memory_reader9read_viewEm.exit ], [ 1, %sw.bb8.i ], [ 1, %sw.bb2.i ], [ 1, %sw.bb.i ], [ 1, %entry ], [ 2, %if.end.i ], [ 0, %return.sink.split ]
   ret i32 %retval.0
 }
 
@@ -27611,7 +27611,7 @@ if.end34:                                         ; preds = %if.end3.i.i, %invok
           to label %_ZNSt10_HashtableIjSt4pairIKjSt8functionIFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS7_ERSt10shared_ptrIN8coro_rpc14context_info_tINSE_8protocol17coro_rpc_protocolEEEESt7variantIJNSG_20struct_pack_protocolEEEEEESaISQ_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENSS_18_Mod_range_hashingENSS_20_Default_ranged_hashENSS_20_Prime_rehash_policyENSS_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit unwind label %lpad
 
 _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKjSt8functionIFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS9_ERSt10shared_ptrIN8coro_rpc14context_info_tINSG_8protocol17coro_rpc_protocolEEEESt7variantIJNSI_20struct_pack_protocolEEEEEELb0EEEEE18_M_deallocate_nodeEPST_.exit.i: ; preds = %for.cond.i.i, %invoke.cont, %if.end.i.i
-  %retval.sroa.0.0.ph = phi ptr [ %8, %if.end.i.i ], [ %__it.sroa.0.0, %invoke.cont ], [ %10, %for.cond.i.i ]
+  %retval.sroa.0.0.ph = phi ptr [ %__it.sroa.0.0, %invoke.cont ], [ %8, %if.end.i.i ], [ %10, %for.cond.i.i ]
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i) #37
   br label %_ZNSt10_HashtableIjSt4pairIKjSt8functionIFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS7_ERSt10shared_ptrIN8coro_rpc14context_info_tINSE_8protocol17coro_rpc_protocolEEEESt7variantIJNSG_20struct_pack_protocolEEEEEESaISQ_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENSS_18_Mod_range_hashingENSS_20_Default_ranged_hashENSS_20_Prime_rehash_policyENSS_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 
@@ -27970,7 +27970,7 @@ if.end34:                                         ; preds = %if.end3.i.i, %invok
           to label %_ZNSt10_HashtableIjSt4pairIKjSt8functionIFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS7_ERSt10shared_ptrIN8coro_rpc14context_info_tINSE_8protocol17coro_rpc_protocolEEEESt7variantIJNSG_20struct_pack_protocolEEEEEESaISQ_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENSS_18_Mod_range_hashingENSS_20_Default_ranged_hashENSS_20_Prime_rehash_policyENSS_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit unwind label %lpad
 
 _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKjSt8functionIFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS9_ERSt10shared_ptrIN8coro_rpc14context_info_tINSG_8protocol17coro_rpc_protocolEEEESt7variantIJNSI_20struct_pack_protocolEEEEEELb0EEEEE18_M_deallocate_nodeEPST_.exit.i: ; preds = %for.cond.i.i, %invoke.cont, %if.end.i.i
-  %retval.sroa.0.0.ph = phi ptr [ %8, %if.end.i.i ], [ %__it.sroa.0.0, %invoke.cont ], [ %10, %for.cond.i.i ]
+  %retval.sroa.0.0.ph = phi ptr [ %__it.sroa.0.0, %invoke.cont ], [ %8, %if.end.i.i ], [ %10, %for.cond.i.i ]
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i) #37
   br label %_ZNSt10_HashtableIjSt4pairIKjSt8functionIFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS7_ERSt10shared_ptrIN8coro_rpc14context_info_tINSE_8protocol17coro_rpc_protocolEEEESt7variantIJNSG_20struct_pack_protocolEEEEEESaISQ_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENSS_18_Mod_range_hashingENSS_20_Default_ranged_hashENSS_20_Prime_rehash_policyENSS_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 
@@ -28329,7 +28329,7 @@ if.end34:                                         ; preds = %if.end3.i.i, %invok
           to label %_ZNSt10_HashtableIjSt4pairIKjSt8functionIFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS7_ERSt10shared_ptrIN8coro_rpc14context_info_tINSE_8protocol17coro_rpc_protocolEEEESt7variantIJNSG_20struct_pack_protocolEEEEEESaISQ_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENSS_18_Mod_range_hashingENSS_20_Default_ranged_hashENSS_20_Prime_rehash_policyENSS_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit unwind label %lpad
 
 _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKjSt8functionIFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS9_ERSt10shared_ptrIN8coro_rpc14context_info_tINSG_8protocol17coro_rpc_protocolEEEESt7variantIJNSI_20struct_pack_protocolEEEEEELb0EEEEE18_M_deallocate_nodeEPST_.exit.i: ; preds = %for.cond.i.i, %invoke.cont, %if.end.i.i
-  %retval.sroa.0.0.ph = phi ptr [ %8, %if.end.i.i ], [ %__it.sroa.0.0, %invoke.cont ], [ %10, %for.cond.i.i ]
+  %retval.sroa.0.0.ph = phi ptr [ %__it.sroa.0.0, %invoke.cont ], [ %8, %if.end.i.i ], [ %10, %for.cond.i.i ]
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i) #37
   br label %_ZNSt10_HashtableIjSt4pairIKjSt8functionIFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS7_ERSt10shared_ptrIN8coro_rpc14context_info_tINSE_8protocol17coro_rpc_protocolEEEESt7variantIJNSG_20struct_pack_protocolEEEEEESaISQ_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENSS_18_Mod_range_hashingENSS_20_Default_ranged_hashENSS_20_Prime_rehash_policyENSS_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 
@@ -28688,7 +28688,7 @@ if.end34:                                         ; preds = %if.end3.i.i, %invok
           to label %_ZNSt10_HashtableIjSt4pairIKjSt8functionIFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS7_ERSt10shared_ptrIN8coro_rpc14context_info_tINSE_8protocol17coro_rpc_protocolEEEESt7variantIJNSG_20struct_pack_protocolEEEEEESaISQ_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENSS_18_Mod_range_hashingENSS_20_Default_ranged_hashENSS_20_Prime_rehash_policyENSS_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit unwind label %lpad
 
 _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKjSt8functionIFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS9_ERSt10shared_ptrIN8coro_rpc14context_info_tINSG_8protocol17coro_rpc_protocolEEEESt7variantIJNSI_20struct_pack_protocolEEEEEELb0EEEEE18_M_deallocate_nodeEPST_.exit.i: ; preds = %for.cond.i.i, %invoke.cont, %if.end.i.i
-  %retval.sroa.0.0.ph = phi ptr [ %8, %if.end.i.i ], [ %__it.sroa.0.0, %invoke.cont ], [ %10, %for.cond.i.i ]
+  %retval.sroa.0.0.ph = phi ptr [ %__it.sroa.0.0, %invoke.cont ], [ %8, %if.end.i.i ], [ %10, %for.cond.i.i ]
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i) #37
   br label %_ZNSt10_HashtableIjSt4pairIKjSt8functionIFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS7_ERSt10shared_ptrIN8coro_rpc14context_info_tINSE_8protocol17coro_rpc_protocolEEEESt7variantIJNSG_20struct_pack_protocolEEEEEESaISQ_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENSS_18_Mod_range_hashingENSS_20_Default_ranged_hashENSS_20_Prime_rehash_policyENSS_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 
@@ -29047,7 +29047,7 @@ if.end34:                                         ; preds = %if.end3.i.i, %invok
           to label %_ZNSt10_HashtableIjSt4pairIKjSt8functionIFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS7_ERSt10shared_ptrIN8coro_rpc14context_info_tINSE_8protocol17coro_rpc_protocolEEEESt7variantIJNSG_20struct_pack_protocolEEEEEESaISQ_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENSS_18_Mod_range_hashingENSS_20_Default_ranged_hashENSS_20_Prime_rehash_policyENSS_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit unwind label %lpad
 
 _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKjSt8functionIFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS9_ERSt10shared_ptrIN8coro_rpc14context_info_tINSG_8protocol17coro_rpc_protocolEEEESt7variantIJNSI_20struct_pack_protocolEEEEEELb0EEEEE18_M_deallocate_nodeEPST_.exit.i: ; preds = %for.cond.i.i, %invoke.cont, %if.end.i.i
-  %retval.sroa.0.0.ph = phi ptr [ %8, %if.end.i.i ], [ %__it.sroa.0.0, %invoke.cont ], [ %10, %for.cond.i.i ]
+  %retval.sroa.0.0.ph = phi ptr [ %__it.sroa.0.0, %invoke.cont ], [ %8, %if.end.i.i ], [ %10, %for.cond.i.i ]
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i) #37
   br label %_ZNSt10_HashtableIjSt4pairIKjSt8functionIFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS7_ERSt10shared_ptrIN8coro_rpc14context_info_tINSE_8protocol17coro_rpc_protocolEEEESt7variantIJNSG_20struct_pack_protocolEEEEEESaISQ_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENSS_18_Mod_range_hashingENSS_20_Default_ranged_hashENSS_20_Prime_rehash_policyENSS_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 
@@ -29406,7 +29406,7 @@ if.end34:                                         ; preds = %if.end3.i.i, %invok
           to label %_ZNSt10_HashtableIjSt4pairIKjSt8functionIFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS7_ERSt10shared_ptrIN8coro_rpc14context_info_tINSE_8protocol17coro_rpc_protocolEEEESt7variantIJNSG_20struct_pack_protocolEEEEEESaISQ_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENSS_18_Mod_range_hashingENSS_20_Default_ranged_hashENSS_20_Prime_rehash_policyENSS_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit unwind label %lpad
 
 _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKjSt8functionIFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS9_ERSt10shared_ptrIN8coro_rpc14context_info_tINSG_8protocol17coro_rpc_protocolEEEESt7variantIJNSI_20struct_pack_protocolEEEEEELb0EEEEE18_M_deallocate_nodeEPST_.exit.i: ; preds = %for.cond.i.i, %invoke.cont, %if.end.i.i
-  %retval.sroa.0.0.ph = phi ptr [ %8, %if.end.i.i ], [ %__it.sroa.0.0, %invoke.cont ], [ %10, %for.cond.i.i ]
+  %retval.sroa.0.0.ph = phi ptr [ %__it.sroa.0.0, %invoke.cont ], [ %8, %if.end.i.i ], [ %10, %for.cond.i.i ]
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i) #37
   br label %_ZNSt10_HashtableIjSt4pairIKjSt8functionIFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS7_ERSt10shared_ptrIN8coro_rpc14context_info_tINSE_8protocol17coro_rpc_protocolEEEESt7variantIJNSG_20struct_pack_protocolEEEEEESaISQ_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENSS_18_Mod_range_hashingENSS_20_Default_ranged_hashENSS_20_Prime_rehash_policyENSS_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 
@@ -30362,8 +30362,8 @@ _ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE15deserialize_oneILm2E
   %..i85 = zext i1 %cmp.i.i82 to i32
   br label %return
 
-return:                                           ; preds = %if.end.i30, %if.then27.i, %_ZN11struct_pack6detail13memory_reader9read_viewEm.exit, %sw.bb2.i.i, %sw.bb8.i.i, %entry, %if.end.i, %if.end9.i, %sw.bb.i.i, %_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE15deserialize_oneILm1ELm18446744073709551615ELb1ELm0EiEENS_4errcERT3_.exit, %_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE15deserialize_oneILm2ELm18446744073709551615ELb1ELm0EiEENS_4errcERT3_.exit
-  %retval.0 = phi i32 [ %..i, %_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE15deserialize_oneILm1ELm18446744073709551615ELb1ELm0EiEENS_4errcERT3_.exit ], [ 1, %if.then27.i ], [ %..i85, %_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE15deserialize_oneILm2ELm18446744073709551615ELb1ELm0EiEENS_4errcERT3_.exit ], [ 1, %_ZN11struct_pack6detail13memory_reader9read_viewEm.exit ], [ 1, %sw.bb.i.i ], [ 1, %sw.bb2.i.i ], [ 1, %sw.bb8.i.i ], [ 1, %entry ], [ 2, %if.end.i ], [ 1, %if.end9.i ], [ 3, %if.end.i30 ]
+return:                                           ; preds = %if.end.i30, %if.then27.i, %_ZN11struct_pack6detail13memory_reader9read_viewEm.exit, %sw.bb2.i.i, %sw.bb.i.i, %entry, %if.end.i, %if.end9.i, %sw.bb8.i.i, %_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE15deserialize_oneILm1ELm18446744073709551615ELb1ELm0EiEENS_4errcERT3_.exit, %_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE15deserialize_oneILm2ELm18446744073709551615ELb1ELm0EiEENS_4errcERT3_.exit
+  %retval.0 = phi i32 [ %..i, %_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE15deserialize_oneILm1ELm18446744073709551615ELb1ELm0EiEENS_4errcERT3_.exit ], [ 1, %if.then27.i ], [ %..i85, %_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE15deserialize_oneILm2ELm18446744073709551615ELb1ELm0EiEENS_4errcERT3_.exit ], [ 1, %_ZN11struct_pack6detail13memory_reader9read_viewEm.exit ], [ 1, %sw.bb8.i.i ], [ 1, %sw.bb2.i.i ], [ 1, %sw.bb.i.i ], [ 1, %entry ], [ 2, %if.end.i ], [ 1, %if.end9.i ], [ 3, %if.end.i30 ]
   ret i32 %retval.0
 }
 
@@ -37554,7 +37554,7 @@ return.sink.split:                                ; preds = %_ZNSt10error_codeC2
   br label %return
 
 return:                                           ; preds = %return.sink.split, %_ZNSt10error_codeC2IN4asio5error12basic_errorsEvEET_.exit26, %_ZNSt10error_codeC2IN4asio5error12basic_errorsEvEET_.exit16
-  %retval.0 = phi i1 [ false, %_ZNSt10error_codeC2IN4asio5error12basic_errorsEvEET_.exit16 ], [ false, %_ZNSt10error_codeC2IN4asio5error12basic_errorsEvEET_.exit26 ], [ true, %return.sink.split ]
+  %retval.0 = phi i1 [ false, %_ZNSt10error_codeC2IN4asio5error12basic_errorsEvEET_.exit26 ], [ false, %_ZNSt10error_codeC2IN4asio5error12basic_errorsEvEET_.exit16 ], [ true, %return.sink.split ]
   ret i1 %retval.0
 }
 
@@ -40301,7 +40301,7 @@ if.end34:                                         ; preds = %if.end3.i.i, %invok
           to label %_ZNSt10_HashtableIjSt4pairIKjSt8functionIFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS7_ERSt10shared_ptrIN8coro_rpc14context_info_tINSE_8protocol17coro_rpc_protocolEEEESt7variantIJNSG_20struct_pack_protocolEEEEEESaISQ_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENSS_18_Mod_range_hashingENSS_20_Default_ranged_hashENSS_20_Prime_rehash_policyENSS_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit unwind label %lpad
 
 _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKjSt8functionIFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS9_ERSt10shared_ptrIN8coro_rpc14context_info_tINSG_8protocol17coro_rpc_protocolEEEESt7variantIJNSI_20struct_pack_protocolEEEEEELb0EEEEE18_M_deallocate_nodeEPST_.exit.i: ; preds = %for.cond.i.i, %invoke.cont, %if.end.i.i
-  %retval.sroa.0.0.ph = phi ptr [ %8, %if.end.i.i ], [ %__it.sroa.0.0, %invoke.cont ], [ %10, %for.cond.i.i ]
+  %retval.sroa.0.0.ph = phi ptr [ %__it.sroa.0.0, %invoke.cont ], [ %8, %if.end.i.i ], [ %10, %for.cond.i.i ]
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i) #37
   br label %_ZNSt10_HashtableIjSt4pairIKjSt8functionIFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS7_ERSt10shared_ptrIN8coro_rpc14context_info_tINSE_8protocol17coro_rpc_protocolEEEESt7variantIJNSG_20struct_pack_protocolEEEEEESaISQ_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENSS_18_Mod_range_hashingENSS_20_Default_ranged_hashENSS_20_Prime_rehash_policyENSS_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 
@@ -41382,7 +41382,7 @@ if.end34:                                         ; preds = %if.end3.i.i, %invok
           to label %_ZNSt10_HashtableIjSt4pairIKjSt8functionIFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS7_ERSt10shared_ptrIN8coro_rpc14context_info_tINSE_8protocol17coro_rpc_protocolEEEESt7variantIJNSG_20struct_pack_protocolEEEEEESaISQ_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENSS_18_Mod_range_hashingENSS_20_Default_ranged_hashENSS_20_Prime_rehash_policyENSS_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit unwind label %lpad
 
 _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKjSt8functionIFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS9_ERSt10shared_ptrIN8coro_rpc14context_info_tINSG_8protocol17coro_rpc_protocolEEEESt7variantIJNSI_20struct_pack_protocolEEEEEELb0EEEEE18_M_deallocate_nodeEPST_.exit.i: ; preds = %for.cond.i.i, %invoke.cont, %if.end.i.i
-  %retval.sroa.0.0.ph = phi ptr [ %8, %if.end.i.i ], [ %__it.sroa.0.0, %invoke.cont ], [ %10, %for.cond.i.i ]
+  %retval.sroa.0.0.ph = phi ptr [ %__it.sroa.0.0, %invoke.cont ], [ %8, %if.end.i.i ], [ %10, %for.cond.i.i ]
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i) #37
   br label %_ZNSt10_HashtableIjSt4pairIKjSt8functionIFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS7_ERSt10shared_ptrIN8coro_rpc14context_info_tINSE_8protocol17coro_rpc_protocolEEEESt7variantIJNSG_20struct_pack_protocolEEEEEESaISQ_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENSS_18_Mod_range_hashingENSS_20_Default_ranged_hashENSS_20_Prime_rehash_policyENSS_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 
@@ -42604,7 +42604,7 @@ if.end34:                                         ; preds = %if.end3.i.i, %invok
           to label %_ZNSt10_HashtableIjSt4pairIKjSt8functionIFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS7_ERSt10shared_ptrIN8coro_rpc14context_info_tINSE_8protocol17coro_rpc_protocolEEEESt7variantIJNSG_20struct_pack_protocolEEEEEESaISQ_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENSS_18_Mod_range_hashingENSS_20_Default_ranged_hashENSS_20_Prime_rehash_policyENSS_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit unwind label %lpad
 
 _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKjSt8functionIFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS9_ERSt10shared_ptrIN8coro_rpc14context_info_tINSG_8protocol17coro_rpc_protocolEEEESt7variantIJNSI_20struct_pack_protocolEEEEEELb0EEEEE18_M_deallocate_nodeEPST_.exit.i: ; preds = %for.cond.i.i, %invoke.cont, %if.end.i.i
-  %retval.sroa.0.0.ph = phi ptr [ %8, %if.end.i.i ], [ %__it.sroa.0.0, %invoke.cont ], [ %10, %for.cond.i.i ]
+  %retval.sroa.0.0.ph = phi ptr [ %__it.sroa.0.0, %invoke.cont ], [ %8, %if.end.i.i ], [ %10, %for.cond.i.i ]
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i) #37
   br label %_ZNSt10_HashtableIjSt4pairIKjSt8functionIFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS7_ERSt10shared_ptrIN8coro_rpc14context_info_tINSE_8protocol17coro_rpc_protocolEEEESt7variantIJNSG_20struct_pack_protocolEEEEEESaISQ_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENSS_18_Mod_range_hashingENSS_20_Default_ranged_hashENSS_20_Prime_rehash_policyENSS_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 
@@ -43424,7 +43424,7 @@ if.end34:                                         ; preds = %if.end3.i.i, %invok
           to label %_ZNSt10_HashtableIjSt4pairIKjSt8functionIFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS7_ERSt10shared_ptrIN8coro_rpc14context_info_tINSE_8protocol17coro_rpc_protocolEEEESt7variantIJNSG_20struct_pack_protocolEEEEEESaISQ_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENSS_18_Mod_range_hashingENSS_20_Default_ranged_hashENSS_20_Prime_rehash_policyENSS_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit unwind label %lpad
 
 _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKjSt8functionIFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS9_ERSt10shared_ptrIN8coro_rpc14context_info_tINSG_8protocol17coro_rpc_protocolEEEESt7variantIJNSI_20struct_pack_protocolEEEEEELb0EEEEE18_M_deallocate_nodeEPST_.exit.i: ; preds = %for.cond.i.i, %invoke.cont, %if.end.i.i
-  %retval.sroa.0.0.ph = phi ptr [ %8, %if.end.i.i ], [ %__it.sroa.0.0, %invoke.cont ], [ %10, %for.cond.i.i ]
+  %retval.sroa.0.0.ph = phi ptr [ %__it.sroa.0.0, %invoke.cont ], [ %8, %if.end.i.i ], [ %10, %for.cond.i.i ]
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i) #37
   br label %_ZNSt10_HashtableIjSt4pairIKjSt8functionIFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS7_ERSt10shared_ptrIN8coro_rpc14context_info_tINSE_8protocol17coro_rpc_protocolEEEESt7variantIJNSG_20struct_pack_protocolEEEEEESaISQ_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENSS_18_Mod_range_hashingENSS_20_Default_ranged_hashENSS_20_Prime_rehash_policyENSS_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 
@@ -44244,7 +44244,7 @@ if.end34:                                         ; preds = %if.end3.i.i, %invok
           to label %_ZNSt10_HashtableIjSt4pairIKjSt8functionIFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS7_ERSt10shared_ptrIN8coro_rpc14context_info_tINSE_8protocol17coro_rpc_protocolEEEESt7variantIJNSG_20struct_pack_protocolEEEEEESaISQ_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENSS_18_Mod_range_hashingENSS_20_Default_ranged_hashENSS_20_Prime_rehash_policyENSS_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit unwind label %lpad
 
 _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKjSt8functionIFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS9_ERSt10shared_ptrIN8coro_rpc14context_info_tINSG_8protocol17coro_rpc_protocolEEEESt7variantIJNSI_20struct_pack_protocolEEEEEELb0EEEEE18_M_deallocate_nodeEPST_.exit.i: ; preds = %for.cond.i.i, %invoke.cont, %if.end.i.i
-  %retval.sroa.0.0.ph = phi ptr [ %8, %if.end.i.i ], [ %__it.sroa.0.0, %invoke.cont ], [ %10, %for.cond.i.i ]
+  %retval.sroa.0.0.ph = phi ptr [ %__it.sroa.0.0, %invoke.cont ], [ %8, %if.end.i.i ], [ %10, %for.cond.i.i ]
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i) #37
   br label %_ZNSt10_HashtableIjSt4pairIKjSt8functionIFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS7_ERSt10shared_ptrIN8coro_rpc14context_info_tINSE_8protocol17coro_rpc_protocolEEEESt7variantIJNSG_20struct_pack_protocolEEEEEESaISQ_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENSS_18_Mod_range_hashingENSS_20_Default_ranged_hashENSS_20_Prime_rehash_policyENSS_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 
@@ -45049,7 +45049,7 @@ if.end34:                                         ; preds = %if.end3.i.i, %invok
           to label %_ZNSt10_HashtableIjSt4pairIKjSt8functionIFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS7_ERSt10shared_ptrIN8coro_rpc14context_info_tINSE_8protocol17coro_rpc_protocolEEEESt7variantIJNSG_20struct_pack_protocolEEEEEESaISQ_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENSS_18_Mod_range_hashingENSS_20_Default_ranged_hashENSS_20_Prime_rehash_policyENSS_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit unwind label %lpad
 
 _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKjSt8functionIFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS9_ERSt10shared_ptrIN8coro_rpc14context_info_tINSG_8protocol17coro_rpc_protocolEEEESt7variantIJNSI_20struct_pack_protocolEEEEEELb0EEEEE18_M_deallocate_nodeEPST_.exit.i: ; preds = %for.cond.i.i, %invoke.cont, %if.end.i.i
-  %retval.sroa.0.0.ph = phi ptr [ %8, %if.end.i.i ], [ %__it.sroa.0.0, %invoke.cont ], [ %10, %for.cond.i.i ]
+  %retval.sroa.0.0.ph = phi ptr [ %__it.sroa.0.0, %invoke.cont ], [ %8, %if.end.i.i ], [ %10, %for.cond.i.i ]
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i) #37
   br label %_ZNSt10_HashtableIjSt4pairIKjSt8functionIFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS7_ERSt10shared_ptrIN8coro_rpc14context_info_tINSE_8protocol17coro_rpc_protocolEEEESt7variantIJNSG_20struct_pack_protocolEEEEEESaISQ_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENSS_18_Mod_range_hashingENSS_20_Default_ranged_hashENSS_20_Prime_rehash_policyENSS_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 
@@ -45584,8 +45584,8 @@ sw.bb6:                                           ; preds = %if.end
   %call.i19 = tail call noundef i32 @_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE15deserialize_oneILm2ELm18446744073709551615ELb1ELm0ESt6vectorIiSaIiEEEENS_4errcERT3_(ptr noundef nonnull align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(24) %t)
   br label %return
 
-return:                                           ; preds = %if.end.i30, %if.then27.i, %_ZN11struct_pack6detail13memory_reader9read_viewEm.exit, %sw.bb2.i.i, %sw.bb8.i.i, %entry, %if.end.i, %if.end9.i, %sw.bb.i.i, %sw.bb6, %sw.bb, %if.end.i77, %if.end6.i79, %_ZN11struct_pack6detail6resizeIiEEvRSt6vectorIT_SaIS3_EEm.exit.i, %if.end.i13.i
-  %retval.0 = phi i32 [ 0, %if.end.i13.i ], [ 1, %if.then27.i ], [ %call.i19, %sw.bb6 ], [ 1, %if.end6.i79 ], [ 0, %if.end.i77 ], [ 1, %sw.bb ], [ 0, %_ZN11struct_pack6detail6resizeIiEEvRSt6vectorIT_SaIS3_EEm.exit.i ], [ 1, %_ZN11struct_pack6detail13memory_reader9read_viewEm.exit ], [ 1, %sw.bb.i.i ], [ 1, %sw.bb2.i.i ], [ 1, %sw.bb8.i.i ], [ 1, %entry ], [ 2, %if.end.i ], [ 1, %if.end9.i ], [ 3, %if.end.i30 ]
+return:                                           ; preds = %if.end.i30, %if.then27.i, %_ZN11struct_pack6detail13memory_reader9read_viewEm.exit, %sw.bb2.i.i, %sw.bb.i.i, %entry, %if.end.i, %if.end9.i, %sw.bb8.i.i, %sw.bb6, %sw.bb, %if.end.i77, %if.end6.i79, %_ZN11struct_pack6detail6resizeIiEEvRSt6vectorIT_SaIS3_EEm.exit.i, %if.end.i13.i
+  %retval.0 = phi i32 [ 0, %if.end.i13.i ], [ 1, %if.then27.i ], [ %call.i19, %sw.bb6 ], [ 1, %if.end6.i79 ], [ 0, %if.end.i77 ], [ 1, %sw.bb ], [ 0, %_ZN11struct_pack6detail6resizeIiEEvRSt6vectorIT_SaIS3_EEm.exit.i ], [ 1, %_ZN11struct_pack6detail13memory_reader9read_viewEm.exit ], [ 1, %sw.bb8.i.i ], [ 1, %sw.bb2.i.i ], [ 1, %sw.bb.i.i ], [ 1, %entry ], [ 2, %if.end.i ], [ 1, %if.end9.i ], [ 3, %if.end.i30 ]
   ret i32 %retval.0
 }
 
@@ -45920,7 +45920,7 @@ if.end34:                                         ; preds = %if.end3.i.i, %invok
           to label %_ZNSt10_HashtableIjSt4pairIKjSt8functionIFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS7_ERSt10shared_ptrIN8coro_rpc14context_info_tINSE_8protocol17coro_rpc_protocolEEEESt7variantIJNSG_20struct_pack_protocolEEEEEESaISQ_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENSS_18_Mod_range_hashingENSS_20_Default_ranged_hashENSS_20_Prime_rehash_policyENSS_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit unwind label %lpad
 
 _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKjSt8functionIFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS9_ERSt10shared_ptrIN8coro_rpc14context_info_tINSG_8protocol17coro_rpc_protocolEEEESt7variantIJNSI_20struct_pack_protocolEEEEEELb0EEEEE18_M_deallocate_nodeEPST_.exit.i: ; preds = %for.cond.i.i, %invoke.cont, %if.end.i.i
-  %retval.sroa.0.0.ph = phi ptr [ %8, %if.end.i.i ], [ %__it.sroa.0.0, %invoke.cont ], [ %10, %for.cond.i.i ]
+  %retval.sroa.0.0.ph = phi ptr [ %__it.sroa.0.0, %invoke.cont ], [ %8, %if.end.i.i ], [ %10, %for.cond.i.i ]
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i) #37
   br label %_ZNSt10_HashtableIjSt4pairIKjSt8functionIFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS7_ERSt10shared_ptrIN8coro_rpc14context_info_tINSE_8protocol17coro_rpc_protocolEEEESt7variantIJNSG_20struct_pack_protocolEEEEEESaISQ_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENSS_18_Mod_range_hashingENSS_20_Default_ranged_hashENSS_20_Prime_rehash_policyENSS_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 
@@ -46604,8 +46604,8 @@ sw.bb6:                                           ; preds = %if.end
   %call.i19 = tail call noundef i32 @_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE15deserialize_oneILm2ELm18446744073709551615ELb1ELm0ESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EEEENS_4errcERT3_(ptr noundef nonnull align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(24) %t)
   br label %return
 
-return:                                           ; preds = %if.end.i30, %if.then27.i, %_ZN11struct_pack6detail13memory_reader9read_viewEm.exit, %sw.bb2.i.i, %sw.bb8.i.i, %entry, %if.end.i, %if.end9.i, %sw.bb.i.i, %sw.bb, %sw.bb6
-  %retval.0 = phi i32 [ %call.i, %sw.bb ], [ 1, %if.then27.i ], [ %call.i19, %sw.bb6 ], [ 1, %_ZN11struct_pack6detail13memory_reader9read_viewEm.exit ], [ 1, %sw.bb.i.i ], [ 1, %sw.bb2.i.i ], [ 1, %sw.bb8.i.i ], [ 1, %entry ], [ 2, %if.end.i ], [ 1, %if.end9.i ], [ 3, %if.end.i30 ]
+return:                                           ; preds = %if.end.i30, %if.then27.i, %_ZN11struct_pack6detail13memory_reader9read_viewEm.exit, %sw.bb2.i.i, %sw.bb.i.i, %entry, %if.end.i, %if.end9.i, %sw.bb8.i.i, %sw.bb, %sw.bb6
+  %retval.0 = phi i32 [ %call.i, %sw.bb ], [ 1, %if.then27.i ], [ %call.i19, %sw.bb6 ], [ 1, %_ZN11struct_pack6detail13memory_reader9read_viewEm.exit ], [ 1, %sw.bb8.i.i ], [ 1, %sw.bb2.i.i ], [ 1, %sw.bb.i.i ], [ 1, %entry ], [ 2, %if.end.i ], [ 1, %if.end9.i ], [ 3, %if.end.i30 ]
   ret i32 %retval.0
 }
 
@@ -46760,7 +46760,7 @@ for.inc:                                          ; preds = %if.end.i11, %if.end
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !834
 
 return:                                           ; preds = %for.inc, %if.end.i.i, %if.then10, %entry, %if.end
-  %retval.0 = phi i32 [ 1, %entry ], [ 0, %if.end ], [ 1, %if.then10 ], [ 1, %if.end.i.i ], [ 0, %for.inc ]
+  %retval.0 = phi i32 [ 1, %if.end.i.i ], [ 1, %entry ], [ 0, %if.end ], [ 1, %if.then10 ], [ 0, %for.inc ]
   ret i32 %retval.0
 }
 
@@ -47385,7 +47385,7 @@ for.inc:                                          ; preds = %if.end.i29.i, %if.e
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !855
 
 return:                                           ; preds = %for.inc, %if.end.i.i, %if.then20, %sw.bb7, %sw.bb2, %sw.bb, %sw.epilog
-  %retval.0 = phi i32 [ 1, %sw.bb2 ], [ 1, %sw.bb7 ], [ 0, %sw.epilog ], [ 1, %sw.bb ], [ 1, %if.then20 ], [ 1, %if.end.i.i ], [ 0, %for.inc ]
+  %retval.0 = phi i32 [ 1, %sw.bb2 ], [ 1, %sw.bb7 ], [ 0, %sw.epilog ], [ 1, %sw.bb ], [ 1, %if.end.i.i ], [ 1, %if.then20 ], [ 0, %for.inc ]
   ret i32 %retval.0
 }
 
@@ -47575,7 +47575,7 @@ if.end34:                                         ; preds = %if.end3.i.i, %invok
           to label %_ZNSt10_HashtableIjSt4pairIKjSt8functionIFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS7_ERSt10shared_ptrIN8coro_rpc14context_info_tINSE_8protocol17coro_rpc_protocolEEEESt7variantIJNSG_20struct_pack_protocolEEEEEESaISQ_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENSS_18_Mod_range_hashingENSS_20_Default_ranged_hashENSS_20_Prime_rehash_policyENSS_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit unwind label %lpad
 
 _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKjSt8functionIFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS9_ERSt10shared_ptrIN8coro_rpc14context_info_tINSG_8protocol17coro_rpc_protocolEEEESt7variantIJNSI_20struct_pack_protocolEEEEEELb0EEEEE18_M_deallocate_nodeEPST_.exit.i: ; preds = %for.cond.i.i, %invoke.cont, %if.end.i.i
-  %retval.sroa.0.0.ph = phi ptr [ %8, %if.end.i.i ], [ %__it.sroa.0.0, %invoke.cont ], [ %10, %for.cond.i.i ]
+  %retval.sroa.0.0.ph = phi ptr [ %__it.sroa.0.0, %invoke.cont ], [ %8, %if.end.i.i ], [ %10, %for.cond.i.i ]
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i) #37
   br label %_ZNSt10_HashtableIjSt4pairIKjSt8functionIFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS7_ERSt10shared_ptrIN8coro_rpc14context_info_tINSE_8protocol17coro_rpc_protocolEEEESt7variantIJNSG_20struct_pack_protocolEEEEEESaISQ_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENSS_18_Mod_range_hashingENSS_20_Default_ranged_hashENSS_20_Prime_rehash_policyENSS_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 
@@ -48110,8 +48110,8 @@ sw.bb6:                                           ; preds = %if.end
   %call.i19 = tail call noundef i32 @_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE15deserialize_oneILm2ELm18446744073709551615ELb1ELm0ESt6vectorI4rectSaIS6_EEEENS_4errcERT3_(ptr noundef nonnull align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(24) %t)
   br label %return
 
-return:                                           ; preds = %if.end.i30, %if.then27.i, %_ZN11struct_pack6detail13memory_reader9read_viewEm.exit, %sw.bb2.i.i, %sw.bb8.i.i, %entry, %if.end.i, %if.end9.i, %sw.bb.i.i, %sw.bb6, %sw.bb, %if.end.i77, %if.end6.i79, %_ZN11struct_pack6detail6resizeI4rectEEvRSt6vectorIT_SaIS4_EEm.exit.i, %if.end.i13.i
-  %retval.0 = phi i32 [ 0, %if.end.i13.i ], [ 1, %if.then27.i ], [ %call.i19, %sw.bb6 ], [ 1, %if.end6.i79 ], [ 0, %if.end.i77 ], [ 1, %sw.bb ], [ 0, %_ZN11struct_pack6detail6resizeI4rectEEvRSt6vectorIT_SaIS4_EEm.exit.i ], [ 1, %_ZN11struct_pack6detail13memory_reader9read_viewEm.exit ], [ 1, %sw.bb.i.i ], [ 1, %sw.bb2.i.i ], [ 1, %sw.bb8.i.i ], [ 1, %entry ], [ 2, %if.end.i ], [ 1, %if.end9.i ], [ 3, %if.end.i30 ]
+return:                                           ; preds = %if.end.i30, %if.then27.i, %_ZN11struct_pack6detail13memory_reader9read_viewEm.exit, %sw.bb2.i.i, %sw.bb.i.i, %entry, %if.end.i, %if.end9.i, %sw.bb8.i.i, %sw.bb6, %sw.bb, %if.end.i77, %if.end6.i79, %_ZN11struct_pack6detail6resizeI4rectEEvRSt6vectorIT_SaIS4_EEm.exit.i, %if.end.i13.i
+  %retval.0 = phi i32 [ 0, %if.end.i13.i ], [ 1, %if.then27.i ], [ %call.i19, %sw.bb6 ], [ 1, %if.end6.i79 ], [ 0, %if.end.i77 ], [ 1, %sw.bb ], [ 0, %_ZN11struct_pack6detail6resizeI4rectEEvRSt6vectorIT_SaIS4_EEm.exit.i ], [ 1, %_ZN11struct_pack6detail13memory_reader9read_viewEm.exit ], [ 1, %sw.bb8.i.i ], [ 1, %sw.bb2.i.i ], [ 1, %sw.bb.i.i ], [ 1, %entry ], [ 2, %if.end.i ], [ 1, %if.end9.i ], [ 3, %if.end.i30 ]
   ret i32 %retval.0
 }
 
@@ -48446,7 +48446,7 @@ if.end34:                                         ; preds = %if.end3.i.i, %invok
           to label %_ZNSt10_HashtableIjSt4pairIKjSt8functionIFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS7_ERSt10shared_ptrIN8coro_rpc14context_info_tINSE_8protocol17coro_rpc_protocolEEEESt7variantIJNSG_20struct_pack_protocolEEEEEESaISQ_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENSS_18_Mod_range_hashingENSS_20_Default_ranged_hashENSS_20_Prime_rehash_policyENSS_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit unwind label %lpad
 
 _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKjSt8functionIFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS9_ERSt10shared_ptrIN8coro_rpc14context_info_tINSG_8protocol17coro_rpc_protocolEEEESt7variantIJNSI_20struct_pack_protocolEEEEEELb0EEEEE18_M_deallocate_nodeEPST_.exit.i: ; preds = %for.cond.i.i, %invoke.cont, %if.end.i.i
-  %retval.sroa.0.0.ph = phi ptr [ %8, %if.end.i.i ], [ %__it.sroa.0.0, %invoke.cont ], [ %10, %for.cond.i.i ]
+  %retval.sroa.0.0.ph = phi ptr [ %__it.sroa.0.0, %invoke.cont ], [ %8, %if.end.i.i ], [ %10, %for.cond.i.i ]
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i) #37
   br label %_ZNSt10_HashtableIjSt4pairIKjSt8functionIFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS7_ERSt10shared_ptrIN8coro_rpc14context_info_tINSE_8protocol17coro_rpc_protocolEEEESt7variantIJNSG_20struct_pack_protocolEEEEEESaISQ_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENSS_18_Mod_range_hashingENSS_20_Default_ranged_hashENSS_20_Prime_rehash_policyENSS_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 
@@ -48878,8 +48878,8 @@ sw.bb6:                                           ; preds = %if.end
   %call.i19 = tail call noundef i32 @_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE15deserialize_oneILm2ELm18446744073709551615ELb1ELm0E7MonsterEENS_4errcERT3_(ptr noundef nonnull align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(168) %t)
   br label %return
 
-return:                                           ; preds = %if.end.i30, %if.then27.i, %_ZN11struct_pack6detail13memory_reader9read_viewEm.exit, %sw.bb2.i.i, %sw.bb8.i.i, %entry, %if.end.i, %if.end9.i, %sw.bb.i.i, %sw.bb, %sw.bb6
-  %retval.0 = phi i32 [ %call.i, %sw.bb ], [ 1, %if.then27.i ], [ %call.i19, %sw.bb6 ], [ 1, %_ZN11struct_pack6detail13memory_reader9read_viewEm.exit ], [ 1, %sw.bb.i.i ], [ 1, %sw.bb2.i.i ], [ 1, %sw.bb8.i.i ], [ 1, %entry ], [ 2, %if.end.i ], [ 1, %if.end9.i ], [ 3, %if.end.i30 ]
+return:                                           ; preds = %if.end.i30, %if.then27.i, %_ZN11struct_pack6detail13memory_reader9read_viewEm.exit, %sw.bb2.i.i, %sw.bb.i.i, %entry, %if.end.i, %if.end9.i, %sw.bb8.i.i, %sw.bb, %sw.bb6
+  %retval.0 = phi i32 [ %call.i, %sw.bb ], [ 1, %if.then27.i ], [ %call.i19, %sw.bb6 ], [ 1, %_ZN11struct_pack6detail13memory_reader9read_viewEm.exit ], [ 1, %sw.bb8.i.i ], [ 1, %sw.bb2.i.i ], [ 1, %sw.bb.i.i ], [ 1, %entry ], [ 2, %if.end.i ], [ 1, %if.end9.i ], [ 3, %if.end.i30 ]
   ret i32 %retval.0
 }
 
@@ -49285,7 +49285,7 @@ for.inc:                                          ; preds = %if.end.i.i
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !899
 
 return:                                           ; preds = %for.inc, %if.end.i.i14, %if.then10, %entry, %if.end
-  %retval.0 = phi i32 [ 1, %entry ], [ 0, %if.end ], [ 1, %if.then10 ], [ 1, %if.end.i.i14 ], [ 0, %for.inc ]
+  %retval.0 = phi i32 [ 1, %if.end.i.i14 ], [ 1, %entry ], [ 0, %if.end ], [ 1, %if.then10 ], [ 0, %for.inc ]
   ret i32 %retval.0
 }
 
@@ -50431,7 +50431,7 @@ for.inc:                                          ; preds = %if.end.i.i
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !920
 
 return:                                           ; preds = %for.inc, %if.end.i.i30, %if.then20, %sw.bb7, %sw.bb2, %sw.bb, %sw.epilog
-  %retval.0 = phi i32 [ 1, %sw.bb2 ], [ 1, %sw.bb7 ], [ 0, %sw.epilog ], [ 1, %sw.bb ], [ 1, %if.then20 ], [ 1, %if.end.i.i30 ], [ 0, %for.inc ]
+  %retval.0 = phi i32 [ 1, %sw.bb2 ], [ 1, %sw.bb7 ], [ 0, %sw.epilog ], [ 1, %sw.bb ], [ 1, %if.end.i.i30 ], [ 1, %if.then20 ], [ 0, %for.inc ]
   ret i32 %retval.0
 }
 
@@ -51091,7 +51091,7 @@ if.end34:                                         ; preds = %if.end3.i.i, %invok
           to label %_ZNSt10_HashtableIjSt4pairIKjSt8functionIFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS7_ERSt10shared_ptrIN8coro_rpc14context_info_tINSE_8protocol17coro_rpc_protocolEEEESt7variantIJNSG_20struct_pack_protocolEEEEEESaISQ_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENSS_18_Mod_range_hashingENSS_20_Default_ranged_hashENSS_20_Prime_rehash_policyENSS_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit unwind label %lpad
 
 _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKjSt8functionIFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS9_ERSt10shared_ptrIN8coro_rpc14context_info_tINSG_8protocol17coro_rpc_protocolEEEESt7variantIJNSI_20struct_pack_protocolEEEEEELb0EEEEE18_M_deallocate_nodeEPST_.exit.i: ; preds = %for.cond.i.i, %invoke.cont, %if.end.i.i
-  %retval.sroa.0.0.ph = phi ptr [ %8, %if.end.i.i ], [ %__it.sroa.0.0, %invoke.cont ], [ %10, %for.cond.i.i ]
+  %retval.sroa.0.0.ph = phi ptr [ %__it.sroa.0.0, %invoke.cont ], [ %8, %if.end.i.i ], [ %10, %for.cond.i.i ]
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i) #37
   br label %_ZNSt10_HashtableIjSt4pairIKjSt8functionIFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS7_ERSt10shared_ptrIN8coro_rpc14context_info_tINSE_8protocol17coro_rpc_protocolEEEESt7variantIJNSG_20struct_pack_protocolEEEEEESaISQ_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENSS_18_Mod_range_hashingENSS_20_Default_ranged_hashENSS_20_Prime_rehash_policyENSS_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 
@@ -51735,8 +51735,8 @@ return.sink.split:                                ; preds = %if.end.i.i.i20.i103
   store ptr %add.ptr.i.i.i21.i, ptr %.sink159, align 8
   br label %return
 
-return:                                           ; preds = %return.sink.split, %if.end.i30, %if.then27.i, %_ZN11struct_pack6detail13memory_reader9read_viewEm.exit, %sw.bb2.i.i, %sw.bb8.i.i, %entry, %if.end.i, %if.end9.i, %sw.bb.i.i, %sw.bb, %if.end.i.i, %if.end.i17.i, %if.end.i26.i, %if.end.i13.i, %if.else.i18.i, %sw.bb6, %if.end.i.i81, %if.end.i17.i90, %if.end.i26.i93, %if.end.i13.i96, %if.else.i18.i100
-  %retval.0 = phi i32 [ 1, %if.then27.i ], [ %call.i9.i, %sw.bb ], [ %call.i24.i, %if.end.i17.i ], [ 1, %if.end.i.i ], [ 1, %if.end.i26.i ], [ 0, %if.end.i13.i ], [ 0, %if.else.i18.i ], [ %call.i9.i78, %sw.bb6 ], [ %call.i24.i91, %if.end.i17.i90 ], [ 1, %if.end.i.i81 ], [ 1, %if.end.i26.i93 ], [ 0, %if.end.i13.i96 ], [ 0, %if.else.i18.i100 ], [ 1, %_ZN11struct_pack6detail13memory_reader9read_viewEm.exit ], [ 1, %sw.bb.i.i ], [ 1, %sw.bb2.i.i ], [ 1, %sw.bb8.i.i ], [ 1, %entry ], [ 2, %if.end.i ], [ 1, %if.end9.i ], [ 3, %if.end.i30 ], [ 0, %return.sink.split ]
+return:                                           ; preds = %return.sink.split, %if.end.i30, %if.then27.i, %_ZN11struct_pack6detail13memory_reader9read_viewEm.exit, %sw.bb2.i.i, %sw.bb.i.i, %entry, %if.end.i, %if.end9.i, %sw.bb8.i.i, %sw.bb, %if.end.i.i, %if.end.i17.i, %if.end.i26.i, %if.end.i13.i, %if.else.i18.i, %sw.bb6, %if.end.i.i81, %if.end.i17.i90, %if.end.i26.i93, %if.end.i13.i96, %if.else.i18.i100
+  %retval.0 = phi i32 [ 3, %if.end.i30 ], [ 1, %if.then27.i ], [ 1, %if.end9.i ], [ %call.i9.i, %sw.bb ], [ %call.i24.i, %if.end.i17.i ], [ 1, %if.end.i.i ], [ 1, %if.end.i26.i ], [ 0, %if.end.i13.i ], [ 0, %if.else.i18.i ], [ %call.i9.i78, %sw.bb6 ], [ %call.i24.i91, %if.end.i17.i90 ], [ 1, %if.end.i.i81 ], [ 1, %if.end.i26.i93 ], [ 0, %if.end.i13.i96 ], [ 0, %if.else.i18.i100 ], [ 1, %_ZN11struct_pack6detail13memory_reader9read_viewEm.exit ], [ 1, %sw.bb8.i.i ], [ 1, %sw.bb2.i.i ], [ 1, %sw.bb.i.i ], [ 1, %entry ], [ 2, %if.end.i ], [ 0, %return.sink.split ]
   ret i32 %retval.0
 }
 
@@ -53399,7 +53399,7 @@ if.end34:                                         ; preds = %if.end3.i.i, %invok
           to label %_ZNSt10_HashtableIjSt4pairIKjSt8functionIFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS7_ERSt10shared_ptrIN8coro_rpc14context_info_tINSE_8protocol17coro_rpc_protocolEEEESt7variantIJNSG_20struct_pack_protocolEEEEEESaISQ_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENSS_18_Mod_range_hashingENSS_20_Default_ranged_hashENSS_20_Prime_rehash_policyENSS_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit unwind label %lpad
 
 _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKjSt8functionIFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS9_ERSt10shared_ptrIN8coro_rpc14context_info_tINSG_8protocol17coro_rpc_protocolEEEESt7variantIJNSI_20struct_pack_protocolEEEEEELb0EEEEE18_M_deallocate_nodeEPST_.exit.i: ; preds = %for.cond.i.i, %invoke.cont, %if.end.i.i
-  %retval.sroa.0.0.ph = phi ptr [ %8, %if.end.i.i ], [ %__it.sroa.0.0, %invoke.cont ], [ %10, %for.cond.i.i ]
+  %retval.sroa.0.0.ph = phi ptr [ %__it.sroa.0.0, %invoke.cont ], [ %8, %if.end.i.i ], [ %10, %for.cond.i.i ]
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i) #37
   br label %_ZNSt10_HashtableIjSt4pairIKjSt8functionIFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS7_ERSt10shared_ptrIN8coro_rpc14context_info_tINSE_8protocol17coro_rpc_protocolEEEESt7variantIJNSG_20struct_pack_protocolEEEEEESaISQ_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENSS_18_Mod_range_hashingENSS_20_Default_ranged_hashENSS_20_Prime_rehash_policyENSS_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 
@@ -53749,7 +53749,7 @@ if.end34:                                         ; preds = %if.end3.i.i, %invok
           to label %_ZNSt10_HashtableIjSt4pairIKjSt8functionIFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS7_ERSt10shared_ptrIN8coro_rpc14context_info_tINSE_8protocol17coro_rpc_protocolEEEESt7variantIJNSG_20struct_pack_protocolEEEEEESaISQ_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENSS_18_Mod_range_hashingENSS_20_Default_ranged_hashENSS_20_Prime_rehash_policyENSS_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit unwind label %lpad
 
 _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKjSt8functionIFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS9_ERSt10shared_ptrIN8coro_rpc14context_info_tINSG_8protocol17coro_rpc_protocolEEEESt7variantIJNSI_20struct_pack_protocolEEEEEELb0EEEEE18_M_deallocate_nodeEPST_.exit.i: ; preds = %for.cond.i.i, %invoke.cont, %if.end.i.i
-  %retval.sroa.0.0.ph = phi ptr [ %8, %if.end.i.i ], [ %__it.sroa.0.0, %invoke.cont ], [ %10, %for.cond.i.i ]
+  %retval.sroa.0.0.ph = phi ptr [ %__it.sroa.0.0, %invoke.cont ], [ %8, %if.end.i.i ], [ %10, %for.cond.i.i ]
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i) #37
   br label %_ZNSt10_HashtableIjSt4pairIKjSt8functionIFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS7_ERSt10shared_ptrIN8coro_rpc14context_info_tINSE_8protocol17coro_rpc_protocolEEEESt7variantIJNSG_20struct_pack_protocolEEEEEESaISQ_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENSS_18_Mod_range_hashingENSS_20_Default_ranged_hashENSS_20_Prime_rehash_policyENSS_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 
@@ -54238,8 +54238,8 @@ sw.bb6:                                           ; preds = %if.end
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i78)
   br label %return
 
-return:                                           ; preds = %if.end.i30, %if.then27.i, %_ZN11struct_pack6detail13memory_reader9read_viewEm.exit, %sw.bb2.i.i, %sw.bb8.i.i, %entry, %if.end.i, %if.end9.i, %sw.bb.i.i, %sw.bb, %sw.bb6
-  %retval.0 = phi i32 [ %24, %sw.bb ], [ 1, %if.then27.i ], [ %26, %sw.bb6 ], [ 1, %_ZN11struct_pack6detail13memory_reader9read_viewEm.exit ], [ 1, %sw.bb.i.i ], [ 1, %sw.bb2.i.i ], [ 1, %sw.bb8.i.i ], [ 1, %entry ], [ 2, %if.end.i ], [ 1, %if.end9.i ], [ 3, %if.end.i30 ]
+return:                                           ; preds = %if.end.i30, %if.then27.i, %_ZN11struct_pack6detail13memory_reader9read_viewEm.exit, %sw.bb2.i.i, %sw.bb.i.i, %entry, %if.end.i, %if.end9.i, %sw.bb8.i.i, %sw.bb, %sw.bb6
+  %retval.0 = phi i32 [ %24, %sw.bb ], [ 1, %if.then27.i ], [ %26, %sw.bb6 ], [ 1, %_ZN11struct_pack6detail13memory_reader9read_viewEm.exit ], [ 1, %sw.bb8.i.i ], [ 1, %sw.bb2.i.i ], [ 1, %sw.bb.i.i ], [ 1, %entry ], [ 2, %if.end.i ], [ 1, %if.end9.i ], [ 3, %if.end.i30 ]
   ret i32 %retval.0
 }
 
@@ -55086,8 +55086,8 @@ for.inc17:                                        ; preds = %for.body13
   br i1 %cmp12, label %for.body13, label %for.end19, !llvm.loop !976
 
 for.end19:                                        ; preds = %for.inc17, %if.end, %for.cond10.preheader
-  %29 = phi ptr [ %.pre51, %for.cond10.preheader ], [ null, %if.end ], [ %.pre51, %for.inc17 ]
-  %30 = phi ptr [ %.pre51, %for.cond10.preheader ], [ null, %if.end ], [ %.pre, %for.inc17 ]
+  %29 = phi ptr [ null, %if.end ], [ %.pre51, %for.cond10.preheader ], [ %.pre51, %for.inc17 ]
+  %30 = phi ptr [ null, %if.end ], [ %.pre51, %for.cond10.preheader ], [ %.pre, %for.inc17 ]
   %promise_ = getelementptr inbounds nuw i8, ptr %this, i64 80
   call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i)
   %31 = load ptr, ptr %promise_, align 8
@@ -63149,7 +63149,7 @@ if.end34:                                         ; preds = %if.end3.i.i, %invok
           to label %_ZNSt10_HashtableImSt4pairIKmSt10shared_ptrIN8coro_rpc15coro_connectionEEESaIS6_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit unwind label %lpad
 
 if.then.i:                                        ; preds = %for.cond.i.i, %invoke.cont, %if.end.i.i
-  %retval.sroa.0.0.ph = phi ptr [ %16, %if.end.i.i ], [ %__it.sroa.0.0, %invoke.cont ], [ %18, %for.cond.i.i ]
+  %retval.sroa.0.0.ph = phi ptr [ %__it.sroa.0.0, %invoke.cont ], [ %16, %if.end.i.i ], [ %18, %for.cond.i.i ]
   %21 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i14 = icmp eq ptr %21, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i14, label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKmSt10shared_ptrIN8coro_rpc15coro_connectionEEELb0EEEEE18_M_deallocate_nodeEPS9_.exit.i, label %if.then.i.i.i.i.i.i.i.i15
@@ -63775,12 +63775,12 @@ lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i: ; preds = %lor.lhs.false.i.i.
   br label %invoke.cont38, !llvm.loop !436
 
 if.then.i25:                                      ; preds = %for.cond.i.i.i.i.i, %for.body.i.i.i, %if.end.i.i.i.i.i
-  %retval.sroa.0.1.i.i.i = phi ptr [ %26, %if.end.i.i.i.i.i ], [ %retval.sroa.0.0.i.i.i, %for.body.i.i.i ], [ %28, %for.cond.i.i.i.i.i ]
+  %retval.sroa.0.1.i.i.i = phi ptr [ %retval.sroa.0.0.i.i.i, %for.body.i.i.i ], [ %26, %if.end.i.i.i.i.i ], [ %28, %for.cond.i.i.i.i.i ]
   %second.i = getelementptr inbounds nuw i8, ptr %retval.sroa.0.1.i.i.i, i64 16
   br label %invoke.cont38
 
 invoke.cont38:                                    ; preds = %if.end3.i.i.i.i.i, %for.cond.i.i.i, %if.then.i25, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i, %if.end15.i.i.i
-  %retval.0.i = phi ptr [ %second.i, %if.then.i25 ], [ @_ZZN8coro_rpc8protocol6routerINS0_17coro_rpc_protocolESt13unordered_mapE8get_nameB5cxx11ERKjE12empty_stringB5cxx11, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i ], [ @_ZZN8coro_rpc8protocol6routerINS0_17coro_rpc_protocolESt13unordered_mapE8get_nameB5cxx11ERKjE12empty_stringB5cxx11, %if.end15.i.i.i ], [ @_ZZN8coro_rpc8protocol6routerINS0_17coro_rpc_protocolESt13unordered_mapE8get_nameB5cxx11ERKjE12empty_stringB5cxx11, %for.cond.i.i.i ], [ @_ZZN8coro_rpc8protocol6routerINS0_17coro_rpc_protocolESt13unordered_mapE8get_nameB5cxx11ERKjE12empty_stringB5cxx11, %if.end3.i.i.i.i.i ]
+  %retval.0.i = phi ptr [ %second.i, %if.then.i25 ], [ @_ZZN8coro_rpc8protocol6routerINS0_17coro_rpc_protocolESt13unordered_mapE8get_nameB5cxx11ERKjE12empty_stringB5cxx11, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i ], [ @_ZZN8coro_rpc8protocol6routerINS0_17coro_rpc_protocolESt13unordered_mapE8get_nameB5cxx11ERKjE12empty_stringB5cxx11, %for.cond.i.i.i ], [ @_ZZN8coro_rpc8protocol6routerINS0_17coro_rpc_protocolESt13unordered_mapE8get_nameB5cxx11ERKjE12empty_stringB5cxx11, %if.end15.i.i.i ], [ @_ZZN8coro_rpc8protocol6routerINS0_17coro_rpc_protocolESt13unordered_mapE8get_nameB5cxx11ERKjE12empty_stringB5cxx11, %if.end3.i.i.i.i.i ]
   %30 = load ptr, ptr %retval.0.i, align 8
   store ptr %30, ptr %ref.tmp36, align 8
   invoke void @_ZN7easylog8record_t20printf_string_formatIJPKcRA2_S2_EEEvS3_DpOT_(ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp23, ptr noundef nonnull @.str.130, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp36, ptr noundef nonnull align 1 dereferenceable(2) @.str.69)
@@ -67646,12 +67646,12 @@ lor.lhs.false.return.loopexit_crit_edge.i.i.i.i:  ; preds = %lor.lhs.false.i.i.i
   br label %return, !llvm.loop !436
 
 if.then:                                          ; preds = %for.cond.i.i.i.i, %for.body.i.i, %if.end.i.i.i.i
-  %retval.sroa.0.1.i.i = phi ptr [ %9, %if.end.i.i.i.i ], [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ %11, %for.cond.i.i.i.i ]
+  %retval.sroa.0.1.i.i = phi ptr [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ %9, %if.end.i.i.i.i ], [ %11, %for.cond.i.i.i.i ]
   %second = getelementptr inbounds nuw i8, ptr %retval.sroa.0.1.i.i, i64 16
   br label %return
 
 return:                                           ; preds = %if.end3.i.i.i.i, %for.cond.i.i, %if.end15.i.i, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i, %if.then
-  %retval.0 = phi ptr [ %second, %if.then ], [ @_ZZN8coro_rpc8protocol6routerINS0_17coro_rpc_protocolESt13unordered_mapE8get_nameB5cxx11ERKjE12empty_stringB5cxx11, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i ], [ @_ZZN8coro_rpc8protocol6routerINS0_17coro_rpc_protocolESt13unordered_mapE8get_nameB5cxx11ERKjE12empty_stringB5cxx11, %if.end15.i.i ], [ @_ZZN8coro_rpc8protocol6routerINS0_17coro_rpc_protocolESt13unordered_mapE8get_nameB5cxx11ERKjE12empty_stringB5cxx11, %for.cond.i.i ], [ @_ZZN8coro_rpc8protocol6routerINS0_17coro_rpc_protocolESt13unordered_mapE8get_nameB5cxx11ERKjE12empty_stringB5cxx11, %if.end3.i.i.i.i ]
+  %retval.0 = phi ptr [ %second, %if.then ], [ @_ZZN8coro_rpc8protocol6routerINS0_17coro_rpc_protocolESt13unordered_mapE8get_nameB5cxx11ERKjE12empty_stringB5cxx11, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i ], [ @_ZZN8coro_rpc8protocol6routerINS0_17coro_rpc_protocolESt13unordered_mapE8get_nameB5cxx11ERKjE12empty_stringB5cxx11, %for.cond.i.i ], [ @_ZZN8coro_rpc8protocol6routerINS0_17coro_rpc_protocolESt13unordered_mapE8get_nameB5cxx11ERKjE12empty_stringB5cxx11, %if.end15.i.i ], [ @_ZZN8coro_rpc8protocol6routerINS0_17coro_rpc_protocolESt13unordered_mapE8get_nameB5cxx11ERKjE12empty_stringB5cxx11, %if.end3.i.i.i.i ]
   ret ptr %retval.0
 }
 
@@ -78937,12 +78937,12 @@ lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i: ; preds = %lor.lhs.false.i.i.
   br label %invoke.cont85, !llvm.loop !436
 
 if.then.i38:                                      ; preds = %for.cond.i.i.i.i.i, %for.body.i.i.i, %if.end.i.i.i.i.i
-  %retval.sroa.0.1.i.i.i = phi ptr [ %59, %if.end.i.i.i.i.i ], [ %retval.sroa.0.0.i.i.i, %for.body.i.i.i ], [ %61, %for.cond.i.i.i.i.i ]
+  %retval.sroa.0.1.i.i.i = phi ptr [ %retval.sroa.0.0.i.i.i, %for.body.i.i.i ], [ %59, %if.end.i.i.i.i.i ], [ %61, %for.cond.i.i.i.i.i ]
   %second.i39 = getelementptr inbounds nuw i8, ptr %retval.sroa.0.1.i.i.i, i64 16
   br label %invoke.cont85
 
 invoke.cont85:                                    ; preds = %if.end3.i.i.i.i.i, %for.cond.i.i.i, %if.then.i38, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i, %if.end15.i.i.i
-  %retval.0.i = phi ptr [ %second.i39, %if.then.i38 ], [ @_ZZN8coro_rpc8protocol6routerINS0_17coro_rpc_protocolESt13unordered_mapE8get_nameB5cxx11ERKjE12empty_stringB5cxx11, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i ], [ @_ZZN8coro_rpc8protocol6routerINS0_17coro_rpc_protocolESt13unordered_mapE8get_nameB5cxx11ERKjE12empty_stringB5cxx11, %if.end15.i.i.i ], [ @_ZZN8coro_rpc8protocol6routerINS0_17coro_rpc_protocolESt13unordered_mapE8get_nameB5cxx11ERKjE12empty_stringB5cxx11, %for.cond.i.i.i ], [ @_ZZN8coro_rpc8protocol6routerINS0_17coro_rpc_protocolESt13unordered_mapE8get_nameB5cxx11ERKjE12empty_stringB5cxx11, %if.end3.i.i.i.i.i ]
+  %retval.0.i = phi ptr [ %second.i39, %if.then.i38 ], [ @_ZZN8coro_rpc8protocol6routerINS0_17coro_rpc_protocolESt13unordered_mapE8get_nameB5cxx11ERKjE12empty_stringB5cxx11, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i ], [ @_ZZN8coro_rpc8protocol6routerINS0_17coro_rpc_protocolESt13unordered_mapE8get_nameB5cxx11ERKjE12empty_stringB5cxx11, %for.cond.i.i.i ], [ @_ZZN8coro_rpc8protocol6routerINS0_17coro_rpc_protocolESt13unordered_mapE8get_nameB5cxx11ERKjE12empty_stringB5cxx11, %if.end15.i.i.i ], [ @_ZZN8coro_rpc8protocol6routerINS0_17coro_rpc_protocolESt13unordered_mapE8get_nameB5cxx11ERKjE12empty_stringB5cxx11, %if.end3.i.i.i.i.i ]
   %63 = load ptr, ptr %retval.0.i, align 8
   store ptr %63, ptr %ref.tmp83, align 8
   invoke void @_ZN7easylog8record_t20printf_string_formatIJPKcRA2_S2_EEEvS3_DpOT_(ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp69, ptr noundef nonnull @.str.130, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp83, ptr noundef nonnull align 1 dereferenceable(2) @.str.69)
@@ -81426,12 +81426,12 @@ lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i256: ; preds = %lor.lhs.false.i
   br label %invoke.cont222, !llvm.loop !1405
 
 if.then.i260:                                     ; preds = %for.cond.i.i.i.i.i258, %for.body.i.i.i269, %if.end.i.i.i.i.i245
-  %retval.sroa.0.1.i.i.i261 = phi ptr [ %178, %if.end.i.i.i.i.i245 ], [ %retval.sroa.0.0.i.i.i267, %for.body.i.i.i269 ], [ %180, %for.cond.i.i.i.i.i258 ]
+  %retval.sroa.0.1.i.i.i261 = phi ptr [ %retval.sroa.0.0.i.i.i267, %for.body.i.i.i269 ], [ %178, %if.end.i.i.i.i.i245 ], [ %180, %for.cond.i.i.i.i.i258 ]
   %second.i262 = getelementptr inbounds nuw i8, ptr %retval.sroa.0.1.i.i.i261, i64 16
   br label %invoke.cont222
 
 invoke.cont222:                                   ; preds = %if.end3.i.i.i.i.i248, %for.cond.i.i.i265, %if.then.i260, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i256, %if.end15.i.i.i239
-  %retval.0.i257 = phi ptr [ %second.i262, %if.then.i260 ], [ null, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i256 ], [ null, %if.end15.i.i.i239 ], [ null, %for.cond.i.i.i265 ], [ null, %if.end3.i.i.i.i.i248 ]
+  %retval.0.i257 = phi ptr [ %second.i262, %if.then.i260 ], [ null, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i256 ], [ null, %for.cond.i.i.i265 ], [ null, %if.end15.i.i.i239 ], [ null, %if.end3.i.i.i.i.i248 ]
   store ptr %retval.0.i257, ptr %coro_handler.reload.addr, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp227.reload.addr, ptr noundef nonnull align 8 dereferenceable(16) %payload.reload.addr, i64 16, i1 false)
   %_M_engaged.i.i272 = getelementptr inbounds nuw i8, ptr %0, i64 1047
@@ -81688,7 +81688,7 @@ terminate.lpad.i.i312:                            ; preds = %if.then.i.i311
   unreachable
 
 if.else272:                                       ; preds = %for.cond.i.i.i.i.i, %for.body.i.i.i, %if.end.i.i.i.i.i
-  %retval.sroa.0.1.i.i.i = phi ptr [ %169, %if.end.i.i.i.i.i ], [ %retval.sroa.0.0.i.i.i, %for.body.i.i.i ], [ %171, %for.cond.i.i.i.i.i ]
+  %retval.sroa.0.1.i.i.i = phi ptr [ %retval.sroa.0.0.i.i.i, %for.body.i.i.i ], [ %169, %if.end.i.i.i.i.i ], [ %171, %for.cond.i.i.i.i.i ]
   %second.i234 = getelementptr inbounds nuw i8, ptr %retval.sroa.0.1.i.i.i, i64 16
   store ptr %second.i234, ptr %handler.reload.addr, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp274.reload.addr, ptr noundef nonnull align 8 dereferenceable(16) %payload.reload.addr, i64 16, i1 false)

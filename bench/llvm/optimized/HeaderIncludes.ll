@@ -871,7 +871,7 @@ define dso_local noundef i32 @_ZNK5clang7tooling22IncludeCategoryManager22getSor
   br label %.loopexit
 
 .loopexit:                                        ; preds = %9, %4, %13, %20
-  %.0 = phi i32 [ %22, %20 ], [ %18, %13 ], [ 2147483647, %4 ], [ 2147483647, %9 ]
+  %.0 = phi i32 [ %18, %13 ], [ %22, %20 ], [ 2147483647, %4 ], [ 2147483647, %9 ]
   br i1 %3, label %23, label %30
 
 23:                                               ; preds = %.loopexit
@@ -1927,7 +1927,7 @@ _ZNK5clang7tooling22IncludeCategoryManager18getIncludePriorityEN4llvm9StringRefE
   br i1 %121, label %_ZNKSt13unordered_mapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEE4findERS5_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !116
 
 _ZNKSt13unordered_mapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEE4findERS5_.exit: ; preds = %.lr.ph.i.i.i.i, %99, %103
-  %.sroa.06.1.i.i = phi ptr [ %112, %103 ], [ %.sroa.06.0.i.i, %99 ], [ %116, %.lr.ph.i.i.i.i ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %99 ], [ %112, %103 ], [ %116, %.lr.ph.i.i.i.i ]
   %122 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 12
   %123 = load i32, ptr %122, align 4, !tbaa !110
   %124 = getelementptr inbounds nuw i8, ptr %1, i64 112
@@ -1992,7 +1992,7 @@ _ZNKSt13unordered_mapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEE4findERS5_.exit
   br label %_ZNKSt13unordered_mapIiN4llvm11SmallVectorIPKN5clang7tooling14HeaderIncludes7IncludeELj8EEESt4hashIiESt8equal_toIiESaISt4pairIKiS8_EEE4findERSE_.exit.thread, !llvm.loop !168
 
 _ZNKSt13unordered_mapIiN4llvm11SmallVectorIPKN5clang7tooling14HeaderIncludes7IncludeELj8EEESt4hashIiESt8equal_toIiESaISt4pairIKiS8_EEE4findERSE_.exit: ; preds = %147, %129, %142
-  %.sroa.06.1.i.i53 = phi ptr [ %143, %142 ], [ %.sroa.06.0.i.i55, %129 ], [ %149, %147 ]
+  %.sroa.06.1.i.i53 = phi ptr [ %.sroa.06.0.i.i55, %129 ], [ %143, %142 ], [ %149, %147 ]
   %155 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i53, i64 16
   %156 = load ptr, ptr %155, align 8, !tbaa !15
   %157 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i53, i64 24
@@ -2043,7 +2043,7 @@ _ZN4llvmltENS_9StringRefES0_.exit.thread:         ; preds = %.thread.i.i, %_ZN4l
   br i1 %.not, label %_ZNKSt13unordered_mapIiN4llvm11SmallVectorIPKN5clang7tooling14HeaderIncludes7IncludeELj8EEESt4hashIiESt8equal_toIiESaISt4pairIKiS8_EEE4findERSE_.exit.thread, label %161
 
 _ZNKSt13unordered_mapIiN4llvm11SmallVectorIPKN5clang7tooling14HeaderIncludes7IncludeELj8EEESt4hashIiESt8equal_toIiESaISt4pairIKiS8_EEE4findERSE_.exit.thread: ; preds = %.lr.ph.i.i.i.i48, %128, %_ZN4llvmltENS_9StringRefES0_.exit.thread, %_ZNKSt13unordered_mapIiN4llvm11SmallVectorIPKN5clang7tooling14HeaderIncludes7IncludeELj8EEESt4hashIiESt8equal_toIiESaISt4pairIKiS8_EEE4findERSE_.exit, %133, %..loopexit_crit_edge21.i.i.i.i52, %_ZN4llvmltENS_9StringRefES0_.exit.thread98
-  %.031 = phi i32 [ %171, %_ZN4llvmltENS_9StringRefES0_.exit.thread98 ], [ %123, %..loopexit_crit_edge21.i.i.i.i52 ], [ %123, %133 ], [ %123, %_ZNKSt13unordered_mapIiN4llvm11SmallVectorIPKN5clang7tooling14HeaderIncludes7IncludeELj8EEESt4hashIiESt8equal_toIiESaISt4pairIKiS8_EEE4findERSE_.exit ], [ %123, %128 ], [ %123, %_ZN4llvmltENS_9StringRefES0_.exit.thread ], [ %123, %.lr.ph.i.i.i.i48 ]
+  %.031 = phi i32 [ %123, %_ZNKSt13unordered_mapIiN4llvm11SmallVectorIPKN5clang7tooling14HeaderIncludes7IncludeELj8EEESt4hashIiESt8equal_toIiESaISt4pairIKiS8_EEE4findERSE_.exit ], [ %171, %_ZN4llvmltENS_9StringRefES0_.exit.thread98 ], [ %123, %..loopexit_crit_edge21.i.i.i.i52 ], [ %123, %128 ], [ %123, %133 ], [ %123, %_ZN4llvmltENS_9StringRefES0_.exit.thread ], [ %123, %.lr.ph.i.i.i.i48 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %173 = icmp eq i32 %5, 0
   %174 = select i1 %173, ptr @.str.13, ptr @.str.10
@@ -4243,7 +4243,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit25:              ; preds = %41
   %43 = icmp eq i32 %bcmp.i24, 0
   br i1 %43, label %_ZN4llvmeqENS_9StringRefES0_.exit25.thread30, label %_ZN4llvmeqENS_9StringRefES0_.exit25.thread
 
-_ZN4llvmeqENS_9StringRefES0_.exit25.thread30:     ; preds = %41, %33, %_ZN4llvmeqENS_9StringRefES0_.exit25
+_ZN4llvmeqENS_9StringRefES0_.exit25.thread30:     ; preds = %33, %41, %_ZN4llvmeqENS_9StringRefES0_.exit25
   %44 = tail call noundef zeroext i1 @_ZN5clang5Lexer3LexERNS_5TokenE(ptr noundef nonnull align 8 dereferenceable(204) %0, ptr noundef nonnull align 8 dereferenceable(20) %3) #22
   br label %_ZN4llvmeqENS_9StringRefES0_.exit25.thread
 
@@ -4419,7 +4419,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread.i.i:     ; preds = %_ZN4llvmeqENS_9Stri
   br label %"_ZZN5clang7tooling12_GLOBAL__N_127getMaxHeaderInsertionOffsetEN4llvm9StringRefES3_RKNS0_12IncludeStyleEENK3$_0clERKNS_13SourceManagerERNS_5LexerENS_5TokenE.exit", !llvm.loop !352
 
 "_ZZN5clang7tooling12_GLOBAL__N_127getMaxHeaderInsertionOffsetEN4llvm9StringRefES3_RKNS0_12IncludeStyleEENK3$_0clERKNS_13SourceManagerERNS_5LexerENS_5TokenE.exit": ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i.i, %46, %.critedge.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.preheader, %"._ZZN5clang7tooling12_GLOBAL__N_127getMaxHeaderInsertionOffsetEN4llvm9StringRefES3_RKNS0_12IncludeStyleEENK3$_0clERKNS_13SourceManagerERNS_5LexerENS_5TokenE.exit.loopexit_crit_edge", %.lr.ph.i, %".loopexit.i._ZZN5clang7tooling12_GLOBAL__N_127getMaxHeaderInsertionOffsetEN4llvm9StringRefES3_RKNS0_12IncludeStyleEENK3$_0clERKNS_13SourceManagerERNS_5LexerENS_5TokenE.exit.loopexit_crit_edge", %_ZN5clang7tooling12_GLOBAL__N_112skipCommentsERNS_5LexerERNS_5TokenE.exit.i
-  %.0.in.in.lcssa.i = phi i64 [ %16, %_ZN5clang7tooling12_GLOBAL__N_112skipCommentsERNS_5LexerERNS_5TokenE.exit.i ], [ %16, %.lr.ph.i ], [ %56, %".loopexit.i._ZZN5clang7tooling12_GLOBAL__N_127getMaxHeaderInsertionOffsetEN4llvm9StringRefES3_RKNS0_12IncludeStyleEENK3$_0clERKNS_13SourceManagerERNS_5LexerENS_5TokenE.exit.loopexit_crit_edge" ], [ %56, %"._ZZN5clang7tooling12_GLOBAL__N_127getMaxHeaderInsertionOffsetEN4llvm9StringRefES3_RKNS0_12IncludeStyleEENK3$_0clERKNS_13SourceManagerERNS_5LexerENS_5TokenE.exit.loopexit_crit_edge" ], [ %16, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.preheader ], [ %.0.in.in3.i721, %.critedge.i.i ], [ %56, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ], [ %.0.in.in3.i721, %46 ], [ %.0.in.in3.i721, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i.i ]
+  %.0.in.in.lcssa.i = phi i64 [ %16, %_ZN5clang7tooling12_GLOBAL__N_112skipCommentsERNS_5LexerERNS_5TokenE.exit.i ], [ %56, %".loopexit.i._ZZN5clang7tooling12_GLOBAL__N_127getMaxHeaderInsertionOffsetEN4llvm9StringRefES3_RKNS0_12IncludeStyleEENK3$_0clERKNS_13SourceManagerERNS_5LexerENS_5TokenE.exit.loopexit_crit_edge" ], [ %16, %.lr.ph.i ], [ %56, %"._ZZN5clang7tooling12_GLOBAL__N_127getMaxHeaderInsertionOffsetEN4llvm9StringRefES3_RKNS0_12IncludeStyleEENK3$_0clERKNS_13SourceManagerERNS_5LexerENS_5TokenE.exit.loopexit_crit_edge" ], [ %16, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.preheader ], [ %.0.in.in3.i721, %.critedge.i.i ], [ %56, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ], [ %.0.in.in3.i721, %46 ], [ %.0.in.in3.i721, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i.i ]
   %.0.in.i = lshr i64 %.0.in.in.lcssa.i, 32
   %.0.i = trunc nuw i64 %.0.in.i to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

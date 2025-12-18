@@ -195,7 +195,7 @@ _ZNKSt4lessISt4pairIPK3NFAjEEclERKS4_S7_.exit.thread.i.thread.i.i: ; preds = %_Z
   br i1 %.not.i20.i.i, label %._crit_edge.i.thread.i.i, label %.lr.ph.i.i.i.backedge
 
 .lr.ph.i.i.i.backedge:                            ; preds = %_ZNKSt4lessISt4pairIPK3NFAjEEclERKS4_S7_.exit.thread.i.thread.i.i, %_ZNKSt4lessISt4pairIPK3NFAjEEclERKS4_S7_.exit.thread.i.i.i
-  %.02126.i.i.i.be = phi ptr [ %.021.i.i.i, %_ZNKSt4lessISt4pairIPK3NFAjEEclERKS4_S7_.exit.thread.i.i.i ], [ %.021.i19.i.i, %_ZNKSt4lessISt4pairIPK3NFAjEEclERKS4_S7_.exit.thread.i.thread.i.i ]
+  %.02126.i.i.i.be = phi ptr [ %.021.i19.i.i, %_ZNKSt4lessISt4pairIPK3NFAjEEclERKS4_S7_.exit.thread.i.thread.i.i ], [ %.021.i.i.i, %_ZNKSt4lessISt4pairIPK3NFAjEEclERKS4_S7_.exit.thread.i.i.i ]
   br label %.lr.ph.i.i.i, !llvm.loop !5
 
 ._crit_edge.thread.i.i.i:                         ; preds = %_ZNKSt4lessISt4pairIPK3NFAjEEclERKS4_S7_.exit.thread.i.i.i, %.noexc44
@@ -1431,7 +1431,7 @@ _ZNKSt4lessISt4pairIjjEEclERKS1_S4_.exit.thread.i: ; preds = %_ZNKSt4lessISt4pai
   br i1 %.not.i, label %._crit_edge.thread.i, label %.lr.ph.i.backedge
 
 .lr.ph.i.backedge:                                ; preds = %_ZNKSt4lessISt4pairIjjEEclERKS1_S4_.exit.thread.i, %_ZNKSt4lessISt4pairIjjEEclERKS1_S4_.exit.thread.i.thread
-  %.02126.i.be = phi ptr [ %.021.i, %_ZNKSt4lessISt4pairIjjEEclERKS1_S4_.exit.thread.i ], [ %.021.i19, %_ZNKSt4lessISt4pairIjjEEclERKS1_S4_.exit.thread.i.thread ]
+  %.02126.i.be = phi ptr [ %.021.i19, %_ZNKSt4lessISt4pairIjjEEclERKS1_S4_.exit.thread.i.thread ], [ %.021.i, %_ZNKSt4lessISt4pairIjjEEclERKS1_S4_.exit.thread.i ]
   br label %.lr.ph.i, !llvm.loop !28
 
 _ZNKSt4lessISt4pairIjjEEclERKS1_S4_.exit.thread.i.thread: ; preds = %17, %_ZNKSt4lessISt4pairIjjEEclERKS1_S4_.exit.i

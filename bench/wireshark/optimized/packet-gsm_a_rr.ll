@@ -5079,7 +5079,7 @@ f_k.exit:                                         ; preds = %greatest_power_of_2
   br i1 %.not259.not, label %.preheader, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %f_k.exit, %.thread, %111, %66
-  %.3252 = phi i32 [ %94, %111 ], [ %70, %66 ], [ %127, %.thread ], [ %127, %f_k.exit ]
+  %.3252 = phi i32 [ %70, %66 ], [ %94, %111 ], [ %127, %.thread ], [ %127, %f_k.exit ]
   br label %42, !llvm.loop !22
 
 173:                                              ; preds = %7
@@ -5325,7 +5325,7 @@ f_k.exit278:                                      ; preds = %greatest_power_of_2
   br i1 %.not257.not, label %.preheader310, label %.loopexit311, !llvm.loop !24
 
 .loopexit311:                                     ; preds = %f_k.exit278, %.thread283, %247, %201
-  %.9 = phi i32 [ %228, %247 ], [ %204, %201 ], [ %263, %.thread283 ], [ %263, %f_k.exit278 ]
+  %.9 = phi i32 [ %204, %201 ], [ %228, %247 ], [ %263, %.thread283 ], [ %263, %f_k.exit278 ]
   br label %177, !llvm.loop !25
 
 313:                                              ; preds = %7
@@ -5450,8 +5450,8 @@ de_rr_eutran_not_allowed_cells.exit:              ; preds = %360
   br label %317, !llvm.loop !28
 
 .sink.split:                                      ; preds = %317, %177, %42, %18
-  %.lcssa400.sink = phi i32 [ %178, %177 ], [ %19, %18 ], [ %43, %42 ], [ %318, %317 ]
-  %.sink403 = phi i32 [ %174, %177 ], [ %15, %18 ], [ %39, %42 ], [ %314, %317 ]
+  %.lcssa400.sink = phi i32 [ %43, %42 ], [ %19, %18 ], [ %178, %177 ], [ %318, %317 ]
+  %.sink403 = phi i32 [ %39, %42 ], [ %15, %18 ], [ %174, %177 ], [ %314, %317 ]
   %391 = load ptr, ptr %9, align 8
   %392 = ashr i32 %.lcssa400.sink, 3
   %reass.sub353 = sub nsw i32 %392, %.sink403
@@ -9936,7 +9936,7 @@ define internal zeroext i16 @de_rr_si13_rest_oct(ptr noundef %0, ptr noundef %1,
   br i1 %.not.i, label %de_rr_rest_oct_gprs_mobile_allocation.exit, label %.lr.ph.i, !llvm.loop !41
 
 de_rr_rest_oct_gprs_mobile_allocation.exit:       ; preds = %.preheader.i, %.lr.ph.i, %77
-  %.2.i = phi i32 [ %80, %77 ], [ %92, %.lr.ph.i ], [ %64, %.preheader.i ]
+  %.2.i = phi i32 [ %92, %.lr.ph.i ], [ %80, %77 ], [ %64, %.preheader.i ]
   %94 = load ptr, ptr %8, align 8
   %95 = ashr i32 %.2.i, 3
   %reass.sub = sub nsw i32 %95, %34
@@ -12863,7 +12863,7 @@ define internal fastcc i32 @de_rr_rtd_desc(ptr noundef %0, ptr noundef %1, i32 n
   br label %171, !llvm.loop !64
 
 .loopexit120:                                     ; preds = %.preheader, %113, %.loopexit121
-  %.5 = phi i32 [ %114, %113 ], [ %104, %.loopexit121 ], [ %160, %.preheader ]
+  %.5 = phi i32 [ %104, %.loopexit121 ], [ %114, %113 ], [ %160, %.preheader ]
   %190 = load ptr, ptr %5, align 8
   %191 = ashr i32 %.5, 3
   %reass.sub = sub nsw i32 %191, %6

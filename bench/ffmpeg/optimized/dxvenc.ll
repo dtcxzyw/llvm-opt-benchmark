@@ -649,8 +649,8 @@ ht_lookup_and_upsert.exit184:                     ; preds = %.lr.ph.i176
   br label %145
 
 145:                                              ; preds = %.sink.split.i, %141, %136
-  %.138.i = phi i64 [ %.03757.i, %141 ], [ %.03757.i, %136 ], [ %123, %.sink.split.i ]
-  %.1.i187 = phi ptr [ null, %141 ], [ %.058.i, %136 ], [ %124, %.sink.split.i ]
+  %.138.i = phi i64 [ %.03757.i, %136 ], [ %.03757.i, %141 ], [ %123, %.sink.split.i ]
+  %.1.i187 = phi ptr [ %.058.i, %136 ], [ null, %141 ], [ %124, %.sink.split.i ]
   %146 = add nuw nsw i64 %.04156.i, 1
   %exitcond.not.i188 = icmp eq i64 %.04156.i, %122
   br i1 %exitcond.not.i188, label %ht_delete.exit, label %.lr.ph.i185, !llvm.loop !63
@@ -805,8 +805,8 @@ ht_lookup_and_upsert.exit197:                     ; preds = %.lr.ph.i189
   br label %212
 
 212:                                              ; preds = %.sink.split.i209, %208, %203
-  %.138.i206 = phi i64 [ %.03757.i200, %208 ], [ %.03757.i200, %203 ], [ %190, %.sink.split.i209 ]
-  %.1.i207 = phi ptr [ null, %208 ], [ %.058.i199, %203 ], [ %191, %.sink.split.i209 ]
+  %.138.i206 = phi i64 [ %.03757.i200, %203 ], [ %.03757.i200, %208 ], [ %190, %.sink.split.i209 ]
+  %.1.i207 = phi ptr [ %.058.i199, %203 ], [ null, %208 ], [ %191, %.sink.split.i209 ]
   %213 = add nuw nsw i64 %.04156.i201, 1
   %exitcond.not.i208 = icmp eq i64 %.04156.i201, %189
   br i1 %exitcond.not.i208, label %ht_delete.exit213, label %.lr.ph.i198, !llvm.loop !63

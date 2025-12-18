@@ -203,7 +203,7 @@ define dso_local i32 @rehash_main(i32 noundef %0, ptr noundef %1) local_unnamed_
   br label %.loopexit
 
 .loopexit:                                        ; preds = %13, %.preheader, %6, %9, %15, %41, %._crit_edge, %33
-  %.025 = phi i32 [ 0, %6 ], [ 0, %9 ], [ 0, %15 ], [ %43, %41 ], [ 1, %33 ], [ %.3.lcssa, %._crit_edge ], [ %26, %.preheader ], [ 0, %13 ]
+  %.025 = phi i32 [ 0, %6 ], [ 0, %9 ], [ %26, %.preheader ], [ 0, %15 ], [ %.3.lcssa, %._crit_edge ], [ %43, %41 ], [ 1, %33 ], [ 0, %13 ]
   ret i32 %.025
 }
 
@@ -428,7 +428,7 @@ ends_with_dirsep.exit:                            ; preds = %18
   %or.cond.i = icmp ugt i64 %100, 4095
   br i1 %or.cond.i, label %handle_symlink.exit.thread, label %handle_symlink.exit
 
-handle_symlink.exit.thread:                       ; preds = %71, %83, %.preheader.i, %99
+handle_symlink.exit.thread:                       ; preds = %71, %99, %83, %.preheader.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %105

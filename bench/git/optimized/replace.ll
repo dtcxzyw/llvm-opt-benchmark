@@ -1896,7 +1896,7 @@ _.exit33:                                         ; preds = %._crit_edge, %56
   br label %.loopexit
 
 .loopexit:                                        ; preds = %53, %.thread, %_.exit33, %_.exit27, %_.exit
-  %.021 = phi i32 [ -1, %_.exit27 ], [ -1, %_.exit33 ], [ -1, %_.exit ], [ -1, %.thread ], [ 0, %53 ]
+  %.021 = phi i32 [ -1, %_.exit27 ], [ -1, %.thread ], [ -1, %_.exit33 ], [ -1, %_.exit ], [ 0, %53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.021
 }

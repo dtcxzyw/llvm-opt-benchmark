@@ -741,7 +741,7 @@ _ZNK11dtTileCache10getTileRefEPK16dtCompressedTile.exit: ; preds = %45
   br label %_ZN11dtTileCache9getTileAtEiii.exit
 
 _ZN11dtTileCache9getTileAtEiii.exit:              ; preds = %37, %.loopexit, %45, %_ZNK11dtTileCache10getTileRefEPK16dtCompressedTile.exit, %7, %5
-  %.0 = phi i32 [ 1073741824, %45 ], [ -2147483647, %5 ], [ -2147483646, %7 ], [ 1073741824, %_ZNK11dtTileCache10getTileRefEPK16dtCompressedTile.exit ], [ -2147483644, %.loopexit ], [ -2147483648, %37 ]
+  %.0 = phi i32 [ 1073741824, %45 ], [ -2147483647, %5 ], [ -2147483646, %7 ], [ -2147483644, %.loopexit ], [ 1073741824, %_ZNK11dtTileCache10getTileRefEPK16dtCompressedTile.exit ], [ -2147483648, %37 ]
   ret i32 %.0
 }
 

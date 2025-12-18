@@ -416,7 +416,7 @@ ssl_prepare_client_hello.exit.thread86:           ; preds = %125, %127, %ssl_pre
   br label %203
 
 203:                                              ; preds = %200, %197, %167
-  %.0148.i = phi ptr [ %178, %167 ], [ %202, %200 ], [ %199, %197 ]
+  %.0148.i = phi ptr [ %178, %167 ], [ %199, %197 ], [ %202, %200 ]
   %204 = load ptr, ptr %0, align 8, !tbaa !42
   %205 = getelementptr inbounds nuw i8, ptr %204, i64 24
   %206 = load ptr, ptr %205, align 8, !tbaa !63
@@ -662,7 +662,7 @@ ssl_prepare_client_hello.exit.thread86:           ; preds = %125, %127, %ssl_pre
   br label %324
 
 ssl_write_client_hello_body.exit.thread:          ; preds = %221, %192, %148, %153, %312, %285, %246, %258, %266, %269, %276, %303, %160, %297, %239, %203
-  %.0146.i.ph = phi i32 [ -27136, %203 ], [ -27136, %239 ], [ %298, %297 ], [ -27136, %160 ], [ %304, %303 ], [ %277, %276 ], [ %272, %269 ], [ %268, %266 ], [ -27136, %258 ], [ -27136, %246 ], [ %286, %285 ], [ %313, %312 ], [ -27136, %153 ], [ -27136, %148 ], [ -27136, %192 ], [ -27136, %221 ]
+  %.0146.i.ph = phi i32 [ -27136, %192 ], [ -27136, %203 ], [ -27136, %239 ], [ %298, %297 ], [ -27136, %160 ], [ %304, %303 ], [ %277, %276 ], [ %272, %269 ], [ %268, %266 ], [ -27136, %258 ], [ -27136, %246 ], [ %286, %285 ], [ %313, %312 ], [ -27136, %153 ], [ -27136, %148 ], [ -27136, %221 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %ssl_prepare_client_hello.exit.thread
 
@@ -1091,7 +1091,7 @@ select.unfold.us:                                 ; preds = %mbedtls_ssl_tls13_n
   br label %46
 
 46:                                               ; preds = %40, %select.unfold.us
-  %.253.idx.us = phi i64 [ %.051.add.us, %40 ], [ %.051.idx83.us, %select.unfold.us ]
+  %.253.idx.us = phi i64 [ %.051.idx83.us, %select.unfold.us ], [ %.051.add.us, %40 ]
   %47 = getelementptr inbounds nuw i8, ptr %.04784.us, i64 2
   %.051.ptr.us = getelementptr inbounds nuw i8, ptr %1, i64 %.253.idx.us
   %48 = load i16, ptr %47, align 2, !tbaa !78
@@ -1143,7 +1143,7 @@ select.unfold.us:                                 ; preds = %mbedtls_ssl_tls13_n
   br label %select.unfold.us90
 
 select.unfold.us90:                               ; preds = %.lr.ph.split.split.us, %62, %56
-  %.253.idx.us94 = phi i64 [ %.051.add.us93, %62 ], [ %.051.idx83.us88, %56 ], [ %.051.idx83.us88, %.lr.ph.split.split.us ]
+  %.253.idx.us94 = phi i64 [ %.051.idx83.us88, %56 ], [ %.051.add.us93, %62 ], [ %.051.idx83.us88, %.lr.ph.split.split.us ]
   %69 = getelementptr inbounds nuw i8, ptr %.04784.us87, i64 2
   %.051.ptr.us95 = getelementptr inbounds nuw i8, ptr %1, i64 %.253.idx.us94
   %70 = load i16, ptr %69, align 2, !tbaa !78
@@ -1216,7 +1216,7 @@ select.unfold:                                    ; preds = %75
   br label %97
 
 97:                                               ; preds = %84, %90, %select.unfold
-  %.253.idx = phi i64 [ %.051.add, %90 ], [ %.051.idx83, %select.unfold ], [ %.051.idx83, %84 ]
+  %.253.idx = phi i64 [ %.051.idx83, %select.unfold ], [ %.051.add, %90 ], [ %.051.idx83, %84 ]
   %98 = getelementptr inbounds nuw i8, ptr %.04784, i64 2
   %.051.ptr = getelementptr inbounds nuw i8, ptr %1, i64 %.253.idx
   %99 = load i16, ptr %98, align 2, !tbaa !78
@@ -1224,7 +1224,7 @@ select.unfold:                                    ; preds = %75
   br i1 %.not57, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !79
 
 ._crit_edge:                                      ; preds = %97, %select.unfold.us90, %46
-  %.051.idx.lcssa = phi i64 [ %.253.idx.us94, %select.unfold.us90 ], [ %.253.idx.us, %46 ], [ %.253.idx, %97 ]
+  %.051.idx.lcssa = phi i64 [ %.253.idx.us, %46 ], [ %.253.idx.us94, %select.unfold.us90 ], [ %.253.idx, %97 ]
   %100 = icmp eq i64 %.051.idx.lcssa, 6
   br i1 %100, label %._crit_edge.thread, label %101
 

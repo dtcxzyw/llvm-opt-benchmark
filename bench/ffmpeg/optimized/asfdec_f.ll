@@ -2969,7 +2969,7 @@ asf_reset_header.exit63:                          ; preds = %49
   br label %.thread.i
 
 .thread.i:                                        ; preds = %88, %85, %83, %109, %._crit_edge.i, %95, %77
-  %.057.i = phi i32 [ %79, %77 ], [ %97, %._crit_edge.i ], [ %97, %95 ], [ -1094995529, %109 ], [ %.1.i, %83 ], [ %.1.i, %85 ], [ %93, %88 ]
+  %.057.i = phi i32 [ %79, %77 ], [ -1094995529, %109 ], [ %97, %._crit_edge.i ], [ %97, %95 ], [ %.1.i, %83 ], [ %.1.i, %85 ], [ %93, %88 ]
   %137 = load ptr, ptr %17, align 8, !tbaa !26
   %138 = call i64 @avio_seek(ptr noundef %137, i64 noundef %66, i32 noundef 0) #15
   br label %asf_build_simple_index.exit
@@ -3157,7 +3157,7 @@ asf_reset_header.exit78:                          ; preds = %200
   br i1 %exitcond.not.i82, label %skip_to_key.exit83, label %209, !llvm.loop !173
 
 skip_to_key.exit83:                               ; preds = %189, %224, %149, %.thread, %skip_to_key.exit.thread, %4, %38, %asf_reset_header.exit63
-  %.0 = phi i32 [ %39, %38 ], [ -1, %4 ], [ -1, %149 ], [ 0, %asf_reset_header.exit63 ], [ -1, %skip_to_key.exit.thread ], [ %37, %.thread ], [ 0, %224 ], [ 0, %189 ]
+  %.0 = phi i32 [ %39, %38 ], [ -1, %4 ], [ 0, %224 ], [ -1, %149 ], [ 0, %asf_reset_header.exit63 ], [ -1, %skip_to_key.exit.thread ], [ %37, %.thread ], [ 0, %189 ]
   ret i32 %.0
 }
 

@@ -4048,7 +4048,7 @@ default.unreachable171:                           ; preds = %25
   unreachable
 
 .loopexit:                                        ; preds = %.preheader123, %proto_item_set_generated.exit, %.preheader, %42
-  %.2112 = phi i32 [ %46, %42 ], [ %46, %proto_item_set_generated.exit ], [ %41, %.preheader ], [ %68, %.preheader123 ]
+  %.2112 = phi i32 [ %41, %.preheader ], [ %46, %42 ], [ %46, %proto_item_set_generated.exit ], [ %68, %.preheader123 ]
   %70 = sub i32 %.2112, %3
   %71 = icmp ult i32 %70, %4
   br i1 %71, label %.lr.ph147, label %.loopexit125, !llvm.loop !11

@@ -1019,7 +1019,7 @@ pic_as_field.exit:                                ; preds = %.split.i, %.split.u
   br i1 %458, label %.preheader333, label %._crit_edge379, !llvm.loop !139
 
 ._crit_edge379:                                   ; preds = %.thread300, %.preheader.i, %h264_initialise_ref_list.exit, %.preheader335
-  %459 = phi i32 [ 0, %.preheader335 ], [ 0, %h264_initialise_ref_list.exit ], [ 0, %.preheader.i ], [ %456, %.thread300 ]
+  %459 = phi i32 [ 0, %.preheader.i ], [ 0, %.preheader335 ], [ 0, %h264_initialise_ref_list.exit ], [ %456, %.thread300 ]
   %460 = getelementptr inbounds nuw i8, ptr %0, i64 731768
   %461 = load i32, ptr %460, align 8, !tbaa !140
   %.not229 = icmp eq i32 %461, 0
@@ -1118,7 +1118,7 @@ h264_fill_mbaff_ref_list.exit.sink.split:         ; preds = %pic_num_extract.exi
   br label %h264_fill_mbaff_ref_list.exit
 
 h264_fill_mbaff_ref_list.exit:                    ; preds = %418, %412, %._crit_edge.i261, %h264_fill_mbaff_ref_list.exit.sink.split, %._crit_edge379
-  %.8 = phi i32 [ 0, %._crit_edge379 ], [ -1094995529, %h264_fill_mbaff_ref_list.exit.sink.split ], [ 0, %._crit_edge.i261 ], [ -1, %412 ], [ -1, %418 ]
+  %.8 = phi i32 [ 0, %._crit_edge.i261 ], [ 0, %._crit_edge379 ], [ -1094995529, %h264_fill_mbaff_ref_list.exit.sink.split ], [ -1, %412 ], [ -1, %418 ]
   ret i32 %.8
 }
 
@@ -2325,7 +2325,7 @@ remove_long.exit353:                              ; preds = %.preheader392, %.lo
   unreachable
 
 remove_long.exit302:                              ; preds = %362, %remove_long.exit334, %275, %209, %204, %190, %.loopexit.i301, %129, %126, %173, %144
-  %.4 = phi i32 [ %.1231410, %173 ], [ %.1231410, %126 ], [ -1094995529, %129 ], [ %.1231410, %144 ], [ %.1231410, %.loopexit.i301 ], [ %.1231410, %190 ], [ %.1231410, %204 ], [ %.1231410, %209 ], [ %.1231410, %275 ], [ %.1231410, %remove_long.exit334 ], [ %.1231410, %362 ]
+  %.4 = phi i32 [ %.1231410, %275 ], [ %.1231410, %173 ], [ %.1231410, %remove_long.exit334 ], [ %.1231410, %209 ], [ %.1231410, %126 ], [ -1094995529, %129 ], [ %.1231410, %144 ], [ %.1231410, %.loopexit.i301 ], [ %.1231410, %190 ], [ %.1231410, %204 ], [ %.1231410, %362 ]
   %indvars.iv.next441 = add nuw nsw i64 %indvars.iv440, 1
   %exitcond443.not = icmp eq i64 %indvars.iv.next441, %wide.trip.count
   br i1 %exitcond443.not, label %._crit_edge, label %74, !llvm.loop !174
@@ -2529,7 +2529,7 @@ remove_long.exit363:                              ; preds = %447, %._crit_edge.t
   br label %500
 
 ._crit_edge417:                                   ; preds = %523, %.loopexit.i362, %431, %remove_long.exit363
-  %.7533 = phi i32 [ %.7, %remove_long.exit363 ], [ -1094995529, %431 ], [ -1094995529, %.loopexit.i362 ], [ %.7, %523 ]
+  %.7533 = phi i32 [ -1094995529, %.loopexit.i362 ], [ %.7, %remove_long.exit363 ], [ -1094995529, %431 ], [ %.7, %523 ]
   %459 = load ptr, ptr %53, align 8, !tbaa !4
   %460 = getelementptr inbounds nuw i8, ptr %459, i64 524
   %461 = load i32, ptr %460, align 4, !tbaa !64

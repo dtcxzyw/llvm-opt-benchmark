@@ -716,7 +716,7 @@ Vec_WrdPush.exit.i.i:                             ; preds = %161, %Vec_WrdGrow.e
   br label %Hsh_IntManAdd.exit.i
 
 Hsh_IntManAdd.exit.i:                             ; preds = %Hsh_IntObj.exit.i.i.i, %Vec_WrdPush.exit.i.i, %Hsh_IntObj.exit.lr.ph.split.i.i.i, %Hsh_IntObj.exit.lr.ph.i.i.i
-  %.030.i.i = phi i32 [ %164, %Vec_WrdPush.exit.i.i ], [ %118, %Hsh_IntObj.exit.lr.ph.split.i.i.i ], [ %118, %Hsh_IntObj.exit.lr.ph.i.i.i ], [ %131, %Hsh_IntObj.exit.i.i.i ]
+  %.030.i.i = phi i32 [ %164, %Vec_WrdPush.exit.i.i ], [ %118, %Hsh_IntObj.exit.lr.ph.i.i.i ], [ %118, %Hsh_IntObj.exit.lr.ph.split.i.i.i ], [ %131, %Hsh_IntObj.exit.i.i.i ]
   %168 = load i32, ptr %6, align 4, !tbaa !24
   %169 = load i32, ptr %5, align 8, !tbaa !27
   %170 = icmp eq i32 %168, %169

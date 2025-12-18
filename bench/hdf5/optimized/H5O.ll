@@ -4833,8 +4833,8 @@ H5O__close_check_type.exit:                       ; preds = %50, %40
   br label %89
 
 89:                                               ; preds = %78, %80, %85, %74
-  %.027 = phi i32 [ -1, %74 ], [ -1, %85 ], [ 0, %80 ], [ 0, %78 ]
-  %.0 = phi i1 [ true, %74 ], [ true, %85 ], [ false, %80 ], [ false, %78 ]
+  %.027 = phi i32 [ 0, %78 ], [ 0, %80 ], [ -1, %85 ], [ -1, %74 ]
+  %.0 = phi i1 [ false, %78 ], [ false, %80 ], [ true, %85 ], [ true, %74 ]
   %.not35 = icmp eq ptr %.131, null
   br i1 %.not35, label %98, label %90
 

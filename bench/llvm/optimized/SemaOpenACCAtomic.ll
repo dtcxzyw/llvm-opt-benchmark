@@ -4070,7 +4070,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %.thread5
 
 .thread5:                                         ; preds = %switch.hole_check, %18, %.thread5.sink.split, %15, %switch.lookup
-  %.sink = phi i8 [ 0, %18 ], [ 0, %switch.lookup ], [ 0, %15 ], [ 1, %.thread5.sink.split ], [ 0, %switch.hole_check ]
+  %.sink = phi i8 [ 0, %15 ], [ 0, %18 ], [ 0, %switch.lookup ], [ 1, %.thread5.sink.split ], [ 0, %switch.hole_check ]
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 %.sink, ptr %41, align 8, !tbaa !50
   ret void
@@ -4289,8 +4289,8 @@ select.unfold.i:                                  ; preds = %64, %63, %62, %61, 
   br label %_ZN12_GLOBAL__N_120AtomicOperandChecker20GetUnaryOperatorInfoEPKN5clang4ExprE.exit
 
 _ZN12_GLOBAL__N_120AtomicOperandChecker20GetUnaryOperatorInfoEPKN5clang4ExprE.exit: ; preds = %67, %40
-  %.sroa.4.0 = phi ptr [ %77, %67 ], [ %43, %40 ]
-  %.sroa.5.0 = phi i32 [ %.sroa.6.08.i, %67 ], [ %46, %40 ]
+  %.sroa.4.0 = phi ptr [ %43, %40 ], [ %77, %67 ]
+  %.sroa.5.0 = phi i32 [ %46, %40 ], [ %.sroa.6.08.i, %67 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   %78 = icmp samesign ult i32 %.sroa.5.0, 4
@@ -4492,7 +4492,7 @@ _ZN12_GLOBAL__N_120AtomicOperandChecker11CheckIncDecENS0_11UnaryOpInfoE.exit: ; 
   %.sroa.617.0.extract.shift = and i64 %.sroa.32.0.i, -4294967296
   br label %739
 
-165:                                              ; preds = %47, %select.unfold.i, %3
+165:                                              ; preds = %3, %47, %select.unfold.i
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   call fastcc void @_ZN12_GLOBAL__N_120AtomicOperandChecker21GetBinaryOperatorInfoEPKN5clang4ExprE(ptr dead_on_unwind noalias writable align 8 %28, ptr noundef nonnull %1)
   %166 = getelementptr inbounds nuw i8, ptr %28, i64 32

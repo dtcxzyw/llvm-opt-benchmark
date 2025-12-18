@@ -12936,7 +12936,7 @@ define internal fastcc void @dissect_skinny_displayLabel(ptr noundef %0, ptr nou
   br i1 %46, label %.lr.ph, label %.critedge, !llvm.loop !57
 
 .critedge:                                        ; preds = %.lr.ph, %45
-  %.054.lcssa = phi i1 [ %.155, %45 ], [ %.05466, %.lr.ph ]
+  %.054.lcssa = phi i1 [ %.05466, %.lr.ph ], [ %.155, %45 ]
   br i1 %.054.lcssa, label %47, label %.critedge70
 
 47:                                               ; preds = %.critedge

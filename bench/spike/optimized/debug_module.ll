@@ -775,7 +775,7 @@ define noundef zeroext i1 @_ZN14debug_module_t4loadEmmPh(ptr noundef nonnull rea
   br label %54
 
 54:                                               ; preds = %.sink.split, %39, %43
-  %.0 = phi i1 [ false, %43 ], [ false, %39 ], [ true, %.sink.split ]
+  %.0 = phi i1 [ false, %39 ], [ false, %43 ], [ true, %.sink.split ]
   ret i1 %.0
 }
 
@@ -2734,7 +2734,7 @@ _ZN14debug_module_t19selected_hart_stateEv.exit134: ; preds = %531
   br i1 %561, label %560, label %_ZN14debug_module_t13sb_read_startEv.exit, !llvm.loop !278
 
 _ZN14debug_module_t13sb_read_startEv.exit:        ; preds = %560, %.critedge, %20, %24, %494, %493, %.thread139, %39, %50, %55, %25, %30, %517, %526, %506, %515, %495, %504, %480, %482, %_ZN14debug_module_t19selected_hart_stateEv.exit134, %528, %468, %465, %462, %459, %397, %347, %341, %333, %314, %_ZN14debug_module_t19selected_hart_stateEv.exit125, %58
-  %.088 = phi i32 [ %46, %50 ], [ %473, %494 ], [ %94, %58 ], [ %238, %_ZN14debug_module_t19selected_hart_stateEv.exit125 ], [ %332, %314 ], [ %340, %333 ], [ -1, %39 ], [ %346, %341 ], [ %350, %347 ], [ 0, %.thread139 ], [ %458, %397 ], [ %461, %459 ], [ %464, %462 ], [ %467, %465 ], [ %470, %468 ], [ %473, %480 ], [ %473, %482 ], [ %497, %504 ], [ %497, %495 ], [ %508, %515 ], [ %508, %506 ], [ %519, %526 ], [ %519, %517 ], [ %530, %528 ], [ %559, %_ZN14debug_module_t19selected_hart_stateEv.exit134 ], [ %17, %30 ], [ %17, %25 ], [ %46, %55 ], [ %473, %493 ], [ -1, %24 ], [ -1, %20 ], [ %.2, %.critedge ], [ %567, %560 ]
+  %.088 = phi i32 [ %46, %50 ], [ %473, %494 ], [ %94, %58 ], [ %238, %_ZN14debug_module_t19selected_hart_stateEv.exit125 ], [ %332, %314 ], [ %340, %333 ], [ -1, %39 ], [ %346, %341 ], [ %350, %347 ], [ 0, %.thread139 ], [ %458, %397 ], [ %461, %459 ], [ %464, %462 ], [ %467, %465 ], [ %470, %468 ], [ %473, %480 ], [ %.2, %.critedge ], [ -1, %20 ], [ %473, %482 ], [ %497, %504 ], [ %497, %495 ], [ %508, %515 ], [ %508, %506 ], [ %519, %526 ], [ %519, %517 ], [ %530, %528 ], [ %559, %_ZN14debug_module_t19selected_hart_stateEv.exit134 ], [ %17, %30 ], [ %17, %25 ], [ %46, %55 ], [ %473, %493 ], [ -1, %24 ], [ %567, %560 ]
   store i32 %.088, ptr %2, align 4, !tbaa !7
   br label %568
 
@@ -4043,7 +4043,7 @@ _ZNSt14_Bit_referenceaSEb.exit:                   ; preds = %_ZNSt14_Bit_referen
   br label %_ZN14debug_module_t13sb_read_startEv.exit
 
 _ZN14debug_module_t13sb_read_startEv.exit:        ; preds = %_ZNSt14_Bit_referenceaSEb.exit, %.lr.ph145, %.preheader, %45, %225, %.thread, %30, %390, %389, %373, %372, %.thread130, %412, %418, %397, %409, %408, %357, %359, %380, %360, %325, %348, %._crit_edge, %77, %49, %56, %61, %31, %36, %3, %395, %393, %391, %378, %376, %374, %320, %313, %242, %239
-  %.087 = phi i1 [ true, %412 ], [ false, %3 ], [ true, %390 ], [ true, %77 ], [ true, %49 ], [ true, %239 ], [ true, %242 ], [ true, %._crit_edge ], [ true, %313 ], [ true, %320 ], [ true, %380 ], [ true, %325 ], [ true, %374 ], [ true, %376 ], [ true, %378 ], [ true, %360 ], [ true, %391 ], [ true, %393 ], [ true, %395 ], [ true, %357 ], [ true, %397 ], [ true, %36 ], [ true, %31 ], [ true, %61 ], [ true, %56 ], [ false, %.thread130 ], [ true, %348 ], [ true, %373 ], [ true, %359 ], [ true, %408 ], [ true, %409 ], [ true, %418 ], [ true, %372 ], [ true, %389 ], [ true, %30 ], [ true, %.thread ], [ true, %225 ], [ true, %45 ], [ true, %.preheader ], [ true, %.lr.ph145 ], [ true, %_ZNSt14_Bit_referenceaSEb.exit ]
+  %.087 = phi i1 [ true, %412 ], [ false, %3 ], [ true, %390 ], [ true, %225 ], [ true, %77 ], [ true, %49 ], [ true, %239 ], [ true, %242 ], [ true, %._crit_edge ], [ true, %313 ], [ true, %320 ], [ true, %.lr.ph145 ], [ true, %380 ], [ true, %325 ], [ true, %374 ], [ true, %376 ], [ true, %378 ], [ true, %360 ], [ true, %391 ], [ true, %393 ], [ true, %395 ], [ true, %357 ], [ true, %397 ], [ true, %36 ], [ true, %31 ], [ true, %61 ], [ true, %56 ], [ false, %.thread130 ], [ true, %348 ], [ true, %.thread ], [ true, %373 ], [ true, %359 ], [ true, %408 ], [ true, %409 ], [ true, %418 ], [ true, %372 ], [ true, %389 ], [ true, %30 ], [ true, %45 ], [ true, %.preheader ], [ true, %_ZNSt14_Bit_referenceaSEb.exit ]
   ret i1 %.087
 }
 

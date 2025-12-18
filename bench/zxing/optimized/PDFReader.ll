@@ -2085,8 +2085,8 @@ _ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE6testAtIdEENS3_5ValueENS1_IT_EE.exit.
   br i1 %.not.i.i.i.i.i.i.i25.i137, label %_ZNK5ZXing9BitMatrix3getENS_6PointTIdEE.exit.i26.i138, label %.invoke
 
 .invoke:                                          ; preds = %166, %194, %298, %326
-  %205 = phi i64 [ %199, %194 ], [ %331, %326 ], [ %303, %298 ], [ %171, %166 ]
-  %206 = phi i64 [ %204, %194 ], [ %336, %326 ], [ %308, %298 ], [ %176, %166 ]
+  %205 = phi i64 [ %199, %194 ], [ %303, %298 ], [ %331, %326 ], [ %171, %166 ]
+  %206 = phi i64 [ %204, %194 ], [ %308, %298 ], [ %336, %326 ], [ %176, %166 ]
   invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str, i64 noundef %205, i64 noundef %206) #25
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp
 

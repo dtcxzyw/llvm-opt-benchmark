@@ -1352,7 +1352,7 @@ define dso_local i32 @intel_bw_calc_min_cdclk(ptr noundef %0, ptr noundef writeo
   br i1 %237, label %.loopexit, label %193, !llvm.loop !26
 
 .loopexit:                                        ; preds = %234, %228, %219, %213
-  %238 = phi i1 [ %195, %219 ], [ %195, %213 ], [ %195, %228 ], [ %236, %234 ]
+  %238 = phi i1 [ %195, %219 ], [ %195, %213 ], [ %236, %234 ], [ %195, %228 ]
   br i1 %238, label %239, label %242
 
 239:                                              ; preds = %.loopexit
@@ -2786,7 +2786,7 @@ thread-pre-split8:                                ; preds = %145, %162
   br i1 %271, label %.split, label %.thread14, !llvm.loop !48
 
 .thread14:                                        ; preds = %thread-pre-split8, %.split, %.split.us, %218, %.thread16, %248, %.loopexit, %27
-  %272 = phi i32 [ -22, %27 ], [ 0, %.loopexit ], [ 0, %248 ], [ 0, %.thread16 ], [ %191, %218 ], [ 0, %.split ], [ 0, %.split.us ], [ -22, %thread-pre-split8 ]
+  %272 = phi i32 [ -22, %27 ], [ 0, %.loopexit ], [ 0, %248 ], [ 0, %.split.us ], [ 0, %.thread16 ], [ %191, %218 ], [ 0, %.split ], [ -22, %thread-pre-split8 ]
   ret i32 %272
 }
 

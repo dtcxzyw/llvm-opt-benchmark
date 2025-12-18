@@ -289,7 +289,7 @@ define dso_local ptr @identify_opfamily_groups(ptr noundef readonly captures(non
   %.pre315348 = load i32, ptr %48, align 4
   br label %166
 
-.split109.us.thread341:                           ; preds = %.lr.ph.split.split.split, %121, %116
+.split109.us.thread341:                           ; preds = %.lr.ph.split.split.split, %116, %121
   %150 = tail call ptr @palloc(i64 noundef 24) #7
   br label %.split109.us._crit_edge
 
@@ -363,7 +363,7 @@ define dso_local ptr @identify_opfamily_groups(ptr noundef readonly captures(non
   br label %.lr.ph.lr.ph
 
 .outer87._crit_edge:                              ; preds = %.outer87, %135, %138, %37
-  %.077.ph.lcssa = phi ptr [ null, %37 ], [ %.077.ph244, %135 ], [ %.077.ph244, %138 ], [ %.077.ph244, %.outer87 ]
+  %.077.ph.lcssa = phi ptr [ %.077.ph244, %135 ], [ null, %37 ], [ %.077.ph244, %138 ], [ %.077.ph244, %.outer87 ]
   ret ptr %.077.ph.lcssa
 }
 
@@ -561,7 +561,7 @@ define dso_local zeroext i1 @check_amproc_signature(i32 noundef %0, i32 noundef 
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %86, %47, %66, %31
-  %.1.lcssa = phi i1 [ %.0, %31 ], [ %.2.us.us, %47 ], [ %.2.us, %66 ], [ %.2, %86 ]
+  %.1.lcssa = phi i1 [ %.0, %31 ], [ %.2.us, %66 ], [ %.2.us.us, %47 ], [ %.2, %86 ]
   call void @llvm.va_end.p0(ptr nonnull %6)
   call void @ReleaseSysCache(ptr noundef nonnull %8) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

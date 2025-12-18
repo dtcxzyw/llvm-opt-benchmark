@@ -1750,7 +1750,7 @@ lean_nat_eq.exit.i39:                             ; preds = %119
   br label %.backedge.i41
 
 l_List_hasDecEq___at_Lean_Meta_beqOccurrences____x40_Init_MetaTypes___hyg_1231____spec__1.exit: ; preds = %lean_nat_eq.exit.i, %76, %lean_obj_tag.exit31.i, %lean_nat_eq.exit.i39, %134, %lean_obj_tag.exit31.i36, %lean_obj_tag.exit27.i44, %lean_obj_tag.exit27.i, %lean_obj_tag.exit29, %lean_obj_tag.exit25, %lean_obj_tag.exit21
-  %.0.shrunk = phi i1 [ false, %lean_obj_tag.exit25 ], [ %20, %lean_obj_tag.exit21 ], [ false, %lean_obj_tag.exit29 ], [ %52, %lean_obj_tag.exit27.i ], [ %110, %lean_obj_tag.exit27.i44 ], [ false, %lean_nat_eq.exit.i39 ], [ false, %lean_obj_tag.exit31.i36 ], [ false, %134 ], [ false, %lean_obj_tag.exit31.i ], [ false, %76 ], [ false, %lean_nat_eq.exit.i ]
+  %.0.shrunk = phi i1 [ false, %lean_nat_eq.exit.i39 ], [ false, %lean_obj_tag.exit25 ], [ %20, %lean_obj_tag.exit21 ], [ false, %lean_obj_tag.exit29 ], [ %52, %lean_obj_tag.exit27.i ], [ %110, %lean_obj_tag.exit27.i44 ], [ false, %lean_obj_tag.exit31.i36 ], [ false, %134 ], [ false, %lean_obj_tag.exit31.i ], [ false, %76 ], [ false, %lean_nat_eq.exit.i ]
   %.0 = zext i1 %.0.shrunk to i8
   ret i8 %.0
 }

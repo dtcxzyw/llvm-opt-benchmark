@@ -691,7 +691,7 @@ define dso_local i32 @netlbl_catmap_walk(ptr noundef readonly captures(address_i
   br i1 %66, label %.preheader7, label %.loopexit8, !llvm.loop !9
 
 .thread:                                          ; preds = %15, %55, %2, %.loopexit
-  %67 = phi i32 [ %50, %.loopexit ], [ -2, %2 ], [ -2, %55 ], [ -2, %15 ]
+  %67 = phi i32 [ %50, %.loopexit ], [ -2, %55 ], [ -2, %2 ], [ -2, %15 ]
   ret i32 %67
 }
 

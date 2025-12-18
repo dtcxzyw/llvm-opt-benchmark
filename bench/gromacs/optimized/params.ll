@@ -3953,7 +3953,7 @@ _ZSt4sortIPSt5arrayIfLm2EEPFbRKS1_S4_EEvT_S7_T0_.exit.i: ; preds = %1398, %_ZSt2
   br i1 %1422, label %.lr.ph343.i, label %.loopexit.i, !llvm.loop !116
 
 .loopexit.i:                                      ; preds = %1421, %1298, %_ZSt4sortIPSt5arrayIfLm2EEPFbRKS1_S4_EEvT_S7_T0_.exit.i, %1362, %1300, %_ZSt4sortIPSt5arrayIiLm2EEPFbRKS1_S4_EEvT_S7_T0_.exit.i, %1239, %1180
-  %.295.i = phi i32 [ 2, %_ZSt4sortIPSt5arrayIiLm2EEPFbRKS1_S4_EEvT_S7_T0_.exit.i ], [ 2, %_ZSt4sortIPSt5arrayIfLm2EEPFbRKS1_S4_EEvT_S7_T0_.exit.i ], [ 2, %1180 ], [ 2, %1239 ], [ 2, %1362 ], [ 2, %1300 ], [ %.194.i, %1298 ], [ %.497.i, %1421 ]
+  %.295.i = phi i32 [ 2, %1180 ], [ 2, %_ZSt4sortIPSt5arrayIiLm2EEPFbRKS1_S4_EEvT_S7_T0_.exit.i ], [ 2, %_ZSt4sortIPSt5arrayIfLm2EEPFbRKS1_S4_EEvT_S7_T0_.exit.i ], [ 2, %1300 ], [ %.194.i, %1298 ], [ 2, %1239 ], [ 2, %1362 ], [ %.497.i, %1421 ]
   %1423 = sdiv i32 %.295.i, 2
   %1424 = load i32, ptr %358, align 8, !tbaa !27
   %1425 = and i32 %1424, 16
@@ -5104,7 +5104,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135.i: ; preds = %
   br label %.loopexit.i262
 
 .loopexit.i262:                                   ; preds = %.loopexit.loopexit216.i, %.loopexit.loopexit.i, %1796, %.noexc286, %1783
-  %.3.i263 = phi i32 [ %1800, %1796 ], [ %1785, %1783 ], [ %1793, %.noexc286 ], [ %1810, %.loopexit.loopexit.i ], [ %1811, %.loopexit.loopexit216.i ]
+  %.3.i263 = phi i32 [ %1800, %1796 ], [ %1810, %.loopexit.loopexit.i ], [ %1793, %.noexc286 ], [ %1785, %1783 ], [ %1811, %.loopexit.loopexit216.i ]
   %.sroa.0144.0.i = load ptr, ptr %.sroa.0144.0213.i, align 8, !tbaa !24
   %.not181.i = icmp eq ptr %.sroa.0144.0.i, %1468
   br i1 %.not181.i, label %._crit_edge.i264, label %1664, !llvm.loop !125
@@ -5878,10 +5878,10 @@ _ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2
   br i1 %2029, label %2034, label %.invoke
 
 .invoke:                                          ; preds = %1724, %1664, %2025, %1834, %._crit_edge.i264, %1039
-  %2030 = phi ptr [ @.str.50, %1834 ], [ @.str.44, %._crit_edge.i264 ], [ @.str.27, %1039 ], [ @.str.31, %2025 ], [ @.str.16, %1724 ], [ @.str.31, %1664 ]
-  %2031 = phi ptr [ @.str.43, %1834 ], [ @.str.45, %._crit_edge.i264 ], [ @.str.28, %1039 ], [ @.str.43, %2025 ], [ @.str.40, %1724 ], [ @.str.43, %1664 ]
+  %2030 = phi ptr [ @.str.50, %1834 ], [ @.str.44, %._crit_edge.i264 ], [ @.str.27, %1039 ], [ @.str.31, %2025 ], [ @.str.31, %1664 ], [ @.str.16, %1724 ]
+  %2031 = phi ptr [ @.str.43, %1834 ], [ @.str.45, %._crit_edge.i264 ], [ @.str.28, %1039 ], [ @.str.43, %2025 ], [ @.str.43, %1664 ], [ @.str.40, %1724 ]
   %2032 = phi ptr [ @"__PRETTY_FUNCTION__._ZZL17parse_values_enumRKNSt7__cxx114listIN3gmx20SelectionParserValueESaIS2_EEEP18gmx_ana_selparam_tPvENK3$_0clEv", %1834 ], [ @"__PRETTY_FUNCTION__._ZZL19parse_values_varnumRKNSt7__cxx114listIN3gmx20SelectionParserValueESaIS2_EEEP18gmx_ana_selparam_tRKSt10shared_ptrINS1_20SelectionTreeElementEEPvENK3$_0clEv", %._crit_edge.i264 ], [ @"__PRETTY_FUNCTION__._ZZL18parse_values_rangeRKNSt7__cxx114listIN3gmx20SelectionParserValueESaIS2_EEEP18gmx_ana_selparam_tPvENK3$_0clEv", %1039 ], [ @"__PRETTY_FUNCTION__._ZZL16parse_values_stdRKNSt7__cxx114listIN3gmx20SelectionParserValueESaIS2_EEEP18gmx_ana_selparam_tRKSt10shared_ptrINS1_20SelectionTreeElementEEPvENK3$_0clEv", %2025 ], [ @"__PRETTY_FUNCTION__._ZZL19parse_values_varnumRKNSt7__cxx114listIN3gmx20SelectionParserValueESaIS2_EEEP18gmx_ana_selparam_tRKSt10shared_ptrINS1_20SelectionTreeElementEEPvENK3$_0clEv", %1664 ], [ @"__PRETTY_FUNCTION__._ZZL19parse_values_varnumRKNSt7__cxx114listIN3gmx20SelectionParserValueESaIS2_EEEP18gmx_ana_selparam_tRKSt10shared_ptrINS1_20SelectionTreeElementEEPvENK3$_0clEv", %1724 ]
-  %2033 = phi i32 [ 918, %1834 ], [ 543, %._crit_edge.i264 ], [ 271, %1039 ], [ 775, %2025 ], [ 540, %1724 ], [ 497, %1664 ]
+  %2033 = phi i32 [ 918, %1834 ], [ 543, %._crit_edge.i264 ], [ 271, %1039 ], [ 775, %2025 ], [ 497, %1664 ], [ 540, %1724 ]
   invoke void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull %2030, ptr noundef nonnull %2031, ptr noundef nonnull %2032, ptr noundef nonnull @.str.2, i32 noundef %2033) #26
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -7208,7 +7208,7 @@ _ZN3gmx20ExceptionInitializerD2Ev.exit416:        ; preds = %_ZNSt6vectorINSt15_
   ret void
 
 .loopexit513:                                     ; preds = %.body, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit399, %2410, %2408, %2258, %2256, %285, %287, %293
-  %.merged = phi { ptr, i32 } [ %294, %293 ], [ %288, %287 ], [ %286, %285 ], [ %2409, %2408 ], [ %.pn121.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit399 ], [ %.pn498, %2410 ], [ %2257, %2256 ], [ %.pn149, %2258 ], [ %.pn140.pn.pn.pn.pn, %.body ]
+  %.merged = phi { ptr, i32 } [ %294, %293 ], [ %288, %287 ], [ %286, %285 ], [ %2409, %2408 ], [ %.pn149, %2258 ], [ %.pn121.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit399 ], [ %.pn498, %2410 ], [ %2257, %2256 ], [ %.pn140.pn.pn.pn.pn, %.body ]
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %114) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %114)
   resume { ptr, i32 } %.merged

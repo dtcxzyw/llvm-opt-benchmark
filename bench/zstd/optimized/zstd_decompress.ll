@@ -965,9 +965,9 @@ define i64 @ZSTD_findDecompressedSize(ptr noundef %0, i64 noundef %1) local_unna
 
 23:                                               ; preds = %10, %20
   %.145 = phi i64 [ %.04470, %10 ], [ %19, %20 ]
-  %..i.pn = phi i64 [ %14, %10 ], [ %21, %20 ]
-  %.234 = getelementptr inbounds nuw i8, ptr %.03272, i64 %..i.pn
-  %.242 = sub i64 %.04071, %..i.pn
+  %.pn = phi i64 [ %14, %10 ], [ %21, %20 ]
+  %.234 = getelementptr inbounds nuw i8, ptr %.03272, i64 %.pn
+  %.242 = sub i64 %.04071, %.pn
   %.not = icmp ult i64 %.242, 5
   br i1 %.not, label %._crit_edge, label %5
 
@@ -1795,7 +1795,7 @@ ZSTD_copyRawBlock.exit.i:                         ; preds = %197
   br i1 %226, label %ZSTD_copyRawBlock.exit.thread.i, label %.thread172.i
 
 ZSTD_copyRawBlock.exit.thread.i:                  ; preds = %ZSTD_copyRawBlock.exit.i, %ZSTD_copyRawBlock.exit.thread165.i, %221, %211, %209
-  %.0121169.i = phi i64 [ %217, %ZSTD_copyRawBlock.exit.thread165.i ], [ %225, %ZSTD_copyRawBlock.exit.i ], [ 0, %209 ], [ %193, %211 ], [ 0, %221 ]
+  %.0121169.i = phi i64 [ %217, %ZSTD_copyRawBlock.exit.thread165.i ], [ %225, %ZSTD_copyRawBlock.exit.i ], [ 0, %221 ], [ %193, %211 ], [ 0, %209 ]
   %227 = load i32, ptr %48, align 8, !tbaa !100
   %.not142.i = icmp eq i32 %227, 0
   br i1 %.not142.i, label %230, label %228
@@ -1923,8 +1923,8 @@ ZSTD_decompressFrame.exit:                        ; preds = %255, %268, %146, %Z
   br i1 %.not97221268, label %.outer184._crit_edge, label %.lr.ph.lr.ph, !llvm.loop !116
 
 .outer184._crit_edge:                             ; preds = %.outer, %.outer184, %127, %16
-  %.075.ph188.lcssa211 = phi ptr [ %1, %16 ], [ %109, %.outer184 ], [ %.075.ph188272, %127 ], [ %274, %.outer ]
-  %.0135.lcssa = phi i64 [ %4, %16 ], [ %112, %.outer184 ], [ %129, %127 ], [ %.4139, %.outer ]
+  %.075.ph188.lcssa211 = phi ptr [ %109, %.outer184 ], [ %.075.ph188272, %127 ], [ %1, %16 ], [ %274, %.outer ]
+  %.0135.lcssa = phi i64 [ %112, %.outer184 ], [ %129, %127 ], [ %4, %16 ], [ %.4139, %.outer ]
   %.not98 = icmp eq i64 %.0135.lcssa, 0
   br i1 %.not98, label %279, label %.thread152
 
@@ -4072,7 +4072,7 @@ ZSTD_DDictHashSet_expand.exit.thread.i:           ; preds = %.thread, %80, %79, 
   br label %ZSTD_DDictHashSet_addDDict.exit.thread
 
 ZSTD_DDictHashSet_addDDict.exit.thread:           ; preds = %52, %._crit_edge.i21.i, %95, %ZSTD_DDictHashSet_expand.exit.thread.i, %ZSTD_customCalloc.exit.i.i, %7, %12, %ZSTD_createDDictHashSet.exit.thread, %2
-  %.017 = phi i64 [ -60, %2 ], [ -64, %ZSTD_createDDictHashSet.exit.thread ], [ 0, %7 ], [ -64, %ZSTD_customCalloc.exit.i.i ], [ 0, %12 ], [ -1, %ZSTD_DDictHashSet_expand.exit.thread.i ], [ 0, %95 ], [ 0, %._crit_edge.i21.i ], [ -1, %52 ]
+  %.017 = phi i64 [ -60, %2 ], [ -64, %ZSTD_createDDictHashSet.exit.thread ], [ 0, %7 ], [ -64, %ZSTD_customCalloc.exit.i.i ], [ 0, %12 ], [ 0, %._crit_edge.i21.i ], [ -1, %ZSTD_DDictHashSet_expand.exit.thread.i ], [ 0, %95 ], [ -1, %52 ]
   ret i64 %.017
 }
 
@@ -5505,7 +5505,7 @@ ZSTD_nextInputType.exit:                          ; preds = %467
   br label %ZSTD_checkOutBuffer.exit.thread
 
 ZSTD_checkOutBuffer.exit.thread:                  ; preds = %.thread562, %402, %414, %346, %358, %241, %374, %ZSTD_customMalloc.exit, %309, %277, %273, %229, %132, %134, %204, %210, %192, %.thread, %ZSTD_initLegacyStream.exit.thread, %.sink.split.i, %32, %478, %ZSTD_nextInputType.exit, %479, %474, %482, %481, %464, %462, %94, %99, %92, %22, %3
-  %.0 = phi i64 [ %215, %210 ], [ -72, %3 ], [ 0, %192 ], [ -70, %22 ], [ -64, %92 ], [ %103, %134 ], [ %103, %132 ], [ %97, %94 ], [ -104, %32 ], [ -64, %ZSTD_initLegacyStream.exit.thread ], [ -64, %.thread ], [ 1, %482 ], [ %190, %.sink.split.i ], [ 1, %481 ], [ %208, %204 ], [ -80, %462 ], [ -82, %464 ], [ 0, %99 ], [ %488, %ZSTD_nextInputType.exit ], [ 1, %478 ], [ 0, %474 ], [ 0, %479 ], [ %231, %229 ], [ -1, %.thread562 ], [ -16, %277 ], [ -70, %241 ], [ %362, %358 ], [ %275, %273 ], [ -64, %309 ], [ -64, %ZSTD_customMalloc.exit ], [ -20, %374 ], [ %351, %346 ], [ %407, %402 ], [ %418, %414 ]
+  %.0 = phi i64 [ %215, %210 ], [ -72, %3 ], [ 0, %192 ], [ -70, %22 ], [ -64, %92 ], [ %103, %134 ], [ %103, %132 ], [ %97, %94 ], [ -104, %32 ], [ -64, %ZSTD_initLegacyStream.exit.thread ], [ -64, %.thread ], [ 1, %482 ], [ %190, %.sink.split.i ], [ 1, %481 ], [ %208, %204 ], [ -80, %462 ], [ -82, %464 ], [ 0, %99 ], [ %488, %ZSTD_nextInputType.exit ], [ 1, %478 ], [ 0, %474 ], [ 0, %479 ], [ %231, %229 ], [ -1, %.thread562 ], [ -70, %241 ], [ %362, %358 ], [ %275, %273 ], [ -16, %277 ], [ -64, %ZSTD_customMalloc.exit ], [ -64, %309 ], [ -20, %374 ], [ %351, %346 ], [ %407, %402 ], [ %418, %414 ]
   ret i64 %.0
 }
 

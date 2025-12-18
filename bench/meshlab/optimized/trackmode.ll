@@ -9256,12 +9256,12 @@ define void @_ZN3vcg8PathMode9GetPointsEfRNS_6Point3IfEES3_S3_(ptr noundef nonnu
   br label %128
 
 ._crit_edge:                                      ; preds = %46, %33, %.lr.ph.split, %5
-  %.sroa.6.0.lcssa = phi float [ 0.000000e+00, %5 ], [ 0.000000e+00, %.lr.ph.split ], [ %.sroa.6.1.us, %33 ], [ %.sroa.6.1, %46 ]
-  %.sroa.076.0.lcssa = phi float [ 0.000000e+00, %5 ], [ 0.000000e+00, %.lr.ph.split ], [ %.sroa.076.1.us, %33 ], [ %.sroa.076.1, %46 ]
-  %.sroa.8.0.lcssa = phi float [ 0.000000e+00, %5 ], [ 0.000000e+00, %.lr.ph.split ], [ %.sroa.8.1.us, %33 ], [ %.sroa.8.1, %46 ]
-  %.sroa.092.0.lcssa = phi float [ 0.000000e+00, %5 ], [ 0.000000e+00, %.lr.ph.split ], [ %.sroa.092.1.us, %33 ], [ %.sroa.092.1, %46 ]
-  %.sroa.696.0.lcssa = phi float [ 0.000000e+00, %5 ], [ 0.000000e+00, %.lr.ph.split ], [ %.sroa.696.1.us, %33 ], [ %.sroa.696.1, %46 ]
-  %.sroa.8103.0.lcssa = phi float [ 0.000000e+00, %5 ], [ 0.000000e+00, %.lr.ph.split ], [ %.sroa.8103.1.us, %33 ], [ %.sroa.8103.1, %46 ]
+  %.sroa.6.0.lcssa = phi float [ 0.000000e+00, %5 ], [ %.sroa.6.1.us, %33 ], [ 0.000000e+00, %.lr.ph.split ], [ %.sroa.6.1, %46 ]
+  %.sroa.076.0.lcssa = phi float [ 0.000000e+00, %5 ], [ %.sroa.076.1.us, %33 ], [ 0.000000e+00, %.lr.ph.split ], [ %.sroa.076.1, %46 ]
+  %.sroa.8.0.lcssa = phi float [ 0.000000e+00, %5 ], [ %.sroa.8.1.us, %33 ], [ 0.000000e+00, %.lr.ph.split ], [ %.sroa.8.1, %46 ]
+  %.sroa.092.0.lcssa = phi float [ 0.000000e+00, %5 ], [ %.sroa.092.1.us, %33 ], [ 0.000000e+00, %.lr.ph.split ], [ %.sroa.092.1, %46 ]
+  %.sroa.696.0.lcssa = phi float [ 0.000000e+00, %5 ], [ %.sroa.696.1.us, %33 ], [ 0.000000e+00, %.lr.ph.split ], [ %.sroa.696.1, %46 ]
+  %.sroa.8103.0.lcssa = phi float [ 0.000000e+00, %5 ], [ %.sroa.8103.1.us, %33 ], [ 0.000000e+00, %.lr.ph.split ], [ %.sroa.8103.1, %46 ]
   store float %.sroa.092.0.lcssa, ptr %3, align 4
   %.sroa.696.0..sroa_idx101 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store float %.sroa.696.0.lcssa, ptr %.sroa.696.0..sroa_idx101, align 4

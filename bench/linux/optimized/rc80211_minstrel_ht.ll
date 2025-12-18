@@ -1202,7 +1202,7 @@ define internal void @minstrel_ht_tx_status(ptr noundef readonly captures(none) 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %538, %545, %525, %520, %.loopexit45
-  %549 = phi i8 [ %509, %520 ], [ %509, %.loopexit45 ], [ 1, %525 ], [ 1, %545 ], [ 1, %538 ]
+  %549 = phi i8 [ %509, %520 ], [ %509, %.loopexit45 ], [ 1, %545 ], [ 1, %525 ], [ 1, %538 ]
   %550 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %551 = load i64, ptr %550, align 8
   %552 = zext i32 %9 to i64
@@ -4200,8 +4200,8 @@ minstrel_ht_sort_best_tp_rates.exit97:            ; preds = %811, %813
   br label %.thread99
 
 .thread99:                                        ; preds = %1430, %1486, %1396, %1502, %1508, %1498, %.thread100
-  %.ph = phi i32 [ %1397, %.thread100 ], [ %1397, %1396 ], [ %1397, %1498 ], [ %1509, %1508 ], [ %1397, %1502 ], [ %1397, %1486 ], [ %1397, %1430 ]
-  %.ph104 = phi i32 [ %1400, %.thread100 ], [ %1400, %1396 ], [ %1400, %1498 ], [ %1513, %1508 ], [ %1400, %1502 ], [ %1400, %1486 ], [ %1400, %1430 ]
+  %.ph = phi i32 [ %1397, %1486 ], [ %1397, %.thread100 ], [ %1397, %1396 ], [ %1397, %1498 ], [ %1509, %1508 ], [ %1397, %1502 ], [ %1397, %1430 ]
+  %.ph104 = phi i32 [ %1400, %1486 ], [ %1400, %.thread100 ], [ %1400, %1396 ], [ %1400, %1498 ], [ %1513, %1508 ], [ %1400, %1502 ], [ %1400, %1430 ]
   %1514 = add nuw nsw i32 %1399, 1
   %1515 = icmp eq i32 %1514, 42
   br i1 %1515, label %.thread108, label %1396, !llvm.loop !63

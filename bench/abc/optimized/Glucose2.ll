@@ -3544,9 +3544,9 @@ _ZN6Gluco28OccListsINS_3LitENS_3vecINS_6Solver7WatcherEEENS3_14WatcherDeletedEE8
   br label %_ZN6Gluco26Solver16uncheckedEnqueueENS_3LitEj.exit195
 
 _ZN6Gluco26Solver16uncheckedEnqueueENS_3LitEj.exit195: ; preds = %.lr.ph322, %341, %223, %284, %325, %350, %._crit_edge.i193, %197
-  %.1127 = phi ptr [ %199, %197 ], [ %224, %223 ], [ %.0126326, %325 ], [ %.0126326, %284 ], [ %331, %350 ], [ %331, %._crit_edge.i193 ], [ %331, %341 ], [ %345, %.lr.ph322 ]
-  %.1121 = phi ptr [ %198, %197 ], [ %214, %223 ], [ %214, %325 ], [ %214, %284 ], [ %214, %350 ], [ %214, %._crit_edge.i193 ], [ %214, %341 ], [ %344, %.lr.ph322 ]
-  %.7118 = phi i32 [ %.6117329, %197 ], [ %.6117329, %223 ], [ %.6117329, %325 ], [ %.6117329, %284 ], [ %.6117329, %350 ], [ %.6117329, %._crit_edge.i193 ], [ %202, %341 ], [ %202, %.lr.ph322 ]
+  %.1127 = phi ptr [ %199, %197 ], [ %224, %223 ], [ %331, %._crit_edge.i193 ], [ %.0126326, %325 ], [ %.0126326, %284 ], [ %331, %350 ], [ %331, %341 ], [ %345, %.lr.ph322 ]
+  %.1121 = phi ptr [ %198, %197 ], [ %214, %223 ], [ %214, %._crit_edge.i193 ], [ %214, %325 ], [ %214, %284 ], [ %214, %350 ], [ %214, %341 ], [ %344, %.lr.ph322 ]
+  %.7118 = phi i32 [ %.6117329, %197 ], [ %.6117329, %223 ], [ %.6117329, %._crit_edge.i193 ], [ %.6117329, %325 ], [ %.6117329, %284 ], [ %.6117329, %350 ], [ %202, %341 ], [ %202, %.lr.ph322 ]
   %.not146 = icmp eq ptr %.1121, %185
   br i1 %.not146, label %._crit_edge333.loopexit, label %187
 
@@ -5790,8 +5790,8 @@ _ZN6Gluco26Solver15claBumpActivityERNS_6ClauseE.exit: ; preds = %._crit_edge.i, 
   br i1 %204, label %187, label %_ZN6Gluco26Solver10computeLBDERKNS_6ClauseE.exit, !llvm.loop !202
 
 _ZN6Gluco26Solver10computeLBDERKNS_6ClauseE.exit: ; preds = %182, %201, %.preheader36.i, %.preheader.i236
-  %205 = phi i64 [ %154, %.preheader.i236 ], [ %146, %.preheader36.i ], [ %202, %201 ], [ %184, %182 ]
-  %.3.i = phi i32 [ 0, %.preheader.i236 ], [ 0, %.preheader36.i ], [ %.5.i, %201 ], [ %.1.i, %182 ]
+  %205 = phi i64 [ %202, %201 ], [ %154, %.preheader.i236 ], [ %146, %.preheader36.i ], [ %184, %182 ]
+  %.3.i = phi i32 [ %.5.i, %201 ], [ 0, %.preheader.i236 ], [ 0, %.preheader36.i ], [ %.1.i, %182 ]
   %206 = add i32 %.3.i, 1
   %207 = trunc i64 %205 to i32
   %208 = lshr i32 %207, 5
@@ -6540,9 +6540,9 @@ _ZN6Gluco26Solver8castCRefENS_3LitE.exit259:      ; preds = %544, %546
   br label %.loopexit357
 
 .loopexit357:                                     ; preds = %.preheader358, %.loopexit357.loopexit465, %.loopexit357.loopexit, %.preheader360, %._crit_edge
-  %586 = phi i32 [ %495, %._crit_edge ], [ %581, %.loopexit357.loopexit465 ], [ %495, %.preheader360 ], [ %529, %.loopexit357.loopexit ], [ %495, %.preheader358 ]
-  %.2207 = phi i32 [ %495, %._crit_edge ], [ %.4209, %.loopexit357.loopexit465 ], [ 1, %.preheader360 ], [ %.1206, %.loopexit357.loopexit ], [ 1, %.preheader358 ]
-  %.4 = phi i32 [ %495, %._crit_edge ], [ %585, %.loopexit357.loopexit465 ], [ 1, %.preheader360 ], [ %584, %.loopexit357.loopexit ], [ 1, %.preheader358 ]
+  %586 = phi i32 [ %495, %._crit_edge ], [ %529, %.loopexit357.loopexit ], [ %581, %.loopexit357.loopexit465 ], [ %495, %.preheader360 ], [ %495, %.preheader358 ]
+  %.2207 = phi i32 [ %495, %._crit_edge ], [ %.1206, %.loopexit357.loopexit ], [ %.4209, %.loopexit357.loopexit465 ], [ 1, %.preheader360 ], [ 1, %.preheader358 ]
+  %.4 = phi i32 [ %495, %._crit_edge ], [ %584, %.loopexit357.loopexit ], [ %585, %.loopexit357.loopexit465 ], [ 1, %.preheader360 ], [ 1, %.preheader358 ]
   %587 = sext i32 %586 to i64
   %588 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %589 = load i64, ptr %588, align 8, !tbaa !215
@@ -6796,7 +6796,7 @@ _ZN6Gluco26Solver8castCRefENS_3LitE.exit259:      ; preds = %544, %546
   br i1 %712, label %695, label %_ZN6Gluco26Solver10computeLBDERKNS_3vecINS_3LitEEEi.exit, !llvm.loop !183
 
 _ZN6Gluco26Solver10computeLBDERKNS_3vecINS_3LitEEEi.exit: ; preds = %691, %709, %.preheader.i272, %663
-  %.3.i264 = phi i32 [ 0, %.preheader.i272 ], [ 0, %663 ], [ %.5.i277, %709 ], [ %.1.i269, %691 ]
+  %.3.i264 = phi i32 [ %.5.i277, %709 ], [ 0, %.preheader.i272 ], [ 0, %663 ], [ %.1.i269, %691 ]
   store i32 %.3.i264, ptr %5, align 4, !tbaa !55
   %713 = load i32, ptr %66, align 8, !tbaa !113
   %714 = icmp sgt i32 %713, 0
@@ -13722,7 +13722,7 @@ define linkonce_odr noundef zeroext i1 @_ZN6Gluco212DoubleOption5parseEPKc(ptr n
   br label %_ZN6Gluco2L5matchIPKcEEbRT_S2_.exit
 
 _ZN6Gluco2L5matchIPKcEEbRT_S2_.exit:              ; preds = %.lr.ph.i15, %.lr.ph.i, %.loopexit, %50
-  %.0 = phi i1 [ %21, %50 ], [ false, %.loopexit ], [ false, %.lr.ph.i ], [ false, %.lr.ph.i15 ]
+  %.0 = phi i1 [ %21, %50 ], [ false, %.lr.ph.i ], [ false, %.loopexit ], [ false, %.lr.ph.i15 ]
   ret i1 %.0
 }
 
@@ -13855,7 +13855,7 @@ define linkonce_odr noundef zeroext i1 @_ZN6Gluco29IntOption5parseEPKc(ptr nound
   br label %_ZN6Gluco2L5matchIPKcEEbRT_S2_.exit
 
 _ZN6Gluco2L5matchIPKcEEbRT_S2_.exit:              ; preds = %.lr.ph.i7, %.lr.ph.i, %.loopexit, %41
-  %.0 = phi i1 [ %22, %41 ], [ false, %.loopexit ], [ false, %.lr.ph.i ], [ false, %.lr.ph.i7 ]
+  %.0 = phi i1 [ %22, %41 ], [ false, %.lr.ph.i ], [ false, %.loopexit ], [ false, %.lr.ph.i7 ]
   ret i1 %.0
 }
 
@@ -13971,7 +13971,7 @@ define linkonce_odr noundef zeroext i1 @_ZN6Gluco212StringOption5parseEPKc(ptr n
   br label %_ZN6Gluco2L5matchIPKcEEbRT_S2_.exit
 
 _ZN6Gluco2L5matchIPKcEEbRT_S2_.exit:              ; preds = %.lr.ph.i4, %.lr.ph.i, %.loopexit, %16
-  %.0 = phi i1 [ true, %16 ], [ false, %.loopexit ], [ false, %.lr.ph.i ], [ false, %.lr.ph.i4 ]
+  %.0 = phi i1 [ true, %16 ], [ false, %.lr.ph.i ], [ false, %.loopexit ], [ false, %.lr.ph.i4 ]
   ret i1 %.0
 }
 

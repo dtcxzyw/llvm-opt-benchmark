@@ -18315,7 +18315,7 @@ _ZSt8_DestroyISt6threadEvPT_.exit.i.i.i.i:        ; preds = %._crit_edge, %35
   unreachable
 
 _ZSt8_DestroyIPSt6threadS0_EvT_S2_RSaIT0_E.exit.i: ; preds = %35, %_ZN4absl9MutexLockD2Ev.exit, %._crit_edge
-  %38 = phi ptr [ %.pre21, %._crit_edge ], [ %15, %_ZN4absl9MutexLockD2Ev.exit ], [ %.pre21, %35 ]
+  %38 = phi ptr [ %15, %_ZN4absl9MutexLockD2Ev.exit ], [ %.pre21, %._crit_edge ], [ %.pre21, %35 ]
   %.not.i.i.i5 = icmp eq ptr %38, null
   br i1 %.not.i.i.i5, label %_ZNSt6vectorISt6threadSaIS0_EED2Ev.exit, label %39
 
@@ -19775,9 +19775,9 @@ _ZNSt6vectorIPN4absl18profiling_internal12_GLOBAL__N_14InfoESaIS4_EED2Ev.exit.i.
   unreachable
 
 235:                                              ; preds = %216, %122, %.loopexit.split-lp115.i.i.i.i.i, %.loopexit114.i.i.i.i.i, %72, %.loopexit.i.i.i.i.i, %69
-  %.sroa.25.2.i.i.i.i.i = phi ptr [ %.sroa.25.0.lcssa.i.i.i.i.i, %69 ], [ %.sroa.25.1.i.i.i.i.i, %.loopexit.split-lp115.i.i.i.i.i ], [ %.sroa.25.1.i.i.i.i.i, %122 ], [ %.sroa.25.1.i.i.i.i.i, %216 ], [ %.sroa.25.1.i.i.i.i.i, %72 ], [ %.sroa.25.0208.lcssa.i.i.i.i.i, %.loopexit.i.i.i.i.i ], [ %.sroa.25.1.i.i.i.i.i, %.loopexit114.i.i.i.i.i ]
-  %.sroa.0102.2.i.i.i.i.i = phi ptr [ %.sroa.0102.0.lcssa.i.i.i.i.i, %69 ], [ %.sroa.0102.1.i.i.i.i.i, %.loopexit.split-lp115.i.i.i.i.i ], [ %.sroa.0102.1.i.i.i.i.i, %122 ], [ %.sroa.0102.1.i.i.i.i.i, %216 ], [ %.sroa.0102.1.i.i.i.i.i, %72 ], [ %.sroa.0102.0210.i.i.i.i.i, %.loopexit.i.i.i.i.i ], [ %.sroa.0102.1.i.i.i.i.i, %.loopexit114.i.i.i.i.i ]
-  %.pn36.i.i.i.i.i = phi { ptr, i32 } [ %70, %69 ], [ %lpad.loopexit.split-lp117.i.i.i.i.i, %.loopexit.split-lp115.i.i.i.i.i ], [ %123, %122 ], [ %.pn.pn.pn.pn.i.i.i.i.i, %216 ], [ %73, %72 ], [ %lpad.loopexit.i.i.i.i.i, %.loopexit.i.i.i.i.i ], [ %lpad.loopexit116.i.i.i.i.i, %.loopexit114.i.i.i.i.i ]
+  %.sroa.25.2.i.i.i.i.i = phi ptr [ %.sroa.25.1.i.i.i.i.i, %216 ], [ %.sroa.25.1.i.i.i.i.i, %.loopexit.split-lp115.i.i.i.i.i ], [ %.sroa.25.0.lcssa.i.i.i.i.i, %69 ], [ %.sroa.25.1.i.i.i.i.i, %72 ], [ %.sroa.25.1.i.i.i.i.i, %122 ], [ %.sroa.25.0208.lcssa.i.i.i.i.i, %.loopexit.i.i.i.i.i ], [ %.sroa.25.1.i.i.i.i.i, %.loopexit114.i.i.i.i.i ]
+  %.sroa.0102.2.i.i.i.i.i = phi ptr [ %.sroa.0102.1.i.i.i.i.i, %216 ], [ %.sroa.0102.1.i.i.i.i.i, %.loopexit.split-lp115.i.i.i.i.i ], [ %.sroa.0102.0.lcssa.i.i.i.i.i, %69 ], [ %.sroa.0102.1.i.i.i.i.i, %72 ], [ %.sroa.0102.1.i.i.i.i.i, %122 ], [ %.sroa.0102.0210.i.i.i.i.i, %.loopexit.i.i.i.i.i ], [ %.sroa.0102.1.i.i.i.i.i, %.loopexit114.i.i.i.i.i ]
+  %.pn36.i.i.i.i.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.i.i.i.i.i, %216 ], [ %lpad.loopexit.split-lp117.i.i.i.i.i, %.loopexit.split-lp115.i.i.i.i.i ], [ %70, %69 ], [ %73, %72 ], [ %123, %122 ], [ %lpad.loopexit.i.i.i.i.i, %.loopexit.i.i.i.i.i ], [ %lpad.loopexit116.i.i.i.i.i, %.loopexit114.i.i.i.i.i ]
   %.not.i.i.i99.i.i.i.i.i = icmp eq ptr %.sroa.0102.2.i.i.i.i.i, null
   br i1 %.not.i.i.i99.i.i.i.i.i, label %_ZNSt6vectorIPN4absl18profiling_internal12_GLOBAL__N_14InfoESaIS4_EED2Ev.exit100.i.i.i.i.i, label %..thread_crit_edge.i.i.i.i.i
 

@@ -1534,7 +1534,7 @@ define ptr @Abc_NtkBddFindCofactor(ptr noundef %0, ptr noundef readonly captures
   br i1 %52, label %36, label %.thread, !llvm.loop !79
 
 .thread:                                          ; preds = %50, %.lr.ph142._crit_edge, %.preheader, %.lr.ph187, %29
-  %.098 = phi i32 [ -1, %29 ], [ %.0100146, %.lr.ph187 ], [ %.0100146, %.preheader ], [ -1, %50 ], [ %.0100146, %.lr.ph142._crit_edge ]
+  %.098 = phi i32 [ %.0100146, %.lr.ph187 ], [ -1, %29 ], [ %.0100146, %.preheader ], [ -1, %50 ], [ %.0100146, %.lr.ph142._crit_edge ]
   tail call void @Cudd_RecursiveDeref(ptr noundef %6, ptr noundef %31) #22
   %53 = tail call ptr @Extra_TransferLevelByLevel(ptr noundef %6, ptr noundef %8, ptr noundef %.1103) #22
   tail call void @Cudd_Ref(ptr noundef %53) #22

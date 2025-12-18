@@ -307,7 +307,7 @@ define internal fastcc void @"_ZN183_$LT$uv_distribution_types..index.._..$LT$im
   br label %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$uv_distribution_types..index_name..IndexName$GT$$GT$17h88853f7a00fdd135E.exit"
 
 .loopexit.split-lp:                               ; preds = %76, %94, %122, %132, %142, %152, %170, %180, %222
-  %.sroa.0163.1.ph = phi i8 [ 1, %180 ], [ 1, %170 ], [ 1, %152 ], [ 1, %142 ], [ 1, %132 ], [ 1, %122 ], [ 1, %94 ], [ 1, %76 ], [ %.sroa.0163.6632, %222 ]
+  %.sroa.0163.1.ph = phi i8 [ 1, %142 ], [ 1, %132 ], [ 1, %152 ], [ 1, %122 ], [ 1, %170 ], [ 1, %94 ], [ 1, %180 ], [ 1, %76 ], [ %.sroa.0163.6632, %222 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$uv_distribution_types..index_name..IndexName$GT$$GT$17h88853f7a00fdd135E.exit"
@@ -27624,9 +27624,9 @@ define hidden void @"_ZN83_$LT$toml_edit..de..value..ValueDeserializer$u20$as$u2
   br label %74
 
 74:                                               ; preds = %.sink.split, %92, %68
-  %.sroa.09.2 = phi i1 [ true, %68 ], [ false, %92 ], [ false, %.sink.split ]
-  %.sroa.08.2 = phi i1 [ false, %68 ], [ true, %92 ], [ %.sroa.08.2.ph, %.sink.split ]
-  %.sroa.03.2 = phi i8 [ 1, %68 ], [ 1, %92 ], [ %.sroa.03.2.ph, %.sink.split ]
+  %.sroa.09.2 = phi i1 [ false, %92 ], [ true, %68 ], [ false, %.sink.split ]
+  %.sroa.08.2 = phi i1 [ true, %92 ], [ false, %68 ], [ %.sroa.08.2.ph, %.sink.split ]
+  %.sroa.03.2 = phi i8 [ 1, %92 ], [ 1, %68 ], [ %.sroa.03.2.ph, %.sink.split ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %10, ptr noundef nonnull align 8 dereferenceable(96) %25, i64 96, i1 false)
@@ -28165,9 +28165,9 @@ define hidden void @"_ZN83_$LT$toml_edit..de..value..ValueDeserializer$u20$as$u2
   br label %74
 
 74:                                               ; preds = %.sink.split, %92, %68
-  %.sroa.09.2 = phi i1 [ true, %68 ], [ false, %92 ], [ false, %.sink.split ]
-  %.sroa.08.2 = phi i1 [ false, %68 ], [ true, %92 ], [ %.sroa.08.2.ph, %.sink.split ]
-  %.sroa.03.2 = phi i8 [ 1, %68 ], [ 1, %92 ], [ %.sroa.03.2.ph, %.sink.split ]
+  %.sroa.09.2 = phi i1 [ false, %92 ], [ true, %68 ], [ false, %.sink.split ]
+  %.sroa.08.2 = phi i1 [ true, %92 ], [ false, %68 ], [ %.sroa.08.2.ph, %.sink.split ]
+  %.sroa.03.2 = phi i8 [ 1, %92 ], [ 1, %68 ], [ %.sroa.03.2.ph, %.sink.split ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %10, ptr noundef nonnull align 8 dereferenceable(96) %25, i64 96, i1 false)
@@ -28706,9 +28706,9 @@ define hidden void @"_ZN83_$LT$toml_edit..de..value..ValueDeserializer$u20$as$u2
   br label %74
 
 74:                                               ; preds = %.sink.split, %92, %68
-  %.sroa.09.2 = phi i1 [ true, %68 ], [ false, %92 ], [ false, %.sink.split ]
-  %.sroa.08.2 = phi i1 [ false, %68 ], [ true, %92 ], [ %.sroa.08.2.ph, %.sink.split ]
-  %.sroa.03.2 = phi i8 [ 1, %68 ], [ 1, %92 ], [ %.sroa.03.2.ph, %.sink.split ]
+  %.sroa.09.2 = phi i1 [ false, %92 ], [ true, %68 ], [ false, %.sink.split ]
+  %.sroa.08.2 = phi i1 [ true, %92 ], [ false, %68 ], [ %.sroa.08.2.ph, %.sink.split ]
+  %.sroa.03.2 = phi i8 [ 1, %92 ], [ 1, %68 ], [ %.sroa.03.2.ph, %.sink.split ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %10, ptr noundef nonnull align 8 dereferenceable(96) %25, i64 96, i1 false)
@@ -29247,9 +29247,9 @@ define hidden void @"_ZN83_$LT$toml_edit..de..value..ValueDeserializer$u20$as$u2
   br label %74
 
 74:                                               ; preds = %.sink.split, %92, %68
-  %.sroa.09.2 = phi i1 [ true, %68 ], [ false, %92 ], [ false, %.sink.split ]
-  %.sroa.08.2 = phi i1 [ false, %68 ], [ true, %92 ], [ %.sroa.08.2.ph, %.sink.split ]
-  %.sroa.03.2 = phi i8 [ 1, %68 ], [ 1, %92 ], [ %.sroa.03.2.ph, %.sink.split ]
+  %.sroa.09.2 = phi i1 [ false, %92 ], [ true, %68 ], [ false, %.sink.split ]
+  %.sroa.08.2 = phi i1 [ true, %92 ], [ false, %68 ], [ %.sroa.08.2.ph, %.sink.split ]
+  %.sroa.03.2 = phi i8 [ 1, %92 ], [ 1, %68 ], [ %.sroa.03.2.ph, %.sink.split ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %10, ptr noundef nonnull align 8 dereferenceable(96) %25, i64 96, i1 false)
@@ -29788,9 +29788,9 @@ define hidden void @"_ZN83_$LT$toml_edit..de..value..ValueDeserializer$u20$as$u2
   br label %74
 
 74:                                               ; preds = %.sink.split, %92, %68
-  %.sroa.09.2 = phi i1 [ true, %68 ], [ false, %92 ], [ false, %.sink.split ]
-  %.sroa.08.2 = phi i1 [ false, %68 ], [ true, %92 ], [ %.sroa.08.2.ph, %.sink.split ]
-  %.sroa.03.2 = phi i8 [ 1, %68 ], [ 1, %92 ], [ %.sroa.03.2.ph, %.sink.split ]
+  %.sroa.09.2 = phi i1 [ false, %92 ], [ true, %68 ], [ false, %.sink.split ]
+  %.sroa.08.2 = phi i1 [ true, %92 ], [ false, %68 ], [ %.sroa.08.2.ph, %.sink.split ]
+  %.sroa.03.2 = phi i8 [ 1, %92 ], [ 1, %68 ], [ %.sroa.03.2.ph, %.sink.split ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %10, ptr noundef nonnull align 8 dereferenceable(96) %25, i64 96, i1 false)
@@ -30329,9 +30329,9 @@ define hidden void @"_ZN83_$LT$toml_edit..de..value..ValueDeserializer$u20$as$u2
   br label %74
 
 74:                                               ; preds = %.sink.split, %92, %68
-  %.sroa.09.2 = phi i1 [ true, %68 ], [ false, %92 ], [ false, %.sink.split ]
-  %.sroa.08.2 = phi i1 [ false, %68 ], [ true, %92 ], [ %.sroa.08.2.ph, %.sink.split ]
-  %.sroa.03.2 = phi i8 [ 1, %68 ], [ 1, %92 ], [ %.sroa.03.2.ph, %.sink.split ]
+  %.sroa.09.2 = phi i1 [ false, %92 ], [ true, %68 ], [ false, %.sink.split ]
+  %.sroa.08.2 = phi i1 [ true, %92 ], [ false, %68 ], [ %.sroa.08.2.ph, %.sink.split ]
+  %.sroa.03.2 = phi i8 [ 1, %92 ], [ 1, %68 ], [ %.sroa.03.2.ph, %.sink.split ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %10, ptr noundef nonnull align 8 dereferenceable(96) %25, i64 96, i1 false)
@@ -30870,9 +30870,9 @@ define hidden void @"_ZN83_$LT$toml_edit..de..value..ValueDeserializer$u20$as$u2
   br label %74
 
 74:                                               ; preds = %.sink.split, %92, %68
-  %.sroa.09.2 = phi i1 [ true, %68 ], [ false, %92 ], [ false, %.sink.split ]
-  %.sroa.08.2 = phi i1 [ false, %68 ], [ true, %92 ], [ %.sroa.08.2.ph, %.sink.split ]
-  %.sroa.03.2 = phi i8 [ 1, %68 ], [ 1, %92 ], [ %.sroa.03.2.ph, %.sink.split ]
+  %.sroa.09.2 = phi i1 [ false, %92 ], [ true, %68 ], [ false, %.sink.split ]
+  %.sroa.08.2 = phi i1 [ true, %92 ], [ false, %68 ], [ %.sroa.08.2.ph, %.sink.split ]
+  %.sroa.03.2 = phi i8 [ 1, %92 ], [ 1, %68 ], [ %.sroa.03.2.ph, %.sink.split ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %10, ptr noundef nonnull align 8 dereferenceable(96) %25, i64 96, i1 false)
@@ -31411,9 +31411,9 @@ define hidden void @"_ZN83_$LT$toml_edit..de..value..ValueDeserializer$u20$as$u2
   br label %74
 
 74:                                               ; preds = %.sink.split, %92, %68
-  %.sroa.09.2 = phi i1 [ true, %68 ], [ false, %92 ], [ false, %.sink.split ]
-  %.sroa.08.2 = phi i1 [ false, %68 ], [ true, %92 ], [ %.sroa.08.2.ph, %.sink.split ]
-  %.sroa.03.2 = phi i8 [ 1, %68 ], [ 1, %92 ], [ %.sroa.03.2.ph, %.sink.split ]
+  %.sroa.09.2 = phi i1 [ false, %92 ], [ true, %68 ], [ false, %.sink.split ]
+  %.sroa.08.2 = phi i1 [ true, %92 ], [ false, %68 ], [ %.sroa.08.2.ph, %.sink.split ]
+  %.sroa.03.2 = phi i8 [ 1, %92 ], [ 1, %68 ], [ %.sroa.03.2.ph, %.sink.split ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %10, ptr noundef nonnull align 8 dereferenceable(96) %25, i64 96, i1 false)
@@ -31952,9 +31952,9 @@ define hidden void @"_ZN83_$LT$toml_edit..de..value..ValueDeserializer$u20$as$u2
   br label %74
 
 74:                                               ; preds = %.sink.split, %92, %68
-  %.sroa.09.2 = phi i1 [ true, %68 ], [ false, %92 ], [ false, %.sink.split ]
-  %.sroa.08.2 = phi i1 [ false, %68 ], [ true, %92 ], [ %.sroa.08.2.ph, %.sink.split ]
-  %.sroa.03.2 = phi i8 [ 1, %68 ], [ 1, %92 ], [ %.sroa.03.2.ph, %.sink.split ]
+  %.sroa.09.2 = phi i1 [ false, %92 ], [ true, %68 ], [ false, %.sink.split ]
+  %.sroa.08.2 = phi i1 [ true, %92 ], [ false, %68 ], [ %.sroa.08.2.ph, %.sink.split ]
+  %.sroa.03.2 = phi i8 [ 1, %92 ], [ 1, %68 ], [ %.sroa.03.2.ph, %.sink.split ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %10, ptr noundef nonnull align 8 dereferenceable(96) %25, i64 96, i1 false)
@@ -32493,9 +32493,9 @@ define hidden void @"_ZN83_$LT$toml_edit..de..value..ValueDeserializer$u20$as$u2
   br label %74
 
 74:                                               ; preds = %.sink.split, %92, %68
-  %.sroa.09.2 = phi i1 [ true, %68 ], [ false, %92 ], [ false, %.sink.split ]
-  %.sroa.08.2 = phi i1 [ false, %68 ], [ true, %92 ], [ %.sroa.08.2.ph, %.sink.split ]
-  %.sroa.03.2 = phi i8 [ 1, %68 ], [ 1, %92 ], [ %.sroa.03.2.ph, %.sink.split ]
+  %.sroa.09.2 = phi i1 [ false, %92 ], [ true, %68 ], [ false, %.sink.split ]
+  %.sroa.08.2 = phi i1 [ true, %92 ], [ false, %68 ], [ %.sroa.08.2.ph, %.sink.split ]
+  %.sroa.03.2 = phi i8 [ 1, %92 ], [ 1, %68 ], [ %.sroa.03.2.ph, %.sink.split ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %10, ptr noundef nonnull align 8 dereferenceable(96) %25, i64 96, i1 false)
@@ -33033,9 +33033,9 @@ define hidden void @"_ZN83_$LT$toml_edit..de..value..ValueDeserializer$u20$as$u2
   br label %75
 
 75:                                               ; preds = %.sink.split, %93, %70
-  %.sroa.09.2 = phi i1 [ true, %70 ], [ false, %93 ], [ false, %.sink.split ]
-  %.sroa.08.2 = phi i1 [ false, %70 ], [ true, %93 ], [ %.sroa.08.2.ph, %.sink.split ]
-  %.sroa.03.2 = phi i8 [ 1, %70 ], [ 1, %93 ], [ %.sroa.03.2.ph, %.sink.split ]
+  %.sroa.09.2 = phi i1 [ false, %93 ], [ true, %70 ], [ false, %.sink.split ]
+  %.sroa.08.2 = phi i1 [ true, %93 ], [ false, %70 ], [ %.sroa.08.2.ph, %.sink.split ]
+  %.sroa.03.2 = phi i8 [ 1, %93 ], [ 1, %70 ], [ %.sroa.03.2.ph, %.sink.split ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %12, ptr noundef nonnull align 8 dereferenceable(96) %27, i64 96, i1 false)
@@ -33572,9 +33572,9 @@ define hidden void @"_ZN83_$LT$toml_edit..de..value..ValueDeserializer$u20$as$u2
   br label %74
 
 74:                                               ; preds = %.sink.split, %92, %68
-  %.sroa.09.2 = phi i1 [ true, %68 ], [ false, %92 ], [ false, %.sink.split ]
-  %.sroa.08.2 = phi i1 [ false, %68 ], [ true, %92 ], [ %.sroa.08.2.ph, %.sink.split ]
-  %.sroa.03.2 = phi i8 [ 1, %68 ], [ 1, %92 ], [ %.sroa.03.2.ph, %.sink.split ]
+  %.sroa.09.2 = phi i1 [ false, %92 ], [ true, %68 ], [ false, %.sink.split ]
+  %.sroa.08.2 = phi i1 [ true, %92 ], [ false, %68 ], [ %.sroa.08.2.ph, %.sink.split ]
+  %.sroa.03.2 = phi i8 [ 1, %92 ], [ 1, %68 ], [ %.sroa.03.2.ph, %.sink.split ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %10, ptr noundef nonnull align 8 dereferenceable(96) %25, i64 96, i1 false)
@@ -34113,9 +34113,9 @@ define hidden void @"_ZN83_$LT$toml_edit..de..value..ValueDeserializer$u20$as$u2
   br label %74
 
 74:                                               ; preds = %.sink.split, %92, %68
-  %.sroa.09.2 = phi i1 [ true, %68 ], [ false, %92 ], [ false, %.sink.split ]
-  %.sroa.08.2 = phi i1 [ false, %68 ], [ true, %92 ], [ %.sroa.08.2.ph, %.sink.split ]
-  %.sroa.03.2 = phi i8 [ 1, %68 ], [ 1, %92 ], [ %.sroa.03.2.ph, %.sink.split ]
+  %.sroa.09.2 = phi i1 [ false, %92 ], [ true, %68 ], [ false, %.sink.split ]
+  %.sroa.08.2 = phi i1 [ true, %92 ], [ false, %68 ], [ %.sroa.08.2.ph, %.sink.split ]
+  %.sroa.03.2 = phi i8 [ 1, %92 ], [ 1, %68 ], [ %.sroa.03.2.ph, %.sink.split ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %10, ptr noundef nonnull align 8 dereferenceable(96) %25, i64 96, i1 false)
@@ -34654,9 +34654,9 @@ define hidden void @"_ZN83_$LT$toml_edit..de..value..ValueDeserializer$u20$as$u2
   br label %74
 
 74:                                               ; preds = %.sink.split, %92, %68
-  %.sroa.09.2 = phi i1 [ true, %68 ], [ false, %92 ], [ false, %.sink.split ]
-  %.sroa.08.2 = phi i1 [ false, %68 ], [ true, %92 ], [ %.sroa.08.2.ph, %.sink.split ]
-  %.sroa.03.2 = phi i8 [ 1, %68 ], [ 1, %92 ], [ %.sroa.03.2.ph, %.sink.split ]
+  %.sroa.09.2 = phi i1 [ false, %92 ], [ true, %68 ], [ false, %.sink.split ]
+  %.sroa.08.2 = phi i1 [ true, %92 ], [ false, %68 ], [ %.sroa.08.2.ph, %.sink.split ]
+  %.sroa.03.2 = phi i8 [ 1, %92 ], [ 1, %68 ], [ %.sroa.03.2.ph, %.sink.split ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %10, ptr noundef nonnull align 8 dereferenceable(96) %25, i64 96, i1 false)
@@ -35195,9 +35195,9 @@ define hidden void @"_ZN83_$LT$toml_edit..de..value..ValueDeserializer$u20$as$u2
   br label %74
 
 74:                                               ; preds = %.sink.split, %92, %68
-  %.sroa.09.2 = phi i1 [ true, %68 ], [ false, %92 ], [ false, %.sink.split ]
-  %.sroa.08.2 = phi i1 [ false, %68 ], [ true, %92 ], [ %.sroa.08.2.ph, %.sink.split ]
-  %.sroa.03.2 = phi i8 [ 1, %68 ], [ 1, %92 ], [ %.sroa.03.2.ph, %.sink.split ]
+  %.sroa.09.2 = phi i1 [ false, %92 ], [ true, %68 ], [ false, %.sink.split ]
+  %.sroa.08.2 = phi i1 [ true, %92 ], [ false, %68 ], [ %.sroa.08.2.ph, %.sink.split ]
+  %.sroa.03.2 = phi i8 [ 1, %92 ], [ 1, %68 ], [ %.sroa.03.2.ph, %.sink.split ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %10, ptr noundef nonnull align 8 dereferenceable(96) %25, i64 96, i1 false)
@@ -41608,7 +41608,7 @@ define hidden void @"_ZN83_$LT$toml_edit..de..value..ValueDeserializer$u20$as$u2
   br label %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$uv_distribution_types..index_name..IndexName$GT$$GT$17h88853f7a00fdd135E.exit.i"
 
 .loopexit.split-lp.i:                             ; preds = %287, %245, %235, %217, %207, %197, %187, %159, %142
-  %.sroa.0163.1.ph.i = phi i8 [ 1, %245 ], [ 1, %235 ], [ 1, %217 ], [ 1, %207 ], [ 1, %197 ], [ 1, %187 ], [ 1, %159 ], [ 1, %142 ], [ %.sroa.0163.6.i, %287 ]
+  %.sroa.0163.1.ph.i = phi i8 [ 1, %207 ], [ 1, %197 ], [ 1, %217 ], [ 1, %187 ], [ 1, %235 ], [ 1, %159 ], [ 1, %245 ], [ 1, %142 ], [ %.sroa.0163.6.i, %287 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$uv_distribution_types..index_name..IndexName$GT$$GT$17h88853f7a00fdd135E.exit.i"
@@ -43288,7 +43288,7 @@ _ZN5serde2de7Visitor10visit_bool17ha199e6999390b244E.exit.i: ; preds = %518
   ret void
 
 604:                                              ; preds = %412, %601, %422
-  %.sroa.05.2 = phi i1 [ false, %422 ], [ false, %412 ], [ true, %601 ]
+  %.sroa.05.2 = phi i1 [ true, %601 ], [ false, %422 ], [ false, %412 ]
   %605 = load i64, ptr %1, align 8, !range !355, !noundef !9
   %606 = add nsw i64 %605, -8
   %607 = icmp ugt i64 %606, 3
@@ -43389,9 +43389,9 @@ common.resume:                                    ; preds = %644, %647, %648, %6
           cleanup
   br label %.body.thread47
 
-.body.thread47:                                   ; preds = %594, %401, %415, %407, %.body.thread54
-  %.sroa.05.152 = phi i1 [ true, %.body.thread54 ], [ true, %594 ], [ false, %401 ], [ false, %415 ], [ false, %407 ]
-  %.pn51 = phi { ptr, i32 } [ %lpad.thr_comm, %.body.thread54 ], [ %595, %594 ], [ %402, %401 ], [ %416, %415 ], [ %408, %407 ]
+.body.thread47:                                   ; preds = %415, %407, %401, %594, %.body.thread54
+  %.sroa.05.152 = phi i1 [ true, %.body.thread54 ], [ false, %415 ], [ false, %407 ], [ false, %401 ], [ true, %594 ]
+  %.pn51 = phi { ptr, i32 } [ %lpad.thr_comm, %.body.thread54 ], [ %416, %415 ], [ %408, %407 ], [ %402, %401 ], [ %595, %594 ]
   %639 = load i64, ptr %1, align 8, !range !355, !noundef !9
   %640 = add nsw i64 %639, -8
   %641 = icmp ugt i64 %640, 3
@@ -45046,7 +45046,7 @@ _ZN5serde2de7Visitor10visit_bool17hb58c3dec9c64ae8bE.exit.i: ; preds = %421
   ret void
 
 505:                                              ; preds = %318, %503, %329
-  %.sroa.05.2 = phi i1 [ false, %318 ], [ false, %329 ], [ true, %503 ]
+  %.sroa.05.2 = phi i1 [ true, %503 ], [ false, %318 ], [ false, %329 ]
   %506 = load i64, ptr %1, align 8, !range !355, !noundef !9
   %507 = add nsw i64 %506, -8
   %508 = icmp ugt i64 %507, 3
@@ -45147,9 +45147,9 @@ common.resume:                                    ; preds = %545, %548, %549, %5
           cleanup
   br label %.body.thread52
 
-.body.thread52:                                   ; preds = %496, %307, %322, %313, %.body.thread59
-  %.sroa.05.157 = phi i1 [ true, %.body.thread59 ], [ true, %496 ], [ false, %307 ], [ false, %322 ], [ false, %313 ]
-  %.pn56 = phi { ptr, i32 } [ %lpad.thr_comm, %.body.thread59 ], [ %497, %496 ], [ %308, %307 ], [ %323, %322 ], [ %314, %313 ]
+.body.thread52:                                   ; preds = %322, %313, %307, %496, %.body.thread59
+  %.sroa.05.157 = phi i1 [ true, %.body.thread59 ], [ false, %322 ], [ false, %313 ], [ false, %307 ], [ true, %496 ]
+  %.pn56 = phi { ptr, i32 } [ %lpad.thr_comm, %.body.thread59 ], [ %323, %322 ], [ %314, %313 ], [ %308, %307 ], [ %497, %496 ]
   %540 = load i64, ptr %1, align 8, !range !355, !noundef !9
   %541 = add nsw i64 %540, -8
   %542 = icmp ugt i64 %541, 3
@@ -45547,7 +45547,7 @@ _ZN4core3ops8function6FnOnce9call_once17h185fbc2c103523e6E.llvm.9298296508448732
   ret void
 
 128:                                              ; preds = %93, %126, %103
-  %.sroa.05.2 = phi i1 [ false, %93 ], [ false, %103 ], [ true, %126 ]
+  %.sroa.05.2 = phi i1 [ true, %126 ], [ false, %93 ], [ false, %103 ]
   %129 = load i64, ptr %1, align 8, !range !355, !noundef !9
   %130 = add nsw i64 %129, -8
   %131 = icmp ugt i64 %130, 3
@@ -46764,7 +46764,7 @@ _ZN5serde2de7Visitor10visit_bool17h75364f2eca49292dE.exit.i: ; preds = %272
   ret void
 
 358:                                              ; preds = %166, %355, %176
-  %.sroa.05.2 = phi i1 [ false, %176 ], [ false, %166 ], [ true, %355 ]
+  %.sroa.05.2 = phi i1 [ true, %355 ], [ false, %176 ], [ false, %166 ]
   %359 = load i64, ptr %1, align 8, !range !355, !noundef !9
   %360 = add nsw i64 %359, -8
   %361 = icmp ugt i64 %360, 3
@@ -46865,9 +46865,9 @@ common.resume:                                    ; preds = %398, %401, %402, %4
           cleanup
   br label %.body.thread46
 
-.body.thread46:                                   ; preds = %348, %155, %169, %161, %.body.thread53
-  %.sroa.05.151 = phi i1 [ true, %.body.thread53 ], [ true, %348 ], [ false, %155 ], [ false, %169 ], [ false, %161 ]
-  %.pn50 = phi { ptr, i32 } [ %lpad.thr_comm, %.body.thread53 ], [ %349, %348 ], [ %156, %155 ], [ %170, %169 ], [ %162, %161 ]
+.body.thread46:                                   ; preds = %169, %161, %155, %348, %.body.thread53
+  %.sroa.05.151 = phi i1 [ true, %.body.thread53 ], [ false, %169 ], [ false, %161 ], [ false, %155 ], [ true, %348 ]
+  %.pn50 = phi { ptr, i32 } [ %lpad.thr_comm, %.body.thread53 ], [ %170, %169 ], [ %162, %161 ], [ %156, %155 ], [ %349, %348 ]
   %393 = load i64, ptr %1, align 8, !range !355, !noundef !9
   %394 = add nsw i64 %393, -8
   %395 = icmp ugt i64 %394, 3
@@ -47770,7 +47770,7 @@ _ZN5serde2de7Visitor10visit_bool17h5a3be396265802c8E.exit.i: ; preds = %215
   ret void
 
 301:                                              ; preds = %109, %298, %119
-  %.sroa.05.2 = phi i1 [ false, %119 ], [ false, %109 ], [ true, %298 ]
+  %.sroa.05.2 = phi i1 [ true, %298 ], [ false, %119 ], [ false, %109 ]
   %302 = load i64, ptr %1, align 8, !range !355, !noundef !9
   %303 = add nsw i64 %302, -8
   %304 = icmp ugt i64 %303, 3
@@ -47871,9 +47871,9 @@ common.resume:                                    ; preds = %341, %344, %345, %3
           cleanup
   br label %.body16.thread39
 
-.body16.thread39:                                 ; preds = %291, %98, %112, %104, %.body16.thread46
-  %.sroa.05.144 = phi i1 [ true, %.body16.thread46 ], [ true, %291 ], [ false, %98 ], [ false, %112 ], [ false, %104 ]
-  %.pn43 = phi { ptr, i32 } [ %lpad.thr_comm, %.body16.thread46 ], [ %292, %291 ], [ %99, %98 ], [ %113, %112 ], [ %105, %104 ]
+.body16.thread39:                                 ; preds = %98, %112, %104, %291, %.body16.thread46
+  %.sroa.05.144 = phi i1 [ true, %.body16.thread46 ], [ false, %98 ], [ false, %112 ], [ false, %104 ], [ true, %291 ]
+  %.pn43 = phi { ptr, i32 } [ %lpad.thr_comm, %.body16.thread46 ], [ %99, %98 ], [ %113, %112 ], [ %105, %104 ], [ %292, %291 ]
   %336 = load i64, ptr %1, align 8, !range !355, !noundef !9
   %337 = add nsw i64 %336, -8
   %338 = icmp ugt i64 %337, 3
@@ -48776,7 +48776,7 @@ _ZN5serde2de7Visitor10visit_bool17hecc7e5c876920302E.exit.i: ; preds = %215
   ret void
 
 301:                                              ; preds = %109, %298, %119
-  %.sroa.05.2 = phi i1 [ false, %119 ], [ false, %109 ], [ true, %298 ]
+  %.sroa.05.2 = phi i1 [ true, %298 ], [ false, %119 ], [ false, %109 ]
   %302 = load i64, ptr %1, align 8, !range !355, !noundef !9
   %303 = add nsw i64 %302, -8
   %304 = icmp ugt i64 %303, 3
@@ -48877,9 +48877,9 @@ common.resume:                                    ; preds = %341, %344, %345, %3
           cleanup
   br label %.body16.thread39
 
-.body16.thread39:                                 ; preds = %291, %98, %112, %104, %.body16.thread46
-  %.sroa.05.144 = phi i1 [ true, %.body16.thread46 ], [ true, %291 ], [ false, %98 ], [ false, %112 ], [ false, %104 ]
-  %.pn43 = phi { ptr, i32 } [ %lpad.thr_comm, %.body16.thread46 ], [ %292, %291 ], [ %99, %98 ], [ %113, %112 ], [ %105, %104 ]
+.body16.thread39:                                 ; preds = %98, %112, %104, %291, %.body16.thread46
+  %.sroa.05.144 = phi i1 [ true, %.body16.thread46 ], [ false, %98 ], [ false, %112 ], [ false, %104 ], [ true, %291 ]
+  %.pn43 = phi { ptr, i32 } [ %lpad.thr_comm, %.body16.thread46 ], [ %99, %98 ], [ %113, %112 ], [ %105, %104 ], [ %292, %291 ]
   %336 = load i64, ptr %1, align 8, !range !355, !noundef !9
   %337 = add nsw i64 %336, -8
   %338 = icmp ugt i64 %337, 3
@@ -50007,7 +50007,7 @@ _ZN5serde2de7Visitor10visit_bool17h9ffd879eb7ea7d93E.exit.i: ; preds = %273
   ret void
 
 359:                                              ; preds = %167, %356, %177
-  %.sroa.05.2 = phi i1 [ false, %177 ], [ false, %167 ], [ true, %356 ]
+  %.sroa.05.2 = phi i1 [ true, %356 ], [ false, %177 ], [ false, %167 ]
   %360 = load i64, ptr %1, align 8, !range !355, !noundef !9
   %361 = add nsw i64 %360, -8
   %362 = icmp ugt i64 %361, 3
@@ -50108,9 +50108,9 @@ common.resume:                                    ; preds = %399, %402, %403, %4
           cleanup
   br label %.body.thread46
 
-.body.thread46:                                   ; preds = %349, %156, %170, %162, %.body.thread53
-  %.sroa.05.151 = phi i1 [ true, %.body.thread53 ], [ true, %349 ], [ false, %156 ], [ false, %170 ], [ false, %162 ]
-  %.pn50 = phi { ptr, i32 } [ %lpad.thr_comm, %.body.thread53 ], [ %350, %349 ], [ %157, %156 ], [ %171, %170 ], [ %163, %162 ]
+.body.thread46:                                   ; preds = %170, %162, %156, %349, %.body.thread53
+  %.sroa.05.151 = phi i1 [ true, %.body.thread53 ], [ false, %170 ], [ false, %162 ], [ false, %156 ], [ true, %349 ]
+  %.pn50 = phi { ptr, i32 } [ %lpad.thr_comm, %.body.thread53 ], [ %171, %170 ], [ %163, %162 ], [ %157, %156 ], [ %350, %349 ]
   %394 = load i64, ptr %1, align 8, !range !355, !noundef !9
   %395 = add nsw i64 %394, -8
   %396 = icmp ugt i64 %395, 3

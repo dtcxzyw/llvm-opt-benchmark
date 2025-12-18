@@ -774,7 +774,7 @@ cdf_clsid_to_mime.exit.i.i:                       ; preds = %90, %86, %cdf_clsid
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %cdf_file_summary_info.exit.thread51
 
-cdf_file_summary_info.exit.thread51:              ; preds = %184, %138, %128, %119, %110, %100, %.lr.ph131.i.i, %.critedge115.i.i, %218
+cdf_file_summary_info.exit.thread51:              ; preds = %184, %138, %128, %119, %110, %100, %.lr.ph131.i.i, %218, %.critedge115.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %222 = load ptr, ptr %18, align 8, !tbaa !36
@@ -1017,7 +1017,7 @@ define internal fastcc range(i32 -1, 2) i32 @cdf_file_dir_info(ptr noundef %0, p
   br i1 %exitcond.not, label %.thread25, label %.lr.ph
 
 .thread25:                                        ; preds = %._crit_edge, %33, %22, %28
-  %.2 = phi i32 [ -1, %28 ], [ 1, %33 ], [ -1, %22 ], [ -1, %._crit_edge ]
+  %.2 = phi i32 [ -1, %22 ], [ -1, %28 ], [ 1, %33 ], [ -1, %._crit_edge ]
   ret i32 %.2
 }
 

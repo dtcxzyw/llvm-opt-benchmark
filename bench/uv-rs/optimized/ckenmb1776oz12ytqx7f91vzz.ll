@@ -1570,7 +1570,7 @@ define noundef zeroext i1 @_ZN16uv_configuration13build_options12BuildOptions17n
   br i1 %19, label %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h87c71e4f76ece589E.exit", label %15
 
 "_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h87c71e4f76ece589E.exit": ; preds = %28, %26, %17, %15, %5, %2
-  %.sroa.0.0.shrunk = phi i1 [ true, %5 ], [ false, %2 ], [ %.not.not.not.i.not.not.not.i.not.not.not, %17 ], [ %.not.not.not.i.not.not.not.i.not.not.not, %15 ], [ %.not.not.not.i.not.not.not.i1.not, %26 ], [ %.not.not.not.i.not.not.not.i1.not, %28 ]
+  %.sroa.0.0.shrunk = phi i1 [ true, %5 ], [ %.not.not.not.i.not.not.not.i.not.not.not, %17 ], [ false, %2 ], [ %.not.not.not.i.not.not.not.i.not.not.not, %15 ], [ %.not.not.not.i.not.not.not.i1.not, %26 ], [ %.not.not.not.i.not.not.not.i1.not, %28 ]
   ret i1 %.sroa.0.0.shrunk
 
 20:                                               ; preds = %5
@@ -1626,7 +1626,7 @@ define noundef zeroext i1 @_ZN16uv_configuration13build_options12BuildOptions16n
   br i1 %19, label %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h87c71e4f76ece589E.exit", label %15
 
 "_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h87c71e4f76ece589E.exit": ; preds = %28, %26, %17, %15, %6, %2
-  %.sroa.0.0.shrunk = phi i1 [ true, %6 ], [ false, %2 ], [ %.not.not.not.i.not.not.not.i.not.not.not, %17 ], [ %.not.not.not.i.not.not.not.i.not.not.not, %15 ], [ %.not.not.not.i.not.not.not.i1.not, %26 ], [ %.not.not.not.i.not.not.not.i1.not, %28 ]
+  %.sroa.0.0.shrunk = phi i1 [ true, %6 ], [ %.not.not.not.i.not.not.not.i.not.not.not, %17 ], [ false, %2 ], [ %.not.not.not.i.not.not.not.i.not.not.not, %15 ], [ %.not.not.not.i.not.not.not.i1.not, %26 ], [ %.not.not.not.i.not.not.not.i1.not, %28 ]
   ret i1 %.sroa.0.0.shrunk
 
 20:                                               ; preds = %6
@@ -1711,7 +1711,7 @@ define noundef zeroext i1 @_ZN16uv_configuration13build_options12BuildOptions20n
   br i1 %36, label %_ZN16uv_configuration13build_options12BuildOptions16no_build_package17hbfbf42239adb0a15E.exit, label %32
 
 _ZN16uv_configuration13build_options12BuildOptions16no_build_package17hbfbf42239adb0a15E.exit: ; preds = %34, %32, %23, %21, %12, %8, %4
-  %.sroa.02.0.in = phi i1 [ %7, %4 ], [ true, %12 ], [ false, %8 ], [ %.not.not.not.i.not.not.not.i.not.not.i.not.not, %23 ], [ %.not.not.not.i.not.not.not.i.not.not.i.not.not, %21 ], [ %.not.not.not.i.not.not.not.i1.not.i, %32 ], [ %.not.not.not.i.not.not.not.i1.not.i, %34 ]
+  %.sroa.02.0.in = phi i1 [ %7, %4 ], [ true, %12 ], [ %.not.not.not.i.not.not.not.i.not.not.i.not.not, %23 ], [ false, %8 ], [ %.not.not.not.i.not.not.not.i.not.not.i.not.not, %21 ], [ %.not.not.not.i.not.not.not.i1.not.i, %32 ], [ %.not.not.not.i.not.not.not.i1.not.i, %34 ]
   ret i1 %.sroa.02.0.in
 }
 
@@ -1777,7 +1777,7 @@ define noundef zeroext i1 @_ZN16uv_configuration13build_options12BuildOptions21n
   br i1 %35, label %_ZN16uv_configuration13build_options12BuildOptions17no_binary_package17h2b5ccaa8790f3793E.exit, label %31
 
 _ZN16uv_configuration13build_options12BuildOptions17no_binary_package17h2b5ccaa8790f3793E.exit: ; preds = %33, %31, %22, %20, %10, %7, %4
-  %.sroa.02.0.in = phi i1 [ %6, %4 ], [ true, %10 ], [ false, %7 ], [ %.not.not.not.i.not.not.not.i.not.not.i.not.not, %22 ], [ %.not.not.not.i.not.not.not.i.not.not.i.not.not, %20 ], [ %.not.not.not.i.not.not.not.i1.not.i, %31 ], [ %.not.not.not.i.not.not.not.i1.not.i, %33 ]
+  %.sroa.02.0.in = phi i1 [ %6, %4 ], [ true, %10 ], [ %.not.not.not.i.not.not.not.i.not.not.i.not.not, %22 ], [ false, %7 ], [ %.not.not.not.i.not.not.not.i.not.not.i.not.not, %20 ], [ %.not.not.not.i.not.not.not.i1.not.i, %31 ], [ %.not.not.not.i.not.not.not.i1.not.i, %33 ]
   ret i1 %.sroa.02.0.in
 }
 

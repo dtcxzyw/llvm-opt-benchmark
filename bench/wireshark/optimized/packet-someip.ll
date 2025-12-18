@@ -4883,7 +4883,7 @@ check_filter_string.exit.thread:                  ; preds = %30, %check_filter_s
   br label %58
 
 58:                                               ; preds = %.sink.split, %check_filter_string.exit.thread, %51
-  %.0 = phi i1 [ true, %51 ], [ true, %check_filter_string.exit.thread ], [ false, %.sink.split ]
+  %.0 = phi i1 [ true, %check_filter_string.exit.thread ], [ true, %51 ], [ false, %.sink.split ]
   ret i1 %.0
 }
 
@@ -5299,7 +5299,7 @@ check_filter_string.exit.thread:                  ; preds = %22, %check_filter_s
   br label %68
 
 68:                                               ; preds = %.sink.split, %57, %61
-  %.0 = phi i1 [ true, %61 ], [ true, %57 ], [ false, %.sink.split ]
+  %.0 = phi i1 [ true, %57 ], [ true, %61 ], [ false, %.sink.split ]
   ret i1 %.0
 }
 
@@ -5702,7 +5702,7 @@ check_filter_string.exit.thread:                  ; preds = %12, %check_filter_s
   br label %52
 
 52:                                               ; preds = %.sink.split, %41, %45
-  %.0 = phi i1 [ true, %45 ], [ true, %41 ], [ false, %.sink.split ]
+  %.0 = phi i1 [ true, %41 ], [ true, %45 ], [ false, %.sink.split ]
   ret i1 %.0
 }
 
@@ -7478,7 +7478,7 @@ proto_item_set_hidden.exit.i:                     ; preds = %136, %142, %145
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !27
 
 .loopexit:                                        ; preds = %.lr.ph, %149, %.preheader100, %.preheader
-  %.288 = phi i32 [ %3, %.preheader ], [ %3, %.preheader100 ], [ %150, %149 ], [ %166, %.lr.ph ]
+  %.288 = phi i32 [ %150, %149 ], [ %3, %.preheader ], [ %3, %.preheader100 ], [ %166, %.lr.ph ]
   %167 = sub i32 %.288, %3
   br label %168
 
@@ -8834,7 +8834,7 @@ dissect_someip_payload_array_dim_length.exit:     ; preds = %78, %85, %88
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph97, !llvm.loop !33
 
 .loopexit:                                        ; preds = %97, %.lr.ph97, %.preheader, %101, %dissect_someip_payload_array_payload.exit
-  %.0 = phi i32 [ %54, %dissect_someip_payload_array_payload.exit ], [ %3, %101 ], [ %3, %.preheader ], [ %112, %.lr.ph97 ], [ %99, %97 ]
+  %.0 = phi i32 [ %54, %dissect_someip_payload_array_payload.exit ], [ %112, %.lr.ph97 ], [ %3, %101 ], [ %3, %.preheader ], [ %99, %97 ]
   %114 = sub i32 %.0, %3
   br label %115
 
@@ -9649,8 +9649,8 @@ get_base_type_config.exit.i:                      ; preds = %50
   br label %get_param_attributes.exit
 
 get_param_attributes.exit:                        ; preds = %41, %get_string_config.exit.i, %47, %56, %63, %67, %71, %75, %79, %83, %87, %91, %95, %99, %103, %107, %111, %115, %119, %123, %127
-  %.sroa.28.1.i = phi ptr [ null, %get_string_config.exit.i ], [ %49, %47 ], [ %58, %123 ], [ %58, %56 ], [ %58, %63 ], [ %58, %67 ], [ %58, %71 ], [ %58, %75 ], [ %58, %79 ], [ %58, %83 ], [ %58, %87 ], [ %58, %91 ], [ %58, %95 ], [ %58, %99 ], [ %58, %103 ], [ %58, %107 ], [ %58, %111 ], [ %58, %115 ], [ %58, %119 ], [ %58, %127 ], [ null, %41 ]
-  %.sroa.0.0.insert.insert.i = phi i64 [ 26, %get_string_config.exit.i ], [ 26, %47 ], [ 22, %123 ], [ 4294967300, %56 ], [ 4294967301, %63 ], [ 4294967302, %67 ], [ 4294967303, %71 ], [ 4294967304, %75 ], [ 4294967305, %79 ], [ 4294967306, %83 ], [ 4294967307, %87 ], [ 4294967308, %91 ], [ 4294967309, %95 ], [ 4294967310, %99 ], [ 4294967311, %103 ], [ 4294967312, %107 ], [ 4294967313, %111 ], [ 4294967314, %115 ], [ 4294967315, %119 ], [ %..i, %127 ], [ 26, %41 ]
+  %.sroa.28.1.i = phi ptr [ null, %get_string_config.exit.i ], [ %49, %47 ], [ null, %41 ], [ %58, %123 ], [ %58, %56 ], [ %58, %63 ], [ %58, %67 ], [ %58, %71 ], [ %58, %75 ], [ %58, %79 ], [ %58, %83 ], [ %58, %87 ], [ %58, %91 ], [ %58, %95 ], [ %58, %99 ], [ %58, %103 ], [ %58, %107 ], [ %58, %111 ], [ %58, %115 ], [ %58, %119 ], [ %58, %127 ]
+  %.sroa.0.0.insert.insert.i = phi i64 [ 26, %get_string_config.exit.i ], [ 26, %47 ], [ 26, %41 ], [ 22, %123 ], [ 4294967300, %56 ], [ 4294967301, %63 ], [ 4294967302, %67 ], [ 4294967303, %71 ], [ 4294967304, %75 ], [ 4294967305, %79 ], [ 4294967306, %83 ], [ 4294967307, %87 ], [ 4294967308, %91 ], [ 4294967309, %95 ], [ 4294967310, %99 ], [ 4294967311, %103 ], [ 4294967312, %107 ], [ 4294967313, %111 ], [ 4294967314, %115 ], [ 4294967315, %119 ], [ %..i, %127 ]
   %131 = icmp eq ptr %0, null
   %132 = and i64 %.sroa.0.0.insert.insert.i, 31
   %133 = icmp eq i64 %132, 0

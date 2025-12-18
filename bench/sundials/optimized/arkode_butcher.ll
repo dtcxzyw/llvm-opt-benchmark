@@ -2145,7 +2145,7 @@ thread-pre-split1078:                             ; preds = %arkode_butcher_rows
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.thread1087, %467, %463, %457, %451, %21, %._crit_edge, %10, %6, %4, %471
-  %.0702 = phi i32 [ 0, %471 ], [ -2, %4 ], [ -2, %6 ], [ -2, %10 ], [ -2, %._crit_edge ], [ -2, %21 ], [ -1, %451 ], [ -1, %457 ], [ 1, %463 ], [ 1, %467 ], [ 1, %.thread1087 ], [ -2, %.lr.ph ]
+  %.0702 = phi i32 [ 0, %471 ], [ -2, %4 ], [ -2, %6 ], [ -2, %10 ], [ 1, %.thread1087 ], [ -2, %._crit_edge ], [ -2, %21 ], [ -1, %451 ], [ -1, %457 ], [ 1, %463 ], [ 1, %467 ], [ -2, %.lr.ph ]
   ret i32 %.0702
 }
 
@@ -7311,7 +7311,7 @@ arkode_butcher_dot.exit:                          ; preds = %.preheader164
   br label %arkode_butcher_vp.exit
 
 arkode_butcher_vp.exit:                           ; preds = %35, %.loopexit, %.lr.ph.preheader, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %.loopexit ], [ %88, %.lr.ph.preheader ], [ 0, %35 ]
+  %.0 = phi i32 [ 0, %4 ], [ %88, %.lr.ph.preheader ], [ 0, %.loopexit ], [ 0, %35 ]
   tail call void @free(ptr noundef %6) #18
   ret i32 %.0
 }
@@ -13745,7 +13745,7 @@ thread-pre-split2603.thread:                      ; preds = %arkode_butcher_rows
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph2979, %.thread5026, %2226, %2220, %2213, %2209, %2204, %2200, %thread-pre-split2603.thread, %42, %._crit_edge2980, %31, %27, %22, %._crit_edge, %11, %7, %5, %2230
-  %.01701 = phi i32 [ 0, %2230 ], [ -1, %5 ], [ -1, %7 ], [ -1, %11 ], [ -1, %._crit_edge ], [ -1, %22 ], [ 1, %2226 ], [ -1, %27 ], [ -1, %31 ], [ -1, %._crit_edge2980 ], [ -1, %42 ], [ 1, %2220 ], [ 1, %thread-pre-split2603.thread ], [ 1, %2200 ], [ 1, %2204 ], [ 1, %2209 ], [ 1, %2213 ], [ 1, %.thread5026 ], [ -1, %.lr.ph2979 ], [ -1, %.lr.ph ]
+  %.01701 = phi i32 [ 0, %2230 ], [ -1, %5 ], [ -1, %7 ], [ -1, %11 ], [ 1, %.thread5026 ], [ -1, %._crit_edge ], [ -1, %22 ], [ 1, %2226 ], [ -1, %27 ], [ -1, %31 ], [ 1, %2213 ], [ -1, %._crit_edge2980 ], [ -1, %42 ], [ 1, %2220 ], [ 1, %thread-pre-split2603.thread ], [ 1, %2200 ], [ 1, %2204 ], [ 1, %2209 ], [ -1, %.lr.ph2979 ], [ -1, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.38)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.05555)

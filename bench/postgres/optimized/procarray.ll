@@ -2116,7 +2116,7 @@ define internal fastcc zeroext i1 @pg_lfind32(i32 noundef %0, ptr noundef readon
   br label %pg_lfind32_one_by_one_helper.exit
 
 pg_lfind32_one_by_one_helper.exit:                ; preds = %.preheader, %10, %31
-  %.0 = phi i1 [ %49, %31 ], [ %13, %10 ], [ true, %.preheader ]
+  %.0 = phi i1 [ %13, %10 ], [ %49, %31 ], [ true, %.preheader ]
   ret i1 %.0
 }
 
@@ -2258,7 +2258,7 @@ define dso_local i32 @GetOldestNonRemovableTransactionId(ptr noundef %0) local_u
   %44 = load i32, ptr %43, align 4
   br label %53
 
-45:                                               ; preds = %12, %31, %22
+45:                                               ; preds = %12, %22, %31
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %47 = load i32, ptr %46, align 4
   br label %53
@@ -3351,7 +3351,7 @@ define internal fastcc i32 @KnownAssignedXidsGetAndSetXmin(ptr noundef writeonly
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %48, %43, %28, %3
-  %.018.lcssa = phi i32 [ 0, %3 ], [ %.3.us, %28 ], [ %.01824, %43 ], [ %.3, %48 ]
+  %.018.lcssa = phi i32 [ 0, %3 ], [ %.3.us, %28 ], [ %.3, %48 ], [ %.01824, %43 ]
   ret i32 %.018.lcssa
 }
 
@@ -4546,7 +4546,7 @@ define dso_local ptr @GetCurrentVirtualXIDs(i32 noundef %0, i1 noundef zeroext %
   br i1 %171, label %.lr.ph.split.split.split, label %._crit_edge, !llvm.loop !56
 
 ._crit_edge:                                      ; preds = %127, %167, %89, %50, %5
-  %.0.lcssa = phi i32 [ 0, %5 ], [ %.1, %167 ], [ %.1.us, %50 ], [ %.1.us43, %89 ], [ %.1.us52, %127 ]
+  %.0.lcssa = phi i32 [ 0, %5 ], [ %.1.us, %50 ], [ %.1, %167 ], [ %.1.us43, %89 ], [ %.1.us52, %127 ]
   %172 = load ptr, ptr @MainLWLockArray, align 8
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 512
   tail call void @LWLockRelease(ptr noundef nonnull %173) #14
@@ -4798,7 +4798,7 @@ define dso_local ptr @GetConflictingVirtualXIDs(i32 noundef %0, i32 noundef %1) 
   br i1 %136, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !57
 
 ._crit_edge:                                      ; preds = %132, %100, %73, %46, %18
-  %.0.lcssa = phi i32 [ 0, %18 ], [ %.1.us34, %100 ], [ %.1.us.us, %46 ], [ %.1.us, %73 ], [ %.1, %132 ]
+  %.0.lcssa = phi i32 [ 0, %18 ], [ %.1.us34, %100 ], [ %.1.us, %73 ], [ %.1.us.us, %46 ], [ %.1, %132 ]
   %137 = load ptr, ptr @MainLWLockArray, align 8
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 512
   tail call void @LWLockRelease(ptr noundef nonnull %138) #14
@@ -4867,7 +4867,7 @@ define dso_local i32 @CancelVirtualTransaction(i64 %0, i32 noundef %1) local_unn
   br i1 %exitcond.not.i, label %SignalVirtualTransaction.exit, label %11, !llvm.loop !58
 
 SignalVirtualTransaction.exit:                    ; preds = %29, %2, %23, %27
-  %.1.i = phi i32 [ 0, %23 ], [ %26, %27 ], [ 0, %2 ], [ 0, %29 ]
+  %.1.i = phi i32 [ %26, %27 ], [ 0, %23 ], [ 0, %2 ], [ 0, %29 ]
   %30 = load ptr, ptr @MainLWLockArray, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 512
   tail call void @LWLockRelease(ptr noundef nonnull %31) #14
@@ -4929,7 +4929,7 @@ define dso_local i32 @SignalVirtualTransaction(i64 %0, i32 noundef %1, i1 nounde
   br i1 %exitcond.not, label %.loopexit, label %13, !llvm.loop !58
 
 .loopexit:                                        ; preds = %31, %3, %29, %25
-  %.1 = phi i32 [ 0, %25 ], [ %28, %29 ], [ 0, %3 ], [ 0, %31 ]
+  %.1 = phi i32 [ %28, %29 ], [ 0, %25 ], [ 0, %3 ], [ 0, %31 ]
   %32 = load ptr, ptr @MainLWLockArray, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 512
   tail call void @LWLockRelease(ptr noundef nonnull %33) #14
@@ -6031,8 +6031,8 @@ define dso_local noundef nonnull ptr @GlobalVisTestFor(ptr noundef %0) local_unn
 GlobalVisHorizonKindForRel.exit:                  ; preds = %38, %34
   br label %GlobalVisHorizonKindForRel.exit.thread
 
-GlobalVisHorizonKindForRel.exit.thread:           ; preds = %3, %9, %1, %38, %21, %30, %11, %GlobalVisHorizonKindForRel.exit
-  %.0 = phi ptr [ @GlobalVisTempRels, %GlobalVisHorizonKindForRel.exit ], [ @GlobalVisCatalogRels, %21 ], [ @GlobalVisDataRels, %38 ], [ @GlobalVisCatalogRels, %11 ], [ @GlobalVisCatalogRels, %30 ], [ @GlobalVisSharedRels, %1 ], [ @GlobalVisSharedRels, %9 ], [ @GlobalVisSharedRels, %3 ]
+GlobalVisHorizonKindForRel.exit.thread:           ; preds = %3, %9, %1, %38, %30, %21, %11, %GlobalVisHorizonKindForRel.exit
+  %.0 = phi ptr [ @GlobalVisTempRels, %GlobalVisHorizonKindForRel.exit ], [ @GlobalVisCatalogRels, %30 ], [ @GlobalVisDataRels, %38 ], [ @GlobalVisCatalogRels, %11 ], [ @GlobalVisCatalogRels, %21 ], [ @GlobalVisSharedRels, %1 ], [ @GlobalVisSharedRels, %9 ], [ @GlobalVisSharedRels, %3 ]
   ret ptr %.0
 }
 
@@ -6183,7 +6183,7 @@ GlobalVisHorizonKindForRel.exit.i:                ; preds = %40, %36
   br label %GlobalVisTestFor.exit
 
 GlobalVisTestFor.exit:                            ; preds = %2, %5, %11, %13, %23, %32, %40, %GlobalVisHorizonKindForRel.exit.i
-  %.0.i = phi ptr [ @GlobalVisTempRels, %GlobalVisHorizonKindForRel.exit.i ], [ @GlobalVisCatalogRels, %23 ], [ @GlobalVisDataRels, %40 ], [ @GlobalVisCatalogRels, %13 ], [ @GlobalVisCatalogRels, %32 ], [ @GlobalVisSharedRels, %2 ], [ @GlobalVisSharedRels, %11 ], [ @GlobalVisSharedRels, %5 ]
+  %.0.i = phi ptr [ @GlobalVisTempRels, %GlobalVisHorizonKindForRel.exit.i ], [ @GlobalVisCatalogRels, %32 ], [ @GlobalVisDataRels, %40 ], [ @GlobalVisCatalogRels, %13 ], [ @GlobalVisCatalogRels, %23 ], [ @GlobalVisSharedRels, %2 ], [ @GlobalVisSharedRels, %11 ], [ @GlobalVisSharedRels, %5 ]
   %43 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %44 = load i64, ptr %43, align 8
   %45 = icmp ult i64 %1, %44
@@ -6290,7 +6290,7 @@ GlobalVisHorizonKindForRel.exit.i:                ; preds = %40, %36
   br label %GlobalVisTestFor.exit
 
 GlobalVisTestFor.exit:                            ; preds = %2, %5, %11, %13, %23, %32, %40, %GlobalVisHorizonKindForRel.exit.i
-  %.0.i = phi ptr [ @GlobalVisTempRels, %GlobalVisHorizonKindForRel.exit.i ], [ @GlobalVisCatalogRels, %23 ], [ @GlobalVisDataRels, %40 ], [ @GlobalVisCatalogRels, %13 ], [ @GlobalVisCatalogRels, %32 ], [ @GlobalVisSharedRels, %2 ], [ @GlobalVisSharedRels, %11 ], [ @GlobalVisSharedRels, %5 ]
+  %.0.i = phi ptr [ @GlobalVisTempRels, %GlobalVisHorizonKindForRel.exit.i ], [ @GlobalVisCatalogRels, %32 ], [ @GlobalVisDataRels, %40 ], [ @GlobalVisCatalogRels, %13 ], [ @GlobalVisCatalogRels, %23 ], [ @GlobalVisSharedRels, %2 ], [ @GlobalVisSharedRels, %11 ], [ @GlobalVisSharedRels, %5 ]
   %43 = load i64, ptr %.0.i, align 8
   %44 = trunc i64 %43 to i32
   %45 = sub i32 %1, %44

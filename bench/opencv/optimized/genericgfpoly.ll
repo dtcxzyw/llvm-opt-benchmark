@@ -614,7 +614,7 @@ define hidden noundef i32 @_ZN5zxing13GenericGFPoly10evaluateAtEi(ptr noundef no
   br i1 %exitcond.not, label %.loopexit, label %33, !llvm.loop !41
 
 .loopexit:                                        ; preds = %33, %.lr.ph26, %29, %.preheader, %13
-  %.019 = phi i32 [ %17, %13 ], [ 0, %.preheader ], [ %30, %29 ], [ %28, %.lr.ph26 ], [ %41, %33 ]
+  %.019 = phi i32 [ %17, %13 ], [ %28, %.lr.ph26 ], [ 0, %.preheader ], [ %30, %29 ], [ %41, %33 ]
   ret i32 %.019
 }
 

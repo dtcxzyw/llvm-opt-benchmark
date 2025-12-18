@@ -2574,7 +2574,7 @@ _ZN15ClassFileParser23verify_unqualified_nameEPKcji.exit: ; preds = %24
   %39 = select i1 %.not22, i1 %38, i1 false
   br i1 %39, label %.critedge, label %.critedge27
 
-.critedge27:                                      ; preds = %.lr.ph.split.us.split.us.i, %.lr.ph.split.us.split.us.i, %.lr.ph.split.us.split.us.i, %.lr.ph.split.us.split.us.i, %.lr.ph.split.us.split.us.i, %.lr.ph.split.us.split.us.i, %21, %10, %_ZN15ClassFileParser23verify_unqualified_nameEPKcji.exit
+.critedge27:                                      ; preds = %.lr.ph.split.us.split.us.i, %.lr.ph.split.us.split.us.i, %.lr.ph.split.us.split.us.i, %.lr.ph.split.us.split.us.i, %.lr.ph.split.us.split.us.i, %.lr.ph.split.us.split.us.i, %10, %21, %_ZN15ClassFileParser23verify_unqualified_nameEPKcji.exit
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 800
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
@@ -2703,7 +2703,7 @@ define hidden noundef i32 @_ZNK15ClassFileParser29verify_legal_method_signatureE
   br label %.loopexit
 
 .loopexit:                                        ; preds = %25, %44, %39, %16, %4, %50
-  %.042 = phi i32 [ -2, %4 ], [ 0, %16 ], [ 0, %39 ], [ 0, %50 ], [ %.041, %44 ], [ 0, %25 ]
+  %.042 = phi i32 [ -2, %4 ], [ 0, %16 ], [ %.041, %44 ], [ 0, %39 ], [ 0, %50 ], [ 0, %25 ]
   ret i32 %.042
 }
 
@@ -4149,7 +4149,7 @@ _ZN15MetadataFactory9new_arrayIhEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.ex
   br i1 %exitcond45.not.i, label %_ZN15ClassFileParser20assemble_annotationsEPKhiS1_iP10JavaThread.exit, label %273, !llvm.loop !18
 
 _ZN15ClassFileParser20assemble_annotationsEPKhiS1_iP10JavaThread.exit: ; preds = %273, %._crit_edge, %_ZN15MetadataFactory9new_arrayIhEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i, %.loopexit34.i
-  %.0.i180 = phi ptr [ %258, %_ZN15MetadataFactory9new_arrayIhEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i ], [ %258, %.loopexit34.i ], [ null, %._crit_edge ], [ %258, %273 ]
+  %.0.i180 = phi ptr [ %258, %_ZN15MetadataFactory9new_arrayIhEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i ], [ null, %._crit_edge ], [ %258, %.loopexit34.i ], [ %258, %273 ]
   %276 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %277 = load ptr, ptr %276, align 8
   %.not225 = icmp eq ptr %277, null
@@ -4691,7 +4691,7 @@ _ZN15MetadataFactory9new_arrayIhEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.ex
   br i1 %exitcond45.not, label %.loopexit, label %31, !llvm.loop !18
 
 .loopexit:                                        ; preds = %31, %6, %.loopexit34, %_ZN15MetadataFactory9new_arrayIhEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit
-  %.0 = phi ptr [ %16, %_ZN15MetadataFactory9new_arrayIhEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit ], [ %16, %.loopexit34 ], [ null, %6 ], [ %16, %31 ]
+  %.0 = phi ptr [ %16, %_ZN15MetadataFactory9new_arrayIhEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit ], [ null, %6 ], [ %16, %.loopexit34 ], [ %16, %31 ]
   ret ptr %.0
 }
 
@@ -7449,7 +7449,7 @@ _ZN15MetadataFactory9new_arrayIhEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.ex
   br i1 %exitcond45.not.i, label %_ZN15ClassFileParser20assemble_annotationsEPKhiS1_iP10JavaThread.exit, label %43, !llvm.loop !18
 
 _ZN15ClassFileParser20assemble_annotationsEPKhiS1_iP10JavaThread.exit: ; preds = %43, %20, %_ZN15MetadataFactory9new_arrayIhEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i, %.loopexit34.i
-  %.0.i = phi ptr [ %28, %_ZN15MetadataFactory9new_arrayIhEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i ], [ %28, %.loopexit34.i ], [ null, %20 ], [ %28, %43 ]
+  %.0.i = phi ptr [ %28, %_ZN15MetadataFactory9new_arrayIhEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i ], [ null, %20 ], [ %28, %.loopexit34.i ], [ %28, %43 ]
   %46 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %47 = load ptr, ptr %46, align 8
   %.not = icmp eq ptr %47, null
@@ -7534,7 +7534,7 @@ _ZN15MetadataFactory9new_arrayIhEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.ex
   br i1 %exitcond45.not.i51, label %_ZN15ClassFileParser20assemble_annotationsEPKhiS1_iP10JavaThread.exit57, label %76, !llvm.loop !18
 
 _ZN15ClassFileParser20assemble_annotationsEPKhiS1_iP10JavaThread.exit57: ; preds = %76, %53, %_ZN15MetadataFactory9new_arrayIhEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i40, %.loopexit34.i43
-  %.0.i38 = phi ptr [ %61, %_ZN15MetadataFactory9new_arrayIhEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i40 ], [ %61, %.loopexit34.i43 ], [ null, %53 ], [ %61, %76 ]
+  %.0.i38 = phi ptr [ %61, %_ZN15MetadataFactory9new_arrayIhEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i40 ], [ null, %53 ], [ %61, %.loopexit34.i43 ], [ %61, %76 ]
   %79 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %80 = load ptr, ptr %79, align 8
   %.not92 = icmp eq ptr %80, null
@@ -7674,7 +7674,7 @@ _ZN15MetadataFactory9new_arrayIhEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.ex
   br i1 %exitcond45.not.i85, label %_ZN15ClassFileParser20assemble_annotationsEPKhiS1_iP10JavaThread.exit91, label %131, !llvm.loop !18
 
 _ZN15ClassFileParser20assemble_annotationsEPKhiS1_iP10JavaThread.exit91: ; preds = %131, %108, %_ZN15MetadataFactory9new_arrayIhEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i74, %.loopexit34.i77
-  %.0.i72 = phi ptr [ %116, %_ZN15MetadataFactory9new_arrayIhEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i74 ], [ %116, %.loopexit34.i77 ], [ null, %108 ], [ %116, %131 ]
+  %.0.i72 = phi ptr [ %116, %_ZN15MetadataFactory9new_arrayIhEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i74 ], [ null, %108 ], [ %116, %.loopexit34.i77 ], [ %116, %131 ]
   %134 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %135 = load ptr, ptr %134, align 8
   %.not95 = icmp eq ptr %135, null
@@ -9190,7 +9190,7 @@ _ZNK6Method15is_empty_methodEv.exit.thread:       ; preds = %648, %_ZNK6Method15
   br label %.loopexit669
 
 .loopexit669:                                     ; preds = %507, %505, %503, %490, %482, %475, %462, %455, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit606, %422, %377, %_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit605, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit596, %225, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit594, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit593, %_ZNK15ClassFileParser18guarantee_propertyEbPKciP10JavaThread.exit592, %_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit591, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit587, %_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit, %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit586, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit580, %.thread619, %361, %347, %311, %287, %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit604, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit598, %639, %642, %645, %_ZNK6Method15is_empty_methodEv.exit.thread, %656, %636, %622, %579, %523, %_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit607, %111, %109, %100, %_ZNK15ClassFileParser18guarantee_propertyEbPKciP10JavaThread.exit, %60, %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit, %497, %489, %481, %469, %461, %449, %429, %421, %419, %411, %404, %392, %384, %376, %360, %176, %119, %105, %99
-  %.0408 = phi ptr [ null, %_ZNK15ClassFileParser18guarantee_propertyEbPKciP10JavaThread.exit ], [ null, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit ], [ null, %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit ], [ null, %60 ], [ null, %105 ], [ null, %100 ], [ null, %109 ], [ null, %119 ], [ null, %111 ], [ null, %176 ], [ null, %360 ], [ null, %376 ], [ null, %384 ], [ null, %392 ], [ null, %404 ], [ null, %411 ], [ null, %419 ], [ null, %421 ], [ null, %429 ], [ null, %449 ], [ null, %461 ], [ null, %469 ], [ null, %481 ], [ null, %489 ], [ null, %497 ], [ null, %_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit607 ], [ null, %523 ], [ null, %579 ], [ null, %622 ], [ null, %636 ], [ null, %99 ], [ %546, %656 ], [ %546, %_ZNK6Method15is_empty_methodEv.exit.thread ], [ %546, %645 ], [ %546, %642 ], [ %546, %639 ], [ null, %.thread619 ], [ null, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit598 ], [ null, %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit604 ], [ null, %287 ], [ null, %311 ], [ null, %347 ], [ null, %361 ], [ null, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit580 ], [ null, %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit586 ], [ null, %_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit ], [ null, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit587 ], [ null, %_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit591 ], [ null, %_ZNK15ClassFileParser18guarantee_propertyEbPKciP10JavaThread.exit592 ], [ null, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit593 ], [ null, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit594 ], [ null, %225 ], [ null, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit596 ], [ null, %_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit605 ], [ null, %377 ], [ null, %422 ], [ null, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit606 ], [ null, %455 ], [ null, %462 ], [ null, %475 ], [ null, %482 ], [ null, %490 ], [ null, %503 ], [ null, %505 ], [ null, %507 ]
+  %.0408 = phi ptr [ null, %_ZNK15ClassFileParser18guarantee_propertyEbPKciP10JavaThread.exit ], [ null, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit ], [ null, %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit ], [ null, %60 ], [ null, %105 ], [ null, %100 ], [ null, %109 ], [ null, %119 ], [ null, %111 ], [ null, %.thread619 ], [ null, %622 ], [ null, %176 ], [ null, %579 ], [ null, %523 ], [ null, %_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit607 ], [ null, %497 ], [ null, %489 ], [ null, %481 ], [ null, %469 ], [ null, %461 ], [ %546, %639 ], [ %546, %642 ], [ %546, %645 ], [ %546, %_ZNK6Method15is_empty_methodEv.exit.thread ], [ null, %360 ], [ %546, %656 ], [ null, %99 ], [ null, %636 ], [ null, %376 ], [ null, %449 ], [ null, %384 ], [ null, %392 ], [ null, %404 ], [ null, %411 ], [ null, %419 ], [ null, %421 ], [ null, %429 ], [ null, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit598 ], [ null, %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit604 ], [ null, %287 ], [ null, %311 ], [ null, %347 ], [ null, %361 ], [ null, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit580 ], [ null, %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit586 ], [ null, %_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit ], [ null, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit587 ], [ null, %_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit591 ], [ null, %_ZNK15ClassFileParser18guarantee_propertyEbPKciP10JavaThread.exit592 ], [ null, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit593 ], [ null, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit594 ], [ null, %225 ], [ null, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit596 ], [ null, %_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit605 ], [ null, %377 ], [ null, %422 ], [ null, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit606 ], [ null, %455 ], [ null, %462 ], [ null, %475 ], [ null, %482 ], [ null, %490 ], [ null, %503 ], [ null, %505 ], [ null, %507 ]
   %659 = load ptr, ptr %15, align 8
   %.not.i.i.i.i = icmp eq ptr %659, null
   br i1 %.not.i.i.i.i, label %661, label %660
@@ -9264,12 +9264,12 @@ define hidden void @_ZNK15ClassFileParser29verify_legal_method_modifiersEibPK6Sy
   br i1 %or.cond, label %.critedge, label %.critedge128
 
 34:                                               ; preds = %22
-  br i1 %18, label %35, label %49
+  br i1 %18, label %49, label %35
 
 35:                                               ; preds = %34
-  %36 = and i32 %1, 3391
-  %or.cond28.not.not = icmp eq i32 %36, 1025
-  br i1 %or.cond28.not.not, label %.critedge128, label %.critedge
+  %36 = and i32 %1, 1305
+  %or.cond37.not = icmp eq i32 %36, 1025
+  br i1 %or.cond37.not, label %.critedge128, label %.critedge
 
 37:                                               ; preds = %9
   %38 = and i32 %1, 5
@@ -9307,9 +9307,9 @@ define hidden void @_ZNK15ClassFileParser29verify_legal_method_modifiersEibPK6Sy
   br i1 %or.cond129, label %.critedge, label %.critedge128
 
 49:                                               ; preds = %34
-  %50 = and i32 %1, 1305
-  %or.cond37.not = icmp eq i32 %50, 1025
-  br i1 %or.cond37.not, label %.critedge128, label %.critedge
+  %50 = and i32 %1, 3391
+  %or.cond28.not.not = icmp eq i32 %50, 1025
+  br i1 %or.cond28.not.not, label %.critedge128, label %.critedge
 
 .critedge:                                        ; preds = %37, %35, %32, %24, %43, %48, %46, %49
   %51 = getelementptr inbounds nuw i8, ptr %4, i64 800
@@ -9348,7 +9348,7 @@ define hidden void @_ZNK15ClassFileParser29verify_legal_method_modifiersEibPK6Sy
   store ptr %58, ptr %57, align 8
   br label %.critedge128
 
-.critedge128:                                     ; preds = %70, %68, %35, %32, %31, %45, %43, %48, %5, %49
+.critedge128:                                     ; preds = %70, %68, %35, %48, %32, %31, %45, %43, %5, %49
   ret void
 }
 
@@ -10256,7 +10256,7 @@ _ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit._crit_edge: ; p
   br i1 %116, label %_ZL38inner_classes_check_loop_through_outerPK5ArrayItEiPK12ConstantPooli.exit, label %82
 
 _ZL38inner_classes_check_loop_through_outerPK5ArrayItEiPK12ConstantPooli.exit: ; preds = %.loopexit, %17, %75, %_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit, %110, %4
-  %117 = phi i1 [ false, %4 ], [ true, %17 ], [ true, %_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit ], [ true, %75 ], [ true, %110 ], [ false, %.loopexit ]
+  %117 = phi i1 [ true, %_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit ], [ false, %4 ], [ true, %17 ], [ true, %75 ], [ true, %110 ], [ false, %.loopexit ]
   ret i1 %117
 }
 
@@ -10444,7 +10444,7 @@ _ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit: ; preds = %67, %6
   br label %_ZNK15ClassFileParser24valid_klass_reference_atEi.exit88
 
 _ZNK15ClassFileParser24valid_klass_reference_atEi.exit88: ; preds = %100, %87
-  %103 = phi i1 [ false, %87 ], [ %spec.select.i.i.i.i87, %100 ]
+  %103 = phi i1 [ %spec.select.i.i.i.i87, %100 ], [ false, %87 ]
   %104 = load i8, ptr %55, align 8
   %105 = trunc i8 %104 to i1
   %.not.i89 = xor i1 %105, true
@@ -10642,7 +10642,7 @@ _ZN15MetadataFactory9new_arrayItEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.ex
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit96.thread, %_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit96, %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit95, %_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit, %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit91, %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit, %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit91.thread, %_ZN15MetadataFactory9new_arrayItEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit99, %162, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit84, %_ZN15MetadataFactory9new_arrayItEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit, %182
-  %.071 = phi i16 [ %.072, %182 ], [ 0, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit ], [ 0, %_ZN15MetadataFactory9new_arrayItEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit ], [ 0, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit84 ], [ 0, %162 ], [ 0, %_ZN15MetadataFactory9new_arrayItEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit99 ], [ 0, %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit91.thread ], [ 0, %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit ], [ 0, %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit91 ], [ 0, %_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit ], [ 0, %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit95 ], [ 0, %_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit96 ], [ 0, %_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit96.thread ]
+  %.071 = phi i16 [ %.072, %182 ], [ 0, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit ], [ 0, %_ZN15MetadataFactory9new_arrayItEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit ], [ 0, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit84 ], [ 0, %_ZN15MetadataFactory9new_arrayItEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit99 ], [ 0, %162 ], [ 0, %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit91.thread ], [ 0, %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit ], [ 0, %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit91 ], [ 0, %_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit ], [ 0, %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit95 ], [ 0, %_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit96 ], [ 0, %_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit96.thread ]
   ret i16 %.071
 }
 
@@ -11898,7 +11898,7 @@ _ZN15ClassFileParser20assemble_annotationsEPKhiS1_iP10JavaThread.exit230: ; pred
   br label %_ZN15MetadataFactory9new_arrayIP15RecordComponentEEP5ArrayIT_EP15ClassLoaderDataiS4_P10JavaThread.exit.thread
 
 _ZN15MetadataFactory9new_arrayIP15RecordComponentEEP5ArrayIT_EP15ClassLoaderDataiS4_P10JavaThread.exit.thread: ; preds = %_ZN15MetadataFactory9new_arrayIhEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i213, %_ZN15MetadataFactory9new_arrayIhEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i, %108, %340, %_ZN15ClassFileParser20assemble_annotationsEPKhiS1_iP10JavaThread.exit230, %_ZN15ClassFileParser20assemble_annotationsEPKhiS1_iP10JavaThread.exit, %_ZNK15ClassFileParser28verify_legal_field_signatureEPK6SymbolS2_P10JavaThread.exit, %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit180, %75, %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit173, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit.i198, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit.i195, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit.i192, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit.i, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit200, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit197, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit194, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit191, %_ZN15ClassFileParser33parse_generic_signature_attributeEPK15ClassFileStreamP10JavaThread.exit, %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit189, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit183, %_ZN15MetadataFactory9new_arrayIP15RecordComponentEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i, %.lr.ph.i, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit, %._crit_edge372, %252, %238, %217, %203, %169, %167
-  %.0 = phi i32 [ %.1.lcssa, %._crit_edge372 ], [ 0, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit ], [ 0, %.lr.ph.i ], [ 0, %167 ], [ 0, %169 ], [ 0, %203 ], [ 0, %217 ], [ 0, %238 ], [ 0, %252 ], [ 0, %_ZN15MetadataFactory9new_arrayIP15RecordComponentEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i ], [ 0, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit.i198 ], [ 0, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit183 ], [ 0, %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit189 ], [ 0, %_ZN15ClassFileParser33parse_generic_signature_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ 0, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit191 ], [ 0, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit ], [ 0, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit194 ], [ 0, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit197 ], [ 0, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit200 ], [ 0, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit.i ], [ 0, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit.i192 ], [ 0, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit.i195 ], [ 0, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit173 ], [ 0, %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit ], [ 0, %75 ], [ 0, %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit180 ], [ 0, %_ZNK15ClassFileParser28verify_legal_field_signatureEPK6SymbolS2_P10JavaThread.exit ], [ 0, %_ZN15ClassFileParser20assemble_annotationsEPKhiS1_iP10JavaThread.exit ], [ 0, %_ZN15ClassFileParser20assemble_annotationsEPKhiS1_iP10JavaThread.exit230 ], [ 0, %340 ], [ 0, %108 ], [ 0, %_ZN15MetadataFactory9new_arrayIhEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i ], [ 0, %_ZN15MetadataFactory9new_arrayIhEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i213 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge372 ], [ 0, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit ], [ 0, %.lr.ph.i ], [ 0, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit.i198 ], [ 0, %252 ], [ 0, %238 ], [ 0, %217 ], [ 0, %_ZN15MetadataFactory9new_arrayIP15RecordComponentEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i ], [ 0, %203 ], [ 0, %167 ], [ 0, %169 ], [ 0, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit183 ], [ 0, %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit189 ], [ 0, %_ZN15ClassFileParser33parse_generic_signature_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ 0, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit191 ], [ 0, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit ], [ 0, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit194 ], [ 0, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit197 ], [ 0, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit200 ], [ 0, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit.i ], [ 0, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit.i192 ], [ 0, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit.i195 ], [ 0, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit173 ], [ 0, %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit ], [ 0, %75 ], [ 0, %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit180 ], [ 0, %_ZNK15ClassFileParser28verify_legal_field_signatureEPK6SymbolS2_P10JavaThread.exit ], [ 0, %_ZN15ClassFileParser20assemble_annotationsEPKhiS1_iP10JavaThread.exit ], [ 0, %_ZN15ClassFileParser20assemble_annotationsEPKhiS1_iP10JavaThread.exit230 ], [ 0, %340 ], [ 0, %108 ], [ 0, %_ZN15MetadataFactory9new_arrayIhEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i ], [ 0, %_ZN15MetadataFactory9new_arrayIhEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i213 ]
   ret i32 %.0
 }
 
@@ -13419,7 +13419,7 @@ _ZN15MetadataFactory9new_arrayIhEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.ex
   br i1 %exitcond45.not.i, label %_ZN15ClassFileParser20assemble_annotationsEPKhiS1_iP10JavaThread.exit, label %458, !llvm.loop !18
 
 _ZN15ClassFileParser20assemble_annotationsEPKhiS1_iP10JavaThread.exit: ; preds = %458, %._crit_edge, %_ZN15MetadataFactory9new_arrayIhEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i, %.loopexit34.i
-  %.0.i = phi ptr [ %444, %_ZN15MetadataFactory9new_arrayIhEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i ], [ %444, %.loopexit34.i ], [ null, %._crit_edge ], [ %444, %458 ]
+  %.0.i = phi ptr [ %444, %_ZN15MetadataFactory9new_arrayIhEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i ], [ null, %._crit_edge ], [ %444, %.loopexit34.i ], [ %444, %458 ]
   %461 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store ptr %.0.i, ptr %461, align 8
   %462 = load ptr, ptr %19, align 8
@@ -13496,7 +13496,7 @@ _ZN15MetadataFactory9new_arrayIhEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.ex
   br i1 %exitcond45.not.i391, label %_ZN15ClassFileParser20assemble_annotationsEPKhiS1_iP10JavaThread.exit397, label %487, !llvm.loop !18
 
 _ZN15ClassFileParser20assemble_annotationsEPKhiS1_iP10JavaThread.exit397: ; preds = %487, %463, %_ZN15MetadataFactory9new_arrayIhEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i380, %.loopexit34.i383
-  %.0.i378 = phi ptr [ %473, %_ZN15MetadataFactory9new_arrayIhEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i380 ], [ %473, %.loopexit34.i383 ], [ null, %463 ], [ %473, %487 ]
+  %.0.i378 = phi ptr [ %473, %_ZN15MetadataFactory9new_arrayIhEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i380 ], [ null, %463 ], [ %473, %.loopexit34.i383 ], [ %473, %487 ]
   %490 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr %.0.i378, ptr %490, align 8
   %491 = load ptr, ptr %19, align 8
@@ -15015,7 +15015,7 @@ _ZN15ClassFileParser23verify_unqualified_nameEPKcji.exit: ; preds = %41
   br i1 %.not, label %.loopexit44, label %.lr.ph, !llvm.loop !64
 
 .loopexit44:                                      ; preds = %.lr.ph, %47, %5, %21, %15, %25, %7, %46, %_ZN15ClassFileParser23verify_unqualified_nameEPKcji.exit, %.loopexit, %.loopexit45
-  %.0 = phi ptr [ %spec.select, %21 ], [ %8, %.loopexit45 ], [ null, %7 ], [ %44, %_ZN15ClassFileParser23verify_unqualified_nameEPKcji.exit ], [ null, %.loopexit ], [ null, %46 ], [ null, %25 ], [ null, %15 ], [ null, %5 ], [ null, %47 ], [ null, %.lr.ph ]
+  %.0 = phi ptr [ %spec.select, %21 ], [ %8, %.loopexit45 ], [ null, %15 ], [ null, %25 ], [ null, %7 ], [ %44, %_ZN15ClassFileParser23verify_unqualified_nameEPKcji.exit ], [ null, %.loopexit ], [ null, %46 ], [ null, %5 ], [ null, %47 ], [ null, %.lr.ph ]
   ret ptr %.0
 }
 
@@ -19255,7 +19255,7 @@ define internal fastcc noundef range(i32 4, -2147483648) i32 @_ZL21skip_annotati
   br i1 %52, label %.lr.ph, label %_ZL15skip_annotationPKhii.exit, !llvm.loop !19
 
 _ZL15skip_annotationPKhii.exit:                   ; preds = %46, %.lr.ph, %.lr.ph49, %35, %18, %33, %13, %10, %5, %16, %3
-  %.032 = phi i32 [ %1, %16 ], [ %1, %3 ], [ %1, %5 ], [ %spec.select42, %13 ], [ %spec.select, %10 ], [ %1, %33 ], [ %19, %18 ], [ %36, %35 ], [ %29, %.lr.ph49 ], [ %49, %46 ], [ %1, %.lr.ph ]
+  %.032 = phi i32 [ %1, %33 ], [ %1, %16 ], [ %1, %3 ], [ %1, %5 ], [ %spec.select42, %13 ], [ %spec.select, %10 ], [ %36, %35 ], [ %19, %18 ], [ %29, %.lr.ph49 ], [ %49, %46 ], [ %1, %.lr.ph ]
   ret i32 %.032
 }
 

@@ -1006,7 +1006,7 @@ define internal ptr @xprt_iter_current_entry(ptr noundef %0) #8 align 16 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %45, %40, %25, %.loopexit.loopexit.split.loop.exit, %28, %13, %1
-  %49 = phi ptr [ null, %1 ], [ null, %13 ], [ null, %28 ], [ %48, %.loopexit.loopexit.split.loop.exit ], [ null, %25 ], [ %33, %40 ], [ null, %45 ]
+  %49 = phi ptr [ null, %1 ], [ null, %13 ], [ null, %28 ], [ null, %25 ], [ %48, %.loopexit.loopexit.split.loop.exit ], [ null, %45 ], [ %33, %40 ]
   ret ptr %49
 }
 

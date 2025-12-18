@@ -701,7 +701,7 @@ rvermUnalign.exit:                                ; preds = %91, %95
   br label %rvermicelliExec.exit
 
 rvermicelliExec.exit:                             ; preds = %.preheader, %61, %rvermSearchAligned.exit, %.thread, %rvermUnalign.exit
-  %.0.i35 = phi ptr [ %77, %.thread ], [ %103, %rvermUnalign.exit ], [ %90, %rvermSearchAligned.exit ], [ %.046.i, %61 ], [ %.046.i, %.preheader ]
+  %.0.i35 = phi ptr [ %77, %.thread ], [ %90, %rvermSearchAligned.exit ], [ %103, %rvermUnalign.exit ], [ %.046.i, %61 ], [ %.046.i, %.preheader ]
   %104 = ptrtoint ptr %.0.i35 to i64
   %105 = sub i64 %51, %59
   %106 = add i64 %105, %104
@@ -821,7 +821,7 @@ rvermUnalignNocase.exit:                          ; preds = %154, %159
   br label %rvermicelliExec.exit50
 
 rvermicelliExec.exit50:                           ; preds = %.preheader163, %121, %rvermSearchAlignedNocase.exit, %.thread100, %rvermUnalignNocase.exit
-  %.0.i42 = phi ptr [ %139, %.thread100 ], [ %167, %rvermUnalignNocase.exit ], [ %153, %rvermSearchAlignedNocase.exit ], [ %.046.i48, %121 ], [ %.046.i48, %.preheader163 ]
+  %.0.i42 = phi ptr [ %139, %.thread100 ], [ %153, %rvermSearchAlignedNocase.exit ], [ %167, %rvermUnalignNocase.exit ], [ %.046.i48, %121 ], [ %.046.i48, %.preheader163 ]
   %168 = ptrtoint ptr %.0.i42 to i64
   %169 = sub i64 %111, %119
   %170 = add i64 %169, %168
@@ -2514,7 +2514,7 @@ isAllExhausted.exit.i108.thread159:               ; preds = %303, %isAllExhauste
   br label %rawStreamExec.exit
 
 rawStreamExec.exit:                               ; preds = %.lr.ph, %.lr.ph196, %299, %294, %.lr.ph201, %.lr.ph206, %153, %148, %244, %98, %isAllExhausted.exit.i108.thread159, %isAllExhausted.exit.i108, %partial_load_u64a.exit, %isAllExhausted.exit.i.thread142, %isAllExhausted.exit.i, %95, %313
-  %.pre230 = phi i8 [ %.pre230.pre, %313 ], [ %242, %244 ], [ %96, %98 ], [ %312, %isAllExhausted.exit.i108.thread159 ], [ %242, %isAllExhausted.exit.i108 ], [ %242, %partial_load_u64a.exit ], [ %166, %isAllExhausted.exit.i.thread142 ], [ %96, %isAllExhausted.exit.i ], [ %96, %95 ], [ %242, %.lr.ph196 ], [ %96, %148 ], [ %96, %153 ], [ %96, %.lr.ph206 ], [ %96, %.lr.ph201 ], [ %242, %294 ], [ %242, %299 ], [ %242, %.lr.ph ]
+  %.pre230 = phi i8 [ %96, %148 ], [ %242, %.lr.ph196 ], [ %242, %299 ], [ %242, %294 ], [ %96, %.lr.ph201 ], [ %96, %.lr.ph206 ], [ %96, %153 ], [ %.pre230.pre, %313 ], [ %242, %244 ], [ %96, %98 ], [ %312, %isAllExhausted.exit.i108.thread159 ], [ %242, %isAllExhausted.exit.i108 ], [ %242, %partial_load_u64a.exit ], [ %166, %isAllExhausted.exit.i.thread142 ], [ %96, %isAllExhausted.exit.i ], [ %96, %95 ], [ %242, %.lr.ph ]
   %314 = getelementptr inbounds nuw i8, ptr %8, i64 7
   %315 = load i8, ptr %314, align 1
   %.not87 = icmp ne i8 %315, 0

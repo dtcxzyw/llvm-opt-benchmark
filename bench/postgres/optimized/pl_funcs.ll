@@ -367,7 +367,7 @@ define noundef ptr @plpgsql_ns_lookup(ptr noundef readonly captures(address_is_n
   br i1 %.not43.us94, label %.loopexit.us, label %.lr.ph66.split.us105, !llvm.loop !6
 
 .loopexit.us:                                     ; preds = %40, %50, %._crit_edge.split.us98, %.preheader57.us86
-  %.1.us95 = phi ptr [ %.lcssa233.mux, %._crit_edge.split.us98 ], [ %.03374.us87, %.preheader57.us86 ], [ %52, %50 ], [ %42, %40 ]
+  %.1.us95 = phi ptr [ %.lcssa233.mux, %._crit_edge.split.us98 ], [ %52, %50 ], [ %.03374.us87, %.preheader57.us86 ], [ %42, %40 ]
   br i1 %1, label %.thread53, label %44
 
 44:                                               ; preds = %.loopexit.us
@@ -394,7 +394,7 @@ define noundef ptr @plpgsql_ns_lookup(ptr noundef readonly captures(address_is_n
   br i1 %.not43.us.us, label %.loopexit.us, label %.lr.ph66.split.us.us, !llvm.loop !6
 
 .split.us:                                        ; preds = %.lr.ph.us97, %.lr.ph.us, %.lr.ph.split.us.us.us
-  %.us-phi = phi ptr [ %.02961.us.us, %.lr.ph.us ], [ %.02961.us.us.us, %.lr.ph.split.us.us.us ], [ %.02961.us89, %.lr.ph.us97 ]
+  %.us-phi = phi ptr [ %.02961.us.us.us, %.lr.ph.split.us.us.us ], [ %.02961.us.us, %.lr.ph.us ], [ %.02961.us89, %.lr.ph.us97 ]
   %.not47 = icmp eq ptr %5, null
   br i1 %.not47, label %.thread, label %.thread.sink.split
 

@@ -1635,7 +1635,7 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @udp_set_multicas
   br i1 %exitcond72.not, label %.loopexit, label %.lr.ph55.split, !llvm.loop !85
 
 .loopexit:                                        ; preds = %42, %56, %30, %.preheader49, %.preheader, %.thread46, %38
-  %.3 = phi i32 [ %.5.ph, %.thread46 ], [ %41, %38 ], [ 0, %.preheader ], [ 0, %.preheader49 ], [ 0, %56 ], [ 0, %30 ], [ 0, %42 ]
+  %.3 = phi i32 [ 0, %.preheader ], [ %.5.ph, %.thread46 ], [ %41, %38 ], [ 0, %.preheader49 ], [ 0, %56 ], [ 0, %30 ], [ 0, %42 ]
   ret i32 %.3
 }
 

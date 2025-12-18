@@ -2116,7 +2116,7 @@ instanceLinkCloseConnection.exit26:               ; preds = %instanceLinkCloseCo
   br label %.loopexit
 
 .loopexit:                                        ; preds = %23, %14, %8, %9, %instanceLinkCloseConnection.exit26
-  %.0 = phi ptr [ null, %instanceLinkCloseConnection.exit26 ], [ %0, %9 ], [ %0, %8 ], [ %0, %14 ], [ %0, %23 ]
+  %.0 = phi ptr [ null, %instanceLinkCloseConnection.exit26 ], [ %0, %8 ], [ %0, %9 ], [ %0, %14 ], [ %0, %23 ]
   ret ptr %.0
 }
 
@@ -2352,13 +2352,13 @@ sentinelAddrOrHostnameEqual.exit.thread:          ; preds = %sentinelAddrOrHostn
   br i1 %.not30, label %.sink.split, label %.thread
 
 .thread37:                                        ; preds = %sentinelAddrOrHostnameEqual.exit.thread.us50, %sentinelAddrOrHostnameEqual.exit.thread.us.us, %22, %.lr.ph.split.us.split, %12
-  %.1 = phi ptr [ null, %12 ], [ %26, %.lr.ph.split.us.split ], [ %19, %22 ], [ null, %sentinelAddrOrHostnameEqual.exit.thread.us.us ], [ null, %sentinelAddrOrHostnameEqual.exit.thread.us50 ]
+  %.1 = phi ptr [ %19, %22 ], [ null, %12 ], [ %26, %.lr.ph.split.us.split ], [ null, %sentinelAddrOrHostnameEqual.exit.thread.us.us ], [ null, %sentinelAddrOrHostnameEqual.exit.thread.us50 ]
   tail call void @dictReleaseIterator(ptr noundef %13) #30
   %.not33 = icmp eq ptr %.024, null
   br i1 %.not33, label %70, label %66
 
 .sink.split:                                      ; preds = %57, %sentinelAddrOrHostnameEqual.exit, %sentinelAddrOrHostnameEqual.exit.thread, %sentinelAddrOrHostnameEqual.exit.us, %40
-  %.142.ph = phi ptr [ %28, %sentinelAddrOrHostnameEqual.exit.us ], [ %28, %40 ], [ null, %sentinelAddrOrHostnameEqual.exit.thread ], [ %50, %57 ], [ %50, %sentinelAddrOrHostnameEqual.exit ]
+  %.142.ph = phi ptr [ %28, %sentinelAddrOrHostnameEqual.exit.us ], [ %28, %40 ], [ %50, %57 ], [ %50, %sentinelAddrOrHostnameEqual.exit ], [ null, %sentinelAddrOrHostnameEqual.exit.thread ]
   tail call void @dictReleaseIterator(ptr noundef %13) #30
   br label %66
 
@@ -11694,7 +11694,7 @@ sentinelGetMasterByNameOrReplyError.exit.thread:  ; preds = %1
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %260
 
-sentinelGetMasterByNameOrReplyError.exit:         ; preds = %250, %241, %239
+sentinelGetMasterByNameOrReplyError.exit:         ; preds = %239, %241, %250
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %251 = add nsw i32 %.2, 1
   %252 = load i32, ptr %12, align 8, !tbaa !249

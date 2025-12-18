@@ -36686,7 +36686,7 @@ lean_dec.exit92:                                  ; preds = %154
   br i1 %149, label %247, label %lean_dec.exit92.thread
 
 lean_dec.exit92.thread:                           ; preds = %lean_dec.exit92, %lean_nat_eq.exit.thread, %155, %152, %lean_inc.exit99, %175, %177, %178
-  %.084175 = phi ptr [ %163, %178 ], [ %163, %177 ], [ %163, %175 ], [ %163, %lean_inc.exit99 ], [ %97, %152 ], [ %97, %155 ], [ %97, %lean_nat_eq.exit.thread ], [ %97, %lean_dec.exit92 ]
+  %.084175 = phi ptr [ %163, %lean_inc.exit99 ], [ %163, %178 ], [ %163, %177 ], [ %163, %175 ], [ %97, %152 ], [ %97, %155 ], [ %97, %lean_nat_eq.exit.thread ], [ %97, %lean_dec.exit92 ]
   br i1 %.not180, label %229, label %lean_dec.exit88
 
 229:                                              ; preds = %lean_dec.exit92.thread

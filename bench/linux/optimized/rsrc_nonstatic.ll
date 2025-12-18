@@ -376,7 +376,7 @@ define internal range(i32 -22, 1) i32 @nonstatic_find_io(ptr noundef captures(no
   br i1 %40, label %39, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %33, %.thread14, %171, %.thread
-  %174 = phi i32 [ -22, %.thread ], [ 0, %171 ], [ -22, %.thread14 ], [ -16, %33 ]
+  %174 = phi i32 [ -22, %.thread14 ], [ -22, %.thread ], [ 0, %171 ], [ -16, %33 ]
   ret i32 %174
 }
 

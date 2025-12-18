@@ -1167,7 +1167,7 @@ smtp_state.exit:                                  ; preds = %37, %41, %48, %54, 
   br label %smtp_parse_url_options.exit
 
 smtp_parse_url_options.exit:                      ; preds = %22, %.critedge5.i, %.critedge.i, %66, %smtp_parse_url_path.exit
-  %.0 = phi i32 [ %72, %.critedge.i ], [ %36, %smtp_parse_url_path.exit ], [ %67, %66 ], [ 3, %.critedge5.i ], [ %26, %22 ]
+  %.0 = phi i32 [ %72, %.critedge.i ], [ %36, %smtp_parse_url_path.exit ], [ %67, %66 ], [ %26, %22 ], [ 3, %.critedge5.i ]
   ret i32 %.0
 }
 
@@ -2420,7 +2420,7 @@ smtp_state.exit:                                  ; preds = %392, %397, %402, %4
   br label %smtp_state_servergreet_resp.exit.thread126thread-pre-split
 
 smtp_state_servergreet_resp.exit:                 ; preds = %316, %298, %smtp_state.exit42.i, %smtp_state.exit.i86, %254, %248, %161, %158, %153, %smtp_state_auth_resp.exit
-  %.1 = phi i32 [ %.0.i72, %smtp_state_auth_resp.exit ], [ %317, %316 ], [ %.1.i, %248 ], [ %299, %298 ], [ %255, %254 ], [ %.1.i, %smtp_state.exit.i86 ], [ %.1.i, %smtp_state.exit42.i ], [ %162, %161 ], [ %154, %153 ], [ %159, %158 ]
+  %.1 = phi i32 [ %159, %158 ], [ %154, %153 ], [ %162, %161 ], [ %.1.i, %smtp_state.exit42.i ], [ %.1.i, %smtp_state.exit.i86 ], [ %255, %254 ], [ %.0.i72, %smtp_state_auth_resp.exit ], [ %317, %316 ], [ %.1.i, %248 ], [ %299, %298 ]
   %.not56 = icmp eq i32 %.1, 0
   br i1 %.not56, label %smtp_state_servergreet_resp.exit.thread126thread-pre-split, label %.critedge
 

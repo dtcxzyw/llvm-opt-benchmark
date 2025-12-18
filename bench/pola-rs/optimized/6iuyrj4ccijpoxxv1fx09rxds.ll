@@ -51509,16 +51509,16 @@ define hidden void @_ZN13polars_stream14async_executor10task_scope17h7da1e110c28
   br label %.thread230.i.i.i.i
 
 .thread245.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i.i.i.i: ; preds = %198, %194, %._crit_edge355.i.i.i.i, %179, %._crit_edge351.i.i.i.i, %165, %158, %._crit_edge348.i.i.i.i, %75
-  %.sroa.027.1.ph.ph.ph.ph.ph.ph.ph.i.i.i.i = phi i1 [ true, %._crit_edge348.i.i.i.i ], [ true, %158 ], [ true, %165 ], [ true, %._crit_edge351.i.i.i.i ], [ true, %179 ], [ true, %._crit_edge355.i.i.i.i ], [ false, %194 ], [ true, %198 ], [ true, %75 ]
-  %.sroa.026.1.ph.ph.ph.ph.ph.ph.ph.i.i.i.i = phi i1 [ true, %._crit_edge348.i.i.i.i ], [ true, %158 ], [ true, %165 ], [ true, %._crit_edge351.i.i.i.i ], [ true, %179 ], [ true, %._crit_edge355.i.i.i.i ], [ true, %194 ], [ false, %198 ], [ true, %75 ]
-  %.sroa.025.1.ph.ph.ph.ph.ph.ph.ph.i.i.i.i = phi i1 [ true, %._crit_edge348.i.i.i.i ], [ false, %158 ], [ true, %165 ], [ true, %._crit_edge351.i.i.i.i ], [ true, %179 ], [ true, %._crit_edge355.i.i.i.i ], [ true, %194 ], [ true, %198 ], [ true, %75 ]
+  %.sroa.027.1.ph.ph.ph.ph.ph.ph.ph.i.i.i.i = phi i1 [ true, %158 ], [ true, %165 ], [ true, %._crit_edge351.i.i.i.i ], [ true, %179 ], [ true, %._crit_edge355.i.i.i.i ], [ false, %194 ], [ true, %._crit_edge348.i.i.i.i ], [ true, %198 ], [ true, %75 ]
+  %.sroa.026.1.ph.ph.ph.ph.ph.ph.ph.i.i.i.i = phi i1 [ true, %158 ], [ true, %165 ], [ true, %._crit_edge351.i.i.i.i ], [ true, %179 ], [ true, %._crit_edge355.i.i.i.i ], [ true, %194 ], [ true, %._crit_edge348.i.i.i.i ], [ false, %198 ], [ true, %75 ]
+  %.sroa.025.1.ph.ph.ph.ph.ph.ph.ph.i.i.i.i = phi i1 [ false, %158 ], [ true, %165 ], [ true, %._crit_edge351.i.i.i.i ], [ true, %179 ], [ true, %._crit_edge355.i.i.i.i ], [ true, %194 ], [ true, %._crit_edge348.i.i.i.i ], [ true, %198 ], [ true, %75 ]
   %lpad.loopexit317.i.i.i.i = landingpad { ptr, i32 }
           cleanup
           catch ptr null
   br label %.thread230.i.i.i.i
 
 .thread245.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i.i.i: ; preds = %372, %"_ZN4core3ptr91drop_in_place$LT$core..result..Result$LT$alloc..string..String$C$std..env..VarError$GT$$GT$17h17eedb1e2b6f0889E.exit126.i.i.i.i", %370, %369, %365, %363, %358, %341, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h2f9eb45989c02acfE.exit.invoke.i.i.i.i", %104
-  %.sroa.028.0.ph.ph.ph.ph.ph.ph.ph.i.i.i.i = phi i1 [ true, %365 ], [ true, %358 ], [ true, %104 ], [ true, %341 ], [ true, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h2f9eb45989c02acfE.exit.invoke.i.i.i.i" ], [ true, %363 ], [ true, %369 ], [ true, %"_ZN4core3ptr91drop_in_place$LT$core..result..Result$LT$alloc..string..String$C$std..env..VarError$GT$$GT$17h17eedb1e2b6f0889E.exit126.i.i.i.i" ], [ true, %370 ], [ false, %372 ]
+  %.sroa.028.0.ph.ph.ph.ph.ph.ph.ph.i.i.i.i = phi i1 [ true, %"_ZN4core3ptr91drop_in_place$LT$core..result..Result$LT$alloc..string..String$C$std..env..VarError$GT$$GT$17h17eedb1e2b6f0889E.exit126.i.i.i.i" ], [ true, %369 ], [ true, %370 ], [ true, %363 ], [ false, %372 ], [ true, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h2f9eb45989c02acfE.exit.invoke.i.i.i.i" ], [ true, %341 ], [ true, %104 ], [ true, %358 ], [ true, %365 ]
   %lpad.loopexit.split-lp318.i.i.i.i = landingpad { ptr, i32 }
           cleanup
           catch ptr null
@@ -64813,7 +64813,7 @@ define hidden void @_ZN13polars_stream5nodes8io_sinks9partition8max_size24MaxSiz
           to label %.body unwind label %68, !noalias !5821
 
 .loopexit.i.i:                                    ; preds = %51, %49, %40, %.lr.ph.i.i.i, %31, %31, %26
-  %.sroa.4.0.ph.i.i = phi i8 [ 1, %31 ], [ 0, %26 ], [ 1, %31 ], [ 1, %.lr.ph.i.i.i ], [ 2, %51 ], [ 1, %40 ], [ 2, %49 ]
+  %.sroa.4.0.ph.i.i = phi i8 [ 1, %31 ], [ 1, %31 ], [ 0, %26 ], [ 1, %.lr.ph.i.i.i ], [ 2, %51 ], [ 1, %40 ], [ 2, %49 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !5832
   store i8 %.sroa.4.0.ph.i.i, ptr %10, align 1, !noalias !5832
   invoke void @_ZN4core6result13unwrap_failed17h730db56f15e0885aE(ptr noalias noundef nonnull readonly align 1 @anon.fd10ff1e36b00356cf259412b9d74870.424, i64 noundef 49, ptr noundef nonnull align 1 %10, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.fd10ff1e36b00356cf259412b9d74870.140, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fd10ff1e36b00356cf259412b9d74870.425) #31
@@ -65823,7 +65823,7 @@ define hidden void @_ZN13polars_stream5nodes8io_sinks9partition6parted23PartedPa
           to label %.body16 unwind label %145, !noalias !5945
 
 .loopexit.i.i:                                    ; preds = %128, %126, %117, %.lr.ph.i.i.i, %108, %108, %103
-  %.sroa.4.0.ph.i.i = phi i8 [ 1, %108 ], [ 0, %103 ], [ 1, %108 ], [ 1, %.lr.ph.i.i.i ], [ 2, %128 ], [ 1, %117 ], [ 2, %126 ]
+  %.sroa.4.0.ph.i.i = phi i8 [ 1, %108 ], [ 1, %108 ], [ 0, %103 ], [ 1, %.lr.ph.i.i.i ], [ 2, %128 ], [ 1, %117 ], [ 2, %126 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !5956
   store i8 %.sroa.4.0.ph.i.i, ptr %12, align 1, !noalias !5956
   invoke void @_ZN4core6result13unwrap_failed17h730db56f15e0885aE(ptr noalias noundef nonnull readonly align 1 @anon.fd10ff1e36b00356cf259412b9d74870.437, i64 noundef 47, ptr noundef nonnull align 1 %12, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.fd10ff1e36b00356cf259412b9d74870.140, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fd10ff1e36b00356cf259412b9d74870.438) #31
@@ -70400,7 +70400,7 @@ _ZN13polars_stream5nodes5joins9equi_join11SampleState23try_transition_to_build17
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.16.i)
   br label %392
 
-_ZN13polars_stream5nodes5joins9equi_join11SampleState23try_transition_to_build17hc3e3ddb138c43182E.exit.thread229: ; preds = %.thread104.i, %171
+_ZN13polars_stream5nodes5joins9equi_join11SampleState23try_transition_to_build17hc3e3ddb138c43182E.exit.thread229: ; preds = %171, %.thread104.i
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.16.i)
   br label %393
 
@@ -75933,9 +75933,9 @@ thread-pre-split.thread.i:                        ; preds = %115, %thread-pre-sp
           cleanup
   br label %.thread525
 
-.thread783:                                       ; preds = %298, %291, %848
-  %.sroa.061.3.ph.ph = phi i8 [ %.sroa.061.6, %848 ], [ 1, %291 ], [ 1, %298 ]
-  %.sroa.066.3.ph.ph = phi i8 [ 0, %848 ], [ 1, %291 ], [ 1, %298 ]
+.thread783:                                       ; preds = %848, %291, %298
+  %.sroa.061.3.ph.ph = phi i8 [ 1, %298 ], [ 1, %291 ], [ %.sroa.061.6, %848 ]
+  %.sroa.066.3.ph.ph = phi i8 [ 1, %298 ], [ 1, %291 ], [ 0, %848 ]
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread491
@@ -79164,9 +79164,9 @@ define void @"_ZN154_$LT$polars_stream..nodes..io_sources..ipc..IpcFileReader$u2
   br label %.thread440
 
 .loopexit.split-lp:                               ; preds = %.invoke, %159, %168, %183, %198, %217, %232, %"_ZN4core3ptr221drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$polars_stream..async_primitives..connector..SendError$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$$GT$17h3f93bca6b4ae7c13E.exit", %276, %281, %282, %324, %335, %372, %763, %765
-  %.sroa.088.0.ph = phi i8 [ %.sroa.088.4, %763 ], [ %.sroa.088.4, %324 ], [ 0, %183 ], [ %.sroa.088.4, %.invoke ], [ 1, %168 ], [ 0, %198 ], [ %.sroa.088.4, %232 ], [ %.sroa.088.4, %"_ZN4core3ptr221drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$polars_stream..async_primitives..connector..SendError$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$$GT$17h3f93bca6b4ae7c13E.exit" ], [ %.sroa.088.4, %276 ], [ %.sroa.088.4, %282 ], [ 1, %159 ], [ %.sroa.088.4, %372 ], [ %.sroa.088.4, %335 ], [ %.sroa.088.4, %281 ], [ %.sroa.088.4, %765 ], [ %.sroa.088.4, %217 ]
-  %.sroa.085.0.ph = phi i8 [ %.sroa.085.5, %763 ], [ %.sroa.085.5, %324 ], [ 1, %183 ], [ %.sroa.085.5, %.invoke ], [ 1, %168 ], [ 1, %198 ], [ 0, %232 ], [ %.sroa.085.5, %"_ZN4core3ptr221drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$polars_stream..async_primitives..connector..SendError$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$$GT$17h3f93bca6b4ae7c13E.exit" ], [ %.sroa.085.5, %276 ], [ %.sroa.085.5, %282 ], [ 1, %159 ], [ %.sroa.085.5, %372 ], [ %.sroa.085.5, %335 ], [ %.sroa.085.5, %281 ], [ %.sroa.085.5, %765 ], [ 0, %217 ]
-  %.sroa.091.0.ph = phi i8 [ %.sroa.091.5, %763 ], [ %.sroa.091.5, %324 ], [ 1, %183 ], [ %.sroa.091.5, %.invoke ], [ 1, %168 ], [ 1, %198 ], [ 1, %232 ], [ 0, %"_ZN4core3ptr221drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$polars_stream..async_primitives..connector..SendError$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$$GT$17h3f93bca6b4ae7c13E.exit" ], [ %.sroa.091.5, %276 ], [ %.sroa.091.5, %282 ], [ 1, %159 ], [ %.sroa.091.5, %372 ], [ %.sroa.091.5, %335 ], [ %.sroa.091.5, %281 ], [ %.sroa.091.5, %765 ], [ 1, %217 ]
+  %.sroa.088.0.ph = phi i8 [ %.sroa.088.4, %.invoke ], [ 0, %183 ], [ %.sroa.088.4, %324 ], [ 1, %168 ], [ 0, %198 ], [ %.sroa.088.4, %232 ], [ %.sroa.088.4, %"_ZN4core3ptr221drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$polars_stream..async_primitives..connector..SendError$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$$GT$17h3f93bca6b4ae7c13E.exit" ], [ %.sroa.088.4, %276 ], [ %.sroa.088.4, %282 ], [ 1, %159 ], [ %.sroa.088.4, %763 ], [ %.sroa.088.4, %372 ], [ %.sroa.088.4, %335 ], [ %.sroa.088.4, %281 ], [ %.sroa.088.4, %765 ], [ %.sroa.088.4, %217 ]
+  %.sroa.085.0.ph = phi i8 [ %.sroa.085.5, %.invoke ], [ 1, %183 ], [ %.sroa.085.5, %324 ], [ 1, %168 ], [ 1, %198 ], [ 0, %232 ], [ %.sroa.085.5, %"_ZN4core3ptr221drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$polars_stream..async_primitives..connector..SendError$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$$GT$17h3f93bca6b4ae7c13E.exit" ], [ %.sroa.085.5, %276 ], [ %.sroa.085.5, %282 ], [ 1, %159 ], [ %.sroa.085.5, %763 ], [ %.sroa.085.5, %372 ], [ %.sroa.085.5, %335 ], [ %.sroa.085.5, %281 ], [ %.sroa.085.5, %765 ], [ 0, %217 ]
+  %.sroa.091.0.ph = phi i8 [ %.sroa.091.5, %.invoke ], [ 1, %183 ], [ %.sroa.091.5, %324 ], [ 1, %168 ], [ 1, %198 ], [ 1, %232 ], [ 0, %"_ZN4core3ptr221drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$polars_stream..async_primitives..connector..SendError$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$$GT$17h3f93bca6b4ae7c13E.exit" ], [ %.sroa.091.5, %276 ], [ %.sroa.091.5, %282 ], [ 1, %159 ], [ %.sroa.091.5, %763 ], [ %.sroa.091.5, %372 ], [ %.sroa.091.5, %335 ], [ %.sroa.091.5, %281 ], [ %.sroa.091.5, %765 ], [ 1, %217 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.thread440
@@ -79985,7 +79985,7 @@ _ZN4core4iter6traits8iterator8Iterator7collect17he50fe17053cb5ec5E.exit: ; preds
           to label %.body unwind label %456, !noalias !7368
 
 .loopexit.i.i.i:                                  ; preds = %439, %437, %428, %.lr.ph.i.i.i.i, %419, %419, %414
-  %.sroa.4.0.ph.i.i.i = phi i8 [ 1, %419 ], [ 0, %414 ], [ 1, %419 ], [ 1, %.lr.ph.i.i.i.i ], [ 2, %437 ], [ 1, %428 ], [ 2, %439 ]
+  %.sroa.4.0.ph.i.i.i = phi i8 [ 1, %419 ], [ 1, %419 ], [ 0, %414 ], [ 1, %.lr.ph.i.i.i.i ], [ 1, %428 ], [ 2, %439 ], [ 2, %437 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %24), !noalias !7389
   store i8 %.sroa.4.0.ph.i.i.i, ptr %24, align 1, !noalias !7389
   invoke void @_ZN4core6result13unwrap_failed17h730db56f15e0885aE(ptr noalias noundef nonnull readonly align 1 @anon.fd10ff1e36b00356cf259412b9d74870.467, i64 noundef 71, ptr noundef nonnull align 1 %24, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.fd10ff1e36b00356cf259412b9d74870.140, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fd10ff1e36b00356cf259412b9d74870.468) #31

@@ -7335,7 +7335,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit448: ; preds = %_Z
   br i1 %992, label %.loopexit, label %989
 
 .loopexit:                                        ; preds = %980, %989, %.thread
-  %.pn203.pn = phi { ptr, i32 } [ %238, %.thread ], [ %.pn203, %989 ], [ %979, %980 ]
+  %.pn203.pn = phi { ptr, i32 } [ %.pn203, %989 ], [ %238, %.thread ], [ %979, %980 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
   call void @llvm.lifetime.end.p0(ptr nonnull %55)
   %993 = load ptr, ptr %54, align 8, !tbaa !47
@@ -16213,7 +16213,7 @@ _ZNSt6vectorIP11_typeobjectSaIS1_EED2Ev.exit:     ; preds = %._crit_edge260, %64
   br label %.loopexit177, !llvm.loop !605
 
 _ZNKSt13unordered_mapIP11_typeobjectSt6vectorIPN8pybind116detail9type_infoESaIS6_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S8_EEE4findERSE_.exit: ; preds = %94, %78, %89
-  %.sroa.06.1.i.i = phi ptr [ %90, %89 ], [ %.sroa.06.0.i.i, %78 ], [ %96, %94 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %78 ], [ %90, %89 ], [ %96, %94 ]
   %102 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %103 = load ptr, ptr %102, align 8, !tbaa !578
   %104 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 24
@@ -20985,7 +20985,7 @@ _ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_poli
   br label %_ZZN8pybind1112cpp_function10initializeIZNS_6detail23all_type_info_get_cacheEP11_typeobjectEUlNS_6handleEE_vJS5_EJEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS2_13function_callEE_clESJ_.exit
 
 _ZZN8pybind1112cpp_function10initializeIZNS_6detail23all_type_info_get_cacheEP11_typeobjectEUlNS_6handleEE_vJS5_EJEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS2_13function_callEE_clESJ_.exit: ; preds = %1, %4, %_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE.exit.sink.split.i
-  %.sroa.017.0.i = phi ptr [ inttoptr (i64 1 to ptr), %1 ], [ @_Py_NoneStruct, %_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE.exit.sink.split.i ], [ @_Py_NoneStruct, %4 ]
+  %.sroa.017.0.i = phi ptr [ inttoptr (i64 1 to ptr), %1 ], [ @_Py_NoneStruct, %4 ], [ @_Py_NoneStruct, %_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE.exit.sink.split.i ]
   ret ptr %.sroa.017.0.i
 }
 
@@ -21312,7 +21312,7 @@ _ZNSt10_HashtableIP11_typeobjectSt4pairIKS1_St6vectorIPN8pybind116detail9type_in
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph.i, %.lr.ph, %..loopexit_crit_edge21.i, %22, %5, %_ZNSt10_HashtableIP11_typeobjectSt4pairIKS1_St6vectorIPN8pybind116detail9type_infoESaIS8_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNSD_15_Hash_node_baseEPNSD_10_Hash_nodeISB_Lb0EEE.exit
-  %.0 = phi i64 [ 1, %_ZNSt10_HashtableIP11_typeobjectSt4pairIKS1_St6vectorIPN8pybind116detail9type_infoESaIS8_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNSD_15_Hash_node_baseEPNSD_10_Hash_nodeISB_Lb0EEE.exit ], [ 0, %5 ], [ 0, %22 ], [ 0, %..loopexit_crit_edge21.i ], [ 0, %.lr.ph ], [ 0, %.lr.ph.i ]
+  %.0 = phi i64 [ 1, %_ZNSt10_HashtableIP11_typeobjectSt4pairIKS1_St6vectorIPN8pybind116detail9type_infoESaIS8_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNSD_15_Hash_node_baseEPNSD_10_Hash_nodeISB_Lb0EEE.exit ], [ 0, %.lr.ph ], [ 0, %5 ], [ 0, %22 ], [ 0, %..loopexit_crit_edge21.i ], [ 0, %.lr.ph.i ]
   ret i64 %.0
 }
 
@@ -24464,7 +24464,7 @@ _ZN8pybind116detail19loader_life_supportC2Ev.exit: ; preds = %.noexc.i
   br label %.loopexit1077
 
 _ZNSt6vectorIN8pybind116detail13function_callESaIS2_EE9push_backEOS2_.exit: ; preds = %820, %814, %831, %846, %809
-  %.9 = phi i1 [ %.not327, %809 ], [ false, %846 ], [ false, %831 ], [ false, %814 ], [ false, %820 ]
+  %.9 = phi i1 [ %.not327, %809 ], [ false, %831 ], [ false, %846 ], [ false, %814 ], [ false, %820 ]
   %849 = load ptr, ptr %20, align 8, !tbaa !868
   %.not.i.i596 = icmp eq ptr %849, null
   br i1 %.not.i.i596, label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit, label %850
@@ -26697,7 +26697,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit812: ; preds = %15
   br label %.loopexit1001
 
 .loopexit1001:                                    ; preds = %.body794, %.loopexit, %.loopexit.split-lp, %1613, %1611, %1589
-  %.merged386 = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %.pn350.pn.pn, %1589 ], [ %1614, %1613 ], [ %1612, %1611 ], [ %lpad.loopexit, %.loopexit ], [ %.pn354.pn, %.body794 ]
+  %.merged386 = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %1612, %1611 ], [ %.pn350.pn.pn, %1589 ], [ %1614, %1613 ], [ %lpad.loopexit, %.loopexit ], [ %.pn354.pn, %.body794 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
   br label %1615
 
@@ -26832,7 +26832,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit827: ; preds = %_Z
   br label %_ZNKR8pybind116handle7inc_refEv.exit
 
 .loopexit1007:                                    ; preds = %1454, %.loopexit1002, %.loopexit.split-lp1003, %1463, %1465, %1643, %1640, %1626
-  %.merged380 = phi { ptr, i32 } [ %.merged382, %1626 ], [ %1641, %1640 ], [ %1644, %1643 ], [ %lpad.loopexit.split-lp1005, %.loopexit.split-lp1003 ], [ %1466, %1465 ], [ %1464, %1463 ], [ %lpad.loopexit1004, %.loopexit1002 ], [ %.pn360.pn.pn, %1454 ]
+  %.merged380 = phi { ptr, i32 } [ %.merged382, %1626 ], [ %1641, %1640 ], [ %1644, %1643 ], [ %lpad.loopexit.split-lp1005, %.loopexit.split-lp1003 ], [ %1464, %1463 ], [ %1466, %1465 ], [ %lpad.loopexit1004, %.loopexit1002 ], [ %.pn360.pn.pn, %1454 ]
   call void @_ZN8pybind116objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %33) #33
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   br label %1659
@@ -31766,7 +31766,7 @@ define linkonce_odr hidden void @_ZZ21pybind11_meta_deallocENKUlRN8pybind116deta
   br label %.critedge, !llvm.loop !605
 
 _ZNSt13unordered_mapIP11_typeobjectSt6vectorIPN8pybind116detail9type_infoESaIS6_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S8_EEE4findERSE_.exit: ; preds = %28, %11, %23
-  %.sroa.06.1.i.i = phi ptr [ %24, %23 ], [ %.sroa.06.0.i.i, %11 ], [ %30, %28 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %11 ], [ %24, %23 ], [ %30, %28 ]
   %36 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %37 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 24
   %38 = load ptr, ptr %37, align 8, !tbaa !600
@@ -32056,9 +32056,9 @@ _ZNKSt8__detail15_Hashtable_baseISt10type_indexSt4pairIKS1_St6vectorIPFbP7_objec
   br i1 %.not14.i, label %.critedge, label %29, !llvm.loop !1109
 
 _ZNSt10_HashtableISt10type_indexSt4pairIKS0_St6vectorIPFbP7_objectRPvESaIS9_EEESaISC_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS2_.exit: ; preds = %29, %_ZNKSt8__detail15_Hashtable_baseISt10type_indexSt4pairIKS1_St6vectorIPFbP7_objectRPvESaISA_EEENS_10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb0ELb0ELb1EEEE13_M_key_equalsERS3_RKNS_16_Hash_node_valueISD_Lb0EEE.exit.i, %18, %.lr.ph.split, %.preheader.i
-  %41 = phi ptr [ %14, %.preheader.i ], [ %14, %.lr.ph.split ], [ %22, %18 ], [ %33, %_ZNKSt8__detail15_Hashtable_baseISt10type_indexSt4pairIKS1_St6vectorIPFbP7_objectRPvESaISA_EEENS_10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb0ELb0ELb1EEEE13_M_key_equalsERS3_RKNS_16_Hash_node_valueISD_Lb0EEE.exit.i ], [ %33, %29 ]
-  %42 = phi ptr [ %7, %.preheader.i ], [ %7, %.lr.ph.split ], [ %17, %18 ], [ %40, %_ZNKSt8__detail15_Hashtable_baseISt10type_indexSt4pairIKS1_St6vectorIPFbP7_objectRPvESaISA_EEENS_10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb0ELb0ELb1EEEE13_M_key_equalsERS3_RKNS_16_Hash_node_valueISD_Lb0EEE.exit.i ], [ %40, %29 ]
-  %.01118.i.lcssa = phi ptr [ %6, %.preheader.i ], [ %6, %.lr.ph.split ], [ %.019.i28.us, %18 ], [ %.019.i2832, %_ZNKSt8__detail15_Hashtable_baseISt10type_indexSt4pairIKS1_St6vectorIPFbP7_objectRPvESaISA_EEENS_10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb0ELb0ELb1EEEE13_M_key_equalsERS3_RKNS_16_Hash_node_valueISD_Lb0EEE.exit.i ], [ %.019.i2832, %29 ]
+  %41 = phi ptr [ %14, %.preheader.i ], [ %22, %18 ], [ %14, %.lr.ph.split ], [ %33, %_ZNKSt8__detail15_Hashtable_baseISt10type_indexSt4pairIKS1_St6vectorIPFbP7_objectRPvESaISA_EEENS_10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb0ELb0ELb1EEEE13_M_key_equalsERS3_RKNS_16_Hash_node_valueISD_Lb0EEE.exit.i ], [ %33, %29 ]
+  %42 = phi ptr [ %7, %.preheader.i ], [ %17, %18 ], [ %7, %.lr.ph.split ], [ %40, %_ZNKSt8__detail15_Hashtable_baseISt10type_indexSt4pairIKS1_St6vectorIPFbP7_objectRPvESaISA_EEENS_10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb0ELb0ELb1EEEE13_M_key_equalsERS3_RKNS_16_Hash_node_valueISD_Lb0EEE.exit.i ], [ %40, %29 ]
+  %.01118.i.lcssa = phi ptr [ %6, %.preheader.i ], [ %.019.i28.us, %18 ], [ %6, %.lr.ph.split ], [ %.019.i2832, %_ZNKSt8__detail15_Hashtable_baseISt10type_indexSt4pairIKS1_St6vectorIPFbP7_objectRPvESaISA_EEENS_10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb0ELb0ELb1EEEE13_M_key_equalsERS3_RKNS_16_Hash_node_valueISD_Lb0EEE.exit.i ], [ %.019.i2832, %29 ]
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %44 = load i64, ptr %43, align 8, !tbaa !494
   %45 = load i8, ptr %41, align 1, !tbaa !120
@@ -32399,9 +32399,9 @@ _ZNKSt8__detail15_Hashtable_baseISt10type_indexSt4pairIKS1_PN8pybind116detail9ty
   br i1 %.not14.i, label %.critedge, label %29, !llvm.loop !1129
 
 _ZNSt10_HashtableISt10type_indexSt4pairIKS0_PN8pybind116detail9type_infoEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS2_.exit: ; preds = %29, %_ZNKSt8__detail15_Hashtable_baseISt10type_indexSt4pairIKS1_PN8pybind116detail9type_infoEENS_10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb0ELb0ELb1EEEE13_M_key_equalsERS3_RKNS_16_Hash_node_valueIS8_Lb0EEE.exit.i, %18, %.lr.ph.split, %.preheader.i
-  %41 = phi ptr [ %14, %.preheader.i ], [ %14, %.lr.ph.split ], [ %22, %18 ], [ %33, %_ZNKSt8__detail15_Hashtable_baseISt10type_indexSt4pairIKS1_PN8pybind116detail9type_infoEENS_10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb0ELb0ELb1EEEE13_M_key_equalsERS3_RKNS_16_Hash_node_valueIS8_Lb0EEE.exit.i ], [ %33, %29 ]
-  %42 = phi ptr [ %7, %.preheader.i ], [ %7, %.lr.ph.split ], [ %17, %18 ], [ %40, %_ZNKSt8__detail15_Hashtable_baseISt10type_indexSt4pairIKS1_PN8pybind116detail9type_infoEENS_10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb0ELb0ELb1EEEE13_M_key_equalsERS3_RKNS_16_Hash_node_valueIS8_Lb0EEE.exit.i ], [ %40, %29 ]
-  %.01118.i.lcssa = phi ptr [ %6, %.preheader.i ], [ %6, %.lr.ph.split ], [ %.019.i28.us, %18 ], [ %.019.i2832, %_ZNKSt8__detail15_Hashtable_baseISt10type_indexSt4pairIKS1_PN8pybind116detail9type_infoEENS_10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb0ELb0ELb1EEEE13_M_key_equalsERS3_RKNS_16_Hash_node_valueIS8_Lb0EEE.exit.i ], [ %.019.i2832, %29 ]
+  %41 = phi ptr [ %14, %.preheader.i ], [ %22, %18 ], [ %14, %.lr.ph.split ], [ %33, %_ZNKSt8__detail15_Hashtable_baseISt10type_indexSt4pairIKS1_PN8pybind116detail9type_infoEENS_10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb0ELb0ELb1EEEE13_M_key_equalsERS3_RKNS_16_Hash_node_valueIS8_Lb0EEE.exit.i ], [ %33, %29 ]
+  %42 = phi ptr [ %7, %.preheader.i ], [ %17, %18 ], [ %7, %.lr.ph.split ], [ %40, %_ZNKSt8__detail15_Hashtable_baseISt10type_indexSt4pairIKS1_PN8pybind116detail9type_infoEENS_10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb0ELb0ELb1EEEE13_M_key_equalsERS3_RKNS_16_Hash_node_valueIS8_Lb0EEE.exit.i ], [ %40, %29 ]
+  %.01118.i.lcssa = phi ptr [ %6, %.preheader.i ], [ %.019.i28.us, %18 ], [ %6, %.lr.ph.split ], [ %.019.i2832, %_ZNKSt8__detail15_Hashtable_baseISt10type_indexSt4pairIKS1_PN8pybind116detail9type_infoEENS_10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb0ELb0ELb1EEEE13_M_key_equalsERS3_RKNS_16_Hash_node_valueIS8_Lb0EEE.exit.i ], [ %.019.i2832, %29 ]
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %44 = load i64, ptr %43, align 8, !tbaa !486
   %45 = load i8, ptr %41, align 1, !tbaa !120
@@ -33619,8 +33619,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZZN8pybind116detail24deregister_
   br label %.critedge, !llvm.loop !1178
 
 _ZNSt10_HashtableIPKvSt4pairIKS1_PN8pybind116detail8instanceEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb0EEEE4findERS3_.exit.i.i: ; preds = %28, %10, %23
-  %36 = phi ptr [ %15, %23 ], [ %8, %10 ], [ %15, %28 ]
-  %.sroa.06.1.i.i.i = phi ptr [ %24, %23 ], [ %.sroa.06.0.i.i.i, %10 ], [ %30, %28 ]
+  %36 = phi ptr [ %8, %10 ], [ %15, %23 ], [ %15, %28 ]
+  %.sroa.06.1.i.i.i = phi ptr [ %.sroa.06.0.i.i.i, %10 ], [ %24, %23 ], [ %30, %28 ]
   br label %37
 
 37:                                               ; preds = %38, %_ZNSt10_HashtableIPKvSt4pairIKS1_PN8pybind116detail8instanceEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb0EEEE4findERS3_.exit.i.i
@@ -33736,7 +33736,7 @@ _ZNSt18unordered_multimapIPKvPN8pybind116detail8instanceESt4hashIS1_ESt8equal_to
   br i1 %.not19, label %.critedge, label %45, !llvm.loop !1184
 
 .critedge:                                        ; preds = %.lr.ph.i.i.i.i.i, %9, %86, %14, %..loopexit_crit_edge21.i.i.i.i.i, %_ZNSt18unordered_multimapIPKvPN8pybind116detail8instanceESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S5_EEE11equal_rangeERSB_.exit, %_ZNSt18unordered_multimapIPKvPN8pybind116detail8instanceESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S5_EEE5eraseENSt8__detail14_Node_iteratorISC_Lb0ELb0EEE.exit
-  %88 = phi i1 [ true, %_ZNSt18unordered_multimapIPKvPN8pybind116detail8instanceESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S5_EEE5eraseENSt8__detail14_Node_iteratorISC_Lb0ELb0EEE.exit ], [ false, %_ZNSt18unordered_multimapIPKvPN8pybind116detail8instanceESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S5_EEE11equal_rangeERSB_.exit ], [ false, %..loopexit_crit_edge21.i.i.i.i.i ], [ false, %14 ], [ false, %9 ], [ false, %86 ], [ false, %.lr.ph.i.i.i.i.i ]
+  %88 = phi i1 [ true, %_ZNSt18unordered_multimapIPKvPN8pybind116detail8instanceESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S5_EEE5eraseENSt8__detail14_Node_iteratorISC_Lb0ELb0EEE.exit ], [ false, %_ZNSt18unordered_multimapIPKvPN8pybind116detail8instanceESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S5_EEE11equal_rangeERSB_.exit ], [ false, %86 ], [ false, %..loopexit_crit_edge21.i.i.i.i.i ], [ false, %9 ], [ false, %14 ], [ false, %.lr.ph.i.i.i.i.i ]
   ret i1 %88
 }
 
@@ -33813,8 +33813,8 @@ define linkonce_odr hidden void @_ZZN8pybind116detail14clear_patientsEP7_objectE
   unreachable
 
 _ZNSt13unordered_mapIPK7_objectSt6vectorIPS0_SaIS4_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S6_EEE4findERSC_.exit: ; preds = %29, %11, %24
-  %37 = phi ptr [ %16, %24 ], [ %9, %11 ], [ %16, %29 ]
-  %.sroa.06.1.i.i = phi ptr [ %25, %24 ], [ %.sroa.06.0.i.i, %11 ], [ %31, %29 ]
+  %37 = phi ptr [ %9, %11 ], [ %16, %24 ], [ %16, %29 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %11 ], [ %25, %24 ], [ %31, %29 ]
   %38 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %40 = load ptr, ptr %39, align 8, !tbaa !1191
@@ -46129,7 +46129,7 @@ _ZNK8pybind115tuple5beginEv.exit.thread:          ; preds = %_ZN8pybind1118reint
   br i1 %.not85.old, label %._crit_edge, label %.lr.ph.backedge
 
 .lr.ph.backedge:                                  ; preds = %.critedge, %24
-  %.sroa.079.088.be = phi ptr [ %.old, %.critedge ], [ %27, %24 ]
+  %.sroa.079.088.be = phi ptr [ %27, %24 ], [ %.old, %.critedge ]
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.critedge, %24
@@ -48202,8 +48202,8 @@ _ZNSt10_HashtableIP7_objectS1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ESt4h
   resume { ptr, i32 } %47
 
 _ZNKSt10_HashtableIP7_objectS1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ESt4hashIS1_ENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb0ELb1ELb1EEEE15_M_find_node_trIS1_EEPNS3_10_Hash_nodeIS1_Lb0EEEmRKT_m.exit: ; preds = %33, %19, %.critedge, %28
-  %.sroa.031.1 = phi ptr [ %29, %28 ], [ %46, %.critedge ], [ %.sroa.028.0, %19 ], [ %35, %33 ]
-  %.sroa.432.1 = phi i8 [ 0, %28 ], [ 1, %.critedge ], [ 0, %19 ], [ 0, %33 ]
+  %.sroa.031.1 = phi ptr [ %.sroa.028.0, %19 ], [ %46, %.critedge ], [ %29, %28 ], [ %35, %33 ]
+  %.sroa.432.1 = phi i8 [ 0, %19 ], [ 1, %.critedge ], [ 0, %28 ], [ 0, %33 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.031.1, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.432.1, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -61115,7 +61115,7 @@ _ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_poli
   br label %_ZZN8pybind1112cpp_function10initializeIZNOS_6detail8initimpl7factoryIZNS_5enum_IN6open3d9pipelines11integration19TSDFVolumeColorTypeEEC1IJNS_10arithmeticEEEERKNS_6handleEPKcDpRKT_EUliE_PFNS2_9void_typeEvEFS9_iESO_E7executeINS_6class_IS9_JEEEJNS_3argEEEEvRT_DpRKT0_EUlRNS2_16value_and_holderEiE_vJS13_iEJNS_4nameENS_9is_methodENS_7siblingENS2_24is_new_style_constructorESV_EEEvOSW_PFT0_DpT1_EDpRKT2_ENKUlRNS2_13function_callEE_clES1K_.exit
 
 _ZZN8pybind1112cpp_function10initializeIZNOS_6detail8initimpl7factoryIZNS_5enum_IN6open3d9pipelines11integration19TSDFVolumeColorTypeEEC1IJNS_10arithmeticEEEERKNS_6handleEPKcDpRKT_EUliE_PFNS2_9void_typeEvEFS9_iESO_E7executeINS_6class_IS9_JEEEJNS_3argEEEEvRT_DpRKT0_EUlRNS2_16value_and_holderEiE_vJS13_iEJNS_4nameENS_9is_methodENS_7siblingENS2_24is_new_style_constructorESV_EEEvOSW_PFT0_DpT1_EDpRKT2_ENKUlRNS2_13function_callEE_clES1K_.exit: ; preds = %1, %13, %_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE.exit.sink.split.i
-  %.sroa.0.0.i = phi ptr [ inttoptr (i64 1 to ptr), %1 ], [ @_Py_NoneStruct, %_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE.exit.sink.split.i ], [ @_Py_NoneStruct, %13 ]
+  %.sroa.0.0.i = phi ptr [ inttoptr (i64 1 to ptr), %1 ], [ @_Py_NoneStruct, %13 ], [ @_Py_NoneStruct, %_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE.exit.sink.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.sroa.0.0.i
 }
@@ -63002,7 +63002,7 @@ _ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_poli
   br label %_ZZN8pybind1112cpp_function10initializeIZNS_5enum_IN6open3d9pipelines11integration19TSDFVolumeColorTypeEEC1IJNS_10arithmeticEEEERKNS_6handleEPKcDpRKT_EUlRNS_6detail16value_and_holderEiE_vJSL_iEJNSJ_24is_new_style_constructorENS_4nameENS_9is_methodENS_3argEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNSJ_13function_callEE_clES13_.exit
 
 _ZZN8pybind1112cpp_function10initializeIZNS_5enum_IN6open3d9pipelines11integration19TSDFVolumeColorTypeEEC1IJNS_10arithmeticEEEERKNS_6handleEPKcDpRKT_EUlRNS_6detail16value_and_holderEiE_vJSL_iEJNSJ_24is_new_style_constructorENS_4nameENS_9is_methodENS_3argEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNSJ_13function_callEE_clES13_.exit: ; preds = %1, %13, %_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE.exit.sink.split.i
-  %.sroa.0.0.i = phi ptr [ inttoptr (i64 1 to ptr), %1 ], [ @_Py_NoneStruct, %_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE.exit.sink.split.i ], [ @_Py_NoneStruct, %13 ]
+  %.sroa.0.0.i = phi ptr [ inttoptr (i64 1 to ptr), %1 ], [ @_Py_NoneStruct, %13 ], [ @_Py_NoneStruct, %_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE.exit.sink.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.sroa.0.0.i
 }
@@ -64531,8 +64531,8 @@ define linkonce_odr hidden ptr @_ZZN8pybind116detail31find_registered_python_ins
   br label %.critedge14, !llvm.loop !1178
 
 _ZNSt10_HashtableIPKvSt4pairIKS1_PN8pybind116detail8instanceEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb0EEEE4findERS3_.exit.i.i: ; preds = %28, %10, %23
-  %36 = phi ptr [ %15, %23 ], [ %8, %10 ], [ %15, %28 ]
-  %.sroa.06.1.i.i.i = phi ptr [ %24, %23 ], [ %.sroa.06.0.i.i.i, %10 ], [ %30, %28 ]
+  %36 = phi ptr [ %8, %10 ], [ %15, %23 ], [ %15, %28 ]
+  %.sroa.06.1.i.i.i = phi ptr [ %.sroa.06.0.i.i.i, %10 ], [ %24, %23 ], [ %30, %28 ]
   br label %37
 
 37:                                               ; preds = %38, %_ZNSt10_HashtableIPKvSt4pairIKS1_PN8pybind116detail8instanceEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb0EEEE4findERS3_.exit.i.i
@@ -64644,7 +64644,7 @@ _ZN8pybind116detail9same_typeERKSt9type_infoS3_.exit.thread27: ; preds = %69, %_
   br i1 %.not29, label %.critedge14, label %43, !llvm.loop !2059
 
 .critedge14:                                      ; preds = %.lr.ph.i.i.i.i.i, %9, %.critedge12, %14, %..loopexit_crit_edge21.i.i.i.i.i, %_ZNSt18unordered_multimapIPKvPN8pybind116detail8instanceESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S5_EEE11equal_rangeERSB_.exit, %.critedge, %78, %82
-  %.sroa.025.0 = phi ptr [ %77, %82 ], [ %77, %78 ], [ null, %.critedge ], [ null, %_ZNSt18unordered_multimapIPKvPN8pybind116detail8instanceESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S5_EEE11equal_rangeERSB_.exit ], [ null, %..loopexit_crit_edge21.i.i.i.i.i ], [ null, %14 ], [ null, %9 ], [ null, %.critedge12 ], [ null, %.lr.ph.i.i.i.i.i ]
+  %.sroa.025.0 = phi ptr [ null, %.critedge ], [ %77, %82 ], [ %77, %78 ], [ null, %_ZNSt18unordered_multimapIPKvPN8pybind116detail8instanceESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S5_EEE11equal_rangeERSB_.exit ], [ null, %.critedge12 ], [ null, %..loopexit_crit_edge21.i.i.i.i.i ], [ null, %9 ], [ null, %14 ], [ null, %.lr.ph.i.i.i.i.i ]
   ret ptr %.sroa.025.0
 }
 
@@ -65191,7 +65191,7 @@ _ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_poli
   br label %_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE.exit
 
 _ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE.exit: ; preds = %_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE.exit.sink.split, %_ZNO8pybind116detail15argument_loaderIJNS_6handleEEE4callIvNS0_9void_typeERZNS0_15keep_alive_implES2_S2_EUlS2_E_EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES5_E4typeEOT1_.exit, %_ZNO8pybind116detail15argument_loaderIJNS_6handleEEE4callIvNS0_9void_typeERZNS0_15keep_alive_implES2_S2_EUlS2_E_EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES5_E4typeEOT1_.exit22, %2
-  %.sroa.023.0 = phi ptr [ inttoptr (i64 1 to ptr), %2 ], [ @_Py_NoneStruct, %_ZNO8pybind116detail15argument_loaderIJNS_6handleEEE4callIvNS0_9void_typeERZNS0_15keep_alive_implES2_S2_EUlS2_E_EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES5_E4typeEOT1_.exit22 ], [ @_Py_NoneStruct, %_ZNO8pybind116detail15argument_loaderIJNS_6handleEEE4callIvNS0_9void_typeERZNS0_15keep_alive_implES2_S2_EUlS2_E_EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES5_E4typeEOT1_.exit ], [ @_Py_NoneStruct, %_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE.exit.sink.split ]
+  %.sroa.023.0 = phi ptr [ inttoptr (i64 1 to ptr), %2 ], [ @_Py_NoneStruct, %_ZNO8pybind116detail15argument_loaderIJNS_6handleEEE4callIvNS0_9void_typeERZNS0_15keep_alive_implES2_S2_EUlS2_E_EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES5_E4typeEOT1_.exit ], [ @_Py_NoneStruct, %_ZNO8pybind116detail15argument_loaderIJNS_6handleEEE4callIvNS0_9void_typeERZNS0_15keep_alive_implES2_S2_EUlS2_E_EENSt9enable_ifIXsr3std7is_voidIT_EE5valueES5_E4typeEOT1_.exit22 ], [ @_Py_NoneStruct, %_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE.exit.sink.split ]
   ret ptr %.sroa.023.0
 }
 
@@ -68200,7 +68200,7 @@ _ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_poli
   br label %_ZZN8pybind1112cpp_function10initializeIZNS0_C1IvN6open3d9pipelines11integration10TSDFVolumeEJEJNS_4nameENS_9is_methodENS_7siblingEA33_cEEEMT0_FT_DpT1_EDpRKT2_EUlPS6_E_vJSL_EJS7_S8_S9_SA_EEEvOSC_PFSB_SE_ESK_ENKUlRNS_6detail13function_callEE_clESS_.exit
 
 _ZZN8pybind1112cpp_function10initializeIZNS0_C1IvN6open3d9pipelines11integration10TSDFVolumeEJEJNS_4nameENS_9is_methodENS_7siblingEA33_cEEEMT0_FT_DpT1_EDpRKT2_EUlPS6_E_vJSL_EJS7_S8_S9_SA_EEEvOSC_PFSB_SE_ESK_ENKUlRNS_6detail13function_callEE_clESS_.exit: ; preds = %1, %_ZNO8pybind116detail15argument_loaderIJPN6open3d9pipelines11integration10TSDFVolumeEEE4callIvNS0_9void_typeERZNS_12cpp_functionC1IvS5_JEJNS_4nameENS_9is_methodENS_7siblingEA33_cEEEMT0_FT_DpT1_EDpRKT2_EUlS6_E_EENSt9enable_ifIXsr3std7is_voidISH_EE5valueES9_E4typeEOT1_.exit.i, %_ZNO8pybind116detail15argument_loaderIJPN6open3d9pipelines11integration10TSDFVolumeEEE4callIvNS0_9void_typeERZNS_12cpp_functionC1IvS5_JEJNS_4nameENS_9is_methodENS_7siblingEA33_cEEEMT0_FT_DpT1_EDpRKT2_EUlS6_E_EENSt9enable_ifIXsr3std7is_voidISH_EE5valueES9_E4typeEOT1_.exit20.i, %_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE.exit.sink.split.i
-  %.sroa.0.0.i = phi ptr [ inttoptr (i64 1 to ptr), %1 ], [ @_Py_NoneStruct, %_ZNO8pybind116detail15argument_loaderIJPN6open3d9pipelines11integration10TSDFVolumeEEE4callIvNS0_9void_typeERZNS_12cpp_functionC1IvS5_JEJNS_4nameENS_9is_methodENS_7siblingEA33_cEEEMT0_FT_DpT1_EDpRKT2_EUlS6_E_EENSt9enable_ifIXsr3std7is_voidISH_EE5valueES9_E4typeEOT1_.exit20.i ], [ @_Py_NoneStruct, %_ZNO8pybind116detail15argument_loaderIJPN6open3d9pipelines11integration10TSDFVolumeEEE4callIvNS0_9void_typeERZNS_12cpp_functionC1IvS5_JEJNS_4nameENS_9is_methodENS_7siblingEA33_cEEEMT0_FT_DpT1_EDpRKT2_EUlS6_E_EENSt9enable_ifIXsr3std7is_voidISH_EE5valueES9_E4typeEOT1_.exit.i ], [ @_Py_NoneStruct, %_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE.exit.sink.split.i ]
+  %.sroa.0.0.i = phi ptr [ inttoptr (i64 1 to ptr), %1 ], [ @_Py_NoneStruct, %_ZNO8pybind116detail15argument_loaderIJPN6open3d9pipelines11integration10TSDFVolumeEEE4callIvNS0_9void_typeERZNS_12cpp_functionC1IvS5_JEJNS_4nameENS_9is_methodENS_7siblingEA33_cEEEMT0_FT_DpT1_EDpRKT2_EUlS6_E_EENSt9enable_ifIXsr3std7is_voidISH_EE5valueES9_E4typeEOT1_.exit.i ], [ @_Py_NoneStruct, %_ZNO8pybind116detail15argument_loaderIJPN6open3d9pipelines11integration10TSDFVolumeEEE4callIvNS0_9void_typeERZNS_12cpp_functionC1IvS5_JEJNS_4nameENS_9is_methodENS_7siblingEA33_cEEEMT0_FT_DpT1_EDpRKT2_EUlS6_E_EENSt9enable_ifIXsr3std7is_voidISH_EE5valueES9_E4typeEOT1_.exit20.i ], [ @_Py_NoneStruct, %_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE.exit.sink.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.sroa.0.0.i
 }
@@ -68327,7 +68327,7 @@ _ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_poli
   br label %_ZZN8pybind1112cpp_function10initializeIZNS0_C1IvN6open3d9pipelines11integration10TSDFVolumeEJRKNS3_8geometry9RGBDImageERKNS3_6camera22PinholeCameraIntrinsicERKN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEEJNS_4nameENS_9is_methodENS_7siblingEA53_cNS_3argESO_SO_EEEMT0_FT_DpT1_EDpRKT2_EUlPS6_SA_SE_SJ_E_vJSZ_SA_SE_SJ_EJSK_SL_SM_SN_SO_SO_SO_EEEvOSQ_PFSP_SS_ESY_ENKUlRNS_6detail13function_callEE_clES16_.exit
 
 _ZZN8pybind1112cpp_function10initializeIZNS0_C1IvN6open3d9pipelines11integration10TSDFVolumeEJRKNS3_8geometry9RGBDImageERKNS3_6camera22PinholeCameraIntrinsicERKN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEEJNS_4nameENS_9is_methodENS_7siblingEA53_cNS_3argESO_SO_EEEMT0_FT_DpT1_EDpRKT2_EUlPS6_SA_SE_SJ_E_vJSZ_SA_SE_SJ_EJSK_SL_SM_SN_SO_SO_SO_EEEvOSQ_PFSP_SS_ESY_ENKUlRNS_6detail13function_callEE_clES16_.exit: ; preds = %1, %15, %19, %_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE.exit.sink.split.i
-  %.sroa.0.0.i = phi ptr [ inttoptr (i64 1 to ptr), %1 ], [ @_Py_NoneStruct, %19 ], [ @_Py_NoneStruct, %15 ], [ @_Py_NoneStruct, %_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE.exit.sink.split.i ]
+  %.sroa.0.0.i = phi ptr [ inttoptr (i64 1 to ptr), %1 ], [ @_Py_NoneStruct, %15 ], [ @_Py_NoneStruct, %19 ], [ @_Py_NoneStruct, %_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE.exit.sink.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.sroa.0.0.i
 }
@@ -69687,7 +69687,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit77: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %300 = load ptr, ptr %8, align 8, !tbaa !47
   %301 = icmp eq ptr %300, %15
-  br i1 %301, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i79, label %.body
+  br i1 %301, label %.body, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i78
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit77.thread: ; preds = %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i
   %302 = landingpad { ptr, i32 }
@@ -69697,7 +69697,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit77.thread: ; preds
   %304 = icmp eq ptr %303, %15
   br i1 %304, label %.sink.split, label %.sink.split.sink.split
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i79: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit77
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i78: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit77
+  %305 = load i64, ptr %15, align 8, !tbaa !120
+  %306 = add i64 %305, 1
+  call void @_ZdlPvm(ptr noundef %300, i64 noundef %306) #35
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -69706,9 +69709,6 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br i1 %.3, label %309, label %310
 
 .body:                                            ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit77
-  %305 = load i64, ptr %15, align 8, !tbaa !120
-  %306 = add i64 %305, 1
-  call void @_ZdlPvm(ptr noundef %300, i64 noundef %306) #35
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -69733,13 +69733,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %309
 
-309:                                              ; preds = %.sink.split, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i79, %.body
-  %.pn.pn.pn.pn.pn.pn.pn84 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i79 ], [ %.pn.pn.pn.pn.pn, %.body ], [ %.pn.pn.pn.pn.pn.pn.pn84.ph, %.sink.split ]
+309:                                              ; preds = %.sink.split, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i78, %.body
+  %.pn.pn.pn.pn.pn.pn.pn84 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i78 ], [ %.pn.pn.pn.pn.pn, %.body ], [ %.pn.pn.pn.pn.pn.pn.pn84.ph, %.sink.split ]
   call void @__cxa_free_exception(ptr %11) #33
   br label %310
 
-310:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i79, %.body, %309
-  %.pn.pn.pn.pn.pn.pn.pn83 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %.body ], [ %.pn.pn.pn.pn.pn.pn.pn84, %309 ], [ %.pn.pn.pn.pn.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i79 ]
+310:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i78, %.body, %309
+  %.pn.pn.pn.pn.pn.pn.pn83 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %.body ], [ %.pn.pn.pn.pn.pn.pn.pn84, %309 ], [ %.pn.pn.pn.pn.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i78 ]
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn83
 
 311:                                              ; preds = %260
@@ -70298,8 +70298,8 @@ _ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %_ZNK8pybind1
   br i1 %.not13.i, label %_ZN8pybind116detail9c_stridesERKSt6vectorIlSaIlEEl.exit, label %.lr.ph.i, !llvm.loop !2241
 
 _ZN8pybind116detail9c_stridesERKSt6vectorIlSaIlEEl.exit: ; preds = %.lr.ph.i, %36, %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i.i
-  %.sroa.10.0 = phi ptr [ %34, %36 ], [ null, %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ %34, %.lr.ph.i ]
-  %.sroa.061.0 = phi ptr [ %33, %36 ], [ null, %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ %33, %.lr.ph.i ]
+  %.sroa.10.0 = phi ptr [ null, %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ %34, %36 ], [ %34, %.lr.ph.i ]
+  %.sroa.061.0 = phi ptr [ null, %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ %33, %36 ], [ %33, %.lr.ph.i ]
   %43 = load ptr, ptr %3, align 8, !tbaa !1553
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %45 = load ptr, ptr %44, align 8, !tbaa !1557
@@ -72977,7 +72977,7 @@ _ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_poli
   br label %_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE.exit
 
 _ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE.exit: ; preds = %_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE.exit.sink.split, %_ZNO8pybind116detail15argument_loaderIJRN6open3d9pipelines11integration10TSDFVolumeERKdEE4callIvNS0_9void_typeERZNS_6class_IS5_JNS4_12PyTSDFVolumeIS5_EEEE13def_readwriteIS5_dJA38_cEEERSF_PKcMT_T0_DpRKT1_EUlS6_S8_E_EENSt9enable_ifIXsr3std7is_voidISL_EE5valueESB_E4typeEOT1_.exit, %2, %_ZNO8pybind116detail15argument_loaderIJRN6open3d9pipelines11integration10TSDFVolumeERKdEE4callIvNS0_9void_typeERZNS_6class_IS5_JNS4_12PyTSDFVolumeIS5_EEEE13def_readwriteIS5_dJA38_cEEERSF_PKcMT_T0_DpRKT1_EUlS6_S8_E_EENSt9enable_ifIXsr3std7is_voidISL_EE5valueESB_E4typeEOT1_.exit16, %_ZN8pybind116detail15argument_loaderIJRN6open3d9pipelines11integration10TSDFVolumeERKdEE9load_argsERNS0_13function_callE.exit
-  %.sroa.0.0 = phi ptr [ inttoptr (i64 1 to ptr), %_ZN8pybind116detail15argument_loaderIJRN6open3d9pipelines11integration10TSDFVolumeERKdEE9load_argsERNS0_13function_callE.exit ], [ inttoptr (i64 1 to ptr), %2 ], [ @_Py_NoneStruct, %_ZNO8pybind116detail15argument_loaderIJRN6open3d9pipelines11integration10TSDFVolumeERKdEE4callIvNS0_9void_typeERZNS_6class_IS5_JNS4_12PyTSDFVolumeIS5_EEEE13def_readwriteIS5_dJA38_cEEERSF_PKcMT_T0_DpRKT1_EUlS6_S8_E_EENSt9enable_ifIXsr3std7is_voidISL_EE5valueESB_E4typeEOT1_.exit16 ], [ @_Py_NoneStruct, %_ZNO8pybind116detail15argument_loaderIJRN6open3d9pipelines11integration10TSDFVolumeERKdEE4callIvNS0_9void_typeERZNS_6class_IS5_JNS4_12PyTSDFVolumeIS5_EEEE13def_readwriteIS5_dJA38_cEEERSF_PKcMT_T0_DpRKT1_EUlS6_S8_E_EENSt9enable_ifIXsr3std7is_voidISL_EE5valueESB_E4typeEOT1_.exit ], [ @_Py_NoneStruct, %_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE.exit.sink.split ]
+  %.sroa.0.0 = phi ptr [ inttoptr (i64 1 to ptr), %_ZN8pybind116detail15argument_loaderIJRN6open3d9pipelines11integration10TSDFVolumeERKdEE9load_argsERNS0_13function_callE.exit ], [ @_Py_NoneStruct, %_ZNO8pybind116detail15argument_loaderIJRN6open3d9pipelines11integration10TSDFVolumeERKdEE4callIvNS0_9void_typeERZNS_6class_IS5_JNS4_12PyTSDFVolumeIS5_EEEE13def_readwriteIS5_dJA38_cEEERSF_PKcMT_T0_DpRKT1_EUlS6_S8_E_EENSt9enable_ifIXsr3std7is_voidISL_EE5valueESB_E4typeEOT1_.exit ], [ inttoptr (i64 1 to ptr), %2 ], [ @_Py_NoneStruct, %_ZNO8pybind116detail15argument_loaderIJRN6open3d9pipelines11integration10TSDFVolumeERKdEE4callIvNS0_9void_typeERZNS_6class_IS5_JNS4_12PyTSDFVolumeIS5_EEEE13def_readwriteIS5_dJA38_cEEERSF_PKcMT_T0_DpRKT1_EUlS6_S8_E_EENSt9enable_ifIXsr3std7is_voidISL_EE5valueESB_E4typeEOT1_.exit16 ], [ @_Py_NoneStruct, %_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE.exit.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.sroa.0.0
 }
@@ -73708,7 +73708,7 @@ _ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_poli
   br label %_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE.exit
 
 _ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE.exit: ; preds = %_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE.exit.sink.split, %_ZNO8pybind116detail15argument_loaderIJRN6open3d9pipelines11integration10TSDFVolumeERKdEE4callIvNS0_9void_typeERZNS_6class_IS5_JNS4_12PyTSDFVolumeIS5_EEEE13def_readwriteIS5_dJA60_cEEERSF_PKcMT_T0_DpRKT1_EUlS6_S8_E_EENSt9enable_ifIXsr3std7is_voidISL_EE5valueESB_E4typeEOT1_.exit, %2, %_ZNO8pybind116detail15argument_loaderIJRN6open3d9pipelines11integration10TSDFVolumeERKdEE4callIvNS0_9void_typeERZNS_6class_IS5_JNS4_12PyTSDFVolumeIS5_EEEE13def_readwriteIS5_dJA60_cEEERSF_PKcMT_T0_DpRKT1_EUlS6_S8_E_EENSt9enable_ifIXsr3std7is_voidISL_EE5valueESB_E4typeEOT1_.exit16, %_ZN8pybind116detail15argument_loaderIJRN6open3d9pipelines11integration10TSDFVolumeERKdEE9load_argsERNS0_13function_callE.exit
-  %.sroa.0.0 = phi ptr [ inttoptr (i64 1 to ptr), %_ZN8pybind116detail15argument_loaderIJRN6open3d9pipelines11integration10TSDFVolumeERKdEE9load_argsERNS0_13function_callE.exit ], [ inttoptr (i64 1 to ptr), %2 ], [ @_Py_NoneStruct, %_ZNO8pybind116detail15argument_loaderIJRN6open3d9pipelines11integration10TSDFVolumeERKdEE4callIvNS0_9void_typeERZNS_6class_IS5_JNS4_12PyTSDFVolumeIS5_EEEE13def_readwriteIS5_dJA60_cEEERSF_PKcMT_T0_DpRKT1_EUlS6_S8_E_EENSt9enable_ifIXsr3std7is_voidISL_EE5valueESB_E4typeEOT1_.exit16 ], [ @_Py_NoneStruct, %_ZNO8pybind116detail15argument_loaderIJRN6open3d9pipelines11integration10TSDFVolumeERKdEE4callIvNS0_9void_typeERZNS_6class_IS5_JNS4_12PyTSDFVolumeIS5_EEEE13def_readwriteIS5_dJA60_cEEERSF_PKcMT_T0_DpRKT1_EUlS6_S8_E_EENSt9enable_ifIXsr3std7is_voidISL_EE5valueESB_E4typeEOT1_.exit ], [ @_Py_NoneStruct, %_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE.exit.sink.split ]
+  %.sroa.0.0 = phi ptr [ inttoptr (i64 1 to ptr), %_ZN8pybind116detail15argument_loaderIJRN6open3d9pipelines11integration10TSDFVolumeERKdEE9load_argsERNS0_13function_callE.exit ], [ @_Py_NoneStruct, %_ZNO8pybind116detail15argument_loaderIJRN6open3d9pipelines11integration10TSDFVolumeERKdEE4callIvNS0_9void_typeERZNS_6class_IS5_JNS4_12PyTSDFVolumeIS5_EEEE13def_readwriteIS5_dJA60_cEEERSF_PKcMT_T0_DpRKT1_EUlS6_S8_E_EENSt9enable_ifIXsr3std7is_voidISL_EE5valueESB_E4typeEOT1_.exit ], [ inttoptr (i64 1 to ptr), %2 ], [ @_Py_NoneStruct, %_ZNO8pybind116detail15argument_loaderIJRN6open3d9pipelines11integration10TSDFVolumeERKdEE4callIvNS0_9void_typeERZNS_6class_IS5_JNS4_12PyTSDFVolumeIS5_EEEE13def_readwriteIS5_dJA60_cEEERSF_PKcMT_T0_DpRKT1_EUlS6_S8_E_EENSt9enable_ifIXsr3std7is_voidISL_EE5valueESB_E4typeEOT1_.exit16 ], [ @_Py_NoneStruct, %_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE.exit.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.sroa.0.0
 }
@@ -74098,7 +74098,7 @@ _ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_poli
   br label %_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE.exit
 
 _ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE.exit: ; preds = %_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE.exit.sink.split, %28, %2, %32, %_ZN8pybind116detail15argument_loaderIJRN6open3d9pipelines11integration10TSDFVolumeERKNS4_19TSDFVolumeColorTypeEEE9load_argsERNS0_13function_callE.exit
-  %.sroa.0.0 = phi ptr [ inttoptr (i64 1 to ptr), %_ZN8pybind116detail15argument_loaderIJRN6open3d9pipelines11integration10TSDFVolumeERKNS4_19TSDFVolumeColorTypeEEE9load_argsERNS0_13function_callE.exit ], [ inttoptr (i64 1 to ptr), %2 ], [ @_Py_NoneStruct, %32 ], [ @_Py_NoneStruct, %28 ], [ @_Py_NoneStruct, %_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE.exit.sink.split ]
+  %.sroa.0.0 = phi ptr [ inttoptr (i64 1 to ptr), %_ZN8pybind116detail15argument_loaderIJRN6open3d9pipelines11integration10TSDFVolumeERKNS4_19TSDFVolumeColorTypeEEE9load_argsERNS0_13function_callE.exit ], [ @_Py_NoneStruct, %28 ], [ inttoptr (i64 1 to ptr), %2 ], [ @_Py_NoneStruct, %32 ], [ @_Py_NoneStruct, %_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE.exit.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.sroa.0.0
 }
@@ -74394,7 +74394,7 @@ _ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   br i1 %.not31, label %.thread, label %.lr.ph.split, !llvm.loop !2394
 
 .thread:                                          ; preds = %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_S6_ENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueIS9_Lb1EEE.exit.thread27, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_S6_ENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueIS9_Lb1EEE.exit.thread27.us, %..thread_crit_edge, %8
-  %22 = phi ptr [ %.pre, %..thread_crit_edge ], [ %.pre52, %8 ], [ %.pre52, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_S6_ENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueIS9_Lb1EEE.exit.thread27.us ], [ %.pre52, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_S6_ENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueIS9_Lb1EEE.exit.thread27 ]
+  %22 = phi ptr [ %.pre, %..thread_crit_edge ], [ %.pre52, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_S6_ENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueIS9_Lb1EEE.exit.thread27.us ], [ %.pre52, %8 ], [ %.pre52, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_S6_ENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueIS9_Lb1EEE.exit.thread27 ]
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load i64, ptr %23, align 8, !tbaa !119
   %25 = invoke noundef i64 @_ZSt11_Hash_bytesPKvmm(ptr noundef %22, i64 noundef %24, i64 noundef 3339675911)
@@ -74544,8 +74544,8 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   br label %common.resume
 
 _ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_S6_ENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueIS9_Lb1EEE.exit.thread: ; preds = %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_S6_ENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueIS9_Lb1EEE.exit, %.lr.ph.split.us, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_S6_ENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_equals_trIS6_EEbRKT_mRKNS_16_Hash_node_valueIS9_Lb1EEE.exit.i.i, %45, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
-  %.sroa.026.1 = phi ptr [ %82, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit ], [ %.sroa.023.040.us, %.lr.ph.split.us ], [ %.0.us.i.i, %45 ], [ %.0.i.i, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_S6_ENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_equals_trIS6_EEbRKT_mRKNS_16_Hash_node_valueIS9_Lb1EEE.exit.i.i ], [ %.sroa.023.040, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_S6_ENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueIS9_Lb1EEE.exit ]
-  %.sroa.4.1 = phi i8 [ 1, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit ], [ 0, %.lr.ph.split.us ], [ 0, %45 ], [ 0, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_S6_ENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_equals_trIS6_EEbRKT_mRKNS_16_Hash_node_valueIS9_Lb1EEE.exit.i.i ], [ 0, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_S6_ENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueIS9_Lb1EEE.exit ]
+  %.sroa.026.1 = phi ptr [ %82, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit ], [ %.0.i.i, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_S6_ENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_equals_trIS6_EEbRKT_mRKNS_16_Hash_node_valueIS9_Lb1EEE.exit.i.i ], [ %.sroa.023.040.us, %.lr.ph.split.us ], [ %.0.us.i.i, %45 ], [ %.sroa.023.040, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_S6_ENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueIS9_Lb1EEE.exit ]
+  %.sroa.4.1 = phi i8 [ 1, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit ], [ 0, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_S6_ENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_equals_trIS6_EEbRKT_mRKNS_16_Hash_node_valueIS9_Lb1EEE.exit.i.i ], [ 0, %.lr.ph.split.us ], [ 0, %45 ], [ 0, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_S6_ENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueIS9_Lb1EEE.exit ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.026.1, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.4.1, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -75786,7 +75786,7 @@ _ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_poli
   br label %_ZZN8pybind1112cpp_function10initializeIZNOS_6detail8initimpl7factoryIZNS2_19bind_copy_functionsIN6open3d9pipelines11integration17UniformTSDFVolumeENS_6class_IS9_JNS8_12PyTSDFVolumeIS9_EENS8_10TSDFVolumeEEEEEEvRT0_EUlRKS9_E_PFNS2_9void_typeEvEFPS9_SI_ESL_E7executeISE_JA17_cEEEvRT_DpRKT0_EUlRNS2_16value_and_holderESI_E_vJSZ_SI_EJNS_4nameENS_9is_methodENS_7siblingENS2_24is_new_style_constructorESR_EEEvOSS_PFSF_DpT1_EDpRKT2_ENKUlRNS2_13function_callEE_clES1F_.exit
 
 _ZZN8pybind1112cpp_function10initializeIZNOS_6detail8initimpl7factoryIZNS2_19bind_copy_functionsIN6open3d9pipelines11integration17UniformTSDFVolumeENS_6class_IS9_JNS8_12PyTSDFVolumeIS9_EENS8_10TSDFVolumeEEEEEEvRT0_EUlRKS9_E_PFNS2_9void_typeEvEFPS9_SI_ESL_E7executeISE_JA17_cEEEvRT_DpRKT0_EUlRNS2_16value_and_holderESI_E_vJSZ_SI_EJNS_4nameENS_9is_methodENS_7siblingENS2_24is_new_style_constructorESR_EEEvOSS_PFSF_DpT1_EDpRKT2_ENKUlRNS2_13function_callEE_clES1F_.exit: ; preds = %1, %21, %25, %_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE.exit.sink.split.i
-  %.sroa.0.0.i = phi ptr [ inttoptr (i64 1 to ptr), %1 ], [ @_Py_NoneStruct, %25 ], [ @_Py_NoneStruct, %21 ], [ @_Py_NoneStruct, %_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE.exit.sink.split.i ]
+  %.sroa.0.0.i = phi ptr [ inttoptr (i64 1 to ptr), %1 ], [ @_Py_NoneStruct, %21 ], [ @_Py_NoneStruct, %25 ], [ @_Py_NoneStruct, %_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE.exit.sink.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.sroa.0.0.i
 }
@@ -76893,7 +76893,7 @@ _ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_poli
   br label %"_ZZN8pybind1112cpp_function10initializeIZNOS_6detail8initimpl7factoryIZN6open3d9pipelines11integration30pybind_integration_definitionsERNS_7module_EE3$_0PFNS2_9void_typeEvEFPNS7_17UniformTSDFVolumeEdidNS7_19TSDFVolumeColorTypeEESC_E7executeINS_6class_ISE_JNS7_12PyTSDFVolumeISE_EENS7_10TSDFVolumeEEEEJNS_3argESP_SP_SP_EEEvRT_DpRKT0_EUlRNS2_16value_and_holderEdidSG_E_vJSX_didSG_EJNS_4nameENS_9is_methodENS_7siblingENS2_24is_new_style_constructorESP_SP_SP_SP_EEEvOSQ_PFT0_DpT1_EDpRKT2_ENKUlRNS2_13function_callEE_clES1E_.exit"
 
 "_ZZN8pybind1112cpp_function10initializeIZNOS_6detail8initimpl7factoryIZN6open3d9pipelines11integration30pybind_integration_definitionsERNS_7module_EE3$_0PFNS2_9void_typeEvEFPNS7_17UniformTSDFVolumeEdidNS7_19TSDFVolumeColorTypeEESC_E7executeINS_6class_ISE_JNS7_12PyTSDFVolumeISE_EENS7_10TSDFVolumeEEEEJNS_3argESP_SP_SP_EEEvRT_DpRKT0_EUlRNS2_16value_and_holderEdidSG_E_vJSX_didSG_EJNS_4nameENS_9is_methodENS_7siblingENS2_24is_new_style_constructorESP_SP_SP_SP_EEEvOSQ_PFT0_DpT1_EDpRKT2_ENKUlRNS2_13function_callEE_clES1E_.exit": ; preds = %1, %"_ZNO8pybind116detail15argument_loaderIJRNS0_16value_and_holderEdidN6open3d9pipelines11integration19TSDFVolumeColorTypeEEE4callIvNS0_9void_typeERZNOS0_8initimpl7factoryIZNS6_30pybind_integration_definitionsERNS_7module_EE3$_0PFSA_vEFPNS6_17UniformTSDFVolumeEdidS7_ESG_E7executeINS_6class_ISI_JNS6_12PyTSDFVolumeISI_EENS6_10TSDFVolumeEEEEJNS_3argESS_SS_SS_EEEvRT_DpRKT0_EUlS3_didS7_E_EENSt9enable_ifIXsr3std7is_voidIST_EE5valueESA_E4typeEOT1_.exit", %_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE.exit.sink.split.i
-  %.sroa.0.1.i = phi ptr [ inttoptr (i64 1 to ptr), %1 ], [ @_Py_NoneStruct, %_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE.exit.sink.split.i ], [ @_Py_NoneStruct, %"_ZNO8pybind116detail15argument_loaderIJRNS0_16value_and_holderEdidN6open3d9pipelines11integration19TSDFVolumeColorTypeEEE4callIvNS0_9void_typeERZNOS0_8initimpl7factoryIZNS6_30pybind_integration_definitionsERNS_7module_EE3$_0PFSA_vEFPNS6_17UniformTSDFVolumeEdidS7_ESG_E7executeINS_6class_ISI_JNS6_12PyTSDFVolumeISI_EENS6_10TSDFVolumeEEEEJNS_3argESS_SS_SS_EEEvRT_DpRKT0_EUlS3_didS7_E_EENSt9enable_ifIXsr3std7is_voidIST_EE5valueESA_E4typeEOT1_.exit" ]
+  %.sroa.0.1.i = phi ptr [ inttoptr (i64 1 to ptr), %1 ], [ @_Py_NoneStruct, %"_ZNO8pybind116detail15argument_loaderIJRNS0_16value_and_holderEdidN6open3d9pipelines11integration19TSDFVolumeColorTypeEEE4callIvNS0_9void_typeERZNOS0_8initimpl7factoryIZNS6_30pybind_integration_definitionsERNS_7module_EE3$_0PFSA_vEFPNS6_17UniformTSDFVolumeEdidS7_ESG_E7executeINS_6class_ISI_JNS6_12PyTSDFVolumeISI_EENS6_10TSDFVolumeEEEEJNS_3argESS_SS_SS_EEEvRT_DpRKT0_EUlS3_didS7_E_EENSt9enable_ifIXsr3std7is_voidIST_EE5valueESA_E4typeEOT1_.exit" ], [ @_Py_NoneStruct, %_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE.exit.sink.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.sroa.0.1.i
 }
@@ -77039,7 +77039,7 @@ _ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_poli
   br label %"_ZZN8pybind1112cpp_function10initializeIZNOS_6detail8initimpl7factoryIZN6open3d9pipelines11integration30pybind_integration_definitionsERNS_7module_EE3$_1PFNS2_9void_typeEvEFPNS7_17UniformTSDFVolumeEdidNS7_19TSDFVolumeColorTypeEN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEESC_E7executeINS_6class_ISE_JNS7_12PyTSDFVolumeISE_EENS7_10TSDFVolumeEEEEJNS_3argESS_SS_SS_SS_EEEvRT_DpRKT0_EUlRNS2_16value_and_holderEdidSG_SJ_E_vJS10_didSG_SJ_EJNS_4nameENS_9is_methodENS_7siblingENS2_24is_new_style_constructorESS_SS_SS_SS_SS_EEEvOST_PFT0_DpT1_EDpRKT2_ENKUlRNS2_13function_callEE_clES1H_.exit"
 
 "_ZZN8pybind1112cpp_function10initializeIZNOS_6detail8initimpl7factoryIZN6open3d9pipelines11integration30pybind_integration_definitionsERNS_7module_EE3$_1PFNS2_9void_typeEvEFPNS7_17UniformTSDFVolumeEdidNS7_19TSDFVolumeColorTypeEN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEESC_E7executeINS_6class_ISE_JNS7_12PyTSDFVolumeISE_EENS7_10TSDFVolumeEEEEJNS_3argESS_SS_SS_SS_EEEvRT_DpRKT0_EUlRNS2_16value_and_holderEdidSG_SJ_E_vJS10_didSG_SJ_EJNS_4nameENS_9is_methodENS_7siblingENS2_24is_new_style_constructorESS_SS_SS_SS_SS_EEEvOST_PFT0_DpT1_EDpRKT2_ENKUlRNS2_13function_callEE_clES1H_.exit": ; preds = %1, %"_ZNO8pybind116detail15argument_loaderIJRNS0_16value_and_holderEdidN6open3d9pipelines11integration19TSDFVolumeColorTypeEN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEE4callIvNS0_9void_typeERZNOS0_8initimpl7factoryIZNS6_30pybind_integration_definitionsERNS_7module_EE3$_1PFSD_vEFPNS6_17UniformTSDFVolumeEdidS7_SA_ESJ_E7executeINS_6class_ISL_JNS6_12PyTSDFVolumeISL_EENS6_10TSDFVolumeEEEEJNS_3argESV_SV_SV_SV_EEEvRT_DpRKT0_EUlS3_didS7_SA_E_EENSt9enable_ifIXsr3std7is_voidISW_EE5valueESD_E4typeEOT1_.exit", %_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE.exit.sink.split.i
-  %.sroa.0.1.i = phi ptr [ inttoptr (i64 1 to ptr), %1 ], [ @_Py_NoneStruct, %_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE.exit.sink.split.i ], [ @_Py_NoneStruct, %"_ZNO8pybind116detail15argument_loaderIJRNS0_16value_and_holderEdidN6open3d9pipelines11integration19TSDFVolumeColorTypeEN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEE4callIvNS0_9void_typeERZNOS0_8initimpl7factoryIZNS6_30pybind_integration_definitionsERNS_7module_EE3$_1PFSD_vEFPNS6_17UniformTSDFVolumeEdidS7_SA_ESJ_E7executeINS_6class_ISL_JNS6_12PyTSDFVolumeISL_EENS6_10TSDFVolumeEEEEJNS_3argESV_SV_SV_SV_EEEvRT_DpRKT0_EUlS3_didS7_SA_E_EENSt9enable_ifIXsr3std7is_voidISW_EE5valueESD_E4typeEOT1_.exit" ]
+  %.sroa.0.1.i = phi ptr [ inttoptr (i64 1 to ptr), %1 ], [ @_Py_NoneStruct, %"_ZNO8pybind116detail15argument_loaderIJRNS0_16value_and_holderEdidN6open3d9pipelines11integration19TSDFVolumeColorTypeEN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEE4callIvNS0_9void_typeERZNOS0_8initimpl7factoryIZNS6_30pybind_integration_definitionsERNS_7module_EE3$_1PFSD_vEFPNS6_17UniformTSDFVolumeEdidS7_SA_ESJ_E7executeINS_6class_ISL_JNS6_12PyTSDFVolumeISL_EENS6_10TSDFVolumeEEEEJNS_3argESV_SV_SV_SV_EEEvRT_DpRKT0_EUlS3_didS7_SA_E_EENSt9enable_ifIXsr3std7is_voidISW_EE5valueESD_E4typeEOT1_.exit" ], [ @_Py_NoneStruct, %_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE.exit.sink.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.sroa.0.1.i
 }
@@ -79312,7 +79312,7 @@ _ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_poli
   br label %_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE.exit
 
 _ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE.exit: ; preds = %_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE.exit.sink.split, %_ZNO8pybind116detail15argument_loaderIJPN6open3d9pipelines11integration17UniformTSDFVolumeERKSt6vectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEESaISA_EEEE4callIvNS0_9void_typeERZNS_12cpp_functionC1IvS5_JSE_EJNS_4nameENS_9is_methodENS_7siblingEA46_cNS_3argEEEEMT0_FT_DpT1_EDpRKT2_EUlS6_SE_E_EENSt9enable_ifIXsr3std7is_voidISQ_EE5valueESH_E4typeEOT1_.exit, %2, %_ZNO8pybind116detail15argument_loaderIJPN6open3d9pipelines11integration17UniformTSDFVolumeERKSt6vectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEESaISA_EEEE4callIvNS0_9void_typeERZNS_12cpp_functionC1IvS5_JSE_EJNS_4nameENS_9is_methodENS_7siblingEA46_cNS_3argEEEEMT0_FT_DpT1_EDpRKT2_EUlS6_SE_E_EENSt9enable_ifIXsr3std7is_voidISQ_EE5valueESH_E4typeEOT1_.exit22, %_ZN8pybind116detail15argument_loaderIJPN6open3d9pipelines11integration17UniformTSDFVolumeERKSt6vectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEESaISA_EEEE9load_argsERNS0_13function_callE.exit
-  %.sroa.0.0 = phi ptr [ inttoptr (i64 1 to ptr), %_ZN8pybind116detail15argument_loaderIJPN6open3d9pipelines11integration17UniformTSDFVolumeERKSt6vectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEESaISA_EEEE9load_argsERNS0_13function_callE.exit ], [ inttoptr (i64 1 to ptr), %2 ], [ @_Py_NoneStruct, %_ZNO8pybind116detail15argument_loaderIJPN6open3d9pipelines11integration17UniformTSDFVolumeERKSt6vectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEESaISA_EEEE4callIvNS0_9void_typeERZNS_12cpp_functionC1IvS5_JSE_EJNS_4nameENS_9is_methodENS_7siblingEA46_cNS_3argEEEEMT0_FT_DpT1_EDpRKT2_EUlS6_SE_E_EENSt9enable_ifIXsr3std7is_voidISQ_EE5valueESH_E4typeEOT1_.exit22 ], [ @_Py_NoneStruct, %_ZNO8pybind116detail15argument_loaderIJPN6open3d9pipelines11integration17UniformTSDFVolumeERKSt6vectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEESaISA_EEEE4callIvNS0_9void_typeERZNS_12cpp_functionC1IvS5_JSE_EJNS_4nameENS_9is_methodENS_7siblingEA46_cNS_3argEEEEMT0_FT_DpT1_EDpRKT2_EUlS6_SE_E_EENSt9enable_ifIXsr3std7is_voidISQ_EE5valueESH_E4typeEOT1_.exit ], [ @_Py_NoneStruct, %_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE.exit.sink.split ]
+  %.sroa.0.0 = phi ptr [ inttoptr (i64 1 to ptr), %_ZN8pybind116detail15argument_loaderIJPN6open3d9pipelines11integration17UniformTSDFVolumeERKSt6vectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEESaISA_EEEE9load_argsERNS0_13function_callE.exit ], [ @_Py_NoneStruct, %_ZNO8pybind116detail15argument_loaderIJPN6open3d9pipelines11integration17UniformTSDFVolumeERKSt6vectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEESaISA_EEEE4callIvNS0_9void_typeERZNS_12cpp_functionC1IvS5_JSE_EJNS_4nameENS_9is_methodENS_7siblingEA46_cNS_3argEEEEMT0_FT_DpT1_EDpRKT2_EUlS6_SE_E_EENSt9enable_ifIXsr3std7is_voidISQ_EE5valueESH_E4typeEOT1_.exit ], [ inttoptr (i64 1 to ptr), %2 ], [ @_Py_NoneStruct, %_ZNO8pybind116detail15argument_loaderIJPN6open3d9pipelines11integration17UniformTSDFVolumeERKSt6vectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEESaISA_EEEE4callIvNS0_9void_typeERZNS_12cpp_functionC1IvS5_JSE_EJNS_4nameENS_9is_methodENS_7siblingEA46_cNS_3argEEEEMT0_FT_DpT1_EDpRKT2_EUlS6_SE_E_EENSt9enable_ifIXsr3std7is_voidISQ_EE5valueESH_E4typeEOT1_.exit22 ], [ @_Py_NoneStruct, %_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE.exit.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.sroa.0.0
 }
@@ -79536,7 +79536,7 @@ _ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_poli
   br label %_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE.exit
 
 _ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE.exit: ; preds = %_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE.exit.sink.split, %_ZNO8pybind116detail15argument_loaderIJPN6open3d9pipelines11integration17UniformTSDFVolumeERKSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaISA_EEEE4callIvNS0_9void_typeERZNS_12cpp_functionC1IvS5_JSE_EJNS_4nameENS_9is_methodENS_7siblingEA47_cNS_3argEEEEMT0_FT_DpT1_EDpRKT2_EUlS6_SE_E_EENSt9enable_ifIXsr3std7is_voidISQ_EE5valueESH_E4typeEOT1_.exit, %2, %_ZNO8pybind116detail15argument_loaderIJPN6open3d9pipelines11integration17UniformTSDFVolumeERKSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaISA_EEEE4callIvNS0_9void_typeERZNS_12cpp_functionC1IvS5_JSE_EJNS_4nameENS_9is_methodENS_7siblingEA47_cNS_3argEEEEMT0_FT_DpT1_EDpRKT2_EUlS6_SE_E_EENSt9enable_ifIXsr3std7is_voidISQ_EE5valueESH_E4typeEOT1_.exit22, %_ZN8pybind116detail15argument_loaderIJPN6open3d9pipelines11integration17UniformTSDFVolumeERKSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaISA_EEEE9load_argsERNS0_13function_callE.exit
-  %.sroa.0.0 = phi ptr [ inttoptr (i64 1 to ptr), %_ZN8pybind116detail15argument_loaderIJPN6open3d9pipelines11integration17UniformTSDFVolumeERKSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaISA_EEEE9load_argsERNS0_13function_callE.exit ], [ inttoptr (i64 1 to ptr), %2 ], [ @_Py_NoneStruct, %_ZNO8pybind116detail15argument_loaderIJPN6open3d9pipelines11integration17UniformTSDFVolumeERKSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaISA_EEEE4callIvNS0_9void_typeERZNS_12cpp_functionC1IvS5_JSE_EJNS_4nameENS_9is_methodENS_7siblingEA47_cNS_3argEEEEMT0_FT_DpT1_EDpRKT2_EUlS6_SE_E_EENSt9enable_ifIXsr3std7is_voidISQ_EE5valueESH_E4typeEOT1_.exit22 ], [ @_Py_NoneStruct, %_ZNO8pybind116detail15argument_loaderIJPN6open3d9pipelines11integration17UniformTSDFVolumeERKSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaISA_EEEE4callIvNS0_9void_typeERZNS_12cpp_functionC1IvS5_JSE_EJNS_4nameENS_9is_methodENS_7siblingEA47_cNS_3argEEEEMT0_FT_DpT1_EDpRKT2_EUlS6_SE_E_EENSt9enable_ifIXsr3std7is_voidISQ_EE5valueESH_E4typeEOT1_.exit ], [ @_Py_NoneStruct, %_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE.exit.sink.split ]
+  %.sroa.0.0 = phi ptr [ inttoptr (i64 1 to ptr), %_ZN8pybind116detail15argument_loaderIJPN6open3d9pipelines11integration17UniformTSDFVolumeERKSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaISA_EEEE9load_argsERNS0_13function_callE.exit ], [ @_Py_NoneStruct, %_ZNO8pybind116detail15argument_loaderIJPN6open3d9pipelines11integration17UniformTSDFVolumeERKSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaISA_EEEE4callIvNS0_9void_typeERZNS_12cpp_functionC1IvS5_JSE_EJNS_4nameENS_9is_methodENS_7siblingEA47_cNS_3argEEEEMT0_FT_DpT1_EDpRKT2_EUlS6_SE_E_EENSt9enable_ifIXsr3std7is_voidISQ_EE5valueESH_E4typeEOT1_.exit ], [ inttoptr (i64 1 to ptr), %2 ], [ @_Py_NoneStruct, %_ZNO8pybind116detail15argument_loaderIJPN6open3d9pipelines11integration17UniformTSDFVolumeERKSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaISA_EEEE4callIvNS0_9void_typeERZNS_12cpp_functionC1IvS5_JSE_EJNS_4nameENS_9is_methodENS_7siblingEA47_cNS_3argEEEEMT0_FT_DpT1_EDpRKT2_EUlS6_SE_E_EENSt9enable_ifIXsr3std7is_voidISQ_EE5valueESH_E4typeEOT1_.exit22 ], [ @_Py_NoneStruct, %_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE.exit.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.sroa.0.0
 }
@@ -79886,7 +79886,7 @@ _ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_poli
   br label %_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE.exit
 
 _ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE.exit: ; preds = %_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE.exit.sink.split, %_ZNO8pybind116detail15argument_loaderIJRN6open3d9pipelines11integration17UniformTSDFVolumeERKdEE4callIvNS0_9void_typeERZNS_6class_IS5_JNS4_12PyTSDFVolumeIS5_EENS4_10TSDFVolumeEEE13def_readwriteIS5_dJA60_cEEERSG_PKcMT_T0_DpRKT1_EUlS6_S8_E_EENSt9enable_ifIXsr3std7is_voidISM_EE5valueESB_E4typeEOT1_.exit, %2, %_ZNO8pybind116detail15argument_loaderIJRN6open3d9pipelines11integration17UniformTSDFVolumeERKdEE4callIvNS0_9void_typeERZNS_6class_IS5_JNS4_12PyTSDFVolumeIS5_EENS4_10TSDFVolumeEEE13def_readwriteIS5_dJA60_cEEERSG_PKcMT_T0_DpRKT1_EUlS6_S8_E_EENSt9enable_ifIXsr3std7is_voidISM_EE5valueESB_E4typeEOT1_.exit16, %_ZN8pybind116detail15argument_loaderIJRN6open3d9pipelines11integration17UniformTSDFVolumeERKdEE9load_argsERNS0_13function_callE.exit
-  %.sroa.0.0 = phi ptr [ inttoptr (i64 1 to ptr), %_ZN8pybind116detail15argument_loaderIJRN6open3d9pipelines11integration17UniformTSDFVolumeERKdEE9load_argsERNS0_13function_callE.exit ], [ inttoptr (i64 1 to ptr), %2 ], [ @_Py_NoneStruct, %_ZNO8pybind116detail15argument_loaderIJRN6open3d9pipelines11integration17UniformTSDFVolumeERKdEE4callIvNS0_9void_typeERZNS_6class_IS5_JNS4_12PyTSDFVolumeIS5_EENS4_10TSDFVolumeEEE13def_readwriteIS5_dJA60_cEEERSG_PKcMT_T0_DpRKT1_EUlS6_S8_E_EENSt9enable_ifIXsr3std7is_voidISM_EE5valueESB_E4typeEOT1_.exit16 ], [ @_Py_NoneStruct, %_ZNO8pybind116detail15argument_loaderIJRN6open3d9pipelines11integration17UniformTSDFVolumeERKdEE4callIvNS0_9void_typeERZNS_6class_IS5_JNS4_12PyTSDFVolumeIS5_EENS4_10TSDFVolumeEEE13def_readwriteIS5_dJA60_cEEERSG_PKcMT_T0_DpRKT1_EUlS6_S8_E_EENSt9enable_ifIXsr3std7is_voidISM_EE5valueESB_E4typeEOT1_.exit ], [ @_Py_NoneStruct, %_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE.exit.sink.split ]
+  %.sroa.0.0 = phi ptr [ inttoptr (i64 1 to ptr), %_ZN8pybind116detail15argument_loaderIJRN6open3d9pipelines11integration17UniformTSDFVolumeERKdEE9load_argsERNS0_13function_callE.exit ], [ @_Py_NoneStruct, %_ZNO8pybind116detail15argument_loaderIJRN6open3d9pipelines11integration17UniformTSDFVolumeERKdEE4callIvNS0_9void_typeERZNS_6class_IS5_JNS4_12PyTSDFVolumeIS5_EENS4_10TSDFVolumeEEE13def_readwriteIS5_dJA60_cEEERSG_PKcMT_T0_DpRKT1_EUlS6_S8_E_EENSt9enable_ifIXsr3std7is_voidISM_EE5valueESB_E4typeEOT1_.exit ], [ inttoptr (i64 1 to ptr), %2 ], [ @_Py_NoneStruct, %_ZNO8pybind116detail15argument_loaderIJRN6open3d9pipelines11integration17UniformTSDFVolumeERKdEE4callIvNS0_9void_typeERZNS_6class_IS5_JNS4_12PyTSDFVolumeIS5_EENS4_10TSDFVolumeEEE13def_readwriteIS5_dJA60_cEEERSG_PKcMT_T0_DpRKT1_EUlS6_S8_E_EENSt9enable_ifIXsr3std7is_voidISM_EE5valueESB_E4typeEOT1_.exit16 ], [ @_Py_NoneStruct, %_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE.exit.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.sroa.0.0
 }
@@ -80482,7 +80482,7 @@ _ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_poli
   br label %_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE.exit
 
 _ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE.exit: ; preds = %_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE.exit.sink.split, %_ZNO8pybind116detail15argument_loaderIJRN6open3d9pipelines11integration17UniformTSDFVolumeERKiEE4callIvNS0_9void_typeERZNS_6class_IS5_JNS4_12PyTSDFVolumeIS5_EENS4_10TSDFVolumeEEE13def_readwriteIS5_iJA79_cEEERSG_PKcMT_T0_DpRKT1_EUlS6_S8_E_EENSt9enable_ifIXsr3std7is_voidISM_EE5valueESB_E4typeEOT1_.exit, %2, %_ZNO8pybind116detail15argument_loaderIJRN6open3d9pipelines11integration17UniformTSDFVolumeERKiEE4callIvNS0_9void_typeERZNS_6class_IS5_JNS4_12PyTSDFVolumeIS5_EENS4_10TSDFVolumeEEE13def_readwriteIS5_iJA79_cEEERSG_PKcMT_T0_DpRKT1_EUlS6_S8_E_EENSt9enable_ifIXsr3std7is_voidISM_EE5valueESB_E4typeEOT1_.exit16, %_ZN8pybind116detail15argument_loaderIJRN6open3d9pipelines11integration17UniformTSDFVolumeERKiEE9load_argsERNS0_13function_callE.exit
-  %.sroa.0.0 = phi ptr [ inttoptr (i64 1 to ptr), %_ZN8pybind116detail15argument_loaderIJRN6open3d9pipelines11integration17UniformTSDFVolumeERKiEE9load_argsERNS0_13function_callE.exit ], [ inttoptr (i64 1 to ptr), %2 ], [ @_Py_NoneStruct, %_ZNO8pybind116detail15argument_loaderIJRN6open3d9pipelines11integration17UniformTSDFVolumeERKiEE4callIvNS0_9void_typeERZNS_6class_IS5_JNS4_12PyTSDFVolumeIS5_EENS4_10TSDFVolumeEEE13def_readwriteIS5_iJA79_cEEERSG_PKcMT_T0_DpRKT1_EUlS6_S8_E_EENSt9enable_ifIXsr3std7is_voidISM_EE5valueESB_E4typeEOT1_.exit16 ], [ @_Py_NoneStruct, %_ZNO8pybind116detail15argument_loaderIJRN6open3d9pipelines11integration17UniformTSDFVolumeERKiEE4callIvNS0_9void_typeERZNS_6class_IS5_JNS4_12PyTSDFVolumeIS5_EENS4_10TSDFVolumeEEE13def_readwriteIS5_iJA79_cEEERSG_PKcMT_T0_DpRKT1_EUlS6_S8_E_EENSt9enable_ifIXsr3std7is_voidISM_EE5valueESB_E4typeEOT1_.exit ], [ @_Py_NoneStruct, %_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE.exit.sink.split ]
+  %.sroa.0.0 = phi ptr [ inttoptr (i64 1 to ptr), %_ZN8pybind116detail15argument_loaderIJRN6open3d9pipelines11integration17UniformTSDFVolumeERKiEE9load_argsERNS0_13function_callE.exit ], [ @_Py_NoneStruct, %_ZNO8pybind116detail15argument_loaderIJRN6open3d9pipelines11integration17UniformTSDFVolumeERKiEE4callIvNS0_9void_typeERZNS_6class_IS5_JNS4_12PyTSDFVolumeIS5_EENS4_10TSDFVolumeEEE13def_readwriteIS5_iJA79_cEEERSG_PKcMT_T0_DpRKT1_EUlS6_S8_E_EENSt9enable_ifIXsr3std7is_voidISM_EE5valueESB_E4typeEOT1_.exit ], [ inttoptr (i64 1 to ptr), %2 ], [ @_Py_NoneStruct, %_ZNO8pybind116detail15argument_loaderIJRN6open3d9pipelines11integration17UniformTSDFVolumeERKiEE4callIvNS0_9void_typeERZNS_6class_IS5_JNS4_12PyTSDFVolumeIS5_EENS4_10TSDFVolumeEEE13def_readwriteIS5_iJA79_cEEERSG_PKcMT_T0_DpRKT1_EUlS6_S8_E_EENSt9enable_ifIXsr3std7is_voidISM_EE5valueESB_E4typeEOT1_.exit16 ], [ @_Py_NoneStruct, %_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE.exit.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.sroa.0.0
 }
@@ -81449,7 +81449,7 @@ _ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_poli
   br label %_ZZN8pybind1112cpp_function10initializeIZNOS_6detail8initimpl7factoryIZNS2_19bind_copy_functionsIN6open3d9pipelines11integration18ScalableTSDFVolumeENS_6class_IS9_JNS8_12PyTSDFVolumeIS9_EENS8_10TSDFVolumeEEEEEEvRT0_EUlRKS9_E_PFNS2_9void_typeEvEFPS9_SI_ESL_E7executeISE_JA17_cEEEvRT_DpRKT0_EUlRNS2_16value_and_holderESI_E_vJSZ_SI_EJNS_4nameENS_9is_methodENS_7siblingENS2_24is_new_style_constructorESR_EEEvOSS_PFSF_DpT1_EDpRKT2_ENKUlRNS2_13function_callEE_clES1F_.exit
 
 _ZZN8pybind1112cpp_function10initializeIZNOS_6detail8initimpl7factoryIZNS2_19bind_copy_functionsIN6open3d9pipelines11integration18ScalableTSDFVolumeENS_6class_IS9_JNS8_12PyTSDFVolumeIS9_EENS8_10TSDFVolumeEEEEEEvRT0_EUlRKS9_E_PFNS2_9void_typeEvEFPS9_SI_ESL_E7executeISE_JA17_cEEEvRT_DpRKT0_EUlRNS2_16value_and_holderESI_E_vJSZ_SI_EJNS_4nameENS_9is_methodENS_7siblingENS2_24is_new_style_constructorESR_EEEvOSS_PFSF_DpT1_EDpRKT2_ENKUlRNS2_13function_callEE_clES1F_.exit: ; preds = %1, %21, %25, %_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE.exit.sink.split.i
-  %.sroa.0.0.i = phi ptr [ inttoptr (i64 1 to ptr), %1 ], [ @_Py_NoneStruct, %25 ], [ @_Py_NoneStruct, %21 ], [ @_Py_NoneStruct, %_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE.exit.sink.split.i ]
+  %.sroa.0.0.i = phi ptr [ inttoptr (i64 1 to ptr), %1 ], [ @_Py_NoneStruct, %21 ], [ @_Py_NoneStruct, %25 ], [ @_Py_NoneStruct, %_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE.exit.sink.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.sroa.0.0.i
 }
@@ -82789,7 +82789,7 @@ _ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_poli
   br label %"_ZZN8pybind1112cpp_function10initializeIZNOS_6detail8initimpl7factoryIZN6open3d9pipelines11integration30pybind_integration_definitionsERNS_7module_EE3$_3PFNS2_9void_typeEvEFPNS7_18ScalableTSDFVolumeEddNS7_19TSDFVolumeColorTypeEiiESC_E7executeINS_6class_ISE_JNS7_12PyTSDFVolumeISE_EENS7_10TSDFVolumeEEEEJNS_3argESP_SP_NS_5arg_vESQ_EEEvRT_DpRKT0_EUlRNS2_16value_and_holderEddSG_iiE_vJSY_ddSG_iiEJNS_4nameENS_9is_methodENS_7siblingENS2_24is_new_style_constructorESP_SP_SP_SQ_SQ_EEEvOSR_PFT0_DpT1_EDpRKT2_ENKUlRNS2_13function_callEE_clES1F_.exit"
 
 "_ZZN8pybind1112cpp_function10initializeIZNOS_6detail8initimpl7factoryIZN6open3d9pipelines11integration30pybind_integration_definitionsERNS_7module_EE3$_3PFNS2_9void_typeEvEFPNS7_18ScalableTSDFVolumeEddNS7_19TSDFVolumeColorTypeEiiESC_E7executeINS_6class_ISE_JNS7_12PyTSDFVolumeISE_EENS7_10TSDFVolumeEEEEJNS_3argESP_SP_NS_5arg_vESQ_EEEvRT_DpRKT0_EUlRNS2_16value_and_holderEddSG_iiE_vJSY_ddSG_iiEJNS_4nameENS_9is_methodENS_7siblingENS2_24is_new_style_constructorESP_SP_SP_SQ_SQ_EEEvOSR_PFT0_DpT1_EDpRKT2_ENKUlRNS2_13function_callEE_clES1F_.exit": ; preds = %1, %"_ZNO8pybind116detail15argument_loaderIJRNS0_16value_and_holderEddN6open3d9pipelines11integration19TSDFVolumeColorTypeEiiEE4callIvNS0_9void_typeERZNOS0_8initimpl7factoryIZNS6_30pybind_integration_definitionsERNS_7module_EE3$_3PFSA_vEFPNS6_18ScalableTSDFVolumeEddS7_iiESG_E7executeINS_6class_ISI_JNS6_12PyTSDFVolumeISI_EENS6_10TSDFVolumeEEEEJNS_3argESS_SS_NS_5arg_vEST_EEEvRT_DpRKT0_EUlS3_ddS7_iiE_EENSt9enable_ifIXsr3std7is_voidISU_EE5valueESA_E4typeEOT1_.exit", %_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE.exit.sink.split.i
-  %.sroa.0.1.i = phi ptr [ inttoptr (i64 1 to ptr), %1 ], [ @_Py_NoneStruct, %_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE.exit.sink.split.i ], [ @_Py_NoneStruct, %"_ZNO8pybind116detail15argument_loaderIJRNS0_16value_and_holderEddN6open3d9pipelines11integration19TSDFVolumeColorTypeEiiEE4callIvNS0_9void_typeERZNOS0_8initimpl7factoryIZNS6_30pybind_integration_definitionsERNS_7module_EE3$_3PFSA_vEFPNS6_18ScalableTSDFVolumeEddS7_iiESG_E7executeINS_6class_ISI_JNS6_12PyTSDFVolumeISI_EENS6_10TSDFVolumeEEEEJNS_3argESS_SS_NS_5arg_vEST_EEEvRT_DpRKT0_EUlS3_ddS7_iiE_EENSt9enable_ifIXsr3std7is_voidISU_EE5valueESA_E4typeEOT1_.exit" ]
+  %.sroa.0.1.i = phi ptr [ inttoptr (i64 1 to ptr), %1 ], [ @_Py_NoneStruct, %"_ZNO8pybind116detail15argument_loaderIJRNS0_16value_and_holderEddN6open3d9pipelines11integration19TSDFVolumeColorTypeEiiEE4callIvNS0_9void_typeERZNOS0_8initimpl7factoryIZNS6_30pybind_integration_definitionsERNS_7module_EE3$_3PFSA_vEFPNS6_18ScalableTSDFVolumeEddS7_iiESG_E7executeINS_6class_ISI_JNS6_12PyTSDFVolumeISI_EENS6_10TSDFVolumeEEEEJNS_3argESS_SS_NS_5arg_vEST_EEEvRT_DpRKT0_EUlS3_ddS7_iiE_EENSt9enable_ifIXsr3std7is_voidISU_EE5valueESA_E4typeEOT1_.exit" ], [ @_Py_NoneStruct, %_ZN8pybind116detail11void_casterINS0_9void_typeEE4castES2_NS_19return_value_policyENS_6handleE.exit.sink.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.sroa.0.1.i
 }

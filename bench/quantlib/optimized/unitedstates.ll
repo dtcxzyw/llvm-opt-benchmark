@@ -3288,41 +3288,41 @@ lor.lhs.false6:                                   ; preds = %lor.lhs.false
 
 lor.lhs.false6.split:                             ; preds = %lor.lhs.false6
   %cmp.i48 = icmp sgt i32 %call4, 1970
-  br i1 %cmp.i48, label %if.then.i, label %if.else.i
-
-if.then.i:                                        ; preds = %lor.lhs.false6.split
-  %cmp1.i = icmp sgt i32 %sub.i, 24
-  %cmp3.i = icmp eq i32 %call3, 5
-  %2 = and i1 %cmp1.i, %cmp3.i
-  %spec.select.i = and i1 %cmp8, %2
-  br i1 %spec.select.i, label %cleanup, label %lor.lhs.false13
+  br i1 %cmp.i48, label %lor.lhs.false11, label %if.else.i
 
 if.else.i:                                        ; preds = %lor.lhs.false6.split
   %cmp4.i = icmp eq i32 %sub.i, 30
   %cmp5.i = icmp eq i32 %sub.i, 31
   %or.cond1.i = and i1 %cmp8, %cmp5.i
   %or.cond121 = or i1 %cmp4.i, %or.cond1.i
-  br i1 %or.cond121, label %lor.lhs.false11, label %lor.lhs.false8.i
+  br i1 %or.cond121, label %land.rhs12.i, label %lor.lhs.false8.i
 
 lor.lhs.false8.i:                                 ; preds = %if.else.i
   %cmp9.i = icmp eq i32 %sub.i, 29
   %cmp11.i = icmp eq i32 %cond.i, 6
   %or.cond2.i = and i1 %cmp11.i, %cmp9.i
-  br i1 %or.cond2.i, label %lor.lhs.false11, label %lor.lhs.false13
+  br i1 %or.cond2.i, label %land.rhs12.i, label %lor.lhs.false13
+
+land.rhs12.i:                                     ; preds = %lor.lhs.false8.i, %if.else.i
+  %cmp13.i = icmp eq i32 %call3, 5
+  br i1 %cmp13.i, label %cleanup, label %if.end
 
 land.lhs.true9:                                   ; preds = %lor.lhs.false
   %cmp10.old = icmp eq i32 %call3, 1
   br i1 %cmp10.old, label %cleanup, label %lor.lhs.false15.thread96
 
-lor.lhs.false11:                                  ; preds = %if.else.i, %lor.lhs.false8.i
-  %cmp13.i = icmp eq i32 %call3, 5
-  br i1 %cmp13.i, label %cleanup, label %if.end
+lor.lhs.false11:                                  ; preds = %lor.lhs.false6.split
+  %cmp1.i = icmp sgt i32 %sub.i, 24
+  %cmp3.i = icmp eq i32 %call3, 5
+  %2 = and i1 %cmp1.i, %cmp3.i
+  %spec.select.i = and i1 %cmp8, %2
+  br i1 %spec.select.i, label %cleanup, label %lor.lhs.false13
 
 lor.lhs.false15.thread96:                         ; preds = %land.lhs.true9
   %cmp1898 = icmp eq i32 %cond.i, 2
   br label %lor.lhs.false15.split
 
-lor.lhs.false13:                                  ; preds = %lor.lhs.false8.i, %if.then.i
+lor.lhs.false13:                                  ; preds = %lor.lhs.false8.i, %lor.lhs.false11
   %cmp14 = icmp eq i32 %sub.i, 4
   br i1 %cmp14, label %land.lhs.true19, label %lor.lhs.false15
 
@@ -3373,11 +3373,11 @@ land.lhs.true37:                                  ; preds = %lor.lhs.false31
   %cmp38.old = icmp eq i32 %call3, 12
   br i1 %cmp38.old, label %cleanup, label %if.end
 
-if.end:                                           ; preds = %land.lhs.true19, %lor.lhs.false11, %land.lhs.true37, %lor.lhs.false33
+if.end:                                           ; preds = %land.lhs.true19, %land.rhs12.i, %land.lhs.true37, %lor.lhs.false33
   br label %cleanup
 
-cleanup:                                          ; preds = %lor.lhs.false15.split, %if.then.i, %entry, %land.lhs.true9, %lor.lhs.false11, %land.lhs.true19, %land.lhs.true37, %lor.lhs.false6, %lor.lhs.false15, %lor.lhs.false23, %lor.lhs.false33, %if.end
-  %retval.0 = phi i1 [ true, %if.end ], [ false, %lor.lhs.false33 ], [ false, %lor.lhs.false23 ], [ false, %lor.lhs.false15 ], [ false, %lor.lhs.false6 ], [ false, %land.lhs.true37 ], [ false, %lor.lhs.false15.split ], [ false, %land.lhs.true19 ], [ false, %lor.lhs.false11 ], [ false, %land.lhs.true9 ], [ false, %entry ], [ false, %if.then.i ]
+cleanup:                                          ; preds = %lor.lhs.false15.split, %land.rhs12.i, %entry, %land.lhs.true9, %lor.lhs.false11, %land.lhs.true19, %land.lhs.true37, %lor.lhs.false6, %lor.lhs.false15, %lor.lhs.false23, %lor.lhs.false33, %if.end
+  %retval.0 = phi i1 [ true, %if.end ], [ false, %lor.lhs.false33 ], [ false, %lor.lhs.false23 ], [ false, %lor.lhs.false15 ], [ false, %lor.lhs.false6 ], [ false, %land.lhs.true37 ], [ false, %lor.lhs.false15.split ], [ false, %land.lhs.true19 ], [ false, %lor.lhs.false11 ], [ false, %land.lhs.true9 ], [ false, %entry ], [ false, %land.rhs12.i ]
   ret i1 %retval.0
 }
 

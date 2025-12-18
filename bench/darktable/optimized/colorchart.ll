@@ -1579,10 +1579,10 @@ parse_double.exit538:                             ; preds = %.preheader680
   br label %.thread654
 
 388:                                              ; preds = %145, %387
-  %.4384 = phi nsz float [ %180, %145 ], [ %382, %387 ]
-  %.4376 = phi nsz float [ %164, %145 ], [ %291, %387 ]
-  %.4364 = phi nsz float [ %172, %145 ], [ %358, %387 ]
-  %.4355 = phi nsz float [ %156, %145 ], [ %289, %387 ]
+  %.4384 = phi nsz float [ %382, %387 ], [ %180, %145 ]
+  %.4376 = phi nsz float [ %291, %387 ], [ %164, %145 ]
+  %.4364 = phi nsz float [ %358, %387 ], [ %172, %145 ]
+  %.4355 = phi nsz float [ %289, %387 ], [ %156, %145 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %389 = call ptr @fgets(ptr noundef nonnull %2, i32 noundef 512, ptr noundef nonnull %10)
   %.not444 = icmp eq ptr %389, null
@@ -2065,8 +2065,8 @@ parse_double.exit587:                             ; preds = %.preheader690
   br label %.loopexit698
 
 569:                                              ; preds = %parse_double.exit566, %parse_double.exit563, %483, %487
-  %.1349 = phi i32 [ 0, %parse_double.exit566 ], [ 1, %487 ], [ 1, %483 ], [ 0, %parse_double.exit563 ]
-  %.1346 = phi i32 [ 3, %parse_double.exit566 ], [ 5, %487 ], [ 4, %483 ], [ 2, %parse_double.exit563 ]
+  %.1349 = phi i32 [ 1, %487 ], [ 0, %parse_double.exit566 ], [ 0, %parse_double.exit563 ], [ 1, %483 ]
+  %.1346 = phi i32 [ 5, %487 ], [ 3, %parse_double.exit566 ], [ 2, %parse_double.exit563 ], [ 4, %483 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.outer.backedge
 
@@ -2076,7 +2076,7 @@ free_chart.exit.thread:                           ; preds = %._crit_edge848, %.o
   br label %588
 
 .loopexit698:                                     ; preds = %._crit_edge, %.thread, %.thread654, %11
-  %.0344 = phi i32 [ 153, %11 ], [ %.2.ph, %.thread654 ], [ %.2.ph961, %.thread ], [ 487, %._crit_edge ]
+  %.0344 = phi i32 [ %.2.ph, %.thread654 ], [ 153, %11 ], [ %.2.ph961, %.thread ], [ 487, %._crit_edge ]
   %572 = load ptr, ptr @stderr, align 8, !tbaa !24
   %573 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %572, ptr noundef nonnull @.str.14, ptr noundef nonnull @__FUNCTION__.parse_cht, i32 noundef %.0344) #15
   %.not.i591 = icmp eq ptr %9, null
@@ -2416,7 +2416,7 @@ define dso_local range(i32 0, 2) i32 @parse_it8(ptr noundef %0, ptr noundef read
   br label %.thread80
 
 .thread80:                                        ; preds = %._crit_edge103, %73, %._crit_edge.thread, %19, %12, %.thread
-  %.05182 = phi i32 [ 0, %19 ], [ 0, %.thread ], [ 0, %12 ], [ 1, %._crit_edge103 ], [ 0, %73 ], [ 0, %._crit_edge.thread ]
+  %.05182 = phi i32 [ 0, %19 ], [ 0, %.thread ], [ 0, %12 ], [ 1, %._crit_edge103 ], [ 0, %._crit_edge.thread ], [ 0, %73 ]
   call void @cmsIT8Free(ptr noundef nonnull %7) #13
   br label %100
 

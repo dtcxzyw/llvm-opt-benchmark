@@ -3266,7 +3266,7 @@ _ZNKSt6bitsetILm31EE4testEm.exit.i:               ; preds = %35
   br label %52
 
 52:                                               ; preds = %.sink.split, %_ZNKSt6bitsetILm31EE4testEm.exit.i, %15
-  %.022 = phi i1 [ false, %15 ], [ false, %_ZNKSt6bitsetILm31EE4testEm.exit.i ], [ true, %.sink.split ]
+  %.022 = phi i1 [ false, %_ZNKSt6bitsetILm31EE4testEm.exit.i ], [ false, %15 ], [ true, %.sink.split ]
   ret i1 %.022
 }
 

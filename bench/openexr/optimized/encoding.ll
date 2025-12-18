@@ -887,7 +887,7 @@ define i32 @exr_encoding_run(ptr noundef %0, i32 noundef %1, ptr noundef %2) loc
   br label %168
 
 168:                                              ; preds = %159, %91
-  %.2148 = phi i64 [ %167, %159 ], [ %.0146221, %91 ]
+  %.2148 = phi i64 [ %.0146221, %91 ], [ %167, %159 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %91, !llvm.loop !67

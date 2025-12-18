@@ -883,22 +883,22 @@ _setup_overlay.exit:                              ; preds = %197, %_get_disabled
   %379 = fdiv reassoc nsz arcp contract afn float %378, %293
   br label %388
 
-380:                                              ; preds = %.thread420, %.thread.thread, %.thread.thread506, %.thread.thread510, %.thread, %.thread414
-  %.0336453 = phi float [ %309, %.thread420 ], [ %302, %.thread414 ], [ %373, %.thread ], [ %352, %.thread.thread510 ], [ %338, %.thread.thread506 ], [ %328, %.thread.thread ]
-  %.0331410452 = phi float [ %306, %.thread420 ], [ %299, %.thread414 ], [ %287, %.thread ], [ %287, %.thread.thread510 ], [ %287, %.thread.thread506 ], [ %287, %.thread.thread ]
-  %.0330412451 = phi float [ %306, %.thread420 ], [ %299, %.thread414 ], [ %284, %.thread ], [ %284, %.thread.thread510 ], [ %284, %.thread.thread506 ], [ %284, %.thread.thread ]
-  %381 = phi ptr [ %307, %.thread420 ], [ %300, %.thread414 ], [ %366, %.thread ], [ %345, %.thread.thread510 ], [ %333, %.thread.thread506 ], [ %323, %.thread.thread ]
-  %382 = phi float [ %311, %.thread420 ], [ %304, %.thread414 ], [ %370, %.thread ], [ %349, %.thread.thread510 ], [ %337, %.thread.thread506 ], [ %327, %.thread.thread ]
+380:                                              ; preds = %.thread414, %.thread420, %.thread.thread510, %.thread.thread, %.thread.thread506, %.thread
+  %.0336453 = phi float [ %302, %.thread414 ], [ %373, %.thread ], [ %338, %.thread.thread506 ], [ %328, %.thread.thread ], [ %352, %.thread.thread510 ], [ %309, %.thread420 ]
+  %.0331410452 = phi float [ %299, %.thread414 ], [ %287, %.thread ], [ %287, %.thread.thread506 ], [ %287, %.thread.thread ], [ %287, %.thread.thread510 ], [ %306, %.thread420 ]
+  %.0330412451 = phi float [ %299, %.thread414 ], [ %284, %.thread ], [ %284, %.thread.thread506 ], [ %284, %.thread.thread ], [ %284, %.thread.thread510 ], [ %306, %.thread420 ]
+  %381 = phi ptr [ %300, %.thread414 ], [ %366, %.thread ], [ %333, %.thread.thread506 ], [ %323, %.thread.thread ], [ %345, %.thread.thread510 ], [ %307, %.thread420 ]
+  %382 = phi float [ %304, %.thread414 ], [ %370, %.thread ], [ %337, %.thread.thread506 ], [ %327, %.thread.thread ], [ %349, %.thread.thread510 ], [ %311, %.thread420 ]
   %.pn = fmul reassoc nsz arcp contract afn float %.0336453, %293
   %383 = fdiv reassoc nsz arcp contract afn float %.pn, %292
   br label %388
 
-384:                                              ; preds = %.thread420, %.thread.thread, %.thread.thread506, %.thread.thread510, %.thread, %.thread414
-  %.0336443 = phi float [ %328, %.thread.thread ], [ %302, %.thread414 ], [ %309, %.thread420 ], [ %373, %.thread ], [ %352, %.thread.thread510 ], [ %338, %.thread.thread506 ]
-  %.0331410442 = phi float [ %287, %.thread.thread ], [ %299, %.thread414 ], [ %306, %.thread420 ], [ %287, %.thread ], [ %287, %.thread.thread510 ], [ %287, %.thread.thread506 ]
-  %.0330412441 = phi float [ %284, %.thread.thread ], [ %299, %.thread414 ], [ %306, %.thread420 ], [ %284, %.thread ], [ %284, %.thread.thread510 ], [ %284, %.thread.thread506 ]
-  %385 = phi ptr [ %323, %.thread.thread ], [ %300, %.thread414 ], [ %307, %.thread420 ], [ %366, %.thread ], [ %345, %.thread.thread510 ], [ %333, %.thread.thread506 ]
-  %386 = phi float [ %327, %.thread.thread ], [ %304, %.thread414 ], [ %311, %.thread420 ], [ %370, %.thread ], [ %349, %.thread.thread510 ], [ %337, %.thread.thread506 ]
+384:                                              ; preds = %.thread414, %.thread420, %.thread.thread510, %.thread.thread, %.thread.thread506, %.thread
+  %.0336443 = phi float [ %309, %.thread420 ], [ %373, %.thread ], [ %302, %.thread414 ], [ %338, %.thread.thread506 ], [ %328, %.thread.thread ], [ %352, %.thread.thread510 ]
+  %.0331410442 = phi float [ %306, %.thread420 ], [ %287, %.thread ], [ %299, %.thread414 ], [ %287, %.thread.thread506 ], [ %287, %.thread.thread ], [ %287, %.thread.thread510 ]
+  %.0330412441 = phi float [ %306, %.thread420 ], [ %284, %.thread ], [ %299, %.thread414 ], [ %284, %.thread.thread506 ], [ %284, %.thread.thread ], [ %284, %.thread.thread510 ]
+  %385 = phi ptr [ %307, %.thread420 ], [ %366, %.thread ], [ %300, %.thread414 ], [ %333, %.thread.thread506 ], [ %323, %.thread.thread ], [ %345, %.thread.thread510 ]
+  %386 = phi float [ %311, %.thread420 ], [ %370, %.thread ], [ %304, %.thread414 ], [ %337, %.thread.thread506 ], [ %327, %.thread.thread ], [ %349, %.thread.thread510 ]
   %.pn484 = fmul reassoc nsz arcp contract afn float %.0336443, %292
   %387 = fdiv reassoc nsz arcp contract afn float %.pn484, %293
   br label %388
@@ -982,7 +982,7 @@ _setup_overlay.exit:                              ; preds = %197, %_get_disabled
   br label %432
 
 432:                                              ; preds = %425, %425, %425, %.fold.split, %426, %429
-  %.0328 = phi nsz float [ %428, %426 ], [ %431, %429 ], [ %409, %425 ], [ %409, %425 ], [ %409, %425 ], [ 0.000000e+00, %.fold.split ]
+  %.0328 = phi nsz float [ %409, %425 ], [ %428, %426 ], [ %431, %429 ], [ %409, %425 ], [ %409, %425 ], [ 0.000000e+00, %.fold.split ]
   %433 = load i32, ptr %4, align 4, !tbaa !136
   %434 = sub nsw i32 0, %433
   %435 = sitofp i32 %434 to double

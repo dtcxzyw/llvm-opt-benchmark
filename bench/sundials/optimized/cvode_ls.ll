@@ -1228,7 +1228,7 @@ cvLs_AccessLMem.exit:                             ; preds = %10
   br label %cvLs_AccessLMem.exit.thread
 
 cvLs_AccessLMem.exit.thread:                      ; preds = %29, %31, %14, %9, %.thread
-  %.024 = phi i32 [ -1, %9 ], [ 0, %.thread ], [ -2, %14 ], [ 1, %31 ], [ -1, %29 ]
+  %.024 = phi i32 [ -2, %14 ], [ -1, %9 ], [ 0, %.thread ], [ 1, %31 ], [ -1, %29 ]
   ret i32 %.024
 }
 

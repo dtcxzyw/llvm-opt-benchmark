@@ -8975,7 +8975,7 @@ _ZN7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10depe
   br i1 %.not.i, label %_ZN7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES1_EC2EPS4_RS1_.exit.backedge, label %132
 
 _ZN7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES1_EC2EPS4_RS1_.exit.backedge: ; preds = %130, %_ZN7obj_refI4expr11ast_managerE7dec_refEv.exit.i, %_ZN11ast_manager7inc_refEP3ast.exit.i.i49
-  %.be = phi ptr [ %107, %130 ], [ null, %_ZN7obj_refI4expr11ast_managerE7dec_refEv.exit.i ], [ %140, %_ZN11ast_manager7inc_refEP3ast.exit.i.i49 ]
+  %.be = phi ptr [ %140, %_ZN11ast_manager7inc_refEP3ast.exit.i.i49 ], [ null, %_ZN7obj_refI4expr11ast_managerE7dec_refEv.exit.i ], [ %107, %130 ]
   br label %_ZN7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES1_EC2EPS4_RS1_.exit
 
 132:                                              ; preds = %130
@@ -12477,7 +12477,7 @@ _ZN6vectorIPN20eliminate_predicates6clauseELb0EjE3endEv.exit116: ; preds = %107
   br i1 %.not75203, label %._crit_edge206, label %.lr.ph205
 
 ._crit_edge206:                                   ; preds = %202, %107, %_ZN6vectorIPN20eliminate_predicates6clauseELb0EjE3endEv.exit116
-  %120 = phi ptr [ null, %_ZN6vectorIPN20eliminate_predicates6clauseELb0EjE3endEv.exit116 ], [ null, %107 ], [ %203, %202 ]
+  %120 = phi ptr [ null, %107 ], [ null, %_ZN6vectorIPN20eliminate_predicates6clauseELb0EjE3endEv.exit116 ], [ %203, %202 ]
   %121 = load ptr, ptr %4, align 8, !tbaa !127, !noalias !446
   %122 = load ptr, ptr %13, align 8, !tbaa !55, !noalias !446
   %123 = icmp eq ptr %122, null
@@ -12754,7 +12754,7 @@ _ZN6vectorIPN20eliminate_predicates6clauseELb0EjE3endEv.exit142: ; preds = %230
   br label %259
 
 ._crit_edge202:                                   ; preds = %347, %230, %_ZN6vectorIPN20eliminate_predicates6clauseELb0EjE3endEv.exit142
-  %245 = phi ptr [ null, %_ZN6vectorIPN20eliminate_predicates6clauseELb0EjE3endEv.exit142 ], [ null, %230 ], [ %348, %347 ]
+  %245 = phi ptr [ null, %230 ], [ null, %_ZN6vectorIPN20eliminate_predicates6clauseELb0EjE3endEv.exit142 ], [ %348, %347 ]
   %246 = load ptr, ptr %4, align 8, !tbaa !127, !noalias !449
   %247 = load ptr, ptr %13, align 8, !tbaa !55, !noalias !449
   %248 = icmp eq ptr %247, null
@@ -16718,7 +16718,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK7obj_mapI4exprPN18dependency_
   br i1 %.not27.old.i.i, label %_ZNK7obj_mapI4exprPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyEE9find_coreEPS0_.exit.thread, label %.lr.ph38.i.i.backedge
 
 .lr.ph38.i.i.backedge:                            ; preds = %36, %33
-  %.137.i.i.be = phi ptr [ %.old.i.i, %36 ], [ %35, %33 ]
+  %.137.i.i.be = phi ptr [ %35, %33 ], [ %.old.i.i, %36 ]
   br label %.lr.ph38.i.i, !llvm.loop !478
 
 _ZNK7obj_mapI4exprPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyEE9find_coreEPS0_.exit: ; preds = %17, %28

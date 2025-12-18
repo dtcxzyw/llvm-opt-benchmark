@@ -5506,7 +5506,7 @@ define internal fastcc void @__sk_free(ptr noundef %0) unnamed_addr #0 align 16 
   br i1 %36, label %.thread4, label %37
 
 37:                                               ; preds = %31, %21
-  %38 = phi i32 [ %25, %21 ], [ %35, %31 ]
+  %38 = phi i32 [ %35, %31 ], [ %25, %21 ]
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %.thread, label %.thread4
 

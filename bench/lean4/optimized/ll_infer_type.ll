@@ -6179,7 +6179,7 @@ _ZN4lean4expraSERKS0_.exit79:                     ; preds = %256, %_ZN4lean3incE
   br label %.critedge
 
 261:                                              ; preds = %_ZN4lean4expraSERKS0_.exit79, %259, %_ZN4leaneqERKNS_4exprES2_.exit69
-  %.1 = phi i1 [ %.010201, %_ZN4leaneqERKNS_4exprES2_.exit69 ], [ false, %259 ], [ false, %_ZN4lean4expraSERKS0_.exit79 ]
+  %.1 = phi i1 [ false, %_ZN4lean4expraSERKS0_.exit79 ], [ false, %259 ], [ %.010201, %_ZN4leaneqERKNS_4exprES2_.exit69 ]
   %262 = load ptr, ptr %11, align 8, !tbaa !16
   %263 = ptrtoint ptr %262 to i64
   %264 = and i64 %263, 1

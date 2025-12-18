@@ -28053,8 +28053,8 @@ _ZN4core3ops8function6FnOnce9call_once17hf761bdf78f062348E.exit.thread.i.i.i: ; 
   br label %7
 
 "_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7a4e068adc27df06E.exit": ; preds = %_ZN4core4iter8adapters7flatten17and_then_or_clear17h12299c7dc6538f34E.exit.i, %.loopexit.i, %39
-  %.sroa.3.0.i9.pn.i = phi i32 [ undef, %.loopexit.i ], [ %41, %39 ], [ %10, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h12299c7dc6538f34E.exit.i ]
-  %.sroa.0.0.i = phi i32 [ 17, %.loopexit.i ], [ %37, %39 ], [ %8, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h12299c7dc6538f34E.exit.i ]
+  %.sroa.3.0.i9.pn.i = phi i32 [ %41, %39 ], [ undef, %.loopexit.i ], [ %10, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h12299c7dc6538f34E.exit.i ]
+  %.sroa.0.0.i = phi i32 [ %37, %39 ], [ 17, %.loopexit.i ], [ %8, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h12299c7dc6538f34E.exit.i ]
   %44 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0.i, 0
   %45 = insertvalue { i32, i32 } %44, i32 %.sroa.3.0.i9.pn.i, 1
   ret { i32, i32 } %45
@@ -28208,8 +28208,8 @@ _ZN4core3ops8function6FnOnce9call_once17hdbf88111ffbdfd2cE.exit.i.i.i: ; preds =
   br label %10
 
 "_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8160aea50a33983cE.exit": ; preds = %_ZN4core4iter8adapters7flatten17and_then_or_clear17h12299c7dc6538f34E.exit.i, %.loopexit.i, %46
-  %.sroa.3.0.i9.pn.i = phi i32 [ undef, %.loopexit.i ], [ %48, %46 ], [ %13, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h12299c7dc6538f34E.exit.i ]
-  %.sroa.0.0.i = phi i32 [ 17, %.loopexit.i ], [ %44, %46 ], [ %11, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h12299c7dc6538f34E.exit.i ]
+  %.sroa.3.0.i9.pn.i = phi i32 [ %48, %46 ], [ undef, %.loopexit.i ], [ %13, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h12299c7dc6538f34E.exit.i ]
+  %.sroa.0.0.i = phi i32 [ %44, %46 ], [ 17, %.loopexit.i ], [ %11, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h12299c7dc6538f34E.exit.i ]
   %51 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0.i, 0
   %52 = insertvalue { i32, i32 } %51, i32 %.sroa.3.0.i9.pn.i, 1
   ret { i32, i32 } %52
@@ -29505,7 +29505,7 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
           to label %123 unwind label %130
 
 common.resume:                                    ; preds = %70, %123, %132, %.body17
-  %common.resume.op = phi { ptr, i32 } [ %133, %132 ], [ %87, %.body17 ], [ %126, %123 ], [ %73, %70 ]
+  %common.resume.op = phi { ptr, i32 } [ %87, %.body17 ], [ %133, %132 ], [ %126, %123 ], [ %73, %70 ]
   resume { ptr, i32 } %common.resume.op
 
 130:                                              ; preds = %127
@@ -37550,7 +37550,7 @@ _ZN8smallvec10deallocate17hb66e02d02da6e99aE.exit.i: ; preds = %43
   tail call void @__rust_dealloc(ptr noundef nonnull %6, i64 noundef %45, i64 noundef 4) #45, !noalias !5269
   br label %_ZN8smallvec10infallible17h7538e96c459630deE.exit
 
-47:                                               ; preds = %30, %33
+47:                                               ; preds = %33, %30
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.41b2814d765c6afec554d9a1074a4f57.168.llvm.8225647753450622592, i64 noundef 17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.41b2814d765c6afec554d9a1074a4f57.169.llvm.8225647753450622592) #43
   unreachable
 
@@ -37682,7 +37682,7 @@ _ZN8smallvec10deallocate17h910f7449d4cefdb8E.exit.i: ; preds = %46
   tail call void @__rust_dealloc(ptr noundef nonnull %6, i64 noundef %48, i64 noundef 8) #45, !noalias !5282
   br label %_ZN8smallvec10infallible17h7538e96c459630deE.exit
 
-52:                                               ; preds = %29, %34
+52:                                               ; preds = %34, %29
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.41b2814d765c6afec554d9a1074a4f57.168.llvm.8225647753450622592, i64 noundef 17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.41b2814d765c6afec554d9a1074a4f57.169.llvm.8225647753450622592) #43
   unreachable
 
@@ -47298,8 +47298,8 @@ switch.lookup:                                    ; preds = %10
   br i1 %37, label %7, label %.split.loop.exit18.i
 
 .split.loop.exit18.i:                             ; preds = %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h2f173e49ab644915E.exit.i", %switch.lookup, %29, %26
-  %.sroa.0.0.i.i23.i = phi i64 [ %.sroa.0.0.insert.ext.i.i.i.i, %29 ], [ 11, %26 ], [ %switch.load, %switch.lookup ], [ %.sroa.0.0.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h2f173e49ab644915E.exit.i" ]
-  %.sroa.6.0.i.i22.i = phi i64 [ %.sroa.2.0.insert.shift.i27.i.i.i, %29 ], [ %.sroa.2.0.insert.shift.i.i.i.i, %26 ], [ %.sroa.2.0.insert.shift.i.i.i.i.i, %switch.lookup ], [ %.sroa.6.0.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h2f173e49ab644915E.exit.i" ]
+  %.sroa.0.0.i.i23.i = phi i64 [ %switch.load, %switch.lookup ], [ %.sroa.0.0.insert.ext.i.i.i.i, %29 ], [ 11, %26 ], [ %.sroa.0.0.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h2f173e49ab644915E.exit.i" ]
+  %.sroa.6.0.i.i22.i = phi i64 [ %.sroa.2.0.insert.shift.i.i.i.i.i, %switch.lookup ], [ %.sroa.2.0.insert.shift.i27.i.i.i, %29 ], [ %.sroa.2.0.insert.shift.i.i.i.i, %26 ], [ %.sroa.6.0.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h2f173e49ab644915E.exit.i" ]
   %.sroa.0.0.insert.insert.i.le.i = or i64 %.sroa.6.0.i.i22.i, %.sroa.0.0.i.i23.i
   br label %_ZN4core4iter6traits12double_ended19DoubleEndedIterator9try_rfold17hf51bc8fd1dc72543E.exit
 
@@ -47483,7 +47483,7 @@ define noundef i64 @_ZN7hir_def8resolver8Resolver21update_to_inner_scope17h62f47
   br i1 %.not.i48, label %._crit_edge, label %86
 
 ._crit_edge:                                      ; preds = %74, %44, %51, %_ZN7hir_def8resolver8Resolver21update_to_inner_scope17append_expr_scope17h57f518f515d86f28E.exit.._crit_edge.loopexit_crit_edge
-  %80 = phi ptr [ %.pre.pre, %_ZN7hir_def8resolver8Resolver21update_to_inner_scope17append_expr_scope17h57f518f515d86f28E.exit.._crit_edge.loopexit_crit_edge ], [ %41, %51 ], [ %41, %44 ], [ %.pre.pre185, %74 ]
+  %80 = phi ptr [ %41, %44 ], [ %.pre.pre, %_ZN7hir_def8resolver8Resolver21update_to_inner_scope17append_expr_scope17h57f518f515d86f28E.exit.._crit_edge.loopexit_crit_edge ], [ %41, %51 ], [ %.pre.pre185, %74 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7848)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7849)
   %81 = atomicrmw sub ptr %80, i64 1 release, align 8, !noalias !7843

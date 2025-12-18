@@ -1419,7 +1419,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit350.i: ; preds = %
   br i1 %exitcond466.not.i, label %.loopexit.i, label %.lr.ph403.split.i, !llvm.loop !33
 
 .loopexit.i:                                      ; preds = %536, %511, %497, %.preheader.i, %.lr.ph400.preheader.i, %.preheader358.i
-  %.4301.i = phi float [ %.0297407.i, %.preheader.i ], [ %.0297407.i, %.preheader358.i ], [ %.0297407.i, %.lr.ph400.preheader.i ], [ %.2299.us.i, %511 ], [ %.0297407.i, %497 ], [ %.2299.i, %536 ]
+  %.4301.i = phi float [ %.0297407.i, %497 ], [ %.0297407.i, %.preheader.i ], [ %.0297407.i, %.lr.ph400.preheader.i ], [ %.0297407.i, %.preheader358.i ], [ %.2299.us.i, %511 ], [ %.2299.i, %536 ]
   %indvar.next.i = add nuw nsw i64 %indvar.i, 1
   %exitcond479.not.i = icmp eq i64 %indvar.next.i, %wide.trip.count478.i
   br i1 %exitcond479.not.i, label %._crit_edge411.i, label %481, !llvm.loop !34
@@ -1654,19 +1654,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit353.i: ; preds = %
   br i1 %exitcond315.not.i.i, label %.preheader216.i.i, label %.lr.ph230.split.i.i, !llvm.loop !44
 
 .preheader216.i.i:                                ; preds = %.lr.ph230.split.i.i, %._crit_edge234.us.i.i, %._crit_edge222.i.i, %._crit_edge222.thread.thread.i.i
-  %620 = phi ptr [ %451, %._crit_edge222.thread.thread.i.i ], [ %576, %._crit_edge222.i.i ], [ %576, %._crit_edge234.us.i.i ], [ %472, %.lr.ph230.split.i.i ]
-  %621 = phi ptr [ %448, %._crit_edge222.thread.thread.i.i ], [ %577, %._crit_edge222.i.i ], [ %577, %._crit_edge234.us.i.i ], [ %469, %.lr.ph230.split.i.i ]
-  %622 = phi i32 [ %444, %._crit_edge222.thread.thread.i.i ], [ %578, %._crit_edge222.i.i ], [ %578, %._crit_edge234.us.i.i ], [ %465, %.lr.ph230.split.i.i ]
-  %.0302.lcssa.i572 = phi ptr [ %437, %._crit_edge222.thread.thread.i.i ], [ %.0302.lcssa.i573, %._crit_edge222.i.i ], [ %.0302.lcssa.i573, %._crit_edge234.us.i.i ], [ %443, %.lr.ph230.split.i.i ]
-  %623 = phi ptr [ %562, %._crit_edge222.thread.thread.i.i ], [ %579, %._crit_edge222.i.i ], [ %579, %._crit_edge234.us.i.i ], [ %551, %.lr.ph230.split.i.i ]
-  %624 = phi float [ 0.000000e+00, %._crit_edge222.thread.thread.i.i ], [ %580, %._crit_edge222.i.i ], [ %580, %._crit_edge234.us.i.i ], [ %570, %.lr.ph230.split.i.i ]
-  %625 = phi ptr [ %462, %._crit_edge222.thread.thread.i.i ], [ %581, %._crit_edge222.i.i ], [ %581, %._crit_edge234.us.i.i ], [ %547, %.lr.ph230.split.i.i ]
-  %626 = phi ptr [ %456, %._crit_edge222.thread.thread.i.i ], [ %584, %._crit_edge222.i.i ], [ %584, %._crit_edge234.us.i.i ], [ %541, %.lr.ph230.split.i.i ]
-  %.0297.lcssa.i326331339 = phi float [ 0.000000e+00, %._crit_edge222.thread.thread.i.i ], [ %.0297.lcssa.i326331340, %._crit_edge222.i.i ], [ %.0297.lcssa.i326331340, %._crit_edge234.us.i.i ], [ %.4301.i, %.lr.ph230.split.i.i ]
-  %.1303.lcssa.i325332336 = phi ptr [ %452, %._crit_edge222.thread.thread.i.i ], [ %.1303.lcssa.i325332337, %._crit_edge222.i.i ], [ %.1303.lcssa.i325332337, %._crit_edge234.us.i.i ], [ %487, %.lr.ph230.split.i.i ]
-  %627 = phi ptr [ %460, %._crit_edge222.thread.thread.i.i ], [ %582, %._crit_edge222.i.i ], [ %582, %._crit_edge234.us.i.i ], [ %545, %.lr.ph230.split.i.i ]
-  %628 = phi ptr [ %458, %._crit_edge222.thread.thread.i.i ], [ %583, %._crit_edge222.i.i ], [ %583, %._crit_edge234.us.i.i ], [ %543, %.lr.ph230.split.i.i ]
-  %629 = phi ptr [ %565, %._crit_edge222.thread.thread.i.i ], [ %585, %._crit_edge222.i.i ], [ %585, %._crit_edge234.us.i.i ], [ %573, %.lr.ph230.split.i.i ]
+  %620 = phi ptr [ %451, %._crit_edge222.thread.thread.i.i ], [ %576, %._crit_edge234.us.i.i ], [ %576, %._crit_edge222.i.i ], [ %472, %.lr.ph230.split.i.i ]
+  %621 = phi ptr [ %448, %._crit_edge222.thread.thread.i.i ], [ %577, %._crit_edge234.us.i.i ], [ %577, %._crit_edge222.i.i ], [ %469, %.lr.ph230.split.i.i ]
+  %622 = phi i32 [ %444, %._crit_edge222.thread.thread.i.i ], [ %578, %._crit_edge234.us.i.i ], [ %578, %._crit_edge222.i.i ], [ %465, %.lr.ph230.split.i.i ]
+  %.0302.lcssa.i572 = phi ptr [ %437, %._crit_edge222.thread.thread.i.i ], [ %.0302.lcssa.i573, %._crit_edge234.us.i.i ], [ %.0302.lcssa.i573, %._crit_edge222.i.i ], [ %443, %.lr.ph230.split.i.i ]
+  %623 = phi ptr [ %562, %._crit_edge222.thread.thread.i.i ], [ %579, %._crit_edge234.us.i.i ], [ %579, %._crit_edge222.i.i ], [ %551, %.lr.ph230.split.i.i ]
+  %624 = phi float [ 0.000000e+00, %._crit_edge222.thread.thread.i.i ], [ %580, %._crit_edge234.us.i.i ], [ %580, %._crit_edge222.i.i ], [ %570, %.lr.ph230.split.i.i ]
+  %625 = phi ptr [ %462, %._crit_edge222.thread.thread.i.i ], [ %581, %._crit_edge234.us.i.i ], [ %581, %._crit_edge222.i.i ], [ %547, %.lr.ph230.split.i.i ]
+  %626 = phi ptr [ %456, %._crit_edge222.thread.thread.i.i ], [ %584, %._crit_edge234.us.i.i ], [ %584, %._crit_edge222.i.i ], [ %541, %.lr.ph230.split.i.i ]
+  %.0297.lcssa.i326331339 = phi float [ 0.000000e+00, %._crit_edge222.thread.thread.i.i ], [ %.0297.lcssa.i326331340, %._crit_edge234.us.i.i ], [ %.0297.lcssa.i326331340, %._crit_edge222.i.i ], [ %.4301.i, %.lr.ph230.split.i.i ]
+  %.1303.lcssa.i325332336 = phi ptr [ %452, %._crit_edge222.thread.thread.i.i ], [ %.1303.lcssa.i325332337, %._crit_edge234.us.i.i ], [ %.1303.lcssa.i325332337, %._crit_edge222.i.i ], [ %487, %.lr.ph230.split.i.i ]
+  %627 = phi ptr [ %460, %._crit_edge222.thread.thread.i.i ], [ %582, %._crit_edge234.us.i.i ], [ %582, %._crit_edge222.i.i ], [ %545, %.lr.ph230.split.i.i ]
+  %628 = phi ptr [ %458, %._crit_edge222.thread.thread.i.i ], [ %583, %._crit_edge234.us.i.i ], [ %583, %._crit_edge222.i.i ], [ %543, %.lr.ph230.split.i.i ]
+  %629 = phi ptr [ %565, %._crit_edge222.thread.thread.i.i ], [ %585, %._crit_edge234.us.i.i ], [ %585, %._crit_edge222.i.i ], [ %573, %.lr.ph230.split.i.i ]
   %630 = ptrtoint ptr %628 to i64
   %631 = ptrtoint ptr %627 to i64
   br label %632
@@ -2007,8 +2007,8 @@ _ZL19icvAddBasicVariableP10CvEMDStateiiP8CvNode1DS2_S2_.exit.i.i: ; preds = %693
   br i1 %.not202.i.i, label %.loopexit214.i.i, label %.lr.ph283.i.split.i, !llvm.loop !58
 
 .loopexit214.i.i:                                 ; preds = %.loopexit213.i.i, %.loopexit213.i.us.i, %.loopexit.i.i, %.loopexit.i.us.i, %745, %700
-  %791 = phi ptr [ null, %700 ], [ %.pre336.i.fr.i, %745 ], [ null, %.loopexit213.i.us.i ], [ %701, %.loopexit.i.us.i ], [ %701, %.loopexit.i.i ], [ %.pre336.i.fr.i, %.loopexit213.i.i ]
-  %792 = phi ptr [ %.pre.i.fr.i, %700 ], [ null, %745 ], [ %746, %.loopexit213.i.us.i ], [ null, %.loopexit.i.us.i ], [ %.pre.i.fr.i, %.loopexit.i.i ], [ %746, %.loopexit213.i.i ]
+  %791 = phi ptr [ %701, %.loopexit.i.us.i ], [ null, %700 ], [ %.pre336.i.fr.i, %745 ], [ null, %.loopexit213.i.us.i ], [ %701, %.loopexit.i.i ], [ %.pre336.i.fr.i, %.loopexit213.i.i ]
+  %792 = phi ptr [ null, %.loopexit.i.us.i ], [ %.pre.i.fr.i, %700 ], [ null, %745 ], [ %746, %.loopexit213.i.us.i ], [ %.pre.i.fr.i, %.loopexit.i.i ], [ %746, %.loopexit213.i.i ]
   %793 = icmp ne ptr %792, null
   %794 = icmp ne ptr %791, null
   %795 = or i1 %794, %793

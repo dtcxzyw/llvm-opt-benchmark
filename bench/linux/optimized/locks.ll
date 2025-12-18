@@ -2379,7 +2379,7 @@ define dso_local void @posix_test_lock(ptr noundef readonly captures(none) %0, p
   br i1 %87, label %.loopexit, label %.split.split, !llvm.loop !48
 
 .split13.us:                                      ; preds = %81, %59, %41
-  %.us-phi = phi ptr [ %50, %59 ], [ %32, %41 ], [ %67, %81 ]
+  %.us-phi = phi ptr [ %32, %41 ], [ %50, %59 ], [ %67, %81 ]
   %88 = getelementptr i8, ptr %.us-phi, i64 -8
   %89 = getelementptr i8, ptr %.us-phi, i64 168
   %90 = load ptr, ptr %89, align 8
@@ -3351,10 +3351,10 @@ define internal fastcc range(i32 -37, 2) i32 @posix_lock_inode(ptr noundef %0, p
   br label %504
 
 504:                                              ; preds = %.sink.split, %362, %349, %318, %298
-  %505 = phi i8 [ %280, %298 ], [ %280, %349 ], [ %359, %362 ], [ 1, %318 ], [ 1, %.sink.split ]
-  %506 = phi ptr [ %279, %298 ], [ %279, %349 ], [ %281, %362 ], [ %279, %318 ], [ %279, %.sink.split ]
-  %507 = phi ptr [ %278, %298 ], [ %278, %349 ], [ %278, %362 ], [ %278, %318 ], [ %.ph312, %.sink.split ]
-  %508 = phi ptr [ %276, %298 ], [ %276, %349 ], [ %276, %362 ], [ %281, %318 ], [ %.ph313, %.sink.split ]
+  %505 = phi i8 [ %280, %298 ], [ 1, %318 ], [ %280, %349 ], [ %359, %362 ], [ 1, %.sink.split ]
+  %506 = phi ptr [ %279, %298 ], [ %279, %318 ], [ %279, %349 ], [ %281, %362 ], [ %279, %.sink.split ]
+  %507 = phi ptr [ %278, %298 ], [ %278, %318 ], [ %278, %349 ], [ %278, %362 ], [ %.ph312, %.sink.split ]
+  %508 = phi ptr [ %276, %298 ], [ %281, %318 ], [ %276, %349 ], [ %276, %362 ], [ %.ph313, %.sink.split ]
   %509 = icmp eq ptr %282, %60
   br i1 %509, label %.thread79, label %.preheader355, !llvm.loop !70
 
@@ -4627,7 +4627,7 @@ lease_alloc.exit.thread:                          ; preds = %3, %lease_alloc.exi
   br i1 %293, label %.loopexit23, label %287, !llvm.loop !82
 
 .loopexit22:                                      ; preds = %61, %278, %287, %158, %154, %141, %140, %.loopexit28
-  %294 = phi i32 [ 0, %.loopexit28 ], [ -11, %140 ], [ -11, %141 ], [ -11, %154 ], [ -11, %158 ], [ %242, %278 ], [ 0, %287 ], [ 0, %61 ]
+  %294 = phi i32 [ 0, %.loopexit28 ], [ 0, %287 ], [ -11, %140 ], [ -11, %141 ], [ -11, %154 ], [ -11, %158 ], [ %242, %278 ], [ 0, %61 ]
   call void @_raw_spin_unlock(ptr noundef nonnull %40) #15
   call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #15, !srcloc !50
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !57
@@ -5698,8 +5698,8 @@ select.unfold.loopexit96:                         ; preds = %272
   br label %select.unfold
 
 select.unfold:                                    ; preds = %290, %select.unfold.loopexit96, %.lr.ph, %.select.unfold.loopexit79_crit_edge, %.split.us, %222, %226, %234, %325, %317, %316, %.thread22, %302
-  %328 = phi i32 [ %307, %302 ], [ 0, %325 ], [ 0, %317 ], [ %314, %316 ], [ -22, %.thread22 ], [ -11, %226 ], [ -11, %234 ], [ -11, %222 ], [ -11, %.split.us ], [ -11, %.select.unfold.loopexit79_crit_edge ], [ -11, %.lr.ph ], [ -11, %select.unfold.loopexit96 ], [ -11, %290 ]
-  %329 = phi ptr [ %.us-phi34, %302 ], [ %318, %325 ], [ %318, %317 ], [ null, %316 ], [ null, %.thread22 ], [ null, %226 ], [ null, %234 ], [ null, %222 ], [ null, %.split.us ], [ %326, %.select.unfold.loopexit79_crit_edge ], [ null, %.lr.ph ], [ %327, %select.unfold.loopexit96 ], [ %280, %290 ]
+  %328 = phi i32 [ -11, %222 ], [ %307, %302 ], [ 0, %325 ], [ 0, %317 ], [ %314, %316 ], [ -22, %.thread22 ], [ -11, %234 ], [ -11, %226 ], [ -11, %.lr.ph ], [ -11, %.split.us ], [ -11, %select.unfold.loopexit96 ], [ -11, %.select.unfold.loopexit79_crit_edge ], [ -11, %290 ]
+  %329 = phi ptr [ null, %222 ], [ %.us-phi34, %302 ], [ %318, %325 ], [ %318, %317 ], [ null, %316 ], [ null, %.thread22 ], [ null, %234 ], [ null, %226 ], [ null, %.lr.ph ], [ null, %.split.us ], [ %327, %select.unfold.loopexit96 ], [ %326, %.select.unfold.loopexit79_crit_edge ], [ %280, %290 ]
   call void @_raw_spin_unlock(ptr noundef nonnull %193) #15
   call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #15, !srcloc !50
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !57

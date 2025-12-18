@@ -2473,7 +2473,7 @@ is_cacheable_stream_path.exit:                    ; preds = %104
   call void @zend_signal_handler_unblock() #26
   br label %.thread207
 
-.thread207:                                       ; preds = %78, %.critedge, %137, %156, %151
+.thread207:                                       ; preds = %151, %78, %.critedge, %137, %156
   %.0143.ph = phi ptr [ %.1144206, %151 ], [ %.1144206, %156 ], [ %.1144206, %137 ], [ %86, %.critedge ], [ %spec.select, %78 ]
   %.0139.ph = phi ptr [ %136, %151 ], [ %136, %156 ], [ %136, %137 ], [ %111, %.critedge ], [ %60, %78 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @accel_globals, i64 384), i8 0, i64 16, i1 false)
@@ -5658,7 +5658,7 @@ accel_find_sapi.exit.thread:                      ; preds = %116, %120, %accel_f
   call void @zend_llist_del_element(ptr noundef nonnull @zend_extensions, ptr noundef null, ptr noundef nonnull @accelerator_remove_cb) #26
   br label %129
 
-.loopexit:                                        ; preds = %.preheader.i, %116, %113
+.loopexit:                                        ; preds = %.preheader.i, %113, %116
   %124 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 1), align 1, !tbaa !248, !range !37, !noundef !38
   %125 = icmp eq i8 %124, 0
   br i1 %125, label %129, label %126
@@ -6554,7 +6554,7 @@ accel_finish_startup_preload_subprocess.exit.i:   ; preds = %254
   br label %accel_finish_startup.exit
 
 accel_finish_startup.exit:                        ; preds = %accel_finish_startup_preload_subprocess.exit.thread.i, %290
-  %.0.i63 = phi i32 [ %.2.i, %290 ], [ %278, %accel_finish_startup_preload_subprocess.exit.thread.i ]
+  %.0.i63 = phi i32 [ %278, %accel_finish_startup_preload_subprocess.exit.thread.i ], [ %.2.i, %290 ]
   %.not = icmp eq i32 %.0.i63, 0
   br i1 %.not, label %accel_finish_startup.exit.thread, label %300
 
@@ -7250,7 +7250,7 @@ zend_string_copy.exit.thread:                     ; preds = %30, %26, %21
   br label %zend_string_copy.exit
 
 zend_string_copy.exit:                            ; preds = %88, %46, %40, %49, %.thread, %90
-  %.8 = phi ptr [ %92, %90 ], [ %53, %.thread ], [ %53, %88 ], [ %51, %49 ], [ %42, %40 ], [ %42, %46 ]
+  %.8 = phi ptr [ %92, %90 ], [ %53, %.thread ], [ %53, %88 ], [ %51, %49 ], [ %42, %46 ], [ %42, %40 ]
   ret ptr %.8
 }
 
@@ -7560,7 +7560,7 @@ replay_warnings.exit:                             ; preds = %.lr.ph.i, %.thread5
   br i1 %.not28, label %.loopexit, label %75
 
 .loopexit:                                        ; preds = %.thread40, %.lr.ph80, %3, %62, %70
-  %.2 = phi ptr [ %64, %62 ], [ %64, %70 ], [ null, %3 ], [ null, %.lr.ph80 ], [ null, %.thread40 ]
+  %.2 = phi ptr [ null, %3 ], [ %64, %62 ], [ %64, %70 ], [ null, %.lr.ph80 ], [ null, %.thread40 ]
   ret ptr %.2
 }
 
@@ -11658,7 +11658,7 @@ preload_try_resolve_constants.exit:               ; preds = %.thread369, %282
   br i1 %.not164, label %._crit_edge291, label %.lr.ph290
 
 ._crit_edge291:                                   ; preds = %288, %194
-  %.5.lcssa = phi i1 [ %.5288, %194 ], [ %.6, %288 ]
+  %.5.lcssa = phi i1 [ %.6, %288 ], [ %.5288, %194 ]
   br i1 %.5.lcssa, label %.preheader.split, label %._crit_edge291..split.loopexit_crit_edge, !llvm.loop !427
 
 ._crit_edge291..split.loopexit_crit_edge:         ; preds = %._crit_edge291

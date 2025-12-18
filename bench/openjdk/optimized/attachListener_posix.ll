@@ -477,7 +477,7 @@ _ZN15AttachOperation7set_argEiPc.exit:            ; preds = %82
   br label %_ZN19PosixAttachListener11write_fullyEiPcm.exit
 
 _ZN19PosixAttachListener11write_fullyEiPcm.exit:  ; preds = %.critedge, %41, %35, %_ZN16ArgumentIterator4nextEv.exit, %55, %62, %49, %90, %85
-  %.0 = phi ptr [ null, %49 ], [ null, %85 ], [ %67, %90 ], [ null, %62 ], [ null, %55 ], [ null, %_ZN16ArgumentIterator4nextEv.exit ], [ null, %41 ], [ null, %35 ], [ null, %.critedge ]
+  %.0 = phi ptr [ null, %_ZN16ArgumentIterator4nextEv.exit ], [ null, %41 ], [ null, %49 ], [ null, %85 ], [ %67, %90 ], [ null, %62 ], [ null, %55 ], [ null, %35 ], [ null, %.critedge ]
   ret ptr %.0
 }
 

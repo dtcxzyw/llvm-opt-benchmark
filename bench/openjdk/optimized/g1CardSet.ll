@@ -1181,7 +1181,7 @@ _ZN18G1CardSetContainer22try_increment_refcountEv.exit.loopexit: ; preds = %30
   br i1 %37, label %_ZN18G1CardSetContainer22try_increment_refcountEv.exit.thread, label %30, !llvm.loop !13
 
 _ZN18G1CardSetContainer22try_increment_refcountEv.exit.thread: ; preds = %_ZN18G1CardSetContainer22try_increment_refcountEv.exit.loopexit, %34, %_ZN13GlobalCounter15CriticalSectionC2EP6Thread.exit
-  %38 = phi ptr [ %13, %_ZN13GlobalCounter15CriticalSectionC2EP6Thread.exit ], [ %26, %34 ], [ %19, %_ZN18G1CardSetContainer22try_increment_refcountEv.exit.loopexit ]
+  %38 = phi ptr [ %26, %34 ], [ %13, %_ZN13GlobalCounter15CriticalSectionC2EP6Thread.exit ], [ %19, %_ZN18G1CardSetContainer22try_increment_refcountEv.exit.loopexit ]
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !10
   store volatile i64 %6, ptr %5, align 8
   ret ptr %38
@@ -1387,8 +1387,8 @@ _ZN14G1CardSetArray20G1CardSetArrayLockerC2EPVj.exit: ; preds = %_ZN9SpinYield4w
   br label %.loopexit
 
 .loopexit:                                        ; preds = %37, %._crit_edge26, %45
-  %.sroa.4.0 = phi i32 [ %.0.lcssa.i, %._crit_edge26 ], [ %50, %45 ], [ %.0.lcssa.i, %37 ]
-  %.115 = phi i32 [ 0, %._crit_edge26 ], [ 2, %45 ], [ 1, %37 ]
+  %.sroa.4.0 = phi i32 [ %50, %45 ], [ %.0.lcssa.i, %._crit_edge26 ], [ %.0.lcssa.i, %37 ]
+  %.115 = phi i32 [ 2, %45 ], [ 0, %._crit_edge26 ], [ 1, %37 ]
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !10
   store volatile i32 %.sroa.4.0, ptr %4, align 4
   br label %.loopexit21
@@ -1484,7 +1484,7 @@ _ZN18G1CardSetContainer22try_increment_refcountEv.exit.loopexit.i: ; preds = %50
   br i1 %57, label %_ZN9G1CardSet17acquire_containerEPVPv.exit, label %50, !llvm.loop !13
 
 _ZN9G1CardSet17acquire_containerEPVPv.exit:       ; preds = %_ZN18G1CardSetContainer22try_increment_refcountEv.exit.loopexit.i, %54, %_ZN13GlobalCounter15CriticalSectionC2EP6Thread.exit.i
-  %58 = phi ptr [ %33, %_ZN13GlobalCounter15CriticalSectionC2EP6Thread.exit.i ], [ %46, %54 ], [ %39, %_ZN18G1CardSetContainer22try_increment_refcountEv.exit.loopexit.i ]
+  %58 = phi ptr [ %46, %54 ], [ %33, %_ZN13GlobalCounter15CriticalSectionC2EP6Thread.exit.i ], [ %39, %_ZN18G1CardSetContainer22try_increment_refcountEv.exit.loopexit.i ]
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !10
   store volatile i64 %26, ptr %25, align 8
   %59 = tail call noundef i32 @_ZN9G1CardSet16add_to_containerEPVPvS0_jjb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %16, ptr noundef %58, i32 noundef %2, i32 noundef %3, i1 noundef zeroext true)
@@ -1579,7 +1579,7 @@ _ZN9G1CardSet17release_containerEPv.exit.i36:     ; preds = %91
   br label %_ZN9G1CardSet32release_and_maybe_free_containerEPv.exit37
 
 _ZN9G1CardSet32release_and_maybe_free_containerEPv.exit37: ; preds = %_ZN9G1CardSet32release_and_maybe_free_containerEPv.exit, %5, %102, %_ZN9G1CardSet17release_containerEPv.exit.i36, %91
-  %.0 = phi i32 [ %.030, %91 ], [ %.030, %_ZN9G1CardSet17release_containerEPv.exit.i36 ], [ %.030, %102 ], [ 0, %5 ], [ 0, %_ZN9G1CardSet32release_and_maybe_free_containerEPv.exit ]
+  %.0 = phi i32 [ %.030, %102 ], [ %.030, %91 ], [ %.030, %_ZN9G1CardSet17release_containerEPv.exit.i36 ], [ 0, %5 ], [ 0, %_ZN9G1CardSet32release_and_maybe_free_containerEPv.exit ]
   ret i32 %.0
 }
 
@@ -1742,7 +1742,7 @@ default.unreachable28:                            ; preds = %6
   unreachable
 
 _ZN9G1CardSet17add_to_inline_ptrEPVPvS0_j.exit:   ; preds = %85, %51, %37, %_ZN18G1CardSetInlinePtr4findEjjjj.exit.thread.i.i, %_ZN18G1CardSetInlinePtr4findEjjjj.exit.i.i, %90, %75, %54, %95, %92
-  %.015 = phi i32 [ 1, %92 ], [ %96, %95 ], [ %57, %54 ], [ %80, %75 ], [ 2, %90 ], [ 0, %51 ], [ 0, %_ZN18G1CardSetInlinePtr4findEjjjj.exit.thread.i.i ], [ 1, %_ZN18G1CardSetInlinePtr4findEjjjj.exit.i.i ], [ 2, %37 ], [ 1, %85 ]
+  %.015 = phi i32 [ 1, %92 ], [ %96, %95 ], [ %57, %54 ], [ 0, %51 ], [ %80, %75 ], [ 2, %90 ], [ 0, %_ZN18G1CardSetInlinePtr4findEjjjj.exit.thread.i.i ], [ 1, %_ZN18G1CardSetInlinePtr4findEjjjj.exit.i.i ], [ 2, %37 ], [ 1, %85 ]
   ret i32 %.015
 }
 
@@ -2795,7 +2795,7 @@ _ZN18G1CardSetContainer22try_increment_refcountEv.exit.loopexit.i: ; preds = %39
   br i1 %46, label %_ZN9G1CardSet17acquire_containerEPVPv.exit, label %39, !llvm.loop !13
 
 _ZN9G1CardSet17acquire_containerEPVPv.exit:       ; preds = %_ZN18G1CardSetContainer22try_increment_refcountEv.exit.loopexit.i, %43, %_ZN13GlobalCounter15CriticalSectionC2EP6Thread.exit.i
-  %47 = phi ptr [ %22, %_ZN13GlobalCounter15CriticalSectionC2EP6Thread.exit.i ], [ %35, %43 ], [ %28, %_ZN18G1CardSetContainer22try_increment_refcountEv.exit.loopexit.i ]
+  %47 = phi ptr [ %35, %43 ], [ %22, %_ZN13GlobalCounter15CriticalSectionC2EP6Thread.exit.i ], [ %28, %_ZN18G1CardSetContainer22try_increment_refcountEv.exit.loopexit.i ]
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !10
   store volatile i64 %15, ptr %14, align 8
   %48 = call noundef i32 @_ZN9G1CardSet16add_to_containerEPVPvS0_jjb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %10, ptr noundef %47, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3)
@@ -3282,7 +3282,7 @@ default.unreachable37:                            ; preds = %108, %62
   unreachable
 
 _ZN18G1CardSetInlinePtr8containsEjj.exit:         ; preds = %.lr.ph.i.i18, %.lr.ph.i, %_ZN18G1CardSetInlinePtr4findEjjjj.exit.i.i, %149, %134, %123, %108, %85, %_ZN18G1CardSetInlinePtr4findEjjjj.exit.i, %66, %_ZN9G1CardSet13get_containerEj.exit.thread, %57, %96
-  %.0 = phi i1 [ false, %123 ], [ false, %_ZN9G1CardSet13get_containerEj.exit.thread ], [ true, %57 ], [ false, %66 ], [ %107, %96 ], [ %84, %_ZN18G1CardSetInlinePtr4findEjjjj.exit.i ], [ false, %85 ], [ false, %149 ], [ true, %108 ], [ %148, %134 ], [ %165, %_ZN18G1CardSetInlinePtr4findEjjjj.exit.i.i ], [ %95, %.lr.ph.i ], [ %133, %.lr.ph.i.i18 ]
+  %.0 = phi i1 [ false, %123 ], [ false, %_ZN9G1CardSet13get_containerEj.exit.thread ], [ true, %57 ], [ false, %66 ], [ %107, %96 ], [ %84, %_ZN18G1CardSetInlinePtr4findEjjjj.exit.i ], [ false, %85 ], [ %95, %.lr.ph.i ], [ false, %149 ], [ true, %108 ], [ %148, %134 ], [ %165, %_ZN18G1CardSetInlinePtr4findEjjjj.exit.i.i ], [ %133, %.lr.ph.i.i18 ]
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !10
   store volatile i64 %7, ptr %6, align 8
   ret i1 %.0

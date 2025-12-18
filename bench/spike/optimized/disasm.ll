@@ -2059,7 +2059,7 @@ _ZNK14disassembler_t6lookupE6insn_t.exit:         ; preds = %45
   br label %.critedge
 
 .loopexit:                                        ; preds = %11, %30, %47
-  %.1.i.ph = phi ptr [ %32, %30 ], [ %49, %47 ], [ %13, %11 ]
+  %.1.i.ph = phi ptr [ %49, %47 ], [ %32, %30 ], [ %13, %11 ]
   tail call void @_ZNK13disasm_insn_t9to_stringB5cxx11E6insn_t(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %.1.i.ph, i64 %2)
   br label %.critedge
 

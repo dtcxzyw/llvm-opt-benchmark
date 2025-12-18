@@ -120,7 +120,7 @@ define internal fastcc i32 @gen_init(ptr noundef %0, i32 noundef range(i32 2, 5)
   br label %46
 
 46:                                               ; preds = %39, %44, %22, %50
-  %.0 = phi i32 [ -2, %50 ], [ %40, %39 ], [ %45, %44 ], [ 0, %22 ]
+  %.0 = phi i32 [ -2, %50 ], [ 0, %22 ], [ %40, %39 ], [ %45, %44 ]
   %47 = icmp slt i32 %.0, 1
   %48 = icmp ne ptr %0, null
   %or.cond = and i1 %48, %47

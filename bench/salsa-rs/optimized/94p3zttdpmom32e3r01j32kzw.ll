@@ -321,8 +321,8 @@ define hidden { i64, i1 } @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$11in
   br label %74
 
 74:                                               ; preds = %63, %67
-  %75 = phi i8 [ %65, %63 ], [ %.pre, %67 ]
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.4.113.i.i, %63 ], [ %73, %67 ]
+  %75 = phi i8 [ %.pre, %67 ], [ %65, %63 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %73, %67 ], [ %.sroa.4.113.i.i, %63 ]
   %76 = load i64, ptr %6, align 8, !noundef !3
   %77 = icmp ult i64 %76, 384307168202282326
   tail call void @llvm.assume(i1 %77)

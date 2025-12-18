@@ -911,8 +911,8 @@ define noundef i32 @_ZN3zmq24socks_response_decoder_t5inputEi(ptr noundef nonnul
   br label %21
 
 21:                                               ; preds = %8, %20, %15, %.critedge, %6
-  %22 = phi i64 [ %4, %6 ], [ %4, %15 ], [ %4, %20 ], [ %4, %8 ], [ %.pre, %.critedge ]
-  %.025 = phi i64 [ %7, %6 ], [ %19, %15 ], [ 17, %20 ], [ 5, %8 ], [ 0, %.critedge ]
+  %22 = phi i64 [ %4, %6 ], [ %.pre, %.critedge ], [ %4, %15 ], [ %4, %20 ], [ %4, %8 ]
+  %.025 = phi i64 [ %7, %6 ], [ 0, %.critedge ], [ %19, %15 ], [ 17, %20 ], [ 5, %8 ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 %22
   %24 = tail call noundef i32 @_ZN3zmq8tcp_readEiPvm(i32 noundef %1, ptr noundef nonnull %23, i64 noundef %.025)
   %25 = icmp sgt i32 %24, 0

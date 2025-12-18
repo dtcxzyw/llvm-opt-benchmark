@@ -577,7 +577,7 @@ cli_crt_init_fps.exit:                            ; preds = %38
   br label %106
 
 106:                                              ; preds = %crtmgr_block_list_lookup.exit, %28, %98, %crtmgr_block_list_lookup.exit.thread, %102
-  %.06082 = phi i1 [ true, %102 ], [ false, %crtmgr_block_list_lookup.exit ], [ true, %crtmgr_block_list_lookup.exit.thread ], [ false, %98 ], [ false, %28 ]
+  %.06082 = phi i1 [ true, %102 ], [ false, %crtmgr_block_list_lookup.exit ], [ true, %crtmgr_block_list_lookup.exit.thread ], [ false, %28 ], [ false, %98 ]
   ret i1 %.06082
 }
 
@@ -928,7 +928,7 @@ switch.lookup:                                    ; preds = %4
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %57, %.lr.ph.i.i, %.thread.i.i, %.loopexit.thread61.i.i, %.loopexit.i.i, %51, %49, %44
-  %.str.27.sink.i = phi ptr [ @.str.26, %49 ], [ @.str.25, %.thread.i.i ], [ @.str.25, %44 ], [ @.str.26, %51 ], [ @.str.27, %.loopexit.thread61.i.i ], [ @.str.27, %.loopexit.i.i ], [ @.str.27, %.lr.ph.i.i ], [ @.str.27, %57 ]
+  %.str.27.sink.i = phi ptr [ @.str.26, %49 ], [ @.str.25, %.thread.i.i ], [ @.str.25, %44 ], [ @.str.27, %.loopexit.i.i ], [ @.str.26, %51 ], [ @.str.27, %.loopexit.thread61.i.i ], [ @.str.27, %.lr.ph.i.i ], [ @.str.27, %57 ]
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull %.str.27.sink.i, ptr noundef nonnull @__func__._padding_check_PKCS1_type_1) #11
   br label %64
 
@@ -1273,7 +1273,7 @@ define range(i32 0, 2) i32 @crtmgr_add_roots(ptr noundef readonly captures(addre
   br i1 %.not13, label %crtmgr_free.exit, label %.lr.ph.split
 
 crtmgr_free.exit:                                 ; preds = %16, %6, %.lr.ph.i, %.preheader, %.split.us, %3
-  %.010 = phi i32 [ 0, %3 ], [ 1, %.split.us ], [ 0, %.preheader ], [ 0, %6 ], [ 1, %.lr.ph.i ], [ 0, %16 ]
+  %.010 = phi i32 [ 0, %3 ], [ 0, %.preheader ], [ 1, %.split.us ], [ 0, %6 ], [ 1, %.lr.ph.i ], [ 0, %16 ]
   ret i32 %.010
 }
 

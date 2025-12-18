@@ -897,7 +897,7 @@ define internal i64 @read_istream_filtered(ptr noundef %0, ptr noundef writeonly
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.outer, %56, %52, %3, %.thread, %.critedge
-  %.2 = phi i64 [ -1, %.thread ], [ -1, %.critedge ], [ 0, %3 ], [ -1, %56 ], [ %.051.ph87, %52 ], [ %28, %.outer ]
+  %.2 = phi i64 [ -1, %56 ], [ -1, %.thread ], [ -1, %.critedge ], [ 0, %3 ], [ %.051.ph87, %52 ], [ %28, %.outer ]
   ret i64 %.2
 }
 

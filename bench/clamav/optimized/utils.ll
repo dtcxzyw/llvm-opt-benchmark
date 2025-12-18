@@ -211,7 +211,7 @@ define dso_local range(i32 0, 3) i32 @onas_fan_checkowner(i32 noundef %0, ptr no
   br label %.loopexit
 
 .loopexit:                                        ; preds = %28, %68, %.loopexit49, %16, %2, %87, %66, %62, %54, %52
-  %.036 = phi i32 [ 2, %2 ], [ 0, %16 ], [ 1, %66 ], [ 1, %52 ], [ 1, %54 ], [ 0, %87 ], [ 1, %62 ], [ 1, %.loopexit49 ], [ 1, %68 ], [ 1, %28 ]
+  %.036 = phi i32 [ 2, %2 ], [ 0, %16 ], [ 1, %66 ], [ 1, %52 ], [ 1, %54 ], [ 1, %.loopexit49 ], [ 0, %87 ], [ 1, %62 ], [ 1, %68 ], [ 1, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.036
@@ -439,7 +439,7 @@ free_opt_list.exit:                               ; preds = %95, %88
   br label %100
 
 .outer._crit_edge:                                ; preds = %.outer, %.backedge, %.preheader
-  %.0.ph.lcssa64 = phi ptr [ %6, %.preheader ], [ %.0.ph68, %.backedge ], [ %82, %.outer ]
+  %.0.ph.lcssa64 = phi ptr [ %.0.ph68, %.backedge ], [ %6, %.preheader ], [ %82, %.outer ]
   %96 = load i32, ptr %1, align 4, !tbaa !20
   %97 = sext i32 %96 to i64
   %98 = getelementptr inbounds ptr, ptr %.0.ph.lcssa64, i64 %97

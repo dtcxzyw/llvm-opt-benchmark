@@ -1999,7 +1999,7 @@ select.unfold:                                    ; preds = %162, %134
   br label %324
 
 324:                                              ; preds = %195, %207, %321, %268
-  %325 = phi i32 [ %270, %268 ], [ %323, %321 ], [ -14, %207 ], [ -14, %195 ]
+  %325 = phi i32 [ %270, %268 ], [ %323, %321 ], [ -14, %195 ], [ -14, %207 ]
   br i1 %175, label %328, label %326
 
 326:                                              ; preds = %324
@@ -2467,7 +2467,7 @@ select.unfold.sink.split:                         ; preds = %79, %.thread
   br label %select.unfold
 
 select.unfold:                                    ; preds = %select.unfold.sink.split, %73, %43, %.thread13
-  %83 = phi i32 [ -22, %43 ], [ -19, %.thread13 ], [ -99, %73 ], [ 0, %select.unfold.sink.split ]
+  %83 = phi i32 [ -99, %73 ], [ -19, %.thread13 ], [ -22, %43 ], [ 0, %select.unfold.sink.split ]
   tail call void @__rcu_read_unlock() #13
   br label %84
 

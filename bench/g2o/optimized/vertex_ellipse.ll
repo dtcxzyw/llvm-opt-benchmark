@@ -1330,7 +1330,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockIKNS1_INS1_INS_6MatrixIfLi2ELi2ELi0ELi2ELi2EEELi
   br label %64
 
 _ZNK5Eigen10MatrixBaseINS_5BlockIKNS1_INS1_INS_6MatrixIfLi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1EEELin1ELi1ELb0EEELin1ELi1ELb0EEEE11squaredNormEv.exit: ; preds = %.lr.ph85.i.i.i.i, %.lr.ph90.i.i.i.i, %51, %41
-  %61 = phi float [ %53, %51 ], [ %44, %41 ], [ %58, %.lr.ph90.i.i.i.i ], [ %49, %.lr.ph85.i.i.i.i ]
+  %61 = phi float [ %58, %.lr.ph90.i.i.i.i ], [ %44, %41 ], [ %53, %51 ], [ %49, %.lr.ph85.i.i.i.i ]
   %62 = load float, ptr %8, align 4, !tbaa !6
   %63 = fcmp ugt float %61, 0x3810000000000000
   br i1 %63, label %.critedge, label %64
@@ -4958,7 +4958,7 @@ define linkonce_odr void @_ZN5Eigen8internal32triangular_matrix_vector_productIl
   br i1 %exitcond96.not.i.i.i, label %_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIffEEKNS_5BlockIKNS5_IKNS_3MapIKNS_6MatrixIfLin1ELin1ELi1ELin1ELin1EEELi0ENS_11OuterStrideILin1EEEEELi1ELin1ELb1EEELi1ELin1ELb0EEEKNS_9TransposeIKNS5_IKNS6_IKNS7_IfLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEELin1ELi1ELb0EEEEEEEE3sumEv.exit, label %.lr.ph90.i.i.i, !llvm.loop !392
 
 _ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIffEEKNS_5BlockIKNS5_IKNS_3MapIKNS_6MatrixIfLin1ELin1ELi1ELin1ELin1EEELi0ENS_11OuterStrideILin1EEEEELi1ELin1ELb1EEELi1ELin1ELb0EEEKNS_9TransposeIKNS5_IKNS6_IKNS7_IfLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEELin1ELi1ELb0EEEEEEEE3sumEv.exit: ; preds = %.lr.ph85.i.i.i, %.lr.ph90.i.i.i, %71, %82
-  %.0.i = phi float [ %85, %82 ], [ %74, %71 ], [ %91, %.lr.ph90.i.i.i ], [ %80, %.lr.ph85.i.i.i ]
+  %.0.i = phi float [ %91, %.lr.ph90.i.i.i ], [ %74, %71 ], [ %85, %82 ], [ %80, %.lr.ph85.i.i.i ]
   %93 = mul nsw i64 %23, %7
   %94 = getelementptr inbounds float, ptr %6, i64 %93
   %95 = load float, ptr %94, align 4, !tbaa !6
@@ -6223,7 +6223,7 @@ define linkonce_odr void @_ZN5Eigen8internal13gemm_pack_rhsIflNS0_22const_blas_d
   br i1 %100, label %.preheader83.us96, label %.preheader, !llvm.loop !419
 
 .preheader:                                       ; preds = %._crit_edge.us103, %._crit_edge.us, %.lr.ph94.split, %7
-  %.061.lcssa = phi i64 [ 0, %7 ], [ 0, %.lr.ph94.split ], [ %.2.lcssa.us, %._crit_edge.us ], [ %97, %._crit_edge.us103 ]
+  %.061.lcssa = phi i64 [ 0, %7 ], [ %.2.lcssa.us, %._crit_edge.us ], [ 0, %.lr.ph94.split ], [ %97, %._crit_edge.us103 ]
   %101 = icmp slt i64 %9, %4
   br i1 %101, label %.lr.ph111, label %._crit_edge112
 

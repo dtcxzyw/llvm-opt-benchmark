@@ -196,7 +196,7 @@ _ZN8PhaseCFG17map_node_to_blockEPK4NodeP5Block.exit: ; preds = %_ZNK5Block8get_n
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph63, %51, %._crit_edge, %32, %36, %_ZNK5Block8get_nodeEj.exit, %_ZNK5Block8get_nodeEj.exit51, %_ZN8PhaseCFG17map_node_to_blockEPK4NodeP5Block.exit
-  %.0 = phi i1 [ false, %_ZNK5Block8get_nodeEj.exit ], [ false, %36 ], [ true, %_ZN8PhaseCFG17map_node_to_blockEPK4NodeP5Block.exit ], [ false, %_ZNK5Block8get_nodeEj.exit51 ], [ false, %._crit_edge ], [ false, %32 ], [ false, %51 ], [ false, %.lr.ph63 ]
+  %.0 = phi i1 [ false, %32 ], [ false, %_ZNK5Block8get_nodeEj.exit ], [ false, %36 ], [ true, %_ZN8PhaseCFG17map_node_to_blockEPK4NodeP5Block.exit ], [ false, %_ZNK5Block8get_nodeEj.exit51 ], [ false, %._crit_edge ], [ false, %51 ], [ false, %.lr.ph63 ]
   ret i1 %.0
 }
 

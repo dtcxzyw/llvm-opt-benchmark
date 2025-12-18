@@ -948,8 +948,8 @@ vaapi_pix_fmt_from_fourcc.exit109:                ; preds = %75
   br label %vaapi_pix_fmt_from_fourcc.exit109.thread
 
 vaapi_pix_fmt_from_fourcc.exit109.thread:         ; preds = %74, %._crit_edge122, %._crit_edge122.thread, %.lr.ph128
-  %91 = phi i32 [ %68, %.lr.ph128 ], [ %.pre, %._crit_edge122.thread ], [ %68, %._crit_edge122 ], [ %68, %74 ]
-  %.184 = phi i32 [ %.083127, %.lr.ph128 ], [ %88, %._crit_edge122.thread ], [ %.083127, %._crit_edge122 ], [ %.083127, %74 ]
+  %91 = phi i32 [ %68, %._crit_edge122 ], [ %68, %.lr.ph128 ], [ %.pre, %._crit_edge122.thread ], [ %68, %74 ]
+  %.184 = phi i32 [ %.083127, %._crit_edge122 ], [ %.083127, %.lr.ph128 ], [ %88, %._crit_edge122.thread ], [ %.083127, %74 ]
   %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
   %92 = sext i32 %91 to i64
   %93 = icmp slt i64 %indvars.iv.next149, %92

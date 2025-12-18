@@ -1483,9 +1483,9 @@ common.resume.i.i:                                ; preds = %117, %109, %95, %47
   br label %111
 
 "_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h57f27f4cddfb38e8E.exit.i.i": ; preds = %71, %45
-  %.sroa.13.sroa.0.1.i.i = phi ptr [ %.sroa.13.sroa.0.0.copyload15.i.i, %45 ], [ %76, %71 ]
-  %.sroa.13.sroa.8.1.i.i = phi i64 [ %.sroa.13.sroa.8.0.copyload18.i.i, %45 ], [ %73, %71 ]
-  %.sroa.0.0.i.i = phi i64 [ %.sroa.0.0.copyload7.i.i, %45 ], [ %75, %71 ]
+  %.sroa.13.sroa.0.1.i.i = phi ptr [ %76, %71 ], [ %.sroa.13.sroa.0.0.copyload15.i.i, %45 ]
+  %.sroa.13.sroa.8.1.i.i = phi i64 [ %73, %71 ], [ %.sroa.13.sroa.8.0.copyload18.i.i, %45 ]
+  %.sroa.0.0.i.i = phi i64 [ %75, %71 ], [ %.sroa.0.0.copyload7.i.i, %45 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !633
   %97 = icmp eq i64 %.sroa.0.0.i.i, -9223372036854775808
   br i1 %97, label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h57f27f4cddfb38e8E.exit.thread.i.i", label %111
@@ -2684,7 +2684,7 @@ define internal fastcc noundef ptr @"_ZN106_$LT$core..iter..adapters..flatten..F
   br label %8
 
 "_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5e7ba0e8c4290f76E.exit": ; preds = %8, %.loopexit.i, %36, %"_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$syntax..ast..generated..tokens..Comment$GT$$GT$$GT$17hd116e1d44b4ec71dE.exit.i11.i"
-  %.0.i = phi ptr [ null, %.loopexit.i ], [ %38, %36 ], [ null, %"_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$syntax..ast..generated..tokens..Comment$GT$$GT$$GT$17hd116e1d44b4ec71dE.exit.i11.i" ], [ %9, %8 ]
+  %.0.i = phi ptr [ null, %"_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$syntax..ast..generated..tokens..Comment$GT$$GT$$GT$17hd116e1d44b4ec71dE.exit.i11.i" ], [ null, %.loopexit.i ], [ %38, %36 ], [ %9, %8 ]
   ret ptr %.0.i
 }
 
@@ -37675,7 +37675,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h34664af
   br label %.body
 
 .loopexit14:                                      ; preds = %.noexc4, %.noexc7, %.noexc5
-  %.0.i.i.i.i.ph = phi ptr [ %33, %.noexc5 ], [ %52, %.noexc7 ], [ %20, %.noexc4 ]
+  %.0.i.i.i.i.ph = phi ptr [ %52, %.noexc7 ], [ %33, %.noexc5 ], [ %20, %.noexc4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !12266
   %64 = load i64, ptr %12, align 8, !noundef !4
   %65 = load i64, ptr %0, align 8, !noundef !4
@@ -41283,9 +41283,9 @@ _ZN4core4iter8adapters11try_process17h1c75fd814b659892E.exit.i.i.i.i.i.i.i.i.i.i
   br label %"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h2a8ffcc84e985f12E.exit.thread.i.i.i.i.i.i.i.i.i.i"
 
 "_ZN3hir11term_search7tactics16type_constructor28_$u7b$$u7b$closure$u7d$$u7d$17he7d04d88ca6916acE.exit.i.i.i.i.i.i.i.i.i.i.i": ; preds = %531, %469, %"_ZN4core3ptr58drop_in_place$LT$alloc..vec..Vec$LT$hir..TypeParam$GT$$GT$17h85a822237cf56c91E.exit.i.i"
-  %.sroa.13.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %.sroa.13.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i, %531 ], [ %.sroa.640.0.i.i, %"_ZN4core3ptr58drop_in_place$LT$alloc..vec..Vec$LT$hir..TypeParam$GT$$GT$17h85a822237cf56c91E.exit.i.i" ], [ %.sroa.13.sroa.0.0.copyload17.i.i.i.i.i.i.i.i.i.i.i, %469 ]
-  %.sroa.13.sroa.6.0.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %.sroa.13.sroa.6.0.copyload.i.i.i.i.i.i.i.i.i.i.i, %531 ], [ %.sroa.8.0.i.i, %"_ZN4core3ptr58drop_in_place$LT$alloc..vec..Vec$LT$hir..TypeParam$GT$$GT$17h85a822237cf56c91E.exit.i.i" ], [ %.sroa.13.sroa.6.0.copyload19.i.i.i.i.i.i.i.i.i.i.i, %469 ]
-  %.sroa.0.1.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %.sroa.0.0.copyload9.i.i.i.i.i.i.i.i.i.i.i, %531 ], [ %.sroa.039.0.i.i, %"_ZN4core3ptr58drop_in_place$LT$alloc..vec..Vec$LT$hir..TypeParam$GT$$GT$17h85a822237cf56c91E.exit.i.i" ], [ %.sroa.0.0.copyload10.i.i.i.i.i.i.i.i.i.i.i, %469 ]
+  %.sroa.13.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %.sroa.13.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i, %531 ], [ %.sroa.13.sroa.0.0.copyload17.i.i.i.i.i.i.i.i.i.i.i, %469 ], [ %.sroa.640.0.i.i, %"_ZN4core3ptr58drop_in_place$LT$alloc..vec..Vec$LT$hir..TypeParam$GT$$GT$17h85a822237cf56c91E.exit.i.i" ]
+  %.sroa.13.sroa.6.0.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %.sroa.13.sroa.6.0.copyload.i.i.i.i.i.i.i.i.i.i.i, %531 ], [ %.sroa.13.sroa.6.0.copyload19.i.i.i.i.i.i.i.i.i.i.i, %469 ], [ %.sroa.8.0.i.i, %"_ZN4core3ptr58drop_in_place$LT$alloc..vec..Vec$LT$hir..TypeParam$GT$$GT$17h85a822237cf56c91E.exit.i.i" ]
+  %.sroa.0.1.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %.sroa.0.0.copyload9.i.i.i.i.i.i.i.i.i.i.i, %531 ], [ %.sroa.0.0.copyload10.i.i.i.i.i.i.i.i.i.i.i, %469 ], [ %.sroa.039.0.i.i, %"_ZN4core3ptr58drop_in_place$LT$alloc..vec..Vec$LT$hir..TypeParam$GT$$GT$17h85a822237cf56c91E.exit.i.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %49), !noalias !13063
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5153.i.i.i.i.i.i.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %61), !noalias !13063

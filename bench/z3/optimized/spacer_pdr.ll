@@ -2496,7 +2496,7 @@ _ZN12scoped_watchC2ER9stopwatchb.exit:            ; preds = %1, %6
   br i1 %.not27.old.i.i.i, label %_ZNK7obj_mapI9func_declPN6spacer16pred_transformerEE4findEPS0_RS3_.exit.thread.thread, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %44, %41
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %44 ], [ %43, %41 ]
+  %.137.i.i.i.be = phi ptr [ %43, %41 ], [ %.old.i.i.i, %44 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !113
 
 .loopexit26:                                      ; preds = %25, %36
@@ -4071,7 +4071,7 @@ _ZNK6vectorIP9func_declLb0EjE4sizeEv.exit94:      ; preds = %_ZNK6vectorIjLb0EjE
   br label %277
 
 ._crit_edge240:                                   ; preds = %277, %247, %_ZN6vectorIjLb0EjE6resizeIiEEvjT_z.exit, %_ZNK6vectorIP9func_declLb0EjE4sizeEv.exit94
-  %264 = phi ptr [ %261, %_ZNK6vectorIP9func_declLb0EjE4sizeEv.exit94 ], [ null, %247 ], [ %252, %_ZN6vectorIjLb0EjE6resizeIiEEvjT_z.exit ], [ %261, %277 ]
+  %264 = phi ptr [ %252, %_ZN6vectorIjLb0EjE6resizeIiEEvjT_z.exit ], [ %261, %_ZNK6vectorIP9func_declLb0EjE4sizeEv.exit94 ], [ null, %247 ], [ %261, %277 ]
   %265 = getelementptr inbounds nuw i8, ptr %0, i64 260
   %266 = load i32, ptr %265, align 4, !tbaa !436
   switch i32 %266, label %_ZN6vectorIjLb0EjE7reverseEv.exit [
@@ -7260,7 +7260,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI4expr10ptr_vector
   br i1 %.not32.old, label %.loopexit, label %.lr.ph48.backedge
 
 .lr.ph48.backedge:                                ; preds = %36, %33
-  %.247.be = phi ptr [ %.old, %36 ], [ %35, %33 ]
+  %.247.be = phi ptr [ %35, %33 ], [ %.old, %36 ]
   br label %.lr.ph48, !llvm.loop !514
 
 .loopexit38:                                      ; preds = %17, %28

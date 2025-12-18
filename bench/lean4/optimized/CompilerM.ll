@@ -26660,7 +26660,7 @@ lean_dec.exit306:                                 ; preds = %lean_inc.exit338, %
   br i1 %673, label %.loopexit, label %8
 
 .loopexit:                                        ; preds = %lean_obj_tag.exit, %lean_obj_tag.exit432, %lean_dec.exit306, %3, %lean_dec.exit275, %lean_dec.exit271, %lean_dec.exit302, %lean_dec.exit294, %lean_dec.exit277, %lean_dec.exit284, %lean_dec.exit300, %lean_dec.exit298, %lean_dec.exit292, %lean_inc.exit337, %lean_dec.exit291, %lean_dec.exit282, %lean_dec.exit289, %lean_dec.exit281, %lean_dec.exit279, %lean_dec.exit274, %114, %113, %111, %367, %366, %364, %526, %525, %523, %595, %594, %592, %671, %670, %668, %lean_dec.exit269
-  %.1.ph = phi ptr [ %.0254597, %lean_dec.exit269 ], [ %.0254597, %668 ], [ %.0254597, %670 ], [ %.0254597, %671 ], [ %.0254597, %592 ], [ %.0254597, %594 ], [ %.0254597, %595 ], [ %442, %523 ], [ %442, %525 ], [ %442, %526 ], [ %283, %364 ], [ %283, %366 ], [ %283, %367 ], [ %84, %111 ], [ %84, %113 ], [ %84, %114 ], [ %650, %lean_dec.exit271 ], [ %581, %lean_dec.exit275 ], [ %502, %lean_dec.exit281 ], [ %488, %lean_dec.exit282 ], [ %468, %lean_dec.exit284 ], [ %343, %lean_dec.exit291 ], [ %329, %lean_dec.exit292 ], [ %309, %lean_dec.exit294 ], [ %192, %lean_dec.exit300 ], [ %174, %lean_dec.exit302 ], [ %283, %lean_dec.exit289 ], [ %536, %lean_dec.exit277 ], [ %84, %lean_inc.exit337 ], [ %208, %lean_dec.exit298 ], [ %.0254597, %lean_dec.exit274 ], [ %442, %lean_dec.exit279 ], [ %2, %3 ], [ %.0254597, %lean_obj_tag.exit ], [ %.0254597, %lean_obj_tag.exit432 ], [ %84, %lean_dec.exit306 ]
+  %.1.ph = phi ptr [ %.0254597, %lean_dec.exit269 ], [ %.0254597, %668 ], [ %.0254597, %670 ], [ %.0254597, %671 ], [ %.0254597, %592 ], [ %.0254597, %594 ], [ %.0254597, %595 ], [ %442, %523 ], [ %442, %525 ], [ %442, %526 ], [ %283, %364 ], [ %283, %366 ], [ %283, %367 ], [ %84, %111 ], [ %84, %113 ], [ %84, %114 ], [ %650, %lean_dec.exit271 ], [ %581, %lean_dec.exit275 ], [ %502, %lean_dec.exit281 ], [ %488, %lean_dec.exit282 ], [ %468, %lean_dec.exit284 ], [ %343, %lean_dec.exit291 ], [ %329, %lean_dec.exit292 ], [ %309, %lean_dec.exit294 ], [ %192, %lean_dec.exit300 ], [ %174, %lean_dec.exit302 ], [ %442, %lean_dec.exit279 ], [ %283, %lean_dec.exit289 ], [ %536, %lean_dec.exit277 ], [ %84, %lean_inc.exit337 ], [ %208, %lean_dec.exit298 ], [ %.0254597, %lean_dec.exit274 ], [ %2, %3 ], [ %.0254597, %lean_obj_tag.exit ], [ %.0254597, %lean_obj_tag.exit432 ], [ %84, %lean_dec.exit306 ]
   ret ptr %.1.ph
 }
 
@@ -27475,7 +27475,7 @@ lean_inc.exit126:                                 ; preds = %194, %193, %191, %1
   br i1 %.not.i164, label %195, label %lean_dec.exit125.backedge
 
 lean_dec.exit125.backedge:                        ; preds = %lean_inc.exit126, %198, %200, %201, %lean_inc.exit129, %90, %92, %93
-  %.0100.be = phi ptr [ %78, %lean_inc.exit129 ], [ %185, %lean_inc.exit126 ], [ %78, %93 ], [ %78, %92 ], [ %78, %90 ], [ %185, %201 ], [ %185, %200 ], [ %185, %198 ]
+  %.0100.be = phi ptr [ %185, %198 ], [ %185, %200 ], [ %185, %201 ], [ %78, %90 ], [ %78, %lean_inc.exit129 ], [ %78, %92 ], [ %78, %93 ], [ %185, %lean_inc.exit126 ]
   br label %lean_dec.exit125
 
 195:                                              ; preds = %lean_inc.exit126

@@ -210,7 +210,7 @@ define dso_local zeroext i1 @gistvalidate(i32 noundef %0) local_unnamed_addr #0 
   br label %108
 
 108:                                              ; preds = %.sink.split, %61, %65, %69, %73, %77, %81, %85, %89, %57, %95, %99, %93, %52
-  %.2 = phi i1 [ false, %93 ], [ %.1, %52 ], [ %.1, %95 ], [ false, %99 ], [ %.1, %57 ], [ %.1, %89 ], [ %.1, %85 ], [ %.1, %81 ], [ %.1, %77 ], [ %.1, %73 ], [ %.1, %69 ], [ %.1, %65 ], [ %.1, %61 ], [ false, %.sink.split ]
+  %.2 = phi i1 [ false, %93 ], [ %.1, %52 ], [ %.1, %61 ], [ %.1, %95 ], [ %.1, %65 ], [ false, %99 ], [ %.1, %57 ], [ %.1, %89 ], [ %.1, %85 ], [ %.1, %81 ], [ %.1, %77 ], [ %.1, %73 ], [ %.1, %69 ], [ false, %.sink.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %109 = load i32, ptr %24, align 8
   %110 = sext i32 %109 to i64

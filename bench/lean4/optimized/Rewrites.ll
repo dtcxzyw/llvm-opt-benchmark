@@ -28974,8 +28974,8 @@ l_Array_foldlMUnsafe_fold___at_Lean_Elab_Rewrites_evalExact___spec__4.exit473: ;
   br label %l_Array_foldlMUnsafe_fold___at_Lean_Elab_Rewrites_evalExact___spec__4.exit
 
 l_Array_foldlMUnsafe_fold___at_Lean_Elab_Rewrites_evalExact___spec__4.exit: ; preds = %182, %l_Array_foldlMUnsafe_fold___at_Lean_Elab_Rewrites_evalExact___spec__4.exit473, %276, %278, %279, %lean_dec.exit313, %lean_dec.exit309, %lean_dec.exit315, %lean_dec.exit314
-  %.2240 = phi ptr [ %131, %lean_dec.exit313 ], [ %108, %lean_dec.exit315 ], [ %131, %lean_dec.exit314 ], [ %216, %lean_dec.exit309 ], [ %237, %279 ], [ %237, %278 ], [ %237, %276 ], [ %237, %l_Array_foldlMUnsafe_fold___at_Lean_Elab_Rewrites_evalExact___spec__4.exit473 ], [ %131, %182 ]
-  %.2235 = phi ptr [ %168, %lean_dec.exit313 ], [ %126, %lean_dec.exit315 ], [ %150, %lean_dec.exit314 ], [ %234, %lean_dec.exit309 ], [ %269, %279 ], [ %269, %278 ], [ %269, %276 ], [ %269, %l_Array_foldlMUnsafe_fold___at_Lean_Elab_Rewrites_evalExact___spec__4.exit473 ], [ %183, %182 ]
+  %.2240 = phi ptr [ %131, %lean_dec.exit313 ], [ %108, %lean_dec.exit315 ], [ %131, %lean_dec.exit314 ], [ %216, %lean_dec.exit309 ], [ %237, %l_Array_foldlMUnsafe_fold___at_Lean_Elab_Rewrites_evalExact___spec__4.exit473 ], [ %237, %279 ], [ %237, %278 ], [ %237, %276 ], [ %131, %182 ]
+  %.2235 = phi ptr [ %168, %lean_dec.exit313 ], [ %126, %lean_dec.exit315 ], [ %150, %lean_dec.exit314 ], [ %234, %lean_dec.exit309 ], [ %269, %l_Array_foldlMUnsafe_fold___at_Lean_Elab_Rewrites_evalExact___spec__4.exit473 ], [ %269, %279 ], [ %269, %278 ], [ %269, %276 ], [ %183, %182 ]
   %280 = tail call ptr @l_Lean_Elab_Tactic_getMainGoal(ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %.2240) #5
   %281 = ptrtoint ptr %280 to i64
   %282 = and i64 %281, 1

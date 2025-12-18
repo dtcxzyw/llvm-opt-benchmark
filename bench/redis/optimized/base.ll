@@ -424,7 +424,7 @@ base_auto_thp_switch.exit.thread:                 ; preds = %128, %malloc_mutex_
   %142 = call zeroext i1 @je_pages_huge(ptr noundef nonnull %.0.i5462, i64 noundef %43) #9
   br label %base_auto_thp_switch.exit.thread71
 
-base_auto_thp_switch.exit.thread71:               ; preds = %126, %base_get_num_blocks.exit.i, %base_auto_thp_switch.exit.thread, %base_auto_thp_switch.exit
+base_auto_thp_switch.exit.thread71:               ; preds = %base_get_num_blocks.exit.i, %126, %base_auto_thp_switch.exit.thread, %base_auto_thp_switch.exit
   %143 = getelementptr inbounds nuw i8, ptr %1, i64 136
   store atomic i8 0, ptr %143 monotonic, align 1
   %144 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %99) #9

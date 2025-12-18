@@ -600,7 +600,7 @@ _ZL13overlapBoundsPKfS0_S0_S0_.exit:              ; preds = %69
   br i1 %exitcond195.not, label %_ZL13overlapBoundsPKfS0_S0_S0_.exit.thread, label %106, !llvm.loop !10
 
 _ZL13overlapBoundsPKfS0_S0_S0_.exit.thread:       ; preds = %.loopexit, %160, %76, %11, %54, %61, %65, %69, %_ZL13overlapBoundsPKfS0_S0_S0_.exit
-  %.0 = phi i1 [ true, %_ZL13overlapBoundsPKfS0_S0_S0_.exit ], [ true, %69 ], [ true, %65 ], [ true, %61 ], [ true, %54 ], [ true, %11 ], [ true, %76 ], [ false, %160 ], [ true, %.loopexit ]
+  %.0 = phi i1 [ true, %_ZL13overlapBoundsPKfS0_S0_S0_.exit ], [ true, %11 ], [ true, %76 ], [ true, %69 ], [ true, %65 ], [ true, %61 ], [ true, %54 ], [ false, %160 ], [ true, %.loopexit ]
   ret i1 %.0
 }
 

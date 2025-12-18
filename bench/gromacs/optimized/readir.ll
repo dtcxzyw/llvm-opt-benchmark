@@ -3770,7 +3770,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1172: ; preds = %1
   br i1 %1010, label %982, label %.loopexit, !llvm.loop !206
 
 .loopexit:                                        ; preds = %1007, %974, %978, %944
-  %1011 = phi i32 [ %945, %944 ], [ %979, %978 ], [ %975, %974 ], [ %1008, %1007 ]
+  %1011 = phi i32 [ %975, %974 ], [ %945, %944 ], [ %979, %978 ], [ %1008, %1007 ]
   %indvars.iv.next1545 = add nuw nsw i64 %indvars.iv1544, 1
   %exitcond1547.not = icmp eq i64 %indvars.iv.next1545, 7
   br i1 %exitcond1547.not, label %1012, label %935, !llvm.loop !207
@@ -3779,33 +3779,33 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1172: ; preds = %1
   %1013 = load i32, ptr %929, align 4, !tbaa !201
   switch i32 %1013, label %_ZL8usingPmeRK22CoulombInteractionType.exit1174.thread [
     i32 0, label %1014
-    i32 1, label %1017
+    i32 1, label %1021
   ]
 
 1014:                                             ; preds = %1012
   %1015 = load float, ptr %622, align 4, !tbaa !197
   %1016 = fcmp ogt float %1015, 0.000000e+00
-  br i1 %1016, label %.thread1414, label %.critedge1500.thread1759
+  br i1 %1016, label %1017, label %.critedge1500.thread1759
 
-1017:                                             ; preds = %1012
-  %1018 = getelementptr inbounds nuw i8, ptr %618, i64 248
-  %1019 = load float, ptr %1018, align 8, !tbaa !208
-  %1020 = fcmp ogt float %1019, 0.000000e+00
-  br i1 %1020, label %1021, label %_ZL8usingPmeRK22CoulombInteractionType.exit1174.thread1763
+1017:                                             ; preds = %1014
+  %1018 = getelementptr inbounds nuw i8, ptr %618, i64 240
+  %1019 = load i8, ptr %1018, align 8, !tbaa !208, !range !155, !noundef !156
+  %1020 = trunc nuw i8 %1019 to i1
+  br i1 %1020, label %.critedge1500.thread1759, label %.preheader
 
-1021:                                             ; preds = %1017
-  %1022 = getelementptr inbounds nuw i8, ptr %618, i64 252
-  %1023 = load float, ptr %1022, align 4, !tbaa !209
-  %1024 = fcmp oeq float %1023, 0.000000e+00
-  br i1 %1024, label %.preheader, label %_ZL8usingPmeRK22CoulombInteractionType.exit1174.thread1763
+1021:                                             ; preds = %1012
+  %1022 = getelementptr inbounds nuw i8, ptr %618, i64 248
+  %1023 = load float, ptr %1022, align 8, !tbaa !209
+  %1024 = fcmp ogt float %1023, 0.000000e+00
+  br i1 %1024, label %.thread1414, label %_ZL8usingPmeRK22CoulombInteractionType.exit1174.thread1763
 
-.thread1414:                                      ; preds = %1014
-  %1025 = getelementptr inbounds nuw i8, ptr %618, i64 240
-  %1026 = load i8, ptr %1025, align 8, !tbaa !210, !range !155, !noundef !156
-  %1027 = trunc nuw i8 %1026 to i1
-  br i1 %1027, label %.critedge1500.thread1759, label %.preheader
+.thread1414:                                      ; preds = %1021
+  %1025 = getelementptr inbounds nuw i8, ptr %618, i64 252
+  %1026 = load float, ptr %1025, align 4, !tbaa !210
+  %1027 = fcmp oeq float %1026, 0.000000e+00
+  br i1 %1027, label %.preheader, label %_ZL8usingPmeRK22CoulombInteractionType.exit1174.thread1763
 
-.preheader:                                       ; preds = %1021, %.thread1414
+.preheader:                                       ; preds = %1017, %.thread1414
   %1028 = icmp sgt i32 %1011, 0
   br i1 %1028, label %.lr.ph1533, label %.critedge1500
 
@@ -3867,9 +3867,9 @@ _ZL10_low_checkbPKcP14WarningHandler.exit1173:    ; preds = %1048, %1042, %1031,
   %1060 = icmp eq i32 %1059, 0
   br i1 %1060, label %.critedge1500.thread1759, label %_ZL8usingPmeRK22CoulombInteractionType.exit1174
 
-.critedge1500.thread1759:                         ; preds = %.thread1414, %1014, %.critedge1500
+.critedge1500.thread1759:                         ; preds = %1017, %1014, %.critedge1500
   %1061 = getelementptr inbounds nuw i8, ptr %618, i64 240
-  %1062 = load i8, ptr %1061, align 8, !tbaa !210, !range !155, !noundef !156
+  %1062 = load i8, ptr %1061, align 8, !tbaa !208, !range !155, !noundef !156
   %1063 = trunc nuw i8 %1062 to i1
   br i1 %1063, label %1064, label %_ZL8usingPmeRK22CoulombInteractionType.exit1174.thread
 
@@ -3913,9 +3913,9 @@ _ZL8usingPmeRK22CoulombInteractionType.exit1174:  ; preds = %1065, %.critedge150
   %1087 = icmp eq i32 %1086, 1
   br i1 %1087, label %_ZL8usingPmeRK22CoulombInteractionType.exit1174.thread1763, label %_ZL8usingPmeRK22CoulombInteractionType.exit1174.thread
 
-_ZL8usingPmeRK22CoulombInteractionType.exit1174.thread1763: ; preds = %1017, %1021, %_ZL8usingPmeRK22CoulombInteractionType.exit1174
+_ZL8usingPmeRK22CoulombInteractionType.exit1174.thread1763: ; preds = %1021, %.thread1414, %_ZL8usingPmeRK22CoulombInteractionType.exit1174
   %1088 = getelementptr inbounds nuw i8, ptr %618, i64 252
-  %1089 = load float, ptr %1088, align 4, !tbaa !209
+  %1089 = load float, ptr %1088, align 4, !tbaa !210
   %1090 = fcmp olt float %1089, 0.000000e+00
   br i1 %1090, label %1091, label %1095
 
@@ -3928,7 +3928,7 @@ _ZL8usingPmeRK22CoulombInteractionType.exit1174.thread1763: ; preds = %1017, %10
 
 1095:                                             ; preds = %1091, %_ZL8usingPmeRK22CoulombInteractionType.exit1174.thread1763
   %1096 = getelementptr inbounds nuw i8, ptr %618, i64 248
-  %1097 = load float, ptr %1096, align 8, !tbaa !208
+  %1097 = load float, ptr %1096, align 8, !tbaa !209
   %1098 = fcmp uge float %1097, 0.000000e+00
   %1099 = fcmp ult float %1097, 1.000000e+00
   %or.cond1008 = and i1 %1098, %1099
@@ -4978,7 +4978,7 @@ _ZL10_low_checkbPKcP14WarningHandler.exit1215:    ; preds = %.thread1453, %1581
   call void @_ZN14WarningHandler8addErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(64) %4, i64 %1631, ptr nonnull %11)
   br label %_ZL10_low_checkbPKcP14WarningHandler.exit1216
 
-_ZL10_low_checkbPKcP14WarningHandler.exit1216:    ; preds = %1617, %1621, %1624, %1627, %.thread1456
+_ZL10_low_checkbPKcP14WarningHandler.exit1216:    ; preds = %1624, %1621, %1617, %1627, %.thread1456
   %1632 = load i32, ptr %1544, align 4, !tbaa !141
   %1633 = icmp eq i32 %1632, 2
   br i1 %1633, label %1634, label %1642
@@ -9629,21 +9629,21 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit819: ; preds = %_Z
   %1659 = icmp ne i32 %1657, 0
   %1660 = getelementptr inbounds nuw i8, ptr %105, i64 240
   %1661 = zext i1 %1659 to i8
-  store i8 %1661, ptr %1660, align 8, !tbaa !210
+  store i8 %1661, ptr %1660, align 8, !tbaa !208
   %1662 = invoke noundef double @_Z9get_erealPSt6vectorI9t_inpfileSaIS0_EEPKcdP14WarningHandler(ptr noundef nonnull %53, ptr noundef nonnull @.str.457, double noundef 8.500000e-01, ptr noundef %6)
           to label %1663 unwind label %.loopexit.split-lp1431
 
 1663:                                             ; preds = %1658
   %1664 = fptrunc double %1662 to float
   %1665 = getelementptr inbounds nuw i8, ptr %105, i64 248
-  store float %1664, ptr %1665, align 8, !tbaa !208
+  store float %1664, ptr %1665, align 8, !tbaa !209
   %1666 = invoke noundef double @_Z9get_erealPSt6vectorI9t_inpfileSaIS0_EEPKcdP14WarningHandler(ptr noundef nonnull %53, ptr noundef nonnull @.str.458, double noundef 3.000000e-01, ptr noundef %6)
           to label %1667 unwind label %.loopexit.split-lp1431
 
 1667:                                             ; preds = %1663
   %1668 = fptrunc double %1666 to float
   %1669 = getelementptr inbounds nuw i8, ptr %105, i64 252
-  store float %1668, ptr %1669, align 4, !tbaa !209
+  store float %1668, ptr %1669, align 4, !tbaa !210
   %1670 = invoke noundef double @_Z9get_erealPSt6vectorI9t_inpfileSaIS0_EEPKcdP14WarningHandler(ptr noundef nonnull %53, ptr noundef nonnull @.str.459, double noundef 3.000000e-01, ptr noundef %6)
           to label %1671 unwind label %.loopexit.split-lp1431
 
@@ -12179,7 +12179,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit.i:             ; preds = %2675, %2673, %2671,
 
 2707:                                             ; preds = %.critedge.i
   %2708 = getelementptr inbounds nuw i8, ptr %2591, i64 240
-  store i8 1, ptr %2708, align 8, !tbaa !210
+  store i8 1, ptr %2708, align 8, !tbaa !208
   br label %.preheader2082
 
 2709:                                             ; preds = %.loopexit.i
@@ -22879,7 +22879,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit31: ; preds = %_ZN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %50, %93, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit31
-  %.merged = phi { ptr, i32 } [ %94, %93 ], [ %.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit31 ], [ %51, %50 ]
+  %.merged = phi { ptr, i32 } [ %.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit31 ], [ %94, %93 ], [ %51, %50 ]
   %.not.i.i.i32 = icmp eq ptr %23, null
   br i1 %.not.i.i.i32, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %95
 
@@ -36117,9 +36117,9 @@ attributes #35 = { nounwind willreturn memory(none) }
 !205 = distinct !{!205, !25}
 !206 = distinct !{!206, !25}
 !207 = distinct !{!207, !25}
-!208 = !{!146, !45, i64 248}
-!209 = !{!146, !45, i64 252}
-!210 = !{!146, !39, i64 240}
+!208 = !{!146, !39, i64 240}
+!209 = !{!146, !45, i64 248}
+!210 = !{!146, !45, i64 252}
 !211 = distinct !{!211, !25}
 !212 = !{!33, !45, i64 156}
 !213 = !{!214, !34, i64 16}

@@ -12556,7 +12556,7 @@ return.sink.split:                                ; preds = %if.then.i, %_ZZN8fa
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.then27, %if.then3, %for.end, %entry
-  %retval.0 = phi i1 [ true, %entry ], [ true, %for.end ], [ true, %if.then3 ], [ true, %if.then27 ], [ false, %return.sink.split ]
+  %retval.0 = phi i1 [ true, %entry ], [ true, %for.end ], [ true, %if.then27 ], [ true, %if.then3 ], [ false, %return.sink.split ]
   ret i1 %retval.0
 }
 
@@ -42938,7 +42938,7 @@ if.then9:                                         ; preds = %if.end.i.i.i, %if.e
   br label %if.end13
 
 for.inc:                                          ; preds = %if.end18.i, %while.end.i, %while.end.i.us, %if.end18.i.us, %while.end.i.us.us, %if.end18.i.us.us, %if.end11.i, %if.then4.i, %_ZNK8facebook5velox13DecodedVector8isNullAtEi.exit
-  %hasNull.1 = phi i8 [ 1, %if.end11.i ], [ 1, %_ZNK8facebook5velox13DecodedVector8isNullAtEi.exit ], [ 1, %if.then4.i ], [ %hasNull.078, %while.end.i.us ], [ %hasNull.078, %while.end.i.us.us ], [ %hasNull.078, %if.end18.i.us.us ], [ %hasNull.078, %if.end18.i.us ], [ %hasNull.078, %while.end.i ], [ %hasNull.078, %if.end18.i ]
+  %hasNull.1 = phi i8 [ 1, %if.end11.i ], [ 1, %_ZNK8facebook5velox13DecodedVector8isNullAtEi.exit ], [ 1, %if.then4.i ], [ %hasNull.078, %while.end.i.us.us ], [ %hasNull.078, %while.end.i.us ], [ %hasNull.078, %if.end18.i.us.us ], [ %hasNull.078, %if.end18.i.us ], [ %hasNull.078, %while.end.i ], [ %hasNull.078, %if.end18.i ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %cmp = icmp slt i64 %indvars.iv.next, %18
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !894

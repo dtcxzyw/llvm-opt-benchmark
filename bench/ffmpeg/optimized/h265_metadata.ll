@@ -934,8 +934,8 @@ h265_metadata_update_vps.exit:                    ; preds = %.sink.split.i.i, %1
   br label %h265_metadata_update_sps.exit.thread
 
 h265_metadata_deduce_crop.exit.i:                 ; preds = %417, %393
-  %.0143.i = phi i32 [ %.16992.i.i, %417 ], [ %363, %393 ]
-  %.0142.i = phi i32 [ %.1.i.i, %417 ], [ %365, %393 ]
+  %.0143.i = phi i32 [ %363, %393 ], [ %.16992.i.i, %417 ]
+  %.0142.i = phi i32 [ %365, %393 ], [ %.1.i.i, %417 ]
   %421 = getelementptr inbounds nuw i8, ptr %210, i64 433
   %422 = load i8, ptr %421, align 1, !tbaa !111
   %.not133.i = icmp eq i8 %422, 0
@@ -1108,7 +1108,7 @@ h265_metadata_update_sps.exit:                    ; preds = %.sink.split.i.i88, 
   br i1 %500, label %155, label %h265_metadata_update_sps.exit.thread, !llvm.loop !119
 
 h265_metadata_update_sps.exit.thread:             ; preds = %h265_metadata_update_sps.exit, %h265_metadata_guess_level.exit, %420, %402, %392, %374, %473, %461, %449, %437, %60
-  %.1 = phi i32 [ %58, %60 ], [ -22, %437 ], [ -22, %449 ], [ -22, %461 ], [ -22, %473 ], [ -22, %374 ], [ -22, %392 ], [ -22, %402 ], [ -22, %420 ], [ 0, %h265_metadata_guess_level.exit ], [ 0, %h265_metadata_update_sps.exit ]
+  %.1 = phi i32 [ %58, %60 ], [ -22, %420 ], [ -22, %437 ], [ -22, %449 ], [ -22, %461 ], [ -22, %473 ], [ -22, %374 ], [ -22, %392 ], [ -22, %402 ], [ 0, %h265_metadata_guess_level.exit ], [ 0, %h265_metadata_update_sps.exit ]
   ret i32 %.1
 }
 

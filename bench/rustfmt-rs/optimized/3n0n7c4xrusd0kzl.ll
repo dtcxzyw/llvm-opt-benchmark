@@ -706,7 +706,7 @@ default.unreachable:                              ; preds = %_ZN20unicode_segmen
   br i1 %284, label %_ZN20unicode_segmentation8grapheme10check_pair17h1dfefd2f721c3dc8E.exit.thread117.i.i, label %_ZN20unicode_segmentation8grapheme10check_pair17h1dfefd2f721c3dc8E.exit.thread110.i.i
 
 _ZN20unicode_segmentation8grapheme10check_pair17h1dfefd2f721c3dc8E.exit.i.i: ; preds = %278, %277, %276, %273
-  %.0.i.i.i = phi i8 [ %switch.select21.i.i.i, %278 ], [ %..i.i.i, %273 ], [ %switch.select17.i.i.i, %277 ], [ %switch.select.i.i.i, %276 ]
+  %.0.i.i.i = phi i8 [ %switch.select17.i.i.i, %277 ], [ %..i.i.i, %273 ], [ %switch.select21.i.i.i, %278 ], [ %switch.select.i.i.i, %276 ]
   switch i8 %.0.i.i.i, label %default.unreachable [
     i8 0, label %_ZN20unicode_segmentation8grapheme10check_pair17h1dfefd2f721c3dc8E.exit.thread.i.i
     i8 1, label %_ZN20unicode_segmentation8grapheme10check_pair17h1dfefd2f721c3dc8E.exit.thread110.i.i
@@ -799,8 +799,8 @@ _ZN20unicode_segmentation8grapheme14GraphemeCursor11is_boundary17hb55bb4b6f266f2
   br label %320
 
 _ZN20unicode_segmentation8grapheme14GraphemeCursor11is_boundary17hb55bb4b6f266f29aE.exit.thread88.i: ; preds = %.critedge.i.i, %155, %154
-  %314 = phi i64 [ 0, %.critedge.i.i ], [ %157, %155 ], [ %.pre159.i, %154 ]
-  %.ph.i = phi i64 [ 0, %.critedge.i.i ], [ 0, %155 ], [ 3, %154 ]
+  %314 = phi i64 [ %.pre159.i, %154 ], [ %157, %155 ], [ 0, %.critedge.i.i ]
+  %.ph.i = phi i64 [ 3, %154 ], [ 0, %155 ], [ 0, %.critedge.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !30
   br label %.loopexit
 
@@ -825,8 +825,8 @@ _ZN20unicode_segmentation8grapheme14GraphemeCursor11is_boundary17hb55bb4b6f266f2
   br i1 %.sroa.8.186.i, label %323, label %79
 
 .loopexit:                                        ; preds = %_ZN20unicode_segmentation8grapheme14GraphemeCursor11is_boundary17hb55bb4b6f266f29aE.exit.i, %142, %_ZN20unicode_segmentation8grapheme14GraphemeCursor11is_boundary17hb55bb4b6f266f29aE.exit.thread88.i
-  %.sroa.12.0.ph = phi i64 [ %314, %_ZN20unicode_segmentation8grapheme14GraphemeCursor11is_boundary17hb55bb4b6f266f29aE.exit.thread88.i ], [ undef, %142 ], [ %317, %_ZN20unicode_segmentation8grapheme14GraphemeCursor11is_boundary17hb55bb4b6f266f29aE.exit.i ]
-  %.sroa.7.0.ph = phi i64 [ %.ph.i, %_ZN20unicode_segmentation8grapheme14GraphemeCursor11is_boundary17hb55bb4b6f266f29aE.exit.thread88.i ], [ 2, %142 ], [ %.pr.i, %_ZN20unicode_segmentation8grapheme14GraphemeCursor11is_boundary17hb55bb4b6f266f29aE.exit.i ]
+  %.sroa.12.0.ph = phi i64 [ undef, %142 ], [ %314, %_ZN20unicode_segmentation8grapheme14GraphemeCursor11is_boundary17hb55bb4b6f266f29aE.exit.thread88.i ], [ %317, %_ZN20unicode_segmentation8grapheme14GraphemeCursor11is_boundary17hb55bb4b6f266f29aE.exit.i ]
+  %.sroa.7.0.ph = phi i64 [ 2, %142 ], [ %.ph.i, %_ZN20unicode_segmentation8grapheme14GraphemeCursor11is_boundary17hb55bb4b6f266f29aE.exit.thread88.i ], [ %.pr.i, %_ZN20unicode_segmentation8grapheme14GraphemeCursor11is_boundary17hb55bb4b6f266f29aE.exit.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !70
   store i64 %.sroa.7.0.ph, ptr %2, align 8, !noalias !70
   %321 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -13936,7 +13936,7 @@ define internal fastcc void @_ZN20unicode_segmentation8grapheme14GraphemeCursor1
   br i1 %.not18, label %.thread.preheader, label %.thread50
 
 .thread50:                                        ; preds = %83, %77, %.thread, %42, %85
-  %.sink = phi i8 [ 1, %85 ], [ 2, %42 ], [ 2, %.thread ], [ 2, %77 ], [ 2, %83 ]
+  %.sink = phi i8 [ 2, %42 ], [ 1, %85 ], [ 2, %.thread ], [ 2, %77 ], [ 2, %83 ]
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 62
   store i8 %.sink, ptr %44, align 2
   ret void
@@ -14293,7 +14293,7 @@ define hidden noundef ptr @_ZN3std2io5Write18write_all_vectored17hfed74176e9ef1c
   br i1 %46, label %47, label %.lr.ph.i.i
 
 .loopexit:                                        ; preds = %47, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h1e2e579e48705b59E.exit.thread.i19", %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h1e2e579e48705b59E.exit.i", %3
-  %.0 = phi ptr [ null, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h1e2e579e48705b59E.exit.i" ], [ null, %3 ], [ null, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h1e2e579e48705b59E.exit.thread.i19" ], [ @anon.7b1732ea94d172e7ee709babd0ab4782.35, %47 ]
+  %.0 = phi ptr [ null, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h1e2e579e48705b59E.exit.i" ], [ null, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h1e2e579e48705b59E.exit.thread.i19" ], [ null, %3 ], [ @anon.7b1732ea94d172e7ee709babd0ab4782.35, %47 ]
   ret ptr %.0
 
 47:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hb6a65e4f8c09c1cbE.exit.i.i"

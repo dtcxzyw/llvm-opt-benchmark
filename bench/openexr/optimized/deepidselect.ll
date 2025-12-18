@@ -1991,9 +1991,9 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit.us:            ; preds = %_ZNSt12_Vector_base
   br label %._crit_edge944
 
 ._crit_edge944:                                   ; preds = %._crit_edge934.us973, %._crit_edge1346, %._crit_edge944.loopexit1016, %.preheader553
-  %.0148.lcssa = phi i32 [ 0, %.preheader553 ], [ %690, %._crit_edge944.loopexit1016 ], [ 0, %._crit_edge1346 ], [ %.1149.us958, %._crit_edge934.us973 ]
-  %.0146.lcssa = phi float [ 0.000000e+00, %.preheader553 ], [ 0.000000e+00, %._crit_edge944.loopexit1016 ], [ %613, %._crit_edge1346 ], [ 0.000000e+00, %._crit_edge934.us973 ]
-  %.0143.lcssa = phi float [ 0.000000e+00, %.preheader553 ], [ 0.000000e+00, %._crit_edge944.loopexit1016 ], [ %.1144.us, %._crit_edge1346 ], [ 0.000000e+00, %._crit_edge934.us973 ]
+  %.0148.lcssa = phi i32 [ 0, %.preheader553 ], [ 0, %._crit_edge1346 ], [ %690, %._crit_edge944.loopexit1016 ], [ %.1149.us958, %._crit_edge934.us973 ]
+  %.0146.lcssa = phi float [ 0.000000e+00, %.preheader553 ], [ %613, %._crit_edge1346 ], [ 0.000000e+00, %._crit_edge944.loopexit1016 ], [ 0.000000e+00, %._crit_edge934.us973 ]
+  %.0143.lcssa = phi float [ 0.000000e+00, %.preheader553 ], [ %.1144.us, %._crit_edge1346 ], [ 0.000000e+00, %._crit_edge944.loopexit1016 ], [ 0.000000e+00, %._crit_edge934.us973 ]
   br i1 %66, label %691, label %._crit_edge944.thread
 
 691:                                              ; preds = %._crit_edge944

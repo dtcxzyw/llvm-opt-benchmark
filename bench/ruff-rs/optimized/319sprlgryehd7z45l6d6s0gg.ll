@@ -1593,9 +1593,9 @@ _ZN4core3str7pattern13simd_contains17h3d353a735ba2a5d2E.exit.i.i: ; preds = %526
   br i1 %450, label %454, label %.invoke.i
 
 .invoke.i:                                        ; preds = %.preheader.i.i, %529, %448, %445, %496, %515, %467
-  %451 = phi i64 [ %umax.i42.i.i, %467 ], [ %umax.i.i.i, %515 ], [ %530, %529 ], [ %498, %496 ], [ %446, %445 ], [ %449, %448 ], [ %478, %.preheader.i.i ]
-  %452 = phi i64 [ %349, %467 ], [ %349, %515 ], [ %..val110, %529 ], [ %349, %496 ], [ %351, %445 ], [ %349, %448 ], [ %351, %.preheader.i.i ]
-  %453 = phi ptr [ @anon.246bbae1f16cbeb8d51f07fa78d1fd94.21, %467 ], [ @anon.246bbae1f16cbeb8d51f07fa78d1fd94.21, %515 ], [ @anon.246bbae1f16cbeb8d51f07fa78d1fd94.17, %529 ], [ @anon.246bbae1f16cbeb8d51f07fa78d1fd94.19, %496 ], [ @anon.246bbae1f16cbeb8d51f07fa78d1fd94.18, %445 ], [ @anon.246bbae1f16cbeb8d51f07fa78d1fd94.19, %448 ], [ @anon.246bbae1f16cbeb8d51f07fa78d1fd94.18, %.preheader.i.i ]
+  %451 = phi i64 [ %446, %445 ], [ %umax.i.i.i, %515 ], [ %umax.i42.i.i, %467 ], [ %498, %496 ], [ %530, %529 ], [ %449, %448 ], [ %478, %.preheader.i.i ]
+  %452 = phi i64 [ %351, %445 ], [ %349, %515 ], [ %349, %467 ], [ %349, %496 ], [ %..val110, %529 ], [ %349, %448 ], [ %351, %.preheader.i.i ]
+  %453 = phi ptr [ @anon.246bbae1f16cbeb8d51f07fa78d1fd94.18, %445 ], [ @anon.246bbae1f16cbeb8d51f07fa78d1fd94.21, %515 ], [ @anon.246bbae1f16cbeb8d51f07fa78d1fd94.21, %467 ], [ @anon.246bbae1f16cbeb8d51f07fa78d1fd94.19, %496 ], [ @anon.246bbae1f16cbeb8d51f07fa78d1fd94.17, %529 ], [ @anon.246bbae1f16cbeb8d51f07fa78d1fd94.19, %448 ], [ @anon.246bbae1f16cbeb8d51f07fa78d1fd94.18, %.preheader.i.i ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h1a9bf3d94de0fc80E(i64 noundef %451, i64 noundef %452, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %453) #20
           to label %.cont.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.loopexit.split-lp
 
@@ -1735,7 +1735,7 @@ _ZN4core3str7pattern13simd_contains17h3d353a735ba2a5d2E.exit.i.i: ; preds = %526
   br label %491
 
 "_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h3cb23c7047c105e7E.exit.i.i": ; preds = %406, %.sink.split.i.i.i, %491, %.preheader50.i.i, %.preheader.i.us.i, %.preheader.i.i, %472, %416, %408, %.preheader.i21.i.i
-  %.sroa.0.0.i.i = phi i8 [ 0, %416 ], [ 0, %.preheader.i21.i.i ], [ 0, %472 ], [ %spec.select.i.i, %408 ], [ 1, %.preheader.i.i ], [ 0, %.sink.split.i.i.i ], [ 1, %.preheader.i.us.i ], [ 1, %.preheader50.i.i ], [ 0, %491 ], [ 1, %406 ]
+  %.sroa.0.0.i.i = phi i8 [ 0, %416 ], [ 1, %.preheader50.i.i ], [ 0, %.preheader.i21.i.i ], [ 0, %472 ], [ %spec.select.i.i, %408 ], [ 0, %.sink.split.i.i.i ], [ 0, %491 ], [ 1, %.preheader.i.us.i ], [ 1, %.preheader.i.i ], [ 1, %406 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %85), !noalias !82
   br label %.loopexit.i
 

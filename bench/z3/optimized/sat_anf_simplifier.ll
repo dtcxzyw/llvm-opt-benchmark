@@ -3233,7 +3233,7 @@ _ZN2dd3pddD2Ev.exit28:                            ; preds = %138, %144
   br label %150
 
 150:                                              ; preds = %2, %.fold.split, %_ZN6vectorIjLb0EjE7reserveEjRKj.exit, %13, %20
-  %.0 = phi i1 [ true, %2 ], [ %102, %_ZN6vectorIjLb0EjE7reserveEjRKj.exit ], [ false, %13 ], [ true, %20 ], [ false, %.fold.split ]
+  %.0 = phi i1 [ true, %20 ], [ true, %2 ], [ %102, %_ZN6vectorIjLb0EjE7reserveEjRKj.exit ], [ false, %13 ], [ false, %.fold.split ]
   ret i1 %.0
 }
 

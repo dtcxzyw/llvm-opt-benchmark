@@ -25047,7 +25047,7 @@ _ZN4llvm5APIntmLERKS0_.exit:                      ; preds = %_ZN4llvm5APInt14tcM
   br i1 %155, label %.preheader, label %._crit_edge20, !llvm.loop !562
 
 ._crit_edge20:                                    ; preds = %._crit_edge.split, %44, %_ZN4llvm5APIntC2ERKS0_.exit
-  %156 = phi ptr [ %25, %_ZN4llvm5APIntC2ERKS0_.exit ], [ %45, %44 ], [ %151, %._crit_edge.split ]
+  %156 = phi ptr [ %45, %44 ], [ %25, %_ZN4llvm5APIntC2ERKS0_.exit ], [ %151, %._crit_edge.split ]
   %157 = icmp ult i32 %.fr23, 65
   %158 = icmp eq ptr %156, null
   %or.cond = select i1 %157, i1 true, i1 %158
@@ -25204,7 +25204,7 @@ _ZNK4llvm5APInt25countLeadingZerosSlowCaseEv.exit.i: ; preds = %72, %.thread.i.i
   br label %_ZNK4llvm5APInt10countl_oneEv.exit
 
 _ZNK4llvm5APInt10countl_oneEv.exit:               ; preds = %46, %_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv.exit.i, %56, %50, %26, %19, %17
-  %77 = phi i32 [ 0, %17 ], [ %25, %19 ], [ %54, %50 ], [ %38, %26 ], [ %59, %56 ], [ %76, %_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv.exit.i ], [ %47, %46 ]
+  %77 = phi i32 [ %76, %_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv.exit.i ], [ 0, %17 ], [ %25, %19 ], [ %54, %50 ], [ %38, %26 ], [ %59, %56 ], [ %47, %46 ]
   ret i32 %77
 }
 
@@ -25827,7 +25827,7 @@ _ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit:       ; preds = %47, %50
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !580
 
 _ZSt11swap_rangesIPcS0_ET0_T_S2_S1_.exit:         ; preds = %._crit_edge, %._crit_edge110, %.lr.ph.i, %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit, %_ZSt4moveIPcS0_ET0_T_S2_S1_.exit, %5, %3
-  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %21, %_ZSt4moveIPcS0_ET0_T_S2_S1_.exit ], [ %21, %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit ], [ %1, %.lr.ph.i ], [ %21, %._crit_edge110 ], [ %21, %._crit_edge ]
+  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %1, %.lr.ph.i ], [ %21, %_ZSt4moveIPcS0_ET0_T_S2_S1_.exit ], [ %21, %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit ], [ %21, %._crit_edge110 ], [ %21, %._crit_edge ]
   ret ptr %.053
 }
 

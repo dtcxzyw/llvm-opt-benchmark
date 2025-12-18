@@ -501,7 +501,7 @@ define noundef zeroext i1 @json_decode_string_inplace(ptr noundef %0) local_unna
   br label %.critedge
 
 .critedge:                                        ; preds = %29, %31, %33, %48, %55, %6, %.preheader, %38, %._crit_edge
-  %.not102 = phi i1 [ true, %._crit_edge ], [ false, %.preheader ], [ false, %38 ], [ false, %6 ], [ false, %55 ], [ false, %48 ], [ false, %33 ], [ false, %31 ], [ false, %29 ]
+  %.not102 = phi i1 [ false, %.preheader ], [ false, %38 ], [ true, %._crit_edge ], [ false, %6 ], [ false, %55 ], [ false, %48 ], [ false, %33 ], [ false, %31 ], [ false, %29 ]
   ret i1 %.not102
 }
 
@@ -679,7 +679,7 @@ define noundef zeroext i1 @json_get_boolean(ptr noundef readonly captures(none) 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %51, %.loopexit.sink.split, %4, %32, %46, %48, %41, %43
-  %.030 = phi i1 [ false, %46 ], [ false, %32 ], [ false, %41 ], [ false, %43 ], [ false, %48 ], [ false, %4 ], [ true, %.loopexit.sink.split ], [ false, %51 ]
+  %.030 = phi i1 [ false, %46 ], [ true, %.loopexit.sink.split ], [ false, %32 ], [ false, %4 ], [ false, %41 ], [ false, %43 ], [ false, %48 ], [ false, %51 ]
   ret i1 %.030
 }
 

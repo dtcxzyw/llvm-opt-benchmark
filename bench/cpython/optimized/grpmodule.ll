@@ -480,7 +480,7 @@ Py_DECREF.exit25.i:                               ; preds = %29, %26, %25
   br i1 %.not.i, label %Py_DECREF.exit25.thread.i, label %.lr.ph.i
 
 Py_DECREF.exit25.thread.i:                        ; preds = %Py_DECREF.exit25.i, %24, %21, %.split.i, %_PyMutex_Lock.exit.i
-  %.3.i = phi ptr [ null, %24 ], [ null, %21 ], [ null, %.split.i ], [ %3, %_PyMutex_Lock.exit.i ], [ %3, %Py_DECREF.exit25.i ]
+  %.3.i = phi ptr [ null, %.split.i ], [ null, %24 ], [ null, %21 ], [ %3, %_PyMutex_Lock.exit.i ], [ %3, %Py_DECREF.exit25.i ]
   tail call void @endgrent() #4
   %31 = cmpxchg ptr @grp_getgrall_impl.getgrall_mutex, i8 1, i8 0 seq_cst seq_cst, align 1
   %32 = extractvalue { i8, i1 } %31, 1
@@ -615,7 +615,7 @@ Py_DECREF.exit49:                                 ; preds = %.split, %29, %32
   tail call void @_Py_Dealloc(ptr noundef nonnull %19) #4
   br label %42
 
-42:                                               ; preds = %37, %38, %41
+42:                                               ; preds = %41, %38, %37
   %43 = getelementptr i8, ptr %.03663, i64 8
   %.0.copyload = load ptr, ptr %43, align 8
   %44 = icmp eq ptr %.0.copyload, null
@@ -672,7 +672,7 @@ Py_DECREF.exit51.sink.split:                      ; preds = %62, %34, %12
   br label %Py_DECREF.exit51
 
 Py_DECREF.exit51:                                 ; preds = %Py_DECREF.exit51.sink.split, %34, %Py_DECREF.exit49, %62, %60, %12, %10, %Py_INCREF.exit, %2
-  %.0 = phi ptr [ null, %2 ], [ %5, %Py_INCREF.exit ], [ null, %10 ], [ null, %12 ], [ null, %60 ], [ null, %62 ], [ null, %Py_DECREF.exit49 ], [ null, %34 ], [ null, %Py_DECREF.exit51.sink.split ]
+  %.0 = phi ptr [ null, %2 ], [ %5, %Py_INCREF.exit ], [ null, %34 ], [ null, %Py_DECREF.exit49 ], [ null, %10 ], [ null, %12 ], [ null, %60 ], [ null, %62 ], [ null, %Py_DECREF.exit51.sink.split ]
   ret ptr %.0
 }
 

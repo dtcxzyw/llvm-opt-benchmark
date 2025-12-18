@@ -1713,7 +1713,7 @@ define range(i64 0, 2) i64 @validate_data(ptr noundef readonly captures(address_
   br label %.loopexit
 
 .loopexit:                                        ; preds = %81, %.loopexit.sink.split, %.preheader
-  %.044 = phi i64 [ 0, %.preheader ], [ 1, %.loopexit.sink.split ], [ 0, %81 ]
+  %.044 = phi i64 [ 1, %.loopexit.sink.split ], [ 0, %.preheader ], [ 0, %81 ]
   ret i64 %.044
 }
 

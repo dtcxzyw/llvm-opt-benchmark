@@ -315,7 +315,7 @@ define internal range(i32 -2147483648, 1) i32 @activate(ptr noundef %0) #1 {
   br i1 %101, label %.preheader, label %.loopexit, !llvm.loop !56
 
 .loopexit:                                        ; preds = %13, %45, %114, %.preheader99, %.thread, %.loopexit97, %66, %110, %93
-  %.1 = phi i32 [ -12, %.thread ], [ 0, %110 ], [ 0, %93 ], [ %84, %66 ], [ 0, %.loopexit97 ], [ 0, %.preheader99 ], [ %49, %45 ], [ 0, %114 ], [ 0, %13 ]
+  %.1 = phi i32 [ -12, %.thread ], [ 0, %110 ], [ 0, %114 ], [ 0, %93 ], [ %84, %66 ], [ 0, %.preheader99 ], [ 0, %.loopexit97 ], [ %49, %45 ], [ 0, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.1
@@ -677,7 +677,7 @@ define internal range(i32 -12, 1) i32 @config_output(ptr noundef %0) #1 {
   br i1 %exitcond186.not, label %.sink.split, label %.lr.ph.us167, !llvm.loop !83
 
 .sink.split:                                      ; preds = %._crit_edge.us, %._crit_edge.us168, %.preheader158, %.lr.ph161, %.preheader, %.lr.ph165
-  %filter_channels_double.sink = phi ptr [ @filter_channels_double, %.preheader ], [ @filter_channels_double, %.lr.ph165 ], [ @filter_channels_float, %.lr.ph161 ], [ @filter_channels_float, %.preheader158 ], [ @filter_channels_double, %._crit_edge.us168 ], [ @filter_channels_float, %._crit_edge.us ]
+  %filter_channels_double.sink = phi ptr [ @filter_channels_double, %.preheader ], [ @filter_channels_float, %.preheader158 ], [ @filter_channels_double, %.lr.ph165 ], [ @filter_channels_double, %._crit_edge.us168 ], [ @filter_channels_float, %.lr.ph161 ], [ @filter_channels_float, %._crit_edge.us ]
   %181 = getelementptr inbounds nuw i8, ptr %6, i64 160
   store ptr %filter_channels_double.sink, ptr %181, align 8, !tbaa !44
   br label %182

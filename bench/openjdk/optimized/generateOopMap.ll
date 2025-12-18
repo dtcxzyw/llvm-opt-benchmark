@@ -2229,7 +2229,7 @@ _ZNK13CellTypeState5mergeES_i.exit:               ; preds = %.lr.ph, %28, %32
   br i1 %.not19.not, label %.lr.ph, label %.loopexit, !llvm.loop !23
 
 .loopexit:                                        ; preds = %_ZNK13CellTypeState5mergeES_i.exit, %7, %3
-  %.0 = phi i1 [ false, %7 ], [ false, %3 ], [ %narrow, %_ZNK13CellTypeState5mergeES_i.exit ]
+  %.0 = phi i1 [ false, %3 ], [ false, %7 ], [ %narrow, %_ZNK13CellTypeState5mergeES_i.exit ]
   ret i1 %.0
 }
 
@@ -9548,7 +9548,7 @@ _ZN14GenerateOopMap21rewrite_load_or_storeEP14BytecodeStreamN9Bytecodes4CodeES3_
   br label %_ZN14GenerateOopMap28rewrite_refval_conflict_instEP14BytecodeStreamii.exit
 
 _ZN14GenerateOopMap28rewrite_refval_conflict_instEP14BytecodeStreamii.exit: ; preds = %214, %_ZN14GenerateOopMap21rewrite_load_or_storeEP14BytecodeStreamN9Bytecodes4CodeES3_j.exit27, %_ZN14GenerateOopMap8is_aloadEP14BytecodeStreamPi.exit.thread.i, %_ZN14GenerateOopMap9is_astoreEP14BytecodeStreamPi.exit.i, %_ZN14GenerateOopMap21rewrite_load_or_storeEP14BytecodeStreamN9Bytecodes4CodeES3_j.exit
-  %.0.i = phi i1 [ %144, %_ZN14GenerateOopMap21rewrite_load_or_storeEP14BytecodeStreamN9Bytecodes4CodeES3_j.exit27 ], [ %242, %_ZN14GenerateOopMap21rewrite_load_or_storeEP14BytecodeStreamN9Bytecodes4CodeES3_j.exit ], [ false, %_ZN14GenerateOopMap9is_astoreEP14BytecodeStreamPi.exit.i ], [ false, %_ZN14GenerateOopMap8is_aloadEP14BytecodeStreamPi.exit.thread.i ], [ false, %214 ]
+  %.0.i = phi i1 [ %144, %_ZN14GenerateOopMap21rewrite_load_or_storeEP14BytecodeStreamN9Bytecodes4CodeES3_j.exit27 ], [ %242, %_ZN14GenerateOopMap21rewrite_load_or_storeEP14BytecodeStreamN9Bytecodes4CodeES3_j.exit ], [ false, %_ZN14GenerateOopMap8is_aloadEP14BytecodeStreamPi.exit.thread.i ], [ false, %_ZN14GenerateOopMap9is_astoreEP14BytecodeStreamPi.exit.i ], [ false, %214 ]
   %261 = load i8, ptr %11, align 8
   %262 = trunc i8 %261 to i1
   %or.cond = select i1 %.0.i, i1 true, i1 %262
@@ -9750,7 +9750,7 @@ _ZN14GenerateOopMap9is_astoreEP14BytecodeStreamPi.exit: ; preds = %46, %_ZNK14By
   br label %_ZN14GenerateOopMap24stack_top_holds_ret_addrEi.exit
 
 _ZN14GenerateOopMap24stack_top_holds_ret_addrEi.exit: ; preds = %90, %_ZN14GenerateOopMap8is_aloadEP14BytecodeStreamPi.exit.thread, %_ZN14GenerateOopMap9is_astoreEP14BytecodeStreamPi.exit, %.loopexit, %43
-  %.0 = phi i1 [ %44, %43 ], [ %94, %.loopexit ], [ false, %_ZN14GenerateOopMap9is_astoreEP14BytecodeStreamPi.exit ], [ false, %_ZN14GenerateOopMap8is_aloadEP14BytecodeStreamPi.exit.thread ], [ false, %90 ]
+  %.0 = phi i1 [ %44, %43 ], [ %94, %.loopexit ], [ false, %_ZN14GenerateOopMap8is_aloadEP14BytecodeStreamPi.exit.thread ], [ false, %_ZN14GenerateOopMap9is_astoreEP14BytecodeStreamPi.exit ], [ false, %90 ]
   ret i1 %.0
 }
 

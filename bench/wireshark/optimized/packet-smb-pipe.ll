@@ -1050,36 +1050,30 @@ define hidden noundef zeroext i1 @dissect_pipe_dcerpc(ptr noundef %0, ptr nounde
   %70 = load i32, ptr %69, align 8
   %71 = and i32 %70, 1
   %.not111 = icmp eq i32 %71, 0
-  br i1 %.not111, label %87, label %72
+  br i1 %.not111, label %72, label %75
 
 72:                                               ; preds = %68
-  %73 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %74 = load i32, ptr %73, align 4
-  %75 = getelementptr inbounds nuw i8, ptr %64, i64 40
-  %76 = load i32, ptr %75, align 8
-  %.not112 = icmp eq i32 %74, %76
-  br i1 %.not112, label %80, label %77
-
-77:                                               ; preds = %72
-  %78 = load i32, ptr @hf_smb_pipe_reassembled_in, align 4
-  %79 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %78, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %76)
-  br label %.thread114
-
-80:                                               ; preds = %72
-  %81 = getelementptr inbounds nuw i8, ptr %64, i64 56
-  %82 = load ptr, ptr %81, align 8
-  %83 = tail call ptr @tvb_new_chain(ptr noundef %0, ptr noundef %82)
-  tail call void @add_new_data_source(ptr noundef %1, ptr noundef %83, ptr noundef nonnull @.str.254)
-  store i8 0, ptr %28, align 8
-  %84 = call zeroext i1 @show_fragment_tree(ptr noundef nonnull %64, ptr noundef nonnull @smb_pipe_frag_items, ptr noundef %3, ptr noundef %1, ptr noundef %83, ptr noundef nonnull %7)
-  %85 = load ptr, ptr @smb_transact_heur_subdissector_list, align 8
-  %86 = call zeroext i1 @dissector_try_heuristic(ptr noundef %85, ptr noundef %83, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %8, ptr noundef %5)
+  %73 = load ptr, ptr @smb_transact_heur_subdissector_list, align 8
+  %74 = call zeroext i1 @dissector_try_heuristic(ptr noundef %73, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %8, ptr noundef %5)
   store i16 0, ptr %10, align 8
   store i32 0, ptr %11, align 4
   store i32 0, ptr %12, align 8
-  br i1 %86, label %94, label %90
+  br i1 %74, label %94, label %90
 
-.thread114:                                       ; preds = %77, %49, %36
+75:                                               ; preds = %68
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %77 = load i32, ptr %76, align 4
+  %78 = getelementptr inbounds nuw i8, ptr %64, i64 40
+  %79 = load i32, ptr %78, align 8
+  %.not112 = icmp eq i32 %77, %79
+  br i1 %.not112, label %83, label %80
+
+80:                                               ; preds = %75
+  %81 = load i32, ptr @hf_smb_pipe_reassembled_in, align 4
+  %82 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %81, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %79)
+  br label %.thread114
+
+.thread114:                                       ; preds = %80, %49, %36
   store i16 0, ptr %10, align 8
   store i32 0, ptr %11, align 4
   store i32 0, ptr %12, align 8
@@ -1091,24 +1085,30 @@ define hidden noundef zeroext i1 @dissect_pipe_dcerpc(ptr noundef %0, ptr nounde
   store i32 0, ptr %12, align 8
   br label %94
 
-87:                                               ; preds = %68
+83:                                               ; preds = %75
+  %84 = getelementptr inbounds nuw i8, ptr %64, i64 56
+  %85 = load ptr, ptr %84, align 8
+  %86 = tail call ptr @tvb_new_chain(ptr noundef %0, ptr noundef %85)
+  tail call void @add_new_data_source(ptr noundef %1, ptr noundef %86, ptr noundef nonnull @.str.254)
+  store i8 0, ptr %28, align 8
+  %87 = call zeroext i1 @show_fragment_tree(ptr noundef nonnull %64, ptr noundef nonnull @smb_pipe_frag_items, ptr noundef %3, ptr noundef %1, ptr noundef %86, ptr noundef nonnull %7)
   %88 = load ptr, ptr @smb_transact_heur_subdissector_list, align 8
-  %89 = call zeroext i1 @dissector_try_heuristic(ptr noundef %88, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %8, ptr noundef %5)
+  %89 = call zeroext i1 @dissector_try_heuristic(ptr noundef %88, ptr noundef %86, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %8, ptr noundef %5)
   store i16 0, ptr %10, align 8
   store i32 0, ptr %11, align 4
   store i32 0, ptr %12, align 8
   br i1 %89, label %94, label %90
 
-90:                                               ; preds = %65, %56, %23, %80, %.thread114, %87
-  %.097117 = phi ptr [ %0, %.thread114 ], [ %0, %87 ], [ %83, %80 ], [ %0, %23 ], [ %59, %56 ], [ %0, %65 ]
-  %91 = phi ptr [ %28, %.thread114 ], [ %28, %87 ], [ %28, %80 ], [ %21, %23 ], [ %28, %56 ], [ %28, %65 ]
-  %92 = phi i8 [ %27, %.thread114 ], [ %27, %87 ], [ %27, %80 ], [ %22, %23 ], [ %27, %56 ], [ %27, %65 ]
+90:                                               ; preds = %72, %65, %56, %23, %.thread114, %83
+  %.097117 = phi ptr [ %0, %.thread114 ], [ %86, %83 ], [ %0, %23 ], [ %59, %56 ], [ %0, %65 ], [ %0, %72 ]
+  %91 = phi ptr [ %28, %.thread114 ], [ %28, %83 ], [ %21, %23 ], [ %28, %56 ], [ %28, %65 ], [ %28, %72 ]
+  %92 = phi i8 [ %27, %.thread114 ], [ %27, %83 ], [ %22, %23 ], [ %27, %56 ], [ %27, %65 ], [ %27, %72 ]
   %93 = call i32 @call_data_dissector(ptr noundef %.097117, ptr noundef %1, ptr noundef %2)
   br label %94
 
-94:                                               ; preds = %65, %56, %23, %80, %.thread119, %90, %87
-  %95 = phi ptr [ %91, %90 ], [ %28, %87 ], [ %28, %.thread119 ], [ %28, %80 ], [ %21, %23 ], [ %28, %56 ], [ %28, %65 ]
-  %96 = phi i8 [ %92, %90 ], [ %27, %87 ], [ %27, %.thread119 ], [ %27, %80 ], [ %22, %23 ], [ %27, %56 ], [ %27, %65 ]
+94:                                               ; preds = %72, %65, %56, %23, %.thread119, %90, %83
+  %95 = phi ptr [ %91, %90 ], [ %28, %83 ], [ %28, %.thread119 ], [ %21, %23 ], [ %28, %56 ], [ %28, %65 ], [ %28, %72 ]
+  %96 = phi i8 [ %92, %90 ], [ %27, %83 ], [ %27, %.thread119 ], [ %22, %23 ], [ %27, %56 ], [ %27, %65 ], [ %27, %72 ]
   store i8 %96, ptr %95, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

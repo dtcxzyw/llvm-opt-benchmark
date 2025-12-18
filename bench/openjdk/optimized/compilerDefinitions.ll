@@ -219,22 +219,22 @@ _ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i:     ; preds = %_ZN14CompilerConfig
   %66 = load i8, ptr @UseJVMCICompiler, align 1
   %67 = trunc i8 %66 to i1
   %68 = select i1 %spec.select.i.i.i.i, i1 true, i1 %67
-  br i1 %68, label %_ZN14CompilerConfig10is_c2_onlyEv.exit.thread.thread.i, label %_ZN14CompilerConfig28is_c2_or_jvmci_compiler_onlyEv.exit
+  br i1 %68, label %_ZN14CompilerConfig10is_c2_onlyEv.exit.thread.thread.i, label %_ZN14CompilerConfig10is_c2_onlyEv.exit.i
+
+_ZN14CompilerConfig10is_c2_onlyEv.exit.i:         ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i
+  br i1 %62, label %.thread, label %70
 
 _ZN14CompilerConfig10is_c2_onlyEv.exit.thread.thread.i: ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i
   %69 = xor i1 %62, true
   %or.cond12 = and i1 %69, %67
   br i1 %or.cond12, label %70, label %.thread
 
-_ZN14CompilerConfig28is_c2_or_jvmci_compiler_onlyEv.exit: ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i
-  br i1 %62, label %.thread, label %70
-
-70:                                               ; preds = %_ZN14CompilerConfig10is_c2_onlyEv.exit.thread.thread.i, %_ZN14CompilerConfig28is_c2_or_jvmci_compiler_onlyEv.exit
+70:                                               ; preds = %_ZN14CompilerConfig10is_c2_onlyEv.exit.thread.thread.i, %_ZN14CompilerConfig10is_c2_onlyEv.exit.i
   store i32 2, ptr @_ZN19CompilationModeFlag5_modeE, align 4
   br label %.thread
 
-.thread:                                          ; preds = %_ZN14CompilerConfig28is_c2_or_jvmci_compiler_onlyEv.exit, %_ZN14CompilerConfig10is_c2_onlyEv.exit.thread.thread.i, %.thread6, %11, %22, %15, %54, %70, %64, %23
-  %.0 = phi i1 [ false, %23 ], [ true, %64 ], [ true, %22 ], [ true, %.thread6 ], [ true, %15 ], [ true, %70 ], [ true, %54 ], [ true, %11 ], [ true, %_ZN14CompilerConfig10is_c2_onlyEv.exit.thread.thread.i ], [ true, %_ZN14CompilerConfig28is_c2_or_jvmci_compiler_onlyEv.exit ]
+.thread:                                          ; preds = %_ZN14CompilerConfig10is_c2_onlyEv.exit.i, %_ZN14CompilerConfig10is_c2_onlyEv.exit.thread.thread.i, %.thread6, %11, %22, %15, %54, %70, %64, %23
+  %.0 = phi i1 [ false, %23 ], [ true, %64 ], [ true, %22 ], [ true, %.thread6 ], [ true, %15 ], [ true, %70 ], [ true, %54 ], [ true, %11 ], [ true, %_ZN14CompilerConfig10is_c2_onlyEv.exit.thread.thread.i ], [ true, %_ZN14CompilerConfig10is_c2_onlyEv.exit.i ]
   ret i1 %.0
 }
 
@@ -883,22 +883,22 @@ _ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i38:   ; preds = %98
   %114 = load i8, ptr @UseJVMCICompiler, align 1
   %115 = trunc i8 %114 to i1
   %116 = select i1 %113, i1 true, i1 %115
-  br i1 %116, label %_ZN14CompilerConfig10is_c2_onlyEv.exit.thread.thread.i43, label %_ZN14CompilerConfig28is_c2_or_jvmci_compiler_onlyEv.exit46
+  br i1 %116, label %_ZN14CompilerConfig10is_c2_onlyEv.exit.thread.thread.i43, label %_ZN14CompilerConfig10is_c2_onlyEv.exit.i40
+
+_ZN14CompilerConfig10is_c2_onlyEv.exit.i40:       ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i38
+  %117 = icmp ne i32 %111, 2
+  %.not6.i41 = and i1 %117, %109
+  br i1 %.not6.i41, label %_ZN14CompilerConfig28is_c2_or_jvmci_compiler_onlyEv.exit.thread, label %120
 
 _ZN14CompilerConfig10is_c2_onlyEv.exit.thread.thread.i43: ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i38
   %.not.i44 = xor i1 %115, true
-  %117 = icmp ne i32 %111, 2
-  %.not64 = and i1 %117, %109
-  %118 = or i1 %.not64, %.not.i44
-  %or.cond66 = or i1 %118, %113
+  %118 = icmp ne i32 %111, 2
+  %.not64 = and i1 %118, %109
+  %119 = or i1 %.not64, %.not.i44
+  %or.cond66 = or i1 %119, %113
   br i1 %or.cond66, label %_ZN14CompilerConfig28is_c2_or_jvmci_compiler_onlyEv.exit.thread, label %120
 
-_ZN14CompilerConfig28is_c2_or_jvmci_compiler_onlyEv.exit46: ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i38
-  %119 = icmp ne i32 %111, 2
-  %.not6.i41 = and i1 %119, %109
-  br i1 %.not6.i41, label %_ZN14CompilerConfig28is_c2_or_jvmci_compiler_onlyEv.exit.thread, label %120
-
-120:                                              ; preds = %_ZN14CompilerConfig10is_c2_onlyEv.exit.thread.thread.i43, %_ZN14CompilerConfig28is_c2_or_jvmci_compiler_onlyEv.exit46
+120:                                              ; preds = %_ZN14CompilerConfig10is_c2_onlyEv.exit.thread.thread.i43, %_ZN14CompilerConfig10is_c2_onlyEv.exit.i40
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %52, ptr %7, align 8
   %121 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 405, i32 noundef 3, ptr noundef nonnull %7, i32 noundef 5) #10
@@ -922,7 +922,7 @@ _ZN14CompilerConfig28is_c2_or_jvmci_compiler_onlyEv.exit46: ; preds = %_ZN14Comp
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN14CompilerConfig28is_c2_or_jvmci_compiler_onlyEv.exit.thread
 
-_ZN14CompilerConfig28is_c2_or_jvmci_compiler_onlyEv.exit.thread: ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit, %_ZN14CompilerConfig10is_c2_onlyEv.exit.thread.thread.i43, %98, %19, %120, %_ZN14CompilerConfig28is_c2_or_jvmci_compiler_onlyEv.exit46, %17
+_ZN14CompilerConfig28is_c2_or_jvmci_compiler_onlyEv.exit.thread: ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit, %_ZN14CompilerConfig10is_c2_onlyEv.exit.thread.thread.i43, %98, %19, %_ZN14CompilerConfig10is_c2_onlyEv.exit.i40, %120, %17
   %127 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 391) #10
   %.not = xor i1 %127, true
   %128 = load double, ptr @CompileThresholdScaling, align 8

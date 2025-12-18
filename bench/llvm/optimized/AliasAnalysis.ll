@@ -592,7 +592,7 @@ _ZNK4llvm17PreservedAnalyses10getCheckerINS_9AAManagerEEENS0_24PreservedAnalysis
   br i1 %or.cond, label %_ZNK4llvm17PreservedAnalyses10getCheckerINS_9AAManagerEEENS0_24PreservedAnalysisCheckerEv.exit.thread18, label %.lr.ph
 
 _ZNK4llvm17PreservedAnalyses10getCheckerINS_9AAManagerEEENS0_24PreservedAnalysisCheckerEv.exit.thread18: ; preds = %.lr.ph.i.i.i.i, %.lr.ph, %_ZNK4llvm17PreservedAnalyses10getCheckerINS_9AAManagerEEENS0_24PreservedAnalysisCheckerEv.exit.thread, %_ZNK4llvm17PreservedAnalyses10getCheckerINS_9AAManagerEEENS0_24PreservedAnalysisCheckerEv.exit
-  %.0 = phi i1 [ true, %_ZNK4llvm17PreservedAnalyses10getCheckerINS_9AAManagerEEENS0_24PreservedAnalysisCheckerEv.exit ], [ false, %_ZNK4llvm17PreservedAnalyses10getCheckerINS_9AAManagerEEENS0_24PreservedAnalysisCheckerEv.exit.thread ], [ %25, %.lr.ph ], [ true, %.lr.ph.i.i.i.i ]
+  %.0 = phi i1 [ true, %_ZNK4llvm17PreservedAnalyses10getCheckerINS_9AAManagerEEENS0_24PreservedAnalysisCheckerEv.exit ], [ %25, %.lr.ph ], [ false, %_ZNK4llvm17PreservedAnalyses10getCheckerINS_9AAManagerEEENS0_24PreservedAnalysisCheckerEv.exit.thread ], [ true, %.lr.ph.i.i.i.i ]
   ret i1 %.0
 }
 
@@ -1377,7 +1377,7 @@ _ZN4llvm9AAResults16getArgModRefInfoEPKNS_8CallBaseEj.exit: ; preds = %104
   br label %_ZN4llvm9AAResults16getArgModRefInfoEPKNS_8CallBaseEj.exit.thread
 
 _ZN4llvm9AAResults16getArgModRefInfoEPKNS_8CallBaseEj.exit.thread: ; preds = %.lr.ph.i98, %114, %90, %_ZN4llvm9AAResults16getArgModRefInfoEPKNS_8CallBaseEj.exit
-  %.0 = phi i8 [ %spec.select158, %114 ], [ 3, %90 ], [ 3, %_ZN4llvm9AAResults16getArgModRefInfoEPKNS_8CallBaseEj.exit ], [ 0, %.lr.ph.i98 ]
+  %.0 = phi i8 [ %spec.select158, %114 ], [ 3, %_ZN4llvm9AAResults16getArgModRefInfoEPKNS_8CallBaseEj.exit ], [ 3, %90 ], [ 0, %.lr.ph.i98 ]
   %116 = call noundef zeroext i8 @_ZN4llvm9AAResults13getModRefInfoEPKNS_8CallBaseERKNS_14MemoryLocationERNS_11AAQueryInfoE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(498) %3)
   %117 = and i8 %116, %.0
   %118 = or i8 %117, %.065194
@@ -1501,7 +1501,7 @@ _ZN4llvm9AAResults16getArgModRefInfoEPKNS_8CallBaseEj.exit106: ; preds = %155
   br i1 %.not, label %_ZN4llvm9AAResults16getMemoryEffectsEPKNS_8CallBaseERNS_11AAQueryInfoE.exit, label %.lr.ph188, !llvm.loop !139
 
 _ZN4llvm9AAResults16getMemoryEffectsEPKNS_8CallBaseERNS_11AAQueryInfoE.exit: ; preds = %.lr.ph, %.lr.ph.i, %.lr.ph.i77, %177, %.thread, %121, %_ZN4llvm9AAResults16getArgModRefInfoEPKNS_8CallBaseEj.exit.thread, %125, %75, %123, %_ZNK4llvm17MemoryEffectsBaseINS_13IRMemLocationEE15onlyReadsMemoryEv.exit88
-  %.3 = phi i8 [ %.2, %123 ], [ 0, %_ZNK4llvm17MemoryEffectsBaseINS_13IRMemLocationEE15onlyReadsMemoryEv.exit88 ], [ 0, %125 ], [ 0, %75 ], [ 0, %.lr.ph.i ], [ %.2, %_ZN4llvm9AAResults16getArgModRefInfoEPKNS_8CallBaseEj.exit.thread ], [ %.2, %.thread ], [ 0, %.lr.ph.i77 ], [ %.267.ph, %121 ], [ %.271.ph, %177 ], [ 0, %.lr.ph ]
+  %.3 = phi i8 [ 0, %.lr.ph.i77 ], [ 0, %125 ], [ %.2, %_ZN4llvm9AAResults16getArgModRefInfoEPKNS_8CallBaseEj.exit.thread ], [ 0, %.lr.ph.i ], [ %.2, %123 ], [ 0, %_ZNK4llvm17MemoryEffectsBaseINS_13IRMemLocationEE15onlyReadsMemoryEv.exit88 ], [ 0, %75 ], [ %.2, %.thread ], [ %.267.ph, %121 ], [ %.271.ph, %177 ], [ 0, %.lr.ph ]
   ret i8 %.3
 }
 
@@ -1708,7 +1708,7 @@ _ZN4llvm9AAResults16getArgModRefInfoEPKNS_8CallBaseEj.exit: ; preds = %78, %.lr.
   br label %_ZN4llvm9AAResults16getMemoryEffectsEPKNS_8CallBaseERNS_11AAQueryInfoE.exit.thread
 
 _ZN4llvm9AAResults16getMemoryEffectsEPKNS_8CallBaseERNS_11AAQueryInfoE.exit.thread: ; preds = %.lr.ph, %.lr.ph.i, %_ZN4llvm9AAResults16getMemoryEffectsEPKNS_8CallBaseERNS_11AAQueryInfoE.exit, %94, %._crit_edge
-  %.3 = phi i8 [ %96, %94 ], [ 0, %_ZN4llvm9AAResults16getMemoryEffectsEPKNS_8CallBaseERNS_11AAQueryInfoE.exit ], [ 0, %._crit_edge ], [ 0, %.lr.ph.i ], [ 0, %.lr.ph ]
+  %.3 = phi i8 [ 0, %.lr.ph.i ], [ %96, %94 ], [ 0, %_ZN4llvm9AAResults16getMemoryEffectsEPKNS_8CallBaseERNS_11AAQueryInfoE.exit ], [ 0, %._crit_edge ], [ 0, %.lr.ph ]
   ret i8 %.3
 }
 

@@ -126,7 +126,7 @@ define internal ptr @php_password_bcrypt_hash(ptr noundef %0, ptr noundef %1) #0
   br label %zval_get_long.exit
 
 zval_get_long.exit:                               ; preds = %19, %17
-  %.0 = phi i64 [ %18, %17 ], [ %20, %19 ]
+  %.0 = phi i64 [ %20, %19 ], [ %18, %17 ]
   %21 = add i64 %.0, -32
   %or.cond = icmp ult i64 %21, -28
   br i1 %or.cond, label %22, label %.thread

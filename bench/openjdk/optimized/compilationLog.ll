@@ -705,12 +705,12 @@ _ZN12EventLogBaseI22FormatStringLogMessageILm256EEE5printEP12outputStreamRNS2_11
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN12EventLogBaseI22FormatStringLogMessageILm256EEE5printEP12outputStreamRNS2_11EventRecordIS1_EE.exit43.us, %_ZN12EventLogBaseI22FormatStringLogMessageILm256EEE5printEP12outputStreamRNS2_11EventRecordIS1_EE.exit43, %.loopexit.loopexit, %.loopexit.loopexit64, %._crit_edge, %.preheader
-  %.1 = phi i32 [ 0, %.preheader ], [ %.2.lcssa, %._crit_edge ], [ %indvars84, %.loopexit.loopexit64 ], [ %indvars89.le, %.loopexit.loopexit ], [ %111, %_ZN12EventLogBaseI22FormatStringLogMessageILm256EEE5printEP12outputStreamRNS2_11EventRecordIS1_EE.exit43 ], [ %95, %_ZN12EventLogBaseI22FormatStringLogMessageILm256EEE5printEP12outputStreamRNS2_11EventRecordIS1_EE.exit43.us ]
+  %.1 = phi i32 [ %111, %_ZN12EventLogBaseI22FormatStringLogMessageILm256EEE5printEP12outputStreamRNS2_11EventRecordIS1_EE.exit43 ], [ 0, %.preheader ], [ %indvars84, %.loopexit.loopexit64 ], [ %indvars89.le, %.loopexit.loopexit ], [ %.2.lcssa, %._crit_edge ], [ %95, %_ZN12EventLogBaseI22FormatStringLogMessageILm256EEE5printEP12outputStreamRNS2_11EventRecordIS1_EE.exit43.us ]
   %115 = icmp eq i32 %.1, %2
   br i1 %115, label %.sink.split, label %116
 
 .sink.split:                                      ; preds = %.lr.ph52.split, %.lr.ph59.split, %.loopexit, %3
-  %.str.16.sink = phi ptr [ @.str.15, %3 ], [ @.str.16, %.loopexit ], [ @.str.16, %.lr.ph59.split ], [ @.str.16, %.lr.ph52.split ]
+  %.str.16.sink = phi ptr [ @.str.15, %3 ], [ @.str.16, %.lr.ph59.split ], [ @.str.16, %.loopexit ], [ @.str.16, %.lr.ph52.split ]
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull %.str.16.sink) #8
   br label %116
 

@@ -4496,8 +4496,8 @@ _ZN9uv_pep4407version6Parser6unbump17h7d256ee2a89e1291E.exit.i: ; preds = %150
   br label %72
 
 .loopexit125:                                     ; preds = %.noexc77, %.preheader.i.i.i68, %_ZN9uv_pep4407version6Parser6unbump17h7d256ee2a89e1291E.exit.i, %_ZN9uv_pep4407version6Parser31parse_epoch_and_initial_release17h1dc71ba8ba648acbE.exit
-  %156 = phi i64 [ %.pre, %_ZN9uv_pep4407version6Parser6unbump17h7d256ee2a89e1291E.exit.i ], [ %128, %_ZN9uv_pep4407version6Parser31parse_epoch_and_initial_release17h1dc71ba8ba648acbE.exit ], [ %149, %.noexc77 ], [ %130, %.preheader.i.i.i68 ]
-  %157 = phi i64 [ %153, %_ZN9uv_pep4407version6Parser6unbump17h7d256ee2a89e1291E.exit.i ], [ %127, %_ZN9uv_pep4407version6Parser31parse_epoch_and_initial_release17h1dc71ba8ba648acbE.exit ], [ %148, %.noexc77 ], [ %.pr, %.preheader.i.i.i68 ]
+  %156 = phi i64 [ %128, %_ZN9uv_pep4407version6Parser31parse_epoch_and_initial_release17h1dc71ba8ba648acbE.exit ], [ %.pre, %_ZN9uv_pep4407version6Parser6unbump17h7d256ee2a89e1291E.exit.i ], [ %149, %.noexc77 ], [ %130, %.preheader.i.i.i68 ]
+  %157 = phi i64 [ %127, %_ZN9uv_pep4407version6Parser31parse_epoch_and_initial_release17h1dc71ba8ba648acbE.exit ], [ %153, %_ZN9uv_pep4407version6Parser6unbump17h7d256ee2a89e1291E.exit.i ], [ %148, %.noexc77 ], [ %.pr, %.preheader.i.i.i68 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !826)
   call void @llvm.experimental.noalias.scope.decl(metadata !827)
   call void @llvm.experimental.noalias.scope.decl(metadata !828)
@@ -5332,7 +5332,7 @@ _ZN9uv_pep4407version6Parser7bump_if17he5bb3c1a7916220dE.exit: ; preds = %_ZN9uv
   br label %28
 
 _ZN9uv_pep4407version6Parser7bump_if17he5bb3c1a7916220dE.exit.thread: ; preds = %_ZN9uv_pep4407version7ByteSet11starts_with17h482a18baabcdf19bE.exit.i, %103, %.preheader.i.i, %1, %49
-  %.sroa.0.0 = phi ptr [ %51, %49 ], [ null, %1 ], [ null, %.preheader.i.i ], [ null, %103 ], [ null, %_ZN9uv_pep4407version7ByteSet11starts_with17h482a18baabcdf19bE.exit.i ]
+  %.sroa.0.0 = phi ptr [ %51, %49 ], [ null, %.preheader.i.i ], [ null, %1 ], [ null, %103 ], [ null, %_ZN9uv_pep4407version7ByteSet11starts_with17h482a18baabcdf19bE.exit.i ]
   ret ptr %.sroa.0.0
 
 28:                                               ; preds = %_ZN9uv_pep4407version6Parser16bump_if_byte_set17hac5cdbccbc2da95bE.exit, %_ZN9uv_pep4407version6Parser7bump_if17he5bb3c1a7916220dE.exit
@@ -7005,9 +7005,9 @@ _ZN9uv_pep4407version29starts_with_ignore_ascii_case17h55a29433e72f7083E.exit.th
   %57 = icmp ult i64 %.sroa.8.025.i, %22
   br i1 %57, label %60, label %66
 
-_ZN9uv_pep4407version9StringSet11starts_with17hf99ff96c8b8dd9cdE.exit.thread: ; preds = %_ZN9uv_pep4407version29starts_with_ignore_ascii_case17h55a29433e72f7083E.exit.thread.i, %18, %8, %_ZN9uv_pep4407version7ByteSet11starts_with17h482a18baabcdf19bE.exit.i, %67
-  %58 = phi { i64, i64 } [ %56, %67 ], [ { i64 0, i64 undef }, %_ZN9uv_pep4407version7ByteSet11starts_with17h482a18baabcdf19bE.exit.i ], [ { i64 0, i64 undef }, %8 ], [ { i64 0, i64 undef }, %18 ], [ { i64 0, i64 undef }, %_ZN9uv_pep4407version29starts_with_ignore_ascii_case17h55a29433e72f7083E.exit.thread.i ]
-  %.sroa.3.0 = phi i64 [ %.sroa.8.025.i, %67 ], [ undef, %_ZN9uv_pep4407version7ByteSet11starts_with17h482a18baabcdf19bE.exit.i ], [ undef, %8 ], [ undef, %18 ], [ undef, %_ZN9uv_pep4407version29starts_with_ignore_ascii_case17h55a29433e72f7083E.exit.thread.i ]
+_ZN9uv_pep4407version9StringSet11starts_with17hf99ff96c8b8dd9cdE.exit.thread: ; preds = %_ZN9uv_pep4407version29starts_with_ignore_ascii_case17h55a29433e72f7083E.exit.thread.i, %_ZN9uv_pep4407version7ByteSet11starts_with17h482a18baabcdf19bE.exit.i, %8, %18, %67
+  %58 = phi { i64, i64 } [ %56, %67 ], [ { i64 0, i64 undef }, %18 ], [ { i64 0, i64 undef }, %8 ], [ { i64 0, i64 undef }, %_ZN9uv_pep4407version7ByteSet11starts_with17h482a18baabcdf19bE.exit.i ], [ { i64 0, i64 undef }, %_ZN9uv_pep4407version29starts_with_ignore_ascii_case17h55a29433e72f7083E.exit.thread.i ]
+  %.sroa.3.0 = phi i64 [ %.sroa.8.025.i, %67 ], [ undef, %18 ], [ undef, %8 ], [ undef, %_ZN9uv_pep4407version7ByteSet11starts_with17h482a18baabcdf19bE.exit.i ], [ undef, %_ZN9uv_pep4407version29starts_with_ignore_ascii_case17h55a29433e72f7083E.exit.thread.i ]
   %59 = insertvalue { i64, i64 } %58, i64 %.sroa.3.0, 1
   ret { i64, i64 } %59
 

@@ -17774,8 +17774,8 @@ cleanup77:                                        ; preds = %_ZN11CraftOutputD2E
   br i1 %cmp33.not, label %cleanup86, label %for.body35, !llvm.loop !421
 
 cleanup86:                                        ; preds = %lor.lhs.false.i.i.i.i, %if.end3.i.i.i.i, %for.cond.i.i, %cleanup77, %if.end29, %if.end15.i.i
-  %priority_best.5 = phi i32 [ %priority_best.0272, %if.end15.i.i ], [ %priority_best.0272, %if.end29 ], [ %priority_best.0272, %for.cond.i.i ], [ %priority_best.4, %cleanup77 ], [ %priority_best.0272, %if.end3.i.i.i.i ], [ %priority_best.0272, %lor.lhs.false.i.i.i.i ]
-  %def_best.5 = phi ptr [ %def_best.0273, %if.end15.i.i ], [ %def_best.0273, %if.end29 ], [ %def_best.0273, %for.cond.i.i ], [ %def_best.4, %cleanup77 ], [ %def_best.0273, %if.end3.i.i.i.i ], [ %def_best.0273, %lor.lhs.false.i.i.i.i ]
+  %priority_best.5 = phi i32 [ %priority_best.0272, %if.end15.i.i ], [ %priority_best.0272, %if.end29 ], [ %priority_best.4, %cleanup77 ], [ %priority_best.0272, %for.cond.i.i ], [ %priority_best.0272, %if.end3.i.i.i.i ], [ %priority_best.0272, %lor.lhs.false.i.i.i.i ]
+  %def_best.5 = phi ptr [ %def_best.0273, %if.end15.i.i ], [ %def_best.0273, %if.end29 ], [ %def_best.4, %cleanup77 ], [ %def_best.0273, %for.cond.i.i ], [ %def_best.0273, %if.end3.i.i.i.i ], [ %def_best.0273, %lor.lhs.false.i.i.i.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !422
@@ -18089,8 +18089,8 @@ lpad28.loopexit.split-lp:                         ; preds = %if.then.i.i.i
   br label %ehcleanup33
 
 cleanup32.loopexit:                               ; preds = %cleanup, %for.body, %cleanup.us, %invoke.cont18
-  %.lcssa = phi ptr [ %_M_end_of_storage.i.i.promoted, %invoke.cont18 ], [ %12, %cleanup.us ], [ %14, %for.body ], [ %19, %cleanup ]
-  %cond.i31.i.i88.lcssa = phi ptr [ %agg.result.promoted, %invoke.cont18 ], [ %cond.i31.i.i87.us, %cleanup.us ], [ %cond.i31.i.i8894, %for.body ], [ %cond.i31.i.i87, %cleanup ]
+  %.lcssa = phi ptr [ %_M_end_of_storage.i.i.promoted, %invoke.cont18 ], [ %12, %cleanup.us ], [ %19, %cleanup ], [ %14, %for.body ]
+  %cond.i31.i.i88.lcssa = phi ptr [ %agg.result.promoted, %invoke.cont18 ], [ %cond.i31.i.i87.us, %cleanup.us ], [ %cond.i31.i.i87, %cleanup ], [ %cond.i31.i.i8894, %for.body ]
   store ptr %cond.i31.i.i88.lcssa, ptr %agg.result, align 8, !tbaa !38
   store ptr %.lcssa, ptr %_M_end_of_storage.i.i, align 8, !tbaa !423
   br label %cleanup32
@@ -21960,7 +21960,7 @@ lor.lhs.false.i.i.i.i.i.i233:                     ; preds = %if.end3.i.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i.i236, label %for.cond.i.i.i.i.i.i239, label %cleanup, !llvm.loop !451
 
 cleanup:                                          ; preds = %if.end.i.i.i.i.i.i127, %if.end.i.i.i.i.i.i95, %if.end.i.i.i.i.i.i63, %if.end.i.i.i.i.i.i, %for.cond.i.i.i.i.i.i, %for.body.i.i.i.i, %for.cond.i.i.i.i.i.i75, %for.body.i.i.i.i83, %for.cond.i.i.i.i.i.i107, %for.body.i.i.i.i115, %for.cond.i.i.i.i.i.i139, %for.body.i.i.i.i147, %for.cond.i.i.i.i.i.i175, %for.body.i.i.i.i183, %for.cond.i.i.i.i.i.i207, %for.body.i.i.i.i215, %lor.lhs.false.i.i.i.i.i.i233, %if.end3.i.i.i.i.i.i230, %for.cond.i.i.i.i.i.i239, %for.body.i.i.i.i247, %for.cond.i.i.i.i243, %if.end.i.i.i.i.i.i227, %if.end15.i.i.i.i222, %if.end.i.i.i.i.i.i195, %if.end.i.i.i.i.i.i163, %for.end
-  %retval.sroa.0.0.in.sroa.speculated = phi ptr [ %__last.coerce, %for.end ], [ %__first.sroa.0.0.lcssa, %if.end.i.i.i.i.i.i163 ], [ %__first.sroa.0.1, %if.end.i.i.i.i.i.i195 ], [ %__first.sroa.0.2, %if.end.i.i.i.i.i.i227 ], [ %__last.coerce, %if.end15.i.i.i.i222 ], [ %incdec.ptr.i87279, %for.cond.i.i.i.i.i.i107 ], [ %incdec.ptr.i, %for.body.i.i.i.i83 ], [ %incdec.ptr.i271, %for.cond.i.i.i.i.i.i75 ], [ %__first.sroa.0.0331, %for.body.i.i.i.i ], [ %__first.sroa.0.0331, %for.cond.i.i.i.i.i.i ], [ %__last.coerce, %for.cond.i.i.i.i243 ], [ %__last.coerce, %if.end3.i.i.i.i.i.i230 ], [ %__first.sroa.0.1, %for.body.i.i.i.i215 ], [ %__first.sroa.0.1, %for.cond.i.i.i.i.i.i207 ], [ %__first.sroa.0.0.lcssa, %for.body.i.i.i.i183 ], [ %__first.sroa.0.0.lcssa, %for.cond.i.i.i.i.i.i175 ], [ %incdec.ptr.i119, %for.body.i.i.i.i147 ], [ %incdec.ptr.i119287, %for.cond.i.i.i.i.i.i139 ], [ %incdec.ptr.i87, %for.body.i.i.i.i115 ], [ %__first.sroa.0.2, %for.body.i.i.i.i247 ], [ %__first.sroa.0.2, %for.cond.i.i.i.i.i.i239 ], [ %__last.coerce, %lor.lhs.false.i.i.i.i.i.i233 ], [ %incdec.ptr.i87279, %if.end.i.i.i.i.i.i95 ], [ %incdec.ptr.i119287, %if.end.i.i.i.i.i.i127 ], [ %__first.sroa.0.0331, %if.end.i.i.i.i.i.i ], [ %incdec.ptr.i271, %if.end.i.i.i.i.i.i63 ]
+  %retval.sroa.0.0.in.sroa.speculated = phi ptr [ %__last.coerce, %for.end ], [ %__first.sroa.0.0.lcssa, %if.end.i.i.i.i.i.i163 ], [ %__first.sroa.0.1, %if.end.i.i.i.i.i.i195 ], [ %__first.sroa.0.2, %if.end.i.i.i.i.i.i227 ], [ %__last.coerce, %if.end15.i.i.i.i222 ], [ %__last.coerce, %if.end3.i.i.i.i.i.i230 ], [ %__first.sroa.0.1, %for.body.i.i.i.i215 ], [ %__first.sroa.0.1, %for.cond.i.i.i.i.i.i207 ], [ %__first.sroa.0.0.lcssa, %for.body.i.i.i.i183 ], [ %__first.sroa.0.0.lcssa, %for.cond.i.i.i.i.i.i175 ], [ %incdec.ptr.i119287, %for.cond.i.i.i.i.i.i139 ], [ %incdec.ptr.i119, %for.body.i.i.i.i147 ], [ %incdec.ptr.i87279, %for.cond.i.i.i.i.i.i107 ], [ %incdec.ptr.i87, %for.body.i.i.i.i115 ], [ %incdec.ptr.i271, %for.cond.i.i.i.i.i.i75 ], [ %incdec.ptr.i, %for.body.i.i.i.i83 ], [ %__first.sroa.0.0331, %for.cond.i.i.i.i.i.i ], [ %__first.sroa.0.0331, %for.body.i.i.i.i ], [ %__last.coerce, %for.cond.i.i.i.i243 ], [ %__first.sroa.0.2, %for.body.i.i.i.i247 ], [ %__first.sroa.0.2, %for.cond.i.i.i.i.i.i239 ], [ %__last.coerce, %lor.lhs.false.i.i.i.i.i.i233 ], [ %incdec.ptr.i87279, %if.end.i.i.i.i.i.i95 ], [ %incdec.ptr.i119287, %if.end.i.i.i.i.i.i127 ], [ %__first.sroa.0.0331, %if.end.i.i.i.i.i.i ], [ %incdec.ptr.i271, %if.end.i.i.i.i.i.i63 ]
   ret ptr %retval.sroa.0.0.in.sroa.speculated
 }
 

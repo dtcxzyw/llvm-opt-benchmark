@@ -3160,7 +3160,7 @@ ip_mc_find_dev.exit:                              ; preds = %20, %.thread7.i
   br label %ip_mc_find_dev.exit.thread
 
 ip_mc_find_dev.exit.thread:                       ; preds = %54, %29, %34, %26, %69, %66, %.loopexit, %ip_mc_find_dev.exit, %13
-  %74 = phi i32 [ -22, %13 ], [ -105, %.loopexit ], [ 0, %69 ], [ -105, %66 ], [ -19, %ip_mc_find_dev.exit ], [ -19, %26 ], [ -19, %34 ], [ -19, %29 ], [ -98, %54 ]
+  %74 = phi i32 [ -22, %13 ], [ -105, %.loopexit ], [ 0, %69 ], [ -105, %66 ], [ -19, %ip_mc_find_dev.exit ], [ -19, %29 ], [ -19, %26 ], [ -19, %34 ], [ -98, %54 ]
   ret i32 %74
 }
 
@@ -3714,7 +3714,7 @@ define dso_local noundef range(i32 -105, 1) i32 @ip_mc_source(i32 noundef %0, i3
   br label %.thread31
 
 .thread31:                                        ; preds = %64, %173, %97, %33, %37, %30, %.thread26, %49, %84, %121, %74, %45, %83, %.loopexit, %.loopexit32, %198, %5
-  %200 = phi i32 [ -22, %5 ], [ %199, %198 ], [ -105, %.thread26 ], [ -22, %49 ], [ -99, %84 ], [ -105, %121 ], [ -22, %74 ], [ -19, %45 ], [ -99, %83 ], [ 0, %.loopexit ], [ 0, %.loopexit32 ], [ -19, %30 ], [ -19, %37 ], [ -19, %33 ], [ -99, %173 ], [ -99, %97 ], [ -22, %64 ]
+  %200 = phi i32 [ -22, %5 ], [ %199, %198 ], [ -105, %.thread26 ], [ -99, %97 ], [ -99, %173 ], [ -19, %33 ], [ -22, %49 ], [ -99, %84 ], [ -105, %121 ], [ -22, %74 ], [ -19, %45 ], [ -99, %83 ], [ 0, %.loopexit ], [ 0, %.loopexit32 ], [ -19, %30 ], [ -19, %37 ], [ -22, %64 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %200
 }
@@ -3984,7 +3984,7 @@ thread-pre-split:                                 ; preds = %49
   br label %.loopexit
 
 .loopexit:                                        ; preds = %114, %.loopexit.sink.split, %153, %110
-  %156 = phi i32 [ 0, %153 ], [ -105, %110 ], [ 0, %.loopexit.sink.split ], [ -105, %114 ]
+  %156 = phi i32 [ 0, %.loopexit.sink.split ], [ 0, %153 ], [ -105, %110 ], [ -105, %114 ]
   tail call void @_raw_spin_unlock_bh(ptr noundef nonnull %24) #14
   br label %157
 
@@ -4405,7 +4405,7 @@ define dso_local noundef range(i32 -105, 1) i32 @ip_mc_msfilter(ptr noundef %0, 
   br label %.thread18
 
 .thread18:                                        ; preds = %73, %35, %39, %32, %58, %80, %47, %118, %96, %120, %11, %3
-  %122 = phi i32 [ -22, %3 ], [ -22, %11 ], [ %121, %120 ], [ %94, %96 ], [ -22, %58 ], [ -105, %80 ], [ -19, %47 ], [ 0, %118 ], [ -19, %32 ], [ -19, %39 ], [ -19, %35 ], [ -22, %73 ]
+  %122 = phi i32 [ -22, %3 ], [ -22, %11 ], [ %121, %120 ], [ %94, %96 ], [ -19, %35 ], [ -22, %58 ], [ -105, %80 ], [ -19, %47 ], [ 0, %118 ], [ -19, %32 ], [ -19, %39 ], [ -22, %73 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %122
 }
@@ -4582,7 +4582,7 @@ define dso_local noundef range(i32 -99, 1) i32 @ip_mc_msfget(ptr noundef readonl
   br label %.critedge
 
 .critedge:                                        ; preds = %56, %27, %32, %24, %104, %98, %90, %82, %41, %.thread9, %17
-  %105 = phi i32 [ 0, %104 ], [ -22, %17 ], [ -14, %90 ], [ -14, %82 ], [ -14, %98 ], [ -19, %.thread9 ], [ -99, %41 ], [ -19, %24 ], [ -19, %32 ], [ -19, %27 ], [ -99, %56 ]
+  %105 = phi i32 [ 0, %104 ], [ -22, %17 ], [ -14, %90 ], [ -14, %82 ], [ -14, %98 ], [ -19, %.thread9 ], [ -99, %41 ], [ -19, %27 ], [ -19, %24 ], [ -19, %32 ], [ -99, %56 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %105
 }
@@ -5053,7 +5053,7 @@ define dso_local range(i32 0, 2) i32 @ip_check_mc_rcu(ptr noundef %0, i32 nounde
   br label %.thread
 
 .thread:                                          ; preds = %19, %31, %8, %23, %65, %.loopexit
-  %67 = phi i32 [ %66, %65 ], [ 1, %.loopexit ], [ 0, %23 ], [ 0, %8 ], [ 0, %31 ], [ 0, %19 ]
+  %67 = phi i32 [ %66, %65 ], [ 1, %.loopexit ], [ 0, %31 ], [ 0, %23 ], [ 0, %8 ], [ 0, %19 ]
   ret i32 %67
 }
 

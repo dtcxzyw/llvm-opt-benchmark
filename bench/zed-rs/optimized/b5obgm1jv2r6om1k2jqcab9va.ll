@@ -4846,9 +4846,9 @@ define hidden void @"_ZN87_$LT$serde..de..value..SeqDeserializer$LT$I$C$E$GT$$u2
   br label %34
 
 "_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h79c5bc8ee8021d2bE.llvm.8801228890571076355.exit": ; preds = %32, %25
-  %.sroa.8.0 = phi i64 [ %.sroa.9.0.copyload.i.i.i.i, %25 ], [ %.sroa.9.0.copyload.i2.i.i.i, %32 ]
-  %.sink.i.i.i = phi ptr [ %24, %25 ], [ %31, %32 ]
-  %storemerge.i.i.i = phi i64 [ %21, %25 ], [ %28, %32 ]
+  %.sroa.8.0 = phi i64 [ %.sroa.9.0.copyload.i2.i.i.i, %32 ], [ %.sroa.9.0.copyload.i.i.i.i, %25 ]
+  %.sink.i.i.i = phi ptr [ %31, %32 ], [ %24, %25 ]
+  %storemerge.i.i.i = phi i64 [ %28, %32 ], [ %21, %25 ]
   store i64 %storemerge.i.i.i, ptr %0, align 8
   %.sroa.412.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink.i.i.i, ptr %.sroa.412.0..sroa_idx, align 8

@@ -1081,9 +1081,9 @@ define internal fastcc float @calc_rank_cd(ptr noundef readonly captures(none) %
   br i1 %110, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !13
 
 .loopexit.i:                                      ; preds = %.outer.i, %76, %.preheader114.i, %47, %43
-  %.1101.i = phi i32 [ %.0100141.i, %43 ], [ %.0100141.i, %47 ], [ %.0100141.i, %.preheader114.i ], [ %.2102.ph134.i, %76 ], [ %.3103.lcssa.i, %.outer.i ]
-  %.197.i = phi i32 [ %.096142.i, %43 ], [ %.096142.i, %47 ], [ %.096142.i, %.preheader114.i ], [ %.298.ph135.i, %76 ], [ %.399.lcssa.i, %.outer.i ]
-  %.195.i = phi ptr [ %.094143.i, %43 ], [ %.094143.i, %47 ], [ %.094143.i, %.preheader114.i ], [ %.2.ph136.i, %76 ], [ %.3.lcssa.i, %.outer.i ]
+  %.1101.i = phi i32 [ %.0100141.i, %43 ], [ %.0100141.i, %47 ], [ %.2102.ph134.i, %76 ], [ %.0100141.i, %.preheader114.i ], [ %.3103.lcssa.i, %.outer.i ]
+  %.197.i = phi i32 [ %.096142.i, %43 ], [ %.096142.i, %47 ], [ %.298.ph135.i, %76 ], [ %.096142.i, %.preheader114.i ], [ %.399.lcssa.i, %.outer.i ]
+  %.195.i = phi ptr [ %.094143.i, %43 ], [ %.094143.i, %47 ], [ %.2.ph136.i, %76 ], [ %.094143.i, %.preheader114.i ], [ %.3.lcssa.i, %.outer.i ]
   %indvars.iv.next176.i = add nuw nsw i64 %indvars.iv175.i, 1
   %111 = load ptr, ptr %7, align 8
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 4

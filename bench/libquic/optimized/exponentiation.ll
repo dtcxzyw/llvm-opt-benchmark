@@ -98,7 +98,7 @@ define hidden range(i32 0, 2) i32 @BN_exp(ptr noundef %0, ptr noundef %1, ptr no
   br label %.loopexit
 
 .loopexit:                                        ; preds = %34, %.lr.ph, %38, %27, %24, %18, %14, %40
-  %.038 = phi i32 [ 0, %14 ], [ 0, %18 ], [ 0, %24 ], [ 1, %40 ], [ 0, %38 ], [ 0, %27 ], [ 0, %.lr.ph ], [ 0, %34 ]
+  %.038 = phi i32 [ 0, %14 ], [ 0, %18 ], [ 0, %24 ], [ 0, %27 ], [ 0, %38 ], [ 1, %40 ], [ 0, %.lr.ph ], [ 0, %34 ]
   tail call void @BN_CTX_end(ptr noundef %3) #7
   br label %41
 
@@ -431,7 +431,7 @@ BN_RECP_CTX_set.exit.i:                           ; preds = %53, %50
   br label %.preheader140.i.split
 
 BN_RECP_CTX_set.exit.thread.i:                    ; preds = %78, %.lr.ph.i, %117, %119, %.loopexit.i, %123, %.preheader.i.preheader, %110, %108, %104, %.loopexit.i.us, %.preheader.i.us, %.loopexit142.i, %.thread.i, %59, %BN_RECP_CTX_set.exit.i, %53, %50, %48, %36
-  %.094.i = phi i32 [ 0, %53 ], [ 1, %59 ], [ 0, %36 ], [ 0, %.loopexit142.i ], [ 0, %.thread.i ], [ 0, %BN_RECP_CTX_set.exit.i ], [ 0, %48 ], [ 0, %50 ], [ 1, %123 ], [ 0, %.preheader.i.us ], [ 1, %104 ], [ 0, %108 ], [ 1, %110 ], [ 0, %.loopexit.i.us ], [ 0, %117 ], [ 1, %119 ], [ 0, %.preheader.i.preheader ], [ 0, %.loopexit.i ], [ 0, %.lr.ph.i ], [ 0, %78 ]
+  %.094.i = phi i32 [ 0, %53 ], [ 1, %59 ], [ 0, %.loopexit.i.us ], [ 0, %50 ], [ 0, %36 ], [ 0, %.preheader.i.us ], [ 0, %.loopexit142.i ], [ 0, %.thread.i ], [ 0, %BN_RECP_CTX_set.exit.i ], [ 0, %48 ], [ 1, %123 ], [ 1, %110 ], [ 0, %108 ], [ 1, %104 ], [ 1, %119 ], [ 0, %117 ], [ 0, %.preheader.i.preheader ], [ 0, %.loopexit.i ], [ 0, %.lr.ph.i ], [ 0, %78 ]
   call void @BN_CTX_end(ptr noundef %4) #7
   call void @BN_free(ptr noundef nonnull %7) #7
   %126 = getelementptr inbounds nuw i8, ptr %7, i64 24
@@ -692,8 +692,8 @@ define hidden i32 @BN_mod_exp_mont_word(ptr noundef %0, i64 noundef %1, ptr noun
   br label %.loopexit
 
 .loopexit:                                        ; preds = %67, %69, %63, %65, %.thread, %53, %55, %49, %51, %.thread186, %.thread225, %79, %81, %.thread218, %77, %40, %43, %31, %86
-  %.0132 = phi ptr [ null, %31 ], [ null, %40 ], [ %.1133, %86 ], [ %.1133, %.thread225 ], [ %.1133, %.thread186 ], [ %.1133, %77 ], [ %.1133, %.thread218 ], [ %.1133, %81 ], [ %.1133, %79 ], [ %41, %43 ], [ %.1133, %51 ], [ %.1133, %49 ], [ %.1133, %55 ], [ %.1133, %53 ], [ %.1133, %.thread ], [ %.1133, %65 ], [ %.1133, %63 ], [ %.1133, %69 ], [ %.1133, %67 ]
-  %.0129 = phi i32 [ 0, %31 ], [ 0, %40 ], [ 1, %86 ], [ 0, %.thread225 ], [ 0, %.thread186 ], [ 0, %77 ], [ 0, %.thread218 ], [ 0, %81 ], [ 0, %79 ], [ 0, %43 ], [ 0, %51 ], [ 0, %49 ], [ 0, %55 ], [ 0, %53 ], [ 0, %.thread ], [ 0, %65 ], [ 0, %63 ], [ 0, %69 ], [ 0, %67 ]
+  %.0132 = phi ptr [ null, %31 ], [ null, %40 ], [ %41, %43 ], [ %.1133, %79 ], [ %.1133, %81 ], [ %.1133, %.thread218 ], [ %.1133, %77 ], [ %.1133, %.thread186 ], [ %.1133, %.thread225 ], [ %.1133, %86 ], [ %.1133, %51 ], [ %.1133, %49 ], [ %.1133, %55 ], [ %.1133, %53 ], [ %.1133, %.thread ], [ %.1133, %65 ], [ %.1133, %63 ], [ %.1133, %69 ], [ %.1133, %67 ]
+  %.0129 = phi i32 [ 0, %31 ], [ 0, %40 ], [ 0, %43 ], [ 0, %79 ], [ 0, %81 ], [ 0, %.thread218 ], [ 0, %77 ], [ 0, %.thread186 ], [ 0, %.thread225 ], [ 1, %86 ], [ 0, %51 ], [ 0, %49 ], [ 0, %55 ], [ 0, %53 ], [ 0, %.thread ], [ 0, %65 ], [ 0, %63 ], [ 0, %69 ], [ 0, %67 ]
   tail call void @BN_MONT_CTX_free(ptr noundef %.0132) #7
   tail call void @BN_CTX_end(ptr noundef %4) #7
   br label %87
@@ -999,8 +999,8 @@ select.unfold178:                                 ; preds = %124, %105
   br label %.thread181
 
 .thread181:                                       ; preds = %.lr.ph, %67, %103, %.loopexit, %.preheader, %select.unfold178, %94, %80, %.thread, %47, %42, %31, %34, %22, %46
-  %.0144 = phi i32 [ 0, %31 ], [ 1, %46 ], [ 0, %80 ], [ 0, %22 ], [ %spec.select, %select.unfold178 ], [ 0, %34 ], [ 0, %94 ], [ 0, %.thread ], [ 0, %47 ], [ 0, %42 ], [ 0, %103 ], [ 0, %.preheader ], [ 0, %.loopexit ], [ 0, %67 ], [ 0, %.lr.ph ]
-  %.0133 = phi ptr [ null, %31 ], [ %.1134, %46 ], [ %.1134, %80 ], [ null, %22 ], [ %.1134, %select.unfold178 ], [ %32, %34 ], [ %.1134, %94 ], [ %.1134, %.thread ], [ %.1134, %47 ], [ %.1134, %42 ], [ %.1134, %103 ], [ %.1134, %.preheader ], [ %.1134, %.loopexit ], [ %.1134, %67 ], [ %.1134, %.lr.ph ]
+  %.0144 = phi i32 [ 0, %31 ], [ 1, %46 ], [ 0, %.preheader ], [ 0, %103 ], [ 0, %80 ], [ 0, %22 ], [ %spec.select, %select.unfold178 ], [ 0, %34 ], [ 0, %94 ], [ 0, %.thread ], [ 0, %47 ], [ 0, %42 ], [ 0, %.loopexit ], [ 0, %67 ], [ 0, %.lr.ph ]
+  %.0133 = phi ptr [ null, %31 ], [ %.1134, %46 ], [ %.1134, %.preheader ], [ %.1134, %103 ], [ %.1134, %80 ], [ null, %22 ], [ %.1134, %select.unfold178 ], [ %32, %34 ], [ %.1134, %94 ], [ %.1134, %.thread ], [ %.1134, %47 ], [ %.1134, %42 ], [ %.1134, %.loopexit ], [ %.1134, %67 ], [ %.1134, %.lr.ph ]
   tail call void @BN_MONT_CTX_free(ptr noundef %.0133) #7
   tail call void @BN_CTX_end(ptr noundef %4) #7
   br label %128
@@ -1732,13 +1732,13 @@ copy_to_prebuf.exit401:                           ; preds = %.lr.ph.i395, %311
   br label %340
 
 340:                                              ; preds = %.sink.split, %82, %62, %41, %23, %26
-  %.1323 = phi ptr [ null, %23 ], [ %.0322, %41 ], [ %.0322, %62 ], [ %.0322, %82 ], [ %24, %26 ], [ %.0322, %.sink.split ]
-  %.0312 = phi i32 [ 0, %23 ], [ 0, %41 ], [ 0, %62 ], [ 0, %82 ], [ 0, %26 ], [ 1, %.sink.split ]
+  %.1323 = phi ptr [ null, %23 ], [ %.0322, %41 ], [ %24, %26 ], [ %.0322, %62 ], [ %.0322, %82 ], [ %.0322, %.sink.split ]
+  %.0312 = phi i32 [ 0, %23 ], [ 0, %41 ], [ 0, %26 ], [ 0, %62 ], [ 0, %82 ], [ 1, %.sink.split ]
   tail call void @BN_MONT_CTX_free(ptr noundef %.1323) #7
   br label %341
 
 .loopexit421:                                     ; preds = %309, %335, %333, %.preheader420, %140, %.thread, %286, %138, %._crit_edge436, %142, %300, %129
-  %.0312.ph = phi i32 [ 0, %129 ], [ 0, %300 ], [ 0, %142 ], [ 0, %._crit_edge436 ], [ 0, %138 ], [ %spec.select362, %286 ], [ %spec.select364, %.thread ], [ 0, %140 ], [ 0, %335 ], [ 0, %.preheader420 ], [ 0, %333 ], [ 0, %309 ]
+  %.0312.ph = phi i32 [ 0, %129 ], [ 0, %300 ], [ 0, %142 ], [ 0, %._crit_edge436 ], [ 0, %335 ], [ %spec.select364, %.thread ], [ 0, %140 ], [ 0, %.preheader420 ], [ 0, %138 ], [ %spec.select362, %286 ], [ 0, %333 ], [ 0, %309 ]
   call void @BN_MONT_CTX_free(ptr noundef %.0322) #7
   call void @OPENSSL_cleanse(ptr noundef nonnull %101, i64 noundef %102) #7
   call void @free(ptr noundef %95) #7
@@ -2440,8 +2440,8 @@ define hidden i32 @BN_mod_exp2_mont(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %.loopexit234
 
 .loopexit234:                                     ; preds = %.lr.ph, %83, %.lr.ph243, %110, %155, %146, %117, %._crit_edge, %.loopexit235, %101, %97, %92, %74, %70, %65, %34, %37, %22, %96, %69
-  %.0187 = phi i32 [ 0, %34 ], [ 1, %69 ], [ 1, %96 ], [ 0, %22 ], [ %spec.select232, %._crit_edge ], [ 0, %.loopexit235 ], [ 0, %101 ], [ 0, %97 ], [ 0, %92 ], [ 0, %74 ], [ 0, %70 ], [ 0, %65 ], [ 0, %37 ], [ 0, %.lr.ph243 ], [ 0, %155 ], [ 0, %117 ], [ 0, %146 ], [ 0, %110 ], [ 0, %83 ], [ 0, %.lr.ph ]
-  %.0 = phi ptr [ null, %34 ], [ %.1, %69 ], [ %.1, %96 ], [ null, %22 ], [ %.1, %._crit_edge ], [ %.1, %.loopexit235 ], [ %.1, %101 ], [ %.1, %97 ], [ %.1, %92 ], [ %.1, %74 ], [ %.1, %70 ], [ %.1, %65 ], [ %35, %37 ], [ %.1, %.lr.ph243 ], [ %.1, %155 ], [ %.1, %117 ], [ %.1, %146 ], [ %.1, %110 ], [ %.1, %83 ], [ %.1, %.lr.ph ]
+  %.0187 = phi i32 [ 0, %34 ], [ 1, %69 ], [ 0, %155 ], [ 0, %92 ], [ 1, %96 ], [ 0, %.lr.ph243 ], [ 0, %74 ], [ 0, %37 ], [ 0, %65 ], [ 0, %70 ], [ 0, %22 ], [ %spec.select232, %._crit_edge ], [ 0, %.loopexit235 ], [ 0, %101 ], [ 0, %97 ], [ 0, %117 ], [ 0, %146 ], [ 0, %110 ], [ 0, %83 ], [ 0, %.lr.ph ]
+  %.0 = phi ptr [ null, %34 ], [ %.1, %69 ], [ %.1, %155 ], [ %.1, %92 ], [ %.1, %96 ], [ %.1, %.lr.ph243 ], [ %.1, %74 ], [ %35, %37 ], [ %.1, %65 ], [ %.1, %70 ], [ null, %22 ], [ %.1, %._crit_edge ], [ %.1, %.loopexit235 ], [ %.1, %101 ], [ %.1, %97 ], [ %.1, %117 ], [ %.1, %146 ], [ %.1, %110 ], [ %.1, %83 ], [ %.1, %.lr.ph ]
   tail call void @BN_MONT_CTX_free(ptr noundef %.0) #7
   tail call void @BN_CTX_end(ptr noundef %6) #7
   br label %164
@@ -2637,7 +2637,7 @@ BN_reciprocal.exit.i:                             ; preds = %44, %42, %38
   br label %BN_div_recp.exit
 
 BN_div_recp.exit:                                 ; preds = %72, %74, %21, %29, %46, %49, %52, %55, %59, %62, %71, %81
-  %.073.i = phi i32 [ %spec.select6.i, %29 ], [ 0, %21 ], [ 0, %46 ], [ 0, %71 ], [ 1, %81 ], [ 0, %62 ], [ 0, %59 ], [ 0, %55 ], [ 0, %52 ], [ 0, %49 ], [ 0, %74 ], [ 0, %72 ]
+  %.073.i = phi i32 [ %spec.select6.i, %29 ], [ 0, %21 ], [ 0, %46 ], [ 0, %71 ], [ 0, %49 ], [ 0, %52 ], [ 1, %81 ], [ 0, %62 ], [ 0, %59 ], [ 0, %55 ], [ 0, %74 ], [ 0, %72 ]
   tail call void @BN_CTX_end(ptr noundef %4) #7
   br label %88
 

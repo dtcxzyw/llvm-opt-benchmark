@@ -1182,7 +1182,7 @@ define void @dt_iop_clip_and_zoom_mosaic_half_size_f(ptr noundef writeonly captu
   br label %354
 
 .loopexit:                                        ; preds = %254, %354, %207, %170
-  %.0425.us = phi nsz float [ %176, %170 ], [ %213, %207 ], [ %39, %354 ], [ %79, %254 ]
+  %.0425.us = phi nsz float [ %39, %354 ], [ %176, %170 ], [ %213, %207 ], [ %79, %254 ]
   %342 = fcmp reassoc nsz arcp contract afn une float %.0425.us, 0.000000e+00
   br i1 %342, label %343, label %351
 
@@ -1705,8 +1705,8 @@ FCxtrans.exit82.us:                               ; preds = %.preheader.us123, %
   br label %.preheader.us98.us
 
 ._crit_edge93.us:                                 ; preds = %._crit_edge.split.us, %._crit_edge.split.us.us.us, %FCxtrans.exit.us119
-  %.us-phi96.us = phi i32 [ 0, %FCxtrans.exit.us119 ], [ %.264.us.us.us, %._crit_edge.split.us.us.us ], [ %.264.us, %._crit_edge.split.us ]
-  %.us-phi97.us = phi float [ 0.000000e+00, %FCxtrans.exit.us119 ], [ %.2.us.us.us, %._crit_edge.split.us.us.us ], [ %.2.us, %._crit_edge.split.us ]
+  %.us-phi96.us = phi i32 [ %.264.us.us.us, %._crit_edge.split.us.us.us ], [ 0, %FCxtrans.exit.us119 ], [ %.264.us, %._crit_edge.split.us ]
+  %.us-phi97.us = phi float [ %.2.us.us.us, %._crit_edge.split.us.us.us ], [ 0.000000e+00, %FCxtrans.exit.us119 ], [ %.2.us, %._crit_edge.split.us ]
   %75 = sitofp i32 %.us-phi96.us to float
   %76 = fdiv reassoc nsz arcp contract afn float %.us-phi97.us, %75
   store float %76, ptr %.066111.us120, align 4, !tbaa !18
@@ -2804,7 +2804,7 @@ define void @dt_iop_clip_and_zoom_demosaic_half_size_f(ptr noundef writeonly cap
   br label %365
 
 .loopexit:                                        ; preds = %260, %365, %211, %172
-  %.0423.us = phi nsz float [ %178, %172 ], [ %217, %211 ], [ %39, %365 ], [ %80, %260 ]
+  %.0423.us = phi nsz float [ %39, %365 ], [ %178, %172 ], [ %217, %211 ], [ %80, %260 ]
   %353 = load float, ptr %8, align 16, !tbaa !18
   %354 = fdiv reassoc nsz arcp contract afn float %353, %.0423.us
   store float %354, ptr %.0428497.us, align 4, !tbaa !18
@@ -3127,7 +3127,7 @@ FCxtrans.exit.us:                                 ; preds = %.preheader.us, %FCx
   br label %.preheader91.us108.us
 
 ._crit_edge105.us:                                ; preds = %._crit_edge.split.us, %._crit_edge.split.us.us.us, %.preheader91.lr.ph.us
-  %.us-phi107.us = phi i32 [ 0, %.preheader91.lr.ph.us ], [ %113, %._crit_edge.split.us.us.us ], [ %57, %._crit_edge.split.us ]
+  %.us-phi107.us = phi i32 [ %113, %._crit_edge.split.us.us.us ], [ 0, %.preheader91.lr.ph.us ], [ %57, %._crit_edge.split.us ]
   %77 = load float, ptr %8, align 16, !tbaa !18
   %78 = shl nsw i32 %.us-phi107.us, 1
   %79 = sitofp i32 %78 to float

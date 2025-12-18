@@ -1230,8 +1230,8 @@ define dso_local void @ext4_ind_truncate(ptr noundef %0, ptr noundef %1) local_u
   br label %186
 
 74:                                               ; preds = %40, %45, %50, %60
-  %75 = phi i32 [ %20, %40 ], [ 12, %45 ], [ 13, %50 ], [ 14, %60 ]
-  %76 = phi i32 [ 1, %40 ], [ 2, %45 ], [ 3, %50 ], [ 4, %60 ]
+  %75 = phi i32 [ 14, %60 ], [ %20, %40 ], [ 12, %45 ], [ 13, %50 ]
+  %76 = phi i32 [ 4, %60 ], [ 1, %40 ], [ 2, %45 ], [ 3, %50 ]
   %77 = xor i32 %20, -1
   tail call void @ext4_es_remove_extent(ptr noundef %1, i32 noundef %20, i32 noundef %77) #12
   %78 = load i64, ptr %11, align 8
@@ -1790,7 +1790,7 @@ define internal fastcc void @ext4_free_branches(ptr noundef %0, ptr noundef %1, 
   tail call void (ptr, ptr, i32, i64, i32, ptr, ...) @__ext4_error_inode(ptr noundef %1, ptr noundef nonnull @__func__.ext4_free_data, i32 noundef 990, i64 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.7, i64 noundef %151) #12
   br label %.critedge10
 
-.critedge10:                                      ; preds = %67, %63, %.critedge, %70, %53, %149, %147, %.thread.i, %91, %44, %24, %16, %13, %8
+.critedge10:                                      ; preds = %63, %67, %.critedge, %70, %53, %149, %147, %.thread.i, %91, %44, %24, %16, %13, %8
   ret void
 }
 
@@ -2187,7 +2187,7 @@ define dso_local noundef i32 @ext4_ind_remove_space(ptr noundef %0, ptr noundef 
   br i1 %231, label %217, label %.thread62, !llvm.loop !50
 
 .thread62:                                        ; preds = %217, %172, %154, %209, %182, %181
-  %232 = phi ptr [ null, %181 ], [ null, %182 ], [ %185, %209 ], [ null, %154 ], [ null, %172 ], [ %185, %217 ]
+  %232 = phi ptr [ null, %181 ], [ null, %182 ], [ %185, %209 ], [ null, %172 ], [ null, %154 ], [ %185, %217 ]
   %233 = call fastcc ptr @ext4_find_shared(ptr noundef %1, i32 noundef %118, ptr noundef nonnull %6, ptr noundef nonnull %8, ptr noundef nonnull %10)
   %234 = load i32, ptr %10, align 4
   %235 = icmp eq i32 %234, 0

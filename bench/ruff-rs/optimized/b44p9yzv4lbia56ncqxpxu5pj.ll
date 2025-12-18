@@ -1096,7 +1096,7 @@ define noundef range(i8 0, 16) i8 @_ZN20ruff_python_semantic7binding10Exceptions
           to label %21 unwind label %14
 
 .outer._crit_edge:                                ; preds = %.outer, %26, %2
-  %.sroa.0.0.ph.lcssa12 = phi i8 [ 0, %2 ], [ %.sroa.0.0.ph14, %26 ], [ %40, %.outer ]
+  %.sroa.0.0.ph.lcssa12 = phi i8 [ %.sroa.0.0.ph14, %26 ], [ 0, %2 ], [ %40, %.outer ]
   call void @"_ZN4core3ptr96drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$17h25282ef599c186cfE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i8 %.sroa.0.0.ph.lcssa12

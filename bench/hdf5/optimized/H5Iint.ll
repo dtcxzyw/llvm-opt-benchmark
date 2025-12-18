@@ -624,14 +624,14 @@ H5I__mark_node.exit.us:                           ; preds = %.critedge.i.us, %43
   %124 = icmp sgt i32 %122, -1
   br i1 %124, label %.critedge.i, label %H5I__mark_node.exit
 
-.critedge.i:                                      ; preds = %102, %115, %111
+.critedge.i:                                      ; preds = %115, %102, %111
   store i8 1, ptr %80, align 8, !tbaa !41
   %125 = load i64, ptr %39, align 8, !tbaa !33
   %126 = add i64 %125, -1
   store i64 %126, ptr %39, align 8, !tbaa !33
   br label %H5I__mark_node.exit
 
-H5I__mark_node.exit:                              ; preds = %102, %115, %.critedge.i, %90, %83, %.lr.ph.split
+H5I__mark_node.exit:                              ; preds = %115, %102, %.critedge.i, %90, %83, %.lr.ph.split
   %.not66 = icmp eq ptr %.04586, null
   br i1 %.not66, label %._crit_edge, label %127
 
@@ -3661,7 +3661,7 @@ H5I__iterate_cb.exit.thread:                      ; preds = %91, %70, %.lr.ph.sp
   br label %.lr.ph.split, !llvm.loop !87
 
 .thread47:                                        ; preds = %H5I__iterate_cb.exit.thread, %86, %H5I__iterate_cb.exit.thread.us, %58, %31, %H5I__iterate_cb.exit.thread43, %11, %21, %25, %28, %17
-  %.026 = phi i32 [ 0, %11 ], [ -1, %17 ], [ 0, %21 ], [ 0, %25 ], [ 0, %28 ], [ -1, %H5I__iterate_cb.exit.thread43 ], [ 0, %31 ], [ 0, %H5I__iterate_cb.exit.thread.us ], [ 0, %58 ], [ 0, %86 ], [ 0, %H5I__iterate_cb.exit.thread ]
+  %.026 = phi i32 [ 0, %11 ], [ -1, %17 ], [ 0, %21 ], [ 0, %25 ], [ 0, %28 ], [ -1, %H5I__iterate_cb.exit.thread43 ], [ 0, %H5I__iterate_cb.exit.thread.us ], [ 0, %31 ], [ 0, %58 ], [ 0, %86 ], [ 0, %H5I__iterate_cb.exit.thread ]
   ret i32 %.026
 }
 
@@ -3829,12 +3829,12 @@ H5I__unwrap.exit.i.us57:                          ; preds = %.lr.ph97
   br i1 %77, label %H5I__find_id_cb.exit, label %.lr.ph97, !llvm.loop !89
 
 H5I__find_id_cb.exit:                             ; preds = %H5I__unwrap.exit.i.us49, %H5I__unwrap.exit.i.us, %H5I__unwrap.exit.i.us57, %H5I__unwrap.exit.i.us57.preheader
-  %.us-phi = phi ptr [ %29, %H5I__unwrap.exit.i.us57.preheader ], [ %.02644.us, %H5I__unwrap.exit.i.us ], [ %.02545.us5596, %H5I__unwrap.exit.i.us57 ], [ %.02644.us48, %H5I__unwrap.exit.i.us49 ]
+  %.us-phi = phi ptr [ %.02644.us, %H5I__unwrap.exit.i.us ], [ %.02545.us5596, %H5I__unwrap.exit.i.us57 ], [ %29, %H5I__unwrap.exit.i.us57.preheader ], [ %.02644.us48, %H5I__unwrap.exit.i.us49 ]
   %78 = load i64, ptr %.us-phi, align 8, !tbaa !65
   br label %.loopexit
 
 .loopexit:                                        ; preds = %59, %43, %.lr.ph97, %27, %.lr.ph.split, %H5I__find_id_cb.exit
-  %.sroa.637.1 = phi i64 [ %78, %H5I__find_id_cb.exit ], [ -1, %.lr.ph.split ], [ -1, %27 ], [ -1, %43 ], [ -1, %.lr.ph97 ], [ -1, %59 ]
+  %.sroa.637.1 = phi i64 [ %78, %H5I__find_id_cb.exit ], [ -1, %43 ], [ -1, %.lr.ph97 ], [ -1, %.lr.ph.split ], [ -1, %27 ], [ -1, %59 ]
   store i64 %.sroa.637.1, ptr %2, align 8, !tbaa !25
   br label %79
 

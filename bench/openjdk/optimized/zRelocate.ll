@@ -5797,7 +5797,7 @@ _ZNK24ZRelocateMediumAllocator12alloc_objectEP5ZPagem.exit.thread.sink.split: ; 
   br label %_ZNK24ZRelocateMediumAllocator12alloc_objectEP5ZPagem.exit.thread
 
 _ZNK24ZRelocateMediumAllocator12alloc_objectEP5ZPagem.exit.thread: ; preds = %142, %_ZNK24ZRelocateMediumAllocator12alloc_objectEP5ZPagem.exit.thread.sink.split, %126, %_ZN11ZForwarding6insertE8zaddressS0_Pm.exit, %_ZNK24ZRelocateMediumAllocator12alloc_objectEP5ZPagem.exit
-  %.0 = phi i64 [ 0, %126 ], [ 0, %_ZNK24ZRelocateMediumAllocator12alloc_objectEP5ZPagem.exit ], [ %151, %_ZN11ZForwarding6insertE8zaddressS0_Pm.exit ], [ %.0.ph, %_ZNK24ZRelocateMediumAllocator12alloc_objectEP5ZPagem.exit.thread.sink.split ], [ 0, %142 ]
+  %.0 = phi i64 [ 0, %126 ], [ 0, %_ZNK24ZRelocateMediumAllocator12alloc_objectEP5ZPagem.exit ], [ %.0.ph, %_ZNK24ZRelocateMediumAllocator12alloc_objectEP5ZPagem.exit.thread.sink.split ], [ %151, %_ZN11ZForwarding6insertE8zaddressS0_Pm.exit ], [ 0, %142 ]
   ret i64 %.0
 }
 

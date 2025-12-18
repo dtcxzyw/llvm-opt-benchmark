@@ -1956,7 +1956,7 @@ block_insert.exit.i:                              ; preds = %mapping_insert.exit
   br label %.critedge63
 
 .critedge63:                                      ; preds = %44, %46, %.critedge, %block_insert.exit.i, %adjust_request_size.exit, %6, %lv_tlsf_malloc.exit
-  %.1 = phi ptr [ null, %adjust_request_size.exit ], [ %16, %lv_tlsf_malloc.exit ], [ null, %6 ], [ %45, %46 ], [ null, %44 ], [ %1, %.critedge ], [ %1, %block_insert.exit.i ]
+  %.1 = phi ptr [ null, %adjust_request_size.exit ], [ %16, %lv_tlsf_malloc.exit ], [ null, %6 ], [ null, %44 ], [ %45, %46 ], [ %1, %.critedge ], [ %1, %block_insert.exit.i ]
   ret ptr %.1
 }
 

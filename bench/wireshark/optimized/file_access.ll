@@ -1170,7 +1170,7 @@ get_file_extension.exit.i:                        ; preds = %._crit_edge.i.i, %1
   br i1 %203, label %heuristic_uses_extension.exit65.i, label %198
 
 heuristic_uses_extension.exit.i:                  ; preds = %198, %.lr.ph.i58.i, %194, %.lr.ph83._crit_edge102.i
-  %204 = phi ptr [ %.pre103.i, %.lr.ph83._crit_edge102.i ], [ %.pre.i, %194 ], [ %177, %.lr.ph.i58.i ], [ %.pre.i, %198 ]
+  %204 = phi ptr [ %177, %.lr.ph.i58.i ], [ %.pre103.i, %.lr.ph83._crit_edge102.i ], [ %.pre.i, %194 ], [ %.pre.i, %198 ]
   %205 = load ptr, ptr %36, align 8
   %206 = call i64 @file_seek(ptr noundef %205, i64 noundef 0, i32 noundef 0, ptr noundef %2)
   %207 = icmp eq i64 %206, -1
@@ -1188,8 +1188,8 @@ heuristic_uses_extension.exit.i:                  ; preds = %198, %.lr.ph.i58.i,
   br label %heuristic_uses_extension.exit65.i
 
 heuristic_uses_extension.exit65.i:                ; preds = %.lr.ph.i61.i, %186, %208, %193, %.lr.ph83._crit_edge102.i, %182, %176, %.lr.ph83.i
-  %215 = phi ptr [ %175, %.lr.ph83._crit_edge102.i ], [ %175, %193 ], [ %175, %.lr.ph83.i ], [ %.pre, %208 ], [ %175, %176 ], [ %175, %182 ], [ %175, %186 ], [ %175, %.lr.ph.i61.i ]
-  %.3.i = phi i32 [ 0, %.lr.ph83._crit_edge102.i ], [ 0, %193 ], [ 0, %.lr.ph83.i ], [ %214, %208 ], [ 0, %176 ], [ 0, %182 ], [ 0, %186 ], [ 0, %.lr.ph.i61.i ]
+  %215 = phi ptr [ %175, %182 ], [ %175, %.lr.ph83._crit_edge102.i ], [ %175, %193 ], [ %175, %186 ], [ %175, %176 ], [ %175, %.lr.ph83.i ], [ %.pre, %208 ], [ %175, %.lr.ph.i61.i ]
+  %.3.i = phi i32 [ 0, %182 ], [ 0, %.lr.ph83._crit_edge102.i ], [ 0, %193 ], [ 0, %186 ], [ 0, %176 ], [ 0, %.lr.ph83.i ], [ %214, %208 ], [ 0, %.lr.ph.i61.i ]
   %indvars.iv.next95.i = add nuw nsw i64 %indvars.iv94.i, 1
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 8
   %217 = load i32, ptr %216, align 8
@@ -1253,7 +1253,7 @@ try_one_open.exit69.i:                            ; preds = %234
   br i1 %251, label %234, label %try_open.exit, !llvm.loop !21
 
 try_open.exit:                                    ; preds = %try_one_open.exit69.i, %102, %._crit_edge.i, %.split.us.i
-  %.045.i = phi i32 [ %122, %._crit_edge.i ], [ %.us-phi.i, %.split.us.i ], [ %110, %102 ], [ %244, %try_one_open.exit69.i ]
+  %.045.i = phi i32 [ %110, %102 ], [ %122, %._crit_edge.i ], [ %.us-phi.i, %.split.us.i ], [ %244, %try_one_open.exit69.i ]
   switch i32 %.045.i, label %252 [
     i32 0, label %try_open.exit.thread89
     i32 -1, label %try_open.exit.thread
@@ -2074,8 +2074,8 @@ wtap_dump_can_write_encap.exit47:                 ; preds = %150, %141
   %157 = icmp samesign ult i64 %indvars.iv.next, %156
   br i1 %157, label %.lr.ph, label %wtap_dump_can_open.exit.thread, !llvm.loop !28
 
-wtap_dump_can_open.exit.thread:                   ; preds = %21, %38, %51, %68, %81, %98, %wtap_dump_can_write_encap.exit47, %135, %.lr.ph, %150, %141, %143, %148, %wtap_dump_can_write_encap.exit, %121, %116, %114, %123, %wtap_dump_required_file_encap_type.exit, %.thread55, %90, %86, %.thread51, %60, %56, %16, %30, %26, %5, %3, %wtap_file_type_subtype_supports_option.exit40, %wtap_file_type_subtype_supports_option.exit29, %wtap_file_type_subtype_supports_option.exit, %wtap_dump_can_open.exit
-  %.015 = phi i1 [ false, %wtap_dump_can_open.exit ], [ false, %wtap_file_type_subtype_supports_option.exit ], [ false, %wtap_file_type_subtype_supports_option.exit29 ], [ false, %121 ], [ false, %wtap_file_type_subtype_supports_option.exit40 ], [ false, %5 ], [ false, %3 ], [ false, %26 ], [ false, %30 ], [ false, %16 ], [ false, %123 ], [ false, %56 ], [ false, %60 ], [ false, %.thread51 ], [ false, %114 ], [ false, %86 ], [ false, %90 ], [ false, %.thread55 ], [ false, %116 ], [ false, %wtap_dump_required_file_encap_type.exit ], [ true, %wtap_dump_can_write_encap.exit ], [ false, %38 ], [ false, %148 ], [ false, %98 ], [ false, %81 ], [ false, %68 ], [ false, %51 ], [ false, %.lr.ph ], [ false, %135 ], [ true, %wtap_dump_can_write_encap.exit47 ], [ false, %150 ], [ false, %141 ], [ false, %143 ], [ false, %21 ]
+wtap_dump_can_open.exit.thread:                   ; preds = %21, %38, %51, %68, %81, %98, %wtap_dump_can_write_encap.exit47, %135, %.lr.ph, %150, %141, %143, %148, %wtap_dump_can_write_encap.exit, %121, %116, %114, %123, %wtap_dump_required_file_encap_type.exit, %.thread55, %86, %90, %.thread51, %56, %60, %16, %26, %30, %5, %3, %wtap_file_type_subtype_supports_option.exit40, %wtap_file_type_subtype_supports_option.exit29, %wtap_file_type_subtype_supports_option.exit, %wtap_dump_can_open.exit
+  %.015 = phi i1 [ false, %wtap_dump_can_open.exit ], [ false, %wtap_file_type_subtype_supports_option.exit ], [ false, %wtap_file_type_subtype_supports_option.exit29 ], [ false, %51 ], [ false, %121 ], [ false, %wtap_file_type_subtype_supports_option.exit40 ], [ false, %116 ], [ false, %148 ], [ false, %5 ], [ false, %98 ], [ false, %3 ], [ false, %38 ], [ false, %81 ], [ false, %30 ], [ false, %26 ], [ false, %16 ], [ true, %wtap_dump_can_write_encap.exit ], [ false, %123 ], [ false, %60 ], [ false, %56 ], [ false, %.thread51 ], [ false, %68 ], [ false, %wtap_dump_required_file_encap_type.exit ], [ false, %114 ], [ false, %90 ], [ false, %86 ], [ false, %.thread55 ], [ false, %.lr.ph ], [ false, %135 ], [ true, %wtap_dump_can_write_encap.exit47 ], [ false, %150 ], [ false, %141 ], [ false, %143 ], [ false, %21 ]
   ret i1 %.015
 }
 
@@ -2659,7 +2659,7 @@ define i32 @wtap_file_type_subtype_supports_option(i32 noundef %0, i32 noundef %
   br i1 %exitcond46.not, label %.loopexit, label %.lr.ph42, !llvm.loop !27
 
 .loopexit:                                        ; preds = %17, %38, %9, %26, %22, %34, %3, %5
-  %.027 = phi i32 [ 0, %5 ], [ 0, %3 ], [ 0, %22 ], [ %37, %34 ], [ 0, %26 ], [ 0, %9 ], [ 0, %38 ], [ 0, %17 ]
+  %.027 = phi i32 [ 0, %5 ], [ 0, %3 ], [ 0, %26 ], [ 0, %22 ], [ %37, %34 ], [ 0, %9 ], [ 0, %38 ], [ 0, %17 ]
   ret i32 %.027
 }
 
@@ -3088,7 +3088,7 @@ wtap_dump_file_close.exit:                        ; preds = %55, %57, %59
   br label %62
 
 62:                                               ; preds = %.sink.split, %wtap_dump_open_finish.exit, %6
-  %.0 = phi ptr [ null, %6 ], [ %7, %wtap_dump_open_finish.exit ], [ null, %.sink.split ]
+  %.0 = phi ptr [ %7, %wtap_dump_open_finish.exit ], [ null, %6 ], [ null, %.sink.split ]
   ret ptr %.0
 }
 
@@ -3474,7 +3474,7 @@ wtap_dump_file_close.exit:                        ; preds = %78, %80, %82
   br label %86
 
 86:                                               ; preds = %.sink.split, %wtap_dump_open_finish.exit, %8
-  %.0 = phi ptr [ null, %8 ], [ %10, %wtap_dump_open_finish.exit ], [ null, %.sink.split ]
+  %.0 = phi ptr [ %10, %wtap_dump_open_finish.exit ], [ null, %8 ], [ null, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret ptr %.0
 }
@@ -3605,7 +3605,7 @@ wtap_dump_open_finish.exit:                       ; preds = %41, %45
   br label %61
 
 61:                                               ; preds = %.sink.split, %wtap_dump_open_finish.exit, %6
-  %.0 = phi ptr [ null, %6 ], [ %7, %wtap_dump_open_finish.exit ], [ null, %.sink.split ]
+  %.0 = phi ptr [ %7, %wtap_dump_open_finish.exit ], [ null, %6 ], [ null, %.sink.split ]
   ret ptr %.0
 }
 
@@ -3716,7 +3716,7 @@ define noundef zeroext i1 @wtap_dump_flush(ptr noundef readonly captures(none) %
   br label %24
 
 24:                                               ; preds = %.sink.split, %6, %12, %18
-  %.0 = phi i1 [ true, %18 ], [ true, %12 ], [ true, %6 ], [ false, %.sink.split ]
+  %.0 = phi i1 [ true, %6 ], [ true, %12 ], [ true, %18 ], [ false, %.sink.split ]
   ret i1 %.0
 }
 

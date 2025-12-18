@@ -3451,7 +3451,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$
   br label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$12remove_entry17hcc71095d68436c3bE.llvm.16200579503313032053.exit.thread"
 
 "_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$12remove_entry17hcc71095d68436c3bE.llvm.16200579503313032053.exit.thread": ; preds = %.lr.ph.i.i, %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$12remove_entry17hcc71095d68436c3bE.llvm.16200579503313032053.exit", %3, %"_ZN4core3ptr71drop_in_place$LT$ockam_vault..types..secrets..X25519SecretKeyHandle$GT$17hf2b885c5aa0a5edbE.exit"
-  %storemerge = phi i8 [ 1, %"_ZN4core3ptr71drop_in_place$LT$ockam_vault..types..secrets..X25519SecretKeyHandle$GT$17hf2b885c5aa0a5edbE.exit" ], [ 0, %3 ], [ 0, %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$12remove_entry17hcc71095d68436c3bE.llvm.16200579503313032053.exit" ], [ 0, %.lr.ph.i.i ]
+  %storemerge = phi i8 [ 1, %"_ZN4core3ptr71drop_in_place$LT$ockam_vault..types..secrets..X25519SecretKeyHandle$GT$17hf2b885c5aa0a5edbE.exit" ], [ 0, %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$12remove_entry17hcc71095d68436c3bE.llvm.16200579503313032053.exit" ], [ 0, %3 ], [ 0, %.lr.ph.i.i ]
   store i8 %storemerge, ptr %0, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
   ret void
@@ -3561,7 +3561,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$
   br label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$12remove_entry17h98b438ef038d2a85E.llvm.16200579503313032053.exit.thread"
 
 "_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$12remove_entry17h98b438ef038d2a85E.llvm.16200579503313032053.exit.thread": ; preds = %.lr.ph.i.i, %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$12remove_entry17h98b438ef038d2a85E.llvm.16200579503313032053.exit", %3, %"_ZN4core3ptr68drop_in_place$LT$ockam_vault..types..hashes..AeadSecretKeyHandle$GT$17ha48cc83956a07441E.exit"
-  %storemerge = phi i8 [ 1, %"_ZN4core3ptr68drop_in_place$LT$ockam_vault..types..hashes..AeadSecretKeyHandle$GT$17ha48cc83956a07441E.exit" ], [ 0, %3 ], [ 0, %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$12remove_entry17h98b438ef038d2a85E.llvm.16200579503313032053.exit" ], [ 0, %.lr.ph.i.i ]
+  %storemerge = phi i8 [ 1, %"_ZN4core3ptr68drop_in_place$LT$ockam_vault..types..hashes..AeadSecretKeyHandle$GT$17ha48cc83956a07441E.exit" ], [ 0, %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$12remove_entry17h98b438ef038d2a85E.llvm.16200579503313032053.exit" ], [ 0, %3 ], [ 0, %.lr.ph.i.i ]
   store i8 %storemerge, ptr %0, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
   ret void
@@ -4946,8 +4946,8 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$10re
   br i1 %exitcond.not, label %.outer._crit_edge.thread, label %21
 
 .outer._crit_edge:                                ; preds = %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17h3dce076452136832E.exit", %90, %.loopexit
-  %.1.ph.lcssa37 = phi i64 [ %.039, %.loopexit ], [ %.1.ph51, %90 ], [ %100, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17h3dce076452136832E.exit" ]
-  %.2.lcssa = phi i64 [ %.121, %.loopexit ], [ %91, %90 ], [ %99, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17h3dce076452136832E.exit" ]
+  %.1.ph.lcssa37 = phi i64 [ %.1.ph51, %90 ], [ %.039, %.loopexit ], [ %100, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17h3dce076452136832E.exit" ]
+  %.2.lcssa = phi i64 [ %91, %90 ], [ %.121, %.loopexit ], [ %99, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17h3dce076452136832E.exit" ]
   %.not = icmp eq i64 %.2.lcssa, %.1.ph.lcssa37
   br i1 %.not, label %.outer._crit_edge.thread, label %56
 
@@ -5120,8 +5120,8 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$10re
   br i1 %exitcond.not, label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$8truncate17hdf253842fed08040E.exit", label %22
 
 .outer._crit_edge:                                ; preds = %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17hb94a7ca4456585bdE.exit", %176, %.loopexit
-  %.1.ph.lcssa44 = phi i64 [ %.046, %.loopexit ], [ %.1.ph58, %176 ], [ %186, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17hb94a7ca4456585bdE.exit" ]
-  %.2.lcssa = phi i64 [ %.121, %.loopexit ], [ %177, %176 ], [ %185, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17hb94a7ca4456585bdE.exit" ]
+  %.1.ph.lcssa44 = phi i64 [ %.1.ph58, %176 ], [ %.046, %.loopexit ], [ %186, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17hb94a7ca4456585bdE.exit" ]
+  %.2.lcssa = phi i64 [ %177, %176 ], [ %.121, %.loopexit ], [ %185, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17hb94a7ca4456585bdE.exit" ]
   %.not = icmp eq i64 %.2.lcssa, %.1.ph.lcssa44
   br i1 %.not, label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$8truncate17hdf253842fed08040E.exit", label %57
 
@@ -5268,7 +5268,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$10re
           to label %113 unwind label %120, !noalias !835
 
 common.resume.i:                                  ; preds = %132, %113, %.body.i
-  %common.resume.op.i = phi { ptr, i32 } [ %95, %.body.i ], [ %116, %113 ], [ %135, %132 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %116, %113 ], [ %95, %.body.i ], [ %135, %132 ]
   resume { ptr, i32 } %common.resume.op.i
 
 120:                                              ; preds = %117
@@ -5510,8 +5510,8 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$10re
   br i1 %exitcond.not, label %.outer._crit_edge.thread, label %21
 
 .outer._crit_edge:                                ; preds = %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17h3dce076452136832E.exit", %90, %.loopexit
-  %.1.ph.lcssa37 = phi i64 [ %.039, %.loopexit ], [ %.1.ph51, %90 ], [ %100, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17h3dce076452136832E.exit" ]
-  %.2.lcssa = phi i64 [ %.121, %.loopexit ], [ %91, %90 ], [ %99, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17h3dce076452136832E.exit" ]
+  %.1.ph.lcssa37 = phi i64 [ %.1.ph51, %90 ], [ %.039, %.loopexit ], [ %100, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17h3dce076452136832E.exit" ]
+  %.2.lcssa = phi i64 [ %91, %90 ], [ %.121, %.loopexit ], [ %99, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17h3dce076452136832E.exit" ]
   %.not = icmp eq i64 %.2.lcssa, %.1.ph.lcssa37
   br i1 %.not, label %.outer._crit_edge.thread, label %56
 
@@ -6283,7 +6283,7 @@ define internal fastcc void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$
           to label %61 unwind label %68
 
 common.resume:                                    ; preds = %80, %61, %.body
-  %common.resume.op = phi { ptr, i32 } [ %43, %.body ], [ %64, %61 ], [ %83, %80 ]
+  %common.resume.op = phi { ptr, i32 } [ %64, %61 ], [ %43, %.body ], [ %83, %80 ]
   resume { ptr, i32 } %common.resume.op
 
 68:                                               ; preds = %65

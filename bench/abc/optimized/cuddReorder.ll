@@ -239,7 +239,7 @@ ddReorderPostprocess.exit:                        ; preds = %72, %75
   br label %.critedge
 
 .critedge:                                        ; preds = %27, %104, %78, %70, %ddReorderPreprocess.exit, %15, %3, %._crit_edge89
-  %.0 = phi i32 [ 1, %3 ], [ 0, %ddReorderPreprocess.exit ], [ 0, %78 ], [ %.065, %._crit_edge89 ], [ 0, %70 ], [ 1, %15 ], [ 0, %104 ], [ 0, %27 ]
+  %.0 = phi i32 [ 0, %104 ], [ 1, %3 ], [ 1, %15 ], [ 0, %ddReorderPreprocess.exit ], [ 0, %78 ], [ %.065, %._crit_edge89 ], [ 0, %70 ], [ 0, %27 ]
   ret i32 %.0
 }
 
@@ -442,7 +442,7 @@ ddShuffle.exit:                                   ; preds = %ddSiftUp.exit.i, %7
   br label %.critedge
 
 .critedge:                                        ; preds = %7, %2, %80, %ddShuffle.exit, %58, %57, %54, %53, %ddReorderPreprocess.exit
-  %.040 = phi i32 [ 0, %ddReorderPreprocess.exit ], [ 0, %57 ], [ 0, %54 ], [ 0, %58 ], [ 0, %53 ], [ %.0.i, %ddShuffle.exit ], [ %.0.i, %80 ], [ 1, %2 ], [ 1, %7 ]
+  %.040 = phi i32 [ 0, %ddReorderPreprocess.exit ], [ 0, %57 ], [ %.0.i, %80 ], [ 0, %54 ], [ 0, %58 ], [ 0, %53 ], [ %.0.i, %ddShuffle.exit ], [ 1, %2 ], [ 1, %7 ]
   ret i32 %.040
 }
 
@@ -1030,8 +1030,8 @@ define range(i32 0, 2) i32 @cuddSifting(ptr noundef %0, i32 noundef %1, i32 noun
   br i1 %.not19.i162.i, label %ddSiftingBackward.exit.thread.i, label %.lr.ph26.i159.i, !llvm.loop !92
 
 ddSiftingBackward.exit.thread.i:                  ; preds = %144, %.lr.ph26.i159.i, %123, %.lr.ph26.i146.i, %78, %.lr.ph26.i.i, %109
-  %.194.i = phi ptr [ null, %109 ], [ %110, %123 ], [ null, %78 ], [ null, %.lr.ph26.i.i ], [ %110, %.lr.ph26.i146.i ], [ %127, %.lr.ph26.i159.i ], [ %127, %144 ]
-  %.1.i = phi ptr [ %105, %109 ], [ %105, %123 ], [ %65, %78 ], [ %65, %.lr.ph26.i.i ], [ %105, %.lr.ph26.i146.i ], [ %131, %.lr.ph26.i159.i ], [ %131, %144 ]
+  %.194.i = phi ptr [ null, %78 ], [ %110, %123 ], [ null, %109 ], [ null, %.lr.ph26.i.i ], [ %110, %.lr.ph26.i146.i ], [ %127, %.lr.ph26.i159.i ], [ %127, %144 ]
+  %.1.i = phi ptr [ %65, %78 ], [ %105, %123 ], [ %105, %109 ], [ %65, %.lr.ph26.i.i ], [ %105, %.lr.ph26.i146.i ], [ %131, %.lr.ph26.i159.i ], [ %131, %144 ]
   %.not120188.i = icmp eq ptr %.1.i, null
   br i1 %.not120188.i, label %.preheader.i, label %.lr.ph.i
 
@@ -1077,8 +1077,8 @@ ddSiftingBackward.exit.thread.i:                  ; preds = %144, %.lr.ph26.i159
   br i1 %.not121.i, label %..loopexit_crit_edge.i, label %153, !llvm.loop !94
 
 ddSiftingBackward.exit.i:                         ; preds = %130, %126, %109, %104, %83, %64, %139, %118, %92, %73
-  %.093.i = phi ptr [ %84, %92 ], [ %110, %118 ], [ %127, %139 ], [ null, %73 ], [ %127, %130 ], [ inttoptr (i64 -1 to ptr), %126 ], [ inttoptr (i64 -1 to ptr), %109 ], [ null, %104 ], [ inttoptr (i64 -1 to ptr), %83 ], [ null, %64 ]
-  %.092.i = phi ptr [ null, %92 ], [ %105, %118 ], [ %131, %139 ], [ %65, %73 ], [ inttoptr (i64 -1 to ptr), %130 ], [ null, %126 ], [ %105, %109 ], [ inttoptr (i64 -1 to ptr), %104 ], [ null, %83 ], [ inttoptr (i64 -1 to ptr), %64 ]
+  %.093.i = phi ptr [ %127, %139 ], [ null, %73 ], [ %110, %118 ], [ %84, %92 ], [ %127, %130 ], [ inttoptr (i64 -1 to ptr), %126 ], [ inttoptr (i64 -1 to ptr), %109 ], [ null, %104 ], [ inttoptr (i64 -1 to ptr), %83 ], [ null, %64 ]
+  %.092.i = phi ptr [ %131, %139 ], [ %65, %73 ], [ %105, %118 ], [ null, %92 ], [ inttoptr (i64 -1 to ptr), %130 ], [ null, %126 ], [ %105, %109 ], [ inttoptr (i64 -1 to ptr), %104 ], [ null, %83 ], [ inttoptr (i64 -1 to ptr), %64 ]
   %magicptr123.i = ptrtoint ptr %.092.i to i64
   %magicptr123.off.i = add i64 %magicptr123.i, -1
   %switch.i = icmp ult i64 %magicptr123.off.i, -2
@@ -1294,9 +1294,9 @@ define range(i32 0, 2) i32 @cuddSwapping(ptr noundef %0, i32 noundef %1, i32 nou
   br label %.loopexit93
 
 .loopexit93:                                      ; preds = %.preheader, %.loopexit95, %36
-  %.069 = phi i32 [ %1, %36 ], [ %52, %.loopexit95 ], [ %41, %.preheader ]
-  %.168 = phi i32 [ %.067, %36 ], [ %53, %.loopexit95 ], [ %.067, %.preheader ]
-  %.3 = phi i32 [ %.1.lcssa, %36 ], [ %.062111, %.loopexit95 ], [ %.1.lcssa, %.preheader ]
+  %.069 = phi i32 [ %52, %.loopexit95 ], [ %1, %36 ], [ %41, %.preheader ]
+  %.168 = phi i32 [ %53, %.loopexit95 ], [ %.067, %36 ], [ %.067, %.preheader ]
+  %.3 = phi i32 [ %.062111, %.loopexit95 ], [ %.1.lcssa, %36 ], [ %.1.lcssa, %.preheader ]
   %54 = load i32, ptr %11, align 4, !tbaa !3
   %55 = load i32, ptr %12, align 8, !tbaa !32
   %spec.select.i = tail call i32 @llvm.smax.i32(i32 %.069, i32 %.168)
@@ -1564,7 +1564,7 @@ ddSiftingBackward.exit:                           ; preds = %.lr.ph26.i, %149
   br label %.loopexit
 
 .loopexit:                                        ; preds = %17, %158, %.loopexit.sink.split, %.loopexit189.i, %4
-  %.0 = phi i32 [ 1, %4 ], [ 0, %.loopexit189.i ], [ 0, %.loopexit.sink.split ], [ 1, %158 ], [ 1, %17 ]
+  %.0 = phi i32 [ 0, %.loopexit.sink.split ], [ 0, %.loopexit189.i ], [ 1, %4 ], [ 1, %158 ], [ 1, %17 ]
   ret i32 %.0
 }
 

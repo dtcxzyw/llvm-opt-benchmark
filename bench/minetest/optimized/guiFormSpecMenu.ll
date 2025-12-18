@@ -51259,7 +51259,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1456: ; preds = %c
   br i1 %cmp121, label %for.body123, label %for.cond.cleanup122, !llvm.loop !595
 
 ehcleanup387:                                     ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i132, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i, %lpad.i.i.i123, %lpad.i.i.i, %lpad218, %ehcleanup383, %ehcleanup303, %ehcleanup212
-  %.pn482.pn = phi { ptr, i32 } [ %.pn482, %ehcleanup383 ], [ %.pn471, %ehcleanup303 ], [ %.pn459.pn, %ehcleanup212 ], [ %290, %lpad.i.i.i ], [ %293, %lpad218 ], [ %304, %lpad.i.i.i123 ], [ %290, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i ], [ %304, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i132 ]
+  %.pn482.pn = phi { ptr, i32 } [ %.pn482, %ehcleanup383 ], [ %.pn471, %ehcleanup303 ], [ %.pn459.pn, %ehcleanup212 ], [ %290, %lpad.i.i.i ], [ %304, %lpad.i.i.i123 ], [ %293, %lpad218 ], [ %290, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i ], [ %304, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i132 ]
   call void @_ZNSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm25EED2Ev(ptr noundef nonnull align 8 dereferenceable(800) %properties.i1449) #35
   br label %ehcleanup393
 
@@ -55822,7 +55822,7 @@ ehcleanup294:                                     ; preds = %lpad281, %lpad275
   br label %ehcleanup1092
 
 for.end297.thread:                                ; preds = %for.inc218, %for.inc232, %for.inc246, %for.inc260, %for.end262, %for.end248, %for.end234, %for.end220, %if.end206
-  %i.5.lcssa.ph117 = phi i32 [ %i.41980, %for.end262 ], [ %i.31970, %for.end248 ], [ %i.21960, %for.end234 ], [ %i.11951, %for.end220 ], [ %i.0, %if.end206 ], [ %inc233, %for.inc232 ], [ %inc261, %for.inc260 ], [ %inc247, %for.inc246 ], [ %inc219, %for.inc218 ]
+  %i.5.lcssa.ph117 = phi i32 [ %i.41980, %for.end262 ], [ %i.31970, %for.end248 ], [ %i.0, %if.end206 ], [ %i.21960, %for.end234 ], [ %inc261, %for.inc260 ], [ %i.11951, %for.end220 ], [ %inc247, %for.inc246 ], [ %inc233, %for.inc232 ], [ %inc219, %for.inc218 ]
   %182 = load i16, ptr %m_formspec_version, align 8, !tbaa !176
   %cmp300122 = icmp ugt i16 %182, 1
   %real_coordinates123 = getelementptr inbounds nuw i8, ptr %mydata, i64 1

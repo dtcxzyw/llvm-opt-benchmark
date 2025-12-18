@@ -2108,7 +2108,7 @@ _ZNKSt8functionIFvRN4llvm6ModuleERKNS0_9StringSetINS0_15MallocAllocatorEEEEEclES
   br label %.loopexit495.i
 
 .loopexit495.i:                                   ; preds = %.lr.ph571.i, %.lr.ph575.i, %.lr.ph579.i, %.lr.ph583.i, %_ZNKSt8functionIFvRN4llvm6ModuleERKNS0_9StringSetINS0_15MallocAllocatorEEEEEclES2_S7_.exit.i, %801, %_ZN4llvm5ErrorD2Ev.exit299.i, %689
-  %.8.i = phi i1 [ true, %689 ], [ false, %801 ], [ false, %_ZNKSt8functionIFvRN4llvm6ModuleERKNS0_9StringSetINS0_15MallocAllocatorEEEEEclES2_S7_.exit.i ], [ true, %_ZN4llvm5ErrorD2Ev.exit299.i ], [ true, %.lr.ph575.i ], [ true, %.lr.ph583.i ], [ true, %.lr.ph579.i ], [ true, %.lr.ph571.i ]
+  %.8.i = phi i1 [ true, %_ZN4llvm5ErrorD2Ev.exit299.i ], [ true, %689 ], [ true, %.lr.ph583.i ], [ true, %.lr.ph579.i ], [ true, %.lr.ph575.i ], [ false, %801 ], [ false, %_ZNKSt8functionIFvRN4llvm6ModuleERKNS0_9StringSetINS0_15MallocAllocatorEEEEEclES2_S7_.exit.i ], [ true, %.lr.ph571.i ]
   %804 = load ptr, ptr %49, align 8, !tbaa !16
   %805 = icmp eq ptr %804, %507
   br i1 %805, label %_ZN4llvm11SmallVectorIPNS_11GlobalValueELj0EED2Ev.exit.i, label %806

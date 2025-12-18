@@ -10560,8 +10560,8 @@ define hidden { i64, ptr } @_ZN4jiff4util5parse8fraction17h29a875d99298212aE(ptr
   br label %.loopexit
 
 .loopexit:                                        ; preds = %60, %69, %.loopexit.loopexit, %.thread58, %.thread, %21, %31
-  %.sroa.8.0 = phi ptr [ %26, %21 ], [ %36, %31 ], [ %57, %.thread ], [ %49, %.loopexit.loopexit ], [ %85, %.thread58 ], [ %74, %69 ], [ %65, %60 ]
-  %.sroa.0.0 = phi i64 [ 1, %21 ], [ 1, %31 ], [ 1, %.thread ], [ 0, %.loopexit.loopexit ], [ 1, %.thread58 ], [ 1, %69 ], [ 1, %60 ]
+  %.sroa.8.0 = phi ptr [ %26, %21 ], [ %36, %31 ], [ %57, %.thread ], [ %85, %.thread58 ], [ %49, %.loopexit.loopexit ], [ %74, %69 ], [ %65, %60 ]
+  %.sroa.0.0 = phi i64 [ 1, %21 ], [ 1, %31 ], [ 1, %.thread ], [ 1, %.thread58 ], [ 0, %.loopexit.loopexit ], [ 1, %69 ], [ 1, %60 ]
   %50 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %51 = insertvalue { i64, ptr } %50, ptr %.sroa.8.0, 1
   ret { i64, ptr } %51

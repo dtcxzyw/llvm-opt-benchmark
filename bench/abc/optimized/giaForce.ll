@@ -3642,7 +3642,7 @@ Abc_Clock.exit:                                   ; preds = %3, %11
   br i1 %90, label %.lr.ph157.split, label %.critedge4, !llvm.loop !95
 
 .critedge4:                                       ; preds = %.critedge6, %.preheader, %.lr.ph157, %.critedge
-  %.093.lcssa199 = phi double [ %.093.lcssa, %.critedge ], [ %.093.lcssa, %.lr.ph157 ], [ 0.000000e+00, %.preheader ], [ %.093.lcssa, %.critedge6 ]
+  %.093.lcssa199 = phi double [ 0.000000e+00, %.preheader ], [ %.093.lcssa, %.critedge ], [ %.093.lcssa, %.lr.ph157 ], [ %.093.lcssa, %.critedge6 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %91 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #21
   %92 = icmp slt i32 %91, 0

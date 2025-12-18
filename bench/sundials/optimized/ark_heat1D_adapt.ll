@@ -598,7 +598,7 @@ define internal range(i32 0, 2) i32 @f(double %0, ptr noundef %1, ptr noundef %2
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.loopexit.sink.split, %15
-  %.055 = phi i32 [ 0, %15 ], [ 1, %.loopexit.sink.split ], [ 0, %.lr.ph ]
+  %.055 = phi i32 [ 1, %.loopexit.sink.split ], [ 0, %15 ], [ 0, %.lr.ph ]
   ret i32 %.055
 }
 
@@ -689,7 +689,7 @@ define internal range(i32 0, 2) i32 @Jac(ptr noundef %0, ptr noundef %1, double 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.loopexit.sink.split, %18
-  %.039 = phi i32 [ 0, %18 ], [ 1, %.loopexit.sink.split ], [ 0, %.lr.ph ]
+  %.039 = phi i32 [ 1, %.loopexit.sink.split ], [ 0, %18 ], [ 0, %.lr.ph ]
   ret i32 %.039
 }
 

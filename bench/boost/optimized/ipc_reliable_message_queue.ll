@@ -1125,7 +1125,7 @@ _ZN5boost12interprocess20shared_memory_objectD2Ev.exit: ; preds = %_ZN5boost12in
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.body, %72, %69, %75
-  %.merged16 = phi { ptr, i32 } [ %76, %75 ], [ %70, %69 ], [ %73, %72 ], [ %37, %.body ]
+  %.merged16 = phi { ptr, i32 } [ %76, %75 ], [ %73, %72 ], [ %70, %69 ], [ %37, %.body ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %77 = load ptr, ptr %14, align 8, !tbaa !10
   %78 = icmp eq ptr %77, %15
@@ -1916,7 +1916,7 @@ _ZN5boost12interprocess20shared_memory_objectD2Ev.exit: ; preds = %_ZN5boost12in
   ret void
 
 .loopexit:                                        ; preds = %.body, %95, %112, %108, %79, %75, %129, %120
-  %.merged39 = phi { ptr, i32 } [ %130, %129 ], [ %121, %120 ], [ %76, %75 ], [ %80, %79 ], [ %113, %112 ], [ %109, %108 ], [ %96, %95 ], [ %40, %.body ]
+  %.merged39 = phi { ptr, i32 } [ %130, %129 ], [ %121, %120 ], [ %76, %75 ], [ %109, %108 ], [ %96, %95 ], [ %80, %79 ], [ %113, %112 ], [ %40, %.body ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %132 = load ptr, ptr %15, align 8, !tbaa !10
   %133 = icmp eq ptr %132, %16
@@ -2411,7 +2411,7 @@ _ZN5boost12interprocess20shared_memory_objectD2Ev.exit: ; preds = %_ZN5boost12in
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.body, %68, %65, %71
-  %.merged13 = phi { ptr, i32 } [ %72, %71 ], [ %66, %65 ], [ %69, %68 ], [ %32, %.body ]
+  %.merged13 = phi { ptr, i32 } [ %72, %71 ], [ %69, %68 ], [ %66, %65 ], [ %32, %.body ]
   %73 = load ptr, ptr %11, align 8, !tbaa !10
   %74 = icmp eq ptr %73, %12
   br i1 %74, label %_ZN5boost3log11v2_mt_posix3ipc11object_nameD2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i

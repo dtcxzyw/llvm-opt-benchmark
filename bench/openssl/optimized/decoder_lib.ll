@@ -1324,7 +1324,7 @@ OSSL_DECODER_INSTANCE_get_input_type.exit:        ; preds = %.lr.ph32.split, %13
   br i1 %142, label %.lr.ph32.split, label %._crit_edge33, !llvm.loop !69
 
 ._crit_edge33:                                    ; preds = %._crit_edge.us, %OSSL_DECODER_INSTANCE_get_input_type.exit, %.split
-  %143 = phi i64 [ %32, %.split ], [ %141, %OSSL_DECODER_INSTANCE_get_input_type.exit ], [ %131, %._crit_edge.us ]
+  %143 = phi i64 [ %141, %OSSL_DECODER_INSTANCE_get_input_type.exit ], [ %32, %.split ], [ %131, %._crit_edge.us ]
   %144 = load i32, ptr %25, align 4, !tbaa !63
   %145 = add i32 %144, 1
   store i32 %145, ptr %25, align 4, !tbaa !63

@@ -865,8 +865,8 @@ loop_subst_snap.exit.i:                           ; preds = %.lr.ph93.i.i, %._cr
   br i1 %exitcond222.not.i.i, label %.loopexit171.i.i, label %.lr.ph190.i.i, !llvm.loop !81
 
 .loopexit172.i.i:                                 ; preds = %.loopexit171.i.i, %._crit_edge187.i.i, %._crit_edge.i166.i, %294
-  %.0131.lcssa260.i.i = phi i1 [ true, %._crit_edge.i166.i ], [ false, %._crit_edge187.i.i ], [ true, %294 ], [ false, %.loopexit171.i.i ]
-  %.0140.lcssa259.i.i = phi i32 [ %.1141.i.i, %._crit_edge.i166.i ], [ %.1141265270.i.i, %._crit_edge187.i.i ], [ 0, %294 ], [ %.1141265270.i.i, %.loopexit171.i.i ]
+  %.0131.lcssa260.i.i = phi i1 [ true, %294 ], [ true, %._crit_edge.i166.i ], [ false, %._crit_edge187.i.i ], [ false, %.loopexit171.i.i ]
+  %.0140.lcssa259.i.i = phi i32 [ 0, %294 ], [ %.1141.i.i, %._crit_edge.i166.i ], [ %.1141265270.i.i, %._crit_edge187.i.i ], [ %.1141265270.i.i, %.loopexit171.i.i ]
   %423 = getelementptr inbounds nuw i8, ptr %5, i64 176
   %424 = load i32, ptr %423, align 8, !tbaa !82
   %425 = getelementptr inbounds nuw i8, ptr %5, i64 172

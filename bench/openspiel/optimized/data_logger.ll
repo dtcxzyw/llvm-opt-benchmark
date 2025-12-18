@@ -397,7 +397,7 @@ _ZN4absl7debian211string_viewC2EPKc.exit41:       ; preds = %_ZN4absl7debian211s
   ret void
 
 .loopexit:                                        ; preds = %.preheader, %89, %.thread52, %93, %81
-  %.pn39 = phi { ptr, i32 } [ %94, %93 ], [ %lpad.thr_comm.split-lp, %89 ], [ %82, %81 ], [ %84, %.thread52 ], [ %lpad.thr_comm, %.preheader ]
+  %.pn39 = phi { ptr, i32 } [ %94, %93 ], [ %lpad.thr_comm.split-lp, %89 ], [ %84, %.thread52 ], [ %82, %81 ], [ %lpad.thr_comm, %.preheader ]
   resume { ptr, i32 } %.pn39
 }
 

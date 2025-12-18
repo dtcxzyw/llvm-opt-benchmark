@@ -267,7 +267,7 @@ define dso_local range(i32 0, 2) i32 @grabbag__replaygain_analyze(ptr noundef re
   br i1 %.not162, label %.preheader173, label %.critedge, !llvm.loop !23
 
 .loopexit:                                        ; preds = %60, %.preheader173, %8, %.preheader
-  %.4130 = phi i32 [ %.9135, %.preheader173 ], [ %.2128, %.preheader ], [ %.0126, %8 ], [ %.5131, %60 ]
+  %.4130 = phi i32 [ %.2128, %.preheader ], [ %.0126, %8 ], [ %.9135, %.preheader173 ], [ %.5131, %60 ]
   %110 = add i32 %2, -1
   %111 = shl nuw i32 1, %110
   %112 = uitofp i32 %111 to double
@@ -291,7 +291,7 @@ define dso_local range(i32 0, 2) i32 @grabbag__replaygain_analyze(ptr noundef re
   br label %.critedge
 
 .critedge:                                        ; preds = %88, %107, %28, %43, %118, %121
-  %.2 = phi i32 [ 1, %118 ], [ 1, %121 ], [ 0, %107 ], [ 0, %43 ], [ 0, %28 ], [ 0, %88 ]
+  %.2 = phi i32 [ 0, %43 ], [ 1, %118 ], [ 0, %107 ], [ 1, %121 ], [ 0, %28 ], [ 0, %88 ]
   ret i32 %.2
 }
 

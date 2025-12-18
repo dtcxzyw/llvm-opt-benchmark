@@ -581,8 +581,8 @@ pm_regexp_char_accept.exit:                       ; preds = %.preheader, %172, %
   br i1 %.not77, label %165, label %.critedge8.i, !llvm.loop !57
 
 .critedge8.i:                                     ; preds = %pm_regexp_char_accept.exit, %165, %.lr.ph124.split.us, %.lr.ph124.split, %161
-  %178 = phi ptr [ %.val.i119, %161 ], [ %.val.i119, %.lr.ph124.split.us ], [ %.val.i119, %.lr.ph124.split ], [ %.val.i, %165 ], [ %.val.i, %pm_regexp_char_accept.exit ]
-  %.val139.i.lcssa = phi ptr [ %.val139.i120, %161 ], [ %.val139.i120, %.lr.ph124.split.us ], [ %.val139.i120, %.lr.ph124.split ], [ %.val13.i, %165 ], [ %.val13.i, %pm_regexp_char_accept.exit ]
+  %178 = phi ptr [ %.val.i119, %161 ], [ %.val.i119, %.lr.ph124.split ], [ %.val.i119, %.lr.ph124.split.us ], [ %.val.i, %165 ], [ %.val.i, %pm_regexp_char_accept.exit ]
+  %.val139.i.lcssa = phi ptr [ %.val139.i120, %161 ], [ %.val139.i120, %.lr.ph124.split ], [ %.val139.i120, %.lr.ph124.split.us ], [ %.val13.i, %165 ], [ %.val13.i, %pm_regexp_char_accept.exit ]
   store i8 %159, ptr %158, align 8, !tbaa !18
   %.not.i48 = icmp ult ptr %178, %.val139.i.lcssa
   br i1 %.not.i48, label %179, label %183
@@ -854,7 +854,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br i1 %exitcond.not, label %pm_regexp_parse_range_quantifier.exit, label %.lr.ph.i
 
 pm_regexp_parse_range_quantifier.exit:            ; preds = %23, %19, %18, %14, %12, %switch.hole_check, %20, %16, %7, %5
-  %storemerge = phi ptr [ %6, %5 ], [ %21, %20 ], [ %17, %16 ], [ %8, %7 ], [ %8, %switch.hole_check ], [ %8, %12 ], [ %8, %14 ], [ %8, %18 ], [ %8, %19 ], [ %8, %23 ]
+  %storemerge = phi ptr [ %6, %5 ], [ %8, %7 ], [ %21, %20 ], [ %17, %16 ], [ %8, %switch.hole_check ], [ %8, %12 ], [ %8, %14 ], [ %8, %18 ], [ %8, %19 ], [ %8, %23 ]
   store ptr %storemerge, ptr %2, align 8, !tbaa !16
   %.not = icmp ult ptr %storemerge, %.val6
   br i1 %.not, label %.lr.ph, label %._crit_edge, !llvm.loop !58

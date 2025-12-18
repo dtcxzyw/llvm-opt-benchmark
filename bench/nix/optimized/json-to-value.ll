@@ -3990,7 +3990,7 @@ _ZNKSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_S4_IPKN
           to label %_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_S4_IPKNSt7__cxx1112basic_stringIcS2_SaIcEEEjEESaISD_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSF_18_Mod_range_hashingENSF_20_Default_ranged_hashENSF_20_Prime_rehash_policyENSF_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit16 unwind label %_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_S4_IPKNSt7__cxx1112basic_stringIcS2_SaIcEEEjEESaISD_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSF_18_Mod_range_hashingENSF_20_Default_ranged_hashENSF_20_Prime_rehash_policyENSF_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 
 _ZNKSt8__detail15_Hashtable_baseISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS4_S5_IPKNSt7__cxx1112basic_stringIcS3_SaIcEEEjEENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS6_RKNS_16_Hash_node_valueISE_Lb1EEE.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %.lr.ph.split.us, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i, %50
-  %.sroa.028.0.ph = phi ptr [ %.sroa.021.047.us, %.lr.ph.split.us ], [ %.0.us.i.i, %50 ], [ %.0.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i ], [ %.sroa.021.047, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ]
+  %.sroa.028.0.ph = phi ptr [ %.0.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i ], [ %.sroa.021.047.us, %.lr.ph.split.us ], [ %.0.us.i.i, %50 ], [ %.sroa.021.047, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ]
   tail call void @_ZdlPv(ptr noundef nonnull %4) #35
   br label %_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_S4_IPKNSt7__cxx1112basic_stringIcS2_SaIcEEEjEESaISD_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSF_18_Mod_range_hashingENSF_20_Default_ranged_hashENSF_20_Prime_rehash_policyENSF_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit16
 
@@ -5271,8 +5271,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit.thread.threa
   br label %131
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit.thread: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i, %.backedge
-  %.083.lcssa = phi i64 [ %.083.be, %.backedge ], [ %.083113, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i ], [ %.083113, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit ]
-  %.lcssa = phi i64 [ %64, %.backedge ], [ %39, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i ], [ %39, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit ]
+  %.083.lcssa = phi i64 [ %.083113, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i ], [ %.083.be, %.backedge ], [ %.083113, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit ]
+  %.lcssa = phi i64 [ %39, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i ], [ %64, %.backedge ], [ %39, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit ]
   %125 = icmp eq i64 %indvars.iv, 0
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %127 = load ptr, ptr %0, align 8
@@ -5900,7 +5900,7 @@ define linkonce_odr { i64, i64 } @_ZN5boost2io18basic_altstringbufIcSt11char_tra
   br label %64
 
 64:                                               ; preds = %.sink.split, %13, %27, %36, %20, %18, %49, %46, %44
-  %.sroa.021.0 = phi i64 [ -1, %46 ], [ %1, %36 ], [ %1, %27 ], [ -1, %44 ], [ -1, %18 ], [ -1, %20 ], [ -1, %49 ], [ -1, %13 ], [ %1, %.sink.split ]
+  %.sroa.021.0 = phi i64 [ -1, %46 ], [ -1, %13 ], [ %1, %36 ], [ %1, %27 ], [ -1, %44 ], [ -1, %49 ], [ -1, %18 ], [ -1, %20 ], [ %1, %.sink.split ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.021.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 0, 1
   ret { i64, i64 } %.fca.1.insert
@@ -6348,7 +6348,7 @@ _ZN5boost2io6detail18wrap_scan_notdigitIN9__gnu_cxx17__normal_iteratorIPKcNSt7__
   br i1 %59, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.lr.ph, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit.thread, !llvm.loop !67
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit.thread: ; preds = %.outer, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i, %37, %4, %29
-  %.131 = phi i32 [ %30, %29 ], [ 0, %4 ], [ %.030.ph55, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit ], [ %.030.ph55, %37 ], [ %.030.ph55, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i ], [ %58, %.outer ]
+  %.131 = phi i32 [ %30, %29 ], [ %.030.ph55, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit ], [ 0, %4 ], [ %.030.ph55, %37 ], [ %.030.ph55, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i ], [ %58, %.outer ]
   ret i32 %.131
 }
 
@@ -13789,7 +13789,7 @@ _ZN8nlohmann6detail13binary_readerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112b
   br label %_ZN8nlohmann6detail13binary_readerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEENS0_22iterator_input_adapterIPKcEEN3nix7JSONSaxEE19parse_bson_internalEv.exit
 
 _ZN8nlohmann6detail13binary_readerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEENS0_22iterator_input_adapterIPKcEEN3nix7JSONSaxEE19parse_bson_internalEv.exit: ; preds = %41, %_ZN8nlohmann6detail13binary_readerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEENS0_22iterator_input_adapterIPKcEEN3nix7JSONSaxEE21parse_ubjson_internalEb.exit, %49, %47
-  %.017.shrunk = phi i1 [ %65, %_ZN8nlohmann6detail13binary_readerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEENS0_22iterator_input_adapterIPKcEEN3nix7JSONSaxEE21parse_ubjson_internalEb.exit ], [ %48, %47 ], [ %50, %49 ], [ %46, %41 ]
+  %.017.shrunk = phi i1 [ %46, %41 ], [ %65, %_ZN8nlohmann6detail13binary_readerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEENS0_22iterator_input_adapterIPKcEEN3nix7JSONSaxEE21parse_ubjson_internalEb.exit ], [ %48, %47 ], [ %50, %49 ]
   %or.cond = and i1 %3, %.017.shrunk
   br i1 %or.cond, label %66, label %_ZN8nlohmann6detail13binary_readerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEENS0_22iterator_input_adapterIPKcEEN3nix7JSONSaxEE19parse_bson_internalEv.exit.thread
 
@@ -14513,7 +14513,7 @@ _ZN8nlohmann6detail5lexerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stri
   br label %_ZN8nlohmann6detail5lexerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEENS0_22iterator_input_adapterIPKcEEE12scan_literalESH_mNS0_10lexer_baseISE_E10token_typeE.exit
 
 _ZN8nlohmann6detail5lexerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEENS0_22iterator_input_adapterIPKcEEE12scan_literalESH_mNS0_10lexer_baseISE_E10token_typeE.exit: ; preds = %.lr.ph, %72, %63, %55, %78, %69, %61, %.critedge, %85, %84, %82, %80, %53, %52, %51, %50, %49, %_ZN8nlohmann6detail5lexerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEENS0_22iterator_input_adapterIPKcEEE8skip_bomEv.exit.thread16
-  %.0 = phi i32 [ 14, %_ZN8nlohmann6detail5lexerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEENS0_22iterator_input_adapterIPKcEEE8skip_bomEv.exit.thread16 ], [ 14, %85 ], [ 10, %49 ], [ 9, %50 ], [ 11, %51 ], [ 12, %52 ], [ 13, %53 ], [ 8, %.critedge ], [ %81, %80 ], [ %83, %82 ], [ 15, %84 ], [ 14, %61 ], [ 14, %69 ], [ 14, %78 ], [ 3, %72 ], [ 1, %55 ], [ 2, %63 ], [ 14, %.lr.ph ]
+  %.0 = phi i32 [ 14, %_ZN8nlohmann6detail5lexerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEENS0_22iterator_input_adapterIPKcEEE8skip_bomEv.exit.thread16 ], [ 14, %85 ], [ 3, %72 ], [ 10, %49 ], [ 9, %50 ], [ 11, %51 ], [ 12, %52 ], [ 13, %53 ], [ 8, %.critedge ], [ 2, %63 ], [ 1, %55 ], [ %81, %80 ], [ %83, %82 ], [ 15, %84 ], [ 14, %61 ], [ 14, %69 ], [ 14, %78 ], [ 14, %.lr.ph ]
   ret i32 %.0
 }
 
@@ -14743,7 +14743,7 @@ define linkonce_odr noundef zeroext i1 @_ZN8nlohmann6detail5lexerINS_10basic_jso
   br label %.loopexit
 
 .loopexit:                                        ; preds = %12, %.preheader, %.loopexit.sink.split
-  %.0 = phi i1 [ false, %.loopexit.sink.split ], [ true, %.preheader ], [ true, %12 ]
+  %.0 = phi i1 [ true, %.preheader ], [ false, %.loopexit.sink.split ], [ true, %12 ]
   ret i1 %.0
 }
 
@@ -15572,7 +15572,7 @@ _ZN8nlohmann6detail5lexerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stri
   br label %.loopexit
 
 .loopexit:                                        ; preds = %274, %272, %270, %268, %266, %264, %262, %27, %.loopexit.sink.split
-  %.0 = phi i32 [ 14, %.loopexit.sink.split ], [ 14, %274 ], [ 14, %270 ], [ 14, %268 ], [ 14, %266 ], [ 14, %264 ], [ 14, %262 ], [ 4, %27 ], [ 14, %272 ]
+  %.0 = phi i32 [ 14, %.loopexit.sink.split ], [ 14, %272 ], [ 4, %27 ], [ 14, %262 ], [ 14, %264 ], [ 14, %266 ], [ 14, %268 ], [ 14, %270 ], [ 14, %274 ]
   ret i32 %.0
 }
 
@@ -16429,7 +16429,7 @@ _ZN8nlohmann6detail5lexerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stri
   br i1 %switch13, label %363, label %_ZN8nlohmann6detail5lexerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEENS0_22iterator_input_adapterIPKcEEE3getEv.exit.thread
 
 _ZN8nlohmann6detail5lexerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEENS0_22iterator_input_adapterIPKcEEE3getEv.exit.thread: ; preds = %_ZNSt6vectorIcSaIcEE9push_backEOc.exit.i, %154, %259, %_ZN8nlohmann6detail5lexerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEENS0_22iterator_input_adapterIPKcEEE3addEi.exit58, %.preheader, %183, %96
-  %.2 = phi i32 [ %.07, %96 ], [ %.1.ph, %183 ], [ 7, %.preheader ], [ 7, %259 ], [ 7, %_ZN8nlohmann6detail5lexerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEENS0_22iterator_input_adapterIPKcEEE3addEi.exit58 ], [ %.1.ph, %154 ], [ %.1.ph, %_ZNSt6vectorIcSaIcEE9push_backEOc.exit.i ]
+  %.2 = phi i32 [ %.07, %96 ], [ 7, %259 ], [ 7, %.preheader ], [ %.1.ph, %183 ], [ 7, %_ZN8nlohmann6detail5lexerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEENS0_22iterator_input_adapterIPKcEEE3addEi.exit58 ], [ %.1.ph, %154 ], [ %.1.ph, %_ZNSt6vectorIcSaIcEE9push_backEOc.exit.i ]
   %381 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 1, ptr %381, align 8
   %382 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -23316,7 +23316,7 @@ _ZN8nlohmann6detail13binary_readerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112b
   br label %common.resume
 
 .critedge:                                        ; preds = %.lr.ph, %492, %474, %407, %405, %._crit_edge, %222, %198, %195, %_ZN8nlohmann6detail13binary_readerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEENS0_22iterator_input_adapterIPKcEEN3nix7JSONSaxEE3getEv.exit97, %_ZN8nlohmann6detail13binary_readerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEENS0_22iterator_input_adapterIPKcEEN3nix7JSONSaxEE3getEv.exit94, %293, %286, %288, %280, %282, %274, %276, %268, %270, %257, %259, %251, %253, %245, %247, %239, %241, %174, %176, %162, %164, %150, %152, %138, %140, %118, %120, %107, %109, %96, %98, %85, %87, %503, %486, %523, %468, %422, %415, %408, %353, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit84, %291, %264, %262, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %128, %77, %75
-  %.036 = phi i1 [ %522, %523 ], [ %76, %75 ], [ %84, %77 ], [ %.1, %407 ], [ %95, %87 ], [ %106, %98 ], [ %117, %109 ], [ %137, %128 ], [ %127, %120 ], [ %149, %140 ], [ %161, %152 ], [ %173, %164 ], [ false, %_ZN8nlohmann6detail13binary_readerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEENS0_22iterator_input_adapterIPKcEEN3nix7JSONSaxEE3getEv.exit97 ], [ %217, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %196, %198 ], [ %184, %176 ], [ %244, %241 ], [ %250, %247 ], [ %256, %253 ], [ %263, %262 ], [ %267, %264 ], [ %261, %259 ], [ %273, %270 ], [ %279, %276 ], [ %285, %282 ], [ %292, %291 ], [ %290, %288 ], [ %310, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit84 ], [ %354, %353 ], [ %238, %._crit_edge ], [ %414, %408 ], [ %421, %415 ], [ %427, %422 ], [ false, %293 ], [ false, %_ZN8nlohmann6detail13binary_readerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEENS0_22iterator_input_adapterIPKcEEN3nix7JSONSaxEE3getEv.exit94 ], [ %467, %468 ], [ %485, %486 ], [ false, %474 ], [ %502, %503 ], [ false, %85 ], [ false, %96 ], [ false, %107 ], [ false, %118 ], [ false, %138 ], [ false, %150 ], [ false, %162 ], [ false, %174 ], [ false, %239 ], [ false, %245 ], [ false, %251 ], [ false, %257 ], [ false, %268 ], [ false, %274 ], [ false, %280 ], [ false, %286 ], [ %196, %195 ], [ false, %222 ], [ %.1, %405 ], [ false, %492 ], [ false, %.lr.ph ]
+  %.036 = phi i1 [ %522, %523 ], [ %76, %75 ], [ %84, %77 ], [ %.1, %407 ], [ %95, %87 ], [ %106, %98 ], [ %117, %109 ], [ %137, %128 ], [ %127, %120 ], [ %149, %140 ], [ %161, %152 ], [ %173, %164 ], [ false, %_ZN8nlohmann6detail13binary_readerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEENS0_22iterator_input_adapterIPKcEEN3nix7JSONSaxEE3getEv.exit97 ], [ %217, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %196, %198 ], [ %184, %176 ], [ %244, %241 ], [ %250, %247 ], [ %256, %253 ], [ %263, %262 ], [ %267, %264 ], [ %261, %259 ], [ %273, %270 ], [ %279, %276 ], [ %285, %282 ], [ %292, %291 ], [ %290, %288 ], [ %310, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit84 ], [ %354, %353 ], [ %238, %._crit_edge ], [ %414, %408 ], [ %421, %415 ], [ %427, %422 ], [ false, %293 ], [ false, %_ZN8nlohmann6detail13binary_readerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEENS0_22iterator_input_adapterIPKcEEN3nix7JSONSaxEE3getEv.exit94 ], [ %467, %468 ], [ %485, %486 ], [ false, %474 ], [ %502, %503 ], [ false, %85 ], [ false, %96 ], [ false, %107 ], [ false, %118 ], [ false, %138 ], [ false, %150 ], [ false, %162 ], [ false, %174 ], [ false, %239 ], [ false, %245 ], [ false, %251 ], [ false, %257 ], [ false, %268 ], [ false, %274 ], [ false, %280 ], [ false, %286 ], [ %196, %195 ], [ false, %492 ], [ false, %222 ], [ %.1, %405 ], [ false, %.lr.ph ]
   ret i1 %.036
 }
 
@@ -24154,7 +24154,7 @@ _ZN8nlohmann6detail13binary_readerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112b
   br label %_ZN8nlohmann27byte_container_with_subtypeISt6vectorIhSaIhEEED2Ev.exit35
 
 .critedge:                                        ; preds = %.lr.ph, %146, %128, %123, %120, %._crit_edge, %54, %267, %269, %261, %263, %255, %257, %249, %251, %239, %241, %228, %230, %217, %219, %206, %208, %196, %198, %185, %187, %174, %176, %163, %165, %157, %140, %294, %273, %103, %96, %90, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %50, %42, %_ZN8nlohmann6detail13binary_readerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEENS0_22iterator_input_adapterIPKcEEN3nix7JSONSaxEE3getEv.exit.thread
-  %.022 = phi i1 [ %293, %294 ], [ %37, %_ZN8nlohmann6detail13binary_readerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEENS0_22iterator_input_adapterIPKcEEN3nix7JSONSaxEE3getEv.exit.thread ], [ %49, %42 ], [ %53, %50 ], [ false, %261 ], [ %85, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %95, %90 ], [ %102, %96 ], [ %109, %103 ], [ %139, %140 ], [ false, %128 ], [ %156, %157 ], [ false, %267 ], [ %121, %123 ], [ %173, %165 ], [ %184, %176 ], [ %195, %187 ], [ %205, %198 ], [ %216, %208 ], [ %227, %219 ], [ %238, %230 ], [ %248, %241 ], [ %254, %251 ], [ %260, %257 ], [ %266, %263 ], [ %280, %273 ], [ %272, %269 ], [ false, %163 ], [ false, %174 ], [ false, %185 ], [ false, %196 ], [ false, %206 ], [ false, %217 ], [ false, %228 ], [ false, %239 ], [ false, %249 ], [ false, %255 ], [ %70, %._crit_edge ], [ false, %54 ], [ %121, %120 ], [ false, %146 ], [ false, %.lr.ph ]
+  %.022 = phi i1 [ %293, %294 ], [ %37, %_ZN8nlohmann6detail13binary_readerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEENS0_22iterator_input_adapterIPKcEEN3nix7JSONSaxEE3getEv.exit.thread ], [ %49, %42 ], [ %53, %50 ], [ false, %261 ], [ %85, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %95, %90 ], [ %102, %96 ], [ %109, %103 ], [ false, %146 ], [ %139, %140 ], [ false, %128 ], [ %156, %157 ], [ false, %267 ], [ %121, %123 ], [ %173, %165 ], [ %184, %176 ], [ %195, %187 ], [ %205, %198 ], [ %216, %208 ], [ %227, %219 ], [ %238, %230 ], [ %248, %241 ], [ %254, %251 ], [ %260, %257 ], [ %266, %263 ], [ %280, %273 ], [ %272, %269 ], [ false, %163 ], [ false, %174 ], [ false, %185 ], [ false, %196 ], [ false, %206 ], [ false, %217 ], [ false, %228 ], [ false, %239 ], [ false, %249 ], [ false, %255 ], [ %70, %._crit_edge ], [ false, %54 ], [ %121, %120 ], [ false, %.lr.ph ]
   ret i1 %.022
 
 _ZN8nlohmann27byte_container_with_subtypeISt6vectorIhSaIhEEED2Ev.exit35: ; preds = %127, %124, %162, %145, %310, %88
@@ -27698,7 +27698,7 @@ _ZN8nlohmann6detail13binary_readerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112b
   br label %.loopexit13
 
 .loopexit13:                                      ; preds = %25, %.lr.ph, %3, %.loopexit
-  %.08 = phi i1 [ false, %3 ], [ %31, %.loopexit ], [ false, %.lr.ph ], [ false, %25 ]
+  %.08 = phi i1 [ false, %.lr.ph ], [ false, %3 ], [ %31, %.loopexit ], [ false, %25 ]
   ret i1 %.08
 }
 
@@ -33001,7 +33001,7 @@ _ZN8nlohmann6detail13binary_readerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112b
           to label %.critedge unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .critedge:                                        ; preds = %27, %38, %34, %46, %_ZN8nlohmann6detail13binary_readerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEENS0_22iterator_input_adapterIPKcEEN3nix7JSONSaxEE21parse_ubjson_internalEb.exit, %53, %79, %_ZN8nlohmann6detail13binary_readerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEENS0_22iterator_input_adapterIPKcEEN3nix7JSONSaxEE21parse_ubjson_internalEb.exit23, %86, %.loopexit, %72, %19
-  %.1 = phi i1 [ false, %19 ], [ false, %72 ], [ %115, %.loopexit ], [ false, %46 ], [ false, %79 ], [ false, %86 ], [ false, %_ZN8nlohmann6detail13binary_readerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEENS0_22iterator_input_adapterIPKcEEN3nix7JSONSaxEE21parse_ubjson_internalEb.exit23 ], [ false, %53 ], [ false, %_ZN8nlohmann6detail13binary_readerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEENS0_22iterator_input_adapterIPKcEEN3nix7JSONSaxEE21parse_ubjson_internalEb.exit ], [ false, %34 ], [ false, %38 ], [ false, %27 ]
+  %.1 = phi i1 [ false, %46 ], [ false, %19 ], [ false, %79 ], [ false, %72 ], [ %115, %.loopexit ], [ false, %86 ], [ false, %_ZN8nlohmann6detail13binary_readerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEENS0_22iterator_input_adapterIPKcEEN3nix7JSONSaxEE21parse_ubjson_internalEb.exit23 ], [ false, %53 ], [ false, %_ZN8nlohmann6detail13binary_readerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEENS0_22iterator_input_adapterIPKcEEN3nix7JSONSaxEE21parse_ubjson_internalEb.exit ], [ false, %34 ], [ false, %38 ], [ false, %27 ]
   %116 = load ptr, ptr %4, align 8
   %117 = icmp eq ptr %116, %8
   br i1 %117, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -33669,7 +33669,7 @@ _ZN8nlohmann6detail5lexerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stri
   br label %_ZN8nlohmann6detail5lexerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEENS0_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKcS4_IcS9_EEEEEE12scan_literalESJ_mNS0_10lexer_baseISE_E10token_typeE.exit
 
 _ZN8nlohmann6detail5lexerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEENS0_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKcS4_IcS9_EEEEEE12scan_literalESJ_mNS0_10lexer_baseISE_E10token_typeE.exit: ; preds = %.lr.ph, %72, %63, %55, %78, %69, %61, %.critedge, %85, %84, %82, %80, %53, %52, %51, %50, %49, %_ZN8nlohmann6detail5lexerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEENS0_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKcS4_IcS9_EEEEEE8skip_bomEv.exit.thread16
-  %.0 = phi i32 [ 14, %_ZN8nlohmann6detail5lexerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEENS0_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKcS4_IcS9_EEEEEE8skip_bomEv.exit.thread16 ], [ 14, %85 ], [ 10, %49 ], [ 9, %50 ], [ 11, %51 ], [ 12, %52 ], [ 13, %53 ], [ 8, %.critedge ], [ %81, %80 ], [ %83, %82 ], [ 15, %84 ], [ 14, %61 ], [ 14, %69 ], [ 14, %78 ], [ 3, %72 ], [ 1, %55 ], [ 2, %63 ], [ 14, %.lr.ph ]
+  %.0 = phi i32 [ 14, %_ZN8nlohmann6detail5lexerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEENS0_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKcS4_IcS9_EEEEEE8skip_bomEv.exit.thread16 ], [ 14, %85 ], [ 3, %72 ], [ 10, %49 ], [ 9, %50 ], [ 11, %51 ], [ 12, %52 ], [ 13, %53 ], [ 8, %.critedge ], [ 2, %63 ], [ 1, %55 ], [ %81, %80 ], [ %83, %82 ], [ 15, %84 ], [ 14, %61 ], [ 14, %69 ], [ 14, %78 ], [ 14, %.lr.ph ]
   ret i32 %.0
 }
 
@@ -34072,7 +34072,7 @@ define linkonce_odr noundef zeroext i1 @_ZN8nlohmann6detail5lexerINS_10basic_jso
   br label %.loopexit
 
 .loopexit:                                        ; preds = %12, %.preheader, %.loopexit.sink.split
-  %.0 = phi i1 [ false, %.loopexit.sink.split ], [ true, %.preheader ], [ true, %12 ]
+  %.0 = phi i1 [ true, %.preheader ], [ false, %.loopexit.sink.split ], [ true, %12 ]
   ret i1 %.0
 }
 
@@ -34901,7 +34901,7 @@ _ZN8nlohmann6detail5lexerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stri
   br label %.loopexit
 
 .loopexit:                                        ; preds = %274, %272, %270, %268, %266, %264, %262, %27, %.loopexit.sink.split
-  %.0 = phi i32 [ 14, %.loopexit.sink.split ], [ 14, %274 ], [ 14, %270 ], [ 14, %268 ], [ 14, %266 ], [ 14, %264 ], [ 14, %262 ], [ 4, %27 ], [ 14, %272 ]
+  %.0 = phi i32 [ 14, %.loopexit.sink.split ], [ 14, %272 ], [ 4, %27 ], [ 14, %262 ], [ 14, %264 ], [ 14, %266 ], [ 14, %268 ], [ 14, %270 ], [ 14, %274 ]
   ret i32 %.0
 }
 
@@ -35758,7 +35758,7 @@ _ZN8nlohmann6detail5lexerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stri
   br i1 %switch13, label %364, label %_ZN8nlohmann6detail5lexerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEENS0_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKcS4_IcS9_EEEEEE3getEv.exit.thread
 
 _ZN8nlohmann6detail5lexerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEENS0_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKcS4_IcS9_EEEEEE3getEv.exit.thread: ; preds = %_ZNSt6vectorIcSaIcEE9push_backEOc.exit.i, %155, %260, %_ZN8nlohmann6detail5lexerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEENS0_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKcS4_IcS9_EEEEEE3addEi.exit58, %.preheader, %184, %96
-  %.2 = phi i32 [ %.07, %96 ], [ %.1.ph, %184 ], [ 7, %.preheader ], [ 7, %260 ], [ 7, %_ZN8nlohmann6detail5lexerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEENS0_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKcS4_IcS9_EEEEEE3addEi.exit58 ], [ %.1.ph, %155 ], [ %.1.ph, %_ZNSt6vectorIcSaIcEE9push_backEOc.exit.i ]
+  %.2 = phi i32 [ %.07, %96 ], [ 7, %260 ], [ 7, %.preheader ], [ %.1.ph, %184 ], [ 7, %_ZN8nlohmann6detail5lexerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEENS0_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKcS4_IcS9_EEEEEE3addEi.exit58 ], [ %.1.ph, %155 ], [ %.1.ph, %_ZNSt6vectorIcSaIcEE9push_backEOc.exit.i ]
   %382 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 1, ptr %382, align 8
   %383 = getelementptr inbounds nuw i8, ptr %0, i64 32

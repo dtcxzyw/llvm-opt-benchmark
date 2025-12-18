@@ -1211,7 +1211,7 @@ copy_color_mask.exit:                             ; preds = %354, %285, %.lr.ph
   br i1 %368, label %.preheader, label %.critedge, !llvm.loop !71
 
 .critedge:                                        ; preds = %bytestream2_get_le16.exit, %83, %set_src_position.exit, %._crit_edge241, %.lr.ph240, %316, %.preheader.lr.ph, %209, %bytestream2_get_le16.exit173
-  %.3 = phi i32 [ -1094995529, %bytestream2_get_le16.exit173 ], [ 0, %209 ], [ 0, %.preheader.lr.ph ], [ -1094995529, %83 ], [ -1094995529, %316 ], [ -1094995529, %.lr.ph240 ], [ 0, %._crit_edge241 ], [ -1094995529, %set_src_position.exit ], [ -1094995529, %bytestream2_get_le16.exit ]
+  %.3 = phi i32 [ 0, %._crit_edge241 ], [ 0, %.preheader.lr.ph ], [ 0, %209 ], [ -1094995529, %bytestream2_get_le16.exit173 ], [ -1094995529, %.lr.ph240 ], [ -1094995529, %set_src_position.exit ], [ -1094995529, %316 ], [ -1094995529, %83 ], [ -1094995529, %bytestream2_get_le16.exit ]
   ret i32 %.3
 }
 

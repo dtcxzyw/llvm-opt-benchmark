@@ -2747,7 +2747,7 @@ define hidden noundef align 8 dereferenceable_or_null(16) ptr @"_ZN102_$LT$core.
   br label %"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h4b17b03001a3b93aE.llvm.16538095213602398362.exit"
 
 "_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h4b17b03001a3b93aE.llvm.16538095213602398362.exit": ; preds = %"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h60cc3aa200f8ccdeE.exit.i.i", %"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h4b17b03001a3b93aE.llvm.16538095213602398362.exit.loopexit", %3
-  %.0.i.i = phi ptr [ null, %3 ], [ %40, %"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h4b17b03001a3b93aE.llvm.16538095213602398362.exit.loopexit" ], [ null, %"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h60cc3aa200f8ccdeE.exit.i.i" ]
+  %.0.i.i = phi ptr [ %40, %"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h4b17b03001a3b93aE.llvm.16538095213602398362.exit.loopexit" ], [ null, %3 ], [ null, %"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h60cc3aa200f8ccdeE.exit.i.i" ]
   ret ptr %.0.i.i
 }
 
@@ -3436,7 +3436,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h1e4865c85bdf2649E.llvm.1653809
   br label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h1e4865c85bdf2649E.llvm.16538095213602398362.exit
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h1e4865c85bdf2649E.llvm.16538095213602398362.exit: ; preds = %"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h60cc3aa200f8ccdeE.exit.i", %_ZN4core4iter6traits8iterator8Iterator8try_fold17h1e4865c85bdf2649E.llvm.16538095213602398362.exit.loopexit, %2
-  %.0.i = phi ptr [ null, %2 ], [ %39, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h1e4865c85bdf2649E.llvm.16538095213602398362.exit.loopexit ], [ null, %"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h60cc3aa200f8ccdeE.exit.i" ]
+  %.0.i = phi ptr [ %39, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h1e4865c85bdf2649E.llvm.16538095213602398362.exit.loopexit ], [ null, %2 ], [ null, %"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h60cc3aa200f8ccdeE.exit.i" ]
   ret ptr %.0.i
 }
 
@@ -5119,7 +5119,7 @@ define hidden noundef align 8 dereferenceable_or_null(16) ptr @_ZN4core4iter6tra
   br label %.loopexit12
 
 .loopexit12:                                      ; preds = %"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h60cc3aa200f8ccdeE.exit", %.loopexit12.loopexit, %2
-  %.0 = phi ptr [ null, %2 ], [ %41, %.loopexit12.loopexit ], [ null, %"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h60cc3aa200f8ccdeE.exit" ]
+  %.0 = phi ptr [ %41, %.loopexit12.loopexit ], [ null, %2 ], [ null, %"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h60cc3aa200f8ccdeE.exit" ]
   ret ptr %.0
 }
 

@@ -285,7 +285,7 @@ define internal fastcc void @__lrc_init_regs(ptr noundef captures(none) %0, ptr 
   br i1 %158, label %159, label %.critedge
 
 159:                                              ; preds = %.thread, %149, %151, %155
-  %160 = phi i64 [ 128, %.thread ], [ 112, %149 ], [ 100, %151 ], [ 196, %155 ]
+  %160 = phi i64 [ 196, %155 ], [ 128, %.thread ], [ 112, %149 ], [ 100, %151 ]
   %161 = getelementptr i32, ptr %0, i64 %160
   %162 = getelementptr i8, ptr %161, i64 4
   store i32 0, ptr %162, align 4

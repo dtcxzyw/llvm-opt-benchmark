@@ -13817,7 +13817,7 @@ getDstSubsamp.exit.thread.fold.split:             ; preds = %174, %getDstSubsamp
   br label %getDstSubsamp.exit.thread
 
 getDstSubsamp.exit.thread:                        ; preds = %174, %getDstSubsamp.exit.thread.fold.split, %switch.edge.i, %176, %175
-  %.013.i353 = phi i64 [ 5, %switch.edge.i ], [ 4, %174 ], [ 6, %176 ], [ 1, %175 ], [ %183, %getDstSubsamp.exit.thread.fold.split ]
+  %.013.i353 = phi i64 [ 1, %175 ], [ 5, %switch.edge.i ], [ 4, %174 ], [ 6, %176 ], [ %183, %getDstSubsamp.exit.thread.fold.split ]
   %184 = load i32, ptr %167, align 8, !tbaa !322
   %185 = getelementptr inbounds i32, ptr @tjMCUWidth, i64 %.013.i353
   %186 = load i32, ptr %185, align 4, !tbaa !88
@@ -14664,8 +14664,8 @@ processFlags.exit:                                ; preds = %48, %63
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph83.preheader, %129, %36, %78, %31, %23
-  %.064 = phi i32 [ -1, %23 ], [ -1, %31 ], [ -1, %78 ], [ -1, %129 ], [ -1, %36 ], [ %131, %.lr.ph83.preheader ]
-  %.062 = phi ptr [ null, %23 ], [ null, %31 ], [ null, %78 ], [ %71, %129 ], [ null, %36 ], [ %71, %.lr.ph83.preheader ]
+  %.064 = phi i32 [ -1, %23 ], [ -1, %31 ], [ -1, %36 ], [ -1, %78 ], [ -1, %129 ], [ %131, %.lr.ph83.preheader ]
+  %.062 = phi ptr [ null, %23 ], [ null, %31 ], [ null, %36 ], [ null, %78 ], [ %71, %129 ], [ %71, %.lr.ph83.preheader ]
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 556
   %133 = load i32, ptr %132, align 4, !tbaa !128
   %134 = icmp sgt i32 %133, 200

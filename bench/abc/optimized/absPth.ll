@@ -55,7 +55,7 @@ define noundef i32 @Pdr_ManSolve_test(ptr noundef readnone captures(none) %0, pt
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %._crit_edge, %.split
-  %.pre7.be = phi ptr [ %.pre.pre, %._crit_edge ], [ null, %.split ]
+  %.pre7.be = phi ptr [ null, %.split ], [ %.pre.pre, %._crit_edge ]
   br label %.split, !llvm.loop !14
 
 11:                                               ; preds = %8

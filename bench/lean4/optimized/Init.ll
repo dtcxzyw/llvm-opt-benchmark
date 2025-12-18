@@ -20988,7 +20988,7 @@ lean_nat_lt.exit.thread35:                        ; preds = %.split
   br label %.thread
 
 .thread:                                          ; preds = %lean_nat_lt.exit.thread, %lean_nat_lt.exit.us, %36, %35, %33, %62, %61, %59, %.split46.us
-  %.1.ph = phi i8 [ 1, %.split46.us ], [ 1, %59 ], [ 1, %61 ], [ 1, %62 ], [ 0, %33 ], [ 0, %35 ], [ 0, %36 ], [ 0, %lean_nat_lt.exit.us ], [ 0, %lean_nat_lt.exit.thread ]
+  %.1.ph = phi i8 [ 1, %.split46.us ], [ 1, %59 ], [ 1, %61 ], [ 1, %62 ], [ 0, %36 ], [ 0, %33 ], [ 0, %35 ], [ 0, %lean_nat_lt.exit.us ], [ 0, %lean_nat_lt.exit.thread ]
   ret i8 %.1.ph
 }
 

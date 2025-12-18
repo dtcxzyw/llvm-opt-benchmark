@@ -416,7 +416,7 @@ define hidden noundef zeroext i1 @_ZN2os18committed_in_rangeEPhmRS0_Rm(ptr nound
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %18, %21, %4, %._crit_edge65, %48
-  %.038 = phi i1 [ true, %48 ], [ false, %._crit_edge65 ], [ false, %4 ], [ false, %21 ], [ false, %18 ], [ false, %18 ]
+  %.038 = phi i1 [ false, %._crit_edge65 ], [ true, %48 ], [ false, %4 ], [ false, %21 ], [ false, %18 ], [ false, %18 ]
   ret i1 %.038
 }
 
@@ -2224,7 +2224,7 @@ _ZL32get_frame_at_stack_banging_pointP10JavaThreadPhPKvP5frame.exit: ; preds = %
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZNK10JavaThread18is_vthread_mountedEv.exit
 
-76:                                               ; preds = %_ZNK8CodeBlob20is_frame_complete_atEPh.exit.thread.i, %50, %.sink.split.i
+76:                                               ; preds = %50, %_ZNK8CodeBlob20is_frame_complete_atEPh.exit.thread.i, %.sink.split.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

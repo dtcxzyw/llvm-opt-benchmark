@@ -122,7 +122,7 @@ define hidden i32 @_glfwSelectPlatform(i32 noundef %0, ptr noundef %1) local_unn
   br i1 %.not42, label %.preheader.preheader, label %.preheader44.preheader
 
 .preheader44.preheader:                           ; preds = %5, %13, %18
-  %.037 = phi i32 [ %0, %5 ], [ 393219, %13 ], [ 393220, %18 ]
+  %.037 = phi i32 [ %0, %5 ], [ 393220, %18 ], [ 393219, %13 ]
   br label %.preheader44
 
 20:                                               ; preds = %.preheader
@@ -164,7 +164,7 @@ define hidden i32 @_glfwSelectPlatform(i32 noundef %0, ptr noundef %1) local_unn
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %26, %36, %32, %6, %4
-  %.0 = phi i32 [ 0, %4 ], [ %7, %6 ], [ %35, %32 ], [ 0, %36 ], [ 0, %26 ], [ 1, %.preheader ]
+  %.0 = phi i32 [ 0, %4 ], [ %7, %6 ], [ %35, %32 ], [ 0, %26 ], [ 0, %36 ], [ 1, %.preheader ]
   ret i32 %.0
 }
 

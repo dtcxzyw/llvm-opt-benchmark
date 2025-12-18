@@ -1258,7 +1258,7 @@ bs.exit:                                          ; preds = %._crit_edge.i, %._c
   br i1 %.not55, label %.critedge, label %70
 
 .critedge:                                        ; preds = %.preheader, %70, %24
-  %.2 = phi i32 [ 1, %24 ], [ 0, %70 ], [ 1, %.preheader ]
+  %.2 = phi i32 [ 0, %70 ], [ 1, %24 ], [ 1, %.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.2

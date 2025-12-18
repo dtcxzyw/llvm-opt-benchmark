@@ -742,7 +742,7 @@ select.unfold:                                    ; preds = %.select.unfold_crit
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge, %106, %107, %231, %34, %27
-  %.0 = phi i32 [ 1, %27 ], [ %35, %34 ], [ 0, %106 ], [ %233, %231 ], [ 0, %107 ], [ 0, %._crit_edge ]
+  %.0 = phi i32 [ 1, %27 ], [ %35, %34 ], [ 0, %106 ], [ 0, %107 ], [ %233, %231 ], [ 0, %._crit_edge ]
   ret i32 %.0
 }
 
@@ -1931,7 +1931,7 @@ VP8LPrefixEncode.exit.i.i:                        ; preds = %524, %520
   br i1 %exitcond163.not.i.i, label %.preheader124.i.i, label %549, !llvm.loop !75
 
 .loopexit123.i.i:                                 ; preds = %._crit_edge.us.i145.i, %511, %.preheader124.split.preheader.i.i, %450
-  %.193.i.i = phi ptr [ %451, %450 ], [ %scevgep164.i.i, %.preheader124.split.preheader.i.i ], [ %451, %511 ], [ %547, %._crit_edge.us.i145.i ]
+  %.193.i.i = phi ptr [ %451, %450 ], [ %451, %511 ], [ %scevgep164.i.i, %.preheader124.split.preheader.i.i ], [ %547, %._crit_edge.us.i145.i ]
   %557 = getelementptr inbounds nuw i8, ptr %.sroa.0.0143.i.i, i64 8
   %558 = icmp eq ptr %557, %.sroa.11.0141.i.i
   br i1 %558, label %559, label %VP8LRefsCursorNext.exit.i.i46

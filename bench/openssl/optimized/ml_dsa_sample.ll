@@ -96,7 +96,7 @@ shake_xof.exit.i:                                 ; preds = %21
   %.not15.i = icmp eq i32 %42, 0
   br i1 %.not15.i, label %rej_ntt_poly.exit.thread, label %.preheader.i.backedge
 
-rej_ntt_poly.exit.thread:                         ; preds = %shake_xof.exit.i, %21, %17, %41
+rej_ntt_poly.exit.thread:                         ; preds = %shake_xof.exit.i, %17, %21, %41
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit
 
@@ -319,7 +319,7 @@ shake_xof.exit:                                   ; preds = %9
   br i1 %.not24, label %shake_xof.exit.thread, label %.preheader.backedge
 
 shake_xof.exit.thread:                            ; preds = %30, %26, %20, %5, %9, %shake_xof.exit
-  %.0 = phi i32 [ 0, %shake_xof.exit ], [ 0, %9 ], [ 0, %5 ], [ 0, %30 ], [ 1, %20 ], [ 1, %26 ]
+  %.0 = phi i32 [ 0, %shake_xof.exit ], [ 0, %5 ], [ 0, %9 ], [ 0, %30 ], [ 1, %20 ], [ 1, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -438,7 +438,7 @@ shake_xof.exit:                                   ; preds = %10
   br i1 %exitcond.not, label %.critedge, label %.preheader, !llvm.loop !28
 
 .critedge:                                        ; preds = %29, %21, %15, %6, %10, %shake_xof.exit
-  %.0 = phi i32 [ 0, %shake_xof.exit ], [ 0, %10 ], [ 0, %6 ], [ 1, %15 ], [ 0, %21 ], [ 1, %29 ]
+  %.0 = phi i32 [ 1, %15 ], [ 0, %shake_xof.exit ], [ 0, %6 ], [ 0, %10 ], [ 0, %21 ], [ 1, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }

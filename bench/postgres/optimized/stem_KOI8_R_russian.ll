@@ -501,8 +501,8 @@ r_adjectival.exit.thread:                         ; preds = %.r_adjectival.exit.
   br i1 %166, label %.thread266, label %168
 
 168:                                              ; preds = %162, %r_adjectival.exit.thread
-  %.11160 = phi i32 [ %.lobit294, %162 ], [ %.lobit, %r_adjectival.exit.thread ]
-  %.10 = phi i32 [ %..11, %162 ], [ %160, %r_adjectival.exit.thread ]
+  %.11160 = phi i32 [ %.lobit, %r_adjectival.exit.thread ], [ %.lobit294, %162 ]
+  %.10 = phi i32 [ %160, %r_adjectival.exit.thread ], [ %..11, %162 ]
   %cond = icmp eq i32 %.11160, 0
   br i1 %cond, label %.thread266, label %.critedge.thread
 
@@ -687,8 +687,8 @@ select.unfold280:                                 ; preds = %194, %.thread276, %
   store i32 %29, ptr %2, align 8
   br label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %20, %86, %83, %152, %155, %123, %168, %247, %244, %233, %215, %194, %99, %r_mark_regions.exit, %177, %250
-  %.3 = phi i32 [ 1, %250 ], [ %101, %99 ], [ 0, %r_mark_regions.exit ], [ %178, %177 ], [ %195, %194 ], [ %234, %233 ], [ %216, %215 ], [ %248, %247 ], [ %245, %244 ], [ %84, %83 ], [ %.10, %168 ], [ %125, %123 ], [ %153, %152 ], [ %156, %155 ], [ %87, %86 ], [ %22, %20 ]
+.critedge.thread:                                 ; preds = %20, %83, %86, %152, %155, %123, %168, %247, %244, %233, %215, %194, %99, %r_mark_regions.exit, %177, %250
+  %.3 = phi i32 [ 1, %250 ], [ %245, %244 ], [ %101, %99 ], [ 0, %r_mark_regions.exit ], [ %178, %177 ], [ %195, %194 ], [ %156, %155 ], [ %234, %233 ], [ %216, %215 ], [ %248, %247 ], [ %87, %86 ], [ %.10, %168 ], [ %125, %123 ], [ %153, %152 ], [ %84, %83 ], [ %22, %20 ]
   ret i32 %.3
 }
 

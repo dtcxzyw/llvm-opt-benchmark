@@ -711,7 +711,7 @@ _ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit.thread: ; preds = %197, %_
   br label %.thread139
 
 .thread139:                                       ; preds = %.lr.ph, %114, %.critedge, %_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit.thread, %_ZN4llvm11GlobalAlias14isValidLinkageENS_11GlobalValue12LinkageTypesE.exit, %_ZNK5clang13CXXMethodDecl9getParentEv.exit102, %56, %116, %_ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit114, %._crit_edge, %42, %_ZNK5clang13CXXMethodDecl9getParentEv.exit, %15, %10, %2
-  %.0 = phi i1 [ true, %2 ], [ true, %10 ], [ true, %42 ], [ true, %_ZNK5clang13CXXMethodDecl9getParentEv.exit ], [ true, %15 ], [ true, %_ZN4llvm11GlobalAlias14isValidLinkageENS_11GlobalValue12LinkageTypesE.exit ], [ true, %_ZNK5clang13CXXMethodDecl9getParentEv.exit102 ], [ true, %56 ], [ true, %_ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit114 ], [ true, %._crit_edge ], [ true, %116 ], [ %.13, %_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit.thread ], [ true, %.critedge ], [ true, %114 ], [ true, %.lr.ph ]
+  %.0 = phi i1 [ true, %2 ], [ true, %10 ], [ true, %42 ], [ true, %_ZNK5clang13CXXMethodDecl9getParentEv.exit ], [ true, %15 ], [ true, %_ZN4llvm11GlobalAlias14isValidLinkageENS_11GlobalValue12LinkageTypesE.exit ], [ true, %_ZNK5clang13CXXMethodDecl9getParentEv.exit102 ], [ true, %56 ], [ true, %_ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit114 ], [ true, %._crit_edge ], [ true, %116 ], [ true, %114 ], [ %.13, %_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit.thread ], [ true, %.critedge ], [ true, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -859,7 +859,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang4Decl7hasAttrINS_16Alwa
   br i1 %.not.i.i.i.i, label %_ZN5clangneENS_22specific_attr_iteratorINS_16AlwaysInlineAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i, label %.lr.ph.i.i.i.i, !llvm.loop !451
 
 _ZN5clangneENS_22specific_attr_iteratorINS_16AlwaysInlineAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i: ; preds = %16, %.lr.ph.i.i.i.i
-  %.sroa.07.0.i.i.ph.i = phi ptr [ %11, %16 ], [ %.sroa.07.1.i.i.i, %.lr.ph.i.i.i.i ]
+  %.sroa.07.0.i.i.ph.i = phi ptr [ %.sroa.07.1.i.i.i, %.lr.ph.i.i.i.i ], [ %11, %16 ]
   %18 = icmp ne ptr %.sroa.07.0.i.i.ph.i, %11
   br label %_ZN5clang15hasSpecificAttrINS_16AlwaysInlineAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEEbRKT0_.exit
 

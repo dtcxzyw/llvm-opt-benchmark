@@ -311,7 +311,7 @@ _ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit: ; pr
   br label %.split39.split, !llvm.loop !12
 
 _ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit.thread: ; preds = %.lr.ph, %70, %.lr.ph.us49, %36, %45, %.lr.ph.us, %13
-  %.not21 = phi i1 [ false, %70 ], [ true, %13 ], [ true, %.lr.ph.us ], [ false, %45 ], [ true, %36 ], [ true, %.lr.ph.us49 ], [ true, %.lr.ph ]
+  %.not21 = phi i1 [ true, %36 ], [ true, %13 ], [ true, %.lr.ph.us49 ], [ false, %70 ], [ true, %.lr.ph.us ], [ false, %45 ], [ true, %.lr.ph ]
   ret i1 %.not21
 }
 

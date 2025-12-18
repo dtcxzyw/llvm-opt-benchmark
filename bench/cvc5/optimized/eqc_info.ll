@@ -2236,7 +2236,7 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit: ; preds = %_
   br i1 %360, label %.loopexit, label %357
 
 .loopexit:                                        ; preds = %.preheader133, %357, %.body
-  %.pn38.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %27, %.body ], [ %.pn38.pn.pn.pn.pn, %357 ], [ %27, %.preheader133 ]
+  %.pn38.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn38.pn.pn.pn.pn, %357 ], [ %27, %.body ], [ %27, %.preheader133 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %10)

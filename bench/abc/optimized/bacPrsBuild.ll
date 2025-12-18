@@ -3289,8 +3289,8 @@ Bac_ObjSetFanin.exit565:                          ; preds = %1170, %._crit_edge.
   br i1 %1208, label %.lr.ph765, label %.critedge8, !llvm.loop !58
 
 .critedge8:                                       ; preds = %1037, %Bac_ObjSetFanin.exit, %Bac_ObjSetFanin.exit565, %.preheader735, %.preheader, %1040
-  %.11 = phi i32 [ %.0265770, %1040 ], [ %.0265770, %.preheader ], [ %.0265770, %.preheader735 ], [ %.2267, %Bac_ObjSetFanin.exit ], [ %.9274, %Bac_ObjSetFanin.exit565 ], [ %.5270, %1037 ]
-  %.8 = phi i32 [ %.0771, %1040 ], [ %.0771, %.preheader ], [ %.0771, %.preheader735 ], [ %.2, %Bac_ObjSetFanin.exit ], [ %.7, %Bac_ObjSetFanin.exit565 ], [ %.4, %1037 ]
+  %.11 = phi i32 [ %.9274, %Bac_ObjSetFanin.exit565 ], [ %.2267, %Bac_ObjSetFanin.exit ], [ %.0265770, %1040 ], [ %.0265770, %.preheader ], [ %.0265770, %.preheader735 ], [ %.5270, %1037 ]
+  %.8 = phi i32 [ %.7, %Bac_ObjSetFanin.exit565 ], [ %.2, %Bac_ObjSetFanin.exit ], [ %.0771, %1040 ], [ %.0771, %.preheader ], [ %.0771, %.preheader735 ], [ %.4, %1037 ]
   %indvars.iv.next810 = add nuw nsw i64 %indvars.iv809, 1
   %.val314 = load i32, ptr %82, align 4, !tbaa !3
   %1209 = sext i32 %.val314 to i64
@@ -3492,8 +3492,8 @@ Bac_ObjAlloc.exit730:                             ; preds = %.Vec_IntGrow.exit10
   br i1 %1291, label %1282, label %.critedge16, !llvm.loop !61
 
 .critedge16:                                      ; preds = %1282, %1285, %.critedge6.preheader, %.critedge14
-  %.9.lcssa988 = phi i32 [ %.9.lcssa.ph, %.critedge14 ], [ %.0.lcssa, %.critedge6.preheader ], [ %.9.lcssa.ph, %1285 ], [ %.9.lcssa.ph, %1282 ]
-  %.12.lcssa987 = phi i32 [ %.12.lcssa.ph, %.critedge14 ], [ %.0265.lcssa, %.critedge6.preheader ], [ %.12.lcssa.ph, %1285 ], [ %.12.lcssa.ph, %1282 ]
+  %.9.lcssa988 = phi i32 [ %.0.lcssa, %.critedge6.preheader ], [ %.9.lcssa.ph, %.critedge14 ], [ %.9.lcssa.ph, %1285 ], [ %.9.lcssa.ph, %1282 ]
+  %.12.lcssa987 = phi i32 [ %.0265.lcssa, %.critedge6.preheader ], [ %.12.lcssa.ph, %.critedge14 ], [ %.12.lcssa.ph, %1285 ], [ %.12.lcssa.ph, %1282 ]
   %.not298 = icmp eq i32 %.9.lcssa988, 0
   br i1 %.not298, label %1297, label %1292
 

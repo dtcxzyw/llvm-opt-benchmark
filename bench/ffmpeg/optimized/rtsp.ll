@@ -5220,7 +5220,7 @@ get_word.exit151:                                 ; preds = %128, %114
   br label %.loopexit
 
 .loopexit:                                        ; preds = %155, %202, %41, %ff_rtsp_skip_packet.exit.thread, %215, %213, %218, %162, %._crit_edge
-  %.183 = phi i32 [ %34, %._crit_edge ], [ %164, %162 ], [ -1, %215 ], [ 0, %218 ], [ -5, %213 ], [ %spec.select158, %ff_rtsp_skip_packet.exit.thread ], [ 1, %41 ], [ -12, %155 ], [ 0, %202 ]
+  %.183 = phi i32 [ %34, %._crit_edge ], [ %164, %162 ], [ -1, %215 ], [ 0, %218 ], [ 1, %41 ], [ -5, %213 ], [ %spec.select158, %ff_rtsp_skip_packet.exit.thread ], [ -12, %155 ], [ 0, %202 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -6690,7 +6690,7 @@ init_satip_stream.exit:                           ; preds = %238, %240
   %.not170 = icmp eq i32 %.4, 0
   br i1 %.not170, label %.preheader.preheader, label %init_satip_stream.exit.thread
 
-.preheader.preheader:                             ; preds = %237, %223, %init_rtp_handler.exit.thread31.i, %init_rtp_handler.exit.i, %init_rtp_handler.exit.thread.i, %204, %init_satip_stream.exit
+.preheader.preheader:                             ; preds = %init_rtp_handler.exit.thread31.i, %init_rtp_handler.exit.i, %init_rtp_handler.exit.thread.i, %204, %223, %237, %init_satip_stream.exit
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %263
@@ -7518,7 +7518,7 @@ pick_stream.exit.thread.i:                        ; preds = %pick_stream.exit.i,
   br label %read_packet.exit
 
 read_packet.exit:                                 ; preds = %udp_read_packet.exit.thread.i, %247, %250, %303, %.loopexit.i44.i, %311, %314, %318, %pick_stream.exit.thread.i
-  %322 = phi i32 [ %254, %318 ], [ %spec.select.i, %pick_stream.exit.thread.i ], [ -11, %247 ], [ %254, %250 ], [ -11, %303 ], [ -11, %.loopexit.i44.i ], [ %.071.i.ph.i, %udp_read_packet.exit.thread.i ], [ %254, %311 ], [ %254, %314 ]
+  %322 = phi i32 [ %254, %318 ], [ %spec.select.i, %pick_stream.exit.thread.i ], [ -11, %247 ], [ %254, %250 ], [ -11, %303 ], [ -11, %.loopexit.i44.i ], [ %.071.i.ph.i, %udp_read_packet.exit.thread.i ], [ %254, %314 ], [ %254, %311 ]
   %323 = icmp eq i32 %322, -11
   %324 = icmp ne ptr %.1136, null
   %or.cond3 = select i1 %323, i1 %324, i1 false
@@ -8337,7 +8337,7 @@ map_to_opts.exit:                                 ; preds = %17, %28, %30
   br label %.loopexit66
 
 .loopexit66:                                      ; preds = %45, %55, %map_to_opts.exit, %105, %65
-  %.044 = phi i32 [ %40, %map_to_opts.exit ], [ -1094995529, %65 ], [ -12, %105 ], [ -12, %55 ], [ %43, %45 ]
+  %.044 = phi i32 [ %40, %map_to_opts.exit ], [ -12, %55 ], [ -1094995529, %65 ], [ -12, %105 ], [ %43, %45 ]
   call void @avcodec_parameters_free(ptr noundef nonnull %8) #15
   %107 = call i32 @ffurl_closep(ptr noundef nonnull %7) #15
   call void @ff_network_close() #15

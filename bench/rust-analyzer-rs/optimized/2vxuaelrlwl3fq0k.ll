@@ -1090,7 +1090,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   br label %._crit_edge.i
 
 "_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h187b48af4a09b848E.llvm.835382560586912698.exit": ; preds = %46, %8, %._crit_edge.i
-  %storemerge = phi i64 [ %.sroa.52.0.copyload, %._crit_edge.i ], [ %.sroa.52.0.copyload, %8 ], [ %49, %46 ]
+  %storemerge = phi i64 [ %.sroa.52.0.copyload, %8 ], [ %.sroa.52.0.copyload, %._crit_edge.i ], [ %49, %46 ]
   %59 = icmp ne ptr %.sroa.01.0.copyload, null
   tail call void @llvm.assume(i1 %59)
   store i64 %storemerge, ptr %.sroa.01.0.copyload, align 8, !noalias !341
@@ -2013,7 +2013,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   br label %._crit_edge.i
 
 "_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h846544e096532c1fE.llvm.835382560586912698.exit": ; preds = %46, %8, %._crit_edge.i
-  %storemerge = phi i64 [ %.sroa.52.0.copyload, %._crit_edge.i ], [ %.sroa.52.0.copyload, %8 ], [ %49, %46 ]
+  %storemerge = phi i64 [ %.sroa.52.0.copyload, %8 ], [ %.sroa.52.0.copyload, %._crit_edge.i ], [ %49, %46 ]
   %59 = icmp ne ptr %.sroa.01.0.copyload, null
   tail call void @llvm.assume(i1 %59)
   store i64 %storemerge, ptr %.sroa.01.0.copyload, align 8, !noalias !845
@@ -20044,8 +20044,8 @@ _ZN4core3ops8function6FnOnce9call_once17h1c6677361a577d29E.exit.i11.i.i.i: ; pre
   br label %24
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1be8797260731458E.exit": ; preds = %38, %_ZN4core3ops8function6FnOnce9call_once17h1c6677361a577d29E.exit.i11.i.i.i
-  %.sroa.7.0.i = phi ptr [ %.sroa.8.0.copyload15.i.i.i.i, %38 ], [ %.sroa.8.0.copyload15.i13.i.i.i, %_ZN4core3ops8function6FnOnce9call_once17h1c6677361a577d29E.exit.i11.i.i.i ]
-  %.sroa.0.0.i = phi i64 [ %25, %38 ], [ %65, %_ZN4core3ops8function6FnOnce9call_once17h1c6677361a577d29E.exit.i11.i.i.i ]
+  %.sroa.7.0.i = phi ptr [ %.sroa.8.0.copyload15.i13.i.i.i, %_ZN4core3ops8function6FnOnce9call_once17h1c6677361a577d29E.exit.i11.i.i.i ], [ %.sroa.8.0.copyload15.i.i.i.i, %38 ]
+  %.sroa.0.0.i = phi i64 [ %65, %_ZN4core3ops8function6FnOnce9call_once17h1c6677361a577d29E.exit.i11.i.i.i ], [ %25, %38 ]
   %89 = getelementptr inbounds nuw i8, ptr %1, i64 48
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !7610
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !7610

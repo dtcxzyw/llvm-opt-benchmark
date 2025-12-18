@@ -545,7 +545,7 @@ _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i:   ; preds = %73
   br label %_ZN4llvm17MachineBasicBlock5eraseEPNS_12MachineInstrE.exit
 
 _ZN4llvm17MachineBasicBlock5eraseEPNS_12MachineInstrE.exit: ; preds = %.lr.ph.i.i.i.i, %73, %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i, %76, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i.i.i.i.i, %70
-  %.4 = phi i8 [ %.361, %70 ], [ 1, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i.i.i.i.i ], [ 1, %76 ], [ 1, %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i ], [ 1, %73 ], [ 1, %.lr.ph.i.i.i.i ]
+  %.4 = phi i8 [ %.361, %70 ], [ 1, %73 ], [ 1, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i.i.i.i.i ], [ 1, %76 ], [ 1, %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i ], [ 1, %.lr.ph.i.i.i.i ]
   %.not56 = icmp eq ptr %43, %38
   br i1 %.not56, label %._crit_edge, label %41
 

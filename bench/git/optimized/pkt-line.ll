@@ -889,7 +889,7 @@ packet_write_gently.exit..split22_crit_edge:      ; preds = %.lr.ph
   br label %.split22.us, !llvm.loop !22
 
 .split22.us:                                      ; preds = %16, %8, %.split, %packet_write_gently.exit..split22_crit_edge, %.split.us, %packet_write_gently.exit.us..split22.us_crit_edge
-  %.us-phi = phi i32 [ 0, %.split.us ], [ -1, %packet_write_gently.exit.us..split22.us_crit_edge ], [ 0, %.split ], [ -1, %packet_write_gently.exit..split22_crit_edge ], [ 0, %8 ], [ 0, %16 ]
+  %.us-phi = phi i32 [ 0, %8 ], [ 0, %.split.us ], [ -1, %packet_write_gently.exit.us..split22.us_crit_edge ], [ 0, %.split ], [ -1, %packet_write_gently.exit..split22_crit_edge ], [ 0, %16 ]
   ret i32 %.us-phi
 }
 

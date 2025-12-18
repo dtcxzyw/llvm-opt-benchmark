@@ -36277,7 +36277,7 @@ define hidden { i8, ptr } @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u2
   unreachable
 
 44:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h9121cab0c78b90d2E.exit.i.i.i", %35
-  %.sroa.4.0.i.i = phi i32 [ %42, %"_ZN4core6option15Option$LT$T$GT$6map_or17h9121cab0c78b90d2E.exit.i.i.i" ], [ 0, %35 ]
+  %.sroa.4.0.i.i = phi i32 [ 0, %35 ], [ %42, %"_ZN4core6option15Option$LT$T$GT$6map_or17h9121cab0c78b90d2E.exit.i.i.i" ]
   %45 = invoke { i64, ptr } @_ZN5rowan6cursor10SyntaxNode16covering_element17h4ed76c5a167238ecE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %.val8.i.i, i32 noundef %.sroa.4.0.i.i, i32 noundef %31)
           to label %.noexc.i.i.i unwind label %107, !noalias !12664
 
@@ -72513,8 +72513,8 @@ define internal fastcc void @"_ZN10hir_expand20builtin_derive_macro12debug_expan
   br i1 %137, label %.invoke, label %_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit253
 
 .thread205:                                       ; preds = %.thread393, %.thread296, %.thread199
-  %.1 = phi i1 [ %.7300, %.thread296 ], [ %.3203, %.thread199 ], [ %.11397, %.thread393 ]
-  %.pn243 = phi { ptr, i32 } [ %.pn224301, %.thread296 ], [ %.pn241204, %.thread199 ], [ %.pn207398, %.thread393 ]
+  %.1 = phi i1 [ %.11397, %.thread393 ], [ %.3203, %.thread199 ], [ %.7300, %.thread296 ]
+  %.pn243 = phi { ptr, i32 } [ %.pn207398, %.thread393 ], [ %.pn241204, %.thread199 ], [ %.pn224301, %.thread296 ]
   br i1 %.1, label %.thread, label %.thread205.thread
 
 .thread194:                                       ; preds = %.invoke

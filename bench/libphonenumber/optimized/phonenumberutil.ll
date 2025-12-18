@@ -7665,8 +7665,8 @@ _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_tra
   br i1 %.not50.i, label %.lr.ph71.i, label %.lr.ph.split.i, !llvm.loop !268
 
 _ZN4absl7debian218container_internal12raw_hash_setINS1_17NodeHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4i18n12phonenumbers13PhoneMetadataEEENS1_10StringHashENS1_12StringHashEq2EqESaISt4pairIKS9_SC_EEE4findIS9_EENSL_8iteratorERKT_m.exit: ; preds = %.lr.ph71.i, %._crit_edge.split.us.us.i, %._crit_edge.split.us.us.i.us, %.thread31.i
-  %.sroa.0.4.ph.i = phi ptr [ %95, %.thread31.i ], [ null, %._crit_edge.split.us.us.i ], [ null, %._crit_edge.split.us.us.i.us ], [ null, %.lr.ph71.i ]
-  %.sroa.3.4.ph.i = phi ptr [ %94, %.thread31.i ], [ undef, %._crit_edge.split.us.us.i ], [ undef, %._crit_edge.split.us.us.i.us ], [ undef, %.lr.ph71.i ]
+  %.sroa.0.4.ph.i = phi ptr [ %95, %.thread31.i ], [ null, %._crit_edge.split.us.us.i.us ], [ null, %._crit_edge.split.us.us.i ], [ null, %.lr.ph71.i ]
+  %.sroa.3.4.ph.i = phi ptr [ %94, %.thread31.i ], [ undef, %._crit_edge.split.us.us.i.us ], [ undef, %._crit_edge.split.us.us.i ], [ undef, %.lr.ph71.i ]
   %.fca.0.insert.i = insertvalue { ptr, ptr } poison, ptr %.sroa.0.4.ph.i, 0
   %.fca.1.insert.i = insertvalue { ptr, ptr } %.fca.0.insert.i, ptr %.sroa.3.4.ph.i, 1
   ret { ptr, ptr } %.fca.1.insert.i
@@ -8711,7 +8711,7 @@ _ZNK4absl7debian218container_internal12raw_hash_setINS1_17NodeHashMapPolicyINSt7
   br label %_ZNK4i18n12phonenumbers15PhoneNumberUtil35GetMetadataForNonGeographicalRegionEi.exit
 
 _ZNK4i18n12phonenumbers15PhoneNumberUtil35GetMetadataForNonGeographicalRegionEi.exit: ; preds = %._crit_edge.i.i.i, %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17NodeHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4i18n12phonenumbers13PhoneMetadataEEENS1_10StringHashENS1_12StringHashEq2EqESaISt4pairIKS9_SC_EEE14const_iteratorptEv.exit.i, %57, %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17NodeHashMapPolicyIiN4i18n12phonenumbers13PhoneMetadataEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE14const_iteratorptEv.exit.i, %_ZN4absl7debian218container_internal12raw_hash_setINS1_17NodeHashMapPolicyIiN4i18n12phonenumbers13PhoneMetadataEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE4findIiEENSH_8iteratorERSE_.exit.i
-  %69 = phi ptr [ %56, %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17NodeHashMapPolicyIiN4i18n12phonenumbers13PhoneMetadataEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE14const_iteratorptEv.exit.i ], [ null, %_ZN4absl7debian218container_internal12raw_hash_setINS1_17NodeHashMapPolicyIiN4i18n12phonenumbers13PhoneMetadataEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE4findIiEENSH_8iteratorERSE_.exit.i ], [ %68, %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17NodeHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4i18n12phonenumbers13PhoneMetadataEEENS1_10StringHashENS1_12StringHashEq2EqESaISt4pairIKS9_SC_EEE14const_iteratorptEv.exit.i ], [ null, %57 ], [ null, %._crit_edge.i.i.i ]
+  %69 = phi ptr [ null, %57 ], [ %56, %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17NodeHashMapPolicyIiN4i18n12phonenumbers13PhoneMetadataEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE14const_iteratorptEv.exit.i ], [ null, %_ZN4absl7debian218container_internal12raw_hash_setINS1_17NodeHashMapPolicyIiN4i18n12phonenumbers13PhoneMetadataEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE4findIiEENSH_8iteratorERSE_.exit.i ], [ %68, %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17NodeHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4i18n12phonenumbers13PhoneMetadataEEENS1_10StringHashENS1_12StringHashEq2EqESaISt4pairIKS9_SC_EEE14const_iteratorptEv.exit.i ], [ null, %._crit_edge.i.i.i ]
   ret ptr %69
 }
 
@@ -16084,8 +16084,8 @@ _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_tra
   br i1 %.not50.i, label %.lr.ph71.i, label %.lr.ph.split.i, !llvm.loop !337
 
 _ZN4absl7debian218container_internal12raw_hash_setINS1_17NodeHashSetPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_10StringHashENS1_12StringHashEq2EqESaIS9_EE4findIS9_EENSF_8iteratorERKT_m.exit: ; preds = %.lr.ph71.i, %._crit_edge.split.us.us.i, %._crit_edge.split.us.us.i.us, %.thread31.i
-  %.sroa.0.4.ph.i = phi ptr [ %95, %.thread31.i ], [ null, %._crit_edge.split.us.us.i ], [ null, %._crit_edge.split.us.us.i.us ], [ null, %.lr.ph71.i ]
-  %.sroa.3.4.ph.i = phi ptr [ %94, %.thread31.i ], [ undef, %._crit_edge.split.us.us.i ], [ undef, %._crit_edge.split.us.us.i.us ], [ undef, %.lr.ph71.i ]
+  %.sroa.0.4.ph.i = phi ptr [ %95, %.thread31.i ], [ null, %._crit_edge.split.us.us.i.us ], [ null, %._crit_edge.split.us.us.i ], [ null, %.lr.ph71.i ]
+  %.sroa.3.4.ph.i = phi ptr [ %94, %.thread31.i ], [ undef, %._crit_edge.split.us.us.i.us ], [ undef, %._crit_edge.split.us.us.i ], [ undef, %.lr.ph71.i ]
   %.fca.0.insert.i = insertvalue { ptr, ptr } poison, ptr %.sroa.0.4.ph.i, 0
   %.fca.1.insert.i = insertvalue { ptr, ptr } %.fca.0.insert.i, ptr %.sroa.3.4.ph.i, 1
   ret { ptr, ptr } %.fca.1.insert.i
@@ -16265,7 +16265,7 @@ _ZNSt16allocator_traitsISaISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_tr
   br i1 %.not.i.i8, label %_ZNSt7__cxx1110_List_baseINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %.lr.ph.i.i7, !llvm.loop !218
 
 _ZNSt7__cxx1110_List_baseINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit: ; preds = %_ZNSt16allocator_traitsISaISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE7destroyIS6_EEvRS8_PT_.exit.i.i, %4, %16
-  %.sroa.06.022 = phi ptr [ %.sroa.06.0, %16 ], [ %1, %4 ], [ %.sroa.06.0, %_ZNSt16allocator_traitsISaISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE7destroyIS6_EEvRS8_PT_.exit.i.i ]
+  %.sroa.06.022 = phi ptr [ %1, %4 ], [ %.sroa.06.0, %16 ], [ %.sroa.06.0, %_ZNSt16allocator_traitsISaISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE7destroyIS6_EEvRS8_PT_.exit.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.sroa.06.022
 }
@@ -20648,7 +20648,7 @@ _ZN4i18n12phonenumbers13LoggerHandlerD2Ev.exit:   ; preds = %197, %_ZNSt7__cxx11
   br i1 %229, label %.loopexit, label %226
 
 .loopexit:                                        ; preds = %112, %226, %.thread
-  %.pn55.pn.pn.pn.pn = phi { ptr, i32 } [ %70, %.thread ], [ %.pn55.pn.pn.pn, %226 ], [ %111, %112 ]
+  %.pn55.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn55.pn.pn.pn, %226 ], [ %70, %.thread ], [ %111, %112 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %277
 
@@ -40764,7 +40764,7 @@ _ZSt22__uninitialized_move_aIPSt4pairIiPNSt7__cxx114listINS1_12basic_stringIcSt1
   br i1 %.not.i.i56, label %_ZSt7advanceISt17_Rb_tree_iteratorISt4pairIKiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEEEmEvRT_T0_.exit, label %.lr.ph.i.i55, !llvm.loop !695
 
 _ZSt7advanceISt17_Rb_tree_iteratorISt4pairIKiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEEEmEvRT_T0_.exit: ; preds = %.lr.ph.i.i55, %.preheader.i.i, %.preheader7.i.i
-  %.sroa.0.0 = phi ptr [ %2, %.preheader7.i.i ], [ %50, %.preheader.i.i ], [ %53, %.lr.ph.i.i55 ]
+  %.sroa.0.0 = phi ptr [ %50, %.preheader.i.i ], [ %2, %.preheader7.i.i ], [ %53, %.lr.ph.i.i55 ]
   %.not11.i.i.i.i = icmp eq ptr %.sroa.0.0, %3
   br i1 %.not11.i.i.i.i, label %_ZSt22__uninitialized_copy_aISt17_Rb_tree_iteratorISt4pairIKiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEEEPS1_IiSC_ESF_ET0_T_SI_SH_RSaIT1_E.exit, label %.lr.ph.i.i.i.i
 

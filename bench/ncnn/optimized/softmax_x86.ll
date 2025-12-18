@@ -3707,7 +3707,7 @@ define internal void @_ZNK4ncnn11Softmax_x8615forward_inplaceERNS_3MatERKNS_6Opt
   br i1 %73, label %.lr.ph78, label %.preheader, !llvm.loop !102
 
 ._crit_edge:                                      ; preds = %.lr.ph81, %22, %.preheader
-  %74 = phi i32 [ %71, %.preheader ], [ %23, %22 ], [ %78, %.lr.ph81 ]
+  %74 = phi i32 [ %23, %22 ], [ %71, %.preheader ], [ %78, %.lr.ph81 ]
   %indvars.iv.next96 = add nsw i64 %indvars.iv95, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next96 to i32
   %exitcond98.not = icmp eq i32 %21, %lftr.wideiv
@@ -5162,8 +5162,8 @@ define internal void @_ZNK4ncnn11Softmax_x8615forward_inplaceERNS_3MatERKNS_6Opt
   br i1 %58, label %.lr.ph, label %.preheader
 
 ._crit_edge58:                                    ; preds = %._crit_edge.us.us, %._crit_edge, %.preheader51.lr.ph.split.us, %.noexc
-  %59 = phi i32 [ %28, %.noexc ], [ %28, %.preheader51.lr.ph.split.us ], [ %83, %._crit_edge ], [ %28, %._crit_edge.us.us ]
-  %60 = phi i32 [ %29, %.noexc ], [ %28, %.preheader51.lr.ph.split.us ], [ %83, %._crit_edge ], [ %28, %._crit_edge.us.us ]
+  %59 = phi i32 [ %28, %.noexc ], [ %83, %._crit_edge ], [ %28, %.preheader51.lr.ph.split.us ], [ %28, %._crit_edge.us.us ]
+  %60 = phi i32 [ %29, %.noexc ], [ %83, %._crit_edge ], [ %28, %.preheader51.lr.ph.split.us ], [ %28, %._crit_edge.us.us ]
   %indvars.iv.next78 = add nsw i64 %indvars.iv77, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next78 to i32
   %exitcond80.not = icmp eq i32 %27, %lftr.wideiv
@@ -5355,8 +5355,8 @@ define internal void @_ZNK4ncnn11Softmax_x8615forward_inplaceERNS_3MatERKNS_6Opt
   br i1 %71, label %.lr.ph, label %.preheader
 
 ._crit_edge99:                                    ; preds = %._crit_edge.us.us, %._crit_edge, %.preheader92.lr.ph.split.us, %.noexc63
-  %72 = phi i32 [ %31, %.noexc63 ], [ %31, %.preheader92.lr.ph.split.us ], [ %132, %._crit_edge ], [ %31, %._crit_edge.us.us ]
-  %73 = phi i32 [ %32, %.noexc63 ], [ %31, %.preheader92.lr.ph.split.us ], [ %132, %._crit_edge ], [ %31, %._crit_edge.us.us ]
+  %72 = phi i32 [ %31, %.noexc63 ], [ %132, %._crit_edge ], [ %31, %.preheader92.lr.ph.split.us ], [ %31, %._crit_edge.us.us ]
+  %73 = phi i32 [ %32, %.noexc63 ], [ %132, %._crit_edge ], [ %31, %.preheader92.lr.ph.split.us ], [ %31, %._crit_edge.us.us ]
   %indvars.iv.next119 = add nsw i64 %indvars.iv118, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next119 to i32
   %exitcond121.not = icmp eq i32 %30, %lftr.wideiv
@@ -5572,8 +5572,8 @@ define internal void @_ZNK4ncnn11Softmax_x8615forward_inplaceERNS_3MatERKNS_6Opt
   br i1 %57, label %.lr.ph, label %.preheader
 
 ._crit_edge55:                                    ; preds = %._crit_edge.us.us, %._crit_edge, %.preheader48.lr.ph.split.us, %.noexc
-  %58 = phi i32 [ %28, %.noexc ], [ %28, %.preheader48.lr.ph.split.us ], [ %81, %._crit_edge ], [ %28, %._crit_edge.us.us ]
-  %59 = phi i32 [ %29, %.noexc ], [ %28, %.preheader48.lr.ph.split.us ], [ %81, %._crit_edge ], [ %28, %._crit_edge.us.us ]
+  %58 = phi i32 [ %28, %.noexc ], [ %81, %._crit_edge ], [ %28, %.preheader48.lr.ph.split.us ], [ %28, %._crit_edge.us.us ]
+  %59 = phi i32 [ %29, %.noexc ], [ %81, %._crit_edge ], [ %28, %.preheader48.lr.ph.split.us ], [ %28, %._crit_edge.us.us ]
   %indvars.iv.next75 = add nsw i64 %indvars.iv74, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next75 to i32
   %exitcond77.not = icmp eq i32 %27, %lftr.wideiv

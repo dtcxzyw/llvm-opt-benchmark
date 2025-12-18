@@ -3205,7 +3205,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3ISD10ArgFlagsTyELb1EE9push_backES2_.exit: 
   br i1 %.not, label %.critedge, label %14, !llvm.loop !385
 
 .critedge:                                        ; preds = %.loopexit, %36, %_ZN4llvm23SmallVectorTemplateBaseINS_3ISD10ArgFlagsTyELb1EE9push_backES2_.exit, %4
-  %.not86 = phi i1 [ true, %4 ], [ false, %_ZN4llvm23SmallVectorTemplateBaseINS_3ISD10ArgFlagsTyELb1EE9push_backES2_.exit ], [ true, %.loopexit ], [ false, %36 ]
+  %.not86 = phi i1 [ false, %_ZN4llvm23SmallVectorTemplateBaseINS_3ISD10ArgFlagsTyELb1EE9push_backES2_.exit ], [ true, %4 ], [ true, %.loopexit ], [ false, %36 ]
   ret i1 %.not86
 }
 

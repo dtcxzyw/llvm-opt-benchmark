@@ -13009,7 +13009,7 @@ _ZN4core4iter6traits8iterator8Iterator7collect17heb34fead9a0035c2E.exit: ; preds
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %._crit_edge1267, %477, %508, %513, %476, %471
-  %.sroa.0217.10.ph.ph.ph.ph.ph = phi i8 [ 1, %476 ], [ 1, %477 ], [ 1, %508 ], [ 1, %513 ], [ 1, %._crit_edge1267 ], [ 0, %471 ]
+  %.sroa.0217.10.ph.ph.ph.ph.ph = phi i8 [ 1, %513 ], [ 1, %._crit_edge1267 ], [ 0, %471 ], [ 1, %508 ], [ 1, %477 ], [ 1, %476 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp

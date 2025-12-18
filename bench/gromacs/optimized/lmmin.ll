@@ -1241,8 +1241,8 @@ _ZL8lm_qrfaciiPdPiS_S_S_.exit:                    ; preds = %433
   br i1 %exitcond1137.not, label %.loopexit858, label %.lr.ph956, !llvm.loop !55
 
 .loopexit858:                                     ; preds = %.lr.ph956, %516, %506, %._crit_edge965
-  %.4628 = phi double [ %.1625, %516 ], [ %501, %._crit_edge965 ], [ %501, %506 ], [ %.1625, %.lr.ph956 ]
-  %.2619 = phi double [ %.0617, %516 ], [ %.1618, %._crit_edge965 ], [ %.1618, %506 ], [ %.0617, %.lr.ph956 ]
+  %.4628 = phi double [ %501, %506 ], [ %.1625, %516 ], [ %501, %._crit_edge965 ], [ %.1625, %.lr.ph956 ]
+  %.2619 = phi double [ %.1618, %506 ], [ %.0617, %516 ], [ %.1618, %._crit_edge965 ], [ %.0617, %.lr.ph956 ]
   %521 = fcmp ole double %.1612, 0x3CB0000000000000
   br label %522
 
@@ -3189,13 +3189,13 @@ thread-pre-split:                                 ; preds = %1406
   br label %.thread.sink.split
 
 .thread.sink.split:                               ; preds = %._crit_edge953, %.thread.sink.split.loopexit.split.loop.exit1456, %1406, %1411, %1413, %.thread.sink.split.sink.split, %1394, %1259, %1129, %504, %141, %139, %128
-  %.pr.lcssa.sink = phi i32 [ 12, %1394 ], [ 12, %1129 ], [ 12, %1259 ], [ 12, %139 ], [ 13, %128 ], [ 12, %.thread.sink.split.sink.split ], [ 12, %504 ], [ 0, %141 ], [ 6, %1413 ], [ %.pr, %1406 ], [ %.mux.le, %.thread.sink.split.loopexit.split.loop.exit1456 ], [ 5, %1411 ], [ 4, %._crit_edge953 ]
-  %.0624.ph = phi double [ %.062.i791, %1394 ], [ %.5629, %1129 ], [ %.5629, %1259 ], [ 0.000000e+00, %139 ], [ 0.000000e+00, %128 ], [ %.0624.ph.ph, %.thread.sink.split.sink.split ], [ %501, %504 ], [ 0.000000e+00, %141 ], [ %.7631, %.thread.sink.split.loopexit.split.loop.exit1456 ], [ %.7631, %1413 ], [ %.7631, %1411 ], [ %.7631, %1406 ], [ %.1625, %._crit_edge953 ]
+  %.pr.lcssa.sink = phi i32 [ 12, %1394 ], [ 12, %1129 ], [ 12, %1259 ], [ 6, %1413 ], [ 12, %139 ], [ 13, %128 ], [ 12, %.thread.sink.split.sink.split ], [ 12, %504 ], [ 0, %141 ], [ %.pr, %1406 ], [ %.mux.le, %.thread.sink.split.loopexit.split.loop.exit1456 ], [ 5, %1411 ], [ 4, %._crit_edge953 ]
+  %.0624.ph = phi double [ %.062.i791, %1394 ], [ %.5629, %1129 ], [ %.5629, %1259 ], [ %.7631, %.thread.sink.split.loopexit.split.loop.exit1456 ], [ 0.000000e+00, %139 ], [ 0.000000e+00, %128 ], [ %.0624.ph.ph, %.thread.sink.split.sink.split ], [ %501, %504 ], [ 0.000000e+00, %141 ], [ %.7631, %1413 ], [ %.7631, %1411 ], [ %.7631, %1406 ], [ %.1625, %._crit_edge953 ]
   store i32 %.pr.lcssa.sink, ptr %26, align 4, !tbaa !14
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph924, %thread-pre-split, %1396, %._crit_edge977, %.thread.sink.split, %.loopexit869
-  %.0624 = phi double [ 0.000000e+00, %.loopexit869 ], [ %.0624.ph, %.thread.sink.split ], [ %.7631, %1396 ], [ %.7631, %thread-pre-split ], [ %.5629, %._crit_edge977 ], [ %.1625, %.lr.ph924 ]
+  %.0624 = phi double [ 0.000000e+00, %.loopexit869 ], [ %.7631, %1396 ], [ %.0624.ph, %.thread.sink.split ], [ %.7631, %thread-pre-split ], [ %.5629, %._crit_edge977 ], [ %.1625, %.lr.ph924 ]
   %1425 = tail call noundef double @_Z8lm_fnormiPKdS0_(i32 noundef %4, ptr noundef nonnull %79, ptr noundef %5)
   store double %1425, ptr %9, align 8, !tbaa !91
   %1426 = load i32, ptr %27, align 8, !tbaa !16

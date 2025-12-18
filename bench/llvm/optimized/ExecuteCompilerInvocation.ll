@@ -728,7 +728,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit91.i:        ; preds = %198, %195, %_ZNSt7_
   br label %_ZNSt10unique_ptrIN5clang14FrontendActionESt14default_deleteIS1_EED2Ev.exit
 
 _ZN5clangL24CreateFrontendBaseActionERNS_16CompilerInstanceE.exit: ; preds = %129, %_ZNSt10unique_ptrIN5clang23PrintPreprocessedActionESt14default_deleteIS1_EED2Ev.exit.i
-  %.sroa.032.5 = phi ptr [ %168, %_ZNSt10unique_ptrIN5clang23PrintPreprocessedActionESt14default_deleteIS1_EED2Ev.exit.i ], [ %.sroa.032.4, %129 ]
+  %.sroa.032.5 = phi ptr [ %.sroa.032.4, %129 ], [ %168, %_ZNSt10unique_ptrIN5clang23PrintPreprocessedActionESt14default_deleteIS1_EED2Ev.exit.i ]
   %.not46 = icmp eq ptr %.sroa.032.5, null
   br i1 %.not46, label %_ZNSt10unique_ptrIN5clang14FrontendActionESt14default_deleteIS1_EED2Ev.exit, label %_ZN5clangL24CreateFrontendBaseActionERNS_16CompilerInstanceE.exit.thread
 

@@ -1035,7 +1035,7 @@ check_opt_bitexact.exit:                          ; preds = %113, %124
   br label %386
 
 of_add_attachments.exit.thread.i:                 ; preds = %349, %367, %363, %.thread.i.i, %310
-  %.2.ph.i.i = phi i32 [ %.059.ph.i.i, %.thread.i.i ], [ %365, %367 ], [ -12, %363 ], [ %308, %310 ], [ %350, %349 ]
+  %.2.ph.i.i = phi i32 [ %.059.ph.i.i, %.thread.i.i ], [ %308, %310 ], [ %365, %367 ], [ -12, %363 ], [ %350, %349 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %44)
   call void @llvm.lifetime.end.p0(ptr nonnull %43)
   call void @llvm.lifetime.end.p0(ptr nonnull %42)
@@ -1215,7 +1215,7 @@ of_add_attachments.exit.i:                        ; preds = %386, %.thread196.i
   br i1 %466, label %.lr.ph309.i, label %.critedge.thread.i
 
 .critedge.thread.i:                               ; preds = %440, %463, %._crit_edge294.i
-  %467 = phi i32 [ %.pre413.i, %._crit_edge294.i ], [ %464, %463 ], [ %.pre413.i, %440 ]
+  %467 = phi i32 [ %464, %463 ], [ %.pre413.i, %._crit_edge294.i ], [ %.pre413.i, %440 ]
   %.not316.i = icmp eq i32 %467, 0
   br i1 %.not316.i, label %._crit_edge312.i, label %.lr.ph311.i
 
@@ -1752,7 +1752,7 @@ create_streams.exit:                              ; preds = %475, %._crit_edge31
   br label %mux_alloc.exit.thread
 
 .loopexit126.i:                                   ; preds = %695, %717, %697
-  %.076.i.ph.i = phi i32 [ -22, %697 ], [ %708, %717 ], [ %689, %695 ]
+  %.076.i.ph.i = phi i32 [ %708, %717 ], [ -22, %697 ], [ %689, %695 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
@@ -2730,7 +2730,7 @@ of_serialize_options.exit265.i.i.i:               ; preds = %1163
   br label %.loopexit136.i.i
 
 .loopexit135.i.i:                                 ; preds = %of_serialize_options.exit257.i.i.i, %of_serialize_options.exit251.i.i.i, %of_serialize_options.exit253.i.i.i, %of_serialize_options.exit255.i.i.i, %of_serialize_options.exit259.i.i.i, %of_serialize_options.exit261.i.i.i, %of_serialize_options.exit265.i.i.i, %of_serialize_options.exit263.i.i.i, %of_serialize_options.exit265.thread.i.i.i, %of_serialize_options.exit263.thread.i.i.i, %of_serialize_options.exit261.thread.i.i.i, %get_stream_group_index_from_id.exit.thread.i.i.i, %of_serialize_options.exit259.thread.i.i.i, %of_serialize_options.exit257.thread.i.i.i, %of_serialize_options.exit255.thread.i.i.i, %of_serialize_options.exit253.thread.i.i.i, %997, %of_serialize_options.exit251.thread.i.i.i, %966, %of_serialize_options.exit.i.i.i, %of_serialize_options.exit.thread.i.i.i, %936, %916
-  %.0184.i.ph.i.i = phi i32 [ -22, %get_stream_group_index_from_id.exit.thread.i.i.i ], [ %1122, %of_serialize_options.exit261.thread.i.i.i ], [ %1086, %of_serialize_options.exit259.thread.i.i.i ], [ %1058, %of_serialize_options.exit257.thread.i.i.i ], [ %1167, %of_serialize_options.exit265.thread.i.i.i ], [ %1019, %of_serialize_options.exit253.thread.i.i.i ], [ %988, %of_serialize_options.exit251.thread.i.i.i ], [ %968, %966 ], [ %1036, %of_serialize_options.exit255.thread.i.i.i ], [ %1147, %of_serialize_options.exit263.thread.i.i.i ], [ %948, %of_serialize_options.exit.i.i.i ], [ %943, %of_serialize_options.exit.thread.i.i.i ], [ %999, %997 ], [ -22, %936 ], [ -22, %916 ], [ %993, %of_serialize_options.exit251.i.i.i ], [ %1152, %of_serialize_options.exit263.i.i.i ], [ %1172, %of_serialize_options.exit265.i.i.i ], [ %1127, %of_serialize_options.exit261.i.i.i ], [ %1091, %of_serialize_options.exit259.i.i.i ], [ %1041, %of_serialize_options.exit255.i.i.i ], [ %1024, %of_serialize_options.exit253.i.i.i ], [ %1063, %of_serialize_options.exit257.i.i.i ]
+  %.0184.i.ph.i.i = phi i32 [ %1091, %of_serialize_options.exit259.i.i.i ], [ %993, %of_serialize_options.exit251.i.i.i ], [ %1127, %of_serialize_options.exit261.i.i.i ], [ %1122, %of_serialize_options.exit261.thread.i.i.i ], [ %1086, %of_serialize_options.exit259.thread.i.i.i ], [ %1041, %of_serialize_options.exit255.i.i.i ], [ -22, %916 ], [ %1172, %of_serialize_options.exit265.i.i.i ], [ %1058, %of_serialize_options.exit257.thread.i.i.i ], [ %1167, %of_serialize_options.exit265.thread.i.i.i ], [ %1024, %of_serialize_options.exit253.i.i.i ], [ %1019, %of_serialize_options.exit253.thread.i.i.i ], [ %988, %of_serialize_options.exit251.thread.i.i.i ], [ %968, %966 ], [ %1152, %of_serialize_options.exit263.i.i.i ], [ %1036, %of_serialize_options.exit255.thread.i.i.i ], [ %1147, %of_serialize_options.exit263.thread.i.i.i ], [ -22, %get_stream_group_index_from_id.exit.thread.i.i.i ], [ %948, %of_serialize_options.exit.i.i.i ], [ %943, %of_serialize_options.exit.thread.i.i.i ], [ %999, %997 ], [ -22, %936 ], [ %1063, %of_serialize_options.exit257.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   %1178 = call i32 @av_bprint_finalize(ptr noundef nonnull %31, ptr noundef null) #16
   br label %.thread.i.i197
@@ -3333,7 +3333,7 @@ thread-pre-split88.i.i:                           ; preds = %1413
   br label %thread-pre-split.i.i
 
 .thread110.i.i:                                   ; preds = %1345, %1338, %1394, %1416, %.thread97.i.i221, %.thread93.i.i, %1366, %1342, %1337
-  %.151.ph.i.i = phi i32 [ %1364, %1366 ], [ %.050137.i.i, %1337 ], [ -12, %1342 ], [ %.4.ph.i.i, %.thread93.i.i ], [ -22, %1416 ], [ -12, %.thread97.i.i221 ], [ -12, %1394 ], [ %.050137.i.i, %1338 ], [ -12, %1345 ]
+  %.151.ph.i.i = phi i32 [ -12, %.thread97.i.i221 ], [ %.050137.i.i, %1337 ], [ -12, %1342 ], [ -12, %1394 ], [ %1364, %1366 ], [ %.4.ph.i.i, %.thread93.i.i ], [ -22, %1416 ], [ %.050137.i.i, %1338 ], [ -12, %1345 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %of_parse_iamf_submixes.exit.i
@@ -3504,8 +3504,8 @@ of_add_groups.exit.thread:                        ; preds = %876, %copy_meta.exi
   %.not167 = icmp slt i64 %indvars.iv.next, %1485
   br i1 %.not167, label %1473, label %mux_alloc.exit.thread, !llvm.loop !294
 
-mux_alloc.exit.thread:                            ; preds = %187, %.thread97.i.i, %296, %204, %460, %.loopexit.i198, %1480, %1483, %1469, %.thread116.i, %.thread102.i, %744, %.loopexit126.i, %._crit_edge115.i.i, %294, %289, %265, %481, %of_add_attachments.exit.thread.i, %3, %of_add_groups.exit.thread230, %70, %1447, %of_add_groups.exit.thread, %531, %514, %create_streams.exit, %126, %1468, %1458, %1454, %523, %504, %92
-  %.0 = phi i32 [ %.076.i.ph.i, %.loopexit126.i ], [ %135, %126 ], [ -12, %3 ], [ %532, %531 ], [ %896, %of_add_groups.exit.thread230 ], [ %1445, %of_add_groups.exit.thread ], [ %1452, %1454 ], [ %1456, %1458 ], [ %1466, %1468 ], [ %1449, %1447 ], [ %515, %514 ], [ %491, %create_streams.exit ], [ %521, %523 ], [ -22, %504 ], [ %90, %92 ], [ -22, %70 ], [ -22, %._crit_edge115.i.i ], [ -22, %294 ], [ -22, %289 ], [ -22, %265 ], [ -22, %481 ], [ %.2.ph.i.i, %of_add_attachments.exit.thread.i ], [ %.076.i.ph.ph.i, %.thread116.i ], [ -22, %.thread102.i ], [ -22, %744 ], [ 0, %1469 ], [ %.178.i.i, %.loopexit.i198 ], [ -12, %460 ], [ %phi.call.i.i, %296 ], [ 0, %1483 ], [ %207, %204 ], [ %1481, %1480 ], [ %243, %.thread97.i.i ], [ %189, %187 ]
+mux_alloc.exit.thread:                            ; preds = %187, %.thread97.i.i, %296, %204, %460, %.loopexit.i198, %1480, %1483, %1469, %.thread102.i, %.thread116.i, %744, %.loopexit126.i, %265, %289, %294, %481, %of_add_attachments.exit.thread.i, %._crit_edge115.i.i, %3, %of_add_groups.exit.thread230, %70, %1447, %of_add_groups.exit.thread, %531, %514, %create_streams.exit, %126, %1468, %1458, %1454, %523, %504, %92
+  %.0 = phi i32 [ %.076.i.ph.i, %.loopexit126.i ], [ %135, %126 ], [ -12, %3 ], [ %532, %531 ], [ -22, %._crit_edge115.i.i ], [ %896, %of_add_groups.exit.thread230 ], [ %1445, %of_add_groups.exit.thread ], [ %1452, %1454 ], [ %1456, %1458 ], [ %1466, %1468 ], [ %1449, %1447 ], [ %207, %204 ], [ %515, %514 ], [ %491, %create_streams.exit ], [ %521, %523 ], [ -22, %504 ], [ %90, %92 ], [ -22, %70 ], [ %.178.i.i, %.loopexit.i198 ], [ -22, %744 ], [ -22, %265 ], [ -22, %289 ], [ -22, %294 ], [ %243, %.thread97.i.i ], [ 0, %1483 ], [ -12, %460 ], [ -22, %481 ], [ %.2.ph.i.i, %of_add_attachments.exit.thread.i ], [ -22, %.thread102.i ], [ %.076.i.ph.ph.i, %.thread116.i ], [ 0, %1469 ], [ %1481, %1480 ], [ %phi.call.i.i, %296 ], [ %189, %187 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %47)
   ret i32 %.0
 }
@@ -4042,7 +4042,7 @@ define internal fastcc i32 @set_dispositions(ptr noundef nonnull readonly captur
   br i1 %exitcond.not, label %.loopexit, label %71, !llvm.loop !309
 
 .loopexit:                                        ; preds = %59, %67, %92, %.preheader68, %.preheader66, %.preheader
-  %.3 = phi i32 [ 0, %.preheader ], [ 0, %.preheader66 ], [ 0, %.preheader68 ], [ 0, %92 ], [ %.2.ph, %67 ], [ %65, %59 ]
+  %.3 = phi i32 [ 0, %.preheader ], [ 0, %.preheader66 ], [ 0, %92 ], [ 0, %.preheader68 ], [ %65, %59 ], [ %.2.ph, %67 ]
   call void @av_freep(ptr noundef nonnull %5) #16
   br label %93
 
@@ -4311,7 +4311,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @process_forced_keyframes(p
   br label %parse_forced_key_frames.exit.thread
 
 parse_forced_key_frames.exit.thread:              ; preds = %56, %72, %.loopexit128.i
-  %.0.i.ph = phi i32 [ %.361.ph.i, %.loopexit128.i ], [ -12, %72 ], [ -12, %56 ]
+  %.0.i.ph = phi i32 [ -12, %72 ], [ %.361.ph.i, %.loopexit128.i ], [ -12, %56 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %122
@@ -4619,7 +4619,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @setup_sync_queues(ptr noun
   br i1 %.not130, label %116, label %.thread137, !llvm.loop !343
 
 .thread137:                                       ; preds = %93, %72, %139, %129, %.preheader, %56, %.thread140, %111, %108, %50
-  %.0 = phi i32 [ 0, %.thread140 ], [ %59, %56 ], [ -12, %108 ], [ 0, %50 ], [ -12, %111 ], [ 0, %.preheader ], [ %78, %72 ], [ %131, %129 ], [ 0, %139 ], [ %101, %93 ]
+  %.0 = phi i32 [ 0, %.thread140 ], [ %59, %56 ], [ -12, %108 ], [ 0, %50 ], [ %78, %72 ], [ -12, %111 ], [ 0, %.preheader ], [ %131, %129 ], [ 0, %139 ], [ %101, %93 ]
   ret i32 %.0
 }
 
@@ -5887,7 +5887,7 @@ get_line.exit.thread:                             ; preds = %234, %get_line.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %541
 
-.thread509:                                       ; preds = %323, %322
+.thread509:                                       ; preds = %322, %323
   %.0375514 = zext i1 %.not528 to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
@@ -5898,7 +5898,7 @@ get_line.exit.thread:                             ; preds = %234, %get_line.exit
   br label %336
 
 328:                                              ; preds = %255, %265, %275
-  %.0372 = phi i32 [ %260, %255 ], [ %280, %275 ], [ %270, %265 ]
+  %.0372 = phi i32 [ %260, %255 ], [ %270, %265 ], [ %280, %275 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
@@ -6498,7 +6498,7 @@ define internal fastcc i32 @get_preset_file_2(ptr noundef nonnull %0, ptr nounde
   br i1 %31, label %.split, label %.split30.us, !llvm.loop !401
 
 .split30.us:                                      ; preds = %21, %28, %15
-  %.us-phi = phi i32 [ %.1.us, %15 ], [ %24, %21 ], [ %.1, %28 ]
+  %.us-phi = phi i32 [ %.1.us, %15 ], [ %.1, %28 ], [ %24, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.us-phi
@@ -7265,7 +7265,7 @@ fmt_in_list.exit46.thread.i:                      ; preds = %130, %fmt_in_list.e
   br label %fmt_in_list.exit.i
 
 fmt_in_list.exit.i:                               ; preds = %.lr.ph.i.i, %fmt_in_list.exit46.thread.i, %.tail65.i, %sub_167.i, %.tail.i, %sub_1.i, %sub_0.i, %.loopexit70.i
-  %.027.ph.i = phi i32 [ %.2.i, %fmt_in_list.exit46.thread.i ], [ %86, %.tail65.i ], [ %86, %.loopexit70.i ], [ %86, %sub_0.i ], [ %86, %sub_167.i ], [ %86, %sub_1.i ], [ %86, %.tail.i ], [ %86, %.lr.ph.i.i ]
+  %.027.ph.i = phi i32 [ %86, %.loopexit70.i ], [ %.2.i, %fmt_in_list.exit46.thread.i ], [ %86, %.tail65.i ], [ %86, %.tail.i ], [ %86, %sub_0.i ], [ %86, %sub_167.i ], [ %86, %sub_1.i ], [ %86, %.lr.ph.i.i ]
   %.pr.i = load ptr, ptr %6, align 8, !tbaa !68
   %.not39.i = icmp eq ptr %.pr.i, null
   br i1 %.not39.i, label %pix_fmt_parse.exit, label %135

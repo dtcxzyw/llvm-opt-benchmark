@@ -769,12 +769,12 @@ define dso_local range(i32 -2, 1) i32 @php_sscanf_internal(ptr noundef %0, ptr n
   br label %.backedge
 
 .backedge:                                        ; preds = %54, %.preheader478, %131, %431, %64
-  %.0347.be = phi ptr [ %.0347563, %64 ], [ %.1348, %431 ], [ %.0347563, %131 ], [ %.0347563, %.preheader478 ], [ %.0347563, %54 ]
-  %.0332.be = phi i32 [ %.0332564, %64 ], [ %.2334, %431 ], [ %.0332564, %131 ], [ %.0332564, %.preheader478 ], [ %.0332564, %54 ]
-  %.0330.be = phi i8 [ %.0330565, %64 ], [ %.1331, %431 ], [ %.0330565, %131 ], [ %.0330565, %.preheader478 ], [ %.0330565, %54 ]
-  %.0320.be = phi i32 [ %.0320566, %64 ], [ %.3323, %431 ], [ %.2322, %131 ], [ %.0320566, %.preheader478 ], [ %.0320566, %54 ]
-  %.0315.be = phi i32 [ %.0315567, %64 ], [ %432, %431 ], [ %132, %131 ], [ %.0315567, %.preheader478 ], [ %.0315567, %54 ]
-  %.0309.be = phi ptr [ %65, %64 ], [ %.4, %431 ], [ %.0309569, %131 ], [ %.0309569, %.preheader478 ], [ %55, %54 ]
+  %.0347.be = phi ptr [ %.0347563, %131 ], [ %.0347563, %64 ], [ %.1348, %431 ], [ %.0347563, %.preheader478 ], [ %.0347563, %54 ]
+  %.0332.be = phi i32 [ %.0332564, %131 ], [ %.0332564, %64 ], [ %.2334, %431 ], [ %.0332564, %.preheader478 ], [ %.0332564, %54 ]
+  %.0330.be = phi i8 [ %.0330565, %131 ], [ %.0330565, %64 ], [ %.1331, %431 ], [ %.0330565, %.preheader478 ], [ %.0330565, %54 ]
+  %.0320.be = phi i32 [ %.2322, %131 ], [ %.0320566, %64 ], [ %.3323, %431 ], [ %.0320566, %.preheader478 ], [ %.0320566, %54 ]
+  %.0315.be = phi i32 [ %132, %131 ], [ %.0315567, %64 ], [ %432, %431 ], [ %.0315567, %.preheader478 ], [ %.0315567, %54 ]
+  %.0309.be = phi ptr [ %.0309569, %131 ], [ %65, %64 ], [ %.4, %431 ], [ %.0309569, %.preheader478 ], [ %55, %54 ]
   %133 = load ptr, ptr %7, align 8, !tbaa !4
   %134 = load i8, ptr %133, align 1, !tbaa !11
   %.not387 = icmp eq i8 %134, 0
@@ -1018,8 +1018,8 @@ zend_string_alloc.exit440:                        ; preds = %183
   br i1 %exitcond41.not.i, label %CharInSet.exit, label %.lr.ph31.i
 
 CharInSet.exit:                                   ; preds = %.lr.ph.i, %231, %.critedge.i, %.critedge.preheader.i
-  %.not26.i = phi i32 [ 1, %.critedge.preheader.i ], [ 0, %231 ], [ 1, %.critedge.i ], [ 0, %.lr.ph.i ]
-  %.1.i = phi i32 [ 0, %.critedge.preheader.i ], [ 1, %231 ], [ 0, %.critedge.i ], [ 1, %.lr.ph.i ]
+  %.not26.i = phi i32 [ 0, %231 ], [ 1, %.critedge.preheader.i ], [ 1, %.critedge.i ], [ 0, %.lr.ph.i ]
+  %.1.i = phi i32 [ 1, %231 ], [ 0, %.critedge.preheader.i ], [ 0, %.critedge.i ], [ 1, %.lr.ph.i ]
   %.1..not26.i = select i1 %.not25.i, i32 %.1.i, i32 %.not26.i
   %.not419 = icmp eq i32 %.1..not26.i, 0
   br i1 %.not419, label %238, label %234
@@ -1553,7 +1553,7 @@ zend_string_alloc.exit:                           ; preds = %340
   br label %.thread451
 
 .thread451:                                       ; preds = %147, %61, %159, %.thread451.sink.split
-  %435 = phi i1 [ %434, %.thread451.sink.split ], [ true, %159 ], [ true, %61 ], [ true, %147 ]
+  %435 = phi i1 [ true, %159 ], [ %434, %.thread451.sink.split ], [ true, %61 ], [ true, %147 ]
   %436 = icmp eq i32 %.0315567, 0
   %or.cond24 = select i1 %435, i1 %436, i1 false
   br i1 %or.cond24, label %437, label %.thread473
@@ -1572,7 +1572,7 @@ zend_string_alloc.exit:                           ; preds = %340
   br label %scan_set_error_return.exit
 
 .thread473:                                       ; preds = %.backedge, %64, %.lr.ph500, %.loopexit483, %277, %.thread451
-  %.0315492 = phi i32 [ %.0315567, %.thread451 ], [ %.0315567, %277 ], [ 0, %.loopexit483 ], [ %.0315567, %.lr.ph500 ], [ %.0315.be, %.backedge ], [ %.0315567, %64 ]
+  %.0315492 = phi i32 [ %.0315567, %.lr.ph500 ], [ %.0315567, %.thread451 ], [ %.0315567, %277 ], [ 0, %.loopexit483 ], [ %.0315.be, %.backedge ], [ %.0315567, %64 ]
   br i1 %.not385, label %scan_set_error_return.exit, label %441
 
 441:                                              ; preds = %.thread473

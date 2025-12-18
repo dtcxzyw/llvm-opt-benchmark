@@ -347,7 +347,7 @@ EVP_PKEY_missing_parameters.exit64:               ; preds = %53
   br i1 %57, label %EVP_PKEY_missing_parameters.exit64.thread, label %75
 
 EVP_PKEY_missing_parameters.exit64.thread:        ; preds = %48, %EVP_PKEY_missing_parameters.exit64
-  %58 = phi ptr [ %.pre88, %EVP_PKEY_missing_parameters.exit64 ], [ %.pre88109, %48 ]
+  %58 = phi ptr [ %.pre88109, %48 ], [ %.pre88, %EVP_PKEY_missing_parameters.exit64 ]
   %.not.i65 = icmp eq ptr %58, null
   br i1 %.not.i65, label %EVP_PKEY_missing_parameters.exit64.thread.thread, label %61
 
@@ -1514,8 +1514,8 @@ CRYPTO_DOWN_REF.exit.i:                           ; preds = %thread-pre-split.th
   call void @CRYPTO_free(ptr noundef nonnull %66, ptr noundef nonnull @.str, i32 noundef 1853) #12
   br label %EVP_PKEY_free.exit
 
-EVP_PKEY_free.exit:                               ; preds = %46, %28, %thread-pre-split, %CRYPTO_DOWN_REF.exit.i, %71
-  %.134.ph74 = phi ptr [ %30, %thread-pre-split ], [ %.134.ph73, %CRYPTO_DOWN_REF.exit.i ], [ %.134.ph73, %71 ], [ %.033, %46 ], [ null, %28 ]
+EVP_PKEY_free.exit:                               ; preds = %28, %46, %thread-pre-split, %CRYPTO_DOWN_REF.exit.i, %71
+  %.134.ph74 = phi ptr [ %30, %thread-pre-split ], [ %.134.ph73, %CRYPTO_DOWN_REF.exit.i ], [ %.134.ph73, %71 ], [ null, %28 ], [ %.033, %46 ]
   store ptr null, ptr %9, align 8, !tbaa !28
   br label %77
 

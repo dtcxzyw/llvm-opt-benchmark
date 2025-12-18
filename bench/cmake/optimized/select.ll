@@ -327,7 +327,7 @@ condstore.split:                                  ; preds = %.preheader
   br i1 %exitcond50.not, label %Curl_wait_ms.exit, label %.preheader, !llvm.loop !15
 
 Curl_wait_ms.exit:                                ; preds = %46, %20, %16, %13, %11, %.critedge, %32, %30
-  %.035 = phi i32 [ %spec.select, %32 ], [ %28, %30 ], [ -1, %11 ], [ 0, %.critedge ], [ %15, %13 ], [ -1, %20 ], [ 0, %16 ], [ %28, %46 ]
+  %.035 = phi i32 [ %spec.select, %32 ], [ 0, %16 ], [ %28, %30 ], [ -1, %11 ], [ 0, %.critedge ], [ %15, %13 ], [ -1, %20 ], [ %28, %46 ]
   ret i32 %.035
 }
 

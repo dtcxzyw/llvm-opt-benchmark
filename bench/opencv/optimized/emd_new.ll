@@ -1350,10 +1350,10 @@ _ZN12_GLOBAL__N_19EMDSolver8calcCostERKN2cv3MatES4_iPFfPKfS6_iES4_.exit.thread.i
   br label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %493, %.loopexit.loopexit.i.loopexit63.i, %.preheader.i38.i, %.lr.ph.i37.i, %.preheader50.i.i
-  %.pre.i4367.i = phi i32 [ %.pre.i4366.i, %.preheader.i38.i ], [ %.pre.i4366.i, %.preheader50.i.i ], [ %.pre.i4366.i, %.lr.ph.i37.i ], [ %.pre.i43.pre.i, %.loopexit.loopexit.i.loopexit63.i ], [ %.pre.i4366.i, %493 ]
-  %535 = phi i32 [ %459, %.preheader.i38.i ], [ %459, %.preheader50.i.i ], [ %459, %.lr.ph.i37.i ], [ %531, %.loopexit.loopexit.i.loopexit63.i ], [ %459, %493 ]
-  %536 = phi i32 [ %460, %.preheader.i38.i ], [ %460, %.preheader50.i.i ], [ %460, %.lr.ph.i37.i ], [ %.pre.i43.pre.i, %.loopexit.loopexit.i.loopexit63.i ], [ %.pre.i4366.i, %493 ]
-  %.4.i.i = phi float [ %.04056.i.i, %.preheader.i38.i ], [ %.04056.i.i, %.preheader50.i.i ], [ %.04056.i.i, %.lr.ph.i37.i ], [ %.2.i41.i, %.loopexit.loopexit.i.loopexit63.i ], [ %.2.i41.us.i, %493 ]
+  %.pre.i4367.i = phi i32 [ %.pre.i4366.i, %.preheader50.i.i ], [ %.pre.i4366.i, %.preheader.i38.i ], [ %.pre.i4366.i, %.lr.ph.i37.i ], [ %.pre.i43.pre.i, %.loopexit.loopexit.i.loopexit63.i ], [ %.pre.i4366.i, %493 ]
+  %535 = phi i32 [ %459, %.preheader50.i.i ], [ %459, %.preheader.i38.i ], [ %459, %.lr.ph.i37.i ], [ %531, %.loopexit.loopexit.i.loopexit63.i ], [ %459, %493 ]
+  %536 = phi i32 [ %460, %.preheader50.i.i ], [ %460, %.preheader.i38.i ], [ %460, %.lr.ph.i37.i ], [ %.pre.i43.pre.i, %.loopexit.loopexit.i.loopexit63.i ], [ %.pre.i4366.i, %493 ]
+  %.4.i.i = phi float [ %.04056.i.i, %.preheader50.i.i ], [ %.04056.i.i, %.preheader.i38.i ], [ %.04056.i.i, %.lr.ph.i37.i ], [ %.2.i41.i, %.loopexit.loopexit.i.loopexit63.i ], [ %.2.i41.us.i, %493 ]
   %indvars.iv.next65.i.i = add nuw nsw i64 %indvars.iv64.i.i, 1
   %537 = sext i32 %536 to i64
   %538 = icmp slt i64 %indvars.iv.next65.i.i, %537
@@ -1902,8 +1902,8 @@ _ZN12_GLOBAL__N_19EMDSolver11addBasicVarEiiPNS_6Node1DES2_S2_.exit.i.i: ; preds 
   br i1 %.not153.i.i, label %.loopexit176.i.i, label %.lr.ph248.i.split.i, !llvm.loop !109
 
 .loopexit176.i.i:                                 ; preds = %.loopexit175.i.i, %.loopexit175.i.us.i, %.loopexit.i50.i, %.loopexit.i50.us.i, %729, %678
-  %782 = phi ptr [ null, %678 ], [ %.pre303.i.fr.i, %729 ], [ null, %.loopexit175.i.us.i ], [ %679, %.loopexit.i50.us.i ], [ %679, %.loopexit.i50.i ], [ %.pre303.i.fr.i, %.loopexit175.i.i ]
-  %783 = phi ptr [ %.pre.i49.fr.i, %678 ], [ null, %729 ], [ %730, %.loopexit175.i.us.i ], [ null, %.loopexit.i50.us.i ], [ %.pre.i49.fr.i, %.loopexit.i50.i ], [ %730, %.loopexit175.i.i ]
+  %782 = phi ptr [ %679, %.loopexit.i50.us.i ], [ null, %678 ], [ %.pre303.i.fr.i, %729 ], [ null, %.loopexit175.i.us.i ], [ %679, %.loopexit.i50.i ], [ %.pre303.i.fr.i, %.loopexit175.i.i ]
+  %783 = phi ptr [ null, %.loopexit.i50.us.i ], [ %.pre.i49.fr.i, %678 ], [ null, %729 ], [ %730, %.loopexit175.i.us.i ], [ %.pre.i49.fr.i, %.loopexit.i50.i ], [ %730, %.loopexit175.i.i ]
   %784 = icmp ne ptr %783, null
   %785 = icmp ne ptr %782, null
   %786 = or i1 %785, %784

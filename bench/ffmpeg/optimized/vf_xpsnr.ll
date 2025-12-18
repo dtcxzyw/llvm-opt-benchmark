@@ -1726,7 +1726,7 @@ calc_squared_error.exit.i.us.i:                   ; preds = %calc_squared_error.
   br label %.loopexit.i.us.i
 
 .loopexit.i.us.i:                                 ; preds = %._crit_edge.us245.i.us.i, %._crit_edge.us253.i.us.i, %398, %395, %.preheader228.i.us.i, %.preheader230.i.us.i
-  %.0207.i.us.i = phi i64 [ %400, %398 ], [ %397, %395 ], [ 0, %.preheader228.i.us.i ], [ 0, %.preheader230.i.us.i ], [ %392, %._crit_edge.us253.i.us.i ], [ %374, %._crit_edge.us245.i.us.i ]
+  %.0207.i.us.i = phi i64 [ %400, %398 ], [ %397, %395 ], [ 0, %.preheader230.i.us.i ], [ 0, %.preheader228.i.us.i ], [ %392, %._crit_edge.us253.i.us.i ], [ %374, %._crit_edge.us245.i.us.i ]
   %401 = uitofp i64 %.0207.i.us.i to double
   %402 = uitofp i32 %259 to double
   %403 = fmul nsz double %254, %402

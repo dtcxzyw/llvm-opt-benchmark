@@ -1572,7 +1572,7 @@ define internal fastcc i32 @Map_CutMergeTwo(ptr noundef readonly captures(none) 
   br i1 %exitcond219.not, label %.loopexit, label %.lr.ph156.preheader, !llvm.loop !112
 
 .loopexit:                                        ; preds = %68, %70, %.preheader137, %._crit_edge.us, %._crit_edge, %43, %45, %19, %24, %.preheader141, %.preheader132, %.preheader128, %.preheader134
-  %.0119 = phi i32 [ %.0117.lcssa, %.preheader134 ], [ %3, %.preheader132 ], [ %3, %.preheader128 ], [ %3, %.preheader141 ], [ %3, %70 ], [ %3, %24 ], [ 0, %19 ], [ %3, %45 ], [ 0, %43 ], [ %.0117.lcssa, %._crit_edge ], [ 0, %._crit_edge.us ], [ 0, %.preheader137 ], [ 0, %68 ]
+  %.0119 = phi i32 [ 0, %._crit_edge.us ], [ %.0117.lcssa, %._crit_edge ], [ %3, %.preheader128 ], [ %3, %.preheader132 ], [ %.0117.lcssa, %.preheader134 ], [ 0, %43 ], [ %3, %45 ], [ %3, %24 ], [ %3, %.preheader141 ], [ 0, %19 ], [ 0, %.preheader137 ], [ %3, %70 ], [ 0, %68 ]
   ret i32 %.0119
 }
 

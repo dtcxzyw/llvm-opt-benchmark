@@ -585,7 +585,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_intra(ptr noundef r
   br i1 %163, label %.preheader, label %.thread83, !llvm.loop !63
 
 .thread83:                                        ; preds = %._crit_edge, %94, %49, %.preheader.lr.ph, %23, %11
-  %.0 = phi i32 [ -1094995529, %11 ], [ 0, %23 ], [ 0, %.preheader.lr.ph ], [ %103, %94 ], [ %.0.i, %49 ], [ 0, %._crit_edge ]
+  %.0 = phi i32 [ -1094995529, %11 ], [ 0, %.preheader.lr.ph ], [ 0, %23 ], [ %103, %94 ], [ %.0.i, %49 ], [ 0, %._crit_edge ]
   ret i32 %.0
 }
 
@@ -1113,7 +1113,7 @@ copy_block8.exit213:                              ; preds = %127, %copy_block8.e
   br i1 %374, label %.preheader, label %copy_block8.exit213.thread, !llvm.loop !70
 
 copy_block8.exit213.thread:                       ; preds = %._crit_edge, %239, %164, %132, %190, %.preheader.lr.ph, %24, %12
-  %.0 = phi i32 [ -1094995529, %12 ], [ 0, %24 ], [ 0, %.preheader.lr.ph ], [ %255, %239 ], [ %193, %190 ], [ -1094995529, %132 ], [ %.0.i, %164 ], [ 0, %._crit_edge ]
+  %.0 = phi i32 [ -1094995529, %12 ], [ 0, %24 ], [ %255, %239 ], [ 0, %.preheader.lr.ph ], [ %193, %190 ], [ -1094995529, %132 ], [ %.0.i, %164 ], [ 0, %._crit_edge ]
   ret i32 %.0
 }
 

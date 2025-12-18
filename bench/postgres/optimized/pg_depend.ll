@@ -478,7 +478,7 @@ define dso_local i64 @deleteDependencyRecordsFor(i32 noundef %0, i32 noundef %1,
   br i1 %.not, label %.split.us, label %.split14, !llvm.loop !9
 
 .split.us:                                        ; preds = %.split14, %10, %.split16
-  %.us-phi = phi i64 [ 0, %.split16 ], [ %.0.ph.us, %10 ], [ %26, %.split14 ]
+  %.us-phi = phi i64 [ %.0.ph.us, %10 ], [ 0, %.split16 ], [ %26, %.split14 ]
   call void @systable_endscan(ptr noundef %9) #6
   call void @table_close(ptr noundef %5, i32 noundef 3) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

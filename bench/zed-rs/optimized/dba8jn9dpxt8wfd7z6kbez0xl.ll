@@ -1436,8 +1436,8 @@ define hidden { i64, ptr } @"_ZN10async_task4task17Task$LT$T$C$M$GT$9poll_task17
   br i1 %23, label %"_ZN10async_task6header15Header$LT$M$GT$6notify17h5c18e69978ee946dE.llvm.11928016148860161727.exit25", label %26
 
 "_ZN10async_task6header15Header$LT$M$GT$6notify17h5c18e69978ee946dE.llvm.11928016148860161727.exit25": ; preds = %21, %100, %94, %81, %76, %71, %"_ZN10async_task6header15Header$LT$M$GT$6notify17h5c18e69978ee946dE.llvm.11928016148860161727.exit"
-  %.sroa.5.0 = phi ptr [ %.sroa.58.0.copyload, %"_ZN10async_task6header15Header$LT$M$GT$6notify17h5c18e69978ee946dE.llvm.11928016148860161727.exit" ], [ undef, %71 ], [ undef, %76 ], [ undef, %81 ], [ undef, %94 ], [ undef, %100 ], [ undef, %21 ]
-  %.sroa.0.0 = phi i64 [ 1, %"_ZN10async_task6header15Header$LT$M$GT$6notify17h5c18e69978ee946dE.llvm.11928016148860161727.exit" ], [ 2, %71 ], [ 0, %76 ], [ 0, %81 ], [ 0, %94 ], [ 0, %100 ], [ 2, %21 ]
+  %.sroa.5.0 = phi ptr [ %.sroa.58.0.copyload, %"_ZN10async_task6header15Header$LT$M$GT$6notify17h5c18e69978ee946dE.llvm.11928016148860161727.exit" ], [ undef, %100 ], [ undef, %71 ], [ undef, %76 ], [ undef, %81 ], [ undef, %94 ], [ undef, %21 ]
+  %.sroa.0.0 = phi i64 [ 1, %"_ZN10async_task6header15Header$LT$M$GT$6notify17h5c18e69978ee946dE.llvm.11928016148860161727.exit" ], [ 0, %100 ], [ 2, %71 ], [ 0, %76 ], [ 0, %81 ], [ 0, %94 ], [ 2, %21 ]
   %24 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %25 = insertvalue { i64, ptr } %24, ptr %.sroa.5.0, 1
   ret { i64, ptr } %25
@@ -1659,7 +1659,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN10async_task4task17Task$LT$T$C$M$GT
   br i1 %23, label %"_ZN10async_task6header15Header$LT$M$GT$6notify17h5c18e69978ee946dE.llvm.11928016148860161727.exit22", label %24
 
 "_ZN10async_task6header15Header$LT$M$GT$6notify17h5c18e69978ee946dE.llvm.11928016148860161727.exit22": ; preds = %21, %100, %94, %81, %76, %71, %"_ZN10async_task6header15Header$LT$M$GT$6notify17h5c18e69978ee946dE.llvm.11928016148860161727.exit"
-  %.sroa.0.0 = phi i8 [ 1, %"_ZN10async_task6header15Header$LT$M$GT$6notify17h5c18e69978ee946dE.llvm.11928016148860161727.exit" ], [ 2, %71 ], [ 0, %76 ], [ 0, %81 ], [ 0, %94 ], [ 0, %100 ], [ 2, %21 ]
+  %.sroa.0.0 = phi i8 [ 1, %"_ZN10async_task6header15Header$LT$M$GT$6notify17h5c18e69978ee946dE.llvm.11928016148860161727.exit" ], [ 0, %100 ], [ 2, %71 ], [ 0, %76 ], [ 0, %81 ], [ 0, %94 ], [ 2, %21 ]
   ret i8 %.sroa.0.0
 
 24:                                               ; preds = %21, %10

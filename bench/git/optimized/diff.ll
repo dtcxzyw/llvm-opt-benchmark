@@ -1842,8 +1842,8 @@ define internal fastcc i32 @parse_dirstat_params(ptr noundef writeonly captures(
   br label %64
 
 64:                                               ; preds = %.loopexit, %47, %40
-  %65 = phi i8 [ %49, %47 ], [ %45, %40 ], [ %56, %.loopexit ]
-  %.0 = phi i32 [ %43, %47 ], [ %43, %40 ], [ %63, %.loopexit ]
+  %65 = phi i8 [ %45, %40 ], [ %49, %47 ], [ %56, %.loopexit ]
+  %.0 = phi i32 [ %43, %40 ], [ %43, %47 ], [ %63, %.loopexit ]
   %.not42 = icmp eq i8 %65, 0
   br i1 %.not42, label %66, label %67
 
@@ -13222,7 +13222,7 @@ st_mult.exit.i.i.i:                               ; preds = %1493
   br i1 %exitcond55.not.i133.i.i, label %mark_color_as_moved.exit.i, label %.preheader.i129.i.i, !llvm.loop !346
 
 mark_color_as_moved.exit.i:                       ; preds = %1552, %.preheader.i129.i.i, %._crit_edge.i50.i, %add_lines_to_move_detection.exit.i
-  %.0154.lcssa316.i.i = phi ptr [ %.1155.i.i, %._crit_edge.i50.i ], [ null, %add_lines_to_move_detection.exit.i ], [ %.1155.i.i, %.preheader.i129.i.i ], [ %.1155.i.i, %1552 ]
+  %.0154.lcssa316.i.i = phi ptr [ %.1155.i.i, %.preheader.i129.i.i ], [ null, %add_lines_to_move_detection.exit.i ], [ %.1155.i.i, %._crit_edge.i50.i ], [ %.1155.i.i, %1552 ]
   call void @free(ptr noundef %.0154.lcssa316.i.i) #34
   %1563 = load i32, ptr %1130, align 8, !tbaa !160
   %1564 = icmp eq i32 %1563, 4
@@ -14891,9 +14891,9 @@ match_filter.exit43.thread53.i:                   ; preds = %match_filter.exit43
   br i1 %235, label %.lr.ph84.i, label %.loopexit.i, !llvm.loop !374
 
 .loopexit.i:                                      ; preds = %.lr.ph79.i, %232, %.preheader.i, %.preheader60.i
-  %.sroa.0.0.i = phi ptr [ null, %.preheader.i ], [ null, %.preheader60.i ], [ %.sroa.0.2.i56, %232 ], [ null, %.lr.ph79.i ]
-  %.sroa.7.0.i = phi i32 [ 0, %.preheader.i ], [ 0, %.preheader60.i ], [ %.sroa.7.2.i57, %232 ], [ 0, %.lr.ph79.i ]
-  %.sroa.9.0.i = phi i32 [ 0, %.preheader.i ], [ 0, %.preheader60.i ], [ %.sroa.9.2.i, %232 ], [ 0, %.lr.ph79.i ]
+  %.sroa.0.0.i = phi ptr [ %.sroa.0.2.i56, %232 ], [ null, %.preheader.i ], [ null, %.preheader60.i ], [ null, %.lr.ph79.i ]
+  %.sroa.7.0.i = phi i32 [ %.sroa.7.2.i57, %232 ], [ 0, %.preheader.i ], [ 0, %.preheader60.i ], [ 0, %.lr.ph79.i ]
+  %.sroa.9.0.i = phi i32 [ %.sroa.9.2.i, %232 ], [ 0, %.preheader.i ], [ 0, %.preheader60.i ], [ 0, %.lr.ph79.i ]
   %236 = load ptr, ptr @diff_queued_diff, align 8, !tbaa !176
   tail call void @free(ptr noundef %236) #34
   store ptr %.sroa.0.0.i, ptr @diff_queued_diff, align 8, !tbaa !368
@@ -14902,7 +14902,7 @@ match_filter.exit43.thread53.i:                   ; preds = %match_filter.exit43
   br label %diffcore_apply_filter.exit
 
 diffcore_apply_filter.exit:                       ; preds = %.lr.ph.split.split.i, %match_filter.exit.us66.i, %184, %match_filter.exit.us.i, %172, %match_filter.exit.us.us.i, %diff_resolve_rename_copy.exit, %.critedge.i, %.loopexit.i
-  %237 = phi i32 [ %.sroa.9.0.i, %.loopexit.i ], [ 1, %.critedge.i ], [ %.pr.pre, %diff_resolve_rename_copy.exit ], [ 1, %match_filter.exit.us66.i ], [ 1, %match_filter.exit.us.us.i ], [ 1, %match_filter.exit.us.i ], [ 1, %172 ], [ 1, %184 ], [ 1, %.lr.ph.split.split.i ]
+  %237 = phi i32 [ %.sroa.9.0.i, %.loopexit.i ], [ 1, %match_filter.exit.us.us.i ], [ 1, %match_filter.exit.us66.i ], [ %.pr.pre, %diff_resolve_rename_copy.exit ], [ 1, %match_filter.exit.us.i ], [ 1, %.critedge.i ], [ 1, %172 ], [ 1, %184 ], [ 1, %.lr.ph.split.split.i ]
   %.not38 = icmp eq i32 %237, 0
   br i1 %.not38, label %241, label %238
 
@@ -19117,7 +19117,7 @@ emit_add_line.exit.us.i.i.i:                      ; preds = %new_blank_line_at_e
   br i1 %673, label %.lr.ph.split.us.i.i.i, label %._crit_edge.i63.i.i, !llvm.loop !435
 
 ._crit_edge.i63.i.i:                              ; preds = %emit_add_line.exit.us.i.i.i, %.lr.ph.split.us.i.us71.i.i, %.lr.ph.split.us.i.us.i.i
-  %.us-phi70.i.i = phi i1 [ %.not24.us.i.us74.i.i, %.lr.ph.split.us.i.us71.i.i ], [ %.not24.us.i.us.i.i, %.lr.ph.split.us.i.us.i.i ], [ %.not24.us.i.i.i, %emit_add_line.exit.us.i.i.i ]
+  %.us-phi70.i.i = phi i1 [ %.not24.us.i.us.i.i, %.lr.ph.split.us.i.us.i.i ], [ %.not24.us.i.us74.i.i, %.lr.ph.split.us.i.us71.i.i ], [ %.not24.us.i.i.i, %emit_add_line.exit.us.i.i.i ]
   br i1 %.us-phi70.i.i, label %._crit_edge.thread.i61.i.i, label %emit_rewrite_lines.exit65.i.i
 
 ._crit_edge.thread.i61.i.i:                       ; preds = %._crit_edge.i63.i.i, %625
@@ -19158,7 +19158,7 @@ emit_rewrite_diff.exit.i:                         ; preds = %676, %675
   br label %680
 
 680:                                              ; preds = %.sink.split.i97, %510, %505, %503
-  %.0198.i = phi i32 [ %.1.i86, %510 ], [ %.1.i86, %505 ], [ %.1.i86, %503 ], [ 1, %.sink.split.i97 ]
+  %.0198.i = phi i32 [ %.1.i86, %503 ], [ %.1.i86, %505 ], [ %.1.i86, %510 ], [ 1, %.sink.split.i97 ]
   %681 = getelementptr inbounds nuw i8, ptr %7, i64 264
   %682 = load i32, ptr %681, align 8, !tbaa !434
   %.not235.i = icmp eq i32 %682, 0

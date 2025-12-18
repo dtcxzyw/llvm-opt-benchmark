@@ -261,9 +261,9 @@ list_length.exit:                                 ; preds = %41
   %.not496 = icmp eq ptr %.0457.lcssa, null
   br i1 %.not496, label %.critedge535, label %.lr.ph607
 
-.lr.ph607:                                        ; preds = %.lr.ph.split.us.split, %.critedge.loopexit, %.critedge
-  %.0457.lcssa688 = phi ptr [ %.0457.lcssa, %.critedge ], [ %2, %.critedge.loopexit ], [ %2, %.lr.ph.split.us.split ]
-  %.0465.lcssa684 = phi i32 [ %.0465.lcssa, %.critedge ], [ %81, %.critedge.loopexit ], [ 0, %.lr.ph.split.us.split ]
+.lr.ph607:                                        ; preds = %.critedge.loopexit, %.lr.ph.split.us.split, %.critedge
+  %.0457.lcssa688 = phi ptr [ %.0457.lcssa, %.critedge ], [ %2, %.lr.ph.split.us.split ], [ %2, %.critedge.loopexit ]
+  %.0465.lcssa684 = phi i32 [ %.0465.lcssa, %.critedge ], [ 0, %.lr.ph.split.us.split ], [ %81, %.critedge.loopexit ]
   %82 = getelementptr inbounds nuw i8, ptr %.0457.lcssa688, i64 4
   %83 = getelementptr i8, ptr %.0457.lcssa688, i64 16
   %84 = load i32, ptr %82, align 4
@@ -420,7 +420,7 @@ list_length.exit542:                              ; preds = %.critedge535
   br label %150
 
 150:                                              ; preds = %144, %147
-  %151 = phi i1 [ true, %144 ], [ %149, %147 ]
+  %151 = phi i1 [ %149, %147 ], [ true, %144 ]
   %or.cond21 = and i1 %17, %151
   br i1 %or.cond21, label %152, label %.thread558
 
@@ -2610,7 +2610,7 @@ define dso_local ptr @func_select_candidate(i32 noundef %0, ptr noundef readonly
   br i1 %122, label %.thread252, label %.thread244
 
 .thread244:                                       ; preds = %._crit_edge310.thread, %._crit_edge315, %._crit_edge328.thread437, %._crit_edge328
-  %.4207 = phi ptr [ %.2205.lcssa413418.mux, %._crit_edge315 ], [ %.2205.lcssa413418, %._crit_edge328.thread437 ], [ %.0196324.us, %._crit_edge328 ], [ %.2205.lcssa413418, %._crit_edge310.thread ]
+  %.4207 = phi ptr [ %.2205.lcssa413418, %._crit_edge328.thread437 ], [ %.2205.lcssa413418.mux, %._crit_edge315 ], [ %.0196324.us, %._crit_edge328 ], [ %.2205.lcssa413418, %._crit_edge310.thread ]
   %123 = icmp sge i32 %.0167.lcssa, %0
   %brmerge491 = or i1 %123, %10
   br i1 %brmerge491, label %.thread252, label %.lr.ph336.preheader
@@ -2698,7 +2698,7 @@ define dso_local ptr @func_select_candidate(i32 noundef %0, ptr noundef readonly
   br label %.thread252
 
 .thread252:                                       ; preds = %129, %135, %.thread415, %.thread244, %.preheader, %._crit_edge328.thread437, %._crit_edge328, %._crit_edge301, %._crit_edge282, %._crit_edge337, %._crit_edge346, %._crit_edge346.thread460
-  %.0209 = phi ptr [ %.7195458463, %._crit_edge346.thread460 ], [ null, %.thread415 ], [ %.2205.lcssa413418, %._crit_edge328.thread437 ], [ null, %.thread244 ], [ null, %._crit_edge346 ], [ null, %._crit_edge337 ], [ null, %.preheader ], [ %.1204, %._crit_edge282 ], [ %.3206, %._crit_edge301 ], [ %.0196324.us, %._crit_edge328 ], [ null, %135 ], [ null, %129 ]
+  %.0209 = phi ptr [ %.7195458463, %._crit_edge346.thread460 ], [ %.3206, %._crit_edge301 ], [ %.2205.lcssa413418, %._crit_edge328.thread437 ], [ null, %.thread415 ], [ %.0196324.us, %._crit_edge328 ], [ null, %.thread244 ], [ null, %._crit_edge346 ], [ null, %._crit_edge337 ], [ null, %.preheader ], [ null, %135 ], [ %.1204, %._crit_edge282 ], [ null, %129 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -3007,7 +3007,7 @@ define internal fastcc i32 @LookupFuncNameInternal(i32 noundef %0, ptr noundef %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %44, %35, %48, %25, %.loopexit.sink.split, %7
-  %.023 = phi i32 [ 0, %7 ], [ 0, %.loopexit.sink.split ], [ %.1.us41, %35 ], [ %.1.us, %25 ], [ %47, %48 ], [ %.1.us51, %44 ]
+  %.023 = phi i32 [ %.1.us41, %35 ], [ %47, %48 ], [ 0, %7 ], [ 0, %.loopexit.sink.split ], [ %.1.us, %25 ], [ %.1.us51, %44 ]
   ret i32 %.023
 }
 
@@ -3070,7 +3070,7 @@ list_length.exit:                                 ; preds = %3
   br i1 %31, label %.lr.ph133, label %.critedge
 
 .critedge:                                        ; preds = %28, %3, %.lr.ph
-  %32 = phi i32 [ %9, %.lr.ph ], [ 0, %3 ], [ %9, %28 ]
+  %32 = phi i32 [ 0, %3 ], [ %9, %.lr.ph ], [ %9, %28 ]
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %34 = load i8, ptr %33, align 8, !range !4, !noundef !5
   %35 = trunc nuw i8 %34 to i1

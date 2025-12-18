@@ -2567,7 +2567,7 @@ _ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEaSERKS1_.exit: ; preds = %.lr.ph.i.i.i.
   br label %_ZNK5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE3sumEv.exit
 
 _ZNK5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE3sumEv.exit: ; preds = %.lr.ph80.i.i.i, %_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEaSERKS1_.exit, %257, %264
-  %.0.i = phi double [ 0.000000e+00, %_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEaSERKS1_.exit ], [ %265, %264 ], [ %258, %257 ], [ %262, %.lr.ph80.i.i.i ]
+  %.0.i = phi double [ 0.000000e+00, %_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEaSERKS1_.exit ], [ %258, %257 ], [ %265, %264 ], [ %262, %.lr.ph80.i.i.i ]
   %266 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store double %.0.i, ptr %266, align 8
   ret void
@@ -3561,7 +3561,7 @@ _ZN5Eigen8internal28conditional_aligned_new_autoIdLb1EEEPT_m.exit.i.i.i77.thread
   br label %.loopexit353.i
 
 .loopexit353.i:                                   ; preds = %.lr.ph83.i.i.i.i.i.i, %494, %483, %.loopexit354.i
-  %.0.i.i.i.i = phi double [ 0.000000e+00, %.loopexit354.i ], [ %499, %494 ], [ %484, %483 ], [ %492, %.lr.ph83.i.i.i.i.i.i ]
+  %.0.i.i.i.i = phi double [ 0.000000e+00, %.loopexit354.i ], [ %484, %483 ], [ %499, %494 ], [ %492, %.lr.ph83.i.i.i.i.i.i ]
   %.scalar.i91.i = call noundef double @llvm.sqrt.f64(double %.0.i.i.i.i)
   %500 = load ptr, ptr %.0.val, align 8
   %501 = getelementptr inbounds nuw i8, ptr %500, i64 32
@@ -3702,7 +3702,7 @@ _ZN5Eigen8internal28conditional_aligned_new_autoIdLb1EEEPT_m.exit.i.i.i77.thread
   br i1 %exitcond.not.i.i.i.i.i.i.i.i.i103.i, label %.loopexit351.i, label %.lr.ph.i.i.i.i.i.i.i.i.i101.i, !llvm.loop !67
 
 .loopexit351.i:                                   ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i101.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i100.i, %540, %._crit_edge.i.i.i.i.i.i.i.i.i
-  %.1.i = phi double [ %.0339382.i, %540 ], [ %508, %._crit_edge.i.i.i.i.i.i.i.i.i ], [ %546, %._crit_edge.i.i.i.i.i.i.i.i100.i ], [ %508, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ %546, %.lr.ph.i.i.i.i.i.i.i.i.i101.i ]
+  %.1.i = phi double [ %.0339382.i, %540 ], [ %508, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ %508, %._crit_edge.i.i.i.i.i.i.i.i.i ], [ %546, %._crit_edge.i.i.i.i.i.i.i.i100.i ], [ %546, %.lr.ph.i.i.i.i.i.i.i.i.i101.i ]
   %563 = load i64, ptr %48, align 8
   %564 = sitofp i64 %563 to double
   %565 = fmul double %564, 2.000000e+00
@@ -3837,7 +3837,7 @@ _ZN5Eigen8internal28conditional_aligned_new_autoIdLb1EEEPT_m.exit.i.i.i77.thread
   br label %.loopexit350.i
 
 .loopexit350.i:                                   ; preds = %.lr.ph83.i.i.i.i.i116.i, %648, %640, %.loopexit351.i
-  %.0.i.i.i114.i = phi double [ 0.000000e+00, %.loopexit351.i ], [ %650, %648 ], [ %641, %640 ], [ %646, %.lr.ph83.i.i.i.i.i116.i ]
+  %.0.i.i.i114.i = phi double [ 0.000000e+00, %.loopexit351.i ], [ %641, %640 ], [ %650, %648 ], [ %646, %.lr.ph83.i.i.i.i.i116.i ]
   %.scalar.i115.i = call noundef double @llvm.sqrt.f64(double %.0.i.i.i114.i)
   %651 = fcmp olt double %.scalar.i110.i, %.scalar.i115.i
   %.sroa.speculated.i = select i1 %651, double %.scalar.i115.i, double %.scalar.i110.i
@@ -3939,7 +3939,7 @@ _ZN5Eigen8internal28conditional_aligned_new_autoIdLb1EEEPT_m.exit.i.i.i77.thread
   br label %.loopexit349.i
 
 .loopexit349.i:                                   ; preds = %.lr.ph83.i.i.i.i.i135.i, %706, %697, %.loopexit350.i
-  %.0.i.i.i133.i = phi double [ 0.000000e+00, %.loopexit350.i ], [ %709, %706 ], [ %698, %697 ], [ %704, %.lr.ph83.i.i.i.i.i135.i ]
+  %.0.i.i.i133.i = phi double [ 0.000000e+00, %.loopexit350.i ], [ %698, %697 ], [ %709, %706 ], [ %704, %.lr.ph83.i.i.i.i.i135.i ]
   %710 = fcmp olt double %.scalar.i.i, %653
   br i1 %710, label %711, label %859
 

@@ -6320,7 +6320,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit63: ; preds = %272
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN5Ipopt9TimedTask3EndEv.exit38, %.critedge, %240, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46, %281, %199, %194, %102, %97
-  %.023 = phi i32 [ 1, %194 ], [ 1, %240 ], [ 4, %199 ], [ 1, %97 ], [ 4, %102 ], [ 2, %281 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46 ], [ 0, %.critedge ], [ 1, %_ZN5Ipopt9TimedTask3EndEv.exit38 ]
+  %.023 = phi i32 [ 1, %194 ], [ 1, %240 ], [ 4, %199 ], [ 0, %.critedge ], [ 1, %97 ], [ 4, %102 ], [ 2, %281 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46 ], [ 1, %_ZN5Ipopt9TimedTask3EndEv.exit38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)

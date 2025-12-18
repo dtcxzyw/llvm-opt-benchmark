@@ -1227,7 +1227,7 @@ _ZN8rawspeed12RawImageData32getByteDataAsUncroppedArray2DRefEv.exit.us: ; preds 
   br i1 %exitcond335.not, label %._crit_edge285, label %_ZN8rawspeed12RawImageData32getByteDataAsUncroppedArray2DRefEv.exit.us, !llvm.loop !167
 
 ._crit_edge285:                                   ; preds = %._crit_edge280.us, %._crit_edge280.us.us, %.lr.ph284, %265
-  %.079.lcssa = phi double [ 0.000000e+00, %265 ], [ 0.000000e+00, %.lr.ph284 ], [ %331, %._crit_edge280.us.us ], [ %345, %._crit_edge280.us ]
+  %.079.lcssa = phi double [ 0.000000e+00, %265 ], [ %331, %._crit_edge280.us.us ], [ 0.000000e+00, %.lr.ph284 ], [ %345, %._crit_edge280.us ]
   %346 = load ptr, ptr @stdout, align 8, !tbaa !7
   %347 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %346, ptr noundef nonnull @.str.35, double noundef %.079.lcssa) #23
   %348 = load ptr, ptr @stdout, align 8, !tbaa !7

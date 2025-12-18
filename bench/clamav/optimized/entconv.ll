@@ -1229,11 +1229,11 @@ define ptr @encoding_detect_bom(ptr noundef readonly captures(none) %0, i64 noun
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.792) #16
   br label %detect_encoding.exit.thread
 
-detect_encoding.exit.thread:                      ; preds = %4, %75, %83, %9, %24, %28, %6, %35, %48, %67, %79, %64, %71, %87, %61, %20, %16, %12
+detect_encoding.exit.thread:                      ; preds = %4, %75, %87, %9, %24, %28, %6, %35, %48, %79, %67, %83, %64, %71, %61, %20, %16, %12
   br label %detect_encoding.exit
 
 detect_encoding.exit:                             ; preds = %32, %71, %67, %24, %detect_encoding.exit.thread, %60, %56, %47, %43, %20, %16, %12, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %detect_encoding.exit.thread ], [ @.str.764, %47 ], [ @.str.777, %24 ], [ @.str.765, %12 ], [ @.str.777, %16 ], [ @.str.765, %20 ], [ @.str.780, %43 ], [ @.str.768, %60 ], [ @.str.780, %67 ], [ %switch.select9, %32 ], [ @.str.773, %56 ], [ @.str.764, %71 ]
+  %.0 = phi ptr [ null, %2 ], [ null, %detect_encoding.exit.thread ], [ @.str.773, %56 ], [ @.str.764, %47 ], [ @.str.765, %12 ], [ @.str.777, %16 ], [ @.str.765, %20 ], [ @.str.777, %24 ], [ @.str.780, %43 ], [ @.str.768, %60 ], [ %switch.select9, %32 ], [ @.str.764, %71 ], [ @.str.780, %67 ]
   ret ptr %.0
 }
 
@@ -1307,7 +1307,7 @@ define range(i32 -1, 3) i32 @encoding_normalize_toascii(ptr noundef readonly cap
   %exitcond34.not.i = icmp eq i64 %37, %15
   br i1 %exitcond34.not.i, label %.loopexit, label %28
 
-.loopexit42:                                      ; preds = %.lr.ph.i, %14, %._crit_edge.i, %._crit_edge.thread.i
+.loopexit42:                                      ; preds = %.lr.ph.i, %._crit_edge.i, %14, %._crit_edge.thread.i
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str) #16
   br label %184
 
@@ -1876,8 +1876,8 @@ define range(i32 0, 28) i32 @cli_codepage_to_utf8(ptr noundef %0, i64 noundef %1
   br label %.thread
 
 .thread:                                          ; preds = %82, %.thread.loopexit201, %83, %20, %22, %39
-  %.1102 = phi ptr [ %18, %20 ], [ %18, %39 ], [ %18, %22 ], [ %79, %83 ], [ %18, %.thread.loopexit201 ], [ null, %82 ]
-  %.096 = phi i64 [ %1, %20 ], [ %1, %39 ], [ %1, %22 ], [ %85, %83 ], [ %1, %.thread.loopexit201 ], [ %55, %82 ]
+  %.1102 = phi ptr [ %18, %20 ], [ %18, %39 ], [ %18, %.thread.loopexit201 ], [ %18, %22 ], [ %79, %83 ], [ null, %82 ]
+  %.096 = phi i64 [ %1, %20 ], [ %1, %39 ], [ %1, %.thread.loopexit201 ], [ %1, %22 ], [ %85, %83 ], [ %55, %82 ]
   store ptr %.1102, ptr %3, align 8, !tbaa !28
   store i64 %.096, ptr %4, align 8, !tbaa !29
   br label %.thread157
@@ -2238,7 +2238,7 @@ define range(i32 0, 2) i32 @cli_isutf8(ptr noundef readonly captures(none) %0, i
   br i1 %35, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %7, %.loopexit, %22, %28, %30, %2
-  %.232 = phi i32 [ 1, %2 ], [ 0, %28 ], [ 0, %30 ], [ 1, %.loopexit ], [ 0, %7 ], [ 0, %22 ]
+  %.232 = phi i32 [ 0, %28 ], [ 1, %2 ], [ 0, %30 ], [ 0, %7 ], [ 1, %.loopexit ], [ 0, %22 ]
   ret i32 %.232
 }
 

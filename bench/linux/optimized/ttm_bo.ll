@@ -808,7 +808,7 @@ define dso_local i32 @ttm_mem_evict_first(ptr noundef %0, ptr noundef %1, ptr no
   br label %.thread45
 
 .thread45:                                        ; preds = %203, %189, %182, %216, %.loopexit, %.loopexit, %201, %195, %.thread43, %191
-  %218 = phi i32 [ %194, %.thread43 ], [ %192, %191 ], [ %196, %201 ], [ %215, %216 ], [ %215, %.loopexit ], [ %196, %195 ], [ %215, %.loopexit ], [ -16, %182 ], [ -16, %189 ], [ %205, %203 ]
+  %218 = phi i32 [ %194, %.thread43 ], [ %192, %191 ], [ %196, %201 ], [ %215, %216 ], [ %215, %.loopexit ], [ -16, %189 ], [ %196, %195 ], [ %215, %.loopexit ], [ -16, %182 ], [ %205, %203 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -942,7 +942,7 @@ define internal fastcc i32 @ttm_bo_cleanup_refs(ptr noundef nonnull %0, i1 nound
   tail call void @_raw_spin_unlock(ptr noundef nonnull %41) #6
   br label %.thread
 
-.thread5:                                         ; preds = %22, %25, %33
+.thread5:                                         ; preds = %25, %22, %33
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 2080
@@ -1233,7 +1233,7 @@ select.unfold:                                    ; preds = %48, %38, %26, %41
   br label %.thread18
 
 .thread18:                                        ; preds = %41, %48, %43, %.loopexit, %93, %.loopexit21, %4
-  %95 = phi i32 [ %9, %4 ], [ -12, %.loopexit21 ], [ -22, %93 ], [ %86, %.loopexit ], [ %42, %41 ], [ %46, %48 ], [ 0, %43 ]
+  %95 = phi i32 [ %9, %4 ], [ -12, %.loopexit21 ], [ -22, %93 ], [ %86, %.loopexit ], [ %46, %48 ], [ %42, %41 ], [ 0, %43 ]
   ret i32 %95
 }
 

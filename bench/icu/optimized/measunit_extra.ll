@@ -2867,7 +2867,7 @@ _ZNK6icu_7714SingleUnitImpl16isCompatibleWithERKS0_.exit.thread.us44: ; preds = 
   br i1 %exitcond68.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !92
 
 ._crit_edge:                                      ; preds = %_ZNK6icu_7714SingleUnitImpl16isCompatibleWithERKS0_.exit.thread.us.us, %_ZNK6icu_7714SingleUnitImpl16isCompatibleWithERKS0_.exit.thread.us, %_ZNK6icu_7714SingleUnitImpl16isCompatibleWithERKS0_.exit.thread.us44
-  %.015.lcssa = phi ptr [ %63, %_ZNK6icu_7714SingleUnitImpl16isCompatibleWithERKS0_.exit.thread.us ], [ %83, %_ZNK6icu_7714SingleUnitImpl16isCompatibleWithERKS0_.exit.thread.us44 ], [ %43, %_ZNK6icu_7714SingleUnitImpl16isCompatibleWithERKS0_.exit.thread.us.us ]
+  %.015.lcssa = phi ptr [ %83, %_ZNK6icu_7714SingleUnitImpl16isCompatibleWithERKS0_.exit.thread.us44 ], [ %63, %_ZNK6icu_7714SingleUnitImpl16isCompatibleWithERKS0_.exit.thread.us ], [ %43, %_ZNK6icu_7714SingleUnitImpl16isCompatibleWithERKS0_.exit.thread.us.us ]
   %.not = icmp eq ptr %.015.lcssa, null
   br i1 %.not, label %._crit_edge.thread, label %84
 

@@ -7922,7 +7922,7 @@ _ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.thread.i.i.i.i: ; preds = %184, %17
   br i1 %.not.i.i8.i.i, label %_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE3getESA_.exit.thread.i, label %.lr.ph.i.i7.i.split.split.i, !llvm.loop !76
 
 _ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE3getESA_.exit.thread8.i: ; preds = %183, %167, %_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.i.i.i.us.i
-  %191 = phi ptr [ %164, %167 ], [ %144, %_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.i.i.i.us.i ], [ %174, %183 ]
+  %191 = phi ptr [ %144, %_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.i.i.i.us.i ], [ %164, %167 ], [ %174, %183 ]
   %.0.i11.i = getelementptr inbounds nuw i8, ptr %191, i64 16
   %192 = load ptr, ptr %.0.i11.i, align 8
   br label %_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE3getESA_.exit.thread.i
@@ -9038,7 +9038,7 @@ define hidden noundef zeroext i1 @_ZN21AdapterHandlerLibrary8containsEPK8CodeBlo
   br i1 %or.cond.i, label %.preheader.i, label %"_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE7iterateIZN21AdapterHandlerLibrary8containsEPK8CodeBlobE3$_0EEvT_.exit", !llvm.loop !89
 
 "_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE7iterateIZN21AdapterHandlerLibrary8containsEPK8CodeBlobE3$_0EEvT_.exit": ; preds = %._crit_edge.i, %.lr.ph.i, %1
-  %.2 = phi i1 [ false, %1 ], [ false, %.lr.ph.i ], [ %.1, %._crit_edge.i ]
+  %.2 = phi i1 [ false, %.lr.ph.i ], [ false, %1 ], [ %.1, %._crit_edge.i ]
   ret i1 %.2
 }
 

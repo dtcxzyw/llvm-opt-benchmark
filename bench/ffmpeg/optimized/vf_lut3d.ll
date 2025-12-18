@@ -449,13 +449,13 @@ av_isspace.exit.thread.i66.us.us.i:               ; preds = %.lr.ph.i64.us.us.i,
   br i1 %exitcond117.not.i, label %parse_dat.exit, label %.preheader88.us.i, !llvm.loop !54
 
 allocate_3dlut.exit.thread.sink.split.i:          ; preds = %.critedge85.backedge.i, %.critedge86.backedge.i, %.critedge87.preheader.us.us.i, %.critedge87.backedge.us.us.i, %80, %70, %60
-  %.str.43.sink.i = phi ptr [ @.str.44, %70 ], [ @.str.43, %80 ], [ @.str.44, %60 ], [ @.str.44, %.critedge86.backedge.i ], [ @.str.44, %.critedge87.backedge.us.us.i ], [ @.str.44, %.critedge87.preheader.us.us.i ], [ @.str.44, %.critedge85.backedge.i ]
-  %.0.ph.i = phi i32 [ -1094995529, %70 ], [ -22, %80 ], [ -1094995529, %60 ], [ -1094995529, %.critedge86.backedge.i ], [ -1094995529, %.critedge87.backedge.us.us.i ], [ -1094995529, %.critedge87.preheader.us.us.i ], [ -1094995529, %.critedge85.backedge.i ]
+  %.str.43.sink.i = phi ptr [ @.str.44, %70 ], [ @.str.43, %80 ], [ @.str.44, %60 ], [ @.str.44, %.critedge86.backedge.i ], [ @.str.44, %.critedge87.preheader.us.us.i ], [ @.str.44, %.critedge87.backedge.us.us.i ], [ @.str.44, %.critedge85.backedge.i ]
+  %.0.ph.i = phi i32 [ -1094995529, %70 ], [ -22, %80 ], [ -1094995529, %60 ], [ -1094995529, %.critedge86.backedge.i ], [ -1094995529, %.critedge87.preheader.us.us.i ], [ -1094995529, %.critedge87.backedge.us.us.i ], [ -1094995529, %.critedge85.backedge.i ]
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull %.str.43.sink.i) #21
   br label %parse_dat.exit
 
 parse_dat.exit:                                   ; preds = %._crit_edge98.split.us.us.i, %.loopexit.us.us.i, %.thread.i, %allocate_3dlut.exit.thread.sink.split.i
-  %.0.i52 = phi i32 [ -12, %.thread.i ], [ %.0.ph.i, %allocate_3dlut.exit.thread.sink.split.i ], [ -1094995529, %.loopexit.us.us.i ], [ 0, %._crit_edge98.split.us.us.i ]
+  %.0.i52 = phi i32 [ -1094995529, %.loopexit.us.us.i ], [ %.0.ph.i, %allocate_3dlut.exit.thread.sink.split.i ], [ -12, %.thread.i ], [ 0, %._crit_edge98.split.us.us.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %355
 
@@ -880,7 +880,7 @@ select.unfold.us.us.i:                            ; preds = %213, %212
   br label %parse_cube.exit
 
 parse_cube.exit:                                  ; preds = %.critedge.us.us.i, %213, %select.unfold.us.us.i, %176, %177, %.critedge76._crit_edge.i, %.critedge64.i
-  %.8.i = phi i32 [ 0, %.critedge64.i ], [ -1094995529, %.critedge76._crit_edge.i ], [ -12, %177 ], [ -22, %176 ], [ -1094995529, %213 ], [ -1094995529, %select.unfold.us.us.i ], [ -1094995529, %.critedge.us.us.i ]
+  %.8.i = phi i32 [ 0, %.critedge64.i ], [ -22, %176 ], [ -12, %177 ], [ -1094995529, %.critedge76._crit_edge.i ], [ -1094995529, %213 ], [ -1094995529, %select.unfold.us.us.i ], [ -1094995529, %.critedge.us.us.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -1205,7 +1205,7 @@ av_isspace.exit128.thread.i:                      ; preds = %.critedge2.i, %.cri
   br label %parse_m3d.exit
 
 parse_m3d.exit:                                   ; preds = %350, %.critedge4.thread.i, %295, %304, %305, %.critedge114.i
-  %.0.i101 = phi i32 [ -1094995529, %.critedge4.thread.i ], [ -1094995529, %295 ], [ -1094995529, %.critedge114.i ], [ -12, %305 ], [ -22, %304 ], [ 0, %350 ]
+  %.0.i101 = phi i32 [ -1094995529, %.critedge4.thread.i ], [ -1094995529, %295 ], [ -22, %304 ], [ -1094995529, %.critedge114.i ], [ -12, %305 ], [ 0, %350 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %355
 
@@ -1623,7 +1623,7 @@ av_isspace.exit.thread.i.i:                       ; preds = %.lr.ph.i.i, %.lr.ph
   br label %parse_cube_1d.exit
 
 parse_cube_1d.exit:                               ; preds = %97, %68, %select.unfold.i, %84, %57, %.critedge61._crit_edge.i, %.critedge.i
-  %.5.i = phi i32 [ 0, %.critedge.i ], [ -1094995529, %.critedge61._crit_edge.i ], [ -22, %57 ], [ -1094995529, %68 ], [ -1094995529, %84 ], [ -1094995529, %select.unfold.i ], [ -1094995529, %97 ]
+  %.5.i = phi i32 [ 0, %.critedge.i ], [ -22, %57 ], [ -1094995529, %68 ], [ -1094995529, %.critedge61._crit_edge.i ], [ -1094995529, %84 ], [ -1094995529, %select.unfold.i ], [ -1094995529, %97 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -1786,7 +1786,7 @@ av_isspace.exit.thread.i103.i:                    ; preds = %.lr.ph.i101.i, %.lr
   br i1 %.not71.i, label %.backedge.i58, label %153
 
 .backedge.i58:                                    ; preds = %153, %151
-  %.be.i = phi i1 [ %.not73.i, %153 ], [ false, %151 ]
+  %.be.i = phi i1 [ false, %151 ], [ %.not73.i, %153 ]
   %152 = call ptr @fgets(ptr noundef nonnull %2, i32 noundef 512, ptr noundef nonnull %31)
   %.not68184.i = icmp eq ptr %152, null
   br i1 %.not68184.i, label %._crit_edge.i, label %.lr.ph185.i
@@ -2074,7 +2074,7 @@ av_isspace.exit.thread.i143.i:                    ; preds = %.lr.ph.i141.i, %.lr
   br label %parse_cinespace_1d.exit
 
 parse_cinespace_1d.exit:                          ; preds = %162, %172, %201, %.critedge._crit_edge.i, %135, %.critedge173._crit_edge.i, %143, %._crit_edge.i, %.thread155.i, %.critedge175.preheader._crit_edge.i, %.critedge176.preheader._crit_edge.i, %.critedge177.preheader._crit_edge.i, %186, %.critedge178.preheader._crit_edge.i, %.thread157.i
-  %.055.i = phi i32 [ -22, %135 ], [ -22, %143 ], [ -22, %186 ], [ 0, %.thread157.i ], [ -1094995529, %.critedge176.preheader._crit_edge.i ], [ -1163346256, %.thread155.i ], [ -1094995529, %._crit_edge.i ], [ -1094995529, %.critedge173._crit_edge.i ], [ -1094995529, %.critedge._crit_edge.i ], [ -1094995529, %.critedge175.preheader._crit_edge.i ], [ -1094995529, %.critedge177.preheader._crit_edge.i ], [ -1094995529, %.critedge178.preheader._crit_edge.i ], [ -1094995529, %201 ], [ -1094995529, %172 ], [ -1094995529, %162 ]
+  %.055.i = phi i32 [ -22, %135 ], [ -22, %143 ], [ -22, %186 ], [ 0, %.thread157.i ], [ -1094995529, %.critedge176.preheader._crit_edge.i ], [ -1163346256, %.thread155.i ], [ -1094995529, %._crit_edge.i ], [ -1094995529, %.critedge173._crit_edge.i ], [ -1094995529, %.critedge._crit_edge.i ], [ -1094995529, %.critedge175.preheader._crit_edge.i ], [ -1094995529, %201 ], [ -1094995529, %.critedge178.preheader._crit_edge.i ], [ -1094995529, %.critedge177.preheader._crit_edge.i ], [ -1094995529, %172 ], [ -1094995529, %162 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -18553,7 +18553,7 @@ av_isspace.exit.thread.i277:                      ; preds = %.lr.ph.i275, %.lr.p
   br i1 %.not227, label %.backedge, label %43
 
 .backedge:                                        ; preds = %41, %43
-  %.be = phi i1 [ %.not229, %43 ], [ false, %41 ]
+  %.be = phi i1 [ false, %41 ], [ %.not229, %43 ]
   %42 = call ptr @fgets(ptr noundef nonnull %3, i32 noundef 512, ptr noundef nonnull %1)
   %.not224419 = icmp eq ptr %42, null
   br i1 %.not224419, label %._crit_edge, label %.lr.ph420
@@ -18689,13 +18689,13 @@ av_isspace.exit.thread.i277:                      ; preds = %.lr.ph.i275, %.lr.p
   br i1 %exitcond481.not, label %._crit_edge434, label %.lr.ph433, !llvm.loop !230
 
 .thread331.sink.split:                            ; preds = %51, %54, %49, %71
-  %.str.65.sink = phi ptr [ @.str.68, %71 ], [ @.str.66, %51 ], [ @.str.65, %49 ], [ @.str.66, %54 ]
+  %.str.65.sink = phi ptr [ @.str.68, %71 ], [ @.str.65, %49 ], [ @.str.66, %54 ], [ @.str.66, %51 ]
   %.3.ph.ph = phi i32 [ -12, %71 ], [ -1094995529, %49 ], [ -1094995529, %54 ], [ -1094995529, %51 ]
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull %.str.65.sink) #21
   br label %.thread331
 
 .thread331:                                       ; preds = %57, %69, %.lr.ph430, %.lr.ph433, %81, %.thread331.sink.split
-  %.3.ph = phi i32 [ %.3.ph.ph, %.thread331.sink.split ], [ -1094995529, %69 ], [ -1094995529, %.lr.ph433 ], [ -1094995529, %81 ], [ -1094995529, %.lr.ph430 ], [ -12, %57 ]
+  %.3.ph = phi i32 [ -1094995529, %69 ], [ %.3.ph.ph, %.thread331.sink.split ], [ -1094995529, %.lr.ph433 ], [ -1094995529, %81 ], [ -1094995529, %.lr.ph430 ], [ -12, %57 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %.thread368
 
@@ -18994,7 +18994,7 @@ av_isspace.exit.thread.i317.us.us:                ; preds = %.lr.ph.i315.us.us, 
   br label %.thread368
 
 .thread368:                                       ; preds = %109, %99, %158, %128, %122, %.critedge398.preheader._crit_edge, %._crit_edge438, %.thread331, %113, %.critedge399.preheader._crit_edge, %._crit_edge444
-  %.8.ph = phi i32 [ -1094995529, %._crit_edge444 ], [ -1094995529, %._crit_edge438 ], [ %.3.ph, %.thread331 ], [ -1163346256, %113 ], [ -1094995529, %.critedge399.preheader._crit_edge ], [ -1094995529, %.critedge398.preheader._crit_edge ], [ -22, %122 ], [ -1163346256, %128 ], [ -1094995529, %158 ], [ -1094995529, %99 ], [ -1094995529, %109 ]
+  %.8.ph = phi i32 [ -1094995529, %._crit_edge444 ], [ -1163346256, %128 ], [ -1094995529, %._crit_edge438 ], [ %.3.ph, %.thread331 ], [ -1163346256, %113 ], [ -1094995529, %158 ], [ -1094995529, %.critedge399.preheader._crit_edge ], [ -1094995529, %.critedge398.preheader._crit_edge ], [ -22, %122 ], [ -1094995529, %99 ], [ -1094995529, %109 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)

@@ -594,8 +594,8 @@ define i32 @Abc_ResCheckNonStrict(ptr noundef readonly captures(none) %0, i32 no
   br i1 %exitcond71.not, label %._crit_edge66, label %.preheader.us, !llvm.loop !49
 
 Abc_ResCheckUnique.exit.us:                       ; preds = %.lr.ph.i43.us, %.lr.ph.i.us, %.loopexit.us, %.loopexit53.us
-  %.132.us = phi i32 [ %30, %.loopexit.us ], [ %.03155.us, %.loopexit53.us ], [ %.03155.us, %.lr.ph.i.us ], [ %.03155.us, %.lr.ph.i43.us ]
-  %.130.us = phi i32 [ %.02956.us, %.loopexit.us ], [ %21, %.loopexit53.us ], [ %.02956.us, %.lr.ph.i.us ], [ %.02956.us, %.lr.ph.i43.us ]
+  %.132.us = phi i32 [ %30, %.loopexit.us ], [ %.03155.us, %.lr.ph.i.us ], [ %.03155.us, %.loopexit53.us ], [ %.03155.us, %.lr.ph.i43.us ]
+  %.130.us = phi i32 [ %.02956.us, %.loopexit.us ], [ %.02956.us, %.lr.ph.i.us ], [ %21, %.loopexit53.us ], [ %.02956.us, %.lr.ph.i43.us ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %9, !llvm.loop !50
@@ -900,8 +900,8 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge2, %.crite
   br i1 %exitcond71.not.i, label %Abc_ResCheckNonStrict.exit, label %.preheader.us.i, !llvm.loop !49
 
 Abc_ResCheckUnique.exit.us.i:                     ; preds = %.lr.ph.i43.us.i, %.lr.ph.i.us.i, %.loopexit.us.i, %.loopexit53.us.i
-  %.132.us.i = phi i32 [ %101, %.loopexit.us.i ], [ %.03155.us.i, %.loopexit53.us.i ], [ %.03155.us.i, %.lr.ph.i.us.i ], [ %.03155.us.i, %.lr.ph.i43.us.i ]
-  %.130.us.i = phi i32 [ %.02956.us.i, %.loopexit.us.i ], [ %92, %.loopexit53.us.i ], [ %.02956.us.i, %.lr.ph.i.us.i ], [ %.02956.us.i, %.lr.ph.i43.us.i ]
+  %.132.us.i = phi i32 [ %101, %.loopexit.us.i ], [ %.03155.us.i, %.lr.ph.i.us.i ], [ %.03155.us.i, %.loopexit53.us.i ], [ %.03155.us.i, %.lr.ph.i43.us.i ]
+  %.130.us.i = phi i32 [ %.02956.us.i, %.loopexit.us.i ], [ %.02956.us.i, %.lr.ph.i.us.i ], [ %92, %.loopexit53.us.i ], [ %.02956.us.i, %.lr.ph.i43.us.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.us.i, label %80, !llvm.loop !50

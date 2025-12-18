@@ -4579,7 +4579,7 @@ _ZNK7rocksdb25TruncatedRangeDelIterator9start_keyEv.exit40: ; preds = %350, %357
   br i1 %.not60, label %.critedge31, label %62
 
 .critedge31:                                      ; preds = %_ZNK7rocksdb25TruncatedRangeDelIterator9start_keyEv.exit40, %361, %_ZNK7rocksdb25TruncatedRangeDelIterator9start_keyEv.exit33, %3
-  %363 = phi i1 [ false, %3 ], [ true, %_ZNK7rocksdb25TruncatedRangeDelIterator9start_keyEv.exit33 ], [ true, %_ZNK7rocksdb25TruncatedRangeDelIterator9start_keyEv.exit40 ], [ false, %361 ]
+  %363 = phi i1 [ true, %_ZNK7rocksdb25TruncatedRangeDelIterator9start_keyEv.exit33 ], [ false, %3 ], [ true, %_ZNK7rocksdb25TruncatedRangeDelIterator9start_keyEv.exit40 ], [ false, %361 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret i1 %363

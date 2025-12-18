@@ -1949,7 +1949,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit99: ; preds = %_ZN
   br label %_ZN7rocksdb6StatusD2Ev.exit102
 
 .thread109.thread:                                ; preds = %31, %.outer, %25
-  %.134107.ph = phi i64 [ %.033.ph170, %25 ], [ 0, %.outer ], [ %32, %31 ]
+  %.134107.ph = phi i64 [ %.033.ph170, %25 ], [ %32, %31 ], [ 0, %.outer ]
   %292 = sub i64 %3, %.134107.ph
   br label %293
 
@@ -6802,7 +6802,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit101: ; preds = %_Z
   br label %_ZN7rocksdb6StatusD2Ev.exit104
 
 .thread111.thread:                                ; preds = %47, %49, %28
-  %.136109.ph = phi i64 [ %.035152, %28 ], [ 0, %49 ], [ %36, %47 ]
+  %.136109.ph = phi i64 [ %.035152, %28 ], [ %36, %47 ], [ 0, %49 ]
   %306 = sub i64 %3, %.136109.ph
   br label %307
 

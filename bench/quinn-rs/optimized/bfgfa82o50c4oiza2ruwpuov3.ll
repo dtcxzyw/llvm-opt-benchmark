@@ -409,8 +409,8 @@ define void @_ZN4perf5stats5Stats11on_interval17h935d9f9213f903a9E(ptr noalias n
   unreachable
 
 _ZN4perf5stats8Interval3new17h4f5e7d432319a437E.exit: ; preds = %27, %31
-  %.sroa.4.0.i.i = phi i32 [ %33, %31 ], [ %.sroa.04.0.i.i, %27 ]
-  %.sroa.0.0.i.i = phi i64 [ %32, %31 ], [ %.sroa.02.0.i.i, %27 ]
+  %.sroa.4.0.i.i = phi i32 [ %.sroa.04.0.i.i, %27 ], [ %33, %31 ]
+  %.sroa.0.0.i.i = phi i64 [ %.sroa.02.0.i.i, %27 ], [ %32, %31 ]
   %36 = uitofp i64 %17 to double
   %37 = uitofp nneg i32 %18 to double
   %38 = fdiv double %37, 1.000000e+09

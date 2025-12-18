@@ -15271,7 +15271,7 @@ define hidden i64 @"_ZN103_$LT$serde..__private..de..content..ContentDeserialize
   br label %.thread.i27
 
 .thread.i27:                                      ; preds = %.loopexit.split.loop.exit168.i.i, %.loopexit.split.loop.exit166.i.i, %.loopexit.split.loop.exit.i.i, %87, %.invoke.i26, %._crit_edge.i.i
-  %.sroa.16.1.i.ph.i = phi i32 [ %83, %.invoke.i26 ], [ %.sroa.6107.0.extract.trunc.le.i.i, %.loopexit.split.loop.exit166.i.i ], [ %.sroa.6103.0.extract.trunc.le.i.i, %.loopexit.split.loop.exit168.i.i ], [ %.sroa.695.0.extract.trunc.i.i, %._crit_edge.i.i ], [ %.sroa.699.0.extract.trunc.i.i, %87 ], [ %.sroa.6111.0.extract.trunc.le.i.i, %.loopexit.split.loop.exit.i.i ]
+  %.sroa.16.1.i.ph.i = phi i32 [ %.sroa.695.0.extract.trunc.i.i, %._crit_edge.i.i ], [ %.sroa.6107.0.extract.trunc.le.i.i, %.loopexit.split.loop.exit166.i.i ], [ %.sroa.6103.0.extract.trunc.le.i.i, %.loopexit.split.loop.exit168.i.i ], [ %83, %.invoke.i26 ], [ %.sroa.699.0.extract.trunc.i.i, %87 ], [ %.sroa.6111.0.extract.trunc.le.i.i, %.loopexit.split.loop.exit.i.i ]
   invoke void @"_ZN4core3ptr223drop_in_place$LT$serde..de..value..MapDeserializer$LT$alloc..vec..into_iter..IntoIter$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$C$serde_wasm_bindgen..error..Error$GT$$GT$17hcb89720619c3b025E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %8)
           to label %.noexc39 unwind label %.body.thread52
 
@@ -29441,7 +29441,7 @@ _ZN5serde9__private2de7content17visit_content_seq17h26409881fdfc3c06E.exit: ; pr
   br label %.thread.i27
 
 .thread.i27:                                      ; preds = %.loopexit.split.loop.exit205.i.i, %.loopexit.split.loop.exit203.i.i, %.loopexit.split.loop.exit201.i.i, %.loopexit.split.loop.exit199.i.i, %.loopexit.split.loop.exit.i.i, %.invoke.i26, %._crit_edge.i.i
-  %.sroa.19.1.i.ph.i = phi i32 [ %87, %.invoke.i26 ], [ %.sroa.6130.0.extract.trunc.le.i.i, %.loopexit.split.loop.exit199.i.i ], [ %.sroa.6126.0.extract.trunc.le.i.i, %.loopexit.split.loop.exit201.i.i ], [ %.sroa.6122.0.extract.trunc.le.i.i, %.loopexit.split.loop.exit203.i.i ], [ %.sroa.6118.0.extract.trunc.le.i.i, %.loopexit.split.loop.exit205.i.i ], [ %.sroa.6114.0.extract.trunc.i.i, %._crit_edge.i.i ], [ %.sroa.6134.0.extract.trunc.le.i.i, %.loopexit.split.loop.exit.i.i ]
+  %.sroa.19.1.i.ph.i = phi i32 [ %.sroa.6114.0.extract.trunc.i.i, %._crit_edge.i.i ], [ %.sroa.6130.0.extract.trunc.le.i.i, %.loopexit.split.loop.exit199.i.i ], [ %.sroa.6126.0.extract.trunc.le.i.i, %.loopexit.split.loop.exit201.i.i ], [ %.sroa.6122.0.extract.trunc.le.i.i, %.loopexit.split.loop.exit203.i.i ], [ %.sroa.6118.0.extract.trunc.le.i.i, %.loopexit.split.loop.exit205.i.i ], [ %.sroa.6134.0.extract.trunc.le.i.i, %.loopexit.split.loop.exit.i.i ], [ %87, %.invoke.i26 ]
   invoke void @"_ZN4core3ptr223drop_in_place$LT$serde..de..value..MapDeserializer$LT$alloc..vec..into_iter..IntoIter$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$C$serde_wasm_bindgen..error..Error$GT$$GT$17hcb89720619c3b025E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %8)
           to label %_ZN5serde9__private2de7content17visit_content_map17hfd0454c857456db0E.exit unwind label %.body.thread49
 
@@ -35264,7 +35264,7 @@ define internal fastcc void @"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$
   unreachable
 
 "_ZN5serde2de5impls58_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$usize$GT$11deserialize17h79510a2dd1a56de4E.exit": ; preds = %.noexc.i.i.i, %.noexc5.i.i.i, %.noexc7.i.i.i, %.noexc9.i.i.i
-  %.sroa.5.0 = phi i32 [ %56, %.noexc9.i.i.i ], [ %33, %.noexc.i.i.i ], [ %41, %.noexc5.i.i.i ], [ %49, %.noexc7.i.i.i ]
+  %.sroa.5.0 = phi i32 [ %49, %.noexc7.i.i.i ], [ %41, %.noexc5.i.i.i ], [ %33, %.noexc.i.i.i ], [ %56, %.noexc9.i.i.i ]
   call void @"_ZN4core3ptr111drop_in_place$LT$serde..__private..de..content..ContentDeserializer$LT$serde_wasm_bindgen..error..Error$GT$$GT$17h04da8e3754f12b50E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1), !noalias !1780
   br label %61
 

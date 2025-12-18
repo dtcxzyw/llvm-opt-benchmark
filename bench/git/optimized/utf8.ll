@@ -180,7 +180,7 @@ define dso_local range(i32 -1, 3) i32 @utf8_width(ptr noundef captures(none) %0,
   br i1 %.not.i17.i, label %git_wcwidth.exit, label %.preheader.i11.i, !llvm.loop !16
 
 git_wcwidth.exit:                                 ; preds = %21, %44, %39, %27, %9, %6, %2
-  %.0 = phi i32 [ 0, %2 ], [ -1, %6 ], [ 1, %27 ], [ 1, %9 ], [ 2, %39 ], [ 1, %44 ], [ 0, %21 ]
+  %.0 = phi i32 [ 0, %2 ], [ 1, %9 ], [ 2, %39 ], [ -1, %6 ], [ 1, %27 ], [ 1, %44 ], [ 0, %21 ]
   ret i32 %.0
 }
 
@@ -526,7 +526,7 @@ display_mode_esc_sequence_len.exit:               ; preds = %21
   %.not.i17.i.i = icmp slt i32 %.120.i15.i.i, %.1.i16.i.i
   br i1 %.not.i17.i.i, label %.loopexit, label %.preheader.i11.i.i, !llvm.loop !16
 
-.loopexit:                                        ; preds = %63, %68, %51, %33
+.loopexit:                                        ; preds = %63, %68, %33, %51
   %.0.i13.ph = phi i64 [ 1, %33 ], [ 1, %51 ], [ 2, %63 ], [ 1, %68 ]
   %69 = add i64 %.0.i13.ph, %.032
   br label %utf8_width.exit
@@ -963,18 +963,18 @@ strbuf_addch.exit100:                             ; preds = %strbuf_avail.exit.i
   br i1 %.not.i17.i.i, label %utf8_width.exit, label %.preheader.i11.i.i, !llvm.loop !16
 
 utf8_width.exit.thread:                           ; preds = %108, %111
-  %.0.i103.ph = phi i32 [ 1, %111 ], [ -1, %108 ]
+  %.0.i103.ph = phi i32 [ -1, %108 ], [ 1, %111 ]
   %147 = add nsw i32 %.0.i103.ph, %.148
   br label %.loopexit133.backedge
 
 .loopexit133.backedge:                            ; preds = %utf8_width.exit.thread, %158, %utf8_width.exit
-  %.promoted.be = phi ptr [ %106, %utf8_width.exit.thread ], [ %106, %utf8_width.exit ], [ %160, %158 ]
-  %.153.be = phi i32 [ 1, %utf8_width.exit.thread ], [ 1, %utf8_width.exit ], [ 0, %158 ]
-  %.148.be = phi i32 [ %147, %utf8_width.exit.thread ], [ %148, %utf8_width.exit ], [ %159, %158 ]
+  %.promoted.be = phi ptr [ %106, %utf8_width.exit.thread ], [ %160, %158 ], [ %106, %utf8_width.exit ]
+  %.153.be = phi i32 [ 1, %utf8_width.exit.thread ], [ 0, %158 ], [ 1, %utf8_width.exit ]
+  %.148.be = phi i32 [ %147, %utf8_width.exit.thread ], [ %159, %158 ], [ %148, %utf8_width.exit ]
   br label %.loopexit133
 
 utf8_width.exit:                                  ; preds = %123, %141, %146, %104, %129
-  %.0.i103 = phi i32 [ 0, %104 ], [ 1, %129 ], [ 1, %146 ], [ 2, %141 ], [ 0, %123 ]
+  %.0.i103 = phi i32 [ 0, %104 ], [ 1, %146 ], [ 1, %129 ], [ 2, %141 ], [ 0, %123 ]
   %148 = add nsw i32 %.0.i103, %.148
   br i1 %.not.i101, label %149, label %.loopexit133.backedge
 
@@ -1207,11 +1207,11 @@ display_mode_esc_sequence_len.exit.thread:        ; preds = %display_mode_esc_se
   br i1 %.not.i17.i.i, label %utf8_width.exit, label %.preheader.i11.i.i, !llvm.loop !16
 
 utf8_width.exit:                                  ; preds = %51, %69, %74, %32, %57
-  %.0.i38 = phi i32 [ 0, %32 ], [ 1, %57 ], [ 1, %74 ], [ 2, %69 ], [ 0, %51 ]
+  %.0.i38 = phi i32 [ 0, %32 ], [ 1, %74 ], [ 1, %57 ], [ 2, %69 ], [ 0, %51 ]
   br i1 %.not.i36, label %.thread46, label %utf8_width.exit.thread
 
 utf8_width.exit.thread:                           ; preds = %39, %36, %utf8_width.exit
-  %.0.i3842 = phi i32 [ %.0.i38, %utf8_width.exit ], [ 1, %39 ], [ -1, %36 ]
+  %.0.i3842 = phi i32 [ %.0.i38, %utf8_width.exit ], [ -1, %36 ], [ 1, %39 ]
   %spec.store.select = call i32 @llvm.smax.i32(i32 %.0.i3842, i32 0)
   %.not31 = icmp sgt i32 %.0.i3842, 0
   %.not32 = icmp sge i32 %.02363, %1
@@ -2256,7 +2256,7 @@ has_bom_prefix.exit113:                           ; preds = %143
   br label %has_bom_prefix.exit118
 
 has_bom_prefix.exit118:                           ; preds = %109, %125, %143, %145, %skip_prefix.exit.i100, %has_bom_prefix.exit113, %has_bom_prefix.exit50, %has_bom_prefix.exit
-  %147 = phi i32 [ 1, %has_bom_prefix.exit50 ], [ 1, %has_bom_prefix.exit ], [ 0, %skip_prefix.exit.i100 ], [ 1, %has_bom_prefix.exit113 ], [ %146, %145 ], [ 0, %143 ], [ 0, %125 ], [ 0, %109 ]
+  %147 = phi i32 [ 1, %has_bom_prefix.exit50 ], [ 1, %has_bom_prefix.exit ], [ 0, %skip_prefix.exit.i100 ], [ 1, %has_bom_prefix.exit113 ], [ %146, %145 ], [ 0, %125 ], [ 0, %143 ], [ 0, %109 ]
   ret i32 %147
 }
 
@@ -2428,7 +2428,7 @@ has_bom_prefix.exit51:                            ; preds = %73
   br label %has_bom_prefix.exit17.thread
 
 has_bom_prefix.exit17.thread:                     ; preds = %40, %55, %75, %73, %38, %has_bom_prefix.exit51, %skip_iprefix.exit12.i35, %has_bom_prefix.exit17
-  %77 = phi i32 [ 1, %has_bom_prefix.exit17 ], [ 0, %skip_iprefix.exit12.i35 ], [ 0, %has_bom_prefix.exit51 ], [ 1, %38 ], [ %76, %75 ], [ 1, %73 ], [ 0, %55 ], [ 0, %40 ]
+  %77 = phi i32 [ 1, %has_bom_prefix.exit17 ], [ 0, %skip_iprefix.exit12.i35 ], [ 0, %has_bom_prefix.exit51 ], [ 0, %55 ], [ 1, %38 ], [ 1, %73 ], [ %76, %75 ], [ 0, %40 ]
   ret i32 %77
 }
 
@@ -2539,7 +2539,7 @@ skip_iprefix.exit12.i.i.preheader:                ; preds = %26
   br label %is_encoding_utf8.exit
 
 is_encoding_utf8.exit:                            ; preds = %11, %30, %skip_iprefix.exit12.i.i.preheader, %48, %45
-  %.0 = phi i32 [ 1, %45 ], [ %52, %48 ], [ 1, %skip_iprefix.exit12.i.i.preheader ], [ 1, %30 ], [ 1, %11 ]
+  %.0 = phi i32 [ 1, %45 ], [ %52, %48 ], [ 1, %30 ], [ 1, %skip_iprefix.exit12.i.i.preheader ], [ 1, %11 ]
   %53 = sext i32 %.0 to i64
   %54 = getelementptr inbounds i8, ptr %6, i64 %53
   store ptr %54, ptr %0, align 8, !tbaa !9
@@ -2602,7 +2602,7 @@ define dso_local range(i32 0, 2) i32 @is_hfs_dotgit(ptr noundef %0) local_unname
   br label %is_hfs_dot_str.exit
 
 is_hfs_dot_str.exit:                              ; preds = %.lr.ph.i.i, %6, %1, %._crit_edge.i.i
-  %.010.i.i = phi i32 [ 0, %1 ], [ %19, %._crit_edge.i.i ], [ 0, %6 ], [ 0, %.lr.ph.i.i ]
+  %.010.i.i = phi i32 [ %19, %._crit_edge.i.i ], [ 0, %1 ], [ 0, %6 ], [ 0, %.lr.ph.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.010.i.i
 }
@@ -2651,7 +2651,7 @@ define dso_local range(i32 0, 2) i32 @is_hfs_dotgitmodules(ptr noundef %0) local
   br label %is_hfs_dot_str.exit
 
 is_hfs_dot_str.exit:                              ; preds = %.lr.ph.i.i, %6, %1, %._crit_edge.i.i
-  %.010.i.i = phi i32 [ 0, %1 ], [ %19, %._crit_edge.i.i ], [ 0, %6 ], [ 0, %.lr.ph.i.i ]
+  %.010.i.i = phi i32 [ %19, %._crit_edge.i.i ], [ 0, %1 ], [ 0, %6 ], [ 0, %.lr.ph.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.010.i.i
 }
@@ -2700,7 +2700,7 @@ define dso_local range(i32 0, 2) i32 @is_hfs_dotgitignore(ptr noundef %0) local_
   br label %is_hfs_dot_str.exit
 
 is_hfs_dot_str.exit:                              ; preds = %.lr.ph.i.i, %6, %1, %._crit_edge.i.i
-  %.010.i.i = phi i32 [ 0, %1 ], [ %19, %._crit_edge.i.i ], [ 0, %6 ], [ 0, %.lr.ph.i.i ]
+  %.010.i.i = phi i32 [ %19, %._crit_edge.i.i ], [ 0, %1 ], [ 0, %6 ], [ 0, %.lr.ph.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.010.i.i
 }
@@ -2749,7 +2749,7 @@ define dso_local range(i32 0, 2) i32 @is_hfs_dotgitattributes(ptr noundef %0) lo
   br label %is_hfs_dot_str.exit
 
 is_hfs_dot_str.exit:                              ; preds = %.lr.ph.i.i, %6, %1, %._crit_edge.i.i
-  %.010.i.i = phi i32 [ 0, %1 ], [ %19, %._crit_edge.i.i ], [ 0, %6 ], [ 0, %.lr.ph.i.i ]
+  %.010.i.i = phi i32 [ %19, %._crit_edge.i.i ], [ 0, %1 ], [ 0, %6 ], [ 0, %.lr.ph.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.010.i.i
 }
@@ -2798,7 +2798,7 @@ define dso_local range(i32 0, 2) i32 @is_hfs_dotmailmap(ptr noundef %0) local_un
   br label %is_hfs_dot_str.exit
 
 is_hfs_dot_str.exit:                              ; preds = %.lr.ph.i.i, %6, %1, %._crit_edge.i.i
-  %.010.i.i = phi i32 [ 0, %1 ], [ %19, %._crit_edge.i.i ], [ 0, %6 ], [ 0, %.lr.ph.i.i ]
+  %.010.i.i = phi i32 [ %19, %._crit_edge.i.i ], [ 0, %1 ], [ 0, %6 ], [ 0, %.lr.ph.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.010.i.i
 }

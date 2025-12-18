@@ -44192,7 +44192,7 @@ _ZSt15__adjacent_findISt14_List_iteratorImEN9__gnu_cxx5__ops19_Iter_equal_to_ite
   br label %_ZSt6uniqueISt14_List_iteratorImEET_S2_S2_.exit
 
 _ZSt6uniqueISt14_List_iteratorImEET_S2_S2_.exit:  ; preds = %_ZSt15__adjacent_findISt14_List_iteratorImEN9__gnu_cxx5__ops19_Iter_equal_to_iterEET_S5_S5_T0_.exit.i.i, %._crit_edge.loopexit.i.i
-  %.sroa.05.0.i.i = phi ptr [ %.pre.i.i, %._crit_edge.loopexit.i.i ], [ %7, %_ZSt15__adjacent_findISt14_List_iteratorImEN9__gnu_cxx5__ops19_Iter_equal_to_iterEET_S5_S5_T0_.exit.i.i ]
+  %.sroa.05.0.i.i = phi ptr [ %7, %_ZSt15__adjacent_findISt14_List_iteratorImEN9__gnu_cxx5__ops19_Iter_equal_to_iterEET_S5_S5_T0_.exit.i.i ], [ %.pre.i.i, %._crit_edge.loopexit.i.i ]
   %.not6.i = icmp eq ptr %.sroa.05.0.i.i, %3
   br i1 %.not6.i, label %_ZNSt7__cxx114listImSaImEE5eraseESt20_List_const_iteratorImES4_.exit, label %.lr.ph.i
 
@@ -44262,7 +44262,7 @@ _ZSt15__adjacent_findISt14_List_iteratorImEN9__gnu_cxx5__ops19_Iter_equal_to_ite
   br label %_ZSt6uniqueISt14_List_iteratorImEET_S2_S2_.exit24
 
 _ZSt6uniqueISt14_List_iteratorImEET_S2_S2_.exit24: ; preds = %_ZSt15__adjacent_findISt14_List_iteratorImEN9__gnu_cxx5__ops19_Iter_equal_to_iterEET_S5_S5_T0_.exit.i.i15, %._crit_edge.loopexit.i.i21
-  %.sroa.05.0.i.i23 = phi ptr [ %.pre.i.i22, %._crit_edge.loopexit.i.i21 ], [ %33, %_ZSt15__adjacent_findISt14_List_iteratorImEN9__gnu_cxx5__ops19_Iter_equal_to_iterEET_S5_S5_T0_.exit.i.i15 ]
+  %.sroa.05.0.i.i23 = phi ptr [ %33, %_ZSt15__adjacent_findISt14_List_iteratorImEN9__gnu_cxx5__ops19_Iter_equal_to_iterEET_S5_S5_T0_.exit.i.i15 ], [ %.pre.i.i22, %._crit_edge.loopexit.i.i21 ]
   %.not6.i25 = icmp eq ptr %.sroa.05.0.i.i23, %4
   br i1 %.not6.i25, label %_ZNSt7__cxx114listImSaImEE5eraseESt20_List_const_iteratorImES4_.exit29, label %.lr.ph.i26
 
@@ -46054,7 +46054,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit81: ; preds = %_ZN
   br label %.thread
 
 .thread:                                          ; preds = %.thread.loopexit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit75, %91
-  %.1 = phi i1 [ true, %91 ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit75 ], [ %156, %.thread.loopexit ]
+  %.1 = phi i1 [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit75 ], [ true, %91 ], [ %156, %.thread.loopexit ]
   br i1 %2, label %157, label %167
 
 157:                                              ; preds = %.thread

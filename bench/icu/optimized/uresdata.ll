@@ -1547,7 +1547,7 @@ _ZNK6icu_7713ResourceArray19internalGetResourceEPK12ResourceDatai.exit: ; preds 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %95, %.loopexit.sink.split, %.preheader, %14, %5
-  %.0 = phi i32 [ 0, %5 ], [ 0, %14 ], [ %16, %.preheader ], [ %.0.ph, %.loopexit.sink.split ], [ %16, %95 ]
+  %.0 = phi i32 [ 0, %5 ], [ %.0.ph, %.loopexit.sink.split ], [ 0, %14 ], [ %16, %.preheader ], [ %16, %95 ]
   ret i32 %.0
 }
 
@@ -2815,7 +2815,7 @@ _ZL18makeResourceFrom16PK12ResourceDatai.exit:    ; preds = %70, %78
   br label %_ZL18_res_findTableItemPK12ResourceDataPKtiPKcPS5_.exit.thread
 
 _ZL18_res_findTableItemPK12ResourceDataPKtiPKcPS5_.exit.thread: ; preds = %40, %65, %42, %5, %90
-  %.014 = phi i8 [ 1, %90 ], [ 0, %5 ], [ 0, %42 ], [ 0, %65 ], [ 0, %40 ]
+  %.014 = phi i8 [ 1, %90 ], [ 0, %65 ], [ 0, %5 ], [ 0, %42 ], [ 0, %40 ]
   ret i8 %.014
 }
 

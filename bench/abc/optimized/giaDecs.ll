@@ -1658,7 +1658,7 @@ Abc_TtOr.exit.i:                                  ; preds = %13
   br label %Gia_ManDeriveBidec.exit
 
 Gia_ManDeriveBidec.exit:                          ; preds = %.lr.ph.i17.i, %Abc_TtOr.exit.i, %42, %34, %11
-  %.0 = phi ptr [ %12, %11 ], [ %41, %34 ], [ %43, %42 ], [ %26, %Abc_TtOr.exit.i ], [ %27, %.lr.ph.i17.i ]
+  %.0 = phi ptr [ %12, %11 ], [ %26, %Abc_TtOr.exit.i ], [ %41, %34 ], [ %43, %42 ], [ %27, %.lr.ph.i17.i ]
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %Gia_ResubToTruth6.exit, label %44
 

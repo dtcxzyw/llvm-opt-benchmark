@@ -813,9 +813,9 @@ _ZL11EmitCopyLenmPPj.exit:                        ; preds = %273, %278, %295, %3
   br i1 %354, label %.lr.ph251, label %_ZL7IsMatchPKhS0_m.exit13.thread.backedge, !llvm.loop !47
 
 .thread124:                                       ; preds = %_ZL23EmitCopyLenLastDistancemPPj.exit, %_ZL7IsMatchPKhS0_m.exit.us, %_ZL7IsMatchPKhS0_m.exit.us190, %_ZL11EmitCopyLenmPPj.exit, %12
-  %.086 = phi ptr [ %3, %12 ], [ %.187, %_ZL7IsMatchPKhS0_m.exit.us ], [ %324, %_ZL11EmitCopyLenmPPj.exit ], [ %.187, %_ZL7IsMatchPKhS0_m.exit.us190 ], [ %211, %_ZL23EmitCopyLenLastDistancemPPj.exit ]
-  %.0 = phi ptr [ %4, %12 ], [ %.1, %_ZL7IsMatchPKhS0_m.exit.us ], [ %143, %_ZL11EmitCopyLenmPPj.exit ], [ %.1, %_ZL7IsMatchPKhS0_m.exit.us190 ], [ %143, %_ZL23EmitCopyLenLastDistancemPPj.exit ]
-  %.3.i = phi ptr [ %.0.i261, %12 ], [ %.0273.i, %_ZL7IsMatchPKhS0_m.exit.us ], [ %270, %_ZL11EmitCopyLenmPPj.exit ], [ %.0273.i, %_ZL7IsMatchPKhS0_m.exit.us190 ], [ %104, %_ZL23EmitCopyLenLastDistancemPPj.exit ]
+  %.086 = phi ptr [ %3, %12 ], [ %.187, %_ZL7IsMatchPKhS0_m.exit.us190 ], [ %324, %_ZL11EmitCopyLenmPPj.exit ], [ %.187, %_ZL7IsMatchPKhS0_m.exit.us ], [ %211, %_ZL23EmitCopyLenLastDistancemPPj.exit ]
+  %.0 = phi ptr [ %4, %12 ], [ %.1, %_ZL7IsMatchPKhS0_m.exit.us190 ], [ %143, %_ZL11EmitCopyLenmPPj.exit ], [ %.1, %_ZL7IsMatchPKhS0_m.exit.us ], [ %143, %_ZL23EmitCopyLenLastDistancemPPj.exit ]
+  %.3.i = phi ptr [ %.0.i261, %12 ], [ %.0273.i, %_ZL7IsMatchPKhS0_m.exit.us190 ], [ %270, %_ZL11EmitCopyLenmPPj.exit ], [ %.0273.i, %_ZL7IsMatchPKhS0_m.exit.us ], [ %104, %_ZL23EmitCopyLenLastDistancemPPj.exit ]
   %355 = icmp ult ptr %.3.i, %14
   br i1 %355, label %356, label %_ZL14CreateCommandsPKhmmS0_PimmPPhPPj.exit
 
@@ -1669,9 +1669,9 @@ _ZL11EmitCopyLenmPPj.exit:                        ; preds = %273, %278, %295, %3
   br i1 %354, label %.lr.ph251, label %_ZL7IsMatchPKhS0_m.exit13.thread.backedge, !llvm.loop !47
 
 .thread124:                                       ; preds = %_ZL23EmitCopyLenLastDistancemPPj.exit, %_ZL7IsMatchPKhS0_m.exit.us, %_ZL7IsMatchPKhS0_m.exit.us190, %_ZL11EmitCopyLenmPPj.exit, %12
-  %.086 = phi ptr [ %3, %12 ], [ %.187, %_ZL7IsMatchPKhS0_m.exit.us ], [ %324, %_ZL11EmitCopyLenmPPj.exit ], [ %.187, %_ZL7IsMatchPKhS0_m.exit.us190 ], [ %211, %_ZL23EmitCopyLenLastDistancemPPj.exit ]
-  %.0 = phi ptr [ %4, %12 ], [ %.1, %_ZL7IsMatchPKhS0_m.exit.us ], [ %143, %_ZL11EmitCopyLenmPPj.exit ], [ %.1, %_ZL7IsMatchPKhS0_m.exit.us190 ], [ %143, %_ZL23EmitCopyLenLastDistancemPPj.exit ]
-  %.3.i = phi ptr [ %.0.i261, %12 ], [ %.0273.i, %_ZL7IsMatchPKhS0_m.exit.us ], [ %270, %_ZL11EmitCopyLenmPPj.exit ], [ %.0273.i, %_ZL7IsMatchPKhS0_m.exit.us190 ], [ %104, %_ZL23EmitCopyLenLastDistancemPPj.exit ]
+  %.086 = phi ptr [ %3, %12 ], [ %.187, %_ZL7IsMatchPKhS0_m.exit.us190 ], [ %324, %_ZL11EmitCopyLenmPPj.exit ], [ %.187, %_ZL7IsMatchPKhS0_m.exit.us ], [ %211, %_ZL23EmitCopyLenLastDistancemPPj.exit ]
+  %.0 = phi ptr [ %4, %12 ], [ %.1, %_ZL7IsMatchPKhS0_m.exit.us190 ], [ %143, %_ZL11EmitCopyLenmPPj.exit ], [ %.1, %_ZL7IsMatchPKhS0_m.exit.us ], [ %143, %_ZL23EmitCopyLenLastDistancemPPj.exit ]
+  %.3.i = phi ptr [ %.0.i261, %12 ], [ %.0273.i, %_ZL7IsMatchPKhS0_m.exit.us190 ], [ %270, %_ZL11EmitCopyLenmPPj.exit ], [ %.0273.i, %_ZL7IsMatchPKhS0_m.exit.us ], [ %104, %_ZL23EmitCopyLenLastDistancemPPj.exit ]
   %355 = icmp ult ptr %.3.i, %14
   br i1 %355, label %356, label %_ZL14CreateCommandsPKhmmS0_PimmPPhPPj.exit
 
@@ -2525,9 +2525,9 @@ _ZL11EmitCopyLenmPPj.exit:                        ; preds = %273, %278, %295, %3
   br i1 %354, label %.lr.ph251, label %_ZL7IsMatchPKhS0_m.exit13.thread.backedge, !llvm.loop !47
 
 .thread124:                                       ; preds = %_ZL23EmitCopyLenLastDistancemPPj.exit, %_ZL7IsMatchPKhS0_m.exit.us, %_ZL7IsMatchPKhS0_m.exit.us190, %_ZL11EmitCopyLenmPPj.exit, %12
-  %.086 = phi ptr [ %3, %12 ], [ %.187, %_ZL7IsMatchPKhS0_m.exit.us ], [ %324, %_ZL11EmitCopyLenmPPj.exit ], [ %.187, %_ZL7IsMatchPKhS0_m.exit.us190 ], [ %211, %_ZL23EmitCopyLenLastDistancemPPj.exit ]
-  %.0 = phi ptr [ %4, %12 ], [ %.1, %_ZL7IsMatchPKhS0_m.exit.us ], [ %143, %_ZL11EmitCopyLenmPPj.exit ], [ %.1, %_ZL7IsMatchPKhS0_m.exit.us190 ], [ %143, %_ZL23EmitCopyLenLastDistancemPPj.exit ]
-  %.3.i = phi ptr [ %.0.i261, %12 ], [ %.0273.i, %_ZL7IsMatchPKhS0_m.exit.us ], [ %270, %_ZL11EmitCopyLenmPPj.exit ], [ %.0273.i, %_ZL7IsMatchPKhS0_m.exit.us190 ], [ %104, %_ZL23EmitCopyLenLastDistancemPPj.exit ]
+  %.086 = phi ptr [ %3, %12 ], [ %.187, %_ZL7IsMatchPKhS0_m.exit.us190 ], [ %324, %_ZL11EmitCopyLenmPPj.exit ], [ %.187, %_ZL7IsMatchPKhS0_m.exit.us ], [ %211, %_ZL23EmitCopyLenLastDistancemPPj.exit ]
+  %.0 = phi ptr [ %4, %12 ], [ %.1, %_ZL7IsMatchPKhS0_m.exit.us190 ], [ %143, %_ZL11EmitCopyLenmPPj.exit ], [ %.1, %_ZL7IsMatchPKhS0_m.exit.us ], [ %143, %_ZL23EmitCopyLenLastDistancemPPj.exit ]
+  %.3.i = phi ptr [ %.0.i261, %12 ], [ %.0273.i, %_ZL7IsMatchPKhS0_m.exit.us190 ], [ %270, %_ZL11EmitCopyLenmPPj.exit ], [ %.0273.i, %_ZL7IsMatchPKhS0_m.exit.us ], [ %104, %_ZL23EmitCopyLenLastDistancemPPj.exit ]
   %355 = icmp ult ptr %.3.i, %14
   br i1 %355, label %356, label %_ZL14CreateCommandsPKhmmS0_PimmPPhPPj.exit
 
@@ -3381,9 +3381,9 @@ _ZL11EmitCopyLenmPPj.exit:                        ; preds = %273, %278, %295, %3
   br i1 %354, label %.lr.ph251, label %_ZL7IsMatchPKhS0_m.exit13.thread.backedge, !llvm.loop !47
 
 .thread124:                                       ; preds = %_ZL23EmitCopyLenLastDistancemPPj.exit, %_ZL7IsMatchPKhS0_m.exit.us, %_ZL7IsMatchPKhS0_m.exit.us190, %_ZL11EmitCopyLenmPPj.exit, %12
-  %.086 = phi ptr [ %3, %12 ], [ %.187, %_ZL7IsMatchPKhS0_m.exit.us ], [ %324, %_ZL11EmitCopyLenmPPj.exit ], [ %.187, %_ZL7IsMatchPKhS0_m.exit.us190 ], [ %211, %_ZL23EmitCopyLenLastDistancemPPj.exit ]
-  %.0 = phi ptr [ %4, %12 ], [ %.1, %_ZL7IsMatchPKhS0_m.exit.us ], [ %143, %_ZL11EmitCopyLenmPPj.exit ], [ %.1, %_ZL7IsMatchPKhS0_m.exit.us190 ], [ %143, %_ZL23EmitCopyLenLastDistancemPPj.exit ]
-  %.3.i = phi ptr [ %.0.i261, %12 ], [ %.0273.i, %_ZL7IsMatchPKhS0_m.exit.us ], [ %270, %_ZL11EmitCopyLenmPPj.exit ], [ %.0273.i, %_ZL7IsMatchPKhS0_m.exit.us190 ], [ %104, %_ZL23EmitCopyLenLastDistancemPPj.exit ]
+  %.086 = phi ptr [ %3, %12 ], [ %.187, %_ZL7IsMatchPKhS0_m.exit.us190 ], [ %324, %_ZL11EmitCopyLenmPPj.exit ], [ %.187, %_ZL7IsMatchPKhS0_m.exit.us ], [ %211, %_ZL23EmitCopyLenLastDistancemPPj.exit ]
+  %.0 = phi ptr [ %4, %12 ], [ %.1, %_ZL7IsMatchPKhS0_m.exit.us190 ], [ %143, %_ZL11EmitCopyLenmPPj.exit ], [ %.1, %_ZL7IsMatchPKhS0_m.exit.us ], [ %143, %_ZL23EmitCopyLenLastDistancemPPj.exit ]
+  %.3.i = phi ptr [ %.0.i261, %12 ], [ %.0273.i, %_ZL7IsMatchPKhS0_m.exit.us190 ], [ %270, %_ZL11EmitCopyLenmPPj.exit ], [ %.0273.i, %_ZL7IsMatchPKhS0_m.exit.us ], [ %104, %_ZL23EmitCopyLenLastDistancemPPj.exit ]
   %355 = icmp ult ptr %.3.i, %14
   br i1 %355, label %356, label %_ZL14CreateCommandsPKhmmS0_PimmPPhPPj.exit
 
@@ -4237,9 +4237,9 @@ _ZL11EmitCopyLenmPPj.exit:                        ; preds = %273, %278, %295, %3
   br i1 %354, label %.lr.ph251, label %_ZL7IsMatchPKhS0_m.exit13.thread.backedge, !llvm.loop !47
 
 .thread124:                                       ; preds = %_ZL23EmitCopyLenLastDistancemPPj.exit, %_ZL7IsMatchPKhS0_m.exit.us, %_ZL7IsMatchPKhS0_m.exit.us190, %_ZL11EmitCopyLenmPPj.exit, %12
-  %.086 = phi ptr [ %3, %12 ], [ %.187, %_ZL7IsMatchPKhS0_m.exit.us ], [ %324, %_ZL11EmitCopyLenmPPj.exit ], [ %.187, %_ZL7IsMatchPKhS0_m.exit.us190 ], [ %211, %_ZL23EmitCopyLenLastDistancemPPj.exit ]
-  %.0 = phi ptr [ %4, %12 ], [ %.1, %_ZL7IsMatchPKhS0_m.exit.us ], [ %143, %_ZL11EmitCopyLenmPPj.exit ], [ %.1, %_ZL7IsMatchPKhS0_m.exit.us190 ], [ %143, %_ZL23EmitCopyLenLastDistancemPPj.exit ]
-  %.3.i = phi ptr [ %.0.i261, %12 ], [ %.0273.i, %_ZL7IsMatchPKhS0_m.exit.us ], [ %270, %_ZL11EmitCopyLenmPPj.exit ], [ %.0273.i, %_ZL7IsMatchPKhS0_m.exit.us190 ], [ %104, %_ZL23EmitCopyLenLastDistancemPPj.exit ]
+  %.086 = phi ptr [ %3, %12 ], [ %.187, %_ZL7IsMatchPKhS0_m.exit.us190 ], [ %324, %_ZL11EmitCopyLenmPPj.exit ], [ %.187, %_ZL7IsMatchPKhS0_m.exit.us ], [ %211, %_ZL23EmitCopyLenLastDistancemPPj.exit ]
+  %.0 = phi ptr [ %4, %12 ], [ %.1, %_ZL7IsMatchPKhS0_m.exit.us190 ], [ %143, %_ZL11EmitCopyLenmPPj.exit ], [ %.1, %_ZL7IsMatchPKhS0_m.exit.us ], [ %143, %_ZL23EmitCopyLenLastDistancemPPj.exit ]
+  %.3.i = phi ptr [ %.0.i261, %12 ], [ %.0273.i, %_ZL7IsMatchPKhS0_m.exit.us190 ], [ %270, %_ZL11EmitCopyLenmPPj.exit ], [ %.0273.i, %_ZL7IsMatchPKhS0_m.exit.us ], [ %104, %_ZL23EmitCopyLenLastDistancemPPj.exit ]
   %355 = icmp ult ptr %.3.i, %14
   br i1 %355, label %356, label %_ZL14CreateCommandsPKhmmS0_PimmPPhPPj.exit
 
@@ -5093,9 +5093,9 @@ _ZL11EmitCopyLenmPPj.exit:                        ; preds = %273, %278, %295, %3
   br i1 %354, label %.lr.ph251, label %_ZL7IsMatchPKhS0_m.exit13.thread.backedge, !llvm.loop !47
 
 .thread124:                                       ; preds = %_ZL23EmitCopyLenLastDistancemPPj.exit, %_ZL7IsMatchPKhS0_m.exit.us, %_ZL7IsMatchPKhS0_m.exit.us190, %_ZL11EmitCopyLenmPPj.exit, %12
-  %.086 = phi ptr [ %3, %12 ], [ %.187, %_ZL7IsMatchPKhS0_m.exit.us ], [ %324, %_ZL11EmitCopyLenmPPj.exit ], [ %.187, %_ZL7IsMatchPKhS0_m.exit.us190 ], [ %211, %_ZL23EmitCopyLenLastDistancemPPj.exit ]
-  %.0 = phi ptr [ %4, %12 ], [ %.1, %_ZL7IsMatchPKhS0_m.exit.us ], [ %143, %_ZL11EmitCopyLenmPPj.exit ], [ %.1, %_ZL7IsMatchPKhS0_m.exit.us190 ], [ %143, %_ZL23EmitCopyLenLastDistancemPPj.exit ]
-  %.3.i = phi ptr [ %.0.i261, %12 ], [ %.0273.i, %_ZL7IsMatchPKhS0_m.exit.us ], [ %270, %_ZL11EmitCopyLenmPPj.exit ], [ %.0273.i, %_ZL7IsMatchPKhS0_m.exit.us190 ], [ %104, %_ZL23EmitCopyLenLastDistancemPPj.exit ]
+  %.086 = phi ptr [ %3, %12 ], [ %.187, %_ZL7IsMatchPKhS0_m.exit.us190 ], [ %324, %_ZL11EmitCopyLenmPPj.exit ], [ %.187, %_ZL7IsMatchPKhS0_m.exit.us ], [ %211, %_ZL23EmitCopyLenLastDistancemPPj.exit ]
+  %.0 = phi ptr [ %4, %12 ], [ %.1, %_ZL7IsMatchPKhS0_m.exit.us190 ], [ %143, %_ZL11EmitCopyLenmPPj.exit ], [ %.1, %_ZL7IsMatchPKhS0_m.exit.us ], [ %143, %_ZL23EmitCopyLenLastDistancemPPj.exit ]
+  %.3.i = phi ptr [ %.0.i261, %12 ], [ %.0273.i, %_ZL7IsMatchPKhS0_m.exit.us190 ], [ %270, %_ZL11EmitCopyLenmPPj.exit ], [ %.0273.i, %_ZL7IsMatchPKhS0_m.exit.us ], [ %104, %_ZL23EmitCopyLenLastDistancemPPj.exit ]
   %355 = icmp ult ptr %.3.i, %14
   br i1 %355, label %356, label %_ZL14CreateCommandsPKhmmS0_PimmPPhPPj.exit
 
@@ -5949,9 +5949,9 @@ _ZL11EmitCopyLenmPPj.exit:                        ; preds = %273, %278, %295, %3
   br i1 %354, label %.lr.ph251, label %_ZL7IsMatchPKhS0_m.exit13.thread.backedge, !llvm.loop !47
 
 .thread124:                                       ; preds = %_ZL23EmitCopyLenLastDistancemPPj.exit, %_ZL7IsMatchPKhS0_m.exit.us, %_ZL7IsMatchPKhS0_m.exit.us190, %_ZL11EmitCopyLenmPPj.exit, %12
-  %.086 = phi ptr [ %3, %12 ], [ %.187, %_ZL7IsMatchPKhS0_m.exit.us ], [ %324, %_ZL11EmitCopyLenmPPj.exit ], [ %.187, %_ZL7IsMatchPKhS0_m.exit.us190 ], [ %211, %_ZL23EmitCopyLenLastDistancemPPj.exit ]
-  %.0 = phi ptr [ %4, %12 ], [ %.1, %_ZL7IsMatchPKhS0_m.exit.us ], [ %143, %_ZL11EmitCopyLenmPPj.exit ], [ %.1, %_ZL7IsMatchPKhS0_m.exit.us190 ], [ %143, %_ZL23EmitCopyLenLastDistancemPPj.exit ]
-  %.3.i = phi ptr [ %.0.i261, %12 ], [ %.0273.i, %_ZL7IsMatchPKhS0_m.exit.us ], [ %270, %_ZL11EmitCopyLenmPPj.exit ], [ %.0273.i, %_ZL7IsMatchPKhS0_m.exit.us190 ], [ %104, %_ZL23EmitCopyLenLastDistancemPPj.exit ]
+  %.086 = phi ptr [ %3, %12 ], [ %.187, %_ZL7IsMatchPKhS0_m.exit.us190 ], [ %324, %_ZL11EmitCopyLenmPPj.exit ], [ %.187, %_ZL7IsMatchPKhS0_m.exit.us ], [ %211, %_ZL23EmitCopyLenLastDistancemPPj.exit ]
+  %.0 = phi ptr [ %4, %12 ], [ %.1, %_ZL7IsMatchPKhS0_m.exit.us190 ], [ %143, %_ZL11EmitCopyLenmPPj.exit ], [ %.1, %_ZL7IsMatchPKhS0_m.exit.us ], [ %143, %_ZL23EmitCopyLenLastDistancemPPj.exit ]
+  %.3.i = phi ptr [ %.0.i261, %12 ], [ %.0273.i, %_ZL7IsMatchPKhS0_m.exit.us190 ], [ %270, %_ZL11EmitCopyLenmPPj.exit ], [ %.0273.i, %_ZL7IsMatchPKhS0_m.exit.us ], [ %104, %_ZL23EmitCopyLenLastDistancemPPj.exit ]
   %355 = icmp ult ptr %.3.i, %14
   br i1 %355, label %356, label %_ZL14CreateCommandsPKhmmS0_PimmPPhPPj.exit
 
@@ -6805,9 +6805,9 @@ _ZL11EmitCopyLenmPPj.exit:                        ; preds = %273, %278, %295, %3
   br i1 %354, label %.lr.ph251, label %_ZL7IsMatchPKhS0_m.exit13.thread.backedge, !llvm.loop !47
 
 .thread124:                                       ; preds = %_ZL23EmitCopyLenLastDistancemPPj.exit, %_ZL7IsMatchPKhS0_m.exit.us, %_ZL7IsMatchPKhS0_m.exit.us190, %_ZL11EmitCopyLenmPPj.exit, %12
-  %.086 = phi ptr [ %3, %12 ], [ %.187, %_ZL7IsMatchPKhS0_m.exit.us ], [ %324, %_ZL11EmitCopyLenmPPj.exit ], [ %.187, %_ZL7IsMatchPKhS0_m.exit.us190 ], [ %211, %_ZL23EmitCopyLenLastDistancemPPj.exit ]
-  %.0 = phi ptr [ %4, %12 ], [ %.1, %_ZL7IsMatchPKhS0_m.exit.us ], [ %143, %_ZL11EmitCopyLenmPPj.exit ], [ %.1, %_ZL7IsMatchPKhS0_m.exit.us190 ], [ %143, %_ZL23EmitCopyLenLastDistancemPPj.exit ]
-  %.3.i = phi ptr [ %.0.i261, %12 ], [ %.0273.i, %_ZL7IsMatchPKhS0_m.exit.us ], [ %270, %_ZL11EmitCopyLenmPPj.exit ], [ %.0273.i, %_ZL7IsMatchPKhS0_m.exit.us190 ], [ %104, %_ZL23EmitCopyLenLastDistancemPPj.exit ]
+  %.086 = phi ptr [ %3, %12 ], [ %.187, %_ZL7IsMatchPKhS0_m.exit.us190 ], [ %324, %_ZL11EmitCopyLenmPPj.exit ], [ %.187, %_ZL7IsMatchPKhS0_m.exit.us ], [ %211, %_ZL23EmitCopyLenLastDistancemPPj.exit ]
+  %.0 = phi ptr [ %4, %12 ], [ %.1, %_ZL7IsMatchPKhS0_m.exit.us190 ], [ %143, %_ZL11EmitCopyLenmPPj.exit ], [ %.1, %_ZL7IsMatchPKhS0_m.exit.us ], [ %143, %_ZL23EmitCopyLenLastDistancemPPj.exit ]
+  %.3.i = phi ptr [ %.0.i261, %12 ], [ %.0273.i, %_ZL7IsMatchPKhS0_m.exit.us190 ], [ %270, %_ZL11EmitCopyLenmPPj.exit ], [ %.0273.i, %_ZL7IsMatchPKhS0_m.exit.us ], [ %104, %_ZL23EmitCopyLenLastDistancemPPj.exit ]
   %355 = icmp ult ptr %.3.i, %14
   br i1 %355, label %356, label %_ZL14CreateCommandsPKhmmS0_PimmPPhPPj.exit
 
@@ -7777,9 +7777,9 @@ _ZL11EmitCopyLenmPPj.exit:                        ; preds = %336, %341, %357, %3
   br i1 %425, label %.lr.ph265, label %_ZL7IsMatchPKhS0_m.exit13.thread.backedge, !llvm.loop !47
 
 .thread124:                                       ; preds = %_ZL23EmitCopyLenLastDistancemPPj.exit, %.split, %.split.us, %_ZL11EmitCopyLenmPPj.exit, %.backedge.us, %.backedge.us212, %12
-  %.088 = phi ptr [ %3, %12 ], [ %.189, %.split ], [ %.189, %.backedge.us212 ], [ %.189, %.backedge.us ], [ %386, %_ZL11EmitCopyLenmPPj.exit ], [ %.189, %.split.us ], [ %251, %_ZL23EmitCopyLenLastDistancemPPj.exit ]
-  %.0 = phi ptr [ %4, %12 ], [ %.1, %.split ], [ %.1, %.backedge.us212 ], [ %.1, %.backedge.us ], [ %183, %_ZL11EmitCopyLenmPPj.exit ], [ %.1, %.split.us ], [ %183, %_ZL23EmitCopyLenLastDistancemPPj.exit ]
-  %.3.i = phi ptr [ %.0.i282, %12 ], [ %.0273.i, %.split ], [ %.0273.i, %.backedge.us212 ], [ %.0273.i, %.backedge.us ], [ %333, %_ZL11EmitCopyLenmPPj.exit ], [ %.0273.i, %.split.us ], [ %144, %_ZL23EmitCopyLenLastDistancemPPj.exit ]
+  %.088 = phi ptr [ %3, %12 ], [ %.189, %.split ], [ %.189, %.split.us ], [ %.189, %.backedge.us ], [ %.189, %.backedge.us212 ], [ %386, %_ZL11EmitCopyLenmPPj.exit ], [ %251, %_ZL23EmitCopyLenLastDistancemPPj.exit ]
+  %.0 = phi ptr [ %4, %12 ], [ %.1, %.split ], [ %.1, %.split.us ], [ %.1, %.backedge.us ], [ %.1, %.backedge.us212 ], [ %183, %_ZL11EmitCopyLenmPPj.exit ], [ %183, %_ZL23EmitCopyLenLastDistancemPPj.exit ]
+  %.3.i = phi ptr [ %.0.i282, %12 ], [ %.0273.i, %.split ], [ %.0273.i, %.split.us ], [ %.0273.i, %.backedge.us ], [ %.0273.i, %.backedge.us212 ], [ %333, %_ZL11EmitCopyLenmPPj.exit ], [ %144, %_ZL23EmitCopyLenLastDistancemPPj.exit ]
   %426 = icmp ult ptr %.3.i, %14
   br i1 %426, label %427, label %_ZL14CreateCommandsPKhmmS0_PimmPPhPPj.exit
 
@@ -8749,9 +8749,9 @@ _ZL11EmitCopyLenmPPj.exit:                        ; preds = %336, %341, %357, %3
   br i1 %425, label %.lr.ph265, label %_ZL7IsMatchPKhS0_m.exit13.thread.backedge, !llvm.loop !47
 
 .thread124:                                       ; preds = %_ZL23EmitCopyLenLastDistancemPPj.exit, %.split, %.split.us, %_ZL11EmitCopyLenmPPj.exit, %.backedge.us, %.backedge.us212, %12
-  %.088 = phi ptr [ %3, %12 ], [ %.189, %.split ], [ %.189, %.backedge.us212 ], [ %.189, %.backedge.us ], [ %386, %_ZL11EmitCopyLenmPPj.exit ], [ %.189, %.split.us ], [ %251, %_ZL23EmitCopyLenLastDistancemPPj.exit ]
-  %.0 = phi ptr [ %4, %12 ], [ %.1, %.split ], [ %.1, %.backedge.us212 ], [ %.1, %.backedge.us ], [ %183, %_ZL11EmitCopyLenmPPj.exit ], [ %.1, %.split.us ], [ %183, %_ZL23EmitCopyLenLastDistancemPPj.exit ]
-  %.3.i = phi ptr [ %.0.i282, %12 ], [ %.0273.i, %.split ], [ %.0273.i, %.backedge.us212 ], [ %.0273.i, %.backedge.us ], [ %333, %_ZL11EmitCopyLenmPPj.exit ], [ %.0273.i, %.split.us ], [ %144, %_ZL23EmitCopyLenLastDistancemPPj.exit ]
+  %.088 = phi ptr [ %3, %12 ], [ %.189, %.split ], [ %.189, %.split.us ], [ %.189, %.backedge.us ], [ %.189, %.backedge.us212 ], [ %386, %_ZL11EmitCopyLenmPPj.exit ], [ %251, %_ZL23EmitCopyLenLastDistancemPPj.exit ]
+  %.0 = phi ptr [ %4, %12 ], [ %.1, %.split ], [ %.1, %.split.us ], [ %.1, %.backedge.us ], [ %.1, %.backedge.us212 ], [ %183, %_ZL11EmitCopyLenmPPj.exit ], [ %183, %_ZL23EmitCopyLenLastDistancemPPj.exit ]
+  %.3.i = phi ptr [ %.0.i282, %12 ], [ %.0273.i, %.split ], [ %.0273.i, %.split.us ], [ %.0273.i, %.backedge.us ], [ %.0273.i, %.backedge.us212 ], [ %333, %_ZL11EmitCopyLenmPPj.exit ], [ %144, %_ZL23EmitCopyLenLastDistancemPPj.exit ]
   %426 = icmp ult ptr %.3.i, %14
   br i1 %426, label %427, label %_ZL14CreateCommandsPKhmmS0_PimmPPhPPj.exit
 

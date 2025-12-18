@@ -377,7 +377,7 @@ define hidden range(i32 0, 2) i32 @_cmsRegisterTransformPlugin(ptr noundef %0, p
   br label %20
 
 20:                                               ; preds = %.sink.split, %9, %5
-  %.0 = phi i32 [ 0, %5 ], [ 0, %9 ], [ 1, %.sink.split ]
+  %.0 = phi i32 [ 0, %9 ], [ 0, %5 ], [ 1, %.sink.split ]
   ret i32 %.0
 }
 
@@ -626,8 +626,8 @@ define hidden ptr @cmsCreateExtendedTransform(ptr noundef %0, i32 noundef %1, pt
   br label %192
 
 GetXFormColorSpaces.exit:                         ; preds = %80, %53, %56, %59
-  %.3 = phi i32 [ %54, %53 ], [ %57, %56 ], [ 826494034, %59 ], [ %spec.select, %80 ]
-  %.0113 = phi i32 [ %55, %53 ], [ %58, %56 ], [ %60, %59 ], [ %.031.i, %80 ]
+  %.3 = phi i32 [ 826494034, %59 ], [ %54, %53 ], [ %57, %56 ], [ %spec.select, %80 ]
+  %.0113 = phi i32 [ %60, %59 ], [ %55, %53 ], [ %58, %56 ], [ %.031.i, %80 ]
   %82 = lshr i32 %8, 16
   %83 = and i32 %82, 31
   %84 = tail call i32 @_cmsLCMScolorSpace(i32 noundef %.3) #11

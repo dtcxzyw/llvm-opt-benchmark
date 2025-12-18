@@ -9313,8 +9313,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   br label %75
 
 75:                                               ; preds = %68, %64
-  %76 = phi i8 [ %66, %64 ], [ %.pre.i.i.i.i.i.i.i.i.i, %68 ]
-  %.sroa.3.0.i.i.ph.i.i.i.i.i.i.i.i.i = phi i64 [ %.sroa.4.19.i.i.i.i.i.i.i.i.i.i.i, %64 ], [ %74, %68 ]
+  %76 = phi i8 [ %.pre.i.i.i.i.i.i.i.i.i, %68 ], [ %66, %64 ]
+  %.sroa.3.0.i.i.ph.i.i.i.i.i.i.i.i.i = phi i64 [ %74, %68 ], [ %.sroa.4.19.i.i.i.i.i.i.i.i.i.i.i, %64 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1716)
   %77 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i.i.i.i.i.i.i, i64 %.sroa.3.0.i.i.ph.i.i.i.i.i.i.i.i.i
   %78 = and i8 %76, 1
@@ -10995,8 +10995,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   br label %76
 
 76:                                               ; preds = %69, %65
-  %77 = phi i8 [ %67, %65 ], [ %.pre.i.i.i.i.i, %69 ]
-  %.sroa.3.0.i.i.ph.i.i.i.i.i = phi i64 [ %.sroa.4.19.i.i.i.i.i.i.i, %65 ], [ %75, %69 ]
+  %77 = phi i8 [ %.pre.i.i.i.i.i, %69 ], [ %67, %65 ]
+  %.sroa.3.0.i.i.ph.i.i.i.i.i = phi i64 [ %75, %69 ], [ %.sroa.4.19.i.i.i.i.i.i.i, %65 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2097)
   %78 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i.i.i, i64 %.sroa.3.0.i.i.ph.i.i.i.i.i
   %79 = and i8 %77, 1
@@ -13540,7 +13540,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   br i1 %87, label %"_ZN4core3num21_$LT$impl$u20$u32$GT$16from_ascii_radix17h3f1310e0f637ec61E.exit.thread.i.i.i.i", label %88, !prof !2557
 
 "_ZN4core3num21_$LT$impl$u20$u32$GT$16from_ascii_radix17h3f1310e0f637ec61E.exit.thread.i.i.i.i": ; preds = %"_ZN4core3num21_$LT$impl$u20$u32$GT$16from_ascii_radix17h3f1310e0f637ec61E.exit.i.i.i.i", %44, %44, %40, %69, %62, %.lr.ph.i.i.i.i.i
-  %.sroa.8.0.insert.insert.i16.i.i.i.i = phi i64 [ 257, %.lr.ph.i.i.i.i.i ], [ 257, %62 ], [ 513, %69 ], [ 1, %40 ], [ 257, %44 ], [ 257, %44 ], [ %.sroa.8.0.insert.insert.i.i.i.i.i, %"_ZN4core3num21_$LT$impl$u20$u32$GT$16from_ascii_radix17h3f1310e0f637ec61E.exit.i.i.i.i" ]
+  %.sroa.8.0.insert.insert.i16.i.i.i.i = phi i64 [ 513, %69 ], [ 257, %.lr.ph.i.i.i.i.i ], [ 257, %62 ], [ 1, %40 ], [ 257, %44 ], [ %.sroa.8.0.insert.insert.i.i.i.i.i, %"_ZN4core3num21_$LT$impl$u20$u32$GT$16from_ascii_radix17h3f1310e0f637ec61E.exit.i.i.i.i" ], [ 257, %44 ]
   %.sroa.4.0.extract.shift.i.i.i.i.i = lshr i64 %.sroa.8.0.insert.insert.i16.i.i.i.i, 8
   %.sroa.4.0.extract.trunc.i.i.i.i.i = trunc i64 %.sroa.4.0.extract.shift.i.i.i.i.i to i8
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !2546
@@ -13639,8 +13639,8 @@ common.resume.i.i:                                ; preds = %.body.i.i.i, %21
   br label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h958fb9a00790ad0aE.exit
 
 103:                                              ; preds = %"_ZN4core3ptr126drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$std..io..error..Error$GT$$GT$$GT$17hb64cd72d5c701b82E.exit.i.i.i.i", %98
-  %.sroa.05.1.i = phi i64 [ undef, %"_ZN4core3ptr126drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$std..io..error..Error$GT$$GT$$GT$17hb64cd72d5c701b82E.exit.i.i.i.i" ], [ %.sroa.6.0.extract.shift.i.i.i.i.i, %98 ]
-  %.sink.i.i = phi i64 [ -9223372036854775808, %"_ZN4core3ptr126drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$std..io..error..Error$GT$$GT$$GT$17hb64cd72d5c701b82E.exit.i.i.i.i" ], [ %.sroa.4.i.sroa.3.4.copyload.i.i.i, %98 ]
+  %.sroa.05.1.i = phi i64 [ %.sroa.6.0.extract.shift.i.i.i.i.i, %98 ], [ undef, %"_ZN4core3ptr126drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$std..io..error..Error$GT$$GT$$GT$17hb64cd72d5c701b82E.exit.i.i.i.i" ]
+  %.sink.i.i = phi i64 [ %.sroa.4.i.sroa.3.4.copyload.i.i.i, %98 ], [ -9223372036854775808, %"_ZN4core3ptr126drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$std..io..error..Error$GT$$GT$$GT$17hb64cd72d5c701b82E.exit.i.i.i.i" ]
   call void @"_ZN4core3ptr135drop_in_place$LT$core..option..IntoIter$LT$core..result..Result$LT$$LP$u32$C$std..path..PathBuf$RP$$C$std..io..error..Error$GT$$GT$$GT$17h2fa2040f342c6543E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5), !noalias !2588
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !2568
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8.i.i)

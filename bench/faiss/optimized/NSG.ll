@@ -1130,7 +1130,7 @@ _ZN5faiss3nsg16insert_into_poolEPNS0_8NeighborEiS1_.exit.sink.split: ; preds = %
   br label %_ZN5faiss3nsg16insert_into_poolEPNS0_8NeighborEiS1_.exit
 
 _ZN5faiss3nsg16insert_into_poolEPNS0_8NeighborEiS1_.exit: ; preds = %176, %_ZN5faiss3nsg16insert_into_poolEPNS0_8NeighborEiS1_.exit.sink.split, %._crit_edge.i, %186
-  %.0.i = phi i32 [ %10, %186 ], [ %10, %._crit_edge.i ], [ %.0.i.ph, %_ZN5faiss3nsg16insert_into_poolEPNS0_8NeighborEiS1_.exit.sink.split ], [ %10, %176 ]
+  %.0.i = phi i32 [ %.0.i.ph, %_ZN5faiss3nsg16insert_into_poolEPNS0_8NeighborEiS1_.exit.sink.split ], [ %10, %186 ], [ %10, %._crit_edge.i ], [ %10, %176 ]
   %.sroa.speculated = call i32 @llvm.smin.i32(i32 %.0.i, i32 %.1167)
   br label %196
 
@@ -4056,7 +4056,7 @@ _ZN5faiss3nsg16insert_into_poolEPNS0_8NeighborEiS1_.exit.sink.split: ; preds = %
   br label %_ZN5faiss3nsg16insert_into_poolEPNS0_8NeighborEiS1_.exit
 
 _ZN5faiss3nsg16insert_into_poolEPNS0_8NeighborEiS1_.exit: ; preds = %178, %_ZN5faiss3nsg16insert_into_poolEPNS0_8NeighborEiS1_.exit.sink.split, %._crit_edge.i, %188
-  %.0.i = phi i32 [ %10, %188 ], [ %10, %._crit_edge.i ], [ %.0.i.ph, %_ZN5faiss3nsg16insert_into_poolEPNS0_8NeighborEiS1_.exit.sink.split ], [ %10, %178 ]
+  %.0.i = phi i32 [ %.0.i.ph, %_ZN5faiss3nsg16insert_into_poolEPNS0_8NeighborEiS1_.exit.sink.split ], [ %10, %188 ], [ %10, %._crit_edge.i ], [ %10, %178 ]
   %.sroa.speculated = call i32 @llvm.smin.i32(i32 %.0.i, i32 %.1164)
   br label %198
 
@@ -5038,7 +5038,7 @@ _ZN5faiss3nsg16insert_into_poolEPNS0_8NeighborEiS1_.exit.sink.split: ; preds = %
   br label %_ZN5faiss3nsg16insert_into_poolEPNS0_8NeighborEiS1_.exit
 
 _ZN5faiss3nsg16insert_into_poolEPNS0_8NeighborEiS1_.exit: ; preds = %236, %_ZN5faiss3nsg16insert_into_poolEPNS0_8NeighborEiS1_.exit.sink.split, %._crit_edge.i, %245
-  %.0.i = phi i32 [ %10, %245 ], [ %10, %._crit_edge.i ], [ %.0.i.ph, %_ZN5faiss3nsg16insert_into_poolEPNS0_8NeighborEiS1_.exit.sink.split ], [ %10, %236 ]
+  %.0.i = phi i32 [ %.0.i.ph, %_ZN5faiss3nsg16insert_into_poolEPNS0_8NeighborEiS1_.exit.sink.split ], [ %10, %245 ], [ %10, %._crit_edge.i ], [ %10, %236 ]
   %.sroa.speculated = call i32 @llvm.smin.i32(i32 %.0.i, i32 %.1192)
   br label %255
 
@@ -5392,9 +5392,9 @@ _ZNSt6vectorIN5faiss3nsg4NodeESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx1
   br label %_ZNSt6vectorIN5faiss3nsg4NodeESaIS2_EE9push_backERKS2_.exit85
 
 _ZNSt6vectorIN5faiss3nsg4NodeESaIS2_EE9push_backERKS2_.exit85: ; preds = %120, %132, %_ZNSt6vectorIN5faiss3nsg4NodeESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i82, %136
-  %.sroa.0.2 = phi ptr [ %.sroa.0.0153226, %136 ], [ %147, %_ZNSt6vectorIN5faiss3nsg4NodeESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i82 ], [ %.sroa.0.0153226, %132 ], [ %.sroa.0.0153226, %120 ]
-  %.sroa.17.1 = phi ptr [ %138, %136 ], [ %152, %_ZNSt6vectorIN5faiss3nsg4NodeESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i82 ], [ %.sroa.17.0154225, %132 ], [ %.sroa.17.0154225, %120 ]
-  %.sroa.28.2 = phi ptr [ %.sroa.28.0155224, %136 ], [ %153, %_ZNSt6vectorIN5faiss3nsg4NodeESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i82 ], [ %.sroa.28.0155224, %132 ], [ %.sroa.28.0155224, %120 ]
+  %.sroa.0.2 = phi ptr [ %147, %_ZNSt6vectorIN5faiss3nsg4NodeESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i82 ], [ %.sroa.0.0153226, %136 ], [ %.sroa.0.0153226, %132 ], [ %.sroa.0.0153226, %120 ]
+  %.sroa.17.1 = phi ptr [ %152, %_ZNSt6vectorIN5faiss3nsg4NodeESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i82 ], [ %138, %136 ], [ %.sroa.17.0154225, %132 ], [ %.sroa.17.0154225, %120 ]
+  %.sroa.28.2 = phi ptr [ %153, %_ZNSt6vectorIN5faiss3nsg4NodeESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i82 ], [ %.sroa.28.0155224, %136 ], [ %.sroa.28.0155224, %132 ], [ %.sroa.28.0155224, %120 ]
   %154 = ptrtoint ptr %.sroa.17.1 to i64
   %155 = ptrtoint ptr %.sroa.0.2 to i64
   %156 = sub i64 %154, %155
@@ -6008,9 +6008,9 @@ _ZNSt6vectorIN5faiss3nsg4NodeESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx1
   br label %171
 
 _ZNSt6vectorIN5faiss3nsg4NodeESaIS2_EE9push_backERKS2_.exit122: ; preds = %112, %124, %_ZNSt6vectorIN5faiss3nsg4NodeESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i119, %128
-  %.sroa.0137.4 = phi ptr [ %.sroa.0137.2322568, %128 ], [ %139, %_ZNSt6vectorIN5faiss3nsg4NodeESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i119 ], [ %.sroa.0137.2322568, %124 ], [ %.sroa.0137.2322568, %112 ]
-  %.sroa.16.3 = phi ptr [ %130, %128 ], [ %144, %_ZNSt6vectorIN5faiss3nsg4NodeESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i119 ], [ %.sroa.16.2323567, %124 ], [ %.sroa.16.2323567, %112 ]
-  %.sroa.27.4 = phi ptr [ %.sroa.27.2324566, %128 ], [ %145, %_ZNSt6vectorIN5faiss3nsg4NodeESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i119 ], [ %.sroa.27.2324566, %124 ], [ %.sroa.27.2324566, %112 ]
+  %.sroa.0137.4 = phi ptr [ %139, %_ZNSt6vectorIN5faiss3nsg4NodeESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i119 ], [ %.sroa.0137.2322568, %128 ], [ %.sroa.0137.2322568, %124 ], [ %.sroa.0137.2322568, %112 ]
+  %.sroa.16.3 = phi ptr [ %144, %_ZNSt6vectorIN5faiss3nsg4NodeESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i119 ], [ %130, %128 ], [ %.sroa.16.2323567, %124 ], [ %.sroa.16.2323567, %112 ]
+  %.sroa.27.4 = phi ptr [ %145, %_ZNSt6vectorIN5faiss3nsg4NodeESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i119 ], [ %.sroa.27.2324566, %128 ], [ %.sroa.27.2324566, %124 ], [ %.sroa.27.2324566, %112 ]
   %146 = ptrtoint ptr %.sroa.16.3 to i64
   %147 = ptrtoint ptr %.sroa.0137.4 to i64
   %148 = sub i64 %146, %147
@@ -6136,9 +6136,9 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit131:       ; preds = %188
   br label %_ZNSt6vectorIN5faiss3nsg4NodeESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIN5faiss3nsg4NodeESaIS2_EED2Ev.exit:  ; preds = %38, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit131, %193, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit131.preheader
-  %.sink = phi ptr [ %177, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit131.preheader ], [ %177, %193 ], [ %177, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit131 ], [ %25, %38 ]
-  %.sroa.26.3 = phi ptr [ %.sroa.26.6, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit131.preheader ], [ %.sroa.26.6, %193 ], [ %.sroa.26.6, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit131 ], [ %.sroa.26.1307, %38 ]
-  %.sroa.0159.3 = phi ptr [ %.sroa.0159.6, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit131.preheader ], [ %.sroa.0159.6, %193 ], [ %.sroa.0159.6, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit131 ], [ %.sroa.0159.1309, %38 ]
+  %.sink = phi ptr [ %177, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit131 ], [ %177, %193 ], [ %177, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit131.preheader ], [ %25, %38 ]
+  %.sroa.26.3 = phi ptr [ %.sroa.26.6, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit131 ], [ %.sroa.26.6, %193 ], [ %.sroa.26.6, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit131.preheader ], [ %.sroa.26.1307, %38 ]
+  %.sroa.0159.3 = phi ptr [ %.sroa.0159.6, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit131 ], [ %.sroa.0159.6, %193 ], [ %.sroa.0159.6, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit131.preheader ], [ %.sroa.0159.1309, %38 ]
   %195 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %.sink) #17
   %.not.i.i.i132 = icmp eq ptr %.sroa.0159.3, null
   br i1 %.not.i.i.i132, label %_ZNSt6vectorIN5faiss3nsg4NodeESaIS2_EED2Ev.exit133, label %196
@@ -8467,7 +8467,7 @@ _ZN5faiss3nsg16insert_into_poolEPNS0_8NeighborEiS1_.exit.sink.split: ; preds = %
   br label %_ZN5faiss3nsg16insert_into_poolEPNS0_8NeighborEiS1_.exit
 
 _ZN5faiss3nsg16insert_into_poolEPNS0_8NeighborEiS1_.exit: ; preds = %234, %_ZN5faiss3nsg16insert_into_poolEPNS0_8NeighborEiS1_.exit.sink.split, %._crit_edge.i, %243
-  %.0.i = phi i32 [ %10, %243 ], [ %10, %._crit_edge.i ], [ %.0.i.ph, %_ZN5faiss3nsg16insert_into_poolEPNS0_8NeighborEiS1_.exit.sink.split ], [ %10, %234 ]
+  %.0.i = phi i32 [ %.0.i.ph, %_ZN5faiss3nsg16insert_into_poolEPNS0_8NeighborEiS1_.exit.sink.split ], [ %10, %243 ], [ %10, %._crit_edge.i ], [ %10, %234 ]
   %.sroa.speculated = call i32 @llvm.smin.i32(i32 %.0.i, i32 %.1196)
   br label %253
 

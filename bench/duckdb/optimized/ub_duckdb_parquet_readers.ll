@@ -4470,7 +4470,7 @@ define linkonce_odr noundef i64 @_ZN6duckdb16ListColumnReader12ReadInternalINS_2
   br label %.thread66
 
 .thread66.backedge:                               ; preds = %85, %65, %51
-  %.05188.be = phi i64 [ %.4.us, %65 ], [ %.4.us.us, %51 ], [ %.4, %85 ]
+  %.05188.be = phi i64 [ %.4.us.us, %51 ], [ %.4.us, %65 ], [ %.4, %85 ]
   br label %.thread66
 
 .thread66:                                        ; preds = %.thread66.backedge, %5
@@ -4648,7 +4648,7 @@ define linkonce_odr noundef i64 @_ZN6duckdb16ListColumnReader12ReadInternalINS_2
   br i1 %102, label %.lr.ph, label %.thread69, !llvm.loop !326
 
 .thread69:                                        ; preds = %19, %.lr.ph, %88, %.split80.us
-  %.051.lcssa = phi i64 [ %1, %88 ], [ %.us-phi81, %.split80.us ], [ %1, %.lr.ph ], [ %.05188, %19 ]
+  %.051.lcssa = phi i64 [ %1, %.lr.ph ], [ %.us-phi81, %.split80.us ], [ %1, %88 ], [ %.05188, %19 ]
   ret i64 %.051.lcssa
 }
 

@@ -2092,7 +2092,7 @@ define dso_local range(i32 0, 2) i32 @prepare_multi_pack_index_one(ptr noundef %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %11, %14, %20, %22, %3
-  %.0 = phi i32 [ 0, %3 ], [ 1, %20 ], [ 1, %22 ], [ 0, %14 ], [ 1, %11 ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %14 ], [ 1, %20 ], [ 1, %22 ], [ 1, %11 ]
   ret i32 %.0
 }
 

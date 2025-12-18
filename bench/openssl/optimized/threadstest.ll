@@ -313,7 +313,7 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %1, %12, %9, %6, %15
-  %.0 = phi i32 [ 1, %15 ], [ 0, %9 ], [ 0, %6 ], [ 0, %12 ], [ 0, %1 ]
+  %.0 = phi i32 [ 0, %12 ], [ 1, %15 ], [ 0, %9 ], [ 0, %6 ], [ 0, %1 ]
   ret i32 %.0
 }
 
@@ -987,7 +987,7 @@ define internal range(i32 0, 2) i32 @test_multi_shared_pkey_release() #1 {
   br i1 %.not.i, label %.lr.ph.preheader, label %.preheader.i
 
 .lr.ph.preheader:                                 ; preds = %.preheader, %.preheader.i, %0, %3, %15
-  %.227.ph = phi i64 [ 1, %0 ], [ 1, %3 ], [ 10, %15 ], [ 10, %.preheader.i ], [ %.125, %.preheader ]
+  %.227.ph = phi i64 [ 10, %.preheader.i ], [ 1, %3 ], [ 1, %0 ], [ 10, %15 ], [ %.125, %.preheader ]
   br label %.lr.ph
 
 19:                                               ; preds = %.preheader.i
@@ -1164,9 +1164,9 @@ start_threads.exit:                               ; preds = %22
   br label %teardown_threads.exit
 
 teardown_threads.exit:                            ; preds = %.preheader.i, %.lr.ph.i, %18, %0, %.loopexit, %thread_setup_libctx.exit, %9, %13
-  %.04 = phi ptr [ %11, %.loopexit ], [ null, %thread_setup_libctx.exit ], [ null, %0 ], [ %11, %13 ], [ %11, %9 ], [ %11, %18 ], [ %11, %.lr.ph.i ], [ %11, %.preheader.i ]
-  %.03 = phi ptr [ null, %.loopexit ], [ %7, %thread_setup_libctx.exit ], [ null, %0 ], [ %7, %13 ], [ %7, %9 ], [ null, %18 ], [ null, %.lr.ph.i ], [ null, %.preheader.i ]
-  %.0 = phi i32 [ %spec.select, %.loopexit ], [ 0, %thread_setup_libctx.exit ], [ 0, %0 ], [ 0, %13 ], [ 0, %9 ], [ 0, %18 ], [ 0, %.lr.ph.i ], [ 0, %.preheader.i ]
+  %.04 = phi ptr [ %11, %.lr.ph.i ], [ %11, %.loopexit ], [ null, %thread_setup_libctx.exit ], [ null, %0 ], [ %11, %13 ], [ %11, %9 ], [ %11, %18 ], [ %11, %.preheader.i ]
+  %.03 = phi ptr [ null, %.lr.ph.i ], [ null, %.loopexit ], [ %7, %thread_setup_libctx.exit ], [ null, %0 ], [ %7, %13 ], [ %7, %9 ], [ null, %18 ], [ null, %.preheader.i ]
+  %.0 = phi i32 [ 0, %.lr.ph.i ], [ %spec.select, %.loopexit ], [ 0, %thread_setup_libctx.exit ], [ 0, %0 ], [ 0, %13 ], [ 0, %9 ], [ 0, %18 ], [ 0, %.preheader.i ]
   %43 = tail call i32 @OSSL_PROVIDER_unload(ptr noundef %.03) #11
   tail call void @EVP_MD_free(ptr noundef %.04) #11
   %44 = load ptr, ptr @multi_provider, align 16, !tbaa !24
@@ -1327,7 +1327,7 @@ start_threads.exit:                               ; preds = %11
   br label %teardown_threads.exit
 
 teardown_threads.exit:                            ; preds = %.preheader.i, %.lr.ph.i, %7, %.loopexit, %5
-  %.0 = phi i32 [ 0, %5 ], [ %spec.select, %.loopexit ], [ 0, %7 ], [ 0, %.lr.ph.i ], [ 0, %.preheader.i ]
+  %.0 = phi i32 [ 0, %5 ], [ %spec.select, %.loopexit ], [ 0, %.lr.ph.i ], [ 0, %7 ], [ 0, %.preheader.i ]
   %35 = load ptr, ptr @multi_provider, align 16, !tbaa !24
   %.not4.i = icmp eq ptr %35, null
   br i1 %.not4.i, label %thead_teardown_libctx.exit, label %.lr.ph.i13
@@ -2608,7 +2608,7 @@ start_threads.exit13:                             ; preds = %.preheader.i8.prehe
   br label %teardown_threads.exit
 
 teardown_threads.exit:                            ; preds = %.lr.ph.i, %.preheader.i.preheader, %.preheader.i8.preheader, %start_threads.exit, %9, %.loopexit, %1, %4
-  %.0 = phi i32 [ 0, %1 ], [ %spec.select, %.loopexit ], [ 0, %4 ], [ 0, %9 ], [ 0, %start_threads.exit ], [ 0, %.preheader.i8.preheader ], [ 0, %.preheader.i.preheader ], [ 0, %.lr.ph.i ]
+  %.0 = phi i32 [ 0, %1 ], [ %spec.select, %.loopexit ], [ 0, %4 ], [ 0, %.preheader.i.preheader ], [ 0, %.preheader.i8.preheader ], [ 0, %9 ], [ 0, %start_threads.exit ], [ 0, %.lr.ph.i ]
   %43 = load ptr, ptr @shared_evp_pkey, align 8, !tbaa !18
   tail call void @EVP_PKEY_free(ptr noundef %43) #11
   %44 = load ptr, ptr @multi_provider, align 16, !tbaa !24

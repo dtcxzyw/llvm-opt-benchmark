@@ -1917,7 +1917,7 @@ _ZNK18vframeStreamCommon8frame_idEv.exit39:       ; preds = %125, %133
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit60, %.loopexit.loopexit, %._crit_edge, %.split.us
-  %.0.ph48 = phi i32 [ %.0.ph5765, %.split.us ], [ 0, %._crit_edge ], [ %154, %.loopexit.loopexit ], [ %155, %.loopexit.loopexit60 ]
+  %.0.ph48 = phi i32 [ %.0.ph5765, %.split.us ], [ %154, %.loopexit.loopexit ], [ 0, %._crit_edge ], [ %155, %.loopexit.loopexit60 ]
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %.0.ph48, ptr %156, align 8
   %157 = icmp ne i32 %.0.ph48, 0

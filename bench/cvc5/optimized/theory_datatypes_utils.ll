@@ -3731,7 +3731,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit211: ; preds = %_ZNSt6vectorIN4cvc
   br label %256
 
 .critedge47:                                      ; preds = %190, %55, %196, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit72, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i, %163, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit211, %192
-  %.026 = phi i1 [ true, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit72 ], [ true, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i ], [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit211 ], [ true, %163 ], [ false, %192 ], [ true, %196 ], [ false, %55 ], [ false, %190 ]
+  %.026 = phi i1 [ true, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit72 ], [ true, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i ], [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit211 ], [ true, %163 ], [ true, %196 ], [ false, %192 ], [ false, %55 ], [ false, %190 ]
   ret i1 %.026
 
 256:                                              ; preds = %.body, %189, %53

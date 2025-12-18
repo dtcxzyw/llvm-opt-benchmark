@@ -514,7 +514,7 @@ _ZL24FindFirstNonCommonLetterRKSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt
   br label %_ZL24FindFirstNonCommonLetterRKSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE.exit
 
 _ZL24FindFirstNonCommonLetterRKSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE.exit: ; preds = %._crit_edge.i, %_ZL24FindFirstNonCommonLetterRKSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE.exit.loopexit, %190, %.lr.ph17.i
-  %.5.i = phi i32 [ 0, %190 ], [ %194, %.lr.ph17.i ], [ %206, %_ZL24FindFirstNonCommonLetterRKSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE.exit.loopexit ], [ %194, %._crit_edge.i ]
+  %.5.i = phi i32 [ %206, %_ZL24FindFirstNonCommonLetterRKSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE.exit.loopexit ], [ 0, %190 ], [ %194, %.lr.ph17.i ], [ %194, %._crit_edge.i ]
   %207 = sub i32 %.5.i, %2
   %208 = icmp eq i32 %207, 1
   %209 = getelementptr inbounds nuw i8, ptr %0, i64 24

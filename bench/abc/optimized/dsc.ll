@@ -1926,7 +1926,7 @@ Abc_TtCofactor1.exit.i:                           ; preds = %._crit_edge.us.i.i,
   br i1 %exitcond.not.i277, label %cubeCofactor.exit333, label %354, !llvm.loop !31
 
 cubeCofactor.exit333:                             ; preds = %Abc_TtCofactor1.exit.i293, %Abc_TtCofactor1.exit.i, %348, %265
-  %431 = phi ptr [ %266, %265 ], [ %349, %348 ], [ %349, %Abc_TtCofactor1.exit.i ], [ %266, %Abc_TtCofactor1.exit.i293 ]
+  %431 = phi ptr [ %349, %Abc_TtCofactor1.exit.i ], [ %266, %265 ], [ %349, %348 ], [ %266, %Abc_TtCofactor1.exit.i293 ]
   %.in102.idx.i = select i1 %.not17.i.i, i64 8, i64 0
   %.in102.i = getelementptr inbounds nuw i8, ptr %216, i64 %.in102.idx.i
   %432 = load ptr, ptr %.in102.i, align 8, !tbaa !13
@@ -2349,7 +2349,7 @@ define i32 @Dsc_CountAnds_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   br i1 %65, label %.lr.ph, label %.loopexit, !llvm.loop !59
 
 .loopexit:                                        ; preds = %.lr.ph, %.thread85, %35, %31, %._crit_edge
-  %.0 = phi i32 [ %52, %._crit_edge ], [ 0, %31 ], [ 0, %35 ], [ 3, %.thread85 ], [ %63, %.lr.ph ]
+  %.0 = phi i32 [ 0, %35 ], [ %52, %._crit_edge ], [ 0, %31 ], [ 3, %.thread85 ], [ %63, %.lr.ph ]
   ret i32 %.0
 }
 

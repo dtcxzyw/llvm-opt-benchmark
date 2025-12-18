@@ -1917,7 +1917,7 @@ define internal fastcc noundef zeroext i1 @sg_miter_get_next_page(ptr noundef ca
   br label %.critedge
 
 .critedge:                                        ; preds = %45, %.thread, %1, %.critedge2, %10, %5
-  %66 = phi i1 [ false, %5 ], [ false, %10 ], [ true, %.critedge2 ], [ true, %1 ], [ false, %.thread ], [ false, %45 ]
+  %66 = phi i1 [ false, %5 ], [ false, %10 ], [ true, %1 ], [ true, %.critedge2 ], [ false, %.thread ], [ false, %45 ]
   ret i1 %66
 }
 
@@ -2166,12 +2166,12 @@ define dso_local range(i64 0, 4294967296) i64 @sg_copy_buffer(ptr noundef %0, i3
   br label %79
 
 79:                                               ; preds = %.lr.ph, %.critedge7
-  %80 = phi i32 [ %26, %.lr.ph ], [ 1, %.critedge7 ]
-  %81 = phi i32 [ %25, %.lr.ph ], [ %70, %.critedge7 ]
-  %82 = phi i32 [ %24, %.lr.ph ], [ %69, %.critedge7 ]
-  %83 = phi ptr [ %23, %.lr.ph ], [ %35, %.critedge7 ]
-  %84 = phi i32 [ %22, %.lr.ph ], [ %36, %.critedge7 ]
-  %85 = phi i32 [ %21, %.lr.ph ], [ %78, %.critedge7 ]
+  %80 = phi i32 [ 1, %.critedge7 ], [ %26, %.lr.ph ]
+  %81 = phi i32 [ %70, %.critedge7 ], [ %25, %.lr.ph ]
+  %82 = phi i32 [ %69, %.critedge7 ], [ %24, %.lr.ph ]
+  %83 = phi ptr [ %35, %.critedge7 ], [ %23, %.lr.ph ]
+  %84 = phi i32 [ %36, %.critedge7 ], [ %22, %.lr.ph ]
+  %85 = phi i32 [ %78, %.critedge7 ], [ %21, %.lr.ph ]
   %86 = zext i32 %85 to i64
   %87 = tail call i64 @llvm.smin.i64(i64 %20, i64 %86)
   %88 = trunc i64 %87 to i32
@@ -2287,7 +2287,7 @@ define dso_local range(i64 0, 4294967296) i64 @sg_copy_buffer(ptr noundef %0, i3
   br label %.critedge
 
 .critedge:                                        ; preds = %28, %59, %46, %130, %141, %147, %127
-  %150 = phi i64 [ %122, %127 ], [ %122, %130 ], [ %122, %147 ], [ %122, %141 ], [ 0, %59 ], [ 0, %46 ], [ 0, %28 ]
+  %150 = phi i64 [ 0, %59 ], [ %122, %127 ], [ %122, %130 ], [ %122, %141 ], [ %122, %147 ], [ 0, %46 ], [ 0, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i64 %150
 }
@@ -2425,12 +2425,12 @@ define dso_local range(i64 0, 4294967296) i64 @sg_zero_buffer(ptr noundef %0, i3
   br label %76
 
 76:                                               ; preds = %.lr.ph, %.critedge7
-  %77 = phi i32 [ %23, %.lr.ph ], [ 1, %.critedge7 ]
-  %78 = phi i32 [ %22, %.lr.ph ], [ %67, %.critedge7 ]
-  %79 = phi i32 [ %21, %.lr.ph ], [ %66, %.critedge7 ]
-  %80 = phi ptr [ %20, %.lr.ph ], [ %32, %.critedge7 ]
-  %81 = phi i32 [ %19, %.lr.ph ], [ %33, %.critedge7 ]
-  %82 = phi i32 [ %18, %.lr.ph ], [ %75, %.critedge7 ]
+  %77 = phi i32 [ 1, %.critedge7 ], [ %23, %.lr.ph ]
+  %78 = phi i32 [ %67, %.critedge7 ], [ %22, %.lr.ph ]
+  %79 = phi i32 [ %66, %.critedge7 ], [ %21, %.lr.ph ]
+  %80 = phi ptr [ %32, %.critedge7 ], [ %20, %.lr.ph ]
+  %81 = phi i32 [ %33, %.critedge7 ], [ %19, %.lr.ph ]
+  %82 = phi i32 [ %75, %.critedge7 ], [ %18, %.lr.ph ]
   %83 = zext i32 %82 to i64
   %84 = tail call i64 @llvm.smin.i64(i64 %17, i64 %83)
   %85 = trunc i64 %84 to i32
@@ -2522,7 +2522,7 @@ define dso_local range(i64 0, 4294967296) i64 @sg_zero_buffer(ptr noundef %0, i3
   br label %.critedge
 
 .critedge:                                        ; preds = %25, %56, %43, %108, %119, %125, %.loopexit.thread
-  %128 = phi i64 [ %105, %.loopexit.thread ], [ %105, %108 ], [ %105, %125 ], [ %105, %119 ], [ 0, %56 ], [ 0, %43 ], [ 0, %25 ]
+  %128 = phi i64 [ 0, %56 ], [ %105, %.loopexit.thread ], [ %105, %108 ], [ %105, %119 ], [ %105, %125 ], [ 0, %43 ], [ 0, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %128
 }

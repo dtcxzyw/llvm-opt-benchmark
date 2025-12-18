@@ -292,7 +292,7 @@ mbedtls_xor_no_simd.exit83:                       ; preds = %.lr.ph101, %..prehe
   br label %.loopexit
 
 .loopexit:                                        ; preds = %mbedtls_xor_no_simd.exit83, %.mbedtls_xor_no_simd.exit83_crit_edge.us, %mbedtls_xor_no_simd.exit, %83, %._crit_edge, %3, %6, %10
-  %.0 = phi i32 [ -24832, %3 ], [ -24832, %10 ], [ -24832, %6 ], [ %39, %mbedtls_xor_no_simd.exit ], [ 0, %83 ], [ 0, %._crit_edge ], [ %62, %.mbedtls_xor_no_simd.exit83_crit_edge.us ], [ %77, %mbedtls_xor_no_simd.exit83 ]
+  %.0 = phi i32 [ -24832, %3 ], [ -24832, %10 ], [ -24832, %6 ], [ %39, %mbedtls_xor_no_simd.exit ], [ 0, %._crit_edge ], [ 0, %83 ], [ %62, %.mbedtls_xor_no_simd.exit83_crit_edge.us ], [ %77, %mbedtls_xor_no_simd.exit83 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -1088,7 +1088,7 @@ define internal fastcc i32 @cmac_test_wth_cipher(i32 noundef %0, ptr noundef %1,
   br i1 %cond34, label %49, label %.split.us
 
 .split.us:                                        ; preds = %.preheader.split.split.us, %.preheader.split.split, %.preheader.split.us.split.us, %.preheader.split.us.split
-  %.us-phi = phi i32 [ %48, %.preheader.split.split ], [ %26, %.preheader.split.us.split ], [ %17, %.preheader.split.us.split.us ], [ %37, %.preheader.split.split.us ]
+  %.us-phi = phi i32 [ %17, %.preheader.split.us.split.us ], [ %48, %.preheader.split.split ], [ %26, %.preheader.split.us.split ], [ %37, %.preheader.split.split.us ]
   br i1 %.not, label %.loopexit, label %.loopexit.sink.split
 
 49:                                               ; preds = %.preheader.split.split
@@ -1099,7 +1099,7 @@ define internal fastcc i32 @cmac_test_wth_cipher(i32 noundef %0, ptr noundef %1,
   br i1 %.not34, label %53, label %.split7.us
 
 .split7.us:                                       ; preds = %38, %49, %18, %27
-  %.us-phi8 = phi i32 [ %52, %49 ], [ %30, %27 ], [ %21, %18 ], [ %41, %38 ]
+  %.us-phi8 = phi i32 [ %30, %27 ], [ %52, %49 ], [ %21, %18 ], [ %41, %38 ]
   br i1 %.not, label %.loopexit, label %.loopexit.sink.split
 
 53:                                               ; preds = %49
@@ -1114,7 +1114,7 @@ define internal fastcc i32 @cmac_test_wth_cipher(i32 noundef %0, ptr noundef %1,
   br label %.loopexit
 
 .loopexit:                                        ; preds = %42, %53, %22, %31, %.loopexit.sink.split, %8, %.split7.us, %.split.us
-  %.0 = phi i32 [ -24704, %8 ], [ %.us-phi, %.split.us ], [ %.us-phi8, %.split7.us ], [ %.0.ph, %.loopexit.sink.split ], [ 0, %53 ], [ 0, %31 ], [ 0, %22 ], [ 0, %42 ]
+  %.0 = phi i32 [ -24704, %8 ], [ %.0.ph, %.loopexit.sink.split ], [ %.us-phi, %.split.us ], [ 0, %53 ], [ %.us-phi8, %.split7.us ], [ 0, %22 ], [ 0, %31 ], [ 0, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
 }

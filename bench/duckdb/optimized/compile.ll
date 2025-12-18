@@ -1815,7 +1815,7 @@ define hidden noundef i32 @_ZN10duckdb_re28Compiler20CachedRuneByteSuffixEhhbi(p
   br label %.loopexit, !llvm.loop !84
 
 _ZNSt13unordered_mapImiSt4hashImESt8equal_toImESaISt4pairIKmiEEE4findERS5_.exit: ; preds = %38, %22, %33
-  %.sroa.06.1.i.i = phi ptr [ %34, %33 ], [ %.sroa.06.0.i.i, %22 ], [ %40, %38 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %22 ], [ %34, %33 ], [ %40, %38 ]
   %45 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %46 = load i32, ptr %45, align 8, !tbaa !85
   br label %71
@@ -1875,7 +1875,7 @@ _ZNSt10_HashtableImSt4pairIKmiESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4
   resume { ptr, i32 } %70
 
 _ZNSt13unordered_mapImiSt4hashImESt8equal_toImESaISt4pairIKmiEEEixERS5_.exit: ; preds = %59, %54, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %55, %54 ], [ %69, %.loopexit.i.i ], [ %61, %59 ]
+  %.pn.i.i = phi ptr [ %69, %.loopexit.i.i ], [ %55, %54 ], [ %61, %59 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   store i32 %47, ptr %.1.i.i, align 4, !tbaa !62
   br label %71
@@ -2205,8 +2205,8 @@ _ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit: ; preds = %75, %58, %70
   br label %_ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit.thread
 
 _ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit.thread: ; preds = %.lr.ph.i.i.i.i.i, %57, %62, %..loopexit_crit_edge21.i.i.i.i.i, %84, %106, %108
-  %.054 = phi i32 [ %82, %84 ], [ %1, %108 ], [ %1, %106 ], [ %1, %..loopexit_crit_edge21.i.i.i.i.i ], [ %1, %62 ], [ %1, %57 ], [ %1, %.lr.ph.i.i.i.i.i ]
-  %.151 = phi i32 [ %82, %84 ], [ %82, %108 ], [ %82, %106 ], [ %.050, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.050, %62 ], [ %.050, %57 ], [ %.050, %.lr.ph.i.i.i.i.i ]
+  %.054 = phi i32 [ %1, %106 ], [ %82, %84 ], [ %1, %108 ], [ %1, %..loopexit_crit_edge21.i.i.i.i.i ], [ %1, %57 ], [ %1, %62 ], [ %1, %.lr.ph.i.i.i.i.i ]
+  %.151 = phi i32 [ %82, %106 ], [ %82, %84 ], [ %82, %108 ], [ %.050, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.050, %57 ], [ %.050, %62 ], [ %.050, %.lr.ph.i.i.i.i.i ]
   %113 = sext i32 %2 to i64
   %114 = load ptr, ptr %32, align 8, !tbaa !55
   %115 = getelementptr inbounds nuw %"class.duckdb_re2::Prog::Inst", ptr %114, i64 %113
@@ -2298,7 +2298,7 @@ _ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit.thread: ; preds = %.lr.p
   br label %_ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit72
 
 _ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit72: ; preds = %156, %139, %151, %.loopexit
-  %166 = phi ptr [ %.pre86, %.loopexit ], [ %114, %151 ], [ %114, %139 ], [ %114, %156 ]
+  %166 = phi ptr [ %114, %139 ], [ %.pre86, %.loopexit ], [ %114, %151 ], [ %114, %156 ]
   %167 = sext i32 %.151 to i64
   %168 = getelementptr inbounds nuw %"class.duckdb_re2::Prog::Inst", ptr %166, i64 %167
   %169 = load i32, ptr %168, align 4, !tbaa !73
@@ -3014,7 +3014,7 @@ tailrecurse.backedge:                             ; preds = %22, %58, %63
   br i1 %108, label %.lr.ph121, label %.loopexit, !llvm.loop !104
 
 .loopexit:                                        ; preds = %107, %89, %90, %.preheader
-  %.2 = phi i32 [ 0, %.preheader ], [ 0, %90 ], [ %.1, %89 ], [ %.4, %107 ]
+  %.2 = phi i32 [ %.1, %89 ], [ 0, %.preheader ], [ 0, %90 ], [ %.4, %107 ]
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %110 = load i8, ptr %109, align 8, !tbaa !49, !range !56, !noundef !57
   %111 = trunc nuw i8 %110 to i1
@@ -4768,7 +4768,7 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %286, %_ZNKSt7__cxx1
   br label %301
 
 .loopexit:                                        ; preds = %125, %75, %70, %110, %73, %68, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit, %._crit_edge, %_ZN10duckdb_re28Compiler5MatchEi.exit, %65, %_ZN10LogMessageD2Ev.exit, %_ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE.exit376, %_ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE.exit358, %_ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE.exit340, %_ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE.exit322, %_ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE.exit304, %_ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE.exit, %202, %201, %_ZN10duckdb_re28Compiler9ByteRangeEiib.exit, %_ZN10duckdb_re28Compiler10BeginRangeEv.exit, %108, %96, %90, %84, %78, %_ZN10duckdb_re28Compiler3NopEv.exit, %40, %37
-  %.0..0..fca.0.load = phi i64 [ %.0..0..0..0..0..fca.0.load.i, %37 ], [ %.0..0..0..0..0..fca.0.load.i260, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit ], [ %.sroa.0.0.copyload.i265, %._crit_edge ], [ %.0..0..sroa.0143.0.copyload, %_ZN10duckdb_re28Compiler5MatchEi.exit ], [ %.fca.0.extract139, %65 ], [ %.0..0..0..0..0..fca.0.load.i380, %_ZN10LogMessageD2Ev.exit ], [ %.0..0..fca.0.load.i364, %_ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE.exit376 ], [ %.0..0..fca.0.load.i346, %_ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE.exit358 ], [ %.0..0..fca.0.load.i328, %_ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE.exit340 ], [ %.0..0..fca.0.load.i310, %_ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE.exit322 ], [ %.0..0..fca.0.load.i292, %_ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE.exit304 ], [ %.0..0..fca.0.load.i275, %_ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE.exit ], [ %.fca.0.extract25, %202 ], [ %.0..0..0..fca.0.load.pre, %201 ], [ %.0..0..fca.0.load.i246, %_ZN10duckdb_re28Compiler9ByteRangeEiib.exit ], [ %.sroa.0.0.copyload.i, %_ZN10duckdb_re28Compiler10BeginRangeEv.exit ], [ %.fca.0.extract85, %108 ], [ %.fca.0.extract89, %96 ], [ %.fca.0.extract93, %90 ], [ %.fca.0.extract99, %84 ], [ %.fca.0.extract105, %78 ], [ %.0..0..fca.0.load.i219, %_ZN10duckdb_re28Compiler3NopEv.exit ], [ %.0..0..0..0..0..fca.0.load.i212, %40 ], [ %.0..0..promoted505, %68 ], [ %.0..0..promoted498, %73 ], [ %.0..0..promoted, %110 ], [ %.fca.0.extract111, %75 ], [ %.fca.0.extract125, %70 ], [ %.fca.0.extract75493, %125 ]
+  %.0..0..fca.0.load = phi i64 [ %.fca.0.extract111, %75 ], [ %.fca.0.extract125, %70 ], [ %.0..0..0..0..0..fca.0.load.i, %37 ], [ %.0..0..0..0..0..fca.0.load.i260, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit ], [ %.sroa.0.0.copyload.i265, %._crit_edge ], [ %.0..0..sroa.0143.0.copyload, %_ZN10duckdb_re28Compiler5MatchEi.exit ], [ %.fca.0.extract139, %65 ], [ %.0..0..0..0..0..fca.0.load.i380, %_ZN10LogMessageD2Ev.exit ], [ %.0..0..fca.0.load.i364, %_ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE.exit376 ], [ %.0..0..fca.0.load.i346, %_ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE.exit358 ], [ %.0..0..fca.0.load.i328, %_ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE.exit340 ], [ %.0..0..fca.0.load.i310, %_ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE.exit322 ], [ %.0..0..fca.0.load.i292, %_ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE.exit304 ], [ %.0..0..fca.0.load.i275, %_ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE.exit ], [ %.fca.0.extract25, %202 ], [ %.0..0..0..fca.0.load.pre, %201 ], [ %.0..0..fca.0.load.i246, %_ZN10duckdb_re28Compiler9ByteRangeEiib.exit ], [ %.sroa.0.0.copyload.i, %_ZN10duckdb_re28Compiler10BeginRangeEv.exit ], [ %.fca.0.extract85, %108 ], [ %.fca.0.extract89, %96 ], [ %.fca.0.extract93, %90 ], [ %.fca.0.extract99, %84 ], [ %.fca.0.extract105, %78 ], [ %.0..0..fca.0.load.i219, %_ZN10duckdb_re28Compiler3NopEv.exit ], [ %.0..0..0..0..0..fca.0.load.i212, %40 ], [ %.0..0..promoted505, %68 ], [ %.0..0..promoted498, %73 ], [ %.0..0..promoted, %110 ], [ %.fca.0.extract75493, %125 ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.0..0..fca.0.load, 0
   %.8..8..8..fca.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 8
   %.8..8..8..fca.1.load = load i64, ptr %.8..8..8..fca.1.gep.sroa_idx, align 8

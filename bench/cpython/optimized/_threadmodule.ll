@@ -3257,7 +3257,7 @@ _PyOnceFlag_CallOnce.exit:                        ; preds = %.split29.us
   br label %.thread
 
 .thread:                                          ; preds = %42, %44, %39, %35, %.split.us.split.us, %_PyOnceFlag_CallOnce.exit, %.split29.us, %check_started.exit.thread, %27
-  %.0 = phi i32 [ -1, %27 ], [ -1, %check_started.exit.thread ], [ %spec.select, %_PyOnceFlag_CallOnce.exit ], [ 0, %.split29.us ], [ 0, %.split.us.split.us ], [ -1, %35 ], [ 0, %39 ], [ -1, %44 ], [ 0, %42 ]
+  %.0 = phi i32 [ -1, %27 ], [ -1, %check_started.exit.thread ], [ %spec.select, %_PyOnceFlag_CallOnce.exit ], [ 0, %.split29.us ], [ -1, %35 ], [ 0, %.split.us.split.us ], [ 0, %39 ], [ -1, %44 ], [ 0, %42 ]
   ret i32 %.0
 }
 
@@ -5207,7 +5207,7 @@ Py_DECREF.exit22.sink.split.i:                    ; preds = %70, %46
   br label %create_sentinel_wr.exit
 
 create_sentinel_wr.exit:                          ; preds = %65, %70, %Py_DECREF.exit22.sink.split.i
-  %.0.i32 = phi ptr [ %68, %70 ], [ %68, %65 ], [ %.0.ph.i, %Py_DECREF.exit22.sink.split.i ]
+  %.0.i32 = phi ptr [ %.0.ph.i, %Py_DECREF.exit22.sink.split.i ], [ %68, %65 ], [ %68, %70 ]
   %73 = icmp eq ptr %.0.i32, null
   br i1 %73, label %create_sentinel_wr.exit.thread, label %79
 

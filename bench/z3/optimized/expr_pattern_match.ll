@@ -1416,7 +1416,7 @@ define hidden void @_ZN18expr_pattern_match11instantiateEP4exprjR7obj_mapI9func_
   br i1 %.not27.old.i.i.i, label %_ZNK7obj_mapI4exprPS0_E4findES1_RS1_.exit.thread, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %74, %71
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %74 ], [ %73, %71 ]
+  %.137.i.i.i.be = phi ptr [ %73, %71 ], [ %.old.i.i.i, %74 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !129
 
 _ZNK7obj_mapI4exprPS0_E4findES1_RS1_.exit:        ; preds = %55, %66
@@ -1688,7 +1688,7 @@ _ZNK15ref_vector_coreI10quantifier19ref_manager_wrapperIS0_11ast_managerEE4sizeE
   br label %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit.thread
 
 _ZNK6vectorIP4exprLb0EjE5emptyEv.exit.thread:     ; preds = %_ZNK15ref_vector_coreI10quantifier19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit, %.critedge, %12, %4, %27, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit
-  %.012 = phi i1 [ false, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit ], [ true, %27 ], [ false, %4 ], [ false, %12 ], [ false, %.critedge ], [ false, %_ZNK15ref_vector_coreI10quantifier19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit ]
+  %.012 = phi i1 [ false, %4 ], [ false, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit ], [ true, %27 ], [ false, %12 ], [ false, %.critedge ], [ false, %_ZNK15ref_vector_coreI10quantifier19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit ]
   ret i1 %.012
 }
 
@@ -2258,7 +2258,7 @@ _ZNK6vectorIN18expr_pattern_match5instrELb0EjE4sizeEv.exit59: ; preds = %_ZN6vec
   br i1 %.not27.old.i.i.i, label %.loopexit201, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %183, %180
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %183 ], [ %182, %180 ]
+  %.137.i.i.i.be = phi ptr [ %182, %180 ], [ %.old.i.i.i, %183 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !153
 
 .loopexit:                                        ; preds = %164, %175
@@ -2693,7 +2693,7 @@ _ZN18expr_pattern_match6is_varEP9func_decl.exit:  ; preds = %._crit_edge
   br i1 %.not27.old.i.i.i83, label %.loopexit205, label %.lr.ph38.i.i.i79.backedge
 
 .lr.ph38.i.i.i79.backedge:                        ; preds = %369, %366
-  %.137.i.i.i80.be = phi ptr [ %.old.i.i.i82, %369 ], [ %368, %366 ]
+  %.137.i.i.i80.be = phi ptr [ %368, %366 ], [ %.old.i.i.i82, %369 ]
   br label %.lr.ph38.i.i.i79, !llvm.loop !166
 
 .loopexit204:                                     ; preds = %350, %361
@@ -5751,7 +5751,7 @@ define linkonce_odr hidden void @_ZN18expr_pattern_match9inst_procclEP3app(ptr n
   br i1 %.not27.old.i.i.i, label %_ZNK7obj_mapI9func_decljE4findEPS0_Rj.exit.thread, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %43, %40
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %43 ], [ %42, %40 ]
+  %.137.i.i.i.be = phi ptr [ %42, %40 ], [ %.old.i.i.i, %43 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !166
 
 .loopexit28:                                      ; preds = %24, %35

@@ -3037,7 +3037,7 @@ define internal noundef i32 @planarToP01xWrapper(ptr noundef readonly captures(n
   br i1 %exitcond.not, label %._crit_edge95, label %.lr.ph94.split.split, !llvm.loop !55
 
 ._crit_edge95:                                    ; preds = %146, %127, %89
-  %.us-phi = phi ptr [ %134, %127 ], [ %115, %89 ], [ %139, %146 ]
+  %.us-phi = phi ptr [ %115, %89 ], [ %134, %127 ], [ %139, %146 ]
   store ptr %.us-phi, ptr %1, align 8, !tbaa !54
   br label %148
 
@@ -6703,7 +6703,7 @@ usePal.exit:                                      ; preds = %22, %22, %22, %22, 
   br label %usePal.exit.thread
 
 usePal.exit.thread:                               ; preds = %22, %usePal.exit, %32
-  %.035 = phi ptr [ %33, %32 ], [ %34, %usePal.exit ], [ null, %22 ]
+  %.035 = phi ptr [ %34, %usePal.exit ], [ %33, %32 ], [ null, %22 ]
   %35 = icmp sgt i32 %4, 0
   br i1 %35, label %.lr.ph, label %._crit_edge
 
@@ -6735,8 +6735,8 @@ usePal.exit.thread:                               ; preds = %22, %usePal.exit, %
   %49 = sext i32 %47 to i64
   %50 = getelementptr inbounds i8, ptr %.03451, i64 %49
   %51 = add nuw nsw i32 %.03252, 1
-  %exitcond59.not = icmp eq i32 %51, %4
-  br i1 %exitcond59.not, label %._crit_edge, label %41, !llvm.loop !93
+  %exitcond60.not = icmp eq i32 %51, %4
+  br i1 %exitcond60.not, label %._crit_edge, label %41, !llvm.loop !93
 
 52:                                               ; preds = %41, %52
   %indvars.iv54 = phi i64 [ 0, %41 ], [ %indvars.iv.next55, %52 ]
@@ -6748,8 +6748,8 @@ usePal.exit.thread:                               ; preds = %22, %usePal.exit, %
   %58 = getelementptr inbounds i8, ptr %56, i64 %57
   store ptr %58, ptr %55, align 8, !tbaa !49
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
-  %exitcond58.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count
-  br i1 %exitcond58.not, label %48, label %52, !llvm.loop !94
+  %exitcond59.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count
+  br i1 %exitcond59.not, label %48, label %52, !llvm.loop !94
 }
 
 ; Function Attrs: nounwind uwtable
@@ -6810,7 +6810,7 @@ usePal.exit:                                      ; preds = %7, %7, %7, %7, %7, 
   br label %.loopexit
 
 24:                                               ; preds = %usePal.exit, %usePal.exit, %usePal.exit, %usePal.exit, %18, %18, %20, %19, %21
-  %.028 = phi ptr [ @sws_convertPalette8ToPacked24, %21 ], [ @gray8aToPacked32_1, %19 ], [ @gray8aToPacked32, %18 ], [ @gray8aToPacked24, %20 ], [ @gray8aToPacked32, %18 ], [ @sws_convertPalette8ToPacked32, %usePal.exit ], [ @sws_convertPalette8ToPacked32, %usePal.exit ], [ @sws_convertPalette8ToPacked32, %usePal.exit ], [ @sws_convertPalette8ToPacked32, %usePal.exit ]
+  %.028 = phi ptr [ @sws_convertPalette8ToPacked24, %21 ], [ @gray8aToPacked32, %18 ], [ @gray8aToPacked24, %20 ], [ @gray8aToPacked32_1, %19 ], [ @gray8aToPacked32, %18 ], [ @sws_convertPalette8ToPacked32, %usePal.exit ], [ @sws_convertPalette8ToPacked32, %usePal.exit ], [ @sws_convertPalette8ToPacked32, %usePal.exit ], [ @sws_convertPalette8ToPacked32, %usePal.exit ]
   %25 = icmp sgt i32 %4, 0
   br i1 %25, label %.lr.ph, label %.loopexit
 
@@ -9365,7 +9365,7 @@ isBE.exit2591:                                    ; preds = %1177
   br label %.loopexit2740
 
 .loopexit2740:                                    ; preds = %.loopexit2740.loopexit, %isBE.exit2591, %isBE.exit2589
-  %.162478 = phi i32 [ 0, %isBE.exit2591 ], [ 0, %isBE.exit2589 ], [ %1192, %.loopexit2740.loopexit ]
+  %.162478 = phi i32 [ 0, %isBE.exit2589 ], [ 0, %isBE.exit2591 ], [ %1192, %.loopexit2740.loopexit ]
   %1193 = load i32, ptr %8, align 8, !tbaa !6
   %1194 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %1193) #14
   %.not.i2592 = icmp eq ptr %1194, null

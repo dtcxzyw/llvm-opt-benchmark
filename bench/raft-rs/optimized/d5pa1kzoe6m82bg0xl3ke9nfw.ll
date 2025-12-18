@@ -882,7 +882,7 @@ define void @_ZN4raft12log_unstable8Unstable14stable_entries17hf3d13a9ac63835d8E
           to label %51 unwind label %58
 
 common.resume:                                    ; preds = %51, %71, %110
-  %common.resume.op = phi { ptr, i32 } [ %72, %71 ], [ %111, %110 ], [ %54, %51 ]
+  %common.resume.op = phi { ptr, i32 } [ %111, %110 ], [ %72, %71 ], [ %54, %51 ]
   resume { ptr, i32 } %common.resume.op
 
 58:                                               ; preds = %55

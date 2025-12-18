@@ -445,7 +445,7 @@ define internal i32 @query_formats(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %36, label %.thread, label %28
 
 .thread:                                          ; preds = %.lr.ph, %21, %10, %16
-  %.025.ph = phi i32 [ %19, %16 ], [ %14, %10 ], [ %25, %21 ], [ %35, %.lr.ph ]
+  %.025.ph = phi i32 [ %25, %21 ], [ %19, %16 ], [ %14, %10 ], [ %35, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %43
 
@@ -1890,7 +1890,7 @@ fir_frame.exit:                                   ; preds = %730, %731
   br label %.thread107
 
 .thread107:                                       ; preds = %25, %314, %335, %322, %86, %621, %466, %.preheader, %select.unfold.i, %74, %70, %check_ir.exit, %776, %757, %778, %774, %764
-  %.1 = phi i32 [ 0, %74 ], [ 0, %764 ], [ 0, %774 ], [ 0, %778 ], [ %.076, %757 ], [ -1497649742, %776 ], [ -22, %check_ir.exit ], [ 0, %70 ], [ %.0106.i.ph.i, %select.unfold.i ], [ 0, %.preheader ], [ -12, %466 ], [ -22, %86 ], [ -12, %621 ], [ -558323010, %322 ], [ -12, %335 ], [ %320, %314 ], [ 0, %25 ]
+  %.1 = phi i32 [ 0, %74 ], [ 0, %764 ], [ 0, %774 ], [ 0, %778 ], [ %.076, %757 ], [ -22, %86 ], [ -1497649742, %776 ], [ 0, %.preheader ], [ -22, %check_ir.exit ], [ 0, %70 ], [ -12, %621 ], [ %.0106.i.ph.i, %select.unfold.i ], [ -12, %466 ], [ -558323010, %322 ], [ -12, %335 ], [ %320, %314 ], [ 0, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -2100,7 +2100,7 @@ define internal range(i32 -2147483648, 1) i32 @config_output(ptr noundef initial
   br i1 %exitcond118.not, label %.loopexit, label %.lr.ph.us98, !llvm.loop !155
 
 .loopexit:                                        ; preds = %._crit_edge.us, %._crit_edge.us99, %.lr.ph97, %.lr.ph94, %.preheader90, %.preheader, %70, %62, %53, %31, %51, %1
-  %.077 = phi i32 [ %29, %1 ], [ -12, %62 ], [ -12, %53 ], [ -12, %31 ], [ -12, %51 ], [ 0, %70 ], [ 0, %.preheader ], [ 0, %.preheader90 ], [ 0, %.lr.ph97 ], [ 0, %.lr.ph94 ], [ 0, %._crit_edge.us99 ], [ 0, %._crit_edge.us ]
+  %.077 = phi i32 [ %29, %1 ], [ -12, %62 ], [ -12, %53 ], [ -12, %31 ], [ -12, %51 ], [ 0, %.preheader ], [ 0, %70 ], [ 0, %.preheader90 ], [ 0, %.lr.ph97 ], [ 0, %.lr.ph94 ], [ 0, %._crit_edge.us99 ], [ 0, %._crit_edge.us ]
   ret i32 %.077
 }
 

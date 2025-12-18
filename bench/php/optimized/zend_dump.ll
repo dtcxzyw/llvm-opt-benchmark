@@ -2413,7 +2413,7 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
   br label %355
 
 355:                                              ; preds = %.sink.split, %347, %340
-  %.24 = phi i8 [ 0, %347 ], [ %.22, %340 ], [ 0, %.sink.split ]
+  %.24 = phi i8 [ %.22, %340 ], [ 0, %347 ], [ 0, %.sink.split ]
   %356 = and i32 %0, 512
   %.not158 = icmp eq i32 %356, 0
   br i1 %.not158, label %365, label %357

@@ -34864,7 +34864,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_HcFindBestMatch_extDict_4(ptr n
   br label %ZSTD_count.exit
 
 ZSTD_count.exit:                                  ; preds = %127, %.thread63.i, %96, %133
-  %.1153.i = phi i64 [ %136, %133 ], [ %107, %.thread63.i ], [ %129, %127 ], [ %99, %96 ]
+  %.1153.i = phi i64 [ %99, %96 ], [ %129, %127 ], [ %136, %133 ], [ %107, %.thread63.i ]
   %137 = icmp ugt i64 %.1153.i, %.0146.i20
   br i1 %137, label %138, label %ZSTD_count.exit.thread
 
@@ -35140,7 +35140,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_HcFindBestMatch_extDict_5(ptr n
   br label %ZSTD_count.exit
 
 ZSTD_count.exit:                                  ; preds = %125, %.thread63.i, %94, %131
-  %.1153.i = phi i64 [ %134, %131 ], [ %105, %.thread63.i ], [ %127, %125 ], [ %97, %94 ]
+  %.1153.i = phi i64 [ %97, %94 ], [ %127, %125 ], [ %134, %131 ], [ %105, %.thread63.i ]
   %135 = icmp ugt i64 %.1153.i, %.0146.i20
   br i1 %135, label %136, label %ZSTD_count.exit.thread
 
@@ -35416,7 +35416,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_HcFindBestMatch_extDict_6(ptr n
   br label %ZSTD_count.exit
 
 ZSTD_count.exit:                                  ; preds = %125, %.thread63.i, %94, %131
-  %.1153.i = phi i64 [ %134, %131 ], [ %105, %.thread63.i ], [ %127, %125 ], [ %97, %94 ]
+  %.1153.i = phi i64 [ %97, %94 ], [ %127, %125 ], [ %134, %131 ], [ %105, %.thread63.i ]
   %135 = icmp ugt i64 %.1153.i, %.0146.i20
   br i1 %135, label %136, label %ZSTD_count.exit.thread
 
@@ -36145,7 +36145,7 @@ ZSTD_row_getSSEMask.exit:                         ; preds = %184, %ZSTD_row_upda
   br label %ZSTD_count.exit
 
 ZSTD_count.exit:                                  ; preds = %295, %.thread63.i, %264, %301
-  %.1265.i = phi i64 [ %304, %301 ], [ %275, %.thread63.i ], [ %297, %295 ], [ %267, %264 ]
+  %.1265.i = phi i64 [ %267, %264 ], [ %297, %295 ], [ %304, %301 ], [ %275, %.thread63.i ]
   %305 = icmp ugt i64 %.1265.i, %.0239.i42
   br i1 %305, label %306, label %ZSTD_count.exit.thread
 
@@ -36679,7 +36679,7 @@ ZSTD_row_getSSEMask.exit.critedge:                ; preds = %188, %ZSTD_row_upda
   br label %ZSTD_count.exit
 
 ZSTD_count.exit:                                  ; preds = %306, %.thread63.i, %275, %312
-  %.1265.i = phi i64 [ %315, %312 ], [ %286, %.thread63.i ], [ %308, %306 ], [ %278, %275 ]
+  %.1265.i = phi i64 [ %278, %275 ], [ %308, %306 ], [ %315, %312 ], [ %286, %.thread63.i ]
   %316 = icmp ugt i64 %.1265.i, %.0239.i42
   br i1 %316, label %317, label %ZSTD_count.exit.thread
 
@@ -37248,7 +37248,7 @@ ZSTD_row_getSSEMask.exit:                         ; preds = %212
   br label %ZSTD_count.exit
 
 ZSTD_count.exit:                                  ; preds = %326, %.thread63.i, %295, %332
-  %.1265.i = phi i64 [ %335, %332 ], [ %306, %.thread63.i ], [ %328, %326 ], [ %298, %295 ]
+  %.1265.i = phi i64 [ %298, %295 ], [ %328, %326 ], [ %335, %332 ], [ %306, %.thread63.i ]
   %336 = icmp ugt i64 %.1265.i, %.0239.i42
   br i1 %336, label %337, label %ZSTD_count.exit.thread
 
@@ -37768,7 +37768,7 @@ ZSTD_row_getSSEMask.exit:                         ; preds = %184, %ZSTD_row_upda
   br label %ZSTD_count.exit
 
 ZSTD_count.exit:                                  ; preds = %296, %.thread63.i, %265, %302
-  %.1265.i = phi i64 [ %305, %302 ], [ %276, %.thread63.i ], [ %298, %296 ], [ %268, %265 ]
+  %.1265.i = phi i64 [ %268, %265 ], [ %298, %296 ], [ %305, %302 ], [ %276, %.thread63.i ]
   %306 = icmp ugt i64 %.1265.i, %.0239.i42
   br i1 %306, label %307, label %ZSTD_count.exit.thread
 
@@ -38303,7 +38303,7 @@ ZSTD_row_getSSEMask.exit.critedge:                ; preds = %188, %ZSTD_row_upda
   br label %ZSTD_count.exit
 
 ZSTD_count.exit:                                  ; preds = %307, %.thread63.i, %276, %313
-  %.1265.i = phi i64 [ %316, %313 ], [ %287, %.thread63.i ], [ %309, %307 ], [ %279, %276 ]
+  %.1265.i = phi i64 [ %279, %276 ], [ %309, %307 ], [ %316, %313 ], [ %287, %.thread63.i ]
   %317 = icmp ugt i64 %.1265.i, %.0239.i42
   br i1 %317, label %318, label %ZSTD_count.exit.thread
 
@@ -38873,7 +38873,7 @@ ZSTD_row_getSSEMask.exit:                         ; preds = %213
   br label %ZSTD_count.exit
 
 ZSTD_count.exit:                                  ; preds = %327, %.thread63.i, %296, %333
-  %.1265.i = phi i64 [ %336, %333 ], [ %307, %.thread63.i ], [ %329, %327 ], [ %299, %296 ]
+  %.1265.i = phi i64 [ %299, %296 ], [ %329, %327 ], [ %336, %333 ], [ %307, %.thread63.i ]
   %337 = icmp ugt i64 %.1265.i, %.0239.i42
   br i1 %337, label %338, label %ZSTD_count.exit.thread
 
@@ -39393,7 +39393,7 @@ ZSTD_row_getSSEMask.exit:                         ; preds = %184, %ZSTD_row_upda
   br label %ZSTD_count.exit
 
 ZSTD_count.exit:                                  ; preds = %296, %.thread63.i, %265, %302
-  %.1265.i = phi i64 [ %305, %302 ], [ %276, %.thread63.i ], [ %298, %296 ], [ %268, %265 ]
+  %.1265.i = phi i64 [ %268, %265 ], [ %298, %296 ], [ %305, %302 ], [ %276, %.thread63.i ]
   %306 = icmp ugt i64 %.1265.i, %.0239.i42
   br i1 %306, label %307, label %ZSTD_count.exit.thread
 
@@ -39928,7 +39928,7 @@ ZSTD_row_getSSEMask.exit.critedge:                ; preds = %188, %ZSTD_row_upda
   br label %ZSTD_count.exit
 
 ZSTD_count.exit:                                  ; preds = %307, %.thread63.i, %276, %313
-  %.1265.i = phi i64 [ %316, %313 ], [ %287, %.thread63.i ], [ %309, %307 ], [ %279, %276 ]
+  %.1265.i = phi i64 [ %279, %276 ], [ %309, %307 ], [ %316, %313 ], [ %287, %.thread63.i ]
   %317 = icmp ugt i64 %.1265.i, %.0239.i42
   br i1 %317, label %318, label %ZSTD_count.exit.thread
 
@@ -40498,7 +40498,7 @@ ZSTD_row_getSSEMask.exit:                         ; preds = %213
   br label %ZSTD_count.exit
 
 ZSTD_count.exit:                                  ; preds = %327, %.thread63.i, %296, %333
-  %.1265.i = phi i64 [ %336, %333 ], [ %307, %.thread63.i ], [ %329, %327 ], [ %299, %296 ]
+  %.1265.i = phi i64 [ %299, %296 ], [ %329, %327 ], [ %336, %333 ], [ %307, %.thread63.i ]
   %337 = icmp ugt i64 %.1265.i, %.0239.i42
   br i1 %337, label %338, label %ZSTD_count.exit.thread
 

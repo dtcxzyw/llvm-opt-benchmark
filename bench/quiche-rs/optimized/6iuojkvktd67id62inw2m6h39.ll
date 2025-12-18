@@ -1155,7 +1155,7 @@ define internal fastcc void @"_ZN4core3num21_$LT$impl$u20$u64$GT$16from_ascii_ra
   br label %.lr.ph
 
 .loopexit:                                        ; preds = %.preheader44, %45, %.preheader
-  %.sroa.013.1 = phi i64 [ 0, %.preheader ], [ %50, %45 ], [ %.sroa.013.0, %.preheader44 ]
+  %.sroa.013.1 = phi i64 [ %50, %45 ], [ 0, %.preheader ], [ %.sroa.013.0, %.preheader44 ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.013.1, ptr %18, align 8
   br label %6
@@ -2599,7 +2599,7 @@ _ZN3h3i7prompts2h311prompt_data17h95f5ef3b7bf28341E.exit.i.thread279: ; preds = 
   br i1 %.not42.i.i.i131, label %.loopexit56.i.i, label %.lr.ph.i.i.i127
 
 .loopexit55.i.i:                                  ; preds = %291, %291, %290, %311, %309, %300, %.lr.ph.i.i.i127
-  %.sroa.4.2.ph.i.i = phi i8 [ 2, %309 ], [ 1, %.lr.ph.i.i.i127 ], [ 2, %311 ], [ 1, %300 ], [ 1, %291 ], [ 0, %290 ], [ 1, %291 ]
+  %.sroa.4.2.ph.i.i = phi i8 [ 1, %.lr.ph.i.i.i127 ], [ 2, %309 ], [ 2, %311 ], [ 1, %300 ], [ 0, %290 ], [ 1, %291 ], [ 1, %291 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !200
   store i8 %.sroa.4.2.ph.i.i, ptr %4, align 1, !noalias !200
   invoke void @_ZN4core6result13unwrap_failed17h563d6df1cad9fe9bE(ptr noalias noundef nonnull readonly align 1 @anon.368a2737e41ab18d3d15d89cd5307d7b.25, i64 noundef 43, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.368a2737e41ab18d3d15d89cd5307d7b.26, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.368a2737e41ab18d3d15d89cd5307d7b.193) #17
@@ -2752,7 +2752,7 @@ _ZN3h3i7prompts2h311prompt_data17h95f5ef3b7bf28341E.exit.i.thread279: ; preds = 
           to label %.body.i.i122 unwind label %388, !noalias !192
 
 .loopexit.i.i132:                                 ; preds = %340, %340, %337, %360, %358, %349, %.lr.ph.i16.i.i
-  %.sroa.441.1.ph.i.i = phi i8 [ 2, %358 ], [ 1, %.lr.ph.i16.i.i ], [ 2, %360 ], [ 1, %349 ], [ 1, %340 ], [ 0, %337 ], [ 1, %340 ]
+  %.sroa.441.1.ph.i.i = phi i8 [ 1, %.lr.ph.i16.i.i ], [ 2, %358 ], [ 2, %360 ], [ 1, %349 ], [ 0, %337 ], [ 1, %340 ], [ 1, %340 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !221
   store i8 %.sroa.441.1.ph.i.i, ptr %5, align 1, !noalias !221
   invoke void @_ZN4core6result13unwrap_failed17h563d6df1cad9fe9bE(ptr noalias noundef nonnull readonly align 1 @anon.368a2737e41ab18d3d15d89cd5307d7b.25, i64 noundef 43, ptr noundef nonnull align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.368a2737e41ab18d3d15d89cd5307d7b.26, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.368a2737e41ab18d3d15d89cd5307d7b.197) #17
@@ -3043,7 +3043,7 @@ _ZN3h3i7prompts2h38settings18settings_read_loop17ha7e65e52e84d127fE.exit.i: ; pr
           to label %458 unwind label %.loopexit, !noalias !237
 
 .loopexit.i.i86:                                  ; preds = %421, %421, %420, %441, %439, %430, %.lr.ph.i.i.i92
-  %.sroa.4.0.ph.i.i87 = phi i8 [ 2, %439 ], [ 1, %.lr.ph.i.i.i92 ], [ 2, %441 ], [ 1, %430 ], [ 1, %421 ], [ 0, %420 ], [ 1, %421 ]
+  %.sroa.4.0.ph.i.i87 = phi i8 [ 1, %.lr.ph.i.i.i92 ], [ 2, %439 ], [ 2, %441 ], [ 1, %430 ], [ 0, %420 ], [ 1, %421 ], [ 1, %421 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %21), !noalias !243
   store i8 %.sroa.4.0.ph.i.i87, ptr %21, align 1, !noalias !243
   invoke void @_ZN4core6result13unwrap_failed17h563d6df1cad9fe9bE(ptr noalias noundef nonnull readonly align 1 @anon.368a2737e41ab18d3d15d89cd5307d7b.25, i64 noundef 43, ptr noundef nonnull align 1 %21, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.368a2737e41ab18d3d15d89cd5307d7b.26, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.368a2737e41ab18d3d15d89cd5307d7b.202) #17
@@ -3706,7 +3706,7 @@ _ZN3h3i7prompts2h311prompt_data17h95f5ef3b7bf28341E.exit.i: ; preds = %558, %551
           to label %617 unwind label %.loopexit190, !noalias !276
 
 .loopexit.i.i:                                    ; preds = %580, %580, %577, %600, %598, %589, %.lr.ph.i.i.i
-  %.sroa.4.0.ph.i.i = phi i8 [ 2, %598 ], [ 1, %.lr.ph.i.i.i ], [ 2, %600 ], [ 1, %589 ], [ 1, %580 ], [ 0, %577 ], [ 1, %580 ]
+  %.sroa.4.0.ph.i.i = phi i8 [ 1, %.lr.ph.i.i.i ], [ 2, %598 ], [ 2, %600 ], [ 1, %589 ], [ 0, %577 ], [ 1, %580 ], [ 1, %580 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %65), !noalias !282
   store i8 %.sroa.4.0.ph.i.i, ptr %65, align 1, !noalias !282
   invoke void @_ZN4core6result13unwrap_failed17h563d6df1cad9fe9bE(ptr noalias noundef nonnull readonly align 1 @anon.368a2737e41ab18d3d15d89cd5307d7b.25, i64 noundef 43, ptr noundef nonnull align 1 %65, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.368a2737e41ab18d3d15d89cd5307d7b.26, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.368a2737e41ab18d3d15d89cd5307d7b.155) #17
@@ -4338,8 +4338,8 @@ _ZN3h3i7prompts2h311prompt_data17h95f5ef3b7bf28341E.exit.i.thread: ; preds = %25
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #19, !noalias !325
   unreachable
 
-_ZN3h3i7prompts2h311prompt_data17h95f5ef3b7bf28341E.exit.i.thread161: ; preds = %_ZN3h3i7prompts2h311prompt_data17h95f5ef3b7bf28341E.exit.i.thread279, %511, %523, %_ZN3h3i7prompts2h311prompt_data17h95f5ef3b7bf28341E.exit.i
-  %.pr.i163 = phi i64 [ %.pr.i.pr.pr, %_ZN3h3i7prompts2h311prompt_data17h95f5ef3b7bf28341E.exit.i ], [ 16, %511 ], [ 17, %523 ], [ 12, %_ZN3h3i7prompts2h311prompt_data17h95f5ef3b7bf28341E.exit.i.thread279 ]
+_ZN3h3i7prompts2h311prompt_data17h95f5ef3b7bf28341E.exit.i.thread161: ; preds = %_ZN3h3i7prompts2h311prompt_data17h95f5ef3b7bf28341E.exit.i.thread279, %523, %511, %_ZN3h3i7prompts2h311prompt_data17h95f5ef3b7bf28341E.exit.i
+  %.pr.i163 = phi i64 [ %.pr.i.pr.pr, %_ZN3h3i7prompts2h311prompt_data17h95f5ef3b7bf28341E.exit.i ], [ 17, %523 ], [ 16, %511 ], [ 12, %_ZN3h3i7prompts2h311prompt_data17h95f5ef3b7bf28341E.exit.i.thread279 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %.sroa.11, ptr noundef nonnull align 8 dereferenceable(184) %117, i64 184, i1 false), !noalias !326
   br label %764
 
@@ -4886,7 +4886,7 @@ define internal fastcc void @_ZN3h3i7prompts2h324prompt_control_stream_id17h0639
           to label %60 unwind label %58
 
 .loopexit:                                        ; preds = %39, %37, %28, %.lr.ph.i, %19, %19, %14
-  %.sroa.4.0.ph = phi i8 [ 1, %19 ], [ 0, %14 ], [ 1, %19 ], [ 1, %.lr.ph.i ], [ 2, %39 ], [ 1, %28 ], [ 2, %37 ]
+  %.sroa.4.0.ph = phi i8 [ 1, %19 ], [ 1, %19 ], [ 0, %14 ], [ 1, %.lr.ph.i ], [ 2, %39 ], [ 1, %28 ], [ 2, %37 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !362
   store i8 %.sroa.4.0.ph, ptr %2, align 1, !noalias !362
   invoke void @_ZN4core6result13unwrap_failed17h563d6df1cad9fe9bE(ptr noalias noundef nonnull readonly align 1 @anon.368a2737e41ab18d3d15d89cd5307d7b.25, i64 noundef 43, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.368a2737e41ab18d3d15d89cd5307d7b.26, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.368a2737e41ab18d3d15d89cd5307d7b.86) #17
@@ -5052,7 +5052,7 @@ define hidden void @_ZN3h3i7prompts2h313prompt_varint17hb00f60d13c44dc1cE(ptr de
           to label %63 unwind label %61
 
 .loopexit:                                        ; preds = %42, %40, %31, %.lr.ph.i, %22, %22, %17
-  %.sroa.4.0.ph = phi i8 [ 1, %22 ], [ 0, %17 ], [ 1, %22 ], [ 1, %.lr.ph.i ], [ 2, %42 ], [ 1, %31 ], [ 2, %40 ]
+  %.sroa.4.0.ph = phi i8 [ 1, %22 ], [ 1, %22 ], [ 0, %17 ], [ 1, %.lr.ph.i ], [ 2, %42 ], [ 1, %31 ], [ 2, %40 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !371
   store i8 %.sroa.4.0.ph, ptr %4, align 1, !noalias !371
   invoke void @_ZN4core6result13unwrap_failed17h563d6df1cad9fe9bE(ptr noalias noundef nonnull readonly align 1 @anon.368a2737e41ab18d3d15d89cd5307d7b.25, i64 noundef 43, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.368a2737e41ab18d3d15d89cd5307d7b.26, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.368a2737e41ab18d3d15d89cd5307d7b.88) #17
@@ -8377,7 +8377,7 @@ _ZN3h3i7prompts2h34wait18prompt_stream_wait17h5b24860827624cf4E.exit.thread87: ;
           to label %.body unwind label %72, !noalias !607
 
 .loopexit.i:                                      ; preds = %55, %53, %44, %.lr.ph.i.i, %35, %35, %33
-  %.sroa.4.0.ph.i = phi i8 [ 1, %35 ], [ 0, %33 ], [ 1, %35 ], [ 1, %.lr.ph.i.i ], [ 2, %53 ], [ 1, %44 ], [ 2, %55 ]
+  %.sroa.4.0.ph.i = phi i8 [ 1, %35 ], [ 1, %35 ], [ 0, %33 ], [ 1, %.lr.ph.i.i ], [ 1, %44 ], [ 2, %55 ], [ 2, %53 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !615
   store i8 %.sroa.4.0.ph.i, ptr %3, align 1, !noalias !615
   invoke void @_ZN4core6result13unwrap_failed17h563d6df1cad9fe9bE(ptr noalias noundef nonnull readonly align 1 @anon.368a2737e41ab18d3d15d89cd5307d7b.25, i64 noundef 43, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.368a2737e41ab18d3d15d89cd5307d7b.26, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.368a2737e41ab18d3d15d89cd5307d7b.217) #17

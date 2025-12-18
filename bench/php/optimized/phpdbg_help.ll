@@ -634,7 +634,7 @@ get_help.exit16:                                  ; preds = %24, %21
   br label %get_help.exit
 
 get_help.exit:                                    ; preds = %7, %get_help.exit11.thread, %4, %get_help.exit16
-  %.06.i1019.sink = phi ptr [ @.str.13, %get_help.exit16 ], [ %6, %4 ], [ %.06.i1019, %get_help.exit11.thread ], [ @.str.12, %7 ]
+  %.06.i1019.sink = phi ptr [ %.06.i1019, %get_help.exit11.thread ], [ @.str.13, %get_help.exit16 ], [ %6, %4 ], [ @.str.12, %7 ]
   tail call fastcc void @pretty_print(ptr noundef %.06.i1019.sink)
   ret void
 }

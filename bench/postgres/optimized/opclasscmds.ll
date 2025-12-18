@@ -2653,8 +2653,8 @@ processTypesSpec.exit56.i:                        ; preds = %list_length.exit12.
   br i1 %206, label %.lr.ph66, label %.critedge.i
 
 AlterOpFamilyDrop.exit:                           ; preds = %130, %48, %dropOperators.exit.i, %.lr.ph.i45.i
-  %207 = phi ptr [ %.pre.i106, %.lr.ph.i45.i ], [ %.pre.i106, %dropOperators.exit.i ], [ null, %48 ], [ %.pre.i106, %130 ]
-  %208 = phi ptr [ %.pr112.i, %.lr.ph.i45.i ], [ null, %dropOperators.exit.i ], [ null, %48 ], [ %.pr112.i, %130 ]
+  %207 = phi ptr [ null, %48 ], [ %.pre.i106, %.lr.ph.i45.i ], [ %.pre.i106, %dropOperators.exit.i ], [ %.pre.i106, %130 ]
+  %208 = phi ptr [ null, %48 ], [ %.pr112.i, %.lr.ph.i45.i ], [ null, %dropOperators.exit.i ], [ %.pr112.i, %130 ]
   call void @EventTriggerCollectAlterOpFam(ptr noundef %0, i32 noundef %36, ptr noundef %207, ptr noundef %208) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

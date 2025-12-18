@@ -1586,8 +1586,8 @@ _ZNSt14_Bit_referenceaSEb.exit:                   ; preds = %468, %471
   br label %_ZN7Minisat3vecINS_3LitEiED2Ev.exit145
 
 _ZN7Minisat3vecINS_3LitEiED2Ev.exit178:           ; preds = %_ZN7Minisat3vecINS_3LitEiED2Ev.exit, %.preheader.i.i177, %.loopexit, %297
-  %480 = phi i1 [ true, %297 ], [ false, %.loopexit ], [ false, %.preheader.i.i177 ], [ true, %_ZN7Minisat3vecINS_3LitEiED2Ev.exit ]
-  %.1 = phi i1 [ undef, %297 ], [ %418, %.loopexit ], [ %418, %.preheader.i.i177 ], [ undef, %_ZN7Minisat3vecINS_3LitEiED2Ev.exit ]
+  %480 = phi i1 [ false, %.preheader.i.i177 ], [ true, %297 ], [ false, %.loopexit ], [ true, %_ZN7Minisat3vecINS_3LitEiED2Ev.exit ]
+  %.1 = phi i1 [ %418, %.preheader.i.i177 ], [ undef, %297 ], [ %418, %.loopexit ], [ undef, %_ZN7Minisat3vecINS_3LitEiED2Ev.exit ]
   %481 = load ptr, ptr %5, align 8, !tbaa !135
   %482 = load ptr, ptr %156, align 8, !tbaa !134
   %.not4.i.i.i.i = icmp eq ptr %481, %482

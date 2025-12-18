@@ -1910,7 +1910,7 @@ define internal fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_132DetectSparse
 
 .critedge33.thread:                               ; preds = %.critedge.us, %._crit_edge.us, %25, %17, %.critedge33
   %.not45 = phi i1 [ %35, %.critedge33 ], [ false, %25 ], [ false, %17 ], [ %.not.not, %._crit_edge.us ], [ %.not.not, %.critedge.us ]
-  %47 = phi ptr [ %.pr, %.critedge33 ], [ %33, %25 ], [ %33, %17 ], [ %32, %.critedge.us ], [ %33, %._crit_edge.us ]
+  %47 = phi ptr [ %.pr, %.critedge33 ], [ %33, %25 ], [ %33, %17 ], [ %33, %._crit_edge.us ], [ %32, %.critedge.us ]
   %48 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %49 = load ptr, ptr %48, align 8, !tbaa !159
   %50 = ptrtoint ptr %49 to i64
@@ -5707,7 +5707,7 @@ define noundef zeroext i1 @_ZNK5arrow14SparseCSFIndex6EqualsERKS0_(ptr noundef n
   br label %_ZSteqIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit
 
 _ZSteqIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit:        ; preds = %36, %53, %77, %76, %._crit_edge
-  %.117 = phi i1 [ true, %76 ], [ false, %._crit_edge ], [ %.not9.i.i.i.i.i, %77 ], [ false, %53 ], [ false, %36 ]
+  %.117 = phi i1 [ false, %53 ], [ true, %76 ], [ false, %._crit_edge ], [ %.not9.i.i.i.i.i, %77 ], [ false, %36 ]
   ret i1 %.117
 }
 

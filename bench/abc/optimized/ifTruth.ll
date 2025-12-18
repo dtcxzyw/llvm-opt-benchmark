@@ -185,8 +185,8 @@ Abc_TtSwapAdjacent.exit.us.us.us:                 ; preds = %17, %12
   br i1 %exitcond74.not.i.us, label %Abc_TtSwapAdjacent.exit.us42, label %72, !llvm.loop !16
 
 Abc_TtSwapAdjacent.exit.us42:                     ; preds = %._crit_edge.us.i.us, %.lr.ph.i.us, %72, %62, %55, %.preheader.lr.ph.i.us, %38, %24
-  %82 = phi float [ %27, %24 ], [ %25, %62 ], [ %25, %55 ], [ %25, %38 ], [ %25, %.preheader.lr.ph.i.us ], [ %25, %.lr.ph.i.us ], [ %25, %72 ], [ %25, %._crit_edge.us.i.us ]
-  %.1.us43 = phi i32 [ %.03138.us41, %24 ], [ 1, %62 ], [ 1, %55 ], [ 1, %38 ], [ 1, %.preheader.lr.ph.i.us ], [ 1, %.lr.ph.i.us ], [ 1, %72 ], [ 1, %._crit_edge.us.i.us ]
+  %82 = phi float [ %27, %24 ], [ %25, %.lr.ph.i.us ], [ %25, %62 ], [ %25, %72 ], [ %25, %55 ], [ %25, %.preheader.lr.ph.i.us ], [ %25, %38 ], [ %25, %._crit_edge.us.i.us ]
+  %.1.us43 = phi i32 [ %.03138.us41, %24 ], [ 1, %.lr.ph.i.us ], [ 1, %62 ], [ 1, %72 ], [ 1, %55 ], [ 1, %.preheader.lr.ph.i.us ], [ 1, %38 ], [ 1, %._crit_edge.us.i.us ]
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count56
   br i1 %exitcond.not, label %._crit_edge.split.us44, label %24, !llvm.loop !9
 
@@ -1865,7 +1865,7 @@ Abc_TtHasVar.exit.thread30:                       ; preds = %48, %62
   br label %Abc_TtHasVar.exit.thread
 
 Abc_TtHasVar.exit.thread:                         ; preds = %._crit_edge.us.i, %47, %.preheader.lr.ph.i, %77
-  %.1 = phi i32 [ %78, %77 ], [ %.038, %.preheader.lr.ph.i ], [ %.038, %47 ], [ %.038, %._crit_edge.us.i ]
+  %.1 = phi i32 [ %78, %77 ], [ %.038, %47 ], [ %.038, %.preheader.lr.ph.i ], [ %.038, %._crit_edge.us.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !88

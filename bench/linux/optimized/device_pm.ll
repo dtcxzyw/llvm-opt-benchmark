@@ -2367,7 +2367,7 @@ acpi_remove_pm_notifier.exit:                     ; preds = %15, %20, %25
   br label %89
 
 89:                                               ; preds = %81, %73, %69
-  %90 = phi i32 [ %88, %81 ], [ 4, %69 ], [ 4, %73 ]
+  %90 = phi i32 [ 4, %73 ], [ %88, %81 ], [ 4, %69 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %91 = call i32 @acpi_device_set_power(ptr noundef nonnull %8, i32 noundef %90)

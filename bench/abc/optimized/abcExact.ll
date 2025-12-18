@@ -215,8 +215,8 @@ Ses_StoreTableHash.exit.thread:                   ; preds = %8
   br i1 %.not67, label %.critedge, label %.lr.ph.split, !llvm.loop !17
 
 .critedge:                                        ; preds = %39, %.loopexit114.us, %Ses_StoreTableHash.exit
-  %.063124146 = phi ptr [ null, %Ses_StoreTableHash.exit ], [ %.063124, %.loopexit114.us ], [ %.063124143, %39 ]
-  %41 = phi ptr [ %25, %Ses_StoreTableHash.exit ], [ %25, %.loopexit114.us ], [ %26, %39 ]
+  %.063124146 = phi ptr [ %.063124, %.loopexit114.us ], [ null, %Ses_StoreTableHash.exit ], [ %.063124143, %39 ]
+  %41 = phi ptr [ %25, %.loopexit114.us ], [ %25, %Ses_StoreTableHash.exit ], [ %26, %39 ]
   %42 = tail call noalias dereferenceable_or_null(56) ptr @calloc(i64 noundef 1, i64 noundef 56) #28
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 32
   store i32 %2, ptr %43, align 8, !tbaa !14
@@ -943,7 +943,7 @@ Ses_StoreTimesEqual.exit.us:                      ; preds = %.lr.ph.i35.us
   br label %.critedge
 
 .critedge:                                        ; preds = %34, %.loopexit45.us, %Ses_StoreTimesEqual.exit.us, %Ses_StoreTableHash.exit.thread, %Ses_StoreTableHash.exit, %Ses_StoreTruthEqual.exit, %.loopexit
-  %.020 = phi i32 [ 1, %.loopexit ], [ 0, %Ses_StoreTruthEqual.exit ], [ 0, %Ses_StoreTableHash.exit ], [ 0, %Ses_StoreTableHash.exit.thread ], [ 0, %.loopexit45.us ], [ 0, %Ses_StoreTimesEqual.exit.us ], [ 0, %34 ]
+  %.020 = phi i32 [ 1, %.loopexit ], [ 0, %Ses_StoreTruthEqual.exit ], [ 0, %Ses_StoreTableHash.exit ], [ 0, %Ses_StoreTableHash.exit.thread ], [ 0, %Ses_StoreTimesEqual.exit.us ], [ 0, %.loopexit45.us ], [ 0, %34 ]
   ret i32 %.020
 }
 
@@ -1110,7 +1110,7 @@ Ses_StoreTimesEqual.exit.thread:                  ; preds = %52, %45, %47, %53
   br label %.critedge
 
 .critedge:                                        ; preds = %35, %.loopexit.us, %Ses_StoreTimesEqual.exit, %Ses_StoreTableHash.exit.thread, %Ses_StoreTableHash.exit, %Ses_StoreTruthEqual.exit, %Ses_StoreTimesEqual.exit.thread
-  %.027 = phi i32 [ 1, %Ses_StoreTimesEqual.exit.thread ], [ 0, %Ses_StoreTruthEqual.exit ], [ 0, %Ses_StoreTableHash.exit ], [ 0, %Ses_StoreTableHash.exit.thread ], [ 0, %.loopexit.us ], [ 0, %Ses_StoreTimesEqual.exit ], [ 0, %35 ]
+  %.027 = phi i32 [ 1, %Ses_StoreTimesEqual.exit.thread ], [ 0, %Ses_StoreTruthEqual.exit ], [ 0, %Ses_StoreTableHash.exit ], [ 0, %Ses_StoreTableHash.exit.thread ], [ 0, %Ses_StoreTimesEqual.exit ], [ 0, %.loopexit.us ], [ 0, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.027
 }
@@ -2622,7 +2622,7 @@ Ses_ManFindMinimumSizeTopDown.exit:               ; preds = %.loopexit.i45, %._c
   br label %Ses_CheckDepthConsistency.exit.thread
 
 Ses_CheckDepthConsistency.exit.thread:            ; preds = %15, %186, %171, %146, %92, %67, %55, %43, %183, %168, %143, %64, %52, %40, %89, %Ses_ManFindMinimumSizeBottomUp.exit, %239, %241, %243, %17, %Ses_ManFindMinimumSizeTopDown.exit
-  %.0 = phi ptr [ %18, %17 ], [ %238, %Ses_ManFindMinimumSizeBottomUp.exit ], [ %.1.i46, %Ses_ManFindMinimumSizeTopDown.exit ], [ null, %243 ], [ null, %241 ], [ null, %239 ], [ null, %89 ], [ null, %40 ], [ null, %52 ], [ null, %64 ], [ null, %143 ], [ null, %168 ], [ null, %183 ], [ null, %43 ], [ null, %55 ], [ null, %67 ], [ null, %92 ], [ null, %146 ], [ null, %171 ], [ null, %186 ], [ null, %15 ]
+  %.0 = phi ptr [ %18, %17 ], [ %238, %Ses_ManFindMinimumSizeBottomUp.exit ], [ %.1.i46, %Ses_ManFindMinimumSizeTopDown.exit ], [ null, %186 ], [ null, %243 ], [ null, %241 ], [ null, %239 ], [ null, %89 ], [ null, %40 ], [ null, %52 ], [ null, %64 ], [ null, %143 ], [ null, %168 ], [ null, %183 ], [ null, %43 ], [ null, %55 ], [ null, %67 ], [ null, %92 ], [ null, %146 ], [ null, %171 ], [ null, %15 ]
   ret ptr %.0
 }
 
@@ -5745,7 +5745,7 @@ Abc_TtIsSubsetWithMask.exit50:                    ; preds = %.lr.ph.i45
   br label %Abc_TtIsSubsetWithMask.exit.thread
 
 Abc_TtIsSubsetWithMask.exit.thread:               ; preds = %9, %20, %30, %40, %4, %Abc_TtIsSubsetWithMask.exit50
-  %.0 = phi i32 [ %., %Abc_TtIsSubsetWithMask.exit50 ], [ 1, %4 ], [ 2, %20 ], [ 4, %40 ], [ 3, %30 ], [ 1, %9 ]
+  %.0 = phi i32 [ 4, %40 ], [ %., %Abc_TtIsSubsetWithMask.exit50 ], [ 2, %20 ], [ 3, %30 ], [ 1, %4 ], [ 1, %9 ]
   ret i32 %.0
 }
 
@@ -5841,7 +5841,7 @@ define internal fastcc range(i32 0, 2) i32 @Abc_TtCofsOppositeWithMask(ptr nound
   br i1 %49, label %.preheader.us, label %.loopexit, !llvm.loop !220
 
 .loopexit:                                        ; preds = %._crit_edge.us, %34, %13, %14, %.preheader.lr.ph, %24, %6
-  %.1 = phi i32 [ 1, %24 ], [ 1, %6 ], [ 1, %.preheader.lr.ph ], [ 0, %34 ], [ 0, %14 ], [ 1, %13 ], [ 1, %._crit_edge.us ]
+  %.1 = phi i32 [ 0, %34 ], [ 1, %.preheader.lr.ph ], [ 1, %24 ], [ 1, %6 ], [ 0, %14 ], [ 1, %13 ], [ 1, %._crit_edge.us ]
   ret i32 %.1
 }
 
@@ -7646,16 +7646,16 @@ Ses_ManSelectVar.exit574.loopexit.i:              ; preds = %.lr.ph.i571.i
   br i1 %874, label %.preheader857.i, label %._crit_edge945.i, !llvm.loop !269
 
 ._crit_edge945.i:                                 ; preds = %.split934.i, %.split934.us.us.i, %.preheader858.i
-  %875 = phi i32 [ %743, %.preheader858.i ], [ %794, %.split934.us.us.i ], [ %868, %.split934.i ]
-  %876 = phi i32 [ %744, %.preheader858.i ], [ %794, %.split934.us.us.i ], [ %869, %.split934.i ]
-  %877 = phi i32 [ %745, %.preheader858.i ], [ %794, %.split934.us.us.i ], [ %869, %.split934.i ]
+  %875 = phi i32 [ %794, %.split934.us.us.i ], [ %743, %.preheader858.i ], [ %868, %.split934.i ]
+  %876 = phi i32 [ %794, %.split934.us.us.i ], [ %744, %.preheader858.i ], [ %869, %.split934.i ]
+  %877 = phi i32 [ %794, %.split934.us.us.i ], [ %745, %.preheader858.i ], [ %869, %.split934.i ]
   %878 = add nuw nsw i32 %.5431952.i, 1
   %879 = load i32, ptr %32, align 8, !tbaa !134
   %880 = icmp slt i32 %878, %879
   br i1 %880, label %.preheader858.i, label %._crit_edge954.i, !llvm.loop !271
 
 ._crit_edge954.i:                                 ; preds = %._crit_edge945.i, %.preheader859.i, %.loopexit861.i, %.preheader860.i
-  %881 = phi i32 [ %741, %.preheader859.i ], [ %706, %.loopexit861.i ], [ %667, %.preheader860.i ], [ %879, %._crit_edge945.i ]
+  %881 = phi i32 [ %667, %.preheader860.i ], [ %741, %.preheader859.i ], [ %706, %.loopexit861.i ], [ %879, %._crit_edge945.i ]
   %882 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %883 = load ptr, ptr %882, align 8, !tbaa !110
   %884 = getelementptr i8, ptr %883, i64 4
@@ -8932,7 +8932,7 @@ Vec_IntFree.exit.i:                               ; preds = %1474, %._crit_edge9
   br label %1482
 
 .loopexit850.i:                                   ; preds = %._crit_edge984.i, %.preheader849.lr.ph.i, %1482
-  %1479 = phi i32 [ %1483, %1482 ], [ %1483, %.preheader849.lr.ph.i ], [ %1547, %._crit_edge984.i ]
+  %1479 = phi i32 [ %1483, %.preheader849.lr.ph.i ], [ %1483, %1482 ], [ %1547, %._crit_edge984.i ]
   %1480 = add nsw i32 %1479, -1
   %1481 = icmp slt i32 %1484, %1480
   br i1 %1481, label %1482, label %._crit_edge989.i, !llvm.loop !278
@@ -9104,8 +9104,8 @@ Ses_ManSelectVar.exit734.i:                       ; preds = %.lr.ph.i731.i
   br label %1566
 
 .loopexit845.i:                                   ; preds = %._crit_edge993.i, %.preheader844.lr.ph.i, %1566
-  %1562 = phi i32 [ %1567, %1566 ], [ %1567, %.preheader844.lr.ph.i ], [ %1628, %._crit_edge993.i ]
-  %1563 = phi i32 [ %1568, %1566 ], [ %1568, %.preheader844.lr.ph.i ], [ %1629, %._crit_edge993.i ]
+  %1562 = phi i32 [ %1567, %.preheader844.lr.ph.i ], [ %1567, %1566 ], [ %1628, %._crit_edge993.i ]
+  %1563 = phi i32 [ %1568, %.preheader844.lr.ph.i ], [ %1568, %1566 ], [ %1629, %._crit_edge993.i ]
   %1564 = add nsw i32 %1563, -1
   %1565 = icmp slt i32 %1569, %1564
   br i1 %1565, label %1566, label %.loopexit846.i, !llvm.loop !283
@@ -9750,7 +9750,7 @@ Vec_IntFree.exit822.i:                            ; preds = %1836, %._crit_edge1
   br i1 %1844, label %.preheader834.i, label %Ses_ManCreateClauses.exit, !llvm.loop !300
 
 Ses_ManCreateClauses.exit:                        ; preds = %421, %1841, %._crit_edge1009.i, %.preheader835.i
-  %.not27 = phi i1 [ false, %._crit_edge1009.i ], [ false, %.preheader835.i ], [ false, %1841 ], [ true, %421 ]
+  %.not27 = phi i1 [ false, %.preheader835.i ], [ false, %._crit_edge1009.i ], [ false, %1841 ], [ true, %421 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %1845 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #31
@@ -11483,7 +11483,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br label %.loopexit188
 
 .loopexit188:                                     ; preds = %.lr.ph203, %._crit_edge206, %Vec_IntPush.exit
-  %.071 = phi i32 [ 1, %Vec_IntPush.exit ], [ 1, %._crit_edge206 ], [ 0, %.lr.ph203 ]
+  %.071 = phi i32 [ 1, %._crit_edge206 ], [ 1, %Vec_IntPush.exit ], [ 0, %.lr.ph203 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.071
 }
@@ -12118,7 +12118,7 @@ Abc_TtFindFirstBit.exit:                          ; preds = %.lr.ph.i65
   br label %Ses_CheckGatesConsistency.exit.thread
 
 Ses_CheckGatesConsistency.exit.thread:            ; preds = %Abc_TtXor.exit, %._crit_edge, %Abc_TtFindFirstBit.exit, %200, %171, %67, %53, %42, %30, %50, %39, %27, %64, %Ses_CheckGatesConsistency.exit._crit_edge, %221
-  %.038 = phi i32 [ 3, %67 ], [ %83, %Ses_CheckGatesConsistency.exit._crit_edge ], [ %223, %221 ], [ 3, %42 ], [ 3, %53 ], [ 3, %64 ], [ 3, %27 ], [ 3, %39 ], [ 3, %50 ], [ 3, %30 ], [ 1, %171 ], [ 1, %Abc_TtXor.exit ], [ 2, %._crit_edge ], [ 1, %200 ], [ 1, %Abc_TtFindFirstBit.exit ]
+  %.038 = phi i32 [ 3, %67 ], [ %83, %Ses_CheckGatesConsistency.exit._crit_edge ], [ %223, %221 ], [ 3, %42 ], [ 3, %53 ], [ 1, %171 ], [ 3, %64 ], [ 3, %27 ], [ 3, %39 ], [ 3, %50 ], [ 3, %30 ], [ 1, %Abc_TtXor.exit ], [ 2, %._crit_edge ], [ 1, %200 ], [ 1, %Abc_TtFindFirstBit.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.038
 }

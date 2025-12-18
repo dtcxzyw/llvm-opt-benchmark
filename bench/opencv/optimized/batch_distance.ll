@@ -1632,8 +1632,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit254: ; preds = %72
   call void @llvm.lifetime.end.p0(ptr nonnull %44)
   br label %752
 
-.thread:                                          ; preds = %720, %719, %718, %715, %713, %712, %710, %709, %707, %721
-  %.0270 = phi ptr [ @_ZN2cvL17batchDistHamming2EPKhS1_miiPiS1_, %721 ], [ @_ZN2cvL15batchDistL2_32fEPKfS1_miiPfPKh, %720 ], [ @_ZN2cvL18batchDistL2Sqr_32fEPKfS1_miiPfPKh, %719 ], [ @_ZN2cvL15batchDistL1_32fEPKfS1_miiPfPKh, %718 ], [ @_ZN2cvL16batchDistHammingEPKhS1_miiPiS1_, %715 ], [ @_ZN2cvL17batchDistL2_8u32fEPKhS1_miiPfS1_, %713 ], [ @_ZN2cvL20batchDistL2Sqr_8u32fEPKhS1_miiPfS1_, %712 ], [ @_ZN2cvL20batchDistL2Sqr_8u32sEPKhS1_miiPiS1_, %710 ], [ @_ZN2cvL17batchDistL1_8u32fEPKhS1_miiPfS1_, %709 ], [ @_ZN2cvL17batchDistL1_8u32sEPKhS1_miiPiS1_, %707 ]
+.thread:                                          ; preds = %719, %720, %715, %713, %712, %710, %709, %707, %718, %721
+  %.0270 = phi ptr [ @_ZN2cvL17batchDistHamming2EPKhS1_miiPiS1_, %721 ], [ @_ZN2cvL18batchDistL2Sqr_32fEPKfS1_miiPfPKh, %719 ], [ @_ZN2cvL15batchDistL2_32fEPKfS1_miiPfPKh, %720 ], [ @_ZN2cvL16batchDistHammingEPKhS1_miiPiS1_, %715 ], [ @_ZN2cvL17batchDistL2_8u32fEPKhS1_miiPfS1_, %713 ], [ @_ZN2cvL20batchDistL2Sqr_8u32fEPKhS1_miiPfS1_, %712 ], [ @_ZN2cvL20batchDistL2Sqr_8u32sEPKhS1_miiPiS1_, %710 ], [ @_ZN2cvL17batchDistL1_8u32fEPKhS1_miiPfS1_, %709 ], [ @_ZN2cvL17batchDistL1_8u32sEPKhS1_miiPiS1_, %707 ], [ @_ZN2cvL15batchDistL1_32fEPKfS1_miiPfPKh, %718 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %45)
   %732 = load i32, ptr %132, align 8, !tbaa !42
   store i32 0, ptr %45, align 4, !tbaa !65

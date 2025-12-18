@@ -10874,12 +10874,12 @@ _ZN9grpc_core13RefCountedPtrINS_19LoadBalancingPolicy6ConfigEED2Ev.exit251: ; pr
   br label %_ZN9grpc_core13RefCountedPtrINS_13ServiceConfigEED2Ev.exit237
 
 _ZN9grpc_core13RefCountedPtrINS_13ServiceConfigEED2Ev.exit237: ; preds = %677, %725, %814, %675
-  %.sroa.0308.0 = phi ptr [ %.sroa.0308.2, %675 ], [ %.sroa.0308.1, %814 ], [ %.sroa.0308.2, %725 ], [ %.sroa.0308.2, %677 ]
-  %.sroa.0323.5 = phi ptr [ %.sroa.0323.1, %675 ], [ %.sroa.0323.3, %814 ], [ %.sroa.0323.1, %725 ], [ %.sroa.0323.1, %677 ]
-  %.sroa.0329.5 = phi ptr [ %.sroa.0329.1, %675 ], [ %.sroa.0329.3, %814 ], [ %.sroa.0329.1, %725 ], [ %.sroa.0329.1, %677 ]
-  %.sroa.35.9 = phi ptr [ %.sroa.35.5, %675 ], [ %.sroa.35.7, %814 ], [ %.sroa.35.5, %725 ], [ %.sroa.35.5, %677 ]
-  %.sroa.0344.9 = phi ptr [ %.sroa.0344.5, %675 ], [ %.sroa.0344.7, %814 ], [ %.sroa.0344.5, %725 ], [ %.sroa.0344.5, %677 ]
-  %.pn89.pn.pn.pn = phi { ptr, i32 } [ %676, %675 ], [ %.pn89.pn, %814 ], [ %.pn83.pn, %725 ], [ %678, %677 ]
+  %.sroa.0308.0 = phi ptr [ %.sroa.0308.2, %675 ], [ %.sroa.0308.2, %677 ], [ %.sroa.0308.1, %814 ], [ %.sroa.0308.2, %725 ]
+  %.sroa.0323.5 = phi ptr [ %.sroa.0323.1, %675 ], [ %.sroa.0323.1, %677 ], [ %.sroa.0323.3, %814 ], [ %.sroa.0323.1, %725 ]
+  %.sroa.0329.5 = phi ptr [ %.sroa.0329.1, %675 ], [ %.sroa.0329.1, %677 ], [ %.sroa.0329.3, %814 ], [ %.sroa.0329.1, %725 ]
+  %.sroa.35.9 = phi ptr [ %.sroa.35.5, %675 ], [ %.sroa.35.5, %677 ], [ %.sroa.35.7, %814 ], [ %.sroa.35.5, %725 ]
+  %.sroa.0344.9 = phi ptr [ %.sroa.0344.5, %675 ], [ %.sroa.0344.5, %677 ], [ %.sroa.0344.7, %814 ], [ %.sroa.0344.5, %725 ]
+  %.pn89.pn.pn.pn = phi { ptr, i32 } [ %676, %675 ], [ %678, %677 ], [ %.pn89.pn, %814 ], [ %.pn83.pn, %725 ]
   %.not.i252 = icmp eq ptr %.sroa.0308.0, null
   br i1 %.not.i252, label %.body, label %_ZN9grpc_core13RefCountedPtrINS_13ServiceConfigEED2Ev.exit237.thread
 
@@ -11241,11 +11241,11 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZN4absl12lts_20240
   ret void
 
 .body:                                            ; preds = %349, %557, %673, %_ZN9grpc_core13RefCountedPtrINS_13ServiceConfigEED2Ev.exit237, %_ZN9grpc_core13RefCountedPtrINS_13ServiceConfigEED2Ev.exit237.thread, %818, %671, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit278, %835, %669
-  %.sroa.0323.0 = phi ptr [ %.sroa.0323.2, %835 ], [ %.sroa.0323.2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit278 ], [ %.sroa.0323.1, %671 ], [ %.sroa.0323.1, %669 ], [ %.sroa.0323.1, %673 ], [ %.sroa.0323.1, %349 ], [ %.sroa.0323.1, %557 ], [ %.sroa.0323.5, %_ZN9grpc_core13RefCountedPtrINS_13ServiceConfigEED2Ev.exit237 ], [ %.sroa.0323.5400, %_ZN9grpc_core13RefCountedPtrINS_13ServiceConfigEED2Ev.exit237.thread ], [ %.sroa.0323.5400, %818 ]
-  %.sroa.0329.0 = phi ptr [ %.sroa.0329.2, %835 ], [ %.sroa.0329.2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit278 ], [ %.sroa.0329.1, %671 ], [ %.sroa.0329.1, %669 ], [ %.sroa.0329.1, %673 ], [ %.sroa.0329.1, %349 ], [ %.sroa.0329.1, %557 ], [ %.sroa.0329.5, %_ZN9grpc_core13RefCountedPtrINS_13ServiceConfigEED2Ev.exit237 ], [ %.sroa.0329.5402, %_ZN9grpc_core13RefCountedPtrINS_13ServiceConfigEED2Ev.exit237.thread ], [ %.sroa.0329.5402, %818 ]
-  %.sroa.35.4 = phi ptr [ %.sroa.35.6, %835 ], [ %.sroa.35.6, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit278 ], [ %.sroa.35.5, %671 ], [ %.sroa.35.5, %669 ], [ %.sroa.35.5, %673 ], [ %.sroa.35.5, %349 ], [ %.sroa.35.5, %557 ], [ %.sroa.35.9, %_ZN9grpc_core13RefCountedPtrINS_13ServiceConfigEED2Ev.exit237 ], [ %.sroa.35.9404, %_ZN9grpc_core13RefCountedPtrINS_13ServiceConfigEED2Ev.exit237.thread ], [ %.sroa.35.9404, %818 ]
-  %.sroa.0344.4 = phi ptr [ %.sroa.0344.6, %835 ], [ %.sroa.0344.6, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit278 ], [ %.sroa.0344.5, %671 ], [ %.sroa.0344.5, %669 ], [ %.sroa.0344.5, %673 ], [ %.sroa.0344.5, %349 ], [ %.sroa.0344.5, %557 ], [ %.sroa.0344.9, %_ZN9grpc_core13RefCountedPtrINS_13ServiceConfigEED2Ev.exit237 ], [ %.sroa.0344.9406, %_ZN9grpc_core13RefCountedPtrINS_13ServiceConfigEED2Ev.exit237.thread ], [ %.sroa.0344.9406, %818 ]
-  %.pn99.pn.pn = phi { ptr, i32 } [ %836, %835 ], [ %.pn99.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit278 ], [ %672, %671 ], [ %670, %669 ], [ %674, %673 ], [ %.pn.i, %349 ], [ %.pn42.pn.pn.pn.i, %557 ], [ %.pn89.pn.pn.pn, %_ZN9grpc_core13RefCountedPtrINS_13ServiceConfigEED2Ev.exit237 ], [ %.pn89.pn.pn.pn408, %_ZN9grpc_core13RefCountedPtrINS_13ServiceConfigEED2Ev.exit237.thread ], [ %.pn89.pn.pn.pn408, %818 ]
+  %.sroa.0323.0 = phi ptr [ %.sroa.0323.5400, %818 ], [ %.sroa.0323.2, %835 ], [ %.sroa.0323.2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit278 ], [ %.sroa.0323.1, %671 ], [ %.sroa.0323.1, %669 ], [ %.sroa.0323.5400, %_ZN9grpc_core13RefCountedPtrINS_13ServiceConfigEED2Ev.exit237.thread ], [ %.sroa.0323.5, %_ZN9grpc_core13RefCountedPtrINS_13ServiceConfigEED2Ev.exit237 ], [ %.sroa.0323.1, %557 ], [ %.sroa.0323.1, %349 ], [ %.sroa.0323.1, %673 ]
+  %.sroa.0329.0 = phi ptr [ %.sroa.0329.5402, %818 ], [ %.sroa.0329.2, %835 ], [ %.sroa.0329.2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit278 ], [ %.sroa.0329.1, %671 ], [ %.sroa.0329.1, %669 ], [ %.sroa.0329.5402, %_ZN9grpc_core13RefCountedPtrINS_13ServiceConfigEED2Ev.exit237.thread ], [ %.sroa.0329.5, %_ZN9grpc_core13RefCountedPtrINS_13ServiceConfigEED2Ev.exit237 ], [ %.sroa.0329.1, %557 ], [ %.sroa.0329.1, %349 ], [ %.sroa.0329.1, %673 ]
+  %.sroa.35.4 = phi ptr [ %.sroa.35.9404, %818 ], [ %.sroa.35.6, %835 ], [ %.sroa.35.6, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit278 ], [ %.sroa.35.5, %671 ], [ %.sroa.35.5, %669 ], [ %.sroa.35.9404, %_ZN9grpc_core13RefCountedPtrINS_13ServiceConfigEED2Ev.exit237.thread ], [ %.sroa.35.9, %_ZN9grpc_core13RefCountedPtrINS_13ServiceConfigEED2Ev.exit237 ], [ %.sroa.35.5, %557 ], [ %.sroa.35.5, %349 ], [ %.sroa.35.5, %673 ]
+  %.sroa.0344.4 = phi ptr [ %.sroa.0344.9406, %818 ], [ %.sroa.0344.6, %835 ], [ %.sroa.0344.6, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit278 ], [ %.sroa.0344.5, %671 ], [ %.sroa.0344.5, %669 ], [ %.sroa.0344.9406, %_ZN9grpc_core13RefCountedPtrINS_13ServiceConfigEED2Ev.exit237.thread ], [ %.sroa.0344.9, %_ZN9grpc_core13RefCountedPtrINS_13ServiceConfigEED2Ev.exit237 ], [ %.sroa.0344.5, %557 ], [ %.sroa.0344.5, %349 ], [ %.sroa.0344.5, %673 ]
+  %.pn99.pn.pn = phi { ptr, i32 } [ %.pn89.pn.pn.pn408, %818 ], [ %836, %835 ], [ %.pn99.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit278 ], [ %672, %671 ], [ %670, %669 ], [ %.pn89.pn.pn.pn408, %_ZN9grpc_core13RefCountedPtrINS_13ServiceConfigEED2Ev.exit237.thread ], [ %.pn89.pn.pn.pn, %_ZN9grpc_core13RefCountedPtrINS_13ServiceConfigEED2Ev.exit237 ], [ %.pn42.pn.pn.pn.i, %557 ], [ %.pn.i, %349 ], [ %674, %673 ]
   %.not.i293 = icmp eq ptr %.sroa.0323.0, null
   br i1 %.not.i293, label %_ZN9grpc_core13RefCountedPtrINS_14ConfigSelectorEED2Ev.exit294, label %943
 

@@ -683,7 +683,7 @@ define dso_local noundef zeroext i1 @unwind_next_frame(ptr noundef %0) #1 align 
   br label %183
 
 183:                                              ; preds = %181, %.loopexit72, %.loopexit
-  %184 = phi ptr [ %182, %181 ], [ %96, %.loopexit ], [ %134, %.loopexit72 ]
+  %184 = phi ptr [ %96, %.loopexit ], [ %182, %181 ], [ %134, %.loopexit72 ]
   %185 = icmp eq ptr %184, null
   br i1 %185, label %.thread, label %.thread57
 

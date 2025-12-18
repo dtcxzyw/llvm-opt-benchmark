@@ -129,12 +129,12 @@ define hidden noundef ptr @timelib_parse_posix_str(ptr noundef %0) local_unnamed
   %34 = tail call noalias ptr @_estrndup(ptr noundef nonnull %0, i64 noundef %31) #8
   br label %read_description.exit
 
-read_description.exit.thread:                     ; preds = %8, %12, %.critedge2.i.i
+read_description.exit.thread:                     ; preds = %8, %.critedge2.i.i, %12
   store ptr null, ptr %3, align 8, !tbaa !4
   br label %35
 
 read_description.exit:                            ; preds = %19, %33
-  %.0.i = phi ptr [ %20, %19 ], [ %34, %33 ]
+  %.0.i = phi ptr [ %34, %33 ], [ %20, %19 ]
   store ptr %.0.i, ptr %3, align 8, !tbaa !4
   %.not = icmp eq ptr %.0.i, null
   br i1 %.not, label %35, label %47
@@ -290,14 +290,14 @@ timelib_posix_str_dtor.exit41:                    ; preds = %59, %62
   %100 = tail call noalias ptr @_estrndup(ptr noundef nonnull %64, i64 noundef %97) #8
   br label %read_description.exit49
 
-read_description.exit49.thread:                   ; preds = %74, %78, %.critedge2.i.i43
+read_description.exit49.thread:                   ; preds = %74, %.critedge2.i.i43, %78
   %101 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr null, ptr %101, align 8, !tbaa !13
   br label %104
 
 read_description.exit49:                          ; preds = %85, %99
-  %102 = phi ptr [ %79, %85 ], [ %.lcssa.i.i44, %99 ]
-  %.0.i45 = phi ptr [ %86, %85 ], [ %100, %99 ]
+  %102 = phi ptr [ %.lcssa.i.i44, %99 ], [ %79, %85 ]
+  %.0.i45 = phi ptr [ %100, %99 ], [ %86, %85 ]
   %103 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %.0.i45, ptr %103, align 8, !tbaa !13
   %.not29 = icmp eq ptr %.0.i45, null
@@ -1263,7 +1263,7 @@ define internal fastcc i64 @calc_transition(ptr noundef readonly captures(none) 
   br i1 %exitcond67.not, label %.loopexit, label %75
 
 .loopexit:                                        ; preds = %75, %._crit_edge, %10, %21, %13
-  %.043 = phi i64 [ %20, %13 ], [ %25, %21 ], [ 0, %10 ], [ %71, %._crit_edge ], [ %80, %75 ]
+  %.043 = phi i64 [ 0, %10 ], [ %20, %13 ], [ %25, %21 ], [ %71, %._crit_edge ], [ %80, %75 ]
   ret i64 %.043
 }
 

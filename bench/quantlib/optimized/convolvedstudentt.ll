@@ -804,7 +804,7 @@ for.body163.lr.ph:                                ; preds = %for.cond157.prehead
   br label %for.body163
 
 for.cond.cleanup155:                              ; preds = %for.cond.cleanup162, %for.cond132.preheader, %for.cond151.preheader
-  %.pre357 = phi ptr [ %.pre313.pre, %for.cond151.preheader ], [ null, %for.cond132.preheader ], [ %.pre313.pre, %for.cond.cleanup162 ]
+  %.pre357 = phi ptr [ null, %for.cond132.preheader ], [ %.pre313.pre, %for.cond151.preheader ], [ %.pre313.pre, %for.cond.cleanup162 ]
   %_M_finish.i172 = getelementptr inbounds nuw i8, ptr %this, i64 56
   %88 = load ptr, ptr %_M_finish.i172, align 8, !tbaa !11
   %cmp.i182.not302 = icmp eq ptr %.pre357, %88

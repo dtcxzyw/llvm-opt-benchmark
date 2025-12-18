@@ -4225,7 +4225,7 @@ _ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.
   br i1 %102, label %51, label %._crit_edge, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %98, %97
-  %.1 = phi i1 [ %.2, %97 ], [ %.255, %98 ]
+  %.1 = phi i1 [ %.255, %98 ], [ %.2, %97 ]
   br i1 %.1, label %_ZN12ResourceMarkD2Ev.exit, label %.critedge
 
 .critedge:                                        ; preds = %35, %._crit_edge

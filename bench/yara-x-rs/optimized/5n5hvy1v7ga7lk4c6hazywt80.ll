@@ -1531,7 +1531,7 @@ _ZN4core5slice6memchr6memchr17h2cbc5c3ccb35b62bE.exit.thread16.i.i: ; preds = %.
   br i1 %.not12.i.i, label %50, label %48
 
 _ZN4core5slice6memchr6memchr17h2cbc5c3ccb35b62bE.exit.thread.i.i: ; preds = %.preheader.i.i.i, %37, %_ZN4core5slice6memchr6memchr17h2cbc5c3ccb35b62bE.exit._ZN4core5slice6memchr6memchr17h2cbc5c3ccb35b62bE.exit.thread.loopexit20_crit_edge.i.i
-  %47 = phi i64 [ %.pre46.pre.i.i, %_ZN4core5slice6memchr6memchr17h2cbc5c3ccb35b62bE.exit._ZN4core5slice6memchr6memchr17h2cbc5c3ccb35b62bE.exit.thread.loopexit20_crit_edge.i.i ], [ %23, %37 ], [ %23, %.preheader.i.i.i ]
+  %47 = phi i64 [ %23, %37 ], [ %.pre46.pre.i.i, %_ZN4core5slice6memchr6memchr17h2cbc5c3ccb35b62bE.exit._ZN4core5slice6memchr6memchr17h2cbc5c3ccb35b62bE.exit.thread.loopexit20_crit_edge.i.i ], [ %23, %.preheader.i.i.i ]
   store i64 %47, ptr %.sroa.337.sroa.3.0..sroa.337.0..sroa_idx.sroa_idx, align 8, !alias.scope !97, !noalias !100
   br label %.loopexit.i
 
@@ -1597,8 +1597,8 @@ _ZN4core5slice6memchr6memchr17h2cbc5c3ccb35b62bE.exit.thread.i.i: ; preds = %.pr
   br label %70
 
 70:                                               ; preds = %._crit_edge.i.i, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h8b55eca284de6ec9E.exit.i"
-  %.sroa.4.0.i = phi i64 [ %61, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h8b55eca284de6ec9E.exit.i" ], [ %68, %._crit_edge.i.i ]
-  %.sroa.0.0.i = phi ptr [ %62, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h8b55eca284de6ec9E.exit.i" ], [ %69, %._crit_edge.i.i ]
+  %.sroa.4.0.i = phi i64 [ %68, %._crit_edge.i.i ], [ %61, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h8b55eca284de6ec9E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %69, %._crit_edge.i.i ], [ %62, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h8b55eca284de6ec9E.exit.i" ]
   %71 = call { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17ha33917e0d6bfb107E"(ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i, i64 noundef %.sroa.4.0.i)
   %72 = extractvalue { ptr, i64 } %71, 0
   %73 = extractvalue { ptr, i64 } %71, 1

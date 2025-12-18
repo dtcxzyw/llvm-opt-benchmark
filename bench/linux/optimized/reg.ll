@@ -346,7 +346,7 @@ define dso_local i32 @reg_query_regdb_wmm(ptr noundef readonly captures(address_
   br i1 %73, label %.loopexit, label %.split, !llvm.loop !9
 
 .loopexit:                                        ; preds = %69, %66, %15, %65, %29, %11, %8, %3
-  %74 = phi i32 [ %10, %8 ], [ -61, %3 ], [ -61, %29 ], [ -61, %11 ], [ 0, %65 ], [ -61, %15 ], [ -61, %66 ], [ -61, %69 ]
+  %74 = phi i32 [ %10, %8 ], [ -61, %3 ], [ -61, %29 ], [ -61, %11 ], [ 0, %65 ], [ -61, %66 ], [ -61, %15 ], [ -61, %69 ]
   ret i32 %74
 }
 
@@ -616,7 +616,7 @@ define internal fastcc noundef zeroext i1 @valid_regdb(ptr noundef %0, i32 nound
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit8, %46, %39, %33, %115, %94, %84, %76, %71, %.preheader7, %121, %27, %18, %9, %6, %2
-  %122 = phi i1 [ false, %2 ], [ false, %6 ], [ false, %9 ], [ false, %18 ], [ false, %121 ], [ true, %27 ], [ false, %115 ], [ false, %.preheader7 ], [ false, %71 ], [ false, %76 ], [ false, %84 ], [ false, %94 ], [ true, %33 ], [ true, %.loopexit8 ], [ false, %46 ], [ false, %39 ]
+  %122 = phi i1 [ false, %2 ], [ false, %6 ], [ false, %9 ], [ false, %18 ], [ false, %121 ], [ true, %27 ], [ false, %115 ], [ false, %.preheader7 ], [ false, %71 ], [ false, %76 ], [ false, %84 ], [ false, %94 ], [ false, %39 ], [ false, %46 ], [ true, %.loopexit8 ], [ true, %33 ]
   ret i1 %122
 }
 
@@ -758,8 +758,8 @@ define internal fastcc void @reg_process_hint(ptr noundef %0) unnamed_addr #1 al
   %.not = icmp eq i8 %71, %73
   br i1 %.not, label %.thread36, label %.thread38
 
-.thread38:                                        ; preds = %60, %33, %63, %69
-  %74 = phi i8 [ 0, %69 ], [ 0, %60 ], [ 1, %33 ], [ 0, %63 ]
+.thread38:                                        ; preds = %63, %33, %60, %69
+  %74 = phi i8 [ 0, %69 ], [ 0, %63 ], [ 1, %33 ], [ 0, %60 ]
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i8 %74, ptr %75, align 4
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 37
@@ -1422,7 +1422,7 @@ define dso_local ptr @freq_reg_info(ptr noundef %0, i32 noundef %1) #1 align 16 
   br i1 %62, label %.split9.us, label %.split.splitthread-pre-split, !llvm.loop !34
 
 .split9.us:                                       ; preds = %.thread4, %55, %.split, %13
-  %.us-phi = phi ptr [ inttoptr (i64 -34 to ptr), %.split ], [ inttoptr (i64 -22 to ptr), %13 ], [ %57, %.thread4 ], [ %35, %55 ]
+  %.us-phi = phi ptr [ inttoptr (i64 -22 to ptr), %13 ], [ inttoptr (i64 -34 to ptr), %.split ], [ %35, %55 ], [ %57, %.thread4 ]
   ret ptr %.us-phi
 }
 
@@ -3531,7 +3531,7 @@ define dso_local noundef i32 @set_regdom(ptr noundef %0, i32 noundef %1) local_u
   %cond = icmp eq i32 %269, 0
   br i1 %cond, label %.thread36, label %.thread33
 
-.thread39:                                        ; preds = %76, %127
+.thread39:                                        ; preds = %127, %76
   %270 = load volatile ptr, ptr @last_request, align 8
   %271 = getelementptr inbounds nuw i8, ptr %270, i64 37
   store i8 1, ptr %271, align 1
@@ -3548,15 +3548,15 @@ define dso_local noundef i32 @set_regdom(ptr noundef %0, i32 noundef %1) local_u
   br label %282
 
 .thread33.sink.split.sink.split:                  ; preds = %93, %98, %102, %81, %89, %140, %237
-  %.ph.ph = phi i1 [ false, %237 ], [ false, %140 ], [ true, %89 ], [ true, %81 ], [ true, %102 ], [ true, %98 ], [ true, %93 ]
+  %.ph.ph = phi i1 [ false, %237 ], [ false, %140 ], [ true, %81 ], [ true, %89 ], [ true, %102 ], [ true, %98 ], [ true, %93 ]
   %.pre = load i8, ptr %7, align 4
   %.pre45 = load i8, ptr %22, align 1
   br label %.thread33.sink.split
 
 .thread33.sink.split:                             ; preds = %241, %246, %250, %144, %149, %153, %.thread33.sink.split.sink.split, %228, %131
-  %.sink77 = phi i8 [ %21, %131 ], [ %21, %228 ], [ %.pre45, %.thread33.sink.split.sink.split ], [ %21, %144 ], [ %21, %153 ], [ %21, %149 ], [ %21, %250 ], [ %21, %246 ], [ %21, %241 ]
-  %.sink.in = phi i8 [ %16, %131 ], [ %16, %228 ], [ %.pre, %.thread33.sink.split.sink.split ], [ %16, %144 ], [ %16, %153 ], [ %16, %149 ], [ %16, %250 ], [ %16, %246 ], [ %16, %241 ]
-  %.ph = phi i1 [ false, %131 ], [ false, %228 ], [ %.ph.ph, %.thread33.sink.split.sink.split ], [ false, %144 ], [ false, %153 ], [ false, %149 ], [ false, %250 ], [ false, %246 ], [ false, %241 ]
+  %.sink77 = phi i8 [ %.pre45, %.thread33.sink.split.sink.split ], [ %21, %144 ], [ %21, %131 ], [ %21, %228 ], [ %21, %153 ], [ %21, %149 ], [ %21, %250 ], [ %21, %246 ], [ %21, %241 ]
+  %.sink.in = phi i8 [ %.pre, %.thread33.sink.split.sink.split ], [ %16, %144 ], [ %16, %131 ], [ %16, %228 ], [ %16, %153 ], [ %16, %149 ], [ %16, %250 ], [ %16, %246 ], [ %16, %241 ]
+  %.ph = phi i1 [ %.ph.ph, %.thread33.sink.split.sink.split ], [ false, %144 ], [ false, %131 ], [ false, %228 ], [ false, %153 ], [ false, %149 ], [ false, %250 ], [ false, %246 ], [ false, %241 ]
   %.sink = zext i8 %.sink.in to i32
   %278 = zext i8 %.sink77 to i32
   %279 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.24, i32 noundef %.sink, i32 noundef %278) #30
@@ -4240,12 +4240,12 @@ define internal fastcc void @wiphy_update_regulatory(ptr noundef %0, i32 noundef
   br i1 %145, label %freq_reg_info.exit, label %.split.splitthread-pre-split.i, !llvm.loop !34
 
 freq_reg_info.exit:                               ; preds = %138, %.thread4.i
-  %.us-phi.i = phi ptr [ %140, %.thread4.i ], [ %118, %138 ]
+  %.us-phi.i = phi ptr [ %118, %138 ], [ %140, %.thread4.i ]
   %146 = icmp ugt ptr %.us-phi.i, inttoptr (i64 -4096 to ptr)
   br i1 %146, label %freq_reg_info.exit.thread, label %484
 
-freq_reg_info.exit.thread:                        ; preds = %96, %.split.i, %freq_reg_info.exit
-  %.us-phi.i18 = phi ptr [ %.us-phi.i, %freq_reg_info.exit ], [ inttoptr (i64 -22 to ptr), %96 ], [ inttoptr (i64 -34 to ptr), %.split.i ]
+freq_reg_info.exit.thread:                        ; preds = %.split.i, %96, %freq_reg_info.exit
+  %.us-phi.i18 = phi ptr [ %.us-phi.i, %freq_reg_info.exit ], [ inttoptr (i64 -34 to ptr), %.split.i ], [ inttoptr (i64 -22 to ptr), %96 ]
   %147 = add i32 %80, -20000
   %148 = call ptr @freq_reg_info(ptr noundef %0, i32 noundef %147)
   %149 = add i32 %80, 20000

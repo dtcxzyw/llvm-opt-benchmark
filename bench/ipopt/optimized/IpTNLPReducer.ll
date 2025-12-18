@@ -1712,8 +1712,8 @@ define noundef zeroext i1 @_ZN5Ipopt11TNLPReducer10eval_jac_gEiPKdbiiPiS3_Pd(ptr
   br i1 %exitcond.not, label %.loopexit, label %99, !llvm.loop !58
 
 .loopexit:                                        ; preds = %113, %79, %.preheader, %78
-  %.sink = phi ptr [ %23, %78 ], [ %86, %.preheader ], [ %86, %79 ], [ %86, %113 ]
-  %.050.in = phi i1 [ %31, %78 ], [ true, %.preheader ], [ false, %79 ], [ true, %113 ]
+  %.sink = phi ptr [ %23, %78 ], [ %86, %79 ], [ %86, %.preheader ], [ %86, %113 ]
+  %.050.in = phi i1 [ %31, %78 ], [ false, %79 ], [ true, %.preheader ], [ true, %113 ]
   tail call void @_ZdaPv(ptr noundef nonnull %.sink) #10
   ret i1 %.050.in
 }

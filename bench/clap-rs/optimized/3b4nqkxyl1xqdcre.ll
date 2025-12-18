@@ -1058,7 +1058,7 @@ _ZN4core3str11validations15next_code_point17h89bb77f6a1195837E.exit.thread.i.i.i
   br label %.loopexit
 
 "_ZN4core3str4iter29MatchIndicesInternal$LT$P$GT$4next17h88233494dd37c41aE.exit.thread": ; preds = %.thread.i.i.i, %171, %59, %16, %.backedge.sink.split.i.us, %.backedge.i.us, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h78b00b8caf976411E.exit.split"
-  %.0116 = phi i64 [ 0, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h78b00b8caf976411E.exit.split" ], [ %.0156, %171 ], [ %.0.us, %.backedge.i.us ], [ %.0.us, %.backedge.sink.split.i.us ], [ %.0.us, %59 ], [ %.0.us, %16 ], [ %.0156, %.thread.i.i.i ]
+  %.0116 = phi i64 [ %.0156, %171 ], [ %.0.us, %.backedge.sink.split.i.us ], [ %.0.us, %.backedge.i.us ], [ %.0.us, %59 ], [ 0, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h78b00b8caf976411E.exit.split" ], [ %.0.us, %16 ], [ %.0156, %.thread.i.i.i ]
   %185 = sub i64 %2, %.0116
   %186 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !213, !noalias !220, !noundef !12
   %187 = load i64, ptr %5, align 8, !alias.scope !213, !noalias !220, !noundef !12
@@ -1610,7 +1610,7 @@ _ZN4core5slice6memchr12memchr_naive17h481c51c45c886aadE.exit: ; preds = %.lr.ph.
   br label %.loopexit
 
 .loopexit:                                        ; preds = %63, %39, %2, %.split.us, %.split80.us
-  %storemerge31 = phi i64 [ 0, %.split.us ], [ 1, %.split80.us ], [ 0, %2 ], [ 0, %39 ], [ 0, %63 ]
+  %storemerge31 = phi i64 [ 1, %.split80.us ], [ 0, %.split.us ], [ 0, %2 ], [ 0, %39 ], [ 0, %63 ]
   store i64 %storemerge31, ptr %0, align 8
   ret void
 }
@@ -5552,9 +5552,9 @@ define internal fastcc void @_ZN12clap_builder6output13help_template12HelpTempla
   br label %.body
 
 .loopexit30:                                      ; preds = %430, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h196bce2ad588b430E.exit.thread9.us.i", %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h196bce2ad588b430E.exit.thread9.i", %4
-  %78 = phi i64 [ 0, %4 ], [ %60, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h196bce2ad588b430E.exit.thread9.us.i" ], [ %60, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h196bce2ad588b430E.exit.thread9.i" ], [ %434, %430 ]
-  %79 = phi ptr [ inttoptr (i64 8 to ptr), %4 ], [ %61, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h196bce2ad588b430E.exit.thread9.us.i" ], [ %61, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h196bce2ad588b430E.exit.thread9.i" ], [ %432, %430 ]
-  %.061 = phi i64 [ 2, %4 ], [ %.063, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h196bce2ad588b430E.exit.thread9.us.i" ], [ %.063, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h196bce2ad588b430E.exit.thread9.i" ], [ %.1, %430 ]
+  %78 = phi i64 [ %60, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h196bce2ad588b430E.exit.thread9.us.i" ], [ %60, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h196bce2ad588b430E.exit.thread9.i" ], [ 0, %4 ], [ %434, %430 ]
+  %79 = phi ptr [ %61, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h196bce2ad588b430E.exit.thread9.us.i" ], [ %61, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h196bce2ad588b430E.exit.thread9.i" ], [ inttoptr (i64 8 to ptr), %4 ], [ %432, %430 ]
+  %.061 = phi i64 [ %.063, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h196bce2ad588b430E.exit.thread9.us.i" ], [ %.063, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h196bce2ad588b430E.exit.thread9.i" ], [ 2, %4 ], [ %.1, %430 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %37), !noalias !1189
   store ptr %5, ptr %37, align 8, !noalias !1192
   invoke void @_ZN4core5slice4sort10merge_sort17he5155f35c0c6d848E(ptr noalias noundef nonnull align 8 %79, i64 noundef %78, ptr noalias noundef nonnull align 8 dereferenceable(8) %37)
@@ -5805,7 +5805,7 @@ _ZN12clap_builder6output13help_template12HelpTemplate18arg_next_line_help17ha603
   br label %_ZN12clap_builder6output13help_template12HelpTemplate14will_args_wrap17h3c3e8e7d3fab815fE.exit
 
 _ZN12clap_builder6output13help_template12HelpTemplate14will_args_wrap17h3c3e8e7d3fab815fE.exit: ; preds = %.backedge.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h001f3bbeca8d20d6E.exit.i.i.i.i", %.backedge.i.us10.i.i, %.backedge.i.us.i.us.i, %.backedge.i.us.i.i, %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5c9a5ad8bf840250E.llvm.7816201618593889606.exit.sink.split.i", %87
-  %.lcssa.i.i8.i = phi i1 [ false, %87 ], [ true, %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5c9a5ad8bf840250E.llvm.7816201618593889606.exit.sink.split.i" ], [ false, %.backedge.i.us.i.i ], [ false, %.backedge.i.us.i.us.i ], [ false, %.backedge.i.us10.i.i ], [ false, %.backedge.i.i.i ], [ true, %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h001f3bbeca8d20d6E.exit.i.i.i.i" ]
+  %.lcssa.i.i8.i = phi i1 [ false, %.backedge.i.us.i.i ], [ false, %87 ], [ false, %.backedge.i.us.i.us.i ], [ false, %.backedge.i.us10.i.i ], [ true, %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5c9a5ad8bf840250E.llvm.7816201618593889606.exit.sink.split.i" ], [ true, %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h001f3bbeca8d20d6E.exit.i.i.i.i" ], [ false, %.backedge.i.i.i ]
   %161 = load ptr, ptr %42, align 8, !nonnull !12, !noundef !12
   %162 = load i64, ptr %43, align 8, !noundef !12
   %.idx66 = mul nsw i64 %162, 40

@@ -2495,7 +2495,7 @@ define hidden void @_ZN3smt10theory_fpa7convertEP4expr(ptr dead_on_unwind noalia
   br i1 %.not27.old.i.i.i, label %.loopexit19, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %42, %39
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %42 ], [ %41, %39 ]
+  %.137.i.i.i.be = phi ptr [ %41, %39 ], [ %.old.i.i.i, %42 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !673
 
 .loopexit:                                        ; preds = %23, %34
@@ -7864,7 +7864,7 @@ _ZNK10model_core17get_num_constantsEv.exit:       ; preds = %_ZNK10model_core17g
   br i1 %.not27.old.i.i.i.i, label %_ZNK10model_core16get_const_interpEP9func_decl.exit, label %.lr.ph38.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.backedge:                        ; preds = %97, %94
-  %.137.i.i.i.i.be = phi ptr [ %.old.i.i.i.i, %97 ], [ %96, %94 ]
+  %.137.i.i.i.i.be = phi ptr [ %96, %94 ], [ %.old.i.i.i.i, %97 ]
   br label %.lr.ph38.i.i.i.i, !llvm.loop !743
 
 .loopexit.i:                                      ; preds = %78, %89
@@ -11280,7 +11280,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI4exprPS1_E13obj_m
   br i1 %.not32.old, label %.loopexit, label %.lr.ph48.backedge
 
 .lr.ph48.backedge:                                ; preds = %36, %33
-  %.247.be = phi ptr [ %.old, %36 ], [ %35, %33 ]
+  %.247.be = phi ptr [ %35, %33 ], [ %.old, %36 ]
   br label %.lr.ph48, !llvm.loop !831
 
 .loopexit38:                                      ; preds = %17, %28

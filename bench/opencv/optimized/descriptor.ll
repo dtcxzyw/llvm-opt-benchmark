@@ -1285,7 +1285,7 @@ _ZN2cv6stereo16StarKernelCensusILi2EEC2EPKNS_3MatEiPPi.exit.critedge: ; preds = 
   br i1 %127, label %.loopexit, label %124
 
 .loopexit:                                        ; preds = %124, %.loopexit.loopexit57, %.thread
-  %.pn30 = phi { ptr, i32 } [ %84, %.thread ], [ %120, %.loopexit.loopexit57 ], [ %122, %124 ]
+  %.pn30 = phi { ptr, i32 } [ %120, %.loopexit.loopexit57 ], [ %84, %.thread ], [ %122, %124 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %128
 
@@ -3037,7 +3037,7 @@ _ZN2cv6stereo16ModifiedCsCensusILi2EEC2EPPhi.exit.critedge: ; preds = %107
   br i1 %170, label %.loopexit, label %167
 
 .loopexit:                                        ; preds = %167, %.loopexit.loopexit96, %.thread
-  %.pn51.pn = phi { ptr, i32 } [ %105, %.thread ], [ %137, %.loopexit.loopexit96 ], [ %.pn51, %167 ]
+  %.pn51.pn = phi { ptr, i32 } [ %137, %.loopexit.loopexit96 ], [ %105, %.thread ], [ %.pn51, %167 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %171
 

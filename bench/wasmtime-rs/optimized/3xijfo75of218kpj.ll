@@ -2885,7 +2885,7 @@ _ZN20wasmtime_wit_bindgen23resolve_type_in_package17h9960760731ad94ddE.exit: ; p
   br i1 %796, label %.invoke.i.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0e485a301f018b8fE.exit310.i.i"
 
 .invoke.i.i:                                      ; preds = %1230, %1227, %1224, %1221, %1215, %1193, %1187, %1167, %1144, %938, %934, %928, %797
-  %798 = phi ptr [ @anon.76daaaf5a2b6053e52b5bc759f8da9fb.127, %797 ], [ @anon.76daaaf5a2b6053e52b5bc759f8da9fb.134, %928 ], [ @anon.76daaaf5a2b6053e52b5bc759f8da9fb.137, %934 ], [ @anon.76daaaf5a2b6053e52b5bc759f8da9fb.138, %938 ], [ @anon.76daaaf5a2b6053e52b5bc759f8da9fb.150, %1144 ], [ @anon.76daaaf5a2b6053e52b5bc759f8da9fb.151, %1167 ], [ @anon.76daaaf5a2b6053e52b5bc759f8da9fb.152, %1187 ], [ @anon.76daaaf5a2b6053e52b5bc759f8da9fb.153, %1193 ], [ @anon.76daaaf5a2b6053e52b5bc759f8da9fb.154, %1215 ], [ @anon.76daaaf5a2b6053e52b5bc759f8da9fb.157, %1221 ], [ @anon.76daaaf5a2b6053e52b5bc759f8da9fb.159, %1227 ], [ @anon.76daaaf5a2b6053e52b5bc759f8da9fb.158, %1224 ], [ @anon.76daaaf5a2b6053e52b5bc759f8da9fb.162, %1230 ]
+  %798 = phi ptr [ @anon.76daaaf5a2b6053e52b5bc759f8da9fb.159, %1227 ], [ @anon.76daaaf5a2b6053e52b5bc759f8da9fb.127, %797 ], [ @anon.76daaaf5a2b6053e52b5bc759f8da9fb.134, %928 ], [ @anon.76daaaf5a2b6053e52b5bc759f8da9fb.137, %934 ], [ @anon.76daaaf5a2b6053e52b5bc759f8da9fb.138, %938 ], [ @anon.76daaaf5a2b6053e52b5bc759f8da9fb.150, %1144 ], [ @anon.76daaaf5a2b6053e52b5bc759f8da9fb.151, %1167 ], [ @anon.76daaaf5a2b6053e52b5bc759f8da9fb.152, %1187 ], [ @anon.76daaaf5a2b6053e52b5bc759f8da9fb.153, %1193 ], [ @anon.76daaaf5a2b6053e52b5bc759f8da9fb.154, %1215 ], [ @anon.76daaaf5a2b6053e52b5bc759f8da9fb.157, %1221 ], [ @anon.76daaaf5a2b6053e52b5bc759f8da9fb.158, %1224 ], [ @anon.76daaaf5a2b6053e52b5bc759f8da9fb.162, %1230 ]
   invoke void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr nonnull align 1 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.0, i64 43, ptr nonnull align 1 %6, ptr nonnull align 8 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.1, ptr nonnull align 8 %798) #14
           to label %.cont.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i, !noalias !32
 
@@ -6299,7 +6299,7 @@ _ZN20wasmtime_wit_bindgen8Wasmtime12build_struct17he868513d52786a01E.exit.i: ; p
           to label %.thread316.i unwind label %1563
 
 .thread316.i:                                     ; preds = %.loopexit.split-lp383.i.loopexit, %.loopexit.split-lp383.i.loopexit.split-lp, %1698, %.thread355.i, %1696, %.loopexit382.i
-  %.pn270.pn.pn.pn.pn319.i = phi { ptr, i32 } [ %lpad.phi391.i, %1698 ], [ %1697, %.thread355.i ], [ %lpad.phi391.i, %1696 ], [ %lpad.loopexit384.i, %.loopexit382.i ], [ %lpad.loopexit173, %.loopexit.split-lp383.i.loopexit ], [ %lpad.loopexit.split-lp174, %.loopexit.split-lp383.i.loopexit.split-lp ]
+  %.pn270.pn.pn.pn.pn319.i = phi { ptr, i32 } [ %lpad.phi391.i, %1696 ], [ %1697, %.thread355.i ], [ %lpad.phi391.i, %1698 ], [ %lpad.loopexit384.i, %.loopexit382.i ], [ %lpad.loopexit173, %.loopexit.split-lp383.i.loopexit ], [ %lpad.loopexit.split-lp174, %.loopexit.split-lp383.i.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17hd5c321a691b58caeE"(ptr nonnull align 8 %174) #12
           to label %.thread.i66 unwind label %1563
 

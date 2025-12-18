@@ -24773,8 +24773,8 @@ _ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE6resizeEm.exit: ; preds = %2
   br label %237
 
 237:                                              ; preds = %174, %233, %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE6resizeEm.exit
-  %.197 = phi i1 [ %.096409, %174 ], [ true, %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE6resizeEm.exit ], [ %.096409, %233 ]
-  %.194 = phi i1 [ %.093410, %174 ], [ %.093410, %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE6resizeEm.exit ], [ true, %233 ]
+  %.197 = phi i1 [ %.096409, %233 ], [ true, %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE6resizeEm.exit ], [ %.096409, %174 ]
+  %.194 = phi i1 [ true, %233 ], [ %.093410, %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE6resizeEm.exit ], [ %.093410, %174 ]
   %238 = getelementptr inbounds nuw i8, ptr %.091411, i64 8
   %.not = icmp eq ptr %238, %151
   br i1 %.not, label %.loopexit, label %.lr.ph
@@ -46082,8 +46082,8 @@ _ZN4pstd3pmr21polymorphic_allocatorIPN4pbrt15ParsedParameterEE15allocate_objectI
   br label %54
 
 ._crit_edge.i:                                    ; preds = %54, %38, %_ZN4pstd3pmr21polymorphic_allocatorIPN4pbrt15ParsedParameterEE15allocate_objectIS4_EEPT_m.exit.i
-  %.0.i.i.i.i46 = phi ptr [ %44, %_ZN4pstd3pmr21polymorphic_allocatorIPN4pbrt15ParsedParameterEE15allocate_objectIS4_EEPT_m.exit.i ], [ null, %38 ], [ %44, %54 ]
-  %.pre.i45 = phi ptr [ %.pre.pre.i, %_ZN4pstd3pmr21polymorphic_allocatorIPN4pbrt15ParsedParameterEE15allocate_objectIS4_EEPT_m.exit.i ], [ %34, %38 ], [ %.pre.pre.i, %54 ]
+  %.0.i.i.i.i46 = phi ptr [ null, %38 ], [ %44, %_ZN4pstd3pmr21polymorphic_allocatorIPN4pbrt15ParsedParameterEE15allocate_objectIS4_EEPT_m.exit.i ], [ %44, %54 ]
+  %.pre.i45 = phi ptr [ %34, %38 ], [ %.pre.pre.i, %_ZN4pstd3pmr21polymorphic_allocatorIPN4pbrt15ParsedParameterEE15allocate_objectIS4_EEPT_m.exit.i ], [ %.pre.pre.i, %54 ]
   %.not.i.i.i.i = icmp eq ptr %.pre.i45, null
   br i1 %.not.i.i.i.i, label %_ZN4pstd3pmr21polymorphic_allocatorIPN4pbrt15ParsedParameterEE17deallocate_objectIS4_EEvPT_m.exit.i, label %47
 

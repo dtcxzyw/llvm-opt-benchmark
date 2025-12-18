@@ -905,7 +905,7 @@ define dso_local noundef double @_ZN3igl13flip_avoiding35compute_max_step_from_s
   br i1 %17, label %.lr.ph, label %.loopexit, !llvm.loop !27
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph29, %.preheader23, %.preheader
-  %.1 = phi double [ 0x7FF0000000000000, %.preheader ], [ 0x7FF0000000000000, %.preheader23 ], [ %.sroa.speculated17, %.lr.ph29 ], [ %.sroa.speculated, %.lr.ph ]
+  %.1 = phi double [ %.sroa.speculated17, %.lr.ph29 ], [ 0x7FF0000000000000, %.preheader ], [ 0x7FF0000000000000, %.preheader23 ], [ %.sroa.speculated, %.lr.ph ]
   ret double %.1
 }
 
@@ -962,7 +962,7 @@ define dso_local noundef double @_ZN3igl25flip_avoiding_line_searchERKN5Eigen6Ma
   br i1 %23, label %.lr.ph.i, label %_ZN3igl13flip_avoiding35compute_max_step_from_singularitiesERKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEERKNS2_IiLin1ELin1ELi0ELin1ELin1EEERS3_.exit, !llvm.loop !27
 
 _ZN3igl13flip_avoiding35compute_max_step_from_singularitiesERKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEERKNS2_IiLin1ELin1ELi0ELin1ELin1EEERS3_.exit: ; preds = %.noexc, %.lr.ph29.i, %.preheader.i, %.preheader23.i
-  %.1.i = phi double [ 0x7FF0000000000000, %.preheader.i ], [ 0x7FF0000000000000, %.preheader23.i ], [ %.sroa.speculated17.i, %.lr.ph29.i ], [ %.sroa.speculated.i, %.noexc ]
+  %.1.i = phi double [ %.sroa.speculated17.i, %.lr.ph29.i ], [ 0x7FF0000000000000, %.preheader.i ], [ 0x7FF0000000000000, %.preheader23.i ], [ %.sroa.speculated.i, %.noexc ]
   %24 = fmul double %.1.i, 8.000000e-01
   %25 = fcmp olt double %24, 1.000000e+00
   %.sroa.speculated = select i1 %25, double %24, double 1.000000e+00

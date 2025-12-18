@@ -594,7 +594,7 @@ define dso_local noundef i32 @license_update(ptr noundef %0) local_unnamed_addr 
   br i1 %.not36, label %.outer._crit_edge, label %.lr.ph.split, !llvm.loop !15
 
 .outer._crit_edge:                                ; preds = %.outer, %60, %30, %17
-  %.028.ph.lcssa = phi ptr [ %.fr, %17 ], [ %.028.ph50, %60 ], [ null, %30 ], [ %.1, %.outer ]
+  %.028.ph.lcssa = phi ptr [ null, %30 ], [ %.fr, %17 ], [ %.028.ph50, %60 ], [ %.1, %.outer ]
   tail call void @list_iterator_destroy(ptr noundef %18) #11
   %62 = load ptr, ptr @cluster_license_list, align 8
   %.not37 = icmp eq ptr %62, null

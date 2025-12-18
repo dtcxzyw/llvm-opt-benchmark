@@ -430,7 +430,7 @@ switch.early.test:                                ; preds = %150
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.lr.ph, %171, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %150
-  %.5126 = phi ptr [ %.4125, %switch.early.test ], [ %.4125, %150 ], [ %.4125, %switch.early.test ], [ %.4125, %switch.early.test ], [ %.4125, %switch.early.test ], [ %.4125, %switch.early.test ], [ %.4125, %switch.early.test ], [ %.4125, %switch.early.test ], [ %.4125, %switch.early.test ], [ %.4125, %switch.early.test ], [ %.6127, %171 ], [ %176, %.lr.ph ]
+  %.5126 = phi ptr [ %.4125, %switch.early.test ], [ %.4125, %switch.early.test ], [ %.4125, %150 ], [ %.4125, %switch.early.test ], [ %.4125, %switch.early.test ], [ %.4125, %switch.early.test ], [ %.4125, %switch.early.test ], [ %.4125, %switch.early.test ], [ %.4125, %switch.early.test ], [ %.4125, %switch.early.test ], [ %.6127, %171 ], [ %176, %.lr.ph ]
   %177 = icmp sgt i32 %.9, 0
   br i1 %177, label %97, label %.loopexit186, !llvm.loop !17
 
@@ -1016,7 +1016,7 @@ define i32 @ubidi_writeReordered_77(ptr noundef %0, ptr noundef %1, i32 noundef 
   br i1 %282, label %211, label %.loopexit, !llvm.loop !48
 
 .loopexit:                                        ; preds = %281, %201, %185, %75, %206, %.preheader305, %80, %.preheader
-  %.5201 = phi i32 [ %2, %.preheader ], [ %2, %80 ], [ %2, %.preheader305 ], [ %2, %206 ], [ %204, %201 ], [ %78, %75 ], [ %.4200, %185 ], [ %.9205, %281 ]
+  %.5201 = phi i32 [ %78, %75 ], [ %.4200, %185 ], [ %204, %201 ], [ %2, %.preheader ], [ %2, %80 ], [ %2, %.preheader305 ], [ %2, %206 ], [ %.9205, %281 ]
   %283 = sub nsw i32 %2, %.5201
   %284 = call i32 @u_terminateUChars_77(ptr noundef %1, i32 noundef %2, i32 noundef %283, ptr noundef nonnull %4)
   br label %285
@@ -1204,7 +1204,7 @@ switch.early.test:                                ; preds = %.preheader178
   br i1 %84, label %.preheader178, label %.loopexit177, !llvm.loop !52
 
 .loopexit177:                                     ; preds = %82, %.lr.ph197, %67
-  %.3115.pn = phi i32 [ %65, %67 ], [ %.2114, %.lr.ph197 ], [ %.3115, %82 ]
+  %.3115.pn = phi i32 [ %.2114, %.lr.ph197 ], [ %65, %67 ], [ %.3115, %82 ]
   %.3 = sub nsw i32 %3, %.3115.pn
   br label %.loopexit
 
@@ -1332,7 +1332,7 @@ switch.early.test166:                             ; preds = %99
   br i1 %142, label %.preheader180, label %.loopexit, !llvm.loop !54
 
 .loopexit:                                        ; preds = %141, %58, %.preheader, %._crit_edge, %19, %11, %.loopexit177
-  %.1 = phi i32 [ %1, %19 ], [ %1, %11 ], [ %.3, %.loopexit177 ], [ %121, %._crit_edge ], [ %1, %58 ], [ %1, %.preheader ], [ %.1105, %141 ]
+  %.1 = phi i32 [ %1, %19 ], [ %1, %11 ], [ %.3, %.loopexit177 ], [ %1, %.preheader ], [ %1, %58 ], [ %121, %._crit_edge ], [ %.1105, %141 ]
   ret i32 %.1
 }
 

@@ -5215,7 +5215,7 @@ for.inc63:                                        ; preds = %_ZNSt6vectorIN7voxa
   br i1 %cmp36.not, label %if.end78, label %for.body37, !llvm.loop !182
 
 if.then71:                                        ; preds = %_ZNK7MapNode11getLightRawE9LightBank20ContentLightingFlags.exit.thread, %_ZNK7MapNode11getLightRawE9LightBank20ContentLightingFlags.exit, %for.body37, %for.body37.preheader
-  %modified.5.ph = phi i8 [ %modified.0346, %for.body37.preheader ], [ 1, %for.body37 ], [ %modified.1336, %_ZNK7MapNode11getLightRawE9LightBank20ContentLightingFlags.exit ], [ %modified.1336, %_ZNK7MapNode11getLightRawE9LightBank20ContentLightingFlags.exit.thread ]
+  %modified.5.ph = phi i8 [ 1, %for.body37 ], [ %modified.0346, %for.body37.preheader ], [ %modified.1336, %_ZNK7MapNode11getLightRawE9LightBank20ContentLightingFlags.exit ], [ %modified.1336, %_ZNK7MapNode11getLightRawE9LightBank20ContentLightingFlags.exit.thread ]
   %40 = load ptr, ptr %_M_finish.i, align 8, !tbaa !13
   %add.ptr.i.i244 = getelementptr inbounds i8, ptr %40, i64 -6
   %41 = load ptr, ptr %data, align 8, !tbaa !176
@@ -6836,7 +6836,7 @@ for.cond112.for.inc267_crit_edge.split:           ; preds = %for.cond121.for.inc
   br i1 %exitcond624, label %for.end270, label %for.cond112.preheader, !llvm.loop !234
 
 for.end270:                                       ; preds = %for.cond112.for.inc267_crit_edge.split, %for.cond26.preheader.lr.ph, %for.cond112.preheader.lr.ph, %invoke.cont15
-  %125 = phi ptr [ %data.promoted633, %for.cond112.preheader.lr.ph ], [ null, %invoke.cont15 ], [ null, %for.cond26.preheader.lr.ph ], [ %data.promoted633, %for.cond112.for.inc267_crit_edge.split ]
+  %125 = phi ptr [ null, %for.cond26.preheader.lr.ph ], [ %data.promoted633, %for.cond112.preheader.lr.ph ], [ null, %invoke.cont15 ], [ %data.promoted633, %for.cond112.for.inc267_crit_edge.split ]
   invoke void @_ZN8MMVManip11blitBackAllEPSt3mapIN3irr4core8vector3dIsEEP8MapBlockSt4lessIS4_ESaISt4pairIKS4_S6_EEEb(ptr noundef nonnull align 8 dereferenceable(112) %vm, ptr noundef %modified_blocks, i1 noundef zeroext true)
           to label %invoke.cont271 unwind label %lpad99
 

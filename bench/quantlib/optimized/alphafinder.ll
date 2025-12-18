@@ -1207,8 +1207,8 @@ do.body.i114:                                     ; preds = %do.body.i114, %if.e
   br i1 %cmp.i125, label %do.body.i114, label %if.end88, !llvm.loop !45
 
 if.end88:                                         ; preds = %do.body.i114, %do.body.i98, %do.body.i85, %if.end41
-  %alpha2.0 = phi double [ %alphaMax, %if.end41 ], [ %mul3.i106, %do.body.i98 ], [ %mul3.i91, %do.body.i85 ], [ %20, %do.body.i114 ]
-  %alpha1.1 = phi double [ %alpha1.0, %if.end41 ], [ %19, %do.body.i98 ], [ %alpha1.0, %do.body.i85 ], [ %mul3.i122, %do.body.i114 ]
+  %alpha2.0 = phi double [ %mul3.i91, %do.body.i85 ], [ %alphaMax, %if.end41 ], [ %mul3.i106, %do.body.i98 ], [ %20, %do.body.i114 ]
+  %alpha1.1 = phi double [ %alpha1.0, %do.body.i85 ], [ %alpha1.0, %if.end41 ], [ %19, %do.body.i98 ], [ %mul3.i122, %do.body.i114 ]
   %call.i127 = tail call noundef double @_ZN8QuantLib11AlphaFinder18homogeneityfailureEd(ptr noundef nonnull align 8 dereferenceable(176) %this, double noundef %alpha1.1)
   %call12.i = tail call noundef double @_ZN8QuantLib11AlphaFinder18homogeneityfailureEd(ptr noundef nonnull align 8 dereferenceable(176) %this, double noundef %alpha2.0)
   %mul16.i = fmul double %alpha2.0, 0x3FE3C6EF372FE950

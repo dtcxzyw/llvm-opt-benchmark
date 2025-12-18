@@ -1383,7 +1383,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %89, %
   br label %339
 
 .loopexit251:                                     ; preds = %.loopexit253, %117, %.preheader250, %152, %150, %159, %154
-  %166 = phi i32 [ 7, %154 ], [ 5, %.preheader250 ], [ 1, %152 ], [ 2, %150 ], [ 10, %159 ], [ %118, %117 ], [ %140, %.loopexit253 ]
+  %166 = phi i32 [ %118, %117 ], [ 7, %154 ], [ 5, %.preheader250 ], [ 1, %152 ], [ 2, %150 ], [ 10, %159 ], [ %140, %.loopexit253 ]
   %167 = load float, ptr %3, align 4, !tbaa !21
   %168 = load float, ptr %21, align 4, !tbaa !21
   %169 = fmul float %168, %168

@@ -921,7 +921,7 @@ define hidden noundef zeroext i1 @_ZN7Compile28should_delay_string_inliningEP8ci
   br label %57
 
 57:                                               ; preds = %24, %42, %50, %53, %3, %21, %21, %21, %21, %21, %21, %21, %21, %21, %21, %21, %21, %21, %21, %21, %14, %56
-  %.0 = phi i1 [ false, %56 ], [ false, %14 ], [ true, %21 ], [ %switch.selectcmp, %53 ], [ false, %3 ], [ true, %21 ], [ true, %21 ], [ true, %21 ], [ true, %21 ], [ true, %21 ], [ true, %21 ], [ true, %21 ], [ true, %21 ], [ true, %21 ], [ true, %21 ], [ true, %21 ], [ true, %21 ], [ true, %21 ], [ true, %21 ], [ false, %50 ], [ false, %42 ], [ false, %24 ]
+  %.0 = phi i1 [ true, %21 ], [ false, %56 ], [ false, %14 ], [ true, %21 ], [ %switch.selectcmp, %53 ], [ false, %3 ], [ true, %21 ], [ true, %21 ], [ true, %21 ], [ true, %21 ], [ true, %21 ], [ true, %21 ], [ true, %21 ], [ true, %21 ], [ true, %21 ], [ true, %21 ], [ true, %21 ], [ true, %21 ], [ true, %21 ], [ false, %50 ], [ false, %42 ], [ false, %24 ]
   ret i1 %.0
 }
 

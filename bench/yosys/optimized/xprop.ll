@@ -112123,7 +112123,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2704: ; preds = %4
   br i1 %4825, label %.loopexit, label %4822
 
 .loopexit:                                        ; preds = %4822, %.loopexit.loopexit3983, %.thread3805
-  %.pn1322.pn.pn = phi { ptr, i32 } [ %4638, %.thread3805 ], [ %4808, %.loopexit.loopexit3983 ], [ %.pn1322.pn, %4822 ]
+  %.pn1322.pn.pn = phi { ptr, i32 } [ %4808, %.loopexit.loopexit3983 ], [ %4638, %.thread3805 ], [ %.pn1322.pn, %4822 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %276)
   call void @llvm.lifetime.end.p0(ptr nonnull %275)
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %270) #26
@@ -127302,7 +127302,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1365: ; preds = %2
   br i1 %2584, label %.loopexit, label %2581
 
 .loopexit:                                        ; preds = %2561, %2581, %.thread1616
-  %.pn317.pn.pn.pn.pn = phi { ptr, i32 } [ %2254, %.thread1616 ], [ %.pn317.pn.pn.pn, %2581 ], [ %2560, %2561 ]
+  %.pn317.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn317.pn.pn.pn, %2581 ], [ %2254, %.thread1616 ], [ %2560, %2561 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %131)
   call void @llvm.lifetime.end.p0(ptr nonnull %130)
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %127) #26

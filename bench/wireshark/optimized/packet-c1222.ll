@@ -1579,7 +1579,7 @@ ber_len_ok.exit.i:                                ; preds = %128, %126, %121, %1
   br i1 %.not.i359.i.i, label %c1222_cksum.exit.i.i, label %.lr.ph.i355.i.i, !llvm.loop !22
 
 c1222_cksum.exit.i.i:                             ; preds = %.lr.ph.i355.i.i, %.lr.ph.i.i.i, %319
-  %.pn.i.i = phi i8 [ 0, %319 ], [ %316, %.lr.ph.i.i.i ], [ %321, %.lr.ph.i355.i.i ]
+  %.pn.i.i = phi i8 [ %316, %.lr.ph.i.i.i ], [ 0, %319 ], [ %321, %.lr.ph.i355.i.i ]
   %.0345.in.i.i = sub i8 0, %.pn.i.i
   %324 = load i32, ptr @hf_c1222_write_chksum, align 4
   %325 = load i32, ptr @hf_c1222_write_chksum_status, align 4
@@ -2268,7 +2268,7 @@ canonify_unencrypted_header.exit:                 ; preds = %90
   br label %canonify_unencrypted_header.exit.thread
 
 canonify_unencrypted_header.exit.thread:          ; preds = %25, %75, %98, %.preheader.i, %94, %103, %canonify_unencrypted_header.exit, %3
-  %.011 = phi i1 [ false, %3 ], [ false, %canonify_unencrypted_header.exit ], [ %110, %103 ], [ false, %94 ], [ false, %.preheader.i ], [ false, %98 ], [ false, %75 ], [ false, %25 ]
+  %.011 = phi i1 [ false, %3 ], [ false, %98 ], [ false, %canonify_unencrypted_header.exit ], [ %110, %103 ], [ false, %.preheader.i ], [ false, %94 ], [ false, %75 ], [ false, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.011

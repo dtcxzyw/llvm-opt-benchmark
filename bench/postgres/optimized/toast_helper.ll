@@ -486,7 +486,7 @@ define dso_local i32 @toast_tuple_find_biggest_attribute(ptr noundef readonly ca
   br i1 %exitcond67.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %82, %105, %37, %61, %3
-  %.0.lcssa = phi i32 [ -1, %3 ], [ %.1, %105 ], [ %.1.us, %61 ], [ %.1.us.us, %37 ], [ %.1.us52, %82 ]
+  %.0.lcssa = phi i32 [ -1, %3 ], [ %.1.us, %61 ], [ %.1, %105 ], [ %.1.us.us, %37 ], [ %.1.us52, %82 ]
   ret i32 %.0.lcssa
 }
 

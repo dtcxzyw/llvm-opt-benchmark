@@ -875,7 +875,7 @@ Ppmd7_Update2.exit:                               ; preds = %376, %386
   br label %.thread206
 
 .thread206:                                       ; preds = %391, %.thread206.loopexit, %Ppmd7_Update2.exit
-  %.5.ph = phi i32 [ %390, %Ppmd7_Update2.exit ], [ -1, %.thread206.loopexit ], [ -2, %391 ]
+  %.5.ph = phi i32 [ -1, %.thread206.loopexit ], [ %390, %Ppmd7_Update2.exit ], [ -2, %391 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread
 

@@ -281,7 +281,7 @@ define dso_local ptr @kobject_get_path(ptr noundef readonly captures(address_is_
   br label %37
 
 .thread:                                          ; preds = %42, %45, %37, %59, %23, %2, %18, %..thread.loopexit8_crit_edge9.split.us
-  %71 = phi ptr [ null, %2 ], [ null, %18 ], [ %22, %..thread.loopexit8_crit_edge9.split.us ], [ %47, %59 ], [ null, %23 ], [ null, %37 ], [ null, %45 ], [ null, %42 ]
+  %71 = phi ptr [ %47, %59 ], [ %22, %..thread.loopexit8_crit_edge9.split.us ], [ null, %2 ], [ null, %23 ], [ null, %18 ], [ null, %37 ], [ null, %45 ], [ null, %42 ]
   ret ptr %71
 }
 

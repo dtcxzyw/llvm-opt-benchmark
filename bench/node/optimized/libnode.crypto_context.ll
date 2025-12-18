@@ -3441,7 +3441,7 @@ if.end73.sink.split:                              ; preds = %if.else, %if.then56
   br label %if.end73
 
 if.end73:                                         ; preds = %if.end73.sink.split, %if.else, %if.then56
-  %message.sroa.0.0 = phi ptr [ %call.i.i, %if.then56 ], [ %call.i, %if.else ], [ null, %if.end73.sink.split ]
+  %message.sroa.0.0 = phi ptr [ %call.i, %if.else ], [ %call.i.i, %if.then56 ], [ null, %if.end73.sink.split ]
   %29 = load ptr, ptr %isolate_.i, align 8
   %call80 = call ptr @_ZN2v89Exception9TypeErrorENS_5LocalINS_6StringEEE(ptr %message.sroa.0.0) #20
   %call87 = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %29, ptr %call80) #20
@@ -4043,10 +4043,10 @@ _ZN4node11Environment10ThrowErrorEPKc.exit:       ; preds = %if.then112.critedge
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end106, %for.cond.preheader, %_ZN4node11Environment10ThrowErrorEPKc.exit, %if.then75, %if.then72
-  %p12.sroa.0.0 = phi ptr [ %p12.sroa.0.1, %_ZN4node11Environment10ThrowErrorEPKc.exit ], [ %46, %if.then75 ], [ %46, %if.then72 ], [ %46, %for.cond.preheader ], [ %46, %if.end106 ]
-  %pkey.sroa.0.0 = phi ptr [ %pkey.sroa.0.1, %_ZN4node11Environment10ThrowErrorEPKc.exit ], [ %48, %if.then75 ], [ null, %if.then72 ], [ %48, %for.cond.preheader ], [ %48, %if.end106 ]
-  %extra_certs.sroa.0.0 = phi ptr [ %extra_certs.sroa.0.1, %_ZN4node11Environment10ThrowErrorEPKc.exit ], [ %50, %if.then75 ], [ %50, %if.then72 ], [ %50, %for.cond.preheader ], [ %50, %if.end106 ]
-  %62 = phi ptr [ %59, %_ZN4node11Environment10ThrowErrorEPKc.exit ], [ null, %if.then75 ], [ %49, %if.then72 ], [ %49, %for.cond.preheader ], [ %49, %if.end106 ]
+  %p12.sroa.0.0 = phi ptr [ %p12.sroa.0.1, %_ZN4node11Environment10ThrowErrorEPKc.exit ], [ %46, %if.then72 ], [ %46, %if.then75 ], [ %46, %for.cond.preheader ], [ %46, %if.end106 ]
+  %pkey.sroa.0.0 = phi ptr [ %pkey.sroa.0.1, %_ZN4node11Environment10ThrowErrorEPKc.exit ], [ null, %if.then72 ], [ %48, %if.then75 ], [ %48, %for.cond.preheader ], [ %48, %if.end106 ]
+  %extra_certs.sroa.0.0 = phi ptr [ %extra_certs.sroa.0.1, %_ZN4node11Environment10ThrowErrorEPKc.exit ], [ %50, %if.then72 ], [ %50, %if.then75 ], [ %50, %for.cond.preheader ], [ %50, %if.end106 ]
+  %62 = phi ptr [ %59, %_ZN4node11Environment10ThrowErrorEPKc.exit ], [ %49, %if.then72 ], [ null, %if.then75 ], [ %49, %for.cond.preheader ], [ %49, %if.end106 ]
   %cmp.not.i = icmp eq ptr %extra_certs.sroa.0.0, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrI13stack_st_X509N4node6crypto18StackOfX509DeleterEED2Ev.exit, label %if.then.i74
 

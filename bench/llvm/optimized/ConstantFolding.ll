@@ -406,7 +406,7 @@ tailrecurse.us:                                   ; preds = %11, %11
   br i1 %.not4784, label %.lr.ph, label %.split74.us
 
 .split74.us:                                      ; preds = %tailrecurse, %tailrecurse.us, %.split, %.split.us
-  %.us-phi = phi ptr [ %0, %.split.us ], [ %0, %.split ], [ %20, %tailrecurse.us ], [ %68, %tailrecurse ]
+  %.us-phi = phi ptr [ %20, %tailrecurse.us ], [ %0, %.split.us ], [ %0, %.split ], [ %68, %tailrecurse ]
   %23 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !22
   %25 = tail call noundef i32 @_ZNK4llvm10DataLayout22getIndexTypeSizeInBitsEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(496) %3, ptr noundef %24) #19
@@ -846,7 +846,7 @@ _ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit83: ; preds = %_Z
   br i1 %.not75, label %.critedge.thread106, label %6, !llvm.loop !43
 
 .critedge.thread106:                              ; preds = %10, %.thread98, %16, %68, %6, %.critedge, %.preheader, %.thread96
-  %.8 = phi ptr [ %62, %.thread96 ], [ null, %.preheader ], [ null, %68 ], [ null, %10 ], [ %17, %16 ], [ %.057, %6 ], [ null, %.thread98 ], [ null, %.critedge ]
+  %.8 = phi ptr [ null, %.preheader ], [ %62, %.thread96 ], [ null, %10 ], [ %17, %16 ], [ %.057, %6 ], [ null, %.thread98 ], [ null, %.critedge ], [ null, %68 ]
   ret ptr %.8
 }
 
@@ -1900,7 +1900,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %29, %42
   br label %tailrecurse
 
 .thread234:                                       ; preds = %113, %107, %98, %_ZN4llvm5APIntD2Ev.exit, %.lr.ph, %159, %156, %150, %20, %tailrecurse, %47, %16, %165, %169, %164, %140
-  %.0 = phi i1 [ %155, %.lr.ph ], [ true, %tailrecurse ], [ true, %150 ], [ false, %16 ], [ false, %164 ], [ false, %140 ], [ true, %20 ], [ true, %_ZN4llvm5APIntD2Ev.exit ], [ false, %165 ], [ false, %169 ], [ false, %47 ], [ %155, %156 ], [ %155, %159 ], [ true, %107 ], [ false, %98 ], [ true, %113 ]
+  %.0 = phi i1 [ false, %169 ], [ true, %tailrecurse ], [ false, %47 ], [ true, %150 ], [ false, %165 ], [ false, %16 ], [ %155, %.lr.ph ], [ false, %164 ], [ false, %140 ], [ true, %20 ], [ true, %_ZN4llvm5APIntD2Ev.exit ], [ %155, %156 ], [ %155, %159 ], [ true, %113 ], [ false, %98 ], [ true, %107 ]
   ret i1 %.0
 }
 
@@ -4763,10 +4763,10 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse.backedg
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %.not125.not, label %.thread151, label %.thread157
 
-.thread157:                                       ; preds = %tailrecurse._crit_edge, %121, %128, %166
-  %.tr165175 = phi ptr [ %.tr165179, %166 ], [ %.tr165179, %121 ], [ %.tr165179, %128 ], [ %.tr165.lcssa, %tailrecurse._crit_edge ]
-  %.tr166173 = phi ptr [ %.tr166180, %166 ], [ %.tr166180, %121 ], [ %.tr166180, %128 ], [ %.tr166.lcssa, %tailrecurse._crit_edge ]
-  %.tr169171 = phi ptr [ %.tr169181, %166 ], [ %.tr169181, %121 ], [ %.tr169181, %128 ], [ %.tr169.lcssa, %tailrecurse._crit_edge ]
+.thread157:                                       ; preds = %tailrecurse._crit_edge, %128, %121, %166
+  %.tr165175 = phi ptr [ %.tr165179, %166 ], [ %.tr165179, %128 ], [ %.tr165179, %121 ], [ %.tr165.lcssa, %tailrecurse._crit_edge ]
+  %.tr166173 = phi ptr [ %.tr166180, %166 ], [ %.tr166180, %128 ], [ %.tr166180, %121 ], [ %.tr166.lcssa, %tailrecurse._crit_edge ]
+  %.tr169171 = phi ptr [ %.tr169181, %166 ], [ %.tr169181, %128 ], [ %.tr169181, %121 ], [ %.tr169.lcssa, %tailrecurse._crit_edge ]
   %167 = icmp ult i32 %.tr.ph, 16
   br i1 %167, label %168, label %172
 
@@ -10273,7 +10273,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8ConstantELb1EE9push_backES2_.exit164.i: ;
   br label %.critedge125.i
 
 .critedge125.i:                                   ; preds = %..critedge123_crit_edge.i, %260, %.critedge123.us.i, %.critedge126.i, %_ZN4llvm11SmallVectorIPNS_8ConstantELj16EED2Ev.exit161.i, %196, %_ZN4llvm11SmallVectorIPNS_8ConstantELj16EED2Ev.exit.i, %160, %_ZN4llvm11SmallVectorIPNS_8ConstantELj32EED2Ev.exit.i
-  %.5.i = phi ptr [ %274, %.critedge126.i ], [ %222, %_ZN4llvm11SmallVectorIPNS_8ConstantELj16EED2Ev.exit161.i ], [ %.4.i, %_ZN4llvm11SmallVectorIPNS_8ConstantELj32EED2Ev.exit.i ], [ null, %196 ], [ %176, %_ZN4llvm11SmallVectorIPNS_8ConstantELj16EED2Ev.exit.i ], [ null, %160 ], [ null, %260 ], [ null, %.critedge123.us.i ], [ null, %..critedge123_crit_edge.i ]
+  %.5.i = phi ptr [ %274, %.critedge126.i ], [ %222, %_ZN4llvm11SmallVectorIPNS_8ConstantELj16EED2Ev.exit161.i ], [ %.4.i, %_ZN4llvm11SmallVectorIPNS_8ConstantELj32EED2Ev.exit.i ], [ null, %196 ], [ null, %260 ], [ null, %160 ], [ %176, %_ZN4llvm11SmallVectorIPNS_8ConstantELj16EED2Ev.exit.i ], [ null, %.critedge123.us.i ], [ null, %..critedge123_crit_edge.i ]
   %275 = load ptr, ptr %8, align 8, !tbaa !90
   %276 = icmp eq ptr %275, %70
   br i1 %276, label %_ZN4llvm11SmallVectorIPNS_8ConstantELj4EED2Ev.exit.i, label %277
@@ -13622,7 +13622,7 @@ _ZN12_GLOBAL__N_120ConstantFoldLibCall2EN4llvm9StringRefEPNS0_4TypeENS0_8ArrayRe
   br label %_ZN12_GLOBAL__N_120ConstantFoldLibCall2EN4llvm9StringRefEPNS0_4TypeENS0_8ArrayRefIPNS0_8ConstantEEEPKNS0_17TargetLibraryInfoE.exit.thread
 
 _ZN12_GLOBAL__N_120ConstantFoldLibCall2EN4llvm9StringRefEPNS0_4TypeENS0_8ArrayRefIPNS0_8ConstantEEEPKNS0_17TargetLibraryInfoE.exit: ; preds = %1319, %.thread.i, %.thread55.i, %1405
-  %.1.i = phi ptr [ %1320, %1319 ], [ %1343, %.thread.i ], [ %1367, %.thread55.i ], [ %1406, %1405 ]
+  %.1.i = phi ptr [ %1406, %1405 ], [ %1367, %.thread55.i ], [ %1343, %.thread.i ], [ %1320, %1319 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %55)
   %.not.not = icmp eq ptr %.1.i, null
   br i1 %.not.not, label %_ZN12_GLOBAL__N_120ConstantFoldLibCall2EN4llvm9StringRefEPNS0_4TypeENS0_8ArrayRefIPNS0_8ConstantEEEPKNS0_17TargetLibraryInfoE.exit.thread, label %_ZN12_GLOBAL__N_123ConstantFoldScalarCall1EN4llvm9StringRefEjPNS0_4TypeENS0_8ArrayRefIPNS0_8ConstantEEEPKNS0_17TargetLibraryInfoEPKNS0_8CallBaseE.exit
@@ -16000,7 +16000,7 @@ switch.lookup:                                    ; preds = %55
   br label %.thread182
 
 .thread182:                                       ; preds = %switch.lookup, %213, %184, %151, %151, %58, %.thread182.fold.split, %193, %225, %205, %196, %216, %159, %66, %.critedge136, %.critedge134, %.critedge132, %123, %109, %.critedge130, %.critedge128, %.critedge126, %.critedge, %55, %55, %55, %.thread176, %180, %189, %172, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit, %36
-  %.2 = phi i1 [ false, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit ], [ true, %55 ], [ false, %.thread176 ], [ false, %36 ], [ false, %172 ], [ false, %189 ], [ false, %184 ], [ false, %180 ], [ %.not190, %159 ], [ true, %151 ], [ true, %151 ], [ true, %55 ], [ true, %55 ], [ %switch.masked, %switch.lookup ], [ false, %.thread182.fold.split ], [ true, %58 ], [ %150, %.critedge136 ], [ %144, %.critedge134 ], [ %133, %.critedge132 ], [ %spec.select, %213 ], [ %125, %123 ], [ %117, %109 ], [ %108, %.critedge130 ], [ %102, %.critedge128 ], [ %91, %.critedge126 ], [ %85, %.critedge ], [ %.not194, %66 ], [ %195, %193 ], [ true, %216 ], [ %232, %225 ], [ true, %196 ], [ true, %205 ]
+  %.2 = phi i1 [ false, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit ], [ true, %55 ], [ false, %.thread176 ], [ false, %36 ], [ false, %172 ], [ false, %189 ], [ false, %184 ], [ false, %180 ], [ %.not190, %159 ], [ true, %151 ], [ true, %151 ], [ true, %55 ], [ true, %55 ], [ %switch.masked, %switch.lookup ], [ false, %.thread182.fold.split ], [ %232, %225 ], [ true, %58 ], [ %150, %.critedge136 ], [ %144, %.critedge134 ], [ %133, %.critedge132 ], [ true, %205 ], [ %125, %123 ], [ %117, %109 ], [ %108, %.critedge130 ], [ %102, %.critedge128 ], [ %91, %.critedge126 ], [ %85, %.critedge ], [ %.not194, %66 ], [ %195, %193 ], [ true, %216 ], [ %spec.select, %213 ], [ true, %196 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZNK4llvm8CallBase10isStrictFPEv.exit.thread
 

@@ -4295,7 +4295,7 @@ select.unfold:                                    ; preds = %_ZNK4llvm12DIEValue
   br i1 %.not12, label %.loopexit, label %select.unfold
 
 .loopexit:                                        ; preds = %select.unfold, %5, %_ZNK4llvm12DIEValueList6valuesEv.exit, %2
-  %14 = phi i32 [ 0, %_ZNK4llvm12DIEValueList6valuesEv.exit ], [ %4, %2 ], [ 0, %5 ], [ %11, %select.unfold ]
+  %14 = phi i32 [ 0, %5 ], [ 0, %_ZNK4llvm12DIEValueList6valuesEv.exit ], [ %4, %2 ], [ %11, %select.unfold ]
   ret i32 %14
 }
 
@@ -4600,7 +4600,7 @@ select.unfold:                                    ; preds = %_ZNK4llvm12DIEValue
   br i1 %.not12, label %.loopexit, label %select.unfold
 
 .loopexit:                                        ; preds = %select.unfold, %5, %_ZNK4llvm12DIEValueList6valuesEv.exit, %2
-  %14 = phi i32 [ 0, %_ZNK4llvm12DIEValueList6valuesEv.exit ], [ %4, %2 ], [ 0, %5 ], [ %11, %select.unfold ]
+  %14 = phi i32 [ 0, %5 ], [ 0, %_ZNK4llvm12DIEValueList6valuesEv.exit ], [ %4, %2 ], [ %11, %select.unfold ]
   ret i32 %14
 }
 

@@ -7448,8 +7448,8 @@ for.inc:                                          ; preds = %for.body, %land.lhs
   br i1 %cmp1.not, label %return, label %for.body
 
 return:                                           ; preds = %for.inc.i, %for.inc, %entry, %land.lhs.true3.i.i, %land.lhs.true.i.i, %_ZN4llvh7AArch649parseArchENS_9StringRefE.exit, %if.then3
-  %retval.sroa.0.0 = phi ptr [ %__begin1.0.ptr.val, %if.then3 ], [ null, %_ZN4llvh7AArch649parseArchENS_9StringRefE.exit ], [ null, %land.lhs.true.i.i ], [ null, %land.lhs.true3.i.i ], [ null, %entry ], [ @.str, %for.inc ], [ null, %for.inc.i ]
-  %retval.sroa.5.0 = phi i64 [ %__begin1.0.ptr.val8, %if.then3 ], [ 0, %_ZN4llvh7AArch649parseArchENS_9StringRefE.exit ], [ 0, %land.lhs.true.i.i ], [ 0, %land.lhs.true3.i.i ], [ 0, %entry ], [ 7, %for.inc ], [ 0, %for.inc.i ]
+  %retval.sroa.0.0 = phi ptr [ %__begin1.0.ptr.val, %if.then3 ], [ null, %_ZN4llvh7AArch649parseArchENS_9StringRefE.exit ], [ @.str, %for.inc ], [ null, %land.lhs.true.i.i ], [ null, %land.lhs.true3.i.i ], [ null, %entry ], [ null, %for.inc.i ]
+  %retval.sroa.5.0 = phi i64 [ %__begin1.0.ptr.val8, %if.then3 ], [ 0, %_ZN4llvh7AArch649parseArchENS_9StringRefE.exit ], [ 7, %for.inc ], [ 0, %land.lhs.true.i.i ], [ 0, %land.lhs.true3.i.i ], [ 0, %entry ], [ 0, %for.inc.i ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %retval.sroa.5.0, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -7627,8 +7627,8 @@ if.end39.thread:                                  ; preds = %if.end.i
   br label %if.end44.thread
 
 _ZN4llvh9StringRefC2EPKc.exit150:                 ; preds = %land.lhs.true, %if.end.i, %_ZN4llvh9StringRefC2EPKc.exit90
-  %11 = phi i64 [ %Arch.coerce1, %_ZN4llvh9StringRefC2EPKc.exit90 ], [ %8, %if.end.i ], [ %8, %land.lhs.true ]
-  %offset.0129 = phi i64 [ -1, %_ZN4llvh9StringRefC2EPKc.exit90 ], [ %offset.0.ph, %if.end.i ], [ %offset.0.ph, %land.lhs.true ]
+  %11 = phi i64 [ %Arch.coerce1, %_ZN4llvh9StringRefC2EPKc.exit90 ], [ %8, %land.lhs.true ], [ %8, %if.end.i ]
+  %offset.0129 = phi i64 [ -1, %_ZN4llvh9StringRefC2EPKc.exit90 ], [ %offset.0.ph, %land.lhs.true ], [ %offset.0.ph, %if.end.i ]
   %cmp.i249 = icmp ugt i64 %11, 1
   br i1 %cmp.i249, label %land.rhs.i250, label %if.end39
 
@@ -8064,8 +8064,8 @@ if.end.i.i:                                       ; preds = %if.end.i.i285
   br label %_ZN4llvh12StringSwitchINS_9StringRefES1_E7DefaultES1_.exit
 
 _ZN4llvh12StringSwitchINS_9StringRefES1_E7DefaultES1_.exit: ; preds = %land.lhs.true.i728, %if.end.i.i, %if.end.i.i285, %if.end.i.i320, %if.end.i.i355, %if.end.i.i390, %if.end.i.i425, %if.end.i.i460, %if.end.i.i495, %if.end.i.i.i.i.i, %if.end.i.i35.i.i.i, %if.end.i.i.i61.i, %if.end.i.i.i.i1043, %if.end.i.i.i1054, %if.end.i.i530, %if.end.i.i565, %if.end.i.i600, %if.end.i.i.i.i, %if.end.i.i35.i.i, %if.end.i.i.i847, %if.end.i.i.i, %if.end.i.i.i802, %if.end.i.i35.i, %if.end.i.i.i.i949, %if.end.i.i35.i.i960, %if.end.i.i.i971, %if.end.i.i635, %if.end.i.i670, %if.end.i.i705, %if.end.i.i740, %land.lhs.true.i.thread
-  %retval.i.sroa.0.0 = phi ptr [ %spec.select, %if.end.i.i ], [ @.str.323, %if.end.i.i705 ], [ %Arch.coerce0, %land.lhs.true.i.thread ], [ @.str.346, %if.end.i.i320 ], [ @.str.347, %if.end.i.i285 ], [ @.str.344, %if.end.i.i390 ], [ @.str.345, %if.end.i.i355 ], [ @.str.342, %if.end.i.i460 ], [ @.str.343, %if.end.i.i425 ], [ @.str.340, %if.end.i.i.i.i.i ], [ @.str.341, %if.end.i.i495 ], [ @.str.340, %if.end.i.i.i.i1043 ], [ @.str.340, %if.end.i.i.i61.i ], [ @.str.340, %if.end.i.i35.i.i.i ], [ @.str.340, %if.end.i.i.i1054 ], [ @.str.335, %if.end.i.i600 ], [ @.str.337, %if.end.i.i530 ], [ @.str.336, %if.end.i.i565 ], [ @.str.334, %if.end.i.i35.i.i ], [ @.str.334, %if.end.i.i.i.i ], [ @.str.334, %if.end.i.i.i ], [ @.str.334, %if.end.i.i.i847 ], [ @.str.207, %if.end.i.i35.i ], [ @.str.207, %if.end.i.i.i802 ], [ @.str.328, %if.end.i.i.i971 ], [ @.str.328, %if.end.i.i.i.i949 ], [ @.str.328, %if.end.i.i35.i.i960 ], [ @.str.198, %if.end.i.i670 ], [ @.str.201, %if.end.i.i635 ], [ @.str.322, %if.end.i.i740 ], [ %Arch.coerce0, %land.lhs.true.i728 ]
-  %retval.i.sroa.3.0 = phi i64 [ %spec.select718, %if.end.i.i ], [ 4, %if.end.i.i705 ], [ %Arch.coerce1, %land.lhs.true.i.thread ], [ 4, %if.end.i.i320 ], [ 9, %if.end.i.i285 ], [ 6, %if.end.i.i390 ], [ 6, %if.end.i.i355 ], [ 6, %if.end.i.i460 ], [ 6, %if.end.i.i425 ], [ 4, %if.end.i.i.i.i.i ], [ 6, %if.end.i.i495 ], [ 4, %if.end.i.i.i.i1043 ], [ 4, %if.end.i.i.i61.i ], [ 4, %if.end.i.i35.i.i.i ], [ 4, %if.end.i.i.i1054 ], [ 4, %if.end.i.i600 ], [ 5, %if.end.i.i530 ], [ 4, %if.end.i.i565 ], [ 4, %if.end.i.i35.i.i ], [ 4, %if.end.i.i.i.i ], [ 4, %if.end.i.i.i ], [ 4, %if.end.i.i.i847 ], [ 4, %if.end.i.i35.i ], [ 4, %if.end.i.i.i802 ], [ 4, %if.end.i.i.i971 ], [ 4, %if.end.i.i.i.i949 ], [ 4, %if.end.i.i35.i.i960 ], [ 2, %if.end.i.i670 ], [ 3, %if.end.i.i635 ], [ 3, %if.end.i.i740 ], [ %Arch.coerce1, %land.lhs.true.i728 ]
+  %retval.i.sroa.0.0 = phi ptr [ %spec.select, %if.end.i.i ], [ @.str.322, %if.end.i.i740 ], [ %Arch.coerce0, %land.lhs.true.i.thread ], [ @.str.346, %if.end.i.i320 ], [ @.str.347, %if.end.i.i285 ], [ @.str.344, %if.end.i.i390 ], [ @.str.345, %if.end.i.i355 ], [ @.str.342, %if.end.i.i460 ], [ @.str.343, %if.end.i.i425 ], [ @.str.340, %if.end.i.i.i.i.i ], [ @.str.341, %if.end.i.i495 ], [ @.str.340, %if.end.i.i.i.i1043 ], [ @.str.340, %if.end.i.i.i61.i ], [ @.str.340, %if.end.i.i35.i.i.i ], [ @.str.340, %if.end.i.i.i1054 ], [ @.str.337, %if.end.i.i530 ], [ @.str.336, %if.end.i.i565 ], [ @.str.335, %if.end.i.i600 ], [ @.str.334, %if.end.i.i35.i.i ], [ @.str.334, %if.end.i.i.i.i ], [ @.str.334, %if.end.i.i.i ], [ @.str.334, %if.end.i.i.i847 ], [ @.str.207, %if.end.i.i35.i ], [ @.str.207, %if.end.i.i.i802 ], [ @.str.328, %if.end.i.i.i.i949 ], [ @.str.328, %if.end.i.i35.i.i960 ], [ @.str.328, %if.end.i.i.i971 ], [ @.str.198, %if.end.i.i670 ], [ @.str.201, %if.end.i.i635 ], [ @.str.323, %if.end.i.i705 ], [ %Arch.coerce0, %land.lhs.true.i728 ]
+  %retval.i.sroa.3.0 = phi i64 [ %spec.select718, %if.end.i.i ], [ 3, %if.end.i.i740 ], [ %Arch.coerce1, %land.lhs.true.i.thread ], [ 4, %if.end.i.i320 ], [ 9, %if.end.i.i285 ], [ 6, %if.end.i.i390 ], [ 6, %if.end.i.i355 ], [ 6, %if.end.i.i460 ], [ 6, %if.end.i.i425 ], [ 4, %if.end.i.i.i.i.i ], [ 6, %if.end.i.i495 ], [ 4, %if.end.i.i.i.i1043 ], [ 4, %if.end.i.i.i61.i ], [ 4, %if.end.i.i35.i.i.i ], [ 4, %if.end.i.i.i1054 ], [ 5, %if.end.i.i530 ], [ 4, %if.end.i.i565 ], [ 4, %if.end.i.i600 ], [ 4, %if.end.i.i35.i.i ], [ 4, %if.end.i.i.i.i ], [ 4, %if.end.i.i.i ], [ 4, %if.end.i.i.i847 ], [ 4, %if.end.i.i35.i ], [ 4, %if.end.i.i.i802 ], [ 4, %if.end.i.i.i.i949 ], [ 4, %if.end.i.i35.i.i960 ], [ 4, %if.end.i.i.i971 ], [ 2, %if.end.i.i670 ], [ 3, %if.end.i.i635 ], [ 4, %if.end.i.i705 ], [ %Arch.coerce1, %land.lhs.true.i728 ]
   %.fca.0.insert70 = insertvalue { ptr, i64 } poison, ptr %retval.i.sroa.0.0, 0
   %.fca.1.insert71 = insertvalue { ptr, i64 } %.fca.0.insert70, i64 %retval.i.sroa.3.0, 1
   ret { ptr, i64 } %.fca.1.insert71
@@ -9157,8 +9157,8 @@ switch.lookup:                                    ; preds = %_ZN4llvh6AMDGPU15pa
   br label %return
 
 return:                                           ; preds = %for.inc.i.us, %for.inc.i, %switch.lookup, %_ZN4llvh6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit, %if.end.i
-  %retval.sroa.19.0 = phi i64 [ 7, %if.end.i ], [ 0, %_ZN4llvh6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit ], [ %switch.load, %switch.lookup ], [ 0, %for.inc.i ], [ 0, %for.inc.i.us ]
-  %retval.sroa.37.0 = phi i32 [ 0, %if.end.i ], [ 0, %_ZN4llvh6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit ], [ %switch.load24, %switch.lookup ], [ 0, %for.inc.i ], [ 0, %for.inc.i.us ]
+  %retval.sroa.19.0 = phi i64 [ 0, %for.inc.i ], [ 7, %if.end.i ], [ 0, %_ZN4llvh6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit ], [ %switch.load, %switch.lookup ], [ 0, %for.inc.i.us ]
+  %retval.sroa.37.0 = phi i32 [ 0, %for.inc.i ], [ 0, %if.end.i ], [ 0, %_ZN4llvh6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit ], [ %switch.load24, %switch.lookup ], [ 0, %for.inc.i.us ]
   %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %retval.sroa.19.0, 0
   %.fca.1.insert = insertvalue { i64, i32 } %.fca.0.insert, i32 %retval.sroa.37.0, 1
   ret { i64, i32 } %.fca.1.insert

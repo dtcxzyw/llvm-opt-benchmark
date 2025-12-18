@@ -221,7 +221,7 @@ probe_device_layout.exit:                         ; preds = %112, %98
   br label %probe_device_type.exit.thread
 
 probe_device_type.exit.thread:                    ; preds = %.critedge.i.i, %.critedge.i32.i, %.critedge.i37.i, %.critedge.i42.i, %1, %5, %probe_device_layout.exit
-  %.0 = phi i1 [ true, %probe_device_layout.exit ], [ false, %1 ], [ false, %5 ], [ false, %.critedge.i32.i ], [ false, %.critedge.i42.i ], [ false, %.critedge.i37.i ], [ false, %.critedge.i.i ]
+  %.0 = phi i1 [ true, %probe_device_layout.exit ], [ false, %1 ], [ false, %5 ], [ false, %.critedge.i42.i ], [ false, %.critedge.i37.i ], [ false, %.critedge.i32.i ], [ false, %.critedge.i.i ]
   ret i1 %.0
 }
 

@@ -2626,12 +2626,12 @@ define internal fastcc ptr @parsebrackets(ptr noundef readonly captures(none) %0
   br i1 %.not182, label %.backedge243.sink.split, label %._crit_edge
 
 .backedge243.sink.split:                          ; preds = %.lr.ph, %.lr.ph287, %37, %203, %91, %88, %59, %43, %251, %233, %227, %221, %215, %85, %79, %73
-  %.3284.lcssa.sink = phi ptr [ %.0162290, %91 ], [ %206, %203 ], [ %.0162290, %251 ], [ %.0162290, %43 ], [ %.0162290, %73 ], [ %.0162290, %79 ], [ %.0162290, %85 ], [ %63, %59 ], [ %.0162290, %88 ], [ %.0162290, %215 ], [ %.0162290, %221 ], [ %.0162290, %227 ], [ %.0162290, %233 ], [ %38, %37 ], [ %.1286, %.lr.ph287 ], [ %.3284, %.lr.ph ]
+  %.3284.lcssa.sink = phi ptr [ %38, %37 ], [ %.0162290, %91 ], [ %206, %203 ], [ %.0162290, %251 ], [ %.0162290, %43 ], [ %.0162290, %73 ], [ %.0162290, %79 ], [ %.0162290, %85 ], [ %63, %59 ], [ %.0162290, %88 ], [ %.1286, %.lr.ph287 ], [ %.0162290, %215 ], [ %.0162290, %221 ], [ %.0162290, %227 ], [ %.0162290, %233 ], [ %.3284, %.lr.ph ]
   %42 = load ptr, ptr %.3284.lcssa.sink, align 8
   br label %.backedge243
 
 .backedge243:                                     ; preds = %177, %154, %130, %.backedge243.sink.split
-  %.0162.be = phi ptr [ %42, %.backedge243.sink.split ], [ %155, %154 ], [ %131, %130 ], [ %178, %177 ]
+  %.0162.be = phi ptr [ %131, %130 ], [ %155, %154 ], [ %42, %.backedge243.sink.split ], [ %178, %177 ]
   %.not177 = icmp eq ptr %.0162.be, null
   br i1 %.not177, label %._crit_edge, label %18, !llvm.loop !19
 
@@ -3126,7 +3126,7 @@ define internal fastcc ptr @parsebrackets(ptr noundef readonly captures(none) %0
   unreachable
 
 ._crit_edge:                                      ; preds = %.preheader240, %.preheader235, %.preheader237, %37, %.backedge243, %.backedge242, %.backedge239, %.backedge, %109, %101, %14
-  %.0 = phi ptr [ null, %14 ], [ null, %.backedge242 ], [ null, %101 ], [ null, %109 ], [ null, %.backedge ], [ null, %.backedge239 ], [ null, %.preheader240 ], [ null, %.preheader235 ], [ null, %.preheader237 ], [ null, %.backedge243 ], [ %38, %37 ]
+  %.0 = phi ptr [ null, %14 ], [ null, %.backedge ], [ null, %.backedge242 ], [ null, %.backedge239 ], [ null, %101 ], [ null, %109 ], [ null, %.preheader240 ], [ null, %.preheader235 ], [ null, %.preheader237 ], [ null, %.backedge243 ], [ %38, %37 ]
   ret ptr %.0
 }
 
@@ -6332,10 +6332,10 @@ ptr_to_define.exit:                               ; preds = %.lr.ph247, %167, %1
   br label %.outer.backedge
 
 .loopexit:                                        ; preds = %.outer.backedge, %55, %.outer158.backedge, %60, %45
-  %or.cond150.ph220 = phi i1 [ %26, %45 ], [ %or.cond150.ph258, %55 ], [ %or.cond150.ph258, %60 ], [ %or.cond150.ph258, %.outer158.backedge ], [ %or.cond142, %.outer.backedge ]
-  %.ph208 = phi i1 [ %46, %45 ], [ %.ph259, %55 ], [ %.ph259, %60 ], [ %.ph259, %.outer158.backedge ], [ %219, %.outer.backedge ]
-  %.0169 = phi ptr [ null, %45 ], [ %.0222, %55 ], [ null, %60 ], [ null, %.outer158.backedge ], [ null, %.outer.backedge ]
-  %.not110165 = phi i1 [ true, %45 ], [ false, %55 ], [ true, %60 ], [ true, %.outer158.backedge ], [ true, %.outer.backedge ]
+  %or.cond150.ph220 = phi i1 [ %or.cond150.ph258, %55 ], [ %26, %45 ], [ %or.cond150.ph258, %60 ], [ %or.cond150.ph258, %.outer158.backedge ], [ %or.cond142, %.outer.backedge ]
+  %.ph208 = phi i1 [ %.ph259, %55 ], [ %46, %45 ], [ %.ph259, %60 ], [ %.ph259, %.outer158.backedge ], [ %219, %.outer.backedge ]
+  %.0169 = phi ptr [ %.0222, %55 ], [ null, %45 ], [ null, %60 ], [ null, %.outer158.backedge ], [ null, %.outer.backedge ]
+  %.not110165 = phi i1 [ false, %55 ], [ true, %45 ], [ true, %60 ], [ true, %.outer158.backedge ], [ true, %.outer.backedge ]
   br i1 %or.cond150.ph220, label %226, label %234
 
 226:                                              ; preds = %.loopexit
@@ -6516,8 +6516,8 @@ define internal fastcc ptr @str_read_string(ptr noundef readonly captures(ret: a
   br label %8
 
 .outer35._crit_edge:                              ; preds = %.outer.backedge, %.outer35, %11, %2
-  %.026.ph.lcssa48 = phi ptr [ %3, %2 ], [ %.026.ph65, %.outer35 ], [ %.026.ph65, %11 ], [ %.026.ph.be, %.outer.backedge ]
-  %.028.lcssa = phi ptr [ %0, %2 ], [ %.129, %.outer35 ], [ %12, %11 ], [ %.028.ph.be, %.outer.backedge ]
+  %.026.ph.lcssa48 = phi ptr [ %.026.ph65, %.outer35 ], [ %.026.ph65, %11 ], [ %3, %2 ], [ %.026.ph.be, %.outer.backedge ]
+  %.028.lcssa = phi ptr [ %.129, %.outer35 ], [ %12, %11 ], [ %0, %2 ], [ %.028.ph.be, %.outer.backedge ]
   store i8 0, ptr %.026.ph.lcssa48, align 1
   %7 = call noalias ptr @g_strdup(ptr noundef nonnull %3)
   store ptr %7, ptr %1, align 8

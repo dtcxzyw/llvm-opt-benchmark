@@ -158,10 +158,10 @@ define i32 @ASN1_sign(ptr noundef readonly captures(none) %0, ptr noundef captur
   br label %.loopexit
 
 .loopexit:                                        ; preds = %27, %64, %63, %55, %46, %41, %36, %13
-  %.052 = phi ptr [ null, %13 ], [ null, %36 ], [ null, %41 ], [ null, %46 ], [ %49, %55 ], [ %49, %64 ], [ %49, %63 ], [ null, %27 ]
-  %.051 = phi ptr [ null, %13 ], [ null, %36 ], [ null, %41 ], [ null, %46 ], [ %52, %55 ], [ null, %64 ], [ %52, %63 ], [ null, %27 ]
-  %.049 = phi i64 [ 0, %13 ], [ 0, %36 ], [ 0, %41 ], [ 0, %46 ], [ %48, %55 ], [ %48, %64 ], [ %48, %63 ], [ 0, %27 ]
-  %.048 = phi i64 [ 0, %13 ], [ 0, %36 ], [ 0, %41 ], [ 0, %46 ], [ %51, %55 ], [ %51, %64 ], [ %51, %63 ], [ 0, %27 ]
+  %.052 = phi ptr [ null, %13 ], [ null, %36 ], [ null, %41 ], [ %49, %63 ], [ null, %46 ], [ %49, %55 ], [ %49, %64 ], [ null, %27 ]
+  %.051 = phi ptr [ null, %13 ], [ null, %36 ], [ null, %41 ], [ %52, %63 ], [ null, %46 ], [ %52, %55 ], [ null, %64 ], [ null, %27 ]
+  %.049 = phi i64 [ 0, %13 ], [ 0, %36 ], [ 0, %41 ], [ %48, %63 ], [ 0, %46 ], [ %48, %55 ], [ %48, %64 ], [ 0, %27 ]
+  %.048 = phi i64 [ 0, %13 ], [ 0, %36 ], [ 0, %41 ], [ %51, %63 ], [ 0, %46 ], [ %51, %55 ], [ %51, %64 ], [ 0, %27 ]
   call void @EVP_MD_CTX_free(ptr noundef %10) #4
   call void @CRYPTO_clear_free(ptr noundef %.052, i64 noundef %.049, ptr noundef nonnull @.str, i32 noundef 107) #4
   call void @CRYPTO_clear_free(ptr noundef %.051, i64 noundef %.048, ptr noundef nonnull @.str, i32 noundef 108) #4

@@ -877,7 +877,7 @@ define noundef ptr @ures_getString_77(ptr noundef readonly captures(address_is_n
   br label %18
 
 18:                                               ; preds = %.sink.split, %10, %3, %5
-  %.0 = phi ptr [ null, %3 ], [ null, %5 ], [ %16, %10 ], [ null, %.sink.split ]
+  %.0 = phi ptr [ null, %3 ], [ %16, %10 ], [ null, %5 ], [ null, %.sink.split ]
   ret ptr %.0
 }
 
@@ -913,7 +913,7 @@ define noundef ptr @ures_getUTF8String_77(ptr noundef readonly captures(address_
   br label %ures_getString_77.exit
 
 ures_getString_77.exit:                           ; preds = %5, %8, %13, %.sink.split.i
-  %.0.i = phi ptr [ null, %5 ], [ null, %8 ], [ %19, %13 ], [ null, %.sink.split.i ]
+  %.0.i = phi ptr [ null, %5 ], [ %19, %13 ], [ null, %8 ], [ null, %.sink.split.i ]
   %21 = load i32, ptr %6, align 4, !tbaa !12
   %22 = call fastcc noundef ptr @_ZL17ures_toUTF8StringPKDsiPcPiaP10UErrorCode(ptr noundef %.0.i, i32 noundef %21, ptr noundef %1, ptr noundef %2, i8 noundef signext %3, ptr noundef %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1033,7 +1033,7 @@ define noundef ptr @ures_getBinary_77(ptr noundef readonly captures(address_is_n
   br label %18
 
 18:                                               ; preds = %.sink.split, %10, %3, %5
-  %.0 = phi ptr [ null, %3 ], [ null, %5 ], [ %16, %10 ], [ null, %.sink.split ]
+  %.0 = phi ptr [ null, %3 ], [ %16, %10 ], [ null, %5 ], [ null, %.sink.split ]
   ret ptr %.0
 }
 
@@ -1067,7 +1067,7 @@ define noundef ptr @ures_getIntVector_77(ptr noundef readonly captures(address_i
   br label %18
 
 18:                                               ; preds = %.sink.split, %10, %3, %5
-  %.0 = phi ptr [ null, %3 ], [ null, %5 ], [ %16, %10 ], [ null, %.sink.split ]
+  %.0 = phi ptr [ null, %3 ], [ %16, %10 ], [ null, %5 ], [ null, %.sink.split ]
   ret ptr %.0
 }
 
@@ -1352,7 +1352,7 @@ define internal fastcc noundef ptr @_ZL23ures_getStringWithAliasPK15UResourceBun
   br label %ures_getString_77.exit
 
 ures_getString_77.exit:                           ; preds = %7, %13, %.sink.split.i
-  %.0.i = phi ptr [ null, %.sink.split.i ], [ null, %7 ], [ %19, %13 ]
+  %.0.i = phi ptr [ null, %.sink.split.i ], [ %19, %13 ], [ null, %7 ]
   tail call fastcc void @_ZL16ures_closeBundleP15UResourceBundlea(ptr noundef %8, i8 noundef signext 1)
   br label %26
 
@@ -1899,7 +1899,7 @@ define noundef ptr @ures_getStringByKeyWithFallback_77(ptr noundef readonly capt
   br label %ures_getString_77.exit
 
 ures_getString_77.exit:                           ; preds = %4, %9, %12, %.sink.split.i
-  %.0.i = phi ptr [ null, %4 ], [ null, %9 ], [ %18, %12 ], [ null, %.sink.split.i ]
+  %.0.i = phi ptr [ null, %4 ], [ %18, %12 ], [ null, %9 ], [ null, %.sink.split.i ]
   call fastcc void @_ZL16ures_closeBundleP15UResourceBundlea(ptr noundef nonnull %5, i8 noundef signext 1)
   %20 = load i32, ptr %3, align 4, !tbaa !13
   %21 = icmp slt i32 %20, 1
@@ -2370,8 +2370,8 @@ _ZN12_GLOBAL__N_116init_resb_resultEP18UResourceDataEntryjPKciPK15UResourceBundl
   br label %159
 
 159:                                              ; preds = %.critedge, %158, %151
-  %.0133204 = phi ptr [ %.1134235, %158 ], [ %.1134235, %151 ], [ %.0133206, %.critedge ]
-  %.0124 = phi ptr [ %125, %158 ], [ %125, %151 ], [ %2, %.critedge ]
+  %.0133204 = phi ptr [ %.0133206, %.critedge ], [ %.1134235, %158 ], [ %.1134235, %151 ]
+  %.0124 = phi ptr [ %2, %.critedge ], [ %125, %158 ], [ %125, %151 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %11) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -2395,8 +2395,8 @@ _ZN12_GLOBAL__N_116init_resb_resultEP18UResourceDataEntryjPKciPK15UResourceBundl
   br label %164
 
 164:                                              ; preds = %160, %159
-  %.4137 = phi ptr [ null, %160 ], [ %.0133204, %159 ]
-  %.2126 = phi ptr [ %163, %160 ], [ %.0124, %159 ]
+  %.4137 = phi ptr [ %.0133204, %159 ], [ null, %160 ]
+  %.2126 = phi ptr [ %.0124, %159 ], [ %163, %160 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %166
 
@@ -3672,7 +3672,7 @@ _ZL13mayHaveParentPc.exit108.i:                   ; preds = %78
   br i1 %.not104.us.i, label %.critedge.i, label %.lr.ph127.i
 
 .critedge.i:                                      ; preds = %.lr.ph127.i, %.lr.ph.split.us.i, %.thread.thread.i, %107, %.thread.i, %85, %82, %62
-  %.069.ph.i = phi ptr [ %.5116.i, %107 ], [ %43, %62 ], [ %71, %85 ], [ %87, %.thread.thread.i ], [ %.6147.i, %.lr.ph.split.us.i ], [ %.5116.i, %.thread.i ], [ %71, %82 ], [ %.6147.i, %.lr.ph127.i ]
+  %.069.ph.i = phi ptr [ %43, %62 ], [ %.5116.i, %107 ], [ %71, %85 ], [ %87, %.thread.thread.i ], [ %.6147.i, %.lr.ph.split.us.i ], [ %.5116.i, %.thread.i ], [ %71, %82 ], [ %.6147.i, %.lr.ph127.i ]
   %.pr154.i = load i32, ptr %4, align 4, !tbaa !13
   %120 = icmp sgt i32 %.pr154.i, 0
   br i1 %120, label %.critedge.thread.i, label %121
@@ -3915,7 +3915,7 @@ select.unfold.i:                                  ; preds = %.select.unfold_crit
   br i1 %.not41.i, label %.thread49.i, label %.lr.ph.i, !llvm.loop !82
 
 .thread49.i:                                      ; preds = %.lr.ph.i, %select.unfold.i, %193, %.thread.i67
-  %.152.i = phi ptr [ null, %193 ], [ null, %.thread.i67 ], [ %149, %select.unfold.i ], [ %149, %.lr.ph.i ]
+  %.152.i = phi ptr [ null, %.thread.i67 ], [ null, %193 ], [ %149, %select.unfold.i ], [ %149, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   invoke void @umtx_unlock_77(ptr noundef nonnull @_ZL9resbMutex)
           to label %_ZL15entryOpenDirectPKcS0_P10UErrorCode.exit unwind label %204
@@ -5280,7 +5280,7 @@ ures_close_77.exit213:                            ; preds = %371
   br i1 %376, label %_ZN6icu_7710CharString6appendERKS0_R10UErrorCode.exit222, label %319, !llvm.loop !89
 
 .critedge19:                                      ; preds = %ures_close_77.exit203, %ures_close_77.exit213, %306, %_ZNK6icu_7710CharStringneERKS0_.exit205
-  %.ph = phi i32 [ 0, %306 ], [ 0, %_ZNK6icu_7710CharStringneERKS0_.exit205 ], [ %372, %ures_close_77.exit213 ], [ %296, %ures_close_77.exit203 ]
+  %.ph = phi i32 [ %372, %ures_close_77.exit213 ], [ 0, %306 ], [ 0, %_ZNK6icu_7710CharStringneERKS0_.exit205 ], [ %296, %ures_close_77.exit203 ]
   %.pr = load i32, ptr %8, align 4, !tbaa !13
   %377 = icmp sgt i32 %.pr, 0
   br i1 %377, label %_ZN6icu_7710CharString6appendERKS0_R10UErrorCode.exit222, label %378
@@ -6924,7 +6924,7 @@ _ZL18ures_appendResPathP15UResourceBundlePKciP10UErrorCode.exit208: ; preds = %2
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %.critedge, %.lr.ph, %_ZL18ures_appendResPathP15UResourceBundlePKciP10UErrorCode.exit208, %172, %.critedge.thread.sink.split
-  %.4155222 = phi ptr [ %.4155222.ph, %.critedge.thread.sink.split ], [ %171, %172 ], [ %.3154236, %.lr.ph ], [ %171, %_ZL18ures_appendResPathP15UResourceBundlePKciP10UErrorCode.exit208 ], [ %.3154.lcssa, %.critedge ]
+  %.4155222 = phi ptr [ %.4155222.ph, %.critedge.thread.sink.split ], [ %171, %172 ], [ %171, %_ZL18ures_appendResPathP15UResourceBundlePKciP10UErrorCode.exit208 ], [ %.3154236, %.lr.ph ], [ %.3154.lcssa, %.critedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %20) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
@@ -7324,7 +7324,7 @@ _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit121: ; preds = 
   br label %.loopexit
 
 144:                                              ; preds = %99, %139
-  %.373 = phi ptr [ %.272, %139 ], [ %94, %99 ]
+  %.373 = phi ptr [ %94, %99 ], [ %.272, %139 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %12) #23
@@ -8075,7 +8075,7 @@ _ZL10chopLocalePc.exit:                           ; preds = %91, %93, %115, %.th
   br label %246
 
 246:                                              ; preds = %244, %241
-  %247 = phi i1 [ %245, %244 ], [ true, %241 ]
+  %247 = phi i1 [ true, %241 ], [ %245, %244 ]
   %248 = and i1 %55, %247
   br i1 %248, label %44, label %._crit_edge, !llvm.loop !108
 

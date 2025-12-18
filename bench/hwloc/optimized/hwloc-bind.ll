@@ -528,7 +528,7 @@ hwloc_utils_check_api_version.exit:               ; preds = %2
   br label %hwloc_utils_parse_restrict_flags.exit
 
 hwloc_utils_parse_restrict_flags.exit:            ; preds = %.preheader.i.i, %93, %75, %._crit_edge.i.i, %.split19.us.i.i, %131
-  %.061.i.i = phi i64 [ %76, %75 ], [ 0, %._crit_edge.i.i ], [ -1, %.split19.us.i.i ], [ -1, %131 ], [ %.069.i.i, %93 ], [ %.069.i.i, %.preheader.i.i ]
+  %.061.i.i = phi i64 [ %76, %75 ], [ 0, %._crit_edge.i.i ], [ -1, %131 ], [ -1, %.split19.us.i.i ], [ %.069.i.i, %93 ], [ %.069.i.i, %.preheader.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %155
 
@@ -1339,7 +1339,7 @@ hwloc_calc_append_iodev_by_index.exit.i.i:        ; preds = %436, %433, %420, %4
   br label %hwloc_get_next_pcidev.exit.i.i.i.i
 
 hwloc_get_next_pcidev.exit.i.i.i.i:               ; preds = %466, %461
-  %.0.i.i.i.i.i.i = phi ptr [ %462, %461 ], [ %468, %466 ]
+  %.0.i.i.i.i.i.i = phi ptr [ %468, %466 ], [ %462, %461 ]
   %.not.i.i.i.i = icmp eq ptr %.0.i.i.i.i.i.i, null
   br i1 %.not.i.i.i.i, label %.loopexit.i.i, label %469
 
@@ -1431,7 +1431,7 @@ hwloc_get_next_pcidev.exit.i.i.i.i:               ; preds = %466, %461
   br label %hwloc_get_next_osdev.exit.i.i
 
 hwloc_get_next_osdev.exit.i.i:                    ; preds = %507, %502
-  %.0.i.i.i.i = phi ptr [ %503, %502 ], [ %509, %507 ]
+  %.0.i.i.i.i = phi ptr [ %509, %507 ], [ %503, %502 ]
   %.not75.i.i = icmp eq ptr %.0.i.i.i.i, null
   br i1 %.not75.i.i, label %hwloc_get_next_osdev.exit.thread.i.i, label %510
 
@@ -1506,8 +1506,8 @@ hwloc_calc_process_location.exit.thread.i:        ; preds = %518, %532, %._crit_
   br label %.critedge
 
 hwloc_calc_process_location.exit.thread108.i:     ; preds = %524, %510, %491
-  %.0.i.i.i.i.i.lcssa.sink.i = phi ptr [ %.0.i.i.i.i.i.i, %491 ], [ %.0.i.i.i.i, %510 ], [ %.17.i.i, %524 ]
-  call fastcc void @hwloc_calc_process_location_set_cb(ptr noundef nonnull readonly %20, ptr noundef nonnull readonly %17, ptr noundef nonnull readonly %.0.i.i.i.i.i.lcssa.sink.i)
+  %.17.i.lcssa.sink.i = phi ptr [ %.0.i.i.i.i, %510 ], [ %.0.i.i.i.i.i.i, %491 ], [ %.17.i.i, %524 ]
+  call fastcc void @hwloc_calc_process_location_set_cb(ptr noundef nonnull readonly %20, ptr noundef nonnull readonly %17, ptr noundef nonnull readonly %.17.i.lcssa.sink.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %hwloc_calc_process_location_as_set.exit
 
@@ -1722,7 +1722,7 @@ hwloc_calc_process_location_as_set.exit.thread:   ; preds = %hwloc_calc_process_
   %600 = icmp sgt i32 %597, 0
   br i1 %600, label %sub_0, label %.thread601
 
-.thread601:                                       ; preds = %596, %202, %592
+.thread601:                                       ; preds = %596, %592, %202
   %.04561263 = phi i32 [ %.04561345, %202 ], [ %.04561345, %592 ], [ %.3459, %596 ]
   %.04521236 = phi i32 [ %.04521348, %202 ], [ %.04521348, %592 ], [ %.3455, %596 ]
   %.04481209 = phi i32 [ %.04481351, %202 ], [ %.04481351, %592 ], [ %.3451, %596 ]
@@ -2143,7 +2143,7 @@ hwloc_utils_parse_best_node_flags.exit:           ; preds = %747, %749
   %.inv.i = icmp sgt i32 %768, -1
   br i1 %.inv.i, label %hwloc_utils_parse_memattr_name.exit, label %hwloc_utils_parse_memattr_name.exit.thread
 
-hwloc_utils_parse_memattr_name.exit.thread:       ; preds = %765, %._crit_edge.i
+hwloc_utils_parse_memattr_name.exit.thread:       ; preds = %._crit_edge.i, %765
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %770
 
@@ -2223,7 +2223,7 @@ hwloc_utils_parse_memattr_name.exit:              ; preds = %.lr.ph.i, %765
   br label %hwloc_get_next_obj_by_type.exit.i
 
 hwloc_get_next_obj_by_type.exit.i:                ; preds = %799, %794
-  %.0.i.i563 = phi ptr [ %795, %794 ], [ %801, %799 ]
+  %.0.i.i563 = phi ptr [ %801, %799 ], [ %795, %794 ]
   %.not.i564 = icmp eq ptr %.0.i.i563, null
   br i1 %.not.i564, label %hwloc_get_numanode_obj_by_os_index.exit, label %802
 
@@ -2510,7 +2510,7 @@ hwloc_utils_get_best_node_in_array_by_memattr.exit: ; preds = %._crit_edge1422, 
   call void @free(ptr noundef nonnull %784) #27
   br label %922
 
-.loopexit:                                        ; preds = %.lr.ph27.i, %913, %.loopexit8.i
+.loopexit:                                        ; preds = %.lr.ph27.i, %.loopexit8.i, %913
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @free(ptr noundef %784) #27
   %921 = call i32 @hwloc_bitmap_iszero(ptr noundef %39) #28
@@ -3898,7 +3898,7 @@ hwloc_get_next_obj_by_depth.exit.i100:            ; preds = %154, %149
   br i1 %176, label %hwloc_calc_get_obj_inside_sets_by_depth.exit, label %.outer.i96, !llvm.loop !88
 
 hwloc_calc_get_obj_inside_sets_by_depth.exit:     ; preds = %175, %143, %117, %hwloc_get_next_obj_by_depth.exit.us.i, %151, %hwloc_get_next_obj_by_depth.exit.i100
-  %.024.i = phi ptr [ %.0.i.us.i, %143 ], [ null, %151 ], [ null, %hwloc_get_next_obj_by_depth.exit.i100 ], [ null, %hwloc_get_next_obj_by_depth.exit.us.i ], [ null, %117 ], [ %.0.i.i101, %175 ]
+  %.024.i = phi ptr [ null, %151 ], [ %.0.i.us.i, %143 ], [ null, %hwloc_get_next_obj_by_depth.exit.i100 ], [ null, %hwloc_get_next_obj_by_depth.exit.us.i ], [ null, %117 ], [ %.0.i.i101, %175 ]
   %178 = icmp eq ptr %.024.i, null
   %or.cond4 = and i1 %111, %178
   %or.cond9 = or i1 %110, %or.cond4

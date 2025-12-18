@@ -1619,8 +1619,8 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit.i: ; pre
   br label %.lr.ph.i45
 
 ._crit_edge.i47:                                  ; preds = %.preheader.i.i.i.i, %230, %178
-  %.pr.i = phi i32 [ %184, %178 ], [ %229, %230 ], [ %184, %.preheader.i.i.i.i ]
-  %.180.lcssa.i = phi i32 [ %.079139.i, %178 ], [ %.281.i, %230 ], [ %.079139.i, %.preheader.i.i.i.i ]
+  %.pr.i = phi i32 [ %229, %230 ], [ %184, %178 ], [ %184, %.preheader.i.i.i.i ]
+  %.180.lcssa.i = phi i32 [ %.281.i, %230 ], [ %.079139.i, %178 ], [ %.079139.i, %.preheader.i.i.i.i ]
   %.not.i.i = icmp eq i32 %.pr.i, 0
   br i1 %.not.i.i, label %237, label %178, !llvm.loop !300
 
@@ -1963,8 +1963,8 @@ _ZN4llvm11SmallVectorINS_8RegisterELj8EED2Ev.exit.i: ; preds = %314, %311
   br i1 %.not86.i, label %_ZN12_GLOBAL__N_124AArch64StackTaggingPreRA22findFirstSlotCandidateEv.exit, label %335
 
 _ZN12_GLOBAL__N_124AArch64StackTaggingPreRA22findFirstSlotCandidateEv.exit: ; preds = %350, %140, %._crit_edge147.i, %317, %319
-  %.sroa.0121.0.lcssa175.i = phi i32 [ %.sroa.0121.1.i, %317 ], [ %.sroa.0121.1.i, %._crit_edge147.i ], [ -1, %140 ], [ %.sroa.0121.1.i, %319 ], [ %.sroa.0121.1.i, %350 ]
-  %.sroa.3.1.i = phi i1 [ true, %317 ], [ false, %._crit_edge147.i ], [ false, %140 ], [ true, %319 ], [ true, %350 ]
+  %.sroa.0121.0.lcssa175.i = phi i32 [ %.sroa.0121.1.i, %317 ], [ %.sroa.0121.1.i, %._crit_edge147.i ], [ %.sroa.0121.1.i, %319 ], [ -1, %140 ], [ %.sroa.0121.1.i, %350 ]
+  %.sroa.3.1.i = phi i1 [ true, %317 ], [ false, %._crit_edge147.i ], [ true, %319 ], [ false, %140 ], [ true, %350 ]
   %.val97.i = load ptr, ptr %5, align 8
   %352 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.val98.i = load i32, ptr %352, align 8, !tbaa !305
@@ -2239,8 +2239,8 @@ _ZN4llvm12is_containedIRNS_11SmallVectorIiLj8EEEiEEbOT_RKT0_.exit.loopexit.split
   br label %_ZN4llvm12is_containedIRNS_11SmallVectorIiLj8EEEiEEbOT_RKT0_.exit
 
 _ZN4llvm12is_containedIRNS_11SmallVectorIiLj8EEEiEEbOT_RKT0_.exit: ; preds = %20, %_ZN4llvm12is_containedIRNS_11SmallVectorIiLj8EEEiEEbOT_RKT0_.exit.loopexit.split.loop.exit, %_ZN4llvm12is_containedIRNS_11SmallVectorIiLj8EEEiEEbOT_RKT0_.exit.loopexit.split.loop.exit38, %_ZN4llvm12is_containedIRNS_11SmallVectorIiLj8EEEiEEbOT_RKT0_.exit.loopexit.split.loop.exit40, %40, %46, %52
-  %59 = phi i32 [ %47, %46 ], [ %41, %40 ], [ %53, %52 ], [ %18, %_ZN4llvm12is_containedIRNS_11SmallVectorIiLj8EEEiEEbOT_RKT0_.exit.loopexit.split.loop.exit40 ], [ %18, %_ZN4llvm12is_containedIRNS_11SmallVectorIiLj8EEEiEEbOT_RKT0_.exit.loopexit.split.loop.exit38 ], [ %18, %_ZN4llvm12is_containedIRNS_11SmallVectorIiLj8EEEiEEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %18, %20 ]
-  %.028.i.i.i.i = phi ptr [ %.1.i.i.i.i, %46 ], [ %.029.lcssa.i.i.i.i, %40 ], [ %.2.i.i.i.i, %52 ], [ %58, %_ZN4llvm12is_containedIRNS_11SmallVectorIiLj8EEEiEEbOT_RKT0_.exit.loopexit.split.loop.exit40 ], [ %57, %_ZN4llvm12is_containedIRNS_11SmallVectorIiLj8EEEiEEbOT_RKT0_.exit.loopexit.split.loop.exit38 ], [ %56, %_ZN4llvm12is_containedIRNS_11SmallVectorIiLj8EEEiEEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %.02946.i.i.i.i, %20 ]
+  %59 = phi i32 [ %47, %46 ], [ %41, %40 ], [ %53, %52 ], [ %18, %_ZN4llvm12is_containedIRNS_11SmallVectorIiLj8EEEiEEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %18, %_ZN4llvm12is_containedIRNS_11SmallVectorIiLj8EEEiEEbOT_RKT0_.exit.loopexit.split.loop.exit40 ], [ %18, %_ZN4llvm12is_containedIRNS_11SmallVectorIiLj8EEEiEEbOT_RKT0_.exit.loopexit.split.loop.exit38 ], [ %18, %20 ]
+  %.028.i.i.i.i = phi ptr [ %.1.i.i.i.i, %46 ], [ %.029.lcssa.i.i.i.i, %40 ], [ %.2.i.i.i.i, %52 ], [ %56, %_ZN4llvm12is_containedIRNS_11SmallVectorIiLj8EEEiEEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %58, %_ZN4llvm12is_containedIRNS_11SmallVectorIiLj8EEEiEEbOT_RKT0_.exit.loopexit.split.loop.exit40 ], [ %57, %_ZN4llvm12is_containedIRNS_11SmallVectorIiLj8EEEiEEbOT_RKT0_.exit.loopexit.split.loop.exit38 ], [ %.02946.i.i.i.i, %20 ]
   %.not = icmp eq ptr %.028.i.i.i.i, %16
   br i1 %.not, label %_ZN4llvm12is_containedIRNS_11SmallVectorIiLj8EEEiEEbOT_RKT0_.exit.thread, label %_ZN4llvm9SetVectorIiNS_11SmallVectorIiLj8EEENS_8DenseSetIiNS_12DenseMapInfoIivEEEELj8EE7makeBigEv.exit
 

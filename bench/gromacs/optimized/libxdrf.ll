@@ -2550,7 +2550,7 @@ _ZL25xtc_get_next_frame_numberP8_IO_FILEP3XDRi.exit: ; preds = %22
   br label %.loopexit
 
 .loopexit:                                        ; preds = %33, %_ZL25xtc_get_next_frame_numberP8_IO_FILEP3XDRi.exit, %_ZL25xtc_get_next_frame_numberP8_IO_FILEP3XDRi.exit.thread, %45, %42, %39, %11, %8, %4
-  %.032 = phi i32 [ -1, %42 ], [ -1, %4 ], [ -1, %8 ], [ -1, %11 ], [ -1, %39 ], [ %., %45 ], [ -1, %_ZL25xtc_get_next_frame_numberP8_IO_FILEP3XDRi.exit.thread ], [ -1, %_ZL25xtc_get_next_frame_numberP8_IO_FILEP3XDRi.exit ], [ -1, %33 ]
+  %.032 = phi i32 [ -1, %42 ], [ -1, %4 ], [ -1, %8 ], [ -1, %11 ], [ -1, %_ZL25xtc_get_next_frame_numberP8_IO_FILEP3XDRi.exit.thread ], [ %., %45 ], [ -1, %39 ], [ -1, %_ZL25xtc_get_next_frame_numberP8_IO_FILEP3XDRi.exit ], [ -1, %33 ]
   ret i32 %.032
 }
 
@@ -3079,7 +3079,7 @@ define noundef float @_Z27xdr_xtc_get_last_frame_timeP8_IO_FILEP3XDRiPb(ptr noun
   br label %15
 
 15:                                               ; preds = %.sink.split, %13, %9
-  %.0 = phi float [ -1.000000e+00, %9 ], [ %10, %13 ], [ -1.000000e+00, %.sink.split ]
+  %.0 = phi float [ %10, %13 ], [ -1.000000e+00, %9 ], [ -1.000000e+00, %.sink.split ]
   ret float %.0
 }
 
@@ -3157,7 +3157,7 @@ _ZL28xtc_get_current_frame_numberP8_IO_FILEP3XDRiPb.exit: ; preds = %22, %11, %1
   br label %28
 
 28:                                               ; preds = %.sink.split, %26, %_ZL28xtc_get_current_frame_numberP8_IO_FILEP3XDRiPb.exit
-  %.0 = phi i32 [ -1, %_ZL28xtc_get_current_frame_numberP8_IO_FILEP3XDRiPb.exit ], [ %.0.i, %26 ], [ -1, %.sink.split ]
+  %.0 = phi i32 [ %.0.i, %26 ], [ -1, %_ZL28xtc_get_current_frame_numberP8_IO_FILEP3XDRiPb.exit ], [ -1, %.sink.split ]
   ret i32 %.0
 }
 

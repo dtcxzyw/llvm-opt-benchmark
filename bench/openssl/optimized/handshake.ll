@@ -1800,7 +1800,7 @@ thread-pre-split.i:                               ; preds = %45
   br label %82
 
 82:                                               ; preds = %79, %.thread.i, %60
-  %.0.i = phi i32 [ %62, %60 ], [ %78, %.thread.i ], [ %81, %79 ]
+  %.0.i = phi i32 [ %62, %60 ], [ %81, %79 ], [ %78, %.thread.i ]
   %.not105.i = icmp eq i32 %.0.i, 0
   br i1 %.not105.i, label %.critedge109.sink.split.i, label %83
 
@@ -2793,7 +2793,7 @@ thread-pre-split:                                 ; preds = %.critedge, %35
   br i1 %42, label %.sink.split, label %43
 
 .sink.split:                                      ; preds = %13, %40, %27, %33, %18, %16, %1
-  %.sink = phi i32 [ 2, %16 ], [ 2, %27 ], [ 4, %33 ], [ 2, %18 ], [ 4, %1 ], [ 0, %40 ], [ 4, %13 ]
+  %.sink = phi i32 [ 2, %16 ], [ 2, %27 ], [ 4, %33 ], [ 2, %18 ], [ 0, %40 ], [ 4, %1 ], [ 4, %13 ]
   store i32 %.sink, ptr %2, align 4, !tbaa !58
   br label %43
 

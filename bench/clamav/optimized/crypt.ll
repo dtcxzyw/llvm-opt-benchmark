@@ -1577,7 +1577,7 @@ _ZN9CryptData13KDF5CacheItemC2Ev.exit:            ; preds = %.noexc4.i
   br i1 %38, label %.loopexit33, label %37
 
 .loopexit33:                                      ; preds = %.preheader, %37, %.body31
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body32, %.body31 ], [ %36, %37 ], [ %eh.lpad-body32, %.preheader ]
+  %.pn = phi { ptr, i32 } [ %36, %37 ], [ %eh.lpad-body32, %.body31 ], [ %eh.lpad-body32, %.preheader ]
   br label %39
 
 39:                                               ; preds = %39, %.loopexit33
@@ -1588,7 +1588,7 @@ _ZN9CryptData13KDF5CacheItemC2Ev.exit:            ; preds = %.noexc4.i
   br i1 %42, label %.loopexit, label %39
 
 .loopexit:                                        ; preds = %.preheader36, %39, %.body
-  %.pn.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %.pn, %39 ], [ %eh.lpad-body, %.preheader36 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %39 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body, %.preheader36 ]
   resume { ptr, i32 } %.pn.pn
 }
 

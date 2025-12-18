@@ -5554,7 +5554,7 @@ define hidden void @_ZN4text6Buffer16apply_local_edit17hd193c918cd596d7bE.llvm.1
   br i1 %547, label %.invoke, label %549
 
 .invoke1044:                                      ; preds = %672, %601, %534, %775
-  %548 = phi ptr [ @anon.af19b1c1a9e1d51e5e850ecd5c948b1d.71, %775 ], [ @anon.af19b1c1a9e1d51e5e850ecd5c948b1d.70, %672 ], [ @anon.af19b1c1a9e1d51e5e850ecd5c948b1d.64, %534 ], [ @anon.af19b1c1a9e1d51e5e850ecd5c948b1d.68, %601 ]
+  %548 = phi ptr [ @anon.af19b1c1a9e1d51e5e850ecd5c948b1d.71, %775 ], [ @anon.af19b1c1a9e1d51e5e850ecd5c948b1d.64, %534 ], [ @anon.af19b1c1a9e1d51e5e850ecd5c948b1d.68, %601 ], [ @anon.af19b1c1a9e1d51e5e850ecd5c948b1d.70, %672 ]
   invoke void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.9314811daa6858c9e4c48c8de531af71.57.llvm.9541137914914063713, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %548) #37
           to label %.cont1045 unwind label %.critedge125.thread488.loopexit.split-lp.loopexit.split-lp
 
@@ -5566,9 +5566,9 @@ define hidden void @_ZN4text6Buffer16apply_local_edit17hd193c918cd596d7bE.llvm.1
   br i1 %550, label %556, label %.invoke1046
 
 .invoke1046:                                      ; preds = %686, %615, %549, %789
-  %551 = phi i64 [ %784, %789 ], [ %681, %686 ], [ %543, %549 ], [ %610, %615 ]
-  %552 = phi i64 [ %787, %789 ], [ %684, %686 ], [ %546, %549 ], [ %613, %615 ]
-  %553 = phi ptr [ @anon.af19b1c1a9e1d51e5e850ecd5c948b1d.71, %789 ], [ @anon.af19b1c1a9e1d51e5e850ecd5c948b1d.70, %686 ], [ @anon.af19b1c1a9e1d51e5e850ecd5c948b1d.64, %549 ], [ @anon.af19b1c1a9e1d51e5e850ecd5c948b1d.68, %615 ]
+  %551 = phi i64 [ %784, %789 ], [ %543, %549 ], [ %610, %615 ], [ %681, %686 ]
+  %552 = phi i64 [ %787, %789 ], [ %546, %549 ], [ %613, %615 ], [ %684, %686 ]
+  %553 = phi ptr [ @anon.af19b1c1a9e1d51e5e850ecd5c948b1d.71, %789 ], [ @anon.af19b1c1a9e1d51e5e850ecd5c948b1d.64, %549 ], [ @anon.af19b1c1a9e1d51e5e850ecd5c948b1d.68, %615 ], [ @anon.af19b1c1a9e1d51e5e850ecd5c948b1d.70, %686 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %551, i64 noundef %552, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %553) #37
           to label %.cont1047 unwind label %.critedge125.thread488.loopexit.split-lp.loopexit.split-lp
 
@@ -5580,7 +5580,7 @@ define hidden void @_ZN4text6Buffer16apply_local_edit17hd193c918cd596d7bE.llvm.1
           to label %525 unwind label %.critedge125.thread488.loopexit.split-lp.loopexit
 
 .invoke:                                          ; preds = %608, %599, %541, %532, %782, %773
-  %555 = phi ptr [ @anon.af19b1c1a9e1d51e5e850ecd5c948b1d.72, %782 ], [ @anon.af19b1c1a9e1d51e5e850ecd5c948b1d.72, %773 ], [ @anon.af19b1c1a9e1d51e5e850ecd5c948b1d.69, %608 ], [ @anon.af19b1c1a9e1d51e5e850ecd5c948b1d.65, %541 ], [ @anon.af19b1c1a9e1d51e5e850ecd5c948b1d.65, %532 ], [ @anon.af19b1c1a9e1d51e5e850ecd5c948b1d.69, %599 ]
+  %555 = phi ptr [ @anon.af19b1c1a9e1d51e5e850ecd5c948b1d.72, %782 ], [ @anon.af19b1c1a9e1d51e5e850ecd5c948b1d.72, %773 ], [ @anon.af19b1c1a9e1d51e5e850ecd5c948b1d.65, %532 ], [ @anon.af19b1c1a9e1d51e5e850ecd5c948b1d.69, %599 ], [ @anon.af19b1c1a9e1d51e5e850ecd5c948b1d.65, %541 ], [ @anon.af19b1c1a9e1d51e5e850ecd5c948b1d.69, %608 ]
   invoke void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef readonly align 8 dereferenceable(24) %555) #37
           to label %.cont unwind label %.critedge125.thread488.loopexit.split-lp.loopexit.split-lp
 
@@ -13707,7 +13707,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17h74087639cf8ae2bbE.exit.i.i.i.i.i.i.i: 
   br label %245
 
 .loopexit.split-lp.i.i.i.i.i.i.i:                 ; preds = %.invoke.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i, %241
-  %.sroa.012.2.ph.i.i.i.i.i.i.i = phi i1 [ true, %.invoke.i.i.i.i.i.i.i ], [ true, %241 ], [ false, %._crit_edge.i.i.i.i.i.i.i ]
+  %.sroa.012.2.ph.i.i.i.i.i.i.i = phi i1 [ true, %241 ], [ true, %.invoke.i.i.i.i.i.i.i ], [ false, %._crit_edge.i.i.i.i.i.i.i ]
   %lpad.loopexit.split-lp.i.i.i.i.i.i.i = landingpad { ptr, i32 }
           cleanup
   br label %245

@@ -1427,7 +1427,7 @@ get_ue_golomb.exit320:                            ; preds = %.critedge.thread.i3
   br label %596
 
 596:                                              ; preds = %589, %564
-  %597 = phi i32 [ %595, %589 ], [ %585, %564 ]
+  %597 = phi i32 [ %585, %564 ], [ %595, %589 ]
   %.not87 = icmp eq i32 %597, 0
   br i1 %.not87, label %.thread603, label %600
 

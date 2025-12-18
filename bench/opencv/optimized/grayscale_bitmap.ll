@@ -867,7 +867,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %10, %13
   ret void
 
 ._crit_edge:                                      ; preds = %.critedge, %.critedge.us, %.preheader
-  %59 = phi i32 [ %22, %.preheader ], [ %56, %.critedge.us ], [ %86, %.critedge ]
+  %59 = phi i32 [ %56, %.critedge.us ], [ %22, %.preheader ], [ %86, %.critedge ]
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
   %60 = load i32, ptr %5, align 4, !tbaa !38
   %61 = sext i32 %60 to i64

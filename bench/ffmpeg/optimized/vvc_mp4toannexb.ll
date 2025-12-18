@@ -655,7 +655,7 @@ bytestream2_peek_be16.exit83:                     ; preds = %81, %83
   br i1 %129, label %.thread138, label %.sink.split
 
 .thread138:                                       ; preds = %28, %._crit_edge.us, %.lr.ph153.split.us, %99, %76, %bytestream2_peek_be16.exit83, %._crit_edge, %60, %.lr.ph153, %._crit_edge169
-  %.265141 = phi i32 [ %128, %._crit_edge169 ], [ -1094995529, %.lr.ph153 ], [ -1094995529, %bytestream2_peek_be16.exit83 ], [ -1094995529, %76 ], [ %103, %99 ], [ -1094995529, %60 ], [ -1094995529, %._crit_edge ], [ -1094995529, %.lr.ph153.split.us ], [ -1094995529, %._crit_edge.us ], [ -1094995529, %28 ]
+  %.265141 = phi i32 [ %128, %._crit_edge169 ], [ -1094995529, %bytestream2_peek_be16.exit83 ], [ -1094995529, %.lr.ph153 ], [ -1094995529, %76 ], [ %103, %99 ], [ -1094995529, %60 ], [ -1094995529, %._crit_edge ], [ -1094995529, %.lr.ph153.split.us ], [ -1094995529, %._crit_edge.us ], [ -1094995529, %28 ]
   call void @av_packet_unref(ptr noundef %1) #7
   br label %.sink.split
 

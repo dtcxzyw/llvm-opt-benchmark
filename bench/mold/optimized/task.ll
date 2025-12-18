@@ -1247,7 +1247,7 @@ _ZN3tbb6detail2r18governor15get_thread_dataEv.exit: ; preds = %1, %5
   br label %.loopexit21, !llvm.loop !189
 
 _ZNSt13unordered_mapIPN3tbb6detail2d126wait_tree_vertex_interfaceEPNS2_16reference_vertexESt4hashIS4_ESt8equal_toIS4_ENS2_13tbb_allocatorISt4pairIKS4_S6_EEEE4findERSD_.exit: ; preds = %33, %16, %28
-  %.sroa.06.1.i.i = phi ptr [ %29, %28 ], [ %.sroa.06.0.i.i, %16 ], [ %35, %33 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %16 ], [ %29, %28 ], [ %35, %33 ]
   %41 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %42 = load ptr, ptr %41, align 8, !tbaa !190
   br label %103

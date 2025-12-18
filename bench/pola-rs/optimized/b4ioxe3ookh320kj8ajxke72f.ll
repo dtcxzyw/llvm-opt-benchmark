@@ -31314,7 +31314,7 @@ default.unreachable456:                           ; preds = %"_ZN3std4sync9once_
   invoke void @"_ZN4core3ptr74drop_in_place$LT$polars_parquet_format..parquet_format..DataPageHeader$GT$17h23008d5dd7a4fea0E"(ptr noalias noundef nonnull align 8 dereferenceable(152) %1)
           to label %"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$polars_parquet_format..parquet_format..DataPageHeader$GT$$GT$17hfe041b68c11171abE.exit264" unwind label %128
 
-"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$polars_parquet_format..parquet_format..DataPageHeader$GT$$GT$17hfe041b68c11171abE.exit264.thread": ; preds = %113, %130, %"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$polars_parquet_format..parquet_format..DataPageHeader$GT$$GT$17hfe041b68c11171abE.exit264"
+"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$polars_parquet_format..parquet_format..DataPageHeader$GT$$GT$17hfe041b68c11171abE.exit264.thread": ; preds = %130, %113, %"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$polars_parquet_format..parquet_format..DataPageHeader$GT$$GT$17hfe041b68c11171abE.exit264"
   %.pn219440453 = phi { ptr, i32 } [ %.pn219440, %"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$polars_parquet_format..parquet_format..DataPageHeader$GT$$GT$17hfe041b68c11171abE.exit264" ], [ %114, %113 ], [ %127, %130 ]
   %279 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %280 = load i64, ptr %279, align 8, !range !346, !alias.scope !7204, !noundef !12

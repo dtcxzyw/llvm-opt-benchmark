@@ -371,7 +371,7 @@ ff_q_equal.exit.thread17.i44.i:                   ; preds = %152, %149, %ff_cie_
   %or.cond50 = or i1 %or.cond5.i.i12.i54.i.not53, %169
   br i1 %or.cond50, label %av_cmp_q.exit.thread, label %ff_prim_equal.exit.thread48
 
-ff_prim_equal.exit.thread48:                      ; preds = %166, %163, %ff_q_equal.exit.thread17.i44.i
+ff_prim_equal.exit.thread48:                      ; preds = %166, %ff_q_equal.exit.thread17.i44.i, %163
   %170 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %171 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %172 = load i64, ptr %170, align 4
@@ -2833,7 +2833,7 @@ define internal fastcc { <2 x float>, float } @saturate(float noundef %0, ptr no
   br i1 %24, label %17, label %desat_bounded.exit, !llvm.loop !100
 
 desat_bounded.exit:                               ; preds = %17, %11, %2
-  %.sroa.022.0.i = phi nsz <2 x float> [ %.sroa.062.4.vec.insert, %2 ], [ %.sroa.059.4.vec.insert, %11 ], [ %.sroa.022.4.vec.insert37.i, %17 ]
+  %.sroa.022.0.i = phi nsz <2 x float> [ %.sroa.059.4.vec.insert, %11 ], [ %.sroa.062.4.vec.insert, %2 ], [ %.sroa.022.4.vec.insert37.i, %17 ]
   %25 = fcmp nsz ugt float %9, %4
   br i1 %25, label %26, label %desat_bounded.exit95
 
@@ -2867,7 +2867,7 @@ desat_bounded.exit:                               ; preds = %17, %11, %2
   br i1 %39, label %32, label %desat_bounded.exit95, !llvm.loop !100
 
 desat_bounded.exit95:                             ; preds = %32, %26, %desat_bounded.exit
-  %.sroa.022.0.i81 = phi nsz <2 x float> [ %.sroa.062.4.vec.insert, %desat_bounded.exit ], [ %.sroa.059.4.vec.insert, %26 ], [ %.sroa.022.4.vec.insert37.i94, %32 ]
+  %.sroa.022.0.i81 = phi nsz <2 x float> [ %.sroa.059.4.vec.insert, %26 ], [ %.sroa.062.4.vec.insert, %desat_bounded.exit ], [ %.sroa.022.4.vec.insert37.i94, %32 ]
   %40 = fcmp nsz ogt float %7, 0x3F0A36E2E0000000
   br i1 %40, label %.lr.ph, label %._crit_edge
 
@@ -3215,10 +3215,10 @@ ingamut.exit141:                                  ; preds = %191
   br i1 %270, label %181, label %desat_bounded.exit111, !llvm.loop !100
 
 desat_bounded.exit111:                            ; preds = %.thread154, %.thread, %171, %175, %71, %75
-  %.sroa.022.1 = phi nsz <2 x float> [ %.sroa.040.0201, %75 ], [ %.sroa.040.0201, %71 ], [ %.sroa.062.4.vec.insert, %171 ], [ %.sroa.059.4.vec.insert, %175 ], [ %.sroa.040.0201, %.thread ], [ %.sroa.022.4.vec.insert37.i126, %.thread154 ]
-  %.sroa.040.1 = phi nsz <2 x float> [ %.sroa.059.4.vec.insert, %75 ], [ %.sroa.062.4.vec.insert, %71 ], [ %.sroa.022.0200, %171 ], [ %.sroa.022.0200, %175 ], [ %.sroa.022.4.vec.insert37.i110, %.thread ], [ %.sroa.022.0200, %.thread154 ]
-  %.sroa.059.1 = phi nsz <2 x float> [ %.sroa.022.0200, %75 ], [ %.sroa.022.0200, %71 ], [ %.sroa.059.0203, %171 ], [ %.sroa.059.0203, %175 ], [ %.sroa.022.0200, %.thread ], [ %.sroa.059.0203, %.thread154 ]
-  %.sroa.062.1 = phi nsz <2 x float> [ %.sroa.062.0204, %75 ], [ %.sroa.062.0204, %71 ], [ %.sroa.040.0201, %171 ], [ %.sroa.040.0201, %175 ], [ %.sroa.062.0204, %.thread ], [ %.sroa.040.0201, %.thread154 ]
+  %.sroa.022.1 = phi nsz <2 x float> [ %.sroa.059.4.vec.insert, %175 ], [ %.sroa.040.0201, %75 ], [ %.sroa.040.0201, %71 ], [ %.sroa.040.0201, %.thread ], [ %.sroa.062.4.vec.insert, %171 ], [ %.sroa.022.4.vec.insert37.i126, %.thread154 ]
+  %.sroa.040.1 = phi nsz <2 x float> [ %.sroa.022.0200, %175 ], [ %.sroa.059.4.vec.insert, %75 ], [ %.sroa.062.4.vec.insert, %71 ], [ %.sroa.022.4.vec.insert37.i110, %.thread ], [ %.sroa.022.0200, %171 ], [ %.sroa.022.0200, %.thread154 ]
+  %.sroa.059.1 = phi nsz <2 x float> [ %.sroa.059.0203, %175 ], [ %.sroa.022.0200, %75 ], [ %.sroa.022.0200, %71 ], [ %.sroa.022.0200, %.thread ], [ %.sroa.059.0203, %171 ], [ %.sroa.059.0203, %.thread154 ]
+  %.sroa.062.1 = phi nsz <2 x float> [ %.sroa.040.0201, %175 ], [ %.sroa.062.0204, %75 ], [ %.sroa.062.0204, %71 ], [ %.sroa.062.0204, %.thread ], [ %.sroa.040.0201, %171 ], [ %.sroa.040.0201, %.thread154 ]
   %271 = fcmp nsz ogt float %68, 0x3F0A36E2E0000000
   br i1 %271, label %67, label %._crit_edge, !llvm.loop !101
 

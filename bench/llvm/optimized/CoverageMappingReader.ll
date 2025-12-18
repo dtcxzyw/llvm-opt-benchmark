@@ -3343,7 +3343,7 @@ _ZN4llvm15SmallVectorImplIPNS_8coverage20CounterMappingRegionEE6resizeEmS3_.exit
   br label %161
 
 _ZN4llvm5ErrorD2Ev.exit104:                       ; preds = %._crit_edge152, %.critedge86.thread, %.critedge86, %_ZN4llvm15SmallVectorImplIPNS_8coverage20CounterMappingRegionEE6resizeEmS3_.exit
-  %157 = phi ptr [ %144, %_ZN4llvm15SmallVectorImplIPNS_8coverage20CounterMappingRegionEE6resizeEmS3_.exit ], [ %134, %.critedge86.thread ], [ %144, %.critedge86 ], [ %144, %._crit_edge152 ]
+  %157 = phi ptr [ %144, %.critedge86 ], [ %144, %_ZN4llvm15SmallVectorImplIPNS_8coverage20CounterMappingRegionEE6resizeEmS3_.exit ], [ %134, %.critedge86.thread ], [ %144, %._crit_edge152 ]
   store ptr null, ptr %0, align 8, !tbaa !23
   %158 = load ptr, ptr %11, align 8, !tbaa !350
   %159 = icmp eq ptr %158, %157
@@ -11194,7 +11194,7 @@ _ZN4llvm8ExpectedIbE9takeErrorEv.exit39.i.us:     ; preds = %_ZL22isCoverageMapp
   br label %.critedge24.thread.i.us
 
 .critedge24.thread.i.us:                          ; preds = %.critedge24.thread.i.us.sink.split, %_ZN4llvm5ErrorD2Ev.exit40.i.us, %_ZN4llvm8ExpectedIbE9takeErrorEv.exit39.i.us
-  %74 = phi ptr [ %71, %_ZN4llvm8ExpectedIbE9takeErrorEv.exit39.i.us ], [ null, %_ZN4llvm5ErrorD2Ev.exit40.i.us ], [ null, %.critedge24.thread.i.us.sink.split ]
+  %74 = phi ptr [ null, %_ZN4llvm5ErrorD2Ev.exit40.i.us ], [ %71, %_ZN4llvm8ExpectedIbE9takeErrorEv.exit39.i.us ], [ null, %.critedge24.thread.i.us.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !1306
   br label %_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE0EjLNS1_10endiannessE1EE28insertFunctionRecordIfNeededEPKNS2_22CovMapFunctionRecordV1IjEENS1_9StringRefE13FilenameRange.exit.us
 
@@ -12328,7 +12328,7 @@ _ZN4llvm5ErrorD2Ev.exit38.i:                      ; preds = %_ZL22isCoverageMapp
   br label %.critedge24.thread.i
 
 .critedge24.thread.i:                             ; preds = %.critedge24.thread.i.sink.split, %_ZN4llvm5ErrorD2Ev.exit38.i, %_ZN4llvm8ExpectedIbE9takeErrorEv.exit37.i
-  %143 = phi ptr [ %139, %_ZN4llvm8ExpectedIbE9takeErrorEv.exit37.i ], [ null, %_ZN4llvm5ErrorD2Ev.exit38.i ], [ null, %.critedge24.thread.i.sink.split ]
+  %143 = phi ptr [ null, %_ZN4llvm5ErrorD2Ev.exit38.i ], [ %139, %_ZN4llvm8ExpectedIbE9takeErrorEv.exit37.i ], [ null, %.critedge24.thread.i.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !1416
   br label %_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE1EjLNS1_10endiannessE1EE28insertFunctionRecordIfNeededEPKNS2_22CovMapFunctionRecordV2ENS1_9StringRefE13FilenameRange.exit
 
@@ -12348,7 +12348,7 @@ _ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersi
   br label %.critedge19
 
 .critedge19:                                      ; preds = %.critedge19.sink.split, %39, %_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE1EjLNS1_10endiannessE1EE28insertFunctionRecordIfNeededEPKNS2_22CovMapFunctionRecordV2ENS1_9StringRefE13FilenameRange.exit
-  %144 = phi ptr [ null, %_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE1EjLNS1_10endiannessE1EE28insertFunctionRecordIfNeededEPKNS2_22CovMapFunctionRecordV2ENS1_9StringRefE13FilenameRange.exit ], [ %27, %39 ], [ null, %.critedge19.sink.split ]
+  %144 = phi ptr [ %27, %39 ], [ null, %_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE1EjLNS1_10endiannessE1EE28insertFunctionRecordIfNeededEPKNS2_22CovMapFunctionRecordV2ENS1_9StringRefE13FilenameRange.exit ], [ null, %.critedge19.sink.split ]
   %145 = icmp ult ptr %32, %3
   br i1 %145, label %26, label %_ZN4llvm5ErrorD2Ev.exit22
 
@@ -15689,7 +15689,7 @@ _ZN4llvm5ErrorD2Ev.exit38.i:                      ; preds = %_ZL22isCoverageMapp
   br label %.critedge24.thread.i
 
 .critedge24.thread.i:                             ; preds = %.critedge24.thread.i.sink.split, %_ZN4llvm5ErrorD2Ev.exit38.i, %_ZN4llvm8ExpectedIbE9takeErrorEv.exit37.i
-  %143 = phi ptr [ %139, %_ZN4llvm8ExpectedIbE9takeErrorEv.exit37.i ], [ null, %_ZN4llvm5ErrorD2Ev.exit38.i ], [ null, %.critedge24.thread.i.sink.split ]
+  %143 = phi ptr [ null, %_ZN4llvm5ErrorD2Ev.exit38.i ], [ %139, %_ZN4llvm8ExpectedIbE9takeErrorEv.exit37.i ], [ null, %.critedge24.thread.i.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !1554
   br label %_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE2EjLNS1_10endiannessE1EE28insertFunctionRecordIfNeededEPKNS2_22CovMapFunctionRecordV2ENS1_9StringRefE13FilenameRange.exit
 
@@ -15709,7 +15709,7 @@ _ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersi
   br label %.critedge19
 
 .critedge19:                                      ; preds = %.critedge19.sink.split, %39, %_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE2EjLNS1_10endiannessE1EE28insertFunctionRecordIfNeededEPKNS2_22CovMapFunctionRecordV2ENS1_9StringRefE13FilenameRange.exit
-  %144 = phi ptr [ null, %_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE2EjLNS1_10endiannessE1EE28insertFunctionRecordIfNeededEPKNS2_22CovMapFunctionRecordV2ENS1_9StringRefE13FilenameRange.exit ], [ %27, %39 ], [ null, %.critedge19.sink.split ]
+  %144 = phi ptr [ %27, %39 ], [ null, %_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE2EjLNS1_10endiannessE1EE28insertFunctionRecordIfNeededEPKNS2_22CovMapFunctionRecordV2ENS1_9StringRefE13FilenameRange.exit ], [ null, %.critedge19.sink.split ]
   %145 = icmp ult ptr %32, %3
   br i1 %145, label %26, label %_ZN4llvm5ErrorD2Ev.exit22
 
@@ -19462,7 +19462,7 @@ _ZN4llvm8ExpectedIbE9takeErrorEv.exit39.i.us:     ; preds = %_ZL22isCoverageMapp
   br label %.critedge24.thread.i.us
 
 .critedge24.thread.i.us:                          ; preds = %.critedge24.thread.i.us.sink.split, %_ZN4llvm5ErrorD2Ev.exit40.i.us, %_ZN4llvm8ExpectedIbE9takeErrorEv.exit39.i.us
-  %78 = phi ptr [ %75, %_ZN4llvm8ExpectedIbE9takeErrorEv.exit39.i.us ], [ null, %_ZN4llvm5ErrorD2Ev.exit40.i.us ], [ null, %.critedge24.thread.i.us.sink.split ]
+  %78 = phi ptr [ null, %_ZN4llvm5ErrorD2Ev.exit40.i.us ], [ %75, %_ZN4llvm8ExpectedIbE9takeErrorEv.exit39.i.us ], [ null, %.critedge24.thread.i.us.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !1974
   br label %_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE0EjLNS1_10endiannessE0EE28insertFunctionRecordIfNeededEPKNS2_22CovMapFunctionRecordV1IjEENS1_9StringRefE13FilenameRange.exit.us
 
@@ -20278,7 +20278,7 @@ _ZN4llvm5ErrorD2Ev.exit38.i:                      ; preds = %_ZL22isCoverageMapp
   br label %.critedge24.thread.i
 
 .critedge24.thread.i:                             ; preds = %.critedge24.thread.i.sink.split, %_ZN4llvm5ErrorD2Ev.exit38.i, %_ZN4llvm8ExpectedIbE9takeErrorEv.exit37.i
-  %147 = phi ptr [ %143, %_ZN4llvm8ExpectedIbE9takeErrorEv.exit37.i ], [ null, %_ZN4llvm5ErrorD2Ev.exit38.i ], [ null, %.critedge24.thread.i.sink.split ]
+  %147 = phi ptr [ null, %_ZN4llvm5ErrorD2Ev.exit38.i ], [ %143, %_ZN4llvm8ExpectedIbE9takeErrorEv.exit37.i ], [ null, %.critedge24.thread.i.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !2053
   br label %_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE1EjLNS1_10endiannessE0EE28insertFunctionRecordIfNeededEPKNS2_22CovMapFunctionRecordV2ENS1_9StringRefE13FilenameRange.exit
 
@@ -20298,7 +20298,7 @@ _ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersi
   br label %.critedge19
 
 .critedge19:                                      ; preds = %.critedge19.sink.split, %40, %_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE1EjLNS1_10endiannessE0EE28insertFunctionRecordIfNeededEPKNS2_22CovMapFunctionRecordV2ENS1_9StringRefE13FilenameRange.exit
-  %148 = phi ptr [ null, %_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE1EjLNS1_10endiannessE0EE28insertFunctionRecordIfNeededEPKNS2_22CovMapFunctionRecordV2ENS1_9StringRefE13FilenameRange.exit ], [ %27, %40 ], [ null, %.critedge19.sink.split ]
+  %148 = phi ptr [ %27, %40 ], [ null, %_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE1EjLNS1_10endiannessE0EE28insertFunctionRecordIfNeededEPKNS2_22CovMapFunctionRecordV2ENS1_9StringRefE13FilenameRange.exit ], [ null, %.critedge19.sink.split ]
   %149 = icmp ult ptr %33, %3
   br i1 %149, label %26, label %_ZN4llvm5ErrorD2Ev.exit22
 
@@ -20880,7 +20880,7 @@ _ZN4llvm5ErrorD2Ev.exit38.i:                      ; preds = %_ZL22isCoverageMapp
   br label %.critedge24.thread.i
 
 .critedge24.thread.i:                             ; preds = %.critedge24.thread.i.sink.split, %_ZN4llvm5ErrorD2Ev.exit38.i, %_ZN4llvm8ExpectedIbE9takeErrorEv.exit37.i
-  %147 = phi ptr [ %143, %_ZN4llvm8ExpectedIbE9takeErrorEv.exit37.i ], [ null, %_ZN4llvm5ErrorD2Ev.exit38.i ], [ null, %.critedge24.thread.i.sink.split ]
+  %147 = phi ptr [ null, %_ZN4llvm5ErrorD2Ev.exit38.i ], [ %143, %_ZN4llvm8ExpectedIbE9takeErrorEv.exit37.i ], [ null, %.critedge24.thread.i.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !2125
   br label %_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE2EjLNS1_10endiannessE0EE28insertFunctionRecordIfNeededEPKNS2_22CovMapFunctionRecordV2ENS1_9StringRefE13FilenameRange.exit
 
@@ -20900,7 +20900,7 @@ _ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersi
   br label %.critedge19
 
 .critedge19:                                      ; preds = %.critedge19.sink.split, %40, %_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE2EjLNS1_10endiannessE0EE28insertFunctionRecordIfNeededEPKNS2_22CovMapFunctionRecordV2ENS1_9StringRefE13FilenameRange.exit
-  %148 = phi ptr [ null, %_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE2EjLNS1_10endiannessE0EE28insertFunctionRecordIfNeededEPKNS2_22CovMapFunctionRecordV2ENS1_9StringRefE13FilenameRange.exit ], [ %27, %40 ], [ null, %.critedge19.sink.split ]
+  %148 = phi ptr [ %27, %40 ], [ null, %_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE2EjLNS1_10endiannessE0EE28insertFunctionRecordIfNeededEPKNS2_22CovMapFunctionRecordV2ENS1_9StringRefE13FilenameRange.exit ], [ null, %.critedge19.sink.split ]
   %149 = icmp ult ptr %33, %3
   br i1 %149, label %26, label %_ZN4llvm5ErrorD2Ev.exit22
 
@@ -24325,7 +24325,7 @@ _ZN4llvm8ExpectedIbE9takeErrorEv.exit39.i.us:     ; preds = %_ZL22isCoverageMapp
   br label %.critedge24.thread.i.us
 
 .critedge24.thread.i.us:                          ; preds = %.critedge24.thread.i.us.sink.split, %_ZN4llvm5ErrorD2Ev.exit40.i.us, %_ZN4llvm8ExpectedIbE9takeErrorEv.exit39.i.us
-  %74 = phi ptr [ %71, %_ZN4llvm8ExpectedIbE9takeErrorEv.exit39.i.us ], [ null, %_ZN4llvm5ErrorD2Ev.exit40.i.us ], [ null, %.critedge24.thread.i.us.sink.split ]
+  %74 = phi ptr [ null, %_ZN4llvm5ErrorD2Ev.exit40.i.us ], [ %71, %_ZN4llvm8ExpectedIbE9takeErrorEv.exit39.i.us ], [ null, %.critedge24.thread.i.us.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !2525
   br label %_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE0EmLNS1_10endiannessE1EE28insertFunctionRecordIfNeededEPKNS2_22CovMapFunctionRecordV1ImEENS1_9StringRefE13FilenameRange.exit.us
 
@@ -25134,7 +25134,7 @@ _ZN4llvm5ErrorD2Ev.exit38.i:                      ; preds = %_ZL22isCoverageMapp
   br label %.critedge24.thread.i
 
 .critedge24.thread.i:                             ; preds = %.critedge24.thread.i.sink.split, %_ZN4llvm5ErrorD2Ev.exit38.i, %_ZN4llvm8ExpectedIbE9takeErrorEv.exit37.i
-  %143 = phi ptr [ %139, %_ZN4llvm8ExpectedIbE9takeErrorEv.exit37.i ], [ null, %_ZN4llvm5ErrorD2Ev.exit38.i ], [ null, %.critedge24.thread.i.sink.split ]
+  %143 = phi ptr [ null, %_ZN4llvm5ErrorD2Ev.exit38.i ], [ %139, %_ZN4llvm8ExpectedIbE9takeErrorEv.exit37.i ], [ null, %.critedge24.thread.i.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !2607
   br label %_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE1EmLNS1_10endiannessE1EE28insertFunctionRecordIfNeededEPKNS2_22CovMapFunctionRecordV2ENS1_9StringRefE13FilenameRange.exit
 
@@ -25154,7 +25154,7 @@ _ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersi
   br label %.critedge19
 
 .critedge19:                                      ; preds = %.critedge19.sink.split, %39, %_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE1EmLNS1_10endiannessE1EE28insertFunctionRecordIfNeededEPKNS2_22CovMapFunctionRecordV2ENS1_9StringRefE13FilenameRange.exit
-  %144 = phi ptr [ null, %_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE1EmLNS1_10endiannessE1EE28insertFunctionRecordIfNeededEPKNS2_22CovMapFunctionRecordV2ENS1_9StringRefE13FilenameRange.exit ], [ %27, %39 ], [ null, %.critedge19.sink.split ]
+  %144 = phi ptr [ %27, %39 ], [ null, %_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE1EmLNS1_10endiannessE1EE28insertFunctionRecordIfNeededEPKNS2_22CovMapFunctionRecordV2ENS1_9StringRefE13FilenameRange.exit ], [ null, %.critedge19.sink.split ]
   %145 = icmp ult ptr %32, %3
   br i1 %145, label %26, label %_ZN4llvm5ErrorD2Ev.exit22
 
@@ -25730,7 +25730,7 @@ _ZN4llvm5ErrorD2Ev.exit38.i:                      ; preds = %_ZL22isCoverageMapp
   br label %.critedge24.thread.i
 
 .critedge24.thread.i:                             ; preds = %.critedge24.thread.i.sink.split, %_ZN4llvm5ErrorD2Ev.exit38.i, %_ZN4llvm8ExpectedIbE9takeErrorEv.exit37.i
-  %143 = phi ptr [ %139, %_ZN4llvm8ExpectedIbE9takeErrorEv.exit37.i ], [ null, %_ZN4llvm5ErrorD2Ev.exit38.i ], [ null, %.critedge24.thread.i.sink.split ]
+  %143 = phi ptr [ null, %_ZN4llvm5ErrorD2Ev.exit38.i ], [ %139, %_ZN4llvm8ExpectedIbE9takeErrorEv.exit37.i ], [ null, %.critedge24.thread.i.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !2679
   br label %_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE2EmLNS1_10endiannessE1EE28insertFunctionRecordIfNeededEPKNS2_22CovMapFunctionRecordV2ENS1_9StringRefE13FilenameRange.exit
 
@@ -25750,7 +25750,7 @@ _ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersi
   br label %.critedge19
 
 .critedge19:                                      ; preds = %.critedge19.sink.split, %39, %_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE2EmLNS1_10endiannessE1EE28insertFunctionRecordIfNeededEPKNS2_22CovMapFunctionRecordV2ENS1_9StringRefE13FilenameRange.exit
-  %144 = phi ptr [ null, %_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE2EmLNS1_10endiannessE1EE28insertFunctionRecordIfNeededEPKNS2_22CovMapFunctionRecordV2ENS1_9StringRefE13FilenameRange.exit ], [ %27, %39 ], [ null, %.critedge19.sink.split ]
+  %144 = phi ptr [ %27, %39 ], [ null, %_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE2EmLNS1_10endiannessE1EE28insertFunctionRecordIfNeededEPKNS2_22CovMapFunctionRecordV2ENS1_9StringRefE13FilenameRange.exit ], [ null, %.critedge19.sink.split ]
   %145 = icmp ult ptr %32, %3
   br i1 %145, label %26, label %_ZN4llvm5ErrorD2Ev.exit22
 
@@ -29157,7 +29157,7 @@ _ZN4llvm8ExpectedIbE9takeErrorEv.exit39.i.us:     ; preds = %_ZL22isCoverageMapp
   br label %.critedge24.thread.i.us
 
 .critedge24.thread.i.us:                          ; preds = %.critedge24.thread.i.us.sink.split, %_ZN4llvm5ErrorD2Ev.exit40.i.us, %_ZN4llvm8ExpectedIbE9takeErrorEv.exit39.i.us
-  %78 = phi ptr [ %75, %_ZN4llvm8ExpectedIbE9takeErrorEv.exit39.i.us ], [ null, %_ZN4llvm5ErrorD2Ev.exit40.i.us ], [ null, %.critedge24.thread.i.us.sink.split ]
+  %78 = phi ptr [ null, %_ZN4llvm5ErrorD2Ev.exit40.i.us ], [ %75, %_ZN4llvm8ExpectedIbE9takeErrorEv.exit39.i.us ], [ null, %.critedge24.thread.i.us.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !3077
   br label %_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE0EmLNS1_10endiannessE0EE28insertFunctionRecordIfNeededEPKNS2_22CovMapFunctionRecordV1ImEENS1_9StringRefE13FilenameRange.exit.us
 
@@ -29975,7 +29975,7 @@ _ZN4llvm5ErrorD2Ev.exit38.i:                      ; preds = %_ZL22isCoverageMapp
   br label %.critedge24.thread.i
 
 .critedge24.thread.i:                             ; preds = %.critedge24.thread.i.sink.split, %_ZN4llvm5ErrorD2Ev.exit38.i, %_ZN4llvm8ExpectedIbE9takeErrorEv.exit37.i
-  %147 = phi ptr [ %143, %_ZN4llvm8ExpectedIbE9takeErrorEv.exit37.i ], [ null, %_ZN4llvm5ErrorD2Ev.exit38.i ], [ null, %.critedge24.thread.i.sink.split ]
+  %147 = phi ptr [ null, %_ZN4llvm5ErrorD2Ev.exit38.i ], [ %143, %_ZN4llvm8ExpectedIbE9takeErrorEv.exit37.i ], [ null, %.critedge24.thread.i.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !3156
   br label %_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE1EmLNS1_10endiannessE0EE28insertFunctionRecordIfNeededEPKNS2_22CovMapFunctionRecordV2ENS1_9StringRefE13FilenameRange.exit
 
@@ -29995,7 +29995,7 @@ _ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersi
   br label %.critedge19
 
 .critedge19:                                      ; preds = %.critedge19.sink.split, %40, %_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE1EmLNS1_10endiannessE0EE28insertFunctionRecordIfNeededEPKNS2_22CovMapFunctionRecordV2ENS1_9StringRefE13FilenameRange.exit
-  %148 = phi ptr [ null, %_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE1EmLNS1_10endiannessE0EE28insertFunctionRecordIfNeededEPKNS2_22CovMapFunctionRecordV2ENS1_9StringRefE13FilenameRange.exit ], [ %27, %40 ], [ null, %.critedge19.sink.split ]
+  %148 = phi ptr [ %27, %40 ], [ null, %_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE1EmLNS1_10endiannessE0EE28insertFunctionRecordIfNeededEPKNS2_22CovMapFunctionRecordV2ENS1_9StringRefE13FilenameRange.exit ], [ null, %.critedge19.sink.split ]
   %149 = icmp ult ptr %33, %3
   br i1 %149, label %26, label %_ZN4llvm5ErrorD2Ev.exit22
 
@@ -30577,7 +30577,7 @@ _ZN4llvm5ErrorD2Ev.exit38.i:                      ; preds = %_ZL22isCoverageMapp
   br label %.critedge24.thread.i
 
 .critedge24.thread.i:                             ; preds = %.critedge24.thread.i.sink.split, %_ZN4llvm5ErrorD2Ev.exit38.i, %_ZN4llvm8ExpectedIbE9takeErrorEv.exit37.i
-  %147 = phi ptr [ %143, %_ZN4llvm8ExpectedIbE9takeErrorEv.exit37.i ], [ null, %_ZN4llvm5ErrorD2Ev.exit38.i ], [ null, %.critedge24.thread.i.sink.split ]
+  %147 = phi ptr [ null, %_ZN4llvm5ErrorD2Ev.exit38.i ], [ %143, %_ZN4llvm8ExpectedIbE9takeErrorEv.exit37.i ], [ null, %.critedge24.thread.i.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !3228
   br label %_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE2EmLNS1_10endiannessE0EE28insertFunctionRecordIfNeededEPKNS2_22CovMapFunctionRecordV2ENS1_9StringRefE13FilenameRange.exit
 
@@ -30597,7 +30597,7 @@ _ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersi
   br label %.critedge19
 
 .critedge19:                                      ; preds = %.critedge19.sink.split, %40, %_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE2EmLNS1_10endiannessE0EE28insertFunctionRecordIfNeededEPKNS2_22CovMapFunctionRecordV2ENS1_9StringRefE13FilenameRange.exit
-  %148 = phi ptr [ null, %_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE2EmLNS1_10endiannessE0EE28insertFunctionRecordIfNeededEPKNS2_22CovMapFunctionRecordV2ENS1_9StringRefE13FilenameRange.exit ], [ %27, %40 ], [ null, %.critedge19.sink.split ]
+  %148 = phi ptr [ %27, %40 ], [ null, %_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE2EmLNS1_10endiannessE0EE28insertFunctionRecordIfNeededEPKNS2_22CovMapFunctionRecordV2ENS1_9StringRefE13FilenameRange.exit ], [ null, %.critedge19.sink.split ]
   %149 = icmp ult ptr %33, %3
   br i1 %149, label %26, label %_ZN4llvm5ErrorD2Ev.exit22
 

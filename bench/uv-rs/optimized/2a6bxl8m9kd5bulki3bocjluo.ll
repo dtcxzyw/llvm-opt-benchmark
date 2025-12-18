@@ -3162,7 +3162,7 @@ _ZN4core3cmp9PartialEq2ne17h77e5f78e31097ac7E.llvm.12914733797323438017.exit: ; 
   %.not = icmp eq i32 %bcmp.i.i11.i.i, 0
   br i1 %.not, label %_ZN4core3cmp9PartialEq2ne17h77e5f78e31097ac7E.llvm.12914733797323438017.exit.thread17, label %_ZN4core3cmp9PartialEq2ne17h77e5f78e31097ac7E.llvm.12914733797323438017.exit14
 
-_ZN4core3cmp9PartialEq2ne17h77e5f78e31097ac7E.llvm.12914733797323438017.exit.thread17: ; preds = %7, %16, %6, %_ZN4core3cmp9PartialEq2ne17h77e5f78e31097ac7E.llvm.12914733797323438017.exit
+_ZN4core3cmp9PartialEq2ne17h77e5f78e31097ac7E.llvm.12914733797323438017.exit.thread17: ; preds = %16, %7, %6, %_ZN4core3cmp9PartialEq2ne17h77e5f78e31097ac7E.llvm.12914733797323438017.exit
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !496)

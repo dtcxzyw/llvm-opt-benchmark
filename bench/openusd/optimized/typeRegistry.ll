@@ -4634,8 +4634,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i
   br label %150
 
 .loopexit:                                        ; preds = %115, %92, %106, %134
-  %141 = phi i1 [ false, %134 ], [ true, %106 ], [ true, %92 ], [ true, %115 ]
-  %.sroa.047.158 = phi ptr [ null, %134 ], [ %107, %106 ], [ %.sroa.06.0.i.i32, %92 ], [ %121, %115 ]
+  %141 = phi i1 [ false, %134 ], [ true, %92 ], [ true, %106 ], [ true, %115 ]
+  %.sroa.047.158 = phi ptr [ null, %134 ], [ %.sroa.06.0.i.i32, %92 ], [ %107, %106 ], [ %121, %115 ]
   %142 = load ptr, ptr %77, align 8
   %.not.i.i.i.i35 = icmp eq ptr %142, null
   br i1 %.not.i.i.i.i35, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_10PlugPluginEED2Ev.exit, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i
@@ -4676,7 +4676,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
   br label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_10PlugPluginEED2Ev.exit38
 
 _ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__6TfTypeEPFvPNS0_24Ts_PolymorphicDataHolderERKNS0_7VtValueEENS0_6TfHashESt8equal_toIS1_ESaISt4pairIKS1_S8_EEE4findERSD_.exit: ; preds = %64, %41, %55, %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_10PlugPluginEED2Ev.exit
-  %.sroa.047.0 = phi ptr [ %.sroa.047.158, %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_10PlugPluginEED2Ev.exit ], [ %56, %55 ], [ %.sroa.06.0.i.i, %41 ], [ %70, %64 ]
+  %.sroa.047.0 = phi ptr [ %.sroa.047.158, %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_10PlugPluginEED2Ev.exit ], [ %.sroa.06.0.i.i, %41 ], [ %56, %55 ], [ %70, %64 ]
   %159 = getelementptr inbounds nuw i8, ptr %.sroa.047.0, i64 16
   %160 = load ptr, ptr %159, align 8
   call void %160(ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
@@ -5472,7 +5472,7 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__6TfTypeESt4pairIKS1_PFvPNS0
   resume { ptr, i32 } %37
 
 _ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__6TfTypeESt4pairIKS1_PFvPNS0_24Ts_PolymorphicDataHolderERKNS0_7VtValueEEESaISB_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit: ; preds = %22, %.loopexit, %13
-  %.0.i.pn = phi ptr [ %14, %13 ], [ %36, %.loopexit ], [ %28, %22 ]
+  %.0.i.pn = phi ptr [ %36, %.loopexit ], [ %14, %13 ], [ %28, %22 ]
   %.0 = getelementptr inbounds nuw i8, ptr %.0.i.pn, i64 16
   ret ptr %.0
 }
@@ -11539,7 +11539,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__9Ts_BezierINS_7Vt
   br i1 %16, label %.loopexit, label %.loopexit28
 
 .loopexit:                                        ; preds = %.preheader30, %.loopexit28, %8
-  %.pn = phi { ptr, i32 } [ %9, %8 ], [ %13, %.loopexit28 ], [ %9, %.preheader30 ]
+  %.pn = phi { ptr, i32 } [ %13, %.loopexit28 ], [ %9, %8 ], [ %9, %.preheader30 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -16248,7 +16248,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__9Ts_BezierINS_7Vt
   br i1 %16, label %.loopexit, label %.loopexit28
 
 .loopexit:                                        ; preds = %.preheader30, %.loopexit28, %8
-  %.pn = phi { ptr, i32 } [ %9, %8 ], [ %13, %.loopexit28 ], [ %9, %.preheader30 ]
+  %.pn = phi { ptr, i32 } [ %13, %.loopexit28 ], [ %9, %8 ], [ %9, %.preheader30 ]
   resume { ptr, i32 } %.pn
 }
 

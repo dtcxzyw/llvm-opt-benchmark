@@ -2649,7 +2649,7 @@ define hidden void @"_ZN5wasmi6engine8executor44_$LT$impl$u20$wasmi..engine..Eng
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %122
 
-.thread45:                                        ; preds = %107, %.thread31.thread56, %86, %109
+.thread45:                                        ; preds = %107, %.thread31.thread56, %109, %86
   %.pn14.pn48 = phi { ptr, i32 } [ %lpad.thr_comm54, %.thread31.thread56 ], [ %lpad.thr_comm, %109 ], [ %lpad.thr_comm.split-lp, %86 ], [ %108, %107 ]
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasmi..engine..executor..stack..Stack$GT$17hb822faf8390832aaE"(ptr noalias noundef nonnull align 8 dereferenceable(104) %21) #18
           to label %.thread unwind label %60

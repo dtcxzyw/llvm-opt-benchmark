@@ -1982,7 +1982,7 @@ _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit256.i: ; 
   br label %common.resume
 
 common.resume:                                    ; preds = %.preheader113, %.preheader110, %.preheader, %761, %774, %790, %806, %.body.i, %.body91.i
-  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.i, %.body.i ], [ %.pn82.pn.i, %.body91.i ], [ %.pn59.pn.pn, %806 ], [ %.pn54.pn.pn, %790 ], [ %.pn.pn.pn, %774 ], [ %762, %761 ], [ %.pn54.pn.pn, %.preheader110 ], [ %.pn59.pn.pn, %.preheader ], [ %.pn.pn.pn, %.preheader113 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.i, %.body.i ], [ %.pn82.pn.i, %.body91.i ], [ %.pn59.pn.pn, %806 ], [ %762, %761 ], [ %.pn54.pn.pn, %790 ], [ %.pn54.pn.pn, %.preheader110 ], [ %.pn.pn.pn, %774 ], [ %.pn59.pn.pn, %.preheader ], [ %.pn.pn.pn, %.preheader113 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN10open_spiel20first_sealed_auction12_GLOBAL__N_18TieBreakEv.exit: ; preds = %_ZNSt6vectorIlSaIlEED2Ev.exit246.i, %725, %738, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i

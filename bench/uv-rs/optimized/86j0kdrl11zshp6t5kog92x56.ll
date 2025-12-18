@@ -3513,7 +3513,7 @@ common.resume:                                    ; preds = %.body46.i, %.body47
   resume { ptr, i32 } %common.resume.op
 
 .body47.i:                                        ; preds = %360, %151, %.body.i73.i, %.body.i.i, %.body.i, %88
-  %.pn17.i = phi { ptr, i32 } [ %.pn.i, %.body.i ], [ %eh.lpad-body117.i, %.body.i.i ], [ %89, %88 ], [ %eh.lpad-body130.i, %.body.i73.i ], [ %eh.lpad-body70.i, %151 ], [ %eh.lpad-body91.i, %360 ]
+  %.pn17.i = phi { ptr, i32 } [ %eh.lpad-body70.i, %151 ], [ %.pn.i, %.body.i ], [ %eh.lpad-body117.i, %.body.i.i ], [ %eh.lpad-body130.i, %.body.i73.i ], [ %89, %88 ], [ %eh.lpad-body91.i, %360 ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h66146b83d6700bf5E.llvm.5134831039031777693"(ptr noalias noundef nonnull align 8 dereferenceable(328) %37)
           to label %common.resume unwind label %494, !noalias !709
 
@@ -3544,7 +3544,7 @@ common.resume:                                    ; preds = %.body46.i, %.body47
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h53c2b460ba0afe0dE.llvm.5134831039031777693"(ptr noalias noundef nonnull align 8 dereferenceable(56) %36)
           to label %.body47.i unwind label %494, !noalias !709
 
-94:                                               ; preds = %281, %273, %258, %"_ZN14version_ranges15Ranges$LT$V$GT$14bounding_range17hee4a8b688441c67fE.exit15.i.i", %237, %"_ZN14version_ranges15Ranges$LT$V$GT$14bounding_range17hee4a8b688441c67fE.exit.i.i", %233, %217
+94:                                               ; preds = %281, %274, %258, %"_ZN14version_ranges15Ranges$LT$V$GT$14bounding_range17hee4a8b688441c67fE.exit15.i.i", %237, %"_ZN14version_ranges15Ranges$LT$V$GT$14bounding_range17hee4a8b688441c67fE.exit.i.i", %233, %217
   %95 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
@@ -3990,7 +3990,7 @@ common.resume:                                    ; preds = %.body46.i, %.body47
 
 247:                                              ; preds = %243
   %248 = icmp eq i64 %.pr19.i.i, 0
-  br i1 %248, label %264, label %_ZN9uv_pep5086marker7algebra11can_conjoin17hbfe274cdf525178dE.exit.thread.i
+  br i1 %248, label %265, label %_ZN9uv_pep5086marker7algebra11can_conjoin17hbfe274cdf525178dE.exit.thread.i
 
 249:                                              ; preds = %245
   %250 = icmp ne ptr %239, null
@@ -4006,58 +4006,58 @@ common.resume:                                    ; preds = %.body46.i, %.body47
   %256 = load i8, ptr %255, align 1, !alias.scope !889, !noalias !892
   %257 = icmp eq i8 %256, 0
   %or.cond.i.i.i = select i1 %254, i1 true, i1 %257
-  br i1 %or.cond.i.i.i, label %258, label %260
+  br i1 %or.cond.i.i.i, label %258, label %261
 
 258:                                              ; preds = %249
   %259 = invoke noundef i8 @_ZN9uv_pep4407version7Version8cmp_slow17h0f231608b8457a21E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %239, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %244)
-          to label %_ZN9uv_pep5086marker7algebra11can_conjoin17hbfe274cdf525178dE.exit.i unwind label %94, !noalias !709
+          to label %.noexc37.i unwind label %94, !noalias !709
 
-260:                                              ; preds = %249
-  %261 = load i64, ptr %239, align 8, !alias.scope !886, !noalias !891, !noundef !3
-  %262 = load i64, ptr %244, align 8, !alias.scope !889, !noalias !892, !noundef !3
-  %263 = icmp eq i64 %261, %262
-  br i1 %263, label %281, label %_ZN9uv_pep5086marker7algebra11can_conjoin17hbfe274cdf525178dE.exit.thread.i
+.noexc37.i:                                       ; preds = %258
+  %260 = icmp eq i8 %259, 0
+  br i1 %260, label %281, label %_ZN9uv_pep5086marker7algebra11can_conjoin17hbfe274cdf525178dE.exit.thread.i
 
-264:                                              ; preds = %247
-  %265 = icmp ne ptr %239, null
-  call void @llvm.assume(i1 %265)
-  %266 = icmp ne ptr %244, null
+261:                                              ; preds = %249
+  %262 = load i64, ptr %239, align 8, !alias.scope !886, !noalias !891, !noundef !3
+  %263 = load i64, ptr %244, align 8, !alias.scope !889, !noalias !892, !noundef !3
+  %264 = icmp eq i64 %262, %263
+  br i1 %264, label %281, label %_ZN9uv_pep5086marker7algebra11can_conjoin17hbfe274cdf525178dE.exit.thread.i
+
+265:                                              ; preds = %247
+  %266 = icmp ne ptr %239, null
   call void @llvm.assume(i1 %266)
+  %267 = icmp ne ptr %244, null
+  call void @llvm.assume(i1 %267)
   call void @llvm.experimental.noalias.scope.decl(metadata !893)
   call void @llvm.experimental.noalias.scope.decl(metadata !896)
-  %267 = getelementptr inbounds nuw i8, ptr %239, i64 9
-  %268 = load i8, ptr %267, align 1, !alias.scope !893, !noalias !898, !noundef !3
-  %269 = icmp eq i8 %268, 0
-  %270 = getelementptr inbounds nuw i8, ptr %244, i64 9
-  %271 = load i8, ptr %270, align 1, !alias.scope !896, !noalias !899
-  %272 = icmp eq i8 %271, 0
-  %or.cond.i16.i.i = select i1 %269, i1 true, i1 %272
-  br i1 %or.cond.i16.i.i, label %273, label %276
+  %268 = getelementptr inbounds nuw i8, ptr %239, i64 9
+  %269 = load i8, ptr %268, align 1, !alias.scope !893, !noalias !898, !noundef !3
+  %270 = icmp eq i8 %269, 0
+  %271 = getelementptr inbounds nuw i8, ptr %244, i64 9
+  %272 = load i8, ptr %271, align 1, !alias.scope !896, !noalias !899
+  %273 = icmp eq i8 %272, 0
+  %or.cond.i16.i.i = select i1 %270, i1 true, i1 %273
+  br i1 %or.cond.i16.i.i, label %274, label %276
 
-273:                                              ; preds = %264
-  %274 = invoke noundef i8 @_ZN9uv_pep4407version7Version8cmp_slow17h0f231608b8457a21E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %239, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %244)
-          to label %.noexc38.i unwind label %94, !noalias !709
+274:                                              ; preds = %265
+  %275 = invoke noundef i8 @_ZN9uv_pep4407version7Version8cmp_slow17h0f231608b8457a21E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %239, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %244)
+          to label %_ZN9uv_pep5086marker7algebra11can_conjoin17hbfe274cdf525178dE.exit.i unwind label %94, !noalias !709
 
-.noexc38.i:                                       ; preds = %273
-  %275 = icmp eq i8 %274, 0
-  br i1 %275, label %281, label %_ZN9uv_pep5086marker7algebra11can_conjoin17hbfe274cdf525178dE.exit.thread.i
-
-276:                                              ; preds = %264
+276:                                              ; preds = %265
   %277 = load i64, ptr %239, align 8, !alias.scope !893, !noalias !898, !noundef !3
   %278 = load i64, ptr %244, align 8, !alias.scope !896, !noalias !899, !noundef !3
   %279 = icmp eq i64 %277, %278
   br i1 %279, label %281, label %_ZN9uv_pep5086marker7algebra11can_conjoin17hbfe274cdf525178dE.exit.thread.i
 
-_ZN9uv_pep5086marker7algebra11can_conjoin17hbfe274cdf525178dE.exit.i: ; preds = %258
-  %280 = icmp eq i8 %259, 0
+_ZN9uv_pep5086marker7algebra11can_conjoin17hbfe274cdf525178dE.exit.i: ; preds = %274
+  %280 = icmp eq i8 %275, 0
   br i1 %280, label %281, label %_ZN9uv_pep5086marker7algebra11can_conjoin17hbfe274cdf525178dE.exit.thread.i
 
-281:                                              ; preds = %_ZN9uv_pep5086marker7algebra11can_conjoin17hbfe274cdf525178dE.exit.i, %276, %.noexc38.i, %260
+281:                                              ; preds = %_ZN9uv_pep5086marker7algebra11can_conjoin17hbfe274cdf525178dE.exit.i, %276, %261, %.noexc37.i
   call void @llvm.lifetime.start.p0(ptr nonnull %35), !noalias !696
   invoke void @"_ZN14version_ranges15Ranges$LT$V$GT$5union17hd4e44e2229ab81ceE"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %229, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %36)
           to label %427 unwind label %94, !noalias !709
 
-_ZN9uv_pep5086marker7algebra11can_conjoin17hbfe274cdf525178dE.exit.thread.i: ; preds = %_ZN9uv_pep5086marker7algebra11can_conjoin17hbfe274cdf525178dE.exit.i, %276, %.noexc38.i, %260, %247, %245, %"_ZN14version_ranges15Ranges$LT$V$GT$14bounding_range17hee4a8b688441c67fE.exit15.thread.i.i", %243, %"_ZN14version_ranges15Ranges$LT$V$GT$14bounding_range17hee4a8b688441c67fE.exit.thread.i.i", %226, %222
+_ZN9uv_pep5086marker7algebra11can_conjoin17hbfe274cdf525178dE.exit.thread.i: ; preds = %_ZN9uv_pep5086marker7algebra11can_conjoin17hbfe274cdf525178dE.exit.i, %276, %261, %.noexc37.i, %247, %245, %"_ZN14version_ranges15Ranges$LT$V$GT$14bounding_range17hee4a8b688441c67fE.exit15.thread.i.i", %243, %"_ZN14version_ranges15Ranges$LT$V$GT$14bounding_range17hee4a8b688441c67fE.exit.thread.i.i", %226, %222
   call void @llvm.lifetime.start.p0(ptr nonnull %34), !noalias !696
   %282 = load i64, ptr %67, align 8, !alias.scope !900, !noalias !903, !noundef !3
   %283 = icmp ugt i64 %282, 1
@@ -5028,7 +5028,7 @@ _ZN9uv_pep5086marker7algebra5Edges12apply_ranges17h6c4be9df2e4f077dE.exit: ; pre
 
 626:                                              ; preds = %622
   %627 = icmp eq i64 %.pr23.i.i, 0
-  br i1 %627, label %641, label %_ZN9uv_pep5086marker7algebra11can_conjoin17h95a34ae9712f8fa6E.exit.thread.i
+  br i1 %627, label %637, label %_ZN9uv_pep5086marker7algebra11can_conjoin17h95a34ae9712f8fa6E.exit.thread.i
 
 628:                                              ; preds = %624
   %629 = icmp ne ptr %618, null
@@ -5046,46 +5046,46 @@ _ZN9uv_pep5086marker7algebra5Edges12apply_ranges17h6c4be9df2e4f077dE.exit: ; pre
   %635 = load i64, ptr %.val16.i.i, align 8, !noalias !1171, !noundef !3
   %636 = lshr i64 %635, 1
   %.not.i.i.i.i = icmp eq i64 %634, %636
-  br i1 %.not.i.i.i.i, label %637, label %_ZN9uv_pep5086marker7algebra11can_conjoin17h95a34ae9712f8fa6E.exit.thread.i
+  br i1 %.not.i.i.i.i, label %_ZN9uv_pep5086marker7algebra11can_conjoin17h95a34ae9712f8fa6E.exit.i, label %_ZN9uv_pep5086marker7algebra11can_conjoin17h95a34ae9712f8fa6E.exit.thread.i
 
-637:                                              ; preds = %632
-  %638 = getelementptr inbounds nuw i8, ptr %.val16.i.i, i64 16
-  %639 = getelementptr inbounds nuw i8, ptr %.val15.i.i, i64 16
-  %bcmp.i.i.i.i = call i32 @bcmp(ptr nonnull readonly align 1 %639, ptr nonnull readonly align 1 %638, i64 %634), !alias.scope !1228, !noalias !1171
-  %640 = icmp eq i32 %bcmp.i.i.i.i, 0
-  br i1 %640, label %_ZN9uv_pep5086marker7algebra11can_conjoin17h95a34ae9712f8fa6E.exit.thread119.i, label %_ZN9uv_pep5086marker7algebra11can_conjoin17h95a34ae9712f8fa6E.exit.thread.i
-
-641:                                              ; preds = %626
-  %642 = icmp ne ptr %618, null
-  call void @llvm.assume(i1 %642)
-  %643 = icmp ne ptr %623, null
-  call void @llvm.assume(i1 %643)
+637:                                              ; preds = %626
+  %638 = icmp ne ptr %618, null
+  call void @llvm.assume(i1 %638)
+  %639 = icmp ne ptr %623, null
+  call void @llvm.assume(i1 %639)
   %.val.i.i = load ptr, ptr %618, align 8, !noalias !1171, !nonnull !3, !noundef !3
   %.val14.i.i = load ptr, ptr %623, align 8, !noalias !1171, !nonnull !3, !noundef !3
-  %644 = icmp eq ptr %.val.i.i, %.val14.i.i
-  br i1 %644, label %_ZN9uv_pep5086marker7algebra11can_conjoin17h95a34ae9712f8fa6E.exit.thread119.i, label %645
+  %640 = icmp eq ptr %.val.i.i, %.val14.i.i
+  br i1 %640, label %_ZN9uv_pep5086marker7algebra11can_conjoin17h95a34ae9712f8fa6E.exit.thread119.i, label %641
 
-645:                                              ; preds = %641
-  %646 = load i64, ptr %.val.i.i, align 8, !noalias !1171, !noundef !3
-  %647 = lshr i64 %646, 1
-  %648 = load i64, ptr %.val14.i.i, align 8, !noalias !1171, !noundef !3
-  %649 = lshr i64 %648, 1
-  %.not.i.i19.i.i = icmp eq i64 %647, %649
-  br i1 %.not.i.i19.i.i, label %_ZN9uv_pep5086marker7algebra11can_conjoin17h95a34ae9712f8fa6E.exit.i, label %_ZN9uv_pep5086marker7algebra11can_conjoin17h95a34ae9712f8fa6E.exit.thread.i
+641:                                              ; preds = %637
+  %642 = load i64, ptr %.val.i.i, align 8, !noalias !1171, !noundef !3
+  %643 = lshr i64 %642, 1
+  %644 = load i64, ptr %.val14.i.i, align 8, !noalias !1171, !noundef !3
+  %645 = lshr i64 %644, 1
+  %.not.i.i19.i.i = icmp eq i64 %643, %645
+  br i1 %.not.i.i19.i.i, label %646, label %_ZN9uv_pep5086marker7algebra11can_conjoin17h95a34ae9712f8fa6E.exit.thread.i
 
-_ZN9uv_pep5086marker7algebra11can_conjoin17h95a34ae9712f8fa6E.exit.i: ; preds = %645
-  %650 = getelementptr inbounds nuw i8, ptr %.val14.i.i, i64 16
-  %651 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 16
-  %bcmp.i.i21.i.i = call i32 @bcmp(ptr nonnull readonly align 1 %651, ptr nonnull readonly align 1 %650, i64 %647), !alias.scope !1232, !noalias !1171
-  %652 = icmp eq i32 %bcmp.i.i21.i.i, 0
+646:                                              ; preds = %641
+  %647 = getelementptr inbounds nuw i8, ptr %.val14.i.i, i64 16
+  %648 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 16
+  %bcmp.i.i21.i.i = call i32 @bcmp(ptr nonnull readonly align 1 %648, ptr nonnull readonly align 1 %647, i64 %643), !alias.scope !1228, !noalias !1171
+  %649 = icmp eq i32 %bcmp.i.i21.i.i, 0
+  br i1 %649, label %_ZN9uv_pep5086marker7algebra11can_conjoin17h95a34ae9712f8fa6E.exit.thread119.i, label %_ZN9uv_pep5086marker7algebra11can_conjoin17h95a34ae9712f8fa6E.exit.thread.i
+
+_ZN9uv_pep5086marker7algebra11can_conjoin17h95a34ae9712f8fa6E.exit.i: ; preds = %632
+  %650 = getelementptr inbounds nuw i8, ptr %.val16.i.i, i64 16
+  %651 = getelementptr inbounds nuw i8, ptr %.val15.i.i, i64 16
+  %bcmp.i.i.i.i = call i32 @bcmp(ptr nonnull readonly align 1 %651, ptr nonnull readonly align 1 %650, i64 %634), !alias.scope !1232, !noalias !1171
+  %652 = icmp eq i32 %bcmp.i.i.i.i, 0
   br i1 %652, label %_ZN9uv_pep5086marker7algebra11can_conjoin17h95a34ae9712f8fa6E.exit.thread119.i, label %_ZN9uv_pep5086marker7algebra11can_conjoin17h95a34ae9712f8fa6E.exit.thread.i
 
-_ZN9uv_pep5086marker7algebra11can_conjoin17h95a34ae9712f8fa6E.exit.thread119.i: ; preds = %_ZN9uv_pep5086marker7algebra11can_conjoin17h95a34ae9712f8fa6E.exit.i, %641, %637, %628
+_ZN9uv_pep5086marker7algebra11can_conjoin17h95a34ae9712f8fa6E.exit.thread119.i: ; preds = %_ZN9uv_pep5086marker7algebra11can_conjoin17h95a34ae9712f8fa6E.exit.i, %646, %637, %628
   call void @llvm.lifetime.start.p0(ptr nonnull %20), !noalias !1158
   invoke void @"_ZN14version_ranges15Ranges$LT$V$GT$5union17h7f92188319b4d290E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %20, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %608, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %21)
           to label %766 unwind label %543, !noalias !1171
 
-_ZN9uv_pep5086marker7algebra11can_conjoin17h95a34ae9712f8fa6E.exit.thread.i: ; preds = %_ZN9uv_pep5086marker7algebra11can_conjoin17h95a34ae9712f8fa6E.exit.i, %645, %637, %632, %626, %624, %"_ZN14version_ranges15Ranges$LT$V$GT$14bounding_range17hd748b3498b54dfecE.exit18.thread.i.i", %622, %"_ZN14version_ranges15Ranges$LT$V$GT$14bounding_range17hd748b3498b54dfecE.exit.thread.i.i", %605, %601
+_ZN9uv_pep5086marker7algebra11can_conjoin17h95a34ae9712f8fa6E.exit.thread.i: ; preds = %_ZN9uv_pep5086marker7algebra11can_conjoin17h95a34ae9712f8fa6E.exit.i, %646, %641, %632, %626, %624, %"_ZN14version_ranges15Ranges$LT$V$GT$14bounding_range17hd748b3498b54dfecE.exit18.thread.i.i", %622, %"_ZN14version_ranges15Ranges$LT$V$GT$14bounding_range17hd748b3498b54dfecE.exit.thread.i.i", %605, %601
   call void @llvm.lifetime.start.p0(ptr nonnull %19), !noalias !1158
   %653 = load i64, ptr %516, align 8, !alias.scope !1236, !noalias !1239, !noundef !3
   %654 = icmp ugt i64 %653, 1
@@ -5665,7 +5665,7 @@ common.resume:                                    ; preds = %.body46.i, %.body47
   resume { ptr, i32 } %common.resume.op
 
 .body47.i:                                        ; preds = %360, %151, %.body.i73.i, %.body.i.i, %.body.i, %88
-  %.pn17.i = phi { ptr, i32 } [ %.pn.i, %.body.i ], [ %eh.lpad-body117.i, %.body.i.i ], [ %89, %88 ], [ %eh.lpad-body130.i, %.body.i73.i ], [ %eh.lpad-body70.i, %151 ], [ %eh.lpad-body91.i, %360 ]
+  %.pn17.i = phi { ptr, i32 } [ %eh.lpad-body70.i, %151 ], [ %.pn.i, %.body.i ], [ %eh.lpad-body117.i, %.body.i.i ], [ %eh.lpad-body130.i, %.body.i73.i ], [ %89, %88 ], [ %eh.lpad-body91.i, %360 ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h66146b83d6700bf5E.llvm.5134831039031777693"(ptr noalias noundef nonnull align 8 dereferenceable(328) %37)
           to label %common.resume unwind label %494, !noalias !1344
 
@@ -5696,7 +5696,7 @@ common.resume:                                    ; preds = %.body46.i, %.body47
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h53c2b460ba0afe0dE.llvm.5134831039031777693"(ptr noalias noundef nonnull align 8 dereferenceable(56) %36)
           to label %.body47.i unwind label %494, !noalias !1344
 
-94:                                               ; preds = %281, %273, %258, %"_ZN14version_ranges15Ranges$LT$V$GT$14bounding_range17hee4a8b688441c67fE.exit15.i.i", %237, %"_ZN14version_ranges15Ranges$LT$V$GT$14bounding_range17hee4a8b688441c67fE.exit.i.i", %233, %217
+94:                                               ; preds = %281, %274, %258, %"_ZN14version_ranges15Ranges$LT$V$GT$14bounding_range17hee4a8b688441c67fE.exit15.i.i", %237, %"_ZN14version_ranges15Ranges$LT$V$GT$14bounding_range17hee4a8b688441c67fE.exit.i.i", %233, %217
   %95 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
@@ -6142,7 +6142,7 @@ common.resume:                                    ; preds = %.body46.i, %.body47
 
 247:                                              ; preds = %243
   %248 = icmp eq i64 %.pr19.i.i, 0
-  br i1 %248, label %264, label %_ZN9uv_pep5086marker7algebra11can_conjoin17hbfe274cdf525178dE.exit.thread.i
+  br i1 %248, label %265, label %_ZN9uv_pep5086marker7algebra11can_conjoin17hbfe274cdf525178dE.exit.thread.i
 
 249:                                              ; preds = %245
   %250 = icmp ne ptr %239, null
@@ -6158,58 +6158,58 @@ common.resume:                                    ; preds = %.body46.i, %.body47
   %256 = load i8, ptr %255, align 1, !alias.scope !1524, !noalias !1527
   %257 = icmp eq i8 %256, 0
   %or.cond.i.i.i = select i1 %254, i1 true, i1 %257
-  br i1 %or.cond.i.i.i, label %258, label %260
+  br i1 %or.cond.i.i.i, label %258, label %261
 
 258:                                              ; preds = %249
   %259 = invoke noundef i8 @_ZN9uv_pep4407version7Version8cmp_slow17h0f231608b8457a21E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %239, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %244)
-          to label %_ZN9uv_pep5086marker7algebra11can_conjoin17hbfe274cdf525178dE.exit.i unwind label %94, !noalias !1344
+          to label %.noexc37.i unwind label %94, !noalias !1344
 
-260:                                              ; preds = %249
-  %261 = load i64, ptr %239, align 8, !alias.scope !1521, !noalias !1526, !noundef !3
-  %262 = load i64, ptr %244, align 8, !alias.scope !1524, !noalias !1527, !noundef !3
-  %263 = icmp eq i64 %261, %262
-  br i1 %263, label %281, label %_ZN9uv_pep5086marker7algebra11can_conjoin17hbfe274cdf525178dE.exit.thread.i
+.noexc37.i:                                       ; preds = %258
+  %260 = icmp eq i8 %259, 0
+  br i1 %260, label %281, label %_ZN9uv_pep5086marker7algebra11can_conjoin17hbfe274cdf525178dE.exit.thread.i
 
-264:                                              ; preds = %247
-  %265 = icmp ne ptr %239, null
-  call void @llvm.assume(i1 %265)
-  %266 = icmp ne ptr %244, null
+261:                                              ; preds = %249
+  %262 = load i64, ptr %239, align 8, !alias.scope !1521, !noalias !1526, !noundef !3
+  %263 = load i64, ptr %244, align 8, !alias.scope !1524, !noalias !1527, !noundef !3
+  %264 = icmp eq i64 %262, %263
+  br i1 %264, label %281, label %_ZN9uv_pep5086marker7algebra11can_conjoin17hbfe274cdf525178dE.exit.thread.i
+
+265:                                              ; preds = %247
+  %266 = icmp ne ptr %239, null
   call void @llvm.assume(i1 %266)
+  %267 = icmp ne ptr %244, null
+  call void @llvm.assume(i1 %267)
   call void @llvm.experimental.noalias.scope.decl(metadata !1528)
   call void @llvm.experimental.noalias.scope.decl(metadata !1531)
-  %267 = getelementptr inbounds nuw i8, ptr %239, i64 9
-  %268 = load i8, ptr %267, align 1, !alias.scope !1528, !noalias !1533, !noundef !3
-  %269 = icmp eq i8 %268, 0
-  %270 = getelementptr inbounds nuw i8, ptr %244, i64 9
-  %271 = load i8, ptr %270, align 1, !alias.scope !1531, !noalias !1534
-  %272 = icmp eq i8 %271, 0
-  %or.cond.i16.i.i = select i1 %269, i1 true, i1 %272
-  br i1 %or.cond.i16.i.i, label %273, label %276
+  %268 = getelementptr inbounds nuw i8, ptr %239, i64 9
+  %269 = load i8, ptr %268, align 1, !alias.scope !1528, !noalias !1533, !noundef !3
+  %270 = icmp eq i8 %269, 0
+  %271 = getelementptr inbounds nuw i8, ptr %244, i64 9
+  %272 = load i8, ptr %271, align 1, !alias.scope !1531, !noalias !1534
+  %273 = icmp eq i8 %272, 0
+  %or.cond.i16.i.i = select i1 %270, i1 true, i1 %273
+  br i1 %or.cond.i16.i.i, label %274, label %276
 
-273:                                              ; preds = %264
-  %274 = invoke noundef i8 @_ZN9uv_pep4407version7Version8cmp_slow17h0f231608b8457a21E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %239, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %244)
-          to label %.noexc38.i unwind label %94, !noalias !1344
+274:                                              ; preds = %265
+  %275 = invoke noundef i8 @_ZN9uv_pep4407version7Version8cmp_slow17h0f231608b8457a21E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %239, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %244)
+          to label %_ZN9uv_pep5086marker7algebra11can_conjoin17hbfe274cdf525178dE.exit.i unwind label %94, !noalias !1344
 
-.noexc38.i:                                       ; preds = %273
-  %275 = icmp eq i8 %274, 0
-  br i1 %275, label %281, label %_ZN9uv_pep5086marker7algebra11can_conjoin17hbfe274cdf525178dE.exit.thread.i
-
-276:                                              ; preds = %264
+276:                                              ; preds = %265
   %277 = load i64, ptr %239, align 8, !alias.scope !1528, !noalias !1533, !noundef !3
   %278 = load i64, ptr %244, align 8, !alias.scope !1531, !noalias !1534, !noundef !3
   %279 = icmp eq i64 %277, %278
   br i1 %279, label %281, label %_ZN9uv_pep5086marker7algebra11can_conjoin17hbfe274cdf525178dE.exit.thread.i
 
-_ZN9uv_pep5086marker7algebra11can_conjoin17hbfe274cdf525178dE.exit.i: ; preds = %258
-  %280 = icmp eq i8 %259, 0
+_ZN9uv_pep5086marker7algebra11can_conjoin17hbfe274cdf525178dE.exit.i: ; preds = %274
+  %280 = icmp eq i8 %275, 0
   br i1 %280, label %281, label %_ZN9uv_pep5086marker7algebra11can_conjoin17hbfe274cdf525178dE.exit.thread.i
 
-281:                                              ; preds = %_ZN9uv_pep5086marker7algebra11can_conjoin17hbfe274cdf525178dE.exit.i, %276, %.noexc38.i, %260
+281:                                              ; preds = %_ZN9uv_pep5086marker7algebra11can_conjoin17hbfe274cdf525178dE.exit.i, %276, %261, %.noexc37.i
   call void @llvm.lifetime.start.p0(ptr nonnull %35), !noalias !1331
   invoke void @"_ZN14version_ranges15Ranges$LT$V$GT$5union17hd4e44e2229ab81ceE"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %229, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %36)
           to label %427 unwind label %94, !noalias !1344
 
-_ZN9uv_pep5086marker7algebra11can_conjoin17hbfe274cdf525178dE.exit.thread.i: ; preds = %_ZN9uv_pep5086marker7algebra11can_conjoin17hbfe274cdf525178dE.exit.i, %276, %.noexc38.i, %260, %247, %245, %"_ZN14version_ranges15Ranges$LT$V$GT$14bounding_range17hee4a8b688441c67fE.exit15.thread.i.i", %243, %"_ZN14version_ranges15Ranges$LT$V$GT$14bounding_range17hee4a8b688441c67fE.exit.thread.i.i", %226, %222
+_ZN9uv_pep5086marker7algebra11can_conjoin17hbfe274cdf525178dE.exit.thread.i: ; preds = %_ZN9uv_pep5086marker7algebra11can_conjoin17hbfe274cdf525178dE.exit.i, %276, %261, %.noexc37.i, %247, %245, %"_ZN14version_ranges15Ranges$LT$V$GT$14bounding_range17hee4a8b688441c67fE.exit15.thread.i.i", %243, %"_ZN14version_ranges15Ranges$LT$V$GT$14bounding_range17hee4a8b688441c67fE.exit.thread.i.i", %226, %222
   call void @llvm.lifetime.start.p0(ptr nonnull %34), !noalias !1331
   %282 = load i64, ptr %67, align 8, !alias.scope !1535, !noalias !1538, !noundef !3
   %283 = icmp ugt i64 %282, 1
@@ -7180,7 +7180,7 @@ _ZN9uv_pep5086marker7algebra5Edges12apply_ranges17h33a4ffc7d908525aE.exit: ; pre
 
 626:                                              ; preds = %622
   %627 = icmp eq i64 %.pr23.i.i, 0
-  br i1 %627, label %641, label %_ZN9uv_pep5086marker7algebra11can_conjoin17h95a34ae9712f8fa6E.exit.thread.i
+  br i1 %627, label %637, label %_ZN9uv_pep5086marker7algebra11can_conjoin17h95a34ae9712f8fa6E.exit.thread.i
 
 628:                                              ; preds = %624
   %629 = icmp ne ptr %618, null
@@ -7198,46 +7198,46 @@ _ZN9uv_pep5086marker7algebra5Edges12apply_ranges17h33a4ffc7d908525aE.exit: ; pre
   %635 = load i64, ptr %.val16.i.i, align 8, !noalias !1806, !noundef !3
   %636 = lshr i64 %635, 1
   %.not.i.i.i.i = icmp eq i64 %634, %636
-  br i1 %.not.i.i.i.i, label %637, label %_ZN9uv_pep5086marker7algebra11can_conjoin17h95a34ae9712f8fa6E.exit.thread.i
+  br i1 %.not.i.i.i.i, label %_ZN9uv_pep5086marker7algebra11can_conjoin17h95a34ae9712f8fa6E.exit.i, label %_ZN9uv_pep5086marker7algebra11can_conjoin17h95a34ae9712f8fa6E.exit.thread.i
 
-637:                                              ; preds = %632
-  %638 = getelementptr inbounds nuw i8, ptr %.val16.i.i, i64 16
-  %639 = getelementptr inbounds nuw i8, ptr %.val15.i.i, i64 16
-  %bcmp.i.i.i.i = call i32 @bcmp(ptr nonnull readonly align 1 %639, ptr nonnull readonly align 1 %638, i64 %634), !alias.scope !1863, !noalias !1806
-  %640 = icmp eq i32 %bcmp.i.i.i.i, 0
-  br i1 %640, label %_ZN9uv_pep5086marker7algebra11can_conjoin17h95a34ae9712f8fa6E.exit.thread119.i, label %_ZN9uv_pep5086marker7algebra11can_conjoin17h95a34ae9712f8fa6E.exit.thread.i
-
-641:                                              ; preds = %626
-  %642 = icmp ne ptr %618, null
-  call void @llvm.assume(i1 %642)
-  %643 = icmp ne ptr %623, null
-  call void @llvm.assume(i1 %643)
+637:                                              ; preds = %626
+  %638 = icmp ne ptr %618, null
+  call void @llvm.assume(i1 %638)
+  %639 = icmp ne ptr %623, null
+  call void @llvm.assume(i1 %639)
   %.val.i.i = load ptr, ptr %618, align 8, !noalias !1806, !nonnull !3, !noundef !3
   %.val14.i.i = load ptr, ptr %623, align 8, !noalias !1806, !nonnull !3, !noundef !3
-  %644 = icmp eq ptr %.val.i.i, %.val14.i.i
-  br i1 %644, label %_ZN9uv_pep5086marker7algebra11can_conjoin17h95a34ae9712f8fa6E.exit.thread119.i, label %645
+  %640 = icmp eq ptr %.val.i.i, %.val14.i.i
+  br i1 %640, label %_ZN9uv_pep5086marker7algebra11can_conjoin17h95a34ae9712f8fa6E.exit.thread119.i, label %641
 
-645:                                              ; preds = %641
-  %646 = load i64, ptr %.val.i.i, align 8, !noalias !1806, !noundef !3
-  %647 = lshr i64 %646, 1
-  %648 = load i64, ptr %.val14.i.i, align 8, !noalias !1806, !noundef !3
-  %649 = lshr i64 %648, 1
-  %.not.i.i19.i.i = icmp eq i64 %647, %649
-  br i1 %.not.i.i19.i.i, label %_ZN9uv_pep5086marker7algebra11can_conjoin17h95a34ae9712f8fa6E.exit.i, label %_ZN9uv_pep5086marker7algebra11can_conjoin17h95a34ae9712f8fa6E.exit.thread.i
+641:                                              ; preds = %637
+  %642 = load i64, ptr %.val.i.i, align 8, !noalias !1806, !noundef !3
+  %643 = lshr i64 %642, 1
+  %644 = load i64, ptr %.val14.i.i, align 8, !noalias !1806, !noundef !3
+  %645 = lshr i64 %644, 1
+  %.not.i.i19.i.i = icmp eq i64 %643, %645
+  br i1 %.not.i.i19.i.i, label %646, label %_ZN9uv_pep5086marker7algebra11can_conjoin17h95a34ae9712f8fa6E.exit.thread.i
 
-_ZN9uv_pep5086marker7algebra11can_conjoin17h95a34ae9712f8fa6E.exit.i: ; preds = %645
-  %650 = getelementptr inbounds nuw i8, ptr %.val14.i.i, i64 16
-  %651 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 16
-  %bcmp.i.i21.i.i = call i32 @bcmp(ptr nonnull readonly align 1 %651, ptr nonnull readonly align 1 %650, i64 %647), !alias.scope !1867, !noalias !1806
-  %652 = icmp eq i32 %bcmp.i.i21.i.i, 0
+646:                                              ; preds = %641
+  %647 = getelementptr inbounds nuw i8, ptr %.val14.i.i, i64 16
+  %648 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 16
+  %bcmp.i.i21.i.i = call i32 @bcmp(ptr nonnull readonly align 1 %648, ptr nonnull readonly align 1 %647, i64 %643), !alias.scope !1863, !noalias !1806
+  %649 = icmp eq i32 %bcmp.i.i21.i.i, 0
+  br i1 %649, label %_ZN9uv_pep5086marker7algebra11can_conjoin17h95a34ae9712f8fa6E.exit.thread119.i, label %_ZN9uv_pep5086marker7algebra11can_conjoin17h95a34ae9712f8fa6E.exit.thread.i
+
+_ZN9uv_pep5086marker7algebra11can_conjoin17h95a34ae9712f8fa6E.exit.i: ; preds = %632
+  %650 = getelementptr inbounds nuw i8, ptr %.val16.i.i, i64 16
+  %651 = getelementptr inbounds nuw i8, ptr %.val15.i.i, i64 16
+  %bcmp.i.i.i.i = call i32 @bcmp(ptr nonnull readonly align 1 %651, ptr nonnull readonly align 1 %650, i64 %634), !alias.scope !1867, !noalias !1806
+  %652 = icmp eq i32 %bcmp.i.i.i.i, 0
   br i1 %652, label %_ZN9uv_pep5086marker7algebra11can_conjoin17h95a34ae9712f8fa6E.exit.thread119.i, label %_ZN9uv_pep5086marker7algebra11can_conjoin17h95a34ae9712f8fa6E.exit.thread.i
 
-_ZN9uv_pep5086marker7algebra11can_conjoin17h95a34ae9712f8fa6E.exit.thread119.i: ; preds = %_ZN9uv_pep5086marker7algebra11can_conjoin17h95a34ae9712f8fa6E.exit.i, %641, %637, %628
+_ZN9uv_pep5086marker7algebra11can_conjoin17h95a34ae9712f8fa6E.exit.thread119.i: ; preds = %_ZN9uv_pep5086marker7algebra11can_conjoin17h95a34ae9712f8fa6E.exit.i, %646, %637, %628
   call void @llvm.lifetime.start.p0(ptr nonnull %20), !noalias !1793
   invoke void @"_ZN14version_ranges15Ranges$LT$V$GT$5union17h7f92188319b4d290E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %20, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %608, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %21)
           to label %766 unwind label %543, !noalias !1806
 
-_ZN9uv_pep5086marker7algebra11can_conjoin17h95a34ae9712f8fa6E.exit.thread.i: ; preds = %_ZN9uv_pep5086marker7algebra11can_conjoin17h95a34ae9712f8fa6E.exit.i, %645, %637, %632, %626, %624, %"_ZN14version_ranges15Ranges$LT$V$GT$14bounding_range17hd748b3498b54dfecE.exit18.thread.i.i", %622, %"_ZN14version_ranges15Ranges$LT$V$GT$14bounding_range17hd748b3498b54dfecE.exit.thread.i.i", %605, %601
+_ZN9uv_pep5086marker7algebra11can_conjoin17h95a34ae9712f8fa6E.exit.thread.i: ; preds = %_ZN9uv_pep5086marker7algebra11can_conjoin17h95a34ae9712f8fa6E.exit.i, %646, %641, %632, %626, %624, %"_ZN14version_ranges15Ranges$LT$V$GT$14bounding_range17hd748b3498b54dfecE.exit18.thread.i.i", %622, %"_ZN14version_ranges15Ranges$LT$V$GT$14bounding_range17hd748b3498b54dfecE.exit.thread.i.i", %605, %601
   call void @llvm.lifetime.start.p0(ptr nonnull %19), !noalias !1793
   %653 = load i64, ptr %516, align 8, !alias.scope !1871, !noalias !1874, !noundef !3
   %654 = icmp ugt i64 %653, 1
@@ -7735,7 +7735,7 @@ define hidden noundef zeroext i1 @_ZN9uv_pep5086marker7algebra5Edges18is_disjoin
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd282fe2c8343c16fE.exit11"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd282fe2c8343c16fE.exit.thread": ; preds = %"._ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd282fe2c8343c16fE.exit11.thread.loopexit_crit_edge", %31, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd282fe2c8343c16fE.exit.lr.ph", %5
-  %27 = phi i1 [ true, %5 ], [ true, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd282fe2c8343c16fE.exit.lr.ph" ], [ false, %31 ], [ true, %"._ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd282fe2c8343c16fE.exit11.thread.loopexit_crit_edge" ]
+  %27 = phi i1 [ false, %31 ], [ true, %5 ], [ true, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd282fe2c8343c16fE.exit.lr.ph" ], [ true, %"._ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd282fe2c8343c16fE.exit11.thread.loopexit_crit_edge" ]
   ret i1 %27
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd282fe2c8343c16fE.exit11": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd282fe2c8343c16fE.exit", %.backedge
@@ -7800,7 +7800,7 @@ define hidden noundef zeroext i1 @_ZN9uv_pep5086marker7algebra5Edges18is_disjoin
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdb68ee0f5da58d5eE.exit11"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdb68ee0f5da58d5eE.exit.thread": ; preds = %"._ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdb68ee0f5da58d5eE.exit11.thread.loopexit_crit_edge", %31, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdb68ee0f5da58d5eE.exit.lr.ph", %5
-  %27 = phi i1 [ true, %5 ], [ true, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdb68ee0f5da58d5eE.exit.lr.ph" ], [ false, %31 ], [ true, %"._ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdb68ee0f5da58d5eE.exit11.thread.loopexit_crit_edge" ]
+  %27 = phi i1 [ false, %31 ], [ true, %5 ], [ true, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdb68ee0f5da58d5eE.exit.lr.ph" ], [ true, %"._ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdb68ee0f5da58d5eE.exit11.thread.loopexit_crit_edge" ]
   ret i1 %27
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdb68ee0f5da58d5eE.exit11": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdb68ee0f5da58d5eE.exit", %.backedge

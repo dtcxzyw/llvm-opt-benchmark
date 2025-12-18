@@ -4129,8 +4129,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i92
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i929
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit930: ; preds = %1101, %734, %1099, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i743
-  %.pn = phi { ptr, i32 } [ %1100, %1099 ], [ %735, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i743 ], [ %735, %734 ], [ %742, %1101 ]
-  %1111 = phi i1 [ false, %1099 ], [ false, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i743 ], [ false, %734 ], [ true, %1101 ]
+  %.pn = phi { ptr, i32 } [ %735, %734 ], [ %1100, %1099 ], [ %735, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i743 ], [ %742, %1101 ]
+  %1111 = phi i1 [ false, %734 ], [ false, %1099 ], [ false, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i743 ], [ true, %1101 ]
   call void @_ZN12CommandUsageD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %90) #40
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit933
 
@@ -12840,7 +12840,7 @@ _ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE.exit: ; preds = %654
   br i1 %671, label %.lr.ph, label %._crit_edge754, !llvm.loop !293
 
 .loopexit489:                                     ; preds = %._crit_edge759, %.critedge, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit269, %_ZN4pbrt7WarningIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERiS9_S9_S9_S9_S9_EEEvPKcDpOT_.exit, %_ZN4pbrt5ErrorIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPKcDpOT_.exit180, %_ZN4pbrt5ErrorIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPKcDpOT_.exit, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i247, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i207
-  %.1 = phi ptr [ %.0766, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i207 ], [ %.0766, %_ZN4pbrt7WarningIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERiS9_S9_S9_S9_S9_EEEvPKcDpOT_.exit ], [ %.0766, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit269 ], [ %.0766, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i247 ], [ %.0766, %_ZN4pbrt5ErrorIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPKcDpOT_.exit180 ], [ %.0766, %_ZN4pbrt5ErrorIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPKcDpOT_.exit ], [ %.2, %.critedge ], [ %.2, %._crit_edge759 ]
+  %.1 = phi ptr [ %.0766, %_ZN4pbrt5ErrorIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPKcDpOT_.exit ], [ %.0766, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i207 ], [ %.0766, %_ZN4pbrt7WarningIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERiS9_S9_S9_S9_S9_EEEvPKcDpOT_.exit ], [ %.0766, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit269 ], [ %.0766, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i247 ], [ %.0766, %_ZN4pbrt5ErrorIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPKcDpOT_.exit180 ], [ %.2, %.critedge ], [ %.2, %._crit_edge759 ]
   %672 = load ptr, ptr %187, align 8, !tbaa !21
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIS5_SaIS5_EEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE8_M_eraseEPSt13_Rb_tree_nodeISB_E(ptr noundef nonnull align 8 dereferenceable(48) %186, ptr noundef %672)
           to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS5_SaIS5_EESt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev.exit.i.i unwind label %673
@@ -16051,7 +16051,7 @@ _ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE.exit441: ; preds = %
   br i1 %737, label %.lr.ph1171, label %._crit_edge1172, !llvm.loop !332
 
 .loopexit937:                                     ; preds = %._crit_edge1172, %._crit_edge1177, %.preheader938, %.preheader936
-  %.4226 = phi i32 [ %.02221183, %.preheader936 ], [ %.02221183, %.preheader938 ], [ %474, %._crit_edge1177 ], [ %590, %._crit_edge1172 ]
+  %.4226 = phi i32 [ %474, %._crit_edge1177 ], [ %.02221183, %.preheader936 ], [ %.02221183, %.preheader938 ], [ %590, %._crit_edge1172 ]
   %indvars.iv.next1263 = add nuw nsw i64 %indvars.iv1262, 1
   %738 = load ptr, ptr %440, align 8, !tbaa !319
   %739 = load ptr, ptr %23, align 8, !tbaa !325
@@ -20015,7 +20015,7 @@ _ZN4pstd6vectorIN4pbrt4HalfENS_3pmr21polymorphic_allocatorIS2_EEE7reserveEm.exit
   br i1 %exitcond.not.i, label %.loopexit61, label %102, !llvm.loop !407
 
 .loopexit61:                                      ; preds = %102, %_ZN4pstd6vectorIN4pbrt4HalfENS_3pmr21polymorphic_allocatorIS2_EEE7reserveEm.exit.i, %.loopexit62
-  %107 = phi i64 [ 0, %_ZN4pstd6vectorIN4pbrt4HalfENS_3pmr21polymorphic_allocatorIS2_EEE7reserveEm.exit.i ], [ 0, %.loopexit62 ], [ %.pre11.i54, %102 ]
+  %107 = phi i64 [ 0, %.loopexit62 ], [ 0, %_ZN4pstd6vectorIN4pbrt4HalfENS_3pmr21polymorphic_allocatorIS2_EEE7reserveEm.exit.i ], [ %.pre11.i54, %102 ]
   store i64 %107, ptr %81, align 8, !tbaa !212
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %109 = call noundef ptr @_ZN4pstd3pmr19new_delete_resourceEv() #40
@@ -20102,7 +20102,7 @@ _ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE7reserveEm.exit.i: ; preds =
   br i1 %exitcond.not.i43, label %.loopexit, label %134, !llvm.loop !409
 
 .loopexit:                                        ; preds = %134, %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE7reserveEm.exit.i, %.loopexit61
-  %139 = phi i64 [ 0, %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE7reserveEm.exit.i ], [ 0, %.loopexit61 ], [ %.pre11.i3959, %134 ]
+  %139 = phi i64 [ 0, %.loopexit61 ], [ 0, %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE7reserveEm.exit.i ], [ %.pre11.i3959, %134 ]
   store i64 %139, ptr %113, align 8, !tbaa !203
   ret void
 
@@ -22608,8 +22608,8 @@ _ZNK4pbrt4HalfcvfEv.exit.i42.i.i:                 ; preds = %397, %393, %391
   br label %_ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE.exit51.i.i
 
 .invoke215:                                       ; preds = %.sink.split91.i65.cont.thread.i.i, %.sink.split91.i.cont.thread.i.i, %265, %344
-  %416 = phi i32 [ 142, %265 ], [ 142, %344 ], [ 273, %.sink.split91.i.cont.thread.i.i ], [ 273, %.sink.split91.i65.cont.thread.i.i ]
-  %417 = phi ptr [ @.str.257, %265 ], [ @.str.257, %344 ], [ @.str.255, %.sink.split91.i.cont.thread.i.i ], [ @.str.255, %.sink.split91.i65.cont.thread.i.i ]
+  %416 = phi i32 [ 142, %344 ], [ 142, %265 ], [ 273, %.sink.split91.i.cont.thread.i.i ], [ 273, %.sink.split91.i65.cont.thread.i.i ]
+  %417 = phi ptr [ @.str.257, %344 ], [ @.str.257, %265 ], [ @.str.255, %.sink.split91.i.cont.thread.i.i ], [ @.str.255, %.sink.split91.i65.cont.thread.i.i ]
   invoke void @_ZN4pbrt8LogFatalENS_8LogLevelEPKciS2_(i32 noundef 2, ptr noundef nonnull @.str.250, i32 noundef %416, ptr noundef nonnull %417) #41
           to label %.cont216 unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -28915,8 +28915,8 @@ _ZNK4pbrt4HalfcvfEv.exit.i:                       ; preds = %685, %681, %679
   br label %_ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE.exit
 
 .invoke1756:                                      ; preds = %829, %.sink.split91.i943.cont.thread, %706, %.sink.split91.i.cont.thread, %636, %755
-  %702 = phi i32 [ 142, %636 ], [ 142, %755 ], [ 273, %.sink.split91.i.cont.thread ], [ 273, %.sink.split91.i943.cont.thread ], [ 445, %706 ], [ 445, %829 ]
-  %703 = phi ptr [ @.str.257, %636 ], [ @.str.257, %755 ], [ @.str.255, %.sink.split91.i.cont.thread ], [ @.str.255, %.sink.split91.i943.cont.thread ], [ @.str.252, %706 ], [ @.str.252, %829 ]
+  %702 = phi i32 [ 142, %636 ], [ 142, %755 ], [ 445, %829 ], [ 273, %.sink.split91.i943.cont.thread ], [ 445, %706 ], [ 273, %.sink.split91.i.cont.thread ]
+  %703 = phi ptr [ @.str.257, %636 ], [ @.str.257, %755 ], [ @.str.252, %829 ], [ @.str.255, %.sink.split91.i943.cont.thread ], [ @.str.252, %706 ], [ @.str.255, %.sink.split91.i.cont.thread ]
   invoke void @_ZN4pbrt8LogFatalENS_8LogLevelEPKciS2_(i32 noundef 2, ptr noundef nonnull @.str.250, i32 noundef %702, ptr noundef nonnull %703) #41
           to label %.cont1757 unwind label %.loopexit.split-lp1336
 
@@ -43185,9 +43185,9 @@ _ZN4pbrt3RGBixEi.exit12.i.us:                     ; preds = %1520, %_ZN4pbrt3RGB
   br i1 %exitcond37.not.i.us, label %.split.i.us, label %_ZN4pbrt3RGBixEi.exit12.i.us, !llvm.loop !724
 
 .split.i.us:                                      ; preds = %_ZN4pbrt3RGBixEi.exit12.us22.i.us, %_ZN4pbrt3RGBixEi.exit12.us.i.us, %_ZN4pbrt3RGBixEi.exit12.i.us
-  %1547 = phi float [ %1521, %_ZN4pbrt3RGBixEi.exit12.us.i.us ], [ %1546, %_ZN4pbrt3RGBixEi.exit12.i.us ], [ %1521, %_ZN4pbrt3RGBixEi.exit12.us22.i.us ]
-  %1548 = phi float [ %1539, %_ZN4pbrt3RGBixEi.exit12.us.i.us ], [ %1522, %_ZN4pbrt3RGBixEi.exit12.i.us ], [ %1522, %_ZN4pbrt3RGBixEi.exit12.us22.i.us ]
-  %1549 = phi float [ %1523, %_ZN4pbrt3RGBixEi.exit12.us.i.us ], [ %1523, %_ZN4pbrt3RGBixEi.exit12.i.us ], [ %1532, %_ZN4pbrt3RGBixEi.exit12.us22.i.us ]
+  %1547 = phi float [ %1546, %_ZN4pbrt3RGBixEi.exit12.i.us ], [ %1521, %_ZN4pbrt3RGBixEi.exit12.us.i.us ], [ %1521, %_ZN4pbrt3RGBixEi.exit12.us22.i.us ]
+  %1548 = phi float [ %1522, %_ZN4pbrt3RGBixEi.exit12.i.us ], [ %1539, %_ZN4pbrt3RGBixEi.exit12.us.i.us ], [ %1522, %_ZN4pbrt3RGBixEi.exit12.us22.i.us ]
+  %1549 = phi float [ %1523, %_ZN4pbrt3RGBixEi.exit12.i.us ], [ %1523, %_ZN4pbrt3RGBixEi.exit12.us.i.us ], [ %1532, %_ZN4pbrt3RGBixEi.exit12.us22.i.us ]
   %indvars.iv.next39.i.us = add nuw nsw i64 %indvars.iv38.i.us, 1
   %exitcond41.not.i.us = icmp eq i64 %indvars.iv.next39.i.us, 3
   br i1 %exitcond41.not.i.us, label %1550, label %1520, !llvm.loop !725
@@ -44118,8 +44118,8 @@ _ZN4pstd3pmr21polymorphic_allocatorIfE15allocate_objectIfEEPT_m.exit.i.i2006.us:
   br i1 %exitcond.not.i.i2014.us, label %._crit_edge.i.i2015.us, label %1936, !llvm.loop !597
 
 ._crit_edge.i.i2015.us:                           ; preds = %1936, %.noexc2028.us, %1927
-  %.0.i.i.i.i46.i2016.us = phi ptr [ %1933, %.noexc2028.us ], [ null, %1927 ], [ %1933, %1936 ]
-  %.pre.i45.i2017.us = phi ptr [ %.pre.pre.i.i2007.us, %.noexc2028.us ], [ %1923, %1927 ], [ %.pre.pre.i.i2007.us, %1936 ]
+  %.0.i.i.i.i46.i2016.us = phi ptr [ null, %1927 ], [ %1933, %.noexc2028.us ], [ %1933, %1936 ]
+  %.pre.i45.i2017.us = phi ptr [ %1923, %1927 ], [ %.pre.pre.i.i2007.us, %.noexc2028.us ], [ %.pre.pre.i.i2007.us, %1936 ]
   %.not.i.i.i.i.i2018.us = icmp eq ptr %.pre.i45.i2017.us, null
   br i1 %.not.i.i.i.i.i2018.us, label %_ZN4pstd3pmr21polymorphic_allocatorIfE17deallocate_objectIfEEvPT_m.exit.i.i2019.us, label %1940
 
@@ -44447,8 +44447,8 @@ _ZN4pstd3pmr21polymorphic_allocatorIfE15allocate_objectIfEEPT_m.exit.i.i2076.us:
   br i1 %exitcond.not.i.i2084.us, label %._crit_edge.i.i2085.us, label %2065, !llvm.loop !597
 
 ._crit_edge.i.i2085.us:                           ; preds = %2065, %.noexc2098.us, %2056
-  %.0.i.i.i.i46.i2086.us = phi ptr [ %2062, %.noexc2098.us ], [ null, %2056 ], [ %2062, %2065 ]
-  %.pre.i45.i2087.us = phi ptr [ %.pre.pre.i.i2077.us, %.noexc2098.us ], [ %2052, %2056 ], [ %.pre.pre.i.i2077.us, %2065 ]
+  %.0.i.i.i.i46.i2086.us = phi ptr [ null, %2056 ], [ %2062, %.noexc2098.us ], [ %2062, %2065 ]
+  %.pre.i45.i2087.us = phi ptr [ %2052, %2056 ], [ %.pre.pre.i.i2077.us, %.noexc2098.us ], [ %.pre.pre.i.i2077.us, %2065 ]
   %.not.i.i.i.i.i2088.us = icmp eq ptr %.pre.i45.i2087.us, null
   br i1 %.not.i.i.i.i.i2088.us, label %_ZN4pstd3pmr21polymorphic_allocatorIfE17deallocate_objectIfEEvPT_m.exit.i.i2089.us, label %2069
 
@@ -44776,8 +44776,8 @@ _ZN4pstd3pmr21polymorphic_allocatorIfE15allocate_objectIfEEPT_m.exit.i.i2146.us:
   br i1 %exitcond.not.i.i2154.us, label %._crit_edge.i.i2155.us, label %2193, !llvm.loop !597
 
 ._crit_edge.i.i2155.us:                           ; preds = %2193, %.noexc2168.us, %2185
-  %.0.i.i.i.i46.i2156.us = phi ptr [ %2191, %.noexc2168.us ], [ null, %2185 ], [ %2191, %2193 ]
-  %.pre.i45.i2157.us = phi ptr [ %.pre.pre.i.i2147.us, %.noexc2168.us ], [ %2181, %2185 ], [ %.pre.pre.i.i2147.us, %2193 ]
+  %.0.i.i.i.i46.i2156.us = phi ptr [ null, %2185 ], [ %2191, %.noexc2168.us ], [ %2191, %2193 ]
+  %.pre.i45.i2157.us = phi ptr [ %2181, %2185 ], [ %.pre.pre.i.i2147.us, %.noexc2168.us ], [ %.pre.pre.i.i2147.us, %2193 ]
   %.not.i.i.i.i.i2158.us = icmp eq ptr %.pre.i45.i2157.us, null
   br i1 %.not.i.i.i.i.i2158.us, label %_ZN4pstd3pmr21polymorphic_allocatorIfE17deallocate_objectIfEEvPT_m.exit.i.i2159.us, label %2197
 
@@ -45215,8 +45215,8 @@ _ZN4pstd3pmr21polymorphic_allocatorIfE15allocate_objectIfEEPT_m.exit.i.i1796.us:
   br i1 %exitcond.not.i.i1804.us, label %._crit_edge.i.i1805.us, label %2369, !llvm.loop !597
 
 ._crit_edge.i.i1805.us:                           ; preds = %2369, %.noexc1818.us, %2360
-  %.0.i.i.i.i46.i1806.us = phi ptr [ %2366, %.noexc1818.us ], [ null, %2360 ], [ %2366, %2369 ]
-  %.pre.i45.i1807.us = phi ptr [ %.pre.pre.i.i1797.us, %.noexc1818.us ], [ %2356, %2360 ], [ %.pre.pre.i.i1797.us, %2369 ]
+  %.0.i.i.i.i46.i1806.us = phi ptr [ null, %2360 ], [ %2366, %.noexc1818.us ], [ %2366, %2369 ]
+  %.pre.i45.i1807.us = phi ptr [ %2356, %2360 ], [ %.pre.pre.i.i1797.us, %.noexc1818.us ], [ %.pre.pre.i.i1797.us, %2369 ]
   %.not.i.i.i.i.i1808.us = icmp eq ptr %.pre.i45.i1807.us, null
   br i1 %.not.i.i.i.i.i1808.us, label %_ZN4pstd3pmr21polymorphic_allocatorIfE17deallocate_objectIfEEvPT_m.exit.i.i1809.us, label %2373
 
@@ -45548,8 +45548,8 @@ _ZN4pstd3pmr21polymorphic_allocatorIfE15allocate_objectIfEEPT_m.exit.i.i1866.us:
   br i1 %exitcond.not.i.i1874.us, label %._crit_edge.i.i1875.us, label %2501, !llvm.loop !597
 
 ._crit_edge.i.i1875.us:                           ; preds = %2501, %.noexc1888.us, %2492
-  %.0.i.i.i.i46.i1876.us = phi ptr [ %2498, %.noexc1888.us ], [ null, %2492 ], [ %2498, %2501 ]
-  %.pre.i45.i1877.us = phi ptr [ %.pre.pre.i.i1867.us, %.noexc1888.us ], [ %2488, %2492 ], [ %.pre.pre.i.i1867.us, %2501 ]
+  %.0.i.i.i.i46.i1876.us = phi ptr [ null, %2492 ], [ %2498, %.noexc1888.us ], [ %2498, %2501 ]
+  %.pre.i45.i1877.us = phi ptr [ %2488, %2492 ], [ %.pre.pre.i.i1867.us, %.noexc1888.us ], [ %.pre.pre.i.i1867.us, %2501 ]
   %.not.i.i.i.i.i1878.us = icmp eq ptr %.pre.i45.i1877.us, null
   br i1 %.not.i.i.i.i.i1878.us, label %_ZN4pstd3pmr21polymorphic_allocatorIfE17deallocate_objectIfEEvPT_m.exit.i.i1879.us, label %2505
 
@@ -45863,8 +45863,8 @@ _ZN4pstd3pmr21polymorphic_allocatorIfE15allocate_objectIfEEPT_m.exit.i.i1936.us:
   br i1 %exitcond.not.i.i1944.us, label %._crit_edge.i.i1945.us, label %2625, !llvm.loop !597
 
 ._crit_edge.i.i1945.us:                           ; preds = %2625, %.noexc1958.us, %2616
-  %.0.i.i.i.i46.i1946.us = phi ptr [ %2622, %.noexc1958.us ], [ null, %2616 ], [ %2622, %2625 ]
-  %.pre.i45.i1947.us = phi ptr [ %.pre.pre.i.i1937.us, %.noexc1958.us ], [ %2612, %2616 ], [ %.pre.pre.i.i1937.us, %2625 ]
+  %.0.i.i.i.i46.i1946.us = phi ptr [ null, %2616 ], [ %2622, %.noexc1958.us ], [ %2622, %2625 ]
+  %.pre.i45.i1947.us = phi ptr [ %2612, %2616 ], [ %.pre.pre.i.i1937.us, %.noexc1958.us ], [ %.pre.pre.i.i1937.us, %2625 ]
   %.not.i.i.i.i.i1948.us = icmp eq ptr %.pre.i45.i1947.us, null
   br i1 %.not.i.i.i.i.i1948.us, label %_ZN4pstd3pmr21polymorphic_allocatorIfE17deallocate_objectIfEEvPT_m.exit.i.i1949.us, label %2629
 
@@ -46372,8 +46372,8 @@ _ZN4pstd3pmr21polymorphic_allocatorIfE15allocate_objectIfEEPT_m.exit.i.i.us: ; p
   br i1 %exitcond.not.i.i1740.us, label %._crit_edge.i.i1741.us, label %2825, !llvm.loop !597
 
 ._crit_edge.i.i1741.us:                           ; preds = %2825, %.noexc1749.us, %2816
-  %.0.i.i.i.i46.i.us = phi ptr [ %2822, %.noexc1749.us ], [ null, %2816 ], [ %2822, %2825 ]
-  %.pre.i45.i.us = phi ptr [ %.pre.pre.i.i.us, %.noexc1749.us ], [ %2812, %2816 ], [ %.pre.pre.i.i.us, %2825 ]
+  %.0.i.i.i.i46.i.us = phi ptr [ null, %2816 ], [ %2822, %.noexc1749.us ], [ %2822, %2825 ]
+  %.pre.i45.i.us = phi ptr [ %2812, %2816 ], [ %.pre.pre.i.i.us, %.noexc1749.us ], [ %.pre.pre.i.i.us, %2825 ]
   %.not.i.i.i.i.i1742.us = icmp eq ptr %.pre.i45.i.us, null
   br i1 %.not.i.i.i.i.i1742.us, label %_ZN4pstd3pmr21polymorphic_allocatorIfE17deallocate_objectIfEEvPT_m.exit.i.i.us, label %2829
 
@@ -46530,8 +46530,8 @@ _ZN4pstd3pmr21polymorphic_allocatorIfE15allocate_objectIfEEPT_m.exit.i.i41.i.i.i
   br i1 %exitcond.not.i.i49.i.i.i.us, label %._crit_edge.i.i50.i.i.i.us, label %2890, !llvm.loop !597
 
 ._crit_edge.i.i50.i.i.i.us:                       ; preds = %2890, %.noexc63.i.i.i.us, %2881
-  %.0.i.i.i.i46.i51.i.i.i.us = phi ptr [ %2887, %.noexc63.i.i.i.us ], [ null, %2881 ], [ %2887, %2890 ]
-  %.pre.i45.i52.i.i.i.us = phi ptr [ %.pre.pre.i.i42.i.i.i.us, %.noexc63.i.i.i.us ], [ %2877, %2881 ], [ %.pre.pre.i.i42.i.i.i.us, %2890 ]
+  %.0.i.i.i.i46.i51.i.i.i.us = phi ptr [ null, %2881 ], [ %2887, %.noexc63.i.i.i.us ], [ %2887, %2890 ]
+  %.pre.i45.i52.i.i.i.us = phi ptr [ %2877, %2881 ], [ %.pre.pre.i.i42.i.i.i.us, %.noexc63.i.i.i.us ], [ %.pre.pre.i.i42.i.i.i.us, %2890 ]
   %.not.i.i.i.i.i53.i.i.i.us = icmp eq ptr %.pre.i45.i52.i.i.i.us, null
   br i1 %.not.i.i.i.i.i53.i.i.i.us, label %_ZN4pstd3pmr21polymorphic_allocatorIfE17deallocate_objectIfEEvPT_m.exit.i.i54.i.i.i.us, label %2894
 
@@ -46729,8 +46729,8 @@ _ZN4pstd3pmr21polymorphic_allocatorIfE15allocate_objectIfEEPT_m.exit.i.i.i.i.i.u
   br i1 %exitcond.not.i.i27.i.i.i.us, label %._crit_edge.i.i.i.i.i.us, label %2968, !llvm.loop !597
 
 ._crit_edge.i.i.i.i.i.us:                         ; preds = %2968, %.noexc29.i.i.i.us, %2959
-  %.0.i.i.i.i46.i.i.i.i.us = phi ptr [ %2965, %.noexc29.i.i.i.us ], [ null, %2959 ], [ %2965, %2968 ]
-  %.pre.i45.i.i.i.i.us = phi ptr [ %.pre.pre.i.i.i.i.i.us, %.noexc29.i.i.i.us ], [ %2955, %2959 ], [ %.pre.pre.i.i.i.i.i.us, %2968 ]
+  %.0.i.i.i.i46.i.i.i.i.us = phi ptr [ null, %2959 ], [ %2965, %.noexc29.i.i.i.us ], [ %2965, %2968 ]
+  %.pre.i45.i.i.i.i.us = phi ptr [ %2955, %2959 ], [ %.pre.pre.i.i.i.i.i.us, %.noexc29.i.i.i.us ], [ %.pre.pre.i.i.i.i.i.us, %2968 ]
   %.not.i.i.i.i.i28.i.i.i.us = icmp eq ptr %.pre.i45.i.i.i.i.us, null
   br i1 %.not.i.i.i.i.i28.i.i.i.us, label %_ZN4pstd3pmr21polymorphic_allocatorIfE17deallocate_objectIfEEvPT_m.exit.i.i.i.i.i.us, label %2972
 
@@ -46882,8 +46882,8 @@ _ZN4pstd3pmr21polymorphic_allocatorIfE15allocate_objectIfEEPT_m.exit.i.i1761.us:
   br i1 %exitcond.not.i.i1769.us, label %._crit_edge.i.i1770.us, label %3031, !llvm.loop !597
 
 ._crit_edge.i.i1770.us:                           ; preds = %3031, %.noexc1783.us, %3023
-  %.0.i.i.i.i46.i1771.us = phi ptr [ %3029, %.noexc1783.us ], [ null, %3023 ], [ %3029, %3031 ]
-  %.pre.i45.i1772.us = phi ptr [ %.pre.pre.i.i1762.us, %.noexc1783.us ], [ %3020, %3023 ], [ %.pre.pre.i.i1762.us, %3031 ]
+  %.0.i.i.i.i46.i1771.us = phi ptr [ null, %3023 ], [ %3029, %.noexc1783.us ], [ %3029, %3031 ]
+  %.pre.i45.i1772.us = phi ptr [ %3020, %3023 ], [ %.pre.pre.i.i1762.us, %.noexc1783.us ], [ %.pre.pre.i.i1762.us, %3031 ]
   %.not.i.i.i.i.i1773.us = icmp eq ptr %.pre.i45.i1772.us, null
   br i1 %.not.i.i.i.i.i1773.us, label %_ZN4pstd3pmr21polymorphic_allocatorIfE17deallocate_objectIfEEvPT_m.exit.i.i1774.us, label %3035
 
@@ -47660,8 +47660,8 @@ _ZN4pstd3pmr21polymorphic_allocatorIfE15allocate_objectIfEEPT_m.exit.i.i.i.i.us:
   br i1 %exitcond.not.i.i83.i.i.us, label %._crit_edge.i.i84.i.i.us, label %3317, !llvm.loop !597
 
 ._crit_edge.i.i84.i.i.us:                         ; preds = %3317, %.noexc.i.i.us, %3308
-  %.0.i.i.i.i46.i.i.i.us = phi ptr [ %3314, %.noexc.i.i.us ], [ null, %3308 ], [ %3314, %3317 ]
-  %.pre.i45.i.i.i.us = phi ptr [ %.pre.pre.i.i.i.i.us, %.noexc.i.i.us ], [ %3304, %3308 ], [ %.pre.pre.i.i.i.i.us, %3317 ]
+  %.0.i.i.i.i46.i.i.i.us = phi ptr [ null, %3308 ], [ %3314, %.noexc.i.i.us ], [ %3314, %3317 ]
+  %.pre.i45.i.i.i.us = phi ptr [ %3304, %3308 ], [ %.pre.pre.i.i.i.i.us, %.noexc.i.i.us ], [ %.pre.pre.i.i.i.i.us, %3317 ]
   %.not.i.i.i.i.i85.i.i.us = icmp eq ptr %.pre.i45.i.i.i.us, null
   br i1 %.not.i.i.i.i.i85.i.i.us, label %_ZN4pbrt13InlinedVectorIfLi4EN4pstd3pmr21polymorphic_allocatorIfEEE7reserveEm.exit.i.thread.i.i.us, label %3321
 
@@ -47855,8 +47855,8 @@ _ZN4pstd3pmr21polymorphic_allocatorIfE15allocate_objectIfEEPT_m.exit.i.i2251.us:
   br i1 %exitcond.not.i.i2259.us, label %._crit_edge.i.i2260.us, label %3398, !llvm.loop !597
 
 ._crit_edge.i.i2260.us:                           ; preds = %3398, %.noexc2273.us, %3389
-  %.0.i.i.i.i46.i2261.us = phi ptr [ %3395, %.noexc2273.us ], [ null, %3389 ], [ %3395, %3398 ]
-  %.pre.i45.i2262.us = phi ptr [ %.pre.pre.i.i2252.us, %.noexc2273.us ], [ %3385, %3389 ], [ %.pre.pre.i.i2252.us, %3398 ]
+  %.0.i.i.i.i46.i2261.us = phi ptr [ null, %3389 ], [ %3395, %.noexc2273.us ], [ %3395, %3398 ]
+  %.pre.i45.i2262.us = phi ptr [ %3385, %3389 ], [ %.pre.pre.i.i2252.us, %.noexc2273.us ], [ %.pre.pre.i.i2252.us, %3398 ]
   %.not.i.i.i.i.i2263.us = icmp eq ptr %.pre.i45.i2262.us, null
   br i1 %.not.i.i.i.i.i2263.us, label %_ZN4pstd3pmr21polymorphic_allocatorIfE17deallocate_objectIfEEvPT_m.exit.i.i2264.us, label %3402
 
@@ -52641,9 +52641,9 @@ _ZN4pbrt3RGBixEi.exit12.us22.i:                   ; preds = %498, %_ZN4pbrt3RGBi
   br i1 %exitcond.not.i324, label %.split.i, label %_ZN4pbrt3RGBixEi.exit12.us22.i, !llvm.loop !724
 
 .split.i:                                         ; preds = %_ZN4pbrt3RGBixEi.exit12.us22.i, %_ZN4pbrt3RGBixEi.exit12.us.i, %_ZN4pbrt3RGBixEi.exit12.i
-  %518 = phi float [ %499, %_ZN4pbrt3RGBixEi.exit12.us.i ], [ %527, %_ZN4pbrt3RGBixEi.exit12.i ], [ %499, %_ZN4pbrt3RGBixEi.exit12.us22.i ]
-  %519 = phi float [ %510, %_ZN4pbrt3RGBixEi.exit12.us.i ], [ %500, %_ZN4pbrt3RGBixEi.exit12.i ], [ %500, %_ZN4pbrt3RGBixEi.exit12.us22.i ]
-  %520 = phi float [ %501, %_ZN4pbrt3RGBixEi.exit12.us.i ], [ %501, %_ZN4pbrt3RGBixEi.exit12.i ], [ %517, %_ZN4pbrt3RGBixEi.exit12.us22.i ]
+  %518 = phi float [ %527, %_ZN4pbrt3RGBixEi.exit12.i ], [ %499, %_ZN4pbrt3RGBixEi.exit12.us.i ], [ %499, %_ZN4pbrt3RGBixEi.exit12.us22.i ]
+  %519 = phi float [ %500, %_ZN4pbrt3RGBixEi.exit12.i ], [ %510, %_ZN4pbrt3RGBixEi.exit12.us.i ], [ %500, %_ZN4pbrt3RGBixEi.exit12.us22.i ]
+  %520 = phi float [ %501, %_ZN4pbrt3RGBixEi.exit12.i ], [ %501, %_ZN4pbrt3RGBixEi.exit12.us.i ], [ %517, %_ZN4pbrt3RGBixEi.exit12.us22.i ]
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond41.not.i = icmp eq i64 %indvars.iv.next39.i, 3
   br i1 %exitcond41.not.i, label %528, label %498, !llvm.loop !725
@@ -54555,9 +54555,9 @@ _ZNK4pbrt3XYZixEi.exit.us23.i.i:                  ; preds = %37, %36, %_ZN4pbrt3
   br i1 %exitcond.not.i.i, label %.split.i.i, label %_ZN4pbrt3XYZixEi.exit.split.us21.i.i, !llvm.loop !834
 
 .split.i.i:                                       ; preds = %_ZNK4pbrt3XYZixEi.exit.us23.i.i, %_ZNK4pbrt3XYZixEi.exit.us.i.i, %_ZNK4pbrt3XYZixEi.exit.i.i
-  %40 = phi float [ %19, %_ZNK4pbrt3XYZixEi.exit.us.i.i ], [ %50, %_ZNK4pbrt3XYZixEi.exit.i.i ], [ %19, %_ZNK4pbrt3XYZixEi.exit.us23.i.i ]
-  %41 = phi float [ %31, %_ZNK4pbrt3XYZixEi.exit.us.i.i ], [ %20, %_ZNK4pbrt3XYZixEi.exit.i.i ], [ %20, %_ZNK4pbrt3XYZixEi.exit.us23.i.i ]
-  %42 = phi float [ %21, %_ZNK4pbrt3XYZixEi.exit.us.i.i ], [ %21, %_ZNK4pbrt3XYZixEi.exit.i.i ], [ %39, %_ZNK4pbrt3XYZixEi.exit.us23.i.i ]
+  %40 = phi float [ %50, %_ZNK4pbrt3XYZixEi.exit.i.i ], [ %19, %_ZNK4pbrt3XYZixEi.exit.us.i.i ], [ %19, %_ZNK4pbrt3XYZixEi.exit.us23.i.i ]
+  %41 = phi float [ %20, %_ZNK4pbrt3XYZixEi.exit.i.i ], [ %31, %_ZNK4pbrt3XYZixEi.exit.us.i.i ], [ %20, %_ZNK4pbrt3XYZixEi.exit.us23.i.i ]
+  %42 = phi float [ %21, %_ZNK4pbrt3XYZixEi.exit.i.i ], [ %21, %_ZNK4pbrt3XYZixEi.exit.us.i.i ], [ %39, %_ZNK4pbrt3XYZixEi.exit.us23.i.i ]
   %indvars.iv.next43.i.i = add nuw nsw i64 %indvars.iv42.i.i, 1
   %exitcond45.not.i.i = icmp eq i64 %indvars.iv.next43.i.i, 3
   br i1 %exitcond45.not.i.i, label %_ZN4pbrtmlILi3ENS_3XYZEEET0_RKNS_12SquareMatrixIXT_EEERKS2_.exit.preheader, label %18, !llvm.loop !835
@@ -54655,9 +54655,9 @@ _ZNK4pbrt3XYZixEi.exit.us23.i.i29:                ; preds = %69, %68, %_ZN4pbrt3
   br i1 %exitcond.not.i.i33, label %.split.i.i34, label %_ZN4pbrt3XYZixEi.exit.split.us21.i.i27, !llvm.loop !834
 
 .split.i.i34:                                     ; preds = %_ZNK4pbrt3XYZixEi.exit.us23.i.i29, %_ZNK4pbrt3XYZixEi.exit.us.i.i42, %_ZNK4pbrt3XYZixEi.exit.i.i49
-  %72 = phi float [ %51, %_ZNK4pbrt3XYZixEi.exit.us.i.i42 ], [ %82, %_ZNK4pbrt3XYZixEi.exit.i.i49 ], [ %51, %_ZNK4pbrt3XYZixEi.exit.us23.i.i29 ]
-  %73 = phi float [ %63, %_ZNK4pbrt3XYZixEi.exit.us.i.i42 ], [ %52, %_ZNK4pbrt3XYZixEi.exit.i.i49 ], [ %52, %_ZNK4pbrt3XYZixEi.exit.us23.i.i29 ]
-  %74 = phi float [ %53, %_ZNK4pbrt3XYZixEi.exit.us.i.i42 ], [ %53, %_ZNK4pbrt3XYZixEi.exit.i.i49 ], [ %71, %_ZNK4pbrt3XYZixEi.exit.us23.i.i29 ]
+  %72 = phi float [ %82, %_ZNK4pbrt3XYZixEi.exit.i.i49 ], [ %51, %_ZNK4pbrt3XYZixEi.exit.us.i.i42 ], [ %51, %_ZNK4pbrt3XYZixEi.exit.us23.i.i29 ]
+  %73 = phi float [ %52, %_ZNK4pbrt3XYZixEi.exit.i.i49 ], [ %63, %_ZNK4pbrt3XYZixEi.exit.us.i.i42 ], [ %52, %_ZNK4pbrt3XYZixEi.exit.us23.i.i29 ]
+  %74 = phi float [ %53, %_ZNK4pbrt3XYZixEi.exit.i.i49 ], [ %53, %_ZNK4pbrt3XYZixEi.exit.us.i.i42 ], [ %71, %_ZNK4pbrt3XYZixEi.exit.us23.i.i29 ]
   %indvars.iv.next43.i.i35 = add nuw nsw i64 %indvars.iv42.i.i26, 1
   %exitcond45.not.i.i36 = icmp eq i64 %indvars.iv.next43.i.i35, 3
   br i1 %exitcond45.not.i.i36, label %_ZN4pbrtmlILi3ENS_3XYZEEET0_RKNS_12SquareMatrixIXT_EEERKS2_.exit54, label %_ZN4pbrtmlILi3ENS_3XYZEEET0_RKNS_12SquareMatrixIXT_EEERKS2_.exit, !llvm.loop !835
@@ -55480,7 +55480,7 @@ _ZN4pbrt13InlinedVectorIfLi4EN4pstd3pmr21polymorphic_allocatorIfEEED2Ev.exit.us:
   br label %_ZN4pbrt13InlinedVectorIfLi4EN4pstd3pmr21polymorphic_allocatorIfEEED2Ev.exit146
 
 ._crit_edge258:                                   ; preds = %257, %_ZN4pbrt13InlinedVectorIfLi4EN4pstd3pmr21polymorphic_allocatorIfEEED2Ev.exit.us, %.preheader217
-  %229 = phi i32 [ %199, %.preheader217 ], [ %214, %_ZN4pbrt13InlinedVectorIfLi4EN4pstd3pmr21polymorphic_allocatorIfEEED2Ev.exit.us ], [ %258, %257 ]
+  %229 = phi i32 [ %214, %_ZN4pbrt13InlinedVectorIfLi4EN4pstd3pmr21polymorphic_allocatorIfEEED2Ev.exit.us ], [ %199, %.preheader217 ], [ %258, %257 ]
   %indvars.iv.next301 = add nuw nsw i64 %indvars.iv300, 1
   %230 = sext i32 %229 to i64
   %231 = icmp slt i64 %indvars.iv.next301, %230
@@ -72351,8 +72351,8 @@ _ZN4pstd3pmr21polymorphic_allocatorIfE15allocate_objectIfEEPT_m.exit.i: ; preds 
   br label %54
 
 ._crit_edge.i:                                    ; preds = %54, %38, %_ZN4pstd3pmr21polymorphic_allocatorIfE15allocate_objectIfEEPT_m.exit.i
-  %.0.i.i.i.i46 = phi ptr [ %44, %_ZN4pstd3pmr21polymorphic_allocatorIfE15allocate_objectIfEEPT_m.exit.i ], [ null, %38 ], [ %44, %54 ]
-  %.pre.i45 = phi ptr [ %.pre.pre.i, %_ZN4pstd3pmr21polymorphic_allocatorIfE15allocate_objectIfEEPT_m.exit.i ], [ %34, %38 ], [ %.pre.pre.i, %54 ]
+  %.0.i.i.i.i46 = phi ptr [ null, %38 ], [ %44, %_ZN4pstd3pmr21polymorphic_allocatorIfE15allocate_objectIfEEPT_m.exit.i ], [ %44, %54 ]
+  %.pre.i45 = phi ptr [ %34, %38 ], [ %.pre.pre.i, %_ZN4pstd3pmr21polymorphic_allocatorIfE15allocate_objectIfEEPT_m.exit.i ], [ %.pre.pre.i, %54 ]
   %.not.i.i.i.i = icmp eq ptr %.pre.i45, null
   br i1 %.not.i.i.i.i, label %_ZN4pstd3pmr21polymorphic_allocatorIfE17deallocate_objectIfEEvPT_m.exit.i, label %47
 
@@ -80668,9 +80668,9 @@ _ZNK4pbrt3XYZixEi.exit.us23.i.i.i.i.i:            ; preds = %132, %131, %_ZN4pbr
   br i1 %exitcond.not.i.i.i.i.i, label %.split.i.i.i.i.i, label %_ZN4pbrt3RGBixEi.exit.split.us21.i.i.i.i.i, !llvm.loop !1477
 
 .split.i.i.i.i.i:                                 ; preds = %_ZNK4pbrt3XYZixEi.exit.us23.i.i.i.i.i, %_ZNK4pbrt3XYZixEi.exit.us.i.i.i.i.i, %_ZNK4pbrt3XYZixEi.exit.i.i.i.i.i
-  %135 = phi float [ %114, %_ZNK4pbrt3XYZixEi.exit.us.i.i.i.i.i ], [ %145, %_ZNK4pbrt3XYZixEi.exit.i.i.i.i.i ], [ %114, %_ZNK4pbrt3XYZixEi.exit.us23.i.i.i.i.i ]
-  %136 = phi float [ %126, %_ZNK4pbrt3XYZixEi.exit.us.i.i.i.i.i ], [ %115, %_ZNK4pbrt3XYZixEi.exit.i.i.i.i.i ], [ %115, %_ZNK4pbrt3XYZixEi.exit.us23.i.i.i.i.i ]
-  %137 = phi float [ %116, %_ZNK4pbrt3XYZixEi.exit.us.i.i.i.i.i ], [ %116, %_ZNK4pbrt3XYZixEi.exit.i.i.i.i.i ], [ %134, %_ZNK4pbrt3XYZixEi.exit.us23.i.i.i.i.i ]
+  %135 = phi float [ %145, %_ZNK4pbrt3XYZixEi.exit.i.i.i.i.i ], [ %114, %_ZNK4pbrt3XYZixEi.exit.us.i.i.i.i.i ], [ %114, %_ZNK4pbrt3XYZixEi.exit.us23.i.i.i.i.i ]
+  %136 = phi float [ %115, %_ZNK4pbrt3XYZixEi.exit.i.i.i.i.i ], [ %126, %_ZNK4pbrt3XYZixEi.exit.us.i.i.i.i.i ], [ %115, %_ZNK4pbrt3XYZixEi.exit.us23.i.i.i.i.i ]
+  %137 = phi float [ %116, %_ZNK4pbrt3XYZixEi.exit.i.i.i.i.i ], [ %116, %_ZNK4pbrt3XYZixEi.exit.us.i.i.i.i.i ], [ %134, %_ZNK4pbrt3XYZixEi.exit.us23.i.i.i.i.i ]
   %indvars.iv.next43.i.i.i.i.i = add nuw nsw i64 %indvars.iv42.i.i.i.i.i, 1
   %exitcond45.not.i.i.i.i.i = icmp eq i64 %indvars.iv.next43.i.i.i.i.i, 3
   br i1 %exitcond45.not.i.i.i.i.i, label %.preheader.i.i.i, label %113, !llvm.loop !1478
@@ -93155,8 +93155,8 @@ _ZN4pstd3pmr21polymorphic_allocatorIfE15allocate_objectIfEEPT_m.exit.i.i: ; pred
   br label %410
 
 ._crit_edge.i.i:                                  ; preds = %410, %.noexc, %394
-  %.0.i.i.i.i46.i = phi ptr [ %400, %.noexc ], [ null, %394 ], [ %400, %410 ]
-  %.pre.i45.i = phi ptr [ %.pre.pre.i.i, %.noexc ], [ %390, %394 ], [ %.pre.pre.i.i, %410 ]
+  %.0.i.i.i.i46.i = phi ptr [ null, %394 ], [ %400, %.noexc ], [ %400, %410 ]
+  %.pre.i45.i = phi ptr [ %390, %394 ], [ %.pre.pre.i.i, %.noexc ], [ %.pre.pre.i.i, %410 ]
   %.not.i.i.i.i.i22 = icmp eq ptr %.pre.i45.i, null
   br i1 %.not.i.i.i.i.i22, label %_ZN4pbrt13InlinedVectorIfLi4EN4pstd3pmr21polymorphic_allocatorIfEEE7reserveEm.exit.i.thread, label %403
 
@@ -93857,8 +93857,8 @@ _ZN4pstd3pmr21polymorphic_allocatorIfE15allocate_objectIfEEPT_m.exit.i.i: ; pred
   br label %112
 
 ._crit_edge.i.i:                                  ; preds = %112, %.noexc17, %96
-  %.0.i.i.i.i46.i = phi ptr [ %102, %.noexc17 ], [ null, %96 ], [ %102, %112 ]
-  %.pre.i45.i = phi ptr [ %.pre.pre.i.i, %.noexc17 ], [ %92, %96 ], [ %.pre.pre.i.i, %112 ]
+  %.0.i.i.i.i46.i = phi ptr [ null, %96 ], [ %102, %.noexc17 ], [ %102, %112 ]
+  %.pre.i45.i = phi ptr [ %92, %96 ], [ %.pre.pre.i.i, %.noexc17 ], [ %.pre.pre.i.i, %112 ]
   %.not.i.i.i.i.i16 = icmp eq ptr %.pre.i45.i, null
   br i1 %.not.i.i.i.i.i16, label %_ZN4pstd3pmr21polymorphic_allocatorIfE17deallocate_objectIfEEvPT_m.exit.i.i, label %105
 
@@ -107082,8 +107082,8 @@ _ZNK4pbrt4HalfcvfEv.exit.i.i.i.i:                 ; preds = %473, %469, %467
   br label %494
 
 .invoke.i.i.i:                                    ; preds = %.sink.split91.i243.cont.thread.i.i.i, %.sink.split91.i219.cont.thread.i.i.i, %.sink.split91.i.cont.thread.i.i.i, %586, %420, %501
-  %492 = phi i32 [ 142, %586 ], [ 142, %501 ], [ 142, %420 ], [ 273, %.sink.split91.i.cont.thread.i.i.i ], [ 273, %.sink.split91.i219.cont.thread.i.i.i ], [ 273, %.sink.split91.i243.cont.thread.i.i.i ]
-  %493 = phi ptr [ @.str.257, %586 ], [ @.str.257, %501 ], [ @.str.257, %420 ], [ @.str.255, %.sink.split91.i.cont.thread.i.i.i ], [ @.str.255, %.sink.split91.i219.cont.thread.i.i.i ], [ @.str.255, %.sink.split91.i243.cont.thread.i.i.i ]
+  %492 = phi i32 [ 142, %501 ], [ 142, %586 ], [ 142, %420 ], [ 273, %.sink.split91.i.cont.thread.i.i.i ], [ 273, %.sink.split91.i219.cont.thread.i.i.i ], [ 273, %.sink.split91.i243.cont.thread.i.i.i ]
+  %493 = phi ptr [ @.str.257, %501 ], [ @.str.257, %586 ], [ @.str.257, %420 ], [ @.str.255, %.sink.split91.i.cont.thread.i.i.i ], [ @.str.255, %.sink.split91.i219.cont.thread.i.i.i ], [ @.str.255, %.sink.split91.i243.cont.thread.i.i.i ]
   invoke void @_ZN4pbrt8LogFatalENS_8LogLevelEPKciS2_(i32 noundef 2, ptr noundef nonnull @.str.250, i32 noundef %492, ptr noundef nonnull %493) #41
           to label %.cont.i.i.i unwind label %.loopexit.split-lp.i.i.i
 

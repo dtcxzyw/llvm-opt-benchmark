@@ -454,7 +454,7 @@ find_positions.exit.thread.sink.split:            ; preds = %80, %44, %41
   br i1 %234, label %.lr.ph, label %.sink.split, !llvm.loop !9
 
 .sink.split:                                      ; preds = %217, %._crit_edge102, %104, %.preheader, %163, %160, %147, %88, %84, %find_positions.exit, %9, %12, %30, %33, %38, %find_positions.exit.thread.sink.split, %178
-  %.0.ph = phi i32 [ -1, %160 ], [ 0, %178 ], [ -1, %147 ], [ -1, %88 ], [ -1, %84 ], [ -1, %find_positions.exit ], [ -1, %163 ], [ -1, %find_positions.exit.thread.sink.split ], [ -1, %38 ], [ -1, %33 ], [ -1, %30 ], [ -1, %12 ], [ -1, %9 ], [ -1, %.preheader ], [ -1, %104 ], [ -1, %._crit_edge102 ], [ -1, %217 ]
+  %.0.ph = phi i32 [ -1, %160 ], [ 0, %178 ], [ -1, %147 ], [ -1, %.preheader ], [ -1, %9 ], [ -1, %88 ], [ -1, %84 ], [ -1, %find_positions.exit ], [ -1, %163 ], [ -1, %find_positions.exit.thread.sink.split ], [ -1, %38 ], [ -1, %33 ], [ -1, %30 ], [ -1, %12 ], [ -1, %104 ], [ -1, %._crit_edge102 ], [ -1, %217 ]
   tail call void @free(ptr noundef %7) #14
   br label %235
 
@@ -719,7 +719,7 @@ define internal fastcc range(i32 -1, 2) i32 @parse_nv_pair(ptr noundef nonnull c
   br label %.loopexit
 
 .loopexit:                                        ; preds = %22, %42, %38, %3, %3, %3, %45
-  %.037 = phi i32 [ 0, %3 ], [ -1, %38 ], [ 1, %45 ], [ 0, %3 ], [ 0, %3 ], [ -1, %42 ], [ -1, %22 ]
+  %.037 = phi i32 [ 0, %3 ], [ -1, %42 ], [ -1, %38 ], [ 1, %45 ], [ 0, %3 ], [ 0, %3 ], [ -1, %22 ]
   ret i32 %.037
 }
 

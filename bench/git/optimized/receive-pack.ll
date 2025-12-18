@@ -1563,7 +1563,7 @@ skip_prefix.exit.i.i:                             ; preds = %495, %500
   br label %proc_receive_ref_matches.exit.i
 
 proc_receive_ref_matches.exit.i:                  ; preds = %505, %508, %should_process_cmd.exit.i, %.preheader96.i
-  %.2.i = phi i32 [ 1, %508 ], [ %.1103.i, %should_process_cmd.exit.i ], [ %.1103.i, %.preheader96.i ], [ %.1103.i, %505 ]
+  %.2.i = phi i32 [ 1, %508 ], [ %.1103.i, %.preheader96.i ], [ %.1103.i, %should_process_cmd.exit.i ], [ %.1103.i, %505 ]
   %511 = load ptr, ptr %.154102.i, align 8, !tbaa !26
   %.not63.i = icmp eq ptr %511, null
   br i1 %.not63.i, label %.loopexit97.loopexit.i, label %.preheader96.i, !llvm.loop !120
@@ -1821,7 +1821,7 @@ check_aliased_updates.exit..loopexit_crit_edge.i: ; preds = %check_aliased_updat
   br label %execute_commands.exit
 
 execute_commands.exit:                            ; preds = %.preheader98.i, %517, %521, %529, %611, %613
-  %.not.i60104 = phi ptr [ @.str.143, %611 ], [ @.str.143, %613 ], [ @.str.143, %517 ], [ @.str.143, %529 ], [ @.str.143, %521 ], [ %.0.i, %.preheader98.i ]
+  %.not.i60104 = phi ptr [ @.str.143, %517 ], [ @.str.143, %521 ], [ @.str.143, %529 ], [ @.str.143, %613 ], [ @.str.143, %611 ], [ %.0.i, %.preheader98.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -4231,7 +4231,7 @@ define internal fastcc i32 @run_proc_receive_hook(ptr noundef nonnull %0, ptr no
   br label %.outer.outer
 
 .thread114:                                       ; preds = %51, %45, %46
-  %.257113 = phi i32 [ %.055, %45 ], [ %48, %46 ], [ -1, %51 ]
+  %.257113 = phi i32 [ %48, %46 ], [ %.055, %45 ], [ -1, %51 ]
   call void @strbuf_add(ptr noundef nonnull %7, ptr noundef nonnull @.str.129, i64 noundef 48) #21
   br label %115
 
@@ -4455,7 +4455,7 @@ should_process_cmd.exit.thread:                   ; preds = %.preheader, %18, %s
   br label %strbuf_setlen.exit
 
 strbuf_setlen.exit:                               ; preds = %18, %12, %7, %24
-  %.0 = phi ptr [ @.str.152, %24 ], [ @.str.151, %7 ], [ @.str.151, %12 ], [ @.str.150, %18 ]
+  %.0 = phi ptr [ @.str.151, %12 ], [ @.str.152, %24 ], [ @.str.151, %7 ], [ @.str.150, %18 ]
   br label %27
 
 27:                                               ; preds = %strbuf_setlen.exit, %31

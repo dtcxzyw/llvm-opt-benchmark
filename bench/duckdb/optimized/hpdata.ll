@@ -1781,8 +1781,8 @@ fb_find_impl.exit.i:                              ; preds = %.lr.ph19.i, %._crit
   br label %fb_urange_iter.exit
 
 fb_urange_iter.exit:                              ; preds = %.lr.ph.i, %._crit_edge.i, %fb_find_impl.exit.i
-  %.296 = phi i64 [ %.094, %._crit_edge.i ], [ %21, %fb_find_impl.exit.i ], [ %.094, %.lr.ph.i ]
-  %.292 = phi i64 [ %.090, %._crit_edge.i ], [ %36, %fb_find_impl.exit.i ], [ %.090, %.lr.ph.i ]
+  %.296 = phi i64 [ %21, %fb_find_impl.exit.i ], [ %.094, %._crit_edge.i ], [ %.094, %.lr.ph.i ]
+  %.292 = phi i64 [ %36, %fb_find_impl.exit.i ], [ %.090, %._crit_edge.i ], [ %.090, %.lr.ph.i ]
   %.not = icmp ult i64 %.292, %3
   br i1 %.not, label %37, label %39
 
@@ -2023,7 +2023,7 @@ fb_set_range.exit56:                              ; preds = %._crit_edge.i48, %f
   br i1 %154, label %.lr.ph136, label %.thread108
 
 .thread108:                                       ; preds = %153, %.loopexit, %.lr.ph.i72, %.loopexit.thread, %.thread, %117
-  %.4 = phi i64 [ %.032, %117 ], [ %spec.select40179, %.thread ], [ %.292, %.loopexit.thread ], [ %.335133, %.lr.ph.i72 ], [ %spec.select40, %153 ], [ %.292, %.loopexit ]
+  %.4 = phi i64 [ %spec.select40179, %.thread ], [ %.032, %117 ], [ %.292, %.loopexit.thread ], [ %.335133, %.lr.ph.i72 ], [ %.292, %.loopexit ], [ %spec.select40, %153 ]
   store i64 %.4, ptr %115, align 8, !tbaa !28
   br label %155
 

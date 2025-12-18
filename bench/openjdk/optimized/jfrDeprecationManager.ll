@@ -482,7 +482,7 @@ define hidden void @_ZN21JfrDeprecationManager7on_linkEPK6MethodPS0_ihP10JavaThr
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE64ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.15)
   br label %43
 
-43:                                               ; preds = %32, %40, %42
+43:                                               ; preds = %42, %32, %40
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 1092
   %45 = load volatile i32, ptr %44, align 4
   %.not.i = icmp eq i32 %45, 6

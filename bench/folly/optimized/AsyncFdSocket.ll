@@ -574,7 +574,7 @@ _ZN5folly13AsyncFdSocket23FdSendMsgParamsCallback17getCmsgSizeAndFdsERKNS_11Asyn
   br label %65
 
 _ZN5folly13AsyncFdSocket23FdSendMsgParamsCallback17getCmsgSizeAndFdsERKNS_11AsyncSocket15WriteRequestTagE.exit: ; preds = %42, %20, %33
-  %.sroa.06.1.i.i.i = phi ptr [ %34, %33 ], [ %.sroa.06.0.i.i.i, %20 ], [ %48, %42 ]
+  %.sroa.06.1.i.i.i = phi ptr [ %.sroa.06.0.i.i.i, %20 ], [ %34, %33 ], [ %48, %42 ]
   %53 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 16
   %54 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 24
   %55 = load ptr, ptr %54, align 8, !tbaa !37
@@ -841,7 +841,7 @@ define noundef range(i32 16, 9) i32 @_ZN5folly13AsyncFdSocket23FdSendMsgParamsCa
   br label %_ZN5folly13AsyncFdSocket23FdSendMsgParamsCallback17getCmsgSizeAndFdsERKNS_11AsyncSocket15WriteRequestTagE.exit, !llvm.loop !33
 
 .loopexit13.i:                                    ; preds = %33, %11, %24
-  %.sroa.06.1.i.i.i = phi ptr [ %25, %24 ], [ %.sroa.06.0.i.i.i, %11 ], [ %39, %33 ]
+  %.sroa.06.1.i.i.i = phi ptr [ %.sroa.06.0.i.i.i, %11 ], [ %25, %24 ], [ %39, %33 ]
   %44 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 16
   %45 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 24
   %46 = load ptr, ptr %45, align 8, !tbaa !37
@@ -857,7 +857,7 @@ define noundef range(i32 16, 9) i32 @_ZN5folly13AsyncFdSocket23FdSendMsgParamsCa
   br label %_ZN5folly13AsyncFdSocket23FdSendMsgParamsCallback17getCmsgSizeAndFdsERKNS_11AsyncSocket15WriteRequestTagE.exit
 
 _ZN5folly13AsyncFdSocket23FdSendMsgParamsCallback17getCmsgSizeAndFdsERKNS_11AsyncSocket15WriteRequestTagE.exit: ; preds = %.lr.ph.i.i.i.i.i, %10, %15, %..loopexit_crit_edge21.i.i.i.i.i, %.loopexit13.i
-  %.sroa.010.0.i = phi i32 [ %55, %.loopexit13.i ], [ 0, %15 ], [ 0, %..loopexit_crit_edge21.i.i.i.i.i ], [ 0, %10 ], [ 0, %.lr.ph.i.i.i.i.i ]
+  %.sroa.010.0.i = phi i32 [ %55, %.loopexit13.i ], [ 0, %10 ], [ 0, %15 ], [ 0, %..loopexit_crit_edge21.i.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i.i ]
   ret i32 %.sroa.010.0.i
 }
 
@@ -5851,7 +5851,7 @@ define { i64, ptr } @_ZN5folly13AsyncFdSocket23FdSendMsgParamsCallback17getCmsgS
   br label %.loopexit, !llvm.loop !33
 
 .loopexit13:                                      ; preds = %31, %9, %22
-  %.sroa.06.1.i.i = phi ptr [ %23, %22 ], [ %.sroa.06.0.i.i, %9 ], [ %37, %31 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %9 ], [ %23, %22 ], [ %37, %31 ]
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 24
   %44 = load ptr, ptr %43, align 8, !tbaa !37
@@ -5866,8 +5866,8 @@ define { i64, ptr } @_ZN5folly13AsyncFdSocket23FdSendMsgParamsCallback17getCmsgS
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %8, %..loopexit_crit_edge21.i.i.i.i, %13, %.loopexit13
-  %.sroa.010.0 = phi i64 [ %52, %.loopexit13 ], [ 0, %13 ], [ 0, %..loopexit_crit_edge21.i.i.i.i ], [ 0, %8 ], [ 0, %.lr.ph.i.i.i.i ]
-  %.sroa.3.0 = phi ptr [ %.sroa.06.1.i.i, %.loopexit13 ], [ null, %13 ], [ null, %..loopexit_crit_edge21.i.i.i.i ], [ null, %8 ], [ null, %.lr.ph.i.i.i.i ]
+  %.sroa.010.0 = phi i64 [ %52, %.loopexit13 ], [ 0, %8 ], [ 0, %13 ], [ 0, %..loopexit_crit_edge21.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i ]
+  %.sroa.3.0 = phi ptr [ %.sroa.06.1.i.i, %.loopexit13 ], [ null, %8 ], [ null, %13 ], [ null, %..loopexit_crit_edge21.i.i.i.i ], [ null, %.lr.ph.i.i.i.i ]
   %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.010.0, 0
   %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %.sroa.3.0, 1
   ret { i64, ptr } %.fca.1.insert

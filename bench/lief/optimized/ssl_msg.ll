@@ -1053,7 +1053,7 @@ ssl_parse_inner_plaintext.exit314.thread:         ; preds = %252
   br label %ssl_parse_inner_plaintext.exit
 
 ssl_parse_inner_plaintext.exit:                   ; preds = %236, %250, %133, %153, %149, %139, %._crit_edge367, %.thread, %224, %29, %36, %221, %259, %228, %190, %28
-  %.0 = phi i32 [ -27648, %28 ], [ -27648, %190 ], [ -24576, %29 ], [ -27648, %228 ], [ -29056, %224 ], [ 0, %259 ], [ %212, %221 ], [ %.1.ph, %.thread ], [ -24576, %36 ], [ %.0241.ph329, %133 ], [ -27648, %153 ], [ %148, %149 ], [ -29056, %139 ], [ -29056, %._crit_edge367 ], [ -29184, %250 ], [ -29184, %236 ]
+  %.0 = phi i32 [ -27648, %28 ], [ -27648, %190 ], [ -24576, %29 ], [ -27648, %228 ], [ -29056, %224 ], [ -29184, %250 ], [ 0, %259 ], [ %212, %221 ], [ %.1.ph, %.thread ], [ -29056, %._crit_edge367 ], [ -24576, %36 ], [ %.0241.ph329, %133 ], [ -27648, %153 ], [ %148, %149 ], [ -29056, %139 ], [ -29184, %236 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -5016,7 +5016,7 @@ ssl_get_next_record.exit.thread74:                ; preds = %224, %226, %379
   br label %.backedge.backedge
 
 ssl_get_next_record.exit:                         ; preds = %150, %159, %ssl_check_client_reconnect.exit.i, %235, %367, %380
-  %.078.i = phi i32 [ %154, %159 ], [ %149, %150 ], [ %234, %235 ], [ %.3.i.ph.i, %367 ], [ %223, %ssl_check_client_reconnect.exit.i ], [ %.3.i.ph.i, %380 ]
+  %.078.i = phi i32 [ %.3.i.ph.i, %380 ], [ %149, %150 ], [ %234, %235 ], [ %.3.i.ph.i, %367 ], [ %223, %ssl_check_client_reconnect.exit.i ], [ %154, %159 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %cond = icmp eq i32 %.078.i, -25984
   br i1 %cond, label %.backedge.backedge, label %.thread83
@@ -6405,7 +6405,7 @@ ssl_read_application_data.exit:                   ; preds = %213, %215
   br label %.loopexit
 
 .loopexit:                                        ; preds = %91, %mbedtls_ssl_set_timer.exit, %22, %13, %3, %5, %ssl_read_application_data.exit, %201, %182, %181, %179, %.loopexit106, %93, %86, %53, %51
-  %.0 = phi i32 [ %218, %ssl_read_application_data.exit ], [ -28928, %3 ], [ %14, %13 ], [ %50, %51 ], [ %52, %53 ], [ %23, %22 ], [ %85, %86 ], [ %92, %93 ], [ %.0.i97.ph, %.loopexit106 ], [ -30464, %179 ], [ -26880, %181 ], [ -30464, %182 ], [ %200, %201 ], [ -28928, %5 ], [ 0, %mbedtls_ssl_set_timer.exit ], [ 0, %91 ]
+  %.0 = phi i32 [ %218, %ssl_read_application_data.exit ], [ -28928, %3 ], [ %14, %13 ], [ %50, %51 ], [ %52, %53 ], [ %23, %22 ], [ %85, %86 ], [ -28928, %5 ], [ %92, %93 ], [ %.0.i97.ph, %.loopexit106 ], [ -30464, %179 ], [ -26880, %181 ], [ -30464, %182 ], [ %200, %201 ], [ 0, %mbedtls_ssl_set_timer.exit ], [ 0, %91 ]
   ret i32 %.0
 }
 

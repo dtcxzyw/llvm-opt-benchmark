@@ -118,7 +118,7 @@ define dso_local noundef zeroext i1 @_ZN13DepfileParser5ParseEPNSt7__cxx1112basi
   br i1 %.not233, label %.loopexit284, label %.preheader283
 
 .loopexit284:                                     ; preds = %.preheader283, %174, %173, %173, %138, %137, %137, %.loopexit
-  %.6 = phi ptr [ %73, %.loopexit ], [ %135, %137 ], [ %135, %138 ], [ %168, %173 ], [ %168, %174 ], [ %135, %137 ], [ %168, %173 ], [ %40, %.preheader283 ]
+  %.6 = phi ptr [ %168, %173 ], [ %73, %.loopexit ], [ %135, %137 ], [ %135, %138 ], [ %168, %173 ], [ %168, %174 ], [ %135, %137 ], [ %40, %.preheader283 ]
   %45 = ptrtoint ptr %.6 to i64
   %46 = ptrtoint ptr %.1179 to i64
   %47 = sub i64 %45, %46
@@ -429,9 +429,9 @@ define dso_local noundef zeroext i1 @_ZN13DepfileParser5ParseEPNSt7__cxx1112basi
   br label %.loopexit287
 
 .loopexit287:                                     ; preds = %62, %.loopexit287.loopexit.split.loop.exit, %._crit_edge422, %31, %34, %.loopexit288, %._crit_edge423, %36, %.loopexit286, %77
-  %.1203.ph = phi ptr [ %.0202, %77 ], [ %.0202, %.loopexit286 ], [ %.0202, %36 ], [ %155, %._crit_edge423 ], [ %.0202, %.loopexit288 ], [ %.0202, %34 ], [ %.0202, %31 ], [ %166, %._crit_edge422 ], [ %.0202, %.loopexit287.loopexit.split.loop.exit ], [ %.0202, %62 ]
-  %.1200.ph = phi i1 [ false, %77 ], [ false, %.loopexit286 ], [ false, %36 ], [ %156, %._crit_edge423 ], [ false, %.loopexit288 ], [ true, %34 ], [ false, %31 ], [ false, %._crit_edge422 ], [ false, %.loopexit287.loopexit.split.loop.exit ], [ false, %62 ]
-  %.4182.ph = phi ptr [ %57, %77 ], [ %33, %.loopexit286 ], [ %37, %36 ], [ %146, %._crit_edge423 ], [ %76, %.loopexit288 ], [ %35, %34 ], [ %32, %31 ], [ %158, %._crit_edge422 ], [ %180, %.loopexit287.loopexit.split.loop.exit ], [ %57, %62 ]
+  %.1203.ph = phi ptr [ %.0202, %77 ], [ %.0202, %.loopexit286 ], [ %.0202, %36 ], [ %166, %._crit_edge422 ], [ %.0202, %31 ], [ %155, %._crit_edge423 ], [ %.0202, %.loopexit288 ], [ %.0202, %34 ], [ %.0202, %.loopexit287.loopexit.split.loop.exit ], [ %.0202, %62 ]
+  %.1200.ph = phi i1 [ false, %77 ], [ false, %.loopexit286 ], [ false, %36 ], [ false, %._crit_edge422 ], [ false, %31 ], [ %156, %._crit_edge423 ], [ false, %.loopexit288 ], [ true, %34 ], [ false, %.loopexit287.loopexit.split.loop.exit ], [ false, %62 ]
+  %.4182.ph = phi ptr [ %57, %77 ], [ %33, %.loopexit286 ], [ %37, %36 ], [ %158, %._crit_edge422 ], [ %32, %31 ], [ %146, %._crit_edge423 ], [ %76, %.loopexit288 ], [ %35, %34 ], [ %180, %.loopexit287.loopexit.split.loop.exit ], [ %57, %62 ]
   %181 = ptrtoint ptr %.1203.ph to i64
   %182 = ptrtoint ptr %.0178362 to i64
   %183 = sub i64 %181, %182

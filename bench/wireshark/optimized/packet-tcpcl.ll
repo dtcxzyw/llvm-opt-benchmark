@@ -1118,7 +1118,7 @@ get_clamped_length.exit:                          ; preds = %26
   br i1 %.not83, label %.critedge90, label %47
 
 47:                                               ; preds = %34, %get_clamped_length.exit, %41, %44
-  %.271 = phi i32 [ %46, %44 ], [ %43, %41 ], [ %33, %get_clamped_length.exit ], [ %35, %34 ]
+  %.271 = phi i32 [ %46, %44 ], [ %43, %41 ], [ %35, %34 ], [ %33, %get_clamped_length.exit ]
   %48 = sub i32 %.271, %2
   br label %.critedge90
 
@@ -2121,7 +2121,7 @@ proto_item_set_generated.exit.i189:               ; preds = %550, %547, %543
   br label %tcpcl_frame_loc_compare.exit.i
 
 tcpcl_frame_loc_compare.exit.i:                   ; preds = %567, %559
-  %.0.i.i190 = phi i1 [ true, %559 ], [ %568, %567 ]
+  %.0.i.i190 = phi i1 [ %568, %567 ], [ true, %559 ]
   %569 = and i8 %504, 1
   %.not487.i = icmp eq i8 %569, 0
   %or.cond496.i = select i1 %.0.i.i190, i1 %.not487.i, i1 false

@@ -509,7 +509,7 @@ _ZN2vaL17openDeviceGenericEv.exit.sink.split:     ; preds = %136, %.thread
   br label %_ZN2vaL17openDeviceGenericEv.exit
 
 _ZN2vaL17openDeviceGenericEv.exit:                ; preds = %130, %_ZN2vaL17openDeviceGenericEv.exit.sink.split, %0
-  %.1 = phi i1 [ true, %0 ], [ %133, %_ZN2vaL17openDeviceGenericEv.exit.sink.split ], [ false, %130 ]
+  %.1 = phi i1 [ %133, %_ZN2vaL17openDeviceGenericEv.exit.sink.split ], [ true, %0 ], [ false, %130 ]
   ret i1 %.1
 }
 

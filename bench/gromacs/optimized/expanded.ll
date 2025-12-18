@@ -1926,7 +1926,7 @@ _ZL11FindMinimumPKfi.exit437.i:                   ; preds = %_ZL11FindMinimumPKf
   tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.26, i32 noundef 846, ptr noundef %309)
   br label %_ZL13UpdateWeightsiP10t_expandedP12df_history_tiPKfS4_l.exit.thread
 
-_ZL13UpdateWeightsiP10t_expandedP12df_history_tiPKfS4_l.exit.thread: ; preds = %._crit_edge, %.loopexit.i, %._crit_edge541.i
+_ZL13UpdateWeightsiP10t_expandedP12df_history_tiPKfS4_l.exit.thread: ; preds = %._crit_edge541.i, %._crit_edge, %.loopexit.i
   %690 = icmp ne ptr %0, null
   br label %697
 
@@ -2362,9 +2362,9 @@ _ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit272.i..
   br label %.loopexit.i157
 
 .loopexit.i157:                                   ; preds = %919, %._crit_edge365.i, %.loopexit.loopexit513.i, %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit272.i, %_ZL26GenerateGibbsProbabilitiesPKfPdS1_ii.exit.i
-  %.0356486.i = phi double [ %.0356487491498502.i195, %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit272.i ], [ 0.000000e+00, %_ZL26GenerateGibbsProbabilitiesPKfPdS1_ii.exit.i ], [ %835, %.loopexit.loopexit513.i ], [ 0.000000e+00, %._crit_edge365.i ], [ %.0356487491499506.i, %919 ]
-  %.3222.i = phi i32 [ %.4223.i, %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit272.i ], [ %.0212.i, %_ZL26GenerateGibbsProbabilitiesPKfPdS1_ii.exit.i ], [ %923, %.loopexit.loopexit513.i ], [ %.0200403.i, %._crit_edge365.i ], [ %.4223507.i, %919 ]
-  %.1205.i = phi float [ %.3207.i, %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit272.i ], [ %.0204401.i, %_ZL26GenerateGibbsProbabilitiesPKfPdS1_ii.exit.i ], [ %.0204401.i, %.loopexit.loopexit513.i ], [ %.0204401.i, %._crit_edge365.i ], [ %.5209.i, %919 ]
+  %.0356486.i = phi double [ %835, %.loopexit.loopexit513.i ], [ 0.000000e+00, %_ZL26GenerateGibbsProbabilitiesPKfPdS1_ii.exit.i ], [ %.0356487491498502.i195, %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit272.i ], [ 0.000000e+00, %._crit_edge365.i ], [ %.0356487491499506.i, %919 ]
+  %.3222.i = phi i32 [ %923, %.loopexit.loopexit513.i ], [ %.0212.i, %_ZL26GenerateGibbsProbabilitiesPKfPdS1_ii.exit.i ], [ %.4223.i, %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit272.i ], [ %.0200403.i, %._crit_edge365.i ], [ %.4223507.i, %919 ]
+  %.1205.i = phi float [ %.0204401.i, %.loopexit.loopexit513.i ], [ %.0204401.i, %_ZL26GenerateGibbsProbabilitiesPKfPdS1_ii.exit.i ], [ %.3207.i, %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit272.i ], [ %.0204401.i, %._crit_edge365.i ], [ %.5209.i, %919 ]
   %924 = icmp sgt i32 %.3222.i, %.0216.i
   br i1 %924, label %.loopexit.thread.i, label %1016
 

@@ -2669,7 +2669,7 @@ return.loopexit:                                  ; preds = %if.end, %if.end, %i
   br label %return
 
 return:                                           ; preds = %tailrecurse.backedge, %if.end, %return.loopexit, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ true, %return.loopexit ], [ false, %if.end ], [ false, %tailrecurse.backedge ]
+  %retval.0 = phi i1 [ true, %return.loopexit ], [ false, %entry ], [ false, %if.end ], [ false, %tailrecurse.backedge ]
   ret i1 %retval.0
 }
 
@@ -3271,7 +3271,7 @@ tailrecurse.backedge.i.fold.split:                ; preds = %if.end.i81
   br label %tailrecurse.backedge.i
 
 tailrecurse.backedge.i:                           ; preds = %if.end.i81, %if.end.i81, %if.end.i81, %if.end.i81, %if.end.i81, %if.end.i81, %if.end.i81, %tailrecurse.backedge.i.fold.split, %if.then49.i, %if.then43.i
-  %.sink.i = phi i64 [ 48, %if.end.i81 ], [ 48, %if.end.i81 ], [ 56, %if.then49.i ], [ 56, %if.then43.i ], [ 48, %if.end.i81 ], [ 48, %if.end.i81 ], [ 48, %if.end.i81 ], [ 48, %if.end.i81 ], [ 56, %tailrecurse.backedge.i.fold.split ], [ 48, %if.end.i81 ]
+  %.sink.i = phi i64 [ 48, %if.end.i81 ], [ 48, %if.end.i81 ], [ 48, %if.end.i81 ], [ 56, %if.then49.i ], [ 56, %if.then43.i ], [ 48, %if.end.i81 ], [ 48, %if.end.i81 ], [ 48, %if.end.i81 ], [ 56, %tailrecurse.backedge.i.fold.split ], [ 48, %if.end.i81 ]
   %_callee.i = getelementptr inbounds nuw i8, ptr %expr.tr.i, i64 %.sink.i
   %expr.tr.be.i = load ptr, ptr %_callee.i, align 8
   br label %tailrecurse.i
@@ -3376,7 +3376,7 @@ tailrecurse.backedge.i96.fold.split:              ; preds = %if.end.i88
   br label %tailrecurse.backedge.i96
 
 tailrecurse.backedge.i96:                         ; preds = %if.end.i88, %if.end.i88, %if.end.i88, %if.end.i88, %if.end.i88, %if.end.i88, %if.end.i88, %tailrecurse.backedge.i96.fold.split, %if.then49.i113, %if.then43.i106
-  %.sink.i97 = phi i64 [ 48, %if.end.i88 ], [ 48, %if.end.i88 ], [ 56, %if.then49.i113 ], [ 56, %if.then43.i106 ], [ 48, %if.end.i88 ], [ 48, %if.end.i88 ], [ 48, %if.end.i88 ], [ 48, %if.end.i88 ], [ 56, %tailrecurse.backedge.i96.fold.split ], [ 48, %if.end.i88 ]
+  %.sink.i97 = phi i64 [ 48, %if.end.i88 ], [ 48, %if.end.i88 ], [ 48, %if.end.i88 ], [ 56, %if.then49.i113 ], [ 56, %if.then43.i106 ], [ 48, %if.end.i88 ], [ 48, %if.end.i88 ], [ 48, %if.end.i88 ], [ 56, %tailrecurse.backedge.i96.fold.split ], [ 48, %if.end.i88 ]
   %_callee.i98 = getelementptr inbounds nuw i8, ptr %expr.tr.i83, i64 %.sink.i97
   %expr.tr.be.i99 = load ptr, ptr %_callee.i98, align 8
   br label %tailrecurse.i82
@@ -3470,7 +3470,7 @@ tailrecurse.backedge.i137.fold.split:             ; preds = %if.end.i129
   br label %tailrecurse.backedge.i137
 
 tailrecurse.backedge.i137:                        ; preds = %if.end.i129, %if.end.i129, %if.end.i129, %if.end.i129, %if.end.i129, %if.end.i129, %if.end.i129, %tailrecurse.backedge.i137.fold.split, %if.then49.i154, %if.then43.i147
-  %.sink.i138 = phi i64 [ 48, %if.end.i129 ], [ 48, %if.end.i129 ], [ 56, %if.then49.i154 ], [ 56, %if.then43.i147 ], [ 48, %if.end.i129 ], [ 48, %if.end.i129 ], [ 48, %if.end.i129 ], [ 48, %if.end.i129 ], [ 56, %tailrecurse.backedge.i137.fold.split ], [ 48, %if.end.i129 ]
+  %.sink.i138 = phi i64 [ 48, %if.end.i129 ], [ 48, %if.end.i129 ], [ 48, %if.end.i129 ], [ 56, %if.then49.i154 ], [ 56, %if.then43.i147 ], [ 48, %if.end.i129 ], [ 48, %if.end.i129 ], [ 48, %if.end.i129 ], [ 56, %tailrecurse.backedge.i137.fold.split ], [ 48, %if.end.i129 ]
   %_callee.i139 = getelementptr inbounds nuw i8, ptr %expr.tr.i123, i64 %.sink.i138
   %expr.tr.be.i140 = load ptr, ptr %_callee.i139, align 8
   br label %tailrecurse.i122
@@ -3584,7 +3584,7 @@ tailrecurse.backedge.i178.fold.split:             ; preds = %if.end.i170
   br label %tailrecurse.backedge.i178
 
 tailrecurse.backedge.i178:                        ; preds = %if.end.i170, %if.end.i170, %if.end.i170, %if.end.i170, %if.end.i170, %if.end.i170, %if.end.i170, %tailrecurse.backedge.i178.fold.split, %if.then49.i195, %if.then43.i188
-  %.sink.i179 = phi i64 [ 48, %if.end.i170 ], [ 48, %if.end.i170 ], [ 56, %if.then49.i195 ], [ 56, %if.then43.i188 ], [ 48, %if.end.i170 ], [ 48, %if.end.i170 ], [ 48, %if.end.i170 ], [ 48, %if.end.i170 ], [ 56, %tailrecurse.backedge.i178.fold.split ], [ 48, %if.end.i170 ]
+  %.sink.i179 = phi i64 [ 48, %if.end.i170 ], [ 48, %if.end.i170 ], [ 48, %if.end.i170 ], [ 56, %if.then49.i195 ], [ 56, %if.then43.i188 ], [ 48, %if.end.i170 ], [ 48, %if.end.i170 ], [ 48, %if.end.i170 ], [ 56, %tailrecurse.backedge.i178.fold.split ], [ 48, %if.end.i170 ]
   %_callee.i180 = getelementptr inbounds nuw i8, ptr %expr.tr.i164, i64 %.sink.i179
   %expr.tr.be.i181 = load ptr, ptr %_callee.i180, align 8
   br label %tailrecurse.i163
@@ -3677,7 +3677,7 @@ tailrecurse.backedge.i226.fold.split:             ; preds = %if.end.i218
   br label %tailrecurse.backedge.i226
 
 tailrecurse.backedge.i226:                        ; preds = %if.end.i218, %if.end.i218, %if.end.i218, %if.end.i218, %if.end.i218, %if.end.i218, %if.end.i218, %tailrecurse.backedge.i226.fold.split, %if.then49.i243, %if.then43.i236
-  %.sink.i227 = phi i64 [ 48, %if.end.i218 ], [ 48, %if.end.i218 ], [ 56, %if.then49.i243 ], [ 56, %if.then43.i236 ], [ 48, %if.end.i218 ], [ 48, %if.end.i218 ], [ 48, %if.end.i218 ], [ 48, %if.end.i218 ], [ 56, %tailrecurse.backedge.i226.fold.split ], [ 48, %if.end.i218 ]
+  %.sink.i227 = phi i64 [ 48, %if.end.i218 ], [ 48, %if.end.i218 ], [ 48, %if.end.i218 ], [ 56, %if.then49.i243 ], [ 56, %if.then43.i236 ], [ 48, %if.end.i218 ], [ 48, %if.end.i218 ], [ 48, %if.end.i218 ], [ 56, %tailrecurse.backedge.i226.fold.split ], [ 48, %if.end.i218 ]
   %_callee.i228 = getelementptr inbounds nuw i8, ptr %expr.tr.i212, i64 %.sink.i227
   %expr.tr.be.i229 = load ptr, ptr %_callee.i228, align 8
   br label %tailrecurse.i211
@@ -3848,8 +3848,8 @@ return.fold.split49:                              ; preds = %entry
   br label %return
 
 return:                                           ; preds = %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %return.fold.split49, %land.lhs.true50, %lor.lhs.false36, %return.fold.split46, %return.fold.split44, %return.fold.split42, %return.fold.split41, %return.fold.split37, %return.fold.split, %land.lhs.true, %if.end91, %if.then69, %if.then62
-  %retval.sroa.0.0 = phi i32 [ 32, %entry ], [ 27, %return.fold.split41 ], [ %spec.select39, %land.lhs.true50 ], [ 0, %if.end91 ], [ %call73, %if.then69 ], [ %call64, %if.then62 ], [ 32, %entry ], [ 32, %entry ], [ 32, %entry ], [ 32, %entry ], [ 32, %entry ], [ 32, %entry ], [ 32, %entry ], [ 32, %entry ], [ 32, %entry ], [ 32, %entry ], [ 32, %entry ], [ 32, %entry ], [ 32, %entry ], [ 32, %entry ], [ 1, %return.fold.split46 ], [ 31, %land.lhs.true ], [ 4, %return.fold.split42 ], [ 31, %return.fold.split ], [ 3, %return.fold.split44 ], [ %spec.select, %lor.lhs.false36 ], [ 29, %return.fold.split37 ], [ 5, %return.fold.split49 ]
-  %retval.sroa.15.0 = phi i64 [ 0, %entry ], [ 4294967296, %return.fold.split41 ], [ %4, %land.lhs.true50 ], [ 0, %if.end91 ], [ 0, %if.then69 ], [ 0, %if.then62 ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 4294967296, %return.fold.split46 ], [ 0, %land.lhs.true ], [ 4294967296, %return.fold.split42 ], [ 0, %return.fold.split ], [ 0, %return.fold.split44 ], [ 0, %lor.lhs.false36 ], [ 0, %return.fold.split37 ], [ 4294967296, %return.fold.split49 ]
+  %retval.sroa.0.0 = phi i32 [ 1, %return.fold.split46 ], [ 32, %entry ], [ 29, %return.fold.split37 ], [ 31, %land.lhs.true ], [ 4, %return.fold.split42 ], [ %spec.select39, %land.lhs.true50 ], [ %spec.select, %lor.lhs.false36 ], [ 27, %return.fold.split41 ], [ 31, %return.fold.split ], [ 3, %return.fold.split44 ], [ 0, %if.end91 ], [ %call73, %if.then69 ], [ %call64, %if.then62 ], [ 32, %entry ], [ 32, %entry ], [ 32, %entry ], [ 32, %entry ], [ 32, %entry ], [ 32, %entry ], [ 32, %entry ], [ 32, %entry ], [ 32, %entry ], [ 32, %entry ], [ 32, %entry ], [ 32, %entry ], [ 32, %entry ], [ 32, %entry ], [ 5, %return.fold.split49 ]
+  %retval.sroa.15.0 = phi i64 [ 4294967296, %return.fold.split46 ], [ 0, %entry ], [ 0, %return.fold.split37 ], [ 0, %land.lhs.true ], [ 4294967296, %return.fold.split42 ], [ %4, %land.lhs.true50 ], [ 0, %lor.lhs.false36 ], [ 4294967296, %return.fold.split41 ], [ 0, %return.fold.split ], [ 0, %return.fold.split44 ], [ 0, %if.end91 ], [ 0, %if.then69 ], [ 0, %if.then62 ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 4294967296, %return.fold.split49 ]
   %retval.sroa.0.0.insert.ext = zext nneg i32 %retval.sroa.0.0 to i64
   %retval.sroa.0.0.insert.insert = or disjoint i64 %retval.sroa.15.0, %retval.sroa.0.0.insert.ext
   ret i64 %retval.sroa.0.0.insert.insert
@@ -3975,7 +3975,7 @@ _ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.
   br label %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit
 
 _ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit: ; preds = %if.end.i.i854, %if.end.i.i854, %if.end.i.i854, %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split431, %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split430, %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split429, %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split427, %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split, %if.end.i.i, %land.lhs.true.i877, %if.end.i.i84, %if.end.i.i119, %if.end.i.i154, %if.end.i.i189, %if.end.i.i329, %if.end.i.i364, %if.end.i.i399, %if.end.i.i434, %if.end.i.i469, %if.end.i.i504, %if.end.i.i609, %if.end.i.i644, %if.end.i.i679, %if.end.i.i889, %land.lhs.true.i.thread
-  %retval.i.0 = phi i32 [ %spec.select, %if.end.i.i ], [ 0, %land.lhs.true.i.thread ], [ 0, %land.lhs.true.i877 ], [ 7, %if.end.i.i119 ], [ 14, %if.end.i.i84 ], [ 9, %if.end.i.i189 ], [ 8, %if.end.i.i154 ], [ 13, %if.end.i.i329 ], [ 13, %if.end.i.i399 ], [ 13, %if.end.i.i364 ], [ 14, %if.end.i.i469 ], [ 13, %if.end.i.i434 ], [ 14, %if.end.i.i504 ], [ 15, %if.end.i.i609 ], [ 15, %if.end.i.i679 ], [ 15, %if.end.i.i644 ], [ 17, %if.end.i.i854 ], [ 17, %if.end.i.i854 ], [ 18, %if.end.i.i889 ], [ 17, %if.end.i.i854 ], [ 16, %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split ], [ 10, %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split431 ], [ 14, %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split427 ], [ 11, %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split430 ], [ 12, %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split429 ]
+  %retval.i.0 = phi i32 [ %spec.select, %if.end.i.i ], [ 0, %land.lhs.true.i.thread ], [ 0, %land.lhs.true.i877 ], [ 7, %if.end.i.i119 ], [ 14, %if.end.i.i84 ], [ 9, %if.end.i.i189 ], [ 8, %if.end.i.i154 ], [ 12, %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split429 ], [ 11, %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split430 ], [ 13, %if.end.i.i329 ], [ 17, %if.end.i.i854 ], [ 13, %if.end.i.i399 ], [ 13, %if.end.i.i364 ], [ 14, %if.end.i.i469 ], [ 13, %if.end.i.i434 ], [ 14, %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split427 ], [ 14, %if.end.i.i504 ], [ 15, %if.end.i.i609 ], [ 10, %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split431 ], [ 15, %if.end.i.i679 ], [ 15, %if.end.i.i644 ], [ 18, %if.end.i.i889 ], [ 16, %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split ], [ 17, %if.end.i.i854 ], [ 17, %if.end.i.i854 ]
   ret i32 %retval.i.0
 }
 

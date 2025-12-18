@@ -2239,9 +2239,9 @@ gray_set_cell.exit225:                            ; preds = %.lr.ph.i220, %290, 
   br i1 %323, label %209, label %.loopexit, !llvm.loop !130
 
 .loopexit:                                        ; preds = %gray_set_cell.exit225, %gray_set_cell.exit215, %gray_set_cell.exit205, %..loopexit_crit_edge
-  %324 = phi ptr [ %.pre258, %..loopexit_crit_edge ], [ %.0.sink.i207, %gray_set_cell.exit215 ], [ %.0.sink.i197, %gray_set_cell.exit205 ], [ %.0.sink.i217, %gray_set_cell.exit225 ]
-  %.0168 = phi i32 [ %27, %..loopexit_crit_edge ], [ 256, %gray_set_cell.exit215 ], [ 0, %gray_set_cell.exit205 ], [ %.4, %gray_set_cell.exit225 ]
-  %.0 = phi i32 [ %25, %..loopexit_crit_edge ], [ %25, %gray_set_cell.exit215 ], [ %25, %gray_set_cell.exit205 ], [ %.2, %gray_set_cell.exit225 ]
+  %324 = phi ptr [ %.pre258, %..loopexit_crit_edge ], [ %.0.sink.i197, %gray_set_cell.exit205 ], [ %.0.sink.i207, %gray_set_cell.exit215 ], [ %.0.sink.i217, %gray_set_cell.exit225 ]
+  %.0168 = phi i32 [ %27, %..loopexit_crit_edge ], [ 0, %gray_set_cell.exit205 ], [ 256, %gray_set_cell.exit215 ], [ %.4, %gray_set_cell.exit225 ]
+  %.0 = phi i32 [ %25, %..loopexit_crit_edge ], [ %25, %gray_set_cell.exit205 ], [ %25, %gray_set_cell.exit215 ], [ %.2, %gray_set_cell.exit225 ]
   %325 = trunc i64 %1 to i32
   %326 = and i32 %325, 255
   %327 = trunc i64 %2 to i32

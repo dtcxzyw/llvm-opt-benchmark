@@ -3278,7 +3278,7 @@ _ZN20BigEndianEncoderImpl6encodeItEEmT_Ph.exit.i.thread.i: ; preds = %44
   br i1 %exitcond.not.i.i8, label %_ZN11EncoderHostI20Varint128EncoderImpl20BigEndianEncoderImplE5writeItEEPhPKT_mS4_.exit, label %.preheader.i.i7, !llvm.loop !26
 
 _ZN11EncoderHostI20Varint128EncoderImpl20BigEndianEncoderImplE5writeItEEPhPKT_mS4_.exit: ; preds = %.preheader.i.i7, %.preheader.i.us.i, %_ZN20Varint128EncoderImpl6encodeItEEmT_Ph.exit16.i.i, %_ZN20BigEndianEncoderImpl6encodeItEEmT_Ph.exit.i.thread.i, %_ZN20BigEndianEncoderImpl6encodeItEEmT_Ph.exit.i.i, %_ZN20Varint128EncoderImpl6encodeItEEmT_Ph.exit.i.i
-  %.011.i.i.pn = phi i64 [ %.0.i.i.i, %_ZN20Varint128EncoderImpl6encodeItEEmT_Ph.exit.i.i ], [ 2, %_ZN20BigEndianEncoderImpl6encodeItEEmT_Ph.exit.i.i ], [ 2, %_ZN20BigEndianEncoderImpl6encodeItEEmT_Ph.exit.i.thread.i ], [ %55, %.preheader.i.us.i ], [ %42, %_ZN20Varint128EncoderImpl6encodeItEEmT_Ph.exit16.i.i ], [ %61, %.preheader.i.i7 ]
+  %.011.i.i.pn = phi i64 [ %42, %_ZN20Varint128EncoderImpl6encodeItEEmT_Ph.exit16.i.i ], [ %.0.i.i.i, %_ZN20Varint128EncoderImpl6encodeItEEmT_Ph.exit.i.i ], [ 2, %_ZN20BigEndianEncoderImpl6encodeItEEmT_Ph.exit.i.i ], [ 2, %_ZN20BigEndianEncoderImpl6encodeItEEmT_Ph.exit.i.thread.i ], [ %55, %.preheader.i.us.i ], [ %61, %.preheader.i.i7 ]
   %63 = getelementptr inbounds i8, ptr %3, i64 %.011.i.i.pn
   ret ptr %63
 }

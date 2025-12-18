@@ -909,7 +909,7 @@ _ZN9Imath_3_14halfC2Ef.exit:                      ; preds = %26, %29, %39, %41, 
   br i1 %exitcond87.not, label %.critedge64, label %76, !llvm.loop !38
 
 .critedge64:                                      ; preds = %.critedge, %_ZN9Imath_3_14halfC2Ef.exit, %86, %81, %.preheader, %71
-  %.5 = phi i1 [ true, %71 ], [ true, %.preheader ], [ false, %_ZN9Imath_3_14halfC2Ef.exit ], [ false, %81 ], [ true, %86 ], [ true, %.critedge ]
+  %.5 = phi i1 [ true, %.preheader ], [ false, %81 ], [ true, %71 ], [ false, %_ZN9Imath_3_14halfC2Ef.exit ], [ true, %86 ], [ true, %.critedge ]
   ret i1 %.5
 }
 

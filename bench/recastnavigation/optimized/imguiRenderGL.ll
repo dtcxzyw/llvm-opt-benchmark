@@ -800,7 +800,7 @@ _ZL17stbtt__find_tablePhjPKc.exit156:             ; preds = %334
   br label %_ZL17stbtt__find_tablePhjPKc.exit156.thread
 
 _ZL17stbtt__find_tablePhjPKc.exit156.thread:      ; preds = %338, %_ZL17stbtt__find_tablePhjPKc.exit156, %314, %357
-  %.sink = phi i32 [ %365, %357 ], [ 65535, %314 ], [ 65535, %_ZL17stbtt__find_tablePhjPKc.exit156 ], [ 65535, %338 ]
+  %.sink = phi i32 [ %365, %357 ], [ 65535, %_ZL17stbtt__find_tablePhjPKc.exit156 ], [ 65535, %314 ], [ 65535, %338 ]
   %366 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %.sink, ptr %366, align 4
   %367 = zext i32 %.0.i158 to i64
@@ -1275,7 +1275,7 @@ define dso_local i32 @stbtt_FindGlyphIndex(ptr noundef readonly captures(none) %
   br i1 %261, label %191, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %260, %170, %167, %238, %._crit_edge, %56, %2, %29, %36, %14, %257, %151, %138, %45, %23
-  %.0 = phi i32 [ %28, %23 ], [ %55, %45 ], [ 0, %14 ], [ 0, %29 ], [ 0, %2 ], [ 0, %56 ], [ %150, %138 ], [ %166, %151 ], [ %259, %257 ], [ 0, %._crit_edge ], [ %256, %238 ], [ 0, %36 ], [ 0, %167 ], [ 0, %170 ], [ 0, %260 ]
+  %.0 = phi i32 [ %28, %23 ], [ 0, %167 ], [ %55, %45 ], [ 0, %14 ], [ 0, %29 ], [ 0, %2 ], [ 0, %56 ], [ %150, %138 ], [ %166, %151 ], [ %259, %257 ], [ 0, %._crit_edge ], [ %256, %238 ], [ 0, %36 ], [ 0, %170 ], [ 0, %260 ]
   ret i32 %.0
 }
 
@@ -2889,7 +2889,7 @@ define dso_local range(i32 -32768, 32768) i32 @stbtt_GetCodepointKernAdvance(ptr
   br i1 %.not28.i, label %stbtt_GetGlyphKernAdvance.exit, label %35, !llvm.loop !16
 
 stbtt_GetGlyphKernAdvance.exit:                   ; preds = %74, %65, %24, %17, %6, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %6 ], [ %73, %65 ], [ 0, %17 ], [ 0, %24 ], [ 0, %74 ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %24 ], [ 0, %6 ], [ %73, %65 ], [ 0, %17 ], [ 0, %74 ]
   ret i32 %.0
 }
 
@@ -7526,8 +7526,8 @@ stbtt_MakeGlyphBitmapSubpixel.exit:               ; preds = %stbtt_GetGlyphBitma
   br i1 %exitcond183.not.i, label %.loopexit.i, label %.lr.ph138.i, !llvm.loop !41
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %.lr.ph120.i, %.lr.ph126.i, %.lr.ph132.i, %.lr.ph138.i, %.preheader.i, %.preheader105.i, %.preheader107.i, %.preheader109.i, %.preheader111.i
-  %.189.i = phi i32 [ 0, %.preheader.i ], [ 0, %.preheader105.i ], [ 0, %.preheader107.i ], [ 0, %.preheader109.i ], [ 0, %.preheader111.i ], [ %380, %.lr.ph120.i ], [ %380, %.lr.ph138.i ], [ %380, %.lr.ph132.i ], [ %380, %.lr.ph126.i ], [ %380, %.lr.ph.i ]
-  %.1.i = phi i32 [ 0, %.preheader.i ], [ 0, %.preheader105.i ], [ 0, %.preheader107.i ], [ 0, %.preheader109.i ], [ 0, %.preheader111.i ], [ %418, %.lr.ph120.i ], [ %446, %.lr.ph138.i ], [ %390, %.lr.ph132.i ], [ %404, %.lr.ph126.i ], [ %431, %.lr.ph.i ]
+  %.189.i = phi i32 [ %380, %.lr.ph138.i ], [ %380, %.lr.ph132.i ], [ %380, %.lr.ph126.i ], [ %380, %.lr.ph120.i ], [ 0, %.preheader.i ], [ 0, %.preheader105.i ], [ 0, %.preheader107.i ], [ 0, %.preheader109.i ], [ 0, %.preheader111.i ], [ %380, %.lr.ph.i ]
+  %.1.i = phi i32 [ %446, %.lr.ph138.i ], [ %390, %.lr.ph132.i ], [ %404, %.lr.ph126.i ], [ %418, %.lr.ph120.i ], [ 0, %.preheader.i ], [ 0, %.preheader105.i ], [ 0, %.preheader107.i ], [ 0, %.preheader109.i ], [ 0, %.preheader111.i ], [ %431, %.lr.ph.i ]
   %453 = icmp slt i32 %.189.i, %369
   br i1 %453, label %.lr.ph143.preheader.i, label %._crit_edge.i
 
@@ -7747,8 +7747,8 @@ _ZL18stbtt__h_prefilterPhiiij.exit:               ; preds = %_ZL18stbtt__h_prefi
   br i1 %exitcond198.not.i, label %.loopexit.i145, label %.lr.ph153.i, !llvm.loop !48
 
 .loopexit.i145:                                   ; preds = %.lr.ph.i141, %.lr.ph135.i, %.lr.ph141.i, %.lr.ph147.i, %.lr.ph153.i, %.preheader.i153, %.preheader120.i, %.preheader122.i, %.preheader124.i, %.preheader126.i
-  %.1104.i = phi i32 [ 0, %.preheader.i153 ], [ 0, %.preheader120.i ], [ 0, %.preheader122.i ], [ 0, %.preheader124.i ], [ 0, %.preheader126.i ], [ %485, %.lr.ph135.i ], [ %485, %.lr.ph153.i ], [ %485, %.lr.ph147.i ], [ %485, %.lr.ph141.i ], [ %485, %.lr.ph.i141 ]
-  %.1.i146 = phi i32 [ 0, %.preheader.i153 ], [ 0, %.preheader120.i ], [ 0, %.preheader122.i ], [ 0, %.preheader124.i ], [ 0, %.preheader126.i ], [ %526, %.lr.ph135.i ], [ %556, %.lr.ph153.i ], [ %496, %.lr.ph147.i ], [ %511, %.lr.ph141.i ], [ %540, %.lr.ph.i141 ]
+  %.1104.i = phi i32 [ %485, %.lr.ph153.i ], [ %485, %.lr.ph147.i ], [ %485, %.lr.ph141.i ], [ %485, %.lr.ph135.i ], [ 0, %.preheader.i153 ], [ 0, %.preheader120.i ], [ 0, %.preheader122.i ], [ 0, %.preheader124.i ], [ 0, %.preheader126.i ], [ %485, %.lr.ph.i141 ]
+  %.1.i146 = phi i32 [ %556, %.lr.ph153.i ], [ %496, %.lr.ph147.i ], [ %511, %.lr.ph141.i ], [ %526, %.lr.ph135.i ], [ 0, %.preheader.i153 ], [ 0, %.preheader120.i ], [ 0, %.preheader122.i ], [ 0, %.preheader124.i ], [ 0, %.preheader126.i ], [ %540, %.lr.ph.i141 ]
   %563 = icmp slt i32 %.1104.i, %475
   br i1 %563, label %.lr.ph158.preheader.i, label %._crit_edge.i147
 
@@ -8636,7 +8636,7 @@ _ZL17stbtt__find_tablePhjPKc.exit:                ; preds = %35
   br i1 %exitcond.not, label %_ZL17stbtt__find_tablePhjPKc.exit.thread, label %75, !llvm.loop !59
 
 _ZL17stbtt__find_tablePhjPKc.exit.thread:         ; preds = %39, %127, %58, %6, %_ZL17stbtt__find_tablePhjPKc.exit, %111
-  %.0 = phi ptr [ %126, %111 ], [ null, %_ZL17stbtt__find_tablePhjPKc.exit ], [ null, %6 ], [ null, %58 ], [ null, %127 ], [ null, %39 ]
+  %.0 = phi ptr [ %126, %111 ], [ null, %_ZL17stbtt__find_tablePhjPKc.exit ], [ null, %58 ], [ null, %6 ], [ null, %127 ], [ null, %39 ]
   ret ptr %.0
 }
 

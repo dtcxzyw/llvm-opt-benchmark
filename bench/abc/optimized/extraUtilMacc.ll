@@ -747,7 +747,7 @@ Vec_WecPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br i1 %exitcond230.not, label %.preheader182, label %.lr.ph186, !llvm.loop !29
 
 ._crit_edge217:                                   ; preds = %._crit_edge210.split.us.us, %._crit_edge192.us, %33, %._crit_edge, %.preheader182
-  %.pre.i.i179293 = phi ptr [ %.val.i187, %.preheader182 ], [ %.promoted, %._crit_edge ], [ %.val.i187, %33 ], [ %.val.i187, %._crit_edge192.us ], [ %.val.i187, %._crit_edge210.split.us.us ]
+  %.pre.i.i179293 = phi ptr [ %.val.i187, %33 ], [ %.val.i187, %.preheader182 ], [ %.promoted, %._crit_edge ], [ %.val.i187, %._crit_edge192.us ], [ %.val.i187, %._crit_edge210.split.us.us ]
   %.val1821.i = load i32, ptr %10, align 4, !tbaa !13
   %261 = icmp sgt i32 %.val1821.i, 0
   br i1 %261, label %.lr.ph23.i.preheader, label %Vec_WecPrint.exit

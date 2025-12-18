@@ -1051,7 +1051,7 @@ RightRotate.exit79:                               ; preds = %171, %172
   br i1 %179, label %12, label %._crit_edge, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %174, %RightRotate.exit79, %LeftRotate.exit73, %2
-  %.055.lcssa = phi ptr [ %1, %2 ], [ %6, %LeftRotate.exit73 ], [ %6, %RightRotate.exit79 ], [ %.156, %174 ]
+  %.055.lcssa = phi ptr [ %1, %2 ], [ %6, %RightRotate.exit79 ], [ %6, %LeftRotate.exit73 ], [ %.156, %174 ]
   %180 = getelementptr inbounds nuw i8, ptr %.055.lcssa, i64 8
   store i32 0, ptr %180, align 8, !tbaa !16
   ret void

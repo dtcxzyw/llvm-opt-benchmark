@@ -837,9 +837,9 @@ up_irq_restore.exit130:                           ; preds = %205, %207
   br label %uart_putxmitchar.exit
 
 uart_putxmitchar.exit:                            ; preds = %.split178, %up_irq_restore.exit24.i, %up_irq_restore.exit24.i124, %._crit_edge.i114, %._crit_edge.i, %up_irq_restore.exit128, %up_irq_restore.exit130, %.loopexit135
-  %.179 = phi ptr [ %.078.ph231, %up_irq_restore.exit130 ], [ %50, %.loopexit135 ], [ %.078.ph231, %up_irq_restore.exit128 ], [ %50, %._crit_edge.i ], [ %50, %._crit_edge.i114 ], [ %50, %up_irq_restore.exit24.i ], [ %50, %up_irq_restore.exit24.i124 ], [ %50, %.split178 ]
-  %.2 = phi i64 [ %.075.ph233, %up_irq_restore.exit130 ], [ %51, %.loopexit135 ], [ %.075.ph233, %up_irq_restore.exit128 ], [ %51, %._crit_edge.i ], [ %51, %._crit_edge.i114 ], [ %51, %up_irq_restore.exit24.i ], [ %51, %up_irq_restore.exit24.i124 ], [ %51, %.split178 ]
-  %.174 = phi i1 [ %.073.ph.ph242, %up_irq_restore.exit130 ], [ %.073.ph.ph242, %.loopexit135 ], [ %.073.ph.ph242, %up_irq_restore.exit128 ], [ true, %._crit_edge.i ], [ true, %._crit_edge.i114 ], [ true, %up_irq_restore.exit24.i ], [ true, %up_irq_restore.exit24.i124 ], [ %.073.ph.ph242, %.split178 ]
+  %.179 = phi ptr [ %.078.ph231, %up_irq_restore.exit130 ], [ %50, %.loopexit135 ], [ %50, %up_irq_restore.exit24.i124 ], [ %.078.ph231, %up_irq_restore.exit128 ], [ %50, %up_irq_restore.exit24.i ], [ %50, %._crit_edge.i ], [ %50, %._crit_edge.i114 ], [ %50, %.split178 ]
+  %.2 = phi i64 [ %.075.ph233, %up_irq_restore.exit130 ], [ %51, %.loopexit135 ], [ %51, %up_irq_restore.exit24.i124 ], [ %.075.ph233, %up_irq_restore.exit128 ], [ %51, %up_irq_restore.exit24.i ], [ %51, %._crit_edge.i ], [ %51, %._crit_edge.i114 ], [ %51, %.split178 ]
+  %.174 = phi i1 [ %.073.ph.ph242, %up_irq_restore.exit130 ], [ %.073.ph.ph242, %.loopexit135 ], [ true, %up_irq_restore.exit24.i124 ], [ %.073.ph.ph242, %up_irq_restore.exit128 ], [ true, %up_irq_restore.exit24.i ], [ true, %._crit_edge.i ], [ true, %._crit_edge.i114 ], [ %.073.ph.ph242, %.split178 ]
   %211 = icmp ult i64 %.2, %2
   br i1 %211, label %.lr.ph.lr.ph, label %.loopexit, !llvm.loop !11
 
@@ -849,8 +849,8 @@ uart_putxmitchar.exit:                            ; preds = %.split178, %up_irq_
   br label %.loopexit
 
 .loopexit:                                        ; preds = %uart_putxmitchar.exit, %.lr.ph.split.us.split.us, %174, %177, %60, %.loopexit.loopexit304.split.loop.exit337
-  %.073.ph.ph164 = phi i1 [ %.073.ph.ph242, %.loopexit.loopexit304.split.loop.exit337 ], [ %.073.ph.ph242, %.lr.ph.split.us.split.us ], [ %.073.ph.ph242, %60 ], [ %.073.ph.ph242, %174 ], [ %.073.ph.ph242, %177 ], [ %.174, %uart_putxmitchar.exit ]
-  %.176 = phi i64 [ %umax.le, %.loopexit.loopexit304.split.loop.exit337 ], [ %.075.ph233, %.lr.ph.split.us.split.us ], [ %.075.ph233, %60 ], [ -77, %174 ], [ -11, %177 ], [ %.2, %uart_putxmitchar.exit ]
+  %.073.ph.ph164 = phi i1 [ %.073.ph.ph242, %.lr.ph.split.us.split.us ], [ %.073.ph.ph242, %174 ], [ %.073.ph.ph242, %60 ], [ %.073.ph.ph242, %.loopexit.loopexit304.split.loop.exit337 ], [ %.073.ph.ph242, %177 ], [ %.174, %uart_putxmitchar.exit ]
+  %.176 = phi i64 [ %.075.ph233, %.lr.ph.split.us.split.us ], [ -77, %174 ], [ %.075.ph233, %60 ], [ %umax.le, %.loopexit.loopexit304.split.loop.exit337 ], [ -11, %177 ], [ %.2, %uart_putxmitchar.exit ]
   br i1 %.073.ph.ph164, label %213, label %.loopexit.thread
 
 213:                                              ; preds = %202, %.loopexit
@@ -1176,7 +1176,7 @@ up_irq_restore.exit24.i69:                        ; preds = %136, %126
   br i1 %.not21.i67, label %.lr.ph.split.i62, label %.loopexit78
 
 .loopexit:                                        ; preds = %.lr.ph.i55, %.lr.ph.i61, %up_irq_restore.exit24.i, %up_irq_restore.exit24.i69
-  %.142.ph = phi i64 [ -4, %up_irq_restore.exit24.i ], [ -4, %up_irq_restore.exit24.i69 ], [ -11, %.lr.ph.i61 ], [ -11, %.lr.ph.i55 ]
+  %.142.ph = phi i64 [ -4, %up_irq_restore.exit24.i69 ], [ -4, %up_irq_restore.exit24.i ], [ -11, %.lr.ph.i61 ], [ -11, %.lr.ph.i55 ]
   %139 = icmp ult i64 %.04587, %2
   %140 = sub nuw i64 %2, %.04587
   %spec.select = select i1 %139, i64 %140, i64 %.142.ph

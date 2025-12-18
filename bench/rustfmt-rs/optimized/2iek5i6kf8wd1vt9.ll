@@ -843,7 +843,7 @@ define internal fastcc noundef range(i32 0, 1114113) i32 @"_ZN114_$LT$core..iter
   br label %7
 
 "_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb8d662079b352997E.exit": ; preds = %7, %.loopexit.i, %27, %30
-  %.0.i = phi i32 [ 1114112, %.loopexit.i ], [ %29, %27 ], [ 1114112, %30 ], [ %8, %7 ]
+  %.0.i = phi i32 [ 1114112, %30 ], [ 1114112, %.loopexit.i ], [ %29, %27 ], [ %8, %7 ]
   ret i32 %.0.i
 }
 
@@ -6264,7 +6264,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   br i1 %.0.i.i.not.i.not.i.i.i.i.i.i.i, label %.preheader.i.i.i.i.i.i, label %.loopexit
 
 .loopexit:                                        ; preds = %19, %29, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbb0d681aeae14045E.exit", %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h6c3e877d910d170dE.exit.loopexit", %34, %2
-  %.not24 = phi i1 [ true, %34 ], [ false, %2 ], [ false, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h6c3e877d910d170dE.exit.loopexit" ], [ false, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbb0d681aeae14045E.exit" ], [ true, %19 ], [ true, %29 ]
+  %.not24 = phi i1 [ false, %2 ], [ true, %34 ], [ false, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbb0d681aeae14045E.exit" ], [ true, %19 ], [ true, %29 ], [ false, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h6c3e877d910d170dE.exit.loopexit" ]
   ret i1 %.not24
 }
 
@@ -11716,7 +11716,7 @@ define hidden noundef zeroext i1 @"_ZN94_$LT$std..collections..hash..map..HashMa
   br i1 %.0.i.i.not.i.not.i.i.i.i.i.i.i.i, label %.preheader.i.i.i.i.i.i.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h2b10d386fe4fbca6E.llvm.8986235990505969818.exit
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h2b10d386fe4fbca6E.llvm.8986235990505969818.exit: ; preds = %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h6c3e877d910d170dE.exit.i.loopexit", %.loopexit, %32, %37, %7, %2
-  %.0 = phi i1 [ false, %2 ], [ true, %7 ], [ false, %37 ], [ false, %.loopexit ], [ true, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h6c3e877d910d170dE.exit.i.loopexit" ], [ false, %32 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %37 ], [ true, %7 ], [ false, %.loopexit ], [ true, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h6c3e877d910d170dE.exit.i.loopexit" ], [ false, %32 ]
   ret i1 %.0
 }
 
@@ -33522,8 +33522,8 @@ _ZN15rustfmt_nightly7modules11ModResolver24find_mods_outside_of_ast17hadd5d9d251
   br label %.critedge230.thread487.i.i
 
 .loopexit.split-lp.i.i:                           ; preds = %643, %519, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h3897d61f8ce99efaE.exit.i.i"
-  %.0195.ph.i.i = phi i8 [ 1, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h3897d61f8ce99efaE.exit.i.i" ], [ 1, %519 ], [ %.4199.i.i, %643 ]
-  %.0189.ph.i.i = phi i8 [ 1, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h3897d61f8ce99efaE.exit.i.i" ], [ 1, %519 ], [ %.3192.i.i, %643 ]
+  %.0195.ph.i.i = phi i8 [ 1, %519 ], [ %.4199.i.i, %643 ], [ 1, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h3897d61f8ce99efaE.exit.i.i" ]
+  %.0189.ph.i.i = phi i8 [ 1, %519 ], [ %.3192.i.i, %643 ], [ 1, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h3897d61f8ce99efaE.exit.i.i" ]
   %lpad.loopexit.split-lp.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.critedge230.i.i

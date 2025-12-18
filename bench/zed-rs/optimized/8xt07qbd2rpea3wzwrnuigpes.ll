@@ -5349,7 +5349,7 @@ define hidden void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %17, %._crit_edge, %13
-  %.sroa.16.0126.lcssa.sink = phi i64 [ %.sroa.04.0.lcssa, %17 ], [ %.sroa.16.0.lcssa, %13 ], [ %.sroa.16.0.lcssa, %._crit_edge ], [ %.sroa.16.0126, %.lr.ph ]
+  %.sroa.16.0126.lcssa.sink = phi i64 [ %.sroa.16.0.lcssa, %._crit_edge ], [ %.sroa.04.0.lcssa, %17 ], [ %.sroa.16.0.lcssa, %13 ], [ %.sroa.16.0126, %.lr.ph ]
   %19 = getelementptr inbounds { i64, { [5 x i64], i64, [2 x i64] } }, ptr %5, i64 %.sroa.16.0126.lcssa.sink
   store i64 %.sroa.0118.0.copyload, ptr %19, align 8
   %.sroa.30.24..sroa_idx116 = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -15780,8 +15780,8 @@ _ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17h5ac2ae42596d
   %70 = zext nneg i16 %69 to i64
   br label %_ZN9hashbrown3raw5inner13RawTableInner30find_or_find_insert_slot_inner17h905c416281a1f195E.exit.thread
 
-_ZN9hashbrown3raw5inner13RawTableInner30find_or_find_insert_slot_inner17h905c416281a1f195E.exit.thread: ; preds = %64, %60
-  %.sroa.3.0.i.ph = phi i64 [ %.sroa.4.1.i, %60 ], [ %70, %64 ]
+_ZN9hashbrown3raw5inner13RawTableInner30find_or_find_insert_slot_inner17h905c416281a1f195E.exit.thread: ; preds = %60, %64
+  %.sroa.3.0.i.ph = phi i64 [ %70, %64 ], [ %.sroa.4.1.i, %60 ]
   %71 = inttoptr i64 %.sroa.3.0.i.ph to ptr
   br label %.loopexit
 

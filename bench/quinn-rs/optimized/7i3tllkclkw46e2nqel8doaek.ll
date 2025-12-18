@@ -358,7 +358,7 @@ define hidden { ptr, ptr } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   ret { ptr, ptr } %61
 
 62:                                               ; preds = %45, %41
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.19.i.i, %41 ], [ %51, %45 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %51, %45 ], [ %.sroa.6.19.i.i, %41 ]
   %63 = load i64, ptr %5, align 8, !noundef !6
   call void @llvm.experimental.noalias.scope.decl(metadata !19)
   %64 = load ptr, ptr %0, align 8, !alias.scope !19, !noalias !22, !nonnull !6, !noundef !6
@@ -523,7 +523,7 @@ define hidden noundef ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6inse
   br label %52
 
 52:                                               ; preds = %41, %45
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.19.i.i, %41 ], [ %51, %45 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %51, %45 ], [ %.sroa.6.19.i.i, %41 ]
   %53 = load i64, ptr %5, align 8, !noundef !6
   call void @llvm.experimental.noalias.scope.decl(metadata !34)
   %54 = load ptr, ptr %0, align 8, !alias.scope !34, !nonnull !6, !noundef !6

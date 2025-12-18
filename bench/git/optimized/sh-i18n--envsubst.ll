@@ -206,8 +206,8 @@ do_getc.exit64.thread.sink.split.i:               ; preds = %71, %64
   br label %do_getc.exit64.thread.i
 
 do_getc.exit64.thread.i:                          ; preds = %do_getc.exit64.thread.sink.split.i, %do_getc.exit64.i, %71, %64
-  %.079.i = phi i32 [ %.0.i, %do_getc.exit64.i ], [ -1, %71 ], [ -1, %64 ], [ -1, %do_getc.exit64.thread.sink.split.i ]
-  %.not.not7377.i = phi i1 [ %.not.not73.i, %do_getc.exit64.i ], [ true, %71 ], [ false, %64 ], [ %.not.not7377.ph.i, %do_getc.exit64.thread.sink.split.i ]
+  %.079.i = phi i32 [ %.0.i, %do_getc.exit64.i ], [ -1, %64 ], [ -1, %71 ], [ -1, %do_getc.exit64.thread.sink.split.i ]
+  %.not.not7377.i = phi i1 [ %.not.not73.i, %do_getc.exit64.i ], [ false, %64 ], [ true, %71 ], [ %.not.not7377.ph.i, %do_getc.exit64.thread.sink.split.i ]
   %76 = add i32 %.079.i, -97
   %or.cond3.i = icmp ult i32 %76, 26
   %77 = icmp eq i32 %.079.i, 95
@@ -354,8 +354,8 @@ do_getc.exit66.i:                                 ; preds = %97, %94, %85
   br label %139
 
 139:                                              ; preds = %137, %127
-  %.226.i.i = phi i64 [ %.0243.i.i, %137 ], [ %130, %127 ]
-  %.223.i.i = phi i64 [ %138, %137 ], [ %.0214.i.i, %127 ]
+  %.226.i.i = phi i64 [ %130, %127 ], [ %.0243.i.i, %137 ]
+  %.223.i.i = phi i64 [ %.0214.i.i, %127 ], [ %138, %137 ]
   %140 = sub i64 %.226.i.i, %.223.i.i
   %141 = icmp ugt i64 %140, 1
   br i1 %141, label %127, label %._crit_edge.i.i, !llvm.loop !23

@@ -7560,8 +7560,8 @@ stbte__paste_stack.exit.us:                       ; preds = %132, %167, %165, %1
   br i1 %99, label %.lr.ph108.us, label %._crit_edge109.us
 
 ._crit_edge109.us:                                ; preds = %210, %._crit_edge.us.thread, %stbte__paste_stack.exit.us
-  %168 = phi i32 [ %80, %stbte__paste_stack.exit.us ], [ %80, %._crit_edge.us.thread ], [ %211, %210 ]
-  %169 = phi i32 [ %81, %stbte__paste_stack.exit.us ], [ %81, %._crit_edge.us.thread ], [ %212, %210 ]
+  %168 = phi i32 [ %80, %._crit_edge.us.thread ], [ %80, %stbte__paste_stack.exit.us ], [ %211, %210 ]
+  %169 = phi i32 [ %81, %._crit_edge.us.thread ], [ %81, %stbte__paste_stack.exit.us ], [ %212, %210 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %170
 
@@ -8781,7 +8781,7 @@ stbte__clear_stack.exit:                          ; preds = %175, %156, %.prehea
   br label %stbte__paste_stack.exit
 
 stbte__paste_stack.exit:                          ; preds = %84, %121, %119, %104, %92, %86, %.preheader.i, %212, %214, %224, %223, %stbte__clear_stack.exit, %181, %187, %34, %40, %195, %201, %stbte__hittest.exit
-  %.0119 = phi ptr [ %29, %stbte__hittest.exit ], [ %29, %40 ], [ %7, %stbte__clear_stack.exit ], [ %29, %201 ], [ %29, %195 ], [ %7, %223 ], [ %29, %34 ], [ %7, %187 ], [ %7, %181 ], [ %29, %214 ], [ %29, %212 ], [ %7, %224 ], [ %7, %.preheader.i ], [ %7, %86 ], [ %7, %92 ], [ %7, %104 ], [ %7, %119 ], [ %7, %121 ], [ %7, %84 ]
+  %.0119 = phi ptr [ %29, %stbte__hittest.exit ], [ %29, %40 ], [ %7, %stbte__clear_stack.exit ], [ %29, %201 ], [ %29, %195 ], [ %7, %223 ], [ %29, %34 ], [ %7, %187 ], [ %7, %181 ], [ %29, %214 ], [ %29, %212 ], [ %7, %224 ], [ %7, %.preheader.i ], [ %7, %121 ], [ %7, %86 ], [ %7, %92 ], [ %7, %104 ], [ %7, %119 ], [ %7, %84 ]
   %226 = icmp eq i32 %30, %11
   %227 = load i32, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 8), align 8
   %228 = icmp eq i32 %227, 0

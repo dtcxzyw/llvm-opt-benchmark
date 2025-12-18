@@ -548,7 +548,7 @@ _set_max_node_gres.exit217:                       ; preds = %170, %166, %163, %_
   br i1 %.not, label %.thread229, label %30
 
 .thread229:                                       ; preds = %230, %21, %184, %187, %181, %212, %209, %103, %100, %84, %81, %206, %97, %76
-  %.1159 = phi i32 [ -1, %76 ], [ -1, %97 ], [ -1, %206 ], [ -1, %81 ], [ -1, %84 ], [ -1, %100 ], [ -1, %103 ], [ -1, %209 ], [ -1, %212 ], [ -1, %181 ], [ -1, %187 ], [ -1, %184 ], [ 0, %21 ], [ 0, %230 ]
+  %.1159 = phi i32 [ -1, %184 ], [ -1, %76 ], [ -1, %97 ], [ -1, %206 ], [ -1, %81 ], [ -1, %84 ], [ -1, %100 ], [ -1, %103 ], [ -1, %209 ], [ -1, %212 ], [ -1, %181 ], [ -1, %187 ], [ 0, %21 ], [ 0, %230 ]
   tail call void @slurm_list_iterator_destroy(ptr noundef %22) #8
   call void @slurm_xfree(ptr noundef nonnull %15) #8
   br label %232
@@ -1487,8 +1487,8 @@ _set_used_cnts.exit:                              ; preds = %._crit_edge.i
   br label %.loopexit180.i
 
 .loopexit180.i:                                   ; preds = %.loopexit179.i, %.preheader178.lr.ph.i, %.loopexit180.sink.split.i, %198
-  %.1137.i = phi i32 [ %199, %198 ], [ %.0136196.i, %.loopexit180.sink.split.i ], [ %199, %.preheader178.lr.ph.i ], [ %199, %.loopexit179.i ]
-  %.1130.i = phi i32 [ %.0129197.i, %198 ], [ %285, %.loopexit180.sink.split.i ], [ %.0129197.i, %.preheader178.lr.ph.i ], [ %.4.i, %.loopexit179.i ]
+  %.1137.i = phi i32 [ %.0136196.i, %.loopexit180.sink.split.i ], [ %199, %198 ], [ %199, %.preheader178.lr.ph.i ], [ %199, %.loopexit179.i ]
+  %.1130.i = phi i32 [ %285, %.loopexit180.sink.split.i ], [ %.0129197.i, %198 ], [ %.0129197.i, %.preheader178.lr.ph.i ], [ %.4.i, %.loopexit179.i ]
   %286 = load i32, ptr %13, align 4
   %287 = add nsw i32 %286, 1
   store i32 %287, ptr %13, align 4
@@ -2100,7 +2100,7 @@ _set_res_core_bits.exit.thread:                   ; preds = %470, %._crit_edge10
   br label %585
 
 _set_res_core_bits.exit:                          ; preds = %_get_node_sock_specs.exit.i210, %548
-  %.068.i = phi i32 [ -1, %_get_node_sock_specs.exit.i210 ], [ 2072, %548 ]
+  %.068.i = phi i32 [ 2072, %548 ], [ -1, %_get_node_sock_specs.exit.i210 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -3006,9 +3006,9 @@ define internal fastcc void @_set_sock_bits(i32 noundef %0, ptr noundef readonly
   br i1 %exitcond.not, label %.preheader204, label %.lr.ph, !llvm.loop !47
 
 .thread:                                          ; preds = %98, %._crit_edge.us, %84, %79, %.preheader204, %92, %50, %37, %34, %30, %9
-  %143 = phi ptr [ %4, %9 ], [ %4, %30 ], [ %4, %37 ], [ %4, %34 ], [ %43, %50 ], [ %43, %92 ], [ %142, %.preheader204 ], [ %70, %79 ], [ %85, %84 ], [ %142, %._crit_edge.us ], [ %142, %98 ]
-  %.0142 = phi i32 [ %7, %9 ], [ %7, %30 ], [ %7, %37 ], [ %7, %34 ], [ %7, %50 ], [ %7, %92 ], [ %.4146, %.preheader204 ], [ %80, %79 ], [ %.2144, %84 ], [ %101, %98 ], [ %.5147215.us, %._crit_edge.us ]
-  %.0138 = phi i1 [ false, %9 ], [ false, %30 ], [ false, %37 ], [ false, %34 ], [ true, %50 ], [ true, %92 ], [ true, %.preheader204 ], [ true, %84 ], [ true, %79 ], [ true, %._crit_edge.us ], [ true, %98 ]
+  %143 = phi ptr [ %4, %9 ], [ %70, %79 ], [ %4, %30 ], [ %4, %34 ], [ %4, %37 ], [ %43, %50 ], [ %43, %92 ], [ %142, %.preheader204 ], [ %85, %84 ], [ %142, %._crit_edge.us ], [ %142, %98 ]
+  %.0142 = phi i32 [ %7, %9 ], [ %80, %79 ], [ %7, %30 ], [ %7, %34 ], [ %7, %37 ], [ %7, %50 ], [ %7, %92 ], [ %.4146, %.preheader204 ], [ %.2144, %84 ], [ %101, %98 ], [ %.5147215.us, %._crit_edge.us ]
+  %.0138 = phi i1 [ false, %9 ], [ true, %84 ], [ false, %30 ], [ false, %34 ], [ false, %37 ], [ true, %50 ], [ true, %92 ], [ true, %.preheader204 ], [ true, %79 ], [ true, %._crit_edge.us ], [ true, %98 ]
   %144 = getelementptr inbounds nuw i8, ptr %20, i64 68
   %145 = load i32, ptr %144, align 4
   %146 = icmp eq i32 %145, %29
@@ -4009,7 +4009,7 @@ _update_and_sort_by_links.exit.us:                ; preds = %85, %61
   br i1 %119, label %.lr.ph.split.split.us, label %._crit_edge, !llvm.loop !62
 
 ._crit_edge:                                      ; preds = %142, %116, %86, %25
-  %.047.lcssa = phi i64 [ %26, %25 ], [ %.148.us70, %116 ], [ %.148.us, %86 ], [ %.148, %142 ]
+  %.047.lcssa = phi i64 [ %26, %25 ], [ %.148.us, %86 ], [ %.148.us70, %116 ], [ %.148, %142 ]
   %120 = sub i64 %26, %.047.lcssa
   br label %146
 

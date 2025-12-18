@@ -1521,7 +1521,7 @@ _ZNK4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE10getLoopForEPKS1_.exit: ; pre
   br i1 %489, label %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsEPKS2_.exit.thread, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %.lr.ph.i.i.i.i449, %.lr.ph577, %_ZNK4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE10getLoopForEPKS1_.exit
-  %.tr78.i.ph = phi ptr [ null, %.lr.ph577 ], [ %488, %_ZNK4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE10getLoopForEPKS1_.exit ], [ null, %.lr.ph.i.i.i.i449 ]
+  %.tr78.i.ph = phi ptr [ %488, %_ZNK4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE10getLoopForEPKS1_.exit ], [ null, %.lr.ph577 ], [ null, %.lr.ph.i.i.i.i449 ]
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %tailrecurse.i
@@ -2114,7 +2114,7 @@ define internal fastcc noundef zeroext i1 @_ZL39canProfitablyRuntimeUnrollMultiE
   br label %25
 
 25:                                               ; preds = %14, %.fold.split, %20, %17, %8
-  %.1 = phi i1 [ true, %14 ], [ false, %8 ], [ true, %17 ], [ %24, %20 ], [ false, %.fold.split ]
+  %.1 = phi i1 [ true, %14 ], [ false, %8 ], [ %24, %20 ], [ true, %17 ], [ false, %.fold.split ]
   %26 = load ptr, ptr %3, align 8, !tbaa !25
   %27 = icmp eq ptr %26, %9
   br i1 %27, label %_ZN4llvm11SmallVectorIPNS_10BasicBlockELj4EED2Ev.exit, label %28
@@ -4912,9 +4912,9 @@ _ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEE
   br i1 %314, label %_ZN4llvm15SmallVectorImplIPNS_10BasicBlockEE6appendINS_12PredIteratorIS1_NS_5Value18user_iterator_implINS_4UserEEEEEvEEvT_SB_.exit.loopexit.i, label %.lr.ph.i.i.i.i.i.i.i.i.preheader, !llvm.loop !467
 
 _ZN4llvm15SmallVectorImplIPNS_10BasicBlockEE6appendINS_12PredIteratorIS1_NS_5Value18user_iterator_implINS_4UserEEEEEvEEvT_SB_.exit.loopexit.i: ; preds = %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i.i.i.i.i.i, %305, %.lr.ph.i.i.i.i9.preheader.i.i.thread, %.lr.ph.i.i.i.i9.preheader.i.i
-  %315 = phi i32 [ 0, %.lr.ph.i.i.i.i9.preheader.i.i.thread ], [ %295, %.lr.ph.i.i.i.i9.preheader.i.i ], [ %295, %305 ], [ %295, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i.i.i.i.i.i ]
-  %316 = phi ptr [ %268, %.lr.ph.i.i.i.i9.preheader.i.i.thread ], [ %294, %.lr.ph.i.i.i.i9.preheader.i.i ], [ %294, %305 ], [ %294, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i.i.i.i.i.i ]
-  %317 = phi i64 [ 1, %.lr.ph.i.i.i.i9.preheader.i.i.thread ], [ %289, %.lr.ph.i.i.i.i9.preheader.i.i ], [ %289, %305 ], [ %289, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i.i.i.i.i.i ]
+  %315 = phi i32 [ 0, %.lr.ph.i.i.i.i9.preheader.i.i.thread ], [ %295, %305 ], [ %295, %.lr.ph.i.i.i.i9.preheader.i.i ], [ %295, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i.i.i.i.i.i ]
+  %316 = phi ptr [ %268, %.lr.ph.i.i.i.i9.preheader.i.i.thread ], [ %294, %305 ], [ %294, %.lr.ph.i.i.i.i9.preheader.i.i ], [ %294, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i.i.i.i.i.i ]
+  %317 = phi i64 [ 1, %.lr.ph.i.i.i.i9.preheader.i.i.thread ], [ %289, %305 ], [ %289, %.lr.ph.i.i.i.i9.preheader.i.i ], [ %289, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i.i.i.i.i.i ]
   %318 = trunc i64 %317 to i32
   %319 = add i32 %315, %318
   br label %_ZN4llvm11SmallVectorIPNS_10BasicBlockELj4EEC2INS_12PredIteratorIS1_NS_5Value18user_iterator_implINS_4UserEEEEEEERKNS_14iterator_rangeIT_EE.exit
@@ -7117,9 +7117,9 @@ _ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEE
   br i1 %529, label %_ZN4llvm15SmallVectorImplIPNS_10BasicBlockEE6appendINS_12PredIteratorIS1_NS_5Value18user_iterator_implINS_4UserEEEEEvEEvT_SB_.exit.loopexit.i, label %.lr.ph.i.i.i.i.i.i.i.i.preheader, !llvm.loop !467
 
 _ZN4llvm15SmallVectorImplIPNS_10BasicBlockEE6appendINS_12PredIteratorIS1_NS_5Value18user_iterator_implINS_4UserEEEEEvEEvT_SB_.exit.loopexit.i: ; preds = %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i.i.i.i.i.i, %520, %.lr.ph.i.i.i.i9.preheader.i.i.thread, %.lr.ph.i.i.i.i9.preheader.i.i
-  %530 = phi i32 [ 0, %.lr.ph.i.i.i.i9.preheader.i.i.thread ], [ %510, %.lr.ph.i.i.i.i9.preheader.i.i ], [ %510, %520 ], [ %510, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i.i.i.i.i.i ]
-  %531 = phi ptr [ %483, %.lr.ph.i.i.i.i9.preheader.i.i.thread ], [ %509, %.lr.ph.i.i.i.i9.preheader.i.i ], [ %509, %520 ], [ %509, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i.i.i.i.i.i ]
-  %532 = phi i64 [ 1, %.lr.ph.i.i.i.i9.preheader.i.i.thread ], [ %504, %.lr.ph.i.i.i.i9.preheader.i.i ], [ %504, %520 ], [ %504, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i.i.i.i.i.i ]
+  %530 = phi i32 [ 0, %.lr.ph.i.i.i.i9.preheader.i.i.thread ], [ %510, %520 ], [ %510, %.lr.ph.i.i.i.i9.preheader.i.i ], [ %510, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i.i.i.i.i.i ]
+  %531 = phi ptr [ %483, %.lr.ph.i.i.i.i9.preheader.i.i.thread ], [ %509, %520 ], [ %509, %.lr.ph.i.i.i.i9.preheader.i.i ], [ %509, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i.i.i.i.i.i ]
+  %532 = phi i64 [ 1, %.lr.ph.i.i.i.i9.preheader.i.i.thread ], [ %504, %520 ], [ %504, %.lr.ph.i.i.i.i9.preheader.i.i ], [ %504, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i.i.i.i.i.i ]
   %533 = trunc i64 %532 to i32
   %534 = add i32 %530, %533
   br label %_ZN4llvm11SmallVectorIPNS_10BasicBlockELj4EEC2INS_12PredIteratorIS1_NS_5Value18user_iterator_implINS_4UserEEEEEEERKNS_14iterator_rangeIT_EE.exit
@@ -10046,7 +10046,7 @@ _ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IR
   br i1 %.not.i.i.i.i, label %_ZN4llvm8erase_ifINS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS4_EUlRKS5_E_EEvRT_T0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !563
 
 _ZN4llvm8erase_ifINS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS4_EUlRKS5_E_EEvRT_T0_.exit: ; preds = %57, %._crit_edge.i.i.i.i.i.i, %43, %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i
-  %.016.i.i.i.i = phi ptr [ %.028.i.i.i.i.i.i, %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i ], [ %10, %._crit_edge.i.i.i.i.i.i ], [ %10, %43 ], [ %.1.i.i.i.i, %57 ]
+  %.016.i.i.i.i = phi ptr [ %.028.i.i.i.i.i.i, %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i ], [ %10, %43 ], [ %10, %._crit_edge.i.i.i.i.i.i ], [ %.1.i.i.i.i, %57 ]
   %58 = ptrtoint ptr %.016.i.i.i.i to i64
   %59 = ptrtoint ptr %6 to i64
   %60 = sub i64 %58, %59

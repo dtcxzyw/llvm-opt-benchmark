@@ -464,7 +464,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h79344eaadaf17b67E.exit.thread.i.i.i.i.i.i.i.i.i", label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h79344eaadaf17b67E.exit.i.i.i.i.i.i.i.i.i"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h79344eaadaf17b67E.exit.i.i.i.i.i.i.i.i.i": ; preds = %131, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h3b6902ca1ed2d4d8E.exit.thread.i.i.i.i.i.i.i.i.i", %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h3b6902ca1ed2d4d8E.exit.i.i.i.i.i.i.i.i.i"
-  %.sroa.02.041.i.i.i.i.i.i.i.i.i = phi i8 [ %spec.select.i.i.i.i.i.i.i.i.i, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h3b6902ca1ed2d4d8E.exit.thread.i.i.i.i.i.i.i.i.i" ], [ 0, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h3b6902ca1ed2d4d8E.exit.i.i.i.i.i.i.i.i.i" ], [ 0, %131 ]
+  %.sroa.02.041.i.i.i.i.i.i.i.i.i = phi i8 [ 0, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h3b6902ca1ed2d4d8E.exit.i.i.i.i.i.i.i.i.i" ], [ %spec.select.i.i.i.i.i.i.i.i.i, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h3b6902ca1ed2d4d8E.exit.thread.i.i.i.i.i.i.i.i.i" ], [ 0, %131 ]
   %rhsc.i.i.i.i.i.i.i.i.i = load i8, ptr %124, align 1, !noalias !115
   %137 = icmp eq i8 %rhsc.i.i.i.i.i.i.i.i.i, 10
   %spec.select57.i.i.i.i.i.i.i.i.i = zext i1 %137 to i64
@@ -3144,8 +3144,8 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17h1b20b2de21456
   br i1 %.not.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h0ad6822160de1532E.llvm.5165179041708092988.exit._crit_edge", label %7
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h7bce9793f28394c7E.llvm.5165179041708092988.exit": ; preds = %20, %16, %13, %2
-  %.sroa.7.2 = phi i64 [ 0, %2 ], [ %12, %13 ], [ %12, %20 ], [ %12, %16 ]
-  %.sroa.16.1 = phi i64 [ 0, %2 ], [ 1, %13 ], [ 1, %20 ], [ 1, %16 ]
+  %.sroa.7.2 = phi i64 [ 0, %2 ], [ %12, %16 ], [ %12, %13 ], [ %12, %20 ]
+  %.sroa.16.1 = phi i64 [ 0, %2 ], [ 1, %16 ], [ 1, %13 ], [ 1, %20 ]
   %.not1.i = icmp eq i64 %.sroa.7.2, %4
   br i1 %.not1.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h0ad6822160de1532E.llvm.5165179041708092988.exit", label %.lr.ph.i2.preheader
 
@@ -7518,7 +7518,7 @@ _ZN4core3fmt9Formatter9write_fmt17h9d0d9fd40ea148b1E.exit: ; preds = %201
   %.pn49113 = phi { ptr, i32 } [ %eh.lpad-body.i.i, %.body.i.i ], [ %.pn49119, %.thread116 ], [ %197, %196 ], [ %190, %189 ], [ %.pn, %219 ], [ %200, %199 ], [ %218, %217 ]
   resume { ptr, i32 } %.pn49113
 
-.thread116:                                       ; preds = %72, %84, %.thread124
+.thread116:                                       ; preds = %84, %72, %.thread124
   %.pn49119 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread124 ], [ %85, %84 ], [ %73, %72 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6add7803af6cd486E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %46) #26
           to label %.thread120 unwind label %215

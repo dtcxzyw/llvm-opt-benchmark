@@ -10213,7 +10213,7 @@ define hidden void @"_ZN4core3ptr102drop_in_place$LT$sum_tree..Node$LT$text..ope
   br i1 %49, label %common.resume, label %.lr.ph12.i.i.i.i
 
 common.resume:                                    ; preds = %"_ZN4core3ptr105drop_in_place$LT$sum_tree..SumTree$LT$text..operation_queue..OperationItem$LT$text..Operation$GT$$GT$$GT$17h4b23bad78244131cE.exit8.i.i.i.i", %.body, %54, %40
-  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %22, %54 ], [ %22, %.body ], [ %41, %"_ZN4core3ptr105drop_in_place$LT$sum_tree..SumTree$LT$text..operation_queue..OperationItem$LT$text..Operation$GT$$GT$$GT$17h4b23bad78244131cE.exit8.i.i.i.i" ]
+  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %22, %.body ], [ %22, %54 ], [ %41, %"_ZN4core3ptr105drop_in_place$LT$sum_tree..SumTree$LT$text..operation_queue..OperationItem$LT$text..Operation$GT$$GT$$GT$17h4b23bad78244131cE.exit8.i.i.i.i" ]
   resume { ptr, i32 } %common.resume.op
 
 50:                                               ; preds = %48
@@ -14733,7 +14733,7 @@ define hidden void @"_ZN4core3ptr112drop_in_place$LT$sum_tree..Node$LT$language.
   br i1 %33, label %common.resume, label %.lr.ph12.i.i.i.i
 
 common.resume:                                    ; preds = %"_ZN4core3ptr115drop_in_place$LT$sum_tree..SumTree$LT$language..diagnostic_set..DiagnosticEntry$LT$text..anchor..Anchor$GT$$GT$$GT$17hdb3c3b16824601e6E.exit8.i.i.i.i", %36, %40, %24
-  %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %37, %40 ], [ %37, %36 ], [ %25, %"_ZN4core3ptr115drop_in_place$LT$sum_tree..SumTree$LT$language..diagnostic_set..DiagnosticEntry$LT$text..anchor..Anchor$GT$$GT$$GT$17hdb3c3b16824601e6E.exit8.i.i.i.i" ]
+  %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %37, %36 ], [ %37, %40 ], [ %25, %"_ZN4core3ptr115drop_in_place$LT$sum_tree..SumTree$LT$language..diagnostic_set..DiagnosticEntry$LT$text..anchor..Anchor$GT$$GT$$GT$17hdb3c3b16824601e6E.exit8.i.i.i.i" ]
   resume { ptr, i32 } %common.resume.op
 
 34:                                               ; preds = %32
@@ -15225,7 +15225,7 @@ define hidden void @"_ZN4core3ptr114drop_in_place$LT$sum_tree..Node$LT$text..ope
   br i1 %45, label %common.resume, label %.lr.ph12.i.i.i.i
 
 common.resume:                                    ; preds = %"_ZN4core3ptr117drop_in_place$LT$sum_tree..SumTree$LT$text..operation_queue..OperationItem$LT$language..buffer..Operation$GT$$GT$$GT$17hea7b4b886b85d4b0E.exit8.i.i.i.i", %.body, %50, %36
-  %common.resume.op = phi { ptr, i32 } [ %37, %36 ], [ %18, %50 ], [ %18, %.body ], [ %37, %"_ZN4core3ptr117drop_in_place$LT$sum_tree..SumTree$LT$text..operation_queue..OperationItem$LT$language..buffer..Operation$GT$$GT$$GT$17hea7b4b886b85d4b0E.exit8.i.i.i.i" ]
+  %common.resume.op = phi { ptr, i32 } [ %37, %36 ], [ %18, %.body ], [ %18, %50 ], [ %37, %"_ZN4core3ptr117drop_in_place$LT$sum_tree..SumTree$LT$text..operation_queue..OperationItem$LT$language..buffer..Operation$GT$$GT$$GT$17hea7b4b886b85d4b0E.exit8.i.i.i.i" ]
   resume { ptr, i32 } %common.resume.op
 
 46:                                               ; preds = %44
@@ -15905,7 +15905,7 @@ define hidden void @"_ZN4core3ptr115drop_in_place$LT$sum_tree..Node$LT$sum_tree.
   br i1 %53, label %common.resume, label %.lr.ph12.i.i.i.i6
 
 common.resume:                                    ; preds = %"_ZN4core3ptr118drop_in_place$LT$sum_tree..SumTree$LT$sum_tree..tree_map..MapEntry$LT$u16$C$language..buffer..SelectionSet$GT$$GT$$GT$17h06f6f3723e6c4a71E.exit8.i.i.i.i", %.body, %58, %44
-  %common.resume.op = phi { ptr, i32 } [ %45, %44 ], [ %22, %58 ], [ %22, %.body ], [ %45, %"_ZN4core3ptr118drop_in_place$LT$sum_tree..SumTree$LT$sum_tree..tree_map..MapEntry$LT$u16$C$language..buffer..SelectionSet$GT$$GT$$GT$17h06f6f3723e6c4a71E.exit8.i.i.i.i" ]
+  %common.resume.op = phi { ptr, i32 } [ %45, %44 ], [ %22, %.body ], [ %22, %58 ], [ %45, %"_ZN4core3ptr118drop_in_place$LT$sum_tree..SumTree$LT$sum_tree..tree_map..MapEntry$LT$u16$C$language..buffer..SelectionSet$GT$$GT$$GT$17h06f6f3723e6c4a71E.exit8.i.i.i.i" ]
   resume { ptr, i32 } %common.resume.op
 
 54:                                               ; preds = %52
@@ -62346,7 +62346,7 @@ define hidden void @"_ZN4core3ptr57drop_in_place$LT$sum_tree..Node$LT$text..Frag
   br i1 %52, label %common.resume, label %.lr.ph12.i.i.i.i
 
 common.resume:                                    ; preds = %91, %"_ZN4core3ptr60drop_in_place$LT$sum_tree..SumTree$LT$text..Fragment$GT$$GT$17h4fb0b60c92c51b31E.exit8.i.i.i.i", %.body, %.body9, %43
-  %common.resume.op = phi { ptr, i32 } [ %.pn, %.body9 ], [ %44, %43 ], [ %.pn2, %.body ], [ %44, %"_ZN4core3ptr60drop_in_place$LT$sum_tree..SumTree$LT$text..Fragment$GT$$GT$17h4fb0b60c92c51b31E.exit8.i.i.i.i" ], [ %94, %91 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn, %.body9 ], [ %44, %43 ], [ %44, %"_ZN4core3ptr60drop_in_place$LT$sum_tree..SumTree$LT$text..Fragment$GT$$GT$17h4fb0b60c92c51b31E.exit8.i.i.i.i" ], [ %.pn2, %.body ], [ %94, %91 ]
   resume { ptr, i32 } %common.resume.op
 
 53:                                               ; preds = %51
@@ -68317,7 +68317,7 @@ define hidden void @"_ZN4core3ptr66drop_in_place$LT$sum_tree..Node$LT$text..Inse
   br i1 %54, label %common.resume, label %.lr.ph12.i.i.i.i
 
 common.resume:                                    ; preds = %"_ZN4core3ptr69drop_in_place$LT$sum_tree..SumTree$LT$text..InsertionFragment$GT$$GT$17hec8cacca1bf4d16fE.exit8.i.i.i.i", %.body, %59, %45
-  %common.resume.op = phi { ptr, i32 } [ %46, %45 ], [ %27, %59 ], [ %27, %.body ], [ %46, %"_ZN4core3ptr69drop_in_place$LT$sum_tree..SumTree$LT$text..InsertionFragment$GT$$GT$17hec8cacca1bf4d16fE.exit8.i.i.i.i" ]
+  %common.resume.op = phi { ptr, i32 } [ %46, %45 ], [ %27, %.body ], [ %27, %59 ], [ %46, %"_ZN4core3ptr69drop_in_place$LT$sum_tree..SumTree$LT$text..InsertionFragment$GT$$GT$17hec8cacca1bf4d16fE.exit8.i.i.i.i" ]
   resume { ptr, i32 } %common.resume.op
 
 55:                                               ; preds = %53
@@ -79558,7 +79558,7 @@ define hidden void @"_ZN4core3ptr81drop_in_place$LT$sum_tree..Node$LT$language..
   br i1 %35, label %common.resume, label %.lr.ph12.i.i.i.i
 
 common.resume:                                    ; preds = %"_ZN4core3ptr84drop_in_place$LT$sum_tree..SumTree$LT$language..syntax_map..SyntaxLayerEntry$GT$$GT$17hf2e1f29289b2110aE.exit8.i.i.i.i", %38, %42, %26
-  %common.resume.op = phi { ptr, i32 } [ %27, %26 ], [ %39, %42 ], [ %39, %38 ], [ %27, %"_ZN4core3ptr84drop_in_place$LT$sum_tree..SumTree$LT$language..syntax_map..SyntaxLayerEntry$GT$$GT$17hf2e1f29289b2110aE.exit8.i.i.i.i" ]
+  %common.resume.op = phi { ptr, i32 } [ %27, %26 ], [ %39, %38 ], [ %39, %42 ], [ %27, %"_ZN4core3ptr84drop_in_place$LT$sum_tree..SumTree$LT$language..syntax_map..SyntaxLayerEntry$GT$$GT$17hf2e1f29289b2110aE.exit8.i.i.i.i" ]
   resume { ptr, i32 } %common.resume.op
 
 36:                                               ; preds = %34

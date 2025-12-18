@@ -1281,8 +1281,8 @@ define dso_local range(i32 -22, 1) i32 @acpi_processor_preregister_performance(p
   br label %.thread25, !llvm.loop !25
 
 .thread25:                                        ; preds = %.preheader, %74, %142, %138, %.thread29..thread25.loopexit35_crit_edge, %.thread
-  %.pre41 = phi i64 [ %.pre4143, %.thread ], [ %.pre41.pre.pre, %.thread29..thread25.loopexit35_crit_edge ], [ %111, %142 ], [ %111, %138 ], [ %70, %74 ], [ %70, %.preheader ]
-  %198 = phi i32 [ %.lcssa, %.thread ], [ 0, %.thread29..thread25.loopexit35_crit_edge ], [ -22, %142 ], [ -22, %138 ], [ 0, %74 ], [ 0, %.preheader ]
+  %.pre41 = phi i64 [ %.pre4143, %.thread ], [ %111, %142 ], [ %.pre41.pre.pre, %.thread29..thread25.loopexit35_crit_edge ], [ %111, %138 ], [ %70, %74 ], [ %70, %.preheader ]
+  %198 = phi i32 [ %.lcssa, %.thread ], [ -22, %142 ], [ 0, %.thread29..thread25.loopexit35_crit_edge ], [ -22, %138 ], [ 0, %74 ], [ 0, %.preheader ]
   %199 = icmp eq i32 %198, 0
   br label %200
 
@@ -1344,7 +1344,7 @@ define dso_local range(i32 -22, 1) i32 @acpi_processor_preregister_performance(p
   br i1 %235, label %.thread31, label %200, !prof !8, !llvm.loop !26
 
 .thread31:                                        ; preds = %28, %24, %200, %231, %206
-  %236 = phi i32 [ %198, %200 ], [ %198, %206 ], [ %198, %231 ], [ -22, %28 ], [ -16, %24 ]
+  %236 = phi i32 [ %198, %200 ], [ %198, %206 ], [ %198, %231 ], [ -16, %24 ], [ -22, %28 ]
   call void @mutex_unlock(ptr noundef nonnull @performance_mutex) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %236

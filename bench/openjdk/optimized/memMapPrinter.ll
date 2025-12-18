@@ -514,7 +514,7 @@ _ZNK20CachedNMTInformation6lookupEPKvS1_.exit.thread.loopexit: ; preds = %204
   br label %_ZNK20CachedNMTInformation6lookupEPKvS1_.exit.thread
 
 _ZNK20CachedNMTInformation6lookupEPKvS1_.exit.thread: ; preds = %_ZNK20CachedNMTInformation6lookupEPKvS1_.exit.thread.loopexit, %18, %_ZNK20CachedNMTInformation6lookupEPKvS1_.exit, %3
-  %.0 = phi i1 [ false, %_ZNK20CachedNMTInformation6lookupEPKvS1_.exit ], [ false, %3 ], [ false, %18 ], [ %205, %_ZNK20CachedNMTInformation6lookupEPKvS1_.exit.thread.loopexit ]
+  %.0 = phi i1 [ false, %18 ], [ false, %_ZNK20CachedNMTInformation6lookupEPKvS1_.exit ], [ false, %3 ], [ %205, %_ZNK20CachedNMTInformation6lookupEPKvS1_.exit.thread.loopexit ]
   ret i1 %.0
 }
 

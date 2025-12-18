@@ -3574,8 +3574,8 @@ define internal fastcc void @generate_grain_uv_c_8(ptr noundef nonnull captures(
   br label %..loopexit_crit_edge.us.us.us
 
 ..loopexit_crit_edge.us.us.us:                    ; preds = %50, %66, %58
-  %.183103.us.us.us = phi ptr [ %.183109.us.us.us, %66 ], [ %.183109.us.us.us, %58 ], [ %scevgep, %50 ]
-  %.2.us.us.us = phi i32 [ %72, %66 ], [ %.181110.us.us.us, %58 ], [ %57, %50 ]
+  %.183103.us.us.us = phi ptr [ %.183109.us.us.us, %58 ], [ %.183109.us.us.us, %66 ], [ %scevgep, %50 ]
+  %.2.us.us.us = phi i32 [ %.181110.us.us.us, %58 ], [ %72, %66 ], [ %57, %50 ]
   %indvars.iv.next181 = add nsw i64 %indvars.iv180, 1
   %73 = and i64 %indvars.iv.next181, 4294967295
   %exitcond184.not = icmp eq i64 %73, 1
@@ -4534,8 +4534,8 @@ define internal fastcc void @generate_grain_uv_c_16(ptr noundef nonnull captures
   br label %..loopexit_crit_edge.us.us.us
 
 ..loopexit_crit_edge.us.us.us:                    ; preds = %59, %75, %67
-  %.190110.us.us.us = phi ptr [ %.190116.us.us.us, %75 ], [ %.190116.us.us.us, %67 ], [ %scevgep, %59 ]
-  %.2.us.us.us = phi i32 [ %81, %75 ], [ %.188117.us.us.us, %67 ], [ %66, %59 ]
+  %.190110.us.us.us = phi ptr [ %.190116.us.us.us, %67 ], [ %.190116.us.us.us, %75 ], [ %scevgep, %59 ]
+  %.2.us.us.us = phi i32 [ %.188117.us.us.us, %67 ], [ %81, %75 ], [ %66, %59 ]
   %indvars.iv.next190 = add nsw i64 %indvars.iv189, 1
   %82 = and i64 %indvars.iv.next190, 4294967295
   %exitcond193.not = icmp eq i64 %82, 1

@@ -154,7 +154,7 @@ define dso_local i32 @parse_command(ptr noundef %0, ptr noundef writeonly captur
   br i1 %exitcond.not, label %.thread, label %4
 
 .thread:                                          ; preds = %30, %27, %25, %21, %16
-  %.3 = phi i32 [ 0, %16 ], [ 0, %25 ], [ %29, %27 ], [ 0, %21 ], [ 0, %30 ]
+  %.3 = phi i32 [ 0, %21 ], [ 0, %16 ], [ 0, %25 ], [ %29, %27 ], [ 0, %30 ]
   ret i32 %.3
 }
 

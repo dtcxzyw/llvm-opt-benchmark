@@ -1413,7 +1413,7 @@ if.end19.i.i.i:                                   ; preds = %if.else.i.i5.i, %wh
   br i1 %cmp.not.i.i.i486, label %_ZNSt3setIjSt4lessIjESaIjEE11equal_rangeERKj.exit.i, label %while.body.i.i.i466, !llvm.loop !26
 
 _ZNSt3setIjSt4lessIjESaIjEE11equal_rangeERKj.exit.i: ; preds = %if.end19.i.i.i, %while.body.i.i.i.i469, %if.else12.i.i.i
-  %retval.sroa.0.0.i.i.i479 = phi ptr [ %__x.041.i.i.i, %if.else12.i.i.i ], [ %__y.addr.1.i.i.i.i474, %while.body.i.i.i.i469 ], [ %__y.1.i.i.i, %if.end19.i.i.i ]
+  %retval.sroa.0.0.i.i.i479 = phi ptr [ %__y.addr.1.i.i.i.i474, %while.body.i.i.i.i469 ], [ %__x.041.i.i.i, %if.else12.i.i.i ], [ %__y.1.i.i.i, %if.end19.i.i.i ]
   %_M_storage.i.i.i480 = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.i.i.i479, i64 32
   %130 = load i32, ptr %_M_storage.i.i.i480, align 4
   %add.i481 = add i32 %130, %temp.012.i
@@ -1646,8 +1646,8 @@ if.end19.i.i:                                     ; preds = %if.else.i.i, %while
   br i1 %cmp.not.i.i828, label %_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE11equal_rangeERKj.exit.i, label %while.body.i.i814, !llvm.loop !26
 
 _ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE11equal_rangeERKj.exit.i: ; preds = %if.end19.i.i, %while.body.i23.i.i, %_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE14_M_lower_boundEPSt13_Rb_tree_nodeIjEPSt18_Rb_tree_node_baseRKj.exit.i.i, %while.body.i557
-  %retval.sroa.0.0.i.i821 = phi ptr [ %__y.addr.0.lcssa.i.i.i, %_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE14_M_lower_boundEPSt13_Rb_tree_nodeIjEPSt18_Rb_tree_node_baseRKj.exit.i.i ], [ %0, %while.body.i557 ], [ %__y.addr.0.lcssa.i.i.i, %while.body.i23.i.i ], [ %__y.1.i.i, %if.end19.i.i ]
-  %retval.sroa.3.0.i.i = phi ptr [ %__y.040.i.i, %_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE14_M_lower_boundEPSt13_Rb_tree_nodeIjEPSt18_Rb_tree_node_baseRKj.exit.i.i ], [ %0, %while.body.i557 ], [ %__y.addr.1.i28.i.i, %while.body.i23.i.i ], [ %__y.1.i.i, %if.end19.i.i ]
+  %retval.sroa.0.0.i.i821 = phi ptr [ %__y.addr.0.lcssa.i.i.i, %while.body.i23.i.i ], [ %__y.addr.0.lcssa.i.i.i, %_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE14_M_lower_boundEPSt13_Rb_tree_nodeIjEPSt18_Rb_tree_node_baseRKj.exit.i.i ], [ %0, %while.body.i557 ], [ %__y.1.i.i, %if.end19.i.i ]
+  %retval.sroa.3.0.i.i = phi ptr [ %__y.addr.1.i28.i.i, %while.body.i23.i.i ], [ %__y.040.i.i, %_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE14_M_lower_boundEPSt13_Rb_tree_nodeIjEPSt18_Rb_tree_node_baseRKj.exit.i.i ], [ %0, %while.body.i557 ], [ %__y.1.i.i, %if.end19.i.i ]
   %154 = load ptr, ptr %_M_left.i.i.i.i.i, align 8
   %cmp.i.i2.i = icmp eq ptr %retval.sroa.0.0.i.i821, %154
   %cmp.i1.i.i = icmp eq ptr %retval.sroa.3.0.i.i, %0

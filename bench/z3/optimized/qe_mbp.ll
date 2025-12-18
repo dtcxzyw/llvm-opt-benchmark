@@ -19174,7 +19174,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK13rewriter_core10is_blockedEP
   br i1 %.not27.old.i.i, label %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit, label %.lr.ph38.i.i.backedge
 
 .lr.ph38.i.i.backedge:                            ; preds = %35, %32
-  %.137.i.i.be = phi ptr [ %.old.i.i, %35 ], [ %34, %32 ]
+  %.137.i.i.be = phi ptr [ %34, %32 ], [ %.old.i.i, %35 ]
   br label %.lr.ph38.i.i, !llvm.loop !354
 
 _ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit: ; preds = %16, %21, %27, %32, %35, %.preheader.i.i
@@ -19688,7 +19688,7 @@ _ZNK6vectorIP9func_declLb0EjE3endEv.exit.i:       ; preds = %73
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph.i, %108, %.lr.ph, %87, %93, %._crit_edge, %.loopexit, %_ZNK17array_recognizers8is_constEP9func_decl.exit.thread, %_ZNK4decl13get_family_idEv.exit.thread.i.i38, %_ZNK8datatype4util14is_constructorEP9func_decl.exit, %.critedge43, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit
-  %.033 = phi i32 [ 4, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit ], [ 4, %.critedge43 ], [ 5, %_ZNK17array_recognizers8is_constEP9func_decl.exit.thread ], [ 5, %_ZNK8datatype4util14is_constructorEP9func_decl.exit ], [ 5, %_ZNK4decl13get_family_idEv.exit.thread.i.i38 ], [ 5, %.loopexit ], [ 5, %._crit_edge ], [ 5, %93 ], [ 5, %87 ], [ 5, %108 ], [ 5, %.lr.ph ], [ 5, %.lr.ph.i ]
+  %.033 = phi i32 [ 5, %87 ], [ 4, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit ], [ 4, %.critedge43 ], [ 5, %_ZNK17array_recognizers8is_constEP9func_decl.exit.thread ], [ 5, %_ZNK8datatype4util14is_constructorEP9func_decl.exit ], [ 5, %_ZNK4decl13get_family_idEv.exit.thread.i.i38 ], [ 5, %.loopexit ], [ 5, %._crit_edge ], [ 5, %93 ], [ 5, %108 ], [ 5, %.lr.ph ], [ 5, %.lr.ph.i ]
   ret i32 %.033
 }
 

@@ -266,8 +266,8 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit: ; preds = %34, %32, 
   br label %.loopexit, !llvm.loop !40
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i, %63, %41, %40, %..loopexit_crit_edge21.i.i.i.i.i, %54, %.noexc4
-  %74 = phi ptr [ %.pre, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre, %54 ], [ %.pre, %.noexc4 ], [ %18, %41 ], [ %18, %40 ], [ %.pre, %63 ], [ %.pre, %.lr.ph.i.i.i.i.i ]
-  %.sroa.06.1.i.i.i = phi ptr [ null, %..loopexit_crit_edge21.i.i.i.i.i ], [ %55, %54 ], [ null, %.noexc4 ], [ %.sroa.06.0.i.i.i, %41 ], [ null, %40 ], [ null, %.lr.ph.i.i.i.i.i ], [ %69, %63 ]
+  %74 = phi ptr [ %.pre, %..loopexit_crit_edge21.i.i.i.i.i ], [ %18, %41 ], [ %.pre, %54 ], [ %.pre, %.noexc4 ], [ %18, %40 ], [ %.pre, %63 ], [ %.pre, %.lr.ph.i.i.i.i.i ]
+  %.sroa.06.1.i.i.i = phi ptr [ null, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.sroa.06.0.i.i.i, %41 ], [ %55, %54 ], [ null, %.noexc4 ], [ null, %40 ], [ null, %.lr.ph.i.i.i.i.i ], [ %69, %63 ]
   %.not = icmp eq ptr %.sroa.06.1.i.i.i, null
   %75 = load i64, ptr %74, align 8
   %76 = and i64 %75, 1152920405095219200

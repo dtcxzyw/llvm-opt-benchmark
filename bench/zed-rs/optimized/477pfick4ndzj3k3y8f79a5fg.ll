@@ -15489,7 +15489,7 @@ _ZN10serde_json3ser9Formatter9end_array17h278cd3a6a0531110E.exit.i13.i.i: ; pred
   unreachable
 
 "_ZN5serde3ser5impls76_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$9serialize17h8f40d9a70b56f81fE.exit": ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h8060c37d4c2d4ce7E.exit.i.i.i.i", %.split.i.i._crit_edge.thread.i.i, %_ZN10serde_json3ser9Formatter9end_array17h278cd3a6a0531110E.exit.i13.i.i
-  %.sroa.0.1 = phi ptr [ null, %_ZN10serde_json3ser9Formatter9end_array17h278cd3a6a0531110E.exit.i13.i.i ], [ null, %.split.i.i._crit_edge.thread.i.i ], [ %58, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h8060c37d4c2d4ce7E.exit.i.i.i.i" ]
+  %.sroa.0.1 = phi ptr [ null, %.split.i.i._crit_edge.thread.i.i ], [ null, %_ZN10serde_json3ser9Formatter9end_array17h278cd3a6a0531110E.exit.i13.i.i ], [ %58, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h8060c37d4c2d4ce7E.exit.i.i.i.i" ]
   ret ptr %.sroa.0.1
 }
 

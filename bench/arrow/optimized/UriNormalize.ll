@@ -457,7 +457,7 @@ uriLowercaseInplaceA.exit231:                     ; preds = %uriLowercaseInplace
   br i1 %exitcond.not.i247, label %uriContainsUglyPercentEncodingA.exit, label %.preheader.i244, !llvm.loop !25
 
 uriContainsUglyPercentEncodingA.exit:             ; preds = %55, %183, %172, %33, %uriLowercaseInplaceA.exit, %152, %155, %158, %uriLowercaseInplaceA.exit231
-  %185 = phi i32 [ %147, %uriLowercaseInplaceA.exit231 ], [ %173, %172 ], [ 0, %33 ], [ %102, %uriLowercaseInplaceA.exit ], [ %102, %152 ], [ %102, %155 ], [ %102, %158 ], [ %173, %183 ], [ 0, %55 ]
+  %185 = phi i32 [ %173, %183 ], [ %147, %uriLowercaseInplaceA.exit231 ], [ %173, %172 ], [ 0, %33 ], [ %102, %uriLowercaseInplaceA.exit ], [ %102, %152 ], [ %102, %155 ], [ %102, %158 ], [ 0, %55 ]
   br i1 %.not211, label %221, label %uriContainsUglyPercentEncodingA.exit.thread295
 
 uriContainsUglyPercentEncodingA.exit.thread295.sink.split: ; preds = %31, %59
@@ -1790,7 +1790,7 @@ uriLowercaseInplaceW.exit227:                     ; preds = %125, %119, %uriLowe
   br i1 %195, label %.preheader.i239, label %uriContainsUglyPercentEncodingW.exit, !llvm.loop !67
 
 uriContainsUglyPercentEncodingW.exit:             ; preds = %57, %193, %182, %35, %uriLowercaseInplaceW.exit, %162, %165, %168, %uriLowercaseInplaceW.exit227
-  %196 = phi i32 [ %157, %uriLowercaseInplaceW.exit227 ], [ %183, %182 ], [ 0, %35 ], [ %108, %uriLowercaseInplaceW.exit ], [ %108, %162 ], [ %108, %165 ], [ %108, %168 ], [ %183, %193 ], [ 0, %57 ]
+  %196 = phi i32 [ %183, %193 ], [ %157, %uriLowercaseInplaceW.exit227 ], [ %183, %182 ], [ 0, %35 ], [ %108, %uriLowercaseInplaceW.exit ], [ %108, %162 ], [ %108, %165 ], [ %108, %168 ], [ 0, %57 ]
   br i1 %.not211, label %232, label %uriContainsUglyPercentEncodingW.exit.thread289
 
 uriContainsUglyPercentEncodingW.exit.thread289.sink.split: ; preds = %33, %61

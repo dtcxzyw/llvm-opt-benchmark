@@ -688,7 +688,7 @@ _ZN9QtPrivate17QForeachContainerINSt7__cxx114listIP7QActionSaIS4_EEEED2Ev.exit: 
   br i1 %.not, label %.critedge.loopexit, label %.lr.ph, !llvm.loop !15
 
 .body:                                            ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i26, %73, %57, %46, %69
-  %.pn13 = phi { ptr, i32 } [ %47, %46 ], [ %.pn.pn.pn, %69 ], [ %58, %57 ], [ %74, %73 ], [ %74, %.lr.ph.i.i.i.i26 ], [ %47, %.lr.ph.i.i.i.i.i ]
+  %.pn13 = phi { ptr, i32 } [ %47, %46 ], [ %.pn.pn.pn, %69 ], [ %58, %57 ], [ %74, %.lr.ph.i.i.i.i26 ], [ %74, %73 ], [ %47, %.lr.ph.i.i.i.i.i ]
   call void @_ZN10EditPluginD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %6) #18
   br label %79
 

@@ -4312,8 +4312,8 @@ ZSTD_buildBlockEntropyStats_literals.exit.thread: ; preds = %42, %40, %31, %ZSTD
   store i64 0, ptr %73, align 8, !tbaa !218
   br label %78
 
-ZSTD_buildBlockEntropyStats_literals.exit.thread48: ; preds = %50, %.critedge.i
-  %.0.i34.ph = phi i64 [ %38, %.critedge.i ], [ %54, %50 ]
+ZSTD_buildBlockEntropyStats_literals.exit.thread48: ; preds = %.critedge.i, %50
+  %.0.i34.ph = phi i64 [ %54, %50 ], [ %38, %.critedge.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %74 = getelementptr inbounds nuw i8, ptr %4, i64 136
   store i64 %.0.i34.ph, ptr %74, align 8, !tbaa !218
@@ -9385,7 +9385,7 @@ ZSTD_setBufferExpectations.exit:                  ; preds = %.ZSTD_setBufferExpe
   br i1 %171, label %.thread, label %186
 
 .thread143:                                       ; preds = %.split.us.split, %.split.us.split.us, %.split
-  %.us-phi = phi i64 [ %122, %.split.us.split.us ], [ %160, %.split ], [ %142, %.split.us.split ]
+  %.us-phi = phi i64 [ %160, %.split ], [ %122, %.split.us.split.us ], [ %142, %.split.us.split ]
   store i32 0, ptr %20, align 8, !tbaa !81
   store i64 0, ptr %120, align 8, !tbaa !118
   br label %ZSTD_setBufferExpectations.exit133
@@ -9464,7 +9464,7 @@ ZSTD_setBufferExpectations.exit:                  ; preds = %.ZSTD_setBufferExpe
   br i1 %196, label %.thread150, label %.split.backedge
 
 .thread150:                                       ; preds = %154, %152, %136, %133, %132, %194, %188, %191, %187, %.thread145
-  %.us-phi161 = phi i64 [ 0, %.thread145 ], [ %122, %136 ], [ %160, %194 ], [ %160, %187 ], [ %160, %191 ], [ %160, %188 ], [ %122, %132 ], [ %122, %133 ], [ %142, %154 ], [ 0, %152 ]
+  %.us-phi161 = phi i64 [ %160, %194 ], [ %122, %136 ], [ 0, %.thread145 ], [ %160, %187 ], [ %160, %191 ], [ %160, %188 ], [ %122, %132 ], [ %122, %133 ], [ 0, %152 ], [ %142, %154 ]
   %197 = load i32, ptr %66, align 4, !tbaa !321
   %198 = icmp eq i32 %197, 1
   br i1 %198, label %199, label %201
@@ -10699,8 +10699,8 @@ ZSTD_rleCompressBlock.exit.thread.i:              ; preds = %.thread.i
   %.not.i = icmp eq i64 %.1132.i, 0
   br i1 %.not.i, label %ZSTD_compressSequences_internal.exit, label %51
 
-ZSTD_compressSequences_internal.exit.thread:      ; preds = %.thread.i, %118, %blockSize_explicitDelimiter.exit.i.i, %70, %determine_blockSize.exit.i, %97, %87, %55, %ZSTD_noCompressBlock.exit166.i, %77, %144, %57, %32
-  %.2.i.ph = phi i64 [ -70, %32 ], [ -107, %57 ], [ -70, %.thread.i ], [ %112, %118 ], [ %spec.select.i.i.i, %blockSize_explicitDelimiter.exit.i.i ], [ -107, %70 ], [ %74, %determine_blockSize.exit.i ], [ -70, %97 ], [ -70, %87 ], [ -107, %55 ], [ %145, %ZSTD_noCompressBlock.exit166.i ], [ %83, %77 ], [ -70, %144 ]
+ZSTD_compressSequences_internal.exit.thread:      ; preds = %.thread.i, %blockSize_explicitDelimiter.exit.i.i, %70, %118, %determine_blockSize.exit.i, %97, %87, %55, %ZSTD_noCompressBlock.exit166.i, %77, %144, %57, %32
+  %.2.i.ph = phi i64 [ -107, %57 ], [ -70, %32 ], [ -70, %.thread.i ], [ %spec.select.i.i.i, %blockSize_explicitDelimiter.exit.i.i ], [ -107, %70 ], [ %112, %118 ], [ %74, %determine_blockSize.exit.i ], [ -70, %97 ], [ -70, %87 ], [ -107, %55 ], [ %145, %ZSTD_noCompressBlock.exit166.i ], [ %83, %77 ], [ -70, %144 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %198
 
@@ -14701,7 +14701,7 @@ ZSTD_matchState_dictMode.exit:                    ; preds = %45, %48, %51
   br label %ZSTD_postProcessSequenceProducerResult.exit
 
 ZSTD_postProcessSequenceProducerResult.exit:      ; preds = %116, %124
-  %.0.i = phi i64 [ %125, %124 ], [ %113, %116 ]
+  %.0.i = phi i64 [ %113, %116 ], [ %125, %124 ]
   %126 = icmp ult i64 %.0.i, -119
   br i1 %126, label %127, label %ZSTD_postProcessSequenceProducerResult.exit.thread
 

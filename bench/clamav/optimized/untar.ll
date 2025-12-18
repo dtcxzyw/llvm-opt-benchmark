@@ -473,7 +473,7 @@ testchecksum.exit.thread:                         ; preds = %58, %testchecksum.e
   br label %.thread240
 
 .thread240:                                       ; preds = %.thread240.loopexit, %36, %139, %155, %153, %156
-  %.6 = phi i32 [ 10, %153 ], [ 0, %156 ], [ %148, %155 ], [ 12, %36 ], [ 14, %139 ], [ %.2.ph.ph, %.thread240.loopexit ]
+  %.6 = phi i32 [ 14, %139 ], [ 10, %153 ], [ 0, %156 ], [ %148, %155 ], [ 12, %36 ], [ %.2.ph.ph, %.thread240.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

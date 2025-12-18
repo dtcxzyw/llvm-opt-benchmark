@@ -1049,7 +1049,7 @@ RHASH_AR_TABLE_SIZE_DEC.exit.i.i:                 ; preds = %69, %64
   br label %ar_foreach_with_replace.exit
 
 ar_foreach_with_replace.exit:                     ; preds = %71, %42, %.split38.us.i.i, %13, %10, %72
-  %.0 = phi i32 [ %75, %72 ], [ 0, %10 ], [ 0, %13 ], [ 0, %.split38.us.i.i ], [ 0, %42 ], [ 0, %71 ]
+  %.0 = phi i32 [ %75, %72 ], [ 0, %10 ], [ 0, %13 ], [ 0, %42 ], [ 0, %.split38.us.i.i ], [ 0, %71 ]
   ret i32 %.0
 }
 
@@ -1311,13 +1311,13 @@ ar_foreach_check.exit:                            ; preds = %1
   %.not = icmp eq i32 %68, 0
   br i1 %.not, label %ar_foreach_check.exit.thread, label %ar_foreach_check.exit.thread14
 
-ar_foreach_check.exit.thread14:                   ; preds = %36, %ar_find_entry_hint.exit.i, %47, %ar_foreach_check.exit
-  %.017 = phi i32 [ %68, %ar_foreach_check.exit ], [ 2, %47 ], [ 2, %ar_find_entry_hint.exit.i ], [ 2, %36 ]
+ar_foreach_check.exit.thread14:                   ; preds = %ar_find_entry_hint.exit.i, %36, %47, %ar_foreach_check.exit
+  %.017 = phi i32 [ %68, %ar_foreach_check.exit ], [ 2, %47 ], [ 2, %36 ], [ 2, %ar_find_entry_hint.exit.i ]
   %69 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !7
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %69, ptr noundef nonnull @.str.97, i32 noundef %.017) #30
   unreachable
 
-ar_foreach_check.exit.thread:                     ; preds = %ensure_ar_table.exit.i, %65, %10, %7, %ar_foreach_check.exit
+ar_foreach_check.exit.thread:                     ; preds = %ensure_ar_table.exit.i, %65, %7, %10, %ar_foreach_check.exit
   ret i64 4
 }
 
@@ -6798,7 +6798,7 @@ ar_cleared_entry.exit.thread.i:                   ; preds = %ar_cleared_entry.ex
   br label %.thread
 
 .thread:                                          ; preds = %33, %23, %27, %71, %84, %75, %88, %80, %65, %57
-  %.0 = phi i64 [ %60, %57 ], [ %93, %88 ], [ %83, %80 ], [ %70, %65 ], [ 4, %75 ], [ 4, %84 ], [ 4, %71 ], [ 4, %27 ], [ 4, %23 ], [ 4, %33 ]
+  %.0 = phi i64 [ %60, %57 ], [ %93, %88 ], [ %83, %80 ], [ %70, %65 ], [ 4, %75 ], [ 4, %84 ], [ 4, %71 ], [ 4, %23 ], [ 4, %27 ], [ 4, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i64 %.0
 }
@@ -7414,7 +7414,7 @@ copy_compare_by_id.exit22:                        ; preds = %rb_hash_new_with_si
   br i1 %exitcond.not, label %copy_compare_by_id.exit, label %.lr.ph, !llvm.loop !111
 
 copy_compare_by_id.exit:                          ; preds = %64, %copy_compare_by_id.exit22, %rb_hash_compare_by_id_p.exit.i, %25, %._crit_edge
-  %.0 = phi i64 [ %20, %._crit_edge ], [ %20, %25 ], [ %20, %rb_hash_compare_by_id_p.exit.i ], [ %38, %copy_compare_by_id.exit22 ], [ %38, %64 ]
+  %.0 = phi i64 [ %20, %rb_hash_compare_by_id_p.exit.i ], [ %20, %._crit_edge ], [ %20, %25 ], [ %38, %copy_compare_by_id.exit22 ], [ %38, %64 ]
   ret i64 %.0
 }
 
@@ -11716,7 +11716,7 @@ hash_stlike_lookup.exit:                          ; preds = %3, %14
   br label %51
 
 51:                                               ; preds = %.sink.split, %46, %48
-  %.0 = phi i32 [ 0, %48 ], [ 0, %46 ], [ 1, %.sink.split ]
+  %.0 = phi i32 [ 0, %46 ], [ 0, %48 ], [ 1, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }

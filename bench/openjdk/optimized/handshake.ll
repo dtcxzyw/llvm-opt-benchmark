@@ -1586,7 +1586,7 @@ _ZL36no_suspend_no_async_exception_filterP18HandshakeOperation.exit.thread: ; pr
   br i1 %49, label %_ZN11FilterQueueIP18HandshakeOperationE4peekIFbS1_EEES1_RT_.exit, label %_ZN11FilterQueueIP18HandshakeOperationE4peekIFbS1_EEES1_RT_.exit.sink.split
 
 _ZN11FilterQueueIP18HandshakeOperationE4peekIFbS1_EEES1_RT_.exit.sink.split: ; preds = %.preheader.i.i, %48, %27
-  %spec.select.i10.lcssa.sink = phi ptr [ %25, %27 ], [ %spec.select.i10, %48 ], [ %.011.i.i, %.preheader.i.i ]
+  %spec.select.i10.lcssa.sink = phi ptr [ %spec.select.i10, %48 ], [ %25, %27 ], [ %.011.i.i, %.preheader.i.i ]
   %50 = getelementptr inbounds nuw i8, ptr %spec.select.i10.lcssa.sink, i64 8
   %51 = load ptr, ptr %50, align 8
   br label %_ZN11FilterQueueIP18HandshakeOperationE4peekIFbS1_EEES1_RT_.exit
@@ -1696,7 +1696,7 @@ _ZL36no_suspend_no_async_exception_filterP18HandshakeOperation.exit.thread.i: ; 
   br i1 %52, label %_ZN14HandshakeState15get_op_for_selfEbb.exit, label %_ZN11FilterQueueIP18HandshakeOperationE4peekIFbS1_EEES1_RT_.exit.sink.split.i
 
 _ZN11FilterQueueIP18HandshakeOperationE4peekIFbS1_EEES1_RT_.exit.sink.split.i: ; preds = %.preheader.i.i.i, %51, %30
-  %spec.select.i10.lcssa.sink.i = phi ptr [ %28, %30 ], [ %spec.select.i10.i, %51 ], [ %.011.i.i.i, %.preheader.i.i.i ]
+  %spec.select.i10.lcssa.sink.i = phi ptr [ %spec.select.i10.i, %51 ], [ %28, %30 ], [ %.011.i.i.i, %.preheader.i.i.i ]
   %53 = getelementptr inbounds nuw i8, ptr %spec.select.i10.lcssa.sink.i, i64 8
   %54 = load ptr, ptr %53, align 8
   %55 = icmp ne ptr %54, null
@@ -2066,7 +2066,7 @@ _ZN9SpinYield4waitEv.exit:                        ; preds = %28, %31
   br label %.loopexit
 
 .loopexit:                                        ; preds = %16, %.loopexit.sink.split, %2
-  %.0 = phi ptr [ null, %2 ], [ %35, %.loopexit.sink.split ], [ null, %16 ]
+  %.0 = phi ptr [ %35, %.loopexit.sink.split ], [ null, %2 ], [ null, %16 ]
   ret ptr %.0
 }
 
@@ -2185,7 +2185,7 @@ _ZL36no_suspend_no_async_exception_filterP18HandshakeOperation.exit.thread.i: ; 
   br i1 %59, label %_ZN11MutexLockerD2Ev.exit.thread, label %_ZN14HandshakeState15get_op_for_selfEbb.exit
 
 _ZN14HandshakeState15get_op_for_selfEbb.exit:     ; preds = %.preheader.i.i.i, %39, %58
-  %spec.select.i10.lcssa.sink.i = phi ptr [ %37, %39 ], [ %spec.select.i10.i, %58 ], [ %.011.i.i.i, %.preheader.i.i.i ]
+  %spec.select.i10.lcssa.sink.i = phi ptr [ %spec.select.i10.i, %58 ], [ %37, %39 ], [ %.011.i.i.i, %.preheader.i.i.i ]
   %60 = getelementptr inbounds nuw i8, ptr %spec.select.i10.lcssa.sink.i, i64 8
   %61 = load ptr, ptr %60, align 8
   %.not = icmp eq ptr %61, null

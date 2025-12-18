@@ -2163,7 +2163,7 @@ _ZNK14objArrayHandleclEv.exit:                    ; preds = %.loopexit, %.loopex
   br label %.loopexit78
 
 .loopexit78:                                      ; preds = %152, %117, %93, %_ZN10Management43java_lang_management_MemoryPoolMXBean_klassEP10JavaThread.exit, %_ZL31get_memory_manager_from_jobjectP8_jobjectP10JavaThread.exit, %_ZNK14objArrayHandleclEv.exit
-  %.0 = phi ptr [ null, %_ZN10Management43java_lang_management_MemoryPoolMXBean_klassEP10JavaThread.exit ], [ null, %93 ], [ %187, %_ZNK14objArrayHandleclEv.exit ], [ null, %_ZL31get_memory_manager_from_jobjectP8_jobjectP10JavaThread.exit ], [ null, %117 ], [ null, %152 ]
+  %.0 = phi ptr [ null, %117 ], [ null, %_ZN10Management43java_lang_management_MemoryPoolMXBean_klassEP10JavaThread.exit ], [ null, %93 ], [ %187, %_ZNK14objArrayHandleclEv.exit ], [ null, %_ZL31get_memory_manager_from_jobjectP8_jobjectP10JavaThread.exit ], [ null, %152 ]
   %188 = load ptr, ptr %27, align 8
   %.not.i.i.i.i61 = icmp eq ptr %188, null
   br i1 %.not.i.i.i.i61, label %190, label %189
@@ -2616,7 +2616,7 @@ _ZNK14objArrayHandleclEv.exit:                    ; preds = %.loopexit, %.loopex
   br label %.loopexit79
 
 .loopexit79:                                      ; preds = %151, %117, %93, %_ZN10Management46java_lang_management_MemoryManagerMXBean_klassEP10JavaThread.exit, %_ZL28get_memory_pool_from_jobjectP8_jobjectP10JavaThread.exit, %_ZNK14objArrayHandleclEv.exit
-  %.0 = phi ptr [ null, %_ZN10Management46java_lang_management_MemoryManagerMXBean_klassEP10JavaThread.exit ], [ null, %93 ], [ %185, %_ZNK14objArrayHandleclEv.exit ], [ null, %_ZL28get_memory_pool_from_jobjectP8_jobjectP10JavaThread.exit ], [ null, %117 ], [ null, %151 ]
+  %.0 = phi ptr [ null, %117 ], [ null, %_ZN10Management46java_lang_management_MemoryManagerMXBean_klassEP10JavaThread.exit ], [ null, %93 ], [ %185, %_ZNK14objArrayHandleclEv.exit ], [ null, %_ZL28get_memory_pool_from_jobjectP8_jobjectP10JavaThread.exit ], [ null, %151 ]
   %186 = load ptr, ptr %27, align 8
   %.not.i.i.i.i62 = icmp eq ptr %186, null
   br i1 %.not.i.i.i.i62, label %188, label %187
@@ -5087,7 +5087,7 @@ _ZL16get_gc_attributeP15GCMemoryManager16jmmLongAttribute.exit: ; preds = %46, %
   br i1 %exitcond.not, label %.loopexit, label %41, !llvm.loop !19
 
 .loopexit:                                        ; preds = %55, %.lr.ph51, %.preheader, %34
-  %.030 = phi i32 [ 0, %34 ], [ 0, %.preheader ], [ %spec.select, %.lr.ph51 ], [ %56, %55 ]
+  %.030 = phi i32 [ 0, %34 ], [ %spec.select, %.lr.ph51 ], [ 0, %.preheader ], [ %56, %55 ]
   %57 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
@@ -7475,12 +7475,12 @@ _ZNK6HandleclEv.exit:                             ; preds = %59, %62
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %.lr.ph53, %102, %100, %.preheader
-  %.sink = phi ptr [ %79, %.preheader ], [ %103, %102 ], [ null, %100 ], [ %79, %.lr.ph53 ]
+  %.sink = phi ptr [ %79, %.preheader ], [ null, %100 ], [ %103, %102 ], [ %79, %.lr.ph53 ]
   %104 = tail call noundef ptr @_ZN10JNIHandles10make_localEP10JavaThreadP7oopDescN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull %4, ptr noundef %.sink, i32 noundef 0) #17
   br label %.loopexit
 
 .loopexit:                                        ; preds = %54, %.loopexit.sink.split, %77, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit
-  %.035 = phi ptr [ null, %77 ], [ null, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ %104, %.loopexit.sink.split ], [ null, %54 ]
+  %.035 = phi ptr [ %104, %.loopexit.sink.split ], [ null, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ null, %77 ], [ null, %54 ]
   %105 = getelementptr inbounds nuw i8, ptr %4, i64 408
   %106 = load ptr, ptr %105, align 8
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 16
@@ -7818,7 +7818,7 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %115, %117
   br i1 %153, label %.lr.ph80, label %.loopexit, !llvm.loop !34
 
 .loopexit:                                        ; preds = %129, %150, %87, %130, %104, %85
-  %.1 = phi i32 [ 0, %85 ], [ 0, %104 ], [ 0, %130 ], [ 0, %87 ], [ %.152, %150 ], [ %.154, %129 ]
+  %.1 = phi i32 [ 0, %85 ], [ 0, %104 ], [ %.152, %150 ], [ 0, %130 ], [ 0, %87 ], [ %.154, %129 ]
   %154 = load ptr, ptr %33, align 8
   %.not.i.i.i.i63 = icmp eq ptr %154, null
   br i1 %.not.i.i.i.i63, label %156, label %155

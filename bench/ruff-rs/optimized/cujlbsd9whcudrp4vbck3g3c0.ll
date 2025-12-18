@@ -5789,7 +5789,7 @@ _ZN4core5slice4sort6shared17find_existing_run17h79d590b2734ad079E.exit.i.thread:
   br label %_ZN4core5slice4sort6stable5drift10create_run17h6f90a3ab5f554fa8E.exit
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17hc4374436863fa426E.exit": ; preds = %_ZN4core10intrinsics25typed_swap_nonoverlapping17h6e3c3e33b4bb0030E.exit.i.i, %_ZN4core5slice4sort6shared17find_existing_run17h79d590b2734ad079E.exit.i.thread, %28, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hfd8bfc98912e351aE.exit35", %61
-  %.sroa.0.0.i.i4750 = phi i64 [ %.sroa.0.0.i.i, %61 ], [ %.sroa.0.0.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hfd8bfc98912e351aE.exit35" ], [ %25, %28 ], [ 2, %_ZN4core5slice4sort6shared17find_existing_run17h79d590b2734ad079E.exit.i.thread ], [ %.sroa.0.0.i.i101108111, %_ZN4core10intrinsics25typed_swap_nonoverlapping17h6e3c3e33b4bb0030E.exit.i.i ]
+  %.sroa.0.0.i.i4750 = phi i64 [ %25, %28 ], [ %.sroa.0.0.i.i, %61 ], [ %.sroa.0.0.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hfd8bfc98912e351aE.exit35" ], [ 2, %_ZN4core5slice4sort6shared17find_existing_run17h79d590b2734ad079E.exit.i.thread ], [ %.sroa.0.0.i.i101108111, %_ZN4core10intrinsics25typed_swap_nonoverlapping17h6e3c3e33b4bb0030E.exit.i.i ]
   %66 = shl i64 %.sroa.0.0.i.i4750, 1
   %67 = or disjoint i64 %66, 1
   br label %_ZN4core5slice4sort6stable5drift10create_run17h6f90a3ab5f554fa8E.exit
@@ -6103,8 +6103,8 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17h2188e5053c769c62E(
   br i1 %21, label %129, label %130
 
 .outer._crit_edge:                                ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17ha9d9fe652aa45d2bE.exit", %253, %7
-  %.sroa.0.0.ph.lcssa93 = phi ptr [ %0, %7 ], [ %.sroa.0.0.ph102, %253 ], [ %246, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17ha9d9fe652aa45d2bE.exit" ]
-  %.sroa.12.0.lcssa = phi i64 [ %1, %7 ], [ %.sroa.11.1.lcssa.i, %253 ], [ %237, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17ha9d9fe652aa45d2bE.exit" ]
+  %.sroa.0.0.ph.lcssa93 = phi ptr [ %.sroa.0.0.ph102, %253 ], [ %0, %7 ], [ %246, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17ha9d9fe652aa45d2bE.exit" ]
+  %.sroa.12.0.lcssa = phi i64 [ %.sroa.11.1.lcssa.i, %253 ], [ %1, %7 ], [ %237, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17ha9d9fe652aa45d2bE.exit" ]
   call void @llvm.experimental.noalias.scope.decl(metadata !534)
   call void @llvm.experimental.noalias.scope.decl(metadata !537)
   %22 = icmp samesign ult i64 %.sroa.12.0.lcssa, 2
@@ -6981,10 +6981,10 @@ define hidden void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$
   resume { ptr, i32 } %lpad.phi.i
 
 "_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$30find_leaf_edges_spanning_range17h7aa9656f510ce359E.exit": ; preds = %30, %51, %.preheader.i
-  %.sroa.7.0 = phi ptr [ %.sroa.0.0.i.i, %.preheader.i ], [ %50, %51 ], [ null, %30 ]
-  %.sroa.6.0 = phi i64 [ %18, %.preheader.i ], [ %44, %51 ], [ undef, %30 ]
-  %.sroa.10.0 = phi i64 [ %21, %.preheader.i ], [ %52, %51 ], [ undef, %30 ]
-  %.sroa.0.0 = phi ptr [ %.sroa.0.0.i.i, %.preheader.i ], [ %41, %51 ], [ null, %30 ]
+  %.sroa.7.0 = phi ptr [ %50, %51 ], [ %.sroa.0.0.i.i, %.preheader.i ], [ null, %30 ]
+  %.sroa.6.0 = phi i64 [ %44, %51 ], [ %18, %.preheader.i ], [ undef, %30 ]
+  %.sroa.10.0 = phi i64 [ %52, %51 ], [ %21, %.preheader.i ], [ undef, %30 ]
+  %.sroa.0.0 = phi ptr [ %41, %51 ], [ %.sroa.0.0.i.i, %.preheader.i ], [ null, %30 ]
   call void @"_ZN4core3ptr72drop_in_place$LT$core..ops..range..RangeTo$LT$std..path..PathBuf$GT$$GT$17hb298fd022c8fe08eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8), !noalias !640
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   store ptr %.sroa.0.0, ptr %0, align 8
@@ -7151,10 +7151,10 @@ define hidden void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$
   resume { ptr, i32 } %lpad.phi.i
 
 "_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$30find_leaf_edges_spanning_range17hd45de14714f451b1E.exit": ; preds = %30, %51, %.preheader.i
-  %.sroa.7.0 = phi ptr [ %.sroa.0.0.i.i, %.preheader.i ], [ %50, %51 ], [ null, %30 ]
-  %.sroa.6.0 = phi i64 [ %18, %.preheader.i ], [ %44, %51 ], [ undef, %30 ]
-  %.sroa.10.0 = phi i64 [ %21, %.preheader.i ], [ %52, %51 ], [ undef, %30 ]
-  %.sroa.0.0 = phi ptr [ %.sroa.0.0.i.i, %.preheader.i ], [ %41, %51 ], [ null, %30 ]
+  %.sroa.7.0 = phi ptr [ %50, %51 ], [ %.sroa.0.0.i.i, %.preheader.i ], [ null, %30 ]
+  %.sroa.6.0 = phi i64 [ %44, %51 ], [ %18, %.preheader.i ], [ undef, %30 ]
+  %.sroa.10.0 = phi i64 [ %52, %51 ], [ %21, %.preheader.i ], [ undef, %30 ]
+  %.sroa.0.0 = phi ptr [ %41, %51 ], [ %.sroa.0.0.i.i, %.preheader.i ], [ null, %30 ]
   call void @"_ZN4core3ptr72drop_in_place$LT$core..ops..range..RangeTo$LT$std..path..PathBuf$GT$$GT$17hb298fd022c8fe08eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8), !noalias !658
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   store ptr %.sroa.0.0, ptr %0, align 8
@@ -12286,10 +12286,10 @@ define hidden void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$
   resume { ptr, i32 } %lpad.phi.i
 
 "_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$30find_leaf_edges_spanning_range17h380d3456eb4cb9fdE.exit": ; preds = %30, %51, %.preheader.i
-  %.sroa.7.0 = phi ptr [ %.sroa.0.0.i.i, %.preheader.i ], [ %50, %51 ], [ null, %30 ]
-  %.sroa.6.0 = phi i64 [ %18, %.preheader.i ], [ %44, %51 ], [ undef, %30 ]
-  %.sroa.10.0 = phi i64 [ %21, %.preheader.i ], [ %52, %51 ], [ undef, %30 ]
-  %.sroa.0.0 = phi ptr [ %.sroa.0.0.i.i, %.preheader.i ], [ %41, %51 ], [ null, %30 ]
+  %.sroa.7.0 = phi ptr [ %50, %51 ], [ %.sroa.0.0.i.i, %.preheader.i ], [ null, %30 ]
+  %.sroa.6.0 = phi i64 [ %44, %51 ], [ %18, %.preheader.i ], [ undef, %30 ]
+  %.sroa.10.0 = phi i64 [ %52, %51 ], [ %21, %.preheader.i ], [ undef, %30 ]
+  %.sroa.0.0 = phi ptr [ %41, %51 ], [ %.sroa.0.0.i.i, %.preheader.i ], [ null, %30 ]
   call void @"_ZN4core3ptr81drop_in_place$LT$core..ops..range..RangeToInclusive$LT$std..path..PathBuf$GT$$GT$17h63a563c68c03ed4cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8), !noalias !1701
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   store ptr %.sroa.0.0, ptr %0, align 8

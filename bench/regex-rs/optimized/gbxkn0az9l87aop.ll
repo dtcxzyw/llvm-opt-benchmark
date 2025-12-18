@@ -221,8 +221,8 @@ _ZN4core5slice4sort25insertion_sort_shift_left17hd0103c967c5e28b9E.exit: ; preds
   br i1 %spec.select.i.i.i, label %99, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17ha877eebecf8f0df3E.exit"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17ha877eebecf8f0df3E.exit": ; preds = %_ZN4core3mem4swap17hb137d1c007f825cfE.exit.i.i, %40, %104, %.thread82, %.loopexit89
-  %72 = phi i64 [ %53, %.thread82 ], [ %71, %.loopexit89 ], [ %100, %104 ], [ %1, %40 ], [ %100, %_ZN4core3mem4swap17hb137d1c007f825cfE.exit.i.i ]
-  %.sroa.0.0.i78 = phi i64 [ 2, %.thread82 ], [ %.sroa.0.1.i, %.loopexit89 ], [ %.sroa.0.1.i81, %104 ], [ %43, %40 ], [ %.sroa.0.1.i81, %_ZN4core3mem4swap17hb137d1c007f825cfE.exit.i.i ]
+  %72 = phi i64 [ %1, %40 ], [ %53, %.thread82 ], [ %71, %.loopexit89 ], [ %100, %104 ], [ %100, %_ZN4core3mem4swap17hb137d1c007f825cfE.exit.i.i ]
+  %.sroa.0.0.i78 = phi i64 [ %43, %40 ], [ 2, %.thread82 ], [ %.sroa.0.1.i, %.loopexit89 ], [ %.sroa.0.1.i81, %104 ], [ %.sroa.0.1.i81, %_ZN4core3mem4swap17hb137d1c007f825cfE.exit.i.i ]
   %73 = icmp uge i64 %72, %.0120
   %74 = icmp ule i64 %72, %1
   %or.cond.i = and i1 %73, %74
@@ -642,9 +642,9 @@ _ZN4core5slice4sort20provide_sorted_batch17h0d7e2195e03eaf6dE.exit: ; preds = %.
   br i1 %or.cond4.i, label %.lr.ph.i63, label %"_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$6remove17h8253460a31e7e42eE.exit"
 
 "_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$6remove17h8253460a31e7e42eE.exit": ; preds = %.lr.ph.i63, %.lr.ph24.i, %202, %207
-  %.sroa.18.1.i = phi ptr [ %199, %202 ], [ %198, %207 ], [ %218, %.lr.ph24.i ], [ %229, %.lr.ph.i63 ]
-  %.sroa.10.1.i = phi ptr [ %204, %202 ], [ %208, %207 ], [ %220, %.lr.ph24.i ], [ %208, %.lr.ph.i63 ]
-  %.sroa.0.0.i62 = phi ptr [ %14, %202 ], [ %14, %207 ], [ %14, %.lr.ph24.i ], [ %234, %.lr.ph.i63 ]
+  %.sroa.18.1.i = phi ptr [ %218, %.lr.ph24.i ], [ %199, %202 ], [ %198, %207 ], [ %229, %.lr.ph.i63 ]
+  %.sroa.10.1.i = phi ptr [ %220, %.lr.ph24.i ], [ %204, %202 ], [ %208, %207 ], [ %208, %.lr.ph.i63 ]
+  %.sroa.0.0.i62 = phi ptr [ %14, %.lr.ph24.i ], [ %14, %202 ], [ %14, %207 ], [ %234, %.lr.ph.i63 ]
   %237 = ptrtoint ptr %.sroa.10.1.i to i64
   %238 = ptrtoint ptr %.sroa.0.0.i62 to i64
   %239 = sub nuw i64 %237, %238
@@ -1384,9 +1384,9 @@ _ZN4core3ops8function5FnMut8call_mut17hc471639bb37c37ffE.exit43.thread.i: ; pred
   br i1 %or.cond4.i, label %.lr.ph.i64, label %"_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$6remove17h082146b4bb0ce12aE.exit"
 
 "_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$6remove17h082146b4bb0ce12aE.exit": ; preds = %_ZN4core3ops8function5FnMut8call_mut17hc471639bb37c37ffE.exit43.thread.i, %_ZN4core3ops8function5FnMut8call_mut17hc471639bb37c37ffE.exit.thread.i, %209, %204
-  %.sroa.18.1.i = phi ptr [ %201, %204 ], [ %200, %209 ], [ %224, %_ZN4core3ops8function5FnMut8call_mut17hc471639bb37c37ffE.exit.thread.i ], [ %237, %_ZN4core3ops8function5FnMut8call_mut17hc471639bb37c37ffE.exit43.thread.i ]
-  %.sroa.10.1.i = phi ptr [ %206, %204 ], [ %210, %209 ], [ %223, %_ZN4core3ops8function5FnMut8call_mut17hc471639bb37c37ffE.exit.thread.i ], [ %210, %_ZN4core3ops8function5FnMut8call_mut17hc471639bb37c37ffE.exit43.thread.i ]
-  %.sroa.0.0.i63 = phi ptr [ %13, %204 ], [ %13, %209 ], [ %13, %_ZN4core3ops8function5FnMut8call_mut17hc471639bb37c37ffE.exit.thread.i ], [ %242, %_ZN4core3ops8function5FnMut8call_mut17hc471639bb37c37ffE.exit43.thread.i ]
+  %.sroa.18.1.i = phi ptr [ %224, %_ZN4core3ops8function5FnMut8call_mut17hc471639bb37c37ffE.exit.thread.i ], [ %201, %204 ], [ %200, %209 ], [ %237, %_ZN4core3ops8function5FnMut8call_mut17hc471639bb37c37ffE.exit43.thread.i ]
+  %.sroa.10.1.i = phi ptr [ %223, %_ZN4core3ops8function5FnMut8call_mut17hc471639bb37c37ffE.exit.thread.i ], [ %206, %204 ], [ %210, %209 ], [ %210, %_ZN4core3ops8function5FnMut8call_mut17hc471639bb37c37ffE.exit43.thread.i ]
+  %.sroa.0.0.i63 = phi ptr [ %13, %_ZN4core3ops8function5FnMut8call_mut17hc471639bb37c37ffE.exit.thread.i ], [ %13, %204 ], [ %13, %209 ], [ %242, %_ZN4core3ops8function5FnMut8call_mut17hc471639bb37c37ffE.exit43.thread.i ]
   %245 = ptrtoint ptr %.sroa.10.1.i to i64
   %246 = ptrtoint ptr %.sroa.0.0.i63 to i64
   %247 = sub nuw i64 %245, %246
@@ -2130,9 +2130,9 @@ _ZN4core3ops8function5FnMut8call_mut17h903e79e8964f77fcE.exit43.thread.i: ; pred
   br i1 %or.cond4.i, label %.lr.ph.i64, label %"_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$6remove17haa27c4ac788d6c4eE.exit"
 
 "_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$6remove17haa27c4ac788d6c4eE.exit": ; preds = %_ZN4core3ops8function5FnMut8call_mut17h903e79e8964f77fcE.exit43.thread.i, %_ZN4core3ops8function5FnMut8call_mut17h903e79e8964f77fcE.exit.thread.i, %209, %204
-  %.sroa.18.1.i = phi ptr [ %201, %204 ], [ %200, %209 ], [ %224, %_ZN4core3ops8function5FnMut8call_mut17h903e79e8964f77fcE.exit.thread.i ], [ %237, %_ZN4core3ops8function5FnMut8call_mut17h903e79e8964f77fcE.exit43.thread.i ]
-  %.sroa.10.1.i = phi ptr [ %206, %204 ], [ %210, %209 ], [ %223, %_ZN4core3ops8function5FnMut8call_mut17h903e79e8964f77fcE.exit.thread.i ], [ %210, %_ZN4core3ops8function5FnMut8call_mut17h903e79e8964f77fcE.exit43.thread.i ]
-  %.sroa.0.0.i63 = phi ptr [ %14, %204 ], [ %14, %209 ], [ %14, %_ZN4core3ops8function5FnMut8call_mut17h903e79e8964f77fcE.exit.thread.i ], [ %242, %_ZN4core3ops8function5FnMut8call_mut17h903e79e8964f77fcE.exit43.thread.i ]
+  %.sroa.18.1.i = phi ptr [ %224, %_ZN4core3ops8function5FnMut8call_mut17h903e79e8964f77fcE.exit.thread.i ], [ %201, %204 ], [ %200, %209 ], [ %237, %_ZN4core3ops8function5FnMut8call_mut17h903e79e8964f77fcE.exit43.thread.i ]
+  %.sroa.10.1.i = phi ptr [ %223, %_ZN4core3ops8function5FnMut8call_mut17h903e79e8964f77fcE.exit.thread.i ], [ %206, %204 ], [ %210, %209 ], [ %210, %_ZN4core3ops8function5FnMut8call_mut17h903e79e8964f77fcE.exit43.thread.i ]
+  %.sroa.0.0.i63 = phi ptr [ %14, %_ZN4core3ops8function5FnMut8call_mut17h903e79e8964f77fcE.exit.thread.i ], [ %14, %204 ], [ %14, %209 ], [ %242, %_ZN4core3ops8function5FnMut8call_mut17h903e79e8964f77fcE.exit43.thread.i ]
   %245 = ptrtoint ptr %.sroa.10.1.i to i64
   %246 = ptrtoint ptr %.sroa.0.0.i63 to i64
   %247 = sub nuw i64 %245, %246

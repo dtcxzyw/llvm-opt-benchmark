@@ -826,7 +826,7 @@ write_dicts.exit:                                 ; preds = %75, %61
   br label %indent.exit
 
 indent.exit:                                      ; preds = %.lr.ph.i, %75, %70, %65, %56, %51, %46, %40, %35, %.loopexit, %write_dicts.exit
-  %.041 = phi i32 [ 0, %write_dicts.exit ], [ -1, %.loopexit ], [ -1, %35 ], [ -1, %40 ], [ -1, %46 ], [ -1, %51 ], [ -1, %56 ], [ -1, %65 ], [ -1, %70 ], [ -1, %75 ], [ -1, %.lr.ph.i ]
+  %.041 = phi i32 [ 0, %write_dicts.exit ], [ -1, %75 ], [ -1, %.loopexit ], [ -1, %35 ], [ -1, %40 ], [ -1, %46 ], [ -1, %51 ], [ -1, %56 ], [ -1, %65 ], [ -1, %70 ], [ -1, %.lr.ph.i ]
   ret i32 %.041
 }
 
@@ -1294,7 +1294,7 @@ write_edge.exit:                                  ; preds = %234, %237
   br i1 %.not, label %write_node.exit.thread, label %13, !llvm.loop !73
 
 write_node.exit.thread:                           ; preds = %write_node.exit, %._crit_edge, %.loopexit.i, %67, %.lr.ph.i.i71, %234, %225, %217, %213, %.loopexit.i99, %237, %228, %153, %.loopexit.i83, %write_edge.exit, %write_node.exit97, %.lr.ph.i.i92, %.lr.ph.i.i105, %6, %3
-  %.0 = phi i32 [ -1, %3 ], [ 0, %6 ], [ -1, %.lr.ph.i.i71 ], [ -1, %.lr.ph.i.i105 ], [ -1, %.lr.ph.i.i92 ], [ -1, %234 ], [ -1, %write_node.exit97 ], [ -1, %write_edge.exit ], [ -1, %.loopexit.i83 ], [ -1, %153 ], [ -1, %228 ], [ -1, %237 ], [ -1, %.loopexit.i99 ], [ -1, %213 ], [ -1, %217 ], [ -1, %225 ], [ -1, %.loopexit.i ], [ 0, %._crit_edge ], [ -1, %write_node.exit ], [ -1, %67 ]
+  %.0 = phi i32 [ -1, %.lr.ph.i.i105 ], [ -1, %3 ], [ -1, %.lr.ph.i.i71 ], [ -1, %.lr.ph.i.i92 ], [ -1, %234 ], [ 0, %6 ], [ -1, %write_node.exit97 ], [ -1, %write_edge.exit ], [ -1, %.loopexit.i83 ], [ -1, %153 ], [ -1, %228 ], [ -1, %237 ], [ -1, %.loopexit.i99 ], [ -1, %213 ], [ -1, %217 ], [ -1, %225 ], [ 0, %._crit_edge ], [ -1, %write_node.exit ], [ -1, %.loopexit.i ], [ -1, %67 ]
   ret i32 %.0
 }
 
@@ -1642,7 +1642,7 @@ indent.exit75.thread:                             ; preds = %105, %102, %93
   br label %indent.exit
 
 indent.exit:                                      ; preds = %85, %80, %indent.exit68.thread, %61, %53, %.loopexit, %.lr.ph.i63, %.lr.ph.i, %.lr.ph.i70, %indent.exit75.thread, %._crit_edge.thread, %117, %96
-  %.0 = phi i32 [ %.mux, %indent.exit75.thread ], [ 0, %._crit_edge.thread ], [ -1, %96 ], [ 0, %117 ], [ -1, %.lr.ph.i63 ], [ -1, %.lr.ph.i70 ], [ -1, %.lr.ph.i ], [ -1, %.loopexit ], [ -1, %53 ], [ -1, %61 ], [ -1, %indent.exit68.thread ], [ -1, %80 ], [ -1, %85 ]
+  %.0 = phi i32 [ %.mux, %indent.exit75.thread ], [ 0, %._crit_edge.thread ], [ -1, %.lr.ph.i63 ], [ -1, %.lr.ph.i70 ], [ 0, %117 ], [ -1, %.lr.ph.i ], [ -1, %96 ], [ -1, %.loopexit ], [ -1, %53 ], [ -1, %61 ], [ -1, %indent.exit68.thread ], [ -1, %80 ], [ -1, %85 ]
   ret i32 %.0
 }
 
@@ -1807,7 +1807,7 @@ write_trl.exit:                                   ; preds = %64, %60
   br i1 %.not, label %write_trl.exit.thread, label %.lr.ph, !llvm.loop !80
 
 write_trl.exit.thread:                            ; preds = %irrelevant_subgraph.exit.thread, %57, %write_trl.exit, %75, %.lr.ph.i.i, %3
-  %.014 = phi i32 [ 0, %3 ], [ -1, %.lr.ph.i.i ], [ -1, %write_trl.exit ], [ -1, %irrelevant_subgraph.exit.thread ], [ -1, %57 ], [ 0, %75 ]
+  %.014 = phi i32 [ -1, %.lr.ph.i.i ], [ 0, %3 ], [ -1, %write_trl.exit ], [ -1, %irrelevant_subgraph.exit.thread ], [ -1, %57 ], [ 0, %75 ]
   ret i32 %.014
 }
 

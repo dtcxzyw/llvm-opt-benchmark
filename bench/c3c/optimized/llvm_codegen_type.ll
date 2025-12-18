@@ -2306,7 +2306,7 @@ tailrecurse.backedge:                             ; preds = %102, %90
   unreachable
 
 .loopexit:                                        ; preds = %tailrecurse.backedge, %2, %123, %121, %118, %115, %112, %110, %108, %99, %96, %llvm_get_introspection_for_struct_union.exit, %50, %48, %40, %36, %34, %32, %28, %21, %14, %10, %6
-  %.0 = phi ptr [ %124, %123 ], [ %9, %6 ], [ %13, %10 ], [ %20, %14 ], [ %27, %21 ], [ %31, %28 ], [ %33, %32 ], [ %35, %34 ], [ %39, %36 ], [ %47, %40 ], [ %49, %48 ], [ %51, %50 ], [ %89, %llvm_get_introspection_for_struct_union.exit ], [ %98, %96 ], [ %101, %99 ], [ %122, %121 ], [ %109, %108 ], [ %111, %110 ], [ %114, %112 ], [ %117, %115 ], [ %120, %118 ], [ %4, %2 ], [ %106, %tailrecurse.backedge ]
+  %.0 = phi ptr [ %124, %123 ], [ %9, %6 ], [ %13, %10 ], [ %20, %14 ], [ %27, %21 ], [ %31, %28 ], [ %33, %32 ], [ %35, %34 ], [ %39, %36 ], [ %47, %40 ], [ %49, %48 ], [ %51, %50 ], [ %89, %llvm_get_introspection_for_struct_union.exit ], [ %98, %96 ], [ %120, %118 ], [ %101, %99 ], [ %122, %121 ], [ %109, %108 ], [ %111, %110 ], [ %114, %112 ], [ %117, %115 ], [ %4, %2 ], [ %106, %tailrecurse.backedge ]
   ret ptr %.0
 }
 
@@ -2547,7 +2547,7 @@ define internal fastcc ptr @llvm_get_introspection_for_enum(ptr noundef %0, ptr 
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %21
-  %40 = phi ptr [ null, %21 ], [ %26, %.lr.ph.split.us ], [ %26, %.lr.ph.split ]
+  %40 = phi ptr [ %26, %.lr.ph.split.us ], [ null, %21 ], [ %26, %.lr.ph.split ]
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %42 = load ptr, ptr %41, align 8
   %43 = tail call ptr @LLVMConstArray(ptr noundef %42, ptr noundef %40, i32 noundef %spec.select) #6

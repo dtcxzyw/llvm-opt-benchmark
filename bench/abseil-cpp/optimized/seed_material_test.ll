@@ -4951,7 +4951,7 @@ _ZN7testing8internal15PrintRawArrayToIjEEvPKT_mPSo.exit16: ; preds = %.lr.ph.i13
   br i1 %.not.i19, label %_ZN7testing8internal15PrintRawArrayToIjEEvPKT_mPSo.exit, label %.lr.ph.i17, !llvm.loop !147
 
 _ZN7testing8internal15PrintRawArrayToIjEEvPKT_mPSo.exit: ; preds = %.lr.ph.i17, %.lr.ph.i, %11, %3
-  %.str.73.sink = phi ptr [ @.str.70, %3 ], [ @.str.73, %11 ], [ @.str.73, %.lr.ph.i ], [ @.str.73, %.lr.ph.i17 ]
+  %.str.73.sink = phi ptr [ @.str.70, %3 ], [ @.str.73, %.lr.ph.i ], [ @.str.73, %11 ], [ @.str.73, %.lr.ph.i17 ]
   %36 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %.str.73.sink, i64 noundef 2)
   ret void
 }

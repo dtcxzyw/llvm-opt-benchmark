@@ -1603,7 +1603,7 @@ _ZN9grpc_core27IsFreeLargeAllocatorEnabledEv.exit: ; preds = %38, %42
   br i1 %79, label %.lr.ph.i.i, label %.loopexit, !llvm.loop !95
 
 .loopexit:                                        ; preds = %.lr.ph.i.i, %62, %57
-  %.sroa.6.0.i = phi ptr [ %61, %57 ], [ %.sroa.0.0.copyload.i.i.i, %62 ], [ %77, %.lr.ph.i.i ]
+  %.sroa.6.0.i = phi ptr [ %.sroa.0.0.copyload.i.i.i, %62 ], [ %61, %57 ], [ %77, %.lr.ph.i.i ]
   %80 = load ptr, ptr %.sroa.6.0.i, align 8, !tbaa !97
   call void @_ZN4absl12lts_202407225Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %52)
   %.not = icmp eq ptr %80, null

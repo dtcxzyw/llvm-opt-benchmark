@@ -267,12 +267,12 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hf855f0f3456f1a2cE.llvm.1614125
   br i1 %.not.i.i.i.i5, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hf855f0f3456f1a2cE.llvm.16141255976661166362.exit7.sink.split, label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h6055d9ae242e73ceE.exit.i4"
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17hf855f0f3456f1a2cE.llvm.16141255976661166362.exit7.sink.split: ; preds = %16, %29, %.split15.us
-  %.0.ph = phi ptr [ %.promoted.i323, %.split15.us ], [ %27, %29 ], [ %14, %16 ]
+  %.0.ph = phi ptr [ %27, %29 ], [ %.promoted.i323, %.split15.us ], [ %14, %16 ]
   store i8 1, ptr %1, align 1, !noalias !4
   br label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hf855f0f3456f1a2cE.llvm.16141255976661166362.exit7
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17hf855f0f3456f1a2cE.llvm.16141255976661166362.exit7: ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h6055d9ae242e73ceE.exit.i4", %_ZN4core4iter6traits8iterator8Iterator8try_fold17hf855f0f3456f1a2cE.llvm.16141255976661166362.exit7.sink.split, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h6055d9ae242e73ceE.exit.i4.us", %_ZN4core4iter6traits8iterator8Iterator8try_fold17hf855f0f3456f1a2cE.llvm.16141255976661166362.exit.split.us
-  %.0 = phi ptr [ null, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h6055d9ae242e73ceE.exit.i4.us" ], [ %.promoted.i, %_ZN4core4iter6traits8iterator8Iterator8try_fold17hf855f0f3456f1a2cE.llvm.16141255976661166362.exit.split.us ], [ %.0.ph, %_ZN4core4iter6traits8iterator8Iterator8try_fold17hf855f0f3456f1a2cE.llvm.16141255976661166362.exit7.sink.split ], [ null, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h6055d9ae242e73ceE.exit.i4" ]
+  %.0 = phi ptr [ %.promoted.i, %_ZN4core4iter6traits8iterator8Iterator8try_fold17hf855f0f3456f1a2cE.llvm.16141255976661166362.exit.split.us ], [ null, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h6055d9ae242e73ceE.exit.i4.us" ], [ %.0.ph, %_ZN4core4iter6traits8iterator8Iterator8try_fold17hf855f0f3456f1a2cE.llvm.16141255976661166362.exit7.sink.split ], [ null, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h6055d9ae242e73ceE.exit.i4" ]
   ret ptr %.0
 }
 

@@ -2196,8 +2196,8 @@ _ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i:            ; preds = %12, %_ZN3url7TrimUR
   br label %_ZN3url12_GLOBAL__N_118DoParseStandardURLIcEEvPKT_iPNS_6ParsedE.exit
 
 .loopexit.i:                                      ; preds = %30, %36, %.critedge.i7.i
-  %.225.ph.i = phi i32 [ %.226.i, %.critedge.i7.i ], [ %.226.i, %36 ], [ %.152.i, %30 ]
-  %.12024.ph.i = phi i32 [ %.12023.i, %.critedge.i7.i ], [ %.12023.i, %36 ], [ %.120.i, %30 ]
+  %.225.ph.i = phi i32 [ %.226.i, %36 ], [ %.226.i, %.critedge.i7.i ], [ %.152.i, %30 ]
+  %.12024.ph.i = phi i32 [ %.12023.i, %36 ], [ %.12023.i, %.critedge.i7.i ], [ %.120.i, %30 ]
   store i32 0, ptr %2, align 4, !tbaa !3
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 -1, ptr %41, align 4, !tbaa !8
@@ -2336,8 +2336,8 @@ _ZN3url7TrimURLIcEEvPKT_PiS4_b.exit:              ; preds = %12, %_ZN3url7TrimUR
   br label %44
 
 .loopexit:                                        ; preds = %32, %38, %.critedge.i7
-  %.225.ph = phi i32 [ %.226, %.critedge.i7 ], [ %.226, %38 ], [ %.152, %32 ]
-  %.12024.ph = phi i32 [ %.12023, %.critedge.i7 ], [ %.12023, %38 ], [ %.120, %32 ]
+  %.225.ph = phi i32 [ %.226, %38 ], [ %.226, %.critedge.i7 ], [ %.152, %32 ]
+  %.12024.ph = phi i32 [ %.12023, %38 ], [ %.12023, %.critedge.i7 ], [ %.120, %32 ]
   store i32 0, ptr %2, align 4, !tbaa !3
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 -1, ptr %43, align 4, !tbaa !8
@@ -2474,8 +2474,8 @@ _ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i:            ; preds = %12, %_ZN3url7TrimUR
   br label %_ZN3url12_GLOBAL__N_118DoParseStandardURLItEEvPKT_iPNS_6ParsedE.exit
 
 .loopexit.i:                                      ; preds = %30, %36, %.critedge.i7.i
-  %.225.ph.i = phi i32 [ %.226.i, %.critedge.i7.i ], [ %.226.i, %36 ], [ %.152.i, %30 ]
-  %.12024.ph.i = phi i32 [ %.12023.i, %.critedge.i7.i ], [ %.12023.i, %36 ], [ %.120.i, %30 ]
+  %.225.ph.i = phi i32 [ %.226.i, %36 ], [ %.226.i, %.critedge.i7.i ], [ %.152.i, %30 ]
+  %.12024.ph.i = phi i32 [ %.12023.i, %36 ], [ %.12023.i, %.critedge.i7.i ], [ %.120.i, %30 ]
   store i32 0, ptr %2, align 4, !tbaa !3
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 -1, ptr %41, align 4, !tbaa !8
@@ -2614,8 +2614,8 @@ _ZN3url7TrimURLItEEvPKT_PiS4_b.exit:              ; preds = %12, %_ZN3url7TrimUR
   br label %44
 
 .loopexit:                                        ; preds = %32, %38, %.critedge.i7
-  %.225.ph = phi i32 [ %.226, %.critedge.i7 ], [ %.226, %38 ], [ %.152, %32 ]
-  %.12024.ph = phi i32 [ %.12023, %.critedge.i7 ], [ %.12023, %38 ], [ %.120, %32 ]
+  %.225.ph = phi i32 [ %.226, %38 ], [ %.226, %.critedge.i7 ], [ %.152, %32 ]
+  %.12024.ph = phi i32 [ %.12023, %38 ], [ %.12023, %.critedge.i7 ], [ %.120, %32 ]
   store i32 0, ptr %2, align 4, !tbaa !3
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 -1, ptr %43, align 4, !tbaa !8
@@ -2726,8 +2726,8 @@ _ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.i:   ; preds = %.lr.ph14.i.i
   br label %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i
 
 _ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i:            ; preds = %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.i, %.lr.ph14.preheader.i.i, %.critedge.i.i, %4
-  %.2.i = phi i32 [ %.142.i, %.critedge.i.i ], [ 0, %4 ], [ %.142.i, %.lr.ph14.preheader.i.i ], [ %.142.i, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.i ]
-  %.1.i = phi i32 [ %1, %.critedge.i.i ], [ %1, %4 ], [ %1, %.lr.ph14.preheader.i.i ], [ %42, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.i ]
+  %.2.i = phi i32 [ 0, %4 ], [ %.142.i, %.critedge.i.i ], [ %.142.i, %.lr.ph14.preheader.i.i ], [ %.142.i, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.i ]
+  %.1.i = phi i32 [ %1, %4 ], [ %1, %.critedge.i.i ], [ %1, %.lr.ph14.preheader.i.i ], [ %42, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.i ]
   %43 = icmp eq i32 %.2.i, %.1.i
   br i1 %43, label %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.thread.i, label %45
 
@@ -3029,8 +3029,8 @@ _ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.i:   ; preds = %.lr.ph14.i.i
   br label %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i
 
 _ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i:            ; preds = %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.i, %.lr.ph14.preheader.i.i, %.critedge.i.i, %4
-  %.2.i = phi i32 [ %.142.i, %.critedge.i.i ], [ 0, %4 ], [ %.142.i, %.lr.ph14.preheader.i.i ], [ %.142.i, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.i ]
-  %.1.i = phi i32 [ %1, %.critedge.i.i ], [ %1, %4 ], [ %1, %.lr.ph14.preheader.i.i ], [ %42, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.i ]
+  %.2.i = phi i32 [ 0, %4 ], [ %.142.i, %.critedge.i.i ], [ %.142.i, %.lr.ph14.preheader.i.i ], [ %.142.i, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.i ]
+  %.1.i = phi i32 [ %1, %4 ], [ %1, %.critedge.i.i ], [ %1, %.lr.ph14.preheader.i.i ], [ %42, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.i ]
   %43 = icmp eq i32 %.2.i, %.1.i
   br i1 %43, label %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.thread.i, label %45
 

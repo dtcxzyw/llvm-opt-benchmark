@@ -200,8 +200,8 @@ define i64 @pqsecure_raw_write(ptr noundef captures(none) %0, ptr noundef %1, i6
   br label %.loopexit34
 
 .loopexit34:                                      ; preds = %26, %.loopexit34.sink.split, %36, %36
-  %.029 = phi i64 [ %28, %36 ], [ %28, %36 ], [ %2, %.loopexit34.sink.split ], [ %28, %26 ]
-  %.1 = phi i32 [ %32, %36 ], [ %32, %36 ], [ %32, %.loopexit34.sink.split ], [ %.0, %26 ]
+  %.029 = phi i64 [ %2, %.loopexit34.sink.split ], [ %28, %36 ], [ %28, %36 ], [ %28, %26 ]
+  %.1 = phi i32 [ %32, %.loopexit34.sink.split ], [ %32, %36 ], [ %32, %36 ], [ %.0, %26 ]
   %46 = load i8, ptr %15, align 1, !range !3, !noundef !4
   %47 = trunc nuw i8 %46 to i1
   br i1 %47, label %56, label %48

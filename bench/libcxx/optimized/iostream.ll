@@ -929,7 +929,7 @@ define linkonce_odr hidden noundef i32 @_ZNSt3__110__stdinbufIcE9__getcharEb(ptr
   br label %.thread65
 
 .thread65:                                        ; preds = %55, %43, %52, %65, %72, %.thread78.loopexit
-  %.10 = phi i32 [ %74, %72 ], [ %.pre98, %.thread78.loopexit ], [ -1, %65 ], [ -1, %52 ], [ -1, %43 ], [ -1, %55 ]
+  %.10 = phi i32 [ -1, %65 ], [ %74, %72 ], [ %.pre98, %.thread78.loopexit ], [ -1, %52 ], [ -1, %43 ], [ -1, %55 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -1590,7 +1590,7 @@ _ZNSt3__19__do_getcEP8_IO_FILEPw.exit:            ; preds = %14
   br label %.thread63
 
 .thread63:                                        ; preds = %54, %42, %51, %65, %72, %.thread76.loopexit
-  %.10 = phi i32 [ %73, %72 ], [ %.pre, %.thread76.loopexit ], [ -1, %65 ], [ -1, %51 ], [ -1, %42 ], [ -1, %54 ]
+  %.10 = phi i32 [ -1, %65 ], [ %73, %72 ], [ %.pre, %.thread76.loopexit ], [ -1, %51 ], [ -1, %42 ], [ -1, %54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

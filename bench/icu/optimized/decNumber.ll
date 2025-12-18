@@ -2047,8 +2047,8 @@ define internal fastcc void @_ZL11decFinalizeP9decNumberP10decContextPiPj(ptr no
   br label %.loopexit76.i
 
 .loopexit76.i:                                    ; preds = %.lr.ph86.i, %.loopexit76.loopexit92.i, %108, %.preheader.i
-  %.061.i = phi i8 [ 0, %.preheader.i ], [ 0, %108 ], [ %136, %.loopexit76.loopexit92.i ], [ 0, %.lr.ph86.i ]
-  %.1.i = phi ptr [ %94, %.preheader.i ], [ %94, %108 ], [ %135, %.loopexit76.loopexit92.i ], [ %100, %.lr.ph86.i ]
+  %.061.i = phi i8 [ 0, %.preheader.i ], [ %136, %.loopexit76.loopexit92.i ], [ 0, %108 ], [ 0, %.lr.ph86.i ]
+  %.1.i = phi ptr [ %94, %.preheader.i ], [ %135, %.loopexit76.loopexit92.i ], [ %94, %108 ], [ %100, %.lr.ph86.i ]
   %.not7488.i = icmp ult ptr %.1.i, %51
   br i1 %.not7488.i, label %_ZL14decShiftToMostPhii.exit, label %.lr.ph91.i
 
@@ -2430,8 +2430,8 @@ define internal fastcc noundef ptr @_ZL8decAddOpP9decNumberPKS_S2_P10decContexth
   br label %.loopexit76.i
 
 .loopexit76.i:                                    ; preds = %.lr.ph86.i, %.loopexit76.loopexit92.i, %138, %.preheader.i
-  %.061.i = phi i8 [ 0, %.preheader.i ], [ 0, %138 ], [ %166, %.loopexit76.loopexit92.i ], [ 0, %.lr.ph86.i ]
-  %.1.i = phi ptr [ %124, %.preheader.i ], [ %124, %138 ], [ %165, %.loopexit76.loopexit92.i ], [ %130, %.lr.ph86.i ]
+  %.061.i = phi i8 [ 0, %.preheader.i ], [ %166, %.loopexit76.loopexit92.i ], [ 0, %138 ], [ 0, %.lr.ph86.i ]
+  %.1.i = phi ptr [ %124, %.preheader.i ], [ %165, %.loopexit76.loopexit92.i ], [ %124, %138 ], [ %130, %.lr.ph86.i ]
   %.not7488.i = icmp ult ptr %.1.i, %61
   br i1 %.not7488.i, label %_ZL14decShiftToMostPhii.exit, label %.lr.ph91.i
 
@@ -2818,8 +2818,8 @@ _ZL12decGetDigitsPhi.exit:                        ; preds = %.lr.ph.i334, %269, 
   br label %.loopexit76.i346
 
 .loopexit76.i346:                                 ; preds = %.lr.ph86.i357, %.loopexit76.loopexit92.i345, %339, %.preheader.i355
-  %.061.i347 = phi i8 [ 0, %.preheader.i355 ], [ 0, %339 ], [ %367, %.loopexit76.loopexit92.i345 ], [ 0, %.lr.ph86.i357 ]
-  %.1.i348 = phi ptr [ %325, %.preheader.i355 ], [ %325, %339 ], [ %366, %.loopexit76.loopexit92.i345 ], [ %331, %.lr.ph86.i357 ]
+  %.061.i347 = phi i8 [ 0, %.preheader.i355 ], [ %367, %.loopexit76.loopexit92.i345 ], [ 0, %339 ], [ 0, %.lr.ph86.i357 ]
+  %.1.i348 = phi ptr [ %325, %.preheader.i355 ], [ %366, %.loopexit76.loopexit92.i345 ], [ %325, %339 ], [ %331, %.lr.ph86.i357 ]
   %.not7488.i349 = icmp ult ptr %.1.i348, %293
   br i1 %.not7488.i349, label %_ZL14decShiftToMostPhii.exit361, label %.lr.ph91.i350
 
@@ -8043,7 +8043,7 @@ _ZL12decCompareOpP9decNumberPKS_S2_P10decContexthPj.exit.thread: ; preds = %314,
   br label %uprv_decNumberCopy_77.exit
 
 uprv_decNumberCopy_77.exit:                       ; preds = %341, %131
-  %.0147 = phi ptr [ %.1, %341 ], [ null, %131 ]
+  %.0147 = phi ptr [ null, %131 ], [ %.1, %341 ]
   %.not178 = icmp eq ptr %.1150, null
   br i1 %.not178, label %349, label %348
 
@@ -8861,7 +8861,7 @@ uprv_decNumberFromUInt32_77.exit.i._crit_edge:    ; preds = %uprv_decNumberFromU
   br label %uprv_decNumberCopy_77.exit
 
 uprv_decNumberCopy_77.exit:                       ; preds = %.lr.ph.preheader.i, %115, %113, %94, %147, %149
-  %.065 = phi ptr [ null, %147 ], [ %.1, %149 ], [ null, %94 ], [ null, %113 ], [ null, %115 ], [ null, %.lr.ph.preheader.i ]
+  %.065 = phi ptr [ null, %94 ], [ null, %115 ], [ null, %113 ], [ null, %147 ], [ %.1, %149 ], [ null, %.lr.ph.preheader.i ]
   %.not88 = icmp eq ptr %.168, null
   br i1 %.not88, label %158, label %157
 
@@ -10893,7 +10893,7 @@ split.thread:                                     ; preds = %294, %302, %split
   br label %330
 
 330:                                              ; preds = %287, %321, %split.thread
-  %.0156 = phi ptr [ %.2, %split.thread ], [ %.1157, %321 ], [ null, %287 ]
+  %.0156 = phi ptr [ null, %287 ], [ %.1157, %321 ], [ %.2, %split.thread ]
   %.not207 = icmp eq ptr %.1154, null
   br i1 %.not207, label %332, label %331
 
@@ -10930,7 +10930,7 @@ split.thread:                                     ; preds = %294, %302, %split
   br label %_ZL9decStatusP9decNumberjP10decContext.exit
 
 .thread255:                                       ; preds = %.thread, %231, %216, %218, %193, %184, %171, %28, %32, %.thread250.thread.thread
-  %339 = phi i32 [ %334, %.thread250.thread.thread ], [ 128, %193 ], [ 128, %171 ], [ 128, %216 ], [ 128, %184 ], [ 128, %28 ], [ 128, %231 ], [ 128, %32 ], [ 128, %218 ], [ 16, %.thread ]
+  %339 = phi i32 [ %334, %.thread250.thread.thread ], [ 128, %231 ], [ 128, %171 ], [ 128, %216 ], [ 128, %184 ], [ 128, %28 ], [ 128, %193 ], [ 128, %32 ], [ 128, %218 ], [ 16, %.thread ]
   %340 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %341 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %341, align 4, !tbaa !8
@@ -11092,8 +11092,8 @@ define internal fastcc noundef i32 @_ZL14decShiftToMostPhii(ptr noundef captures
   br label %.loopexit76
 
 .loopexit76:                                      ; preds = %.lr.ph86, %.loopexit76.loopexit92, %52, %.preheader
-  %.061 = phi i8 [ 0, %.preheader ], [ 0, %52 ], [ %80, %.loopexit76.loopexit92 ], [ 0, %.lr.ph86 ]
-  %.1 = phi ptr [ %38, %.preheader ], [ %38, %52 ], [ %79, %.loopexit76.loopexit92 ], [ %44, %.lr.ph86 ]
+  %.061 = phi i8 [ 0, %.preheader ], [ %80, %.loopexit76.loopexit92 ], [ 0, %52 ], [ 0, %.lr.ph86 ]
+  %.1 = phi ptr [ %38, %.preheader ], [ %79, %.loopexit76.loopexit92 ], [ %38, %52 ], [ %44, %.lr.ph86 ]
   %.not7488 = icmp ult ptr %.1, %0
   br i1 %.not7488, label %.loopexit, label %.lr.ph91
 
@@ -13873,8 +13873,8 @@ condstore.split:                                  ; preds = %368
   br label %uprv_decNumberCopy_77.exit
 
 uprv_decNumberCopy_77.exit:                       ; preds = %.lr.ph.preheader.i260, %.lr.ph.preheader.i279, %385, %383, %197, %195, %125
-  %.0206 = phi ptr [ %121, %125 ], [ %.1207, %195 ], [ %.1207, %197 ], [ %.1207, %383 ], [ %.1207, %385 ], [ %.1207, %.lr.ph.preheader.i279 ], [ %.1207, %.lr.ph.preheader.i260 ]
-  %.0204 = phi ptr [ %122, %125 ], [ %.1205, %195 ], [ %.1205, %197 ], [ %.1205, %383 ], [ %.1205, %385 ], [ %.1205, %.lr.ph.preheader.i279 ], [ %.1205, %.lr.ph.preheader.i260 ]
+  %.0206 = phi ptr [ %121, %125 ], [ %.1207, %.lr.ph.preheader.i279 ], [ %.1207, %385 ], [ %.1207, %383 ], [ %.1207, %197 ], [ %.1207, %195 ], [ %.1207, %.lr.ph.preheader.i260 ]
+  %.0204 = phi ptr [ %122, %125 ], [ %.1205, %.lr.ph.preheader.i279 ], [ %.1205, %385 ], [ %.1205, %383 ], [ %.1205, %197 ], [ %.1205, %195 ], [ %.1205, %.lr.ph.preheader.i260 ]
   %.not239 = icmp eq ptr %.1200, null
   br i1 %.not239, label %408, label %407
 
@@ -15375,8 +15375,8 @@ select.unfold123:                                 ; preds = %44, %37, %18, %9
   br i1 %exitcond175, label %._crit_edge160, label %.lr.ph159, !llvm.loop !103
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph159, %._crit_edge160, %._crit_edge
-  %120 = phi i32 [ %81, %._crit_edge160 ], [ %51, %._crit_edge ], [ %81, %.lr.ph159 ], [ %51, %.lr.ph ]
-  %.1135 = phi i32 [ -1, %._crit_edge160 ], [ 1, %._crit_edge ], [ -1, %.lr.ph159 ], [ 1, %.lr.ph ]
+  %120 = phi i32 [ %51, %._crit_edge ], [ %81, %._crit_edge160 ], [ %81, %.lr.ph159 ], [ %51, %.lr.ph ]
+  %.1135 = phi i32 [ 1, %._crit_edge ], [ -1, %._crit_edge160 ], [ -1, %.lr.ph159 ], [ 1, %.lr.ph ]
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %122 = icmp slt i32 %120, 50
   br i1 %122, label %123, label %128

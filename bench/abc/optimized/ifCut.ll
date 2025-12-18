@@ -400,8 +400,8 @@ If_CutCheckDominance.exit:                        ; preds = %53, %42
   br i1 %exitcond31.not.i57, label %If_CutCheckDominance.exit58, label %.preheader.us.i49, !llvm.loop !27
 
 If_CutCheckDominance.exit.thread:                 ; preds = %._crit_edge.us.i55, %._crit_edge.us.i, %75, %50, %36, %._crit_edge, %62, %37, %31
-  %79 = phi i16 [ %15, %31 ], [ 1, %36 ], [ %15, %37 ], [ %60, %._crit_edge ], [ %15, %62 ], [ %15, %._crit_edge.us.i ], [ %15, %50 ], [ %15, %75 ], [ %15, %._crit_edge.us.i55 ]
-  %.1 = phi i32 [ 0, %31 ], [ 0, %36 ], [ %.03570, %37 ], [ %61, %._crit_edge ], [ %.03570, %62 ], [ %.03570, %._crit_edge.us.i ], [ %.03570, %50 ], [ %.03570, %75 ], [ %.03570, %._crit_edge.us.i55 ]
+  %79 = phi i16 [ %15, %31 ], [ 1, %36 ], [ %15, %37 ], [ %60, %._crit_edge ], [ %15, %._crit_edge.us.i ], [ %15, %62 ], [ %15, %75 ], [ %15, %50 ], [ %15, %._crit_edge.us.i55 ]
+  %.1 = phi i32 [ 0, %31 ], [ 0, %36 ], [ %.03570, %37 ], [ %61, %._crit_edge ], [ %.03570, %._crit_edge.us.i ], [ %.03570, %62 ], [ %.03570, %75 ], [ %.03570, %50 ], [ %.03570, %._crit_edge.us.i55 ]
   %80 = add nsw i32 %.1, 1
   %81 = sext i16 %79 to i32
   %82 = icmp slt i32 %80, %81
@@ -723,7 +723,7 @@ define range(i32 0, 2) i32 @If_CutMergeOrdered_(ptr noundef captures(none) %0, p
   br label %.loopexit
 
 .loopexit:                                        ; preds = %102, %23, %.preheader140, %.loopexit142, %.loopexit143, %._crit_edge154, %._crit_edge, %._crit_edge158
-  %.0128 = phi i32 [ 1, %._crit_edge158 ], [ 0, %.loopexit143 ], [ 1, %._crit_edge154 ], [ 1, %._crit_edge ], [ 0, %.loopexit142 ], [ 0, %.preheader140 ], [ 0, %23 ], [ 0, %102 ]
+  %.0128 = phi i32 [ 0, %.loopexit142 ], [ 1, %._crit_edge158 ], [ 0, %.loopexit143 ], [ 1, %._crit_edge154 ], [ 0, %.preheader140 ], [ 1, %._crit_edge ], [ 0, %23 ], [ 0, %102 ]
   ret i32 %.0128
 }
 
@@ -936,7 +936,7 @@ define range(i32 0, 2) i32 @If_CutMergeOrdered(ptr noundef readnone captures(non
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %25, %.preheader107, %._crit_edge122.loopexit, %.preheader108, %._crit_edge.loopexit, %.preheader
-  %.5.lcssa.sink = phi i32 [ %76, %._crit_edge.loopexit ], [ %13, %.preheader ], [ %.1, %.preheader108 ], [ %.086, %.preheader107 ], [ %91, %._crit_edge122.loopexit ], [ %13, %25 ]
+  %.5.lcssa.sink = phi i32 [ %76, %._crit_edge.loopexit ], [ %13, %.preheader ], [ %91, %._crit_edge122.loopexit ], [ %.1, %.preheader108 ], [ %.086, %.preheader107 ], [ %13, %25 ]
   %92 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %93 = load i64, ptr %92, align 4
   %94 = shl i32 %.5.lcssa.sink, 24
@@ -954,7 +954,7 @@ define range(i32 0, 2) i32 @If_CutMergeOrdered(ptr noundef readnone captures(non
   br label %.loopexit
 
 .loopexit:                                        ; preds = %61, %20, %.loopexit.sink.split, %.preheader109, %.loopexit111, %.loopexit112
-  %.0 = phi i32 [ 0, %.loopexit112 ], [ 0, %.loopexit111 ], [ 0, %.preheader109 ], [ 1, %.loopexit.sink.split ], [ 0, %20 ], [ 0, %61 ]
+  %.0 = phi i32 [ 0, %.loopexit111 ], [ 0, %20 ], [ 0, %.loopexit112 ], [ 1, %.loopexit.sink.split ], [ 0, %.preheader109 ], [ 0, %61 ]
   ret i32 %.0
 }
 

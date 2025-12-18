@@ -6487,7 +6487,7 @@ _ZN6google8protobuf8compiler3php12_GLOBAL__N_119GenerateServiceFileEPKNS0_14File
   br i1 %cmp21, label %for.body22, label %return, !llvm.loop !201
 
 return:                                           ; preds = %for.body, %for.body7, %_ZN6google8protobuf8compiler3php12_GLOBAL__N_119GenerateServiceFileEPKNS0_14FileDescriptorEPKNS0_17ServiceDescriptorERKNS2_7OptionsEPNS1_16GeneratorContextE.exit, %for.cond19.preheader, %for.end14
-  %retval.0 = phi i1 [ true, %for.end14 ], [ true, %for.cond19.preheader ], [ false, %for.body7 ], [ true, %_ZN6google8protobuf8compiler3php12_GLOBAL__N_119GenerateServiceFileEPKNS0_14FileDescriptorEPKNS0_17ServiceDescriptorERKNS2_7OptionsEPNS1_16GeneratorContextE.exit ], [ false, %for.body ]
+  %retval.0 = phi i1 [ false, %for.body7 ], [ true, %for.cond19.preheader ], [ true, %for.end14 ], [ true, %_ZN6google8protobuf8compiler3php12_GLOBAL__N_119GenerateServiceFileEPKNS0_14FileDescriptorEPKNS0_17ServiceDescriptorERKNS2_7OptionsEPNS1_16GeneratorContextE.exit ], [ false, %for.body ]
   ret i1 %retval.0
 }
 
@@ -24527,7 +24527,7 @@ lpad38:                                           ; preds = %lpad38.split.us, %l
   br label %ehcleanup
 
 for.end:                                          ; preds = %while.body, %invoke.cont39, %for.inc.us, %_ZNK4absl12lts_2023080216strings_internal8SplitterINS0_6ByCharENS0_9SkipEmptyESt17basic_string_viewIcSt11char_traitsIcEEEcvT_ISt6vectorIS8_SaIS8_EETnNSt9enable_ifIXaantsr22ShouldUseLifetimeBoundIS8_SA_EE5valuesr23SplitterIsConvertibleToISA_EE5valueEDnE4typeELDn0EEEv.exit, %while.end
-  %25 = phi ptr [ %4, %_ZNK4absl12lts_2023080216strings_internal8SplitterINS0_6ByCharENS0_9SkipEmptyESt17basic_string_viewIcSt11char_traitsIcEEEcvT_ISt6vectorIS8_SaIS8_EETnNSt9enable_ifIXaantsr22ShouldUseLifetimeBoundIS8_SA_EE5valuesr23SplitterIsConvertibleToISA_EE5valueEDnE4typeELDn0EEEv.exit ], [ %4, %while.end ], [ %22, %invoke.cont39 ], [ %14, %for.inc.us ], [ %4, %while.body ]
+  %25 = phi ptr [ %14, %for.inc.us ], [ %4, %_ZNK4absl12lts_2023080216strings_internal8SplitterINS0_6ByCharENS0_9SkipEmptyESt17basic_string_viewIcSt11char_traitsIcEEEcvT_ISt6vectorIS8_SaIS8_EETnNSt9enable_ifIXaantsr22ShouldUseLifetimeBoundIS8_SA_EE5valuesr23SplitterIsConvertibleToISA_EE5valueEDnE4typeELDn0EEEv.exit ], [ %4, %while.end ], [ %22, %invoke.cont39 ], [ %4, %while.body ]
   br i1 %trailingNewline, label %if.then40, label %if.end43
 
 if.then40:                                        ; preds = %for.end

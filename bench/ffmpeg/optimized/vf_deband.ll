@@ -359,7 +359,7 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef readonly capture
   br i1 %161, label %.preheader, label %.loopexit, !llvm.loop !62
 
 .loopexit:                                        ; preds = %._crit_edge, %.preheader.lr.ph, %.preheader100, %108
-  %.0 = phi i32 [ -12, %108 ], [ 0, %.preheader.lr.ph ], [ 0, %.preheader100 ], [ 0, %._crit_edge ]
+  %.0 = phi i32 [ -12, %108 ], [ 0, %.preheader100 ], [ 0, %.preheader.lr.ph ], [ 0, %._crit_edge ]
   ret i32 %.0
 }
 
@@ -884,8 +884,8 @@ define internal noundef i32 @deband_8_coupling_c(ptr noundef readonly captures(n
   br i1 %157, label %.lr.ph177, label %.loopexit, !llvm.loop !78
 
 .loopexit:                                        ; preds = %.lr.ph177, %.lr.ph179, %.preheader166, %.preheader
-  %158 = phi i32 [ %35, %.preheader ], [ %35, %.preheader166 ], [ %141, %.lr.ph179 ], [ %155, %.lr.ph177 ]
-  %159 = phi i32 [ %35, %.preheader ], [ %36, %.preheader166 ], [ %141, %.lr.ph179 ], [ %155, %.lr.ph177 ]
+  %158 = phi i32 [ %141, %.lr.ph179 ], [ %35, %.preheader ], [ %35, %.preheader166 ], [ %155, %.lr.ph177 ]
+  %159 = phi i32 [ %141, %.lr.ph179 ], [ %35, %.preheader ], [ %36, %.preheader166 ], [ %155, %.lr.ph177 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

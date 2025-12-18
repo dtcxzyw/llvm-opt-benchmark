@@ -3197,7 +3197,7 @@ _ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exi
   br i1 %exitcond.not, label %.critedge16, label %._crit_edge.i.i.i.i.us72, !llvm.loop !303
 
 .split.us:                                        ; preds = %._crit_edge.i.i.i.i.us72, %_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.us60, %_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.us40, %_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.us, %.lr.ph.split.split.us71
-  %84 = phi i32 [ %78, %.lr.ph.split.split.us71 ], [ %.pre.i.i.i.i.us56, %_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.us60 ], [ %24, %_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.us ], [ %62, %_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.us40 ], [ %78, %._crit_edge.i.i.i.i.us72 ]
+  %84 = phi i32 [ %62, %_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.us40 ], [ %78, %.lr.ph.split.split.us71 ], [ %.pre.i.i.i.i.us56, %_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.us60 ], [ %24, %_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.us ], [ %78, %._crit_edge.i.i.i.i.us72 ]
   tail call void @_ZN3net10QuicFramer11set_versionENS_11QuicVersionE(ptr noundef nonnull align 8 dereferenceable(408) %3, i32 noundef %84)
   br label %.critedge16
 

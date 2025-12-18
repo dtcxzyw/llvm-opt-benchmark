@@ -1539,10 +1539,10 @@ list_length.exit175.i:                            ; preds = %475, %474
   br label %.split.split.i, !llvm.loop !11
 
 ._crit_edge.i:                                    ; preds = %.thread.split.i, %.split.us.us.i, %.lr.ph189.i, %.critedge.i42, %454
-  %.0140.lcssa266.i = phi ptr [ null, %.critedge.i42 ], [ null, %454 ], [ null, %.lr.ph189.i ], [ %526, %.split.us.us.i ], [ %526, %.thread.split.i ]
-  %.0141.lcssa265.i = phi ptr [ null, %.critedge.i42 ], [ null, %454 ], [ null, %.lr.ph189.i ], [ %527, %.split.us.us.i ], [ %527, %.thread.split.i ]
-  %.0142.lcssa264.i = phi ptr [ null, %.critedge.i42 ], [ null, %454 ], [ null, %.lr.ph189.i ], [ %528, %.split.us.us.i ], [ %528, %.thread.split.i ]
-  %.0.lcssa256263.i = phi ptr [ %499, %.critedge.i42 ], [ null, %454 ], [ null, %.lr.ph189.i ], [ null, %.split.us.us.i ], [ %499, %.thread.split.i ]
+  %.0140.lcssa266.i = phi ptr [ null, %.critedge.i42 ], [ null, %454 ], [ %526, %.split.us.us.i ], [ null, %.lr.ph189.i ], [ %526, %.thread.split.i ]
+  %.0141.lcssa265.i = phi ptr [ null, %.critedge.i42 ], [ null, %454 ], [ %527, %.split.us.us.i ], [ null, %.lr.ph189.i ], [ %527, %.thread.split.i ]
+  %.0142.lcssa264.i = phi ptr [ null, %.critedge.i42 ], [ null, %454 ], [ %528, %.split.us.us.i ], [ null, %.lr.ph189.i ], [ %528, %.thread.split.i ]
+  %.0.lcssa256263.i = phi ptr [ %499, %.critedge.i42 ], [ null, %454 ], [ null, %.split.us.us.i ], [ null, %.lr.ph189.i ], [ %499, %.thread.split.i ]
   %555 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %556 = load ptr, ptr %555, align 8
   %.not161.i = icmp eq ptr %556, null
@@ -3601,7 +3601,7 @@ list_length.exit97:                               ; preds = %41, %59
   br i1 %or.cond6, label %138, label %.critedge
 
 .critedge:                                        ; preds = %93, %89, %128, %133, %.split.split.us, %68
-  %.us-phi = phi ptr [ null, %.split.split.us ], [ null, %68 ], [ %.0, %128 ], [ %.0, %133 ], [ %.0.us115, %89 ], [ %.0.us115, %93 ]
+  %.us-phi = phi ptr [ %.0, %128 ], [ null, %.split.split.us ], [ null, %68 ], [ %.0, %133 ], [ %.0.us115, %89 ], [ %.0.us115, %93 ]
   ret ptr %.us-phi
 
 138:                                              ; preds = %133

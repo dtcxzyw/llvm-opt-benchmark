@@ -4703,8 +4703,8 @@ if.then60.i:                                      ; preds = %if.end47.i
   br label %_ZL18utf8proc_codepointPKcS0_Ri.exit
 
 _ZL18utf8proc_codepointPKcS0_Ri.exit:             ; preds = %if.then10.i, %if.then36.i, %if.then60.i
-  %size.i.1 = phi i32 [ 2, %if.then10.i ], [ 3, %if.then36.i ], [ 4, %if.then60.i ]
-  %retval.0.i = phi i32 [ %add.i70, %if.then10.i ], [ %add46.i, %if.then36.i ], [ %add74.i, %if.then60.i ]
+  %size.i.1 = phi i32 [ 3, %if.then36.i ], [ 4, %if.then60.i ], [ 2, %if.then10.i ]
+  %retval.0.i = phi i32 [ %add46.i, %if.then36.i ], [ %add74.i, %if.then60.i ], [ %add.i70, %if.then10.i ]
   %cmp1.i = icmp eq i32 %retval.0.i, -1
   br i1 %cmp1.i, label %if.then.i, label %if.end.i
 
@@ -6571,7 +6571,7 @@ return.sink.split:                                ; preds = %if.then.i, %_ZZN8fa
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.then27, %if.then3, %for.end, %entry
-  %retval.0 = phi i1 [ true, %entry ], [ true, %for.end ], [ true, %if.then3 ], [ true, %if.then27 ], [ false, %return.sink.split ]
+  %retval.0 = phi i1 [ true, %entry ], [ true, %for.end ], [ true, %if.then27 ], [ true, %if.then3 ], [ false, %return.sink.split ]
   ret i1 %retval.0
 }
 
@@ -12006,7 +12006,7 @@ if.end7.i119:                                     ; preds = %while.body.i106
   br i1 %tobool5.not.i122, label %return, label %while.body.i106, !llvm.loop !111
 
 return:                                           ; preds = %while.body.i45, %while.body.i74, %if.end7.i119, %while.body.i106, %if.end7.i, %while.body.i, %if.then26, %if.then3, %for.end, %entry
-  %retval.0 = phi i1 [ true, %entry ], [ true, %for.end ], [ true, %if.then26 ], [ true, %if.then3 ], [ false, %while.body.i74 ], [ %tobool.i.i.i.not.not.i.not.not, %if.end7.i ], [ %tobool.i.i.i.not.not.i118.not.not, %if.end7.i119 ], [ %tobool.i.i.i.not.not.i.not.not, %while.body.i ], [ %tobool.i.i.i.not.not.i118.not.not, %while.body.i106 ], [ false, %while.body.i45 ]
+  %retval.0 = phi i1 [ true, %entry ], [ true, %for.end ], [ true, %if.then26 ], [ %tobool.i.i.i.not.not.i118.not.not, %if.end7.i119 ], [ false, %while.body.i74 ], [ true, %if.then3 ], [ %tobool.i.i.i.not.not.i.not.not, %if.end7.i ], [ %tobool.i.i.i.not.not.i.not.not, %while.body.i ], [ %tobool.i.i.i.not.not.i118.not.not, %while.body.i106 ], [ false, %while.body.i45 ]
   ret i1 %retval.0
 }
 
@@ -13147,8 +13147,8 @@ if.then60.i:                                      ; preds = %if.end47.i
   br label %_ZL18utf8proc_codepointPKcS0_Ri.exit
 
 _ZL18utf8proc_codepointPKcS0_Ri.exit:             ; preds = %if.then10.i, %if.then36.i, %if.then60.i
-  %size.i.1 = phi i32 [ 2, %if.then10.i ], [ 3, %if.then36.i ], [ 4, %if.then60.i ]
-  %retval.0.i = phi i32 [ %add.i25, %if.then10.i ], [ %add46.i, %if.then36.i ], [ %add74.i, %if.then60.i ]
+  %size.i.1 = phi i32 [ 3, %if.then36.i ], [ 4, %if.then60.i ], [ 2, %if.then10.i ]
+  %retval.0.i = phi i32 [ %add46.i, %if.then36.i ], [ %add74.i, %if.then60.i ], [ %add.i25, %if.then10.i ]
   %cmp1.i = icmp eq i32 %retval.0.i, -1
   br i1 %cmp1.i, label %if.then.i, label %if.end.i
 

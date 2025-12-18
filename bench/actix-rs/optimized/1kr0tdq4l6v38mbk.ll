@@ -1491,7 +1491,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit: ; preds = %.lr.ph.
   br label %.loopexit
 
 .loopexit:                                        ; preds = %63, %39, %2, %.split.us, %.split72.us
-  %storemerge23 = phi i64 [ 0, %.split.us ], [ 1, %.split72.us ], [ 0, %2 ], [ 0, %39 ], [ 0, %63 ]
+  %storemerge23 = phi i64 [ 1, %.split72.us ], [ 0, %.split.us ], [ 0, %2 ], [ 0, %39 ], [ 0, %63 ]
   store i64 %storemerge23, ptr %0, align 8
   ret void
 }
@@ -1740,7 +1740,7 @@ _ZN8smallvec10deallocate17hdf713e930719dcd0E.exit.i: ; preds = %48
   tail call void @__rust_dealloc(ptr noundef nonnull %.sink3.i.i, i64 noundef %51, i64 noundef 8) #30
   br label %_ZN8smallvec10infallible17hab804a69e4a73d7dE.exit
 
-55:                                               ; preds = %31, %36
+55:                                               ; preds = %36, %31
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.cf8ce5e1de4a78c7021e8ff3b6c4351c.56, i64 noundef 17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.cf8ce5e1de4a78c7021e8ff3b6c4351c.57) #31
   unreachable
 

@@ -1440,7 +1440,7 @@ _conv.exit502:                                    ; preds = %.lr.ph.i.i497, %496
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit.loopexit, %38
-  %.1 = phi ptr [ %40, %.loopexit.loopexit ], [ %.0208, %38 ], [ %.2, %.preheader ]
+  %.1 = phi ptr [ %.0208, %38 ], [ %40, %.loopexit.loopexit ], [ %.2, %.preheader ]
   %501 = icmp eq ptr %.0209, %3
   br i1 %501, label %506, label %502
 

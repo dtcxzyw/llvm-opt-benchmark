@@ -3277,11 +3277,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit243.i: ; preds = %
   br label %.body
 
 _ZL7do_dhdlP10t_enxframePK10t_inputrecPP8_IO_FILEPKcbPiS9_S9_S9_PK16gmx_output_env_t.exit: ; preds = %._crit_edge307.split.i, %._crit_edge307.split.us.us.i, %.noexc431, %.preheader255.i, %._crit_edge326.i, %._crit_edge302.i
-  %.2661 = phi i32 [ %.0659.ph, %.noexc431 ], [ %904, %._crit_edge326.i ], [ %904, %._crit_edge302.i ], [ %904, %.preheader255.i ], [ %904, %._crit_edge307.split.us.us.i ], [ %904, %._crit_edge307.split.i ]
-  %.2658 = phi i32 [ %.0656.ph, %.noexc431 ], [ %1007, %._crit_edge326.i ], [ %1024, %._crit_edge302.i ], [ %.0656.ph, %.preheader255.i ], [ %1024, %._crit_edge307.split.us.us.i ], [ %1024, %._crit_edge307.split.i ]
-  %.2655 = phi i32 [ %.0653.ph, %.noexc431 ], [ %902, %._crit_edge326.i ], [ %902, %._crit_edge302.i ], [ %902, %.preheader255.i ], [ %902, %._crit_edge307.split.us.us.i ], [ %902, %._crit_edge307.split.i ]
-  %.2652 = phi i32 [ %.0650.ph, %.noexc431 ], [ %903, %._crit_edge326.i ], [ %903, %._crit_edge302.i ], [ %903, %.preheader255.i ], [ %903, %._crit_edge307.split.us.us.i ], [ %903, %._crit_edge307.split.i ]
-  %.3642 = phi ptr [ %.0.ph, %.noexc431 ], [ %.2641, %._crit_edge326.i ], [ %.2641, %._crit_edge302.i ], [ %.2641, %.preheader255.i ], [ %.2641, %._crit_edge307.split.us.us.i ], [ %.2641, %._crit_edge307.split.i ]
+  %.2661 = phi i32 [ %.0659.ph, %.noexc431 ], [ %904, %._crit_edge326.i ], [ %904, %.preheader255.i ], [ %904, %._crit_edge307.split.us.us.i ], [ %904, %._crit_edge302.i ], [ %904, %._crit_edge307.split.i ]
+  %.2658 = phi i32 [ %.0656.ph, %.noexc431 ], [ %1007, %._crit_edge326.i ], [ %.0656.ph, %.preheader255.i ], [ %1024, %._crit_edge307.split.us.us.i ], [ %1024, %._crit_edge302.i ], [ %1024, %._crit_edge307.split.i ]
+  %.2655 = phi i32 [ %.0653.ph, %.noexc431 ], [ %902, %._crit_edge326.i ], [ %902, %.preheader255.i ], [ %902, %._crit_edge307.split.us.us.i ], [ %902, %._crit_edge302.i ], [ %902, %._crit_edge307.split.i ]
+  %.2652 = phi i32 [ %.0650.ph, %.noexc431 ], [ %903, %._crit_edge326.i ], [ %903, %.preheader255.i ], [ %903, %._crit_edge307.split.us.us.i ], [ %903, %._crit_edge302.i ], [ %903, %._crit_edge307.split.i ]
+  %.3642 = phi ptr [ %.0.ph, %.noexc431 ], [ %.2641, %._crit_edge326.i ], [ %.2641, %.preheader255.i ], [ %.2641, %._crit_edge307.split.us.us.i ], [ %.2641, %._crit_edge302.i ], [ %.2641, %._crit_edge307.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %50)
   call void @llvm.lifetime.end.p0(ptr nonnull %49)
   call void @llvm.lifetime.end.p0(ptr nonnull %48)

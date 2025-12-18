@@ -566,8 +566,8 @@ _ZNK4llvm5APInt10isSubsetOfERKS0_.exit.i:         ; preds = %209
   br label %243
 
 243:                                              ; preds = %235, %219, %212, %206, %203, %201, %193
-  %cond2.ph.i = phi i1 [ true, %212 ], [ true, %206 ], [ true, %219 ], [ true, %201 ], [ true, %193 ], [ false, %235 ], [ true, %203 ]
-  %.9.ph.i = phi i1 [ %.4169.i, %212 ], [ %.4169.i, %206 ], [ %.4169.i, %219 ], [ %.4169.i, %201 ], [ %.4169.i, %193 ], [ true, %235 ], [ %.4169.i, %203 ]
+  %cond2.ph.i = phi i1 [ true, %212 ], [ true, %206 ], [ true, %219 ], [ true, %201 ], [ true, %203 ], [ false, %235 ], [ true, %193 ]
+  %.9.ph.i = phi i1 [ %.4169.i, %212 ], [ %.4169.i, %206 ], [ %.4169.i, %219 ], [ %.4169.i, %201 ], [ %.4169.i, %203 ], [ true, %235 ], [ %.4169.i, %193 ]
   %.pr.pre.pr.i = load i32, ptr %50, align 8, !tbaa !47
   %244 = icmp ugt i32 %.pr.pre.pr.i, 64
   br i1 %244, label %.thread298.i, label %248
@@ -1513,7 +1513,7 @@ _ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IR
   br i1 %.not.i.i.i.i, label %_ZN4llvm8erase_ifINS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS4_EUlRKS5_E_EEvRT_T0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !129
 
 _ZN4llvm8erase_ifINS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS4_EUlRKS5_E_EEvRT_T0_.exit: ; preds = %57, %._crit_edge.i.i.i.i.i.i, %43, %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i
-  %.016.i.i.i.i = phi ptr [ %.028.i.i.i.i.i.i, %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i ], [ %10, %._crit_edge.i.i.i.i.i.i ], [ %10, %43 ], [ %.1.i.i.i.i, %57 ]
+  %.016.i.i.i.i = phi ptr [ %.028.i.i.i.i.i.i, %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i ], [ %10, %43 ], [ %10, %._crit_edge.i.i.i.i.i.i ], [ %.1.i.i.i.i, %57 ]
   %58 = ptrtoint ptr %.016.i.i.i.i to i64
   %59 = ptrtoint ptr %6 to i64
   %60 = sub i64 %58, %59

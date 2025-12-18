@@ -1088,7 +1088,7 @@ _ZN4core3str11validations15next_code_point17h9effab5486a5d2aaE.exit.thread.i.i.i
   br label %.lr.ph.i.i.i.i
 
 _ZN4core4iter6traits8iterator8Iterator4fold17h0423f45a19fe98edE.exit: ; preds = %.thread.i.i.i.i.i, %152, %60, %17, %.sink.split.i.us, %98
-  %.0.i114 = phi i64 [ %.0.i153, %152 ], [ %.0.i.us, %98 ], [ %.0.i.us, %.sink.split.i.us ], [ %.0.i.us, %60 ], [ %.0.i.us, %17 ], [ %.0.i153, %.thread.i.i.i.i.i ]
+  %.0.i114 = phi i64 [ %.0.i153, %152 ], [ %.0.i.us, %.sink.split.i.us ], [ %.0.i.us, %60 ], [ %.0.i.us, %98 ], [ %.0.i.us, %17 ], [ %.0.i153, %.thread.i.i.i.i.i ]
   %164 = mul i64 %.0.i114, %3
   %165 = icmp eq i64 %164, %1
   switch i64 %.0.i114, label %_ZN4core4iter6traits8iterator8Iterator4fold17h0423f45a19fe98edE.exit.thread [

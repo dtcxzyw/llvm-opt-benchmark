@@ -1371,7 +1371,7 @@ define internal fastcc noundef zeroext i1 @_ZL13repl_quantityPK14gmx_multisim_tP
   br i1 %exitcond36.not, label %.loopexit, label %.lr.ph31, !llvm.loop !187
 
 .loopexit:                                        ; preds = %.lr.ph31, %4, %22, %._crit_edge
-  %.022.lcssa39 = phi i1 [ false, %._crit_edge ], [ true, %22 ], [ false, %4 ], [ true, %.lr.ph31 ]
+  %.022.lcssa39 = phi i1 [ false, %4 ], [ false, %._crit_edge ], [ true, %22 ], [ true, %.lr.ph31 ]
   tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.1, i32 noundef 208, ptr noundef nonnull %7)
   ret i1 %.022.lcssa39
 }
@@ -1874,7 +1874,7 @@ _ZN3gmx22UniformIntDistributionIiEC2Eii.exit.i:   ; preds = %28
   br i1 %267, label %261, label %._crit_edge362.i, !llvm.loop !225
 
 ._crit_edge362.i:                                 ; preds = %261, %.loopexit.i, %.preheader324.i
-  %268 = phi i32 [ %257, %.loopexit.i ], [ %.pre424.i, %.preheader324.i ], [ %265, %261 ]
+  %268 = phi i32 [ %.pre424.i, %.preheader324.i ], [ %257, %.loopexit.i ], [ %265, %261 ]
   store i64 %7, ptr %69, align 8
   store i64 0, ptr %.sroa.74.0..sroa_idx.i.i, align 8, !tbaa !163
   %269 = load i64, ptr %19, align 8, !tbaa !182
@@ -3370,9 +3370,9 @@ _ZL22compute_exchange_orderPPiS0_ii.exit.i:       ; preds = %._crit_edge70.i.i, 
   br label %_ZL22prepare_to_do_exchangeP11gmx_repl_exiPiPb.exit
 
 _ZL22prepare_to_do_exchangeP11gmx_repl_exiPiPb.exit: ; preds = %989, %1118, %._crit_edge.thread.i.i, %1122, %_ZL22compute_exchange_orderPPiS0_ii.exit.i, %_ZL25test_for_replica_exchangeP8_IO_FILEPK14gmx_multisim_tP11gmx_repl_exPK14gmx_enerdata_tflf.exit, %24
-  %1123 = phi i8 [ 0, %24 ], [ 1, %1122 ], [ 0, %_ZL22compute_exchange_orderPPiS0_ii.exit.i ], [ 0, %_ZL25test_for_replica_exchangeP8_IO_FILEPK14gmx_multisim_tP11gmx_repl_exPK14gmx_enerdata_tflf.exit ], [ 0, %._crit_edge.thread.i.i ], [ 0, %1118 ], [ 0, %989 ]
-  %.074 = phi i32 [ 0, %24 ], [ %.2, %1122 ], [ 0, %_ZL22compute_exchange_orderPPiS0_ii.exit.i ], [ 0, %_ZL25test_for_replica_exchangeP8_IO_FILEPK14gmx_multisim_tP11gmx_repl_exPK14gmx_enerdata_tflf.exit ], [ 0, %._crit_edge.thread.i.i ], [ %.2, %1118 ], [ 0, %989 ]
-  %.044 = phi i32 [ 0, %24 ], [ %29, %1122 ], [ %29, %_ZL22compute_exchange_orderPPiS0_ii.exit.i ], [ %29, %_ZL25test_for_replica_exchangeP8_IO_FILEPK14gmx_multisim_tP11gmx_repl_exPK14gmx_enerdata_tflf.exit ], [ %29, %._crit_edge.thread.i.i ], [ %29, %1118 ], [ %29, %989 ]
+  %1123 = phi i8 [ 0, %24 ], [ 0, %1118 ], [ 0, %_ZL25test_for_replica_exchangeP8_IO_FILEPK14gmx_multisim_tP11gmx_repl_exPK14gmx_enerdata_tflf.exit ], [ 1, %1122 ], [ 0, %_ZL22compute_exchange_orderPPiS0_ii.exit.i ], [ 0, %._crit_edge.thread.i.i ], [ 0, %989 ]
+  %.074 = phi i32 [ 0, %24 ], [ %.2, %1118 ], [ 0, %_ZL25test_for_replica_exchangeP8_IO_FILEPK14gmx_multisim_tP11gmx_repl_exPK14gmx_enerdata_tflf.exit ], [ %.2, %1122 ], [ 0, %_ZL22compute_exchange_orderPPiS0_ii.exit.i ], [ 0, %._crit_edge.thread.i.i ], [ 0, %989 ]
+  %.044 = phi i32 [ 0, %24 ], [ %29, %1118 ], [ %29, %_ZL25test_for_replica_exchangeP8_IO_FILEPK14gmx_multisim_tP11gmx_repl_exPK14gmx_enerdata_tflf.exit ], [ %29, %1122 ], [ %29, %_ZL22compute_exchange_orderPPiS0_ii.exit.i ], [ %29, %._crit_edge.thread.i.i ], [ %29, %989 ]
   %1124 = getelementptr i8, ptr %1, i64 112
   %.val = load ptr, ptr %1124, align 8, !tbaa !257
   %.not75 = icmp eq ptr %.val, null

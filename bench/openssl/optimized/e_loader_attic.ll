@@ -1670,8 +1670,8 @@ ERR_ATTIC_error.exit117:                          ; preds = %351, %354
   br label %file_load_try_decode.exit
 
 file_load_try_decode.exit:                        ; preds = %314, %346, %file_try_read_PVK.exit, %file_try_read_msblob.exit, %359, %335, %241, %file_read_pem.exit.thread
-  %.0 = phi i32 [ -1, %file_read_pem.exit.thread ], [ %.8, %359 ], [ %.8, %335 ], [ 0, %file_try_read_msblob.exit ], [ %.3.ph, %241 ], [ %226, %file_try_read_PVK.exit ], [ %.8, %346 ], [ %.8, %314 ]
-  %.6 = phi ptr [ %.5, %file_read_pem.exit.thread ], [ null, %359 ], [ null, %335 ], [ %215, %file_try_read_msblob.exit ], [ null, %241 ], [ %230, %file_try_read_PVK.exit ], [ null, %346 ], [ %.160.i, %314 ]
+  %.0 = phi i32 [ -1, %file_read_pem.exit.thread ], [ %.8, %359 ], [ %.8, %346 ], [ %.8, %335 ], [ 0, %file_try_read_msblob.exit ], [ %.3.ph, %241 ], [ %226, %file_try_read_PVK.exit ], [ %.8, %314 ]
+  %.6 = phi ptr [ %.5, %file_read_pem.exit.thread ], [ null, %359 ], [ null, %346 ], [ null, %335 ], [ %215, %file_try_read_msblob.exit ], [ null, %241 ], [ %230, %file_try_read_PVK.exit ], [ %.160.i, %314 ]
   %362 = load ptr, ptr %22, align 8, !tbaa !47
   %363 = load i32, ptr %38, align 8, !tbaa !34
   %364 = and i32 %363, 1
@@ -1822,7 +1822,7 @@ store_info_free.exit131:                          ; preds = %409, %411
   br label %152
 
 .critedge:                                        ; preds = %file_eof.exit108, %407, %405, %.critedge3.thread, %ossl_ends_with_dirsep.exit.i, %file_eof.exit, %55, %ERR_ATTIC_error.exit, %53, %file_load_try_repeat.exit, %store_info_free.exit, %127
-  %.267 = phi ptr [ %128, %127 ], [ null, %53 ], [ null, %store_info_free.exit ], [ null, %ERR_ATTIC_error.exit ], [ %162, %file_load_try_repeat.exit ], [ null, %55 ], [ null, %ossl_ends_with_dirsep.exit.i ], [ null, %file_eof.exit ], [ %.6, %405 ], [ %.6, %407 ], [ null, %file_eof.exit108 ], [ null, %.critedge3.thread ]
+  %.267 = phi ptr [ %128, %127 ], [ null, %ossl_ends_with_dirsep.exit.i ], [ null, %55 ], [ null, %store_info_free.exit ], [ null, %53 ], [ %162, %file_load_try_repeat.exit ], [ null, %ERR_ATTIC_error.exit ], [ null, %file_eof.exit ], [ %.6, %405 ], [ %.6, %407 ], [ null, %file_eof.exit108 ], [ null, %.critedge3.thread ]
   ret ptr %.267
 }
 
@@ -2414,9 +2414,9 @@ define internal ptr @try_decode_PKCS12(ptr noundef readnone captures(address_is_
   br i1 %.not82, label %.thread103, label %.lr.ph, !llvm.loop !76
 
 .thread103:                                       ; preds = %63, %60, %56, %49, %51, %45, %43
-  %.146126 = phi ptr [ null, %45 ], [ null, %43 ], [ %50, %51 ], [ null, %49 ], [ null, %56 ], [ null, %60 ], [ null, %63 ]
-  %.14893125 = phi ptr [ %44, %45 ], [ null, %43 ], [ null, %51 ], [ null, %49 ], [ null, %56 ], [ null, %60 ], [ null, %63 ]
-  %.143.lcssa = phi ptr [ null, %45 ], [ null, %43 ], [ null, %51 ], [ null, %49 ], [ %59, %63 ], [ %59, %60 ], [ null, %56 ]
+  %.146126 = phi ptr [ null, %49 ], [ %50, %51 ], [ null, %43 ], [ null, %45 ], [ null, %56 ], [ null, %60 ], [ null, %63 ]
+  %.14893125 = phi ptr [ null, %49 ], [ null, %51 ], [ null, %43 ], [ %44, %45 ], [ null, %56 ], [ null, %60 ], [ null, %63 ]
+  %.143.lcssa = phi ptr [ null, %49 ], [ null, %51 ], [ null, %43 ], [ null, %45 ], [ %59, %63 ], [ %59, %60 ], [ null, %56 ]
   %65 = load ptr, ptr %14, align 8, !tbaa !70
   call void @EVP_PKEY_free(ptr noundef %65) #10
   %66 = load ptr, ptr %15, align 8, !tbaa !72

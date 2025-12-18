@@ -797,7 +797,7 @@ _ZN11CommandData9ExclCheckEPKwbbb.exit.thread49:  ; preds = %18, %_ZN11CommandDa
 _ZN11CommandData9TimeCheckER7RarTimeS1_S1_.exit:  ; preds = %80
   br i1 %.3.i, label %_ZN11CommandData9ExclCheckEPKwbbb.exit.thread, label %_ZN11CommandData9TimeCheckER7RarTimeS1_S1_.exit.thread53
 
-_ZN11CommandData9TimeCheckER7RarTimeS1_S1_.exit.thread53: ; preds = %83, %35, %46, %56, %67, %79, %_ZN11CommandData9TimeCheckER7RarTimeS1_S1_.exit
+_ZN11CommandData9TimeCheckER7RarTimeS1_S1_.exit.thread53: ; preds = %83, %46, %56, %35, %67, %79, %_ZN11CommandData9TimeCheckER7RarTimeS1_S1_.exit
   %90 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %91 = load i32, ptr %90, align 4, !tbaa !55
   %92 = load i32, ptr %0, align 8, !tbaa !56
@@ -896,7 +896,7 @@ _ZN11CommandData9SizeCheckEl.exit.thread58:       ; preds = %113, %_ZN11CommandD
   br i1 %.not37, label %_ZN11CommandData9ExclCheckEPKwbbb.exit.thread, label %.lr.ph, !llvm.loop !61
 
 _ZN11CommandData9ExclCheckEPKwbbb.exit.thread:    ; preds = %134, %_ZN11CommandData9SizeCheckEl.exit.thread58, %132, %131, %104, %83, %117, %34, %45, %55, %66, %76, %11, %_ZN11CommandData9SizeCheckEl.exit, %_ZN11CommandData9TimeCheckER7RarTimeS1_S1_.exit.thread53, %94, %_ZN11CommandData9TimeCheckER7RarTimeS1_S1_.exit, %_ZN11CommandData9ExclCheckEPKwbbb.exit
-  %.031 = phi i32 [ 0, %_ZN11CommandData9TimeCheckER7RarTimeS1_S1_.exit.thread53 ], [ 0, %_ZN11CommandData9ExclCheckEPKwbbb.exit ], [ 0, %_ZN11CommandData9TimeCheckER7RarTimeS1_S1_.exit ], [ 0, %83 ], [ 0, %104 ], [ 0, %94 ], [ 0, %_ZN11CommandData9SizeCheckEl.exit ], [ 0, %34 ], [ 0, %117 ], [ 0, %11 ], [ 0, %45 ], [ 0, %76 ], [ 0, %66 ], [ 0, %55 ], [ %.067, %132 ], [ %.067, %131 ], [ 0, %_ZN11CommandData9SizeCheckEl.exit.thread58 ], [ 0, %134 ]
+  %.031 = phi i32 [ 0, %_ZN11CommandData9TimeCheckER7RarTimeS1_S1_.exit.thread53 ], [ 0, %_ZN11CommandData9ExclCheckEPKwbbb.exit ], [ 0, %_ZN11CommandData9TimeCheckER7RarTimeS1_S1_.exit ], [ 0, %83 ], [ 0, %104 ], [ 0, %94 ], [ 0, %_ZN11CommandData9SizeCheckEl.exit ], [ 0, %34 ], [ 0, %117 ], [ 0, %11 ], [ 0, %45 ], [ 0, %76 ], [ 0, %66 ], [ 0, %55 ], [ %.067, %131 ], [ %.067, %132 ], [ 0, %_ZN11CommandData9SizeCheckEl.exit.thread58 ], [ 0, %134 ]
   ret i32 %.031
 }
 
@@ -2427,8 +2427,8 @@ _Z5uiMsgIJiEEv14UIMESSAGE_CODEDpOT_.exit:         ; preds = %149
   br i1 %290, label %288, label %.loopexit217, !llvm.loop !132
 
 .loopexit217:                                     ; preds = %288, %282, %.loopexit218
-  %.0182 = phi i32 [ 0, %282 ], [ 0, %.loopexit218 ], [ %287, %288 ]
-  %.3 = phi ptr [ %.1173, %282 ], [ %.1173, %.loopexit218 ], [ %.4, %288 ]
+  %.0182 = phi i32 [ 0, %.loopexit218 ], [ 0, %282 ], [ %287, %288 ]
+  %.3 = phi ptr [ %.1173, %.loopexit218 ], [ %.1173, %282 ], [ %.4, %288 ]
   %292 = getelementptr inbounds nuw i8, ptr %.3, i64 4
   %293 = load i32, ptr %.3, align 4, !tbaa !11
   %294 = tail call noundef i32 @_Z8toupperwi(i32 noundef %293)

@@ -1101,7 +1101,7 @@ define noundef ptr @_ZN6icu_7723ICULanguageBreakFactory13loadEngineForEiPKc(ptr 
   br label %69
 
 66:                                               ; preds = %33, %39, %45, %51, %57, %63
-  %.143 = phi ptr [ %55, %57 ], [ %31, %33 ], [ %37, %39 ], [ %43, %45 ], [ %49, %51 ], [ %61, %63 ]
+  %.143 = phi ptr [ %61, %63 ], [ %55, %57 ], [ %31, %33 ], [ %37, %39 ], [ %43, %45 ], [ %49, %51 ]
   %67 = load i32, ptr %4, align 4, !tbaa !13
   %68 = icmp slt i32 %67, 1
   br i1 %68, label %.thread65, label %.thread65.sink.split
@@ -1122,7 +1122,7 @@ define noundef ptr @_ZN6icu_7723ICULanguageBreakFactory13loadEngineForEiPKc(ptr 
   br label %.thread65
 
 .thread65:                                        ; preds = %.thread65.sink.split, %66, %13, %3, %24
-  %.2 = phi ptr [ null, %3 ], [ null, %24 ], [ %.143, %66 ], [ %14, %13 ], [ null, %.thread65.sink.split ]
+  %.2 = phi ptr [ null, %3 ], [ null, %24 ], [ %14, %13 ], [ %.143, %66 ], [ null, %.thread65.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.2
 }
@@ -1379,7 +1379,7 @@ define noundef ptr @_ZN6icu_7723ICULanguageBreakFactory24loadDictionaryMatcherFo
   br label %110
 
 110:                                              ; preds = %100, %78, %108, %105, %109
-  %.1 = phi ptr [ null, %108 ], [ null, %109 ], [ null, %105 ], [ %76, %78 ], [ %98, %100 ]
+  %.1 = phi ptr [ null, %108 ], [ null, %109 ], [ null, %105 ], [ %98, %100 ], [ %76, %78 ]
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %6) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %5) #17

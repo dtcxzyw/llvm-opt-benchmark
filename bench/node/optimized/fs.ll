@@ -488,15 +488,15 @@ if.end97.i:                                       ; preds = %if.end90.i
   br i1 %cond, label %out.i.thread, label %if.end90.i
 
 out.i:                                            ; preds = %if.then95.i, %if.then79.i, %if.then52.i, %if.then35.i, %if.then20.i, %if.then2.i
-  %dstfd.0.i = phi i32 [ -1, %if.then2.i ], [ %conv.i411, %if.then20.i ], [ %conv.i411, %if.then35.i ], [ %conv.i411, %if.then52.i ], [ %conv.i411, %if.then79.i ], [ %conv.i411, %if.then95.i ]
-  %err.0.i = phi i32 [ %sub.i, %if.then2.i ], [ %sub22.i, %if.then20.i ], [ %sub37.i, %if.then35.i ], [ %sub54.i, %if.then52.i ], [ %sub81.i, %if.then79.i ], [ %conv96.i, %if.then95.i ]
+  %dstfd.0.i = phi i32 [ -1, %if.then2.i ], [ %conv.i411, %if.then79.i ], [ %conv.i411, %if.then20.i ], [ %conv.i411, %if.then95.i ], [ %conv.i411, %if.then35.i ], [ %conv.i411, %if.then52.i ]
+  %err.0.i = phi i32 [ %sub.i, %if.then2.i ], [ %sub81.i, %if.then79.i ], [ %sub22.i, %if.then20.i ], [ %conv96.i, %if.then95.i ], [ %sub37.i, %if.then35.i ], [ %sub54.i, %if.then52.i ]
   %err.0.i.fr = freeze i32 %err.0.i
   %spec.select463 = call i32 @llvm.smin.i32(i32 %err.0.i.fr, i32 0)
   br label %out.i.thread
 
 out.i.thread:                                     ; preds = %if.end97.i, %if.end83.i, %out.i, %if.end4.i, %if.end58.i, %if.then70.i, %land.lhs.true.i
-  %dstfd.0.i433 = phi i32 [ %conv.i411, %if.end4.i ], [ %dstfd.0.i, %out.i ], [ %conv.i411, %land.lhs.true.i ], [ %conv.i411, %if.then70.i ], [ %conv.i411, %if.end58.i ], [ %conv.i411, %if.end83.i ], [ %conv.i411, %if.end97.i ]
-  %35 = phi i32 [ %conv.i411, %if.end4.i ], [ %spec.select463, %out.i ], [ 0, %land.lhs.true.i ], [ 0, %if.then70.i ], [ -1, %if.end58.i ], [ 0, %if.end83.i ], [ 0, %if.end97.i ]
+  %dstfd.0.i433 = phi i32 [ %conv.i411, %if.end4.i ], [ %dstfd.0.i, %out.i ], [ %conv.i411, %if.end58.i ], [ %conv.i411, %land.lhs.true.i ], [ %conv.i411, %if.then70.i ], [ %conv.i411, %if.end83.i ], [ %conv.i411, %if.end97.i ]
+  %35 = phi i32 [ %conv.i411, %if.end4.i ], [ %spec.select463, %out.i ], [ -1, %if.end58.i ], [ 0, %land.lhs.true.i ], [ 0, %if.then70.i ], [ 0, %if.end83.i ], [ 0, %if.end97.i ]
   %call103.i = call i32 @uv__close_nocheckstdio(i32 noundef %conv.i427) #15
   %cmp104.i = icmp ne i32 %call103.i, 0
   %cmp107.i = icmp eq i32 %35, 0
@@ -1185,7 +1185,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   br i1 %exitcond.not.i, label %uv__fs_readdir.exit, label %for.body.i
 
 uv__fs_readdir.exit:                              ; preds = %if.end28.i, %for.body.i, %if.then19.i, %sw.bb79, %if.then.i213, %error.i211
-  %retval.0.i210 = phi i32 [ %dirent_idx.0.ph16.i, %if.then.i213 ], [ -1, %error.i211 ], [ 0, %sw.bb79 ], [ -1, %for.body.i ], [ %dirent_idx.0.ph16.i, %if.then19.i ], [ %inc.i, %if.end28.i ]
+  %retval.0.i210 = phi i32 [ -1, %error.i211 ], [ %dirent_idx.0.ph16.i, %if.then.i213 ], [ %dirent_idx.0.ph16.i, %if.then19.i ], [ -1, %for.body.i ], [ 0, %sw.bb79 ], [ %inc.i, %if.end28.i ]
   %conv81 = sext i32 %retval.0.i210 to i64
   br label %do.cond
 
@@ -1532,7 +1532,7 @@ if.then78.i.i:                                    ; preds = %out.i.i, %if.end23.
   br label %uv__fs_sendfile_emul.exit.i
 
 uv__fs_sendfile_emul.exit.i:                      ; preds = %land.lhs.true17.us.i.i, %land.rhs37.i.i, %if.then78.i.i, %out.i.i, %if.then70.i.i, %if.end23.i.i
-  %nsent.137.i.i = phi i64 [ -1, %out.i.i ], [ %nsent.054.i.i, %if.then78.i.i ], [ -1, %if.then70.i.i ], [ -1, %if.end23.i.i ], [ -1, %land.rhs37.i.i ], [ -1, %land.lhs.true17.us.i.i ]
+  %nsent.137.i.i = phi i64 [ -1, %out.i.i ], [ %nsent.054.i.i, %if.then78.i.i ], [ -1, %if.then70.i.i ], [ -1, %land.rhs37.i.i ], [ -1, %if.end23.i.i ], [ -1, %land.lhs.true17.us.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %pfd.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i)
   br label %uv__fs_sendfile.exit
@@ -1794,7 +1794,7 @@ if.then24.i.i:                                    ; preds = %if.else14.i.i
   br label %uv__fs_write.exit.i
 
 uv__fs_write.exit.i:                              ; preds = %if.then24.i.i, %if.then17.i.i, %if.then10.i.i, %if.then7.i.i379
-  %r.0.i.i = phi i64 [ %call.i.i380, %if.then7.i.i379 ], [ %call12.i.i, %if.then10.i.i ], [ %call20.i.i, %if.then17.i.i ], [ %call26.i.i, %if.then24.i.i ]
+  %r.0.i.i = phi i64 [ %call.i.i380, %if.then7.i.i379 ], [ %call12.i.i, %if.then10.i.i ], [ %call26.i.i, %if.then24.i.i ], [ %call20.i.i, %if.then17.i.i ]
   %cmp8.i363 = icmp slt i64 %r.0.i.i, 0
   br i1 %cmp8.i363, label %land.rhs.i375, label %do.end.i
 
@@ -1884,14 +1884,14 @@ sw.default:                                       ; preds = %do.body
   unreachable
 
 if.end.thread459:                                 ; preds = %sw.bb87, %if.end14.i, %uv__fs_closedir.exit
-  %call.i234.lcssa.sink = phi ptr [ null, %uv__fs_closedir.exit ], [ %buf.0.i, %if.end14.i ], [ %call.i234, %sw.bb87 ]
-  store ptr %call.i234.lcssa.sink, ptr %ptr.i313, align 8
+  %buf.0.i.sink = phi ptr [ %buf.0.i, %if.end14.i ], [ null, %uv__fs_closedir.exit ], [ %call.i234, %sw.bb87 ]
+  store ptr %buf.0.i.sink, ptr %ptr.i313, align 8
   %result130461 = getelementptr inbounds i8, ptr %w, i64 -248
   store i64 0, ptr %result130461, align 8
   br label %land.lhs.true133
 
 do.cond:                                          ; preds = %sw.bb, %sw.bb5, %sw.bb9, %uv__fs_close.exit, %uv__fs_copyfile.exit, %sw.bb18, %sw.bb23, %sw.bb29, %sw.bb35, %uv__fs_fstat.exit, %sw.bb41, %sw.bb43, %sw.bb47, %sw.bb49, %uv__fs_lstat.exit, %sw.bb56, %sw.bb60, %sw.bb65, %uv__fs_mkstemp.exit, %sw.bb70, %uv__fs_read.exit, %uv__fs_scandir.exit, %uv__fs_opendir.exit, %uv__fs_readdir.exit, %sw.bb89, %sw.bb94, %uv__fs_sendfile.exit, %uv__fs_stat.exit, %uv__fs_statfs.exit, %sw.bb108, %sw.bb113, %sw.bb117, %uv__fs_write_all.exit
-  %r.0 = phi i64 [ %conv, %sw.bb ], [ %conv8, %sw.bb5 ], [ %conv12, %sw.bb9 ], [ %conv15, %uv__fs_close.exit ], [ %retval.0.i, %uv__fs_copyfile.exit ], [ %conv22, %sw.bb18 ], [ %conv28, %sw.bb23 ], [ %conv34, %sw.bb29 ], [ %conv.i75, %sw.bb35 ], [ %conv40, %uv__fs_fstat.exit ], [ %conv.i79, %sw.bb41 ], [ %conv46, %sw.bb43 ], [ %conv.i81, %sw.bb47 ], [ %conv.i118, %sw.bb49 ], [ %conv55, %uv__fs_lstat.exit ], [ %conv59, %sw.bb56 ], [ %conv64, %sw.bb60 ], [ %conv.i172, %sw.bb65 ], [ %conv69, %uv__fs_mkstemp.exit ], [ %conv.i187, %sw.bb70 ], [ %r.0.i, %uv__fs_read.exit ], [ %retval.0.i195, %uv__fs_scandir.exit ], [ %retval.0.i202, %uv__fs_opendir.exit ], [ %conv81, %uv__fs_readdir.exit ], [ %total.1.i, %uv__fs_write_all.exit ], [ %conv93, %sw.bb89 ], [ %conv97, %sw.bb94 ], [ %retval.0.i247, %uv__fs_sendfile.exit ], [ %conv104, %uv__fs_stat.exit ], [ %retval.0.i309, %uv__fs_statfs.exit ], [ %conv112, %sw.bb108 ], [ %conv116, %sw.bb113 ], [ %conv.i352, %sw.bb117 ]
+  %r.0 = phi i64 [ %conv, %sw.bb ], [ %conv8, %sw.bb5 ], [ %conv12, %sw.bb9 ], [ %conv15, %uv__fs_close.exit ], [ %retval.0.i, %uv__fs_copyfile.exit ], [ %conv22, %sw.bb18 ], [ %conv28, %sw.bb23 ], [ %conv34, %sw.bb29 ], [ %conv.i75, %sw.bb35 ], [ %conv40, %uv__fs_fstat.exit ], [ %conv.i79, %sw.bb41 ], [ %conv46, %sw.bb43 ], [ %conv.i81, %sw.bb47 ], [ %conv.i118, %sw.bb49 ], [ %conv55, %uv__fs_lstat.exit ], [ %conv59, %sw.bb56 ], [ %conv64, %sw.bb60 ], [ %conv.i172, %sw.bb65 ], [ %conv69, %uv__fs_mkstemp.exit ], [ %conv.i187, %sw.bb70 ], [ %r.0.i, %uv__fs_read.exit ], [ %retval.0.i195, %uv__fs_scandir.exit ], [ %retval.0.i202, %uv__fs_opendir.exit ], [ %conv81, %uv__fs_readdir.exit ], [ %conv.i352, %sw.bb117 ], [ %total.1.i, %uv__fs_write_all.exit ], [ %conv116, %sw.bb113 ], [ %conv93, %sw.bb89 ], [ %conv97, %sw.bb94 ], [ %retval.0.i247, %uv__fs_sendfile.exit ], [ %conv104, %uv__fs_stat.exit ], [ %retval.0.i309, %uv__fs_statfs.exit ], [ %conv112, %sw.bb108 ]
   %cmp121 = icmp eq i64 %r.0, -1
   br i1 %cmp121, label %land.lhs.true, label %if.end
 

@@ -14879,8 +14879,8 @@ split.i:                                          ; preds = %30
   br label %_ZN5boost6spirit2qi14ureal_policiesIdE9parse_nanIPKcdEEbRT_RKS7_RT0_.exit.sink.split
 
 .loopexit:                                        ; preds = %24, %27, %.preheader.i, %21
-  %42 = phi ptr [ %18, %21 ], [ %34, %.preheader.i ], [ %18, %27 ], [ %18, %24 ]
-  %43 = phi ptr [ %17, %21 ], [ %scevgep.i, %.preheader.i ], [ %17, %27 ], [ %17, %24 ]
+  %42 = phi ptr [ %34, %.preheader.i ], [ %18, %21 ], [ %18, %27 ], [ %18, %24 ]
+  %43 = phi ptr [ %scevgep.i, %.preheader.i ], [ %17, %21 ], [ %17, %27 ], [ %17, %24 ]
   %44 = icmp eq ptr %43, %42
   br i1 %44, label %_ZN5boost6spirit2qi14ureal_policiesIdE9parse_infIPKcdEEbRT_RKS7_RT0_.exit.thread.thread192, label %45
 
@@ -14958,7 +14958,7 @@ _ZN5boost6spirit2qi14ureal_policiesIdE9parse_nanIPKcdEEbRT_RKS7_RT0_.exit.sink.s
   br label %_ZN5boost6spirit2qi14ureal_policiesIdE9parse_nanIPKcdEEbRT_RKS7_RT0_.exit
 
 _ZN5boost6spirit2qi14ureal_policiesIdE9parse_nanIPKcdEEbRT_RKS7_RT0_.exit: ; preds = %62, %59, %_ZN5boost6spirit2qi14ureal_policiesIdE9parse_nanIPKcdEEbRT_RKS7_RT0_.exit.sink.split, %35, %split.i
-  %.0106 = phi double [ 0x7FF8000000000000, %split.i ], [ 0x7FF8000000000000, %35 ], [ %.0106.ph, %_ZN5boost6spirit2qi14ureal_policiesIdE9parse_nanIPKcdEEbRT_RKS7_RT0_.exit.sink.split ], [ 0x7FF0000000000000, %59 ], [ 0x7FF0000000000000, %62 ]
+  %.0106 = phi double [ %.0106.ph, %_ZN5boost6spirit2qi14ureal_policiesIdE9parse_nanIPKcdEEbRT_RKS7_RT0_.exit.sink.split ], [ 0x7FF8000000000000, %split.i ], [ 0x7FF8000000000000, %35 ], [ 0x7FF0000000000000, %59 ], [ 0x7FF0000000000000, %62 ]
   %69 = fneg double %.0106
   %70 = select i1 %.0.i.i, double %69, double %.0106
   store double %70, ptr %2, align 8, !tbaa !12
@@ -15042,7 +15042,7 @@ _ZN5boost6spirit2qi14ureal_policiesIdE9parse_infIPKcdEEbRT_RKS7_RT0_.exit.thread
   br label %155
 
 _ZN5boost6spirit2qi14ureal_policiesIdE9parse_infIPKcdEEbRT_RKS7_RT0_.exit.thread: ; preds = %77, %.lr.ph64.i.i.i.i.i.i.i, %88, %91, %94, %97, %100, %81, %83
-  %.04459.lcssa.sink.i.i.i.i.i.i.i = phi ptr [ %.04459.i.i.i.i.i.i.i, %81 ], [ %84, %83 ], [ %scevgep.i.i.i.i.i.i.i, %100 ], [ %scevgep.i.i.i.i.i.i.i, %88 ], [ %scevgep.i.i.i.i.i.i.i, %94 ], [ %95, %97 ], [ %89, %91 ], [ %.14562.i.i.i.i.i.i.i, %.lr.ph64.i.i.i.i.i.i.i ], [ %scevgep.i.i.i.i.i.i.i, %77 ]
+  %.04459.lcssa.sink.i.i.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i.i.i, %100 ], [ %.04459.i.i.i.i.i.i.i, %81 ], [ %84, %83 ], [ %scevgep.i.i.i.i.i.i.i, %88 ], [ %scevgep.i.i.i.i.i.i.i, %94 ], [ %95, %97 ], [ %89, %91 ], [ %.14562.i.i.i.i.i.i.i, %.lr.ph64.i.i.i.i.i.i.i ], [ %scevgep.i.i.i.i.i.i.i, %77 ]
   store ptr %.04459.lcssa.sink.i.i.i.i.i.i.i, ptr %0, align 8, !tbaa !10
   %103 = ptrtoint ptr %.04459.lcssa.sink.i.i.i.i.i.i.i to i64
   %104 = sub i64 %103, %73
@@ -15058,7 +15058,7 @@ _ZN5boost6spirit2qi14ureal_policiesIdE9parse_infIPKcdEEbRT_RKS7_RT0_.exit.thread
   %.not.i = icmp eq i8 %108, 46
   br i1 %.not.i, label %111, label %155
 
-.thread:                                          ; preds = %51, %48, %81, %45
+.thread:                                          ; preds = %51, %48, %45, %81
   %.ph = phi ptr [ %17, %81 ], [ %43, %45 ], [ %43, %48 ], [ %43, %51 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !tbaa !26
@@ -15151,7 +15151,7 @@ _ZN5boost6spirit2qi14ureal_policiesIdE9parse_infIPKcdEEbRT_RKS7_RT0_.exit.thread
   br i1 %146, label %.loopexit.i.i.i77, label %.lr.ph64.i.i.i.i.i.i.i80, !llvm.loop !93
 
 .loopexit.i.i.i77:                                ; preds = %121, %144, %141, %138, %135, %132, %.lr.ph64.i.i.i.i.i.i.i80, %127, %125
-  %.04459.lcssa.sink.i.i.i.i.i.i.i78 = phi ptr [ %.04459.i.i.i.i.i.i.i74, %125 ], [ %128, %127 ], [ %scevgep.i.i.i.i.i.i.i71, %144 ], [ %scevgep.i.i.i.i.i.i.i71, %132 ], [ %scevgep.i.i.i.i.i.i.i71, %138 ], [ %139, %141 ], [ %133, %135 ], [ %.14562.i.i.i.i.i.i.i81, %.lr.ph64.i.i.i.i.i.i.i80 ], [ %scevgep.i.i.i.i.i.i.i71, %121 ]
+  %.04459.lcssa.sink.i.i.i.i.i.i.i78 = phi ptr [ %scevgep.i.i.i.i.i.i.i71, %144 ], [ %.04459.i.i.i.i.i.i.i74, %125 ], [ %128, %127 ], [ %scevgep.i.i.i.i.i.i.i71, %132 ], [ %scevgep.i.i.i.i.i.i.i71, %138 ], [ %139, %141 ], [ %133, %135 ], [ %.14562.i.i.i.i.i.i.i81, %.lr.ph64.i.i.i.i.i.i.i80 ], [ %scevgep.i.i.i.i.i.i.i71, %121 ]
   store ptr %.04459.lcssa.sink.i.i.i.i.i.i.i78, ptr %0, align 8, !tbaa !10
   br label %_ZN5boost6spirit2qi6detail9real_implIdNS1_20strict_real_policiesIdEEE20ignore_excess_digitsIPKcEEmRT_RKSA_.exit86
 
@@ -15720,9 +15720,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost6spirit2qi14ureal_polici
   br label %.split.loop.exit109.i.i.i
 
 .split.loop.exit109.i.i.i:                        ; preds = %.lr.ph.i.i.i, %.split.loop.exit101.i.i.i, %.split.loop.exit.i.i.i
-  %.176.i.i.i = phi i64 [ %23, %.split.loop.exit101.i.i.i ], [ %38, %.split.loop.exit.i.i.i ], [ %.075120.i.i.i, %.lr.ph.i.i.i ]
-  %.148.i.i.i = phi ptr [ %24, %.split.loop.exit101.i.i.i ], [ %39, %.split.loop.exit.i.i.i ], [ %.047121.i.i.i, %.lr.ph.i.i.i ]
-  %.1.i.i.i = phi i64 [ %58, %.split.loop.exit101.i.i.i ], [ %57, %.split.loop.exit.i.i.i ], [ %.0122.i.i.i, %.lr.ph.i.i.i ]
+  %.176.i.i.i = phi i64 [ %38, %.split.loop.exit.i.i.i ], [ %23, %.split.loop.exit101.i.i.i ], [ %.075120.i.i.i, %.lr.ph.i.i.i ]
+  %.148.i.i.i = phi ptr [ %39, %.split.loop.exit.i.i.i ], [ %24, %.split.loop.exit101.i.i.i ], [ %.047121.i.i.i, %.lr.ph.i.i.i ]
+  %.1.i.i.i = phi i64 [ %57, %.split.loop.exit.i.i.i ], [ %58, %.split.loop.exit101.i.i.i ], [ %.0122.i.i.i, %.lr.ph.i.i.i ]
   %.not.i.i.i = icmp eq i64 %.1.i.i.i, 0
   br i1 %.not.i.i.i, label %_ZN5boost6spirit2qi12extract_uintImLj10ELj1ELin1ELb1ELb1EE4callIPKcEEbRT_RKS7_Rm.exit, label %.split.loop.exit109.thread177.i.i.i
 
@@ -15811,7 +15811,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost6spirit2qi14ureal_polici
   br i1 %95, label %.loopexit.i, label %.lr.ph64.i.i.i.i, !llvm.loop !93
 
 .loopexit.i:                                      ; preds = %70, %93, %90, %87, %84, %81, %.lr.ph64.i.i.i.i, %76, %74
-  %.04459.lcssa.sink.i.i.i.i = phi ptr [ %.04459.i.i.i.i, %74 ], [ %77, %76 ], [ %scevgep.i.i.i.i, %93 ], [ %.14562.i.i.i.i, %.lr.ph64.i.i.i.i ], [ %82, %84 ], [ %88, %90 ], [ %scevgep.i.i.i.i, %87 ], [ %scevgep.i.i.i.i, %81 ], [ %scevgep.i.i.i.i, %70 ]
+  %.04459.lcssa.sink.i.i.i.i = phi ptr [ %scevgep.i.i.i.i, %93 ], [ %.04459.i.i.i.i, %74 ], [ %77, %76 ], [ %.14562.i.i.i.i, %.lr.ph64.i.i.i.i ], [ %82, %84 ], [ %88, %90 ], [ %scevgep.i.i.i.i, %87 ], [ %scevgep.i.i.i.i, %81 ], [ %scevgep.i.i.i.i, %70 ]
   store ptr %.04459.lcssa.sink.i.i.i.i, ptr %0, align 8, !tbaa !10
   br label %_ZN5boost6spirit2qi12extract_uintImLj10ELj1ELin1ELb1ELb1EE4callIPKcEEbRT_RKS7_Rm.exit
 
@@ -32974,7 +32974,7 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix15type_dispatcher13ca
   br i1 %23, label %_ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous16string_predicateINS1_12contains_funEEEbEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKT_.exit, label %15
 
 _ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous16string_predicateINS1_12contains_funEEEbEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKT_.exit: ; preds = %15, %._crit_edge.i.i.i, %20, %2, %8, %.preheader.lr.ph.i.i.i
-  %.3.i.i.i = phi i8 [ 0, %2 ], [ 1, %.preheader.lr.ph.i.i.i ], [ 0, %8 ], [ 1, %20 ], [ 0, %15 ], [ 1, %._crit_edge.i.i.i ]
+  %.3.i.i.i = phi i8 [ 0, %2 ], [ 1, %.preheader.lr.ph.i.i.i ], [ 0, %8 ], [ 1, %20 ], [ 1, %._crit_edge.i.i.i ], [ 0, %15 ]
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !323
   store i8 %.3.i.i.i, ptr %25, align 1, !tbaa !105
@@ -33033,7 +33033,7 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix15type_dispatcher13ca
   br i1 %23, label %_ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous16string_predicateINS1_12contains_funEEEbEclINS1_20basic_string_literalIcSt11char_traitsIcEEEEEvRKT_.exit, label %15
 
 _ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous16string_predicateINS1_12contains_funEEEbEclINS1_20basic_string_literalIcSt11char_traitsIcEEEEEvRKT_.exit: ; preds = %15, %._crit_edge.i.i.i, %20, %2, %8, %.preheader.lr.ph.i.i.i
-  %.3.i.i.i = phi i8 [ 0, %2 ], [ 1, %.preheader.lr.ph.i.i.i ], [ 0, %8 ], [ 1, %20 ], [ 0, %15 ], [ 1, %._crit_edge.i.i.i ]
+  %.3.i.i.i = phi i8 [ 0, %2 ], [ 1, %.preheader.lr.ph.i.i.i ], [ 0, %8 ], [ 1, %20 ], [ 1, %._crit_edge.i.i.i ], [ 0, %15 ]
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !323
   store i8 %.3.i.i.i, ptr %25, align 1, !tbaa !105
@@ -33095,7 +33095,7 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix15type_dispatcher13ca
   br i1 %25, label %_ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous16string_predicateINS1_12contains_funEEEbEclINSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEEEvRKT_.exit, label %17
 
 _ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous16string_predicateINS1_12contains_funEEEbEclINSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEEEvRKT_.exit: ; preds = %17, %._crit_edge.i.i.i, %22, %2, %8, %.preheader.lr.ph.i.i.i
-  %.3.i.i.i = phi i8 [ 0, %2 ], [ 1, %.preheader.lr.ph.i.i.i ], [ 0, %8 ], [ 1, %22 ], [ 0, %17 ], [ 1, %._crit_edge.i.i.i ]
+  %.3.i.i.i = phi i8 [ 0, %2 ], [ 1, %.preheader.lr.ph.i.i.i ], [ 0, %8 ], [ 1, %22 ], [ 1, %._crit_edge.i.i.i ], [ 0, %17 ]
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !323
   store i8 %.3.i.i.i, ptr %27, align 1, !tbaa !105
@@ -33157,7 +33157,7 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix15type_dispatcher13ca
   br i1 %25, label %_ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous16string_predicateINS1_12contains_funEEEbEclINS1_20basic_string_literalIwSt11char_traitsIwEEEEEvRKT_.exit, label %17
 
 _ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous16string_predicateINS1_12contains_funEEEbEclINS1_20basic_string_literalIwSt11char_traitsIwEEEEEvRKT_.exit: ; preds = %17, %._crit_edge.i.i.i, %22, %2, %8, %.preheader.lr.ph.i.i.i
-  %.3.i.i.i = phi i8 [ 0, %2 ], [ 1, %.preheader.lr.ph.i.i.i ], [ 0, %8 ], [ 1, %22 ], [ 0, %17 ], [ 1, %._crit_edge.i.i.i ]
+  %.3.i.i.i = phi i8 [ 0, %2 ], [ 1, %.preheader.lr.ph.i.i.i ], [ 0, %8 ], [ 1, %22 ], [ 1, %._crit_edge.i.i.i ], [ 0, %17 ]
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !323
   store i8 %.3.i.i.i, ptr %27, align 1, !tbaa !105
@@ -33354,8 +33354,8 @@ split.i:                                          ; preds = %74
   br label %_ZN5boost6spirit2qi14ureal_policiesIdE9parse_nanIPKwdEEbRT_RKS7_RT0_.exit.sink.split
 
 .loopexit:                                        ; preds = %66, %69, %.preheader.i, %_ZN5boost6spirit2qi13real_policiesIdE10parse_signIPKwEEbRT_RKS7_.exit, %63
-  %86 = phi ptr [ %16, %63 ], [ %16, %_ZN5boost6spirit2qi13real_policiesIdE10parse_signIPKwEEbRT_RKS7_.exit ], [ %78, %.preheader.i ], [ %16, %69 ], [ %16, %66 ]
-  %87 = phi ptr [ %17, %63 ], [ %17, %_ZN5boost6spirit2qi13real_policiesIdE10parse_signIPKwEEbRT_RKS7_.exit ], [ %scevgep.i, %.preheader.i ], [ %17, %69 ], [ %17, %66 ]
+  %86 = phi ptr [ %16, %_ZN5boost6spirit2qi13real_policiesIdE10parse_signIPKwEEbRT_RKS7_.exit ], [ %78, %.preheader.i ], [ %16, %63 ], [ %16, %69 ], [ %16, %66 ]
+  %87 = phi ptr [ %17, %_ZN5boost6spirit2qi13real_policiesIdE10parse_signIPKwEEbRT_RKS7_.exit ], [ %scevgep.i, %.preheader.i ], [ %17, %63 ], [ %17, %69 ], [ %17, %66 ]
   %88 = icmp eq ptr %87, %86
   br i1 %88, label %_ZN5boost6spirit2qi14ureal_policiesIdE9parse_infIPKwdEEbRT_RKS7_RT0_.exit.thread.thread269, label %89
 
@@ -33437,7 +33437,7 @@ _ZN5boost6spirit2qi14ureal_policiesIdE9parse_nanIPKwdEEbRT_RKS7_RT0_.exit.sink.s
   br label %_ZN5boost6spirit2qi14ureal_policiesIdE9parse_nanIPKwdEEbRT_RKS7_RT0_.exit
 
 _ZN5boost6spirit2qi14ureal_policiesIdE9parse_nanIPKwdEEbRT_RKS7_RT0_.exit: ; preds = %108, %105, %_ZN5boost6spirit2qi14ureal_policiesIdE9parse_nanIPKwdEEbRT_RKS7_RT0_.exit.sink.split, %79, %split.i
-  %.0109 = phi double [ 0x7FF8000000000000, %split.i ], [ 0x7FF8000000000000, %79 ], [ %.0109.ph, %_ZN5boost6spirit2qi14ureal_policiesIdE9parse_nanIPKwdEEbRT_RKS7_RT0_.exit.sink.split ], [ 0x7FF0000000000000, %105 ], [ 0x7FF0000000000000, %108 ]
+  %.0109 = phi double [ %.0109.ph, %_ZN5boost6spirit2qi14ureal_policiesIdE9parse_nanIPKwdEEbRT_RKS7_RT0_.exit.sink.split ], [ 0x7FF8000000000000, %split.i ], [ 0x7FF8000000000000, %79 ], [ 0x7FF0000000000000, %105 ], [ 0x7FF0000000000000, %108 ]
   %117 = fneg double %.0109
   %118 = select i1 %.0.i.i, double %117, double %.0109
   store double %118, ptr %2, align 8, !tbaa !12
@@ -33542,9 +33542,9 @@ _ZN5boost6spirit2qi14ureal_policiesIdE9parse_infIPKwdEEbRT_RKS7_RT0_.exit.thread
   %.not.i = icmp eq i32 %158, 46
   br i1 %.not.i, label %160, label %206
 
-.thread272:                                       ; preds = %95, %92, %129, %._crit_edge.i.i.i.i.i.i.i, %89
-  %.ph = phi ptr [ %.2.i.i.i.i, %129 ], [ %.2.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %87, %89 ], [ %87, %92 ], [ %87, %95 ]
-  %.0.i.i58113.ph = phi i1 [ true, %129 ], [ true, %._crit_edge.i.i.i.i.i.i.i ], [ false, %89 ], [ false, %92 ], [ false, %95 ]
+.thread272:                                       ; preds = %95, %92, %._crit_edge.i.i.i.i.i.i.i, %129, %89
+  %.ph = phi ptr [ %87, %89 ], [ %.2.i.i.i.i, %129 ], [ %.2.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %87, %92 ], [ %87, %95 ]
+  %.0.i.i58113.ph = phi i1 [ false, %89 ], [ true, %129 ], [ true, %._crit_edge.i.i.i.i.i.i.i ], [ false, %92 ], [ false, %95 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !tbaa !26
   %159 = load i32, ptr %.ph, align 4, !tbaa !84

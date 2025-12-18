@@ -1976,7 +1976,7 @@ define range(i32 -21, 2) i32 @arkRootfind(ptr noundef %0) local_unnamed_addr #0 
   br i1 %299, label %258, label %.loopexit
 
 .loopexit:                                        ; preds = %154, %296, %111, %._crit_edge323, %._crit_edge323.thread, %.loopexit261.loopexit, %3
-  %.0 = phi i32 [ -21, %3 ], [ %.mux, %._crit_edge323 ], [ 1, %.loopexit261.loopexit ], [ 0, %._crit_edge323.thread ], [ 1, %296 ], [ 1, %111 ], [ -12, %154 ]
+  %.0 = phi i32 [ -21, %3 ], [ 1, %111 ], [ 1, %.loopexit261.loopexit ], [ %.mux, %._crit_edge323 ], [ 1, %296 ], [ 0, %._crit_edge323.thread ], [ -12, %154 ]
   ret i32 %.0
 }
 

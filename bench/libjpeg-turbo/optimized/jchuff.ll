@@ -1478,8 +1478,8 @@ encode_one_block_simd.exit:                       ; preds = %169
   store i32 %241, ptr %231, align 8, !tbaa !75
   br label %emit_restart.exit.thread
 
-emit_restart.exit.thread:                         ; preds = %197, %102, %flush_bits.exit.i, %87, %encode_one_block_simd.exit, %.loopexit, %239
-  %.054 = phi i32 [ 1, %.loopexit ], [ 0, %encode_one_block_simd.exit ], [ 1, %239 ], [ 0, %87 ], [ 0, %flush_bits.exit.i ], [ 0, %102 ], [ 0, %197 ]
+emit_restart.exit.thread:                         ; preds = %197, %flush_bits.exit.i, %102, %87, %encode_one_block_simd.exit, %.loopexit, %239
+  %.054 = phi i32 [ 1, %.loopexit ], [ 0, %flush_bits.exit.i ], [ 0, %encode_one_block_simd.exit ], [ 1, %239 ], [ 0, %87 ], [ 0, %102 ], [ 0, %197 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.054
 }
@@ -1608,8 +1608,8 @@ dump_buffer.exit.i:                               ; preds = %38
   br label %flush_bits.exit.thread
 
 flush_bits.exit.thread:                           ; preds = %46, %48, %32
-  %.sroa.11.2.ph = phi i64 [ %9, %32 ], [ %50, %48 ], [ %.sroa.11.1, %46 ]
-  %.sroa.0.2.ph = phi ptr [ %7, %32 ], [ %.2.i, %48 ], [ %.sroa.0.1, %46 ]
+  %.sroa.11.2.ph = phi i64 [ %50, %48 ], [ %9, %32 ], [ %.sroa.11.1, %46 ]
+  %.sroa.0.2.ph = phi ptr [ %.2.i, %48 ], [ %7, %32 ], [ %.sroa.0.1, %46 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %55
 

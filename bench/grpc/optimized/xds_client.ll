@@ -1908,8 +1908,8 @@ _ZN4absl12lts_202407226StatusaSERKS1_.exit:       ; preds = %118, %_ZN4absl12lts
   br i1 %184, label %.lr.ph.i.i.i, label %.lr.ph, !llvm.loop !113
 
 .lr.ph:                                           ; preds = %.lr.ph.i.i.i, %161, %167
-  %.sroa.6.0.i.i.ph = phi ptr [ %.sroa.0.0.copyload.i.i.i.i, %167 ], [ %166, %161 ], [ %182, %.lr.ph.i.i.i ]
-  %.sroa.0.0.i.i.ph = phi ptr [ %168, %167 ], [ @_ZN4absl12lts_2024072218container_internal11kSooControlE, %161 ], [ %181, %.lr.ph.i.i.i ]
+  %.sroa.6.0.i.i.ph = phi ptr [ %166, %161 ], [ %.sroa.0.0.copyload.i.i.i.i, %167 ], [ %182, %.lr.ph.i.i.i ]
+  %.sroa.0.0.i.i.ph = phi ptr [ @_ZN4absl12lts_2024072218container_internal11kSooControlE, %161 ], [ %168, %167 ], [ %181, %.lr.ph.i.i.i ]
   %.sroa.sel165.v.sroa.sel.v = select i1 %.not120, ptr %12, ptr %11
   %.sroa.sel165.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel165.v.sroa.sel.v, i64 16
   %.sroa.sel168.v.sroa.sel.v = select i1 %.not120, ptr %12, ptr %11
@@ -5687,7 +5687,7 @@ define noundef zeroext i1 @_ZN9grpc_core9XdsClient20HasUncachedResourcesERKNS0_1
   br i1 %.not.not, label %.loopexit, label %.lr.ph41
 
 .loopexit:                                        ; preds = %._crit_edge, %11, %2
-  %.not34 = phi i1 [ false, %2 ], [ true, %11 ], [ false, %._crit_edge ]
+  %.not34 = phi i1 [ true, %11 ], [ false, %2 ], [ false, %._crit_edge ]
   ret i1 %.not34
 }
 
@@ -24670,9 +24670,9 @@ _ZN9grpc_core13RefCountedPtrINS_9XdsClient24ResourceWatcherInterfaceEED2Ev.exit2
   unreachable
 
 _ZN4absl12lts_202407229MutexLockD2Ev.exit302:     ; preds = %310, %_ZN9grpc_core13RefCountedPtrINS_9XdsClient24ResourceWatcherInterfaceEED2Ev.exit211, %223
-  %.sroa.17.2 = phi ptr [ %.sroa.17.0340, %223 ], [ %.sroa.17.4, %_ZN9grpc_core13RefCountedPtrINS_9XdsClient24ResourceWatcherInterfaceEED2Ev.exit211 ], [ %.sroa.17.4, %310 ]
-  %.sroa.0321.2 = phi ptr [ %.sroa.0321.0341, %223 ], [ %.sroa.0321.4, %_ZN9grpc_core13RefCountedPtrINS_9XdsClient24ResourceWatcherInterfaceEED2Ev.exit211 ], [ %.sroa.0321.4, %310 ]
-  %.pn154.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %224, %223 ], [ %.pn154.pn.pn.pn, %_ZN9grpc_core13RefCountedPtrINS_9XdsClient24ResourceWatcherInterfaceEED2Ev.exit211 ], [ %311, %310 ]
+  %.sroa.17.2 = phi ptr [ %.sroa.17.4, %310 ], [ %.sroa.17.0340, %223 ], [ %.sroa.17.4, %_ZN9grpc_core13RefCountedPtrINS_9XdsClient24ResourceWatcherInterfaceEED2Ev.exit211 ]
+  %.sroa.0321.2 = phi ptr [ %.sroa.0321.4, %310 ], [ %.sroa.0321.0341, %223 ], [ %.sroa.0321.4, %_ZN9grpc_core13RefCountedPtrINS_9XdsClient24ResourceWatcherInterfaceEED2Ev.exit211 ]
+  %.pn154.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %311, %310 ], [ %224, %223 ], [ %.pn154.pn.pn.pn, %_ZN9grpc_core13RefCountedPtrINS_9XdsClient24ResourceWatcherInterfaceEED2Ev.exit211 ]
   %.not.i.i.i303 = icmp eq ptr %.sroa.0321.2, null
   br i1 %.not.i.i.i303, label %_ZNSt6vectorIPKN9grpc_core12XdsBootstrap9XdsServerESaIS4_EED2Ev.exit304, label %753
 
@@ -31812,7 +31812,7 @@ _ZZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolic
   br i1 %.not34, label %.loopexit, label %121, !llvm.loop !659
 
 .loopexit:                                        ; preds = %174, %62, %115, %48
-  %176 = phi i64 [ 0, %48 ], [ 0, %115 ], [ %50, %62 ], [ %117, %174 ]
+  %176 = phi i64 [ %50, %62 ], [ 0, %48 ], [ 0, %115 ], [ %117, %174 ]
   %177 = load i8, ptr %31, align 8, !tbaa !648, !range !73, !noundef !74
   %178 = trunc nuw i8 %177 to i1
   %.neg.i = select i1 %178, i64 -9, i64 -8
@@ -32936,7 +32936,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   br i1 %36, label %.lr.ph.i.i.i, label %.loopexit114, !llvm.loop !113
 
 .loopexit114:                                     ; preds = %.lr.ph.i.i.i, %12, %19
-  %.sroa.6.0.i.i = phi ptr [ %18, %12 ], [ %.sroa.0.0.copyload.i.i.i.i, %19 ], [ %34, %.lr.ph.i.i.i ]
+  %.sroa.6.0.i.i = phi ptr [ %.sroa.0.0.copyload.i.i.i.i, %19 ], [ %18, %12 ], [ %34, %.lr.ph.i.i.i ]
   store ptr null, ptr %14, align 8, !tbaa !123
   %37 = load ptr, ptr %.sroa.6.0.i.i, align 8, !tbaa !123
   %.not.i.i.i.i.i.i.i = icmp eq ptr %37, null
@@ -34468,8 +34468,8 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %.not, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN9grpc_core9XdsClient10XdsChannelEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE14_M_upper_boundEPSt13_Rb_tree_nodeISC_EPSt18_Rb_tree_node_baseRS7_.exit, label %8, !llvm.loop !709
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN9grpc_core9XdsClient10XdsChannelEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE14_M_upper_boundEPSt13_Rb_tree_nodeISC_EPSt18_Rb_tree_node_baseRS7_.exit: ; preds = %44, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i40, %2, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN9grpc_core9XdsClient10XdsChannelEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE14_M_lower_boundEPSt13_Rb_tree_nodeISC_EPSt18_Rb_tree_node_baseRS7_.exit
-  %.sroa.055.0 = phi ptr [ %.08.lcssa.i, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN9grpc_core9XdsClient10XdsChannelEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE14_M_lower_boundEPSt13_Rb_tree_nodeISC_EPSt18_Rb_tree_node_baseRS7_.exit ], [ %4, %2 ], [ %.08.lcssa.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i40 ], [ %.123, %44 ]
-  %.sroa.3.0 = phi ptr [ %.02267, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN9grpc_core9XdsClient10XdsChannelEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE14_M_lower_boundEPSt13_Rb_tree_nodeISC_EPSt18_Rb_tree_node_baseRS7_.exit ], [ %4, %2 ], [ %.19.i42, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i40 ], [ %.123, %44 ]
+  %.sroa.055.0 = phi ptr [ %.08.lcssa.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i40 ], [ %.08.lcssa.i, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN9grpc_core9XdsClient10XdsChannelEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE14_M_lower_boundEPSt13_Rb_tree_nodeISC_EPSt18_Rb_tree_node_baseRS7_.exit ], [ %4, %2 ], [ %.123, %44 ]
+  %.sroa.3.0 = phi ptr [ %.19.i42, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i40 ], [ %.02267, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN9grpc_core9XdsClient10XdsChannelEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE14_M_lower_boundEPSt13_Rb_tree_nodeISC_EPSt18_Rb_tree_node_baseRS7_.exit ], [ %4, %2 ], [ %.123, %44 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.055.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.3.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -36968,8 +36968,8 @@ _ZNKSt4lessIN9grpc_core9XdsClient14XdsResourceKeyEEclERKS2_S5_.exit.i56: ; preds
   br i1 %.not, label %_ZNSt8_Rb_treeIN9grpc_core9XdsClient14XdsResourceKeyESt4pairIKS2_St10unique_ptrINS1_10XdsChannel7AdsCall13ResourceTimerENS0_16OrphanableDeleteEEESt10_Select1stISB_ESt4lessIS2_ESaISB_EE14_M_upper_boundEPSt13_Rb_tree_nodeISB_EPSt18_Rb_tree_node_baseRS4_.exit, label %8, !llvm.loop !735
 
 _ZNSt8_Rb_treeIN9grpc_core9XdsClient14XdsResourceKeyESt4pairIKS2_St10unique_ptrINS1_10XdsChannel7AdsCall13ResourceTimerENS0_16OrphanableDeleteEEESt10_Select1stISB_ESt4lessIS2_ESaISB_EE14_M_upper_boundEPSt13_Rb_tree_nodeISB_EPSt18_Rb_tree_node_baseRS4_.exit: ; preds = %87, %85, %2, %_ZNSt8_Rb_treeIN9grpc_core9XdsClient14XdsResourceKeyESt4pairIKS2_St10unique_ptrINS1_10XdsChannel7AdsCall13ResourceTimerENS0_16OrphanableDeleteEEESt10_Select1stISB_ESt4lessIS2_ESaISB_EE14_M_lower_boundEPSt13_Rb_tree_nodeISB_EPSt18_Rb_tree_node_baseRS4_.exit
-  %.sroa.060.0 = phi ptr [ %.08.lcssa.i, %_ZNSt8_Rb_treeIN9grpc_core9XdsClient14XdsResourceKeyESt4pairIKS2_St10unique_ptrINS1_10XdsChannel7AdsCall13ResourceTimerENS0_16OrphanableDeleteEEESt10_Select1stISB_ESt4lessIS2_ESaISB_EE14_M_lower_boundEPSt13_Rb_tree_nodeISB_EPSt18_Rb_tree_node_baseRS4_.exit ], [ %4, %2 ], [ %.08.lcssa.i, %85 ], [ %.123, %87 ]
-  %.sroa.3.0 = phi ptr [ %.02266, %_ZNSt8_Rb_treeIN9grpc_core9XdsClient14XdsResourceKeyESt4pairIKS2_St10unique_ptrINS1_10XdsChannel7AdsCall13ResourceTimerENS0_16OrphanableDeleteEEESt10_Select1stISB_ESt4lessIS2_ESaISB_EE14_M_lower_boundEPSt13_Rb_tree_nodeISB_EPSt18_Rb_tree_node_baseRS4_.exit ], [ %4, %2 ], [ %.19.i47, %85 ], [ %.123, %87 ]
+  %.sroa.060.0 = phi ptr [ %.08.lcssa.i, %85 ], [ %.08.lcssa.i, %_ZNSt8_Rb_treeIN9grpc_core9XdsClient14XdsResourceKeyESt4pairIKS2_St10unique_ptrINS1_10XdsChannel7AdsCall13ResourceTimerENS0_16OrphanableDeleteEEESt10_Select1stISB_ESt4lessIS2_ESaISB_EE14_M_lower_boundEPSt13_Rb_tree_nodeISB_EPSt18_Rb_tree_node_baseRS4_.exit ], [ %4, %2 ], [ %.123, %87 ]
+  %.sroa.3.0 = phi ptr [ %.19.i47, %85 ], [ %.02266, %_ZNSt8_Rb_treeIN9grpc_core9XdsClient14XdsResourceKeyESt4pairIKS2_St10unique_ptrINS1_10XdsChannel7AdsCall13ResourceTimerENS0_16OrphanableDeleteEEESt10_Select1stISB_ESt4lessIS2_ESaISB_EE14_M_lower_boundEPSt13_Rb_tree_nodeISB_EPSt18_Rb_tree_node_baseRS4_.exit ], [ %4, %2 ], [ %.123, %87 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.060.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.3.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -37184,8 +37184,8 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %.not, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St3mapIN9grpc_core9XdsClient14XdsResourceKeyESt10unique_ptrINSA_10XdsChannel7AdsCall13ResourceTimerENS9_16OrphanableDeleteEESt4lessISB_ESaIS6_IKSB_SH_EEEESt10_Select1stISO_ESI_IS5_ESaISO_EE14_M_upper_boundEPSt13_Rb_tree_nodeISO_EPSt18_Rb_tree_node_baseRS7_.exit, label %8, !llvm.loop !738
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St3mapIN9grpc_core9XdsClient14XdsResourceKeyESt10unique_ptrINSA_10XdsChannel7AdsCall13ResourceTimerENS9_16OrphanableDeleteEESt4lessISB_ESaIS6_IKSB_SH_EEEESt10_Select1stISO_ESI_IS5_ESaISO_EE14_M_upper_boundEPSt13_Rb_tree_nodeISO_EPSt18_Rb_tree_node_baseRS7_.exit: ; preds = %44, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i40, %2, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St3mapIN9grpc_core9XdsClient14XdsResourceKeyESt10unique_ptrINSA_10XdsChannel7AdsCall13ResourceTimerENS9_16OrphanableDeleteEESt4lessISB_ESaIS6_IKSB_SH_EEEESt10_Select1stISO_ESI_IS5_ESaISO_EE14_M_lower_boundEPSt13_Rb_tree_nodeISO_EPSt18_Rb_tree_node_baseRS7_.exit
-  %.sroa.055.0 = phi ptr [ %.08.lcssa.i, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St3mapIN9grpc_core9XdsClient14XdsResourceKeyESt10unique_ptrINSA_10XdsChannel7AdsCall13ResourceTimerENS9_16OrphanableDeleteEESt4lessISB_ESaIS6_IKSB_SH_EEEESt10_Select1stISO_ESI_IS5_ESaISO_EE14_M_lower_boundEPSt13_Rb_tree_nodeISO_EPSt18_Rb_tree_node_baseRS7_.exit ], [ %4, %2 ], [ %.08.lcssa.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i40 ], [ %.123, %44 ]
-  %.sroa.3.0 = phi ptr [ %.02267, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St3mapIN9grpc_core9XdsClient14XdsResourceKeyESt10unique_ptrINSA_10XdsChannel7AdsCall13ResourceTimerENS9_16OrphanableDeleteEESt4lessISB_ESaIS6_IKSB_SH_EEEESt10_Select1stISO_ESI_IS5_ESaISO_EE14_M_lower_boundEPSt13_Rb_tree_nodeISO_EPSt18_Rb_tree_node_baseRS7_.exit ], [ %4, %2 ], [ %.19.i42, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i40 ], [ %.123, %44 ]
+  %.sroa.055.0 = phi ptr [ %.08.lcssa.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i40 ], [ %.08.lcssa.i, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St3mapIN9grpc_core9XdsClient14XdsResourceKeyESt10unique_ptrINSA_10XdsChannel7AdsCall13ResourceTimerENS9_16OrphanableDeleteEESt4lessISB_ESaIS6_IKSB_SH_EEEESt10_Select1stISO_ESI_IS5_ESaISO_EE14_M_lower_boundEPSt13_Rb_tree_nodeISO_EPSt18_Rb_tree_node_baseRS7_.exit ], [ %4, %2 ], [ %.123, %44 ]
+  %.sroa.3.0 = phi ptr [ %.19.i42, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i40 ], [ %.02267, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St3mapIN9grpc_core9XdsClient14XdsResourceKeyESt10unique_ptrINSA_10XdsChannel7AdsCall13ResourceTimerENS9_16OrphanableDeleteEESt4lessISB_ESaIS6_IKSB_SH_EEEESt10_Select1stISO_ESI_IS5_ESaISO_EE14_M_lower_boundEPSt13_Rb_tree_nodeISO_EPSt18_Rb_tree_node_baseRS7_.exit ], [ %4, %2 ], [ %.123, %44 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.055.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.3.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -41525,8 +41525,8 @@ define internal void @"_ZN4absl12lts_2024072222internal_any_invocable13RemoteInv
   br i1 %29, label %.lr.ph.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !113
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %12, %7
-  %.sroa.6.0.i.i.ph.i.i.i.i.i = phi ptr [ %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, %12 ], [ %11, %7 ], [ %27, %.lr.ph.i.i.i.i.i.i.i.i ]
-  %.sroa.0.0.i.i.ph.i.i.i.i.i = phi ptr [ %13, %12 ], [ @_ZN4absl12lts_2024072218container_internal11kSooControlE, %7 ], [ %26, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.sroa.6.0.i.i.ph.i.i.i.i.i = phi ptr [ %11, %7 ], [ %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, %12 ], [ %27, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.sroa.0.0.i.i.ph.i.i.i.i.i = phi ptr [ @_ZN4absl12lts_2024072218container_internal11kSooControlE, %7 ], [ %13, %12 ], [ %26, %.lr.ph.i.i.i.i.i.i.i.i ]
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -41818,8 +41818,8 @@ define internal void @"_ZN4absl12lts_2024072222internal_any_invocable13RemoteInv
   br i1 %29, label %.lr.ph.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !113
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %12, %7
-  %.sroa.6.0.i.i.ph.i.i.i.i.i = phi ptr [ %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, %12 ], [ %11, %7 ], [ %27, %.lr.ph.i.i.i.i.i.i.i.i ]
-  %.sroa.0.0.i.i.ph.i.i.i.i.i = phi ptr [ %13, %12 ], [ @_ZN4absl12lts_2024072218container_internal11kSooControlE, %7 ], [ %26, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.sroa.6.0.i.i.ph.i.i.i.i.i = phi ptr [ %11, %7 ], [ %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, %12 ], [ %27, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.sroa.0.0.i.i.ph.i.i.i.i.i = phi ptr [ @_ZN4absl12lts_2024072218container_internal11kSooControlE, %7 ], [ %13, %12 ], [ %26, %.lr.ph.i.i.i.i.i.i.i.i ]
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 40
   br label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core13RefCountedPtrINS4_9XdsClient24ResourceWatcherInterfaceEEEEENS4_17RefCountedPtrHashIS7_EENS4_15RefCountedPtrEqIS7_EESaIS8_EE14const_iteratorppEv.exit.i.i.i.i.i

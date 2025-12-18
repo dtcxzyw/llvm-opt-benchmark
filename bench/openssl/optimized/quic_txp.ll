@@ -753,7 +753,7 @@ define range(i32 0, 3) i32 @ossl_quic_tx_packetiser_generate(ptr noundef %0, ptr
   br label %txp_determine_archetype.exit
 
 txp_determine_archetype.exit:                     ; preds = %49, %38, %44, %52
-  %.08.i = phi i32 [ 1, %38 ], [ %..i, %52 ], [ 1, %44 ], [ 1, %49 ]
+  %.08.i = phi i32 [ 1, %44 ], [ 1, %38 ], [ %..i, %52 ], [ 1, %49 ]
   %54 = zext nneg i32 %.08.i to i64
   %invariant.gep = getelementptr inbounds nuw %struct.archetype_data, ptr @archetypes, i64 %54
   %55 = icmp eq i64 %34, 0
@@ -1226,7 +1226,7 @@ txp_determine_archetype.exit:                     ; preds = %49, %38, %44, %52
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br i1 %.not87.i, label %1075, label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph.split.split.split.split.split.us.i, %.lr.ph.split.split.split.split.split.us.i, %.lr.ph.split.split.split.split.split.us.i, %.lr.ph.split.split.split.split.split.us.i, %.lr.ph.split.split.split.split.us.split.i, %.lr.ph.split.split.split.split.us.split.us.i, %.lr.ph.split.split.split.split.us.split.us.i, %.lr.ph.split.split.split.split.us.split.us.i, %.lr.ph.split.split.split.us.split.split.i, %.lr.ph.split.split.split.us.split.split.us.i, %.lr.ph.split.split.split.us.split.split.us.i, %.lr.ph.split.split.split.us.split.split.us.i, %.lr.ph.split.split.split.us.split.us.split.i, %.lr.ph.split.split.split.us.split.us.split.us.i, %.lr.ph.split.split.split.us.split.us.split.us.i, %.lr.ph.split.split.us.split.i, %.lr.ph.split.split.us.split.i, %202, %201, %196, %.lr.ph.split.split.us.split.us.i, %197, %192, %189, %190, %191, %174, %115, %121, %128, %140, %150, %156, %169, %232, %131, %153, %165, %162, %159, %.lr.ph.split.split.split.split.split.i
+.loopexit:                                        ; preds = %.lr.ph.split.split.split.split.split.us.i, %.lr.ph.split.split.split.split.split.us.i, %.lr.ph.split.split.split.split.split.us.i, %.lr.ph.split.split.split.split.split.us.i, %.lr.ph.split.split.split.split.us.split.i, %.lr.ph.split.split.split.split.us.split.us.i, %.lr.ph.split.split.split.split.us.split.us.i, %.lr.ph.split.split.split.split.us.split.us.i, %.lr.ph.split.split.split.us.split.split.i, %.lr.ph.split.split.split.us.split.split.us.i, %.lr.ph.split.split.split.us.split.split.us.i, %.lr.ph.split.split.split.us.split.split.us.i, %.lr.ph.split.split.split.us.split.us.split.i, %.lr.ph.split.split.split.us.split.us.split.us.i, %.lr.ph.split.split.split.us.split.us.split.us.i, %.lr.ph.split.split.us.split.i, %.lr.ph.split.split.us.split.i, %202, %201, %196, %.lr.ph.split.split.us.split.us.i, %197, %192, %189, %190, %191, %174, %159, %115, %121, %128, %140, %150, %156, %169, %232, %131, %153, %165, %162, %.lr.ph.split.split.split.split.split.i
   %235 = getelementptr inbounds nuw i8, ptr %93, i64 276
   store i32 %.fr.i, ptr %235, align 4, !tbaa !37
   switch i32 %96, label %default.unreachable.i [
@@ -2938,7 +2938,7 @@ tx_helper_append_iovec.exit.i.i.i:                ; preds = %984, %976, %968, %.
   br i1 %1012, label %1018, label %830
 
 .loopexit.i.i:                                    ; preds = %805, %._crit_edge182.i.i.i, %955, %943, %936, %862, %846
-  %.0.i111.i.i = phi i64 [ %.1.i.i.i, %943 ], [ %.1.i.i.i, %936 ], [ %.1.i.i.i, %846 ], [ %.1.i.i.i, %862 ], [ %.1.i.i.i, %955 ], [ %.2.i.i.i, %._crit_edge182.i.i.i ], [ %791, %805 ]
+  %.0.i111.i.i = phi i64 [ %.1.i.i.i, %862 ], [ %.1.i.i.i, %943 ], [ %.1.i.i.i, %955 ], [ %.2.i.i.i, %._crit_edge182.i.i.i ], [ %.1.i.i.i, %936 ], [ %.1.i.i.i, %846 ], [ %791, %805 ]
   %1014 = sub i64 %.0.i111.i.i, %791
   store i64 %1014, ptr %666, align 8, !tbaa !49
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -3005,7 +3005,7 @@ txp_generate_stream_related.exit.thread.i:        ; preds = %781, %766, %748, %.
   br label %tx_helper_rollback.exit.thread294.i
 
 txp_generate_stream_related.exit.i:               ; preds = %.thread148.i.i, %.loopexit155.i.i, %tx_helper_rollback.exit108.i.i, %736, %690, %657
-  %.27.i = phi i32 [ %.11.i, %657 ], [ %.26.i, %.loopexit155.i.i ], [ %.20.i, %tx_helper_rollback.exit108.i.i ], [ %.18.i, %736 ], [ %.17.i, %690 ], [ %.22.i, %.thread148.i.i ]
+  %.27.i = phi i32 [ %.11.i, %657 ], [ %.17.i, %690 ], [ %.26.i, %.loopexit155.i.i ], [ %.20.i, %tx_helper_rollback.exit108.i.i ], [ %.18.i, %736 ], [ %.22.i, %.thread148.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %1027
 
@@ -3102,7 +3102,7 @@ tx_helper_rollback.exit.thread294.i:              ; preds = %1044, %1042, %txp_n
   store i64 %1074, ptr %94, align 16, !tbaa !104
   br label %1075
 
-txp_should_try_staging.exit:                      ; preds = %326, %313, %tx_helper_rollback.exit.thread294.i
+txp_should_try_staging.exit:                      ; preds = %313, %326, %tx_helper_rollback.exit.thread294.i
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %.thread210
 
@@ -3745,8 +3745,8 @@ txp_pkt_commit.exit:                              ; preds = %1332, %1347, %1349,
   br i1 %exitcond558.not, label %.thread210, label %1180, !llvm.loop !206
 
 .thread210:                                       ; preds = %1377, %1188, %1165, %1129, %1135, %1138, %1152, %1143, %1147, %1374, %.thread231, %.thread229, %txp_should_try_staging.exit
-  %.0115 = phi i64 [ %.1116414, %1374 ], [ 0, %txp_should_try_staging.exit ], [ %.1116414, %.thread231 ], [ %.1116414, %.thread229 ], [ 0, %1147 ], [ 0, %1143 ], [ 0, %1152 ], [ 0, %1138 ], [ 0, %1135 ], [ 0, %1129 ], [ 0, %1165 ], [ %.1116414, %1188 ], [ %.2117, %1377 ]
-  %.097 = phi i32 [ 0, %1374 ], [ 0, %txp_should_try_staging.exit ], [ 0, %.thread231 ], [ 0, %.thread229 ], [ 0, %1147 ], [ 0, %1143 ], [ 0, %1152 ], [ 0, %1138 ], [ 0, %1135 ], [ 0, %1129 ], [ 1, %1165 ], [ 2, %1188 ], [ 1, %1377 ]
+  %.0115 = phi i64 [ %.1116414, %1374 ], [ 0, %txp_should_try_staging.exit ], [ 0, %1165 ], [ %.1116414, %.thread231 ], [ 0, %1129 ], [ %.1116414, %.thread229 ], [ 0, %1147 ], [ 0, %1143 ], [ 0, %1152 ], [ 0, %1138 ], [ 0, %1135 ], [ %.1116414, %1188 ], [ %.2117, %1377 ]
+  %.097 = phi i32 [ 0, %1374 ], [ 0, %txp_should_try_staging.exit ], [ 1, %1165 ], [ 0, %.thread231 ], [ 0, %1129 ], [ 0, %.thread229 ], [ 0, %1147 ], [ 0, %1143 ], [ 0, %1152 ], [ 0, %1138 ], [ 0, %1135 ], [ 2, %1188 ], [ 1, %1377 ]
   %1378 = load ptr, ptr %39, align 8, !tbaa !66
   call void @ossl_qtx_finish_dgram(ptr noundef %1378) #10
   br label %1379

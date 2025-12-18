@@ -1181,8 +1181,8 @@ calc_cks.exit118.i:                               ; preds = %84
   %152 = call fastcc i32 @dissect_ipmi_cmd(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull %7)
   br label %guess_imb_format.exit.thread
 
-guess_imb_format.exit.thread:                     ; preds = %.thread142.i, %.critedge, %151
-  %.0 = phi i32 [ %152, %151 ], [ %20, %.critedge ], [ 0, %.thread142.i ]
+guess_imb_format.exit.thread:                     ; preds = %.critedge, %.thread142.i, %151
+  %.0 = phi i32 [ %152, %151 ], [ 0, %.thread142.i ], [ %20, %.critedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }

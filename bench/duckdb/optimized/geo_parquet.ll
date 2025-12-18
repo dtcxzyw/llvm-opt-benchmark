@@ -2393,7 +2393,7 @@ _ZNSt10unique_ptrIN6duckdb24BoundReferenceExpressionESt14default_deleteIS1_EED2E
   br i1 %602, label %.loopexit, label %599
 
 .loopexit:                                        ; preds = %593, %599, %.thread
-  %.pn96.pn = phi { ptr, i32 } [ %358, %.thread ], [ %.pn96, %599 ], [ %592, %593 ]
+  %.pn96.pn = phi { ptr, i32 } [ %.pn96, %599 ], [ %358, %.thread ], [ %592, %593 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
   br label %.body229

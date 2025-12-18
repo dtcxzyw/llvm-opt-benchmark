@@ -4673,8 +4673,8 @@ define { i64, ptr } @_ZN4jiff2tz2db16TimeZoneDatabase3get17hcec543e6ec98666bE(pt
   br label %_ZN4jiff2tz2db8zoneinfo5inner8Database3get17hce2d461d65f0fa5aE.exit.thread
 
 _ZN4jiff2tz2db8zoneinfo5inner8Database3get17hce2d461d65f0fa5aE.exit.thread: ; preds = %56, %_ZN4jiff2tz2db8zoneinfo5inner8Database3get17hce2d461d65f0fa5aE.exit, %394, %"_ZN69_$LT$jiff..tz..timezone..repr..Repr$u20$as$u20$core..clone..Clone$GT$5clone17hd2c75619ae85364cE.exit.i", %_ZN4jiff4util4utf827cmp_ignore_ascii_case_bytes17h9df39327b2780ef9E.exit9.i.i, %413, %411, %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$jiff..tz..timezone..TimeZone$GT$$GT$17h45f65de7b0260df2E.exit", %43
-  %.sroa.6.0 = phi ptr [ %48, %43 ], [ %410, %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$jiff..tz..timezone..TimeZone$GT$$GT$17h45f65de7b0260df2E.exit" ], [ %412, %411 ], [ %414, %413 ], [ %.sroa.10.2.i, %_ZN4jiff2tz2db8zoneinfo5inner8Database3get17hce2d461d65f0fa5aE.exit ], [ %86, %_ZN4jiff4util4utf827cmp_ignore_ascii_case_bytes17h9df39327b2780ef9E.exit9.i.i ], [ %.val34.i, %"_ZN69_$LT$jiff..tz..timezone..repr..Repr$u20$as$u20$core..clone..Clone$GT$5clone17hd2c75619ae85364cE.exit.i" ], [ %.sroa.10.1.i, %394 ], [ inttoptr (i64 1 to ptr), %56 ]
-  %.sroa.0.0 = phi i64 [ 1, %43 ], [ 1, %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$jiff..tz..timezone..TimeZone$GT$$GT$17h45f65de7b0260df2E.exit" ], [ 0, %411 ], [ 0, %413 ], [ 0, %_ZN4jiff2tz2db8zoneinfo5inner8Database3get17hce2d461d65f0fa5aE.exit ], [ 0, %_ZN4jiff4util4utf827cmp_ignore_ascii_case_bytes17h9df39327b2780ef9E.exit9.i.i ], [ 0, %"_ZN69_$LT$jiff..tz..timezone..repr..Repr$u20$as$u20$core..clone..Clone$GT$5clone17hd2c75619ae85364cE.exit.i" ], [ 0, %394 ], [ 0, %56 ]
+  %.sroa.6.0 = phi ptr [ %48, %43 ], [ %410, %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$jiff..tz..timezone..TimeZone$GT$$GT$17h45f65de7b0260df2E.exit" ], [ %412, %411 ], [ %414, %413 ], [ %.sroa.10.2.i, %_ZN4jiff2tz2db8zoneinfo5inner8Database3get17hce2d461d65f0fa5aE.exit ], [ %.sroa.10.1.i, %394 ], [ %86, %_ZN4jiff4util4utf827cmp_ignore_ascii_case_bytes17h9df39327b2780ef9E.exit9.i.i ], [ %.val34.i, %"_ZN69_$LT$jiff..tz..timezone..repr..Repr$u20$as$u20$core..clone..Clone$GT$5clone17hd2c75619ae85364cE.exit.i" ], [ inttoptr (i64 1 to ptr), %56 ]
+  %.sroa.0.0 = phi i64 [ 1, %43 ], [ 1, %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$jiff..tz..timezone..TimeZone$GT$$GT$17h45f65de7b0260df2E.exit" ], [ 0, %411 ], [ 0, %413 ], [ 0, %_ZN4jiff2tz2db8zoneinfo5inner8Database3get17hce2d461d65f0fa5aE.exit ], [ 0, %394 ], [ 0, %_ZN4jiff4util4utf827cmp_ignore_ascii_case_bytes17h9df39327b2780ef9E.exit9.i.i ], [ 0, %"_ZN69_$LT$jiff..tz..timezone..repr..Repr$u20$as$u20$core..clone..Clone$GT$5clone17hd2c75619ae85364cE.exit.i" ], [ 0, %56 ]
   %49 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %50 = insertvalue { i64, ptr } %49, ptr %.sroa.6.0, 1
   ret { i64, ptr } %50
@@ -6518,8 +6518,8 @@ _ZN4jiff4util4utf827cmp_ignore_ascii_case_bytes17h9df39327b2780ef9E.exit.thread:
   br i1 %33, label %19, label %_ZN4jiff4util4utf827cmp_ignore_ascii_case_bytes17h9df39327b2780ef9E.exit9.thread
 
 _ZN4jiff4util4utf827cmp_ignore_ascii_case_bytes17h9df39327b2780ef9E.exit9.thread: ; preds = %5, %.thread22, %.thread31, %27, %_ZN4jiff4util4utf827cmp_ignore_ascii_case_bytes17h9df39327b2780ef9E.exit9
-  %.sroa.4.0 = phi ptr [ %37, %_ZN4jiff4util4utf827cmp_ignore_ascii_case_bytes17h9df39327b2780ef9E.exit9 ], [ undef, %.thread22 ], [ undef, %27 ], [ undef, %.thread31 ], [ inttoptr (i64 1 to ptr), %5 ]
-  %.sroa.0.0 = phi i64 [ 1, %_ZN4jiff4util4utf827cmp_ignore_ascii_case_bytes17h9df39327b2780ef9E.exit9 ], [ 0, %.thread22 ], [ 0, %27 ], [ 0, %.thread31 ], [ 1, %5 ]
+  %.sroa.4.0 = phi ptr [ undef, %.thread22 ], [ %37, %_ZN4jiff4util4utf827cmp_ignore_ascii_case_bytes17h9df39327b2780ef9E.exit9 ], [ undef, %27 ], [ undef, %.thread31 ], [ inttoptr (i64 1 to ptr), %5 ]
+  %.sroa.0.0 = phi i64 [ 0, %.thread22 ], [ 1, %_ZN4jiff4util4utf827cmp_ignore_ascii_case_bytes17h9df39327b2780ef9E.exit9 ], [ 0, %27 ], [ 0, %.thread31 ], [ 1, %5 ]
   %35 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %36 = insertvalue { i64, ptr } %35, ptr %.sroa.4.0, 1
   ret { i64, ptr } %36

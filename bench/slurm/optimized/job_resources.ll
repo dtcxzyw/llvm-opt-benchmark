@@ -318,7 +318,7 @@ _create_core_bitmap.exit:                         ; preds = %.lr.ph, %19
   br i1 %.not60, label %.loopexit, label %.lr.ph86.split, !llvm.loop !11
 
 .loopexit:                                        ; preds = %107, %46, %44, %63, %.loopexit70
-  %.not6076 = phi i32 [ 1, %.loopexit70 ], [ 1, %46 ], [ 0, %63 ], [ 0, %44 ], [ 1, %107 ]
+  %.not6076 = phi i32 [ 0, %63 ], [ 1, %46 ], [ 1, %.loopexit70 ], [ 0, %44 ], [ 1, %107 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %112
 

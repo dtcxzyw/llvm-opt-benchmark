@@ -3139,7 +3139,7 @@ _ZN8nanobind6objectD2Ev.exit139:                  ; preds = %_ZN8nanobind6detail
   br label %120
 
 120:                                              ; preds = %117, %118, %119, %_ZN8nanobind6detail15ndarray_inc_refEPNS0_14ndarray_handleE.exit121
-  %.055 = phi ptr [ @.str.21, %119 ], [ @.str.7, %117 ], [ @.str.11, %118 ], [ @.str.9, %_ZN8nanobind6detail15ndarray_inc_refEPNS0_14ndarray_handleE.exit121 ]
+  %.055 = phi ptr [ @.str.9, %_ZN8nanobind6detail15ndarray_inc_refEPNS0_14ndarray_handleE.exit121 ], [ @.str.21, %119 ], [ @.str.7, %117 ], [ @.str.11, %118 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %121 = invoke noundef ptr @_ZN8nanobind6detail13module_importEPKc(ptr noundef nonnull %.055)
@@ -3381,8 +3381,8 @@ _ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev.exit175: ; preds = %_ZN8nanobin
           to label %.critedge unwind label %211
 
 .critedge:                                        ; preds = %203, %165, %_ZN8nanobind6objectD2Ev.exit139
-  %.sroa.0194.1 = phi ptr [ %167, %203 ], [ %.sroa.0194.0, %_ZN8nanobind6objectD2Ev.exit139 ], [ %.sroa.0194.0, %165 ]
-  %.4 = phi ptr [ null, %203 ], [ %104, %_ZN8nanobind6objectD2Ev.exit139 ], [ null, %165 ]
+  %.sroa.0194.1 = phi ptr [ %.sroa.0194.0, %165 ], [ %167, %203 ], [ %.sroa.0194.0, %_ZN8nanobind6objectD2Ev.exit139 ]
+  %.4 = phi ptr [ null, %165 ], [ null, %203 ], [ %104, %_ZN8nanobind6objectD2Ev.exit139 ]
   %.not.i.i.i176 = icmp eq ptr %.sroa.0194.1, null
   br i1 %.not.i.i.i176, label %_ZN8nanobind6objectD2Ev.exit178, label %204
 
@@ -3791,7 +3791,7 @@ switch.lookup76:                                  ; preds = %.split1
   br label %39
 
 39:                                               ; preds = %switch.lookup76, %switch.lookup, %9, %33, %28, %32, %31, %36
-  %.051 = phi ptr [ @.str.51, %33 ], [ @.str.53, %9 ], [ @.str.52, %36 ], [ @.str.48, %28 ], [ %switch.load, %switch.lookup ], [ @.str.50, %32 ], [ @.str.49, %31 ], [ %switch.load78, %switch.lookup76 ]
+  %.051 = phi ptr [ @.str.51, %33 ], [ @.str.52, %36 ], [ %switch.load78, %switch.lookup76 ], [ @.str.53, %9 ], [ @.str.49, %31 ], [ %switch.load, %switch.lookup ], [ @.str.48, %28 ], [ @.str.50, %32 ]
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 22
   %41 = load i16, ptr %40, align 2
   %.not53 = icmp eq i16 %41, 1

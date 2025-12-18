@@ -1300,12 +1300,12 @@ _ZN7mitsuba3refINS_6BitmapEED2Ev.exit271:         ; preds = %_ZNSt3__110unique_p
   br label %_ZN7mitsuba3refINS_6ObjectEED2Ev.exit216
 
 _ZN7mitsuba3refINS_6ObjectEED2Ev.exit216:         ; preds = %_ZN7mitsuba3refINS_6BitmapEED2Ev.exit271, %46
-  %.sroa.0296.1 = phi ptr [ %.sroa.0296.0, %46 ], [ %156, %_ZN7mitsuba3refINS_6BitmapEED2Ev.exit271 ]
-  %.pn207 = phi { ptr, i32 } [ %47, %46 ], [ %.pn202.pn, %_ZN7mitsuba3refINS_6BitmapEED2Ev.exit271 ]
+  %.sroa.0296.1 = phi ptr [ %156, %_ZN7mitsuba3refINS_6BitmapEED2Ev.exit271 ], [ %.sroa.0296.0, %46 ]
+  %.pn207 = phi { ptr, i32 } [ %.pn202.pn, %_ZN7mitsuba3refINS_6BitmapEED2Ev.exit271 ], [ %47, %46 ]
   %.not.i272 = icmp eq ptr %.sroa.0296.1, null
   br i1 %.not.i272, label %_ZN7mitsuba3refINS_6BitmapEED2Ev.exit273, label %_ZN7mitsuba3refINS_6ObjectEED2Ev.exit216.thread339
 
-_ZN7mitsuba3refINS_6ObjectEED2Ev.exit216.thread339: ; preds = %214, %153, %_ZN7mitsuba3refINS_6ObjectEED2Ev.exit216
+_ZN7mitsuba3refINS_6ObjectEED2Ev.exit216.thread339: ; preds = %153, %214, %_ZN7mitsuba3refINS_6ObjectEED2Ev.exit216
   %.pn207344 = phi { ptr, i32 } [ %.pn207, %_ZN7mitsuba3refINS_6ObjectEED2Ev.exit216 ], [ %.pn205, %153 ], [ %215, %214 ]
   %.sroa.0296.1343 = phi ptr [ %.sroa.0296.1, %_ZN7mitsuba3refINS_6ObjectEED2Ev.exit216 ], [ %.sroa.0296.2, %153 ], [ %156, %214 ]
   call void @_ZNK7mitsuba6Object7dec_refEb(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0296.1343, i1 noundef zeroext true) #32

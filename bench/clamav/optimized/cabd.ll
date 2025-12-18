@@ -623,14 +623,14 @@ define internal ptr @cabd_search(ptr noundef captures(address_is_null) %0, ptr n
   br i1 %135, label %.lr.ph164.i, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.critedge.i, %130, %46
-  %.349 = phi ptr [ %.450, %130 ], [ %.248, %46 ], [ %.248, %.critedge.i ]
-  %.2 = phi i64 [ %spec.select, %130 ], [ %.1, %46 ], [ %.1, %.critedge.i ]
-  %.1124.lcssa.i = phi i64 [ %.3126.i, %130 ], [ %.0123172.i, %46 ], [ %.0123172.i, %.critedge.i ]
-  %.1121.lcssa.i = phi i64 [ 0, %130 ], [ %spec.select.i, %46 ], [ %spec.select.i, %.critedge.i ]
-  %.1117.lcssa.i = phi ptr [ %.3119.i, %130 ], [ %.0116173.i, %46 ], [ %.0116173.i, %.critedge.i ]
-  %.1110.lcssa.i = phi i8 [ 0, %130 ], [ %.0109174.i, %46 ], [ %.2111.i, %.critedge.i ]
-  %.1107.lcssa.i = phi i32 [ %.1107161.i, %130 ], [ %.0106175.i, %46 ], [ %.2108.i, %.critedge.i ]
-  %.1104.lcssa.i = phi i32 [ %102, %130 ], [ %.0103176.i, %46 ], [ %.2105.i, %.critedge.i ]
+  %.349 = phi ptr [ %.248, %46 ], [ %.450, %130 ], [ %.248, %.critedge.i ]
+  %.2 = phi i64 [ %.1, %46 ], [ %spec.select, %130 ], [ %.1, %.critedge.i ]
+  %.1124.lcssa.i = phi i64 [ %.0123172.i, %46 ], [ %.3126.i, %130 ], [ %.0123172.i, %.critedge.i ]
+  %.1121.lcssa.i = phi i64 [ %spec.select.i, %46 ], [ 0, %130 ], [ %spec.select.i, %.critedge.i ]
+  %.1117.lcssa.i = phi ptr [ %.0116173.i, %46 ], [ %.3119.i, %130 ], [ %.0116173.i, %.critedge.i ]
+  %.1110.lcssa.i = phi i8 [ %.0109174.i, %46 ], [ 0, %130 ], [ %.2111.i, %.critedge.i ]
+  %.1107.lcssa.i = phi i32 [ %.0106175.i, %46 ], [ %.1107161.i, %130 ], [ %.2108.i, %.critedge.i ]
+  %.1104.lcssa.i = phi i32 [ %.0103176.i, %46 ], [ %102, %130 ], [ %.2105.i, %.critedge.i ]
   %136 = add nsw i64 %.1121.lcssa.i, %.1124.lcssa.i
   %137 = icmp slt i64 %136, %22
   br i1 %137, label %32, label %138
@@ -2139,7 +2139,7 @@ define internal fastcc range(i32 0, 9) i32 @cabd_merge(ptr noundef captures(addr
   br i1 %.not151, label %.sink.split, label %118
 
 .sink.split:                                      ; preds = %.lr.ph, %21, %118, %.preheader, %63, %61, %10, %13, %4
-  %.sink = phi i32 [ 6, %63 ], [ 8, %61 ], [ 1, %10 ], [ 1, %4 ], [ 1, %13 ], [ 0, %.preheader ], [ 1, %21 ], [ 0, %118 ], [ 1, %.lr.ph ]
+  %.sink = phi i32 [ 6, %63 ], [ 8, %61 ], [ 1, %21 ], [ 0, %118 ], [ 1, %10 ], [ 1, %4 ], [ 1, %13 ], [ 0, %.preheader ], [ 1, %.lr.ph ]
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 %.sink, ptr %122, align 8, !tbaa !23
   br label %123
@@ -2252,7 +2252,7 @@ define internal fastcc range(i32 0, 2) i32 @cabd_can_merge_folders(ptr noundef r
   br i1 %.not45, label %.critedge, label %.preheader
 
 .critedge:                                        ; preds = %31, %.loopexit, %15, %18, %8, %3
-  %.035 = phi i32 [ 0, %8 ], [ 0, %3 ], [ 0, %15 ], [ 0, %18 ], [ %.2, %.loopexit ], [ 1, %31 ]
+  %.035 = phi i32 [ 0, %8 ], [ 0, %3 ], [ 0, %15 ], [ %.2, %.loopexit ], [ 0, %18 ], [ 1, %31 ]
   ret i32 %.035
 }
 

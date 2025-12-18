@@ -939,7 +939,7 @@ _ZNK11func_interp9get_entryEPKP4expr.exit:        ; preds = %.lr.ph.i
   %.not10 = icmp eq ptr %40, null
   br i1 %.not10, label %_ZNK11func_interp9get_entryEPKP4expr.exit.thread, label %_ZNK11func_interp9get_entryEPKP4expr.exit.thread16
 
-_ZNK11func_interp9get_entryEPKP4expr.exit.thread: ; preds = %_ZNK10func_entry7eq_argsER11ast_managerjPKP4expr.exit.i, %_ZNK6vectorIP10func_entryLb0EjE3endEv.exit.i, %31, %_ZNK11func_interp9get_entryEPKP4expr.exit
+_ZNK11func_interp9get_entryEPKP4expr.exit.thread: ; preds = %_ZNK10func_entry7eq_argsER11ast_managerjPKP4expr.exit.i, %31, %_ZNK6vectorIP10func_entryLb0EjE3endEv.exit.i, %_ZNK11func_interp9get_entryEPKP4expr.exit
   %53 = load ptr, ptr %3, align 8, !tbaa !35
   %54 = getelementptr inbounds nuw i8, ptr %.029, i64 40
   %55 = load ptr, ptr %54, align 8, !tbaa !7
@@ -1450,7 +1450,7 @@ _ZNK10func_entry7eq_argsER11ast_managerjPKP4expr.exit: ; preds = %19
   br i1 %.not, label %.loopexit, label %12
 
 .loopexit:                                        ; preds = %12, %_ZNK10func_entry7eq_argsER11ast_managerjPKP4expr.exit, %18, %2, %_ZNK6vectorIP10func_entryLb0EjE3endEv.exit
-  %26 = phi ptr [ null, %2 ], [ null, %_ZNK6vectorIP10func_entryLb0EjE3endEv.exit ], [ %13, %18 ], [ null, %_ZNK10func_entry7eq_argsER11ast_managerjPKP4expr.exit ], [ %13, %12 ]
+  %26 = phi ptr [ %13, %18 ], [ null, %_ZNK6vectorIP10func_entryLb0EjE3endEv.exit ], [ null, %2 ], [ %13, %12 ], [ null, %_ZNK10func_entry7eq_argsER11ast_managerjPKP4expr.exit ]
   ret ptr %26
 }
 
@@ -1588,7 +1588,7 @@ _ZN10func_entry10set_resultER11ast_managerP4expr.exit: ; preds = %_ZN11ast_manag
   store ptr %2, ptr %50, align 8, !tbaa !7
   br label %58
 
-_ZNK11func_interp9get_entryEPKP4expr.exit.thread: ; preds = %_ZNK10func_entry7eq_argsER11ast_managerjPKP4expr.exit.i, %_ZNK6vectorIP10func_entryLb0EjE3endEv.exit.i, %_ZN11func_interp18reset_interp_cacheEv.exit, %_ZNK11func_interp9get_entryEPKP4expr.exit
+_ZNK11func_interp9get_entryEPKP4expr.exit.thread: ; preds = %_ZNK10func_entry7eq_argsER11ast_managerjPKP4expr.exit.i, %_ZN11func_interp18reset_interp_cacheEv.exit, %_ZNK6vectorIP10func_entryLb0EjE3endEv.exit.i, %_ZNK11func_interp9get_entryEPKP4expr.exit
   tail call void @_ZN11func_interp16insert_new_entryEPKP4exprS1_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1, ptr noundef %2)
   br label %58
 
@@ -2009,7 +2009,7 @@ _ZN7obj_mapI4exprjED2Ev.exit:                     ; preds = %._crit_edge, %28
   br i1 %.not27.old.i.i.i, label %_ZNK7obj_mapI4exprjE4findEPS0_Rj.exit, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %67, %64
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %67 ], [ %66, %64 ]
+  %.137.i.i.i.be = phi ptr [ %66, %64 ], [ %.old.i.i.i, %67 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !116
 
 _ZNK7obj_mapI4exprjE9find_coreEPS0_.exit.i:       ; preds = %48, %59
@@ -2020,7 +2020,7 @@ _ZNK7obj_mapI4exprjE9find_coreEPS0_.exit.i:       ; preds = %48, %59
   br label %_ZNK7obj_mapI4exprjE4findEPS0_Rj.exit
 
 _ZNK7obj_mapI4exprjE4findEPS0_Rj.exit:            ; preds = %53, %67, %64, %_ZNK7obj_mapI4exprjE9find_coreEPS0_.exit.i, %.preheader.i.i.i
-  %.023 = phi i32 [ 1, %.preheader.i.i.i ], [ %70, %_ZNK7obj_mapI4exprjE9find_coreEPS0_.exit.i ], [ 1, %67 ], [ 1, %64 ], [ 1, %53 ]
+  %.023 = phi i32 [ 1, %.preheader.i.i.i ], [ 1, %67 ], [ %70, %_ZNK7obj_mapI4exprjE9find_coreEPS0_.exit.i ], [ 1, %64 ], [ 1, %53 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %35, ptr %2, align 8, !tbaa !102
   store i32 %.023, ptr %25, align 8, !tbaa !104

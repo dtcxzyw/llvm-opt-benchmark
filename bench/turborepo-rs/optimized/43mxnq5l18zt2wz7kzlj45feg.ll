@@ -2678,10 +2678,10 @@ _RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters9enumerateINtB4_9EnumerateINtNtB6_
   br label %211
 
 .thread:                                          ; preds = %.outer, %499, %211, %48
-  %.sroa.537.0.ph.lcssa = phi ptr [ null, %48 ], [ %.sroa.537.0.ph611, %499 ], [ %.sroa.537.0.ph611, %211 ], [ %.sroa.537.2, %.outer ]
-  %.sroa.035.0.ph.lcssa = phi i16 [ undef, %48 ], [ %.sroa.035.0.ph612, %499 ], [ %.sroa.035.0.ph612, %211 ], [ %.sroa.035.2, %.outer ]
-  %.sroa.16.1.ph.lcssa = phi i16 [ %.sroa.16.0, %48 ], [ %.sroa.16.1.ph614, %499 ], [ %.sroa.16.1.ph614, %211 ], [ %.sroa.16.6, %.outer ]
-  %.sroa.0.1.ph.lcssa = phi i16 [ %.sroa.0.0, %48 ], [ %.sroa.0.1.ph615, %499 ], [ %.sroa.0.1.ph615, %211 ], [ %.sroa.0.5, %.outer ]
+  %.sroa.537.0.ph.lcssa = phi ptr [ %.sroa.537.0.ph611, %499 ], [ null, %48 ], [ %.sroa.537.0.ph611, %211 ], [ %.sroa.537.2, %.outer ]
+  %.sroa.035.0.ph.lcssa = phi i16 [ %.sroa.035.0.ph612, %499 ], [ undef, %48 ], [ %.sroa.035.0.ph612, %211 ], [ %.sroa.035.2, %.outer ]
+  %.sroa.16.1.ph.lcssa = phi i16 [ %.sroa.16.1.ph614, %499 ], [ %.sroa.16.0, %48 ], [ %.sroa.16.1.ph614, %211 ], [ %.sroa.16.6, %.outer ]
+  %.sroa.0.1.ph.lcssa = phi i16 [ %.sroa.0.1.ph615, %499 ], [ %.sroa.0.0, %48 ], [ %.sroa.0.1.ph615, %211 ], [ %.sroa.0.5, %.outer ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7255)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.13)
   %237 = icmp eq ptr %.sroa.537.0.ph.lcssa, null

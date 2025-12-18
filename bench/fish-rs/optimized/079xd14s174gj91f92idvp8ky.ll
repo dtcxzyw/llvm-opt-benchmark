@@ -87156,7 +87156,7 @@ define internal fastcc void @_ZN4fish3ast9Populator13populate_list17h07282957f92
   br label %.thread
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke459, %.invoke, %525, %405, %366, %359
-  %.sroa.05.0.ph.ph = phi i8 [ 1, %.invoke ], [ 1, %359 ], [ %.sroa.05.2, %405 ], [ %.sroa.05.2, %525 ], [ 0, %366 ], [ 1, %.invoke459 ]
+  %.sroa.05.0.ph.ph = phi i8 [ 1, %359 ], [ %.sroa.05.2, %405 ], [ %.sroa.05.2, %525 ], [ 1, %.invoke459 ], [ 1, %.invoke ], [ 0, %366 ]
   %lpad.loopexit.split-lp288 = landingpad { ptr, i32 }
           cleanup
   br label %.body201
@@ -88993,7 +88993,7 @@ _ZN4fish3ast9Populator9try_parse17h1f458d6ad03b32c0E.exit: ; preds = %305, %324,
   br label %549
 
 .thread268:                                       ; preds = %.body.i, %530, %672, %760, %.thread, %.body201
-  %.pn73.pn = phi { ptr, i32 } [ %.pn73, %760 ], [ %673, %672 ], [ %.pn67266, %.thread ], [ %.pn67, %.body201 ], [ %384, %.body.i ], [ %531, %530 ]
+  %.pn73.pn = phi { ptr, i32 } [ %.pn73, %760 ], [ %673, %672 ], [ %.pn67266, %.thread ], [ %.pn67, %.body201 ], [ %531, %530 ], [ %384, %.body.i ]
   resume { ptr, i32 } %.pn73.pn
 
 .thread:                                          ; preds = %.loopexit.split-lp.loopexit, %.loopexit, %330, %266, %344, %352, %239, %175, %555, %637, %.body201
@@ -89652,7 +89652,7 @@ define internal fastcc void @_ZN4fish3ast9Populator13populate_list17h350aa7232c7
   br label %.thread
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke458, %.invoke, %519, %399, %360, %353
-  %.sroa.05.0.ph.ph = phi i8 [ 1, %.invoke ], [ 1, %353 ], [ %.sroa.05.2, %399 ], [ %.sroa.05.2, %519 ], [ 0, %360 ], [ 1, %.invoke458 ]
+  %.sroa.05.0.ph.ph = phi i8 [ 0, %360 ], [ 1, %.invoke458 ], [ %.sroa.05.2, %399 ], [ %.sroa.05.2, %519 ], [ 1, %353 ], [ 1, %.invoke ]
   %lpad.loopexit.split-lp287 = landingpad { ptr, i32 }
           cleanup
   br label %.body200
@@ -91493,7 +91493,7 @@ _ZN4fish3ast9Populator9try_parse17hc8728b0bb181696bE.exit: ; preds = %299, %318,
   br label %543
 
 .thread267:                                       ; preds = %.body.i, %524, %666, %754, %.thread, %.body200
-  %.pn73.pn = phi { ptr, i32 } [ %.pn73, %754 ], [ %667, %666 ], [ %.pn67265, %.thread ], [ %.pn67, %.body200 ], [ %378, %.body.i ], [ %525, %524 ]
+  %.pn73.pn = phi { ptr, i32 } [ %.pn73, %754 ], [ %667, %666 ], [ %.pn67265, %.thread ], [ %.pn67, %.body200 ], [ %525, %524 ], [ %378, %.body.i ]
   resume { ptr, i32 } %.pn73.pn
 
 .thread:                                          ; preds = %.loopexit.split-lp.loopexit, %.loopexit, %324, %260, %338, %346, %235, %171, %549, %631, %.body200
@@ -92145,7 +92145,7 @@ define internal fastcc void @_ZN4fish3ast9Populator13populate_list17h3562b749583
   br label %.thread
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke459, %.invoke, %524, %404, %365, %358
-  %.sroa.05.0.ph.ph = phi i8 [ 1, %.invoke ], [ 1, %358 ], [ %.sroa.05.2, %404 ], [ %.sroa.05.2, %524 ], [ 0, %365 ], [ 1, %.invoke459 ]
+  %.sroa.05.0.ph.ph = phi i8 [ 1, %358 ], [ %.sroa.05.2, %404 ], [ %.sroa.05.2, %524 ], [ 1, %.invoke459 ], [ 1, %.invoke ], [ 0, %365 ]
   %lpad.loopexit.split-lp288 = landingpad { ptr, i32 }
           cleanup
   br label %.body201
@@ -93982,7 +93982,7 @@ _ZN4fish3ast9Populator9try_parse17he9545ee473775df1E.exit: ; preds = %304, %323,
   br label %548
 
 .thread268:                                       ; preds = %.body.i, %529, %671, %759, %.thread, %.body201
-  %.pn73.pn = phi { ptr, i32 } [ %.pn73, %759 ], [ %672, %671 ], [ %.pn67266, %.thread ], [ %.pn67, %.body201 ], [ %383, %.body.i ], [ %530, %529 ]
+  %.pn73.pn = phi { ptr, i32 } [ %.pn73, %759 ], [ %672, %671 ], [ %.pn67266, %.thread ], [ %.pn67, %.body201 ], [ %530, %529 ], [ %383, %.body.i ]
   resume { ptr, i32 } %.pn73.pn
 
 .thread:                                          ; preds = %.loopexit.split-lp.loopexit, %.loopexit, %329, %265, %343, %351, %239, %175, %554, %636, %.body201
@@ -94623,7 +94623,7 @@ define internal fastcc void @_ZN4fish3ast9Populator13populate_list17h5ff194ef74d
   br label %.thread
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke490, %.invoke, %484, %364, %341, %334
-  %.sroa.04.0.ph.ph = phi i8 [ 1, %.invoke ], [ %.sroa.04.2, %364 ], [ %.sroa.04.2, %484 ], [ 0, %341 ], [ 1, %.invoke490 ], [ 1, %334 ]
+  %.sroa.04.0.ph.ph = phi i8 [ 1, %.invoke ], [ %.sroa.04.2, %364 ], [ 1, %334 ], [ 1, %.invoke490 ], [ 0, %341 ], [ %.sroa.04.2, %484 ]
   %lpad.loopexit.split-lp327 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -96999,7 +96999,7 @@ define hidden void @_ZN4fish3ast9Populator13populate_list17h779ce25dbfd3ca6dE(pt
   br label %.thread
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke435, %.invoke, %290, %464, %344, %305, %298
-  %.sroa.05.0.ph.ph = phi i8 [ 1, %.invoke ], [ %.sroa.05.2, %344 ], [ %.sroa.05.2, %464 ], [ 0, %305 ], [ 1, %.invoke435 ], [ 1, %298 ], [ 1, %290 ]
+  %.sroa.05.0.ph.ph = phi i8 [ 1, %290 ], [ %.sroa.05.2, %344 ], [ %.sroa.05.2, %464 ], [ 1, %298 ], [ 1, %.invoke ], [ 0, %305 ], [ 1, %.invoke435 ]
   %lpad.loopexit.split-lp268 = landingpad { ptr, i32 }
           cleanup
   br label %.body202
@@ -98549,7 +98549,7 @@ split:                                            ; preds = %293
   br label %491
 
 .thread236:                                       ; preds = %.body.i, %469, %619, %707, %.thread, %.body202
-  %.pn76.pn = phi { ptr, i32 } [ %.pn76, %707 ], [ %620, %619 ], [ %.pn70234, %.thread ], [ %.pn70, %.body202 ], [ %323, %.body.i ], [ %470, %469 ]
+  %.pn76.pn = phi { ptr, i32 } [ %.pn76, %707 ], [ %620, %619 ], [ %.pn70234, %.thread ], [ %.pn70, %.body202 ], [ %470, %469 ], [ %323, %.body.i ]
   resume { ptr, i32 } %.pn76.pn
 
 .thread:                                          ; preds = %.loopexit.split-lp.loopexit, %.loopexit, %259, %255, %274, %285, %166, %230, %.body108, %474, %497, %579, %.body202
@@ -99205,7 +99205,7 @@ define internal fastcc void @_ZN4fish3ast9Populator13populate_list17hc548ca0c029
   br label %.thread
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke484, %.invoke, %505, %385, %356, %349
-  %.sroa.05.0.ph.ph = phi i8 [ 1, %.invoke ], [ 1, %349 ], [ %.sroa.05.2, %385 ], [ %.sroa.05.2, %505 ], [ 0, %356 ], [ 1, %.invoke484 ]
+  %.sroa.05.0.ph.ph = phi i8 [ 1, %349 ], [ %.sroa.05.2, %385 ], [ %.sroa.05.2, %505 ], [ 1, %.invoke ], [ 1, %.invoke484 ], [ 0, %356 ]
   %lpad.loopexit.split-lp315 = landingpad { ptr, i32 }
           cleanup
   br label %.body203
@@ -101617,7 +101617,7 @@ define hidden void @_ZN4fish3ast9Populator13populate_list17hd18c01476a97058aE(pt
   br label %.thread
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke423, %.invoke, %420, %300, %277, %270
-  %.sroa.04.0.ph.ph = phi i8 [ 1, %.invoke ], [ %.sroa.04.2, %300 ], [ %.sroa.04.2, %420 ], [ 0, %277 ], [ 1, %.invoke423 ], [ 1, %270 ]
+  %.sroa.04.0.ph.ph = phi i8 [ %.sroa.04.2, %300 ], [ %.sroa.04.2, %420 ], [ 1, %270 ], [ 1, %.invoke ], [ 0, %277 ], [ 1, %.invoke423 ]
   %lpad.loopexit.split-lp259 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -103700,7 +103700,7 @@ define internal fastcc void @_ZN4fish3ast9Populator13populate_list17hd294756c652
   br label %.thread
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke459, %.invoke, %522, %402, %363, %356
-  %.sroa.05.0.ph.ph = phi i8 [ 1, %.invoke ], [ 1, %356 ], [ %.sroa.05.2, %402 ], [ %.sroa.05.2, %522 ], [ 0, %363 ], [ 1, %.invoke459 ]
+  %.sroa.05.0.ph.ph = phi i8 [ 1, %356 ], [ %.sroa.05.2, %402 ], [ %.sroa.05.2, %522 ], [ 1, %.invoke459 ], [ 1, %.invoke ], [ 0, %363 ]
   %lpad.loopexit.split-lp288 = landingpad { ptr, i32 }
           cleanup
   br label %.body201
@@ -105544,7 +105544,7 @@ _ZN4fish3ast9Populator9try_parse17hc42c18fba864ff9aE.exit: ; preds = %302, %321,
   br label %546
 
 .thread268:                                       ; preds = %.body.i, %527, %669, %757, %.thread, %.body201
-  %.pn73.pn = phi { ptr, i32 } [ %.pn73, %757 ], [ %670, %669 ], [ %.pn67266, %.thread ], [ %.pn67, %.body201 ], [ %381, %.body.i ], [ %528, %527 ]
+  %.pn73.pn = phi { ptr, i32 } [ %.pn73, %757 ], [ %670, %669 ], [ %.pn67266, %.thread ], [ %.pn67, %.body201 ], [ %528, %527 ], [ %381, %.body.i ]
   resume { ptr, i32 } %.pn73.pn
 
 .thread:                                          ; preds = %.loopexit.split-lp.loopexit, %.loopexit, %327, %263, %341, %349, %237, %173, %552, %634, %.body201
@@ -106211,7 +106211,7 @@ define internal fastcc void @_ZN4fish3ast9Populator13populate_list17hebc1a336382
   br label %.thread
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke460, %.invoke, %522, %402, %363, %356
-  %.sroa.05.0.ph.ph = phi i8 [ 1, %.invoke ], [ 1, %356 ], [ %.sroa.05.2, %402 ], [ %.sroa.05.2, %522 ], [ 0, %363 ], [ 1, %.invoke460 ]
+  %.sroa.05.0.ph.ph = phi i8 [ %.sroa.05.2, %402 ], [ %.sroa.05.2, %522 ], [ 1, %356 ], [ 1, %.invoke ], [ 0, %363 ], [ 1, %.invoke460 ]
   %lpad.loopexit.split-lp289 = landingpad { ptr, i32 }
           cleanup
   br label %.body202
@@ -108068,7 +108068,7 @@ _ZN4fish3ast9Populator9try_parse17h4baddb568e5cff9fE.exit: ; preds = %302, %321,
   br label %546
 
 .thread269:                                       ; preds = %.body.i, %527, %669, %757, %.thread, %.body202
-  %.pn73.pn = phi { ptr, i32 } [ %.pn73, %757 ], [ %670, %669 ], [ %.pn67267, %.thread ], [ %.pn67, %.body202 ], [ %381, %.body.i ], [ %528, %527 ]
+  %.pn73.pn = phi { ptr, i32 } [ %.pn73, %757 ], [ %670, %669 ], [ %.pn67267, %.thread ], [ %.pn67, %.body202 ], [ %528, %527 ], [ %381, %.body.i ]
   resume { ptr, i32 } %.pn73.pn
 
 .thread:                                          ; preds = %.loopexit.split-lp.loopexit, %.loopexit, %327, %263, %341, %349, %236, %172, %552, %634, %.body202

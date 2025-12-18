@@ -11006,7 +11006,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi2EEERS2_RAT__Kc.exit380: ; 
   br label %850
 
 _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %409, %406, %815, %.critedge278, %547
-  %.0109 = phi i8 [ %.4, %.critedge278 ], [ %.4, %815 ], [ %.1, %547 ], [ %.1, %406 ], [ %.1, %409 ]
+  %.0109 = phi i8 [ %.1, %409 ], [ %.4, %.critedge278 ], [ %.4, %815 ], [ %.1, %547 ], [ %.1, %406 ]
   %840 = trunc nuw i8 %.0109 to i1
   br i1 %840, label %841, label %_ZN4absl12lts_202407226StatusD2Ev.exit.thread
 

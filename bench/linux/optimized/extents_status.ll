@@ -306,7 +306,7 @@ define internal fastcc void @__es_find_extent_range(ptr noundef %0, ptr noundef 
   br i1 %45, label %.thread14, label %.preheader17.backedge
 
 .preheader17.backedge:                            ; preds = %42, %.thread
-  %.be = phi ptr [ %44, %42 ], [ %47, %.thread ]
+  %.be = phi ptr [ %47, %.thread ], [ %44, %42 ]
   br label %.preheader17, !llvm.loop !28
 
 .thread:                                          ; preds = %39
@@ -361,7 +361,7 @@ define internal fastcc void @__es_find_extent_range(ptr noundef %0, ptr noundef 
   br i1 %73, label %.preheader, label %.loopexit, !llvm.loop !31
 
 .loopexit:                                        ; preds = %.preheader, %71, %.thread14
-  %74 = phi ptr [ %61, %.thread14 ], [ %64, %.preheader ], [ %65, %71 ]
+  %74 = phi ptr [ %61, %.thread14 ], [ %65, %71 ], [ %64, %.preheader ]
   %75 = tail call i32 %1(ptr noundef nonnull %74) #11
   %76 = icmp eq i32 %75, 0
   br i1 %76, label %.thread16, label %77
@@ -790,7 +790,7 @@ define dso_local void @ext4_es_insert_extent(ptr noundef %0, i32 noundef %1, i32
   br i1 %186, label %.thread100, label %.preheader156.backedge
 
 .preheader156.backedge:                           ; preds = %183, %.thread
-  %.be505 = phi ptr [ %185, %183 ], [ %188, %.thread ]
+  %.be505 = phi ptr [ %188, %.thread ], [ %185, %183 ]
   br label %.preheader156, !llvm.loop !28
 
 .thread:                                          ; preds = %180
@@ -1008,7 +1008,7 @@ define dso_local void @ext4_es_insert_extent(ptr noundef %0, i32 noundef %1, i32
   br i1 %311, label %.thread110, label %.preheader150.backedge
 
 .preheader150.backedge:                           ; preds = %308, %.thread339
-  %.be = phi ptr [ %310, %308 ], [ %313, %.thread339 ]
+  %.be = phi ptr [ %313, %.thread339 ], [ %310, %308 ]
   br label %.preheader150, !llvm.loop !28
 
 .thread339:                                       ; preds = %305
@@ -1249,7 +1249,7 @@ define dso_local void @ext4_es_insert_extent(ptr noundef %0, i32 noundef %1, i32
   br i1 %450, label %.thread122, label %.preheader171.backedge
 
 .preheader171.backedge:                           ; preds = %447, %.thread342
-  %.be511 = phi ptr [ %449, %447 ], [ %452, %.thread342 ]
+  %.be511 = phi ptr [ %452, %.thread342 ], [ %449, %447 ]
   br label %.preheader171, !llvm.loop !28
 
 .thread342:                                       ; preds = %444
@@ -1434,7 +1434,7 @@ define dso_local void @ext4_es_insert_extent(ptr noundef %0, i32 noundef %1, i32
   br label %.thread129
 
 .thread129:                                       ; preds = %515, %551, %.thread126, %533, %556
-  %558 = phi ptr [ null, %533 ], [ %110, %556 ], [ %110, %.thread126 ], [ %110, %551 ], [ %110, %515 ]
+  %558 = phi ptr [ null, %533 ], [ %110, %556 ], [ %110, %551 ], [ %110, %.thread126 ], [ %110, %515 ]
   %559 = load i32, ptr %148, align 16
   %560 = sub i32 0, %559
   %561 = and i32 %8, %560
@@ -1503,7 +1503,7 @@ define dso_local void @ext4_es_insert_extent(ptr noundef %0, i32 noundef %1, i32
   br i1 %597, label %.thread137, label %.preheader164.backedge
 
 .preheader164.backedge:                           ; preds = %594, %.thread345
-  %.be509 = phi ptr [ %596, %594 ], [ %599, %.thread345 ]
+  %.be509 = phi ptr [ %599, %.thread345 ], [ %596, %594 ]
   br label %.preheader164, !llvm.loop !28
 
 .thread345:                                       ; preds = %591
@@ -1690,7 +1690,7 @@ define dso_local void @ext4_es_insert_extent(ptr noundef %0, i32 noundef %1, i32
   br label %.thread116
 
 .thread116:                                       ; preds = %662, %698, %251, %376, %412, %.thread116.sink.split, %.thread141, %.thread114
-  %704 = phi ptr [ %110, %.thread114 ], [ %558, %.thread141 ], [ %.ph, %.thread116.sink.split ], [ %558, %698 ], [ %110, %412 ], [ %110, %376 ], [ %110, %251 ], [ %558, %662 ]
+  %704 = phi ptr [ %110, %376 ], [ %558, %.thread141 ], [ %.ph, %.thread116.sink.split ], [ %558, %698 ], [ %110, %251 ], [ %110, %412 ], [ %110, %.thread114 ], [ %558, %662 ]
   %.not = icmp eq ptr %704, null
   br i1 %.not, label %.thread146, label %705
 
@@ -2287,7 +2287,7 @@ thread-pre-split:                                 ; preds = %205
   br i1 %319, label %.thread55.preheader, label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %316, %.thread119
-  %.be = phi ptr [ %318, %316 ], [ %321, %.thread119 ]
+  %.be = phi ptr [ %321, %.thread119 ], [ %318, %316 ]
   br label %.preheader, !llvm.loop !50
 
 .thread119:                                       ; preds = %314
@@ -2424,7 +2424,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__es_insert_extent(ptr nou
   %.not17 = icmp eq i64 %55, 2305843009213693952
   br i1 %.not17, label %.critedge12, label %.critedge
 
-.critedge12:                                      ; preds = %43, %51, %54
+.critedge12:                                      ; preds = %51, %43, %54
   %56 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %57 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %58 = getelementptr inbounds nuw i8, ptr %12, i64 28
@@ -2600,7 +2600,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__es_insert_extent(ptr nou
   %.not = icmp eq i64 %164, 2305843009213693952
   br i1 %.not, label %.critedge16, label %.critedge
 
-.critedge16:                                      ; preds = %152, %160, %163
+.critedge16:                                      ; preds = %160, %152, %163
   %165 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %166 = getelementptr inbounds nuw i8, ptr %12, i64 28
   %167 = getelementptr inbounds nuw i8, ptr %12, i64 32
@@ -2941,7 +2941,7 @@ define dso_local void @ext4_es_cache_extent(ptr noundef %0, i32 noundef %1, i32 
   br i1 %71, label %..thread12_crit_edge, label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %68, %.thread
-  %.be = phi ptr [ %70, %68 ], [ %73, %.thread ]
+  %.be = phi ptr [ %73, %.thread ], [ %70, %68 ]
   br label %.preheader, !llvm.loop !28
 
 .thread:                                          ; preds = %65
@@ -4491,7 +4491,7 @@ define dso_local i32 @ext4_es_delayed_clu(ptr noundef %0, i32 noundef %1, i32 no
   br i1 %35, label %.thread, label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %32, %.thread30
-  %.be = phi ptr [ %34, %32 ], [ %37, %.thread30 ]
+  %.be = phi ptr [ %37, %.thread30 ], [ %34, %32 ]
   br label %.preheader, !llvm.loop !28
 
 .thread30:                                        ; preds = %29
@@ -4853,7 +4853,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @es_do_reclaim_extents(ptr no
   br i1 %27, label %.preheader.preheader, label %.preheader15.backedge
 
 .preheader15.backedge:                            ; preds = %24, %.thread
-  %.be = phi ptr [ %26, %24 ], [ %29, %.thread ]
+  %.be = phi ptr [ %29, %.thread ], [ %26, %24 ]
   br label %.preheader15, !llvm.loop !28
 
 .thread:                                          ; preds = %21

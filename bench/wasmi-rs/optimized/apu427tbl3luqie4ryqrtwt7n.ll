@@ -6911,7 +6911,7 @@ define hidden void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..
   br label %"_ZN60_$LT$wasmi..func..ty..FuncType$u20$as$u20$core..cmp..Ord$GT$3cmp17hcbc49cdaf33a79dcE.exit.us.i.us"
 
 "_ZN60_$LT$wasmi..func..ty..FuncType$u20$as$u20$core..cmp..Ord$GT$3cmp17hcbc49cdaf33a79dcE.exit.us.i.us": ; preds = %51, %.loopexit.i14.i.i.us.i.us, %31, %24
-  %.sroa.0.0.i.i.us.i.us = phi i8 [ %34, %31 ], [ %29, %24 ], [ %52, %51 ], [ %50, %.loopexit.i14.i.i.us.i.us ]
+  %.sroa.0.0.i.i.us.i.us = phi i8 [ %50, %.loopexit.i14.i.i.us.i.us ], [ %34, %31 ], [ %29, %24 ], [ %52, %51 ]
   switch i8 %.sroa.0.0.i.i.us.i.us, label %.split14.us.i [
     i8 -1, label %.loopexit55.us
     i8 0, label %.split81.us
@@ -7004,7 +7004,7 @@ define hidden void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..
   br i1 %93, label %85, label %.loopexit.i.i.i.i
 
 "_ZN60_$LT$wasmi..func..ty..FuncType$u20$as$u20$core..cmp..Ord$GT$3cmp17hcbc49cdaf33a79dcE.exit.i": ; preds = %.loopexit.i.i.i.i, %79, %72, %66
-  %.sroa.0.0.i.i.i = phi i8 [ %88, %.loopexit.i.i.i.i ], [ %70, %66 ], [ %82, %79 ], [ %77, %72 ]
+  %.sroa.0.0.i.i.i = phi i8 [ %88, %.loopexit.i.i.i.i ], [ %77, %72 ], [ %70, %66 ], [ %82, %79 ]
   switch i8 %.sroa.0.0.i.i.i, label %.split14.us.i [
     i8 -1, label %.loopexit57
     i8 0, label %.split81.us
@@ -7020,10 +7020,10 @@ define hidden void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..
   br i1 %94, label %.split81.us, label %96
 
 .split81.us:                                      ; preds = %.loopexit57, %"_ZN60_$LT$wasmi..func..ty..FuncType$u20$as$u20$core..cmp..Ord$GT$3cmp17hcbc49cdaf33a79dcE.exit.i", %85, %.loopexit55.us, %"_ZN60_$LT$wasmi..func..ty..FuncType$u20$as$u20$core..cmp..Ord$GT$3cmp17hcbc49cdaf33a79dcE.exit.us.i.us"
-  %.us-phi83.sink = phi ptr [ %.sroa.0.0, %"_ZN60_$LT$wasmi..func..ty..FuncType$u20$as$u20$core..cmp..Ord$GT$3cmp17hcbc49cdaf33a79dcE.exit.i" ], [ %.sroa.0.0.us, %"_ZN60_$LT$wasmi..func..ty..FuncType$u20$as$u20$core..cmp..Ord$GT$3cmp17hcbc49cdaf33a79dcE.exit.us.i.us" ], [ %.sroa.0.0.us, %.loopexit55.us ], [ %.sroa.0.0, %85 ], [ %.sroa.0.0, %.loopexit57 ]
-  %.sink = phi i64 [ %.sroa.3.0, %"_ZN60_$LT$wasmi..func..ty..FuncType$u20$as$u20$core..cmp..Ord$GT$3cmp17hcbc49cdaf33a79dcE.exit.i" ], [ %.sroa.3.0.us, %"_ZN60_$LT$wasmi..func..ty..FuncType$u20$as$u20$core..cmp..Ord$GT$3cmp17hcbc49cdaf33a79dcE.exit.us.i.us" ], [ 0, %.loopexit55.us ], [ %.sroa.3.0, %85 ], [ 0, %.loopexit57 ]
-  %.us-phi82.sink = phi i64 [ %.sroa.8.0.i, %"_ZN60_$LT$wasmi..func..ty..FuncType$u20$as$u20$core..cmp..Ord$GT$3cmp17hcbc49cdaf33a79dcE.exit.i" ], [ %.sroa.8.0.us.i.us, %"_ZN60_$LT$wasmi..func..ty..FuncType$u20$as$u20$core..cmp..Ord$GT$3cmp17hcbc49cdaf33a79dcE.exit.us.i.us" ], [ %.sroa.4.0.i.ph.ph.us, %.loopexit55.us ], [ %.sroa.8.0.i, %85 ], [ %.sroa.4.0.i.ph.ph58, %.loopexit57 ]
-  %storemerge = phi i64 [ 0, %"_ZN60_$LT$wasmi..func..ty..FuncType$u20$as$u20$core..cmp..Ord$GT$3cmp17hcbc49cdaf33a79dcE.exit.i" ], [ 0, %"_ZN60_$LT$wasmi..func..ty..FuncType$u20$as$u20$core..cmp..Ord$GT$3cmp17hcbc49cdaf33a79dcE.exit.us.i.us" ], [ 1, %.loopexit55.us ], [ 0, %85 ], [ 1, %.loopexit57 ]
+  %.us-phi83.sink = phi ptr [ %.sroa.0.0.us, %"_ZN60_$LT$wasmi..func..ty..FuncType$u20$as$u20$core..cmp..Ord$GT$3cmp17hcbc49cdaf33a79dcE.exit.us.i.us" ], [ %.sroa.0.0.us, %.loopexit55.us ], [ %.sroa.0.0, %85 ], [ %.sroa.0.0, %"_ZN60_$LT$wasmi..func..ty..FuncType$u20$as$u20$core..cmp..Ord$GT$3cmp17hcbc49cdaf33a79dcE.exit.i" ], [ %.sroa.0.0, %.loopexit57 ]
+  %.sink = phi i64 [ %.sroa.3.0.us, %"_ZN60_$LT$wasmi..func..ty..FuncType$u20$as$u20$core..cmp..Ord$GT$3cmp17hcbc49cdaf33a79dcE.exit.us.i.us" ], [ 0, %.loopexit55.us ], [ %.sroa.3.0, %85 ], [ %.sroa.3.0, %"_ZN60_$LT$wasmi..func..ty..FuncType$u20$as$u20$core..cmp..Ord$GT$3cmp17hcbc49cdaf33a79dcE.exit.i" ], [ 0, %.loopexit57 ]
+  %.us-phi82.sink = phi i64 [ %.sroa.8.0.us.i.us, %"_ZN60_$LT$wasmi..func..ty..FuncType$u20$as$u20$core..cmp..Ord$GT$3cmp17hcbc49cdaf33a79dcE.exit.us.i.us" ], [ %.sroa.4.0.i.ph.ph.us, %.loopexit55.us ], [ %.sroa.8.0.i, %85 ], [ %.sroa.8.0.i, %"_ZN60_$LT$wasmi..func..ty..FuncType$u20$as$u20$core..cmp..Ord$GT$3cmp17hcbc49cdaf33a79dcE.exit.i" ], [ %.sroa.4.0.i.ph.ph58, %.loopexit57 ]
+  %storemerge = phi i64 [ 0, %"_ZN60_$LT$wasmi..func..ty..FuncType$u20$as$u20$core..cmp..Ord$GT$3cmp17hcbc49cdaf33a79dcE.exit.us.i.us" ], [ 1, %.loopexit55.us ], [ 0, %85 ], [ 0, %"_ZN60_$LT$wasmi..func..ty..FuncType$u20$as$u20$core..cmp..Ord$GT$3cmp17hcbc49cdaf33a79dcE.exit.i" ], [ 1, %.loopexit57 ]
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.us-phi83.sink, ptr %95, align 8
   %.sroa.242.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16

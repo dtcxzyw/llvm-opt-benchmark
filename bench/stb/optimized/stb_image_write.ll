@@ -884,7 +884,7 @@ define range(i32 0, 2) i32 @stbi_write_tga_core(ptr noundef %0, i32 noundef %1, 
   br label %.loopexit140.us
 
 .loopexit140.us:                                  ; preds = %59, %55, %65, %43
-  %.0104.ph.us = phi i32 [ %66, %65 ], [ 1, %43 ], [ 2, %55 ], [ %61, %59 ]
+  %.0104.ph.us = phi i32 [ 1, %43 ], [ %66, %65 ], [ 2, %55 ], [ %61, %59 ]
   %67 = trunc i32 %.0104.ph.us to i8
   %68 = add i8 %67, -1
   %69 = load i32, ptr %33, align 8, !tbaa !14
@@ -2797,10 +2797,10 @@ stbiw__sbgrowf.exit.i386:                         ; preds = %393, %387, %.lr.ph.
   br i1 %404, label %.lr.ph.i381.preheader, label %stbiw__zlib_flushf.exit354, !llvm.loop !35
 
 stbiw__zlib_flushf.exit354:                       ; preds = %stbiw__sbgrowf.exit.i352, %stbiw__sbgrowf.exit.i386, %stbiw__sbgrowf.exit.i369, %stbiw__zlib_bitrev.exit361, %stbiw__zlib_bitrev.exit378, %298, %stbiw__zlib_flushf.exit344
-  %.3671 = phi i32 [ %306, %298 ], [ %.19687, %stbiw__zlib_flushf.exit344 ], [ %345, %stbiw__zlib_bitrev.exit361 ], [ %379, %stbiw__zlib_bitrev.exit378 ], [ %402, %stbiw__sbgrowf.exit.i386 ], [ %368, %stbiw__sbgrowf.exit.i369 ], [ %331, %stbiw__sbgrowf.exit.i352 ]
-  %.3642 = phi i32 [ %309, %298 ], [ %.19658, %stbiw__zlib_flushf.exit344 ], [ %346, %stbiw__zlib_bitrev.exit361 ], [ %380, %stbiw__zlib_bitrev.exit378 ], [ %403, %stbiw__sbgrowf.exit.i386 ], [ %369, %stbiw__sbgrowf.exit.i369 ], [ %332, %stbiw__sbgrowf.exit.i352 ]
-  %.5637 = phi ptr [ %.0.lcssa.i336, %298 ], [ %.0.lcssa.i336, %stbiw__zlib_flushf.exit344 ], [ %.2634762, %stbiw__zlib_bitrev.exit361 ], [ %.2634762, %stbiw__zlib_bitrev.exit378 ], [ %.1.i387, %stbiw__sbgrowf.exit.i386 ], [ %.1.i370, %stbiw__sbgrowf.exit.i369 ], [ %.1.i353, %stbiw__sbgrowf.exit.i352 ]
-  %.0189.pn = phi i32 [ %.0189.lcssa933, %298 ], [ %.0189.lcssa933, %stbiw__zlib_flushf.exit344 ], [ 1, %stbiw__zlib_bitrev.exit361 ], [ 1, %stbiw__zlib_bitrev.exit378 ], [ 1, %stbiw__sbgrowf.exit.i386 ], [ 1, %stbiw__sbgrowf.exit.i369 ], [ %.0189.lcssa933, %stbiw__sbgrowf.exit.i352 ]
+  %.3671 = phi i32 [ %306, %298 ], [ %.19687, %stbiw__zlib_flushf.exit344 ], [ %368, %stbiw__sbgrowf.exit.i369 ], [ %345, %stbiw__zlib_bitrev.exit361 ], [ %379, %stbiw__zlib_bitrev.exit378 ], [ %402, %stbiw__sbgrowf.exit.i386 ], [ %331, %stbiw__sbgrowf.exit.i352 ]
+  %.3642 = phi i32 [ %309, %298 ], [ %.19658, %stbiw__zlib_flushf.exit344 ], [ %369, %stbiw__sbgrowf.exit.i369 ], [ %346, %stbiw__zlib_bitrev.exit361 ], [ %380, %stbiw__zlib_bitrev.exit378 ], [ %403, %stbiw__sbgrowf.exit.i386 ], [ %332, %stbiw__sbgrowf.exit.i352 ]
+  %.5637 = phi ptr [ %.0.lcssa.i336, %298 ], [ %.0.lcssa.i336, %stbiw__zlib_flushf.exit344 ], [ %.1.i370, %stbiw__sbgrowf.exit.i369 ], [ %.2634762, %stbiw__zlib_bitrev.exit361 ], [ %.2634762, %stbiw__zlib_bitrev.exit378 ], [ %.1.i387, %stbiw__sbgrowf.exit.i386 ], [ %.1.i353, %stbiw__sbgrowf.exit.i352 ]
+  %.0189.pn = phi i32 [ %.0189.lcssa933, %298 ], [ %.0189.lcssa933, %stbiw__zlib_flushf.exit344 ], [ 1, %stbiw__sbgrowf.exit.i369 ], [ 1, %stbiw__zlib_bitrev.exit361 ], [ 1, %stbiw__zlib_bitrev.exit378 ], [ 1, %stbiw__sbgrowf.exit.i386 ], [ %.0189.lcssa933, %stbiw__sbgrowf.exit.i352 ]
   %.2 = add nsw i32 %.0189.pn, %.1182763
   %405 = icmp slt i32 %.2, %18
   br i1 %405, label %26, label %.preheader713, !llvm.loop !48
@@ -4848,8 +4848,8 @@ stbiw__jpg_writeBits.exit139:                     ; preds = %223, %188
   br i1 %249, label %236, label %stbiw__jpg_writeBits.exit, !llvm.loop !66
 
 stbiw__jpg_writeBits.exit:                        ; preds = %246, %184, %stbiw__jpg_writeBits.exit139, %160
-  %storemerge187 = phi i32 [ %171, %160 ], [ %233, %stbiw__jpg_writeBits.exit139 ], [ %185, %184 ], [ %247, %246 ]
-  %250 = phi i32 [ %166, %160 ], [ %228, %stbiw__jpg_writeBits.exit139 ], [ %186, %184 ], [ %248, %246 ]
+  %storemerge187 = phi i32 [ %185, %184 ], [ %171, %160 ], [ %233, %stbiw__jpg_writeBits.exit139 ], [ %247, %246 ]
+  %250 = phi i32 [ %186, %184 ], [ %166, %160 ], [ %228, %stbiw__jpg_writeBits.exit139 ], [ %248, %246 ]
   store i32 %storemerge187, ptr %1, align 4, !tbaa !3
   store i32 %250, ptr %2, align 4, !tbaa !3
   br label %251
@@ -5168,8 +5168,8 @@ stbiw__jpg_writeBits.exit171:                     ; preds = %375, %stbiw__jpg_wr
   br i1 %403, label %390, label %.sink.split, !llvm.loop !66
 
 .sink.split:                                      ; preds = %400, %283, %._crit_edge221.thread, %263
-  %.0.lcssa.i173.sink = phi i32 [ %270, %263 ], [ %387, %._crit_edge221.thread ], [ %284, %283 ], [ %401, %400 ]
-  %.018.lcssa.i172.sink = phi i32 [ %266, %263 ], [ %383, %._crit_edge221.thread ], [ %285, %283 ], [ %402, %400 ]
+  %.0.lcssa.i173.sink = phi i32 [ %284, %283 ], [ %270, %263 ], [ %387, %._crit_edge221.thread ], [ %401, %400 ]
+  %.018.lcssa.i172.sink = phi i32 [ %285, %283 ], [ %266, %263 ], [ %383, %._crit_edge221.thread ], [ %402, %400 ]
   store i32 %.0.lcssa.i173.sink, ptr %1, align 4, !tbaa !3
   store i32 %.018.lcssa.i172.sink, ptr %2, align 4, !tbaa !3
   br label %404

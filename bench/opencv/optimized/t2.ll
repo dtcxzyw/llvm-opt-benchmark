@@ -399,7 +399,7 @@ define hidden range(i32 0, 2) i32 @opj_t2_encode_packets(ptr noundef readonly ca
   br i1 %.not164, label %.sink.split, label %.lr.ph.split, !llvm.loop !51
 
 .sink.split:                                      ; preds = %188, %132, %128, %108, %104, %93, %.thread181, %._crit_edge, %38, %47, %.preheader190, %80, %73, %64
-  %.0.ph = phi i32 [ 0, %73 ], [ 0, %64 ], [ 1, %.preheader190 ], [ 0, %108 ], [ 0, %47 ], [ 1, %80 ], [ 0, %._crit_edge ], [ 1, %.thread181 ], [ 0, %93 ], [ 0, %38 ], [ 1, %104 ], [ 1, %128 ], [ 0, %132 ], [ 1, %188 ]
+  %.0.ph = phi i32 [ 1, %.preheader190 ], [ 0, %._crit_edge ], [ 0, %73 ], [ 0, %64 ], [ 1, %80 ], [ 0, %93 ], [ 0, %47 ], [ 0, %108 ], [ 1, %.thread181 ], [ 0, %38 ], [ 1, %104 ], [ 1, %128 ], [ 1, %188 ], [ 0, %132 ]
   tail call void @opj_pi_destroy(ptr noundef nonnull %35, i32 noundef %34) #6
   br label %190
 
@@ -828,9 +828,9 @@ opj_int_floorlog2.exit323:                        ; preds = %opj_int_floorlog2.e
   br i1 %214, label %.lr.ph.i324, label %opj_t2_putcommacode.exit, !llvm.loop !108
 
 opj_t2_putcommacode.exit:                         ; preds = %.lr.ph.i324, %opj_t2_putnumpasses.exit, %._crit_edge376
-  %.0257.lcssa523 = phi i32 [ %.1258, %._crit_edge376 ], [ 0, %opj_t2_putnumpasses.exit ], [ %.1258, %.lr.ph.i324 ]
-  %.0261.lcssa522 = phi i32 [ %.1262, %._crit_edge376 ], [ 0, %opj_t2_putnumpasses.exit ], [ %.1262, %.lr.ph.i324 ]
-  %.0265.lcssa521 = phi i32 [ %.1266, %._crit_edge376 ], [ 0, %opj_t2_putnumpasses.exit ], [ %.1266, %.lr.ph.i324 ]
+  %.0257.lcssa523 = phi i32 [ 0, %opj_t2_putnumpasses.exit ], [ %.1258, %._crit_edge376 ], [ %.1258, %.lr.ph.i324 ]
+  %.0261.lcssa522 = phi i32 [ 0, %opj_t2_putnumpasses.exit ], [ %.1262, %._crit_edge376 ], [ %.1262, %.lr.ph.i324 ]
+  %.0265.lcssa521 = phi i32 [ 0, %opj_t2_putnumpasses.exit ], [ %.1266, %._crit_edge376 ], [ %.1266, %.lr.ph.i324 ]
   tail call void @opj_bio_putbit(ptr noundef nonnull %94, i32 noundef 0) #6
   %215 = getelementptr inbounds nuw i8, ptr %.1271384, i64 44
   %216 = load i32, ptr %215, align 4, !tbaa !102
@@ -1280,7 +1280,7 @@ opj_int_floorlog2.exit329:                        ; preds = %.lr.ph.i326, %236
   br i1 %436, label %.lr.ph414.split, label %.critedge2, !llvm.loop !112
 
 .critedge2:                                       ; preds = %.loopexit, %.loopexit.us, %.loopexit.us.us, %.thread, %293
-  %.2251.lcssa = phi ptr [ %.1250, %293 ], [ %.1250, %.thread ], [ %.3252.ph.us, %.loopexit.us ], [ %.3252.ph.us.us, %.loopexit.us.us ], [ %.3252.ph, %.loopexit ]
+  %.2251.lcssa = phi ptr [ %.1250, %293 ], [ %.1250, %.thread ], [ %.3252.ph.us.us, %.loopexit.us.us ], [ %.3252.ph.us, %.loopexit.us ], [ %.3252.ph, %.loopexit ]
   %437 = ptrtoint ptr %.2251.lcssa to i64
   %438 = ptrtoint ptr %4 to i64
   %439 = sub i64 %437, %438
@@ -1752,9 +1752,9 @@ define hidden range(i32 0, 2) i32 @opj_t2_decode_packets(ptr noundef %0, ptr nou
   br label %.critedge138
 
 250:                                              ; preds = %247, %95
-  %251 = phi i32 [ %.pre296, %247 ], [ %.pre297, %95 ]
-  %252 = phi i32 [ %.pre, %247 ], [ %.pre295, %95 ]
-  %.1 = phi i32 [ %249, %247 ], [ %96, %95 ]
+  %251 = phi i32 [ %.pre297, %95 ], [ %.pre296, %247 ]
+  %252 = phi i32 [ %.pre295, %95 ], [ %.pre, %247 ]
+  %.1 = phi i32 [ %96, %95 ], [ %249, %247 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %253 = load ptr, ptr %28, align 8, !tbaa !156
@@ -1965,8 +1965,8 @@ opj_t2_skip_packet_data.exit.i:                   ; preds = %._crit_edge.i.i145
   br label %opj_t2_skip_packet.exit
 
 opj_t2_skip_packet.exit:                          ; preds = %260, %.loopexit.i
-  %.pre300 = phi i32 [ %.pre300.pre, %.loopexit.i ], [ %.pre300.pre303, %260 ]
-  %.2 = phi i32 [ %350, %.loopexit.i ], [ %261, %260 ]
+  %.pre300 = phi i32 [ %.pre300.pre303, %260 ], [ %.pre300.pre, %.loopexit.i ]
+  %.2 = phi i32 [ %261, %260 ], [ %350, %.loopexit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %.pre306 = zext i32 %.pre300 to i64

@@ -1117,7 +1117,7 @@ SSL_SESSION_list_remove.exit:                     ; preds = %13, %17, %37
   br i1 %.not38, label %.loopexit, label %63, !llvm.loop !141
 
 .loopexit:                                        ; preds = %66, %63, %.preheader, %56, %54
-  %.033 = phi i32 [ 1, %56 ], [ 0, %54 ], [ 1, %.preheader ], [ 1, %63 ], [ 1, %66 ]
+  %.033 = phi i32 [ 0, %54 ], [ 1, %56 ], [ 1, %.preheader ], [ 1, %63 ], [ 1, %66 ]
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 912
   %71 = load ptr, ptr %70, align 8, !tbaa !137
   %.not.i = icmp eq ptr %71, null

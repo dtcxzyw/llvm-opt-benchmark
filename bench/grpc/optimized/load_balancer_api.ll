@@ -813,7 +813,7 @@ grpc_lb_v1_LoadBalanceResponse_initial_response.exit: ; preds = %_ZN9grpc_core12
   br label %_ZN9grpc_core12_GLOBAL__N_113ParseDurationEPK24google_protobuf_Duration.exit
 
 _ZN9grpc_core12_GLOBAL__N_113ParseDurationEPK24google_protobuf_Duration.exit: ; preds = %110, %119, %122, %125
-  %.0.i.i.i.i26 = phi i64 [ %115, %110 ], [ -9223372036854775808, %122 ], [ %126, %125 ], [ 9223372036854775807, %119 ]
+  %.0.i.i.i.i26 = phi i64 [ 9223372036854775807, %119 ], [ %115, %110 ], [ -9223372036854775808, %122 ], [ %126, %125 ]
   %127 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %.0.i.i.i.i26, ptr %127, align 8, !tbaa !29
   br label %.thread

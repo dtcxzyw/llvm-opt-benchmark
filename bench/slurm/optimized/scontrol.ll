@@ -825,8 +825,8 @@ _get_command.exit.thread:                         ; preds = %181
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %208, %.loopexit.loopexit.split.loop.exit.i, %205, %186, %174
-  %.1 = phi i32 [ %187, %205 ], [ %187, %.loopexit.loopexit.split.loop.exit.i ], [ %187, %186 ], [ %.0, %174 ], [ %187, %208 ]
-  %.144.ph.i = phi i32 [ %207, %205 ], [ %209, %.loopexit.loopexit.split.loop.exit.i ], [ %.265.i, %186 ], [ %.04371.i, %174 ], [ %.042.i, %208 ]
+  %.1 = phi i32 [ %.0, %174 ], [ %187, %205 ], [ %187, %.loopexit.loopexit.split.loop.exit.i ], [ %187, %186 ], [ %187, %208 ]
+  %.144.ph.i = phi i32 [ %.04371.i, %174 ], [ %207, %205 ], [ %209, %.loopexit.loopexit.split.loop.exit.i ], [ %.265.i, %186 ], [ %.042.i, %208 ]
   %210 = add nsw i32 %.144.ph.i, 1
   %211 = icmp slt i32 %210, %.042.i
   br i1 %211, label %.lr.ph72.i, label %_get_command.exit, !llvm.loop !12
@@ -2366,7 +2366,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   br label %.critedge
 
 625:                                              ; preds = %620, %611
-  %.0413 = phi i32 [ %615, %611 ], [ 1, %620 ]
+  %.0413 = phi i32 [ 1, %620 ], [ %615, %611 ]
   %626 = tail call i32 @slurm_takeover(i32 noundef %.0413) #18
   %.not524 = icmp eq i32 %626, 0
   br i1 %.not524, label %.critedge, label %627
@@ -2421,7 +2421,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   br label %.critedge
 
 650:                                              ; preds = %645, %638, %634
-  %.0 = phi i16 [ 0, %645 ], [ 2, %638 ], [ 2, %634 ]
+  %.0 = phi i16 [ 2, %634 ], [ 0, %645 ], [ 2, %638 ]
   %651 = tail call i32 @slurm_shutdown(i16 noundef zeroext %.0) #18
   %.not529 = icmp eq i32 %651, 0
   br i1 %.not529, label %.critedge, label %652
@@ -4342,7 +4342,7 @@ define internal fastcc void @_update_it(i32 noundef range(i32 1, 2147483647) %0,
   br label %.thread145
 
 92:                                               ; preds = %60, %66, %72, %78, %84, %81, %75, %69, %63
-  %.0107 = phi i32 [ %61, %60 ], [ %64, %63 ], [ %67, %66 ], [ %70, %69 ], [ %73, %72 ], [ %76, %75 ], [ %79, %78 ], [ %82, %81 ], [ %85, %84 ]
+  %.0107 = phi i32 [ %85, %84 ], [ %61, %60 ], [ %64, %63 ], [ %67, %66 ], [ %70, %69 ], [ %73, %72 ], [ %76, %75 ], [ %79, %78 ], [ %82, %81 ]
   %.not125 = icmp eq i32 %.0107, 0
   br i1 %.not125, label %.thread145, label %93
 
@@ -4775,8 +4775,8 @@ define internal fastcc void @_print_daemons() unnamed_addr #7 {
   br label %.loopexit, !llvm.loop !31
 
 .loopexit:                                        ; preds = %15, %.lr.ph38, %._crit_edge..loopexit.loopexit_crit_edge, %0, %29
-  %.121 = phi i1 [ true, %29 ], [ false, %0 ], [ true, %._crit_edge..loopexit.loopexit_crit_edge ], [ false, %.lr.ph38 ], [ true, %15 ]
-  %33 = phi i1 [ true, %29 ], [ false, %0 ], [ false, %._crit_edge..loopexit.loopexit_crit_edge ], [ false, %.lr.ph38 ], [ false, %15 ]
+  %.121 = phi i1 [ true, %29 ], [ false, %0 ], [ false, %.lr.ph38 ], [ true, %._crit_edge..loopexit.loopexit_crit_edge ], [ true, %15 ]
+  %33 = phi i1 [ true, %29 ], [ false, %0 ], [ false, %.lr.ph38 ], [ false, %._crit_edge..loopexit.loopexit_crit_edge ], [ false, %15 ]
   call void @slurm_conf_unlock() #18
   %34 = call ptr @slurm_conf_get_nodename(ptr noundef nonnull %1) #18
   store ptr %34, ptr %4, align 8

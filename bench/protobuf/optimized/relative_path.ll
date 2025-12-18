@@ -438,7 +438,7 @@ lpad33.body.loopexit.split-lp.loopexit:           ; preds = %_ZNKSt6vectorISt17b
   br label %lpad33.body
 
 lpad33.body.loopexit.split-lp.loopexit.split-lp:  ; preds = %if.then.i.i.i66, %if.then.i.i.i.i, %if.then.i.i.i.i145, %_ZNKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i122
-  %result.sroa.0.0.ph.ph.ph = phi ptr [ %result.sroa.0.2.lcssa, %_ZNKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i122 ], [ %result.sroa.0.2.lcssa, %if.then.i.i.i.i145 ], [ %result.sroa.0.2252, %if.then.i.i.i.i ], [ %result.sroa.0.1241, %if.then.i.i.i66 ]
+  %result.sroa.0.0.ph.ph.ph = phi ptr [ %result.sroa.0.2.lcssa, %_ZNKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i122 ], [ %result.sroa.0.2252, %if.then.i.i.i.i ], [ %result.sroa.0.2.lcssa, %if.then.i.i.i.i145 ], [ %result.sroa.0.1241, %if.then.i.i.i66 ]
   %lpad.loopexit.split-lp210 = landingpad { ptr, i32 }
           cleanup
   br label %lpad33.body

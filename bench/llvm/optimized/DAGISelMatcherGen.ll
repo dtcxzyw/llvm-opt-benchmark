@@ -7322,7 +7322,7 @@ _ZN4llvm15SmallVectorImplIjE6resizeEm.exit:       ; preds = %.lr.ph159._ZN4llvm1
   br i1 %787, label %.lr.ph159, label %.loopexit135, !llvm.loop !551
 
 .loopexit135:                                     ; preds = %.lr.ph, %_ZN4llvm15SmallVectorImplIjE6resizeEm.exit, %_ZNK4llvm18CodeGenDAGPatterns17getDefaultOperandEPKNS_6RecordE.exit, %756
-  %.1121.i = phi i32 [ %.0120.i163, %756 ], [ %.0120.i163, %_ZNK4llvm18CodeGenDAGPatterns17getDefaultOperandEPKNS_6RecordE.exit ], [ %786, %_ZN4llvm15SmallVectorImplIjE6resizeEm.exit ], [ %.0120.i163, %.lr.ph ]
+  %.1121.i = phi i32 [ %.0120.i163, %_ZNK4llvm18CodeGenDAGPatterns17getDefaultOperandEPKNS_6RecordE.exit ], [ %.0120.i163, %756 ], [ %786, %_ZN4llvm15SmallVectorImplIjE6resizeEm.exit ], [ %.0120.i163, %.lr.ph ]
   %788 = add i32 %.0125.i161, 1
   %.not.i32 = icmp eq i32 %788, %633
   br i1 %.not.i32, label %._crit_edge, label %678, !llvm.loop !552

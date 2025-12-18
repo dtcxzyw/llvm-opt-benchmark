@@ -1063,7 +1063,7 @@ define range(i32 0, 2) i32 @Fra_ClauCheckProperty(ptr noundef readonly captures(
   br i1 %exitcond.not.i, label %.sink.split.i, label %22, !llvm.loop !79
 
 .sink.split.i:                                    ; preds = %22, %20, %.preheader.i, %.lr.ph25.i, %.preheader21.i, %.preheader22.i
-  %.sink.i = phi i64 [ 32, %.preheader.i ], [ 1, %.preheader21.i ], [ 1, %.lr.ph25.i ], [ 140737488355328, %.preheader22.i ], [ 32, %20 ], [ 140737488355328, %22 ]
+  %.sink.i = phi i64 [ 32, %.preheader.i ], [ 1, %.preheader21.i ], [ 140737488355328, %.preheader22.i ], [ 1, %.lr.ph25.i ], [ 32, %20 ], [ 140737488355328, %22 ]
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 120
   store i64 %.sink.i, ptr %24, align 8, !tbaa !80
   br label %sat_solver_act_var_clear.exit

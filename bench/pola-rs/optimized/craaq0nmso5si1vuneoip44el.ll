@@ -8638,7 +8638,7 @@ _ZN4core4hash11BuildHasher8hash_one17had3429dc690104abE.exit: ; preds = %26, %30
   br label %130
 
 130:                                              ; preds = %119, %123
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %119 ], [ %129, %123 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %129, %123 ], [ %.sroa.4.19.i.i, %119 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !1169
   call fastcc void @_ZN11polars_time7windows8duration8Duration6_parse17he6f6068f2344f0b8E(ptr noalias noundef align 8 captures(none) dereferenceable(64) %10, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i1 noundef zeroext false), !noalias !1179
@@ -10872,8 +10872,8 @@ _ZN9hashbrown3map9make_hash17hd99ab9f2506deed4E.exit.i.i.i.i.i.i: ; preds = %_ZN
   br label %205
 
 205:                                              ; preds = %198, %.split26.us.i.i.i.i.i.i.i
-  %206 = phi i8 [ %.pre.i.i.i4.i.i.i, %198 ], [ %196, %.split26.us.i.i.i.i.i.i.i ]
-  %.sroa.3.0.i.i.i.i.i.i.i.i = phi i64 [ %204, %198 ], [ %.us-phi27.i.i.i.i.i.i.i, %.split26.us.i.i.i.i.i.i.i ]
+  %206 = phi i8 [ %196, %.split26.us.i.i.i.i.i.i.i ], [ %.pre.i.i.i4.i.i.i, %198 ]
+  %.sroa.3.0.i.i.i.i.i.i.i.i = phi i64 [ %.us-phi27.i.i.i.i.i.i.i, %.split26.us.i.i.i.i.i.i.i ], [ %204, %198 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1372)
   %207 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i.i.i.i, i64 %.sroa.3.0.i.i.i.i.i.i.i.i
   %208 = and i8 %206, 1
@@ -11362,8 +11362,8 @@ _ZN9hashbrown3map9make_hash17h67e0d96bd17d467fE.exit.i.i.i.i.i.i: ; preds = %_ZN
   br label %204
 
 204:                                              ; preds = %197, %.split26.us.i.i.i.i.i.i.i
-  %205 = phi i8 [ %.pre.i.i.i4.i.i.i, %197 ], [ %195, %.split26.us.i.i.i.i.i.i.i ]
-  %.sroa.3.0.i.i.i.i.i.i.i.i = phi i64 [ %203, %197 ], [ %.us-phi27.i.i.i.i.i.i.i, %.split26.us.i.i.i.i.i.i.i ]
+  %205 = phi i8 [ %195, %.split26.us.i.i.i.i.i.i.i ], [ %.pre.i.i.i4.i.i.i, %197 ]
+  %.sroa.3.0.i.i.i.i.i.i.i.i = phi i64 [ %.us-phi27.i.i.i.i.i.i.i, %.split26.us.i.i.i.i.i.i.i ], [ %203, %197 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1493)
   %206 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i.i.i.i, i64 %.sroa.3.0.i.i.i.i.i.i.i.i
   %207 = and i8 %205, 1
@@ -11611,8 +11611,8 @@ define hidden void @"_ZN4core3ops8function5impls71_$LT$impl$u20$core..ops..funct
   br label %107
 
 107:                                              ; preds = %100, %96
-  %108 = phi i8 [ %98, %96 ], [ %.pre.i.i.i.i, %100 ]
-  %.sroa.3.0.i.i.ph.i.i.i.i = phi i64 [ %.sroa.4.19.i.i.i.i.i.i, %96 ], [ %106, %100 ]
+  %108 = phi i8 [ %.pre.i.i.i.i, %100 ], [ %98, %96 ]
+  %.sroa.3.0.i.i.ph.i.i.i.i = phi i64 [ %106, %100 ], [ %.sroa.4.19.i.i.i.i.i.i, %96 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1549)
   %109 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i.i, i64 %.sroa.3.0.i.i.ph.i.i.i.i
   %110 = and i8 %108, 1
@@ -11858,8 +11858,8 @@ define hidden void @"_ZN4core3ops8function5impls71_$LT$impl$u20$core..ops..funct
   br label %106
 
 106:                                              ; preds = %99, %95
-  %107 = phi i8 [ %97, %95 ], [ %.pre.i.i.i.i, %99 ]
-  %.sroa.3.0.i.i.ph.i.i.i.i = phi i64 [ %.sroa.4.19.i.i.i.i.i.i, %95 ], [ %105, %99 ]
+  %107 = phi i8 [ %.pre.i.i.i.i, %99 ], [ %97, %95 ]
+  %.sroa.3.0.i.i.ph.i.i.i.i = phi i64 [ %105, %99 ], [ %.sroa.4.19.i.i.i.i.i.i, %95 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1604)
   %108 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i.i, i64 %.sroa.3.0.i.i.ph.i.i.i.i
   %109 = and i8 %107, 1
@@ -12260,7 +12260,7 @@ _ZN9hashbrown3map9make_hash17h726e62b5c73ab96cE.exit.i.i.i.i: ; preds = %62, %60
   br label %167
 
 167:                                              ; preds = %160, %.split21.us.i.i.i.i.i
-  %.sroa.3.0.i.ph.i.i.i.i.i = phi i64 [ %.us-phi22.i.i.i.i.i, %.split21.us.i.i.i.i.i ], [ %166, %160 ]
+  %.sroa.3.0.i.ph.i.i.i.i.i = phi i64 [ %166, %160 ], [ %.us-phi22.i.i.i.i.i, %.split21.us.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !noalias !1680
   call void @llvm.experimental.noalias.scope.decl(metadata !1681)
@@ -12766,8 +12766,8 @@ _ZN9hashbrown3map9make_hash17h2c410069d8aa1b7dE.exit.i.i.i.i.i.i: ; preds = %_ZN
   br label %207
 
 207:                                              ; preds = %200, %.split26.us.i.i.i.i.i.i.i
-  %208 = phi i8 [ %.pre.i.i.i4.i.i.i, %200 ], [ %198, %.split26.us.i.i.i.i.i.i.i ]
-  %.sroa.3.0.i.i.i.i.i.i.i.i = phi i64 [ %206, %200 ], [ %.us-phi27.i.i.i.i.i.i.i, %.split26.us.i.i.i.i.i.i.i ]
+  %208 = phi i8 [ %198, %.split26.us.i.i.i.i.i.i.i ], [ %.pre.i.i.i4.i.i.i, %200 ]
+  %.sroa.3.0.i.i.i.i.i.i.i.i = phi i64 [ %.us-phi27.i.i.i.i.i.i.i, %.split26.us.i.i.i.i.i.i.i ], [ %206, %200 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1793)
   %209 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i.i.i.i, i64 %.sroa.3.0.i.i.i.i.i.i.i.i
   %210 = and i8 %208, 1
@@ -13249,8 +13249,8 @@ _ZN9hashbrown3map9make_hash17h495c4b7b12dceeb4E.exit.i.i.i.i.i.i: ; preds = %_ZN
   br label %202
 
 202:                                              ; preds = %195, %.split26.us.i.i.i.i.i.i.i
-  %203 = phi i8 [ %.pre.i.i.i4.i.i.i, %195 ], [ %193, %.split26.us.i.i.i.i.i.i.i ]
-  %.sroa.3.0.i.i.i.i.i.i.i.i = phi i64 [ %201, %195 ], [ %.us-phi27.i.i.i.i.i.i.i, %.split26.us.i.i.i.i.i.i.i ]
+  %203 = phi i8 [ %193, %.split26.us.i.i.i.i.i.i.i ], [ %.pre.i.i.i4.i.i.i, %195 ]
+  %.sroa.3.0.i.i.i.i.i.i.i.i = phi i64 [ %.us-phi27.i.i.i.i.i.i.i, %.split26.us.i.i.i.i.i.i.i ], [ %201, %195 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1911)
   %204 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i.i.i.i, i64 %.sroa.3.0.i.i.i.i.i.i.i.i
   %205 = and i8 %203, 1
@@ -13490,8 +13490,8 @@ define hidden void @"_ZN4core3ops8function5impls71_$LT$impl$u20$core..ops..funct
   br label %102
 
 102:                                              ; preds = %95, %91
-  %103 = phi i8 [ %93, %91 ], [ %.pre.i.i.i.i, %95 ]
-  %.sroa.3.0.i.i.ph.i.i.i.i = phi i64 [ %.sroa.4.19.i.i.i.i.i.i, %91 ], [ %101, %95 ]
+  %103 = phi i8 [ %.pre.i.i.i.i, %95 ], [ %93, %91 ]
+  %.sroa.3.0.i.i.ph.i.i.i.i = phi i64 [ %101, %95 ], [ %.sroa.4.19.i.i.i.i.i.i, %91 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1962)
   %104 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i.i, i64 %.sroa.3.0.i.i.ph.i.i.i.i
   %105 = and i8 %103, 1
@@ -13732,8 +13732,8 @@ define hidden void @"_ZN4core3ops8function5impls71_$LT$impl$u20$core..ops..funct
   br label %103
 
 103:                                              ; preds = %96, %92
-  %104 = phi i8 [ %94, %92 ], [ %.pre.i.i.i.i, %96 ]
-  %.sroa.3.0.i.i.ph.i.i.i.i = phi i64 [ %.sroa.4.19.i.i.i.i.i.i, %92 ], [ %102, %96 ]
+  %104 = phi i8 [ %.pre.i.i.i.i, %96 ], [ %94, %92 ]
+  %.sroa.3.0.i.i.ph.i.i.i.i = phi i64 [ %102, %96 ], [ %.sroa.4.19.i.i.i.i.i.i, %92 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !2012)
   %105 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i.i, i64 %.sroa.3.0.i.i.ph.i.i.i.i
   %106 = and i8 %104, 1
@@ -29623,8 +29623,8 @@ common.resume:                                    ; preds = %.body, %56
   br label %.split.preheader.i.i.i.i.i.i.preheader.i
 
 .split.preheader.i.i.i.i.i.i.preheader.i:         ; preds = %.loopexit.i, %109, %105
-  %.sroa.3.0.i = phi i64 [ %106, %105 ], [ undef, %.loopexit.i ], [ %110, %109 ]
-  %.sroa.0.0.i = phi i1 [ true, %105 ], [ false, %.loopexit.i ], [ true, %109 ]
+  %.sroa.3.0.i = phi i64 [ %110, %109 ], [ undef, %.loopexit.i ], [ %106, %105 ]
+  %.sroa.0.0.i = phi i1 [ true, %109 ], [ false, %.loopexit.i ], [ true, %105 ]
   %114 = load ptr, ptr %77, align 8, !nonnull !3, !noundef !3
   %115 = load i64, ptr %79, align 8, !noundef !3
   %116 = getelementptr inbounds nuw { { { { ptr, ptr } }, {} }, {} }, ptr %114, i64 %115
@@ -29763,7 +29763,7 @@ common.resume:                                    ; preds = %.body, %56
   br label %156
 
 155:                                              ; preds = %.split26.us.i.i.i.i.i.i.i, %.split24.us.i.i.i.i.i.i.i
-  %.sroa.3.0.i116 = phi i64 [ %151, %.split26.us.i.i.i.i.i.i.i ], [ %146, %.split24.us.i.i.i.i.i.i.i ]
+  %.sroa.3.0.i116 = phi i64 [ %146, %.split24.us.i.i.i.i.i.i.i ], [ %151, %.split26.us.i.i.i.i.i.i.i ]
   br i1 %.sroa.0.0.i, label %164, label %156
 
 156:                                              ; preds = %.split29.i.i.i.i.i.i.loopexit.i, %155
@@ -31352,7 +31352,7 @@ thread-pre-split.i:                               ; preds = %268
           to label %605 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 "_ZN4core3num21_$LT$impl$u20$i64$GT$16from_ascii_radix17h7378919d283c9302E.exit": ; preds = %.preheader83.i, %303, %.preheader79.i, %331, %.preheader81.i, %.preheader.i
-  %.sroa.15212.2 = phi i64 [ 0, %.preheader.i ], [ 0, %.preheader81.i ], [ %308, %303 ], [ %336, %331 ], [ %.sroa.023.0.i, %.preheader79.i ], [ %.sroa.023.3.i, %.preheader83.i ]
+  %.sroa.15212.2 = phi i64 [ 0, %.preheader81.i ], [ 0, %.preheader.i ], [ %.sroa.023.0.i, %.preheader79.i ], [ %336, %331 ], [ %308, %303 ], [ %.sroa.023.3.i, %.preheader83.i ]
   br label %340
 
 340:                                              ; preds = %401, %"_ZN4core3num21_$LT$impl$u20$i64$GT$16from_ascii_radix17h7378919d283c9302E.exit"
@@ -34844,7 +34844,7 @@ _ZN11polars_time7windows8duration8Duration7is_zero17hcc201fad1599ea27E.exit.thre
   br label %40
 
 40:                                               ; preds = %.sink.split, %20, %24, %28
-  %.sink = phi i64 [ 17, %28 ], [ 17, %24 ], [ 17, %20 ], [ 4, %.sink.split ]
+  %.sink = phi i64 [ 17, %20 ], [ 17, %24 ], [ 17, %28 ], [ 4, %.sink.split ]
   store i64 %.sink, ptr %0, align 8
   ret void
 
@@ -34971,8 +34971,8 @@ default.unreachable:                              ; preds = %19
   unreachable
 
 .split71.us:                                      ; preds = %38, %29, %.split.us79, %.split.us
-  %.us-phi = phi i64 [ %17, %.split.us ], [ %17, %.split.us79 ], [ %30, %29 ], [ %39, %38 ]
-  %.us-phi72 = phi i64 [ %5, %.split.us ], [ %5, %.split.us79 ], [ %27, %29 ], [ %36, %38 ]
+  %.us-phi = phi i64 [ %30, %29 ], [ %17, %.split.us ], [ %17, %.split.us79 ], [ %39, %38 ]
+  %.us-phi72 = phi i64 [ %27, %29 ], [ %5, %.split.us ], [ %5, %.split.us79 ], [ %36, %38 ]
   %42 = tail call { i64, i64 } @_ZN11polars_time7windows6bounds6Bounds11new_checked17h7f7cf4f83569e52dE(i64 noundef %.us-phi72, i64 noundef %.us-phi)
   %43 = extractvalue { i64, i64 } %42, 0
   %44 = extractvalue { i64, i64 } %42, 1

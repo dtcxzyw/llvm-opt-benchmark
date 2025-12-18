@@ -4257,7 +4257,7 @@ _ZNK3org6apache5arrow7flatbuf15BodyCompression5codecEv.exit.thread.fold.split.i:
   br label %_ZNK3org6apache5arrow7flatbuf15BodyCompression5codecEv.exit.thread.i
 
 _ZNK3org6apache5arrow7flatbuf15BodyCompression5codecEv.exit.thread.i: ; preds = %_ZNK3org6apache5arrow7flatbuf15BodyCompression5codecEv.exit.thread.fold.split.i, %_ZNK3org6apache5arrow7flatbuf15BodyCompression5codecEv.exit.i, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i9.i, %126
-  %storemerge.i = phi i32 [ 6, %_ZNK3org6apache5arrow7flatbuf15BodyCompression5codecEv.exit.i ], [ 6, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i9.i ], [ 6, %126 ], [ 4, %_ZNK3org6apache5arrow7flatbuf15BodyCompression5codecEv.exit.thread.fold.split.i ]
+  %storemerge.i = phi i32 [ 6, %_ZNK3org6apache5arrow7flatbuf15BodyCompression5codecEv.exit.i ], [ 6, %126 ], [ 6, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i9.i ], [ 4, %_ZNK3org6apache5arrow7flatbuf15BodyCompression5codecEv.exit.thread.fold.split.i ]
   store i32 %storemerge.i, ptr %35, align 4, !tbaa !146, !noalias !147
   br label %_ZN5arrow6StatusD2Ev.exit44.thread
 
@@ -13018,7 +13018,7 @@ define linkonce_odr void @_ZN5arrow3ipc25RecordBatchFileReaderImpl20ReadRecordBa
   br label %.loopexit, !llvm.loop !513
 
 _ZNSt13unordered_mapIiN5arrow6FutureISt10shared_ptrINS0_3ipc7MessageEEEESt4hashIiESt8equal_toIiESaISt4pairIKiS6_EEE4findERSC_.exit: ; preds = %29, %11, %24
-  %.sroa.06.1.i.i = phi ptr [ %25, %24 ], [ %.sroa.06.0.i.i, %11 ], [ %31, %29 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %11 ], [ %25, %24 ], [ %31, %29 ]
   %37 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %38 = load ptr, ptr %37, align 8, !tbaa !447
   store ptr %38, ptr %4, align 8, !tbaa !447
@@ -19016,8 +19016,8 @@ _ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit81: ; 
   %241 = icmp eq i64 %240, 0
   br i1 %241, label %._crit_edge, label %97
 
-._crit_edge:                                      ; preds = %97, %.critedge
-  %.031.lcssa = phi i64 [ %237, %.critedge ], [ %.031112, %97 ]
+._crit_edge:                                      ; preds = %.critedge, %97
+  %.031.lcssa = phi i64 [ %.031112, %97 ], [ %237, %.critedge ]
   %242 = load ptr, ptr %2, align 8, !tbaa !273
   %243 = getelementptr inbounds nuw i8, ptr %242, i64 24
   %244 = load i64, ptr %243, align 8, !tbaa !131
@@ -37606,7 +37606,7 @@ _ZN3org6apache5arrow7flatbuf19VerifyMessageHeaderERN22arrow_vendored_private11fl
   %109 = tail call noundef zeroext i1 @_ZNK3org6apache5arrow7flatbuf6Tensor6VerifyERN22arrow_vendored_private11flatbuffers8VerifierE(ptr noundef nonnull align 1 dereferenceable(1) %.ph52, ptr noundef nonnull align 8 dereferenceable(72) %1)
   br i1 %109, label %_ZN3org6apache5arrow7flatbuf19VerifyMessageHeaderERN22arrow_vendored_private11flatbuffers8VerifierEPKvNS2_13MessageHeaderE.exit.thread, label %_ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit.thread
 
-_ZN3org6apache5arrow7flatbuf19VerifyMessageHeaderERN22arrow_vendored_private11flatbuffers8VerifierEPKvNS2_13MessageHeaderE.exit.thread: ; preds = %52, %_ZNK22arrow_vendored_private11flatbuffers5Table11VerifyFieldIsEEbRKNS0_8VerifierEtm.exit.thread, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i, %106, %105, %102, %99, %96, %_ZNK3org6apache5arrow7flatbuf7Message11header_typeEv.exit, %97, %100, %107, %103, %_ZN3org6apache5arrow7flatbuf19VerifyMessageHeaderERN22arrow_vendored_private11flatbuffers8VerifierEPKvNS2_13MessageHeaderE.exit
+_ZN3org6apache5arrow7flatbuf19VerifyMessageHeaderERN22arrow_vendored_private11flatbuffers8VerifierEPKvNS2_13MessageHeaderE.exit.thread: ; preds = %52, %_ZNK22arrow_vendored_private11flatbuffers5Table11VerifyFieldIsEEbRKNS0_8VerifierEtm.exit.thread, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i, %106, %105, %102, %99, %96, %_ZNK3org6apache5arrow7flatbuf7Message11header_typeEv.exit, %107, %97, %100, %103, %_ZN3org6apache5arrow7flatbuf19VerifyMessageHeaderERN22arrow_vendored_private11flatbuffers8VerifierEPKvNS2_13MessageHeaderE.exit
   %110 = load i32, ptr %0, align 4, !tbaa !81
   %111 = sext i32 %110 to i64
   %112 = sub nsw i64 0, %111
@@ -37708,8 +37708,8 @@ _ZNK3org6apache5arrow7flatbuf7Message15custom_metadataEv.exit27: ; preds = %151,
   store i32 %170, ptr %22, align 8, !tbaa !1255
   br label %_ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit.thread
 
-_ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit.thread: ; preds = %118, %80, %75, %61, %34, %2, %38, %18, %_ZNK22arrow_vendored_private11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i, %97, %100, %107, %103, %168, %_ZNK3org6apache5arrow7flatbuf7Message15custom_metadataEv.exit27, %_ZNK3org6apache5arrow7flatbuf7Message15custom_metadataEv.exit, %_ZNK22arrow_vendored_private11flatbuffers5Table11VerifyFieldIlEEbRKNS0_8VerifierEtm.exit.thread, %_ZNK22arrow_vendored_private11flatbuffers5Table11VerifyFieldIlEEbRKNS0_8VerifierEtm.exit, %_ZN3org6apache5arrow7flatbuf19VerifyMessageHeaderERN22arrow_vendored_private11flatbuffers8VerifierEPKvNS2_13MessageHeaderE.exit, %_ZNK22arrow_vendored_private11flatbuffers5Table12VerifyOffsetIjEEbRKNS0_8VerifierEt.exit, %_ZNK22arrow_vendored_private11flatbuffers5Table11VerifyFieldIhEEbRKNS0_8VerifierEtm.exit, %_ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit
-  %171 = phi i1 [ false, %_ZNK3org6apache5arrow7flatbuf7Message15custom_metadataEv.exit27 ], [ false, %_ZNK3org6apache5arrow7flatbuf7Message15custom_metadataEv.exit ], [ false, %_ZNK22arrow_vendored_private11flatbuffers5Table11VerifyFieldIlEEbRKNS0_8VerifierEtm.exit.thread ], [ false, %_ZNK22arrow_vendored_private11flatbuffers5Table11VerifyFieldIlEEbRKNS0_8VerifierEtm.exit ], [ false, %_ZN3org6apache5arrow7flatbuf19VerifyMessageHeaderERN22arrow_vendored_private11flatbuffers8VerifierEPKvNS2_13MessageHeaderE.exit ], [ false, %_ZNK22arrow_vendored_private11flatbuffers5Table12VerifyOffsetIjEEbRKNS0_8VerifierEt.exit ], [ false, %_ZNK22arrow_vendored_private11flatbuffers5Table11VerifyFieldIhEEbRKNS0_8VerifierEtm.exit ], [ false, %118 ], [ false, %_ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit ], [ true, %168 ], [ false, %80 ], [ false, %34 ], [ false, %61 ], [ false, %103 ], [ false, %107 ], [ false, %100 ], [ false, %97 ], [ false, %_ZNK22arrow_vendored_private11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i ], [ false, %18 ], [ false, %38 ], [ false, %2 ], [ false, %75 ]
+_ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit.thread: ; preds = %118, %80, %75, %61, %34, %2, %38, %18, %_ZNK22arrow_vendored_private11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i, %107, %97, %100, %103, %168, %_ZNK3org6apache5arrow7flatbuf7Message15custom_metadataEv.exit27, %_ZNK3org6apache5arrow7flatbuf7Message15custom_metadataEv.exit, %_ZNK22arrow_vendored_private11flatbuffers5Table11VerifyFieldIlEEbRKNS0_8VerifierEtm.exit.thread, %_ZNK22arrow_vendored_private11flatbuffers5Table11VerifyFieldIlEEbRKNS0_8VerifierEtm.exit, %_ZN3org6apache5arrow7flatbuf19VerifyMessageHeaderERN22arrow_vendored_private11flatbuffers8VerifierEPKvNS2_13MessageHeaderE.exit, %_ZNK22arrow_vendored_private11flatbuffers5Table12VerifyOffsetIjEEbRKNS0_8VerifierEt.exit, %_ZNK22arrow_vendored_private11flatbuffers5Table11VerifyFieldIhEEbRKNS0_8VerifierEtm.exit, %_ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit
+  %171 = phi i1 [ false, %_ZNK3org6apache5arrow7flatbuf7Message15custom_metadataEv.exit27 ], [ false, %_ZNK3org6apache5arrow7flatbuf7Message15custom_metadataEv.exit ], [ false, %_ZNK22arrow_vendored_private11flatbuffers5Table11VerifyFieldIlEEbRKNS0_8VerifierEtm.exit.thread ], [ false, %_ZNK22arrow_vendored_private11flatbuffers5Table11VerifyFieldIlEEbRKNS0_8VerifierEtm.exit ], [ false, %_ZN3org6apache5arrow7flatbuf19VerifyMessageHeaderERN22arrow_vendored_private11flatbuffers8VerifierEPKvNS2_13MessageHeaderE.exit ], [ false, %_ZNK22arrow_vendored_private11flatbuffers5Table12VerifyOffsetIjEEbRKNS0_8VerifierEt.exit ], [ false, %_ZNK22arrow_vendored_private11flatbuffers5Table11VerifyFieldIhEEbRKNS0_8VerifierEtm.exit ], [ false, %118 ], [ false, %_ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit ], [ true, %168 ], [ false, %80 ], [ false, %34 ], [ false, %61 ], [ false, %103 ], [ false, %100 ], [ false, %97 ], [ false, %107 ], [ false, %_ZNK22arrow_vendored_private11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i ], [ false, %18 ], [ false, %38 ], [ false, %2 ], [ false, %75 ]
   ret i1 %171
 }
 
@@ -38235,7 +38235,7 @@ _ZNK3org6apache5arrow7flatbuf6Schema8featuresEv.exit: ; preds = %173, %_ZNK22arr
   br label %_ZN22arrow_vendored_private11flatbuffers8Verifier20VerifyVectorOfTablesIN3org6apache5arrow7flatbuf5FieldEEEbPKNS0_6VectorINS0_6OffsetIT_EEjEE.exit
 
 _ZN22arrow_vendored_private11flatbuffers8Verifier20VerifyVectorOfTablesIN3org6apache5arrow7flatbuf5FieldEEEbPKNS0_6VectorINS0_6OffsetIT_EEjEE.exit: ; preds = %113, %141, %126, %_ZNK22arrow_vendored_private11flatbuffers8Verifier6VerifyIjEEbm.exit.i.i.i25, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i, %89, %74, %69, %61, %34, %2, %38, %18, %_ZNK22arrow_vendored_private11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i, %190, %_ZNK3org6apache5arrow7flatbuf6Schema8featuresEv.exit, %171, %_ZNK3org6apache5arrow7flatbuf6Schema15custom_metadataEv.exit33, %_ZNK3org6apache5arrow7flatbuf6Schema15custom_metadataEv.exit, %_ZNK22arrow_vendored_private11flatbuffers5Table12VerifyOffsetIjEEbRKNS0_8VerifierEt.exit28, %_ZNK22arrow_vendored_private11flatbuffers8Verifier12VerifyVectorITpTnRiJENS0_6OffsetIN3org6apache5arrow7flatbuf5FieldEEEjEEbPKNS0_6VectorIT0_T1_EE.exit, %_ZNK22arrow_vendored_private11flatbuffers5Table12VerifyOffsetIjEEbRKNS0_8VerifierEt.exit, %_ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit
-  %193 = phi i1 [ false, %_ZNK3org6apache5arrow7flatbuf6Schema8featuresEv.exit ], [ false, %171 ], [ false, %_ZNK3org6apache5arrow7flatbuf6Schema15custom_metadataEv.exit33 ], [ false, %_ZNK3org6apache5arrow7flatbuf6Schema15custom_metadataEv.exit ], [ false, %_ZNK22arrow_vendored_private11flatbuffers5Table12VerifyOffsetIjEEbRKNS0_8VerifierEt.exit28 ], [ false, %74 ], [ false, %_ZNK22arrow_vendored_private11flatbuffers8Verifier12VerifyVectorITpTnRiJENS0_6OffsetIN3org6apache5arrow7flatbuf5FieldEEEjEEbPKNS0_6VectorIT0_T1_EE.exit ], [ false, %_ZNK22arrow_vendored_private11flatbuffers5Table12VerifyOffsetIjEEbRKNS0_8VerifierEt.exit ], [ false, %_ZNK22arrow_vendored_private11flatbuffers8Verifier6VerifyIjEEbm.exit.i.i.i25 ], [ false, %_ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit ], [ true, %190 ], [ false, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i ], [ false, %34 ], [ false, %61 ], [ false, %_ZNK22arrow_vendored_private11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i ], [ false, %18 ], [ false, %38 ], [ false, %2 ], [ false, %141 ], [ false, %69 ], [ false, %126 ], [ false, %89 ], [ false, %113 ]
+  %193 = phi i1 [ false, %_ZNK3org6apache5arrow7flatbuf6Schema8featuresEv.exit ], [ false, %171 ], [ false, %_ZNK3org6apache5arrow7flatbuf6Schema15custom_metadataEv.exit33 ], [ false, %_ZNK3org6apache5arrow7flatbuf6Schema15custom_metadataEv.exit ], [ false, %_ZNK22arrow_vendored_private11flatbuffers5Table12VerifyOffsetIjEEbRKNS0_8VerifierEt.exit28 ], [ false, %74 ], [ false, %_ZNK22arrow_vendored_private11flatbuffers8Verifier12VerifyVectorITpTnRiJENS0_6OffsetIN3org6apache5arrow7flatbuf5FieldEEEjEEbPKNS0_6VectorIT0_T1_EE.exit ], [ false, %_ZNK22arrow_vendored_private11flatbuffers5Table12VerifyOffsetIjEEbRKNS0_8VerifierEt.exit ], [ false, %89 ], [ false, %_ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit ], [ true, %190 ], [ false, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i ], [ false, %34 ], [ false, %61 ], [ false, %141 ], [ false, %_ZNK22arrow_vendored_private11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i ], [ false, %18 ], [ false, %38 ], [ false, %2 ], [ false, %126 ], [ false, %69 ], [ false, %_ZNK22arrow_vendored_private11flatbuffers8Verifier6VerifyIjEEbm.exit.i.i.i25 ], [ false, %113 ]
   ret i1 %193
 }
 
@@ -74388,7 +74388,7 @@ _ZNK3org6apache5arrow7flatbuf15BodyCompression5codecEv.exit.thread.fold.split.i.
   br label %_ZNK3org6apache5arrow7flatbuf15BodyCompression5codecEv.exit.thread.i.i
 
 _ZNK3org6apache5arrow7flatbuf15BodyCompression5codecEv.exit.thread.i.i: ; preds = %_ZNK3org6apache5arrow7flatbuf15BodyCompression5codecEv.exit.thread.fold.split.i.i, %_ZNK3org6apache5arrow7flatbuf15BodyCompression5codecEv.exit.i.i, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i9.i.i, %151
-  %storemerge.i.i = phi i32 [ 6, %_ZNK3org6apache5arrow7flatbuf15BodyCompression5codecEv.exit.i.i ], [ 6, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i9.i.i ], [ 6, %151 ], [ 4, %_ZNK3org6apache5arrow7flatbuf15BodyCompression5codecEv.exit.thread.fold.split.i.i ]
+  %storemerge.i.i = phi i32 [ 6, %_ZNK3org6apache5arrow7flatbuf15BodyCompression5codecEv.exit.i.i ], [ 6, %151 ], [ 6, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i9.i.i ], [ 4, %_ZNK3org6apache5arrow7flatbuf15BodyCompression5codecEv.exit.thread.fold.split.i.i ]
   store i32 %storemerge.i.i, ptr %8, align 4, !tbaa !146, !noalias !2535
   br label %_ZN5arrow6StatusD2Ev.exit.thread.i
 
@@ -81735,7 +81735,7 @@ _ZN5arrow6StatusD2Ev.exit113.thread219:           ; preds = %_ZNK3org6apache5arr
   br label %_ZN5arrow6StatusD2Ev.exit113.thread
 
 _ZN5arrow6StatusD2Ev.exit113:                     ; preds = %120, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i9.i, %_ZNK3org6apache5arrow7flatbuf15BodyCompression5codecEv.exit.i, %_ZNK3org6apache5arrow7flatbuf15BodyCompression5codecEv.exit.thread.fold.split.i
-  %storemerge.i = phi i32 [ 6, %_ZNK3org6apache5arrow7flatbuf15BodyCompression5codecEv.exit.i ], [ 6, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i9.i ], [ 6, %120 ], [ 4, %_ZNK3org6apache5arrow7flatbuf15BodyCompression5codecEv.exit.thread.fold.split.i ]
+  %storemerge.i = phi i32 [ 6, %_ZNK3org6apache5arrow7flatbuf15BodyCompression5codecEv.exit.i ], [ 6, %120 ], [ 6, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i9.i ], [ 4, %_ZNK3org6apache5arrow7flatbuf15BodyCompression5codecEv.exit.thread.fold.split.i ]
   store i32 %storemerge.i, ptr %9, align 4, !tbaa !146, !noalias !2670
   store ptr null, ptr %0, align 8, !tbaa !54, !alias.scope !2683
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -94203,7 +94203,7 @@ define linkonce_odr void @_ZN5arrow3ipc25RecordBatchFileReaderImpl33ReadRecordBa
   br label %.loopexit, !llvm.loop !513
 
 _ZNSt13unordered_mapIiN5arrow6FutureISt10shared_ptrINS0_3ipc7MessageEEEESt4hashIiESt8equal_toIiESaISt4pairIKiS6_EEE4findERSC_.exit: ; preds = %56, %38, %51
-  %.sroa.06.1.i.i = phi ptr [ %52, %51 ], [ %.sroa.06.0.i.i, %38 ], [ %58, %56 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %38 ], [ %52, %51 ], [ %58, %56 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %64 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
@@ -101833,7 +101833,7 @@ _ZNSt10_HashtableIiSt4pairIKiN5arrow6FutureISt10shared_ptrINS2_3ipc7MessageEEEEE
   resume { ptr, i32 } %63
 
 _ZNKSt10_HashtableIiSt4pairIKiN5arrow6FutureISt10shared_ptrINS2_3ipc7MessageEEEEESaIS9_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS1_m.exit: ; preds = %51, %35, %46
-  %.sroa.038.0.ph = phi ptr [ %47, %46 ], [ %.sroa.034.0, %35 ], [ %53, %51 ]
+  %.sroa.038.0.ph = phi ptr [ %.sroa.034.0, %35 ], [ %47, %46 ], [ %53, %51 ]
   %64 = load ptr, ptr %10, align 8, !tbaa !79
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %64, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKiN5arrow6FutureISt10shared_ptrINS4_3ipc7MessageEEEEELb0EEEEE18_M_deallocate_nodeEPSC_.exit.i, label %65
@@ -109492,7 +109492,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i.i.i.i.i:            ; preds = %26, %46
   br i1 %50, label %46, label %.critedge13.i.i.i.i.i.i
 
 .critedge13.i.i.i.i.i.i:                          ; preds = %.noexc.i.i.i.i.i, %46
-  %storemerge = phi ptr [ null, %46 ], [ %49, %.noexc.i.i.i.i.i ]
+  %storemerge = phi ptr [ %49, %.noexc.i.i.i.i.i ], [ null, %46 ]
   store ptr %storemerge, ptr %8, align 8, !alias.scope !3418
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !3418
   br label %.lr.ph.i.i.i.i.i.i.i.i.i

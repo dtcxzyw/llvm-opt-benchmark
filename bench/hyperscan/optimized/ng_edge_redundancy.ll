@@ -1135,7 +1135,7 @@ _ZN3ue2L15checkReportsRevERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS
           to label %_ZN3ue211hasSelfLoopINS_8NGHolderEEEbRKNT_17vertex_descriptorERKS2_.exit.i21 unwind label %214
 
 _ZN3ue211hasSelfLoopINS_8NGHolderEEEbRKNT_17vertex_descriptorERKS2_.exit.i21: ; preds = %.critedge24.i.i.i.i10, %.critedge.i.i.i.i28, %_ZN3ue2L15checkReportsRevERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERKSt3setIS9_St4lessIS9_ESaIS9_EE.exit.thread.i, %_ZN3ue2L15checkReportsRevERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERKSt3setIS9_St4lessIS9_ESaIS9_EE.exit.i, %249, %._crit_edge.i20, %177
-  %.1.i22 = phi i32 [ %.0141.i, %177 ], [ %.0141.i, %249 ], [ %.0141.i, %._crit_edge.i20 ], [ %.0141.i, %_ZN3ue2L15checkReportsRevERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERKSt3setIS9_St4lessIS9_ESaIS9_EE.exit.i ], [ %410, %_ZN3ue2L15checkReportsRevERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERKSt3setIS9_St4lessIS9_ESaIS9_EE.exit.thread.i ], [ %.0141.i, %.critedge.i.i.i.i28 ], [ %.0141.i, %.critedge24.i.i.i.i10 ]
+  %.1.i22 = phi i32 [ %.0141.i, %177 ], [ %.0141.i, %249 ], [ %.0141.i, %._crit_edge.i20 ], [ %410, %_ZN3ue2L15checkReportsRevERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERKSt3setIS9_St4lessIS9_ESaIS9_EE.exit.thread.i ], [ %.0141.i, %_ZN3ue2L15checkReportsRevERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERKSt3setIS9_St4lessIS9_ESaIS9_EE.exit.i ], [ %.0141.i, %.critedge.i.i.i.i28 ], [ %.0141.i, %.critedge24.i.i.i.i10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %.sroa.092.0.i = load ptr, ptr %.sroa.092.0142.i, align 8
   %.not.i23 = icmp eq ptr %.sroa.092.0.i, %36
@@ -2144,7 +2144,7 @@ _ZN3ue28containsISt3setINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8N
   br i1 %.not, label %.loopexit, label %.lr.ph40.split
 
 .loopexit:                                        ; preds = %.thread, %.lr.ph40.split, %_ZN3ue28containsISt3setINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESt4lessIS9_ESaIS9_EEEEbRKT_RKNSE_8key_typeE.exit, %.lr.ph40, %2
-  %.not23 = phi i1 [ false, %.lr.ph40 ], [ true, %2 ], [ false, %_ZN3ue28containsISt3setINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESt4lessIS9_ESaIS9_EEEEbRKT_RKNSE_8key_typeE.exit ], [ %.not1925.not.not, %.lr.ph40.split ], [ %.not1925.not.not, %.thread ]
+  %.not23 = phi i1 [ false, %_ZN3ue28containsISt3setINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESt4lessIS9_ESaIS9_EEEEbRKT_RKNSE_8key_typeE.exit ], [ true, %2 ], [ false, %.lr.ph40 ], [ %.not1925.not.not, %.lr.ph40.split ], [ %.not1925.not.not, %.thread ]
   ret i1 %.not23
 }
 
@@ -2606,7 +2606,7 @@ _ZN3ue28containsISt3setINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8N
   br i1 %.not, label %.loopexit, label %.lr.ph40.split
 
 .loopexit:                                        ; preds = %.thread, %.lr.ph40.split, %_ZN3ue28containsISt3setINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESt4lessIS9_ESaIS9_EEEEbRKT_RKNSE_8key_typeE.exit, %.lr.ph40, %2
-  %.not23 = phi i1 [ false, %.lr.ph40 ], [ true, %2 ], [ false, %_ZN3ue28containsISt3setINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESt4lessIS9_ESaIS9_EEEEbRKT_RKNSE_8key_typeE.exit ], [ %.not1925.not.not, %.lr.ph40.split ], [ %.not1925.not.not, %.thread ]
+  %.not23 = phi i1 [ false, %_ZN3ue28containsISt3setINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESt4lessIS9_ESaIS9_EEEEbRKT_RKNSE_8key_typeE.exit ], [ true, %2 ], [ false, %.lr.ph40 ], [ %.not1925.not.not, %.lr.ph40.split ], [ %.not1925.not.not, %.thread ]
   ret i1 %.not23
 }
 

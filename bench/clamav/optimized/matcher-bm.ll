@@ -1174,13 +1174,13 @@ define i32 @cli_bm_scanbuff(ptr noundef readonly captures(none) %0, i32 noundef 
   br i1 %258, label %.lr.ph337, label %.outer._crit_edge
 
 .outer._crit_edge:                                ; preds = %.outer, %111, %48
-  %.0.ph.lcssa325 = phi i32 [ 0, %48 ], [ %.0.ph367, %111 ], [ %.1, %.outer ]
+  %.0.ph.lcssa325 = phi i32 [ %.0.ph367, %111 ], [ 0, %48 ], [ %.1, %.outer ]
   %259 = icmp sgt i32 %.0.ph.lcssa325, 0
   %.289 = zext i1 %259 to i32
   br label %.loopexit293
 
 .loopexit293:                                     ; preds = %232, %.outer._crit_edge, %.critedge5.thread, %.critedge2.thread, %41, %17, %9, %12, %202
-  %.0197 = phi i32 [ 0, %9 ], [ 0, %17 ], [ %., %.critedge2.thread ], [ 0, %41 ], [ %.288, %.critedge5.thread ], [ 0, %12 ], [ %201, %202 ], [ %.289, %.outer._crit_edge ], [ 1, %232 ]
+  %.0197 = phi i32 [ 0, %9 ], [ 0, %17 ], [ %., %.critedge2.thread ], [ 0, %41 ], [ %.288, %.critedge5.thread ], [ %.289, %.outer._crit_edge ], [ 0, %12 ], [ %201, %202 ], [ 1, %232 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.0197

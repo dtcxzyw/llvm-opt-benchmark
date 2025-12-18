@@ -4408,7 +4408,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %70, %
   br i1 %84, label %.loopexit, label %81
 
 .loopexit:                                        ; preds = %75, %81, %.body.thread
-  %.pn.pn = phi { ptr, i32 } [ %21, %.body.thread ], [ %.pn, %81 ], [ %eh.lpad-body, %75 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %81 ], [ %21, %.body.thread ], [ %eh.lpad-body, %75 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %85 = load ptr, ptr %11, align 8, !tbaa !129
@@ -8269,7 +8269,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %57, %
   br i1 %67, label %.loopexit, label %64
 
 .loopexit:                                        ; preds = %64, %.body, %.body.thread
-  %.pn.pn = phi { ptr, i32 } [ %16, %.body.thread ], [ %22, %.body ], [ %.pn, %64 ]
+  %.pn.pn = phi { ptr, i32 } [ %22, %.body ], [ %16, %.body.thread ], [ %.pn, %64 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %68 = load ptr, ptr %9, align 8, !tbaa !129
@@ -8480,7 +8480,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %57, %
   br i1 %67, label %.loopexit, label %64
 
 .loopexit:                                        ; preds = %64, %.body, %.body.thread
-  %.pn.pn = phi { ptr, i32 } [ %16, %.body.thread ], [ %22, %.body ], [ %.pn, %64 ]
+  %.pn.pn = phi { ptr, i32 } [ %22, %.body ], [ %16, %.body.thread ], [ %.pn, %64 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %68 = load ptr, ptr %9, align 8, !tbaa !129
@@ -10282,7 +10282,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %57, %
   br i1 %67, label %.loopexit, label %64
 
 .loopexit:                                        ; preds = %64, %.body, %.body.thread
-  %.pn.pn = phi { ptr, i32 } [ %16, %.body.thread ], [ %22, %.body ], [ %.pn, %64 ]
+  %.pn.pn = phi { ptr, i32 } [ %22, %.body ], [ %16, %.body.thread ], [ %.pn, %64 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %68 = load ptr, ptr %9, align 8, !tbaa !129

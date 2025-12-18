@@ -30215,8 +30215,8 @@ _ZNSt6vectorIxSaIxEED2Ev.exit27:                  ; preds = %_ZNSt6vectorIxSaIxE
   br label %99
 
 99:                                               ; preds = %.loopexit, %.loopexit.split-lp, %97
-  %100 = phi ptr [ %.pre, %97 ], [ %52, %.loopexit ], [ %52, %.loopexit.split-lp ]
-  %.pn = phi { ptr, i32 } [ %98, %97 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %100 = phi ptr [ %.pre, %97 ], [ %52, %.loopexit.split-lp ], [ %52, %.loopexit ]
+  %.pn = phi { ptr, i32 } [ %98, %97 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ]
   %.not.i.i.i28 = icmp eq ptr %100, null
   br i1 %.not.i.i.i28, label %_ZNSt6vectorIxSaIxEED2Ev.exit29, label %101
 
@@ -32979,9 +32979,9 @@ _ZNSt6vectorIxSaIxEED2Ev.exit28:                  ; preds = %_ZNSt6vectorIxSaIxE
   br label %97
 
 97:                                               ; preds = %.loopexit, %.loopexit.split-lp, %95
-  %98 = phi ptr [ %55, %95 ], [ %58, %.loopexit ], [ %58, %.loopexit.split-lp ]
-  %99 = phi ptr [ %56, %95 ], [ %60, %.loopexit ], [ %60, %.loopexit.split-lp ]
-  %.pn = phi { ptr, i32 } [ %96, %95 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %98 = phi ptr [ %55, %95 ], [ %58, %.loopexit.split-lp ], [ %58, %.loopexit ]
+  %99 = phi ptr [ %56, %95 ], [ %60, %.loopexit.split-lp ], [ %60, %.loopexit ]
+  %.pn = phi { ptr, i32 } [ %96, %95 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ]
   %.not.i.i.i29 = icmp eq ptr %99, null
   br i1 %.not.i.i.i29, label %_ZNSt6vectorIxSaIxEED2Ev.exit30, label %100
 
@@ -53912,7 +53912,7 @@ define noundef zeroext i1 @_ZN6casadi8Function10check_nameERKNSt7__cxx1112basic_
   br i1 %.not33, label %.loopexit, label %.lr.ph, !llvm.loop !678
 
 .loopexit:                                        ; preds = %.preheader35, %.critedge, %23, %20, %.preheader, %9, %1
-  %.0 = phi i1 [ false, %9 ], [ false, %1 ], [ true, %.preheader ], [ false, %20 ], [ false, %23 ], [ true, %.critedge ], [ false, %.preheader35 ]
+  %.0 = phi i1 [ false, %9 ], [ false, %1 ], [ false, %20 ], [ true, %.preheader ], [ false, %23 ], [ true, %.critedge ], [ false, %.preheader35 ]
   ret i1 %.0
 }
 

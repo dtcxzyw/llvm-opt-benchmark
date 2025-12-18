@@ -2001,10 +2001,10 @@ paint_alloc.exit70.i:                             ; preds = %151, %st_mult.exit.
   br i1 %.not64.i, label %.loopexit.i, label %.lr.ph79.i, !llvm.loop !130
 
 .loopexit.i:                                      ; preds = %182, %175, %166, %ref_bitmap_at.exit.i
-  %.sroa.62138.3 = phi ptr [ %.sroa.62138.6, %175 ], [ %.sroa.62138.6, %166 ], [ %.sroa.62138.2, %ref_bitmap_at.exit.i ], [ %.sroa.62138.6, %182 ]
-  %.sroa.70.2 = phi ptr [ %.sroa.70.4, %175 ], [ %.sroa.70.4, %166 ], [ %.sroa.70.1, %ref_bitmap_at.exit.i ], [ %.sroa.70.4, %182 ]
-  %.sroa.78.3 = phi ptr [ %.sroa.78.6, %175 ], [ %.sroa.78.6, %166 ], [ %.sroa.78.2, %ref_bitmap_at.exit.i ], [ %.sroa.78.6, %182 ]
-  %.sroa.82.3 = phi i32 [ %.sroa.82.6, %175 ], [ %.sroa.82.6, %166 ], [ %.sroa.82.2, %ref_bitmap_at.exit.i ], [ %.sroa.82.6, %182 ]
+  %.sroa.62138.3 = phi ptr [ %.sroa.62138.6, %175 ], [ %.sroa.62138.2, %ref_bitmap_at.exit.i ], [ %.sroa.62138.6, %166 ], [ %.sroa.62138.6, %182 ]
+  %.sroa.70.2 = phi ptr [ %.sroa.70.4, %175 ], [ %.sroa.70.1, %ref_bitmap_at.exit.i ], [ %.sroa.70.4, %166 ], [ %.sroa.70.4, %182 ]
+  %.sroa.78.3 = phi ptr [ %.sroa.78.6, %175 ], [ %.sroa.78.2, %ref_bitmap_at.exit.i ], [ %.sroa.78.6, %166 ], [ %.sroa.78.6, %182 ]
+  %.sroa.82.3 = phi i32 [ %.sroa.82.6, %175 ], [ %.sroa.82.2, %ref_bitmap_at.exit.i ], [ %.sroa.82.6, %166 ], [ %.sroa.82.6, %182 ]
   %184 = load ptr, ptr %5, align 8, !tbaa !54
   %.not57.i = icmp eq ptr %184, null
   br i1 %.not57.i, label %._crit_edge82.i, label %.lr.ph81.i

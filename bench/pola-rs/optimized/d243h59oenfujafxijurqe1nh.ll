@@ -13203,8 +13203,8 @@ define hidden noundef i64 @_ZN11polars_core13chunked_array3ops13search_sorted11l
   br i1 %20, label %._crit_edge, label %.lr.ph.split
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %3
-  %.sroa.021.0.lcssa = phi i64 [ %1, %3 ], [ %8, %.lr.ph.split.us ], [ %unswitched.select, %.lr.ph.split ]
-  %.sroa.0.027.lcssa = phi i64 [ %0, %3 ], [ %0, %.lr.ph.split.us ], [ %spec.select28, %.lr.ph.split ]
+  %.sroa.021.0.lcssa = phi i64 [ %8, %.lr.ph.split.us ], [ %1, %3 ], [ %unswitched.select, %.lr.ph.split ]
+  %.sroa.0.027.lcssa = phi i64 [ %0, %.lr.ph.split.us ], [ %0, %3 ], [ %spec.select28, %.lr.ph.split ]
   %21 = icmp ult i64 %.sroa.0.027.lcssa, %.val1.i16.pre
   tail call void @llvm.assume(i1 %21)
   %22 = getelementptr inbounds nuw double, ptr %.val.i15.pre, i64 %.sroa.0.027.lcssa
@@ -14372,8 +14372,8 @@ define hidden noundef i64 @_ZN11polars_core13chunked_array3ops13search_sorted11l
   br i1 %20, label %._crit_edge, label %.lr.ph.split
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %3
-  %.sroa.021.0.lcssa = phi i64 [ %1, %3 ], [ %8, %.lr.ph.split.us ], [ %unswitched.select, %.lr.ph.split ]
-  %.sroa.0.027.lcssa = phi i64 [ %0, %3 ], [ %0, %.lr.ph.split.us ], [ %spec.select28, %.lr.ph.split ]
+  %.sroa.021.0.lcssa = phi i64 [ %8, %.lr.ph.split.us ], [ %1, %3 ], [ %unswitched.select, %.lr.ph.split ]
+  %.sroa.0.027.lcssa = phi i64 [ %0, %.lr.ph.split.us ], [ %0, %3 ], [ %spec.select28, %.lr.ph.split ]
   %21 = icmp ult i64 %.sroa.0.027.lcssa, %.val1.i16.pre
   tail call void @llvm.assume(i1 %21)
   %22 = getelementptr inbounds nuw float, ptr %.val.i15.pre, i64 %.sroa.0.027.lcssa
@@ -14963,8 +14963,8 @@ define hidden noundef i64 @_ZN11polars_core13chunked_array3ops13search_sorted11l
   br i1 %20, label %._crit_edge, label %.lr.ph.split
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.us, %.lr.ph.split, %3
-  %.sroa.022.0.lcssa = phi i64 [ %1, %3 ], [ %unswitched.select, %.lr.ph.split ], [ %1, %.lr.ph.split.us ]
-  %.sroa.0.028.lcssa = phi i64 [ %0, %3 ], [ %spec.select29, %.lr.ph.split ], [ %8, %.lr.ph.split.us ]
+  %.sroa.022.0.lcssa = phi i64 [ %unswitched.select, %.lr.ph.split ], [ %1, %3 ], [ %1, %.lr.ph.split.us ]
+  %.sroa.0.028.lcssa = phi i64 [ %spec.select29, %.lr.ph.split ], [ %0, %3 ], [ %8, %.lr.ph.split.us ]
   %21 = icmp ult i64 %.sroa.0.028.lcssa, %.val1.i16.pre
   tail call void @llvm.assume(i1 %21)
   %22 = getelementptr inbounds nuw float, ptr %.val.i15.pre, i64 %.sroa.0.028.lcssa
@@ -15392,8 +15392,8 @@ define hidden noundef i64 @_ZN11polars_core13chunked_array3ops13search_sorted11l
   br i1 %20, label %._crit_edge, label %.lr.ph.split
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.us, %.lr.ph.split, %3
-  %.sroa.022.0.lcssa = phi i64 [ %1, %3 ], [ %unswitched.select, %.lr.ph.split ], [ %1, %.lr.ph.split.us ]
-  %.sroa.0.028.lcssa = phi i64 [ %0, %3 ], [ %spec.select29, %.lr.ph.split ], [ %8, %.lr.ph.split.us ]
+  %.sroa.022.0.lcssa = phi i64 [ %unswitched.select, %.lr.ph.split ], [ %1, %3 ], [ %1, %.lr.ph.split.us ]
+  %.sroa.0.028.lcssa = phi i64 [ %spec.select29, %.lr.ph.split ], [ %0, %3 ], [ %8, %.lr.ph.split.us ]
   %21 = icmp ult i64 %.sroa.0.028.lcssa, %.val1.i16.pre
   tail call void @llvm.assume(i1 %21)
   %22 = getelementptr inbounds nuw double, ptr %.val.i15.pre, i64 %.sroa.0.028.lcssa
@@ -19816,7 +19816,7 @@ _ZN9atoi_simd8fallback13parse_16_by_817h77d067d8bf641f1eE.exit: ; preds = %_ZN9a
   store i32 0, ptr %0, align 4
   br label %_ZN6chrono5naive4date9NaiveDate16and_hms_nano_opt17h94b88aab9e14be15E.exit
 
-340:                                              ; preds = %180, %176, %172, %168, %164, %160, %156, %152, %148, %144, %140, %136, %132, %128, %125, %121, %117, %114, %112
+340:                                              ; preds = %112, %114, %117, %121, %125, %128, %132, %136, %140, %144, %148, %152, %180, %176, %172, %168, %164, %160, %156
   store i32 0, ptr %0, align 4
   br label %_ZN6chrono5naive4date9NaiveDate16and_hms_nano_opt17h94b88aab9e14be15E.exit
 
@@ -19861,14 +19861,14 @@ _ZN9atoi_simd6linker26atoi_simd_parse_any_signed17h39c83d11c6541a34E.exit: ; pre
   br label %_ZN6chrono5naive4date9NaiveDate16and_hms_nano_opt17h94b88aab9e14be15E.exit
 
 .loopexit:                                        ; preds = %_ZN11polars_time12chunkedarray6string8strptime18parse_month_abbrev17h4aea420bd7e3346bE.exit, %16, %315, %307, %300
-  %.sroa.059.0307 = phi i32 [ %.sroa.059.0316, %307 ], [ %.sroa.059.0316, %300 ], [ %.sroa.059.0316, %315 ], [ 1, %16 ], [ %.sroa.059.1, %_ZN11polars_time12chunkedarray6string8strptime18parse_month_abbrev17h4aea420bd7e3346bE.exit ]
-  %.sroa.061.0289 = phi i32 [ %.sroa.061.0317, %307 ], [ %.sroa.061.0317, %300 ], [ %.sroa.061.0317, %315 ], [ 1, %16 ], [ %.sroa.061.1, %_ZN11polars_time12chunkedarray6string8strptime18parse_month_abbrev17h4aea420bd7e3346bE.exit ]
-  %.sroa.063.0271 = phi i32 [ %.sroa.063.0318, %307 ], [ %.sroa.063.0318, %300 ], [ %.sroa.063.0318, %315 ], [ 1, %16 ], [ %.sroa.063.1, %_ZN11polars_time12chunkedarray6string8strptime18parse_month_abbrev17h4aea420bd7e3346bE.exit ]
-  %.sroa.03.0236 = phi i32 [ %.sroa.03.0320, %307 ], [ %.sroa.03.0320, %300 ], [ %.sroa.03.0320, %315 ], [ 0, %16 ], [ %.sroa.03.1, %_ZN11polars_time12chunkedarray6string8strptime18parse_month_abbrev17h4aea420bd7e3346bE.exit ]
-  %.sroa.02.0218 = phi i32 [ %.sroa.02.0321, %307 ], [ %.sroa.02.0321, %300 ], [ %.sroa.02.0321, %315 ], [ 0, %16 ], [ %.sroa.02.1, %_ZN11polars_time12chunkedarray6string8strptime18parse_month_abbrev17h4aea420bd7e3346bE.exit ]
-  %.sroa.01.0200 = phi i32 [ %.sroa.01.0322, %307 ], [ %.sroa.01.0322, %300 ], [ %.sroa.01.0322, %315 ], [ 0, %16 ], [ %.sroa.01.1, %_ZN11polars_time12chunkedarray6string8strptime18parse_month_abbrev17h4aea420bd7e3346bE.exit ]
-  %.sroa.064.2 = phi i64 [ %313, %307 ], [ %306, %300 ], [ %321, %315 ], [ %.sroa.064.0, %16 ], [ %.sroa.064.3, %_ZN11polars_time12chunkedarray6string8strptime18parse_month_abbrev17h4aea420bd7e3346bE.exit ]
-  %.sroa.04.0 = phi i32 [ %314, %307 ], [ %304, %300 ], [ %322, %315 ], [ 0, %16 ], [ 0, %_ZN11polars_time12chunkedarray6string8strptime18parse_month_abbrev17h4aea420bd7e3346bE.exit ]
+  %.sroa.059.0307 = phi i32 [ %.sroa.059.0316, %315 ], [ %.sroa.059.0316, %307 ], [ %.sroa.059.0316, %300 ], [ 1, %16 ], [ %.sroa.059.1, %_ZN11polars_time12chunkedarray6string8strptime18parse_month_abbrev17h4aea420bd7e3346bE.exit ]
+  %.sroa.061.0289 = phi i32 [ %.sroa.061.0317, %315 ], [ %.sroa.061.0317, %307 ], [ %.sroa.061.0317, %300 ], [ 1, %16 ], [ %.sroa.061.1, %_ZN11polars_time12chunkedarray6string8strptime18parse_month_abbrev17h4aea420bd7e3346bE.exit ]
+  %.sroa.063.0271 = phi i32 [ %.sroa.063.0318, %315 ], [ %.sroa.063.0318, %307 ], [ %.sroa.063.0318, %300 ], [ 1, %16 ], [ %.sroa.063.1, %_ZN11polars_time12chunkedarray6string8strptime18parse_month_abbrev17h4aea420bd7e3346bE.exit ]
+  %.sroa.03.0236 = phi i32 [ %.sroa.03.0320, %315 ], [ %.sroa.03.0320, %307 ], [ %.sroa.03.0320, %300 ], [ 0, %16 ], [ %.sroa.03.1, %_ZN11polars_time12chunkedarray6string8strptime18parse_month_abbrev17h4aea420bd7e3346bE.exit ]
+  %.sroa.02.0218 = phi i32 [ %.sroa.02.0321, %315 ], [ %.sroa.02.0321, %307 ], [ %.sroa.02.0321, %300 ], [ 0, %16 ], [ %.sroa.02.1, %_ZN11polars_time12chunkedarray6string8strptime18parse_month_abbrev17h4aea420bd7e3346bE.exit ]
+  %.sroa.01.0200 = phi i32 [ %.sroa.01.0322, %315 ], [ %.sroa.01.0322, %307 ], [ %.sroa.01.0322, %300 ], [ 0, %16 ], [ %.sroa.01.1, %_ZN11polars_time12chunkedarray6string8strptime18parse_month_abbrev17h4aea420bd7e3346bE.exit ]
+  %.sroa.064.2 = phi i64 [ %321, %315 ], [ %313, %307 ], [ %306, %300 ], [ %.sroa.064.0, %16 ], [ %.sroa.064.3, %_ZN11polars_time12chunkedarray6string8strptime18parse_month_abbrev17h4aea420bd7e3346bE.exit ]
+  %.sroa.04.0 = phi i32 [ %322, %315 ], [ %314, %307 ], [ %304, %300 ], [ 0, %16 ], [ 0, %_ZN11polars_time12chunkedarray6string8strptime18parse_month_abbrev17h4aea420bd7e3346bE.exit ]
   %350 = icmp eq i64 %.sroa.064.2, %2
   br i1 %350, label %352, label %351
 
@@ -49956,7 +49956,7 @@ define hidden void @"_ZN12polars_utils5cache25LruCache$LT$K$C$V$C$S$GT$6insert17
   br label %.noexc39
 
 .noexc39:                                         ; preds = %77, %73
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %73 ], [ %83, %77 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %83, %77 ], [ %.sroa.4.19.i.i, %73 ]
   %.sroa.511.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.511.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
@@ -51094,7 +51094,7 @@ define hidden { i64, i64 } @"_ZN12polars_utils5cache30LruCachedFunc$LT$T$C$R$C$F
   br label %84
 
 84:                                               ; preds = %77, %73
-  %.sroa.3.0.i.i.ph.i = phi i64 [ %.sroa.4.19.i.i.i, %73 ], [ %83, %77 ]
+  %.sroa.3.0.i.i.ph.i = phi i64 [ %83, %77 ], [ %.sroa.4.19.i.i.i, %73 ]
   %85 = icmp ne ptr %.val5, null
   call void @llvm.assume(i1 %85)
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !4176
@@ -51479,7 +51479,7 @@ define hidden { i64, i64 } @"_ZN12polars_utils5cache30LruCachedFunc$LT$T$C$R$C$F
   br label %77
 
 77:                                               ; preds = %70, %66
-  %.sroa.3.0.i.i.ph.i = phi i64 [ %.sroa.4.19.i.i.i, %66 ], [ %76, %70 ]
+  %.sroa.3.0.i.i.ph.i = phi i64 [ %76, %70 ], [ %.sroa.4.19.i.i.i, %66 ]
   %78 = icmp ne ptr %.val5, null
   call void @llvm.assume(i1 %78)
   %79 = icmp ne ptr %.val6, null
@@ -51880,7 +51880,7 @@ define hidden { i64, i64 } @"_ZN12polars_utils5cache30LruCachedFunc$LT$T$C$R$C$F
   br label %86
 
 86:                                               ; preds = %79, %75
-  %.sroa.3.0.i.i.ph.i = phi i64 [ %.sroa.4.19.i.i.i, %75 ], [ %85, %79 ]
+  %.sroa.3.0.i.i.ph.i = phi i64 [ %85, %79 ], [ %.sroa.4.19.i.i.i, %75 ]
   %87 = icmp ne ptr %.val5, null
   call void @llvm.assume(i1 %87)
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !4254
@@ -52280,7 +52280,7 @@ define hidden { i32, i32 } @"_ZN12polars_utils5cache30LruCachedFunc$LT$T$C$R$C$F
   br label %78
 
 78:                                               ; preds = %71, %67
-  %.sroa.3.0.i.i.ph.i = phi i64 [ %.sroa.4.19.i.i.i, %67 ], [ %77, %71 ]
+  %.sroa.3.0.i.i.ph.i = phi i64 [ %77, %71 ], [ %.sroa.4.19.i.i.i, %67 ]
   %79 = icmp ne ptr %.val4, null
   call void @llvm.assume(i1 %79)
   %80 = getelementptr inbounds nuw i8, ptr %.val4, i64 8
@@ -52688,7 +52688,7 @@ define hidden { i32, i32 } @"_ZN12polars_utils5cache30LruCachedFunc$LT$T$C$R$C$F
   br label %86
 
 86:                                               ; preds = %79, %75
-  %.sroa.3.0.i.i.ph.i = phi i64 [ %.sroa.4.19.i.i.i, %75 ], [ %85, %79 ]
+  %.sroa.3.0.i.i.ph.i = phi i64 [ %85, %79 ], [ %.sroa.4.19.i.i.i, %75 ]
   %87 = icmp ne ptr %.val5, null
   call void @llvm.assume(i1 %87)
   %88 = icmp ne ptr %.val6, null
@@ -53117,7 +53117,7 @@ define hidden { i64, i64 } @"_ZN12polars_utils5cache30LruCachedFunc$LT$T$C$R$C$F
   br label %96
 
 96:                                               ; preds = %89, %85
-  %.sroa.3.0.i.i.ph.i = phi i64 [ %.sroa.4.19.i.i.i, %85 ], [ %95, %89 ]
+  %.sroa.3.0.i.i.ph.i = phi i64 [ %95, %89 ], [ %.sroa.4.19.i.i.i, %85 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !4379)
   call void @llvm.experimental.noalias.scope.decl(metadata !4382)
   call void @llvm.experimental.noalias.scope.decl(metadata !4385)
@@ -60113,7 +60113,7 @@ define hidden { i64, i1 } @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$11in
   br label %73
 
 77:                                               ; preds = %55, %59
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %55 ], [ %65, %59 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %65, %59 ], [ %.sroa.4.19.i.i, %55 ]
   %78 = load ptr, ptr %10, align 8, !alias.scope !4961, !noalias !4964, !nonnull !6
   %79 = load i64, ptr %8, align 8, !noundef !6
   %80 = icmp ult i64 %79, 230584300921369396
@@ -60425,7 +60425,7 @@ define hidden void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$11insert_fu
   ret void
 
 87:                                               ; preds = %63, %67
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %63 ], [ %73, %67 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %73, %67 ], [ %.sroa.4.19.i.i, %63 ]
   %88 = load ptr, ptr %13, align 8, !alias.scope !4986, !noalias !4989, !nonnull !6
   %89 = load i64, ptr %11, align 8, !noundef !6
   %90 = icmp ult i64 %89, 32025597350190194
@@ -60756,7 +60756,7 @@ define hidden void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$11insert_fu
   ret void
 
 99:                                               ; preds = %75, %79
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %75 ], [ %85, %79 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %85, %79 ], [ %.sroa.4.19.i.i, %75 ]
   %100 = load ptr, ptr %13, align 8, !alias.scope !5044, !noalias !5047, !nonnull !6
   %101 = load i64, ptr %11, align 8, !noundef !6
   %102 = icmp ult i64 %101, 88686269585142076
@@ -61086,7 +61086,7 @@ define hidden void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$11insert_fu
   ret void
 
 98:                                               ; preds = %75, %79
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %75 ], [ %85, %79 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %85, %79 ], [ %.sroa.4.19.i.i, %75 ]
   %99 = load ptr, ptr %13, align 8, !alias.scope !5089, !noalias !5092, !nonnull !6
   %100 = load i64, ptr %11, align 8, !noundef !6
   %101 = icmp ult i64 %100, 115292150460684698

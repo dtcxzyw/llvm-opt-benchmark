@@ -211,7 +211,7 @@ define dso_local i32 @e1000e_write_nvm_spi(ptr noundef %0, i16 noundef zeroext %
   br label %24
 
 .loopexit:                                        ; preds = %170, %130, %157, %151
-  %21 = phi i16 [ %25, %130 ], [ %150, %157 ], [ %150, %151 ], [ %2, %170 ]
+  %21 = phi i16 [ %25, %130 ], [ %150, %151 ], [ %150, %157 ], [ %2, %170 ]
   tail call void @usleep_range_state(i64 noundef 10000, i64 noundef 11000, i32 noundef 2) #5
   %22 = load ptr, ptr %20, align 8
   tail call void %22(ptr noundef %0) #5

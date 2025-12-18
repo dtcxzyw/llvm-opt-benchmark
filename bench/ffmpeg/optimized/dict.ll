@@ -363,7 +363,7 @@ define range(i32 -22, 1) i32 @av_dict_set(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %.not95, label %.loopexit, label %.critedge, !llvm.loop !23
 
 .loopexit:                                        ; preds = %36, %29, %.preheader, %23, %21
-  %.070 = phi ptr [ null, %23 ], [ %22, %21 ], [ null, %.preheader ], [ null, %29 ], [ null, %36 ]
+  %.070 = phi ptr [ %22, %21 ], [ null, %23 ], [ null, %.preheader ], [ null, %29 ], [ null, %36 ]
   %.not96 = icmp eq ptr %6, null
   br i1 %.not96, label %38, label %.thread119
 
@@ -473,8 +473,8 @@ define range(i32 -22, 1) i32 @av_dict_set(ptr noundef %0, ptr noundef %1, ptr no
   br label %.thread129
 
 81:                                               ; preds = %11, %15, %.thread
-  %.075 = phi i32 [ -22, %11 ], [ -12, %.thread ], [ -12, %15 ]
-  %.072 = phi ptr [ null, %11 ], [ %.173118, %.thread ], [ null, %15 ]
+  %.075 = phi i32 [ -22, %11 ], [ -12, %15 ], [ -12, %.thread ]
+  %.072 = phi ptr [ null, %11 ], [ null, %15 ], [ %.173118, %.thread ]
   tail call void @av_free(ptr noundef %12) #8
   %.not106 = icmp eq ptr %6, null
   br i1 %.not106, label %85, label %.thread129

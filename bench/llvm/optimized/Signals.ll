@@ -1430,7 +1430,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit131:              ; preds = %447, %445
   br i1 %454, label %_ZN4llvm11raw_ostreamlsEPKc.exit131.thread, label %.lr.ph223
 
 .loopexit:                                        ; preds = %.lr.ph223, %347, %345
-  %.137.ph = phi ptr [ %.036228, %345 ], [ %.036228, %347 ], [ %349, %.lr.ph223 ]
+  %.137.ph = phi ptr [ %.036228, %347 ], [ %.036228, %345 ], [ %349, %.lr.ph223 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
   %455 = load i32, ptr %39, align 4, !tbaa !12
   %456 = add nsw i32 %455, 1

@@ -1570,7 +1570,7 @@ thread-pre-split:                                 ; preds = %228, %.thread
   br label %.loopexit, !llvm.loop !111
 
 .loopexit:                                        ; preds = %thread-pre-split, %15, %215, %.loopexit81, %8, %11
-  %.0 = phi i1 [ false, %8 ], [ false, %11 ], [ false, %.loopexit81 ], [ true, %215 ], [ false, %15 ], [ false, %thread-pre-split ]
+  %.0 = phi i1 [ false, %8 ], [ true, %215 ], [ false, %11 ], [ false, %.loopexit81 ], [ false, %15 ], [ false, %thread-pre-split ]
   ret i1 %.0
 }
 
@@ -2057,7 +2057,7 @@ thread-pre-split:                                 ; preds = %218, %.thread
   br label %_ZL13encode_base64PKhiPci.exit
 
 _ZL13encode_base64PKhiPci.exit:                   ; preds = %.lr.ph.i, %.lr.ph78.i, %179, %._crit_edge79.i, %199
-  %.3.i = phi i64 [ -1, %._crit_edge79.i ], [ -1, %179 ], [ %200, %199 ], [ -1, %.lr.ph78.i ], [ -1, %.lr.ph.i ]
+  %.3.i = phi i64 [ -1, %._crit_edge79.i ], [ -1, %179 ], [ -1, %.lr.ph78.i ], [ %200, %199 ], [ -1, %.lr.ph.i ]
   %202 = getelementptr inbounds i8, ptr %159, i64 %.3.i
   store i8 0, ptr %202, align 1, !tbaa !74
   %203 = getelementptr inbounds nuw i8, ptr %0, i64 9992
@@ -2115,7 +2115,7 @@ _ZL13encode_base64PKhiPci.exit:                   ; preds = %.lr.ph.i, %.lr.ph78
   br label %.loopexit85, !llvm.loop !117
 
 .loopexit85:                                      ; preds = %thread-pre-split, %19, %_ZL13encode_base64PKhiPci.exit, %.loopexit86, %12, %15
-  %.0 = phi i1 [ false, %12 ], [ false, %15 ], [ false, %.loopexit86 ], [ true, %_ZL13encode_base64PKhiPci.exit ], [ false, %19 ], [ false, %thread-pre-split ]
+  %.0 = phi i1 [ false, %12 ], [ true, %_ZL13encode_base64PKhiPci.exit ], [ false, %15 ], [ false, %.loopexit86 ], [ false, %19 ], [ false, %thread-pre-split ]
   ret i1 %.0
 }
 

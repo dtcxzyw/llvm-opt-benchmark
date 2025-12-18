@@ -7330,8 +7330,8 @@ _ZN5arrow6StatusD2Ev.exit11.thread:               ; preds = %_ZN5arrow6StatusD2E
   call void @llvm.lifetime.end.p0(ptr nonnull %66)
   br label %2308
 
-_ZN5arrow6StatusD2Ev.exit11.thread510:            ; preds = %2291, %_ZN5arrow6StatusD2Ev.exit10.i, %2286, %_ZN5arrow6StatusD2Ev.exit10.i25, %2281, %2278, %2275, %1113, %1063, %1012, %961
-  %.ph = phi ptr [ %2292, %2291 ], [ %2289, %_ZN5arrow6StatusD2Ev.exit10.i ], [ %2287, %2286 ], [ %2284, %_ZN5arrow6StatusD2Ev.exit10.i25 ], [ %2282, %2281 ], [ %2279, %2278 ], [ %2276, %2275 ], [ %1114, %1113 ], [ %1064, %1063 ], [ %1013, %1012 ], [ %962, %961 ]
+_ZN5arrow6StatusD2Ev.exit11.thread510:            ; preds = %1063, %1012, %1113, %961, %2275, %2278, %2281, %_ZN5arrow6StatusD2Ev.exit10.i25, %2286, %_ZN5arrow6StatusD2Ev.exit10.i, %2291
+  %.ph = phi ptr [ %1064, %1063 ], [ %1013, %1012 ], [ %1114, %1113 ], [ %962, %961 ], [ %2276, %2275 ], [ %2279, %2278 ], [ %2282, %2281 ], [ %2284, %_ZN5arrow6StatusD2Ev.exit10.i25 ], [ %2287, %2286 ], [ %2289, %_ZN5arrow6StatusD2Ev.exit10.i ], [ %2292, %2291 ]
   store ptr %.ph, ptr %0, align 8, !tbaa !59, !alias.scope !535
   call void @llvm.lifetime.end.p0(ptr nonnull %66)
   br label %2446
@@ -26092,7 +26092,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %664, %_ZN5arrow12_G
   br i1 %665, label %672, label %666, !prof !149
 
 .sink.split:                                      ; preds = %_ZN5arrow6StatusD2Ev.exit25.i, %_ZN5arrow6StatusD2Ev.exit16.i, %_ZN5arrow6StatusD2Ev.exit.i18, %_ZN5arrow6StatusD2Ev.exit.i, %_ZN5arrow6StatusD2Ev.exit11.i25, %_ZN5arrow6StatusD2Ev.exit11.i33, %_ZN5arrow6StatusD2Ev.exit11.i45, %_ZN5arrow6StatusD2Ev.exit11.i57, %_ZN5arrow6StatusD2Ev.exit11.i69
-  %.pr.ph.sink = phi ptr [ %.pr273, %_ZN5arrow6StatusD2Ev.exit.i ], [ %403, %_ZN5arrow6StatusD2Ev.exit11.i25 ], [ %387, %_ZN5arrow6StatusD2Ev.exit11.i33 ], [ %372, %_ZN5arrow6StatusD2Ev.exit11.i45 ], [ %357, %_ZN5arrow6StatusD2Ev.exit11.i57 ], [ %341, %_ZN5arrow6StatusD2Ev.exit11.i69 ], [ %.pr269, %_ZN5arrow6StatusD2Ev.exit16.i ], [ %.pr267, %_ZN5arrow6StatusD2Ev.exit.i18 ], [ %.pr271, %_ZN5arrow6StatusD2Ev.exit25.i ]
+  %.pr.ph.sink = phi ptr [ %.pr267, %_ZN5arrow6StatusD2Ev.exit.i18 ], [ %341, %_ZN5arrow6StatusD2Ev.exit11.i69 ], [ %.pr269, %_ZN5arrow6StatusD2Ev.exit16.i ], [ %.pr273, %_ZN5arrow6StatusD2Ev.exit.i ], [ %403, %_ZN5arrow6StatusD2Ev.exit11.i25 ], [ %387, %_ZN5arrow6StatusD2Ev.exit11.i33 ], [ %372, %_ZN5arrow6StatusD2Ev.exit11.i45 ], [ %357, %_ZN5arrow6StatusD2Ev.exit11.i57 ], [ %.pr271, %_ZN5arrow6StatusD2Ev.exit25.i ]
   store ptr %.pr.ph.sink, ptr %30, align 8, !tbaa !59, !alias.scope !1951
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   br label %666

@@ -3866,7 +3866,7 @@ ff_props_equal.exit.thread:                       ; preds = %110, %166, %158, %1
   %226 = select i1 %67, ptr @.str.7, ptr @.str.8
   br label %.loopexit
 
-ff_props_equal.exit.thread56:                     ; preds = %222, %219, %ff_q_equal.exit.thread17.i44.i.i.i, %64
+ff_props_equal.exit.thread56:                     ; preds = %222, %ff_q_equal.exit.thread17.i44.i.i.i, %219, %64
   %227 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv
   %228 = call i32 @ff_sws_graph_reinit(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef nonnull %4, i32 noundef %59, ptr noundef nonnull %227) #12
   %229 = icmp slt i32 %228, 0

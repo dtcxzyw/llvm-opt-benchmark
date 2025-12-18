@@ -436,7 +436,7 @@ Curl_cidr4_match.exit:                            ; preds = %128
   ]
 
 .critedge138:                                     ; preds = %70, %68, %.critedge141.us, %.preheader.us, %Curl_cidr4_match.exit, %130, %.critedge141, %.preheader, %42, %140, %26, %24, %.tail, %13, %2, %10
-  %.090 = phi i1 [ false, %2 ], [ false, %10 ], [ true, %140 ], [ false, %13 ], [ false, %26 ], [ false, %24 ], [ true, %.tail ], [ false, %42 ], [ false, %.critedge141.us ], [ false, %.preheader ], [ false, %.critedge141 ], [ true, %Curl_cidr4_match.exit ], [ false, %.preheader.us ], [ true, %130 ], [ true, %68 ], [ true, %70 ]
+  %.090 = phi i1 [ true, %.tail ], [ false, %2 ], [ false, %10 ], [ false, %.preheader ], [ true, %140 ], [ false, %13 ], [ false, %26 ], [ false, %24 ], [ true, %Curl_cidr4_match.exit ], [ false, %42 ], [ false, %.critedge141.us ], [ false, %.preheader.us ], [ false, %.critedge141 ], [ true, %130 ], [ true, %68 ], [ true, %70 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i1 %.090
 }

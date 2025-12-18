@@ -3879,7 +3879,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17h09d55e06f
   br label %71
 
 .loopexit.split-lp:                               ; preds = %67, %.loopexit135, %106, %116, %121, %130
-  %.sroa.03.0.ph = phi i8 [ %.sroa.03.2, %116 ], [ 1, %67 ], [ %.sroa.03.2, %.loopexit135 ], [ %.sroa.03.2, %106 ], [ %.sroa.03.2, %121 ], [ %.sroa.03.2, %130 ]
+  %.sroa.03.0.ph = phi i8 [ 1, %67 ], [ %.sroa.03.2, %116 ], [ %.sroa.03.2, %.loopexit135 ], [ %.sroa.03.2, %106 ], [ %.sroa.03.2, %121 ], [ %.sroa.03.2, %130 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %71
@@ -4705,7 +4705,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17h19a189746
   br label %78
 
 .loopexit.split-lp:                               ; preds = %74, %.loopexit138, %113, %123, %128, %137
-  %.sroa.03.0.ph = phi i8 [ %.sroa.03.2, %123 ], [ 1, %74 ], [ %.sroa.03.2, %.loopexit138 ], [ %.sroa.03.2, %113 ], [ %.sroa.03.2, %128 ], [ %.sroa.03.2, %137 ]
+  %.sroa.03.0.ph = phi i8 [ 1, %74 ], [ %.sroa.03.2, %123 ], [ %.sroa.03.2, %.loopexit138 ], [ %.sroa.03.2, %113 ], [ %.sroa.03.2, %128 ], [ %.sroa.03.2, %137 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %78
@@ -5760,7 +5760,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17h31c671731
   br label %71
 
 .loopexit.split-lp:                               ; preds = %67, %.loopexit135, %106, %116, %121, %130
-  %.sroa.03.0.ph = phi i8 [ %.sroa.03.2, %116 ], [ 1, %67 ], [ %.sroa.03.2, %.loopexit135 ], [ %.sroa.03.2, %106 ], [ %.sroa.03.2, %121 ], [ %.sroa.03.2, %130 ]
+  %.sroa.03.0.ph = phi i8 [ 1, %67 ], [ %.sroa.03.2, %116 ], [ %.sroa.03.2, %.loopexit135 ], [ %.sroa.03.2, %106 ], [ %.sroa.03.2, %121 ], [ %.sroa.03.2, %130 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %71
@@ -6551,7 +6551,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17h33b100fd4
   br label %71
 
 .loopexit.split-lp:                               ; preds = %67, %.loopexit135, %106, %116, %121, %130
-  %.sroa.03.0.ph = phi i8 [ %.sroa.03.2, %116 ], [ 1, %67 ], [ %.sroa.03.2, %.loopexit135 ], [ %.sroa.03.2, %106 ], [ %.sroa.03.2, %121 ], [ %.sroa.03.2, %130 ]
+  %.sroa.03.0.ph = phi i8 [ 1, %67 ], [ %.sroa.03.2, %116 ], [ %.sroa.03.2, %.loopexit135 ], [ %.sroa.03.2, %106 ], [ %.sroa.03.2, %121 ], [ %.sroa.03.2, %130 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %71
@@ -7429,7 +7429,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17h39d086aa5
   br label %71
 
 .loopexit.split-lp:                               ; preds = %67, %.loopexit135, %106, %116, %121, %130
-  %.sroa.03.0.ph = phi i8 [ %.sroa.03.2, %116 ], [ 1, %67 ], [ %.sroa.03.2, %.loopexit135 ], [ %.sroa.03.2, %106 ], [ %.sroa.03.2, %121 ], [ %.sroa.03.2, %130 ]
+  %.sroa.03.0.ph = phi i8 [ 1, %67 ], [ %.sroa.03.2, %116 ], [ %.sroa.03.2, %.loopexit135 ], [ %.sroa.03.2, %106 ], [ %.sroa.03.2, %121 ], [ %.sroa.03.2, %130 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %71
@@ -8194,7 +8194,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17h3c92ec154
   br label %65
 
 .loopexit.split-lp:                               ; preds = %62, %.loopexit129, %100, %110, %115, %124
-  %.sroa.03.0.ph = phi i8 [ %.sroa.03.2, %110 ], [ 1, %62 ], [ %.sroa.03.2, %.loopexit129 ], [ %.sroa.03.2, %100 ], [ %.sroa.03.2, %115 ], [ %.sroa.03.2, %124 ]
+  %.sroa.03.0.ph = phi i8 [ 1, %62 ], [ %.sroa.03.2, %110 ], [ %.sroa.03.2, %.loopexit129 ], [ %.sroa.03.2, %100 ], [ %.sroa.03.2, %115 ], [ %.sroa.03.2, %124 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %65
@@ -9068,7 +9068,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17h483611ca9
   br label %71
 
 .loopexit.split-lp:                               ; preds = %67, %.loopexit135, %106, %116, %121, %130
-  %.sroa.03.0.ph = phi i8 [ %.sroa.03.2, %116 ], [ 1, %67 ], [ %.sroa.03.2, %.loopexit135 ], [ %.sroa.03.2, %106 ], [ %.sroa.03.2, %121 ], [ %.sroa.03.2, %130 ]
+  %.sroa.03.0.ph = phi i8 [ 1, %67 ], [ %.sroa.03.2, %116 ], [ %.sroa.03.2, %.loopexit135 ], [ %.sroa.03.2, %106 ], [ %.sroa.03.2, %121 ], [ %.sroa.03.2, %130 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %71
@@ -9829,7 +9829,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17h4bc0a0cff
   br label %65
 
 .loopexit.split-lp:                               ; preds = %62, %.loopexit129, %100, %110, %115, %124
-  %.sroa.03.0.ph = phi i8 [ %.sroa.03.2, %110 ], [ 1, %62 ], [ %.sroa.03.2, %.loopexit129 ], [ %.sroa.03.2, %100 ], [ %.sroa.03.2, %115 ], [ %.sroa.03.2, %124 ]
+  %.sroa.03.0.ph = phi i8 [ 1, %62 ], [ %.sroa.03.2, %110 ], [ %.sroa.03.2, %.loopexit129 ], [ %.sroa.03.2, %100 ], [ %.sroa.03.2, %115 ], [ %.sroa.03.2, %124 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %65
@@ -10703,7 +10703,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17h5b3b4f84e
   br label %71
 
 .loopexit.split-lp:                               ; preds = %67, %.loopexit135, %106, %116, %121, %130
-  %.sroa.03.0.ph = phi i8 [ %.sroa.03.2, %116 ], [ 1, %67 ], [ %.sroa.03.2, %.loopexit135 ], [ %.sroa.03.2, %106 ], [ %.sroa.03.2, %121 ], [ %.sroa.03.2, %130 ]
+  %.sroa.03.0.ph = phi i8 [ 1, %67 ], [ %.sroa.03.2, %116 ], [ %.sroa.03.2, %.loopexit135 ], [ %.sroa.03.2, %106 ], [ %.sroa.03.2, %121 ], [ %.sroa.03.2, %130 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %71
@@ -11592,7 +11592,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17h6bcb41a31
   br label %71
 
 .loopexit.split-lp:                               ; preds = %67, %.loopexit135, %106, %116, %121, %130
-  %.sroa.03.0.ph = phi i8 [ %.sroa.03.2, %116 ], [ 1, %67 ], [ %.sroa.03.2, %.loopexit135 ], [ %.sroa.03.2, %106 ], [ %.sroa.03.2, %121 ], [ %.sroa.03.2, %130 ]
+  %.sroa.03.0.ph = phi i8 [ 1, %67 ], [ %.sroa.03.2, %116 ], [ %.sroa.03.2, %.loopexit135 ], [ %.sroa.03.2, %106 ], [ %.sroa.03.2, %121 ], [ %.sroa.03.2, %130 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %71
@@ -12466,7 +12466,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17h7469f0295
   br label %71
 
 .loopexit.split-lp:                               ; preds = %67, %.loopexit135, %106, %116, %121, %130
-  %.sroa.03.0.ph = phi i8 [ %.sroa.03.2, %116 ], [ 1, %67 ], [ %.sroa.03.2, %.loopexit135 ], [ %.sroa.03.2, %106 ], [ %.sroa.03.2, %121 ], [ %.sroa.03.2, %130 ]
+  %.sroa.03.0.ph = phi i8 [ 1, %67 ], [ %.sroa.03.2, %116 ], [ %.sroa.03.2, %.loopexit135 ], [ %.sroa.03.2, %106 ], [ %.sroa.03.2, %121 ], [ %.sroa.03.2, %130 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %71
@@ -13439,7 +13439,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17h935fc09ea
   br label %71
 
 .loopexit.split-lp:                               ; preds = %67, %.loopexit134, %106, %116, %121, %130
-  %.sroa.03.0.ph = phi i8 [ %.sroa.03.2, %116 ], [ 1, %67 ], [ %.sroa.03.2, %.loopexit134 ], [ %.sroa.03.2, %106 ], [ %.sroa.03.2, %121 ], [ %.sroa.03.2, %130 ]
+  %.sroa.03.0.ph = phi i8 [ 1, %67 ], [ %.sroa.03.2, %116 ], [ %.sroa.03.2, %.loopexit134 ], [ %.sroa.03.2, %106 ], [ %.sroa.03.2, %121 ], [ %.sroa.03.2, %130 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %71
@@ -14147,7 +14147,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17h952a146de
   br label %71
 
 .loopexit.split-lp:                               ; preds = %67, %.loopexit135, %106, %116, %121, %130
-  %.sroa.03.0.ph = phi i8 [ %.sroa.03.2, %116 ], [ 1, %67 ], [ %.sroa.03.2, %.loopexit135 ], [ %.sroa.03.2, %106 ], [ %.sroa.03.2, %121 ], [ %.sroa.03.2, %130 ]
+  %.sroa.03.0.ph = phi i8 [ 1, %67 ], [ %.sroa.03.2, %116 ], [ %.sroa.03.2, %.loopexit135 ], [ %.sroa.03.2, %106 ], [ %.sroa.03.2, %121 ], [ %.sroa.03.2, %130 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %71
@@ -14942,7 +14942,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17h991700544
   br label %71
 
 .loopexit.split-lp:                               ; preds = %67, %.loopexit135, %106, %116, %121, %130
-  %.sroa.03.0.ph = phi i8 [ %.sroa.03.2, %116 ], [ 1, %67 ], [ %.sroa.03.2, %.loopexit135 ], [ %.sroa.03.2, %106 ], [ %.sroa.03.2, %121 ], [ %.sroa.03.2, %130 ]
+  %.sroa.03.0.ph = phi i8 [ 1, %67 ], [ %.sroa.03.2, %116 ], [ %.sroa.03.2, %.loopexit135 ], [ %.sroa.03.2, %106 ], [ %.sroa.03.2, %121 ], [ %.sroa.03.2, %130 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %71
@@ -15903,7 +15903,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17ha5d18e8ee
   br label %71
 
 .loopexit.split-lp:                               ; preds = %67, %.loopexit135, %106, %116, %121, %130
-  %.sroa.03.0.ph = phi i8 [ %.sroa.03.2, %116 ], [ 1, %67 ], [ %.sroa.03.2, %.loopexit135 ], [ %.sroa.03.2, %106 ], [ %.sroa.03.2, %121 ], [ %.sroa.03.2, %130 ]
+  %.sroa.03.0.ph = phi i8 [ 1, %67 ], [ %.sroa.03.2, %116 ], [ %.sroa.03.2, %.loopexit135 ], [ %.sroa.03.2, %106 ], [ %.sroa.03.2, %121 ], [ %.sroa.03.2, %130 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %71
@@ -16694,7 +16694,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17hac0e0c115
   br label %71
 
 .loopexit.split-lp:                               ; preds = %67, %.loopexit135, %106, %116, %121, %130
-  %.sroa.03.0.ph = phi i8 [ %.sroa.03.2, %116 ], [ 1, %67 ], [ %.sroa.03.2, %.loopexit135 ], [ %.sroa.03.2, %106 ], [ %.sroa.03.2, %121 ], [ %.sroa.03.2, %130 ]
+  %.sroa.03.0.ph = phi i8 [ 1, %67 ], [ %.sroa.03.2, %116 ], [ %.sroa.03.2, %.loopexit135 ], [ %.sroa.03.2, %106 ], [ %.sroa.03.2, %121 ], [ %.sroa.03.2, %130 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %71
@@ -17489,7 +17489,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17had7ad1847
   br label %71
 
 .loopexit.split-lp:                               ; preds = %67, %.loopexit135, %106, %116, %121, %130
-  %.sroa.03.0.ph = phi i8 [ %.sroa.03.2, %116 ], [ 1, %67 ], [ %.sroa.03.2, %.loopexit135 ], [ %.sroa.03.2, %106 ], [ %.sroa.03.2, %121 ], [ %.sroa.03.2, %130 ]
+  %.sroa.03.0.ph = phi i8 [ 1, %67 ], [ %.sroa.03.2, %116 ], [ %.sroa.03.2, %.loopexit135 ], [ %.sroa.03.2, %106 ], [ %.sroa.03.2, %121 ], [ %.sroa.03.2, %130 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %71
@@ -18197,7 +18197,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17hb35b8b343
   br label %71
 
 .loopexit.split-lp:                               ; preds = %67, %.loopexit135, %106, %116, %121, %130
-  %.sroa.03.0.ph = phi i8 [ %.sroa.03.2, %116 ], [ 1, %67 ], [ %.sroa.03.2, %.loopexit135 ], [ %.sroa.03.2, %106 ], [ %.sroa.03.2, %121 ], [ %.sroa.03.2, %130 ]
+  %.sroa.03.0.ph = phi i8 [ 1, %67 ], [ %.sroa.03.2, %116 ], [ %.sroa.03.2, %.loopexit135 ], [ %.sroa.03.2, %106 ], [ %.sroa.03.2, %121 ], [ %.sroa.03.2, %130 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %71
@@ -19124,7 +19124,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17hcb6c0f287
   br label %65
 
 .loopexit.split-lp:                               ; preds = %62, %.loopexit129, %100, %110, %115, %124
-  %.sroa.03.0.ph = phi i8 [ %.sroa.03.2, %110 ], [ 1, %62 ], [ %.sroa.03.2, %.loopexit129 ], [ %.sroa.03.2, %100 ], [ %.sroa.03.2, %115 ], [ %.sroa.03.2, %124 ]
+  %.sroa.03.0.ph = phi i8 [ 1, %62 ], [ %.sroa.03.2, %110 ], [ %.sroa.03.2, %.loopexit129 ], [ %.sroa.03.2, %100 ], [ %.sroa.03.2, %115 ], [ %.sroa.03.2, %124 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %65
@@ -20271,7 +20271,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17hd8298e794
   br label %78
 
 .loopexit.split-lp:                               ; preds = %74, %.loopexit138, %113, %123, %128, %137
-  %.sroa.03.0.ph = phi i8 [ %.sroa.03.2, %123 ], [ 1, %74 ], [ %.sroa.03.2, %.loopexit138 ], [ %.sroa.03.2, %113 ], [ %.sroa.03.2, %128 ], [ %.sroa.03.2, %137 ]
+  %.sroa.03.0.ph = phi i8 [ 1, %74 ], [ %.sroa.03.2, %123 ], [ %.sroa.03.2, %.loopexit138 ], [ %.sroa.03.2, %113 ], [ %.sroa.03.2, %128 ], [ %.sroa.03.2, %137 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %78
@@ -21149,7 +21149,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17he891fcde6
   br label %71
 
 .loopexit.split-lp:                               ; preds = %67, %.loopexit135, %106, %116, %121, %130
-  %.sroa.03.0.ph = phi i8 [ %.sroa.03.2, %116 ], [ 1, %67 ], [ %.sroa.03.2, %.loopexit135 ], [ %.sroa.03.2, %106 ], [ %.sroa.03.2, %121 ], [ %.sroa.03.2, %130 ]
+  %.sroa.03.0.ph = phi i8 [ 1, %67 ], [ %.sroa.03.2, %116 ], [ %.sroa.03.2, %.loopexit135 ], [ %.sroa.03.2, %106 ], [ %.sroa.03.2, %121 ], [ %.sroa.03.2, %130 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %71
@@ -21888,7 +21888,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17hed476f442
   br label %78
 
 .loopexit.split-lp:                               ; preds = %74, %.loopexit138, %113, %123, %128, %137
-  %.sroa.03.0.ph = phi i8 [ %.sroa.03.2, %123 ], [ 1, %74 ], [ %.sroa.03.2, %.loopexit138 ], [ %.sroa.03.2, %113 ], [ %.sroa.03.2, %128 ], [ %.sroa.03.2, %137 ]
+  %.sroa.03.0.ph = phi i8 [ 1, %74 ], [ %.sroa.03.2, %123 ], [ %.sroa.03.2, %.loopexit138 ], [ %.sroa.03.2, %113 ], [ %.sroa.03.2, %128 ], [ %.sroa.03.2, %137 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %78
@@ -22679,7 +22679,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17hf25fabe80
   br label %71
 
 .loopexit.split-lp:                               ; preds = %67, %.loopexit135, %106, %116, %121, %130
-  %.sroa.03.0.ph = phi i8 [ %.sroa.03.2, %116 ], [ 1, %67 ], [ %.sroa.03.2, %.loopexit135 ], [ %.sroa.03.2, %106 ], [ %.sroa.03.2, %121 ], [ %.sroa.03.2, %130 ]
+  %.sroa.03.0.ph = phi i8 [ 1, %67 ], [ %.sroa.03.2, %116 ], [ %.sroa.03.2, %.loopexit135 ], [ %.sroa.03.2, %106 ], [ %.sroa.03.2, %121 ], [ %.sroa.03.2, %130 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %71
@@ -23402,7 +23402,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17hf2a8a01a3
   br label %71
 
 .loopexit.split-lp:                               ; preds = %67, %.loopexit135, %106, %116, %121, %130
-  %.sroa.03.0.ph = phi i8 [ %.sroa.03.2, %116 ], [ 1, %67 ], [ %.sroa.03.2, %.loopexit135 ], [ %.sroa.03.2, %106 ], [ %.sroa.03.2, %121 ], [ %.sroa.03.2, %130 ]
+  %.sroa.03.0.ph = phi i8 [ 1, %67 ], [ %.sroa.03.2, %116 ], [ %.sroa.03.2, %.loopexit135 ], [ %.sroa.03.2, %106 ], [ %.sroa.03.2, %121 ], [ %.sroa.03.2, %130 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %71

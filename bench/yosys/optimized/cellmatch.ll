@@ -2751,7 +2751,7 @@ define noundef i64 @_ZN5Yosys11permute_lutEmRKSt6vectorIiSaIiEE(i64 noundef %0, 
   br i1 %exitcond.not, label %._crit_edge25, label %.preheader, !llvm.loop !62
 
 ._crit_edge25:                                    ; preds = %.preheader, %._crit_edge.us, %.preheader.lr.ph.split, %2
-  %.018.lcssa = phi i64 [ 0, %2 ], [ 0, %.preheader.lr.ph.split ], [ %.119.us, %._crit_edge.us ], [ %.119, %.preheader ]
+  %.018.lcssa = phi i64 [ 0, %2 ], [ %.119.us, %._crit_edge.us ], [ 0, %.preheader.lr.ph.split ], [ %.119, %.preheader ]
   ret i64 %.018.lcssa
 }
 
@@ -30442,7 +30442,7 @@ _ZNK5Yosys7hashlib4poolINS_5RTLIL8IdStringENS0_8hash_opsIS3_EEE7do_hashERKS3_.ex
   br label %_ZNK5Yosys9CellTypes11cell_outputENS_5RTLIL8IdStringES2_.exit
 
 _ZNK5Yosys9CellTypes11cell_outputENS_5RTLIL8IdStringES2_.exit: ; preds = %384, %.noexc, %191, %_ZNK5Yosys7hashlib4poolINS_5RTLIL8IdStringENS0_8hash_opsIS3_EEE5countERKS3_.exit.i, %._crit_edge.i, %.noexc71.loopexit, %._crit_edge.i113, %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS_8CellTypeENS0_8hash_opsIS3_EEE4findERKS3_.exit.i
-  %573 = phi i1 [ false, %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS_8CellTypeENS0_8hash_opsIS3_EEE4findERKS3_.exit.i ], [ false, %._crit_edge.i113 ], [ false, %191 ], [ false, %_ZNK5Yosys7hashlib4poolINS_5RTLIL8IdStringENS0_8hash_opsIS3_EEE5countERKS3_.exit.i ], [ false, %._crit_edge.i ], [ %572, %.noexc71.loopexit ], [ false, %.noexc ], [ false, %384 ]
+  %573 = phi i1 [ false, %.noexc ], [ false, %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS_8CellTypeENS0_8hash_opsIS3_EEE4findERKS3_.exit.i ], [ false, %._crit_edge.i113 ], [ false, %191 ], [ false, %_ZNK5Yosys7hashlib4poolINS_5RTLIL8IdStringENS0_8hash_opsIS3_EEE5countERKS3_.exit.i ], [ false, %._crit_edge.i ], [ %572, %.noexc71.loopexit ], [ false, %384 ]
   %574 = load i32, ptr %10, align 4, !tbaa !11
   %575 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1, !tbaa !19, !range !21, !noundef !22
   %576 = trunc nuw i8 %575 to i1
@@ -64442,7 +64442,7 @@ _ZN5Yosys5RTLIL7SigSpec6appendERKNS0_8SigChunkE.exit: ; preds = %_ZSt8_DestroyIP
   br i1 %.not86, label %_ZNSt3setIPN5Yosys5RTLIL4CellESt4lessIS3_ESaIS3_EE5eraseERKS3_.exit, label %212
 
 _ZNSt3setIPN5Yosys5RTLIL4CellESt4lessIS3_ESaIS3_EE5eraseERKS3_.exit: ; preds = %198, %243, %174, %200, %160, %158, %170
-  %.4 = phi i1 [ true, %170 ], [ false, %160 ], [ false, %158 ], [ false, %200 ], [ true, %174 ], [ false, %243 ], [ true, %198 ]
+  %.4 = phi i1 [ true, %170 ], [ false, %160 ], [ false, %200 ], [ false, %158 ], [ true, %174 ], [ false, %243 ], [ true, %198 ]
   %245 = load ptr, ptr %121, align 8, !tbaa !226
   invoke void @_ZNSt8_Rb_treeIPN5Yosys5RTLIL4CellES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef %245)
           to label %_ZNSt3setIPN5Yosys5RTLIL4CellESt4lessIS3_ESaIS3_EED2Ev.exit unwind label %246
@@ -64737,7 +64737,7 @@ _ZN5Yosys7hashlib8hash_opsINS_7SigPool8bitDef_tEE4hashERKS3_.exit.i: ; preds = %
   br i1 %.not37.not, label %.loopexit, label %12
 
 .loopexit:                                        ; preds = %.critedge12, %151, %2
-  %.not3743 = phi i1 [ false, %2 ], [ true, %151 ], [ false, %.critedge12 ]
+  %.not3743 = phi i1 [ true, %151 ], [ false, %2 ], [ false, %.critedge12 ]
   ret i1 %.not3743
 }
 
@@ -69230,7 +69230,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit774:              ; preds = %_ZSt8_DestroyIPN5Yo
   br i1 %1713, label %.loopexit992, label %1710
 
 .loopexit992:                                     ; preds = %1704, %1710, %.thread
-  %.pn361 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread ], [ %1709, %1710 ], [ %lpad.thr_comm.split-lp, %1704 ]
+  %.pn361 = phi { ptr, i32 } [ %1709, %1710 ], [ %lpad.thr_comm, %.thread ], [ %lpad.thr_comm.split-lp, %1704 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %78)
   br label %1828
 
@@ -83058,8 +83058,8 @@ _ZNSt8_Rb_treeIPN5Yosys5RTLIL4CellES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_
   br i1 %.not.i, label %_ZNSt8_Rb_treeIPN5Yosys5RTLIL4CellES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE11equal_rangeERKS3_.exit, label %6, !llvm.loop !927
 
 _ZNSt8_Rb_treeIPN5Yosys5RTLIL4CellES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE11equal_rangeERKS3_.exit: ; preds = %23, %.lr.ph.i25.i, %2, %_ZNSt8_Rb_treeIPN5Yosys5RTLIL4CellES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i
-  %.sroa.037.0.i = phi ptr [ %.08.lcssa.i.i, %_ZNSt8_Rb_treeIPN5Yosys5RTLIL4CellES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i ], [ %4, %2 ], [ %.08.lcssa.i.i, %.lr.ph.i25.i ], [ %.123.i, %23 ]
-  %.sroa.3.0.i = phi ptr [ %.02243.i, %_ZNSt8_Rb_treeIPN5Yosys5RTLIL4CellES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i ], [ %4, %2 ], [ %.19.i28.i, %.lr.ph.i25.i ], [ %.123.i, %23 ]
+  %.sroa.037.0.i = phi ptr [ %.08.lcssa.i.i, %.lr.ph.i25.i ], [ %.08.lcssa.i.i, %_ZNSt8_Rb_treeIPN5Yosys5RTLIL4CellES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i ], [ %4, %2 ], [ %.123.i, %23 ]
+  %.sroa.3.0.i = phi ptr [ %.19.i28.i, %.lr.ph.i25.i ], [ %.02243.i, %_ZNSt8_Rb_treeIPN5Yosys5RTLIL4CellES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i ], [ %4, %2 ], [ %.123.i, %23 ]
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %26 = load i64, ptr %25, align 8, !tbaa !265
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -85342,7 +85342,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit323:       ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %exitcond.not.i, label %_ZN5Yosys11permute_lutEmRKSt6vectorIiSaIiEE.exit, label %.preheader.i, !llvm.loop !62
 
 _ZN5Yosys11permute_lutEmRKSt6vectorIiSaIiEE.exit: ; preds = %.preheader.i, %._crit_edge.us.i, %.lr.ph1252, %.preheader.lr.ph.split.i
-  %.018.lcssa.i = phi i64 [ 0, %.lr.ph1252 ], [ 0, %.preheader.lr.ph.split.i ], [ %.119.us.i, %._crit_edge.us.i ], [ %.119.i, %.preheader.i ]
+  %.018.lcssa.i = phi i64 [ 0, %.lr.ph1252 ], [ %.119.us.i, %._crit_edge.us.i ], [ 0, %.preheader.lr.ph.split.i ], [ %.119.i, %.preheader.i ]
   %.not165 = icmp eq i64 %.018.lcssa.i, %928
   br i1 %.not165, label %926, label %.loopexit1939
 
@@ -86551,7 +86551,7 @@ _ZSt9__reverseIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_St26ra
   br i1 %1461, label %.lr.ph.i14.i.i466, label %_ZSt16next_permutationIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEbT_S7_.exit479, !llvm.loop !66
 
 _ZSt16next_permutationIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEbT_S7_.exit479: ; preds = %.lr.ph.i14.i.i466, %.lr.ph.i.i.i475, %1457, %1450, %_ZSt16next_permutationIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEbT_S7_.exit.thread
-  %.0.i.i465 = phi i1 [ false, %_ZSt16next_permutationIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEbT_S7_.exit.thread ], [ false, %1457 ], [ true, %1450 ], [ true, %.lr.ph.i.i.i475 ], [ false, %.lr.ph.i14.i.i466 ]
+  %.0.i.i465 = phi i1 [ false, %_ZSt16next_permutationIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEbT_S7_.exit.thread ], [ true, %1450 ], [ true, %.lr.ph.i.i.i475 ], [ false, %1457 ], [ false, %.lr.ph.i14.i.i466 ]
   %.not.i.i.i480 = icmp eq ptr %.sroa.0601.6.lcssa, null
   br i1 %.not.i.i.i480, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %1462
 
@@ -88256,7 +88256,7 @@ _ZN5Yosys7hashlib8hash_opsINS0_4poolImNS1_ImEEEEE3cmpERKS4_S7_.exit: ; preds = %
   br i1 %104, label %80, label %.critedge, !llvm.loop !1034
 
 .critedge:                                        ; preds = %_ZN5Yosys7hashlib8hash_opsINS0_4poolImNS1_ImEEEEE3cmpERKS4_S7_.exit, %96, %97, %71, %3
-  %.011 = phi i32 [ -1, %3 ], [ %76, %71 ], [ %.016, %97 ], [ %103, %_ZN5Yosys7hashlib8hash_opsINS0_4poolImNS1_ImEEEEE3cmpERKS4_S7_.exit ], [ %.016, %96 ]
+  %.011 = phi i32 [ -1, %3 ], [ %.016, %97 ], [ %76, %71 ], [ %103, %_ZN5Yosys7hashlib8hash_opsINS0_4poolImNS1_ImEEEEE3cmpERKS4_S7_.exit ], [ %.016, %96 ]
   ret i32 %.011
 }
 

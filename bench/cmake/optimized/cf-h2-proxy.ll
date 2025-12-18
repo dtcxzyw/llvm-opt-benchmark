@@ -1060,7 +1060,7 @@ inspect_response.exit.thread111.i:                ; preds = %322, %294, %292, %i
   br label %H2_CONNECT.exit
 
 H2_CONNECT.exit:                                  ; preds = %403, %inspect_response.exit.thread111.i, %inspect_response.exit.thread114.i
-  %.037 = phi i32 [ %.1113.i, %inspect_response.exit.thread111.i ], [ %.1113.i, %403 ], [ %.1116.i, %inspect_response.exit.thread114.i ]
+  %.037 = phi i32 [ %.1116.i, %inspect_response.exit.thread114.i ], [ %.1113.i, %inspect_response.exit.thread111.i ], [ %.1113.i, %403 ]
   %406 = icmp eq i32 %.037, 0
   br i1 %406, label %H2_CONNECT.exit.thread47, label %.critedge
 
@@ -1081,7 +1081,7 @@ H2_CONNECT.exit.thread47:                         ; preds = %H2_CONNECT.exit
   br label %414
 
 .critedge:                                        ; preds = %134, %cf_h2_proxy_ctx_init.exit, %117, %H2_CONNECT.exit
-  %.03746 = phi i32 [ %.037, %H2_CONNECT.exit ], [ %.034.i, %cf_h2_proxy_ctx_init.exit ], [ 28, %117 ], [ 56, %134 ]
+  %.03746 = phi i32 [ %.037, %H2_CONNECT.exit ], [ 28, %117 ], [ %.034.i, %cf_h2_proxy_ctx_init.exit ], [ 56, %134 ]
   store i8 0, ptr %3, align 1, !tbaa !29
   br label %414
 
@@ -1709,7 +1709,7 @@ proxy_h2_should_close_session.exit.thread.sink.split: ; preds = %43, %44, %51, %
   br label %proxy_h2_should_close_session.exit.thread
 
 proxy_h2_should_close_session.exit.thread:        ; preds = %proxy_h2_should_close_session.exit.thread.sink.split, %35, %proxy_h2_should_close_session.exit, %21
-  %.0 = phi i64 [ %19, %21 ], [ %19, %proxy_h2_should_close_session.exit ], [ %19, %35 ], [ -1, %proxy_h2_should_close_session.exit.thread.sink.split ]
+  %.0 = phi i64 [ %19, %35 ], [ %19, %21 ], [ %19, %proxy_h2_should_close_session.exit ], [ -1, %proxy_h2_should_close_session.exit.thread.sink.split ]
   %61 = getelementptr inbounds nuw i8, ptr %8, i64 152
   %62 = tail call zeroext i1 @Curl_bufq_is_empty(ptr noundef nonnull %61) #7
   br i1 %62, label %drain_tunnel.exit, label %63
@@ -2033,7 +2033,7 @@ h2_handle_tunnel_close.exit.sink.split.i:         ; preds = %99, %93, %87, %64, 
   br label %h2_handle_tunnel_close.exit.i
 
 h2_handle_tunnel_close.exit.i:                    ; preds = %h2_handle_tunnel_close.exit.sink.split.i, %99, %96, %21
-  %.1.i = phi i64 [ %22, %21 ], [ -1, %99 ], [ -1, %96 ], [ -1, %h2_handle_tunnel_close.exit.sink.split.i ]
+  %.1.i = phi i64 [ %22, %21 ], [ -1, %96 ], [ -1, %99 ], [ -1, %h2_handle_tunnel_close.exit.sink.split.i ]
   %.not42.i = icmp eq ptr %1, null
   br i1 %.not42.i, label %tunnel_recv.exit.thread79, label %h2_handle_tunnel_close.exit.thread.i
 
@@ -4253,7 +4253,7 @@ define internal fastcc range(i32 -1, 1) i32 @proxy_h2_process_pending_input(ptr 
   br i1 %75, label %.lr.ph.split, label %.loopexit, !llvm.loop !149
 
 .loopexit:                                        ; preds = %74, %17, %19, %3, %59, %54, %50, %.split59.us, %.split.us
-  %.0 = phi i32 [ -1, %.split.us ], [ 0, %3 ], [ 0, %.split59.us ], [ 0, %50 ], [ 0, %54 ], [ 0, %59 ], [ 0, %17 ], [ 0, %19 ], [ 0, %74 ]
+  %.0 = phi i32 [ -1, %.split.us ], [ 0, %3 ], [ 0, %.split59.us ], [ 0, %50 ], [ 0, %17 ], [ 0, %54 ], [ 0, %59 ], [ 0, %19 ], [ 0, %74 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0

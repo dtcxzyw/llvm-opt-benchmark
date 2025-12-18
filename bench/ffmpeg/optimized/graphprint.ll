@@ -1329,8 +1329,8 @@ define i32 @print_filtergraphs(ptr noundef readonly captures(none) %0, i32 nound
   br label %69
 
 69:                                               ; preds = %.fold.split.i.i.i, %68, %.lr.ph.i.i.i
-  %.129.i.i.i = phi ptr [ %.02841.i.i.i, %68 ], [ %.043.i.i.i, %.lr.ph.i.i.i ], [ %.02841.i.i.i, %.fold.split.i.i.i ]
-  %.1.i.i.i = phi ptr [ %.043.i.i.i, %68 ], [ %.02742.i.i.i, %.lr.ph.i.i.i ], [ %.02742.i.i.i, %.fold.split.i.i.i ]
+  %.129.i.i.i = phi ptr [ %.043.i.i.i, %.lr.ph.i.i.i ], [ %.02841.i.i.i, %68 ], [ %.02841.i.i.i, %.fold.split.i.i.i ]
+  %.1.i.i.i = phi ptr [ %.02742.i.i.i, %.lr.ph.i.i.i ], [ %.043.i.i.i, %68 ], [ %.02742.i.i.i, %.fold.split.i.i.i ]
   %70 = getelementptr inbounds nuw i8, ptr %.043.i.i.i, i64 1
   %exitcond.not.i.i.i = icmp eq ptr %70, %.026.i.i.i
   br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !169
@@ -1814,8 +1814,8 @@ upcase_string.exit.i.i:                           ; preds = %.lr.ph.i294.i.i, %1
   br label %285
 
 285:                                              ; preds = %.fold.split.i314.i.i, %284, %.lr.ph.i301.i.i
-  %.129.i305.i.i = phi ptr [ %.02841.i304.i.i, %284 ], [ %.043.i302.i.i, %.lr.ph.i301.i.i ], [ %.02841.i304.i.i, %.fold.split.i314.i.i ]
-  %.1.i306.i.i = phi ptr [ %.043.i302.i.i, %284 ], [ %.02742.i303.i.i, %.lr.ph.i301.i.i ], [ %.02742.i303.i.i, %.fold.split.i314.i.i ]
+  %.129.i305.i.i = phi ptr [ %.043.i302.i.i, %.lr.ph.i301.i.i ], [ %.02841.i304.i.i, %284 ], [ %.02841.i304.i.i, %.fold.split.i314.i.i ]
+  %.1.i306.i.i = phi ptr [ %.02742.i303.i.i, %.lr.ph.i301.i.i ], [ %.043.i302.i.i, %284 ], [ %.02742.i303.i.i, %.fold.split.i314.i.i ]
   %286 = getelementptr inbounds nuw i8, ptr %.043.i302.i.i, i64 1
   %exitcond.not.i307.i.i = icmp eq ptr %286, %.026.i298.i.i
   br i1 %exitcond.not.i307.i.i, label %._crit_edge.i308.i.i, label %.lr.ph.i301.i.i, !llvm.loop !169

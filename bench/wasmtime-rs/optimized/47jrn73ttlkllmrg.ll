@@ -6551,7 +6551,7 @@ _ZN11wasi_common5sched4Poll23earliest_clock_deadline17h57f423e063c6bd4aE.exit191
   br i1 %323, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he2c604546516f11eE.exit.thread.i.i.i", label %339
 
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he2c604546516f11eE.exit.thread.i.i.loopexit.i": ; preds = %385, %310, %304
-  %.lcssa272.i = phi ptr [ %266, %304 ], [ %314, %310 ], [ %.promoted.i.i.i.i.i, %385 ]
+  %.lcssa272.i = phi ptr [ %314, %310 ], [ %266, %304 ], [ %.promoted.i.i.i.i.i, %385 ]
   store ptr %.lcssa272.i, ptr %18, align 8
   br label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he2c604546516f11eE.exit.thread.i.i.i"
 

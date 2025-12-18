@@ -1053,7 +1053,7 @@ BufferGetPage.exit65:                             ; preds = %55, %59
   br label %.thread
 
 .thread:                                          ; preds = %68, %77, %76, %.thread.sink.split, %30, %BufferGetPage.exit.us.us.us, %37, %BufferGetPage.exit.us.us72
-  %.us-phi = phi i1 [ false, %BufferGetPage.exit.us.us.us ], [ false, %30 ], [ false, %BufferGetPage.exit.us.us72 ], [ false, %37 ], [ true, %.thread.sink.split ], [ true, %77 ], [ %.050, %68 ], [ true, %76 ]
+  %.us-phi = phi i1 [ false, %BufferGetPage.exit.us.us72 ], [ false, %37 ], [ false, %BufferGetPage.exit.us.us.us ], [ true, %.thread.sink.split ], [ false, %30 ], [ true, %77 ], [ %.050, %68 ], [ true, %76 ]
   ret i1 %.us-phi
 }
 

@@ -12033,7 +12033,7 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br label %.thread
 
 .thread:                                          ; preds = %.preheader67, %..thread.loopexit_crit_edge, %95, %97
-  %.0 = phi i64 [ 9223372036854775807, %95 ], [ %98, %97 ], [ %.134, %..thread.loopexit_crit_edge ], [ 0, %.preheader67 ]
+  %.0 = phi i64 [ %98, %97 ], [ 9223372036854775807, %95 ], [ %.134, %..thread.loopexit_crit_edge ], [ 0, %.preheader67 ]
   ret i64 %.0
 }
 

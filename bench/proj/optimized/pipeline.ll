@@ -1120,7 +1120,7 @@ define internal void @_ZL19pipeline_forward_4dR8PJ_COORDP8PJconsts(ptr noundef n
   br i1 %.not16.old, label %._crit_edge, label %.lr.ph.backedge
 
 .lr.ph.backedge:                                  ; preds = %.critedge, %18
-  %.sroa.015.018.be = phi ptr [ %.old, %.critedge ], [ %21, %18 ]
+  %.sroa.015.018.be = phi ptr [ %21, %18 ], [ %.old, %.critedge ]
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.critedge, %18, %2

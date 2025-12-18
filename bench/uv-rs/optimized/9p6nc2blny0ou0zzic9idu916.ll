@@ -2672,7 +2672,7 @@ define hidden void @_ZN16uv_build_backend5wheel11write_wheel17h970c4c3f42734946E
   br label %.thread1058
 
 .thread1078.loopexit.split-lp.loopexit.split-lp:  ; preds = %328, %329, %.thread1086, %311, %262, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc590b2d400e662a9E.exit.thread"
-  %.sroa.0243.0.ph.ph.ph = phi i1 [ false, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc590b2d400e662a9E.exit.thread" ], [ true, %262 ], [ false, %311 ], [ false, %.thread1086 ], [ false, %329 ], [ false, %328 ]
+  %.sroa.0243.0.ph.ph.ph = phi i1 [ false, %328 ], [ false, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc590b2d400e662a9E.exit.thread" ], [ true, %262 ], [ false, %311 ], [ false, %.thread1086 ], [ false, %329 ]
   %lpad.loopexit.split-lp1282 = landingpad { ptr, i32 }
           cleanup
   br label %.thread1058
@@ -8293,7 +8293,7 @@ define hidden void @_ZN16uv_build_backend5wheel11write_wheel17hd28b4437943ea5b0E
   br label %.thread1077
 
 .thread1103.loopexit.split-lp.loopexit.split-lp:  ; preds = %339, %340, %.thread1112, %322, %273, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc590b2d400e662a9E.exit.thread"
-  %.sroa.0244.0.ph.ph.ph = phi i1 [ false, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc590b2d400e662a9E.exit.thread" ], [ true, %273 ], [ false, %322 ], [ false, %.thread1112 ], [ false, %340 ], [ false, %339 ]
+  %.sroa.0244.0.ph.ph.ph = phi i1 [ false, %339 ], [ false, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc590b2d400e662a9E.exit.thread" ], [ true, %273 ], [ false, %322 ], [ false, %.thread1112 ], [ false, %340 ]
   %lpad.loopexit.split-lp1312 = landingpad { ptr, i32 }
           cleanup
   br label %.thread1077

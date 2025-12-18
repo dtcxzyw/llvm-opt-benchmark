@@ -10805,15 +10805,15 @@ _ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAllocatorEE7ConsumeINS4_12Nu
   br i1 %or.cond436, label %.lr.ph509, label %.critedge180, !prof !321, !llvm.loop !327
 
 .critedge180:                                     ; preds = %42, %28, %74, %61, %89, %.preheader451, %.preheader449, %13
-  %97 = phi i8 [ %.pre, %13 ], [ %21, %.preheader449 ], [ %21, %.preheader451 ], [ %35, %28 ], [ %95, %89 ], [ %68, %61 ], [ %81, %74 ], [ %49, %42 ]
-  %98 = phi i1 [ false, %13 ], [ false, %.preheader449 ], [ false, %.preheader451 ], [ false, %28 ], [ true, %89 ], [ false, %61 ], [ false, %74 ], [ false, %42 ]
-  %.0120367 = phi i8 [ 0, %13 ], [ 0, %.preheader449 ], [ 0, %.preheader451 ], [ 0, %28 ], [ 1, %89 ], [ 0, %61 ], [ 0, %74 ], [ 0, %42 ]
-  %.3130366 = phi i32 [ 0, %13 ], [ 0, %.preheader449 ], [ 0, %.preheader451 ], [ %34, %28 ], [ %.3130, %89 ], [ %67, %61 ], [ %80, %74 ], [ %48, %42 ]
-  %.1138365 = phi i64 [ 0, %13 ], [ 0, %.preheader449 ], [ 0, %.preheader451 ], [ 0, %28 ], [ %.1138, %89 ], [ %66, %61 ], [ %79, %74 ], [ 0, %42 ]
-  %.0136354364 = phi i1 [ false, %13 ], [ false, %.preheader449 ], [ false, %.preheader451 ], [ false, %28 ], [ true, %89 ], [ true, %61 ], [ true, %74 ], [ false, %42 ]
-  %.0104355363 = phi i32 [ 0, %13 ], [ %20, %.preheader449 ], [ %20, %.preheader451 ], [ %33, %28 ], [ %.0137.shrunk, %89 ], [ %.0137.shrunk, %61 ], [ %.0137.shrunk, %74 ], [ %47, %42 ]
-  %.sroa.0.7 = phi ptr [ %14, %13 ], [ %18, %.preheader449 ], [ %18, %.preheader451 ], [ %30, %28 ], [ %90, %89 ], [ %63, %61 ], [ %76, %74 ], [ %44, %42 ]
-  %.196 = phi double [ 0.000000e+00, %13 ], [ 0.000000e+00, %.preheader449 ], [ 0.000000e+00, %.preheader451 ], [ 0.000000e+00, %28 ], [ %94, %89 ], [ 0.000000e+00, %61 ], [ 0.000000e+00, %74 ], [ 0.000000e+00, %42 ]
+  %97 = phi i8 [ %.pre, %13 ], [ %35, %28 ], [ %95, %89 ], [ %68, %61 ], [ %21, %.preheader449 ], [ %21, %.preheader451 ], [ %81, %74 ], [ %49, %42 ]
+  %98 = phi i1 [ false, %13 ], [ false, %28 ], [ true, %89 ], [ false, %61 ], [ false, %.preheader449 ], [ false, %.preheader451 ], [ false, %74 ], [ false, %42 ]
+  %.0120367 = phi i8 [ 0, %13 ], [ 0, %28 ], [ 1, %89 ], [ 0, %61 ], [ 0, %.preheader449 ], [ 0, %.preheader451 ], [ 0, %74 ], [ 0, %42 ]
+  %.3130366 = phi i32 [ 0, %13 ], [ %34, %28 ], [ %.3130, %89 ], [ %67, %61 ], [ 0, %.preheader449 ], [ 0, %.preheader451 ], [ %80, %74 ], [ %48, %42 ]
+  %.1138365 = phi i64 [ 0, %13 ], [ 0, %28 ], [ %.1138, %89 ], [ %66, %61 ], [ 0, %.preheader449 ], [ 0, %.preheader451 ], [ %79, %74 ], [ 0, %42 ]
+  %.0136354364 = phi i1 [ false, %13 ], [ false, %28 ], [ true, %89 ], [ true, %61 ], [ false, %.preheader449 ], [ false, %.preheader451 ], [ true, %74 ], [ false, %42 ]
+  %.0104355363 = phi i32 [ 0, %13 ], [ %33, %28 ], [ %.0137.shrunk, %89 ], [ %.0137.shrunk, %61 ], [ %20, %.preheader449 ], [ %20, %.preheader451 ], [ %.0137.shrunk, %74 ], [ %47, %42 ]
+  %.sroa.0.7 = phi ptr [ %14, %13 ], [ %30, %28 ], [ %90, %89 ], [ %63, %61 ], [ %18, %.preheader449 ], [ %18, %.preheader451 ], [ %76, %74 ], [ %44, %42 ]
+  %.196 = phi double [ 0.000000e+00, %13 ], [ 0.000000e+00, %28 ], [ %94, %89 ], [ 0.000000e+00, %61 ], [ 0.000000e+00, %.preheader449 ], [ 0.000000e+00, %.preheader451 ], [ 0.000000e+00, %74 ], [ 0.000000e+00, %42 ]
   %99 = icmp eq i8 %97, 46
   br i1 %99, label %100, label %.critedge185, !prof !284
 
@@ -11044,9 +11044,9 @@ _ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAllocatorEE7ConsumeINS4_12Nu
   br label %_ZN9rapidjson15GenericDocumentINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEES4_E5Int64El.exit
 
 .thread421:                                       ; preds = %.critedge192, %.preheader, %177, %.preheader442
-  %.0107624628 = phi i1 [ true, %.preheader442 ], [ true, %.preheader ], [ false, %177 ], [ true, %.critedge192 ]
-  %.sroa.0.23 = phi ptr [ %157, %.preheader442 ], [ %.sroa.0.19, %.preheader ], [ %.sroa.0.20, %177 ], [ %164, %.critedge192 ]
-  %.5113 = phi i32 [ %159, %.preheader442 ], [ %167, %.preheader ], [ %.2110, %177 ], [ %167, %.critedge192 ]
+  %.0107624628 = phi i1 [ false, %177 ], [ true, %.preheader442 ], [ true, %.preheader ], [ true, %.critedge192 ]
+  %.sroa.0.23 = phi ptr [ %.sroa.0.20, %177 ], [ %157, %.preheader442 ], [ %.sroa.0.19, %.preheader ], [ %164, %.critedge192 ]
+  %.5113 = phi i32 [ %.2110, %177 ], [ %159, %.preheader442 ], [ %167, %.preheader ], [ %167, %.critedge192 ]
   %195 = sub nsw i32 0, %.5113
   %spec.select193 = select i1 %.0107624628, i32 %195, i32 %.5113
   br label %_ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAllocatorEE7ConsumeINS4_12NumberStreamINS_25GenericInsituStringStreamIS2_EELb0ELb0EEEEEbRT_NSA_2ChE.exit196.thread

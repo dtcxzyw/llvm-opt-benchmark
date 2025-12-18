@@ -1324,7 +1324,7 @@ define ptr @_get_pragma_string_val(ptr noundef %0, ptr noundef %1) local_unnamed
   br i1 %25, label %.lr.ph, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %11, %7, %2
-  %.0 = phi ptr [ null, %7 ], [ null, %2 ], [ %14, %11 ], [ %22, %.lr.ph ]
+  %.0 = phi ptr [ null, %2 ], [ null, %7 ], [ %14, %11 ], [ %22, %.lr.ph ]
   %26 = load ptr, ptr %3, align 8, !tbaa !21
   %27 = call i32 @sqlite3_finalize(ptr noundef %26) #18
   call void @g_free(ptr noundef %4) #18
@@ -3836,7 +3836,7 @@ define internal fastcc range(i32 0, 2) i32 @_migrate_schema(ptr noundef readonly
   br i1 %.not194, label %.sink.split, label %.thread207
 
 .thread207:                                       ; preds = %256, %282, %279, %276, %._crit_edge, %200, %197, %194, %191, %188, %185, %182, %179, %176, %173, %170, %167, %156, %153, %148, %145, %140, %137, %134, %131, %128, %117, %114, %111, %108, %105, %102, %99, %96, %93, %90, %87, %84, %81, %78, %75, %72, %69, %66, %63, %38, %35, %32, %29, %26, %23, %20, %17, %14, %11, %5, %._crit_edge222
-  %.0126211 = phi ptr [ @.str.936, %282 ], [ @.str.935, %279 ], [ @.str.934, %276 ], [ @.str.933, %._crit_edge ], [ @.str.924, %200 ], [ @.str.939, %._crit_edge222 ], [ @.str.923, %197 ], [ @.str.922, %194 ], [ @.str.888, %191 ], [ @.str.921, %188 ], [ @.str.920, %185 ], [ @.str.919, %182 ], [ @.str.918, %179 ], [ @.str.917, %176 ], [ @.str.916, %173 ], [ @.str.915, %170 ], [ @.str.914, %167 ], [ @.str.913, %156 ], [ @.str.908, %153 ], [ @.str.907, %148 ], [ @.str.905, %145 ], [ @.str.904, %140 ], [ @.str.902, %137 ], [ @.str.901, %134 ], [ @.str.900, %131 ], [ @.str.899, %128 ], [ @.str.898, %117 ], [ @.str.888, %114 ], [ @.str.893, %111 ], [ @.str.892, %108 ], [ @.str.891, %105 ], [ @.str.890, %102 ], [ @.str.889, %99 ], [ @.str.888, %96 ], [ @.str.887, %93 ], [ @.str.538, %90 ], [ @.str.536, %87 ], [ @.str.886, %84 ], [ @.str.885, %81 ], [ @.str.884, %78 ], [ @.str.883, %75 ], [ @.str.882, %72 ], [ @.str.881, %69 ], [ @.str.880, %66 ], [ @.str.879, %63 ], [ @.str.878, %38 ], [ @.str.481, %35 ], [ @.str.866, %32 ], [ @.str.865, %29 ], [ @.str.864, %26 ], [ @.str.863, %23 ], [ @.str.862, %20 ], [ @.str.861, %17 ], [ @.str.860, %14 ], [ @.str.859, %11 ], [ @.str.858, %5 ], [ @.str.932, %256 ]
+  %.0126211 = phi ptr [ @.str.858, %5 ], [ @.str.936, %282 ], [ @.str.935, %279 ], [ @.str.934, %276 ], [ @.str.933, %._crit_edge ], [ @.str.924, %200 ], [ @.str.939, %._crit_edge222 ], [ @.str.923, %197 ], [ @.str.922, %194 ], [ @.str.888, %191 ], [ @.str.921, %188 ], [ @.str.920, %185 ], [ @.str.919, %182 ], [ @.str.918, %179 ], [ @.str.917, %176 ], [ @.str.916, %173 ], [ @.str.915, %170 ], [ @.str.914, %167 ], [ @.str.913, %156 ], [ @.str.908, %153 ], [ @.str.907, %148 ], [ @.str.905, %145 ], [ @.str.904, %140 ], [ @.str.902, %137 ], [ @.str.901, %134 ], [ @.str.900, %131 ], [ @.str.899, %128 ], [ @.str.898, %117 ], [ @.str.888, %114 ], [ @.str.893, %111 ], [ @.str.892, %108 ], [ @.str.891, %105 ], [ @.str.890, %102 ], [ @.str.889, %99 ], [ @.str.888, %96 ], [ @.str.887, %93 ], [ @.str.538, %90 ], [ @.str.536, %87 ], [ @.str.886, %84 ], [ @.str.885, %81 ], [ @.str.884, %78 ], [ @.str.883, %75 ], [ @.str.882, %72 ], [ @.str.881, %69 ], [ @.str.880, %66 ], [ @.str.879, %63 ], [ @.str.878, %38 ], [ @.str.481, %35 ], [ @.str.866, %32 ], [ @.str.865, %29 ], [ @.str.864, %26 ], [ @.str.863, %23 ], [ @.str.862, %20 ], [ @.str.861, %17 ], [ @.str.860, %14 ], [ @.str.859, %11 ], [ @.str.932, %256 ]
   %317 = load ptr, ptr %6, align 8, !tbaa !6
   %318 = call ptr @sqlite3_errmsg(ptr noundef %317) #18
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.940, ptr noundef nonnull %.0126211, ptr noundef %318) #18
@@ -6310,13 +6310,13 @@ _get_iso8601_int.exit105:                         ; preds = %128
   br label %_get_iso8601_int.exit.thread.sink.split
 
 _get_iso8601_int.exit.thread.sink.split:          ; preds = %73, %84, %94, %104, %114, %124, %_get_iso8601_int.exit105
-  %.sink = phi ptr [ %134, %_get_iso8601_int.exit105 ], [ %72, %84 ], [ %72, %124 ], [ %72, %114 ], [ %72, %104 ], [ %72, %94 ], [ %72, %73 ]
-  %.0.ph = phi i32 [ %135, %_get_iso8601_int.exit105 ], [ 0, %84 ], [ 0, %124 ], [ 0, %114 ], [ 0, %104 ], [ 0, %94 ], [ 0, %73 ]
+  %.sink = phi ptr [ %134, %_get_iso8601_int.exit105 ], [ %72, %114 ], [ %72, %124 ], [ %72, %84 ], [ %72, %94 ], [ %72, %104 ], [ %72, %73 ]
+  %.0.ph = phi i32 [ %135, %_get_iso8601_int.exit105 ], [ 0, %114 ], [ 0, %124 ], [ 0, %84 ], [ 0, %94 ], [ 0, %104 ], [ 0, %73 ]
   tail call void @g_date_time_unref(ptr noundef %.sink) #18
   br label %_get_iso8601_int.exit.thread
 
 _get_iso8601_int.exit.thread:                     ; preds = %11, %22, %32, %42, %52, %62, %_get_iso8601_int.exit.thread.sink.split, %3
-  %.0 = phi i32 [ 0, %3 ], [ %.0.ph, %_get_iso8601_int.exit.thread.sink.split ], [ 0, %22 ], [ 0, %62 ], [ 0, %52 ], [ 0, %42 ], [ 0, %32 ], [ 0, %11 ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %52 ], [ %.0.ph, %_get_iso8601_int.exit.thread.sink.split ], [ 0, %42 ], [ 0, %32 ], [ 0, %22 ], [ 0, %62 ], [ 0, %11 ]
   ret i32 %.0
 }
 

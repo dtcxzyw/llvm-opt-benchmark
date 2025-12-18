@@ -7121,7 +7121,7 @@ _ZNK5Eigen9DenseBaseINS_16PartialReduxExprINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EE
   br i1 %exitcond181.not, label %._crit_edge, label %140, !llvm.loop !368
 
 ._crit_edge:                                      ; preds = %165, %.preheader131.lr.ph, %.preheader129
-  %166 = phi i1 [ false, %.preheader129 ], [ false, %.preheader131.lr.ph ], [ true, %165 ]
+  %166 = phi i1 [ false, %.preheader131.lr.ph ], [ false, %.preheader129 ], [ true, %165 ]
   %sext = shl i64 %21, 32
   %167 = ashr exact i64 %sext, 32
   %168 = icmp sgt i64 %167, 0
@@ -18928,7 +18928,7 @@ _ZNK5Eigen9DenseBaseINS_16PartialReduxExprINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EE
   br i1 %exitcond181.not, label %._crit_edge, label %140, !llvm.loop !828
 
 ._crit_edge:                                      ; preds = %165, %.preheader131.lr.ph, %.preheader129
-  %166 = phi i1 [ false, %.preheader129 ], [ false, %.preheader131.lr.ph ], [ true, %165 ]
+  %166 = phi i1 [ false, %.preheader131.lr.ph ], [ false, %.preheader129 ], [ true, %165 ]
   %sext = shl i64 %21, 32
   %167 = ashr exact i64 %sext, 32
   %168 = icmp sgt i64 %167, 0
@@ -30129,7 +30129,7 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
   br label %454
 
 454:                                              ; preds = %.sink.split, %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE6resizeEmm.exit235, %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE6resizeEmm.exit242
-  %.2 = phi i64 [ %404, %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE6resizeEmm.exit235 ], [ %433, %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE6resizeEmm.exit242 ], [ %.sink289, %.sink.split ]
+  %.2 = phi i64 [ %433, %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE6resizeEmm.exit242 ], [ %404, %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE6resizeEmm.exit235 ], [ %.sink289, %.sink.split ]
   %.not138 = icmp eq i64 %.2, 0
   br i1 %.not138, label %.thread, label %.critedge.outer.backedge
 
@@ -38314,7 +38314,7 @@ _ZN4CGAL8VectorC3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8back
   br label %.body
 
 .body:                                            ; preds = %53, %23, %44, %215, %34
-  %.pn = phi { ptr, i32 } [ %24, %23 ], [ %35, %34 ], [ %45, %44 ], [ %216, %215 ], [ %52, %53 ]
+  %.pn = phi { ptr, i32 } [ %216, %215 ], [ %24, %23 ], [ %35, %34 ], [ %45, %44 ], [ %52, %53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @_ZdlPvm(ptr noundef nonnull %13, i64 noundef 240) #37
@@ -48118,7 +48118,7 @@ _ZNK5Eigen9DenseBaseINS_16PartialReduxExprINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EE
   br i1 %exitcond181.not, label %._crit_edge, label %140, !llvm.loop !1180
 
 ._crit_edge:                                      ; preds = %165, %.preheader131.lr.ph, %.preheader129
-  %166 = phi i1 [ false, %.preheader129 ], [ false, %.preheader131.lr.ph ], [ true, %165 ]
+  %166 = phi i1 [ false, %.preheader131.lr.ph ], [ false, %.preheader129 ], [ true, %165 ]
   %sext = shl i64 %21, 32
   %167 = ashr exact i64 %sext, 32
   %168 = icmp sgt i64 %167, 0

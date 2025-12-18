@@ -2096,8 +2096,8 @@ default.unreachable:                              ; preds = %113
   store i64 %.sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.0..sroa.4.0.copyload.i.i20.i, ptr %72, align 8, !alias.scope !421
   br label %.critedge
 
-.loopexit:                                        ; preds = %111, %70, %67, %"_ZN59_$LT$tendril..fmt..UTF8$u20$as$u20$tendril..fmt..Format$GT$15validate_suffix17h31f360bbbdf8cc56E.exit.i", %101, %117, %100, %131, %123, %149, %91
-  %.sroa.0.0.i40.ph = phi i8 [ 1, %91 ], [ 1, %149 ], [ 1, %123 ], [ 1, %131 ], [ 1, %100 ], [ 1, %117 ], [ 1, %101 ], [ 1, %"_ZN59_$LT$tendril..fmt..UTF8$u20$as$u20$tendril..fmt..Format$GT$15validate_suffix17h31f360bbbdf8cc56E.exit.i" ], [ 0, %67 ], [ 0, %70 ], [ 1, %111 ]
+.loopexit:                                        ; preds = %111, %70, %67, %"_ZN59_$LT$tendril..fmt..UTF8$u20$as$u20$tendril..fmt..Format$GT$15validate_suffix17h31f360bbbdf8cc56E.exit.i", %101, %149, %117, %100, %131, %123, %91
+  %.sroa.0.0.i40.ph = phi i8 [ 0, %70 ], [ 1, %91 ], [ 1, %123 ], [ 1, %131 ], [ 1, %100 ], [ 1, %117 ], [ 1, %149 ], [ 1, %101 ], [ 1, %"_ZN59_$LT$tendril..fmt..UTF8$u20$as$u20$tendril..fmt..Format$GT$15validate_suffix17h31f360bbbdf8cc56E.exit.i" ], [ 0, %67 ], [ 1, %111 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 %.sroa.0.0.i40.ph, ptr %5, align 1
   call void @_ZN4core6result13unwrap_failed17hfa79a499befff387E(ptr noalias noundef nonnull readonly align 1 @anon.f66fb0099faeb293079cbad8a26e25dd.50, i64 noundef 43, ptr noundef nonnull align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f66fb0099faeb293079cbad8a26e25dd.49, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f66fb0099faeb293079cbad8a26e25dd.13) #34

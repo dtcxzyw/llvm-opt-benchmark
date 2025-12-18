@@ -2299,13 +2299,13 @@ Of_CutCompareArea.exit.i.i.us.us.us:              ; preds = %810, %808, %800
   br i1 %818, label %.lr.ph.i8.i.us.us.us, label %Of_SetSortByArea.exit.i.us.us.us, !llvm.loop !106
 
 Of_SetSortByArea.exit.i.us.us.us:                 ; preds = %.lr.ph.i8.i.us.us.us, %802, %810, %Of_CutCompareArea.exit.i.i.us.us.us, %Of_SetLastCutContainsArea.exit.i.us.us.us, %726
-  %.0.i10.i.us.us.us = phi i32 [ %.0.i.i318.us.us.us, %Of_SetLastCutContainsArea.exit.i.us.us.us ], [ %.4548.us.us.us, %726 ], [ %.0.i.i318.us.us.us, %Of_CutCompareArea.exit.i.i.us.us.us ], [ %.0.i.i318.us.us.us, %810 ], [ %.0.i.i318.us.us.us, %802 ], [ %.0.i.i318.us.us.us, %.lr.ph.i8.i.us.us.us ]
+  %.0.i10.i.us.us.us = phi i32 [ %.4548.us.us.us, %726 ], [ %.0.i.i318.us.us.us, %Of_SetLastCutContainsArea.exit.i.us.us.us ], [ %.0.i.i318.us.us.us, %Of_CutCompareArea.exit.i.i.us.us.us ], [ %.0.i.i318.us.us.us, %810 ], [ %.0.i.i318.us.us.us, %802 ], [ %.0.i.i318.us.us.us, %.lr.ph.i8.i.us.us.us ]
   %819 = add nsw i32 %.0.i10.i.us.us.us, 1
   %820 = call noundef i32 @llvm.smin.i32(i32 %819, i32 %352)
   br label %Of_SetAddCut.exit.us.us.us
 
 Of_SetAddCut.exit.us.us.us:                       ; preds = %407, %435, %462, %447, %457, %Of_SetSortByArea.exit.i.us.us.us, %Of_CutParams.exit310.us.us.us, %358
-  %.5.us.us.us = phi i32 [ %.4548.us.us.us, %358 ], [ 1, %Of_CutParams.exit310.us.us.us ], [ %820, %Of_SetSortByArea.exit.i.us.us.us ], [ %.4548.us.us.us, %435 ], [ %.4548.us.us.us, %457 ], [ %.4548.us.us.us, %447 ], [ %.4548.us.us.us, %462 ], [ %.4548.us.us.us, %407 ]
+  %.5.us.us.us = phi i32 [ %.4548.us.us.us, %358 ], [ %.4548.us.us.us, %462 ], [ 1, %Of_CutParams.exit310.us.us.us ], [ %820, %Of_SetSortByArea.exit.i.us.us.us ], [ %.4548.us.us.us, %435 ], [ %.4548.us.us.us, %447 ], [ %.4548.us.us.us, %457 ], [ %.4548.us.us.us, %407 ]
   %821 = getelementptr inbounds nuw i8, ptr %.0145549.us.us.us, i64 48
   %822 = icmp ult ptr %821, %336
   br i1 %822, label %358, label %._crit_edge551.us.us.us, !llvm.loop !107
@@ -2560,7 +2560,7 @@ Gia_ObjIsXor.exit:                                ; preds = %Gia_ObjIsMuxId.exit
   br i1 %exitcond159.not.i.us, label %.loopexit.us, label %.lr.ph134.i.us, !llvm.loop !110
 
 .loopexit.us:                                     ; preds = %937, %.preheader.i.us, %.lr.ph130.preheader.i.us, %.preheader116.i.us, %.lr.ph127.preheader.i.us, %.preheader117.i.us
-  %.5.lcssa.sink.i.us = phi i32 [ %919, %.lr.ph127.preheader.i.us ], [ 0, %.preheader.i.us ], [ %.1.i324.us, %.preheader117.i.us ], [ %.091.i.us, %.preheader116.i.us ], [ %932, %.lr.ph130.preheader.i.us ], [ %21, %937 ]
+  %.5.lcssa.sink.i.us = phi i32 [ %919, %.lr.ph127.preheader.i.us ], [ 0, %.preheader.i.us ], [ %932, %.lr.ph130.preheader.i.us ], [ %.1.i324.us, %.preheader117.i.us ], [ %.091.i.us, %.preheader116.i.us ], [ %21, %937 ]
   %939 = getelementptr inbounds nuw i8, ptr %878, i64 16
   %.5.lcssa.sink.i.us.fr = freeze i32 %.5.lcssa.sink.i.us
   %940 = shl i32 %.5.lcssa.sink.i.us.fr, 27
@@ -3250,13 +3250,13 @@ Of_CutCompareArea.exit.i.i438.us:                 ; preds = %1283, %1281, %1273
   br i1 %1291, label %.lr.ph.i8.i436.us, label %Of_SetSortByArea.exit.i412.us, !llvm.loop !106
 
 Of_SetSortByArea.exit.i412.us:                    ; preds = %.lr.ph.i8.i436.us, %1275, %1283, %Of_CutCompareArea.exit.i.i438.us, %Of_SetLastCutContainsArea.exit.i434.us, %1199
-  %.0.i10.i413.us = phi i32 [ %.0.i.i435.us, %Of_SetLastCutContainsArea.exit.i434.us ], [ %.8567.us, %1199 ], [ %.0.i.i435.us, %Of_CutCompareArea.exit.i.i438.us ], [ %.0.i.i435.us, %1283 ], [ %.0.i.i435.us, %1275 ], [ %.0.i.i435.us, %.lr.ph.i8.i436.us ]
+  %.0.i10.i413.us = phi i32 [ %.8567.us, %1199 ], [ %.0.i.i435.us, %Of_SetLastCutContainsArea.exit.i434.us ], [ %.0.i.i435.us, %Of_CutCompareArea.exit.i.i438.us ], [ %.0.i.i435.us, %1283 ], [ %.0.i.i435.us, %1275 ], [ %.0.i.i435.us, %.lr.ph.i8.i436.us ]
   %1292 = add nsw i32 %.0.i10.i413.us, 1
   %1293 = call noundef i32 @llvm.smin.i32(i32 %1292, i32 %851)
   br label %Of_SetAddCut.exit457.us
 
 Of_SetAddCut.exit457.us:                          ; preds = %905, %.lr.ph134.i.us, %959, %986, %971, %981, %Of_SetSortByArea.exit.i412.us, %Of_CutParams.exit411.us, %.loopexit120.i.us, %.loopexit121.i.us, %.preheader118.i.us, %866
-  %.9.us = phi i32 [ %.8567.us, %866 ], [ 1, %Of_CutParams.exit411.us ], [ %1293, %Of_SetSortByArea.exit.i412.us ], [ %.8567.us, %.loopexit121.i.us ], [ %.8567.us, %.loopexit120.i.us ], [ %.8567.us, %.preheader118.i.us ], [ %.8567.us, %.lr.ph134.i.us ], [ %.8567.us, %981 ], [ %.8567.us, %971 ], [ %.8567.us, %986 ], [ %.8567.us, %959 ], [ %.8567.us, %905 ]
+  %.9.us = phi i32 [ %.8567.us, %866 ], [ %.8567.us, %.preheader118.i.us ], [ 1, %Of_CutParams.exit411.us ], [ %1293, %Of_SetSortByArea.exit.i412.us ], [ %.8567.us, %.loopexit120.i.us ], [ %.8567.us, %981 ], [ %.8567.us, %.loopexit121.i.us ], [ %.8567.us, %.lr.ph134.i.us ], [ %.8567.us, %971 ], [ %.8567.us, %959 ], [ %.8567.us, %986 ], [ %.8567.us, %905 ]
   %1294 = getelementptr inbounds nuw i8, ptr %.1144571.us, i64 48
   %1295 = icmp ult ptr %1294, %155
   %indvar.next665 = add i64 %indvar664, 1
@@ -3673,7 +3673,7 @@ Of_CutCompareArea.exit.i:                         ; preds = %90, %88, %80
   br i1 %99, label %.lr.ph.i8, label %Of_SetSortByArea.exit, !llvm.loop !106
 
 Of_SetSortByArea.exit:                            ; preds = %.lr.ph.i8, %82, %90, %Of_CutCompareArea.exit.i, %5, %Of_SetLastCutContainsArea.exit
-  %.0.i10 = phi i32 [ %.0.i, %Of_SetLastCutContainsArea.exit ], [ %1, %5 ], [ %.0.i, %Of_CutCompareArea.exit.i ], [ %.0.i, %90 ], [ %.0.i, %82 ], [ %.0.i, %.lr.ph.i8 ]
+  %.0.i10 = phi i32 [ %1, %5 ], [ %.0.i, %Of_SetLastCutContainsArea.exit ], [ %.0.i, %Of_CutCompareArea.exit.i ], [ %.0.i, %90 ], [ %.0.i, %82 ], [ %.0.i, %.lr.ph.i8 ]
   %100 = add nsw i32 %.0.i10, 1
   %101 = add nsw i32 %2, -1
   %102 = tail call noundef i32 @llvm.smin.i32(i32 %100, i32 %101)
@@ -7086,7 +7086,7 @@ Of_ObjUpdateRequired.exit108:                     ; preds = %.lr.ph124, %183
   br i1 %198, label %168, label %.critedge2, !llvm.loop !172
 
 .critedge2:                                       ; preds = %Of_ObjUpdateRequired.exit108.us, %150, %195, %168, %.lr.ph.split.us, %.lr.ph.split, %114
-  %.lcssa = phi i32 [ 0, %114 ], [ %146, %.lr.ph.split.us ], [ %146, %.lr.ph.split ], [ %196, %195 ], [ %196, %168 ], [ %165, %150 ], [ %165, %Of_ObjUpdateRequired.exit108.us ]
+  %.lcssa = phi i32 [ 0, %114 ], [ %196, %195 ], [ %146, %.lr.ph.split.us ], [ %146, %.lr.ph.split ], [ %196, %168 ], [ %165, %150 ], [ %165, %Of_ObjUpdateRequired.exit108.us ]
   %199 = zext nneg i32 %.lcssa to i64
   %200 = add i64 %85, %199
   store i64 %200, ptr %76, align 8, !tbaa !122
@@ -7607,8 +7607,8 @@ Vec_IntPush.exit197:                              ; preds = %Vec_IntPush.exit197
   br i1 %238, label %162, label %.critedge2, !llvm.loop !191
 
 .critedge2:                                       ; preds = %162, %.loopexit, %sat_solver_set_polarity.exit, %.critedge
-  %239 = phi ptr [ %155, %.critedge ], [ %13, %sat_solver_set_polarity.exit ], [ %155, %.loopexit ], [ %155, %162 ]
-  %240 = phi ptr [ %156, %.critedge ], [ %91, %sat_solver_set_polarity.exit ], [ %163, %162 ], [ %234, %.loopexit ]
+  %239 = phi ptr [ %13, %sat_solver_set_polarity.exit ], [ %155, %.critedge ], [ %155, %.loopexit ], [ %155, %162 ]
+  %240 = phi ptr [ %91, %sat_solver_set_polarity.exit ], [ %156, %.critedge ], [ %163, %162 ], [ %234, %.loopexit ]
   %241 = getelementptr inbounds nuw i8, ptr %240, i64 72
   %242 = load ptr, ptr %241, align 8, !tbaa !131
   %243 = getelementptr i8, ptr %242, i64 4
@@ -8539,7 +8539,7 @@ Vec_IntGrow.exit.i:                               ; preds = %34, %Vec_IntAlloc.e
   br label %Vec_IntFill.exit
 
 Vec_IntFill.exit:                                 ; preds = %.lr.ph.i, %Vec_IntAlloc.exit.thread, %Vec_IntGrow.exit.i
-  %41 = phi ptr [ %38, %Vec_IntGrow.exit.i ], [ %22, %Vec_IntAlloc.exit.thread ], [ %38, %.lr.ph.i ]
+  %41 = phi ptr [ %22, %Vec_IntAlloc.exit.thread ], [ %38, %Vec_IntGrow.exit.i ], [ %38, %.lr.ph.i ]
   store i32 %.val77, ptr %17, align 4, !tbaa !37
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %43 = load i32, ptr %42, align 8, !tbaa !165

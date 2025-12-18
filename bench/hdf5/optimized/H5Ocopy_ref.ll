@@ -708,7 +708,7 @@ H5O__copy_expand_ref_object2.exit.thread41:       ; preds = %194
   br label %352
 
 352:                                              ; preds = %348, %345, %341
-  %.199.i = phi i32 [ -1, %341 ], [ -1, %348 ], [ 0, %345 ]
+  %.199.i = phi i32 [ 0, %345 ], [ -1, %348 ], [ -1, %341 ]
   %353 = call i32 @H5S_close(ptr noundef nonnull %332) #8
   %354 = icmp slt i32 %353, 0
   br i1 %354, label %355, label %.thread151.i

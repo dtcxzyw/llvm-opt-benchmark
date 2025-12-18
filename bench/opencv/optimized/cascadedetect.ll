@@ -893,7 +893,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit216.thread:          ; preds = %.noexc183
   br i1 %exitcond395.not, label %.loopexit367, label %.lr.ph370, !llvm.loop !31
 
 .loopexit367:                                     ; preds = %141, %115, %._crit_edge, %110
-  %.0138 = phi ptr [ %.mux, %115 ], [ %8, %110 ], [ %8, %._crit_edge ], [ %9, %141 ]
+  %.0138 = phi ptr [ %8, %._crit_edge ], [ %.mux, %115 ], [ %8, %110 ], [ %9, %141 ]
   br i1 %.not.i.i.i.i, label %._crit_edge374, label %.lr.ph373.preheader
 
 .lr.ph373.preheader:                              ; preds = %.loopexit367
@@ -1613,7 +1613,7 @@ _ZNK2cv12SimilarRectsclERKNS_5Rect_IiEES4_.exit.us: ; preds = %55
   br i1 %103, label %.lr.ph144.us, label %.preheader135.us, !llvm.loop !53
 
 _ZNK2cv12SimilarRectsclERKNS_5Rect_IiEES4_.exit.thread.us: ; preds = %.lr.ph145.us, %.preheader135.us, %73, %_ZNK2cv12SimilarRectsclERKNS_5Rect_IiEES4_.exit.us, %55, %47, %27, %25
-  %.297.us = phi i32 [ %.196146.us, %25 ], [ %.196146.us, %_ZNK2cv12SimilarRectsclERKNS_5Rect_IiEES4_.exit.us ], [ %.196146.us, %73 ], [ %.196146.us, %55 ], [ %.196146.us, %47 ], [ %.196146.us, %27 ], [ %.4.us, %.preheader135.us ], [ %.4.us, %.lr.ph145.us ]
+  %.297.us = phi i32 [ %.196146.us, %25 ], [ %.196146.us, %_ZNK2cv12SimilarRectsclERKNS_5Rect_IiEES4_.exit.us ], [ %.196146.us, %73 ], [ %.196146.us, %27 ], [ %.196146.us, %55 ], [ %.196146.us, %47 ], [ %.4.us, %.preheader135.us ], [ %.4.us, %.lr.ph145.us ]
   %indvars.iv.next159 = add nuw nsw i64 %indvars.iv158, 1
   %exitcond163.not = icmp eq i64 %indvars.iv.next159, %wide.trip.count167
   br i1 %exitcond163.not, label %._crit_edge.us, label %25, !llvm.loop !54

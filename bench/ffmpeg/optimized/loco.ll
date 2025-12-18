@@ -627,7 +627,7 @@ loco_predict.exit.us:                             ; preds = %84, %82, %81, %79
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph61.split, %.lr.ph, %.lr.ph61.split.us, %62, %23, %10, %7, %._crit_edge62
-  %.040 = phi i32 [ %97, %._crit_edge62 ], [ -1, %7 ], [ -1094995529, %10 ], [ -1094995529, %23 ], [ -1094995529, %.lr.ph ], [ -1, %62 ], [ -1094995529, %.lr.ph61.split.us ], [ -1094995529, %.lr.ph61.split ]
+  %.040 = phi i32 [ %97, %._crit_edge62 ], [ -1, %7 ], [ -1094995529, %10 ], [ -1094995529, %23 ], [ -1094995529, %.lr.ph ], [ -1094995529, %.lr.ph61.split.us ], [ -1, %62 ], [ -1094995529, %.lr.ph61.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.040
 }
@@ -1113,8 +1113,8 @@ define internal fastcc i32 @get_ur_golomb_jpegls(ptr noundef nonnull captures(no
   br label %.loopexit
 
 .loopexit:                                        ; preds = %39, %98, %95, %28
-  %storemerge123 = phi i32 [ %., %28 ], [ %.2, %95 ], [ %61, %98 ], [ %.0110130, %39 ]
-  %.0106 = phi i32 [ %32, %28 ], [ %97, %95 ], [ %.125, %98 ], [ -1, %39 ]
+  %storemerge123 = phi i32 [ %., %28 ], [ %61, %98 ], [ %.2, %95 ], [ %.0110130, %39 ]
+  %.0106 = phi i32 [ %32, %28 ], [ %.125, %98 ], [ %97, %95 ], [ -1, %39 ]
   store i32 %storemerge123, ptr %3, align 8, !tbaa !49
   ret i32 %.0106
 }

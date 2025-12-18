@@ -2605,7 +2605,7 @@ arkCheckConvergence.exit:                         ; preds = %193
   br label %.loopexit
 
 .loopexit:                                        ; preds = %244, %98, %117, %124, %138, %.thread337, %270, %276, %326, %330, %356, %360, %363, %41, %48, %28, %25, %22, %18, %13
-  %.0258 = phi i32 [ -21, %13 ], [ -23, %18 ], [ -22, %22 ], [ -22, %25 ], [ -22, %28 ], [ %49, %48 ], [ %45, %41 ], [ -1, %124 ], [ %257, %.thread337 ], [ 2, %270 ], [ -12, %276 ], [ %325, %326 ], [ 1, %330 ], [ %355, %356 ], [ 0, %360 ], [ 0, %363 ], [ -2, %138 ], [ -22, %98 ], [ -22, %117 ], [ -3, %244 ]
+  %.0258 = phi i32 [ -21, %13 ], [ -23, %18 ], [ -22, %22 ], [ -22, %25 ], [ -22, %28 ], [ %49, %48 ], [ -22, %117 ], [ %45, %41 ], [ -1, %124 ], [ %257, %.thread337 ], [ 2, %270 ], [ -12, %276 ], [ %325, %326 ], [ 1, %330 ], [ %355, %356 ], [ 0, %360 ], [ 0, %363 ], [ -2, %138 ], [ -22, %98 ], [ -3, %244 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -3483,7 +3483,7 @@ define range(i32 0, 2) i32 @arkStopTests(ptr noundef %0, double noundef %1, ptr 
   br label %163
 
 163:                                              ; preds = %.sink.split, %135, %153, %134
-  %.0 = phi i32 [ 0, %134 ], [ 0, %153 ], [ 0, %135 ], [ 1, %.sink.split ]
+  %.0 = phi i32 [ 0, %135 ], [ 0, %153 ], [ 0, %134 ], [ 1, %.sink.split ]
   ret i32 %.0
 }
 
@@ -5800,7 +5800,7 @@ define range(i32 -27, 1) i32 @arkHin(ptr noundef %0, double noundef %1) local_un
   br label %.loopexit
 
 .loopexit:                                        ; preds = %94, %69, %.loopexit.sink.split, %.preheader, %22, %8, %2
-  %.079 = phi i32 [ -27, %8 ], [ -27, %2 ], [ -8, %22 ], [ -8, %.preheader ], [ 0, %.loopexit.sink.split ], [ -8, %69 ], [ -8, %94 ]
+  %.079 = phi i32 [ -27, %8 ], [ -27, %2 ], [ -8, %22 ], [ -8, %69 ], [ 0, %.loopexit.sink.split ], [ -8, %.preheader ], [ -8, %94 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.079
 }
@@ -6242,7 +6242,7 @@ define range(i32 0, 2) i32 @arkResizeVecArray(ptr noundef readonly captures(addr
   br label %.loopexit27
 
 .loopexit27:                                      ; preds = %.lr.ph, %9, %.loopexit, %14
-  %.023 = phi i32 [ 0, %14 ], [ 1, %.loopexit ], [ 1, %9 ], [ 0, %.lr.ph ]
+  %.023 = phi i32 [ 0, %14 ], [ 1, %9 ], [ 1, %.loopexit ], [ 0, %.lr.ph ]
   ret i32 %.023
 }
 

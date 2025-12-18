@@ -664,7 +664,7 @@ define i32 @pmix_rte_init(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr no
   br label %.thread
 
 .thread:                                          ; preds = %.thread346, %87, %82, %79, %76, %72, %68, %64, %61, %57, %53, %50, %46, %43, %39, %35, %32, %28, %19, %174, %187, %197, %193, %179, %168
-  %.2 = phi i1 [ %.1363, %19 ], [ %.1363, %197 ], [ %.1363, %168 ], [ %.1363, %174 ], [ %181, %179 ], [ %.1363, %187 ], [ %.1363, %193 ], [ %.1363, %28 ], [ %.1363, %32 ], [ %.1363, %35 ], [ %.1363, %39 ], [ %.1363, %43 ], [ %.1363, %46 ], [ %.1363, %50 ], [ %.1363, %53 ], [ %.1363, %57 ], [ %.1363, %61 ], [ %.1363, %64 ], [ %.1363, %68 ], [ %.1363, %72 ], [ %.1363, %76 ], [ %.1363, %79 ], [ %.1363, %82 ], [ %.1363, %87 ], [ %.1363, %.thread346 ]
+  %.2 = phi i1 [ %.1363, %19 ], [ %.1363, %197 ], [ %.1363, %82 ], [ %.1363, %168 ], [ %.1363, %174 ], [ %181, %179 ], [ %.1363, %187 ], [ %.1363, %193 ], [ %.1363, %28 ], [ %.1363, %32 ], [ %.1363, %35 ], [ %.1363, %39 ], [ %.1363, %43 ], [ %.1363, %46 ], [ %.1363, %50 ], [ %.1363, %53 ], [ %.1363, %57 ], [ %.1363, %61 ], [ %.1363, %64 ], [ %.1363, %68 ], [ %.1363, %72 ], [ %.1363, %76 ], [ %.1363, %79 ], [ %.1363, %87 ], [ %.1363, %.thread346 ]
   %198 = add nuw i64 %.0216362, 1
   %exitcond367.not = icmp eq i64 %198, %2
   br i1 %exitcond367.not, label %.loopexit357, label %.lr.ph364, !llvm.loop !48
@@ -1366,8 +1366,8 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i339, %397
   br label %.thread350
 
 .thread350:                                       ; preds = %25, %105, %.thread350.sink.split, %pmix_obj_update.exit, %.loopexit357, %477
-  %.1212355 = phi i32 [ %.1212, %477 ], [ -32, %pmix_obj_update.exit ], [ -1, %.loopexit357 ], [ -32, %.thread350.sink.split ], [ -27, %105 ], [ -27, %25 ]
-  %.0214354 = phi ptr [ %.0214, %477 ], [ null, %pmix_obj_update.exit ], [ @.str.21, %.loopexit357 ], [ null, %.thread350.sink.split ], [ null, %105 ], [ null, %25 ]
+  %.1212355 = phi i32 [ %.1212, %477 ], [ -32, %.thread350.sink.split ], [ -27, %105 ], [ -32, %pmix_obj_update.exit ], [ -1, %.loopexit357 ], [ -27, %25 ]
+  %.0214354 = phi ptr [ %.0214, %477 ], [ null, %.thread350.sink.split ], [ null, %105 ], [ null, %pmix_obj_update.exit ], [ @.str.21, %.loopexit357 ], [ null, %25 ]
   %478 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.49, i32 noundef 1, ptr noundef %.0214354, i32 noundef %.1212355) #17
   br label %479
 

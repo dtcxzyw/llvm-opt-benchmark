@@ -3621,8 +3621,8 @@ make_recursive_union.exit:                        ; preds = %list_length.exit.i1
   br label %.thread167.thread.i
 
 .thread167.i:                                     ; preds = %2154, %2153, %2148, %2145, %2143, %2139, %2136, %2133, %2130
-  %.1175.i = phi i1 [ false, %2154 ], [ %.0206.i276, %2143 ], [ %.0206.i276, %2130 ], [ %.0206.i276, %2133 ], [ %.0206.i276, %2136 ], [ %.0206.i276, %2139 ], [ true, %2153 ], [ %.0206.i276, %2145 ], [ true, %2148 ]
-  %.1130174.i = phi i1 [ true, %2154 ], [ %.0129205.i277, %2143 ], [ %.0129205.i277, %2130 ], [ %.0129205.i277, %2133 ], [ %.0129205.i277, %2136 ], [ %.0129205.i277, %2139 ], [ true, %2153 ], [ %.0129205.i277, %2145 ], [ true, %2148 ]
+  %.1175.i = phi i1 [ false, %2154 ], [ %.0206.i276, %2143 ], [ %.0206.i276, %2145 ], [ %.0206.i276, %2130 ], [ %.0206.i276, %2133 ], [ %.0206.i276, %2136 ], [ %.0206.i276, %2139 ], [ true, %2153 ], [ true, %2148 ]
+  %.1130174.i = phi i1 [ true, %2154 ], [ %.0129205.i277, %2143 ], [ %.0129205.i277, %2145 ], [ %.0129205.i277, %2130 ], [ %.0129205.i277, %2133 ], [ %.0129205.i277, %2136 ], [ %.0129205.i277, %2139 ], [ true, %2153 ], [ true, %2148 ]
   %2158 = getelementptr inbounds nuw i8, ptr %.0135.i, i64 88
   %2159 = load ptr, ptr %2158, align 8
   %.not157.i = icmp eq ptr %2159, null
@@ -3757,10 +3757,10 @@ create_limit_plan.exit.loopexit:                  ; preds = %.lr.ph294
   br label %create_limit_plan.exit
 
 create_limit_plan.exit:                           ; preds = %create_limit_plan.exit.loopexit, %list_length.exit144, %.lr.ph286, %2192
-  %.039.i = phi ptr [ null, %2192 ], [ %2213, %.lr.ph286 ], [ %2213, %list_length.exit144 ], [ %2213, %create_limit_plan.exit.loopexit ]
-  %.038.i = phi ptr [ null, %2192 ], [ %2212, %.lr.ph286 ], [ %2212, %list_length.exit144 ], [ %2212, %create_limit_plan.exit.loopexit ]
-  %.037.i = phi ptr [ null, %2192 ], [ %2210, %.lr.ph286 ], [ %2210, %list_length.exit144 ], [ %2210, %create_limit_plan.exit.loopexit ]
-  %.0.i90 = phi i32 [ 0, %2192 ], [ 0, %.lr.ph286 ], [ 0, %list_length.exit144 ], [ %2238, %create_limit_plan.exit.loopexit ]
+  %.039.i = phi ptr [ null, %2192 ], [ %2213, %list_length.exit144 ], [ %2213, %.lr.ph286 ], [ %2213, %create_limit_plan.exit.loopexit ]
+  %.038.i = phi ptr [ null, %2192 ], [ %2212, %list_length.exit144 ], [ %2212, %.lr.ph286 ], [ %2212, %create_limit_plan.exit.loopexit ]
+  %.037.i = phi ptr [ null, %2192 ], [ %2210, %list_length.exit144 ], [ %2210, %.lr.ph286 ], [ %2210, %create_limit_plan.exit.loopexit ]
+  %.0.i90 = phi i32 [ 0, %2192 ], [ 0, %list_length.exit144 ], [ 0, %.lr.ph286 ], [ %2238, %create_limit_plan.exit.loopexit ]
   %2239 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %2240 = load ptr, ptr %2239, align 8
   %2241 = getelementptr inbounds nuw i8, ptr %1, i64 96
@@ -8228,7 +8228,7 @@ define internal fastcc noundef zeroext i1 @use_physical_tlist(ptr noundef readon
   br i1 %109, label %.lr.ph154, label %.critedge112
 
 .critedge112:                                     ; preds = %30, %49, %68, %106, %95, %94, %98, %78, %.lr.ph138, %.critedge110, %73, %15, %13, %10, %7, %3
-  %.0 = phi i1 [ false, %3 ], [ false, %7 ], [ false, %10 ], [ false, %13 ], [ false, %15 ], [ true, %.critedge110 ], [ true, %73 ], [ true, %78 ], [ true, %.lr.ph138 ], [ false, %49 ], [ false, %98 ], [ false, %68 ], [ false, %94 ], [ false, %95 ], [ true, %106 ], [ false, %30 ]
+  %.0 = phi i1 [ false, %49 ], [ false, %3 ], [ false, %7 ], [ false, %10 ], [ false, %13 ], [ false, %15 ], [ false, %98 ], [ false, %68 ], [ true, %.critedge110 ], [ true, %73 ], [ true, %78 ], [ true, %.lr.ph138 ], [ false, %94 ], [ false, %95 ], [ true, %106 ], [ false, %30 ]
   ret i1 %.0
 }
 
@@ -8304,7 +8304,7 @@ define internal fastcc ptr @build_path_tlist(ptr noundef %0, ptr noundef readonl
   br i1 %.not25, label %34, label %32
 
 .critedge:                                        ; preds = %34, %20, %.lr.ph.split.us.split, %.lr.ph.split.split, %2
-  %.0.lcssa = phi ptr [ null, %2 ], [ null, %.lr.ph.split.us.split ], [ null, %.lr.ph.split.split ], [ %23, %20 ], [ %41, %34 ]
+  %.0.lcssa = phi ptr [ null, %2 ], [ null, %.lr.ph.split.split ], [ null, %.lr.ph.split.us.split ], [ %23, %20 ], [ %41, %34 ]
   ret ptr %.0.lcssa
 
 32:                                               ; preds = %.lr.ph45
@@ -10194,7 +10194,7 @@ tailrecurse:                                      ; preds = %30, %2
   br label %.thread
 
 .thread:                                          ; preds = %tailrecurse, %27, %18, %25, %15, %7, %9, %4, %33
-  %.1 = phi i1 [ false, %18 ], [ true, %33 ], [ false, %7 ], [ false, %4 ], [ false, %9 ], [ false, %15 ], [ false, %25 ], [ false, %27 ], [ false, %tailrecurse ]
+  %.1 = phi i1 [ false, %18 ], [ false, %25 ], [ true, %33 ], [ false, %7 ], [ false, %15 ], [ false, %4 ], [ false, %9 ], [ false, %27 ], [ false, %tailrecurse ]
   ret i1 %.1
 }
 

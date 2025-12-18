@@ -587,7 +587,7 @@ land.rhs.i.i:                                     ; preds = %while.cond18.i.i
   br i1 %cmp26.i.i, label %while.cond18.i.i, label %watcher_root_RB_NEXT.exit.i
 
 watcher_root_RB_NEXT.exit.i:                      ; preds = %while.cond.i27.i, %land.rhs.i.i, %while.cond18.i.i, %land.lhs.true.i.i
-  %elm.addr.1.i.i = phi ptr [ %7, %land.lhs.true.i.i ], [ null, %while.cond18.i.i ], [ %9, %land.rhs.i.i ], [ %elm.addr.0.i.i, %while.cond.i27.i ]
+  %elm.addr.1.i.i = phi ptr [ null, %while.cond18.i.i ], [ %7, %land.lhs.true.i.i ], [ %9, %land.rhs.i.i ], [ %elm.addr.0.i.i, %while.cond.i27.i ]
   %iterating.i = getelementptr inbounds nuw i8, ptr %watcher_list.052.i, i64 48
   store i32 1, ptr %iterating.i, align 8
   %watchers5.i = getelementptr inbounds nuw i8, ptr %watcher_list.052.i, i64 32
@@ -3189,7 +3189,7 @@ if.end52:                                         ; preds = %for.end
   br label %return
 
 return:                                           ; preds = %for.body, %if.end19, %if.end24, %if.end28, %for.end, %if.end52, %if.then16, %if.then
-  %retval.0 = phi i32 [ %sub, %if.then ], [ %sub18, %if.then16 ], [ 0, %if.end52 ], [ -22, %for.end ], [ -22, %if.end28 ], [ -22, %if.end24 ], [ -22, %if.end19 ], [ -22, %for.body ]
+  %retval.0 = phi i32 [ %sub, %if.then ], [ %sub18, %if.then16 ], [ 0, %if.end52 ], [ -22, %for.end ], [ -22, %if.end19 ], [ -22, %if.end28 ], [ -22, %if.end24 ], [ -22, %for.body ]
   ret i32 %retval.0
 }
 
@@ -3822,7 +3822,7 @@ for.inc82:                                        ; preds = %if.end77, %if.end53
   br i1 %cmp47.not, label %for.end84, label %for.body49
 
 for.end84:                                        ; preds = %for.inc82, %for.cond13.preheader, %for.cond46.preheader
-  %30 = phi ptr [ null, %for.cond46.preheader ], [ null, %for.cond13.preheader ], [ %ent.280.pre, %for.inc82 ]
+  %30 = phi ptr [ null, %for.cond13.preheader ], [ null, %for.cond46.preheader ], [ %ent.280.pre, %for.inc82 ]
   call void @freeifaddrs(ptr noundef %30) #18
   br label %return
 
@@ -4740,7 +4740,7 @@ if.end6.i:                                        ; preds = %while.body.i
   br i1 %tobool.not.i, label %if.then16.i, label %while.body.i.backedge
 
 while.body.i.backedge:                            ; preds = %if.end6.i, %if.end6.i.thread
-  %tmp.026.i.be = phi ptr [ %tmp.0.i40, %if.end6.i.thread ], [ %tmp.0.i, %if.end6.i ]
+  %tmp.026.i.be = phi ptr [ %tmp.0.i, %if.end6.i ], [ %tmp.0.i40, %if.end6.i.thread ]
   br label %while.body.i
 
 if.end6.i.thread:                                 ; preds = %if.else.i
@@ -5049,7 +5049,7 @@ watcher_root_RB_INSERT_COLOR.exit.i:              ; preds = %while.cond.backedge
   br label %do.body
 
 do.body:                                          ; preds = %if.else.i.i, %if.else.i, %watcher_root_RB_INSERT_COLOR.exit.i
-  %w.0 = phi ptr [ %call16, %watcher_root_RB_INSERT_COLOR.exit.i ], [ %call16, %if.else.i ], [ %tmp.03.i.i, %if.else.i.i ]
+  %w.0 = phi ptr [ %call16, %if.else.i ], [ %call16, %watcher_root_RB_INSERT_COLOR.exit.i ], [ %tmp.03.i.i, %if.else.i.i ]
   %35 = load i32, ptr %flags1, align 8
   %and25 = and i32 %35, 4
   %cmp26.not = icmp eq i32 %and25, 0

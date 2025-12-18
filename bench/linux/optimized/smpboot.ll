@@ -1138,7 +1138,7 @@ define internal fastcc zeroext i1 @match_smt(ptr noundef readonly captures(none)
   br label %.thread
 
 .thread:                                          ; preds = %6, %18, %24, %67, %63, %73, %79, %85, %44, %54, %71, %111, %91
-  %122 = phi i1 [ false, %111 ], [ false, %54 ], [ %108, %91 ], [ %72, %71 ], [ %51, %44 ], [ false, %73 ], [ false, %85 ], [ false, %79 ], [ false, %63 ], [ false, %67 ], [ false, %24 ], [ false, %18 ], [ false, %6 ]
+  %122 = phi i1 [ false, %111 ], [ %51, %44 ], [ %108, %91 ], [ %72, %71 ], [ false, %54 ], [ false, %73 ], [ false, %85 ], [ false, %79 ], [ false, %63 ], [ false, %67 ], [ false, %24 ], [ false, %18 ], [ false, %6 ]
   ret i1 %122
 }
 

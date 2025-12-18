@@ -691,12 +691,12 @@ _ZN4llvm23early_inc_iterator_implINS_26MachineInstrBundleIteratorINS_12MachineIn
   store i32 1, ptr %44, align 8, !tbaa !26
   br label %75
 
-thread-pre-split.ithread-pre-split.i:             ; preds = %.lr.ph.i.i.i.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i, %356, %289, %"_ZZL15isSignExtendedWN4llvm8RegisterERKNS_14RISCVSubtargetERKNS_19MachineRegisterInfoERNS_15SmallPtrSetImplIPNS_12MachineInstrEEEENK3$_0clES0_.exit.thread.i", %.critedge.thread143.i.i, %169, %_ZL18isSignExtendingOpWRKN4llvm12MachineInstrEj.exit.i.i, %145, %143, %137, %125, %119, %115, %102, %96, %86, %84, %75
+thread-pre-split.ithread-pre-split.i:             ; preds = %.lr.ph.i.i.i.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i, %356, %289, %"_ZZL15isSignExtendedWN4llvm8RegisterERKNS_14RISCVSubtargetERKNS_19MachineRegisterInfoERNS_15SmallPtrSetImplIPNS_12MachineInstrEEEENK3$_0clES0_.exit.thread.i", %.critedge.thread143.i.i, %169, %_ZL18isSignExtendingOpWRKN4llvm12MachineInstrEj.exit.i.i, %147, %141, %137, %125, %119, %115, %102, %96, %86, %84, %75
   %.pr.i.pr.i = load i32, ptr %44, align 8, !tbaa !26
   br label %thread-pre-split.i.i
 
 thread-pre-split.i.i:                             ; preds = %311, %"_ZZL15isSignExtendedWN4llvm8RegisterERKNS_14RISCVSubtargetERKNS_19MachineRegisterInfoERNS_15SmallPtrSetImplIPNS_12MachineInstrEEEENK3$_0clES0_.exit121.thread.i.i", %"_ZZL15isSignExtendedWN4llvm8RegisterERKNS_14RISCVSubtargetERKNS_19MachineRegisterInfoERNS_15SmallPtrSetImplIPNS_12MachineInstrEEEENK3$_0clES0_.exit113.thread.i.i", %"_ZZL15isSignExtendedWN4llvm8RegisterERKNS_14RISCVSubtargetERKNS_19MachineRegisterInfoERNS_15SmallPtrSetImplIPNS_12MachineInstrEEEENK3$_0clES0_.exit109.thread.i.i", %thread-pre-split.ithread-pre-split.i
-  %.pr.i.i = phi i32 [ %.pr.i.pr.i, %thread-pre-split.ithread-pre-split.i ], [ %336, %"_ZZL15isSignExtendedWN4llvm8RegisterERKNS_14RISCVSubtargetERKNS_19MachineRegisterInfoERNS_15SmallPtrSetImplIPNS_12MachineInstrEEEENK3$_0clES0_.exit121.thread.i.i" ], [ %286, %"_ZZL15isSignExtendedWN4llvm8RegisterERKNS_14RISCVSubtargetERKNS_19MachineRegisterInfoERNS_15SmallPtrSetImplIPNS_12MachineInstrEEEENK3$_0clES0_.exit113.thread.i.i" ], [ %268, %"_ZZL15isSignExtendedWN4llvm8RegisterERKNS_14RISCVSubtargetERKNS_19MachineRegisterInfoERNS_15SmallPtrSetImplIPNS_12MachineInstrEEEENK3$_0clES0_.exit109.thread.i.i" ], [ %317, %311 ]
+  %.pr.i.i = phi i32 [ %.pr.i.pr.i, %thread-pre-split.ithread-pre-split.i ], [ %336, %"_ZZL15isSignExtendedWN4llvm8RegisterERKNS_14RISCVSubtargetERKNS_19MachineRegisterInfoERNS_15SmallPtrSetImplIPNS_12MachineInstrEEEENK3$_0clES0_.exit121.thread.i.i" ], [ %268, %"_ZZL15isSignExtendedWN4llvm8RegisterERKNS_14RISCVSubtargetERKNS_19MachineRegisterInfoERNS_15SmallPtrSetImplIPNS_12MachineInstrEEEENK3$_0clES0_.exit109.thread.i.i" ], [ %286, %"_ZZL15isSignExtendedWN4llvm8RegisterERKNS_14RISCVSubtargetERKNS_19MachineRegisterInfoERNS_15SmallPtrSetImplIPNS_12MachineInstrEEEENK3$_0clES0_.exit113.thread.i.i" ], [ %317, %311 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not.i.i.i = icmp eq i32 %.pr.i.i, 0
   br i1 %.not.i.i.i, label %"_ZZL15isSignExtendedWN4llvm8RegisterERKNS_14RISCVSubtargetERKNS_19MachineRegisterInfoERNS_15SmallPtrSetImplIPNS_12MachineInstrEEEENK3$_0clES0_.exit.thread.i.i", label %75
@@ -746,9 +746,9 @@ thread-pre-split.i.i:                             ; preds = %311, %"_ZZL15isSign
     i16 11938, label %119
     i16 12745, label %125
     i16 11955, label %131
-    i16 20, label %137
-    i16 335, label %143
-    i16 7229, label %145
+    i16 20, label %141
+    i16 335, label %_ZL18isSignExtendingOpWRKN4llvm12MachineInstrEj.exit.i.i
+    i16 7229, label %147
     i16 11753, label %_ZL18isSignExtendingOpWRKN4llvm12MachineInstrEj.exit.thread.thread197.i.i
     i16 11942, label %_ZL18isSignExtendingOpWRKN4llvm12MachineInstrEj.exit.thread.thread193.i.i
     i16 11949, label %_ZL18isSignExtendingOpWRKN4llvm12MachineInstrEj.exit.thread.thread193.i.i
@@ -844,35 +844,35 @@ thread-pre-split.i.i:                             ; preds = %311, %"_ZZL15isSign
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 80
   %135 = load i64, ptr %134, align 8, !tbaa !333
   %136 = icmp slt i64 %135, 31
-  br i1 %136, label %_ZL18isSignExtendingOpWRKN4llvm12MachineInstrEj.exit.i.i, label %_ZL18isSignExtendingOpWRKN4llvm12MachineInstrEj.exit.thread.thread193.i.i
+  br i1 %136, label %137, label %_ZL18isSignExtendingOpWRKN4llvm12MachineInstrEj.exit.thread.thread193.i.i
 
-137:                                              ; preds = %93
-  %138 = getelementptr inbounds nuw i8, ptr %85, i64 32
-  %139 = load ptr, ptr %138, align 8, !tbaa !319
-  %140 = getelementptr inbounds nuw i8, ptr %139, i64 36
-  %141 = load i32, ptr %140, align 4, !tbaa !333
-  %142 = icmp eq i32 %141, 43
-  br i1 %142, label %thread-pre-split.ithread-pre-split.i, label %_ZL18isSignExtendingOpWRKN4llvm12MachineInstrEj.exit.thread.thread198.i.i, !llvm.loop !343
+137:                                              ; preds = %131
+  %138 = getelementptr inbounds nuw i8, ptr %133, i64 36
+  %139 = load i32, ptr %138, align 4, !tbaa !333
+  %140 = icmp eq i32 %139, 43
+  br i1 %140, label %thread-pre-split.ithread-pre-split.i, label %_ZL18isSignExtendingOpWRKN4llvm12MachineInstrEj.exit.thread.thread193.i.i, !llvm.loop !343
 
-143:                                              ; preds = %93
-  %144 = icmp eq i32 %87, 0
-  br i1 %144, label %thread-pre-split.ithread-pre-split.i, label %"_ZZL15isSignExtendedWN4llvm8RegisterERKNS_14RISCVSubtargetERKNS_19MachineRegisterInfoERNS_15SmallPtrSetImplIPNS_12MachineInstrEEEENK3$_0clES0_.exit.thread.sink.split.i.i", !llvm.loop !343
+141:                                              ; preds = %93
+  %142 = getelementptr inbounds nuw i8, ptr %85, i64 32
+  %143 = load ptr, ptr %142, align 8, !tbaa !319
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 36
+  %145 = load i32, ptr %144, align 4, !tbaa !333
+  %146 = icmp eq i32 %145, 43
+  br i1 %146, label %thread-pre-split.ithread-pre-split.i, label %_ZL18isSignExtendingOpWRKN4llvm12MachineInstrEj.exit.thread.thread198.i.i, !llvm.loop !343
 
-145:                                              ; preds = %93
-  %146 = getelementptr inbounds nuw i8, ptr %85, i64 32
-  %147 = load ptr, ptr %146, align 8, !tbaa !319
-  %148 = getelementptr inbounds nuw i8, ptr %147, i64 80
-  %149 = load i64, ptr %148, align 8, !tbaa !333
-  %150 = icmp slt i64 %149, 6
-  br i1 %150, label %thread-pre-split.ithread-pre-split.i, label %"_ZZL15isSignExtendedWN4llvm8RegisterERKNS_14RISCVSubtargetERKNS_19MachineRegisterInfoERNS_15SmallPtrSetImplIPNS_12MachineInstrEEEENK3$_0clES0_.exit.thread.sink.split.i.i", !llvm.loop !343
+147:                                              ; preds = %93
+  %148 = getelementptr inbounds nuw i8, ptr %85, i64 32
+  %149 = load ptr, ptr %148, align 8, !tbaa !319
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 80
+  %151 = load i64, ptr %150, align 8, !tbaa !333
+  %152 = icmp slt i64 %151, 6
+  br i1 %152, label %thread-pre-split.ithread-pre-split.i, label %"_ZZL15isSignExtendedWN4llvm8RegisterERKNS_14RISCVSubtargetERKNS_19MachineRegisterInfoERNS_15SmallPtrSetImplIPNS_12MachineInstrEEEENK3$_0clES0_.exit.thread.sink.split.i.i", !llvm.loop !343
 
-_ZL18isSignExtendingOpWRKN4llvm12MachineInstrEj.exit.i.i: ; preds = %131
-  %151 = getelementptr inbounds nuw i8, ptr %133, i64 36
-  %152 = load i32, ptr %151, align 4, !tbaa !333
-  %153 = icmp eq i32 %152, 43
-  br i1 %153, label %thread-pre-split.ithread-pre-split.i, label %_ZL18isSignExtendingOpWRKN4llvm12MachineInstrEj.exit.thread.thread193.i.i, !llvm.loop !343
+_ZL18isSignExtendingOpWRKN4llvm12MachineInstrEj.exit.i.i: ; preds = %93
+  %153 = icmp eq i32 %87, 0
+  br i1 %153, label %thread-pre-split.ithread-pre-split.i, label %"_ZZL15isSignExtendedWN4llvm8RegisterERKNS_14RISCVSubtargetERKNS_19MachineRegisterInfoERNS_15SmallPtrSetImplIPNS_12MachineInstrEEEENK3$_0clES0_.exit.thread.sink.split.i.i", !llvm.loop !343
 
-_ZL18isSignExtendingOpWRKN4llvm12MachineInstrEj.exit.thread.thread198.i.i: ; preds = %137
+_ZL18isSignExtendingOpWRKN4llvm12MachineInstrEj.exit.thread.thread198.i.i: ; preds = %141
   %154 = call noundef ptr @_ZNK4llvm12MachineInstr5getMFEv(ptr noundef nonnull align 8 dereferenceable(70) %85) #17
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 40
   %156 = load ptr, ptr %155, align 8, !tbaa !348
@@ -884,7 +884,7 @@ _ZL18isSignExtendingOpWRKN4llvm12MachineInstrEj.exit.thread.thread198.i.i: ; pre
   br i1 %161, label %162, label %.thread.i.i
 
 162:                                              ; preds = %_ZL18isSignExtendingOpWRKN4llvm12MachineInstrEj.exit.thread.thread198.i.i
-  %163 = load ptr, ptr %138, align 8, !tbaa !319
+  %163 = load ptr, ptr %142, align 8, !tbaa !319
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 4
   %165 = load i32, ptr %164, align 4, !tbaa !333
   %166 = getelementptr inbounds nuw i8, ptr %154, i64 32
@@ -897,7 +897,7 @@ _ZL18isSignExtendingOpWRKN4llvm12MachineInstrEj.exit.thread.thread198.i.i: ; pre
   br i1 %170, label %thread-pre-split.ithread-pre-split.i, label %.thread.i.i, !llvm.loop !343
 
 .thread.i.i:                                      ; preds = %169, %162, %_ZL18isSignExtendingOpWRKN4llvm12MachineInstrEj.exit.thread.thread198.i.i
-  %171 = load ptr, ptr %138, align 8, !tbaa !319
+  %171 = load ptr, ptr %142, align 8, !tbaa !319
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 36
   %173 = load i32, ptr %172, align 4, !tbaa !333
   %174 = icmp eq i32 %173, 53
@@ -1039,7 +1039,7 @@ _ZN4llvm19dyn_cast_if_presentINS_8FunctionEKNS_11GlobalValueEEEDaPT0_.exit.i.i: 
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %"_ZZL15isSignExtendedWN4llvm8RegisterERKNS_14RISCVSubtargetERKNS_19MachineRegisterInfoERNS_15SmallPtrSetImplIPNS_12MachineInstrEEEENK3$_0clES0_.exit.thread.sink.split.i.i"
 
-_ZL18isSignExtendingOpWRKN4llvm12MachineInstrEj.exit.thread.thread193.i.i: ; preds = %_ZL18isSignExtendingOpWRKN4llvm12MachineInstrEj.exit.i.i, %131, %93, %93
+_ZL18isSignExtendingOpWRKN4llvm12MachineInstrEj.exit.thread.thread193.i.i: ; preds = %137, %131, %93, %93
   %247 = getelementptr inbounds nuw i8, ptr %85, i64 32
   %248 = load ptr, ptr %247, align 8, !tbaa !319
   %249 = getelementptr inbounds nuw i8, ptr %248, i64 80
@@ -1257,12 +1257,12 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i: ; preds = %._crit_edge
   %358 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(21) %9, ptr noundef nonnull %85) #17, !noalias !369
   br label %thread-pre-split.ithread-pre-split.i
 
-"_ZZL15isSignExtendedWN4llvm8RegisterERKNS_14RISCVSubtargetERKNS_19MachineRegisterInfoERNS_15SmallPtrSetImplIPNS_12MachineInstrEEEENK3$_0clES0_.exit.thread.sink.split.i.i": ; preds = %_ZL18isSignExtendingOpWRKN4llvm12MachineInstrEj.exit.thread.thread197.i.i, %337, %319, %269, %_ZL18isSignExtendingOpWRKN4llvm12MachineInstrEj.exit.thread.thread195.i.i, %_ZL18isSignExtendingOpWRKN4llvm12MachineInstrEj.exit.thread.thread193.i.i, %233, %_ZN4llvm19dyn_cast_if_presentINS_8FunctionEKNS_11GlobalValueEEEDaPT0_.exit.i.i, %210, %207, %201, %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit.i, %194, %180, %175, %145, %143, %102, %96, %93, %301, %294, %"_ZZL15isSignExtendedWN4llvm8RegisterERKNS_14RISCVSubtargetERKNS_19MachineRegisterInfoERNS_15SmallPtrSetImplIPNS_12MachineInstrEEEENK3$_0clES0_.exit.i"
+"_ZZL15isSignExtendedWN4llvm8RegisterERKNS_14RISCVSubtargetERKNS_19MachineRegisterInfoERNS_15SmallPtrSetImplIPNS_12MachineInstrEEEENK3$_0clES0_.exit.thread.sink.split.i.i": ; preds = %_ZL18isSignExtendingOpWRKN4llvm12MachineInstrEj.exit.thread.thread197.i.i, %337, %319, %269, %_ZL18isSignExtendingOpWRKN4llvm12MachineInstrEj.exit.thread.thread195.i.i, %_ZL18isSignExtendingOpWRKN4llvm12MachineInstrEj.exit.thread.thread193.i.i, %233, %_ZN4llvm19dyn_cast_if_presentINS_8FunctionEKNS_11GlobalValueEEEDaPT0_.exit.i.i, %210, %207, %201, %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit.i, %194, %180, %175, %_ZL18isSignExtendingOpWRKN4llvm12MachineInstrEj.exit.i.i, %147, %102, %96, %93, %301, %294, %"_ZZL15isSignExtendedWN4llvm8RegisterERKNS_14RISCVSubtargetERKNS_19MachineRegisterInfoERNS_15SmallPtrSetImplIPNS_12MachineInstrEEEENK3$_0clES0_.exit.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %"_ZZL15isSignExtendedWN4llvm8RegisterERKNS_14RISCVSubtargetERKNS_19MachineRegisterInfoERNS_15SmallPtrSetImplIPNS_12MachineInstrEEEENK3$_0clES0_.exit.thread.i.i"
 
 "_ZZL15isSignExtendedWN4llvm8RegisterERKNS_14RISCVSubtargetERKNS_19MachineRegisterInfoERNS_15SmallPtrSetImplIPNS_12MachineInstrEEEENK3$_0clES0_.exit.thread.i.i": ; preds = %thread-pre-split.i.i, %"_ZZL15isSignExtendedWN4llvm8RegisterERKNS_14RISCVSubtargetERKNS_19MachineRegisterInfoERNS_15SmallPtrSetImplIPNS_12MachineInstrEEEENK3$_0clES0_.exit.thread.sink.split.i.i", %73
-  %.0.i.i = phi i1 [ false, %73 ], [ false, %"_ZZL15isSignExtendedWN4llvm8RegisterERKNS_14RISCVSubtargetERKNS_19MachineRegisterInfoERNS_15SmallPtrSetImplIPNS_12MachineInstrEEEENK3$_0clES0_.exit.thread.sink.split.i.i" ], [ true, %thread-pre-split.i.i ]
+  %.0.i.i = phi i1 [ false, %"_ZZL15isSignExtendedWN4llvm8RegisterERKNS_14RISCVSubtargetERKNS_19MachineRegisterInfoERNS_15SmallPtrSetImplIPNS_12MachineInstrEEEENK3$_0clES0_.exit.thread.sink.split.i.i" ], [ false, %73 ], [ true, %thread-pre-split.i.i ]
   %359 = load ptr, ptr %4, align 8, !tbaa !25
   %360 = icmp eq ptr %359, %43
   br i1 %360, label %_ZN4llvm11SmallVectorINS_8RegisterELj4EED2Ev.exit.i.i, label %361

@@ -2218,7 +2218,7 @@ _ZSt4sortIN5boost9container12vec_iteratorIPjLb0EEESt4lessIjEEvT_S7_T0_.exit.i.i.
   br i1 %357, label %.lr.ph.i.i.i9.i, label %_ZSt13move_backwardIN5boost9container12vec_iteratorIPjLb0EEES4_ET0_T_S6_S5_.exit.i.i.i, !llvm.loop !94
 
 _ZSt13move_backwardIN5boost9container12vec_iteratorIPjLb0EEES4_ET0_T_S6_S5_.exit.i.i.i: ; preds = %.lr.ph.i.i.i9.i, %351, %.lr.ph.i.i.i.i.i.preheader.i.i.i
-  %.sink.i.i7.i = phi ptr [ %340, %.lr.ph.i.i.i.i.i.preheader.i.i.i ], [ %.sroa.07.017.i.ptr.i.i, %351 ], [ %.sroa.01.08.i.i.i.i, %.lr.ph.i.i.i9.i ]
+  %.sink.i.i7.i = phi ptr [ %.sroa.07.017.i.ptr.i.i, %351 ], [ %340, %.lr.ph.i.i.i.i.i.preheader.i.i.i ], [ %.sroa.01.08.i.i.i.i, %.lr.ph.i.i.i9.i ]
   store i32 %348, ptr %.sink.i.i7.i, align 4
   %.sroa.07.017.i.add.i.i = add nuw nsw i64 %.sroa.07.017.i.idx.i.i, 4
   %.not.i.i8.i = icmp eq i64 %.sroa.07.017.i.add.i.i, 64
@@ -2308,7 +2308,7 @@ _ZSt25__unguarded_linear_insertIN5boost9container12vec_iteratorIPjLb0EEEN9__gnu_
   br i1 %389, label %.lr.ph.i.i21.i.i, label %_ZSt13move_backwardIN5boost9container12vec_iteratorIPjLb0EEES4_ET0_T_S6_S5_.exit.i17.i.i, !llvm.loop !94
 
 _ZSt13move_backwardIN5boost9container12vec_iteratorIPjLb0EEES4_ET0_T_S6_S5_.exit.i17.i.i: ; preds = %.lr.ph.i.i21.i.i, %.lr.ph.i.i.i.i.i.i25.i.i, %383, %372
-  %.sink.i18.i.i = phi ptr [ %340, %372 ], [ %.sroa.07.017.i15.i.i, %383 ], [ %340, %.lr.ph.i.i.i.i.i.i25.i.i ], [ %.sroa.01.08.i.i22.i.i, %.lr.ph.i.i21.i.i ]
+  %.sink.i18.i.i = phi ptr [ %340, %372 ], [ %340, %.lr.ph.i.i.i.i.i.i25.i.i ], [ %.sroa.07.017.i15.i.i, %383 ], [ %.sroa.01.08.i.i22.i.i, %.lr.ph.i.i21.i.i ]
   store i32 %369, ptr %.sink.i18.i.i, align 4
   %.sroa.07.0.i19.i.i = getelementptr inbounds nuw i8, ptr %.sroa.07.017.i15.i.i, i64 4
   %.not.i20.i.i = icmp eq ptr %.sroa.07.0.i19.i.i, %342
@@ -4800,7 +4800,7 @@ define linkonce_odr hidden void @_ZSt22__final_insertion_sortIN5boost9container1
   br i1 %18, label %.lr.ph.i.i, label %_ZSt13move_backwardIN5boost9container12vec_iteratorIPjLb0EEES4_ET0_T_S6_S5_.exit.i, !llvm.loop !94
 
 _ZSt13move_backwardIN5boost9container12vec_iteratorIPjLb0EEES4_ET0_T_S6_S5_.exit.i: ; preds = %.lr.ph.i.i, %.lr.ph.i.i.i.i.i.preheader.i, %12
-  %.sink.i = phi ptr [ %4, %.lr.ph.i.i.i.i.i.preheader.i ], [ %.sroa.07.017.i.ptr, %12 ], [ %.sroa.01.08.i.i, %.lr.ph.i.i ]
+  %.sink.i = phi ptr [ %.sroa.07.017.i.ptr, %12 ], [ %4, %.lr.ph.i.i.i.i.i.preheader.i ], [ %.sroa.01.08.i.i, %.lr.ph.i.i ]
   store i32 %9, ptr %.sink.i, align 4
   %.sroa.07.017.i.add = add nuw nsw i64 %.sroa.07.017.i.idx, 4
   %.not.i = icmp eq i64 %.sroa.07.017.i.add, 64
@@ -4892,7 +4892,7 @@ _ZSt25__unguarded_linear_insertIN5boost9container12vec_iteratorIPjLb0EEEN9__gnu_
   br i1 %53, label %.lr.ph.i.i21, label %_ZSt13move_backwardIN5boost9container12vec_iteratorIPjLb0EEES4_ET0_T_S6_S5_.exit.i17, !llvm.loop !94
 
 _ZSt13move_backwardIN5boost9container12vec_iteratorIPjLb0EEES4_ET0_T_S6_S5_.exit.i17: ; preds = %.lr.ph.i.i21, %.lr.ph.i.i.i.i.i.i25, %47, %36
-  %.sink.i18 = phi ptr [ %4, %36 ], [ %.sroa.07.017.i15, %47 ], [ %4, %.lr.ph.i.i.i.i.i.i25 ], [ %.sroa.01.08.i.i22, %.lr.ph.i.i21 ]
+  %.sink.i18 = phi ptr [ %4, %36 ], [ %4, %.lr.ph.i.i.i.i.i.i25 ], [ %.sroa.07.017.i15, %47 ], [ %.sroa.01.08.i.i22, %.lr.ph.i.i21 ]
   store i32 %33, ptr %.sink.i18, align 4
   %.sroa.07.0.i19 = getelementptr inbounds nuw i8, ptr %.sroa.07.017.i15, i64 4
   %.not.i20 = icmp eq ptr %.sroa.07.0.i19, %3

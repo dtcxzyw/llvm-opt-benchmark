@@ -3117,7 +3117,7 @@ _ZN2cv3hal11normHammingEPKhii.exit274.loopexit.us: ; preds = %.lr.ph.i268.us
   br i1 %259, label %_ZN2cv3hal11normHammingEPKhii.exit274, label %.split352.us
 
 .split352.us:                                     ; preds = %.split350.split, %.split350.split.us, %.split350.us
-  %.us-phi353 = phi i32 [ %.0193.us357, %.split350.split.us ], [ %.0193.us, %.split350.us ], [ 0, %.split350.split ]
+  %.us-phi353 = phi i32 [ %.0193.us, %.split350.us ], [ %.0193.us357, %.split350.split.us ], [ 0, %.split350.split ]
   %260 = sitofp i32 %.us-phi353 to double
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
@@ -4360,7 +4360,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit311: ; preds = %22
   br i1 %exitcond.not.i, label %_ZN2cv3hal11normHammingEPKhS2_ii.exit, label %.lr.ph.i, !llvm.loop !84
 
 _ZN2cv3hal11normHammingEPKhS2_ii.exit:            ; preds = %.lr.ph.i, %293, %291
-  %.1.i = phi i32 [ %292, %291 ], [ 0, %293 ], [ %303, %.lr.ph.i ]
+  %.1.i = phi i32 [ 0, %293 ], [ %292, %291 ], [ %303, %.lr.ph.i ]
   %304 = add nsw i32 %.1.i, %.0206
   %305 = add nuw i64 %.0207, 1
   %306 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cv15NAryMatIteratorppEv(ptr noundef nonnull align 8 dereferenceable(64) %25)
@@ -4867,7 +4867,7 @@ _ZN2cv10AutoBufferIfLm1026EED2Ev.exit323:         ; preds = %476, %473, %470
   br label %513
 
 _ZN2cvL14normDiffL2_32fEPKfS1_PKhPdii.exit295.thread: ; preds = %.lr.ph.i.i.i299, %.lr.ph.i.i.i290, %191, %181, %.loopexit377, %_ZN2cvL14normDiffL2_32fEPKfS1_PKhPdii.exit, %505, %284, %263, %113
-  %.1 = phi double [ %115, %113 ], [ %285, %284 ], [ %262, %263 ], [ %.7, %505 ], [ 0.000000e+00, %181 ], [ %212, %.loopexit377 ], [ %177, %_ZN2cvL14normDiffL2_32fEPKfS1_PKhPdii.exit ], [ 0.000000e+00, %191 ], [ %189, %.lr.ph.i.i.i290 ], [ %200, %.lr.ph.i.i.i299 ]
+  %.1 = phi double [ %115, %113 ], [ %285, %284 ], [ %262, %263 ], [ %.7, %505 ], [ %189, %.lr.ph.i.i.i290 ], [ 0.000000e+00, %181 ], [ %212, %.loopexit377 ], [ %177, %_ZN2cvL14normDiffL2_32fEPKfS1_PKhPdii.exit ], [ 0.000000e+00, %191 ], [ %200, %.lr.ph.i.i.i299 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #21

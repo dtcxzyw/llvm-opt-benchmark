@@ -337,7 +337,7 @@ define weak_odr dso_local void @_ZN3igl14grad_intrinsicIN5Eigen6MatrixIdLin1ELi3
   br i1 %exitcond92.not.i.i.i.i, label %.loopexit361, label %.lr.ph85.i.i.i.i, !llvm.loop !21
 
 .loopexit361:                                     ; preds = %.lr.ph80.i.i.i.i, %.lr.ph85.i.i.i.i, %73, %80
-  %.2.i.i.i.i = phi i32 [ %81, %80 ], [ %74, %73 ], [ %85, %.lr.ph85.i.i.i.i ], [ %78, %.lr.ph80.i.i.i.i ]
+  %.2.i.i.i.i = phi i32 [ %85, %.lr.ph85.i.i.i.i ], [ %81, %80 ], [ %74, %73 ], [ %78, %.lr.ph80.i.i.i.i ]
   %87 = add nsw i32 %.2.i.i.i.i, 1
   %88 = trunc i64 %31 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
@@ -1315,7 +1315,7 @@ define weak_odr dso_local void @_ZN3igl14grad_intrinsicIN5Eigen6MatrixIdLin1ELin
   br i1 %exitcond92.not.i.i.i.i, label %.loopexit361, label %.lr.ph85.i.i.i.i, !llvm.loop !21
 
 .loopexit361:                                     ; preds = %.lr.ph80.i.i.i.i, %.lr.ph85.i.i.i.i, %73, %80
-  %.2.i.i.i.i = phi i32 [ %81, %80 ], [ %74, %73 ], [ %85, %.lr.ph85.i.i.i.i ], [ %78, %.lr.ph80.i.i.i.i ]
+  %.2.i.i.i.i = phi i32 [ %85, %.lr.ph85.i.i.i.i ], [ %81, %80 ], [ %74, %73 ], [ %78, %.lr.ph80.i.i.i.i ]
   %87 = add nsw i32 %.2.i.i.i.i, 1
   %88 = trunc i64 %31 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
@@ -4650,7 +4650,7 @@ _ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin
   br i1 %exitcond102.not.i.i.i.i.i, label %_ZNK5Eigen9DenseBaseINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEE3sumEv.exit.i.i, label %.lr.ph94.i.i.i.i.i, !llvm.loop !236
 
 _ZNK5Eigen9DenseBaseINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEE3sumEv.exit.i.i: ; preds = %.lr.ph89.i.i.i.i.i, %.lr.ph94.i.i.i.i.i, %118, %.preheader.i.i.i.i.i
-  %.0.i.i.i = phi i32 [ %119, %118 ], [ %.075.lcssa.i.i.i.i.i, %.preheader.i.i.i.i.i ], [ %123, %.lr.ph94.i.i.i.i.i ], [ %115, %.lr.ph89.i.i.i.i.i ]
+  %.0.i.i.i = phi i32 [ %123, %.lr.ph94.i.i.i.i.i ], [ %.075.lcssa.i.i.i.i.i, %.preheader.i.i.i.i.i ], [ %119, %118 ], [ %115, %.lr.ph89.i.i.i.i.i ]
   %125 = sext i32 %.0.i.i.i to i64
   br label %_ZNK5Eigen8internal9evaluatorINS_20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEEEE16nonZerosEstimateEv.exit
 
@@ -4802,7 +4802,7 @@ _ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin
   br i1 %exitcond102.not.i.i.i.i.i182, label %_ZNK5Eigen9DenseBaseINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEE3sumEv.exit.i.i159, label %.lr.ph94.i.i.i.i.i179, !llvm.loop !236
 
 _ZNK5Eigen9DenseBaseINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEE3sumEv.exit.i.i159: ; preds = %.lr.ph89.i.i.i.i.i162, %.lr.ph94.i.i.i.i.i179, %197, %.preheader.i.i.i.i.i157
-  %.0.i.i.i160 = phi i32 [ %198, %197 ], [ %.075.lcssa.i.i.i.i.i158, %.preheader.i.i.i.i.i157 ], [ %202, %.lr.ph94.i.i.i.i.i179 ], [ %194, %.lr.ph89.i.i.i.i.i162 ]
+  %.0.i.i.i160 = phi i32 [ %202, %.lr.ph94.i.i.i.i.i179 ], [ %.075.lcssa.i.i.i.i.i158, %.preheader.i.i.i.i.i157 ], [ %198, %197 ], [ %194, %.lr.ph89.i.i.i.i.i162 ]
   %204 = sext i32 %.0.i.i.i160 to i64
   br label %_ZNK5Eigen8internal9evaluatorINS_20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEEEE16nonZerosEstimateEv.exit183
 

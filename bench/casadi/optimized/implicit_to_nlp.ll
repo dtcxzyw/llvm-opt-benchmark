@@ -1652,7 +1652,7 @@ _ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6casadi2MXEED2E
   br i1 %308, label %.loopexit, label %305
 
 .loopexit:                                        ; preds = %301, %305, %.thread
-  %.pn65 = phi { ptr, i32 } [ %254, %.thread ], [ %269, %305 ], [ %300, %301 ]
+  %.pn65 = phi { ptr, i32 } [ %269, %305 ], [ %254, %.thread ], [ %300, %301 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %442
 

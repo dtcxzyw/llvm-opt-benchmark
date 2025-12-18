@@ -1069,8 +1069,8 @@ _ZL13days_in_monthmm.exit32.i:                    ; preds = %_ZL13days_in_monthm
   br i1 %exitcond.not.i, label %_ZL17daynumber_in_yearmmm.exit, label %_ZL13days_in_monthmm.exit32.i, !llvm.loop !81
 
 _ZL17daynumber_in_yearmmm.exit:                   ; preds = %_ZL13days_in_monthmm.exit32.i, %_ZL13days_in_monthmm.exit32.us.i, %_ZL13days_in_monthmm.exit.i, %_ZL13days_in_monthmm.exit.thread.i
-  %.01848.i = phi i64 [ %.62.i, %_ZL13days_in_monthmm.exit.i ], [ %..i, %_ZL13days_in_monthmm.exit.thread.i ], [ %.62.i, %_ZL13days_in_monthmm.exit32.us.i ], [ %..i, %_ZL13days_in_monthmm.exit32.i ]
-  %.017.lcssa.i = phi i32 [ 0, %_ZL13days_in_monthmm.exit.i ], [ 0, %_ZL13days_in_monthmm.exit.thread.i ], [ %38, %_ZL13days_in_monthmm.exit32.us.i ], [ %44, %_ZL13days_in_monthmm.exit32.i ]
+  %.01848.i = phi i64 [ %.62.i, %_ZL13days_in_monthmm.exit.i ], [ %.62.i, %_ZL13days_in_monthmm.exit32.us.i ], [ %..i, %_ZL13days_in_monthmm.exit.thread.i ], [ %..i, %_ZL13days_in_monthmm.exit32.i ]
+  %.017.lcssa.i = phi i32 [ 0, %_ZL13days_in_monthmm.exit.i ], [ %38, %_ZL13days_in_monthmm.exit32.us.i ], [ 0, %_ZL13days_in_monthmm.exit.thread.i ], [ %44, %_ZL13days_in_monthmm.exit32.i ]
   %45 = trunc nuw i64 %.01848.i to i32
   %46 = add i32 %.017.lcssa.i, %45
   %47 = sitofp i32 %46 to double
@@ -1213,8 +1213,8 @@ _ZL13days_in_monthmm.exit42:                      ; preds = %_ZL12days_in_yearl.
   br i1 %.not2445, label %.split.us, label %_ZL13days_in_monthmm.exit42, !llvm.loop !84
 
 .split.us:                                        ; preds = %_ZL13days_in_monthmm.exit42, %_ZL13days_in_monthmm.exit42.us, %_ZL12days_in_yearl.exit30.split, %_ZL12days_in_yearl.exit30.split.us
-  %.us-phi = phi i32 [ 1, %_ZL12days_in_yearl.exit30.split.us ], [ 1, %_ZL12days_in_yearl.exit30.split ], [ %23, %_ZL13days_in_monthmm.exit42.us ], [ %37, %_ZL13days_in_monthmm.exit42 ]
-  %.us-phi56 = phi i32 [ %15, %_ZL12days_in_yearl.exit30.split.us ], [ %32, %_ZL12days_in_yearl.exit30.split ], [ %22, %_ZL13days_in_monthmm.exit42.us ], [ %36, %_ZL13days_in_monthmm.exit42 ]
+  %.us-phi = phi i32 [ %23, %_ZL13days_in_monthmm.exit42.us ], [ 1, %_ZL12days_in_yearl.exit30.split.us ], [ 1, %_ZL12days_in_yearl.exit30.split ], [ %37, %_ZL13days_in_monthmm.exit42 ]
+  %.us-phi56 = phi i32 [ %22, %_ZL13days_in_monthmm.exit42.us ], [ %15, %_ZL12days_in_yearl.exit30.split.us ], [ %32, %_ZL12days_in_yearl.exit30.split ], [ %36, %_ZL13days_in_monthmm.exit42 ]
   %46 = add nuw i32 %3, 1
   %47 = sub i32 %46, %.us-phi56
   %48 = uitofp i32 %.022.lcssa to double

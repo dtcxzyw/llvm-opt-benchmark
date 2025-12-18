@@ -2171,7 +2171,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i29
   br i1 %768, label %.loopexit, label %765
 
 .loopexit:                                        ; preds = %761, %765, %.thread
-  %.pn87 = phi { ptr, i32 } [ %441, %.thread ], [ %eh.lpad-body384561, %765 ], [ %760, %761 ]
+  %.pn87 = phi { ptr, i32 } [ %eh.lpad-body384561, %765 ], [ %441, %.thread ], [ %760, %761 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %50)
   br label %799
 
@@ -2222,7 +2222,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit306: ; preds = %78
   br i1 %786, label %.thread469, label %780
 
 .thread469:                                       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit306, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit303, %769
-  %.pn89.pn.pn.pn474 = phi { ptr, i32 } [ %770, %769 ], [ %772, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit303 ], [ %771, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit306 ]
+  %.pn89.pn.pn.pn474 = phi { ptr, i32 } [ %772, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit303 ], [ %770, %769 ], [ %771, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit306 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %52)
   br label %798
 

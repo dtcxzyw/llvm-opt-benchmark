@@ -2087,7 +2087,7 @@ _pack_alloc.exit.us40.us:                         ; preds = %.preheader.split.sp
   br i1 %exitcond.not, label %.split.us, label %.preheader.split.split, !llvm.loop !32
 
 .split.us:                                        ; preds = %._crit_edge.split.split, %._crit_edge.split.split.us.us, %._crit_edge.split.us.us
-  %.us-phi48 = phi i32 [ %.1.lcssa.us53, %._crit_edge.split.split.us.us ], [ %.1.lcssa.us, %._crit_edge.split.us.us ], [ %.1.lcssa, %._crit_edge.split.split ]
+  %.us-phi48 = phi i32 [ %.1.lcssa.us, %._crit_edge.split.us.us ], [ %.1.lcssa.us53, %._crit_edge.split.split.us.us ], [ %.1.lcssa, %._crit_edge.split.split ]
   %.not31 = icmp eq i32 %.us-phi48, 0
   br i1 %.not31, label %79, label %77
 
@@ -4041,7 +4041,7 @@ define dso_local void @bb_limit_rem(i32 noundef %0, i64 noundef %1, ptr noundef 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %51, %.loopexit.sink.split, %27
-  %.064 = phi i32 [ 0, %27 ], [ %.067, %.loopexit.sink.split ], [ %52, %51 ]
+  %.064 = phi i32 [ %.067, %.loopexit.sink.split ], [ 0, %27 ], [ %52, %51 ]
   %56 = load i32, ptr %28, align 8
   %.not59 = icmp ult i32 %.064, %56
   br i1 %.not59, label %59, label %57
@@ -5238,8 +5238,8 @@ bb_granularity.exit268:                           ; preds = %301, %303
   br label %.loopexit270
 
 .loopexit270:                                     ; preds = %240, %316, %.loopexit278, %._crit_edge320, %253, %._crit_edge338
-  %.0210 = phi ptr [ null, %253 ], [ %255, %._crit_edge338 ], [ null, %._crit_edge320 ], [ null, %.loopexit278 ], [ %255, %316 ], [ null, %240 ]
-  %.0209 = phi i32 [ 2, %253 ], [ 2, %._crit_edge338 ], [ 0, %._crit_edge320 ], [ 0, %.loopexit278 ], [ 2, %316 ], [ 1, %240 ]
+  %.0210 = phi ptr [ null, %253 ], [ %255, %316 ], [ %255, %._crit_edge338 ], [ null, %._crit_edge320 ], [ null, %.loopexit278 ], [ null, %240 ]
+  %.0209 = phi i32 [ 2, %253 ], [ 2, %316 ], [ 2, %._crit_edge338 ], [ 0, %._crit_edge320 ], [ 0, %.loopexit278 ], [ 1, %240 ]
   call void @slurm_xfree(ptr noundef nonnull %5) #17
   call void @slurm_xfree(ptr noundef nonnull %6) #17
   call void @slurm_xfree(ptr noundef nonnull %7) #17
@@ -5449,7 +5449,7 @@ define dso_local noundef zeroext i1 @bb_valid_pool_test(ptr noundef readonly cap
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %._crit_edge, %22, %3, %2
-  %.012 = phi i1 [ true, %3 ], [ true, %2 ], [ false, %22 ], [ false, %._crit_edge ], [ true, %.lr.ph ]
+  %.012 = phi i1 [ true, %3 ], [ false, %._crit_edge ], [ true, %2 ], [ false, %22 ], [ true, %.lr.ph ]
   ret i1 %.012
 }
 

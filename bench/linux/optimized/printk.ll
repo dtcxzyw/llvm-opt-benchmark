@@ -6427,8 +6427,8 @@ define internal fastcc noundef i64 @find_first_fitting_seq(i64 noundef %0, i64 n
   br i1 %93, label %.split.split, label %.loopexit8, !llvm.loop !122
 
 .loopexit8:                                       ; preds = %.split.split, %.split.split.us, %32, %5
-  %94 = phi i64 [ 0, %5 ], [ %74, %.split.split.us ], [ %49, %32 ], [ %87, %.split.split ]
-  %95 = phi i64 [ %0, %5 ], [ %76, %.split.split.us ], [ %51, %32 ], [ %88, %.split.split ]
+  %94 = phi i64 [ 0, %5 ], [ %49, %32 ], [ %74, %.split.split.us ], [ %87, %.split.split ]
+  %95 = phi i64 [ %0, %5 ], [ %51, %32 ], [ %76, %.split.split.us ], [ %88, %.split.split ]
   %96 = call i64 @llvm.umin.i64(i64 %95, i64 %1)
   %97 = load ptr, ptr @prb, align 8
   %98 = call zeroext i1 @prb_read_valid_info(ptr noundef %97, i64 noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %9) #28

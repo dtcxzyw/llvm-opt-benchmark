@@ -2105,7 +2105,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7710UnicodeSet8containsEii(pt
   br i1 %27, label %_ZNK6icu_7710UnicodeSet13findCodePointEi.exit, label %.lr.ph.i
 
 _ZNK6icu_7710UnicodeSet13findCodePointEi.exit:    ; preds = %.lr.ph.i, %8, %13
-  %.0.i = phi i32 [ %11, %8 ], [ %11, %13 ], [ %..018.i, %.lr.ph.i ]
+  %.0.i = phi i32 [ %11, %13 ], [ %11, %8 ], [ %..018.i, %.lr.ph.i ]
   %28 = and i32 %.0.i, 1
   %.not = icmp eq i32 %28, 0
   br i1 %.not, label %_ZNK6icu_7710UnicodeSet13findCodePointEi.exit.thread, label %29
@@ -2452,7 +2452,7 @@ _ZNK6icu_7710UnicodeSet10hasStringsEv.exit:       ; preds = %.critedge
   br label %_ZNK6icu_7710UnicodeSet8containsEii.exit.thread
 
 _ZNK6icu_7710UnicodeSet8containsEii.exit.thread:  ; preds = %.lr.ph.split.split, %_ZNK6icu_7710UnicodeSet13findCodePointEi.exit.i, %_ZNK6icu_7710UnicodeSet8containsEii.exit, %_ZNK6icu_7710UnicodeSet13findCodePointEi.exit.i.us27, %.lr.ph.split.split.us.split, %.lr.ph.split.us.split, %_ZNK6icu_7710UnicodeSet13findCodePointEi.exit.i.us, %.lr.ph.split.us, %.critedge, %_ZNK6icu_7710UnicodeSet10hasStringsEv.exit, %66, %63
-  %.1 = phi i8 [ %69, %66 ], [ 1, %_ZNK6icu_7710UnicodeSet10hasStringsEv.exit ], [ 0, %63 ], [ 1, %.critedge ], [ 0, %.lr.ph.split.us ], [ 0, %_ZNK6icu_7710UnicodeSet13findCodePointEi.exit.i.us27 ], [ 0, %.lr.ph.split.us.split ], [ 0, %_ZNK6icu_7710UnicodeSet13findCodePointEi.exit.i.us ], [ 0, %.lr.ph.split.split.us.split ], [ 0, %_ZNK6icu_7710UnicodeSet8containsEii.exit ], [ 0, %_ZNK6icu_7710UnicodeSet13findCodePointEi.exit.i ], [ 0, %.lr.ph.split.split ]
+  %.1 = phi i8 [ %69, %66 ], [ 1, %_ZNK6icu_7710UnicodeSet10hasStringsEv.exit ], [ 0, %63 ], [ 1, %.critedge ], [ 0, %.lr.ph.split.us.split ], [ 0, %_ZNK6icu_7710UnicodeSet13findCodePointEi.exit.i.us27 ], [ 0, %.lr.ph.split.us ], [ 0, %_ZNK6icu_7710UnicodeSet13findCodePointEi.exit.i.us ], [ 0, %.lr.ph.split.split.us.split ], [ 0, %_ZNK6icu_7710UnicodeSet8containsEii.exit ], [ 0, %_ZNK6icu_7710UnicodeSet13findCodePointEi.exit.i ], [ 0, %.lr.ph.split.split ]
   ret i8 %.1
 }
 
@@ -2757,7 +2757,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7710UnicodeSet12containsNoneE
   br i1 %27, label %_ZNK6icu_7710UnicodeSet13findCodePointEi.exit, label %.lr.ph.i
 
 _ZNK6icu_7710UnicodeSet13findCodePointEi.exit:    ; preds = %.lr.ph.i, %8, %13
-  %.0.i = phi i32 [ %11, %8 ], [ %11, %13 ], [ %..018.i, %.lr.ph.i ]
+  %.0.i = phi i32 [ %11, %13 ], [ %11, %8 ], [ %..018.i, %.lr.ph.i ]
   %28 = and i32 %.0.i, 1
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %_ZNK6icu_7710UnicodeSet13findCodePointEi.exit._ZNK6icu_7710UnicodeSet13findCodePointEi.exit.thread_crit_edge, label %33
@@ -2956,7 +2956,7 @@ _ZNK6icu_7710UnicodeSet10hasStringsEv.exit:       ; preds = %63
   br label %_ZNK6icu_7710UnicodeSet12containsNoneEii.exit.thread
 
 _ZNK6icu_7710UnicodeSet12containsNoneEii.exit.thread: ; preds = %_ZNK6icu_7710UnicodeSet13findCodePointEi.exit.i, %_ZNK6icu_7710UnicodeSet12containsNoneEii.exit, %_ZNK6icu_7710UnicodeSet12containsNoneEii.exit.us30, %.lr.ph.split.split.us.split, %.lr.ph.split.us.split, %_ZNK6icu_7710UnicodeSet12containsNoneEii.exit.us, %_ZNK6icu_7710UnicodeSet12containsNoneEii.exit.us.us, %63, %.critedge, %_ZNK6icu_7710UnicodeSet10hasStringsEv.exit, %68
-  %.1 = phi i8 [ %71, %68 ], [ 1, %_ZNK6icu_7710UnicodeSet10hasStringsEv.exit ], [ 1, %.critedge ], [ 1, %63 ], [ 0, %_ZNK6icu_7710UnicodeSet12containsNoneEii.exit.us30 ], [ 0, %_ZNK6icu_7710UnicodeSet12containsNoneEii.exit.us.us ], [ 0, %.lr.ph.split.us.split ], [ 0, %_ZNK6icu_7710UnicodeSet12containsNoneEii.exit.us ], [ 0, %.lr.ph.split.split.us.split ], [ 0, %_ZNK6icu_7710UnicodeSet12containsNoneEii.exit ], [ 0, %_ZNK6icu_7710UnicodeSet13findCodePointEi.exit.i ]
+  %.1 = phi i8 [ %71, %68 ], [ 1, %_ZNK6icu_7710UnicodeSet10hasStringsEv.exit ], [ 1, %.critedge ], [ 1, %63 ], [ 0, %.lr.ph.split.us.split ], [ 0, %_ZNK6icu_7710UnicodeSet12containsNoneEii.exit.us30 ], [ 0, %_ZNK6icu_7710UnicodeSet12containsNoneEii.exit.us.us ], [ 0, %_ZNK6icu_7710UnicodeSet12containsNoneEii.exit.us ], [ 0, %.lr.ph.split.split.us.split ], [ 0, %_ZNK6icu_7710UnicodeSet12containsNoneEii.exit ], [ 0, %_ZNK6icu_7710UnicodeSet13findCodePointEi.exit.i ]
   ret i8 %.1
 }
 
@@ -3084,7 +3084,7 @@ _ZNK6icu_7710UnicodeSet10hasStringsEv.exit:       ; preds = %._crit_edge
   br i1 %42, label %.lr.ph44, label %.critedge, !llvm.loop !54
 
 .critedge:                                        ; preds = %20, %21, %37, %33, %._crit_edge, %_ZNK6icu_7710UnicodeSet10hasStringsEv.exit
-  %.2 = phi i8 [ 0, %_ZNK6icu_7710UnicodeSet10hasStringsEv.exit ], [ 0, %._crit_edge ], [ 1, %33 ], [ 0, %37 ], [ 1, %21 ], [ 1, %20 ]
+  %.2 = phi i8 [ 0, %_ZNK6icu_7710UnicodeSet10hasStringsEv.exit ], [ 1, %33 ], [ 0, %._crit_edge ], [ 0, %37 ], [ 1, %21 ], [ 1, %20 ]
   ret i8 %.2
 }
 
@@ -3172,7 +3172,7 @@ _ZNK6icu_7710UnicodeSet10hasStringsEv.exit.i:     ; preds = %._crit_edge.i
   br i1 %42, label %.lr.ph44.i, label %_ZNK6icu_7710UnicodeSet17matchesIndexValueEh.exit, !llvm.loop !54
 
 _ZNK6icu_7710UnicodeSet17matchesIndexValueEh.exit: ; preds = %20, %21, %33, %37, %._crit_edge.i, %_ZNK6icu_7710UnicodeSet10hasStringsEv.exit.i
-  %.2.i = phi i8 [ 0, %_ZNK6icu_7710UnicodeSet10hasStringsEv.exit.i ], [ 0, %._crit_edge.i ], [ 1, %33 ], [ 0, %37 ], [ 1, %21 ], [ 1, %20 ]
+  %.2.i = phi i8 [ 0, %_ZNK6icu_7710UnicodeSet10hasStringsEv.exit.i ], [ 1, %33 ], [ 0, %._crit_edge.i ], [ 0, %37 ], [ 1, %21 ], [ 1, %20 ]
   ret i8 %.2.i
 }
 
@@ -4387,7 +4387,7 @@ _ZN6icu_77L12pinCodePointERi.exit:
   br i1 %26, label %_ZNK6icu_7710UnicodeSet13findCodePointEi.exit, label %.lr.ph.i
 
 _ZNK6icu_7710UnicodeSet13findCodePointEi.exit:    ; preds = %.lr.ph.i, %7, %12
-  %.0.i = phi i32 [ %10, %7 ], [ %10, %12 ], [ %..018.i, %.lr.ph.i ]
+  %.0.i = phi i32 [ %10, %12 ], [ %10, %7 ], [ %..018.i, %.lr.ph.i ]
   %27 = and i32 %.0.i, 1
   %.not = icmp eq i32 %27, 0
   br i1 %.not, label %_ZNK6icu_7710UnicodeSet13findCodePointEi.exit.thread, label %_ZN6icu_7710UnicodeSet14releasePatternEv.exit

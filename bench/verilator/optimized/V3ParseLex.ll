@@ -21176,12 +21176,6 @@ _ZN11V3LexerBase16yy_try_NUL_transEi.exit:        ; preds = %.lr.ph.i1013, %1291
     i16 0, label %.preheader1125.outer.backedge
   ]
 
-.preheader1125.outer.backedge:                    ; preds = %_ZN11V3LexerBase16yy_try_NUL_transEi.exit, %_ZN11V3LexerBase16yy_try_NUL_transEi.exit, %12969
-  %.1186.ph.be = phi ptr [ %12984, %12969 ], [ %12938, %_ZN11V3LexerBase16yy_try_NUL_transEi.exit ], [ %12938, %_ZN11V3LexerBase16yy_try_NUL_transEi.exit ]
-  %.268.ph.be = phi ptr [ %12980, %12969 ], [ %12864, %_ZN11V3LexerBase16yy_try_NUL_transEi.exit ], [ %12864, %_ZN11V3LexerBase16yy_try_NUL_transEi.exit ]
-  %.3.ph.be = phi i32 [ %12979, %12969 ], [ %.017.lcssa.i, %_ZN11V3LexerBase16yy_try_NUL_transEi.exit ], [ %.017.lcssa.i, %_ZN11V3LexerBase16yy_try_NUL_transEi.exit ]
-  br label %.preheader1125.outer
-
 12939:                                            ; preds = %_ZN11V3LexerBase16yy_try_NUL_transEi.exit
   %12940 = sext i16 %12936 to i32
   %12941 = getelementptr inbounds nuw i8, ptr %12864, i64 1
@@ -21262,6 +21256,12 @@ _ZN11V3LexerBase16yy_try_NUL_transEi.exit:        ; preds = %.lr.ph.i1013, %1291
   %12983 = sext i32 %12982 to i64
   %12984 = getelementptr inbounds i8, ptr %12981, i64 %12983
   br label %.preheader1125.outer.backedge
+
+.preheader1125.outer.backedge:                    ; preds = %12969, %_ZN11V3LexerBase16yy_try_NUL_transEi.exit, %_ZN11V3LexerBase16yy_try_NUL_transEi.exit
+  %.1186.ph.be = phi ptr [ %12938, %_ZN11V3LexerBase16yy_try_NUL_transEi.exit ], [ %12938, %_ZN11V3LexerBase16yy_try_NUL_transEi.exit ], [ %12984, %12969 ]
+  %.268.ph.be = phi ptr [ %12864, %_ZN11V3LexerBase16yy_try_NUL_transEi.exit ], [ %12864, %_ZN11V3LexerBase16yy_try_NUL_transEi.exit ], [ %12980, %12969 ]
+  %.3.ph.be = phi i32 [ %.017.lcssa.i, %_ZN11V3LexerBase16yy_try_NUL_transEi.exit ], [ %.017.lcssa.i, %_ZN11V3LexerBase16yy_try_NUL_transEi.exit ], [ %12979, %12969 ]
+  br label %.preheader1125.outer
 
 default.unreachable8897:                          ; preds = %12942
   unreachable

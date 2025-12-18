@@ -844,7 +844,7 @@ _ZNSt6vectorISt10shared_ptrIN4cvc58internal9ProofNodeEESaIS4_EE9push_backERKS4_.
   br label %709
 
 _ZNSt13unordered_mapISt10shared_ptrIN4cvc58internal9ProofNodeEES4_St4hashIS4_ESt8equal_toIS4_ESaISt4pairIKS4_S4_EEE4findERSA_.exit: ; preds = %98, %82, %93
-  %.sroa.06.1.i.i = phi ptr [ %94, %93 ], [ %.sroa.06.0.i.i, %82 ], [ %100, %98 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %82 ], [ %94, %93 ], [ %100, %98 ]
   %297 = load ptr, ptr %32, align 8, !tbaa !42
   %298 = getelementptr inbounds i8, ptr %297, i64 -16
   store ptr %298, ptr %32, align 8, !tbaa !42

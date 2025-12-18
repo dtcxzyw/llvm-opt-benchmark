@@ -414,7 +414,7 @@ define i32 @Xzs_ReadBackward(ptr noundef captures(none) %0, ptr noundef %1, ptr 
   br label %73
 
 .loopexit.i:                                      ; preds = %68, %66, %62, %58, %.thread.i, %37, %69, %46, %.lr.ph181.i, %53
-  %.5.ph.i = phi i32 [ %47, %46 ], [ 17, %53 ], [ 17, %69 ], [ %45, %.lr.ph181.i ], [ 17, %37 ], [ 17, %68 ], [ 17, %58 ], [ %67, %66 ], [ %65, %62 ], [ 17, %.thread.i ]
+  %.5.ph.i = phi i32 [ 17, %53 ], [ 17, %69 ], [ %45, %.lr.ph181.i ], [ %47, %46 ], [ 17, %37 ], [ 17, %68 ], [ 17, %58 ], [ 17, %.thread.i ], [ %65, %62 ], [ %67, %66 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread73.sink.split
 
@@ -584,7 +584,7 @@ Xz_ReadBackward.exit.thread68:                    ; preds = %116, %114
   br i1 %.not63, label %155, label %.sink.split
 
 .thread73.sink.split:                             ; preds = %31, %73, %110, %91, %84, %155, %34, %81, %Xz_GetPackSize.exit.i, %99, %.loopexit.i, %15, %Xz_ReadBackward.exit.thread68
-  %.4.ph.ph = phi i32 [ %.15.i.ph, %Xz_ReadBackward.exit.thread68 ], [ %.5.ph.i, %.loopexit.i ], [ 17, %15 ], [ 16, %99 ], [ 4, %73 ], [ %113, %110 ], [ %93, %91 ], [ %90, %84 ], [ 17, %155 ], [ %35, %34 ], [ 16, %81 ], [ 16, %Xz_GetPackSize.exit.i ], [ %33, %31 ]
+  %.4.ph.ph = phi i32 [ %.15.i.ph, %Xz_ReadBackward.exit.thread68 ], [ %.5.ph.i, %.loopexit.i ], [ 17, %15 ], [ 16, %99 ], [ %113, %110 ], [ %93, %91 ], [ %90, %84 ], [ 17, %155 ], [ %35, %34 ], [ 16, %81 ], [ 16, %Xz_GetPackSize.exit.i ], [ 4, %73 ], [ %33, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.sink.split
 
@@ -749,7 +749,7 @@ define internal fastcc i32 @Xz_ReadIndex(ptr noundef nonnull %0, ptr noundef %1,
   br label %Xz_ReadIndex2.exit
 
 Xz_ReadIndex2.exit:                               ; preds = %58, %52, %.preheader.i, %61, %.critedge.i, %65, %34, %18, %16, %14, %11
-  %.020 = phi i32 [ %12, %11 ], [ 16, %.critedge.i ], [ 16, %14 ], [ 16, %18 ], [ %67, %65 ], [ 16, %16 ], [ 2, %34 ], [ 16, %61 ], [ 16, %.preheader.i ], [ 16, %52 ], [ 16, %58 ]
+  %.020 = phi i32 [ %12, %11 ], [ 16, %.critedge.i ], [ 16, %14 ], [ 16, %18 ], [ 16, %61 ], [ 2, %34 ], [ %67, %65 ], [ 16, %16 ], [ 16, %.preheader.i ], [ 16, %52 ], [ 16, %58 ]
   %68 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %69 = load ptr, ptr %68, align 8, !tbaa !21
   call void %69(ptr noundef nonnull %3, ptr noundef nonnull %9) #9

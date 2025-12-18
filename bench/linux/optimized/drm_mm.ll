@@ -96,7 +96,7 @@ define dso_local nonnull ptr @__drm_mm_interval_first(ptr noundef readonly captu
   br i1 %41, label %.loopexit, label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %38, %20
-  %.pn6.be = phi ptr [ %18, %20 ], [ %36, %38 ]
+  %.pn6.be = phi ptr [ %36, %38 ], [ %18, %20 ]
   br label %.preheader, !llvm.loop !5
 
 .loopexit.split.loop.exit7:                       ; preds = %28
@@ -911,7 +911,7 @@ define dso_local noundef range(i32 -28, 1) i32 @drm_mm_insert_node_in_range(ptr 
   br label %.thread22
 
 .thread22:                                        ; preds = %37, %.thread22.loopexit240, %.thread22.loopexit238, %.lr.ph.preheader, %.lr.ph79.preheader, %103
-  %110 = phi ptr [ %107, %103 ], [ null, %.lr.ph79.preheader ], [ null, %.lr.ph.preheader ], [ %109, %.thread22.loopexit240 ], [ %108, %.thread22.loopexit238 ], [ %44, %37 ]
+  %110 = phi ptr [ %107, %103 ], [ %108, %.thread22.loopexit238 ], [ %109, %.thread22.loopexit240 ], [ null, %.lr.ph.preheader ], [ null, %.lr.ph79.preheader ], [ %44, %37 ]
   %111 = icmp eq ptr %110, null
   br i1 %111, label %.thread26, label %112
 
@@ -1278,18 +1278,18 @@ drm_mm_interval_tree_add_node.exit:               ; preds = %.loopexit.i, %234
   br i1 %323, label %.thread26, label %324
 
 324:                                              ; preds = %305, %270, %317, %282, %319, %244
-  %325 = phi ptr [ %248, %244 ], [ %322, %319 ], [ %271, %270 ], [ %283, %282 ], [ %306, %305 ], [ %318, %317 ]
+  %325 = phi ptr [ %318, %317 ], [ %248, %244 ], [ %322, %319 ], [ %271, %270 ], [ %283, %282 ], [ %306, %305 ]
   %326 = icmp eq ptr %325, null
   br i1 %326, label %.thread26, label %125, !llvm.loop !21
 
 .thread26.sink.split:                             ; preds = %125, %239, %242
-  %.ph = phi i32 [ 0, %242 ], [ 0, %239 ], [ -28, %125 ]
+  %.ph = phi i32 [ 0, %239 ], [ 0, %242 ], [ -28, %125 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.thread26
 
 .thread26:                                        ; preds = %324, %.thread32, %249, %284, %244, %319, %307, %272, %.thread26.sink.split, %49, %76, %103, %.thread22, %21, %8
-  %327 = phi i32 [ -28, %8 ], [ -28, %21 ], [ -28, %.thread22 ], [ -28, %103 ], [ -28, %76 ], [ -28, %49 ], [ %.ph, %.thread26.sink.split ], [ -28, %307 ], [ -28, %272 ], [ -28, %319 ], [ -28, %244 ], [ -28, %284 ], [ -28, %249 ], [ -28, %.thread32 ], [ -28, %324 ]
+  %327 = phi i32 [ -28, %8 ], [ -28, %21 ], [ -28, %.thread22 ], [ -28, %272 ], [ -28, %103 ], [ %.ph, %.thread26.sink.split ], [ -28, %49 ], [ -28, %76 ], [ -28, %307 ], [ -28, %319 ], [ -28, %244 ], [ -28, %284 ], [ -28, %249 ], [ -28, %.thread32 ], [ -28, %324 ]
   ret i32 %327
 }
 

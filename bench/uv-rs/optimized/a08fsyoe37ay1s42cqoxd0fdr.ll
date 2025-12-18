@@ -2079,7 +2079,7 @@ _ZN4core3cmp9PartialEq2ne17h1a88c3fd69196541E.exit.i.i22.i.i.i: ; preds = %54
   br i1 %exitcond.not.i.i21.i.i.i, label %.backedge.i, label %.lr.ph.i13.i.i.i
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2d46895daf7bf446E.exit": ; preds = %.lr.ph.i, %18, %.backedge.i, %23, %41, %.lr.ph.i13.i.i.i, %55, %_ZN4core3cmp9PartialEq2ne17h1a88c3fd69196541E.exit.i.i22.i.i.i, %.lr.ph.i.i.i.i, %37, %_ZN4core3cmp9PartialEq2ne17h1a88c3fd69196541E.exit.i.i.i.i.i, %2, %.preheader.split.i
-  %.sroa.0.0.i = phi i1 [ false, %2 ], [ true, %.preheader.split.i ], [ false, %.lr.ph.i.i.i.i ], [ false, %.lr.ph.i13.i.i.i ], [ false, %_ZN4core3cmp9PartialEq2ne17h1a88c3fd69196541E.exit.i.i.i.i.i ], [ false, %37 ], [ false, %_ZN4core3cmp9PartialEq2ne17h1a88c3fd69196541E.exit.i.i22.i.i.i ], [ false, %55 ], [ false, %23 ], [ true, %.backedge.i ], [ false, %18 ], [ false, %.lr.ph.i ], [ false, %41 ]
+  %.sroa.0.0.i = phi i1 [ false, %2 ], [ false, %.lr.ph.i.i.i.i ], [ false, %.lr.ph.i13.i.i.i ], [ true, %.preheader.split.i ], [ false, %_ZN4core3cmp9PartialEq2ne17h1a88c3fd69196541E.exit.i.i.i.i.i ], [ false, %37 ], [ false, %_ZN4core3cmp9PartialEq2ne17h1a88c3fd69196541E.exit.i.i22.i.i.i ], [ false, %55 ], [ false, %41 ], [ false, %.lr.ph.i ], [ false, %18 ], [ true, %.backedge.i ], [ false, %23 ]
   ret i1 %.sroa.0.0.i
 }
 

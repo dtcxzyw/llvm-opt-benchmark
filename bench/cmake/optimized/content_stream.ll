@@ -1274,7 +1274,7 @@ _ZNSt5dequeIhSaIhEE9pop_frontEv.exit:             ; preds = %74, %76
   br i1 %exitcond31.not, label %.loopexit, label %.lr.ph28, !llvm.loop !83
 
 .loopexit:                                        ; preds = %.lr.ph, %_ZNSt5dequeIhSaIhEE9pop_frontEv.exit, %.loopexit21, %_ZN3dap13ContentReader6bufferEm.exit
-  %.013 = phi i1 [ false, %_ZN3dap13ContentReader6bufferEm.exit ], [ true, %.loopexit21 ], [ true, %_ZNSt5dequeIhSaIhEE9pop_frontEv.exit ], [ false, %.lr.ph ]
+  %.013 = phi i1 [ false, %_ZN3dap13ContentReader6bufferEm.exit ], [ true, %_ZNSt5dequeIhSaIhEE9pop_frontEv.exit ], [ true, %.loopexit21 ], [ false, %.lr.ph ]
   ret i1 %.013
 }
 

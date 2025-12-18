@@ -11795,7 +11795,7 @@ lean_alloc_ctor.exit342:                          ; preds = %475
   br label %483
 
 lean_dec.exit190:                                 ; preds = %lean_inc.exit205, %lean_alloc_ctor.exit, %387
-  %.1162 = phi ptr [ %144, %lean_alloc_ctor.exit ], [ %67, %lean_inc.exit205 ], [ %.0174, %387 ]
+  %.1162 = phi ptr [ %.0174, %387 ], [ %67, %lean_inc.exit205 ], [ %144, %lean_alloc_ctor.exit ]
   %.1156 = add nuw i64 %.0155400, 1
   %exitcond.not = icmp eq i64 %.1156, %4
   br i1 %exitcond.not, label %._crit_edge, label %18

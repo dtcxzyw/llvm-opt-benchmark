@@ -2089,7 +2089,7 @@ _ZN14XMarkTerminate15try_exit_stage0Ev.exit.loopexit: ; preds = %44
   br i1 %48, label %_ZN14XMarkTerminate15try_exit_stage1Ev.exit, label %44, !llvm.loop !18
 
 _ZN14XMarkTerminate15try_exit_stage1Ev.exit:      ; preds = %_ZN14XMarkTerminate15try_exit_stage0Ev.exit.loopexit, %37, %45, %30, %26, %29
-  %.0 = phi i1 [ false, %26 ], [ false, %29 ], [ true, %30 ], [ true, %37 ], [ false, %45 ], [ true, %_ZN14XMarkTerminate15try_exit_stage0Ev.exit.loopexit ]
+  %.0 = phi i1 [ true, %30 ], [ false, %26 ], [ true, %37 ], [ false, %29 ], [ false, %45 ], [ true, %_ZN14XMarkTerminate15try_exit_stage0Ev.exit.loopexit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %49 = load i8, ptr %3, align 8
   %50 = trunc i8 %49 to i1

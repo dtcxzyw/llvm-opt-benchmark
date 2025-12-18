@@ -310,7 +310,7 @@ _ZNK14expr_free_vars4sizeEv.exit21:               ; preds = %_ZN15ref_vector_cor
   br label %50
 
 ._crit_edge:                                      ; preds = %80, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7reserveEj.exit.thread, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7reserveEj.exit, %_ZNK14expr_free_vars4sizeEv.exit21
-  %42 = phi ptr [ %20, %_ZNK14expr_free_vars4sizeEv.exit21 ], [ %23, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7reserveEj.exit.thread ], [ %20, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7reserveEj.exit ], [ %20, %80 ]
+  %42 = phi ptr [ %20, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7reserveEj.exit ], [ %20, %_ZNK14expr_free_vars4sizeEv.exit21 ], [ %23, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7reserveEj.exit.thread ], [ %20, %80 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %44 = load ptr, ptr %43, align 8, !tbaa !226

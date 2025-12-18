@@ -2813,7 +2813,7 @@ define internal range(i32 -22, 1) i32 @aio_ring_mremap(ptr noundef readonly capt
   br label %.loopexit
 
 .loopexit:                                        ; preds = %16, %29, %33, %10, %1
-  %37 = phi i32 [ -22, %1 ], [ -22, %10 ], [ -22, %29 ], [ 0, %33 ], [ -22, %16 ]
+  %37 = phi i32 [ -22, %1 ], [ -22, %10 ], [ 0, %33 ], [ -22, %29 ], [ -22, %16 ]
   tail call void @__rcu_read_unlock() #14
   tail call void @_raw_spin_unlock(ptr noundef nonnull %6) #14
   ret i32 %37
@@ -4375,7 +4375,7 @@ define internal fastcc i32 @aio_prep_rw(ptr noundef nonnull captures(none) initi
   br label %88
 
 88:                                               ; preds = %66, %71, %85, %22
-  %89 = phi i32 [ 0, %85 ], [ %26, %22 ], [ -95, %66 ], [ -95, %71 ]
+  %89 = phi i32 [ 0, %85 ], [ %26, %22 ], [ -95, %71 ], [ -95, %66 ]
   ret i32 %89
 }
 

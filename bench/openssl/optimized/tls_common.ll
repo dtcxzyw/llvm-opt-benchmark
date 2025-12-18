@@ -651,7 +651,7 @@ define range(i32 -3, 2) i32 @tls_default_read_n(ptr noundef captures(none) %0, i
   br label %.loopexit
 
 .loopexit:                                        ; preds = %84, %91, %88
-  %.0111.ph = phi i32 [ %., %88 ], [ -2, %91 ], [ 0, %84 ]
+  %.0111.ph = phi i32 [ -2, %91 ], [ %., %88 ], [ 0, %84 ]
   store i64 %.0119172, ptr %10, align 8, !tbaa !45
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %93 = load i32, ptr %92, align 8, !tbaa !54
@@ -1346,7 +1346,7 @@ tls_record_app_data_waiting.exit:                 ; preds = %154
   %302 = icmp eq i32 %spec.select, 0
   br i1 %302, label %.loopexit391.thread513, label %.preheader389
 
-.preheader389:                                    ; preds = %268, %273, %271, %.loopexit391
+.preheader389:                                    ; preds = %273, %268, %271, %.loopexit391
   %303 = getelementptr inbounds nuw i8, ptr %0, i64 4172
   %304 = getelementptr inbounds nuw i8, ptr %0, i64 4112
   br label %308
@@ -1444,7 +1444,7 @@ tls_record_app_data_waiting.exit:                 ; preds = %154
   br label %.loopexit
 
 .loopexit:                                        ; preds = %308, %337, %.loopexit391.thread513, %258, %341, %325, %318, %307, %266, %263, %249
-  %.0229 = phi i32 [ -2, %249 ], [ 1, %263 ], [ -2, %258 ], [ -2, %266 ], [ -2, %.loopexit391.thread513 ], [ -2, %307 ], [ -2, %318 ], [ -2, %325 ], [ 1, %341 ], [ -2, %337 ], [ -2, %308 ]
+  %.0229 = phi i32 [ -2, %249 ], [ 1, %263 ], [ -2, %258 ], [ -2, %266 ], [ -2, %.loopexit391.thread513 ], [ -2, %307 ], [ -2, %318 ], [ -2, %325 ], [ -2, %337 ], [ 1, %341 ], [ -2, %308 ]
   %.not296 = icmp eq ptr %.0230.fr, null
   br i1 %.not296, label %.thread, label %.preheader
 
@@ -1752,7 +1752,7 @@ define range(i32 0, 2) i32 @tls13_common_post_process_record(ptr noundef capture
   br label %18
 
 18:                                               ; preds = %.sink.split, %13, %14
-  %.0 = phi i32 [ 1, %13 ], [ 1, %14 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 1, %14 ], [ 1, %13 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 
@@ -1825,7 +1825,7 @@ define i32 @tls_read_record(ptr noundef %0, ptr noundef writeonly captures(none)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %.thread, %23, %40
-  %.2 = phi i32 [ 1, %40 ], [ 1, %23 ], [ -2, %.thread ], [ %22, %18 ]
+  %.2 = phi i32 [ -2, %.thread ], [ 1, %40 ], [ 1, %23 ], [ %22, %18 ]
   ret i32 %.2
 }
 
@@ -2025,7 +2025,7 @@ define range(i32 0, 2) i32 @tls_set_options(ptr noundef %0, ptr noundef %1) #0 {
   br label %40
 
 40:                                               ; preds = %.sink.split, %31, %37, %35
-  %.0 = phi i32 [ 1, %35 ], [ 1, %37 ], [ 1, %31 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 1, %31 ], [ 1, %37 ], [ 1, %35 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 
@@ -2618,7 +2618,7 @@ define range(i32 0, 2) i32 @tls_initialise_write_packets_default(ptr noundef wri
   br label %.loopexit
 
 .loopexit:                                        ; preds = %8, %.loopexit.sink.split, %7
-  %.0 = phi i32 [ 1, %7 ], [ 0, %.loopexit.sink.split ], [ 1, %8 ]
+  %.0 = phi i32 [ 0, %.loopexit.sink.split ], [ 1, %7 ], [ 1, %8 ]
   ret i32 %.0
 }
 
@@ -3455,8 +3455,8 @@ define i32 @tls_retry_write_records(ptr noundef %0) #0 {
   br i1 %.not2.i, label %.loopexit.sink.split, label %65, !llvm.loop !42
 
 .thread73:                                        ; preds = %45, %.thread, %._crit_edge, %43, %40
-  %74 = phi ptr [ %14, %40 ], [ %14, %43 ], [ %.lcssa88, %._crit_edge ], [ %14, %.thread ], [ %14, %45 ]
-  %.0467177 = phi i32 [ 0, %40 ], [ -2, %43 ], [ -2, %._crit_edge ], [ 1, %45 ], [ 0, %.thread ]
+  %74 = phi ptr [ %.lcssa88, %._crit_edge ], [ %14, %40 ], [ %14, %43 ], [ %14, %.thread ], [ %14, %45 ]
+  %.0467177 = phi i32 [ -2, %._crit_edge ], [ 0, %40 ], [ -2, %43 ], [ 1, %45 ], [ 0, %.thread ]
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %76 = load i32, ptr %75, align 8, !tbaa !30
   %.not58 = icmp eq i32 %76, 0
@@ -3528,12 +3528,12 @@ define i32 @tls_retry_write_records(ptr noundef %0) #0 {
   br i1 %.not53, label %._crit_edge, label %12
 
 .loopexit.sink.split:                             ; preds = %72, %96, %87, %63
-  %.045.ph = phi i32 [ 1, %63 ], [ %.0467177, %87 ], [ %.0467177, %96 ], [ 1, %72 ]
+  %.045.ph = phi i32 [ 1, %63 ], [ %.0467177, %96 ], [ %.0467177, %87 ], [ 1, %72 ]
   store i64 0, ptr %4, align 8, !tbaa !38
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %.loopexit.sink.split, %.thread73, %83, %77, %57, %59, %1
-  %.045 = phi i32 [ 1, %57 ], [ 1, %1 ], [ %.0467177, %.thread73 ], [ 1, %59 ], [ %.0467177, %77 ], [ %.0467177, %83 ], [ %.045.ph, %.loopexit.sink.split ], [ %21, %18 ]
+  %.045 = phi i32 [ 1, %57 ], [ 1, %1 ], [ %.0467177, %.thread73 ], [ %.045.ph, %.loopexit.sink.split ], [ 1, %59 ], [ %.0467177, %77 ], [ %.0467177, %83 ], [ %21, %18 ]
   ret i32 %.045
 }
 

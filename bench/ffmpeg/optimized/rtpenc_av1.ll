@@ -105,7 +105,7 @@ parse_leb.exit.thread:                            ; preds = %21, %23, %31, %34
   br i1 %49, label %.lr.ph, label %.thread
 
 .thread:                                          ; preds = %44, %17, %parse_leb.exit.thread, %16, %4
-  %.0186 = phi i8 [ 0, %4 ], [ 0, %parse_leb.exit.thread ], [ 8, %16 ], [ 0, %17 ], [ 0, %44 ]
+  %.0186 = phi i8 [ 0, %4 ], [ 8, %16 ], [ 0, %parse_leb.exit.thread ], [ 0, %17 ], [ 0, %44 ]
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 96
   %.not280439 = icmp eq i32 %2, 0
   br i1 %.not280439, label %.thread388, label %.lr.ph452.preheader
@@ -361,10 +361,10 @@ calc_leb_size.exit:                               ; preds = %.preheader403
   br i1 %149, label %.sink.split, label %.lr.ph.i309
 
 .sink.split:                                      ; preds = %.lr.ph.i309, %.lr.ph.i, %141, %130
-  %.07.lcssa.i313.sink = phi i32 [ %.2223, %130 ], [ %.2223, %141 ], [ %136, %.lr.ph.i ], [ %147, %.lr.ph.i309 ]
-  %.08.lcssa.i312.sink = phi ptr [ %.2234, %130 ], [ %.2234, %141 ], [ %135, %.lr.ph.i ], [ %146, %.lr.ph.i309 ]
-  %.lcssa.i314.sink525 = phi i32 [ 1, %130 ], [ 1, %141 ], [ %137, %.lr.ph.i ], [ %148, %.lr.ph.i309 ]
-  %.5204.ph = phi i32 [ %.2201, %130 ], [ 1, %141 ], [ %.2201, %.lr.ph.i ], [ 1, %.lr.ph.i309 ]
+  %.07.lcssa.i313.sink = phi i32 [ %136, %.lr.ph.i ], [ %.2223, %130 ], [ %.2223, %141 ], [ %147, %.lr.ph.i309 ]
+  %.08.lcssa.i312.sink = phi ptr [ %135, %.lr.ph.i ], [ %.2234, %130 ], [ %.2234, %141 ], [ %146, %.lr.ph.i309 ]
+  %.lcssa.i314.sink525 = phi i32 [ %137, %.lr.ph.i ], [ 1, %130 ], [ 1, %141 ], [ %148, %.lr.ph.i309 ]
+  %.5204.ph = phi i32 [ %.2201, %.lr.ph.i ], [ %.2201, %130 ], [ 1, %141 ], [ 1, %.lr.ph.i309 ]
   %150 = trunc nuw nsw i32 %.07.lcssa.i313.sink to i8
   store i8 %150, ptr %.08.lcssa.i312.sink, align 1, !tbaa !29
   %151 = sext i32 %.lcssa.i314.sink525 to i64

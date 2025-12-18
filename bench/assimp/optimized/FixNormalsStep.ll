@@ -321,7 +321,7 @@ define hidden noundef zeroext i1 @_ZN6Assimp25FixInfacingNormalsProcess11Process
   br i1 %123, label %109, label %._crit_edge.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %._crit_edge, %.preheader, %13, %50, %53, %71, %66, %61, %56, %3
-  %.059 = phi i1 [ false, %3 ], [ false, %53 ], [ false, %13 ], [ false, %50 ], [ false, %56 ], [ false, %61 ], [ false, %66 ], [ false, %71 ], [ true, %.preheader ], [ true, %._crit_edge ]
+  %.059 = phi i1 [ false, %3 ], [ false, %53 ], [ false, %13 ], [ false, %50 ], [ false, %71 ], [ false, %56 ], [ false, %61 ], [ false, %66 ], [ true, %.preheader ], [ true, %._crit_edge ]
   ret i1 %.059
 }
 

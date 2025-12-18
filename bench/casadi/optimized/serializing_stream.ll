@@ -4150,7 +4150,7 @@ _ZNSt10_HashtableIPvSt4pairIKS0_xESaIS3_ENSt8__detail10_Select1stESt8equal_toIS0
   br label %common.resume
 
 _ZNSt13unordered_mapIPvxSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_xEEEixEOS0_.exit: ; preds = %69, %64, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %65, %64 ], [ %80, %.loopexit.i.i ], [ %71, %69 ]
+  %.pn.i.i = phi ptr [ %80, %.loopexit.i.i ], [ %65, %64 ], [ %71, %69 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   store i64 %55, ptr %.1.i.i, align 8, !tbaa !42
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -4214,7 +4214,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit30: ; preds = %98,
   br label %common.resume
 
 _ZNSt13unordered_mapIPvxSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_xEEE4findERS6_.exit: ; preds = %31, %14, %26
-  %.sroa.06.1.i.i = phi ptr [ %27, %26 ], [ %.sroa.06.0.i.i, %14 ], [ %33, %31 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %14 ], [ %27, %26 ], [ %33, %31 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %104 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %104, ptr %6, align 8, !tbaa !51
@@ -4506,7 +4506,7 @@ _ZNSt10_HashtableIPvSt4pairIKS0_xESaIS3_ENSt8__detail10_Select1stESt8equal_toIS0
   br label %common.resume
 
 _ZNSt13unordered_mapIPvxSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_xEEEixEOS0_.exit: ; preds = %63, %58, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %59, %58 ], [ %74, %.loopexit.i.i ], [ %65, %63 ]
+  %.pn.i.i = phi ptr [ %74, %.loopexit.i.i ], [ %59, %58 ], [ %65, %63 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   store i64 %49, ptr %.1.i.i, align 8, !tbaa !42
   br label %81
@@ -5114,7 +5114,7 @@ _ZNSt10_HashtableIPvSt4pairIKS0_xESaIS3_ENSt8__detail10_Select1stESt8equal_toIS0
   br label %common.resume
 
 _ZNSt13unordered_mapIPvxSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_xEEEixEOS0_.exit: ; preds = %69, %64, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %65, %64 ], [ %80, %.loopexit.i.i ], [ %71, %69 ]
+  %.pn.i.i = phi ptr [ %80, %.loopexit.i.i ], [ %65, %64 ], [ %71, %69 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   store i64 %55, ptr %.1.i.i, align 8, !tbaa !42
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -5178,7 +5178,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit30: ; preds = %98,
   br label %common.resume
 
 _ZNSt13unordered_mapIPvxSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_xEEE4findERS6_.exit: ; preds = %31, %14, %26
-  %.sroa.06.1.i.i = phi ptr [ %27, %26 ], [ %.sroa.06.0.i.i, %14 ], [ %33, %31 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %14 ], [ %27, %26 ], [ %33, %31 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %104 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %104, ptr %6, align 8, !tbaa !51
@@ -5460,7 +5460,7 @@ _ZNSt10_HashtableIPvSt4pairIKS0_xESaIS3_ENSt8__detail10_Select1stESt8equal_toIS0
   br label %common.resume
 
 _ZNSt13unordered_mapIPvxSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_xEEEixEOS0_.exit: ; preds = %60, %55, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %56, %55 ], [ %71, %.loopexit.i.i ], [ %62, %60 ]
+  %.pn.i.i = phi ptr [ %71, %.loopexit.i.i ], [ %56, %55 ], [ %62, %60 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   store i64 %46, ptr %.1.i.i, align 8, !tbaa !42
   br label %75
@@ -6038,7 +6038,7 @@ _ZNSt10_HashtableIPvSt4pairIKS0_xESaIS3_ENSt8__detail10_Select1stESt8equal_toIS0
   br label %common.resume
 
 _ZNSt13unordered_mapIPvxSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_xEEEixEOS0_.exit: ; preds = %69, %64, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %65, %64 ], [ %80, %.loopexit.i.i ], [ %71, %69 ]
+  %.pn.i.i = phi ptr [ %80, %.loopexit.i.i ], [ %65, %64 ], [ %71, %69 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   store i64 %55, ptr %.1.i.i, align 8, !tbaa !42
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -6102,7 +6102,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit30: ; preds = %98,
   br label %common.resume
 
 _ZNSt13unordered_mapIPvxSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_xEEE4findERS6_.exit: ; preds = %31, %14, %26
-  %.sroa.06.1.i.i = phi ptr [ %27, %26 ], [ %.sroa.06.0.i.i, %14 ], [ %33, %31 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %14 ], [ %27, %26 ], [ %33, %31 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %104 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %104, ptr %6, align 8, !tbaa !51
@@ -6384,7 +6384,7 @@ _ZNSt10_HashtableIPvSt4pairIKS0_xESaIS3_ENSt8__detail10_Select1stESt8equal_toIS0
   br label %common.resume
 
 _ZNSt13unordered_mapIPvxSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_xEEEixEOS0_.exit: ; preds = %60, %55, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %56, %55 ], [ %71, %.loopexit.i.i ], [ %62, %60 ]
+  %.pn.i.i = phi ptr [ %71, %.loopexit.i.i ], [ %56, %55 ], [ %62, %60 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   store i64 %46, ptr %.1.i.i, align 8, !tbaa !42
   br label %75
@@ -6962,7 +6962,7 @@ _ZNSt10_HashtableIPvSt4pairIKS0_xESaIS3_ENSt8__detail10_Select1stESt8equal_toIS0
   br label %common.resume
 
 _ZNSt13unordered_mapIPvxSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_xEEEixEOS0_.exit: ; preds = %69, %64, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %65, %64 ], [ %80, %.loopexit.i.i ], [ %71, %69 ]
+  %.pn.i.i = phi ptr [ %80, %.loopexit.i.i ], [ %65, %64 ], [ %71, %69 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   store i64 %55, ptr %.1.i.i, align 8, !tbaa !42
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -7026,7 +7026,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit30: ; preds = %98,
   br label %common.resume
 
 _ZNSt13unordered_mapIPvxSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_xEEE4findERS6_.exit: ; preds = %31, %14, %26
-  %.sroa.06.1.i.i = phi ptr [ %27, %26 ], [ %.sroa.06.0.i.i, %14 ], [ %33, %31 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %14 ], [ %27, %26 ], [ %33, %31 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %104 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %104, ptr %6, align 8, !tbaa !51
@@ -7318,7 +7318,7 @@ _ZNSt10_HashtableIPvSt4pairIKS0_xESaIS3_ENSt8__detail10_Select1stESt8equal_toIS0
   br label %common.resume
 
 _ZNSt13unordered_mapIPvxSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_xEEEixEOS0_.exit: ; preds = %63, %58, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %59, %58 ], [ %74, %.loopexit.i.i ], [ %65, %63 ]
+  %.pn.i.i = phi ptr [ %74, %.loopexit.i.i ], [ %59, %58 ], [ %65, %63 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   store i64 %49, ptr %.1.i.i, align 8, !tbaa !42
   br label %81
@@ -7926,7 +7926,7 @@ _ZNSt10_HashtableIPvSt4pairIKS0_xESaIS3_ENSt8__detail10_Select1stESt8equal_toIS0
   br label %common.resume
 
 _ZNSt13unordered_mapIPvxSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_xEEEixEOS0_.exit: ; preds = %69, %64, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %65, %64 ], [ %80, %.loopexit.i.i ], [ %71, %69 ]
+  %.pn.i.i = phi ptr [ %80, %.loopexit.i.i ], [ %65, %64 ], [ %71, %69 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   store i64 %55, ptr %.1.i.i, align 8, !tbaa !42
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -7990,7 +7990,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit30: ; preds = %98,
   br label %common.resume
 
 _ZNSt13unordered_mapIPvxSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_xEEE4findERS6_.exit: ; preds = %31, %14, %26
-  %.sroa.06.1.i.i = phi ptr [ %27, %26 ], [ %.sroa.06.0.i.i, %14 ], [ %33, %31 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %14 ], [ %27, %26 ], [ %33, %31 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %104 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %104, ptr %6, align 8, !tbaa !51
@@ -8282,7 +8282,7 @@ _ZNSt10_HashtableIPvSt4pairIKS0_xESaIS3_ENSt8__detail10_Select1stESt8equal_toIS0
   br label %common.resume
 
 _ZNSt13unordered_mapIPvxSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_xEEEixEOS0_.exit: ; preds = %63, %58, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %59, %58 ], [ %74, %.loopexit.i.i ], [ %65, %63 ]
+  %.pn.i.i = phi ptr [ %74, %.loopexit.i.i ], [ %59, %58 ], [ %65, %63 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   store i64 %49, ptr %.1.i.i, align 8, !tbaa !42
   br label %81
@@ -8890,7 +8890,7 @@ _ZNSt10_HashtableIPvSt4pairIKS0_xESaIS3_ENSt8__detail10_Select1stESt8equal_toIS0
   br label %common.resume
 
 _ZNSt13unordered_mapIPvxSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_xEEEixEOS0_.exit: ; preds = %69, %64, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %65, %64 ], [ %80, %.loopexit.i.i ], [ %71, %69 ]
+  %.pn.i.i = phi ptr [ %80, %.loopexit.i.i ], [ %65, %64 ], [ %71, %69 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   store i64 %55, ptr %.1.i.i, align 8, !tbaa !42
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -8954,7 +8954,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit30: ; preds = %98,
   br label %common.resume
 
 _ZNSt13unordered_mapIPvxSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_xEEE4findERS6_.exit: ; preds = %31, %14, %26
-  %.sroa.06.1.i.i = phi ptr [ %27, %26 ], [ %.sroa.06.0.i.i, %14 ], [ %33, %31 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %14 ], [ %27, %26 ], [ %33, %31 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %104 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %104, ptr %6, align 8, !tbaa !51
@@ -9246,7 +9246,7 @@ _ZNSt10_HashtableIPvSt4pairIKS0_xESaIS3_ENSt8__detail10_Select1stESt8equal_toIS0
   br label %common.resume
 
 _ZNSt13unordered_mapIPvxSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_xEEEixEOS0_.exit: ; preds = %63, %58, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %59, %58 ], [ %74, %.loopexit.i.i ], [ %65, %63 ]
+  %.pn.i.i = phi ptr [ %74, %.loopexit.i.i ], [ %59, %58 ], [ %65, %63 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   store i64 %49, ptr %.1.i.i, align 8, !tbaa !42
   br label %81
@@ -9854,7 +9854,7 @@ _ZNSt10_HashtableIPvSt4pairIKS0_xESaIS3_ENSt8__detail10_Select1stESt8equal_toIS0
   br label %common.resume
 
 _ZNSt13unordered_mapIPvxSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_xEEEixEOS0_.exit: ; preds = %69, %64, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %65, %64 ], [ %80, %.loopexit.i.i ], [ %71, %69 ]
+  %.pn.i.i = phi ptr [ %80, %.loopexit.i.i ], [ %65, %64 ], [ %71, %69 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   store i64 %55, ptr %.1.i.i, align 8, !tbaa !42
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -9918,7 +9918,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit30: ; preds = %98,
   br label %common.resume
 
 _ZNSt13unordered_mapIPvxSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_xEEE4findERS6_.exit: ; preds = %31, %14, %26
-  %.sroa.06.1.i.i = phi ptr [ %27, %26 ], [ %.sroa.06.0.i.i, %14 ], [ %33, %31 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %14 ], [ %27, %26 ], [ %33, %31 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %104 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %104, ptr %6, align 8, !tbaa !51
@@ -10210,7 +10210,7 @@ _ZNSt10_HashtableIPvSt4pairIKS0_xESaIS3_ENSt8__detail10_Select1stESt8equal_toIS0
   br label %common.resume
 
 _ZNSt13unordered_mapIPvxSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_xEEEixEOS0_.exit: ; preds = %63, %58, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %59, %58 ], [ %74, %.loopexit.i.i ], [ %65, %63 ]
+  %.pn.i.i = phi ptr [ %74, %.loopexit.i.i ], [ %59, %58 ], [ %65, %63 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   store i64 %49, ptr %.1.i.i, align 8, !tbaa !42
   br label %81
@@ -11032,7 +11032,7 @@ _ZNSt10_HashtableIPvSt4pairIKS0_xESaIS3_ENSt8__detail10_Select1stESt8equal_toIS0
   br label %common.resume
 
 _ZNSt13unordered_mapIPvxSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_xEEEixEOS0_.exit: ; preds = %69, %64, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %65, %64 ], [ %80, %.loopexit.i.i ], [ %71, %69 ]
+  %.pn.i.i = phi ptr [ %80, %.loopexit.i.i ], [ %65, %64 ], [ %71, %69 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   store i64 %55, ptr %.1.i.i, align 8, !tbaa !42
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -11096,7 +11096,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit30: ; preds = %98,
   br label %common.resume
 
 _ZNSt13unordered_mapIPvxSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_xEEE4findERS6_.exit: ; preds = %31, %14, %26
-  %.sroa.06.1.i.i = phi ptr [ %27, %26 ], [ %.sroa.06.0.i.i, %14 ], [ %33, %31 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %14 ], [ %27, %26 ], [ %33, %31 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %104 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %104, ptr %6, align 8, !tbaa !51
@@ -11378,7 +11378,7 @@ _ZNSt10_HashtableIPvSt4pairIKS0_xESaIS3_ENSt8__detail10_Select1stESt8equal_toIS0
   br label %common.resume
 
 _ZNSt13unordered_mapIPvxSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_xEEEixEOS0_.exit: ; preds = %61, %56, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %57, %56 ], [ %72, %.loopexit.i.i ], [ %63, %61 ]
+  %.pn.i.i = phi ptr [ %72, %.loopexit.i.i ], [ %57, %56 ], [ %63, %61 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   store i64 %47, ptr %.1.i.i, align 8, !tbaa !42
   br label %76

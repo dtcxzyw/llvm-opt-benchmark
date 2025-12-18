@@ -294,12 +294,12 @@ define dso_local noundef ptr @data_parser_g_new(ptr noundef %0, ptr noundef %1, 
   br i1 %66, label %.lr.ph50.i, label %_find_plugin_by_type.exit.thread, !llvm.loop !12
 
 _find_plugin_by_type.exit:                        ; preds = %38, %.lr.ph48.i, %.lr.ph50.i
-  %.022.i.in = phi i64 [ %indvars.iv61.i, %.lr.ph48.i ], [ %indvars.iv64.i, %.lr.ph50.i ], [ %indvars.iv.i, %38 ]
+  %.022.i.in = phi i64 [ %indvars.iv64.i, %.lr.ph50.i ], [ %indvars.iv61.i, %.lr.ph48.i ], [ %indvars.iv.i, %38 ]
   %.022.i = trunc i64 %.022.i.in to i32
   %67 = icmp slt i32 %.022.i, 0
   br i1 %67, label %_find_plugin_by_type.exit.thread, label %70
 
-_find_plugin_by_type.exit.thread:                 ; preds = %62, %.preheader42.i, %.preheader.i, %31, %_find_plugin_by_type.exit
+_find_plugin_by_type.exit.thread:                 ; preds = %62, %.preheader.i, %.preheader42.i, %31, %_find_plugin_by_type.exit
   %68 = load ptr, ptr %17, align 8
   %69 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.data_parser_g_new, ptr noundef %68) #13
   br label %.preheader
@@ -699,12 +699,12 @@ define dso_local ptr @data_parser_g_new_array(ptr noundef %0, ptr noundef %1, pt
   br i1 %65, label %.lr.ph50.i, label %.thread, !llvm.loop !12
 
 _find_plugin_by_type.exit:                        ; preds = %37, %.lr.ph48.i, %.lr.ph50.i
-  %.022.i.in = phi i64 [ %indvars.iv61.i, %.lr.ph48.i ], [ %indvars.iv64.i, %.lr.ph50.i ], [ %indvars.iv.i, %37 ]
+  %.022.i.in = phi i64 [ %indvars.iv64.i, %.lr.ph50.i ], [ %indvars.iv61.i, %.lr.ph48.i ], [ %indvars.iv.i, %37 ]
   %.022.i = trunc i64 %.022.i.in to i32
   %66 = icmp slt i32 %.022.i, 0
   br i1 %66, label %.thread, label %71
 
-.thread:                                          ; preds = %_find_plugin_by_type.exit, %.preheader.i, %.preheader42.i, %61
+.thread:                                          ; preds = %_find_plugin_by_type.exit, %.preheader42.i, %.preheader.i, %61
   %67 = getelementptr inbounds nuw %struct.plugin_param_t, ptr %30, i64 %indvars.iv
   %68 = load ptr, ptr %67, align 8
   %69 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.data_parser_g_new_array, ptr noundef %68) #13

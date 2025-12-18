@@ -584,7 +584,7 @@ aes_gen_tables.exit:                              ; preds = %.thread84.i
   br i1 %exitcond121.not, label %.loopexit, label %.preheader104, !llvm.loop !20
 
 .loopexit:                                        ; preds = %.preheader104, %.preheader102, %.preheader, %._crit_edge, %3, %128
-  %.0101 = phi i32 [ -32, %3 ], [ %130, %128 ], [ 0, %._crit_edge ], [ 0, %.preheader102 ], [ 0, %.preheader ], [ 0, %.preheader104 ]
+  %.0101 = phi i32 [ -32, %3 ], [ %130, %128 ], [ 0, %.preheader ], [ 0, %.preheader102 ], [ 0, %._crit_edge ], [ 0, %.preheader104 ]
   ret i32 %.0101
 }
 
@@ -2176,7 +2176,7 @@ mbedtls_aes_crypt_ecb.exit101.thread:             ; preds = %mbedtls_aes_crypt_e
   br label %.critedge
 
 .critedge:                                        ; preds = %mbedtls_aes_crypt_ecb.exit97, %mbedtls_aes_crypt_ecb.exit101.thread, %._crit_edge, %mbedtls_aes_crypt_ecb.exit101, %mbedtls_aes_crypt_ecb.exit, %12, %6
-  %.0 = phi i32 [ -33, %6 ], [ -34, %12 ], [ %106, %mbedtls_aes_crypt_ecb.exit101 ], [ %18, %mbedtls_aes_crypt_ecb.exit ], [ 0, %._crit_edge ], [ 0, %mbedtls_aes_crypt_ecb.exit101.thread ], [ %48, %mbedtls_aes_crypt_ecb.exit97 ]
+  %.0 = phi i32 [ 0, %mbedtls_aes_crypt_ecb.exit101.thread ], [ -33, %6 ], [ -34, %12 ], [ %106, %mbedtls_aes_crypt_ecb.exit101 ], [ %18, %mbedtls_aes_crypt_ecb.exit ], [ 0, %._crit_edge ], [ %48, %mbedtls_aes_crypt_ecb.exit97 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -2279,12 +2279,12 @@ mbedtls_aes_crypt_ecb.exit53:                     ; preds = %30
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !34
 
 .loopexit:                                        ; preds = %34, %19, %.preheader59, %.preheader
-  %.1 = phi i64 [ %9, %.preheader ], [ %9, %.preheader59 ], [ %27, %19 ], [ %42, %34 ]
+  %.1 = phi i64 [ %27, %19 ], [ %9, %.preheader ], [ %9, %.preheader59 ], [ %42, %34 ]
   store i64 %.1, ptr %3, align 8, !tbaa !32
   br label %.loopexit58
 
 .loopexit58:                                      ; preds = %mbedtls_aes_crypt_ecb.exit53, %mbedtls_aes_crypt_ecb.exit, %.loopexit, %8, %7
-  %.038 = phi i32 [ -33, %8 ], [ -33, %7 ], [ 0, %.loopexit ], [ %18, %mbedtls_aes_crypt_ecb.exit ], [ %33, %mbedtls_aes_crypt_ecb.exit53 ]
+  %.038 = phi i32 [ -33, %8 ], [ -33, %7 ], [ %18, %mbedtls_aes_crypt_ecb.exit ], [ 0, %.loopexit ], [ %33, %mbedtls_aes_crypt_ecb.exit53 ]
   ret i32 %.038
 }
 
@@ -2683,7 +2683,7 @@ mbedtls_aes_crypt_ecb.exit.thread:                ; preds = %41, %mbedtls_aes_cr
   br i1 %exitcond365.not, label %50, label %.backedge456.backedge
 
 .backedge456.backedge:                            ; preds = %46, %.thread, %.thread409
-  %.0157327.be = phi i32 [ %47, %46 ], [ %49, %.thread ], [ %48, %.thread409 ]
+  %.0157327.be = phi i32 [ %48, %.thread409 ], [ %49, %.thread ], [ %47, %46 ]
   br label %.backedge456, !llvm.loop !39
 
 .thread409:                                       ; preds = %45
@@ -2838,7 +2838,7 @@ mbedtls_aes_crypt_cbc.exit245:                    ; preds = %mbedtls_aes_crypt_e
   br i1 %exitcond368.not, label %89, label %.thread408.backedge
 
 .thread408.backedge:                              ; preds = %85, %.thread412, %.thread415
-  %.1158332.be = phi i32 [ %86, %85 ], [ %88, %.thread412 ], [ %87, %.thread415 ]
+  %.1158332.be = phi i32 [ %87, %.thread415 ], [ %88, %.thread412 ], [ %86, %85 ]
   br label %.thread408, !llvm.loop !41
 
 .thread415:                                       ; preds = %84
@@ -2994,7 +2994,7 @@ mbedtls_aes_crypt_ecb.exit53.i:                   ; preds = %129
   br i1 %exitcond369.not, label %146, label %.thread414.backedge
 
 .thread414.backedge:                              ; preds = %142, %.thread418, %.thread424
-  %.2159336.be = phi i32 [ %143, %142 ], [ %145, %.thread418 ], [ %144, %.thread424 ]
+  %.2159336.be = phi i32 [ %144, %.thread424 ], [ %145, %.thread418 ], [ %143, %142 ]
   br label %.thread414, !llvm.loop !42
 
 .thread424:                                       ; preds = %141
@@ -3125,7 +3125,7 @@ mbedtls_aes_crypt_ecb.exit.i261:                  ; preds = %173
   br i1 %exitcond370.not, label %191, label %.backedge443.backedge
 
 .backedge443.backedge:                            ; preds = %187, %.thread429, %.thread435
-  %.3160341.be = phi i32 [ %188, %187 ], [ %190, %.thread429 ], [ %189, %.thread435 ]
+  %.3160341.be = phi i32 [ %189, %.thread435 ], [ %190, %.thread429 ], [ %188, %187 ]
   br label %.backedge443, !llvm.loop !43
 
 .thread435:                                       ; preds = %186
@@ -3201,7 +3201,7 @@ mbedtls_aes_crypt_ecb.exit.i261:                  ; preds = %173
   br i1 %exitcond371.not, label %216, label %.thread433.backedge
 
 .thread433.backedge:                              ; preds = %213, %.thread440
-  %.4161342.be = phi i32 [ %214, %213 ], [ %215, %.thread440 ]
+  %.4161342.be = phi i32 [ %215, %.thread440 ], [ %214, %213 ]
   br label %.thread433, !llvm.loop !44
 
 .thread440:                                       ; preds = %212
@@ -3299,7 +3299,7 @@ mbedtls_aes_crypt_ecb.exit.i261:                  ; preds = %173
   br label %mbedtls_aes_crypt_cfb128.exit
 
 mbedtls_aes_crypt_cfb128.exit:                    ; preds = %.split326.us, %34, %mbedtls_aes_crypt_ecb.exit, %mbedtls_aes_crypt_ecb.exit.us, %.split331.us, %70, %mbedtls_aes_crypt_ecb.exit61.i, %.loopexit.i, %106, %mbedtls_aes_crypt_ecb.exit53.i, %mbedtls_aes_crypt_ecb.exit.i248, %185, %164, %mbedtls_aes_crypt_ecb.exit.i261, %210, %203, %198, %242, %.thread292, %mbedtls_aes_crypt_cbc.exit245
-  %.3166 = phi i32 [ %72, %mbedtls_aes_crypt_cbc.exit245 ], [ 1, %242 ], [ %.15.ph, %.thread292 ], [ %43, %mbedtls_aes_crypt_ecb.exit ], [ %161, %164 ], [ %132, %mbedtls_aes_crypt_ecb.exit53.i ], [ %103, %106 ], [ %.6, %70 ], [ %36, %mbedtls_aes_crypt_ecb.exit.us ], [ %202, %198 ], [ %116, %mbedtls_aes_crypt_ecb.exit.i248 ], [ %176, %mbedtls_aes_crypt_ecb.exit.i261 ], [ %82, %mbedtls_aes_crypt_ecb.exit61.i ], [ 1, %210 ], [ %209, %203 ], [ 1, %185 ], [ 1, %.loopexit.i ], [ 1, %.split331.us ], [ 1, %.split326.us ], [ %.1164, %34 ]
+  %.3166 = phi i32 [ %36, %mbedtls_aes_crypt_ecb.exit.us ], [ %176, %mbedtls_aes_crypt_ecb.exit.i261 ], [ %132, %mbedtls_aes_crypt_ecb.exit53.i ], [ %.15.ph, %.thread292 ], [ %72, %mbedtls_aes_crypt_cbc.exit245 ], [ %202, %198 ], [ %103, %106 ], [ 1, %242 ], [ %82, %mbedtls_aes_crypt_ecb.exit61.i ], [ %116, %mbedtls_aes_crypt_ecb.exit.i248 ], [ 1, %.split331.us ], [ %43, %mbedtls_aes_crypt_ecb.exit ], [ %161, %164 ], [ 1, %210 ], [ %209, %203 ], [ 1, %185 ], [ 1, %.loopexit.i ], [ %.6, %70 ], [ %.1164, %34 ], [ 1, %.split326.us ]
   br i1 %13, label %243, label %mbedtls_aes_crypt_cfb128.exit.thread296
 
 243:                                              ; preds = %mbedtls_aes_crypt_cfb128.exit

@@ -1741,7 +1741,7 @@ define dso_local range(i32 -1, 1) i32 @container_p_recv_stepd(i32 noundef %0) lo
   br label %.thread
 
 .split77.us:                                      ; preds = %.lr.ph114, %.lr.ph99.preheader, %.lr.ph114.preheader, %.lr.ph99.preheader.preheader
-  %.us-phi78 = phi i64 [ %15, %.lr.ph99.preheader.preheader ], [ %4, %.lr.ph114.preheader ], [ %33, %.lr.ph99.preheader ], [ %12, %.lr.ph114 ]
+  %.us-phi78 = phi i64 [ %33, %.lr.ph99.preheader ], [ %15, %.lr.ph99.preheader.preheader ], [ %4, %.lr.ph114.preheader ], [ %12, %.lr.ph114 ]
   %39 = and i64 %.us-phi78, 2147483647
   %40 = getelementptr inbounds nuw i8, ptr %.041.ph116, i64 %39
   %41 = sub i64 %.040.ph118, %39
@@ -1879,7 +1879,7 @@ define dso_local range(i32 -1, 1) i32 @container_p_recv_stepd(i32 noundef %0) lo
   br label %.thread
 
 .split127.us:                                     ; preds = %.lr.ph165, %.lr.ph150.preheader, %.lr.ph165.preheader, %.lr.ph150.preheader.preheader
-  %.us-phi128 = phi i64 [ %63, %.lr.ph150.preheader.preheader ], [ %52, %.lr.ph165.preheader ], [ %81, %.lr.ph150.preheader ], [ %60, %.lr.ph165 ]
+  %.us-phi128 = phi i64 [ %81, %.lr.ph150.preheader ], [ %63, %.lr.ph150.preheader.preheader ], [ %52, %.lr.ph165.preheader ], [ %60, %.lr.ph165 ]
   %87 = and i64 %.us-phi128, 2147483647
   %88 = getelementptr inbounds nuw i8, ptr %.037.ph171, i64 %87
   %89 = sub i64 %.038.ph169, %87

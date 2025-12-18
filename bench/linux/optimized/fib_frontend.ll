@@ -304,7 +304,7 @@ define dso_local noundef range(i32 -12, 1) i32 @fib_unmerge(ptr noundef %0) loca
   br label %.thread
 
 .thread:                                          ; preds = %5, %38, %46, %16, %13
-  %47 = phi i32 [ 0, %46 ], [ -12, %13 ], [ 0, %16 ], [ 0, %38 ], [ 0, %5 ]
+  %47 = phi i32 [ 0, %46 ], [ 0, %38 ], [ -12, %13 ], [ 0, %16 ], [ 0, %5 ]
   ret i32 %47
 }
 

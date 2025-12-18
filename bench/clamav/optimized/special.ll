@@ -164,7 +164,7 @@ define i32 @cli_check_mydoom_log(ptr noundef %0) local_unnamed_addr #0 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %17, %44, %20, %10, %1, %68
-  %.080 = phi i32 [ 0, %1 ], [ 0, %10 ], [ 0, %20 ], [ %69, %68 ], [ 0, %44 ], [ 0, %17 ]
+  %.080 = phi i32 [ 0, %1 ], [ 0, %44 ], [ 0, %10 ], [ 0, %20 ], [ %69, %68 ], [ 0, %17 ]
   ret i32 %.080
 }
 
@@ -293,7 +293,7 @@ riff_read_chunk.exit.thread.sink.split:           ; preds = %36, %tailrecurse.i
   br label %riff_read_chunk.exit.thread
 
 riff_read_chunk.exit.thread:                      ; preds = %riff_read_chunk.exit, %15, %19, %24, %26, %riff_read_chunk.exit.thread.sink.split, %11, %9, %1
-  %.0 = phi i32 [ 0, %9 ], [ 0, %11 ], [ 0, %1 ], [ 0, %riff_read_chunk.exit.thread.sink.split ], [ 0, %riff_read_chunk.exit ], [ 0, %26 ], [ 0, %24 ], [ 2, %19 ], [ 0, %15 ]
+  %.0 = phi i32 [ 0, %9 ], [ 0, %11 ], [ 0, %1 ], [ 0, %riff_read_chunk.exit.thread.sink.split ], [ 0, %riff_read_chunk.exit ], [ 2, %19 ], [ 0, %26 ], [ 0, %24 ], [ 0, %15 ]
   ret i32 %.0
 }
 

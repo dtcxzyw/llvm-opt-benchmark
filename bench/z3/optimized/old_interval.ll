@@ -5441,7 +5441,7 @@ _ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i.i:     ; preds = %49, %43
   br label %_ZeqRK8rationalS1_.exit
 
 _ZeqRK8rationalS1_.exit:                          ; preds = %70, %74
-  %77 = phi i1 [ %73, %70 ], [ %76, %74 ]
+  %77 = phi i1 [ %76, %74 ], [ %73, %70 ]
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %79 = load i8, ptr %78, align 8, !range !39
   %80 = trunc nuw i8 %79 to i1
@@ -5559,7 +5559,7 @@ _ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i.i11:   ; preds = %127, %121
   br label %_ZeqRK8rationalS1_.exit12
 
 _ZeqRK8rationalS1_.exit12:                        ; preds = %148, %152
-  %155 = phi i1 [ %151, %148 ], [ %154, %152 ]
+  %155 = phi i1 [ %154, %152 ], [ %151, %148 ]
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 89
   %157 = load i8, ptr %156, align 1, !range !39
   %158 = trunc nuw i8 %157 to i1
@@ -6936,7 +6936,7 @@ _ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i.i.i:   ; preds = %141, %133
   br label %_ZeqRK11ext_numeralS1_.exit
 
 _ZeqRK11ext_numeralS1_.exit:                      ; preds = %132, %164, %168
-  %171 = phi i1 [ true, %132 ], [ %167, %164 ], [ %170, %168 ]
+  %171 = phi i1 [ %170, %168 ], [ true, %132 ], [ %167, %164 ]
   %172 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %173 = load i8, ptr %172, align 8, !range !39
   %174 = trunc nuw i8 %173 to i1

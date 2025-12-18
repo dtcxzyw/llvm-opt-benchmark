@@ -911,8 +911,8 @@ define dso_local { ptr, ptr } @block_bind_referenced(ptr readnone captures(none)
   br label %block_free.exit
 
 block_free.exit:                                  ; preds = %.lr.ph.i, %18, %17
-  %.sroa.07.1 = phi ptr [ %.sroa.2.018, %17 ], [ %.sroa.2.018, %18 ], [ %.sroa.07.019, %.lr.ph.i ]
-  %.sroa.5.1 = phi ptr [ %.sroa.2.018, %17 ], [ %.sroa.5.020, %18 ], [ %.sroa.5.020, %.lr.ph.i ]
+  %.sroa.07.1 = phi ptr [ %.sroa.2.018, %18 ], [ %.sroa.2.018, %17 ], [ %.sroa.07.019, %.lr.ph.i ]
+  %.sroa.5.1 = phi ptr [ %.sroa.5.020, %18 ], [ %.sroa.2.018, %17 ], [ %.sroa.5.020, %.lr.ph.i ]
   br i1 %.not.i, label %block_take_last.exit, label %.lr.ph, !llvm.loop !43
 
 block_take_last.exit:                             ; preds = %block_free.exit, %5
@@ -2183,10 +2183,10 @@ define dso_local { ptr, ptr } @gen_const_object(ptr %0, ptr readnone captures(no
   br label %.split.loop.exit145
 
 .split.loop.exit145:                              ; preds = %69, %64, %66, %.split.loop.exit166, %.split.loop.exit138, %.split.loop.exit131, %.split.loop.exit124, %.split.loop.exit117, %.split.loop.exit110, %.split.loop.exit103, %.split.loop.exit96, %.split.loop.exit89, %.split.loop.exit82, %.split.loop.exit
-  %.sroa.038.1 = phi i64 [ %.sroa.038.0.le, %.split.loop.exit166 ], [ %.sroa.038.0.le183, %.split.loop.exit103 ], [ %.sroa.038.0.le191, %.split.loop.exit ], [ %.sroa.038.0.le189, %.split.loop.exit82 ], [ %.sroa.038.0.le187, %.split.loop.exit89 ], [ %.sroa.038.0.le185, %.split.loop.exit96 ], [ %.sroa.038.0.le181, %.split.loop.exit110 ], [ %.sroa.038.0.le179, %.split.loop.exit117 ], [ %.sroa.038.0.le177, %.split.loop.exit124 ], [ %.sroa.038.0.le175, %.split.loop.exit131 ], [ %.sroa.038.0.le173, %.split.loop.exit138 ], [ %.sroa.038.2, %66 ], [ %.sroa.038.2, %64 ], [ %.sroa.038.2, %69 ]
-  %.sroa.8.1 = phi ptr [ %.sroa.8.0.le, %.split.loop.exit166 ], [ %.sroa.8.0.le204, %.split.loop.exit103 ], [ %.sroa.8.0.le212, %.split.loop.exit ], [ %.sroa.8.0.le210, %.split.loop.exit82 ], [ %.sroa.8.0.le208, %.split.loop.exit89 ], [ %.sroa.8.0.le206, %.split.loop.exit96 ], [ %.sroa.8.0.le202, %.split.loop.exit110 ], [ %.sroa.8.0.le200, %.split.loop.exit117 ], [ %.sroa.8.0.le198, %.split.loop.exit124 ], [ %.sroa.8.0.le196, %.split.loop.exit131 ], [ %.sroa.8.0.le194, %.split.loop.exit138 ], [ %.sroa.8.2, %66 ], [ %.sroa.8.2, %64 ], [ %.sroa.8.2, %69 ]
-  %.sroa.041.1 = phi i64 [ %.sroa.041.2, %.split.loop.exit166 ], [ %.sroa.041.0.le214, %.split.loop.exit103 ], [ %.sroa.041.2, %.split.loop.exit ], [ %.sroa.041.0.le220, %.split.loop.exit82 ], [ %.sroa.041.0.le218, %.split.loop.exit89 ], [ %.sroa.041.0.le216, %.split.loop.exit96 ], [ %.sroa.041.0.le, %.split.loop.exit110 ], [ %.sroa.041.2, %.split.loop.exit117 ], [ %.sroa.041.2, %.split.loop.exit124 ], [ %.sroa.041.2, %.split.loop.exit131 ], [ %.sroa.041.2, %.split.loop.exit138 ], [ %.sroa.041.2, %66 ], [ %.sroa.041.2, %64 ], [ %.sroa.041.2, %69 ]
-  %.sroa.9.1 = phi ptr [ %.sroa.9.2, %.split.loop.exit166 ], [ %.sroa.9.0.le223, %.split.loop.exit103 ], [ %.sroa.9.2, %.split.loop.exit ], [ %.sroa.9.0.le229, %.split.loop.exit82 ], [ %.sroa.9.0.le227, %.split.loop.exit89 ], [ %.sroa.9.0.le225, %.split.loop.exit96 ], [ %.sroa.9.0.le, %.split.loop.exit110 ], [ %.sroa.9.2, %.split.loop.exit117 ], [ %.sroa.9.2, %.split.loop.exit124 ], [ %.sroa.9.2, %.split.loop.exit131 ], [ %.sroa.9.2, %.split.loop.exit138 ], [ %.sroa.9.2, %66 ], [ %.sroa.9.2, %64 ], [ %.sroa.9.2, %69 ]
+  %.sroa.038.1 = phi i64 [ %.sroa.038.0.le173, %.split.loop.exit138 ], [ %.sroa.038.0.le, %.split.loop.exit166 ], [ %.sroa.038.0.le183, %.split.loop.exit103 ], [ %.sroa.038.0.le175, %.split.loop.exit131 ], [ %.sroa.038.0.le191, %.split.loop.exit ], [ %.sroa.038.0.le189, %.split.loop.exit82 ], [ %.sroa.038.0.le187, %.split.loop.exit89 ], [ %.sroa.038.0.le185, %.split.loop.exit96 ], [ %.sroa.038.0.le177, %.split.loop.exit124 ], [ %.sroa.038.0.le181, %.split.loop.exit110 ], [ %.sroa.038.0.le179, %.split.loop.exit117 ], [ %.sroa.038.2, %66 ], [ %.sroa.038.2, %64 ], [ %.sroa.038.2, %69 ]
+  %.sroa.8.1 = phi ptr [ %.sroa.8.0.le194, %.split.loop.exit138 ], [ %.sroa.8.0.le, %.split.loop.exit166 ], [ %.sroa.8.0.le204, %.split.loop.exit103 ], [ %.sroa.8.0.le196, %.split.loop.exit131 ], [ %.sroa.8.0.le212, %.split.loop.exit ], [ %.sroa.8.0.le210, %.split.loop.exit82 ], [ %.sroa.8.0.le208, %.split.loop.exit89 ], [ %.sroa.8.0.le206, %.split.loop.exit96 ], [ %.sroa.8.0.le198, %.split.loop.exit124 ], [ %.sroa.8.0.le202, %.split.loop.exit110 ], [ %.sroa.8.0.le200, %.split.loop.exit117 ], [ %.sroa.8.2, %66 ], [ %.sroa.8.2, %64 ], [ %.sroa.8.2, %69 ]
+  %.sroa.041.1 = phi i64 [ %.sroa.041.2, %.split.loop.exit138 ], [ %.sroa.041.2, %.split.loop.exit166 ], [ %.sroa.041.0.le214, %.split.loop.exit103 ], [ %.sroa.041.2, %.split.loop.exit131 ], [ %.sroa.041.2, %.split.loop.exit ], [ %.sroa.041.0.le220, %.split.loop.exit82 ], [ %.sroa.041.0.le218, %.split.loop.exit89 ], [ %.sroa.041.0.le216, %.split.loop.exit96 ], [ %.sroa.041.2, %.split.loop.exit124 ], [ %.sroa.041.0.le, %.split.loop.exit110 ], [ %.sroa.041.2, %.split.loop.exit117 ], [ %.sroa.041.2, %66 ], [ %.sroa.041.2, %64 ], [ %.sroa.041.2, %69 ]
+  %.sroa.9.1 = phi ptr [ %.sroa.9.2, %.split.loop.exit138 ], [ %.sroa.9.2, %.split.loop.exit166 ], [ %.sroa.9.0.le223, %.split.loop.exit103 ], [ %.sroa.9.2, %.split.loop.exit131 ], [ %.sroa.9.2, %.split.loop.exit ], [ %.sroa.9.0.le229, %.split.loop.exit82 ], [ %.sroa.9.0.le227, %.split.loop.exit89 ], [ %.sroa.9.0.le225, %.split.loop.exit96 ], [ %.sroa.9.2, %.split.loop.exit124 ], [ %.sroa.9.0.le, %.split.loop.exit110 ], [ %.sroa.9.2, %.split.loop.exit117 ], [ %.sroa.9.2, %66 ], [ %.sroa.9.2, %64 ], [ %.sroa.9.2, %69 ]
   tail call void @jv_free(i64 %.sroa.046.0238, ptr %.sroa.7.0237) #17
   tail call void @jv_free(i64 %.sroa.041.1, ptr %.sroa.9.1) #17
   tail call void @jv_free(i64 %.sroa.038.1, ptr %.sroa.8.1) #17
@@ -2937,8 +2937,8 @@ block_append.exit:                                ; preds = %16, %15
   br i1 %10, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %30, %4, %19
-  %.sroa.0.0.lcssa199206 = phi ptr [ %.sroa.0.0.lcssa, %19 ], [ null, %4 ], [ %.sroa.0.0.lcssa, %30 ]
-  %.sroa.11.0.lcssa200205 = phi ptr [ %.sroa.11.0.lcssa, %19 ], [ %1, %4 ], [ %.sroa.11.0.lcssa, %30 ]
+  %.sroa.0.0.lcssa199206 = phi ptr [ null, %4 ], [ %.sroa.0.0.lcssa, %19 ], [ %.sroa.0.0.lcssa, %30 ]
+  %.sroa.11.0.lcssa200205 = phi ptr [ %1, %4 ], [ %.sroa.11.0.lcssa, %19 ], [ %.sroa.11.0.lcssa, %30 ]
   %.not.i.i.i = icmp eq ptr %2, null
   br i1 %.not.i.i.i, label %bind_matcher.exit, label %20
 
@@ -6523,10 +6523,10 @@ nesting_level.exit284:                            ; preds = %312, %313
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %nesting_level.exit, %199, %nesting_level.exit276, %nesting_level.exit284, %326, %288, %324, %.lr.ph328
-  %.2239 = phi i32 [ %.1238323, %.lr.ph328 ], [ %.1238323, %199 ], [ %spec.select, %nesting_level.exit276 ], [ %.1238323, %288 ], [ %spec.select260, %nesting_level.exit284 ], [ %.1238323, %326 ], [ %.1238323, %324 ], [ %.1238323, %nesting_level.exit ], [ %.1238323, %.loopexit.loopexit ]
-  %.sroa.049.2 = phi i64 [ %.sroa.049.1324, %.lr.ph328 ], [ %.sroa.049.1324, %199 ], [ %269, %nesting_level.exit276 ], [ %305, %288 ], [ %.sroa.049.1324, %nesting_level.exit284 ], [ %.sroa.049.1324, %326 ], [ %.sroa.049.1324, %324 ], [ %.sroa.049.1324, %nesting_level.exit ], [ %.sroa.049.1324, %.loopexit.loopexit ]
-  %.sroa.10.2 = phi ptr [ %.sroa.10.1325, %.lr.ph328 ], [ %.sroa.10.1325, %199 ], [ %270, %nesting_level.exit276 ], [ %306, %288 ], [ %.sroa.10.1325, %nesting_level.exit284 ], [ %.sroa.10.1325, %326 ], [ %.sroa.10.1325, %324 ], [ %.sroa.10.1325, %nesting_level.exit ], [ %.sroa.10.1325, %.loopexit.loopexit ]
-  %.2225 = phi i32 [ %.1224326, %.lr.ph328 ], [ %208, %199 ], [ %283, %nesting_level.exit276 ], [ %294, %288 ], [ %321, %nesting_level.exit284 ], [ %331, %326 ], [ %196, %324 ], [ %231, %nesting_level.exit ], [ %336, %.loopexit.loopexit ]
+  %.2239 = phi i32 [ %.1238323, %.lr.ph328 ], [ %.1238323, %199 ], [ %.1238323, %324 ], [ %spec.select, %nesting_level.exit276 ], [ %.1238323, %288 ], [ %spec.select260, %nesting_level.exit284 ], [ %.1238323, %326 ], [ %.1238323, %nesting_level.exit ], [ %.1238323, %.loopexit.loopexit ]
+  %.sroa.049.2 = phi i64 [ %.sroa.049.1324, %.lr.ph328 ], [ %.sroa.049.1324, %199 ], [ %.sroa.049.1324, %324 ], [ %269, %nesting_level.exit276 ], [ %305, %288 ], [ %.sroa.049.1324, %nesting_level.exit284 ], [ %.sroa.049.1324, %326 ], [ %.sroa.049.1324, %nesting_level.exit ], [ %.sroa.049.1324, %.loopexit.loopexit ]
+  %.sroa.10.2 = phi ptr [ %.sroa.10.1325, %.lr.ph328 ], [ %.sroa.10.1325, %199 ], [ %.sroa.10.1325, %324 ], [ %270, %nesting_level.exit276 ], [ %306, %288 ], [ %.sroa.10.1325, %nesting_level.exit284 ], [ %.sroa.10.1325, %326 ], [ %.sroa.10.1325, %nesting_level.exit ], [ %.sroa.10.1325, %.loopexit.loopexit ]
+  %.2225 = phi i32 [ %.1224326, %.lr.ph328 ], [ %208, %199 ], [ %196, %324 ], [ %283, %nesting_level.exit276 ], [ %294, %288 ], [ %321, %nesting_level.exit284 ], [ %331, %326 ], [ %231, %nesting_level.exit ], [ %336, %.loopexit.loopexit ]
   %.0236 = load ptr, ptr %.0236327, align 8, !tbaa !50
   %.not250 = icmp eq ptr %.0236, null
   br i1 %.not250, label %._crit_edge329.loopexit, label %.lr.ph328, !llvm.loop !97
@@ -7382,9 +7382,9 @@ block_join.exit139:                               ; preds = %gen_subexp.exit, %2
   br i1 %255, label %block_take.exit130.loopexit, label %.lr.ph, !llvm.loop !108
 
 .loopexit:                                        ; preds = %block_take.exit119, %block_take.exit130
-  %.sroa.7.0 = phi ptr [ %.sroa.7.3.lcssa, %block_take.exit130 ], [ %.sroa.7.1.lcssa, %block_take.exit119 ]
-  %.sroa.0157.0 = phi ptr [ %.sroa.0157.3.lcssa, %block_take.exit130 ], [ %.sroa.0157.1.lcssa, %block_take.exit119 ]
-  %.1 = phi i32 [ %.3.lcssa, %block_take.exit130 ], [ %.0196, %block_take.exit119 ]
+  %.sroa.7.0 = phi ptr [ %.sroa.7.1.lcssa, %block_take.exit119 ], [ %.sroa.7.3.lcssa, %block_take.exit130 ]
+  %.sroa.0157.0 = phi ptr [ %.sroa.0157.1.lcssa, %block_take.exit119 ], [ %.sroa.0157.3.lcssa, %block_take.exit130 ]
+  %.1 = phi i32 [ %.0196, %block_take.exit119 ], [ %.3.lcssa, %block_take.exit130 ]
   %.not.i.i140 = icmp eq ptr %.sroa.0157.0, null
   br i1 %.not.i.i140, label %.thread167, label %256
 

@@ -10472,7 +10472,7 @@ define dso_local range(i32 -1, 1) i32 @sched_dl_overflow(ptr noundef %0, i32 nou
   br label %.thread26
 
 .thread26:                                        ; preds = %184, %195, %191, %134, %212, %341, %.thread33, %285
-  %344 = phi i32 [ %343, %341 ], [ 0, %285 ], [ 0, %.thread33 ], [ -1, %212 ], [ -1, %134 ], [ 0, %191 ], [ 0, %195 ], [ 0, %184 ]
+  %344 = phi i32 [ -1, %134 ], [ %343, %341 ], [ 0, %285 ], [ 0, %.thread33 ], [ -1, %212 ], [ 0, %191 ], [ 0, %195 ], [ 0, %184 ]
   tail call void @_raw_spin_unlock(ptr noundef nonnull %28) #30
   br label %345
 
@@ -13070,7 +13070,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @push_dl_task(ptr noundef %0)
   br label %.thread10
 
 .thread10:                                        ; preds = %23, %63, %65, %66, %29, %22, %1
-  %67 = phi i32 [ 0, %22 ], [ 0, %1 ], [ 0, %29 ], [ %60, %66 ], [ %60, %65 ], [ %60, %63 ], [ 0, %23 ]
+  %67 = phi i32 [ 0, %22 ], [ 0, %1 ], [ 0, %29 ], [ %60, %63 ], [ %60, %66 ], [ %60, %65 ], [ 0, %23 ]
   ret i32 %67
 }
 

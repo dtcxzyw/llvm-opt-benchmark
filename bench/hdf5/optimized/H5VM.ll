@@ -209,7 +209,7 @@ define i64 @H5VM_hyper_stride(i32 noundef %0, ptr noundef readonly captures(none
   br i1 %.not97, label %.loopexit, label %.lr.ph.split, !llvm.loop !7
 
 .loopexit:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us, %103, %100, %55, %24
-  %.0 = phi i64 [ %26, %24 ], [ %56, %55 ], [ %102, %100 ], [ %13, %103 ], [ %13, %.lr.ph.split.us ], [ %130, %.lr.ph.split ]
+  %.0 = phi i64 [ %102, %100 ], [ %26, %24 ], [ %56, %55 ], [ %13, %103 ], [ %13, %.lr.ph.split.us ], [ %130, %.lr.ph.split ]
   ret i64 %.0
 }
 
@@ -1234,9 +1234,9 @@ H5VM_vector_reduce_product.exit.i:                ; preds = %.lr.ph.i.i
   br i1 %exitcond.not.i, label %H5VM_stride_copy.exit, label %.lr.ph60.split.i, !llvm.loop !16
 
 .loopexit198:                                     ; preds = %298, %.critedge.sink.split.i, %._crit_edge
-  %.0126170 = phi i64 [ %.0126171, %.critedge.sink.split.i ], [ %.1.lcssa, %._crit_edge ], [ %.1.lcssa, %298 ]
-  %.0127167 = phi i64 [ %.0127168, %.critedge.sink.split.i ], [ %.1128.lcssa, %._crit_edge ], [ %.1128.lcssa, %298 ]
-  %.1162 = phi i64 [ %316, %.critedge.sink.split.i ], [ 1, %._crit_edge ], [ %301, %298 ]
+  %.0126170 = phi i64 [ %.1.lcssa, %._crit_edge ], [ %.0126171, %.critedge.sink.split.i ], [ %.1.lcssa, %298 ]
+  %.0127167 = phi i64 [ %.1128.lcssa, %._crit_edge ], [ %.0127168, %.critedge.sink.split.i ], [ %.1128.lcssa, %298 ]
+  %.1162 = phi i64 [ 1, %._crit_edge ], [ %316, %.critedge.sink.split.i ], [ %301, %298 ]
   %343 = getelementptr inbounds nuw i8, ptr %4, i64 %.0126170
   %344 = getelementptr inbounds nuw i8, ptr %7, i64 %.0127167
   call void @llvm.lifetime.start.p0(ptr nonnull %9)

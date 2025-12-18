@@ -1827,9 +1827,9 @@ _.exit188:                                        ; preds = %183, %186
   br i1 %.not163, label %.thread212, label %.lr.ph246
 
 .thread212:                                       ; preds = %208, %.lr.ph246, %hashmap_get_size.exit, %_.exit188, %181
-  %.1139 = phi i32 [ %.3141321, %181 ], [ %.3141321, %_.exit188 ], [ %.0138241, %.lr.ph246 ], [ %.0138241, %hashmap_get_size.exit ], [ %.3141321, %208 ]
-  %.1122 = phi i32 [ %.3325, %181 ], [ %.3325, %_.exit188 ], [ %.0121244, %.lr.ph246 ], [ %.0121244, %hashmap_get_size.exit ], [ %.3325, %208 ]
-  %.1 = phi ptr [ null, %181 ], [ null, %_.exit188 ], [ %96, %.lr.ph246 ], [ %96, %hashmap_get_size.exit ], [ null, %208 ]
+  %.1139 = phi i32 [ %.3141321, %_.exit188 ], [ %.3141321, %181 ], [ %.0138241, %.lr.ph246 ], [ %.0138241, %hashmap_get_size.exit ], [ %.3141321, %208 ]
+  %.1122 = phi i32 [ %.3325, %_.exit188 ], [ %.3325, %181 ], [ %.0121244, %.lr.ph246 ], [ %.0121244, %hashmap_get_size.exit ], [ %.3325, %208 ]
+  %.1 = phi ptr [ null, %_.exit188 ], [ null, %181 ], [ %96, %.lr.ph246 ], [ %96, %hashmap_get_size.exit ], [ null, %208 ]
   switch i32 %.1122, label %222 [
     i32 0, label %210
     i32 1, label %sane_qsort.exit
@@ -1967,8 +1967,8 @@ sane_qsort.exit:                                  ; preds = %.thread212, %222
   br i1 %.not36.i, label %.loopexit.i, label %.lr.ph56.i, !llvm.loop !110
 
 finish_depth_computation.exit:                    ; preds = %.loopexit.i, %.preheader.i, %240, %226
-  %263 = phi ptr [ null, %226 ], [ %.02950.i, %240 ], [ null, %.preheader.i ], [ null, %.loopexit.i ]
-  %.1.i = phi i64 [ 0, %226 ], [ %235, %240 ], [ %235, %.preheader.i ], [ %235, %.loopexit.i ]
+  %263 = phi ptr [ %.02950.i, %240 ], [ null, %226 ], [ null, %.preheader.i ], [ null, %.loopexit.i ]
+  %.1.i = phi i64 [ %235, %240 ], [ 0, %226 ], [ %235, %.preheader.i ], [ %235, %.loopexit.i ]
   %264 = add i64 %.1.i, %.2137
   call void @free_commit_list(ptr noundef %263) #16
   %265 = load i32, ptr @debug, align 4, !tbaa !4

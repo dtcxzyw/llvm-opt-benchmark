@@ -3412,7 +3412,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i230: ; preds = %
   unreachable
 
 ._crit_edge344:                                   ; preds = %.loopexit, %..loopexit_crit_edge.us, %.preheader321
-  %904 = phi i32 [ %191, %.preheader321 ], [ %820, %..loopexit_crit_edge.us ], [ %836, %.loopexit ]
+  %904 = phi i32 [ %820, %..loopexit_crit_edge.us ], [ %191, %.preheader321 ], [ %836, %.loopexit ]
   %905 = load i32, ptr %25, align 8, !tbaa !87
   %906 = shl i32 %905, %118
   %907 = sext i32 %906 to i64

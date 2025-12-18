@@ -533,7 +533,7 @@ _ZN5Eigen8internalL21first_default_alignedINS_5BlockIKNS_6MatrixIdLin1ELin1ELi0E
   br i1 %exitcond103.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEEEENS2_INS_16PartialReduxExprIKNS3_IdLin1ELin1ELi0ELin1ELin1EEENS0_15member_minCoeffIddEELi0EEEEENS0_9assign_opIddEELi0EE11assignCoeffEl.exit.i.i.i.i.i.i.i, label %.lr.ph96.i.i.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !63
 
 _ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEEEENS2_INS_16PartialReduxExprIKNS3_IdLin1ELin1ELi0ELin1ELin1EEENS0_15member_minCoeffIddEELi0EEEEENS0_9assign_opIddEELi0EE11assignCoeffEl.exit.i.i.i.i.i.i.i: ; preds = %.lr.ph91.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph96.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %162, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi double [ %163, %162 ], [ %.072.lcssa.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %167, %.lr.ph96.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %159, %.lr.ph91.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
+  %.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi double [ %167, %.lr.ph96.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %163, %162 ], [ %.072.lcssa.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %159, %.lr.ph91.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
   %169 = getelementptr inbounds nuw double, ptr %18, i64 %.010.i.i.i.i.i.i.i
   store double %.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %169, align 8, !tbaa !59
   %170 = add nuw nsw i64 %.010.i.i.i.i.i.i.i, 1
@@ -667,7 +667,7 @@ _ZN5Eigen8internalL21first_default_alignedINS_5BlockIKNS_6MatrixIdLin1ELin1ELi0E
   br i1 %exitcond103.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i154, label %_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEEEENS2_INS_16PartialReduxExprIKNS3_IdLin1ELin1ELi0ELin1ELin1EEENS0_15member_maxCoeffIddEELi0EEEEENS0_9assign_opIddEELi0EE11assignCoeffEl.exit.i.i.i.i.i.i.i, label %.lr.ph96.i.i.i.i.i.i.i.i.i.i.i.i.i.i151, !llvm.loop !69
 
 _ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEEEENS2_INS_16PartialReduxExprIKNS3_IdLin1ELin1ELi0ELin1ELin1EEENS0_15member_maxCoeffIddEELi0EEEEENS0_9assign_opIddEELi0EE11assignCoeffEl.exit.i.i.i.i.i.i.i: ; preds = %.lr.ph91.i.i.i.i.i.i.i.i.i.i.i.i.i.i133, %.lr.ph96.i.i.i.i.i.i.i.i.i.i.i.i.i.i151, %225, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i129
-  %.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i131 = phi double [ %226, %225 ], [ %.072.lcssa.i.i.i.i.i.i.i.i.i.i.i.i.i.i130, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i129 ], [ %230, %.lr.ph96.i.i.i.i.i.i.i.i.i.i.i.i.i.i151 ], [ %222, %.lr.ph91.i.i.i.i.i.i.i.i.i.i.i.i.i.i133 ]
+  %.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i131 = phi double [ %230, %.lr.ph96.i.i.i.i.i.i.i.i.i.i.i.i.i.i151 ], [ %226, %225 ], [ %.072.lcssa.i.i.i.i.i.i.i.i.i.i.i.i.i.i130, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i129 ], [ %222, %.lr.ph91.i.i.i.i.i.i.i.i.i.i.i.i.i.i133 ]
   %232 = getelementptr inbounds nuw double, ptr %19, i64 %.010.i.i.i.i.i.i.i121
   store double %.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i131, ptr %232, align 8, !tbaa !59
   %233 = add nuw nsw i64 %.010.i.i.i.i.i.i.i121, 1
@@ -1625,7 +1625,7 @@ _ZN5Eigen8internalL21first_default_alignedINS_5BlockIKNS_6MatrixIdLin1ELin1ELi0E
   br i1 %exitcond103.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEEEENS2_INS_16PartialReduxExprIKNS3_IdLin1ELin1ELi0ELin1ELin1EEENS0_15member_minCoeffIddEELi0EEEEENS0_9assign_opIddEELi0EE11assignCoeffEl.exit.i.i.i.i.i.i.i, label %.lr.ph96.i.i.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !63
 
 _ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEEEENS2_INS_16PartialReduxExprIKNS3_IdLin1ELin1ELi0ELin1ELin1EEENS0_15member_minCoeffIddEELi0EEEEENS0_9assign_opIddEELi0EE11assignCoeffEl.exit.i.i.i.i.i.i.i: ; preds = %.lr.ph91.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph96.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %162, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi double [ %163, %162 ], [ %.072.lcssa.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %167, %.lr.ph96.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %159, %.lr.ph91.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
+  %.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi double [ %167, %.lr.ph96.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %163, %162 ], [ %.072.lcssa.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %159, %.lr.ph91.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
   %169 = getelementptr inbounds nuw double, ptr %18, i64 %.010.i.i.i.i.i.i.i
   store double %.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %169, align 8, !tbaa !59
   %170 = add nuw nsw i64 %.010.i.i.i.i.i.i.i, 1
@@ -1759,7 +1759,7 @@ _ZN5Eigen8internalL21first_default_alignedINS_5BlockIKNS_6MatrixIdLin1ELin1ELi0E
   br i1 %exitcond103.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i154, label %_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEEEENS2_INS_16PartialReduxExprIKNS3_IdLin1ELin1ELi0ELin1ELin1EEENS0_15member_maxCoeffIddEELi0EEEEENS0_9assign_opIddEELi0EE11assignCoeffEl.exit.i.i.i.i.i.i.i, label %.lr.ph96.i.i.i.i.i.i.i.i.i.i.i.i.i.i151, !llvm.loop !69
 
 _ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEEEENS2_INS_16PartialReduxExprIKNS3_IdLin1ELin1ELi0ELin1ELin1EEENS0_15member_maxCoeffIddEELi0EEEEENS0_9assign_opIddEELi0EE11assignCoeffEl.exit.i.i.i.i.i.i.i: ; preds = %.lr.ph91.i.i.i.i.i.i.i.i.i.i.i.i.i.i133, %.lr.ph96.i.i.i.i.i.i.i.i.i.i.i.i.i.i151, %225, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i129
-  %.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i131 = phi double [ %226, %225 ], [ %.072.lcssa.i.i.i.i.i.i.i.i.i.i.i.i.i.i130, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i129 ], [ %230, %.lr.ph96.i.i.i.i.i.i.i.i.i.i.i.i.i.i151 ], [ %222, %.lr.ph91.i.i.i.i.i.i.i.i.i.i.i.i.i.i133 ]
+  %.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i131 = phi double [ %230, %.lr.ph96.i.i.i.i.i.i.i.i.i.i.i.i.i.i151 ], [ %226, %225 ], [ %.072.lcssa.i.i.i.i.i.i.i.i.i.i.i.i.i.i130, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i129 ], [ %222, %.lr.ph91.i.i.i.i.i.i.i.i.i.i.i.i.i.i133 ]
   %232 = getelementptr inbounds nuw double, ptr %19, i64 %.010.i.i.i.i.i.i.i121
   store double %.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i131, ptr %232, align 8, !tbaa !59
   %233 = add nuw nsw i64 %.010.i.i.i.i.i.i.i121, 1

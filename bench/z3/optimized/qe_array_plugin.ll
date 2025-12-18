@@ -3609,7 +3609,7 @@ _ZN6vectorIP4exprLb0EjE9push_backEOS1_.exit:      ; preds = %108, %114
   br i1 %123, label %95, label %._crit_edge, !llvm.loop !103
 
 _ZNK6vectorI10ptr_vectorI4exprELb1EjE5emptyEv.exit.thread: ; preds = %56, %50, %._crit_edge, %_Z9is_app_ofPK4exprii.exit, %.critedge, %.lr.ph71, %30, %_ZN6vectorI10ptr_vectorI4exprELb1EjE3endEv.exit, %15, %27, %_ZNK6vectorI10ptr_vectorI4exprELb1EjE5emptyEv.exit
-  %.6 = phi i1 [ false, %15 ], [ false, %_ZNK6vectorI10ptr_vectorI4exprELb1EjE5emptyEv.exit ], [ false, %27 ], [ true, %_ZN6vectorI10ptr_vectorI4exprELb1EjE3endEv.exit ], [ true, %30 ], [ true, %.critedge ], [ false, %.lr.ph71 ], [ false, %_Z9is_app_ofPK4exprii.exit ], [ false, %._crit_edge ], [ false, %50 ], [ false, %56 ]
+  %.6 = phi i1 [ true, %30 ], [ true, %_ZN6vectorI10ptr_vectorI4exprELb1EjE3endEv.exit ], [ false, %27 ], [ false, %15 ], [ false, %_ZNK6vectorI10ptr_vectorI4exprELb1EjE5emptyEv.exit ], [ false, %.lr.ph71 ], [ true, %.critedge ], [ false, %_Z9is_app_ofPK4exprii.exit ], [ false, %._crit_edge ], [ false, %50 ], [ false, %56 ]
   ret i1 %.6
 }
 

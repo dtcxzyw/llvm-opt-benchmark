@@ -919,15 +919,15 @@ bytestream2_get_byte.exit127:                     ; preds = %372, %376
   br label %.thread
 
 .thread:                                          ; preds = %bytestream2_get_byte.exit127, %360, %.thread.loopexit400.split.loop.exit409, %.thread.loopexit.split.loop.exit412, %bytestream2_get_byte.exit125, %.lr.ph427, %363
-  %.sroa.0.6 = phi ptr [ %342, %363 ], [ %16, %.lr.ph427 ], [ %.sroa.0.12, %bytestream2_get_byte.exit125 ], [ %.sroa.0.12, %.thread.loopexit.split.loop.exit412 ], [ %.sroa.0.7313, %.thread.loopexit400.split.loop.exit409 ], [ %.sroa.0.12, %360 ], [ %.sroa.0.13, %bytestream2_get_byte.exit127 ]
-  %.299 = phi i32 [ %.097320425, %363 ], [ %.097320425, %.lr.ph427 ], [ %.097320425, %bytestream2_get_byte.exit125 ], [ %380, %.thread.loopexit.split.loop.exit412 ], [ %381, %.thread.loopexit400.split.loop.exit409 ], [ %356, %360 ], [ %366, %bytestream2_get_byte.exit127 ]
+  %.sroa.0.6 = phi ptr [ %16, %.lr.ph427 ], [ %.sroa.0.12, %bytestream2_get_byte.exit125 ], [ %342, %363 ], [ %.sroa.0.12, %.thread.loopexit.split.loop.exit412 ], [ %.sroa.0.12, %360 ], [ %.sroa.0.7313, %.thread.loopexit400.split.loop.exit409 ], [ %.sroa.0.13, %bytestream2_get_byte.exit127 ]
+  %.299 = phi i32 [ %.097320425, %.lr.ph427 ], [ %.097320425, %bytestream2_get_byte.exit125 ], [ %.097320425, %363 ], [ %380, %.thread.loopexit.split.loop.exit412 ], [ %356, %360 ], [ %381, %.thread.loopexit400.split.loop.exit409 ], [ %366, %bytestream2_get_byte.exit127 ]
   %382 = load i32, ptr %5, align 4, !tbaa !4
   %383 = shl nsw i32 %382, 2
   %384 = icmp slt i32 %.299, %383
   br i1 %384, label %.lr.ph321, label %.thread..critedge.loopexit_crit_edge, !llvm.loop !39
 
 decompress.exit.threadthread-pre-split:           ; preds = %321, %.critedge.i210, %.critedge, %251, %.critedge.i180, %200, %.critedge.i, %155
-  %.sroa.0.3.ph = phi ptr [ %.sroa.0.1330, %155 ], [ %.sroa.0.5.lcssa, %.critedge ], [ %.sroa.0.21, %200 ], [ %.sroa.0.27, %251 ], [ %.sroa.0.21, %.critedge.i ], [ %.sroa.0.27, %.critedge.i180 ], [ %.sroa.0.33, %.critedge.i210 ], [ %.sroa.0.33, %321 ]
+  %.sroa.0.3.ph = phi ptr [ %.sroa.0.21, %200 ], [ %.sroa.0.1330, %155 ], [ %.sroa.0.27, %251 ], [ %.sroa.0.5.lcssa, %.critedge ], [ %.sroa.0.21, %.critedge.i ], [ %.sroa.0.27, %.critedge.i180 ], [ %.sroa.0.33, %.critedge.i210 ], [ %.sroa.0.33, %321 ]
   %.pr = load i32, ptr %5, align 4, !tbaa !4
   br label %decompress.exit.thread
 
@@ -1003,7 +1003,7 @@ decompress.exit:                                  ; preds = %convert.exit218, %d
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph59.i185, %207, %.lr.ph59.i, %.loopexit.sink.split, %128, %118, %hdr_get_line.exit
-  %.0 = phi i32 [ %129, %128 ], [ -1094995529, %hdr_get_line.exit ], [ %121, %118 ], [ %413, %.loopexit.sink.split ], [ -1094995529, %207 ], [ -1094995529, %.lr.ph59.i ], [ -1094995529, %.lr.ph59.i185 ]
+  %.0 = phi i32 [ %129, %128 ], [ -1094995529, %hdr_get_line.exit ], [ -1094995529, %207 ], [ %121, %118 ], [ -1094995529, %.lr.ph59.i ], [ %413, %.loopexit.sink.split ], [ -1094995529, %.lr.ph59.i185 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

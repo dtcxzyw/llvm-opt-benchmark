@@ -1482,8 +1482,8 @@ _ZN5clang12Preprocessor9LookAheadEj.exit:         ; preds = %203, %207
   br i1 %or.cond12.not, label %.thread545, label %.thread
 
 .thread:                                          ; preds = %221, %212, %217, %.critedge
-  %.6154 = phi i1 [ %.0148, %.critedge ], [ %216, %212 ], [ %.0148, %217 ], [ %.0148, %221 ]
-  %.7 = phi i32 [ %.1138, %.critedge ], [ %213, %212 ], [ %.1138, %217 ], [ %.1138, %221 ]
+  %.6154 = phi i1 [ %216, %212 ], [ %.0148, %.critedge ], [ %.0148, %217 ], [ %.0148, %221 ]
+  %.7 = phi i32 [ %213, %212 ], [ %.1138, %.critedge ], [ %.1138, %217 ], [ %.1138, %221 ]
   %225 = icmp eq i32 %.1, 0
   br i1 %225, label %293, label %226
 
@@ -4517,7 +4517,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit.i.i.i: ; preds
   br i1 %.not.i.i.i, label %"_ZN4llvm9remove_ifIRNS_11SmallVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELj4EEEZN5clang6Parser26ParseMicrosoftAsmStatementENSA_14SourceLocationEE3$_1EEDaOT_T0_.exit", label %.lr.ph.i.i.i, !llvm.loop !1599
 
 "_ZN4llvm9remove_ifIRNS_11SmallVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELj4EEEZN5clang6Parser26ParseMicrosoftAsmStatementENSA_14SourceLocationEE3$_1EEDaOT_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6Parser26ParseMicrosoftAsmStatementENS2_14SourceLocationEE3$_1EclIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit.thread.i.i.i", %._crit_edge.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6Parser26ParseMicrosoftAsmStatementENS2_14SourceLocationEE3$_1EclIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit35.i.i.i.i.i", %"_ZSt9__find_ifIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9__gnu_cxx5__ops10_Iter_predIZN5clang6Parser26ParseMicrosoftAsmStatementENSA_14SourceLocationEE3$_1EEET_SF_SF_T0_.exit.i.i.i"
-  %.016.i.i.i = phi ptr [ %.028.i.i.i.i.i, %"_ZSt9__find_ifIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9__gnu_cxx5__ops10_Iter_predIZN5clang6Parser26ParseMicrosoftAsmStatementENSA_14SourceLocationEE3$_1EEET_SF_SF_T0_.exit.i.i.i" ], [ %4, %._crit_edge.i.i.i.i.i ], [ %4, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6Parser26ParseMicrosoftAsmStatementENS2_14SourceLocationEE3$_1EclIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit35.i.i.i.i.i" ], [ %.1.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6Parser26ParseMicrosoftAsmStatementENS2_14SourceLocationEE3$_1EclIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit.thread.i.i.i" ]
+  %.016.i.i.i = phi ptr [ %.028.i.i.i.i.i, %"_ZSt9__find_ifIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9__gnu_cxx5__ops10_Iter_predIZN5clang6Parser26ParseMicrosoftAsmStatementENSA_14SourceLocationEE3$_1EEET_SF_SF_T0_.exit.i.i.i" ], [ %4, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6Parser26ParseMicrosoftAsmStatementENS2_14SourceLocationEE3$_1EclIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit35.i.i.i.i.i" ], [ %4, %._crit_edge.i.i.i.i.i ], [ %.1.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6Parser26ParseMicrosoftAsmStatementENS2_14SourceLocationEE3$_1EclIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit.thread.i.i.i" ]
   %91 = load ptr, ptr %0, align 8, !tbaa !14
   %92 = load i32, ptr %2, align 8, !tbaa !11
   %93 = zext i32 %92 to i64
@@ -4744,7 +4744,7 @@ _ZSt13move_backwardIPN4llvm9StringRefES2_ET0_T_S4_S3_.exit: ; preds = %_ZN4llvm1
   br i1 %.not44, label %._crit_edge, label %.lr.ph, !llvm.loop !1604
 
 _ZSt4copyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm9StringRefEET0_T_SB_SA_.exit: ; preds = %.lr.ph.i.i.i.i.i52, %.lr.ph.i.i.i.i, %._crit_edge, %_ZSt13move_backwardIPN4llvm9StringRefES2_ET0_T_S4_S3_.exit, %_ZN4llvm15SmallVectorImplINS_9StringRefEE6appendIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEEvT_SB_.exit
-  %.041 = phi ptr [ %36, %_ZN4llvm15SmallVectorImplINS_9StringRefEE6appendIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEEvT_SB_.exit ], [ %42, %_ZSt13move_backwardIPN4llvm9StringRefES2_ET0_T_S4_S3_.exit ], [ %42, %._crit_edge ], [ %42, %.lr.ph.i.i.i.i ], [ %42, %.lr.ph.i.i.i.i.i52 ]
+  %.041 = phi ptr [ %36, %_ZN4llvm15SmallVectorImplINS_9StringRefEE6appendIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEEvT_SB_.exit ], [ %42, %.lr.ph.i.i.i.i ], [ %42, %_ZSt13move_backwardIPN4llvm9StringRefES2_ET0_T_S4_S3_.exit ], [ %42, %._crit_edge ], [ %42, %.lr.ph.i.i.i.i.i52 ]
   ret ptr %.041
 }
 

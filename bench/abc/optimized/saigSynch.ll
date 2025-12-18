@@ -1105,7 +1105,7 @@ define i32 @Saig_SynchSequenceRun(ptr noundef readonly captures(none) %0, ptr no
   br i1 %50, label %.lr.ph.us.i44, label %Saig_SynchInitRegsTernary.exit, !llvm.loop !32
 
 Saig_SynchInitRegsTernary.exit:                   ; preds = %.lr.ph.us.i, %.lr.ph.us.i44, %32, %17
-  %.val366268 = phi i32 [ %.val1518.i, %17 ], [ %.val1518.i, %32 ], [ %.val15.us.i45, %.lr.ph.us.i44 ], [ %.val14.us.i, %.lr.ph.us.i ]
+  %.val366268 = phi i32 [ %.val15.us.i45, %.lr.ph.us.i44 ], [ %.val1518.i, %17 ], [ %.val1518.i, %32 ], [ %.val14.us.i, %.lr.ph.us.i ]
   %51 = icmp sgt i32 %7, 0
   br i1 %51, label %.lr.ph, label %.preheader
 

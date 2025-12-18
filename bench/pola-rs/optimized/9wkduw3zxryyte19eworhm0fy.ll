@@ -1851,7 +1851,7 @@ thread-pre-split:                                 ; preds = %3
   br i1 %.not, label %.loopexit, label %22
 
 .loopexit:                                        ; preds = %.preheader83, %48, %.preheader79, %84, %.preheader81, %.preheader
-  %.sroa.023.1 = phi i64 [ 0, %.preheader ], [ 0, %.preheader81 ], [ %53, %48 ], [ %89, %84 ], [ %.sroa.023.0, %.preheader79 ], [ %.sroa.023.3, %.preheader83 ]
+  %.sroa.023.1 = phi i64 [ %53, %48 ], [ %89, %84 ], [ %.sroa.023.0, %.preheader79 ], [ 0, %.preheader ], [ 0, %.preheader81 ], [ %.sroa.023.3, %.preheader83 ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.023.1, ptr %21, align 8
   br label %6
@@ -2005,7 +2005,7 @@ define internal fastcc range(i64 0, -4294967295) i64 @"_ZN4core3num21_$LT$impl$u
   ]
 
 .loopexit61:                                      ; preds = %28, %21, %.lr.ph, %25, %3, %3, %2, %.loopexit
-  %.sroa.8.0.insert.insert = phi i64 [ 1, %2 ], [ 257, %3 ], [ %13, %.loopexit ], [ 257, %3 ], [ %spec.select, %25 ], [ 257, %.lr.ph ], [ 257, %21 ], [ 513, %28 ]
+  %.sroa.8.0.insert.insert = phi i64 [ 1, %2 ], [ 257, %3 ], [ %13, %.loopexit ], [ 257, %3 ], [ 257, %.lr.ph ], [ %spec.select, %25 ], [ 257, %21 ], [ 513, %28 ]
   ret i64 %.sroa.8.0.insert.insert
 
 3:                                                ; preds = %2
@@ -2052,7 +2052,7 @@ define internal fastcc range(i64 0, -4294967295) i64 @"_ZN4core3num21_$LT$impl$u
   br label %.lr.ph
 
 .loopexit:                                        ; preds = %.preheader62, %36, %.preheader
-  %.sroa.016.1 = phi i32 [ 0, %.preheader ], [ %40, %36 ], [ %.sroa.016.0, %.preheader62 ]
+  %.sroa.016.1 = phi i32 [ %40, %36 ], [ 0, %.preheader ], [ %.sroa.016.0, %.preheader62 ]
   %12 = zext i32 %.sroa.016.1 to i64
   %13 = shl nuw i64 %12, 32
   br label %.loopexit61
@@ -38272,7 +38272,7 @@ define internal fastcc void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6in
   ret void
 
 122:                                              ; preds = %114, %110
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %110 ], [ %120, %114 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %120, %114 ], [ %.sroa.4.19.i.i, %110 ]
   %123 = load ptr, ptr %0, align 8, !alias.scope !2661, !noalias !2666, !nonnull !4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
@@ -38528,7 +38528,7 @@ _ZN9hashbrown3map9make_hash17h5b45238840f58588E.exit: ; preds = %16, %20, %46
   br label %119
 
 119:                                              ; preds = %108, %112
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %108 ], [ %118, %112 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %118, %112 ], [ %.sroa.4.19.i.i, %108 ]
   %120 = load ptr, ptr %0, align 8, !alias.scope !2711, !noalias !2714, !nonnull !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2722)
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 %.sroa.3.0.i.i.ph
@@ -38787,7 +38787,7 @@ define internal fastcc void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6in
   ret void
 
 129:                                              ; preds = %116, %112
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %112 ], [ %122, %116 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %122, %116 ], [ %.sroa.4.19.i.i, %112 ]
   %130 = load ptr, ptr %1, align 8, !alias.scope !2747, !noalias !2752, !nonnull !4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
@@ -43785,7 +43785,7 @@ define hidden void @_ZN10polars_sql7context10SQLContext21execute_query_no_ctes17
   br i1 %105, label %"_ZN4core3num21_$LT$impl$u20$u32$GT$16from_ascii_radix17h3f1310e0f637ec61E.exit.thread.i", label %108
 
 "_ZN4core3num21_$LT$impl$u20$u32$GT$16from_ascii_radix17h3f1310e0f637ec61E.exit.thread.i": ; preds = %90, %83, %.lr.ph.i.i, %"_ZN4core3num21_$LT$impl$u20$u32$GT$16from_ascii_radix17h3f1310e0f637ec61E.exit.i", %65, %65, %60
-  %.sroa.8.0.insert.insert.i12.i = phi i64 [ %.sroa.8.0.insert.insert.i.i, %"_ZN4core3num21_$LT$impl$u20$u32$GT$16from_ascii_radix17h3f1310e0f637ec61E.exit.i" ], [ 1, %60 ], [ 257, %65 ], [ 257, %65 ], [ 257, %.lr.ph.i.i ], [ 513, %90 ], [ 257, %83 ]
+  %.sroa.8.0.insert.insert.i12.i = phi i64 [ %.sroa.8.0.insert.insert.i.i, %"_ZN4core3num21_$LT$impl$u20$u32$GT$16from_ascii_radix17h3f1310e0f637ec61E.exit.i" ], [ 257, %65 ], [ 257, %.lr.ph.i.i ], [ 1, %60 ], [ 257, %65 ], [ 257, %83 ], [ 513, %90 ]
   %.sroa.4110.0.extract.shift.i = lshr i64 %.sroa.8.0.insert.insert.i12.i, 8
   %.sroa.4110.0.extract.trunc.i = trunc i64 %.sroa.4110.0.extract.shift.i to i8
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !3339
@@ -44027,7 +44027,7 @@ thread-pre-split.i.i:                             ; preds = %118
           to label %.thread22.i unwind label %109, !noalias !3339
 
 .loopexit.i:                                      ; preds = %146, %144, %135, %.lr.ph.i130.i, %174, %172, %163, %.lr.ph101.i.i, %123, %123, %118
-  %.sroa.4.0.ph.i = phi i8 [ 1, %123 ], [ 0, %118 ], [ 1, %123 ], [ 2, %172 ], [ 1, %.lr.ph101.i.i ], [ 1, %.lr.ph.i130.i ], [ 1, %163 ], [ 2, %174 ], [ 3, %146 ], [ 3, %144 ], [ 1, %135 ]
+  %.sroa.4.0.ph.i = phi i8 [ 1, %123 ], [ 1, %123 ], [ 0, %118 ], [ 2, %172 ], [ 1, %.lr.ph101.i.i ], [ 1, %.lr.ph.i130.i ], [ 1, %163 ], [ 2, %174 ], [ 1, %135 ], [ 3, %146 ], [ 3, %144 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !3339
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !3339
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !3339
@@ -44074,7 +44074,7 @@ thread-pre-split.i.i:                             ; preds = %118
   br label %_ZN10polars_sql7context10SQLContext20process_limit_offset17h9dcf2b10e9509549E.exit
 
 .loopexit52.i:                                    ; preds = %.preheader83.i.i, %155, %.preheader79.i.i, %183, %.preheader.i131.i, %.preheader81.i.i
-  %.sroa.739.0.ph.i = phi i64 [ 0, %.preheader81.i.i ], [ 0, %.preheader.i131.i ], [ %160, %155 ], [ %188, %183 ], [ %.sroa.023.0.i.i, %.preheader79.i.i ], [ %.sroa.023.3.i.i, %.preheader83.i.i ]
+  %.sroa.739.0.ph.i = phi i64 [ %160, %155 ], [ 0, %.preheader81.i.i ], [ %188, %183 ], [ %.sroa.023.0.i.i, %.preheader79.i.i ], [ 0, %.preheader.i131.i ], [ %.sroa.023.3.i.i, %.preheader83.i.i ]
   call void @_ZN11polars_lazy5frame9LazyFrame5slice17h2810675dc67eabc9E(ptr noalias noundef nonnull sret([336 x i8]) align 16 captures(none) dereferenceable(336) %0, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(336) %20, i64 noundef %.sroa.739.0.ph.i, i32 noundef -1), !noalias !3375
   call void @llvm.lifetime.end.p0(ptr nonnull %20), !noalias !3339
   br label %_ZN10polars_sql7context10SQLContext20process_limit_offset17h9dcf2b10e9509549E.exit
@@ -46480,10 +46480,10 @@ _ZN10polars_sql7context10SQLContext16get_frame_schema17h686b7e7c99fa94daE.exit85
   br label %.thread213
 
 .loopexit.split-lp:                               ; preds = %485, %486, %497, %502, %519, %526, %541, %542, %543
-  %.sroa.0147.0.i.ph = phi i8 [ 1, %486 ], [ 1, %497 ], [ 1, %502 ], [ 1, %485 ], [ 1, %519 ], [ 1, %526 ], [ 1, %542 ], [ 0, %543 ], [ 1, %541 ]
-  %.sroa.0149.8.i.ph = phi i8 [ 1, %486 ], [ 0, %497 ], [ 0, %502 ], [ 0, %485 ], [ %.sroa.0149.9.i, %519 ], [ %.sroa.0149.9.i, %526 ], [ %.sroa.0149.9.i, %542 ], [ %.sroa.0149.9.i, %543 ], [ %.sroa.0149.9.i, %541 ]
-  %.sroa.0152.18.i.ph = phi i8 [ 1, %486 ], [ 1, %497 ], [ 1, %502 ], [ 0, %485 ], [ 0, %519 ], [ 0, %526 ], [ 0, %542 ], [ 0, %543 ], [ 0, %541 ]
-  %.sroa.0160.2.i.ph = phi i1 [ true, %486 ], [ true, %497 ], [ true, %502 ], [ true, %485 ], [ true, %519 ], [ true, %526 ], [ false, %542 ], [ false, %543 ], [ false, %541 ]
+  %.sroa.0147.0.i.ph = phi i8 [ 1, %502 ], [ 1, %485 ], [ 1, %519 ], [ 1, %526 ], [ 1, %542 ], [ 0, %543 ], [ 1, %541 ], [ 1, %497 ], [ 1, %486 ]
+  %.sroa.0149.8.i.ph = phi i8 [ 0, %502 ], [ 0, %485 ], [ %.sroa.0149.9.i, %519 ], [ %.sroa.0149.9.i, %526 ], [ %.sroa.0149.9.i, %542 ], [ %.sroa.0149.9.i, %543 ], [ %.sroa.0149.9.i, %541 ], [ 0, %497 ], [ 1, %486 ]
+  %.sroa.0152.18.i.ph = phi i8 [ 1, %502 ], [ 0, %485 ], [ 0, %519 ], [ 0, %526 ], [ 0, %542 ], [ 0, %543 ], [ 0, %541 ], [ 1, %497 ], [ 1, %486 ]
+  %.sroa.0160.2.i.ph = phi i1 [ true, %502 ], [ true, %485 ], [ true, %519 ], [ true, %526 ], [ false, %542 ], [ false, %543 ], [ false, %541 ], [ true, %497 ], [ true, %486 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %487
@@ -50380,7 +50380,7 @@ _ZN4core4iter6traits8iterator8Iterator7collect17he9d953c35baf2b2dE.exit.i.i: ; p
           to label %393 unwind label %392, !noalias !4042
 
 392:                                              ; preds = %412, %398, %391
-  %.sroa.09.0.ph.i = phi i1 [ true, %391 ], [ true, %398 ], [ false, %412 ]
+  %.sroa.09.0.ph.i = phi i1 [ false, %412 ], [ true, %398 ], [ true, %391 ]
   %lpad.thr_comm.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.thread12.i
@@ -50971,7 +50971,7 @@ _ZN10polars_sql7context10SQLContext16get_frame_schema17h686b7e7c99fa94daE.exit15
           to label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h24233a37fbb201cfE.exit" unwind label %.body193
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h24233a37fbb201cfE.exit.thread": ; preds = %563, %567
-  %.sroa.3.0.i.i.ph.i = phi i64 [ %.sroa.4.19.i.i.i, %563 ], [ %573, %567 ]
+  %.sroa.3.0.i.i.ph.i = phi i64 [ %573, %567 ], [ %.sroa.4.19.i.i.i, %563 ]
   %578 = load ptr, ptr %151, align 8, !alias.scope !4187, !noalias !4190, !nonnull !4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %60, i64 24, i1 false), !noalias !4166
@@ -52694,7 +52694,7 @@ _ZN10polars_sql7context10SQLContext22execute_table_function17ha32dfa56facf1d0aE.
           to label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17he3c850baa0e8db7cE.exit" unwind label %.body
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17he3c850baa0e8db7cE.exit.thread": ; preds = %340, %344
-  %.sroa.3.0.i.i.ph.i = phi i64 [ %.sroa.4.19.i.i.i, %340 ], [ %350, %344 ]
+  %.sroa.3.0.i.i.ph.i = phi i64 [ %350, %344 ], [ %.sroa.4.19.i.i.i, %340 ]
   %355 = load ptr, ptr %219, align 8, !alias.scope !4404, !noalias !4407, !nonnull !4
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %86, i64 24, i1 false), !noalias !4383
@@ -54731,7 +54731,7 @@ _ZN10polars_sql7context10SQLContext16get_frame_schema17h686b7e7c99fa94daE.exit: 
   br label %.body
 
 .loopexit.split-lp:                               ; preds = %._crit_edge, %129, %141, %446
-  %.sroa.049.13.ph = phi i8 [ 0, %141 ], [ 0, %._crit_edge ], [ 0, %129 ], [ 1, %446 ]
+  %.sroa.049.13.ph = phi i8 [ 0, %129 ], [ 0, %._crit_edge ], [ 1, %446 ], [ 0, %141 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -55263,7 +55263,7 @@ _ZN10polars_sql7context10SQLContext16get_frame_schema17h686b7e7c99fa94daE.exit: 
   br label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hd5f2ea2342eb7523E.exit.thread"
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hd5f2ea2342eb7523E.exit.thread": ; preds = %334, %338
-  %.sroa.3.0.i.i.ph.i = phi i64 [ %.sroa.4.19.i.i.i, %334 ], [ %344, %338 ]
+  %.sroa.3.0.i.i.ph.i = phi i64 [ %344, %338 ], [ %.sroa.4.19.i.i.i, %334 ]
   %345 = load ptr, ptr %45, align 8, !alias.scope !4631, !noalias !4634, !nonnull !4
   call void @llvm.experimental.noalias.scope.decl(metadata !4643)
   %346 = getelementptr inbounds nuw i8, ptr %345, i64 %.sroa.3.0.i.i.ph.i
@@ -56950,7 +56950,7 @@ _ZN11compact_str13CompactString7try_new17h2c6eedffb6e2b2f3E.exit91: ; preds = %2
           to label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h6f318c240a110dabE.exit" unwind label %.body96.thread166
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h6f318c240a110dabE.exit.thread": ; preds = %366, %370
-  %.sroa.3.0.i.i.ph.i = phi i64 [ %.sroa.4.19.i.i.i, %366 ], [ %376, %370 ]
+  %.sroa.3.0.i.i.ph.i = phi i64 [ %376, %370 ], [ %.sroa.4.19.i.i.i, %366 ]
   %381 = load ptr, ptr %209, align 8, !alias.scope !4888, !noalias !4889, !nonnull !4
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %22, i64 24, i1 false), !noalias !4879

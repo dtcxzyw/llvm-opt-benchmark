@@ -106,7 +106,7 @@ UI_free.exit:                                     ; preds = %18, %22
   br label %31
 
 31:                                               ; preds = %.sink.split, %.thread, %1
-  %.0 = phi ptr [ null, %1 ], [ %2, %.thread ], [ null, %.sink.split ]
+  %.0 = phi ptr [ %2, %.thread ], [ null, %1 ], [ null, %.sink.split ]
   ret ptr %.0
 }
 
@@ -1025,10 +1025,10 @@ define range(i32 -2, 1) i32 @UI_process(ptr noundef %0) local_unnamed_addr #0 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %21, %43, %47, %.loopexit.sink.split, %36, %34, %5
-  %54 = phi i1 [ true, %5 ], [ true, %34 ], [ false, %36 ], [ false, %.loopexit.sink.split ], [ false, %47 ], [ true, %43 ], [ true, %21 ]
-  %.033 = phi i32 [ -1, %5 ], [ -1, %34 ], [ 0, %36 ], [ -2, %.loopexit.sink.split ], [ 0, %47 ], [ -1, %43 ], [ -1, %21 ]
-  %spec.store.select = phi ptr [ @.str.2, %5 ], [ @.str.4, %34 ], [ @.str.6, %36 ], [ @.str.1, %.loopexit.sink.split ], [ @.str.6, %47 ], [ @.str.5, %43 ], [ @.str.3, %21 ]
-  %.0 = phi ptr [ @.str.2, %5 ], [ @.str.4, %34 ], [ null, %36 ], [ @.str.1, %.loopexit.sink.split ], [ null, %47 ], [ @.str.5, %43 ], [ @.str.3, %21 ]
+  %54 = phi i1 [ false, %36 ], [ true, %5 ], [ true, %43 ], [ true, %34 ], [ false, %.loopexit.sink.split ], [ false, %47 ], [ true, %21 ]
+  %.033 = phi i32 [ 0, %36 ], [ -1, %5 ], [ -1, %43 ], [ -1, %34 ], [ -2, %.loopexit.sink.split ], [ 0, %47 ], [ -1, %21 ]
+  %spec.store.select = phi ptr [ @.str.6, %36 ], [ @.str.2, %5 ], [ @.str.5, %43 ], [ @.str.4, %34 ], [ @.str.1, %.loopexit.sink.split ], [ @.str.6, %47 ], [ @.str.3, %21 ]
+  %.0 = phi ptr [ null, %36 ], [ @.str.2, %5 ], [ @.str.5, %43 ], [ @.str.4, %34 ], [ @.str.1, %.loopexit.sink.split ], [ null, %47 ], [ @.str.3, %21 ]
   %55 = load ptr, ptr %0, align 8, !tbaa !14
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 40
   %57 = load ptr, ptr %56, align 8, !tbaa !39
@@ -1693,7 +1693,7 @@ define range(i32 -1, 1) i32 @UI_set_result_ex(ptr noundef captures(none) %0, ptr
   br label %.loopexit
 
 .loopexit:                                        ; preds = %48, %43, %4, %37, %55, %61, %.thread, %30, %22, %13
-  %.037 = phi i32 [ -1, %.thread ], [ -1, %13 ], [ -1, %22 ], [ -1, %30 ], [ 0, %61 ], [ 0, %55 ], [ 0, %37 ], [ 0, %4 ], [ 0, %43 ], [ 0, %48 ]
+  %.037 = phi i32 [ -1, %.thread ], [ -1, %13 ], [ -1, %22 ], [ -1, %30 ], [ 0, %61 ], [ 0, %55 ], [ 0, %4 ], [ 0, %37 ], [ 0, %43 ], [ 0, %48 ]
   ret i32 %.037
 }
 

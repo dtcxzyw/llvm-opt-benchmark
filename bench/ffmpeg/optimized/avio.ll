@@ -193,7 +193,7 @@ ff_check_interrupt.exit.thread.i:                 ; preds = %ff_check_interrupt.
   br i1 %.not49.i, label %.outer.split.i, label %retry_transfer_wrapper.exit, !llvm.loop !24
 
 retry_transfer_wrapper.exit:                      ; preds = %.outer.i, %39, %33, %.split.i, %25, %ff_check_interrupt.exit.i, %3
-  %.0 = phi i32 [ -5, %3 ], [ -1414092869, %ff_check_interrupt.exit.i ], [ %.041.i, %.outer.i ], [ %21, %39 ], [ -5, %33 ], [ %21, %.split.i ], [ %21, %25 ]
+  %.0 = phi i32 [ -5, %3 ], [ -1414092869, %ff_check_interrupt.exit.i ], [ -5, %33 ], [ %21, %39 ], [ %21, %.split.i ], [ %21, %25 ], [ %.041.i, %.outer.i ]
   ret i32 %.0
 }
 
@@ -1339,7 +1339,7 @@ ff_check_interrupt.exit.thread.us.us.i:           ; preds = %ff_check_interrupt.
   br label %retry_transfer_wrapper.exit
 
 retry_transfer_wrapper.exit:                      ; preds = %.split.us.us.i, %.outer.us.i, %33, %27, %ff_check_interrupt.exit.us.us.i, %.split63.us.i, %11, %7, %3
-  %.0 = phi i32 [ -5, %3 ], [ -5, %7 ], [ %52, %.split63.us.i ], [ 0, %11 ], [ -1414092869, %ff_check_interrupt.exit.us.us.i ], [ %48, %.split.us.us.i ], [ %48, %33 ], [ %36, %.outer.us.i ], [ -5, %27 ]
+  %.0 = phi i32 [ -5, %3 ], [ -5, %7 ], [ %52, %.split63.us.i ], [ -1414092869, %ff_check_interrupt.exit.us.us.i ], [ 0, %11 ], [ %48, %33 ], [ %36, %.outer.us.i ], [ -5, %27 ], [ %48, %.split.us.us.i ]
   ret i32 %.0
 }
 
@@ -1608,7 +1608,7 @@ ff_check_interrupt.exit.thread.i:                 ; preds = %ff_check_interrupt.
   br i1 %45, label %.outer.split.i, label %retry_transfer_wrapper.exit, !llvm.loop !24
 
 retry_transfer_wrapper.exit:                      ; preds = %.outer.i, %41, %34, %.split.i, %ff_check_interrupt.exit.i, %.split63.us.i, %7, %3
-  %.0 = phi i32 [ -5, %3 ], [ %40, %.split63.us.i ], [ 0, %7 ], [ -1414092869, %ff_check_interrupt.exit.i ], [ %22, %.split.i ], [ %44, %.outer.i ], [ %22, %41 ], [ -5, %34 ]
+  %.0 = phi i32 [ -5, %3 ], [ %40, %.split63.us.i ], [ -1414092869, %ff_check_interrupt.exit.i ], [ 0, %7 ], [ %22, %.split.i ], [ %22, %41 ], [ -5, %34 ], [ %44, %.outer.i ]
   ret i32 %.0
 }
 

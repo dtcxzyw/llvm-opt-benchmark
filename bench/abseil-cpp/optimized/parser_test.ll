@@ -6348,7 +6348,7 @@ _ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit107: ; preds = %.lr.ph.
   br label %.critedge71
 
 .critedge71:                                      ; preds = %38, %204, %159, %163, %192, %185, %165, %175, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit107.thread, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit89.thread, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit.thread, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit107, %128, %126, %99, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit89, %71, %67, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit, %7, %4
-  %.0 = phi ptr [ null, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit89 ], [ null, %4 ], [ null, %7 ], [ null, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit ], [ null, %175 ], [ null, %165 ], [ null, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit107.thread ], [ null, %99 ], [ null, %126 ], [ null, %128 ], [ null, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit107 ], [ null, %67 ], [ null, %71 ], [ null, %185 ], [ null, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit.thread ], [ null, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit89.thread ], [ null, %163 ], [ null, %159 ], [ %.5153, %204 ], [ null, %192 ], [ null, %38 ]
+  %.0 = phi ptr [ null, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit89 ], [ null, %4 ], [ null, %7 ], [ null, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit ], [ null, %175 ], [ null, %165 ], [ null, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit107.thread ], [ null, %99 ], [ null, %126 ], [ null, %128 ], [ null, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit107 ], [ null, %192 ], [ null, %67 ], [ null, %71 ], [ null, %185 ], [ null, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit.thread ], [ null, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit89.thread ], [ null, %163 ], [ null, %159 ], [ %.5153, %204 ], [ null, %38 ]
   ret ptr %.0
 }
 
@@ -6698,7 +6698,7 @@ _ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit80: ; preds = %.lr.ph.i
   br label %.thread
 
 .thread:                                          ; preds = %18, %142, %135, %117, %125, %47, %49, %154, %111, %115, %97, %70, %57, %4
-  %.0 = phi ptr [ null, %4 ], [ null, %115 ], [ null, %57 ], [ null, %97 ], [ null, %70 ], [ %50, %49 ], [ null, %111 ], [ %.5113, %154 ], [ null, %47 ], [ null, %125 ], [ null, %117 ], [ null, %135 ], [ null, %142 ], [ null, %18 ]
+  %.0 = phi ptr [ null, %4 ], [ null, %115 ], [ null, %57 ], [ null, %97 ], [ null, %70 ], [ null, %142 ], [ %50, %49 ], [ null, %111 ], [ %.5113, %154 ], [ null, %47 ], [ null, %125 ], [ null, %117 ], [ null, %135 ], [ null, %18 ]
   ret ptr %.0
 }
 

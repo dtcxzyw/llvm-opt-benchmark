@@ -1066,7 +1066,7 @@ define dso_local i32 @ip6_forward(ptr noundef %0) local_unnamed_addr #0 align 16
   %75 = load i8, ptr %74, align 1
   %76 = and i8 %75, 1
   %.not40 = icmp eq i8 %76, 0
-  br i1 %.not40, label %117, label %77
+  br i1 %.not40, label %112, label %77
 
 77:                                               ; preds = %69
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 216
@@ -1113,51 +1113,51 @@ define dso_local i32 @ip6_forward(ptr noundef %0) local_unnamed_addr #0 align 16
   %109 = load i32, ptr %108, align 4
   %110 = and i32 %109, 2
   %111 = icmp eq i32 %110, 0
-  br i1 %111, label %.critedge, label %112
+  br i1 %111, label %.critedge, label %130
 
-112:                                              ; preds = %107
-  %113 = getelementptr inbounds nuw i8, ptr %97, i64 12
+112:                                              ; preds = %69
+  %113 = getelementptr i8, ptr %73, i64 2824
   %114 = load i32, ptr %113, align 4
-  %115 = and i32 %114, 1
-  %116 = icmp eq i32 %115, 0
-  br i1 %116, label %.critedge, label %.critedge21
+  %.not41 = icmp eq i32 %114, 0
+  br i1 %.not41, label %115, label %.thread26
 
-117:                                              ; preds = %69
-  %118 = getelementptr i8, ptr %73, i64 2824
-  %119 = load i32, ptr %118, align 4
-  %.not41 = icmp eq i32 %119, 0
-  br i1 %.not41, label %120, label %.thread26
+115:                                              ; preds = %112
+  %116 = getelementptr i8, ptr %73, i64 2970
+  %117 = load i8, ptr %116, align 1
+  %118 = icmp eq i8 %117, 2
+  br i1 %118, label %.critedge21, label %.thread26
 
-120:                                              ; preds = %117
-  %121 = getelementptr i8, ptr %73, i64 2970
-  %122 = load i8, ptr %121, align 1
-  %123 = icmp eq i8 %122, 2
-  br i1 %123, label %.critedge21, label %.thread26
+.thread26:                                        ; preds = %77, %86, %90, %93, %99, %115, %112
+  %119 = load i64, ptr %6, align 8
+  %120 = and i64 %119, -2
+  %121 = icmp eq i64 %120, 0
+  br i1 %121, label %128, label %122
 
-.thread26:                                        ; preds = %77, %86, %90, %93, %99, %120, %117
-  %124 = load i64, ptr %6, align 8
-  %125 = and i64 %124, -2
-  %126 = icmp eq i64 %125, 0
-  br i1 %126, label %133, label %127
+122:                                              ; preds = %.thread26
+  %123 = inttoptr i64 %120 to ptr
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 56
+  %125 = load i16, ptr %124, align 8
+  %126 = and i16 %125, 4
+  %127 = icmp eq i16 %126, 0
+  br i1 %127, label %128, label %.critedge21
 
-127:                                              ; preds = %.thread26
-  %128 = inttoptr i64 %125 to ptr
-  %129 = getelementptr inbounds nuw i8, ptr %128, i64 56
-  %130 = load i16, ptr %129, align 8
-  %131 = and i16 %130, 4
-  %132 = icmp eq i16 %131, 0
-  br i1 %132, label %133, label %.critedge21
-
-133:                                              ; preds = %.thread26, %127
-  %134 = tail call i32 @__xfrm_policy_check(ptr noundef null, i32 noundef 2, ptr noundef %0, i16 noundef zeroext 10) #13
-  %.not = icmp eq i32 %134, 0
+128:                                              ; preds = %122, %.thread26
+  %129 = tail call i32 @__xfrm_policy_check(ptr noundef null, i32 noundef 2, ptr noundef %0, i16 noundef zeroext 10) #13
+  %.not = icmp eq i32 %129, 0
   br i1 %.not, label %.critedge, label %..critedge21_crit_edge
 
-..critedge21_crit_edge:                           ; preds = %133
+..critedge21_crit_edge:                           ; preds = %128
   %.pre = load i8, ptr %33, align 8
   br label %.critedge21
 
-.critedge:                                        ; preds = %112, %107, %133
+130:                                              ; preds = %107
+  %131 = getelementptr inbounds nuw i8, ptr %97, i64 12
+  %132 = load i32, ptr %131, align 4
+  %133 = and i32 %132, 1
+  %134 = icmp eq i32 %133, 0
+  br i1 %134, label %.critedge, label %.critedge21
+
+.critedge:                                        ; preds = %128, %107, %130
   br i1 %64, label %139, label %135, !prof !6
 
 135:                                              ; preds = %.critedge
@@ -1174,8 +1174,8 @@ define dso_local i32 @ip6_forward(ptr noundef %0) local_unnamed_addr #0 align 16
   tail call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %142, ptr elementtype(i64) %142) #13, !srcloc !22
   br label %476
 
-.critedge21:                                      ; preds = %..critedge21_crit_edge, %112, %127, %120, %65, %59
-  %143 = phi i8 [ %.pre, %..critedge21_crit_edge ], [ %34, %112 ], [ %34, %127 ], [ %34, %120 ], [ %34, %65 ], [ %34, %59 ]
+.critedge21:                                      ; preds = %..critedge21_crit_edge, %122, %115, %130, %65, %59
+  %143 = phi i8 [ %.pre, %..critedge21_crit_edge ], [ %34, %122 ], [ %34, %115 ], [ %34, %130 ], [ %34, %65 ], [ %34, %59 ]
   %144 = and i8 %143, 96
   %145 = icmp eq i8 %144, 64
   br i1 %145, label %146, label %148
@@ -5383,8 +5383,8 @@ define internal fastcc i32 @__ip6_append_data(ptr noundef %0, ptr noundef %1, pt
   br label %.thread48
 
 .thread48:                                        ; preds = %786, %.critedge33.us, %416, %.critedge33.us.us, %785, %782, %.thread45, %.split95.us, %668, %593, %577
-  %803 = phi i32 [ %487, %668 ], [ %487, %593 ], [ %487, %577 ], [ %339, %.split95.us ], [ %487, %.thread45 ], [ %.us-phi90, %782 ], [ %473, %785 ], [ %339, %.critedge33.us ], [ %272, %.critedge33.us.us ], [ %339, %416 ], [ %473, %786 ]
-  %804 = phi i64 [ %495, %668 ], [ %495, %593 ], [ %495, %577 ], [ %337, %.split95.us ], [ %495, %.thread45 ], [ %.us-phi89, %782 ], [ %471, %785 ], [ %337, %.critedge33.us ], [ %298, %.critedge33.us.us ], [ %337, %416 ], [ %471, %786 ]
+  %803 = phi i32 [ %487, %668 ], [ %487, %593 ], [ %487, %577 ], [ %339, %.split95.us ], [ %487, %.thread45 ], [ %473, %785 ], [ %.us-phi90, %782 ], [ %339, %.critedge33.us ], [ %272, %.critedge33.us.us ], [ %339, %416 ], [ %473, %786 ]
+  %804 = phi i64 [ %495, %668 ], [ %495, %593 ], [ %495, %577 ], [ %337, %.split95.us ], [ %495, %.thread45 ], [ %471, %785 ], [ %.us-phi89, %782 ], [ %337, %.critedge33.us ], [ %298, %.critedge33.us.us ], [ %337, %416 ], [ %471, %786 ]
   %805 = load i8, ptr %13, align 1, !range !73, !noundef !74
   %806 = icmp ne i8 %805, 0
   call fastcc void @net_zcopy_put_abort(ptr noundef %252, i1 noundef zeroext %806)

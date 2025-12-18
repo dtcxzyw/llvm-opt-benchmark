@@ -1185,7 +1185,7 @@ PyByteArray_AS_STRING.exit120:                    ; preds = %50, %PyObject_TypeC
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge, %.loopexit.sink.split, %5, %64, %68
-  %.7 = phi i32 [ -1, %68 ], [ -1, %64 ], [ 0, %5 ], [ -1, %.loopexit.sink.split ], [ 0, %._crit_edge ]
+  %.7 = phi i32 [ -1, %64 ], [ -1, %.loopexit.sink.split ], [ 0, %5 ], [ -1, %68 ], [ 0, %._crit_edge ]
   ret i32 %.7
 }
 
@@ -1449,7 +1449,7 @@ define internal fastcc ptr @s_unpack_internal(ptr noundef readonly captures(none
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %._crit_edge, %8, %54, %51, %49, %3
-  %.038 = phi ptr [ null, %3 ], [ null, %49 ], [ null, %51 ], [ null, %54 ], [ %6, %8 ], [ %6, %._crit_edge ]
+  %.038 = phi ptr [ null, %54 ], [ null, %3 ], [ null, %49 ], [ null, %51 ], [ %6, %8 ], [ %6, %._crit_edge ]
   ret ptr %.038
 }
 
@@ -2916,7 +2916,7 @@ define internal range(i32 -1, 1) i32 @bp_uint(ptr noundef readonly captures(none
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.critedge, %.loopexit.sink.split, %8
-  %.0 = phi i32 [ -1, %8 ], [ -1, %.loopexit.sink.split ], [ 0, %.critedge ]
+  %.0 = phi i32 [ -1, %.loopexit.sink.split ], [ -1, %8 ], [ 0, %.critedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -5014,7 +5014,7 @@ define internal range(i32 -1, 1) i32 @lp_uint(ptr noundef readonly captures(none
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.critedge, %.loopexit.sink.split, %8
-  %.0 = phi i32 [ -1, %8 ], [ -1, %.loopexit.sink.split ], [ 0, %.critedge ]
+  %.0 = phi i32 [ -1, %.loopexit.sink.split ], [ -1, %8 ], [ 0, %.critedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }

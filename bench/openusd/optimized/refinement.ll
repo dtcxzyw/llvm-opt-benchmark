@@ -2618,7 +2618,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit._ZN10OpenSubdiv6v3_6_03Vtr8internal10Refineme
   br i1 %103, label %81, label %_ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement35populateVertexParentFromParentFacesEPA4_KNS3_8ChildTagE.exit, !llvm.loop !37
 
 _ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement35populateVertexParentFromParentFacesEPA4_KNS3_8ChildTagE.exit: ; preds = %99, %74, %_ZNSt6vectorIiSaIiEE6resizeEm.exit._ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement35populateVertexParentFromParentFacesEPA4_KNS3_8ChildTagE.exit_crit_edge, %.preheader.i, %70
-  %104 = phi ptr [ %.pre, %_ZNSt6vectorIiSaIiEE6resizeEm.exit._ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement35populateVertexParentFromParentFacesEPA4_KNS3_8ChildTagE.exit_crit_edge ], [ %64, %70 ], [ %64, %.preheader.i ], [ %78, %74 ], [ %100, %99 ]
+  %104 = phi ptr [ %.pre, %_ZNSt6vectorIiSaIiEE6resizeEm.exit._ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement35populateVertexParentFromParentFacesEPA4_KNS3_8ChildTagE.exit_crit_edge ], [ %78, %74 ], [ %64, %70 ], [ %64, %.preheader.i ], [ %100, %99 ]
   %105 = load i8, ptr %3, align 4
   %106 = trunc i8 %105 to i1
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2702,7 +2702,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement35populateVertexParentFromParentF
   br i1 %148, label %126, label %_ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement35populateVertexParentFromParentEdgesEPA4_KNS3_8ChildTagE.exit, !llvm.loop !39
 
 _ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement35populateVertexParentFromParentEdgesEPA4_KNS3_8ChildTagE.exit: ; preds = %143, %118, %.preheader.i9, %114
-  %149 = phi ptr [ %104, %114 ], [ %104, %.preheader.i9 ], [ %122, %118 ], [ %144, %143 ]
+  %149 = phi ptr [ %122, %118 ], [ %104, %114 ], [ %104, %.preheader.i9 ], [ %144, %143 ]
   %150 = load i8, ptr %3, align 4
   %151 = trunc i8 %150 to i1
   %152 = getelementptr inbounds nuw i8, ptr %149, i64 8

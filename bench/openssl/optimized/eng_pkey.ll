@@ -90,7 +90,7 @@ define ptr @ENGINE_load_private_key(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %21
 
 21:                                               ; preds = %.sink.split, %18, %6
-  %.0 = phi ptr [ null, %6 ], [ %19, %18 ], [ null, %.sink.split ]
+  %.0 = phi ptr [ %19, %18 ], [ null, %6 ], [ null, %.sink.split ]
   ret ptr %.0
 }
 
@@ -143,7 +143,7 @@ define ptr @ENGINE_load_public_key(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %21
 
 21:                                               ; preds = %.sink.split, %18, %6
-  %.0 = phi ptr [ null, %6 ], [ %19, %18 ], [ null, %.sink.split ]
+  %.0 = phi ptr [ %19, %18 ], [ null, %6 ], [ null, %.sink.split ]
   ret ptr %.0
 }
 

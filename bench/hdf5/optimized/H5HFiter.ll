@@ -350,7 +350,7 @@ H5VM_log2_gen.exit:                               ; preds = %83, %88, %95, %100,
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %27
 
-183:                                              ; preds = %158, %165
+183:                                              ; preds = %165, %158
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store i8 1, ptr %1, align 8, !tbaa !59
   br label %184

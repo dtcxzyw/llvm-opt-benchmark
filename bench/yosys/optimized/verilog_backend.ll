@@ -38578,8 +38578,8 @@ _ZNK5Yosys7hashlib4poolIiNS0_8hash_opsIiEEE7do_hashERKi.exit.i2943: ; preds = %.
   br i1 %5361, label %5353, label %_ZNK5Yosys7hashlib4poolIiNS0_8hash_opsIiEEE5countERKi.exit2308.thread3753, !llvm.loop !703
 
 _ZNK5Yosys7hashlib4poolIiNS0_8hash_opsIiEEE5countERKi.exit2308.thread3753: ; preds = %5358, %._crit_edge.i.i2301, %_ZNK5Yosys7hashlib4poolIiNS0_8hash_opsIiEEE5countERKi.exit.thread3743
-  %5362 = phi ptr [ %5344, %._crit_edge.i.i2301 ], [ %5202, %_ZNK5Yosys7hashlib4poolIiNS0_8hash_opsIiEEE5countERKi.exit.thread3743 ], [ %5344, %5358 ]
-  %5363 = phi ptr [ %5345, %._crit_edge.i.i2301 ], [ %5203, %_ZNK5Yosys7hashlib4poolIiNS0_8hash_opsIiEEE5countERKi.exit.thread3743 ], [ %5345, %5358 ]
+  %5362 = phi ptr [ %5202, %_ZNK5Yosys7hashlib4poolIiNS0_8hash_opsIiEEE5countERKi.exit.thread3743 ], [ %5344, %._crit_edge.i.i2301 ], [ %5344, %5358 ]
+  %5363 = phi ptr [ %5203, %_ZNK5Yosys7hashlib4poolIiNS0_8hash_opsIiEEE5countERKi.exit.thread3743 ], [ %5345, %._crit_edge.i.i2301 ], [ %5345, %5358 ]
   %5364 = icmp eq ptr %5363, %5362
   br i1 %5364, label %_ZNK5Yosys7hashlib4poolIiNS0_8hash_opsIiEEE5countERKi.exit2316.thread3758, label %5365
 
@@ -39196,7 +39196,7 @@ _ZNK5Yosys7hashlib4poolIiNS0_8hash_opsIiEEE7do_hashERKi.exit.i.i2324: ; preds = 
   br label %.body3164
 
 _ZNK5Yosys7hashlib4poolIiNS0_8hash_opsIiEEE5countERKi.exit2316.thread3758: ; preds = %5353, %5518, %4725, %._crit_edge.i.i2309, %_ZNK5Yosys7hashlib4poolIiNS0_8hash_opsIiEEE5countERKi.exit2308.thread3753, %.lr.ph7053, %.loopexit3807
-  %.3564 = phi i1 [ %.2563, %._crit_edge.i.i2309 ], [ true, %.loopexit3807 ], [ %.15627051, %.lr.ph7053 ], [ %.2563, %_ZNK5Yosys7hashlib4poolIiNS0_8hash_opsIiEEE5countERKi.exit2308.thread3753 ], [ %.15627051, %4725 ], [ %.2563, %5518 ], [ %.2563, %5353 ]
+  %.3564 = phi i1 [ %.2563, %._crit_edge.i.i2309 ], [ true, %.loopexit3807 ], [ %.2563, %5518 ], [ %.15627051, %.lr.ph7053 ], [ %.2563, %_ZNK5Yosys7hashlib4poolIiNS0_8hash_opsIiEEE5countERKi.exit2308.thread3753 ], [ %.15627051, %4725 ], [ %.2563, %5353 ]
   %5681 = load i32, ptr %147, align 4, !tbaa !23
   %5682 = add nsw i32 %5681, 1
   store i32 %5682, ptr %147, align 4, !tbaa !23

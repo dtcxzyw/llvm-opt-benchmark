@@ -1252,7 +1252,7 @@ define internal range(i32 0, 2) i32 @dissect_netlink_route_route_attrs(ptr nound
   br label %18
 
 18:                                               ; preds = %.sink.split, %7, %11, %9
-  %.0 = phi i32 [ 0, %11 ], [ 0, %9 ], [ 0, %7 ], [ 1, %.sink.split ]
+  %.0 = phi i32 [ 0, %11 ], [ 0, %7 ], [ 0, %9 ], [ 1, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }

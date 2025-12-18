@@ -290,7 +290,7 @@ define dso_local void @_ZN4llvm20decomposeBitTestICmpEPNS_5ValueES1_NS_7CmpInst9
   %35 = icmp eq i8 %34, 17
   br i1 %35, label %37, label %.critedge
 
-.critedge:                                        ; preds = %33, %31, %23, %6
+.critedge:                                        ; preds = %23, %31, %33, %6
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i8 0, ptr %36, align 8, !tbaa !22
   br label %458

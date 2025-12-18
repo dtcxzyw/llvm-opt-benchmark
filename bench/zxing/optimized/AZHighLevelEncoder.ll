@@ -211,7 +211,7 @@ _ZN5ZXing5Aztec13EncodingStateD2Ev.exit34:        ; preds = %2
   br i1 %98, label %select.unfold, label %277
 
 select.unfold:                                    ; preds = %95, %93, %91, %97
-  %.027 = phi i32 [ 3, %93 ], [ 5, %97 ], [ 2, %91 ], [ 4, %95 ]
+  %.027 = phi i32 [ 3, %93 ], [ 2, %91 ], [ 5, %97 ], [ 4, %95 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   call void @llvm.lifetime.start.p0(ptr nonnull %17), !noalias !32
   store ptr %17, ptr %32, align 8, !tbaa !3, !noalias !32

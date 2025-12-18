@@ -1261,7 +1261,7 @@ define internal fastcc ptr @termios_tcsetattr_impl(ptr noundef %0, i32 noundef r
   br label %.critedge98
 
 .critedge98:                                      ; preds = %90, %25, %31, %38, %45, %93, %100, %106, %113, %116, %70, %52, %59, %18
-  %.1 = phi ptr [ %20, %18 ], [ null, %45 ], [ null, %52 ], [ null, %38 ], [ null, %31 ], [ null, %25 ], [ null, %70 ], [ %117, %116 ], [ null, %93 ], [ %102, %100 ], [ %108, %106 ], [ %115, %113 ], [ null, %59 ], [ null, %90 ]
+  %.1 = phi ptr [ %20, %18 ], [ null, %45 ], [ null, %52 ], [ null, %59 ], [ null, %38 ], [ null, %31 ], [ null, %25 ], [ null, %70 ], [ %117, %116 ], [ null, %93 ], [ %102, %100 ], [ %108, %106 ], [ %115, %113 ], [ null, %90 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %118
 

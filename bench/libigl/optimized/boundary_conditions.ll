@@ -281,7 +281,7 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i567: ; preds = %78
   br label %.body
 
 .thread:                                          ; preds = %.lr.ph.i.i.i.i.i.i.i246, %.lr.ph, %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i563
-  %.sroa.0.51066 = phi ptr [ null, %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i563 ], [ null, %.lr.ph ], [ %81, %.lr.ph.i.i.i.i.i.i.i246 ]
+  %.sroa.0.51066 = phi ptr [ null, %.lr.ph ], [ null, %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i563 ], [ %81, %.lr.ph.i.i.i.i.i.i.i246 ]
   %91 = load i64, ptr %26, align 8, !tbaa !26
   %92 = icmp eq i64 %91, 0
   br i1 %92, label %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEES7_EEE11squaredNormEv.exit.thread, label %93
@@ -3068,8 +3068,8 @@ _ZN5Eigen9DenseBaseINS_12ArrayWrapperINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1EL
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph85.i.i.i.i516, %1124, %1133
-  %1136 = phi double [ %1134, %1133 ], [ %1103, %1124 ], [ %1103, %.lr.ph85.i.i.i.i516 ]
-  %.2.i.i.i.i = phi double [ %1135, %1133 ], [ %1126, %1124 ], [ %1131, %.lr.ph85.i.i.i.i516 ]
+  %1136 = phi double [ %1103, %1124 ], [ %1134, %1133 ], [ %1103, %.lr.ph85.i.i.i.i516 ]
+  %.2.i.i.i.i = phi double [ %1126, %1124 ], [ %1135, %1133 ], [ %1131, %.lr.ph85.i.i.i.i516 ]
   br i1 %.not.i.i.i.i.i.i.i.i, label %1137, label %_ZN5Eigen8internalL21first_default_alignedINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEElRKNS_9DenseBaseIT_EE.exit.i.i.i.i
 
 1137:                                             ; preds = %.loopexit
@@ -3188,7 +3188,7 @@ _ZN5Eigen8internalL21first_default_alignedINS_5BlockINS_6MatrixIdLin1ELin1ELi0EL
   br i1 %exitcond100.not.i.i.i.i, label %_ZNK5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEE8maxCoeffEv.exit, label %.lr.ph93.i.i.i.i, !llvm.loop !104
 
 _ZNK5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEE8maxCoeffEv.exit: ; preds = %.lr.ph88.i.i.i.i, %.lr.ph93.i.i.i.i, %1187, %.preheader.i.i.i.i
-  %.2.i.i.i.i533 = phi double [ %1136, %1187 ], [ %.069.lcssa.i.i.i.i, %.preheader.i.i.i.i ], [ %1191, %.lr.ph93.i.i.i.i ], [ %1184, %.lr.ph88.i.i.i.i ]
+  %.2.i.i.i.i533 = phi double [ %1191, %.lr.ph93.i.i.i.i ], [ %1136, %1187 ], [ %.069.lcssa.i.i.i.i, %.preheader.i.i.i.i ], [ %1184, %.lr.ph88.i.i.i.i ]
   %1193 = fcmp ule double %.2.i.i.i.i, 0x3E7AD7F2A0000000
   %1194 = fcmp uge double %.2.i.i.i.i533, 0x3FEFFFFFC0000000
   %or.cond1126.not = select i1 %1193, i1 %1194, i1 false

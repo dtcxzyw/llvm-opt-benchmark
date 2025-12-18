@@ -1961,7 +1961,7 @@ _ZNK4llvm9KnownBits20countMaxLeadingZerosEv.exit: ; preds = %43, %48
   switch i8 %52, label %_ZN12_GLOBAL__N_120FastDivInsertionTask15isHashLikeValueEPN4llvm5ValueERNS1_11SmallPtrSetIPNS1_11InstructionELj4EEE.exit.thread [
     i8 59, label %_ZN12_GLOBAL__N_120FastDivInsertionTask15isHashLikeValueEPN4llvm5ValueERNS1_11SmallPtrSetIPNS1_11InstructionELj4EEE.exit.thread22
     i8 46, label %55
-    i8 84, label %110
+    i8 84, label %118
   ]
 
 55:                                               ; preds = %54
@@ -2027,7 +2027,7 @@ select.unfold:                                    ; preds = %_ZNK4llvm4User10get
 
 92:                                               ; preds = %91
   %93 = icmp eq i32 %.fr, 0
-  br i1 %93, label %_ZN12_GLOBAL__N_120FastDivInsertionTask15isHashLikeValueEPN4llvm5ValueERNS1_11SmallPtrSetIPNS1_11InstructionELj4EEE.exit, label %94, !prof !152
+  br i1 %93, label %_ZNK4llvm5APInt18getSignificantBitsEv.exit, label %94, !prof !152
 
 94:                                               ; preds = %92
   %95 = sub nuw nsw i32 64, %.fr
@@ -2036,11 +2036,11 @@ select.unfold:                                    ; preds = %_ZNK4llvm4User10get
   %98 = xor i64 %97, -1
   %99 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %98, i1 false)
   %100 = trunc nuw nsw i64 %99 to i32
-  br label %_ZN12_GLOBAL__N_120FastDivInsertionTask15isHashLikeValueEPN4llvm5ValueERNS1_11SmallPtrSetIPNS1_11InstructionELj4EEE.exit
+  br label %_ZNK4llvm5APInt18getSignificantBitsEv.exit
 
 101:                                              ; preds = %91
   %102 = call noundef i32 @_ZNK4llvm5APInt24countLeadingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %76) #18
-  br label %_ZN12_GLOBAL__N_120FastDivInsertionTask15isHashLikeValueEPN4llvm5ValueERNS1_11SmallPtrSetIPNS1_11InstructionELj4EEE.exit
+  br label %_ZNK4llvm5APInt18getSignificantBitsEv.exit
 
 103:                                              ; preds = %select.unfold
   br i1 %83, label %104, label %108
@@ -2050,77 +2050,77 @@ select.unfold:                                    ; preds = %_ZNK4llvm4User10get
   %105 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %90, i1 false)
   %106 = trunc nuw nsw i64 %105 to i32
   %107 = add nsw i32 %.neg.i.i.i, %106
-  br label %_ZN12_GLOBAL__N_120FastDivInsertionTask15isHashLikeValueEPN4llvm5ValueERNS1_11SmallPtrSetIPNS1_11InstructionELj4EEE.exit
+  br label %_ZNK4llvm5APInt18getSignificantBitsEv.exit
 
 108:                                              ; preds = %103
   %109 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %76) #18
-  br label %_ZN12_GLOBAL__N_120FastDivInsertionTask15isHashLikeValueEPN4llvm5ValueERNS1_11SmallPtrSetIPNS1_11InstructionELj4EEE.exit
+  br label %_ZNK4llvm5APInt18getSignificantBitsEv.exit
 
-110:                                              ; preds = %54
-  %111 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %112 = load i32, ptr %111, align 4, !tbaa !61
-  %113 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %114 = load i32, ptr %113, align 8, !tbaa !62
-  %115 = sub i32 %112, %114
-  %116 = icmp ugt i32 %115, 15
-  br i1 %116, label %_ZN12_GLOBAL__N_120FastDivInsertionTask15isHashLikeValueEPN4llvm5ValueERNS1_11SmallPtrSetIPNS1_11InstructionELj4EEE.exit.thread, label %117
+_ZNK4llvm5APInt18getSignificantBitsEv.exit:       ; preds = %92, %94, %101, %104, %108
+  %110 = phi i32 [ 0, %92 ], [ %102, %101 ], [ %100, %94 ], [ %107, %104 ], [ %109, %108 ]
+  %111 = add i32 %.fr, 1
+  %.fr29 = freeze i32 %110
+  %112 = sub i32 %111, %.fr29
+  %113 = load ptr, ptr %6, align 8, !tbaa !33
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 8
+  %115 = load i32, ptr %114, align 8
+  %.fr30 = freeze i32 %115
+  %116 = lshr i32 %.fr30, 8
+  %117 = icmp ugt i32 %112, %116
+  br i1 %117, label %_ZN12_GLOBAL__N_120FastDivInsertionTask15isHashLikeValueEPN4llvm5ValueERNS1_11SmallPtrSetIPNS1_11InstructionELj4EEE.exit.thread22, label %_ZN12_GLOBAL__N_120FastDivInsertionTask15isHashLikeValueEPN4llvm5ValueERNS1_11SmallPtrSetIPNS1_11InstructionELj4EEE.exit.thread
 
-117:                                              ; preds = %110
+118:                                              ; preds = %54
+  %119 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %120 = load i32, ptr %119, align 4, !tbaa !61
+  %121 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %122 = load i32, ptr %121, align 8, !tbaa !62
+  %123 = sub i32 %120, %122
+  %124 = icmp ugt i32 %123, 15
+  br i1 %124, label %_ZN12_GLOBAL__N_120FastDivInsertionTask15isHashLikeValueEPN4llvm5ValueERNS1_11SmallPtrSetIPNS1_11InstructionELj4EEE.exit.thread, label %125
+
+125:                                              ; preds = %118
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN4llvm15SmallPtrSetImplIPNS_11InstructionEE6insertES2_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.43") align 8 %4, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull %1)
-  %118 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %119 = load i8, ptr %118, align 8, !tbaa !153, !range !49, !noundef !50
-  %120 = trunc nuw i8 %119 to i1
+  %126 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %127 = load i8, ptr %126, align 8, !tbaa !153, !range !49, !noundef !50
+  %128 = trunc nuw i8 %127 to i1
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %120, label %121, label %_ZN12_GLOBAL__N_120FastDivInsertionTask15isHashLikeValueEPN4llvm5ValueERNS1_11SmallPtrSetIPNS1_11InstructionELj4EEE.exit.thread22
+  br i1 %128, label %129, label %_ZN12_GLOBAL__N_120FastDivInsertionTask15isHashLikeValueEPN4llvm5ValueERNS1_11SmallPtrSetIPNS1_11InstructionELj4EEE.exit.thread22
 
-121:                                              ; preds = %117
-  %122 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %123 = load i32, ptr %122, align 4
-  %124 = and i32 %123, 1073741824
-  %.not.i.i.i.i.i = icmp eq i32 %124, 0
-  br i1 %.not.i.i.i.i.i, label %128, label %125
+129:                                              ; preds = %125
+  %130 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %131 = load i32, ptr %130, align 4
+  %132 = and i32 %131, 1073741824
+  %.not.i.i.i.i.i = icmp eq i32 %132, 0
+  br i1 %.not.i.i.i.i.i, label %136, label %133
 
-125:                                              ; preds = %121
-  %126 = getelementptr inbounds i8, ptr %1, i64 -8
-  %127 = load ptr, ptr %126, align 8, !tbaa !36
-  %.pre.i.i.i = and i32 %123, 134217727
+133:                                              ; preds = %129
+  %134 = getelementptr inbounds i8, ptr %1, i64 -8
+  %135 = load ptr, ptr %134, align 8, !tbaa !36
+  %.pre.i.i.i = and i32 %131, 134217727
   %.pre1.i.i.i = zext nneg i32 %.pre.i.i.i to i64
-  br label %_ZN4llvm7PHINode15incoming_valuesEv.exit
+  br label %_ZN12_GLOBAL__N_120FastDivInsertionTask15isHashLikeValueEPN4llvm5ValueERNS1_11SmallPtrSetIPNS1_11InstructionELj4EEE.exit
 
-128:                                              ; preds = %121
-  %129 = and i32 %123, 134217727
-  %130 = zext nneg i32 %129 to i64
-  %131 = sub nsw i64 0, %130
-  %132 = getelementptr inbounds %"class.llvm::Use", ptr %1, i64 %131
-  br label %_ZN4llvm7PHINode15incoming_valuesEv.exit
+136:                                              ; preds = %129
+  %137 = and i32 %131, 134217727
+  %138 = zext nneg i32 %137 to i64
+  %139 = sub nsw i64 0, %138
+  %140 = getelementptr inbounds %"class.llvm::Use", ptr %1, i64 %139
+  br label %_ZN12_GLOBAL__N_120FastDivInsertionTask15isHashLikeValueEPN4llvm5ValueERNS1_11SmallPtrSetIPNS1_11InstructionELj4EEE.exit
 
-_ZN4llvm7PHINode15incoming_valuesEv.exit:         ; preds = %125, %128
-  %133 = phi ptr [ %127, %125 ], [ %132, %128 ]
-  %.pre-phi2.i.i.i = phi i64 [ %.pre1.i.i.i, %125 ], [ %130, %128 ]
-  %134 = getelementptr inbounds nuw %"class.llvm::Use", ptr %133, i64 %.pre-phi2.i.i.i
-  %135 = call fastcc noundef ptr @"_ZSt11find_if_notIPN4llvm3UseEZN12_GLOBAL__N_120FastDivInsertionTask15isHashLikeValueEPNS0_5ValueERNS0_11SmallPtrSetIPNS0_11InstructionELj4EEEE3$_0ET_SD_SD_T0_"(ptr noundef %133, ptr noundef %134, ptr nonnull align 8 dereferenceable(32) %0, ptr nonnull align 8 dereferenceable(56) %2)
-  %136 = icmp eq ptr %134, %135
-  br i1 %136, label %_ZN12_GLOBAL__N_120FastDivInsertionTask15isHashLikeValueEPN4llvm5ValueERNS1_11SmallPtrSetIPNS1_11InstructionELj4EEE.exit.thread22, label %_ZN12_GLOBAL__N_120FastDivInsertionTask15isHashLikeValueEPN4llvm5ValueERNS1_11SmallPtrSetIPNS1_11InstructionELj4EEE.exit.thread
-
-_ZN12_GLOBAL__N_120FastDivInsertionTask15isHashLikeValueEPN4llvm5ValueERNS1_11SmallPtrSetIPNS1_11InstructionELj4EEE.exit: ; preds = %108, %104, %101, %94, %92
-  %137 = phi i32 [ 0, %92 ], [ %102, %101 ], [ %100, %94 ], [ %107, %104 ], [ %109, %108 ]
-  %138 = add i32 %.fr, 1
-  %.fr28 = freeze i32 %137
-  %139 = sub i32 %138, %.fr28
-  %140 = load ptr, ptr %6, align 8, !tbaa !33
-  %141 = getelementptr inbounds nuw i8, ptr %140, i64 8
-  %142 = load i32, ptr %141, align 8
-  %.fr29 = freeze i32 %142
-  %143 = lshr i32 %.fr29, 8
-  %144 = icmp ugt i32 %139, %143
+_ZN12_GLOBAL__N_120FastDivInsertionTask15isHashLikeValueEPN4llvm5ValueERNS1_11SmallPtrSetIPNS1_11InstructionELj4EEE.exit: ; preds = %136, %133
+  %141 = phi ptr [ %135, %133 ], [ %140, %136 ]
+  %.pre-phi2.i.i.i = phi i64 [ %.pre1.i.i.i, %133 ], [ %138, %136 ]
+  %142 = getelementptr inbounds nuw %"class.llvm::Use", ptr %141, i64 %.pre-phi2.i.i.i
+  %143 = call fastcc noundef ptr @"_ZSt11find_if_notIPN4llvm3UseEZN12_GLOBAL__N_120FastDivInsertionTask15isHashLikeValueEPNS0_5ValueERNS0_11SmallPtrSetIPNS0_11InstructionELj4EEEE3$_0ET_SD_SD_T0_"(ptr noundef %141, ptr noundef %142, ptr nonnull align 8 dereferenceable(32) %0, ptr nonnull align 8 dereferenceable(56) %2)
+  %144 = icmp eq ptr %142, %143
   br i1 %144, label %_ZN12_GLOBAL__N_120FastDivInsertionTask15isHashLikeValueEPN4llvm5ValueERNS1_11SmallPtrSetIPNS1_11InstructionELj4EEE.exit.thread22, label %_ZN12_GLOBAL__N_120FastDivInsertionTask15isHashLikeValueEPN4llvm5ValueERNS1_11SmallPtrSetIPNS1_11InstructionELj4EEE.exit.thread
 
-_ZN12_GLOBAL__N_120FastDivInsertionTask15isHashLikeValueEPN4llvm5ValueERNS1_11SmallPtrSetIPNS1_11InstructionELj4EEE.exit.thread22: ; preds = %54, %117, %_ZN4llvm7PHINode15incoming_valuesEv.exit, %_ZN12_GLOBAL__N_120FastDivInsertionTask15isHashLikeValueEPN4llvm5ValueERNS1_11SmallPtrSetIPNS1_11InstructionELj4EEE.exit
+_ZN12_GLOBAL__N_120FastDivInsertionTask15isHashLikeValueEPN4llvm5ValueERNS1_11SmallPtrSetIPNS1_11InstructionELj4EEE.exit.thread22: ; preds = %54, %125, %_ZNK4llvm5APInt18getSignificantBitsEv.exit, %_ZN12_GLOBAL__N_120FastDivInsertionTask15isHashLikeValueEPN4llvm5ValueERNS1_11SmallPtrSetIPNS1_11InstructionELj4EEE.exit
   br label %_ZN12_GLOBAL__N_120FastDivInsertionTask15isHashLikeValueEPN4llvm5ValueERNS1_11SmallPtrSetIPNS1_11InstructionELj4EEE.exit.thread
 
-_ZN12_GLOBAL__N_120FastDivInsertionTask15isHashLikeValueEPN4llvm5ValueERNS1_11SmallPtrSetIPNS1_11InstructionELj4EEE.exit.thread: ; preds = %_ZNK4llvm4User10getOperandEj.exit, %54, %71, %110, %51, %_ZN12_GLOBAL__N_120FastDivInsertionTask15isHashLikeValueEPN4llvm5ValueERNS1_11SmallPtrSetIPNS1_11InstructionELj4EEE.exit.thread22, %_ZN12_GLOBAL__N_120FastDivInsertionTask15isHashLikeValueEPN4llvm5ValueERNS1_11SmallPtrSetIPNS1_11InstructionELj4EEE.exit, %_ZN4llvm7PHINode15incoming_valuesEv.exit, %_ZNK4llvm9KnownBits20countMaxLeadingZerosEv.exit, %_ZNK4llvm9KnownBits20countMinLeadingZerosEv.exit
-  %.0 = phi i32 [ 2, %_ZNK4llvm9KnownBits20countMaxLeadingZerosEv.exit ], [ 0, %_ZNK4llvm9KnownBits20countMinLeadingZerosEv.exit ], [ 2, %_ZN12_GLOBAL__N_120FastDivInsertionTask15isHashLikeValueEPN4llvm5ValueERNS1_11SmallPtrSetIPNS1_11InstructionELj4EEE.exit.thread22 ], [ 1, %_ZN12_GLOBAL__N_120FastDivInsertionTask15isHashLikeValueEPN4llvm5ValueERNS1_11SmallPtrSetIPNS1_11InstructionELj4EEE.exit ], [ 1, %_ZN4llvm7PHINode15incoming_valuesEv.exit ], [ 1, %51 ], [ 1, %110 ], [ 1, %71 ], [ 1, %_ZNK4llvm4User10getOperandEj.exit ], [ 1, %54 ]
+_ZN12_GLOBAL__N_120FastDivInsertionTask15isHashLikeValueEPN4llvm5ValueERNS1_11SmallPtrSetIPNS1_11InstructionELj4EEE.exit.thread: ; preds = %_ZNK4llvm4User10getOperandEj.exit, %54, %71, %118, %51, %_ZN12_GLOBAL__N_120FastDivInsertionTask15isHashLikeValueEPN4llvm5ValueERNS1_11SmallPtrSetIPNS1_11InstructionELj4EEE.exit.thread22, %_ZN12_GLOBAL__N_120FastDivInsertionTask15isHashLikeValueEPN4llvm5ValueERNS1_11SmallPtrSetIPNS1_11InstructionELj4EEE.exit, %_ZNK4llvm5APInt18getSignificantBitsEv.exit, %_ZNK4llvm9KnownBits20countMaxLeadingZerosEv.exit, %_ZNK4llvm9KnownBits20countMinLeadingZerosEv.exit
+  %.0 = phi i32 [ 2, %_ZNK4llvm9KnownBits20countMaxLeadingZerosEv.exit ], [ 0, %_ZNK4llvm9KnownBits20countMinLeadingZerosEv.exit ], [ 2, %_ZN12_GLOBAL__N_120FastDivInsertionTask15isHashLikeValueEPN4llvm5ValueERNS1_11SmallPtrSetIPNS1_11InstructionELj4EEE.exit.thread22 ], [ 1, %_ZN12_GLOBAL__N_120FastDivInsertionTask15isHashLikeValueEPN4llvm5ValueERNS1_11SmallPtrSetIPNS1_11InstructionELj4EEE.exit ], [ 1, %_ZNK4llvm5APInt18getSignificantBitsEv.exit ], [ 1, %51 ], [ 1, %118 ], [ 1, %71 ], [ 1, %_ZNK4llvm4User10getOperandEj.exit ], [ 1, %54 ]
   %145 = load i32, ptr %23, align 8, !tbaa !149
   %146 = icmp ugt i32 %145, 64
   br i1 %146, label %147, label %_ZN4llvm5APIntD2Ev.exit.i
@@ -3398,7 +3398,7 @@ _ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IR
   br i1 %.not.i.i.i.i, label %_ZN4llvm8erase_ifINS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS4_EUlRKS5_E_EEvRT_T0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !180
 
 _ZN4llvm8erase_ifINS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS4_EUlRKS5_E_EEvRT_T0_.exit: ; preds = %57, %._crit_edge.i.i.i.i.i.i, %43, %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i
-  %.016.i.i.i.i = phi ptr [ %.028.i.i.i.i.i.i, %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i ], [ %10, %._crit_edge.i.i.i.i.i.i ], [ %10, %43 ], [ %.1.i.i.i.i, %57 ]
+  %.016.i.i.i.i = phi ptr [ %.028.i.i.i.i.i.i, %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i ], [ %10, %43 ], [ %10, %._crit_edge.i.i.i.i.i.i ], [ %.1.i.i.i.i, %57 ]
   %58 = ptrtoint ptr %.016.i.i.i.i to i64
   %59 = ptrtoint ptr %6 to i64
   %60 = sub i64 %58, %59

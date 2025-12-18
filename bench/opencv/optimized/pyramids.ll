@@ -7136,7 +7136,7 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit266:          ; preds = %149, %145
   br label %.loopexit276
 
 .loopexit276:                                     ; preds = %.loopexit276.loopexit318, %.loopexit276.loopexit317, %.loopexit276.loopexit316, %.loopexit276.loopexit315, %.loopexit276.loopexit, %.preheader283, %.preheader281, %.preheader279, %.preheader277, %.preheader
-  %.2 = phi i32 [ %21, %.preheader ], [ 1, %.preheader277 ], [ 2, %.preheader279 ], [ 3, %.preheader281 ], [ 4, %.preheader283 ], [ %417, %.loopexit276.loopexit ], [ %418, %.loopexit276.loopexit315 ], [ %419, %.loopexit276.loopexit316 ], [ %420, %.loopexit276.loopexit317 ], [ %421, %.loopexit276.loopexit318 ]
+  %.2 = phi i32 [ %419, %.loopexit276.loopexit316 ], [ %420, %.loopexit276.loopexit317 ], [ %417, %.loopexit276.loopexit ], [ %418, %.loopexit276.loopexit315 ], [ %21, %.preheader ], [ 1, %.preheader277 ], [ 2, %.preheader279 ], [ 3, %.preheader281 ], [ 4, %.preheader283 ], [ %421, %.loopexit276.loopexit318 ]
   %422 = load ptr, ptr %57, align 8, !tbaa !61
   %423 = load ptr, ptr %422, align 8, !tbaa !44
   %424 = icmp slt i32 %.2, %22
@@ -7852,7 +7852,7 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit266:          ; preds = %149, %145
   br label %.loopexit276
 
 .loopexit276:                                     ; preds = %.loopexit276.loopexit318, %.loopexit276.loopexit317, %.loopexit276.loopexit316, %.loopexit276.loopexit315, %.loopexit276.loopexit, %.preheader283, %.preheader281, %.preheader279, %.preheader277, %.preheader
-  %.2 = phi i32 [ %21, %.preheader ], [ 1, %.preheader277 ], [ 2, %.preheader279 ], [ 3, %.preheader281 ], [ 4, %.preheader283 ], [ %413, %.loopexit276.loopexit ], [ %414, %.loopexit276.loopexit315 ], [ %415, %.loopexit276.loopexit316 ], [ %416, %.loopexit276.loopexit317 ], [ %417, %.loopexit276.loopexit318 ]
+  %.2 = phi i32 [ %415, %.loopexit276.loopexit316 ], [ %416, %.loopexit276.loopexit317 ], [ %413, %.loopexit276.loopexit ], [ %414, %.loopexit276.loopexit315 ], [ %21, %.preheader ], [ 1, %.preheader277 ], [ 2, %.preheader279 ], [ 3, %.preheader281 ], [ 4, %.preheader283 ], [ %417, %.loopexit276.loopexit318 ]
   %418 = load ptr, ptr %57, align 8, !tbaa !71
   %419 = load ptr, ptr %418, align 8, !tbaa !44
   %420 = icmp slt i32 %.2, %22
@@ -8568,7 +8568,7 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit266:          ; preds = %149, %145
   br label %.loopexit276
 
 .loopexit276:                                     ; preds = %.loopexit276.loopexit318, %.loopexit276.loopexit317, %.loopexit276.loopexit316, %.loopexit276.loopexit315, %.loopexit276.loopexit, %.preheader283, %.preheader281, %.preheader279, %.preheader277, %.preheader
-  %.2 = phi i32 [ %21, %.preheader ], [ 1, %.preheader277 ], [ 2, %.preheader279 ], [ 3, %.preheader281 ], [ 4, %.preheader283 ], [ %413, %.loopexit276.loopexit ], [ %414, %.loopexit276.loopexit315 ], [ %415, %.loopexit276.loopexit316 ], [ %416, %.loopexit276.loopexit317 ], [ %417, %.loopexit276.loopexit318 ]
+  %.2 = phi i32 [ %415, %.loopexit276.loopexit316 ], [ %416, %.loopexit276.loopexit317 ], [ %413, %.loopexit276.loopexit ], [ %414, %.loopexit276.loopexit315 ], [ %21, %.preheader ], [ 1, %.preheader277 ], [ 2, %.preheader279 ], [ 3, %.preheader281 ], [ 4, %.preheader283 ], [ %417, %.loopexit276.loopexit318 ]
   %418 = load ptr, ptr %57, align 8, !tbaa !81
   %419 = load ptr, ptr %418, align 8, !tbaa !44
   %420 = icmp slt i32 %.2, %22
@@ -9212,7 +9212,7 @@ _ZN2cv10AutoBufferIfLm264EED2Ev.exit266:          ; preds = %143, %139
   br label %.loopexit276
 
 .loopexit276:                                     ; preds = %.loopexit276.loopexit318, %.loopexit276.loopexit317, %.loopexit276.loopexit316, %.loopexit276.loopexit315, %.loopexit276.loopexit, %.preheader283, %.preheader281, %.preheader279, %.preheader277, %.preheader
-  %.2 = phi i32 [ %21, %.preheader ], [ 1, %.preheader277 ], [ 2, %.preheader279 ], [ 3, %.preheader281 ], [ 4, %.preheader283 ], [ %341, %.loopexit276.loopexit ], [ %342, %.loopexit276.loopexit315 ], [ %343, %.loopexit276.loopexit316 ], [ %344, %.loopexit276.loopexit317 ], [ %345, %.loopexit276.loopexit318 ]
+  %.2 = phi i32 [ %343, %.loopexit276.loopexit316 ], [ %344, %.loopexit276.loopexit317 ], [ %341, %.loopexit276.loopexit ], [ %342, %.loopexit276.loopexit315 ], [ %21, %.preheader ], [ 1, %.preheader277 ], [ 2, %.preheader279 ], [ 3, %.preheader281 ], [ 4, %.preheader283 ], [ %345, %.loopexit276.loopexit318 ]
   %346 = load ptr, ptr %57, align 8, !tbaa !91
   %347 = load ptr, ptr %346, align 8, !tbaa !44
   %348 = icmp slt i32 %.2, %22
@@ -9853,7 +9853,7 @@ _ZN2cv10AutoBufferIdLm136EED2Ev.exit266:          ; preds = %143, %139
   br label %.loopexit276
 
 .loopexit276:                                     ; preds = %.loopexit276.loopexit318, %.loopexit276.loopexit317, %.loopexit276.loopexit316, %.loopexit276.loopexit315, %.loopexit276.loopexit, %.preheader283, %.preheader281, %.preheader279, %.preheader277, %.preheader
-  %.2 = phi i32 [ %21, %.preheader ], [ 1, %.preheader277 ], [ 2, %.preheader279 ], [ 3, %.preheader281 ], [ 4, %.preheader283 ], [ %341, %.loopexit276.loopexit ], [ %342, %.loopexit276.loopexit315 ], [ %343, %.loopexit276.loopexit316 ], [ %344, %.loopexit276.loopexit317 ], [ %345, %.loopexit276.loopexit318 ]
+  %.2 = phi i32 [ %343, %.loopexit276.loopexit316 ], [ %344, %.loopexit276.loopexit317 ], [ %341, %.loopexit276.loopexit ], [ %342, %.loopexit276.loopexit315 ], [ %21, %.preheader ], [ 1, %.preheader277 ], [ 2, %.preheader279 ], [ 3, %.preheader281 ], [ 4, %.preheader283 ], [ %345, %.loopexit276.loopexit318 ]
   %346 = load ptr, ptr %57, align 8, !tbaa !101
   %347 = load ptr, ptr %346, align 8, !tbaa !44
   %348 = icmp slt i32 %.2, %22

@@ -7085,7 +7085,7 @@ _ZN35btSequentialImpulseConstraintSolver33resolveSingleConstraintRowGenericER12b
   br i1 %exitcond312.not, label %.loopexit225, label %343, !llvm.loop !190
 
 .loopexit225:                                     ; preds = %.thread, %381, %209, %._crit_edge264
-  %.6 = phi float [ %.7.lcssa, %._crit_edge264 ], [ %.0.lcssa, %209 ], [ %.9, %381 ], [ %.4, %.thread ]
+  %.6 = phi float [ %.9, %381 ], [ %.7.lcssa, %._crit_edge264 ], [ %.0.lcssa, %209 ], [ %.4, %.thread ]
   %382 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %383 = load i32, ptr %382, align 4, !tbaa !37
   %384 = icmp sgt i32 %383, 0

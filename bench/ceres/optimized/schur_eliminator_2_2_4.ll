@@ -3861,8 +3861,8 @@ _ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1
   br label %_ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10map_paramsIiiSt4lessIiESaISt4pairIKiiEELi256ELb0EEEEERKS9_PSE_EppEv.exit
 
 _ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10map_paramsIiiSt4lessIiESaISt4pairIKiiEELi256ELb0EEEEERKS9_PSE_EppEv.exit: ; preds = %.lr.ph.i.i.i, %217, %_ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10map_paramsIiiSt4lessIiESaISt4pairIKiiEELi256ELb0EEEEERKS9_PSE_EppEv.exit.loopexit107.split.loop.exit109, %196
-  %.sroa.067.2 = phi ptr [ %.sroa.067.0114, %196 ], [ %203, %_ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10map_paramsIiiSt4lessIiESaISt4pairIKiiEELi256ELb0EEEEERKS9_PSE_EppEv.exit.loopexit107.split.loop.exit109 ], [ %storemerge.i.i.i, %217 ], [ %.sroa.067.0114, %.lr.ph.i.i.i ]
-  %.sroa.13.2 = phi i32 [ %197, %196 ], [ %221, %_ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10map_paramsIiiSt4lessIiESaISt4pairIKiiEELi256ELb0EEEEERKS9_PSE_EppEv.exit.loopexit107.split.loop.exit109 ], [ 0, %217 ], [ %197, %.lr.ph.i.i.i ]
+  %.sroa.067.2 = phi ptr [ %storemerge.i.i.i, %217 ], [ %.sroa.067.0114, %196 ], [ %203, %_ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10map_paramsIiiSt4lessIiESaISt4pairIKiiEELi256ELb0EEEEERKS9_PSE_EppEv.exit.loopexit107.split.loop.exit109 ], [ %.sroa.067.0114, %.lr.ph.i.i.i ]
+  %.sroa.13.2 = phi i32 [ 0, %217 ], [ %197, %196 ], [ %221, %_ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10map_paramsIiiSt4lessIiESaISt4pairIKiiEELi256ELb0EEEEERKS9_PSE_EppEv.exit.loopexit107.split.loop.exit109 ], [ %197, %.lr.ph.i.i.i ]
   %222 = load ptr, ptr %21, align 8, !tbaa !63
   %223 = getelementptr i8, ptr %222, i64 10
   %224 = load i8, ptr %223, align 1, !tbaa !113
@@ -3926,8 +3926,8 @@ _ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1
   br label %_ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10map_paramsIiiSt4lessIiESaISt4pairIKiiEELi256ELb0EEEEERKS9_PSE_EppEv.exit63
 
 _ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10map_paramsIiiSt4lessIiESaISt4pairIKiiEELi256ELb0EEEEERKS9_PSE_EppEv.exit63: ; preds = %.lr.ph.i.i.i57, %253, %_ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10map_paramsIiiSt4lessIiESaISt4pairIKiiEELi256ELb0EEEEERKS9_PSE_EppEv.exit63.loopexit108.split.loop.exit116, %232
-  %.sroa.086.2 = phi ptr [ %.sroa.086.0121, %232 ], [ %239, %_ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10map_paramsIiiSt4lessIiESaISt4pairIKiiEELi256ELb0EEEEERKS9_PSE_EppEv.exit63.loopexit108.split.loop.exit116 ], [ %storemerge.i.i.i61, %253 ], [ %.sroa.086.0121, %.lr.ph.i.i.i57 ]
-  %.sroa.14.2 = phi i32 [ %233, %232 ], [ %257, %_ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10map_paramsIiiSt4lessIiESaISt4pairIKiiEELi256ELb0EEEEERKS9_PSE_EppEv.exit63.loopexit108.split.loop.exit116 ], [ 0, %253 ], [ %233, %.lr.ph.i.i.i57 ]
+  %.sroa.086.2 = phi ptr [ %storemerge.i.i.i61, %253 ], [ %.sroa.086.0121, %232 ], [ %239, %_ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10map_paramsIiiSt4lessIiESaISt4pairIKiiEELi256ELb0EEEEERKS9_PSE_EppEv.exit63.loopexit108.split.loop.exit116 ], [ %.sroa.086.0121, %.lr.ph.i.i.i57 ]
+  %.sroa.14.2 = phi i32 [ 0, %253 ], [ %233, %232 ], [ %257, %_ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10map_paramsIiiSt4lessIiESaISt4pairIKiiEELi256ELb0EEEEERKS9_PSE_EppEv.exit63.loopexit108.split.loop.exit116 ], [ %233, %.lr.ph.i.i.i57 ]
   %258 = zext i8 %228 to i32
   %259 = icmp ne ptr %.sroa.086.2, %229
   %260 = icmp ne i32 %.sroa.14.2, %258
@@ -21792,7 +21792,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi1ELin1ELi1ELi1ELin1EEEE6resizeEl.exit94
   br label %_ZNK5Eigen9DenseBaseINS_6MatrixIdLi1ELin1ELi1ELi1ELin1EEEE8maxCoeffEv.exit
 
 _ZNK5Eigen9DenseBaseINS_6MatrixIdLi1ELin1ELi1ELi1ELin1EEEE8maxCoeffEv.exit: ; preds = %.lr.ph82.i.i.i.i, %99, %108
-  %.2.i.i.i.i = phi double [ %109, %108 ], [ %101, %99 ], [ %106, %.lr.ph82.i.i.i.i ]
+  %.2.i.i.i.i = phi double [ %101, %99 ], [ %109, %108 ], [ %106, %.lr.ph82.i.i.i.i ]
   %110 = fmul double %.2.i.i.i.i, 0x3CB0000000000000
   %111 = fmul double %110, %110
   %112 = fmul double %111, 5.000000e-01

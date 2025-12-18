@@ -2444,7 +2444,7 @@ SetPreviousDisposeMethod.exit.i:                  ; preds = %161
   br i1 %exitcond.not, label %PickBestCandidate.exit, label %169, !llvm.loop !137
 
 PickBestCandidate.exit:                           ; preds = %167, %147, %174, %IsEmptyRect.exit.thread
-  %.1 = phi i32 [ 0, %IsEmptyRect.exit.thread ], [ 0, %147 ], [ %.058, %174 ], [ 0, %167 ]
+  %.1 = phi i32 [ 0, %IsEmptyRect.exit.thread ], [ %.058, %174 ], [ 0, %147 ], [ 0, %167 ]
   call void @WebPPictureFree(ptr noundef nonnull %29) #15
   call void @WebPPictureFree(ptr noundef nonnull %31) #15
   call void @WebPPictureFree(ptr noundef nonnull %35) #15
@@ -2563,7 +2563,7 @@ define internal fastcc i32 @GetSubRects(ptr noundef nonnull readonly captures(no
   br label %.loopexit124.i
 
 .loopexit124.i:                                   ; preds = %.loopexit159.us, %46, %.lr.ph.i.split, %20
-  %.promoted171 = phi i32 [ %24, %20 ], [ %61, %.lr.ph.i.split ], [ %.pr.i125.us, %46 ], [ %54, %.loopexit159.us ]
+  %.promoted171 = phi i32 [ %.pr.i125.us, %46 ], [ %24, %20 ], [ %61, %.lr.ph.i.split ], [ %54, %.loopexit159.us ]
   %62 = icmp eq i32 %.promoted171, 0
   br i1 %62, label %MinimizeChangeRectangle.exit.thread, label %63
 
@@ -2638,7 +2638,7 @@ define internal fastcc i32 @GetSubRects(ptr noundef nonnull readonly captures(no
   br label %.thread115.i
 
 .thread115.i:                                     ; preds = %.loopexit158.us, %84, %.lr.ph137.i.split
-  %.pre.i = phi i32 [ %94, %.lr.ph137.i.split ], [ %.pre.pre.i129.us, %84 ], [ %92, %.loopexit158.us ]
+  %.pre.i = phi i32 [ %.pre.pre.i129.us, %84 ], [ %94, %.lr.ph137.i.split ], [ %92, %.loopexit158.us ]
   %95 = icmp eq i32 %.pre.i, 0
   br i1 %95, label %MinimizeChangeRectangle.exit.thread, label %.thread115.thread.i
 
@@ -2707,7 +2707,7 @@ define internal fastcc i32 @GetSubRects(ptr noundef nonnull readonly captures(no
   br i1 %127, label %112, label %.loopexit.i, !llvm.loop !63
 
 .loopexit.i:                                      ; preds = %.loopexit157, %.lr.ph.i70, %.thread115.thread.i
-  %128 = phi i32 [ %.pre, %.thread115.thread.i ], [ %.pr120.i133, %.lr.ph.i70 ], [ %123, %.loopexit157 ]
+  %128 = phi i32 [ %.pr120.i133, %.lr.ph.i70 ], [ %.pre, %.thread115.thread.i ], [ %123, %.loopexit157 ]
   %129 = icmp eq i32 %128, 0
   br i1 %129, label %MinimizeChangeRectangle.exit.thread, label %130
 
@@ -2933,7 +2933,7 @@ PixelsAreSimilar.exit.i120:                       ; preds = %235
   br i1 %250, label %197, label %.loopexit124.i33, !llvm.loop !61
 
 .loopexit124.i33:                                 ; preds = %.loopexit155, %PixelsAreSimilar.exit.i120, %214, %227, %235, %176
-  %.promoted174 = phi i32 [ %185, %176 ], [ %.pr.i64143, %PixelsAreSimilar.exit.i120 ], [ %.pr.i64143, %235 ], [ %.pr.i64143, %227 ], [ %.pr.i64143, %214 ], [ %246, %.loopexit155 ]
+  %.promoted174 = phi i32 [ %.pr.i64143, %PixelsAreSimilar.exit.i120 ], [ %185, %176 ], [ %.pr.i64143, %235 ], [ %.pr.i64143, %227 ], [ %.pr.i64143, %214 ], [ %246, %.loopexit155 ]
   %251 = icmp eq i32 %.promoted174, 0
   br i1 %251, label %MinimizeChangeRectangle.exit65.thread, label %252
 
@@ -3049,7 +3049,7 @@ PixelsAreSimilar.exit.i110.us:                    ; preds = %298
   br label %.thread115.i59
 
 .thread115.i59:                                   ; preds = %.loopexit154.us, %PixelsAreSimilar.exit.i110.us, %298, %290, %277, %.lr.ph137.i53.split
-  %.pre.i60 = phi i32 [ %311, %.lr.ph137.i53.split ], [ %.pre.pre.i57146, %PixelsAreSimilar.exit.i110.us ], [ %.pre.pre.i57146, %277 ], [ %.pre.pre.i57146, %290 ], [ %.pre.pre.i57146, %298 ], [ %309, %.loopexit154.us ]
+  %.pre.i60 = phi i32 [ %.pre.pre.i57146, %PixelsAreSimilar.exit.i110.us ], [ %311, %.lr.ph137.i53.split ], [ %.pre.pre.i57146, %277 ], [ %.pre.pre.i57146, %290 ], [ %.pre.pre.i57146, %298 ], [ %309, %.loopexit154.us ]
   %312 = icmp eq i32 %.pre.i60, 0
   br i1 %312, label %MinimizeChangeRectangle.exit65.thread, label %.thread115.thread.i35
 
@@ -3152,7 +3152,7 @@ PixelsAreSimilar.exit.i100:                       ; preds = %360
   br i1 %375, label %324, label %.loopexit.i36, !llvm.loop !63
 
 .loopexit.i36:                                    ; preds = %.loopexit153, %PixelsAreSimilar.exit.i100, %339, %352, %360, %.thread115.thread.i35
-  %.promoted178 = phi i32 [ %314, %.thread115.thread.i35 ], [ %.pr120.i52149, %PixelsAreSimilar.exit.i100 ], [ %.pr120.i52149, %360 ], [ %.pr120.i52149, %352 ], [ %.pr120.i52149, %339 ], [ %371, %.loopexit153 ]
+  %.promoted178 = phi i32 [ %.pr120.i52149, %PixelsAreSimilar.exit.i100 ], [ %314, %.thread115.thread.i35 ], [ %.pr120.i52149, %360 ], [ %.pr120.i52149, %352 ], [ %.pr120.i52149, %339 ], [ %371, %.loopexit153 ]
   %376 = icmp eq i32 %.promoted178, 0
   br i1 %376, label %MinimizeChangeRectangle.exit65.thread, label %377
 
@@ -3258,7 +3258,7 @@ PixelsAreSimilar.exit.i.us:                       ; preds = %418
   br label %.thread121.i47
 
 .thread121.i47:                                   ; preds = %.loopexit.us, %PixelsAreSimilar.exit.i.us, %418, %410, %397, %.lr.ph146.i41.split
-  %.pre149.i48 = phi i32 [ %431, %.lr.ph146.i41.split ], [ %.pre149.pre.i45152, %PixelsAreSimilar.exit.i.us ], [ %.pre149.pre.i45152, %397 ], [ %.pre149.pre.i45152, %410 ], [ %.pre149.pre.i45152, %418 ], [ %429, %.loopexit.us ]
+  %.pre149.i48 = phi i32 [ %.pre149.pre.i45152, %PixelsAreSimilar.exit.i.us ], [ %431, %.lr.ph146.i41.split ], [ %.pre149.pre.i45152, %397 ], [ %.pre149.pre.i45152, %410 ], [ %.pre149.pre.i45152, %418 ], [ %429, %.loopexit.us ]
   %432 = icmp eq i32 %.pre149.i48, 0
   br i1 %432, label %MinimizeChangeRectangle.exit65.thread, label %MinimizeChangeRectangle.exit65
 

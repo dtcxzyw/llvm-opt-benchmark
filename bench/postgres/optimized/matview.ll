@@ -783,7 +783,7 @@ is_usable_unique_index.exit.i:                    ; preds = %306
   br i1 %exitcond.not.i104, label %is_usable_unique_index.exit.thread.i, label %322, !llvm.loop !9
 
 is_usable_unique_index.exit.thread.i:             ; preds = %307, %367, %is_usable_unique_index.exit.i, %301, %298, %294, %288, %284, %.lr.ph126
-  %.1.i = phi i8 [ %.0119.i125, %284 ], [ %.0119.i125, %.lr.ph126 ], [ %.0119.i125, %301 ], [ %.0119.i125, %298 ], [ %.0119.i125, %294 ], [ %.0119.i125, %288 ], [ %.0119.i125, %is_usable_unique_index.exit.i ], [ %.3.i102, %367 ], [ %.0119.i125, %307 ]
+  %.1.i = phi i8 [ %.3.i102, %367 ], [ %.0119.i125, %284 ], [ %.0119.i125, %.lr.ph126 ], [ %.0119.i125, %301 ], [ %.0119.i125, %298 ], [ %.0119.i125, %294 ], [ %.0119.i125, %288 ], [ %.0119.i125, %is_usable_unique_index.exit.i ], [ %.0119.i125, %307 ]
   call void @index_close(ptr noundef %278, i32 noundef 0) #7
   %indvars.iv.next132.i = add nuw nsw i64 %indvars.iv131.i124, 1
   %368 = load i32, ptr %271, align 4

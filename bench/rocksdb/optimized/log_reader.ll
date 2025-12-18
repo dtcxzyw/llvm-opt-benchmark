@@ -8360,7 +8360,7 @@ switch.early.test:                                ; preds = %.critedge112
   br label %.loopexit
 
 .loopexit:                                        ; preds = %15, %45, %62, %.thread, %78, %52, %37, %67, %86, %120, %.critedge, %.critedge110
-  %.2 = phi i1 [ true, %67 ], [ true, %86 ], [ true, %120 ], [ true, %78 ], [ true, %52 ], [ true, %37 ], [ false, %.critedge ], [ false, %.critedge110 ], [ false, %.thread ], [ false, %45 ], [ false, %62 ], [ false, %15 ]
+  %.2 = phi i1 [ false, %62 ], [ false, %45 ], [ false, %.thread ], [ true, %67 ], [ true, %86 ], [ true, %120 ], [ true, %78 ], [ true, %52 ], [ true, %37 ], [ false, %.critedge ], [ false, %.critedge110 ], [ false, %15 ]
   ret i1 %.2
 }
 
@@ -9144,7 +9144,7 @@ _ZNSt10_HashtableIjSt4pairIKjmESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4
   resume { ptr, i32 } %46
 
 _ZNKSt10_HashtableIjSt4pairIKjmESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS1_m.exit: ; preds = %35, %21, %30
-  %.sroa.042.0.ph = phi ptr [ %31, %30 ], [ %.sroa.034.0, %21 ], [ %37, %35 ]
+  %.sroa.042.0.ph = phi ptr [ %.sroa.034.0, %21 ], [ %31, %30 ], [ %37, %35 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 24) #27
   br label %_ZNSt10_HashtableIjSt4pairIKjmESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 

@@ -356,7 +356,7 @@ define internal fastcc noundef range(i32 -62, 1) i32 @__down_common(ptr noundef 
   br i1 %76, label %.split.split, label %.loopexit, !llvm.loop !21
 
 .split6.us:                                       ; preds = %51, %.split.split.us, %.critedge.us7, %68, %.critedge, %.critedge.us
-  %77 = phi i32 [ -62, %.critedge.us ], [ -62, %.critedge ], [ -4, %68 ], [ -4, %.split.split.us ], [ -4, %51 ], [ -62, %.critedge.us7 ]
+  %77 = phi i32 [ -4, %68 ], [ -62, %.critedge.us ], [ -62, %.critedge ], [ -4, %.split.split.us ], [ -4, %51 ], [ -62, %.critedge.us7 ]
   %78 = load ptr, ptr %30, align 8
   %79 = load ptr, ptr %4, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
@@ -365,7 +365,7 @@ define internal fastcc noundef range(i32 -62, 1) i32 @__down_common(ptr noundef 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %56, %73, %42, %.split6.us
-  %81 = phi i32 [ %77, %.split6.us ], [ 0, %73 ], [ 0, %42 ], [ 0, %56 ]
+  %81 = phi i32 [ %77, %.split6.us ], [ 0, %42 ], [ 0, %73 ], [ 0, %56 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_contention_end, i64 8), i32 2) #7
           to label %102 [label %82], !srcloc !9

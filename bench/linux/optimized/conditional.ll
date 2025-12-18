@@ -718,7 +718,7 @@ cond_read_av_list.exit.thread:                    ; preds = %90, %.loopexit21, %
   br label %.thread16
 
 .thread16:                                        ; preds = %36, %42, %.preheader20, %cond_read_av_list.exit.thread, %78, %.thread19, %18
-  %138 = phi i32 [ %22, %18 ], [ %.ph18, %.thread19 ], [ -22, %78 ], [ %.ph, %cond_read_av_list.exit.thread ], [ -22, %.preheader20 ], [ -12, %42 ], [ -22, %36 ]
+  %138 = phi i32 [ %22, %18 ], [ %.ph18, %.thread19 ], [ -22, %78 ], [ -22, %.preheader20 ], [ %.ph, %cond_read_av_list.exit.thread ], [ -12, %42 ], [ -22, %36 ]
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %140 = load i32, ptr %139, align 8
   %141 = icmp eq i32 %140, 0
@@ -751,7 +751,7 @@ cond_read_av_list.exit.thread:                    ; preds = %90, %.loopexit21, %
   br label %.loopexit24
 
 .loopexit24:                                      ; preds = %33, %2, %.loopexit, %24, %8
-  %156 = phi i32 [ %138, %.loopexit ], [ -12, %8 ], [ 0, %24 ], [ -22, %2 ], [ 0, %33 ]
+  %156 = phi i32 [ %138, %.loopexit ], [ -22, %2 ], [ -12, %8 ], [ 0, %24 ], [ 0, %33 ]
   ret i32 %156
 }
 
@@ -995,7 +995,7 @@ thread-pre-split17:                               ; preds = %76
   br label %.thread21, !llvm.loop !16
 
 .thread21:                                        ; preds = %.lr.ph30, %thread-pre-split, %thread-pre-split13, %87, %.preheader24, %thread-pre-split10, %.preheader22, %.preheader, %16, %..thread21.loopexit26_crit_edge, %2, %7
-  %112 = phi i32 [ -22, %2 ], [ 0, %7 ], [ -22, %16 ], [ 0, %..thread21.loopexit26_crit_edge ], [ -22, %thread-pre-split10 ], [ %110, %.preheader ], [ %85, %.preheader22 ], [ -22, %.preheader24 ], [ -22, %87 ], [ -22, %thread-pre-split13 ], [ -22, %thread-pre-split ], [ -22, %.lr.ph30 ]
+  %112 = phi i32 [ -22, %2 ], [ 0, %7 ], [ %85, %.preheader22 ], [ -22, %thread-pre-split10 ], [ 0, %..thread21.loopexit26_crit_edge ], [ %110, %.preheader ], [ -22, %16 ], [ -22, %.preheader24 ], [ -22, %87 ], [ -22, %thread-pre-split13 ], [ -22, %thread-pre-split ], [ -22, %.lr.ph30 ]
   ret i32 %112
 }
 

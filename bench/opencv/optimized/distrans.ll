@@ -1100,7 +1100,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %41
   br i1 %172, label %.loopexit, label %169
 
 .loopexit:                                        ; preds = %162, %169, %.thread
-  %.pn80.pn = phi { ptr, i32 } [ %129, %.thread ], [ %167, %169 ], [ %161, %162 ]
+  %.pn80.pn = phi { ptr, i32 } [ %167, %169 ], [ %129, %.thread ], [ %161, %162 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   br label %173
 

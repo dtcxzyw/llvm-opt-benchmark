@@ -795,8 +795,8 @@ define range(i32 -1, 1) i32 @H5B_insert(ptr noundef %0, ptr noundef %1, i64 noun
   br label %H5B__node_dest.exit
 
 H5B__node_dest.exit:                              ; preds = %45, %49, %215, %207
-  %223 = phi ptr [ %208, %215 ], [ %208, %207 ], [ %.pre82, %49 ], [ %.pre, %45 ]
-  %.2 = phi i32 [ -1, %215 ], [ -1, %207 ], [ 0, %49 ], [ -1, %45 ]
+  %223 = phi ptr [ %.pre, %45 ], [ %208, %215 ], [ %208, %207 ], [ %.pre82, %49 ]
+  %.2 = phi i32 [ -1, %45 ], [ -1, %215 ], [ -1, %207 ], [ 0, %49 ]
   %.not = icmp eq ptr %223, null
   br i1 %.not, label %H5B__node_dest.exit.thread, label %H5B__node_dest.exit.thread94
 

@@ -3029,7 +3029,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_17MachineBasicBlockENS_8RegisterENS_12De
   br i1 %.not19.i, label %_ZN4llvm14SSAUpdaterImplINS_17MachineSSAUpdaterEE19IntersectDominatorsEPNS2_6BBInfoES4_.exit, label %.preheader.i, !llvm.loop !307
 
 _ZN4llvm14SSAUpdaterImplINS_17MachineSSAUpdaterEE19IntersectDominatorsEPNS2_6BBInfoES4_.exit: ; preds = %.loopexit.i, %166, %172, %160, %159
-  %.129 = phi ptr [ %29, %159 ], [ %.02859, %160 ], [ %.034.i, %166 ], [ %.115.i, %172 ], [ %.115.i, %.loopexit.i ]
+  %.129 = phi ptr [ %29, %159 ], [ %.115.i, %172 ], [ %.034.i, %166 ], [ %.02859, %160 ], [ %.115.i, %.loopexit.i ]
   %175 = add i32 %.02760, 1
   %176 = load i32, ptr %22, align 8, !tbaa !232
   %.not = icmp eq i32 %175, %176
@@ -4198,7 +4198,7 @@ select.unfold:                                    ; preds = %156, %140, %_ZN4llv
   br i1 %.not78, label %.critedge.loopexit.loopexit, label %48, !llvm.loop !329
 
 _ZN4llvm16SSAUpdaterTraitsINS_17MachineSSAUpdaterEE10ValueIsPHIENS_8RegisterEPS1_.exit.thread: ; preds = %.critedge.loopexit, %147, %142, %_ZN4llvm16SSAUpdaterTraitsINS_17MachineSSAUpdaterEE10ValueIsPHIENS_8RegisterEPS1_.exit, %156, %140, %_ZN4llvm23SmallVectorTemplateBaseIPNS_14SSAUpdaterImplINS_17MachineSSAUpdaterEE6BBInfoELb1EE9push_backES5_.exit
-  %.not.i88 = phi i1 [ true, %_ZN4llvm23SmallVectorTemplateBaseIPNS_14SSAUpdaterImplINS_17MachineSSAUpdaterEE6BBInfoELb1EE9push_backES5_.exit ], [ false, %147 ], [ false, %140 ], [ false, %156 ], [ false, %_ZN4llvm16SSAUpdaterTraitsINS_17MachineSSAUpdaterEE10ValueIsPHIENS_8RegisterEPS1_.exit ], [ false, %142 ], [ true, %.critedge.loopexit ]
+  %.not.i88 = phi i1 [ false, %147 ], [ true, %_ZN4llvm23SmallVectorTemplateBaseIPNS_14SSAUpdaterImplINS_17MachineSSAUpdaterEE6BBInfoELb1EE9push_backES5_.exit ], [ false, %140 ], [ false, %156 ], [ false, %_ZN4llvm16SSAUpdaterTraitsINS_17MachineSSAUpdaterEE10ValueIsPHIENS_8RegisterEPS1_.exit ], [ false, %142 ], [ true, %.critedge.loopexit ]
   %184 = load ptr, ptr %3, align 8, !tbaa !153
   %185 = icmp eq ptr %184, %5
   br i1 %185, label %_ZN4llvm11SmallVectorIPNS_12MachineInstrELj20EED2Ev.exit, label %186

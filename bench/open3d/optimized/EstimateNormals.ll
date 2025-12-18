@@ -3327,8 +3327,8 @@ _ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_M
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit164
 
 _ZNSt13unordered_setImSt4hashImESt8equal_toImESaImEE6insertERKm.exit: ; preds = %345, %330, %436, %424, %380, %431, %.noexc241, %340, %.loopexit358, %312
-  %450 = phi ptr [ %315, %312 ], [ %416, %431 ], [ %416, %.noexc241 ], [ %315, %340 ], [ %315, %.loopexit358 ], [ %315, %380 ], [ %315, %330 ], [ %416, %424 ], [ %416, %436 ], [ %315, %345 ]
-  %451 = phi ptr [ %314, %312 ], [ %417, %431 ], [ %417, %.noexc241 ], [ %314, %340 ], [ %314, %.loopexit358 ], [ %314, %380 ], [ %314, %330 ], [ %417, %424 ], [ %417, %436 ], [ %314, %345 ]
+  %450 = phi ptr [ %416, %424 ], [ %315, %330 ], [ %416, %436 ], [ %315, %312 ], [ %416, %431 ], [ %416, %.noexc241 ], [ %315, %340 ], [ %315, %.loopexit358 ], [ %315, %380 ], [ %315, %345 ]
+  %451 = phi ptr [ %417, %424 ], [ %314, %330 ], [ %417, %436 ], [ %314, %312 ], [ %417, %431 ], [ %417, %.noexc241 ], [ %314, %340 ], [ %314, %.loopexit358 ], [ %314, %380 ], [ %314, %345 ]
   %452 = add nuw i64 %.097435, 1
   %453 = load ptr, ptr %145, align 8, !tbaa !132
   %454 = load ptr, ptr %18, align 8, !tbaa !135
@@ -6456,8 +6456,8 @@ _ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_M
   resume { ptr, i32 } %43
 
 _ZNKSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE15_M_find_node_trImEEPNS1_10_Hash_nodeImLb0EEEmRKT_m.exit: ; preds = %31, %18, %.critedge, %26
-  %.sroa.031.1 = phi ptr [ %27, %26 ], [ %42, %.critedge ], [ %.sroa.028.0, %18 ], [ %33, %31 ]
-  %.sroa.432.1 = phi i8 [ 0, %26 ], [ 1, %.critedge ], [ 0, %18 ], [ 0, %31 ]
+  %.sroa.031.1 = phi ptr [ %.sroa.028.0, %18 ], [ %42, %.critedge ], [ %27, %26 ], [ %33, %31 ]
+  %.sroa.432.1 = phi i8 [ 0, %18 ], [ 1, %.critedge ], [ 0, %26 ], [ 0, %31 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.031.1, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.432.1, 1
   ret { ptr, i8 } %.fca.1.insert

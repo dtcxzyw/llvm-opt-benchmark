@@ -644,8 +644,8 @@ define range(i32 -1, 1) i32 @H5B2__neighbor_internal(ptr noundef %0, i16 noundef
   br label %57
 
 57:                                               ; preds = %.sink.split, %49, %46
-  %58 = phi i32 [ 0, %46 ], [ %45, %49 ], [ %45, %.sink.split ]
-  %.042 = phi ptr [ %3, %46 ], [ %3, %49 ], [ %56, %.sink.split ]
+  %58 = phi i32 [ %45, %49 ], [ 0, %46 ], [ %45, %.sink.split ]
+  %.042 = phi ptr [ %3, %49 ], [ %3, %46 ], [ %56, %.sink.split ]
   %59 = icmp ugt i16 %1, 1
   br i1 %59, label %60, label %72
 
@@ -1938,7 +1938,7 @@ define noundef range(i32 -1, 1) i32 @H5B2__remove_internal(ptr noundef %0, ptr n
   br label %279
 
 279:                                              ; preds = %275, %273, %266
-  %.1169 = phi i32 [ 3, %266 ], [ %spec.select200, %275 ], [ %spec.select, %273 ]
+  %.1169 = phi i32 [ %spec.select, %273 ], [ %spec.select200, %275 ], [ 3, %266 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %280
@@ -2210,9 +2210,9 @@ define noundef range(i32 -1, 1) i32 @H5B2__remove_internal_by_idx(ptr noundef %0
   br i1 %exitcond.not, label %.loopexit269, label %100, !llvm.loop !68
 
 .loopexit269:                                     ; preds = %109, %.preheader268, %95, %107, %104
-  %.2227 = phi i64 [ 0, %107 ], [ %.3228307, %104 ], [ %9, %95 ], [ %9, %.preheader268 ], [ %110, %109 ]
-  %.0197 = phi i32 [ %108, %107 ], [ %105, %104 ], [ 0, %95 ], [ 0, %.preheader268 ], [ %97, %109 ]
-  %.0196 = phi i1 [ true, %107 ], [ false, %104 ], [ false, %95 ], [ false, %.preheader268 ], [ false, %109 ]
+  %.2227 = phi i64 [ %9, %95 ], [ 0, %107 ], [ %.3228307, %104 ], [ %9, %.preheader268 ], [ %110, %109 ]
+  %.0197 = phi i32 [ 0, %95 ], [ %108, %107 ], [ %105, %104 ], [ 0, %.preheader268 ], [ %97, %109 ]
+  %.0196 = phi i1 [ false, %95 ], [ true, %107 ], [ false, %104 ], [ false, %.preheader268 ], [ false, %109 ]
   %111 = getelementptr inbounds nuw i8, ptr %21, i64 264
   %112 = load ptr, ptr %111, align 8, !tbaa !41
   %113 = zext nneg i32 %.0197 to i64
@@ -2392,10 +2392,10 @@ define noundef range(i32 -1, 1) i32 @H5B2__remove_internal_by_idx(ptr noundef %0
   br i1 %exitcond344.not, label %.loopexit, label %196, !llvm.loop !69
 
 .loopexit:                                        ; preds = %205, %..loopexit_crit_edge, %.preheader, %203, %200
-  %207 = phi ptr [ %.pre345, %203 ], [ %.pre345, %200 ], [ %.pre, %..loopexit_crit_edge ], [ %.pre345, %.preheader ], [ %.pre345, %205 ]
-  %.5 = phi i64 [ 0, %203 ], [ %.6310, %200 ], [ %.4229315, %..loopexit_crit_edge ], [ %9, %.preheader ], [ %206, %205 ]
-  %.3 = phi i32 [ %204, %203 ], [ %201, %200 ], [ 0, %..loopexit_crit_edge ], [ 0, %.preheader ], [ %195, %205 ]
-  %.2 = phi i1 [ true, %203 ], [ false, %200 ], [ %.1317, %..loopexit_crit_edge ], [ false, %.preheader ], [ false, %205 ]
+  %207 = phi ptr [ %.pre, %..loopexit_crit_edge ], [ %.pre345, %203 ], [ %.pre345, %200 ], [ %.pre345, %.preheader ], [ %.pre345, %205 ]
+  %.5 = phi i64 [ %.4229315, %..loopexit_crit_edge ], [ 0, %203 ], [ %.6310, %200 ], [ %9, %.preheader ], [ %206, %205 ]
+  %.3 = phi i32 [ 0, %..loopexit_crit_edge ], [ %204, %203 ], [ %201, %200 ], [ 0, %.preheader ], [ %195, %205 ]
+  %.2 = phi i1 [ %.1317, %..loopexit_crit_edge ], [ true, %203 ], [ false, %200 ], [ false, %.preheader ], [ false, %205 ]
   %208 = add i32 %.0195318, -1
   %209 = zext nneg i32 %.3 to i64
   %210 = getelementptr inbounds nuw %struct.H5B2_node_ptr_t, ptr %207, i64 %209

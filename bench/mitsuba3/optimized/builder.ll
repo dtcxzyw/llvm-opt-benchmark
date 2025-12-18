@@ -1517,7 +1517,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder4bindERKNS0_5Labe
   br label %_ZN6asmjit9_abi_1_1011BaseBuilder11labelNodeOfEPPNS0_9LabelNodeEj.exit
 
 _ZN6asmjit9_abi_1_1011BaseBuilder11labelNodeOfEPPNS0_9LabelNodeEj.exit: ; preds = %44, %23
-  %.0 = phi ptr [ %31, %44 ], [ %27, %23 ]
+  %.0 = phi ptr [ %27, %23 ], [ %31, %44 ]
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %48 = load ptr, ptr %47, align 8, !tbaa !63
   %49 = icmp eq ptr %48, null

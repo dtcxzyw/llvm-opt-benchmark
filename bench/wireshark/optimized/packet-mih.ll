@@ -3404,7 +3404,7 @@ dissect_link_param_type.exit:                     ; preds = %3, %switch.lookup
   br i1 %exitcond.not.i72, label %dissect_mih_list.exit, label %.lr.ph.i69, !llvm.loop !11
 
 dissect_mih_list.exit:                            ; preds = %.lr.ph.i69, %.lr.ph.i62, %.lr.ph.i55, %.lr.ph.i48, %.lr.ph.i, %97, %80, %63, %46, %29, %21, %24, %16
-  %.0 = phi i16 [ %20, %16 ], [ %15, %21 ], [ %28, %24 ], [ %36, %29 ], [ %53, %46 ], [ %70, %63 ], [ %87, %80 ], [ %104, %97 ], [ %95, %.lr.ph.i62 ], [ %44, %.lr.ph.i ], [ %61, %.lr.ph.i48 ], [ %78, %.lr.ph.i55 ], [ %112, %.lr.ph.i69 ]
+  %.0 = phi i16 [ %20, %16 ], [ %15, %21 ], [ %28, %24 ], [ %61, %.lr.ph.i48 ], [ %78, %.lr.ph.i55 ], [ %95, %.lr.ph.i62 ], [ %44, %.lr.ph.i ], [ %36, %29 ], [ %53, %46 ], [ %70, %63 ], [ %87, %80 ], [ %104, %97 ], [ %112, %.lr.ph.i69 ]
   ret i16 %.0
 }
 

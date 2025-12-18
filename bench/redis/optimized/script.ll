@@ -966,7 +966,7 @@ scriptVerifyWriteCommandAllow.exit:               ; preds = %66, %79, %85, %89
   store ptr %.sink.i, ptr %1, align 8, !tbaa !93
   br label %114
 
-94:                                               ; preds = %._crit_edge.i, %87
+94:                                               ; preds = %87, %._crit_edge.i
   %95 = call fastcc i32 @scriptVerifyOOM(ptr noundef nonnull %0, ptr noundef %1)
   %.not44 = icmp eq i32 %95, 0
   br i1 %.not44, label %96, label %114

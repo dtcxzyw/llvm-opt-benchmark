@@ -757,7 +757,7 @@ define dso_local noundef range(i32 -12, 1) i32 @vmemmap_populate_hugepages(i64 n
   br i1 %57, label %9, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %42, %.loopexit8, %21, %18, %9, %53, %4
-  %58 = phi i32 [ 0, %4 ], [ -12, %53 ], [ -12, %42 ], [ -12, %9 ], [ -12, %18 ], [ -12, %21 ], [ 0, %.loopexit8 ]
+  %58 = phi i32 [ 0, %4 ], [ -12, %53 ], [ -12, %9 ], [ -12, %18 ], [ -12, %21 ], [ 0, %.loopexit8 ], [ -12, %42 ]
   ret i32 %58
 }
 
@@ -935,7 +935,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @vmemmap_populate_compound_
   br i1 %83, label %.loopexit, label %78, !llvm.loop !19
 
 .loopexit:                                        ; preds = %59, %.preheader10, %.loopexit9, %.preheader7, %.preheader, %43, %49, %29, %26
-  %84 = phi i32 [ -12, %26 ], [ 0, %29 ], [ 0, %49 ], [ -12, %.preheader ], [ -12, %.preheader7 ], [ 0, %43 ], [ -12, %.preheader10 ], [ 0, %.loopexit9 ], [ -12, %59 ]
+  %84 = phi i32 [ -12, %26 ], [ 0, %29 ], [ 0, %49 ], [ -12, %.preheader7 ], [ -12, %.preheader ], [ 0, %43 ], [ -12, %.preheader10 ], [ 0, %.loopexit9 ], [ -12, %59 ]
   ret i32 %84
 }
 

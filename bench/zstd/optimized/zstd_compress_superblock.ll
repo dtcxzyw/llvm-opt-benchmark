@@ -147,7 +147,7 @@ ZSTD_estimateSubBlockSize_literal.exit.i.i:       ; preds = %75, %68, %65, %64, 
   br label %91
 
 91:                                               ; preds = %88, %84
-  %.0.i.i.i.i = phi i64 [ %90, %88 ], [ %85, %84 ]
+  %.0.i.i.i.i = phi i64 [ %85, %84 ], [ %90, %88 ]
   %92 = icmp ult i64 %.0.i.i.i.i, -119
   br i1 %92, label %.lr.ph.split.us.i.i.i.i.preheader, label %.thread.i.i.i.i
 
@@ -211,7 +211,7 @@ ZSTD_estimateSubBlockSize_symbolType.exit.i.i.i:  ; preds = %._crit_edge.i.i.i.i
   br label %110
 
 110:                                              ; preds = %107, %103
-  %.0.i36.i.i.i = phi i64 [ %109, %107 ], [ %104, %103 ]
+  %.0.i36.i.i.i = phi i64 [ %104, %103 ], [ %109, %107 ]
   %111 = icmp ult i64 %.0.i36.i.i.i, -119
   br i1 %111, label %.lr.ph.split.i.i.i.i.preheader, label %.thread.i37.i.i.i
 
@@ -275,7 +275,7 @@ ZSTD_estimateSubBlockSize_symbolType.exit39.i.i.i: ; preds = %._crit_edge.i32.i.
   br label %133
 
 133:                                              ; preds = %130, %126
-  %.0.i54.i.i.i = phi i64 [ %132, %130 ], [ %127, %126 ]
+  %.0.i54.i.i.i = phi i64 [ %127, %126 ], [ %132, %130 ]
   %134 = icmp ult i64 %.0.i54.i.i.i, -119
   br i1 %134, label %.lr.ph.split.i44.i.i.i.preheader, label %.thread.i55.i.i.i
 

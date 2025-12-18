@@ -1626,7 +1626,7 @@ define internal range(i32 -1, 1) i32 @H5L__move_cb(ptr noundef readonly captures
   br label %114
 
 114:                                              ; preds = %102, %80, %97, %110, %67, %63, %51
-  %.1 = phi i32 [ -1, %51 ], [ -1, %63 ], [ 0, %67 ], [ -1, %80 ], [ -1, %97 ], [ -1, %110 ], [ 0, %102 ]
+  %.1 = phi i32 [ -1, %80 ], [ -1, %110 ], [ -1, %97 ], [ -1, %51 ], [ -1, %63 ], [ 0, %67 ], [ 0, %102 ]
   %.not51 = icmp eq ptr %46, null
   br i1 %.not51, label %117, label %115
 
@@ -2321,7 +2321,7 @@ define range(i32 -1, 1) i32 @H5L__link_copy_file(ptr noundef %0, ptr noundef %1,
   br label %124
 
 79:                                               ; preds = %41, %75
-  %.143 = phi ptr [ %6, %75 ], [ %1, %41 ]
+  %.143 = phi ptr [ %1, %41 ], [ %6, %75 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)

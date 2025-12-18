@@ -1653,7 +1653,7 @@ _ZNK6vectorIP14iexpr_inverterLb0EjE3getEjRKS1_.exit.cont: ; preds = %_ZNK6vector
   br label %.thread
 
 .thread:                                          ; preds = %.preheader, %_Z9is_groundPK4expr.exit, %_ZNK6vectorIP14iexpr_inverterLb0EjE3getEjRKS1_.exit, %23, %17, %_ZNK4decl13get_family_idEv.exit, %32, %_ZNK6vectorIP14iexpr_inverterLb0EjE3getEjRKS1_.exit.cont, %5
-  %.0 = phi i1 [ false, %5 ], [ false, %_ZNK4decl13get_family_idEv.exit ], [ false, %_ZNK6vectorIP14iexpr_inverterLb0EjE3getEjRKS1_.exit.cont ], [ %36, %32 ], [ false, %17 ], [ false, %23 ], [ false, %_ZNK6vectorIP14iexpr_inverterLb0EjE3getEjRKS1_.exit ], [ false, %_Z9is_groundPK4expr.exit ], [ false, %.preheader ]
+  %.0 = phi i1 [ false, %_ZNK6vectorIP14iexpr_inverterLb0EjE3getEjRKS1_.exit ], [ false, %5 ], [ false, %_ZNK4decl13get_family_idEv.exit ], [ false, %_ZNK6vectorIP14iexpr_inverterLb0EjE3getEjRKS1_.exit.cont ], [ %36, %32 ], [ false, %17 ], [ false, %23 ], [ false, %_Z9is_groundPK4expr.exit ], [ false, %.preheader ]
   ret i1 %.0
 }
 
@@ -4303,7 +4303,7 @@ _ZNKSt8functionIFbP4exprEEclES1_.exit.i66:        ; preds = %88
   br label %_ZN16bv_expr_inverter13process_bvnotEP4exprR7obj_refIS0_11ast_managerE.exit
 
 _ZN16bv_expr_inverter13process_bvnotEP4exprR7obj_refIS0_11ast_managerE.exit: ; preds = %_ZNKSt8functionIFbP4exprEEclES1_.exit.i66, %_ZNKSt8functionIFbP4exprEEclES1_.exit.i, %5, %53, %49, %_ZNK14iexpr_inverter7uncnstrEP4expr.exit.i, %_ZNK4decl13get_decl_kindEv.exit, %83, %95, %109, %60, %72, %79, %115, %37, %35, %30, %25, %20, %18, %16
-  %.058 = phi i1 [ false, %83 ], [ %17, %16 ], [ %19, %18 ], [ %24, %20 ], [ %29, %25 ], [ %34, %30 ], [ %36, %35 ], [ %39, %37 ], [ %119, %115 ], [ true, %72 ], [ false, %60 ], [ true, %95 ], [ true, %79 ], [ true, %53 ], [ true, %109 ], [ false, %_ZNK4decl13get_decl_kindEv.exit ], [ false, %_ZNK14iexpr_inverter7uncnstrEP4expr.exit.i ], [ true, %49 ], [ false, %5 ], [ false, %_ZNKSt8functionIFbP4exprEEclES1_.exit.i ], [ false, %_ZNKSt8functionIFbP4exprEEclES1_.exit.i66 ]
+  %.058 = phi i1 [ false, %83 ], [ %17, %16 ], [ %19, %18 ], [ %24, %20 ], [ %29, %25 ], [ %34, %30 ], [ %36, %35 ], [ %39, %37 ], [ false, %_ZNKSt8functionIFbP4exprEEclES1_.exit.i ], [ %119, %115 ], [ true, %72 ], [ false, %60 ], [ true, %95 ], [ true, %79 ], [ true, %53 ], [ true, %109 ], [ false, %5 ], [ false, %_ZNK4decl13get_decl_kindEv.exit ], [ false, %_ZNK14iexpr_inverter7uncnstrEP4expr.exit.i ], [ true, %49 ], [ false, %_ZNKSt8functionIFbP4exprEEclES1_.exit.i66 ]
   ret i1 %.058
 }
 
@@ -7716,7 +7716,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit: ; p
   resume { ptr, i32 } %.pn27
 
 _ZNK11ast_manager11is_uninterpEPK4sort.exit.thread: ; preds = %_ZNK11ast_manager11is_uninterpEPK4sort.exit33, %_ZNK11ast_manager11is_uninterpEPK4sort.exit33, %_Z16get_array_domainPK4sortj.exit, %_ZNK11ast_manager11is_uninterpEPK4sort.exit, %_ZNK11ast_manager11is_uninterpEPK4sort.exit, %_Z15get_array_rangePK4sort.exit, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit
-  %.023 = phi i1 [ false, %_ZNK11ast_manager11is_uninterpEPK4sort.exit ], [ %133, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit ], [ false, %_Z15get_array_rangePK4sort.exit ], [ false, %_ZNK11ast_manager11is_uninterpEPK4sort.exit ], [ false, %_Z16get_array_domainPK4sortj.exit ], [ false, %_ZNK11ast_manager11is_uninterpEPK4sort.exit33 ], [ false, %_ZNK11ast_manager11is_uninterpEPK4sort.exit33 ]
+  %.023 = phi i1 [ false, %_ZNK11ast_manager11is_uninterpEPK4sort.exit ], [ %133, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit ], [ false, %_ZNK11ast_manager11is_uninterpEPK4sort.exit ], [ false, %_Z15get_array_rangePK4sort.exit ], [ false, %_Z16get_array_domainPK4sortj.exit ], [ false, %_ZNK11ast_manager11is_uninterpEPK4sort.exit33 ], [ false, %_ZNK11ast_manager11is_uninterpEPK4sort.exit33 ]
   ret i1 %.023
 }
 
@@ -8308,7 +8308,7 @@ _ZN6bufferIP4exprLb0ELj16EED2Ev.exit:             ; preds = %118, %121
   resume { ptr, i32 } %.pn.pn
 
 _ZNK8datatype4util11is_accessorEP9func_decl.exit.thread: ; preds = %43, %5, %_ZNK4decl13get_family_idEv.exit.thread.i.i, %_ZNK8datatype4util11is_accessorEP9func_decl.exit, %_ZNK14iexpr_inverter7uncnstrEP4expr.exit, %_ZN6bufferIP4exprLb0ELj16EED2Ev.exit, %31
-  %.031 = phi i1 [ true, %31 ], [ true, %_ZN6bufferIP4exprLb0ELj16EED2Ev.exit ], [ false, %_ZNK14iexpr_inverter7uncnstrEP4expr.exit ], [ false, %_ZNK8datatype4util11is_accessorEP9func_decl.exit ], [ false, %_ZNK4decl13get_family_idEv.exit.thread.i.i ], [ false, %5 ], [ false, %43 ]
+  %.031 = phi i1 [ true, %31 ], [ true, %_ZN6bufferIP4exprLb0ELj16EED2Ev.exit ], [ false, %5 ], [ false, %_ZNK14iexpr_inverter7uncnstrEP4expr.exit ], [ false, %_ZNK8datatype4util11is_accessorEP9func_decl.exit ], [ false, %_ZNK4decl13get_family_idEv.exit.thread.i.i ], [ false, %43 ]
   ret i1 %.031
 }
 
@@ -9059,7 +9059,7 @@ _ZNKSt8functionIFbP4exprEEclES1_.exit.i68:        ; preds = %131
   br label %_ZNK14iexpr_inverter7uncnstrEjPKP4expr.exit
 
 _ZNK14iexpr_inverter7uncnstrEjPKP4expr.exit:      ; preds = %_ZNKSt8functionIFbP4exprEEclES1_.exit.i68, %_ZNKSt8functionIFbP4exprEEclES1_.exit.i, %5, %_ZNK4decl13get_decl_kindEv.exit, %126, %106, %_ZNK14iexpr_inverter7uncnstrEP4expr.exit62, %_ZNK14iexpr_inverter7uncnstrEP4expr.exit58, %_ZNK14iexpr_inverter7uncnstrEP4expr.exit60, %146, %138, %118, %98, %79, %56, %37
-  %.0 = phi i1 [ false, %126 ], [ true, %37 ], [ true, %56 ], [ true, %79 ], [ %150, %146 ], [ true, %98 ], [ false, %_ZNK14iexpr_inverter7uncnstrEP4expr.exit58 ], [ true, %118 ], [ false, %_ZNK14iexpr_inverter7uncnstrEP4expr.exit62 ], [ true, %138 ], [ false, %106 ], [ false, %_ZNK14iexpr_inverter7uncnstrEP4expr.exit60 ], [ false, %_ZNK4decl13get_decl_kindEv.exit ], [ false, %5 ], [ false, %_ZNKSt8functionIFbP4exprEEclES1_.exit.i ], [ false, %_ZNKSt8functionIFbP4exprEEclES1_.exit.i68 ]
+  %.0 = phi i1 [ false, %126 ], [ true, %37 ], [ true, %56 ], [ true, %79 ], [ %150, %146 ], [ true, %98 ], [ false, %_ZNK14iexpr_inverter7uncnstrEP4expr.exit58 ], [ true, %118 ], [ false, %_ZNK14iexpr_inverter7uncnstrEP4expr.exit62 ], [ true, %138 ], [ false, %106 ], [ false, %_ZNK14iexpr_inverter7uncnstrEP4expr.exit60 ], [ false, %_ZNKSt8functionIFbP4exprEEclES1_.exit.i ], [ false, %5 ], [ false, %_ZNK4decl13get_decl_kindEv.exit ], [ false, %_ZNKSt8functionIFbP4exprEEclES1_.exit.i68 ]
   ret i1 %.0
 }
 
@@ -10446,7 +10446,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %375
   br label %381
 
 _ZNK14iexpr_inverter7uncnstrEjPKP4expr.exit:      ; preds = %_ZNKSt8functionIFbP4exprEEclES1_.exit.i, %124, %118, %269, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i100, %_ZNK8seq_util6is_seqEP4sort.exit.i101, %206, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i, %_ZNK8seq_util6is_seqEP4sort.exit.i, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit, %.loopexit, %_ZNK14iexpr_inverter7uncnstrEP4expr.exit99, %262, %_ZNK8seq_util9is_stringEP4sort.exit104, %_ZNK14iexpr_inverter7uncnstrEP4expr.exit94, %_ZNK8seq_util9is_stringEP4sort.exit, %233, %250, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit, %_ZN7zstringD2Ev.exit, %_ZN7obj_refI4expr11ast_managerED2Ev.exit
-  %.1 = phi i1 [ false, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit ], [ false, %_ZNK14iexpr_inverter7uncnstrEP4expr.exit99 ], [ true, %_ZN7obj_refI4expr11ast_managerED2Ev.exit ], [ false, %_ZNK14iexpr_inverter7uncnstrEP4expr.exit94 ], [ true, %233 ], [ %.2, %_ZN7zstringD2Ev.exit ], [ true, %250 ], [ false, %_ZNK8seq_util9is_stringEP4sort.exit ], [ false, %_ZNK8seq_util9is_stringEP4sort.exit104 ], [ false, %262 ], [ true, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit ], [ true, %.loopexit ], [ false, %206 ], [ false, %_ZNK8seq_util6is_seqEP4sort.exit.i ], [ false, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i ], [ false, %_ZNK8seq_util6is_seqEP4sort.exit.i101 ], [ false, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i100 ], [ false, %269 ], [ true, %118 ], [ true, %124 ], [ false, %_ZNKSt8functionIFbP4exprEEclES1_.exit.i ]
+  %.1 = phi i1 [ false, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit ], [ false, %_ZNK14iexpr_inverter7uncnstrEP4expr.exit99 ], [ true, %_ZN7obj_refI4expr11ast_managerED2Ev.exit ], [ false, %_ZNK14iexpr_inverter7uncnstrEP4expr.exit94 ], [ true, %233 ], [ %.2, %_ZN7zstringD2Ev.exit ], [ true, %250 ], [ false, %_ZNK8seq_util9is_stringEP4sort.exit ], [ false, %_ZNK8seq_util9is_stringEP4sort.exit104 ], [ false, %262 ], [ true, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit ], [ true, %.loopexit ], [ false, %269 ], [ true, %118 ], [ false, %206 ], [ false, %_ZNK8seq_util6is_seqEP4sort.exit.i ], [ false, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i ], [ false, %_ZNK8seq_util6is_seqEP4sort.exit.i101 ], [ false, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i100 ], [ true, %124 ], [ false, %_ZNKSt8functionIFbP4exprEEclES1_.exit.i ]
   ret i1 %.1
 
 381:                                              ; preds = %378, %370, %251, %170

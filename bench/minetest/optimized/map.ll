@@ -3318,10 +3318,10 @@ lpad33.loopexit.split.us.split.us.split.us:       ; preds = %if.then32.us.us.us
   br label %lpad33.loopexit
 
 for.cond.cleanup21:                               ; preds = %cleanup60, %invoke.cont51.us.us.us, %cleanup60.us.us.us
-  %.us-phi105 = phi i8 [ %all_blocks_deleted.0878.ph.us, %invoke.cont51.us.us.us ], [ %all_blocks_deleted.0878.ph.us.us, %cleanup60.us.us.us ], [ %all_blocks_deleted.0878.ph, %cleanup60 ]
-  %.us-phi106 = phi i32 [ %block_count_all.1875.ph.us, %invoke.cont51.us.us.us ], [ %block_count_all.1875.ph.us.us, %cleanup60.us.us.us ], [ %block_count_all.1875.ph, %cleanup60 ]
-  %.us-phi107 = phi i32 [ %saved_blocks_count.0896, %invoke.cont51.us.us.us ], [ %saved_blocks_count.3.us.us.us, %cleanup60.us.us.us ], [ %saved_blocks_count.3, %cleanup60 ]
-  %.us-phi108 = phi i32 [ %inc56.us.us.us, %invoke.cont51.us.us.us ], [ %deleted_blocks_count.2.us.us.us, %cleanup60.us.us.us ], [ %deleted_blocks_count.2, %cleanup60 ]
+  %.us-phi105 = phi i8 [ %all_blocks_deleted.0878.ph.us.us, %cleanup60.us.us.us ], [ %all_blocks_deleted.0878.ph.us, %invoke.cont51.us.us.us ], [ %all_blocks_deleted.0878.ph, %cleanup60 ]
+  %.us-phi106 = phi i32 [ %block_count_all.1875.ph.us.us, %cleanup60.us.us.us ], [ %block_count_all.1875.ph.us, %invoke.cont51.us.us.us ], [ %block_count_all.1875.ph, %cleanup60 ]
+  %.us-phi107 = phi i32 [ %saved_blocks_count.3.us.us.us, %cleanup60.us.us.us ], [ %saved_blocks_count.0896, %invoke.cont51.us.us.us ], [ %saved_blocks_count.3, %cleanup60 ]
+  %.us-phi108 = phi i32 [ %deleted_blocks_count.2.us.us.us, %cleanup60.us.us.us ], [ %inc56.us.us.us, %invoke.cont51.us.us.us ], [ %deleted_blocks_count.2, %cleanup60 ]
   %tobool71.not = icmp eq i8 %.us-phi105, 0
   br i1 %tobool71.not, label %if.end74, label %if.then72
 

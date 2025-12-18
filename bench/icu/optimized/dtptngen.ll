@@ -2253,7 +2253,7 @@ _ZNK6icu_7713UnicodeStringneERKS0_.exit45:        ; preds = %132
   br i1 %exitcond73, label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread, label %86, !llvm.loop !75
 
 _ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread:   ; preds = %63, %_ZNK6icu_7713UnicodeStringneERKS0_.exit, %59, %155, %_ZNK6icu_7713UnicodeStringneERKS0_.exit39, %96, %92, %_ZNK6icu_7713UnicodeStringneERKS0_.exit45, %132, %128, %23, %19, %4, %8, %_ZNK6icu_7713UnicodeStringeqERKS0_.exit, %2
-  %.028 = phi i1 [ false, %4 ], [ true, %2 ], [ false, %23 ], [ false, %_ZNK6icu_7713UnicodeStringeqERKS0_.exit ], [ false, %8 ], [ false, %19 ], [ false, %92 ], [ false, %_ZNK6icu_7713UnicodeStringneERKS0_.exit45 ], [ false, %128 ], [ false, %132 ], [ false, %96 ], [ true, %155 ], [ false, %_ZNK6icu_7713UnicodeStringneERKS0_.exit39 ], [ false, %59 ], [ false, %_ZNK6icu_7713UnicodeStringneERKS0_.exit ], [ false, %63 ]
+  %.028 = phi i1 [ false, %4 ], [ true, %2 ], [ false, %_ZNK6icu_7713UnicodeStringneERKS0_.exit45 ], [ false, %23 ], [ false, %_ZNK6icu_7713UnicodeStringeqERKS0_.exit ], [ false, %8 ], [ false, %19 ], [ false, %92 ], [ false, %128 ], [ false, %132 ], [ true, %155 ], [ false, %96 ], [ false, %_ZNK6icu_7713UnicodeStringneERKS0_.exit39 ], [ false, %59 ], [ false, %_ZNK6icu_7713UnicodeStringneERKS0_.exit ], [ false, %63 ]
   ret i1 %.028
 }
 
@@ -4735,7 +4735,7 @@ _ZN6icu_7714SkeletonFields8populateEiRKNS_13UnicodeStringE.exit: ; preds = %_ZN6
   br label %_ZN6icu_7712FormatParser17getCanonicalIndexERKNS_13UnicodeStringE.exit.thread
 
 _ZN6icu_7712FormatParser17getCanonicalIndexERKNS_13UnicodeStringE.exit.thread: ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit38.i.i, %.critedge.outer.i.i, %.critedge.i.i, %36, %101, %_ZN6icu_7712FormatParser17getCanonicalIndexERKNS_13UnicodeStringE.exit, %54
-  %104 = phi i32 [ %.pre110, %54 ], [ %storemerge5793, %36 ], [ %storemerge5793, %101 ], [ %storemerge5793, %_ZN6icu_7712FormatParser17getCanonicalIndexERKNS_13UnicodeStringE.exit ], [ %storemerge5793, %.critedge.outer.i.i ], [ %storemerge5793, %.critedge.i.i ], [ %storemerge5793, %_ZNK6icu_7713UnicodeString6charAtEi.exit38.i.i ]
+  %104 = phi i32 [ %storemerge5793, %.critedge.outer.i.i ], [ %storemerge5793, %.critedge.i.i ], [ %.pre110, %54 ], [ %storemerge5793, %36 ], [ %storemerge5793, %101 ], [ %storemerge5793, %_ZN6icu_7712FormatParser17getCanonicalIndexERKNS_13UnicodeStringE.exit ], [ %storemerge5793, %_ZNK6icu_7713UnicodeString6charAtEi.exit38.i.i ]
   %105 = add nsw i32 %104, 1
   store i32 %105, ptr %7, align 4, !tbaa !12
   %106 = load i32, ptr %13, align 8, !tbaa !102
@@ -5569,8 +5569,8 @@ _ZNK6icu_7714SkeletonFieldseqERKS0_.exit.thread.i: ; preds = %105, %.preheader.s
   br label %125
 
 _ZNK6icu_7710PatternMap22getPatternFromSkeletonERKNS_11PtnSkeletonEPPS2_.exit.thread: ; preds = %78, %_ZNK6icu_7714SkeletonFieldseqERKS0_.exit.thread.i, %._ZNK6icu_7710PatternMap22getPatternFromSkeletonERKNS_11PtnSkeletonEPPS2_.exit.thread_crit_edge, %92, %_ZNK6icu_7710PatternMap9getHeaderEDs.exit.i
-  %119 = phi ptr [ %.pre, %._ZNK6icu_7710PatternMap22getPatternFromSkeletonERKNS_11PtnSkeletonEPPS2_.exit.thread_crit_edge ], [ %75, %_ZNK6icu_7710PatternMap9getHeaderEDs.exit.i ], [ %75, %92 ], [ %75, %_ZNK6icu_7714SkeletonFieldseqERKS0_.exit.thread.i ], [ %75, %78 ]
-  %.1 = phi i32 [ 2, %._ZNK6icu_7710PatternMap22getPatternFromSkeletonERKNS_11PtnSkeletonEPPS2_.exit.thread_crit_edge ], [ %.0, %_ZNK6icu_7710PatternMap9getHeaderEDs.exit.i ], [ %.0, %92 ], [ %.0, %_ZNK6icu_7714SkeletonFieldseqERKS0_.exit.thread.i ], [ %.0, %78 ]
+  %119 = phi ptr [ %.pre, %._ZNK6icu_7710PatternMap22getPatternFromSkeletonERKNS_11PtnSkeletonEPPS2_.exit.thread_crit_edge ], [ %75, %_ZNK6icu_7710PatternMap9getHeaderEDs.exit.i ], [ %75, %_ZNK6icu_7714SkeletonFieldseqERKS0_.exit.thread.i ], [ %75, %92 ], [ %75, %78 ]
+  %.1 = phi i32 [ 2, %._ZNK6icu_7710PatternMap22getPatternFromSkeletonERKNS_11PtnSkeletonEPPS2_.exit.thread_crit_edge ], [ %.0, %_ZNK6icu_7710PatternMap9getHeaderEDs.exit.i ], [ %.0, %_ZNK6icu_7714SkeletonFieldseqERKS0_.exit.thread.i ], [ %.0, %92 ], [ %.0, %78 ]
   %120 = icmp ne ptr %2, null
   %121 = zext i1 %120 to i8
   invoke void @_ZN6icu_7710PatternMap3addERKNS_13UnicodeStringERKNS_11PtnSkeletonES3_aR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(425) %119, ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull align 8 dereferenceable(137) %10, ptr noundef nonnull align 8 dereferenceable(64) %1, i8 noundef signext %121, ptr noundef nonnull align 4 dereferenceable(4) %5)
@@ -7238,7 +7238,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit116:      ; preds = %59, %56
   br label %75
 
 75:                                               ; preds = %73, %73, %73, %.fold.split112, %.fold.split
-  %.281 = phi i16 [ 72, %73 ], [ 75, %.fold.split112 ], [ 72, %73 ], [ 72, %73 ], [ 104, %.fold.split ]
+  %.281 = phi i16 [ 104, %.fold.split ], [ 72, %73 ], [ 75, %.fold.split112 ], [ 72, %73 ], [ 72, %73 ]
   switch i32 %74, label %.fold.split113 [
     i32 9, label %.thread124
     i32 7, label %.thread124
@@ -7263,8 +7263,8 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit116:      ; preds = %59, %56
   br label %.critedge111
 
 .thread124:                                       ; preds = %76, %.fold.split113, %75, %75, %75, %71
-  %.079 = phi i16 [ %72, %71 ], [ %.281123, %.fold.split113 ], [ %.281, %76 ], [ %.281, %75 ], [ %.281, %75 ], [ %.281, %75 ]
-  %.076 = phi i16 [ 97, %71 ], [ 97, %.fold.split113 ], [ 98, %76 ], [ 66, %75 ], [ 66, %75 ], [ 66, %75 ]
+  %.079 = phi i16 [ %72, %71 ], [ %.281123, %.fold.split113 ], [ %.281, %75 ], [ %.281, %75 ], [ %.281, %75 ], [ %.281, %76 ]
+  %.076 = phi i16 [ 97, %71 ], [ 97, %.fold.split113 ], [ 66, %75 ], [ 66, %75 ], [ 66, %75 ], [ 98, %76 ]
   switch i16 %.079, label %.lr.ph133 [
     i16 107, label %.preheader.preheader
     i16 72, label %.preheader.preheader
@@ -7333,8 +7333,8 @@ _ZN6icu_7713UnicodeString6appendEDs.exit119:      ; preds = %90
   br label %.critedge110
 
 .critedge110:                                     ; preds = %_ZN6icu_7713UnicodeString6appendEDs.exit117, %_ZN6icu_7713UnicodeString6appendEDs.exit119, %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread, %87, %42
-  %.397 = phi i32 [ %.094135, %42 ], [ %.094135, %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread ], [ %.094135, %_ZN6icu_7713UnicodeString6appendEDs.exit119 ], [ %.094135, %87 ], [ %.296.lcssa146, %_ZN6icu_7713UnicodeString6appendEDs.exit117 ]
-  %.293 = phi i8 [ %43, %42 ], [ 1, %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread ], [ 0, %_ZN6icu_7713UnicodeString6appendEDs.exit119 ], [ 0, %87 ], [ 0, %_ZN6icu_7713UnicodeString6appendEDs.exit117 ]
+  %.397 = phi i32 [ %.094135, %87 ], [ %.094135, %42 ], [ %.094135, %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread ], [ %.094135, %_ZN6icu_7713UnicodeString6appendEDs.exit119 ], [ %.296.lcssa146, %_ZN6icu_7713UnicodeString6appendEDs.exit117 ]
+  %.293 = phi i8 [ 0, %87 ], [ %43, %42 ], [ 1, %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread ], [ 0, %_ZN6icu_7713UnicodeString6appendEDs.exit119 ], [ 0, %_ZN6icu_7713UnicodeString6appendEDs.exit117 ]
   %92 = add nsw i32 %.397, 1
   %93 = icmp slt i32 %92, %19
   br i1 %93, label %27, label %._crit_edge, !llvm.loop !137
@@ -7741,8 +7741,8 @@ _ZNK6icu_7714SkeletonFieldseqERKS0_.exit.thread.i: ; preds = %158, %.preheader.s
   br i1 %.not27.i, label %_ZNK6icu_7710PatternMap22getPatternFromSkeletonERKNS_11PtnSkeletonEPPS2_.exit, label %.preheader.split.i, !llvm.loop !119
 
 _ZNK6icu_7710PatternMap22getPatternFromSkeletonERKNS_11PtnSkeletonEPPS2_.exit: ; preds = %133, %_ZNK6icu_7714SkeletonFieldseqERKS0_.exit.thread.i, %.thread41.i, %_ZNK6icu_7710PatternMap9getHeaderEDs.exit.i, %147
-  %.4 = phi ptr [ null, %_ZNK6icu_7710PatternMap9getHeaderEDs.exit.i ], [ %spec.select, %.thread41.i ], [ null, %147 ], [ null, %_ZNK6icu_7714SkeletonFieldseqERKS0_.exit.thread.i ], [ null, %133 ]
-  %.020.i = phi ptr [ null, %_ZNK6icu_7710PatternMap9getHeaderEDs.exit.i ], [ %163, %.thread41.i ], [ null, %147 ], [ null, %_ZNK6icu_7714SkeletonFieldseqERKS0_.exit.thread.i ], [ null, %133 ]
+  %.4 = phi ptr [ null, %_ZNK6icu_7714SkeletonFieldseqERKS0_.exit.thread.i ], [ null, %_ZNK6icu_7710PatternMap9getHeaderEDs.exit.i ], [ %spec.select, %.thread41.i ], [ null, %147 ], [ null, %133 ]
+  %.020.i = phi ptr [ null, %_ZNK6icu_7714SkeletonFieldseqERKS0_.exit.thread.i ], [ null, %_ZNK6icu_7710PatternMap9getHeaderEDs.exit.i ], [ %163, %.thread41.i ], [ null, %147 ], [ null, %133 ]
   store i32 %124, ptr %32, align 8, !tbaa !132
   store i32 %123, ptr %33, align 4, !tbaa !134
   %166 = icmp eq i32 %.1.i, 0
@@ -9156,7 +9156,7 @@ _ZNK6icu_7713UnicodeString7compareERKS0_.exit:    ; preds = %36, %.sink.split.i.
   br i1 %.not, label %_ZNK6icu_7710PatternMap9getHeaderEDs.exit.thread, label %.preheader, !llvm.loop !160
 
 _ZNK6icu_7710PatternMap9getHeaderEDs.exit.thread: ; preds = %62, %3, %25, %_ZNK6icu_7710PatternMap9getHeaderEDs.exit, %58
-  %.010 = phi ptr [ null, %_ZNK6icu_7710PatternMap9getHeaderEDs.exit ], [ %61, %58 ], [ null, %25 ], [ null, %3 ], [ null, %62 ]
+  %.010 = phi ptr [ null, %_ZNK6icu_7710PatternMap9getHeaderEDs.exit ], [ %61, %58 ], [ null, %3 ], [ null, %25 ], [ null, %62 ]
   ret ptr %.010
 }
 
@@ -9282,7 +9282,7 @@ _ZNK6icu_7714SkeletonFieldseqERKS0_.exit.thread:  ; preds = %.preheader.split, %
   br i1 %.not27, label %_ZNK6icu_7710PatternMap9getHeaderEDs.exit.thread, label %.preheader.split, !llvm.loop !119
 
 _ZNK6icu_7710PatternMap9getHeaderEDs.exit.thread: ; preds = %8, %_ZNK6icu_7714SkeletonFieldseqERKS0_.exit.thread, %_ZNK6icu_7714SkeletonFieldseqERKS0_.exit.thread.us, %22, %.thread41, %_ZNK6icu_7710PatternMap9getHeaderEDs.exit
-  %.020 = phi ptr [ %50, %.thread41 ], [ null, %_ZNK6icu_7710PatternMap9getHeaderEDs.exit ], [ null, %22 ], [ null, %_ZNK6icu_7714SkeletonFieldseqERKS0_.exit.thread ], [ null, %_ZNK6icu_7714SkeletonFieldseqERKS0_.exit.thread.us ], [ null, %8 ]
+  %.020 = phi ptr [ %50, %.thread41 ], [ null, %_ZNK6icu_7710PatternMap9getHeaderEDs.exit ], [ null, %_ZNK6icu_7714SkeletonFieldseqERKS0_.exit.thread.us ], [ null, %22 ], [ null, %_ZNK6icu_7714SkeletonFieldseqERKS0_.exit.thread ], [ null, %8 ]
   ret ptr %.020
 }
 
@@ -10744,7 +10744,7 @@ _ZNK6icu_7714SkeletonFieldseqERKS0_.exit.thread.us.i: ; preds = %_ZNK6icu_7714Sk
   br label %_ZNK6icu_7710PatternMap22getPatternFromSkeletonERKNS_11PtnSkeletonEPPS2_.exit
 
 _ZNK6icu_7710PatternMap22getPatternFromSkeletonERKNS_11PtnSkeletonEPPS2_.exit: ; preds = %108, %_ZNK6icu_7714SkeletonFieldseqERKS0_.exit.thread.us.i, %.thread41.i, %_ZNK6icu_7710PatternMap9getHeaderEDs.exit.i, %122
-  %.020.i = phi ptr [ %137, %.thread41.i ], [ null, %_ZNK6icu_7710PatternMap9getHeaderEDs.exit.i ], [ null, %122 ], [ null, %_ZNK6icu_7714SkeletonFieldseqERKS0_.exit.thread.us.i ], [ null, %108 ]
+  %.020.i = phi ptr [ %137, %.thread41.i ], [ null, %_ZNK6icu_7710PatternMap9getHeaderEDs.exit.i ], [ null, %_ZNK6icu_7714SkeletonFieldseqERKS0_.exit.thread.us.i ], [ null, %122 ], [ null, %108 ]
   %138 = getelementptr inbounds nuw i8, ptr %.020.i, i64 8
   %139 = load i16, ptr %138, align 8, !tbaa !17
   %140 = icmp slt i16 %139, 0
@@ -11478,7 +11478,7 @@ _ZNK6icu_7713UnicodeString7compareERKS0_.exit:    ; preds = %14, %.sink.split.i.
   br i1 %.not22, label %.loopexit, label %9, !llvm.loop !162
 
 .loopexit:                                        ; preds = %.thread, %39, %4
-  %.018 = phi ptr [ null, %4 ], [ %.017, %39 ], [ null, %.thread ]
+  %.018 = phi ptr [ %.017, %39 ], [ null, %4 ], [ null, %.thread ]
   ret ptr %.018
 }
 
@@ -12005,7 +12005,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit38:       ; preds = %_ZNK6icu_7713Unicod
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit38, %29, %23, %.critedge.outer._crit_edge, %2
-  %.026 = phi i32 [ -1, %2 ], [ %34, %.critedge.outer._crit_edge ], [ %24, %29 ], [ %24, %23 ], [ -1, %_ZNK6icu_7713UnicodeString6charAtEi.exit38 ]
+  %.026 = phi i32 [ -1, %2 ], [ %24, %29 ], [ %34, %.critedge.outer._crit_edge ], [ %24, %23 ], [ -1, %_ZNK6icu_7713UnicodeString6charAtEi.exit38 ]
   ret i32 %.026
 }
 
@@ -13644,7 +13644,7 @@ _ZNK6icu_7713UnicodeStringixEi.exit62.thread.i:   ; preds = %_ZNK6icu_7713Unicod
   br label %_ZN6icu_7712_GLOBAL__N_122AllowedHourFormatsSink30getHourFormatFromUnicodeStringERKNS_13UnicodeStringE.exit
 
 _ZN6icu_7712_GLOBAL__N_122AllowedHourFormatsSink30getHourFormatFromUnicodeStringERKNS_13UnicodeStringE.exit: ; preds = %_ZNK6icu_7713UnicodeStringixEi.exit56.i, %_ZNK6icu_7713UnicodeStringixEi.exit44.i, %_ZNK6icu_7713UnicodeStringixEi.exit32.i, %.fold.split10.i, %.fold.split9.i, %.fold.split.i, %_ZNK6icu_7713UnicodeStringixEi.exit62.thread.i, %_ZNK6icu_7713UnicodeStringixEi.exit.i
-  %.0.i103 = phi i32 [ 0, %_ZNK6icu_7713UnicodeStringixEi.exit.i ], [ -1, %_ZNK6icu_7713UnicodeStringixEi.exit62.thread.i ], [ 1, %.fold.split.i ], [ 2, %.fold.split9.i ], [ 3, %.fold.split10.i ], [ %switch.select175, %_ZNK6icu_7713UnicodeStringixEi.exit56.i ], [ %switch.select171, %_ZNK6icu_7713UnicodeStringixEi.exit44.i ], [ %switch.select167, %_ZNK6icu_7713UnicodeStringixEi.exit32.i ]
+  %.0.i103 = phi i32 [ %switch.select171, %_ZNK6icu_7713UnicodeStringixEi.exit44.i ], [ 0, %_ZNK6icu_7713UnicodeStringixEi.exit.i ], [ %switch.select175, %_ZNK6icu_7713UnicodeStringixEi.exit56.i ], [ 1, %.fold.split.i ], [ -1, %_ZNK6icu_7713UnicodeStringixEi.exit62.thread.i ], [ 2, %.fold.split9.i ], [ %switch.select167, %_ZNK6icu_7713UnicodeStringixEi.exit32.i ], [ 3, %.fold.split10.i ]
   %120 = getelementptr inbounds nuw i32, ptr %85, i64 %indvars.iv
   store i32 %.0.i103, ptr %120, align 4, !tbaa !12
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %17) #35
@@ -13944,7 +13944,7 @@ _ZNK6icu_7713UnicodeStringixEi.exit62.thread:     ; preds = %_ZNK6icu_7713Unicod
   br label %40
 
 40:                                               ; preds = %_ZNK6icu_7713UnicodeStringixEi.exit, %.fold.split10, %.fold.split9, %.fold.split, %_ZNK6icu_7713UnicodeStringixEi.exit62, %_ZNK6icu_7713UnicodeStringixEi.exit56, %_ZNK6icu_7713UnicodeStringixEi.exit50, %_ZNK6icu_7713UnicodeStringixEi.exit44, %_ZNK6icu_7713UnicodeStringixEi.exit38, %_ZNK6icu_7713UnicodeStringixEi.exit32, %_ZNK6icu_7713UnicodeStringixEi.exit62.thread
-  %.0 = phi i32 [ 8, %_ZNK6icu_7713UnicodeStringixEi.exit56 ], [ 0, %_ZNK6icu_7713UnicodeStringixEi.exit ], [ -1, %_ZNK6icu_7713UnicodeStringixEi.exit62.thread ], [ 4, %_ZNK6icu_7713UnicodeStringixEi.exit32 ], [ 5, %_ZNK6icu_7713UnicodeStringixEi.exit38 ], [ 6, %_ZNK6icu_7713UnicodeStringixEi.exit44 ], [ 7, %_ZNK6icu_7713UnicodeStringixEi.exit50 ], [ 9, %_ZNK6icu_7713UnicodeStringixEi.exit62 ], [ 1, %.fold.split ], [ 2, %.fold.split9 ], [ 3, %.fold.split10 ]
+  %.0 = phi i32 [ 8, %_ZNK6icu_7713UnicodeStringixEi.exit56 ], [ 0, %_ZNK6icu_7713UnicodeStringixEi.exit ], [ 9, %_ZNK6icu_7713UnicodeStringixEi.exit62 ], [ 1, %.fold.split ], [ -1, %_ZNK6icu_7713UnicodeStringixEi.exit62.thread ], [ 2, %.fold.split9 ], [ 4, %_ZNK6icu_7713UnicodeStringixEi.exit32 ], [ 5, %_ZNK6icu_7713UnicodeStringixEi.exit38 ], [ 6, %_ZNK6icu_7713UnicodeStringixEi.exit44 ], [ 7, %_ZNK6icu_7713UnicodeStringixEi.exit50 ], [ 3, %.fold.split10 ]
   ret i32 %.0
 }
 

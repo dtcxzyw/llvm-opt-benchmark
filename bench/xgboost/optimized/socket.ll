@@ -2712,7 +2712,7 @@ _ZN7xgboost10collective6ResultD2Ev.exit176:       ; preds = %_ZN7xgboost10collec
   br label %_ZNK5rabit5utils10PollHelper10CheckWriteERKN7xgboost10collective9TCPSocketE.exit.thread, !llvm.loop !214
 
 _ZNK5rabit5utils10PollHelper10CheckWriteERKN7xgboost10collective9TCPSocketE.exit: ; preds = %302, %286, %297
-  %.sroa.06.1.i.i.i.i = phi ptr [ %298, %297 ], [ %.sroa.06.0.i.i.i.i, %286 ], [ %304, %302 ]
+  %.sroa.06.1.i.i.i.i = phi ptr [ %.sroa.06.0.i.i.i.i, %286 ], [ %298, %297 ], [ %304, %302 ]
   %310 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i, i64 16
   %311 = load i16, ptr %310, align 4, !tbaa !215
   %312 = and i16 %311, 4
@@ -4742,8 +4742,8 @@ _ZNSt10_HashtableIiSt4pairIKi6pollfdESaIS3_ENSt8__detail10_Select1stESt8equal_to
   br label %.body102
 
 .loopexit:                                        ; preds = %307, %.noexc101..loopexit_crit_edge, %302
-  %320 = phi ptr [ %288, %302 ], [ %.pre, %.noexc101..loopexit_crit_edge ], [ %288, %307 ]
-  %.pn.i.i = phi ptr [ %303, %302 ], [ %318, %.noexc101..loopexit_crit_edge ], [ %309, %307 ]
+  %320 = phi ptr [ %.pre, %.noexc101..loopexit_crit_edge ], [ %288, %302 ], [ %288, %307 ]
+  %.pn.i.i = phi ptr [ %318, %.noexc101..loopexit_crit_edge ], [ %303, %302 ], [ %309, %307 ]
   %321 = and i16 %294, %292
   %322 = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   store i16 %321, ptr %322, align 4, !tbaa !207

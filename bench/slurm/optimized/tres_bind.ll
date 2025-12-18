@@ -307,7 +307,7 @@ _valid_num_list.exit29.i:                         ; preds = %._crit_edge.i25.i, 
   br label %_valid_gres_bind.exit
 
 _valid_gres_bind.exit:                            ; preds = %_valid_num_list.exit.i, %_valid_num_list.exit29.i, %94, %99
-  %.014.i = phi i32 [ %..i32.i, %99 ], [ %..i.i24, %94 ], [ %.2.i27.i, %_valid_num_list.exit29.i ], [ %.2.i.i, %_valid_num_list.exit.i ]
+  %.014.i = phi i32 [ %.2.i27.i, %_valid_num_list.exit29.i ], [ %..i32.i, %99 ], [ %..i.i24, %94 ], [ %.2.i.i, %_valid_num_list.exit.i ]
   %.not19 = icmp eq i32 %.014.i, 0
   br i1 %.not19, label %_valid_shared_gres_bind.exit.thread, label %_valid_shared_gres_bind.exit.thread28
 

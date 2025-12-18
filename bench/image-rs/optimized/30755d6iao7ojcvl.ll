@@ -793,7 +793,7 @@ define hidden void @"_ZN123_$LT$alloc..collections..binary_heap..BinaryHeap$LT$T
   br i1 %.not.not.i.i.i, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
 "_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$15sift_down_range17hec982d15490c4d5cE.exit.i.i": ; preds = %.lr.ph.i.i.i, %24, %20, %._crit_edge.i.i.i
-  %.0.in.in61.lcssa.sink.i.i.i = phi i64 [ %.0.lcssa.i.i.i, %24 ], [ %.0.in.in.lcssa.i.i.i, %20 ], [ %.0.in.in.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %.0.in.in61.i.i.i, %.lr.ph.i.i.i ]
+  %.0.in.in61.lcssa.sink.i.i.i = phi i64 [ %.0.in.in.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %.0.lcssa.i.i.i, %24 ], [ %.0.in.in.lcssa.i.i.i, %20 ], [ %.0.in.in61.i.i.i, %.lr.ph.i.i.i ]
   %.sroa.16.20.insert.ext.i.i.i = zext i16 %18 to i64
   %.sroa.16.20.insert.shift.i.i.i = shl nuw nsw i64 %.sroa.16.20.insert.ext.i.i.i, 32
   %.sroa.16.16.insert.ext.i.i.i = zext i32 %16 to i64
@@ -892,7 +892,7 @@ define hidden void @"_ZN132_$LT$alloc..collections..binary_heap..BinaryHeap$LT$T
   br i1 %.not.not.i.i, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 "_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$15sift_down_range17hec982d15490c4d5cE.exit.i": ; preds = %.lr.ph.i.i, %22, %18, %._crit_edge.i.i
-  %.0.in.in61.lcssa.sink.i.i = phi i64 [ %.0.lcssa.i.i, %22 ], [ %.0.in.in.lcssa.i.i, %18 ], [ %.0.in.in.lcssa.i.i, %._crit_edge.i.i ], [ %.0.in.in61.i.i, %.lr.ph.i.i ]
+  %.0.in.in61.lcssa.sink.i.i = phi i64 [ %.0.in.in.lcssa.i.i, %._crit_edge.i.i ], [ %.0.lcssa.i.i, %22 ], [ %.0.in.in.lcssa.i.i, %18 ], [ %.0.in.in61.i.i, %.lr.ph.i.i ]
   %.sroa.16.20.insert.ext.i.i = zext i16 %16 to i64
   %.sroa.16.20.insert.shift.i.i = shl nuw nsw i64 %.sroa.16.20.insert.ext.i.i, 32
   %.sroa.16.16.insert.ext.i.i = zext i32 %14 to i64
@@ -10205,7 +10205,7 @@ thread-pre-split:                                 ; preds = %"_ZN106_$LT$core..o
   br i1 %131, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he8174f4c34447c62E.exit.thread", label %148
 
 132:                                              ; preds = %116, %86
-  %.046.i = phi ptr [ %87, %86 ], [ %99, %116 ]
+  %.046.i = phi ptr [ %99, %116 ], [ %87, %86 ]
   %133 = ptrtoint ptr %.046.i to i64
   %134 = and i64 %133, 3
   switch i64 %134, label %default.unreachable [
@@ -11157,7 +11157,7 @@ thread-pre-split:                                 ; preds = %"_ZN106_$LT$core..o
   br i1 %131, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he8174f4c34447c62E.exit.thread", label %148
 
 132:                                              ; preds = %116, %86
-  %.046.i = phi ptr [ %87, %86 ], [ %99, %116 ]
+  %.046.i = phi ptr [ %99, %116 ], [ %87, %86 ]
   %133 = ptrtoint ptr %.046.i to i64
   %134 = and i64 %133, 3
   switch i64 %134, label %default.unreachable [
@@ -17459,7 +17459,7 @@ define hidden void @_ZN3std2io4copy17stack_buffer_copy17h12eb5c09002381b9E(ptr n
   br label %62
 
 .loopexit:                                        ; preds = %88, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he8174f4c34447c62E.exit50.i", %38
-  %56 = phi i64 [ %51, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he8174f4c34447c62E.exit50.i" ], [ %39, %38 ], [ %89, %88 ]
+  %56 = phi i64 [ %39, %38 ], [ %51, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he8174f4c34447c62E.exit50.i" ], [ %89, %88 ]
   %57 = load ptr, ptr %6, align 8, !nonnull !13, !align !145, !noundef !13
   %58 = load i64, ptr %8, align 8, !noundef !13
   %59 = icmp ugt i64 %56, %58
@@ -17474,7 +17474,7 @@ define hidden void @_ZN3std2io4copy17stack_buffer_copy17h12eb5c09002381b9E(ptr n
   br i1 %61, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he8174f4c34447c62E.exit.thread", label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he8174f4c34447c62E.exit21"
 
 62:                                               ; preds = %55, %23
-  %.046.i = phi ptr [ %24, %23 ], [ %36, %55 ]
+  %.046.i = phi ptr [ %36, %55 ], [ %24, %23 ]
   %63 = ptrtoint ptr %.046.i to i64
   %64 = and i64 %63, 3
   switch i64 %64, label %default.unreachable [
@@ -17692,7 +17692,7 @@ thread-pre-split:                                 ; preds = %"_ZN106_$LT$core..o
   br i1 %57, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he8174f4c34447c62E.exit.thread", label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he8174f4c34447c62E.exit21"
 
 58:                                               ; preds = %51, %21
-  %.046.i = phi ptr [ %22, %21 ], [ %34, %51 ]
+  %.046.i = phi ptr [ %34, %51 ], [ %22, %21 ]
   %59 = ptrtoint ptr %.046.i to i64
   %60 = and i64 %59, 3
   switch i64 %60, label %default.unreachable [
@@ -18125,7 +18125,7 @@ thread-pre-split:                                 ; preds = %"_ZN106_$LT$core..o
   br i1 %62, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he8174f4c34447c62E.exit.thread", label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he8174f4c34447c62E.exit21"
 
 63:                                               ; preds = %56, %22
-  %.046.i = phi ptr [ %25, %22 ], [ %39, %56 ]
+  %.046.i = phi ptr [ %39, %56 ], [ %25, %22 ]
   %64 = ptrtoint ptr %.046.i to i64
   %65 = and i64 %64, 3
   switch i64 %65, label %default.unreachable [
@@ -19056,7 +19056,7 @@ common.resume:                                    ; preds = %50
   br i1 %126, label %.loopexit, label %139
 
 "_ZN76_$LT$flate2..zlib..write..ZlibEncoder$LT$W$GT$$u20$as$u20$std..io..Write$GT$5write17hb79dfd81296aa055E.exit.thread": ; preds = %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17hf2399231378b57ceE.exit", %99, %120, %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17hf2399231378b57ceE.exit.thread82", %"_ZN76_$LT$flate2..zlib..write..ZlibEncoder$LT$W$GT$$u20$as$u20$std..io..Write$GT$5write17hb79dfd81296aa055E.exit"
-  %.in = phi i64 [ %123, %"_ZN76_$LT$flate2..zlib..write..ZlibEncoder$LT$W$GT$$u20$as$u20$std..io..Write$GT$5write17hb79dfd81296aa055E.exit" ], [ %122, %120 ], [ %90, %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17hf2399231378b57ceE.exit.thread82" ], [ 98784247811, %99 ], [ %.sroa.7.0.copyload, %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17hf2399231378b57ceE.exit" ]
+  %.in = phi i64 [ %123, %"_ZN76_$LT$flate2..zlib..write..ZlibEncoder$LT$W$GT$$u20$as$u20$std..io..Write$GT$5write17hb79dfd81296aa055E.exit" ], [ %122, %120 ], [ 98784247811, %99 ], [ %90, %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17hf2399231378b57ceE.exit.thread82" ], [ %.sroa.7.0.copyload, %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17hf2399231378b57ceE.exit" ]
   %127 = inttoptr i64 %.in to ptr
   %128 = and i64 %.in, 3
   switch i64 %128, label %default.unreachable [
@@ -24453,7 +24453,7 @@ define hidden void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %20, %._crit_edge, %16
-  %.0.in.in61.lcssa.sink = phi i64 [ %.0.lcssa, %20 ], [ %.0.in.in.lcssa, %16 ], [ %.0.in.in.lcssa, %._crit_edge ], [ %.0.in.in61, %.lr.ph ]
+  %.0.in.in61.lcssa.sink = phi i64 [ %.0.in.in.lcssa, %._crit_edge ], [ %.0.lcssa, %20 ], [ %.0.in.in.lcssa, %16 ], [ %.0.in.in61, %.lr.ph ]
   %.sroa.16.20.insert.ext = zext i16 %12 to i64
   %.sroa.16.20.insert.shift = shl nuw nsw i64 %.sroa.16.20.insert.ext, 32
   %.sroa.16.16.insert.ext = zext i32 %10 to i64
@@ -24924,7 +24924,7 @@ define hidden void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT
   br i1 %.not.not.i, label %.lr.ph.i, label %._crit_edge.i
 
 "_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$15sift_down_range17hec982d15490c4d5cE.exit": ; preds = %.lr.ph.i, %._crit_edge.i, %17, %21
-  %.0.in.in61.lcssa.sink.i = phi i64 [ %.0.lcssa.i, %21 ], [ %.0.in.in.lcssa.i, %17 ], [ %.0.in.in.lcssa.i, %._crit_edge.i ], [ %.0.in.in61.i, %.lr.ph.i ]
+  %.0.in.in61.lcssa.sink.i = phi i64 [ %.0.in.in.lcssa.i, %._crit_edge.i ], [ %.0.lcssa.i, %21 ], [ %.0.in.in.lcssa.i, %17 ], [ %.0.in.in61.i, %.lr.ph.i ]
   %.sroa.16.20.insert.ext.i = zext i16 %15 to i64
   %.sroa.16.20.insert.shift.i = shl nuw nsw i64 %.sroa.16.20.insert.ext.i, 32
   %.sroa.16.16.insert.ext.i = zext i32 %13 to i64
@@ -26679,7 +26679,7 @@ define hidden noundef ptr @"_ZN6flate23zio19Writer$LT$W$C$D$GT$6finish17h5d543d2
   br label %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17hf2399231378b57ceE.exit.thread18"
 
 "_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17hf2399231378b57ceE.exit.thread18": ; preds = %50, %35, %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17hf2399231378b57ceE.exit.thread18.loopexit20.split.loop.exit", %52
-  %.0 = phi ptr [ %53, %52 ], [ %54, %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17hf2399231378b57ceE.exit.thread18.loopexit20.split.loop.exit" ], [ inttoptr (i64 98784247811 to ptr), %35 ], [ null, %50 ]
+  %.0 = phi ptr [ inttoptr (i64 98784247811 to ptr), %35 ], [ %53, %52 ], [ %54, %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17hf2399231378b57ceE.exit.thread18.loopexit20.split.loop.exit" ], [ null, %50 ]
   ret ptr %.0
 }
 
@@ -26771,7 +26771,7 @@ define hidden noundef ptr @"_ZN6flate23zio19Writer$LT$W$C$D$GT$6finish17h6ed3369
   br label %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h6b6d39b1b2a24a1cE.exit"
 
 "_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h6b6d39b1b2a24a1cE.exit": ; preds = %40, %19, %42
-  %.0 = phi ptr [ %43, %42 ], [ inttoptr (i64 98784247811 to ptr), %19 ], [ null, %40 ]
+  %.0 = phi ptr [ inttoptr (i64 98784247811 to ptr), %19 ], [ %43, %42 ], [ null, %40 ]
   ret ptr %.0
 }
 

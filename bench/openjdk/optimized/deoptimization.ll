@@ -7916,7 +7916,7 @@ _ZN14Deoptimization16trap_action_nameEi.exit:     ; preds = %.split, %44
   br i1 %exitcond50.not, label %.loopexit30, label %_ZN14Deoptimization16trap_reason_nameEi.exit, !llvm.loop !82
 
 .loopexit30:                                      ; preds = %.loopexit29.split, %.loopexit29.split.us, %.loopexit29.split.us.us, %.loopexit29.split.us.us.us, %30
-  %.021 = phi i32 [ %31, %30 ], [ %.3.us, %.loopexit29.split.us ], [ %10, %.loopexit29.split.us.us.us ], [ %.4.us, %.loopexit29.split.us.us ], [ %.4, %.loopexit29.split ]
+  %.021 = phi i32 [ %31, %30 ], [ %.3.us, %.loopexit29.split.us ], [ %.4.us, %.loopexit29.split.us.us ], [ %10, %.loopexit29.split.us.us.us ], [ %.4, %.loopexit29.split ]
   ret i32 %.021
 }
 

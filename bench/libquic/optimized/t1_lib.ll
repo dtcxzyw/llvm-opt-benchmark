@@ -525,7 +525,7 @@ tls1_get_curvelist.exit:                          ; preds = %8
   br label %._crit_edge.thread34
 
 ._crit_edge.thread34:                             ; preds = %._crit_edge.thread34.loopexit42.split.loop.exit, %tls1_get_curvelist.exit.thread, %tls1_get_curvelist.exit, %8, %23
-  %.014 = phi i32 [ 0, %23 ], [ 1, %tls1_get_curvelist.exit ], [ 0, %tls1_get_curvelist.exit.thread ], [ %.mux.le, %._crit_edge.thread34.loopexit42.split.loop.exit ], [ 1, %8 ]
+  %.014 = phi i32 [ 0, %23 ], [ 1, %tls1_get_curvelist.exit ], [ %.mux.le, %._crit_edge.thread34.loopexit42.split.loop.exit ], [ 0, %tls1_get_curvelist.exit.thread ], [ 1, %8 ]
   ret i32 %.014
 }
 
@@ -624,7 +624,7 @@ tls1_get_curvelist.exit.i:                        ; preds = %26
   br i1 %brmerge.not, label %25, label %tls1_check_curve_id.exit.loopexit24
 
 tls1_check_curve_id.exit.loopexit24:              ; preds = %tls1_get_curvelist.exit.i, %tls1_get_curvelist.exit.thread.i, %26, %._crit_edge.i
-  %.014.i.not.ph = phi i1 [ true, %26 ], [ true, %tls1_get_curvelist.exit.i ], [ %43, %._crit_edge.i ], [ false, %tls1_get_curvelist.exit.thread.i ]
+  %.014.i.not.ph = phi i1 [ true, %tls1_get_curvelist.exit.i ], [ %43, %._crit_edge.i ], [ false, %tls1_get_curvelist.exit.thread.i ], [ true, %26 ]
   %44 = select i1 %.014.i.not.ph, i1 %20, i1 false
   %45 = zext i1 %44 to i32
   br label %tls1_check_curve_id.exit
@@ -3632,7 +3632,7 @@ define internal range(i32 0, 2) i32 @ext_sct_parse_serverhello(ptr noundef reado
   br label %18
 
 18:                                               ; preds = %.sink.split, %8, %12, %3
-  %.0 = phi i32 [ 1, %3 ], [ 1, %12 ], [ 1, %8 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 1, %8 ], [ 1, %12 ], [ 1, %3 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 
@@ -4234,7 +4234,7 @@ define internal range(i32 0, 2) i32 @ext_srtp_add_clienthello(ptr noundef %0, pt
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %25, %23, %10, %12, %14
-  %.2 = phi i32 [ 0, %10 ], [ 0, %14 ], [ 0, %12 ], [ 0, %23 ], [ %spec.select, %25 ], [ 0, %.preheader ]
+  %.2 = phi i32 [ 0, %10 ], [ 0, %14 ], [ 0, %12 ], [ %spec.select, %25 ], [ 0, %23 ], [ 0, %.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %27

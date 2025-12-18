@@ -3495,7 +3495,7 @@ compute_band_indexes.exit.i:                      ; preds = %1103, %1100, %1095
   br label %.loopexit417.i
 
 .loopexit417.i:                                   ; preds = %.loopexit417.loopexit519.i, %.lr.ph474.preheader.i, %.preheader416.i, %.preheader418.i
-  %.14.i = phi i32 [ %.11322477.i, %.preheader416.i ], [ %.11322477.i, %.preheader418.i ], [ %1449, %.lr.ph474.preheader.i ], [ %1467, %.loopexit417.loopexit519.i ]
+  %.14.i = phi i32 [ %1449, %.lr.ph474.preheader.i ], [ %.11322477.i, %.preheader416.i ], [ %.11322477.i, %.preheader418.i ], [ %1467, %.loopexit417.loopexit519.i ]
   %indvars.iv.next585.i = add nuw nsw i64 %indvars.iv584.i, 1
   %exitcond587.not.i = icmp eq i64 %indvars.iv.next585.i, 4
   br i1 %exitcond587.not.i, label %.preheader430.i, label %1439, !llvm.loop !164
@@ -4382,7 +4382,7 @@ switch_buffer.exit219.i.i:                        ; preds = %1928, %1923, %1921
   br label %.thread292.i.i
 
 .thread292.i.i:                                   ; preds = %.thread292.sink.split.i.i, %1999, %1998, %1995
-  %.9.i.i = phi i32 [ %.6.i.i, %1999 ], [ %.6.i.i, %1998 ], [ %.6.i.i, %1995 ], [ 0, %.thread292.sink.split.i.i ]
+  %.9.i.i = phi i32 [ %.6.i.i, %1995 ], [ %.6.i.i, %1998 ], [ %.6.i.i, %1999 ], [ 0, %.thread292.sink.split.i.i ]
   %2003 = sext i32 %.9.i.i to i64
   %2004 = getelementptr inbounds i32, ptr %1553, i64 %2003
   %2005 = sub nsw i32 576, %.9.i.i
@@ -4751,7 +4751,7 @@ huffman_decode.exit.i:                            ; preds = %2020, %2015, %.thre
   br i1 %exitcond266.not.i.i, label %.loopexit168.i.i, label %.lr.ph205.i.i, !llvm.loop !186
 
 .loopexit168.i.i:                                 ; preds = %.lr.ph205.i.i, %2156, %.loopexit171.i.i, %.preheader170.i.i
-  %.2141.i.i = phi i32 [ %.1140.i.i, %.loopexit171.i.i ], [ 0, %.preheader170.i.i ], [ 0, %2156 ], [ %.1140.i.i, %.lr.ph205.i.i ]
+  %.2141.i.i = phi i32 [ 0, %2156 ], [ %.1140.i.i, %.loopexit171.i.i ], [ 0, %.preheader170.i.i ], [ %.1140.i.i, %.lr.ph205.i.i ]
   %2184 = icmp sgt i64 %indvars.iv272.i.i, 1
   br i1 %2184, label %2129, label %compute_stereo.exit.i, !llvm.loop !187
 

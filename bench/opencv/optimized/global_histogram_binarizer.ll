@@ -1603,7 +1603,7 @@ define hidden noundef range(i32 -2147483617, 256) i32 @_ZN5zxing24GlobalHistogra
   br i1 %or.cond140, label %.loopexit, label %74
 
 .loopexit:                                        ; preds = %.lr.ph166, %63, %.lr.ph173, %74, %68, %.thread, %72, %70, %.thread.thread
-  %.2 = phi i32 [ 0, %72 ], [ 255, %.thread.thread ], [ 0, %68 ], [ 0, %.thread ], [ 255, %70 ], [ 0, %74 ], [ %76, %.lr.ph173 ], [ 255, %63 ], [ %65, %.lr.ph166 ]
+  %.2 = phi i32 [ 0, %.thread ], [ 255, %.thread.thread ], [ 0, %68 ], [ 0, %72 ], [ 0, %74 ], [ 255, %70 ], [ %76, %.lr.ph173 ], [ 255, %63 ], [ %65, %.lr.ph166 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.2

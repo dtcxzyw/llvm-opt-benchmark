@@ -4090,7 +4090,7 @@ bdrv_filter_or_cow_bs.exit:                       ; preds = %.preheader, %80
   br i1 %.not.i.i142, label %.preheader.backedge, label %87
 
 .preheader.backedge:                              ; preds = %85, %87
-  %.0118.be = phi ptr [ %88, %87 ], [ null, %85 ]
+  %.0118.be = phi ptr [ null, %85 ], [ %88, %87 ]
   br label %.preheader, !llvm.loop !22
 
 87:                                               ; preds = %85

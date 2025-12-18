@@ -552,7 +552,7 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i: ; preds = %._crit_edge.i
   br label %"_ZZN5clang5Scope19updateNRVOCandidateEPNS_7VarDeclEENK3$_0clEPS0_.exit"
 
 "_ZZN5clang5Scope19updateNRVOCandidateEPNS_7VarDeclEENK3$_0clEPS0_.exit": ; preds = %.lr.ph.i.i6.i, %_ZNK4llvm15SmallPtrSetImplIPN5clang7VarDeclEE8containsEPKS2_.exit.thread.thread.i, %33, %34, %_ZN4llvm19SmallPtrSetImplBase5clearEv.exit.i, %52, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i
-  %.1.i.i79.i = phi i1 [ false, %33 ], [ false, %34 ], [ false, %_ZNK4llvm15SmallPtrSetImplIPN5clang7VarDeclEE8containsEPKS2_.exit.thread.thread.i ], [ false, %_ZN4llvm19SmallPtrSetImplBase5clearEv.exit.i ], [ true, %52 ], [ true, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i ], [ true, %.lr.ph.i.i6.i ]
+  %.1.i.i79.i = phi i1 [ false, %33 ], [ false, %34 ], [ false, %_ZNK4llvm15SmallPtrSetImplIPN5clang7VarDeclEE8containsEPKS2_.exit.thread.thread.i ], [ false, %_ZN4llvm19SmallPtrSetImplBase5clearEv.exit.i ], [ true, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i ], [ true, %52 ], [ true, %.lr.ph.i.i6.i ]
   %55 = or i1 %.0813, %.1.i.i79.i
   %56 = getelementptr inbounds nuw i8, ptr %.014, i64 8
   %57 = load i32, ptr %56, align 8, !tbaa !30

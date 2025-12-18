@@ -140,8 +140,8 @@ define i32 @wc_PBKDF1_ex(ptr noundef writeonly captures(address_is_null) %0, i32
   br label %68
 
 68:                                               ; preds = %52, %65
-  %.195 = phi i32 [ %67, %65 ], [ %.094157, %52 ]
-  %.2 = phi i32 [ %66, %65 ], [ %.3, %52 ]
+  %.195 = phi i32 [ %.094157, %52 ], [ %67, %65 ]
+  %.2 = phi i32 [ %.3, %52 ], [ %66, %65 ]
   %69 = icmp slt i32 %.2, %25
   br i1 %69, label %28, label %._crit_edge160
 
@@ -371,7 +371,7 @@ xorbuf.exit.us:                                   ; preds = %.lr.ph38.i.us, %Xor
   br i1 %.not131, label %.thread88, label %.lr.ph105.split.split
 
 .thread88:                                        ; preds = %78, %.lr.ph105.split.split, %76, %.preheader, %._crit_edge.us, %.lr.ph105.split.us, %34, %.preheader.us, %45, %43, %25
-  %.2 = phi i32 [ %46, %45 ], [ %26, %25 ], [ %64, %.preheader.us ], [ 0, %._crit_edge.us ], [ %75, %.preheader ], [ %44, %43 ], [ %31, %.lr.ph105.split.us ], [ %35, %34 ], [ %68, %.lr.ph105.split.split ], [ 0, %78 ], [ %77, %76 ]
+  %.2 = phi i32 [ %46, %45 ], [ %75, %.preheader ], [ %26, %25 ], [ 0, %._crit_edge.us ], [ %64, %.preheader.us ], [ %44, %43 ], [ %31, %.lr.ph105.split.us ], [ %35, %34 ], [ %68, %.lr.ph105.split.split ], [ %77, %76 ], [ 0, %78 ]
   call void @wc_HmacFree(ptr noundef nonnull %12) #6
   br label %84
 
@@ -695,7 +695,7 @@ DoPKCS12Hash.exit:                                ; preds = %73, %._crit_edge.i
   br i1 %139, label %73, label %.thread162
 
 .thread162.sink.split:                            ; preds = %.thread158, %103, %101, %97, %99, %.lr.ph178
-  %.1127.ph = phi i32 [ -110, %.lr.ph178 ], [ -115, %101 ], [ %.0.i, %103 ], [ -111, %99 ], [ -110, %97 ], [ %.7.fr, %.thread158 ]
+  %.1127.ph = phi i32 [ -110, %.lr.ph178 ], [ %.0.i, %103 ], [ -111, %99 ], [ -110, %97 ], [ %.7.fr, %.thread158 ], [ -115, %101 ]
   call void @sp_clear(ptr noundef nonnull %15) #6
   br label %.thread162
 

@@ -822,7 +822,7 @@ _ZN12ConstantPool23find_cached_constant_atEiRbP10JavaThread.exit48: ; preds = %1
   br i1 %155, label %108, label %.critedge
 
 .thread72:                                        ; preds = %95, %108, %.preheader, %.thread63
-  %156 = phi i32 [ %36, %.thread63 ], [ %99, %.preheader ], [ %110, %108 ], [ %97, %95 ]
+  %156 = phi i32 [ %110, %108 ], [ %36, %.thread63 ], [ %99, %.preheader ], [ %97, %95 ]
   %157 = load ptr, ptr @_ZN9vmClasses8_klassesE, align 8
   %158 = call noundef ptr @_ZN10oopFactory12new_objArrayEP5KlassiP10JavaThread(ptr noundef %157, i32 noundef %156, ptr noundef %1) #10
   %159 = getelementptr inbounds nuw i8, ptr %1, i64 8

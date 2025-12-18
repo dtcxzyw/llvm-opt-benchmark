@@ -844,7 +844,7 @@ dissect_extended_cmts_mic.exit.sink.split.i:      ; preds = %306, %305, %86, %85
   br label %dissect_extended_cmts_mic.exit.i
 
 dissect_extended_cmts_mic.exit.i:                 ; preds = %dissect_ip_multicast_join_authorization_static_session_rule.exit.i.i, %202, %dissect_sav_static_prefix_rule.exit.i.i, %101, %dissect_extended_cmts_mic.exit.sink.split.i, %205, %159, %106, %87
-  %.pre-phi = phi i32 [ %92, %87 ], [ %.pre, %dissect_extended_cmts_mic.exit.sink.split.i ], [ %210, %205 ], [ %164, %159 ], [ %111, %106 ], [ %164, %202 ], [ %92, %101 ], [ %111, %dissect_sav_static_prefix_rule.exit.i.i ], [ %210, %dissect_ip_multicast_join_authorization_static_session_rule.exit.i.i ]
+  %.pre-phi = phi i32 [ %164, %202 ], [ %111, %dissect_sav_static_prefix_rule.exit.i.i ], [ %92, %101 ], [ %92, %87 ], [ %.pre, %dissect_extended_cmts_mic.exit.sink.split.i ], [ %210, %205 ], [ %164, %159 ], [ %111, %106 ], [ %210, %dissect_ip_multicast_join_authorization_static_session_rule.exit.i.i ]
   %309 = icmp slt i32 %.pre-phi, %7
   br i1 %309, label %.lr.ph.i31, label %dissect_general_extension_information.exit, !llvm.loop !15
 

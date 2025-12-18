@@ -967,7 +967,7 @@ define internal void @_edit_clicked(ptr readnone captures(none) %0, ptr noundef 
   br i1 %.not53, label %.loopexit70, label %.lr.ph77
 
 .loopexit70:                                      ; preds = %55, %15, %37, %._crit_edge
-  %.044.lcssa85 = phi ptr [ null, %._crit_edge ], [ %.1, %37 ], [ null, %15 ], [ %.1, %55 ]
+  %.044.lcssa85 = phi ptr [ null, %15 ], [ null, %._crit_edge ], [ %.1, %37 ], [ %.1, %55 ]
   call void @g_list_free_full(ptr noundef %.044.lcssa85, ptr noundef nonnull @g_free) #14
   call void @g_list_free_full(ptr noundef %18, ptr noundef nonnull @gtk_tree_path_free) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -1622,7 +1622,7 @@ _get_node_for_name.exit:                          ; preds = %36
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %51
 
-44:                                               ; preds = %42, %28, %34
+44:                                               ; preds = %42, %34, %28
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %45 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %46 = load ptr, ptr %45, align 8, !tbaa !10

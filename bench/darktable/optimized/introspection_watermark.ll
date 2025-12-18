@@ -1018,22 +1018,22 @@ _watermark_get_svgdoc.exit:                       ; preds = %._crit_edge.i, %84
   %333 = fdiv reassoc nsz arcp contract afn float %332, %247
   br label %342
 
-334:                                              ; preds = %.thread464, %.thread450.thread, %.thread450.thread550, %.thread450.thread554, %.thread450, %.thread458
-  %.0407497 = phi float [ %263, %.thread464 ], [ %256, %.thread458 ], [ %327, %.thread450 ], [ %306, %.thread450.thread554 ], [ %292, %.thread450.thread550 ], [ %282, %.thread450.thread ]
-  %.0402454496 = phi float [ %260, %.thread464 ], [ %253, %.thread458 ], [ %241, %.thread450 ], [ %241, %.thread450.thread554 ], [ %241, %.thread450.thread550 ], [ %241, %.thread450.thread ]
-  %.0401456495 = phi float [ %260, %.thread464 ], [ %253, %.thread458 ], [ %238, %.thread450 ], [ %238, %.thread450.thread554 ], [ %238, %.thread450.thread550 ], [ %238, %.thread450.thread ]
-  %335 = phi ptr [ %261, %.thread464 ], [ %254, %.thread458 ], [ %320, %.thread450 ], [ %299, %.thread450.thread554 ], [ %287, %.thread450.thread550 ], [ %277, %.thread450.thread ]
-  %336 = phi float [ %265, %.thread464 ], [ %258, %.thread458 ], [ %324, %.thread450 ], [ %303, %.thread450.thread554 ], [ %291, %.thread450.thread550 ], [ %281, %.thread450.thread ]
+334:                                              ; preds = %.thread458, %.thread464, %.thread450.thread554, %.thread450.thread, %.thread450.thread550, %.thread450
+  %.0407497 = phi float [ %256, %.thread458 ], [ %327, %.thread450 ], [ %292, %.thread450.thread550 ], [ %282, %.thread450.thread ], [ %306, %.thread450.thread554 ], [ %263, %.thread464 ]
+  %.0402454496 = phi float [ %253, %.thread458 ], [ %241, %.thread450 ], [ %241, %.thread450.thread550 ], [ %241, %.thread450.thread ], [ %241, %.thread450.thread554 ], [ %260, %.thread464 ]
+  %.0401456495 = phi float [ %253, %.thread458 ], [ %238, %.thread450 ], [ %238, %.thread450.thread550 ], [ %238, %.thread450.thread ], [ %238, %.thread450.thread554 ], [ %260, %.thread464 ]
+  %335 = phi ptr [ %254, %.thread458 ], [ %320, %.thread450 ], [ %287, %.thread450.thread550 ], [ %277, %.thread450.thread ], [ %299, %.thread450.thread554 ], [ %261, %.thread464 ]
+  %336 = phi float [ %258, %.thread458 ], [ %324, %.thread450 ], [ %291, %.thread450.thread550 ], [ %281, %.thread450.thread ], [ %303, %.thread450.thread554 ], [ %265, %.thread464 ]
   %.pn = fmul reassoc nsz arcp contract afn float %.0407497, %247
   %337 = fdiv reassoc nsz arcp contract afn float %.pn, %246
   br label %342
 
-338:                                              ; preds = %.thread464, %.thread450.thread, %.thread450.thread550, %.thread450.thread554, %.thread450, %.thread458
-  %.0407487 = phi float [ %282, %.thread450.thread ], [ %256, %.thread458 ], [ %263, %.thread464 ], [ %327, %.thread450 ], [ %306, %.thread450.thread554 ], [ %292, %.thread450.thread550 ]
-  %.0402454486 = phi float [ %241, %.thread450.thread ], [ %253, %.thread458 ], [ %260, %.thread464 ], [ %241, %.thread450 ], [ %241, %.thread450.thread554 ], [ %241, %.thread450.thread550 ]
-  %.0401456485 = phi float [ %238, %.thread450.thread ], [ %253, %.thread458 ], [ %260, %.thread464 ], [ %238, %.thread450 ], [ %238, %.thread450.thread554 ], [ %238, %.thread450.thread550 ]
-  %339 = phi ptr [ %277, %.thread450.thread ], [ %254, %.thread458 ], [ %261, %.thread464 ], [ %320, %.thread450 ], [ %299, %.thread450.thread554 ], [ %287, %.thread450.thread550 ]
-  %340 = phi float [ %281, %.thread450.thread ], [ %258, %.thread458 ], [ %265, %.thread464 ], [ %324, %.thread450 ], [ %303, %.thread450.thread554 ], [ %291, %.thread450.thread550 ]
+338:                                              ; preds = %.thread458, %.thread464, %.thread450.thread554, %.thread450.thread, %.thread450.thread550, %.thread450
+  %.0407487 = phi float [ %263, %.thread464 ], [ %327, %.thread450 ], [ %256, %.thread458 ], [ %292, %.thread450.thread550 ], [ %282, %.thread450.thread ], [ %306, %.thread450.thread554 ]
+  %.0402454486 = phi float [ %260, %.thread464 ], [ %241, %.thread450 ], [ %253, %.thread458 ], [ %241, %.thread450.thread550 ], [ %241, %.thread450.thread ], [ %241, %.thread450.thread554 ]
+  %.0401456485 = phi float [ %260, %.thread464 ], [ %238, %.thread450 ], [ %253, %.thread458 ], [ %238, %.thread450.thread550 ], [ %238, %.thread450.thread ], [ %238, %.thread450.thread554 ]
+  %339 = phi ptr [ %261, %.thread464 ], [ %320, %.thread450 ], [ %254, %.thread458 ], [ %287, %.thread450.thread550 ], [ %277, %.thread450.thread ], [ %299, %.thread450.thread554 ]
+  %340 = phi float [ %265, %.thread464 ], [ %324, %.thread450 ], [ %258, %.thread458 ], [ %291, %.thread450.thread550 ], [ %281, %.thread450.thread ], [ %303, %.thread450.thread554 ]
   %.pn530 = fmul reassoc nsz arcp contract afn float %.0407487, %246
   %341 = fdiv reassoc nsz arcp contract afn float %.pn530, %247
   br label %342
@@ -1180,7 +1180,7 @@ _watermark_get_svgdoc.exit:                       ; preds = %._crit_edge.i, %84
   br label %424
 
 424:                                              ; preds = %417, %417, %417, %.fold.split, %418, %421
-  %.0399 = phi nsz float [ %420, %418 ], [ %423, %421 ], [ %401, %417 ], [ %401, %417 ], [ %401, %417 ], [ 0.000000e+00, %.fold.split ]
+  %.0399 = phi nsz float [ %401, %417 ], [ %420, %418 ], [ %423, %421 ], [ %401, %417 ], [ %401, %417 ], [ 0.000000e+00, %.fold.split ]
   %425 = load i32, ptr %4, align 4, !tbaa !117
   %426 = sub nsw i32 0, %425
   %427 = sitofp i32 %426 to double

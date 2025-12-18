@@ -761,7 +761,7 @@ for.body64:                                       ; preds = %for.body64, %for.bo
   br i1 %cmp62, label %for.body64, label %for.cond.cleanup63.loopexit, !llvm.loop !49
 
 cleanup:                                          ; preds = %for.cond.cleanup63, %for.cond14.for.cond.cleanup17_crit_edge.us, %for.cond14.for.cond.cleanup17_crit_edge.us.us, %for.cond60.preheader.lr.ph, %if.end26.i, %for.cond14.preheader.lr.ph, %while.end14.i, %_ZN3irr3gui19checkFontBitmapSizeERK10FT_Bitmap_.exit
-  %retval.0 = phi ptr [ null, %_ZN3irr3gui19checkFontBitmapSizeERK10FT_Bitmap_.exit ], [ %call5, %while.end14.i ], [ %call38, %if.end26.i ], [ %call5, %for.cond14.preheader.lr.ph ], [ %call38, %for.cond60.preheader.lr.ph ], [ %call5, %for.cond14.for.cond.cleanup17_crit_edge.us ], [ %call5, %for.cond14.for.cond.cleanup17_crit_edge.us.us ], [ %call38, %for.cond.cleanup63 ]
+  %retval.0 = phi ptr [ null, %_ZN3irr3gui19checkFontBitmapSizeERK10FT_Bitmap_.exit ], [ %call5, %while.end14.i ], [ %call38, %if.end26.i ], [ %call5, %for.cond14.preheader.lr.ph ], [ %call38, %for.cond60.preheader.lr.ph ], [ %call5, %for.cond14.for.cond.cleanup17_crit_edge.us.us ], [ %call5, %for.cond14.for.cond.cleanup17_crit_edge.us ], [ %call38, %for.cond.cleanup63 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %texture_size)
   ret ptr %retval.0
 }

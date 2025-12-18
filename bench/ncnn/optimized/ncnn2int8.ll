@@ -24939,7 +24939,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %654, %_ZN4ncnn3MatD
   resume { ptr, i32 } %.pn109
 
 .thread:                                          ; preds = %669, %1, %_ZN4ncnn3MatD2Ev.exit116, %_ZN4ncnn3MatD2Ev.exit
-  %681 = phi i32 [ -100, %_ZN4ncnn3MatD2Ev.exit ], [ -100, %_ZN4ncnn3MatD2Ev.exit116 ], [ 0, %1 ], [ 0, %669 ]
+  %681 = phi i32 [ -100, %_ZN4ncnn3MatD2Ev.exit116 ], [ -100, %_ZN4ncnn3MatD2Ev.exit ], [ 0, %1 ], [ 0, %669 ]
   ret i32 %681
 }
 
@@ -26996,7 +26996,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %898, %_ZN4ncnn3MatD
   resume { ptr, i32 } %.pn134
 
 .thread:                                          ; preds = %913, %1, %_ZN4ncnn3MatD2Ev.exit149, %_ZN4ncnn3MatD2Ev.exit147, %_ZN4ncnn3MatD2Ev.exit145, %_ZN4ncnn3MatD2Ev.exit
-  %925 = phi i32 [ -100, %_ZN4ncnn3MatD2Ev.exit ], [ -100, %_ZN4ncnn3MatD2Ev.exit145 ], [ -100, %_ZN4ncnn3MatD2Ev.exit147 ], [ -100, %_ZN4ncnn3MatD2Ev.exit149 ], [ 0, %1 ], [ 0, %913 ]
+  %925 = phi i32 [ -100, %_ZN4ncnn3MatD2Ev.exit149 ], [ -100, %_ZN4ncnn3MatD2Ev.exit ], [ -100, %_ZN4ncnn3MatD2Ev.exit145 ], [ -100, %_ZN4ncnn3MatD2Ev.exit147 ], [ 0, %1 ], [ 0, %913 ]
   ret i32 %925
 }
 
@@ -28454,7 +28454,7 @@ _ZN4ncnn3Mat7releaseEv.exit240:                   ; preds = %839, %838, %824, %8
   br label %_ZN4ncnn3MataSERKS0_.exit
 
 _ZN4ncnn3MataSERKS0_.exit:                        ; preds = %447, %._crit_edge301, %511, %505, %492, %._ZN4ncnn3MataSERKS0_.exit_crit_edge, %_ZN4ncnn3Mat7releaseEv.exit240, %.critedge204, %._crit_edge292, %_ZN4ncnn3MataSERKS0_.exit206, %793, %810, %801, %727, %719, %646, %638, %565, %557
-  %.pre-phi = phi i64 [ %.pre343, %._ZN4ncnn3MataSERKS0_.exit_crit_edge ], [ %.0158287, %_ZN4ncnn3Mat7releaseEv.exit240 ], [ %.0158287, %.critedge204 ], [ %.0158287, %._crit_edge292 ], [ %.0158287, %_ZN4ncnn3MataSERKS0_.exit206 ], [ %.0158287, %793 ], [ %.0158287, %810 ], [ %.0158287, %801 ], [ %.0158287, %727 ], [ %.0158287, %719 ], [ %.0158287, %646 ], [ %.0158287, %638 ], [ %.0158287, %565 ], [ %.0158287, %557 ], [ %.0158287, %._crit_edge301 ], [ %.0158287, %492 ], [ %.0158287, %505 ], [ %.0158287, %511 ], [ %.0158287, %447 ]
+  %.pre-phi = phi i64 [ %.pre343, %._ZN4ncnn3MataSERKS0_.exit_crit_edge ], [ %.0158287, %._crit_edge301 ], [ %.0158287, %_ZN4ncnn3Mat7releaseEv.exit240 ], [ %.0158287, %.critedge204 ], [ %.0158287, %._crit_edge292 ], [ %.0158287, %_ZN4ncnn3MataSERKS0_.exit206 ], [ %.0158287, %793 ], [ %.0158287, %810 ], [ %.0158287, %801 ], [ %.0158287, %727 ], [ %.0158287, %719 ], [ %.0158287, %646 ], [ %.0158287, %638 ], [ %.0158287, %565 ], [ %.0158287, %557 ], [ %.0158287, %492 ], [ %.0158287, %505 ], [ %.0158287, %511 ], [ %.0158287, %447 ]
   %exitcond319.not = icmp eq i64 %.pre-phi, %10
   br i1 %exitcond319.not, label %._crit_edge312, label %403, !llvm.loop !863
 }

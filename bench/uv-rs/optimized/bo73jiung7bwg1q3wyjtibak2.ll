@@ -1616,7 +1616,7 @@ _ZN4core3ops8function6FnOnce9call_once17h958613dd6c04af7cE.exit: ; preds = %.pre
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %149
 
-_ZN4core3ops8function6FnOnce9call_once17h958613dd6c04af7cE.exit.thread: ; preds = %117, %126, %128, %.lr.ph.i.i.i.i, %108, %108, %107
+_ZN4core3ops8function6FnOnce9call_once17h958613dd6c04af7cE.exit.thread: ; preds = %128, %117, %126, %.lr.ph.i.i.i.i, %108, %108, %107
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !290
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$15try_allocate_in17he68bd1692bcae451E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, i64 noundef %.sroa.8.0, i1 noundef zeroext false, i64 noundef 1, i64 noundef 1)
           to label %.noexc160 unwind label %103

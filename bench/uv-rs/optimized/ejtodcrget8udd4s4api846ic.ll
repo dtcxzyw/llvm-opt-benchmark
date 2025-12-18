@@ -2358,7 +2358,7 @@ define void @_ZN8uv_cache5Cache9freshness17h4a43ada8faa3e852E(ptr dead_on_unwind
   br label %25
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h11c527a3a1628c88E.exit": ; preds = %34, %"_ZN8uv_cache5Cache9freshness28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd261019174250d94E.exit.i", %20, %23
-  %.sroa.05.0 = phi ptr [ %21, %20 ], [ %24, %23 ], [ %21, %"_ZN8uv_cache5Cache9freshness28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd261019174250d94E.exit.i" ], [ %21, %34 ]
+  %.sroa.05.0 = phi ptr [ %21, %20 ], [ %21, %"_ZN8uv_cache5Cache9freshness28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd261019174250d94E.exit.i" ], [ %24, %23 ], [ %21, %34 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
   %58 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %59 = load ptr, ptr %58, align 8, !nonnull !4, !noundef !4
@@ -12237,7 +12237,7 @@ define void @"_ZN61_$LT$uv_cache..Link$u20$as$u20$core..str..traits..FromStr$GT$
   br i1 %80, label %84, label %82
 
 .loopexit:                                        ; preds = %59, %48, %57, %.lr.ph.i, %37, %39, %39
-  %.sroa.8.0.i.ph = phi i8 [ 0, %37 ], [ 1, %39 ], [ 1, %39 ], [ 1, %.lr.ph.i ], [ 2, %59 ], [ 1, %48 ], [ 2, %57 ]
+  %.sroa.8.0.i.ph = phi i8 [ 1, %39 ], [ 1, %.lr.ph.i ], [ 0, %37 ], [ 1, %39 ], [ 2, %59 ], [ 1, %48 ], [ 2, %57 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 %.sroa.8.0.i.ph, ptr %7, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -12670,7 +12670,7 @@ define void @_ZN8uv_cache7Refresh7combine17hf4189710ea5acaf3E(ptr dead_on_unwind
           to label %185 unwind label %182
 
 51:                                               ; preds = %85, %185, %174, %166, %158, %141, %72, %37
-  %.sroa.0.2 = phi i8 [ %.sroa.0.1, %185 ], [ 1, %174 ], [ 1, %37 ], [ 1, %72 ], [ 1, %85 ], [ 1, %141 ], [ 1, %158 ], [ 1, %166 ]
+  %.sroa.0.2 = phi i8 [ %.sroa.0.1, %185 ], [ 1, %174 ], [ 1, %37 ], [ 1, %166 ], [ 1, %72 ], [ 1, %85 ], [ 1, %158 ], [ 1, %141 ]
   %52 = load i64, ptr %11, align 8, !range !105, !noundef !4
   %53 = icmp slt i64 %52, -9223372036854775805
   %54 = icmp ne i64 %52, -9223372036854775807

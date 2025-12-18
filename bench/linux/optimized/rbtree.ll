@@ -1469,7 +1469,7 @@ define dso_local ptr @rb_next_postorder(ptr noundef readonly captures(address) %
   br i1 %23, label %.loopexit, label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %20, %.preheader
-  %.be = phi ptr [ %18, %.preheader ], [ %22, %20 ]
+  %.be = phi ptr [ %22, %20 ], [ %18, %.preheader ]
   br label %.preheader, !llvm.loop !19
 
 .loopexit:                                        ; preds = %20, %12, %8, %3, %1
@@ -1497,7 +1497,7 @@ define dso_local ptr @rb_first_postorder(ptr noundef readonly captures(none) %0)
   br i1 %11, label %.loopexit, label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %8, %.preheader
-  %.be = phi ptr [ %6, %.preheader ], [ %10, %8 ]
+  %.be = phi ptr [ %10, %8 ], [ %6, %.preheader ]
   br label %.preheader, !llvm.loop !19
 
 .loopexit:                                        ; preds = %8, %1

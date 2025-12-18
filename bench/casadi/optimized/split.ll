@@ -4490,7 +4490,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68: ; preds = %.lo
   br i1 %136, label %.loopexit, label %133
 
 .loopexit:                                        ; preds = %133, %.loopexit.loopexit86, %.thread
-  %.pn24 = phi { ptr, i32 } [ %86, %.thread ], [ %132, %.loopexit.loopexit86 ], [ %97, %133 ]
+  %.pn24 = phi { ptr, i32 } [ %132, %.loopexit.loopexit86 ], [ %86, %.thread ], [ %97, %133 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @_ZN6casadi8FunctionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #27
   br label %137

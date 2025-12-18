@@ -38870,12 +38870,12 @@ thread-pre-split:                                 ; preds = %8
   br i1 %57, label %_ZN5arrow8internal8ParseHexIjEEbPKcmPT_.exit.thread, label %_ZN5arrow8internal8ParseHexIjEEbPKcmPT_.exit.thread.sink.split, !prof !195
 
 _ZN5arrow8internal8ParseHexIjEEbPKcmPT_.exit.thread.sink.split: ; preds = %35, %54, %56
-  %storemerge.sink = phi i32 [ %55, %54 ], [ %51, %56 ], [ %.2.i, %35 ]
+  %storemerge.sink = phi i32 [ %51, %56 ], [ %55, %54 ], [ %.2.i, %35 ]
   store i32 %storemerge.sink, ptr %4, align 4, !tbaa !188
   br label %_ZN5arrow8internal8ParseHexIjEEbPKcmPT_.exit.thread
 
 _ZN5arrow8internal8ParseHexIjEEbPKcmPT_.exit.thread: ; preds = %30, %_ZN5arrow8internal8ParseHexIjEEbPKcmPT_.exit.thread.sink.split, %15, %56, %52, %.critedge, %38, %5
-  %.022 = phi i1 [ false, %38 ], [ false, %5 ], [ false, %56 ], [ false, %.critedge ], [ false, %52 ], [ false, %15 ], [ true, %_ZN5arrow8internal8ParseHexIjEEbPKcmPT_.exit.thread.sink.split ], [ false, %30 ]
+  %.022 = phi i1 [ false, %38 ], [ true, %_ZN5arrow8internal8ParseHexIjEEbPKcmPT_.exit.thread.sink.split ], [ false, %5 ], [ false, %56 ], [ false, %.critedge ], [ false, %15 ], [ false, %52 ], [ false, %30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.022
 }
@@ -43591,7 +43591,7 @@ thread-pre-split:                                 ; preds = %7
   br i1 %.not48.i, label %_ZN5arrow8internal8ParseHexIhEEbPKcmPT_.exit.thread, label %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit, !prof !2799
 
 _ZN5arrow8internal13ParseUnsignedEPKcmPh.exit:    ; preds = %62, %55, %47
-  %.133 = phi i8 [ %54, %55 ], [ %45, %47 ], [ %.46.i, %62 ]
+  %.133 = phi i8 [ %45, %47 ], [ %54, %55 ], [ %.46.i, %62 ]
   br i1 %37, label %65, label %68
 
 _ZN5arrow8internal13ParseUnsignedEPKcmPh.exit.thread38: ; preds = %41
@@ -43611,12 +43611,12 @@ _ZN5arrow8internal13ParseUnsignedEPKcmPh.exit.thread38: ; preds = %41
   br i1 %69, label %_ZN5arrow8internal8ParseHexIhEEbPKcmPT_.exit.thread, label %_ZN5arrow8internal8ParseHexIhEEbPKcmPT_.exit.thread.sink.split, !prof !2800
 
 _ZN5arrow8internal8ParseHexIhEEbPKcmPT_.exit.thread.sink.split: ; preds = %30, %.thread42, %68, %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit.thread38
-  %storemerge.sink = phi i8 [ %67, %.thread42 ], [ %.133, %68 ], [ 0, %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit.thread38 ], [ %.2.i, %30 ]
+  %storemerge.sink = phi i8 [ 0, %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit.thread38 ], [ %67, %.thread42 ], [ %.133, %68 ], [ %.2.i, %30 ]
   store i8 %storemerge.sink, ptr %4, align 1, !tbaa !38
   br label %_ZN5arrow8internal8ParseHexIhEEbPKcmPT_.exit.thread
 
 _ZN5arrow8internal8ParseHexIhEEbPKcmPT_.exit.thread: ; preds = %26, %_ZN5arrow8internal8ParseHexIhEEbPKcmPT_.exit.thread.sink.split, %56, %48, %62, %58, %.critedge, %14, %68, %65, %33, %5
-  %.022 = phi i1 [ false, %33 ], [ false, %5 ], [ false, %68 ], [ false, %65 ], [ false, %14 ], [ false, %.critedge ], [ false, %58 ], [ false, %62 ], [ false, %48 ], [ false, %56 ], [ true, %_ZN5arrow8internal8ParseHexIhEEbPKcmPT_.exit.thread.sink.split ], [ false, %26 ]
+  %.022 = phi i1 [ false, %33 ], [ true, %_ZN5arrow8internal8ParseHexIhEEbPKcmPT_.exit.thread.sink.split ], [ false, %5 ], [ false, %68 ], [ false, %56 ], [ false, %48 ], [ false, %65 ], [ false, %14 ], [ false, %.critedge ], [ false, %58 ], [ false, %62 ], [ false, %26 ]
   ret i1 %.022
 }
 

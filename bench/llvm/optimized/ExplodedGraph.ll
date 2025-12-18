@@ -2802,7 +2802,7 @@ _ZN5clang4ento12ExplodedNode9NodeGroup7addNodeEPS1_RNS0_13ExplodedGraphE.exit: ;
   br i1 %.not47, label %._crit_edge229.loopexit, label %.lr.ph228
 
 ._crit_edge233:                                   ; preds = %_ZN5clang4ento12ExplodedNode9NodeGroup7addNodeEPS1_RNS0_13ExplodedGraphE.exit159, %._crit_edge229, %_ZNK5clang4ento12ExplodedNode9NodeGroup3endEv.exit84
-  %471 = phi ptr [ %125, %_ZNK5clang4ento12ExplodedNode9NodeGroup3endEv.exit84 ], [ %125, %._crit_edge229 ], [ %245, %_ZN5clang4ento12ExplodedNode9NodeGroup7addNodeEPS1_RNS0_13ExplodedGraphE.exit159 ]
+  %471 = phi ptr [ %125, %._crit_edge229 ], [ %125, %_ZNK5clang4ento12ExplodedNode9NodeGroup3endEv.exit84 ], [ %245, %_ZN5clang4ento12ExplodedNode9NodeGroup7addNodeEPS1_RNS0_13ExplodedGraphE.exit159 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %731
 
@@ -4644,7 +4644,7 @@ _ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPvS2_EEEeqERKS4_.exi
   br label %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPvS2_EEEeqERKS4_.exit36
 
 _ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPvS2_EEEeqERKS4_.exit36: ; preds = %108, %.critedge, %232, %231, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPvS2_EEEeqERKS4_.exit.thread, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPvS2_EEEeqERKS4_.exit
-  %.1 = phi i1 [ false, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPvS2_EEEeqERKS4_.exit ], [ true, %231 ], [ false, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPvS2_EEEeqERKS4_.exit.thread ], [ %.not9.i.i.i.i.i.i.i35, %232 ], [ false, %.critedge ], [ false, %108 ]
+  %.1 = phi i1 [ false, %.critedge ], [ false, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPvS2_EEEeqERKS4_.exit ], [ true, %231 ], [ false, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPvS2_EEEeqERKS4_.exit.thread ], [ %.not9.i.i.i.i.i.i.i35, %232 ], [ false, %108 ]
   %236 = load ptr, ptr %6, align 8, !tbaa !3
   %237 = icmp eq ptr %236, %40
   br i1 %237, label %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPvS2_EEED2Ev.exit, label %238

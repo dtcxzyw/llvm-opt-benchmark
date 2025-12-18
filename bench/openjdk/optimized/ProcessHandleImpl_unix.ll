@@ -188,7 +188,7 @@ define i32 @Java_java_lang_ProcessHandleImpl_waitForProcessExit0(ptr noundef rea
   br label %.loopexit
 
 .loopexit:                                        ; preds = %11, %26, %.loopexit.loopexit19, %.loopexit.loopexit, %35, %20, %39, %32, %17
-  %.0 = phi i32 [ %19, %17 ], [ %spec.select, %20 ], [ %34, %32 ], [ %41, %39 ], [ %38, %35 ], [ -1, %26 ], [ -2, %.loopexit.loopexit19 ], [ -2, %.loopexit.loopexit ], [ -1, %11 ]
+  %.0 = phi i32 [ -1, %26 ], [ -2, %.loopexit.loopexit ], [ %19, %17 ], [ %41, %39 ], [ -2, %.loopexit.loopexit19 ], [ %38, %35 ], [ %spec.select, %20 ], [ %34, %32 ], [ -1, %11 ]
   ret i32 %.0
 }
 
@@ -867,9 +867,9 @@ define hidden i32 @unix_getChildren(ptr noundef %0, i64 noundef %1, ptr noundef 
   br label %.outer.outer, !llvm.loop !11
 
 .thread:                                          ; preds = %130, %128, %106, %86, %52, %59
-  %.078117 = phi i32 [ 0, %52 ], [ 0, %59 ], [ %.1.ph.us144.ph, %128 ], [ %.1.ph.us.ph, %86 ], [ %.1.ph.us136.ph, %106 ], [ %.1.ph.ph, %130 ]
-  %.079115 = phi ptr [ null, %52 ], [ null, %59 ], [ %.180.fr, %128 ], [ null, %86 ], [ %.180.fr, %106 ], [ %.180.fr, %130 ]
-  %.081113 = phi ptr [ null, %52 ], [ %.182.fr, %59 ], [ %.182.fr, %128 ], [ %.182.fr, %86 ], [ null, %106 ], [ %.182.fr, %130 ]
+  %.078117 = phi i32 [ 0, %52 ], [ 0, %59 ], [ %.1.ph.us136.ph, %106 ], [ %.1.ph.us144.ph, %128 ], [ %.1.ph.us.ph, %86 ], [ %.1.ph.ph, %130 ]
+  %.079115 = phi ptr [ null, %52 ], [ null, %59 ], [ %.180.fr, %106 ], [ %.180.fr, %128 ], [ null, %86 ], [ %.180.fr, %130 ]
+  %.081113 = phi ptr [ null, %52 ], [ %.182.fr, %59 ], [ null, %106 ], [ %.182.fr, %128 ], [ %.182.fr, %86 ], [ %.182.fr, %130 ]
   %151 = load ptr, ptr %0, align 8
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 1568
   %153 = load ptr, ptr %152, align 8

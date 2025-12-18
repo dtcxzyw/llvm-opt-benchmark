@@ -3121,10 +3121,10 @@ define hidden void @"_ZN204_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   %69 = icmp eq i64 %.sroa.011.0.copyload, -9223372036854775807
   br i1 %69, label %.loopexit23, label %.thread18
 
-.thread18:                                        ; preds = %27, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2358f923578419ebE.llvm.4397313270946039834.exit.i.i.i.i.i", %67
-  %.sroa.13.sroa.0.1 = phi i64 [ %68, %67 ], [ %.sroa.13.sroa.0.0, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2358f923578419ebE.llvm.4397313270946039834.exit.i.i.i.i.i" ], [ %.sroa.13.sroa.0.0, %27 ]
-  %.sroa.10.122 = phi ptr [ %.sroa.412.0.copyload, %67 ], [ %.sroa.10.0, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2358f923578419ebE.llvm.4397313270946039834.exit.i.i.i.i.i" ], [ %.sroa.10.0, %27 ]
-  %.sroa.05.021 = phi i64 [ %.sroa.011.0.copyload, %67 ], [ -9223372036854775808, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2358f923578419ebE.llvm.4397313270946039834.exit.i.i.i.i.i" ], [ -9223372036854775808, %27 ]
+.thread18:                                        ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2358f923578419ebE.llvm.4397313270946039834.exit.i.i.i.i.i", %27, %67
+  %.sroa.13.sroa.0.1 = phi i64 [ %68, %67 ], [ %.sroa.13.sroa.0.0, %27 ], [ %.sroa.13.sroa.0.0, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2358f923578419ebE.llvm.4397313270946039834.exit.i.i.i.i.i" ]
+  %.sroa.10.122 = phi ptr [ %.sroa.412.0.copyload, %67 ], [ %.sroa.10.0, %27 ], [ %.sroa.10.0, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2358f923578419ebE.llvm.4397313270946039834.exit.i.i.i.i.i" ]
+  %.sroa.05.021 = phi i64 [ %.sroa.011.0.copyload, %67 ], [ -9223372036854775808, %27 ], [ -9223372036854775808, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2358f923578419ebE.llvm.4397313270946039834.exit.i.i.i.i.i" ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.13.sroa.6, i64 24, i1 false)
   store i64 %.sroa.05.021, ptr %15, align 8
   store ptr %.sroa.10.122, ptr %.sroa.4.0..sroa_idx, align 8
@@ -11816,8 +11816,8 @@ define hidden void @"_ZN182_$LT$context_servers..manager.._..$LT$impl$u20$serde.
   br label %.body
 
 .loopexit.split-lp:                               ; preds = %.invoke, %60, %97, %131, %170, %76, %111, %158, %189, %205, %155
-  %.sroa.0144.1.ph = phi i8 [ 1, %111 ], [ 1, %155 ], [ 1, %60 ], [ 1, %97 ], [ 1, %76 ], [ 1, %.invoke ], [ 1, %189 ], [ %.sroa.0144.10, %205 ], [ 1, %170 ], [ 1, %131 ], [ 1, %158 ]
-  %.sroa.0146.1.ph = phi i8 [ 1, %111 ], [ 1, %155 ], [ 1, %60 ], [ 1, %97 ], [ 1, %76 ], [ 1, %.invoke ], [ 1, %189 ], [ 0, %205 ], [ 1, %170 ], [ 1, %131 ], [ 1, %158 ]
+  %.sroa.0144.1.ph = phi i8 [ 1, %97 ], [ 1, %60 ], [ 1, %76 ], [ 1, %.invoke ], [ 1, %155 ], [ 1, %189 ], [ %.sroa.0144.10, %205 ], [ 1, %111 ], [ 1, %170 ], [ 1, %131 ], [ 1, %158 ]
+  %.sroa.0146.1.ph = phi i8 [ 1, %97 ], [ 1, %60 ], [ 1, %76 ], [ 1, %.invoke ], [ 1, %155 ], [ 1, %189 ], [ 0, %205 ], [ 1, %111 ], [ 1, %170 ], [ 1, %131 ], [ 1, %158 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -12787,8 +12787,8 @@ define hidden void @"_ZN182_$LT$context_servers..manager.._..$LT$impl$u20$serde.
   br label %.body
 
 .loopexit.split-lp:                               ; preds = %82, %112, %138, %157, %79, %86, %116, %142, %161, %180, %196
-  %.sroa.0144.1.ph = phi i8 [ 1, %161 ], [ 1, %142 ], [ 1, %116 ], [ 1, %86 ], [ 1, %79 ], [ 1, %157 ], [ 1, %138 ], [ 1, %112 ], [ 1, %82 ], [ 1, %180 ], [ %.sroa.0144.10, %196 ]
-  %.sroa.0146.1.ph = phi i8 [ 1, %161 ], [ 1, %142 ], [ 1, %116 ], [ 1, %86 ], [ 1, %79 ], [ 1, %157 ], [ 1, %138 ], [ 1, %112 ], [ 1, %82 ], [ 1, %180 ], [ 0, %196 ]
+  %.sroa.0144.1.ph = phi i8 [ 1, %79 ], [ 1, %86 ], [ 1, %157 ], [ 1, %138 ], [ 1, %116 ], [ 1, %112 ], [ 1, %142 ], [ 1, %82 ], [ 1, %161 ], [ 1, %180 ], [ %.sroa.0144.10, %196 ]
+  %.sroa.0146.1.ph = phi i8 [ 1, %79 ], [ 1, %86 ], [ 1, %157 ], [ 1, %138 ], [ 1, %116 ], [ 1, %112 ], [ 1, %142 ], [ 1, %82 ], [ 1, %161 ], [ 1, %180 ], [ 0, %196 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body

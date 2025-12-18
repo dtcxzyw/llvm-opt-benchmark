@@ -1069,7 +1069,7 @@ _ZNK2cv3MatclERKNS_5Rect_IiEE.exit117.i:          ; preds = %_ZNK2cv3MatclERKNS_
   br i1 %390, label %.loopexit.i, label %387
 
 .loopexit.i:                                      ; preds = %294, %387, %.thread.i
-  %.pn95.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %262, %.thread.i ], [ %.pn95.pn.pn.pn.pn.pn.pn.i, %387 ], [ %293, %294 ]
+  %.pn95.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn95.pn.pn.pn.pn.pn.pn.i, %387 ], [ %262, %.thread.i ], [ %293, %294 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %391
 

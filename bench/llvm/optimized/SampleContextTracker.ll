@@ -253,7 +253,7 @@ _ZNSt3mapImN4llvm15ContextTrieNodeESt4lessImESaISt4pairIKmS1_EEE4findERS5_.exit:
   br label %_ZN4llvm15ContextTrieNode22getHottestChildContextERKNS_10sampleprof12LineLocationE.exit
 
 _ZN4llvm15ContextTrieNode22getHottestChildContextERKNS_10sampleprof12LineLocationE.exit: ; preds = %30, %_ZNSt3mapImN4llvm15ContextTrieNodeESt4lessImESaISt4pairIKmS1_EEE4findERS5_.exit, %_ZNSt8_Rb_treeImSt4pairIKmN4llvm15ContextTrieNodeEESt10_Select1stIS4_ESt4lessImESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, %_ZN4llvm10sampleprof15FunctionSamples15getCallSiteHashENS0_10FunctionIdERKNS0_12LineLocationE.exit, %8
-  %.0 = phi ptr [ null, %8 ], [ null, %_ZNSt8_Rb_treeImSt4pairIKmN4llvm15ContextTrieNodeEESt10_Select1stIS4_ESt4lessImESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i ], [ %spec.select, %_ZNSt3mapImN4llvm15ContextTrieNodeESt4lessImESaISt4pairIKmS1_EEE4findERS5_.exit ], [ null, %_ZN4llvm10sampleprof15FunctionSamples15getCallSiteHashENS0_10FunctionIdERKNS0_12LineLocationE.exit ], [ %.1.i, %30 ]
+  %.0 = phi ptr [ null, %_ZN4llvm10sampleprof15FunctionSamples15getCallSiteHashENS0_10FunctionIdERKNS0_12LineLocationE.exit ], [ null, %8 ], [ null, %_ZNSt8_Rb_treeImSt4pairIKmN4llvm15ContextTrieNodeEESt10_Select1stIS4_ESt4lessImESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i ], [ %spec.select, %_ZNSt3mapImN4llvm15ContextTrieNodeESt4lessImESaISt4pairIKmS1_EEE4findERS5_.exit ], [ %.1.i, %30 ]
   ret ptr %.0
 }
 
@@ -2832,8 +2832,8 @@ _ZNK4llvm10DILocation12getInlinedAtEv.exit53:     ; preds = %.thread.i.i49, %123
   br i1 %.not, label %._crit_edge, label %28, !llvm.loop !145
 
 ._crit_edge:                                      ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i47, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i52, %_ZNK4llvm10DILocation12getInlinedAtEv.exit53, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i, %_ZNK4llvm10DILocation12getInlinedAtEv.exit
-  %130 = phi i64 [ %10, %_ZNK4llvm10DILocation12getInlinedAtEv.exit ], [ %10, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i ], [ %10, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i ], [ %114, %_ZNK4llvm10DILocation12getInlinedAtEv.exit53 ], [ %114, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i52 ], [ %114, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i47 ]
-  %.029.lcssa = phi ptr [ %1, %_ZNK4llvm10DILocation12getInlinedAtEv.exit ], [ %1, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i ], [ %1, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i ], [ %.028113, %_ZNK4llvm10DILocation12getInlinedAtEv.exit53 ], [ %.028113, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i52 ], [ %.028113, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i47 ]
+  %130 = phi i64 [ %10, %_ZNK4llvm10DILocation12getInlinedAtEv.exit ], [ %10, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i ], [ %10, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i ], [ %114, %_ZNK4llvm10DILocation12getInlinedAtEv.exit53 ], [ %114, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i52 ], [ %114, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i47 ]
+  %.029.lcssa = phi ptr [ %1, %_ZNK4llvm10DILocation12getInlinedAtEv.exit ], [ %1, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i ], [ %1, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i ], [ %.028113, %_ZNK4llvm10DILocation12getInlinedAtEv.exit53 ], [ %.028113, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i52 ], [ %.028113, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i47 ]
   %131 = getelementptr inbounds i8, ptr %.029.lcssa, i64 -16
   %132 = and i64 %130, 2
   %.not.i.i.i.i54 = icmp eq i64 %132, 0
@@ -3478,13 +3478,13 @@ _ZN4llvm10sampleprof10HashKeyMapISt13unordered_mapNS0_10FunctionIdESt6vectorIPNS
   br label %_ZNK4llvm20SampleContextTracker24getContextNodeForProfileEPKNS_10sampleprof15FunctionSamplesE.exit, !llvm.loop !154
 
 _ZNKSt13unordered_mapIPKN4llvm10sampleprof15FunctionSamplesEPNS0_15ContextTrieNodeESt4hashIS4_ESt8equal_toIS4_ESaISt4pairIKS4_S6_EEE4findERSC_.exit.i: ; preds = %54, %38, %49
-  %.sroa.06.1.i.i.i = phi ptr [ %50, %49 ], [ %.sroa.06.0.i.i.i, %38 ], [ %56, %54 ]
+  %.sroa.06.1.i.i.i = phi ptr [ %.sroa.06.0.i.i.i, %38 ], [ %50, %49 ], [ %56, %54 ]
   %62 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 16
   %63 = load ptr, ptr %62, align 8, !tbaa !155
   br label %_ZNK4llvm20SampleContextTracker24getContextNodeForProfileEPKNS_10sampleprof15FunctionSamplesE.exit
 
 _ZNK4llvm20SampleContextTracker24getContextNodeForProfileEPKNS_10sampleprof15FunctionSamplesE.exit: ; preds = %.lr.ph.i.i.i.i.i, %.preheader, %42, %..loopexit_crit_edge21.i.i.i.i.i, %_ZNKSt13unordered_mapIPKN4llvm10sampleprof15FunctionSamplesEPNS0_15ContextTrieNodeESt4hashIS4_ESt8equal_toIS4_ESaISt4pairIKS4_S6_EEE4findERSC_.exit.i
-  %.0.i = phi ptr [ %63, %_ZNKSt13unordered_mapIPKN4llvm10sampleprof15FunctionSamplesEPNS0_15ContextTrieNodeESt4hashIS4_ESt8equal_toIS4_ESaISt4pairIKS4_S6_EEE4findERSC_.exit.i ], [ null, %..loopexit_crit_edge21.i.i.i.i.i ], [ null, %42 ], [ null, %.preheader ], [ null, %.lr.ph.i.i.i.i.i ]
+  %.0.i = phi ptr [ %63, %_ZNKSt13unordered_mapIPKN4llvm10sampleprof15FunctionSamplesEPNS0_15ContextTrieNodeESt4hashIS4_ESt8equal_toIS4_ESaISt4pairIKS4_S6_EEE4findERSC_.exit.i ], [ null, %..loopexit_crit_edge21.i.i.i.i.i ], [ null, %.preheader ], [ null, %42 ], [ null, %.lr.ph.i.i.i.i.i ]
   %64 = icmp eq ptr %.0.i, %.132
   br i1 %64, label %67, label %65
 
@@ -7972,7 +7972,7 @@ _ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit:       ; preds = %47, %50
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !231
 
 _ZSt11swap_rangesIPcS0_ET0_T_S2_S1_.exit:         ; preds = %._crit_edge, %._crit_edge110, %.lr.ph.i, %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit, %_ZSt4moveIPcS0_ET0_T_S2_S1_.exit, %5, %3
-  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %21, %_ZSt4moveIPcS0_ET0_T_S2_S1_.exit ], [ %21, %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit ], [ %1, %.lr.ph.i ], [ %21, %._crit_edge110 ], [ %21, %._crit_edge ]
+  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %1, %.lr.ph.i ], [ %21, %_ZSt4moveIPcS0_ET0_T_S2_S1_.exit ], [ %21, %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit ], [ %21, %._crit_edge110 ], [ %21, %._crit_edge ]
   ret ptr %.053
 }
 
@@ -8329,8 +8329,8 @@ _ZNSt8_Rb_treeImSt4pairIKmN4llvm15ContextTrieNodeEESt10_Select1stIS4_ESt4lessImE
   br i1 %.not.i, label %_ZNSt8_Rb_treeImSt4pairIKmN4llvm15ContextTrieNodeEESt10_Select1stIS4_ESt4lessImESaIS4_EE11equal_rangeERS1_.exit, label %6, !llvm.loop !234
 
 _ZNSt8_Rb_treeImSt4pairIKmN4llvm15ContextTrieNodeEESt10_Select1stIS4_ESt4lessImESaIS4_EE11equal_rangeERS1_.exit: ; preds = %23, %.lr.ph.i25.i, %2, %_ZNSt8_Rb_treeImSt4pairIKmN4llvm15ContextTrieNodeEESt10_Select1stIS4_ESt4lessImESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i
-  %.sroa.037.0.i = phi ptr [ %.08.lcssa.i.i, %_ZNSt8_Rb_treeImSt4pairIKmN4llvm15ContextTrieNodeEESt10_Select1stIS4_ESt4lessImESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i ], [ %4, %2 ], [ %.08.lcssa.i.i, %.lr.ph.i25.i ], [ %.123.i, %23 ]
-  %.sroa.3.0.i = phi ptr [ %.02243.i, %_ZNSt8_Rb_treeImSt4pairIKmN4llvm15ContextTrieNodeEESt10_Select1stIS4_ESt4lessImESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i ], [ %4, %2 ], [ %.19.i28.i, %.lr.ph.i25.i ], [ %.123.i, %23 ]
+  %.sroa.037.0.i = phi ptr [ %.08.lcssa.i.i, %.lr.ph.i25.i ], [ %.08.lcssa.i.i, %_ZNSt8_Rb_treeImSt4pairIKmN4llvm15ContextTrieNodeEESt10_Select1stIS4_ESt4lessImESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i ], [ %4, %2 ], [ %.123.i, %23 ]
+  %.sroa.3.0.i = phi ptr [ %.19.i28.i, %.lr.ph.i25.i ], [ %.02243.i, %_ZNSt8_Rb_treeImSt4pairIKmN4llvm15ContextTrieNodeEESt10_Select1stIS4_ESt4lessImESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i ], [ %4, %2 ], [ %.123.i, %23 ]
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %26 = load i64, ptr %25, align 8, !tbaa !62
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 24

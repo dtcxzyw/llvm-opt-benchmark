@@ -386,7 +386,7 @@ define internal range(i32 0, 2) i32 @has_changes(ptr noundef readonly captures(a
   br i1 %.not61.us.i, label %.critedge.thread.i, label %.lr.ph.i
 
 .critedge.thread.i:                               ; preds = %29, %.lr.ph.i, %.thread54.i, %21
-  %.us-phi.i = phi i32 [ 0, %21 ], [ %28, %.thread54.i ], [ %35, %29 ], [ %.047.us20.i, %.lr.ph.i ]
+  %.us-phi.i = phi i32 [ %28, %.thread54.i ], [ 0, %21 ], [ %35, %29 ], [ %.047.us20.i, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %contains.exit
 
@@ -545,7 +545,7 @@ contains.exit.thread:                             ; preds = %.preheader.i
   br i1 %85, label %.critedge.i, label %.split.i, !llvm.loop !56
 
 .critedge.thread.i16:                             ; preds = %69, %.split.i, %62, %.lr.ph.i20, %.thread54.i31, %.split.us.i
-  %.us-phi.i17 = phi i32 [ 0, %.split.us.i ], [ %61, %.thread54.i31 ], [ %.047.us20.i24, %.lr.ph.i20 ], [ %68, %62 ], [ %.047.i, %.split.i ], [ %.047.i, %69 ]
+  %.us-phi.i17 = phi i32 [ %61, %.thread54.i31 ], [ 0, %.split.us.i ], [ %.047.us20.i24, %.lr.ph.i20 ], [ %68, %62 ], [ %.047.i, %.split.i ], [ %.047.i, %69 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %contains.exit41
 

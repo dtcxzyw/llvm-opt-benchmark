@@ -811,7 +811,7 @@ H5VM_limit_enc_size.exit:                         ; preds = %71, %76, %83, %88, 
   br label %181
 
 181:                                              ; preds = %177, %171
-  %.1 = phi i32 [ -1, %177 ], [ 0, %171 ]
+  %.1 = phi i32 [ 0, %171 ], [ -1, %177 ]
   %182 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %183 = load ptr, ptr %182, align 8, !tbaa !51
   %184 = load i64, ptr %155, align 8, !tbaa !72
@@ -3485,9 +3485,9 @@ define i32 @H5B2__iterate_node(ptr noundef %0, i16 noundef zeroext %1, ptr nound
   br i1 %129, label %.thread130, label %._crit_edge, !llvm.loop !82
 
 ._crit_edge:                                      ; preds = %125, %111, %.thread190, %.thread, %88
-  %.083.lcssa = phi i64 [ 0, %88 ], [ %indvars.iv.next172185, %.thread ], [ %indvars.iv.next191, %.thread190 ], [ %indvars.iv.next172, %111 ], [ %indvars.iv.next, %125 ]
-  %.5.lcssa = phi i32 [ 0, %88 ], [ %.7.us.ph, %.thread ], [ %120, %.thread190 ], [ %102, %111 ], [ %120, %125 ]
-  %.not.lcssa = phi i1 [ true, %88 ], [ false, %.thread ], [ false, %.thread190 ], [ %.not.us, %111 ], [ %.not, %125 ]
+  %.083.lcssa = phi i64 [ 0, %88 ], [ %indvars.iv.next172, %111 ], [ %indvars.iv.next172185, %.thread ], [ %indvars.iv.next191, %.thread190 ], [ %indvars.iv.next, %125 ]
+  %.5.lcssa = phi i32 [ 0, %88 ], [ %102, %111 ], [ %.7.us.ph, %.thread ], [ %120, %.thread190 ], [ %120, %125 ]
+  %.not.lcssa = phi i1 [ true, %88 ], [ %.not.us, %111 ], [ false, %.thread ], [ false, %.thread190 ], [ %.not, %125 ]
   %or.cond = and i1 %14, %.not.lcssa
   br i1 %or.cond, label %130, label %140
 
@@ -3522,7 +3522,7 @@ define i32 @H5B2__iterate_node(ptr noundef %0, i16 noundef zeroext %1, ptr nound
   br label %.thread137
 
 .thread137:                                       ; preds = %84, %62, %136, %144, %141, %140
-  %.8 = phi i32 [ -1, %144 ], [ %.282148, %141 ], [ %.282, %140 ], [ %134, %136 ], [ -1, %62 ], [ -1, %84 ]
+  %.8 = phi i32 [ -1, %144 ], [ %.282148, %141 ], [ %.282, %140 ], [ %134, %136 ], [ -1, %84 ], [ -1, %62 ]
   %.not113 = icmp eq ptr %.288, null
   br i1 %.not113, label %154, label %148
 

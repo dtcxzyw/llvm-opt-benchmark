@@ -284,7 +284,7 @@ switch.lookup:                                    ; preds = %87
   br label %.critedge
 
 .critedge:                                        ; preds = %63, %36, %57, %34, %43, %51, %55, %switch.lookup, %78, %81, %71, %11, %9, %112, %110, %observer_to_wtap_encap.exit, %85, %22
-  %.0 = phi i32 [ %., %9 ], [ -1, %22 ], [ -1, %switch.lookup ], [ -1, %85 ], [ -1, %observer_to_wtap_encap.exit ], [ -1, %78 ], [ -1, %110 ], [ 1, %112 ], [ -1, %71 ], [ 0, %11 ], [ -1, %81 ], [ -1, %55 ], [ -1, %51 ], [ -1, %43 ], [ -1, %34 ], [ -1, %57 ], [ -1, %36 ], [ -1, %63 ]
+  %.0 = phi i32 [ %., %9 ], [ -1, %22 ], [ -1, %switch.lookup ], [ -1, %85 ], [ -1, %observer_to_wtap_encap.exit ], [ -1, %78 ], [ -1, %110 ], [ 1, %112 ], [ -1, %71 ], [ 0, %11 ], [ -1, %81 ], [ -1, %34 ], [ -1, %43 ], [ -1, %51 ], [ -1, %55 ], [ -1, %57 ], [ -1, %36 ], [ -1, %63 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -426,7 +426,7 @@ read_packet_data.exit.thread33:                   ; preds = %49, %read_packet_da
   br label %skip_to_next_packet.exit30
 
 skip_to_next_packet.exit30:                       ; preds = %skip_to_next_packet.exit, %26, %5, %47, %43, %23, %69, %66, %61, %read_packet_data.exit, %35
-  %.0 = phi i1 [ false, %35 ], [ false, %read_packet_data.exit ], [ false, %66 ], [ false, %61 ], [ true, %69 ], [ false, %23 ], [ false, %43 ], [ false, %47 ], [ false, %5 ], [ false, %26 ], [ false, %skip_to_next_packet.exit ]
+  %.0 = phi i1 [ false, %47 ], [ false, %35 ], [ false, %read_packet_data.exit ], [ false, %43 ], [ false, %66 ], [ false, %61 ], [ true, %69 ], [ false, %23 ], [ false, %5 ], [ false, %26 ], [ false, %skip_to_next_packet.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }
@@ -768,7 +768,7 @@ define internal fastcc i32 @read_packet_header(ptr noundef readonly captures(non
   br label %77
 
 77:                                               ; preds = %.sink.split, %72, %73, %58
-  %.pn = phi i32 [ 12, %58 ], [ %47, %73 ], [ 4, %72 ], [ 12, %.sink.split ]
+  %.pn = phi i32 [ 4, %72 ], [ 12, %58 ], [ %47, %73 ], [ 12, %.sink.split ]
   %.1104 = add i32 %.pn, %.0103117
   %78 = add nuw nsw i32 %.1102118, 1
   %79 = load i8, ptr %28, align 2

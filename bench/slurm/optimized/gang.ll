@@ -1211,7 +1211,7 @@ define internal fastcc void @_preempt_job_dequeue() unnamed_addr #0 {
   %43 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.64, i32 noundef 0, ptr noundef nonnull %6) #7
   br label %.critedge, !llvm.loop !14
 
-.critedge39:                                      ; preds = %21, %24, %27, %14, %39, %10, %12
+.critedge39:                                      ; preds = %21, %24, %27, %10, %14, %39, %12
   %44 = call i32 @job_signal(ptr noundef nonnull %6, i16 noundef zeroext 9, i16 noundef zeroext 0, i32 noundef 0, i1 noundef zeroext true) #7
   %45 = icmp eq i32 %44, 0
   %46 = call i32 @get_log_level() #7

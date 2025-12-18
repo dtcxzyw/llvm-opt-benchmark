@@ -1453,7 +1453,7 @@ thread-pre-split:                                 ; preds = %4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %53, %thread-pre-split, %.thread, %4, %78, %55
-  %.1 = phi i32 [ %38, %4 ], [ %46, %.thread ], [ %72, %55 ], [ %85, %78 ], [ %38, %thread-pre-split ], [ %46, %53 ]
+  %.1 = phi i32 [ %38, %4 ], [ %46, %.thread ], [ %85, %78 ], [ %72, %55 ], [ %38, %thread-pre-split ], [ %46, %53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -2042,8 +2042,8 @@ define internal i32 @awdl_tag_channel_sequence(ptr noundef %0, ptr noundef reado
   br i1 %84, label %.lr.ph, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph99, %.lr.ph103, %63, %40, %26
-  %.1 = phi i32 [ 6, %26 ], [ 6, %40 ], [ 6, %63 ], [ %58, %.lr.ph99 ], [ %35, %.lr.ph103 ], [ %80, %.lr.ph ]
-  %.084 = phi ptr [ %29, %26 ], [ %44, %40 ], [ %67, %63 ], [ %44, %.lr.ph99 ], [ %29, %.lr.ph103 ], [ %67, %.lr.ph ]
+  %.1 = phi i32 [ %35, %.lr.ph103 ], [ %58, %.lr.ph99 ], [ 6, %26 ], [ 6, %40 ], [ 6, %63 ], [ %80, %.lr.ph ]
+  %.084 = phi ptr [ %29, %.lr.ph103 ], [ %44, %.lr.ph99 ], [ %29, %26 ], [ %44, %40 ], [ %67, %63 ], [ %67, %.lr.ph ]
   %.not88 = icmp eq ptr %.084, null
   br i1 %.not88, label %.thread, label %85
 

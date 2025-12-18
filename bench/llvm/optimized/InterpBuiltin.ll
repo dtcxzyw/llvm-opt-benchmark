@@ -24779,7 +24779,7 @@ _ZN5clang6interp10FixedPointaSERKS1_.exit:        ; preds = %663, %666
   br label %_ZN5clang6interp7InvalidERNS0_11InterpStateENS0_7CodePtrE.exit
 
 _ZN5clang6interp7InvalidERNS0_11InterpStateENS0_7CodePtrE.exit: ; preds = %673, %49, %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit, %687, %680, %678
-  %.0 = phi i1 [ %679, %678 ], [ false, %680 ], [ false, %687 ], [ true, %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit ], [ true, %49 ], [ true, %673 ]
+  %.0 = phi i1 [ false, %687 ], [ %679, %678 ], [ false, %680 ], [ true, %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit ], [ true, %49 ], [ true, %673 ]
   ret i1 %.0
 }
 
@@ -34227,7 +34227,7 @@ _ZNK5clang6interp7Pointer8isActiveEv.exit.thread: ; preds = %57, %_ZNK5clang6int
   br label %.loopexit
 
 .loopexit:                                        ; preds = %73, %86, %72, %.critedge58
-  %.5 = phi i1 [ true, %.critedge58 ], [ false, %72 ], [ false, %86 ], [ false, %73 ]
+  %.5 = phi i1 [ true, %.critedge58 ], [ false, %86 ], [ false, %72 ], [ false, %73 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.5
 }

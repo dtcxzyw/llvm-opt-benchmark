@@ -9591,7 +9591,7 @@ _ZN5QListI12QCPDataRangeE3endEv.exit:             ; preds = %_ZNK17QArrayDataPoi
   br i1 %86, label %.lr.ph.i.i.i, label %_ZSt13move_backwardIN5QListI12QCPDataRangeE8iteratorES3_ET0_T_S5_S4_.exit.i.i, !llvm.loop !56
 
 _ZSt13move_backwardIN5QListI12QCPDataRangeE8iteratorES3_ET0_T_S5_S4_.exit.i.i: ; preds = %.lr.ph.i.i.i, %.lr.ph.i.i.i.i.i.i.i, %81, %70
-  %.sroa.04.0.lcssa.i.i.i.sink = phi ptr [ %50, %70 ], [ %.sroa.0.022.i.i, %81 ], [ %50, %.lr.ph.i.i.i.i.i.i.i ], [ %.sroa.0.09.i.i.i, %.lr.ph.i.i.i ]
+  %.sroa.04.0.lcssa.i.i.i.sink = phi ptr [ %50, %70 ], [ %50, %.lr.ph.i.i.i.i.i.i.i ], [ %.sroa.0.022.i.i, %81 ], [ %.sroa.0.09.i.i.i, %.lr.ph.i.i.i ]
   store i64 %69, ptr %.sroa.04.0.lcssa.i.i.i.sink, align 4
   %.sroa.0.0.i.i = getelementptr i8, ptr %.sroa.0.022.i.i, i64 8
   %.not.i.i35 = icmp eq ptr %.sroa.0.0.i.i, %64
@@ -9680,7 +9680,7 @@ _ZSt25__unguarded_linear_insertIN5QListI12QCPDataRangeE8iteratorEN9__gnu_cxx5__o
   br i1 %115, label %.lr.ph.i.i29.i, label %_ZSt13move_backwardIN5QListI12QCPDataRangeE8iteratorES3_ET0_T_S5_S4_.exit.i33.i, !llvm.loop !56
 
 _ZSt13move_backwardIN5QListI12QCPDataRangeE8iteratorES3_ET0_T_S5_S4_.exit.i33.i: ; preds = %.lr.ph.i.i29.i, %.lr.ph.i.i.i.i.i.i35.i, %110, %99
-  %.sroa.04.0.lcssa.i.i26.i.sink = phi ptr [ %50, %99 ], [ %.sroa.0.022.i23.i, %110 ], [ %50, %.lr.ph.i.i.i.i.i.i35.i ], [ %.sroa.0.09.i.i30.i, %.lr.ph.i.i29.i ]
+  %.sroa.04.0.lcssa.i.i26.i.sink = phi ptr [ %50, %99 ], [ %50, %.lr.ph.i.i.i.i.i.i35.i ], [ %.sroa.0.022.i23.i, %110 ], [ %.sroa.0.09.i.i30.i, %.lr.ph.i.i29.i ]
   store i64 %98, ptr %.sroa.04.0.lcssa.i.i26.i.sink, align 4
   %.sroa.0.0.i27.i = getelementptr i8, ptr %.sroa.0.022.i23.i, i64 8
   %.not.i28.i = icmp eq ptr %.sroa.0.0.i27.i, %54
@@ -10262,8 +10262,8 @@ _ZN5QListI12QCPDataRangeEixEx.exit51:             ; preds = %_ZNK17QArrayDataPoi
   br label %79
 
 79:                                               ; preds = %77, %_ZN5QListI12QCPDataRangeE8removeAtEx.exit
-  %80 = phi i64 [ %43, %_ZN5QListI12QCPDataRangeE8removeAtEx.exit ], [ %.pre65, %77 ]
-  %.1 = phi i32 [ %.02858, %_ZN5QListI12QCPDataRangeE8removeAtEx.exit ], [ %78, %77 ]
+  %80 = phi i64 [ %.pre65, %77 ], [ %43, %_ZN5QListI12QCPDataRangeE8removeAtEx.exit ]
+  %.1 = phi i32 [ %78, %77 ], [ %.02858, %_ZN5QListI12QCPDataRangeE8removeAtEx.exit ]
   %81 = sext i32 %.1 to i64
   %82 = icmp sgt i64 %80, %81
   br i1 %82, label %16, label %.thread
@@ -25778,7 +25778,7 @@ _ZN5QListIP16QCPLayoutElementE8removeAtEx.exit:   ; preds = %120, %._crit_edge.i
   br i1 %126, label %.lr.ph62, label %.loopexit, !llvm.loop !194
 
 .loopexit:                                        ; preds = %81, %_ZN5QListIP16QCPLayoutElementE8removeAtEx.exit, %_ZN5QListIdE8removeAtEx.exit43
-  %127 = phi i64 [ %100, %_ZN5QListIdE8removeAtEx.exit43 ], [ %124, %_ZN5QListIP16QCPLayoutElementE8removeAtEx.exit ], [ %76, %81 ]
+  %127 = phi i64 [ %124, %_ZN5QListIP16QCPLayoutElementE8removeAtEx.exit ], [ %100, %_ZN5QListIdE8removeAtEx.exit43 ], [ %76, %81 ]
   %indvars.iv.next80 = add nsw i64 %indvars.iv79, -1
   %128 = icmp sgt i64 %indvars.iv79, 0
   br i1 %128, label %.preheader, label %._crit_edge65, !llvm.loop !195
@@ -59296,7 +59296,7 @@ _ZN21QCPAxisPainterPrivate13TickLabelDataD2Ev.exit: ; preds = %_ZN7QStringD2Ev.e
 
 216:                                              ; preds = %212
   %217 = load i32, ptr %22, align 8
-  switch i32 %217, label %240 [
+  switch i32 %217, label %233 [
     i32 8, label %218
     i32 4, label %218
   ]
@@ -59316,45 +59316,45 @@ _ZN21QCPAxisPainterPrivate13TickLabelDataD2Ev.exit: ; preds = %_ZN7QStringD2Ev.e
   %230 = load i32, ptr %229, align 8
   %231 = sitofp i32 %230 to double
   %232 = fcmp ogt double %228, %231
-  br i1 %232, label %.critedge66, label %233
+  br i1 %232, label %.critedge66, label %256
 
-233:                                              ; preds = %218
-  %234 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %235 = load double, ptr %.0, align 8
-  %236 = fadd double %.sroa.0136.0, %235
-  %237 = load i32, ptr %234, align 8
-  %238 = sitofp i32 %237 to double
-  %239 = fcmp olt double %236, %238
-  br i1 %239, label %.critedge66, label %.critedge64
-
-240:                                              ; preds = %216
-  %241 = getelementptr inbounds nuw i8, ptr %.0, i64 8
+233:                                              ; preds = %216
+  %234 = getelementptr inbounds nuw i8, ptr %.0, i64 8
+  %235 = load double, ptr %234, align 8
+  %236 = fadd double %.sroa.12.0, %235
+  %237 = getelementptr inbounds nuw i8, ptr %.0, i64 16
+  %238 = call noundef i32 @_ZNK7QPixmap6heightEv(ptr noundef nonnull align 8 dereferenceable_or_null(24) %237)
+  %239 = sitofp i32 %238 to double
+  %240 = load ptr, ptr %60, align 8
+  %241 = getelementptr inbounds nuw i8, ptr %240, i64 96
   %242 = load double, ptr %241, align 8
-  %243 = fadd double %.sroa.12.0, %242
-  %244 = getelementptr inbounds nuw i8, ptr %.0, i64 16
-  %245 = call noundef i32 @_ZNK7QPixmap6heightEv(ptr noundef nonnull align 8 dereferenceable_or_null(24) %244)
-  %246 = sitofp i32 %245 to double
-  %247 = load ptr, ptr %60, align 8
-  %248 = getelementptr inbounds nuw i8, ptr %247, i64 96
-  %249 = load double, ptr %248, align 8
-  %250 = fdiv double %246, %249
-  %251 = fadd double %243, %250
-  %252 = getelementptr inbounds nuw i8, ptr %0, i64 268
+  %243 = fdiv double %239, %242
+  %244 = fadd double %236, %243
+  %245 = getelementptr inbounds nuw i8, ptr %0, i64 268
+  %246 = load i32, ptr %245, align 4
+  %247 = sitofp i32 %246 to double
+  %248 = fcmp ogt double %244, %247
+  br i1 %248, label %.critedge66, label %249
+
+249:                                              ; preds = %233
+  %250 = load double, ptr %234, align 8
+  %251 = fadd double %.sroa.12.0, %250
+  %252 = getelementptr inbounds nuw i8, ptr %0, i64 260
   %253 = load i32, ptr %252, align 4
   %254 = sitofp i32 %253 to double
-  %255 = fcmp ogt double %251, %254
-  br i1 %255, label %.critedge66, label %256
+  %255 = fcmp olt double %251, %254
+  br i1 %255, label %.critedge66, label %.critedge64
 
-256:                                              ; preds = %240
-  %257 = load double, ptr %241, align 8
-  %258 = fadd double %.sroa.12.0, %257
-  %259 = getelementptr inbounds nuw i8, ptr %0, i64 260
-  %260 = load i32, ptr %259, align 4
+256:                                              ; preds = %218
+  %257 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %258 = load double, ptr %.0, align 8
+  %259 = fadd double %.sroa.0136.0, %258
+  %260 = load i32, ptr %257, align 8
   %261 = sitofp i32 %260 to double
-  %262 = fcmp olt double %258, %261
+  %262 = fcmp olt double %259, %261
   br i1 %262, label %.critedge66, label %.critedge64
 
-.critedge64:                                      ; preds = %233, %212, %256
+.critedge64:                                      ; preds = %249, %212, %256
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %263 = load double, ptr %.0, align 8
   %264 = fadd double %.sroa.0136.0, %263
@@ -59386,9 +59386,9 @@ _ZN21QCPAxisPainterPrivate13TickLabelDataD2Ev.exit: ; preds = %_ZN7QStringD2Ev.e
   %283 = fptosi double %282 to i32
   br label %.critedge66
 
-.critedge66:                                      ; preds = %233, %218, %240, %.critedge64, %256
-  %.sroa.0143.0 = phi i32 [ -1, %218 ], [ -1, %256 ], [ %278, %.critedge64 ], [ -1, %240 ], [ -1, %233 ]
-  %.sroa.8.0 = phi i32 [ -1, %218 ], [ -1, %256 ], [ %283, %.critedge64 ], [ -1, %240 ], [ -1, %233 ]
+.critedge66:                                      ; preds = %249, %218, %233, %.critedge64, %256
+  %.sroa.0143.0 = phi i32 [ -1, %218 ], [ -1, %256 ], [ %278, %.critedge64 ], [ -1, %233 ], [ -1, %249 ]
+  %.sroa.8.0 = phi i32 [ -1, %218 ], [ -1, %256 ], [ %283, %.critedge64 ], [ -1, %233 ], [ -1, %249 ]
   %284 = call noundef zeroext i1 @_ZN6QCacheI7QStringN21QCPAxisPainterPrivate11CachedLabelEE6insertERKS0_PS2_x(ptr noundef nonnull align 8 dereferenceable_or_null(72) %68, ptr noundef align 8 dereferenceable(24) %4, ptr noundef %.0, i64 noundef 1)
   br label %378
 
@@ -59403,7 +59403,7 @@ _ZN21QCPAxisPainterPrivate13TickLabelDataD2Ev.exit: ; preds = %_ZN7QStringD2Ev.e
   %290 = getelementptr inbounds nuw i8, ptr %289, i64 64
   %291 = load ptr, ptr %290, align 8
   %292 = invoke { double, double } %291(ptr noundef align 8 dereferenceable_or_null(504) %0, ptr noundef nonnull align 8 dereferenceable(184) %17)
-          to label %293 unwind label %322
+          to label %293 unwind label %313
 
 293:                                              ; preds = %.critedge
   %294 = extractvalue { double, double } %292, 0
@@ -59417,7 +59417,7 @@ _ZN21QCPAxisPainterPrivate13TickLabelDataD2Ev.exit: ; preds = %_ZN7QStringD2Ev.e
 
 301:                                              ; preds = %293
   %302 = load i32, ptr %22, align 8
-  switch i32 %302, label %326 [
+  switch i32 %302, label %317 [
     i32 8, label %303
     i32 4, label %303
   ]
@@ -59432,58 +59432,58 @@ _ZN21QCPAxisPainterPrivate13TickLabelDataD2Ev.exit: ; preds = %_ZN7QStringD2Ev.e
   %310 = load i32, ptr %309, align 8
   %311 = sitofp i32 %310 to double
   %312 = fcmp ogt double %308, %311
-  br i1 %312, label %.critedge70, label %313
+  br i1 %312, label %.critedge70, label %336
 
-313:                                              ; preds = %303
-  %314 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %315 = getelementptr inbounds nuw i8, ptr %17, i64 136
-  %316 = load i32, ptr %315, align 8
-  %317 = sitofp i32 %316 to double
-  %318 = fadd double %296, %317
-  %319 = load i32, ptr %314, align 8
-  %320 = sitofp i32 %319 to double
-  %321 = fcmp olt double %318, %320
-  br i1 %321, label %.critedge70, label %.critedge68
-
-322:                                              ; preds = %.critedge
-  %323 = landingpad { ptr, i32 }
+313:                                              ; preds = %.critedge
+  %314 = landingpad { ptr, i32 }
           cleanup
   br label %377
 
-324:                                              ; preds = %.critedge68
-  %325 = landingpad { ptr, i32 }
+315:                                              ; preds = %.critedge68
+  %316 = landingpad { ptr, i32 }
           cleanup
   br label %377
 
-326:                                              ; preds = %301
-  %327 = getelementptr inbounds nuw i8, ptr %17, i64 148
-  %328 = load i32, ptr %327, align 4
-  %329 = add i32 %328, 1
+317:                                              ; preds = %301
+  %318 = getelementptr inbounds nuw i8, ptr %17, i64 148
+  %319 = load i32, ptr %318, align 4
+  %320 = add i32 %319, 1
+  %321 = sitofp i32 %320 to double
+  %322 = fadd double %297, %321
+  %323 = getelementptr inbounds nuw i8, ptr %0, i64 268
+  %324 = load i32, ptr %323, align 4
+  %325 = sitofp i32 %324 to double
+  %326 = fcmp ogt double %322, %325
+  br i1 %326, label %.critedge70, label %327
+
+327:                                              ; preds = %317
+  %328 = getelementptr inbounds nuw i8, ptr %17, i64 140
+  %329 = load i32, ptr %328, align 4
   %330 = sitofp i32 %329 to double
   %331 = fadd double %297, %330
-  %332 = getelementptr inbounds nuw i8, ptr %0, i64 268
+  %332 = getelementptr inbounds nuw i8, ptr %0, i64 260
   %333 = load i32, ptr %332, align 4
   %334 = sitofp i32 %333 to double
-  %335 = fcmp ogt double %331, %334
-  br i1 %335, label %.critedge70, label %336
+  %335 = fcmp olt double %331, %334
+  br i1 %335, label %.critedge70, label %.critedge68
 
-336:                                              ; preds = %326
-  %337 = getelementptr inbounds nuw i8, ptr %17, i64 140
-  %338 = load i32, ptr %337, align 4
-  %339 = sitofp i32 %338 to double
-  %340 = fadd double %297, %339
-  %341 = getelementptr inbounds nuw i8, ptr %0, i64 260
-  %342 = load i32, ptr %341, align 4
+336:                                              ; preds = %303
+  %337 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %338 = getelementptr inbounds nuw i8, ptr %17, i64 136
+  %339 = load i32, ptr %338, align 8
+  %340 = sitofp i32 %339 to double
+  %341 = fadd double %296, %340
+  %342 = load i32, ptr %337, align 8
   %343 = sitofp i32 %342 to double
-  %344 = fcmp olt double %340, %343
+  %344 = fcmp olt double %341, %343
   br i1 %344, label %.critedge70, label %.critedge68
 
-.critedge68:                                      ; preds = %313, %293, %336
+.critedge68:                                      ; preds = %327, %293, %336
   %345 = load ptr, ptr %0, align 8
   %346 = getelementptr inbounds nuw i8, ptr %345, i64 48
   %347 = load ptr, ptr %346, align 8
   invoke void %347(ptr noundef align 8 dereferenceable_or_null(504) %0, ptr noundef %1, double noundef %296, double noundef %297, ptr noundef nonnull align 8 dereferenceable(184) %17)
-          to label %348 unwind label %324
+          to label %348 unwind label %315
 
 348:                                              ; preds = %.critedge68
   %349 = getelementptr inbounds nuw i8, ptr %17, i64 136
@@ -59500,9 +59500,9 @@ _ZN21QCPAxisPainterPrivate13TickLabelDataD2Ev.exit: ; preds = %_ZN7QStringD2Ev.e
   %360 = sub i32 %359, %358
   br label %.critedge70
 
-.critedge70:                                      ; preds = %313, %303, %326, %348, %336
-  %.sroa.0143.2 = phi i32 [ -1, %303 ], [ -1, %336 ], [ %354, %348 ], [ -1, %326 ], [ -1, %313 ]
-  %.sroa.8.2 = phi i32 [ -1, %303 ], [ -1, %336 ], [ %360, %348 ], [ -1, %326 ], [ -1, %313 ]
+.critedge70:                                      ; preds = %327, %303, %317, %348, %336
+  %.sroa.0143.2 = phi i32 [ -1, %303 ], [ -1, %336 ], [ %354, %348 ], [ -1, %317 ], [ -1, %327 ]
+  %.sroa.8.2 = phi i32 [ -1, %303 ], [ -1, %336 ], [ %360, %348 ], [ -1, %317 ], [ -1, %327 ]
   %361 = getelementptr inbounds nuw i8, ptr %17, i64 168
   call void @_ZN5QFontD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(12) %361) #54
   %362 = getelementptr inbounds nuw i8, ptr %17, i64 152
@@ -59557,8 +59557,8 @@ _ZN21QCPAxisPainterPrivate13TickLabelDataD2Ev.exit107: ; preds = %_ZN7QStringD2E
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %378
 
-377:                                              ; preds = %324, %322
-  %.pn = phi { ptr, i32 } [ %325, %324 ], [ %323, %322 ]
+377:                                              ; preds = %315, %313
+  %.pn = phi { ptr, i32 } [ %316, %315 ], [ %314, %313 ]
   call void @_ZN21QCPAxisPainterPrivate13TickLabelDataD2Ev(ptr noundef nonnull align 8 dereferenceable_or_null(184) %17) #54
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %388
@@ -61008,11 +61008,11 @@ define { double, double } @_ZNK21QCPAxisPainterPrivate22getTickLabelDrawOffsetER
   %23 = load i32, ptr %22, align 8
   %24 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %23)
   %25 = icmp eq i32 %24, 1
-  br i1 %25, label %.split, label %.thread66
+  br i1 %25, label %.split, label %.thread65
 
 .split:                                           ; preds = %2
   %26 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %23, i1 true)
-  switch i32 %26, label %.thread66 [
+  switch i32 %26, label %.thread65 [
     i32 0, label %27
     i32 1, label %30
     i32 2, label %180
@@ -61022,7 +61022,7 @@ define { double, double } @_ZNK21QCPAxisPainterPrivate22getTickLabelDrawOffsetER
 27:                                               ; preds = %.split
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %29 = load i32, ptr %28, align 8
-  switch i32 %29, label %.thread66 [
+  switch i32 %29, label %.thread65 [
     i32 1, label %33
     i32 0, label %121
   ]
@@ -61030,7 +61030,7 @@ define { double, double } @_ZNK21QCPAxisPainterPrivate22getTickLabelDrawOffsetER
 30:                                               ; preds = %.split
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %32 = load i32, ptr %31, align 8
-  switch i32 %32, label %.thread66 [
+  switch i32 %32, label %.thread65 [
     i32 0, label %33
     i32 1, label %121
   ]
@@ -61059,7 +61059,7 @@ define { double, double } @_ZNK21QCPAxisPainterPrivate22getTickLabelDrawOffsetER
   %48 = sub i32 0, %44
   %49 = sitofp i32 %48 to double
   %50 = fmul double %49, 5.000000e-01
-  br label %.thread66
+  br label %.thread65
 
 51:                                               ; preds = %36
   %52 = tail call noundef double @sin(double noundef %21) #54
@@ -61080,7 +61080,7 @@ define { double, double } @_ZNK21QCPAxisPainterPrivate22getTickLabelDrawOffsetER
   %67 = fmul double %59, %66
   %68 = fmul double %67, -5.000000e-01
   %69 = tail call double @llvm.fmuladd.f64(double %53, double %58, double %68)
-  br label %.thread66
+  br label %.thread65
 
 70:                                               ; preds = %34
   %71 = fneg double %21
@@ -61113,7 +61113,7 @@ define { double, double } @_ZNK21QCPAxisPainterPrivate22getTickLabelDrawOffsetER
 
 97:                                               ; preds = %70
   %98 = fmul double %96, 5.000000e-01
-  br label %.thread66
+  br label %.thread65
 
 99:                                               ; preds = %70
   %100 = tail call noundef double @cos(double noundef %71) #54
@@ -61125,7 +61125,7 @@ define { double, double } @_ZNK21QCPAxisPainterPrivate22getTickLabelDrawOffsetER
   %106 = fmul double %100, %105
   %107 = fmul double %106, -5.000000e-01
   %108 = tail call double @llvm.fmuladd.f64(double %81, double %96, double %107)
-  br label %.thread66
+  br label %.thread65
 
 109:                                              ; preds = %33
   %110 = getelementptr inbounds nuw i8, ptr %1, i64 120
@@ -61143,7 +61143,7 @@ define { double, double } @_ZNK21QCPAxisPainterPrivate22getTickLabelDrawOffsetER
   %.neg85 = add i32 %118, %.neg86
   %119 = sitofp i32 %.neg85 to double
   %120 = fmul double %119, 5.000000e-01
-  br label %.thread66
+  br label %.thread65
 
 121:                                              ; preds = %27, %30
   br i1 %6, label %173, label %122
@@ -61188,7 +61188,7 @@ define { double, double } @_ZNK21QCPAxisPainterPrivate22getTickLabelDrawOffsetER
 149:                                              ; preds = %140, %134
   %.in61 = phi double [ %139, %134 ], [ %148, %140 ]
   %150 = fmul double %.in61, 5.000000e-01
-  br label %.thread66
+  br label %.thread65
 
 151:                                              ; preds = %122
   br i1 %19, label %152, label %160
@@ -61219,7 +61219,7 @@ define { double, double } @_ZNK21QCPAxisPainterPrivate22getTickLabelDrawOffsetER
 171:                                              ; preds = %160, %152
   %.in = phi double [ %159, %152 ], [ %170, %160 ]
   %172 = fmul double %.in, 5.000000e-01
-  br label %.thread66
+  br label %.thread65
 
 173:                                              ; preds = %121
   %174 = getelementptr inbounds nuw i8, ptr %1, i64 132
@@ -61230,12 +61230,12 @@ define { double, double } @_ZNK21QCPAxisPainterPrivate22getTickLabelDrawOffsetER
   %.neg81 = add i32 %177, %.neg82
   %178 = sitofp i32 %.neg81 to double
   %179 = fmul double %178, 5.000000e-01
-  br label %.thread66
+  br label %.thread65
 
 180:                                              ; preds = %.split
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %182 = load i32, ptr %181, align 8
-  switch i32 %182, label %.thread66 [
+  switch i32 %182, label %.thread65 [
     i32 1, label %186
     i32 0, label %258
   ]
@@ -61243,7 +61243,7 @@ define { double, double } @_ZNK21QCPAxisPainterPrivate22getTickLabelDrawOffsetER
 183:                                              ; preds = %.split
   %184 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %185 = load i32, ptr %184, align 8
-  switch i32 %185, label %.thread66 [
+  switch i32 %185, label %.thread65 [
     i32 0, label %186
     i32 1, label %258
   ]
@@ -61291,7 +61291,7 @@ define { double, double } @_ZNK21QCPAxisPainterPrivate22getTickLabelDrawOffsetER
   %222 = fneg double %221
   %223 = fmul double %216, %222
   %224 = tail call double @llvm.fmuladd.f64(double %210, double %215, double %223)
-  br label %.thread66
+  br label %.thread65
 
 225:                                              ; preds = %187
   %226 = fneg double %21
@@ -61314,7 +61314,7 @@ define { double, double } @_ZNK21QCPAxisPainterPrivate22getTickLabelDrawOffsetER
   %243 = sub i32 %242, %241
   %244 = sitofp i32 %243 to double
   %245 = fmul double %239, %244
-  br label %.thread66
+  br label %.thread65
 
 246:                                              ; preds = %186
   %247 = getelementptr inbounds nuw i8, ptr %1, i64 120
@@ -61332,7 +61332,7 @@ define { double, double } @_ZNK21QCPAxisPainterPrivate22getTickLabelDrawOffsetER
   %.neg78 = xor i32 %254, -1
   %.neg77 = add i32 %256, %.neg78
   %257 = sitofp i32 %.neg77 to double
-  br label %.thread66
+  br label %.thread65
 
 258:                                              ; preds = %180, %183
   br i1 %6, label %300, label %259
@@ -61352,7 +61352,7 @@ define { double, double } @_ZNK21QCPAxisPainterPrivate22getTickLabelDrawOffsetER
   %269 = sitofp i32 %268 to double
   %270 = fmul double %262, %269
   %271 = fmul double %270, 5.000000e-01
-  br label %.thread66
+  br label %.thread65
 
 272:                                              ; preds = %259
   %273 = fneg double %21
@@ -61382,7 +61382,7 @@ define { double, double } @_ZNK21QCPAxisPainterPrivate22getTickLabelDrawOffsetER
   %297 = sub i32 %296, %295
   %298 = sitofp i32 %297 to double
   %299 = fmul double %283, %298
-  br label %.thread66
+  br label %.thread65
 
 300:                                              ; preds = %258
   %301 = getelementptr inbounds nuw i8, ptr %1, i64 120
@@ -61393,11 +61393,11 @@ define { double, double } @_ZNK21QCPAxisPainterPrivate22getTickLabelDrawOffsetER
   %.neg = add i32 %304, %.neg74
   %305 = sitofp i32 %.neg to double
   %306 = fmul double %305, 5.000000e-01
-  br label %.thread66
+  br label %.thread65
 
-.thread66:                                        ; preds = %180, %183, %27, %30, %2, %.split, %97, %99, %47, %51, %149, %171, %173, %261, %272, %300, %246, %225, %189, %109
-  %.060 = phi double [ 0.000000e+00, %27 ], [ %46, %47 ], [ %114, %109 ], [ %133, %149 ], [ 0.000000e+00, %171 ], [ 0.000000e+00, %173 ], [ %209, %189 ], [ %237, %225 ], [ %252, %246 ], [ %271, %261 ], [ %293, %272 ], [ %306, %300 ], [ 0.000000e+00, %180 ], [ %46, %51 ], [ %91, %99 ], [ %91, %97 ], [ 0.000000e+00, %30 ], [ 0.000000e+00, %183 ], [ 0.000000e+00, %.split ], [ 0.000000e+00, %2 ]
-  %.0 = phi double [ 0.000000e+00, %27 ], [ %50, %47 ], [ %120, %109 ], [ %150, %149 ], [ %172, %171 ], [ %179, %173 ], [ %224, %189 ], [ %245, %225 ], [ %257, %246 ], [ 0.000000e+00, %261 ], [ %299, %272 ], [ 0.000000e+00, %300 ], [ 0.000000e+00, %180 ], [ %69, %51 ], [ %108, %99 ], [ %98, %97 ], [ 0.000000e+00, %30 ], [ 0.000000e+00, %183 ], [ 0.000000e+00, %.split ], [ 0.000000e+00, %2 ]
+.thread65:                                        ; preds = %180, %183, %27, %30, %2, %.split, %97, %99, %47, %51, %149, %171, %173, %261, %272, %300, %246, %225, %189, %109
+  %.060 = phi double [ 0.000000e+00, %30 ], [ %46, %47 ], [ %114, %109 ], [ %133, %149 ], [ 0.000000e+00, %171 ], [ 0.000000e+00, %173 ], [ %209, %189 ], [ %237, %225 ], [ %252, %246 ], [ %271, %261 ], [ %293, %272 ], [ %306, %300 ], [ 0.000000e+00, %180 ], [ %46, %51 ], [ %91, %99 ], [ %91, %97 ], [ 0.000000e+00, %27 ], [ 0.000000e+00, %183 ], [ 0.000000e+00, %.split ], [ 0.000000e+00, %2 ]
+  %.0 = phi double [ 0.000000e+00, %30 ], [ %50, %47 ], [ %120, %109 ], [ %150, %149 ], [ %172, %171 ], [ %179, %173 ], [ %224, %189 ], [ %245, %225 ], [ %257, %246 ], [ 0.000000e+00, %261 ], [ %299, %272 ], [ 0.000000e+00, %300 ], [ 0.000000e+00, %180 ], [ %69, %51 ], [ %108, %99 ], [ %98, %97 ], [ 0.000000e+00, %27 ], [ 0.000000e+00, %183 ], [ 0.000000e+00, %.split ], [ 0.000000e+00, %2 ]
   %.fca.0.insert = insertvalue { double, double } poison, double %.060, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.0, 1
   ret { double, double } %.fca.1.insert
@@ -99022,7 +99022,7 @@ _ZSteqIKd6QColorEbRKSt4pairIT_T0_ES7_.exit.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.
   br label %_ZeqId6QColorENSt9enable_ifIXsr3stdE13conjunction_vISt11disjunctionIJSt10is_base_ofI4QMapIdS0_ET_EN11QTypeTraits18has_operator_equalIS6_EEEES2_IJS3_IS5_T0_ENS9_ISC_EEEEEEbE4typeERKS5_SJ_.exit
 
 _ZeqId6QColorENSt9enable_ifIXsr3stdE13conjunction_vISt11disjunctionIJSt10is_base_ofI4QMapIdS0_ET_EN11QTypeTraits18has_operator_equalIS6_EEEES2_IJS3_IS5_T0_ENS9_ISC_EEEEEEbE4typeERKS5_SJ_.exit: ; preds = %tailrecurse.i, %56, %_ZSteqIKd6QColorEbRKSt4pairIT_T0_ES7_.exit.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i, %59, %42, %38, %22, %18, %12, %6, %2
-  %61 = phi i1 [ false, %22 ], [ false, %18 ], [ false, %12 ], [ false, %6 ], [ false, %2 ], [ true, %42 ], [ %60, %59 ], [ false, %38 ], [ false, %.lr.ph.i.i.i.i.i.i.i ], [ false, %_ZSteqIKd6QColorEbRKSt4pairIT_T0_ES7_.exit.i.i.i.i.i.i.i ], [ true, %56 ], [ true, %tailrecurse.i ]
+  %61 = phi i1 [ false, %22 ], [ false, %18 ], [ false, %12 ], [ false, %6 ], [ false, %2 ], [ true, %42 ], [ false, %.lr.ph.i.i.i.i.i.i.i ], [ %60, %59 ], [ false, %38 ], [ false, %_ZSteqIKd6QColorEbRKSt4pairIT_T0_ES7_.exit.i.i.i.i.i.i.i ], [ true, %56 ], [ true, %tailrecurse.i ]
   ret i1 %61
 }
 
@@ -121125,14 +121125,14 @@ _ZNK11QCPColorMap10colorScaleEv.exit:             ; preds = %64, %60, %56
   store double %.sroa.2.0.copyload.i, ptr %.sroa.4.0..sroa_idx, align 8
   switch i32 %.038, label %.critedge [
     i32 2, label %73
-    i32 0, label %80
+    i32 0, label %82
   ]
 
 73:                                               ; preds = %69
   %74 = fcmp ole double %.sroa.0.0.copyload.i, 0.000000e+00
   %75 = fcmp ogt double %.sroa.2.0.copyload.i, 0.000000e+00
   %or.cond4 = select i1 %74, i1 %75, i1 false
-  br i1 %or.cond4, label %76, label %87
+  br i1 %or.cond4, label %76, label %80
 
 76:                                               ; preds = %73
   %77 = fmul double %.sroa.2.0.copyload.i, 1.000000e-03
@@ -121145,30 +121145,30 @@ _ZNK11QCPColorMap10colorScaleEv.exit:             ; preds = %64, %60, %56
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.not.i.i.i.i.i, label %_ZN9QtPrivate17QForeachContainerI5QListIP11QCPColorMapEED2Ev.exit49, label %_ZN17QArrayDataPointerIP11QCPColorMapE5derefEv.exit.i.i.i47
 
-80:                                               ; preds = %69
-  %81 = fcmp oge double %.sroa.2.0.copyload.i, 0.000000e+00
-  %82 = fcmp olt double %.sroa.0.0.copyload.i, 0.000000e+00
-  %or.cond10 = select i1 %81, i1 %82, i1 false
-  br i1 %or.cond10, label %83, label %85
-
-83:                                               ; preds = %80
-  %84 = fmul double %.sroa.0.0.copyload.i, 1.000000e-03
-  store double %84, ptr %.sroa.4.0..sroa_idx, align 8
-  br label %.critedge
-
-85:                                               ; preds = %80
-  %86 = fcmp oge double %.sroa.0.0.copyload.i, 0.000000e+00
-  %or.cond13.not = select i1 %81, i1 %86, i1 false
-  br i1 %or.cond13.not, label %_ZN8QCPRange6expandERKS_.exit, label %.critedge
-
-87:                                               ; preds = %73
-  %88 = fcmp ole double %.sroa.2.0.copyload.i, 0.000000e+00
-  %or.cond7.not = select i1 %74, i1 %88, i1 false
+80:                                               ; preds = %73
+  %81 = fcmp ole double %.sroa.2.0.copyload.i, 0.000000e+00
+  %or.cond7.not = select i1 %74, i1 %81, i1 false
   br i1 %or.cond7.not, label %_ZN8QCPRange6expandERKS_.exit, label %.critedge
 
-.critedge:                                        ; preds = %85, %76, %69, %83, %87
-  %89 = phi double [ %.sroa.2.0.copyload.i, %85 ], [ %.sroa.2.0.copyload.i, %76 ], [ %.sroa.2.0.copyload.i, %69 ], [ %84, %83 ], [ %.sroa.2.0.copyload.i, %87 ]
-  %90 = phi double [ %.sroa.0.0.copyload.i, %85 ], [ %77, %76 ], [ %.sroa.0.0.copyload.i, %69 ], [ %.sroa.0.0.copyload.i, %83 ], [ %.sroa.0.0.copyload.i, %87 ]
+82:                                               ; preds = %69
+  %83 = fcmp oge double %.sroa.2.0.copyload.i, 0.000000e+00
+  %84 = fcmp olt double %.sroa.0.0.copyload.i, 0.000000e+00
+  %or.cond10 = select i1 %83, i1 %84, i1 false
+  br i1 %or.cond10, label %85, label %87
+
+85:                                               ; preds = %82
+  %86 = fmul double %.sroa.0.0.copyload.i, 1.000000e-03
+  store double %86, ptr %.sroa.4.0..sroa_idx, align 8
+  br label %.critedge
+
+87:                                               ; preds = %82
+  %88 = fcmp oge double %.sroa.0.0.copyload.i, 0.000000e+00
+  %or.cond13.not = select i1 %83, i1 %88, i1 false
+  br i1 %or.cond13.not, label %_ZN8QCPRange6expandERKS_.exit, label %.critedge
+
+.critedge:                                        ; preds = %80, %76, %69, %85, %87
+  %89 = phi double [ %.sroa.2.0.copyload.i, %80 ], [ %.sroa.2.0.copyload.i, %76 ], [ %.sroa.2.0.copyload.i, %69 ], [ %86, %85 ], [ %.sroa.2.0.copyload.i, %87 ]
+  %90 = phi double [ %.sroa.0.0.copyload.i, %80 ], [ %77, %76 ], [ %.sroa.0.0.copyload.i, %69 ], [ %.sroa.0.0.copyload.i, %85 ], [ %.sroa.0.0.copyload.i, %87 ]
   %91 = trunc nuw i8 %.03371 to i1
   br i1 %91, label %93, label %92
 
@@ -121202,8 +121202,8 @@ _ZNK11QCPColorMap10colorScaleEv.exit:             ; preds = %64, %60, %56
   store double %89, ptr %26, align 8
   br label %_ZN8QCPRange6expandERKS_.exit
 
-_ZN8QCPRange6expandERKS_.exit:                    ; preds = %104, %102, %85, %87, %92, %_ZNK11QCPColorMap10colorScaleEv.exit
-  %.235 = phi i8 [ %.03371, %_ZNK11QCPColorMap10colorScaleEv.exit ], [ %.03371, %87 ], [ %.03371, %85 ], [ 1, %92 ], [ 1, %102 ], [ 1, %104 ]
+_ZN8QCPRange6expandERKS_.exit:                    ; preds = %104, %102, %80, %87, %92, %_ZNK11QCPColorMap10colorScaleEv.exit
+  %.235 = phi i8 [ %.03371, %_ZNK11QCPColorMap10colorScaleEv.exit ], [ %.03371, %87 ], [ %.03371, %80 ], [ 1, %92 ], [ 1, %102 ], [ 1, %104 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %105
 
@@ -123428,7 +123428,7 @@ _ZN5QListIdEC2Ex.exit:                            ; preds = %15
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %36, %15, %_ZN5QListIdEC2Ex.exit
-  %26 = phi i1 [ false, %_ZN5QListIdEC2Ex.exit ], [ false, %15 ], [ true, %36 ]
+  %26 = phi i1 [ false, %15 ], [ false, %_ZN5QListIdEC2Ex.exit ], [ true, %36 ]
   %27 = load ptr, ptr %16, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 168
   %29 = load i32, ptr %28, align 8
@@ -127414,8 +127414,8 @@ define linkonce_odr { double, double } @_ZN16QCPDataContainerI12QCPGraphDataE8ke
   br i1 %.not, label %.loopexit, label %59, !llvm.loop !860
 
 .loopexit:                                        ; preds = %76, %55, %29, %.preheader90, %.preheader88, %12, %35
-  %.255 = phi i8 [ 1, %35 ], [ 0, %12 ], [ 0, %.preheader88 ], [ 0, %.preheader90 ], [ %.457, %55 ], [ 0, %29 ], [ %.659, %76 ]
-  %.4 = phi i8 [ %.0, %35 ], [ 0, %12 ], [ 0, %.preheader88 ], [ 0, %.preheader90 ], [ %.6, %55 ], [ %.0, %29 ], [ %.9, %76 ]
+  %.255 = phi i8 [ 1, %35 ], [ 0, %29 ], [ 0, %12 ], [ %.457, %55 ], [ 0, %.preheader88 ], [ 0, %.preheader90 ], [ %.659, %76 ]
+  %.4 = phi i8 [ %.0, %35 ], [ %.0, %29 ], [ 0, %12 ], [ %.6, %55 ], [ 0, %.preheader88 ], [ 0, %.preheader90 ], [ %.9, %76 ]
   %80 = trunc nuw i8 %.4 to i1
   %81 = select i1 %80, i8 %.255, i8 0
   store i8 %81, ptr %1, align 1
@@ -127813,8 +127813,8 @@ _ZNK16QCPDataContainerI12QCPGraphDataE7findEndEdb.exit: ; preds = %_ZSt7advanceI
   br i1 %.not137, label %.loopexit, label %138, !llvm.loop !863
 
 .loopexit:                                        ; preds = %165, %136, %105, %.preheader147, %.preheader145, %.preheader, %_ZNK16QCPDataContainerI12QCPGraphDataE7findEndEdb.exit
-  %.266 = phi i8 [ 0, %_ZNK16QCPDataContainerI12QCPGraphDataE7findEndEdb.exit ], [ 0, %.preheader ], [ 0, %.preheader145 ], [ 0, %.preheader147 ], [ %.468, %136 ], [ %.165, %105 ], [ %.670, %165 ]
-  %.3 = phi i8 [ 0, %_ZNK16QCPDataContainerI12QCPGraphDataE7findEndEdb.exit ], [ 0, %.preheader ], [ 0, %.preheader145 ], [ 0, %.preheader147 ], [ %.5, %136 ], [ %.1, %105 ], [ %.8, %165 ]
+  %.266 = phi i8 [ 0, %_ZNK16QCPDataContainerI12QCPGraphDataE7findEndEdb.exit ], [ %.165, %105 ], [ %.468, %136 ], [ 0, %.preheader ], [ 0, %.preheader145 ], [ 0, %.preheader147 ], [ %.670, %165 ]
+  %.3 = phi i8 [ 0, %_ZNK16QCPDataContainerI12QCPGraphDataE7findEndEdb.exit ], [ %.1, %105 ], [ %.5, %136 ], [ 0, %.preheader ], [ 0, %.preheader145 ], [ 0, %.preheader147 ], [ %.8, %165 ]
   %167 = trunc nuw i8 %.3 to i1
   %168 = select i1 %167, i8 %.266, i8 0
   store i8 %168, ptr %1, align 1
@@ -142254,8 +142254,8 @@ define linkonce_odr { double, double } @_ZN16QCPDataContainerI12QCPCurveDataE8ke
   br i1 %.not, label %.loopexit, label %66, !llvm.loop !931
 
 .loopexit:                                        ; preds = %84, %62, %40, %.preheader88, %.preheader86, %.preheader, %12
-  %.255 = phi i8 [ 0, %12 ], [ 0, %.preheader ], [ 0, %.preheader86 ], [ 0, %.preheader88 ], [ %.457, %62 ], [ %.154, %40 ], [ %.659, %84 ]
-  %.4 = phi i8 [ 0, %12 ], [ 0, %.preheader ], [ 0, %.preheader86 ], [ 0, %.preheader88 ], [ %.6, %62 ], [ %.2, %40 ], [ %.9, %84 ]
+  %.255 = phi i8 [ %.154, %40 ], [ 0, %12 ], [ %.457, %62 ], [ 0, %.preheader ], [ 0, %.preheader86 ], [ 0, %.preheader88 ], [ %.659, %84 ]
+  %.4 = phi i8 [ %.2, %40 ], [ 0, %12 ], [ %.6, %62 ], [ 0, %.preheader ], [ 0, %.preheader86 ], [ 0, %.preheader88 ], [ %.9, %84 ]
   %88 = trunc nuw i8 %.4 to i1
   %89 = select i1 %88, i8 %.255, i8 0
   store i8 %89, ptr %1, align 1
@@ -142628,8 +142628,8 @@ define linkonce_odr { double, double } @_ZN16QCPDataContainerI12QCPCurveDataE10v
   br i1 %.not138, label %.loopexit, label %.lr.ph.split, !llvm.loop !932
 
 .loopexit:                                        ; preds = %147, %62, %126, %94, %.preheader148, %.preheader146, %.preheader, %18
-  %.266 = phi i8 [ 0, %18 ], [ 0, %.preheader ], [ 0, %.preheader146 ], [ 0, %.preheader148 ], [ %.670.us, %62 ], [ %.165, %94 ], [ %.468, %126 ], [ %.670, %147 ]
-  %.3 = phi i8 [ 0, %18 ], [ 0, %.preheader ], [ 0, %.preheader146 ], [ 0, %.preheader148 ], [ %.8.us, %62 ], [ %.1, %94 ], [ %.5, %126 ], [ %.9, %147 ]
+  %.266 = phi i8 [ 0, %18 ], [ %.468, %126 ], [ %.670.us, %62 ], [ 0, %.preheader ], [ 0, %.preheader146 ], [ 0, %.preheader148 ], [ %.165, %94 ], [ %.670, %147 ]
+  %.3 = phi i8 [ 0, %18 ], [ %.5, %126 ], [ %.8.us, %62 ], [ 0, %.preheader ], [ 0, %.preheader146 ], [ 0, %.preheader148 ], [ %.1, %94 ], [ %.9, %147 ]
   %149 = trunc nuw i8 %.3 to i1
   %150 = select i1 %149, i8 %.266, i8 0
   store i8 %150, ptr %1, align 1
@@ -144089,9 +144089,9 @@ _ZNK8QCPCurve9getRegionEdddddd.exit164:           ; preds = %197, %199, %204, %2
     i32 1, label %243
     i32 2, label %244
     i32 3, label %246
-    i32 4, label %_ZNK8QCPCurve11mayTraverseEii.exit
+    i32 4, label %247
     i32 9, label %251
-    i32 6, label %247
+    i32 6, label %_ZNK8QCPCurve11mayTraverseEii.exit
     i32 7, label %248
     i32 8, label %249
   ]
@@ -144207,8 +144207,8 @@ _ZN5QListI7QPointFED2Ev.exit173:                  ; preds = %241, %_ZN17QArrayDa
 
 247:                                              ; preds = %211
   switch i32 %.0.i161, label %_ZNK8QCPCurve11mayTraverseEii.exit.thread [
-    i32 9, label %_ZNK8QCPCurve11mayTraverseEii.exit.thread269
-    i32 3, label %_ZNK8QCPCurve11mayTraverseEii.exit.thread269
+    i32 7, label %_ZNK8QCPCurve11mayTraverseEii.exit.thread269
+    i32 1, label %_ZNK8QCPCurve11mayTraverseEii.exit.thread269
   ]
 
 248:                                              ; preds = %211
@@ -144235,14 +144235,14 @@ _ZN5QListI7QPointFED2Ev.exit173:                  ; preds = %241, %_ZN17QArrayDa
 
 _ZNK8QCPCurve11mayTraverseEii.exit:               ; preds = %211
   switch i32 %.0.i161, label %_ZNK8QCPCurve11mayTraverseEii.exit.thread [
-    i32 7, label %_ZNK8QCPCurve11mayTraverseEii.exit.thread269
-    i32 1, label %_ZNK8QCPCurve11mayTraverseEii.exit.thread269
+    i32 9, label %_ZNK8QCPCurve11mayTraverseEii.exit.thread269
+    i32 3, label %_ZNK8QCPCurve11mayTraverseEii.exit.thread269
   ]
 
 default.unreachable310:                           ; preds = %211
   unreachable
 
-_ZNK8QCPCurve11mayTraverseEii.exit.thread:        ; preds = %_ZNK8QCPCurve11mayTraverseEii.exit, %247, %251, %248, %246, %243, %249, %244
+_ZNK8QCPCurve11mayTraverseEii.exit.thread:        ; preds = %_ZNK8QCPCurve11mayTraverseEii.exit, %247, %251, %248, %246, %243, %244, %249
   %252 = getelementptr inbounds nuw i8, ptr %.sroa.0.0276, i64 8
   %253 = load double, ptr %252, align 8
   %254 = getelementptr inbounds nuw i8, ptr %.sroa.0.0276, i64 16
@@ -144396,8 +144396,8 @@ _ZN5QListI7QPointFED2Ev.exit203:                  ; preds = %_ZN5QListI7QPointFE
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %318
 
-_ZNK8QCPCurve11mayTraverseEii.exit.thread269:     ; preds = %._ZNK8QCPCurve11mayTraverseEii.exit.thread269_crit_edge, %_ZNK8QCPCurve11mayTraverseEii.exit, %_ZNK8QCPCurve11mayTraverseEii.exit, %247, %247, %251, %251, %251, %251, %246, %246, %246, %246, %243, %243, %243, %243, %248, %248, %248, %248, %249, %244
-  %299 = phi double [ %.pre, %._ZNK8QCPCurve11mayTraverseEii.exit.thread269_crit_edge ], [ %195, %_ZNK8QCPCurve11mayTraverseEii.exit ], [ %195, %_ZNK8QCPCurve11mayTraverseEii.exit ], [ %195, %247 ], [ %195, %247 ], [ %195, %251 ], [ %195, %251 ], [ %195, %251 ], [ %195, %251 ], [ %195, %246 ], [ %195, %246 ], [ %195, %246 ], [ %195, %246 ], [ %195, %243 ], [ %195, %243 ], [ %195, %243 ], [ %195, %243 ], [ %195, %248 ], [ %195, %248 ], [ %195, %248 ], [ %195, %248 ], [ %195, %249 ], [ %195, %244 ]
+_ZNK8QCPCurve11mayTraverseEii.exit.thread269:     ; preds = %._ZNK8QCPCurve11mayTraverseEii.exit.thread269_crit_edge, %_ZNK8QCPCurve11mayTraverseEii.exit, %_ZNK8QCPCurve11mayTraverseEii.exit, %247, %247, %246, %246, %246, %246, %243, %243, %243, %243, %248, %248, %248, %248, %251, %251, %251, %251, %244, %249
+  %299 = phi double [ %.pre, %._ZNK8QCPCurve11mayTraverseEii.exit.thread269_crit_edge ], [ %195, %_ZNK8QCPCurve11mayTraverseEii.exit ], [ %195, %_ZNK8QCPCurve11mayTraverseEii.exit ], [ %195, %247 ], [ %195, %247 ], [ %195, %246 ], [ %195, %246 ], [ %195, %246 ], [ %195, %246 ], [ %195, %243 ], [ %195, %243 ], [ %195, %243 ], [ %195, %243 ], [ %195, %248 ], [ %195, %248 ], [ %195, %248 ], [ %195, %248 ], [ %195, %251 ], [ %195, %251 ], [ %195, %251 ], [ %195, %251 ], [ %195, %244 ], [ %195, %249 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %300 = getelementptr inbounds nuw i8, ptr %.sroa.0.0276, i64 8
   %301 = load double, ptr %300, align 8
@@ -158058,8 +158058,8 @@ define linkonce_odr { double, double } @_ZN16QCPDataContainerI11QCPBarsDataE8key
   br i1 %.not, label %.loopexit, label %59, !llvm.loop !987
 
 .loopexit:                                        ; preds = %76, %55, %29, %.preheader90, %.preheader88, %12, %35
-  %.255 = phi i8 [ 1, %35 ], [ 0, %12 ], [ 0, %.preheader88 ], [ 0, %.preheader90 ], [ %.457, %55 ], [ 0, %29 ], [ %.659, %76 ]
-  %.4 = phi i8 [ %.0, %35 ], [ 0, %12 ], [ 0, %.preheader88 ], [ 0, %.preheader90 ], [ %.6, %55 ], [ %.0, %29 ], [ %.9, %76 ]
+  %.255 = phi i8 [ 1, %35 ], [ 0, %29 ], [ 0, %12 ], [ %.457, %55 ], [ 0, %.preheader88 ], [ 0, %.preheader90 ], [ %.659, %76 ]
+  %.4 = phi i8 [ %.0, %35 ], [ %.0, %29 ], [ 0, %12 ], [ %.6, %55 ], [ 0, %.preheader88 ], [ 0, %.preheader90 ], [ %.9, %76 ]
   %80 = trunc nuw i8 %.4 to i1
   %81 = select i1 %80, i8 %.255, i8 0
   store i8 %81, ptr %1, align 1
@@ -163597,8 +163597,8 @@ define linkonce_odr { double, double } @_ZN16QCPDataContainerI21QCPStatisticalBo
   br i1 %.not, label %.loopexit, label %59, !llvm.loop !1028
 
 .loopexit:                                        ; preds = %76, %55, %29, %.preheader90, %.preheader88, %12, %35
-  %.255 = phi i8 [ 1, %35 ], [ 0, %12 ], [ 0, %.preheader88 ], [ 0, %.preheader90 ], [ %.457, %55 ], [ 0, %29 ], [ %.659, %76 ]
-  %.4 = phi i8 [ %.0, %35 ], [ 0, %12 ], [ 0, %.preheader88 ], [ 0, %.preheader90 ], [ %.6, %55 ], [ %.0, %29 ], [ %.9, %76 ]
+  %.255 = phi i8 [ 1, %35 ], [ 0, %29 ], [ 0, %12 ], [ %.457, %55 ], [ 0, %.preheader88 ], [ 0, %.preheader90 ], [ %.659, %76 ]
+  %.4 = phi i8 [ %.0, %35 ], [ %.0, %29 ], [ 0, %12 ], [ %.6, %55 ], [ 0, %.preheader88 ], [ 0, %.preheader90 ], [ %.9, %76 ]
   %80 = trunc nuw i8 %.4 to i1
   %81 = select i1 %80, i8 %.255, i8 0
   store i8 %81, ptr %1, align 1
@@ -164071,8 +164071,8 @@ _ZNK21QCPStatisticalBoxData10valueRangeEv.exit107: ; preds = %_ZN8QCPRange6expan
   br i1 %.not147, label %.loopexit, label %147, !llvm.loop !1032
 
 .loopexit:                                        ; preds = %196, %145, %92, %.preheader157, %.preheader155, %.preheader, %39
-  %.266 = phi i8 [ 0, %39 ], [ 0, %.preheader ], [ 0, %.preheader155 ], [ 0, %.preheader157 ], [ %.468, %145 ], [ %.165, %92 ], [ %.670, %196 ]
-  %.3 = phi i8 [ 0, %39 ], [ 0, %.preheader ], [ 0, %.preheader155 ], [ 0, %.preheader157 ], [ %.5, %145 ], [ %.1, %92 ], [ %.8, %196 ]
+  %.266 = phi i8 [ 0, %39 ], [ %.165, %92 ], [ %.468, %145 ], [ 0, %.preheader ], [ 0, %.preheader155 ], [ 0, %.preheader157 ], [ %.670, %196 ]
+  %.3 = phi i8 [ 0, %39 ], [ %.1, %92 ], [ %.5, %145 ], [ 0, %.preheader ], [ 0, %.preheader155 ], [ 0, %.preheader157 ], [ %.8, %196 ]
   %198 = trunc nuw i8 %.3 to i1
   %199 = select i1 %198, i8 %.266, i8 0
   store i8 %199, ptr %1, align 1
@@ -174286,7 +174286,7 @@ _ZN6QDebuglsEPKc.exit54:                          ; preds = %_ZN7QStringD2Ev.exi
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !1083
 
 .loopexit:                                        ; preds = %121, %106, %108, %93
-  %.2 = phi double [ 0x7FEFFFFFFFFFFFFF, %93 ], [ 0x7FEFFFFFFFFFFFFF, %108 ], [ %.1, %106 ], [ %.4, %121 ]
+  %.2 = phi double [ %.1, %106 ], [ 0x7FEFFFFFFFFFFFFF, %93 ], [ 0x7FEFFFFFFFFFFFFF, %108 ], [ %.4, %121 ]
   %123 = call noundef double @sqrt(double noundef %.2) #54
   br label %124
 
@@ -174773,7 +174773,7 @@ _ZNK8QCPRange8containsEd.exit68.thread:           ; preds = %194, %177
   br i1 %.not, label %.loopexit, label %177, !llvm.loop !1085
 
 .loopexit:                                        ; preds = %233, %169, %171, %107
-  %.2 = phi double [ 0x7FEFFFFFFFFFFFFF, %107 ], [ 0x7FEFFFFFFFFFFFFF, %171 ], [ %.1, %169 ], [ %.4, %233 ]
+  %.2 = phi double [ %.1, %169 ], [ 0x7FEFFFFFFFFFFFFF, %107 ], [ 0x7FEFFFFFFFFFFFFF, %171 ], [ %.4, %233 ]
   %235 = call noundef double @sqrt(double noundef %.2) #54
   br label %236
 
@@ -175021,8 +175021,8 @@ define linkonce_odr { double, double } @_ZN16QCPDataContainerI16QCPFinancialData
   br i1 %.not, label %.loopexit, label %59, !llvm.loop !1089
 
 .loopexit:                                        ; preds = %76, %55, %29, %.preheader90, %.preheader88, %12, %35
-  %.255 = phi i8 [ 1, %35 ], [ 0, %12 ], [ 0, %.preheader88 ], [ 0, %.preheader90 ], [ %.457, %55 ], [ 0, %29 ], [ %.659, %76 ]
-  %.4 = phi i8 [ %.0, %35 ], [ 0, %12 ], [ 0, %.preheader88 ], [ 0, %.preheader90 ], [ %.6, %55 ], [ %.0, %29 ], [ %.9, %76 ]
+  %.255 = phi i8 [ 1, %35 ], [ 0, %29 ], [ 0, %12 ], [ %.457, %55 ], [ 0, %.preheader88 ], [ 0, %.preheader90 ], [ %.659, %76 ]
+  %.4 = phi i8 [ %.0, %35 ], [ %.0, %29 ], [ 0, %12 ], [ %.6, %55 ], [ 0, %.preheader88 ], [ 0, %.preheader90 ], [ %.9, %76 ]
   %80 = trunc nuw i8 %.4 to i1
   %81 = select i1 %80, i8 %.255, i8 0
   store i8 %81, ptr %1, align 1
@@ -175439,8 +175439,8 @@ _ZNK16QCPDataContainerI16QCPFinancialDataE7findEndEdb.exit: ; preds = %_ZSt11upp
   br i1 %.not138, label %.loopexit, label %139, !llvm.loop !1092
 
 .loopexit:                                        ; preds = %168, %137, %104, %.preheader148, %.preheader146, %.preheader, %_ZNK16QCPDataContainerI16QCPFinancialDataE7findEndEdb.exit
-  %.266 = phi i8 [ 0, %_ZNK16QCPDataContainerI16QCPFinancialDataE7findEndEdb.exit ], [ 0, %.preheader ], [ 0, %.preheader146 ], [ 0, %.preheader148 ], [ %.468, %137 ], [ %.165, %104 ], [ %.670, %168 ]
-  %.3 = phi i8 [ 0, %_ZNK16QCPDataContainerI16QCPFinancialDataE7findEndEdb.exit ], [ 0, %.preheader ], [ 0, %.preheader146 ], [ 0, %.preheader148 ], [ %.5, %137 ], [ %.1, %104 ], [ %.8, %168 ]
+  %.266 = phi i8 [ 0, %_ZNK16QCPDataContainerI16QCPFinancialDataE7findEndEdb.exit ], [ %.165, %104 ], [ %.468, %137 ], [ 0, %.preheader ], [ 0, %.preheader146 ], [ 0, %.preheader148 ], [ %.670, %168 ]
+  %.3 = phi i8 [ 0, %_ZNK16QCPDataContainerI16QCPFinancialDataE7findEndEdb.exit ], [ %.1, %104 ], [ %.5, %137 ], [ 0, %.preheader ], [ 0, %.preheader146 ], [ 0, %.preheader148 ], [ %.8, %168 ]
   %170 = trunc nuw i8 %.3 to i1
   %171 = select i1 %170, i8 %.266, i8 0
   store i8 %171, ptr %1, align 1
@@ -257767,7 +257767,7 @@ _ZSt13move_backwardIPP8QCPLayerS2_ET0_T_S4_S3_.exit: ; preds = %48, %52
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !1566
 
 _ZSt11swap_rangesIPP8QCPLayerS2_ET0_T_S4_S3_.exit: ; preds = %._crit_edge, %._crit_edge111, %.lr.ph.i, %_ZSt13move_backwardIPP8QCPLayerS2_ET0_T_S4_S3_.exit, %_ZSt4moveIPP8QCPLayerS2_ET0_T_S4_S3_.exit, %5, %3
-  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %23, %_ZSt4moveIPP8QCPLayerS2_ET0_T_S4_S3_.exit ], [ %23, %_ZSt13move_backwardIPP8QCPLayerS2_ET0_T_S4_S3_.exit ], [ %1, %.lr.ph.i ], [ %23, %._crit_edge111 ], [ %23, %._crit_edge ]
+  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %1, %.lr.ph.i ], [ %23, %_ZSt4moveIPP8QCPLayerS2_ET0_T_S4_S3_.exit ], [ %23, %_ZSt13move_backwardIPP8QCPLayerS2_ET0_T_S4_S3_.exit ], [ %23, %._crit_edge111 ], [ %23, %._crit_edge ]
   ret ptr %.053
 }
 
@@ -260761,8 +260761,8 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiS0_IP20QCPAbstractPl
   br label %_ZNSt8_Rb_treeIiSt4pairIKiS0_IP20QCPAbstractPlottable16QCPDataSelectionEESt10_Select1stIS6_ESt4lessIiESaIS6_EE23_M_get_insert_equal_posERS1_.exit
 
 _ZNSt8_Rb_treeIiSt4pairIKiS0_IP20QCPAbstractPlottable16QCPDataSelectionEESt10_Select1stIS6_ESt4lessIiESaIS6_EE23_M_get_insert_equal_posERS1_.exit: ; preds = %.lr.ph.i10, %19, %41, %16, %55, %37, %46, %50, %28, %9
-  %.sroa.038.0 = phi ptr [ %spec.select40, %55 ], [ null, %9 ], [ null, %46 ], [ null, %50 ], [ %30, %28 ], [ %spec.select, %37 ], [ null, %16 ], [ null, %41 ], [ null, %19 ], [ null, %.lr.ph.i10 ]
-  %.sroa.11.0 = phi ptr [ %spec.select41, %55 ], [ %11, %9 ], [ %48, %46 ], [ null, %50 ], [ %30, %28 ], [ %spec.select39, %37 ], [ %4, %16 ], [ %4, %41 ], [ %.0710.i, %19 ], [ %.0710.i11, %.lr.ph.i10 ]
+  %.sroa.038.0 = phi ptr [ %spec.select40, %55 ], [ null, %9 ], [ null, %46 ], [ null, %50 ], [ null, %19 ], [ %30, %28 ], [ %spec.select, %37 ], [ null, %16 ], [ null, %41 ], [ null, %.lr.ph.i10 ]
+  %.sroa.11.0 = phi ptr [ %spec.select41, %55 ], [ %11, %9 ], [ %48, %46 ], [ null, %50 ], [ %.0710.i, %19 ], [ %30, %28 ], [ %spec.select39, %37 ], [ %4, %16 ], [ %4, %41 ], [ %.0710.i11, %.lr.ph.i10 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.038.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.11.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -273195,7 +273195,7 @@ _ZSt4moveIN5QListI12QCPGraphDataE8iteratorES3_ET0_T_S5_S4_.exit: ; preds = %.lr.
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !1621
 
 _ZSt4moveIP12QCPGraphDataN5QListIS0_E8iteratorEET0_T_S6_S5_.exit: ; preds = %.lr.ph.i.i.i.i.i39, %.lr.ph.i.i.i.i.i52, %._crit_edge.i.i, %._crit_edge67.i.i, %.lr.ph.i.i.i, %71, %69, %_ZSt4moveIN5QListI12QCPGraphDataE8iteratorES3_ET0_T_S5_S4_.exit, %_ZSt13move_backwardIN5QListI12QCPGraphDataE8iteratorES3_ET0_T_S5_S4_.exit, %41, %12
-  %.sroa.032.0 = phi ptr [ %2, %41 ], [ %0, %12 ], [ %0, %_ZSt13move_backwardIN5QListI12QCPGraphDataE8iteratorES3_ET0_T_S5_S4_.exit ], [ %2, %_ZSt4moveIN5QListI12QCPGraphDataE8iteratorES3_ET0_T_S5_S4_.exit ], [ %0, %71 ], [ %2, %69 ], [ %66, %.lr.ph.i.i.i.i.i52 ], [ %1, %.lr.ph.i.i.i ], [ %87, %._crit_edge.i.i ], [ %87, %._crit_edge67.i.i ], [ %37, %.lr.ph.i.i.i.i.i39 ]
+  %.sroa.032.0 = phi ptr [ %2, %41 ], [ %87, %._crit_edge.i.i ], [ %66, %.lr.ph.i.i.i.i.i52 ], [ %0, %12 ], [ %0, %_ZSt13move_backwardIN5QListI12QCPGraphDataE8iteratorES3_ET0_T_S5_S4_.exit ], [ %2, %_ZSt4moveIN5QListI12QCPGraphDataE8iteratorES3_ET0_T_S5_S4_.exit ], [ %0, %71 ], [ %2, %69 ], [ %1, %.lr.ph.i.i.i ], [ %87, %._crit_edge67.i.i ], [ %37, %.lr.ph.i.i.i.i.i39 ]
   ret ptr %.sroa.032.0
 }
 
@@ -279260,7 +279260,7 @@ _ZSt4moveIN5QListI12QCPCurveDataE8iteratorES3_ET0_T_S5_S4_.exit: ; preds = %.lr.
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !1648
 
 _ZSt4moveIP12QCPCurveDataN5QListIS0_E8iteratorEET0_T_S6_S5_.exit: ; preds = %.lr.ph.i.i.i.i.i41, %.lr.ph.i.i.i.i.i57, %._crit_edge.i.i, %._crit_edge67.i.i, %.lr.ph.i.i.i, %71, %69, %_ZSt4moveIN5QListI12QCPCurveDataE8iteratorES3_ET0_T_S5_S4_.exit, %_ZSt13move_backwardIN5QListI12QCPCurveDataE8iteratorES3_ET0_T_S5_S4_.exit, %41, %12
-  %.sroa.032.0 = phi ptr [ %2, %41 ], [ %0, %12 ], [ %0, %_ZSt13move_backwardIN5QListI12QCPCurveDataE8iteratorES3_ET0_T_S5_S4_.exit ], [ %2, %_ZSt4moveIN5QListI12QCPCurveDataE8iteratorES3_ET0_T_S5_S4_.exit ], [ %0, %71 ], [ %2, %69 ], [ %66, %.lr.ph.i.i.i.i.i57 ], [ %1, %.lr.ph.i.i.i ], [ %87, %._crit_edge.i.i ], [ %87, %._crit_edge67.i.i ], [ %37, %.lr.ph.i.i.i.i.i41 ]
+  %.sroa.032.0 = phi ptr [ %2, %41 ], [ %87, %._crit_edge.i.i ], [ %66, %.lr.ph.i.i.i.i.i57 ], [ %0, %12 ], [ %0, %_ZSt13move_backwardIN5QListI12QCPCurveDataE8iteratorES3_ET0_T_S5_S4_.exit ], [ %2, %_ZSt4moveIN5QListI12QCPCurveDataE8iteratorES3_ET0_T_S5_S4_.exit ], [ %0, %71 ], [ %2, %69 ], [ %1, %.lr.ph.i.i.i ], [ %87, %._crit_edge67.i.i ], [ %37, %.lr.ph.i.i.i.i.i41 ]
   ret ptr %.sroa.032.0
 }
 
@@ -280354,7 +280354,7 @@ _ZSt13move_backwardIPP7QCPBarsS2_ET0_T_S4_S3_.exit: ; preds = %48, %52
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !1658
 
 _ZSt11swap_rangesIPP7QCPBarsS2_ET0_T_S4_S3_.exit: ; preds = %._crit_edge, %._crit_edge111, %.lr.ph.i, %_ZSt13move_backwardIPP7QCPBarsS2_ET0_T_S4_S3_.exit, %_ZSt4moveIPP7QCPBarsS2_ET0_T_S4_S3_.exit, %5, %3
-  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %23, %_ZSt4moveIPP7QCPBarsS2_ET0_T_S4_S3_.exit ], [ %23, %_ZSt13move_backwardIPP7QCPBarsS2_ET0_T_S4_S3_.exit ], [ %1, %.lr.ph.i ], [ %23, %._crit_edge111 ], [ %23, %._crit_edge ]
+  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %1, %.lr.ph.i ], [ %23, %_ZSt4moveIPP7QCPBarsS2_ET0_T_S4_S3_.exit ], [ %23, %_ZSt13move_backwardIPP7QCPBarsS2_ET0_T_S4_S3_.exit ], [ %23, %._crit_edge111 ], [ %23, %._crit_edge ]
   ret ptr %.053
 }
 
@@ -286245,7 +286245,7 @@ _ZSt4moveIN5QListI11QCPBarsDataE8iteratorES3_ET0_T_S5_S4_.exit: ; preds = %.lr.p
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !1676
 
 _ZSt4moveIP11QCPBarsDataN5QListIS0_E8iteratorEET0_T_S6_S5_.exit: ; preds = %.lr.ph.i.i.i.i.i39, %.lr.ph.i.i.i.i.i52, %._crit_edge.i.i, %._crit_edge67.i.i, %.lr.ph.i.i.i, %71, %69, %_ZSt4moveIN5QListI11QCPBarsDataE8iteratorES3_ET0_T_S5_S4_.exit, %_ZSt13move_backwardIN5QListI11QCPBarsDataE8iteratorES3_ET0_T_S5_S4_.exit, %41, %12
-  %.sroa.032.0 = phi ptr [ %2, %41 ], [ %0, %12 ], [ %0, %_ZSt13move_backwardIN5QListI11QCPBarsDataE8iteratorES3_ET0_T_S5_S4_.exit ], [ %2, %_ZSt4moveIN5QListI11QCPBarsDataE8iteratorES3_ET0_T_S5_S4_.exit ], [ %0, %71 ], [ %2, %69 ], [ %66, %.lr.ph.i.i.i.i.i52 ], [ %1, %.lr.ph.i.i.i ], [ %87, %._crit_edge.i.i ], [ %87, %._crit_edge67.i.i ], [ %37, %.lr.ph.i.i.i.i.i39 ]
+  %.sroa.032.0 = phi ptr [ %2, %41 ], [ %87, %._crit_edge.i.i ], [ %66, %.lr.ph.i.i.i.i.i52 ], [ %0, %12 ], [ %0, %_ZSt13move_backwardIN5QListI11QCPBarsDataE8iteratorES3_ET0_T_S5_S4_.exit ], [ %2, %_ZSt4moveIN5QListI11QCPBarsDataE8iteratorES3_ET0_T_S5_S4_.exit ], [ %0, %71 ], [ %2, %69 ], [ %1, %.lr.ph.i.i.i ], [ %87, %._crit_edge67.i.i ], [ %37, %.lr.ph.i.i.i.i.i39 ]
   ret ptr %.sroa.032.0
 }
 
@@ -292521,7 +292521,7 @@ _ZN21QCPStatisticalBoxDataaSEOS_.exit.i.i.i.i.i77: ; preds = %135, %_ZN17QArrayD
   br label %_ZSt4moveIP21QCPStatisticalBoxDataN5QListIS0_E8iteratorEET0_T_S6_S5_.exit
 
 _ZSt4moveIP21QCPStatisticalBoxDataN5QListIS0_E8iteratorEET0_T_S6_S5_.exit: ; preds = %_ZN21QCPStatisticalBoxDataaSEOS_.exit.i.i.i.i.i50, %_ZN21QCPStatisticalBoxDataaSEOS_.exit.i.i.i.i.i77, %_ZSt4moveIN5QListI21QCPStatisticalBoxDataE8iteratorES3_ET0_T_S5_S4_.exit, %_ZSt13move_backwardIN5QListI21QCPStatisticalBoxDataE8iteratorES3_ET0_T_S5_S4_.exit, %74, %9, %138
-  %.sroa.032.0 = phi ptr [ %2, %74 ], [ %139, %138 ], [ %0, %9 ], [ %0, %_ZSt13move_backwardIN5QListI21QCPStatisticalBoxDataE8iteratorES3_ET0_T_S5_S4_.exit ], [ %2, %_ZSt4moveIN5QListI21QCPStatisticalBoxDataE8iteratorES3_ET0_T_S5_S4_.exit ], [ %123, %_ZN21QCPStatisticalBoxDataaSEOS_.exit.i.i.i.i.i77 ], [ %70, %_ZN21QCPStatisticalBoxDataaSEOS_.exit.i.i.i.i.i50 ]
+  %.sroa.032.0 = phi ptr [ %2, %74 ], [ %139, %138 ], [ %123, %_ZN21QCPStatisticalBoxDataaSEOS_.exit.i.i.i.i.i77 ], [ %0, %9 ], [ %0, %_ZSt13move_backwardIN5QListI21QCPStatisticalBoxDataE8iteratorES3_ET0_T_S5_S4_.exit ], [ %2, %_ZSt4moveIN5QListI21QCPStatisticalBoxDataE8iteratorES3_ET0_T_S5_S4_.exit ], [ %70, %_ZN21QCPStatisticalBoxDataaSEOS_.exit.i.i.i.i.i50 ]
   ret ptr %.sroa.032.0
 }
 
@@ -298012,7 +298012,7 @@ _ZSt4moveIN5QListI16QCPFinancialDataE8iteratorES3_ET0_T_S5_S4_.exit: ; preds = %
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !1728
 
 _ZSt4moveIP16QCPFinancialDataN5QListIS0_E8iteratorEET0_T_S6_S5_.exit: ; preds = %.lr.ph.i.i.i.i.i41, %.lr.ph.i.i.i.i.i57, %._crit_edge.i.i, %._crit_edge67.i.i, %.lr.ph.i.i.i, %71, %69, %_ZSt4moveIN5QListI16QCPFinancialDataE8iteratorES3_ET0_T_S5_S4_.exit, %_ZSt13move_backwardIN5QListI16QCPFinancialDataE8iteratorES3_ET0_T_S5_S4_.exit, %41, %12
-  %.sroa.032.0 = phi ptr [ %2, %41 ], [ %0, %12 ], [ %0, %_ZSt13move_backwardIN5QListI16QCPFinancialDataE8iteratorES3_ET0_T_S5_S4_.exit ], [ %2, %_ZSt4moveIN5QListI16QCPFinancialDataE8iteratorES3_ET0_T_S5_S4_.exit ], [ %0, %71 ], [ %2, %69 ], [ %66, %.lr.ph.i.i.i.i.i57 ], [ %1, %.lr.ph.i.i.i ], [ %87, %._crit_edge.i.i ], [ %87, %._crit_edge67.i.i ], [ %37, %.lr.ph.i.i.i.i.i41 ]
+  %.sroa.032.0 = phi ptr [ %2, %41 ], [ %87, %._crit_edge.i.i ], [ %66, %.lr.ph.i.i.i.i.i57 ], [ %0, %12 ], [ %0, %_ZSt13move_backwardIN5QListI16QCPFinancialDataE8iteratorES3_ET0_T_S5_S4_.exit ], [ %2, %_ZSt4moveIN5QListI16QCPFinancialDataE8iteratorES3_ET0_T_S5_S4_.exit ], [ %0, %71 ], [ %2, %69 ], [ %1, %.lr.ph.i.i.i ], [ %87, %._crit_edge67.i.i ], [ %37, %.lr.ph.i.i.i.i.i41 ]
   ret ptr %.sroa.032.0
 }
 

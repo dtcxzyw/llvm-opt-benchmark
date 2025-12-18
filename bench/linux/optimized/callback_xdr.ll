@@ -359,7 +359,7 @@ define internal noundef range(i32 0, 83886081) i32 @nfs4_callback_compound(ptr n
   br label %176
 
 176:                                              ; preds = %173, %166
-  %177 = phi i32 [ %175, %173 ], [ %163, %166 ]
+  %177 = phi i32 [ %163, %166 ], [ %175, %173 ]
   %178 = add nuw i32 %126, 1
   %179 = icmp eq i32 %177, 0
   %180 = icmp ne i32 %178, %.ph1964

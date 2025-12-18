@@ -1675,7 +1675,7 @@ define internal i32 @fix_md(i32 noundef %0, ptr noundef readonly captures(addres
   br label %fix_cipher_md.exit
 
 fix_cipher_md.exit:                               ; preds = %3, %.critedge.thread.i, %46, %47, %60, %.sink.split.i
-  %.0.i = phi i32 [ %44, %.critedge.thread.i ], [ %4, %3 ], [ %44, %46 ], [ %44, %60 ], [ %44, %47 ], [ %44, %.sink.split.i ]
+  %.0.i = phi i32 [ %44, %.critedge.thread.i ], [ %4, %3 ], [ %44, %46 ], [ %44, %47 ], [ %44, %60 ], [ %44, %.sink.split.i ]
   ret i32 %.0.i
 }
 
@@ -2633,7 +2633,7 @@ define internal range(i32 -2147483648, 2) i32 @fix_hkdf_mode(i32 noundef %0, ptr
   br label %.critedge
 
 .critedge:                                        ; preds = %21, %47, %35, %53, %28, %3
-  %.047 = phi i32 [ 1, %35 ], [ %4, %3 ], [ %29, %28 ], [ 1, %53 ], [ 0, %47 ], [ 0, %21 ]
+  %.047 = phi i32 [ 0, %47 ], [ 1, %35 ], [ %4, %3 ], [ %29, %28 ], [ 1, %53 ], [ 0, %21 ]
   ret i32 %.047
 }
 
@@ -2770,7 +2770,7 @@ define internal i32 @fix_cipher(i32 noundef %0, ptr noundef readonly captures(ad
   br label %fix_cipher_md.exit
 
 fix_cipher_md.exit:                               ; preds = %3, %.critedge.thread.i, %46, %47, %60, %.sink.split.i
-  %.0.i = phi i32 [ %44, %.critedge.thread.i ], [ %4, %3 ], [ %44, %46 ], [ %44, %60 ], [ %44, %47 ], [ %44, %.sink.split.i ]
+  %.0.i = phi i32 [ %44, %.critedge.thread.i ], [ %4, %3 ], [ %44, %46 ], [ %44, %47 ], [ %44, %60 ], [ %44, %.sink.split.i ]
   ret i32 %.0.i
 }
 
@@ -2993,7 +2993,7 @@ define internal fastcc i32 @fix_kdf_type(i32 noundef %0, ptr noundef readonly ca
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph91, %33, %56, %51, %52, %.thread, %76, %.loopexit, %.thread61, %20, %9, %4
-  %.052 = phi i32 [ %5, %4 ], [ 0, %9 ], [ %49, %.thread61 ], [ %21, %20 ], [ %23, %.thread ], [ %.2, %.loopexit ], [ %49, %76 ], [ %49, %56 ], [ %49, %51 ], [ %49, %52 ], [ -2, %33 ], [ -2, %.lr.ph91 ]
+  %.052 = phi i32 [ %5, %4 ], [ 0, %9 ], [ %49, %.thread61 ], [ %21, %20 ], [ %23, %.thread ], [ %.2, %.loopexit ], [ %49, %76 ], [ %49, %56 ], [ %49, %52 ], [ %49, %51 ], [ -2, %33 ], [ -2, %.lr.ph91 ]
   ret i32 %.052
 }
 

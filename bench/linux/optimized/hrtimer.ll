@@ -1412,7 +1412,7 @@ define dso_local range(i64 0, -9223372036854775808) i64 @hrtimer_next_event_with
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %77, %69
-  %.be90 = phi i64 [ %75, %77 ], [ %76, %69 ]
+  %.be90 = phi i64 [ %76, %69 ], [ %75, %77 ]
   br label %.split
 
 .thread:                                          ; preds = %19, %22, %52, %49
@@ -1526,7 +1526,7 @@ define dso_local range(i64 0, -9223372036854775808) i64 @hrtimer_next_event_with
   br label %.split19.backedge
 
 .split19.backedge:                                ; preds = %150, %142
-  %.be = phi i64 [ %148, %150 ], [ %149, %142 ]
+  %.be = phi i64 [ %149, %142 ], [ %148, %150 ]
   br label %.split19
 
 .thread13:                                        ; preds = %92, %95, %125, %122

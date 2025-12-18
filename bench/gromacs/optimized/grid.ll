@@ -2761,7 +2761,7 @@ define internal fastcc void @_ZN3gmxL10sort_atomsEibibPiiNS_8ArrayRefIKNS_11Basi
   br i1 %.not.not, label %75, label %.loopexit, !llvm.loop !203
 
 .loopexit:                                        ; preds = %71, %83, %.preheader, %72
-  %.2 = phi i32 [ 0, %72 ], [ 0, %.preheader ], [ %.4, %83 ], [ %.158, %71 ]
+  %.2 = phi i32 [ %.4, %83 ], [ 0, %72 ], [ 0, %.preheader ], [ %.158, %71 ]
   %84 = icmp slt i32 %.2, %3
   br i1 %84, label %85, label %98
 

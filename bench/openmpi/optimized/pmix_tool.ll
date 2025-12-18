@@ -10157,7 +10157,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %58
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %28, %pmix_obj_update.exit, %71, %69, %.preheader, %9
-  %.sink = phi i32 [ -46, %.preheader ], [ 0, %9 ], [ 0, %69 ], [ 0, %71 ], [ 0, %pmix_obj_update.exit ], [ -46, %28 ]
+  %.sink = phi i32 [ -46, %.preheader ], [ 0, %9 ], [ 0, %pmix_obj_update.exit ], [ 0, %69 ], [ 0, %71 ], [ -46, %28 ]
   %72 = getelementptr inbounds nuw i8, ptr %2, i64 500
   store i32 %.sink, ptr %72, align 4, !tbaa !159
   %73 = getelementptr inbounds nuw i8, ptr %2, i64 400

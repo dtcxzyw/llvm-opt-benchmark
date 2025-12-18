@@ -434,7 +434,7 @@ define void @wolfSSL_CTX_set_verify(ptr noundef captures(address_is_null) %0, i3
   br label %ModeToVerifyOptions.exit
 
 ModeToVerifyOptions.exit:                         ; preds = %5, %6, %.fold.split.i
-  %.sroa.0.0.i = phi i8 [ %14, %6 ], [ 0, %5 ], [ 2, %.fold.split.i ]
+  %.sroa.0.0.i = phi i8 [ 0, %5 ], [ %14, %6 ], [ 2, %.fold.split.i ]
   %15 = and i8 %.sroa.0.0.i, 2
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 169
   %17 = load i16, ptr %16, align 1
@@ -4225,7 +4225,7 @@ define i32 @wolfSSL_accept(ptr noundef %0) local_unnamed_addr #0 {
   br label %.loopexit165
 
 .loopexit165:                                     ; preds = %64, %133, %161, %172, %56, %149, %145, %142, %121, %112, %103, %92, %85, %74, %9, %1, %177, %99, %81, %71, %54, %50, %30, %23, %16, %7
-  %.0 = phi i32 [ -1, %23 ], [ %8, %7 ], [ -1, %1 ], [ -1, %16 ], [ -1, %54 ], [ %11, %9 ], [ %72, %71 ], [ %82, %81 ], [ %100, %99 ], [ -1, %142 ], [ -1, %145 ], [ -1, %149 ], [ 1, %177 ], [ -1, %172 ], [ -1, %121 ], [ -1, %112 ], [ -1, %103 ], [ -1, %92 ], [ -1, %85 ], [ -1, %74 ], [ -1, %50 ], [ -1, %30 ], [ -1, %56 ], [ -1, %133 ], [ -1, %161 ], [ -1, %64 ]
+  %.0 = phi i32 [ -1, %23 ], [ %8, %7 ], [ -1, %1 ], [ -1, %16 ], [ -1, %54 ], [ -1, %56 ], [ %11, %9 ], [ %72, %71 ], [ -1, %161 ], [ %82, %81 ], [ %100, %99 ], [ -1, %142 ], [ -1, %145 ], [ -1, %149 ], [ 1, %177 ], [ -1, %172 ], [ -1, %133 ], [ -1, %121 ], [ -1, %112 ], [ -1, %103 ], [ -1, %92 ], [ -1, %85 ], [ -1, %74 ], [ -1, %50 ], [ -1, %30 ], [ -1, %64 ]
   ret i32 %.0
 }
 
@@ -4589,7 +4589,7 @@ define i32 @wolfSSL_connect(ptr noundef %0) local_unnamed_addr #0 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %72, %139, %151, %51, %129, %125, %121, %110, %99, %90, %54, %10, %1, %156, %117, %106, %95, %87, %70, %49, %45, %16, %8
-  %.0 = phi i32 [ -1, %45 ], [ %9, %8 ], [ -173, %1 ], [ -1, %16 ], [ -1, %49 ], [ %12, %10 ], [ %71, %70 ], [ -1, %54 ], [ %88, %87 ], [ %96, %95 ], [ 1, %90 ], [ %107, %106 ], [ -1, %110 ], [ -1, %121 ], [ -1, %125 ], [ -1, %129 ], [ 1, %156 ], [ -1, %151 ], [ -1, %117 ], [ -1, %99 ], [ -1, %51 ], [ -1, %139 ], [ -1, %72 ]
+  %.0 = phi i32 [ -1, %45 ], [ %9, %8 ], [ -173, %1 ], [ -1, %16 ], [ -1, %49 ], [ -1, %51 ], [ %12, %10 ], [ %71, %70 ], [ -1, %54 ], [ %88, %87 ], [ -1, %139 ], [ %96, %95 ], [ 1, %90 ], [ %107, %106 ], [ -1, %110 ], [ -1, %121 ], [ -1, %125 ], [ -1, %129 ], [ 1, %156 ], [ -1, %151 ], [ -1, %117 ], [ -1, %99 ], [ -1, %72 ]
   ret i32 %.0
 }
 
@@ -7345,7 +7345,7 @@ ProcessUserCert.exit.thread.thread.i:             ; preds = %.lr.ph.i.split, %Da
   %.us-phi = phi i32 [ %.050117.i.us, %DataToDerBuffer.exit.thread82.i.us ], [ %.050117.i, %DataToDerBuffer.exit.thread82.i ], [ %.050117.i, %.lr.ph.i.split ]
   %.us-phi154 = phi i64 [ %.057115.i.us, %DataToDerBuffer.exit.thread82.i.us ], [ %.057115.i, %DataToDerBuffer.exit.thread82.i ], [ %.057115.i, %.lr.ph.i.split ]
   %.us-phi155 = phi i32 [ %.078114.i.us, %DataToDerBuffer.exit.thread82.i.us ], [ %.078114.i, %DataToDerBuffer.exit.thread82.i ], [ %.078114.i, %.lr.ph.i.split ]
-  %.us-phi156 = phi i32 [ -132, %DataToDerBuffer.exit.thread82.i.us ], [ -140, %.lr.ph.i.split ], [ -132, %DataToDerBuffer.exit.thread82.i ]
+  %.us-phi156 = phi i32 [ -132, %DataToDerBuffer.exit.thread82.i.us ], [ -132, %DataToDerBuffer.exit.thread82.i ], [ -140, %.lr.ph.i.split ]
   call void @FreeDer(ptr noundef nonnull %17) #22
   br label %.loopexit.sink.split.i
 
@@ -7372,12 +7372,12 @@ ProcessUserCert.exit.thread.i:                    ; preds = %ProcessUserCert.exi
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %254, %207, %.loopexit.sink.split.i, %168
-  %.sroa.0.0141.i = phi ptr [ %16, %168 ], [ %.sroa.0.0.ph.i, %.loopexit.sink.split.i ], [ %.sroa.0.0.ph.i, %207 ], [ %.sroa.0.0.ph.i, %254 ]
-  %.not.i75138.i = phi i1 [ true, %168 ], [ %167, %.loopexit.sink.split.i ], [ %167, %207 ], [ %167, %254 ]
-  %.057112.i = phi i64 [ %162, %168 ], [ %.057115.i149, %.loopexit.sink.split.i ], [ %209, %207 ], [ %256, %254 ]
-  %.050110.i = phi i32 [ 0, %168 ], [ %.050117.i152, %.loopexit.sink.split.i ], [ %210, %207 ], [ %257, %254 ]
-  %.049108.i = phi i32 [ -125, %168 ], [ %.049108.ph.i, %.loopexit.sink.split.i ], [ 0, %207 ], [ 0, %254 ]
-  %.179.i = phi i32 [ 0, %168 ], [ %.179.ph.i, %.loopexit.sink.split.i ], [ %.28087106.i.us, %207 ], [ %.28087106.i, %254 ]
+  %.sroa.0.0141.i = phi ptr [ %.sroa.0.0.ph.i, %.loopexit.sink.split.i ], [ %16, %168 ], [ %.sroa.0.0.ph.i, %207 ], [ %.sroa.0.0.ph.i, %254 ]
+  %.not.i75138.i = phi i1 [ %167, %.loopexit.sink.split.i ], [ true, %168 ], [ %167, %207 ], [ %167, %254 ]
+  %.057112.i = phi i64 [ %.057115.i149, %.loopexit.sink.split.i ], [ %162, %168 ], [ %209, %207 ], [ %256, %254 ]
+  %.050110.i = phi i32 [ %.050117.i152, %.loopexit.sink.split.i ], [ 0, %168 ], [ %210, %207 ], [ %257, %254 ]
+  %.049108.i = phi i32 [ %.049108.ph.i, %.loopexit.sink.split.i ], [ -125, %168 ], [ 0, %207 ], [ 0, %254 ]
+  %.179.i = phi i32 [ %.179.ph.i, %.loopexit.sink.split.i ], [ 0, %168 ], [ %.28087106.i.us, %207 ], [ %.28087106.i, %254 ]
   br i1 %.not80, label %260, label %259
 
 259:                                              ; preds = %.loopexit.i
@@ -7905,8 +7905,8 @@ ProcessBufferResetSuites.exit:                    ; preds = %150, %419, %421, %4
   %spec.select144 = select i1 %495, i32 0, i32 %.4.fr
   br label %.thread134
 
-.thread134:                                       ; preds = %ProcessBufferResetSuites.exit, %468, %475, %433, %440, %466, %ProcessBufferCertTypes.exit.thread122, %34, %ProcessBufferPrivateKey.exit, %438, %473
-  %496 = phi i32 [ 1, %468 ], [ %spec.store.select17, %34 ], [ 0, %438 ], [ 0, %473 ], [ %spec.select144, %ProcessBufferResetSuites.exit ], [ -463, %ProcessBufferPrivateKey.exit ], [ 1, %ProcessBufferCertTypes.exit.thread122 ], [ 1, %466 ], [ 1, %440 ], [ 1, %433 ], [ 1, %475 ]
+.thread134:                                       ; preds = %ProcessBufferResetSuites.exit, %468, %475, %433, %440, %466, %ProcessBufferCertTypes.exit.thread122, %34, %ProcessBufferPrivateKey.exit, %473, %438
+  %496 = phi i32 [ 1, %468 ], [ %spec.store.select17, %34 ], [ 0, %473 ], [ 0, %438 ], [ %spec.select144, %ProcessBufferResetSuites.exit ], [ -463, %ProcessBufferPrivateKey.exit ], [ 1, %ProcessBufferCertTypes.exit.thread122 ], [ 1, %466 ], [ 1, %440 ], [ 1, %433 ], [ 1, %475 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
@@ -8191,8 +8191,8 @@ define i32 @wolfSSL_CTX_load_verify_locations_ex(ptr noundef %0, ptr noundef rea
   br label %.critedge
 
 .critedge:                                        ; preds = %20, %13
-  %.1 = phi i32 [ %21, %20 ], [ 1, %13 ]
-  %.023 = phi i32 [ %spec.select32, %20 ], [ 0, %13 ]
+  %.1 = phi i32 [ 1, %13 ], [ %21, %20 ]
+  %.023 = phi i32 [ 0, %13 ], [ %spec.select32, %20 ]
   %23 = icmp eq i32 %.1, 1
   %24 = icmp ne ptr %2, null
   %or.cond3 = and i1 %24, %23
@@ -10132,7 +10132,7 @@ define void @wolfSSL_set_verify(ptr noundef captures(address_is_null) %0, i32 no
   br label %ModeToVerifyOptions.exit
 
 ModeToVerifyOptions.exit:                         ; preds = %5, %6, %.fold.split.i
-  %.sroa.0.0.i = phi i8 [ %14, %6 ], [ 0, %5 ], [ 2, %.fold.split.i ]
+  %.sroa.0.0.i = phi i8 [ 0, %5 ], [ %14, %6 ], [ 2, %.fold.split.i ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 1024
   %16 = load i64, ptr %15, align 8
   %17 = shl i8 %.sroa.0.0.i, 6

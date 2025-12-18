@@ -460,7 +460,7 @@ find_shorthand_operation.exit105.tail:            ; preds = %find_shorthand_oper
   br label %.thread
 
 .thread:                                          ; preds = %108, %.thread.sink.split, %find_shorthand_operation.exit105, %find_shorthand_operation.exit.thread, %79, %find_shorthand_operation.exit81.thread, %find_shorthand_operation.exit89.thread, %find_shorthand_operation.exit105.tail, %70, %69
-  %.4 = phi i32 [ 1, %69 ], [ %.8.ph.ph, %find_shorthand_operation.exit105.tail ], [ 0, %70 ], [ %.8.ph.ph, %find_shorthand_operation.exit89.thread ], [ %.7.ph, %find_shorthand_operation.exit81.thread ], [ %.5, %79 ], [ %.6.ph, %find_shorthand_operation.exit.thread ], [ %.8.ph.ph, %find_shorthand_operation.exit105 ], [ 1, %.thread.sink.split ], [ %.8.ph.ph, %108 ]
+  %.4 = phi i32 [ 1, %69 ], [ 1, %.thread.sink.split ], [ %.8.ph.ph, %find_shorthand_operation.exit105.tail ], [ %.8.ph.ph, %find_shorthand_operation.exit105 ], [ 0, %70 ], [ %.5, %79 ], [ %.8.ph.ph, %find_shorthand_operation.exit89.thread ], [ %.6.ph, %find_shorthand_operation.exit.thread ], [ %.7.ph, %find_shorthand_operation.exit81.thread ], [ %.8.ph.ph, %108 ]
   %126 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %127 = load i32, ptr %126, align 8, !tbaa !39
   %.not67 = icmp eq i32 %127, 0
@@ -560,8 +560,8 @@ find_shorthand_operation.exit105.tail:            ; preds = %find_shorthand_oper
   br i1 %164, label %find_shorthand_operation.exit121, label %.lr.ph176
 
 find_shorthand_operation.exit121:                 ; preds = %.lr.ph.i115, %.lr.ph176, %.lr.ph.i123
-  %.045 = phi ptr [ %155, %.lr.ph.i123 ], [ %162, %.lr.ph176 ], [ %146, %.lr.ph.i115 ]
-  %.0 = phi ptr [ %159, %.lr.ph.i123 ], [ %159, %.lr.ph176 ], [ %150, %.lr.ph.i115 ]
+  %.045 = phi ptr [ %162, %.lr.ph176 ], [ %155, %.lr.ph.i123 ], [ %146, %.lr.ph.i115 ]
+  %.0 = phi ptr [ %159, %.lr.ph176 ], [ %159, %.lr.ph.i123 ], [ %150, %.lr.ph.i115 ]
   %165 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %166 = getelementptr inbounds nuw i8, ptr %.045, i64 16
   store ptr %165, ptr %166, align 8, !tbaa !38

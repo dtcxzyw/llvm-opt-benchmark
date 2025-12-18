@@ -10708,7 +10708,7 @@ _ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread: ; preds = %.prehea
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %49, %32, %2, %.split.us60, %_ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread
-  %.sink = phi i64 [ 1, %.split.us60 ], [ 0, %_ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread ], [ 0, %2 ], [ 0, %32 ], [ 0, %49 ]
+  %.sink = phi i64 [ 1, %.split.us60 ], [ 0, %_ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread ], [ 0, %32 ], [ 0, %2 ], [ 0, %49 ]
   store i64 %.sink, ptr %0, align 8
   ret void
 }
@@ -21897,7 +21897,7 @@ _ZN18ty_python_semantic14semantic_index7builder20SemanticIndexBuilder30record_re
   br label %.thread1158
 
 1163:                                             ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf700d06581afeeefE.exit497.thread", %1234
-  %.sroa.0125.2.ph = phi i1 [ true, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf700d06581afeeefE.exit497.thread" ], [ false, %1234 ]
+  %.sroa.0125.2.ph = phi i1 [ false, %1234 ], [ true, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf700d06581afeeefE.exit497.thread" ]
   %lpad.thr_comm.split-lp1173 = landingpad { ptr, i32 }
           cleanup
   br label %.thread1150
@@ -26207,8 +26207,8 @@ _ZN18ty_python_semantic14semantic_index7builder20SemanticIndexBuilder18current_a
   br label %.body133
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke851, %.invoke, %280, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf700d06581afeeefE.exit.thread"
-  %238 = phi i1 [ true, %.invoke ], [ false, %280 ], [ false, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf700d06581afeeefE.exit.thread" ], [ true, %.invoke851 ]
-  %.sroa.047.0.ph.ph = phi i1 [ true, %.invoke ], [ false, %280 ], [ true, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf700d06581afeeefE.exit.thread" ], [ true, %.invoke851 ]
+  %238 = phi i1 [ true, %.invoke851 ], [ false, %280 ], [ false, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf700d06581afeeefE.exit.thread" ], [ true, %.invoke ]
+  %.sroa.047.0.ph.ph = phi i1 [ true, %.invoke851 ], [ false, %280 ], [ true, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf700d06581afeeefE.exit.thread" ], [ true, %.invoke ]
   %lpad.loopexit.split-lp402 = landingpad { ptr, i32 }
           cleanup
   br label %.body133
@@ -26582,9 +26582,9 @@ _ZN18ty_python_semantic14semantic_index7builder20SemanticIndexBuilder13current_s
   br i1 %372, label %_ZN18ty_python_semantic14semantic_index7builder20SemanticIndexBuilder19current_use_def_map17h329eda2770b979e5E.exit.i, label %.invoke
 
 .invoke:                                          ; preds = %_ZN18ty_python_semantic14semantic_index7builder20SemanticIndexBuilder13current_scope17h99dfdfd2433472d9E.exit.i.i159, %_ZN18ty_python_semantic14semantic_index7builder20SemanticIndexBuilder13current_scope17h99dfdfd2433472d9E.exit.i155, %_ZN18ty_python_semantic14semantic_index7builder20SemanticIndexBuilder13current_scope17h99dfdfd2433472d9E.exit.i.i149, %_ZN18ty_python_semantic14semantic_index7builder20SemanticIndexBuilder13current_scope17h99dfdfd2433472d9E.exit.i.i142, %_ZN18ty_python_semantic14semantic_index7builder20SemanticIndexBuilder13current_scope17h99dfdfd2433472d9E.exit.i.i136
-  %373 = phi i64 [ %308, %_ZN18ty_python_semantic14semantic_index7builder20SemanticIndexBuilder13current_scope17h99dfdfd2433472d9E.exit.i.i136 ], [ %356, %_ZN18ty_python_semantic14semantic_index7builder20SemanticIndexBuilder13current_scope17h99dfdfd2433472d9E.exit.i155 ], [ %344, %_ZN18ty_python_semantic14semantic_index7builder20SemanticIndexBuilder13current_scope17h99dfdfd2433472d9E.exit.i.i149 ], [ %331, %_ZN18ty_python_semantic14semantic_index7builder20SemanticIndexBuilder13current_scope17h99dfdfd2433472d9E.exit.i.i142 ], [ %371, %_ZN18ty_python_semantic14semantic_index7builder20SemanticIndexBuilder13current_scope17h99dfdfd2433472d9E.exit.i.i159 ]
-  %374 = phi i64 [ %306, %_ZN18ty_python_semantic14semantic_index7builder20SemanticIndexBuilder13current_scope17h99dfdfd2433472d9E.exit.i.i136 ], [ %354, %_ZN18ty_python_semantic14semantic_index7builder20SemanticIndexBuilder13current_scope17h99dfdfd2433472d9E.exit.i155 ], [ %342, %_ZN18ty_python_semantic14semantic_index7builder20SemanticIndexBuilder13current_scope17h99dfdfd2433472d9E.exit.i.i149 ], [ %329, %_ZN18ty_python_semantic14semantic_index7builder20SemanticIndexBuilder13current_scope17h99dfdfd2433472d9E.exit.i.i142 ], [ %369, %_ZN18ty_python_semantic14semantic_index7builder20SemanticIndexBuilder13current_scope17h99dfdfd2433472d9E.exit.i.i159 ]
-  %375 = phi ptr [ @anon.3236b2e65fd54976a9b08f2ff4a1c818.196, %_ZN18ty_python_semantic14semantic_index7builder20SemanticIndexBuilder13current_scope17h99dfdfd2433472d9E.exit.i.i136 ], [ @anon.3236b2e65fd54976a9b08f2ff4a1c818.198, %_ZN18ty_python_semantic14semantic_index7builder20SemanticIndexBuilder13current_scope17h99dfdfd2433472d9E.exit.i155 ], [ @anon.3236b2e65fd54976a9b08f2ff4a1c818.196, %_ZN18ty_python_semantic14semantic_index7builder20SemanticIndexBuilder13current_scope17h99dfdfd2433472d9E.exit.i.i149 ], [ @anon.3236b2e65fd54976a9b08f2ff4a1c818.196, %_ZN18ty_python_semantic14semantic_index7builder20SemanticIndexBuilder13current_scope17h99dfdfd2433472d9E.exit.i.i142 ], [ @anon.3236b2e65fd54976a9b08f2ff4a1c818.197, %_ZN18ty_python_semantic14semantic_index7builder20SemanticIndexBuilder13current_scope17h99dfdfd2433472d9E.exit.i.i159 ]
+  %373 = phi i64 [ %308, %_ZN18ty_python_semantic14semantic_index7builder20SemanticIndexBuilder13current_scope17h99dfdfd2433472d9E.exit.i.i136 ], [ %344, %_ZN18ty_python_semantic14semantic_index7builder20SemanticIndexBuilder13current_scope17h99dfdfd2433472d9E.exit.i.i149 ], [ %331, %_ZN18ty_python_semantic14semantic_index7builder20SemanticIndexBuilder13current_scope17h99dfdfd2433472d9E.exit.i.i142 ], [ %371, %_ZN18ty_python_semantic14semantic_index7builder20SemanticIndexBuilder13current_scope17h99dfdfd2433472d9E.exit.i.i159 ], [ %356, %_ZN18ty_python_semantic14semantic_index7builder20SemanticIndexBuilder13current_scope17h99dfdfd2433472d9E.exit.i155 ]
+  %374 = phi i64 [ %306, %_ZN18ty_python_semantic14semantic_index7builder20SemanticIndexBuilder13current_scope17h99dfdfd2433472d9E.exit.i.i136 ], [ %342, %_ZN18ty_python_semantic14semantic_index7builder20SemanticIndexBuilder13current_scope17h99dfdfd2433472d9E.exit.i.i149 ], [ %329, %_ZN18ty_python_semantic14semantic_index7builder20SemanticIndexBuilder13current_scope17h99dfdfd2433472d9E.exit.i.i142 ], [ %369, %_ZN18ty_python_semantic14semantic_index7builder20SemanticIndexBuilder13current_scope17h99dfdfd2433472d9E.exit.i.i159 ], [ %354, %_ZN18ty_python_semantic14semantic_index7builder20SemanticIndexBuilder13current_scope17h99dfdfd2433472d9E.exit.i155 ]
+  %375 = phi ptr [ @anon.3236b2e65fd54976a9b08f2ff4a1c818.196, %_ZN18ty_python_semantic14semantic_index7builder20SemanticIndexBuilder13current_scope17h99dfdfd2433472d9E.exit.i.i136 ], [ @anon.3236b2e65fd54976a9b08f2ff4a1c818.196, %_ZN18ty_python_semantic14semantic_index7builder20SemanticIndexBuilder13current_scope17h99dfdfd2433472d9E.exit.i.i149 ], [ @anon.3236b2e65fd54976a9b08f2ff4a1c818.196, %_ZN18ty_python_semantic14semantic_index7builder20SemanticIndexBuilder13current_scope17h99dfdfd2433472d9E.exit.i.i142 ], [ @anon.3236b2e65fd54976a9b08f2ff4a1c818.197, %_ZN18ty_python_semantic14semantic_index7builder20SemanticIndexBuilder13current_scope17h99dfdfd2433472d9E.exit.i.i159 ], [ @anon.3236b2e65fd54976a9b08f2ff4a1c818.198, %_ZN18ty_python_semantic14semantic_index7builder20SemanticIndexBuilder13current_scope17h99dfdfd2433472d9E.exit.i155 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h1a9bf3d94de0fc80E(i64 noundef %373, i64 noundef %374, ptr noalias noundef readonly align 8 dereferenceable(24) %375) #34
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -28371,7 +28371,7 @@ define noundef zeroext i1 @"_ZN144_$LT$ty_python_semantic..semantic_index..build
   br i1 %16, label %18, label %23
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h1fc3d30b65115e47E.exit": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h8a25c8a2ecb8368cE.exit.backedge", %30, %1
-  %17 = phi i1 [ false, %1 ], [ true, %30 ], [ false, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h8a25c8a2ecb8368cE.exit.backedge" ]
+  %17 = phi i1 [ true, %30 ], [ false, %1 ], [ false, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h8a25c8a2ecb8368cE.exit.backedge" ]
   ret i1 %17
 
 18:                                               ; preds = %9
@@ -31034,7 +31034,7 @@ define hidden void @_ZN18ty_python_semantic13site_packages18VirtualEnvironment3n
   br label %155
 
 .loopexit.split-lp:                               ; preds = %203, %208
-  %.sroa.0115.3.ph = phi i1 [ true, %203 ], [ false, %208 ]
+  %.sroa.0115.3.ph = phi i1 [ false, %208 ], [ true, %203 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %155
@@ -31762,11 +31762,11 @@ define hidden void @_ZN18ty_python_semantic13site_packages18VirtualEnvironment3n
   br label %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17he5d05ca96b6fae45E.exit"
 
 "_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17he5d05ca96b6fae45E.exit": ; preds = %.preheader.i, %349, %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17he5d05ca96b6fae45E.exit.loopexit397.split.loop.exit", %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17he5d05ca96b6fae45E.exit.loopexit397.split.loop.exit433", %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17he5d05ca96b6fae45E.exit.loopexit397.split.loop.exit438", %347, %321
-  %.sroa.080.1 = phi i8 [ %.sroa.080.0.ph460, %321 ], [ 0, %347 ], [ %.sroa.080.0.ph460, %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17he5d05ca96b6fae45E.exit.loopexit397.split.loop.exit433" ], [ %.sroa.080.0.ph460, %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17he5d05ca96b6fae45E.exit.loopexit397.split.loop.exit" ], [ %.sroa.080.0.ph460, %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17he5d05ca96b6fae45E.exit.loopexit397.split.loop.exit438" ], [ 0, %349 ], [ 1, %.preheader.i ]
-  %.sroa.479.1 = phi i64 [ %.sroa.479.0.ph461, %321 ], [ %.sroa.479.0.ph461, %347 ], [ %329, %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17he5d05ca96b6fae45E.exit.loopexit397.split.loop.exit433" ], [ %329, %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17he5d05ca96b6fae45E.exit.loopexit397.split.loop.exit" ], [ %.sroa.479.0.ph461, %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17he5d05ca96b6fae45E.exit.loopexit397.split.loop.exit438" ], [ %.sroa.479.0.ph461, %349 ], [ %.sroa.479.0.ph461, %.preheader.i ]
-  %.sroa.077.1 = phi ptr [ %.sroa.077.0.ph462, %321 ], [ %.sroa.077.0.ph462, %347 ], [ %368, %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17he5d05ca96b6fae45E.exit.loopexit397.split.loop.exit433" ], [ %367, %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17he5d05ca96b6fae45E.exit.loopexit397.split.loop.exit" ], [ %.sroa.077.0.ph462, %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17he5d05ca96b6fae45E.exit.loopexit397.split.loop.exit438" ], [ %.sroa.077.0.ph462, %349 ], [ %.sroa.077.0.ph462, %.preheader.i ]
-  %.sroa.455.1 = phi i64 [ %.sroa.455.0.ph463, %321 ], [ %.sroa.455.0.ph463, %347 ], [ %.sroa.455.0.ph463, %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17he5d05ca96b6fae45E.exit.loopexit397.split.loop.exit433" ], [ %.sroa.455.0.ph463, %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17he5d05ca96b6fae45E.exit.loopexit397.split.loop.exit" ], [ %329, %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17he5d05ca96b6fae45E.exit.loopexit397.split.loop.exit438" ], [ %.sroa.455.0.ph463, %349 ], [ %.sroa.455.0.ph463, %.preheader.i ]
-  %.sroa.053.1 = phi ptr [ %.sroa.053.0.ph464, %321 ], [ %.sroa.053.0.ph464, %347 ], [ %.sroa.053.0.ph464, %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17he5d05ca96b6fae45E.exit.loopexit397.split.loop.exit433" ], [ %.sroa.053.0.ph464, %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17he5d05ca96b6fae45E.exit.loopexit397.split.loop.exit" ], [ %369, %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17he5d05ca96b6fae45E.exit.loopexit397.split.loop.exit438" ], [ %.sroa.053.0.ph464, %349 ], [ %.sroa.053.0.ph464, %.preheader.i ]
+  %.sroa.080.1 = phi i8 [ %.sroa.080.0.ph460, %321 ], [ %.sroa.080.0.ph460, %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17he5d05ca96b6fae45E.exit.loopexit397.split.loop.exit433" ], [ 0, %347 ], [ %.sroa.080.0.ph460, %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17he5d05ca96b6fae45E.exit.loopexit397.split.loop.exit" ], [ %.sroa.080.0.ph460, %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17he5d05ca96b6fae45E.exit.loopexit397.split.loop.exit438" ], [ 0, %349 ], [ 1, %.preheader.i ]
+  %.sroa.479.1 = phi i64 [ %.sroa.479.0.ph461, %321 ], [ %329, %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17he5d05ca96b6fae45E.exit.loopexit397.split.loop.exit433" ], [ %.sroa.479.0.ph461, %347 ], [ %329, %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17he5d05ca96b6fae45E.exit.loopexit397.split.loop.exit" ], [ %.sroa.479.0.ph461, %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17he5d05ca96b6fae45E.exit.loopexit397.split.loop.exit438" ], [ %.sroa.479.0.ph461, %349 ], [ %.sroa.479.0.ph461, %.preheader.i ]
+  %.sroa.077.1 = phi ptr [ %.sroa.077.0.ph462, %321 ], [ %368, %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17he5d05ca96b6fae45E.exit.loopexit397.split.loop.exit433" ], [ %.sroa.077.0.ph462, %347 ], [ %367, %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17he5d05ca96b6fae45E.exit.loopexit397.split.loop.exit" ], [ %.sroa.077.0.ph462, %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17he5d05ca96b6fae45E.exit.loopexit397.split.loop.exit438" ], [ %.sroa.077.0.ph462, %349 ], [ %.sroa.077.0.ph462, %.preheader.i ]
+  %.sroa.455.1 = phi i64 [ %.sroa.455.0.ph463, %321 ], [ %.sroa.455.0.ph463, %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17he5d05ca96b6fae45E.exit.loopexit397.split.loop.exit433" ], [ %.sroa.455.0.ph463, %347 ], [ %.sroa.455.0.ph463, %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17he5d05ca96b6fae45E.exit.loopexit397.split.loop.exit" ], [ %329, %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17he5d05ca96b6fae45E.exit.loopexit397.split.loop.exit438" ], [ %.sroa.455.0.ph463, %349 ], [ %.sroa.455.0.ph463, %.preheader.i ]
+  %.sroa.053.1 = phi ptr [ %.sroa.053.0.ph464, %321 ], [ %.sroa.053.0.ph464, %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17he5d05ca96b6fae45E.exit.loopexit397.split.loop.exit433" ], [ %.sroa.053.0.ph464, %347 ], [ %.sroa.053.0.ph464, %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17he5d05ca96b6fae45E.exit.loopexit397.split.loop.exit" ], [ %369, %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17he5d05ca96b6fae45E.exit.loopexit397.split.loop.exit438" ], [ %.sroa.053.0.ph464, %349 ], [ %.sroa.053.0.ph464, %.preheader.i ]
   %370 = load i8, ptr %.sroa.240.sroa.5.0..sroa.240.0..sroa_idx.sroa_idx, align 1, !range !618, !alias.scope !4591, !noalias !4529, !noundef !3
   %371 = trunc nuw i8 %370 to i1
   br i1 %371, label %.loopexit, label %.lr.ph
@@ -41763,7 +41763,7 @@ define hidden void @_ZN18ty_python_semantic5types4call4bind7Binding16match_param
   br label %.body95.thread
 
 .loopexit.split-lp:                               ; preds = %124, %142
-  %.sroa.048.4.ph = phi i1 [ true, %124 ], [ false, %142 ]
+  %.sroa.048.4.ph = phi i1 [ false, %142 ], [ true, %124 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body95
@@ -42729,7 +42729,7 @@ _ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit23: ; preds = %19
   br label %.sink.split
 
 .sink.split:                                      ; preds = %22, %.loopexit, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit, %17
-  %.sroa.0.2.ph = phi i1 [ false, %17 ], [ true, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit ], [ true, %.loopexit ], [ false, %22 ]
+  %.sroa.0.2.ph = phi i1 [ false, %17 ], [ true, %.loopexit ], [ true, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit ], [ false, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %24
 

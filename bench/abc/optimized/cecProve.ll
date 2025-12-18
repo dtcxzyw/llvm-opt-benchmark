@@ -995,8 +995,8 @@ Cec_GiaWaitThreads.exit.thread160:                ; preds = %Cec_GiaInitThreads.
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !78
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.split, %Cec_GiaWaitThreads.exit.thread160
-  %.1197 = phi i32 [ %.1, %Cec_GiaWaitThreads.exit.thread160 ], [ 1, %.split ], [ %.1198, %.lr.ph ]
-  %.1155195 = phi i32 [ %.1155, %Cec_GiaWaitThreads.exit.thread160 ], [ -1, %.split ], [ %.1155196, %.lr.ph ]
+  %.1197 = phi i32 [ 1, %.split ], [ %.1, %Cec_GiaWaitThreads.exit.thread160 ], [ %.1198, %.lr.ph ]
+  %.1155195 = phi i32 [ -1, %.split ], [ %.1155, %Cec_GiaWaitThreads.exit.thread160 ], [ %.1155196, %.lr.ph ]
   br i1 %29, label %250, label %276
 
 250:                                              ; preds = %._crit_edge

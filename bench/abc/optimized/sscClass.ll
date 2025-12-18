@@ -1051,7 +1051,7 @@ Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %10
   br i1 %exitcond37.not.i, label %Ssc_GiaSimHashKey.exit, label %.lr.ph28.i, !llvm.loop !53
 
 Ssc_GiaSimHashKey.exit:                           ; preds = %.lr.ph.i60, %.lr.ph28.i, %.preheader22.i, %.preheader.i61
-  %.1.i = phi i32 [ 0, %.preheader.i61 ], [ 0, %.preheader22.i ], [ %61, %.lr.ph28.i ], [ %53, %.lr.ph.i60 ]
+  %.1.i = phi i32 [ %61, %.lr.ph28.i ], [ 0, %.preheader.i61 ], [ 0, %.preheader22.i ], [ %53, %.lr.ph.i60 ]
   %62 = urem i32 %.1.i, %8
   %63 = sext i32 %62 to i64
   %64 = getelementptr inbounds i32, ptr %16, i64 %63
@@ -1424,8 +1424,8 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   br label %.thread
 
 .thread:                                          ; preds = %50, %53, %.preheader.i, %.preheader18.i, %Gia_ObjIsTail.exit, %18, %34, %Vec_IntPush.exit, %31
-  %.pre.i51 = phi ptr [ %17, %31 ], [ %17, %Gia_ObjIsTail.exit ], [ %.pre.i52, %Vec_IntPush.exit ], [ %17, %34 ], [ %17, %18 ], [ %17, %.preheader18.i ], [ %17, %.preheader.i ], [ %17, %53 ], [ %17, %50 ]
-  %.1 = phi i32 [ %33, %31 ], [ %.044, %Gia_ObjIsTail.exit ], [ %.044, %Vec_IntPush.exit ], [ %.044, %34 ], [ %.044, %18 ], [ %.044, %.preheader18.i ], [ %.044, %.preheader.i ], [ %.044, %53 ], [ %.044, %50 ]
+  %.pre.i51 = phi ptr [ %17, %31 ], [ %17, %Gia_ObjIsTail.exit ], [ %.pre.i52, %Vec_IntPush.exit ], [ %17, %34 ], [ %17, %18 ], [ %17, %.preheader18.i ], [ %17, %53 ], [ %17, %.preheader.i ], [ %17, %50 ]
+  %.1 = phi i32 [ %33, %31 ], [ %.044, %Gia_ObjIsTail.exit ], [ %.044, %Vec_IntPush.exit ], [ %.044, %34 ], [ %.044, %18 ], [ %.044, %.preheader18.i ], [ %.044, %53 ], [ %.044, %.preheader.i ], [ %.044, %50 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %77 = load i32, ptr %7, align 8, !tbaa !56
   %78 = sext i32 %77 to i64

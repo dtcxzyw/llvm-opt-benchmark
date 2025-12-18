@@ -2122,7 +2122,7 @@ _ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit: ; preds = %108, %114
   br i1 %exitcond.not, label %.critedge, label %59, !llvm.loop !108
 
 .critedge:                                        ; preds = %121, %_ZNK6vectorIN5nlsat14simple_checker3imp17special_ineq_kindELb1EjE4sizeEv.exit.i, %_ZN6vectorIbLb0EjE6resizeIbEEvjT_z.exit.thread, %_ZN6vectorIN5nlsat14simple_checker3imp17special_ineq_kindELb1EjE6resizeIS3_EEvjT_z.exit
-  %.032.lcssa = phi i32 [ 0, %_ZN6vectorIN5nlsat14simple_checker3imp17special_ineq_kindELb1EjE6resizeIS3_EEvjT_z.exit ], [ 0, %_ZN6vectorIbLb0EjE6resizeIbEEvjT_z.exit.thread ], [ 0, %_ZNK6vectorIN5nlsat14simple_checker3imp17special_ineq_kindELb1EjE4sizeEv.exit.i ], [ %.1, %121 ]
+  %.032.lcssa = phi i32 [ 0, %_ZN6vectorIN5nlsat14simple_checker3imp17special_ineq_kindELb1EjE6resizeIS3_EEvjT_z.exit ], [ 0, %_ZNK6vectorIN5nlsat14simple_checker3imp17special_ineq_kindELb1EjE4sizeEv.exit.i ], [ 0, %_ZN6vectorIbLb0EjE6resizeIbEEvjT_z.exit.thread ], [ %.1, %121 ]
   %.not36 = icmp eq i32 %.032.lcssa, %10
   br i1 %.not36, label %.loopexit, label %122
 
@@ -2135,7 +2135,7 @@ _ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit: ; preds = %108, %114
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN5nlsat14simple_checker3imp25check_literal_satisfiableEjj.exit.thread, %82, %86, %.critedge, %124, %122
-  %.134 = phi i1 [ false, %122 ], [ %125, %124 ], [ false, %.critedge ], [ true, %86 ], [ true, %82 ], [ true, %_ZN5nlsat14simple_checker3imp25check_literal_satisfiableEjj.exit.thread ]
+  %.134 = phi i1 [ false, %122 ], [ %125, %124 ], [ false, %.critedge ], [ true, %82 ], [ true, %86 ], [ true, %_ZN5nlsat14simple_checker3imp25check_literal_satisfiableEjj.exit.thread ]
   ret i1 %.134
 }
 
@@ -3134,7 +3134,7 @@ switch.lookup111:                                 ; preds = %42
   br label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.us
 
 _ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.us: ; preds = %42, %38, %.sink.split.i.us, %40, %37
-  %.2.us = phi i32 [ %.sink.i.us, %.sink.split.i.us ], [ %.07291.us, %38 ], [ %.07291.us, %37 ], [ %.07291.us, %42 ], [ %.07291.us, %40 ]
+  %.2.us = phi i32 [ %.07291.us, %38 ], [ %.sink.i.us, %.sink.split.i.us ], [ %.07291.us, %40 ], [ %.07291.us, %37 ], [ %.07291.us, %42 ]
   %46 = icmp ult i32 %.2.us, 6
   %switch.maskindex120 = trunc i32 %.2.us to i8
   %switch.shifted121 = lshr i8 57, %switch.maskindex120
@@ -3240,7 +3240,7 @@ switch.lookup135:                                 ; preds = %65
   br label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit
 
 _ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit: ; preds = %65, %63, %62, %67, %.sink.split.i
-  %.2 = phi i32 [ %.sink.i, %.sink.split.i ], [ %.07291, %65 ], [ %.07291, %62 ], [ %.07291, %63 ], [ %.07291, %67 ]
+  %.2 = phi i32 [ %.07291, %65 ], [ %.sink.i, %.sink.split.i ], [ %.07291, %67 ], [ %.07291, %62 ], [ %.07291, %63 ]
   %71 = icmp eq i32 %.2, 3
   br i1 %71, label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread80, label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread
 
@@ -4423,14 +4423,14 @@ _ZNK6vectorIPN5nlsat14simple_checker3imp8EndpointELb0EjE4sizeEv.exit:
 _ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit: ; preds = %40
   br i1 %.not18.i, label %48, label %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit.thread
 
-48:                                               ; preds = %38, %26, %18, %43, %45, %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit
+48:                                               ; preds = %38, %43, %26, %18, %45, %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit
   %49 = load ptr, ptr %1, align 8, !tbaa !129
   %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %indvars.iv
   %51 = load ptr, ptr %50, align 8, !tbaa !132
   store ptr %51, ptr %3, align 8, !tbaa !132
   br label %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit.thread
 
-_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit.thread: ; preds = %16, %38, %26, %18, %43, %45, %48, %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit
+_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit.thread: ; preds = %16, %38, %43, %26, %18, %45, %48, %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit
   %52 = load ptr, ptr %1, align 8, !tbaa !129
   %53 = getelementptr inbounds nuw ptr, ptr %52, i64 %indvars.iv
   %54 = load ptr, ptr %53, align 8, !tbaa !132
@@ -4506,14 +4506,14 @@ _ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit.thread: ; preds = %16, %38,
 _ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit31: ; preds = %83
   br i1 %.not18.i27, label %91, label %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit31.thread
 
-91:                                               ; preds = %81, %69, %61, %86, %88, %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit31
+91:                                               ; preds = %81, %86, %69, %61, %88, %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit31
   %92 = load ptr, ptr %1, align 8, !tbaa !129
   %93 = getelementptr inbounds nuw ptr, ptr %92, i64 %indvars.iv
   %94 = load ptr, ptr %93, align 8, !tbaa !132
   store ptr %94, ptr %2, align 8, !tbaa !132
   br label %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit31.thread
 
-_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit31.thread: ; preds = %59, %81, %69, %61, %86, %88, %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit31, %91
+_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit31.thread: ; preds = %59, %81, %86, %69, %61, %88, %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit31, %91
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !134
@@ -5114,7 +5114,7 @@ _ZN5nlsat14simple_checker3imp15Domain_IntervalD2Ev.exit: ; preds = %_ZN5nlsat14s
   br label %.thread
 
 .thread:                                          ; preds = %16, %.thread.fold.split, %switch.edge, %18, %17
-  %.02326 = phi i32 [ 4, %switch.edge ], [ 2, %16 ], [ 5, %18 ], [ 1, %17 ], [ %1, %.thread.fold.split ]
+  %.02326 = phi i32 [ 1, %17 ], [ 4, %switch.edge ], [ 2, %16 ], [ 5, %18 ], [ %1, %.thread.fold.split ]
   %49 = and i32 %4, 1
   %.not = icmp eq i32 %49, 0
   br i1 %.not, label %52, label %50
@@ -5217,9 +5217,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5nlsat14simple_checker3imp28up
 _ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit: ; preds = %32
   br i1 %.not18.i, label %40, label %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit.thread
 
-40:                                               ; preds = %._crit_edge, %30, %18, %10, %35, %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit
-  %41 = phi i8 [ %.pre44, %._crit_edge ], [ %27, %30 ], [ %6, %18 ], [ %6, %10 ], [ %27, %35 ], [ %27, %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit ]
-  %42 = phi i8 [ %.pre, %._crit_edge ], [ %29, %30 ], [ %16, %18 ], [ %12, %10 ], [ %29, %35 ], [ %29, %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit ]
+40:                                               ; preds = %._crit_edge, %30, %35, %18, %10, %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit
+  %41 = phi i8 [ %.pre44, %._crit_edge ], [ %27, %30 ], [ %27, %35 ], [ %6, %18 ], [ %6, %10 ], [ %27, %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit ]
+  %42 = phi i8 [ %.pre, %._crit_edge ], [ %29, %30 ], [ %29, %35 ], [ %16, %18 ], [ %12, %10 ], [ %29, %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit ]
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %44 = and i8 %42, 2
   %45 = and i8 %41, -3
@@ -5250,7 +5250,7 @@ _ZN5nlsat14simple_checker3imp8Endpoint4copyERKS2_.exit: ; preds = %40, %55
   store i8 1, ptr %59, align 8, !tbaa !57
   br label %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit.thread
 
-_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit.thread: ; preds = %8, %30, %18, %10, %35, %37, %_ZN5nlsat14simple_checker3imp8Endpoint4copyERKS2_.exit, %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit
+_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit.thread: ; preds = %8, %30, %35, %18, %10, %37, %_ZN5nlsat14simple_checker3imp8Endpoint4copyERKS2_.exit, %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %61 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %62 = load i8, ptr %61, align 8
@@ -5328,9 +5328,9 @@ _ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit.thread: ; preds = %8, %30, 
 _ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit25: ; preds = %88
   br i1 %.not18.i21, label %96, label %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit25.thread
 
-96:                                               ; preds = %._crit_edge45, %86, %74, %66, %91, %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit25
-  %97 = phi i8 [ %.pre48, %._crit_edge45 ], [ %85, %86 ], [ %72, %74 ], [ %68, %66 ], [ %85, %91 ], [ %85, %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit25 ]
-  %98 = phi i8 [ %.pre46, %._crit_edge45 ], [ %83, %86 ], [ %62, %74 ], [ %62, %66 ], [ %83, %91 ], [ %83, %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit25 ]
+96:                                               ; preds = %._crit_edge45, %86, %91, %74, %66, %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit25
+  %97 = phi i8 [ %.pre48, %._crit_edge45 ], [ %85, %86 ], [ %85, %91 ], [ %72, %74 ], [ %68, %66 ], [ %85, %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit25 ]
+  %98 = phi i8 [ %.pre46, %._crit_edge45 ], [ %83, %86 ], [ %83, %91 ], [ %62, %74 ], [ %62, %66 ], [ %83, %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit25 ]
   %99 = and i8 %98, 2
   %100 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %101 = and i8 %97, -3
@@ -5361,7 +5361,7 @@ _ZN5nlsat14simple_checker3imp8Endpoint4copyERKS2_.exit27: ; preds = %96, %111
   store i8 1, ptr %115, align 8, !tbaa !57
   br label %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit25.thread
 
-_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit25.thread: ; preds = %64, %86, %74, %66, %91, %93, %_ZN5nlsat14simple_checker3imp8Endpoint4copyERKS2_.exit27, %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit25
+_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit25.thread: ; preds = %64, %86, %91, %74, %66, %93, %_ZN5nlsat14simple_checker3imp8Endpoint4copyERKS2_.exit27, %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit25
   %116 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %117 = load i8, ptr %116, align 8
   %118 = and i8 %117, 2

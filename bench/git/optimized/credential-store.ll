@@ -584,7 +584,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_credential_file(ptr noundef %0
   br i1 %.not24, label %.loopexit, label %.lr.ph.split.split, !llvm.loop !39
 
 .loopexit:                                        ; preds = %61, %46, %34, %23, %.preheader, %.split.us
-  %.1 = phi i32 [ 1, %.split.us ], [ 0, %.preheader ], [ %.2.us35, %46 ], [ %.2.us.us, %23 ], [ 0, %34 ], [ 0, %61 ]
+  %.1 = phi i32 [ 1, %.split.us ], [ 0, %.preheader ], [ %.2.us35, %46 ], [ 0, %34 ], [ %.2.us.us, %23 ], [ 0, %61 ]
   call void @credential_clear(ptr noundef nonnull %7) #13
   call void @strbuf_release(ptr noundef nonnull %6) #13
   %63 = call i32 @fclose(ptr noundef nonnull %8)

@@ -2827,7 +2827,7 @@ _ZSt4sortIPjEvT_S1_.exit:                         ; preds = %_ZSt25__unguarded_l
   br i1 %exitcond.not, label %57, label %58, !llvm.loop !159
 
 ._crit_edge:                                      ; preds = %.lr.ph, %37, %10, %_ZSt4sortIPjEvT_S1_.exit
-  %.022.lcssa = phi i32 [ 1, %_ZSt4sortIPjEvT_S1_.exit ], [ 1, %10 ], [ 1, %37 ], [ %72, %.lr.ph ]
+  %.022.lcssa = phi i32 [ 1, %_ZSt4sortIPjEvT_S1_.exit ], [ 1, %37 ], [ 1, %10 ], [ %72, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.022.lcssa
 
@@ -3426,7 +3426,7 @@ _ZSt4sortIPjEvT_S1_.exit:                         ; preds = %_ZSt25__unguarded_l
   br i1 %59, label %58, label %57, !llvm.loop !172
 
 ._crit_edge:                                      ; preds = %.lr.ph, %37, %10, %_ZSt4sortIPjEvT_S1_.exit
-  %.022.lcssa = phi i32 [ 1, %_ZSt4sortIPjEvT_S1_.exit ], [ 1, %10 ], [ 1, %37 ], [ %72, %.lr.ph ]
+  %.022.lcssa = phi i32 [ 1, %_ZSt4sortIPjEvT_S1_.exit ], [ 1, %37 ], [ 1, %10 ], [ %72, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.022.lcssa
 
@@ -3941,7 +3941,7 @@ _ZN3acd21ac_decomposition_impl15local_extend_toERN5kitty18static_truth_tableILj1
   br label %.loopexit125, !llvm.loop !202
 
 _ZNSt13unordered_mapImjSt4hashImESt8equal_toImESaISt4pairIKmjEEE4findERS5_.exit: ; preds = %95, %81, %90
-  %.sroa.06.1.i.i = phi ptr [ %91, %90 ], [ %.sroa.06.0.i.i, %81 ], [ %97, %95 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %81 ], [ %91, %90 ], [ %97, %95 ]
   %102 = add nuw nsw i64 %indvars.iv, %44
   %103 = shl nuw i64 1, %102
   %104 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
@@ -4537,9 +4537,9 @@ define linkonce_odr void @_ZN3acd21ac_decomposition_impl39generate_support_minim
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorISt5arrayIjLm2EESaIS1_EEC2EmRKS2_.exit, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !227
 
 _ZNSt6vectorISt5arrayIjLm2EESaIS1_EEC2EmRKS2_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %6, %7
-  %.sroa.1056.0 = phi ptr [ %11, %7 ], [ null, %6 ], [ %11, %.lr.ph.i.i.i.i.i.i.i.i.i ]
-  %.sroa.053.0 = phi ptr [ %10, %7 ], [ null, %6 ], [ %10, %.lr.ph.i.i.i.i.i.i.i.i.i ]
-  %.0.i.i.i.i.i = phi ptr [ %12, %7 ], [ null, %6 ], [ %16, %.lr.ph.i.i.i.i.i.i.i.i.i ]
+  %.sroa.1056.0 = phi ptr [ null, %6 ], [ %11, %7 ], [ %11, %.lr.ph.i.i.i.i.i.i.i.i.i ]
+  %.sroa.053.0 = phi ptr [ null, %6 ], [ %10, %7 ], [ %10, %.lr.ph.i.i.i.i.i.i.i.i.i ]
+  %.0.i.i.i.i.i = phi ptr [ null, %6 ], [ %12, %7 ], [ %16, %.lr.ph.i.i.i.i.i.i.i.i.i ]
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %20 = load ptr, ptr %19, align 8, !tbaa !54
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 416
@@ -5510,7 +5510,7 @@ _ZN3acd21ac_decomposition_impl16covering_improveERKSt6vectorINS0_15encoding_colu
   br label %_ZN3acd21ac_decomposition_impl16covering_improveERKSt6vectorINS0_15encoding_columnESaIS2_EERSt5arrayIjLm6EE.exit.thread, !llvm.loop !259
 
 _ZN3acd21ac_decomposition_impl16covering_improveERKSt6vectorINS0_15encoding_columnESaIS2_EERSt5arrayIjLm6EE.exit.thread: ; preds = %.preheader73.split, %.preheader73.split.us, %_ZN3acd21ac_decomposition_impl16covering_improveERKSt6vectorINS0_15encoding_columnESaIS2_EERSt5arrayIjLm6EE.exit._ZN3acd21ac_decomposition_impl16covering_improveERKSt6vectorINS0_15encoding_columnESaIS2_EERSt5arrayIjLm6EE.exit.thread.loopexit88_crit_edge
-  %96 = phi i32 [ %44, %.preheader73.split.us ], [ %.pre.pre, %_ZN3acd21ac_decomposition_impl16covering_improveERKSt6vectorINS0_15encoding_columnESaIS2_EERSt5arrayIjLm6EE.exit._ZN3acd21ac_decomposition_impl16covering_improveERKSt6vectorINS0_15encoding_columnESaIS2_EERSt5arrayIjLm6EE.exit.thread.loopexit88_crit_edge ], [ 0, %.preheader73.split ]
+  %96 = phi i32 [ %.pre.pre, %_ZN3acd21ac_decomposition_impl16covering_improveERKSt6vectorINS0_15encoding_columnESaIS2_EERSt5arrayIjLm6EE.exit._ZN3acd21ac_decomposition_impl16covering_improveERKSt6vectorINS0_15encoding_columnESaIS2_EERSt5arrayIjLm6EE.exit.thread.loopexit88_crit_edge ], [ %44, %.preheader73.split.us ], [ 0, %.preheader73.split ]
   %97 = add i32 %96, 1
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %99 = load i32, ptr %98, align 4, !tbaa !39
@@ -6409,7 +6409,7 @@ _ZN5kittyoRILj11EEEvRNS_18static_truth_tableIXT_ELb0EEERKS2_.exit._crit_edge: ; 
   br i1 %.not54.us.i, label %.preheader59.us.i, label %_ZN3acd21ac_decomposition_impl15has_var_supportERKN5kitty18static_truth_tableILj11ELb0EEES5_jh.exit, !llvm.loop !274
 
 _ZN3acd21ac_decomposition_impl15has_var_supportERKN5kitty18static_truth_tableILj11ELb0EEES5_jh.exit: ; preds = %..critedge_crit_edge.us.i, %96, %105, %112
-  %.1.i = phi i32 [ 0, %105 ], [ 1, %112 ], [ 1, %96 ], [ 0, %..critedge_crit_edge.us.i ]
+  %.1.i = phi i32 [ 1, %112 ], [ 0, %105 ], [ 1, %96 ], [ 0, %..critedge_crit_edge.us.i ]
   %130 = add i32 %.1.i, %.04985
   %131 = add nuw i32 %.04886, 1
   %exitcond99.not = icmp eq i32 %131, %16
@@ -7329,7 +7329,7 @@ _ZN5kittyoRILj11EEEvRNS_18static_truth_tableIXT_ELb0EEERKS2_.exit._crit_edge: ; 
   br i1 %.not54.us.i, label %.preheader59.us.i, label %_ZN3acd21ac_decomposition_impl15has_var_supportERKN5kitty18static_truth_tableILj11ELb0EEES5_jh.exit, !llvm.loop !274
 
 _ZN3acd21ac_decomposition_impl15has_var_supportERKN5kitty18static_truth_tableILj11ELb0EEES5_jh.exit: ; preds = %..critedge_crit_edge.us.i, %92, %101, %108
-  %.1.i = phi i32 [ 0, %101 ], [ 1, %108 ], [ 1, %92 ], [ 0, %..critedge_crit_edge.us.i ]
+  %.1.i = phi i32 [ 1, %108 ], [ 0, %101 ], [ 1, %92 ], [ 0, %..critedge_crit_edge.us.i ]
   %126 = add i32 %.1.i, %.04783
   %127 = add nuw i32 %.04684, 1
   %exitcond97.not = icmp eq i32 %127, %12
@@ -9083,12 +9083,12 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %389, %_ZNSt6vectorI
   br label %_ZN3acd21ac_decomposition_impl24adjust_truth_table_on_dcERN5kitty18static_truth_tableILj11ELb0EEES4_jj.exit
 
 _ZN3acd21ac_decomposition_impl24adjust_truth_table_on_dcERN5kitty18static_truth_tableILj11ELb0EEES4_jj.exit: ; preds = %._crit_edge.us.i, %193, %210, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
-  %416 = phi i32 [ %.pre115, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ], [ %143, %210 ], [ %143, %193 ], [ %143, %._crit_edge.us.i ]
-  %417 = phi i32 [ %.pre, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ], [ %144, %210 ], [ %144, %193 ], [ %144, %._crit_edge.us.i ]
-  %418 = phi ptr [ %412, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ], [ %145, %210 ], [ %145, %193 ], [ %145, %._crit_edge.us.i ]
-  %419 = phi ptr [ %413, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ], [ %146, %210 ], [ %146, %193 ], [ %146, %._crit_edge.us.i ]
-  %420 = phi ptr [ %414, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ], [ %147, %210 ], [ %147, %193 ], [ %147, %._crit_edge.us.i ]
-  %.1 = phi i32 [ %415, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ], [ %.01899, %210 ], [ %.01899, %193 ], [ %.01899, %._crit_edge.us.i ]
+  %416 = phi i32 [ %.pre115, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ], [ %143, %193 ], [ %143, %210 ], [ %143, %._crit_edge.us.i ]
+  %417 = phi i32 [ %.pre, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ], [ %144, %193 ], [ %144, %210 ], [ %144, %._crit_edge.us.i ]
+  %418 = phi ptr [ %412, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ], [ %145, %193 ], [ %145, %210 ], [ %145, %._crit_edge.us.i ]
+  %419 = phi ptr [ %413, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ], [ %146, %193 ], [ %146, %210 ], [ %146, %._crit_edge.us.i ]
+  %420 = phi ptr [ %414, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ], [ %147, %193 ], [ %147, %210 ], [ %147, %._crit_edge.us.i ]
+  %.1 = phi i32 [ %415, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ], [ %.01899, %193 ], [ %.01899, %210 ], [ %.01899, %._crit_edge.us.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %421 = sub i32 %417, %416
   %422 = zext i32 %421 to i64
@@ -12345,7 +12345,7 @@ _ZN3acd10acdXX_impl17combinations_nextEjjPjS1_RN5kitty18static_truth_tableILj11E
   br label %124
 
 .critedge75:                                      ; preds = %243, %161, %.lr.ph174, %.preheader
-  %.7 = phi i1 [ true, %.preheader ], [ true, %.lr.ph174 ], [ true, %161 ], [ false, %243 ]
+  %.7 = phi i1 [ true, %161 ], [ true, %.preheader ], [ true, %.lr.ph174 ], [ false, %243 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.critedge
@@ -12608,7 +12608,7 @@ _ZN3acd10acdXX_impl24combinations_next_simpleEjPjS1_j.exit: ; preds = %.lr.ph.i,
   br i1 %.not, label %_ZSt4sortIPjEvT_S1_.exit, label %.preheader36, !llvm.loop !461
 
 _ZSt4sortIPjEvT_S1_.exit:                         ; preds = %110, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i18.i.i.i, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i8.i.i.i, %.preheader, %4, %51
-  %spec.select = phi i32 [ 1, %51 ], [ -1, %4 ], [ 0, %.preheader ], [ %.02547, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i18.i.i.i ], [ %.02547, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i8.i.i.i ], [ -1, %110 ]
+  %spec.select = phi i32 [ %.02547, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i18.i.i.i ], [ 1, %51 ], [ %.02547, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i8.i.i.i ], [ -1, %4 ], [ 0, %.preheader ], [ -1, %110 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %spec.select
@@ -12785,7 +12785,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3acd10acdXX_impl25check_shared_var_co
   br i1 %exitcond139.not, label %.critedge, label %.lr.ph85.us, !llvm.loop !465
 
 .critedge:                                        ; preds = %..thread65_crit_edge.split.us.us.us, %._crit_edge.us.us.us, %..thread65_crit_edge.split.us104, %._crit_edge.us100, %5
-  %.not6270 = phi i1 [ true, %5 ], [ false, %._crit_edge.us.us.us ], [ false, %._crit_edge.us100 ], [ true, %..thread65_crit_edge.split.us104 ], [ true, %..thread65_crit_edge.split.us.us.us ]
+  %.not6270 = phi i1 [ false, %._crit_edge.us.us.us ], [ false, %._crit_edge.us100 ], [ true, %5 ], [ true, %..thread65_crit_edge.split.us104 ], [ true, %..thread65_crit_edge.split.us.us.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.not6270
@@ -15082,7 +15082,7 @@ _ZN3acd10acd66_impl17combinations_nextEjjPjS1_RN5kitty18static_truth_tableILj11E
   br label %22, !llvm.loop !521
 
 .critedge:                                        ; preds = %117, %.lr.ph76, %48, %96
-  %.4 = phi i1 [ true, %96 ], [ true, %48 ], [ true, %.lr.ph76 ], [ false, %117 ]
+  %.4 = phi i1 [ true, %48 ], [ true, %96 ], [ true, %.lr.ph76 ], [ false, %117 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -15333,7 +15333,7 @@ _ZN3acd10acd66_impl24combinations_next_simpleEjPjS1_j.exit: ; preds = %.lr.ph.i,
   br i1 %.not, label %.preheader30, label %_ZSt4sortIPjEvT_S1_.exit, !llvm.loop !525
 
 _ZSt4sortIPjEvT_S1_.exit:                         ; preds = %103, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i18.i.i.i, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i8.i.i.i, %.preheader, %4, %44
-  %spec.select = phi i32 [ 1, %44 ], [ -1, %4 ], [ 0, %.preheader ], [ %.02541, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i18.i.i.i ], [ %.02541, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i8.i.i.i ], [ -1, %103 ]
+  %spec.select = phi i32 [ %.02541, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i18.i.i.i ], [ 1, %44 ], [ %.02541, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i8.i.i.i ], [ -1, %4 ], [ 0, %.preheader ], [ -1, %103 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %spec.select
@@ -15673,7 +15673,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3acd10acd66_impl25check_shared_var_co
   br i1 %exitcond139.not, label %.critedge, label %.lr.ph83.us, !llvm.loop !529
 
 .critedge:                                        ; preds = %..thread63_crit_edge.split.us.us.us, %._crit_edge.us.us.us, %..thread63_crit_edge.split.us102, %._crit_edge.us98, %5
-  %.not6068 = phi i1 [ true, %5 ], [ false, %._crit_edge.us.us.us ], [ false, %._crit_edge.us98 ], [ true, %..thread63_crit_edge.split.us102 ], [ true, %..thread63_crit_edge.split.us.us.us ]
+  %.not6068 = phi i1 [ false, %._crit_edge.us.us.us ], [ false, %._crit_edge.us98 ], [ true, %5 ], [ true, %..thread63_crit_edge.split.us102 ], [ true, %..thread63_crit_edge.split.us.us.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.not6068
@@ -16417,7 +16417,7 @@ _ZN3acd10acdXX_impl17combinations_nextEjjPjS1_RN5kitty18static_truth_tableILj11E
   br label %22
 
 .critedge:                                        ; preds = %129, %.lr.ph69, %59, %108
-  %.4 = phi i1 [ true, %108 ], [ true, %59 ], [ true, %.lr.ph69 ], [ false, %129 ]
+  %.4 = phi i1 [ true, %59 ], [ true, %108 ], [ true, %.lr.ph69 ], [ false, %129 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

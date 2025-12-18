@@ -426,7 +426,7 @@ define dso_local i32 @tty_dev_name_to_number(ptr noundef %0, ptr noundef writeon
   br label %.loopexit7
 
 .loopexit7:                                       ; preds = %.preheader, %.loopexit, %.loopexit8, %2
-  %54 = phi i32 [ %53, %.loopexit ], [ %17, %.loopexit8 ], [ -22, %2 ], [ -22, %.preheader ]
+  %54 = phi i32 [ %53, %.loopexit ], [ -22, %2 ], [ %17, %.loopexit8 ], [ -22, %.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %54
 }
@@ -5224,7 +5224,7 @@ define internal fastcc ptr @tty_lookup_driver(i32 noundef %0, ptr noundef captur
   br i1 %63, label %.thread11, label %.lr.ph, !llvm.loop !53
 
 .thread11:                                        ; preds = %61, %.preheader, %59, %55
-  %64 = phi ptr [ %51, %55 ], [ %51, %59 ], [ null, %.preheader ], [ null, %61 ]
+  %64 = phi ptr [ %51, %59 ], [ %51, %55 ], [ null, %.preheader ], [ null, %61 ]
   %65 = icmp eq ptr %64, null
   %66 = select i1 %65, ptr inttoptr (i64 -19 to ptr), ptr %64
   br label %.thread9
@@ -5368,8 +5368,8 @@ define internal i64 @tty_read(ptr noundef readonly captures(none) %0, ptr nounde
   br label %62
 
 62:                                               ; preds = %61, %56
-  %63 = phi i64 [ 0, %61 ], [ %59, %56 ]
-  %64 = phi i64 [ -14, %61 ], [ %36, %56 ]
+  %63 = phi i64 [ %59, %56 ], [ 0, %61 ]
+  %64 = phi i64 [ %36, %56 ], [ -14, %61 ]
   %65 = load ptr, ptr %3, align 8
   %66 = icmp eq ptr %65, null
   br i1 %66, label %.thread, label %34, !llvm.loop !54

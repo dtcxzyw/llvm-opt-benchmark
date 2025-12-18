@@ -3871,7 +3871,7 @@ if.end.i20:                                       ; preds = %land.rhs, %for.cond
   br i1 %cmp.not.i23, label %land.end, label %for.cond.i24
 
 land.end:                                         ; preds = %if.end.i, %for.cond.i24, %if.end.i20, %land.rhs
-  %10 = phi i1 [ false, %land.rhs ], [ %cmp.not.i23, %for.cond.i24 ], [ %cmp.not.i23, %if.end.i20 ], [ false, %if.end.i ]
+  %10 = phi i1 [ %cmp.not.i23, %for.cond.i24 ], [ false, %land.rhs ], [ %cmp.not.i23, %if.end.i20 ], [ false, %if.end.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %negative) #52
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %positive) #52
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #52

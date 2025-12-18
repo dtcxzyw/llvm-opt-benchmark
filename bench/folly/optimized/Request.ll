@@ -9977,7 +9977,7 @@ _ZN5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE8Iterat
   br label %.body
 
 .noexc6:                                          ; preds = %_ZN5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE8Iterator4nextEv.exit.i, %.critedge.i.thread.i.i, %113, %123, %_ZN5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE11writer_findES1_.exit.i, %109, %.noexc17.thread112, %_ZNK5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE5beginEv.exit.i, %167, %.noexc22
-  %.0.i14 = phi ptr [ null, %109 ], [ null, %.noexc17.thread112 ], [ null, %123 ], [ null, %_ZN5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE11writer_findES1_.exit.i ], [ %128, %_ZNK5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE5beginEv.exit.i ], [ %128, %167 ], [ %128, %.noexc22 ], [ null, %.critedge.i.thread.i.i ], [ null, %113 ], [ %128, %_ZN5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE8Iterator4nextEv.exit.i ]
+  %.0.i14 = phi ptr [ null, %109 ], [ null, %.noexc17.thread112 ], [ null, %123 ], [ null, %_ZN5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE11writer_findES1_.exit.i ], [ %128, %.noexc22 ], [ %128, %167 ], [ null, %.critedge.i.thread.i.i ], [ %128, %_ZNK5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE5beginEv.exit.i ], [ null, %113 ], [ %128, %_ZN5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE8Iterator4nextEv.exit.i ]
   %.not.i3 = icmp eq ptr %.0.i14, null
   %spec.select.i = select i1 %.not.i3, ptr null, ptr %.0.i10
   %spec.select41.i = select i1 %.not.i3, ptr %.0.i10, ptr %.0.i14
@@ -10078,8 +10078,8 @@ _ZN5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE8Iterat
   br i1 %.not21.i78, label %.noexc30, label %.lr.ph.i71, !llvm.loop !324
 
 .noexc30:                                         ; preds = %_ZN5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE8Iterator4nextEv.exit.i77, %.noexc29, %215, %_ZNK5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE5beginEv.exit.i68, %.noexc28
-  %.016.i = phi ptr [ null, %.noexc28 ], [ %210, %_ZNK5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE5beginEv.exit.i68 ], [ %210, %215 ], [ %210, %.noexc29 ], [ %210, %_ZN5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE8Iterator4nextEv.exit.i77 ]
-  %.0.i26 = phi ptr [ %.0.i10, %.noexc28 ], [ %210, %_ZNK5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE5beginEv.exit.i68 ], [ %210, %215 ], [ %210, %.noexc29 ], [ %210, %_ZN5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE8Iterator4nextEv.exit.i77 ]
+  %.016.i = phi ptr [ null, %.noexc28 ], [ %210, %.noexc29 ], [ %210, %_ZNK5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE5beginEv.exit.i68 ], [ %210, %215 ], [ %210, %_ZN5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE8Iterator4nextEv.exit.i77 ]
+  %.0.i26 = phi ptr [ %.0.i10, %.noexc28 ], [ %210, %.noexc29 ], [ %210, %_ZNK5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE5beginEv.exit.i68 ], [ %210, %215 ], [ %210, %_ZN5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE8Iterator4nextEv.exit.i77 ]
   %240 = load ptr, ptr %2, align 8, !tbaa !413
   %.not117 = icmp eq ptr %240, null
   br i1 %.not117, label %.noexc33.thread, label %241
@@ -10568,8 +10568,8 @@ _ZN5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE8Iterat
   br i1 %.not21.i, label %.noexc12, label %.lr.ph.i19, !llvm.loop !324
 
 .noexc12:                                         ; preds = %_ZN5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE8Iterator4nextEv.exit.i, %.noexc11, %84, %_ZNK5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE5beginEv.exit.i, %.noexc10
-  %.016.i = phi ptr [ null, %.noexc10 ], [ %79, %_ZNK5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE5beginEv.exit.i ], [ %79, %84 ], [ %79, %.noexc11 ], [ %79, %_ZN5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE8Iterator4nextEv.exit.i ]
-  %.0.i9 = phi ptr [ %.0.i7, %.noexc10 ], [ %79, %_ZNK5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE5beginEv.exit.i ], [ %79, %84 ], [ %79, %.noexc11 ], [ %79, %_ZN5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE8Iterator4nextEv.exit.i ]
+  %.016.i = phi ptr [ null, %.noexc10 ], [ %79, %.noexc11 ], [ %79, %_ZNK5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE5beginEv.exit.i ], [ %79, %84 ], [ %79, %_ZN5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE8Iterator4nextEv.exit.i ]
+  %.0.i9 = phi ptr [ %.0.i7, %.noexc10 ], [ %79, %.noexc11 ], [ %79, %_ZNK5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE5beginEv.exit.i ], [ %79, %84 ], [ %79, %_ZN5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE8Iterator4nextEv.exit.i ]
   %109 = load ptr, ptr %2, align 8, !tbaa !413
   %.not54 = icmp eq ptr %109, null
   br i1 %.not54, label %.noexc15.thread, label %110
@@ -11077,8 +11077,8 @@ _ZN5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE8Iterat
   br i1 %.not21.i, label %_ZN5folly14RequestContext5State8Combined15acquireDataRefsEv.exit, label %.lr.ph.i84, !llvm.loop !324
 
 _ZN5folly14RequestContext5State8Combined15acquireDataRefsEv.exit: ; preds = %_ZN5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE8Iterator4nextEv.exit.i, %119, %126, %_ZN5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE5eraseES1_.exit, %_ZNK5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE5beginEv.exit.i, %146, %_ZN5folly14RequestContext5State8Combined10needExpandEv.exit.thread, %_ZN5folly14RequestContext5State8Combined10needExpandEv.exit
-  %.016.i = phi ptr [ null, %_ZN5folly14RequestContext5State8Combined10needExpandEv.exit ], [ %141, %_ZN5folly14RequestContext5State8Combined10needExpandEv.exit.thread ], [ %141, %146 ], [ %141, %_ZNK5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE5beginEv.exit.i ], [ null, %_ZN5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE5eraseES1_.exit ], [ null, %126 ], [ null, %119 ], [ %141, %_ZN5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE8Iterator4nextEv.exit.i ]
-  %.0.i59 = phi ptr [ %.0.i36, %_ZN5folly14RequestContext5State8Combined10needExpandEv.exit ], [ %141, %_ZN5folly14RequestContext5State8Combined10needExpandEv.exit.thread ], [ %141, %146 ], [ %141, %_ZNK5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE5beginEv.exit.i ], [ %.0.i36, %_ZN5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE5eraseES1_.exit ], [ %.0.i36, %126 ], [ %.0.i36, %119 ], [ %141, %_ZN5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE8Iterator4nextEv.exit.i ]
+  %.016.i = phi ptr [ null, %119 ], [ null, %_ZN5folly14RequestContext5State8Combined10needExpandEv.exit ], [ %141, %_ZN5folly14RequestContext5State8Combined10needExpandEv.exit.thread ], [ %141, %146 ], [ %141, %_ZNK5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE5beginEv.exit.i ], [ null, %_ZN5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE5eraseES1_.exit ], [ null, %126 ], [ %141, %_ZN5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE8Iterator4nextEv.exit.i ]
+  %.0.i59 = phi ptr [ %.0.i36, %119 ], [ %.0.i36, %_ZN5folly14RequestContext5State8Combined10needExpandEv.exit ], [ %141, %_ZN5folly14RequestContext5State8Combined10needExpandEv.exit.thread ], [ %141, %146 ], [ %141, %_ZNK5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE5beginEv.exit.i ], [ %.0.i36, %_ZN5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE5eraseES1_.exit ], [ %.0.i36, %126 ], [ %141, %_ZN5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE8Iterator4nextEv.exit.i ]
   %171 = load ptr, ptr %2, align 8, !tbaa !413
   %.not236 = icmp eq ptr %171, null
   br i1 %.not236, label %_ZN5folly14RequestContext5State13insertNewDataEPNS1_8CombinedERKNS_12RequestTokenERSt10unique_ptrINS_11RequestDataESt14default_deleteIS8_EEb.exit, label %172
@@ -11590,7 +11590,7 @@ _ZN5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE8Iterat
   br label %.body
 
 .loopexit:                                        ; preds = %_ZN5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE8Iterator4nextEv.exit.i144, %301, %.critedge.i.thread.i.i111, %.noexc54, %355, %_ZNK5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE5beginEv.exit.i135, %.noexc49.thread224, %297, %_ZN5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE11writer_findES1_.exit.i113, %311
-  %.0.i44 = phi ptr [ null, %297 ], [ null, %.noexc49.thread224 ], [ null, %311 ], [ null, %_ZN5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE11writer_findES1_.exit.i113 ], [ %316, %_ZNK5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE5beginEv.exit.i135 ], [ %316, %355 ], [ %316, %.noexc54 ], [ null, %301 ], [ null, %.critedge.i.thread.i.i111 ], [ %316, %_ZN5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE8Iterator4nextEv.exit.i144 ]
+  %.0.i44 = phi ptr [ null, %297 ], [ null, %.noexc49.thread224 ], [ null, %311 ], [ null, %_ZN5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE11writer_findES1_.exit.i113 ], [ %316, %.noexc54 ], [ %316, %355 ], [ null, %301 ], [ %316, %_ZNK5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE5beginEv.exit.i135 ], [ null, %.critedge.i.thread.i.i111 ], [ %316, %_ZN5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE8Iterator4nextEv.exit.i144 ]
   %.not.i3 = icmp eq ptr %.0.i44, null
   %spec.select.i = select i1 %.not.i3, ptr null, ptr %.0.i38
   %spec.select41.i = select i1 %.not.i3, ptr %.0.i38, ptr %.0.i44
@@ -11688,10 +11688,10 @@ _ZN5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE8Iterat
   br i1 %.not21.i161, label %.noexc66, label %.lr.ph.i154, !llvm.loop !324
 
 .noexc66:                                         ; preds = %_ZN5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE8Iterator4nextEv.exit.i160, %.loopexit, %.noexc65, %401, %_ZNK5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE5beginEv.exit.i151, %.noexc64
-  %.030.i231 = phi ptr [ %spec.select41.i, %.loopexit ], [ %.0.i38, %.noexc64 ], [ %.0.i38, %_ZNK5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE5beginEv.exit.i151 ], [ %.0.i38, %401 ], [ %.0.i38, %.noexc65 ], [ %.0.i38, %_ZN5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE8Iterator4nextEv.exit.i160 ]
-  %.032.i229 = phi ptr [ %spec.select.i, %.loopexit ], [ null, %.noexc64 ], [ null, %_ZNK5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE5beginEv.exit.i151 ], [ null, %401 ], [ null, %.noexc65 ], [ null, %_ZN5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE8Iterator4nextEv.exit.i160 ]
-  %.016.i61 = phi ptr [ null, %.loopexit ], [ null, %.noexc64 ], [ %396, %_ZNK5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE5beginEv.exit.i151 ], [ %396, %401 ], [ %396, %.noexc65 ], [ %396, %_ZN5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE8Iterator4nextEv.exit.i160 ]
-  %.0.i62 = phi ptr [ %spec.select41.i, %.loopexit ], [ %.0.i38, %.noexc64 ], [ %396, %_ZNK5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE5beginEv.exit.i151 ], [ %396, %401 ], [ %396, %.noexc65 ], [ %396, %_ZN5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE8Iterator4nextEv.exit.i160 ]
+  %.030.i231 = phi ptr [ %spec.select41.i, %.loopexit ], [ %.0.i38, %.noexc64 ], [ %.0.i38, %.noexc65 ], [ %.0.i38, %_ZNK5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE5beginEv.exit.i151 ], [ %.0.i38, %401 ], [ %.0.i38, %_ZN5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE8Iterator4nextEv.exit.i160 ]
+  %.032.i229 = phi ptr [ %spec.select.i, %.loopexit ], [ null, %.noexc64 ], [ null, %.noexc65 ], [ null, %_ZNK5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE5beginEv.exit.i151 ], [ null, %401 ], [ null, %_ZN5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE8Iterator4nextEv.exit.i160 ]
+  %.016.i61 = phi ptr [ null, %.loopexit ], [ null, %.noexc64 ], [ %396, %.noexc65 ], [ %396, %_ZNK5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE5beginEv.exit.i151 ], [ %396, %401 ], [ %396, %_ZN5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE8Iterator4nextEv.exit.i160 ]
+  %.0.i62 = phi ptr [ %spec.select41.i, %.loopexit ], [ %.0.i38, %.noexc64 ], [ %396, %.noexc65 ], [ %396, %_ZNK5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE5beginEv.exit.i151 ], [ %396, %401 ], [ %396, %_ZN5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE8Iterator4nextEv.exit.i160 ]
   %426 = load ptr, ptr %2, align 8, !tbaa !413
   %.not233 = icmp eq ptr %426, null
   br i1 %.not233, label %.noexc69.thread, label %427
@@ -11942,7 +11942,7 @@ _ZNK5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE8conta
   br label %_ZNK5folly14RequestContext5State14hasContextDataERKNS_12RequestTokenE.exit
 
 _ZNK5folly14RequestContext5State14hasContextDataERKNS_12RequestTokenE.exit: ; preds = %.critedge.i.i.i.thread, %28, %_ZNK5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE8containsES1_.exit.loopexit, %23, %18, %_ZN5folly13hazptr_holderISt6atomicE7protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EES9_SC_T0_.exit
-  %39 = phi i1 [ false, %_ZN5folly13hazptr_holderISt6atomicE7protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EES9_SC_T0_.exit ], [ %38, %_ZNK5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE8containsES1_.exit.loopexit ], [ false, %23 ], [ false, %18 ], [ false, %28 ], [ false, %.critedge.i.i.i.thread ]
+  %39 = phi i1 [ false, %_ZN5folly13hazptr_holderISt6atomicE7protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EES9_SC_T0_.exit ], [ %38, %_ZNK5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE8containsES1_.exit.loopexit ], [ false, %18 ], [ false, %23 ], [ false, %28 ], [ false, %.critedge.i.i.i.thread ]
   store atomic i64 0, ptr %12 release, align 8
   ret i1 %39
 }
@@ -13273,7 +13273,7 @@ _ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE21wakeRe
   br i1 %27, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15waitForZeroBitsINS3_9WaitNeverEEEbRjjjRT_.exit, label %5
 
 _ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15waitForZeroBitsINS3_9WaitNeverEEEbRjjjRT_.exit: ; preds = %35, %33, %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE21wakeRegisteredWaitersERjj.exit, %.lr.ph.i
-  %.126 = phi i1 [ false, %.lr.ph.i ], [ true, %35 ], [ true, %33 ], [ %.3, %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE21wakeRegisteredWaitersERjj.exit ]
+  %.126 = phi i1 [ false, %.lr.ph.i ], [ true, %33 ], [ true, %35 ], [ %.3, %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE21wakeRegisteredWaitersERjj.exit ]
   ret i1 %.126
 }
 
@@ -13630,13 +13630,13 @@ _ZNSt10_HashtableIPN5folly18threadlocal_detail11ThreadEntryESt4pairIKS3_mESaIS6_
   resume { ptr, i32 } %91
 
 _ZNSt13unordered_mapIPN5folly18threadlocal_detail11ThreadEntryEmSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_mEEEixERS9_.exit: ; preds = %79, %74, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %75, %74 ], [ %90, %.loopexit.i.i ], [ %81, %79 ]
+  %.pn.i.i = phi ptr [ %90, %.loopexit.i.i ], [ %75, %74 ], [ %81, %79 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   store i64 %66, ptr %.1.i.i, align 8, !tbaa !101
   br label %_ZNSt13unordered_mapIPN5folly18threadlocal_detail11ThreadEntryEmSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_mEEE4findERS9_.exit
 
 _ZNSt13unordered_mapIPN5folly18threadlocal_detail11ThreadEntryEmSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_mEEE4findERS9_.exit: ; preds = %26, %9, %21, %_ZNSt13unordered_mapIPN5folly18threadlocal_detail11ThreadEntryEmSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_mEEEixERS9_.exit
-  %.0 = phi i1 [ true, %_ZNSt13unordered_mapIPN5folly18threadlocal_detail11ThreadEntryEmSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_mEEEixERS9_.exit ], [ false, %21 ], [ false, %9 ], [ false, %26 ]
+  %.0 = phi i1 [ true, %_ZNSt13unordered_mapIPN5folly18threadlocal_detail11ThreadEntryEmSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_mEEEixERS9_.exit ], [ false, %9 ], [ false, %21 ], [ false, %26 ]
   ret i1 %.0
 }
 
@@ -17192,7 +17192,7 @@ _ZN5folly13hazptr_domainISt6atomicE9cas_availERmm.exit.i.i215: ; preds = %.crite
   br label %_ZN5folly13hazptr_holderISt6atomicED2Ev.exit
 
 .body:                                            ; preds = %_ZN5folly13hazptr_domainISt6atomicE9cas_availERmm.exit.i.i, %_ZN5folly13hazptr_domainISt6atomicE9cas_availERmm.exit.i.i212, %54, %52, %.critedge544, %_ZN5folly9hazptr_tcISt6atomicE7try_putEPNS_10hazptr_recIS1_EE.exit.thread, %_ZN5folly9hazptr_tcISt6atomicE7try_putEPNS_10hazptr_recIS1_EE.exit.i.thread, %361
-  %.pn48.pn.pn.pn = phi { ptr, i32 } [ %453, %_ZN5folly13hazptr_domainISt6atomicE9cas_availERmm.exit.i.i212 ], [ %292, %_ZN5folly9hazptr_tcISt6atomicE7try_putEPNS_10hazptr_recIS1_EE.exit.i.thread ], [ %362, %361 ], [ %453, %_ZN5folly9hazptr_tcISt6atomicE7try_putEPNS_10hazptr_recIS1_EE.exit.thread ], [ %55, %54 ], [ %53, %52 ], [ %.pn48.pn, %.critedge544 ], [ %292, %_ZN5folly13hazptr_domainISt6atomicE9cas_availERmm.exit.i.i ]
+  %.pn48.pn.pn.pn = phi { ptr, i32 } [ %453, %_ZN5folly13hazptr_domainISt6atomicE9cas_availERmm.exit.i.i212 ], [ %292, %_ZN5folly9hazptr_tcISt6atomicE7try_putEPNS_10hazptr_recIS1_EE.exit.i.thread ], [ %362, %361 ], [ %55, %54 ], [ %453, %_ZN5folly9hazptr_tcISt6atomicE7try_putEPNS_10hazptr_recIS1_EE.exit.thread ], [ %53, %52 ], [ %.pn48.pn, %.critedge544 ], [ %292, %_ZN5folly13hazptr_domainISt6atomicE9cas_availERmm.exit.i.i ]
   tail call void @_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #9
   br label %544
 

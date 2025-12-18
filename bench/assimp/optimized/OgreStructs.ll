@@ -3064,7 +3064,7 @@ _ZN6Assimp4Ogre10VertexData16GetVertexElementENS0_13VertexElement8SemanticEt.exi
   br i1 %.not.i236, label %_ZN6Assimp4Ogre10VertexData16GetVertexElementENS0_13VertexElement8SemanticEt.exit237, label %.lr.ph.i234
 
 _ZN6Assimp4Ogre10VertexData16GetVertexElementENS0_13VertexElement8SemanticEt.exit237: ; preds = %74, %77
-  %79 = phi ptr [ null, %77 ], [ %.sroa.012.022.i235, %74 ]
+  %79 = phi ptr [ %.sroa.012.022.i235, %74 ], [ null, %77 ]
   br label %.lr.ph.i239
 
 .lr.ph.i239:                                      ; preds = %_ZN6Assimp4Ogre10VertexData16GetVertexElementENS0_13VertexElement8SemanticEt.exit237, %86
@@ -3085,7 +3085,7 @@ _ZN6Assimp4Ogre10VertexData16GetVertexElementENS0_13VertexElement8SemanticEt.exi
   br i1 %.not.i241, label %_ZN6Assimp4Ogre10VertexData16GetVertexElementENS0_13VertexElement8SemanticEt.exit242, label %.lr.ph.i239
 
 _ZN6Assimp4Ogre10VertexData16GetVertexElementENS0_13VertexElement8SemanticEt.exit242: ; preds = %83, %86
-  %88 = phi ptr [ null, %86 ], [ %.sroa.012.022.i240, %83 ]
+  %88 = phi ptr [ %.sroa.012.022.i240, %83 ], [ null, %86 ]
   br label %.lr.ph.i244
 
 .lr.ph.i244:                                      ; preds = %_ZN6Assimp4Ogre10VertexData16GetVertexElementENS0_13VertexElement8SemanticEt.exit242, %95

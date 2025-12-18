@@ -3811,7 +3811,7 @@ lpad:                                             ; preds = %.noexc1194, %cond.f
   br label %lpad.body
 
 lpad.body:                                        ; preds = %arraydestroy.body122.i.preheader, %ehcleanup11.i, %lpad30.i, %if.then.i.i.i.i.i830, %if.then.i.i.i.i.i.i.i.i.i832, %ehcleanup119.i, %_ZN8facebook5velox12_GLOBAL__N_19SelectionD2Ev.exit255, %ehcleanup119.i.thread, %if.then.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i, %lpad.i59.body, %lpad.i, %lpad19.i, %_ZN8facebook5velox12_GLOBAL__N_19SelectionD2Ev.exit.i, %lpad, %ehcleanup.i160
-  %eh.lpad-body = phi { ptr, i32 } [ %eh.lpad-body.i, %_ZN8facebook5velox12_GLOBAL__N_19SelectionD2Ev.exit.i ], [ %25, %lpad.i ], [ %eh.lpad-body247, %if.then.i.i.i.i.i.i.i.i.i ], [ %.pn.i161, %ehcleanup.i160 ], [ %.pn.pn.pn.pn.pn.pn.pn.i.ph, %ehcleanup119.i.thread ], [ %6, %lpad ], [ %lpad.phi, %lpad19.i ], [ %eh.lpad-body247, %lpad.i59.body ], [ %eh.lpad-body247, %if.then.i.i.i.i.i ], [ %eh.lpad-body553, %_ZN8facebook5velox12_GLOBAL__N_19SelectionD2Ev.exit255 ], [ %.pn.pn.pn.pn.pn.pn.i, %ehcleanup119.i ], [ %472, %if.then.i.i.i.i.i.i.i.i.i832 ], [ %.pn13.i, %ehcleanup11.i ], [ %472, %lpad30.i ], [ %472, %if.then.i.i.i.i.i830 ], [ %.pn.pn.pn.pn.pn.pn.i, %arraydestroy.body122.i.preheader ]
+  %eh.lpad-body = phi { ptr, i32 } [ %eh.lpad-body.i, %_ZN8facebook5velox12_GLOBAL__N_19SelectionD2Ev.exit.i ], [ %25, %lpad.i ], [ %eh.lpad-body247, %if.then.i.i.i.i.i.i.i.i.i ], [ %472, %if.then.i.i.i.i.i830 ], [ %.pn.i161, %ehcleanup.i160 ], [ %.pn.pn.pn.pn.pn.pn.pn.i.ph, %ehcleanup119.i.thread ], [ %6, %lpad ], [ %lpad.phi, %lpad19.i ], [ %eh.lpad-body247, %lpad.i59.body ], [ %eh.lpad-body247, %if.then.i.i.i.i.i ], [ %eh.lpad-body553, %_ZN8facebook5velox12_GLOBAL__N_19SelectionD2Ev.exit255 ], [ %.pn.pn.pn.pn.pn.pn.i, %ehcleanup119.i ], [ %472, %if.then.i.i.i.i.i.i.i.i.i832 ], [ %.pn13.i, %ehcleanup11.i ], [ %472, %lpad30.i ], [ %.pn.pn.pn.pn.pn.pn.i, %arraydestroy.body122.i.preheader ]
   call fastcc void @_ZNSt10unique_ptrIN8facebook5velox12_GLOBAL__N_124VeloxToArrowBridgeHolderESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %holder) #41
   resume { ptr, i32 } %eh.lpad-body
 
@@ -6408,8 +6408,8 @@ ehcleanup119.i.thread:                            ; preds = %lpad.i1461, %lpad.i
   br label %lpad.body
 
 ehcleanup119.i:                                   ; preds = %arraydestroy.body113.i, %lpad.i1471, %lpad6.i
-  %380 = phi i1 [ false, %lpad.i1471 ], [ false, %lpad6.i ], [ true, %arraydestroy.body113.i ]
-  %.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %149, %lpad.i1471 ], [ %377, %lpad6.i ], [ %.pn.pn.pn.pn.pn.i, %arraydestroy.body113.i ]
+  %380 = phi i1 [ false, %lpad6.i ], [ false, %lpad.i1471 ], [ true, %arraydestroy.body113.i ]
+  %.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %377, %lpad6.i ], [ %149, %lpad.i1471 ], [ %.pn.pn.pn.pn.pn.i, %arraydestroy.body113.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5.i) #41
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4.i) #41
   br i1 %380, label %lpad.body, label %arraydestroy.body122.i.preheader
@@ -10730,7 +10730,7 @@ arraydestroy.body176:                             ; preds = %arraydestroy.body17
   br i1 %arraydestroy.done179, label %ehcleanup181, label %arraydestroy.body176
 
 ehcleanup181:                                     ; preds = %arraydestroy.body176, %lpad100, %lpad100.thread
-  %.pn68.pn.pn.pn = phi { ptr, i32 } [ %52, %lpad100.thread ], [ %192, %lpad100 ], [ %.pn68.pn.pn, %arraydestroy.body176 ]
+  %.pn68.pn.pn.pn = phi { ptr, i32 } [ %192, %lpad100 ], [ %52, %lpad100.thread ], [ %.pn68.pn.pn, %arraydestroy.body176 ]
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp81) #41
   br label %ehcleanup182
 
@@ -10751,8 +10751,8 @@ ehcleanup197.thread:                              ; preds = %lpad.i, %lpad84
   br label %_ZNSt10unique_ptrI11ArrowSchemaSt14default_deleteIS0_EED2Ev.exit475
 
 ehcleanup197:                                     ; preds = %arraydestroy.body191, %lpad.i163, %lpad87
-  %195 = phi i1 [ false, %lpad.i163 ], [ false, %lpad87 ], [ true, %arraydestroy.body191 ]
-  %.pn68.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %42, %lpad.i163 ], [ %191, %lpad87 ], [ %.pn68.pn.pn.pn.pn, %arraydestroy.body191 ]
+  %195 = phi i1 [ false, %lpad87 ], [ false, %lpad.i163 ], [ true, %arraydestroy.body191 ]
+  %.pn68.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %191, %lpad87 ], [ %42, %lpad.i163 ], [ %.pn68.pn.pn.pn.pn, %arraydestroy.body191 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp86) #41
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp83) #41
   br i1 %195, label %_ZNSt10unique_ptrI11ArrowSchemaSt14default_deleteIS0_EED2Ev.exit475, label %arraydestroy.body200.preheader
@@ -14699,7 +14699,7 @@ if.then.i20.i.i:                                  ; preds = %for.body18.i.i
   br i1 %exitcond.not.i, label %"_ZNK8facebook5velox12_GLOBAL__N_19Selection5applyIZNS1_13exportStringsERKNS0_10FlatVectorINS0_10StringViewEEERKS2_R10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEE3$_0EEvOT_.exit.i", label %for.body18.i.i, !llvm.loop !169
 
 "_ZNK8facebook5velox12_GLOBAL__N_19Selection5applyIZNS1_13exportStringsERKNS0_10FlatVectorINS0_10StringViewEEERKS2_R10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEE3$_0EEvOT_.exit.i": ; preds = %"_ZZN8facebook5velox12_GLOBAL__N_113exportStringsERKNS0_10FlatVectorINS0_10StringViewEEERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENK3$_0clEi.exit26.i.i", %for.body18.i.us.i, %for.inc12.i.i, %for.inc12.i.us.i, %if.then.i.i55, %for.cond16.preheader.i.i
-  %bufSize.6.i = phi i64 [ 0, %if.then.i.i55 ], [ 0, %for.cond16.preheader.i.i ], [ %add.i25.i.us.i, %for.body18.i.us.i ], [ %bufSize.3.us.i, %for.inc12.i.us.i ], [ %bufSize.3.i, %for.inc12.i.i ], [ %bufSize.1.i, %"_ZZN8facebook5velox12_GLOBAL__N_113exportStringsERKNS0_10FlatVectorINS0_10StringViewEEERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENK3$_0clEi.exit26.i.i" ]
+  %bufSize.6.i = phi i64 [ 0, %if.then.i.i55 ], [ 0, %for.cond16.preheader.i.i ], [ %add.i25.i.us.i, %for.body18.i.us.i ], [ %bufSize.3.i, %for.inc12.i.i ], [ %bufSize.3.us.i, %for.inc12.i.us.i ], [ %bufSize.1.i, %"_ZZN8facebook5velox12_GLOBAL__N_113exportStringsERKNS0_10FlatVectorINS0_10StringViewEEERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENK3$_0clEi.exit26.i.i" ]
   %79 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %bufSize.6.i, i64 96)
   %80 = extractvalue { i64, i1 } %79, 1
   br i1 %80, label %if.then.i6.i.i54, label %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i.i10
@@ -62066,7 +62066,7 @@ return.sink.split:                                ; preds = %if.then.i, %_ZZN8fa
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.then27, %if.then3, %for.end, %entry
-  %retval.0 = phi i1 [ true, %entry ], [ true, %for.end ], [ true, %if.then3 ], [ true, %if.then27 ], [ false, %return.sink.split ]
+  %retval.0 = phi i1 [ true, %entry ], [ true, %for.end ], [ true, %if.then27 ], [ true, %if.then3 ], [ false, %return.sink.split ]
   ret i1 %retval.0
 }
 
@@ -68490,7 +68490,7 @@ for.body:                                         ; preds = %for.body.lr.ph.spli
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !690
 
 for.end:                                          ; preds = %for.body, %for.body.us154, %for.body.us, %for.body.us.us, %entry
-  %i.0.lcssa = phi i64 [ 0, %entry ], [ %add153.us155, %for.body.us154 ], [ %add153.us.us, %for.body.us.us ], [ %add153.us, %for.body.us ], [ %add153, %for.body ]
+  %i.0.lcssa = phi i64 [ 0, %entry ], [ %add153.us155, %for.body.us154 ], [ %add153.us, %for.body.us ], [ %add153.us.us, %for.body.us.us ], [ %add153, %for.body ]
   %add4 = or disjoint i64 %i.0.lcssa, 32
   %cmp5.not = icmp ugt i64 %add4, %numBits
   br i1 %cmp5.not, label %if.end, label %if.then
@@ -130192,7 +130192,7 @@ while.body.i.backedge:                            ; preds = %_ZZNK8facebook5velo
   br label %while.body.i, !llvm.loop !1217
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIZNK8facebook5velox10FlatVectorInE11sortIndicesERS5_PKiNSA_12CompareFlagsEEUliiE0_EEEvT_T0_.exit: ; preds = %if.then.i.i, %if.end.i, %_ZZNK8facebook5velox10FlatVectorInE11sortIndicesERSt6vectorIiSaIiEEPKiNS0_12CompareFlagsEENKUliiE0_clEii.exit, %if.then.i.i56, %if.end.i31, %_ZZNK8facebook5velox10FlatVectorInE11sortIndicesERSt6vectorIiSaIiEEPKiNS0_12CompareFlagsEENKUliiE0_clEii.exit63
-  %__last.sroa.0.0.lcssa.i = phi ptr [ %__i.sroa.0.079, %_ZZNK8facebook5velox10FlatVectorInE11sortIndicesERSt6vectorIiSaIiEEPKiNS0_12CompareFlagsEENKUliiE0_clEii.exit63 ], [ %__i.sroa.0.079, %if.end.i31 ], [ %__i.sroa.0.079, %if.then.i.i56 ], [ %__next.sroa.0.010.i, %_ZZNK8facebook5velox10FlatVectorInE11sortIndicesERSt6vectorIiSaIiEEPKiNS0_12CompareFlagsEENKUliiE0_clEii.exit ], [ %__next.sroa.0.010.i, %if.end.i ], [ %__next.sroa.0.010.i, %if.then.i.i ]
+  %__last.sroa.0.0.lcssa.i = phi ptr [ %__i.sroa.0.079, %_ZZNK8facebook5velox10FlatVectorInE11sortIndicesERSt6vectorIiSaIiEEPKiNS0_12CompareFlagsEENKUliiE0_clEii.exit63 ], [ %__i.sroa.0.079, %if.then.i.i56 ], [ %__i.sroa.0.079, %if.end.i31 ], [ %__next.sroa.0.010.i, %_ZZNK8facebook5velox10FlatVectorInE11sortIndicesERSt6vectorIiSaIiEEPKiNS0_12CompareFlagsEENKUliiE0_clEii.exit ], [ %__next.sroa.0.010.i, %if.end.i ], [ %__next.sroa.0.010.i, %if.then.i.i ]
   store i32 %3, ptr %__last.sroa.0.0.lcssa.i, align 4
   br label %for.inc
 
@@ -130438,7 +130438,7 @@ while.body.i.backedge:                            ; preds = %_ZZNK8facebook5velo
   br label %while.body.i, !llvm.loop !1217
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIZNK8facebook5velox10FlatVectorInE11sortIndicesERS5_PKiNSA_12CompareFlagsEEUliiE0_EEEvT_T0_.exit: ; preds = %if.then.i.i, %if.end.i, %_ZZNK8facebook5velox10FlatVectorInE11sortIndicesERSt6vectorIiSaIiEEPKiNS0_12CompareFlagsEENKUliiE0_clEii.exit, %if.then.i.i54, %if.end.i29, %_ZZNK8facebook5velox10FlatVectorInE11sortIndicesERSt6vectorIiSaIiEEPKiNS0_12CompareFlagsEENKUliiE0_clEii.exit61
-  %__last.sroa.0.0.lcssa.i = phi ptr [ %__i.sroa.0.070, %_ZZNK8facebook5velox10FlatVectorInE11sortIndicesERSt6vectorIiSaIiEEPKiNS0_12CompareFlagsEENKUliiE0_clEii.exit61 ], [ %__i.sroa.0.070, %if.end.i29 ], [ %__i.sroa.0.070, %if.then.i.i54 ], [ %__next.sroa.0.010.i, %_ZZNK8facebook5velox10FlatVectorInE11sortIndicesERSt6vectorIiSaIiEEPKiNS0_12CompareFlagsEENKUliiE0_clEii.exit ], [ %__next.sroa.0.010.i, %if.end.i ], [ %__next.sroa.0.010.i, %if.then.i.i ]
+  %__last.sroa.0.0.lcssa.i = phi ptr [ %__i.sroa.0.070, %_ZZNK8facebook5velox10FlatVectorInE11sortIndicesERSt6vectorIiSaIiEEPKiNS0_12CompareFlagsEENKUliiE0_clEii.exit61 ], [ %__i.sroa.0.070, %if.then.i.i54 ], [ %__i.sroa.0.070, %if.end.i29 ], [ %__next.sroa.0.010.i, %_ZZNK8facebook5velox10FlatVectorInE11sortIndicesERSt6vectorIiSaIiEEPKiNS0_12CompareFlagsEENKUliiE0_clEii.exit ], [ %__next.sroa.0.010.i, %if.end.i ], [ %__next.sroa.0.010.i, %if.then.i.i ]
   store i32 %0, ptr %__last.sroa.0.0.lcssa.i, align 4
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__i.sroa.0.070, i64 4
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %__last.coerce
@@ -142049,10 +142049,10 @@ while.cond10.i.i:                                 ; preds = %while.cond10.i.i, %
   br i1 %cmp.i.i13.i.i, label %while.cond10.i.i, label %while.end18.i.i, !llvm.loop !1311
 
 while.end18.i.i:                                  ; preds = %while.cond10.us.i.i, %while.cond10.i.i, %while.cond10.us.us.i.i
-  %.us-phi3482.i.i = phi i32 [ %12, %while.cond10.us.us.i.i ], [ %.us-phi22.i, %while.cond10.i.i ], [ %.pre.i.i, %while.cond10.us.i.i ]
-  %.us-phi3379.i.i = phi ptr [ %__first.sroa.0.1.us38.i.i, %while.cond10.us.us.i.i ], [ %.us-phi.i, %while.cond10.i.i ], [ %__first.sroa.0.0.i.i, %while.cond10.us.i.i ]
-  %.us-phi59.i.i = phi ptr [ %__last.sroa.0.1.us.us.i.i, %while.cond10.us.us.i.i ], [ %__last.sroa.0.1.i.i, %while.cond10.i.i ], [ %__last.sroa.0.1.us.i.i, %while.cond10.us.i.i ]
-  %.us-phi60.i.i = phi i32 [ %15, %while.cond10.us.us.i.i ], [ %19, %while.cond10.i.i ], [ %16, %while.cond10.us.i.i ]
+  %.us-phi3482.i.i = phi i32 [ %.us-phi22.i, %while.cond10.i.i ], [ %12, %while.cond10.us.us.i.i ], [ %.pre.i.i, %while.cond10.us.i.i ]
+  %.us-phi3379.i.i = phi ptr [ %.us-phi.i, %while.cond10.i.i ], [ %__first.sroa.0.1.us38.i.i, %while.cond10.us.us.i.i ], [ %__first.sroa.0.0.i.i, %while.cond10.us.i.i ]
+  %.us-phi59.i.i = phi ptr [ %__last.sroa.0.1.i.i, %while.cond10.i.i ], [ %__last.sroa.0.1.us.us.i.i, %while.cond10.us.us.i.i ], [ %__last.sroa.0.1.us.i.i, %while.cond10.us.i.i ]
+  %.us-phi60.i.i = phi i32 [ %19, %while.cond10.i.i ], [ %15, %while.cond10.us.us.i.i ], [ %16, %while.cond10.us.i.i ]
   %cmp.i.i.i4 = icmp ult ptr %.us-phi3379.i.i, %.us-phi59.i.i
   br i1 %cmp.i.i.i4, label %if.end.i.i, label %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZNK8facebook5velox10FlatVectorIfE11sortIndicesERS5_NSA_12CompareFlagsEEUliiE_EEET_SH_SH_T0_.exit
 
@@ -144554,10 +144554,10 @@ while.cond10.i:                                   ; preds = %while.cond3.us.i, %
   br i1 %cmp.i.i17.i, label %while.cond10.i, label %while.end18.i, !llvm.loop !1337
 
 while.end18.i:                                    ; preds = %while.cond10.us.i, %while.cond10.i, %while.cond10.us.us.i
-  %.us-phi3791.i = phi i32 [ %11, %while.cond10.us.us.i ], [ %7, %while.cond10.i ], [ %.pre.i, %while.cond10.us.i ]
-  %.us-phi3688.i = phi ptr [ %__first.sroa.0.1.us42.i, %while.cond10.us.us.i ], [ %__first.sroa.0.1.us.i, %while.cond10.i ], [ %__first.sroa.0.0.i, %while.cond10.us.i ]
-  %.us-phi67.i = phi ptr [ %__last.sroa.0.1.us.us.i, %while.cond10.us.us.i ], [ %__last.sroa.0.1.i, %while.cond10.i ], [ %__last.sroa.0.1.us.i, %while.cond10.us.i ]
-  %.us-phi68.i = phi i32 [ %15, %while.cond10.us.us.i ], [ %20, %while.cond10.i ], [ %16, %while.cond10.us.i ]
+  %.us-phi3791.i = phi i32 [ %7, %while.cond10.i ], [ %11, %while.cond10.us.us.i ], [ %.pre.i, %while.cond10.us.i ]
+  %.us-phi3688.i = phi ptr [ %__first.sroa.0.1.us.i, %while.cond10.i ], [ %__first.sroa.0.1.us42.i, %while.cond10.us.us.i ], [ %__first.sroa.0.0.i, %while.cond10.us.i ]
+  %.us-phi67.i = phi ptr [ %__last.sroa.0.1.i, %while.cond10.i ], [ %__last.sroa.0.1.us.us.i, %while.cond10.us.us.i ], [ %__last.sroa.0.1.us.i, %while.cond10.us.i ]
+  %.us-phi68.i = phi i32 [ %20, %while.cond10.i ], [ %15, %while.cond10.us.us.i ], [ %16, %while.cond10.us.i ]
   %cmp.i.i = icmp ult ptr %.us-phi3688.i, %.us-phi67.i
   br i1 %cmp.i.i, label %if.end.i, label %_ZSt21__unguarded_partitionIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZNK8facebook5velox10FlatVectorIfE11sortIndicesERS5_PKiNSA_12CompareFlagsEEUliiE_EEET_SJ_SJ_SJ_T0_.exit
 
@@ -155941,10 +155941,10 @@ while.cond10.i.i:                                 ; preds = %while.cond10.i.i, %
   br i1 %cmp.i.i13.i.i, label %while.cond10.i.i, label %while.end18.i.i, !llvm.loop !1421
 
 while.end18.i.i:                                  ; preds = %while.cond10.us.i.i, %while.cond10.i.i, %while.cond10.us.us.i.i
-  %.us-phi3482.i.i = phi i32 [ %12, %while.cond10.us.us.i.i ], [ %.us-phi22.i, %while.cond10.i.i ], [ %.pre.i.i, %while.cond10.us.i.i ]
-  %.us-phi3379.i.i = phi ptr [ %__first.sroa.0.1.us38.i.i, %while.cond10.us.us.i.i ], [ %.us-phi.i, %while.cond10.i.i ], [ %__first.sroa.0.0.i.i, %while.cond10.us.i.i ]
-  %.us-phi59.i.i = phi ptr [ %__last.sroa.0.1.us.us.i.i, %while.cond10.us.us.i.i ], [ %__last.sroa.0.1.i.i, %while.cond10.i.i ], [ %__last.sroa.0.1.us.i.i, %while.cond10.us.i.i ]
-  %.us-phi60.i.i = phi i32 [ %15, %while.cond10.us.us.i.i ], [ %19, %while.cond10.i.i ], [ %16, %while.cond10.us.i.i ]
+  %.us-phi3482.i.i = phi i32 [ %.us-phi22.i, %while.cond10.i.i ], [ %12, %while.cond10.us.us.i.i ], [ %.pre.i.i, %while.cond10.us.i.i ]
+  %.us-phi3379.i.i = phi ptr [ %.us-phi.i, %while.cond10.i.i ], [ %__first.sroa.0.1.us38.i.i, %while.cond10.us.us.i.i ], [ %__first.sroa.0.0.i.i, %while.cond10.us.i.i ]
+  %.us-phi59.i.i = phi ptr [ %__last.sroa.0.1.i.i, %while.cond10.i.i ], [ %__last.sroa.0.1.us.us.i.i, %while.cond10.us.us.i.i ], [ %__last.sroa.0.1.us.i.i, %while.cond10.us.i.i ]
+  %.us-phi60.i.i = phi i32 [ %19, %while.cond10.i.i ], [ %15, %while.cond10.us.us.i.i ], [ %16, %while.cond10.us.i.i ]
   %cmp.i.i.i4 = icmp ult ptr %.us-phi3379.i.i, %.us-phi59.i.i
   br i1 %cmp.i.i.i4, label %if.end.i.i, label %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZNK8facebook5velox10FlatVectorIdE11sortIndicesERS5_NSA_12CompareFlagsEEUliiE_EEET_SH_SH_T0_.exit
 
@@ -158446,10 +158446,10 @@ while.cond10.i:                                   ; preds = %while.cond3.us.i, %
   br i1 %cmp.i.i17.i, label %while.cond10.i, label %while.end18.i, !llvm.loop !1447
 
 while.end18.i:                                    ; preds = %while.cond10.us.i, %while.cond10.i, %while.cond10.us.us.i
-  %.us-phi3791.i = phi i32 [ %11, %while.cond10.us.us.i ], [ %7, %while.cond10.i ], [ %.pre.i, %while.cond10.us.i ]
-  %.us-phi3688.i = phi ptr [ %__first.sroa.0.1.us42.i, %while.cond10.us.us.i ], [ %__first.sroa.0.1.us.i, %while.cond10.i ], [ %__first.sroa.0.0.i, %while.cond10.us.i ]
-  %.us-phi67.i = phi ptr [ %__last.sroa.0.1.us.us.i, %while.cond10.us.us.i ], [ %__last.sroa.0.1.i, %while.cond10.i ], [ %__last.sroa.0.1.us.i, %while.cond10.us.i ]
-  %.us-phi68.i = phi i32 [ %15, %while.cond10.us.us.i ], [ %20, %while.cond10.i ], [ %16, %while.cond10.us.i ]
+  %.us-phi3791.i = phi i32 [ %7, %while.cond10.i ], [ %11, %while.cond10.us.us.i ], [ %.pre.i, %while.cond10.us.i ]
+  %.us-phi3688.i = phi ptr [ %__first.sroa.0.1.us.i, %while.cond10.i ], [ %__first.sroa.0.1.us42.i, %while.cond10.us.us.i ], [ %__first.sroa.0.0.i, %while.cond10.us.i ]
+  %.us-phi67.i = phi ptr [ %__last.sroa.0.1.i, %while.cond10.i ], [ %__last.sroa.0.1.us.us.i, %while.cond10.us.us.i ], [ %__last.sroa.0.1.us.i, %while.cond10.us.i ]
+  %.us-phi68.i = phi i32 [ %20, %while.cond10.i ], [ %15, %while.cond10.us.us.i ], [ %16, %while.cond10.us.i ]
   %cmp.i.i = icmp ult ptr %.us-phi3688.i, %.us-phi67.i
   br i1 %cmp.i.i, label %if.end.i, label %_ZSt21__unguarded_partitionIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZNK8facebook5velox10FlatVectorIdE11sortIndicesERS5_PKiNSA_12CompareFlagsEEUliiE_EEET_SJ_SJ_SJ_T0_.exit
 

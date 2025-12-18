@@ -2721,8 +2721,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit319: ; preds = %98
   br label %.thread355
 
 .thread355:                                       ; preds = %._crit_edge, %69, %.thread355.fold.split, %70, %91
-  %103 = phi i1 [ false, %._crit_edge ], [ true, %91 ], [ false, %70 ], [ false, %69 ], [ false, %.thread355.fold.split ]
-  %104 = phi i32 [ 3, %._crit_edge ], [ 3, %91 ], [ 2, %70 ], [ 2, %69 ], [ 3, %.thread355.fold.split ]
+  %103 = phi i1 [ false, %._crit_edge ], [ true, %91 ], [ false, %69 ], [ false, %70 ], [ false, %.thread355.fold.split ]
+  %104 = phi i32 [ 3, %._crit_edge ], [ 3, %91 ], [ 2, %69 ], [ 2, %70 ], [ 3, %.thread355.fold.split ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN2cv11WBaseStreamC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %10)
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN2cv12WLByteStreamE, i64 16), ptr %10, align 8, !tbaa !3
@@ -3387,7 +3387,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit334: ; preds = %31
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph386, !llvm.loop !138
 
 .loopexit:                                        ; preds = %.lr.ph386, %.lr.ph390, %.lr.ph394, %.lr.ph398, %.lr.ph402, %.preheader379, %.preheader377, %.preheader375, %.preheader373, %.preheader372
-  %.1 = phi ptr [ %187, %.preheader372 ], [ %187, %.preheader373 ], [ %187, %.preheader375 ], [ %187, %.preheader377 ], [ %187, %.preheader379 ], [ %380, %.lr.ph390 ], [ %320, %.lr.ph402 ], [ %345, %.lr.ph398 ], [ %370, %.lr.ph394 ], [ %387, %.lr.ph386 ]
+  %.1 = phi ptr [ %370, %.lr.ph394 ], [ %380, %.lr.ph390 ], [ %320, %.lr.ph402 ], [ %345, %.lr.ph398 ], [ %187, %.preheader372 ], [ %187, %.preheader373 ], [ %187, %.preheader375 ], [ %187, %.preheader377 ], [ %187, %.preheader379 ], [ %387, %.lr.ph386 ]
   %388 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   store i8 10, ptr %.1, align 1, !tbaa !66
   %389 = ptrtoint ptr %388 to i64

@@ -735,7 +735,7 @@ define dso_local noundef range(i32 -22, 1) i32 @fib6_check_nexthop(ptr noundef r
   br label %35
 
 35:                                               ; preds = %.sink.split, %12, %.critedge, %32, %28
-  %36 = phi i32 [ -22, %32 ], [ 0, %28 ], [ -22, %.critedge ], [ -22, %12 ], [ -22, %.sink.split ]
+  %36 = phi i32 [ -22, %12 ], [ -22, %32 ], [ 0, %28 ], [ -22, %.critedge ], [ -22, %.sink.split ]
   ret i32 %36
 }
 
@@ -3157,7 +3157,7 @@ fib6_check_nh_list.exit92:                        ; preds = %.thread115, %817
   %888 = icmp eq i8 %887, 0
   br i1 %888, label %894, label %890
 
-.thread119:                                       ; preds = %881, %880
+.thread119:                                       ; preds = %880, %881
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %fib6_check_nh_list.exit.thread
 
@@ -3276,7 +3276,7 @@ fib6_check_nh_list.exit92:                        ; preds = %.thread115, %817
   br label %fib6_check_nh_list.exit.thread
 
 fib6_check_nh_list.exit.thread:                   ; preds = %706, %785, %.thread301, %.thread119, %865, %866, %842, %843, %830, %831, %.sink.split.i88, %801, %.critedge.i90, %821, %.sink.split.i, %721, %.critedge.i, %743, %939, %936, %778, %777
-  %940 = phi i32 [ -22, %831 ], [ -22, %.sink.split.i88 ], [ -22, %778 ], [ -22, %777 ], [ 0, %939 ], [ %937, %936 ], [ -22, %.sink.split.i ], [ -22, %743 ], [ -22, %.critedge.i ], [ -22, %721 ], [ -22, %821 ], [ -22, %.critedge.i90 ], [ -22, %801 ], [ %878, %.thread119 ], [ -22, %865 ], [ -22, %866 ], [ -22, %842 ], [ -22, %843 ], [ -22, %830 ], [ %889, %.thread301 ], [ %788, %785 ], [ %709, %706 ]
+  %940 = phi i32 [ -22, %831 ], [ -22, %.sink.split.i88 ], [ -22, %778 ], [ -22, %777 ], [ 0, %939 ], [ %937, %936 ], [ %889, %.thread301 ], [ -22, %.sink.split.i ], [ -22, %743 ], [ -22, %.critedge.i ], [ -22, %721 ], [ -22, %821 ], [ -22, %.critedge.i90 ], [ -22, %801 ], [ %878, %.thread119 ], [ -22, %865 ], [ -22, %866 ], [ -22, %842 ], [ -22, %843 ], [ -22, %830 ], [ %788, %785 ], [ %709, %706 ]
   %941 = icmp eq i32 %940, 0
   %942 = zext i1 %941 to i32
   %943 = select i1 %941, ptr %693, ptr %666
@@ -3608,7 +3608,7 @@ fib6_check_nh_list.exit.thread:                   ; preds = %706, %785, %.thread
   br label %.loopexit147
 
 .loopexit147:                                     ; preds = %.loopexit, %1046, %1048, %.loopexit149, %.thread139, %665
-  %1119 = phi ptr [ %666, %665 ], [ %1118, %.thread139 ], [ %666, %.loopexit149 ], [ %666, %1048 ], [ %666, %1046 ], [ %666, %.loopexit ]
+  %1119 = phi ptr [ %666, %665 ], [ %1118, %.thread139 ], [ %666, %1046 ], [ %666, %.loopexit149 ], [ %666, %1048 ], [ %666, %.loopexit ]
   %1120 = icmp ugt ptr %1119, inttoptr (i64 -4096 to ptr)
   br i1 %1120, label %.thread142, label %1124
 
@@ -4128,7 +4128,7 @@ __nh_valid_dump_req.exit.thread:                  ; preds = %18, %32, %42, %62, 
   br label %.thread21
 
 .thread21:                                        ; preds = %.thread17, %.thread17.us.us, %.thread17.us, %.thread17.us.us28, %66, %.split24.us
-  %204 = phi i32 [ %203, %.split24.us ], [ 0, %66 ], [ 0, %.thread17.us.us ], [ 0, %.thread17.us.us28 ], [ 0, %.thread17.us ], [ 0, %.thread17 ]
+  %204 = phi i32 [ 0, %.thread17.us ], [ %203, %.split24.us ], [ 0, %66 ], [ 0, %.thread17.us.us28 ], [ 0, %.thread17.us.us ], [ 0, %.thread17 ]
   %205 = getelementptr inbounds nuw i8, ptr %8, i64 600
   %206 = load i32, ptr %205, align 8
   %207 = getelementptr inbounds nuw i8, ptr %1, i64 68
@@ -4299,7 +4299,7 @@ define internal i32 @rtm_get_nexthop_bucket(ptr noundef readonly captures(none) 
   br label %.thread25
 
 .thread25:                                        ; preds = %.thread25.sink.split, %14, %53, %12, %41, %47, %35
-  %.ph24 = phi i32 [ %17, %14 ], [ -22, %12 ], [ -22, %53 ], [ -22, %41 ], [ -22, %47 ], [ -22, %35 ], [ -22, %.thread25.sink.split ]
+  %.ph24 = phi i32 [ %17, %14 ], [ -22, %12 ], [ -22, %35 ], [ -22, %53 ], [ -22, %47 ], [ -22, %41 ], [ -22, %.thread25.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %144
 
@@ -7451,7 +7451,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @nh_check_attr_group(ptr no
   br i1 %60, label %.critedge, label %.critedge.sink.split
 
 158:                                              ; preds = %151, %155
-  %159 = phi i8 [ %154, %151 ], [ %112, %155 ]
+  %159 = phi i8 [ %112, %155 ], [ %154, %151 ]
   %160 = add nuw nsw i64 %111, 1
   %161 = icmp eq i64 %160, %17
   br i1 %161, label %.split28.us, label %.split, !llvm.loop !125
@@ -7482,7 +7482,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @nh_check_attr_group(ptr no
   br label %.critedge
 
 .critedge:                                        ; preds = %167, %108, %.critedge.sink.split, %157, %150, %.split24.us, %.split22.us, %.split20.us, %.split31.us, %.split26.us, %._crit_edge, %53, %38, %32, %14
-  %170 = phi i32 [ -22, %14 ], [ -22, %32 ], [ -22, %38 ], [ -22, %53 ], [ -22, %.split31.us ], [ -22, %.split26.us ], [ -22, %._crit_edge ], [ -22, %.split24.us ], [ -22, %.split22.us ], [ -22, %.split20.us ], [ -22, %150 ], [ -22, %157 ], [ -22, %.critedge.sink.split ], [ 0, %108 ], [ 0, %167 ]
+  %170 = phi i32 [ -22, %14 ], [ -22, %32 ], [ -22, %38 ], [ -22, %53 ], [ -22, %.split31.us ], [ -22, %.split26.us ], [ -22, %._crit_edge ], [ 0, %108 ], [ -22, %.critedge.sink.split ], [ -22, %157 ], [ -22, %.split22.us ], [ -22, %150 ], [ -22, %.split20.us ], [ -22, %.split24.us ], [ 0, %167 ]
   ret i32 %170
 }
 
@@ -7612,7 +7612,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @rtm_to_nh_config_grp_res(p
   br label %.thread
 
 .thread:                                          ; preds = %10, %12, %44, %46, %63, %62, %60, %53, %32, %30, %15
-  %64 = phi i32 [ %20, %15 ], [ -22, %32 ], [ -22, %30 ], [ -22, %44 ], [ 0, %63 ], [ 0, %53 ], [ -22, %62 ], [ -22, %60 ], [ -22, %46 ], [ -22, %12 ], [ -22, %10 ]
+  %64 = phi i32 [ %20, %15 ], [ -22, %32 ], [ -22, %30 ], [ -22, %46 ], [ 0, %63 ], [ 0, %53 ], [ -22, %62 ], [ -22, %60 ], [ -22, %44 ], [ -22, %12 ], [ -22, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %64
 }

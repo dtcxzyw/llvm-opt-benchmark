@@ -3169,7 +3169,7 @@ _ZN5vcpkg15LocalizedStringD2Ev.exit52:            ; preds = %109, %_ZNKSt7__cxx1
   br label %.thread
 
 .thread:                                          ; preds = %.thread.loopexit, %_ZN5vcpkg15LocalizedStringD2Ev.exit, %_ZN5vcpkg15LocalizedStringD2Ev.exit49, %85
-  %.3 = phi i1 [ false, %_ZN5vcpkg15LocalizedStringD2Ev.exit ], [ false, %_ZN5vcpkg15LocalizedStringD2Ev.exit49 ], [ true, %85 ], [ false, %.thread.loopexit ]
+  %.3 = phi i1 [ true, %85 ], [ false, %_ZN5vcpkg15LocalizedStringD2Ev.exit ], [ false, %_ZN5vcpkg15LocalizedStringD2Ev.exit49 ], [ false, %.thread.loopexit ]
   ret i1 %.3
 
 116:                                              ; preds = %_ZN5vcpkg15LocalizedStringD2Ev.exit46, %_ZN5vcpkg15LocalizedStringD2Ev.exit52, %_ZN5vcpkg7details19OptionalStorageDtorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0EED2Ev.exit
@@ -8343,7 +8343,7 @@ _ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail13width_checkerEE
   unreachable
 
 _ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail13width_checkerEEEDTclfp_Li0EEEOT_.exit: ; preds = %18, %12, %9, %16, %22
-  %.0.i = phi i64 [ %.sroa.011.0.extract.trunc.i, %18 ], [ %11, %9 ], [ %17, %16 ], [ %13, %12 ], [ %.sroa.05.0.extract.trunc.i, %22 ]
+  %.0.i = phi i64 [ %.sroa.05.0.extract.trunc.i, %22 ], [ %13, %12 ], [ %.sroa.011.0.extract.trunc.i, %18 ], [ %11, %9 ], [ %17, %16 ]
   %34 = icmp ugt i64 %.0.i, 2147483647
   br i1 %34, label %_ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail13width_checkerEEEDTclfp_Li0EEEOT_.exit.thread11, label %35
 
@@ -8565,7 +8565,7 @@ _ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail17precision_check
   unreachable
 
 _ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail17precision_checkerEEEDTclfp_Li0EEEOT_.exit: ; preds = %18, %12, %9, %16, %22
-  %.0.i = phi i64 [ %.sroa.011.0.extract.trunc.i, %18 ], [ %11, %9 ], [ %17, %16 ], [ %13, %12 ], [ %.sroa.05.0.extract.trunc.i, %22 ]
+  %.0.i = phi i64 [ %.sroa.05.0.extract.trunc.i, %22 ], [ %13, %12 ], [ %.sroa.011.0.extract.trunc.i, %18 ], [ %11, %9 ], [ %17, %16 ]
   %34 = icmp ugt i64 %.0.i, 2147483647
   br i1 %34, label %_ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail17precision_checkerEEEDTclfp_Li0EEEOT_.exit.thread11, label %35
 

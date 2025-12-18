@@ -699,7 +699,7 @@ choose_format.exit:                               ; preds = %159
   br label %read_client_close_proxy.exit
 
 read_client_close_proxy.exit:                     ; preds = %.lr.ph.i, %179, %164, %195, %190, %.preheader.i, %19, %34, %1, %.loopexit81, %.loopexit, %8
-  %.1 = phi i32 [ -30, %8 ], [ -30, %34 ], [ -30, %1 ], [ -30, %.loopexit81 ], [ -30, %.loopexit ], [ %18, %19 ], [ %18, %.preheader.i ], [ 0, %190 ], [ 0, %195 ], [ 0, %164 ], [ 0, %179 ], [ %18, %.lr.ph.i ]
+  %.1 = phi i32 [ -30, %8 ], [ -30, %34 ], [ -30, %1 ], [ 0, %179 ], [ -30, %.loopexit81 ], [ -30, %.loopexit ], [ %18, %19 ], [ %18, %.preheader.i ], [ 0, %190 ], [ 0, %195 ], [ 0, %164 ], [ %18, %.lr.ph.i ]
   ret i32 %.1
 }
 
@@ -2694,7 +2694,7 @@ client_seek_proxy.exit171:                        ; preds = %client_switch_proxy
   br label %.loopexit
 
 .loopexit:                                        ; preds = %client_seek_proxy.exit171, %client_seek_proxy.exit, %client_seek_proxy.exit171.thread, %client_seek_proxy.exit.thread, %201, %208, %13, %196, %113, %109, %9, %3, %6, %194, %158, %85
-  %.0127 = phi i64 [ -30, %3 ], [ %199, %196 ], [ %86, %85 ], [ -25, %9 ], [ -30, %109 ], [ -30, %13 ], [ %159, %158 ], [ %114, %113 ], [ %195, %194 ], [ -30, %6 ], [ -25, %client_seek_proxy.exit171.thread ], [ %206, %208 ], [ %206, %201 ], [ -25, %client_seek_proxy.exit.thread ], [ %92, %client_seek_proxy.exit ], [ %165, %client_seek_proxy.exit171 ]
+  %.0127 = phi i64 [ %92, %client_seek_proxy.exit ], [ -30, %3 ], [ %199, %196 ], [ %86, %85 ], [ -25, %9 ], [ -25, %client_seek_proxy.exit.thread ], [ -30, %109 ], [ -30, %13 ], [ %159, %158 ], [ %114, %113 ], [ %195, %194 ], [ -30, %6 ], [ -25, %client_seek_proxy.exit171.thread ], [ %206, %208 ], [ %206, %201 ], [ %165, %client_seek_proxy.exit171 ]
   ret i64 %.0127
 }
 
@@ -3035,7 +3035,7 @@ archive_read_data_skip.exit.thread.fold.split:    ; preds = %.loopexit.i
   br label %archive_read_data_skip.exit.thread
 
 archive_read_data_skip.exit.thread:               ; preds = %.loopexit.i, %archive_read_data_skip.exit.thread.fold.split, %7
-  %.037 = phi i32 [ 0, %7 ], [ 0, %.loopexit.i ], [ %.012.i, %archive_read_data_skip.exit.thread.fold.split ]
+  %.037 = phi i32 [ 0, %.loopexit.i ], [ 0, %7 ], [ %.012.i, %archive_read_data_skip.exit.thread.fold.split ]
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %25 = load ptr, ptr %24, align 8, !tbaa !53
   %26 = load i64, ptr %25, align 8, !tbaa !76

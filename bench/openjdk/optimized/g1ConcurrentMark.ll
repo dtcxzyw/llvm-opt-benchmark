@@ -9174,7 +9174,7 @@ _ZN16G1ConcurrentMark12try_stealingEjR16G1TaskQueueEntry.exit.thread.loopexit: ;
   br label %_ZN16G1ConcurrentMark12try_stealingEjR16G1TaskQueueEntry.exit.thread
 
 _ZN16G1ConcurrentMark12try_stealingEjR16G1TaskQueueEntry.exit.thread: ; preds = %_ZN8G1CMTask18drain_global_stackEb.exit66, %586, %_ZN16G1ConcurrentMark12try_stealingEjR16G1TaskQueueEntry.exit, %_ZN8G1CMTask29get_entries_from_global_stackEv.exit11.i65, %.preheader, %_ZN16G1ConcurrentMark12try_stealingEjR16G1TaskQueueEntry.exit.thread.loopexit, %_ZN8G1CMTask18drain_global_stackEb.exit56
-  %631 = phi i8 [ %576, %_ZN8G1CMTask18drain_global_stackEb.exit56 ], [ %.pre115, %_ZN16G1ConcurrentMark12try_stealingEjR16G1TaskQueueEntry.exit.thread.loopexit ], [ %576, %.preheader ], [ %629, %_ZN8G1CMTask29get_entries_from_global_stackEv.exit11.i65 ], [ %600, %_ZN16G1ConcurrentMark12try_stealingEjR16G1TaskQueueEntry.exit ], [ %.old.pre, %586 ], [ %.old.pre, %_ZN8G1CMTask18drain_global_stackEb.exit66 ]
+  %631 = phi i8 [ %576, %_ZN8G1CMTask18drain_global_stackEb.exit56 ], [ %.pre115, %_ZN16G1ConcurrentMark12try_stealingEjR16G1TaskQueueEntry.exit.thread.loopexit ], [ %629, %_ZN8G1CMTask29get_entries_from_global_stackEv.exit11.i65 ], [ %576, %.preheader ], [ %.old.pre, %586 ], [ %.old.pre, %_ZN8G1CMTask18drain_global_stackEb.exit66 ], [ %600, %_ZN16G1ConcurrentMark12try_stealingEjR16G1TaskQueueEntry.exit ]
   %632 = trunc i8 %631 to i1
   %or.cond83 = select i1 %.not89, i1 true, i1 %632
   br i1 %or.cond83, label %690, label %633
@@ -9603,7 +9603,7 @@ _ZNK6BitMap18find_first_set_bitEmm.exit22:        ; preds = %117, %134
   br i1 %.not32, label %49, label %._crit_edge, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %35, %134, %_ZN7oopDesc4sizeEv.exit, %49, %_ZNK6BitMap18find_first_set_bitEmm.exit22, %.preheader, %43, %4, %_ZNK6BitMap18find_first_set_bitEmm.exit
-  %.lcssa = phi i1 [ true, %_ZNK6BitMap18find_first_set_bitEmm.exit ], [ true, %43 ], [ true, %4 ], [ %55, %134 ], [ true, %.preheader ], [ %55, %_ZNK6BitMap18find_first_set_bitEmm.exit22 ], [ %55, %49 ], [ %55, %_ZN7oopDesc4sizeEv.exit ], [ true, %35 ]
+  %.lcssa = phi i1 [ true, %_ZNK6BitMap18find_first_set_bitEmm.exit ], [ true, %43 ], [ true, %.preheader ], [ %55, %134 ], [ true, %4 ], [ %55, %_ZNK6BitMap18find_first_set_bitEmm.exit22 ], [ %55, %49 ], [ %55, %_ZN7oopDesc4sizeEv.exit ], [ true, %35 ]
   ret i1 %.lcssa
 }
 

@@ -1246,7 +1246,7 @@ define internal range(i32 0, 2) i32 @test_property() #0 {
   br i1 %exitcond107.not, label %.thread81, label %.preheader, !llvm.loop !39
 
 .thread81:                                        ; preds = %107, %105, %95, %71, %61, %37, %0, %5, %21
-  %.056 = phi i32 [ 0, %21 ], [ 0, %37 ], [ 0, %71 ], [ 0, %0 ], [ 0, %5 ], [ 0, %61 ], [ 0, %95 ], [ 0, %105 ], [ 1, %107 ]
+  %.056 = phi i32 [ 0, %21 ], [ 0, %37 ], [ 0, %105 ], [ 0, %71 ], [ 0, %0 ], [ 0, %5 ], [ 0, %61 ], [ 0, %95 ], [ 1, %107 ]
   call void @ossl_method_store_free(ptr noundef %3) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.056

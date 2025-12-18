@@ -966,8 +966,8 @@ Abc_NtkRetimeUpdateLValue.exit:                   ; preds = %.critedge.i, %.crit
   br i1 %exitcond.not, label %Abc_NtkRetimePosOverLimit.exit, label %30, !llvm.loop !56
 
 Abc_NtkRetimePosOverLimit.exit:                   ; preds = %.critedge, %92, %.critedge.preheader
-  %.02761 = phi i32 [ 1, %.critedge.preheader ], [ %.02765, %92 ], [ %16, %.critedge ]
-  %.not58 = phi ptr [ @.str.4, %.critedge.preheader ], [ @.str.5, %92 ], [ @.str.4, %.critedge ]
+  %.02761 = phi i32 [ %.02765, %92 ], [ 1, %.critedge.preheader ], [ %16, %.critedge ]
+  %.not58 = phi ptr [ @.str.5, %92 ], [ @.str.4, %.critedge.preheader ], [ @.str.4, %.critedge ]
   %.not31 = icmp eq i32 %5, 0
   br i1 %.not31, label %110, label %106
 

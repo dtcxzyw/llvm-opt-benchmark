@@ -75,7 +75,7 @@ define ptr @aggetrec(ptr noundef captures(none) %0, ptr noundef readonly capture
   br label %.critedge26
 
 .critedge26:                                      ; preds = %6, %11, %26, %22, %18, %17, %19
-  %.0 = phi ptr [ %.021, %18 ], [ %.021, %26 ], [ %.021, %19 ], [ %.021, %17 ], [ %.021, %22 ], [ null, %11 ], [ null, %6 ]
+  %.0 = phi ptr [ %.021, %22 ], [ %.021, %17 ], [ %.021, %18 ], [ %.021, %26 ], [ %.021, %19 ], [ null, %11 ], [ null, %6 ]
   ret ptr %.0
 }
 
@@ -310,8 +310,8 @@ define range(i32 -1, 1) i32 @agdelrec(ptr noundef %0, ptr noundef readonly captu
   %.val.pre = load ptr, ptr %4, align 8, !tbaa !3
   br label %27
 
-27:                                               ; preds = %20, %18, %.critedge.i
-  %.val = phi ptr [ %.val.pre, %20 ], [ %.021.i, %18 ], [ %5, %.critedge.i ]
+27:                                               ; preds = %18, %20, %.critedge.i
+  %.val = phi ptr [ %.021.i, %18 ], [ %.val.pre, %20 ], [ %5, %.critedge.i ]
   br label %28
 
 28:                                               ; preds = %28, %27
@@ -574,7 +574,7 @@ define void @agclean(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnam
   br label %36
 
 36:                                               ; preds = %29, %27, %.critedge.i.i
-  %.val.i = phi ptr [ %.val.pre.i, %29 ], [ %.021.i.i, %27 ], [ %14, %.critedge.i.i ]
+  %.val.i = phi ptr [ %.021.i.i, %27 ], [ %.val.pre.i, %29 ], [ %14, %.critedge.i.i ]
   br label %37
 
 37:                                               ; preds = %37, %36

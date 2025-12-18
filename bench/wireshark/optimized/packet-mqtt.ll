@@ -814,7 +814,7 @@ define internal noundef zeroext i1 @mqtt_message_decode_update_cb(ptr noundef ca
   br label %27
 
 27:                                               ; preds = %.sink.split, %18, %21
-  %.0 = phi i1 [ true, %21 ], [ true, %18 ], [ false, %.sink.split ]
+  %.0 = phi i1 [ true, %18 ], [ true, %21 ], [ false, %.sink.split ]
   ret i1 %.0
 }
 
@@ -1856,7 +1856,7 @@ dissect_mqtt_reason_code.exit403:                 ; preds = %510, %514
   br label %.loopexit
 
 .loopexit:                                        ; preds = %dissect_mqtt_reason_code.exit401.us, %.lr.ph409, %439, %409, %495, %454, %425, %382, %354, %506, %521, %dissect_mqtt_reason_code.exit403, %487, %463, %483, %dissect_mqtt_reason_code.exit399, %361, %362, %dissect_mqtt_reason_code.exit, %186, %156, %159, %162, %65
-  %.0366 = phi i32 [ %73, %65 ], [ %165, %162 ], [ %.5, %159 ], [ %.5, %156 ], [ %189, %186 ], [ %183, %dissect_mqtt_reason_code.exit ], [ %.8, %361 ], [ %.8, %362 ], [ %486, %483 ], [ %481, %dissect_mqtt_reason_code.exit399 ], [ %466, %463 ], [ %490, %487 ], [ %524, %521 ], [ %519, %dissect_mqtt_reason_code.exit403 ], [ %73, %506 ], [ %.8, %354 ], [ %.9, %382 ], [ %.12, %425 ], [ %.15, %454 ], [ %498, %495 ], [ %460, %.lr.ph409 ], [ %410, %409 ], [ %.14, %439 ], [ %503, %dissect_mqtt_reason_code.exit401.us ]
+  %.0366 = phi i32 [ %73, %65 ], [ %165, %162 ], [ %.5, %159 ], [ %.5, %156 ], [ %189, %186 ], [ %183, %dissect_mqtt_reason_code.exit ], [ %.8, %361 ], [ %.8, %362 ], [ %.8, %354 ], [ %410, %409 ], [ %460, %.lr.ph409 ], [ %486, %483 ], [ %481, %dissect_mqtt_reason_code.exit399 ], [ %466, %463 ], [ %.14, %439 ], [ %490, %487 ], [ %524, %521 ], [ %519, %dissect_mqtt_reason_code.exit403 ], [ %73, %506 ], [ %.9, %382 ], [ %.12, %425 ], [ %.15, %454 ], [ %498, %495 ], [ %503, %dissect_mqtt_reason_code.exit401.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)

@@ -384,7 +384,7 @@ define dso_local range(i32 -2, 1) i32 @_nc_Refresh_Current_Field(ptr noundef cap
   br label %.sink.split
 
 .sink.split:                                      ; preds = %106, %31, %62, %127, %.loopexit, %._crit_edge
-  %.sink = phi ptr [ %20, %62 ], [ %20, %._crit_edge ], [ %20, %.loopexit ], [ %20, %127 ], [ %6, %31 ], [ %20, %106 ]
+  %.sink = phi ptr [ %20, %62 ], [ %6, %31 ], [ %20, %._crit_edge ], [ %20, %.loopexit ], [ %20, %127 ], [ %20, %106 ]
   tail call void @wsyncup(ptr noundef %.sink) #14
   br label %148
 
@@ -626,7 +626,7 @@ define internal fastcc void @Synchronize_Buffer(ptr noundef captures(none) %0) u
   br label %Window_To_Buffer.exit
 
 .critedge.i:                                      ; preds = %25, %22
-  %.027.lcssa.i = phi i32 [ %.02734.i, %22 ], [ %31, %25 ]
+  %.027.lcssa.i = phi i32 [ %31, %25 ], [ %.02734.i, %22 ]
   %33 = sext i32 %.027.lcssa.i to i64
   %34 = getelementptr inbounds i8, ptr %14, i64 %33
   store i8 0, ptr %34, align 1, !tbaa !54
@@ -1517,7 +1517,7 @@ define internal fastcc void @Window_To_Buffer(ptr noundef %0, ptr noundef readon
   br label %.loopexit
 
 .critedge:                                        ; preds = %14, %17
-  %.027.lcssa = phi i32 [ %.02734, %14 ], [ %23, %17 ]
+  %.027.lcssa = phi i32 [ %23, %17 ], [ %.02734, %14 ]
   %25 = sext i32 %.027.lcssa to i64
   %26 = getelementptr inbounds i8, ptr %6, i64 %25
   store i8 0, ptr %26, align 1, !tbaa !54
@@ -1755,7 +1755,7 @@ tailrecurse:                                      ; preds = %17
   br label %.loopexit29
 
 .loopexit29:                                      ; preds = %17, %tailrecurse, %11, %3, %26, %29
-  %.1 = phi i1 [ %30, %29 ], [ true, %26 ], [ true, %3 ], [ true, %11 ], [ true, %tailrecurse ], [ true, %17 ]
+  %.1 = phi i1 [ true, %26 ], [ %30, %29 ], [ true, %3 ], [ true, %11 ], [ true, %tailrecurse ], [ true, %17 ]
   ret i1 %.1
 }
 
@@ -1971,7 +1971,7 @@ define dso_local range(i32 -11, 1) i32 @_nc_Set_Form_Page(ptr noundef captures(a
   br label %.critedge
 
 .critedge:                                        ; preds = %33, %.critedge.sink.split, %3
-  %.1 = phi i32 [ 0, %3 ], [ %80, %.critedge.sink.split ], [ -1, %33 ]
+  %.1 = phi i32 [ %80, %.critedge.sink.split ], [ 0, %3 ], [ -1, %33 ]
   ret i32 %.1
 }
 
@@ -3086,7 +3086,7 @@ Synchronize_Linked_Fields.exit:                   ; preds = %.lr.ph.i, %112, %.p
   br label %.critedge118
 
 .critedge118:                                     ; preds = %24, %62, %.thread, %Synchronize_Linked_Fields.exit, %42, %3, %7
-  %.sink = phi i32 [ -1, %42 ], [ -2, %3 ], [ -2, %7 ], [ %.2100, %Synchronize_Linked_Fields.exit ], [ 0, %.thread ], [ -2, %62 ], [ -2, %24 ]
+  %.sink = phi i32 [ -2, %62 ], [ -1, %42 ], [ -2, %3 ], [ 0, %.thread ], [ -2, %7 ], [ %.2100, %Synchronize_Linked_Fields.exit ], [ -2, %24 ]
   %122 = tail call ptr @__errno_location() #15
   store i32 %.sink, ptr %122, align 4, !tbaa !32
   ret i32 %.sink
@@ -3441,7 +3441,7 @@ Buffer_To_Window.exit.thread:                     ; preds = %119, %Buffer_To_Win
   br i1 %.not180, label %.critedge185, label %.preheader, !llvm.loop !107
 
 .critedge185:                                     ; preds = %.preheader, %.thread187, %69, %70, %.critedge, %2, %3, %174
-  %.4 = phi i1 [ true, %174 ], [ false, %2 ], [ false, %3 ], [ false, %.thread187 ], [ false, %.critedge ], [ false, %70 ], [ false, %69 ], [ true, %.preheader ]
+  %.4 = phi i1 [ true, %174 ], [ false, %2 ], [ false, %3 ], [ false, %69 ], [ false, %.thread187 ], [ false, %.critedge ], [ false, %70 ], [ true, %.preheader ]
   ret i1 %.4
 }
 
@@ -5746,7 +5746,7 @@ VSC_Generic.exit.sink.split:                      ; preds = %26, %19
   br label %VSC_Generic.exit
 
 VSC_Generic.exit:                                 ; preds = %VSC_Generic.exit.sink.split, %11, %24
-  %.025.i = phi i32 [ -12, %11 ], [ -12, %24 ], [ 0, %VSC_Generic.exit.sink.split ]
+  %.025.i = phi i32 [ -12, %24 ], [ -12, %11 ], [ 0, %VSC_Generic.exit.sink.split ]
   ret i32 %.025.i
 }
 
@@ -5801,7 +5801,7 @@ VSC_Generic.exit.sink.split:                      ; preds = %26, %19
   br label %VSC_Generic.exit
 
 VSC_Generic.exit:                                 ; preds = %VSC_Generic.exit.sink.split, %11, %24
-  %.025.i = phi i32 [ -12, %11 ], [ -12, %24 ], [ 0, %VSC_Generic.exit.sink.split ]
+  %.025.i = phi i32 [ -12, %24 ], [ -12, %11 ], [ 0, %VSC_Generic.exit.sink.split ]
   ret i32 %.025.i
 }
 
@@ -5858,7 +5858,7 @@ VSC_Generic.exit.sink.split:                      ; preds = %28, %21
   br label %VSC_Generic.exit
 
 VSC_Generic.exit:                                 ; preds = %VSC_Generic.exit.sink.split, %13, %26
-  %.025.i = phi i32 [ -12, %13 ], [ -12, %26 ], [ 0, %VSC_Generic.exit.sink.split ]
+  %.025.i = phi i32 [ -12, %26 ], [ -12, %13 ], [ 0, %VSC_Generic.exit.sink.split ]
   ret i32 %.025.i
 }
 
@@ -5915,7 +5915,7 @@ VSC_Generic.exit.sink.split:                      ; preds = %27, %20
   br label %VSC_Generic.exit
 
 VSC_Generic.exit:                                 ; preds = %VSC_Generic.exit.sink.split, %12, %25
-  %.025.i = phi i32 [ -12, %12 ], [ -12, %25 ], [ 0, %VSC_Generic.exit.sink.split ]
+  %.025.i = phi i32 [ -12, %25 ], [ -12, %12 ], [ 0, %VSC_Generic.exit.sink.split ]
   ret i32 %.025.i
 }
 
@@ -6023,7 +6023,7 @@ HSC_Generic.exit.sink.split:                      ; preds = %26, %19
   br label %HSC_Generic.exit
 
 HSC_Generic.exit:                                 ; preds = %HSC_Generic.exit.sink.split, %11, %24
-  %.025.i = phi i32 [ -12, %11 ], [ -12, %24 ], [ 0, %HSC_Generic.exit.sink.split ]
+  %.025.i = phi i32 [ -12, %24 ], [ -12, %11 ], [ 0, %HSC_Generic.exit.sink.split ]
   ret i32 %.025.i
 }
 
@@ -6078,7 +6078,7 @@ HSC_Generic.exit.sink.split:                      ; preds = %26, %19
   br label %HSC_Generic.exit
 
 HSC_Generic.exit:                                 ; preds = %HSC_Generic.exit.sink.split, %11, %24
-  %.025.i = phi i32 [ -12, %11 ], [ -12, %24 ], [ 0, %HSC_Generic.exit.sink.split ]
+  %.025.i = phi i32 [ -12, %24 ], [ -12, %11 ], [ 0, %HSC_Generic.exit.sink.split ]
   ret i32 %.025.i
 }
 
@@ -6135,7 +6135,7 @@ HSC_Generic.exit.sink.split:                      ; preds = %28, %21
   br label %HSC_Generic.exit
 
 HSC_Generic.exit:                                 ; preds = %HSC_Generic.exit.sink.split, %13, %26
-  %.025.i = phi i32 [ -12, %13 ], [ -12, %26 ], [ 0, %HSC_Generic.exit.sink.split ]
+  %.025.i = phi i32 [ -12, %26 ], [ -12, %13 ], [ 0, %HSC_Generic.exit.sink.split ]
   ret i32 %.025.i
 }
 
@@ -6192,7 +6192,7 @@ HSC_Generic.exit.sink.split:                      ; preds = %27, %20
   br label %HSC_Generic.exit
 
 HSC_Generic.exit:                                 ; preds = %HSC_Generic.exit.sink.split, %12, %25
-  %.025.i = phi i32 [ -12, %12 ], [ -12, %25 ], [ 0, %HSC_Generic.exit.sink.split ]
+  %.025.i = phi i32 [ -12, %25 ], [ -12, %12 ], [ 0, %HSC_Generic.exit.sink.split ]
   ret i32 %.025.i
 }
 
@@ -6396,7 +6396,7 @@ define internal fastcc range(i32 -12, 1) i32 @Wrapping_Not_Necessary_Or_Wrapping
   br label %Window_To_Buffer.exit
 
 .critedge.i:                                      ; preds = %69, %.lr.ph.i
-  %.027.lcssa.i = phi i32 [ %.02734.i, %.lr.ph.i ], [ %75, %69 ]
+  %.027.lcssa.i = phi i32 [ %75, %69 ], [ %.02734.i, %.lr.ph.i ]
   %77 = sext i32 %.027.lcssa.i to i64
   %78 = getelementptr inbounds i8, ptr %61, i64 %77
   store i8 0, ptr %78, align 1, !tbaa !54
@@ -6515,7 +6515,7 @@ After_Last_Whitespace_Character.exit:             ; preds = %90, %92
   br label %Window_To_Buffer.exit71
 
 .critedge.i62:                                    ; preds = %132, %.lr.ph.i59
-  %.027.lcssa.i63 = phi i32 [ %.02734.i60, %.lr.ph.i59 ], [ %138, %132 ]
+  %.027.lcssa.i63 = phi i32 [ %138, %132 ], [ %.02734.i60, %.lr.ph.i59 ]
   %140 = sext i32 %.027.lcssa.i63 to i64
   %141 = getelementptr inbounds i8, ptr %124, i64 %140
   store i8 0, ptr %141, align 1, !tbaa !54
@@ -6543,7 +6543,7 @@ After_Last_Whitespace_Character.exit:             ; preds = %90, %92
   br i1 %exitcond40.not.i69, label %Window_To_Buffer.exit71, label %.lr.ph39.i66, !llvm.loop !55
 
 Window_To_Buffer.exit71:                          ; preds = %147, %113, %108, %After_Last_Whitespace_Character.exit, %46, %.critedge.thread.i58, %.critedge.i62, %43, %21, %13, %1
-  %.1 = phi i32 [ 0, %1 ], [ 0, %43 ], [ 0, %21 ], [ 0, %13 ], [ -12, %.critedge.i62 ], [ -12, %.critedge.thread.i58 ], [ 0, %113 ], [ 0, %108 ], [ 0, %After_Last_Whitespace_Character.exit ], [ -1, %46 ], [ -12, %147 ]
+  %.1 = phi i32 [ 0, %1 ], [ 0, %43 ], [ 0, %21 ], [ 0, %13 ], [ -12, %.critedge.i62 ], [ -1, %46 ], [ -12, %.critedge.thread.i58 ], [ 0, %113 ], [ 0, %108 ], [ 0, %After_Last_Whitespace_Character.exit ], [ -12, %147 ]
   ret i32 %.1
 }
 
@@ -6706,7 +6706,7 @@ After_Last_Whitespace_Character.exit:             ; preds = %72, %74
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %48, %After_Last_Whitespace_Character.exit, %37, %40
-  %.0 = phi i32 [ -1, %40 ], [ %83, %After_Last_Whitespace_Character.exit ], [ -12, %48 ], [ -12, %37 ], [ 0, %.thread.sink.split ]
+  %.0 = phi i32 [ -12, %37 ], [ -12, %48 ], [ -1, %40 ], [ %83, %After_Last_Whitespace_Character.exit ], [ 0, %.thread.sink.split ]
   tail call void @free(ptr noundef %26) #14
   ret i32 %.0
 }

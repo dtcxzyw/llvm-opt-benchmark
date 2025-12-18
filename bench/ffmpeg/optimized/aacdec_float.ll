@@ -3134,7 +3134,7 @@ define internal range(i32 -1094995529, 1) i32 @decode_spectrum_and_dequant(ptr n
   br i1 %exitcond656.not, label %.loopexit571, label %.preheader562, !llvm.loop !194
 
 .loopexit571:                                     ; preds = %401, %322, %265, %167, %509, %325, %.preheader576, %.preheader574, %.preheader572, %.preheader570
-  %.3473 = phi i32 [ %89, %.preheader570 ], [ %89, %.preheader572 ], [ %89, %.preheader574 ], [ %89, %.preheader576 ], [ %89, %325 ], [ %307, %322 ], [ %.16.ph, %509 ], [ %138, %167 ], [ %215, %265 ], [ %379, %401 ]
+  %.3473 = phi i32 [ %215, %265 ], [ %307, %322 ], [ %.16.ph, %509 ], [ %138, %167 ], [ %89, %.preheader570 ], [ %89, %.preheader572 ], [ %89, %.preheader574 ], [ %89, %.preheader576 ], [ %89, %325 ], [ %379, %401 ]
   store i32 %.3473, ptr %21, align 8, !tbaa !180
   br label %.critedge539
 

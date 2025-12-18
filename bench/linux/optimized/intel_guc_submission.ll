@@ -2853,8 +2853,8 @@ define internal void @guc_submission_tasklet(ptr noundef %0) #0 align 16 {
   br i1 %102, label %.thread, label %.lr.ph
 
 .thread:                                          ; preds = %100, %36, %18
-  %103 = phi i8 [ %19, %18 ], [ %31, %36 ], [ %95, %100 ]
-  %104 = phi ptr [ %10, %18 ], [ %30, %36 ], [ %94, %100 ]
+  %103 = phi i8 [ %31, %36 ], [ %19, %18 ], [ %95, %100 ]
+  %104 = phi ptr [ %30, %36 ], [ %10, %18 ], [ %94, %100 ]
   %105 = icmp eq i8 %103, 0
   br i1 %105, label %.critedge8, label %.thread10
 
@@ -3345,7 +3345,7 @@ define dso_local i32 @intel_guc_submission_enable(ptr noundef %0) local_unnamed_
   br label %.thread21
 
 .thread21:                                        ; preds = %38, %70, %74, %93, %115, %180
-  %184 = phi i32 [ %105, %115 ], [ %.ph28, %180 ], [ %69, %93 ], [ %69, %74 ], [ %69, %70 ], [ %39, %38 ]
+  %184 = phi i32 [ %69, %70 ], [ %105, %115 ], [ %.ph28, %180 ], [ %69, %93 ], [ %69, %74 ], [ %39, %38 ]
   %185 = load ptr, ptr %4, align 8
   %186 = getelementptr inbounds nuw i8, ptr %185, i64 7176
   %187 = load i8, ptr %186, align 8
@@ -6370,7 +6370,7 @@ define internal fastcc void @guc_update_engine_gt_clks(ptr noundef %0) unnamed_a
   br i1 %29, label %.split.us.backedge, label %.split11.us
 
 .split.us.backedge:                               ; preds = %24, %21
-  %.be = phi i32 [ %22, %21 ], [ %27, %24 ]
+  %.be = phi i32 [ %27, %24 ], [ %22, %21 ]
   br label %.split.us, !llvm.loop !94
 
 .thread6:                                         ; preds = %1, %.thread6.backedge
@@ -6401,7 +6401,7 @@ define internal fastcc void @guc_update_engine_gt_clks(ptr noundef %0) unnamed_a
   br i1 %45, label %.thread6.backedge, label %.split11.us
 
 .thread6.backedge:                                ; preds = %43, %.thread9
-  %.be39 = phi i32 [ %44, %43 ], [ %40, %.thread9 ]
+  %.be39 = phi i32 [ %40, %.thread9 ], [ %44, %43 ]
   br label %.thread6, !llvm.loop !94
 
 .split11.us:                                      ; preds = %.thread9, %43, %21, %24
@@ -9468,7 +9468,7 @@ define internal noundef nonnull ptr @guc_create_virtual(ptr noundef readonly cap
   br label %.thread12
 
 .thread12:                                        ; preds = %142, %155, %154, %152, %32, %3
-  %156 = phi ptr [ inttoptr (i64 -12 to ptr), %3 ], [ %40, %32 ], [ inttoptr (i64 -22 to ptr), %152 ], [ inttoptr (i64 -22 to ptr), %154 ], [ inttoptr (i64 -22 to ptr), %155 ], [ %40, %142 ]
+  %156 = phi ptr [ inttoptr (i64 -22 to ptr), %155 ], [ inttoptr (i64 -12 to ptr), %3 ], [ %40, %32 ], [ inttoptr (i64 -22 to ptr), %152 ], [ inttoptr (i64 -22 to ptr), %154 ], [ %40, %142 ]
   ret ptr %156
 }
 
@@ -9629,7 +9629,7 @@ define internal ptr @guc_create_parallel(ptr noundef readonly captures(none) %0,
   br label %.thread
 
 .thread:                                          ; preds = %.preheader, %85, %87, %88, %.loopexit8, %.split14.us
-  %89 = phi ptr [ %50, %.loopexit8 ], [ %.us-phi, %88 ], [ %.us-phi, %.split14.us ], [ %.us-phi, %87 ], [ %.us-phi, %85 ], [ %50, %.preheader ]
+  %89 = phi ptr [ %50, %.loopexit8 ], [ %.us-phi, %88 ], [ %.us-phi, %85 ], [ %.us-phi, %.split14.us ], [ %.us-phi, %87 ], [ %50, %.preheader ]
   tail call void @kfree(ptr noundef nonnull %6) #22
   br label %90
 

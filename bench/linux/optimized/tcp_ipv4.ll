@@ -5794,7 +5794,7 @@ nf_reset_ct.exit:                                 ; preds = %326, %335, %337, %3
   %463 = load i8, ptr %131, align 1
   %464 = and i8 %463, 1
   %.not60 = icmp eq i8 %464, 0
-  br i1 %.not60, label %504, label %465
+  br i1 %.not60, label %499, label %465
 
 465:                                              ; preds = %.lr.ph
   %466 = load ptr, ptr %132, align 8
@@ -5840,44 +5840,44 @@ nf_reset_ct.exit:                                 ; preds = %326, %335, %337, %3
   %496 = load i32, ptr %495, align 4
   %497 = and i32 %496, 2
   %498 = icmp eq i32 %497, 0
-  br i1 %498, label %.critedge30, label %499
+  br i1 %498, label %.critedge30, label %511
 
-499:                                              ; preds = %494
-  %500 = getelementptr inbounds nuw i8, ptr %484, i64 12
+499:                                              ; preds = %.lr.ph
+  %500 = getelementptr inbounds nuw i8, ptr %462, i64 2816
   %501 = load i32, ptr %500, align 4
-  %502 = and i32 %501, 1
-  %503 = icmp eq i32 %502, 0
-  br i1 %503, label %.critedge30, label %.critedge32
+  %.not61 = icmp eq i32 %501, 0
+  br i1 %.not61, label %502, label %.thread54
 
-504:                                              ; preds = %.lr.ph
-  %505 = getelementptr inbounds nuw i8, ptr %462, i64 2816
-  %506 = load i32, ptr %505, align 4
-  %.not61 = icmp eq i32 %506, 0
-  br i1 %.not61, label %507, label %.thread54
+502:                                              ; preds = %499
+  %503 = getelementptr inbounds nuw i8, ptr %462, i64 2968
+  %504 = load i8, ptr %503, align 1
+  %505 = icmp eq i8 %504, 2
+  br i1 %505, label %.critedge32, label %.thread54
 
-507:                                              ; preds = %504
-  %508 = getelementptr inbounds nuw i8, ptr %462, i64 2968
-  %509 = load i8, ptr %508, align 1
-  %510 = icmp eq i8 %509, 2
-  br i1 %510, label %.critedge32, label %.thread54
+.thread54:                                        ; preds = %465, %473, %477, %480, %486, %502, %499
+  %506 = load i16, ptr %133, align 4
+  %507 = and i16 %506, 256
+  %508 = icmp eq i16 %507, 0
+  br i1 %508, label %509, label %.critedge32
 
-.thread54:                                        ; preds = %465, %473, %477, %480, %486, %507, %504
-  %511 = load i16, ptr %133, align 4
-  %512 = and i16 %511, 256
-  %513 = icmp eq i16 %512, 0
-  br i1 %513, label %514, label %.critedge32
-
-514:                                              ; preds = %.thread54
-  %515 = call i32 @__xfrm_policy_check(ptr noundef null, i32 noundef 0, ptr noundef %0, i16 noundef zeroext 2) #21
-  %.not = icmp eq i32 %515, 0
+509:                                              ; preds = %.thread54
+  %510 = call i32 @__xfrm_policy_check(ptr noundef null, i32 noundef 0, ptr noundef %0, i16 noundef zeroext 2) #21
+  %.not = icmp eq i32 %510, 0
   br i1 %.not, label %.critedge30, label %.critedge32
 
-.critedge30:                                      ; preds = %499, %494, %514
+511:                                              ; preds = %494
+  %512 = getelementptr inbounds nuw i8, ptr %484, i64 12
+  %513 = load i32, ptr %512, align 4
+  %514 = and i32 %513, 1
+  %515 = icmp eq i32 %514, 0
+  br i1 %515, label %.critedge30, label %.critedge32
+
+.critedge30:                                      ; preds = %509, %494, %511
   store i32 14, ptr %2, align 4
   call void @inet_twsk_put(ptr noundef nonnull %459) #21
   br label %.loopexit
 
-.critedge32:                                      ; preds = %499, %.thread54, %507, %514
+.critedge32:                                      ; preds = %509, %.thread54, %502, %511
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %135, ptr noundef nonnull align 8 dereferenceable(24) %134, i64 24, i1 false)
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !83
   %516 = load i32, ptr %234, align 4
@@ -7219,7 +7219,7 @@ define dso_local ptr @tcp_seq_start(ptr noundef readonly captures(none) %0, ptr 
   br i1 %105, label %.preheader.i, label %tcp_get_idx.exit, !llvm.loop !95
 
 tcp_get_idx.exit:                                 ; preds = %.preheader7.i, %.preheader.i, %.loopexit9.i, %.thread15, %.thread12, %.loopexit
-  %106 = phi ptr [ %69, %.loopexit ], [ %.ph14, %.thread15 ], [ inttoptr (i64 1 to ptr), %.thread12 ], [ %95, %.loopexit9.i ], [ %101, %.preheader.i ], [ %87, %.preheader7.i ]
+  %106 = phi ptr [ %69, %.loopexit ], [ %.ph14, %.thread15 ], [ inttoptr (i64 1 to ptr), %.thread12 ], [ %101, %.preheader.i ], [ %95, %.loopexit9.i ], [ %87, %.preheader7.i ]
   %107 = load i64, ptr %1, align 8
   %108 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i64 %107, ptr %108, align 8

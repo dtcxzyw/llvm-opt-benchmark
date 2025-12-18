@@ -3618,7 +3618,7 @@ _has_prefix.exit655:                              ; preds = %35
   br i1 %.not611, label %thread-pre-split, label %.lr.ph668
 
 thread-pre-split:                                 ; preds = %.lr.ph668, %.preheader, %249, %268, %._crit_edge, %563, %592, %606, %788, %812, %836, %1003, %1015, %1000, %978, %848, %824, %800, %._crit_edge664, %616, %600, %583, %585, %520, %621, %618, %977, %956, %1045, %1036
-  %.ph = phi i1 [ true, %1036 ], [ true, %1045 ], [ true, %977 ], [ true, %621 ], [ true, %956 ], [ true, %1015 ], [ true, %1003 ], [ true, %978 ], [ true, %1000 ], [ true, %618 ], [ true, %848 ], [ true, %836 ], [ true, %824 ], [ true, %812 ], [ true, %800 ], [ true, %788 ], [ false, %._crit_edge664 ], [ true, %616 ], [ true, %606 ], [ true, %600 ], [ true, %592 ], [ true, %583 ], [ true, %585 ], [ true, %563 ], [ true, %520 ], [ true, %._crit_edge ], [ true, %268 ], [ true, %249 ], [ true, %.preheader ], [ true, %.lr.ph668 ]
+  %.ph = phi i1 [ true, %1036 ], [ true, %1045 ], [ true, %977 ], [ true, %621 ], [ true, %956 ], [ true, %1015 ], [ true, %1003 ], [ true, %978 ], [ true, %1000 ], [ true, %618 ], [ true, %249 ], [ true, %848 ], [ true, %836 ], [ true, %824 ], [ true, %812 ], [ true, %800 ], [ true, %788 ], [ false, %._crit_edge664 ], [ true, %616 ], [ true, %606 ], [ true, %600 ], [ true, %592 ], [ true, %583 ], [ true, %585 ], [ true, %563 ], [ true, %520 ], [ true, %._crit_edge ], [ true, %268 ], [ true, %.preheader ], [ true, %.lr.ph668 ]
   %.pr = load ptr, ptr %3, align 8, !tbaa !6
   br label %1072
 

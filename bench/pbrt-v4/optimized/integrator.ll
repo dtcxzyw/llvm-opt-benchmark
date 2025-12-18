@@ -30407,9 +30407,9 @@ _ZNK4pbrt3RGBixEi.exit.us23.i.i:                  ; preds = %60, %59, %_ZN4pbrt3
   br i1 %exitcond.not.i.i, label %.split.i.i, label %_ZN4pbrt3RGBixEi.exit.split.us21.i.i, !llvm.loop !1227
 
 .split.i.i:                                       ; preds = %_ZNK4pbrt3RGBixEi.exit.us23.i.i, %_ZNK4pbrt3RGBixEi.exit.us.i.i, %_ZNK4pbrt3RGBixEi.exit.i.i
-  %63 = phi float [ %42, %_ZNK4pbrt3RGBixEi.exit.us.i.i ], [ %73, %_ZNK4pbrt3RGBixEi.exit.i.i ], [ %42, %_ZNK4pbrt3RGBixEi.exit.us23.i.i ]
-  %64 = phi float [ %54, %_ZNK4pbrt3RGBixEi.exit.us.i.i ], [ %43, %_ZNK4pbrt3RGBixEi.exit.i.i ], [ %43, %_ZNK4pbrt3RGBixEi.exit.us23.i.i ]
-  %65 = phi float [ %44, %_ZNK4pbrt3RGBixEi.exit.us.i.i ], [ %44, %_ZNK4pbrt3RGBixEi.exit.i.i ], [ %62, %_ZNK4pbrt3RGBixEi.exit.us23.i.i ]
+  %63 = phi float [ %73, %_ZNK4pbrt3RGBixEi.exit.i.i ], [ %42, %_ZNK4pbrt3RGBixEi.exit.us.i.i ], [ %42, %_ZNK4pbrt3RGBixEi.exit.us23.i.i ]
+  %64 = phi float [ %43, %_ZNK4pbrt3RGBixEi.exit.i.i ], [ %54, %_ZNK4pbrt3RGBixEi.exit.us.i.i ], [ %43, %_ZNK4pbrt3RGBixEi.exit.us23.i.i ]
+  %65 = phi float [ %44, %_ZNK4pbrt3RGBixEi.exit.i.i ], [ %44, %_ZNK4pbrt3RGBixEi.exit.us.i.i ], [ %62, %_ZNK4pbrt3RGBixEi.exit.us23.i.i ]
   %indvars.iv.next43.i.i = add nuw nsw i64 %indvars.iv42.i.i, 1
   %exitcond45.not.i.i = icmp eq i64 %indvars.iv.next43.i.i, 3
   br i1 %exitcond45.not.i.i, label %_ZN4pbrtmlILi3ENS_3RGBEEET0_RKNS_12SquareMatrixIXT_EEERKS2_.exit, label %41, !llvm.loop !1228
@@ -30604,9 +30604,9 @@ _ZNK4pbrt3RGBixEi.exit.us23.i.i:                  ; preds = %60, %59, %_ZN4pbrt3
   br i1 %exitcond.not.i.i, label %.split.i.i, label %_ZN4pbrt3RGBixEi.exit.split.us21.i.i, !llvm.loop !1227
 
 .split.i.i:                                       ; preds = %_ZNK4pbrt3RGBixEi.exit.us23.i.i, %_ZNK4pbrt3RGBixEi.exit.us.i.i, %_ZNK4pbrt3RGBixEi.exit.i.i
-  %63 = phi float [ %42, %_ZNK4pbrt3RGBixEi.exit.us.i.i ], [ %73, %_ZNK4pbrt3RGBixEi.exit.i.i ], [ %42, %_ZNK4pbrt3RGBixEi.exit.us23.i.i ]
-  %64 = phi float [ %54, %_ZNK4pbrt3RGBixEi.exit.us.i.i ], [ %43, %_ZNK4pbrt3RGBixEi.exit.i.i ], [ %43, %_ZNK4pbrt3RGBixEi.exit.us23.i.i ]
-  %65 = phi float [ %44, %_ZNK4pbrt3RGBixEi.exit.us.i.i ], [ %44, %_ZNK4pbrt3RGBixEi.exit.i.i ], [ %62, %_ZNK4pbrt3RGBixEi.exit.us23.i.i ]
+  %63 = phi float [ %73, %_ZNK4pbrt3RGBixEi.exit.i.i ], [ %42, %_ZNK4pbrt3RGBixEi.exit.us.i.i ], [ %42, %_ZNK4pbrt3RGBixEi.exit.us23.i.i ]
+  %64 = phi float [ %43, %_ZNK4pbrt3RGBixEi.exit.i.i ], [ %54, %_ZNK4pbrt3RGBixEi.exit.us.i.i ], [ %43, %_ZNK4pbrt3RGBixEi.exit.us23.i.i ]
+  %65 = phi float [ %44, %_ZNK4pbrt3RGBixEi.exit.i.i ], [ %44, %_ZNK4pbrt3RGBixEi.exit.us.i.i ], [ %62, %_ZNK4pbrt3RGBixEi.exit.us23.i.i ]
   %indvars.iv.next43.i.i = add nuw nsw i64 %indvars.iv42.i.i, 1
   %exitcond45.not.i.i = icmp eq i64 %indvars.iv.next43.i.i, 3
   br i1 %exitcond45.not.i.i, label %_ZN4pbrtmlILi3ENS_3RGBEEET0_RKNS_12SquareMatrixIXT_EEERKS2_.exit, label %41, !llvm.loop !1228

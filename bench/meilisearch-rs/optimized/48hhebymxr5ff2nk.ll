@@ -5943,8 +5943,8 @@ define internal fastcc { ptr, i64 } @"_ZN12actix_router4path13Path$LT$T$GT$3get1
   br i1 %11, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4dd919777ea29ee7E.exit.backedge", %1, %18, %"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17hfcbbca6876c69176E.exit"
-  %.sroa.4.0 = phi i64 [ %.pn1.i11, %18 ], [ %73, %"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17hfcbbca6876c69176E.exit" ], [ undef, %1 ], [ undef, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4dd919777ea29ee7E.exit.backedge" ]
-  %.sroa.0.0 = phi ptr [ %.pn3.i13, %18 ], [ %74, %"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17hfcbbca6876c69176E.exit" ], [ null, %1 ], [ null, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4dd919777ea29ee7E.exit.backedge" ]
+  %.sroa.4.0 = phi i64 [ %73, %"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17hfcbbca6876c69176E.exit" ], [ %.pn1.i11, %18 ], [ undef, %1 ], [ undef, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4dd919777ea29ee7E.exit.backedge" ]
+  %.sroa.0.0 = phi ptr [ %74, %"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17hfcbbca6876c69176E.exit" ], [ %.pn3.i13, %18 ], [ null, %1 ], [ null, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4dd919777ea29ee7E.exit.backedge" ]
   %12 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %13 = insertvalue { ptr, i64 } %12, i64 %.sroa.4.0, 1
   ret { ptr, i64 } %13
@@ -41604,7 +41604,7 @@ define hidden noundef zeroext i1 @"_ZN166_$LT$tracing_subscriber..fmt..format..F
 87:                                               ; preds = %83
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %89 = tail call noundef zeroext i1 @"_ZN103_$LT$tracing_subscriber..fmt..time..SystemTime$u20$as$u20$tracing_subscriber..fmt..time..FormatTime$GT$11format_time17hf59d4f25b2d9a3c2E"(ptr noalias noundef nonnull readonly align 1 %88, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
-  br i1 %89, label %96, label %"_ZN18tracing_subscriber3fmt6format19Format$LT$F$C$T$GT$16format_timestamp17h4f1eb4d414b79da6E.exit"
+  br i1 %89, label %96, label %103
 
 90:                                               ; preds = %83
   call void @llvm.lifetime.start.p0(ptr nonnull %23), !noalias !7137
@@ -41635,7 +41635,7 @@ define hidden noundef zeroext i1 @"_ZN166_$LT$tracing_subscriber..fmt..format..F
   call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !7137
   call void @llvm.lifetime.end.p0(ptr nonnull %21), !noalias !7137
   call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !7137
-  br i1 %95, label %"_ZN18tracing_subscriber3fmt6format19Format$LT$F$C$T$GT$16format_timestamp17h4f1eb4d414b79da6E.exit.thread", label %103
+  br i1 %95, label %"_ZN18tracing_subscriber3fmt6format19Format$LT$F$C$T$GT$16format_timestamp17h4f1eb4d414b79da6E.exit.thread", label %110
 
 96:                                               ; preds = %87
   %97 = load ptr, ptr %2, align 8, !alias.scope !7135, !noalias !7132, !nonnull !4, !align !178, !noundef !4
@@ -41644,23 +41644,32 @@ define hidden noundef zeroext i1 @"_ZN166_$LT$tracing_subscriber..fmt..format..F
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 24
   %101 = load ptr, ptr %100, align 8, !invariant.load !4, !nonnull !4
   %102 = tail call noundef zeroext i1 %101(ptr noundef nonnull align 1 %97, ptr noalias noundef nonnull readonly align 1 @anon.3c3b56e5edcc756f701afb43044d2d8e.76, i64 noundef 14)
-  br i1 %102, label %"_ZN18tracing_subscriber3fmt6format19Format$LT$F$C$T$GT$16format_timestamp17h4f1eb4d414b79da6E.exit.thread", label %"_ZN18tracing_subscriber3fmt6format19Format$LT$F$C$T$GT$16format_timestamp17h4f1eb4d414b79da6E.exit"
+  br i1 %102, label %"_ZN18tracing_subscriber3fmt6format19Format$LT$F$C$T$GT$16format_timestamp17h4f1eb4d414b79da6E.exit.thread", label %103
 
-103:                                              ; preds = %90
-  %104 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %105 = call noundef zeroext i1 @"_ZN103_$LT$tracing_subscriber..fmt..time..SystemTime$u20$as$u20$tracing_subscriber..fmt..time..FormatTime$GT$11format_time17hf59d4f25b2d9a3c2E"(ptr noalias noundef nonnull readonly align 1 %104, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
-  br i1 %105, label %106, label %113
+103:                                              ; preds = %96, %87
+  %104 = load ptr, ptr %2, align 8, !alias.scope !7135, !noalias !7132, !nonnull !4, !align !178, !noundef !4
+  %105 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %106 = load ptr, ptr %105, align 8, !alias.scope !7135, !noalias !7132, !nonnull !4, !align !5, !noundef !4
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 32
+  %108 = load ptr, ptr %107, align 8, !invariant.load !4, !nonnull !4
+  %109 = tail call noundef zeroext i1 %108(ptr noundef nonnull align 1 %104, i32 noundef 32)
+  br i1 %109, label %"_ZN18tracing_subscriber3fmt6format19Format$LT$F$C$T$GT$16format_timestamp17h4f1eb4d414b79da6E.exit.thread", label %"_ZN18tracing_subscriber3fmt6format19Format$LT$F$C$T$GT$16format_timestamp17h4f1eb4d414b79da6E.exit.thread457"
 
-106:                                              ; preds = %103
-  %107 = load ptr, ptr %2, align 8, !alias.scope !7135, !noalias !7132, !nonnull !4, !align !178, !noundef !4
-  %108 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %109 = load ptr, ptr %108, align 8, !alias.scope !7135, !noalias !7132, !nonnull !4, !align !5, !noundef !4
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 24
-  %111 = load ptr, ptr %110, align 8, !invariant.load !4, !nonnull !4
-  %112 = call noundef zeroext i1 %111(ptr noundef nonnull align 1 %107, ptr noalias noundef nonnull readonly align 1 @anon.3c3b56e5edcc756f701afb43044d2d8e.76, i64 noundef 14)
-  br i1 %112, label %"_ZN18tracing_subscriber3fmt6format19Format$LT$F$C$T$GT$16format_timestamp17h4f1eb4d414b79da6E.exit.thread", label %113
+110:                                              ; preds = %90
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %112 = call noundef zeroext i1 @"_ZN103_$LT$tracing_subscriber..fmt..time..SystemTime$u20$as$u20$tracing_subscriber..fmt..time..FormatTime$GT$11format_time17hf59d4f25b2d9a3c2E"(ptr noalias noundef nonnull readonly align 1 %111, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
+  br i1 %112, label %113, label %"_ZN18tracing_subscriber3fmt6format19Format$LT$F$C$T$GT$16format_timestamp17h4f1eb4d414b79da6E.exit"
 
-113:                                              ; preds = %106, %103
+113:                                              ; preds = %110
+  %114 = load ptr, ptr %2, align 8, !alias.scope !7135, !noalias !7132, !nonnull !4, !align !178, !noundef !4
+  %115 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %116 = load ptr, ptr %115, align 8, !alias.scope !7135, !noalias !7132, !nonnull !4, !align !5, !noundef !4
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 24
+  %118 = load ptr, ptr %117, align 8, !invariant.load !4, !nonnull !4
+  %119 = call noundef zeroext i1 %118(ptr noundef nonnull align 1 %114, ptr noalias noundef nonnull readonly align 1 @anon.3c3b56e5edcc756f701afb43044d2d8e.76, i64 noundef 14)
+  br i1 %119, label %"_ZN18tracing_subscriber3fmt6format19Format$LT$F$C$T$GT$16format_timestamp17h4f1eb4d414b79da6E.exit.thread", label %"_ZN18tracing_subscriber3fmt6format19Format$LT$F$C$T$GT$16format_timestamp17h4f1eb4d414b79da6E.exit"
+
+"_ZN18tracing_subscriber3fmt6format19Format$LT$F$C$T$GT$16format_timestamp17h4f1eb4d414b79da6E.exit": ; preds = %110, %113
   call void @llvm.lifetime.start.p0(ptr nonnull %20), !noalias !7137
   call void @llvm.lifetime.start.p0(ptr nonnull %19), !noalias !7137
   call void @llvm.lifetime.start.p0(ptr nonnull %18), !noalias !7137
@@ -41677,30 +41686,21 @@ define hidden noundef zeroext i1 @"_ZN166_$LT$tracing_subscriber..fmt..format..F
   %.sroa.444.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr @"_ZN65_$LT$nu_ansi_term..ansi..Suffix$u20$as$u20$core..fmt..Display$GT$3fmt17hf8ed3796b4225df9E", ptr %.sroa.444.0..sroa_idx.i, align 8, !noalias !7137
   store ptr @anon.3c3b56e5edcc756f701afb43044d2d8e.62, ptr %20, align 8, !noalias !7137
-  %114 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  store i64 2, ptr %114, align 8, !noalias !7137
-  %115 = getelementptr inbounds nuw i8, ptr %20, i64 32
-  store ptr null, ptr %115, align 8, !noalias !7137
-  %116 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  store ptr %19, ptr %116, align 8, !noalias !7137
-  %117 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  store i64 1, ptr %117, align 8, !noalias !7137
-  %118 = call noundef zeroext i1 @_ZN18tracing_subscriber3fmt6format6Writer9write_fmt17h0d2bb3b957e1c3fdE(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %20)
+  %120 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  store i64 2, ptr %120, align 8, !noalias !7137
+  %121 = getelementptr inbounds nuw i8, ptr %20, i64 32
+  store ptr null, ptr %121, align 8, !noalias !7137
+  %122 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  store ptr %19, ptr %122, align 8, !noalias !7137
+  %123 = getelementptr inbounds nuw i8, ptr %20, i64 24
+  store i64 1, ptr %123, align 8, !noalias !7137
+  %124 = call noundef zeroext i1 @_ZN18tracing_subscriber3fmt6format6Writer9write_fmt17h0d2bb3b957e1c3fdE(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %20), !noalias !7137
   call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !7137
   call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !7137
-  br i1 %118, label %"_ZN18tracing_subscriber3fmt6format19Format$LT$F$C$T$GT$16format_timestamp17h4f1eb4d414b79da6E.exit.thread", label %"_ZN18tracing_subscriber3fmt6format19Format$LT$F$C$T$GT$16format_timestamp17h4f1eb4d414b79da6E.exit.thread457"
-
-"_ZN18tracing_subscriber3fmt6format19Format$LT$F$C$T$GT$16format_timestamp17h4f1eb4d414b79da6E.exit": ; preds = %87, %96
-  %119 = load ptr, ptr %2, align 8, !alias.scope !7135, !noalias !7132, !nonnull !4, !align !178, !noundef !4
-  %120 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %121 = load ptr, ptr %120, align 8, !alias.scope !7135, !noalias !7132, !nonnull !4, !align !5, !noundef !4
-  %122 = getelementptr inbounds nuw i8, ptr %121, i64 32
-  %123 = load ptr, ptr %122, align 8, !invariant.load !4, !nonnull !4
-  %124 = tail call noundef zeroext i1 %123(ptr noundef nonnull align 1 %119, i32 noundef 32)
   br i1 %124, label %"_ZN18tracing_subscriber3fmt6format19Format$LT$F$C$T$GT$16format_timestamp17h4f1eb4d414b79da6E.exit.thread", label %"_ZN18tracing_subscriber3fmt6format19Format$LT$F$C$T$GT$16format_timestamp17h4f1eb4d414b79da6E.exit.thread457"
 
-"_ZN18tracing_subscriber3fmt6format19Format$LT$F$C$T$GT$16format_timestamp17h4f1eb4d414b79da6E.exit.thread457": ; preds = %113, %80, %"_ZN18tracing_subscriber3fmt6format19Format$LT$F$C$T$GT$16format_timestamp17h4f1eb4d414b79da6E.exit"
+"_ZN18tracing_subscriber3fmt6format19Format$LT$F$C$T$GT$16format_timestamp17h4f1eb4d414b79da6E.exit.thread457": ; preds = %103, %80, %"_ZN18tracing_subscriber3fmt6format19Format$LT$F$C$T$GT$16format_timestamp17h4f1eb4d414b79da6E.exit"
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %126 = load i8, ptr %125, align 1, !range !506, !noundef !4
   %127 = trunc nuw i8 %126 to i1
@@ -43278,8 +43278,8 @@ common.resume:                                    ; preds = %330, %556, %589, %1
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %"_ZN18tracing_subscriber3fmt6format19Format$LT$F$C$T$GT$16format_timestamp17h4f1eb4d414b79da6E.exit.thread"
 
-"_ZN18tracing_subscriber3fmt6format19Format$LT$F$C$T$GT$16format_timestamp17h4f1eb4d414b79da6E.exit.thread": ; preds = %"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17hb085dc56a54d1395E.exit380", %"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17hb085dc56a54d1395E.exit384", %"_ZN4core3ptr72drop_in_place$LT$nu_ansi_term..display..AnsiGenericString$LT$str$GT$$GT$17ha35428bb324166d3E.exit427", %"_ZN18tracing_subscriber3fmt6format19Format$LT$F$C$T$GT$16format_timestamp17h4f1eb4d414b79da6E.exit", %593, %602, %341, %"_ZN4core3ptr119drop_in_place$LT$tracing_subscriber..registry..ScopeFromRoot$LT$tracing_subscriber..registry..sharded..Registry$GT$$GT$17h404ee6de736b4f09E.exit422", %106, %96, %90, %113, %132, %594, %607
-  %.sroa.03.5 = phi i1 [ %612, %607 ], [ true, %594 ], [ true, %132 ], [ true, %113 ], [ true, %90 ], [ true, %96 ], [ true, %106 ], [ true, %"_ZN4core3ptr119drop_in_place$LT$tracing_subscriber..registry..ScopeFromRoot$LT$tracing_subscriber..registry..sharded..Registry$GT$$GT$17h404ee6de736b4f09E.exit422" ], [ true, %341 ], [ true, %602 ], [ true, %593 ], [ true, %"_ZN18tracing_subscriber3fmt6format19Format$LT$F$C$T$GT$16format_timestamp17h4f1eb4d414b79da6E.exit" ], [ true, %"_ZN4core3ptr72drop_in_place$LT$nu_ansi_term..display..AnsiGenericString$LT$str$GT$$GT$17ha35428bb324166d3E.exit427" ], [ true, %"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17hb085dc56a54d1395E.exit384" ], [ true, %"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17hb085dc56a54d1395E.exit380" ]
+"_ZN18tracing_subscriber3fmt6format19Format$LT$F$C$T$GT$16format_timestamp17h4f1eb4d414b79da6E.exit.thread": ; preds = %"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17hb085dc56a54d1395E.exit380", %"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17hb085dc56a54d1395E.exit384", %"_ZN4core3ptr72drop_in_place$LT$nu_ansi_term..display..AnsiGenericString$LT$str$GT$$GT$17ha35428bb324166d3E.exit427", %"_ZN18tracing_subscriber3fmt6format19Format$LT$F$C$T$GT$16format_timestamp17h4f1eb4d414b79da6E.exit", %593, %602, %341, %"_ZN4core3ptr119drop_in_place$LT$tracing_subscriber..registry..ScopeFromRoot$LT$tracing_subscriber..registry..sharded..Registry$GT$$GT$17h404ee6de736b4f09E.exit422", %113, %96, %90, %103, %132, %594, %607
+  %.sroa.03.5 = phi i1 [ %612, %607 ], [ true, %594 ], [ true, %132 ], [ true, %103 ], [ true, %90 ], [ true, %96 ], [ true, %113 ], [ true, %"_ZN4core3ptr119drop_in_place$LT$tracing_subscriber..registry..ScopeFromRoot$LT$tracing_subscriber..registry..sharded..Registry$GT$$GT$17h404ee6de736b4f09E.exit422" ], [ true, %341 ], [ true, %602 ], [ true, %593 ], [ true, %"_ZN18tracing_subscriber3fmt6format19Format$LT$F$C$T$GT$16format_timestamp17h4f1eb4d414b79da6E.exit" ], [ true, %"_ZN4core3ptr72drop_in_place$LT$nu_ansi_term..display..AnsiGenericString$LT$str$GT$$GT$17ha35428bb324166d3E.exit427" ], [ true, %"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17hb085dc56a54d1395E.exit384" ], [ true, %"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17hb085dc56a54d1395E.exit380" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %71)
   ret i1 %.sroa.03.5
 

@@ -626,7 +626,7 @@ rgbe2float.exit:                                  ; preds = %41, %53
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %101, %113
-  %.3 = phi ptr [ %114, %113 ], [ %103, %101 ], [ %94, %.lr.ph ]
+  %.3 = phi ptr [ %103, %101 ], [ %114, %113 ], [ %94, %.lr.ph ]
   %115 = icmp ult ptr %.3, %72
   br i1 %115, label %75, label %.loopexit112
 

@@ -1130,7 +1130,7 @@ _ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS3_bESaIS6_ENSt8_
   br label %.body
 
 .loopexit3203:                                    ; preds = %232, %223, %.noexc2317
-  %.pn.i2315 = phi ptr [ %224, %223 ], [ %246, %.noexc2317 ], [ %238, %232 ]
+  %.pn.i2315 = phi ptr [ %246, %.noexc2317 ], [ %224, %223 ], [ %238, %232 ]
   %.1.i = getelementptr inbounds nuw i8, ptr %.pn.i2315, i64 16
   store i8 0, ptr %.1.i, align 1, !tbaa !61
   br label %.loopexit3204
@@ -1294,7 +1294,7 @@ _ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS3_bESaIS6_ENSt8_
   br label %.body
 
 .loopexit3206:                                    ; preds = %300, %291, %.noexc2343
-  %.pn.i2340 = phi ptr [ %292, %291 ], [ %314, %.noexc2343 ], [ %306, %300 ]
+  %.pn.i2340 = phi ptr [ %314, %.noexc2343 ], [ %292, %291 ], [ %306, %300 ]
   %.1.i2341 = getelementptr inbounds nuw i8, ptr %.pn.i2340, i64 16
   store i8 0, ptr %.1.i2341, align 1, !tbaa !61
   %.not.i648 = icmp eq ptr %206, %.sroa.26.3
@@ -1563,8 +1563,8 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %_ZNSt6vectorIN4cvc5
   br label %.body
 
 _ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb0EEEbSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_bEEE4findERS9_.exit: ; preds = %274, %253, %264
-  %414 = phi ptr [ %266, %264 ], [ %251, %253 ], [ %266, %274 ]
-  %.sroa.06.1.i.i = phi ptr [ %265, %264 ], [ %.sroa.06.0.i.i, %253 ], [ %280, %274 ]
+  %414 = phi ptr [ %251, %253 ], [ %266, %264 ], [ %266, %274 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %253 ], [ %265, %264 ], [ %280, %274 ]
   %415 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %416 = load i8, ptr %415, align 8, !tbaa !58, !range !67, !noundef !68
   %417 = trunc nuw i8 %416 to i1
@@ -1707,7 +1707,7 @@ _ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS3_bESaIS6_ENSt8_
   br label %.body2371
 
 .loopexit3202:                                    ; preds = %469, %460, %.noexc2370
-  %.pn.i2367 = phi ptr [ %461, %460 ], [ %483, %.noexc2370 ], [ %475, %469 ]
+  %.pn.i2367 = phi ptr [ %483, %.noexc2370 ], [ %461, %460 ], [ %475, %469 ]
   %.1.i2368 = getelementptr inbounds nuw i8, ptr %.pn.i2367, i64 16
   %485 = load i8, ptr %.1.i2368, align 1, !tbaa !61, !range !67, !noundef !68
   %486 = trunc nuw i8 %485 to i1
@@ -16229,7 +16229,7 @@ _ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS3_bESaIS6_ENSt8_
   resume { ptr, i32 } %34
 
 _ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS3_bESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit: ; preds = %19, %.loopexit, %10
-  %.pn = phi ptr [ %11, %10 ], [ %33, %.loopexit ], [ %25, %19 ]
+  %.pn = phi ptr [ %33, %.loopexit ], [ %11, %10 ], [ %25, %19 ]
   %.1 = getelementptr inbounds nuw i8, ptr %.pn, i64 16
   ret ptr %.1
 }
@@ -18354,7 +18354,7 @@ define linkonce_odr hidden void @_ZNK4cvc58internal12NodeTemplateILb1EE10substit
   br label %.loopexit, !llvm.loop !365
 
 .loopexit82:                                      ; preds = %46, %25, %36
-  %.sroa.06.1.i.i = phi ptr [ %37, %36 ], [ %.sroa.06.0.i.i, %25 ], [ %52, %46 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %25 ], [ %37, %36 ], [ %52, %46 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %57 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %58 = load ptr, ptr %57, align 8, !tbaa !47
@@ -19060,7 +19060,7 @@ _ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS3_S3_ESaIS6_ENSt
   resume { ptr, i32 } %36
 
 _ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit: ; preds = %22, %.loopexit, %12
-  %.pn = phi ptr [ %13, %12 ], [ %34, %.loopexit ], [ %28, %22 ]
+  %.pn = phi ptr [ %34, %.loopexit ], [ %13, %12 ], [ %28, %22 ]
   %.1 = getelementptr inbounds nuw i8, ptr %.pn, i64 16
   ret ptr %.1
 }

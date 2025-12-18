@@ -1375,7 +1375,7 @@ Gia_ObjReprObj.exit.thread:                       ; preds = %572, %616, %Vec_Int
   br i1 %750, label %572, label %.critedge2, !llvm.loop !45
 
 .critedge2:                                       ; preds = %Gia_ObjIsHead.exit.thread, %Gia_ObjReprObj.exit.thread, %.preheader306, %.preheader
-  %751 = phi ptr [ %101, %.preheader ], [ %101, %.preheader306 ], [ %.pre.i289356, %Gia_ObjReprObj.exit.thread ], [ %.pre.i224353, %Gia_ObjIsHead.exit.thread ]
+  %751 = phi ptr [ %.pre.i289356, %Gia_ObjReprObj.exit.thread ], [ %101, %.preheader ], [ %101, %.preheader306 ], [ %.pre.i224353, %Gia_ObjIsHead.exit.thread ]
   %.val181319 = load i32, ptr %100, align 4, !tbaa !34
   %752 = icmp sgt i32 %.val181319, 0
   br i1 %752, label %.lr.ph321, label %.critedge13

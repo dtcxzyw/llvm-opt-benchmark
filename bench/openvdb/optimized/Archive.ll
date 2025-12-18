@@ -26076,9 +26076,9 @@ _ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit: ; preds = %lpad, %_ZNKSt
   resume { ptr, i32 } %12
 
 if.end18:                                         ; preds = %for.inc.i.i, %invoke.cont15, %invoke.cont15.thread, %invoke.cont8, %_ZNK7openvdb5v11_04util8NodeMaskILj3EE7countOnEv.exit, %entry
-  %scopedTempBuf.sroa.0.0 = phi ptr [ null, %_ZNK7openvdb5v11_04util8NodeMaskILj3EE7countOnEv.exit ], [ null, %entry ], [ %call6, %invoke.cont8 ], [ %call6, %invoke.cont15.thread ], [ %call6, %invoke.cont15 ], [ %call6, %for.inc.i.i ]
-  %tempBuf.0 = phi ptr [ %srcBuf, %_ZNK7openvdb5v11_04util8NodeMaskILj3EE7countOnEv.exit ], [ %srcBuf, %entry ], [ %call6, %invoke.cont8 ], [ %call6, %invoke.cont15.thread ], [ %call6, %invoke.cont15 ], [ %call6, %for.inc.i.i ]
-  %tempCount.0 = phi i32 [ 0, %_ZNK7openvdb5v11_04util8NodeMaskILj3EE7countOnEv.exit ], [ %srcCount, %entry ], [ 0, %invoke.cont8 ], [ %inc43, %invoke.cont15.thread ], [ %inc, %invoke.cont15 ], [ 0, %for.inc.i.i ]
+  %scopedTempBuf.sroa.0.0 = phi ptr [ null, %_ZNK7openvdb5v11_04util8NodeMaskILj3EE7countOnEv.exit ], [ null, %entry ], [ %call6, %invoke.cont8 ], [ %call6, %invoke.cont15 ], [ %call6, %invoke.cont15.thread ], [ %call6, %for.inc.i.i ]
+  %tempBuf.0 = phi ptr [ %srcBuf, %_ZNK7openvdb5v11_04util8NodeMaskILj3EE7countOnEv.exit ], [ %srcBuf, %entry ], [ %call6, %invoke.cont8 ], [ %call6, %invoke.cont15 ], [ %call6, %invoke.cont15.thread ], [ %call6, %for.inc.i.i ]
+  %tempCount.0 = phi i32 [ 0, %_ZNK7openvdb5v11_04util8NodeMaskILj3EE7countOnEv.exit ], [ %srcCount, %entry ], [ 0, %invoke.cont8 ], [ %inc, %invoke.cont15 ], [ %inc43, %invoke.cont15.thread ], [ 0, %for.inc.i.i ]
   %and.i.i = and i32 %compress, 4
   %tobool.not.i.i12 = icmp eq i32 %and.i.i, 0
   br i1 %toHalf, label %if.then20, label %if.else
@@ -33620,9 +33620,9 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit: ; preds = %lpad, %_ZNKSt
   resume { ptr, i32 } %12
 
 if.end18:                                         ; preds = %for.inc.i.i, %invoke.cont15, %invoke.cont15.thread, %invoke.cont8, %_ZNK7openvdb5v11_04util8NodeMaskILj3EE7countOnEv.exit, %entry
-  %scopedTempBuf.sroa.0.0 = phi ptr [ null, %_ZNK7openvdb5v11_04util8NodeMaskILj3EE7countOnEv.exit ], [ null, %entry ], [ %call6, %invoke.cont8 ], [ %call6, %invoke.cont15.thread ], [ %call6, %invoke.cont15 ], [ %call6, %for.inc.i.i ]
-  %tempBuf.0 = phi ptr [ %srcBuf, %_ZNK7openvdb5v11_04util8NodeMaskILj3EE7countOnEv.exit ], [ %srcBuf, %entry ], [ %call6, %invoke.cont8 ], [ %call6, %invoke.cont15.thread ], [ %call6, %invoke.cont15 ], [ %call6, %for.inc.i.i ]
-  %tempCount.0 = phi i32 [ 0, %_ZNK7openvdb5v11_04util8NodeMaskILj3EE7countOnEv.exit ], [ %srcCount, %entry ], [ 0, %invoke.cont8 ], [ %inc43, %invoke.cont15.thread ], [ %inc, %invoke.cont15 ], [ 0, %for.inc.i.i ]
+  %scopedTempBuf.sroa.0.0 = phi ptr [ null, %_ZNK7openvdb5v11_04util8NodeMaskILj3EE7countOnEv.exit ], [ null, %entry ], [ %call6, %invoke.cont8 ], [ %call6, %invoke.cont15 ], [ %call6, %invoke.cont15.thread ], [ %call6, %for.inc.i.i ]
+  %tempBuf.0 = phi ptr [ %srcBuf, %_ZNK7openvdb5v11_04util8NodeMaskILj3EE7countOnEv.exit ], [ %srcBuf, %entry ], [ %call6, %invoke.cont8 ], [ %call6, %invoke.cont15 ], [ %call6, %invoke.cont15.thread ], [ %call6, %for.inc.i.i ]
+  %tempCount.0 = phi i32 [ 0, %_ZNK7openvdb5v11_04util8NodeMaskILj3EE7countOnEv.exit ], [ %srcCount, %entry ], [ 0, %invoke.cont8 ], [ %inc, %invoke.cont15 ], [ %inc43, %invoke.cont15.thread ], [ 0, %for.inc.i.i ]
   %and.i.i = and i32 %compress, 4
   %tobool.not.i.i12 = icmp eq i32 %and.i.i, 0
   br i1 %toHalf, label %if.then20, label %if.else
@@ -41054,9 +41054,9 @@ _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit: ; preds = %lpad, %_ZNKSt
   resume { ptr, i32 } %12
 
 if.end18:                                         ; preds = %for.inc.i.i, %invoke.cont15, %invoke.cont15.thread, %invoke.cont8, %_ZNK7openvdb5v11_04util8NodeMaskILj3EE7countOnEv.exit, %entry
-  %scopedTempBuf.sroa.0.0 = phi ptr [ null, %_ZNK7openvdb5v11_04util8NodeMaskILj3EE7countOnEv.exit ], [ null, %entry ], [ %call6, %invoke.cont8 ], [ %call6, %invoke.cont15.thread ], [ %call6, %invoke.cont15 ], [ %call6, %for.inc.i.i ]
-  %tempBuf.0 = phi ptr [ %srcBuf, %_ZNK7openvdb5v11_04util8NodeMaskILj3EE7countOnEv.exit ], [ %srcBuf, %entry ], [ %call6, %invoke.cont8 ], [ %call6, %invoke.cont15.thread ], [ %call6, %invoke.cont15 ], [ %call6, %for.inc.i.i ]
-  %tempCount.0 = phi i32 [ 0, %_ZNK7openvdb5v11_04util8NodeMaskILj3EE7countOnEv.exit ], [ %srcCount, %entry ], [ 0, %invoke.cont8 ], [ %inc39, %invoke.cont15.thread ], [ %inc, %invoke.cont15 ], [ 0, %for.inc.i.i ]
+  %scopedTempBuf.sroa.0.0 = phi ptr [ null, %_ZNK7openvdb5v11_04util8NodeMaskILj3EE7countOnEv.exit ], [ null, %entry ], [ %call6, %invoke.cont8 ], [ %call6, %invoke.cont15 ], [ %call6, %invoke.cont15.thread ], [ %call6, %for.inc.i.i ]
+  %tempBuf.0 = phi ptr [ %srcBuf, %_ZNK7openvdb5v11_04util8NodeMaskILj3EE7countOnEv.exit ], [ %srcBuf, %entry ], [ %call6, %invoke.cont8 ], [ %call6, %invoke.cont15 ], [ %call6, %invoke.cont15.thread ], [ %call6, %for.inc.i.i ]
+  %tempCount.0 = phi i32 [ 0, %_ZNK7openvdb5v11_04util8NodeMaskILj3EE7countOnEv.exit ], [ %srcCount, %entry ], [ 0, %invoke.cont8 ], [ %inc, %invoke.cont15 ], [ %inc39, %invoke.cont15.thread ], [ 0, %for.inc.i.i ]
   br i1 %toHalf, label %if.then20, label %if.else
 
 if.then20:                                        ; preds = %if.end18
@@ -48795,9 +48795,9 @@ _ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit: ; preds = %lpad, %_ZNKSt
   resume { ptr, i32 } %12
 
 if.end18:                                         ; preds = %for.inc.i.i, %invoke.cont15, %invoke.cont15.thread, %invoke.cont8, %_ZNK7openvdb5v11_04util8NodeMaskILj3EE7countOnEv.exit, %entry
-  %scopedTempBuf.sroa.0.0 = phi ptr [ null, %_ZNK7openvdb5v11_04util8NodeMaskILj3EE7countOnEv.exit ], [ null, %entry ], [ %call6, %invoke.cont8 ], [ %call6, %invoke.cont15.thread ], [ %call6, %invoke.cont15 ], [ %call6, %for.inc.i.i ]
-  %tempBuf.0 = phi ptr [ %srcBuf, %_ZNK7openvdb5v11_04util8NodeMaskILj3EE7countOnEv.exit ], [ %srcBuf, %entry ], [ %call6, %invoke.cont8 ], [ %call6, %invoke.cont15.thread ], [ %call6, %invoke.cont15 ], [ %call6, %for.inc.i.i ]
-  %tempCount.0 = phi i32 [ 0, %_ZNK7openvdb5v11_04util8NodeMaskILj3EE7countOnEv.exit ], [ %srcCount, %entry ], [ 0, %invoke.cont8 ], [ %inc39, %invoke.cont15.thread ], [ %inc, %invoke.cont15 ], [ 0, %for.inc.i.i ]
+  %scopedTempBuf.sroa.0.0 = phi ptr [ null, %_ZNK7openvdb5v11_04util8NodeMaskILj3EE7countOnEv.exit ], [ null, %entry ], [ %call6, %invoke.cont8 ], [ %call6, %invoke.cont15 ], [ %call6, %invoke.cont15.thread ], [ %call6, %for.inc.i.i ]
+  %tempBuf.0 = phi ptr [ %srcBuf, %_ZNK7openvdb5v11_04util8NodeMaskILj3EE7countOnEv.exit ], [ %srcBuf, %entry ], [ %call6, %invoke.cont8 ], [ %call6, %invoke.cont15 ], [ %call6, %invoke.cont15.thread ], [ %call6, %for.inc.i.i ]
+  %tempCount.0 = phi i32 [ 0, %_ZNK7openvdb5v11_04util8NodeMaskILj3EE7countOnEv.exit ], [ %srcCount, %entry ], [ 0, %invoke.cont8 ], [ %inc, %invoke.cont15 ], [ %inc39, %invoke.cont15.thread ], [ 0, %for.inc.i.i ]
   br i1 %toHalf, label %if.then20, label %if.else
 
 if.then20:                                        ; preds = %if.end18
@@ -56693,9 +56693,9 @@ _ZNSt10unique_ptrIA_N7openvdb5v11_04math4Vec3IiEESt14default_deleteIS5_EED2Ev.ex
   resume { ptr, i32 } %11
 
 if.end18:                                         ; preds = %for.inc.i.i, %invoke.cont15, %invoke.cont15.thread, %invoke.cont8, %_ZNK7openvdb5v11_04util8NodeMaskILj3EE7countOnEv.exit, %entry
-  %scopedTempBuf.sroa.0.0 = phi ptr [ null, %_ZNK7openvdb5v11_04util8NodeMaskILj3EE7countOnEv.exit ], [ null, %entry ], [ %call6, %invoke.cont8 ], [ %call6, %invoke.cont15.thread ], [ %call6, %invoke.cont15 ], [ %call6, %for.inc.i.i ]
-  %tempBuf.0 = phi ptr [ %srcBuf, %_ZNK7openvdb5v11_04util8NodeMaskILj3EE7countOnEv.exit ], [ %srcBuf, %entry ], [ %call6, %invoke.cont8 ], [ %call6, %invoke.cont15.thread ], [ %call6, %invoke.cont15 ], [ %call6, %for.inc.i.i ]
-  %tempCount.0 = phi i32 [ 0, %_ZNK7openvdb5v11_04util8NodeMaskILj3EE7countOnEv.exit ], [ %srcCount, %entry ], [ 0, %invoke.cont8 ], [ %inc43, %invoke.cont15.thread ], [ %inc, %invoke.cont15 ], [ 0, %for.inc.i.i ]
+  %scopedTempBuf.sroa.0.0 = phi ptr [ null, %_ZNK7openvdb5v11_04util8NodeMaskILj3EE7countOnEv.exit ], [ null, %entry ], [ %call6, %invoke.cont8 ], [ %call6, %invoke.cont15 ], [ %call6, %invoke.cont15.thread ], [ %call6, %for.inc.i.i ]
+  %tempBuf.0 = phi ptr [ %srcBuf, %_ZNK7openvdb5v11_04util8NodeMaskILj3EE7countOnEv.exit ], [ %srcBuf, %entry ], [ %call6, %invoke.cont8 ], [ %call6, %invoke.cont15 ], [ %call6, %invoke.cont15.thread ], [ %call6, %for.inc.i.i ]
+  %tempCount.0 = phi i32 [ 0, %_ZNK7openvdb5v11_04util8NodeMaskILj3EE7countOnEv.exit ], [ %srcCount, %entry ], [ 0, %invoke.cont8 ], [ %inc, %invoke.cont15 ], [ %inc43, %invoke.cont15.thread ], [ 0, %for.inc.i.i ]
   %and.i.i = and i32 %compress, 4
   %tobool.not.i.i12 = icmp eq i32 %and.i.i, 0
   br i1 %toHalf, label %if.then20, label %if.else
@@ -64298,9 +64298,9 @@ _ZNSt10unique_ptrIA_N7openvdb5v11_04math4Vec3IfEESt14default_deleteIS5_EED2Ev.ex
   resume { ptr, i32 } %11
 
 if.end18:                                         ; preds = %for.inc.i.i, %invoke.cont15, %invoke.cont15.thread, %invoke.cont8, %_ZNK7openvdb5v11_04util8NodeMaskILj3EE7countOnEv.exit, %entry
-  %scopedTempBuf.sroa.0.0 = phi ptr [ null, %_ZNK7openvdb5v11_04util8NodeMaskILj3EE7countOnEv.exit ], [ null, %entry ], [ %call6, %invoke.cont8 ], [ %call6, %invoke.cont15.thread ], [ %call6, %invoke.cont15 ], [ %call6, %for.inc.i.i ]
-  %tempBuf.0 = phi ptr [ %srcBuf, %_ZNK7openvdb5v11_04util8NodeMaskILj3EE7countOnEv.exit ], [ %srcBuf, %entry ], [ %call6, %invoke.cont8 ], [ %call6, %invoke.cont15.thread ], [ %call6, %invoke.cont15 ], [ %call6, %for.inc.i.i ]
-  %tempCount.0 = phi i32 [ 0, %_ZNK7openvdb5v11_04util8NodeMaskILj3EE7countOnEv.exit ], [ %srcCount, %entry ], [ 0, %invoke.cont8 ], [ %inc39, %invoke.cont15.thread ], [ %inc, %invoke.cont15 ], [ 0, %for.inc.i.i ]
+  %scopedTempBuf.sroa.0.0 = phi ptr [ null, %_ZNK7openvdb5v11_04util8NodeMaskILj3EE7countOnEv.exit ], [ null, %entry ], [ %call6, %invoke.cont8 ], [ %call6, %invoke.cont15 ], [ %call6, %invoke.cont15.thread ], [ %call6, %for.inc.i.i ]
+  %tempBuf.0 = phi ptr [ %srcBuf, %_ZNK7openvdb5v11_04util8NodeMaskILj3EE7countOnEv.exit ], [ %srcBuf, %entry ], [ %call6, %invoke.cont8 ], [ %call6, %invoke.cont15 ], [ %call6, %invoke.cont15.thread ], [ %call6, %for.inc.i.i ]
+  %tempCount.0 = phi i32 [ 0, %_ZNK7openvdb5v11_04util8NodeMaskILj3EE7countOnEv.exit ], [ %srcCount, %entry ], [ 0, %invoke.cont8 ], [ %inc, %invoke.cont15 ], [ %inc39, %invoke.cont15.thread ], [ 0, %for.inc.i.i ]
   br i1 %toHalf, label %if.then20, label %if.else
 
 if.then20:                                        ; preds = %if.end18
@@ -72502,9 +72502,9 @@ _ZNSt10unique_ptrIA_N7openvdb5v11_04math4Vec3IdEESt14default_deleteIS5_EED2Ev.ex
   resume { ptr, i32 } %11
 
 if.end18:                                         ; preds = %for.inc.i.i, %invoke.cont15, %invoke.cont15.thread, %invoke.cont8, %_ZNK7openvdb5v11_04util8NodeMaskILj3EE7countOnEv.exit, %entry
-  %scopedTempBuf.sroa.0.0 = phi ptr [ null, %_ZNK7openvdb5v11_04util8NodeMaskILj3EE7countOnEv.exit ], [ null, %entry ], [ %call6, %invoke.cont8 ], [ %call6, %invoke.cont15.thread ], [ %call6, %invoke.cont15 ], [ %call6, %for.inc.i.i ]
-  %tempBuf.0 = phi ptr [ %srcBuf, %_ZNK7openvdb5v11_04util8NodeMaskILj3EE7countOnEv.exit ], [ %srcBuf, %entry ], [ %call6, %invoke.cont8 ], [ %call6, %invoke.cont15.thread ], [ %call6, %invoke.cont15 ], [ %call6, %for.inc.i.i ]
-  %tempCount.0 = phi i32 [ 0, %_ZNK7openvdb5v11_04util8NodeMaskILj3EE7countOnEv.exit ], [ %srcCount, %entry ], [ 0, %invoke.cont8 ], [ %inc39, %invoke.cont15.thread ], [ %inc, %invoke.cont15 ], [ 0, %for.inc.i.i ]
+  %scopedTempBuf.sroa.0.0 = phi ptr [ null, %_ZNK7openvdb5v11_04util8NodeMaskILj3EE7countOnEv.exit ], [ null, %entry ], [ %call6, %invoke.cont8 ], [ %call6, %invoke.cont15 ], [ %call6, %invoke.cont15.thread ], [ %call6, %for.inc.i.i ]
+  %tempBuf.0 = phi ptr [ %srcBuf, %_ZNK7openvdb5v11_04util8NodeMaskILj3EE7countOnEv.exit ], [ %srcBuf, %entry ], [ %call6, %invoke.cont8 ], [ %call6, %invoke.cont15 ], [ %call6, %invoke.cont15.thread ], [ %call6, %for.inc.i.i ]
+  %tempCount.0 = phi i32 [ 0, %_ZNK7openvdb5v11_04util8NodeMaskILj3EE7countOnEv.exit ], [ %srcCount, %entry ], [ 0, %invoke.cont8 ], [ %inc, %invoke.cont15 ], [ %inc39, %invoke.cont15.thread ], [ 0, %for.inc.i.i ]
   br i1 %toHalf, label %if.then20, label %if.else
 
 if.then20:                                        ; preds = %if.end18

@@ -4766,7 +4766,7 @@ Au_NtkCreatePo.exit:                              ; preds = %479, %483
   br label %.critedge2
 
 .critedge2:                                       ; preds = %Au_NtkCreatePo.exit, %Vec_IntPush.exit283, %Vec_IntPush.exit269, %467, %._crit_edge, %431, %._crit_edge311, %71, %Vec_IntPush.exit216, %Vec_IntPush.exit262, %Vec_IntPush.exit276, %496, %494, %Vec_IntPush.exit239, %.lr.ph322, %73
-  %.1 = phi ptr [ %.0158321, %.lr.ph322 ], [ %.0158321, %71 ], [ %.0158321, %73 ], [ %.0158321, %496 ], [ %.0158321, %494 ], [ %417, %Vec_IntPush.exit276 ], [ %.0158321, %Vec_IntPush.exit262 ], [ %.0158321, %Vec_IntPush.exit239 ], [ %.0158321, %Vec_IntPush.exit216 ], [ %.0158321, %431 ], [ %.0158321, %._crit_edge311 ], [ %.0158321, %._crit_edge ], [ %.0158321, %467 ], [ %.0158321, %Vec_IntPush.exit283 ], [ %.0158321, %Vec_IntPush.exit269 ], [ %.0158321, %Au_NtkCreatePo.exit ]
+  %.1 = phi ptr [ %.0158321, %.lr.ph322 ], [ %.0158321, %71 ], [ %.0158321, %73 ], [ %.0158321, %496 ], [ %.0158321, %494 ], [ %.0158321, %._crit_edge311 ], [ %.0158321, %431 ], [ %417, %Vec_IntPush.exit276 ], [ %.0158321, %Vec_IntPush.exit216 ], [ %.0158321, %Vec_IntPush.exit262 ], [ %.0158321, %Vec_IntPush.exit239 ], [ %.0158321, %._crit_edge ], [ %.0158321, %Vec_IntPush.exit269 ], [ %.0158321, %467 ], [ %.0158321, %Vec_IntPush.exit283 ], [ %.0158321, %Au_NtkCreatePo.exit ]
   %indvars.iv.next341 = add nuw nsw i64 %indvars.iv340, 1
   %.val185 = load i32, ptr %9, align 4, !tbaa !45
   %499 = sext i32 %.val185 to i64

@@ -2827,8 +2827,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit56: ; 
   br i1 %exitcond.not28.i.i, label %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEC2ISt8seed_seqvEERT_.exit, label %.preheader.i.i.backedge
 
 .preheader.i.i.backedge:                          ; preds = %.thread.i.i, %84
-  %.01825.i.i.be = phi i64 [ %87, %84 ], [ %88, %.thread.i.i ]
-  %.01924.i.i.be = phi i1 [ %.1.shrunk.i.i, %84 ], [ false, %.thread.i.i ]
+  %.01825.i.i.be = phi i64 [ %88, %.thread.i.i ], [ %87, %84 ]
+  %.01924.i.i.be = phi i1 [ false, %.thread.i.i ], [ %.1.shrunk.i.i, %84 ]
   br label %.preheader.i.i, !llvm.loop !9
 
 89:                                               ; preds = %84

@@ -443,7 +443,7 @@ test_tapa_tunnel.exit:                            ; preds = %131
   br label %dissect_tapa_discover.exit
 
 dissect_tapa_discover.exit:                       ; preds = %44, %128, %131, %test_tapa_discover.exit.thread, %168, %135, %123, %dissect_tapa_discover_unknown_new_tlv.exit.i, %70, %39, %17, %test_tapa_tunnel.exit
-  %.0 = phi i32 [ 0, %test_tapa_tunnel.exit ], [ 0, %135 ], [ 4, %39 ], [ 5, %123 ], [ 0, %17 ], [ %20, %70 ], [ %.0.i.i, %dissect_tapa_discover_unknown_new_tlv.exit.i ], [ %138, %168 ], [ 0, %test_tapa_discover.exit.thread ], [ 0, %131 ], [ 0, %128 ], [ %67, %44 ]
+  %.0 = phi i32 [ 0, %test_tapa_tunnel.exit ], [ 0, %135 ], [ 4, %39 ], [ 5, %123 ], [ 0, %17 ], [ %20, %70 ], [ %.0.i.i, %dissect_tapa_discover_unknown_new_tlv.exit.i ], [ 0, %128 ], [ %138, %168 ], [ 0, %test_tapa_discover.exit.thread ], [ 0, %131 ], [ %67, %44 ]
   ret i32 %.0
 }
 

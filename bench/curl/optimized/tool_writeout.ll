@@ -801,9 +801,9 @@ urlpart.exit:                                     ; preds = %106
   br label %.thread103
 
 109:                                              ; preds = %._crit_edge, %._crit_edge.thread, %urlpart.exit.thread145, %27, %.loopexit, %89, %85, %80
-  %110 = phi ptr [ %26, %.loopexit ], [ %32, %27 ], [ %.pre.i, %urlpart.exit.thread145 ], [ %81, %80 ], [ %84, %85 ], [ %88, %89 ], [ %spec.store.select, %._crit_edge.thread ], [ null, %._crit_edge ]
-  %.055 = phi ptr [ null, %.loopexit ], [ null, %27 ], [ %.pre.i, %urlpart.exit.thread145 ], [ null, %80 ], [ null, %85 ], [ null, %89 ], [ null, %._crit_edge.thread ], [ null, %._crit_edge ]
-  %.3 = phi i1 [ %.0, %.loopexit ], [ %or.cond, %27 ], [ true, %urlpart.exit.thread145 ], [ true, %80 ], [ true, %85 ], [ true, %89 ], [ true, %._crit_edge.thread ], [ false, %._crit_edge ]
+  %110 = phi ptr [ %26, %.loopexit ], [ %81, %80 ], [ %32, %27 ], [ %88, %89 ], [ %.pre.i, %urlpart.exit.thread145 ], [ %84, %85 ], [ %spec.store.select, %._crit_edge.thread ], [ null, %._crit_edge ]
+  %.055 = phi ptr [ null, %.loopexit ], [ null, %80 ], [ null, %27 ], [ null, %89 ], [ %.pre.i, %urlpart.exit.thread145 ], [ null, %85 ], [ null, %._crit_edge.thread ], [ null, %._crit_edge ]
+  %.3 = phi i1 [ %.0, %.loopexit ], [ true, %80 ], [ %or.cond, %27 ], [ true, %89 ], [ true, %urlpart.exit.thread145 ], [ true, %85 ], [ true, %._crit_edge.thread ], [ false, %._crit_edge ]
   %111 = icmp ne ptr %110, null
   %or.cond3 = select i1 %.3, i1 %111, i1 false
   br i1 %or.cond3, label %112, label %.thread103
@@ -961,8 +961,8 @@ certinfo.exit.thread:                             ; preds = %20, %certinfo.exit
   %42 = zext nneg i32 %39 to i64
   br label %.critedge29.sink.split
 
-.critedge29.sink.split:                           ; preds = %certinfo.exit.thread, %certinfo.exit, %41, %35, %32, %17
-  %.sink = phi i64 [ %19, %17 ], [ %42, %41 ], [ %34, %32 ], [ %36, %35 ], [ %31, %certinfo.exit.thread ], [ 0, %certinfo.exit ]
+.critedge29.sink.split:                           ; preds = %certinfo.exit.thread, %certinfo.exit, %35, %32, %17, %41
+  %.sink = phi i64 [ %42, %41 ], [ %19, %17 ], [ %36, %35 ], [ %34, %32 ], [ %31, %certinfo.exit.thread ], [ 0, %certinfo.exit ]
   store i64 %.sink, ptr %7, align 8, !tbaa !48
   br label %.critedge29
 

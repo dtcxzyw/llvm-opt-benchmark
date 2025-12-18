@@ -1818,10 +1818,10 @@ define internal fastcc i64 @raxLowWalk(ptr noundef %0, ptr noundef readonly capt
   br i1 %88, label %16, label %.thread.loopexit.loopexit141
 
 .thread.loopexit.loopexit141:                     ; preds = %74, %._crit_edge, %._crit_edge92
-  %.052.lcssa.ph.ph = phi ptr [ %84, %74 ], [ %.052100, %._crit_edge ], [ %.052100, %._crit_edge92 ]
-  %.0.lcssa.ph.ph = phi ptr [ %.0, %74 ], [ %.0101, %._crit_edge ], [ %.0101, %._crit_edge92 ]
-  %.159.ph.ph = phi i64 [ %.462, %74 ], [ %.260.lcssa, %._crit_edge ], [ %.05899, %._crit_edge92 ]
-  %.156.ph.ph = phi i64 [ 0, %74 ], [ %.257.lcssa, %._crit_edge ], [ %21, %._crit_edge92 ]
+  %.052.lcssa.ph.ph = phi ptr [ %.052100, %._crit_edge ], [ %.052100, %._crit_edge92 ], [ %84, %74 ]
+  %.0.lcssa.ph.ph = phi ptr [ %.0101, %._crit_edge ], [ %.0101, %._crit_edge92 ], [ %.0, %74 ]
+  %.159.ph.ph = phi i64 [ %.260.lcssa, %._crit_edge ], [ %.05899, %._crit_edge92 ], [ %.462, %74 ]
+  %.156.ph.ph = phi i64 [ %.257.lcssa, %._crit_edge ], [ %21, %._crit_edge92 ], [ 0, %74 ]
   %89 = trunc nuw nsw i64 %.156.ph.ph to i32
   br label %.thread
 
@@ -2032,7 +2032,7 @@ raxStackPeek.exit:                                ; preds = %62
   br i1 %79, label %raxFindParentLink.exit, label %78
 
 raxFindParentLink.exit:                           ; preds = %78, %62, %raxStackPeek.exit
-  %.085 = phi ptr [ %0, %raxStackPeek.exit ], [ %0, %62 ], [ %.0.i169, %78 ]
+  %.085 = phi ptr [ %0, %62 ], [ %0, %raxStackPeek.exit ], [ %.0.i169, %78 ]
   store ptr %61, ptr %.085, align 8
   br label %81
 
@@ -3748,7 +3748,7 @@ raxIteratorAddChars.exit40:                       ; preds = %38, %.thread.i38
   br label %.thread
 
 .thread:                                          ; preds = %105, %.thread.sink.split, %1
-  %.1 = phi i32 [ 1, %1 ], [ 0, %.thread.sink.split ], [ 1, %105 ]
+  %.1 = phi i32 [ 0, %.thread.sink.split ], [ 1, %1 ], [ 1, %105 ]
   ret i32 %.1
 }
 
@@ -4064,7 +4064,7 @@ raxGetData.exit:                                  ; preds = %152, %154
   br label %.thread99
 
 .thread99:                                        ; preds = %142, %135, %126, %raxIteratorAddChars.exit.thread, %raxGetData.exit, %30, %2, %7
-  %.061 = phi i32 [ 1, %2 ], [ 1, %7 ], [ 1, %30 ], [ 1, %raxGetData.exit ], [ 0, %raxIteratorAddChars.exit.thread ], [ 0, %126 ], [ 0, %135 ], [ 0, %142 ]
+  %.061 = phi i32 [ 1, %2 ], [ 1, %7 ], [ 1, %30 ], [ 1, %raxGetData.exit ], [ 0, %raxIteratorAddChars.exit.thread ], [ 0, %135 ], [ 0, %126 ], [ 0, %142 ]
   ret i32 %.061
 }
 

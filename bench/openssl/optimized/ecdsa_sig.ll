@@ -168,7 +168,7 @@ ecdsa_sign_message_final.exit25:                  ; preds = %32, %35, %38, %.spl
   br label %ecdsa_sign_message_final.exit
 
 ecdsa_sign_message_final.exit:                    ; preds = %26, %21, %17, %14, %ecdsa_signverify_message_update.exit, %43, %ecdsa_sign_message_final.exit25
-  %.0 = phi i32 [ 0, %ecdsa_signverify_message_update.exit ], [ %44, %43 ], [ %.0.i23, %ecdsa_sign_message_final.exit25 ], [ 0, %17 ], [ 0, %14 ], [ 0, %21 ], [ 1, %26 ]
+  %.0 = phi i32 [ 0, %ecdsa_signverify_message_update.exit ], [ %44, %43 ], [ %.0.i23, %ecdsa_sign_message_final.exit25 ], [ 0, %17 ], [ 0, %14 ], [ 1, %26 ], [ 0, %21 ]
   ret i32 %.0
 }
 
@@ -375,7 +375,7 @@ define internal range(i32 0, 2) i32 @ecdsa_digest_sign_final(ptr noundef %0, ptr
   br label %ecdsa_sign_message_final.exit
 
 ecdsa_sign_message_final.exit:                    ; preds = %12, %15, %.split.i, %24, %26, %.split10.i
-  %.0.i = phi i32 [ 0, %15 ], [ 0, %12 ], [ 0, %26 ], [ %30, %.split10.i ], [ 0, %.split.i ], [ 1, %24 ]
+  %.0.i = phi i32 [ 0, %15 ], [ 0, %12 ], [ 0, %26 ], [ %30, %.split10.i ], [ 1, %24 ], [ 0, %.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %31 = load i8, ptr %9, align 4
@@ -975,7 +975,7 @@ define internal range(i32 0, 2) i32 @ecdsa_sign_message_final(ptr noundef %0, pt
   br label %ecdsa_sign_directly.exit
 
 ecdsa_sign_directly.exit:                         ; preds = %19, %.split, %.split10, %21, %10, %4
-  %.0 = phi i32 [ 0, %10 ], [ 0, %4 ], [ 0, %21 ], [ %25, %.split10 ], [ 0, %.split ], [ 1, %19 ]
+  %.0 = phi i32 [ 0, %10 ], [ 0, %4 ], [ 0, %21 ], [ %25, %.split10 ], [ 1, %19 ], [ 0, %.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
@@ -1461,7 +1461,7 @@ define internal fastcc range(i32 0, 2) i32 @ecdsa_sign_directly(ptr noundef %0, 
   br label %44
 
 44:                                               ; preds = %.sink.split, %39, %17, %15, %6
-  %.029 = phi i32 [ 0, %6 ], [ 0, %15 ], [ 0, %17 ], [ 0, %39 ], [ 1, %.sink.split ]
+  %.029 = phi i32 [ 0, %39 ], [ 0, %6 ], [ 0, %15 ], [ 0, %17 ], [ 1, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.029
 }

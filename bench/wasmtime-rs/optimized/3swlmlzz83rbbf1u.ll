@@ -1883,7 +1883,7 @@ define hidden noundef zeroext i1 @"_ZN12sharded_slab4page4slot17Slot$LT$T$C$C$GT
   br i1 %.sroa.18.0.in.i, label %14, label %_ZN12sharded_slab4page4slot19exponential_backoff17hff9c5f1ff440ee2cE.exit
 
 "_ZN107_$LT$sharded_slab..page..stack..TransferStack$LT$C$GT$$u20$as$u20$sharded_slab..page..FreeList$LT$C$GT$$GT$4push17hb11ae54150d614bfE.exit": ; preds = %_ZN12sharded_slab4page4slot19exponential_backoff17hff9c5f1ff440ee2cE.exit, %.lr.ph.i.i, %4, %17
-  %or.cond22 = phi i1 [ true, %17 ], [ false, %4 ], [ true, %.lr.ph.i.i ], [ false, %_ZN12sharded_slab4page4slot19exponential_backoff17hff9c5f1ff440ee2cE.exit ]
+  %or.cond22 = phi i1 [ true, %.lr.ph.i.i ], [ true, %17 ], [ false, %4 ], [ false, %_ZN12sharded_slab4page4slot19exponential_backoff17hff9c5f1ff440ee2cE.exit ]
   ret i1 %or.cond22
 
 14:                                               ; preds = %10

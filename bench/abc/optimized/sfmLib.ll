@@ -659,7 +659,7 @@ define range(i32 -2147483648, 2147483647) i32 @Sfm_LibFindComplInputGate(ptr nou
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit74, %.loopexit.loopexit73, %.loopexit.loopexit, %.critedge4, %77
-  %.050 = phi i32 [ -1, %77 ], [ -1, %.critedge4 ], [ %78, %.loopexit.loopexit ], [ %79, %.loopexit.loopexit73 ], [ %80, %.loopexit.loopexit74 ]
+  %.050 = phi i32 [ -1, %.critedge4 ], [ %79, %.loopexit.loopexit73 ], [ %78, %.loopexit.loopexit ], [ -1, %77 ], [ %80, %.loopexit.loopexit74 ]
   ret i32 %.050
 }
 
@@ -4598,13 +4598,13 @@ Abc_TtHasVar.exit.thread13.i:                     ; preds = %59, %73
   br label %Abc_TtHasVar.exit.thread.i
 
 Abc_TtHasVar.exit.thread.i:                       ; preds = %._crit_edge.us.i.i, %58, %Abc_TtHasVar.exit.thread13.i, %.preheader.lr.ph.i.i
-  %80 = phi i32 [ %79, %Abc_TtHasVar.exit.thread13.i ], [ %.024.i, %.preheader.lr.ph.i.i ], [ %.024.i, %58 ], [ %.024.i, %._crit_edge.us.i.i ]
+  %80 = phi i32 [ %79, %Abc_TtHasVar.exit.thread13.i ], [ %.024.i, %58 ], [ %.024.i, %.preheader.lr.ph.i.i ], [ %.024.i, %._crit_edge.us.i.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %Abc_TtSupportSize.exit, label %.lr.ph.split.split.split.i, !llvm.loop !131
 
 Abc_TtSupportSize.exit:                           ; preds = %Abc_TtHasVar.exit.thread.i, %Abc_TtHasVar.exit.us.i, %34, %.lr.ph.split.i
-  %.0.lcssa.i = phi i32 [ 0, %34 ], [ 0, %.lr.ph.split.i ], [ %spec.select.i, %Abc_TtHasVar.exit.us.i ], [ %80, %Abc_TtHasVar.exit.thread.i ]
+  %.0.lcssa.i = phi i32 [ 0, %34 ], [ %spec.select.i, %Abc_TtHasVar.exit.us.i ], [ 0, %.lr.ph.split.i ], [ %80, %Abc_TtHasVar.exit.thread.i ]
   %81 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %16)
   %.val26 = load ptr, ptr %7, align 8, !tbaa !16
   %82 = getelementptr inbounds nuw i32, ptr %.val26, i64 %indvars.iv

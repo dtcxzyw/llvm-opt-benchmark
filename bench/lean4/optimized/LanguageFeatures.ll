@@ -15853,7 +15853,7 @@ lean_nat_eq.exit.thread.i:                        ; preds = %.preheader
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %lean_nat_eq.exit.i, %60, %59, %57, %lean_dec.exit22, %lean_obj_tag.exit35, %lean_obj_tag.exit31
-  %.0 = phi i8 [ %., %lean_obj_tag.exit31 ], [ 0, %lean_obj_tag.exit35 ], [ 0, %lean_dec.exit22 ], [ 1, %57 ], [ 1, %59 ], [ 1, %60 ], [ 1, %lean_nat_eq.exit.i ]
+  %.0 = phi i8 [ %., %lean_obj_tag.exit31 ], [ 0, %lean_obj_tag.exit35 ], [ 0, %lean_dec.exit22 ], [ 1, %60 ], [ 1, %57 ], [ 1, %59 ], [ 1, %lean_nat_eq.exit.i ]
   ret i8 %.0
 }
 
@@ -59818,7 +59818,7 @@ lean_dec.exit:                                    ; preds = %593, %592, %590, %l
   unreachable
 
 599:                                              ; preds = %lean_array_uset.exit416, %lean_array_uset.exit370, %lean_array_uset.exit378
-  %.1211 = phi ptr [ %.0.i.i375, %lean_array_uset.exit378 ], [ %.0.i.i367, %lean_array_uset.exit370 ], [ %.0.i.i413, %lean_array_uset.exit416 ]
+  %.1211 = phi ptr [ %.0.i.i413, %lean_array_uset.exit416 ], [ %.0.i.i367, %lean_array_uset.exit370 ], [ %.0.i.i375, %lean_array_uset.exit378 ]
   %.1199 = add nuw i64 %.0198533, 1
   %exitcond.not = icmp eq i64 %.1199, %0
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
@@ -67039,7 +67039,7 @@ lean_nat_eq.exit.thread.i:                        ; preds = %.preheader
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %lean_nat_eq.exit.i, %60, %59, %57, %lean_dec.exit22, %lean_obj_tag.exit35, %lean_obj_tag.exit31
-  %.0 = phi i8 [ %., %lean_obj_tag.exit31 ], [ 0, %lean_obj_tag.exit35 ], [ 0, %lean_dec.exit22 ], [ 1, %57 ], [ 1, %59 ], [ 1, %60 ], [ 1, %lean_nat_eq.exit.i ]
+  %.0 = phi i8 [ %., %lean_obj_tag.exit31 ], [ 0, %lean_obj_tag.exit35 ], [ 0, %lean_dec.exit22 ], [ 1, %60 ], [ 1, %57 ], [ 1, %59 ], [ 1, %lean_nat_eq.exit.i ]
   ret i8 %.0
 }
 

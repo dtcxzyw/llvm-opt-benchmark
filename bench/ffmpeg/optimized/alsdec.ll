@@ -1079,7 +1079,7 @@ decode_blocks_ind.exit.thread.i:                  ; preds = %204, %._crit_edge.i
   br i1 %278, label %270, label %.loopexit.i.i, !llvm.loop !130
 
 .loopexit.i.i:                                    ; preds = %258, %270, %.preheader.i.i, %267, %254
-  %279 = phi i32 [ %.pre.i.i, %267 ], [ 0, %254 ], [ 0, %.preheader.i.i ], [ %276, %270 ], [ %264, %258 ]
+  %279 = phi i32 [ %276, %270 ], [ %.pre.i.i, %267 ], [ 0, %254 ], [ 0, %.preheader.i.i ], [ %264, %258 ]
   %280 = add i32 %279, %.07816.i.i
   store i32 0, ptr %134, align 4, !tbaa !111
   store i32 0, ptr %147, align 4, !tbaa !111
@@ -3131,7 +3131,7 @@ read_frame_data.exit:                             ; preds = %read_diff_float_dat
   br i1 %1372, label %.preheader201.us, label %.loopexit197, !llvm.loop !178
 
 .loopexit197:                                     ; preds = %._crit_edge.us, %._crit_edge.us244, %._crit_edge.us250, %._crit_edge.us256, %.preheader201.lr.ph, %.preheader204.lr.ph, %.preheader.lr.ph, %.preheader198.lr.ph, %.preheader205, %.preheader202, %.preheader199, %.preheader196
-  %.pre344 = phi i32 [ %1305, %.preheader.lr.ph ], [ %1345, %.preheader204.lr.ph ], [ 0, %.preheader196 ], [ %1345, %.preheader201.lr.ph ], [ %1305, %.preheader198.lr.ph ], [ 0, %.preheader205 ], [ 0, %.preheader202 ], [ 0, %.preheader199 ], [ %1371, %._crit_edge.us244 ], [ %1305, %._crit_edge.us256 ], [ %1305, %._crit_edge.us250 ], [ %1359, %._crit_edge.us ]
+  %.pre344 = phi i32 [ %1371, %._crit_edge.us244 ], [ %1305, %.preheader.lr.ph ], [ %1305, %._crit_edge.us250 ], [ %1345, %.preheader204.lr.ph ], [ %1305, %._crit_edge.us256 ], [ 0, %.preheader196 ], [ %1345, %.preheader201.lr.ph ], [ %1305, %.preheader198.lr.ph ], [ 0, %.preheader205 ], [ 0, %.preheader202 ], [ 0, %.preheader199 ], [ %1359, %._crit_edge.us ]
   %1373 = getelementptr inbounds nuw i8, ptr %12, i64 96
   %1374 = load i32, ptr %1373, align 8, !tbaa !89
   %.not183 = icmp eq i32 %1374, 0
@@ -4553,7 +4553,7 @@ decode_rice.exit394.i:                            ; preds = %175, %.lr.ph.i.i388
   br label %read_var_block_data.exit
 
 ._crit_edge.i:                                    ; preds = %182, %.loopexit503.i, %155
-  %187 = phi i32 [ %181, %.loopexit503.i ], [ %160, %155 ], [ %181, %182 ]
+  %187 = phi i32 [ %160, %155 ], [ %181, %.loopexit503.i ], [ %181, %182 ]
   %188 = lshr i32 %187, 3
   %189 = zext nneg i32 %188 to i64
   %190 = getelementptr inbounds nuw i8, ptr %18, i64 %189
@@ -4989,7 +4989,7 @@ decode_rice.exit422.i:                            ; preds = %398, %.lr.ph.i.i416
   br i1 %exitcond609.not.i, label %.loopexit500.i, label %.lr.ph529.i, !llvm.loop !211
 
 .loopexit500.i:                                   ; preds = %.lr.ph529.i, %.loopexit501.i, %._crit_edge523.i, %286, %268, %.critedge.i, %219
-  %.0298.i = phi i32 [ %53, %219 ], [ 0, %.critedge.i ], [ 2, %.loopexit501.i ], [ 2, %286 ], [ 1, %._crit_edge523.i ], [ 1, %268 ], [ %263, %.lr.ph529.i ]
+  %.0298.i = phi i32 [ %53, %219 ], [ 0, %.critedge.i ], [ 2, %.loopexit501.i ], [ 1, %268 ], [ 2, %286 ], [ 1, %._crit_edge523.i ], [ %263, %.lr.ph529.i ]
   %434 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %435 = load i32, ptr %434, align 4, !tbaa !193
   %.not355.i = icmp eq i32 %435, 0
@@ -5710,7 +5710,7 @@ get_bits_long.exit.i:                             ; preds = %812, %808
   br i1 %exitcond629.not.i, label %read_var_block_data.exit, label %.preheader.i, !llvm.loop !218
 
 read_var_block_data.exit:                         ; preds = %._crit_edge544.i, %89, %186, %261, %.thread482.i, %.thread483.i, %653, %.thread490.i, %832
-  %.0.i = phi i32 [ -1094995529, %89 ], [ -1094995529, %186 ], [ -1163346256, %653 ], [ -1094995529, %.thread483.i ], [ %.11.ph.i, %.thread490.i ], [ -1094995529, %261 ], [ 0, %832 ], [ -1094995529, %.thread482.i ], [ 0, %._crit_edge544.i ]
+  %.0.i = phi i32 [ -1094995529, %89 ], [ -1094995529, %186 ], [ -1163346256, %653 ], [ -1094995529, %.thread483.i ], [ %.11.ph.i, %.thread490.i ], [ -1094995529, %.thread482.i ], [ -1094995529, %261 ], [ 0, %832 ], [ 0, %._crit_edge544.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %read_const_block_data.exit
@@ -6233,7 +6233,7 @@ split:                                            ; preds = %126, %._crit_edge
   br i1 %.not219, label %81, label %.critedge225.thread, !llvm.loop !223
 
 .critedge225.thread:                              ; preds = %.critedge225, %30, %104, %split, %112, %213, %6, %.critedge.thread
-  %.0196 = phi i32 [ 0, %6 ], [ -1094995529, %.critedge.thread ], [ -1094995529, %213 ], [ -1094995529, %112 ], [ -1094995529, %split ], [ -1094995529, %104 ], [ 0, %30 ], [ 0, %.critedge225 ]
+  %.0196 = phi i32 [ 0, %6 ], [ -1094995529, %.critedge.thread ], [ -1094995529, %104 ], [ -1094995529, %213 ], [ -1094995529, %112 ], [ -1094995529, %split ], [ 0, %30 ], [ 0, %.critedge225 ]
   ret i32 %.0196
 }
 
@@ -6649,7 +6649,7 @@ parcor_to_lpc.exit158.i:                          ; preds = %159, %._crit_edge.i
   br i1 %.not145.not.i, label %.lr.ph189.i, label %.loopexit.i, !llvm.loop !232
 
 .loopexit.i:                                      ; preds = %parcor_to_lpc.exit.i, %.lr.ph189.i, %.preheader.i, %.loopexit160.i, %.preheader163.i
-  %.1.i = phi i64 [ 0, %.loopexit160.i ], [ 0, %.preheader.i ], [ 0, %.preheader163.i ], [ 0, %.lr.ph189.i ], [ %wide.trip.count230.i, %parcor_to_lpc.exit.i ]
+  %.1.i = phi i64 [ 0, %.preheader.i ], [ 0, %.loopexit160.i ], [ 0, %.lr.ph189.i ], [ 0, %.preheader163.i ], [ %wide.trip.count230.i, %parcor_to_lpc.exit.i ]
   %220 = sext i32 %13 to i64
   %221 = getelementptr inbounds i32, ptr %17, i64 %220
   %222 = icmp sgt i32 %13, 0

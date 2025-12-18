@@ -3218,9 +3218,9 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i775, %1517
   br label %.loopexit826.backedge
 
 .loopexit826.backedge:                            ; preds = %._crit_edge.i798, %1537, %1691
-  %.0506.be = phi ptr [ %1689, %1691 ], [ %1467, %1537 ], [ %1689, %._crit_edge.i798 ]
-  %.0499.be = phi ptr [ %1697, %1691 ], [ %1539, %1537 ], [ %1697, %._crit_edge.i798 ]
-  %.0495.be = phi i32 [ %1698, %1691 ], [ %1538, %1537 ], [ %1739, %._crit_edge.i798 ]
+  %.0506.be = phi ptr [ %1467, %1537 ], [ %1689, %1691 ], [ %1689, %._crit_edge.i798 ]
+  %.0499.be = phi ptr [ %1539, %1537 ], [ %1697, %1691 ], [ %1697, %._crit_edge.i798 ]
+  %.0495.be = phi i32 [ %1538, %1537 ], [ %1698, %1691 ], [ %1739, %._crit_edge.i798 ]
   br label %.loopexit826
 
 1540:                                             ; preds = %1452
@@ -4985,7 +4985,7 @@ DiamDict__delete_buffer.exit.i:                   ; preds = %32, %.critedge.i.i
   br label %DiamDict_pop_buffer_state.exit
 
 DiamDict_pop_buffer_state.exit:                   ; preds = %26, %44, %47
-  %56 = phi ptr [ %25, %26 ], [ %43, %44 ], [ %43, %47 ]
+  %56 = phi ptr [ %43, %47 ], [ %25, %26 ], [ %43, %44 ]
   %57 = load i64, ptr %2, align 8
   %58 = getelementptr ptr, ptr %56, i64 %57
   %59 = load ptr, ptr %58, align 8

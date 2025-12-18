@@ -10616,7 +10616,7 @@ _ZNK5clang14IdentifierInfo5isStrILm6EEEbRAT__Kc.exit: ; preds = %_ZNK5clang14Ide
   br label %307
 
 _ZNK5clang14IdentifierInfo5isStrILm6EEEbRAT__Kc.exit.thread: ; preds = %_ZNK5clang14IdentifierInfo5isStrILm7EEEbRAT__Kc.exit79.thread.thread.thread183, %_ZNK5clang14IdentifierInfo5isStrILm8EEEbRAT__Kc.exit, %_ZNK5clang14IdentifierInfo5isStrILm17EEEbRAT__Kc.exit, %_ZNK5clang14IdentifierInfo5isStrILm16EEEbRAT__Kc.exit, %_ZNK5clang14IdentifierInfo5isStrILm6EEEbRAT__Kc.exit
-  %226 = phi i1 [ %169, %_ZNK5clang14IdentifierInfo5isStrILm8EEEbRAT__Kc.exit ], [ %194, %_ZNK5clang14IdentifierInfo5isStrILm17EEEbRAT__Kc.exit ], [ %194, %_ZNK5clang14IdentifierInfo5isStrILm16EEEbRAT__Kc.exit ], [ %194, %_ZNK5clang14IdentifierInfo5isStrILm7EEEbRAT__Kc.exit79.thread.thread.thread183 ], [ %194, %_ZNK5clang14IdentifierInfo5isStrILm6EEEbRAT__Kc.exit ]
+  %226 = phi i1 [ %194, %_ZNK5clang14IdentifierInfo5isStrILm6EEEbRAT__Kc.exit ], [ %169, %_ZNK5clang14IdentifierInfo5isStrILm8EEEbRAT__Kc.exit ], [ %194, %_ZNK5clang14IdentifierInfo5isStrILm17EEEbRAT__Kc.exit ], [ %194, %_ZNK5clang14IdentifierInfo5isStrILm16EEEbRAT__Kc.exit ], [ %194, %_ZNK5clang14IdentifierInfo5isStrILm7EEEbRAT__Kc.exit79.thread.thread.thread183 ]
   br i1 %226, label %_ZNK5clang14IdentifierInfo5isStrILm7EEEbRAT__Kc.exit89, label %_ZNK5clang14IdentifierInfo5isStrILm7EEEbRAT__Kc.exit89.thread
 
 _ZNK5clang14IdentifierInfo5isStrILm7EEEbRAT__Kc.exit89: ; preds = %_ZNK5clang14IdentifierInfo5isStrILm6EEEbRAT__Kc.exit.thread
@@ -17397,7 +17397,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit10: ; pr
   br label %.loopexit
 
 .loopexit:                                        ; preds = %56, %._crit_edge, %_ZN5clang17DiagnosticBuilderD2Ev.exit
-  %.sroa.014.1 = phi i64 [ 1, %_ZN5clang17DiagnosticBuilderD2Ev.exit ], [ %81, %._crit_edge ], [ 1, %56 ]
+  %.sroa.014.1 = phi i64 [ %81, %._crit_edge ], [ 1, %_ZN5clang17DiagnosticBuilderD2Ev.exit ], [ 1, %56 ]
   %82 = load ptr, ptr %4, align 8, !tbaa !8
   %83 = icmp eq ptr %82, %11
   br i1 %83, label %_ZN4llvm11SmallVectorIPN5clang4ExprELj12EED2Ev.exit, label %84
@@ -19963,8 +19963,8 @@ _ZN4llvm23SmallVectorTemplateBaseIPKN5clang14IdentifierInfoELb1EE9push_backES4_.
   br label %.preheader
 
 .loopexit93:                                      ; preds = %253, %.thread, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang14IdentifierInfoELb1EE9push_backES4_.exit
-  %291 = phi i1 [ %289, %.thread ], [ true, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang14IdentifierInfoELb1EE9push_backES4_.exit ], [ true, %253 ]
-  %.021 = phi i32 [ %254, %.thread ], [ 0, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang14IdentifierInfoELb1EE9push_backES4_.exit ], [ %254, %253 ]
+  %291 = phi i1 [ true, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang14IdentifierInfoELb1EE9push_backES4_.exit ], [ %289, %.thread ], [ true, %253 ]
+  %.021 = phi i32 [ 0, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang14IdentifierInfoELb1EE9push_backES4_.exit ], [ %254, %.thread ], [ %254, %253 ]
   %or.cond = select i1 %118, i1 %291, i1 false
   br i1 %or.cond, label %292, label %322
 

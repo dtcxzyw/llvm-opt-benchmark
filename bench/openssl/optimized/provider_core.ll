@@ -456,7 +456,7 @@ ossl_provider_up_ref.exit:                        ; preds = %28, %34
   br label %37
 
 37:                                               ; preds = %36, %ossl_provider_up_ref.exit, %.thread, %23
-  %.116 = phi ptr [ null, %.thread ], [ null, %23 ], [ null, %36 ], [ %25, %ossl_provider_up_ref.exit ]
+  %.116 = phi ptr [ null, %23 ], [ null, %.thread ], [ null, %36 ], [ %25, %ossl_provider_up_ref.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %38
 
@@ -2461,9 +2461,9 @@ CRYPTO_DOWN_REF.exit:                             ; preds = %44, %48
   br label %.loopexit
 
 .loopexit:                                        ; preds = %61, %.lr.ph93, %.loopexit.sink.split, %._crit_edge
-  %.05984 = phi i32 [ %.261, %._crit_edge ], [ %.05984.ph, %.loopexit.sink.split ], [ %.261, %.lr.ph93 ], [ %.261, %61 ]
-  %.356 = phi i32 [ 0, %._crit_edge ], [ %.356.ph, %.loopexit.sink.split ], [ 0, %.lr.ph93 ], [ 0, %61 ]
-  %.052 = phi i32 [ 1, %._crit_edge ], [ %.052.ph, %.loopexit.sink.split ], [ 1, %61 ], [ 0, %.lr.ph93 ]
+  %.05984 = phi i32 [ %.05984.ph, %.loopexit.sink.split ], [ %.261, %._crit_edge ], [ %.261, %.lr.ph93 ], [ %.261, %61 ]
+  %.356 = phi i32 [ %.356.ph, %.loopexit.sink.split ], [ 0, %._crit_edge ], [ 0, %.lr.ph93 ], [ 0, %61 ]
+  %.052 = phi i32 [ %.052.ph, %.loopexit.sink.split ], [ 1, %._crit_edge ], [ 1, %61 ], [ 0, %.lr.ph93 ]
   %67 = icmp slt i32 %.356, %.05984
   br i1 %67, label %.lr.ph101, label %._crit_edge102
 

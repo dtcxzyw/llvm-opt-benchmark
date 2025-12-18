@@ -793,7 +793,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_client_options(ptr noundef %0,
   br label %.critedge26
 
 .critedge26:                                      ; preds = %8, %.preheader, %28, %.critedge, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %.critedge ], [ 0, %28 ], [ 1, %.preheader ], [ 1, %8 ]
+  %.0 = phi i32 [ 0, %28 ], [ 0, %3 ], [ 0, %.critedge ], [ 1, %.preheader ], [ 1, %8 ]
   ret i32 %.0
 }
 
@@ -857,7 +857,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_server_options(ptr noundef %0,
   br label %.critedge26
 
 .critedge26:                                      ; preds = %8, %.preheader, %28, %.critedge, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %.critedge ], [ 0, %28 ], [ 1, %.preheader ], [ 1, %8 ]
+  %.0 = phi i32 [ 0, %28 ], [ 0, %3 ], [ 0, %.critedge ], [ 1, %.preheader ], [ 1, %8 ]
   ret i32 %.0
 }
 
@@ -2064,7 +2064,7 @@ thread-pre-split12:                               ; preds = %11, %thread-pre-spl
   br label %.thread
 
 .thread:                                          ; preds = %thread-pre-split12, %.thread.fold.split, %17, %18
-  %19 = phi i32 [ 933, %18 ], [ 931, %17 ], [ 927, %thread-pre-split12 ], [ %.pr15, %.thread.fold.split ]
+  %19 = phi i32 [ 927, %thread-pre-split12 ], [ 933, %18 ], [ 931, %17 ], [ %.pr15, %.thread.fold.split ]
   store i32 %19, ptr %0, align 4, !tbaa !67
   br label %20
 

@@ -349,7 +349,7 @@ _ZN6vectorIN1q19quantifier_stat_gen5entryELb0EjE4backEv.exit: ; preds = %_ZNK6ve
   br i1 %.not27.old.i.i.i, label %_ZNK7obj_mapI4exprjE4findEPS0_Rj.exit.thread, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %80, %77
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %80 ], [ %79, %77 ]
+  %.137.i.i.i.be = phi ptr [ %79, %77 ], [ %.old.i.i.i, %80 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !57
 
 .loopexit58:                                      ; preds = %61, %72

@@ -1873,8 +1873,8 @@ _ZNKSt4lessIN3ue212_GLOBAL__N_115raw_report_listEEclERKS2_S5_.exit31.i: ; preds 
   br i1 %.not22.i, label %.thread.i, label %.loopexit26.i
 
 .loopexit26.i:                                    ; preds = %84, %198, %_ZNKSt4lessIN3ue212_GLOBAL__N_115raw_report_listEEclERKS2_S5_.exit31.i, %_ZNKSt4lessIN3ue212_GLOBAL__N_115raw_report_listEEclERKS2_S5_.exit78.thread35.i.i, %_ZNKSt4lessIN3ue212_GLOBAL__N_115raw_report_listEEclERKS2_S5_.exit68.thread32.i.i, %_ZNKSt4lessIN3ue212_GLOBAL__N_115raw_report_listEEclERKS2_S5_.exit58.thread29.i.i, %_ZNKSt4lessIN3ue212_GLOBAL__N_115raw_report_listEEclERKS2_S5_.exit48.thread26.i.i, %_ZNKSt4lessIN3ue212_GLOBAL__N_115raw_report_listEEclERKS2_S5_.exit.i.i
-  %.sroa.021.2.i.i = phi ptr [ null, %_ZNKSt4lessIN3ue212_GLOBAL__N_115raw_report_listEEclERKS2_S5_.exit68.thread32.i.i ], [ null, %_ZNKSt4lessIN3ue212_GLOBAL__N_115raw_report_listEEclERKS2_S5_.exit.i.i ], [ %148, %_ZNKSt4lessIN3ue212_GLOBAL__N_115raw_report_listEEclERKS2_S5_.exit78.thread35.i.i ], [ %.08.lcssa.i.i.i31, %_ZNKSt4lessIN3ue212_GLOBAL__N_115raw_report_listEEclERKS2_S5_.exit58.thread29.i.i ], [ %108, %_ZNKSt4lessIN3ue212_GLOBAL__N_115raw_report_listEEclERKS2_S5_.exit48.thread26.i.i ], [ null, %_ZNKSt4lessIN3ue212_GLOBAL__N_115raw_report_listEEclERKS2_S5_.exit31.i ], [ null, %198 ], [ null, %84 ]
-  %.sroa.12.2.i.i = phi ptr [ %145, %_ZNKSt4lessIN3ue212_GLOBAL__N_115raw_report_listEEclERKS2_S5_.exit68.thread32.i.i ], [ %73, %_ZNKSt4lessIN3ue212_GLOBAL__N_115raw_report_listEEclERKS2_S5_.exit.i.i ], [ %148, %_ZNKSt4lessIN3ue212_GLOBAL__N_115raw_report_listEEclERKS2_S5_.exit78.thread35.i.i ], [ %.08.lcssa.i.i.i31, %_ZNKSt4lessIN3ue212_GLOBAL__N_115raw_report_listEEclERKS2_S5_.exit58.thread29.i.i ], [ %108, %_ZNKSt4lessIN3ue212_GLOBAL__N_115raw_report_listEEclERKS2_S5_.exit48.thread26.i.i ], [ %.010.lcssa40.i, %_ZNKSt4lessIN3ue212_GLOBAL__N_115raw_report_listEEclERKS2_S5_.exit31.i ], [ %.010.lcssa40.i, %198 ], [ %73, %84 ]
+  %.sroa.021.2.i.i = phi ptr [ %108, %_ZNKSt4lessIN3ue212_GLOBAL__N_115raw_report_listEEclERKS2_S5_.exit48.thread26.i.i ], [ %.08.lcssa.i.i.i31, %_ZNKSt4lessIN3ue212_GLOBAL__N_115raw_report_listEEclERKS2_S5_.exit58.thread29.i.i ], [ null, %_ZNKSt4lessIN3ue212_GLOBAL__N_115raw_report_listEEclERKS2_S5_.exit.i.i ], [ %148, %_ZNKSt4lessIN3ue212_GLOBAL__N_115raw_report_listEEclERKS2_S5_.exit78.thread35.i.i ], [ null, %_ZNKSt4lessIN3ue212_GLOBAL__N_115raw_report_listEEclERKS2_S5_.exit68.thread32.i.i ], [ null, %_ZNKSt4lessIN3ue212_GLOBAL__N_115raw_report_listEEclERKS2_S5_.exit31.i ], [ null, %198 ], [ null, %84 ]
+  %.sroa.12.2.i.i = phi ptr [ %108, %_ZNKSt4lessIN3ue212_GLOBAL__N_115raw_report_listEEclERKS2_S5_.exit48.thread26.i.i ], [ %.08.lcssa.i.i.i31, %_ZNKSt4lessIN3ue212_GLOBAL__N_115raw_report_listEEclERKS2_S5_.exit58.thread29.i.i ], [ %73, %_ZNKSt4lessIN3ue212_GLOBAL__N_115raw_report_listEEclERKS2_S5_.exit.i.i ], [ %148, %_ZNKSt4lessIN3ue212_GLOBAL__N_115raw_report_listEEclERKS2_S5_.exit78.thread35.i.i ], [ %145, %_ZNKSt4lessIN3ue212_GLOBAL__N_115raw_report_listEEclERKS2_S5_.exit68.thread32.i.i ], [ %.010.lcssa40.i, %_ZNKSt4lessIN3ue212_GLOBAL__N_115raw_report_listEEclERKS2_S5_.exit31.i ], [ %.010.lcssa40.i, %198 ], [ %73, %84 ]
   %.not.i = icmp eq ptr %.sroa.12.2.i.i, null
   br i1 %.not.i, label %.thread.i, label %.thread10.i
 
@@ -1938,7 +1938,7 @@ _ZNKSt4lessIN3ue212_GLOBAL__N_115raw_report_listEEclERKS2_S5_.exit31.i: ; preds 
   br label %_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_115raw_report_listESt4pairIKS2_jESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS4_EESG_IJEEEEESt17_Rb_tree_iteratorIS5_ESt23_Rb_tree_const_iteratorIS5_EDpOT_.exit
 
 .thread.i:                                        ; preds = %134, %.lr.ph.i.i.i.i.i.i63.i.i, %194, %.lr.ph.i.i.i.i.i.i26.i, %_ZNKSt4lessIN3ue212_GLOBAL__N_115raw_report_listEEclERKS2_S5_.exit31.i, %.loopexit26.i, %_ZNKSt4lessIN3ue212_GLOBAL__N_115raw_report_listEEclERKS2_S5_.exit68.i.i
-  %.sroa.01.0.ph.i = phi ptr [ %.sroa.021.2.i.i, %.loopexit26.i ], [ %.08.lcssa.i.i.i31, %_ZNKSt4lessIN3ue212_GLOBAL__N_115raw_report_listEEclERKS2_S5_.exit68.i.i ], [ %.sroa.01.0.i, %_ZNKSt4lessIN3ue212_GLOBAL__N_115raw_report_listEEclERKS2_S5_.exit31.i ], [ %.sroa.01.0.i, %194 ], [ %.sroa.01.0.i, %.lr.ph.i.i.i.i.i.i26.i ], [ %.08.lcssa.i.i.i31, %.lr.ph.i.i.i.i.i.i63.i.i ], [ %.08.lcssa.i.i.i31, %134 ]
+  %.sroa.01.0.ph.i = phi ptr [ %.sroa.021.2.i.i, %.loopexit26.i ], [ %.08.lcssa.i.i.i31, %_ZNKSt4lessIN3ue212_GLOBAL__N_115raw_report_listEEclERKS2_S5_.exit68.i.i ], [ %.sroa.01.0.i, %194 ], [ %.sroa.01.0.i, %_ZNKSt4lessIN3ue212_GLOBAL__N_115raw_report_listEEclERKS2_S5_.exit31.i ], [ %.sroa.01.0.i, %.lr.ph.i.i.i.i.i.i26.i ], [ %.08.lcssa.i.i.i31, %.lr.ph.i.i.i.i.i.i63.i.i ], [ %.08.lcssa.i.i.i31, %134 ]
   %227 = load i64, ptr %49, align 8
   %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %227, 0
   %228 = icmp eq ptr %47, %.val8.i
@@ -2310,7 +2310,7 @@ define hidden void @_ZN3ue212shengCompileERNS_7raw_dfaERKNS_14CompileContextERKN
   br i1 %exitcond.not.i.i, label %_ZN3ue28dfa_infoC2ERNS_21accel_dfa_build_stratE.exit, label %.preheader.us.i.i, !llvm.loop !170
 
 _ZN3ue28dfa_infoC2ERNS_21accel_dfa_build_stratE.exit: ; preds = %._crit_edge.us.i.i, %51, %.noexc
-  %57 = phi i8 [ 0, %.noexc ], [ 1, %51 ], [ 0, %._crit_edge.us.i.i ]
+  %57 = phi i8 [ 1, %51 ], [ 0, %.noexc ], [ 0, %._crit_edge.us.i.i ]
   %58 = xor i8 %57, 1
   %59 = zext nneg i8 %58 to i64
   %60 = sub nsw i64 %43, %59
@@ -3320,7 +3320,7 @@ define hidden void @_ZN3ue214sheng32CompileERNS_7raw_dfaERKNS_14CompileContextER
   br i1 %exitcond.not.i.i, label %_ZN3ue28dfa_infoC2ERNS_21accel_dfa_build_stratE.exit, label %.preheader.us.i.i, !llvm.loop !170
 
 _ZN3ue28dfa_infoC2ERNS_21accel_dfa_build_stratE.exit: ; preds = %._crit_edge.us.i.i, %55, %.noexc
-  %61 = phi i8 [ 0, %.noexc ], [ 1, %55 ], [ 0, %._crit_edge.us.i.i ]
+  %61 = phi i8 [ 1, %55 ], [ 0, %.noexc ], [ 0, %._crit_edge.us.i.i ]
   %62 = xor i8 %61, 1
   %63 = zext nneg i8 %62 to i64
   %64 = sub nsw i64 %47, %63
@@ -4334,7 +4334,7 @@ define hidden void @_ZN3ue214sheng64CompileERNS_7raw_dfaERKNS_14CompileContextER
   br i1 %exitcond.not.i.i, label %_ZN3ue28dfa_infoC2ERNS_21accel_dfa_build_stratE.exit, label %.preheader.us.i.i, !llvm.loop !170
 
 _ZN3ue28dfa_infoC2ERNS_21accel_dfa_build_stratE.exit: ; preds = %._crit_edge.us.i.i, %56, %.noexc
-  %62 = phi i8 [ 0, %.noexc ], [ 1, %56 ], [ 0, %._crit_edge.us.i.i ]
+  %62 = phi i8 [ 1, %56 ], [ 0, %.noexc ], [ 0, %._crit_edge.us.i.i ]
   %63 = xor i8 %62, 1
   %64 = zext nneg i8 %63 to i64
   %65 = sub nsw i64 %48, %64

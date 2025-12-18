@@ -233,7 +233,7 @@ setup_read_buffer.exit:                           ; preds = %setup_read_buffer.e
   br label %dtls_read_buffer_next_packet.exit
 
 dtls_read_buffer_next_packet.exit:                ; preds = %93, %29, %25, %24, %20, %104, %99, %66, %.preheader.i, %41
-  %.010 = phi i32 [ -1, %41 ], [ %.0.ph, %104 ], [ 1, %66 ], [ 1, %.preheader.i ], [ %.0.ph, %99 ], [ -1, %20 ], [ -1, %24 ], [ -1, %25 ], [ -1, %29 ], [ 1, %93 ]
+  %.010 = phi i32 [ -1, %41 ], [ %.0.ph, %104 ], [ -1, %29 ], [ 1, %66 ], [ 1, %.preheader.i ], [ %.0.ph, %99 ], [ -1, %20 ], [ -1, %24 ], [ -1, %25 ], [ 1, %93 ]
   ret i32 %.010
 }
 

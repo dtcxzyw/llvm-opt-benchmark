@@ -1419,9 +1419,9 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i: ; preds = %62
   br label %_ZN5alloc6string6String4push17h1a3e9179dd826612E.llvm.16954148956069160696.exit
 
 .critedge.i:                                      ; preds = %57, %40, %42, %54
-  %.0.i.ph.i6 = phi i32 [ 92, %40 ], [ 92, %42 ], [ %56, %54 ], [ %.05.i.i, %57 ]
-  %74 = phi i32 [ 1114113, %40 ], [ %39, %42 ], [ %39, %54 ], [ 1114112, %57 ]
-  %75 = phi i8 [ %.ph, %40 ], [ 2, %42 ], [ %55, %54 ], [ %.ph, %57 ]
+  %.0.i.ph.i6 = phi i32 [ %56, %54 ], [ 92, %40 ], [ 92, %42 ], [ %.05.i.i, %57 ]
+  %74 = phi i32 [ %39, %54 ], [ 1114113, %40 ], [ %39, %42 ], [ 1114112, %57 ]
+  %75 = phi i8 [ %55, %54 ], [ %.ph, %40 ], [ 2, %42 ], [ %.ph, %57 ]
   %76 = trunc nuw nsw i32 %.0.i.ph.i6 to i8
   %77 = load i64, ptr %4, align 8, !alias.scope !479, !noalias !478, !noundef !9
   %78 = load i64, ptr %.0.val, align 8, !alias.scope !479, !noalias !478, !noundef !9
@@ -1611,9 +1611,9 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i: ; preds = %62
   br label %_ZN5alloc6string6String4push17h1a3e9179dd826612E.llvm.16954148956069160696.exit
 
 .critedge.i:                                      ; preds = %57, %40, %42, %54
-  %.0.i.ph.i6 = phi i32 [ 92, %40 ], [ 92, %42 ], [ %56, %54 ], [ %.05.i.i, %57 ]
-  %74 = phi i32 [ 1114113, %40 ], [ %39, %42 ], [ %39, %54 ], [ 1114112, %57 ]
-  %75 = phi i8 [ %.ph, %40 ], [ 2, %42 ], [ %55, %54 ], [ %.ph, %57 ]
+  %.0.i.ph.i6 = phi i32 [ %56, %54 ], [ 92, %40 ], [ 92, %42 ], [ %.05.i.i, %57 ]
+  %74 = phi i32 [ %39, %54 ], [ 1114113, %40 ], [ %39, %42 ], [ 1114112, %57 ]
+  %75 = phi i8 [ %55, %54 ], [ %.ph, %40 ], [ 2, %42 ], [ %.ph, %57 ]
   %76 = trunc nuw nsw i32 %.0.i.ph.i6 to i8
   %77 = load i64, ptr %4, align 8, !alias.scope !511, !noalias !510, !noundef !9
   %78 = load i64, ptr %.0.val, align 8, !alias.scope !511, !noalias !510, !noundef !9
@@ -5921,8 +5921,8 @@ _ZN6uucore8features6format4spec10eat_number17ha7f232b53e91ad11E.exit.thread.sink
   br label %_ZN6uucore8features6format4spec10eat_number17ha7f232b53e91ad11E.exit.thread
 
 _ZN6uucore8features6format4spec10eat_number17ha7f232b53e91ad11E.exit.thread: ; preds = %20, %_ZN6uucore8features6format4spec10eat_number17ha7f232b53e91ad11E.exit.thread.sink.split, %14, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h46d6c0177f7c991bE.exit.i"
-  %.sroa.4.0 = phi i64 [ undef, %14 ], [ undef, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h46d6c0177f7c991bE.exit.i" ], [ %.sroa.4.0.ph, %_ZN6uucore8features6format4spec10eat_number17ha7f232b53e91ad11E.exit.thread.sink.split ], [ undef, %20 ]
-  %.sroa.0.0 = phi i64 [ 2, %14 ], [ 2, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h46d6c0177f7c991bE.exit.i" ], [ %.sroa.0.0.ph, %_ZN6uucore8features6format4spec10eat_number17ha7f232b53e91ad11E.exit.thread.sink.split ], [ 2, %20 ]
+  %.sroa.4.0 = phi i64 [ undef, %14 ], [ %.sroa.4.0.ph, %_ZN6uucore8features6format4spec10eat_number17ha7f232b53e91ad11E.exit.thread.sink.split ], [ undef, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h46d6c0177f7c991bE.exit.i" ], [ undef, %20 ]
+  %.sroa.0.0 = phi i64 [ 2, %14 ], [ %.sroa.0.0.ph, %_ZN6uucore8features6format4spec10eat_number17ha7f232b53e91ad11E.exit.thread.sink.split ], [ 2, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h46d6c0177f7c991bE.exit.i" ], [ 2, %20 ]
   %47 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %48 = insertvalue { i64, i64 } %47, i64 %.sroa.4.0, 1
   ret { i64, i64 } %48

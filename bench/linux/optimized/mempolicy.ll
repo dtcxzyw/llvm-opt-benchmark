@@ -794,7 +794,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_set_memp
   br i1 %91, label %41, label %.loopexit12, !llvm.loop !25
 
 .loopexit12:                                      ; preds = %90, %.loopexit10, %41, %.preheader, %65
-  %92 = phi i32 [ %67, %65 ], [ %42, %.preheader ], [ %42, %41 ], [ %82, %90 ], [ -95, %.loopexit10 ]
+  %92 = phi i32 [ %67, %65 ], [ %42, %.preheader ], [ -95, %.loopexit10 ], [ %82, %90 ], [ %42, %41 ]
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_mmap_lock_released, i64 8), i32 2) #19
           to label %94 [label %93], !srcloc !14
 
@@ -1183,7 +1183,7 @@ select.unfold:                                    ; preds = %25, %22
   br label %.thread40.thread
 
 .thread40.thread:                                 ; preds = %149, %137, %.thread33, %143, %164
-  %173 = phi ptr [ %138, %164 ], [ %138, %143 ], [ %138, %137 ], [ %80, %.thread33 ], [ %138, %149 ]
+  %173 = phi ptr [ %80, %.thread33 ], [ %138, %164 ], [ %138, %143 ], [ %138, %137 ], [ %138, %149 ]
   call fastcc void @mmap_write_unlock(ptr noundef %37)
   %174 = load volatile ptr, ptr %10, align 8
   %175 = icmp eq ptr %174, %10
@@ -3844,7 +3844,7 @@ define dso_local i32 @mpol_misplaced(ptr noundef %0, ptr noundef %1, i64 noundef
   unreachable
 
 .loopexit:                                        ; preds = %115, %124, %127, %147, %136, %131, %99, %89
-  %158 = phi i32 [ %156, %147 ], [ -1, %136 ], [ %132, %131 ], [ %90, %89 ], [ %100, %99 ], [ %130, %127 ], [ 64, %124 ], [ %116, %115 ]
+  %158 = phi i32 [ %156, %147 ], [ -1, %136 ], [ %132, %131 ], [ 64, %124 ], [ %90, %89 ], [ %100, %99 ], [ %130, %127 ], [ %116, %115 ]
   %159 = load i16, ptr %75, align 2
   %160 = and i16 %159, 16
   %161 = icmp eq i16 %160, 0
@@ -4302,7 +4302,7 @@ define dso_local range(i32 -12, 1) i32 @mpol_set_shared_policy(ptr noundef %0, p
   br i1 %57, label %.preheader, label %.thread24.preheader
 
 .thread24.preheader:                              ; preds = %46, %.preheader, %54, %33
-  %.ph163 = phi ptr [ null, %33 ], [ %51, %.preheader ], [ %51, %54 ], [ null, %46 ]
+  %.ph163 = phi ptr [ %51, %.preheader ], [ null, %33 ], [ %51, %54 ], [ null, %46 ]
   br label %.thread24
 
 .thread24:                                        ; preds = %.thread24.preheader, %123

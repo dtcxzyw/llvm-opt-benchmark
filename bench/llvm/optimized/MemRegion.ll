@@ -9103,7 +9103,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store ptr %.0.i.i.i.i17.i, ptr %237, align 8, !tbaa !760
   br label %_ZN5clang4ento16MemRegionManager16getGlobalsRegionENS0_9MemRegion4KindEPKNS0_14CodeTextRegionE.exit
 
-_ZNK5clang7VarDecl13isStaticLocalEv.exit.thread194: ; preds = %156, %139, %_ZNK5clang7VarDecl13isStaticLocalEv.exit, %.critedge.thread
+_ZNK5clang7VarDecl13isStaticLocalEv.exit.thread194: ; preds = %139, %156, %_ZNK5clang7VarDecl13isStaticLocalEv.exit, %.critedge.thread
   %264 = getelementptr inbounds nuw i8, ptr %130, i64 16
   %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %264, align 8
   %265 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, 4
@@ -9689,7 +9689,7 @@ _ZN5clang4ento16MemRegionManager16getGlobalsRegionENS0_9MemRegion4KindEPKNS0_14C
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZL37getStackOrCaptureRegionForDeclContextPKN5clang15LocationContextEPKNS_11DeclContextEPKNS_7VarDeclE.exit, %92, %_ZN5clang4ento16MemRegionManager23getStackArgumentsRegionEPKNS_17StackFrameContextE.exit106, %_ZN5clang4ento16MemRegionManager23getStackArgumentsRegionEPKNS_17StackFrameContextE.exit, %_ZN5clang4ento16MemRegionManager16getGlobalsRegionENS0_9MemRegion4KindEPKNS0_14CodeTextRegionE.exit
-  %.6 = phi ptr [ %126, %_ZN5clang4ento16MemRegionManager23getStackArgumentsRegionEPKNS_17StackFrameContextE.exit106 ], [ %568, %_ZN5clang4ento16MemRegionManager16getGlobalsRegionENS0_9MemRegion4KindEPKNS0_14CodeTextRegionE.exit ], [ %77, %_ZN5clang4ento16MemRegionManager23getStackArgumentsRegionEPKNS_17StackFrameContextE.exit ], [ %94, %92 ], [ %323, %_ZL37getStackOrCaptureRegionForDeclContextPKN5clang15LocationContextEPKNS_11DeclContextEPKNS_7VarDeclE.exit ]
+  %.6 = phi ptr [ %94, %92 ], [ %568, %_ZN5clang4ento16MemRegionManager16getGlobalsRegionENS0_9MemRegion4KindEPKNS0_14CodeTextRegionE.exit ], [ %126, %_ZN5clang4ento16MemRegionManager23getStackArgumentsRegionEPKNS_17StackFrameContextE.exit106 ], [ %77, %_ZN5clang4ento16MemRegionManager23getStackArgumentsRegionEPKNS_17StackFrameContextE.exit ], [ %323, %_ZL37getStackOrCaptureRegionForDeclContextPKN5clang15LocationContextEPKNS_11DeclContextEPKNS_7VarDeclE.exit ]
   ret ptr %.6
 }
 
@@ -12628,7 +12628,7 @@ define dso_local noundef nonnull ptr @_ZNK5clang4ento9MemRegion10StripCastsEb(pt
   br i1 %cond, label %.lr.ph, label %.split18.us, !llvm.loop !813
 
 .split18.us:                                      ; preds = %.lr.ph, %.thread, %.split.us, %8, %.split.preheader
-  %.us-phi = phi ptr [ %0, %.split.preheader ], [ %.012.us, %.split.us ], [ %.012.us, %8 ], [ %.214, %.thread ], [ %.01225, %.lr.ph ]
+  %.us-phi = phi ptr [ %0, %.split.preheader ], [ %.012.us, %.split.us ], [ %.012.us, %8 ], [ %.01225, %.lr.ph ], [ %.214, %.thread ]
   ret ptr %.us-phi
 }
 
@@ -13038,17 +13038,6 @@ _ZNK5clang15ASTRecordLayout18getBaseClassOffsetEPKNS_13CXXRecordDeclE.exit.i: ; 
   %132 = mul i64 %131, %storemerge.i
   br label %.outer.i.outer.backedge
 
-.outer.i.outer.backedge:                          ; preds = %.thread.i, %.thread145.i, %_ZNK4llvm5APInt12getSExtValueEv.exit.i
-  %.pn = phi i64 [ %170, %_ZNK4llvm5APInt12getSExtValueEv.exit.i ], [ %226, %.thread145.i ], [ %132, %.thread.i ]
-  %.0.ph.i.ph84.be = phi ptr [ %135, %_ZNK4llvm5APInt12getSExtValueEv.exit.i ], [ %173, %.thread145.i ], [ %14, %.thread.i ]
-  %.074.ph.i.ph.be = add i64 %.pn, %.074.ph.i.ph
-  br label %.outer.i.outer, !llvm.loop !814
-
-.outer.i.outer:                                   ; preds = %1, %.outer.i.outer.backedge
-  %.074.ph.i.ph = phi i64 [ %.074.ph.i.ph.be, %.outer.i.outer.backedge ], [ 0, %1 ]
-  %.0.ph.i.ph84 = phi ptr [ %.0.ph.i.ph84.be, %.outer.i.outer.backedge ], [ %0, %1 ]
-  br label %.outer.i
-
 .backedge.i:                                      ; preds = %193, %146, %133, %_ZL15isImmediateBasePKN5clang13CXXRecordDeclES2_.exit.i, %58, %56
   %.072.be.i = phi ptr [ %14, %58 ], [ %.7.i, %193 ], [ %.3.i, %_ZL15isImmediateBasePKN5clang13CXXRecordDeclES2_.exit.i ], [ %14, %56 ], [ %135, %133 ], [ %.072.i, %146 ]
   %.0.be.i = phi ptr [ %14, %58 ], [ %173, %193 ], [ %14, %_ZL15isImmediateBasePKN5clang13CXXRecordDeclES2_.exit.i ], [ %14, %56 ], [ %135, %133 ], [ %135, %146 ]
@@ -13112,6 +13101,17 @@ _ZNK4llvm5APInt12getSExtValueEv.exit.i:           ; preds = %159, %152
   %169 = extractvalue { i64, i64 } %168, 0
   %170 = mul i64 %169, %.0.i.i
   br label %.outer.i.outer.backedge
+
+.outer.i.outer.backedge:                          ; preds = %_ZNK4llvm5APInt12getSExtValueEv.exit.i, %.thread.i, %.thread145.i
+  %.pn = phi i64 [ %226, %.thread145.i ], [ %132, %.thread.i ], [ %170, %_ZNK4llvm5APInt12getSExtValueEv.exit.i ]
+  %.0.ph.i.ph84.be = phi ptr [ %173, %.thread145.i ], [ %14, %.thread.i ], [ %135, %_ZNK4llvm5APInt12getSExtValueEv.exit.i ]
+  %.074.ph.i.ph.be = add i64 %.pn, %.074.ph.i.ph
+  br label %.outer.i.outer, !llvm.loop !814
+
+.outer.i.outer:                                   ; preds = %1, %.outer.i.outer.backedge
+  %.074.ph.i.ph = phi i64 [ %.074.ph.i.ph.be, %.outer.i.outer.backedge ], [ 0, %1 ]
+  %.0.ph.i.ph84 = phi ptr [ %.0.ph.i.ph84.be, %.outer.i.outer.backedge ], [ %0, %1 ]
+  br label %.outer.i
 
 171:                                              ; preds = %8
   %172 = getelementptr inbounds nuw i8, ptr %.0.i, i64 48

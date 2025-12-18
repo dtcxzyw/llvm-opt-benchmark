@@ -681,7 +681,7 @@ switch.early.test80:                              ; preds = %75
   br label %103
 
 ._crit_edge:                                      ; preds = %64, %92, %36, %13
-  %.051.lcssa = phi ptr [ %12, %13 ], [ %95, %92 ], [ %39, %36 ], [ %67, %64 ]
+  %.051.lcssa = phi ptr [ %12, %13 ], [ %39, %36 ], [ %95, %92 ], [ %67, %64 ]
   store i8 0, ptr %.051.lcssa, align 1, !tbaa !7
   %.not69 = icmp eq ptr %3, null
   br i1 %.not69, label %103, label %98

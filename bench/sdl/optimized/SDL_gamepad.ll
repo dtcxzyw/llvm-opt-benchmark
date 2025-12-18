@@ -4678,8 +4678,8 @@ SDL_UpdateGamepadFaceStyle.exit:                  ; preds = %102, %110, %117, %.
   br label %146
 
 146:                                              ; preds = %.fold.split.i, %142, %133, %126, %.lr.ph.i
-  %.123.i = phi i1 [ false, %142 ], [ true, %126 ], [ true, %133 ], [ false, %.lr.ph.i ], [ %.02230.i, %.fold.split.i ]
-  %.1.i = phi i32 [ %145, %142 ], [ 0, %126 ], [ %136, %133 ], [ 0, %.lr.ph.i ], [ %.02131.i, %.fold.split.i ]
+  %.123.i = phi i1 [ false, %142 ], [ false, %.lr.ph.i ], [ true, %126 ], [ true, %133 ], [ %.02230.i, %.fold.split.i ]
+  %.1.i = phi i32 [ %145, %142 ], [ 0, %.lr.ph.i ], [ 0, %126 ], [ %136, %133 ], [ %.02131.i, %.fold.split.i ]
   %147 = getelementptr inbounds nuw i8, ptr %.032.i, i64 1
   br label %.lr.ph.i
 
@@ -4820,7 +4820,7 @@ SDL_PrivateParseGamepadConfigString.exit:         ; preds = %SDL_UpdateGamepadFa
   br i1 %209, label %.lr.ph46.i, label %SDL_FixupHIDAPIMapping.exit, !llvm.loop !45
 
 SDL_FixupHIDAPIMapping.exit:                      ; preds = %176, %206, %172, %169, %SDL_PrivateParseGamepadConfigString.exit
-  %210 = phi i32 [ %.pre, %SDL_PrivateParseGamepadConfigString.exit ], [ %.pre, %172 ], [ %.pre, %169 ], [ %207, %206 ], [ %.pre, %176 ]
+  %210 = phi i32 [ %207, %206 ], [ %.pre, %SDL_PrivateParseGamepadConfigString.exit ], [ %.pre, %172 ], [ %.pre, %169 ], [ %.pre, %176 ]
   %211 = icmp sgt i32 %210, 0
   br i1 %211, label %.lr.ph, label %._crit_edge
 
@@ -7389,7 +7389,7 @@ define internal fastcc ptr @SDL_PrivateMatchGamepadMappingForGUID(i64 %0, i64 %1
   br label %.thread
 
 .thread38:                                        ; preds = %53, %74, %69, %19, %40, %35
-  %.us-phi = phi ptr [ null, %74 ], [ %.01847.us, %35 ], [ %.01847.us.us, %19 ], [ null, %40 ], [ %.01847, %69 ], [ %.01847.us50, %53 ]
+  %.us-phi = phi ptr [ null, %74 ], [ %.01847.us.us, %19 ], [ %.01847.us, %35 ], [ null, %40 ], [ %.01847, %69 ], [ %.01847.us50, %53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit
 
@@ -7402,7 +7402,7 @@ define internal fastcc ptr @SDL_PrivateMatchGamepadMappingForGUID(i64 %0, i64 %1
   br i1 %.not, label %.loopexit, label %.lr.ph.split.split, !llvm.loop !63
 
 .loopexit:                                        ; preds = %.thread.us58, %.thread, %.thread.us.us, %.thread.us, %.thread82, %9, %.thread38
-  %.5 = phi ptr [ %.us-phi, %.thread38 ], [ null, %9 ], [ null, %.thread82 ], [ %.12335, %.thread ], [ %.12335.us, %.thread.us ], [ %.12335.us.us, %.thread.us.us ], [ %.12335.us59, %.thread.us58 ]
+  %.5 = phi ptr [ %.us-phi, %.thread38 ], [ null, %9 ], [ %.12335.us, %.thread.us ], [ null, %.thread82 ], [ %.12335.us.us, %.thread.us.us ], [ %.12335, %.thread ], [ %.12335.us59, %.thread.us58 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.5
 }
@@ -7726,7 +7726,7 @@ switch.lookup:                                    ; preds = %39
   br label %SDL_PrivateGetGamepadButtonFromString.exit
 
 SDL_PrivateGetGamepadButtonFromString.exit:       ; preds = %42, %switch.lookup, %SDL_GetGamepadAxisFromString_REAL.exit, %37, %38, %41
-  %.011.i84 = phi i32 [ %switch.load, %switch.lookup ], [ %36, %41 ], [ 1, %38 ], [ 2, %37 ], [ -1, %SDL_GetGamepadAxisFromString_REAL.exit ], [ -1, %42 ]
+  %.011.i84 = phi i32 [ %switch.load, %switch.lookup ], [ %36, %41 ], [ -1, %SDL_GetGamepadAxisFromString_REAL.exit ], [ 1, %38 ], [ 2, %37 ], [ -1, %42 ]
   %.not74 = icmp eq i32 %.011.i.ph, -1
   br i1 %.not74, label %55, label %43
 

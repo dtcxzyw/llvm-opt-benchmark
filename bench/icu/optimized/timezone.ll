@@ -4137,7 +4137,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_778TimeZone12get
   br i1 %.not85, label %68, label %.preheader107.backedge
 
 .preheader107.backedge:                           ; preds = %67, %.loopexit
-  %.157.be = phi i8 [ %.3, %.loopexit ], [ 0, %67 ]
+  %.157.be = phi i8 [ 0, %67 ], [ %.3, %.loopexit ]
   br label %.preheader107, !llvm.loop !57
 
 68:                                               ; preds = %67
@@ -5067,8 +5067,8 @@ _ZNK6icu_7713UnicodeString7compareENS_14ConstChar16PtrEi.exit: ; preds = %48
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread80
 
-.thread80:                                        ; preds = %103, %92, %.critedge, %70, %_ZNK6icu_7713UnicodeString7compareENS_14ConstChar16PtrEi.exit, %.thread72
-  %.25583 = phi i32 [ %104, %.thread72 ], [ %.05394, %_ZNK6icu_7713UnicodeString7compareENS_14ConstChar16PtrEi.exit ], [ %.05394, %70 ], [ %.05394, %.critedge ], [ %.05394, %92 ], [ %.05394, %103 ]
+.thread80:                                        ; preds = %103, %92, %.critedge, %70, %.thread72, %_ZNK6icu_7713UnicodeString7compareENS_14ConstChar16PtrEi.exit
+  %.25583 = phi i32 [ %.05394, %_ZNK6icu_7713UnicodeString7compareENS_14ConstChar16PtrEi.exit ], [ %104, %.thread72 ], [ %.05394, %70 ], [ %.05394, %.critedge ], [ %.05394, %92 ], [ %.05394, %103 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %107 = add nuw nsw i32 %.05295, 1

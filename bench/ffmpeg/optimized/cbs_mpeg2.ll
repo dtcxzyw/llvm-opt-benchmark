@@ -2077,7 +2077,7 @@ cbs_mpeg2_read_picture_display_extension.exit.i:  ; preds = %704, %694, %685, %7
   br label %.thread
 
 cbs_mpeg2_read_extension_data.exit:               ; preds = %534, %603, %cbs_mpeg2_read_quant_matrix_extension.exit.i, %cbs_mpeg2_read_picture_display_extension.exit.i
-  %.133.i = phi i32 [ %spec.select.i.i, %534 ], [ %.181.i.i, %cbs_mpeg2_read_quant_matrix_extension.exit.i ], [ %.242.i.i, %cbs_mpeg2_read_picture_display_extension.exit.i ], [ %spec.select.i36.i, %603 ]
+  %.133.i = phi i32 [ %spec.select.i36.i, %603 ], [ %.242.i.i, %cbs_mpeg2_read_picture_display_extension.exit.i ], [ %spec.select.i.i, %534 ], [ %.181.i.i, %cbs_mpeg2_read_quant_matrix_extension.exit.i ]
   %883 = icmp sgt i32 %.133.i, -1
   br i1 %883, label %cbs_mpeg2_read_extension_data.exit.thread103, label %.thread
 
@@ -2997,7 +2997,7 @@ cbs_mpeg2_write_user_data.exit.i:                 ; preds = %365, %361, %.prehea
   br i1 %463, label %cbs_mpeg2_write_sequence_header.exit.i, label %456
 
 cbs_mpeg2_write_sequence_header.exit.i:           ; preds = %440, %457, %456, %452, %.loopexit99.i.i, %429, %423, %417, %414, %409, %403, %394, %388, %382, %373
-  %.0.i23.i = phi i32 [ %415, %414 ], [ %380, %373 ], [ %386, %382 ], [ %392, %388 ], [ %401, %394 ], [ %407, %403 ], [ %412, %409 ], [ %421, %417 ], [ %427, %423 ], [ %433, %429 ], [ %450, %.loopexit99.i.i ], [ 0, %452 ], [ %462, %457 ], [ 0, %456 ], [ %445, %440 ]
+  %.0.i23.i = phi i32 [ %415, %414 ], [ %380, %373 ], [ %386, %382 ], [ %392, %388 ], [ %401, %394 ], [ %407, %403 ], [ %412, %409 ], [ %421, %417 ], [ %427, %423 ], [ %433, %429 ], [ %462, %457 ], [ %450, %.loopexit99.i.i ], [ 0, %452 ], [ 0, %456 ], [ %445, %440 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %cbs_mpeg2_write_slice.exit
@@ -3383,7 +3383,7 @@ cbs_mpeg2_write_sequence_header.exit.i:           ; preds = %440, %457, %456, %4
   br i1 %688, label %cbs_mpeg2_write_quant_matrix_extension.exit.i.i, label %681
 
 cbs_mpeg2_write_quant_matrix_extension.exit.i.i:  ; preds = %631, %648, %665, %682, %681, %677, %.loopexit74.i.i.i, %.loopexit77.i.i.i, %.loopexit80.i.i.i, %620
-  %.061.i.i.i = phi i32 [ 0, %677 ], [ %624, %620 ], [ %641, %.loopexit80.i.i.i ], [ %658, %.loopexit77.i.i.i ], [ %675, %.loopexit74.i.i.i ], [ %653, %648 ], [ %687, %682 ], [ %670, %665 ], [ 0, %681 ], [ %636, %631 ]
+  %.061.i.i.i = phi i32 [ 0, %677 ], [ %624, %620 ], [ %653, %648 ], [ %641, %.loopexit80.i.i.i ], [ %670, %665 ], [ %658, %.loopexit77.i.i.i ], [ %687, %682 ], [ %675, %.loopexit74.i.i.i ], [ 0, %681 ], [ %636, %631 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -3971,7 +3971,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_mpeg2_read_extra_infor
   br label %.loopexit
 
 .loopexit:                                        ; preds = %41, %48, %._crit_edge, %32
-  %.045 = phi i32 [ %46, %48 ], [ -12, %32 ], [ %spec.select, %._crit_edge ], [ %42, %41 ]
+  %.045 = phi i32 [ %46, %48 ], [ %spec.select, %._crit_edge ], [ -12, %32 ], [ %42, %41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.045
 }

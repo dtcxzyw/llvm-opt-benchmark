@@ -2249,7 +2249,7 @@ _ZNK11ast_manager10is_impliesEPK4exprRPS0_S4_.exit.thread.fold.split: ; preds = 
   br label %_ZNK11ast_manager10is_impliesEPK4exprRPS0_S4_.exit.thread
 
 _ZNK11ast_manager10is_impliesEPK4exprRPS0_S4_.exit.thread: ; preds = %3, %_Z9is_forallPK3ast.exit, %_ZNK3hnf3imp12is_predicateEP4expr.exit.thread29, %_ZNK11ast_manager10is_impliesEPK4exprRPS0_S4_.exit.thread.fold.split, %36, %27, %12, %_ZNK11ast_manager10is_impliesEPK4expr.exit.i, %23, %.loopexit, %_ZNK3hnf3imp12is_predicateEP4expr.exit, %.critedge, %_ZNK3hnf3imp12is_predicateEP4expr.exit20.thread
-  %.015 = phi i1 [ false, %_ZNK3hnf3imp12is_predicateEP4expr.exit20.thread ], [ true, %_ZNK3hnf3imp12is_predicateEP4expr.exit.thread29 ], [ true, %.critedge ], [ false, %.loopexit ], [ false, %_ZNK3hnf3imp12is_predicateEP4expr.exit ], [ false, %23 ], [ false, %_ZNK11ast_manager10is_impliesEPK4expr.exit.i ], [ false, %12 ], [ false, %27 ], [ false, %36 ], [ false, %_ZNK11ast_manager10is_impliesEPK4exprRPS0_S4_.exit.thread.fold.split ], [ false, %_Z9is_forallPK3ast.exit ], [ false, %3 ]
+  %.015 = phi i1 [ false, %_ZNK3hnf3imp12is_predicateEP4expr.exit20.thread ], [ true, %_ZNK3hnf3imp12is_predicateEP4expr.exit.thread29 ], [ false, %36 ], [ true, %.critedge ], [ false, %.loopexit ], [ false, %_ZNK3hnf3imp12is_predicateEP4expr.exit ], [ false, %_ZNK11ast_manager10is_impliesEPK4exprRPS0_S4_.exit.thread.fold.split ], [ false, %23 ], [ false, %_ZNK11ast_manager10is_impliesEPK4expr.exit.i ], [ false, %27 ], [ false, %12 ], [ false, %_Z9is_forallPK3ast.exit ], [ false, %3 ]
   ret i1 %.015
 }
 
@@ -6884,7 +6884,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.
   br i1 %.not27.old.i.i.i, label %.loopexit228, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %186, %183
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %186 ], [ %185, %183 ]
+  %.137.i.i.i.be = phi ptr [ %185, %183 ], [ %.old.i.i.i, %186 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !256
 
 .loopexit227:                                     ; preds = %167, %178

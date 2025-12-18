@@ -2297,7 +2297,7 @@ if.end99:                                         ; preds = %for.end86
   br label %return
 
 return:                                           ; preds = %if.end, %if.end20, %if.end47, %if.end79, %if.end99, %for.end86, %if.end67, %for.end54, %if.end35, %for.end27, %if.end8, %for.end
-  %retval.0 = phi i1 [ false, %for.end ], [ false, %for.end27 ], [ false, %for.end54 ], [ %cmp100.not, %if.end99 ], [ false, %for.end86 ], [ false, %if.end67 ], [ false, %if.end35 ], [ false, %if.end8 ], [ false, %if.end20 ], [ false, %if.end79 ], [ false, %if.end47 ], [ false, %if.end ]
+  %retval.0 = phi i1 [ false, %if.end20 ], [ false, %for.end ], [ false, %if.end47 ], [ false, %for.end27 ], [ false, %if.end79 ], [ false, %for.end54 ], [ false, %if.end8 ], [ %cmp100.not, %if.end99 ], [ false, %for.end86 ], [ false, %if.end67 ], [ false, %if.end35 ], [ false, %if.end ]
   ret i1 %retval.0
 }
 
@@ -2566,7 +2566,7 @@ if.end103:                                        ; preds = %for.end90
   br label %return
 
 return:                                           ; preds = %if.end, %if.end22, %if.end50, %if.end83, %if.end103, %for.end90, %if.end70, %for.end57, %if.end37, %for.end29, %if.end9, %for.end
-  %retval.0 = phi i1 [ false, %for.end ], [ false, %for.end29 ], [ false, %for.end57 ], [ %cmp104.not, %if.end103 ], [ false, %for.end90 ], [ false, %if.end70 ], [ false, %if.end37 ], [ false, %if.end9 ], [ false, %if.end22 ], [ false, %if.end83 ], [ false, %if.end50 ], [ false, %if.end ]
+  %retval.0 = phi i1 [ false, %if.end22 ], [ false, %for.end ], [ false, %if.end50 ], [ false, %for.end29 ], [ false, %if.end83 ], [ false, %for.end57 ], [ false, %if.end9 ], [ %cmp104.not, %if.end103 ], [ false, %for.end90 ], [ false, %if.end70 ], [ false, %if.end37 ], [ false, %if.end ]
   ret i1 %retval.0
 }
 

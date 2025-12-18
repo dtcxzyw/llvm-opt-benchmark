@@ -936,8 +936,8 @@ bytestream2_get_byte.exit209.us.i:                ; preds = %431, %428
   br label %433
 
 .loopexit.us.i:                                   ; preds = %372, %.preheader.us.i, %433
-  %.sroa.0.10.us.i = phi i32 [ %.sroa.0.5.us.i, %.preheader.us.i ], [ %.sroa.0.5.us.i, %433 ], [ %.sroa.0.9.us.i, %372 ]
-  %.sroa.28.10.us.i = phi i32 [ %.sroa.28.5.us.i, %.preheader.us.i ], [ %.sroa.28.5.us.i, %433 ], [ %.sroa.28.9.us.i, %372 ]
+  %.sroa.0.10.us.i = phi i32 [ %.sroa.0.5.us.i, %433 ], [ %.sroa.0.5.us.i, %.preheader.us.i ], [ %.sroa.0.9.us.i, %372 ]
+  %.sroa.28.10.us.i = phi i32 [ %.sroa.28.5.us.i, %433 ], [ %.sroa.28.5.us.i, %.preheader.us.i ], [ %.sroa.28.9.us.i, %372 ]
   %432 = add nuw nsw i32 %.1178284.us.i, 1
   %exitcond305.not.i = icmp eq i32 %432, 4
   br i1 %exitcond305.not.i, label %.loopexit262.us.i, label %.preheader263.us.i, !llvm.loop !62
@@ -1582,8 +1582,8 @@ bytestream2_get_byte.exit234.us.i:                ; preds = %779, %776
   br label %781
 
 .loopexit.us.i101:                                ; preds = %717, %.preheader.us.i107, %781
-  %.sroa.0.11.us.i102 = phi i32 [ %.sroa.0.6.us.i, %.preheader.us.i107 ], [ %.sroa.0.6.us.i, %781 ], [ %.sroa.0.10.us.i99, %717 ]
-  %.sroa.33.11.us.i = phi i32 [ %.sroa.33.6.us.i, %.preheader.us.i107 ], [ %.sroa.33.6.us.i, %781 ], [ %.sroa.33.10.us.i, %717 ]
+  %.sroa.0.11.us.i102 = phi i32 [ %.sroa.0.6.us.i, %781 ], [ %.sroa.0.6.us.i, %.preheader.us.i107 ], [ %.sroa.0.10.us.i99, %717 ]
+  %.sroa.33.11.us.i = phi i32 [ %.sroa.33.6.us.i, %781 ], [ %.sroa.33.6.us.i, %.preheader.us.i107 ], [ %.sroa.33.10.us.i, %717 ]
   %780 = add nuw nsw i32 %.2200317.us.i, 1
   %exitcond342.not.i = icmp eq i32 %780, 4
   br i1 %exitcond342.not.i, label %.loopexit291.us.i, label %.preheader294.us.i, !llvm.loop !69
@@ -1687,8 +1687,8 @@ bytestream2_get_byte.exit240.us.i:                ; preds = %834, %831
   br label %837
 
 .loopexit291.us.i:                                ; preds = %.loopexit.us.i101, %.preheader292.us.i, %837
-  %.sroa.0.12.us.i = phi i32 [ %.sroa.0.3.us.i, %.preheader292.us.i ], [ %.sroa.0.3.us.i, %837 ], [ %.sroa.0.11.us.i102, %.loopexit.us.i101 ]
-  %.sroa.33.12.us.i = phi i32 [ %.sroa.33.3.us.i, %.preheader292.us.i ], [ %.sroa.33.3.us.i, %837 ], [ %.sroa.33.11.us.i, %.loopexit.us.i101 ]
+  %.sroa.0.12.us.i = phi i32 [ %.sroa.0.3.us.i, %837 ], [ %.sroa.0.3.us.i, %.preheader292.us.i ], [ %.sroa.0.11.us.i102, %.loopexit.us.i101 ]
+  %.sroa.33.12.us.i = phi i32 [ %.sroa.33.3.us.i, %837 ], [ %.sroa.33.3.us.i, %.preheader292.us.i ], [ %.sroa.33.11.us.i, %.loopexit.us.i101 ]
   %835 = add nuw nsw i32 %.0196322.us.i, 8
   %836 = icmp slt i32 %835, %470
   br i1 %836, label %487, label %._crit_edge.us.i103, !llvm.loop !72

@@ -207,9 +207,9 @@ define void @dorgql_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %exitcond.not, label %.loopexit217, label %.lr.ph.us, !llvm.loop !9
 
 .loopexit217:                                     ; preds = %.lr.ph.us, %74, %._crit_edge, %70
-  %100 = phi i32 [ %.fr193, %70 ], [ %.pre247, %._crit_edge ], [ %.fr193, %74 ], [ %.fr193, %.lr.ph.us ]
-  %101 = phi i32 [ %.pre246, %70 ], [ %.pre245, %._crit_edge ], [ %.pre246, %74 ], [ %.pre246, %.lr.ph.us ]
-  %.0170 = phi i32 [ 0, %70 ], [ 0, %._crit_edge ], [ %80, %74 ], [ %80, %.lr.ph.us ]
+  %100 = phi i32 [ %.pre247, %._crit_edge ], [ %.fr193, %70 ], [ %.fr193, %74 ], [ %.fr193, %.lr.ph.us ]
+  %101 = phi i32 [ %.pre245, %._crit_edge ], [ %.pre246, %70 ], [ %.pre246, %74 ], [ %.pre246, %.lr.ph.us ]
+  %.0170 = phi i32 [ 0, %._crit_edge ], [ 0, %70 ], [ %80, %74 ], [ %80, %.lr.ph.us ]
   %102 = load i32, ptr %0, align 4, !tbaa !3
   %103 = sub nsw i32 %102, %.0170
   store i32 %103, ptr %10, align 4, !tbaa !3

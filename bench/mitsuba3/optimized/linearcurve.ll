@@ -1037,10 +1037,10 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIfEEEENS_19__allocation_re
   br i1 %330, label %.preheader, label %.outer._crit_edge, !llvm.loop !9
 
 .outer._crit_edge:                                ; preds = %_ZZN7mitsuba11LinearCurveIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEC1ERKNS_10PropertiesEENKUlvE_clEv.exit, %329, %_ZNSt3__16vectorImNS_9allocatorImEEE7reserveEm.exit
-  %331 = phi ptr [ %103, %_ZNSt3__16vectorImNS_9allocatorImEEE7reserveEm.exit ], [ %298, %329 ], [ %134, %_ZZN7mitsuba11LinearCurveIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEC1ERKNS_10PropertiesEENKUlvE_clEv.exit ]
-  %332 = phi ptr [ %103, %_ZNSt3__16vectorImNS_9allocatorImEEE7reserveEm.exit ], [ %.0.i369, %329 ], [ %135, %_ZZN7mitsuba11LinearCurveIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEC1ERKNS_10PropertiesEENKUlvE_clEv.exit ]
-  %.0537.ph.lcssa580 = phi i64 [ 0, %_ZNSt3__16vectorImNS_9allocatorImEEE7reserveEm.exit ], [ %.0537.ph590, %329 ], [ %.1, %_ZZN7mitsuba11LinearCurveIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEC1ERKNS_10PropertiesEENKUlvE_clEv.exit ]
-  %.0538.lcssa = phi i1 [ true, %_ZNSt3__16vectorImNS_9allocatorImEEE7reserveEm.exit ], [ false, %329 ], [ true, %_ZZN7mitsuba11LinearCurveIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEC1ERKNS_10PropertiesEENKUlvE_clEv.exit ]
+  %331 = phi ptr [ %298, %329 ], [ %103, %_ZNSt3__16vectorImNS_9allocatorImEEE7reserveEm.exit ], [ %134, %_ZZN7mitsuba11LinearCurveIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEC1ERKNS_10PropertiesEENKUlvE_clEv.exit ]
+  %332 = phi ptr [ %.0.i369, %329 ], [ %103, %_ZNSt3__16vectorImNS_9allocatorImEEE7reserveEm.exit ], [ %135, %_ZZN7mitsuba11LinearCurveIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEC1ERKNS_10PropertiesEENKUlvE_clEv.exit ]
+  %.0537.ph.lcssa580 = phi i64 [ %.0537.ph590, %329 ], [ 0, %_ZNSt3__16vectorImNS_9allocatorImEEE7reserveEm.exit ], [ %.1, %_ZZN7mitsuba11LinearCurveIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEC1ERKNS_10PropertiesEENKUlvE_clEv.exit ]
+  %.0538.lcssa = phi i1 [ false, %329 ], [ true, %_ZNSt3__16vectorImNS_9allocatorImEEE7reserveEm.exit ], [ true, %_ZZN7mitsuba11LinearCurveIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEC1ERKNS_10PropertiesEENKUlvE_clEv.exit ]
   %333 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %334 = load ptr, ptr %333, align 8
   %335 = load ptr, ptr %14, align 8

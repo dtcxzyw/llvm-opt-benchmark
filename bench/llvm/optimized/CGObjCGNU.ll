@@ -3996,7 +3996,7 @@ _ZNK5clang13StringLiteral11getCodeUnitEm.exit.us184: ; preds = %.lr.ph, %_ZNK5cl
   br i1 %exitcond.not, label %._crit_edge, label %_ZNK5clang13StringLiteral11getCodeUnitEm.exit.us184, !llvm.loop !620
 
 ._crit_edge:                                      ; preds = %_ZNK5clang13StringLiteral11getCodeUnitEm.exit.us184, %_ZNK5clang13StringLiteral11getCodeUnitEm.exit.us176, %_ZNK5clang13StringLiteral11getCodeUnitEm.exit.us, %.preheader
-  %.060.lcssa = phi i64 [ 0, %.preheader ], [ %91, %_ZNK5clang13StringLiteral11getCodeUnitEm.exit.us176 ], [ %84, %_ZNK5clang13StringLiteral11getCodeUnitEm.exit.us ], [ %98, %_ZNK5clang13StringLiteral11getCodeUnitEm.exit.us184 ]
+  %.060.lcssa = phi i64 [ 0, %.preheader ], [ %84, %_ZNK5clang13StringLiteral11getCodeUnitEm.exit.us ], [ %91, %_ZNK5clang13StringLiteral11getCodeUnitEm.exit.us176 ], [ %98, %_ZNK5clang13StringLiteral11getCodeUnitEm.exit.us184 ]
   %99 = shl nuw nsw i32 %64, 3
   %100 = or disjoint i32 %99, 4
   %101 = zext nneg i32 %100 to i64
@@ -20115,8 +20115,8 @@ _ZN4llvm16DenseMapIteratorIN5clang8SelectorENS_11SmallVectorISt4pairINSt7__cxx11
   br i1 %.not65.i, label %._crit_edge.i, label %.lr.ph.i64
 
 ._crit_edge83.i:                                  ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit34.i, %._crit_edge.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang8SelectorENS_11SmallVectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_11GlobalAliasEELj2EEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_SF_EEEES3_SF_SH_SK_E5beginEv.exit.i
-  %.sroa.14.0.lcssa127136.i = phi i64 [ %617, %._crit_edge.i ], [ 0, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang8SelectorENS_11SmallVectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_11GlobalAliasEELj2EEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_SF_EEEES3_SF_SH_SK_E5beginEv.exit.i ], [ %617, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit34.i ]
-  %.sroa.056.0.lcssa129135.i = phi ptr [ %.sroa.056.1.i, %._crit_edge.i ], [ null, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang8SelectorENS_11SmallVectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_11GlobalAliasEELj2EEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_SF_EEEES3_SF_SH_SK_E5beginEv.exit.i ], [ %.sroa.056.1.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit34.i ]
+  %.sroa.14.0.lcssa127136.i = phi i64 [ 0, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang8SelectorENS_11SmallVectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_11GlobalAliasEELj2EEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_SF_EEEES3_SF_SH_SK_E5beginEv.exit.i ], [ %617, %._crit_edge.i ], [ %617, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit34.i ]
+  %.sroa.056.0.lcssa129135.i = phi ptr [ null, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang8SelectorENS_11SmallVectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_11GlobalAliasEELj2EEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_SF_EEEES3_SF_SH_SK_E5beginEv.exit.i ], [ %.sroa.056.1.i, %._crit_edge.i ], [ %.sroa.056.1.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit34.i ]
   %663 = load ptr, ptr %25, align 8, !tbaa !492
   %664 = getelementptr inbounds nuw i8, ptr %663, i64 16
   %665 = load i32, ptr %664, align 8, !tbaa !385
@@ -32768,7 +32768,7 @@ _ZN5clang11DeclContext22filtered_decl_iteratorINS_14ObjCMethodDeclEXadL_ZNKS2_16
   br i1 %.not41, label %._crit_edge, label %.lr.ph, !llvm.loop !1895
 
 _ZSt4copyIN5clang11DeclContext22filtered_decl_iteratorINS0_14ObjCMethodDeclEXadL_ZNKS3_16isInstanceMethodEvEEEEPPKS3_ET0_T_S9_S8_.exit: ; preds = %_ZN5clang11DeclContext22filtered_decl_iteratorINS_14ObjCMethodDeclEXadL_ZNKS2_16isInstanceMethodEvEEEppEv.exit.i.i.i.i.i, %_ZN5clang11DeclContext22filtered_decl_iteratorINS_14ObjCMethodDeclEXadL_ZNKS2_16isInstanceMethodEvEEEppEv.exit.i.i.i.i.i.i.i.i, %._crit_edge, %_ZSt13move_backwardIPPKN5clang14ObjCMethodDeclES4_ET0_T_S6_S5_.exit, %14
-  %.0 = phi ptr [ %16, %14 ], [ %42, %_ZSt13move_backwardIPPKN5clang14ObjCMethodDeclES4_ET0_T_S6_S5_.exit ], [ %42, %._crit_edge ], [ %42, %_ZN5clang11DeclContext22filtered_decl_iteratorINS_14ObjCMethodDeclEXadL_ZNKS2_16isInstanceMethodEvEEEppEv.exit.i.i.i.i.i.i.i.i ], [ %42, %_ZN5clang11DeclContext22filtered_decl_iteratorINS_14ObjCMethodDeclEXadL_ZNKS2_16isInstanceMethodEvEEEppEv.exit.i.i.i.i.i ]
+  %.0 = phi ptr [ %16, %14 ], [ %42, %_ZN5clang11DeclContext22filtered_decl_iteratorINS_14ObjCMethodDeclEXadL_ZNKS2_16isInstanceMethodEvEEEppEv.exit.i.i.i.i.i.i.i.i ], [ %42, %_ZSt13move_backwardIPPKN5clang14ObjCMethodDeclES4_ET0_T_S6_S5_.exit ], [ %42, %._crit_edge ], [ %42, %_ZN5clang11DeclContext22filtered_decl_iteratorINS_14ObjCMethodDeclEXadL_ZNKS2_16isInstanceMethodEvEEEppEv.exit.i.i.i.i.i ]
   ret ptr %.0
 }
 
@@ -33056,7 +33056,7 @@ _ZN5clang11DeclContext22filtered_decl_iteratorINS_14ObjCMethodDeclEXadL_ZNKS2_13
   br i1 %.not41, label %._crit_edge, label %.lr.ph, !llvm.loop !1898
 
 _ZSt4copyIN5clang11DeclContext22filtered_decl_iteratorINS0_14ObjCMethodDeclEXadL_ZNKS3_13isClassMethodEvEEEEPPKS3_ET0_T_S9_S8_.exit: ; preds = %_ZN5clang11DeclContext22filtered_decl_iteratorINS_14ObjCMethodDeclEXadL_ZNKS2_13isClassMethodEvEEEppEv.exit.i.i.i.i.i, %_ZN5clang11DeclContext22filtered_decl_iteratorINS_14ObjCMethodDeclEXadL_ZNKS2_13isClassMethodEvEEEppEv.exit.i.i.i.i.i.i.i.i, %._crit_edge, %_ZSt13move_backwardIPPKN5clang14ObjCMethodDeclES4_ET0_T_S6_S5_.exit, %14
-  %.0 = phi ptr [ %16, %14 ], [ %42, %_ZSt13move_backwardIPPKN5clang14ObjCMethodDeclES4_ET0_T_S6_S5_.exit ], [ %42, %._crit_edge ], [ %42, %_ZN5clang11DeclContext22filtered_decl_iteratorINS_14ObjCMethodDeclEXadL_ZNKS2_13isClassMethodEvEEEppEv.exit.i.i.i.i.i.i.i.i ], [ %42, %_ZN5clang11DeclContext22filtered_decl_iteratorINS_14ObjCMethodDeclEXadL_ZNKS2_13isClassMethodEvEEEppEv.exit.i.i.i.i.i ]
+  %.0 = phi ptr [ %16, %14 ], [ %42, %_ZN5clang11DeclContext22filtered_decl_iteratorINS_14ObjCMethodDeclEXadL_ZNKS2_13isClassMethodEvEEEppEv.exit.i.i.i.i.i.i.i.i ], [ %42, %_ZSt13move_backwardIPPKN5clang14ObjCMethodDeclES4_ET0_T_S6_S5_.exit ], [ %42, %._crit_edge ], [ %42, %_ZN5clang11DeclContext22filtered_decl_iteratorINS_14ObjCMethodDeclEXadL_ZNKS2_13isClassMethodEvEEEppEv.exit.i.i.i.i.i ]
   ret ptr %.0
 }
 
@@ -38180,7 +38180,7 @@ _ZN5clang11DeclContext22filtered_decl_iteratorINS_14ObjCMethodDeclEXadL_ZNKS2_16
   br i1 %.not41, label %._crit_edge, label %.lr.ph, !llvm.loop !2062
 
 _ZSt4copyIN5clang11DeclContext22filtered_decl_iteratorINS0_14ObjCMethodDeclEXadL_ZNKS3_16isInstanceMethodEvEEEEPPS3_ET0_T_S8_S7_.exit: ; preds = %_ZN5clang11DeclContext22filtered_decl_iteratorINS_14ObjCMethodDeclEXadL_ZNKS2_16isInstanceMethodEvEEEppEv.exit.i.i.i.i.i, %_ZN5clang11DeclContext22filtered_decl_iteratorINS_14ObjCMethodDeclEXadL_ZNKS2_16isInstanceMethodEvEEEppEv.exit.i.i.i.i.i.i.i.i, %._crit_edge, %_ZSt13move_backwardIPPN5clang14ObjCMethodDeclES3_ET0_T_S5_S4_.exit, %14
-  %.0 = phi ptr [ %16, %14 ], [ %42, %_ZSt13move_backwardIPPN5clang14ObjCMethodDeclES3_ET0_T_S5_S4_.exit ], [ %42, %._crit_edge ], [ %42, %_ZN5clang11DeclContext22filtered_decl_iteratorINS_14ObjCMethodDeclEXadL_ZNKS2_16isInstanceMethodEvEEEppEv.exit.i.i.i.i.i.i.i.i ], [ %42, %_ZN5clang11DeclContext22filtered_decl_iteratorINS_14ObjCMethodDeclEXadL_ZNKS2_16isInstanceMethodEvEEEppEv.exit.i.i.i.i.i ]
+  %.0 = phi ptr [ %16, %14 ], [ %42, %_ZN5clang11DeclContext22filtered_decl_iteratorINS_14ObjCMethodDeclEXadL_ZNKS2_16isInstanceMethodEvEEEppEv.exit.i.i.i.i.i.i.i.i ], [ %42, %_ZSt13move_backwardIPPN5clang14ObjCMethodDeclES3_ET0_T_S5_S4_.exit ], [ %42, %._crit_edge ], [ %42, %_ZN5clang11DeclContext22filtered_decl_iteratorINS_14ObjCMethodDeclEXadL_ZNKS2_16isInstanceMethodEvEEEppEv.exit.i.i.i.i.i ]
   ret ptr %.0
 }
 
@@ -38468,7 +38468,7 @@ _ZN5clang11DeclContext22filtered_decl_iteratorINS_14ObjCMethodDeclEXadL_ZNKS2_13
   br i1 %.not41, label %._crit_edge, label %.lr.ph, !llvm.loop !2064
 
 _ZSt4copyIN5clang11DeclContext22filtered_decl_iteratorINS0_14ObjCMethodDeclEXadL_ZNKS3_13isClassMethodEvEEEEPPS3_ET0_T_S8_S7_.exit: ; preds = %_ZN5clang11DeclContext22filtered_decl_iteratorINS_14ObjCMethodDeclEXadL_ZNKS2_13isClassMethodEvEEEppEv.exit.i.i.i.i.i, %_ZN5clang11DeclContext22filtered_decl_iteratorINS_14ObjCMethodDeclEXadL_ZNKS2_13isClassMethodEvEEEppEv.exit.i.i.i.i.i.i.i.i, %._crit_edge, %_ZSt13move_backwardIPPN5clang14ObjCMethodDeclES3_ET0_T_S5_S4_.exit, %14
-  %.0 = phi ptr [ %16, %14 ], [ %42, %_ZSt13move_backwardIPPN5clang14ObjCMethodDeclES3_ET0_T_S5_S4_.exit ], [ %42, %._crit_edge ], [ %42, %_ZN5clang11DeclContext22filtered_decl_iteratorINS_14ObjCMethodDeclEXadL_ZNKS2_13isClassMethodEvEEEppEv.exit.i.i.i.i.i.i.i.i ], [ %42, %_ZN5clang11DeclContext22filtered_decl_iteratorINS_14ObjCMethodDeclEXadL_ZNKS2_13isClassMethodEvEEEppEv.exit.i.i.i.i.i ]
+  %.0 = phi ptr [ %16, %14 ], [ %42, %_ZN5clang11DeclContext22filtered_decl_iteratorINS_14ObjCMethodDeclEXadL_ZNKS2_13isClassMethodEvEEEppEv.exit.i.i.i.i.i.i.i.i ], [ %42, %_ZSt13move_backwardIPPN5clang14ObjCMethodDeclES3_ET0_T_S5_S4_.exit ], [ %42, %._crit_edge ], [ %42, %_ZN5clang11DeclContext22filtered_decl_iteratorINS_14ObjCMethodDeclEXadL_ZNKS2_13isClassMethodEvEEEppEv.exit.i.i.i.i.i ]
   ret ptr %.0
 }
 

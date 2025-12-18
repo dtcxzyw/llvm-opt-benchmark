@@ -26634,7 +26634,7 @@ define noundef zeroext i1 @_ZN6remote11ssh_session15SshRemoteClient21is_reconnec
   br label %"_ZN6remote11ssh_session15SshRemoteClient21is_reconnect_underway28_$u7b$$u7b$closure$u7d$$u7d$17h9f993c569a02d452E.exit"
 
 "_ZN6remote11ssh_session15SshRemoteClient21is_reconnect_underway28_$u7b$$u7b$closure$u7d$$u7d$17h9f993c569a02d452E.exit": ; preds = %4, %12, %17
-  %.sroa.0.0.i = phi i1 [ %.not.i, %12 ], [ %.not.i, %17 ], [ false, %4 ]
+  %.sroa.0.0.i = phi i1 [ %.not.i, %17 ], [ %.not.i, %12 ], [ false, %4 ]
   ret i1 %.sroa.0.0.i
 }
 

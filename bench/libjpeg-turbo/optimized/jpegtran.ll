@@ -302,8 +302,8 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef readonly captures
   br label %100
 
 100:                                              ; preds = %.sink.split, %96, %55
-  %.042 = phi ptr [ %80, %96 ], [ null, %55 ], [ %80, %.sink.split ]
-  %.0 = phi i64 [ %69, %96 ], [ 0, %55 ], [ %69, %.sink.split ]
+  %.042 = phi ptr [ null, %55 ], [ %80, %96 ], [ %80, %.sink.split ]
+  %.0 = phi i64 [ 0, %55 ], [ %69, %96 ], [ %69, %.sink.split ]
   %.b61 = load i1, ptr @report, align 4
   br i1 %.b61, label %101, label %104
 

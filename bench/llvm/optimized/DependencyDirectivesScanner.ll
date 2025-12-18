@@ -3198,12 +3198,12 @@ _ZL5isEOLPKcS0_.exit.thread.i:                    ; preds = %_ZL5isEOLPKcS0_.exi
   br label %.backedge.sink.split
 
 .backedge.sink.split:                             ; preds = %82, %.critedge2.i, %_ZL18isRawStringLiteralPKcS0_.exit.thread, %.critedge4.loopexit.i, %107, %195, %205, %192, %.thread, %.critedge.i67
-  %.sink.i.sink = phi ptr [ %194, %192 ], [ %2, %195 ], [ %152, %.critedge.i67 ], [ %159, %.thread ], [ %206, %205 ], [ %108, %107 ], [ %78, %_ZL18isRawStringLiteralPKcS0_.exit.thread ], [ %scevgep87.le.i, %.critedge4.loopexit.i ], [ %89, %.critedge2.i ], [ %scevgep.i, %82 ]
+  %.sink.i.sink = phi ptr [ %194, %192 ], [ %2, %195 ], [ %152, %.critedge.i67 ], [ %159, %.thread ], [ %206, %205 ], [ %89, %.critedge2.i ], [ %108, %107 ], [ %78, %_ZL18isRawStringLiteralPKcS0_.exit.thread ], [ %scevgep87.le.i, %.critedge4.loopexit.i ], [ %scevgep.i, %82 ]
   store ptr %.sink.i.sink, ptr %1, align 8, !tbaa !10
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.i, %111, %117, %_ZL5isEOLPKcS0_.exit.thread.i, %207, %189, %_ZL5isEOLPKcS0_.exit27.thread.i.i, %.lr.ph.i.i68, %90, %.preheader.i.i, %.backedge.sink.split, %197, %163, %.critedge.i, %_ZL18isRawStringLiteralPKcS0_.exit.thread86
-  %153 = phi ptr [ %.sink.i.sink, %.backedge.sink.split ], [ %190, %189 ], [ %198, %197 ], [ %164, %163 ], [ %.056.i, %.critedge.i ], [ %storemerge43.i, %_ZL18isRawStringLiteralPKcS0_.exit.thread86 ], [ %118, %117 ], [ %171, %.preheader.i.i ], [ %89, %90 ], [ %208, %207 ], [ %171, %_ZL5isEOLPKcS0_.exit27.thread.i.i ], [ %.promoted3940.i.i, %.lr.ph.i.i68 ], [ %storemerge.i, %_ZL5isEOLPKcS0_.exit.thread.i ], [ %storemerge46.i, %111 ], [ %.263.lcssa.i90, %.backedge.i ]
+  %153 = phi ptr [ %190, %189 ], [ %171, %.preheader.i.i ], [ %.sink.i.sink, %.backedge.sink.split ], [ %storemerge43.i, %_ZL18isRawStringLiteralPKcS0_.exit.thread86 ], [ %118, %117 ], [ %89, %90 ], [ %208, %207 ], [ %198, %197 ], [ %164, %163 ], [ %.056.i, %.critedge.i ], [ %171, %_ZL5isEOLPKcS0_.exit27.thread.i.i ], [ %.promoted3940.i.i, %.lr.ph.i.i68 ], [ %storemerge46.i, %111 ], [ %storemerge.i, %_ZL5isEOLPKcS0_.exit.thread.i ], [ %.263.lcssa.i90, %.backedge.i ]
   %.not = icmp eq ptr %153, %2
   br i1 %.not, label %.thread93, label %.lr.ph, !llvm.loop !180
 

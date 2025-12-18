@@ -1315,7 +1315,7 @@ Vec_PtrPushUnique.exit69.sink.split:              ; preds = %Vec_PtrPush.exit.i5
   br label %Vec_PtrPushUnique.exit69
 
 Vec_PtrPushUnique.exit69:                         ; preds = %103, %170, %53, %Vec_PtrPushUnique.exit69.sink.split, %88, %88, %134, %90, %84
-  %.0 = phi i32 [ 0, %134 ], [ 0, %90 ], [ 0, %84 ], [ 0, %88 ], [ 0, %88 ], [ 1, %Vec_PtrPushUnique.exit69.sink.split ], [ 1, %170 ], [ 1, %53 ], [ 1, %103 ]
+  %.0 = phi i32 [ 0, %134 ], [ 0, %90 ], [ 0, %84 ], [ 1, %53 ], [ 0, %88 ], [ 1, %170 ], [ 0, %88 ], [ 1, %Vec_PtrPushUnique.exit69.sink.split ], [ 1, %103 ]
   ret i32 %.0
 }
 
@@ -3912,8 +3912,8 @@ Ivy_CutCheckDominance.exit60.i:                   ; preds = %._crit_edge.us.i57.
   br label %Ivy_NodeCutFindOrAddFilter.exit
 
 Ivy_NodeCutFindOrAddFilter.exit:                  ; preds = %._crit_edge.i118, %194, %206, %185, %._crit_edge87.i
-  %224 = phi i32 [ %.pre, %._crit_edge87.i ], [ %23, %206 ], [ %23, %185 ], [ %23, %194 ], [ %23, %._crit_edge.i118 ]
-  %225 = phi i32 [ %.pre, %._crit_edge87.i ], [ %24, %206 ], [ %24, %185 ], [ %24, %194 ], [ %24, %._crit_edge.i118 ]
+  %224 = phi i32 [ %23, %206 ], [ %23, %185 ], [ %.pre, %._crit_edge87.i ], [ %23, %194 ], [ %23, %._crit_edge.i118 ]
+  %225 = phi i32 [ %24, %206 ], [ %24, %185 ], [ %.pre, %._crit_edge87.i ], [ %24, %194 ], [ %24, %._crit_edge.i118 ]
   %226 = icmp eq i32 %225, 256
   br i1 %226, label %.lr.ph.i123.preheader, label %Ivy_NodeCutFindOrAddFilter.exit.Ivy_NodeCutPrescreen.exit.thread_crit_edge
 
@@ -3949,7 +3949,7 @@ Ivy_NodeCutPrescreen.exit.thread:                 ; preds = %62, %Ivy_NodeCutFin
   br i1 %238, label %.lr.ph.i123.preheader, label %Ivy_NodeCompactCuts.exit
 
 .lr.ph.i123.preheader:                            ; preds = %._crit_edge, %Ivy_NodeCutFindOrAddFilter.exit, %._crit_edge161
-  %.ph = phi i32 [ %235, %._crit_edge161 ], [ 256, %Ivy_NodeCutFindOrAddFilter.exit ], [ 256, %._crit_edge ]
+  %.ph = phi i32 [ 256, %Ivy_NodeCutFindOrAddFilter.exit ], [ %235, %._crit_edge161 ], [ 256, %._crit_edge ]
   br label %.lr.ph.i123
 
 .lr.ph.i123:                                      ; preds = %.lr.ph.i123.preheader, %248

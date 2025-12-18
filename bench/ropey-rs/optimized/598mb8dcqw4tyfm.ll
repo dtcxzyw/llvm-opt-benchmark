@@ -2217,7 +2217,7 @@ _ZN5ropey4rope4Rope13chunk_at_char17h6e1e5bf745b5c6dfE.exit.i.i: ; preds = %.noe
   br i1 %290, label %_ZN11str_indices5chars16to_byte_idx_impl17h0e1ffa1c9b40da34E.exit.i.i, label %281
 
 _ZN11str_indices5chars16to_byte_idx_impl17h0e1ffa1c9b40da34E.exit.i.i: ; preds = %.lr.ph.i.i102, %248, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h44eb475367c7098dE.exit15.i.i", %283, %281, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit.i.i"
-  %.sroa.0.4.i.i.i = phi i64 [ %196, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit.i.i" ], [ %196, %248 ], [ %196, %281 ], [ %.sroa.84.0.i.i, %283 ], [ %.sroa.0.3.i176.i.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h44eb475367c7098dE.exit15.i.i" ], [ %.sroa.0.0.i158.i.i, %.lr.ph.i.i102 ]
+  %.sroa.0.4.i.i.i = phi i64 [ %196, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit.i.i" ], [ %196, %281 ], [ %196, %248 ], [ %.sroa.84.0.i.i, %283 ], [ %.sroa.0.3.i176.i.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h44eb475367c7098dE.exit15.i.i" ], [ %.sroa.0.0.i158.i.i, %.lr.ph.i.i102 ]
   %291 = icmp eq i64 %.sroa.0.4.i.i.i, 0
   br i1 %291, label %299, label %292
 

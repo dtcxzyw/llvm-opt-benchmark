@@ -692,7 +692,7 @@ define dso_local zeroext i8 @pci_find_capability(ptr noundef readonly captures(n
   br label %18
 
 18:                                               ; preds = %17, %16, %16
-  %19 = phi i8 [ 20, %17 ], [ 52, %16 ], [ 52, %16 ]
+  %19 = phi i8 [ 52, %16 ], [ 20, %17 ], [ 52, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %20 = load ptr, ptr %6, align 8
   %21 = load i32, ptr %8, align 8
@@ -782,7 +782,7 @@ define dso_local zeroext i8 @pci_bus_find_capability(ptr noundef %0, i32 noundef
   br label %17
 
 17:                                               ; preds = %16, %14, %14
-  %18 = phi i8 [ 20, %16 ], [ 52, %14 ], [ 52, %14 ]
+  %18 = phi i8 [ 52, %14 ], [ 20, %16 ], [ 52, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 %18, ptr %4, align 1
@@ -1204,7 +1204,7 @@ define dso_local zeroext i8 @pci_find_ht_capability(ptr noundef %0, i32 noundef 
   br label %16
 
 16:                                               ; preds = %15, %14, %14
-  %17 = phi i8 [ 20, %15 ], [ 52, %14 ], [ 52, %14 ]
+  %17 = phi i8 [ 52, %14 ], [ 20, %15 ], [ 52, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %18 = call fastcc zeroext i8 @__pci_find_next_ht_cap(ptr noundef %0, i8 noundef zeroext %17, i32 noundef %1)
   br label %19
@@ -5692,7 +5692,7 @@ define dso_local void @pci_ea_init(ptr noundef %0) local_unnamed_addr #4 align 1
   br label %145
 
 77:                                               ; preds = %74, %74, %75, %76
-  %78 = phi i64 [ 304, %75 ], [ 560, %76 ], [ 8752, %74 ], [ 8752, %74 ]
+  %78 = phi i64 [ 560, %76 ], [ 304, %75 ], [ 8752, %74 ], [ 8752, %74 ]
   %79 = call i32 @pci_read_config_dword(ptr noundef %0, i32 noundef %35, ptr noundef nonnull %3) #27
   %80 = load i32, ptr %3, align 4
   %81 = and i32 %80, -4
@@ -9774,7 +9774,7 @@ define dso_local i32 @pci_reset_bus(ptr noundef readonly captures(none) %0) #4 a
   br label %.thread27
 
 .thread27:                                        ; preds = %57, %169, %174, %180, %185, %182, %.loopexit, %.loopexit34, %6
-  %189 = phi i32 [ %8, %6 ], [ %117, %.loopexit ], [ -11, %.loopexit34 ], [ %188, %185 ], [ -11, %182 ], [ -25, %180 ], [ -25, %174 ], [ %117, %169 ], [ -11, %57 ]
+  %189 = phi i32 [ %8, %6 ], [ %117, %.loopexit ], [ -11, %.loopexit34 ], [ %117, %169 ], [ %188, %185 ], [ -11, %182 ], [ -25, %174 ], [ -25, %180 ], [ -11, %57 ]
   ret i32 %189
 }
 
@@ -10483,7 +10483,7 @@ switch.edge:                                      ; preds = %.split.split.split
   br i1 %157, label %.thread, label %.split.split.split, !llvm.loop !90
 
 .thread:                                          ; preds = %154, %147, %119, %112, %77, %84, %49, %42, %11
-  %158 = phi i32 [ 0, %11 ], [ %113, %119 ], [ %43, %49 ], [ %78, %77 ], [ %43, %42 ], [ %78, %84 ], [ %113, %112 ], [ %148, %147 ], [ %148, %154 ]
+  %158 = phi i32 [ 0, %11 ], [ %78, %77 ], [ %43, %49 ], [ %113, %119 ], [ %43, %42 ], [ %78, %84 ], [ %113, %112 ], [ %148, %147 ], [ %148, %154 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %158
 }

@@ -335,10 +335,10 @@ define noundef i32 @sgemm_otcopy(i64 noundef %0, i64 noundef %1, ptr noundef rea
   br label %.loopexit277
 
 .loopexit277:                                     ; preds = %107, %.loopexit277.loopexit329, %.loopexit277.loopexit328, %.loopexit277.loopexit327, %.preheader276.split.split.us.split.us.preheader, %5
-  %.0248 = phi ptr [ %8, %5 ], [ %182, %.loopexit277.loopexit329 ], [ %8, %.preheader276.split.split.us.split.us.preheader ], [ %8, %.loopexit277.loopexit327 ], [ %152, %.loopexit277.loopexit328 ], [ %.2250.us, %107 ]
-  %.0244 = phi ptr [ %11, %5 ], [ %190, %.loopexit277.loopexit329 ], [ %11, %.preheader276.split.split.us.split.us.preheader ], [ %126, %.loopexit277.loopexit327 ], [ %11, %.loopexit277.loopexit328 ], [ %.2246.us, %107 ]
-  %.0241 = phi ptr [ %4, %5 ], [ %scevgep, %.loopexit277.loopexit329 ], [ %scevgep353, %.preheader276.split.split.us.split.us.preheader ], [ %scevgep351, %.loopexit277.loopexit327 ], [ %scevgep350, %.loopexit277.loopexit328 ], [ %111, %107 ]
-  %.0223 = phi ptr [ %2, %5 ], [ %158, %.loopexit277.loopexit329 ], [ %scevgep352, %.preheader276.split.split.us.split.us.preheader ], [ %118, %.loopexit277.loopexit327 ], [ %132, %.loopexit277.loopexit328 ], [ %110, %107 ]
+  %.0248 = phi ptr [ %8, %5 ], [ %152, %.loopexit277.loopexit328 ], [ %8, %.preheader276.split.split.us.split.us.preheader ], [ %182, %.loopexit277.loopexit329 ], [ %8, %.loopexit277.loopexit327 ], [ %.2250.us, %107 ]
+  %.0244 = phi ptr [ %11, %5 ], [ %11, %.loopexit277.loopexit328 ], [ %11, %.preheader276.split.split.us.split.us.preheader ], [ %190, %.loopexit277.loopexit329 ], [ %126, %.loopexit277.loopexit327 ], [ %.2246.us, %107 ]
+  %.0241 = phi ptr [ %4, %5 ], [ %scevgep350, %.loopexit277.loopexit328 ], [ %scevgep353, %.preheader276.split.split.us.split.us.preheader ], [ %scevgep, %.loopexit277.loopexit329 ], [ %scevgep351, %.loopexit277.loopexit327 ], [ %111, %107 ]
+  %.0223 = phi ptr [ %2, %5 ], [ %132, %.loopexit277.loopexit328 ], [ %scevgep352, %.preheader276.split.split.us.split.us.preheader ], [ %158, %.loopexit277.loopexit329 ], [ %118, %.loopexit277.loopexit327 ], [ %110, %107 ]
   %196 = and i64 %0, 2
   %.not263 = icmp eq i64 %196, 0
   br i1 %.not263, label %251, label %197

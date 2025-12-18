@@ -5185,8 +5185,8 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %11, %21, %26
   br label %_ZL11aux_upvalueP10lua_TValueiPS0_.exit
 
 _ZL11aux_upvalueP10lua_TValueiPS0_.exit:          ; preds = %69, %65, %41
-  %.0 = phi ptr [ %66, %65 ], [ %66, %69 ], [ %44, %41 ]
-  %.0.i = phi ptr [ @.str.3, %65 ], [ %74, %69 ], [ @.str.3, %41 ]
+  %.0 = phi ptr [ %44, %41 ], [ %66, %65 ], [ %66, %69 ]
+  %.0.i = phi ptr [ @.str.3, %41 ], [ @.str.3, %65 ], [ %74, %69 ]
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %76 = load ptr, ptr %75, align 8, !tbaa !19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %76, ptr noundef nonnull align 8 dereferenceable(16) %.0, i64 16, i1 false), !tbaa.struct !20
@@ -5308,8 +5308,8 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %5, %15, %20
   br label %_ZL11aux_upvalueP10lua_TValueiPS0_.exit
 
 _ZL11aux_upvalueP10lua_TValueiPS0_.exit:          ; preds = %63, %59, %35
-  %.0 = phi ptr [ %60, %59 ], [ %60, %63 ], [ %38, %35 ]
-  %.0.i = phi ptr [ @.str.3, %59 ], [ %68, %63 ], [ @.str.3, %35 ]
+  %.0 = phi ptr [ %38, %35 ], [ %60, %59 ], [ %60, %63 ]
+  %.0.i = phi ptr [ @.str.3, %35 ], [ @.str.3, %59 ], [ %68, %63 ]
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %70 = load ptr, ptr %69, align 8, !tbaa !19
   %71 = getelementptr inbounds i8, ptr %70, i64 -16

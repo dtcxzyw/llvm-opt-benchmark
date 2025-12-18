@@ -723,7 +723,7 @@ define hidden noundef ptr @_ZN14JavaAssertions13match_packageEPKc(ptr noundef re
   br i1 %.not25, label %.critedge2.thread, label %.critedge, !llvm.loop !13
 
 .critedge2.thread:                                ; preds = %21, %.critedge2, %14, %1
-  %.022 = phi ptr [ null, %1 ], [ %.034, %14 ], [ null, %.critedge2 ], [ null, %21 ]
+  %.022 = phi ptr [ %.034, %14 ], [ null, %1 ], [ null, %.critedge2 ], [ null, %21 ]
   ret ptr %.022
 }
 

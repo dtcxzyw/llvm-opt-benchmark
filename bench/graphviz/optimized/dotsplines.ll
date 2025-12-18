@@ -936,8 +936,8 @@ gv_recalloc.exit436:                              ; preds = %435, %433, %426, %s
   br i1 %.not402, label %.loopexit649, label %.lr.ph791, !llvm.loop !113
 
 .loopexit649:                                     ; preds = %gv_recalloc.exit436, %364, %.loopexit651, %252
-  %.2336 = phi i32 [ %.5339, %.loopexit651 ], [ %.1335794, %252 ], [ %.5339, %364 ], [ %414, %gv_recalloc.exit436 ]
-  %.3 = phi ptr [ %.6, %.loopexit651 ], [ %.2331795, %252 ], [ %.6, %364 ], [ %.10, %gv_recalloc.exit436 ]
+  %.2336 = phi i32 [ %.1335794, %252 ], [ %.5339, %.loopexit651 ], [ %.5339, %364 ], [ %414, %gv_recalloc.exit436 ]
+  %.3 = phi ptr [ %.2331795, %252 ], [ %.6, %.loopexit651 ], [ %.6, %364 ], [ %.10, %gv_recalloc.exit436 ]
   %indvars.iv.next1034 = add nuw nsw i64 %indvars.iv1033, 1
   %443 = load ptr, ptr %48, align 8, !tbaa !16
   %444 = getelementptr inbounds nuw i8, ptr %443, i64 264
@@ -6165,8 +6165,8 @@ edge_normalize.exit.sink.split:                   ; preds = %place_vnlabel.exit.
   br label %edge_normalize.exit
 
 edge_normalize.exit:                              ; preds = %._crit_edge.i504, %edge_normalize.exit.sink.split, %3054, %._crit_edge903
-  %3097 = phi ptr [ %487, %._crit_edge903 ], [ %487, %3054 ], [ undef, %edge_normalize.exit.sink.split ], [ %487, %._crit_edge.i504 ]
-  %.0329 = phi ptr [ %.1330.lcssa, %._crit_edge903 ], [ %.1330.lcssa, %3054 ], [ null, %edge_normalize.exit.sink.split ], [ %.1330.lcssa, %._crit_edge.i504 ]
+  %3097 = phi ptr [ undef, %edge_normalize.exit.sink.split ], [ %487, %3054 ], [ %487, %._crit_edge903 ], [ %487, %._crit_edge.i504 ]
+  %.0329 = phi ptr [ null, %edge_normalize.exit.sink.split ], [ %.1330.lcssa, %3054 ], [ %.1330.lcssa, %._crit_edge903 ], [ %.1330.lcssa, %._crit_edge.i504 ]
   %3098 = load ptr, ptr @E_headlabel, align 8, !tbaa !164
   %3099 = icmp ne ptr %3098, null
   %3100 = load ptr, ptr @E_taillabel, align 8

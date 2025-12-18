@@ -823,7 +823,7 @@ _ZSt8_DestroyISt6threadEvPT_.exit.i.i.i.i:        ; preds = %._crit_edge, %71
   unreachable
 
 _ZSt8_DestroyIPSt6threadS0_EvT_S2_RSaIT0_E.exit.i: ; preds = %71, %_ZN4llvm8parallel6detail12_GLOBAL__N_118ThreadPoolExecutor4stopEv.exit, %._crit_edge
-  %74 = phi ptr [ %.pre, %._crit_edge ], [ %68, %_ZN4llvm8parallel6detail12_GLOBAL__N_118ThreadPoolExecutor4stopEv.exit ], [ %.pre, %71 ]
+  %74 = phi ptr [ %68, %_ZN4llvm8parallel6detail12_GLOBAL__N_118ThreadPoolExecutor4stopEv.exit ], [ %.pre, %._crit_edge ], [ %.pre, %71 ]
   %.not.i.i.i8 = icmp eq ptr %74, null
   br i1 %.not.i.i.i8, label %_ZNSt6vectorISt6threadSaIS0_EED2Ev.exit, label %75
 

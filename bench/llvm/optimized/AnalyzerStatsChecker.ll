@@ -846,8 +846,8 @@ _ZNK4llvm15SmallPtrSetImplIPKN5clang8CFGBlockEE5countES4_.exit.i: ; preds = %.lr
   br label %_ZNK4llvm15SmallPtrSetImplIPKN5clang8CFGBlockEE5countES4_.exit.thread177.i
 
 _ZNK4llvm15SmallPtrSetImplIPKN5clang8CFGBlockEE5countES4_.exit.thread177.i: ; preds = %.lr.ph.i.i62.i, %_ZNK4llvm15SmallPtrSetImplIPKN5clang8CFGBlockEE5countES4_.exit.i, %_ZNK4llvm15SmallPtrSetImplIPKN5clang8CFGBlockEE5countES4_.exit.thread.i
-  %145 = phi ptr [ %.pre214.i, %_ZNK4llvm15SmallPtrSetImplIPKN5clang8CFGBlockEE5countES4_.exit.i ], [ %128, %_ZNK4llvm15SmallPtrSetImplIPKN5clang8CFGBlockEE5countES4_.exit.thread.i ], [ %128, %.lr.ph.i.i62.i ]
-  %146 = phi i32 [ %spec.select.i, %_ZNK4llvm15SmallPtrSetImplIPKN5clang8CFGBlockEE5countES4_.exit.i ], [ %142, %_ZNK4llvm15SmallPtrSetImplIPKN5clang8CFGBlockEE5countES4_.exit.thread.i ], [ %.053193.i, %.lr.ph.i.i62.i ]
+  %145 = phi ptr [ %128, %_ZNK4llvm15SmallPtrSetImplIPKN5clang8CFGBlockEE5countES4_.exit.thread.i ], [ %.pre214.i, %_ZNK4llvm15SmallPtrSetImplIPKN5clang8CFGBlockEE5countES4_.exit.i ], [ %128, %.lr.ph.i.i62.i ]
+  %146 = phi i32 [ %142, %_ZNK4llvm15SmallPtrSetImplIPKN5clang8CFGBlockEE5countES4_.exit.thread.i ], [ %spec.select.i, %_ZNK4llvm15SmallPtrSetImplIPKN5clang8CFGBlockEE5countES4_.exit.i ], [ %.053193.i, %.lr.ph.i.i62.i ]
   %147 = getelementptr inbounds nuw i8, ptr %.055192.i, i64 8
   %.not.i = icmp eq ptr %147, %145
   br i1 %.not.i, label %._crit_edge197.i, label %.lr.ph196.split.i, !llvm.loop !164

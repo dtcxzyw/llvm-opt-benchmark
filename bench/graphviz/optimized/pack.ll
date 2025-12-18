@@ -3577,7 +3577,7 @@ define internal fastcc range(i32 0, 2) i32 @fits(i32 noundef %0, i32 noundef %1,
   br label %.loopexit
 
 .loopexit:                                        ; preds = %15, %._crit_edge55, %47
-  %.2 = phi i32 [ 1, %47 ], [ 1, %._crit_edge55 ], [ 0, %15 ]
+  %.2 = phi i32 [ 1, %._crit_edge55 ], [ 1, %47 ], [ 0, %15 ]
   ret i32 %.2
 }
 

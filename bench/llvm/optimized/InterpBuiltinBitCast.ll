@@ -1914,7 +1914,7 @@ _ZNK5clang15ASTRecordLayout18getBaseClassOffsetEPKNS_13CXXRecordDeclE.exit: ; pr
   br i1 %.not113, label %.loopexit, label %291
 
 .loopexit:                                        ; preds = %.thread185, %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit150, %223, %_ZNK5clang6interp7Pointer8getIndexEv.exit, %.critedge._crit_edge.loopexit, %._crit_edge, %38
-  %.0 = phi i1 [ %48, %38 ], [ %.0109.lcssa, %._crit_edge ], [ %154, %.critedge._crit_edge.loopexit ], [ true, %_ZNK5clang6interp7Pointer8getIndexEv.exit ], [ true, %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit150 ], [ true, %223 ], [ %321, %.thread185 ]
+  %.0 = phi i1 [ %48, %38 ], [ true, %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit150 ], [ %154, %.critedge._crit_edge.loopexit ], [ %.0109.lcssa, %._crit_edge ], [ true, %_ZNK5clang6interp7Pointer8getIndexEv.exit ], [ true, %223 ], [ %321, %.thread185 ]
   ret i1 %.0
 }
 

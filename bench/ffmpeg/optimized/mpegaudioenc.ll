@@ -979,7 +979,7 @@ psycho_acoustic_model.exit.loopexit.us:           ; preds = %.lr.ph.i.us
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.loopexit.loopexit.i, %375, %373
-  %.164.i = phi i8 [ 0, %375 ], [ 62, %373 ], [ %392, %.loopexit.loopexit.i ]
+  %.164.i = phi i8 [ 62, %373 ], [ 0, %375 ], [ %392, %.loopexit.loopexit.i ]
   %393 = getelementptr inbounds nuw i8, ptr %.077.i, i64 %indvars.iv79.i
   store i8 %.164.i, ptr %393, align 1, !tbaa !50
   %indvars.iv.next80.i = add nuw nsw i64 %indvars.iv79.i, 1
@@ -1094,7 +1094,7 @@ compute_scale_factors.exit:                       ; preds = %compute_scale_facto
   br i1 %432, label %.lr.ph106.splitthread-pre-split, label %.preheader, !llvm.loop !76
 
 ._crit_edge:                                      ; preds = %psycho_acoustic_model.exit.loopexit.us, %4, %.preheader83, %.lr.ph109, %.preheader
-  %.lcssa100200 = phi i32 [ %.pr, %.preheader ], [ %.lcssa100203, %.lr.ph109 ], [ %346, %.preheader83 ], [ %16, %4 ], [ %.lcssa100203, %psycho_acoustic_model.exit.loopexit.us ]
+  %.lcssa100200 = phi i32 [ %16, %4 ], [ %.pr, %.preheader ], [ %.lcssa100203, %.lr.ph109 ], [ %346, %.preheader83 ], [ %.lcssa100203, %psycho_acoustic_model.exit.loopexit.us ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %433 = sext i32 %.lcssa100200 to i64
@@ -1786,10 +1786,10 @@ put_bits.exit158.i:                               ; preds = %765, %749, %743, %7
   br i1 %773, label %.preheader346.i, label %._crit_edge410.i, !llvm.loop !90
 
 ._crit_edge410.i:                                 ; preds = %._crit_edge396.i, %.lr.ph362.i, %.preheader346.lr.ph.i, %.preheader347.i, %.preheader349.i, %put_bits.exit146.i
-  %774 = phi i32 [ %675, %.preheader347.i ], [ %675, %.preheader346.lr.ph.i ], [ %633, %.preheader349.i ], [ %590, %put_bits.exit146.i ], [ %590, %.lr.ph362.i ], [ %770, %._crit_edge396.i ]
-  %.sroa.121.5.lcssa.i = phi ptr [ %.sroa.121.3.lcssa.i, %.preheader347.i ], [ %.sroa.121.3.lcssa.i, %.preheader346.lr.ph.i ], [ %.sroa.121.1.lcssa.i, %.preheader349.i ], [ %.sroa.121.45.i, %put_bits.exit146.i ], [ %.sroa.121.45.i, %.lr.ph362.i ], [ %.sroa.121.6.lcssa.i, %._crit_edge396.i ]
-  %.sroa.61.5.lcssa.i = phi i32 [ %.sroa.61.3.lcssa.i, %.preheader347.i ], [ %.sroa.61.3.lcssa.i, %.preheader346.lr.ph.i ], [ %.sroa.61.1.lcssa.i, %.preheader349.i ], [ 32, %put_bits.exit146.i ], [ 32, %.lr.ph362.i ], [ %.sroa.61.6.lcssa.i, %._crit_edge396.i ]
-  %.sroa.0.5.lcssa.i = phi i32 [ %.sroa.0.3.lcssa.i, %.preheader347.i ], [ %.sroa.0.3.lcssa.i, %.preheader346.lr.ph.i ], [ %.sroa.0.1.lcssa.i, %.preheader349.i ], [ 0, %put_bits.exit146.i ], [ 0, %.lr.ph362.i ], [ %.sroa.0.6.lcssa.i, %._crit_edge396.i ]
+  %774 = phi i32 [ %675, %.preheader347.i ], [ %675, %.preheader346.lr.ph.i ], [ %590, %put_bits.exit146.i ], [ %633, %.preheader349.i ], [ %590, %.lr.ph362.i ], [ %770, %._crit_edge396.i ]
+  %.sroa.121.5.lcssa.i = phi ptr [ %.sroa.121.3.lcssa.i, %.preheader347.i ], [ %.sroa.121.3.lcssa.i, %.preheader346.lr.ph.i ], [ %.sroa.121.45.i, %put_bits.exit146.i ], [ %.sroa.121.1.lcssa.i, %.preheader349.i ], [ %.sroa.121.45.i, %.lr.ph362.i ], [ %.sroa.121.6.lcssa.i, %._crit_edge396.i ]
+  %.sroa.61.5.lcssa.i = phi i32 [ %.sroa.61.3.lcssa.i, %.preheader347.i ], [ %.sroa.61.3.lcssa.i, %.preheader346.lr.ph.i ], [ 32, %put_bits.exit146.i ], [ %.sroa.61.1.lcssa.i, %.preheader349.i ], [ 32, %.lr.ph362.i ], [ %.sroa.61.6.lcssa.i, %._crit_edge396.i ]
+  %.sroa.0.5.lcssa.i = phi i32 [ %.sroa.0.3.lcssa.i, %.preheader347.i ], [ %.sroa.0.3.lcssa.i, %.preheader346.lr.ph.i ], [ 0, %put_bits.exit146.i ], [ %.sroa.0.1.lcssa.i, %.preheader349.i ], [ 0, %.lr.ph362.i ], [ %.sroa.0.6.lcssa.i, %._crit_edge396.i ]
   %775 = getelementptr inbounds nuw i8, ptr %14, i64 20
   %776 = load i32, ptr %775, align 4, !tbaa !48
   %.not.i60 = icmp eq i32 %776, 0

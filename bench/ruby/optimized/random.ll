@@ -273,9 +273,6 @@ define hidden range(i32 -1, 1) i32 @ruby_fill_random_bytes(ptr noundef %0, i64 n
   %.not.i = icmp eq i32 %4, 0
   br i1 %.not.i, label %.preheader, label %5
 
-.preheader:                                       ; preds = %.thread.i, %3
-  br label %14
-
 5:                                                ; preds = %3
   %.not16.i = icmp eq i32 %2, 0
   %spec.store.select.i = zext i1 %.not16.i to i32
@@ -294,6 +291,9 @@ define hidden range(i32 -1, 1) i32 @ruby_fill_random_bytes(ptr noundef %0, i64 n
 .thread.i:                                        ; preds = %6
   store atomic volatile i32 0, ptr @fill_random_bytes_syscall.try_syscall seq_cst, align 4
   br label %.preheader
+
+.preheader:                                       ; preds = %3, %.thread.i
+  br label %14
 
 11:                                               ; preds = %6
   %12 = add i64 %10, %.013.i
@@ -3689,7 +3689,7 @@ rb_float_new_inline.exit78:                       ; preds = %rb_type.exit.thread
   br label %rb_float_new_inline.exit
 
 rb_float_new_inline.exit:                         ; preds = %range_values.exit, %234, %238, %240, %185, %178, %175, %137, %141, %143, %range_values.exit.thread84, %rb_type.exit, %rb_float_new_inline.exit78, %195
-  %.0 = phi i64 [ 0, %range_values.exit.thread84 ], [ -9223372036854775806, %141 ], [ %243, %rb_float_new_inline.exit78 ], [ %16, %range_values.exit ], [ %196, %195 ], [ %166, %185 ], [ %166, %rb_type.exit ], [ %140, %137 ], [ %144, %143 ], [ %177, %175 ], [ %179, %178 ], [ -9223372036854775806, %238 ], [ %241, %240 ], [ %237, %234 ]
+  %.0 = phi i64 [ 0, %range_values.exit.thread84 ], [ %140, %137 ], [ %243, %rb_float_new_inline.exit78 ], [ %16, %range_values.exit ], [ %196, %195 ], [ %166, %185 ], [ %166, %rb_type.exit ], [ -9223372036854775806, %141 ], [ %144, %143 ], [ %177, %175 ], [ %179, %178 ], [ -9223372036854775806, %238 ], [ %241, %240 ], [ %237, %234 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -3967,7 +3967,7 @@ try_rand_if.exit:                                 ; preds = %45, %default_rand.e
   br i1 %81, label %.preheader29.i, label %limited_rand.exit, !llvm.loop !30
 
 limited_rand.exit:                                ; preds = %.preheader29.i, %76, %32, %23, %3
-  %.029 = phi i64 [ 0, %3 ], [ %.1.i, %76 ], [ %26, %23 ], [ %35, %32 ], [ %80, %.preheader29.i ]
+  %.029 = phi i64 [ %26, %23 ], [ 0, %3 ], [ %.1.i, %76 ], [ %35, %32 ], [ %80, %.preheader29.i ]
   ret i64 %.029
 }
 

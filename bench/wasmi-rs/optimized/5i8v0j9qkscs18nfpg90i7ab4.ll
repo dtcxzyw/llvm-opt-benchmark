@@ -1962,7 +1962,7 @@ define hidden { i64, ptr } @"_ZN5wasmi6module6parser9streaming53_$LT$impl$u20$wa
           to label %152 unwind label %149, !noalias !66
 
 .loopexit8.i.i:                                   ; preds = %139, %140, %"_ZN111_$LT$wasmi..error..Error$u20$as$u20$core..convert..From$LT$wasmparser..binary_reader..BinaryReaderError$GT$$GT$4from17h4a3716f61907bf7aE.exit.i.i"
-  %.sroa.6.0.i.i = phi ptr [ %69, %"_ZN111_$LT$wasmi..error..Error$u20$as$u20$core..convert..From$LT$wasmparser..binary_reader..BinaryReaderError$GT$$GT$4from17h4a3716f61907bf7aE.exit.i.i" ], [ %136, %140 ], [ %.sroa.018.0.i.i, %139 ]
+  %.sroa.6.0.i.i = phi ptr [ %136, %140 ], [ %69, %"_ZN111_$LT$wasmi..error..Error$u20$as$u20$core..convert..From$LT$wasmparser..binary_reader..BinaryReaderError$GT$$GT$4from17h4a3716f61907bf7aE.exit.i.i" ], [ %.sroa.018.0.i.i, %139 ]
   invoke void @"_ZN4core3ptr64drop_in_place$LT$wasmi..module..builder..ModuleHeaderBuilder$GT$17h95b92fc7cebb2916E"(ptr noalias noundef nonnull align 8 dereferenceable(304) %33)
           to label %151 unwind label %149, !noalias !66
 

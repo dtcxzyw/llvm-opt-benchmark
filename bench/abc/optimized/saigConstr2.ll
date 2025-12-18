@@ -223,7 +223,7 @@ Vec_IntStart.exit366:                             ; preds = %Vec_IntAlloc.exit.t
   br i1 %85, label %.lr.ph409.us, label %.critedge, !llvm.loop !41
 
 .critedge:                                        ; preds = %.lr.ph409.us, %.preheader404.thread, %.preheader404
-  %86 = phi ptr [ %68, %.preheader404 ], [ %70, %.preheader404.thread ], [ %68, %.lr.ph409.us ]
+  %86 = phi ptr [ %70, %.preheader404.thread ], [ %68, %.preheader404 ], [ %68, %.lr.ph409.us ]
   %.val289 = load ptr, ptr %21, align 8, !tbaa !25
   %87 = getelementptr i8, ptr %.val289, i64 4
   %.val289.val = load i32, ptr %87, align 4, !tbaa !26
@@ -3103,7 +3103,7 @@ Bar_ProgressUpdate.exit:                          ; preds = %122, %126
   br label %.thread
 
 .thread:                                          ; preds = %.preheader298, %.thread.sink.split, %115, %109, %140, %.thread393
-  %.1 = phi i32 [ %.0313, %109 ], [ %.0313, %115 ], [ %.0313, %.thread393 ], [ %.0313, %140 ], [ %144, %.thread.sink.split ], [ %.0313, %.preheader298 ]
+  %.1 = phi i32 [ %.0313, %109 ], [ %.0313, %115 ], [ %.0313, %.thread393 ], [ %144, %.thread.sink.split ], [ %.0313, %140 ], [ %.0313, %.preheader298 ]
   %indvars.iv.next354 = add nuw nsw i64 %indvars.iv353, 1
   %145 = load ptr, ptr %37, align 8, !tbaa !25
   %146 = getelementptr i8, ptr %145, i64 4
@@ -3267,7 +3267,7 @@ Vec_PtrFind.exit.thread:                          ; preds = %223, %211
   br i1 %exitcond361.not, label %Vec_PtrFind.exit, label %211, !llvm.loop !131
 
 Vec_PtrFind.exit:                                 ; preds = %Vec_PtrFind.exit.thread, %219, %205
-  %.0182302 = phi i64 [ 0, %205 ], [ %indvars.iv356, %219 ], [ %171, %Vec_PtrFind.exit.thread ]
+  %.0182302 = phi i64 [ %indvars.iv356, %219 ], [ 0, %205 ], [ %171, %Vec_PtrFind.exit.thread ]
   %224 = and i64 %.0182302, 4294967295
   %225 = icmp eq i64 %224, %indvars.iv370
   br i1 %225, label %.sink.split, label %248
@@ -3321,7 +3321,7 @@ Vec_PtrFind.exit260.thread:                       ; preds = %245, %233
   br i1 %exitcond366.not, label %Vec_PtrFind.exit260, label %233, !llvm.loop !132
 
 Vec_PtrFind.exit260:                              ; preds = %Vec_PtrFind.exit260.thread, %241, %228
-  %.1183304 = phi i64 [ 0, %228 ], [ %indvars.iv362, %241 ], [ %171, %Vec_PtrFind.exit260.thread ]
+  %.1183304 = phi i64 [ %indvars.iv362, %241 ], [ 0, %228 ], [ %171, %Vec_PtrFind.exit260.thread ]
   %246 = and i64 %.1183304, 4294967295
   %247 = icmp eq i64 %246, %indvars.iv370
   br i1 %247, label %.sink.split, label %248
@@ -3471,7 +3471,7 @@ Vec_VecSizeSize.exit276.thread:                   ; preds = %Vec_VecSizeSize.exi
   br i1 %exitcond383.not, label %.critedge8, label %287, !llvm.loop !136
 
 .critedge8:                                       ; preds = %287, %273, %.critedge2.thread, %Vec_VecSizeSize.exit276.thread, %.critedge2
-  %.0187 = phi ptr [ %153, %Vec_VecSizeSize.exit276.thread ], [ null, %.critedge2 ], [ null, %.critedge2.thread ], [ %153, %273 ], [ %153, %287 ]
+  %.0187 = phi ptr [ null, %.critedge2 ], [ %153, %Vec_VecSizeSize.exit276.thread ], [ %153, %273 ], [ null, %.critedge2.thread ], [ %153, %287 ]
   %.not.i287 = icmp eq ptr %41, null
   br i1 %.not.i287, label %Vec_PtrFree.exit, label %293
 

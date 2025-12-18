@@ -871,7 +871,7 @@ define hidden range(i32 -1, 5) i32 @Dot11DecryptScanTdlsForKeys(ptr noundef read
   br label %.critedge
 
 .critedge:                                        ; preds = %31, %.thread, %59, %65, %70, %72, %._crit_edge, %10, %6, %3
-  %.078 = phi i32 [ 4, %._crit_edge ], [ 4, %3 ], [ 4, %6 ], [ 4, %10 ], [ 4, %72 ], [ 3, %65 ], [ -1, %70 ], [ -1, %59 ], [ 4, %.thread ], [ 4, %31 ]
+  %.078 = phi i32 [ 4, %._crit_edge ], [ 4, %3 ], [ 4, %6 ], [ -1, %59 ], [ -1, %70 ], [ 4, %10 ], [ 4, %72 ], [ 3, %65 ], [ 4, %.thread ], [ 4, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.078
 }
@@ -2678,10 +2678,10 @@ Dot11DecryptGetKekLen.exit.i:                     ; preds = %.lr.ph
   br label %Dot11DecryptGetTkLen.exit.thread.i
 
 Dot11DecryptGetTkLen.exit.i:                      ; preds = %Dot11DecryptGetKckLen.exit.i, %Dot11DecryptGetKckLen.exit.i, %Dot11DecryptGetKckLen.exit.i, %Dot11DecryptGetKckLen.exit.i, %Dot11DecryptGetKckLen.exit.i, %Dot11DecryptGetKckLen.exit.i, %Dot11DecryptGetKckLen.exit.i, %Dot11DecryptGetKckLen.exit.i, %Dot11DecryptGetKckLen.exit.i, %Dot11DecryptGetKckLen.exit.i, %49, %55, %54, %53, %Dot11DecryptGetKekLen.exit.i
-  %.0.i16.i102 = phi i32 [ 128, %Dot11DecryptGetKekLen.exit.i ], [ 128, %55 ], [ 128, %54 ], [ 128, %53 ], [ 128, %Dot11DecryptGetKckLen.exit.i ], [ 256, %49 ], [ 128, %Dot11DecryptGetKckLen.exit.i ], [ 128, %Dot11DecryptGetKckLen.exit.i ], [ 128, %Dot11DecryptGetKckLen.exit.i ], [ 128, %Dot11DecryptGetKckLen.exit.i ], [ 128, %Dot11DecryptGetKckLen.exit.i ], [ 128, %Dot11DecryptGetKckLen.exit.i ], [ 128, %Dot11DecryptGetKckLen.exit.i ], [ 128, %Dot11DecryptGetKckLen.exit.i ], [ 128, %Dot11DecryptGetKckLen.exit.i ]
-  %57 = phi i1 [ false, %Dot11DecryptGetKekLen.exit.i ], [ false, %55 ], [ false, %54 ], [ false, %53 ], [ %48, %Dot11DecryptGetKckLen.exit.i ], [ %48, %49 ], [ %48, %Dot11DecryptGetKckLen.exit.i ], [ %48, %Dot11DecryptGetKckLen.exit.i ], [ %48, %Dot11DecryptGetKckLen.exit.i ], [ %48, %Dot11DecryptGetKckLen.exit.i ], [ %48, %Dot11DecryptGetKckLen.exit.i ], [ %48, %Dot11DecryptGetKckLen.exit.i ], [ %48, %Dot11DecryptGetKckLen.exit.i ], [ %48, %Dot11DecryptGetKckLen.exit.i ], [ %48, %Dot11DecryptGetKckLen.exit.i ]
-  %.0.i.i96100 = phi i32 [ 128, %Dot11DecryptGetKekLen.exit.i ], [ 128, %55 ], [ 128, %54 ], [ 128, %53 ], [ %.0.i.i, %Dot11DecryptGetKckLen.exit.i ], [ %.0.i.i, %49 ], [ %.0.i.i, %Dot11DecryptGetKckLen.exit.i ], [ %.0.i.i, %Dot11DecryptGetKckLen.exit.i ], [ %.0.i.i, %Dot11DecryptGetKckLen.exit.i ], [ %.0.i.i, %Dot11DecryptGetKckLen.exit.i ], [ %.0.i.i, %Dot11DecryptGetKckLen.exit.i ], [ %.0.i.i, %Dot11DecryptGetKckLen.exit.i ], [ %.0.i.i, %Dot11DecryptGetKckLen.exit.i ], [ %.0.i.i, %Dot11DecryptGetKckLen.exit.i ], [ %.0.i.i, %Dot11DecryptGetKckLen.exit.i ]
-  %.0.i17.i = phi i32 [ 40, %Dot11DecryptGetKekLen.exit.i ], [ 104, %55 ], [ 128, %54 ], [ 256, %53 ], [ 256, %Dot11DecryptGetKckLen.exit.i ], [ 256, %49 ], [ 256, %Dot11DecryptGetKckLen.exit.i ], [ 256, %Dot11DecryptGetKckLen.exit.i ], [ 256, %Dot11DecryptGetKckLen.exit.i ], [ 256, %Dot11DecryptGetKckLen.exit.i ], [ 256, %Dot11DecryptGetKckLen.exit.i ], [ 256, %Dot11DecryptGetKckLen.exit.i ], [ 256, %Dot11DecryptGetKckLen.exit.i ], [ 256, %Dot11DecryptGetKckLen.exit.i ], [ 256, %Dot11DecryptGetKckLen.exit.i ]
+  %.0.i16.i102 = phi i32 [ 128, %55 ], [ 128, %Dot11DecryptGetKekLen.exit.i ], [ 128, %54 ], [ 128, %53 ], [ 128, %Dot11DecryptGetKckLen.exit.i ], [ 256, %49 ], [ 128, %Dot11DecryptGetKckLen.exit.i ], [ 128, %Dot11DecryptGetKckLen.exit.i ], [ 128, %Dot11DecryptGetKckLen.exit.i ], [ 128, %Dot11DecryptGetKckLen.exit.i ], [ 128, %Dot11DecryptGetKckLen.exit.i ], [ 128, %Dot11DecryptGetKckLen.exit.i ], [ 128, %Dot11DecryptGetKckLen.exit.i ], [ 128, %Dot11DecryptGetKckLen.exit.i ], [ 128, %Dot11DecryptGetKckLen.exit.i ]
+  %57 = phi i1 [ false, %55 ], [ false, %Dot11DecryptGetKekLen.exit.i ], [ false, %54 ], [ false, %53 ], [ %48, %Dot11DecryptGetKckLen.exit.i ], [ %48, %49 ], [ %48, %Dot11DecryptGetKckLen.exit.i ], [ %48, %Dot11DecryptGetKckLen.exit.i ], [ %48, %Dot11DecryptGetKckLen.exit.i ], [ %48, %Dot11DecryptGetKckLen.exit.i ], [ %48, %Dot11DecryptGetKckLen.exit.i ], [ %48, %Dot11DecryptGetKckLen.exit.i ], [ %48, %Dot11DecryptGetKckLen.exit.i ], [ %48, %Dot11DecryptGetKckLen.exit.i ], [ %48, %Dot11DecryptGetKckLen.exit.i ]
+  %.0.i.i96100 = phi i32 [ 128, %55 ], [ 128, %Dot11DecryptGetKekLen.exit.i ], [ 128, %54 ], [ 128, %53 ], [ %.0.i.i, %Dot11DecryptGetKckLen.exit.i ], [ %.0.i.i, %49 ], [ %.0.i.i, %Dot11DecryptGetKckLen.exit.i ], [ %.0.i.i, %Dot11DecryptGetKckLen.exit.i ], [ %.0.i.i, %Dot11DecryptGetKckLen.exit.i ], [ %.0.i.i, %Dot11DecryptGetKckLen.exit.i ], [ %.0.i.i, %Dot11DecryptGetKckLen.exit.i ], [ %.0.i.i, %Dot11DecryptGetKckLen.exit.i ], [ %.0.i.i, %Dot11DecryptGetKckLen.exit.i ], [ %.0.i.i, %Dot11DecryptGetKckLen.exit.i ], [ %.0.i.i, %Dot11DecryptGetKckLen.exit.i ]
+  %.0.i17.i = phi i32 [ 104, %55 ], [ 40, %Dot11DecryptGetKekLen.exit.i ], [ 128, %54 ], [ 256, %53 ], [ 256, %Dot11DecryptGetKckLen.exit.i ], [ 256, %49 ], [ 256, %Dot11DecryptGetKckLen.exit.i ], [ 256, %Dot11DecryptGetKckLen.exit.i ], [ 256, %Dot11DecryptGetKckLen.exit.i ], [ 256, %Dot11DecryptGetKckLen.exit.i ], [ 256, %Dot11DecryptGetKckLen.exit.i ], [ 256, %Dot11DecryptGetKckLen.exit.i ], [ 256, %Dot11DecryptGetKckLen.exit.i ], [ 256, %Dot11DecryptGetKckLen.exit.i ], [ 256, %Dot11DecryptGetKckLen.exit.i ]
   br i1 %57, label %Dot11DecryptGetTkLen.exit.thread.i, label %58
 
 Dot11DecryptGetTkLen.exit.thread.i:               ; preds = %Dot11DecryptGetTkLen.exit.i.thread, %Dot11DecryptGetTkLen.exit.i, %56, %Dot11DecryptGetKekLen.exit.i, %Dot11DecryptGetKekLen.exit.i
@@ -2904,7 +2904,7 @@ Dot11DecryptValidateKey.exit.thread34:            ; preds = %.thread
   store i8 32, ptr %65, align 8
   br label %Dot11DecryptValidateKey.exit.thread34.thread
 
-Dot11DecryptValidateKey.exit.thread34.thread:     ; preds = %25, %30, %32, %23, %23, %23, %47, %Dot11DecryptValidateKey.exit.thread34
+Dot11DecryptValidateKey.exit.thread34.thread:     ; preds = %25, %23, %23, %23, %30, %32, %47, %Dot11DecryptValidateKey.exit.thread34
   %66 = sext i32 %.038 to i64
   %67 = getelementptr %struct._DOT11DECRYPT_KEY_ITEM, ptr %12, i64 %66
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(432) %67, ptr noundef nonnull align 1 dereferenceable(432) %20, i64 noundef 432, i1 noundef false) #15
@@ -4365,7 +4365,7 @@ Dot11DecryptGetKekLen.exit:                       ; preds = %Dot11DecryptGetKckL
   br label %Dot11DecryptGetTkLen.exit.thread
 
 Dot11DecryptGetTkLen.exit:                        ; preds = %Dot11DecryptGetKekLen.exit, %9, %10, %11
-  %.0.i17 = phi i32 [ 40, %Dot11DecryptGetKekLen.exit ], [ 256, %9 ], [ 128, %10 ], [ 104, %11 ]
+  %.0.i17 = phi i32 [ 104, %11 ], [ 40, %Dot11DecryptGetKekLen.exit ], [ 256, %9 ], [ 128, %10 ]
   %or.cond = or i1 %5, %8
   br i1 %or.cond, label %Dot11DecryptGetTkLen.exit.thread, label %13
 

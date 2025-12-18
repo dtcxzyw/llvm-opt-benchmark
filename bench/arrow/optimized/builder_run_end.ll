@@ -3216,7 +3216,7 @@ _ZN5arrow6StatusD2Ev.exit52:                      ; preds = %.critedge30
   br label %.critedge.sink.split
 
 .critedge.sink.split:                             ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i, %.critedge30, %_ZN5arrow6StatusD2Ev.exit52
-  %.sink = phi ptr [ null, %_ZN5arrow6StatusD2Ev.exit52 ], [ %123, %.critedge30 ], [ %.pr.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i ]
+  %.sink = phi ptr [ %123, %.critedge30 ], [ null, %_ZN5arrow6StatusD2Ev.exit52 ], [ %.pr.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i ]
   store ptr %.sink, ptr %0, align 8, !tbaa !83
   br label %.critedge
 

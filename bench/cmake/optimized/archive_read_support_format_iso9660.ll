@@ -372,7 +372,7 @@ isValid723Integer.exit76.i:                       ; preds = %86
   store i32 %147, ptr %21, align 8, !tbaa !50
   br label %isPVD.exit
 
-148:                                              ; preds = %34, %30, %31, %isValid733Integer.exit.i, %isValid723Integer.exit76.i, %103, %106, %109, %113, %136, %.preheader.split.i, %96, %isValid723Integer.exit75.i, %isValid723Integer.exit.i, %64, %61, %37, %76, %39, %66, %51, %45, %86, %.preheader.i
+148:                                              ; preds = %34, %30, %31, %isValid733Integer.exit.i, %isValid723Integer.exit76.i, %103, %106, %109, %113, %136, %.preheader.split.i, %86, %96, %isValid723Integer.exit75.i, %isValid723Integer.exit.i, %64, %61, %37, %76, %39, %66, %51, %45, %.preheader.i
   %149 = load i32, ptr %22, align 4, !tbaa !51
   %.not32 = icmp eq i32 %149, 0
   br i1 %.not32, label %150, label %isJolietSVD.exit.thread
@@ -616,7 +616,7 @@ isPVD.exit:                                       ; preds = %229, %isJolietSVD.e
   br label %.loopexit
 
 .loopexit:                                        ; preds = %25, %28, %268, %isVolumePartition.exit.thread, %5, %2, %.critedge
-  %.027 = phi i32 [ -1, %2 ], [ -1, %5 ], [ 0, %isVolumePartition.exit.thread ], [ 0, %.critedge ], [ 48, %268 ], [ 0, %28 ], [ 0, %25 ]
+  %.027 = phi i32 [ 48, %268 ], [ -1, %2 ], [ -1, %5 ], [ 0, %.critedge ], [ 0, %isVolumePartition.exit.thread ], [ 0, %28 ], [ 0, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.027
 }
@@ -858,7 +858,7 @@ choose_volume.exit:                               ; preds = %50, %25
   %.not138 = icmp eq i32 %.0.i, 0
   br i1 %.not138, label %choose_volume.exit.thread162, label %choose_volume.exit.thread
 
-choose_volume.exit.thread162:                     ; preds = %77, %80, %choose_volume.exit, %11
+choose_volume.exit.thread162:                     ; preds = %80, %77, %choose_volume.exit, %11
   store ptr null, ptr %3, align 8, !tbaa !66
   %82 = call fastcc i32 @next_cache_entry(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull %3)
   %.not.i158 = icmp eq i32 %82, 0
@@ -5403,7 +5403,7 @@ rede_get_entry.exit162:                           ; preds = %rede_add_entry.exit
   br label %rede_get_entry.exit162.thread233
 
 rede_get_entry.exit162.thread233:                 ; preds = %170, %369, %378, %re_get_entry.exit159, %.preheader257, %151, %.rede_get_entry.exit162.thread233.loopexit_crit_edge
-  %.0114237 = phi ptr [ %105, %151 ], [ %105, %.rede_get_entry.exit162.thread233.loopexit_crit_edge ], [ %25, %re_get_entry.exit159 ], [ %25, %.preheader257 ], [ %25, %378 ], [ %25, %369 ], [ %25, %170 ]
+  %.0114237 = phi ptr [ %25, %.preheader257 ], [ %25, %re_get_entry.exit159 ], [ %105, %151 ], [ %105, %.rede_get_entry.exit162.thread233.loopexit_crit_edge ], [ %25, %378 ], [ %25, %369 ], [ %25, %170 ]
   %389 = getelementptr inbounds nuw i8, ptr %.0114237, i64 136
   %390 = load i32, ptr %389, align 8, !tbaa !77
   %391 = and i32 %390, 61440
@@ -5629,7 +5629,7 @@ cache_get_entry.exit198:                          ; preds = %479, %481, %485
   br label %rede_get_entry.exit162.thread239
 
 rede_get_entry.exit162.thread239:                 ; preds = %read_children.exit, %279, %281, %next_CE.exit.i, %314, %303, %246, %.thread150.i, %218, %198, %188, %re_get_entry.exit, %100, %rede_get_entry.exit162.thread233, %392, %.loopexit256, %cache_get_entry.exit198, %.critedge.thread, %21
-  %.0 = phi i32 [ 0, %21 ], [ %101, %100 ], [ -30, %.loopexit256 ], [ %460, %.critedge.thread ], [ %486, %cache_get_entry.exit198 ], [ 0, %392 ], [ 0, %rede_get_entry.exit162.thread233 ], [ 1, %re_get_entry.exit ], [ -20, %188 ], [ -20, %198 ], [ -30, %218 ], [ -30, %.thread150.i ], [ -30, %246 ], [ -30, %303 ], [ -30, %314 ], [ -30, %279 ], [ -30, %next_CE.exit.i ], [ -30, %281 ], [ %366, %read_children.exit ]
+  %.0 = phi i32 [ 0, %21 ], [ %101, %100 ], [ -30, %.loopexit256 ], [ %460, %.critedge.thread ], [ %486, %cache_get_entry.exit198 ], [ 0, %392 ], [ 0, %rede_get_entry.exit162.thread233 ], [ 1, %re_get_entry.exit ], [ -20, %188 ], [ -20, %198 ], [ -30, %218 ], [ -30, %279 ], [ -30, %.thread150.i ], [ -30, %246 ], [ -30, %314 ], [ -30, %next_CE.exit.i ], [ -30, %303 ], [ -30, %281 ], [ %366, %read_children.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }

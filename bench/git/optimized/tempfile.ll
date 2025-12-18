@@ -780,7 +780,7 @@ define dso_local range(i32 -1, 1) i32 @rename_tempfile(ptr noundef captures(none
   br label %close_tempfile_gently.exit
 
 close_tempfile_gently.exit:                       ; preds = %13, %19
-  %.0.i = phi i32 [ %20, %19 ], [ %15, %13 ]
+  %.0.i = phi i32 [ %15, %13 ], [ %20, %19 ]
   %.not17.i.not = icmp eq i32 %.0.i, 0
   br i1 %.not17.i.not, label %close_tempfile_gently.exit.thread, label %close_tempfile_gently.exit.thread15
 

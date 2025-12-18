@@ -5288,7 +5288,7 @@ _ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsI
   br label %.loopexit
 
 .loopexit:                                        ; preds = %212, %.loopexit.sink.split, %.preheader
-  %.1 = phi i32 [ %.0144, %.preheader ], [ %.1.ph, %.loopexit.sink.split ], [ %.0144, %212 ]
+  %.1 = phi i32 [ %.1.ph, %.loopexit.sink.split ], [ %.0144, %.preheader ], [ %.0144, %212 ]
   %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
   %218 = load ptr, ptr %53, align 8
   %219 = load ptr, ptr %52, align 8
@@ -6785,7 +6785,7 @@ _ZNSt6vectorIlSaIlEE9push_backEOl.exit21:         ; preds = %_ZNSt6vectorIlSaIlE
   br i1 %exitcond.not, label %.loopexit, label %55, !llvm.loop !107
 
 .loopexit:                                        ; preds = %_ZNSt6vectorIlSaIlEE9push_backEOl.exit21, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit, %.preheader
-  %storemerge = phi ptr [ null, %.preheader ], [ %43, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit ], [ %84, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit21 ]
+  %storemerge = phi ptr [ %43, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit ], [ null, %.preheader ], [ %84, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit21 ]
   store ptr %storemerge, ptr %0, align 8
   ret void
 }
@@ -6841,7 +6841,7 @@ define void @_ZNK10open_spiel12crazy_eights16CrazyEightsState16PlayLegalActionsE
   br label %.invoke.sink.split
 
 .invoke.sink.split:                               ; preds = %209, %179, %31, %141
-  %.lcssa230.sink = phi ptr [ %23, %31 ], [ %125, %141 ], [ %159, %179 ], [ %159, %209 ]
+  %.lcssa230.sink = phi ptr [ %125, %141 ], [ %23, %31 ], [ %159, %179 ], [ %159, %209 ]
   store ptr %.lcssa230.sink, ptr %0, align 8
   br label %.invoke
 
@@ -7465,8 +7465,8 @@ _ZN4absl7debian26c_sortISt6vectorIlSaIlEEEEvRT_.exit: ; preds = %_ZN4absl7debian
   ret void
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %242, %79
-  %268 = phi ptr [ %228, %242 ], [ %.pre186, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %.promoted125, %79 ], [ %23, %.loopexit ], [ %159, %.loopexit.split-lp.loopexit ], [ %125, %.loopexit.split-lp.loopexit.split-lp.loopexit ]
-  %.pn = phi { ptr, i32 } [ %243, %242 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %80, %79 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit108, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit112, %.loopexit.split-lp.loopexit.split-lp.loopexit ]
+  %268 = phi ptr [ %228, %242 ], [ %159, %.loopexit.split-lp.loopexit ], [ %.pre186, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %125, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %.promoted125, %79 ], [ %23, %.loopexit ]
+  %.pn = phi { ptr, i32 } [ %243, %242 ], [ %lpad.loopexit108, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit112, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %80, %79 ], [ %lpad.loopexit, %.loopexit ]
   %.not.i.i.i = icmp eq ptr %268, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit, label %.loopexit.split-lp.thread
 
@@ -7838,9 +7838,9 @@ _ZNSt6vectorISt4pairIldESaIS1_EE12emplace_backIJRidEEERS1_DpOT_.exit: ; preds = 
   ret void
 
 .loopexit.split-lp:                               ; preds = %.loopexit47, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit
-  %124 = phi ptr [ %27, %.loopexit47 ], [ %90, %.loopexit.split-lp.loopexit ], [ %62, %.loopexit.split-lp.loopexit.split-lp ]
-  %125 = phi ptr [ %29, %.loopexit47 ], [ %92, %.loopexit.split-lp.loopexit ], [ %63, %.loopexit.split-lp.loopexit.split-lp ]
-  %.pn = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit47 ], [ %lpad.loopexit49, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp50, %.loopexit.split-lp.loopexit.split-lp ]
+  %124 = phi ptr [ %62, %.loopexit.split-lp.loopexit.split-lp ], [ %90, %.loopexit.split-lp.loopexit ], [ %27, %.loopexit47 ]
+  %125 = phi ptr [ %63, %.loopexit.split-lp.loopexit.split-lp ], [ %92, %.loopexit.split-lp.loopexit ], [ %29, %.loopexit47 ]
+  %.pn = phi { ptr, i32 } [ %lpad.loopexit.split-lp50, %.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit49, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit, %.loopexit47 ]
   %.not.i.i.i38 = icmp eq ptr %125, null
   br i1 %.not.i.i.i38, label %_ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit, label %126
 

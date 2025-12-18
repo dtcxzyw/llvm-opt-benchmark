@@ -1578,7 +1578,7 @@ define linkonce_odr dso_local void @_ZN17OrderGraphBuilder5visitEP9AstActive(ptr
   unreachable
 
 .loopexit:                                        ; preds = %68, %51, %63
-  %.sroa.06.1.i.i.i = phi ptr [ %64, %63 ], [ %.sroa.06.0.i.i.i, %51 ], [ %70, %68 ]
+  %.sroa.06.1.i.i.i = phi ptr [ %.sroa.06.0.i.i.i, %51 ], [ %64, %63 ], [ %70, %68 ]
   %76 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 16
   br label %77
 

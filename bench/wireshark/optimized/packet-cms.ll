@@ -1621,7 +1621,7 @@ cms_get_private_data.exit.i:                      ; preds = %13, %4
   br i1 %exitcond.not.i.i, label %cms_verify_msg_digest.exit.i, label %42, !llvm.loop !8
 
 cms_verify_msg_digest.exit.i:                     ; preds = %42, %38, %32, %29
-  %.str.680.sink.i.i = phi ptr [ @.str.681, %32 ], [ @.str.681, %38 ], [ @.str.682, %29 ], [ @.str.680, %42 ]
+  %.str.680.sink.i.i = phi ptr [ @.str.681, %32 ], [ @.str.682, %29 ], [ @.str.681, %38 ], [ @.str.680, %42 ]
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %20, ptr noundef nonnull %.str.680.sink.i.i)
   br label %dissect_cms_MessageDigest.exit
 

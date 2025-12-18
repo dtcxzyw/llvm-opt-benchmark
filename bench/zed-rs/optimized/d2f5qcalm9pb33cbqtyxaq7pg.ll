@@ -2976,7 +2976,7 @@ switch.lookup:
           to label %common.resume unwind label %110
 
 common.resume:                                    ; preds = %107, %109, %93, %117, %.body, %52
-  %common.resume.op = phi { ptr, i32 } [ %118, %117 ], [ %eh.lpad-body, %.body ], [ %94, %93 ], [ %53, %52 ], [ %108, %109 ], [ %108, %107 ]
+  %common.resume.op = phi { ptr, i32 } [ %53, %52 ], [ %118, %117 ], [ %eh.lpad-body, %.body ], [ %94, %93 ], [ %108, %109 ], [ %108, %107 ]
   resume { ptr, i32 } %common.resume.op
 
 110:                                              ; preds = %109

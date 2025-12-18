@@ -494,7 +494,7 @@ _ZNK12QHashPrivate4DataINS_4NodeIi16ft_framenum_typeEEE8findNodeERKi.exit.i.i.el
   br label %_ZNK5QHashIi16ft_framenum_typeEixERKi.exit
 
 _ZNK5QHashIi16ft_framenum_typeEixERKi.exit:       ; preds = %123, %145, %_ZNK5QHashIi16ft_framenum_typeE8containsERKi.exit, %89, %_ZNK12QHashPrivate4DataINS_4NodeIi16ft_framenum_typeEEE4findERKi.exit.i.i, %86, %82, %_ZNK12QHashPrivate4DataINS_4NodeIi16ft_framenum_typeEEE4findERKi.exit.i.i.i, %_ZNK12QHashPrivate4DataINS_4NodeIi16ft_framenum_typeEEE8findNodeERKi.exit.i.i, %_ZNK12QHashPrivate4DataINS_4NodeIi16ft_framenum_typeEEE8findNodeERKi.exit.i.i.else
-  %159 = phi i32 [ %.1.i.pre.i.else.val, %_ZNK12QHashPrivate4DataINS_4NodeIi16ft_framenum_typeEEE8findNodeERKi.exit.i.i.else ], [ 7, %_ZNK5QHashIi16ft_framenum_typeE8containsERKi.exit ], [ 0, %_ZNK12QHashPrivate4DataINS_4NodeIi16ft_framenum_typeEEE4findERKi.exit.i.i.i ], [ 7, %89 ], [ 0, %_ZNK12QHashPrivate4DataINS_4NodeIi16ft_framenum_typeEEE8findNodeERKi.exit.i.i ], [ 7, %82 ], [ 7, %86 ], [ 7, %_ZNK12QHashPrivate4DataINS_4NodeIi16ft_framenum_typeEEE4findERKi.exit.i.i ], [ 0, %145 ], [ 7, %123 ]
+  %159 = phi i32 [ %.1.i.pre.i.else.val, %_ZNK12QHashPrivate4DataINS_4NodeIi16ft_framenum_typeEEE8findNodeERKi.exit.i.i.else ], [ 7, %_ZNK5QHashIi16ft_framenum_typeE8containsERKi.exit ], [ 7, %86 ], [ 0, %_ZNK12QHashPrivate4DataINS_4NodeIi16ft_framenum_typeEEE4findERKi.exit.i.i.i ], [ 0, %145 ], [ 7, %89 ], [ 7, %_ZNK12QHashPrivate4DataINS_4NodeIi16ft_framenum_typeEEE4findERKi.exit.i.i ], [ 0, %_ZNK12QHashPrivate4DataINS_4NodeIi16ft_framenum_typeEEE8findNodeERKi.exit.i.i ], [ 7, %82 ], [ 7, %123 ]
   %160 = icmp eq i32 %.0157, 0
   %161 = icmp eq i32 %.0158, 0
   %or.cond.not335 = select i1 %160, i1 true, i1 %161

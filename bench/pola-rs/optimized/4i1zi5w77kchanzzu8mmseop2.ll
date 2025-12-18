@@ -13894,7 +13894,7 @@ _ZN12polars_arrow6legacy5array4list16AnonymousBuilder9push_null17h2a72da1b1ab4e1
   br label %163
 
 .loopexit.split-lp.i.i.i.i:                       ; preds = %178, %177, %130, %._crit_edge.i.i.i.i
-  %.sroa.06.4.ph.i.i.i.i = phi i1 [ true, %130 ], [ true, %._crit_edge.i.i.i.i ], [ false, %177 ], [ false, %178 ]
+  %.sroa.06.4.ph.i.i.i.i = phi i1 [ true, %._crit_edge.i.i.i.i ], [ false, %177 ], [ false, %178 ], [ true, %130 ]
   %lpad.loopexit.split-lp.i.i.i.i = landingpad { ptr, i32 }
           cleanup
   br label %163
@@ -14087,7 +14087,7 @@ _ZN12polars_arrow6legacy5array4list16AnonymousBuilder9push_null17h2a72da1b1ab4e1
   br label %.body30.i.i.i.i
 
 .loopexit.split-lp83.i.i.i.i:                     ; preds = %247, %246, %218
-  %.sroa.06.7.ph.i.i.i.i = phi i1 [ true, %218 ], [ false, %246 ], [ false, %247 ]
+  %.sroa.06.7.ph.i.i.i.i = phi i1 [ false, %246 ], [ false, %247 ], [ true, %218 ]
   %lpad.loopexit.split-lp85.i.i.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.body30.i.i.i.i
@@ -20596,7 +20596,7 @@ _ZN12polars_arrow6legacy5array4list16AnonymousBuilder9push_null17h2a72da1b1ab4e1
   br label %282
 
 .loopexit.split-lp.i.i.i.i:                       ; preds = %297, %296, %249, %._crit_edge.i.i.i.i
-  %.sroa.06.4.ph.i.i.i.i = phi i1 [ true, %249 ], [ true, %._crit_edge.i.i.i.i ], [ false, %296 ], [ false, %297 ]
+  %.sroa.06.4.ph.i.i.i.i = phi i1 [ true, %._crit_edge.i.i.i.i ], [ false, %296 ], [ false, %297 ], [ true, %249 ]
   %lpad.loopexit.split-lp.i.i.i.i = landingpad { ptr, i32 }
           cleanup
   br label %282
@@ -20789,7 +20789,7 @@ _ZN12polars_arrow6legacy5array4list16AnonymousBuilder9push_null17h2a72da1b1ab4e1
   br label %.body30.i.i.i.i
 
 .loopexit.split-lp91.i.i.i.i:                     ; preds = %366, %365, %337
-  %.sroa.06.7.ph.i.i.i.i = phi i1 [ true, %337 ], [ false, %365 ], [ false, %366 ]
+  %.sroa.06.7.ph.i.i.i.i = phi i1 [ false, %365 ], [ false, %366 ], [ true, %337 ]
   %lpad.loopexit.split-lp93.i.i.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.body30.i.i.i.i
@@ -21344,7 +21344,7 @@ _ZN12polars_arrow6legacy5array4list16AnonymousBuilder9push_null17h2a72da1b1ab4e1
   br label %532
 
 .loopexit.split-lp.i.i.i.i94:                     ; preds = %547, %546, %499, %._crit_edge.i.i.i.i93
-  %.sroa.06.4.ph.i.i.i.i95 = phi i1 [ true, %499 ], [ true, %._crit_edge.i.i.i.i93 ], [ false, %546 ], [ false, %547 ]
+  %.sroa.06.4.ph.i.i.i.i95 = phi i1 [ true, %._crit_edge.i.i.i.i93 ], [ false, %546 ], [ false, %547 ], [ true, %499 ]
   %lpad.loopexit.split-lp.i.i.i.i96 = landingpad { ptr, i32 }
           cleanup
   br label %532
@@ -21537,7 +21537,7 @@ _ZN12polars_arrow6legacy5array4list16AnonymousBuilder9push_null17h2a72da1b1ab4e1
   br label %.body30.i.i.i.i72
 
 .loopexit.split-lp83.i.i.i.i:                     ; preds = %616, %615, %587
-  %.sroa.06.7.ph.i.i.i.i75 = phi i1 [ true, %587 ], [ false, %615 ], [ false, %616 ]
+  %.sroa.06.7.ph.i.i.i.i75 = phi i1 [ false, %615 ], [ false, %616 ], [ true, %587 ]
   %lpad.loopexit.split-lp85.i.i.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.body30.i.i.i.i72
@@ -22297,7 +22297,7 @@ _ZN12polars_arrow6legacy5array4list16AnonymousBuilder9push_null17h2a72da1b1ab4e1
   br label %168
 
 .loopexit.split-lp.i.i.i.i:                       ; preds = %183, %182, %135, %._crit_edge.i.i.i.i
-  %.sroa.06.4.ph.i.i.i.i = phi i1 [ true, %135 ], [ true, %._crit_edge.i.i.i.i ], [ false, %182 ], [ false, %183 ]
+  %.sroa.06.4.ph.i.i.i.i = phi i1 [ true, %._crit_edge.i.i.i.i ], [ false, %182 ], [ false, %183 ], [ true, %135 ]
   %lpad.loopexit.split-lp.i.i.i.i = landingpad { ptr, i32 }
           cleanup
   br label %168
@@ -22490,7 +22490,7 @@ _ZN12polars_arrow6legacy5array4list16AnonymousBuilder9push_null17h2a72da1b1ab4e1
   br label %.body30.i.i.i.i
 
 .loopexit.split-lp83.i.i.i.i:                     ; preds = %252, %251, %223
-  %.sroa.06.7.ph.i.i.i.i = phi i1 [ true, %223 ], [ false, %251 ], [ false, %252 ]
+  %.sroa.06.7.ph.i.i.i.i = phi i1 [ false, %251 ], [ false, %252 ], [ true, %223 ]
   %lpad.loopexit.split-lp85.i.i.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.body30.i.i.i.i
@@ -29906,14 +29906,14 @@ define hidden void @_ZN10polars_ops13chunked_array7strings9namespace19StringName
   br label %.thread62
 
 .thread73:                                        ; preds = %173, %160, %.thread67
-  %.sroa.9.2100 = phi i64 [ %.sroa.3.0.i, %160 ], [ %.sroa.3.0.i69, %.thread67 ], [ %175, %173 ]
-  %.sroa.5.199 = phi i64 [ %.sroa.5.0, %160 ], [ %.sroa.5.0, %.thread67 ], [ %.sroa.5.2, %173 ]
-  %.sroa.8.297 = phi i64 [ %145, %160 ], [ %145, %.thread67 ], [ %.sroa.8.060.ph, %173 ]
-  %.sroa.11.195 = phi i64 [ %.sroa.11.0, %160 ], [ %.sroa.11.0, %.thread67 ], [ %.sroa.11.3, %173 ]
-  %.sroa.16.191 = phi i64 [ %.sroa.16.0, %160 ], [ %.sroa.16.0, %.thread67 ], [ %.sroa.16.2, %173 ]
-  %.sroa.18.189 = phi i64 [ %.sroa.18.0, %160 ], [ %.sroa.18.0, %.thread67 ], [ %.sroa.18.2, %173 ]
-  %.sroa.20.187 = phi i64 [ %.sroa.20.0, %160 ], [ %.sroa.20.0, %.thread67 ], [ %.sroa.20.3, %173 ]
-  %.sroa.643.284 = phi ptr [ %171, %160 ], [ %159, %.thread67 ], [ %176, %173 ]
+  %.sroa.9.2100 = phi i64 [ %.sroa.3.0.i69, %.thread67 ], [ %.sroa.3.0.i, %160 ], [ %175, %173 ]
+  %.sroa.5.199 = phi i64 [ %.sroa.5.0, %.thread67 ], [ %.sroa.5.0, %160 ], [ %.sroa.5.2, %173 ]
+  %.sroa.8.297 = phi i64 [ %145, %.thread67 ], [ %145, %160 ], [ %.sroa.8.060.ph, %173 ]
+  %.sroa.11.195 = phi i64 [ %.sroa.11.0, %.thread67 ], [ %.sroa.11.0, %160 ], [ %.sroa.11.3, %173 ]
+  %.sroa.16.191 = phi i64 [ %.sroa.16.0, %.thread67 ], [ %.sroa.16.0, %160 ], [ %.sroa.16.2, %173 ]
+  %.sroa.18.189 = phi i64 [ %.sroa.18.0, %.thread67 ], [ %.sroa.18.0, %160 ], [ %.sroa.18.2, %173 ]
+  %.sroa.20.187 = phi i64 [ %.sroa.20.0, %.thread67 ], [ %.sroa.20.0, %160 ], [ %.sroa.20.3, %173 ]
+  %.sroa.643.284 = phi ptr [ %159, %.thread67 ], [ %171, %160 ], [ %176, %173 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.044.sroa.0)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.044.sroa.6)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.553)
@@ -116199,7 +116199,7 @@ _ZN12polars_arrow6legacy5array4list16AnonymousBuilder9push_null17h2a72da1b1ab4e1
   br label %132
 
 .loopexit.split-lp.i.i.i:                         ; preds = %147, %146, %99, %._crit_edge.i.i.i
-  %.sroa.06.4.ph.i.i.i = phi i1 [ true, %99 ], [ true, %._crit_edge.i.i.i ], [ false, %146 ], [ false, %147 ]
+  %.sroa.06.4.ph.i.i.i = phi i1 [ true, %._crit_edge.i.i.i ], [ false, %146 ], [ false, %147 ], [ true, %99 ]
   %lpad.loopexit.split-lp.i.i.i = landingpad { ptr, i32 }
           cleanup
   br label %132
@@ -116392,7 +116392,7 @@ _ZN12polars_arrow6legacy5array4list16AnonymousBuilder9push_null17h2a72da1b1ab4e1
   br label %.body30.i.i.i
 
 .loopexit.split-lp83.i.i.i:                       ; preds = %216, %215, %187
-  %.sroa.06.7.ph.i.i.i = phi i1 [ true, %187 ], [ false, %215 ], [ false, %216 ]
+  %.sroa.06.7.ph.i.i.i = phi i1 [ false, %215 ], [ false, %216 ], [ true, %187 ]
   %lpad.loopexit.split-lp85.i.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.body30.i.i.i
@@ -119667,7 +119667,7 @@ _ZN9hashbrown3map9make_hash17h64fd8659bf96f554E.exit.i: ; preds = %114, %112
           to label %219 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 200:                                              ; preds = %191, %187
-  %.sroa.3.0.i.i.ph.i = phi i64 [ %.sroa.4.113.i.i.i, %187 ], [ %197, %191 ]
+  %.sroa.3.0.i.i.ph.i = phi i64 [ %197, %191 ], [ %.sroa.4.113.i.i.i, %187 ]
   %201 = load ptr, ptr %30, align 8, !alias.scope !19226, !noalias !19229, !nonnull !4
   call void @llvm.experimental.noalias.scope.decl(metadata !19240)
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 %.sroa.3.0.i.i.ph.i
@@ -136406,7 +136406,7 @@ thread-pre-split:                                 ; preds = %7
   br i1 %.not, label %.loopexit, label %61
 
 .loopexit:                                        ; preds = %59, %52, %95, %58, %26, %136, %.preheader90, %.preheader
-  %.sroa.023.1 = phi i64 [ 0, %.preheader ], [ 0, %.preheader90 ], [ %57, %52 ], [ %141, %136 ], [ %31, %26 ], [ %.sroa.023.0, %58 ], [ %100, %95 ], [ %.sroa.023.3, %59 ]
+  %.sroa.023.1 = phi i64 [ %57, %52 ], [ %141, %136 ], [ %.sroa.023.0, %58 ], [ 0, %.preheader ], [ %100, %95 ], [ 0, %.preheader90 ], [ %31, %26 ], [ %.sroa.023.3, %59 ]
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.023.1, ptr %60, align 8
   br label %10

@@ -213,7 +213,7 @@ define noundef zeroext i1 @_Z19duDumpPolyMeshToObjR10rcPolyMeshP8duFileIO(ptr no
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge55.us, %.loopexit.sink.split, %.lr.ph59, %._crit_edge
-  %.045 = phi i1 [ true, %._crit_edge ], [ true, %.lr.ph59 ], [ false, %.loopexit.sink.split ], [ true, %._crit_edge55.us ]
+  %.045 = phi i1 [ false, %.loopexit.sink.split ], [ true, %.lr.ph59 ], [ true, %._crit_edge ], [ true, %._crit_edge55.us ]
   ret i1 %.045
 }
 
@@ -367,7 +367,7 @@ define noundef zeroext i1 @_Z25duDumpPolyMeshDetailToObjR16rcPolyMeshDetailP8duF
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge47, %.loopexit.sink.split, %._crit_edge
-  %.038 = phi i1 [ true, %._crit_edge ], [ false, %.loopexit.sink.split ], [ true, %._crit_edge47 ]
+  %.038 = phi i1 [ false, %.loopexit.sink.split ], [ true, %._crit_edge ], [ true, %._crit_edge47 ]
   ret i1 %.038
 }
 
@@ -489,7 +489,7 @@ define noundef zeroext i1 @_Z16duDumpContourSetR12rcContourSetP8duFileIO(ptr nou
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.loopexit.sink.split, %8
-  %.0 = phi i1 [ true, %8 ], [ false, %.loopexit.sink.split ], [ true, %.lr.ph ]
+  %.0 = phi i1 [ false, %.loopexit.sink.split ], [ true, %8 ], [ true, %.lr.ph ]
   ret i1 %.0
 }
 

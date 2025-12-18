@@ -1483,7 +1483,7 @@ Abc_Clock.exit:                                   ; preds = %3, %13
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %139, %._crit_edge299, %._crit_edge379
-  %.3 = phi i32 [ %.2303, %139 ], [ %192, %._crit_edge299 ], [ %.2303, %._crit_edge379 ], [ %.2303, %.preheader ]
+  %.3 = phi i32 [ %.2303, %._crit_edge379 ], [ %.2303, %139 ], [ %192, %._crit_edge299 ], [ %.2303, %.preheader ]
   %indvars.iv.next342 = add nuw nsw i64 %indvars.iv341, 1
   %193 = load ptr, ptr %7, align 8, !tbaa !47
   %194 = getelementptr i8, ptr %193, i64 264
@@ -1500,7 +1500,7 @@ Abc_Clock.exit:                                   ; preds = %3, %13
   br i1 %202, label %132, label %.critedge3, !llvm.loop !97
 
 .critedge3:                                       ; preds = %.loopexit, %.preheader288, %._crit_edge, %56, %.preheader286, %121, %43, %96
-  %.1205 = phi i32 [ %.0204305, %43 ], [ %.0204305, %121 ], [ %.0204305, %96 ], [ %.0204305, %56 ], [ %.0204305, %.preheader286 ], [ %.0204305, %.preheader288 ], [ %.0204305, %._crit_edge ], [ %.3, %.loopexit ]
+  %.1205 = phi i32 [ %.0204305, %43 ], [ %.0204305, %121 ], [ %.0204305, %56 ], [ %.0204305, %._crit_edge ], [ %.0204305, %96 ], [ %.0204305, %.preheader286 ], [ %.0204305, %.preheader288 ], [ %.3, %.loopexit ]
   %indvars.iv.next345 = add nuw nsw i64 %indvars.iv344, 1
   %203 = load ptr, ptr %7, align 8, !tbaa !47
   %204 = getelementptr inbounds nuw i8, ptr %203, i64 24
@@ -2335,7 +2335,7 @@ Abc_Clock.exit109:                                ; preds = %156, %161
   br label %.loopexit
 
 .loopexit:                                        ; preds = %168, %.loopexit.sink.split, %155
-  %.0117125 = phi ptr [ %.0117135, %155 ], [ %.0117135, %.loopexit.sink.split ], [ %.1118, %168 ]
+  %.0117125 = phi ptr [ %.0117135, %.loopexit.sink.split ], [ %.0117135, %155 ], [ %.1118, %168 ]
   %174 = getelementptr inbounds nuw i8, ptr %19, i64 48
   %175 = load ptr, ptr %174, align 8, !tbaa !47
   call void @Gia_ManEdgeFromArray(ptr noundef %175, ptr noundef %.0117125) #19

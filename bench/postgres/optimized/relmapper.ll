@@ -261,7 +261,7 @@ define dso_local i32 @RelationMapFilenumberToOid(i32 noundef %0, i1 noundef zero
   br i1 %30, label %.loopexit.sink.split, label %26
 
 .loopexit.sink.split:                             ; preds = %.lr.ph, %.lr.ph43, %.lr.ph45, %.lr.ph47
-  %.lcssa79.sink = phi ptr [ %27, %.lr.ph43 ], [ %15, %.lr.ph47 ], [ %10, %.lr.ph45 ], [ %22, %.lr.ph ]
+  %.lcssa79.sink = phi ptr [ %27, %.lr.ph43 ], [ %10, %.lr.ph45 ], [ %15, %.lr.ph47 ], [ %22, %.lr.ph ]
   %31 = load i32, ptr %.lcssa79.sink, align 4
   br label %.loopexit
 

@@ -3157,7 +3157,7 @@ SDL_FinalizeDisplayMode.exit:                     ; preds = %18, %27
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %48, %70
-  %.0 = phi i1 [ true, %70 ], [ false, %48 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ false, %48 ], [ true, %70 ], [ false, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
@@ -3594,7 +3594,7 @@ SDL_UpdateFullscreenDisplayModes.exit:            ; preds = %35, %42
   br i1 %98, label %.lr.ph, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %95, %.lr.ph
-  %.046.lcssa = phi ptr [ %.147, %95 ], [ %.04664, %.lr.ph ]
+  %.046.lcssa = phi ptr [ %.04664, %.lr.ph ], [ %.147, %95 ]
   %.not58 = icmp eq ptr %.046.lcssa, null
   br i1 %.not58, label %._crit_edge.thread, label %100
 
@@ -3903,7 +3903,7 @@ DisplayModeChanged.exit.thread:                   ; preds = %6, %9, %13, %16, %2
   tail call void @SDL_SendDisplayEvent(ptr noundef nonnull %0, i32 noundef 342, i32 noundef %31, i32 noundef %33) #19
   br label %DisplayModeChanged.exit.thread46
 
-DisplayModeChanged.exit.thread46:                 ; preds = %.thread43, %25, %DisplayModeChanged.exit.thread, %DisplayModeChanged.exit
+DisplayModeChanged.exit.thread46:                 ; preds = %25, %.thread43, %DisplayModeChanged.exit.thread, %DisplayModeChanged.exit
   ret void
 }
 
@@ -5198,7 +5198,7 @@ SDL_GetWindowFullscreenMode_REAL.exit.thread:     ; preds = %SDL_GetWindowFullsc
   br label %tailrecurse
 
 .thread175:                                       ; preds = %85, %80, %89, %.thread173
-  %.0113 = phi i1 [ %.not147, %.thread173 ], [ %.not147, %89 ], [ false, %80 ], [ false, %85 ]
+  %.0113 = phi i1 [ %.not147, %89 ], [ %.not147, %.thread173 ], [ false, %80 ], [ false, %85 ]
   %92 = load i64, ptr %10, align 8
   %93 = and i64 %92, 1
   %.not149 = icmp eq i64 %93, 0
@@ -5999,7 +5999,7 @@ SDL_GetVideoDisplay.exit.thread.sink.split:       ; preds = %71, %.preheader.i.i
   br label %SDL_GetVideoDisplay.exit.thread
 
 SDL_GetVideoDisplay.exit.thread:                  ; preds = %102, %103, %SDL_GetVideoDisplay.exit.thread.sink.split, %.preheader, %SDL_GetVideoDisplay.exit, %.loopexit, %1, %6
-  %.023 = phi ptr [ null, %1 ], [ null, %6 ], [ %97, %.loopexit ], [ null, %SDL_GetVideoDisplay.exit ], [ null, %.preheader ], [ null, %SDL_GetVideoDisplay.exit.thread.sink.split ], [ null, %102 ], [ %104, %103 ]
+  %.023 = phi ptr [ null, %1 ], [ null, %6 ], [ %97, %.loopexit ], [ null, %SDL_GetVideoDisplay.exit ], [ null, %.preheader ], [ null, %SDL_GetVideoDisplay.exit.thread.sink.split ], [ %104, %103 ], [ null, %102 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.023
 }
@@ -8677,7 +8677,7 @@ define hidden noundef ptr @SDL_GetWindowFromID_REAL(i32 noundef %0) local_unname
   br i1 %.not10, label %.loopexit11.sink.split, label %.lr.ph, !llvm.loop !39
 
 .loopexit11.sink.split:                           ; preds = %8, %3, %4, %1
-  %.str.43.sink = phi ptr [ @.str.1, %1 ], [ @.str.43, %4 ], [ @.str.43, %3 ], [ @.str.43, %8 ]
+  %.str.43.sink = phi ptr [ @.str.1, %1 ], [ @.str.43, %3 ], [ @.str.43, %4 ], [ @.str.43, %8 ]
   %10 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull %.str.43.sink) #19
   br label %.loopexit11
 
@@ -9010,7 +9010,7 @@ SDL_GetPrimaryDisplay_REAL.exit:                  ; preds = %46, %60, %58
   br label %89
 
 89:                                               ; preds = %81, %82
-  %.250 = phi i32 [ %88, %82 ], [ %.048, %81 ]
+  %.250 = phi i32 [ %.048, %81 ], [ %88, %82 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %90
 
@@ -10488,58 +10488,58 @@ define hidden ptr @SDL_GetWindowSurface_REAL(ptr noundef %0) local_unnamed_addr 
 37:                                               ; preds = %33
   %38 = call ptr @SDL_GetHint_REAL(ptr noundef nonnull @.str.157) #19
   %.not.i.i = icmp eq ptr %38, null
-  br i1 %.not.i.i, label %44, label %39
+  br i1 %.not.i.i, label %46, label %39
 
 39:                                               ; preds = %37
   %40 = load i8, ptr %38, align 1
   switch i8 %40, label %41 [
-    i8 0, label %44
+    i8 0, label %46
     i8 48, label %ShouldAttemptTextureFramebuffer.exit.thread.i
   ]
 
 41:                                               ; preds = %39
   %42 = call i32 @SDL_strcasecmp_REAL(ptr noundef nonnull %38, ptr noundef nonnull @.str.158) #19
   %43 = icmp eq i32 %42, 0
-  br i1 %43, label %ShouldAttemptTextureFramebuffer.exit.thread.i, label %ShouldAttemptTextureFramebuffer.exit.i
+  br i1 %43, label %ShouldAttemptTextureFramebuffer.exit.thread.i, label %44
 
-44:                                               ; preds = %39, %37
-  %45 = load ptr, ptr @_this, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 312
-  %47 = load ptr, ptr %46, align 8
-  %.not10.i.i = icmp eq ptr %47, null
-  br i1 %.not10.i.i, label %ShouldAttemptTextureFramebuffer.exit.thread15.i, label %48
+44:                                               ; preds = %41
+  %45 = call i32 @SDL_strcasecmp_REAL(ptr noundef nonnull %38, ptr noundef nonnull @.str.159) #19
+  %.not19.i = icmp eq i32 %45, 0
+  br i1 %.not19.i, label %ShouldAttemptTextureFramebuffer.exit.thread.i, label %ShouldAttemptTextureFramebuffer.exit.thread15.i
 
-48:                                               ; preds = %44
-  %49 = load ptr, ptr %45, align 8
-  %50 = call i32 @SDL_strcmp_REAL(ptr noundef %49, ptr noundef nonnull @.str.18) #19
-  %51 = icmp eq i32 %50, 0
-  br i1 %51, label %52, label %ShouldAttemptTextureFramebuffer.exit.thread15.i
+46:                                               ; preds = %39, %37
+  %47 = load ptr, ptr @_this, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 312
+  %49 = load ptr, ptr %48, align 8
+  %.not10.i.i = icmp eq ptr %49, null
+  br i1 %.not10.i.i, label %ShouldAttemptTextureFramebuffer.exit.thread15.i, label %50
 
-52:                                               ; preds = %48
+50:                                               ; preds = %46
+  %51 = load ptr, ptr %47, align 8
+  %52 = call i32 @SDL_strcmp_REAL(ptr noundef %51, ptr noundef nonnull @.str.18) #19
+  %53 = icmp eq i32 %52, 0
+  br i1 %53, label %54, label %ShouldAttemptTextureFramebuffer.exit.thread15.i
+
+54:                                               ; preds = %50
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %53 = call i32 @stat(ptr noundef nonnull @.str.160, ptr noundef nonnull %2) #19
-  %54 = icmp eq i32 %53, 0
-  br i1 %54, label %58, label %55
+  %55 = call i32 @stat(ptr noundef nonnull @.str.160, ptr noundef nonnull %2) #19
+  %56 = icmp eq i32 %55, 0
+  br i1 %56, label %ShouldAttemptTextureFramebuffer.exit.i, label %57
 
-55:                                               ; preds = %52
-  %56 = call i32 @stat(ptr noundef nonnull @.str.161, ptr noundef nonnull %2) #19
-  %57 = icmp eq i32 %56, 0
-  br i1 %57, label %58, label %.thread.i
+57:                                               ; preds = %54
+  %58 = call i32 @stat(ptr noundef nonnull @.str.161, ptr noundef nonnull %2) #19
+  %59 = icmp eq i32 %58, 0
+  br i1 %59, label %ShouldAttemptTextureFramebuffer.exit.i, label %ShouldAttemptTextureFramebuffer.exit.thread17.i
 
-.thread.i:                                        ; preds = %55
+ShouldAttemptTextureFramebuffer.exit.thread17.i:  ; preds = %57
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %ShouldAttemptTextureFramebuffer.exit.thread15.i
 
-58:                                               ; preds = %55, %52
+ShouldAttemptTextureFramebuffer.exit.i:           ; preds = %57, %54
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %ShouldAttemptTextureFramebuffer.exit.thread.i
 
-ShouldAttemptTextureFramebuffer.exit.i:           ; preds = %41
-  %59 = call i32 @SDL_strcasecmp_REAL(ptr noundef nonnull %38, ptr noundef nonnull @.str.159) #19
-  %.not18.i = icmp eq i32 %59, 0
-  br i1 %.not18.i, label %ShouldAttemptTextureFramebuffer.exit.thread.i, label %ShouldAttemptTextureFramebuffer.exit.thread15.i
-
-ShouldAttemptTextureFramebuffer.exit.thread15.i:  ; preds = %ShouldAttemptTextureFramebuffer.exit.i, %.thread.i, %48, %44
+ShouldAttemptTextureFramebuffer.exit.thread15.i:  ; preds = %ShouldAttemptTextureFramebuffer.exit.thread17.i, %50, %46, %44
   %60 = call zeroext i1 @SDL_CreateWindowTexture(ptr poison, ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5)
   br i1 %60, label %.critedge12.i, label %ShouldAttemptTextureFramebuffer.exit.thread.i
 
@@ -10559,7 +10559,7 @@ ShouldAttemptTextureFramebuffer.exit.thread15.i:  ; preds = %ShouldAttemptTextur
   store i8 1, ptr %67, align 8
   br label %80
 
-ShouldAttemptTextureFramebuffer.exit.thread.i:    ; preds = %ShouldAttemptTextureFramebuffer.exit.thread15.i, %ShouldAttemptTextureFramebuffer.exit.i, %58, %41, %39, %33
+ShouldAttemptTextureFramebuffer.exit.thread.i:    ; preds = %ShouldAttemptTextureFramebuffer.exit.thread15.i, %ShouldAttemptTextureFramebuffer.exit.i, %44, %41, %39, %33
   %68 = load ptr, ptr @_this, align 8
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 784
   store i8 1, ptr %69, align 8

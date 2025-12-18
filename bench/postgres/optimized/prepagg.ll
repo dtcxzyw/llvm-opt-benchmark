@@ -301,7 +301,7 @@ find_compatible_agg.exit.i:                       ; preds = %156
   br label %preprocess_aggref.exit
 
 find_compatible_agg.exit.thread.i:                ; preds = %169, %find_compatible_agg.exit.i, %.lr.ph.i.i, %78, %76
-  %.2137.i = phi ptr [ null, %find_compatible_agg.exit.i ], [ null, %78 ], [ null, %76 ], [ null, %.lr.ph.i.i ], [ %.1.i, %169 ]
+  %.2137.i = phi ptr [ null, %find_compatible_agg.exit.i ], [ null, %76 ], [ null, %78 ], [ null, %.lr.ph.i.i ], [ %.1.i, %169 ]
   %184 = call noundef ptr @palloc0(i64 noundef 32) #4
   store i32 326, ptr %184, align 4
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 24

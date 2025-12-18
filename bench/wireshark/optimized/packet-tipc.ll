@@ -1261,8 +1261,8 @@ tipc_v2_set_info_col.exit:                        ; preds = %77, %92, %94, %97, 
   br label %299
 
 299:                                              ; preds = %.sink.split, %288, %266, %244
-  %.0143.i = phi ptr [ %5, %288 ], [ null, %266 ], [ null, %244 ], [ %5, %.sink.split ]
-  %.0.i268 = phi i32 [ 36, %288 ], [ 32, %266 ], [ 24, %244 ], [ %.0.i268.ph, %.sink.split ]
+  %.0143.i = phi ptr [ null, %244 ], [ null, %266 ], [ %5, %288 ], [ %5, %.sink.split ]
+  %.0.i268 = phi i32 [ 24, %244 ], [ 32, %266 ], [ 36, %288 ], [ %.0.i268.ph, %.sink.split ]
   %300 = load i32, ptr @handle_v2_as, align 4
   %301 = and i32 %300, 3
   %302 = icmp ne i32 %301, 0
@@ -1955,7 +1955,7 @@ define internal fastcc void @dissect_tipc_name_dist_data(ptr noundef %0, ptr nou
   br label %.backedge
 
 .backedge:                                        ; preds = %69, %37
-  %.1.be = phi i32 [ %68, %37 ], [ %71, %69 ]
+  %.1.be = phi i32 [ %71, %69 ], [ %68, %37 ]
   %72 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1.be)
   %73 = icmp sgt i32 %72, 0
   br i1 %73, label %37, label %.loopexit, !llvm.loop !10

@@ -264,7 +264,7 @@ define dso_local i32 @dev_set_hwtstamp_phylib(ptr noundef %0, ptr noundef initia
   br label %.thread8.thread
 
 .thread8.thread:                                  ; preds = %21, %30, %.thread8, %47, %51, %57
-  %63 = phi i1 [ true, %.thread8 ], [ false, %51 ], [ false, %47 ], [ %62, %57 ], [ true, %30 ], [ true, %21 ]
+  %63 = phi i1 [ true, %.thread8 ], [ %62, %57 ], [ false, %51 ], [ false, %47 ], [ true, %30 ], [ true, %21 ]
   %64 = load ptr, ptr %7, align 8
   %65 = call i32 @rtnl_is_locked() #11
   %66 = icmp ne i32 %65, 0

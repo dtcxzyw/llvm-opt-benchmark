@@ -3619,8 +3619,8 @@ define hidden { i64, ptr } @"_ZN2h25codec12framed_write24FramedWrite$LT$T$C$B$GT
   br label %.loopexit188
 
 .loopexit188:                                     ; preds = %109, %.fold.split, %143, %146, %83, %84
-  %.sroa.8.1 = phi ptr [ %85, %84 ], [ undef, %83 ], [ undef, %143 ], [ %147, %146 ], [ %111, %.fold.split ], [ undef, %109 ]
-  %.sroa.0.1 = phi i64 [ 0, %84 ], [ 1, %83 ], [ 1, %143 ], [ 0, %146 ], [ 0, %.fold.split ], [ 1, %109 ]
+  %.sroa.8.1 = phi ptr [ %147, %146 ], [ %85, %84 ], [ undef, %83 ], [ %111, %.fold.split ], [ undef, %143 ], [ undef, %109 ]
+  %.sroa.0.1 = phi i64 [ 0, %146 ], [ 0, %84 ], [ 1, %83 ], [ 0, %.fold.split ], [ 1, %143 ], [ 1, %109 ]
   %112 = load i64, ptr %15, align 8, !range !27, !noundef !4
   %.not.i.i138 = icmp eq i64 %112, 2
   br i1 %.not.i.i138, label %"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17he4da4507283e0c0eE.exit148", label %113
@@ -4687,8 +4687,8 @@ define hidden { i64, ptr } @"_ZN2h25codec12framed_write24FramedWrite$LT$T$C$B$GT
   br label %.loopexit188
 
 .loopexit188:                                     ; preds = %109, %.fold.split, %143, %146, %83, %84
-  %.sroa.8.1 = phi ptr [ %85, %84 ], [ undef, %83 ], [ undef, %143 ], [ %147, %146 ], [ %111, %.fold.split ], [ undef, %109 ]
-  %.sroa.0.1 = phi i64 [ 0, %84 ], [ 1, %83 ], [ 1, %143 ], [ 0, %146 ], [ 0, %.fold.split ], [ 1, %109 ]
+  %.sroa.8.1 = phi ptr [ %147, %146 ], [ %85, %84 ], [ undef, %83 ], [ %111, %.fold.split ], [ undef, %143 ], [ undef, %109 ]
+  %.sroa.0.1 = phi i64 [ 0, %146 ], [ 0, %84 ], [ 1, %83 ], [ 0, %.fold.split ], [ 1, %143 ], [ 1, %109 ]
   %112 = load i64, ptr %15, align 8, !range !27, !noundef !4
   %.not.i.i138 = icmp eq i64 %112, 2
   br i1 %.not.i.i138, label %"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17he4da4507283e0c0eE.exit148", label %113

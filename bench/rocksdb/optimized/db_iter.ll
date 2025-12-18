@@ -2908,7 +2908,7 @@ _ZNK7rocksdb21UserComparatorWrapper7CompareERKNS_5SliceES3_.exit: ; preds = %_ZT
   br i1 %216, label %.lr.ph.split.split, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %211, %188, %165, %142, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i30
-  %218 = phi ptr [ %114, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i30 ], [ %115, %188 ], [ %115, %142 ], [ %115, %165 ], [ %115, %211 ]
+  %218 = phi ptr [ %115, %188 ], [ %115, %165 ], [ %115, %142 ], [ %114, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i30 ], [ %115, %211 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %219 = load ptr, ptr %218, align 8, !tbaa !152, !noalias !308
   %220 = load ptr, ptr %219, align 8, !tbaa !17, !noalias !308
@@ -6895,7 +6895,7 @@ _ZN7rocksdb6StatusD2Ev.exit67:                    ; preds = %.loopexit, %_ZNKSt1
   br label %.loopexit77
 
 .loopexit77:                                      ; preds = %_ZN7rocksdb6DBIter20PrepareValueInternalEv.exit, %125, %_ZN7rocksdb6DBIter20PrepareValueInternalEv.exit.thread, %398, %_ZN7rocksdb6StatusD2Ev.exit43, %255, %_ZN7rocksdb6StatusD2Ev.exit37, %228, %396, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit58, %280, %253, %207
-  %.117 = phi i1 [ false, %396 ], [ %406, %398 ], [ true, %_ZN7rocksdb6StatusD2Ev.exit43 ], [ %.2, %207 ], [ false, %253 ], [ false, %228 ], [ true, %_ZN7rocksdb6StatusD2Ev.exit37 ], [ false, %280 ], [ false, %255 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit58 ], [ false, %_ZN7rocksdb6DBIter20PrepareValueInternalEv.exit.thread ], [ false, %125 ], [ false, %_ZN7rocksdb6DBIter20PrepareValueInternalEv.exit ]
+  %.117 = phi i1 [ false, %396 ], [ %406, %398 ], [ true, %_ZN7rocksdb6StatusD2Ev.exit43 ], [ %.2, %207 ], [ false, %_ZN7rocksdb6DBIter20PrepareValueInternalEv.exit.thread ], [ false, %253 ], [ false, %228 ], [ true, %_ZN7rocksdb6StatusD2Ev.exit37 ], [ false, %280 ], [ false, %255 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit58 ], [ false, %125 ], [ false, %_ZN7rocksdb6DBIter20PrepareValueInternalEv.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %407
 
@@ -10901,12 +10901,12 @@ _ZN7rocksdb19IteratorWrapperBaseINS_5SliceEE4PrevEv.exit: ; preds = %485, %496
   br i1 %or.cond62, label %505, label %.thread207
 
 .thread199:                                       ; preds = %_ZN7rocksdb12MergeContext5ClearEv.exit87, %_ZN7rocksdb6DBIter20PrepareValueInternalEv.exit, %192, %196, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit119, %_ZN7rocksdb6DBIter20PrepareValueInternalEv.exit.thread
-  %.2.ph = phi i1 [ false, %_ZN7rocksdb6DBIter20PrepareValueInternalEv.exit.thread ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit119 ], [ %197, %196 ], [ false, %192 ], [ false, %_ZN7rocksdb6DBIter20PrepareValueInternalEv.exit ], [ false, %_ZN7rocksdb12MergeContext5ClearEv.exit87 ]
+  %.2.ph = phi i1 [ false, %_ZN7rocksdb6DBIter20PrepareValueInternalEv.exit.thread ], [ %197, %196 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit119 ], [ false, %192 ], [ false, %_ZN7rocksdb6DBIter20PrepareValueInternalEv.exit ], [ false, %_ZN7rocksdb12MergeContext5ClearEv.exit87 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %654
 
-.thread207:                                       ; preds = %_ZN7rocksdb6DBIter9IsVisibleEmRKNS_5SliceEPb.exit.thread, %_ZN7rocksdb19IteratorWrapperBaseINS_5SliceEE4PrevEv.exit, %177
+.thread207:                                       ; preds = %_ZN7rocksdb6DBIter9IsVisibleEmRKNS_5SliceEPb.exit.thread, %177, %_ZN7rocksdb19IteratorWrapperBaseINS_5SliceEE4PrevEv.exit
   %.347.ph = phi i1 [ %.044245, %177 ], [ true, %_ZN7rocksdb19IteratorWrapperBaseINS_5SliceEE4PrevEv.exit ], [ %.044245, %_ZN7rocksdb6DBIter9IsVisibleEmRKNS_5SliceEPb.exit.thread ]
   %.343.ph = phi i8 [ %.040246, %177 ], [ %275, %_ZN7rocksdb19IteratorWrapperBaseINS_5SliceEE4PrevEv.exit ], [ %.040246, %_ZN7rocksdb6DBIter9IsVisibleEmRKNS_5SliceEPb.exit.thread ]
   %.333.ph = phi i8 [ %.030247, %177 ], [ %.4, %_ZN7rocksdb19IteratorWrapperBaseINS_5SliceEE4PrevEv.exit ], [ %.030247, %_ZN7rocksdb6DBIter9IsVisibleEmRKNS_5SliceEPb.exit.thread ]
@@ -12619,7 +12619,7 @@ _ZN7rocksdb10RecordTickEPNS_10StatisticsEjm.exit195: ; preds = %.critedge.thread
   br label %.loopexit214
 
 .loopexit214:                                     ; preds = %134, %397, %380, %_ZN7rocksdb6DBIter20PrepareValueInternalEv.exit.thread, %.thread207, %_ZN7rocksdb7IterKey14SetInternalKeyERKNS_17ParsedInternalKeyE.exit, %542, %493, %471, %314, %311, %_ZN7rocksdb6DBIter20PrepareValueInternalEv.exit, %216, %_ZN7rocksdb10RecordTickEPNS_10StatisticsEjm.exit195, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit173, %427, %374, %320, %_ZN7rocksdb6StatusD2Ev.exit
-  %.1 = phi i1 [ true, %.thread207 ], [ true, %320 ], [ false, %_ZN7rocksdb6DBIter20PrepareValueInternalEv.exit ], [ false, %311 ], [ %123, %_ZN7rocksdb6StatusD2Ev.exit ], [ true, %_ZN7rocksdb10RecordTickEPNS_10StatisticsEjm.exit195 ], [ %426, %427 ], [ %470, %471 ], [ %492, %493 ], [ true, %_ZN7rocksdb7IterKey14SetInternalKeyERKNS_17ParsedInternalKeyE.exit ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit173 ], [ false, %314 ], [ false, %374 ], [ true, %216 ], [ false, %542 ], [ false, %_ZN7rocksdb6DBIter20PrepareValueInternalEv.exit.thread ], [ false, %397 ], [ false, %380 ], [ false, %134 ]
+  %.1 = phi i1 [ true, %.thread207 ], [ false, %397 ], [ true, %320 ], [ false, %_ZN7rocksdb6DBIter20PrepareValueInternalEv.exit ], [ false, %311 ], [ %123, %_ZN7rocksdb6StatusD2Ev.exit ], [ true, %_ZN7rocksdb10RecordTickEPNS_10StatisticsEjm.exit195 ], [ %426, %427 ], [ %470, %471 ], [ false, %_ZN7rocksdb6DBIter20PrepareValueInternalEv.exit.thread ], [ %492, %493 ], [ true, %_ZN7rocksdb7IterKey14SetInternalKeyERKNS_17ParsedInternalKeyE.exit ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit173 ], [ false, %542 ], [ false, %314 ], [ false, %374 ], [ true, %216 ], [ false, %380 ], [ false, %134 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %587 = load ptr, ptr %2, align 8, !tbaa !11
   %588 = icmp eq ptr %587, %30

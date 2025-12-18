@@ -1302,7 +1302,7 @@ _ZN4llvm4User17dropAllReferencesEv.exit:          ; preds = %_ZN4llvm3Use3setEPN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN4llvm4User17dropAllReferencesEv.exit, %_ZNSt10unique_ptrIN4llvm9sandboxir15EraseFromParentESt14default_deleteIS2_EED2Ev.exit, %.loopexit.loopexit44, %78, %._crit_edge
-  %87 = phi ptr [ %.pre47, %.loopexit.loopexit44 ], [ %79, %78 ], [ %.pre45, %._crit_edge ], [ %45, %_ZNSt10unique_ptrIN4llvm9sandboxir15EraseFromParentESt14default_deleteIS2_EED2Ev.exit ], [ %.pre45, %_ZN4llvm4User17dropAllReferencesEv.exit ]
+  %87 = phi ptr [ %.pre47, %.loopexit.loopexit44 ], [ %45, %_ZNSt10unique_ptrIN4llvm9sandboxir15EraseFromParentESt14default_deleteIS2_EED2Ev.exit ], [ %79, %78 ], [ %.pre45, %._crit_edge ], [ %.pre45, %_ZN4llvm4User17dropAllReferencesEv.exit ]
   %88 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %89 = icmp eq ptr %87, %88
   br i1 %89, label %_ZN4llvm11SmallVectorIPNS_11InstructionELj1EED2Ev.exit, label %90
@@ -14867,7 +14867,7 @@ _ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IR
   br i1 %.not.i.i.i.i, label %_ZN4llvm8erase_ifINS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS4_EUlRKS5_E_EEvRT_T0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !671
 
 _ZN4llvm8erase_ifINS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS4_EUlRKS5_E_EEvRT_T0_.exit: ; preds = %57, %._crit_edge.i.i.i.i.i.i, %43, %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i
-  %.016.i.i.i.i = phi ptr [ %.028.i.i.i.i.i.i, %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i ], [ %10, %._crit_edge.i.i.i.i.i.i ], [ %10, %43 ], [ %.1.i.i.i.i, %57 ]
+  %.016.i.i.i.i = phi ptr [ %.028.i.i.i.i.i.i, %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i ], [ %10, %43 ], [ %10, %._crit_edge.i.i.i.i.i.i ], [ %.1.i.i.i.i, %57 ]
   %58 = ptrtoint ptr %.016.i.i.i.i to i64
   %59 = ptrtoint ptr %6 to i64
   %60 = sub i64 %58, %59

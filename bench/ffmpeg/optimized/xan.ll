@@ -823,8 +823,8 @@ xan_unpack.exit.i:                                ; preds = %348, %xan_unpack.ex
   br label %bytestream2_get_byte.exit.i
 
 bytestream2_get_byte.exit.i:                      ; preds = %.lr.ph.split.i, %394, %392, %383, %381, %373, %371, %.split232.us.i, %.split.us.i
-  %.sroa.0173.1.i = phi ptr [ %.sroa.0173.0.ph252.i, %.split.us.i ], [ %.sroa.0173.0.ph252.i, %.split232.us.i ], [ %162, %381 ], [ %162, %371 ], [ %374, %373 ], [ %384, %383 ], [ %395, %394 ], [ %162, %392 ], [ %.sroa.0173.0.ph252.i, %.lr.ph.split.i ]
-  %.0113.i = phi i32 [ %364, %.split.us.i ], [ %366, %.split232.us.i ], [ 0, %381 ], [ 0, %371 ], [ %376, %373 ], [ %387, %383 ], [ %407, %394 ], [ 0, %392 ], [ 0, %.lr.ph.split.i ]
+  %.sroa.0173.1.i = phi ptr [ %162, %392 ], [ %.sroa.0173.0.ph252.i, %.split.us.i ], [ %.sroa.0173.0.ph252.i, %.split232.us.i ], [ %162, %381 ], [ %162, %371 ], [ %374, %373 ], [ %384, %383 ], [ %395, %394 ], [ %.sroa.0173.0.ph252.i, %.lr.ph.split.i ]
+  %.0113.i = phi i32 [ 0, %392 ], [ %364, %.split.us.i ], [ %366, %.split232.us.i ], [ 0, %381 ], [ 0, %371 ], [ %376, %373 ], [ %387, %383 ], [ %407, %394 ], [ 0, %.lr.ph.split.i ]
   %408 = icmp sgt i32 %.0113.i, %.0109.ph259.i
   br i1 %408, label %xan_wc3_decode_frame.exit, label %409
 
@@ -1087,10 +1087,10 @@ bytestream2_get_byte.exit136.i:                   ; preds = %486, %484
   br i1 %.not106.i168.i, label %xan_wc3_copy_pixel_run.exit.i, label %.lr.ph.i154.i, !llvm.loop !57
 
 xan_wc3_copy_pixel_run.exit.i:                    ; preds = %526, %.lr.ph.i154.i, %438, %.lr.ph.i144.i, %522, %521, %502, %499, %bytestream2_get_byte.exit136.i, %xan_wc3_output_pixel_run.exit.i, %432, %431, %430, %420, %417, %412
-  %.sroa.0.1.i = phi ptr [ %.sroa.0.0.ph253.i, %xan_wc3_output_pixel_run.exit.i ], [ %.sroa.0.3.i, %bytestream2_get_byte.exit136.i ], [ %.sroa.0.0.ph253.i, %430 ], [ %.sroa.0.0.ph253.i, %412 ], [ %.sroa.0.0.ph253.i, %417 ], [ %.sroa.0.0.ph253.i, %420 ], [ %.sroa.0.0.ph253.i, %431 ], [ %.sroa.0.0.ph253.i, %432 ], [ %.sroa.0.3.i, %522 ], [ %.sroa.0.3.i, %521 ], [ %.sroa.0.3.i, %502 ], [ %.sroa.0.3.i, %499 ], [ %.sroa.0.0.ph253.i, %438 ], [ %.sroa.0.0.ph253.i, %.lr.ph.i144.i ], [ %.sroa.0.3.i, %.lr.ph.i154.i ], [ %.sroa.0.3.i, %526 ]
-  %.2119.i = phi ptr [ %477, %xan_wc3_output_pixel_run.exit.i ], [ %.1118.ph254.i, %bytestream2_get_byte.exit136.i ], [ %.1118.ph254.i, %430 ], [ %.1118.ph254.i, %412 ], [ %.1118.ph254.i, %417 ], [ %.1118.ph254.i, %420 ], [ %.1118.ph254.i, %431 ], [ %.1118.ph254.i, %432 ], [ %.1118.ph254.i, %522 ], [ %.1118.ph254.i, %521 ], [ %.1118.ph254.i, %502 ], [ %.1118.ph254.i, %499 ], [ %.1118.ph254.i, %438 ], [ %.1118.ph254.i, %.lr.ph.i144.i ], [ %.1118.ph254.i, %.lr.ph.i154.i ], [ %.1118.ph254.i, %526 ]
-  %.1111.i = phi i8 [ 0, %xan_wc3_output_pixel_run.exit.i ], [ 0, %bytestream2_get_byte.exit136.i ], [ 1, %430 ], [ 1, %412 ], [ 1, %417 ], [ 1, %420 ], [ 1, %431 ], [ 1, %432 ], [ 0, %522 ], [ 0, %521 ], [ 0, %502 ], [ 0, %499 ], [ 1, %438 ], [ 1, %.lr.ph.i144.i ], [ 0, %.lr.ph.i154.i ], [ 0, %526 ]
-  %.2108.i = phi i32 [ %478, %xan_wc3_output_pixel_run.exit.i ], [ %.1107.ph260.i, %bytestream2_get_byte.exit136.i ], [ %.1107.ph260.i, %430 ], [ %.1107.ph260.i, %412 ], [ %.1107.ph260.i, %417 ], [ %.1107.ph260.i, %420 ], [ %.1107.ph260.i, %431 ], [ %.1107.ph260.i, %432 ], [ %.1107.ph260.i, %522 ], [ %.1107.ph260.i, %521 ], [ %.1107.ph260.i, %502 ], [ %.1107.ph260.i, %499 ], [ %.1107.ph260.i, %438 ], [ %.1107.ph260.i, %.lr.ph.i144.i ], [ %.1107.ph260.i, %.lr.ph.i154.i ], [ %.1107.ph260.i, %526 ]
+  %.sroa.0.1.i = phi ptr [ %.sroa.0.0.ph253.i, %xan_wc3_output_pixel_run.exit.i ], [ %.sroa.0.3.i, %bytestream2_get_byte.exit136.i ], [ %.sroa.0.0.ph253.i, %430 ], [ %.sroa.0.0.ph253.i, %412 ], [ %.sroa.0.0.ph253.i, %417 ], [ %.sroa.0.0.ph253.i, %420 ], [ %.sroa.0.0.ph253.i, %431 ], [ %.sroa.0.0.ph253.i, %432 ], [ %.sroa.0.0.ph253.i, %438 ], [ %.sroa.0.3.i, %499 ], [ %.sroa.0.3.i, %522 ], [ %.sroa.0.3.i, %521 ], [ %.sroa.0.3.i, %502 ], [ %.sroa.0.0.ph253.i, %.lr.ph.i144.i ], [ %.sroa.0.3.i, %.lr.ph.i154.i ], [ %.sroa.0.3.i, %526 ]
+  %.2119.i = phi ptr [ %477, %xan_wc3_output_pixel_run.exit.i ], [ %.1118.ph254.i, %bytestream2_get_byte.exit136.i ], [ %.1118.ph254.i, %430 ], [ %.1118.ph254.i, %412 ], [ %.1118.ph254.i, %417 ], [ %.1118.ph254.i, %420 ], [ %.1118.ph254.i, %431 ], [ %.1118.ph254.i, %432 ], [ %.1118.ph254.i, %438 ], [ %.1118.ph254.i, %499 ], [ %.1118.ph254.i, %522 ], [ %.1118.ph254.i, %521 ], [ %.1118.ph254.i, %502 ], [ %.1118.ph254.i, %.lr.ph.i144.i ], [ %.1118.ph254.i, %.lr.ph.i154.i ], [ %.1118.ph254.i, %526 ]
+  %.1111.i = phi i8 [ 0, %xan_wc3_output_pixel_run.exit.i ], [ 0, %bytestream2_get_byte.exit136.i ], [ 1, %430 ], [ 1, %412 ], [ 1, %417 ], [ 1, %420 ], [ 1, %431 ], [ 1, %432 ], [ 1, %438 ], [ 0, %499 ], [ 0, %522 ], [ 0, %521 ], [ 0, %502 ], [ 1, %.lr.ph.i144.i ], [ 0, %.lr.ph.i154.i ], [ 0, %526 ]
+  %.2108.i = phi i32 [ %478, %xan_wc3_output_pixel_run.exit.i ], [ %.1107.ph260.i, %bytestream2_get_byte.exit136.i ], [ %.1107.ph260.i, %430 ], [ %.1107.ph260.i, %412 ], [ %.1107.ph260.i, %417 ], [ %.1107.ph260.i, %420 ], [ %.1107.ph260.i, %431 ], [ %.1107.ph260.i, %432 ], [ %.1107.ph260.i, %438 ], [ %.1107.ph260.i, %499 ], [ %.1107.ph260.i, %522 ], [ %.1107.ph260.i, %521 ], [ %.1107.ph260.i, %502 ], [ %.1107.ph260.i, %.lr.ph.i144.i ], [ %.1107.ph260.i, %.lr.ph.i154.i ], [ %.1107.ph260.i, %526 ]
   %542 = sub nsw i32 %.0109.ph259.i, %.0113.i
   %543 = add nsw i32 %.0113.i, %.0114.ph257.i
   %544 = sdiv i32 %543, %135
@@ -1118,8 +1118,8 @@ xan_wc3_decode_frame.exit:                        ; preds = %xan_wc3_copy_pixel_
   store i32 1, ptr %2, align 4, !tbaa !46
   br label %.thread
 
-.thread:                                          ; preds = %40, %38, %43, %82, %184, %.lr.ph.i.i, %bytestream2_init.exit134.i, %xan_huffman_decode.exit.i, %121, %xan_huffman_decode.exit.thread.sink.split.i, %32, %xan_wc3_decode_frame.exit, %108, %106, %555, %104
-  %.2 = phi i32 [ %553, %xan_wc3_decode_frame.exit ], [ -1094995529, %104 ], [ %.lcssa130, %555 ], [ -1094995529, %106 ], [ %109, %108 ], [ -1094995529, %32 ], [ -1094995529, %121 ], [ -1094995529, %xan_huffman_decode.exit.i ], [ -1094995529, %bytestream2_init.exit134.i ], [ -1094995529, %xan_huffman_decode.exit.thread.sink.split.i ], [ -1094995529, %184 ], [ -1094995529, %.lr.ph.i.i ], [ -1094995529, %82 ], [ -12, %43 ], [ -1094995529, %38 ], [ -1094995529, %40 ]
+.thread:                                          ; preds = %40, %38, %43, %82, %.lr.ph.i.i, %184, %bytestream2_init.exit134.i, %xan_huffman_decode.exit.i, %121, %xan_huffman_decode.exit.thread.sink.split.i, %32, %xan_wc3_decode_frame.exit, %108, %106, %555, %104
+  %.2 = phi i32 [ %553, %xan_wc3_decode_frame.exit ], [ -1094995529, %104 ], [ %.lcssa130, %555 ], [ -1094995529, %106 ], [ %109, %108 ], [ -1094995529, %32 ], [ -1094995529, %xan_huffman_decode.exit.thread.sink.split.i ], [ -1094995529, %121 ], [ -1094995529, %xan_huffman_decode.exit.i ], [ -1094995529, %.lr.ph.i.i ], [ -1094995529, %bytestream2_init.exit134.i ], [ -1094995529, %184 ], [ -1094995529, %82 ], [ -12, %43 ], [ -1094995529, %38 ], [ -1094995529, %40 ]
   ret i32 %.2
 }
 

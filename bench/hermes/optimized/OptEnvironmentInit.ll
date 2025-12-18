@@ -389,14 +389,14 @@ if.end35:                                         ; preds = %if.end
   br i1 %cmp.i132, label %for.end, label %for.inc
 
 for.inc:                                          ; preds = %for.body.i.i, %for.body.i.i56, %if.then12.i.i67, %if.then19.i.i73, %if.end31.i.i29, %if.then12.i.i, %if.then19.i.i, %if.end31.i.i, %if.end35, %_ZNK4llvh15SmallPtrSetImplIPN6hermes8VariableEE5countEPKS2_.exit, %_ZN6hermes9IRBuilder20InstructionDestroyer3addEPNS_11InstructionE.exit
-  %changed.2 = phi i1 [ %changed.1174, %if.end35 ], [ %changed.1174, %_ZNK4llvh15SmallPtrSetImplIPN6hermes8VariableEE5countEPKS2_.exit ], [ true, %_ZN6hermes9IRBuilder20InstructionDestroyer3addEPNS_11InstructionE.exit ], [ %changed.1174, %if.then12.i.i ], [ %changed.1174, %if.end31.i.i ], [ %changed.1174, %if.then19.i.i ], [ %changed.1174, %if.end31.i.i29 ], [ %changed.1174, %if.then19.i.i73 ], [ %changed.1174, %if.then12.i.i67 ], [ %changed.1174, %for.body.i.i56 ], [ %changed.1174, %for.body.i.i ]
+  %changed.2 = phi i1 [ %changed.1174, %if.end35 ], [ %changed.1174, %if.then12.i.i ], [ %changed.1174, %_ZNK4llvh15SmallPtrSetImplIPN6hermes8VariableEE5countEPKS2_.exit ], [ true, %_ZN6hermes9IRBuilder20InstructionDestroyer3addEPNS_11InstructionE.exit ], [ %changed.1174, %for.body.i.i56 ], [ %changed.1174, %if.end31.i.i ], [ %changed.1174, %if.then19.i.i ], [ %changed.1174, %if.then12.i.i67 ], [ %changed.1174, %if.end31.i.i29 ], [ %changed.1174, %if.then19.i.i73 ], [ %changed.1174, %for.body.i.i ]
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin3.sroa.0.0175, i64 8
   %__begin3.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i18.not = icmp eq ptr %__begin3.sroa.0.0, %InstList.i
   br i1 %cmp.i18.not, label %for.end, label %for.body12
 
 for.end:                                          ; preds = %for.inc, %_ZNK4llvh15SmallPtrSetImplIPN6hermes5ValueEE5countEPKS2_.exit, %if.end35, %_ZNK4llvh19SmallPtrSetImplBase8find_impEPKv.exit.i.i, %while.body.i6.i.i15.i.i.i, %for.body
-  %changed.1171 = phi i1 [ %changed.0181, %for.body ], [ %changed.1174, %while.body.i6.i.i15.i.i.i ], [ %changed.2, %for.inc ], [ %changed.1174, %_ZNK4llvh15SmallPtrSetImplIPN6hermes5ValueEE5countEPKS2_.exit ], [ %changed.1174, %if.end35 ], [ %changed.1174, %_ZNK4llvh19SmallPtrSetImplBase8find_impEPKv.exit.i.i ]
+  %changed.1171 = phi i1 [ %changed.1174, %while.body.i6.i.i15.i.i.i ], [ %changed.0181, %for.body ], [ %changed.2, %for.inc ], [ %changed.1174, %_ZNK4llvh15SmallPtrSetImplIPN6hermes5ValueEE5countEPKS2_.exit ], [ %changed.1174, %if.end35 ], [ %changed.1174, %_ZNK4llvh19SmallPtrSetImplBase8find_impEPKv.exit.i.i ]
   %43 = load ptr, ptr %CurArray.i.i.i13, align 8
   %44 = load ptr, ptr %writtenSlots, align 8
   %cmp.i.i.i.i134 = icmp eq ptr %43, %44

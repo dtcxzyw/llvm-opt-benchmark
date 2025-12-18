@@ -1089,7 +1089,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i52
   br i1 %.not37.i, label %.preheader.i.preheader, label %.lr.ph58.ithread-pre-split, !llvm.loop !38
 
 .preheader.i.preheader:                           ; preds = %107, %127, %101
-  %.3.i.ph = phi ptr [ %102, %101 ], [ %.2.i, %127 ], [ %108, %107 ]
+  %.3.i.ph = phi ptr [ %.2.i, %127 ], [ %102, %101 ], [ %108, %107 ]
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %.preheader.i

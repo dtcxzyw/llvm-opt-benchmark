@@ -1303,7 +1303,7 @@ define range(i32 -268435455, 268435456) i32 @BN_bn2bin(ptr noundef readonly capt
   br i1 %exitcond.not.i, label %bn2binpad.exit, label %21, !llvm.loop !26
 
 bn2binpad.exit:                                   ; preds = %21, %9, %10, %12
-  %.1.i = phi i32 [ 0, %9 ], [ %5, %10 ], [ 0, %12 ], [ %5, %21 ]
+  %.1.i = phi i32 [ 0, %12 ], [ 0, %9 ], [ %5, %10 ], [ %5, %21 ]
   ret i32 %.1.i
 }
 
@@ -1476,7 +1476,7 @@ define i32 @BN_ucmp(ptr noundef readonly captures(none) %0, ptr noundef readonly
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %.lr.ph, %.preheader42, %._crit_edge, %46
-  %.034 = phi i32 [ %36, %._crit_edge ], [ %48, %46 ], [ 0, %.preheader42 ], [ %35, %.lr.ph ], [ 0, %.preheader ]
+  %.034 = phi i32 [ %36, %._crit_edge ], [ %35, %.lr.ph ], [ %48, %46 ], [ 0, %.preheader42 ], [ 0, %.preheader ]
   ret i32 %.034
 }
 
@@ -2021,7 +2021,7 @@ define range(i32 -1, 2) i32 @bn_cmp_part_words(ptr noundef readonly captures(non
   br label %bn_cmp_words.exit
 
 bn_cmp_words.exit:                                ; preds = %.preheader23, %.preheader, %32, %40, %29, %26, %.loopexit
-  %.018 = phi i32 [ 0, %.loopexit ], [ %28, %26 ], [ %42, %40 ], [ 0, %29 ], [ 1, %.preheader ], [ 0, %32 ], [ -1, %.preheader23 ]
+  %.018 = phi i32 [ 1, %.preheader ], [ 0, %32 ], [ 0, %.loopexit ], [ %28, %26 ], [ %42, %40 ], [ 0, %29 ], [ -1, %.preheader23 ]
   ret i32 %.018
 }
 

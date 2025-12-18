@@ -1936,8 +1936,8 @@ define hidden void @_ZN5which6finder6Finder4find17hfad1cb4d0a02e1b4E(ptr dead_on
   br label %.thread
 
 30:                                               ; preds = %32, %90
-  %.sroa.023.1.ph = phi i1 [ true, %90 ], [ false, %32 ]
-  %.sroa.025.2.ph148 = phi i1 [ false, %90 ], [ true, %32 ]
+  %.sroa.023.1.ph = phi i1 [ false, %32 ], [ true, %90 ]
+  %.sroa.025.2.ph148 = phi i1 [ true, %32 ], [ false, %90 ]
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %116

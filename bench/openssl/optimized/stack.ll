@@ -208,7 +208,7 @@ define ptr @OPENSSL_sk_deep_copy(ptr noundef readonly captures(address_is_null) 
   br label %OPENSSL_sk_free.exit
 
 OPENSSL_sk_free.exit:                             ; preds = %41, %.preheader44, %.loopexit, %3, %13
-  %.035 = phi ptr [ %4, %13 ], [ null, %3 ], [ null, %.loopexit ], [ %4, %.preheader44 ], [ %4, %41 ]
+  %.035 = phi ptr [ null, %.loopexit ], [ %4, %13 ], [ null, %3 ], [ %4, %.preheader44 ], [ %4, %41 ]
   ret ptr %.035
 }
 

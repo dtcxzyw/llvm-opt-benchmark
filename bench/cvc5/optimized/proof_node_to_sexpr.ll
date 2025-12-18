@@ -3401,7 +3401,7 @@ define hidden noundef range(i32 0, 7) i32 @_ZN4cvc58internal16ProofNodeToSExpr17
   br label %21
 
 21:                                               ; preds = %8, %13, %11, %9, %3, %7, %14, %20
-  %.0 = phi i32 [ 0, %20 ], [ 2, %14 ], [ 3, %7 ], [ 3, %3 ], [ %switch.select17, %8 ], [ 6, %9 ], [ 5, %11 ], [ 4, %13 ]
+  %.0 = phi i32 [ 0, %20 ], [ 2, %14 ], [ 3, %7 ], [ 3, %3 ], [ %switch.select17, %8 ], [ 4, %13 ], [ 6, %9 ], [ 5, %11 ]
   ret i32 %.0
 }
 

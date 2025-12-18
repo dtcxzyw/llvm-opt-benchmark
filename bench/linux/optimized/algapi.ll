@@ -240,7 +240,7 @@ define dso_local void @crypto_remove_spawns(ptr noundef readonly captures(addres
   br i1 %75, label %.loopexit16.backedge, label %76
 
 .loopexit16.backedge:                             ; preds = %67, %82, %60
-  %.be = phi ptr [ %61, %60 ], [ %6, %67 ], [ %85, %82 ]
+  %.be = phi ptr [ %85, %82 ], [ %6, %67 ], [ %61, %60 ]
   br label %.loopexit16, !llvm.loop !13
 
 76:                                               ; preds = %67
@@ -821,7 +821,7 @@ define dso_local noundef i32 @crypto_register_alg(ptr noundef %0) #0 align 16 {
   br i1 %71, label %.thread, label %.preheader, !llvm.loop !22
 
 .thread:                                          ; preds = %.thread9, %36, %32, %21, %14, %1, %10, %52, %47
-  %72 = phi i32 [ %49, %47 ], [ 0, %52 ], [ -22, %10 ], [ -22, %1 ], [ -22, %14 ], [ -22, %21 ], [ -22, %32 ], [ -22, %36 ], [ 0, %.thread9 ]
+  %72 = phi i32 [ %49, %47 ], [ -22, %36 ], [ 0, %52 ], [ -22, %10 ], [ -22, %1 ], [ -22, %14 ], [ -22, %21 ], [ -22, %32 ], [ 0, %.thread9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %72
 }
@@ -1628,7 +1628,7 @@ define dso_local noundef i32 @crypto_register_instance(ptr noundef %0, ptr nound
   br i1 %108, label %.thread, label %.preheader, !llvm.loop !22
 
 .thread:                                          ; preds = %.thread11, %36, %32, %19, %12, %2, %8, %89, %.critedge.thread
-  %109 = phi i32 [ %83, %.critedge.thread ], [ 0, %89 ], [ -22, %8 ], [ -22, %2 ], [ -22, %12 ], [ -22, %19 ], [ -22, %32 ], [ -22, %36 ], [ 0, %.thread11 ]
+  %109 = phi i32 [ %83, %.critedge.thread ], [ -22, %36 ], [ 0, %89 ], [ -22, %8 ], [ -22, %2 ], [ -22, %12 ], [ -22, %19 ], [ -22, %32 ], [ 0, %.thread11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %109
 }

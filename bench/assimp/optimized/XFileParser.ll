@@ -4068,7 +4068,7 @@ _ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i: ; preds = %108, %106
   br i1 %109, label %.lr.ph.i.i.backedge, label %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit.i
 
 _ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit.i: ; preds = %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i, %99, %98, %94, %.preheader.i.i
-  %110 = phi ptr [ %.promoted12.i.i, %.preheader.i.i ], [ %105, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i ], [ %86, %99 ], [ %86, %98 ], [ %96, %94 ]
+  %110 = phi ptr [ %.promoted12.i.i, %.preheader.i.i ], [ %86, %98 ], [ %105, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i ], [ %86, %99 ], [ %96, %94 ]
   %.not.i = icmp ult ptr %110, %83
   br i1 %.not.i, label %111, label %_ZN6Assimp11XFileParser16TestForSeparatorEv.exit
 
@@ -6563,7 +6563,7 @@ _ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i: ; preds = %67, %65
   br i1 %68, label %.lr.ph.i.backedge, label %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exitthread-pre-split
 
 _ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exitthread-pre-split: ; preds = %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i, %58, %53, %.preheader.i
-  %.ph = phi ptr [ %.promoted12.i, %.preheader.i ], [ %64, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i ], [ %45, %58 ], [ %55, %53 ]
+  %.ph = phi ptr [ %.promoted12.i, %.preheader.i ], [ %45, %58 ], [ %64, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i ], [ %55, %53 ]
   %.pr = load i8, ptr %.ph, align 1
   br label %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit
 
@@ -6720,7 +6720,7 @@ _ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i: ; preds = %36, %34
   br i1 %37, label %.lr.ph.i.i.backedge, label %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit.i
 
 _ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit.i: ; preds = %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i, %27, %26, %22, %.preheader.i.i
-  %38 = phi ptr [ %.promoted12.i.i, %.preheader.i.i ], [ %33, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i ], [ %14, %27 ], [ %14, %26 ], [ %24, %22 ]
+  %38 = phi ptr [ %.promoted12.i.i, %.preheader.i.i ], [ %14, %26 ], [ %33, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i ], [ %14, %27 ], [ %24, %22 ]
   %.not.i = icmp ult ptr %38, %10
   br i1 %.not.i, label %39, label %_ZN6Assimp11XFileParser16TestForSeparatorEv.exit
 
@@ -7154,7 +7154,7 @@ _ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i: ; preds = %110, %108
   br i1 %111, label %.lr.ph.i.i.backedge, label %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit.i
 
 _ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit.i: ; preds = %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i, %101, %100, %96, %.preheader.i.i
-  %112 = phi ptr [ %.promoted12.i.i, %.preheader.i.i ], [ %107, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i ], [ %88, %101 ], [ %88, %100 ], [ %98, %96 ]
+  %112 = phi ptr [ %.promoted12.i.i, %.preheader.i.i ], [ %88, %100 ], [ %107, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i ], [ %88, %101 ], [ %98, %96 ]
   %.not.i = icmp ult ptr %112, %85
   br i1 %.not.i, label %113, label %_ZN6Assimp11XFileParser16TestForSeparatorEv.exit
 
@@ -7818,7 +7818,7 @@ _ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i: ; preds = %98, %96
   br i1 %99, label %.lr.ph.i.backedge, label %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exitthread-pre-split
 
 _ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exitthread-pre-split: ; preds = %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i, %89, %84, %.preheader.i
-  %.ph = phi ptr [ %.promoted12.i, %.preheader.i ], [ %95, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i ], [ %76, %89 ], [ %86, %84 ]
+  %.ph = phi ptr [ %.promoted12.i, %.preheader.i ], [ %76, %89 ], [ %95, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i ], [ %86, %84 ]
   %.pr = load i8, ptr %.ph, align 1
   br label %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit
 
@@ -9467,7 +9467,7 @@ _ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i: ; preds = %35, %33
   br i1 %36, label %.lr.ph.i.i.backedge, label %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit.i
 
 _ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit.i: ; preds = %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i, %26, %25, %21, %.preheader.i.i
-  %37 = phi ptr [ %.promoted12.i.i, %.preheader.i.i ], [ %32, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i ], [ %13, %26 ], [ %13, %25 ], [ %23, %21 ]
+  %37 = phi ptr [ %.promoted12.i.i, %.preheader.i.i ], [ %13, %25 ], [ %32, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i ], [ %13, %26 ], [ %23, %21 ]
   %.not.i = icmp ult ptr %37, %9
   br i1 %.not.i, label %38, label %_ZN6Assimp11XFileParser16TestForSeparatorEv.exit
 
@@ -9709,7 +9709,7 @@ _ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i: ; preds = %37, %35
   br i1 %38, label %.lr.ph.i.i.backedge, label %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit.i
 
 _ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit.i: ; preds = %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i, %28, %27, %23, %.preheader.i.i
-  %39 = phi ptr [ %.promoted12.i.i, %.preheader.i.i ], [ %34, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i ], [ %15, %28 ], [ %15, %27 ], [ %25, %23 ]
+  %39 = phi ptr [ %.promoted12.i.i, %.preheader.i.i ], [ %15, %27 ], [ %34, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i ], [ %15, %28 ], [ %25, %23 ]
   %.not.i = icmp ult ptr %39, %11
   br i1 %.not.i, label %40, label %_ZN6Assimp11XFileParser16TestForSeparatorEv.exit
 
@@ -10127,7 +10127,7 @@ _ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i: ; preds = %39, %37
   br i1 %40, label %.lr.ph.i.i.backedge, label %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit.i
 
 _ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit.i: ; preds = %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i, %30, %29, %25, %.preheader.i.i
-  %41 = phi ptr [ %.promoted12.i.i, %.preheader.i.i ], [ %36, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i ], [ %17, %30 ], [ %17, %29 ], [ %27, %25 ]
+  %41 = phi ptr [ %.promoted12.i.i, %.preheader.i.i ], [ %17, %29 ], [ %36, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i ], [ %17, %30 ], [ %27, %25 ]
   %.not.i = icmp ult ptr %41, %13
   br i1 %.not.i, label %42, label %_ZN6Assimp11XFileParser16TestForSeparatorEv.exit
 

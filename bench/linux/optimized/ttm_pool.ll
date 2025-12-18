@@ -365,11 +365,11 @@ define dso_local i32 @ttm_pool_alloc(ptr noundef %0, ptr noundef readonly captur
   br label %.thread33
 
 .thread33:                                        ; preds = %156, %.thread33.sink.split, %65, %82
-  %173 = phi i64 [ %53, %65 ], [ %53, %82 ], [ %.ph290, %.thread33.sink.split ], [ %157, %156 ]
-  %174 = phi ptr [ %52, %65 ], [ %52, %82 ], [ %.ph291, %.thread33.sink.split ], [ %147, %156 ]
-  %175 = phi ptr [ %51, %65 ], [ %51, %82 ], [ %.ph292, %.thread33.sink.split ], [ %153, %156 ]
-  %176 = phi i1 [ true, %65 ], [ true, %82 ], [ true, %.thread33.sink.split ], [ false, %156 ]
-  %177 = phi ptr [ %49, %65 ], [ %49, %82 ], [ %.ph293, %.thread33.sink.split ], [ %153, %156 ]
+  %173 = phi i64 [ %53, %82 ], [ %.ph290, %.thread33.sink.split ], [ %53, %65 ], [ %157, %156 ]
+  %174 = phi ptr [ %52, %82 ], [ %.ph291, %.thread33.sink.split ], [ %52, %65 ], [ %147, %156 ]
+  %175 = phi ptr [ %51, %82 ], [ %.ph292, %.thread33.sink.split ], [ %51, %65 ], [ %153, %156 ]
+  %176 = phi i1 [ true, %82 ], [ true, %.thread33.sink.split ], [ true, %65 ], [ false, %156 ]
+  %177 = phi ptr [ %49, %82 ], [ %.ph293, %.thread33.sink.split ], [ %49, %65 ], [ %153, %156 ]
   %178 = shl nuw nsw i32 1, %50
   %179 = zext nneg i32 %178 to i64
   %180 = icmp ult i64 %173, %179

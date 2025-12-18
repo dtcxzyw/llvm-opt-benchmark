@@ -3555,7 +3555,7 @@ tailrecurse.backedge:                             ; preds = %128, %161, %120, %1
   br label %.thread208
 
 .thread208:                                       ; preds = %189, %187, %170, %194, %185, %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit, %.critedge287
-  %.0 = phi ptr [ %32, %.critedge287 ], [ %.4, %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit ], [ %39, %189 ], [ %186, %185 ], [ %195, %194 ], [ %39, %170 ], [ %39, %187 ]
+  %.0 = phi ptr [ %32, %.critedge287 ], [ %.4, %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit ], [ %39, %187 ], [ %186, %185 ], [ %195, %194 ], [ %39, %170 ], [ %39, %189 ]
   ret ptr %.0
 }
 

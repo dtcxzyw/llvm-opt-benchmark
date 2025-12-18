@@ -257,13 +257,13 @@ define range(i32 0, 2) i32 @Bcj2_Decode(ptr noundef readonly captures(none) %0, 
   br i1 %.not287, label %.thread226, label %.lr.ph
 
 .thread226:                                       ; preds = %94, %118, %124, %40, %.thread204, %37, %.preheader
-  %.3174238 = phi i64 [ 0, %.preheader ], [ %28, %37 ], [ %.3174, %.thread204 ], [ %9, %124 ], [ %9, %118 ], [ %9, %94 ], [ %9, %40 ]
+  %.3174238 = phi i64 [ 0, %.preheader ], [ %28, %37 ], [ %.3174, %.thread204 ], [ %9, %118 ], [ %9, %94 ], [ %9, %40 ], [ %9, %124 ]
   %137 = icmp ne i64 %.3174238, %9
   %138 = zext i1 %137 to i32
   br label %.thread239
 
 .thread239:                                       ; preds = %84, %74, %89, %59, %14, %.critedge, %.thread226
-  %.1 = phi i32 [ 0, %.critedge ], [ %138, %.thread226 ], [ 1, %14 ], [ 1, %59 ], [ 1, %89 ], [ 1, %74 ], [ 1, %84 ]
+  %.1 = phi i32 [ 0, %.critedge ], [ 1, %14 ], [ %138, %.thread226 ], [ 1, %59 ], [ 1, %89 ], [ 1, %74 ], [ 1, %84 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %.1
 }

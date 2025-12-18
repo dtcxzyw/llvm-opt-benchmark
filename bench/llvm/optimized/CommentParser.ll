@@ -5580,7 +5580,7 @@ _ZN5clang8comments20TextTokenRetokenizer11consumeCharEv.exit: ; preds = %_ZN4llv
   br i1 %.not, label %.critedge, label %52
 
 52:                                               ; preds = %50, %48, %_ZN5clang8comments20TextTokenRetokenizer11consumeCharEv.exit
-  %.211 = phi i32 [ %.0917, %_ZN5clang8comments20TextTokenRetokenizer11consumeCharEv.exit ], [ %49, %48 ], [ %51, %50 ]
+  %.211 = phi i32 [ %49, %48 ], [ %.0917, %_ZN5clang8comments20TextTokenRetokenizer11consumeCharEv.exit ], [ %51, %50 ]
   %53 = load i32, ptr %3, align 4, !tbaa !39
   %54 = load i32, ptr %4, align 8, !tbaa !23
   %.not15 = icmp ugt i32 %54, %53

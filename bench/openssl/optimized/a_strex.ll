@@ -258,7 +258,7 @@ define internal fastcc i32 @do_name_ex(ptr noundef readonly captures(none) %0, p
   br i1 %exitcond.not, label %.critedge, label %27, !llvm.loop !6
 
 .critedge:                                        ; preds = %.lr.ph.i, %34, %38, %75, %80, %70, %59, %.lr.ph.i123, %.lr.ph.i129, %16, %.loopexit145
-  %.085 = phi i32 [ %spec.store.select, %16 ], [ -1, %.loopexit145 ], [ -1, %59 ], [ -1, %.lr.ph.i129 ], [ -1, %.lr.ph.i123 ], [ -1, %70 ], [ %81, %80 ], [ -1, %38 ], [ -1, %34 ], [ -1, %75 ], [ -1, %.lr.ph.i ]
+  %.085 = phi i32 [ %spec.store.select, %16 ], [ -1, %59 ], [ -1, %.lr.ph.i123 ], [ -1, %.loopexit145 ], [ -1, %.lr.ph.i129 ], [ -1, %70 ], [ %81, %80 ], [ -1, %38 ], [ -1, %34 ], [ -1, %75 ], [ -1, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.085
 }
@@ -918,7 +918,7 @@ define internal fastcc i32 @do_buf(ptr noundef %0, i32 noundef %1, i32 noundef %
   br i1 %.not44.i.us, label %do_esc_char.exit94.thread, label %115
 
 115:                                              ; preds = %112, %109, %107, %105, %99, %95, %91
-  %.030.i81.us = phi i32 [ 1, %107 ], [ 10, %112 ], [ 3, %99 ], [ 6, %109 ], [ 2, %105 ], [ 1, %91 ], [ 2, %95 ]
+  %.030.i81.us = phi i32 [ 1, %107 ], [ 2, %95 ], [ 10, %112 ], [ 3, %99 ], [ 6, %109 ], [ 2, %105 ], [ 1, %91 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %116 = add nuw nsw i32 %.030.i81.us, %.061113.us
@@ -1092,7 +1092,7 @@ define internal fastcc i32 @do_buf(ptr noundef %0, i32 noundef %1, i32 noundef %
   br i1 %.not35.i, label %select.unfold, label %196
 
 196:                                              ; preds = %194, %182, %186, %178, %192
-  %.030.i = phi i32 [ 1, %194 ], [ 2, %182 ], [ 3, %186 ], [ 1, %178 ], [ 2, %192 ]
+  %.030.i = phi i32 [ 1, %194 ], [ 2, %182 ], [ 2, %192 ], [ 3, %186 ], [ 1, %178 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %197 = add nsw i32 %.030.i, %.162110

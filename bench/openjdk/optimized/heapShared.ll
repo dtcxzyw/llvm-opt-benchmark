@@ -845,7 +845,7 @@ define hidden noundef zeroext i1 @_ZN10HeapShared22is_subgraph_root_classEP13Ins
   br i1 %17, label %_ZL25is_subgraph_root_class_ofP25ArchivableStaticFieldInfoP13InstanceKlass.exit, label %11
 
 _ZL25is_subgraph_root_class_ofP25ArchivableStaticFieldInfoP13InstanceKlass.exit: ; preds = %.lr.ph.i, %.lr.ph.i3, %11, %.loopexit
-  %18 = phi i1 [ false, %.loopexit ], [ %17, %.lr.ph.i3 ], [ %17, %11 ], [ true, %.lr.ph.i ]
+  %18 = phi i1 [ %17, %.lr.ph.i3 ], [ false, %.loopexit ], [ %17, %11 ], [ true, %.lr.ph.i ]
   ret i1 %18
 }
 

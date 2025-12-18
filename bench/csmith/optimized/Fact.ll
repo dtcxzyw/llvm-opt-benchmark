@@ -1416,7 +1416,7 @@ _Z17find_related_factRKSt6vectorIPK4FactSaIS2_EES2_.exit: ; preds = %.lr.ph.i
   br i1 %52, label %16, label %_Z17find_related_factRKSt6vectorIPK4FactSaIS2_EES2_.exit.thread
 
 _Z17find_related_factRKSt6vectorIPK4FactSaIS2_EES2_.exit.thread: ; preds = %16, %.critedge, %_Z17find_related_factRKSt6vectorIPK4FactSaIS2_EES2_.exit, %.lr.ph, %36, %.preheader, %2
-  %.3 = phi i1 [ false, %2 ], [ true, %.preheader ], [ false, %36 ], [ false, %_Z17find_related_factRKSt6vectorIPK4FactSaIS2_EES2_.exit ], [ true, %16 ], [ false, %.critedge ], [ false, %.lr.ph ]
+  %.3 = phi i1 [ false, %36 ], [ false, %2 ], [ true, %.preheader ], [ false, %_Z17find_related_factRKSt6vectorIPK4FactSaIS2_EES2_.exit ], [ true, %16 ], [ false, %.critedge ], [ false, %.lr.ph ]
   ret i1 %.3
 }
 

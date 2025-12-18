@@ -6079,7 +6079,7 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   br label %.body
 
 .loopexit53:                                      ; preds = %59, %.noexc, %54
-  %.pn.i.i = phi ptr [ %55, %54 ], [ %70, %.noexc ], [ %61, %59 ]
+  %.pn.i.i = phi ptr [ %70, %.noexc ], [ %55, %54 ], [ %61, %59 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 12
   %72 = trunc i64 %25 to i32
   store i32 %72, ptr %.1.i.i, align 4, !tbaa !121
@@ -6152,7 +6152,7 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   br label %.body
 
 .loopexit52:                                      ; preds = %85, %.noexc102, %80
-  %.pn.i.i100 = phi ptr [ %81, %80 ], [ %96, %.noexc102 ], [ %87, %85 ]
+  %.pn.i.i100 = phi ptr [ %96, %.noexc102 ], [ %81, %80 ], [ %87, %85 ]
   %.1.i.i101 = getelementptr inbounds nuw i8, ptr %.pn.i.i100, i64 12
   %98 = load i32, ptr %.1.i.i101, align 4, !tbaa !121
   %99 = load ptr, ptr %10, align 8, !tbaa !199
@@ -6461,8 +6461,8 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   br label %.body
 
 .loopexit48:                                      ; preds = %217, %.noexc136..loopexit48_crit_edge, %212
-  %.pre144 = phi ptr [ %172, %212 ], [ %.pre144.pre, %.noexc136..loopexit48_crit_edge ], [ %172, %217 ]
-  %.pn.i.i134 = phi ptr [ %213, %212 ], [ %228, %.noexc136..loopexit48_crit_edge ], [ %219, %217 ]
+  %.pre144 = phi ptr [ %.pre144.pre, %.noexc136..loopexit48_crit_edge ], [ %172, %212 ], [ %172, %217 ]
+  %.pn.i.i134 = phi ptr [ %228, %.noexc136..loopexit48_crit_edge ], [ %213, %212 ], [ %219, %217 ]
   %.1.i.i135 = getelementptr inbounds nuw i8, ptr %.pn.i.i134, i64 12
   %230 = trunc i64 %176 to i32
   store i32 %230, ptr %.1.i.i135, align 4, !tbaa !121
@@ -6470,8 +6470,8 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   br label %_ZNSt13unordered_mapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEE4findERS5_.exit125
 
 _ZNSt13unordered_mapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEE4findERS5_.exit125: ; preds = %199, %181, %194, %.loopexit48
-  %231 = phi i32 [ %.pre145, %.loopexit48 ], [ %186, %194 ], [ %179, %181 ], [ %186, %199 ]
-  %232 = phi ptr [ %.pre144, %.loopexit48 ], [ %172, %194 ], [ %172, %181 ], [ %172, %199 ]
+  %231 = phi i32 [ %179, %181 ], [ %.pre145, %.loopexit48 ], [ %186, %194 ], [ %186, %199 ]
+  %232 = phi ptr [ %172, %181 ], [ %.pre144, %.loopexit48 ], [ %172, %194 ], [ %172, %199 ]
   %233 = getelementptr inbounds nuw %"class.std::unordered_map", ptr %232, i64 %105
   %234 = sext i32 %231 to i64
   %235 = getelementptr inbounds nuw i8, ptr %233, i64 8
@@ -6531,7 +6531,7 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   br label %.body
 
 .loopexit47:                                      ; preds = %246, %.noexc150, %241
-  %.pn.i.i148 = phi ptr [ %242, %241 ], [ %257, %.noexc150 ], [ %248, %246 ]
+  %.pn.i.i148 = phi ptr [ %257, %.noexc150 ], [ %242, %241 ], [ %248, %246 ]
   %.1.i.i149 = getelementptr inbounds nuw i8, ptr %.pn.i.i148, i64 12
   %259 = load i32, ptr %.1.i.i149, align 4, !tbaa !121
   %260 = load ptr, ptr %11, align 8, !tbaa !188

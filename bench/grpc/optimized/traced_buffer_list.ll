@@ -758,7 +758,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit64:         ; preds = %_ZN4absl12lts_20240
   br label %.loopexit
 
 .outer._crit_edge:                                ; preds = %.outer, %_ZN4absl12lts_202407226StatusD2Ev.exit64, %_ZN4absl12lts_202407226StatusD2Ev.exit64.us, %56
-  %.043.ph.lcssa74 = phi ptr [ null, %56 ], [ %.043.ph93, %_ZN4absl12lts_202407226StatusD2Ev.exit64 ], [ null, %_ZN4absl12lts_202407226StatusD2Ev.exit64.us ], [ %.us-phi84, %.outer ]
+  %.043.ph.lcssa74 = phi ptr [ null, %_ZN4absl12lts_202407226StatusD2Ev.exit64.us ], [ null, %56 ], [ %.043.ph93, %_ZN4absl12lts_202407226StatusD2Ev.exit64 ], [ %.us-phi84, %.outer ]
   %105 = load ptr, ptr %7, align 8, !tbaa !52
   %106 = icmp eq ptr %105, null
   %..043 = select i1 %106, ptr null, ptr %.043.ph.lcssa74

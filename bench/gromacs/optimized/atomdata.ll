@@ -2113,9 +2113,9 @@ define void @_ZN3gmx16nbnxn_atomdata_tC2ENS_13PinningPolicyERKNS_8MDLoggerENS_15
   br i1 %or.cond246.not.i, label %.invoke, label %47
 
 .invoke:                                          ; preds = %68, %76, %82, %87, %536, %47, %32
-  %44 = phi ptr [ @.str.19, %32 ], [ @.str.21, %47 ], [ @.str.28, %536 ], [ @.str.23, %87 ], [ @.str.23, %82 ], [ @.str.23, %76 ], [ @.str.23, %68 ]
-  %45 = phi ptr [ @.str.20, %32 ], [ @.str.22, %47 ], [ @.str.29, %536 ], [ @.str.24, %87 ], [ @.str.24, %82 ], [ @.str.24, %76 ], [ @.str.24, %68 ]
-  %46 = phi i32 [ 485, %32 ], [ 489, %47 ], [ 662, %536 ], [ 502, %87 ], [ 502, %82 ], [ 502, %76 ], [ 502, %68 ]
+  %44 = phi ptr [ @.str.28, %536 ], [ @.str.19, %32 ], [ @.str.21, %47 ], [ @.str.23, %87 ], [ @.str.23, %82 ], [ @.str.23, %76 ], [ @.str.23, %68 ]
+  %45 = phi ptr [ @.str.29, %536 ], [ @.str.20, %32 ], [ @.str.22, %47 ], [ @.str.24, %87 ], [ @.str.24, %82 ], [ @.str.24, %76 ], [ @.str.24, %68 ]
+  %46 = phi i32 [ 662, %536 ], [ 485, %32 ], [ 489, %47 ], [ 502, %87 ], [ 502, %82 ], [ 502, %76 ], [ 502, %68 ]
   invoke void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull %44, ptr noundef nonnull %45, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmxL26nbnxn_atomdata_params_initERKNS_8MDLoggerEPNS_16nbnxn_atomdata_t6ParamsENS_15NbnxmKernelTypeERKSt8optionalINS_17LJCombinationRuleEES8_NS_8ArrayRefIKfEEbiENK3$_0clEv", ptr noundef nonnull @.str.7, i32 noundef %46) #31
           to label %.cont unwind label %.loopexit.split-lp
 
@@ -2667,7 +2667,7 @@ _ZNKRSt8optionalIN3gmx17LJCombinationRuleEE5valueEv.exit219.i: ; preds = %319
   br label %415
 
 342:                                              ; preds = %331, %326
-  %343 = phi i64 [ 1, %331 ], [ 0, %326 ]
+  %343 = phi i64 [ 0, %326 ], [ 1, %331 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %344 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %344, ptr %14, align 8, !tbaa !114

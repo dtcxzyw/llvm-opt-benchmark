@@ -21616,7 +21616,7 @@ lean_nat_lt.exit56:                               ; preds = %lean_obj_tag.exit
   br i1 %.not.i69, label %lean_dec.exit43, label %40
 
 lean_dec.exit43:                                  ; preds = %51, %36, %lean_nat_lt.exit56, %lean_nat_lt.exit
-  %.2 = phi ptr [ %1, %lean_nat_lt.exit56 ], [ %1, %lean_nat_lt.exit ], [ %37, %36 ], [ %53, %51 ]
+  %.2 = phi ptr [ %1, %lean_nat_lt.exit56 ], [ %37, %36 ], [ %1, %lean_nat_lt.exit ], [ %53, %51 ]
   ret ptr %.2
 }
 
@@ -23129,7 +23129,7 @@ lean_dec.exit:                                    ; preds = %lean_usize_of_nat.e
   br i1 %.not.i141, label %lean_dec.exit79, label %164
 
 lean_dec.exit79:                                  ; preds = %175, %129, %lean_nat_lt.exit113, %lean_nat_lt.exit, %lean_dec.exit, %149, %151, %152, %lean_dec.exit75, %94, %96, %97
-  %.2 = phi ptr [ %58, %94 ], [ %3, %149 ], [ %58, %lean_nat_lt.exit ], [ %58, %97 ], [ %58, %96 ], [ %58, %lean_dec.exit75 ], [ %3, %152 ], [ %3, %151 ], [ %3, %lean_dec.exit ], [ %3, %lean_nat_lt.exit113 ], [ %130, %129 ], [ %177, %175 ]
+  %.2 = phi ptr [ %58, %94 ], [ %3, %149 ], [ %130, %129 ], [ %3, %lean_nat_lt.exit113 ], [ %58, %lean_nat_lt.exit ], [ %58, %97 ], [ %58, %96 ], [ %58, %lean_dec.exit75 ], [ %3, %152 ], [ %3, %151 ], [ %3, %lean_dec.exit ], [ %177, %175 ]
   ret ptr %.2
 }
 
@@ -23415,7 +23415,7 @@ lean_nat_lt.exit121:                              ; preds = %6, %lean_nat_eq.exi
   br i1 %.not.i157, label %lean_dec.exit90, label %109
 
 lean_dec.exit90:                                  ; preds = %44, %98, %120, %lean_nat_lt.exit118, %lean_nat_lt.exit121, %lean_dec.exit82, %72, %74, %75, %lean_nat_lt.exit
-  %.5 = phi ptr [ %1, %72 ], [ %104, %lean_nat_lt.exit121 ], [ %1, %lean_dec.exit82 ], [ %28, %lean_nat_lt.exit ], [ %1, %75 ], [ %1, %74 ], [ %1, %lean_nat_lt.exit118 ], [ %100, %98 ], [ %122, %120 ], [ %46, %44 ]
+  %.5 = phi ptr [ %1, %72 ], [ %104, %lean_nat_lt.exit121 ], [ %1, %lean_dec.exit82 ], [ %28, %lean_nat_lt.exit ], [ %122, %120 ], [ %1, %lean_nat_lt.exit118 ], [ %1, %74 ], [ %100, %98 ], [ %1, %75 ], [ %46, %44 ]
   ret ptr %.5
 }
 

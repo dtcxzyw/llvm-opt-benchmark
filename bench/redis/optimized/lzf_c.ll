@@ -420,7 +420,7 @@ define dso_local i64 @lzf_compress(ptr noundef %0, i64 noundef %1, ptr noundef %
   br label %.thread286
 
 .thread286:                                       ; preds = %53, %213, %.thread.thread297, %4, %._crit_edge
-  %.0197 = phi i64 [ 0, %4 ], [ %247, %._crit_edge ], [ 0, %.thread.thread297 ], [ 0, %213 ], [ 0, %53 ]
+  %.0197 = phi i64 [ 0, %.thread.thread297 ], [ 0, %4 ], [ %247, %._crit_edge ], [ 0, %213 ], [ 0, %53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %.0197
 }

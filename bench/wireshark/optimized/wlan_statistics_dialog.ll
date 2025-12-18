@@ -2579,8 +2579,8 @@ _ZN10QByteArrayixEx.exit:                         ; preds = %_ZNK17QArrayDataPoi
   %.1 = phi i8 [ 1, %127 ], [ 0, %113 ], [ 1, %_ZN10QByteArrayixEx.exit ]
   br i1 %.142, label %.thread88, label %.thread79
 
-.thread88:                                        ; preds = %79, %133
-  %.23977.ph = phi i8 [ %.3, %133 ], [ 1, %79 ]
+.thread88:                                        ; preds = %133, %79
+  %.23977.ph = phi i8 [ 1, %79 ], [ %.3, %133 ]
   call void @_ZN25WlanNetworkTreeWidgetItem11updateBssidEPK9_wlan_hdr(ptr noundef align 8 dereferenceable_or_null(216) %0, ptr noundef %1)
   br label %.thread79
 

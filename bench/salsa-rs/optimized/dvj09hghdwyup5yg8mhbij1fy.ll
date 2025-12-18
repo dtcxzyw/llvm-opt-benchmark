@@ -624,8 +624,8 @@ _ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit55.i.i.i.i: ; preds = %
   tail call void @_ZN3std6thread5local18panic_access_error17hda6ac145c49510f2E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8bf1f29a660b296f966d18effed83e80.4) #15
   unreachable
 
-.loopexit:                                        ; preds = %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit55.i.i.i.i, %85, %15, %63, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit.i.i.i.i, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit45.i.i.i.i, %._crit_edge.i.i.i.i
-  %.sroa.0.0.i.ph = phi i8 [ %82, %._crit_edge.i.i.i.i ], [ 1, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit45.i.i.i.i ], [ 1, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit.i.i.i.i ], [ 0, %63 ], [ 2, %15 ], [ 1, %85 ], [ 1, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit55.i.i.i.i ]
+.loopexit:                                        ; preds = %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit55.i.i.i.i, %85, %15, %._crit_edge.i.i.i.i, %63, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit.i.i.i.i, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit45.i.i.i.i
+  %.sroa.0.0.i.ph = phi i8 [ 2, %15 ], [ %82, %._crit_edge.i.i.i.i ], [ 1, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit45.i.i.i.i ], [ 1, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit.i.i.i.i ], [ 0, %63 ], [ 1, %85 ], [ 1, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit55.i.i.i.i ]
   ret i8 %.sroa.0.0.i.ph
 }
 

@@ -413,7 +413,7 @@ for.body18.i:                                     ; preds = %.noexc7, %if.end.i
   br i1 %exitcond.not.i, label %for.inc19.i, label %for.body18.i, !llvm.loop !6
 
 for.inc19.i:                                      ; preds = %.noexc7, %lor.lhs.false.i, %.noexc6
-  %state.1.i = phi i64 [ %add.i16.i, %lor.lhs.false.i ], [ %state.037.i, %.noexc6 ], [ %add.i23.i, %.noexc7 ]
+  %state.1.i = phi i64 [ %state.037.i, %.noexc6 ], [ %add.i16.i, %lor.lhs.false.i ], [ %add.i23.i, %.noexc7 ]
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin3.038.i, i64 1
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i.i.i.i
   br i1 %cmp.not.i, label %invoke.cont16, label %for.body.i

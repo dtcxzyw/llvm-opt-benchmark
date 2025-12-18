@@ -3645,7 +3645,7 @@ _ZNK10arith_util6mk_addEjPKP4expr.exit:           ; preds = %529, %535
   br i1 %.not27.old.i.i.i.i, label %_ZNK13bound_manager9lower_depEP4expr.exit, label %.lr.ph38.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.backedge:                        ; preds = %717, %714
-  %.137.i.i.i.i.be = phi ptr [ %.old.i.i.i.i, %717 ], [ %716, %714 ]
+  %.137.i.i.i.i.be = phi ptr [ %716, %714 ], [ %.old.i.i.i.i, %717 ]
   br label %.lr.ph38.i.i.i.i, !llvm.loop !160
 
 .loopexit.i:                                      ; preds = %698, %709
@@ -3722,7 +3722,7 @@ _ZNK13bound_manager9lower_depEP4expr.exit:        ; preds = %703, %717, %714, %.
   br i1 %.not27.old.i.i.i.i311, label %_ZNK13bound_manager9upper_depEP4expr.exit, label %.lr.ph38.i.i.i.i307.backedge
 
 .lr.ph38.i.i.i.i307.backedge:                     ; preds = %750, %747
-  %.137.i.i.i.i308.be = phi ptr [ %.old.i.i.i.i310, %750 ], [ %749, %747 ]
+  %.137.i.i.i.i308.be = phi ptr [ %749, %747 ], [ %.old.i.i.i.i310, %750 ]
   br label %.lr.ph38.i.i.i.i307, !llvm.loop !160
 
 .loopexit.i314:                                   ; preds = %731, %742
@@ -8821,7 +8821,7 @@ define linkonce_odr hidden noundef ptr @_ZNK7obj_mapI4exprSt4pairI8rationalbEE9f
   br i1 %.not27.old.i, label %_ZNK14core_hashtableIN7obj_mapI4exprSt4pairI8rationalbEE13obj_map_entryE8obj_hashINS5_8key_dataEE10default_eqIS8_EE9find_coreERKS8_.exit, label %.lr.ph38.i.backedge
 
 .lr.ph38.i.backedge:                              ; preds = %40, %37
-  %.137.i.be = phi ptr [ %.old.i, %40 ], [ %39, %37 ]
+  %.137.i.be = phi ptr [ %39, %37 ], [ %.old.i, %40 ]
   br label %.lr.ph38.i, !llvm.loop !301
 
 _ZNK14core_hashtableIN7obj_mapI4exprSt4pairI8rationalbEE13obj_map_entryE8obj_hashINS5_8key_dataEE10default_eqIS8_EE9find_coreERKS8_.exit: ; preds = %26, %21, %40, %37, %32, %.preheader.i

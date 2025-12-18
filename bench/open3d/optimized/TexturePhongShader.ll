@@ -2396,8 +2396,8 @@ _ZNSt6vectorIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESaIS2_EE9push_backEOS2_.exit2
   br label %.loopexit384.invoke, !llvm.loop !161
 
 .loopexit384.invoke:                              ; preds = %462, %495, %.lr.ph.i.i.i.i254, %.preheader599, %.lr.ph.i.i.i.i258, %.preheader596, %..loopexit_crit_edge21.i.i.i.i, %..loopexit_crit_edge21.i.i.i.i262
-  %482 = phi i32 [ 318, %..loopexit_crit_edge21.i.i.i.i262 ], [ 310, %..loopexit_crit_edge21.i.i.i.i ], [ 318, %.lr.ph.i.i.i.i258 ], [ 310, %.preheader599 ], [ 310, %.lr.ph.i.i.i.i254 ], [ 318, %.preheader596 ], [ 318, %495 ], [ 310, %462 ]
-  %483 = phi ptr [ @.str.30, %..loopexit_crit_edge21.i.i.i.i262 ], [ @.str.29, %..loopexit_crit_edge21.i.i.i.i ], [ @.str.30, %.lr.ph.i.i.i.i258 ], [ @.str.29, %.preheader599 ], [ @.str.29, %.lr.ph.i.i.i.i254 ], [ @.str.30, %.preheader596 ], [ @.str.30, %495 ], [ @.str.29, %462 ]
+  %482 = phi i32 [ 318, %..loopexit_crit_edge21.i.i.i.i262 ], [ 310, %.preheader599 ], [ 318, %.lr.ph.i.i.i.i258 ], [ 310, %..loopexit_crit_edge21.i.i.i.i ], [ 318, %.preheader596 ], [ 310, %.lr.ph.i.i.i.i254 ], [ 310, %462 ], [ 318, %495 ]
+  %483 = phi ptr [ @.str.30, %..loopexit_crit_edge21.i.i.i.i262 ], [ @.str.29, %.preheader599 ], [ @.str.30, %.lr.ph.i.i.i.i258 ], [ @.str.29, %..loopexit_crit_edge21.i.i.i.i ], [ @.str.30, %.preheader596 ], [ @.str.29, %.lr.ph.i.i.i.i254 ], [ @.str.29, %462 ], [ @.str.30, %495 ]
   invoke void @_ZN6open3d7utility6Logger11LogWarning_IJEEEvPKciS4_S4_DpOT_(ptr noundef nonnull @.str.28, i32 noundef %482, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d13visualization4glsl33TexturePhongShaderForTriangleMesh14PrepareBindingERKNS_8geometry8GeometryERKNS0_12RenderOptionERKNS0_11ViewControlERSt6vectorIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESaISG_EESJ_RSD_INSF_IfLi2ELi1ELi0ELi2ELi1EEESaISK_EE, ptr noundef nonnull %483)
           to label %.critedge unwind label %.loopexit.split-lp
 
@@ -2417,7 +2417,7 @@ _ZNSt6vectorIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESaIS2_EE9push_backEOS2_.exit2
   br label %676
 
 _ZNKSt13unordered_mapIijSt4hashIiESt8equal_toIiESaISt4pairIKijEEE4findERS5_.exit: ; preds = %474, %458, %469
-  %.sroa.06.1.i.i = phi ptr [ %470, %469 ], [ %.sroa.06.0.i.i, %458 ], [ %476, %474 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %458 ], [ %470, %469 ], [ %476, %474 ]
   %486 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 12
   %487 = load i32, ptr %486, align 4, !tbaa !162
   %488 = getelementptr inbounds nuw i8, ptr %454, i64 60
@@ -2477,7 +2477,7 @@ _ZNKSt13unordered_mapIijSt4hashIiESt8equal_toIiESaISt4pairIKijEEE4findERS5_.exit
   br label %.loopexit384.invoke, !llvm.loop !161
 
 _ZNKSt13unordered_mapIijSt4hashIiESt8equal_toIiESaISt4pairIKijEEE4findERS5_.exit267: ; preds = %507, %491, %502
-  %.sroa.06.1.i.i263 = phi ptr [ %503, %502 ], [ %.sroa.06.0.i.i265, %491 ], [ %509, %507 ]
+  %.sroa.06.1.i.i263 = phi ptr [ %.sroa.06.0.i.i265, %491 ], [ %503, %502 ], [ %509, %507 ]
   %515 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i263, i64 12
   %516 = load i32, ptr %515, align 4, !tbaa !162
   %517 = getelementptr inbounds nuw i8, ptr %454, i64 48
@@ -3100,8 +3100,8 @@ _ZNSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   resume { ptr, i32 } %50
 
 _ZNKSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE15_M_find_node_trIiEEPNS4_10_Hash_nodeIS2_Lb0EEEmRKT_m.exit: ; preds = %33, %19, %.critedge, %28
-  %.sroa.031.1 = phi ptr [ %29, %28 ], [ %49, %.critedge ], [ %.sroa.028.0, %19 ], [ %35, %33 ]
-  %.sroa.432.1 = phi i8 [ 0, %28 ], [ 1, %.critedge ], [ 0, %19 ], [ 0, %33 ]
+  %.sroa.031.1 = phi ptr [ %.sroa.028.0, %19 ], [ %49, %.critedge ], [ %29, %28 ], [ %35, %33 ]
+  %.sroa.432.1 = phi i8 [ 0, %19 ], [ 1, %.critedge ], [ 0, %28 ], [ 0, %33 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.031.1, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.432.1, 1
   ret { ptr, i8 } %.fca.1.insert

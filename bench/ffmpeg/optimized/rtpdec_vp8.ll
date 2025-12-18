@@ -294,8 +294,8 @@ define internal range(i32 -2147483648, 2) i32 @vp8_handle_packet(ptr noundef %0,
   br label %.critedge
 
 .critedge:                                        ; preds = %123, %143, %125, %137, %81
-  %144 = phi i1 [ true, %81 ], [ false, %137 ], [ true, %143 ], [ true, %125 ], [ true, %123 ]
-  %.0188 = phi i32 [ 0, %81 ], [ %142, %137 ], [ 0, %143 ], [ 0, %125 ], [ 0, %123 ]
+  %144 = phi i1 [ true, %81 ], [ false, %137 ], [ true, %125 ], [ true, %143 ], [ true, %123 ]
+  %.0188 = phi i32 [ 0, %81 ], [ %142, %137 ], [ 0, %125 ], [ 0, %143 ], [ 0, %123 ]
   %145 = getelementptr inbounds nuw i8, ptr %.3172, i64 1
   %146 = load i16, ptr %145, align 1, !tbaa !28
   %147 = zext i16 %146 to i32

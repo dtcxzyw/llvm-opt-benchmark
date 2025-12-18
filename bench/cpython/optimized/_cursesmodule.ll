@@ -7288,7 +7288,7 @@ Py_DECREF.exit28:                                 ; preds = %37, %39, %42
   br i1 %46, label %Py_DECREF.exit.sink.split, label %Py_DECREF.exit
 
 47:                                               ; preds = %15, %18, %31, %34
-  %.020 = phi ptr [ %13, %15 ], [ %13, %18 ], [ %29, %31 ], [ %29, %34 ]
+  %.020 = phi ptr [ %29, %34 ], [ %29, %31 ], [ %13, %18 ], [ %13, %15 ]
   %48 = load i32, ptr %.020, align 8, !tbaa !12
   %.not.i.i = icmp sgt i32 %48, -1
   br i1 %.not.i.i, label %49, label %Py_XDECREF.exit.thread
@@ -9480,7 +9480,7 @@ Py_DECREF.exit861:                                ; preds = %805, %808, %811
   br label %.critedge
 
 .critedge:                                        ; preds = %792, %Py_DECREF.exit865, %Py_DECREF.exit863, %823, %813, %783, %773, %72, %69, %67, %curses_capi_new.exit.thread, %4, %9, %Py_DECREF.exit995, %55, %58, %81, %.critedge857, %749, %738, %727, %716, %705, %694, %683, %672, %661, %650, %639, %628, %617, %606, %595, %584, %573, %562, %551, %540, %529, %518, %507, %496, %485, %474, %463, %452, %441, %430, %419, %408, %397, %386, %375, %364, %353, %342, %331, %320, %309, %298, %287, %276, %265, %254, %243, %232, %221, %210, %199, %188, %177, %166, %155, %144, %133, %122, %111, %100, %Py_DECREF.exit987, %Py_DECREF.exit989, %Py_DECREF.exit861, %Py_DECREF.exit867, %Py_DECREF.exit869, %Py_DECREF.exit871, %Py_DECREF.exit873, %Py_DECREF.exit875, %Py_DECREF.exit877, %Py_DECREF.exit879, %Py_DECREF.exit881, %Py_DECREF.exit883, %Py_DECREF.exit885, %Py_DECREF.exit887, %Py_DECREF.exit889, %Py_DECREF.exit891, %Py_DECREF.exit893, %Py_DECREF.exit895, %Py_DECREF.exit897, %Py_DECREF.exit899, %Py_DECREF.exit901, %Py_DECREF.exit903, %Py_DECREF.exit905, %Py_DECREF.exit907, %Py_DECREF.exit909, %Py_DECREF.exit911, %Py_DECREF.exit913, %Py_DECREF.exit915, %Py_DECREF.exit917, %Py_DECREF.exit919, %Py_DECREF.exit921, %Py_DECREF.exit923, %Py_DECREF.exit925, %Py_DECREF.exit927, %Py_DECREF.exit929, %Py_DECREF.exit931, %Py_DECREF.exit933, %Py_DECREF.exit935, %Py_DECREF.exit937, %Py_DECREF.exit939, %Py_DECREF.exit941, %Py_DECREF.exit943, %Py_DECREF.exit945, %Py_DECREF.exit947, %Py_DECREF.exit949, %Py_DECREF.exit951, %Py_DECREF.exit953, %Py_DECREF.exit955, %Py_DECREF.exit957, %Py_DECREF.exit959, %Py_DECREF.exit961, %Py_DECREF.exit963, %Py_DECREF.exit965, %Py_DECREF.exit967, %Py_DECREF.exit969, %Py_DECREF.exit971, %Py_DECREF.exit973, %Py_DECREF.exit975, %Py_DECREF.exit977, %Py_DECREF.exit979, %Py_DECREF.exit981, %Py_DECREF.exit983, %Py_DECREF.exit985, %Py_DECREF.exit991, %61, %curses_capi_free.exit, %12, %2
-  %.0 = phi i32 [ -1, %2 ], [ -1, %9 ], [ -1, %4 ], [ -1, %12 ], [ -1, %curses_capi_new.exit.thread ], [ -1, %curses_capi_free.exit ], [ -1, %58 ], [ -1, %Py_DECREF.exit995 ], [ -1, %55 ], [ -1, %Py_DECREF.exit991 ], [ -1, %738 ], [ -1, %61 ], [ -1, %81 ], [ -1, %Py_DECREF.exit985 ], [ -1, %Py_DECREF.exit989 ], [ -1, %749 ], [ -1, %.critedge857 ], [ -1, %Py_DECREF.exit861 ], [ -1, %72 ], [ -1, %Py_DECREF.exit867 ], [ -1, %Py_DECREF.exit869 ], [ -1, %Py_DECREF.exit871 ], [ -1, %Py_DECREF.exit873 ], [ -1, %Py_DECREF.exit875 ], [ -1, %Py_DECREF.exit877 ], [ -1, %Py_DECREF.exit879 ], [ -1, %Py_DECREF.exit881 ], [ -1, %Py_DECREF.exit883 ], [ -1, %Py_DECREF.exit885 ], [ -1, %Py_DECREF.exit887 ], [ -1, %Py_DECREF.exit889 ], [ -1, %Py_DECREF.exit891 ], [ -1, %Py_DECREF.exit893 ], [ -1, %Py_DECREF.exit895 ], [ -1, %Py_DECREF.exit897 ], [ -1, %Py_DECREF.exit899 ], [ -1, %Py_DECREF.exit901 ], [ -1, %Py_DECREF.exit903 ], [ -1, %Py_DECREF.exit905 ], [ -1, %Py_DECREF.exit907 ], [ -1, %Py_DECREF.exit909 ], [ -1, %Py_DECREF.exit911 ], [ -1, %Py_DECREF.exit913 ], [ -1, %Py_DECREF.exit915 ], [ -1, %Py_DECREF.exit917 ], [ -1, %Py_DECREF.exit919 ], [ -1, %Py_DECREF.exit921 ], [ -1, %Py_DECREF.exit923 ], [ -1, %Py_DECREF.exit925 ], [ -1, %Py_DECREF.exit927 ], [ -1, %Py_DECREF.exit929 ], [ -1, %Py_DECREF.exit931 ], [ -1, %Py_DECREF.exit933 ], [ -1, %Py_DECREF.exit935 ], [ -1, %Py_DECREF.exit937 ], [ -1, %Py_DECREF.exit939 ], [ -1, %Py_DECREF.exit941 ], [ -1, %Py_DECREF.exit943 ], [ -1, %Py_DECREF.exit945 ], [ -1, %Py_DECREF.exit947 ], [ -1, %Py_DECREF.exit949 ], [ -1, %Py_DECREF.exit951 ], [ -1, %Py_DECREF.exit953 ], [ -1, %Py_DECREF.exit955 ], [ -1, %Py_DECREF.exit957 ], [ -1, %Py_DECREF.exit959 ], [ -1, %Py_DECREF.exit961 ], [ -1, %Py_DECREF.exit963 ], [ -1, %Py_DECREF.exit965 ], [ -1, %Py_DECREF.exit967 ], [ -1, %Py_DECREF.exit969 ], [ -1, %Py_DECREF.exit971 ], [ -1, %Py_DECREF.exit973 ], [ -1, %Py_DECREF.exit975 ], [ -1, %Py_DECREF.exit977 ], [ -1, %Py_DECREF.exit979 ], [ -1, %Py_DECREF.exit981 ], [ -1, %Py_DECREF.exit983 ], [ -1, %Py_DECREF.exit987 ], [ -1, %100 ], [ -1, %111 ], [ -1, %122 ], [ -1, %133 ], [ -1, %144 ], [ -1, %155 ], [ -1, %166 ], [ -1, %177 ], [ -1, %188 ], [ -1, %199 ], [ -1, %210 ], [ -1, %221 ], [ -1, %232 ], [ -1, %243 ], [ -1, %254 ], [ -1, %265 ], [ -1, %276 ], [ -1, %287 ], [ -1, %298 ], [ -1, %309 ], [ -1, %320 ], [ -1, %331 ], [ -1, %342 ], [ -1, %353 ], [ -1, %364 ], [ -1, %375 ], [ -1, %386 ], [ -1, %397 ], [ -1, %408 ], [ -1, %419 ], [ -1, %430 ], [ -1, %441 ], [ -1, %452 ], [ -1, %463 ], [ -1, %474 ], [ -1, %485 ], [ -1, %496 ], [ -1, %507 ], [ -1, %518 ], [ -1, %529 ], [ -1, %540 ], [ -1, %551 ], [ -1, %562 ], [ -1, %573 ], [ -1, %584 ], [ -1, %595 ], [ -1, %606 ], [ -1, %617 ], [ -1, %628 ], [ -1, %639 ], [ -1, %650 ], [ -1, %661 ], [ -1, %672 ], [ -1, %683 ], [ -1, %694 ], [ -1, %705 ], [ -1, %716 ], [ -1, %727 ], [ -1, %67 ], [ -1, %69 ], [ -1, %773 ], [ -1, %783 ], [ -1, %813 ], [ %.fr.lobit, %823 ], [ -1, %Py_DECREF.exit863 ], [ -1, %Py_DECREF.exit865 ], [ -1, %792 ]
+  %.0 = phi i32 [ -1, %2 ], [ -1, %9 ], [ -1, %4 ], [ -1, %12 ], [ -1, %curses_capi_new.exit.thread ], [ -1, %curses_capi_free.exit ], [ -1, %58 ], [ -1, %Py_DECREF.exit995 ], [ -1, %55 ], [ -1, %Py_DECREF.exit991 ], [ -1, %738 ], [ -1, %61 ], [ -1, %81 ], [ -1, %Py_DECREF.exit985 ], [ -1, %Py_DECREF.exit989 ], [ -1, %749 ], [ -1, %.critedge857 ], [ -1, %Py_DECREF.exit861 ], [ -1, %72 ], [ -1, %Py_DECREF.exit867 ], [ -1, %Py_DECREF.exit869 ], [ -1, %Py_DECREF.exit871 ], [ -1, %Py_DECREF.exit873 ], [ -1, %Py_DECREF.exit875 ], [ -1, %Py_DECREF.exit877 ], [ -1, %Py_DECREF.exit879 ], [ -1, %Py_DECREF.exit881 ], [ -1, %Py_DECREF.exit883 ], [ -1, %Py_DECREF.exit885 ], [ -1, %Py_DECREF.exit887 ], [ -1, %Py_DECREF.exit889 ], [ -1, %Py_DECREF.exit891 ], [ -1, %Py_DECREF.exit893 ], [ -1, %Py_DECREF.exit895 ], [ -1, %Py_DECREF.exit897 ], [ -1, %Py_DECREF.exit899 ], [ -1, %Py_DECREF.exit901 ], [ -1, %Py_DECREF.exit903 ], [ -1, %Py_DECREF.exit905 ], [ -1, %Py_DECREF.exit907 ], [ -1, %Py_DECREF.exit909 ], [ -1, %Py_DECREF.exit911 ], [ -1, %Py_DECREF.exit913 ], [ -1, %Py_DECREF.exit915 ], [ -1, %Py_DECREF.exit917 ], [ -1, %Py_DECREF.exit919 ], [ -1, %Py_DECREF.exit921 ], [ -1, %Py_DECREF.exit923 ], [ -1, %Py_DECREF.exit925 ], [ -1, %Py_DECREF.exit927 ], [ -1, %Py_DECREF.exit929 ], [ -1, %Py_DECREF.exit931 ], [ -1, %Py_DECREF.exit933 ], [ -1, %Py_DECREF.exit935 ], [ -1, %Py_DECREF.exit937 ], [ -1, %Py_DECREF.exit939 ], [ -1, %Py_DECREF.exit941 ], [ -1, %Py_DECREF.exit943 ], [ -1, %Py_DECREF.exit945 ], [ -1, %Py_DECREF.exit947 ], [ -1, %Py_DECREF.exit949 ], [ -1, %Py_DECREF.exit951 ], [ -1, %Py_DECREF.exit953 ], [ -1, %Py_DECREF.exit955 ], [ -1, %Py_DECREF.exit957 ], [ -1, %Py_DECREF.exit959 ], [ -1, %Py_DECREF.exit961 ], [ -1, %Py_DECREF.exit963 ], [ -1, %Py_DECREF.exit965 ], [ -1, %Py_DECREF.exit967 ], [ -1, %Py_DECREF.exit969 ], [ -1, %Py_DECREF.exit971 ], [ -1, %Py_DECREF.exit973 ], [ -1, %Py_DECREF.exit975 ], [ -1, %Py_DECREF.exit977 ], [ -1, %Py_DECREF.exit979 ], [ -1, %Py_DECREF.exit981 ], [ -1, %Py_DECREF.exit983 ], [ -1, %Py_DECREF.exit987 ], [ %.fr.lobit, %823 ], [ -1, %100 ], [ -1, %111 ], [ -1, %122 ], [ -1, %133 ], [ -1, %144 ], [ -1, %155 ], [ -1, %166 ], [ -1, %177 ], [ -1, %188 ], [ -1, %199 ], [ -1, %210 ], [ -1, %221 ], [ -1, %232 ], [ -1, %243 ], [ -1, %254 ], [ -1, %265 ], [ -1, %276 ], [ -1, %287 ], [ -1, %298 ], [ -1, %309 ], [ -1, %320 ], [ -1, %331 ], [ -1, %342 ], [ -1, %353 ], [ -1, %364 ], [ -1, %375 ], [ -1, %386 ], [ -1, %397 ], [ -1, %408 ], [ -1, %419 ], [ -1, %430 ], [ -1, %441 ], [ -1, %452 ], [ -1, %463 ], [ -1, %474 ], [ -1, %485 ], [ -1, %496 ], [ -1, %507 ], [ -1, %518 ], [ -1, %529 ], [ -1, %540 ], [ -1, %551 ], [ -1, %562 ], [ -1, %573 ], [ -1, %584 ], [ -1, %595 ], [ -1, %606 ], [ -1, %617 ], [ -1, %628 ], [ -1, %639 ], [ -1, %650 ], [ -1, %661 ], [ -1, %672 ], [ -1, %683 ], [ -1, %694 ], [ -1, %705 ], [ -1, %716 ], [ -1, %727 ], [ -1, %67 ], [ -1, %69 ], [ -1, %813 ], [ -1, %783 ], [ -1, %773 ], [ -1, %Py_DECREF.exit863 ], [ -1, %Py_DECREF.exit865 ], [ -1, %792 ]
   ret i32 %.0
 }
 
@@ -9882,8 +9882,8 @@ PyCurses_ConvertToCchar_t.exit.thread.i:          ; preds = %59, %52, %50, %40, 
   br label %94
 
 94:                                               ; preds = %90, %85, %77, %74
-  %.025.i = phi i32 [ %93, %90 ], [ %78, %77 ], [ %76, %74 ], [ %89, %85 ]
-  %.0.i = phi ptr [ @.str.263, %90 ], [ @.str.343, %77 ], [ @.str.343, %74 ], [ @.str.263, %85 ]
+  %.025.i = phi i32 [ %93, %90 ], [ %78, %77 ], [ %89, %85 ], [ %76, %74 ]
+  %.0.i = phi ptr [ @.str.263, %90 ], [ @.str.343, %77 ], [ @.str.263, %85 ], [ @.str.343, %74 ]
   %.not.i28.i = icmp eq i32 %.025.i, -1
   br i1 %.not.i28.i, label %.thread.i, label %_curses_window_addch_impl.exit
 
@@ -10332,7 +10332,7 @@ _curses_window_attroff_impl.exit.sink.split:      ; preds = %.split4, %.split
   br label %_curses_window_attroff_impl.exit
 
 _curses_window_attroff_impl.exit:                 ; preds = %_curses_window_attroff_impl.exit.sink.split, %.split4, %.split, %9
-  %.0 = phi ptr [ null, %9 ], [ @_Py_NoneStruct, %.split ], [ @_Py_NoneStruct, %.split4 ], [ null, %_curses_window_attroff_impl.exit.sink.split ]
+  %.0 = phi ptr [ null, %9 ], [ @_Py_NoneStruct, %.split4 ], [ @_Py_NoneStruct, %.split ], [ null, %_curses_window_attroff_impl.exit.sink.split ]
   ret ptr %.0
 }
 
@@ -10371,7 +10371,7 @@ _curses_window_attron_impl.exit.sink.split:       ; preds = %.split4, %.split
   br label %_curses_window_attron_impl.exit
 
 _curses_window_attron_impl.exit:                  ; preds = %_curses_window_attron_impl.exit.sink.split, %.split4, %.split, %9
-  %.0 = phi ptr [ null, %9 ], [ @_Py_NoneStruct, %.split ], [ @_Py_NoneStruct, %.split4 ], [ null, %_curses_window_attron_impl.exit.sink.split ]
+  %.0 = phi ptr [ null, %9 ], [ @_Py_NoneStruct, %.split4 ], [ @_Py_NoneStruct, %.split ], [ null, %_curses_window_attron_impl.exit.sink.split ]
   ret ptr %.0
 }
 
@@ -10410,7 +10410,7 @@ _curses_window_attrset_impl.exit.sink.split:      ; preds = %.split4, %.split
   br label %_curses_window_attrset_impl.exit
 
 _curses_window_attrset_impl.exit:                 ; preds = %_curses_window_attrset_impl.exit.sink.split, %.split4, %.split, %9
-  %.0 = phi ptr [ null, %9 ], [ @_Py_NoneStruct, %.split ], [ @_Py_NoneStruct, %.split4 ], [ null, %_curses_window_attrset_impl.exit.sink.split ]
+  %.0 = phi ptr [ null, %9 ], [ @_Py_NoneStruct, %.split4 ], [ @_Py_NoneStruct, %.split ], [ null, %_curses_window_attrset_impl.exit.sink.split ]
   ret ptr %.0
 }
 
@@ -11030,7 +11030,7 @@ PyCursesCheckERR_ForWin.exit.sink.split.i:        ; preds = %21, %14, %10
   br label %_curses_window_delch_impl.exit
 
 _curses_window_delch_impl.exit:                   ; preds = %PyCursesCheckERR_ForWin.exit.sink.split.i, %21, %10, %6, %8
-  %.04 = phi ptr [ null, %8 ], [ null, %6 ], [ @_Py_NoneStruct, %10 ], [ @_Py_NoneStruct, %21 ], [ null, %PyCursesCheckERR_ForWin.exit.sink.split.i ]
+  %.04 = phi ptr [ null, %8 ], [ null, %6 ], [ @_Py_NoneStruct, %21 ], [ @_Py_NoneStruct, %10 ], [ null, %PyCursesCheckERR_ForWin.exit.sink.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.04
@@ -11202,7 +11202,7 @@ PyCursesCheckERR_ForWin.exit.sink.split.i:        ; preds = %32, %27
   br label %_curses_window_echochar_impl.exit
 
 _curses_window_echochar_impl.exit:                ; preds = %18, %27, %32, %PyCursesCheckERR_ForWin.exit.sink.split.i
-  %.0.i = phi ptr [ null, %18 ], [ @_Py_NoneStruct, %27 ], [ @_Py_NoneStruct, %32 ], [ null, %PyCursesCheckERR_ForWin.exit.sink.split.i ]
+  %.0.i = phi ptr [ null, %18 ], [ @_Py_NoneStruct, %32 ], [ @_Py_NoneStruct, %27 ], [ null, %PyCursesCheckERR_ForWin.exit.sink.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %41
 
@@ -11865,7 +11865,7 @@ PyCursesCheckERR_ForWin.exit.sink.split.i:        ; preds = %33, %28
   br label %_curses_window_hline_impl.exit
 
 _curses_window_hline_impl.exit:                   ; preds = %20, %33, %PyCursesCheckERR_ForWin.exit.sink.split.i
-  %.0.i = phi ptr [ null, %20 ], [ @_Py_NoneStruct, %33 ], [ null, %PyCursesCheckERR_ForWin.exit.sink.split.i ]
+  %.0.i = phi ptr [ @_Py_NoneStruct, %33 ], [ null, %20 ], [ null, %PyCursesCheckERR_ForWin.exit.sink.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %44
 
@@ -12655,7 +12655,7 @@ define internal ptr @PyCursesWindow_InStr(ptr noundef readonly captures(none) %0
   br label %61
 
 57:                                               ; preds = %50, %33, %19, %8
-  %.0 = phi i32 [ %11, %8 ], [ %23, %19 ], [ %35, %33 ], [ %54, %50 ]
+  %.0 = phi i32 [ %11, %8 ], [ %23, %19 ], [ %54, %50 ], [ %35, %33 ]
   %58 = icmp eq i32 %.0, -1
   br i1 %58, label %.thread, label %59
 
@@ -13178,7 +13178,7 @@ PyCursesCheckERR_ForWin.exit.sink.split.i:        ; preds = %38, %25
   br label %_curses_window_overlay_impl.exit
 
 _curses_window_overlay_impl.exit:                 ; preds = %PyCursesCheckERR_ForWin.exit.sink.split.i, %38, %25, %17, %11, %23
-  %.07 = phi ptr [ null, %23 ], [ null, %17 ], [ null, %11 ], [ @_Py_NoneStruct, %25 ], [ @_Py_NoneStruct, %38 ], [ null, %PyCursesCheckERR_ForWin.exit.sink.split.i ]
+  %.07 = phi ptr [ null, %23 ], [ null, %17 ], [ null, %11 ], [ @_Py_NoneStruct, %38 ], [ @_Py_NoneStruct, %25 ], [ null, %PyCursesCheckERR_ForWin.exit.sink.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -13279,7 +13279,7 @@ PyCursesCheckERR_ForWin.exit.sink.split.i:        ; preds = %38, %25
   br label %_curses_window_overwrite_impl.exit
 
 _curses_window_overwrite_impl.exit:               ; preds = %PyCursesCheckERR_ForWin.exit.sink.split.i, %38, %25, %17, %11, %23
-  %.07 = phi ptr [ null, %23 ], [ null, %17 ], [ null, %11 ], [ @_Py_NoneStruct, %25 ], [ @_Py_NoneStruct, %38 ], [ null, %PyCursesCheckERR_ForWin.exit.sink.split.i ]
+  %.07 = phi ptr [ null, %23 ], [ null, %17 ], [ null, %11 ], [ @_Py_NoneStruct, %38 ], [ @_Py_NoneStruct, %25 ], [ null, %PyCursesCheckERR_ForWin.exit.sink.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -13430,7 +13430,7 @@ _curses_window_redrawln_impl.exit.sink.split:     ; preds = %.split11, %.split
   br label %_curses_window_redrawln_impl.exit
 
 _curses_window_redrawln_impl.exit:                ; preds = %_curses_window_redrawln_impl.exit.sink.split, %.split11, %.split, %20, %10, %4
-  %.0 = phi ptr [ null, %10 ], [ null, %20 ], [ null, %4 ], [ @_Py_NoneStruct, %.split ], [ @_Py_NoneStruct, %.split11 ], [ null, %_curses_window_redrawln_impl.exit.sink.split ]
+  %.0 = phi ptr [ null, %10 ], [ null, %20 ], [ null, %4 ], [ @_Py_NoneStruct, %.split11 ], [ @_Py_NoneStruct, %.split ], [ null, %_curses_window_redrawln_impl.exit.sink.split ]
   ret ptr %.0
 }
 
@@ -13675,7 +13675,7 @@ PyCursesCheckERR_ForWin.exit.sink.split.i:        ; preds = %13, %9
   br label %_curses_window_scroll_impl.exit
 
 _curses_window_scroll_impl.exit:                  ; preds = %PyCursesCheckERR_ForWin.exit.sink.split.i, %13, %9, %5, %7
-  %.04 = phi ptr [ null, %7 ], [ null, %5 ], [ @_Py_NoneStruct, %9 ], [ @_Py_NoneStruct, %13 ], [ null, %PyCursesCheckERR_ForWin.exit.sink.split.i ]
+  %.04 = phi ptr [ null, %7 ], [ null, %5 ], [ @_Py_NoneStruct, %13 ], [ @_Py_NoneStruct, %9 ], [ null, %PyCursesCheckERR_ForWin.exit.sink.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.04
 }
@@ -13767,7 +13767,7 @@ _curses_window_setscrreg_impl.exit.sink.split:    ; preds = %.split11, %.split
   br label %_curses_window_setscrreg_impl.exit
 
 _curses_window_setscrreg_impl.exit:               ; preds = %_curses_window_setscrreg_impl.exit.sink.split, %.split11, %.split, %20, %10, %4
-  %.0 = phi ptr [ null, %10 ], [ null, %20 ], [ null, %4 ], [ @_Py_NoneStruct, %.split ], [ @_Py_NoneStruct, %.split11 ], [ null, %_curses_window_setscrreg_impl.exit.sink.split ]
+  %.0 = phi ptr [ null, %10 ], [ null, %20 ], [ null, %4 ], [ @_Py_NoneStruct, %.split11 ], [ @_Py_NoneStruct, %.split ], [ null, %_curses_window_setscrreg_impl.exit.sink.split ]
   ret ptr %.0
 }
 
@@ -14006,7 +14006,7 @@ PyCursesCheckERR_ForWin.exit.sink.split.i:        ; preds = %19, %13
   br label %_curses_window_touchline_impl.exit
 
 _curses_window_touchline_impl.exit:               ; preds = %PyCursesCheckERR_ForWin.exit.sink.split.i, %19, %13, %9, %7, %11
-  %.05 = phi ptr [ null, %11 ], [ null, %9 ], [ null, %7 ], [ @_Py_NoneStruct, %13 ], [ @_Py_NoneStruct, %19 ], [ null, %PyCursesCheckERR_ForWin.exit.sink.split.i ]
+  %.05 = phi ptr [ null, %11 ], [ null, %9 ], [ null, %7 ], [ @_Py_NoneStruct, %19 ], [ @_Py_NoneStruct, %13 ], [ null, %PyCursesCheckERR_ForWin.exit.sink.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -14171,7 +14171,7 @@ PyCursesCheckERR_ForWin.exit.sink.split.i:        ; preds = %33, %28
   br label %_curses_window_vline_impl.exit
 
 _curses_window_vline_impl.exit:                   ; preds = %20, %33, %PyCursesCheckERR_ForWin.exit.sink.split.i
-  %.0.i = phi ptr [ null, %20 ], [ @_Py_NoneStruct, %33 ], [ null, %PyCursesCheckERR_ForWin.exit.sink.split.i ]
+  %.0.i = phi ptr [ @_Py_NoneStruct, %33 ], [ null, %20 ], [ null, %PyCursesCheckERR_ForWin.exit.sink.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %44
 

@@ -255,7 +255,7 @@ define internal i32 @fits_decode_frame(ptr noundef %0, ptr noundef initializes((
   br label %fits_read_header.exit.thread
 
 fits_read_header.exit.thread:                     ; preds = %18, %47, %26, %._crit_edge119.i, %73, %28, %._crit_edge.i, %115, %90
-  %.082.i.ph = phi i32 [ %88, %90 ], [ -1094995529, %115 ], [ -1094995529, %._crit_edge.i ], [ -1094995529, %28 ], [ -1094995529, %73 ], [ -1094995529, %._crit_edge119.i ], [ %23, %26 ], [ -1094995529, %47 ], [ -1094995529, %18 ]
+  %.082.i.ph = phi i32 [ -1094995529, %47 ], [ %88, %90 ], [ -1094995529, %115 ], [ -1094995529, %._crit_edge.i ], [ -1094995529, %28 ], [ -1094995529, %73 ], [ -1094995529, %._crit_edge119.i ], [ %23, %26 ], [ -1094995529, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %571
 
@@ -1939,7 +1939,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @fill_data_min_max(ptr noun
   br i1 %exitcond166.not, label %.loopexit, label %.preheader.us, !llvm.loop !92
 
 .loopexit:                                        ; preds = %._crit_edge.split.us24, %._crit_edge.split.us.us.us, %._crit_edge.split.us37, %._crit_edge.split.us.us.us40, %._crit_edge.split.us54, %._crit_edge.split.us.us.us57, %._crit_edge.split.us71, %._crit_edge.split.us.us.us74, %._crit_edge.split.us88, %._crit_edge.split.us.us.us91, %._crit_edge.split.us103, %._crit_edge.split.us.us.us106, %.preheader.lr.ph, %.preheader2.lr.ph, %.preheader5.lr.ph, %.preheader8.lr.ph, %.preheader11.lr.ph, %.preheader14.lr.ph, %.preheader15, %.preheader12, %.preheader9, %.preheader6, %.preheader3, %.preheader1, %2
-  %.0123 = phi i32 [ -1094995529, %2 ], [ 0, %.preheader12 ], [ 0, %.preheader1 ], [ 0, %.preheader3 ], [ 0, %.preheader6 ], [ 0, %.preheader9 ], [ 0, %.preheader15 ], [ 0, %.preheader.lr.ph ], [ 0, %.preheader2.lr.ph ], [ 0, %.preheader5.lr.ph ], [ 0, %.preheader8.lr.ph ], [ 0, %.preheader11.lr.ph ], [ 0, %.preheader14.lr.ph ], [ 0, %._crit_edge.split.us.us.us ], [ 0, %._crit_edge.split.us.us.us106 ], [ 0, %._crit_edge.split.us103 ], [ 0, %._crit_edge.split.us.us.us91 ], [ 0, %._crit_edge.split.us88 ], [ 0, %._crit_edge.split.us.us.us74 ], [ 0, %._crit_edge.split.us71 ], [ 0, %._crit_edge.split.us.us.us57 ], [ 0, %._crit_edge.split.us54 ], [ 0, %._crit_edge.split.us.us.us40 ], [ 0, %._crit_edge.split.us37 ], [ 0, %._crit_edge.split.us24 ]
+  %.0123 = phi i32 [ -1094995529, %2 ], [ 0, %.preheader9 ], [ 0, %.preheader6 ], [ 0, %.preheader3 ], [ 0, %.preheader1 ], [ 0, %.preheader12 ], [ 0, %.preheader.lr.ph ], [ 0, %.preheader15 ], [ 0, %._crit_edge.split.us71 ], [ 0, %._crit_edge.split.us.us.us57 ], [ 0, %.preheader2.lr.ph ], [ 0, %._crit_edge.split.us54 ], [ 0, %._crit_edge.split.us.us.us40 ], [ 0, %.preheader5.lr.ph ], [ 0, %._crit_edge.split.us37 ], [ 0, %._crit_edge.split.us.us.us ], [ 0, %.preheader8.lr.ph ], [ 0, %._crit_edge.split.us.us.us106 ], [ 0, %._crit_edge.split.us103 ], [ 0, %.preheader11.lr.ph ], [ 0, %._crit_edge.split.us.us.us91 ], [ 0, %._crit_edge.split.us88 ], [ 0, %.preheader14.lr.ph ], [ 0, %._crit_edge.split.us.us.us74 ], [ 0, %._crit_edge.split.us24 ]
   ret i32 %.0123
 }
 

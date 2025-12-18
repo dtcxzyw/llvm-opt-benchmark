@@ -962,7 +962,7 @@ get_bits_align32.exit:                            ; preds = %.loopexit, %385
   br label %.loopexit66
 
 .loopexit66:                                      ; preds = %59, %43, %.loopexit66.sink.split
-  %.0 = phi i32 [ -1094995529, %.loopexit66.sink.split ], [ -1094995529, %43 ], [ %61, %59 ]
+  %.0 = phi i32 [ -1094995529, %.loopexit66.sink.split ], [ %61, %59 ], [ -1094995529, %43 ]
   store i32 0, ptr %12, align 4, !tbaa !69
   %400 = load ptr, ptr %7, align 8, !tbaa !66
   call void @av_packet_unref(ptr noundef %400) #10

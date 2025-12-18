@@ -80,7 +80,7 @@ define hidden void @_cmsHandleExtraChannels(ptr noundef readonly captures(none) 
   br label %FormatterPos.exit.i
 
 FormatterPos.exit.i:                              ; preds = %.fold.split.i.i, %45, %43, %39
-  %.0.i.i = phi i32 [ 5, %39 ], [ %spec.select.i.i, %45 ], [ %..i.i, %43 ], [ 4, %.fold.split.i.i ]
+  %.0.i.i = phi i32 [ %..i.i, %43 ], [ 5, %39 ], [ %spec.select.i.i, %45 ], [ 4, %.fold.split.i.i ]
   %46 = and i32 %21, 4194311
   switch i32 %46, label %49 [
     i32 4194304, label %FormatterPos.exit22.i
@@ -103,7 +103,7 @@ FormatterPos.exit.i:                              ; preds = %.fold.split.i.i, %4
   br label %FormatterPos.exit22.i
 
 FormatterPos.exit22.i:                            ; preds = %.fold.split.i19.i, %49, %47, %FormatterPos.exit.i
-  %.0.i18.i = phi i32 [ 5, %FormatterPos.exit.i ], [ %spec.select.i21.i, %49 ], [ %..i17.i, %47 ], [ 4, %.fold.split.i19.i ]
+  %.0.i18.i = phi i32 [ %..i17.i, %47 ], [ 5, %FormatterPos.exit.i ], [ %spec.select.i21.i, %49 ], [ 4, %.fold.split.i19.i ]
   %50 = or i32 %.0.i18.i, %.0.i.i
   %or.cond.not.i = icmp sgt i32 %50, -1
   br i1 %or.cond.not.i, label %_cmsGetFormatterAlpha.exit, label %_cmsGetFormatterAlpha.exit.thread

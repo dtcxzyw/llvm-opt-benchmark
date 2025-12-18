@@ -2839,9 +2839,9 @@ _print_job_info.exit:                             ; preds = %_sprint_job_info.ex
   %.pre134 = load ptr, ptr %18, align 8
   br label %_task_id_in_job.exit.thread106
 
-_task_id_in_job.exit.thread106:                   ; preds = %123, %120, %_task_id_in_job.exit, %_het_job_offset_match.exit, %902
-  %904 = phi ptr [ %.pre134, %902 ], [ %112, %_het_job_offset_match.exit ], [ %112, %_task_id_in_job.exit ], [ %112, %120 ], [ %112, %123 ]
-  %.164 = phi i32 [ %903, %902 ], [ %.063114, %_het_job_offset_match.exit ], [ %.063114, %_task_id_in_job.exit ], [ %.063114, %120 ], [ %.063114, %123 ]
+_task_id_in_job.exit.thread106:                   ; preds = %120, %123, %_task_id_in_job.exit, %_het_job_offset_match.exit, %902
+  %904 = phi ptr [ %.pre134, %902 ], [ %112, %_het_job_offset_match.exit ], [ %112, %_task_id_in_job.exit ], [ %112, %123 ], [ %112, %120 ]
+  %.164 = phi i32 [ %903, %902 ], [ %.063114, %_het_job_offset_match.exit ], [ %.063114, %_task_id_in_job.exit ], [ %.063114, %123 ], [ %.063114, %120 ]
   %905 = add nuw nsw i32 %.065113, 1
   %906 = getelementptr inbounds nuw i8, ptr %.056116, i64 968
   %907 = getelementptr inbounds nuw i8, ptr %904, i64 16

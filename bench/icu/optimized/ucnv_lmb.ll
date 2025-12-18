@@ -1029,8 +1029,8 @@ _ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit286: ; preds = %
   br label %319
 
 319:                                              ; preds = %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit286, %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit273
-  %.3359 = phi i8 [ %.13368, %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit273 ], [ %.14369, %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit286 ]
-  %.4190 = phi i32 [ %.0.i261, %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit273 ], [ %.0.i274, %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit286 ]
+  %.3359 = phi i8 [ %.14369, %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit286 ], [ %.13368, %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit273 ]
+  %.4190 = phi i32 [ %.0.i274, %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit286 ], [ %.0.i261, %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit273 ]
   %.not214 = icmp eq i32 %.4190, 0
   br i1 %.not214, label %.thread400, label %.thread432
 

@@ -927,7 +927,7 @@ _ZNK14JNIHandleBlock14chain_containsEP8_jobject.exit: ; preds = %11
   br i1 %.not.not, label %_ZNK14JNIHandleBlock14chain_containsEP8_jobject.exit.thread, label %.preheader, !llvm.loop !16
 
 _ZNK14JNIHandleBlock14chain_containsEP8_jobject.exit.thread: ; preds = %_ZNK14JNIHandleBlock14chain_containsEP8_jobject.exit, %4, %2
-  %.not9 = phi i1 [ false, %2 ], [ true, %4 ], [ false, %_ZNK14JNIHandleBlock14chain_containsEP8_jobject.exit ]
+  %.not9 = phi i1 [ true, %4 ], [ false, %2 ], [ false, %_ZNK14JNIHandleBlock14chain_containsEP8_jobject.exit ]
   ret i1 %.not9
 }
 

@@ -2320,7 +2320,7 @@ define void @pmix_pfexec_base_signal_proc(i32 noundef %0, i16 noundef signext %1
   br label %.thread
 
 .thread:                                          ; preds = %9, %11, %3, %25
-  %.sink40 = phi i32 [ %32, %25 ], [ 0, %3 ], [ 0, %11 ], [ 0, %9 ]
+  %.sink40 = phi i32 [ %32, %25 ], [ 0, %11 ], [ 0, %3 ], [ 0, %9 ]
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 272
   %34 = load ptr, ptr %33, align 8, !tbaa !165
   store i32 %.sink40, ptr %34, align 8, !tbaa !166

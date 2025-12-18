@@ -1330,7 +1330,7 @@ _ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit612.thread.i: ; pred
   br label %_ZN10duckdb_lz4L30LZ4_compress_generic_validatedEPNS_21LZ4_stream_t_internalEPKcPciPiiNS_23limitedOutput_directiveENS_11tableType_tENS_14dict_directiveENS_19dictIssue_directiveEi.exit
 
 _ZN10duckdb_lz4L30LZ4_compress_generic_validatedEPNS_21LZ4_stream_t_internalEPKcPciPiiNS_23limitedOutput_directiveENS_11tableType_tENS_14dict_directiveENS_19dictIssue_directiveEi.exit: ; preds = %184, %418, %586, %556, %58, %.thread617.i, %18, %20, %15, %11
-  %.0 = phi i32 [ 1, %18 ], [ 0, %11 ], [ 0, %15 ], [ 1, %20 ], [ 0, %.thread617.i ], [ %590, %586 ], [ 0, %58 ], [ 0, %556 ], [ 0, %418 ], [ 0, %184 ]
+  %.0 = phi i32 [ 1, %18 ], [ 0, %11 ], [ 0, %15 ], [ 1, %20 ], [ 0, %418 ], [ 0, %.thread617.i ], [ %590, %586 ], [ 0, %58 ], [ 0, %556 ], [ 0, %184 ]
   ret i32 %.0
 }
 
@@ -2252,8 +2252,8 @@ _ZN10duckdb_lz4L20read_variable_lengthEPPKhS1_i.exit491: ; preds = %95
   br label %.backedge
 
 .backedge:                                        ; preds = %.preheader593, %.lr.ph, %162, %141, %158, %118
-  %.0530.be = phi ptr [ %87, %118 ], [ %.6536, %141 ], [ %.6536, %158 ], [ %.6536, %162 ], [ %.6536, %.lr.ph ], [ %.6536, %.preheader593 ]
-  %.0362.be = phi ptr [ %112, %118 ], [ %144, %141 ], [ %159, %158 ], [ %130, %162 ], [ %156, %.lr.ph ], [ %130, %.preheader593 ]
+  %.0530.be = phi ptr [ %87, %118 ], [ %.6536, %141 ], [ %.6536, %.lr.ph ], [ %.6536, %162 ], [ %.6536, %158 ], [ %.6536, %.preheader593 ]
+  %.0362.be = phi ptr [ %112, %118 ], [ %144, %141 ], [ %156, %.lr.ph ], [ %130, %162 ], [ %159, %158 ], [ %130, %.preheader593 ]
   br label %46, !llvm.loop !38
 
 .thread559:                                       ; preds = %108, %114, %117
@@ -2870,7 +2870,7 @@ _ZN10duckdb_lz4L13LZ4_wildCopy8EPvPKvS0_.exit511: ; preds = %420, %.lr.ph663, %4
   br label %431
 
 _ZN10duckdb_lz4L14LZ4_wildCopy32EPvPKvS0_.exit.thread: ; preds = %101, %_ZN10duckdb_lz4L20read_variable_lengthEPPKhS1_i.exit491, %53, %63, %_ZN10duckdb_lz4L20read_variable_lengthEPPKhS1_i.exit, %.thread559, %133, %.preheader596, %.preheader683, %.preheader588, %260, %._crit_edge, %_ZN10duckdb_lz4L20read_variable_lengthEPPKhS1_i.exit499, %210, %395, %_ZN10duckdb_lz4L20read_variable_lengthEPPKhS1_i.exit505, %.loopexit600, %285, %238
-  %.3533 = phi ptr [ %.2532, %238 ], [ %.5535, %.loopexit600 ], [ %.5535, %285 ], [ %.5535, %395 ], [ %262, %_ZN10duckdb_lz4L20read_variable_lengthEPPKhS1_i.exit505 ], [ %202, %210 ], [ %.lcssa610, %._crit_edge ], [ %202, %_ZN10duckdb_lz4L20read_variable_lengthEPPKhS1_i.exit499 ], [ %262, %260 ], [ %202, %.preheader588 ], [ %93, %.preheader683 ], [ %55, %.preheader596 ], [ %93, %_ZN10duckdb_lz4L20read_variable_lengthEPPKhS1_i.exit491 ], [ %47, %53 ], [ %55, %63 ], [ %55, %_ZN10duckdb_lz4L20read_variable_lengthEPPKhS1_i.exit ], [ %.6536, %133 ], [ %.6536, %.thread559 ], [ %93, %101 ]
+  %.3533 = phi ptr [ %.2532, %238 ], [ %.5535, %.loopexit600 ], [ %.5535, %285 ], [ %.5535, %395 ], [ %262, %_ZN10duckdb_lz4L20read_variable_lengthEPPKhS1_i.exit505 ], [ %55, %.preheader596 ], [ %93, %.preheader683 ], [ %202, %_ZN10duckdb_lz4L20read_variable_lengthEPPKhS1_i.exit499 ], [ %262, %260 ], [ %202, %210 ], [ %.lcssa610, %._crit_edge ], [ %202, %.preheader588 ], [ %93, %101 ], [ %93, %_ZN10duckdb_lz4L20read_variable_lengthEPPKhS1_i.exit491 ], [ %47, %53 ], [ %55, %63 ], [ %55, %_ZN10duckdb_lz4L20read_variable_lengthEPPKhS1_i.exit ], [ %.6536, %133 ], [ %.6536, %.thread559 ]
   %427 = ptrtoint ptr %.3533 to i64
   %428 = ptrtoint ptr %0 to i64
   %.neg = sub i64 %428, %427
@@ -3008,7 +3008,7 @@ _ZN10duckdb_lz425read_long_length_no_checkEPPKh.exit109.i: ; preds = %.preheader
   br label %_ZN10duckdb_lz4L29LZ4_decompress_unsafe_genericEPKhPhimS1_m.exit
 
 _ZN10duckdb_lz4L29LZ4_decompress_unsafe_genericEPKhPhimS1_m.exit: ; preds = %21, %46, %._crit_edge.i, %31, %61
-  %.5.i = phi i32 [ %65, %61 ], [ -1, %31 ], [ -1, %._crit_edge.i ], [ -1, %46 ], [ -1, %21 ]
+  %.5.i = phi i32 [ -1, %31 ], [ %65, %61 ], [ -1, %._crit_edge.i ], [ -1, %46 ], [ -1, %21 ]
   ret i32 %.5.i
 }
 
@@ -3138,7 +3138,7 @@ _ZN10duckdb_lz425read_long_length_no_checkEPPKh.exit109.i: ; preds = %.preheader
   br label %_ZN10duckdb_lz4L29LZ4_decompress_unsafe_genericEPKhPhimS1_m.exit
 
 _ZN10duckdb_lz4L29LZ4_decompress_unsafe_genericEPKhPhimS1_m.exit: ; preds = %22, %47, %._crit_edge.i, %32, %62
-  %.5.i = phi i32 [ %66, %62 ], [ -1, %32 ], [ -1, %._crit_edge.i ], [ -1, %47 ], [ -1, %22 ]
+  %.5.i = phi i32 [ -1, %32 ], [ %66, %62 ], [ -1, %._crit_edge.i ], [ -1, %47 ], [ -1, %22 ]
   ret i32 %.5.i
 }
 
@@ -3751,7 +3751,7 @@ _ZN10duckdb_lz4L27LZ4_decompress_fast_extDictEPKcPciPKvm.exit: ; preds = %193
   br label %_ZN10duckdb_lz419LZ4_decompress_fastEPKcPci.exit.thread
 
 _ZN10duckdb_lz419LZ4_decompress_fastEPKcPci.exit.thread: ; preds = %183, %208, %211, %._crit_edge.i.i66, %101, %129, %126, %._crit_edge.i, %26, %51, %._crit_edge.i.i, %193, %111, %36, %71, %239, %157, %_ZN10duckdb_lz4L27LZ4_decompress_fast_extDictEPKcPciPKvm.exit, %_ZN10duckdb_lz4L29LZ4_decompress_unsafe_genericEPKhPhimS1_m.exit, %_ZN10duckdb_lz419LZ4_decompress_fastEPKcPci.exit
-  %.044 = phi i32 [ %155, %_ZN10duckdb_lz4L29LZ4_decompress_unsafe_genericEPKhPhimS1_m.exit ], [ %237, %_ZN10duckdb_lz4L27LZ4_decompress_fast_extDictEPKcPciPKvm.exit ], [ %69, %_ZN10duckdb_lz419LZ4_decompress_fastEPKcPci.exit ], [ %69, %71 ], [ %155, %157 ], [ %237, %239 ], [ -1, %36 ], [ -1, %111 ], [ -1, %193 ], [ -1, %101 ], [ -1, %26 ], [ -1, %._crit_edge.i.i ], [ -1, %51 ], [ -1, %._crit_edge.i ], [ -1, %126 ], [ -1, %129 ], [ -1, %._crit_edge.i.i66 ], [ -1, %211 ], [ -1, %208 ], [ -1, %183 ]
+  %.044 = phi i32 [ %155, %_ZN10duckdb_lz4L29LZ4_decompress_unsafe_genericEPKhPhimS1_m.exit ], [ %237, %_ZN10duckdb_lz4L27LZ4_decompress_fast_extDictEPKcPciPKvm.exit ], [ %69, %_ZN10duckdb_lz419LZ4_decompress_fastEPKcPci.exit ], [ %69, %71 ], [ %155, %157 ], [ %237, %239 ], [ -1, %101 ], [ -1, %26 ], [ -1, %36 ], [ -1, %193 ], [ -1, %111 ], [ -1, %._crit_edge.i.i ], [ -1, %51 ], [ -1, %._crit_edge.i ], [ -1, %126 ], [ -1, %129 ], [ -1, %._crit_edge.i.i66 ], [ -1, %211 ], [ -1, %208 ], [ -1, %183 ]
   ret i32 %.044
 }
 
@@ -4115,7 +4115,7 @@ _ZN10duckdb_lz425read_long_length_no_checkEPPKh.exit109.i.i: ; preds = %.prehead
   br label %_ZN10duckdb_lz4L29LZ4_decompress_unsafe_genericEPKhPhimS1_m.exit
 
 _ZN10duckdb_lz4L29LZ4_decompress_unsafe_genericEPKhPhimS1_m.exit: ; preds = %._crit_edge.i.i, %121, %118, %93, %._crit_edge.i, %55, %30, %144, %103, %70, %40
-  %.0 = phi i32 [ %74, %70 ], [ -1, %40 ], [ %148, %144 ], [ -1, %103 ], [ -1, %._crit_edge.i ], [ -1, %30 ], [ -1, %55 ], [ -1, %93 ], [ -1, %118 ], [ -1, %121 ], [ -1, %._crit_edge.i.i ]
+  %.0 = phi i32 [ -1, %._crit_edge.i ], [ -1, %40 ], [ %74, %70 ], [ %148, %144 ], [ -1, %103 ], [ -1, %30 ], [ -1, %55 ], [ -1, %93 ], [ -1, %118 ], [ -1, %121 ], [ -1, %._crit_edge.i.i ]
   ret i32 %.0
 }
 
@@ -4312,7 +4312,7 @@ _ZN10duckdb_lz425read_long_length_no_checkEPPKh.exit109.i.i: ; preds = %.prehead
   br label %_ZN10duckdb_lz419LZ4_decompress_fastEPKcPci.exit
 
 _ZN10duckdb_lz419LZ4_decompress_fastEPKcPci.exit: ; preds = %21, %46, %._crit_edge.i.i, %31, %61
-  %.5.i.i = phi i32 [ %65, %61 ], [ -1, %31 ], [ -1, %._crit_edge.i.i ], [ -1, %46 ], [ -1, %21 ]
+  %.5.i.i = phi i32 [ -1, %31 ], [ %65, %61 ], [ -1, %._crit_edge.i.i ], [ -1, %46 ], [ -1, %21 ]
   ret i32 %.5.i.i
 }
 

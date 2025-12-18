@@ -236,8 +236,8 @@ dynamic_get_data_ctx.exit.thread:                 ; preds = %13, %14, %28, %dyna
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 38, i32 noundef 112, ptr noundef null) #6
   br label %.thread82
 
-dynamic_get_data_ctx.exit.thread70:               ; preds = %dynamic_set_data_ctx.exit.thread12.i, %24, %dynamic_get_data_ctx.exit
-  %.1.i73 = phi ptr [ %.not7.i, %dynamic_get_data_ctx.exit ], [ %29, %dynamic_set_data_ctx.exit.thread12.i ], [ %26, %24 ]
+dynamic_get_data_ctx.exit.thread70:               ; preds = %24, %dynamic_set_data_ctx.exit.thread12.i, %dynamic_get_data_ctx.exit
+  %.1.i73 = phi ptr [ %.not7.i, %dynamic_get_data_ctx.exit ], [ %26, %24 ], [ %29, %dynamic_set_data_ctx.exit.thread12.i ]
   %54 = load ptr, ptr %.1.i73, align 8, !tbaa !17
   %.not53 = icmp eq ptr %54, null
   br i1 %.not53, label %56, label %55

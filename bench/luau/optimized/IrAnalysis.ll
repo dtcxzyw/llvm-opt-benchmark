@@ -7014,8 +7014,8 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit.i:        ; preds = %_ZNSt6vectorIjSaIjE
   br i1 %1678, label %.loopexit.i8, label %1492, !llvm.loop !165
 
 .loopexit.i8:                                     ; preds = %.loopexit156.i, %.preheader158.i, %_ZNSt6vectorIhSaIhEE6resizeEmRKh.exit.i, %_ZNSt6vectorIhSaIhEE6resizeEmRKh.exit.thread.i
-  %.sroa.21.3.lcssa.i = phi ptr [ %.sroa.21.2.i, %.preheader158.i ], [ null, %_ZNSt6vectorIhSaIhEE6resizeEmRKh.exit.i ], [ null, %_ZNSt6vectorIhSaIhEE6resizeEmRKh.exit.thread.i ], [ %.sroa.21.4.i, %.loopexit156.i ]
-  %.sroa.0142.3.lcssa.i = phi ptr [ %.sroa.0142.2.i, %.preheader158.i ], [ null, %_ZNSt6vectorIhSaIhEE6resizeEmRKh.exit.i ], [ null, %_ZNSt6vectorIhSaIhEE6resizeEmRKh.exit.thread.i ], [ %.sroa.0142.4.i, %.loopexit156.i ]
+  %.sroa.21.3.lcssa.i = phi ptr [ %.sroa.21.2.i, %.preheader158.i ], [ null, %_ZNSt6vectorIhSaIhEE6resizeEmRKh.exit.thread.i ], [ null, %_ZNSt6vectorIhSaIhEE6resizeEmRKh.exit.i ], [ %.sroa.21.4.i, %.loopexit156.i ]
+  %.sroa.0142.3.lcssa.i = phi ptr [ %.sroa.0142.2.i, %.preheader158.i ], [ null, %_ZNSt6vectorIhSaIhEE6resizeEmRKh.exit.thread.i ], [ null, %_ZNSt6vectorIhSaIhEE6resizeEmRKh.exit.i ], [ %.sroa.0142.4.i, %.loopexit156.i ]
   %1679 = load ptr, ptr %6, align 8, !tbaa !151
   %.not.i.i.i130.i = icmp eq ptr %1679, null
   br i1 %.not.i.i.i130.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit.i, label %1680

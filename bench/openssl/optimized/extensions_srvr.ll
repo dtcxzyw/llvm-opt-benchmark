@@ -1103,7 +1103,7 @@ PACKET_get_net_2.exit39:                          ; preds = %26, %.loopexit
   br label %59
 
 59:                                               ; preds = %.sink.split, %56, %5
-  %.0 = phi i32 [ 1, %56 ], [ 1, %5 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 1, %5 ], [ 1, %56 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 
@@ -1501,8 +1501,8 @@ PACKET_get_net_2.exit.thread.i:                   ; preds = %84, %73, %63, %.bac
   br label %.backedge.i.outer, !llvm.loop !120
 
 extract_keyshares.exit.thread158:                 ; preds = %116, %121, %57, %62, %PACKET_get_net_2.exit.thread.i, %93, %100, %103
-  %.1140 = phi ptr [ null, %57 ], [ null, %62 ], [ %.0139.ph, %PACKET_get_net_2.exit.thread.i ], [ %.0139.ph, %100 ], [ %.0139.ph, %103 ], [ %.0139.ph, %93 ], [ %.0139.ph, %121 ], [ %.0139.ph, %116 ]
-  %.1136 = phi ptr [ null, %57 ], [ %55, %62 ], [ %.0135.ph, %PACKET_get_net_2.exit.thread.i ], [ %.0135.ph, %100 ], [ %.0135.ph, %103 ], [ %.0135.ph, %93 ], [ %.0135.ph, %116 ], [ %119, %121 ]
+  %.1140 = phi ptr [ null, %57 ], [ null, %62 ], [ %.0139.ph, %PACKET_get_net_2.exit.thread.i ], [ %.0139.ph, %100 ], [ %.0139.ph, %93 ], [ %.0139.ph, %103 ], [ %.0139.ph, %121 ], [ %.0139.ph, %116 ]
+  %.1136 = phi ptr [ null, %57 ], [ %55, %62 ], [ %.0135.ph, %PACKET_get_net_2.exit.thread.i ], [ %.0135.ph, %100 ], [ %.0135.ph, %93 ], [ %.0135.ph, %103 ], [ %.0135.ph, %116 ], [ %119, %121 ]
   call void @CRYPTO_free(ptr noundef %.1136, ptr noundef nonnull @.str, i32 noundef 756) #12
   call void @CRYPTO_free(ptr noundef %.1140, ptr noundef nonnull @.str, i32 noundef 757) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -1787,7 +1787,7 @@ check_overlap.exit87:                             ; preds = %228
   br i1 %235, label %132, label %select.unfold, !llvm.loop !125
 
 select.unfold:                                    ; preds = %232, %128, %207, %160, %extract_keyshares.exit, %.thread172
-  %.043 = phi i32 [ 0, %160 ], [ 1, %.thread172 ], [ 1, %extract_keyshares.exit ], [ 0, %207 ], [ 1, %128 ], [ 1, %232 ]
+  %.043 = phi i32 [ 0, %207 ], [ 0, %160 ], [ 1, %.thread172 ], [ 1, %extract_keyshares.exit ], [ 1, %128 ], [ 1, %232 ]
   call void @CRYPTO_free(ptr noundef nonnull %.0135.ph, ptr noundef nonnull @.str, i32 noundef 977) #12
   call void @CRYPTO_free(ptr noundef nonnull %.0139.ph, ptr noundef nonnull @.str, i32 noundef 978) #12
   br label %236
@@ -2993,9 +2993,9 @@ split:                                            ; preds = %105, %107, %110, %1
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread270
 
-.thread238.thread:                                ; preds = %132, %133, %182, %149, %.thread238, %.thread238
-  %.2121.ph = phi ptr [ %.0119, %149 ], [ %.0119, %.thread238 ], [ %.0119, %.thread238 ], [ %172, %182 ], [ %.0119, %133 ], [ %.0119, %132 ]
-  %.2116.ph = phi i32 [ %.0114, %149 ], [ %.0114, %.thread238 ], [ %.0114, %.thread238 ], [ %.4118, %182 ], [ %.0114, %133 ], [ %.0114, %132 ]
+.thread238.thread:                                ; preds = %132, %133, %.thread238, %.thread238, %182, %149
+  %.2121.ph = phi ptr [ %.0119, %.thread238 ], [ %.0119, %.thread238 ], [ %172, %182 ], [ %.0119, %149 ], [ %.0119, %133 ], [ %.0119, %132 ]
+  %.2116.ph = phi i32 [ %.0114, %.thread238 ], [ %.0114, %.thread238 ], [ %.4118, %182 ], [ %.0114, %149 ], [ %.0114, %133 ], [ %.0114, %132 ]
   %183 = add i32 %.0112, 1
   br label %44, !llvm.loop !166
 
@@ -3494,7 +3494,7 @@ define range(i32 0, 3) i32 @tls_construct_stoc_supported_groups(ptr noundef %0, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %24, %.loopexit.sink.split, %41, %5
-  %.0 = phi i32 [ 1, %41 ], [ 2, %5 ], [ 0, %.loopexit.sink.split ], [ 2, %24 ]
+  %.0 = phi i32 [ 0, %.loopexit.sink.split ], [ 2, %5 ], [ 1, %41 ], [ 2, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
@@ -3623,7 +3623,7 @@ define range(i32 0, 3) i32 @tls_construct_stoc_status_request(ptr noundef %0, pt
   br label %42
 
 42:                                               ; preds = %.sink.split, %40, %38, %21, %7, %5
-  %.0 = phi i32 [ 2, %5 ], [ 0, %38 ], [ 2, %21 ], [ 2, %7 ], [ 1, %40 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 2, %5 ], [ 0, %38 ], [ 1, %40 ], [ 2, %21 ], [ 2, %7 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 
@@ -4619,7 +4619,7 @@ define range(i32 0, 3) i32 @tls_construct_stoc_early_data(ptr noundef %0, ptr no
   br label %30
 
 30:                                               ; preds = %.sink.split, %28, %21, %19, %7
-  %.0 = phi i32 [ 2, %7 ], [ 1, %19 ], [ 2, %21 ], [ 1, %28 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 1, %28 ], [ 2, %7 ], [ 2, %21 ], [ 1, %19 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 

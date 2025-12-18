@@ -5709,8 +5709,8 @@ _ZNSt6vectorIdSaIdEE9push_backEOd.exit:           ; preds = %_ZNSt6vectorIdSaIdE
   br i1 %130, label %.lr.ph333, label %._crit_edge334.thread, !llvm.loop !130
 
 .loopexit304:                                     ; preds = %90, %.preheader, %_ZNSt6vectorIdSaIdEEC2EmRKS0_.exit.thread, %._crit_edge334, %._crit_edge334.thread
-  %.0.i.i.i.i.i419 = phi ptr [ null, %_ZNSt6vectorIdSaIdEEC2EmRKS0_.exit.thread ], [ %.0.i.i.i.i.i421, %._crit_edge334 ], [ %.0.i.i.i.i.i421, %._crit_edge334.thread ], [ %.0.i.i.i.i.i421, %.preheader ], [ %.0.i.i.i.i.i, %90 ]
-  %.sroa.0294.0416 = phi ptr [ null, %_ZNSt6vectorIdSaIdEEC2EmRKS0_.exit.thread ], [ %.sroa.0294.0418, %._crit_edge334 ], [ %.sroa.0294.0418, %._crit_edge334.thread ], [ %.sroa.0294.0418, %.preheader ], [ %77, %90 ]
+  %.0.i.i.i.i.i419 = phi ptr [ null, %_ZNSt6vectorIdSaIdEEC2EmRKS0_.exit.thread ], [ %.0.i.i.i.i.i421, %.preheader ], [ %.0.i.i.i.i.i421, %._crit_edge334 ], [ %.0.i.i.i.i.i421, %._crit_edge334.thread ], [ %.0.i.i.i.i.i, %90 ]
+  %.sroa.0294.0416 = phi ptr [ null, %_ZNSt6vectorIdSaIdEEC2EmRKS0_.exit.thread ], [ %.sroa.0294.0418, %.preheader ], [ %.sroa.0294.0418, %._crit_edge334 ], [ %.sroa.0294.0418, %._crit_edge334.thread ], [ %77, %90 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
@@ -6652,7 +6652,7 @@ _ZNSt6vectorIdSaIdEE9push_backEOd.exit83:         ; preds = %_ZNSt6vectorIdSaIdE
   br label %363
 
 .loopexit167:                                     ; preds = %_ZNSt6vectorIdSaIdEE9push_backEOd.exit83, %_ZNSt6vectorIdSaIdEE9push_backEOd.exit, %56, %17, %53
-  %.sroa.0137.2 = phi ptr [ null, %53 ], [ null, %17 ], [ null, %56 ], [ %.sroa.0137.4, %_ZNSt6vectorIdSaIdEE9push_backEOd.exit ], [ %.sroa.0137.5, %_ZNSt6vectorIdSaIdEE9push_backEOd.exit83 ]
+  %.sroa.0137.2 = phi ptr [ null, %53 ], [ %.sroa.0137.4, %_ZNSt6vectorIdSaIdEE9push_backEOd.exit ], [ null, %17 ], [ null, %56 ], [ %.sroa.0137.5, %_ZNSt6vectorIdSaIdEE9push_backEOd.exit83 ]
   %91 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %92 = load ptr, ptr %91, align 8, !tbaa !75
   %93 = load ptr, ptr %2, align 8, !tbaa !77
@@ -8008,8 +8008,8 @@ _ZNSt6vectorIdSaIdEE9push_backEOd.exit:           ; preds = %_ZNSt6vectorIdSaIdE
   br i1 %186, label %.lr.ph514, label %._crit_edge515.thread, !llvm.loop !166
 
 _ZNSt6vectorIdSaIdEED2Ev.exit280:                 ; preds = %147, %_ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit, %.preheader, %._crit_edge515.thread, %._crit_edge515
-  %.0.i.i.i.i.i.i.i659 = phi ptr [ null, %_ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit ], [ %.0.i.i.i.i.i.i.i661, %._crit_edge515.thread ], [ %.0.i.i.i.i.i.i.i661, %._crit_edge515 ], [ %.0.i.i.i.i.i.i.i661, %.preheader ], [ %138, %147 ]
-  %.sroa.0430.0656 = phi ptr [ null, %_ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit ], [ %.sroa.0430.0658, %._crit_edge515.thread ], [ %.sroa.0430.0658, %._crit_edge515 ], [ %.sroa.0430.0658, %.preheader ], [ %137, %147 ]
+  %.0.i.i.i.i.i.i.i659 = phi ptr [ %.0.i.i.i.i.i.i.i661, %.preheader ], [ null, %_ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit ], [ %.0.i.i.i.i.i.i.i661, %._crit_edge515.thread ], [ %.0.i.i.i.i.i.i.i661, %._crit_edge515 ], [ %138, %147 ]
+  %.sroa.0430.0656 = phi ptr [ %.sroa.0430.0658, %.preheader ], [ null, %_ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit ], [ %.sroa.0430.0658, %._crit_edge515.thread ], [ %.sroa.0430.0658, %._crit_edge515 ], [ %137, %147 ]
   %187 = sdiv i32 %4, 2
   %188 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %189 = load i32, ptr %188, align 8, !tbaa !69

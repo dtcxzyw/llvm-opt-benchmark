@@ -543,8 +543,8 @@ define internal range(i64 -2147483648, 4294967296) i64 @vcs_read(ptr noundef rea
   br i1 %217, label %.thread24, label %198, !llvm.loop !16
 
 .thread24:                                        ; preds = %107, %213, %148, %.thread26, %176
-  %218 = phi i32 [ %177, %176 ], [ %187, %.thread26 ], [ %187, %213 ], [ 0, %148 ], [ 0, %107 ]
-  %219 = phi i32 [ %178, %176 ], [ %186, %.thread26 ], [ %186, %213 ], [ %97, %148 ], [ %97, %107 ]
+  %218 = phi i32 [ 0, %148 ], [ %187, %213 ], [ %177, %176 ], [ %187, %.thread26 ], [ 0, %107 ]
+  %219 = phi i32 [ %97, %148 ], [ %186, %213 ], [ %178, %176 ], [ %186, %.thread26 ], [ %97, %107 ]
   tail call void @console_unlock() #9
   %220 = zext nneg i32 %219 to i64
   %221 = icmp slt i32 %219, 0
@@ -588,8 +588,8 @@ define internal range(i64 -2147483648, 4294967296) i64 @vcs_read(ptr noundef rea
   br i1 %240, label %.thread33, label %.lr.ph
 
 .thread33:                                        ; preds = %235, %52, %88, %.loopexit, %121, %.thread
-  %241 = phi i32 [ %234, %.loopexit ], [ %38, %121 ], [ %38, %.thread ], [ %38, %52 ], [ %38, %88 ], [ %238, %235 ]
-  %242 = phi i64 [ -14, %.loopexit ], [ %122, %121 ], [ %87, %.thread ], [ -6, %52 ], [ 0, %88 ], [ 0, %235 ]
+  %241 = phi i32 [ %38, %.thread ], [ %38, %121 ], [ %234, %.loopexit ], [ %38, %52 ], [ %38, %88 ], [ %238, %235 ]
+  %242 = phi i64 [ %87, %.thread ], [ %122, %121 ], [ -14, %.loopexit ], [ -6, %52 ], [ 0, %88 ], [ 0, %235 ]
   %.fr = freeze i32 %241
   %243 = zext i32 %.fr to i64
   %244 = load i64, ptr %3, align 8
@@ -619,13 +619,13 @@ define internal range(i64 -2147483648, 4294967296) i64 @vcs_write(ptr noundef re
   %9 = load i32, ptr %8, align 4
   %10 = and i32 %9, 64
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %12, label %302
+  br i1 %11, label %12, label %307
 
 12:                                               ; preds = %4
   %13 = tail call i64 @__get_free_pages(i32 noundef 3264, i32 noundef 0) #9
   %14 = inttoptr i64 %13 to ptr
   %15 = icmp eq i64 %13, 0
-  br i1 %15, label %302, label %16
+  br i1 %15, label %307, label %16
 
 16:                                               ; preds = %12
   %17 = load i64, ptr %3, align 8
@@ -717,12 +717,12 @@ define internal range(i64 -2147483648, 4294967296) i64 @vcs_write(ptr noundef re
   %72 = icmp eq i64 %69, 0
   br i1 %72, label %.thread44, label %.lr.ph
 
-.lr.ph:                                           ; preds = %67, %.thread36
-  %73 = phi i64 [ %286, %.thread36 ], [ %.fr35, %67 ]
-  %74 = phi i32 [ %287, %.thread36 ], [ 0, %67 ]
-  %75 = phi ptr [ %114, %.thread36 ], [ %38, %67 ]
-  %76 = phi i64 [ %288, %.thread36 ], [ %69, %67 ]
-  %77 = phi ptr [ %289, %.thread36 ], [ %1, %67 ]
+.lr.ph:                                           ; preds = %67, %290
+  %73 = phi i64 [ %292, %290 ], [ %.fr35, %67 ]
+  %74 = phi i32 [ %293, %290 ], [ 0, %67 ]
+  %75 = phi ptr [ %114, %290 ], [ %38, %67 ]
+  %76 = phi i64 [ %294, %290 ], [ %69, %67 ]
+  %77 = phi ptr [ %291, %290 ], [ %1, %67 ]
   %78 = trunc i64 %76 to i32
   %79 = and i64 %76, 4294967295
   %80 = icmp samesign ugt i64 %79, 4096
@@ -846,7 +846,7 @@ define internal range(i64 -2147483648, 4294967296) i64 @vcs_write(ptr noundef re
   %148 = call i64 @llvm.smin.i64(i64 %147, i64 %146)
   %149 = trunc nuw nsw i64 %148 to i32
   %150 = trunc nuw nsw i64 %73 to i32
-  br i1 %20, label %246, label %151
+  br i1 %20, label %248, label %151
 
 151:                                              ; preds = %145
   %152 = icmp ult i64 %73, 4
@@ -897,194 +897,201 @@ define internal range(i64 -2147483648, 4294967296) i64 @vcs_write(ptr noundef re
   %179 = phi i32 [ %173, %176 ], [ %150, %151 ]
   %180 = phi ptr [ %174, %176 ], [ %14, %151 ]
   %181 = icmp eq i32 %178, 0
-  br i1 %181, label %.thread36, label %182
+  br i1 %181, label %.thread36, label %184
 
-182:                                              ; preds = %177
-  %183 = add nsw i32 %179, -4
-  %184 = lshr i32 %183, 1
-  %185 = urem i32 %184, %.fr31
-  %186 = call ptr @screen_pos(ptr noundef nonnull %114, i32 noundef %184, i1 noundef zeroext %108) #9
-  %187 = and i32 %179, 1
-  %188 = icmp eq i32 %187, 0
-  br i1 %188, label %205, label %189
+.thread36:                                        ; preds = %177
+  %182 = and i64 %148, 4294967295
+  %183 = getelementptr i8, ptr %77, i64 %182
+  br label %290
 
-189:                                              ; preds = %182
-  %190 = add i32 %178, -1
-  %191 = getelementptr i8, ptr %180, i64 1
-  %192 = load i8, ptr %180, align 1
-  %193 = call zeroext i16 @vcs_scr_readw(ptr noundef nonnull %114, ptr noundef %186) #9
-  %194 = zext i8 %192 to i16
-  %195 = shl nuw i16 %194, 8
-  %196 = and i16 %193, 255
-  %197 = or disjoint i16 %195, %196
-  call void @vcs_scr_writew(ptr noundef nonnull %114, i16 noundef zeroext %197, ptr noundef %186) #9
-  %198 = getelementptr i8, ptr %186, i64 2
-  %199 = add nsw i32 %179, -3
-  %200 = add nuw i32 %185, 1
-  %201 = icmp eq i32 %200, %.fr31
-  br i1 %201, label %202, label %205
+184:                                              ; preds = %177
+  %185 = add nsw i32 %179, -4
+  %186 = lshr i32 %185, 1
+  %187 = urem i32 %186, %.fr31
+  %188 = call ptr @screen_pos(ptr noundef nonnull %114, i32 noundef %186, i1 noundef zeroext %108) #9
+  %189 = and i32 %179, 1
+  %190 = icmp eq i32 %189, 0
+  br i1 %190, label %207, label %191
 
-202:                                              ; preds = %189
-  %203 = lshr exact i32 %199, 1
-  %204 = call ptr @screen_pos(ptr noundef nonnull %114, i32 noundef %203, i1 noundef zeroext %108) #9
-  br label %205
+191:                                              ; preds = %184
+  %192 = add i32 %178, -1
+  %193 = getelementptr i8, ptr %180, i64 1
+  %194 = load i8, ptr %180, align 1
+  %195 = call zeroext i16 @vcs_scr_readw(ptr noundef nonnull %114, ptr noundef %188) #9
+  %196 = zext i8 %194 to i16
+  %197 = shl nuw i16 %196, 8
+  %198 = and i16 %195, 255
+  %199 = or disjoint i16 %197, %198
+  call void @vcs_scr_writew(ptr noundef nonnull %114, i16 noundef zeroext %199, ptr noundef %188) #9
+  %200 = getelementptr i8, ptr %188, i64 2
+  %201 = add nsw i32 %179, -3
+  %202 = add nuw i32 %187, 1
+  %203 = icmp eq i32 %202, %.fr31
+  br i1 %203, label %204, label %207
 
-205:                                              ; preds = %202, %189, %182
-  %206 = phi i32 [ %190, %202 ], [ %190, %189 ], [ %178, %182 ]
-  %207 = phi ptr [ %204, %202 ], [ %198, %189 ], [ %186, %182 ]
-  %208 = phi i32 [ 0, %202 ], [ %200, %189 ], [ %185, %182 ]
-  %209 = phi i32 [ %199, %202 ], [ %199, %189 ], [ %183, %182 ]
-  %210 = phi ptr [ %191, %202 ], [ %191, %189 ], [ %180, %182 ]
-  %211 = icmp ugt i32 %206, 1
-  br i1 %211, label %212, label %.loopexit48
+204:                                              ; preds = %191
+  %205 = lshr exact i32 %201, 1
+  %206 = call ptr @screen_pos(ptr noundef nonnull %114, i32 noundef %205, i1 noundef zeroext %108) #9
+  br label %207
 
-212:                                              ; preds = %205
-  %213 = sub i32 %.fr31, %208
-  %214 = lshr i32 %209, 1
-  %215 = add i32 %213, %214
-  br label %216
+207:                                              ; preds = %204, %191, %184
+  %208 = phi i32 [ %192, %204 ], [ %192, %191 ], [ %178, %184 ]
+  %209 = phi ptr [ %206, %204 ], [ %200, %191 ], [ %188, %184 ]
+  %210 = phi i32 [ 0, %204 ], [ %202, %191 ], [ %187, %184 ]
+  %211 = phi i32 [ %201, %204 ], [ %201, %191 ], [ %185, %184 ]
+  %212 = phi ptr [ %193, %204 ], [ %193, %191 ], [ %180, %184 ]
+  %213 = icmp ugt i32 %208, 1
+  br i1 %213, label %214, label %.loopexit47
 
-216:                                              ; preds = %231, %212
-  %217 = phi ptr [ %224, %231 ], [ %210, %212 ]
-  %218 = phi i32 [ %234, %231 ], [ %215, %212 ]
-  %219 = phi i32 [ %233, %231 ], [ %208, %212 ]
-  %220 = phi ptr [ %232, %231 ], [ %207, %212 ]
-  %221 = phi i32 [ %225, %231 ], [ %206, %212 ]
-  %222 = load i16, ptr %217, align 1
-  %223 = getelementptr i8, ptr %220, i64 2
-  call void @vcs_scr_writew(ptr noundef nonnull %114, i16 noundef zeroext %222, ptr noundef %220) #9
-  %224 = getelementptr i8, ptr %217, i64 2
-  %225 = add i32 %221, -2
-  %226 = add i32 %219, 1
-  %227 = icmp eq i32 %226, %.fr31
-  br i1 %227, label %228, label %231
+214:                                              ; preds = %207
+  %215 = sub i32 %.fr31, %210
+  %216 = lshr i32 %211, 1
+  %217 = add i32 %215, %216
+  br label %218
 
-228:                                              ; preds = %216
-  %229 = call ptr @screen_pos(ptr noundef nonnull %114, i32 noundef %218, i1 noundef zeroext %108) #9
-  %230 = add i32 %218, %.fr31
-  br label %231
+218:                                              ; preds = %233, %214
+  %219 = phi ptr [ %226, %233 ], [ %212, %214 ]
+  %220 = phi i32 [ %236, %233 ], [ %217, %214 ]
+  %221 = phi i32 [ %235, %233 ], [ %210, %214 ]
+  %222 = phi ptr [ %234, %233 ], [ %209, %214 ]
+  %223 = phi i32 [ %227, %233 ], [ %208, %214 ]
+  %224 = load i16, ptr %219, align 1
+  %225 = getelementptr i8, ptr %222, i64 2
+  call void @vcs_scr_writew(ptr noundef nonnull %114, i16 noundef zeroext %224, ptr noundef %222) #9
+  %226 = getelementptr i8, ptr %219, i64 2
+  %227 = add i32 %223, -2
+  %228 = add i32 %221, 1
+  %229 = icmp eq i32 %228, %.fr31
+  br i1 %229, label %230, label %233
 
-231:                                              ; preds = %228, %216
-  %232 = phi ptr [ %229, %228 ], [ %223, %216 ]
-  %233 = phi i32 [ 0, %228 ], [ %226, %216 ]
-  %234 = phi i32 [ %230, %228 ], [ %218, %216 ]
-  %235 = icmp ugt i32 %225, 1
-  br i1 %235, label %216, label %.loopexit48, !llvm.loop !23
+230:                                              ; preds = %218
+  %231 = call ptr @screen_pos(ptr noundef nonnull %114, i32 noundef %220, i1 noundef zeroext %108) #9
+  %232 = add i32 %220, %.fr31
+  br label %233
 
-.loopexit48:                                      ; preds = %231, %205
-  %236 = phi i32 [ %206, %205 ], [ %225, %231 ]
-  %237 = phi ptr [ %207, %205 ], [ %232, %231 ]
-  %238 = phi ptr [ %210, %205 ], [ %224, %231 ]
-  %239 = icmp eq i32 %236, 0
-  br i1 %239, label %.loopexit, label %240
+233:                                              ; preds = %230, %218
+  %234 = phi ptr [ %231, %230 ], [ %225, %218 ]
+  %235 = phi i32 [ 0, %230 ], [ %228, %218 ]
+  %236 = phi i32 [ %232, %230 ], [ %220, %218 ]
+  %237 = icmp ugt i32 %227, 1
+  br i1 %237, label %218, label %.loopexit47, !llvm.loop !23
 
-240:                                              ; preds = %.loopexit48
-  %241 = load i8, ptr %238, align 1
-  %242 = call zeroext i16 @vcs_scr_readw(ptr noundef nonnull %114, ptr noundef %237) #9
-  %243 = and i16 %242, -256
-  %244 = zext i8 %241 to i16
-  %245 = or disjoint i16 %243, %244
-  call void @vcs_scr_writew(ptr noundef nonnull %114, i16 noundef zeroext %245, ptr noundef %237) #9
+.loopexit47:                                      ; preds = %233, %207
+  %238 = phi i32 [ %208, %207 ], [ %227, %233 ]
+  %239 = phi ptr [ %209, %207 ], [ %234, %233 ]
+  %240 = phi ptr [ %212, %207 ], [ %226, %233 ]
+  %241 = icmp eq i32 %238, 0
+  br i1 %241, label %.loopexit, label %242
+
+242:                                              ; preds = %.loopexit47
+  %243 = load i8, ptr %240, align 1
+  %244 = call zeroext i16 @vcs_scr_readw(ptr noundef nonnull %114, ptr noundef %239) #9
+  %245 = and i16 %244, -256
+  %246 = zext i8 %243 to i16
+  %247 = or disjoint i16 %245, %246
+  call void @vcs_scr_writew(ptr noundef nonnull %114, i16 noundef zeroext %247, ptr noundef %239) #9
   br label %.loopexit
 
-246:                                              ; preds = %145
-  %247 = call ptr @screen_pos(ptr noundef nonnull %114, i32 noundef %150, i1 noundef zeroext %108) #9
-  %248 = icmp eq i64 %148, 0
-  br i1 %248, label %.loopexit, label %249
+248:                                              ; preds = %145
+  %249 = call ptr @screen_pos(ptr noundef nonnull %114, i32 noundef %150, i1 noundef zeroext %108) #9
+  %250 = icmp eq i64 %148, 0
+  br i1 %250, label %.loopexit, label %251
 
-249:                                              ; preds = %246
-  %250 = add i32 %.fr31, %150
-  %251 = urem i32 %150, %.fr31
-  %252 = sub i32 %250, %251
-  br label %253
+251:                                              ; preds = %248
+  %252 = add i32 %.fr31, %150
+  %253 = urem i32 %150, %.fr31
+  %254 = sub i32 %252, %253
+  br label %255
 
-253:                                              ; preds = %272, %249
-  %254 = phi ptr [ %259, %272 ], [ %14, %249 ]
-  %255 = phi i32 [ %275, %272 ], [ %251, %249 ]
-  %256 = phi ptr [ %274, %272 ], [ %247, %249 ]
-  %257 = phi i32 [ %273, %272 ], [ %252, %249 ]
-  %258 = phi i32 [ %261, %272 ], [ %149, %249 ]
-  %259 = getelementptr i8, ptr %254, i64 1
-  %260 = load i8, ptr %254, align 1
-  %261 = add i32 %258, -1
-  %262 = call zeroext i16 @vcs_scr_readw(ptr noundef nonnull %114, ptr noundef %256) #9
-  %263 = and i16 %262, -256
-  %264 = zext i8 %260 to i16
-  %265 = or disjoint i16 %263, %264
-  call void @vcs_scr_writew(ptr noundef nonnull %114, i16 noundef zeroext %265, ptr noundef %256) #9
-  %266 = getelementptr i8, ptr %256, i64 2
-  %267 = add i32 %255, 1
-  %268 = icmp eq i32 %267, %.fr31
-  br i1 %268, label %269, label %272
+255:                                              ; preds = %274, %251
+  %256 = phi ptr [ %261, %274 ], [ %14, %251 ]
+  %257 = phi i32 [ %277, %274 ], [ %253, %251 ]
+  %258 = phi ptr [ %276, %274 ], [ %249, %251 ]
+  %259 = phi i32 [ %275, %274 ], [ %254, %251 ]
+  %260 = phi i32 [ %263, %274 ], [ %149, %251 ]
+  %261 = getelementptr i8, ptr %256, i64 1
+  %262 = load i8, ptr %256, align 1
+  %263 = add i32 %260, -1
+  %264 = call zeroext i16 @vcs_scr_readw(ptr noundef nonnull %114, ptr noundef %258) #9
+  %265 = and i16 %264, -256
+  %266 = zext i8 %262 to i16
+  %267 = or disjoint i16 %265, %266
+  call void @vcs_scr_writew(ptr noundef nonnull %114, i16 noundef zeroext %267, ptr noundef %258) #9
+  %268 = getelementptr i8, ptr %258, i64 2
+  %269 = add i32 %257, 1
+  %270 = icmp eq i32 %269, %.fr31
+  br i1 %270, label %271, label %274
 
-269:                                              ; preds = %253
-  %270 = call ptr @screen_pos(ptr noundef nonnull %114, i32 noundef %257, i1 noundef zeroext %108) #9
-  %271 = add i32 %257, %.fr31
-  br label %272
+271:                                              ; preds = %255
+  %272 = call ptr @screen_pos(ptr noundef nonnull %114, i32 noundef %259, i1 noundef zeroext %108) #9
+  %273 = add i32 %259, %.fr31
+  br label %274
 
-272:                                              ; preds = %269, %253
-  %273 = phi i32 [ %271, %269 ], [ %257, %253 ]
-  %274 = phi ptr [ %270, %269 ], [ %266, %253 ]
-  %275 = phi i32 [ 0, %269 ], [ %267, %253 ]
-  %276 = icmp eq i32 %261, 0
-  br i1 %276, label %.loopexit, label %253, !llvm.loop !24
+274:                                              ; preds = %271, %255
+  %275 = phi i32 [ %273, %271 ], [ %259, %255 ]
+  %276 = phi ptr [ %272, %271 ], [ %268, %255 ]
+  %277 = phi i32 [ 0, %271 ], [ %269, %255 ]
+  %278 = icmp eq i32 %263, 0
+  br i1 %278, label %.loopexit, label %255, !llvm.loop !24
 
-.loopexit:                                        ; preds = %272, %246, %240, %.loopexit48
-  %277 = phi ptr [ %186, %.loopexit48 ], [ %186, %240 ], [ %247, %246 ], [ %247, %272 ]
-  %278 = phi ptr [ %237, %.loopexit48 ], [ %237, %240 ], [ %247, %246 ], [ %274, %272 ]
-  %279 = icmp eq ptr %278, null
-  br i1 %279, label %.thread36, label %280
+.loopexit:                                        ; preds = %274, %248, %242, %.loopexit47
+  %279 = phi ptr [ %249, %248 ], [ %188, %.loopexit47 ], [ %188, %242 ], [ %249, %274 ]
+  %280 = phi ptr [ %249, %248 ], [ %239, %.loopexit47 ], [ %239, %242 ], [ %276, %274 ]
+  %281 = and i64 %148, 4294967295
+  %282 = getelementptr i8, ptr %77, i64 %281
+  %283 = icmp eq ptr %280, null
+  br i1 %283, label %290, label %284
 
-280:                                              ; preds = %.loopexit
-  %281 = ptrtoint ptr %277 to i64
-  %282 = ptrtoint ptr %278 to i64
-  %283 = sub i64 %282, %281
-  %284 = lshr exact i64 %283, 1
-  %285 = trunc i64 %284 to i32
-  call void @update_region(ptr noundef nonnull %114, i64 noundef %281, i32 noundef %285) #9
-  br label %.thread36
+284:                                              ; preds = %.loopexit
+  %285 = ptrtoint ptr %279 to i64
+  %286 = ptrtoint ptr %280 to i64
+  %287 = sub i64 %286, %285
+  %288 = lshr exact i64 %287, 1
+  %289 = trunc i64 %288 to i32
+  call void @update_region(ptr noundef nonnull %114, i64 noundef %285, i32 noundef %289) #9
+  br label %290
 
-.thread36:                                        ; preds = %177, %280, %.loopexit
-  %.pn = and i64 %148, 4294967295
-  %286 = add nuw nsw i64 %.pn, %73
-  %287 = add i32 %74, %149
-  %288 = sub i64 %76, %.pn
-  %289 = getelementptr i8, ptr %77, i64 %.pn
-  %290 = icmp eq i64 %288, 0
-  br i1 %290, label %.thread39, label %.lr.ph
+290:                                              ; preds = %.thread36, %284, %.loopexit
+  %291 = phi ptr [ %183, %.thread36 ], [ %282, %284 ], [ %282, %.loopexit ]
+  %.pn = phi i64 [ %182, %.thread36 ], [ %281, %284 ], [ %281, %.loopexit ]
+  %292 = add nuw nsw i64 %.pn, %73
+  %293 = add i32 %74, %149
+  %294 = sub i64 %76, %.pn
+  %295 = icmp eq i64 %294, 0
+  br i1 %295, label %.thread39, label %.lr.ph
 
 .thread39.thread:                                 ; preds = %92, %138, %116
   %.ph = phi ptr [ null, %116 ], [ %114, %138 ], [ %75, %92 ]
-  %291 = zext i32 %74 to i64
-  %292 = load i64, ptr %3, align 8
-  %293 = add i64 %292, %291
-  store i64 %293, ptr %3, align 8
-  br label %298
+  %296 = zext i32 %74 to i64
+  %297 = load i64, ptr %3, align 8
+  %298 = add i64 %297, %296
+  store i64 %298, ptr %3, align 8
+  br label %303
 
-.thread39:                                        ; preds = %.thread36, %142
-  %.lcssa55 = phi i32 [ %74, %142 ], [ %287, %.thread36 ]
-  %294 = zext i32 %.lcssa55 to i64
-  %295 = load i64, ptr %3, align 8
-  %296 = add i64 %295, %294
-  store i64 %296, ptr %3, align 8
-  %297 = icmp eq i32 %.lcssa55, 0
-  br i1 %297, label %.thread44, label %298
+.thread39:                                        ; preds = %290, %142
+  %.lcssa54 = phi i32 [ %74, %142 ], [ %293, %290 ]
+  %299 = zext i32 %.lcssa54 to i64
+  %300 = load i64, ptr %3, align 8
+  %301 = add i64 %300, %299
+  store i64 %301, ptr %3, align 8
+  %302 = icmp eq i32 %.lcssa54, 0
+  br i1 %302, label %.thread44, label %303
 
-298:                                              ; preds = %.thread39.thread, %.thread39
-  %299 = phi i64 [ %291, %.thread39.thread ], [ %294, %.thread39 ]
-  %300 = phi ptr [ %.ph, %.thread39.thread ], [ %114, %.thread39 ]
-  call void @vcs_scr_updated(ptr noundef %300) #9
+303:                                              ; preds = %.thread39.thread, %.thread39
+  %304 = phi i64 [ %296, %.thread39.thread ], [ %299, %.thread39 ]
+  %305 = phi ptr [ %.ph, %.thread39.thread ], [ %114, %.thread39 ]
+  call void @vcs_scr_updated(ptr noundef %305) #9
   br label %.thread44
 
-.thread44:                                        ; preds = %67, %92, %116, %140, %298, %.thread39, %64, %62, %60, %31
-  %301 = phi i64 [ %61, %60 ], [ -22, %62 ], [ -22, %64 ], [ %299, %298 ], [ 0, %.thread39 ], [ -6, %31 ], [ -6, %116 ], [ %141, %140 ], [ -14, %92 ], [ 0, %67 ]
+.thread44:                                        ; preds = %67, %92, %116, %140, %303, %.thread39, %64, %62, %60, %31
+  %306 = phi i64 [ %61, %60 ], [ -22, %62 ], [ -22, %64 ], [ %304, %303 ], [ 0, %.thread39 ], [ -6, %31 ], [ -6, %116 ], [ %141, %140 ], [ -14, %92 ], [ 0, %67 ]
   call void @console_unlock() #9
   call void @free_pages(i64 noundef %13, i32 noundef 0) #9
-  br label %302
+  br label %307
 
-302:                                              ; preds = %.thread44, %12, %4
-  %303 = phi i64 [ %301, %.thread44 ], [ -95, %4 ], [ -12, %12 ]
-  ret i64 %303
+307:                                              ; preds = %.thread44, %12, %4
+  %308 = phi i64 [ %306, %.thread44 ], [ -95, %4 ], [ -12, %12 ]
+  ret i64 %308
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

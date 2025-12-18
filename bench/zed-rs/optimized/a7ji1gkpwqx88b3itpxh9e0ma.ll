@@ -5264,7 +5264,7 @@ _ZN4core3ops8function6FnOnce9call_once17h60d81ae807a1a627E.exit: ; preds = %155
           to label %.body.thread unwind label %244, !noalias !929
 
 251:                                              ; preds = %221, %225
-  %.sroa.3.0.i.ph.i.i = phi i64 [ %.sroa.6.1.i.i.i, %221 ], [ %231, %225 ]
+  %.sroa.3.0.i.ph.i.i = phi i64 [ %231, %225 ], [ %.sroa.6.1.i.i.i, %221 ]
   %252 = load ptr, ptr %5, align 8, !noalias !897, !nonnull !7, !noundef !7
   %253 = load i64, ptr %172, align 8, !noalias !897, !noundef !7
   call void @llvm.experimental.noalias.scope.decl(metadata !969)
@@ -7941,8 +7941,8 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h20
   ret void
 
 66:                                               ; preds = %52, %56
-  %67 = phi i8 [ %54, %52 ], [ %.pre, %56 ]
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.1.i.i, %52 ], [ %62, %56 ]
+  %67 = phi i8 [ %.pre, %56 ], [ %54, %52 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %62, %56 ], [ %.sroa.6.1.i.i, %52 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1404)
   %68 = getelementptr inbounds i8, ptr %.val.i, i64 %.sroa.3.0.i.ph.i
   %69 = and i8 %67, 1
@@ -8104,8 +8104,8 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h60
   br label %77
 
 60:                                               ; preds = %51, %47
-  %61 = phi i8 [ %49, %47 ], [ %.pre, %51 ]
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.1.i.i, %47 ], [ %57, %51 ]
+  %61 = phi i8 [ %.pre, %51 ], [ %49, %47 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %57, %51 ], [ %.sroa.6.1.i.i, %47 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1445)
   %62 = getelementptr inbounds i8, ptr %.val.i, i64 %.sroa.3.0.i.ph.i
   %63 = and i8 %61, 1
@@ -8294,7 +8294,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h7d
   ret void
 
 79:                                               ; preds = %60, %64
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.1.i.i, %60 ], [ %70, %64 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %70, %64 ], [ %.sroa.6.1.i.i, %60 ]
   %80 = load ptr, ptr %7, align 8, !nonnull !7, !noundef !7
   %81 = load i64, ptr %8, align 8, !noundef !7
   call void @llvm.experimental.noalias.scope.decl(metadata !1506)

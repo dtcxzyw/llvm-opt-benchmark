@@ -1821,7 +1821,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZN32pxrInternal_v0_24__
   br i1 %103, label %.loopexit37, label %100
 
 .loopexit37:                                      ; preds = %93, %100, %.thread
-  %.pn = phi { ptr, i32 } [ %lpad.thr_comm, %.thread ], [ %98, %100 ], [ %lpad.thr_comm.split-lp, %93 ]
+  %.pn = phi { ptr, i32 } [ %98, %100 ], [ %lpad.thr_comm, %.thread ], [ %lpad.thr_comm.split-lp, %93 ]
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN32pxrInternal_v0_24__pxrReserved__25_GetCustomPrimvarMappingsERKNS_7UsdPrimEE12baseMappings) #19
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit33
 
@@ -9199,7 +9199,7 @@ _ZNSt19_Bit_const_iteratorppEv.exit.i.i.i.i.i.i.i.i66: ; preds = %_ZNSt19_Bit_co
   br i1 %98, label %_ZNSt19_Bit_const_iteratorppEv.exit.i.i.i.i.i.i.i.i66, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE6assignISt19_Bit_const_iteratorEENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES5_S5_ENK7_CopierclEPbS9_.exit, !llvm.loop !53
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE6assignISt19_Bit_const_iteratorEENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES5_S5_ENK7_CopierclEPbS9_.exit: ; preds = %_ZNSt19_Bit_const_iteratorppEv.exit.i.i.i.i.i.i.i.i66, %_ZNSt19_Bit_const_iteratorppEv.exit.i.i.i.i.i.i.i.i51, %_ZNSt19_Bit_const_iteratorppEv.exit.i.i.i.i.i.i.i.i, %39, %75, %47, %13, %71
-  %.0 = phi ptr [ %74, %71 ], [ %14, %13 ], [ %.1, %47 ], [ %74, %75 ], [ %12, %39 ], [ %.1, %_ZNSt19_Bit_const_iteratorppEv.exit.i.i.i.i.i.i.i.i51 ], [ %14, %_ZNSt19_Bit_const_iteratorppEv.exit.i.i.i.i.i.i.i.i ], [ %74, %_ZNSt19_Bit_const_iteratorppEv.exit.i.i.i.i.i.i.i.i66 ]
+  %.0 = phi ptr [ %12, %39 ], [ %.1, %_ZNSt19_Bit_const_iteratorppEv.exit.i.i.i.i.i.i.i.i51 ], [ %14, %_ZNSt19_Bit_const_iteratorppEv.exit.i.i.i.i.i.i.i.i ], [ %74, %71 ], [ %14, %13 ], [ %.1, %47 ], [ %74, %75 ], [ %74, %_ZNSt19_Bit_const_iteratorppEv.exit.i.i.i.i.i.i.i.i66 ]
   %99 = load ptr, ptr %11, align 8
   %.not44 = icmp eq ptr %.0, %99
   br i1 %.not44, label %101, label %100

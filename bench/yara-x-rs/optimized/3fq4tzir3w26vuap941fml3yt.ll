@@ -1517,7 +1517,7 @@ _ZN4core5slice4sort6shared17find_existing_run17h427362a567d637e6E.exit.i: ; pred
   br label %_ZN4core5slice4sort6stable5drift10create_run17h64f69ac80fdb1bd3E.exit
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h8efe5f711f706107E.exit.i": ; preds = %_ZN4core10intrinsics25typed_swap_nonoverlapping17h59bbd2bc2749c0a4E.exit.i.i.i, %.preheader24.i, %56, %28
-  %.sroa.0.0.i2023.i = phi i64 [ %.sroa.0.0.i.i, %56 ], [ %25, %28 ], [ 2, %.preheader24.i ], [ %.sroa.0.0.i475457.i, %_ZN4core10intrinsics25typed_swap_nonoverlapping17h59bbd2bc2749c0a4E.exit.i.i.i ]
+  %.sroa.0.0.i2023.i = phi i64 [ %25, %28 ], [ %.sroa.0.0.i.i, %56 ], [ 2, %.preheader24.i ], [ %.sroa.0.0.i475457.i, %_ZN4core10intrinsics25typed_swap_nonoverlapping17h59bbd2bc2749c0a4E.exit.i.i.i ]
   %63 = shl i64 %.sroa.0.0.i2023.i, 1
   %64 = or disjoint i64 %63, 1
   br label %_ZN4core5slice4sort6stable5drift10create_run17h64f69ac80fdb1bd3E.exit
@@ -1955,7 +1955,7 @@ _ZN4core5slice4sort6shared17find_existing_run17haa21258cef37d63fE.exit.i: ; pred
   br label %_ZN4core5slice4sort6stable5drift10create_run17hf588156a5630f3c2E.exit
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h0bdc6dfb84d35657E.exit.i": ; preds = %_ZN4core10intrinsics25typed_swap_nonoverlapping17h6a656f6932e9fd57E.exit.i.i.i, %.preheader28.i, %61, %28
-  %.sroa.0.0.i2427.i = phi i64 [ %.sroa.0.0.i.i, %61 ], [ %25, %28 ], [ 2, %.preheader28.i ], [ %.sroa.0.0.i606770.i, %_ZN4core10intrinsics25typed_swap_nonoverlapping17h6a656f6932e9fd57E.exit.i.i.i ]
+  %.sroa.0.0.i2427.i = phi i64 [ %25, %28 ], [ %.sroa.0.0.i.i, %61 ], [ 2, %.preheader28.i ], [ %.sroa.0.0.i606770.i, %_ZN4core10intrinsics25typed_swap_nonoverlapping17h6a656f6932e9fd57E.exit.i.i.i ]
   %68 = shl i64 %.sroa.0.0.i2427.i, 1
   %69 = or disjoint i64 %68, 1
   br label %_ZN4core5slice4sort6stable5drift10create_run17hf588156a5630f3c2E.exit
@@ -2347,7 +2347,7 @@ _ZN4core5slice4sort6shared17find_existing_run17h2196db12d475339dE.exit.i: ; pred
   br label %_ZN4core5slice4sort6stable5drift10create_run17ha13271b3824aa735E.exit
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h3e494808f8e39b6fE.exit.i": ; preds = %_ZN4core10intrinsics25typed_swap_nonoverlapping17h0c7d76bf6cd9b15dE.exit.i.i.i, %.preheader18.i, %45, %28
-  %.sroa.0.0.i1417.i = phi i64 [ %.sroa.0.0.i.i, %45 ], [ %25, %28 ], [ 2, %.preheader18.i ], [ %.sroa.0.0.i465356.i, %_ZN4core10intrinsics25typed_swap_nonoverlapping17h0c7d76bf6cd9b15dE.exit.i.i.i ]
+  %.sroa.0.0.i1417.i = phi i64 [ %25, %28 ], [ %.sroa.0.0.i.i, %45 ], [ 2, %.preheader18.i ], [ %.sroa.0.0.i465356.i, %_ZN4core10intrinsics25typed_swap_nonoverlapping17h0c7d76bf6cd9b15dE.exit.i.i.i ]
   %52 = shl i64 %.sroa.0.0.i1417.i, 1
   %53 = or disjoint i64 %52, 1
   br label %_ZN4core5slice4sort6stable5drift10create_run17ha13271b3824aa735E.exit
@@ -43340,7 +43340,7 @@ define hidden void @_ZN6yara_x2re4fast6fastvm6FastVM9try_match17h7893b52cdfcd456
   br i1 %4, label %152, label %136
 
 .loopexit:                                        ; preds = %.backedge530, %343, %.backedge527, %.backedge525, %.backedge523, %326, %.backedge520, %.backedge518, %._crit_edge697
-  %130 = phi i64 [ %116, %._crit_edge697 ], [ %124, %343 ], [ %101, %.backedge518 ], [ %109, %.backedge520 ], [ %118, %326 ], [ %352, %.backedge523 ], [ %352, %.backedge525 ], [ %352, %.backedge527 ], [ %98, %.backedge530 ]
+  %130 = phi i64 [ %101, %.backedge518 ], [ %352, %.backedge527 ], [ %352, %.backedge523 ], [ %116, %._crit_edge697 ], [ %124, %343 ], [ %118, %326 ], [ %352, %.backedge525 ], [ %109, %.backedge520 ], [ %98, %.backedge530 ]
   invoke void @_ZN4core3ptr25swap_nonoverlapping_bytes26swap_nonoverlapping_chunks17h803a9746a956b395E(ptr noundef nonnull %0, ptr noundef nonnull %51, i64 noundef 13)
           to label %_ZN4core10intrinsics25typed_swap_nonoverlapping17h5f84bc038fc88190E.exit unwind label %131
 
@@ -43479,8 +43479,8 @@ _ZN6yara_x2re4fast6fastvm6FastVM21try_match_literal_bck17h4184f5ecf480171dE.exit
   %.sroa.0156.1 = getelementptr inbounds nuw i8, ptr %.sroa.0156.1707, i64 %.sroa.0156.1.idx
   br i1 %182, label %.loopexit, label %155
 
-_ZN6yara_x2re4fast6fastvm6FastVM21try_match_literal_bck17h4184f5ecf480171dE.exit.thread452: ; preds = %168, %166, %_ZN6yara_x2re4fast6fastvm6FastVM21try_match_literal_bck17h4184f5ecf480171dE.exit._ZN6yara_x2re4fast6fastvm6FastVM21try_match_literal_bck17h4184f5ecf480171dE.exit.thread452_crit_edge
-  %183 = phi i64 [ %.pre, %_ZN6yara_x2re4fast6fastvm6FastVM21try_match_literal_bck17h4184f5ecf480171dE.exit._ZN6yara_x2re4fast6fastvm6FastVM21try_match_literal_bck17h4184f5ecf480171dE.exit.thread452_crit_edge ], [ %156, %166 ], [ %156, %168 ]
+_ZN6yara_x2re4fast6fastvm6FastVM21try_match_literal_bck17h4184f5ecf480171dE.exit.thread452: ; preds = %166, %168, %_ZN6yara_x2re4fast6fastvm6FastVM21try_match_literal_bck17h4184f5ecf480171dE.exit._ZN6yara_x2re4fast6fastvm6FastVM21try_match_literal_bck17h4184f5ecf480171dE.exit.thread452_crit_edge
+  %183 = phi i64 [ %.pre, %_ZN6yara_x2re4fast6fastvm6FastVM21try_match_literal_bck17h4184f5ecf480171dE.exit._ZN6yara_x2re4fast6fastvm6FastVM21try_match_literal_bck17h4184f5ecf480171dE.exit.thread452_crit_edge ], [ %156, %168 ], [ %156, %166 ]
   %184 = add i64 %183, %105
   call fastcc void @"_ZN6yara_x2re9bitmapset18BitmapSet$LT$T$GT$6insert17hd952a3ef5fff615bE"(ptr noalias noundef align 8 dereferenceable(104) %51, i64 noundef %184)
   br label %.backedge518
@@ -43593,7 +43593,7 @@ _ZN6yara_x2re4fast6fastvm6FastVM28try_match_masked_literal_bck17h65ba1b4f972dab5
   %.sroa.0157.1 = getelementptr inbounds nuw i8, ptr %.sroa.0157.1701, i64 %.sroa.0157.1.idx
   br i1 %230, label %.loopexit, label %185
 
-_ZN6yara_x2re4fast6fastvm6FastVM28try_match_masked_literal_bck17h65ba1b4f972dab54E.exit.thread456: ; preds = %196, %194, %_ZN6yara_x2re4fast6fastvm6FastVM28try_match_masked_literal_bck17h65ba1b4f972dab54E.exit
+_ZN6yara_x2re4fast6fastvm6FastVM28try_match_masked_literal_bck17h65ba1b4f972dab54E.exit.thread456: ; preds = %194, %196, %_ZN6yara_x2re4fast6fastvm6FastVM28try_match_masked_literal_bck17h65ba1b4f972dab54E.exit
   %231 = add i64 %186, %114
   call fastcc void @"_ZN6yara_x2re9bitmapset18BitmapSet$LT$T$GT$6insert17hd952a3ef5fff615bE"(ptr noalias noundef align 8 dereferenceable(104) %51, i64 noundef %231)
   br label %.backedge520
@@ -44485,7 +44485,7 @@ define hidden void @_ZN6yara_x2re4fast6fastvm6FastVM9try_match17hdb6b35dc561876a
   br i1 %4, label %132, label %130
 
 .loopexit:                                        ; preds = %.backedge522, %315, %.backedge519, %.backedge517, %.backedge515, %298, %.backedge512, %.backedge510, %._crit_edge708
-  %124 = phi i64 [ %110, %._crit_edge708 ], [ %118, %315 ], [ %96, %.backedge510 ], [ %103, %.backedge512 ], [ %112, %298 ], [ %324, %.backedge515 ], [ %324, %.backedge517 ], [ %324, %.backedge519 ], [ %92, %.backedge522 ]
+  %124 = phi i64 [ %96, %.backedge510 ], [ %324, %.backedge519 ], [ %324, %.backedge515 ], [ %110, %._crit_edge708 ], [ %118, %315 ], [ %112, %298 ], [ %324, %.backedge517 ], [ %103, %.backedge512 ], [ %92, %.backedge522 ]
   invoke void @_ZN4core3ptr25swap_nonoverlapping_bytes26swap_nonoverlapping_chunks17h803a9746a956b395E(ptr noundef nonnull %0, ptr noundef nonnull %41, i64 noundef 13)
           to label %_ZN4core10intrinsics25typed_swap_nonoverlapping17h5f84bc038fc88190E.exit unwind label %125
 

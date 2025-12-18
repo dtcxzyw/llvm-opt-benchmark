@@ -6279,7 +6279,7 @@ _ZNK3ue29CharReach9find_nextEm.exit50.i:          ; preds = %343, %336
   br label %276, !llvm.loop !442
 
 .loopexit.i:                                      ; preds = %243, %._crit_edge.i, %267, %_ZNK3ue29CharReach10find_firstEv.exit.i, %233, %224
-  %.1.i = phi i32 [ %232, %224 ], [ %.0.i, %233 ], [ %.0.i, %_ZNK3ue29CharReach10find_firstEv.exit.i ], [ %.0.i, %._crit_edge.i ], [ %.0.i, %267 ], [ %.0.i, %243 ]
+  %.1.i = phi i32 [ %232, %224 ], [ %.0.i, %233 ], [ %.0.i, %_ZNK3ue29CharReach10find_firstEv.exit.i ], [ %.0.i, %267 ], [ %.0.i, %._crit_edge.i ], [ %.0.i, %243 ]
   %347 = load i32, ptr %105, align 8, !noalias !396
   %..1.i = call i32 @llvm.umax.i32(i32 %347, i32 %.1.i)
   store i32 %..1.i, ptr %105, align 8, !noalias !396
@@ -6738,8 +6738,8 @@ _ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EEltERKS6_.exit.thread: ; preds =
   %or.cond.i.i.i = select i1 %86, i1 true, i1 %.not.i.i.i.i.i.i.i.i
   br i1 %or.cond.i.i.i, label %_ZNK3ue29CharReachltERKS0_.exit48, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !457
 
-_ZNK3ue29CharReachltERKS0_.exit48:                ; preds = %69, %_ZNK5boost9intrusive14algo_pred_lessclISt4pairIhhEEEbRKT_S7_.exit.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i, %85, %.thread, %_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EEltERKS6_.exit.thread, %_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EEltERKS6_.exit, %56, %50, %48, %42, %33
-  %.0 = phi i1 [ %34, %33 ], [ %41, %.thread ], [ true, %42 ], [ false, %48 ], [ true, %50 ], [ false, %56 ], [ true, %_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EEltERKS6_.exit ], [ false, %_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EEltERKS6_.exit.thread ], [ %84, %.lr.ph.i.i.i.i.i.i.i.i ], [ %84, %85 ], [ true, %_ZNK5boost9intrusive14algo_pred_lessclISt4pairIhhEEEbRKT_S7_.exit.i.i.i.i ], [ true, %69 ]
+_ZNK3ue29CharReachltERKS0_.exit48:                ; preds = %_ZNK5boost9intrusive14algo_pred_lessclISt4pairIhhEEEbRKT_S7_.exit.i.i.i.i, %69, %.lr.ph.i.i.i.i.i.i.i.i, %85, %.thread, %_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EEltERKS6_.exit.thread, %_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EEltERKS6_.exit, %56, %50, %48, %42, %33
+  %.0 = phi i1 [ %34, %33 ], [ %41, %.thread ], [ true, %42 ], [ false, %48 ], [ true, %50 ], [ false, %56 ], [ true, %_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EEltERKS6_.exit ], [ false, %_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EEltERKS6_.exit.thread ], [ %84, %.lr.ph.i.i.i.i.i.i.i.i ], [ %84, %85 ], [ true, %69 ], [ true, %_ZNK5boost9intrusive14algo_pred_lessclISt4pairIhhEEEbRKT_S7_.exit.i.i.i.i ]
   ret i1 %.0
 }
 
@@ -10027,7 +10027,7 @@ _ZNSt6vectorIN3ue29CharReachESaIS1_EEaSEOS3_.exit: ; preds = %_ZNK9__gnu_cxx5__o
   br i1 %43, label %8, label %.critedge, !llvm.loop !592
 
 .critedge:                                        ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPSt6vectorIN3ue29CharReachESaIS6_EES4_IS8_SaIS8_EEEES8_EEbT_RT0_.exit, %_ZNSt6vectorIN3ue29CharReachESaIS1_EEaSEOS3_.exit, %.lr.ph.i.i.i.i.i.i.i.i.i21.i.i.i.i.i.i.i, %5
-  %.023 = phi i64 [ %1, %5 ], [ %.026, %.lr.ph.i.i.i.i.i.i.i.i.i21.i.i.i.i.i.i.i ], [ %.026, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPSt6vectorIN3ue29CharReachESaIS6_EES4_IS8_SaIS8_EEEES8_EEbT_RT0_.exit ], [ %.0927, %_ZNSt6vectorIN3ue29CharReachESaIS1_EEaSEOS3_.exit ]
+  %.023 = phi i64 [ %.026, %.lr.ph.i.i.i.i.i.i.i.i.i21.i.i.i.i.i.i.i ], [ %1, %5 ], [ %.026, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPSt6vectorIN3ue29CharReachESaIS6_EES4_IS8_SaIS8_EEEES8_EEbT_RT0_.exit ], [ %.0927, %_ZNSt6vectorIN3ue29CharReachESaIS1_EEaSEOS3_.exit ]
   %44 = getelementptr inbounds %"class.std::vector.71", ptr %0, i64 %.023
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 8
@@ -12365,7 +12365,7 @@ _ZNK9__gnu_cxx5__ops14_Iter_less_valclIN5boost9container12vec_iteratorIPN3ue212_
   br i1 %117, label %88, label %_ZSt11__push_heapIN5boost9container12vec_iteratorIPN3ue212_GLOBAL__N_112SAccelSchemeELb0EEElS5_N9__gnu_cxx5__ops14_Iter_less_valEEvT_T0_SC_T1_RT2_.exit, !llvm.loop !623
 
 _ZSt11__push_heapIN5boost9container12vec_iteratorIPN3ue212_GLOBAL__N_112SAccelSchemeELb0EEElS5_N9__gnu_cxx5__ops14_Iter_less_valEEvT_T0_SC_T1_RT2_.exit: ; preds = %108, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIN5boost9container12vec_iteratorIPN3ue212_GLOBAL__N_112SAccelSchemeELb0EEES8_EEbT_RT0_.exit.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIN5boost9container12vec_iteratorIPN3ue212_GLOBAL__N_112SAccelSchemeELb0EEES8_EEbT_RT0_.exit.thread.i, %113, %70
-  %.0910.i = phi i64 [ %.121, %70 ], [ %.0913.i, %113 ], [ %.0913.i, %108 ], [ %.014.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIN5boost9container12vec_iteratorIPN3ue212_GLOBAL__N_112SAccelSchemeELb0EEES8_EEbT_RT0_.exit.thread.i ], [ %.0913.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIN5boost9container12vec_iteratorIPN3ue212_GLOBAL__N_112SAccelSchemeELb0EEES8_EEbT_RT0_.exit.i ]
+  %.0910.i = phi i64 [ %.0913.i, %113 ], [ %.121, %70 ], [ %.014.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIN5boost9container12vec_iteratorIPN3ue212_GLOBAL__N_112SAccelSchemeELb0EEES8_EEbT_RT0_.exit.thread.i ], [ %.0913.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIN5boost9container12vec_iteratorIPN3ue212_GLOBAL__N_112SAccelSchemeELb0EEES8_EEbT_RT0_.exit.i ], [ %.0913.i, %108 ]
   %118 = getelementptr inbounds %"struct.ue2::(anonymous namespace)::SAccelScheme", ptr %.0.val, i64 %.0910.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %118, ptr noundef nonnull align 8 dereferenceable(36) %2, i64 36, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

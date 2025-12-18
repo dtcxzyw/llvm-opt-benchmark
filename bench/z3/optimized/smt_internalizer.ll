@@ -4539,7 +4539,7 @@ define hidden noundef ptr @_ZN3smt7context8mk_enodeEP3appbbb(ptr noundef nonnull
   br i1 %.not27.old.i.i.i, label %_ZNK7obj_mapI4exprjE4findEPS0_Rj.exit.thread, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %47, %44
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %47 ], [ %46, %44 ]
+  %.137.i.i.i.be = phi ptr [ %46, %44 ], [ %.old.i.i.i, %47 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !639
 
 .loopexit:                                        ; preds = %28, %39
@@ -7651,7 +7651,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds =
   br i1 %.not27.old.i.i.i, label %_ZNK7obj_mapI4exprjE4findEPS0_Rj.exit.thread, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %78, %75
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %78 ], [ %77, %75 ]
+  %.137.i.i.i.be = phi ptr [ %77, %75 ], [ %.old.i.i.i, %78 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !639
 
 .loopexit:                                        ; preds = %59, %70
@@ -8997,7 +8997,7 @@ _ZN14core_hashtableIN7obj_mapIN3smt5enodeEP10quantifierE13obj_map_entryE8obj_has
   br i1 %.not36.not, label %.loopexit, label %.lr.ph45
 
 .loopexit:                                        ; preds = %.lr.ph45, %_ZN14core_hashtableIN7obj_mapIN3smt5enodeEP10quantifierE13obj_map_entryE8obj_hashINS5_8key_dataEE10default_eqIS8_EE8iteratorppEv.exit, %.lr.ph, %_ZNK7obj_mapIN3smt5enodeEP10quantifierE5beginEv.exit
-  %.not3639 = phi i1 [ false, %_ZNK7obj_mapIN3smt5enodeEP10quantifierE5beginEv.exit ], [ true, %.lr.ph ], [ %.not.not.not, %_ZN14core_hashtableIN7obj_mapIN3smt5enodeEP10quantifierE13obj_map_entryE8obj_hashINS5_8key_dataEE10default_eqIS8_EE8iteratorppEv.exit ], [ %.not.not.not, %.lr.ph45 ]
+  %.not3639 = phi i1 [ true, %.lr.ph ], [ false, %_ZNK7obj_mapIN3smt5enodeEP10quantifierE5beginEv.exit ], [ %.not.not.not, %_ZN14core_hashtableIN7obj_mapIN3smt5enodeEP10quantifierE13obj_map_entryE8obj_hashINS5_8key_dataEE10default_eqIS8_EE8iteratorppEv.exit ], [ %.not.not.not, %.lr.ph45 ]
   ret i1 %.not3639
 }
 
@@ -17310,7 +17310,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapIN3smt5enodeEP10qu
   br i1 %.not32.old, label %.loopexit, label %.lr.ph48.backedge
 
 .lr.ph48.backedge:                                ; preds = %39, %36
-  %.247.be = phi ptr [ %.old, %39 ], [ %38, %36 ]
+  %.247.be = phi ptr [ %38, %36 ], [ %.old, %39 ]
   br label %.lr.ph48, !llvm.loop !821
 
 .loopexit38:                                      ; preds = %18, %30

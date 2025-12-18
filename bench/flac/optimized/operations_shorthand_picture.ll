@@ -276,7 +276,7 @@ import_pic_from.exit:                             ; preds = %27
   br label %export_pic_to.exit
 
 export_pic_to.exit:                               ; preds = %48, %import_pic_from.exit.thread, %38, %116, %114, %112, %108, %97, %86, %9, %78, %76
-  %.5 = phi i32 [ 0, %76 ], [ 1, %114 ], [ 0, %9 ], [ 0, %78 ], [ 0, %86 ], [ 0, %97 ], [ 0, %108 ], [ 0, %112 ], [ 1, %116 ], [ 0, %38 ], [ 0, %import_pic_from.exit.thread ], [ %.2, %48 ]
+  %.5 = phi i32 [ 0, %76 ], [ 0, %import_pic_from.exit.thread ], [ 1, %114 ], [ 0, %9 ], [ 0, %78 ], [ 0, %86 ], [ 0, %97 ], [ 0, %108 ], [ 0, %112 ], [ 1, %116 ], [ 0, %38 ], [ %.2, %48 ]
   call void @FLAC__metadata_iterator_delete(ptr noundef %6) #6
   ret i32 %.5
 }

@@ -3942,8 +3942,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
   br label %.body
 
 .body:                                            ; preds = %.body31, %26, %23
-  %.pn = phi { ptr, i32 } [ %24, %23 ], [ %24, %26 ], [ %39, %.body31 ]
-  %.114 = phi i1 [ true, %23 ], [ true, %26 ], [ false, %.body31 ]
+  %.pn = phi { ptr, i32 } [ %24, %26 ], [ %24, %23 ], [ %39, %.body31 ]
+  %.114 = phi i1 [ true, %26 ], [ true, %23 ], [ false, %.body31 ]
   %49 = load ptr, ptr %2, align 8, !tbaa !17
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %51 = icmp eq ptr %49, %50

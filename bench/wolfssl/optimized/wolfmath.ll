@@ -262,7 +262,7 @@ define i32 @wc_export_int(ptr noundef %0, ptr noundef %1, ptr noundef captures(a
   br label %21
 
 21:                                               ; preds = %12, %19
-  %.1 = phi i32 [ %20, %19 ], [ %13, %12 ]
+  %.1 = phi i32 [ %13, %12 ], [ %20, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %32
 

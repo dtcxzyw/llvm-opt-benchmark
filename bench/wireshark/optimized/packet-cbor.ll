@@ -1555,7 +1555,7 @@ define internal fastcc noundef zeroext i1 @dissect_cbor_byte_string(ptr noundef 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %67, %91, %111, %105, %.critedge, %89, %75, %58, %41
-  %.1 = phi i1 [ false, %75 ], [ false, %89 ], [ false, %.critedge ], [ true, %41 ], [ false, %58 ], [ true, %105 ], [ true, %111 ], [ true, %91 ], [ false, %67 ]
+  %.1 = phi i1 [ false, %75 ], [ false, %89 ], [ false, %.critedge ], [ true, %41 ], [ false, %58 ], [ true, %91 ], [ true, %105 ], [ true, %111 ], [ false, %67 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.1
 }

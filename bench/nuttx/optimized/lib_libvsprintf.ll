@@ -372,8 +372,8 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr noundef readon
   br label %.loopexit55
 
 .loopexit55:                                      ; preds = %.loopexit55.loopexit, %152, %155
-  %.4488 = phi i32 [ %156, %155 ], [ 0, %152 ], [ 0, %.loopexit55.loopexit ]
-  %.3454 = phi i32 [ %.1452.ph, %155 ], [ %.1452.ph, %152 ], [ %162, %.loopexit55.loopexit ]
+  %.4488 = phi i32 [ 0, %152 ], [ %156, %155 ], [ 0, %.loopexit55.loopexit ]
+  %.3454 = phi i32 [ %.1452.ph, %152 ], [ %.1452.ph, %155 ], [ %162, %.loopexit55.loopexit ]
   br i1 %.not572, label %166, label %163
 
 163:                                              ; preds = %.loopexit55
@@ -680,7 +680,7 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr noundef readon
   br label %.loopexit47
 
 .loopexit47:                                      ; preds = %292, %296, %299
-  %.15466 = phi i32 [ %300, %299 ], [ %297, %296 ], [ %284, %292 ]
+  %.15466 = phi i32 [ %297, %296 ], [ %300, %299 ], [ %284, %292 ]
   %302 = load ptr, ptr %6, align 8
   %303 = and i32 %202, 8192
   %.not578 = icmp eq i32 %303, 0
@@ -1380,9 +1380,9 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr noundef readon
   br i1 %.not565.wide, label %.loopexit44, label %.lr.ph115, !llvm.loop !16
 
 .loopexit44:                                      ; preds = %171, %.lr.ph101, %.lr.ph115, %166, %323, %.preheader, %268, %261, %.loopexit57
-  %.5489 = phi i32 [ %.8492, %268 ], [ %.8492, %261 ], [ %382, %.loopexit57 ], [ %.8492, %323 ], [ %598, %.preheader ], [ %.4488, %166 ], [ %.8492, %.lr.ph101 ], [ %598, %.lr.ph115 ], [ %.4488, %171 ]
-  %.6457 = phi i32 [ %269, %268 ], [ %262, %261 ], [ %378, %.loopexit57 ], [ %.16467, %323 ], [ %.23.lcssa, %.preheader ], [ %.4455, %166 ], [ %326, %.lr.ph101 ], [ %627, %.lr.ph115 ], [ %174, %171 ]
-  %.5 = phi ptr [ %.3, %268 ], [ %.3, %261 ], [ %.3, %.loopexit57 ], [ %.3, %323 ], [ %.6226, %.preheader ], [ %.3, %166 ], [ %.3, %.lr.ph101 ], [ %.6226, %.lr.ph115 ], [ %.3, %171 ]
+  %.5489 = phi i32 [ %598, %.preheader ], [ %.8492, %268 ], [ %.8492, %261 ], [ %.8492, %323 ], [ %382, %.loopexit57 ], [ %.4488, %166 ], [ %.8492, %.lr.ph101 ], [ %598, %.lr.ph115 ], [ %.4488, %171 ]
+  %.6457 = phi i32 [ %.23.lcssa, %.preheader ], [ %269, %268 ], [ %262, %261 ], [ %.16467, %323 ], [ %378, %.loopexit57 ], [ %.4455, %166 ], [ %326, %.lr.ph101 ], [ %627, %.lr.ph115 ], [ %174, %171 ]
+  %.5 = phi ptr [ %.6226, %.preheader ], [ %.3, %268 ], [ %.3, %261 ], [ %.3, %323 ], [ %.3, %.loopexit57 ], [ %.3, %166 ], [ %.3, %.lr.ph101 ], [ %.6226, %.lr.ph115 ], [ %.3, %171 ]
   %.not588117 = icmp eq i32 %.5489, 0
   br i1 %.not588117, label %.backedge.outer.backedge, label %.lr.ph120
 

@@ -2247,7 +2247,7 @@ get_color_code.exit283:                           ; preds = %869, %873
   br i1 %.not196, label %show_merge_base.exit, label %836, !llvm.loop !85
 
 show_merge_base.exit:                             ; preds = %532, %549, %.thread306, %890, %628, %._crit_edge368.thread, %name_commits.exit, %._crit_edge368, %537, %516, %._crit_edge372, %401
-  %.0170 = phi i32 [ 0, %401 ], [ 0, %._crit_edge372 ], [ 1, %516 ], [ 0, %537 ], [ 0, %._crit_edge368 ], [ 0, %name_commits.exit ], [ 0, %._crit_edge368.thread ], [ 0, %628 ], [ 0, %549 ], [ 0, %.thread306 ], [ 0, %890 ], [ %.1.i, %532 ]
+  %.0170 = phi i32 [ 0, %._crit_edge368 ], [ 0, %name_commits.exit ], [ 0, %401 ], [ 0, %._crit_edge372 ], [ 0, %.thread306 ], [ 1, %516 ], [ 0, %537 ], [ 0, %628 ], [ 0, %549 ], [ 0, %._crit_edge368.thread ], [ 0, %890 ], [ %.1.i, %532 ]
   br label %898
 
 895:                                              ; preds = %898
@@ -3054,7 +3054,7 @@ find_digit_prefix.exit45.i:                       ; preds = %.lr.ph.i42.i, %find
   br i1 %or.cond133.i, label %version_cmp.exit, label %5
 
 version_cmp.exit:                                 ; preds = %.lr.ph.i._crit_edge, %32, %.thread.i
-  %.130.ph.i = phi i32 [ %34, %.thread.i ], [ %33, %32 ], [ 0, %.lr.ph.i._crit_edge ]
+  %.130.ph.i = phi i32 [ %33, %32 ], [ %34, %.thread.i ], [ 0, %.lr.ph.i._crit_edge ]
   ret i32 %.130.ph.i
 }
 

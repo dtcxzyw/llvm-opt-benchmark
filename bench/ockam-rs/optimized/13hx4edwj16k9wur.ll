@@ -1195,7 +1195,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit: ;
   br label %.body118
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %222, %.loopexit170, %.noexc120, %213, %207, %188, %168, %217, %182
-  %.2.ph.ph = phi i1 [ true, %217 ], [ false, %222 ], [ true, %.noexc120 ], [ true, %207 ], [ true, %182 ], [ true, %168 ], [ true, %188 ], [ true, %213 ], [ false, %.loopexit170 ]
+  %.2.ph.ph = phi i1 [ false, %.loopexit170 ], [ true, %.noexc120 ], [ true, %207 ], [ true, %182 ], [ false, %222 ], [ true, %168 ], [ true, %217 ], [ true, %188 ], [ true, %213 ]
   %lpad.loopexit.split-lp172 = landingpad { ptr, i32 }
           cleanup
   br label %.body118

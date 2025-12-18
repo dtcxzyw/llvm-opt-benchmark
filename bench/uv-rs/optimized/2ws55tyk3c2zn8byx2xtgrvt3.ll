@@ -360,7 +360,7 @@ select.unfold.us.i.i:                             ; preds = %.sink.split.i.us.i.
   br label %29
 
 .loopexit:                                        ; preds = %.sink.split.i.us.i.i, %.sink.split.i7.i.i, %.sink.split.i.i.i
-  %.sroa.0.0.i.i.ph = phi ptr [ %.promoted.i.i, %.sink.split.i.i.i ], [ %23, %.sink.split.i7.i.i ], [ %spec.select.i15.us.i.i, %.sink.split.i.us.i.i ]
+  %.sroa.0.0.i.i.ph = phi ptr [ %23, %.sink.split.i7.i.i ], [ %.promoted.i.i, %.sink.split.i.i.i ], [ %spec.select.i15.us.i.i, %.sink.split.i.us.i.i ]
   tail call void @"_ZN70_$LT$uv_pep508..Requirement$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h15f84b4c3bc5d0c6E.llvm.8717112297715684712"(ptr noalias noundef nonnull sret([360 x i8]) align 8 captures(none) dereferenceable(360) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(360) %.sroa.0.0.i.i.ph)
   br label %29
 
@@ -561,7 +561,7 @@ select.unfold.us.i:                               ; preds = %.sink.split.i.us.i,
   br label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdc0e39e621d9d032E.llvm.8717112297715684712.exit"
 
 "_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdc0e39e621d9d032E.llvm.8717112297715684712.exit": ; preds = %.sink.split.i.us.i, %.sink.split.i.i, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17hd9259e0da2817201E.exit.thread.i", %.sink.split.i7.i
-  %.sroa.0.0.i = phi ptr [ null, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17hd9259e0da2817201E.exit.thread.i" ], [ %spec.select9.i9.i, %.sink.split.i7.i ], [ %.promoted.i, %.sink.split.i.i ], [ %spec.select.i15.us.i, %.sink.split.i.us.i ]
+  %.sroa.0.0.i = phi ptr [ %spec.select9.i9.i, %.sink.split.i7.i ], [ null, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17hd9259e0da2817201E.exit.thread.i" ], [ %.promoted.i, %.sink.split.i.i ], [ %spec.select.i15.us.i, %.sink.split.i.us.i ]
   ret ptr %.sroa.0.0.i
 }
 
@@ -739,7 +739,7 @@ select.unfold.us:                                 ; preds = %.sink.split.i.us, %
   br i1 %19, label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17hd9259e0da2817201E.exit.thread", label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h5c3fca8867c25d5eE.exit
 
 _ZN4core4iter8adapters7flatten17and_then_or_clear17h5c3fca8867c25d5eE.exit: ; preds = %.sink.split.i.us, %.sink.split.i, %.sink.split.i7, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17hd9259e0da2817201E.exit.thread"
-  %.sroa.0.0 = phi ptr [ null, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17hd9259e0da2817201E.exit.thread" ], [ %spec.select9.i9, %.sink.split.i7 ], [ %.promoted, %.sink.split.i ], [ %spec.select.i15.us, %.sink.split.i.us ]
+  %.sroa.0.0 = phi ptr [ %spec.select9.i9, %.sink.split.i7 ], [ null, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17hd9259e0da2817201E.exit.thread" ], [ %.promoted, %.sink.split.i ], [ %spec.select.i15.us, %.sink.split.i.us ]
   ret ptr %.sroa.0.0
 
 "_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17hd9259e0da2817201E.exit.thread": ; preds = %select.unfold.us, %.sink.split.i, %.split
@@ -35500,8 +35500,8 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h6a
   ret void
 
 100:                                              ; preds = %78, %82
-  %101 = phi i8 [ %80, %78 ], [ %.pre, %82 ]
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.1.i.i, %78 ], [ %88, %82 ]
+  %101 = phi i8 [ %.pre, %82 ], [ %80, %78 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %88, %82 ], [ %.sroa.6.1.i.i, %78 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   %102 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -35759,7 +35759,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
   br label %63
 
 63:                                               ; preds = %56, %52
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.1.i.i, %52 ], [ %62, %56 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %62, %56 ], [ %.sroa.6.1.i.i, %52 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12143)
   %64 = load ptr, ptr %0, align 8, !alias.scope !12143, !noalias !12146, !nonnull !3, !noundef !3
   %65 = getelementptr inbounds i8, ptr %64, i64 %.sroa.3.0.i.ph.i
@@ -35956,8 +35956,8 @@ define hidden { i64, ptr } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_f
   %56 = zext nneg i16 %55 to i64
   br label %_ZN9hashbrown3raw13RawTableInner30find_or_find_insert_slot_inner17had99f58361dbddaaE.exit.thread
 
-_ZN9hashbrown3raw13RawTableInner30find_or_find_insert_slot_inner17had99f58361dbddaaE.exit.thread: ; preds = %50, %46
-  %.sroa.3.0.i.ph = phi i64 [ %.sroa.6.1.i, %46 ], [ %56, %50 ]
+_ZN9hashbrown3raw13RawTableInner30find_or_find_insert_slot_inner17had99f58361dbddaaE.exit.thread: ; preds = %46, %50
+  %.sroa.3.0.i.ph = phi i64 [ %56, %50 ], [ %.sroa.6.1.i, %46 ]
   %57 = inttoptr i64 %.sroa.3.0.i.ph to ptr
   br label %61
 
@@ -36084,8 +36084,8 @@ define hidden { i64, ptr } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_f
   %58 = zext nneg i16 %57 to i64
   br label %_ZN9hashbrown3raw13RawTableInner30find_or_find_insert_slot_inner17had99f58361dbddaaE.exit.thread
 
-_ZN9hashbrown3raw13RawTableInner30find_or_find_insert_slot_inner17had99f58361dbddaaE.exit.thread: ; preds = %52, %48
-  %.sroa.3.0.i.ph = phi i64 [ %.sroa.6.1.i, %48 ], [ %58, %52 ]
+_ZN9hashbrown3raw13RawTableInner30find_or_find_insert_slot_inner17had99f58361dbddaaE.exit.thread: ; preds = %48, %52
+  %.sroa.3.0.i.ph = phi i64 [ %58, %52 ], [ %.sroa.6.1.i, %48 ]
   %59 = inttoptr i64 %.sroa.3.0.i.ph to ptr
   br label %.loopexit
 
@@ -36207,8 +36207,8 @@ define hidden { i64, ptr } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_f
   %58 = zext nneg i16 %57 to i64
   br label %_ZN9hashbrown3raw13RawTableInner30find_or_find_insert_slot_inner17had99f58361dbddaaE.exit.thread
 
-_ZN9hashbrown3raw13RawTableInner30find_or_find_insert_slot_inner17had99f58361dbddaaE.exit.thread: ; preds = %52, %48
-  %.sroa.3.0.i.ph = phi i64 [ %.sroa.6.1.i, %48 ], [ %58, %52 ]
+_ZN9hashbrown3raw13RawTableInner30find_or_find_insert_slot_inner17had99f58361dbddaaE.exit.thread: ; preds = %48, %52
+  %.sroa.3.0.i.ph = phi i64 [ %58, %52 ], [ %.sroa.6.1.i, %48 ]
   %59 = inttoptr i64 %.sroa.3.0.i.ph to ptr
   br label %.loopexit
 

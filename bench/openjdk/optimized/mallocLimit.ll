@@ -428,7 +428,7 @@ _ZN12ParserHelper10match_charEc.exit31:           ; preds = %78
   br i1 %.not41, label %34, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %82, %.preheader, %_ZN12ParserHelper15match_mode_flagEP15MallocLimitMode.exit, %20, %_ZN12ParserHelper10match_charEc.exit31, %76, %59, %53, %46, %33, %_ZN12ParserHelper10match_charEc.exit, %14
-  %.0 = phi i1 [ false, %14 ], [ false, %46 ], [ false, %33 ], [ false, %_ZN12ParserHelper10match_charEc.exit ], [ false, %_ZN12ParserHelper10match_charEc.exit31 ], [ false, %76 ], [ false, %59 ], [ false, %53 ], [ true, %20 ], [ true, %_ZN12ParserHelper15match_mode_flagEP15MallocLimitMode.exit ], [ true, %.preheader ], [ true, %82 ]
+  %.0 = phi i1 [ false, %14 ], [ false, %46 ], [ false, %33 ], [ false, %_ZN12ParserHelper10match_charEc.exit ], [ false, %_ZN12ParserHelper10match_charEc.exit31 ], [ false, %76 ], [ false, %59 ], [ false, %53 ], [ true, %_ZN12ParserHelper15match_mode_flagEP15MallocLimitMode.exit ], [ true, %20 ], [ true, %.preheader ], [ true, %82 ]
   ret i1 %.0
 }
 

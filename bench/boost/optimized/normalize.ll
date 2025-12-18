@@ -710,7 +710,7 @@ define hidden noundef i64 @_ZN5boost4urls6detail14path_ends_withENS_4core17basic
   br label %.critedge
 
 .critedge:                                        ; preds = %28, %45, %50, %48
-  %.2 = phi i64 [ 0, %48 ], [ %53, %50 ], [ 0, %45 ], [ 0, %28 ]
+  %.2 = phi i64 [ %53, %50 ], [ 0, %48 ], [ 0, %45 ], [ 0, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i64 %.2
@@ -837,7 +837,7 @@ _ZNK5boost4core17basic_string_viewIcE11starts_withEc.exit.i.i110: ; preds = %.lr
   br label %..thread_crit_edge
 
 ..thread_crit_edge:                               ; preds = %.outer, %26, %_ZNK5boost4core17basic_string_viewIcE11starts_withEc.exit.i.i, %4, %"_ZZN5boost4urls6detail19remove_dot_segmentsEPcPKcNS_4core17basic_string_viewIcEEENK3$_1clES7_S7_Rm.exit104", %42
-  %.1467 = phi ptr [ %43, %42 ], [ %.0346.ph401, %_ZNK5boost4core17basic_string_viewIcE11starts_withEc.exit.i.i ], [ %.0346.ph401, %"_ZZN5boost4urls6detail19remove_dot_segmentsEPcPKcNS_4core17basic_string_viewIcEEENK3$_1clES7_S7_Rm.exit104" ], [ %0, %4 ], [ %.0346.ph401, %26 ], [ %15, %.outer ]
+  %.1467 = phi ptr [ %.0346.ph401, %26 ], [ %43, %42 ], [ %.0346.ph401, %_ZNK5boost4core17basic_string_viewIcE11starts_withEc.exit.i.i ], [ %.0346.ph401, %"_ZZN5boost4urls6detail19remove_dot_segmentsEPcPKcNS_4core17basic_string_viewIcEEENK3$_1clES7_S7_Rm.exit104" ], [ %0, %4 ], [ %15, %.outer ]
   %.pre = ptrtoint ptr %0 to i64
   br label %.thread
 

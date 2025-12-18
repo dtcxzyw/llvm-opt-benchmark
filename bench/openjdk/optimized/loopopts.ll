@@ -2987,7 +2987,7 @@ _ZNK14PhaseIdealLoop19find_non_split_ctrlEP4Node.exit: ; preds = %.loopexit, %25
   br i1 %266, label %59, label %.thread, !llvm.loop !18
 
 .thread:                                          ; preds = %58, %_ZN14PhaseIdealLoop8get_ctrlEPK4Node.exit67, %_ZN14PhaseIdealLoop8get_ctrlEPK4Node.exit60, %_ZN14PhaseIdealLoop8get_ctrlEPK4Node.exit53, %103, %263, %_ZN14PhaseIdealLoop8get_ctrlEPK4Node.exit
-  %.034 = phi ptr [ null, %_ZN14PhaseIdealLoop8get_ctrlEPK4Node.exit ], [ %.0.i.i, %263 ], [ null, %_ZN14PhaseIdealLoop8get_ctrlEPK4Node.exit60 ], [ null, %_ZN14PhaseIdealLoop8get_ctrlEPK4Node.exit67 ], [ null, %103 ], [ null, %_ZN14PhaseIdealLoop8get_ctrlEPK4Node.exit53 ], [ null, %58 ]
+  %.034 = phi ptr [ %.0.i.i, %263 ], [ null, %_ZN14PhaseIdealLoop8get_ctrlEPK4Node.exit ], [ null, %_ZN14PhaseIdealLoop8get_ctrlEPK4Node.exit60 ], [ null, %_ZN14PhaseIdealLoop8get_ctrlEPK4Node.exit67 ], [ null, %103 ], [ null, %_ZN14PhaseIdealLoop8get_ctrlEPK4Node.exit53 ], [ null, %58 ]
   ret ptr %.034
 }
 
@@ -5588,7 +5588,7 @@ _ZN9Node_List4pushEP4Node.exit191:                ; preds = %_ZN14PhaseIdealLoop
   br label %.loopexit204
 
 .loopexit204:                                     ; preds = %68, %100, %333, %316, %312, %303, %._crit_edge235, %33, %29, %15, %20, %24, %6, %2, %.thread
-  %.0 = phi ptr [ null, %2 ], [ null, %6 ], [ null, %15 ], [ null, %29 ], [ null, %33 ], [ null, %._crit_edge235 ], [ null, %303 ], [ null, %312 ], [ %496, %.thread ], [ null, %316 ], [ null, %24 ], [ null, %20 ], [ null, %333 ], [ null, %100 ], [ null, %68 ]
+  %.0 = phi ptr [ null, %2 ], [ null, %6 ], [ null, %15 ], [ null, %29 ], [ null, %333 ], [ null, %33 ], [ null, %20 ], [ null, %._crit_edge235 ], [ null, %303 ], [ null, %312 ], [ %496, %.thread ], [ null, %316 ], [ null, %24 ], [ null, %100 ], [ null, %68 ]
   ret ptr %.0
 }
 
@@ -7751,7 +7751,7 @@ _ZNK14PhaseIdealLoop8get_loopEP4Node.exit28:      ; preds = %_ZNK14PhaseIdealLoo
   br i1 %.not9.i, label %.lr.ph7.i, label %_ZL16merge_point_safeP4Node.exit, !llvm.loop !38
 
 _ZL16merge_point_safeP4Node.exit:                 ; preds = %41, %_ZNK14PhaseIdealLoop8get_loopEP4Node.exit28, %.loopexit.i, %96, %.lr.ph.i31, %._crit_edge40, %_ZL21merge_point_too_heavyP7CompileP4Node.exit, %2
-  %.015 = phi i1 [ false, %2 ], [ false, %_ZL21merge_point_too_heavyP7CompileP4Node.exit ], [ true, %._crit_edge40 ], [ false, %_ZNK14PhaseIdealLoop8get_loopEP4Node.exit28 ], [ false, %96 ], [ true, %.loopexit.i ], [ false, %.lr.ph.i31 ], [ false, %41 ]
+  %.015 = phi i1 [ false, %_ZNK14PhaseIdealLoop8get_loopEP4Node.exit28 ], [ false, %2 ], [ true, %.loopexit.i ], [ false, %_ZL21merge_point_too_heavyP7CompileP4Node.exit ], [ false, %96 ], [ true, %._crit_edge40 ], [ false, %.lr.ph.i31 ], [ false, %41 ]
   ret i1 %.015
 }
 
@@ -8529,7 +8529,7 @@ _ZN12PhaseIterGVN16replace_input_ofEP4NodejS1_.exit: ; preds = %_ZN9VectorSet8te
   br i1 %113, label %.lr.ph, label %.loopexit, !llvm.loop !40
 
 .loopexit:                                        ; preds = %.lr.ph, %83, %2, %6
-  %.022 = phi i1 [ false, %6 ], [ false, %2 ], [ true, %83 ], [ true, %.lr.ph ]
+  %.022 = phi i1 [ false, %2 ], [ false, %6 ], [ true, %83 ], [ true, %.lr.ph ]
   ret i1 %.022
 }
 
@@ -9745,7 +9745,7 @@ _ZNK14PhaseIdealLoop8has_ctrlEPK4Node.exit.thread: ; preds = %48, %_ZNK14PhaseId
   br i1 %.not41, label %15, label %.loopexit29, !llvm.loop !50
 
 .loopexit29:                                      ; preds = %15, %88, %.loopexit, %37, %4
-  %92 = phi i1 [ true, %4 ], [ false, %37 ], [ false, %15 ], [ false, %88 ], [ true, %.loopexit ]
+  %92 = phi i1 [ false, %37 ], [ true, %4 ], [ false, %15 ], [ false, %88 ], [ true, %.loopexit ]
   ret i1 %92
 }
 
@@ -19501,8 +19501,8 @@ _ZN9VectorSet3setEj.exit55:                       ; preds = %_ZN10Node_Stack4pus
   br label %_ZNK9VectorSet4testEj.exit.thread
 
 _ZNK9VectorSet4testEj.exit.thread:                ; preds = %_ZNK9VectorSet4testEj.exit52, %54, %_ZNK9VectorSet4testEj.exit, %_ZN9VectorSet3setEj.exit55, %.critedge
-  %106 = phi i32 [ %.pre, %_ZN9VectorSet3setEj.exit55 ], [ %55, %.critedge ], [ %55, %_ZNK9VectorSet4testEj.exit ], [ %55, %54 ], [ %55, %_ZNK9VectorSet4testEj.exit52 ]
-  %.1 = phi ptr [ %58, %_ZN9VectorSet3setEj.exit55 ], [ %.076, %.critedge ], [ %.076, %_ZNK9VectorSet4testEj.exit ], [ %.076, %54 ], [ %.076, %_ZNK9VectorSet4testEj.exit52 ]
+  %106 = phi i32 [ %55, %54 ], [ %.pre, %_ZN9VectorSet3setEj.exit55 ], [ %55, %.critedge ], [ %55, %_ZNK9VectorSet4testEj.exit ], [ %55, %_ZNK9VectorSet4testEj.exit52 ]
+  %.1 = phi ptr [ %.076, %54 ], [ %58, %_ZN9VectorSet3setEj.exit55 ], [ %.076, %.critedge ], [ %.076, %_ZNK9VectorSet4testEj.exit ], [ %.076, %_ZNK9VectorSet4testEj.exit52 ]
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
   %107 = zext i32 %106 to i64
   %108 = icmp samesign ult i64 %indvars.iv.next82, %107
@@ -20217,7 +20217,7 @@ _ZN9Node_List4pushEP4Node.exit64:                 ; preds = %_ZNK14PhaseIdealLoo
   br label %105
 
 _ZN7Compile16check_node_countEjPKc.exit.thread:   ; preds = %_ZN9Node_List4pushEP4Node.exit64, %_ZNK14PhaseIdealLoop8has_nodeEPK4Node.exit.thread, %_ZN7Compile16check_node_countEjPKc.exit.preheader, %102, %80
-  %.040 = phi i32 [ -1, %80 ], [ -1, %102 ], [ 0, %_ZN7Compile16check_node_countEjPKc.exit.preheader ], [ %.042.ph92, %_ZNK14PhaseIdealLoop8has_nodeEPK4Node.exit.thread ], [ %171, %_ZN9Node_List4pushEP4Node.exit64 ]
+  %.040 = phi i32 [ -1, %102 ], [ -1, %80 ], [ %.042.ph92, %_ZNK14PhaseIdealLoop8has_nodeEPK4Node.exit.thread ], [ 0, %_ZN7Compile16check_node_countEjPKc.exit.preheader ], [ %171, %_ZN9Node_List4pushEP4Node.exit64 ]
   ret i32 %.040
 }
 
@@ -21700,7 +21700,7 @@ _ZN9Node_List4pushEP4Node.exit343:                ; preds = %481, %486
   br label %510
 
 _ZN14PhaseIdealLoop14has_use_in_setEP4NodeR9VectorSet.exit.thread: ; preds = %_ZNK9VectorSet4testEj.exit.thread.i, %408, %399, %503, %460, %_ZN14PhaseIdealLoop23has_use_internal_to_setEP4NodeR9VectorSetP13IdealLoopTree.exit
-  %.1281.ph = phi i32 [ %.0280477, %399 ], [ %.0280477, %_ZN14PhaseIdealLoop23has_use_internal_to_setEP4NodeR9VectorSetP13IdealLoopTree.exit ], [ %.0280477, %460 ], [ %504, %503 ], [ %.0280477, %408 ], [ %.0280477, %_ZNK9VectorSet4testEj.exit.thread.i ]
+  %.1281.ph = phi i32 [ %.0280477, %399 ], [ %.0280477, %_ZN14PhaseIdealLoop23has_use_internal_to_setEP4NodeR9VectorSetP13IdealLoopTree.exit ], [ %.0280477, %408 ], [ %.0280477, %460 ], [ %504, %503 ], [ %.0280477, %_ZNK9VectorSet4testEj.exit.thread.i ]
   %509 = add i32 %.0284474, 1
   %.pre549 = load i32, ptr %383, align 8
   br label %510
@@ -22540,7 +22540,7 @@ _ZNK10Node_ArrayixEj.exit386:                     ; preds = %944, %949
   br label %.loopexit427
 
 .loopexit427:                                     ; preds = %22, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %_ZN14PhaseIdealLoop8get_ctrlEPK4Node.exit, %467, %_ZN13IdealLoopTree4tailEv.exit, %539, %._crit_edge508, %215, %536, %210, %207, %203, %15, %3
-  %.0 = phi i1 [ false, %3 ], [ false, %15 ], [ false, %203 ], [ false, %207 ], [ false, %210 ], [ false, %536 ], [ true, %._crit_edge508 ], [ false, %215 ], [ true, %539 ], [ false, %_ZN13IdealLoopTree4tailEv.exit ], [ false, %_ZN14PhaseIdealLoop8get_ctrlEPK4Node.exit ], [ false, %467 ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %22 ]
+  %.0 = phi i1 [ false, %3 ], [ false, %15 ], [ false, %_ZN13IdealLoopTree4tailEv.exit ], [ false, %467 ], [ false, %203 ], [ false, %207 ], [ false, %210 ], [ false, %536 ], [ true, %539 ], [ false, %215 ], [ true, %._crit_edge508 ], [ false, %_ZN14PhaseIdealLoop8get_ctrlEPK4Node.exit ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %22 ]
   ret i1 %.0
 }
 

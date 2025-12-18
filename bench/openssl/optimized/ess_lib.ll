@@ -532,7 +532,7 @@ define range(i32 -2147483647, 2) i32 @OSSL_ESS_check_signing_certs(ptr noundef r
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph45, %28, %.loopexit.sink.split, %.preheader
-  %.032 = phi i32 [ 1, %.preheader ], [ -1, %.loopexit.sink.split ], [ 1, %28 ], [ %32, %.lr.ph45 ], [ %26, %.lr.ph ]
+  %.032 = phi i32 [ %32, %.lr.ph45 ], [ -1, %.loopexit.sink.split ], [ 1, %.preheader ], [ 1, %28 ], [ %26, %.lr.ph ]
   ret i32 %.032
 }
 

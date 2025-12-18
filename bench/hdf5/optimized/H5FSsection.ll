@@ -933,7 +933,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5FS__sinfo_unlock(ptr noundef %0, 
   store i8 0, ptr %59, align 1, !tbaa !56
   br label %122
 
-.thread77:                                        ; preds = %93, %90
+.thread77:                                        ; preds = %90, %93
   store i8 0, ptr %59, align 1, !tbaa !56
   br label %101
 
@@ -1312,7 +1312,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5FS__sect_merge(ptr noundef captur
   br i1 %122, label %.thread121, label %.critedge132
 
 .thread121:                                       ; preds = %67, %120, %44, %53, %63, %97, %106, %116
-  %.3.ph = phi i32 [ -1, %44 ], [ -1, %116 ], [ -1, %106 ], [ -1, %97 ], [ -1, %63 ], [ -1, %53 ], [ 0, %120 ], [ 0, %67 ]
+  %.3.ph = phi i32 [ -1, %44 ], [ -1, %53 ], [ -1, %116 ], [ -1, %106 ], [ -1, %97 ], [ -1, %63 ], [ 0, %120 ], [ 0, %67 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.critedge.thread
 
@@ -2528,7 +2528,7 @@ H5FS__size_node_decr.exit.i:                      ; preds = %232, %224
   %270 = icmp samesign ult i64 %indvars.iv.next.i, %269
   br i1 %270, label %.split.i, label %.loopexit, !llvm.loop !117
 
-271:                                              ; preds = %123, %137, %145, %259, %248, %H5FS__size_node_decr.exit.i, %174
+271:                                              ; preds = %174, %123, %137, %145, %259, %248, %H5FS__size_node_decr.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %272 = load i64, ptr @H5E_FSPACE_g, align 8, !tbaa !10
   %273 = load i64, ptr @H5E_CANTFREE_g, align 8, !tbaa !10

@@ -9015,7 +9015,7 @@ Vec_IntAlloc.exit35:                              ; preds = %Vec_IntAlloc.exit, 
   br label %.critedge2
 
 .critedge2:                                       ; preds = %52, %.loopexit.us, %.critedge2.loopexit82.split.loop.exit84, %.critedge2.loopexit, %22
-  %.02449 = phi i32 [ %53, %.critedge2.loopexit ], [ 0, %22 ], [ %54, %.critedge2.loopexit82.split.loop.exit84 ], [ %.val25, %.loopexit.us ], [ %.val25, %52 ]
+  %.02449 = phi i32 [ %53, %.critedge2.loopexit ], [ %.val25, %.loopexit.us ], [ 0, %22 ], [ %54, %.critedge2.loopexit82.split.loop.exit84 ], [ %.val25, %52 ]
   %55 = load i32, ptr %5, align 4, !tbaa !34
   %56 = load i32, ptr %3, align 8, !tbaa !54
   %57 = icmp eq i32 %55, %56

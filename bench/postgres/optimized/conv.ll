@@ -786,8 +786,8 @@ store_coded_char.exit:                            ; preds = %192, %194, %168, %1
   unreachable
 
 .thread213:                                       ; preds = %store_coded_char.exit, %.preheader, %66, %store_coded_char.exit186, %.loopexit
-  %.0128250 = phi ptr [ %.0128260, %.loopexit ], [ %.0128260, %store_coded_char.exit186 ], [ %.0128260, %66 ], [ %2, %.preheader ], [ %.2130, %store_coded_char.exit ]
-  %.1219 = phi ptr [ %.2.ph, %.loopexit ], [ %199, %store_coded_char.exit186 ], [ %69, %66 ], [ %0, %.preheader ], [ %.2, %store_coded_char.exit ]
+  %.0128250 = phi ptr [ %.0128260, %66 ], [ %.0128260, %.loopexit ], [ %.0128260, %store_coded_char.exit186 ], [ %2, %.preheader ], [ %.2130, %store_coded_char.exit ]
+  %.1219 = phi ptr [ %69, %66 ], [ %.2.ph, %.loopexit ], [ %199, %store_coded_char.exit186 ], [ %0, %.preheader ], [ %.2, %store_coded_char.exit ]
   store i8 0, ptr %.0128250, align 1
   %205 = ptrtoint ptr %.1219 to i64
   %206 = ptrtoint ptr %0 to i64
@@ -1512,8 +1512,8 @@ store_coded_char.exit.thread:                     ; preds = %159, %161, %137, %1
   unreachable
 
 .thread148:                                       ; preds = %store_coded_char.exit.thread, %.preheader, %store_coded_char.exit135, %170
-  %.085169 = phi ptr [ %.085173, %170 ], [ %.085173, %store_coded_char.exit135 ], [ %2, %.preheader ], [ %.287, %store_coded_char.exit.thread ]
-  %.1153 = phi ptr [ %.0175, %170 ], [ %166, %store_coded_char.exit135 ], [ %0, %.preheader ], [ %.2, %store_coded_char.exit.thread ]
+  %.085169 = phi ptr [ %.085173, %store_coded_char.exit135 ], [ %.085173, %170 ], [ %2, %.preheader ], [ %.287, %store_coded_char.exit.thread ]
+  %.1153 = phi ptr [ %166, %store_coded_char.exit135 ], [ %.0175, %170 ], [ %0, %.preheader ], [ %.2, %store_coded_char.exit.thread ]
   store i8 0, ptr %.085169, align 1
   %172 = ptrtoint ptr %.1153 to i64
   %173 = ptrtoint ptr %0 to i64

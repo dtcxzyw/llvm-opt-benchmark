@@ -437,8 +437,8 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   br i1 %exitcond134.not, label %.loopexit, label %.preheader, !llvm.loop !22
 
 .loopexit:                                        ; preds = %._crit_edge.split.us102, %._crit_edge.split.us.us.us, %.preheader, %Vec_IntPush.exit, %._crit_edge
-  %226 = phi ptr [ %46, %._crit_edge ], [ %.pre.i137, %Vec_IntPush.exit ], [ %.pre.i137, %._crit_edge.split.us.us.us ], [ %.pre.i137, %.preheader ], [ %.pre.i137, %._crit_edge.split.us102 ]
-  %.1 = phi i64 [ %.074106, %._crit_edge ], [ %.074106, %Vec_IntPush.exit ], [ %148, %._crit_edge.split.us.us.us ], [ %225, %.preheader ], [ %207, %._crit_edge.split.us102 ]
+  %226 = phi ptr [ %46, %._crit_edge ], [ %.pre.i137, %Vec_IntPush.exit ], [ %.pre.i137, %.preheader ], [ %.pre.i137, %._crit_edge.split.us.us.us ], [ %.pre.i137, %._crit_edge.split.us102 ]
+  %.1 = phi i64 [ %.074106, %._crit_edge ], [ %.074106, %Vec_IntPush.exit ], [ %225, %.preheader ], [ %148, %._crit_edge.split.us.us.us ], [ %207, %._crit_edge.split.us102 ]
   %227 = add i64 %.1, 1
   %228 = icmp ult i64 %227, %23
   br i1 %228, label %45, label %229, !llvm.loop !23
@@ -808,13 +808,13 @@ Abc_TtHasVar.exit.thread13.i:                     ; preds = %91, %.lr.ph.i.i
   br label %Abc_TtHasVar.exit.thread.i
 
 Abc_TtHasVar.exit.thread.i:                       ; preds = %._crit_edge.us.i.i, %.lr.ph.i.i, %Abc_TtHasVar.exit.thread13.i, %.preheader.lr.ph.i.i
-  %98 = phi i32 [ %97, %Abc_TtHasVar.exit.thread13.i ], [ %.024.i, %.preheader.lr.ph.i.i ], [ %.024.i, %.lr.ph.i.i ], [ %.024.i, %._crit_edge.us.i.i ]
+  %98 = phi i32 [ %97, %Abc_TtHasVar.exit.thread13.i ], [ %.024.i, %.lr.ph.i.i ], [ %.024.i, %.preheader.lr.ph.i.i ], [ %.024.i, %._crit_edge.us.i.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %Abc_TtSupportSize.exit, label %.lr.ph.split.split.split.i, !llvm.loop !24
 
 Abc_TtSupportSize.exit:                           ; preds = %Abc_TtHasVar.exit.thread.i, %Abc_TtHasVar.exit.us.i, %Vec_IntPush.exit, %.lr.ph.split.i
-  %.0.lcssa.i = phi i32 [ 0, %Vec_IntPush.exit ], [ 0, %.lr.ph.split.i ], [ %spec.select.i, %Abc_TtHasVar.exit.us.i ], [ %98, %Abc_TtHasVar.exit.thread.i ]
+  %.0.lcssa.i = phi i32 [ 0, %Vec_IntPush.exit ], [ %spec.select.i, %Abc_TtHasVar.exit.us.i ], [ 0, %.lr.ph.split.i ], [ %98, %Abc_TtHasVar.exit.thread.i ]
   %99 = icmp slt i32 %.0.lcssa.i, %1
   br i1 %99, label %100, label %132
 
@@ -1129,7 +1129,7 @@ Abc_TtHasVar.exit.thread13.i:                     ; preds = %104, %.lr.ph.i.i
   br label %Abc_TtHasVar.exit.thread.i
 
 Abc_TtHasVar.exit.thread.i:                       ; preds = %._crit_edge.us.i.i, %.lr.ph.i.i, %Abc_TtHasVar.exit.thread13.i, %.preheader.lr.ph.i.i
-  %111 = phi i32 [ %110, %Abc_TtHasVar.exit.thread13.i ], [ %.024.i, %.preheader.lr.ph.i.i ], [ %.024.i, %.lr.ph.i.i ], [ %.024.i, %._crit_edge.us.i.i ]
+  %111 = phi i32 [ %110, %Abc_TtHasVar.exit.thread13.i ], [ %.024.i, %.lr.ph.i.i ], [ %.024.i, %.preheader.lr.ph.i.i ], [ %.024.i, %._crit_edge.us.i.i ]
   %indvars.iv.next.i401 = add nuw nsw i64 %indvars.iv.i400, 1
   %exitcond.not.i402 = icmp eq i64 %indvars.iv.next.i401, %wide.trip.count.i399
   br i1 %exitcond.not.i402, label %Abc_TtSupportSize.exit, label %.lr.ph.split.split.split.i, !llvm.loop !24
@@ -3763,7 +3763,7 @@ Abc_TtSwapVars.exit.i:                            ; preds = %._crit_edge124.spli
   br label %Abc_TtHasVar.exit.thread.i
 
 Abc_TtHasVar.exit.thread.i:                       ; preds = %._crit_edge.us.i.i, %55, %Abc_TtSwapVars.exit.i, %.preheader.lr.ph.i.i, %62, %49
-  %.1.i = phi i32 [ %152, %Abc_TtSwapVars.exit.i ], [ %.019.i, %62 ], [ %.019.i, %49 ], [ %.019.i, %.preheader.lr.ph.i.i ], [ %.019.i, %55 ], [ %.019.i, %._crit_edge.us.i.i ]
+  %.1.i = phi i32 [ %152, %Abc_TtSwapVars.exit.i ], [ %.019.i, %55 ], [ %.019.i, %.preheader.lr.ph.i.i ], [ %.019.i, %62 ], [ %.019.i, %49 ], [ %.019.i, %._crit_edge.us.i.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %Abc_TtMinBase.exit, label %.lr.ph.split.i, !llvm.loop !92

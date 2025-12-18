@@ -6048,7 +6048,7 @@ Gia_ManAppendCi.exit:                             ; preds = %.Vec_IntGrow.exit10
   br i1 %342, label %.lr.ph294, label %.loopexit, !llvm.loop !108
 
 .loopexit:                                        ; preds = %254, %.lr.ph294, %.preheader278, %.preheader
-  %.2 = phi i32 [ %.0171303, %.preheader ], [ %.0171303, %.preheader278 ], [ %.0171303, %.lr.ph294 ], [ %265, %254 ]
+  %.2 = phi i32 [ %.0171303, %.preheader ], [ %.0171303, %.lr.ph294 ], [ %.0171303, %.preheader278 ], [ %265, %254 ]
   %343 = tail call i32 @Tim_ManBoxInputNum(ptr noundef %6, i32 noundef %78) #21
   %344 = add nsw i32 %343, %.0179299
   %345 = tail call i32 @Tim_ManBoxOutputNum(ptr noundef %6, i32 noundef %78) #21

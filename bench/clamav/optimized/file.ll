@@ -804,8 +804,8 @@ _ZN4File10DirectReadEPvm.exit63:                  ; preds = %._crit_edge.i61, %5
   br label %.loopexit
 
 .loopexit:                                        ; preds = %35, %_ZN4File10DirectReadEPvm.exit, %_ZN4File10DirectReadEPvm.exit63, %.preheader, %71
-  %.144 = phi i32 [ %.043.ph, %71 ], [ %.043.ph, %.preheader ], [ %spec.select, %_ZN4File10DirectReadEPvm.exit63 ], [ %.043.ph, %_ZN4File10DirectReadEPvm.exit ], [ %.043.ph, %35 ]
-  %.041 = phi i32 [ -1, %71 ], [ 0, %.preheader ], [ %56, %_ZN4File10DirectReadEPvm.exit63 ], [ -1, %35 ], [ %33, %_ZN4File10DirectReadEPvm.exit ]
+  %.144 = phi i32 [ %spec.select, %_ZN4File10DirectReadEPvm.exit63 ], [ %.043.ph, %71 ], [ %.043.ph, %.preheader ], [ %.043.ph, %_ZN4File10DirectReadEPvm.exit ], [ %.043.ph, %35 ]
+  %.041 = phi i32 [ %56, %_ZN4File10DirectReadEPvm.exit63 ], [ -1, %71 ], [ 0, %.preheader ], [ %33, %_ZN4File10DirectReadEPvm.exit ], [ -1, %35 ]
   %72 = add nsw i32 %.041, %.144
   %73 = load i32, ptr %20, align 4, !tbaa !20
   %74 = icmp eq i32 %73, 1
@@ -845,7 +845,7 @@ _ZN4File10DirectReadEPvm.exit63:                  ; preds = %._crit_edge.i61, %5
   br label %.loopexit74
 
 .loopexit74:                                      ; preds = %.thread87, %86, %.thread67, %3
-  %.036 = phi i32 [ 0, %3 ], [ %72, %86 ], [ %72, %.thread67 ], [ 0, %.thread87 ]
+  %.036 = phi i32 [ 0, %3 ], [ %72, %.thread67 ], [ %72, %86 ], [ 0, %.thread87 ]
   ret i32 %.036
 }
 
@@ -984,7 +984,7 @@ define noundef zeroext i1 @_ZN4File7RawSeekEli(ptr noundef nonnull align 8 deref
   br i1 %48, label %.lr.ph, label %.critedge38, !llvm.loop !41
 
 .critedge38:                                      ; preds = %.lr.ph, %21, %28, %.preheader, %.critedge, %33
-  %.4 = phi i1 [ false, %33 ], [ true, %.preheader ], [ true, %.critedge ], [ %27, %21 ], [ %27, %28 ], [ true, %.lr.ph ]
+  %.4 = phi i1 [ %27, %21 ], [ false, %33 ], [ true, %.preheader ], [ true, %.critedge ], [ %27, %28 ], [ true, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %78
 

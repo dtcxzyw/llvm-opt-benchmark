@@ -1422,7 +1422,7 @@ define hidden void @"_ZN3png7encoder15Writer$LT$W$GT$16write_image_data17h0b1b35
   br label %110
 
 .loopexit.split-lp489:                            ; preds = %112, %134, %163, %189, %197, %105
-  %.2.ph = phi i8 [ 1, %105 ], [ 1, %197 ], [ 1, %189 ], [ 0, %112 ], [ 0, %134 ], [ 0, %163 ]
+  %.2.ph = phi i8 [ 1, %197 ], [ 1, %105 ], [ 1, %189 ], [ 0, %112 ], [ 0, %134 ], [ 0, %163 ]
   %lpad.loopexit.split-lp491 = landingpad { ptr, i32 }
           cleanup
   br label %110

@@ -338,7 +338,7 @@ define internal i32 @activate(ptr noundef %0) #1 {
   br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph234.i, !llvm.loop !68
 
 .loopexit.i:                                      ; preds = %.lr.ph234.i, %.lr.ph237.i, %.preheader.i, %.preheader228.i, %96
-  %.1189.i = phi nsz float [ 0.000000e+00, %96 ], [ 0.000000e+00, %.preheader.i ], [ 0.000000e+00, %.preheader228.i ], [ %..0188.i, %.lr.ph237.i ], [ %121, %.lr.ph234.i ]
+  %.1189.i = phi nsz float [ 0.000000e+00, %96 ], [ %..0188.i, %.lr.ph237.i ], [ 0.000000e+00, %.preheader.i ], [ 0.000000e+00, %.preheader228.i ], [ %121, %.lr.ph234.i ]
   %122 = getelementptr inbounds nuw i8, ptr %30, i64 40
   %123 = load i32, ptr %122, align 8, !tbaa !69
   switch i32 %123, label %132 [

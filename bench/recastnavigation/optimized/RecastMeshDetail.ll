@@ -317,7 +317,7 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %41, %45
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.invoke1257, %.invoke, %209, %198, %186, %._crit_edge897
-  %.sroa.0720.3.ph.ph.ph.ph.ph.ph.ph.ph.ph.ph.ph.ph.ph.ph.ph.ph = phi ptr [ %180, %.invoke ], [ null, %.invoke1257 ], [ %180, %209 ], [ %180, %198 ], [ %180, %186 ], [ null, %._crit_edge897 ]
+  %.sroa.0720.3.ph.ph.ph.ph.ph.ph.ph.ph.ph.ph.ph.ph.ph.ph.ph.ph = phi ptr [ %180, %186 ], [ null, %._crit_edge897 ], [ %180, %.invoke ], [ null, %.invoke1257 ], [ %180, %198 ], [ %180, %209 ]
   %lpad.loopexit.split-lp858 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -6711,10 +6711,10 @@ _ZL15overlapSegSeg2dPKfS0_S0_S0_.exit.thread.i126: ; preds = %202, %179, %167
   br label %_ZL12circumCirclePKfS0_S0_PfRf.exit
 
 _ZL12circumCirclePKfS0_S0_PfRf.exit:              ; preds = %155, %202, %213, %.thread, %96, %94, %60, %40, %84, %37
-  %.sroa.0.1 = phi float [ %.sroa.0.0210, %37 ], [ %.sroa.0.0210, %40 ], [ %.sroa.0.0210, %84 ], [ %43, %94 ], [ %82, %60 ], [ %118, %96 ], [ %235, %213 ], [ %43, %.thread ], [ %.sroa.0.0210, %202 ], [ %.sroa.0.0210, %155 ]
-  %.sroa.26.1 = phi float [ %.sroa.26.0211, %37 ], [ %.sroa.26.0211, %40 ], [ %.sroa.26.0211, %84 ], [ %46, %94 ], [ %83, %60 ], [ %119, %96 ], [ %236, %213 ], [ %46, %.thread ], [ %.sroa.26.0211, %202 ], [ %.sroa.26.0211, %155 ]
-  %.1187 = phi float [ %.0186212, %37 ], [ %.0186212, %40 ], [ %.0186212, %84 ], [ 0.000000e+00, %94 ], [ %sqrt.i.i, %60 ], [ %sqrt.i.i109, %96 ], [ %sqrt.i.i130, %213 ], [ 0.000000e+00, %.thread ], [ %.0186212, %202 ], [ %.0186212, %155 ]
-  %.1 = phi i32 [ %.0103213, %37 ], [ %.0103213, %40 ], [ %.0103213, %84 ], [ %59, %94 ], [ %59, %60 ], [ %59, %96 ], [ %59, %213 ], [ %59, %.thread ], [ %.0103213, %202 ], [ %.0103213, %155 ]
+  %.sroa.0.1 = phi float [ %.sroa.0.0210, %37 ], [ %.sroa.0.0210, %40 ], [ %.sroa.0.0210, %84 ], [ %.sroa.0.0210, %202 ], [ %43, %94 ], [ %235, %213 ], [ %43, %.thread ], [ %82, %60 ], [ %118, %96 ], [ %.sroa.0.0210, %155 ]
+  %.sroa.26.1 = phi float [ %.sroa.26.0211, %37 ], [ %.sroa.26.0211, %40 ], [ %.sroa.26.0211, %84 ], [ %.sroa.26.0211, %202 ], [ %46, %94 ], [ %236, %213 ], [ %46, %.thread ], [ %83, %60 ], [ %119, %96 ], [ %.sroa.26.0211, %155 ]
+  %.1187 = phi float [ %.0186212, %37 ], [ %.0186212, %40 ], [ %.0186212, %84 ], [ %.0186212, %202 ], [ 0.000000e+00, %94 ], [ %sqrt.i.i130, %213 ], [ 0.000000e+00, %.thread ], [ %sqrt.i.i, %60 ], [ %sqrt.i.i109, %96 ], [ %.0186212, %155 ]
+  %.1 = phi i32 [ %.0103213, %37 ], [ %.0103213, %40 ], [ %.0103213, %84 ], [ %.0103213, %202 ], [ %59, %94 ], [ %59, %213 ], [ %59, %.thread ], [ %59, %60 ], [ %59, %96 ], [ %.0103213, %155 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %37, !llvm.loop !62

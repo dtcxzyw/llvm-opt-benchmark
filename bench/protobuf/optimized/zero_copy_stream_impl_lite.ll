@@ -1653,7 +1653,7 @@ if.end18:                                         ; preds = %if.end12
   br i1 %call10, label %if.end12, label %return, !llvm.loop !6
 
 return:                                           ; preds = %if.end18, %while.body7.preheader, %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i.i, %if.else.i.i, %if.then, %lor.lhs.false, %if.then14, %while.end
-  %retval.0 = phi i1 [ true, %while.end ], [ true, %if.then14 ], [ false, %lor.lhs.false ], [ false, %if.then ], [ false, %if.else.i.i ], [ false, %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i.i ], [ false, %while.body7.preheader ], [ false, %if.end18 ]
+  %retval.0 = phi i1 [ true, %while.end ], [ false, %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i.i ], [ true, %if.then14 ], [ false, %lor.lhs.false ], [ false, %if.then ], [ false, %if.else.i.i ], [ false, %while.body7.preheader ], [ false, %if.end18 ]
   ret i1 %retval.0
 }
 

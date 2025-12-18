@@ -2836,7 +2836,7 @@ define dso_local ptr @get_joinrel_parampathinfo(ptr noundef %0, ptr noundef %1, 
   br i1 %117, label %.lr.ph163, label %.critedge123
 
 .critedge123:                                     ; preds = %114, %.lr.ph137, %.critedge, %93, %.lr.ph155, %.critedge121
-  %.4 = phi ptr [ %.3, %.critedge121 ], [ %.3, %93 ], [ %.3, %.lr.ph155 ], [ %.098.lcssa, %.critedge ], [ %.098.lcssa, %.lr.ph137 ], [ %.6, %114 ]
+  %.4 = phi ptr [ %.3, %.critedge121 ], [ %.3, %93 ], [ %.3, %.lr.ph155 ], [ %.098.lcssa, %.lr.ph137 ], [ %.098.lcssa, %.critedge ], [ %.6, %114 ]
   %118 = load ptr, ptr %6, align 8
   %119 = tail call ptr @list_concat(ptr noundef %.4, ptr noundef %118) #6
   store ptr %119, ptr %6, align 8
@@ -3054,7 +3054,7 @@ list_head.exit.thread:                            ; preds = %.lr.ph59, %list_hea
   br label %.critedge
 
 .critedge:                                        ; preds = %49, %.lr.ph70, %31, %.lr.ph, %7, %.lr.ph62, %1, %53
-  %.0 = phi ptr [ %55, %53 ], [ null, %1 ], [ %15, %7 ], [ %15, %.lr.ph62 ], [ null, %31 ], [ null, %.lr.ph ], [ %27, %.lr.ph70 ], [ %.1, %49 ]
+  %.0 = phi ptr [ %55, %53 ], [ null, %1 ], [ %27, %.lr.ph70 ], [ %15, %7 ], [ %15, %.lr.ph62 ], [ null, %31 ], [ null, %.lr.ph ], [ %.1, %49 ]
   ret ptr %.0
 }
 
@@ -3247,7 +3247,7 @@ define internal fastcc i32 @match_expr_to_partition_keys(ptr noundef %0, ptr nou
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %.critedge.thread58, %.critedge.thread58.loopexit.us, %.critedge.thread.loopexit96, %.critedge.thread.loopexit94, %.critedge.thread.loopexit, %.preheader
-  %.4 = phi i32 [ -1, %.preheader ], [ %73, %.critedge.thread.loopexit ], [ %74, %.critedge.thread.loopexit94 ], [ %75, %.critedge.thread.loopexit96 ], [ -1, %.critedge.thread58.loopexit.us ], [ -1, %.critedge.thread58 ]
+  %.4 = phi i32 [ -1, %.critedge.thread58.loopexit.us ], [ -1, %.preheader ], [ %73, %.critedge.thread.loopexit ], [ %74, %.critedge.thread.loopexit94 ], [ %75, %.critedge.thread.loopexit96 ], [ -1, %.critedge.thread58 ]
   ret i32 %.4
 }
 

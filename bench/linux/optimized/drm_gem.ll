@@ -2486,7 +2486,7 @@ define dso_local i32 @drm_gem_lock_reservations(ptr noundef readonly captures(no
   br i1 %61, label %.loopexit5, label %27, !llvm.loop !67
 
 .loopexit5:                                       ; preds = %57, %18, %59, %3
-  %62 = phi i32 [ 0, %3 ], [ 0, %59 ], [ %35, %57 ], [ %24, %18 ]
+  %62 = phi i32 [ 0, %3 ], [ 0, %59 ], [ %24, %18 ], [ %35, %57 ]
   ret i32 %62
 }
 

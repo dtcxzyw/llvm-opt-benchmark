@@ -1950,8 +1950,8 @@ _ZN4nori12PropertyListD2Ev.exit:                  ; preds = %203
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge141, %.loopexit.loopexit, %_ZN4nori12PropertyListD2Ev.exit
-  %.366 = phi i32 [ 0, %_ZN4nori12PropertyListD2Ev.exit ], [ %spec.select87, %.loopexit.loopexit ], [ %.164.lcssa, %._crit_edge141 ]
-  %.2 = phi i32 [ 0, %_ZN4nori12PropertyListD2Ev.exit ], [ %indvars.le, %.loopexit.loopexit ], [ %.1.lcssa, %._crit_edge141 ]
+  %.366 = phi i32 [ %spec.select87, %.loopexit.loopexit ], [ 0, %_ZN4nori12PropertyListD2Ev.exit ], [ %.164.lcssa, %._crit_edge141 ]
+  %.2 = phi i32 [ %indvars.le, %.loopexit.loopexit ], [ 0, %_ZN4nori12PropertyListD2Ev.exit ], [ %.1.lcssa, %._crit_edge141 ]
   %319 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.31)
   %320 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %319, i32 noundef %.366)
   %321 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %320, ptr noundef nonnull @.str.32)

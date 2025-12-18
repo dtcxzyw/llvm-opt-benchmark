@@ -807,9 +807,9 @@ define noundef zeroext i1 @_Z25ultag_isVariantSubtags_77PKci(ptr noundef %0, i32
   br i1 %29, label %.lr.ph.i.backedge, label %._crit_edge.i
 
 .lr.ph.i.backedge:                                ; preds = %25, %16
-  %.be = phi i64 [ %27, %25 ], [ %22, %16 ]
-  %.027.i.be = phi ptr [ %spec.select.i, %25 ], [ null, %16 ]
-  %.02026.i.be = phi ptr [ %26, %25 ], [ %21, %16 ]
+  %.be = phi i64 [ %22, %16 ], [ %27, %25 ]
+  %.027.i.be = phi ptr [ null, %16 ], [ %spec.select.i, %25 ]
+  %.02026.i.be = phi ptr [ %21, %16 ], [ %26, %25 ]
   br label %.lr.ph.i, !llvm.loop !19
 
 ._crit_edge.i:                                    ; preds = %25
@@ -904,7 +904,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116_isVariantSubtagEP
   br i1 %exitcond.not.i, label %_ZN12_GLOBAL__N_134_isAlphaNumericStringLimitedLengthEPKciii.exit, label %29, !llvm.loop !20
 
 _ZN12_GLOBAL__N_134_isAlphaNumericStringLimitedLengthEPKciii.exit: ; preds = %21, %37, %33, %.loopexit, %23
-  %.07 = phi i1 [ false, %.loopexit ], [ false, %23 ], [ false, %33 ], [ true, %37 ], [ true, %21 ]
+  %.07 = phi i1 [ false, %33 ], [ false, %.loopexit ], [ false, %23 ], [ true, %37 ], [ true, %21 ]
   ret i1 %.07
 }
 
@@ -987,9 +987,9 @@ _ZN12_GLOBAL__N_118_isExtensionSubtagEPKci.exit9: ; preds = %.lr.ph.i
   br i1 %39, label %.lr.ph.i.backedge, label %._crit_edge.i
 
 .lr.ph.i.backedge:                                ; preds = %_ZN12_GLOBAL__N_118_isExtensionSubtagEPKci.exit9, %_ZN12_GLOBAL__N_118_isExtensionSubtagEPKci.exit9.thread11
-  %.be = phi i64 [ %37, %_ZN12_GLOBAL__N_118_isExtensionSubtagEPKci.exit9 ], [ %41, %_ZN12_GLOBAL__N_118_isExtensionSubtagEPKci.exit9.thread11 ]
-  %.027.i.be = phi ptr [ %spec.select.i, %_ZN12_GLOBAL__N_118_isExtensionSubtagEPKci.exit9 ], [ null, %_ZN12_GLOBAL__N_118_isExtensionSubtagEPKci.exit9.thread11 ]
-  %.02026.i.be = phi ptr [ %36, %_ZN12_GLOBAL__N_118_isExtensionSubtagEPKci.exit9 ], [ %40, %_ZN12_GLOBAL__N_118_isExtensionSubtagEPKci.exit9.thread11 ]
+  %.be = phi i64 [ %41, %_ZN12_GLOBAL__N_118_isExtensionSubtagEPKci.exit9.thread11 ], [ %37, %_ZN12_GLOBAL__N_118_isExtensionSubtagEPKci.exit9 ]
+  %.027.i.be = phi ptr [ null, %_ZN12_GLOBAL__N_118_isExtensionSubtagEPKci.exit9.thread11 ], [ %spec.select.i, %_ZN12_GLOBAL__N_118_isExtensionSubtagEPKci.exit9 ]
+  %.02026.i.be = phi ptr [ %40, %_ZN12_GLOBAL__N_118_isExtensionSubtagEPKci.exit9.thread11 ], [ %36, %_ZN12_GLOBAL__N_118_isExtensionSubtagEPKci.exit9 ]
   br label %.lr.ph.i, !llvm.loop !19
 
 _ZN12_GLOBAL__N_118_isExtensionSubtagEPKci.exit9.thread11: ; preds = %35
@@ -1041,7 +1041,7 @@ _ZN12_GLOBAL__N_118_isExtensionSubtagEPKci.exit9.thread11: ; preds = %35
   br i1 %exitcond.not.i.i.i, label %_ZN12_GLOBAL__N_112_isSepListOfEPFbPKciES1_i.exit, label %54, !llvm.loop !20
 
 _ZN12_GLOBAL__N_112_isSepListOfEPFbPKciES1_i.exit: ; preds = %_ZN12_GLOBAL__N_118_isExtensionSubtagEPKci.exit9.thread11, %24, %15, %31, %62, %58, %51, %7
-  %.022.i = phi i1 [ false, %7 ], [ false, %51 ], [ false, %31 ], [ true, %62 ], [ false, %58 ], [ false, %15 ], [ false, %24 ], [ false, %_ZN12_GLOBAL__N_118_isExtensionSubtagEPKci.exit9.thread11 ]
+  %.022.i = phi i1 [ false, %31 ], [ true, %62 ], [ false, %7 ], [ false, %51 ], [ false, %58 ], [ false, %15 ], [ false, %24 ], [ false, %_ZN12_GLOBAL__N_118_isExtensionSubtagEPKci.exit9.thread11 ]
   ret i1 %.022.i
 }
 
@@ -1124,9 +1124,9 @@ _ZN12_GLOBAL__N_124_isPrivateuseValueSubtagEPKci.exit9: ; preds = %.lr.ph.i
   br i1 %39, label %.lr.ph.i.backedge, label %._crit_edge.i
 
 .lr.ph.i.backedge:                                ; preds = %_ZN12_GLOBAL__N_124_isPrivateuseValueSubtagEPKci.exit9, %_ZN12_GLOBAL__N_124_isPrivateuseValueSubtagEPKci.exit9.thread11
-  %.be = phi i64 [ %37, %_ZN12_GLOBAL__N_124_isPrivateuseValueSubtagEPKci.exit9 ], [ %41, %_ZN12_GLOBAL__N_124_isPrivateuseValueSubtagEPKci.exit9.thread11 ]
-  %.027.i.be = phi ptr [ %spec.select.i, %_ZN12_GLOBAL__N_124_isPrivateuseValueSubtagEPKci.exit9 ], [ null, %_ZN12_GLOBAL__N_124_isPrivateuseValueSubtagEPKci.exit9.thread11 ]
-  %.02026.i.be = phi ptr [ %36, %_ZN12_GLOBAL__N_124_isPrivateuseValueSubtagEPKci.exit9 ], [ %40, %_ZN12_GLOBAL__N_124_isPrivateuseValueSubtagEPKci.exit9.thread11 ]
+  %.be = phi i64 [ %41, %_ZN12_GLOBAL__N_124_isPrivateuseValueSubtagEPKci.exit9.thread11 ], [ %37, %_ZN12_GLOBAL__N_124_isPrivateuseValueSubtagEPKci.exit9 ]
+  %.027.i.be = phi ptr [ null, %_ZN12_GLOBAL__N_124_isPrivateuseValueSubtagEPKci.exit9.thread11 ], [ %spec.select.i, %_ZN12_GLOBAL__N_124_isPrivateuseValueSubtagEPKci.exit9 ]
+  %.02026.i.be = phi ptr [ %40, %_ZN12_GLOBAL__N_124_isPrivateuseValueSubtagEPKci.exit9.thread11 ], [ %36, %_ZN12_GLOBAL__N_124_isPrivateuseValueSubtagEPKci.exit9 ]
   br label %.lr.ph.i, !llvm.loop !19
 
 _ZN12_GLOBAL__N_124_isPrivateuseValueSubtagEPKci.exit9.thread11: ; preds = %35
@@ -1178,7 +1178,7 @@ _ZN12_GLOBAL__N_124_isPrivateuseValueSubtagEPKci.exit9.thread11: ; preds = %35
   br i1 %exitcond.not.i.i.i, label %_ZN12_GLOBAL__N_112_isSepListOfEPFbPKciES1_i.exit, label %54, !llvm.loop !20
 
 _ZN12_GLOBAL__N_112_isSepListOfEPFbPKciES1_i.exit: ; preds = %_ZN12_GLOBAL__N_124_isPrivateuseValueSubtagEPKci.exit9.thread11, %24, %15, %31, %62, %58, %51, %7
-  %.022.i = phi i1 [ false, %7 ], [ false, %51 ], [ false, %31 ], [ true, %62 ], [ false, %58 ], [ false, %15 ], [ false, %24 ], [ false, %_ZN12_GLOBAL__N_124_isPrivateuseValueSubtagEPKci.exit9.thread11 ]
+  %.022.i = phi i1 [ false, %31 ], [ true, %62 ], [ false, %7 ], [ false, %51 ], [ false, %58 ], [ false, %15 ], [ false, %24 ], [ false, %_ZN12_GLOBAL__N_124_isPrivateuseValueSubtagEPKci.exit9.thread11 ]
   ret i1 %.022.i
 }
 
@@ -1305,9 +1305,9 @@ _Z33ultag_isUnicodeLocaleAttribute_77PKci.exit9:  ; preds = %.lr.ph.i
   br i1 %39, label %.lr.ph.i.backedge, label %._crit_edge.i
 
 .lr.ph.i.backedge:                                ; preds = %_Z33ultag_isUnicodeLocaleAttribute_77PKci.exit9, %_Z33ultag_isUnicodeLocaleAttribute_77PKci.exit9.thread11
-  %.be = phi i64 [ %37, %_Z33ultag_isUnicodeLocaleAttribute_77PKci.exit9 ], [ %41, %_Z33ultag_isUnicodeLocaleAttribute_77PKci.exit9.thread11 ]
-  %.027.i.be = phi ptr [ %spec.select.i, %_Z33ultag_isUnicodeLocaleAttribute_77PKci.exit9 ], [ null, %_Z33ultag_isUnicodeLocaleAttribute_77PKci.exit9.thread11 ]
-  %.02026.i.be = phi ptr [ %36, %_Z33ultag_isUnicodeLocaleAttribute_77PKci.exit9 ], [ %40, %_Z33ultag_isUnicodeLocaleAttribute_77PKci.exit9.thread11 ]
+  %.be = phi i64 [ %41, %_Z33ultag_isUnicodeLocaleAttribute_77PKci.exit9.thread11 ], [ %37, %_Z33ultag_isUnicodeLocaleAttribute_77PKci.exit9 ]
+  %.027.i.be = phi ptr [ null, %_Z33ultag_isUnicodeLocaleAttribute_77PKci.exit9.thread11 ], [ %spec.select.i, %_Z33ultag_isUnicodeLocaleAttribute_77PKci.exit9 ]
+  %.02026.i.be = phi ptr [ %40, %_Z33ultag_isUnicodeLocaleAttribute_77PKci.exit9.thread11 ], [ %36, %_Z33ultag_isUnicodeLocaleAttribute_77PKci.exit9 ]
   br label %.lr.ph.i, !llvm.loop !19
 
 _Z33ultag_isUnicodeLocaleAttribute_77PKci.exit9.thread11: ; preds = %35
@@ -1359,7 +1359,7 @@ _Z33ultag_isUnicodeLocaleAttribute_77PKci.exit9.thread11: ; preds = %35
   br i1 %exitcond.not.i.i.i, label %_ZN12_GLOBAL__N_112_isSepListOfEPFbPKciES1_i.exit, label %54, !llvm.loop !20
 
 _ZN12_GLOBAL__N_112_isSepListOfEPFbPKciES1_i.exit: ; preds = %_Z33ultag_isUnicodeLocaleAttribute_77PKci.exit9.thread11, %24, %15, %31, %62, %58, %51, %7
-  %.022.i = phi i1 [ false, %7 ], [ false, %51 ], [ false, %31 ], [ true, %62 ], [ false, %58 ], [ false, %15 ], [ false, %24 ], [ false, %_Z33ultag_isUnicodeLocaleAttribute_77PKci.exit9.thread11 ]
+  %.022.i = phi i1 [ false, %31 ], [ true, %62 ], [ false, %7 ], [ false, %51 ], [ false, %58 ], [ false, %15 ], [ false, %24 ], [ false, %_Z33ultag_isUnicodeLocaleAttribute_77PKci.exit9.thread11 ]
   ret i1 %.022.i
 }
 
@@ -1530,9 +1530,9 @@ _Z29_isUnicodeLocaleTypeSubtag_77PKci.exit9:      ; preds = %.lr.ph.i
   br i1 %39, label %.lr.ph.i.backedge, label %._crit_edge.i
 
 .lr.ph.i.backedge:                                ; preds = %_Z29_isUnicodeLocaleTypeSubtag_77PKci.exit9, %_Z29_isUnicodeLocaleTypeSubtag_77PKci.exit9.thread11
-  %.be = phi i64 [ %37, %_Z29_isUnicodeLocaleTypeSubtag_77PKci.exit9 ], [ %41, %_Z29_isUnicodeLocaleTypeSubtag_77PKci.exit9.thread11 ]
-  %.027.i.be = phi ptr [ %spec.select.i, %_Z29_isUnicodeLocaleTypeSubtag_77PKci.exit9 ], [ null, %_Z29_isUnicodeLocaleTypeSubtag_77PKci.exit9.thread11 ]
-  %.02026.i.be = phi ptr [ %36, %_Z29_isUnicodeLocaleTypeSubtag_77PKci.exit9 ], [ %40, %_Z29_isUnicodeLocaleTypeSubtag_77PKci.exit9.thread11 ]
+  %.be = phi i64 [ %41, %_Z29_isUnicodeLocaleTypeSubtag_77PKci.exit9.thread11 ], [ %37, %_Z29_isUnicodeLocaleTypeSubtag_77PKci.exit9 ]
+  %.027.i.be = phi ptr [ null, %_Z29_isUnicodeLocaleTypeSubtag_77PKci.exit9.thread11 ], [ %spec.select.i, %_Z29_isUnicodeLocaleTypeSubtag_77PKci.exit9 ]
+  %.02026.i.be = phi ptr [ %40, %_Z29_isUnicodeLocaleTypeSubtag_77PKci.exit9.thread11 ], [ %36, %_Z29_isUnicodeLocaleTypeSubtag_77PKci.exit9 ]
   br label %.lr.ph.i, !llvm.loop !19
 
 _Z29_isUnicodeLocaleTypeSubtag_77PKci.exit9.thread11: ; preds = %35
@@ -1584,7 +1584,7 @@ _Z29_isUnicodeLocaleTypeSubtag_77PKci.exit9.thread11: ; preds = %35
   br i1 %exitcond.not.i.i.i, label %_ZN12_GLOBAL__N_112_isSepListOfEPFbPKciES1_i.exit, label %54, !llvm.loop !20
 
 _ZN12_GLOBAL__N_112_isSepListOfEPFbPKciES1_i.exit: ; preds = %_Z29_isUnicodeLocaleTypeSubtag_77PKci.exit9.thread11, %24, %15, %31, %62, %58, %51, %7
-  %.022.i = phi i1 [ false, %7 ], [ false, %51 ], [ false, %31 ], [ true, %62 ], [ false, %58 ], [ false, %15 ], [ false, %24 ], [ false, %_Z29_isUnicodeLocaleTypeSubtag_77PKci.exit9.thread11 ]
+  %.022.i = phi i1 [ false, %31 ], [ true, %62 ], [ false, %7 ], [ false, %51 ], [ false, %58 ], [ false, %15 ], [ false, %24 ], [ false, %_Z29_isUnicodeLocaleTypeSubtag_77PKci.exit9.thread11 ]
   ret i1 %.022.i
 }
 
@@ -1655,7 +1655,7 @@ _ZN12_GLOBAL__N_17_isTKeyEPKci.exit:              ; preds = %17, %14, %12
   br label %_ZN12_GLOBAL__N_17_isTKeyEPKci.exit15
 
 _ZN12_GLOBAL__N_17_isTKeyEPKci.exit15:            ; preds = %17, %30, %._crit_edge, %27
-  %.010 = phi ptr [ %spec.select, %30 ], [ null, %._crit_edge ], [ null, %27 ], [ %.020, %17 ]
+  %.010 = phi ptr [ %spec.select, %30 ], [ null, %27 ], [ null, %._crit_edge ], [ %.020, %17 ]
   ret ptr %.010
 }
 
@@ -2014,12 +2014,12 @@ _ZN12_GLOBAL__N_17_isTKeyEPKci.exit57:            ; preds = %101, %98, %96
   br i1 %exitcond.not.i.i.i65, label %_ZN12_GLOBAL__N_17_isTKeyEPKci.exit, label %112, !llvm.loop !20
 
 _ZN12_GLOBAL__N_17_isTKeyEPKci.exit.sink.split:   ; preds = %90, %101, %69, %_Z23ultag_isRegionSubtag_77PKci.exit, %_ZN12_GLOBAL__N_116_isNumericStringEPKci.exit.i, %_ZN12_GLOBAL__N_114_isAlphaStringEPKci.exit.i49, %_ZN12_GLOBAL__N_114_isAlphaStringEPKci.exit.i41, %31, %_ZN12_GLOBAL__N_114_isAlphaStringEPKci.exit.i
-  %.sink = phi i32 [ -1, %69 ], [ 4, %_Z23ultag_isRegionSubtag_77PKci.exit ], [ 3, %_ZN12_GLOBAL__N_116_isNumericStringEPKci.exit.i ], [ 2, %_ZN12_GLOBAL__N_114_isAlphaStringEPKci.exit.i41 ], [ -1, %31 ], [ 1, %_ZN12_GLOBAL__N_114_isAlphaStringEPKci.exit.i ], [ 3, %_ZN12_GLOBAL__N_114_isAlphaStringEPKci.exit.i49 ], [ -1, %101 ], [ 6, %90 ]
+  %.sink = phi i32 [ -1, %101 ], [ -1, %69 ], [ 4, %_Z23ultag_isRegionSubtag_77PKci.exit ], [ 3, %_ZN12_GLOBAL__N_116_isNumericStringEPKci.exit.i ], [ 2, %_ZN12_GLOBAL__N_114_isAlphaStringEPKci.exit.i41 ], [ -1, %31 ], [ 1, %_ZN12_GLOBAL__N_114_isAlphaStringEPKci.exit.i ], [ 3, %_ZN12_GLOBAL__N_114_isAlphaStringEPKci.exit.i49 ], [ 6, %90 ]
   store i32 %.sink, ptr %0, align 4, !tbaa !12
   br label %_ZN12_GLOBAL__N_17_isTKeyEPKci.exit
 
 _ZN12_GLOBAL__N_17_isTKeyEPKci.exit:              ; preds = %120, %116, %86, %_ZN12_GLOBAL__N_17_isTKeyEPKci.exit.sink.split, %79, %109, %69, %66, %64, %31, %28, %26, %8
-  %.0 = phi i1 [ false, %69 ], [ false, %79 ], [ false, %8 ], [ false, %31 ], [ false, %26 ], [ false, %28 ], [ false, %64 ], [ false, %66 ], [ false, %109 ], [ true, %_ZN12_GLOBAL__N_17_isTKeyEPKci.exit.sink.split ], [ false, %86 ], [ false, %116 ], [ true, %120 ]
+  %.0 = phi i1 [ false, %69 ], [ false, %26 ], [ false, %86 ], [ false, %79 ], [ true, %_ZN12_GLOBAL__N_17_isTKeyEPKci.exit.sink.split ], [ false, %109 ], [ false, %66 ], [ false, %64 ], [ false, %8 ], [ false, %28 ], [ false, %31 ], [ false, %116 ], [ true, %120 ]
   ret i1 %.0
 }
 
@@ -2305,12 +2305,12 @@ _Z27ultag_isUnicodeLocaleKey_77PKci.exit34:       ; preds = %85, %81, %76
   br i1 %exitcond.not.i.i.i42, label %_Z33ultag_isUnicodeLocaleAttribute_77PKci.exit, label %95, !llvm.loop !20
 
 _Z33ultag_isUnicodeLocaleAttribute_77PKci.exit.sink.split: ; preds = %70, %85, %19
-  %.sink = phi i32 [ 1, %19 ], [ 1, %85 ], [ 2, %70 ]
+  %.sink = phi i32 [ 1, %85 ], [ 1, %19 ], [ 2, %70 ]
   store i32 %.sink, ptr %0, align 4, !tbaa !12
   br label %_Z33ultag_isUnicodeLocaleAttribute_77PKci.exit
 
 _Z33ultag_isUnicodeLocaleAttribute_77PKci.exit:   ; preds = %103, %99, %66, %37, %33, %_Z33ultag_isUnicodeLocaleAttribute_77PKci.exit.sink.split, %59, %52, %92, %26, %3
-  %.0 = phi i1 [ false, %3 ], [ true, %52 ], [ false, %59 ], [ false, %26 ], [ false, %92 ], [ true, %_Z33ultag_isUnicodeLocaleAttribute_77PKci.exit.sink.split ], [ false, %66 ], [ true, %37 ], [ false, %33 ], [ true, %103 ], [ false, %99 ]
+  %.0 = phi i1 [ false, %66 ], [ false, %33 ], [ false, %3 ], [ true, %52 ], [ false, %59 ], [ false, %92 ], [ true, %_Z33ultag_isUnicodeLocaleAttribute_77PKci.exit.sink.split ], [ false, %26 ], [ true, %37 ], [ true, %103 ], [ false, %99 ]
   ret i1 %.0
 }
 
@@ -2700,8 +2700,8 @@ _ZN6icu_778internal16LocalOpenPointerI12UEnumerationXadL_Z14uenum_close_77EEED2E
   br i1 %.not.i98, label %.invoke.i, label %132
 
 .invoke.i:                                        ; preds = %149, %_Z25ultag_isLanguageSubtag_77PKci.exit.i, %147, %124
-  %127 = phi ptr [ @_ZN12_GLOBAL__N_18LANG_UNDE, %147 ], [ @_ZN12_GLOBAL__N_18LANG_UNDE, %124 ], [ %146, %_Z25ultag_isLanguageSubtag_77PKci.exit.i ], [ %146, %149 ]
-  %128 = phi i32 [ 3, %147 ], [ 3, %124 ], [ %145, %_Z25ultag_isLanguageSubtag_77PKci.exit.i ], [ %145, %149 ]
+  %127 = phi ptr [ @_ZN12_GLOBAL__N_18LANG_UNDE, %124 ], [ @_ZN12_GLOBAL__N_18LANG_UNDE, %147 ], [ %146, %_Z25ultag_isLanguageSubtag_77PKci.exit.i ], [ %146, %149 ]
+  %128 = phi i32 [ 3, %124 ], [ 3, %147 ], [ %145, %_Z25ultag_isLanguageSubtag_77PKci.exit.i ], [ %145, %149 ]
   %129 = load ptr, ptr %1, align 8, !tbaa !36
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 16
   %131 = load ptr, ptr %130, align 8
@@ -3315,8 +3315,8 @@ _ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit89.thread10
   br label %265, !llvm.loop !45
 
 _ZN12_GLOBAL__N_124_isPrivateuseValueSubtagEPKci.exit.i: ; preds = %293, %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit89.thread109.i, %307, %.thread.i.i, %323, %309, %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit89.i, %306, %304, %.thread.i, %272
-  %.2 = phi i1 [ %.1, %272 ], [ %.1, %.thread.i ], [ %.1, %309 ], [ %.1, %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit89.i ], [ %.1, %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit89.thread109.i ], [ %.1, %304 ], [ %.1, %306 ], [ %.1, %323 ], [ %.1, %.thread.i.i ], [ true, %307 ], [ %.1, %293 ]
-  %.093127.i = phi ptr [ %.093130.ph.i, %272 ], [ %.093130.ph.i, %.thread.i ], [ %.093130.ph.i, %309 ], [ %.093130.ph.i, %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit89.i ], [ %.093130.ph.i, %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit89.thread109.i ], [ %.093130.ph.i, %304 ], [ %.093130.ph.i, %306 ], [ %.093130.ph.i, %323 ], [ %.093130.ph.i, %.thread.i.i ], [ %.093130.ph.i, %307 ], [ %287, %293 ]
+  %.2 = phi i1 [ %.1, %272 ], [ %.1, %.thread.i ], [ %.1, %309 ], [ %.1, %323 ], [ %.1, %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit89.i ], [ %.1, %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit89.thread109.i ], [ %.1, %304 ], [ %.1, %306 ], [ %.1, %.thread.i.i ], [ true, %307 ], [ %.1, %293 ]
+  %.093127.i = phi ptr [ %.093130.ph.i, %272 ], [ %.093130.ph.i, %.thread.i ], [ %.093130.ph.i, %309 ], [ %.093130.ph.i, %323 ], [ %.093130.ph.i, %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit89.i ], [ %.093130.ph.i, %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit89.thread109.i ], [ %.093130.ph.i, %304 ], [ %.093130.ph.i, %306 ], [ %.093130.ph.i, %.thread.i.i ], [ %.093130.ph.i, %307 ], [ %287, %293 ]
   %326 = load i32, ptr %3, align 4, !tbaa !13
   %327 = icmp slt i32 %326, 1
   %328 = icmp ne ptr %.093127.i, null
@@ -3906,7 +3906,7 @@ _ZN12_GLOBAL__N_119_addAttributeToListEPPNS_18AttributeListEntryES1_.exit.thread
   br label %611
 
 538:                                              ; preds = %536, %520
-  %.5157.i = phi ptr [ %537, %536 ], [ %521, %520 ]
+  %.5157.i = phi ptr [ %521, %520 ], [ %537, %536 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %576
@@ -5177,7 +5177,7 @@ define void @_Z25ulocimp_forLanguageTag_77PKciRN6icu_778ByteSinkEPiR10UErrorCode
   br i1 %110, label %.preheader572.i, label %.preheader570.preheader.i, !llvm.loop !117
 
 .thread455.i:                                     ; preds = %99, %94
-  %.2212.i = phi i32 [ %62, %94 ], [ %.4214.i, %99 ]
+  %.2212.i = phi i32 [ %.4214.i, %99 ], [ %62, %94 ]
   %111 = icmp eq i32 %62, 0
   br i1 %111, label %.preheader570.preheader.i, label %.loopexit571.i
 
@@ -5902,7 +5902,7 @@ _ZN12_GLOBAL__N_124_isPrivateuseValueSubtagEPKci.exit.i: ; preds = %353
   br i1 %329, label %_ZN12_GLOBAL__N_124_isPrivateuseValueSubtagEPKci.exit.thread.i, label %.preheader.i, !llvm.loop !125
 
 _ZN12_GLOBAL__N_124_isPrivateuseValueSubtagEPKci.exit.thread.i: ; preds = %_ZN12_GLOBAL__N_124_isPrivateuseValueSubtagEPKci.exit.i, %342, %349
-  %.7245580.i = phi ptr [ %.7245710.i, %349 ], [ %.1223.i, %_ZN12_GLOBAL__N_124_isPrivateuseValueSubtagEPKci.exit.i ], [ %.7245710.i, %342 ]
+  %.7245580.i = phi ptr [ %.7245710.i, %349 ], [ %.7245710.i, %342 ], [ %.1223.i, %_ZN12_GLOBAL__N_124_isPrivateuseValueSubtagEPKci.exit.i ]
   %354 = ptrtoint ptr %.7245580.i to i64
   %355 = ptrtoint ptr %.1232.i to i64
   %356 = sub i64 %354, %355
@@ -5919,13 +5919,13 @@ _ZN12_GLOBAL__N_124_isPrivateuseValueSubtagEPKci.exit.thread.i: ; preds = %_ZN12
   br label %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit425.thread.i
 
 _ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit425.i: ; preds = %.thread490.i, %_ZN12_GLOBAL__N_118_isExtensionSubtagEPKci.exit.i, %285, %.thread476.i, %226, %._crit_edge.i, %185, %170
-  %.1294.i = phi i1 [ %.0293712.i, %170 ], [ %.0293712.i, %185 ], [ %.0293712.i, %._crit_edge.i ], [ %.0293712.i, %226 ], [ %.0293712.i, %_ZN12_GLOBAL__N_118_isExtensionSubtagEPKci.exit.i ], [ %.0293712.i, %.thread476.i ], [ %.0293712.i, %285 ], [ true, %.thread490.i ]
-  %.2255.i = phi ptr [ %.0253713.i, %170 ], [ %.0253713.i, %185 ], [ %.0253713.i, %._crit_edge.i ], [ %.0253713.i, %226 ], [ %.0222.i, %_ZN12_GLOBAL__N_118_isExtensionSubtagEPKci.exit.i ], [ %.0253713.i, %.thread476.i ], [ null, %285 ], [ %.0253713.i, %.thread490.i ]
-  %.2251.i = phi ptr [ %.0249714.i, %170 ], [ %.0249714.i, %185 ], [ %.0249714.i, %._crit_edge.i ], [ %.0249714.i, %226 ], [ %spec.select357.i, %_ZN12_GLOBAL__N_118_isExtensionSubtagEPKci.exit.i ], [ %.0249714.i, %.thread476.i ], [ null, %285 ], [ %.0249714.i, %.thread490.i ]
-  %.1248.i = phi i32 [ %.0247715.i, %170 ], [ %186, %185 ], [ %.0247715.i, %._crit_edge.i ], [ %.0247715.i, %226 ], [ %.0247715.i, %_ZN12_GLOBAL__N_118_isExtensionSubtagEPKci.exit.i ], [ %.0247715.i, %.thread476.i ], [ %.0247715.i, %285 ], [ %.0247715.i, %.thread490.i ]
-  %.2240.i = phi ptr [ %.0222.i, %170 ], [ %.0222.i, %185 ], [ %.0222.i, %._crit_edge.i ], [ %.0222.i, %226 ], [ %.0238716.i, %_ZN12_GLOBAL__N_118_isExtensionSubtagEPKci.exit.i ], [ %.0222.i, %.thread476.i ], [ %.4242.i, %285 ], [ %.7245710.i, %.thread490.i ]
-  %.2233.i = phi ptr [ %.1232.i, %170 ], [ %.1232.i, %185 ], [ %.1232.i, %._crit_edge.i ], [ %.1232.i, %226 ], [ %.1232.i, %_ZN12_GLOBAL__N_118_isExtensionSubtagEPKci.exit.i ], [ %.1232.i, %.thread476.i ], [ %.1232.i, %285 ], [ %330, %.thread490.i ]
-  %.2226.i = phi i16 [ %spec.select.i, %170 ], [ %..i, %185 ], [ 184, %._crit_edge.i ], [ 176, %226 ], [ 224, %_ZN12_GLOBAL__N_118_isExtensionSubtagEPKci.exit.i ], [ 176, %.thread476.i ], [ 64, %285 ], [ 16, %.thread490.i ]
+  %.1294.i = phi i1 [ %.0293712.i, %170 ], [ %.0293712.i, %185 ], [ %.0293712.i, %._crit_edge.i ], [ %.0293712.i, %226 ], [ true, %.thread490.i ], [ %.0293712.i, %.thread476.i ], [ %.0293712.i, %_ZN12_GLOBAL__N_118_isExtensionSubtagEPKci.exit.i ], [ %.0293712.i, %285 ]
+  %.2255.i = phi ptr [ %.0253713.i, %170 ], [ %.0253713.i, %185 ], [ %.0253713.i, %._crit_edge.i ], [ %.0253713.i, %226 ], [ %.0253713.i, %.thread490.i ], [ %.0253713.i, %.thread476.i ], [ %.0222.i, %_ZN12_GLOBAL__N_118_isExtensionSubtagEPKci.exit.i ], [ null, %285 ]
+  %.2251.i = phi ptr [ %.0249714.i, %170 ], [ %.0249714.i, %185 ], [ %.0249714.i, %._crit_edge.i ], [ %.0249714.i, %226 ], [ %.0249714.i, %.thread490.i ], [ %.0249714.i, %.thread476.i ], [ %spec.select357.i, %_ZN12_GLOBAL__N_118_isExtensionSubtagEPKci.exit.i ], [ null, %285 ]
+  %.1248.i = phi i32 [ %.0247715.i, %170 ], [ %186, %185 ], [ %.0247715.i, %._crit_edge.i ], [ %.0247715.i, %226 ], [ %.0247715.i, %.thread490.i ], [ %.0247715.i, %.thread476.i ], [ %.0247715.i, %_ZN12_GLOBAL__N_118_isExtensionSubtagEPKci.exit.i ], [ %.0247715.i, %285 ]
+  %.2240.i = phi ptr [ %.0222.i, %170 ], [ %.0222.i, %185 ], [ %.0222.i, %._crit_edge.i ], [ %.0222.i, %226 ], [ %.7245710.i, %.thread490.i ], [ %.0222.i, %.thread476.i ], [ %.0238716.i, %_ZN12_GLOBAL__N_118_isExtensionSubtagEPKci.exit.i ], [ %.4242.i, %285 ]
+  %.2233.i = phi ptr [ %.1232.i, %170 ], [ %.1232.i, %185 ], [ %.1232.i, %._crit_edge.i ], [ %.1232.i, %226 ], [ %330, %.thread490.i ], [ %.1232.i, %.thread476.i ], [ %.1232.i, %_ZN12_GLOBAL__N_118_isExtensionSubtagEPKci.exit.i ], [ %.1232.i, %285 ]
+  %.2226.i = phi i16 [ %spec.select.i, %170 ], [ %..i, %185 ], [ 184, %._crit_edge.i ], [ 176, %226 ], [ 16, %.thread490.i ], [ 176, %.thread476.i ], [ 224, %_ZN12_GLOBAL__N_118_isExtensionSubtagEPKci.exit.i ], [ 64, %285 ]
   %.not325.i = icmp eq ptr %.2233.i, null
   br i1 %.not325.i, label %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_116VariantListEntryEED2Ev.exit425.thread.i, label %.preheader566.i
 
@@ -6413,7 +6413,7 @@ _ZN12_GLOBAL__N_121ultag_getVariantsSizeEPKNS_12ULanguageTagE.exit.thread: ; pre
   store i8 0, ptr %518, align 4, !tbaa !72
   %.05.i.i = load ptr, ptr %500, align 8, !tbaa !73
   %519 = icmp eq ptr %.05.i.i, null
-  br i1 %519, label %.loopexit206.thread444.i, label %.lr.ph.i.i
+  br i1 %519, label %.loopexit206.thread448.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %510, %.lr.ph.i.i
   %.07.i.i = phi ptr [ %.0.i.i102, %.lr.ph.i.i ], [ %.05.i.i, %510 ]
@@ -6441,8 +6441,8 @@ _ZN12_GLOBAL__N_121ultag_getVariantsSizeEPKNS_12ULanguageTagE.exit.thread: ; pre
   br label %536
 
 536:                                              ; preds = %_ZN12_GLOBAL__N_119_addExtensionToListEPPNS_18ExtensionListEntryES1_b.exit.thread.i, %.lr.ph.i103
-  %.058293.i = phi i32 [ 0, %.lr.ph.i103 ], [ %989, %_ZN12_GLOBAL__N_119_addExtensionToListEPPNS_18ExtensionListEntryES1_b.exit.thread.i ]
-  %.0171292.i = phi i8 [ 0, %.lr.ph.i103 ], [ %.3.i, %_ZN12_GLOBAL__N_119_addExtensionToListEPPNS_18ExtensionListEntryES1_b.exit.thread.i ]
+  %.058297.i = phi i32 [ 0, %.lr.ph.i103 ], [ %989, %_ZN12_GLOBAL__N_119_addExtensionToListEPPNS_18ExtensionListEntryES1_b.exit.thread.i ]
+  %.0171296.i = phi i8 [ 0, %.lr.ph.i103 ], [ %.3.i, %_ZN12_GLOBAL__N_119_addExtensionToListEPPNS_18ExtensionListEntryES1_b.exit.thread.i ]
   %.0173291.i = phi ptr [ null, %.lr.ph.i103 ], [ %.2175.i, %_ZN12_GLOBAL__N_119_addExtensionToListEPPNS_18ExtensionListEntryES1_b.exit.thread.i ]
   %.0710.i.i = load ptr, ptr %500, align 8, !tbaa !73
   %.not11.i.i = icmp eq ptr %.0710.i.i, null
@@ -6451,7 +6451,7 @@ _ZN12_GLOBAL__N_121ultag_getVariantsSizeEPKNS_12ULanguageTagE.exit.thread: ; pre
 .lr.ph.i70.i:                                     ; preds = %536, %540
   %.0713.i.i = phi ptr [ %.07.i71.i, %540 ], [ %.0710.i.i, %536 ]
   %.012.i.i = phi i32 [ %542, %540 ], [ 0, %536 ]
-  %537 = icmp eq i32 %.012.i.i, %.058293.i
+  %537 = icmp eq i32 %.012.i.i, %.058297.i
   br i1 %537, label %538, label %540
 
 538:                                              ; preds = %.lr.ph.i70.i
@@ -6472,7 +6472,7 @@ _ZN12_GLOBAL__N_121ultag_getExtensionKeyEPKNS_12ULanguageTagEi.exit.i: ; preds =
 .lr.ph.i74.i:                                     ; preds = %547, %_ZN12_GLOBAL__N_121ultag_getExtensionKeyEPKNS_12ULanguageTagEi.exit.i
   %.0713.i75.i = phi ptr [ %.07.i77.i, %547 ], [ %.0710.i.i, %_ZN12_GLOBAL__N_121ultag_getExtensionKeyEPKNS_12ULanguageTagEi.exit.i ]
   %.012.i76.i = phi i32 [ %549, %547 ], [ 0, %_ZN12_GLOBAL__N_121ultag_getExtensionKeyEPKNS_12ULanguageTagEi.exit.i ]
-  %543 = icmp eq i32 %.012.i76.i, %.058293.i
+  %543 = icmp eq i32 %.012.i76.i, %.058297.i
   br i1 %543, label %544, label %547
 
 544:                                              ; preds = %.lr.ph.i74.i
@@ -6497,7 +6497,7 @@ _ZN12_GLOBAL__N_123ultag_getExtensionValueEPKNS_12ULanguageTagEi.exit.i: ; preds
 _ZN12_GLOBAL__N_121ultag_getVariantsSizeEPKNS_12ULanguageTagE.exit.i: ; preds = %_ZN12_GLOBAL__N_123ultag_getExtensionValueEPKNS_12ULanguageTagEi.exit.i
   %.05.i80.i = load ptr, ptr %459, align 8, !tbaa !48
   %552 = icmp eq ptr %.05.i80.i, null
-  %spec.select.i112 = select i1 %552, i8 %.0171292.i, i8 1
+  %spec.select.i112 = select i1 %552, i8 %.0171296.i, i8 1
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %553 = load i32, ptr %4, align 4, !tbaa !13
   %554 = icmp slt i32 %553, 1
@@ -7255,7 +7255,7 @@ _Z27ultag_isUnicodeLocaleKey_77PKci.exit186.i.i:  ; preds = %.noexc89.i, %742, %
   br label %.critedge167.i.i
 
 818:                                              ; preds = %.noexc95.i, %804
-  %.097.i.i = phi ptr [ %817, %.noexc95.i ], [ %805, %804 ]
+  %.097.i.i = phi ptr [ %805, %804 ], [ %817, %.noexc95.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %819
 
@@ -7426,8 +7426,8 @@ _ZN6icu_7715MaybeStackArrayIPN12_GLOBAL__N_118ExtensionListEntryELi8EE6resizeEii
   br i1 %881, label %.split.us.i.i.i, label %869, !llvm.loop !143
 
 _ZN12_GLOBAL__N_119_addExtensionToListEPPNS_18ExtensionListEntryES1_b.exit.i.i: ; preds = %.thread.i.i.i, %874, %.split.us.i.i.i, %865, %826
-  %.6.i = phi i8 [ %.5.i, %865 ], [ %.5.i, %874 ], [ %.5.i, %.split.us.i.i.i ], [ 1, %826 ], [ %.5.i, %.thread.i.i.i ]
-  %882 = phi ptr [ %849, %865 ], [ %875, %874 ], [ %.ph.i.i, %.split.us.i.i.i ], [ %.ph.i.i, %826 ], [ %.ph.i.i, %.thread.i.i.i ]
+  %.6.i = phi i8 [ %.5.i, %865 ], [ %.5.i, %874 ], [ 1, %826 ], [ %.5.i, %.split.us.i.i.i ], [ %.5.i, %.thread.i.i.i ]
+  %882 = phi ptr [ %849, %865 ], [ %875, %874 ], [ %.ph.i.i, %826 ], [ %.ph.i.i, %.split.us.i.i.i ], [ %.ph.i.i, %.thread.i.i.i ]
   store ptr %.1106235.i.i, ptr %12, align 8, !tbaa !91
   %.not153.i.i = icmp eq ptr %.1106235.i.i, null
   %883 = select i1 %.not153.i.i, i32 0, i32 %.1104236.i.i
@@ -7453,7 +7453,7 @@ _ZN12_GLOBAL__N_119_addExtensionToListEPPNS_18ExtensionListEntryES1_b.exit.i.i: 
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %.loopexit449.i
+  br label %.loopexit453.i
 
 .critedge165.i.i:                                 ; preds = %_ZN12_GLOBAL__N_119_addExtensionToListEPPNS_18ExtensionListEntryES1_b.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
@@ -7466,7 +7466,7 @@ _ZN12_GLOBAL__N_119_addExtensionToListEPPNS_18ExtensionListEntryES1_b.exit.i.i: 
   %.7.i = phi i8 [ 0, %_ZN6icu_7710MemoryPoolINS_10CharStringELi8EED2Ev.exit._crit_edge.i.i ], [ %.6.i, %.critedge165.i.i ]
   %888 = phi ptr [ %.pre329.i.i, %_ZN6icu_7710MemoryPoolINS_10CharStringELi8EED2Ev.exit._crit_edge.i.i ], [ %882, %.critedge165.i.i ]
   %.not154300.i.i = icmp eq ptr %888, null
-  br i1 %.not154300.i.i, label %.loopexit449.i, label %.lr.ph302.i.i
+  br i1 %.not154300.i.i, label %.loopexit453.i, label %.lr.ph302.i.i
 
 .lr.ph302.i.i:                                    ; preds = %887, %_ZN12_GLOBAL__N_119_addExtensionToListEPPNS_18ExtensionListEntryES1_b.exit198.i.i
   %.5178.i = phi ptr [ %.7180.i, %_ZN12_GLOBAL__N_119_addExtensionToListEPPNS_18ExtensionListEntryES1_b.exit198.i.i ], [ %.0173291.i, %887 ]
@@ -7515,10 +7515,10 @@ _ZN12_GLOBAL__N_119_addExtensionToListEPPNS_18ExtensionListEntryES1_b.exit198.i.
 _ZN12_GLOBAL__N_119_addExtensionToListEPPNS_18ExtensionListEntryES1_b.exit198.i.i: ; preds = %.thread.i190.i.i, %_ZN12_GLOBAL__N_119_addExtensionToListEPPNS_18ExtensionListEntryES1_b.exit198.i.sink.split.i
   %.7180.i = phi ptr [ %.7180.ph.i, %_ZN12_GLOBAL__N_119_addExtensionToListEPPNS_18ExtensionListEntryES1_b.exit198.i.sink.split.i ], [ %.5178.i, %.thread.i190.i.i ]
   %.not154.i.i = icmp eq ptr %890, null
-  br i1 %.not154.i.i, label %.loopexit449.i, label %.lr.ph302.i.i, !llvm.loop !144
+  br i1 %.not154.i.i, label %.loopexit453.i, label %.lr.ph302.i.i, !llvm.loop !144
 
 .critedge159.sink.split.i.i:                      ; preds = %611, %.noexc170.i.i, %580, %692, %676, %_ZN6icu_7710MemoryPoolIN12_GLOBAL__N_118ExtensionListEntryELi8EE6createIJEEEPS2_DpOT_.exit166.thread187.i, %.noexc164.i, %645, %_ZN6icu_7710MemoryPoolIN12_GLOBAL__N_118AttributeListEntryELi8EE6createIJEEEPS2_DpOT_.exit.thread226.i.i
-  %.sink398.i.i = phi i32 [ 7, %_ZN6icu_7710MemoryPoolIN12_GLOBAL__N_118ExtensionListEntryELi8EE6createIJEEEPS2_DpOT_.exit166.thread187.i ], [ 7, %676 ], [ 7, %_ZN6icu_7710MemoryPoolIN12_GLOBAL__N_118AttributeListEntryELi8EE6createIJEEEPS2_DpOT_.exit.thread226.i.i ], [ 1, %692 ], [ 7, %.noexc164.i ], [ 7, %645 ], [ 7, %580 ], [ 7, %.noexc170.i.i ], [ 7, %611 ]
+  %.sink398.i.i = phi i32 [ 7, %_ZN6icu_7710MemoryPoolIN12_GLOBAL__N_118ExtensionListEntryELi8EE6createIJEEEPS2_DpOT_.exit166.thread187.i ], [ 7, %676 ], [ 7, %645 ], [ 7, %_ZN6icu_7710MemoryPoolIN12_GLOBAL__N_118AttributeListEntryELi8EE6createIJEEEPS2_DpOT_.exit.thread226.i.i ], [ 7, %.noexc164.i ], [ 1, %692 ], [ 7, %580 ], [ 7, %.noexc170.i.i ], [ 7, %611 ]
   store i32 %.sink398.i.i, ptr %4, align 4, !tbaa !13
   br label %.critedge159.i.i
 
@@ -7612,17 +7612,17 @@ _ZN6icu_7710MemoryPoolIN12_GLOBAL__N_118AttributeListEntryELi8EED2Ev.exit208.i.i
 
 _ZN6icu_7710MemoryPoolINS_10CharStringELi8EED2Ev.exit215.i.i: ; preds = %924, %._crit_edge.i209.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %.loopexit449.i
+  br label %.loopexit453.i
 
-.loopexit449.i:                                   ; preds = %_ZN12_GLOBAL__N_119_addExtensionToListEPPNS_18ExtensionListEntryES1_b.exit198.i.i, %_ZN6icu_7710MemoryPoolINS_10CharStringELi8EED2Ev.exit215.i.i, %887, %886
-  %.4177.i = phi ptr [ %.0173291.i, %887 ], [ %.0173291.i, %886 ], [ %.0173291.i, %_ZN6icu_7710MemoryPoolINS_10CharStringELi8EED2Ev.exit215.i.i ], [ %.7180.i, %_ZN12_GLOBAL__N_119_addExtensionToListEPPNS_18ExtensionListEntryES1_b.exit198.i.i ]
-  %.4.i = phi i8 [ %.7.i, %887 ], [ %.5.i, %886 ], [ 0, %_ZN6icu_7710MemoryPoolINS_10CharStringELi8EED2Ev.exit215.i.i ], [ %.7.i, %_ZN12_GLOBAL__N_119_addExtensionToListEPPNS_18ExtensionListEntryES1_b.exit198.i.i ]
+.loopexit453.i:                                   ; preds = %_ZN12_GLOBAL__N_119_addExtensionToListEPPNS_18ExtensionListEntryES1_b.exit198.i.i, %_ZN6icu_7710MemoryPoolINS_10CharStringELi8EED2Ev.exit215.i.i, %887, %886
+  %.4177.i = phi ptr [ %.0173291.i, %887 ], [ %.0173291.i, %_ZN6icu_7710MemoryPoolINS_10CharStringELi8EED2Ev.exit215.i.i ], [ %.0173291.i, %886 ], [ %.7180.i, %_ZN12_GLOBAL__N_119_addExtensionToListEPPNS_18ExtensionListEntryES1_b.exit198.i.i ]
+  %.4.i = phi i8 [ %.7.i, %887 ], [ 0, %_ZN6icu_7710MemoryPoolINS_10CharStringELi8EED2Ev.exit215.i.i ], [ %.5.i, %886 ], [ %.7.i, %_ZN12_GLOBAL__N_119_addExtensionToListEPPNS_18ExtensionListEntryES1_b.exit198.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %.pre374.i = load i32, ptr %4, align 4, !tbaa !13
+  %.pre378.i = load i32, ptr %4, align 4, !tbaa !13
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %939 = icmp slt i32 %.pre374.i, 1
+  %939 = icmp slt i32 %.pre378.i, 1
   br i1 %939, label %_ZN12_GLOBAL__N_119_addExtensionToListEPPNS_18ExtensionListEntryES1_b.exit.thread.i, label %_ZN12_GLOBAL__N_119_addExtensionToListEPPNS_18ExtensionListEntryES1_b.exit128.thread.i
 
 940:                                              ; preds = %_ZN12_GLOBAL__N_123ultag_getExtensionValueEPKNS_12ULanguageTagEi.exit.i
@@ -7752,28 +7752,28 @@ _ZN12_GLOBAL__N_119_addExtensionToListEPPNS_18ExtensionListEntryES1_b.exit.threa
   store ptr %.us-phi109.i.sink.i, ptr %988, align 8, !tbaa !96
   br label %_ZN12_GLOBAL__N_119_addExtensionToListEPPNS_18ExtensionListEntryES1_b.exit.thread.i
 
-_ZN12_GLOBAL__N_119_addExtensionToListEPPNS_18ExtensionListEntryES1_b.exit.thread.i: ; preds = %_ZN12_GLOBAL__N_119_addExtensionToListEPPNS_18ExtensionListEntryES1_b.exit.thread.sink.split.i, %.loopexit449.i
-  %.2175.i = phi ptr [ %.4177.i, %.loopexit449.i ], [ %.2175.ph.i, %_ZN12_GLOBAL__N_119_addExtensionToListEPPNS_18ExtensionListEntryES1_b.exit.thread.sink.split.i ]
-  %.3.i = phi i8 [ %.4.i, %.loopexit449.i ], [ %.0171292.i, %_ZN12_GLOBAL__N_119_addExtensionToListEPPNS_18ExtensionListEntryES1_b.exit.thread.sink.split.i ]
-  %989 = add nuw nsw i32 %.058293.i, 1
-  %exitcond.not.i105 = icmp eq i32 %.058293.i, %.046.i.i
+_ZN12_GLOBAL__N_119_addExtensionToListEPPNS_18ExtensionListEntryES1_b.exit.thread.i: ; preds = %_ZN12_GLOBAL__N_119_addExtensionToListEPPNS_18ExtensionListEntryES1_b.exit.thread.sink.split.i, %.loopexit453.i
+  %.2175.i = phi ptr [ %.4177.i, %.loopexit453.i ], [ %.2175.ph.i, %_ZN12_GLOBAL__N_119_addExtensionToListEPPNS_18ExtensionListEntryES1_b.exit.thread.sink.split.i ]
+  %.3.i = phi i8 [ %.4.i, %.loopexit453.i ], [ %.0171296.i, %_ZN12_GLOBAL__N_119_addExtensionToListEPPNS_18ExtensionListEntryES1_b.exit.thread.sink.split.i ]
+  %989 = add nuw nsw i32 %.058297.i, 1
+  %exitcond.not.i105 = icmp eq i32 %.058297.i, %.046.i.i
   br i1 %exitcond.not.i105, label %.loopexit206.i, label %536, !llvm.loop !145
 
 .loopexit206.i:                                   ; preds = %_ZN12_GLOBAL__N_119_addExtensionToListEPPNS_18ExtensionListEntryES1_b.exit.thread.i
-  %.pre375.pre.i = load i32, ptr %4, align 4, !tbaa !13
-  %990 = icmp sgt i32 %.pre375.pre.i, 0
-  br i1 %990, label %_ZN12_GLOBAL__N_119_addExtensionToListEPPNS_18ExtensionListEntryES1_b.exit128.thread.i, label %.loopexit206.thread444.i
+  %.pre379.pre.i = load i32, ptr %4, align 4, !tbaa !13
+  %990 = icmp sgt i32 %.pre379.pre.i, 0
+  br i1 %990, label %_ZN12_GLOBAL__N_119_addExtensionToListEPPNS_18ExtensionListEntryES1_b.exit128.thread.i, label %.loopexit206.thread448.i
 
-.loopexit206.thread444.i:                         ; preds = %.loopexit206.i, %510
-  %.1172448.i = phi i8 [ %.3.i, %.loopexit206.i ], [ 0, %510 ]
-  %.1174447.i = phi ptr [ %.2175.i, %.loopexit206.i ], [ null, %510 ]
+.loopexit206.thread448.i:                         ; preds = %.loopexit206.i, %510
+  %.1172452.i = phi i8 [ %.3.i, %.loopexit206.i ], [ 0, %510 ]
+  %.1174451.i = phi ptr [ %.2175.i, %.loopexit206.i ], [ null, %510 ]
   %.val.i = load ptr, ptr %502, align 8, !tbaa !115
   %991 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val.i) #20
   %992 = trunc i64 %991 to i32
   %993 = icmp sgt i32 %992, 0
   br i1 %993, label %994, label %_ZN12_GLOBAL__N_119_addExtensionToListEPPNS_18ExtensionListEntryES1_b.exit128.thread.i
 
-994:                                              ; preds = %.loopexit206.thread444.i
+994:                                              ; preds = %.loopexit206.thread448.i
   %.val.i106.i = load i32, ptr %513, align 8, !tbaa !64
   %995 = load i32, ptr %18, align 8, !tbaa !59
   %996 = icmp eq i32 %995, %.val.i106.i
@@ -7857,11 +7857,11 @@ _ZN6icu_7710MemoryPoolIN12_GLOBAL__N_118ExtensionListEntryELi8EE6createIJEEEPS2_
   store ptr @_ZN12_GLOBAL__N_114PRIVATEUSE_KEYE, ptr %1016, align 8, !tbaa !92
   %1027 = getelementptr inbounds nuw i8, ptr %1016, i64 8
   store ptr %.val.i, ptr %1027, align 8, !tbaa !94
-  %1028 = icmp eq ptr %.1174447.i, null
+  %1028 = icmp eq ptr %.1174451.i, null
   br i1 %1028, label %1032, label %.preheader.i119.i
 
 .preheader.i119.i:                                ; preds = %1022
-  %1029 = load ptr, ptr %.1174447.i, align 8, !tbaa !92
+  %1029 = load ptr, ptr %.1174451.i, align 8, !tbaa !92
   %1030 = call i32 @strcmp(ptr noundef nonnull dereferenceable(2) @_ZN12_GLOBAL__N_114PRIVATEUSE_KEYE, ptr noundef nonnull dereferenceable(1) %1029) #20
   %1031 = icmp slt i32 %1030, 0
   br i1 %1031, label %.thread57.thread.i127.i, label %.thread.i120.i
@@ -7890,15 +7890,15 @@ _ZN6icu_7710MemoryPoolIN12_GLOBAL__N_118ExtensionListEntryELi8EE6createIJEEEPS2_
   br label %.thread57.thread.i127.i
 
 .thread57.thread.i127.i:                          ; preds = %.thread57.thread111.i123.i, %.preheader.i119.i
-  %.11.i = phi ptr [ %.1174447.i, %.thread57.thread111.i123.i ], [ %1016, %.preheader.i119.i ]
-  %.us-phi109.i124.i = phi ptr [ %1045, %.thread57.thread111.i123.i ], [ %.1174447.i, %.preheader.i119.i ]
+  %.11.i = phi ptr [ %.1174451.i, %.thread57.thread111.i123.i ], [ %1016, %.preheader.i119.i ]
+  %.us-phi109.i124.i = phi ptr [ %1045, %.thread57.thread111.i123.i ], [ %.1174451.i, %.preheader.i119.i ]
   %1041 = getelementptr inbounds nuw i8, ptr %1016, i64 16
   store ptr %.us-phi109.i124.i, ptr %1041, align 8, !tbaa !96
   br label %_ZN12_GLOBAL__N_119_addExtensionToListEPPNS_18ExtensionListEntryES1_b.exit128.thread.i
 
 .thread.i120.i:                                   ; preds = %.preheader.i119.i, %1036
   %1042 = phi i32 [ %1038, %1036 ], [ %1030, %.preheader.i119.i ]
-  %.0466775.i121.i = phi ptr [ %1045, %1036 ], [ %.1174447.i, %.preheader.i119.i ]
+  %.0466775.i121.i = phi ptr [ %1045, %1036 ], [ %.1174451.i, %.preheader.i119.i ]
   %1043 = icmp eq i32 %1042, 0
   br i1 %1043, label %_ZN12_GLOBAL__N_119_addExtensionToListEPPNS_18ExtensionListEntryES1_b.exit128.i, label %.thread.thread61.i122.i
 
@@ -7912,12 +7912,12 @@ _ZN12_GLOBAL__N_119_addExtensionToListEPPNS_18ExtensionListEntryES1_b.exit128.i:
   store i32 1, ptr %4, align 4, !tbaa !13
   br label %_ZN12_GLOBAL__N_119_addExtensionToListEPPNS_18ExtensionListEntryES1_b.exit128.thread.i
 
-_ZN12_GLOBAL__N_119_addExtensionToListEPPNS_18ExtensionListEntryES1_b.exit128.thread.i: ; preds = %.loopexit449.i, %_ZN12_GLOBAL__N_119_addExtensionToListEPPNS_18ExtensionListEntryES1_b.exit128.i, %.thread57.thread.i127.i, %.split.us.i126.i, %1032, %_ZN6icu_7710MemoryPoolIN12_GLOBAL__N_118ExtensionListEntryELi8EE6createIJEEEPS2_DpOT_.exit118.thread.i, %.loopexit206.thread444.i, %.loopexit206.i, %_ZN12_GLOBAL__N_119_addExtensionToListEPPNS_18ExtensionListEntryES1_b.exit.i, %_ZN6icu_7710MemoryPoolIN12_GLOBAL__N_118ExtensionListEntryELi8EE6createIJEEEPS2_DpOT_.exit.thread.i, %.thread.i113
-  %.1172443.i = phi i8 [ %.3.i, %.loopexit206.i ], [ %.1172448.i, %_ZN6icu_7710MemoryPoolIN12_GLOBAL__N_118ExtensionListEntryELi8EE6createIJEEEPS2_DpOT_.exit118.thread.i ], [ %.1172448.i, %.loopexit206.thread444.i ], [ %.1172448.i, %_ZN12_GLOBAL__N_119_addExtensionToListEPPNS_18ExtensionListEntryES1_b.exit128.i ], [ %.1172448.i, %.split.us.i126.i ], [ %.1172448.i, %.thread57.thread.i127.i ], [ %.1172448.i, %1032 ], [ %spec.select.i112, %.thread.i113 ], [ %.0171292.i, %_ZN6icu_7710MemoryPoolIN12_GLOBAL__N_118ExtensionListEntryELi8EE6createIJEEEPS2_DpOT_.exit.thread.i ], [ %.0171292.i, %_ZN12_GLOBAL__N_119_addExtensionToListEPPNS_18ExtensionListEntryES1_b.exit.i ], [ %.4.i, %.loopexit449.i ]
-  %.3176.i = phi ptr [ %.2175.i, %.loopexit206.i ], [ %.1174447.i, %_ZN6icu_7710MemoryPoolIN12_GLOBAL__N_118ExtensionListEntryELi8EE6createIJEEEPS2_DpOT_.exit118.thread.i ], [ %.1174447.i, %.loopexit206.thread444.i ], [ %.1174447.i, %_ZN12_GLOBAL__N_119_addExtensionToListEPPNS_18ExtensionListEntryES1_b.exit128.i ], [ %.1174447.i, %.split.us.i126.i ], [ %.11.i, %.thread57.thread.i127.i ], [ %1016, %1032 ], [ %.0173291.i, %.thread.i113 ], [ %.0173291.i, %_ZN6icu_7710MemoryPoolIN12_GLOBAL__N_118ExtensionListEntryELi8EE6createIJEEEPS2_DpOT_.exit.thread.i ], [ %.0173291.i, %_ZN12_GLOBAL__N_119_addExtensionToListEPPNS_18ExtensionListEntryES1_b.exit.i ], [ %.4177.i, %.loopexit449.i ]
+_ZN12_GLOBAL__N_119_addExtensionToListEPPNS_18ExtensionListEntryES1_b.exit128.thread.i: ; preds = %.loopexit453.i, %_ZN12_GLOBAL__N_119_addExtensionToListEPPNS_18ExtensionListEntryES1_b.exit128.i, %.thread57.thread.i127.i, %.split.us.i126.i, %1032, %_ZN6icu_7710MemoryPoolIN12_GLOBAL__N_118ExtensionListEntryELi8EE6createIJEEEPS2_DpOT_.exit118.thread.i, %.loopexit206.thread448.i, %.loopexit206.i, %_ZN12_GLOBAL__N_119_addExtensionToListEPPNS_18ExtensionListEntryES1_b.exit.i, %_ZN6icu_7710MemoryPoolIN12_GLOBAL__N_118ExtensionListEntryELi8EE6createIJEEEPS2_DpOT_.exit.thread.i, %.thread.i113
+  %.1172447.i = phi i8 [ %.3.i, %.loopexit206.i ], [ %.1172452.i, %_ZN6icu_7710MemoryPoolIN12_GLOBAL__N_118ExtensionListEntryELi8EE6createIJEEEPS2_DpOT_.exit118.thread.i ], [ %.1172452.i, %.loopexit206.thread448.i ], [ %.1172452.i, %_ZN12_GLOBAL__N_119_addExtensionToListEPPNS_18ExtensionListEntryES1_b.exit128.i ], [ %.1172452.i, %.split.us.i126.i ], [ %.1172452.i, %.thread57.thread.i127.i ], [ %.1172452.i, %1032 ], [ %.0171296.i, %_ZN12_GLOBAL__N_119_addExtensionToListEPPNS_18ExtensionListEntryES1_b.exit.i ], [ %spec.select.i112, %.thread.i113 ], [ %.0171296.i, %_ZN6icu_7710MemoryPoolIN12_GLOBAL__N_118ExtensionListEntryELi8EE6createIJEEEPS2_DpOT_.exit.thread.i ], [ %.4.i, %.loopexit453.i ]
+  %.3176.i = phi ptr [ %.2175.i, %.loopexit206.i ], [ %.1174451.i, %_ZN6icu_7710MemoryPoolIN12_GLOBAL__N_118ExtensionListEntryELi8EE6createIJEEEPS2_DpOT_.exit118.thread.i ], [ %.1174451.i, %.loopexit206.thread448.i ], [ %.1174451.i, %_ZN12_GLOBAL__N_119_addExtensionToListEPPNS_18ExtensionListEntryES1_b.exit128.i ], [ %.1174451.i, %.split.us.i126.i ], [ %.11.i, %.thread57.thread.i127.i ], [ %1016, %1032 ], [ %.0173291.i, %_ZN12_GLOBAL__N_119_addExtensionToListEPPNS_18ExtensionListEntryES1_b.exit.i ], [ %.0173291.i, %.thread.i113 ], [ %.0173291.i, %_ZN6icu_7710MemoryPoolIN12_GLOBAL__N_118ExtensionListEntryELi8EE6createIJEEEPS2_DpOT_.exit.thread.i ], [ %.4177.i, %.loopexit453.i ]
   %1047 = load i32, ptr %4, align 4, !tbaa !13
   %1048 = icmp slt i32 %1047, 1
-  %1049 = trunc nuw i8 %.1172443.i to i1
+  %1049 = trunc nuw i8 %.1172447.i to i1
   %or.cond.i106 = select i1 %1048, i1 %1049, i1 false
   br i1 %or.cond.i106, label %1050, label %1054
 
@@ -7929,11 +7929,11 @@ _ZN12_GLOBAL__N_119_addExtensionToListEPPNS_18ExtensionListEntryES1_b.exit128.th
           to label %._crit_edge.i111 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 ._crit_edge.i111:                                 ; preds = %1050
-  %.pre376.i = load i32, ptr %4, align 4, !tbaa !13
+  %.pre380.i = load i32, ptr %4, align 4, !tbaa !13
   br label %1054
 
 1054:                                             ; preds = %._crit_edge.i111, %_ZN12_GLOBAL__N_119_addExtensionToListEPPNS_18ExtensionListEntryES1_b.exit128.thread.i
-  %1055 = phi i32 [ %.pre376.i, %._crit_edge.i111 ], [ %1047, %_ZN12_GLOBAL__N_119_addExtensionToListEPPNS_18ExtensionListEntryES1_b.exit128.thread.i ]
+  %1055 = phi i32 [ %.pre380.i, %._crit_edge.i111 ], [ %1047, %_ZN12_GLOBAL__N_119_addExtensionToListEPPNS_18ExtensionListEntryES1_b.exit128.thread.i ]
   %1056 = icmp slt i32 %1055, 1
   %1057 = icmp ne ptr %.3176.i, null
   %or.cond3.i107 = select i1 %1056, i1 %1057, i1 false
@@ -8255,7 +8255,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117_addVariantToListE
   br i1 %.not, label %.thread, label %10, !llvm.loop !46
 
 .loopexit:                                        ; preds = %10, %6, %.thread
-  %.1 = phi i1 [ true, %.thread ], [ true, %6 ], [ false, %10 ]
+  %.1 = phi i1 [ true, %6 ], [ true, %.thread ], [ false, %10 ]
   ret i1 %.1
 }
 
@@ -8677,7 +8677,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119_addExtensionToLis
   br label %48
 
 48:                                               ; preds = %44, %41
-  %.145.us = phi i32 [ %47, %44 ], [ %37, %41 ]
+  %.145.us = phi i32 [ %37, %41 ], [ %47, %44 ]
   %49 = icmp slt i32 %.145.us, 0
   br i1 %49, label %.thread57, label %.thread.us
 
@@ -8754,7 +8754,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119_addExtensionToLis
   br i1 %73, label %.split.us, label %61, !llvm.loop !143
 
 .thread.thread:                                   ; preds = %.thread, %36, %.thread.us, %18, %.thread.us.us, %.split.us, %67, %57
-  %.0 = phi i1 [ true, %57 ], [ true, %.split.us ], [ true, %67 ], [ false, %36 ], [ false, %18 ], [ false, %.thread.us.us ], [ false, %.thread.us ], [ false, %.thread ]
+  %.0 = phi i1 [ true, %57 ], [ true, %.split.us ], [ true, %67 ], [ false, %18 ], [ false, %36 ], [ false, %.thread.us.us ], [ false, %.thread.us ], [ false, %.thread ]
   ret i1 %.0
 }
 

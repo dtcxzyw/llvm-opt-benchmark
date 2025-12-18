@@ -130,7 +130,7 @@ EVP_CIPHER_get_mode.exit:                         ; preds = %EVP_CIPHER_get_flag
   br label %evp_cipher_set_asn1_aead_params.exit.thread
 
 evp_cipher_set_asn1_aead_params.exit:             ; preds = %26, %12, %33
-  %.0 = phi i32 [ %32, %26 ], [ %13, %12 ], [ %34, %33 ]
+  %.0 = phi i32 [ %34, %33 ], [ %32, %26 ], [ %13, %12 ]
   %41 = icmp eq i32 %.0, -2
   br i1 %41, label %evp_cipher_set_asn1_aead_params.exit.thread31, label %evp_cipher_set_asn1_aead_params.exit.thread
 

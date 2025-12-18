@@ -1400,7 +1400,7 @@ __redisRunPushCallback.exit:                      ; preds = %redisIsSubscribeRep
   %cond = icmp eq i32 %110, 0
   br i1 %cond, label %19, label %._crit_edge.thread
 
-redisIsSubscribeReply.exit.thread90:              ; preds = %82, %96, %64, %redisIsSubscribeReply.exit
+redisIsSubscribeReply.exit.thread90:              ; preds = %96, %82, %64, %redisIsSubscribeReply.exit
   %111 = load ptr, ptr %6, align 8, !tbaa !73
   %.not.i38 = icmp eq ptr %111, null
   br i1 %.not.i38, label %__redisShiftCallback.exit, label %112
@@ -3504,8 +3504,8 @@ _dictKeyIndex.exit.i.i:                           ; preds = %218, %206, %_dictEx
   br i1 %.not.i22.i, label %.loopexit, label %.lr.ph.split.i.i, !llvm.loop !111
 
 dictFind.exit.i:                                  ; preds = %274, %.lr.ph.split.us.i.i, %.dictFind.exit.loopexit32_crit_edge.i
-  %279 = phi ptr [ %.pre.pre.i, %.dictFind.exit.loopexit32_crit_edge.i ], [ %259, %.lr.ph.split.us.i.i ], [ %267, %274 ]
-  %.0.i21.i = phi ptr [ %.01622.i.i, %.dictFind.exit.loopexit32_crit_edge.i ], [ %.01622.us.i.i, %.lr.ph.split.us.i.i ], [ %.01622.i.i, %274 ]
+  %279 = phi ptr [ %259, %.lr.ph.split.us.i.i ], [ %.pre.pre.i, %.dictFind.exit.loopexit32_crit_edge.i ], [ %267, %274 ]
+  %.0.i21.i = phi ptr [ %.01622.us.i.i, %.lr.ph.split.us.i.i ], [ %.01622.i.i, %.dictFind.exit.loopexit32_crit_edge.i ], [ %.01622.i.i, %274 ]
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.0.i21.i, i64 8
   %.sroa.3.0.copyload.i = load ptr, ptr %.sroa.3.0..sroa_idx.i, align 8, !tbaa !13
   %280 = getelementptr inbounds nuw i8, ptr %279, i64 16

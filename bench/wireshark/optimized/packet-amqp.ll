@@ -2708,7 +2708,7 @@ define internal noundef zeroext i1 @amqp_message_decode_update_cb(ptr noundef ca
   br label %27
 
 27:                                               ; preds = %.sink.split, %18, %21
-  %.0 = phi i1 [ true, %21 ], [ true, %18 ], [ false, %.sink.split ]
+  %.0 = phi i1 [ true, %18 ], [ true, %21 ], [ false, %.sink.split ]
   ret i1 %.0
 }
 
@@ -6589,8 +6589,8 @@ define internal fastcc noundef i32 @dissect_amqp_0_9_field_value(ptr noundef %0,
   br label %134
 
 129:                                              ; preds = %122, %107, %101, %95, %89, %83, %77, %71, %65, %59, %44, %37, %24, %18
-  %.0123 = phi ptr [ %20, %18 ], [ %33, %24 ], [ %39, %37 ], [ %46, %44 ], [ %61, %59 ], [ %67, %65 ], [ %73, %71 ], [ %79, %77 ], [ %85, %83 ], [ %91, %89 ], [ %97, %95 ], [ %103, %101 ], [ %109, %107 ], [ %124, %122 ]
-  %.0122 = phi i32 [ %21, %18 ], [ %34, %24 ], [ %41, %37 ], [ %47, %44 ], [ %62, %59 ], [ %68, %65 ], [ %74, %71 ], [ %80, %77 ], [ %86, %83 ], [ %92, %89 ], [ %98, %95 ], [ %104, %101 ], [ %110, %107 ], [ %126, %122 ]
+  %.0123 = phi ptr [ %20, %18 ], [ %33, %24 ], [ %39, %37 ], [ %46, %44 ], [ %124, %122 ], [ %109, %107 ], [ %61, %59 ], [ %67, %65 ], [ %73, %71 ], [ %79, %77 ], [ %85, %83 ], [ %91, %89 ], [ %97, %95 ], [ %103, %101 ]
+  %.0122 = phi i32 [ %21, %18 ], [ %34, %24 ], [ %41, %37 ], [ %47, %44 ], [ %126, %122 ], [ %110, %107 ], [ %62, %59 ], [ %68, %65 ], [ %74, %71 ], [ %80, %77 ], [ %86, %83 ], [ %92, %89 ], [ %98, %95 ], [ %104, %101 ]
   call void @proto_item_set_end(ptr noundef %11, ptr noundef %0, i32 noundef %.0122)
   %.not = icmp eq ptr %.0123, null
   br i1 %.not, label %134, label %130
@@ -6881,7 +6881,7 @@ get_conversation_channel.exit:                    ; preds = %5, %9, %16
   br i1 %.not.i8, label %record_delivery_ack_c.exit, label %.lr.ph.split.i, !llvm.loop !12
 
 record_delivery_ack_c.exit:                       ; preds = %.critedge.i, %.critedge.us.i, %.preheader.us.i, %get_conversation_channel.exit
-  %.023.lcssa.i = phi ptr [ null, %get_conversation_channel.exit ], [ null, %.critedge.us.i ], [ %36, %.preheader.us.i ], [ %.2.i, %.critedge.i ]
+  %.023.lcssa.i = phi ptr [ null, %get_conversation_channel.exit ], [ %36, %.preheader.us.i ], [ null, %.critedge.us.i ], [ %.2.i, %.critedge.i ]
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %51 = load ptr, ptr %50, align 8
   %52 = load i32, ptr @proto_amqp, align 4
@@ -12900,7 +12900,7 @@ decode_fixed_type.exit:                           ; preds = %20
   br label %.thread
 
 .thread:                                          ; preds = %47, %.thread.sink.split, %30, %36, %40, %41, %44, %24
-  %.0114 = phi i32 [ %4, %41 ], [ %4, %40 ], [ %4, %36 ], [ %4, %44 ], [ %4, %30 ], [ %4, %24 ], [ %50, %.thread.sink.split ], [ %4, %47 ]
+  %.0114 = phi i32 [ %4, %24 ], [ %4, %41 ], [ %4, %40 ], [ %50, %.thread.sink.split ], [ %4, %44 ], [ %4, %30 ], [ %4, %36 ], [ %4, %47 ]
   %51 = tail call i32 @proto_registrar_get_ftype(i32 noundef %.0114)
   %.not133 = icmp eq i32 %51, 0
   br i1 %.not133, label %58, label %52

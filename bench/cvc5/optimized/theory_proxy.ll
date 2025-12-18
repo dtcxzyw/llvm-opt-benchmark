@@ -2924,7 +2924,7 @@ define hidden void @_ZN4cvc58internal4prop11TheoryProxy15notifySatClauseERKSt6ve
   br label %_ZNK4cvc57context15CDInsertHashMapINS_8internal4prop10SatLiteralENS2_12NodeTemplateILb0EEENS3_22SatLiteralHashFunctionEE4findERKS4_.exit.thread, !llvm.loop !470
 
 _ZNK4cvc57context15CDInsertHashMapINS_8internal4prop10SatLiteralENS2_12NodeTemplateILb0EEENS3_22SatLiteralHashFunctionEE4findERKS4_.exit: ; preds = %65, %44, %56
-  %.sroa.06.1.i.i.i.i = phi ptr [ %57, %56 ], [ %.sroa.06.0.i.i.i.i, %44 ], [ %71, %65 ]
+  %.sroa.06.1.i.i.i.i = phi ptr [ %.sroa.06.0.i.i.i.i, %44 ], [ %57, %56 ], [ %71, %65 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %76 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i, i64 16
   %77 = load ptr, ptr %76, align 8, !tbaa !383

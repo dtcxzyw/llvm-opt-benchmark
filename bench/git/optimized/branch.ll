@@ -383,7 +383,7 @@ skip_prefix.exit92:                               ; preds = %95, %96
   br i1 %107, label %.lr.ph129, label %.critedge4
 
 .critedge4:                                       ; preds = %skip_prefix.exit92, %skip_prefix.exit92.us, %78
-  %108 = phi i64 [ %.pr, %78 ], [ %91, %skip_prefix.exit92.us ], [ %105, %skip_prefix.exit92 ]
+  %108 = phi i64 [ %91, %skip_prefix.exit92.us ], [ %.pr, %78 ], [ %105, %skip_prefix.exit92 ]
   %109 = icmp eq i64 %108, 1
   br i1 %109, label %110, label %.critedge4.thread
 
@@ -1754,7 +1754,7 @@ define dso_local void @die_if_checked_out(ptr noundef %0, i32 noundef %1) local_
   br i1 %.not12, label %22, label %.split.us
 
 .split.us:                                        ; preds = %14, %7, %.lr.ph.split.us
-  %.us-phi = phi i64 [ 0, %.lr.ph.split.us ], [ %indvars.iv.next27, %7 ], [ %indvars.iv, %14 ]
+  %.us-phi = phi i64 [ %indvars.iv.next27, %7 ], [ 0, %.lr.ph.split.us ], [ %indvars.iv, %14 ]
   %16 = getelementptr inbounds nuw ptr, ptr %4, i64 %.us-phi
   call fastcc void @skip_prefix(ptr noundef %0, ptr noundef %3)
   %17 = tail call fastcc ptr @_(ptr noundef nonnull @.str.19)

@@ -142,7 +142,7 @@ define internal i32 @sp5x_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   br label %.critedge
 
 .critedge:                                        ; preds = %62, %.critedge.loopexit, %.preheader81, %.preheader
-  %.1 = phi i32 [ 589, %.preheader ], [ 589, %.preheader81 ], [ %65, %.critedge.loopexit ], [ %.3, %62 ]
+  %.1 = phi i32 [ %65, %.critedge.loopexit ], [ 589, %.preheader ], [ 589, %.preheader81 ], [ %.3, %62 ]
   %66 = sext i32 %.1 to i64
   %67 = getelementptr inbounds i8, ptr %17, i64 %66
   store i8 -1, ptr %67, align 1, !tbaa !31

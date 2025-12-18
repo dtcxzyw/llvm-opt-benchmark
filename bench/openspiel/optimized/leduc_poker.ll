@@ -6329,7 +6329,7 @@ _ZNSt6vectorISt4pairIldESaIS1_EE9push_backEOS1_.exit43: ; preds = %_ZNSt6vectorI
   br i1 %143, label %106, label %.loopexit, !llvm.loop !36
 
 .loopexit:                                        ; preds = %_ZNSt6vectorISt4pairIldESaIS1_EE9push_backEOS1_.exit43, %_ZNSt6vectorISt4pairIldESaIS1_EE9push_backEOS1_.exit, %103, %25
-  %storemerge = phi ptr [ null, %25 ], [ null, %103 ], [ %94, %_ZNSt6vectorISt4pairIldESaIS1_EE9push_backEOS1_.exit ], [ %136, %_ZNSt6vectorISt4pairIldESaIS1_EE9push_backEOS1_.exit43 ]
+  %storemerge = phi ptr [ %94, %_ZNSt6vectorISt4pairIldESaIS1_EE9push_backEOS1_.exit ], [ null, %25 ], [ null, %103 ], [ %136, %_ZNSt6vectorISt4pairIldESaIS1_EE9push_backEOS1_.exit43 ]
   store ptr %storemerge, ptr %0, align 8
   ret void
 

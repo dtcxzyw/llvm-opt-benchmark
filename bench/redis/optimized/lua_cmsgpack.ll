@@ -1390,7 +1390,7 @@ define dso_local range(i32 0, 2) i32 @table_is_an_array(ptr noundef %0) local_un
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5, %7, %1, %._crit_edge.loopexit
-  %.0 = phi i32 [ 1, %1 ], [ %19, %._crit_edge.loopexit ], [ 0, %7 ], [ 0, %5 ], [ 0, %.lr.ph ]
+  %.0 = phi i32 [ %19, %._crit_edge.loopexit ], [ 1, %1 ], [ 0, %7 ], [ 0, %5 ], [ 0, %.lr.ph ]
   tail call void @lua_settop(ptr noundef %0, i32 noundef %2) #10
   ret i32 %.0
 }

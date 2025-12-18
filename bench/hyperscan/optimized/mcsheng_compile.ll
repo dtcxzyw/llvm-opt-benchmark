@@ -564,7 +564,7 @@ define hidden void @_ZN3ue214mcshengCompileERNS_7raw_dfaERKNS_14CompileContextER
   br i1 %exitcond15.not.i.i, label %_ZN3ue2L14is_cyclic_nearERKNS_7raw_dfaEt.exit.i, label %100, !llvm.loop !12
 
 _ZN3ue2L14is_cyclic_nearERKNS_7raw_dfaEt.exit.i:  ; preds = %.loopexit.i.i, %109, %89
-  %.not304.i.i = phi i1 [ false, %89 ], [ true, %109 ], [ false, %.loopexit.i.i ]
+  %.not304.i.i = phi i1 [ true, %109 ], [ false, %89 ], [ false, %.loopexit.i.i ]
   %.val80.i = load i8, ptr %88, align 1, !range !5, !noalias !7, !noundef !6
   invoke fastcc void @_ZN3ue2L17find_better_daddyERNS_12_GLOBAL__N_18dfa_infoEtbRKNS_4GreyE(ptr noundef nonnull readonly align 8 dereferenceable(90) %17, i16 noundef zeroext %90, i1 noundef zeroext %.not304.i.i, i8 %.val80.i)
           to label %114 unwind label %123
@@ -2580,8 +2580,8 @@ _ZN3ue28containsISt3mapItNS_11AccelSchemeESt4lessItESaISt4pairIKtS2_EEEEEbRKT_RK
   br label %._crit_edge310
 
 ._crit_edge310:                                   ; preds = %.lr.ph309, %._crit_edge310.loopexit315
-  %269 = phi i64 [ %.pre321, %._crit_edge310.loopexit315 ], [ %.pre320, %.lr.ph309 ]
-  %.2110.lcssa = phi i16 [ %.3111, %._crit_edge310.loopexit315 ], [ %.1109, %.lr.ph309 ]
+  %269 = phi i64 [ %.pre320, %.lr.ph309 ], [ %.pre321, %._crit_edge310.loopexit315 ]
+  %.2110.lcssa = phi i16 [ %.1109, %.lr.ph309 ], [ %.3111, %._crit_edge310.loopexit315 ]
   %270 = icmp ugt i64 %269, 5
   %or.cond = select i1 %270, i1 %.0104.lcssa, i1 false
   br i1 %or.cond, label %271, label %._crit_edge310.thread
@@ -3610,7 +3610,7 @@ define hidden void @_ZN3ue216mcshengCompile64ERNS_7raw_dfaERKNS_14CompileContext
   br i1 %exitcond15.not.i.i, label %_ZN3ue2L14is_cyclic_nearERKNS_7raw_dfaEt.exit.i, label %95, !llvm.loop !12
 
 _ZN3ue2L14is_cyclic_nearERKNS_7raw_dfaEt.exit.i:  ; preds = %.loopexit.i.i, %104, %84
-  %.not304.i.i = phi i1 [ false, %84 ], [ true, %104 ], [ false, %.loopexit.i.i ]
+  %.not304.i.i = phi i1 [ true, %104 ], [ false, %84 ], [ false, %.loopexit.i.i ]
   %.val80.i = load i8, ptr %83, align 1, !range !5, !noalias !118, !noundef !6
   invoke fastcc void @_ZN3ue2L17find_better_daddyERNS_12_GLOBAL__N_18dfa_infoEtbRKNS_4GreyE(ptr noundef nonnull readonly align 8 dereferenceable(90) %17, i16 noundef zeroext %85, i1 noundef zeroext %.not304.i.i, i8 %.val80.i)
           to label %109 unwind label %118

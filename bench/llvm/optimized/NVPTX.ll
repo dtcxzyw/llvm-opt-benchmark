@@ -1373,7 +1373,7 @@ _ZNK5clang4Decl7getAttrINS_20CUDALaunchBoundsAttrEEEPT_v.exit: ; preds = %.lr.ph
   call void @_ZN5clang7CodeGen13CodeGenModule26handleCUDALaunchBoundsAttrEPN4llvm8FunctionEPKNS_20CUDALaunchBoundsAttrEPiS8_S8_(ptr noundef nonnull align 8 dereferenceable(3608) %3, ptr noundef nonnull %2, ptr noundef nonnull %213, ptr noundef null, ptr noundef null, ptr noundef null)
   br label %_ZNK5clang4Decl7getAttrINS_20CUDALaunchBoundsAttrEEEPT_v.exit.thread
 
-_ZNK5clang4Decl7getAttrINS_20CUDALaunchBoundsAttrEEEPT_v.exit.thread: ; preds = %200, %189, %_ZN5clangneENS_22specific_attr_iteratorINS_20CUDALaunchBoundsAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, %_ZNK5clang4Decl7hasAttrINS_14CUDAGlobalAttrEEEbv.exit.thread97, %_ZNK5clang4Decl7getAttrINS_20CUDALaunchBoundsAttrEEEPT_v.exit, %_ZNK5clang4Decl7hasAttrINS_16OpenCLKernelAttrEEEbv.exit.thread95
+_ZNK5clang4Decl7getAttrINS_20CUDALaunchBoundsAttrEEEPT_v.exit.thread: ; preds = %200, %_ZN5clangneENS_22specific_attr_iteratorINS_20CUDALaunchBoundsAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, %189, %_ZNK5clang4Decl7hasAttrINS_14CUDAGlobalAttrEEEbv.exit.thread97, %_ZNK5clang4Decl7getAttrINS_20CUDALaunchBoundsAttrEEEPT_v.exit, %_ZNK5clang4Decl7hasAttrINS_16OpenCLKernelAttrEEEbv.exit.thread95
   %214 = load i32, ptr %10, align 4
   %215 = and i32 %214, 256
   %.not.i65 = icmp eq i32 %215, 0
@@ -2508,7 +2508,7 @@ _ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit: ; preds
   br i1 %.not150, label %.loopexit, label %.lr.ph146
 
 .loopexit:                                        ; preds = %105, %_ZNK5clang4Type14isFloat128TypeEv.exit, %42, %_ZNK5clang4Type13isFloat16TypeEv.exit, %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit, %.lr.ph146, %.loopexit135, %_ZNK5clang4Type5getAsINS_10BitIntTypeEEEPKT_v.exit.thread101, %_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit.thread
-  %.0 = phi i1 [ %69, %_ZNK5clang4Type5getAsINS_10BitIntTypeEEEPKT_v.exit.thread101 ], [ false, %_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit.thread ], [ false, %.loopexit135 ], [ true, %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit ], [ %153, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit ], [ %153, %.lr.ph146 ], [ true, %_ZNK5clang4Type13isFloat16TypeEv.exit ], [ true, %42 ], [ true, %_ZNK5clang4Type14isFloat128TypeEv.exit ], [ true, %105 ]
+  %.0 = phi i1 [ %153, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit ], [ true, %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit ], [ false, %_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit.thread ], [ %69, %_ZNK5clang4Type5getAsINS_10BitIntTypeEEEPKT_v.exit.thread101 ], [ false, %.loopexit135 ], [ %153, %.lr.ph146 ], [ true, %_ZNK5clang4Type13isFloat16TypeEv.exit ], [ true, %42 ], [ true, %_ZNK5clang4Type14isFloat128TypeEv.exit ], [ true, %105 ]
   ret i1 %.0
 }
 

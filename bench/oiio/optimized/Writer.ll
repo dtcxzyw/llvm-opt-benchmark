@@ -1283,12 +1283,12 @@ define linkonce_odr hidden noundef i32 @_ZN3dpx11WriteBufferIhLi8ELb0EEEiP9OutSt
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !64
 
 .loopexit.sink.split:                             ; preds = %43, %.lr.ph.split, %.lr.ph.split.us
-  %.1.ph = phi i32 [ %28, %.lr.ph.split.us ], [ %37, %.lr.ph.split ], [ %44, %43 ]
+  %.1.ph = phi i32 [ %28, %.lr.ph.split.us ], [ %44, %43 ], [ %37, %.lr.ph.split ]
   store i8 0, ptr %11, align 1, !tbaa !51
   br label %.loopexit
 
 .loopexit:                                        ; preds = %50, %34, %.loopexit.sink.split, %._crit_edge
-  %.1 = phi i32 [ 0, %._crit_edge ], [ %.1.ph, %.loopexit.sink.split ], [ %26, %34 ], [ %44, %50 ]
+  %.1 = phi i32 [ %.1.ph, %.loopexit.sink.split ], [ %26, %34 ], [ 0, %._crit_edge ], [ %44, %50 ]
   tail call void @_ZdaPv(ptr noundef nonnull %22) #19
   ret i32 %.1
 }
@@ -1618,12 +1618,12 @@ _ZN3dpx15CopyWriteBufferItEEvNS_8DataSizeEPhPT_i.exit: ; preds = %.lr.ph.i29.i, 
   br i1 %exitcond.not.i83, label %_ZN3dpx25WritePackedMethodAB_10bitItLNS_7PackingE1EEEvPT_S3_ibRNS_12BufferAccessE.exit.sink.split, label %.preheader.split.i78, !llvm.loop !70
 
 _ZN3dpx25WritePackedMethodAB_10bitItLNS_7PackingE1EEEvPT_S3_ibRNS_12BufferAccessE.exit.sink.split: ; preds = %133, %110, %177, %156
-  %.us-phi.i85.sink = phi i32 [ %123, %110 ], [ %167, %156 ], [ %187, %177 ], [ %145, %133 ]
+  %.us-phi.i85.sink = phi i32 [ %123, %110 ], [ %187, %177 ], [ %167, %156 ], [ %145, %133 ]
   store i32 %.us-phi.i85.sink, ptr %31, align 4, !tbaa !3
   br label %_ZN3dpx25WritePackedMethodAB_10bitItLNS_7PackingE1EEEvPT_S3_ibRNS_12BufferAccessE.exit
 
 _ZN3dpx25WritePackedMethodAB_10bitItLNS_7PackingE1EEEvPT_S3_ibRNS_12BufferAccessE.exit: ; preds = %99, %_ZN3dpx25WritePackedMethodAB_10bitItLNS_7PackingE1EEEvPT_S3_ibRNS_12BufferAccessE.exit.sink.split, %73, %146, %100
-  %.sroa.14.1 = phi i32 [ %.sroa.14.0116, %100 ], [ %.sroa.14.0116, %146 ], [ %42, %73 ], [ %36, %_ZN3dpx25WritePackedMethodAB_10bitItLNS_7PackingE1EEEvPT_S3_ibRNS_12BufferAccessE.exit.sink.split ], [ %42, %99 ]
+  %.sroa.14.1 = phi i32 [ %36, %_ZN3dpx25WritePackedMethodAB_10bitItLNS_7PackingE1EEEvPT_S3_ibRNS_12BufferAccessE.exit.sink.split ], [ %42, %73 ], [ %.sroa.14.0116, %100 ], [ %.sroa.14.0116, %146 ], [ %42, %99 ]
   %188 = sext i32 %.sroa.14.1 to i64
   %189 = shl nsw i64 %188, 1
   %190 = trunc i64 %189 to i32
@@ -1946,12 +1946,12 @@ define linkonce_odr hidden noundef i32 @_ZN3dpx11WriteBufferItLi10ELb0EEEiP9OutS
   br i1 %exitcond.not.i78, label %_ZN3dpx25WritePackedMethodAB_10bitItLNS_7PackingE1EEEvPT_S3_ibRNS_12BufferAccessE.exit.sink.split, label %.preheader.split.i73, !llvm.loop !70
 
 _ZN3dpx25WritePackedMethodAB_10bitItLNS_7PackingE1EEEvPT_S3_ibRNS_12BufferAccessE.exit.sink.split: ; preds = %115, %92, %159, %138
-  %.us-phi.i80.sink = phi i32 [ %105, %92 ], [ %149, %138 ], [ %169, %159 ], [ %127, %115 ]
+  %.us-phi.i80.sink = phi i32 [ %105, %92 ], [ %169, %159 ], [ %149, %138 ], [ %127, %115 ]
   store i32 %.us-phi.i80.sink, ptr %30, align 4, !tbaa !3
   br label %_ZN3dpx25WritePackedMethodAB_10bitItLNS_7PackingE1EEEvPT_S3_ibRNS_12BufferAccessE.exit
 
 _ZN3dpx25WritePackedMethodAB_10bitItLNS_7PackingE1EEEvPT_S3_ibRNS_12BufferAccessE.exit: ; preds = %81, %_ZN3dpx25WritePackedMethodAB_10bitItLNS_7PackingE1EEEvPT_S3_ibRNS_12BufferAccessE.exit.sink.split, %55, %128, %82
-  %.sroa.14.1 = phi i32 [ %.sroa.14.0109, %82 ], [ %.sroa.14.0109, %128 ], [ %42, %55 ], [ %35, %_ZN3dpx25WritePackedMethodAB_10bitItLNS_7PackingE1EEEvPT_S3_ibRNS_12BufferAccessE.exit.sink.split ], [ %42, %81 ]
+  %.sroa.14.1 = phi i32 [ %35, %_ZN3dpx25WritePackedMethodAB_10bitItLNS_7PackingE1EEEvPT_S3_ibRNS_12BufferAccessE.exit.sink.split ], [ %42, %55 ], [ %.sroa.14.0109, %82 ], [ %.sroa.14.0109, %128 ], [ %42, %81 ]
   %170 = sext i32 %.sroa.14.1 to i64
   %171 = shl nsw i64 %170, 1
   %172 = trunc i64 %171 to i32
@@ -2768,12 +2768,12 @@ _ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.loopexit: ; preds = %.lr.ph.i.i.
   br i1 %exitcond96.not, label %.loopexit, label %.lr.ph.i.i.i14.i.preheader, !llvm.loop !79
 
 .loopexit.sink.split:                             ; preds = %47, %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.us, %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.us.us, %83, %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.loopexit, %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.loopexit.us
-  %.1.ph = phi i32 [ %66, %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.loopexit.us ], [ %32, %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.us.us ], [ %77, %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.loopexit ], [ %84, %83 ], [ %48, %47 ], [ %41, %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.us ]
+  %.1.ph = phi i32 [ %32, %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.us.us ], [ %77, %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.loopexit ], [ %66, %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.loopexit.us ], [ %84, %83 ], [ %41, %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.us ], [ %48, %47 ]
   store i8 0, ptr %11, align 1, !tbaa !51
   br label %.loopexit
 
 .loopexit:                                        ; preds = %54, %38, %90, %64, %.loopexit.sink.split, %._crit_edge
-  %.1 = phi i32 [ 0, %._crit_edge ], [ %.1.ph, %.loopexit.sink.split ], [ %30, %38 ], [ %58, %64 ], [ %84, %90 ], [ %48, %54 ]
+  %.1 = phi i32 [ %.1.ph, %.loopexit.sink.split ], [ %30, %38 ], [ 0, %._crit_edge ], [ %84, %90 ], [ %58, %64 ], [ %48, %54 ]
   tail call void @_ZdaPv(ptr noundef nonnull %23) #19
   ret i32 %.1
 }
@@ -2938,12 +2938,12 @@ _ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.loopexit: ; preds = %.lr.ph.i.i.
   br i1 %exitcond95.not, label %.loopexit, label %.lr.ph.i.i.i19.i.preheader, !llvm.loop !80
 
 .loopexit.sink.split:                             ; preds = %45, %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.us, %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.us.us, %81, %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.loopexit, %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.loopexit.us
-  %.1.ph = phi i32 [ %64, %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.loopexit.us ], [ %30, %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.us.us ], [ %75, %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.loopexit ], [ %82, %81 ], [ %46, %45 ], [ %39, %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.us ]
+  %.1.ph = phi i32 [ %30, %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.us.us ], [ %75, %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.loopexit ], [ %64, %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.loopexit.us ], [ %82, %81 ], [ %39, %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.us ], [ %46, %45 ]
   store i8 0, ptr %10, align 1, !tbaa !51
   br label %.loopexit
 
 .loopexit:                                        ; preds = %52, %36, %88, %62, %.loopexit.sink.split, %._crit_edge
-  %.1 = phi i32 [ 0, %._crit_edge ], [ %.1.ph, %.loopexit.sink.split ], [ %28, %36 ], [ %56, %62 ], [ %82, %88 ], [ %46, %52 ]
+  %.1 = phi i32 [ %.1.ph, %.loopexit.sink.split ], [ %28, %36 ], [ 0, %._crit_edge ], [ %82, %88 ], [ %56, %62 ], [ %46, %52 ]
   tail call void @_ZdaPv(ptr noundef nonnull %21) #19
   ret i32 %.1
 }
@@ -3312,12 +3312,12 @@ _ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit:  ; preds = %.lr.ph.split, %115
   br i1 %exitcond.not, label %.loopexit, label %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit, !llvm.loop !85
 
 .loopexit.sink.split:                             ; preds = %108, %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit, %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.us63, %74, %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.loopexit.us, %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.loopexit.us.us, %44, %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.us.us, %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.us.us.us
-  %.1.ph = phi i32 [ 0, %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.us.us.us ], [ %63, %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.loopexit.us.us ], [ %93, %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.us63 ], [ %.058.us.us, %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.us.us ], [ %83, %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.loopexit.us ], [ %45, %44 ], [ %75, %74 ], [ %109, %108 ], [ %102, %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit ]
+  %.1.ph = phi i32 [ %.058.us.us, %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.us.us ], [ 0, %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.us.us.us ], [ %93, %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.us63 ], [ %63, %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.loopexit.us.us ], [ %83, %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.loopexit.us ], [ %45, %44 ], [ %75, %74 ], [ %109, %108 ], [ %102, %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit ]
   store i8 0, ptr %10, align 1, !tbaa !51
   br label %.loopexit
 
 .loopexit:                                        ; preds = %115, %99, %81, %61, %51, %36, %.loopexit.sink.split, %._crit_edge
-  %.1 = phi i32 [ 0, %._crit_edge ], [ %.1.ph, %.loopexit.sink.split ], [ %91, %99 ], [ 0, %36 ], [ %29, %51 ], [ %55, %61 ], [ %75, %81 ], [ %109, %115 ]
+  %.1 = phi i32 [ %.1.ph, %.loopexit.sink.split ], [ %29, %51 ], [ 0, %._crit_edge ], [ 0, %36 ], [ %75, %81 ], [ %55, %61 ], [ %91, %99 ], [ %109, %115 ]
   tail call void @_ZdaPv(ptr noundef nonnull %21) #19
   ret i32 %.1
 }

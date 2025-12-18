@@ -3482,8 +3482,8 @@ define hidden void @_ZN4core5slice4sort7recurse17hed2b7e233d5ca197E.llvm.6900363
   br i1 %24, label %26, label %27
 
 .outer._crit_edge:                                ; preds = %.outer, %266, %5
-  %.sroa.14.0.lcssa = phi i64 [ %1, %5 ], [ %267, %266 ], [ %.sroa.14.1, %.outer ]
-  %.sroa.0.0.lcssa = phi ptr [ %0, %5 ], [ %268, %266 ], [ %.sroa.0.1, %.outer ]
+  %.sroa.14.0.lcssa = phi i64 [ %267, %266 ], [ %1, %5 ], [ %.sroa.14.1, %.outer ]
+  %.sroa.0.0.lcssa = phi ptr [ %268, %266 ], [ %0, %5 ], [ %.sroa.0.1, %.outer ]
   %25 = icmp samesign ugt i64 %.sroa.14.0.lcssa, 1
   br i1 %25, label %274, label %.loopexit
 
@@ -3942,7 +3942,7 @@ _ZN4core5slice4sort12choose_pivot17h8f21d09f611d4b51E.exit: ; preds = %"_ZN4core
   br i1 %201, label %.preheader.i.i, label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.preheader9.i.i, %.preheader.i.i, %187
-  %spec.select.lcssa.sink.i.i = phi ptr [ %spec.select.i.i, %187 ], [ %200, %.preheader.i.i ], [ %194, %.preheader9.i.i ]
+  %spec.select.lcssa.sink.i.i = phi ptr [ %200, %.preheader.i.i ], [ %spec.select.i.i, %187 ], [ %194, %.preheader9.i.i ]
   %202 = ptrtoint ptr %spec.select.lcssa.sink.i.i to i64
   %203 = ptrtoint ptr %108 to i64
   %204 = sub i64 %202, %203
@@ -5027,7 +5027,7 @@ define hidden noundef ptr @"_ZN5rowan3ast22SyntaxNodePtr$LT$L$GT$11try_to_node17
   br label %.body
 
 .body:                                            ; preds = %81, %86, %96
-  %eh.lpad-body = phi { ptr, i32 } [ %97, %96 ], [ %lpad.phi.i.i, %86 ], [ %lpad.phi.i.i, %81 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %97, %96 ], [ %lpad.phi.i.i, %81 ], [ %lpad.phi.i.i, %86 ]
   %98 = icmp eq ptr %.sroa.4.2, null
   br i1 %98, label %"_ZN4core3ptr246drop_in_place$LT$core..iter..sources..successors..Successors$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$C$rowan..ast..SyntaxNodePtr$LT$syntax..syntax_node..RustLanguage$GT$..try_to_node..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hebdc8cf872d06ddeE.exit", label %99
 

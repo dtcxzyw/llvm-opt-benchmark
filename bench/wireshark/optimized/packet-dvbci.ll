@@ -2201,8 +2201,8 @@ define internal void @dissect_dvbci_payload_ca(i32 noundef %0, i32 noundef %1, p
   br label %.loopexit128.preheader
 
 .loopexit128.preheader:                           ; preds = %49, %42, %54
-  %.3111.ph = phi i32 [ %47, %42 ], [ %41, %54 ], [ %50, %49 ]
-  %.2.ph = phi i1 [ false, %42 ], [ false, %54 ], [ true, %49 ]
+  %.3111.ph = phi i32 [ %41, %54 ], [ %47, %42 ], [ %50, %49 ]
+  %.2.ph = phi i1 [ false, %54 ], [ false, %42 ], [ true, %49 ]
   br label %.loopexit128
 
 .loopexit128:                                     ; preds = %.loopexit128.preheader, %dissect_es.exit

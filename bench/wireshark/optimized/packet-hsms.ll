@@ -642,7 +642,7 @@ default.unreachable:                              ; preds = %4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %80, %63, %.loopexit.sink.split, %.preheader
-  %.0138 = phi i32 [ 0, %.preheader ], [ %91, %.loopexit.sink.split ], [ %.4142.us, %63 ], [ %.4142, %80 ]
+  %.0138 = phi i32 [ %91, %.loopexit.sink.split ], [ %.4142.us, %63 ], [ 0, %.preheader ], [ %.4142, %80 ]
   %97 = add nuw nsw i32 %14, 1
   %98 = add i32 %97, %.0138
   call void @proto_item_set_len(ptr noundef %43, i32 noundef %98)

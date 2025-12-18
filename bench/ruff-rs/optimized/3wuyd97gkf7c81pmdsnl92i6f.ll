@@ -183,7 +183,7 @@ _ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread16.i: ; preds = %.lr
   br i1 %.not12.i, label %43, label %41
 
 _ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread.i: ; preds = %.preheader.i.i, %30, %_ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit._ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread.loopexit20_crit_edge.i
-  %40 = phi i64 [ %.pre46.pre.i, %_ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit._ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread.loopexit20_crit_edge.i ], [ %16, %30 ], [ %16, %.preheader.i.i ]
+  %40 = phi i64 [ %16, %30 ], [ %.pre46.pre.i, %_ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit._ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread.loopexit20_crit_edge.i ], [ %16, %.preheader.i.i ]
   store i64 %40, ptr %8, align 8, !alias.scope !11, !noalias !14
   br label %.loopexit
 
@@ -2997,7 +2997,7 @@ define void @_ZN20ruff_python_semantic10definition11Definitions7resolve17hd3c6ce
           to label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17he0b7d3b83958b343E.exit" unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17he0b7d3b83958b343E.exit": ; preds = %119, %85, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17he0b7d3b83958b343E.exit.thread.invoke", %137, %131, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h349c078bde24d1ceE.exit.thread", %110, %98, %104, %74, %38, %40
-  %.sroa.05.0.shrunk = phi i1 [ true, %38 ], [ %138, %137 ], [ %97, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17he0b7d3b83958b343E.exit.thread.invoke" ], [ true, %98 ], [ %41, %40 ], [ %130, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h349c078bde24d1ceE.exit.thread" ], [ true, %131 ], [ true, %74 ], [ true, %104 ], [ true, %110 ], [ true, %85 ], [ true, %119 ]
+  %.sroa.05.0.shrunk = phi i1 [ true, %38 ], [ %138, %137 ], [ %97, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17he0b7d3b83958b343E.exit.thread.invoke" ], [ true, %98 ], [ true, %85 ], [ true, %110 ], [ %41, %40 ], [ %130, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h349c078bde24d1ceE.exit.thread" ], [ true, %131 ], [ true, %74 ], [ true, %104 ], [ true, %119 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.044)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.044, ptr noundef nonnull align 8 dereferenceable(64) %6, i64 64, i1 false)
   %42 = zext i1 %.sroa.05.0.shrunk to i8

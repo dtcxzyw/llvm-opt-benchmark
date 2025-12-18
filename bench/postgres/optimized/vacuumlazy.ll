@@ -1902,8 +1902,8 @@ BufferGetPage.exit.i.i:                           ; preds = %886, %880
   br i1 %911, label %840, label %count_nondeletable_pages.exit.i
 
 count_nondeletable_pages.exit.i:                  ; preds = %.critedge.i.i, %..thread80.loopexit_crit_edge94.i.i, %859, %854, %831
-  %.046.i = phi i1 [ false, %831 ], [ false, %..thread80.loopexit_crit_edge94.i.i ], [ true, %859 ], [ true, %854 ], [ false, %.critedge.i.i ]
-  %.4.i.i = phi i32 [ %836, %831 ], [ %.05392.i.i, %..thread80.loopexit_crit_edge94.i.i ], [ %.05392.i.i, %859 ], [ %.05392.i.i, %854 ], [ %910, %.critedge.i.i ]
+  %.046.i = phi i1 [ false, %831 ], [ true, %854 ], [ false, %..thread80.loopexit_crit_edge94.i.i ], [ true, %859 ], [ false, %.critedge.i.i ]
+  %.4.i.i = phi i32 [ %836, %831 ], [ %.05392.i.i, %854 ], [ %.05392.i.i, %..thread80.loopexit_crit_edge94.i.i ], [ %.05392.i.i, %859 ], [ %910, %.critedge.i.i ]
   store i32 %.4.i.i, ptr %282, align 8
   %.not45.i = icmp ult i32 %.4.i.i, %.041.i
   %912 = load ptr, ptr %58, align 8

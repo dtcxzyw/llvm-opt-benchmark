@@ -1337,7 +1337,7 @@ for.body:                                         ; preds = %for.body.lr.ph.spli
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !16
 
 for.end:                                          ; preds = %for.body, %for.body.us154, %for.body.us, %for.body.us.us, %entry
-  %i.0.lcssa = phi i64 [ 0, %entry ], [ %add153.us155, %for.body.us154 ], [ %add153.us.us, %for.body.us.us ], [ %add153.us, %for.body.us ], [ %add153, %for.body ]
+  %i.0.lcssa = phi i64 [ 0, %entry ], [ %add153.us155, %for.body.us154 ], [ %add153.us, %for.body.us ], [ %add153.us.us, %for.body.us.us ], [ %add153, %for.body ]
   %add4 = or disjoint i64 %i.0.lcssa, 32
   %cmp5.not = icmp ugt i64 %add4, %numBits
   br i1 %cmp5.not, label %if.end, label %if.then
@@ -1926,8 +1926,8 @@ if.end.loopexit:                                  ; preds = %for.body.i
   br label %if.end
 
 if.end:                                           ; preds = %if.end.loopexit, %for.body, %if.then, %cond.end13
-  %11 = phi ptr [ %5, %cond.end13 ], [ %5, %if.then ], [ %5, %for.body ], [ %.pre, %if.end.loopexit ]
-  %cond1425 = phi i32 [ %div.i, %cond.end13 ], [ %div.i, %if.then ], [ %cond, %for.body ], [ %div.i, %if.end.loopexit ]
+  %11 = phi ptr [ %5, %for.body ], [ %5, %cond.end13 ], [ %5, %if.then ], [ %.pre, %if.end.loopexit ]
+  %cond1425 = phi i32 [ %cond, %for.body ], [ %div.i, %cond.end13 ], [ %div.i, %if.then ], [ %div.i, %if.end.loopexit ]
   %add.ptr.i16 = getelementptr inbounds nuw %"struct.facebook::velox::ByteRange", ptr %11, i64 %indvars.iv
   %12 = load ptr, ptr %add.ptr.i16, align 8
   %conv28 = sext i32 %cond1425 to i64

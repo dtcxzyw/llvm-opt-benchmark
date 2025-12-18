@@ -843,7 +843,7 @@ _ZN12grep_printer9hyperlink13FormatBuilder8validate17hdf0e7f9427f6a424E.exit.thr
   br i1 %.not.not.i.i.i, label %.loopexit.i, label %.lr.ph.i.split.i.i
 
 _ZN12grep_printer9hyperlink13FormatBuilder8validate17hdf0e7f9427f6a424E.exit.thread.i: ; preds = %82, %_ZN12grep_printer9hyperlink13FormatBuilder8validate17hdf0e7f9427f6a424E.exit.i, %.loopexit.i.i, %_ZN12grep_printer9hyperlink13FormatBuilder8validate17hdf0e7f9427f6a424E.exit.thread14.i, %.loopexit4.i.i
-  %.sroa.0.19.i = phi i64 [ -9223372036854775804, %_ZN12grep_printer9hyperlink13FormatBuilder8validate17hdf0e7f9427f6a424E.exit.thread14.i ], [ -9223372036854775804, %_ZN12grep_printer9hyperlink13FormatBuilder8validate17hdf0e7f9427f6a424E.exit.i ], [ -9223372036854775807, %.loopexit4.i.i ], [ -9223372036854775806, %.loopexit.i.i ], [ -9223372036854775808, %82 ]
+  %.sroa.0.19.i = phi i64 [ -9223372036854775804, %_ZN12grep_printer9hyperlink13FormatBuilder8validate17hdf0e7f9427f6a424E.exit.thread14.i ], [ -9223372036854775804, %_ZN12grep_printer9hyperlink13FormatBuilder8validate17hdf0e7f9427f6a424E.exit.i ], [ -9223372036854775806, %.loopexit.i.i ], [ -9223372036854775807, %.loopexit4.i.i ], [ -9223372036854775808, %82 ]
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.0.19.i, ptr %151, align 8, !alias.scope !66
   store i64 -9223372036854775808, ptr %0, align 8, !alias.scope !66

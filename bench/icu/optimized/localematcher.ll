@@ -638,7 +638,7 @@ select.unfold:                                    ; preds = %33
   br i1 %.old22, label %.lr.ph.backedge, label %_ZN6icu_7713LocaleMatcher7Builder27ensureSupportedLocaleVectorEv.exit.thread
 
 .lr.ph.backedge:                                  ; preds = %select.unfold, %39
-  %.01220.be = phi i32 [ %.old, %select.unfold ], [ %42, %39 ]
+  %.01220.be = phi i32 [ %42, %39 ], [ %.old, %select.unfold ]
   br label %.lr.ph, !llvm.loop !45
 
 _ZN6icu_7713LocaleMatcher7Builder27ensureSupportedLocaleVectorEv.exit.thread: ; preds = %select.unfold, %39, %_ZN6icu_7713LocaleMatcher7Builder27ensureSupportedLocaleVectorEv.exit, %18, %21, %25, %_ZN6icu_7713LocaleMatcher7Builder21clearSupportedLocalesEv.exit, %3
@@ -2755,8 +2755,8 @@ _ZN6icu_773LSRD2Ev.exit:                          ; preds = %_ZN6icu_7717LocaleL
   br label %.loopexit
 
 .loopexit:                                        ; preds = %72, %_ZN6icu_773LSRD2Ev.exit, %_ZN6icu_7717LocaleLsrIterator15rememberCurrentEiR10UErrorCode.exit48, %92, %138, %.thread55, %4, %140
-  %.sroa.0.0 = phi i32 [ %145, %140 ], [ %36, %.thread55 ], [ undef, %4 ], [ undef, %138 ], [ undef, %92 ], [ undef, %_ZN6icu_7717LocaleLsrIterator15rememberCurrentEiR10UErrorCode.exit48 ], [ undef, %_ZN6icu_773LSRD2Ev.exit ], [ undef, %72 ]
-  %.sroa.3.0 = phi i64 [ 4294967296, %140 ], [ 4294967296, %.thread55 ], [ 0, %4 ], [ 0, %138 ], [ 0, %92 ], [ 0, %_ZN6icu_7717LocaleLsrIterator15rememberCurrentEiR10UErrorCode.exit48 ], [ 0, %_ZN6icu_773LSRD2Ev.exit ], [ 0, %72 ]
+  %.sroa.0.0 = phi i32 [ undef, %138 ], [ %145, %140 ], [ %36, %.thread55 ], [ undef, %4 ], [ undef, %92 ], [ undef, %_ZN6icu_7717LocaleLsrIterator15rememberCurrentEiR10UErrorCode.exit48 ], [ undef, %_ZN6icu_773LSRD2Ev.exit ], [ undef, %72 ]
+  %.sroa.3.0 = phi i64 [ 0, %138 ], [ 4294967296, %140 ], [ 4294967296, %.thread55 ], [ 0, %4 ], [ 0, %92 ], [ 0, %_ZN6icu_7717LocaleLsrIterator15rememberCurrentEiR10UErrorCode.exit48 ], [ 0, %_ZN6icu_773LSRD2Ev.exit ], [ 0, %72 ]
   %.sroa.0.0.insert.ext = zext i32 %.sroa.0.0 to i64
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.3.0, %.sroa.0.0.insert.ext
   ret i64 %.sroa.0.0.insert.insert

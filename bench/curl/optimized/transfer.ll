@@ -134,7 +134,7 @@ define hidden noundef zeroext i1 @Curl_meets_timecondition(ptr noundef %0, i64 n
   br label %38
 
 38:                                               ; preds = %.sink.split, %11, %23, %2, %4
-  %.0 = phi i1 [ true, %2 ], [ true, %4 ], [ true, %23 ], [ true, %11 ], [ false, %.sink.split ]
+  %.0 = phi i1 [ true, %11 ], [ true, %23 ], [ true, %2 ], [ true, %4 ], [ false, %.sink.split ]
   ret i1 %.0
 }
 
@@ -615,7 +615,7 @@ data_pending.exit.i._crit_edge:                   ; preds = %data_pending.exit.i
   br label %194
 
 .thread137.i:                                     ; preds = %178, %data_pending.exit.i, %188, %select.unfold.i
-  %.5 = phi i32 [ %.3, %select.unfold.i ], [ %.3, %data_pending.exit.i ], [ %.3, %188 ], [ 1, %178 ]
+  %.5 = phi i32 [ %.3, %188 ], [ %.3, %select.unfold.i ], [ %.3, %data_pending.exit.i ], [ 1, %178 ]
   %191 = load i32, ptr %19, align 4, !tbaa !97
   %192 = and i32 %191, 42
   %193 = icmp eq i32 %192, 2
@@ -665,7 +665,7 @@ data_pending.exit.i._crit_edge:                   ; preds = %data_pending.exit.i
   br label %.loopexit
 
 sendrecv_dl.exit:                                 ; preds = %102, %.thread123.i, %Curl_xfer_write_resp.exit.i, %21
-  %.0113.i = phi i32 [ %24, %21 ], [ %.5.ph.i, %102 ], [ %131, %.thread123.i ], [ %phi.call.i, %Curl_xfer_write_resp.exit.i ]
+  %.0113.i = phi i32 [ %24, %21 ], [ %phi.call.i, %Curl_xfer_write_resp.exit.i ], [ %131, %.thread123.i ], [ %.5.ph.i, %102 ]
   %216 = load ptr, ptr %5, align 8, !tbaa !99
   call void @Curl_multi_xfer_buf_release(ptr noundef nonnull %0, ptr noundef %216) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

@@ -620,9 +620,9 @@ _ZN5nlsat7explain3imp7max_varERK10ref_vectorIN10polynomial10polynomialENS3_7mana
   %35 = icmp eq ptr %.pr.pre, null
   br i1 %35, label %_ZNK15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE5emptyEv.exit.thread, label %_ZNK15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE5emptyEv.exit
 
-_ZNK15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE5emptyEv.exit: ; preds = %_ZNK15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE5emptyEv.exit.i, %_ZNK15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE4sizeEv.exit.i, %_ZN5nlsat7explain3imp7max_varERK10ref_vectorIN10polynomial10polynomialENS3_7managerEE.exit
-  %.0.i32.ph72 = phi i32 [ %spec.select.i, %_ZN5nlsat7explain3imp7max_varERK10ref_vectorIN10polynomial10polynomialENS3_7managerEE.exit ], [ -1, %_ZNK15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE5emptyEv.exit.i ], [ %25, %_ZNK15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE4sizeEv.exit.i ]
-  %.pr71 = phi ptr [ %.pr.pre, %_ZN5nlsat7explain3imp7max_varERK10ref_vectorIN10polynomial10polynomialENS3_7managerEE.exit ], [ %18, %_ZNK15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE5emptyEv.exit.i ], [ %26, %_ZNK15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE4sizeEv.exit.i ]
+_ZNK15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE5emptyEv.exit: ; preds = %_ZNK15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE4sizeEv.exit.i, %_ZNK15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE5emptyEv.exit.i, %_ZN5nlsat7explain3imp7max_varERK10ref_vectorIN10polynomial10polynomialENS3_7managerEE.exit
+  %.0.i32.ph72 = phi i32 [ %spec.select.i, %_ZN5nlsat7explain3imp7max_varERK10ref_vectorIN10polynomial10polynomialENS3_7managerEE.exit ], [ %25, %_ZNK15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE4sizeEv.exit.i ], [ -1, %_ZNK15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE5emptyEv.exit.i ]
+  %.pr71 = phi ptr [ %.pr.pre, %_ZN5nlsat7explain3imp7max_varERK10ref_vectorIN10polynomial10polynomialENS3_7managerEE.exit ], [ %26, %_ZNK15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE4sizeEv.exit.i ], [ %18, %_ZNK15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE5emptyEv.exit.i ]
   %36 = getelementptr inbounds i8, ptr %.pr71, i64 -4
   %37 = load i32, ptr %36, align 4, !tbaa !61
   %38 = icmp eq i32 %37, 0
@@ -2014,7 +2014,7 @@ _ZN7obj_refIN5nlsat12interval_setENS0_20interval_set_managerEED2Ev.exit: ; preds
   br label %169
 
 .critedge:                                        ; preds = %21, %_ZN6vectorIN3sat7literalELb0EjE5resetEv.exit, %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit
-  %57 = phi ptr [ null, %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit ], [ null, %_ZN6vectorIN3sat7literalELb0EjE5resetEv.exit ], [ %38, %21 ]
+  %57 = phi ptr [ null, %_ZN6vectorIN3sat7literalELb0EjE5resetEv.exit ], [ null, %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit ], [ %38, %21 ]
   %58 = load ptr, ptr %1, align 8, !tbaa !55
   %59 = icmp eq ptr %58, null
   br i1 %59, label %._crit_edge, label %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit60
@@ -2248,7 +2248,7 @@ _ZN7obj_refIN5nlsat12interval_setENS0_20interval_set_managerEED2Ev.exit80: ; pre
   br label %169
 
 ._crit_edge:                                      ; preds = %83, %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit60, %.critedge
-  %161 = phi ptr [ %57, %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit60 ], [ %57, %.critedge ], [ %100, %83 ]
+  %161 = phi ptr [ %57, %.critedge ], [ %57, %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit60 ], [ %100, %83 ]
   invoke void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.5, i32 noundef 1741, ptr noundef nonnull @.str.6)
           to label %162 unwind label %79
 
@@ -7034,7 +7034,7 @@ _ZN6vectorIjLb0EjE3endEv.exit:                    ; preds = %_ZN6vectorIjLb0EjE5
   br i1 %.not, label %.loopexit, label %16
 
 .loopexit:                                        ; preds = %.loopexit100, %64, %3, %_ZNK5nlsat21scoped_literal_vector3endEv.exit
-  %70 = phi ptr [ null, %_ZNK5nlsat21scoped_literal_vector3endEv.exit ], [ null, %3 ], [ %53, %64 ], [ null, %.loopexit100 ]
+  %70 = phi ptr [ null, %_ZNK5nlsat21scoped_literal_vector3endEv.exit ], [ %53, %64 ], [ null, %3 ], [ null, %.loopexit100 ]
   ret ptr %70
 }
 

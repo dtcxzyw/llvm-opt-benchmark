@@ -1697,7 +1697,7 @@ dt_calloc_align_float.exit1813:                   ; preds = %115, %141
   br label %.loopexit1964
 
 .loopexit1964:                                    ; preds = %941, %951, %954
-  %.2 = phi i32 [ 0, %954 ], [ 0, %951 ], [ %.12085, %941 ]
+  %.2 = phi i32 [ 0, %951 ], [ 0, %954 ], [ %.12085, %941 ]
   br i1 %934, label %.preheader1963, label %935
 
 .preheader1970:                                   ; preds = %973, %.preheader1971
@@ -3379,9 +3379,9 @@ _LinEqSolve.exit:                                 ; preds = %._crit_edge161.i, %
   br i1 %1892, label %.lr.ph2227, label %._crit_edge2228
 
 .thread1864:                                      ; preds = %._crit_edge2228, %1242, %.preheader1967, %935, %.thread1872
-  %1893 = phi i1 [ false, %.thread1872 ], [ %not..not1786, %1242 ], [ false, %935 ], [ true, %.preheader1967 ], [ true, %._crit_edge2228 ]
-  %.116201870 = phi i32 [ 2, %.thread1872 ], [ %.21621, %1242 ], [ %.016192234, %935 ], [ %.21621, %.preheader1967 ], [ %.21621, %._crit_edge2228 ]
-  %.116231869 = phi i32 [ 4, %.thread1872 ], [ %.21624, %1242 ], [ %.016222232, %935 ], [ %.21624, %.preheader1967 ], [ %.21624, %._crit_edge2228 ]
+  %1893 = phi i1 [ false, %.thread1872 ], [ false, %935 ], [ %not..not1786, %1242 ], [ true, %.preheader1967 ], [ true, %._crit_edge2228 ]
+  %.116201870 = phi i32 [ 2, %.thread1872 ], [ %.016192234, %935 ], [ %.21621, %1242 ], [ %.21621, %.preheader1967 ], [ %.21621, %._crit_edge2228 ]
+  %.116231869 = phi i32 [ 4, %.thread1872 ], [ %.016222232, %935 ], [ %.21624, %1242 ], [ %.21624, %.preheader1967 ], [ %.21624, %._crit_edge2228 ]
   tail call void @free(ptr noundef %190) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)

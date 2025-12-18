@@ -2884,7 +2884,7 @@ select.unfold179:                                 ; preds = %187, %._crit_edge.i
   br label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17ha843e15b725a4b20E.exit"
 
 285:                                              ; preds = %268, %264
-  %.sroa.3.0.i.ph.i.i = phi i64 [ %.sroa.6.1.i.i.i, %264 ], [ %274, %268 ]
+  %.sroa.3.0.i.ph.i.i = phi i64 [ %274, %268 ], [ %.sroa.6.1.i.i.i, %264 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(24) %37, i64 24, i1 false), !noalias !514
   call void @llvm.experimental.noalias.scope.decl(metadata !548)
@@ -3149,8 +3149,8 @@ select.unfold179:                                 ; preds = %187, %._crit_edge.i
   br label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hd163890fb504182eE.exit"
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hd163890fb504182eE.exit.thread": ; preds = %365, %369
-  %390 = phi i8 [ %367, %365 ], [ %.pre.i, %369 ]
-  %.sroa.3.0.i.ph.i.i123 = phi i64 [ %.sroa.6.1.i.i.i119, %365 ], [ %375, %369 ]
+  %390 = phi i8 [ %.pre.i, %369 ], [ %367, %365 ]
+  %.sroa.3.0.i.ph.i.i123 = phi i64 [ %375, %369 ], [ %.sroa.6.1.i.i.i119, %365 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %35, i64 24, i1 false), !noalias !628
   %391 = getelementptr inbounds nuw i8, ptr %18, i64 24
@@ -4494,8 +4494,8 @@ define hidden { ptr, ptr } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   ret { ptr, ptr } %67
 
 68:                                               ; preds = %49, %53
-  %69 = phi i8 [ %51, %49 ], [ %.pre, %53 ]
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.1.i.i, %49 ], [ %59, %53 ]
+  %69 = phi i8 [ %.pre, %53 ], [ %51, %49 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %59, %53 ], [ %.sroa.6.1.i.i, %49 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !979)
   %70 = getelementptr inbounds i8, ptr %.val.i, i64 %.sroa.3.0.i.ph.i
   %71 = and i8 %69, 1

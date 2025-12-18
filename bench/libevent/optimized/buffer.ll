@@ -1367,7 +1367,7 @@ evbuffer_chain_insert.exit.i:                     ; preds = %44, %32
   br label %evbuffer_chain_new_membuf.exit.thread
 
 evbuffer_chain_new_membuf.exit.thread:            ; preds = %.thread, %evbuffer_chain_insert.exit.i, %.loopexit.thread.i.i, %.loopexit.i.i, %11, %.loopexit.thread.i, %.loopexit.i, %80, %131, %129, %140, %139, %93
-  %.066 = phi i32 [ -1, %.loopexit.thread.i ], [ 0, %139 ], [ 0, %93 ], [ -1, %129 ], [ -1, %131 ], [ 0, %140 ], [ -1, %80 ], [ -1, %.loopexit.i ], [ 0, %evbuffer_chain_insert.exit.i ], [ -1, %11 ], [ -1, %.loopexit.i.i ], [ -1, %.loopexit.thread.i.i ], [ 0, %.thread ]
+  %.066 = phi i32 [ -1, %.loopexit.thread.i ], [ 0, %139 ], [ 0, %93 ], [ -1, %.loopexit.thread.i.i ], [ -1, %129 ], [ -1, %131 ], [ 0, %140 ], [ -1, %80 ], [ -1, %.loopexit.i ], [ 0, %evbuffer_chain_insert.exit.i ], [ -1, %11 ], [ -1, %.loopexit.i.i ], [ 0, %.thread ]
   ret i32 %.066
 }
 
@@ -4334,7 +4334,7 @@ define ptr @evbuffer_pullup(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %51, %14, %16, %120, %72, %23
-  %.0114 = phi ptr [ null, %14 ], [ null, %16 ], [ %28, %23 ], [ %125, %120 ], [ null, %72 ], [ null, %51 ], [ null, %.lr.ph ]
+  %.0114 = phi ptr [ null, %14 ], [ null, %16 ], [ %28, %23 ], [ null, %51 ], [ %125, %120 ], [ null, %72 ], [ null, %.lr.ph ]
   %126 = load ptr, ptr %3, align 8
   %.not148 = icmp eq ptr %126, null
   br i1 %.not148, label %130, label %127
@@ -4902,7 +4902,7 @@ evbuffer_strchr.exit62:                           ; preds = %168
   br i1 %187, label %evbuffer_find_eol_char.exit.thread, label %evbuffer_strspn.exit
 
 evbuffer_strspn.exit:                             ; preds = %._crit_edge.i, %74, %evbuffer_getchr.exit, %139, %110, %evbuffer_ptr_subtract.exit, %evbuffer_strchr.exit62, %evbuffer_strchr.exit51, %82
-  %.0 = phi i64 [ 1, %evbuffer_strchr.exit62 ], [ 1, %evbuffer_strchr.exit51 ], [ 2, %82 ], [ 1, %evbuffer_ptr_subtract.exit ], [ 1, %evbuffer_getchr.exit ], [ 2, %139 ], [ 1, %110 ], [ %.14212.i, %74 ], [ %.142.lcssa.i, %._crit_edge.i ]
+  %.0 = phi i64 [ 1, %evbuffer_strchr.exit62 ], [ 1, %evbuffer_strchr.exit51 ], [ 2, %139 ], [ 2, %82 ], [ 1, %evbuffer_getchr.exit ], [ 1, %110 ], [ %.14212.i, %74 ], [ 1, %evbuffer_ptr_subtract.exit ], [ %.142.lcssa.i, %._crit_edge.i ]
   br label %evbuffer_find_eol_char.exit.thread
 
 evbuffer_find_eol_char.exit.thread.loopexit:      ; preds = %54
@@ -4922,8 +4922,8 @@ evbuffer_find_eol_char.exit.thread.loopexit116:   ; preds = %180
   br label %evbuffer_find_eol_char.exit.thread
 
 evbuffer_find_eol_char.exit.thread:               ; preds = %evbuffer_find_eol_char.exit.thread.loopexit116, %evbuffer_find_eol_char.exit.thread.loopexit115, %evbuffer_find_eol_char.exit.thread.loopexit114, %evbuffer_find_eol_char.exit.thread.loopexit, %164, %140, %85, %26, %evbuffer_strchr.exit, %25, %evbuffer_strchr.exit62, %evbuffer_strchr.exit51, %82, %evbuffer_find_eol_char.exit, %evbuffer_strspn.exit
-  %.not30 = phi i1 [ true, %25 ], [ true, %evbuffer_find_eol_char.exit ], [ false, %evbuffer_strspn.exit ], [ true, %82 ], [ true, %evbuffer_strchr.exit51 ], [ true, %evbuffer_strchr.exit62 ], [ true, %evbuffer_strchr.exit ], [ true, %26 ], [ true, %85 ], [ true, %140 ], [ true, %164 ], [ true, %evbuffer_find_eol_char.exit.thread.loopexit ], [ true, %evbuffer_find_eol_char.exit.thread.loopexit114 ], [ true, %evbuffer_find_eol_char.exit.thread.loopexit115 ], [ true, %evbuffer_find_eol_char.exit.thread.loopexit116 ]
-  %.3 = phi i64 [ 0, %25 ], [ 0, %evbuffer_find_eol_char.exit ], [ %.0, %evbuffer_strspn.exit ], [ 0, %82 ], [ 0, %evbuffer_strchr.exit51 ], [ 0, %evbuffer_strchr.exit62 ], [ 0, %evbuffer_strchr.exit ], [ 0, %26 ], [ 0, %85 ], [ 0, %140 ], [ 0, %164 ], [ 0, %evbuffer_find_eol_char.exit.thread.loopexit ], [ 0, %evbuffer_find_eol_char.exit.thread.loopexit114 ], [ 0, %evbuffer_find_eol_char.exit.thread.loopexit115 ], [ 0, %evbuffer_find_eol_char.exit.thread.loopexit116 ]
+  %.not30 = phi i1 [ true, %25 ], [ true, %evbuffer_find_eol_char.exit ], [ false, %evbuffer_strspn.exit ], [ true, %82 ], [ true, %evbuffer_find_eol_char.exit.thread.loopexit114 ], [ true, %evbuffer_strchr.exit51 ], [ true, %evbuffer_strchr.exit62 ], [ true, %evbuffer_find_eol_char.exit.thread.loopexit115 ], [ true, %evbuffer_strchr.exit ], [ true, %evbuffer_find_eol_char.exit.thread.loopexit ], [ true, %26 ], [ true, %85 ], [ true, %140 ], [ true, %164 ], [ true, %evbuffer_find_eol_char.exit.thread.loopexit116 ]
+  %.3 = phi i64 [ 0, %25 ], [ 0, %evbuffer_find_eol_char.exit ], [ %.0, %evbuffer_strspn.exit ], [ 0, %82 ], [ 0, %evbuffer_find_eol_char.exit.thread.loopexit114 ], [ 0, %evbuffer_strchr.exit51 ], [ 0, %evbuffer_strchr.exit62 ], [ 0, %evbuffer_find_eol_char.exit.thread.loopexit115 ], [ 0, %evbuffer_strchr.exit ], [ 0, %evbuffer_find_eol_char.exit.thread.loopexit ], [ 0, %26 ], [ 0, %85 ], [ 0, %140 ], [ 0, %164 ], [ 0, %evbuffer_find_eol_char.exit.thread.loopexit116 ]
   %188 = load ptr, ptr %14, align 8
   %.not29 = icmp eq ptr %188, null
   br i1 %.not29, label %192, label %189

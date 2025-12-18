@@ -2386,7 +2386,7 @@ define hidden noundef zeroext i1 @_ZN8ciMethod22argument_profiled_typeEiiRP7ciKl
   br label %82
 
 82:                                               ; preds = %.sink.split, %5, %7, %9, %38, %14, %42, %23
-  %.0 = phi i1 [ false, %42 ], [ false, %23 ], [ false, %14 ], [ false, %38 ], [ false, %9 ], [ false, %7 ], [ false, %5 ], [ true, %.sink.split ]
+  %.0 = phi i1 [ false, %42 ], [ false, %5 ], [ false, %23 ], [ false, %7 ], [ false, %14 ], [ false, %38 ], [ false, %9 ], [ true, %.sink.split ]
   ret i1 %.0
 }
 
@@ -2497,7 +2497,7 @@ define hidden noundef zeroext i1 @_ZN8ciMethod20return_profiled_typeEiRP7ciKlass
   br label %75
 
 75:                                               ; preds = %.sink.split, %4, %6, %8, %22, %36, %13, %40
-  %.0 = phi i1 [ true, %40 ], [ false, %13 ], [ false, %36 ], [ false, %22 ], [ false, %8 ], [ false, %6 ], [ false, %4 ], [ true, %.sink.split ]
+  %.0 = phi i1 [ false, %4 ], [ true, %40 ], [ false, %6 ], [ false, %13 ], [ false, %36 ], [ false, %22 ], [ false, %8 ], [ true, %.sink.split ]
   ret i1 %.0
 }
 
@@ -6715,7 +6715,7 @@ _ZL17basic_types_matchP6ciTypeS0_.exit.thread:    ; preds = %92, %_ZL17basic_typ
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZL17basic_types_matchP6ciTypeS0_.exit, %110, %77, %75, %68, %67, %54, %31, %.critedge, %19, %114
-  %.042 = phi i1 [ %30, %19 ], [ false, %31 ], [ false, %77 ], [ true, %114 ], [ false, %54 ], [ false, %67 ], [ false, %68 ], [ false, %75 ], [ false, %.critedge ], [ false, %110 ], [ false, %_ZL17basic_types_matchP6ciTypeS0_.exit ]
+  %.042 = phi i1 [ %30, %19 ], [ false, %31 ], [ false, %77 ], [ true, %114 ], [ false, %110 ], [ false, %54 ], [ false, %67 ], [ false, %68 ], [ false, %75 ], [ false, %.critedge ], [ false, %_ZL17basic_types_matchP6ciTypeS0_.exit ]
   ret i1 %.042
 }
 

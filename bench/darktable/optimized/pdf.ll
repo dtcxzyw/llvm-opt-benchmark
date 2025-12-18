@@ -385,8 +385,8 @@ define range(i32 0, 2) i32 @write_image(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %exitcond233.not, label %.loopexit, label %.preheader189.us
 
 .loopexit:                                        ; preds = %._crit_edge.us, %._crit_edge, %.preheader189.lr.ph, %.preheader.lr.ph, %.preheader190, %.preheader187
-  %136 = phi i32 [ %99, %.preheader187 ], [ %123, %.preheader190 ], [ %123, %.preheader189.lr.ph ], [ %99, %.preheader.lr.ph ], [ %106, %._crit_edge ], [ %123, %._crit_edge.us ]
-  %.0148 = phi ptr [ %98, %.preheader187 ], [ %122, %.preheader190 ], [ %122, %.preheader189.lr.ph ], [ %98, %.preheader.lr.ph ], [ %98, %._crit_edge ], [ %122, %._crit_edge.us ]
+  %136 = phi i32 [ %99, %.preheader187 ], [ %123, %.preheader189.lr.ph ], [ %123, %.preheader190 ], [ %99, %.preheader.lr.ph ], [ %106, %._crit_edge ], [ %123, %._crit_edge.us ]
+  %.0148 = phi ptr [ %98, %.preheader187 ], [ %122, %.preheader189.lr.ph ], [ %122, %.preheader190 ], [ %98, %.preheader.lr.ph ], [ %98, %._crit_edge ], [ %122, %._crit_edge.us ]
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %138 = load ptr, ptr %137, align 8, !tbaa !26
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 8

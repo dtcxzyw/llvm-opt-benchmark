@@ -180,8 +180,8 @@ _ZN4absl18container_internal13hash_internal12_GLOBAL__N_119RandomDeviceSeedSeq8g
   br i1 %exitcond.not29.i.i, label %.loopexit, label %.preheader.i.i.backedge
 
 .preheader.i.i.backedge:                          ; preds = %_ZN4absl18container_internal13hash_internal12_GLOBAL__N_119RandomDeviceSeedSeq8generateIPjEEvT_S6_.exit.thread.i.i, %_ZN4absl18container_internal13hash_internal12_GLOBAL__N_119RandomDeviceSeedSeq8generateIPjEEvT_S6_.exit.i.i
-  %.01826.i.i.be = phi i64 [ %34, %_ZN4absl18container_internal13hash_internal12_GLOBAL__N_119RandomDeviceSeedSeq8generateIPjEEvT_S6_.exit.i.i ], [ %35, %_ZN4absl18container_internal13hash_internal12_GLOBAL__N_119RandomDeviceSeedSeq8generateIPjEEvT_S6_.exit.thread.i.i ]
-  %.01925.i.i.be = phi i1 [ %.1.shrunk.i.i, %_ZN4absl18container_internal13hash_internal12_GLOBAL__N_119RandomDeviceSeedSeq8generateIPjEEvT_S6_.exit.i.i ], [ false, %_ZN4absl18container_internal13hash_internal12_GLOBAL__N_119RandomDeviceSeedSeq8generateIPjEEvT_S6_.exit.thread.i.i ]
+  %.01826.i.i.be = phi i64 [ %35, %_ZN4absl18container_internal13hash_internal12_GLOBAL__N_119RandomDeviceSeedSeq8generateIPjEEvT_S6_.exit.thread.i.i ], [ %34, %_ZN4absl18container_internal13hash_internal12_GLOBAL__N_119RandomDeviceSeedSeq8generateIPjEEvT_S6_.exit.i.i ]
+  %.01925.i.i.be = phi i1 [ false, %_ZN4absl18container_internal13hash_internal12_GLOBAL__N_119RandomDeviceSeedSeq8generateIPjEEvT_S6_.exit.thread.i.i ], [ %.1.shrunk.i.i, %_ZN4absl18container_internal13hash_internal12_GLOBAL__N_119RandomDeviceSeedSeq8generateIPjEEvT_S6_.exit.i.i ]
   br label %.preheader.i.i, !llvm.loop !23
 
 36:                                               ; preds = %21

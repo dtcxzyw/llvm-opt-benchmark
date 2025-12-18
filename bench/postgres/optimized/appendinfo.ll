@@ -975,7 +975,7 @@ adjust_child_relids.exit259:                      ; preds = %339, %adjust_child_
   br label %.loopexit
 
 .loopexit:                                        ; preds = %192, %187, %199, %179, %._crit_edge279, %172, %202, %adjust_child_relids.exit, %92, %10, %78, %69, %134, %._crit_edge, %89, %84, %2, %349, %adjust_child_relids.exit259
-  %.0 = phi ptr [ %350, %349 ], [ null, %2 ], [ %203, %202 ], [ %227, %adjust_child_relids.exit259 ], [ %203, %adjust_child_relids.exit ], [ %11, %10 ], [ %93, %92 ], [ %116, %134 ], [ %54, %69 ], [ %54, %78 ], [ %11, %89 ], [ %11, %84 ], [ %11, %._crit_edge ], [ %188, %199 ], [ %186, %179 ], [ %175, %172 ], [ %11, %._crit_edge279 ], [ %188, %187 ], [ %188, %192 ]
+  %.0 = phi ptr [ %350, %349 ], [ null, %2 ], [ %203, %202 ], [ %11, %._crit_edge279 ], [ %227, %adjust_child_relids.exit259 ], [ %203, %adjust_child_relids.exit ], [ %11, %10 ], [ %93, %92 ], [ %116, %134 ], [ %54, %69 ], [ %54, %78 ], [ %11, %89 ], [ %11, %84 ], [ %11, %._crit_edge ], [ %188, %199 ], [ %186, %179 ], [ %175, %172 ], [ %188, %187 ], [ %188, %192 ]
   ret ptr %.0
 }
 

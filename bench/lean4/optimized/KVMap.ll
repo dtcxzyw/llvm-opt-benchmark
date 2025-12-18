@@ -12033,7 +12033,7 @@ lean_dec.exit38:                                  ; preds = %116, %115, %113, %l
   br label %lean_dec.exit39.thread
 
 lean_dec.exit39.thread:                           ; preds = %lean_obj_tag.exit, %119, %123, %125, %126, %95, %97, %98, %lean_dec.exit40
-  %.1 = phi i8 [ 0, %lean_dec.exit40 ], [ 0, %98 ], [ 0, %97 ], [ 0, %95 ], [ 0, %126 ], [ 0, %125 ], [ 0, %123 ], [ 0, %119 ], [ 1, %lean_obj_tag.exit ]
+  %.1 = phi i8 [ 0, %119 ], [ 0, %lean_dec.exit40 ], [ 0, %98 ], [ 0, %97 ], [ 0, %95 ], [ 0, %126 ], [ 0, %125 ], [ 0, %123 ], [ 1, %lean_obj_tag.exit ]
   ret i8 %.1
 }
 

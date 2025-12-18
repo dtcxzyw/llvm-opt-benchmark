@@ -14870,7 +14870,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i47: ; preds = %3
   br i1 %.not.i55.i60, label %.loopexit.i56, label %_ZN2cv7details10Chessboard5Board9PointIter5rightEb.exit60.i61
 
 _ZN2cv7details10Chessboard5Board9PointIter5rightEb.exit60.i61: ; preds = %41, %.preheader.i57
-  %.sroa.765.1.i62 = phi ptr [ %43, %41 ], [ %.sroa.765.0102.i59, %.preheader.i57 ]
+  %.sroa.765.1.i62 = phi ptr [ %.sroa.765.0102.i59, %.preheader.i57 ], [ %43, %41 ]
   br i1 %.not41.i63, label %_ZN2cv7details10Chessboard5Board9getCornerEii.exit65, label %.preheader.i57, !llvm.loop !415
 
 .loopexit.i56:                                    ; preds = %41, %.preheader92.split.i51
@@ -15120,9 +15120,9 @@ _ZN2cv7details10Chessboard5Board9PointIter5rightEb.exit.i92: ; preds = %_ZN2cv7d
   br i1 %.not.i98, label %.thread.sink.split, label %.lr.ph.i96, !llvm.loop !408
 
 .thread.sink.split:                               ; preds = %.lr.ph.i82, %.lr.ph.i96, %150, %86
-  %.sink290 = phi i32 [ %11, %86 ], [ %9, %150 ], [ %9, %.lr.ph.i96 ], [ %11, %.lr.ph.i82 ]
-  %.sink = phi i32 [ %9, %86 ], [ %11, %150 ], [ %11, %.lr.ph.i96 ], [ %9, %.lr.ph.i82 ]
-  %.sroa.622.0.i93.lcssa.sink = phi ptr [ %.sroa.622.0.i, %86 ], [ %.sroa.622.0.i93, %150 ], [ %.sroa.622.0.i93, %.lr.ph.i96 ], [ %.sroa.622.0.i, %.lr.ph.i82 ]
+  %.sink290 = phi i32 [ %11, %86 ], [ %9, %.lr.ph.i96 ], [ %9, %150 ], [ %11, %.lr.ph.i82 ]
+  %.sink = phi i32 [ %9, %86 ], [ %11, %.lr.ph.i96 ], [ %11, %150 ], [ %9, %.lr.ph.i82 ]
+  %.sroa.622.0.i93.lcssa.sink = phi ptr [ %.sroa.622.0.i, %86 ], [ %.sroa.622.0.i93, %.lr.ph.i96 ], [ %.sroa.622.0.i93, %150 ], [ %.sroa.622.0.i, %.lr.ph.i82 ]
   store i32 %.sink290, ptr %8, align 8, !tbaa !218
   store i32 %.sink, ptr %10, align 4, !tbaa !219
   store ptr %.sroa.622.0.i93.lcssa.sink, ptr %.026.in.us.i, align 8, !tbaa !236
@@ -15555,7 +15555,7 @@ _ZN2cv7details10Chessboard5Board9PointIter5rightEb.exit: ; preds = %.lr.ph, %31
   br i1 %.not.i55, label %.loopexit, label %_ZN2cv7details10Chessboard5Board9PointIter5rightEb.exit60
 
 _ZN2cv7details10Chessboard5Board9PointIter5rightEb.exit60: ; preds = %.preheader, %40
-  %.sroa.765.1 = phi ptr [ %42, %40 ], [ %.sroa.765.0102, %.preheader ]
+  %.sroa.765.1 = phi ptr [ %.sroa.765.0102, %.preheader ], [ %42, %40 ]
   %.not41 = icmp eq i32 %39, %2
   br i1 %.not41, label %.preheader._crit_edge, label %.preheader, !llvm.loop !415
 
@@ -20961,8 +20961,8 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellES
   br label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exit
 
 _ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exit: ; preds = %22, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit43, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit45, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit47, %48, %54, %._crit_edge.i.i.i._ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exitthread-pre-split_crit_edge, %42
-  %61 = phi ptr [ %44, %42 ], [ %49, %48 ], [ %.pr.pre, %._crit_edge.i.i.i._ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exitthread-pre-split_crit_edge ], [ %55, %54 ], [ %20, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit47 ], [ %20, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit45 ], [ %20, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit43 ], [ %20, %22 ]
-  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %42 ], [ %.sroa.032.1.i.i.i, %48 ], [ %12, %._crit_edge.i.i.i._ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exitthread-pre-split_crit_edge ], [ %spec.select.i.i.i, %54 ], [ %60, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit47 ], [ %59, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit45 ], [ %58, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit43 ], [ %.sroa.032.051.i.i.i, %22 ]
+  %61 = phi ptr [ %44, %42 ], [ %49, %48 ], [ %.pr.pre, %._crit_edge.i.i.i._ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exitthread-pre-split_crit_edge ], [ %55, %54 ], [ %20, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit43 ], [ %20, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit47 ], [ %20, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit45 ], [ %20, %22 ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %42 ], [ %.sroa.032.1.i.i.i, %48 ], [ %12, %._crit_edge.i.i.i._ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exitthread-pre-split_crit_edge ], [ %spec.select.i.i.i, %54 ], [ %58, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit43 ], [ %60, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit47 ], [ %59, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit45 ], [ %.sroa.032.051.i.i.i, %22 ]
   %62 = icmp eq ptr %61, null
   br i1 %62, label %64, label %63
 
@@ -21159,8 +21159,8 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellES
   br label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exit
 
 _ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exit: ; preds = %24, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit82, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit84, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit86, %50, %56, %._crit_edge.i.i.i._ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exitthread-pre-split_crit_edge, %44
-  %63 = phi ptr [ %46, %44 ], [ %51, %50 ], [ %.pr.pre, %._crit_edge.i.i.i._ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exitthread-pre-split_crit_edge ], [ %57, %56 ], [ %22, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit86 ], [ %22, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit84 ], [ %22, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit82 ], [ %22, %24 ]
-  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %44 ], [ %.sroa.032.1.i.i.i, %50 ], [ %14, %._crit_edge.i.i.i._ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exitthread-pre-split_crit_edge ], [ %spec.select.i.i.i, %56 ], [ %62, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit86 ], [ %61, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit84 ], [ %60, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit82 ], [ %.sroa.032.051.i.i.i, %24 ]
+  %63 = phi ptr [ %46, %44 ], [ %51, %50 ], [ %.pr.pre, %._crit_edge.i.i.i._ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exitthread-pre-split_crit_edge ], [ %57, %56 ], [ %22, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit82 ], [ %22, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit86 ], [ %22, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit84 ], [ %22, %24 ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %44 ], [ %.sroa.032.1.i.i.i, %50 ], [ %14, %._crit_edge.i.i.i._ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exitthread-pre-split_crit_edge ], [ %spec.select.i.i.i, %56 ], [ %60, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit82 ], [ %62, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit86 ], [ %61, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit84 ], [ %.sroa.032.051.i.i.i, %24 ]
   %64 = icmp eq ptr %63, null
   br i1 %64, label %66, label %65
 
@@ -21346,8 +21346,8 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellES
   br label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exit
 
 _ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exit: ; preds = %22, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit43, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit45, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit47, %48, %54, %._crit_edge.i.i.i._ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exitthread-pre-split_crit_edge, %42
-  %61 = phi ptr [ %44, %42 ], [ %49, %48 ], [ %.pr.pre, %._crit_edge.i.i.i._ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exitthread-pre-split_crit_edge ], [ %55, %54 ], [ %20, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit47 ], [ %20, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit45 ], [ %20, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit43 ], [ %20, %22 ]
-  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %42 ], [ %.sroa.032.1.i.i.i, %48 ], [ %12, %._crit_edge.i.i.i._ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exitthread-pre-split_crit_edge ], [ %spec.select.i.i.i, %54 ], [ %60, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit47 ], [ %59, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit45 ], [ %58, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit43 ], [ %.sroa.032.051.i.i.i, %22 ]
+  %61 = phi ptr [ %44, %42 ], [ %49, %48 ], [ %.pr.pre, %._crit_edge.i.i.i._ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exitthread-pre-split_crit_edge ], [ %55, %54 ], [ %20, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit43 ], [ %20, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit47 ], [ %20, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit45 ], [ %20, %22 ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %42 ], [ %.sroa.032.1.i.i.i, %48 ], [ %12, %._crit_edge.i.i.i._ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exitthread-pre-split_crit_edge ], [ %spec.select.i.i.i, %54 ], [ %58, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit43 ], [ %60, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit47 ], [ %59, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit45 ], [ %.sroa.032.051.i.i.i, %22 ]
   %62 = icmp eq ptr %61, null
   br i1 %62, label %64, label %63
 
@@ -21544,8 +21544,8 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellES
   br label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exit
 
 _ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exit: ; preds = %24, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit82, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit84, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit86, %50, %56, %._crit_edge.i.i.i._ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exitthread-pre-split_crit_edge, %44
-  %63 = phi ptr [ %46, %44 ], [ %51, %50 ], [ %.pr.pre, %._crit_edge.i.i.i._ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exitthread-pre-split_crit_edge ], [ %57, %56 ], [ %22, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit86 ], [ %22, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit84 ], [ %22, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit82 ], [ %22, %24 ]
-  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %44 ], [ %.sroa.032.1.i.i.i, %50 ], [ %14, %._crit_edge.i.i.i._ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exitthread-pre-split_crit_edge ], [ %spec.select.i.i.i, %56 ], [ %62, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit86 ], [ %61, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit84 ], [ %60, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit82 ], [ %.sroa.032.051.i.i.i, %24 ]
+  %63 = phi ptr [ %46, %44 ], [ %51, %50 ], [ %.pr.pre, %._crit_edge.i.i.i._ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exitthread-pre-split_crit_edge ], [ %57, %56 ], [ %22, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit82 ], [ %22, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit86 ], [ %22, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit84 ], [ %22, %24 ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %44 ], [ %.sroa.032.1.i.i.i, %50 ], [ %14, %._crit_edge.i.i.i._ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exitthread-pre-split_crit_edge ], [ %spec.select.i.i.i, %56 ], [ %60, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit82 ], [ %62, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit86 ], [ %61, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit84 ], [ %.sroa.032.051.i.i.i, %24 ]
   %64 = icmp eq ptr %63, null
   br i1 %64, label %66, label %65
 
@@ -25576,7 +25576,7 @@ define hidden noundef zeroext i1 @_ZNK2cv7details10Chessboard5Board11checkUnique
   br i1 %16, label %.loopexit, label %10
 
 .loopexit:                                        ; preds = %.critedge.loopexit, %12, %1
-  %.not18 = phi i1 [ true, %1 ], [ false, %12 ], [ true, %.critedge.loopexit ]
+  %.not18 = phi i1 [ false, %12 ], [ true, %1 ], [ true, %.critedge.loopexit ]
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit, label %17
 
@@ -26362,21 +26362,21 @@ _ZN2cv7details10Chessboard5Board9PointIter5rightEb.exit: ; preds = %_ZN2cv7detai
   %.not17.i = icmp eq ptr %53, null
   br i1 %.not17.i, label %58, label %_ZN2cv7details10Chessboard5Board9PointIter5rightEb.exit.outer.backedge
 
-_ZN2cv7details10Chessboard5Board9PointIter5rightEb.exit.outer.backedge: ; preds = %51, %54
-  %.ph.be = phi ptr [ %56, %54 ], [ %53, %51 ]
-  br label %_ZN2cv7details10Chessboard5Board9PointIter5rightEb.exit.outer, !llvm.loop !636
-
 54:                                               ; preds = %50
   %55 = getelementptr inbounds nuw i8, ptr %.ph, i64 48
   %56 = load ptr, ptr %55, align 8, !tbaa !194
   %.not.i = icmp eq ptr %56, null
   br i1 %.not.i, label %58, label %_ZN2cv7details10Chessboard5Board9PointIter5rightEb.exit.outer.backedge
 
+_ZN2cv7details10Chessboard5Board9PointIter5rightEb.exit.outer.backedge: ; preds = %54, %51
+  %.ph.be = phi ptr [ %53, %51 ], [ %56, %54 ]
+  br label %_ZN2cv7details10Chessboard5Board9PointIter5rightEb.exit.outer, !llvm.loop !636
+
 57:                                               ; preds = %50
   br label %_ZN2cv7details10Chessboard5Board9PointIter5rightEb.exit.backedge
 
 _ZN2cv7details10Chessboard5Board9PointIter5rightEb.exit.backedge: ; preds = %57, %50
-  %.sroa.0160.0.be = phi i32 [ 1, %50 ], [ 2, %57 ]
+  %.sroa.0160.0.be = phi i32 [ 2, %57 ], [ 1, %50 ]
   br label %_ZN2cv7details10Chessboard5Board9PointIter5rightEb.exit, !llvm.loop !636
 
 .unreachabledefault:                              ; preds = %50
@@ -28715,8 +28715,8 @@ _ZNSt6vectorISt4pairIN2cv6Point_IfEES3_ESaIS4_EE9push_backEOS4_.exit.us: ; preds
   br label %598
 
 .loopexit306:                                     ; preds = %._crit_edge.us, %._crit_edge.us415, %.preheader313, %.preheader
-  %.sroa.12.2 = phi ptr [ null, %.preheader ], [ null, %.preheader313 ], [ %.sroa.12.5.us, %._crit_edge.us415 ], [ %.sroa.12.6.us, %._crit_edge.us ]
-  %.sroa.0254.3 = phi ptr [ null, %.preheader ], [ null, %.preheader313 ], [ %.sroa.0254.6.us, %._crit_edge.us415 ], [ %.sroa.0254.7.us, %._crit_edge.us ]
+  %.sroa.12.2 = phi ptr [ %.sroa.12.5.us, %._crit_edge.us415 ], [ null, %.preheader ], [ null, %.preheader313 ], [ %.sroa.12.6.us, %._crit_edge.us ]
+  %.sroa.0254.3 = phi ptr [ %.sroa.0254.6.us, %._crit_edge.us415 ], [ null, %.preheader ], [ null, %.preheader313 ], [ %.sroa.0254.7.us, %._crit_edge.us ]
   %156 = getelementptr inbounds nuw i8, ptr %17, i64 12
   %157 = load i32, ptr %156, align 4, !tbaa !37
   %158 = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -40984,7 +40984,7 @@ _ZNSt6vectorIPN2cv7details10Chessboard5Board4CellESaIS5_EE5clearEv.exit.i.i.i.i:
   br i1 %99, label %.loopexit.i.i.i.i, label %93
 
 .loopexit.i.i.i.i:                                ; preds = %.lr.ph24.i.loopexit.i.i.i, %95, %.noexc.i.i.i
-  %.not18.i.i.i.i = phi i1 [ true, %.noexc.i.i.i ], [ false, %95 ], [ true, %.lr.ph24.i.loopexit.i.i.i ]
+  %.not18.i.i.i.i = phi i1 [ false, %95 ], [ true, %.noexc.i.i.i ], [ true, %.lr.ph24.i.loopexit.i.i.i ]
   %.not.i.i.i.i.i.i.i = icmp eq ptr %87, null
   br i1 %.not.i.i.i.i.i.i.i, label %101, label %100
 

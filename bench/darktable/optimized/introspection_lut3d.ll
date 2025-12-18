@@ -4296,7 +4296,7 @@ define internal fastcc range(i32 0, 2) i32 @select_lutname_in_list(ptr noundef r
   br label %.loopexit
 
 .loopexit:                                        ; preds = %17, %10, %.thread, %20, %22
-  %.3 = phi i32 [ 1, %22 ], [ 1, %.thread ], [ 0, %20 ], [ 0, %10 ], [ 0, %17 ]
+  %.3 = phi i32 [ 0, %20 ], [ 1, %22 ], [ 1, %.thread ], [ 0, %10 ], [ 0, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.3
 }

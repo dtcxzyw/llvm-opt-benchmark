@@ -6775,8 +6775,8 @@ _ZN4llvm8ExpectedISt8optionalINS_9StringRefEEED2Ev.exit: ; preds = %245, %_ZNKSt
   br i1 %251, label %_ZN4llvm8ExpectedISt8optionalINS_9StringRefEEED2Ev.exit._crit_edge.thread, label %165, !llvm.loop !369
 
 _ZN4llvm8ExpectedISt8optionalINS_9StringRefEEED2Ev.exit._crit_edge.thread: ; preds = %.backedge, %.preheader, %.preheader.thread
-  %.ph = phi ptr [ %135, %.preheader.thread ], [ %139, %.preheader ], [ %139, %.backedge ]
-  %.1100.ph = phi i1 [ false, %.preheader.thread ], [ false, %.preheader ], [ %.2101, %.backedge ]
+  %.ph = phi ptr [ %139, %.preheader ], [ %135, %.preheader.thread ], [ %139, %.backedge ]
+  %.1100.ph = phi i1 [ false, %.preheader ], [ false, %.preheader.thread ], [ %.2101, %.backedge ]
   %252 = load ptr, ptr %1, align 8, !tbaa !318
   %253 = getelementptr inbounds nuw i8, ptr %252, i64 1
   %254 = load i8, ptr %253, align 1, !tbaa !376, !range !73, !noundef !74

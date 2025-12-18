@@ -7342,7 +7342,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit33: ; preds = %1
   br i1 %119, label %.invoke, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i34
 
 .invoke:                                          ; preds = %39, %56, %13, %116, %104
-  %120 = phi ptr [ @.str.84, %104 ], [ @.str.84, %116 ], [ @.str.83, %13 ], [ @.str.84, %56 ], [ @.str.84, %39 ]
+  %120 = phi ptr [ @.str.84, %104 ], [ @.str.84, %116 ], [ @.str.84, %56 ], [ @.str.83, %13 ], [ @.str.84, %39 ]
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull %120) #23
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp
 

@@ -1160,7 +1160,7 @@ define internal noundef i32 @io_sq_thread(ptr noundef %0) #4 align 16 {
   br label %.backedge
 
 .backedge:                                        ; preds = %.loopexit17, %210, %205
-  %.be = phi i64 [ %258, %.loopexit17 ], [ %206, %210 ], [ %206, %205 ]
+  %.be = phi i64 [ %258, %.loopexit17 ], [ %206, %205 ], [ %206, %210 ]
   br label %45, !llvm.loop !48
 
 259:                                              ; preds = %76

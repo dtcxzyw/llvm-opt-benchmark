@@ -2491,7 +2491,7 @@ define weak_odr dso_local noundef i64 @_ZNKSt3__112basic_stringIcNS_11char_trait
   br i1 %39, label %_ZNSt3__111__str_rfindB8ne210000IcmNS_11char_traitsIcEETnT0_Lm18446744073709551615EEES3_PKT_S3_S6_S3_S3_.exit, label %.lr.ph.i.i.i, !llvm.loop !14
 
 _ZNSt3__111__str_rfindB8ne210000IcmNS_11char_traitsIcEETnT0_Lm18446744073709551615EEES3_PKT_S3_S6_S3_S3_.exit: ; preds = %.loopexit.i.i.i, %27, %32, %4
-  %.sroa.0.0.i.i.i = phi ptr [ %19, %4 ], [ %.04054.i.i.i, %27 ], [ %.04054.i.i.i, %32 ], [ %.141.i.i.i, %.loopexit.i.i.i ]
+  %.sroa.0.0.i.i.i = phi ptr [ %.04054.i.i.i, %27 ], [ %19, %4 ], [ %.04054.i.i.i, %32 ], [ %.141.i.i.i, %.loopexit.i.i.i ]
   %.not.i3 = icmp ne i64 %3, 0
   %40 = icmp eq ptr %.sroa.0.0.i.i.i, %19
   %or.cond.i = select i1 %.not.i3, i1 %40, i1 false
@@ -5381,7 +5381,7 @@ define weak_odr dso_local noundef i64 @_ZNKSt3__112basic_stringIwNS_11char_trait
   br i1 %39, label %_ZNSt3__111__str_rfindB8ne210000IwmNS_11char_traitsIwEETnT0_Lm18446744073709551615EEES3_PKT_S3_S6_S3_S3_.exit, label %.lr.ph.i.i.i, !llvm.loop !26
 
 _ZNSt3__111__str_rfindB8ne210000IwmNS_11char_traitsIwEETnT0_Lm18446744073709551615EEES3_PKT_S3_S6_S3_S3_.exit: ; preds = %.loopexit.i.i.i, %27, %32, %4
-  %.sroa.0.0.i.i.i = phi ptr [ %19, %4 ], [ %.04054.i.i.i, %27 ], [ %.04054.i.i.i, %32 ], [ %.141.i.i.i, %.loopexit.i.i.i ]
+  %.sroa.0.0.i.i.i = phi ptr [ %.04054.i.i.i, %27 ], [ %19, %4 ], [ %.04054.i.i.i, %32 ], [ %.141.i.i.i, %.loopexit.i.i.i ]
   %.not.i3 = icmp ne i64 %3, 0
   %40 = icmp eq ptr %.sroa.0.0.i.i.i, %19
   %or.cond.i = select i1 %.not.i3, i1 %40, i1 false

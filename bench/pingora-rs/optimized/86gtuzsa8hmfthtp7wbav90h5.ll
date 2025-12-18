@@ -298,11 +298,11 @@ _ZN14regex_automata4util8captures14GroupInfoInner9group_len17h2c5ac0eaea0e45baE.
   call void @_ZN4core9panicking9panic_fmt17h8d16370d7cdeaf7bE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.fa65a06ff5335d2d3f6a4af7ffe44b42.45) #22, !noalias !37
   unreachable
 
-_ZN14regex_automata4util8captures8Captures9get_match17h82dbec91cec8829cE.exit: ; preds = %33, %38, %45, %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17ha3f2732eb33f7aebE.exit.i, %107, %_ZN14regex_automata4meta5regex5Regex20search_captures_with17ha19104b5789a6f9fE.exit, %93, %98, %101, %104
-  %.sroa.5.0 = phi i64 [ undef, %104 ], [ %109, %107 ], [ undef, %101 ], [ undef, %98 ], [ undef, %93 ], [ undef, %_ZN14regex_automata4meta5regex5Regex20search_captures_with17ha19104b5789a6f9fE.exit ], [ undef, %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17ha3f2732eb33f7aebE.exit.i ], [ undef, %45 ], [ undef, %38 ], [ undef, %33 ]
-  %.sroa.4.0 = phi i64 [ undef, %104 ], [ %108, %107 ], [ undef, %101 ], [ undef, %98 ], [ undef, %93 ], [ undef, %_ZN14regex_automata4meta5regex5Regex20search_captures_with17ha19104b5789a6f9fE.exit ], [ undef, %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17ha3f2732eb33f7aebE.exit.i ], [ undef, %45 ], [ undef, %38 ], [ undef, %33 ]
-  %.sroa.6.0 = phi i32 [ undef, %104 ], [ %83, %107 ], [ undef, %101 ], [ undef, %98 ], [ undef, %93 ], [ undef, %_ZN14regex_automata4meta5regex5Regex20search_captures_with17ha19104b5789a6f9fE.exit ], [ undef, %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17ha3f2732eb33f7aebE.exit.i ], [ undef, %45 ], [ undef, %38 ], [ undef, %33 ]
-  %storemerge.i = phi i64 [ 0, %104 ], [ 1, %107 ], [ 0, %101 ], [ 0, %98 ], [ 0, %93 ], [ 0, %_ZN14regex_automata4meta5regex5Regex20search_captures_with17ha19104b5789a6f9fE.exit ], [ 0, %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17ha3f2732eb33f7aebE.exit.i ], [ 0, %45 ], [ 0, %38 ], [ 0, %33 ]
+_ZN14regex_automata4util8captures8Captures9get_match17h82dbec91cec8829cE.exit: ; preds = %38, %33, %45, %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17ha3f2732eb33f7aebE.exit.i, %107, %_ZN14regex_automata4meta5regex5Regex20search_captures_with17ha19104b5789a6f9fE.exit, %93, %98, %101, %104
+  %.sroa.5.0 = phi i64 [ undef, %104 ], [ %109, %107 ], [ undef, %101 ], [ undef, %98 ], [ undef, %93 ], [ undef, %_ZN14regex_automata4meta5regex5Regex20search_captures_with17ha19104b5789a6f9fE.exit ], [ undef, %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17ha3f2732eb33f7aebE.exit.i ], [ undef, %45 ], [ undef, %33 ], [ undef, %38 ]
+  %.sroa.4.0 = phi i64 [ undef, %104 ], [ %108, %107 ], [ undef, %101 ], [ undef, %98 ], [ undef, %93 ], [ undef, %_ZN14regex_automata4meta5regex5Regex20search_captures_with17ha19104b5789a6f9fE.exit ], [ undef, %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17ha3f2732eb33f7aebE.exit.i ], [ undef, %45 ], [ undef, %33 ], [ undef, %38 ]
+  %.sroa.6.0 = phi i32 [ undef, %104 ], [ %83, %107 ], [ undef, %101 ], [ undef, %98 ], [ undef, %93 ], [ undef, %_ZN14regex_automata4meta5regex5Regex20search_captures_with17ha19104b5789a6f9fE.exit ], [ undef, %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17ha3f2732eb33f7aebE.exit.i ], [ undef, %45 ], [ undef, %33 ], [ undef, %38 ]
+  %storemerge.i = phi i64 [ 0, %104 ], [ 1, %107 ], [ 0, %101 ], [ 0, %98 ], [ 0, %93 ], [ 0, %_ZN14regex_automata4meta5regex5Regex20search_captures_with17ha19104b5789a6f9fE.exit ], [ 0, %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17ha3f2732eb33f7aebE.exit.i ], [ 0, %45 ], [ 0, %33 ], [ 0, %38 ]
   store i64 %storemerge.i, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.4.0, ptr %.sroa.4.0..sroa_idx, align 8
@@ -1990,8 +1990,8 @@ define void @_ZN13pingora_cache13cache_control14DirectiveValue22parse_as_delta_s
   store i32 0, ptr %0, align 8
   br label %74
 
-"_ZN4core3num21_$LT$impl$u20$u32$GT$16from_ascii_radix17h7a035ea0d84e4c28E.exit.thread.thread": ; preds = %32, %.lr.ph.i, %14, %14, %12, %"_ZN4core3num21_$LT$impl$u20$u32$GT$16from_ascii_radix17h7a035ea0d84e4c28E.exit.thread"
-  %.sroa.8.0.insert.insert.i1434 = phi i64 [ %.sroa.8.0.insert.insert.i, %"_ZN4core3num21_$LT$impl$u20$u32$GT$16from_ascii_radix17h7a035ea0d84e4c28E.exit.thread" ], [ 257, %14 ], [ 257, %14 ], [ 1, %12 ], [ 257, %.lr.ph.i ], [ 257, %32 ]
+"_ZN4core3num21_$LT$impl$u20$u32$GT$16from_ascii_radix17h7a035ea0d84e4c28E.exit.thread.thread": ; preds = %32, %.lr.ph.i, %12, %14, %14, %"_ZN4core3num21_$LT$impl$u20$u32$GT$16from_ascii_radix17h7a035ea0d84e4c28E.exit.thread"
+  %.sroa.8.0.insert.insert.i1434 = phi i64 [ %.sroa.8.0.insert.insert.i, %"_ZN4core3num21_$LT$impl$u20$u32$GT$16from_ascii_radix17h7a035ea0d84e4c28E.exit.thread" ], [ 257, %.lr.ph.i ], [ 257, %14 ], [ 1, %12 ], [ 257, %14 ], [ 257, %32 ]
   %.sroa.4.0.extract.trunc15.in = lshr i64 %.sroa.8.0.insert.insert.i1434, 8
   %.sroa.4.0.extract.trunc15 = trunc i64 %.sroa.4.0.extract.trunc15.in to i8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -3929,8 +3929,8 @@ define void @"_ZN114_$LT$pingora_cache..cache_control..CacheControl$u20$as$u20$p
   br label %_ZN13pingora_cache13cache_control12CacheControl19private_field_names17h73b63bc3bd34e2edE.exit
 
 _ZN13pingora_cache13cache_control12CacheControl19private_field_names17h73b63bc3bd34e2edE.exit: ; preds = %15, %8
-  %.sroa.4.0 = phi i64 [ %spec.select.i.i.i.i, %15 ], [ %12, %8 ]
-  %.sroa.0.0 = phi ptr [ %spec.select15.i.i.i.i, %15 ], [ %10, %8 ]
+  %.sroa.4.0 = phi i64 [ %12, %8 ], [ %spec.select.i.i.i.i, %15 ]
+  %.sroa.0.0 = phi ptr [ %10, %8 ], [ %spec.select15.i.i.i.i, %15 ]
   store ptr %.sroa.0.0, ptr %4, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %.sroa.4.0, ptr %.sroa.4.0..sroa_idx, align 8
@@ -3974,8 +3974,8 @@ _ZN13pingora_cache13cache_control12CacheControl19private_field_names17h73b63bc3b
   br label %_ZN13pingora_cache13cache_control12CacheControl20no_cache_field_names17h3d9ca195146c2256E.exit
 
 _ZN13pingora_cache13cache_control12CacheControl20no_cache_field_names17h3d9ca195146c2256E.exit: ; preds = %30, %23
-  %.sroa.015.0 = phi ptr [ %spec.select15.i.i.i.i7, %30 ], [ %25, %23 ]
-  %.sroa.416.0 = phi i64 [ %spec.select.i.i.i.i6, %30 ], [ %27, %23 ]
+  %.sroa.015.0 = phi ptr [ %25, %23 ], [ %spec.select15.i.i.i.i7, %30 ]
+  %.sroa.416.0 = phi i64 [ %27, %23 ], [ %spec.select.i.i.i.i6, %30 ]
   store ptr %.sroa.015.0, ptr %3, align 8
   %.sroa.416.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %.sroa.416.0, ptr %.sroa.416.0..sroa_idx, align 8

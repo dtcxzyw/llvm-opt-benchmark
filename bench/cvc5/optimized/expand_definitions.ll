@@ -906,8 +906,8 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit167: ; preds = %334, %
   br label %_ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb1EEES3_St4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S3_EEE4findERS9_.exit, !llvm.loop !61
 
 _ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb1EEES3_St4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S3_EEE4findERS9_.exit: ; preds = %.lr.ph.i.i.i.i, %362, %342, %341, %..loopexit_crit_edge21.i.i.i.i, %353, %.noexc170
-  %373 = phi ptr [ %.pre588, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre588, %353 ], [ %.pre588, %.noexc170 ], [ %340, %342 ], [ %340, %341 ], [ %.pre588, %362 ], [ %.pre588, %.lr.ph.i.i.i.i ]
-  %.sroa.06.1.i.i = phi ptr [ null, %..loopexit_crit_edge21.i.i.i.i ], [ %354, %353 ], [ null, %.noexc170 ], [ %.sroa.06.0.i.i, %342 ], [ null, %341 ], [ null, %.lr.ph.i.i.i.i ], [ %368, %362 ]
+  %373 = phi ptr [ %.pre588, %..loopexit_crit_edge21.i.i.i.i ], [ %340, %342 ], [ %.pre588, %353 ], [ %.pre588, %.noexc170 ], [ %340, %341 ], [ %.pre588, %362 ], [ %.pre588, %.lr.ph.i.i.i.i ]
+  %.sroa.06.1.i.i = phi ptr [ null, %..loopexit_crit_edge21.i.i.i.i ], [ %.sroa.06.0.i.i, %342 ], [ %354, %353 ], [ null, %.noexc170 ], [ null, %341 ], [ null, %.lr.ph.i.i.i.i ], [ %368, %362 ]
   %374 = load i64, ptr %373, align 8
   %375 = and i64 %374, 1152920405095219200
   %.not.i.i171 = icmp eq i64 %375, 1152920405095219200

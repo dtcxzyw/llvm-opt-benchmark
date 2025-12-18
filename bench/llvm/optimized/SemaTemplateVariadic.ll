@@ -295,7 +295,7 @@ define dso_local noundef zeroext i1 @_ZN5clang4Sema32DiagnoseUnexpandedParameter
   %36 = inttoptr i64 %35 to ptr
   %.not.not2.i.i.i.i.i.i.i.i = icmp eq i64 %35, 0
   %.not.not.i.i.i.i.i.i.i.i = or i1 %34, %.not.not2.i.i.i.i.i.i.i.i
-  br i1 %.not.not.i.i.i.i.i.i.i.i, label %46, label %37
+  br i1 %.not.not.i.i.i.i.i.i.i.i, label %42, label %37
 
 37:                                               ; preds = %.lr.ph.i.i.i.i.i.i
   %38 = getelementptr inbounds nuw i8, ptr %.029.val.i.i.i.i.i.i, i64 28
@@ -304,53 +304,53 @@ define dso_local noundef zeroext i1 @_ZN5clang4Sema32DiagnoseUnexpandedParameter
   %41 = icmp ne i32 %40, 65
   %.not113.i.i.i.i.i.i.i.i = icmp eq ptr %.029.val.i.i.i.i.i.i, null
   %.not11.i.i.i.i.i.i.i.i = or i1 %.not113.i.i.i.i.i.i.i.i, %41
-  br i1 %.not11.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit.thread.i.i.i.i.i.i", label %42
+  br i1 %.not11.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit.thread.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit.i.i.i.i.i.i"
 
-42:                                               ; preds = %37
-  %43 = getelementptr inbounds nuw i8, ptr %.029.val.i.i.i.i.i.i, i64 48
-  %44 = load ptr, ptr %43, align 8, !tbaa !15
-  %45 = icmp eq ptr %44, %36
-  br i1 %45, label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit.thread.i.i.i.i.i.i"
+42:                                               ; preds = %.lr.ph.i.i.i.i.i.i
+  %43 = icmp ne i64 %35, 0
+  %44 = icmp ne ptr %.029.val.i.i.i.i.i.i, null
+  %or.cond.i.i.i.i.i.i.i.i.i = and i1 %44, %43
+  br i1 %or.cond.i.i.i.i.i.i.i.i.i, label %45, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit.thread.i.i.i.i.i.i"
 
-46:                                               ; preds = %.lr.ph.i.i.i.i.i.i
-  %47 = icmp ne i64 %35, 0
-  %48 = icmp ne ptr %.029.val.i.i.i.i.i.i, null
-  %or.cond.i.i.i.i.i.i.i.i.i = and i1 %48, %47
-  br i1 %or.cond.i.i.i.i.i.i.i.i.i, label %49, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit.thread.i.i.i.i.i.i"
+45:                                               ; preds = %42
+  %46 = icmp eq ptr %.029.val.i.i.i.i.i.i, %36
+  br i1 %46, label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit", label %47
 
-49:                                               ; preds = %46
-  %50 = icmp eq ptr %.029.val.i.i.i.i.i.i, %36
-  br i1 %50, label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit.i.i.i.i.i.i"
+47:                                               ; preds = %45
+  %48 = load ptr, ptr %36, align 8, !tbaa !15
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 32
+  %50 = load ptr, ptr %49, align 8
+  %51 = call noundef ptr %50(ptr noundef nonnull align 8 dereferenceable(33) %36) #16
+  %52 = load ptr, ptr %.029.val.i.i.i.i.i.i, align 8, !tbaa !15
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 32
+  %54 = load ptr, ptr %53, align 8
+  %55 = call noundef ptr %54(ptr noundef nonnull align 8 dereferenceable(33) %.029.val.i.i.i.i.i.i) #16
+  %56 = icmp eq ptr %51, %55
+  br i1 %56, label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit", label %"._ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit.thread_crit_edge.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit.i.i.i.i.i.i": ; preds = %49
-  %51 = load ptr, ptr %36, align 8, !tbaa !31
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 32
-  %53 = load ptr, ptr %52, align 8
-  %54 = call noundef ptr %53(ptr noundef nonnull align 8 dereferenceable(33) %36) #16
-  %55 = load ptr, ptr %.029.val.i.i.i.i.i.i, align 8, !tbaa !31
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 32
-  %57 = load ptr, ptr %56, align 8
-  %58 = call noundef ptr %57(ptr noundef nonnull align 8 dereferenceable(33) %.029.val.i.i.i.i.i.i) #16
-  %59 = icmp eq ptr %54, %58
-  br i1 %59, label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit._ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit.thread_crit_edge.i.i.i.i.i.i"
-
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit._ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit.thread_crit_edge.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit.i.i.i.i.i.i"
+"._ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit.thread_crit_edge.i.i.i.i.i.i": ; preds = %47
   %.val30.val.pre.i.i.i.i.i.i = load i64, ptr %.053232, align 8
   %.pre.i.i.i.i.i.i = and i64 %.val30.val.pre.i.i.i.i.i.i, -8
   %.pre150.i.i.i.i.i.i = inttoptr i64 %.pre.i.i.i.i.i.i to ptr
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit.thread.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit._ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit.thread_crit_edge.i.i.i.i.i.i", %46, %42, %37
-  %.pre-phi151.i.i.i.i.i.i = phi ptr [ %.pre150.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit._ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit.thread_crit_edge.i.i.i.i.i.i" ], [ %36, %37 ], [ %36, %46 ], [ %36, %42 ]
-  %.pre-phi.i.i.i.i.i.i = phi i64 [ %.pre.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit._ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit.thread_crit_edge.i.i.i.i.i.i" ], [ %35, %37 ], [ %35, %46 ], [ %35, %42 ]
-  %.val30.val.i.i.i.i.i.i = phi i64 [ %.val30.val.pre.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit._ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit.thread_crit_edge.i.i.i.i.i.i" ], [ %.val.val.i.i.i.i.i.i, %37 ], [ %.val.val.i.i.i.i.i.i, %46 ], [ %.val.val.i.i.i.i.i.i, %42 ]
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit.i.i.i.i.i.i": ; preds = %37
+  %57 = getelementptr inbounds nuw i8, ptr %.029.val.i.i.i.i.i.i, i64 48
+  %58 = load ptr, ptr %57, align 8, !tbaa !17
+  %59 = icmp eq ptr %58, %36
+  br i1 %59, label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit.thread.i.i.i.i.i.i"
+
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit.i.i.i.i.i.i", %"._ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit.thread_crit_edge.i.i.i.i.i.i", %42, %37
+  %.pre-phi151.i.i.i.i.i.i = phi ptr [ %.pre150.i.i.i.i.i.i, %"._ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit.thread_crit_edge.i.i.i.i.i.i" ], [ %36, %37 ], [ %36, %42 ], [ %36, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit.i.i.i.i.i.i" ]
+  %.pre-phi.i.i.i.i.i.i = phi i64 [ %.pre.i.i.i.i.i.i, %"._ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit.thread_crit_edge.i.i.i.i.i.i" ], [ %35, %37 ], [ %35, %42 ], [ %35, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit.i.i.i.i.i.i" ]
+  %.val30.val.i.i.i.i.i.i = phi i64 [ %.val30.val.pre.i.i.i.i.i.i, %"._ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit.thread_crit_edge.i.i.i.i.i.i" ], [ %.val.val.i.i.i.i.i.i, %37 ], [ %.val.val.i.i.i.i.i.i, %42 ], [ %.val.val.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit.i.i.i.i.i.i" ]
   %60 = getelementptr inbounds nuw i8, ptr %.029135.i.i.i.i.i.i, i64 8
   %.val31.i.i.i.i.i.i = load ptr, ptr %60, align 8, !tbaa !13
   %61 = and i64 %.val30.val.i.i.i.i.i.i, 6
   %62 = icmp ne i64 %61, 0
   %.not.not2.i.i40.i.i.i.i.i.i = icmp eq i64 %.pre-phi.i.i.i.i.i.i, 0
   %.not.not.i.i41.i.i.i.i.i.i = or i1 %.not.not2.i.i40.i.i.i.i.i.i, %62
-  br i1 %.not.not.i.i41.i.i.i.i.i.i, label %72, label %63
+  br i1 %.not.not.i.i41.i.i.i.i.i.i, label %68, label %63
 
 63:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit.thread.i.i.i.i.i.i"
   %64 = getelementptr inbounds nuw i8, ptr %.val31.i.i.i.i.i.i, i64 28
@@ -359,53 +359,53 @@ define dso_local noundef zeroext i1 @_ZN5clang4Sema32DiagnoseUnexpandedParameter
   %67 = icmp ne i32 %66, 65
   %.not113.i.i42.i.i.i.i.i.i = icmp eq ptr %.val31.i.i.i.i.i.i, null
   %.not11.i.i43.i.i.i.i.i.i = or i1 %.not113.i.i42.i.i.i.i.i.i, %67
-  br i1 %.not11.i.i43.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit46.thread.i.i.i.i.i.i", label %68
+  br i1 %.not11.i.i43.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit46.thread.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit46.i.i.i.i.i.i"
 
-68:                                               ; preds = %63
-  %69 = getelementptr inbounds nuw i8, ptr %.val31.i.i.i.i.i.i, i64 48
-  %70 = load ptr, ptr %69, align 8, !tbaa !15
-  %71 = icmp eq ptr %70, %.pre-phi151.i.i.i.i.i.i
-  br i1 %71, label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit324", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit46.thread.i.i.i.i.i.i"
+68:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit.thread.i.i.i.i.i.i"
+  %69 = icmp ne i64 %.pre-phi.i.i.i.i.i.i, 0
+  %70 = icmp ne ptr %.val31.i.i.i.i.i.i, null
+  %or.cond.i.i.i45.i.i.i.i.i.i = and i1 %69, %70
+  br i1 %or.cond.i.i.i45.i.i.i.i.i.i, label %71, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit46.thread.i.i.i.i.i.i"
 
-72:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit.thread.i.i.i.i.i.i"
-  %73 = icmp ne i64 %.pre-phi.i.i.i.i.i.i, 0
-  %74 = icmp ne ptr %.val31.i.i.i.i.i.i, null
-  %or.cond.i.i.i45.i.i.i.i.i.i = and i1 %73, %74
-  br i1 %or.cond.i.i.i45.i.i.i.i.i.i, label %75, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit46.thread.i.i.i.i.i.i"
+71:                                               ; preds = %68
+  %72 = icmp eq ptr %.val31.i.i.i.i.i.i, %.pre-phi151.i.i.i.i.i.i
+  br i1 %72, label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit330", label %73
 
-75:                                               ; preds = %72
-  %76 = icmp eq ptr %.val31.i.i.i.i.i.i, %.pre-phi151.i.i.i.i.i.i
-  br i1 %76, label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit330", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit46.i.i.i.i.i.i"
+73:                                               ; preds = %71
+  %74 = load ptr, ptr %.pre-phi151.i.i.i.i.i.i, align 8, !tbaa !15
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 32
+  %76 = load ptr, ptr %75, align 8
+  %77 = call noundef ptr %76(ptr noundef nonnull align 8 dereferenceable(33) %.pre-phi151.i.i.i.i.i.i) #16
+  %78 = load ptr, ptr %.val31.i.i.i.i.i.i, align 8, !tbaa !15
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 32
+  %80 = load ptr, ptr %79, align 8
+  %81 = call noundef ptr %80(ptr noundef nonnull align 8 dereferenceable(33) %.val31.i.i.i.i.i.i) #16
+  %82 = icmp eq ptr %77, %81
+  br i1 %82, label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit324", label %"._ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit46.thread_crit_edge.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit46.i.i.i.i.i.i": ; preds = %75
-  %77 = load ptr, ptr %.pre-phi151.i.i.i.i.i.i, align 8, !tbaa !31
-  %78 = getelementptr inbounds nuw i8, ptr %77, i64 32
-  %79 = load ptr, ptr %78, align 8
-  %80 = call noundef ptr %79(ptr noundef nonnull align 8 dereferenceable(33) %.pre-phi151.i.i.i.i.i.i) #16
-  %81 = load ptr, ptr %.val31.i.i.i.i.i.i, align 8, !tbaa !31
-  %82 = getelementptr inbounds nuw i8, ptr %81, i64 32
-  %83 = load ptr, ptr %82, align 8
-  %84 = call noundef ptr %83(ptr noundef nonnull align 8 dereferenceable(33) %.val31.i.i.i.i.i.i) #16
-  %85 = icmp eq ptr %80, %84
-  br i1 %85, label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit46._ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit46.thread_crit_edge.i.i.i.i.i.i"
-
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit46._ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit46.thread_crit_edge.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit46.i.i.i.i.i.i"
+"._ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit46.thread_crit_edge.i.i.i.i.i.i": ; preds = %73
   %.val32.val.pre.i.i.i.i.i.i = load i64, ptr %.053232, align 8
   %.pre152.i.i.i.i.i.i = and i64 %.val32.val.pre.i.i.i.i.i.i, -8
   %.pre154.i.i.i.i.i.i = inttoptr i64 %.pre152.i.i.i.i.i.i to ptr
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit46.thread.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit46.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit46._ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit46.thread_crit_edge.i.i.i.i.i.i", %72, %68, %63
-  %.pre-phi155.i.i.i.i.i.i = phi ptr [ %.pre154.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit46._ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit46.thread_crit_edge.i.i.i.i.i.i" ], [ %.pre-phi151.i.i.i.i.i.i, %63 ], [ %.pre-phi151.i.i.i.i.i.i, %72 ], [ %.pre-phi151.i.i.i.i.i.i, %68 ]
-  %.pre-phi153.i.i.i.i.i.i = phi i64 [ %.pre152.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit46._ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit46.thread_crit_edge.i.i.i.i.i.i" ], [ %.pre-phi.i.i.i.i.i.i, %63 ], [ %.pre-phi.i.i.i.i.i.i, %72 ], [ %.pre-phi.i.i.i.i.i.i, %68 ]
-  %.val32.val.i.i.i.i.i.i = phi i64 [ %.val32.val.pre.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit46._ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit46.thread_crit_edge.i.i.i.i.i.i" ], [ %.val30.val.i.i.i.i.i.i, %63 ], [ %.val30.val.i.i.i.i.i.i, %72 ], [ %.val30.val.i.i.i.i.i.i, %68 ]
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit46.i.i.i.i.i.i": ; preds = %63
+  %83 = getelementptr inbounds nuw i8, ptr %.val31.i.i.i.i.i.i, i64 48
+  %84 = load ptr, ptr %83, align 8, !tbaa !17
+  %85 = icmp eq ptr %84, %.pre-phi151.i.i.i.i.i.i
+  br i1 %85, label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit46.thread.i.i.i.i.i.i"
+
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit46.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit46.i.i.i.i.i.i", %"._ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit46.thread_crit_edge.i.i.i.i.i.i", %68, %63
+  %.pre-phi155.i.i.i.i.i.i = phi ptr [ %.pre154.i.i.i.i.i.i, %"._ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit46.thread_crit_edge.i.i.i.i.i.i" ], [ %.pre-phi151.i.i.i.i.i.i, %63 ], [ %.pre-phi151.i.i.i.i.i.i, %68 ], [ %.pre-phi151.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit46.i.i.i.i.i.i" ]
+  %.pre-phi153.i.i.i.i.i.i = phi i64 [ %.pre152.i.i.i.i.i.i, %"._ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit46.thread_crit_edge.i.i.i.i.i.i" ], [ %.pre-phi.i.i.i.i.i.i, %63 ], [ %.pre-phi.i.i.i.i.i.i, %68 ], [ %.pre-phi.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit46.i.i.i.i.i.i" ]
+  %.val32.val.i.i.i.i.i.i = phi i64 [ %.val32.val.pre.i.i.i.i.i.i, %"._ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit46.thread_crit_edge.i.i.i.i.i.i" ], [ %.val30.val.i.i.i.i.i.i, %63 ], [ %.val30.val.i.i.i.i.i.i, %68 ], [ %.val30.val.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit46.i.i.i.i.i.i" ]
   %86 = getelementptr inbounds nuw i8, ptr %.029135.i.i.i.i.i.i, i64 16
   %.val33.i.i.i.i.i.i = load ptr, ptr %86, align 8, !tbaa !13
   %87 = and i64 %.val32.val.i.i.i.i.i.i, 6
   %88 = icmp ne i64 %87, 0
   %.not.not2.i.i47.i.i.i.i.i.i = icmp eq i64 %.pre-phi153.i.i.i.i.i.i, 0
   %.not.not.i.i48.i.i.i.i.i.i = or i1 %.not.not2.i.i47.i.i.i.i.i.i, %88
-  br i1 %.not.not.i.i48.i.i.i.i.i.i, label %98, label %89
+  br i1 %.not.not.i.i48.i.i.i.i.i.i, label %94, label %89
 
 89:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit46.thread.i.i.i.i.i.i"
   %90 = getelementptr inbounds nuw i8, ptr %.val33.i.i.i.i.i.i, i64 28
@@ -414,53 +414,53 @@ define dso_local noundef zeroext i1 @_ZN5clang4Sema32DiagnoseUnexpandedParameter
   %93 = icmp ne i32 %92, 65
   %.not113.i.i49.i.i.i.i.i.i = icmp eq ptr %.val33.i.i.i.i.i.i, null
   %.not11.i.i50.i.i.i.i.i.i = or i1 %.not113.i.i49.i.i.i.i.i.i, %93
-  br i1 %.not11.i.i50.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit53.thread.i.i.i.i.i.i", label %94
+  br i1 %.not11.i.i50.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit53.thread.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit53.i.i.i.i.i.i"
 
-94:                                               ; preds = %89
-  %95 = getelementptr inbounds nuw i8, ptr %.val33.i.i.i.i.i.i, i64 48
-  %96 = load ptr, ptr %95, align 8, !tbaa !15
-  %97 = icmp eq ptr %96, %.pre-phi155.i.i.i.i.i.i
-  br i1 %97, label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit326", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit53.thread.i.i.i.i.i.i"
+94:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit46.thread.i.i.i.i.i.i"
+  %95 = icmp ne i64 %.pre-phi153.i.i.i.i.i.i, 0
+  %96 = icmp ne ptr %.val33.i.i.i.i.i.i, null
+  %or.cond.i.i.i52.i.i.i.i.i.i = and i1 %95, %96
+  br i1 %or.cond.i.i.i52.i.i.i.i.i.i, label %97, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit53.thread.i.i.i.i.i.i"
 
-98:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit46.thread.i.i.i.i.i.i"
-  %99 = icmp ne i64 %.pre-phi153.i.i.i.i.i.i, 0
-  %100 = icmp ne ptr %.val33.i.i.i.i.i.i, null
-  %or.cond.i.i.i52.i.i.i.i.i.i = and i1 %99, %100
-  br i1 %or.cond.i.i.i52.i.i.i.i.i.i, label %101, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit53.thread.i.i.i.i.i.i"
+97:                                               ; preds = %94
+  %98 = icmp eq ptr %.val33.i.i.i.i.i.i, %.pre-phi155.i.i.i.i.i.i
+  br i1 %98, label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit332", label %99
 
-101:                                              ; preds = %98
-  %102 = icmp eq ptr %.val33.i.i.i.i.i.i, %.pre-phi155.i.i.i.i.i.i
-  br i1 %102, label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit332", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit53.i.i.i.i.i.i"
+99:                                               ; preds = %97
+  %100 = load ptr, ptr %.pre-phi155.i.i.i.i.i.i, align 8, !tbaa !15
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 32
+  %102 = load ptr, ptr %101, align 8
+  %103 = call noundef ptr %102(ptr noundef nonnull align 8 dereferenceable(33) %.pre-phi155.i.i.i.i.i.i) #16
+  %104 = load ptr, ptr %.val33.i.i.i.i.i.i, align 8, !tbaa !15
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 32
+  %106 = load ptr, ptr %105, align 8
+  %107 = call noundef ptr %106(ptr noundef nonnull align 8 dereferenceable(33) %.val33.i.i.i.i.i.i) #16
+  %108 = icmp eq ptr %103, %107
+  br i1 %108, label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit326", label %"._ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit53.thread_crit_edge.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit53.i.i.i.i.i.i": ; preds = %101
-  %103 = load ptr, ptr %.pre-phi155.i.i.i.i.i.i, align 8, !tbaa !31
-  %104 = getelementptr inbounds nuw i8, ptr %103, i64 32
-  %105 = load ptr, ptr %104, align 8
-  %106 = call noundef ptr %105(ptr noundef nonnull align 8 dereferenceable(33) %.pre-phi155.i.i.i.i.i.i) #16
-  %107 = load ptr, ptr %.val33.i.i.i.i.i.i, align 8, !tbaa !31
-  %108 = getelementptr inbounds nuw i8, ptr %107, i64 32
-  %109 = load ptr, ptr %108, align 8
-  %110 = call noundef ptr %109(ptr noundef nonnull align 8 dereferenceable(33) %.val33.i.i.i.i.i.i) #16
-  %111 = icmp eq ptr %106, %110
-  br i1 %111, label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit320", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit53._ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit53.thread_crit_edge.i.i.i.i.i.i"
-
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit53._ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit53.thread_crit_edge.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit53.i.i.i.i.i.i"
+"._ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit53.thread_crit_edge.i.i.i.i.i.i": ; preds = %99
   %.val34.val.pre.i.i.i.i.i.i = load i64, ptr %.053232, align 8
   %.pre156.i.i.i.i.i.i = and i64 %.val34.val.pre.i.i.i.i.i.i, -8
   %.pre158.i.i.i.i.i.i = inttoptr i64 %.pre156.i.i.i.i.i.i to ptr
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit53.thread.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit53.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit53._ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit53.thread_crit_edge.i.i.i.i.i.i", %98, %94, %89
-  %.pre-phi159.i.i.i.i.i.i = phi ptr [ %.pre158.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit53._ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit53.thread_crit_edge.i.i.i.i.i.i" ], [ %.pre-phi155.i.i.i.i.i.i, %89 ], [ %.pre-phi155.i.i.i.i.i.i, %98 ], [ %.pre-phi155.i.i.i.i.i.i, %94 ]
-  %.pre-phi157.i.i.i.i.i.i = phi i64 [ %.pre156.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit53._ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit53.thread_crit_edge.i.i.i.i.i.i" ], [ %.pre-phi153.i.i.i.i.i.i, %89 ], [ %.pre-phi153.i.i.i.i.i.i, %98 ], [ %.pre-phi153.i.i.i.i.i.i, %94 ]
-  %.val34.val.i.i.i.i.i.i = phi i64 [ %.val34.val.pre.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit53._ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit53.thread_crit_edge.i.i.i.i.i.i" ], [ %.val32.val.i.i.i.i.i.i, %89 ], [ %.val32.val.i.i.i.i.i.i, %98 ], [ %.val32.val.i.i.i.i.i.i, %94 ]
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit53.i.i.i.i.i.i": ; preds = %89
+  %109 = getelementptr inbounds nuw i8, ptr %.val33.i.i.i.i.i.i, i64 48
+  %110 = load ptr, ptr %109, align 8, !tbaa !17
+  %111 = icmp eq ptr %110, %.pre-phi155.i.i.i.i.i.i
+  br i1 %111, label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit320", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit53.thread.i.i.i.i.i.i"
+
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit53.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit53.i.i.i.i.i.i", %"._ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit53.thread_crit_edge.i.i.i.i.i.i", %94, %89
+  %.pre-phi159.i.i.i.i.i.i = phi ptr [ %.pre158.i.i.i.i.i.i, %"._ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit53.thread_crit_edge.i.i.i.i.i.i" ], [ %.pre-phi155.i.i.i.i.i.i, %89 ], [ %.pre-phi155.i.i.i.i.i.i, %94 ], [ %.pre-phi155.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit53.i.i.i.i.i.i" ]
+  %.pre-phi157.i.i.i.i.i.i = phi i64 [ %.pre156.i.i.i.i.i.i, %"._ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit53.thread_crit_edge.i.i.i.i.i.i" ], [ %.pre-phi153.i.i.i.i.i.i, %89 ], [ %.pre-phi153.i.i.i.i.i.i, %94 ], [ %.pre-phi153.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit53.i.i.i.i.i.i" ]
+  %.val34.val.i.i.i.i.i.i = phi i64 [ %.val34.val.pre.i.i.i.i.i.i, %"._ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit53.thread_crit_edge.i.i.i.i.i.i" ], [ %.val32.val.i.i.i.i.i.i, %89 ], [ %.val32.val.i.i.i.i.i.i, %94 ], [ %.val32.val.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit53.i.i.i.i.i.i" ]
   %112 = getelementptr inbounds nuw i8, ptr %.029135.i.i.i.i.i.i, i64 24
   %.val35.i.i.i.i.i.i = load ptr, ptr %112, align 8, !tbaa !13
   %113 = and i64 %.val34.val.i.i.i.i.i.i, 6
   %114 = icmp ne i64 %113, 0
   %.not.not2.i.i54.i.i.i.i.i.i = icmp eq i64 %.pre-phi157.i.i.i.i.i.i, 0
   %.not.not.i.i55.i.i.i.i.i.i = or i1 %.not.not2.i.i54.i.i.i.i.i.i, %114
-  br i1 %.not.not.i.i55.i.i.i.i.i.i, label %124, label %115
+  br i1 %.not.not.i.i55.i.i.i.i.i.i, label %120, label %115
 
 115:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit53.thread.i.i.i.i.i.i"
   %116 = getelementptr inbounds nuw i8, ptr %.val35.i.i.i.i.i.i, i64 28
@@ -469,37 +469,37 @@ define dso_local noundef zeroext i1 @_ZN5clang4Sema32DiagnoseUnexpandedParameter
   %119 = icmp ne i32 %118, 65
   %.not113.i.i56.i.i.i.i.i.i = icmp eq ptr %.val35.i.i.i.i.i.i, null
   %.not11.i.i57.i.i.i.i.i.i = or i1 %.not113.i.i56.i.i.i.i.i.i, %119
-  br i1 %.not11.i.i57.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit60.thread.i.i.i.i.i.i", label %120
+  br i1 %.not11.i.i57.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit60.thread.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit60.i.i.i.i.i.i"
 
-120:                                              ; preds = %115
-  %121 = getelementptr inbounds nuw i8, ptr %.val35.i.i.i.i.i.i, i64 48
-  %122 = load ptr, ptr %121, align 8, !tbaa !15
-  %123 = icmp eq ptr %122, %.pre-phi159.i.i.i.i.i.i
-  br i1 %123, label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit328", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit60.thread.i.i.i.i.i.i"
+120:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit53.thread.i.i.i.i.i.i"
+  %121 = icmp ne i64 %.pre-phi157.i.i.i.i.i.i, 0
+  %122 = icmp ne ptr %.val35.i.i.i.i.i.i, null
+  %or.cond.i.i.i59.i.i.i.i.i.i = and i1 %121, %122
+  br i1 %or.cond.i.i.i59.i.i.i.i.i.i, label %123, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit60.thread.i.i.i.i.i.i"
 
-124:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit53.thread.i.i.i.i.i.i"
-  %125 = icmp ne i64 %.pre-phi157.i.i.i.i.i.i, 0
-  %126 = icmp ne ptr %.val35.i.i.i.i.i.i, null
-  %or.cond.i.i.i59.i.i.i.i.i.i = and i1 %125, %126
-  br i1 %or.cond.i.i.i59.i.i.i.i.i.i, label %127, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit60.thread.i.i.i.i.i.i"
+123:                                              ; preds = %120
+  %124 = icmp eq ptr %.val35.i.i.i.i.i.i, %.pre-phi159.i.i.i.i.i.i
+  br i1 %124, label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit334", label %125
 
-127:                                              ; preds = %124
-  %128 = icmp eq ptr %.val35.i.i.i.i.i.i, %.pre-phi159.i.i.i.i.i.i
-  br i1 %128, label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit334", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit60.i.i.i.i.i.i"
+125:                                              ; preds = %123
+  %126 = load ptr, ptr %.pre-phi159.i.i.i.i.i.i, align 8, !tbaa !15
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 32
+  %128 = load ptr, ptr %127, align 8
+  %129 = call noundef ptr %128(ptr noundef nonnull align 8 dereferenceable(33) %.pre-phi159.i.i.i.i.i.i) #16
+  %130 = load ptr, ptr %.val35.i.i.i.i.i.i, align 8, !tbaa !15
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 32
+  %132 = load ptr, ptr %131, align 8
+  %133 = call noundef ptr %132(ptr noundef nonnull align 8 dereferenceable(33) %.val35.i.i.i.i.i.i) #16
+  %134 = icmp eq ptr %129, %133
+  br i1 %134, label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit328", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit60.thread.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit60.i.i.i.i.i.i": ; preds = %127
-  %129 = load ptr, ptr %.pre-phi159.i.i.i.i.i.i, align 8, !tbaa !31
-  %130 = getelementptr inbounds nuw i8, ptr %129, i64 32
-  %131 = load ptr, ptr %130, align 8
-  %132 = call noundef ptr %131(ptr noundef nonnull align 8 dereferenceable(33) %.pre-phi159.i.i.i.i.i.i) #16
-  %133 = load ptr, ptr %.val35.i.i.i.i.i.i, align 8, !tbaa !31
-  %134 = getelementptr inbounds nuw i8, ptr %133, i64 32
-  %135 = load ptr, ptr %134, align 8
-  %136 = call noundef ptr %135(ptr noundef nonnull align 8 dereferenceable(33) %.val35.i.i.i.i.i.i) #16
-  %137 = icmp eq ptr %132, %136
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit60.i.i.i.i.i.i": ; preds = %115
+  %135 = getelementptr inbounds nuw i8, ptr %.val35.i.i.i.i.i.i, i64 48
+  %136 = load ptr, ptr %135, align 8, !tbaa !17
+  %137 = icmp eq ptr %136, %.pre-phi159.i.i.i.i.i.i
   br i1 %137, label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit322", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit60.thread.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit60.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit60.i.i.i.i.i.i", %124, %120, %115
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit60.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit60.i.i.i.i.i.i", %125, %120, %115
   %138 = getelementptr inbounds nuw i8, ptr %.029135.i.i.i.i.i.i, i64 32
   %139 = add nsw i64 %.0136.i.i.i.i.i.i, -1
   %140 = icmp sgt i64 %.0136.i.i.i.i.i.i, 1
@@ -529,7 +529,7 @@ define dso_local noundef zeroext i1 @_ZN5clang4Sema32DiagnoseUnexpandedParameter
   %146 = inttoptr i64 %145 to ptr
   %.not.not2.i.i61.i.i.i.i.i.i = icmp eq i64 %145, 0
   %.not.not.i.i62.i.i.i.i.i.i = or i1 %144, %.not.not2.i.i61.i.i.i.i.i.i
-  br i1 %.not.not.i.i62.i.i.i.i.i.i, label %156, label %147
+  br i1 %.not.not.i.i62.i.i.i.i.i.i, label %152, label %147
 
 147:                                              ; preds = %142
   %148 = getelementptr inbounds nuw i8, ptr %.029.val37.i.i.i.i.i.i, i64 28
@@ -538,37 +538,37 @@ define dso_local noundef zeroext i1 @_ZN5clang4Sema32DiagnoseUnexpandedParameter
   %151 = icmp ne i32 %150, 65
   %.not113.i.i63.i.i.i.i.i.i = icmp eq ptr %.029.val37.i.i.i.i.i.i, null
   %.not11.i.i64.i.i.i.i.i.i = or i1 %.not113.i.i63.i.i.i.i.i.i, %151
-  br i1 %.not11.i.i64.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit67.thread.i.i.i.i.i.i", label %152
+  br i1 %.not11.i.i64.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit67.thread.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit67.i.i.i.i.i.i"
 
-152:                                              ; preds = %147
-  %153 = getelementptr inbounds nuw i8, ptr %.029.val37.i.i.i.i.i.i, i64 48
-  %154 = load ptr, ptr %153, align 8, !tbaa !15
-  %155 = icmp eq ptr %154, %146
-  br i1 %155, label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit67.thread.i.i.i.i.i.i"
+152:                                              ; preds = %142
+  %153 = icmp ne i64 %145, 0
+  %154 = icmp ne ptr %.029.val37.i.i.i.i.i.i, null
+  %or.cond.i.i.i66.i.i.i.i.i.i = and i1 %154, %153
+  br i1 %or.cond.i.i.i66.i.i.i.i.i.i, label %155, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit67.thread.i.i.i.i.i.i"
 
-156:                                              ; preds = %142
-  %157 = icmp ne i64 %145, 0
-  %158 = icmp ne ptr %.029.val37.i.i.i.i.i.i, null
-  %or.cond.i.i.i66.i.i.i.i.i.i = and i1 %158, %157
-  br i1 %or.cond.i.i.i66.i.i.i.i.i.i, label %159, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit67.thread.i.i.i.i.i.i"
+155:                                              ; preds = %152
+  %156 = icmp eq ptr %.029.val37.i.i.i.i.i.i, %146
+  br i1 %156, label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit", label %157
 
-159:                                              ; preds = %156
-  %160 = icmp eq ptr %.029.val37.i.i.i.i.i.i, %146
-  br i1 %160, label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit67.i.i.i.i.i.i"
+157:                                              ; preds = %155
+  %158 = load ptr, ptr %146, align 8, !tbaa !15
+  %159 = getelementptr inbounds nuw i8, ptr %158, i64 32
+  %160 = load ptr, ptr %159, align 8
+  %161 = call noundef ptr %160(ptr noundef nonnull align 8 dereferenceable(33) %146) #16
+  %162 = load ptr, ptr %.029.val37.i.i.i.i.i.i, align 8, !tbaa !15
+  %163 = getelementptr inbounds nuw i8, ptr %162, i64 32
+  %164 = load ptr, ptr %163, align 8
+  %165 = call noundef ptr %164(ptr noundef nonnull align 8 dereferenceable(33) %.029.val37.i.i.i.i.i.i) #16
+  %166 = icmp eq ptr %161, %165
+  br i1 %166, label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit67.thread.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit67.i.i.i.i.i.i": ; preds = %159
-  %161 = load ptr, ptr %146, align 8, !tbaa !31
-  %162 = getelementptr inbounds nuw i8, ptr %161, i64 32
-  %163 = load ptr, ptr %162, align 8
-  %164 = call noundef ptr %163(ptr noundef nonnull align 8 dereferenceable(33) %146) #16
-  %165 = load ptr, ptr %.029.val37.i.i.i.i.i.i, align 8, !tbaa !31
-  %166 = getelementptr inbounds nuw i8, ptr %165, i64 32
-  %167 = load ptr, ptr %166, align 8
-  %168 = call noundef ptr %167(ptr noundef nonnull align 8 dereferenceable(33) %.029.val37.i.i.i.i.i.i) #16
-  %169 = icmp eq ptr %164, %168
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit67.i.i.i.i.i.i": ; preds = %147
+  %167 = getelementptr inbounds nuw i8, ptr %.029.val37.i.i.i.i.i.i, i64 48
+  %168 = load ptr, ptr %167, align 8, !tbaa !17
+  %169 = icmp eq ptr %168, %146
   br i1 %169, label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit67.thread.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit67.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit67.i.i.i.i.i.i", %156, %152, %147
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit67.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit67.i.i.i.i.i.i", %157, %152, %147
   %170 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i.i.i, i64 8
   br label %171
 
@@ -582,7 +582,7 @@ define dso_local noundef zeroext i1 @_ZN5clang4Sema32DiagnoseUnexpandedParameter
   %175 = inttoptr i64 %174 to ptr
   %.not.not2.i.i68.i.i.i.i.i.i = icmp eq i64 %174, 0
   %.not.not.i.i69.i.i.i.i.i.i = or i1 %173, %.not.not2.i.i68.i.i.i.i.i.i
-  br i1 %.not.not.i.i69.i.i.i.i.i.i, label %185, label %176
+  br i1 %.not.not.i.i69.i.i.i.i.i.i, label %181, label %176
 
 176:                                              ; preds = %171
   %177 = getelementptr inbounds nuw i8, ptr %.1.val.i.i.i.i.i.i, i64 28
@@ -591,37 +591,37 @@ define dso_local noundef zeroext i1 @_ZN5clang4Sema32DiagnoseUnexpandedParameter
   %180 = icmp ne i32 %179, 65
   %.not113.i.i70.i.i.i.i.i.i = icmp eq ptr %.1.val.i.i.i.i.i.i, null
   %.not11.i.i71.i.i.i.i.i.i = or i1 %.not113.i.i70.i.i.i.i.i.i, %180
-  br i1 %.not11.i.i71.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit74.thread.i.i.i.i.i.i", label %181
+  br i1 %.not11.i.i71.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit74.thread.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit74.i.i.i.i.i.i"
 
-181:                                              ; preds = %176
-  %182 = getelementptr inbounds nuw i8, ptr %.1.val.i.i.i.i.i.i, i64 48
-  %183 = load ptr, ptr %182, align 8, !tbaa !15
-  %184 = icmp eq ptr %183, %175
-  br i1 %184, label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit74.thread.i.i.i.i.i.i"
+181:                                              ; preds = %171
+  %182 = icmp ne i64 %174, 0
+  %183 = icmp ne ptr %.1.val.i.i.i.i.i.i, null
+  %or.cond.i.i.i73.i.i.i.i.i.i = and i1 %183, %182
+  br i1 %or.cond.i.i.i73.i.i.i.i.i.i, label %184, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit74.thread.i.i.i.i.i.i"
 
-185:                                              ; preds = %171
-  %186 = icmp ne i64 %174, 0
-  %187 = icmp ne ptr %.1.val.i.i.i.i.i.i, null
-  %or.cond.i.i.i73.i.i.i.i.i.i = and i1 %187, %186
-  br i1 %or.cond.i.i.i73.i.i.i.i.i.i, label %188, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit74.thread.i.i.i.i.i.i"
+184:                                              ; preds = %181
+  %185 = icmp eq ptr %.1.val.i.i.i.i.i.i, %175
+  br i1 %185, label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit", label %186
 
-188:                                              ; preds = %185
-  %189 = icmp eq ptr %.1.val.i.i.i.i.i.i, %175
-  br i1 %189, label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit74.i.i.i.i.i.i"
+186:                                              ; preds = %184
+  %187 = load ptr, ptr %175, align 8, !tbaa !15
+  %188 = getelementptr inbounds nuw i8, ptr %187, i64 32
+  %189 = load ptr, ptr %188, align 8
+  %190 = call noundef ptr %189(ptr noundef nonnull align 8 dereferenceable(33) %175) #16
+  %191 = load ptr, ptr %.1.val.i.i.i.i.i.i, align 8, !tbaa !15
+  %192 = getelementptr inbounds nuw i8, ptr %191, i64 32
+  %193 = load ptr, ptr %192, align 8
+  %194 = call noundef ptr %193(ptr noundef nonnull align 8 dereferenceable(33) %.1.val.i.i.i.i.i.i) #16
+  %195 = icmp eq ptr %190, %194
+  br i1 %195, label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit74.thread.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit74.i.i.i.i.i.i": ; preds = %188
-  %190 = load ptr, ptr %175, align 8, !tbaa !31
-  %191 = getelementptr inbounds nuw i8, ptr %190, i64 32
-  %192 = load ptr, ptr %191, align 8
-  %193 = call noundef ptr %192(ptr noundef nonnull align 8 dereferenceable(33) %175) #16
-  %194 = load ptr, ptr %.1.val.i.i.i.i.i.i, align 8, !tbaa !31
-  %195 = getelementptr inbounds nuw i8, ptr %194, i64 32
-  %196 = load ptr, ptr %195, align 8
-  %197 = call noundef ptr %196(ptr noundef nonnull align 8 dereferenceable(33) %.1.val.i.i.i.i.i.i) #16
-  %198 = icmp eq ptr %193, %197
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit74.i.i.i.i.i.i": ; preds = %176
+  %196 = getelementptr inbounds nuw i8, ptr %.1.val.i.i.i.i.i.i, i64 48
+  %197 = load ptr, ptr %196, align 8, !tbaa !17
+  %198 = icmp eq ptr %197, %175
   br i1 %198, label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit74.thread.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit74.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit74.i.i.i.i.i.i", %185, %181, %176
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit74.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit74.i.i.i.i.i.i", %186, %181, %176
   %199 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i.i, i64 8
   br label %200
 
@@ -635,7 +635,7 @@ define dso_local noundef zeroext i1 @_ZN5clang4Sema32DiagnoseUnexpandedParameter
   %204 = inttoptr i64 %203 to ptr
   %.not.not2.i.i75.i.i.i.i.i.i = icmp eq i64 %203, 0
   %.not.not.i.i76.i.i.i.i.i.i = or i1 %202, %.not.not2.i.i75.i.i.i.i.i.i
-  br i1 %.not.not.i.i76.i.i.i.i.i.i, label %214, label %205
+  br i1 %.not.not.i.i76.i.i.i.i.i.i, label %210, label %205
 
 205:                                              ; preds = %200
   %206 = getelementptr inbounds nuw i8, ptr %.2.val.i.i.i.i.i.i, i64 28
@@ -644,34 +644,34 @@ define dso_local noundef zeroext i1 @_ZN5clang4Sema32DiagnoseUnexpandedParameter
   %209 = icmp ne i32 %208, 65
   %.not113.i.i77.i.i.i.i.i.i = icmp eq ptr %.2.val.i.i.i.i.i.i, null
   %.not11.i.i78.i.i.i.i.i.i = or i1 %.not113.i.i77.i.i.i.i.i.i, %209
-  br i1 %.not11.i.i78.i.i.i.i.i.i, label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit.thread", label %210
+  br i1 %.not11.i.i78.i.i.i.i.i.i, label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit.thread", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit81.i.i.i.i.i.i"
 
-210:                                              ; preds = %205
-  %211 = getelementptr inbounds nuw i8, ptr %.2.val.i.i.i.i.i.i, i64 48
-  %212 = load ptr, ptr %211, align 8, !tbaa !15
-  %213 = icmp eq ptr %212, %204
-  br i1 %213, label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit", label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit.thread"
+210:                                              ; preds = %200
+  %211 = icmp ne i64 %203, 0
+  %212 = icmp ne ptr %.2.val.i.i.i.i.i.i, null
+  %or.cond.i.i.i80.i.i.i.i.i.i = and i1 %212, %211
+  br i1 %or.cond.i.i.i80.i.i.i.i.i.i, label %213, label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit.thread"
 
-214:                                              ; preds = %200
-  %215 = icmp ne i64 %203, 0
-  %216 = icmp ne ptr %.2.val.i.i.i.i.i.i, null
-  %or.cond.i.i.i80.i.i.i.i.i.i = and i1 %216, %215
-  br i1 %or.cond.i.i.i80.i.i.i.i.i.i, label %217, label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit.thread"
+213:                                              ; preds = %210
+  %214 = icmp eq ptr %.2.val.i.i.i.i.i.i, %204
+  br i1 %214, label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit", label %215
 
-217:                                              ; preds = %214
-  %218 = icmp eq ptr %.2.val.i.i.i.i.i.i, %204
-  br i1 %218, label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit81.i.i.i.i.i.i"
+215:                                              ; preds = %213
+  %216 = load ptr, ptr %204, align 8, !tbaa !15
+  %217 = getelementptr inbounds nuw i8, ptr %216, i64 32
+  %218 = load ptr, ptr %217, align 8
+  %219 = call noundef ptr %218(ptr noundef nonnull align 8 dereferenceable(33) %204) #16
+  %220 = load ptr, ptr %.2.val.i.i.i.i.i.i, align 8, !tbaa !15
+  %221 = getelementptr inbounds nuw i8, ptr %220, i64 32
+  %222 = load ptr, ptr %221, align 8
+  %223 = call noundef ptr %222(ptr noundef nonnull align 8 dereferenceable(33) %.2.val.i.i.i.i.i.i) #16
+  %224 = icmp eq ptr %219, %223
+  br i1 %224, label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit", label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit.thread"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit81.i.i.i.i.i.i": ; preds = %217
-  %219 = load ptr, ptr %204, align 8, !tbaa !31
-  %220 = getelementptr inbounds nuw i8, ptr %219, i64 32
-  %221 = load ptr, ptr %220, align 8
-  %222 = call noundef ptr %221(ptr noundef nonnull align 8 dereferenceable(33) %204) #16
-  %223 = load ptr, ptr %.2.val.i.i.i.i.i.i, align 8, !tbaa !31
-  %224 = getelementptr inbounds nuw i8, ptr %223, i64 32
-  %225 = load ptr, ptr %224, align 8
-  %226 = call noundef ptr %225(ptr noundef nonnull align 8 dereferenceable(33) %.2.val.i.i.i.i.i.i) #16
-  %227 = icmp eq ptr %222, %226
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit81.i.i.i.i.i.i": ; preds = %205
+  %225 = getelementptr inbounds nuw i8, ptr %.2.val.i.i.i.i.i.i, i64 48
+  %226 = load ptr, ptr %225, align 8, !tbaa !17
+  %227 = icmp eq ptr %226, %204
   br i1 %227, label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit", label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit.thread"
 
 "_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit46.i.i.i.i.i.i"
@@ -686,32 +686,32 @@ define dso_local noundef zeroext i1 @_ZN5clang4Sema32DiagnoseUnexpandedParameter
   %230 = getelementptr inbounds nuw i8, ptr %.029135.i.i.i.i.i.i, i64 24
   br label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit324": ; preds = %68
+"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit324": ; preds = %73
   %231 = getelementptr inbounds nuw i8, ptr %.029135.i.i.i.i.i.i, i64 8
   br label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit326": ; preds = %94
+"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit326": ; preds = %99
   %232 = getelementptr inbounds nuw i8, ptr %.029135.i.i.i.i.i.i, i64 16
   br label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit328": ; preds = %120
+"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit328": ; preds = %125
   %233 = getelementptr inbounds nuw i8, ptr %.029135.i.i.i.i.i.i, i64 24
   br label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit330": ; preds = %75
+"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit330": ; preds = %71
   %234 = getelementptr inbounds nuw i8, ptr %.029135.i.i.i.i.i.i, i64 8
   br label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit332": ; preds = %101
+"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit332": ; preds = %97
   %235 = getelementptr inbounds nuw i8, ptr %.029135.i.i.i.i.i.i, i64 16
   br label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit334": ; preds = %127
+"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit334": ; preds = %123
   %236 = getelementptr inbounds nuw i8, ptr %.029135.i.i.i.i.i.i, i64 24
   br label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit": ; preds = %42, %49, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit.i.i.i.i.i.i", %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit320", %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit322", %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit324", %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit326", %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit328", %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit330", %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit332", %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit334", %152, %159, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit67.i.i.i.i.i.i", %181, %188, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit74.i.i.i.i.i.i", %210, %217, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit81.i.i.i.i.i.i"
-  %.028.i.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit74.i.i.i.i.i.i" ], [ %.1.i.i.i.i.i.i, %188 ], [ %.2.i.i.i.i.i.i, %217 ], [ %.029.lcssa.i.i.i.i.i.i, %152 ], [ %.1.i.i.i.i.i.i, %181 ], [ %.029.lcssa.i.i.i.i.i.i, %159 ], [ %.029.lcssa.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit67.i.i.i.i.i.i" ], [ %.2.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit81.i.i.i.i.i.i" ], [ %.2.i.i.i.i.i.i, %210 ], [ %236, %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit334" ], [ %234, %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit330" ], [ %232, %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit326" ], [ %230, %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit322" ], [ %228, %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit" ], [ %235, %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit332" ], [ %233, %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit328" ], [ %231, %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit324" ], [ %229, %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit320" ], [ %.029135.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit.i.i.i.i.i.i" ], [ %.029135.i.i.i.i.i.i, %49 ], [ %.029135.i.i.i.i.i.i, %42 ]
+"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit": ; preds = %45, %47, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit.i.i.i.i.i.i", %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit320", %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit322", %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit324", %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit326", %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit328", %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit330", %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit332", %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit334", %155, %157, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit67.i.i.i.i.i.i", %184, %186, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit74.i.i.i.i.i.i", %213, %215, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit81.i.i.i.i.i.i"
+  %.028.i.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit74.i.i.i.i.i.i" ], [ %.1.i.i.i.i.i.i, %184 ], [ %.2.i.i.i.i.i.i, %213 ], [ %.029.lcssa.i.i.i.i.i.i, %157 ], [ %.1.i.i.i.i.i.i, %186 ], [ %.029.lcssa.i.i.i.i.i.i, %155 ], [ %.029.lcssa.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit67.i.i.i.i.i.i" ], [ %.2.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit81.i.i.i.i.i.i" ], [ %.2.i.i.i.i.i.i, %215 ], [ %230, %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit322" ], [ %229, %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit320" ], [ %236, %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit334" ], [ %232, %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit326" ], [ %233, %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit328" ], [ %228, %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit" ], [ %231, %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit324" ], [ %235, %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit332" ], [ %234, %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit330" ], [ %.029135.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit.i.i.i.i.i.i" ], [ %.029135.i.i.i.i.i.i, %47 ], [ %.029135.i.i.i.i.i.i, %45 ]
   %.not190 = icmp eq ptr %30, %.028.i.i.i.i.i.i
   br i1 %.not190, label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit.thread", label %237
 
@@ -744,7 +744,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12PointerUnionIJPKN5clang20Template
   store i32 %248, ptr %21, align 8, !tbaa !9
   br label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit.thread"
 
-"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit.thread": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit81.i.i.i.i.i.i", %214, %210, %205, %._crit_edge.i.i.i.i.i.i, %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12PointerUnionIJPKN5clang20TemplateTypeParmTypeEPNS3_9NamedDeclEPNS3_26ResolvedUnexpandedPackExprEEEENS3_14SourceLocationEELb1EE9push_backESD_.exit, %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit"
+"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit.thread": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit81.i.i.i.i.i.i", %215, %210, %205, %._crit_edge.i.i.i.i.i.i, %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12PointerUnionIJPKN5clang20TemplateTypeParmTypeEPNS3_9NamedDeclEPNS3_26ResolvedUnexpandedPackExprEEEENS3_14SourceLocationEELb1EE9push_backESD_.exit, %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit"
   %249 = getelementptr inbounds nuw i8, ptr %.053232, i64 16
   %.not69 = icmp eq ptr %249, %24
   br i1 %.not69, label %._crit_edge, label %28
@@ -868,7 +868,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12PointerUnionIJPKN5clang20Template
   br label %"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4sema17CompoundScopeInfoELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_1EEbOT_T0_.exit"
 
 "_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4sema17CompoundScopeInfoELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_1EEbOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i.i84, %283, %288, %293, %.loopexit.split.loop.exit34.i.i.i.i.i.i, %.loopexit.split.loop.exit36.i.i.i.i.i.i, %.loopexit.split.loop.exit38.i.i.i.i.i.i
-  %.028.i.i.i.i.i.i92 = phi ptr [ %.1.i.i.i.i.i.i93, %288 ], [ %.2.i.i.i.i.i.i90, %293 ], [ %.029.lcssa.i.i.i.i.i.i89, %283 ], [ %297, %.loopexit.split.loop.exit36.i.i.i.i.i.i ], [ %296, %.loopexit.split.loop.exit34.i.i.i.i.i.i ], [ %298, %.loopexit.split.loop.exit38.i.i.i.i.i.i ], [ %.02943.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i84 ]
+  %.028.i.i.i.i.i.i92 = phi ptr [ %.1.i.i.i.i.i.i93, %288 ], [ %298, %.loopexit.split.loop.exit38.i.i.i.i.i.i ], [ %.2.i.i.i.i.i.i90, %293 ], [ %.029.lcssa.i.i.i.i.i.i89, %283 ], [ %297, %.loopexit.split.loop.exit36.i.i.i.i.i.i ], [ %296, %.loopexit.split.loop.exit34.i.i.i.i.i.i ], [ %.02943.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i84 ]
   %.not191 = icmp eq ptr %264, %.028.i.i.i.i.i.i92
   br i1 %.not191, label %"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4sema17CompoundScopeInfoELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_1EEbOT_T0_.exit.thread", label %.thread177
 
@@ -1065,7 +1065,7 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
   br i1 %.not.i.i, label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i, label %384
 
 384:                                              ; preds = %380
-  %385 = load ptr, ptr %383, align 8, !tbaa !31
+  %385 = load ptr, ptr %383, align 8, !tbaa !15
   %386 = getelementptr inbounds nuw i8, ptr %385, i64 32
   %387 = load ptr, ptr %386, align 8
   %388 = call noundef ptr %387(ptr noundef nonnull align 8 dereferenceable(168) %383) #16
@@ -1224,7 +1224,7 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
   br i1 %.not.i.i95, label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i96, label %464
 
 464:                                              ; preds = %460
-  %465 = load ptr, ptr %463, align 8, !tbaa !31
+  %465 = load ptr, ptr %463, align 8, !tbaa !15
   %466 = getelementptr inbounds nuw i8, ptr %465, i64 32
   %467 = load ptr, ptr %466, align 8
   %468 = call noundef ptr %467(ptr noundef nonnull align 8 dereferenceable(168) %463) #16
@@ -1570,7 +1570,7 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
   br i1 %.not.i.i106, label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i107, label %624
 
 624:                                              ; preds = %621
-  %625 = load ptr, ptr %623, align 8, !tbaa !31
+  %625 = load ptr, ptr %623, align 8, !tbaa !15
   %626 = getelementptr inbounds nuw i8, ptr %625, i64 32
   %627 = load ptr, ptr %626, align 8
   %628 = call noundef ptr %627(ptr noundef nonnull align 8 dereferenceable(168) %623) #16
@@ -1665,7 +1665,7 @@ _ZN4llvm11SmallVectorIN5clang14SourceLocationELj4EED2Ev.exit: ; preds = %_ZN4llv
   br i1 %.not.i.i108, label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i109, label %661
 
 661:                                              ; preds = %658
-  %662 = load ptr, ptr %660, align 8, !tbaa !31
+  %662 = load ptr, ptr %660, align 8, !tbaa !15
   %663 = getelementptr inbounds nuw i8, ptr %662, i64 32
   %664 = load ptr, ptr %663, align 8
   %665 = call noundef ptr %664(ptr noundef nonnull align 8 dereferenceable(168) %660) #16
@@ -1756,7 +1756,7 @@ define dso_local noundef zeroext i1 @_ZN5clang4Sema31DiagnoseUnexpandedParameter
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 10
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 11
   store i8 1, ptr %20, align 1, !tbaa !188
-  store ptr getelementptr inbounds nuw inrange(-16, 7992) (i8, ptr @_ZTVN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitorE, i64 16), ptr %6, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw inrange(-16, 7992) (i8, ptr @_ZTVN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitorE, i64 16), ptr %6, align 8, !tbaa !15
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %5, ptr %21, align 8, !tbaa !189
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -1864,7 +1864,7 @@ define dso_local noundef zeroext i1 @_ZN5clang4Sema31DiagnoseUnexpandedParameter
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 10
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 11
   store i8 1, ptr %16, align 1, !tbaa !188
-  store ptr getelementptr inbounds nuw inrange(-16, 7992) (i8, ptr @_ZTVN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitorE, i64 16), ptr %5, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw inrange(-16, 7992) (i8, ptr @_ZTVN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitorE, i64 16), ptr %5, align 8, !tbaa !15
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %4, ptr %17, align 8, !tbaa !189
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -1975,7 +1975,7 @@ define dso_local noundef zeroext i1 @_ZN5clang4Sema45DiagnoseUnexpandedParameter
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 10
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 11
   store i8 1, ptr %17, align 1, !tbaa !188
-  store ptr getelementptr inbounds nuw inrange(-16, 7992) (i8, ptr @_ZTVN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitorE, i64 16), ptr %4, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw inrange(-16, 7992) (i8, ptr @_ZTVN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitorE, i64 16), ptr %4, align 8, !tbaa !15
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %3, ptr %18, align 8, !tbaa !189
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -2234,7 +2234,7 @@ define dso_local noundef zeroext i1 @_ZN5clang4Sema31DiagnoseUnexpandedParameter
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 10
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 11
   store i8 1, ptr %17, align 1, !tbaa !188
-  store ptr getelementptr inbounds nuw inrange(-16, 7992) (i8, ptr @_ZTVN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitorE, i64 16), ptr %5, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw inrange(-16, 7992) (i8, ptr @_ZTVN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitorE, i64 16), ptr %5, align 8, !tbaa !15
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %4, ptr %18, align 8, !tbaa !189
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -2351,7 +2351,7 @@ _ZNK5clang15DeclarationName11getNameKindEv.exit._crit_edge: ; preds = %_ZNK5clan
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 10
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 11
   store i8 1, ptr %35, align 1, !tbaa !188
-  store ptr getelementptr inbounds nuw inrange(-16, 7992) (i8, ptr @_ZTVN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitorE, i64 16), ptr %5, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw inrange(-16, 7992) (i8, ptr @_ZTVN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitorE, i64 16), ptr %5, align 8, !tbaa !15
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %4, ptr %36, align 8, !tbaa !189
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -2422,7 +2422,7 @@ _ZN5clang4Sema31DiagnoseUnexpandedParameterPackENS_14SourceLocationEPNS_14TypeSo
   %65 = getelementptr inbounds nuw i8, ptr %7, i64 10
   %66 = getelementptr inbounds nuw i8, ptr %7, i64 11
   store i8 1, ptr %66, align 1, !tbaa !188
-  store ptr getelementptr inbounds nuw inrange(-16, 7992) (i8, ptr @_ZTVN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitorE, i64 16), ptr %7, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw inrange(-16, 7992) (i8, ptr @_ZTVN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitorE, i64 16), ptr %7, align 8, !tbaa !15
   %67 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %6, ptr %67, align 8, !tbaa !189
   %68 = getelementptr inbounds nuw i8, ptr %7, i64 24
@@ -2545,7 +2545,7 @@ define dso_local noundef zeroext i1 @_ZN5clang4Sema31DiagnoseUnexpandedParameter
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 10
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 11
   store i8 1, ptr %19, align 1, !tbaa !188
-  store ptr getelementptr inbounds nuw inrange(-16, 7992) (i8, ptr @_ZTVN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitorE, i64 16), ptr %8, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw inrange(-16, 7992) (i8, ptr @_ZTVN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitorE, i64 16), ptr %8, align 8, !tbaa !15
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %7, ptr %20, align 8, !tbaa !189
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -2669,7 +2669,7 @@ define dso_local noundef zeroext i1 @_ZN5clang4Sema31DiagnoseUnexpandedParameter
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 10
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 11
   store i8 1, ptr %18, align 1, !tbaa !188
-  store ptr getelementptr inbounds nuw inrange(-16, 7992) (i8, ptr @_ZTVN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitorE, i64 16), ptr %5, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw inrange(-16, 7992) (i8, ptr @_ZTVN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitorE, i64 16), ptr %5, align 8, !tbaa !15
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %4, ptr %19, align 8, !tbaa !189
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -2755,7 +2755,7 @@ define dso_local void @_ZN5clang4Sema31collectUnexpandedParameterPacksENS_16Temp
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 10
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 11
   store i8 1, ptr %8, align 1, !tbaa !188
-  store ptr getelementptr inbounds nuw inrange(-16, 7992) (i8, ptr @_ZTVN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitorE, i64 16), ptr %4, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw inrange(-16, 7992) (i8, ptr @_ZTVN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitorE, i64 16), ptr %4, align 8, !tbaa !15
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %2, ptr %9, align 8, !tbaa !189
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -2800,7 +2800,7 @@ define dso_local void @_ZN5clang4Sema31collectUnexpandedParameterPacksENS_19Temp
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 10
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 11
   store i8 1, ptr %8, align 1, !tbaa !188
-  store ptr getelementptr inbounds nuw inrange(-16, 7992) (i8, ptr @_ZTVN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitorE, i64 16), ptr %4, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw inrange(-16, 7992) (i8, ptr @_ZTVN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitorE, i64 16), ptr %4, align 8, !tbaa !15
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %2, ptr %9, align 8, !tbaa !189
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -2831,7 +2831,7 @@ define dso_local void @_ZN5clang4Sema31collectUnexpandedParameterPacksENS_8QualT
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 10
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 11
   store i8 1, ptr %8, align 1, !tbaa !188
-  store ptr getelementptr inbounds nuw inrange(-16, 7992) (i8, ptr @_ZTVN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitorE, i64 16), ptr %4, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw inrange(-16, 7992) (i8, ptr @_ZTVN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitorE, i64 16), ptr %4, align 8, !tbaa !15
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %2, ptr %9, align 8, !tbaa !189
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -2872,7 +2872,7 @@ define dso_local void @_ZN5clang4Sema31collectUnexpandedParameterPacksENS_7TypeL
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 10
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 11
   store i8 1, ptr %9, align 1, !tbaa !188
-  store ptr getelementptr inbounds nuw inrange(-16, 7992) (i8, ptr @_ZTVN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitorE, i64 16), ptr %5, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw inrange(-16, 7992) (i8, ptr @_ZTVN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitorE, i64 16), ptr %5, align 8, !tbaa !15
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %3, ptr %10, align 8, !tbaa !189
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -2914,7 +2914,7 @@ define dso_local void @_ZN5clang4Sema31collectUnexpandedParameterPacksENS_22Nest
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 10
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 11
   store i8 1, ptr %9, align 1, !tbaa !188
-  store ptr getelementptr inbounds nuw inrange(-16, 7992) (i8, ptr @_ZTVN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitorE, i64 16), ptr %5, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw inrange(-16, 7992) (i8, ptr @_ZTVN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitorE, i64 16), ptr %5, align 8, !tbaa !15
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %3, ptr %10, align 8, !tbaa !189
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -2940,7 +2940,7 @@ define dso_local void @_ZN5clang4Sema31collectUnexpandedParameterPacksERKNS_19De
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 10
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 11
   store i8 1, ptr %8, align 1, !tbaa !188
-  store ptr getelementptr inbounds nuw inrange(-16, 7992) (i8, ptr @_ZTVN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitorE, i64 16), ptr %4, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw inrange(-16, 7992) (i8, ptr @_ZTVN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitorE, i64 16), ptr %4, align 8, !tbaa !15
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %2, ptr %9, align 8, !tbaa !189
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -2966,7 +2966,7 @@ define dso_local void @_ZN5clang4Sema31collectUnexpandedParameterPacksEPNS_4Expr
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 10
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 11
   store i8 1, ptr %7, align 1, !tbaa !188
-  store ptr getelementptr inbounds nuw inrange(-16, 7992) (i8, ptr @_ZTVN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitorE, i64 16), ptr %3, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw inrange(-16, 7992) (i8, ptr @_ZTVN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitorE, i64 16), ptr %3, align 8, !tbaa !15
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %1, ptr %8, align 8, !tbaa !189
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -3158,7 +3158,7 @@ define dso_local void @_ZN5clang4Sema18ActOnPackExpansionERKNS_22ParsedTemplateA
   br i1 %.not.i.i, label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i, label %78
 
 78:                                               ; preds = %74
-  %79 = load ptr, ptr %77, align 8, !tbaa !31
+  %79 = load ptr, ptr %77, align 8, !tbaa !15
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 32
   %81 = load ptr, ptr %80, align 8
   %82 = call noundef ptr %81(ptr noundef nonnull align 8 dereferenceable(168) %77) #16
@@ -3370,7 +3370,7 @@ define dso_local i64 @_ZN5clang4Sema18CheckPackExpansionENS_8QualTypeENS_11Sourc
   br i1 %.not.i.i, label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i, label %34
 
 34:                                               ; preds = %30
-  %35 = load ptr, ptr %33, align 8, !tbaa !31
+  %35 = load ptr, ptr %33, align 8, !tbaa !15
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %37 = load ptr, ptr %36, align 8
   %38 = call noundef ptr %37(ptr noundef nonnull align 8 dereferenceable(168) %33) #16
@@ -3471,7 +3471,7 @@ define dso_local noundef i64 @_ZN5clang4Sema18CheckPackExpansionEPNS_4ExprENS_14
   br i1 %.not.i.i, label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i, label %30
 
 30:                                               ; preds = %26
-  %31 = load ptr, ptr %29, align 8, !tbaa !31
+  %31 = load ptr, ptr %29, align 8, !tbaa !15
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %33 = load ptr, ptr %32, align 8
   %34 = call noundef ptr %33(ptr noundef nonnull align 8 dereferenceable(168) %29) #16
@@ -3917,9 +3917,9 @@ _ZN5clang16getDepthAndIndexEPKNS_9NamedDeclE.exit131: ; preds = %175, %178, %183
   br i1 %or.cond640, label %.thread, label %.thread555
 
 .thread555:                                       ; preds = %_ZN5clang16getDepthAndIndexEPKNS_9NamedDeclE.exit131, %169, %.loopexit, %.thread527.thread624, %.thread550
-  %.0100566 = phi i32 [ 0, %.thread527.thread624 ], [ 0, %.thread550 ], [ %.0.lcssa.i.i.i, %.loopexit ], [ %.0.lcssa.i.i.i, %169 ], [ %.0.lcssa.i.i.i, %_ZN5clang16getDepthAndIndexEPKNS_9NamedDeclE.exit131 ]
-  %.4565 = phi i32 [ %113, %.thread527.thread624 ], [ %104, %.thread550 ], [ %137, %.loopexit ], [ %137, %169 ], [ %137, %_ZN5clang16getDepthAndIndexEPKNS_9NamedDeclE.exit131 ]
-  %.3505538564 = phi ptr [ %.3505539631, %.thread527.thread624 ], [ %.0.i.i, %.thread550 ], [ %.3505539620, %.loopexit ], [ %.3505539620, %169 ], [ %.3505539620, %_ZN5clang16getDepthAndIndexEPKNS_9NamedDeclE.exit131 ]
+  %.0100566 = phi i32 [ 0, %.thread550 ], [ 0, %.thread527.thread624 ], [ %.0.lcssa.i.i.i, %.loopexit ], [ %.0.lcssa.i.i.i, %169 ], [ %.0.lcssa.i.i.i, %_ZN5clang16getDepthAndIndexEPKNS_9NamedDeclE.exit131 ]
+  %.4565 = phi i32 [ %104, %.thread550 ], [ %113, %.thread527.thread624 ], [ %137, %.loopexit ], [ %137, %169 ], [ %137, %_ZN5clang16getDepthAndIndexEPKNS_9NamedDeclE.exit131 ]
+  %.3505538564 = phi ptr [ %.0.i.i, %.thread550 ], [ %.3505539631, %.thread527.thread624 ], [ %.3505539620, %.loopexit ], [ %.3505539620, %169 ], [ %.3505539620, %_ZN5clang16getDepthAndIndexEPKNS_9NamedDeclE.exit131 ]
   %190 = load i8, ptr %41, align 4, !tbaa !153, !range !40, !noundef !41
   %191 = trunc nuw i8 %190 to i1
   br i1 %191, label %193, label %192
@@ -4091,7 +4091,7 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
   br i1 %.not.i.i, label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i, label %268
 
 268:                                              ; preds = %264
-  %269 = load ptr, ptr %267, align 8, !tbaa !31
+  %269 = load ptr, ptr %267, align 8, !tbaa !15
   %270 = getelementptr inbounds nuw i8, ptr %269, i64 32
   %271 = load ptr, ptr %270, align 8
   %272 = call noundef ptr %271(ptr noundef nonnull align 8 dereferenceable(168) %267) #16
@@ -4249,7 +4249,7 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
   br i1 %.not.i.i132, label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i133, label %347
 
 347:                                              ; preds = %343
-  %348 = load ptr, ptr %346, align 8, !tbaa !31
+  %348 = load ptr, ptr %346, align 8, !tbaa !15
   %349 = getelementptr inbounds nuw i8, ptr %348, i64 32
   %350 = load ptr, ptr %349, align 8
   %351 = call noundef ptr %350(ptr noundef nonnull align 8 dereferenceable(168) %346) #16
@@ -4408,7 +4408,7 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
   br i1 %.not.i.i135, label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i136, label %427
 
 427:                                              ; preds = %423
-  %428 = load ptr, ptr %426, align 8, !tbaa !31
+  %428 = load ptr, ptr %426, align 8, !tbaa !15
   %429 = getelementptr inbounds nuw i8, ptr %428, i64 32
   %430 = load ptr, ptr %429, align 8
   %431 = call noundef ptr %430(ptr noundef nonnull align 8 dereferenceable(168) %426) #16
@@ -4568,7 +4568,7 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
   br i1 %.not.i.i137, label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i138, label %508
 
 508:                                              ; preds = %504
-  %509 = load ptr, ptr %507, align 8, !tbaa !31
+  %509 = load ptr, ptr %507, align 8, !tbaa !15
   %510 = getelementptr inbounds nuw i8, ptr %509, i64 32
   %511 = load ptr, ptr %510, align 8
   %512 = call noundef ptr %511(ptr noundef nonnull align 8 dereferenceable(168) %507) #16
@@ -4726,7 +4726,7 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
   br i1 %.not.i.i139, label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i140, label %587
 
 587:                                              ; preds = %583
-  %588 = load ptr, ptr %586, align 8, !tbaa !31
+  %588 = load ptr, ptr %586, align 8, !tbaa !15
   %589 = getelementptr inbounds nuw i8, ptr %588, i64 32
   %590 = load ptr, ptr %589, align 8
   %591 = call noundef ptr %590(ptr noundef nonnull align 8 dereferenceable(168) %586) #16
@@ -4779,7 +4779,7 @@ _ZN5clanglsIjEERKNS_8SemaBase21SemaDiagnosticBuilderES4_RKT_.exit141: ; preds = 
   br i1 %.not.i.i142, label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i143, label %613
 
 613:                                              ; preds = %609
-  %614 = load ptr, ptr %612, align 8, !tbaa !31
+  %614 = load ptr, ptr %612, align 8, !tbaa !15
   %615 = getelementptr inbounds nuw i8, ptr %614, i64 32
   %616 = load ptr, ptr %615, align 8
   %617 = call noundef ptr %616(ptr noundef nonnull align 8 dereferenceable(168) %612) #16
@@ -4839,7 +4839,7 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit: 
   br i1 %.not.i.i144, label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i145, label %638
 
 638:                                              ; preds = %634
-  %639 = load ptr, ptr %637, align 8, !tbaa !31
+  %639 = load ptr, ptr %637, align 8, !tbaa !15
   %640 = getelementptr inbounds nuw i8, ptr %639, i64 32
   %641 = load ptr, ptr %640, align 8
   %642 = call noundef ptr %641(ptr noundef nonnull align 8 dereferenceable(168) %637) #16
@@ -5012,7 +5012,7 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
   br i1 %.not.i.i151, label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i152, label %718
 
 718:                                              ; preds = %714
-  %719 = load ptr, ptr %717, align 8, !tbaa !31
+  %719 = load ptr, ptr %717, align 8, !tbaa !15
   %720 = getelementptr inbounds nuw i8, ptr %719, i64 32
   %721 = load ptr, ptr %720, align 8
   %722 = call noundef ptr %721(ptr noundef nonnull align 8 dereferenceable(168) %717) #16
@@ -5171,7 +5171,7 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
   br i1 %.not.i.i154, label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i155, label %798
 
 798:                                              ; preds = %794
-  %799 = load ptr, ptr %797, align 8, !tbaa !31
+  %799 = load ptr, ptr %797, align 8, !tbaa !15
   %800 = getelementptr inbounds nuw i8, ptr %799, i64 32
   %801 = load ptr, ptr %800, align 8
   %802 = call noundef ptr %801(ptr noundef nonnull align 8 dereferenceable(168) %797) #16
@@ -5331,7 +5331,7 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
   br i1 %.not.i.i157, label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i158, label %879
 
 879:                                              ; preds = %875
-  %880 = load ptr, ptr %878, align 8, !tbaa !31
+  %880 = load ptr, ptr %878, align 8, !tbaa !15
   %881 = getelementptr inbounds nuw i8, ptr %880, i64 32
   %882 = load ptr, ptr %881, align 8
   %883 = call noundef ptr %882(ptr noundef nonnull align 8 dereferenceable(168) %878) #16
@@ -5489,7 +5489,7 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
   br i1 %.not.i.i160, label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i161, label %958
 
 958:                                              ; preds = %954
-  %959 = load ptr, ptr %957, align 8, !tbaa !31
+  %959 = load ptr, ptr %957, align 8, !tbaa !15
   %960 = getelementptr inbounds nuw i8, ptr %959, i64 32
   %961 = load ptr, ptr %960, align 8
   %962 = call noundef ptr %961(ptr noundef nonnull align 8 dereferenceable(168) %957) #16
@@ -5543,7 +5543,7 @@ _ZN5clanglsIjEERKNS_8SemaBase21SemaDiagnosticBuilderES4_RKT_.exit162: ; preds = 
   br i1 %.not.i.i163, label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i164, label %984
 
 984:                                              ; preds = %980
-  %985 = load ptr, ptr %983, align 8, !tbaa !31
+  %985 = load ptr, ptr %983, align 8, !tbaa !15
   %986 = getelementptr inbounds nuw i8, ptr %985, i64 32
   %987 = load ptr, ptr %986, align 8
   %988 = call noundef ptr %987(ptr noundef nonnull align 8 dereferenceable(168) %983) #16
@@ -5751,7 +5751,7 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
   br i1 %.not.i.i170, label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i171, label %1077
 
 1077:                                             ; preds = %1073
-  %1078 = load ptr, ptr %1076, align 8, !tbaa !31
+  %1078 = load ptr, ptr %1076, align 8, !tbaa !15
   %1079 = getelementptr inbounds nuw i8, ptr %1078, i64 32
   %1080 = load ptr, ptr %1079, align 8
   %1081 = call noundef ptr %1080(ptr noundef nonnull align 8 dereferenceable(168) %1076) #16
@@ -5909,7 +5909,7 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
   br i1 %.not.i.i172, label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i173, label %1156
 
 1156:                                             ; preds = %1152
-  %1157 = load ptr, ptr %1155, align 8, !tbaa !31
+  %1157 = load ptr, ptr %1155, align 8, !tbaa !15
   %1158 = getelementptr inbounds nuw i8, ptr %1157, i64 32
   %1159 = load ptr, ptr %1158, align 8
   %1160 = call noundef ptr %1159(ptr noundef nonnull align 8 dereferenceable(168) %1155) #16
@@ -6068,7 +6068,7 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
   br i1 %.not.i.i175, label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i176, label %1236
 
 1236:                                             ; preds = %1232
-  %1237 = load ptr, ptr %1235, align 8, !tbaa !31
+  %1237 = load ptr, ptr %1235, align 8, !tbaa !15
   %1238 = getelementptr inbounds nuw i8, ptr %1237, i64 32
   %1239 = load ptr, ptr %1238, align 8
   %1240 = call noundef ptr %1239(ptr noundef nonnull align 8 dereferenceable(168) %1235) #16
@@ -6120,7 +6120,7 @@ _ZN5clanglsIjEERKNS_8SemaBase21SemaDiagnosticBuilderES4_RKT_.exit177: ; preds = 
   br i1 %.not.i.i178, label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i179, label %1263
 
 1263:                                             ; preds = %1259
-  %1264 = load ptr, ptr %1262, align 8, !tbaa !31
+  %1264 = load ptr, ptr %1262, align 8, !tbaa !15
   %1265 = getelementptr inbounds nuw i8, ptr %1264, i64 32
   %1266 = load ptr, ptr %1265, align 8
   %1267 = call noundef ptr %1266(ptr noundef nonnull align 8 dereferenceable(168) %1262) #16
@@ -6331,7 +6331,7 @@ define dso_local range(i64 0, 8589934592) i64 @_ZN5clang4Sema26getNumArgumentsIn
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 10
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 11
   store i8 1, ptr %16, align 1, !tbaa !188
-  store ptr getelementptr inbounds nuw inrange(-16, 7992) (i8, ptr @_ZTVN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitorE, i64 16), ptr %5, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw inrange(-16, 7992) (i8, ptr @_ZTVN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitorE, i64 16), ptr %5, align 8, !tbaa !15
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %4, ptr %17, align 8, !tbaa !189
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -6614,7 +6614,7 @@ define dso_local noundef zeroext i1 @_ZN5clang4Sema32containsUnexpandedParameter
   br label %.loopexit
 
 .loopexit:                                        ; preds = %103, %83, %36, %92, %47, %69, %110, %107, %11, %22
-  %.2 = phi i1 [ true, %22 ], [ true, %11 ], [ false, %110 ], [ true, %107 ], [ true, %47 ], [ true, %69 ], [ true, %92 ], [ true, %36 ], [ true, %83 ], [ true, %103 ]
+  %.2 = phi i1 [ true, %22 ], [ true, %69 ], [ true, %11 ], [ false, %110 ], [ true, %107 ], [ true, %47 ], [ true, %92 ], [ true, %36 ], [ true, %83 ], [ true, %103 ]
   ret i1 %.2
 }
 
@@ -6701,7 +6701,7 @@ define dso_local noundef i64 @_ZN5clang4Sema28ActOnSizeofParameterPackExprEPNS_5
   %47 = getelementptr inbounds nuw i8, ptr %9, i64 13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %46, i8 1, i64 5, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %47, i8 0, i64 19, i1 false)
-  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_125ParameterPackValidatorCCCE, i64 16), ptr %9, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_125ParameterPackValidatorCCCE, i64 16), ptr %9, align 8, !tbaa !15
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %48 = load i32, ptr %45, align 8, !tbaa !980
   call void @_ZN5clang4Sema11CorrectTypoERKNS_19DeclarationNameInfoENS0_14LookupNameKindEPNS_5ScopeEPNS_12CXXScopeSpecERNS_27CorrectionCandidateCallbackENS0_15CorrectTypoKindEPNS_11DeclContextEbPKNS_21ObjCObjectPointerTypeEb(ptr dead_on_unwind nonnull writable sret(%"class.clang::TypoCorrection") align 8 %10, ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef nonnull align 8 dereferenceable(24) %23, i32 noundef %48, ptr noundef %1, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 1, ptr noundef null, i1 noundef zeroext false, ptr noundef null, i1 noundef zeroext true) #16
@@ -7107,7 +7107,7 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
   br i1 %.not.i.i31, label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i, label %216
 
 216:                                              ; preds = %212
-  %217 = load ptr, ptr %215, align 8, !tbaa !31
+  %217 = load ptr, ptr %215, align 8, !tbaa !15
   %218 = getelementptr inbounds nuw i8, ptr %217, i64 32
   %219 = load ptr, ptr %218, align 8
   %220 = call noundef ptr %219(ptr noundef nonnull align 8 dereferenceable(168) %215) #16
@@ -7309,7 +7309,7 @@ _ZL15isParameterPackPN5clang4ExprE.exit.thread:   ; preds = %7, %_ZL15isParamete
   br i1 %.not.i.i, label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i, label %44
 
 44:                                               ; preds = %40
-  %45 = load ptr, ptr %43, align 8, !tbaa !31
+  %45 = load ptr, ptr %43, align 8, !tbaa !15
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 32
   %47 = load ptr, ptr %46, align 8
   %48 = call noundef ptr %47(ptr noundef nonnull align 8 dereferenceable(168) %43) #16
@@ -7620,7 +7620,7 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
   br i1 %.not.i.i, label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i, label %133
 
 133:                                              ; preds = %129
-  %134 = load ptr, ptr %132, align 8, !tbaa !31
+  %134 = load ptr, ptr %132, align 8, !tbaa !15
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 32
   %136 = load ptr, ptr %135, align 8
   %137 = call noundef ptr %136(ptr noundef nonnull align 8 dereferenceable(168) %132) #16
@@ -7671,7 +7671,7 @@ _ZN5clanglsIlEERKNS_8SemaBase21SemaDiagnosticBuilderES4_RKT_.exit: ; preds = %_Z
   br i1 %.not.i.i15, label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i16, label %161
 
 161:                                              ; preds = %157
-  %162 = load ptr, ptr %160, align 8, !tbaa !31
+  %162 = load ptr, ptr %160, align 8, !tbaa !15
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 32
   %164 = load ptr, ptr %163, align 8
   %165 = call noundef ptr %164(ptr noundef nonnull align 8 dereferenceable(168) %160) #16
@@ -7834,7 +7834,7 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
   br i1 %.not.i.i17, label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i18, label %242
 
 242:                                              ; preds = %238
-  %243 = load ptr, ptr %241, align 8, !tbaa !31
+  %243 = load ptr, ptr %241, align 8, !tbaa !15
   %244 = getelementptr inbounds nuw i8, ptr %243, i64 32
   %245 = load ptr, ptr %244, align 8
   %246 = call noundef ptr %245(ptr noundef nonnull align 8 dereferenceable(168) %241) #16
@@ -8253,8 +8253,8 @@ _ZNK5clang4Type5getAsINS_29SubstTemplateTypeParmPackTypeEEEPKT_v.exit: ; preds =
   br label %.critedge49
 
 .critedge49:                                      ; preds = %.critedge, %56, %34, %.critedge45.loopexit, %49, %28, %44, %18, %_ZNK5clang4Type5getAsINS_29SubstTemplateTypeParmPackTypeEEEPKT_v.exit, %.critedge47, %2, %2, %2, %2, %2, %2, %2
-  %.sroa.071.1 = phi i32 [ undef, %2 ], [ undef, %.critedge47 ], [ undef, %44 ], [ undef, %28 ], [ undef, %18 ], [ undef, %2 ], [ undef, %2 ], [ undef, %2 ], [ undef, %2 ], [ undef, %2 ], [ undef, %2 ], [ undef, %_ZNK5clang4Type5getAsINS_29SubstTemplateTypeParmPackTypeEEEPKT_v.exit ], [ 0, %49 ], [ 0, %34 ], [ %.pre, %.critedge45.loopexit ], [ %.sroa.657.0123, %56 ], [ undef, %.critedge ]
-  %.sroa.3.1 = phi i64 [ 0, %2 ], [ 0, %.critedge47 ], [ 0, %44 ], [ 0, %28 ], [ 0, %18 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %_ZNK5clang4Type5getAsINS_29SubstTemplateTypeParmPackTypeEEEPKT_v.exit ], [ 4294967296, %49 ], [ 4294967296, %34 ], [ 4294967296, %.critedge45.loopexit ], [ 4294967296, %56 ], [ 0, %.critedge ]
+  %.sroa.071.1 = phi i32 [ undef, %2 ], [ undef, %.critedge47 ], [ %.sroa.657.0123, %56 ], [ undef, %44 ], [ undef, %28 ], [ undef, %18 ], [ undef, %2 ], [ undef, %2 ], [ undef, %2 ], [ undef, %2 ], [ undef, %2 ], [ undef, %2 ], [ undef, %_ZNK5clang4Type5getAsINS_29SubstTemplateTypeParmPackTypeEEEPKT_v.exit ], [ 0, %49 ], [ 0, %34 ], [ %.pre, %.critedge45.loopexit ], [ undef, %.critedge ]
+  %.sroa.3.1 = phi i64 [ 0, %2 ], [ 0, %.critedge47 ], [ 4294967296, %56 ], [ 0, %44 ], [ 0, %28 ], [ 0, %18 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %_ZNK5clang4Type5getAsINS_29SubstTemplateTypeParmPackTypeEEEPKT_v.exit ], [ 4294967296, %49 ], [ 4294967296, %34 ], [ 4294967296, %.critedge45.loopexit ], [ 0, %.critedge ]
   %.sroa.071.0.insert.ext = zext i32 %.sroa.071.1 to i64
   %.sroa.071.0.insert.insert = or disjoint i64 %.sroa.3.1, %.sroa.071.0.insert.ext
   ret i64 %.sroa.071.0.insert.insert
@@ -8354,7 +8354,7 @@ define dso_local noundef i64 @_ZN5clang4Sema16ActOnCXXFoldExprEPNS_5ScopeENS_14S
   br i1 %.not.i.i, label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i, label %57
 
 57:                                               ; preds = %53
-  %58 = load ptr, ptr %56, align 8, !tbaa !31
+  %58 = load ptr, ptr %56, align 8, !tbaa !15
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 32
   %60 = load ptr, ptr %59, align 8
   %61 = call noundef ptr %60(ptr noundef nonnull align 8 dereferenceable(168) %56) #16
@@ -8410,7 +8410,7 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit: 
   br i1 %.not.i.i36, label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i37, label %83
 
 83:                                               ; preds = %79
-  %84 = load ptr, ptr %82, align 8, !tbaa !31
+  %84 = load ptr, ptr %82, align 8, !tbaa !15
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 32
   %86 = load ptr, ptr %85, align 8
   %87 = call noundef ptr %86(ptr noundef nonnull align 8 dereferenceable(168) %82) #16
@@ -8490,7 +8490,7 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit42
   br i1 %.not.i.i43, label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i44, label %120
 
 120:                                              ; preds = %116
-  %121 = load ptr, ptr %119, align 8, !tbaa !31
+  %121 = load ptr, ptr %119, align 8, !tbaa !15
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 32
   %123 = load ptr, ptr %122, align 8
   %124 = call noundef ptr %123(ptr noundef nonnull align 8 dereferenceable(168) %119) #16
@@ -8657,7 +8657,7 @@ define internal fastcc void @_ZL16CheckFoldOperandRN5clang4SemaEPNS_4ExprE(ptr n
   br i1 %.not.i.i, label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i, label %38
 
 38:                                               ; preds = %34
-  %39 = load ptr, ptr %37, align 8, !tbaa !31
+  %39 = load ptr, ptr %37, align 8, !tbaa !15
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 32
   %41 = load ptr, ptr %40, align 8
   %42 = call noundef ptr %41(ptr noundef nonnull align 8 dereferenceable(168) %37) #16
@@ -8710,7 +8710,7 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit: 
   br i1 %.not.i.i8, label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i9, label %64
 
 64:                                               ; preds = %60
-  %65 = load ptr, ptr %63, align 8, !tbaa !31
+  %65 = load ptr, ptr %63, align 8, !tbaa !15
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 32
   %67 = load ptr, ptr %66, align 8
   %68 = call noundef ptr %67(ptr noundef nonnull align 8 dereferenceable(168) %63) #16
@@ -8758,7 +8758,7 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_9FixItHintEvEERKS1_OT_.exit: ; p
   br i1 %.not.i.i10, label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i11, label %90
 
 90:                                               ; preds = %86
-  %91 = load ptr, ptr %89, align 8, !tbaa !31
+  %91 = load ptr, ptr %89, align 8, !tbaa !15
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 32
   %93 = load ptr, ptr %92, align 8
   %94 = call noundef ptr %93(ptr noundef nonnull align 8 dereferenceable(168) %89) #16
@@ -8929,7 +8929,7 @@ _ZN5clang22CXXScalarValueInitExprC2ENS_8QualTypeEPNS_14TypeSourceInfoENS_14Sourc
   br i1 %.not.i.i, label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i, label %55
 
 55:                                               ; preds = %51
-  %56 = load ptr, ptr %54, align 8, !tbaa !31
+  %56 = load ptr, ptr %54, align 8, !tbaa !15
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 32
   %58 = load ptr, ptr %57, align 8
   %59 = call noundef ptr %58(ptr noundef nonnull align 8 dereferenceable(168) %54) #16
@@ -9739,11 +9739,11 @@ _ZNK5clang21ObjCDictionaryLiteral18getKeyValueElementEj.exit: ; preds = %11
   br i1 %.not14, label %_ZNK5clang21ObjCDictionaryLiteral18getKeyValueElementEj.exit.thread, label %30
 
 _ZNK5clang21ObjCDictionaryLiteral18getKeyValueElementEj.exit.thread: ; preds = %11, %_ZNK5clang21ObjCDictionaryLiteral18getKeyValueElementEj.exit
-  %22 = load ptr, ptr %0, align 8, !tbaa !31
+  %22 = load ptr, ptr %0, align 8, !tbaa !15
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 96
   %24 = load ptr, ptr %23, align 8
   %25 = tail call noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %13) #16
-  %26 = load ptr, ptr %0, align 8, !tbaa !31
+  %26 = load ptr, ptr %0, align 8, !tbaa !15
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 96
   %28 = load ptr, ptr %27, align 8
   %29 = tail call noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %15) #16
@@ -12173,7 +12173,7 @@ _ZN5clang27CorrectionCandidateCallback11MatchesTypoERKNS_14TypoCorrectionE.exit:
   br i1 %21, label %28, label %_ZN5clang27CorrectionCandidateCallback11MatchesTypoERKNS_14TypoCorrectionE.exit.thread
 
 _ZN5clang27CorrectionCandidateCallback11MatchesTypoERKNS_14TypoCorrectionE.exit.thread: ; preds = %2, %10, %_ZN5clang27CorrectionCandidateCallback11MatchesTypoERKNS_14TypoCorrectionE.exit
-  %22 = load ptr, ptr %0, align 8, !tbaa !31
+  %22 = load ptr, ptr %0, align 8, !tbaa !15
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load ptr, ptr %23, align 8
   %25 = tail call noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(88) %1) #16
@@ -12193,7 +12193,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_125ParameterPackValidatorCCCESt14default_deleteI
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull readonly align 8 dereferenceable(24) %4, i64 24, i1 false), !noalias !1036
-  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_125ParameterPackValidatorCCCE, i64 16), ptr %2, align 8, !tbaa !31, !noalias !1036
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_125ParameterPackValidatorCCCE, i64 16), ptr %2, align 8, !tbaa !15, !noalias !1036
   store ptr %2, ptr %0, align 8, !tbaa !1039
   ret void
 }
@@ -13750,24 +13750,24 @@ attributes #20 = { noreturn nounwind }
 !12 = !{!4, !8, i64 12}
 !13 = !{!14, !14, i64 0}
 !14 = !{!"p1 _ZTSN5clang9NamedDeclE", !5, i64 0}
-!15 = !{!16, !30, i64 48}
-!16 = !{!"_ZTSN5clang8TypeDeclE", !17, i64 0, !30, i64 48, !27, i64 56}
-!17 = !{!"_ZTSN5clang9NamedDeclE", !18, i64 0, !28, i64 40}
-!18 = !{!"_ZTSN5clang4DeclE", !19, i64 8, !21, i64 16, !27, i64 24, !8, i64 28, !8, i64 28, !8, i64 29, !8, i64 29, !8, i64 29, !8, i64 29, !8, i64 29, !8, i64 29, !8, i64 29, !8, i64 30, !8, i64 32}
-!19 = !{!"_ZTSN4llvm14PointerIntPairIPN5clang4DeclELj3ENS2_19ModuleOwnershipKindENS_21PointerLikeTypeTraitsIS3_EENS_18PointerIntPairInfoIS3_Lj3ES6_EEEE", !20, i64 0}
-!20 = !{!"_ZTSN4llvm6detail13PunnedPointerIPN5clang4DeclEEE", !6, i64 0}
-!21 = !{!"_ZTSN4llvm12PointerUnionIJPN5clang11DeclContextEPNS1_4Decl10MultipleDCEEEE", !22, i64 0}
-!22 = !{!"_ZTSN4llvm20pointer_union_detail19PointerUnionMembersINS_12PointerUnionIJPN5clang11DeclContextEPNS3_4Decl10MultipleDCEEEENS_14PointerIntPairIPvLj1EiNS0_22PointerUnionUIntTraitsIJS5_S8_EEENS_18PointerIntPairInfoISB_Lj1ESD_EEEELi0EJS5_S8_EEE", !23, i64 0}
-!23 = !{!"_ZTSN4llvm20pointer_union_detail19PointerUnionMembersINS_12PointerUnionIJPN5clang11DeclContextEPNS3_4Decl10MultipleDCEEEENS_14PointerIntPairIPvLj1EiNS0_22PointerUnionUIntTraitsIJS5_S8_EEENS_18PointerIntPairInfoISB_Lj1ESD_EEEELi1EJS8_EEE", !24, i64 0}
-!24 = !{!"_ZTSN4llvm20pointer_union_detail19PointerUnionMembersINS_12PointerUnionIJPN5clang11DeclContextEPNS3_4Decl10MultipleDCEEEENS_14PointerIntPairIPvLj1EiNS0_22PointerUnionUIntTraitsIJS5_S8_EEENS_18PointerIntPairInfoISB_Lj1ESD_EEEELi2EJEEE", !25, i64 0}
-!25 = !{!"_ZTSN4llvm14PointerIntPairIPvLj1EiNS_20pointer_union_detail22PointerUnionUIntTraitsIJPN5clang11DeclContextEPNS4_4Decl10MultipleDCEEEENS_18PointerIntPairInfoIS1_Lj1ESA_EEEE", !26, i64 0}
-!26 = !{!"_ZTSN4llvm6detail13PunnedPointerIPvEE", !6, i64 0}
-!27 = !{!"_ZTSN5clang14SourceLocationE", !8, i64 0}
-!28 = !{!"_ZTSN5clang15DeclarationNameE", !29, i64 0}
-!29 = !{!"long", !6, i64 0}
-!30 = !{!"p1 _ZTSN5clang4TypeE", !5, i64 0}
-!31 = !{!32, !32, i64 0}
-!32 = !{!"vtable pointer", !7, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"vtable pointer", !7, i64 0}
+!17 = !{!18, !32, i64 48}
+!18 = !{!"_ZTSN5clang8TypeDeclE", !19, i64 0, !32, i64 48, !29, i64 56}
+!19 = !{!"_ZTSN5clang9NamedDeclE", !20, i64 0, !30, i64 40}
+!20 = !{!"_ZTSN5clang4DeclE", !21, i64 8, !23, i64 16, !29, i64 24, !8, i64 28, !8, i64 28, !8, i64 29, !8, i64 29, !8, i64 29, !8, i64 29, !8, i64 29, !8, i64 29, !8, i64 29, !8, i64 30, !8, i64 32}
+!21 = !{!"_ZTSN4llvm14PointerIntPairIPN5clang4DeclELj3ENS2_19ModuleOwnershipKindENS_21PointerLikeTypeTraitsIS3_EENS_18PointerIntPairInfoIS3_Lj3ES6_EEEE", !22, i64 0}
+!22 = !{!"_ZTSN4llvm6detail13PunnedPointerIPN5clang4DeclEEE", !6, i64 0}
+!23 = !{!"_ZTSN4llvm12PointerUnionIJPN5clang11DeclContextEPNS1_4Decl10MultipleDCEEEE", !24, i64 0}
+!24 = !{!"_ZTSN4llvm20pointer_union_detail19PointerUnionMembersINS_12PointerUnionIJPN5clang11DeclContextEPNS3_4Decl10MultipleDCEEEENS_14PointerIntPairIPvLj1EiNS0_22PointerUnionUIntTraitsIJS5_S8_EEENS_18PointerIntPairInfoISB_Lj1ESD_EEEELi0EJS5_S8_EEE", !25, i64 0}
+!25 = !{!"_ZTSN4llvm20pointer_union_detail19PointerUnionMembersINS_12PointerUnionIJPN5clang11DeclContextEPNS3_4Decl10MultipleDCEEEENS_14PointerIntPairIPvLj1EiNS0_22PointerUnionUIntTraitsIJS5_S8_EEENS_18PointerIntPairInfoISB_Lj1ESD_EEEELi1EJS8_EEE", !26, i64 0}
+!26 = !{!"_ZTSN4llvm20pointer_union_detail19PointerUnionMembersINS_12PointerUnionIJPN5clang11DeclContextEPNS3_4Decl10MultipleDCEEEENS_14PointerIntPairIPvLj1EiNS0_22PointerUnionUIntTraitsIJS5_S8_EEENS_18PointerIntPairInfoISB_Lj1ESD_EEEELi2EJEEE", !27, i64 0}
+!27 = !{!"_ZTSN4llvm14PointerIntPairIPvLj1EiNS_20pointer_union_detail22PointerUnionUIntTraitsIJPN5clang11DeclContextEPNS4_4Decl10MultipleDCEEEENS_18PointerIntPairInfoIS1_Lj1ESA_EEEE", !28, i64 0}
+!28 = !{!"_ZTSN4llvm6detail13PunnedPointerIPvEE", !6, i64 0}
+!29 = !{!"_ZTSN5clang14SourceLocationE", !8, i64 0}
+!30 = !{!"_ZTSN5clang15DeclarationNameE", !31, i64 0}
+!31 = !{!"long", !6, i64 0}
+!32 = !{!"p1 _ZTSN5clang4TypeE", !5, i64 0}
 !33 = distinct !{!33, !34}
 !34 = !{!"llvm.loop.mustprogress"}
 !35 = !{!"branch_weights", !"expected", i32 2000, i32 1}
@@ -13781,7 +13781,7 @@ attributes #20 = { noreturn nounwind }
 !43 = distinct !{!43, !34}
 !44 = !{!45, !38, i64 1465}
 !45 = !{!"_ZTSN5clang4sema18CapturingScopeInfoE", !46, i64 0, !101, i64 1280, !102, i64 1288, !8, i64 1312, !104, i64 1320, !38, i64 1464, !38, i64 1465, !109, i64 1472, !112, i64 1480}
-!46 = !{!"_ZTSN5clang4sema17FunctionScopeInfoE", !47, i64 8, !38, i64 8, !38, i64 8, !38, i64 8, !38, i64 8, !38, i64 8, !38, i64 9, !38, i64 9, !38, i64 9, !38, i64 9, !38, i64 9, !38, i64 9, !38, i64 9, !38, i64 9, !38, i64 10, !38, i64 10, !6, i64 10, !38, i64 10, !27, i64 12, !27, i64 16, !27, i64 20, !48, i64 24, !27, i64 28, !27, i64 32, !49, i64 40, !51, i64 56, !56, i64 136, !61, i64 184, !62, i64 192, !71, i64 344, !73, i64 360, !78, i64 408, !81, i64 440, !87, i64 448, !92, i64 624, !94, i64 712, !99, i64 760}
+!46 = !{!"_ZTSN5clang4sema17FunctionScopeInfoE", !47, i64 8, !38, i64 8, !38, i64 8, !38, i64 8, !38, i64 8, !38, i64 8, !38, i64 9, !38, i64 9, !38, i64 9, !38, i64 9, !38, i64 9, !38, i64 9, !38, i64 9, !38, i64 9, !38, i64 10, !38, i64 10, !6, i64 10, !38, i64 10, !29, i64 12, !29, i64 16, !29, i64 20, !48, i64 24, !29, i64 28, !29, i64 32, !49, i64 40, !51, i64 56, !56, i64 136, !61, i64 184, !62, i64 192, !71, i64 344, !73, i64 360, !78, i64 408, !81, i64 440, !87, i64 448, !92, i64 624, !94, i64 712, !99, i64 760}
 !47 = !{!"_ZTSN5clang4sema17FunctionScopeInfo9ScopeKindE", !6, i64 0}
 !48 = !{!"_ZTSN5clang4sema17FunctionScopeInfoUt_E", !6, i64 0}
 !49 = !{!"_ZTSN5clang19DiagnosticErrorTrapE", !50, i64 0, !8, i64 8, !8, i64 12}
@@ -13821,7 +13821,7 @@ attributes #20 = { noreturn nounwind }
 !83 = !{!"_ZTSN4llvm20pointer_union_detail19PointerUnionMembersINS_12PointerUnionIJPN5clang7VarDeclEPNS_11SmallVectorIS5_Lj4EEEEEENS_14PointerIntPairIPvLj1EiNS0_22PointerUnionUIntTraitsIJS5_S8_EEENS_18PointerIntPairInfoISB_Lj1ESD_EEEELi0EJS5_S8_EEE", !84, i64 0}
 !84 = !{!"_ZTSN4llvm20pointer_union_detail19PointerUnionMembersINS_12PointerUnionIJPN5clang7VarDeclEPNS_11SmallVectorIS5_Lj4EEEEEENS_14PointerIntPairIPvLj1EiNS0_22PointerUnionUIntTraitsIJS5_S8_EEENS_18PointerIntPairInfoISB_Lj1ESD_EEEELi1EJS8_EEE", !85, i64 0}
 !85 = !{!"_ZTSN4llvm20pointer_union_detail19PointerUnionMembersINS_12PointerUnionIJPN5clang7VarDeclEPNS_11SmallVectorIS5_Lj4EEEEEENS_14PointerIntPairIPvLj1EiNS0_22PointerUnionUIntTraitsIJS5_S8_EEENS_18PointerIntPairInfoISB_Lj1ESD_EEEELi2EJEEE", !86, i64 0}
-!86 = !{!"_ZTSN4llvm14PointerIntPairIPvLj1EiNS_20pointer_union_detail22PointerUnionUIntTraitsIJPN5clang7VarDeclEPNS_11SmallVectorIS6_Lj4EEEEEENS_18PointerIntPairInfoIS1_Lj1ESA_EEEE", !26, i64 0}
+!86 = !{!"_ZTSN4llvm14PointerIntPairIPvLj1EiNS_20pointer_union_detail22PointerUnionUIntTraitsIJPN5clang7VarDeclEPNS_11SmallVectorIS6_Lj4EEEEEENS_18PointerIntPairInfoIS1_Lj1ESA_EEEE", !28, i64 0}
 !87 = !{!"_ZTSN4llvm11SmallVectorIN5clang4sema23PossiblyUnreachableDiagELj4EEE", !88, i64 0, !91, i64 16}
 !88 = !{!"_ZTSN4llvm15SmallVectorImplIN5clang4sema23PossiblyUnreachableDiagEEE", !89, i64 0}
 !89 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIN5clang4sema23PossiblyUnreachableDiagELb0EEE", !90, i64 0}
@@ -13881,17 +13881,17 @@ attributes #20 = { noreturn nounwind }
 !143 = !{!144, !145, i64 0}
 !144 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !145, i64 0}
 !145 = !{!"p1 omnipotent char", !5, i64 0}
-!146 = !{!147, !29, i64 8}
-!147 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !144, i64 0, !29, i64 8, !6, i64 16}
+!146 = !{!147, !31, i64 8}
+!147 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !144, i64 0, !31, i64 8, !6, i64 16}
 !148 = !{!6, !6, i64 0}
 !149 = !{!126, !126, i64 0}
 !150 = !{!147, !145, i64 0}
 !151 = distinct !{!151, !34}
-!152 = !{!29, !29, i64 0}
+!152 = !{!31, !31, i64 0}
 !153 = !{!154, !38, i64 4}
 !154 = !{!"_ZTSSt22_Optional_payload_baseIjE", !6, i64 0, !38, i64 4}
 !155 = !{!156, !158, i64 16}
-!156 = !{!"_ZTSN5clang8SemaBase21SemaDiagnosticBuilderE", !157, i64 0, !27, i64 8, !8, i64 12, !158, i64 16, !38, i64 24, !159, i64 32, !163, i64 128}
+!156 = !{!"_ZTSN5clang8SemaBase21SemaDiagnosticBuilderE", !157, i64 0, !29, i64 8, !8, i64 12, !158, i64 16, !38, i64 24, !159, i64 32, !163, i64 128}
 !157 = !{!"p1 _ZTSN5clang4SemaE", !5, i64 0}
 !158 = !{!"p1 _ZTSN5clang12FunctionDeclE", !5, i64 0}
 !159 = !{!"_ZTSSt8optionalIN5clang8SemaBase20ImmediateDiagBuilderEE", !160, i64 0}
@@ -13907,20 +13907,20 @@ attributes #20 = { noreturn nounwind }
 !169 = !{!170, !171, i64 0}
 !170 = !{!"_ZTSNSt12_Vector_baseISt4pairIN5clang14SourceLocationENS1_17PartialDiagnosticEESaIS4_EE17_Vector_impl_dataE", !171, i64 0, !171, i64 8, !171, i64 16}
 !171 = !{!"p1 _ZTSSt4pairIN5clang14SourceLocationENS0_17PartialDiagnosticEE", !5, i64 0}
-!172 = !{!28, !29, i64 0}
+!172 = !{!30, !31, i64 0}
 !173 = !{!174}
 !174 = distinct !{!174, !175, !"_ZN4llvm15SmallPtrSetImplIPN5clang14IdentifierInfoEE6insertES3_: argument 0"}
 !175 = distinct !{!175, !"_ZN4llvm15SmallPtrSetImplIPN5clang14IdentifierInfoEE6insertES3_"}
 !176 = !{!5, !5, i64 0}
 !177 = distinct !{!177, !34}
-!178 = !{!27, !8, i64 0}
+!178 = !{!29, !8, i64 0}
 !179 = distinct !{!179, !34}
 !180 = !{!181, !181, i64 0}
 !181 = !{!"p1 _ZTSN5clang14IdentifierInfoE", !5, i64 0}
 !182 = distinct !{!182, !34}
 !183 = distinct !{!183, !34}
-!184 = !{!185, !30, i64 0}
-!185 = !{!"_ZTSN5clang22ExtQualsTypeCommonBaseE", !30, i64 0, !109, i64 8}
+!184 = !{!185, !32, i64 0}
+!185 = !{!"_ZTSN5clang22ExtQualsTypeCommonBaseE", !32, i64 0, !109, i64 8}
 !186 = !{!187, !38, i64 8}
 !187 = !{!"_ZTSN5clang30DynamicRecursiveASTVisitorBaseILb0EEE", !38, i64 8, !38, i64 9, !38, i64 10, !38, i64 11}
 !188 = !{!187, !38, i64 11}
@@ -13932,7 +13932,7 @@ attributes #20 = { noreturn nounwind }
 !194 = !{!187, !38, i64 9}
 !195 = !{!187, !38, i64 10}
 !196 = !{!197, !8, i64 16}
-!197 = !{!"_ZTSN5clang12RequiresExprE", !198, i64 0, !8, i64 16, !8, i64 20, !201, i64 24, !27, i64 32, !27, i64 36, !27, i64 40}
+!197 = !{!"_ZTSN5clang12RequiresExprE", !198, i64 0, !8, i64 16, !8, i64 20, !201, i64 24, !29, i64 32, !29, i64 36, !29, i64 40}
 !198 = !{!"_ZTSN5clang4ExprE", !199, i64 0, !109, i64 8}
 !199 = !{!"_ZTSN5clang9ValueStmtE", !200, i64 0}
 !200 = !{!"_ZTSN5clang4StmtE", !6, i64 0}
@@ -13950,11 +13950,11 @@ attributes #20 = { noreturn nounwind }
 !212 = !{!213, !8, i64 0}
 !213 = !{!"_ZTSN5clang6detail20DeclarationNameExtraE", !8, i64 0}
 !214 = !{!215, !5, i64 8}
-!215 = !{!"_ZTSN5clang22ParsedTemplateArgumentE", !216, i64 0, !5, i64 8, !217, i64 16, !27, i64 64, !27, i64 68}
+!215 = !{!"_ZTSN5clang22ParsedTemplateArgumentE", !216, i64 0, !5, i64 8, !217, i64 16, !29, i64 64, !29, i64 68}
 !216 = !{!"_ZTSN5clang22ParsedTemplateArgument8KindTypeE", !6, i64 0}
 !217 = !{!"_ZTSN5clang12CXXScopeSpecE", !218, i64 0, !210, i64 8, !219, i64 32}
-!218 = !{!"_ZTSN5clang11SourceRangeE", !27, i64 0, !27, i64 4}
-!219 = !{!"_ZTSN4llvm8ArrayRefIPN5clang21TemplateParameterListEEE", !220, i64 0, !29, i64 8}
+!218 = !{!"_ZTSN5clang11SourceRangeE", !29, i64 0, !29, i64 4}
+!219 = !{!"_ZTSN4llvm8ArrayRefIPN5clang21TemplateParameterListEEE", !220, i64 0, !31, i64 8}
 !220 = !{!"p2 _ZTSN5clang21TemplateParameterListE", !5, i64 0}
 !221 = !{i64 0, i64 8, !222, i64 8, i64 8, !152}
 !222 = !{!220, !220, i64 0}
@@ -13962,13 +13962,13 @@ attributes #20 = { noreturn nounwind }
 !224 = !{!225, !225, i64 0}
 !225 = !{!"p1 _ZTSN5clang14TypeSourceInfoE", !5, i64 0}
 !226 = !{!227, !145, i64 0}
-!227 = !{!"_ZTSN5clang14TypeLocBuilderE", !145, i64 0, !29, i64 8, !29, i64 16, !6, i64 24, !8, i64 56, !38, i64 60}
-!228 = !{!227, !29, i64 8}
-!229 = !{!227, !29, i64 16}
+!227 = !{!"_ZTSN5clang14TypeLocBuilderE", !145, i64 0, !31, i64 8, !31, i64 16, !6, i64 24, !8, i64 56, !38, i64 60}
+!228 = !{!227, !31, i64 8}
+!229 = !{!227, !31, i64 16}
 !230 = !{!227, !8, i64 56}
 !231 = !{!227, !38, i64 60}
 !232 = !{!233, !264, i64 248}
-!233 = !{!"_ZTSN5clang4SemaE", !234, i64 8, !38, i64 16, !235, i64 24, !241, i64 32, !8, i64 80, !8, i64 84, !246, i64 88, !256, i64 184, !257, i64 192, !258, i64 200, !39, i64 224, !262, i64 232, !263, i64 240, !264, i64 248, !265, i64 256, !50, i64 264, !266, i64 272, !267, i64 280, !271, i64 352, !282, i64 440, !5, i64 448, !5, i64 456, !5, i64 464, !283, i64 472, !28, i64 504, !38, i64 512, !285, i64 520, !287, i64 528, !289, i64 552, !290, i64 560, !292, i64 568, !38, i64 584, !297, i64 592, !298, i64 608, !257, i64 616, !181, i64 624, !299, i64 632, !306, i64 640, !313, i64 648, !320, i64 656, !327, i64 664, !334, i64 672, !341, i64 680, !348, i64 688, !355, i64 696, !362, i64 704, !369, i64 712, !376, i64 720, !383, i64 728, !390, i64 736, !397, i64 744, !404, i64 752, !411, i64 760, !418, i64 768, !425, i64 776, !432, i64 784, !439, i64 792, !446, i64 800, !453, i64 808, !460, i64 816, !467, i64 824, !474, i64 832, !481, i64 840, !38, i64 844, !27, i64 848, !482, i64 856, !482, i64 896, !482, i64 936, !482, i64 976, !482, i64 1016, !483, i64 1056, !490, i64 1152, !498, i64 1248, !503, i64 1360, !503, i64 1464, !503, i64 1568, !503, i64 1672, !510, i64 1776, !516, i64 1864, !509, i64 1968, !27, i64 1976, !523, i64 1984, !5, i64 2008, !524, i64 2016, !529, i64 2320, !27, i64 2328, !38, i64 2332, !530, i64 2336, !38, i64 2440, !541, i64 2448, !548, i64 2456, !553, i64 2600, !554, i64 2608, !8, i64 2632, !556, i64 2640, !558, i64 2696, !560, i64 2720, !567, i64 2760, !569, i64 2784, !580, i64 2856, !586, i64 2920, !592, i64 2984, !289, i64 3032, !597, i64 3040, !599, i64 3096, !610, i64 3168, !612, i64 3192, !614, i64 3224, !620, i64 3288, !625, i64 3560, !627, i64 3584, !632, i64 3632, !637, i64 3680, !642, i64 3920, !649, i64 3928, !660, i64 4096, !667, i64 4104, !673, i64 4168, !553, i64 4176, !674, i64 4184, !676, i64 4208, !683, i64 4248, !685, i64 4304, !686, i64 4312, !691, i64 4360, !696, i64 4408, !707, i64 4480, !709, i64 4504, !710, i64 4512, !38, i64 4592, !715, i64 4600, !716, i64 4608, !721, i64 9744, !723, i64 9800, !728, i64 9832, !27, i64 9856, !673, i64 9864, !673, i64 9872, !715, i64 9880, !38, i64 9888, !733, i64 9896, !109, i64 9936, !740, i64 9944, !745, i64 9992, !38, i64 10016, !8, i64 10020, !747, i64 10024, !749, i64 10048, !752, i64 10064, !757, i64 10096, !38, i64 10136, !764, i64 10144, !771, i64 10184, !775, i64 10208, !780, i64 10992, !780, i64 11000, !780, i64 11008, !781, i64 11016, !783, i64 11104, !785, i64 11192, !38, i64 11224, !38, i64 11225, !791, i64 11232, !8, i64 11264, !796, i64 11272, !38, i64 11312, !803, i64 11320, !805, i64 11344, !806, i64 11352, !808, i64 11376, !813, i64 12416, !817, i64 12440, !821, i64 12464, !826, i64 12608, !830, i64 12632, !38, i64 12656, !8, i64 12660, !8, i64 12664, !832, i64 12672, !8, i64 12696, !837, i64 12704, !844, i64 12784, !849, i64 12816, !854, i64 15008, !837, i64 15664, !8, i64 15744, !859, i64 15752, !861, i64 15776, !863, i64 15800, !865, i64 15824, !870, i64 17360, !181, i64 17400, !181, i64 17408, !181, i64 17416, !181, i64 17424, !876, i64 17432, !881, i64 17496}
+!233 = !{!"_ZTSN5clang4SemaE", !234, i64 8, !38, i64 16, !235, i64 24, !241, i64 32, !8, i64 80, !8, i64 84, !246, i64 88, !256, i64 184, !257, i64 192, !258, i64 200, !39, i64 224, !262, i64 232, !263, i64 240, !264, i64 248, !265, i64 256, !50, i64 264, !266, i64 272, !267, i64 280, !271, i64 352, !282, i64 440, !5, i64 448, !5, i64 456, !5, i64 464, !283, i64 472, !30, i64 504, !38, i64 512, !285, i64 520, !287, i64 528, !289, i64 552, !290, i64 560, !292, i64 568, !38, i64 584, !297, i64 592, !298, i64 608, !257, i64 616, !181, i64 624, !299, i64 632, !306, i64 640, !313, i64 648, !320, i64 656, !327, i64 664, !334, i64 672, !341, i64 680, !348, i64 688, !355, i64 696, !362, i64 704, !369, i64 712, !376, i64 720, !383, i64 728, !390, i64 736, !397, i64 744, !404, i64 752, !411, i64 760, !418, i64 768, !425, i64 776, !432, i64 784, !439, i64 792, !446, i64 800, !453, i64 808, !460, i64 816, !467, i64 824, !474, i64 832, !481, i64 840, !38, i64 844, !29, i64 848, !482, i64 856, !482, i64 896, !482, i64 936, !482, i64 976, !482, i64 1016, !483, i64 1056, !490, i64 1152, !498, i64 1248, !503, i64 1360, !503, i64 1464, !503, i64 1568, !503, i64 1672, !510, i64 1776, !516, i64 1864, !509, i64 1968, !29, i64 1976, !523, i64 1984, !5, i64 2008, !524, i64 2016, !529, i64 2320, !29, i64 2328, !38, i64 2332, !530, i64 2336, !38, i64 2440, !541, i64 2448, !548, i64 2456, !553, i64 2600, !554, i64 2608, !8, i64 2632, !556, i64 2640, !558, i64 2696, !560, i64 2720, !567, i64 2760, !569, i64 2784, !580, i64 2856, !586, i64 2920, !592, i64 2984, !289, i64 3032, !597, i64 3040, !599, i64 3096, !610, i64 3168, !612, i64 3192, !614, i64 3224, !620, i64 3288, !625, i64 3560, !627, i64 3584, !632, i64 3632, !637, i64 3680, !642, i64 3920, !649, i64 3928, !660, i64 4096, !667, i64 4104, !673, i64 4168, !553, i64 4176, !674, i64 4184, !676, i64 4208, !683, i64 4248, !685, i64 4304, !686, i64 4312, !691, i64 4360, !696, i64 4408, !707, i64 4480, !709, i64 4504, !710, i64 4512, !38, i64 4592, !715, i64 4600, !716, i64 4608, !721, i64 9744, !723, i64 9800, !728, i64 9832, !29, i64 9856, !673, i64 9864, !673, i64 9872, !715, i64 9880, !38, i64 9888, !733, i64 9896, !109, i64 9936, !740, i64 9944, !745, i64 9992, !38, i64 10016, !8, i64 10020, !747, i64 10024, !749, i64 10048, !752, i64 10064, !757, i64 10096, !38, i64 10136, !764, i64 10144, !771, i64 10184, !775, i64 10208, !780, i64 10992, !780, i64 11000, !780, i64 11008, !781, i64 11016, !783, i64 11104, !785, i64 11192, !38, i64 11224, !38, i64 11225, !791, i64 11232, !8, i64 11264, !796, i64 11272, !38, i64 11312, !803, i64 11320, !805, i64 11344, !806, i64 11352, !808, i64 11376, !813, i64 12416, !817, i64 12440, !821, i64 12464, !826, i64 12608, !830, i64 12632, !38, i64 12656, !8, i64 12660, !8, i64 12664, !832, i64 12672, !8, i64 12696, !837, i64 12704, !844, i64 12784, !849, i64 12816, !854, i64 15008, !837, i64 15664, !8, i64 15744, !859, i64 15752, !861, i64 15776, !863, i64 15800, !865, i64 15824, !870, i64 17360, !181, i64 17400, !181, i64 17408, !181, i64 17416, !181, i64 17424, !876, i64 17432, !881, i64 17496}
 !234 = !{!"_ZTSN5clang8SemaBaseE", !157, i64 0}
 !235 = !{!"_ZTSSt10unique_ptrIN5clang4sema17FunctionScopeInfoESt14default_deleteIS2_EE", !236, i64 0}
 !236 = !{!"_ZTSSt15__uniq_ptr_dataIN5clang4sema17FunctionScopeInfoESt14default_deleteIS2_ELb1ELb1EE", !237, i64 0}
@@ -13981,7 +13981,7 @@ attributes #20 = { noreturn nounwind }
 !243 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIPN5clang4sema17FunctionScopeInfoELb1EEE", !244, i64 0}
 !244 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIPN5clang4sema17FunctionScopeInfoEvEE", !4, i64 0}
 !245 = !{!"_ZTSN4llvm18SmallVectorStorageIPN5clang4sema17FunctionScopeInfoELj4EEE", !6, i64 0}
-!246 = !{!"_ZTSN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEE", !145, i64 0, !145, i64 8, !247, i64 16, !252, i64 64, !29, i64 80, !29, i64 88}
+!246 = !{!"_ZTSN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEE", !145, i64 0, !145, i64 8, !247, i64 16, !252, i64 64, !31, i64 80, !31, i64 88}
 !247 = !{!"_ZTSN4llvm11SmallVectorIPvLj4EEE", !248, i64 0, !251, i64 16}
 !248 = !{!"_ZTSN4llvm15SmallVectorImplIPvEE", !249, i64 0}
 !249 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIPvLb1EEE", !250, i64 0}
@@ -14217,15 +14217,15 @@ attributes #20 = { noreturn nounwind }
 !479 = !{!"_ZTSSt10_Head_baseILm0EPN5clang7SemaX86ELb0EE", !480, i64 0}
 !480 = !{!"p1 _ZTSN5clang7SemaX86E", !5, i64 0}
 !481 = !{!"_ZTSN5clang15LangOptionsBase29PragmaMSPointersToMembersKindE", !6, i64 0}
-!482 = !{!"_ZTSN5clang4Sema18PragmaClangSectionE", !147, i64 0, !38, i64 32, !27, i64 36}
-!483 = !{!"_ZTSN5clang4Sema11PragmaStackINS_14MSVtorDispModeEEE", !484, i64 0, !489, i64 80, !489, i64 84, !27, i64 88}
+!482 = !{!"_ZTSN5clang4Sema18PragmaClangSectionE", !147, i64 0, !38, i64 32, !29, i64 36}
+!483 = !{!"_ZTSN5clang4Sema11PragmaStackINS_14MSVtorDispModeEEE", !484, i64 0, !489, i64 80, !489, i64 84, !29, i64 88}
 !484 = !{!"_ZTSN4llvm11SmallVectorIN5clang4Sema11PragmaStackINS1_14MSVtorDispModeEE4SlotELj2EEE", !485, i64 0, !488, i64 16}
 !485 = !{!"_ZTSN4llvm15SmallVectorImplIN5clang4Sema11PragmaStackINS1_14MSVtorDispModeEE4SlotEEE", !486, i64 0}
 !486 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIN5clang4Sema11PragmaStackINS1_14MSVtorDispModeEE4SlotELb1EEE", !487, i64 0}
 !487 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIN5clang4Sema11PragmaStackINS1_14MSVtorDispModeEE4SlotEvEE", !4, i64 0}
 !488 = !{!"_ZTSN4llvm18SmallVectorStorageIN5clang4Sema11PragmaStackINS1_14MSVtorDispModeEE4SlotELj2EEE", !6, i64 0}
 !489 = !{!"_ZTSN5clang14MSVtorDispModeE", !6, i64 0}
-!490 = !{!"_ZTSN5clang4Sema11PragmaStackINS0_13AlignPackInfoEEE", !491, i64 0, !496, i64 80, !496, i64 84, !27, i64 88}
+!490 = !{!"_ZTSN5clang4Sema11PragmaStackINS0_13AlignPackInfoEEE", !491, i64 0, !496, i64 80, !496, i64 84, !29, i64 88}
 !491 = !{!"_ZTSN4llvm11SmallVectorIN5clang4Sema11PragmaStackINS2_13AlignPackInfoEE4SlotELj2EEE", !492, i64 0, !495, i64 16}
 !492 = !{!"_ZTSN4llvm15SmallVectorImplIN5clang4Sema11PragmaStackINS2_13AlignPackInfoEE4SlotEEE", !493, i64 0}
 !493 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIN5clang4Sema11PragmaStackINS2_13AlignPackInfoEE4SlotELb1EEE", !494, i64 0}
@@ -14238,20 +14238,20 @@ attributes #20 = { noreturn nounwind }
 !500 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIN5clang4Sema21AlignPackIncludeStateELb1EEE", !501, i64 0}
 !501 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIN5clang4Sema21AlignPackIncludeStateEvEE", !4, i64 0}
 !502 = !{!"_ZTSN4llvm18SmallVectorStorageIN5clang4Sema21AlignPackIncludeStateELj8EEE", !6, i64 0}
-!503 = !{!"_ZTSN5clang4Sema11PragmaStackIPNS_13StringLiteralEEE", !504, i64 0, !509, i64 80, !509, i64 88, !27, i64 96}
+!503 = !{!"_ZTSN5clang4Sema11PragmaStackIPNS_13StringLiteralEEE", !504, i64 0, !509, i64 80, !509, i64 88, !29, i64 96}
 !504 = !{!"_ZTSN4llvm11SmallVectorIN5clang4Sema11PragmaStackIPNS1_13StringLiteralEE4SlotELj2EEE", !505, i64 0, !508, i64 16}
 !505 = !{!"_ZTSN4llvm15SmallVectorImplIN5clang4Sema11PragmaStackIPNS1_13StringLiteralEE4SlotEEE", !506, i64 0}
 !506 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIN5clang4Sema11PragmaStackIPNS1_13StringLiteralEE4SlotELb1EEE", !507, i64 0}
 !507 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIN5clang4Sema11PragmaStackIPNS1_13StringLiteralEE4SlotEvEE", !4, i64 0}
 !508 = !{!"_ZTSN4llvm18SmallVectorStorageIN5clang4Sema11PragmaStackIPNS1_13StringLiteralEE4SlotELj2EEE", !6, i64 0}
 !509 = !{!"p1 _ZTSN5clang13StringLiteralE", !5, i64 0}
-!510 = !{!"_ZTSN5clang4Sema11PragmaStackIbEE", !511, i64 0, !38, i64 80, !38, i64 81, !27, i64 84}
+!510 = !{!"_ZTSN5clang4Sema11PragmaStackIbEE", !511, i64 0, !38, i64 80, !38, i64 81, !29, i64 84}
 !511 = !{!"_ZTSN4llvm11SmallVectorIN5clang4Sema11PragmaStackIbE4SlotELj2EEE", !512, i64 0, !515, i64 16}
 !512 = !{!"_ZTSN4llvm15SmallVectorImplIN5clang4Sema11PragmaStackIbE4SlotEEE", !513, i64 0}
 !513 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIN5clang4Sema11PragmaStackIbE4SlotELb1EEE", !514, i64 0}
 !514 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIN5clang4Sema11PragmaStackIbE4SlotEvEE", !4, i64 0}
 !515 = !{!"_ZTSN4llvm18SmallVectorStorageIN5clang4Sema11PragmaStackIbE4SlotELj2EEE", !6, i64 0}
-!516 = !{!"_ZTSN5clang4Sema11PragmaStackINS_17FPOptionsOverrideEEE", !517, i64 0, !522, i64 80, !522, i64 88, !27, i64 96}
+!516 = !{!"_ZTSN5clang4Sema11PragmaStackINS_17FPOptionsOverrideEEE", !517, i64 0, !522, i64 80, !522, i64 88, !29, i64 96}
 !517 = !{!"_ZTSN4llvm11SmallVectorIN5clang4Sema11PragmaStackINS1_17FPOptionsOverrideEE4SlotELj2EEE", !518, i64 0, !521, i64 16}
 !518 = !{!"_ZTSN4llvm15SmallVectorImplIN5clang4Sema11PragmaStackINS1_17FPOptionsOverrideEE4SlotEEE", !519, i64 0}
 !519 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIN5clang4Sema11PragmaStackINS1_17FPOptionsOverrideEE4SlotELb1EEE", !520, i64 0}
@@ -14420,7 +14420,7 @@ attributes #20 = { noreturn nounwind }
 !682 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonISt4pairIPN5clang9NamedDeclENS2_14SourceLocationEEvEE", !4, i64 0}
 !683 = !{!"_ZTSN4llvm11SmallPtrSetINS_14PointerIntPairIPN5clang13CXXRecordDeclELj3ENS2_20CXXSpecialMemberKindENS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj3ES7_EEEELj4EEE", !684, i64 0, !6, i64 24}
 !684 = !{!"_ZTSN4llvm15SmallPtrSetImplINS_14PointerIntPairIPN5clang13CXXRecordDeclELj3ENS2_20CXXSpecialMemberKindENS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj3ES7_EEEEEE", !80, i64 0}
-!685 = !{!"_ZTSN4llvm14SmallBitVectorE", !29, i64 0}
+!685 = !{!"_ZTSN4llvm14SmallBitVectorE", !31, i64 0}
 !686 = !{!"_ZTSN4llvm11SmallVectorISt4pairIPKN5clang13CXXMethodDeclES5_ELj2EEE", !687, i64 0, !690, i64 16}
 !687 = !{!"_ZTSN4llvm15SmallVectorImplISt4pairIPKN5clang13CXXMethodDeclES5_EEE", !688, i64 0}
 !688 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseISt4pairIPKN5clang13CXXMethodDeclES5_ELb1EEE", !689, i64 0}
@@ -14575,7 +14575,7 @@ attributes #20 = { noreturn nounwind }
 !837 = !{!"_ZTSSt5dequeISt4pairIPN5clang9ValueDeclENS1_14SourceLocationEESaIS5_EE", !838, i64 0}
 !838 = !{!"_ZTSSt11_Deque_baseISt4pairIPN5clang9ValueDeclENS1_14SourceLocationEESaIS5_EE", !839, i64 0}
 !839 = !{!"_ZTSNSt11_Deque_baseISt4pairIPN5clang9ValueDeclENS1_14SourceLocationEESaIS5_EE11_Deque_implE", !840, i64 0}
-!840 = !{!"_ZTSNSt11_Deque_baseISt4pairIPN5clang9ValueDeclENS1_14SourceLocationEESaIS5_EE16_Deque_impl_dataE", !841, i64 0, !29, i64 8, !842, i64 16, !842, i64 48}
+!840 = !{!"_ZTSNSt11_Deque_baseISt4pairIPN5clang9ValueDeclENS1_14SourceLocationEESaIS5_EE16_Deque_impl_dataE", !841, i64 0, !31, i64 8, !842, i64 16, !842, i64 48}
 !841 = !{!"p2 _ZTSSt4pairIPN5clang9ValueDeclENS0_14SourceLocationEE", !5, i64 0}
 !842 = !{!"_ZTSSt15_Deque_iteratorISt4pairIPN5clang9ValueDeclENS1_14SourceLocationEERS5_PS5_E", !843, i64 0, !843, i64 8, !843, i64 16, !841, i64 24}
 !843 = !{!"p1 _ZTSSt4pairIPN5clang9ValueDeclENS0_14SourceLocationEE", !5, i64 0}
@@ -14610,7 +14610,7 @@ attributes #20 = { noreturn nounwind }
 !872 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairIN5clang6FileIDENS2_15FileNullabilityEEE", !5, i64 0}
 !873 = !{!"_ZTSN5clang18FileNullabilityMapUt_E", !874, i64 0, !875, i64 4}
 !874 = !{!"_ZTSN5clang6FileIDE", !8, i64 0}
-!875 = !{!"_ZTSN5clang15FileNullabilityE", !27, i64 0, !27, i64 4, !6, i64 8, !38, i64 9}
+!875 = !{!"_ZTSN5clang15FileNullabilityE", !29, i64 0, !29, i64 4, !6, i64 8, !38, i64 9}
 !876 = !{!"_ZTSN4llvm11SmallVectorIPKN5clang4DeclELj6EEE", !877, i64 0, !880, i64 16}
 !877 = !{!"_ZTSN4llvm15SmallVectorImplIPKN5clang4DeclEEE", !878, i64 0}
 !878 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIPKN5clang4DeclELb1EEE", !879, i64 0}
@@ -14618,19 +14618,19 @@ attributes #20 = { noreturn nounwind }
 !880 = !{!"_ZTSN4llvm18SmallVectorStorageIPKN5clang4DeclELj6EEE", !6, i64 0}
 !881 = !{!"_ZTSN5clang21FunctionEffectKindSetE", !882, i64 0}
 !882 = !{!"_ZTSSt6bitsetILm4EE", !883, i64 0}
-!883 = !{!"_ZTSSt12_Base_bitsetILm1EE", !29, i64 0}
+!883 = !{!"_ZTSSt12_Base_bitsetILm1EE", !31, i64 0}
 !884 = !{!38, !38, i64 0}
 !885 = !{!886, !8, i64 20}
-!886 = !{!"_ZTSN5clang17PackExpansionExprE", !198, i64 0, !27, i64 16, !8, i64 20, !72, i64 24}
+!886 = !{!"_ZTSN5clang17PackExpansionExprE", !198, i64 0, !29, i64 16, !8, i64 20, !72, i64 24}
 !887 = !{!886, !72, i64 24}
 !888 = !{!233, !805, i64 11344}
 !889 = !{!890, !893, i64 64}
 !890 = !{!"_ZTSN5clang11BindingDeclE", !891, i64 0, !892, i64 56, !893, i64 64}
-!891 = !{!"_ZTSN5clang9ValueDeclE", !17, i64 0, !109, i64 48}
+!891 = !{!"_ZTSN5clang9ValueDeclE", !19, i64 0, !109, i64 48}
 !892 = !{!"p1 _ZTSN5clang9ValueDeclE", !5, i64 0}
 !893 = !{!"p1 _ZTSN5clang4ExprE", !5, i64 0}
 !894 = !{!895, !8, i64 20}
-!895 = !{!"_ZTSN5clang26ResolvedUnexpandedPackExprE", !198, i64 0, !27, i64 16, !8, i64 20}
+!895 = !{!"_ZTSN5clang26ResolvedUnexpandedPackExprE", !198, i64 0, !29, i64 16, !8, i64 20}
 !896 = !{!897, !8, i64 112}
 !897 = !{!"_ZTSN5clang30MultiLevelTemplateArgumentListE", !898, i64 0, !8, i64 112, !903, i64 116}
 !898 = !{!"_ZTSN4llvm11SmallVectorIN5clang30MultiLevelTemplateArgumentList17ArgumentListLevelELj4EEE", !899, i64 0, !902, i64 16}
@@ -14639,19 +14639,19 @@ attributes #20 = { noreturn nounwind }
 !901 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIN5clang30MultiLevelTemplateArgumentList17ArgumentListLevelEvEE", !4, i64 0}
 !902 = !{!"_ZTSN4llvm18SmallVectorStorageIN5clang30MultiLevelTemplateArgumentList17ArgumentListLevelELj4EEE", !6, i64 0}
 !903 = !{!"_ZTSN5clang24TemplateSubstitutionKindE", !6, i64 0}
-!904 = !{!905, !29, i64 8}
-!905 = !{!"_ZTSN4llvm8ArrayRefIN5clang16TemplateArgumentEEE", !906, i64 0, !29, i64 8}
+!904 = !{!905, !31, i64 8}
+!905 = !{!"_ZTSN4llvm8ArrayRefIN5clang16TemplateArgumentEEE", !906, i64 0, !31, i64 8}
 !906 = !{!"p1 _ZTSN5clang16TemplateArgumentE", !5, i64 0}
 !907 = !{!905, !906, i64 0}
 !908 = distinct !{!908, !34}
 !909 = distinct !{!909, !34}
 !910 = !{!911, !912, i64 0}
-!911 = !{!"_ZTSN5clang10DeclaratorE", !912, i64 0, !217, i64 8, !913, i64 56, !218, i64 88, !915, i64 96, !916, i64 104, !918, i64 128, !8, i64 1552, !8, i64 1552, !8, i64 1552, !8, i64 1552, !8, i64 1552, !8, i64 1552, !8, i64 1552, !8, i64 1553, !8, i64 1553, !923, i64 1560, !932, i64 1704, !893, i64 1712, !893, i64 1720, !219, i64 1728, !933, i64 1744, !6, i64 1752, !27, i64 4568, !27, i64 4572, !893, i64 4576}
+!911 = !{!"_ZTSN5clang10DeclaratorE", !912, i64 0, !217, i64 8, !913, i64 56, !218, i64 88, !915, i64 96, !916, i64 104, !918, i64 128, !8, i64 1552, !8, i64 1552, !8, i64 1552, !8, i64 1552, !8, i64 1552, !8, i64 1552, !8, i64 1552, !8, i64 1553, !8, i64 1553, !923, i64 1560, !932, i64 1704, !893, i64 1712, !893, i64 1720, !219, i64 1728, !933, i64 1744, !6, i64 1752, !29, i64 4568, !29, i64 4572, !893, i64 4576}
 !912 = !{!"p1 _ZTSN5clang8DeclSpecE", !5, i64 0}
-!913 = !{!"_ZTSN5clang13UnqualifiedIdE", !914, i64 0, !6, i64 8, !27, i64 24, !27, i64 28}
+!913 = !{!"_ZTSN5clang13UnqualifiedIdE", !914, i64 0, !6, i64 8, !29, i64 24, !29, i64 28}
 !914 = !{!"_ZTSN5clang17UnqualifiedIdKindE", !6, i64 0}
 !915 = !{!"_ZTSN5clang17DeclaratorContextE", !6, i64 0}
-!916 = !{!"_ZTSN5clang23DecompositionDeclaratorE", !27, i64 0, !27, i64 4, !917, i64 8, !8, i64 16, !8, i64 19}
+!916 = !{!"_ZTSN5clang23DecompositionDeclaratorE", !29, i64 0, !29, i64 4, !917, i64 8, !8, i64 16, !8, i64 19}
 !917 = !{!"p1 _ZTSN5clang23DecompositionDeclarator7BindingE", !5, i64 0}
 !918 = !{!"_ZTSN4llvm11SmallVectorIN5clang15DeclaratorChunkELj8EEE", !919, i64 0, !922, i64 16}
 !919 = !{!"_ZTSN4llvm15SmallVectorImplIN5clang15DeclaratorChunkEEE", !920, i64 0}
@@ -14672,11 +14672,11 @@ attributes #20 = { noreturn nounwind }
 !934 = !{!935, !5, i64 0}
 !935 = !{!"_ZTSN5clang14UnionOpaquePtrINS_8QualTypeEEE", !5, i64 0}
 !936 = !{!937, !938, i64 0}
-!937 = !{!"_ZTSN5clang15DeclaratorChunkE", !938, i64 0, !27, i64 4, !27, i64 8, !924, i64 16, !6, i64 88}
+!937 = !{!"_ZTSN5clang15DeclaratorChunkE", !938, i64 0, !29, i64 4, !29, i64 8, !924, i64 16, !6, i64 88}
 !938 = !{!"_ZTSN5clang15DeclaratorChunkUt_E", !6, i64 0}
 !939 = distinct !{!939, !34}
 !940 = !{!941, !529, i64 16}
-!941 = !{!"_ZTSN5clang15DeclaratorChunk9ParamInfoE", !181, i64 0, !27, i64 8, !529, i64 16, !942, i64 24}
+!941 = !{!"_ZTSN5clang15DeclaratorChunk9ParamInfoE", !181, i64 0, !29, i64 8, !529, i64 16, !942, i64 24}
 !942 = !{!"_ZTSSt10unique_ptrIN4llvm11SmallVectorIN5clang5TokenELj4EEESt14default_deleteIS4_EE", !943, i64 0}
 !943 = !{!"_ZTSSt15__uniq_ptr_dataIN4llvm11SmallVectorIN5clang5TokenELj4EEESt14default_deleteIS4_ELb1ELb1EE", !944, i64 0}
 !944 = !{!"_ZTSSt15__uniq_ptr_implIN4llvm11SmallVectorIN5clang5TokenELj4EEESt14default_deleteIS4_EE", !945, i64 0}
@@ -14685,7 +14685,7 @@ attributes #20 = { noreturn nounwind }
 !947 = !{!"_ZTSSt10_Head_baseILm0EPN4llvm11SmallVectorIN5clang5TokenELj4EEELb0EE", !948, i64 0}
 !948 = !{!"p1 _ZTSN4llvm11SmallVectorIN5clang5TokenELj4EEE", !5, i64 0}
 !949 = !{!950, !8, i64 20}
-!950 = !{!"_ZTSN5clang15DeclaratorChunk16FunctionTypeInfoE", !8, i64 0, !8, i64 0, !8, i64 0, !8, i64 0, !8, i64 0, !8, i64 1, !8, i64 1, !27, i64 4, !27, i64 8, !27, i64 12, !8, i64 16, !8, i64 20, !27, i64 24, !27, i64 28, !27, i64 32, !27, i64 36, !951, i64 40, !912, i64 48, !931, i64 56, !6, i64 64, !935, i64 72, !27, i64 80}
+!950 = !{!"_ZTSN5clang15DeclaratorChunk16FunctionTypeInfoE", !8, i64 0, !8, i64 0, !8, i64 0, !8, i64 0, !8, i64 0, !8, i64 1, !8, i64 1, !29, i64 4, !29, i64 8, !29, i64 12, !8, i64 16, !8, i64 20, !29, i64 24, !29, i64 28, !29, i64 32, !29, i64 36, !951, i64 40, !912, i64 48, !931, i64 56, !6, i64 64, !935, i64 72, !29, i64 80}
 !951 = !{!"p1 _ZTSN5clang15DeclaratorChunk9ParamInfoE", !5, i64 0}
 !952 = distinct !{!952, !34}
 !953 = !{!954, !5, i64 0}
@@ -14704,7 +14704,7 @@ attributes #20 = { noreturn nounwind }
 !966 = !{!"_ZTSN4llvm18SmallVectorStorageIN5clang14DeclAccessPairELj8EEE", !6, i64 0}
 !967 = !{!"p1 _ZTSN5clang12CXXBasePathsE", !5, i64 0}
 !968 = !{!"p1 _ZTSN5clang13CXXRecordDeclE", !5, i64 0}
-!969 = !{!"_ZTSN5clang19DeclarationNameInfoE", !28, i64 0, !27, i64 8, !970, i64 16}
+!969 = !{!"_ZTSN5clang19DeclarationNameInfoE", !30, i64 0, !29, i64 8, !970, i64 16}
 !970 = !{!"_ZTSN5clang18DeclarationNameLocE", !6, i64 0}
 !971 = !{!"_ZTSN5clang4Sema14LookupNameKindE", !6, i64 0}
 !972 = !{!958, !960, i64 4}
@@ -14730,17 +14730,17 @@ attributes #20 = { noreturn nounwind }
 !992 = !{!"_ZTSN4llvm5APIntE", !6, i64 0, !8, i64 8}
 !993 = !{!994, !38, i64 12}
 !994 = !{!"_ZTSN4llvm6APSIntE", !992, i64 0, !38, i64 12}
-!995 = !{!996, !29, i64 8}
-!996 = !{!"_ZTSN4llvm8ArrayRefIPN5clang4ExprEEE", !997, i64 0, !29, i64 8}
+!995 = !{!996, !31, i64 8}
+!996 = !{!"_ZTSN4llvm8ArrayRefIPN5clang4ExprEEE", !997, i64 0, !31, i64 8}
 !997 = !{!"p2 _ZTSN5clang4ExprE", !5, i64 0}
 !998 = !{!999, !211, i64 0}
-!999 = !{!"_ZTSN5clang23TemplateArgumentLocInfo26TemplateTemplateArgLocInfoE", !211, i64 0, !5, i64 8, !27, i64 16, !27, i64 20}
+!999 = !{!"_ZTSN5clang23TemplateArgumentLocInfo26TemplateTemplateArgLocInfoE", !211, i64 0, !5, i64 8, !29, i64 16, !29, i64 20}
 !1000 = !{!999, !5, i64 8}
 !1001 = !{i64 0, i64 24, !148}
-!1002 = !{!1003, !29, i64 8}
-!1003 = !{!"_ZTSN5clang16TemplateArgument2TVE", !8, i64 0, !8, i64 3, !29, i64 8}
+!1002 = !{!1003, !31, i64 8}
+!1003 = !{!"_ZTSN5clang16TemplateArgument2TVE", !8, i64 0, !8, i64 3, !31, i64 8}
 !1004 = !{!1005, !8, i64 28}
-!1005 = !{!"_ZTSN5clang20FunctionParmPackExprE", !198, i64 0, !61, i64 16, !27, i64 24, !8, i64 28}
+!1005 = !{!"_ZTSN5clang20FunctionParmPackExprE", !198, i64 0, !61, i64 16, !29, i64 24, !8, i64 28}
 !1006 = !{!61, !61, i64 0}
 !1007 = !{!1008, !225, i64 16}
 !1008 = !{!"_ZTSN5clang22CXXScalarValueInitExprE", !198, i64 0, !225, i64 16}
@@ -14760,11 +14760,11 @@ attributes #20 = { noreturn nounwind }
 !1022 = !{!1023, !289, i64 0}
 !1023 = !{!"_ZTSN5clang4Decl10MultipleDCE", !289, i64 0, !289, i64 8}
 !1024 = !{!1025, !933, i64 56}
-!1025 = !{!"_ZTSN5clang12TemplateDeclE", !17, i64 0, !14, i64 48, !933, i64 56}
+!1025 = !{!"_ZTSN5clang12TemplateDeclE", !19, i64 0, !14, i64 48, !933, i64 56}
 !1026 = !{!1027, !181, i64 16}
 !1027 = !{!"_ZTSN5clang27CorrectionCandidateCallbackE", !38, i64 8, !38, i64 9, !38, i64 10, !38, i64 11, !38, i64 12, !38, i64 13, !38, i64 14, !38, i64 15, !181, i64 16, !211, i64 24}
 !1028 = !{!1029, !211, i64 8}
-!1029 = !{!"_ZTSN5clang14TypoCorrectionE", !28, i64 0, !211, i64 8, !1030, i64 16, !8, i64 40, !8, i64 44, !8, i64 48, !218, i64 52, !38, i64 60, !38, i64 61, !1032, i64 64}
+!1029 = !{!"_ZTSN5clang14TypoCorrectionE", !30, i64 0, !211, i64 8, !1030, i64 16, !8, i64 40, !8, i64 44, !8, i64 48, !218, i64 52, !38, i64 60, !38, i64 61, !1032, i64 64}
 !1030 = !{!"_ZTSN4llvm11SmallVectorIPN5clang9NamedDeclELj1EEE", !113, i64 0, !1031, i64 16}
 !1031 = !{!"_ZTSN4llvm18SmallVectorStorageIPN5clang9NamedDeclELj1EEE", !6, i64 0}
 !1032 = !{!"_ZTSSt6vectorIN5clang17PartialDiagnosticESaIS1_EE", !1033, i64 0}

@@ -266,7 +266,7 @@ build_replindex_scan_key.exit.split.us:           ; preds = %build_replindex_sca
   br i1 %129, label %.split.backedge, label %.critedge
 
 .critedge:                                        ; preds = %121, %102, %86, %.backedge.us, %build_replindex_scan_key.exit.split.us
-  %130 = phi i1 [ false, %build_replindex_scan_key.exit.split.us ], [ false, %102 ], [ false, %.backedge.us ], [ true, %86 ], [ true, %121 ]
+  %130 = phi i1 [ false, %102 ], [ false, %.backedge.us ], [ false, %build_replindex_scan_key.exit.split.us ], [ true, %86 ], [ true, %121 ]
   call void @index_endscan(ptr noundef %77) #4
   call void @index_close(ptr noundef %9, i32 noundef 0) #4
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -494,7 +494,7 @@ ItemPointerIndicatesMovedPartitions.exit.thread:  ; preds = %3, %ItemPointerIndi
   br label %25
 
 25:                                               ; preds = %.sink.split, %15, %12, %ItemPointerIndicatesMovedPartitions.exit.thread, %2
-  %.0 = phi i1 [ false, %2 ], [ true, %ItemPointerIndicatesMovedPartitions.exit.thread ], [ true, %12 ], [ true, %15 ], [ true, %.sink.split ]
+  %.0 = phi i1 [ false, %2 ], [ true, %15 ], [ true, %ItemPointerIndicatesMovedPartitions.exit.thread ], [ true, %12 ], [ true, %.sink.split ]
   ret i1 %.0
 }
 

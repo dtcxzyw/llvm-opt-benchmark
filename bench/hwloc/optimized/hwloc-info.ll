@@ -1472,7 +1472,7 @@ hwloc_utils_parse_best_node_flags.exit:           ; preds = %422, %424
   %.inv.i = icmp sgt i32 %443, -1
   br i1 %.inv.i, label %hwloc_utils_parse_memattr_name.exit, label %hwloc_utils_parse_memattr_name.exit.thread
 
-hwloc_utils_parse_memattr_name.exit.thread:       ; preds = %440, %._crit_edge.i
+hwloc_utils_parse_memattr_name.exit.thread:       ; preds = %._crit_edge.i, %440
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   store i32 -1, ptr @best_memattr_id, align 4, !tbaa !13
   br label %445
@@ -1840,7 +1840,7 @@ hwloc_calc_append_iodev_by_index.exit.i:          ; preds = %563, %560, %547, %5
   br label %hwloc_get_next_pcidev.exit.i.i.i
 
 hwloc_get_next_pcidev.exit.i.i.i:                 ; preds = %593, %588
-  %.0.i.i.i.i.i = phi ptr [ %589, %588 ], [ %595, %593 ]
+  %.0.i.i.i.i.i = phi ptr [ %595, %593 ], [ %589, %588 ]
   %.not.i.i.i = icmp eq ptr %.0.i.i.i.i.i, null
   br i1 %.not.i.i.i, label %.loopexit.i, label %596
 
@@ -1932,7 +1932,7 @@ hwloc_get_next_pcidev.exit.i.i.i:                 ; preds = %593, %588
   br label %hwloc_get_next_osdev.exit.i
 
 hwloc_get_next_osdev.exit.i:                      ; preds = %633, %628
-  %.0.i.i.i = phi ptr [ %629, %628 ], [ %635, %633 ]
+  %.0.i.i.i = phi ptr [ %635, %633 ], [ %629, %628 ]
   %.not75.i = icmp eq ptr %.0.i.i.i, null
   br i1 %.not75.i, label %hwloc_get_next_osdev.exit.thread.i, label %636
 
@@ -3930,7 +3930,7 @@ define internal fastcc i64 @hwloc_utils_parse_flags(ptr noundef %0, ptr noundef 
   br label %.thread
 
 .thread:                                          ; preds = %29, %.preheader, %67, %.split104.us, %._crit_edge, %11
-  %.061 = phi i64 [ %12, %11 ], [ 0, %._crit_edge ], [ -1, %.split104.us ], [ -1, %67 ], [ %.069, %.preheader ], [ %.069, %29 ]
+  %.061 = phi i64 [ %12, %11 ], [ 0, %._crit_edge ], [ -1, %67 ], [ -1, %.split104.us ], [ %.069, %.preheader ], [ %.069, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %.061
 }
@@ -4400,7 +4400,7 @@ hwloc_get_next_obj_by_depth.exit:                 ; preds = %37, %42
   br i1 %64, label %hwloc_get_next_obj_by_depth.exit.thread, label %.outer, !llvm.loop !140
 
 hwloc_get_next_obj_by_depth.exit.thread:          ; preds = %63, %hwloc_get_next_obj_by_depth.exit, %39, %31, %hwloc_get_next_obj_by_depth.exit.us, %5
-  %.024 = phi ptr [ null, %hwloc_get_next_obj_by_depth.exit ], [ null, %hwloc_get_next_obj_by_depth.exit.us ], [ null, %5 ], [ %.0.i.us, %31 ], [ null, %39 ], [ %.0.i, %63 ]
+  %.024 = phi ptr [ null, %hwloc_get_next_obj_by_depth.exit.us ], [ null, %hwloc_get_next_obj_by_depth.exit ], [ null, %5 ], [ %.0.i.us, %31 ], [ null, %39 ], [ %.0.i, %63 ]
   ret ptr %.024
 }
 

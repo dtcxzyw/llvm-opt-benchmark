@@ -487,7 +487,7 @@ _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicy
   br i1 %.not, label %._crit_edge32, label %.lr.ph, !llvm.loop !34
 
 ._crit_edge32:                                    ; preds = %62, %.lr.ph, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiSt5tupleIJiiEEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS5_EEE8iterator21skip_empty_or_deletedEv.exit.i.i, %55, %5
-  %.014 = phi i32 [ 0, %5 ], [ 0, %55 ], [ %64, %.lr.ph ], [ %spec.select, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiSt5tupleIJiiEEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS5_EEE8iterator21skip_empty_or_deletedEv.exit.i.i ], [ 0, %62 ]
+  %.014 = phi i32 [ %spec.select, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiSt5tupleIJiiEEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS5_EEE8iterator21skip_empty_or_deletedEv.exit.i.i ], [ 0, %5 ], [ %64, %.lr.ph ], [ 0, %55 ], [ 0, %62 ]
   tail call void @gpr_mu_unlock(ptr noundef nonnull %3)
   ret i32 %.014
 }
@@ -7231,7 +7231,7 @@ define internal void @_ZL7on_readPvN4absl12lts_202407226StatusE(ptr noundef %0, 
   %47 = getelementptr inbounds nuw i8, ptr %17, i64 25
   br label %.backedge
 
-.critedge198:                                     ; preds = %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit, %.critedge130, %51
+.critedge198:                                     ; preds = %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit, %51, %.critedge130
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.backedge.backedge
 
@@ -9451,7 +9451,7 @@ _ZZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolic
   br i1 %.not34, label %.loopexit, label %132, !llvm.loop !332
 
 .loopexit:                                        ; preds = %184, %74, %126, %54
-  %186 = phi i64 [ 0, %54 ], [ 0, %126 ], [ %56, %74 ], [ %128, %184 ]
+  %186 = phi i64 [ %56, %74 ], [ 0, %54 ], [ 0, %126 ], [ %128, %184 ]
   %187 = load i8, ptr %25, align 8, !tbaa !321, !range !85, !noundef !11
   %188 = trunc nuw i8 %187 to i1
   %.neg.i = select i1 %188, i64 -9, i64 -8

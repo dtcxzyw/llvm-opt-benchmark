@@ -671,7 +671,7 @@ Abc_TtSwapVars.exit.i:                            ; preds = %._crit_edge124.spli
   br label %Abc_TtHasVar.exit.thread.i
 
 Abc_TtHasVar.exit.thread.i:                       ; preds = %._crit_edge.us.i.i, %83, %Abc_TtSwapVars.exit.i, %.preheader.lr.ph.i.i, %90, %77
-  %.1.i = phi i32 [ %180, %Abc_TtSwapVars.exit.i ], [ %.019.i, %90 ], [ %.019.i, %77 ], [ %.019.i, %.preheader.lr.ph.i.i ], [ %.019.i, %83 ], [ %.019.i, %._crit_edge.us.i.i ]
+  %.1.i = phi i32 [ %180, %Abc_TtSwapVars.exit.i ], [ %.019.i, %83 ], [ %.019.i, %.preheader.lr.ph.i.i ], [ %.019.i, %90 ], [ %.019.i, %77 ], [ %.019.i, %._crit_edge.us.i.i ]
   %indvars.iv.next.i57 = add nuw nsw i64 %indvars.iv.i56, 1
   %exitcond.not.i58 = icmp eq i64 %indvars.iv.next.i57, %wide.trip.count.i
   br i1 %exitcond.not.i58, label %Abc_TtMinBase.exit, label %.lr.ph.split.i, !llvm.loop !47
@@ -1189,7 +1189,7 @@ define range(i32 0, -1) i32 @If_CluHashKey(ptr noundef readonly captures(none) %
   br i1 %exitcond.not, label %.loopexit, label %18, !llvm.loop !71
 
 .loopexit:                                        ; preds = %18, %.lr.ph, %.preheader
-  %.1 = phi i32 [ 0, %.preheader ], [ %17, %.lr.ph ], [ %27, %18 ]
+  %.1 = phi i32 [ %17, %.lr.ph ], [ 0, %.preheader ], [ %27, %18 ]
   %28 = urem i32 %.1, %2
   ret i32 %28
 }
@@ -1378,7 +1378,7 @@ If_CluPrimeCudd.exit151:                          ; preds = %.preheader.i146, %5
   br i1 %exitcond.not.i, label %If_CluHashKey.exit, label %85, !llvm.loop !71
 
 If_CluHashKey.exit:                               ; preds = %85, %.lr.ph.i153, %.preheader.i152
-  %.1.i = phi i32 [ 0, %.preheader.i152 ], [ %84, %.lr.ph.i153 ], [ %94, %85 ]
+  %.1.i = phi i32 [ %84, %.lr.ph.i153 ], [ 0, %.preheader.i152 ], [ %94, %85 ]
   %95 = urem i32 %.1.i, %68
   %96 = sext i32 %95 to i64
   %97 = getelementptr inbounds ptr, ptr %67, i64 %96
@@ -1613,7 +1613,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %exitcond.not.i160, label %If_CluHashKey.exit170, label %.preheader22.i155, !llvm.loop !71
 
 If_CluHashKey.exit170:                            ; preds = %.preheader22.i155, %.lr.ph.i165, %.preheader.i162
-  %.1.i161 = phi i32 [ 0, %.preheader.i162 ], [ %192, %.lr.ph.i165 ], [ %201, %.preheader22.i155 ]
+  %.1.i161 = phi i32 [ %192, %.lr.ph.i165 ], [ 0, %.preheader.i162 ], [ %201, %.preheader22.i155 ]
   %202 = urem i32 %.1.i161, %175
   %203 = load ptr, ptr %23, align 8, !tbaa !9
   %204 = sext i32 %202 to i64
@@ -2125,7 +2125,7 @@ define i32 @If_CluSemiCanonicize(ptr noundef captures(none) %0, i32 noundef %1, 
   br i1 %48, label %.preheader.us.i, label %If_CluChangePhase.exit, !llvm.loop !88
 
 If_CluChangePhase.exit:                           ; preds = %._crit_edge.us.i, %27, %35, %22, %12
-  %.167 = phi i32 [ %.066101, %12 ], [ %20, %22 ], [ %20, %35 ], [ %20, %27 ], [ %20, %._crit_edge.us.i ]
+  %.167 = phi i32 [ %.066101, %12 ], [ %20, %22 ], [ %20, %27 ], [ %20, %35 ], [ %20, %._crit_edge.us.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.lr.ph104.preheader, label %12, !llvm.loop !95
@@ -2317,10 +2317,10 @@ If_CluChangePhase.exit:                           ; preds = %._crit_edge.us.i, %
   br i1 %exitcond171.not.i.us, label %If_CluSwapAdjacent.exit.us, label %121, !llvm.loop !101
 
 If_CluSwapAdjacent.exit.us:                       ; preds = %._crit_edge.us.i89.us, %.lr.ph.i90.us, %121, %111, %.preheader.i.us, %.preheader87.lr.ph.i.us, %73, %.lr.ph110.us
-  %.273.us = phi ptr [ %.172105.us, %.lr.ph110.us ], [ %.169106.us, %111 ], [ %.169106.us, %.preheader.i.us ], [ %.169106.us, %73 ], [ %.169106.us, %.preheader87.lr.ph.i.us ], [ %.169106.us, %.lr.ph.i90.us ], [ %.169106.us, %121 ], [ %.169106.us, %._crit_edge.us.i89.us ]
-  %.270.us = phi ptr [ %.169106.us, %.lr.ph110.us ], [ %.172105.us, %111 ], [ %.172105.us, %.preheader.i.us ], [ %.172105.us, %73 ], [ %.172105.us, %.preheader87.lr.ph.i.us ], [ %.172105.us, %.lr.ph.i90.us ], [ %.172105.us, %121 ], [ %.172105.us, %._crit_edge.us.i89.us ]
-  %.162.us = phi i32 [ %.061108.us, %.lr.ph110.us ], [ 1, %111 ], [ 1, %.preheader.i.us ], [ 1, %73 ], [ 1, %.preheader87.lr.ph.i.us ], [ 1, %.lr.ph.i90.us ], [ 1, %121 ], [ 1, %._crit_edge.us.i89.us ]
-  %.2.us = phi i32 [ %.1109.us, %.lr.ph110.us ], [ %62, %111 ], [ %62, %.preheader.i.us ], [ %62, %73 ], [ %62, %.preheader87.lr.ph.i.us ], [ %62, %.lr.ph.i90.us ], [ %62, %121 ], [ %62, %._crit_edge.us.i89.us ]
+  %.273.us = phi ptr [ %.172105.us, %.lr.ph110.us ], [ %.169106.us, %111 ], [ %.169106.us, %.lr.ph.i90.us ], [ %.169106.us, %.preheader.i.us ], [ %.169106.us, %73 ], [ %.169106.us, %.preheader87.lr.ph.i.us ], [ %.169106.us, %121 ], [ %.169106.us, %._crit_edge.us.i89.us ]
+  %.270.us = phi ptr [ %.169106.us, %.lr.ph110.us ], [ %.172105.us, %111 ], [ %.172105.us, %.lr.ph.i90.us ], [ %.172105.us, %.preheader.i.us ], [ %.172105.us, %73 ], [ %.172105.us, %.preheader87.lr.ph.i.us ], [ %.172105.us, %121 ], [ %.172105.us, %._crit_edge.us.i89.us ]
+  %.162.us = phi i32 [ %.061108.us, %.lr.ph110.us ], [ 1, %111 ], [ 1, %.lr.ph.i90.us ], [ 1, %.preheader.i.us ], [ 1, %73 ], [ 1, %.preheader87.lr.ph.i.us ], [ 1, %121 ], [ 1, %._crit_edge.us.i89.us ]
+  %.2.us = phi i32 [ %.1109.us, %.lr.ph110.us ], [ %62, %111 ], [ %62, %.lr.ph.i90.us ], [ %62, %.preheader.i.us ], [ %62, %73 ], [ %62, %.preheader87.lr.ph.i.us ], [ %62, %121 ], [ %62, %._crit_edge.us.i89.us ]
   %exitcond133.not = icmp eq i64 %indvars.iv.next130, %wide.trip.count132
   br i1 %exitcond133.not, label %._crit_edge.us, label %.lr.ph110.us.backedge
 
@@ -2721,11 +2721,11 @@ If_CluCopy.exit:                                  ; preds = %5, %.lr.ph.preheade
   br i1 %exitcond171.not.i.us, label %If_CluSwapAdjacent.exit.us, label %74, !llvm.loop !101
 
 If_CluSwapAdjacent.exit.us:                       ; preds = %._crit_edge.us.i.us, %.lr.ph.i71.us, %74, %64, %.preheader.i.us, %.preheader87.lr.ph.i.us, %26, %16
-  %85 = phi i32 [ %19, %16 ], [ %17, %64 ], [ %17, %.preheader.i.us ], [ %17, %26 ], [ %17, %.preheader87.lr.ph.i.us ], [ %17, %.lr.ph.i71.us ], [ %17, %74 ], [ %17, %._crit_edge.us.i.us ]
-  %.256.us = phi ptr [ %.155102.us, %16 ], [ %.150104.us, %64 ], [ %.150104.us, %.preheader.i.us ], [ %.150104.us, %26 ], [ %.150104.us, %.preheader87.lr.ph.i.us ], [ %.150104.us, %.lr.ph.i71.us ], [ %.150104.us, %74 ], [ %.150104.us, %._crit_edge.us.i.us ]
-  %.251.us = phi ptr [ %.150104.us, %16 ], [ %.155102.us, %64 ], [ %.155102.us, %.preheader.i.us ], [ %.155102.us, %26 ], [ %.155102.us, %.preheader87.lr.ph.i.us ], [ %.155102.us, %.lr.ph.i71.us ], [ %.155102.us, %74 ], [ %.155102.us, %._crit_edge.us.i.us ]
-  %.148.us = phi i32 [ %.047105.us, %16 ], [ 1, %64 ], [ 1, %.preheader.i.us ], [ 1, %26 ], [ 1, %.preheader87.lr.ph.i.us ], [ 1, %.lr.ph.i71.us ], [ 1, %74 ], [ 1, %._crit_edge.us.i.us ]
-  %.2.us = phi i32 [ %.1106.us, %16 ], [ %23, %64 ], [ %23, %.preheader.i.us ], [ %23, %26 ], [ %23, %.preheader87.lr.ph.i.us ], [ %23, %.lr.ph.i71.us ], [ %23, %74 ], [ %23, %._crit_edge.us.i.us ]
+  %85 = phi i32 [ %19, %16 ], [ %17, %64 ], [ %17, %.lr.ph.i71.us ], [ %17, %.preheader.i.us ], [ %17, %26 ], [ %17, %.preheader87.lr.ph.i.us ], [ %17, %74 ], [ %17, %._crit_edge.us.i.us ]
+  %.256.us = phi ptr [ %.155102.us, %16 ], [ %.150104.us, %64 ], [ %.150104.us, %.lr.ph.i71.us ], [ %.150104.us, %.preheader.i.us ], [ %.150104.us, %26 ], [ %.150104.us, %.preheader87.lr.ph.i.us ], [ %.150104.us, %74 ], [ %.150104.us, %._crit_edge.us.i.us ]
+  %.251.us = phi ptr [ %.150104.us, %16 ], [ %.155102.us, %64 ], [ %.155102.us, %.lr.ph.i71.us ], [ %.155102.us, %.preheader.i.us ], [ %.155102.us, %26 ], [ %.155102.us, %.preheader87.lr.ph.i.us ], [ %.155102.us, %74 ], [ %.155102.us, %._crit_edge.us.i.us ]
+  %.148.us = phi i32 [ %.047105.us, %16 ], [ 1, %64 ], [ 1, %.lr.ph.i71.us ], [ 1, %.preheader.i.us ], [ 1, %26 ], [ 1, %.preheader87.lr.ph.i.us ], [ 1, %74 ], [ 1, %._crit_edge.us.i.us ]
+  %.2.us = phi i32 [ %.1106.us, %16 ], [ %23, %64 ], [ %23, %.lr.ph.i71.us ], [ %23, %.preheader.i.us ], [ %23, %26 ], [ %23, %.preheader87.lr.ph.i.us ], [ %23, %74 ], [ %23, %._crit_edge.us.i.us ]
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %16, !llvm.loop !105
 
@@ -4574,7 +4574,7 @@ define i32 @If_CluCountCofs(ptr noundef readonly captures(none) %0, i32 noundef 
   br label %.thread
 
 .thread:                                          ; preds = %92, %._crit_edge166.thread, %.thread.sink.split, %._crit_edge160, %._crit_edge175
-  %.3103 = phi i32 [ %.0100.lcssa, %._crit_edge175 ], [ %.4104.lcssa, %._crit_edge160 ], [ %.3103.ph, %.thread.sink.split ], [ 5, %._crit_edge166.thread ], [ 5, %92 ]
+  %.3103 = phi i32 [ %.0100.lcssa, %._crit_edge175 ], [ %.3103.ph, %.thread.sink.split ], [ 5, %._crit_edge166.thread ], [ %.4104.lcssa, %._crit_edge160 ], [ 5, %92 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.3103
 }
@@ -5492,9 +5492,9 @@ If_CluDetectSpecialCaseCofs.exit:                 ; preds = %135
   br label %.loopexit87
 
 .loopexit87:                                      ; preds = %30, %179, %169, %184, %183
-  %.072103 = phi i32 [ %141, %169 ], [ %141, %179 ], [ %141, %184 ], [ %141, %183 ], [ %31, %30 ]
-  %.171 = phi ptr [ %.070113, %169 ], [ %182, %179 ], [ %.070113, %184 ], [ %.070113, %183 ], [ %.070113, %30 ]
-  %.1 = phi i32 [ %31, %169 ], [ %31, %179 ], [ %31, %184 ], [ %31, %183 ], [ %.0114, %30 ]
+  %.072103 = phi i32 [ %141, %183 ], [ %141, %169 ], [ %141, %179 ], [ %141, %184 ], [ %31, %30 ]
+  %.171 = phi ptr [ %.070113, %183 ], [ %.070113, %169 ], [ %182, %179 ], [ %.070113, %184 ], [ %.070113, %30 ]
+  %.1 = phi i32 [ %31, %183 ], [ %31, %169 ], [ %31, %179 ], [ %31, %184 ], [ %.0114, %30 ]
   %195 = icmp eq i32 %.072103, -1
   br i1 %195, label %.loopexit, label %28
 
@@ -6318,7 +6318,7 @@ If_CluCofactors.exit.us:                          ; preds = %._crit_edge.us.i.us
   br i1 %exitcond.not, label %.sink.split, label %.lr.ph.split.split, !llvm.loop !163
 
 .sink.split:                                      ; preds = %90, %67, %.lr.ph57, %9, %.split.us
-  %.1.ph = phi i32 [ 1, %.split.us ], [ 0, %9 ], [ 0, %67 ], [ 1, %.lr.ph57 ], [ 0, %90 ]
+  %.1.ph = phi i32 [ 1, %.split.us ], [ 0, %9 ], [ 1, %.lr.ph57 ], [ 0, %67 ], [ 0, %90 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %91
 
@@ -8372,7 +8372,7 @@ If_CluCheckDecOut.exit:                           ; preds = %40, %If_CluAdjust.e
   br i1 %or.cond.i22, label %If_CluCheckDecOutU.exit, label %55
 
 If_CluCheckDecOutU.exit:                          ; preds = %47, %.lr.ph.i, %55, %.lr.ph.i20, %If_CluCheckDecOut.exit, %If_CluAdjust.exit19, %5
-  %.0 = phi i32 [ 0, %5 ], [ 1, %If_CluAdjust.exit19 ], [ 0, %If_CluCheckDecOut.exit ], [ 1, %.lr.ph.i20 ], [ 0, %55 ], [ 1, %.lr.ph.i ], [ 1, %47 ]
+  %.0 = phi i32 [ 1, %.lr.ph.i20 ], [ 0, %5 ], [ 1, %If_CluAdjust.exit19 ], [ 0, %If_CluCheckDecOut.exit ], [ 0, %55 ], [ 1, %.lr.ph.i ], [ 1, %47 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -8560,7 +8560,7 @@ If_CluCheckDecIn.exit:                            ; preds = %52, %40
   br i1 %or.cond27.us.i, label %If_CluCheckDecInU.exit, label %93
 
 If_CluCheckDecInU.exit:                           ; preds = %78, %.lr.ph.us.i, %81, %93, %.lr.ph.us.i20, %If_CluCheckDecIn.exit, %If_CluAdjust.exit, %5
-  %.0 = phi i32 [ 0, %5 ], [ 1, %If_CluAdjust.exit ], [ 0, %If_CluCheckDecIn.exit ], [ 1, %.lr.ph.us.i20 ], [ 0, %93 ], [ 1, %81 ], [ 1, %.lr.ph.us.i ], [ 1, %78 ]
+  %.0 = phi i32 [ 1, %.lr.ph.us.i20 ], [ 0, %5 ], [ 1, %If_CluAdjust.exit ], [ 0, %If_CluCheckDecIn.exit ], [ 0, %93 ], [ 1, %81 ], [ 1, %.lr.ph.us.i ], [ 1, %78 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

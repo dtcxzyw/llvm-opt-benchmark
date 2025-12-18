@@ -411,7 +411,7 @@ copy_address_wmem.exit154:                        ; preds = %copy_address_wmem.e
   br label %.thread164
 
 .thread164:                                       ; preds = %113, %78, %copy_address_wmem.exit154, %166
-  %.1 = phi ptr [ %119, %166 ], [ %119, %copy_address_wmem.exit154 ], [ %53, %78 ], [ %84, %113 ]
+  %.1 = phi ptr [ %119, %copy_address_wmem.exit154 ], [ %119, %166 ], [ %53, %78 ], [ %84, %113 ]
   %184 = getelementptr inbounds nuw i8, ptr %.1, i64 128
   %185 = getelementptr inbounds nuw i8, ptr %1, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %184, ptr noundef nonnull align 8 dereferenceable(16) %185, i64 16, i1 false)

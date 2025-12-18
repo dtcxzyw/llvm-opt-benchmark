@@ -17090,8 +17090,8 @@ _ZNSt8_Rb_treeIN5Yosys5RTLIL7SigSpecES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_
   br i1 %.not.i1710, label %.noexc851, label %.lr.ph.i1703, !llvm.loop !372
 
 .noexc851:                                        ; preds = %2623, %.noexc1714, %_ZNSt8_Rb_treeIN5Yosys5RTLIL7SigSpecES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i, %2609
-  %.sroa.037.0.i = phi ptr [ %.08.lcssa.i.i, %_ZNSt8_Rb_treeIN5Yosys5RTLIL7SigSpecES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i ], [ %2534, %2609 ], [ %.08.lcssa.i.i, %.noexc1714 ], [ %.123.i, %2623 ]
-  %.sroa.3.0.i = phi ptr [ %.02243.i, %_ZNSt8_Rb_treeIN5Yosys5RTLIL7SigSpecES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i ], [ %2534, %2609 ], [ %.19.i28.i, %.noexc1714 ], [ %.123.i, %2623 ]
+  %.sroa.037.0.i = phi ptr [ %.08.lcssa.i.i, %.noexc1714 ], [ %.08.lcssa.i.i, %_ZNSt8_Rb_treeIN5Yosys5RTLIL7SigSpecES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i ], [ %2534, %2609 ], [ %.123.i, %2623 ]
+  %.sroa.3.0.i = phi ptr [ %.19.i28.i, %.noexc1714 ], [ %.02243.i, %_ZNSt8_Rb_treeIN5Yosys5RTLIL7SigSpecES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i ], [ %2534, %2609 ], [ %.123.i, %2623 ]
   %2625 = load ptr, ptr %2536, align 8, !tbaa !16
   %2626 = icmp eq ptr %.sroa.037.0.i, %2625
   %2627 = icmp eq ptr %.sroa.3.0.i, %2534
@@ -17268,8 +17268,8 @@ _ZNSt8_Rb_treeIN5Yosys5RTLIL7SigSpecES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_
   br i1 %.not.i1760, label %.noexc860, label %.lr.ph.i1730, !llvm.loop !372
 
 .noexc860:                                        ; preds = %2678, %.noexc1764, %_ZNSt8_Rb_treeIN5Yosys5RTLIL7SigSpecES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i1742, %_ZNSt3setIN5Yosys5RTLIL7SigSpecESt4lessIS2_ESaIS2_EE5eraseERKS2_.exit
-  %.sroa.037.0.i1753 = phi ptr [ %.08.lcssa.i.i1743, %_ZNSt8_Rb_treeIN5Yosys5RTLIL7SigSpecES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i1742 ], [ %2540, %_ZNSt3setIN5Yosys5RTLIL7SigSpecESt4lessIS2_ESaIS2_EE5eraseERKS2_.exit ], [ %.08.lcssa.i.i1743, %.noexc1764 ], [ %.123.i1758, %2678 ]
-  %.sroa.3.0.i1754 = phi ptr [ %.02243.i1732, %_ZNSt8_Rb_treeIN5Yosys5RTLIL7SigSpecES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i1742 ], [ %2540, %_ZNSt3setIN5Yosys5RTLIL7SigSpecESt4lessIS2_ESaIS2_EE5eraseERKS2_.exit ], [ %.19.i28.i1748, %.noexc1764 ], [ %.123.i1758, %2678 ]
+  %.sroa.037.0.i1753 = phi ptr [ %.08.lcssa.i.i1743, %.noexc1764 ], [ %.08.lcssa.i.i1743, %_ZNSt8_Rb_treeIN5Yosys5RTLIL7SigSpecES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i1742 ], [ %2540, %_ZNSt3setIN5Yosys5RTLIL7SigSpecESt4lessIS2_ESaIS2_EE5eraseERKS2_.exit ], [ %.123.i1758, %2678 ]
+  %.sroa.3.0.i1754 = phi ptr [ %.19.i28.i1748, %.noexc1764 ], [ %.02243.i1732, %_ZNSt8_Rb_treeIN5Yosys5RTLIL7SigSpecES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i1742 ], [ %2540, %_ZNSt3setIN5Yosys5RTLIL7SigSpecESt4lessIS2_ESaIS2_EE5eraseERKS2_.exit ], [ %.123.i1758, %2678 ]
   %2680 = load ptr, ptr %2542, align 8, !tbaa !16
   %2681 = icmp eq ptr %.sroa.037.0.i1753, %2680
   %2682 = icmp eq ptr %.sroa.3.0.i1754, %2540
@@ -17734,8 +17734,8 @@ _ZNSt8_Rb_treeIN5Yosys5RTLIL7SigSpecES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_
   br i1 %.not.i1811, label %.noexc908, label %.lr.ph.i1781, !llvm.loop !372
 
 .noexc908:                                        ; preds = %2835, %.noexc1815, %_ZNSt8_Rb_treeIN5Yosys5RTLIL7SigSpecES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i1793, %2821
-  %.sroa.037.0.i1804 = phi ptr [ %.08.lcssa.i.i1794, %_ZNSt8_Rb_treeIN5Yosys5RTLIL7SigSpecES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i1793 ], [ %2753, %2821 ], [ %.08.lcssa.i.i1794, %.noexc1815 ], [ %.123.i1809, %2835 ]
-  %.sroa.3.0.i1805 = phi ptr [ %.02243.i1783, %_ZNSt8_Rb_treeIN5Yosys5RTLIL7SigSpecES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i1793 ], [ %2753, %2821 ], [ %.19.i28.i1799, %.noexc1815 ], [ %.123.i1809, %2835 ]
+  %.sroa.037.0.i1804 = phi ptr [ %.08.lcssa.i.i1794, %.noexc1815 ], [ %.08.lcssa.i.i1794, %_ZNSt8_Rb_treeIN5Yosys5RTLIL7SigSpecES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i1793 ], [ %2753, %2821 ], [ %.123.i1809, %2835 ]
+  %.sroa.3.0.i1805 = phi ptr [ %.19.i28.i1799, %.noexc1815 ], [ %.02243.i1783, %_ZNSt8_Rb_treeIN5Yosys5RTLIL7SigSpecES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i1793 ], [ %2753, %2821 ], [ %.123.i1809, %2835 ]
   %2837 = load ptr, ptr %2755, align 8, !tbaa !16
   %2838 = icmp eq ptr %.sroa.037.0.i1804, %2837
   %2839 = icmp eq ptr %.sroa.3.0.i1805, %2753
@@ -17964,8 +17964,8 @@ _ZNSt8_Rb_treeIN5Yosys5RTLIL7SigSpecES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_
   br i1 %.not.i1862, label %.noexc941, label %.lr.ph.i1832, !llvm.loop !372
 
 .noexc941:                                        ; preds = %2901, %.noexc1866, %_ZNSt8_Rb_treeIN5Yosys5RTLIL7SigSpecES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i1844, %2887
-  %.sroa.037.0.i1855 = phi ptr [ %.08.lcssa.i.i1845, %_ZNSt8_Rb_treeIN5Yosys5RTLIL7SigSpecES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i1844 ], [ %2763, %2887 ], [ %.08.lcssa.i.i1845, %.noexc1866 ], [ %.123.i1860, %2901 ]
-  %.sroa.3.0.i1856 = phi ptr [ %.02243.i1834, %_ZNSt8_Rb_treeIN5Yosys5RTLIL7SigSpecES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i1844 ], [ %2763, %2887 ], [ %.19.i28.i1850, %.noexc1866 ], [ %.123.i1860, %2901 ]
+  %.sroa.037.0.i1855 = phi ptr [ %.08.lcssa.i.i1845, %.noexc1866 ], [ %.08.lcssa.i.i1845, %_ZNSt8_Rb_treeIN5Yosys5RTLIL7SigSpecES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i1844 ], [ %2763, %2887 ], [ %.123.i1860, %2901 ]
+  %.sroa.3.0.i1856 = phi ptr [ %.19.i28.i1850, %.noexc1866 ], [ %.02243.i1834, %_ZNSt8_Rb_treeIN5Yosys5RTLIL7SigSpecES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i1844 ], [ %2763, %2887 ], [ %.123.i1860, %2901 ]
   %2903 = load ptr, ptr %2765, align 8, !tbaa !16
   %2904 = icmp eq ptr %.sroa.037.0.i1855, %2903
   %2905 = icmp eq ptr %.sroa.3.0.i1856, %2763
@@ -18395,8 +18395,8 @@ _ZNSt8_Rb_treeIN5Yosys5RTLIL7SigSpecES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_
   br i1 %.not.i1913, label %.noexc974, label %.lr.ph.i1883, !llvm.loop !372
 
 .noexc974:                                        ; preds = %3053, %.noexc1917, %_ZNSt8_Rb_treeIN5Yosys5RTLIL7SigSpecES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i1895, %3039
-  %.sroa.037.0.i1906 = phi ptr [ %.08.lcssa.i.i1896, %_ZNSt8_Rb_treeIN5Yosys5RTLIL7SigSpecES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i1895 ], [ %2976, %3039 ], [ %.08.lcssa.i.i1896, %.noexc1917 ], [ %.123.i1911, %3053 ]
-  %.sroa.3.0.i1907 = phi ptr [ %.02243.i1885, %_ZNSt8_Rb_treeIN5Yosys5RTLIL7SigSpecES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i1895 ], [ %2976, %3039 ], [ %.19.i28.i1901, %.noexc1917 ], [ %.123.i1911, %3053 ]
+  %.sroa.037.0.i1906 = phi ptr [ %.08.lcssa.i.i1896, %.noexc1917 ], [ %.08.lcssa.i.i1896, %_ZNSt8_Rb_treeIN5Yosys5RTLIL7SigSpecES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i1895 ], [ %2976, %3039 ], [ %.123.i1911, %3053 ]
+  %.sroa.3.0.i1907 = phi ptr [ %.19.i28.i1901, %.noexc1917 ], [ %.02243.i1885, %_ZNSt8_Rb_treeIN5Yosys5RTLIL7SigSpecES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i1895 ], [ %2976, %3039 ], [ %.123.i1911, %3053 ]
   %3055 = load ptr, ptr %2978, align 8, !tbaa !16
   %3056 = icmp eq ptr %.sroa.037.0.i1906, %3055
   %3057 = icmp eq ptr %.sroa.3.0.i1907, %2976
@@ -18573,8 +18573,8 @@ _ZNSt8_Rb_treeIN5Yosys5RTLIL7SigSpecES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_
   br i1 %.not.i1964, label %.noexc984, label %.lr.ph.i1934, !llvm.loop !372
 
 .noexc984:                                        ; preds = %3108, %.noexc1968, %_ZNSt8_Rb_treeIN5Yosys5RTLIL7SigSpecES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i1946, %_ZNSt3setIN5Yosys5RTLIL7SigSpecESt4lessIS2_ESaIS2_EE5eraseERKS2_.exit975
-  %.sroa.037.0.i1957 = phi ptr [ %.08.lcssa.i.i1947, %_ZNSt8_Rb_treeIN5Yosys5RTLIL7SigSpecES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i1946 ], [ %2982, %_ZNSt3setIN5Yosys5RTLIL7SigSpecESt4lessIS2_ESaIS2_EE5eraseERKS2_.exit975 ], [ %.08.lcssa.i.i1947, %.noexc1968 ], [ %.123.i1962, %3108 ]
-  %.sroa.3.0.i1958 = phi ptr [ %.02243.i1936, %_ZNSt8_Rb_treeIN5Yosys5RTLIL7SigSpecES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i1946 ], [ %2982, %_ZNSt3setIN5Yosys5RTLIL7SigSpecESt4lessIS2_ESaIS2_EE5eraseERKS2_.exit975 ], [ %.19.i28.i1952, %.noexc1968 ], [ %.123.i1962, %3108 ]
+  %.sroa.037.0.i1957 = phi ptr [ %.08.lcssa.i.i1947, %.noexc1968 ], [ %.08.lcssa.i.i1947, %_ZNSt8_Rb_treeIN5Yosys5RTLIL7SigSpecES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i1946 ], [ %2982, %_ZNSt3setIN5Yosys5RTLIL7SigSpecESt4lessIS2_ESaIS2_EE5eraseERKS2_.exit975 ], [ %.123.i1962, %3108 ]
+  %.sroa.3.0.i1958 = phi ptr [ %.19.i28.i1952, %.noexc1968 ], [ %.02243.i1936, %_ZNSt8_Rb_treeIN5Yosys5RTLIL7SigSpecES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i1946 ], [ %2982, %_ZNSt3setIN5Yosys5RTLIL7SigSpecESt4lessIS2_ESaIS2_EE5eraseERKS2_.exit975 ], [ %.123.i1962, %3108 ]
   %3110 = load ptr, ptr %2984, align 8, !tbaa !16
   %3111 = icmp eq ptr %.sroa.037.0.i1957, %3110
   %3112 = icmp eq ptr %.sroa.3.0.i1958, %2982
@@ -19998,7 +19998,7 @@ _ZNK5Yosys7hashlib4poolINS_5RTLIL8IdStringENS0_8hash_opsIS3_EEE5countERKS3_.exit
   br label %_ZNK5Yosys9CellTypes11cell_outputENS_5RTLIL8IdStringES2_.exit
 
 _ZNK5Yosys9CellTypes11cell_outputENS_5RTLIL8IdStringES2_.exit: ; preds = %3643, %.noexc1058, %3464, %_ZNK5Yosys7hashlib4poolINS_5RTLIL8IdStringENS0_8hash_opsIS3_EEE5countERKS3_.exit.i, %._crit_edge.i, %.noexc1059.loopexit, %._crit_edge.i1985, %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS_8CellTypeENS0_8hash_opsIS3_EEE4findERKS3_.exit.i
-  %3733 = phi i1 [ false, %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS_8CellTypeENS0_8hash_opsIS3_EEE4findERKS3_.exit.i ], [ false, %._crit_edge.i1985 ], [ false, %3464 ], [ false, %_ZNK5Yosys7hashlib4poolINS_5RTLIL8IdStringENS0_8hash_opsIS3_EEE5countERKS3_.exit.i ], [ false, %._crit_edge.i ], [ %3732, %.noexc1059.loopexit ], [ false, %.noexc1058 ], [ false, %3643 ]
+  %3733 = phi i1 [ false, %.noexc1058 ], [ false, %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS_8CellTypeENS0_8hash_opsIS3_EEE4findERKS3_.exit.i ], [ false, %._crit_edge.i1985 ], [ false, %3464 ], [ false, %_ZNK5Yosys7hashlib4poolINS_5RTLIL8IdStringENS0_8hash_opsIS3_EEE5countERKS3_.exit.i ], [ false, %._crit_edge.i ], [ %3732, %.noexc1059.loopexit ], [ false, %3643 ]
   %3734 = load i32, ptr %92, align 4, !tbaa !79
   %3735 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1, !tbaa !107, !range !74, !noundef !75
   %3736 = trunc nuw i8 %3735 to i1
@@ -114494,7 +114494,7 @@ _ZN5Yosys7hashlib8hash_opsINS_7SigPool8bitDef_tEE4hashERKS3_.exit.i: ; preds = %
   br i1 %.not33, label %_ZNK5Yosys7hashlib4poolINS_7SigPool8bitDef_tENS0_8hash_opsIS3_EEE5countERKS3_.exit.thread31, label %12
 
 _ZNK5Yosys7hashlib4poolINS_7SigPool8bitDef_tENS0_8hash_opsIS3_EEE5countERKS3_.exit.thread31: ; preds = %26, %.critedge11, %_ZNK5Yosys7hashlib4poolINS_7SigPool8bitDef_tENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit21, %._crit_edge.i.i, %160, %2
-  %.not3339 = phi i1 [ true, %2 ], [ false, %160 ], [ false, %26 ], [ true, %.critedge11 ], [ false, %_ZNK5Yosys7hashlib4poolINS_7SigPool8bitDef_tENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit21 ], [ false, %._crit_edge.i.i ]
+  %.not3339 = phi i1 [ false, %160 ], [ true, %2 ], [ false, %._crit_edge.i.i ], [ true, %.critedge11 ], [ false, %_ZNK5Yosys7hashlib4poolINS_7SigPool8bitDef_tENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit21 ], [ false, %26 ]
   ret i1 %.not3339
 }
 

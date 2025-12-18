@@ -16849,8 +16849,8 @@ define hidden noundef i64 @_ZN11polars_core13chunked_array3ops13search_sorted11l
   br i1 %20, label %._crit_edge, label %.lr.ph.split
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %3
-  %.sroa.021.0.lcssa = phi i64 [ %1, %3 ], [ %8, %.lr.ph.split.us ], [ %unswitched.select, %.lr.ph.split ]
-  %.sroa.0.027.lcssa = phi i64 [ %0, %3 ], [ %0, %.lr.ph.split.us ], [ %spec.select28, %.lr.ph.split ]
+  %.sroa.021.0.lcssa = phi i64 [ %8, %.lr.ph.split.us ], [ %1, %3 ], [ %unswitched.select, %.lr.ph.split ]
+  %.sroa.0.027.lcssa = phi i64 [ %0, %.lr.ph.split.us ], [ %0, %3 ], [ %spec.select28, %.lr.ph.split ]
   %21 = icmp ult i64 %.sroa.0.027.lcssa, %.val1.i16.pre
   tail call void @llvm.assume(i1 %21)
   %22 = getelementptr inbounds nuw float, ptr %.val.i15.pre, i64 %.sroa.0.027.lcssa
@@ -17394,8 +17394,8 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h512925ea2abffd61E.exit.i.i.i:
   br i1 %67, label %95, label %96
 
 ._crit_edge:                                      ; preds = %96, %46, %3
-  %.sroa.022.0.lcssa = phi i64 [ %1, %3 ], [ %.sroa.022.1.us37, %46 ], [ %.sroa.022.1, %96 ]
-  %.sroa.0.028.lcssa = phi i64 [ %0, %3 ], [ %.sroa.0.1.us38, %46 ], [ %.sroa.0.1, %96 ]
+  %.sroa.022.0.lcssa = phi i64 [ %.sroa.022.1.us37, %46 ], [ %1, %3 ], [ %.sroa.022.1, %96 ]
+  %.sroa.0.028.lcssa = phi i64 [ %.sroa.0.1.us38, %46 ], [ %0, %3 ], [ %.sroa.0.1, %96 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1254)
   %.not.i.i.i.i.i13 = icmp eq ptr %.pre55, null
   br i1 %.not.i.i.i.i.i13, label %._crit_edge.thread, label %_ZN12polars_arrow5array5Array17is_null_unchecked17h512925ea2abffd61E.exit.i.i.i14
@@ -18111,8 +18111,8 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17hbfa96fe38d883264E.exit.i.i.i:
   br i1 %67, label %95, label %96
 
 ._crit_edge:                                      ; preds = %96, %46, %3
-  %.sroa.022.0.lcssa = phi i64 [ %1, %3 ], [ %.sroa.022.1.us37, %46 ], [ %.sroa.022.1, %96 ]
-  %.sroa.0.028.lcssa = phi i64 [ %0, %3 ], [ %.sroa.0.1.us38, %46 ], [ %.sroa.0.1, %96 ]
+  %.sroa.022.0.lcssa = phi i64 [ %.sroa.022.1.us37, %46 ], [ %1, %3 ], [ %.sroa.022.1, %96 ]
+  %.sroa.0.028.lcssa = phi i64 [ %.sroa.0.1.us38, %46 ], [ %0, %3 ], [ %.sroa.0.1, %96 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1288)
   %.not.i.i.i.i.i13 = icmp eq ptr %.pre55, null
   br i1 %.not.i.i.i.i.i13, label %._crit_edge.thread, label %_ZN12polars_arrow5array5Array17is_null_unchecked17hbfa96fe38d883264E.exit.i.i.i14
@@ -18815,8 +18815,8 @@ define hidden noundef i64 @_ZN11polars_core13chunked_array3ops13search_sorted11l
   br i1 %20, label %._crit_edge, label %.lr.ph.split
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.us, %.lr.ph.split, %3
-  %.sroa.022.0.lcssa = phi i64 [ %1, %3 ], [ %unswitched.select, %.lr.ph.split ], [ %1, %.lr.ph.split.us ]
-  %.sroa.0.028.lcssa = phi i64 [ %0, %3 ], [ %spec.select29, %.lr.ph.split ], [ %8, %.lr.ph.split.us ]
+  %.sroa.022.0.lcssa = phi i64 [ %unswitched.select, %.lr.ph.split ], [ %1, %3 ], [ %1, %.lr.ph.split.us ]
+  %.sroa.0.028.lcssa = phi i64 [ %spec.select29, %.lr.ph.split ], [ %0, %3 ], [ %8, %.lr.ph.split.us ]
   %21 = icmp ult i64 %.sroa.0.028.lcssa, %.val1.i16.pre
   tail call void @llvm.assume(i1 %21)
   %22 = getelementptr inbounds nuw float, ptr %.val.i15.pre, i64 %.sroa.0.028.lcssa
@@ -18874,8 +18874,8 @@ define hidden noundef i64 @_ZN11polars_core13chunked_array3ops13search_sorted11l
   br i1 %20, label %._crit_edge, label %.lr.ph.split
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.us, %.lr.ph.split, %3
-  %.sroa.022.0.lcssa = phi i64 [ %1, %3 ], [ %unswitched.select, %.lr.ph.split ], [ %1, %.lr.ph.split.us ]
-  %.sroa.0.028.lcssa = phi i64 [ %0, %3 ], [ %spec.select29, %.lr.ph.split ], [ %8, %.lr.ph.split.us ]
+  %.sroa.022.0.lcssa = phi i64 [ %unswitched.select, %.lr.ph.split ], [ %1, %3 ], [ %1, %.lr.ph.split.us ]
+  %.sroa.0.028.lcssa = phi i64 [ %spec.select29, %.lr.ph.split ], [ %0, %3 ], [ %8, %.lr.ph.split.us ]
   %21 = icmp ult i64 %.sroa.0.028.lcssa, %.val1.i16.pre
   tail call void @llvm.assume(i1 %21)
   %22 = getelementptr inbounds nuw double, ptr %.val.i15.pre, i64 %.sroa.0.028.lcssa
@@ -20259,8 +20259,8 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17hbfa96fe38d883264E.exit.i.i.i:
   br i1 %66, label %93, label %94
 
 ._crit_edge:                                      ; preds = %45, %94, %3
-  %.sroa.023.0.lcssa = phi i64 [ %1, %3 ], [ %.sroa.023.1, %94 ], [ %.sroa.023.1.us39, %45 ]
-  %.sroa.0.029.lcssa = phi i64 [ %0, %3 ], [ %.sroa.0.1, %94 ], [ %.sroa.0.1.us40, %45 ]
+  %.sroa.023.0.lcssa = phi i64 [ %.sroa.023.1, %94 ], [ %1, %3 ], [ %.sroa.023.1.us39, %45 ]
+  %.sroa.0.029.lcssa = phi i64 [ %.sroa.0.1, %94 ], [ %0, %3 ], [ %.sroa.0.1.us40, %45 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1390)
   %.not.i.i.i.i.i13 = icmp eq ptr %.pre58, null
   br i1 %.not.i.i.i.i.i13, label %._crit_edge.thread, label %_ZN12polars_arrow5array5Array17is_null_unchecked17hbfa96fe38d883264E.exit.i.i.i14
@@ -20465,8 +20465,8 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h512925ea2abffd61E.exit.i.i.i:
   br i1 %66, label %93, label %94
 
 ._crit_edge:                                      ; preds = %45, %94, %3
-  %.sroa.023.0.lcssa = phi i64 [ %1, %3 ], [ %.sroa.023.1, %94 ], [ %.sroa.023.1.us39, %45 ]
-  %.sroa.0.029.lcssa = phi i64 [ %0, %3 ], [ %.sroa.0.1, %94 ], [ %.sroa.0.1.us40, %45 ]
+  %.sroa.023.0.lcssa = phi i64 [ %.sroa.023.1, %94 ], [ %1, %3 ], [ %.sroa.023.1.us39, %45 ]
+  %.sroa.0.029.lcssa = phi i64 [ %.sroa.0.1, %94 ], [ %0, %3 ], [ %.sroa.0.1.us40, %45 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1396)
   %.not.i.i.i.i.i13 = icmp eq ptr %.pre58, null
   br i1 %.not.i.i.i.i.i13, label %._crit_edge.thread, label %_ZN12polars_arrow5array5Array17is_null_unchecked17h512925ea2abffd61E.exit.i.i.i14
@@ -21188,8 +21188,8 @@ define hidden noundef i64 @_ZN11polars_core13chunked_array3ops13search_sorted11l
   br i1 %20, label %._crit_edge, label %.lr.ph.split
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %3
-  %.sroa.021.0.lcssa = phi i64 [ %1, %3 ], [ %8, %.lr.ph.split.us ], [ %unswitched.select, %.lr.ph.split ]
-  %.sroa.0.027.lcssa = phi i64 [ %0, %3 ], [ %0, %.lr.ph.split.us ], [ %spec.select28, %.lr.ph.split ]
+  %.sroa.021.0.lcssa = phi i64 [ %8, %.lr.ph.split.us ], [ %1, %3 ], [ %unswitched.select, %.lr.ph.split ]
+  %.sroa.0.027.lcssa = phi i64 [ %0, %.lr.ph.split.us ], [ %0, %3 ], [ %spec.select28, %.lr.ph.split ]
   %21 = icmp ult i64 %.sroa.0.027.lcssa, %.val1.i16.pre
   tail call void @llvm.assume(i1 %21)
   %22 = getelementptr inbounds nuw double, ptr %.val.i15.pre, i64 %.sroa.0.027.lcssa
@@ -50475,8 +50475,8 @@ define internal fastcc { ptr, ptr } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$
   ret { ptr, ptr } %73
 
 74:                                               ; preds = %55, %59
-  %75 = phi i8 [ %57, %55 ], [ %.pre, %59 ]
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.113.i.i, %55 ], [ %65, %59 ]
+  %75 = phi i8 [ %.pre, %59 ], [ %57, %55 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %65, %59 ], [ %.sroa.4.113.i.i, %55 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4165)
   %76 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %.sroa.3.0.i.i.ph
   %77 = and i8 %75, 1

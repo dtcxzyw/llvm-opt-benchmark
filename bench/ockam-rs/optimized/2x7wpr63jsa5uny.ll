@@ -14305,14 +14305,13 @@ _ZN4http3uri3Uri4host17h222a5641bb949bb4E.exit.i.i.i.i.i: ; preds = %257
   %306 = getelementptr inbounds nuw i8, ptr %302, i64 16
   %307 = load i64, ptr %306, align 8, !noalias !2106, !noundef !5
   switch i64 %307, label %"_ZN17tokio_tungstenite7connect7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h86db68e4970d9ff4E.exit.i.thread.i.i.i.i" [
-    i64 3, label %"_ZN17tokio_tungstenite7connect7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h86db68e4970d9ff4E.exit.i.i.i.i.i"
-    i64 2, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h83d430620ec2b0f7E.exit9.i.i.i.i.i.i"
+    i64 3, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h83d430620ec2b0f7E.exit.i.i.i.i.i.i"
+    i64 2, label %"_ZN17tokio_tungstenite7connect7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h86db68e4970d9ff4E.exit.i.i.i.i.i"
   ]
 
-"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h83d430620ec2b0f7E.exit9.i.i.i.i.i.i": ; preds = %305
-  %bcmp.i8.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(2) %304, ptr noundef nonnull dereferenceable(2) @anon.7120f4d5eb3bed4be5208692d8a4868d.59, i64 2), !alias.scope !2107, !noalias !2099
-  %bcmp.i8.fr.i.i.i.i.i.i = freeze i32 %bcmp.i8.i.i.i.i.i.i
-  %308 = icmp eq i32 %bcmp.i8.fr.i.i.i.i.i.i, 0
+"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h83d430620ec2b0f7E.exit.i.i.i.i.i.i": ; preds = %305
+  %bcmp.i.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(3) %304, ptr noundef nonnull dereferenceable(3) @anon.7120f4d5eb3bed4be5208692d8a4868d.58, i64 3), !alias.scope !2107, !noalias !2099
+  %308 = icmp eq i32 %bcmp.i.i.i.i.i.i.i, 0
   call void @llvm.lifetime.start.p0(ptr nonnull %100), !noalias !2092
   %309 = getelementptr inbounds nuw i8, ptr %100, i64 8
   store i64 3, ptr %309, align 8, !noalias !2092
@@ -14324,16 +14323,17 @@ _ZN4http3uri3Uri4host17h222a5641bb949bb4E.exit.i.i.i.i.i: ; preds = %257
   br label %324
 
 "_ZN17tokio_tungstenite7connect7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h86db68e4970d9ff4E.exit.i.i.i.i.i": ; preds = %305
-  %bcmp.i.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(3) %304, ptr noundef nonnull dereferenceable(3) @anon.7120f4d5eb3bed4be5208692d8a4868d.58, i64 3), !alias.scope !2111, !noalias !2099
-  %310 = icmp eq i32 %bcmp.i.i.i.i.i.i.i, 0
+  %bcmp.i8.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(2) %304, ptr noundef nonnull dereferenceable(2) @anon.7120f4d5eb3bed4be5208692d8a4868d.59, i64 2), !alias.scope !2111, !noalias !2099
+  %bcmp.i8.fr.i.i.i.i.i.i = freeze i32 %bcmp.i8.i.i.i.i.i.i
+  %310 = icmp eq i32 %bcmp.i8.fr.i.i.i.i.i.i, 0
   call void @llvm.lifetime.start.p0(ptr nonnull %100), !noalias !2092
   %311 = getelementptr inbounds nuw i8, ptr %100, i64 8
   store i64 3, ptr %311, align 8, !noalias !2092
   store i64 12, ptr %100, align 8, !noalias !2092
   br i1 %310, label %312, label %324
 
-312:                                              ; preds = %"_ZN17tokio_tungstenite7connect7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h86db68e4970d9ff4E.exit.i.i.i.i.i", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h83d430620ec2b0f7E.exit9.i.i.i.i.i.i", %"_ZN17tokio_tungstenite7connect7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h86db68e4970d9ff4E.exit.i.thread372.i.i.i.i"
-  %.sroa.4.0.i.pn.i375.i.i.i.i = phi i16 [ %293, %"_ZN17tokio_tungstenite7connect7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h86db68e4970d9ff4E.exit.i.thread372.i.i.i.i" ], [ 443, %"_ZN17tokio_tungstenite7connect7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h86db68e4970d9ff4E.exit.i.i.i.i.i" ], [ 80, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h83d430620ec2b0f7E.exit9.i.i.i.i.i.i" ]
+312:                                              ; preds = %"_ZN17tokio_tungstenite7connect7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h86db68e4970d9ff4E.exit.i.i.i.i.i", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h83d430620ec2b0f7E.exit.i.i.i.i.i.i", %"_ZN17tokio_tungstenite7connect7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h86db68e4970d9ff4E.exit.i.thread372.i.i.i.i"
+  %.sroa.4.0.i.pn.i375.i.i.i.i = phi i16 [ %293, %"_ZN17tokio_tungstenite7connect7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h86db68e4970d9ff4E.exit.i.thread372.i.i.i.i" ], [ 80, %"_ZN17tokio_tungstenite7connect7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h86db68e4970d9ff4E.exit.i.i.i.i.i" ], [ 443, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h83d430620ec2b0f7E.exit.i.i.i.i.i.i" ]
   invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tungstenite..error..Error$GT$17h6ccc3988f8a6b40dE"(ptr noalias noundef nonnull align 8 dereferenceable(136) %100)
           to label %315 unwind label %313, !noalias !2099
 
@@ -14392,7 +14392,7 @@ _ZN4http3uri3Uri4host17h222a5641bb949bb4E.exit.i.i.i.i.i: ; preds = %257
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6e29b4e092aef3aaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %323) #23
           to label %336 unwind label %635, !noalias !2099
 
-324:                                              ; preds = %"_ZN17tokio_tungstenite7connect7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h86db68e4970d9ff4E.exit.i.i.i.i.i", %"_ZN17tokio_tungstenite7connect7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h86db68e4970d9ff4E.exit.i.thread.i.i.i.i", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h83d430620ec2b0f7E.exit9.i.i.i.i.i.i"
+324:                                              ; preds = %"_ZN17tokio_tungstenite7connect7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h86db68e4970d9ff4E.exit.i.i.i.i.i", %"_ZN17tokio_tungstenite7connect7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h86db68e4970d9ff4E.exit.i.thread.i.i.i.i", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h83d430620ec2b0f7E.exit.i.i.i.i.i.i"
   %.sroa.10148.sroa.5.0..sroa.10148.0..sroa_idx.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %100, i64 16
   %.sroa.10148.sroa.5.0.copyload.i.i.i.i = load i64, ptr %.sroa.10148.sroa.5.0..sroa.10148.0..sroa_idx.sroa_idx.i.i.i.i, align 8, !alias.scope !2127, !noalias !2092
   %.sroa.10148.sroa.6.0..sroa.10148.0..sroa_idx.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %100, i64 24

@@ -163,7 +163,7 @@ define internal i32 @prefix_write(ptr noundef %0, ptr noundef %1, i64 noundef %2
   br label %.critedge75
 
 .critedge75:                                      ; preds = %62, %30, %.critedge75.critedge, %45, %4, %27
-  %.050 = phi i32 [ 0, %4 ], [ %29, %27 ], [ 0, %45 ], [ 0, %.critedge75.critedge ], [ 1, %30 ], [ 1, %62 ]
+  %.050 = phi i32 [ 0, %4 ], [ %29, %27 ], [ 0, %.critedge75.critedge ], [ 0, %45 ], [ 1, %30 ], [ 1, %62 ]
   ret i32 %.050
 }
 

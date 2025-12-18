@@ -1329,7 +1329,7 @@ arkRelaxNewtonSolve.exit.thread52.sink.split.i:   ; preds = %66, %48, %99, %.pre
   br label %arkRelaxNewtonSolve.exit.thread52.i
 
 arkRelaxNewtonSolve.exit.thread52.i:              ; preds = %229, %arkRelaxNewtonSolve.exit.thread52.sink.split.i, %116, %114, %80
-  %.0.i.ph.i = phi i32 [ 3, %116 ], [ 3, %114 ], [ 3, %80 ], [ %.0.i.ph.ph.i, %arkRelaxNewtonSolve.exit.thread52.sink.split.i ], [ 3, %229 ]
+  %.0.i.ph.i = phi i32 [ 3, %80 ], [ 3, %116 ], [ %.0.i.ph.ph.i, %arkRelaxNewtonSolve.exit.thread52.sink.split.i ], [ 3, %114 ], [ 3, %229 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %arkRelaxNewtonSolve.exit.thread.i

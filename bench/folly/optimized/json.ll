@@ -4808,8 +4808,8 @@ thread-pre-split.i.i.i:                           ; preds = %6, %10
   br label %_ZN5folly6detail14IteratorFacadeINS_7dynamic19const_item_iteratorEKSt4pairIKS2_S2_ESt20forward_iterator_tagEppEv.exit
 
 _ZN5folly6detail14IteratorFacadeINS_7dynamic19const_item_iteratorEKSt4pairIKS2_S2_ESt20forward_iterator_tagEppEv.exit: ; preds = %thread-pre-split.i.i.i, %.critedge.i.i.i.i, %27
-  %.sroa.018.1 = phi ptr [ %34, %27 ], [ null, %.critedge.i.i.i.i ], [ %14, %thread-pre-split.i.i.i ]
-  %.sroa.10.3 = phi i64 [ %31, %27 ], [ 0, %.critedge.i.i.i.i ], [ %13, %thread-pre-split.i.i.i ]
+  %.sroa.018.1 = phi ptr [ null, %.critedge.i.i.i.i ], [ %34, %27 ], [ %14, %thread-pre-split.i.i.i ]
+  %.sroa.10.3 = phi i64 [ 0, %.critedge.i.i.i.i ], [ %31, %27 ], [ %13, %thread-pre-split.i.i.i ]
   %.not39 = icmp eq ptr %.sroa.018.1, %4
   br i1 %.not39, label %._crit_edge, label %.lr.ph
 
@@ -4906,8 +4906,8 @@ thread-pre-split.i.i.i7:                          ; preds = %_ZNSt7__cxx1112basi
   br label %_ZN5folly6detail14IteratorFacadeINS_7dynamic19const_item_iteratorEKSt4pairIKS2_S2_ESt20forward_iterator_tagEppEv.exit17
 
 _ZN5folly6detail14IteratorFacadeINS_7dynamic19const_item_iteratorEKSt4pairIKS2_S2_ESt20forward_iterator_tagEppEv.exit17: ; preds = %thread-pre-split.i.i.i7, %.critedge.i.i.i.i11, %72
-  %.sroa.018.2 = phi ptr [ %79, %72 ], [ null, %.critedge.i.i.i.i11 ], [ %59, %thread-pre-split.i.i.i7 ]
-  %.sroa.10.6 = phi i64 [ %76, %72 ], [ 0, %.critedge.i.i.i.i11 ], [ %58, %thread-pre-split.i.i.i7 ]
+  %.sroa.018.2 = phi ptr [ null, %.critedge.i.i.i.i11 ], [ %79, %72 ], [ %59, %thread-pre-split.i.i.i7 ]
+  %.sroa.10.6 = phi i64 [ 0, %.critedge.i.i.i.i11 ], [ %76, %72 ], [ %58, %thread-pre-split.i.i.i7 ]
   %.not = icmp eq ptr %.sroa.018.2, %4
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !247
 
@@ -5065,8 +5065,8 @@ thread-pre-split.i.i.i.i.i:                       ; preds = %.lr.ph.i.i, %9
   br label %_ZN5folly6detail14IteratorFacadeINS_7dynamic19const_item_iteratorEKSt4pairIKS2_S2_ESt20forward_iterator_tagEppEv.exit.i.i
 
 _ZN5folly6detail14IteratorFacadeINS_7dynamic19const_item_iteratorEKSt4pairIKS2_S2_ESt20forward_iterator_tagEppEv.exit.i.i: ; preds = %thread-pre-split.i.i.i.i.i, %.critedge.i.i.i.i.i.i, %26
-  %.sroa.02.1.i.i = phi ptr [ %33, %26 ], [ null, %.critedge.i.i.i.i.i.i ], [ %13, %thread-pre-split.i.i.i.i.i ]
-  %.sroa.5.3.i.i = phi i64 [ %30, %26 ], [ 0, %.critedge.i.i.i.i.i.i ], [ %12, %thread-pre-split.i.i.i.i.i ]
+  %.sroa.02.1.i.i = phi ptr [ null, %.critedge.i.i.i.i.i.i ], [ %33, %26 ], [ %13, %thread-pre-split.i.i.i.i.i ]
+  %.sroa.5.3.i.i = phi i64 [ 0, %.critedge.i.i.i.i.i.i ], [ %30, %26 ], [ %12, %thread-pre-split.i.i.i.i.i ]
   %34 = add nuw nsw i64 %.014.i.i, 1
   %.not.i.i = icmp eq ptr %.sroa.02.1.i.i, %3
   br i1 %.not.i.i, label %_ZSt8distanceIN5folly7dynamic19const_item_iteratorEENSt15iterator_traitsIT_E15difference_typeES4_S4_.exit, label %.lr.ph.i.i, !llvm.loop !248
@@ -5148,8 +5148,8 @@ thread-pre-split.i.i.i.i.i.i.i:                   ; preds = %.lr.ph.i.i.i.i, %44
   br label %_ZN5folly6detail14IteratorFacadeINS_7dynamic19const_item_iteratorEKSt4pairIKS2_S2_ESt20forward_iterator_tagEppEv.exit.i.i.i.i
 
 _ZN5folly6detail14IteratorFacadeINS_7dynamic19const_item_iteratorEKSt4pairIKS2_S2_ESt20forward_iterator_tagEppEv.exit.i.i.i.i: ; preds = %thread-pre-split.i.i.i.i.i.i.i, %.critedge.i.i.i.i.i.i.i.i, %61
-  %.sroa.08.1.i.i.i.i = phi ptr [ %68, %61 ], [ null, %.critedge.i.i.i.i.i.i.i.i ], [ %48, %thread-pre-split.i.i.i.i.i.i.i ]
-  %.sroa.6.3.i.i.i.i = phi i64 [ %65, %61 ], [ 0, %.critedge.i.i.i.i.i.i.i.i ], [ %47, %thread-pre-split.i.i.i.i.i.i.i ]
+  %.sroa.08.1.i.i.i.i = phi ptr [ null, %.critedge.i.i.i.i.i.i.i.i ], [ %68, %61 ], [ %48, %thread-pre-split.i.i.i.i.i.i.i ]
+  %.sroa.6.3.i.i.i.i = phi i64 [ 0, %.critedge.i.i.i.i.i.i.i.i ], [ %65, %61 ], [ %47, %thread-pre-split.i.i.i.i.i.i.i ]
   %69 = getelementptr inbounds nuw i8, ptr %.021.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq ptr %.sroa.08.1.i.i.i.i, %3
   br i1 %.not.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN5folly7dynamic19const_item_iteratorEPSt17reference_wrapperIKSt4pairIKS1_S1_EES8_ET0_T_SB_SA_RSaIT1_E.exit, label %.lr.ph.i.i.i.i, !llvm.loop !249
@@ -11116,7 +11116,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %808
   br label %842
 
 .invoke.i:                                        ; preds = %797, %.noexc85.i, %_ZN5boost9algorithm11starts_withIN5folly5RangeIPKcEES6_EEbRKT_RKT0_.exit.i.i.i, %762, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendIPKcvEERS4_T_S9_.exit.i, %.lr.ph.i.i.i.i.i, %816
-  %815 = phi ptr [ @.str.76, %816 ], [ @.str.78, %.lr.ph.i.i.i.i.i ], [ @.str.80, %797 ], [ @.str.79, %.noexc85.i ], [ @.str.78, %_ZN5boost9algorithm11starts_withIN5folly5RangeIPKcEES6_EEbRKT_RKT0_.exit.i.i.i ], [ @.str.78, %762 ], [ @.str.75, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendIPKcvEERS4_T_S9_.exit.i ]
+  %815 = phi ptr [ @.str.78, %.lr.ph.i.i.i.i.i ], [ @.str.76, %816 ], [ @.str.79, %.noexc85.i ], [ @.str.75, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendIPKcvEERS4_T_S9_.exit.i ], [ @.str.78, %_ZN5boost9algorithm11starts_withIN5folly5RangeIPKcEES6_EEbRKT_RKT0_.exit.i.i.i ], [ @.str.78, %762 ], [ @.str.80, %797 ]
   invoke fastcc void @_ZNK5folly4json12_GLOBAL__N_15Input5errorEPKc(ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef nonnull %815) #35
           to label %.cont.i unwind label %.loopexit.split-lp.i
 
@@ -15254,7 +15254,7 @@ _ZNSt10_HashtableIPKN5folly7dynamicESt4pairIKS3_NS0_4json14parse_metadataEESaIS8
   resume { ptr, i32 } %46
 
 _ZNKSt10_HashtableIPKN5folly7dynamicESt4pairIKS3_NS0_4json14parse_metadataEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS5_m.exit: ; preds = %35, %21, %30
-  %.sroa.043.0.ph = phi ptr [ %31, %30 ], [ %.sroa.035.0, %21 ], [ %37, %35 ]
+  %.sroa.043.0.ph = phi ptr [ %.sroa.035.0, %21 ], [ %31, %30 ], [ %37, %35 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 24) #33
   br label %_ZNSt10_HashtableIPKN5folly7dynamicESt4pairIKS3_NS0_4json14parse_metadataEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 

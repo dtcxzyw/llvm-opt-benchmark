@@ -1121,7 +1121,7 @@ define dso_local noundef ptr @slurmdb_report_job_sizes_grouped_by_wckey(ptr noun
   br i1 %.not25.i, label %.critedge27.sink.split.i, label %107
 
 .critedge27.sink.split.i:                         ; preds = %92, %138, %97
-  %.sink.i = phi ptr [ %100, %97 ], [ %100, %138 ], [ %91, %92 ]
+  %.sink.i = phi ptr [ %100, %138 ], [ %100, %97 ], [ %91, %92 ]
   call void @list_iterator_destroy(ptr noundef %.sink.i) #11
   br label %.critedge27.i
 

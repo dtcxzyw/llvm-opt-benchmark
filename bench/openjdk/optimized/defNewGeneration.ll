@@ -1575,7 +1575,7 @@ _ZN7oopDesc4sizeEv.exit.i28:                      ; preds = %193, %173, %166, %1
   br i1 %.not15.i30, label %_ZL17block_start_constPK15ContiguousSpacePKv.exit, label %.lr.ph.i24, !llvm.loop !6
 
 _ZL17block_start_constPK15ContiguousSpacePKv.exit: ; preds = %_ZN7oopDesc4sizeEv.exit.i28, %_ZN7oopDesc4sizeEv.exit.i16, %_ZN7oopDesc4sizeEv.exit.i, %141, %136, %77, %10
-  %.0 = phi ptr [ %12, %10 ], [ %79, %77 ], [ %140, %136 ], [ %142, %141 ], [ %.017.i13, %_ZN7oopDesc4sizeEv.exit.i16 ], [ %.017.i, %_ZN7oopDesc4sizeEv.exit.i ], [ %.017.i25, %_ZN7oopDesc4sizeEv.exit.i28 ]
+  %.0 = phi ptr [ %.017.i13, %_ZN7oopDesc4sizeEv.exit.i16 ], [ %.017.i, %_ZN7oopDesc4sizeEv.exit.i ], [ %12, %10 ], [ %79, %77 ], [ %140, %136 ], [ %142, %141 ], [ %.017.i25, %_ZN7oopDesc4sizeEv.exit.i28 ]
   ret ptr %.0
 }
 
@@ -3236,7 +3236,7 @@ _ZN16java_lang_String11is_instanceEP7oopDesc.exit.i: ; preds = %211, %203
   br i1 %214, label %215, label %_ZN17SerialStringDedup28is_candidate_from_evacuationEP7oopDescb.exit.thread
 
 215:                                              ; preds = %_ZN16java_lang_String11is_instanceEP7oopDesc.exit.i
-  br i1 %87, label %216, label %229
+  br i1 %87, label %216, label %227
 
 216:                                              ; preds = %215
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -3249,56 +3249,56 @@ _ZN16java_lang_String11is_instanceEP7oopDesc.exit.i: ; preds = %211, %203
   %222 = and i64 %217, 1
   %223 = icmp eq i64 %222, 0
   %224 = select i1 %219, i1 %221, i1 %223
-  br i1 %224, label %225, label %_ZNK7oopDesc3ageEv.exit.i
+  br i1 %224, label %225, label %_ZN17SerialStringDedup28is_candidate_from_evacuationEP7oopDescb.exit
 
 225:                                              ; preds = %216
   %226 = call i64 @_ZNK8markWord21displaced_mark_helperEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #19
-  br label %_ZNK7oopDesc3ageEv.exit.i
+  br label %_ZN17SerialStringDedup28is_candidate_from_evacuationEP7oopDescb.exit
 
-_ZNK7oopDesc3ageEv.exit.i:                        ; preds = %225, %216
+227:                                              ; preds = %215
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  %228 = load volatile i64, ptr %.1, align 8
+  store i64 %228, ptr %3, align 8
+  %229 = load i32, ptr @LockingMode, align 4
+  %230 = icmp eq i32 %229, 2
+  %231 = and i64 %228, 3
+  %232 = icmp eq i64 %231, 2
+  %233 = and i64 %228, 1
+  %234 = icmp eq i64 %233, 0
+  %235 = select i1 %230, i1 %232, i1 %234
+  br i1 %235, label %236, label %_ZNK7oopDesc3ageEv.exit7.i
+
+236:                                              ; preds = %227
+  %237 = call i64 @_ZNK8markWord21displaced_mark_helperEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #19
+  br label %_ZNK7oopDesc3ageEv.exit7.i
+
+_ZNK7oopDesc3ageEv.exit7.i:                       ; preds = %236, %227
+  %.0.in.in.in.i3.i = phi i64 [ %237, %236 ], [ %228, %227 ]
+  %.0.in.in.i4.i = trunc i64 %.0.in.in.in.i3.i to i32
+  %.0.in.i5.i = lshr i32 %.0.in.in.i4.i, 3
+  %.0.i6.i = and i32 %.0.in.i5.i, 15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  %238 = load i32, ptr @_ZN11StringDedup22_enabled_age_thresholdE, align 4
+  %239 = icmp eq i32 %.0.i6.i, %238
+  br i1 %239, label %242, label %_ZN17SerialStringDedup28is_candidate_from_evacuationEP7oopDescb.exit.thread
+
+_ZN17SerialStringDedup28is_candidate_from_evacuationEP7oopDescb.exit: ; preds = %216, %225
   %.0.in.in.in.i.i32 = phi i64 [ %226, %225 ], [ %217, %216 ]
   %.0.in.in.i.i = trunc i64 %.0.in.in.in.i.i32 to i32
   %.0.in.i.i33 = lshr i32 %.0.in.in.i.i, 3
   %.0.i.i34 = and i32 %.0.in.i.i33, 15
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %227 = load i32, ptr @_ZN11StringDedup18_enabled_age_limitE, align 4
-  %228 = icmp ult i32 %.0.i.i34, %227
-  br i1 %228, label %242, label %_ZN17SerialStringDedup28is_candidate_from_evacuationEP7oopDescb.exit.thread
-
-229:                                              ; preds = %215
-  call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %230 = load volatile i64, ptr %.1, align 8
-  store i64 %230, ptr %3, align 8
-  %231 = load i32, ptr @LockingMode, align 4
-  %232 = icmp eq i32 %231, 2
-  %233 = and i64 %230, 3
-  %234 = icmp eq i64 %233, 2
-  %235 = and i64 %230, 1
-  %236 = icmp eq i64 %235, 0
-  %237 = select i1 %232, i1 %234, i1 %236
-  br i1 %237, label %238, label %_ZN17SerialStringDedup28is_candidate_from_evacuationEP7oopDescb.exit
-
-238:                                              ; preds = %229
-  %239 = call i64 @_ZNK8markWord21displaced_mark_helperEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #19
-  br label %_ZN17SerialStringDedup28is_candidate_from_evacuationEP7oopDescb.exit
-
-_ZN17SerialStringDedup28is_candidate_from_evacuationEP7oopDescb.exit: ; preds = %229, %238
-  %.0.in.in.in.i3.i = phi i64 [ %239, %238 ], [ %230, %229 ]
-  %.0.in.in.i4.i = trunc i64 %.0.in.in.in.i3.i to i32
-  %.0.in.i5.i = lshr i32 %.0.in.in.i4.i, 3
-  %.0.i6.i = and i32 %.0.in.i5.i, 15
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %240 = load i32, ptr @_ZN11StringDedup22_enabled_age_thresholdE, align 4
-  %241 = icmp eq i32 %.0.i6.i, %240
+  %240 = load i32, ptr @_ZN11StringDedup18_enabled_age_limitE, align 4
+  %241 = icmp ult i32 %.0.i.i34, %240
   br i1 %241, label %242, label %_ZN17SerialStringDedup28is_candidate_from_evacuationEP7oopDescb.exit.thread
 
-242:                                              ; preds = %_ZNK7oopDesc3ageEv.exit.i, %_ZN17SerialStringDedup28is_candidate_from_evacuationEP7oopDescb.exit
+242:                                              ; preds = %_ZNK7oopDesc3ageEv.exit7.i, %_ZN17SerialStringDedup28is_candidate_from_evacuationEP7oopDescb.exit
   %243 = getelementptr inbounds nuw i8, ptr %0, i64 712
   call void @_ZN11StringDedup8Requests3addEP7oopDesc(ptr noundef nonnull align 8 dereferenceable(25) %243, ptr noundef nonnull %1) #19
   br label %_ZN17SerialStringDedup28is_candidate_from_evacuationEP7oopDescb.exit.thread
 
-_ZN17SerialStringDedup28is_candidate_from_evacuationEP7oopDescb.exit.thread: ; preds = %195, %_ZN16java_lang_String11is_instanceEP7oopDesc.exit.i, %_ZNK7oopDesc3ageEv.exit.i, %_ZN17SerialStringDedup28is_candidate_from_evacuationEP7oopDescb.exit, %242, %85
-  %.0 = phi ptr [ %1, %85 ], [ %.1, %242 ], [ %.1, %_ZN17SerialStringDedup28is_candidate_from_evacuationEP7oopDescb.exit ], [ %.1, %_ZNK7oopDesc3ageEv.exit.i ], [ %.1, %_ZN16java_lang_String11is_instanceEP7oopDesc.exit.i ], [ %.1, %195 ]
+_ZN17SerialStringDedup28is_candidate_from_evacuationEP7oopDescb.exit.thread: ; preds = %195, %_ZN16java_lang_String11is_instanceEP7oopDesc.exit.i, %_ZNK7oopDesc3ageEv.exit7.i, %_ZN17SerialStringDedup28is_candidate_from_evacuationEP7oopDescb.exit, %242, %85
+  %.0 = phi ptr [ %1, %85 ], [ %.1, %242 ], [ %.1, %_ZN17SerialStringDedup28is_candidate_from_evacuationEP7oopDescb.exit ], [ %.1, %_ZNK7oopDesc3ageEv.exit7.i ], [ %.1, %_ZN16java_lang_String11is_instanceEP7oopDesc.exit.i ], [ %.1, %195 ]
   ret ptr %.0
 }
 

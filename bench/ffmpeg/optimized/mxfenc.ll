@@ -468,8 +468,8 @@ define internal range(i32 -2147483648, 1) i32 @mxf_write_packet(ptr noundef %0, 
   br i1 %154, label %60, label %.loopexit.i, !llvm.loop !66
 
 .loopexit.i:                                      ; preds = %150, %98, %92, %49
-  %.sroa.6.1 = phi i8 [ %.sroa.6.2, %98 ], [ %.sroa.6.2, %92 ], [ 0, %49 ], [ %.sroa.6.3, %150 ]
-  %.sroa.3.1 = phi i16 [ %.sroa.3.2, %98 ], [ %.sroa.3.2, %92 ], [ 0, %49 ], [ %.sroa.3.3, %150 ]
+  %.sroa.6.1 = phi i8 [ 0, %49 ], [ %.sroa.6.2, %98 ], [ %.sroa.6.2, %92 ], [ %.sroa.6.3, %150 ]
+  %.sroa.3.1 = phi i16 [ 0, %49 ], [ %.sroa.3.2, %98 ], [ %.sroa.3.2, %92 ], [ %.sroa.3.3, %150 ]
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %156 = load ptr, ptr %155, align 8, !tbaa !44
   %157 = icmp eq ptr %156, @ff_mxf_d10_muxer
@@ -511,7 +511,7 @@ mxf_get_mpeg2_codec_ul.exit.thread.fold.split.i:  ; preds = %167
   br label %mxf_get_mpeg2_codec_ul.exit.thread.i
 
 mxf_get_mpeg2_codec_ul.exit.thread.i:             ; preds = %mxf_get_mpeg2_codec_ul.exit.thread.fold.split.i, %167, %166, %165, %162
-  %.0.i100.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @mxf_mpeg2_codec_uls, i64 80), %165 ], [ getelementptr inbounds nuw (i8, ptr @mxf_mpeg2_codec_uls, i64 16), %162 ], [ getelementptr inbounds nuw (i8, ptr @mxf_mpeg2_codec_uls, i64 144), %166 ], [ getelementptr inbounds nuw (i8, ptr @mxf_mpeg2_codec_uls, i64 48), %167 ], [ getelementptr inbounds nuw (i8, ptr @mxf_mpeg2_codec_uls, i64 112), %mxf_get_mpeg2_codec_ul.exit.thread.fold.split.i ]
+  %.0.i100.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @mxf_mpeg2_codec_uls, i64 48), %167 ], [ getelementptr inbounds nuw (i8, ptr @mxf_mpeg2_codec_uls, i64 80), %165 ], [ getelementptr inbounds nuw (i8, ptr @mxf_mpeg2_codec_uls, i64 16), %162 ], [ getelementptr inbounds nuw (i8, ptr @mxf_mpeg2_codec_uls, i64 144), %166 ], [ getelementptr inbounds nuw (i8, ptr @mxf_mpeg2_codec_uls, i64 112), %mxf_get_mpeg2_codec_ul.exit.thread.fold.split.i ]
   %170 = getelementptr inbounds nuw i8, ptr %50, i64 32
   store ptr %.0.i100.i, ptr %170, align 8, !tbaa !68
   br label %mxf_parse_mpeg2_frame.exit
@@ -1104,7 +1104,7 @@ mxf_parse_h264_frame.exit.thread:                 ; preds = %.thread.i, %._crit_
   br label %mxf_parse_mpeg2_frame.exit
 
 .split133.us.thread.i:                            ; preds = %314, %435, %.split133.us.i
-  %.str.43.sink = phi ptr [ @.str.43, %.split133.us.i ], [ @.str.43, %435 ], [ @.str.42, %314 ]
+  %.str.43.sink = phi ptr [ @.str.43, %435 ], [ @.str.43, %.split133.us.i ], [ @.str.42, %314 ]
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull %.str.43.sink) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -4788,7 +4788,7 @@ get_rac.exit26:                                   ; preds = %143, %157, %162, %1
   br i1 %189, label %131, label %get_rac.exit.thread, !llvm.loop !237
 
 get_rac.exit.thread:                              ; preds = %128, %get_rac.exit26, %get_rac.exit24, %60, %55, %38
-  %.020 = phi i32 [ 0, %38 ], [ 0, %55 ], [ 0, %60 ], [ 1, %get_rac.exit24 ], [ %188, %get_rac.exit26 ], [ -1094995529, %128 ]
+  %.020 = phi i32 [ 0, %60 ], [ %188, %get_rac.exit26 ], [ 0, %38 ], [ 0, %55 ], [ 1, %get_rac.exit24 ], [ -1094995529, %128 ]
   ret i32 %.020
 }
 

@@ -5538,8 +5538,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i52.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELi3ELi1ELin1ELi3EEENS7_IjLin1ELi3ELi0ELin1ELi3EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE_EEEvSC_SC_SC_SC_SH_.exit, label %.lr.ph.i.i47.i, !llvm.loop !191
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELi3ELi1ELin1ELi3EEENS7_IjLin1ELi3ELi0ELin1ELi3EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE_EEEvSC_SC_SC_SC_SH_.exit: ; preds = %53, %.lr.ph.i.i47.i, %67, %33, %.lr.ph.i.i31.i, %47
-  %.sink80.i = phi i32 [ %.pre.i, %67 ], [ %16, %47 ], [ %.pre.i, %33 ], [ %30, %.lr.ph.i.i31.i ], [ %50, %.lr.ph.i.i47.i ], [ %16, %53 ]
-  %.sink79.i = phi ptr [ %10, %67 ], [ %11, %47 ], [ %10, %33 ], [ %12, %.lr.ph.i.i31.i ], [ %12, %.lr.ph.i.i47.i ], [ %11, %53 ]
+  %.sink80.i = phi i32 [ %50, %.lr.ph.i.i47.i ], [ %.pre.i, %33 ], [ %16, %47 ], [ %30, %.lr.ph.i.i31.i ], [ %.pre.i, %67 ], [ %16, %53 ]
+  %.sink79.i = phi ptr [ %12, %.lr.ph.i.i47.i ], [ %10, %33 ], [ %11, %47 ], [ %12, %.lr.ph.i.i31.i ], [ %10, %67 ], [ %11, %53 ]
   %70 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink80.i, ptr %0, align 4, !tbaa !14
   store i32 %70, ptr %.sink79.i, align 4, !tbaa !14
@@ -5630,7 +5630,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELi3ELi
   br label %.lr.ph.i.i.lr.ph.i, !llvm.loop !195
 
 _ZSt21__unguarded_partitionIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELi3ELi1ELin1ELi3EEENS7_IjLin1ELi3ELi0ELin1ELi3EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE_EEESC_SC_SC_SC_SH_.exit: ; preds = %.loopexit.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELi3ELi1ELin1ELi3EEENS5_IjLin1ELi3ELi0ELin1ELi3EEENS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSE_IT1_EEEUlmmE_EclIPiSO_EEbSA_SF_.exit.loopexit26.us.i, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELi3ELi1ELin1ELi3EEENS7_IjLin1ELi3ELi0ELin1ELi3EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE_EEEvSC_SC_SC_SC_SH_.exit.thread
-  %.us-phi53.i = phi ptr [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELi3ELi1ELin1ELi3EEENS7_IjLin1ELi3ELi0ELin1ELi3EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE_EEEvSC_SC_SC_SC_SH_.exit.thread ], [ %73, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELi3ELi1ELin1ELi3EEENS5_IjLin1ELi3ELi0ELin1ELi3EEENS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSE_IT1_EEEUlmmE_EclIPiSO_EEbSA_SF_.exit.loopexit26.us.i ], [ %.133.i, %.loopexit.i ]
+  %.us-phi53.i = phi ptr [ %73, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELi3ELi1ELin1ELi3EEENS5_IjLin1ELi3ELi0ELin1ELi3EEENS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSE_IT1_EEEUlmmE_EclIPiSO_EEbSA_SF_.exit.loopexit26.us.i ], [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELi3ELi1ELin1ELi3EEENS7_IjLin1ELi3ELi0ELin1ELi3EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE_EEEvSC_SC_SC_SC_SH_.exit.thread ], [ %.133.i, %.loopexit.i ]
   ret ptr %.us-phi53.i
 }
 
@@ -5776,7 +5776,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELi3ELi1
   br i1 %74, label %.lr.ph.i.i.i, label %_ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELi3ELi1ELin1ELi3EEENS7_IjLin1ELi3ELi0ELin1ELi3EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE_EEEvSC_SH_SH_SK_RT2_.exit, !llvm.loop !197
 
 _ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELi3ELi1ELin1ELi3EEENS7_IjLin1ELi3ELi0ELin1ELi3EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE_EEEvSC_SH_SH_SK_RT2_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELi3ELi1ELin1ELi3EEENS5_IjLin1ELi3ELi0ELin1ELi3EEENS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSE_IT1_EEEUlmmE_EclIPiiEEbSA_RSF_.exit.i, %70, %55
-  %.01317.i = phi i64 [ %.128, %55 ], [ %.01320.i, %70 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELi3ELi1ELin1ELi3EEENS5_IjLin1ELi3ELi0ELin1ELi3EEENS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSE_IT1_EEEUlmmE_EclIPiiEEbSA_RSF_.exit.i ]
+  %.01317.i = phi i64 [ %.01320.i, %70 ], [ %.128, %55 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELi3ELi1ELin1ELi3EEENS5_IjLin1ELi3ELi0ELin1ELi3EEENS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSE_IT1_EEEUlmmE_EclIPiiEEbSA_RSF_.exit.i ]
   %75 = getelementptr inbounds i32, ptr %0, i64 %.01317.i
   store i32 %3, ptr %75, align 4, !tbaa !14
   ret void
@@ -6232,8 +6232,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i52.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELi3ELi1ELin1ELi3EEENS7_IjLin1ELi3ELi0ELin1ELi3EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE0_EEEvSC_SC_SC_SC_SH_.exit, label %.lr.ph.i.i47.i, !llvm.loop !201
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELi3ELi1ELin1ELi3EEENS7_IjLin1ELi3ELi0ELin1ELi3EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE0_EEEvSC_SC_SC_SC_SH_.exit: ; preds = %53, %.lr.ph.i.i47.i, %67, %33, %.lr.ph.i.i31.i, %47
-  %.sink80.i = phi i32 [ %.pre.i, %67 ], [ %16, %47 ], [ %.pre.i, %33 ], [ %30, %.lr.ph.i.i31.i ], [ %50, %.lr.ph.i.i47.i ], [ %16, %53 ]
-  %.sink79.i = phi ptr [ %10, %67 ], [ %11, %47 ], [ %10, %33 ], [ %12, %.lr.ph.i.i31.i ], [ %12, %.lr.ph.i.i47.i ], [ %11, %53 ]
+  %.sink80.i = phi i32 [ %50, %.lr.ph.i.i47.i ], [ %.pre.i, %33 ], [ %16, %47 ], [ %30, %.lr.ph.i.i31.i ], [ %.pre.i, %67 ], [ %16, %53 ]
+  %.sink79.i = phi ptr [ %12, %.lr.ph.i.i47.i ], [ %10, %33 ], [ %11, %47 ], [ %12, %.lr.ph.i.i31.i ], [ %10, %67 ], [ %11, %53 ]
   %70 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink80.i, ptr %0, align 4, !tbaa !14
   store i32 %70, ptr %.sink79.i, align 4, !tbaa !14
@@ -6324,7 +6324,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELi3ELi
   br label %.lr.ph.i.i.lr.ph.i, !llvm.loop !204
 
 _ZSt21__unguarded_partitionIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELi3ELi1ELin1ELi3EEENS7_IjLin1ELi3ELi0ELin1ELi3EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE0_EEESC_SC_SC_SC_SH_.exit: ; preds = %.loopexit.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELi3ELi1ELin1ELi3EEENS5_IjLin1ELi3ELi0ELin1ELi3EEENS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSE_IT1_EEEUlmmE0_EclIPiSO_EEbSA_SF_.exit.loopexit26.us.i, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELi3ELi1ELin1ELi3EEENS7_IjLin1ELi3ELi0ELin1ELi3EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE0_EEEvSC_SC_SC_SC_SH_.exit.thread
-  %.us-phi53.i = phi ptr [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELi3ELi1ELin1ELi3EEENS7_IjLin1ELi3ELi0ELin1ELi3EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE0_EEEvSC_SC_SC_SC_SH_.exit.thread ], [ %73, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELi3ELi1ELin1ELi3EEENS5_IjLin1ELi3ELi0ELin1ELi3EEENS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSE_IT1_EEEUlmmE0_EclIPiSO_EEbSA_SF_.exit.loopexit26.us.i ], [ %.133.i, %.loopexit.i ]
+  %.us-phi53.i = phi ptr [ %73, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELi3ELi1ELin1ELi3EEENS5_IjLin1ELi3ELi0ELin1ELi3EEENS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSE_IT1_EEEUlmmE0_EclIPiSO_EEbSA_SF_.exit.loopexit26.us.i ], [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELi3ELi1ELin1ELi3EEENS7_IjLin1ELi3ELi0ELin1ELi3EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE0_EEEvSC_SC_SC_SC_SH_.exit.thread ], [ %.133.i, %.loopexit.i ]
   ret ptr %.us-phi53.i
 }
 
@@ -6470,7 +6470,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELi3ELi1
   br i1 %74, label %.lr.ph.i.i.i, label %_ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELi3ELi1ELin1ELi3EEENS7_IjLin1ELi3ELi0ELin1ELi3EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE0_EEEvSC_SH_SH_SK_RT2_.exit, !llvm.loop !206
 
 _ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELi3ELi1ELin1ELi3EEENS7_IjLin1ELi3ELi0ELin1ELi3EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE0_EEEvSC_SH_SH_SK_RT2_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELi3ELi1ELin1ELi3EEENS5_IjLin1ELi3ELi0ELin1ELi3EEENS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSE_IT1_EEEUlmmE0_EclIPiiEEbSA_RSF_.exit.i, %70, %55
-  %.01317.i = phi i64 [ %.128, %55 ], [ %.01320.i, %70 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELi3ELi1ELin1ELi3EEENS5_IjLin1ELi3ELi0ELin1ELi3EEENS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSE_IT1_EEEUlmmE0_EclIPiiEEbSA_RSF_.exit.i ]
+  %.01317.i = phi i64 [ %.01320.i, %70 ], [ %.128, %55 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELi3ELi1ELin1ELi3EEENS5_IjLin1ELi3ELi0ELin1ELi3EEENS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSE_IT1_EEEUlmmE0_EclIPiiEEbSA_RSF_.exit.i ]
   %75 = getelementptr inbounds i32, ptr %0, i64 %.01317.i
   store i32 %3, ptr %75, align 4, !tbaa !14
   ret void
@@ -6920,8 +6920,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i52.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi1ELin1ELi3EEENS7_IiLin1ELi3ELi0ELin1ELi3EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE_EEEvSC_SC_SC_SC_SH_.exit, label %.lr.ph.i.i47.i, !llvm.loop !210
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi1ELin1ELi3EEENS7_IiLin1ELi3ELi0ELin1ELi3EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE_EEEvSC_SC_SC_SC_SH_.exit: ; preds = %53, %.lr.ph.i.i47.i, %67, %33, %.lr.ph.i.i31.i, %47
-  %.sink80.i = phi i32 [ %.pre.i, %67 ], [ %16, %47 ], [ %.pre.i, %33 ], [ %30, %.lr.ph.i.i31.i ], [ %50, %.lr.ph.i.i47.i ], [ %16, %53 ]
-  %.sink79.i = phi ptr [ %10, %67 ], [ %11, %47 ], [ %10, %33 ], [ %12, %.lr.ph.i.i31.i ], [ %12, %.lr.ph.i.i47.i ], [ %11, %53 ]
+  %.sink80.i = phi i32 [ %50, %.lr.ph.i.i47.i ], [ %.pre.i, %33 ], [ %16, %47 ], [ %30, %.lr.ph.i.i31.i ], [ %.pre.i, %67 ], [ %16, %53 ]
+  %.sink79.i = phi ptr [ %12, %.lr.ph.i.i47.i ], [ %10, %33 ], [ %11, %47 ], [ %12, %.lr.ph.i.i31.i ], [ %10, %67 ], [ %11, %53 ]
   %70 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink80.i, ptr %0, align 4, !tbaa !14
   store i32 %70, ptr %.sink79.i, align 4, !tbaa !14
@@ -7012,7 +7012,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi
   br label %.lr.ph.i.i.lr.ph.i, !llvm.loop !213
 
 _ZSt21__unguarded_partitionIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi1ELin1ELi3EEENS7_IiLin1ELi3ELi0ELin1ELi3EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE_EEESC_SC_SC_SC_SH_.exit: ; preds = %.loopexit.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi1ELin1ELi3EEENS5_IiLin1ELi3ELi0ELin1ELi3EEENS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSE_IT1_EEEUlmmE_EclIPiSO_EEbSA_SF_.exit.loopexit26.us.i, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi1ELin1ELi3EEENS7_IiLin1ELi3ELi0ELin1ELi3EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE_EEEvSC_SC_SC_SC_SH_.exit.thread
-  %.us-phi53.i = phi ptr [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi1ELin1ELi3EEENS7_IiLin1ELi3ELi0ELin1ELi3EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE_EEEvSC_SC_SC_SC_SH_.exit.thread ], [ %73, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi1ELin1ELi3EEENS5_IiLin1ELi3ELi0ELin1ELi3EEENS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSE_IT1_EEEUlmmE_EclIPiSO_EEbSA_SF_.exit.loopexit26.us.i ], [ %.133.i, %.loopexit.i ]
+  %.us-phi53.i = phi ptr [ %73, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi1ELin1ELi3EEENS5_IiLin1ELi3ELi0ELin1ELi3EEENS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSE_IT1_EEEUlmmE_EclIPiSO_EEbSA_SF_.exit.loopexit26.us.i ], [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi1ELin1ELi3EEENS7_IiLin1ELi3ELi0ELin1ELi3EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE_EEEvSC_SC_SC_SC_SH_.exit.thread ], [ %.133.i, %.loopexit.i ]
   ret ptr %.us-phi53.i
 }
 
@@ -7158,7 +7158,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi1
   br i1 %74, label %.lr.ph.i.i.i, label %_ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi1ELin1ELi3EEENS7_IiLin1ELi3ELi0ELin1ELi3EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE_EEEvSC_SH_SH_SK_RT2_.exit, !llvm.loop !215
 
 _ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi1ELin1ELi3EEENS7_IiLin1ELi3ELi0ELin1ELi3EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE_EEEvSC_SH_SH_SK_RT2_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi1ELin1ELi3EEENS5_IiLin1ELi3ELi0ELin1ELi3EEENS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSE_IT1_EEEUlmmE_EclIPiiEEbSA_RSF_.exit.i, %70, %55
-  %.01317.i = phi i64 [ %.128, %55 ], [ %.01320.i, %70 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi1ELin1ELi3EEENS5_IiLin1ELi3ELi0ELin1ELi3EEENS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSE_IT1_EEEUlmmE_EclIPiiEEbSA_RSF_.exit.i ]
+  %.01317.i = phi i64 [ %.01320.i, %70 ], [ %.128, %55 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi1ELin1ELi3EEENS5_IiLin1ELi3ELi0ELin1ELi3EEENS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSE_IT1_EEEUlmmE_EclIPiiEEbSA_RSF_.exit.i ]
   %75 = getelementptr inbounds i32, ptr %0, i64 %.01317.i
   store i32 %3, ptr %75, align 4, !tbaa !14
   ret void
@@ -7608,8 +7608,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i52.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi1ELin1ELi3EEENS7_IiLin1ELi3ELi0ELin1ELi3EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE0_EEEvSC_SC_SC_SC_SH_.exit, label %.lr.ph.i.i47.i, !llvm.loop !219
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi1ELin1ELi3EEENS7_IiLin1ELi3ELi0ELin1ELi3EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE0_EEEvSC_SC_SC_SC_SH_.exit: ; preds = %53, %.lr.ph.i.i47.i, %67, %33, %.lr.ph.i.i31.i, %47
-  %.sink80.i = phi i32 [ %.pre.i, %67 ], [ %16, %47 ], [ %.pre.i, %33 ], [ %30, %.lr.ph.i.i31.i ], [ %50, %.lr.ph.i.i47.i ], [ %16, %53 ]
-  %.sink79.i = phi ptr [ %10, %67 ], [ %11, %47 ], [ %10, %33 ], [ %12, %.lr.ph.i.i31.i ], [ %12, %.lr.ph.i.i47.i ], [ %11, %53 ]
+  %.sink80.i = phi i32 [ %50, %.lr.ph.i.i47.i ], [ %.pre.i, %33 ], [ %16, %47 ], [ %30, %.lr.ph.i.i31.i ], [ %.pre.i, %67 ], [ %16, %53 ]
+  %.sink79.i = phi ptr [ %12, %.lr.ph.i.i47.i ], [ %10, %33 ], [ %11, %47 ], [ %12, %.lr.ph.i.i31.i ], [ %10, %67 ], [ %11, %53 ]
   %70 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink80.i, ptr %0, align 4, !tbaa !14
   store i32 %70, ptr %.sink79.i, align 4, !tbaa !14
@@ -7700,7 +7700,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi
   br label %.lr.ph.i.i.lr.ph.i, !llvm.loop !222
 
 _ZSt21__unguarded_partitionIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi1ELin1ELi3EEENS7_IiLin1ELi3ELi0ELin1ELi3EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE0_EEESC_SC_SC_SC_SH_.exit: ; preds = %.loopexit.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi1ELin1ELi3EEENS5_IiLin1ELi3ELi0ELin1ELi3EEENS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSE_IT1_EEEUlmmE0_EclIPiSO_EEbSA_SF_.exit.loopexit26.us.i, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi1ELin1ELi3EEENS7_IiLin1ELi3ELi0ELin1ELi3EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE0_EEEvSC_SC_SC_SC_SH_.exit.thread
-  %.us-phi53.i = phi ptr [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi1ELin1ELi3EEENS7_IiLin1ELi3ELi0ELin1ELi3EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE0_EEEvSC_SC_SC_SC_SH_.exit.thread ], [ %73, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi1ELin1ELi3EEENS5_IiLin1ELi3ELi0ELin1ELi3EEENS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSE_IT1_EEEUlmmE0_EclIPiSO_EEbSA_SF_.exit.loopexit26.us.i ], [ %.133.i, %.loopexit.i ]
+  %.us-phi53.i = phi ptr [ %73, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi1ELin1ELi3EEENS5_IiLin1ELi3ELi0ELin1ELi3EEENS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSE_IT1_EEEUlmmE0_EclIPiSO_EEbSA_SF_.exit.loopexit26.us.i ], [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi1ELin1ELi3EEENS7_IiLin1ELi3ELi0ELin1ELi3EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE0_EEEvSC_SC_SC_SC_SH_.exit.thread ], [ %.133.i, %.loopexit.i ]
   ret ptr %.us-phi53.i
 }
 
@@ -7846,7 +7846,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi1
   br i1 %74, label %.lr.ph.i.i.i, label %_ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi1ELin1ELi3EEENS7_IiLin1ELi3ELi0ELin1ELi3EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE0_EEEvSC_SH_SH_SK_RT2_.exit, !llvm.loop !224
 
 _ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi1ELin1ELi3EEENS7_IiLin1ELi3ELi0ELin1ELi3EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE0_EEEvSC_SH_SH_SK_RT2_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi1ELin1ELi3EEENS5_IiLin1ELi3ELi0ELin1ELi3EEENS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSE_IT1_EEEUlmmE0_EclIPiiEEbSA_RSF_.exit.i, %70, %55
-  %.01317.i = phi i64 [ %.128, %55 ], [ %.01320.i, %70 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi1ELin1ELi3EEENS5_IiLin1ELi3ELi0ELin1ELi3EEENS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSE_IT1_EEEUlmmE0_EclIPiiEEbSA_RSF_.exit.i ]
+  %.01317.i = phi i64 [ %.01320.i, %70 ], [ %.128, %55 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi1ELin1ELi3EEENS5_IiLin1ELi3ELi0ELin1ELi3EEENS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSE_IT1_EEEUlmmE0_EclIPiiEEbSA_RSF_.exit.i ]
   %75 = getelementptr inbounds i32, ptr %0, i64 %.01317.i
   store i32 %3, ptr %75, align 4, !tbaa !14
   ret void
@@ -8296,8 +8296,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i52.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi1ELin1ELi3EEENS7_IfLin1ELi3ELi0ELin1ELi3EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE_EEEvSC_SC_SC_SC_SH_.exit, label %.lr.ph.i.i47.i, !llvm.loop !228
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi1ELin1ELi3EEENS7_IfLin1ELi3ELi0ELin1ELi3EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE_EEEvSC_SC_SC_SC_SH_.exit: ; preds = %53, %.lr.ph.i.i47.i, %67, %33, %.lr.ph.i.i31.i, %47
-  %.sink80.i = phi i32 [ %.pre.i, %67 ], [ %16, %47 ], [ %.pre.i, %33 ], [ %30, %.lr.ph.i.i31.i ], [ %50, %.lr.ph.i.i47.i ], [ %16, %53 ]
-  %.sink79.i = phi ptr [ %10, %67 ], [ %11, %47 ], [ %10, %33 ], [ %12, %.lr.ph.i.i31.i ], [ %12, %.lr.ph.i.i47.i ], [ %11, %53 ]
+  %.sink80.i = phi i32 [ %50, %.lr.ph.i.i47.i ], [ %.pre.i, %33 ], [ %16, %47 ], [ %30, %.lr.ph.i.i31.i ], [ %.pre.i, %67 ], [ %16, %53 ]
+  %.sink79.i = phi ptr [ %12, %.lr.ph.i.i47.i ], [ %10, %33 ], [ %11, %47 ], [ %12, %.lr.ph.i.i31.i ], [ %10, %67 ], [ %11, %53 ]
   %70 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink80.i, ptr %0, align 4, !tbaa !14
   store i32 %70, ptr %.sink79.i, align 4, !tbaa !14
@@ -8388,7 +8388,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi
   br label %.lr.ph.i.i.lr.ph.i, !llvm.loop !231
 
 _ZSt21__unguarded_partitionIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi1ELin1ELi3EEENS7_IfLin1ELi3ELi0ELin1ELi3EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE_EEESC_SC_SC_SC_SH_.exit: ; preds = %.loopexit.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi1ELin1ELi3EEENS5_IfLin1ELi3ELi0ELin1ELi3EEENS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSE_IT1_EEEUlmmE_EclIPiSO_EEbSA_SF_.exit.loopexit26.us.i, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi1ELin1ELi3EEENS7_IfLin1ELi3ELi0ELin1ELi3EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE_EEEvSC_SC_SC_SC_SH_.exit.thread
-  %.us-phi53.i = phi ptr [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi1ELin1ELi3EEENS7_IfLin1ELi3ELi0ELin1ELi3EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE_EEEvSC_SC_SC_SC_SH_.exit.thread ], [ %73, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi1ELin1ELi3EEENS5_IfLin1ELi3ELi0ELin1ELi3EEENS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSE_IT1_EEEUlmmE_EclIPiSO_EEbSA_SF_.exit.loopexit26.us.i ], [ %.133.i, %.loopexit.i ]
+  %.us-phi53.i = phi ptr [ %73, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi1ELin1ELi3EEENS5_IfLin1ELi3ELi0ELin1ELi3EEENS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSE_IT1_EEEUlmmE_EclIPiSO_EEbSA_SF_.exit.loopexit26.us.i ], [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi1ELin1ELi3EEENS7_IfLin1ELi3ELi0ELin1ELi3EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE_EEEvSC_SC_SC_SC_SH_.exit.thread ], [ %.133.i, %.loopexit.i ]
   ret ptr %.us-phi53.i
 }
 
@@ -8534,7 +8534,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi1
   br i1 %74, label %.lr.ph.i.i.i, label %_ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi1ELin1ELi3EEENS7_IfLin1ELi3ELi0ELin1ELi3EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE_EEEvSC_SH_SH_SK_RT2_.exit, !llvm.loop !233
 
 _ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi1ELin1ELi3EEENS7_IfLin1ELi3ELi0ELin1ELi3EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE_EEEvSC_SH_SH_SK_RT2_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi1ELin1ELi3EEENS5_IfLin1ELi3ELi0ELin1ELi3EEENS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSE_IT1_EEEUlmmE_EclIPiiEEbSA_RSF_.exit.i, %70, %55
-  %.01317.i = phi i64 [ %.128, %55 ], [ %.01320.i, %70 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi1ELin1ELi3EEENS5_IfLin1ELi3ELi0ELin1ELi3EEENS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSE_IT1_EEEUlmmE_EclIPiiEEbSA_RSF_.exit.i ]
+  %.01317.i = phi i64 [ %.01320.i, %70 ], [ %.128, %55 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi1ELin1ELi3EEENS5_IfLin1ELi3ELi0ELin1ELi3EEENS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSE_IT1_EEEUlmmE_EclIPiiEEbSA_RSF_.exit.i ]
   %75 = getelementptr inbounds i32, ptr %0, i64 %.01317.i
   store i32 %3, ptr %75, align 4, !tbaa !14
   ret void
@@ -8984,8 +8984,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i52.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi1ELin1ELi3EEENS7_IfLin1ELi3ELi0ELin1ELi3EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE0_EEEvSC_SC_SC_SC_SH_.exit, label %.lr.ph.i.i47.i, !llvm.loop !237
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi1ELin1ELi3EEENS7_IfLin1ELi3ELi0ELin1ELi3EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE0_EEEvSC_SC_SC_SC_SH_.exit: ; preds = %53, %.lr.ph.i.i47.i, %67, %33, %.lr.ph.i.i31.i, %47
-  %.sink80.i = phi i32 [ %.pre.i, %67 ], [ %16, %47 ], [ %.pre.i, %33 ], [ %30, %.lr.ph.i.i31.i ], [ %50, %.lr.ph.i.i47.i ], [ %16, %53 ]
-  %.sink79.i = phi ptr [ %10, %67 ], [ %11, %47 ], [ %10, %33 ], [ %12, %.lr.ph.i.i31.i ], [ %12, %.lr.ph.i.i47.i ], [ %11, %53 ]
+  %.sink80.i = phi i32 [ %50, %.lr.ph.i.i47.i ], [ %.pre.i, %33 ], [ %16, %47 ], [ %30, %.lr.ph.i.i31.i ], [ %.pre.i, %67 ], [ %16, %53 ]
+  %.sink79.i = phi ptr [ %12, %.lr.ph.i.i47.i ], [ %10, %33 ], [ %11, %47 ], [ %12, %.lr.ph.i.i31.i ], [ %10, %67 ], [ %11, %53 ]
   %70 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink80.i, ptr %0, align 4, !tbaa !14
   store i32 %70, ptr %.sink79.i, align 4, !tbaa !14
@@ -9076,7 +9076,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi
   br label %.lr.ph.i.i.lr.ph.i, !llvm.loop !240
 
 _ZSt21__unguarded_partitionIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi1ELin1ELi3EEENS7_IfLin1ELi3ELi0ELin1ELi3EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE0_EEESC_SC_SC_SC_SH_.exit: ; preds = %.loopexit.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi1ELin1ELi3EEENS5_IfLin1ELi3ELi0ELin1ELi3EEENS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSE_IT1_EEEUlmmE0_EclIPiSO_EEbSA_SF_.exit.loopexit26.us.i, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi1ELin1ELi3EEENS7_IfLin1ELi3ELi0ELin1ELi3EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE0_EEEvSC_SC_SC_SC_SH_.exit.thread
-  %.us-phi53.i = phi ptr [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi1ELin1ELi3EEENS7_IfLin1ELi3ELi0ELin1ELi3EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE0_EEEvSC_SC_SC_SC_SH_.exit.thread ], [ %73, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi1ELin1ELi3EEENS5_IfLin1ELi3ELi0ELin1ELi3EEENS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSE_IT1_EEEUlmmE0_EclIPiSO_EEbSA_SF_.exit.loopexit26.us.i ], [ %.133.i, %.loopexit.i ]
+  %.us-phi53.i = phi ptr [ %73, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi1ELin1ELi3EEENS5_IfLin1ELi3ELi0ELin1ELi3EEENS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSE_IT1_EEEUlmmE0_EclIPiSO_EEbSA_SF_.exit.loopexit26.us.i ], [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi1ELin1ELi3EEENS7_IfLin1ELi3ELi0ELin1ELi3EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE0_EEEvSC_SC_SC_SC_SH_.exit.thread ], [ %.133.i, %.loopexit.i ]
   ret ptr %.us-phi53.i
 }
 
@@ -9222,7 +9222,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi1
   br i1 %74, label %.lr.ph.i.i.i, label %_ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi1ELin1ELi3EEENS7_IfLin1ELi3ELi0ELin1ELi3EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE0_EEEvSC_SH_SH_SK_RT2_.exit, !llvm.loop !242
 
 _ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi1ELin1ELi3EEENS7_IfLin1ELi3ELi0ELin1ELi3EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE0_EEEvSC_SH_SH_SK_RT2_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi1ELin1ELi3EEENS5_IfLin1ELi3ELi0ELin1ELi3EEENS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSE_IT1_EEEUlmmE0_EclIPiiEEbSA_RSF_.exit.i, %70, %55
-  %.01317.i = phi i64 [ %.128, %55 ], [ %.01320.i, %70 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi1ELin1ELi3EEENS5_IfLin1ELi3ELi0ELin1ELi3EEENS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSE_IT1_EEEUlmmE0_EclIPiiEEbSA_RSF_.exit.i ]
+  %.01317.i = phi i64 [ %.01320.i, %70 ], [ %.128, %55 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi1ELin1ELi3EEENS5_IfLin1ELi3ELi0ELin1ELi3EEENS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSE_IT1_EEEUlmmE0_EclIPiiEEbSA_RSF_.exit.i ]
   %75 = getelementptr inbounds i32, ptr %0, i64 %.01317.i
   store i32 %3, ptr %75, align 4, !tbaa !14
   ret void
@@ -9730,8 +9730,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i44.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEENS7_IdLin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE_EEEvSC_SC_SC_SC_SH_.exit, label %.lr.ph.i.i41.i, !llvm.loop !246
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEENS7_IdLin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE_EEEvSC_SC_SC_SC_SH_.exit: ; preds = %59, %.lr.ph.i.i41.i, %73, %38, %.lr.ph.i.i29.i, %52
-  %.sink72.i = phi i32 [ %.pre.i, %73 ], [ %16, %52 ], [ %.pre.i, %38 ], [ %34, %.lr.ph.i.i29.i ], [ %55, %.lr.ph.i.i41.i ], [ %16, %59 ]
-  %.sink71.i = phi ptr [ %10, %73 ], [ %11, %52 ], [ %10, %38 ], [ %12, %.lr.ph.i.i29.i ], [ %12, %.lr.ph.i.i41.i ], [ %11, %59 ]
+  %.sink72.i = phi i32 [ %55, %.lr.ph.i.i41.i ], [ %.pre.i, %38 ], [ %16, %52 ], [ %34, %.lr.ph.i.i29.i ], [ %.pre.i, %73 ], [ %16, %59 ]
+  %.sink71.i = phi ptr [ %12, %.lr.ph.i.i41.i ], [ %10, %38 ], [ %11, %52 ], [ %12, %.lr.ph.i.i29.i ], [ %10, %73 ], [ %11, %59 ]
   %76 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink72.i, ptr %0, align 4, !tbaa !14
   store i32 %76, ptr %.sink71.i, align 4, !tbaa !14
@@ -9822,7 +9822,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1EL
   br label %.lr.ph.i.i.lr.ph.i, !llvm.loop !249
 
 _ZSt21__unguarded_partitionIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEENS7_IdLin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE_EEESC_SC_SC_SC_SH_.exit: ; preds = %.loopexit.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEENS5_IdLin1ELin1ELi0ELin1ELin1EEENS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSE_IT1_EEEUlmmE_EclIPiSO_EEbSA_SF_.exit.loopexit24.us.i, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEENS7_IdLin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE_EEEvSC_SC_SC_SC_SH_.exit.thread
-  %.us-phi50.i = phi ptr [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEENS7_IdLin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE_EEEvSC_SC_SC_SC_SH_.exit.thread ], [ %79, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEENS5_IdLin1ELin1ELi0ELin1ELin1EEENS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSE_IT1_EEEUlmmE_EclIPiSO_EEbSA_SF_.exit.loopexit24.us.i ], [ %.131.i, %.loopexit.i ]
+  %.us-phi50.i = phi ptr [ %79, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEENS5_IdLin1ELin1ELi0ELin1ELin1EEENS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSE_IT1_EEEUlmmE_EclIPiSO_EEbSA_SF_.exit.loopexit24.us.i ], [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEENS7_IdLin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE_EEEvSC_SC_SC_SC_SH_.exit.thread ], [ %.131.i, %.loopexit.i ]
   ret ptr %.us-phi50.i
 }
 
@@ -9972,7 +9972,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi
   br i1 %82, label %.lr.ph.i.i.i, label %_ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEENS7_IdLin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE_EEEvSC_SH_SH_SK_RT2_.exit, !llvm.loop !251
 
 _ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEENS7_IdLin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE_EEEvSC_SH_SH_SK_RT2_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEENS5_IdLin1ELin1ELi0ELin1ELin1EEENS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSE_IT1_EEEUlmmE_EclIPiiEEbSA_RSF_.exit.i, %78, %59
-  %.01317.i = phi i64 [ %.128, %59 ], [ %.01320.i, %78 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEENS5_IdLin1ELin1ELi0ELin1ELin1EEENS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSE_IT1_EEEUlmmE_EclIPiiEEbSA_RSF_.exit.i ]
+  %.01317.i = phi i64 [ %.01320.i, %78 ], [ %.128, %59 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEENS5_IdLin1ELin1ELi0ELin1ELin1EEENS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSE_IT1_EEEUlmmE_EclIPiiEEbSA_RSF_.exit.i ]
   %83 = getelementptr inbounds i32, ptr %0, i64 %.01317.i
   store i32 %3, ptr %83, align 4, !tbaa !14
   ret void
@@ -10431,8 +10431,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i44.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEENS7_IdLin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE0_EEEvSC_SC_SC_SC_SH_.exit, label %.lr.ph.i.i41.i, !llvm.loop !255
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEENS7_IdLin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE0_EEEvSC_SC_SC_SC_SH_.exit: ; preds = %59, %.lr.ph.i.i41.i, %73, %38, %.lr.ph.i.i29.i, %52
-  %.sink72.i = phi i32 [ %.pre.i, %73 ], [ %16, %52 ], [ %.pre.i, %38 ], [ %34, %.lr.ph.i.i29.i ], [ %55, %.lr.ph.i.i41.i ], [ %16, %59 ]
-  %.sink71.i = phi ptr [ %10, %73 ], [ %11, %52 ], [ %10, %38 ], [ %12, %.lr.ph.i.i29.i ], [ %12, %.lr.ph.i.i41.i ], [ %11, %59 ]
+  %.sink72.i = phi i32 [ %55, %.lr.ph.i.i41.i ], [ %.pre.i, %38 ], [ %16, %52 ], [ %34, %.lr.ph.i.i29.i ], [ %.pre.i, %73 ], [ %16, %59 ]
+  %.sink71.i = phi ptr [ %12, %.lr.ph.i.i41.i ], [ %10, %38 ], [ %11, %52 ], [ %12, %.lr.ph.i.i29.i ], [ %10, %73 ], [ %11, %59 ]
   %76 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink72.i, ptr %0, align 4, !tbaa !14
   store i32 %76, ptr %.sink71.i, align 4, !tbaa !14
@@ -10523,7 +10523,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1EL
   br label %.lr.ph.i.i.lr.ph.i, !llvm.loop !258
 
 _ZSt21__unguarded_partitionIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEENS7_IdLin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE0_EEESC_SC_SC_SC_SH_.exit: ; preds = %.loopexit.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEENS5_IdLin1ELin1ELi0ELin1ELin1EEENS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSE_IT1_EEEUlmmE0_EclIPiSO_EEbSA_SF_.exit.loopexit24.us.i, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEENS7_IdLin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE0_EEEvSC_SC_SC_SC_SH_.exit.thread
-  %.us-phi50.i = phi ptr [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEENS7_IdLin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE0_EEEvSC_SC_SC_SC_SH_.exit.thread ], [ %79, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEENS5_IdLin1ELin1ELi0ELin1ELin1EEENS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSE_IT1_EEEUlmmE0_EclIPiSO_EEbSA_SF_.exit.loopexit24.us.i ], [ %.131.i, %.loopexit.i ]
+  %.us-phi50.i = phi ptr [ %79, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEENS5_IdLin1ELin1ELi0ELin1ELin1EEENS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSE_IT1_EEEUlmmE0_EclIPiSO_EEbSA_SF_.exit.loopexit24.us.i ], [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEENS7_IdLin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE0_EEEvSC_SC_SC_SC_SH_.exit.thread ], [ %.131.i, %.loopexit.i ]
   ret ptr %.us-phi50.i
 }
 
@@ -10673,7 +10673,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi
   br i1 %82, label %.lr.ph.i.i.i, label %_ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEENS7_IdLin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE0_EEEvSC_SH_SH_SK_RT2_.exit, !llvm.loop !260
 
 _ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEENS7_IdLin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE0_EEEvSC_SH_SH_SK_RT2_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEENS5_IdLin1ELin1ELi0ELin1ELin1EEENS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSE_IT1_EEEUlmmE0_EclIPiiEEbSA_RSF_.exit.i, %78, %59
-  %.01317.i = phi i64 [ %.128, %59 ], [ %.01320.i, %78 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEENS5_IdLin1ELin1ELi0ELin1ELin1EEENS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSE_IT1_EEEUlmmE0_EclIPiiEEbSA_RSF_.exit.i ]
+  %.01317.i = phi i64 [ %.01320.i, %78 ], [ %.128, %59 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEENS5_IdLin1ELin1ELi0ELin1ELin1EEENS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSE_IT1_EEEUlmmE0_EclIPiiEEbSA_RSF_.exit.i ]
   %83 = getelementptr inbounds i32, ptr %0, i64 %.01317.i
   store i32 %3, ptr %83, align 4, !tbaa !14
   ret void
@@ -11123,8 +11123,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i52.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi1ELin1ELi3EEENS7_IdLin1ELi3ELi0ELin1ELi3EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE_EEEvSC_SC_SC_SC_SH_.exit, label %.lr.ph.i.i47.i, !llvm.loop !264
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi1ELin1ELi3EEENS7_IdLin1ELi3ELi0ELin1ELi3EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE_EEEvSC_SC_SC_SC_SH_.exit: ; preds = %53, %.lr.ph.i.i47.i, %67, %33, %.lr.ph.i.i31.i, %47
-  %.sink80.i = phi i32 [ %.pre.i, %67 ], [ %16, %47 ], [ %.pre.i, %33 ], [ %30, %.lr.ph.i.i31.i ], [ %50, %.lr.ph.i.i47.i ], [ %16, %53 ]
-  %.sink79.i = phi ptr [ %10, %67 ], [ %11, %47 ], [ %10, %33 ], [ %12, %.lr.ph.i.i31.i ], [ %12, %.lr.ph.i.i47.i ], [ %11, %53 ]
+  %.sink80.i = phi i32 [ %50, %.lr.ph.i.i47.i ], [ %.pre.i, %33 ], [ %16, %47 ], [ %30, %.lr.ph.i.i31.i ], [ %.pre.i, %67 ], [ %16, %53 ]
+  %.sink79.i = phi ptr [ %12, %.lr.ph.i.i47.i ], [ %10, %33 ], [ %11, %47 ], [ %12, %.lr.ph.i.i31.i ], [ %10, %67 ], [ %11, %53 ]
   %70 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink80.i, ptr %0, align 4, !tbaa !14
   store i32 %70, ptr %.sink79.i, align 4, !tbaa !14
@@ -11215,7 +11215,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi
   br label %.lr.ph.i.i.lr.ph.i, !llvm.loop !267
 
 _ZSt21__unguarded_partitionIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi1ELin1ELi3EEENS7_IdLin1ELi3ELi0ELin1ELi3EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE_EEESC_SC_SC_SC_SH_.exit: ; preds = %.loopexit.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi1ELin1ELi3EEENS5_IdLin1ELi3ELi0ELin1ELi3EEENS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSE_IT1_EEEUlmmE_EclIPiSO_EEbSA_SF_.exit.loopexit26.us.i, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi1ELin1ELi3EEENS7_IdLin1ELi3ELi0ELin1ELi3EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE_EEEvSC_SC_SC_SC_SH_.exit.thread
-  %.us-phi53.i = phi ptr [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi1ELin1ELi3EEENS7_IdLin1ELi3ELi0ELin1ELi3EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE_EEEvSC_SC_SC_SC_SH_.exit.thread ], [ %73, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi1ELin1ELi3EEENS5_IdLin1ELi3ELi0ELin1ELi3EEENS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSE_IT1_EEEUlmmE_EclIPiSO_EEbSA_SF_.exit.loopexit26.us.i ], [ %.133.i, %.loopexit.i ]
+  %.us-phi53.i = phi ptr [ %73, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi1ELin1ELi3EEENS5_IdLin1ELi3ELi0ELin1ELi3EEENS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSE_IT1_EEEUlmmE_EclIPiSO_EEbSA_SF_.exit.loopexit26.us.i ], [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi1ELin1ELi3EEENS7_IdLin1ELi3ELi0ELin1ELi3EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE_EEEvSC_SC_SC_SC_SH_.exit.thread ], [ %.133.i, %.loopexit.i ]
   ret ptr %.us-phi53.i
 }
 
@@ -11361,7 +11361,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi1
   br i1 %74, label %.lr.ph.i.i.i, label %_ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi1ELin1ELi3EEENS7_IdLin1ELi3ELi0ELin1ELi3EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE_EEEvSC_SH_SH_SK_RT2_.exit, !llvm.loop !269
 
 _ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi1ELin1ELi3EEENS7_IdLin1ELi3ELi0ELin1ELi3EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE_EEEvSC_SH_SH_SK_RT2_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi1ELin1ELi3EEENS5_IdLin1ELi3ELi0ELin1ELi3EEENS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSE_IT1_EEEUlmmE_EclIPiiEEbSA_RSF_.exit.i, %70, %55
-  %.01317.i = phi i64 [ %.128, %55 ], [ %.01320.i, %70 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi1ELin1ELi3EEENS5_IdLin1ELi3ELi0ELin1ELi3EEENS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSE_IT1_EEEUlmmE_EclIPiiEEbSA_RSF_.exit.i ]
+  %.01317.i = phi i64 [ %.01320.i, %70 ], [ %.128, %55 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi1ELin1ELi3EEENS5_IdLin1ELi3ELi0ELin1ELi3EEENS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSE_IT1_EEEUlmmE_EclIPiiEEbSA_RSF_.exit.i ]
   %75 = getelementptr inbounds i32, ptr %0, i64 %.01317.i
   store i32 %3, ptr %75, align 4, !tbaa !14
   ret void
@@ -11811,8 +11811,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i52.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi1ELin1ELi3EEENS7_IdLin1ELi3ELi0ELin1ELi3EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE0_EEEvSC_SC_SC_SC_SH_.exit, label %.lr.ph.i.i47.i, !llvm.loop !273
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi1ELin1ELi3EEENS7_IdLin1ELi3ELi0ELin1ELi3EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE0_EEEvSC_SC_SC_SC_SH_.exit: ; preds = %53, %.lr.ph.i.i47.i, %67, %33, %.lr.ph.i.i31.i, %47
-  %.sink80.i = phi i32 [ %.pre.i, %67 ], [ %16, %47 ], [ %.pre.i, %33 ], [ %30, %.lr.ph.i.i31.i ], [ %50, %.lr.ph.i.i47.i ], [ %16, %53 ]
-  %.sink79.i = phi ptr [ %10, %67 ], [ %11, %47 ], [ %10, %33 ], [ %12, %.lr.ph.i.i31.i ], [ %12, %.lr.ph.i.i47.i ], [ %11, %53 ]
+  %.sink80.i = phi i32 [ %50, %.lr.ph.i.i47.i ], [ %.pre.i, %33 ], [ %16, %47 ], [ %30, %.lr.ph.i.i31.i ], [ %.pre.i, %67 ], [ %16, %53 ]
+  %.sink79.i = phi ptr [ %12, %.lr.ph.i.i47.i ], [ %10, %33 ], [ %11, %47 ], [ %12, %.lr.ph.i.i31.i ], [ %10, %67 ], [ %11, %53 ]
   %70 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink80.i, ptr %0, align 4, !tbaa !14
   store i32 %70, ptr %.sink79.i, align 4, !tbaa !14
@@ -11903,7 +11903,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi
   br label %.lr.ph.i.i.lr.ph.i, !llvm.loop !276
 
 _ZSt21__unguarded_partitionIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi1ELin1ELi3EEENS7_IdLin1ELi3ELi0ELin1ELi3EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE0_EEESC_SC_SC_SC_SH_.exit: ; preds = %.loopexit.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi1ELin1ELi3EEENS5_IdLin1ELi3ELi0ELin1ELi3EEENS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSE_IT1_EEEUlmmE0_EclIPiSO_EEbSA_SF_.exit.loopexit26.us.i, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi1ELin1ELi3EEENS7_IdLin1ELi3ELi0ELin1ELi3EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE0_EEEvSC_SC_SC_SC_SH_.exit.thread
-  %.us-phi53.i = phi ptr [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi1ELin1ELi3EEENS7_IdLin1ELi3ELi0ELin1ELi3EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE0_EEEvSC_SC_SC_SC_SH_.exit.thread ], [ %73, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi1ELin1ELi3EEENS5_IdLin1ELi3ELi0ELin1ELi3EEENS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSE_IT1_EEEUlmmE0_EclIPiSO_EEbSA_SF_.exit.loopexit26.us.i ], [ %.133.i, %.loopexit.i ]
+  %.us-phi53.i = phi ptr [ %73, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi1ELin1ELi3EEENS5_IdLin1ELi3ELi0ELin1ELi3EEENS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSE_IT1_EEEUlmmE0_EclIPiSO_EEbSA_SF_.exit.loopexit26.us.i ], [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi1ELin1ELi3EEENS7_IdLin1ELi3ELi0ELin1ELi3EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE0_EEEvSC_SC_SC_SC_SH_.exit.thread ], [ %.133.i, %.loopexit.i ]
   ret ptr %.us-phi53.i
 }
 
@@ -12049,7 +12049,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi1
   br i1 %74, label %.lr.ph.i.i.i, label %_ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi1ELin1ELi3EEENS7_IdLin1ELi3ELi0ELin1ELi3EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE0_EEEvSC_SH_SH_SK_RT2_.exit, !llvm.loop !278
 
 _ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi1ELin1ELi3EEENS7_IdLin1ELi3ELi0ELin1ELi3EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE0_EEEvSC_SH_SH_SK_RT2_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi1ELin1ELi3EEENS5_IdLin1ELi3ELi0ELin1ELi3EEENS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSE_IT1_EEEUlmmE0_EclIPiiEEbSA_RSF_.exit.i, %70, %55
-  %.01317.i = phi i64 [ %.128, %55 ], [ %.01320.i, %70 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi1ELin1ELi3EEENS5_IdLin1ELi3ELi0ELin1ELi3EEENS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSE_IT1_EEEUlmmE0_EclIPiiEEbSA_RSF_.exit.i ]
+  %.01317.i = phi i64 [ %.01320.i, %70 ], [ %.128, %55 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi1ELin1ELi3EEENS5_IdLin1ELi3ELi0ELin1ELi3EEENS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSE_IT1_EEEUlmmE0_EclIPiiEEbSA_RSF_.exit.i ]
   %75 = getelementptr inbounds i32, ptr %0, i64 %.01317.i
   store i32 %3, ptr %75, align 4, !tbaa !14
   ret void
@@ -12490,8 +12490,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i48.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi12ELi0ELi12ELi12EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i44.i, !llvm.loop !282
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi12ELi0ELi12ELi12EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %52, %.lr.ph.i.i44.i, %66, %32, %.lr.ph.i.i30.i, %46
-  %.sink76.i = phi i32 [ %.pre.i, %66 ], [ %16, %46 ], [ %.pre.i, %32 ], [ %29, %.lr.ph.i.i30.i ], [ %49, %.lr.ph.i.i44.i ], [ %16, %52 ]
-  %.sink75.i = phi ptr [ %10, %66 ], [ %11, %46 ], [ %10, %32 ], [ %12, %.lr.ph.i.i30.i ], [ %12, %.lr.ph.i.i44.i ], [ %11, %52 ]
+  %.sink76.i = phi i32 [ %49, %.lr.ph.i.i44.i ], [ %.pre.i, %32 ], [ %16, %46 ], [ %29, %.lr.ph.i.i30.i ], [ %.pre.i, %66 ], [ %16, %52 ]
+  %.sink75.i = phi ptr [ %12, %.lr.ph.i.i44.i ], [ %10, %32 ], [ %11, %46 ], [ %12, %.lr.ph.i.i30.i ], [ %10, %66 ], [ %11, %52 ]
   %69 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink76.i, ptr %0, align 4, !tbaa !14
   store i32 %69, ptr %.sink75.i, align 4, !tbaa !14
@@ -12581,7 +12581,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi12EL
   br label %.lr.ph.i.i.lr.ph.i, !llvm.loop !285
 
 _ZSt21__unguarded_partitionIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi12ELi0ELi12ELi12EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEESB_SB_SB_SB_SG_.exit: ; preds = %.loopexit.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi12ELi0ELi12ELi12EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiSN_EEbS9_SE_.exit.loopexit25.us.i, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi12ELi0ELi12ELi12EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit.thread
-  %.us-phi52.i = phi ptr [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi12ELi0ELi12ELi12EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %72, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi12ELi0ELi12ELi12EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiSN_EEbS9_SE_.exit.loopexit25.us.i ], [ %.132.i, %.loopexit.i ]
+  %.us-phi52.i = phi ptr [ %72, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi12ELi0ELi12ELi12EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiSN_EEbS9_SE_.exit.loopexit25.us.i ], [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi12ELi0ELi12ELi12EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %.132.i, %.loopexit.i ]
   ret ptr %.us-phi52.i
 }
 
@@ -12719,7 +12719,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi12ELi
   br i1 %72, label %.lr.ph.i.i.i, label %_ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi12ELi0ELi12ELi12EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SG_SG_SJ_RT2_.exit, !llvm.loop !287
 
 _ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi12ELi0ELi12ELi12EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SG_SG_SJ_RT2_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi12ELi0ELi12ELi12EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiiEEbS9_RSE_.exit.i, %68, %54, %.lr.ph.i
-  %.01317.i = phi i64 [ %.128, %54 ], [ %.128, %.lr.ph.i ], [ %.01320.i, %68 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi12ELi0ELi12ELi12EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiiEEbS9_RSE_.exit.i ]
+  %.01317.i = phi i64 [ %.128, %.lr.ph.i ], [ %.128, %54 ], [ %.01320.i, %68 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi12ELi0ELi12ELi12EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiiEEbS9_RSE_.exit.i ]
   %73 = getelementptr inbounds i32, ptr %0, i64 %.01317.i
   store i32 %3, ptr %73, align 4, !tbaa !14
   ret void
@@ -13160,8 +13160,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i48.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi12ELi0ELi12ELi12EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i44.i, !llvm.loop !291
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi12ELi0ELi12ELi12EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %52, %.lr.ph.i.i44.i, %66, %32, %.lr.ph.i.i30.i, %46
-  %.sink76.i = phi i32 [ %.pre.i, %66 ], [ %16, %46 ], [ %.pre.i, %32 ], [ %29, %.lr.ph.i.i30.i ], [ %49, %.lr.ph.i.i44.i ], [ %16, %52 ]
-  %.sink75.i = phi ptr [ %10, %66 ], [ %11, %46 ], [ %10, %32 ], [ %12, %.lr.ph.i.i30.i ], [ %12, %.lr.ph.i.i44.i ], [ %11, %52 ]
+  %.sink76.i = phi i32 [ %49, %.lr.ph.i.i44.i ], [ %.pre.i, %32 ], [ %16, %46 ], [ %29, %.lr.ph.i.i30.i ], [ %.pre.i, %66 ], [ %16, %52 ]
+  %.sink75.i = phi ptr [ %12, %.lr.ph.i.i44.i ], [ %10, %32 ], [ %11, %46 ], [ %12, %.lr.ph.i.i30.i ], [ %10, %66 ], [ %11, %52 ]
   %69 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink76.i, ptr %0, align 4, !tbaa !14
   store i32 %69, ptr %.sink75.i, align 4, !tbaa !14
@@ -13251,7 +13251,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi12EL
   br label %.lr.ph.i.i.lr.ph.i, !llvm.loop !294
 
 _ZSt21__unguarded_partitionIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi12ELi0ELi12ELi12EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEESB_SB_SB_SB_SG_.exit: ; preds = %.loopexit.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi12ELi0ELi12ELi12EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiSN_EEbS9_SE_.exit.loopexit25.us.i, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi12ELi0ELi12ELi12EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit.thread
-  %.us-phi52.i = phi ptr [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi12ELi0ELi12ELi12EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %72, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi12ELi0ELi12ELi12EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiSN_EEbS9_SE_.exit.loopexit25.us.i ], [ %.132.i, %.loopexit.i ]
+  %.us-phi52.i = phi ptr [ %72, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi12ELi0ELi12ELi12EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiSN_EEbS9_SE_.exit.loopexit25.us.i ], [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi12ELi0ELi12ELi12EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %.132.i, %.loopexit.i ]
   ret ptr %.us-phi52.i
 }
 
@@ -13389,7 +13389,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi12ELi
   br i1 %72, label %.lr.ph.i.i.i, label %_ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi12ELi0ELi12ELi12EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SG_SG_SJ_RT2_.exit, !llvm.loop !296
 
 _ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi12ELi0ELi12ELi12EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SG_SG_SJ_RT2_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi12ELi0ELi12ELi12EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiiEEbS9_RSE_.exit.i, %68, %54, %.lr.ph.i
-  %.01317.i = phi i64 [ %.128, %54 ], [ %.128, %.lr.ph.i ], [ %.01320.i, %68 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi12ELi0ELi12ELi12EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiiEEbS9_RSE_.exit.i ]
+  %.01317.i = phi i64 [ %.128, %.lr.ph.i ], [ %.128, %54 ], [ %.01320.i, %68 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi12ELi0ELi12ELi12EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiiEEbS9_RSE_.exit.i ]
   %73 = getelementptr inbounds i32, ptr %0, i64 %.01317.i
   store i32 %3, ptr %73, align 4, !tbaa !14
   ret void
@@ -13887,8 +13887,8 @@ _ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i44.i, label %_ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i41.i, !llvm.loop !300
 
 _ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %54, %.lr.ph.i.i41.i, %70, %33, %.lr.ph.i.i29.i, %49
-  %.sink72.i = phi i64 [ %.pre.i, %70 ], [ %15, %49 ], [ %.pre.i, %33 ], [ %31, %.lr.ph.i.i29.i ], [ %52, %.lr.ph.i.i41.i ], [ %15, %54 ]
-  %.sink71.i = phi ptr [ %10, %70 ], [ %11, %49 ], [ %10, %33 ], [ %12, %.lr.ph.i.i29.i ], [ %12, %.lr.ph.i.i41.i ], [ %11, %54 ]
+  %.sink72.i = phi i64 [ %52, %.lr.ph.i.i41.i ], [ %.pre.i, %33 ], [ %15, %49 ], [ %31, %.lr.ph.i.i29.i ], [ %.pre.i, %70 ], [ %15, %54 ]
+  %.sink71.i = phi ptr [ %12, %.lr.ph.i.i41.i ], [ %10, %33 ], [ %11, %49 ], [ %12, %.lr.ph.i.i29.i ], [ %10, %70 ], [ %11, %54 ]
   %73 = load i64, ptr %0, align 8, !tbaa !76
   store i64 %.sink72.i, ptr %0, align 8, !tbaa !76
   store i64 %73, ptr %.sink71.i, align 8, !tbaa !76
@@ -13976,7 +13976,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1EL
   br label %.lr.ph.i.i.lr.ph.i, !llvm.loop !303
 
 _ZSt21__unguarded_partitionIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEESB_SB_SB_SB_SG_.exit: ; preds = %.loopexit.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES6_NS5_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPlSN_EEbS9_SE_.exit.loopexit24.us.i, %_ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit.thread
-  %.us-phi50.i = phi ptr [ %11, %_ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %76, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES6_NS5_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPlSN_EEbS9_SE_.exit.loopexit24.us.i ], [ %.131.i, %.loopexit.i ]
+  %.us-phi50.i = phi ptr [ %76, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES6_NS5_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPlSN_EEbS9_SE_.exit.loopexit24.us.i ], [ %11, %_ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %.131.i, %.loopexit.i ]
   ret ptr %.us-phi50.i
 }
 
@@ -14122,7 +14122,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi
   br i1 %76, label %.lr.ph.i.i.i, label %_ZSt11__push_heapIPlllN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SG_SG_SJ_RT2_.exit, !llvm.loop !305
 
 _ZSt11__push_heapIPlllN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SG_SG_SJ_RT2_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES6_NS5_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPllEEbS9_RSE_.exit.i, %72, %.lr.ph.i, %56
-  %.01317.i = phi i64 [ %.128, %56 ], [ %.128, %.lr.ph.i ], [ %.01320.i, %72 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES6_NS5_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPllEEbS9_RSE_.exit.i ]
+  %.01317.i = phi i64 [ %.128, %.lr.ph.i ], [ %.128, %56 ], [ %.01320.i, %72 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES6_NS5_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPllEEbS9_RSE_.exit.i ]
   %77 = getelementptr inbounds i64, ptr %0, i64 %.01317.i
   store i64 %3, ptr %77, align 8, !tbaa !76
   ret void
@@ -14571,8 +14571,8 @@ _ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i44.i, label %_ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i41.i, !llvm.loop !309
 
 _ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %54, %.lr.ph.i.i41.i, %70, %33, %.lr.ph.i.i29.i, %49
-  %.sink72.i = phi i64 [ %.pre.i, %70 ], [ %15, %49 ], [ %.pre.i, %33 ], [ %31, %.lr.ph.i.i29.i ], [ %52, %.lr.ph.i.i41.i ], [ %15, %54 ]
-  %.sink71.i = phi ptr [ %10, %70 ], [ %11, %49 ], [ %10, %33 ], [ %12, %.lr.ph.i.i29.i ], [ %12, %.lr.ph.i.i41.i ], [ %11, %54 ]
+  %.sink72.i = phi i64 [ %52, %.lr.ph.i.i41.i ], [ %.pre.i, %33 ], [ %15, %49 ], [ %31, %.lr.ph.i.i29.i ], [ %.pre.i, %70 ], [ %15, %54 ]
+  %.sink71.i = phi ptr [ %12, %.lr.ph.i.i41.i ], [ %10, %33 ], [ %11, %49 ], [ %12, %.lr.ph.i.i29.i ], [ %10, %70 ], [ %11, %54 ]
   %73 = load i64, ptr %0, align 8, !tbaa !76
   store i64 %.sink72.i, ptr %0, align 8, !tbaa !76
   store i64 %73, ptr %.sink71.i, align 8, !tbaa !76
@@ -14660,7 +14660,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1EL
   br label %.lr.ph.i.i.lr.ph.i, !llvm.loop !312
 
 _ZSt21__unguarded_partitionIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEESB_SB_SB_SB_SG_.exit: ; preds = %.loopexit.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES6_NS5_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPlSN_EEbS9_SE_.exit.loopexit24.us.i, %_ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit.thread
-  %.us-phi50.i = phi ptr [ %11, %_ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %76, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES6_NS5_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPlSN_EEbS9_SE_.exit.loopexit24.us.i ], [ %.131.i, %.loopexit.i ]
+  %.us-phi50.i = phi ptr [ %76, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES6_NS5_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPlSN_EEbS9_SE_.exit.loopexit24.us.i ], [ %11, %_ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %.131.i, %.loopexit.i ]
   ret ptr %.us-phi50.i
 }
 
@@ -14806,7 +14806,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi
   br i1 %76, label %.lr.ph.i.i.i, label %_ZSt11__push_heapIPlllN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SG_SG_SJ_RT2_.exit, !llvm.loop !314
 
 _ZSt11__push_heapIPlllN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SG_SG_SJ_RT2_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES6_NS5_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPllEEbS9_RSE_.exit.i, %72, %.lr.ph.i, %56
-  %.01317.i = phi i64 [ %.128, %56 ], [ %.128, %.lr.ph.i ], [ %.01320.i, %72 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES6_NS5_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPllEEbS9_RSE_.exit.i ]
+  %.01317.i = phi i64 [ %.128, %.lr.ph.i ], [ %.128, %56 ], [ %.01320.i, %72 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES6_NS5_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPllEEbS9_RSE_.exit.i ]
   %77 = getelementptr inbounds i64, ptr %0, i64 %.01317.i
   store i64 %3, ptr %77, align 8, !tbaa !76
   ret void
@@ -15235,8 +15235,8 @@ _ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i48.i, label %_ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi12ELi0ELi12ELi12EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i44.i, !llvm.loop !318
 
 _ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi12ELi0ELi12ELi12EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %48, %.lr.ph.i.i44.i, %62, %29, %.lr.ph.i.i30.i, %43
-  %.sink76.i = phi i64 [ %.pre.i, %62 ], [ %15, %43 ], [ %.pre.i, %29 ], [ %27, %.lr.ph.i.i30.i ], [ %46, %.lr.ph.i.i44.i ], [ %15, %48 ]
-  %.sink75.i = phi ptr [ %10, %62 ], [ %11, %43 ], [ %10, %29 ], [ %12, %.lr.ph.i.i30.i ], [ %12, %.lr.ph.i.i44.i ], [ %11, %48 ]
+  %.sink76.i = phi i64 [ %46, %.lr.ph.i.i44.i ], [ %.pre.i, %29 ], [ %15, %43 ], [ %27, %.lr.ph.i.i30.i ], [ %.pre.i, %62 ], [ %15, %48 ]
+  %.sink75.i = phi ptr [ %12, %.lr.ph.i.i44.i ], [ %10, %29 ], [ %11, %43 ], [ %12, %.lr.ph.i.i30.i ], [ %10, %62 ], [ %11, %48 ]
   %65 = load i64, ptr %0, align 8, !tbaa !76
   store i64 %.sink76.i, ptr %0, align 8, !tbaa !76
   store i64 %65, ptr %.sink75.i, align 8, !tbaa !76
@@ -15323,7 +15323,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi12EL
   br label %.lr.ph.i.i.lr.ph.i, !llvm.loop !321
 
 _ZSt21__unguarded_partitionIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi12ELi0ELi12ELi12EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEESB_SB_SB_SB_SG_.exit: ; preds = %.loopexit.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi12ELi0ELi12ELi12EEES6_NS5_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPlSN_EEbS9_SE_.exit.loopexit25.us.i, %_ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi12ELi0ELi12ELi12EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit.thread
-  %.us-phi52.i = phi ptr [ %11, %_ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi12ELi0ELi12ELi12EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %68, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi12ELi0ELi12ELi12EEES6_NS5_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPlSN_EEbS9_SE_.exit.loopexit25.us.i ], [ %.132.i, %.loopexit.i ]
+  %.us-phi52.i = phi ptr [ %68, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi12ELi0ELi12ELi12EEES6_NS5_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPlSN_EEbS9_SE_.exit.loopexit25.us.i ], [ %11, %_ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi12ELi0ELi12ELi12EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %.132.i, %.loopexit.i ]
   ret ptr %.us-phi52.i
 }
 
@@ -15457,7 +15457,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi12ELi
   br i1 %68, label %.lr.ph.i.i.i, label %_ZSt11__push_heapIPlllN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi12ELi0ELi12ELi12EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SG_SG_SJ_RT2_.exit, !llvm.loop !323
 
 _ZSt11__push_heapIPlllN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi12ELi0ELi12ELi12EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SG_SG_SJ_RT2_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi12ELi0ELi12ELi12EEES6_NS5_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPllEEbS9_RSE_.exit.i, %64, %.lr.ph.i, %52
-  %.01317.i = phi i64 [ %.128, %52 ], [ %.128, %.lr.ph.i ], [ %.01320.i, %64 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi12ELi0ELi12ELi12EEES6_NS5_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPllEEbS9_RSE_.exit.i ]
+  %.01317.i = phi i64 [ %.128, %.lr.ph.i ], [ %.128, %52 ], [ %.01320.i, %64 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi12ELi0ELi12ELi12EEES6_NS5_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPllEEbS9_RSE_.exit.i ]
   %69 = getelementptr inbounds i64, ptr %0, i64 %.01317.i
   store i64 %3, ptr %69, align 8, !tbaa !76
   ret void
@@ -15886,8 +15886,8 @@ _ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i48.i, label %_ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi12ELi0ELi12ELi12EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i44.i, !llvm.loop !327
 
 _ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi12ELi0ELi12ELi12EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %48, %.lr.ph.i.i44.i, %62, %29, %.lr.ph.i.i30.i, %43
-  %.sink76.i = phi i64 [ %.pre.i, %62 ], [ %15, %43 ], [ %.pre.i, %29 ], [ %27, %.lr.ph.i.i30.i ], [ %46, %.lr.ph.i.i44.i ], [ %15, %48 ]
-  %.sink75.i = phi ptr [ %10, %62 ], [ %11, %43 ], [ %10, %29 ], [ %12, %.lr.ph.i.i30.i ], [ %12, %.lr.ph.i.i44.i ], [ %11, %48 ]
+  %.sink76.i = phi i64 [ %46, %.lr.ph.i.i44.i ], [ %.pre.i, %29 ], [ %15, %43 ], [ %27, %.lr.ph.i.i30.i ], [ %.pre.i, %62 ], [ %15, %48 ]
+  %.sink75.i = phi ptr [ %12, %.lr.ph.i.i44.i ], [ %10, %29 ], [ %11, %43 ], [ %12, %.lr.ph.i.i30.i ], [ %10, %62 ], [ %11, %48 ]
   %65 = load i64, ptr %0, align 8, !tbaa !76
   store i64 %.sink76.i, ptr %0, align 8, !tbaa !76
   store i64 %65, ptr %.sink75.i, align 8, !tbaa !76
@@ -15974,7 +15974,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi12EL
   br label %.lr.ph.i.i.lr.ph.i, !llvm.loop !330
 
 _ZSt21__unguarded_partitionIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi12ELi0ELi12ELi12EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEESB_SB_SB_SB_SG_.exit: ; preds = %.loopexit.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi12ELi0ELi12ELi12EEES6_NS5_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPlSN_EEbS9_SE_.exit.loopexit25.us.i, %_ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi12ELi0ELi12ELi12EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit.thread
-  %.us-phi52.i = phi ptr [ %11, %_ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi12ELi0ELi12ELi12EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %68, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi12ELi0ELi12ELi12EEES6_NS5_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPlSN_EEbS9_SE_.exit.loopexit25.us.i ], [ %.132.i, %.loopexit.i ]
+  %.us-phi52.i = phi ptr [ %68, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi12ELi0ELi12ELi12EEES6_NS5_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPlSN_EEbS9_SE_.exit.loopexit25.us.i ], [ %11, %_ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi12ELi0ELi12ELi12EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %.132.i, %.loopexit.i ]
   ret ptr %.us-phi52.i
 }
 
@@ -16108,7 +16108,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi12ELi
   br i1 %68, label %.lr.ph.i.i.i, label %_ZSt11__push_heapIPlllN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi12ELi0ELi12ELi12EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SG_SG_SJ_RT2_.exit, !llvm.loop !332
 
 _ZSt11__push_heapIPlllN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi12ELi0ELi12ELi12EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SG_SG_SJ_RT2_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi12ELi0ELi12ELi12EEES6_NS5_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPllEEbS9_RSE_.exit.i, %64, %.lr.ph.i, %52
-  %.01317.i = phi i64 [ %.128, %52 ], [ %.128, %.lr.ph.i ], [ %.01320.i, %64 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi12ELi0ELi12ELi12EEES6_NS5_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPllEEbS9_RSE_.exit.i ]
+  %.01317.i = phi i64 [ %.128, %.lr.ph.i ], [ %.128, %52 ], [ %.01320.i, %64 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi12ELi0ELi12ELi12EEES6_NS5_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPllEEbS9_RSE_.exit.i ]
   %69 = getelementptr inbounds i64, ptr %0, i64 %.01317.i
   store i64 %3, ptr %69, align 8, !tbaa !76
   ret void
@@ -16614,8 +16614,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i44.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i41.i, !llvm.loop !336
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %58, %.lr.ph.i.i41.i, %74, %36, %.lr.ph.i.i29.i, %52
-  %.sink72.i = phi i32 [ %.pre.i, %74 ], [ %16, %52 ], [ %.pre.i, %36 ], [ %33, %.lr.ph.i.i29.i ], [ %55, %.lr.ph.i.i41.i ], [ %16, %58 ]
-  %.sink71.i = phi ptr [ %10, %74 ], [ %11, %52 ], [ %10, %36 ], [ %12, %.lr.ph.i.i29.i ], [ %12, %.lr.ph.i.i41.i ], [ %11, %58 ]
+  %.sink72.i = phi i32 [ %55, %.lr.ph.i.i41.i ], [ %.pre.i, %36 ], [ %16, %52 ], [ %33, %.lr.ph.i.i29.i ], [ %.pre.i, %74 ], [ %16, %58 ]
+  %.sink71.i = phi ptr [ %12, %.lr.ph.i.i41.i ], [ %10, %36 ], [ %11, %52 ], [ %12, %.lr.ph.i.i29.i ], [ %10, %74 ], [ %11, %58 ]
   %77 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink72.i, ptr %0, align 4, !tbaa !14
   store i32 %77, ptr %.sink71.i, align 4, !tbaa !14
@@ -16705,7 +16705,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELin1EL
   br label %.lr.ph.i.i.lr.ph.i, !llvm.loop !339
 
 _ZSt21__unguarded_partitionIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEESB_SB_SB_SB_SG_.exit: ; preds = %.loopexit.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELin1ELi0ELin1ELin1EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiSN_EEbS9_SE_.exit.loopexit24.us.i, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit.thread
-  %.us-phi50.i = phi ptr [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %80, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELin1ELi0ELin1ELin1EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiSN_EEbS9_SE_.exit.loopexit24.us.i ], [ %.131.i, %.loopexit.i ]
+  %.us-phi50.i = phi ptr [ %80, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELin1ELi0ELin1ELin1EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiSN_EEbS9_SE_.exit.loopexit24.us.i ], [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %.131.i, %.loopexit.i ]
   ret ptr %.us-phi50.i
 }
 
@@ -16853,7 +16853,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELin1ELi
   br i1 %80, label %.lr.ph.i.i.i, label %_ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SG_SG_SJ_RT2_.exit, !llvm.loop !341
 
 _ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SG_SG_SJ_RT2_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELin1ELi0ELin1ELin1EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiiEEbS9_RSE_.exit.i, %76, %58
-  %.01317.i = phi i64 [ %.128, %58 ], [ %.01320.i, %76 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELin1ELi0ELin1ELin1EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiiEEbS9_RSE_.exit.i ]
+  %.01317.i = phi i64 [ %.01320.i, %76 ], [ %.128, %58 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELin1ELi0ELin1ELin1EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiiEEbS9_RSE_.exit.i ]
   %81 = getelementptr inbounds i32, ptr %0, i64 %.01317.i
   store i32 %3, ptr %81, align 4, !tbaa !14
   ret void
@@ -17310,8 +17310,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i44.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i41.i, !llvm.loop !345
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %58, %.lr.ph.i.i41.i, %74, %36, %.lr.ph.i.i29.i, %52
-  %.sink72.i = phi i32 [ %.pre.i, %74 ], [ %16, %52 ], [ %.pre.i, %36 ], [ %33, %.lr.ph.i.i29.i ], [ %55, %.lr.ph.i.i41.i ], [ %16, %58 ]
-  %.sink71.i = phi ptr [ %10, %74 ], [ %11, %52 ], [ %10, %36 ], [ %12, %.lr.ph.i.i29.i ], [ %12, %.lr.ph.i.i41.i ], [ %11, %58 ]
+  %.sink72.i = phi i32 [ %55, %.lr.ph.i.i41.i ], [ %.pre.i, %36 ], [ %16, %52 ], [ %33, %.lr.ph.i.i29.i ], [ %.pre.i, %74 ], [ %16, %58 ]
+  %.sink71.i = phi ptr [ %12, %.lr.ph.i.i41.i ], [ %10, %36 ], [ %11, %52 ], [ %12, %.lr.ph.i.i29.i ], [ %10, %74 ], [ %11, %58 ]
   %77 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink72.i, ptr %0, align 4, !tbaa !14
   store i32 %77, ptr %.sink71.i, align 4, !tbaa !14
@@ -17401,7 +17401,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELin1EL
   br label %.lr.ph.i.i.lr.ph.i, !llvm.loop !348
 
 _ZSt21__unguarded_partitionIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEESB_SB_SB_SB_SG_.exit: ; preds = %.loopexit.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELin1ELi0ELin1ELin1EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiSN_EEbS9_SE_.exit.loopexit24.us.i, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit.thread
-  %.us-phi50.i = phi ptr [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %80, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELin1ELi0ELin1ELin1EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiSN_EEbS9_SE_.exit.loopexit24.us.i ], [ %.131.i, %.loopexit.i ]
+  %.us-phi50.i = phi ptr [ %80, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELin1ELi0ELin1ELin1EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiSN_EEbS9_SE_.exit.loopexit24.us.i ], [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %.131.i, %.loopexit.i ]
   ret ptr %.us-phi50.i
 }
 
@@ -17549,7 +17549,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELin1ELi
   br i1 %80, label %.lr.ph.i.i.i, label %_ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SG_SG_SJ_RT2_.exit, !llvm.loop !350
 
 _ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SG_SG_SJ_RT2_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELin1ELi0ELin1ELin1EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiiEEbS9_RSE_.exit.i, %76, %58
-  %.01317.i = phi i64 [ %.128, %58 ], [ %.01320.i, %76 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELin1ELi0ELin1ELin1EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiiEEbS9_RSE_.exit.i ]
+  %.01317.i = phi i64 [ %.01320.i, %76 ], [ %.128, %58 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELin1ELi0ELin1ELin1EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiiEEbS9_RSE_.exit.i ]
   %81 = getelementptr inbounds i32, ptr %0, i64 %.01317.i
   store i32 %3, ptr %81, align 4, !tbaa !14
   ret void
@@ -18055,8 +18055,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i44.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i41.i, !llvm.loop !354
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %58, %.lr.ph.i.i41.i, %74, %36, %.lr.ph.i.i29.i, %52
-  %.sink72.i = phi i32 [ %.pre.i, %74 ], [ %16, %52 ], [ %.pre.i, %36 ], [ %33, %.lr.ph.i.i29.i ], [ %55, %.lr.ph.i.i41.i ], [ %16, %58 ]
-  %.sink71.i = phi ptr [ %10, %74 ], [ %11, %52 ], [ %10, %36 ], [ %12, %.lr.ph.i.i29.i ], [ %12, %.lr.ph.i.i41.i ], [ %11, %58 ]
+  %.sink72.i = phi i32 [ %55, %.lr.ph.i.i41.i ], [ %.pre.i, %36 ], [ %16, %52 ], [ %33, %.lr.ph.i.i29.i ], [ %.pre.i, %74 ], [ %16, %58 ]
+  %.sink71.i = phi ptr [ %12, %.lr.ph.i.i41.i ], [ %10, %36 ], [ %11, %52 ], [ %12, %.lr.ph.i.i29.i ], [ %10, %74 ], [ %11, %58 ]
   %77 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink72.i, ptr %0, align 4, !tbaa !14
   store i32 %77, ptr %.sink71.i, align 4, !tbaa !14
@@ -18146,7 +18146,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELin1EL
   br label %.lr.ph.i.i.lr.ph.i, !llvm.loop !357
 
 _ZSt21__unguarded_partitionIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEESB_SB_SB_SB_SG_.exit: ; preds = %.loopexit.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELin1ELi0ELin1ELin1EEES6_NS5_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiSN_EEbS9_SE_.exit.loopexit24.us.i, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit.thread
-  %.us-phi50.i = phi ptr [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %80, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELin1ELi0ELin1ELin1EEES6_NS5_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiSN_EEbS9_SE_.exit.loopexit24.us.i ], [ %.131.i, %.loopexit.i ]
+  %.us-phi50.i = phi ptr [ %80, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELin1ELi0ELin1ELin1EEES6_NS5_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiSN_EEbS9_SE_.exit.loopexit24.us.i ], [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %.131.i, %.loopexit.i ]
   ret ptr %.us-phi50.i
 }
 
@@ -18294,7 +18294,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELin1ELi
   br i1 %80, label %.lr.ph.i.i.i, label %_ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SG_SG_SJ_RT2_.exit, !llvm.loop !359
 
 _ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SG_SG_SJ_RT2_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELin1ELi0ELin1ELin1EEES6_NS5_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiiEEbS9_RSE_.exit.i, %76, %58
-  %.01317.i = phi i64 [ %.128, %58 ], [ %.01320.i, %76 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELin1ELi0ELin1ELin1EEES6_NS5_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiiEEbS9_RSE_.exit.i ]
+  %.01317.i = phi i64 [ %.01320.i, %76 ], [ %.128, %58 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELin1ELi0ELin1ELin1EEES6_NS5_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiiEEbS9_RSE_.exit.i ]
   %81 = getelementptr inbounds i32, ptr %0, i64 %.01317.i
   store i32 %3, ptr %81, align 4, !tbaa !14
   ret void
@@ -18751,8 +18751,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i44.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i41.i, !llvm.loop !363
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %58, %.lr.ph.i.i41.i, %74, %36, %.lr.ph.i.i29.i, %52
-  %.sink72.i = phi i32 [ %.pre.i, %74 ], [ %16, %52 ], [ %.pre.i, %36 ], [ %33, %.lr.ph.i.i29.i ], [ %55, %.lr.ph.i.i41.i ], [ %16, %58 ]
-  %.sink71.i = phi ptr [ %10, %74 ], [ %11, %52 ], [ %10, %36 ], [ %12, %.lr.ph.i.i29.i ], [ %12, %.lr.ph.i.i41.i ], [ %11, %58 ]
+  %.sink72.i = phi i32 [ %55, %.lr.ph.i.i41.i ], [ %.pre.i, %36 ], [ %16, %52 ], [ %33, %.lr.ph.i.i29.i ], [ %.pre.i, %74 ], [ %16, %58 ]
+  %.sink71.i = phi ptr [ %12, %.lr.ph.i.i41.i ], [ %10, %36 ], [ %11, %52 ], [ %12, %.lr.ph.i.i29.i ], [ %10, %74 ], [ %11, %58 ]
   %77 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink72.i, ptr %0, align 4, !tbaa !14
   store i32 %77, ptr %.sink71.i, align 4, !tbaa !14
@@ -18842,7 +18842,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELin1EL
   br label %.lr.ph.i.i.lr.ph.i, !llvm.loop !366
 
 _ZSt21__unguarded_partitionIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEESB_SB_SB_SB_SG_.exit: ; preds = %.loopexit.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELin1ELi0ELin1ELin1EEES6_NS5_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiSN_EEbS9_SE_.exit.loopexit24.us.i, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit.thread
-  %.us-phi50.i = phi ptr [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %80, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELin1ELi0ELin1ELin1EEES6_NS5_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiSN_EEbS9_SE_.exit.loopexit24.us.i ], [ %.131.i, %.loopexit.i ]
+  %.us-phi50.i = phi ptr [ %80, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELin1ELi0ELin1ELin1EEES6_NS5_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiSN_EEbS9_SE_.exit.loopexit24.us.i ], [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %.131.i, %.loopexit.i ]
   ret ptr %.us-phi50.i
 }
 
@@ -18990,7 +18990,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELin1ELi
   br i1 %80, label %.lr.ph.i.i.i, label %_ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SG_SG_SJ_RT2_.exit, !llvm.loop !368
 
 _ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SG_SG_SJ_RT2_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELin1ELi0ELin1ELin1EEES6_NS5_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiiEEbS9_RSE_.exit.i, %76, %58
-  %.01317.i = phi i64 [ %.128, %58 ], [ %.01320.i, %76 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELin1ELi0ELin1ELin1EEES6_NS5_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiiEEbS9_RSE_.exit.i ]
+  %.01317.i = phi i64 [ %.01320.i, %76 ], [ %.128, %58 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELin1ELi0ELin1ELin1EEES6_NS5_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiiEEbS9_RSE_.exit.i ]
   %81 = getelementptr inbounds i32, ptr %0, i64 %.01317.i
   store i32 %3, ptr %81, align 4, !tbaa !14
   ret void
@@ -19440,8 +19440,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i52.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELi3ELi1ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i47.i, !llvm.loop !372
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELi3ELi1ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %53, %.lr.ph.i.i47.i, %67, %33, %.lr.ph.i.i31.i, %47
-  %.sink80.i = phi i32 [ %.pre.i, %67 ], [ %16, %47 ], [ %.pre.i, %33 ], [ %30, %.lr.ph.i.i31.i ], [ %50, %.lr.ph.i.i47.i ], [ %16, %53 ]
-  %.sink79.i = phi ptr [ %10, %67 ], [ %11, %47 ], [ %10, %33 ], [ %12, %.lr.ph.i.i31.i ], [ %12, %.lr.ph.i.i47.i ], [ %11, %53 ]
+  %.sink80.i = phi i32 [ %50, %.lr.ph.i.i47.i ], [ %.pre.i, %33 ], [ %16, %47 ], [ %30, %.lr.ph.i.i31.i ], [ %.pre.i, %67 ], [ %16, %53 ]
+  %.sink79.i = phi ptr [ %12, %.lr.ph.i.i47.i ], [ %10, %33 ], [ %11, %47 ], [ %12, %.lr.ph.i.i31.i ], [ %10, %67 ], [ %11, %53 ]
   %70 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink80.i, ptr %0, align 4, !tbaa !14
   store i32 %70, ptr %.sink79.i, align 4, !tbaa !14
@@ -19532,7 +19532,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELi3ELi
   br label %.lr.ph.i.i.lr.ph.i, !llvm.loop !375
 
 _ZSt21__unguarded_partitionIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELi3ELi1ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEESB_SB_SB_SB_SG_.exit: ; preds = %.loopexit.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELi3ELi1ELin1ELi3EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiSN_EEbS9_SE_.exit.loopexit26.us.i, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELi3ELi1ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit.thread
-  %.us-phi53.i = phi ptr [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELi3ELi1ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %73, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELi3ELi1ELin1ELi3EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiSN_EEbS9_SE_.exit.loopexit26.us.i ], [ %.133.i, %.loopexit.i ]
+  %.us-phi53.i = phi ptr [ %73, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELi3ELi1ELin1ELi3EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiSN_EEbS9_SE_.exit.loopexit26.us.i ], [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELi3ELi1ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %.133.i, %.loopexit.i ]
   ret ptr %.us-phi53.i
 }
 
@@ -19678,7 +19678,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELi3ELi1
   br i1 %74, label %.lr.ph.i.i.i, label %_ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELi3ELi1ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SG_SG_SJ_RT2_.exit, !llvm.loop !377
 
 _ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELi3ELi1ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SG_SG_SJ_RT2_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELi3ELi1ELin1ELi3EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiiEEbS9_RSE_.exit.i, %70, %55
-  %.01317.i = phi i64 [ %.128, %55 ], [ %.01320.i, %70 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELi3ELi1ELin1ELi3EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiiEEbS9_RSE_.exit.i ]
+  %.01317.i = phi i64 [ %.01320.i, %70 ], [ %.128, %55 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELi3ELi1ELin1ELi3EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiiEEbS9_RSE_.exit.i ]
   %75 = getelementptr inbounds i32, ptr %0, i64 %.01317.i
   store i32 %3, ptr %75, align 4, !tbaa !14
   ret void
@@ -20128,8 +20128,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i52.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELi3ELi1ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i47.i, !llvm.loop !381
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELi3ELi1ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %53, %.lr.ph.i.i47.i, %67, %33, %.lr.ph.i.i31.i, %47
-  %.sink80.i = phi i32 [ %.pre.i, %67 ], [ %16, %47 ], [ %.pre.i, %33 ], [ %30, %.lr.ph.i.i31.i ], [ %50, %.lr.ph.i.i47.i ], [ %16, %53 ]
-  %.sink79.i = phi ptr [ %10, %67 ], [ %11, %47 ], [ %10, %33 ], [ %12, %.lr.ph.i.i31.i ], [ %12, %.lr.ph.i.i47.i ], [ %11, %53 ]
+  %.sink80.i = phi i32 [ %50, %.lr.ph.i.i47.i ], [ %.pre.i, %33 ], [ %16, %47 ], [ %30, %.lr.ph.i.i31.i ], [ %.pre.i, %67 ], [ %16, %53 ]
+  %.sink79.i = phi ptr [ %12, %.lr.ph.i.i47.i ], [ %10, %33 ], [ %11, %47 ], [ %12, %.lr.ph.i.i31.i ], [ %10, %67 ], [ %11, %53 ]
   %70 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink80.i, ptr %0, align 4, !tbaa !14
   store i32 %70, ptr %.sink79.i, align 4, !tbaa !14
@@ -20220,7 +20220,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELi3ELi
   br label %.lr.ph.i.i.lr.ph.i, !llvm.loop !384
 
 _ZSt21__unguarded_partitionIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELi3ELi1ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEESB_SB_SB_SB_SG_.exit: ; preds = %.loopexit.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELi3ELi1ELin1ELi3EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiSN_EEbS9_SE_.exit.loopexit26.us.i, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELi3ELi1ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit.thread
-  %.us-phi53.i = phi ptr [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELi3ELi1ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %73, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELi3ELi1ELin1ELi3EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiSN_EEbS9_SE_.exit.loopexit26.us.i ], [ %.133.i, %.loopexit.i ]
+  %.us-phi53.i = phi ptr [ %73, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELi3ELi1ELin1ELi3EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiSN_EEbS9_SE_.exit.loopexit26.us.i ], [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELi3ELi1ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %.133.i, %.loopexit.i ]
   ret ptr %.us-phi53.i
 }
 
@@ -20366,7 +20366,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELi3ELi1
   br i1 %74, label %.lr.ph.i.i.i, label %_ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELi3ELi1ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SG_SG_SJ_RT2_.exit, !llvm.loop !386
 
 _ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELi3ELi1ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SG_SG_SJ_RT2_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELi3ELi1ELin1ELi3EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiiEEbS9_RSE_.exit.i, %70, %55
-  %.01317.i = phi i64 [ %.128, %55 ], [ %.01320.i, %70 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELi3ELi1ELin1ELi3EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiiEEbS9_RSE_.exit.i ]
+  %.01317.i = phi i64 [ %.01320.i, %70 ], [ %.128, %55 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELi3ELi1ELin1ELi3EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiiEEbS9_RSE_.exit.i ]
   %75 = getelementptr inbounds i32, ptr %0, i64 %.01317.i
   store i32 %3, ptr %75, align 4, !tbaa !14
   ret void
@@ -20823,8 +20823,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i44.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i41.i, !llvm.loop !390
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %58, %.lr.ph.i.i41.i, %74, %36, %.lr.ph.i.i29.i, %52
-  %.sink72.i = phi i32 [ %.pre.i, %74 ], [ %16, %52 ], [ %.pre.i, %36 ], [ %33, %.lr.ph.i.i29.i ], [ %55, %.lr.ph.i.i41.i ], [ %16, %58 ]
-  %.sink71.i = phi ptr [ %10, %74 ], [ %11, %52 ], [ %10, %36 ], [ %12, %.lr.ph.i.i29.i ], [ %12, %.lr.ph.i.i41.i ], [ %11, %58 ]
+  %.sink72.i = phi i32 [ %55, %.lr.ph.i.i41.i ], [ %.pre.i, %36 ], [ %16, %52 ], [ %33, %.lr.ph.i.i29.i ], [ %.pre.i, %74 ], [ %16, %58 ]
+  %.sink71.i = phi ptr [ %12, %.lr.ph.i.i41.i ], [ %10, %36 ], [ %11, %52 ], [ %12, %.lr.ph.i.i29.i ], [ %10, %74 ], [ %11, %58 ]
   %77 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink72.i, ptr %0, align 4, !tbaa !14
   store i32 %77, ptr %.sink71.i, align 4, !tbaa !14
@@ -20914,7 +20914,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi
   br label %.lr.ph.i.i.lr.ph.i, !llvm.loop !393
 
 _ZSt21__unguarded_partitionIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEESB_SB_SB_SB_SG_.exit: ; preds = %.loopexit.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiSN_EEbS9_SE_.exit.loopexit24.us.i, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit.thread
-  %.us-phi50.i = phi ptr [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %80, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiSN_EEbS9_SE_.exit.loopexit24.us.i ], [ %.131.i, %.loopexit.i ]
+  %.us-phi50.i = phi ptr [ %80, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiSN_EEbS9_SE_.exit.loopexit24.us.i ], [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %.131.i, %.loopexit.i ]
   ret ptr %.us-phi50.i
 }
 
@@ -21062,7 +21062,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi0
   br i1 %80, label %.lr.ph.i.i.i, label %_ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SG_SG_SJ_RT2_.exit, !llvm.loop !395
 
 _ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SG_SG_SJ_RT2_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiiEEbS9_RSE_.exit.i, %76, %58
-  %.01317.i = phi i64 [ %.128, %58 ], [ %.01320.i, %76 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiiEEbS9_RSE_.exit.i ]
+  %.01317.i = phi i64 [ %.01320.i, %76 ], [ %.128, %58 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiiEEbS9_RSE_.exit.i ]
   %81 = getelementptr inbounds i32, ptr %0, i64 %.01317.i
   store i32 %3, ptr %81, align 4, !tbaa !14
   ret void
@@ -21519,8 +21519,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i44.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i41.i, !llvm.loop !399
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %58, %.lr.ph.i.i41.i, %74, %36, %.lr.ph.i.i29.i, %52
-  %.sink72.i = phi i32 [ %.pre.i, %74 ], [ %16, %52 ], [ %.pre.i, %36 ], [ %33, %.lr.ph.i.i29.i ], [ %55, %.lr.ph.i.i41.i ], [ %16, %58 ]
-  %.sink71.i = phi ptr [ %10, %74 ], [ %11, %52 ], [ %10, %36 ], [ %12, %.lr.ph.i.i29.i ], [ %12, %.lr.ph.i.i41.i ], [ %11, %58 ]
+  %.sink72.i = phi i32 [ %55, %.lr.ph.i.i41.i ], [ %.pre.i, %36 ], [ %16, %52 ], [ %33, %.lr.ph.i.i29.i ], [ %.pre.i, %74 ], [ %16, %58 ]
+  %.sink71.i = phi ptr [ %12, %.lr.ph.i.i41.i ], [ %10, %36 ], [ %11, %52 ], [ %12, %.lr.ph.i.i29.i ], [ %10, %74 ], [ %11, %58 ]
   %77 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink72.i, ptr %0, align 4, !tbaa !14
   store i32 %77, ptr %.sink71.i, align 4, !tbaa !14
@@ -21610,7 +21610,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi
   br label %.lr.ph.i.i.lr.ph.i, !llvm.loop !402
 
 _ZSt21__unguarded_partitionIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEESB_SB_SB_SB_SG_.exit: ; preds = %.loopexit.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiSN_EEbS9_SE_.exit.loopexit24.us.i, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit.thread
-  %.us-phi50.i = phi ptr [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %80, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiSN_EEbS9_SE_.exit.loopexit24.us.i ], [ %.131.i, %.loopexit.i ]
+  %.us-phi50.i = phi ptr [ %80, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiSN_EEbS9_SE_.exit.loopexit24.us.i ], [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %.131.i, %.loopexit.i ]
   ret ptr %.us-phi50.i
 }
 
@@ -21758,7 +21758,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi0
   br i1 %80, label %.lr.ph.i.i.i, label %_ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SG_SG_SJ_RT2_.exit, !llvm.loop !404
 
 _ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SG_SG_SJ_RT2_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiiEEbS9_RSE_.exit.i, %76, %58
-  %.01317.i = phi i64 [ %.128, %58 ], [ %.01320.i, %76 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiiEEbS9_RSE_.exit.i ]
+  %.01317.i = phi i64 [ %.01320.i, %76 ], [ %.128, %58 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiiEEbS9_RSE_.exit.i ]
   %81 = getelementptr inbounds i32, ptr %0, i64 %.01317.i
   store i32 %3, ptr %81, align 4, !tbaa !14
   ret void
@@ -22208,8 +22208,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i52.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi1ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i47.i, !llvm.loop !408
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi1ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %53, %.lr.ph.i.i47.i, %67, %33, %.lr.ph.i.i31.i, %47
-  %.sink80.i = phi i32 [ %.pre.i, %67 ], [ %16, %47 ], [ %.pre.i, %33 ], [ %30, %.lr.ph.i.i31.i ], [ %50, %.lr.ph.i.i47.i ], [ %16, %53 ]
-  %.sink79.i = phi ptr [ %10, %67 ], [ %11, %47 ], [ %10, %33 ], [ %12, %.lr.ph.i.i31.i ], [ %12, %.lr.ph.i.i47.i ], [ %11, %53 ]
+  %.sink80.i = phi i32 [ %50, %.lr.ph.i.i47.i ], [ %.pre.i, %33 ], [ %16, %47 ], [ %30, %.lr.ph.i.i31.i ], [ %.pre.i, %67 ], [ %16, %53 ]
+  %.sink79.i = phi ptr [ %12, %.lr.ph.i.i47.i ], [ %10, %33 ], [ %11, %47 ], [ %12, %.lr.ph.i.i31.i ], [ %10, %67 ], [ %11, %53 ]
   %70 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink80.i, ptr %0, align 4, !tbaa !14
   store i32 %70, ptr %.sink79.i, align 4, !tbaa !14
@@ -22300,7 +22300,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi
   br label %.lr.ph.i.i.lr.ph.i, !llvm.loop !411
 
 _ZSt21__unguarded_partitionIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi1ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEESB_SB_SB_SB_SG_.exit: ; preds = %.loopexit.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi1ELin1ELi3EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiSN_EEbS9_SE_.exit.loopexit26.us.i, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi1ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit.thread
-  %.us-phi53.i = phi ptr [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi1ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %73, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi1ELin1ELi3EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiSN_EEbS9_SE_.exit.loopexit26.us.i ], [ %.133.i, %.loopexit.i ]
+  %.us-phi53.i = phi ptr [ %73, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi1ELin1ELi3EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiSN_EEbS9_SE_.exit.loopexit26.us.i ], [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi1ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %.133.i, %.loopexit.i ]
   ret ptr %.us-phi53.i
 }
 
@@ -22446,7 +22446,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi1
   br i1 %74, label %.lr.ph.i.i.i, label %_ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi1ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SG_SG_SJ_RT2_.exit, !llvm.loop !413
 
 _ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi1ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SG_SG_SJ_RT2_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi1ELin1ELi3EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiiEEbS9_RSE_.exit.i, %70, %55
-  %.01317.i = phi i64 [ %.128, %55 ], [ %.01320.i, %70 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi1ELin1ELi3EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiiEEbS9_RSE_.exit.i ]
+  %.01317.i = phi i64 [ %.01320.i, %70 ], [ %.128, %55 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi1ELin1ELi3EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiiEEbS9_RSE_.exit.i ]
   %75 = getelementptr inbounds i32, ptr %0, i64 %.01317.i
   store i32 %3, ptr %75, align 4, !tbaa !14
   ret void
@@ -22896,8 +22896,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i52.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi1ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i47.i, !llvm.loop !417
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi1ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %53, %.lr.ph.i.i47.i, %67, %33, %.lr.ph.i.i31.i, %47
-  %.sink80.i = phi i32 [ %.pre.i, %67 ], [ %16, %47 ], [ %.pre.i, %33 ], [ %30, %.lr.ph.i.i31.i ], [ %50, %.lr.ph.i.i47.i ], [ %16, %53 ]
-  %.sink79.i = phi ptr [ %10, %67 ], [ %11, %47 ], [ %10, %33 ], [ %12, %.lr.ph.i.i31.i ], [ %12, %.lr.ph.i.i47.i ], [ %11, %53 ]
+  %.sink80.i = phi i32 [ %50, %.lr.ph.i.i47.i ], [ %.pre.i, %33 ], [ %16, %47 ], [ %30, %.lr.ph.i.i31.i ], [ %.pre.i, %67 ], [ %16, %53 ]
+  %.sink79.i = phi ptr [ %12, %.lr.ph.i.i47.i ], [ %10, %33 ], [ %11, %47 ], [ %12, %.lr.ph.i.i31.i ], [ %10, %67 ], [ %11, %53 ]
   %70 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink80.i, ptr %0, align 4, !tbaa !14
   store i32 %70, ptr %.sink79.i, align 4, !tbaa !14
@@ -22988,7 +22988,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi
   br label %.lr.ph.i.i.lr.ph.i, !llvm.loop !420
 
 _ZSt21__unguarded_partitionIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi1ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEESB_SB_SB_SB_SG_.exit: ; preds = %.loopexit.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi1ELin1ELi3EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiSN_EEbS9_SE_.exit.loopexit26.us.i, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi1ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit.thread
-  %.us-phi53.i = phi ptr [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi1ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %73, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi1ELin1ELi3EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiSN_EEbS9_SE_.exit.loopexit26.us.i ], [ %.133.i, %.loopexit.i ]
+  %.us-phi53.i = phi ptr [ %73, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi1ELin1ELi3EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiSN_EEbS9_SE_.exit.loopexit26.us.i ], [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi1ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %.133.i, %.loopexit.i ]
   ret ptr %.us-phi53.i
 }
 
@@ -23134,7 +23134,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi1
   br i1 %74, label %.lr.ph.i.i.i, label %_ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi1ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SG_SG_SJ_RT2_.exit, !llvm.loop !422
 
 _ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi1ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SG_SG_SJ_RT2_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi1ELin1ELi3EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiiEEbS9_RSE_.exit.i, %70, %55
-  %.01317.i = phi i64 [ %.128, %55 ], [ %.01320.i, %70 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi1ELin1ELi3EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiiEEbS9_RSE_.exit.i ]
+  %.01317.i = phi i64 [ %.01320.i, %70 ], [ %.128, %55 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi1ELin1ELi3EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiiEEbS9_RSE_.exit.i ]
   %75 = getelementptr inbounds i32, ptr %0, i64 %.01317.i
   store i32 %3, ptr %75, align 4, !tbaa !14
   ret void
@@ -23591,8 +23591,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i44.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i41.i, !llvm.loop !426
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %58, %.lr.ph.i.i41.i, %74, %36, %.lr.ph.i.i29.i, %52
-  %.sink72.i = phi i32 [ %.pre.i, %74 ], [ %16, %52 ], [ %.pre.i, %36 ], [ %33, %.lr.ph.i.i29.i ], [ %55, %.lr.ph.i.i41.i ], [ %16, %58 ]
-  %.sink71.i = phi ptr [ %10, %74 ], [ %11, %52 ], [ %10, %36 ], [ %12, %.lr.ph.i.i29.i ], [ %12, %.lr.ph.i.i41.i ], [ %11, %58 ]
+  %.sink72.i = phi i32 [ %55, %.lr.ph.i.i41.i ], [ %.pre.i, %36 ], [ %16, %52 ], [ %33, %.lr.ph.i.i29.i ], [ %.pre.i, %74 ], [ %16, %58 ]
+  %.sink71.i = phi ptr [ %12, %.lr.ph.i.i41.i ], [ %10, %36 ], [ %11, %52 ], [ %12, %.lr.ph.i.i29.i ], [ %10, %74 ], [ %11, %58 ]
   %77 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink72.i, ptr %0, align 4, !tbaa !14
   store i32 %77, ptr %.sink71.i, align 4, !tbaa !14
@@ -23682,7 +23682,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi
   br label %.lr.ph.i.i.lr.ph.i, !llvm.loop !429
 
 _ZSt21__unguarded_partitionIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEESB_SB_SB_SB_SG_.exit: ; preds = %.loopexit.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiSN_EEbS9_SE_.exit.loopexit24.us.i, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit.thread
-  %.us-phi50.i = phi ptr [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %80, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiSN_EEbS9_SE_.exit.loopexit24.us.i ], [ %.131.i, %.loopexit.i ]
+  %.us-phi50.i = phi ptr [ %80, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiSN_EEbS9_SE_.exit.loopexit24.us.i ], [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %.131.i, %.loopexit.i ]
   ret ptr %.us-phi50.i
 }
 
@@ -23830,7 +23830,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0
   br i1 %80, label %.lr.ph.i.i.i, label %_ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SG_SG_SJ_RT2_.exit, !llvm.loop !431
 
 _ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SG_SG_SJ_RT2_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiiEEbS9_RSE_.exit.i, %76, %58
-  %.01317.i = phi i64 [ %.128, %58 ], [ %.01320.i, %76 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiiEEbS9_RSE_.exit.i ]
+  %.01317.i = phi i64 [ %.01320.i, %76 ], [ %.128, %58 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiiEEbS9_RSE_.exit.i ]
   %81 = getelementptr inbounds i32, ptr %0, i64 %.01317.i
   store i32 %3, ptr %81, align 4, !tbaa !14
   ret void
@@ -24287,8 +24287,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i44.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i41.i, !llvm.loop !435
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %58, %.lr.ph.i.i41.i, %74, %36, %.lr.ph.i.i29.i, %52
-  %.sink72.i = phi i32 [ %.pre.i, %74 ], [ %16, %52 ], [ %.pre.i, %36 ], [ %33, %.lr.ph.i.i29.i ], [ %55, %.lr.ph.i.i41.i ], [ %16, %58 ]
-  %.sink71.i = phi ptr [ %10, %74 ], [ %11, %52 ], [ %10, %36 ], [ %12, %.lr.ph.i.i29.i ], [ %12, %.lr.ph.i.i41.i ], [ %11, %58 ]
+  %.sink72.i = phi i32 [ %55, %.lr.ph.i.i41.i ], [ %.pre.i, %36 ], [ %16, %52 ], [ %33, %.lr.ph.i.i29.i ], [ %.pre.i, %74 ], [ %16, %58 ]
+  %.sink71.i = phi ptr [ %12, %.lr.ph.i.i41.i ], [ %10, %36 ], [ %11, %52 ], [ %12, %.lr.ph.i.i29.i ], [ %10, %74 ], [ %11, %58 ]
   %77 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink72.i, ptr %0, align 4, !tbaa !14
   store i32 %77, ptr %.sink71.i, align 4, !tbaa !14
@@ -24378,7 +24378,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi
   br label %.lr.ph.i.i.lr.ph.i, !llvm.loop !438
 
 _ZSt21__unguarded_partitionIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEESB_SB_SB_SB_SG_.exit: ; preds = %.loopexit.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiSN_EEbS9_SE_.exit.loopexit24.us.i, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit.thread
-  %.us-phi50.i = phi ptr [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %80, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiSN_EEbS9_SE_.exit.loopexit24.us.i ], [ %.131.i, %.loopexit.i ]
+  %.us-phi50.i = phi ptr [ %80, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiSN_EEbS9_SE_.exit.loopexit24.us.i ], [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %.131.i, %.loopexit.i ]
   ret ptr %.us-phi50.i
 }
 
@@ -24526,7 +24526,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0
   br i1 %80, label %.lr.ph.i.i.i, label %_ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SG_SG_SJ_RT2_.exit, !llvm.loop !440
 
 _ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SG_SG_SJ_RT2_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiiEEbS9_RSE_.exit.i, %76, %58
-  %.01317.i = phi i64 [ %.128, %58 ], [ %.01320.i, %76 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiiEEbS9_RSE_.exit.i ]
+  %.01317.i = phi i64 [ %.01320.i, %76 ], [ %.128, %58 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiiEEbS9_RSE_.exit.i ]
   %81 = getelementptr inbounds i32, ptr %0, i64 %.01317.i
   store i32 %3, ptr %81, align 4, !tbaa !14
   ret void
@@ -24971,8 +24971,8 @@ _ZSt22__move_median_to_firstIPxN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i44.i, label %_ZSt22__move_median_to_firstIPxN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES8_NS7_IxLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i41.i, !llvm.loop !444
 
 _ZSt22__move_median_to_firstIPxN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES8_NS7_IxLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %54, %.lr.ph.i.i41.i, %70, %33, %.lr.ph.i.i29.i, %49
-  %.sink72.i = phi i64 [ %.pre.i, %70 ], [ %15, %49 ], [ %.pre.i, %33 ], [ %31, %.lr.ph.i.i29.i ], [ %52, %.lr.ph.i.i41.i ], [ %15, %54 ]
-  %.sink71.i = phi ptr [ %10, %70 ], [ %11, %49 ], [ %10, %33 ], [ %12, %.lr.ph.i.i29.i ], [ %12, %.lr.ph.i.i41.i ], [ %11, %54 ]
+  %.sink72.i = phi i64 [ %52, %.lr.ph.i.i41.i ], [ %.pre.i, %33 ], [ %15, %49 ], [ %31, %.lr.ph.i.i29.i ], [ %.pre.i, %70 ], [ %15, %54 ]
+  %.sink71.i = phi ptr [ %12, %.lr.ph.i.i41.i ], [ %10, %33 ], [ %11, %49 ], [ %12, %.lr.ph.i.i29.i ], [ %10, %70 ], [ %11, %54 ]
   %73 = load i64, ptr %0, align 8, !tbaa !117
   store i64 %.sink72.i, ptr %0, align 8, !tbaa !117
   store i64 %73, ptr %.sink71.i, align 8, !tbaa !117
@@ -25059,7 +25059,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi
   br label %.lr.ph.i.i.lr.ph.i, !llvm.loop !447
 
 _ZSt21__unguarded_partitionIPxN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES8_NS7_IxLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEESB_SB_SB_SB_SG_.exit: ; preds = %.loopexit.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES6_NS5_IxLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPxSN_EEbS9_SE_.exit.loopexit24.us.i, %_ZSt22__move_median_to_firstIPxN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES8_NS7_IxLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit.thread
-  %.us-phi50.i = phi ptr [ %11, %_ZSt22__move_median_to_firstIPxN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES8_NS7_IxLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %76, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES6_NS5_IxLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPxSN_EEbS9_SE_.exit.loopexit24.us.i ], [ %.131.i, %.loopexit.i ]
+  %.us-phi50.i = phi ptr [ %76, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES6_NS5_IxLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPxSN_EEbS9_SE_.exit.loopexit24.us.i ], [ %11, %_ZSt22__move_median_to_firstIPxN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES8_NS7_IxLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %.131.i, %.loopexit.i ]
   ret ptr %.us-phi50.i
 }
 
@@ -25203,7 +25203,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0
   br i1 %76, label %.lr.ph.i.i.i, label %_ZSt11__push_heapIPxlxN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES8_NS7_IxLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SG_SG_SJ_RT2_.exit, !llvm.loop !449
 
 _ZSt11__push_heapIPxlxN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES8_NS7_IxLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SG_SG_SJ_RT2_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES6_NS5_IxLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPxxEEbS9_RSE_.exit.i, %72, %56
-  %.01317.i = phi i64 [ %.128, %56 ], [ %.01320.i, %72 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES6_NS5_IxLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPxxEEbS9_RSE_.exit.i ]
+  %.01317.i = phi i64 [ %.01320.i, %72 ], [ %.128, %56 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES6_NS5_IxLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPxxEEbS9_RSE_.exit.i ]
   %77 = getelementptr inbounds i64, ptr %0, i64 %.01317.i
   store i64 %3, ptr %77, align 8, !tbaa !117
   ret void
@@ -25648,8 +25648,8 @@ _ZSt22__move_median_to_firstIPxN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i44.i, label %_ZSt22__move_median_to_firstIPxN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES8_NS7_IxLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i41.i, !llvm.loop !453
 
 _ZSt22__move_median_to_firstIPxN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES8_NS7_IxLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %54, %.lr.ph.i.i41.i, %70, %33, %.lr.ph.i.i29.i, %49
-  %.sink72.i = phi i64 [ %.pre.i, %70 ], [ %15, %49 ], [ %.pre.i, %33 ], [ %31, %.lr.ph.i.i29.i ], [ %52, %.lr.ph.i.i41.i ], [ %15, %54 ]
-  %.sink71.i = phi ptr [ %10, %70 ], [ %11, %49 ], [ %10, %33 ], [ %12, %.lr.ph.i.i29.i ], [ %12, %.lr.ph.i.i41.i ], [ %11, %54 ]
+  %.sink72.i = phi i64 [ %52, %.lr.ph.i.i41.i ], [ %.pre.i, %33 ], [ %15, %49 ], [ %31, %.lr.ph.i.i29.i ], [ %.pre.i, %70 ], [ %15, %54 ]
+  %.sink71.i = phi ptr [ %12, %.lr.ph.i.i41.i ], [ %10, %33 ], [ %11, %49 ], [ %12, %.lr.ph.i.i29.i ], [ %10, %70 ], [ %11, %54 ]
   %73 = load i64, ptr %0, align 8, !tbaa !117
   store i64 %.sink72.i, ptr %0, align 8, !tbaa !117
   store i64 %73, ptr %.sink71.i, align 8, !tbaa !117
@@ -25736,7 +25736,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi
   br label %.lr.ph.i.i.lr.ph.i, !llvm.loop !456
 
 _ZSt21__unguarded_partitionIPxN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES8_NS7_IxLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEESB_SB_SB_SB_SG_.exit: ; preds = %.loopexit.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES6_NS5_IxLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPxSN_EEbS9_SE_.exit.loopexit24.us.i, %_ZSt22__move_median_to_firstIPxN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES8_NS7_IxLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit.thread
-  %.us-phi50.i = phi ptr [ %11, %_ZSt22__move_median_to_firstIPxN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES8_NS7_IxLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %76, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES6_NS5_IxLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPxSN_EEbS9_SE_.exit.loopexit24.us.i ], [ %.131.i, %.loopexit.i ]
+  %.us-phi50.i = phi ptr [ %76, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES6_NS5_IxLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPxSN_EEbS9_SE_.exit.loopexit24.us.i ], [ %11, %_ZSt22__move_median_to_firstIPxN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES8_NS7_IxLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %.131.i, %.loopexit.i ]
   ret ptr %.us-phi50.i
 }
 
@@ -25880,7 +25880,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0
   br i1 %76, label %.lr.ph.i.i.i, label %_ZSt11__push_heapIPxlxN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES8_NS7_IxLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SG_SG_SJ_RT2_.exit, !llvm.loop !458
 
 _ZSt11__push_heapIPxlxN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES8_NS7_IxLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SG_SG_SJ_RT2_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES6_NS5_IxLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPxxEEbS9_RSE_.exit.i, %72, %56
-  %.01317.i = phi i64 [ %.128, %56 ], [ %.01320.i, %72 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES6_NS5_IxLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPxxEEbS9_RSE_.exit.i ]
+  %.01317.i = phi i64 [ %.01320.i, %72 ], [ %.128, %56 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES6_NS5_IxLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPxxEEbS9_RSE_.exit.i ]
   %77 = getelementptr inbounds i64, ptr %0, i64 %.01317.i
   store i64 %3, ptr %77, align 8, !tbaa !117
   ret void
@@ -26309,8 +26309,8 @@ _ZSt22__move_median_to_firstIPxN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i48.i, label %_ZSt22__move_median_to_firstIPxN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES8_NS7_IxLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i44.i, !llvm.loop !462
 
 _ZSt22__move_median_to_firstIPxN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES8_NS7_IxLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %48, %.lr.ph.i.i44.i, %62, %29, %.lr.ph.i.i30.i, %43
-  %.sink76.i = phi i64 [ %.pre.i, %62 ], [ %15, %43 ], [ %.pre.i, %29 ], [ %27, %.lr.ph.i.i30.i ], [ %46, %.lr.ph.i.i44.i ], [ %15, %48 ]
-  %.sink75.i = phi ptr [ %10, %62 ], [ %11, %43 ], [ %10, %29 ], [ %12, %.lr.ph.i.i30.i ], [ %12, %.lr.ph.i.i44.i ], [ %11, %48 ]
+  %.sink76.i = phi i64 [ %46, %.lr.ph.i.i44.i ], [ %.pre.i, %29 ], [ %15, %43 ], [ %27, %.lr.ph.i.i30.i ], [ %.pre.i, %62 ], [ %15, %48 ]
+  %.sink75.i = phi ptr [ %12, %.lr.ph.i.i44.i ], [ %10, %29 ], [ %11, %43 ], [ %12, %.lr.ph.i.i30.i ], [ %10, %62 ], [ %11, %48 ]
   %65 = load i64, ptr %0, align 8, !tbaa !117
   store i64 %.sink76.i, ptr %0, align 8, !tbaa !117
   store i64 %65, ptr %.sink75.i, align 8, !tbaa !117
@@ -26397,7 +26397,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi
   br label %.lr.ph.i.i.lr.ph.i, !llvm.loop !465
 
 _ZSt21__unguarded_partitionIPxN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES8_NS7_IxLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEESB_SB_SB_SB_SG_.exit: ; preds = %.loopexit.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES6_NS5_IxLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPxSN_EEbS9_SE_.exit.loopexit25.us.i, %_ZSt22__move_median_to_firstIPxN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES8_NS7_IxLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit.thread
-  %.us-phi52.i = phi ptr [ %11, %_ZSt22__move_median_to_firstIPxN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES8_NS7_IxLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %68, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES6_NS5_IxLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPxSN_EEbS9_SE_.exit.loopexit25.us.i ], [ %.132.i, %.loopexit.i ]
+  %.us-phi52.i = phi ptr [ %68, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES6_NS5_IxLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPxSN_EEbS9_SE_.exit.loopexit25.us.i ], [ %11, %_ZSt22__move_median_to_firstIPxN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES8_NS7_IxLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %.132.i, %.loopexit.i ]
   ret ptr %.us-phi52.i
 }
 
@@ -26531,7 +26531,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0
   br i1 %68, label %.lr.ph.i.i.i, label %_ZSt11__push_heapIPxlxN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES8_NS7_IxLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SG_SG_SJ_RT2_.exit, !llvm.loop !467
 
 _ZSt11__push_heapIPxlxN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES8_NS7_IxLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SG_SG_SJ_RT2_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES6_NS5_IxLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPxxEEbS9_RSE_.exit.i, %64, %52, %.lr.ph.i
-  %.01317.i = phi i64 [ %.128, %52 ], [ %.128, %.lr.ph.i ], [ %.01320.i, %64 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES6_NS5_IxLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPxxEEbS9_RSE_.exit.i ]
+  %.01317.i = phi i64 [ %.128, %.lr.ph.i ], [ %.128, %52 ], [ %.01320.i, %64 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES6_NS5_IxLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPxxEEbS9_RSE_.exit.i ]
   %69 = getelementptr inbounds i64, ptr %0, i64 %.01317.i
   store i64 %3, ptr %69, align 8, !tbaa !117
   ret void
@@ -26960,8 +26960,8 @@ _ZSt22__move_median_to_firstIPxN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i48.i, label %_ZSt22__move_median_to_firstIPxN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES8_NS7_IxLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i44.i, !llvm.loop !471
 
 _ZSt22__move_median_to_firstIPxN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES8_NS7_IxLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %48, %.lr.ph.i.i44.i, %62, %29, %.lr.ph.i.i30.i, %43
-  %.sink76.i = phi i64 [ %.pre.i, %62 ], [ %15, %43 ], [ %.pre.i, %29 ], [ %27, %.lr.ph.i.i30.i ], [ %46, %.lr.ph.i.i44.i ], [ %15, %48 ]
-  %.sink75.i = phi ptr [ %10, %62 ], [ %11, %43 ], [ %10, %29 ], [ %12, %.lr.ph.i.i30.i ], [ %12, %.lr.ph.i.i44.i ], [ %11, %48 ]
+  %.sink76.i = phi i64 [ %46, %.lr.ph.i.i44.i ], [ %.pre.i, %29 ], [ %15, %43 ], [ %27, %.lr.ph.i.i30.i ], [ %.pre.i, %62 ], [ %15, %48 ]
+  %.sink75.i = phi ptr [ %12, %.lr.ph.i.i44.i ], [ %10, %29 ], [ %11, %43 ], [ %12, %.lr.ph.i.i30.i ], [ %10, %62 ], [ %11, %48 ]
   %65 = load i64, ptr %0, align 8, !tbaa !117
   store i64 %.sink76.i, ptr %0, align 8, !tbaa !117
   store i64 %65, ptr %.sink75.i, align 8, !tbaa !117
@@ -27048,7 +27048,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi
   br label %.lr.ph.i.i.lr.ph.i, !llvm.loop !474
 
 _ZSt21__unguarded_partitionIPxN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES8_NS7_IxLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEESB_SB_SB_SB_SG_.exit: ; preds = %.loopexit.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES6_NS5_IxLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPxSN_EEbS9_SE_.exit.loopexit25.us.i, %_ZSt22__move_median_to_firstIPxN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES8_NS7_IxLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit.thread
-  %.us-phi52.i = phi ptr [ %11, %_ZSt22__move_median_to_firstIPxN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES8_NS7_IxLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %68, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES6_NS5_IxLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPxSN_EEbS9_SE_.exit.loopexit25.us.i ], [ %.132.i, %.loopexit.i ]
+  %.us-phi52.i = phi ptr [ %68, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES6_NS5_IxLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPxSN_EEbS9_SE_.exit.loopexit25.us.i ], [ %11, %_ZSt22__move_median_to_firstIPxN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES8_NS7_IxLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %.132.i, %.loopexit.i ]
   ret ptr %.us-phi52.i
 }
 
@@ -27182,7 +27182,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0
   br i1 %68, label %.lr.ph.i.i.i, label %_ZSt11__push_heapIPxlxN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES8_NS7_IxLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SG_SG_SJ_RT2_.exit, !llvm.loop !476
 
 _ZSt11__push_heapIPxlxN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES8_NS7_IxLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SG_SG_SJ_RT2_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES6_NS5_IxLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPxxEEbS9_RSE_.exit.i, %64, %52, %.lr.ph.i
-  %.01317.i = phi i64 [ %.128, %52 ], [ %.128, %.lr.ph.i ], [ %.01320.i, %64 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES6_NS5_IxLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPxxEEbS9_RSE_.exit.i ]
+  %.01317.i = phi i64 [ %.128, %.lr.ph.i ], [ %.128, %52 ], [ %.01320.i, %64 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES6_NS5_IxLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPxxEEbS9_RSE_.exit.i ]
   %69 = getelementptr inbounds i64, ptr %0, i64 %.01317.i
   store i64 %3, ptr %69, align 8, !tbaa !117
   ret void
@@ -27623,8 +27623,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i48.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i44.i, !llvm.loop !480
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %52, %.lr.ph.i.i44.i, %66, %32, %.lr.ph.i.i30.i, %46
-  %.sink76.i = phi i32 [ %.pre.i, %66 ], [ %16, %46 ], [ %.pre.i, %32 ], [ %29, %.lr.ph.i.i30.i ], [ %49, %.lr.ph.i.i44.i ], [ %16, %52 ]
-  %.sink75.i = phi ptr [ %10, %66 ], [ %11, %46 ], [ %10, %32 ], [ %12, %.lr.ph.i.i30.i ], [ %12, %.lr.ph.i.i44.i ], [ %11, %52 ]
+  %.sink76.i = phi i32 [ %49, %.lr.ph.i.i44.i ], [ %.pre.i, %32 ], [ %16, %46 ], [ %29, %.lr.ph.i.i30.i ], [ %.pre.i, %66 ], [ %16, %52 ]
+  %.sink75.i = phi ptr [ %12, %.lr.ph.i.i44.i ], [ %10, %32 ], [ %11, %46 ], [ %12, %.lr.ph.i.i30.i ], [ %10, %66 ], [ %11, %52 ]
   %69 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink76.i, ptr %0, align 4, !tbaa !14
   store i32 %69, ptr %.sink75.i, align 4, !tbaa !14
@@ -27714,7 +27714,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi
   br label %.lr.ph.i.i.lr.ph.i, !llvm.loop !483
 
 _ZSt21__unguarded_partitionIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEESB_SB_SB_SB_SG_.exit: ; preds = %.loopexit.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiSN_EEbS9_SE_.exit.loopexit25.us.i, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit.thread
-  %.us-phi52.i = phi ptr [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %72, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiSN_EEbS9_SE_.exit.loopexit25.us.i ], [ %.132.i, %.loopexit.i ]
+  %.us-phi52.i = phi ptr [ %72, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiSN_EEbS9_SE_.exit.loopexit25.us.i ], [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %.132.i, %.loopexit.i ]
   ret ptr %.us-phi52.i
 }
 
@@ -27852,7 +27852,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0
   br i1 %72, label %.lr.ph.i.i.i, label %_ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SG_SG_SJ_RT2_.exit, !llvm.loop !485
 
 _ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SG_SG_SJ_RT2_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiiEEbS9_RSE_.exit.i, %68, %54, %.lr.ph.i
-  %.01317.i = phi i64 [ %.128, %54 ], [ %.128, %.lr.ph.i ], [ %.01320.i, %68 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiiEEbS9_RSE_.exit.i ]
+  %.01317.i = phi i64 [ %.128, %.lr.ph.i ], [ %.128, %54 ], [ %.01320.i, %68 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiiEEbS9_RSE_.exit.i ]
   %73 = getelementptr inbounds i32, ptr %0, i64 %.01317.i
   store i32 %3, ptr %73, align 4, !tbaa !14
   ret void
@@ -28293,8 +28293,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i48.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i44.i, !llvm.loop !489
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %52, %.lr.ph.i.i44.i, %66, %32, %.lr.ph.i.i30.i, %46
-  %.sink76.i = phi i32 [ %.pre.i, %66 ], [ %16, %46 ], [ %.pre.i, %32 ], [ %29, %.lr.ph.i.i30.i ], [ %49, %.lr.ph.i.i44.i ], [ %16, %52 ]
-  %.sink75.i = phi ptr [ %10, %66 ], [ %11, %46 ], [ %10, %32 ], [ %12, %.lr.ph.i.i30.i ], [ %12, %.lr.ph.i.i44.i ], [ %11, %52 ]
+  %.sink76.i = phi i32 [ %49, %.lr.ph.i.i44.i ], [ %.pre.i, %32 ], [ %16, %46 ], [ %29, %.lr.ph.i.i30.i ], [ %.pre.i, %66 ], [ %16, %52 ]
+  %.sink75.i = phi ptr [ %12, %.lr.ph.i.i44.i ], [ %10, %32 ], [ %11, %46 ], [ %12, %.lr.ph.i.i30.i ], [ %10, %66 ], [ %11, %52 ]
   %69 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink76.i, ptr %0, align 4, !tbaa !14
   store i32 %69, ptr %.sink75.i, align 4, !tbaa !14
@@ -28384,7 +28384,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi
   br label %.lr.ph.i.i.lr.ph.i, !llvm.loop !492
 
 _ZSt21__unguarded_partitionIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEESB_SB_SB_SB_SG_.exit: ; preds = %.loopexit.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiSN_EEbS9_SE_.exit.loopexit25.us.i, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit.thread
-  %.us-phi52.i = phi ptr [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %72, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiSN_EEbS9_SE_.exit.loopexit25.us.i ], [ %.132.i, %.loopexit.i ]
+  %.us-phi52.i = phi ptr [ %72, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiSN_EEbS9_SE_.exit.loopexit25.us.i ], [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %.132.i, %.loopexit.i ]
   ret ptr %.us-phi52.i
 }
 
@@ -28522,7 +28522,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0
   br i1 %72, label %.lr.ph.i.i.i, label %_ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SG_SG_SJ_RT2_.exit, !llvm.loop !494
 
 _ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SG_SG_SJ_RT2_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiiEEbS9_RSE_.exit.i, %68, %54, %.lr.ph.i
-  %.01317.i = phi i64 [ %.128, %54 ], [ %.128, %.lr.ph.i ], [ %.01320.i, %68 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiiEEbS9_RSE_.exit.i ]
+  %.01317.i = phi i64 [ %.128, %.lr.ph.i ], [ %.128, %54 ], [ %.01320.i, %68 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiiEEbS9_RSE_.exit.i ]
   %73 = getelementptr inbounds i32, ptr %0, i64 %.01317.i
   store i32 %3, ptr %73, align 4, !tbaa !14
   ret void
@@ -28971,8 +28971,8 @@ _ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i44.i, label %_ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i41.i, !llvm.loop !498
 
 _ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %54, %.lr.ph.i.i41.i, %70, %33, %.lr.ph.i.i29.i, %49
-  %.sink72.i = phi i64 [ %.pre.i, %70 ], [ %15, %49 ], [ %.pre.i, %33 ], [ %31, %.lr.ph.i.i29.i ], [ %52, %.lr.ph.i.i41.i ], [ %15, %54 ]
-  %.sink71.i = phi ptr [ %10, %70 ], [ %11, %49 ], [ %10, %33 ], [ %12, %.lr.ph.i.i29.i ], [ %12, %.lr.ph.i.i41.i ], [ %11, %54 ]
+  %.sink72.i = phi i64 [ %52, %.lr.ph.i.i41.i ], [ %.pre.i, %33 ], [ %15, %49 ], [ %31, %.lr.ph.i.i29.i ], [ %.pre.i, %70 ], [ %15, %54 ]
+  %.sink71.i = phi ptr [ %12, %.lr.ph.i.i41.i ], [ %10, %33 ], [ %11, %49 ], [ %12, %.lr.ph.i.i29.i ], [ %10, %70 ], [ %11, %54 ]
   %73 = load i64, ptr %0, align 8, !tbaa !76
   store i64 %.sink72.i, ptr %0, align 8, !tbaa !76
   store i64 %73, ptr %.sink71.i, align 8, !tbaa !76
@@ -29060,7 +29060,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi
   br label %.lr.ph.i.i.lr.ph.i, !llvm.loop !501
 
 _ZSt21__unguarded_partitionIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEESB_SB_SB_SB_SG_.exit: ; preds = %.loopexit.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES6_NS5_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPlSN_EEbS9_SE_.exit.loopexit24.us.i, %_ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit.thread
-  %.us-phi50.i = phi ptr [ %11, %_ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %76, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES6_NS5_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPlSN_EEbS9_SE_.exit.loopexit24.us.i ], [ %.131.i, %.loopexit.i ]
+  %.us-phi50.i = phi ptr [ %76, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES6_NS5_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPlSN_EEbS9_SE_.exit.loopexit24.us.i ], [ %11, %_ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %.131.i, %.loopexit.i ]
   ret ptr %.us-phi50.i
 }
 
@@ -29206,7 +29206,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0
   br i1 %76, label %.lr.ph.i.i.i, label %_ZSt11__push_heapIPlllN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SG_SG_SJ_RT2_.exit, !llvm.loop !503
 
 _ZSt11__push_heapIPlllN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SG_SG_SJ_RT2_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES6_NS5_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPllEEbS9_RSE_.exit.i, %72, %.lr.ph.i, %56
-  %.01317.i = phi i64 [ %.128, %56 ], [ %.128, %.lr.ph.i ], [ %.01320.i, %72 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES6_NS5_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPllEEbS9_RSE_.exit.i ]
+  %.01317.i = phi i64 [ %.128, %.lr.ph.i ], [ %.128, %56 ], [ %.01320.i, %72 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES6_NS5_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPllEEbS9_RSE_.exit.i ]
   %77 = getelementptr inbounds i64, ptr %0, i64 %.01317.i
   store i64 %3, ptr %77, align 8, !tbaa !76
   ret void
@@ -29655,8 +29655,8 @@ _ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i44.i, label %_ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i41.i, !llvm.loop !507
 
 _ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %54, %.lr.ph.i.i41.i, %70, %33, %.lr.ph.i.i29.i, %49
-  %.sink72.i = phi i64 [ %.pre.i, %70 ], [ %15, %49 ], [ %.pre.i, %33 ], [ %31, %.lr.ph.i.i29.i ], [ %52, %.lr.ph.i.i41.i ], [ %15, %54 ]
-  %.sink71.i = phi ptr [ %10, %70 ], [ %11, %49 ], [ %10, %33 ], [ %12, %.lr.ph.i.i29.i ], [ %12, %.lr.ph.i.i41.i ], [ %11, %54 ]
+  %.sink72.i = phi i64 [ %52, %.lr.ph.i.i41.i ], [ %.pre.i, %33 ], [ %15, %49 ], [ %31, %.lr.ph.i.i29.i ], [ %.pre.i, %70 ], [ %15, %54 ]
+  %.sink71.i = phi ptr [ %12, %.lr.ph.i.i41.i ], [ %10, %33 ], [ %11, %49 ], [ %12, %.lr.ph.i.i29.i ], [ %10, %70 ], [ %11, %54 ]
   %73 = load i64, ptr %0, align 8, !tbaa !76
   store i64 %.sink72.i, ptr %0, align 8, !tbaa !76
   store i64 %73, ptr %.sink71.i, align 8, !tbaa !76
@@ -29744,7 +29744,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi
   br label %.lr.ph.i.i.lr.ph.i, !llvm.loop !510
 
 _ZSt21__unguarded_partitionIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEESB_SB_SB_SB_SG_.exit: ; preds = %.loopexit.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES6_NS5_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPlSN_EEbS9_SE_.exit.loopexit24.us.i, %_ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit.thread
-  %.us-phi50.i = phi ptr [ %11, %_ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %76, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES6_NS5_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPlSN_EEbS9_SE_.exit.loopexit24.us.i ], [ %.131.i, %.loopexit.i ]
+  %.us-phi50.i = phi ptr [ %76, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES6_NS5_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPlSN_EEbS9_SE_.exit.loopexit24.us.i ], [ %11, %_ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %.131.i, %.loopexit.i ]
   ret ptr %.us-phi50.i
 }
 
@@ -29890,7 +29890,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0
   br i1 %76, label %.lr.ph.i.i.i, label %_ZSt11__push_heapIPlllN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SG_SG_SJ_RT2_.exit, !llvm.loop !512
 
 _ZSt11__push_heapIPlllN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SG_SG_SJ_RT2_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES6_NS5_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPllEEbS9_RSE_.exit.i, %72, %.lr.ph.i, %56
-  %.01317.i = phi i64 [ %.128, %56 ], [ %.128, %.lr.ph.i ], [ %.01320.i, %72 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES6_NS5_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPllEEbS9_RSE_.exit.i ]
+  %.01317.i = phi i64 [ %.128, %.lr.ph.i ], [ %.128, %56 ], [ %.01320.i, %72 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES6_NS5_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPllEEbS9_RSE_.exit.i ]
   %77 = getelementptr inbounds i64, ptr %0, i64 %.01317.i
   store i64 %3, ptr %77, align 8, !tbaa !76
   ret void
@@ -30319,8 +30319,8 @@ _ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i48.i, label %_ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i44.i, !llvm.loop !516
 
 _ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %48, %.lr.ph.i.i44.i, %62, %29, %.lr.ph.i.i30.i, %43
-  %.sink76.i = phi i64 [ %.pre.i, %62 ], [ %15, %43 ], [ %.pre.i, %29 ], [ %27, %.lr.ph.i.i30.i ], [ %46, %.lr.ph.i.i44.i ], [ %15, %48 ]
-  %.sink75.i = phi ptr [ %10, %62 ], [ %11, %43 ], [ %10, %29 ], [ %12, %.lr.ph.i.i30.i ], [ %12, %.lr.ph.i.i44.i ], [ %11, %48 ]
+  %.sink76.i = phi i64 [ %46, %.lr.ph.i.i44.i ], [ %.pre.i, %29 ], [ %15, %43 ], [ %27, %.lr.ph.i.i30.i ], [ %.pre.i, %62 ], [ %15, %48 ]
+  %.sink75.i = phi ptr [ %12, %.lr.ph.i.i44.i ], [ %10, %29 ], [ %11, %43 ], [ %12, %.lr.ph.i.i30.i ], [ %10, %62 ], [ %11, %48 ]
   %65 = load i64, ptr %0, align 8, !tbaa !76
   store i64 %.sink76.i, ptr %0, align 8, !tbaa !76
   store i64 %65, ptr %.sink75.i, align 8, !tbaa !76
@@ -30407,7 +30407,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi
   br label %.lr.ph.i.i.lr.ph.i, !llvm.loop !519
 
 _ZSt21__unguarded_partitionIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEESB_SB_SB_SB_SG_.exit: ; preds = %.loopexit.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES6_NS5_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPlSN_EEbS9_SE_.exit.loopexit25.us.i, %_ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit.thread
-  %.us-phi52.i = phi ptr [ %11, %_ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %68, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES6_NS5_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPlSN_EEbS9_SE_.exit.loopexit25.us.i ], [ %.132.i, %.loopexit.i ]
+  %.us-phi52.i = phi ptr [ %68, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES6_NS5_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPlSN_EEbS9_SE_.exit.loopexit25.us.i ], [ %11, %_ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %.132.i, %.loopexit.i ]
   ret ptr %.us-phi52.i
 }
 
@@ -30541,7 +30541,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0
   br i1 %68, label %.lr.ph.i.i.i, label %_ZSt11__push_heapIPlllN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SG_SG_SJ_RT2_.exit, !llvm.loop !521
 
 _ZSt11__push_heapIPlllN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SG_SG_SJ_RT2_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES6_NS5_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPllEEbS9_RSE_.exit.i, %64, %.lr.ph.i, %52
-  %.01317.i = phi i64 [ %.128, %52 ], [ %.128, %.lr.ph.i ], [ %.01320.i, %64 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES6_NS5_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPllEEbS9_RSE_.exit.i ]
+  %.01317.i = phi i64 [ %.128, %.lr.ph.i ], [ %.128, %52 ], [ %.01320.i, %64 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES6_NS5_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPllEEbS9_RSE_.exit.i ]
   %69 = getelementptr inbounds i64, ptr %0, i64 %.01317.i
   store i64 %3, ptr %69, align 8, !tbaa !76
   ret void
@@ -30970,8 +30970,8 @@ _ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i48.i, label %_ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i44.i, !llvm.loop !525
 
 _ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %48, %.lr.ph.i.i44.i, %62, %29, %.lr.ph.i.i30.i, %43
-  %.sink76.i = phi i64 [ %.pre.i, %62 ], [ %15, %43 ], [ %.pre.i, %29 ], [ %27, %.lr.ph.i.i30.i ], [ %46, %.lr.ph.i.i44.i ], [ %15, %48 ]
-  %.sink75.i = phi ptr [ %10, %62 ], [ %11, %43 ], [ %10, %29 ], [ %12, %.lr.ph.i.i30.i ], [ %12, %.lr.ph.i.i44.i ], [ %11, %48 ]
+  %.sink76.i = phi i64 [ %46, %.lr.ph.i.i44.i ], [ %.pre.i, %29 ], [ %15, %43 ], [ %27, %.lr.ph.i.i30.i ], [ %.pre.i, %62 ], [ %15, %48 ]
+  %.sink75.i = phi ptr [ %12, %.lr.ph.i.i44.i ], [ %10, %29 ], [ %11, %43 ], [ %12, %.lr.ph.i.i30.i ], [ %10, %62 ], [ %11, %48 ]
   %65 = load i64, ptr %0, align 8, !tbaa !76
   store i64 %.sink76.i, ptr %0, align 8, !tbaa !76
   store i64 %65, ptr %.sink75.i, align 8, !tbaa !76
@@ -31058,7 +31058,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi
   br label %.lr.ph.i.i.lr.ph.i, !llvm.loop !528
 
 _ZSt21__unguarded_partitionIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEESB_SB_SB_SB_SG_.exit: ; preds = %.loopexit.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES6_NS5_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPlSN_EEbS9_SE_.exit.loopexit25.us.i, %_ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit.thread
-  %.us-phi52.i = phi ptr [ %11, %_ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %68, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES6_NS5_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPlSN_EEbS9_SE_.exit.loopexit25.us.i ], [ %.132.i, %.loopexit.i ]
+  %.us-phi52.i = phi ptr [ %68, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES6_NS5_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPlSN_EEbS9_SE_.exit.loopexit25.us.i ], [ %11, %_ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %.132.i, %.loopexit.i ]
   ret ptr %.us-phi52.i
 }
 
@@ -31192,7 +31192,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0
   br i1 %68, label %.lr.ph.i.i.i, label %_ZSt11__push_heapIPlllN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SG_SG_SJ_RT2_.exit, !llvm.loop !530
 
 _ZSt11__push_heapIPlllN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SG_SG_SJ_RT2_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES6_NS5_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPllEEbS9_RSE_.exit.i, %64, %.lr.ph.i, %52
-  %.01317.i = phi i64 [ %.128, %52 ], [ %.128, %.lr.ph.i ], [ %.01320.i, %64 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES6_NS5_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPllEEbS9_RSE_.exit.i ]
+  %.01317.i = phi i64 [ %.128, %.lr.ph.i ], [ %.128, %52 ], [ %.01320.i, %64 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES6_NS5_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPllEEbS9_RSE_.exit.i ]
   %69 = getelementptr inbounds i64, ptr %0, i64 %.01317.i
   store i64 %3, ptr %69, align 8, !tbaa !76
   ret void
@@ -33278,8 +33278,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i52.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi1ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i47.i, !llvm.loop !554
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi1ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %53, %.lr.ph.i.i47.i, %67, %33, %.lr.ph.i.i31.i, %47
-  %.sink80.i = phi i32 [ %.pre.i, %67 ], [ %16, %47 ], [ %.pre.i, %33 ], [ %30, %.lr.ph.i.i31.i ], [ %50, %.lr.ph.i.i47.i ], [ %16, %53 ]
-  %.sink79.i = phi ptr [ %10, %67 ], [ %11, %47 ], [ %10, %33 ], [ %12, %.lr.ph.i.i31.i ], [ %12, %.lr.ph.i.i47.i ], [ %11, %53 ]
+  %.sink80.i = phi i32 [ %50, %.lr.ph.i.i47.i ], [ %.pre.i, %33 ], [ %16, %47 ], [ %30, %.lr.ph.i.i31.i ], [ %.pre.i, %67 ], [ %16, %53 ]
+  %.sink79.i = phi ptr [ %12, %.lr.ph.i.i47.i ], [ %10, %33 ], [ %11, %47 ], [ %12, %.lr.ph.i.i31.i ], [ %10, %67 ], [ %11, %53 ]
   %70 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink80.i, ptr %0, align 4, !tbaa !14
   store i32 %70, ptr %.sink79.i, align 4, !tbaa !14
@@ -33370,7 +33370,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi
   br label %.lr.ph.i.i.lr.ph.i, !llvm.loop !557
 
 _ZSt21__unguarded_partitionIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi1ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEESB_SB_SB_SB_SG_.exit: ; preds = %.loopexit.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi1ELin1ELi3EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiSN_EEbS9_SE_.exit.loopexit26.us.i, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi1ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit.thread
-  %.us-phi53.i = phi ptr [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi1ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %73, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi1ELin1ELi3EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiSN_EEbS9_SE_.exit.loopexit26.us.i ], [ %.133.i, %.loopexit.i ]
+  %.us-phi53.i = phi ptr [ %73, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi1ELin1ELi3EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiSN_EEbS9_SE_.exit.loopexit26.us.i ], [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi1ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %.133.i, %.loopexit.i ]
   ret ptr %.us-phi53.i
 }
 
@@ -33516,7 +33516,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi1
   br i1 %74, label %.lr.ph.i.i.i, label %_ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi1ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SG_SG_SJ_RT2_.exit, !llvm.loop !559
 
 _ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi1ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SG_SG_SJ_RT2_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi1ELin1ELi3EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiiEEbS9_RSE_.exit.i, %70, %55
-  %.01317.i = phi i64 [ %.128, %55 ], [ %.01320.i, %70 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi1ELin1ELi3EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiiEEbS9_RSE_.exit.i ]
+  %.01317.i = phi i64 [ %.01320.i, %70 ], [ %.128, %55 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi1ELin1ELi3EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiiEEbS9_RSE_.exit.i ]
   %75 = getelementptr inbounds i32, ptr %0, i64 %.01317.i
   store i32 %3, ptr %75, align 4, !tbaa !14
   ret void
@@ -33966,8 +33966,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i52.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi1ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i47.i, !llvm.loop !563
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi1ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %53, %.lr.ph.i.i47.i, %67, %33, %.lr.ph.i.i31.i, %47
-  %.sink80.i = phi i32 [ %.pre.i, %67 ], [ %16, %47 ], [ %.pre.i, %33 ], [ %30, %.lr.ph.i.i31.i ], [ %50, %.lr.ph.i.i47.i ], [ %16, %53 ]
-  %.sink79.i = phi ptr [ %10, %67 ], [ %11, %47 ], [ %10, %33 ], [ %12, %.lr.ph.i.i31.i ], [ %12, %.lr.ph.i.i47.i ], [ %11, %53 ]
+  %.sink80.i = phi i32 [ %50, %.lr.ph.i.i47.i ], [ %.pre.i, %33 ], [ %16, %47 ], [ %30, %.lr.ph.i.i31.i ], [ %.pre.i, %67 ], [ %16, %53 ]
+  %.sink79.i = phi ptr [ %12, %.lr.ph.i.i47.i ], [ %10, %33 ], [ %11, %47 ], [ %12, %.lr.ph.i.i31.i ], [ %10, %67 ], [ %11, %53 ]
   %70 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink80.i, ptr %0, align 4, !tbaa !14
   store i32 %70, ptr %.sink79.i, align 4, !tbaa !14
@@ -34058,7 +34058,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi
   br label %.lr.ph.i.i.lr.ph.i, !llvm.loop !566
 
 _ZSt21__unguarded_partitionIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi1ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEESB_SB_SB_SB_SG_.exit: ; preds = %.loopexit.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi1ELin1ELi3EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiSN_EEbS9_SE_.exit.loopexit26.us.i, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi1ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit.thread
-  %.us-phi53.i = phi ptr [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi1ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %73, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi1ELin1ELi3EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiSN_EEbS9_SE_.exit.loopexit26.us.i ], [ %.133.i, %.loopexit.i ]
+  %.us-phi53.i = phi ptr [ %73, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi1ELin1ELi3EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiSN_EEbS9_SE_.exit.loopexit26.us.i ], [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi1ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %.133.i, %.loopexit.i ]
   ret ptr %.us-phi53.i
 }
 
@@ -34204,7 +34204,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi1
   br i1 %74, label %.lr.ph.i.i.i, label %_ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi1ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SG_SG_SJ_RT2_.exit, !llvm.loop !568
 
 _ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi1ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SG_SG_SJ_RT2_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi1ELin1ELi3EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiiEEbS9_RSE_.exit.i, %70, %55
-  %.01317.i = phi i64 [ %.128, %55 ], [ %.01320.i, %70 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi1ELin1ELi3EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiiEEbS9_RSE_.exit.i ]
+  %.01317.i = phi i64 [ %.01320.i, %70 ], [ %.128, %55 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi1ELin1ELi3EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiiEEbS9_RSE_.exit.i ]
   %75 = getelementptr inbounds i32, ptr %0, i64 %.01317.i
   store i32 %3, ptr %75, align 4, !tbaa !14
   ret void
@@ -34661,8 +34661,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i44.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi0ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i41.i, !llvm.loop !572
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi0ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %58, %.lr.ph.i.i41.i, %74, %36, %.lr.ph.i.i29.i, %52
-  %.sink72.i = phi i32 [ %.pre.i, %74 ], [ %16, %52 ], [ %.pre.i, %36 ], [ %33, %.lr.ph.i.i29.i ], [ %55, %.lr.ph.i.i41.i ], [ %16, %58 ]
-  %.sink71.i = phi ptr [ %10, %74 ], [ %11, %52 ], [ %10, %36 ], [ %12, %.lr.ph.i.i29.i ], [ %12, %.lr.ph.i.i41.i ], [ %11, %58 ]
+  %.sink72.i = phi i32 [ %55, %.lr.ph.i.i41.i ], [ %.pre.i, %36 ], [ %16, %52 ], [ %33, %.lr.ph.i.i29.i ], [ %.pre.i, %74 ], [ %16, %58 ]
+  %.sink71.i = phi ptr [ %12, %.lr.ph.i.i41.i ], [ %10, %36 ], [ %11, %52 ], [ %12, %.lr.ph.i.i29.i ], [ %10, %74 ], [ %11, %58 ]
   %77 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink72.i, ptr %0, align 4, !tbaa !14
   store i32 %77, ptr %.sink71.i, align 4, !tbaa !14
@@ -34752,7 +34752,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi
   br label %.lr.ph.i.i.lr.ph.i, !llvm.loop !575
 
 _ZSt21__unguarded_partitionIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi0ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEESB_SB_SB_SB_SG_.exit: ; preds = %.loopexit.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi0ELin1ELi3EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiSN_EEbS9_SE_.exit.loopexit24.us.i, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi0ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit.thread
-  %.us-phi50.i = phi ptr [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi0ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %80, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi0ELin1ELi3EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiSN_EEbS9_SE_.exit.loopexit24.us.i ], [ %.131.i, %.loopexit.i ]
+  %.us-phi50.i = phi ptr [ %80, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi0ELin1ELi3EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiSN_EEbS9_SE_.exit.loopexit24.us.i ], [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi0ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %.131.i, %.loopexit.i ]
   ret ptr %.us-phi50.i
 }
 
@@ -34900,7 +34900,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi0
   br i1 %80, label %.lr.ph.i.i.i, label %_ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi0ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SG_SG_SJ_RT2_.exit, !llvm.loop !577
 
 _ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi0ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SG_SG_SJ_RT2_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi0ELin1ELi3EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiiEEbS9_RSE_.exit.i, %76, %58
-  %.01317.i = phi i64 [ %.128, %58 ], [ %.01320.i, %76 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi0ELin1ELi3EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiiEEbS9_RSE_.exit.i ]
+  %.01317.i = phi i64 [ %.01320.i, %76 ], [ %.128, %58 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi0ELin1ELi3EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiiEEbS9_RSE_.exit.i ]
   %81 = getelementptr inbounds i32, ptr %0, i64 %.01317.i
   store i32 %3, ptr %81, align 4, !tbaa !14
   ret void
@@ -35357,8 +35357,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i44.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi0ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i41.i, !llvm.loop !581
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi0ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %58, %.lr.ph.i.i41.i, %74, %36, %.lr.ph.i.i29.i, %52
-  %.sink72.i = phi i32 [ %.pre.i, %74 ], [ %16, %52 ], [ %.pre.i, %36 ], [ %33, %.lr.ph.i.i29.i ], [ %55, %.lr.ph.i.i41.i ], [ %16, %58 ]
-  %.sink71.i = phi ptr [ %10, %74 ], [ %11, %52 ], [ %10, %36 ], [ %12, %.lr.ph.i.i29.i ], [ %12, %.lr.ph.i.i41.i ], [ %11, %58 ]
+  %.sink72.i = phi i32 [ %55, %.lr.ph.i.i41.i ], [ %.pre.i, %36 ], [ %16, %52 ], [ %33, %.lr.ph.i.i29.i ], [ %.pre.i, %74 ], [ %16, %58 ]
+  %.sink71.i = phi ptr [ %12, %.lr.ph.i.i41.i ], [ %10, %36 ], [ %11, %52 ], [ %12, %.lr.ph.i.i29.i ], [ %10, %74 ], [ %11, %58 ]
   %77 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink72.i, ptr %0, align 4, !tbaa !14
   store i32 %77, ptr %.sink71.i, align 4, !tbaa !14
@@ -35448,7 +35448,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi
   br label %.lr.ph.i.i.lr.ph.i, !llvm.loop !584
 
 _ZSt21__unguarded_partitionIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi0ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEESB_SB_SB_SB_SG_.exit: ; preds = %.loopexit.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi0ELin1ELi3EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiSN_EEbS9_SE_.exit.loopexit24.us.i, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi0ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit.thread
-  %.us-phi50.i = phi ptr [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi0ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %80, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi0ELin1ELi3EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiSN_EEbS9_SE_.exit.loopexit24.us.i ], [ %.131.i, %.loopexit.i ]
+  %.us-phi50.i = phi ptr [ %80, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi0ELin1ELi3EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiSN_EEbS9_SE_.exit.loopexit24.us.i ], [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi0ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %.131.i, %.loopexit.i ]
   ret ptr %.us-phi50.i
 }
 
@@ -35596,7 +35596,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi0
   br i1 %80, label %.lr.ph.i.i.i, label %_ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi0ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SG_SG_SJ_RT2_.exit, !llvm.loop !586
 
 _ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi0ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SG_SG_SJ_RT2_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi0ELin1ELi3EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiiEEbS9_RSE_.exit.i, %76, %58
-  %.01317.i = phi i64 [ %.128, %58 ], [ %.01320.i, %76 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi0ELin1ELi3EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiiEEbS9_RSE_.exit.i ]
+  %.01317.i = phi i64 [ %.01320.i, %76 ], [ %.128, %58 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi0ELin1ELi3EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiiEEbS9_RSE_.exit.i ]
   %81 = getelementptr inbounds i32, ptr %0, i64 %.01317.i
   store i32 %3, ptr %81, align 4, !tbaa !14
   ret void
@@ -36046,8 +36046,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i52.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi1ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i47.i, !llvm.loop !590
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi1ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %53, %.lr.ph.i.i47.i, %67, %33, %.lr.ph.i.i31.i, %47
-  %.sink80.i = phi i32 [ %.pre.i, %67 ], [ %16, %47 ], [ %.pre.i, %33 ], [ %30, %.lr.ph.i.i31.i ], [ %50, %.lr.ph.i.i47.i ], [ %16, %53 ]
-  %.sink79.i = phi ptr [ %10, %67 ], [ %11, %47 ], [ %10, %33 ], [ %12, %.lr.ph.i.i31.i ], [ %12, %.lr.ph.i.i47.i ], [ %11, %53 ]
+  %.sink80.i = phi i32 [ %50, %.lr.ph.i.i47.i ], [ %.pre.i, %33 ], [ %16, %47 ], [ %30, %.lr.ph.i.i31.i ], [ %.pre.i, %67 ], [ %16, %53 ]
+  %.sink79.i = phi ptr [ %12, %.lr.ph.i.i47.i ], [ %10, %33 ], [ %11, %47 ], [ %12, %.lr.ph.i.i31.i ], [ %10, %67 ], [ %11, %53 ]
   %70 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink80.i, ptr %0, align 4, !tbaa !14
   store i32 %70, ptr %.sink79.i, align 4, !tbaa !14
@@ -36138,7 +36138,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi
   br label %.lr.ph.i.i.lr.ph.i, !llvm.loop !593
 
 _ZSt21__unguarded_partitionIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi1ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEESB_SB_SB_SB_SG_.exit: ; preds = %.loopexit.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi1ELin1ELi3EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiSN_EEbS9_SE_.exit.loopexit26.us.i, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi1ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit.thread
-  %.us-phi53.i = phi ptr [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi1ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %73, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi1ELin1ELi3EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiSN_EEbS9_SE_.exit.loopexit26.us.i ], [ %.133.i, %.loopexit.i ]
+  %.us-phi53.i = phi ptr [ %73, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi1ELin1ELi3EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiSN_EEbS9_SE_.exit.loopexit26.us.i ], [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi1ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %.133.i, %.loopexit.i ]
   ret ptr %.us-phi53.i
 }
 
@@ -36284,7 +36284,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi1
   br i1 %74, label %.lr.ph.i.i.i, label %_ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi1ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SG_SG_SJ_RT2_.exit, !llvm.loop !595
 
 _ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi1ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SG_SG_SJ_RT2_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi1ELin1ELi3EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiiEEbS9_RSE_.exit.i, %70, %55
-  %.01317.i = phi i64 [ %.128, %55 ], [ %.01320.i, %70 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi1ELin1ELi3EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiiEEbS9_RSE_.exit.i ]
+  %.01317.i = phi i64 [ %.01320.i, %70 ], [ %.128, %55 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi1ELin1ELi3EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiiEEbS9_RSE_.exit.i ]
   %75 = getelementptr inbounds i32, ptr %0, i64 %.01317.i
   store i32 %3, ptr %75, align 4, !tbaa !14
   ret void
@@ -36734,8 +36734,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i52.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi1ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i47.i, !llvm.loop !599
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi1ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %53, %.lr.ph.i.i47.i, %67, %33, %.lr.ph.i.i31.i, %47
-  %.sink80.i = phi i32 [ %.pre.i, %67 ], [ %16, %47 ], [ %.pre.i, %33 ], [ %30, %.lr.ph.i.i31.i ], [ %50, %.lr.ph.i.i47.i ], [ %16, %53 ]
-  %.sink79.i = phi ptr [ %10, %67 ], [ %11, %47 ], [ %10, %33 ], [ %12, %.lr.ph.i.i31.i ], [ %12, %.lr.ph.i.i47.i ], [ %11, %53 ]
+  %.sink80.i = phi i32 [ %50, %.lr.ph.i.i47.i ], [ %.pre.i, %33 ], [ %16, %47 ], [ %30, %.lr.ph.i.i31.i ], [ %.pre.i, %67 ], [ %16, %53 ]
+  %.sink79.i = phi ptr [ %12, %.lr.ph.i.i47.i ], [ %10, %33 ], [ %11, %47 ], [ %12, %.lr.ph.i.i31.i ], [ %10, %67 ], [ %11, %53 ]
   %70 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink80.i, ptr %0, align 4, !tbaa !14
   store i32 %70, ptr %.sink79.i, align 4, !tbaa !14
@@ -36826,7 +36826,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi
   br label %.lr.ph.i.i.lr.ph.i, !llvm.loop !602
 
 _ZSt21__unguarded_partitionIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi1ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEESB_SB_SB_SB_SG_.exit: ; preds = %.loopexit.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi1ELin1ELi3EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiSN_EEbS9_SE_.exit.loopexit26.us.i, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi1ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit.thread
-  %.us-phi53.i = phi ptr [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi1ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %73, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi1ELin1ELi3EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiSN_EEbS9_SE_.exit.loopexit26.us.i ], [ %.133.i, %.loopexit.i ]
+  %.us-phi53.i = phi ptr [ %73, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi1ELin1ELi3EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiSN_EEbS9_SE_.exit.loopexit26.us.i ], [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi1ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %.133.i, %.loopexit.i ]
   ret ptr %.us-phi53.i
 }
 
@@ -36972,7 +36972,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi1
   br i1 %74, label %.lr.ph.i.i.i, label %_ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi1ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SG_SG_SJ_RT2_.exit, !llvm.loop !604
 
 _ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi1ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SG_SG_SJ_RT2_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi1ELin1ELi3EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiiEEbS9_RSE_.exit.i, %70, %55
-  %.01317.i = phi i64 [ %.128, %55 ], [ %.01320.i, %70 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi1ELin1ELi3EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiiEEbS9_RSE_.exit.i ]
+  %.01317.i = phi i64 [ %.01320.i, %70 ], [ %.128, %55 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi1ELin1ELi3EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiiEEbS9_RSE_.exit.i ]
   %75 = getelementptr inbounds i32, ptr %0, i64 %.01317.i
   store i32 %3, ptr %75, align 4, !tbaa !14
   ret void
@@ -37421,8 +37421,8 @@ _ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i44.i, label %_ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i41.i, !llvm.loop !608
 
 _ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %54, %.lr.ph.i.i41.i, %70, %33, %.lr.ph.i.i29.i, %49
-  %.sink72.i = phi i64 [ %.pre.i, %70 ], [ %15, %49 ], [ %.pre.i, %33 ], [ %31, %.lr.ph.i.i29.i ], [ %52, %.lr.ph.i.i41.i ], [ %15, %54 ]
-  %.sink71.i = phi ptr [ %10, %70 ], [ %11, %49 ], [ %10, %33 ], [ %12, %.lr.ph.i.i29.i ], [ %12, %.lr.ph.i.i41.i ], [ %11, %54 ]
+  %.sink72.i = phi i64 [ %52, %.lr.ph.i.i41.i ], [ %.pre.i, %33 ], [ %15, %49 ], [ %31, %.lr.ph.i.i29.i ], [ %.pre.i, %70 ], [ %15, %54 ]
+  %.sink71.i = phi ptr [ %12, %.lr.ph.i.i41.i ], [ %10, %33 ], [ %11, %49 ], [ %12, %.lr.ph.i.i29.i ], [ %10, %70 ], [ %11, %54 ]
   %73 = load i64, ptr %0, align 8, !tbaa !76
   store i64 %.sink72.i, ptr %0, align 8, !tbaa !76
   store i64 %73, ptr %.sink71.i, align 8, !tbaa !76
@@ -37510,7 +37510,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi
   br label %.lr.ph.i.i.lr.ph.i, !llvm.loop !611
 
 _ZSt21__unguarded_partitionIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEESB_SB_SB_SB_SG_.exit: ; preds = %.loopexit.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEES6_NS5_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPlSN_EEbS9_SE_.exit.loopexit24.us.i, %_ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit.thread
-  %.us-phi50.i = phi ptr [ %11, %_ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %76, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEES6_NS5_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPlSN_EEbS9_SE_.exit.loopexit24.us.i ], [ %.131.i, %.loopexit.i ]
+  %.us-phi50.i = phi ptr [ %76, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEES6_NS5_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPlSN_EEbS9_SE_.exit.loopexit24.us.i ], [ %11, %_ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %.131.i, %.loopexit.i ]
   ret ptr %.us-phi50.i
 }
 
@@ -37656,7 +37656,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi0
   br i1 %76, label %.lr.ph.i.i.i, label %_ZSt11__push_heapIPlllN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SG_SG_SJ_RT2_.exit, !llvm.loop !613
 
 _ZSt11__push_heapIPlllN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SG_SG_SJ_RT2_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEES6_NS5_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPllEEbS9_RSE_.exit.i, %72, %.lr.ph.i, %56
-  %.01317.i = phi i64 [ %.128, %56 ], [ %.128, %.lr.ph.i ], [ %.01320.i, %72 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEES6_NS5_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPllEEbS9_RSE_.exit.i ]
+  %.01317.i = phi i64 [ %.128, %.lr.ph.i ], [ %.128, %56 ], [ %.01320.i, %72 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEES6_NS5_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPllEEbS9_RSE_.exit.i ]
   %77 = getelementptr inbounds i64, ptr %0, i64 %.01317.i
   store i64 %3, ptr %77, align 8, !tbaa !76
   ret void
@@ -38105,8 +38105,8 @@ _ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i44.i, label %_ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i41.i, !llvm.loop !617
 
 _ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %54, %.lr.ph.i.i41.i, %70, %33, %.lr.ph.i.i29.i, %49
-  %.sink72.i = phi i64 [ %.pre.i, %70 ], [ %15, %49 ], [ %.pre.i, %33 ], [ %31, %.lr.ph.i.i29.i ], [ %52, %.lr.ph.i.i41.i ], [ %15, %54 ]
-  %.sink71.i = phi ptr [ %10, %70 ], [ %11, %49 ], [ %10, %33 ], [ %12, %.lr.ph.i.i29.i ], [ %12, %.lr.ph.i.i41.i ], [ %11, %54 ]
+  %.sink72.i = phi i64 [ %52, %.lr.ph.i.i41.i ], [ %.pre.i, %33 ], [ %15, %49 ], [ %31, %.lr.ph.i.i29.i ], [ %.pre.i, %70 ], [ %15, %54 ]
+  %.sink71.i = phi ptr [ %12, %.lr.ph.i.i41.i ], [ %10, %33 ], [ %11, %49 ], [ %12, %.lr.ph.i.i29.i ], [ %10, %70 ], [ %11, %54 ]
   %73 = load i64, ptr %0, align 8, !tbaa !76
   store i64 %.sink72.i, ptr %0, align 8, !tbaa !76
   store i64 %73, ptr %.sink71.i, align 8, !tbaa !76
@@ -38194,7 +38194,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi
   br label %.lr.ph.i.i.lr.ph.i, !llvm.loop !620
 
 _ZSt21__unguarded_partitionIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEESB_SB_SB_SB_SG_.exit: ; preds = %.loopexit.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEES6_NS5_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPlSN_EEbS9_SE_.exit.loopexit24.us.i, %_ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit.thread
-  %.us-phi50.i = phi ptr [ %11, %_ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %76, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEES6_NS5_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPlSN_EEbS9_SE_.exit.loopexit24.us.i ], [ %.131.i, %.loopexit.i ]
+  %.us-phi50.i = phi ptr [ %76, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEES6_NS5_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPlSN_EEbS9_SE_.exit.loopexit24.us.i ], [ %11, %_ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %.131.i, %.loopexit.i ]
   ret ptr %.us-phi50.i
 }
 
@@ -38340,7 +38340,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi0
   br i1 %76, label %.lr.ph.i.i.i, label %_ZSt11__push_heapIPlllN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SG_SG_SJ_RT2_.exit, !llvm.loop !622
 
 _ZSt11__push_heapIPlllN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SG_SG_SJ_RT2_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEES6_NS5_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPllEEbS9_RSE_.exit.i, %72, %.lr.ph.i, %56
-  %.01317.i = phi i64 [ %.128, %56 ], [ %.128, %.lr.ph.i ], [ %.01320.i, %72 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEES6_NS5_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPllEEbS9_RSE_.exit.i ]
+  %.01317.i = phi i64 [ %.128, %.lr.ph.i ], [ %.128, %56 ], [ %.01320.i, %72 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEES6_NS5_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPllEEbS9_RSE_.exit.i ]
   %77 = getelementptr inbounds i64, ptr %0, i64 %.01317.i
   store i64 %3, ptr %77, align 8, !tbaa !76
   ret void
@@ -38848,8 +38848,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i44.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i41.i, !llvm.loop !626
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %59, %.lr.ph.i.i41.i, %73, %38, %.lr.ph.i.i29.i, %52
-  %.sink72.i = phi i32 [ %.pre.i, %73 ], [ %16, %52 ], [ %.pre.i, %38 ], [ %34, %.lr.ph.i.i29.i ], [ %55, %.lr.ph.i.i41.i ], [ %16, %59 ]
-  %.sink71.i = phi ptr [ %10, %73 ], [ %11, %52 ], [ %10, %38 ], [ %12, %.lr.ph.i.i29.i ], [ %12, %.lr.ph.i.i41.i ], [ %11, %59 ]
+  %.sink72.i = phi i32 [ %55, %.lr.ph.i.i41.i ], [ %.pre.i, %38 ], [ %16, %52 ], [ %34, %.lr.ph.i.i29.i ], [ %.pre.i, %73 ], [ %16, %59 ]
+  %.sink71.i = phi ptr [ %12, %.lr.ph.i.i41.i ], [ %10, %38 ], [ %11, %52 ], [ %12, %.lr.ph.i.i29.i ], [ %10, %73 ], [ %11, %59 ]
   %76 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink72.i, ptr %0, align 4, !tbaa !14
   store i32 %76, ptr %.sink71.i, align 4, !tbaa !14
@@ -38940,7 +38940,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1EL
   br label %.lr.ph.i.i.lr.ph.i, !llvm.loop !629
 
 _ZSt21__unguarded_partitionIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEESB_SB_SB_SB_SG_.exit: ; preds = %.loopexit.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiSN_EEbS9_SE_.exit.loopexit24.us.i, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit.thread
-  %.us-phi50.i = phi ptr [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %79, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiSN_EEbS9_SE_.exit.loopexit24.us.i ], [ %.131.i, %.loopexit.i ]
+  %.us-phi50.i = phi ptr [ %79, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiSN_EEbS9_SE_.exit.loopexit24.us.i ], [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %.131.i, %.loopexit.i ]
   ret ptr %.us-phi50.i
 }
 
@@ -39090,7 +39090,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi
   br i1 %82, label %.lr.ph.i.i.i, label %_ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SG_SG_SJ_RT2_.exit, !llvm.loop !631
 
 _ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SG_SG_SJ_RT2_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiiEEbS9_RSE_.exit.i, %78, %59
-  %.01317.i = phi i64 [ %.128, %59 ], [ %.01320.i, %78 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiiEEbS9_RSE_.exit.i ]
+  %.01317.i = phi i64 [ %.01320.i, %78 ], [ %.128, %59 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiiEEbS9_RSE_.exit.i ]
   %83 = getelementptr inbounds i32, ptr %0, i64 %.01317.i
   store i32 %3, ptr %83, align 4, !tbaa !14
   ret void
@@ -39549,8 +39549,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i44.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i41.i, !llvm.loop !635
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %59, %.lr.ph.i.i41.i, %73, %38, %.lr.ph.i.i29.i, %52
-  %.sink72.i = phi i32 [ %.pre.i, %73 ], [ %16, %52 ], [ %.pre.i, %38 ], [ %34, %.lr.ph.i.i29.i ], [ %55, %.lr.ph.i.i41.i ], [ %16, %59 ]
-  %.sink71.i = phi ptr [ %10, %73 ], [ %11, %52 ], [ %10, %38 ], [ %12, %.lr.ph.i.i29.i ], [ %12, %.lr.ph.i.i41.i ], [ %11, %59 ]
+  %.sink72.i = phi i32 [ %55, %.lr.ph.i.i41.i ], [ %.pre.i, %38 ], [ %16, %52 ], [ %34, %.lr.ph.i.i29.i ], [ %.pre.i, %73 ], [ %16, %59 ]
+  %.sink71.i = phi ptr [ %12, %.lr.ph.i.i41.i ], [ %10, %38 ], [ %11, %52 ], [ %12, %.lr.ph.i.i29.i ], [ %10, %73 ], [ %11, %59 ]
   %76 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink72.i, ptr %0, align 4, !tbaa !14
   store i32 %76, ptr %.sink71.i, align 4, !tbaa !14
@@ -39641,7 +39641,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1EL
   br label %.lr.ph.i.i.lr.ph.i, !llvm.loop !638
 
 _ZSt21__unguarded_partitionIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEESB_SB_SB_SB_SG_.exit: ; preds = %.loopexit.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiSN_EEbS9_SE_.exit.loopexit24.us.i, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit.thread
-  %.us-phi50.i = phi ptr [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %79, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiSN_EEbS9_SE_.exit.loopexit24.us.i ], [ %.131.i, %.loopexit.i ]
+  %.us-phi50.i = phi ptr [ %79, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiSN_EEbS9_SE_.exit.loopexit24.us.i ], [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %.131.i, %.loopexit.i ]
   ret ptr %.us-phi50.i
 }
 
@@ -39791,7 +39791,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi
   br i1 %82, label %.lr.ph.i.i.i, label %_ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SG_SG_SJ_RT2_.exit, !llvm.loop !640
 
 _ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SG_SG_SJ_RT2_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiiEEbS9_RSE_.exit.i, %78, %59
-  %.01317.i = phi i64 [ %.128, %59 ], [ %.01320.i, %78 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiiEEbS9_RSE_.exit.i ]
+  %.01317.i = phi i64 [ %.01320.i, %78 ], [ %.128, %59 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiiEEbS9_RSE_.exit.i ]
   %83 = getelementptr inbounds i32, ptr %0, i64 %.01317.i
   store i32 %3, ptr %83, align 4, !tbaa !14
   ret void
@@ -40240,8 +40240,8 @@ _ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i44.i, label %_ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi2ELi0ELin1ELi2EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i41.i, !llvm.loop !644
 
 _ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi2ELi0ELin1ELi2EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %54, %.lr.ph.i.i41.i, %70, %33, %.lr.ph.i.i29.i, %49
-  %.sink72.i = phi i64 [ %.pre.i, %70 ], [ %15, %49 ], [ %.pre.i, %33 ], [ %31, %.lr.ph.i.i29.i ], [ %52, %.lr.ph.i.i41.i ], [ %15, %54 ]
-  %.sink71.i = phi ptr [ %10, %70 ], [ %11, %49 ], [ %10, %33 ], [ %12, %.lr.ph.i.i29.i ], [ %12, %.lr.ph.i.i41.i ], [ %11, %54 ]
+  %.sink72.i = phi i64 [ %52, %.lr.ph.i.i41.i ], [ %.pre.i, %33 ], [ %15, %49 ], [ %31, %.lr.ph.i.i29.i ], [ %.pre.i, %70 ], [ %15, %54 ]
+  %.sink71.i = phi ptr [ %12, %.lr.ph.i.i41.i ], [ %10, %33 ], [ %11, %49 ], [ %12, %.lr.ph.i.i29.i ], [ %10, %70 ], [ %11, %54 ]
   %73 = load i64, ptr %0, align 8, !tbaa !76
   store i64 %.sink72.i, ptr %0, align 8, !tbaa !76
   store i64 %73, ptr %.sink71.i, align 8, !tbaa !76
@@ -40329,7 +40329,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi2ELi
   br label %.lr.ph.i.i.lr.ph.i, !llvm.loop !647
 
 _ZSt21__unguarded_partitionIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi2ELi0ELin1ELi2EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEESB_SB_SB_SB_SG_.exit: ; preds = %.loopexit.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi2ELi0ELin1ELi2EEES6_NS5_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPlSN_EEbS9_SE_.exit.loopexit24.us.i, %_ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi2ELi0ELin1ELi2EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit.thread
-  %.us-phi50.i = phi ptr [ %11, %_ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi2ELi0ELin1ELi2EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %76, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi2ELi0ELin1ELi2EEES6_NS5_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPlSN_EEbS9_SE_.exit.loopexit24.us.i ], [ %.131.i, %.loopexit.i ]
+  %.us-phi50.i = phi ptr [ %76, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi2ELi0ELin1ELi2EEES6_NS5_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPlSN_EEbS9_SE_.exit.loopexit24.us.i ], [ %11, %_ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi2ELi0ELin1ELi2EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %.131.i, %.loopexit.i ]
   ret ptr %.us-phi50.i
 }
 
@@ -40475,7 +40475,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi2ELi0
   br i1 %76, label %.lr.ph.i.i.i, label %_ZSt11__push_heapIPlllN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi2ELi0ELin1ELi2EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SG_SG_SJ_RT2_.exit, !llvm.loop !649
 
 _ZSt11__push_heapIPlllN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi2ELi0ELin1ELi2EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SG_SG_SJ_RT2_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi2ELi0ELin1ELi2EEES6_NS5_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPllEEbS9_RSE_.exit.i, %72, %.lr.ph.i, %56
-  %.01317.i = phi i64 [ %.128, %56 ], [ %.128, %.lr.ph.i ], [ %.01320.i, %72 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi2ELi0ELin1ELi2EEES6_NS5_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPllEEbS9_RSE_.exit.i ]
+  %.01317.i = phi i64 [ %.128, %.lr.ph.i ], [ %.128, %56 ], [ %.01320.i, %72 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi2ELi0ELin1ELi2EEES6_NS5_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPllEEbS9_RSE_.exit.i ]
   %77 = getelementptr inbounds i64, ptr %0, i64 %.01317.i
   store i64 %3, ptr %77, align 8, !tbaa !76
   ret void
@@ -40924,8 +40924,8 @@ _ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i44.i, label %_ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi2ELi0ELin1ELi2EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i41.i, !llvm.loop !653
 
 _ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi2ELi0ELin1ELi2EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %54, %.lr.ph.i.i41.i, %70, %33, %.lr.ph.i.i29.i, %49
-  %.sink72.i = phi i64 [ %.pre.i, %70 ], [ %15, %49 ], [ %.pre.i, %33 ], [ %31, %.lr.ph.i.i29.i ], [ %52, %.lr.ph.i.i41.i ], [ %15, %54 ]
-  %.sink71.i = phi ptr [ %10, %70 ], [ %11, %49 ], [ %10, %33 ], [ %12, %.lr.ph.i.i29.i ], [ %12, %.lr.ph.i.i41.i ], [ %11, %54 ]
+  %.sink72.i = phi i64 [ %52, %.lr.ph.i.i41.i ], [ %.pre.i, %33 ], [ %15, %49 ], [ %31, %.lr.ph.i.i29.i ], [ %.pre.i, %70 ], [ %15, %54 ]
+  %.sink71.i = phi ptr [ %12, %.lr.ph.i.i41.i ], [ %10, %33 ], [ %11, %49 ], [ %12, %.lr.ph.i.i29.i ], [ %10, %70 ], [ %11, %54 ]
   %73 = load i64, ptr %0, align 8, !tbaa !76
   store i64 %.sink72.i, ptr %0, align 8, !tbaa !76
   store i64 %73, ptr %.sink71.i, align 8, !tbaa !76
@@ -41013,7 +41013,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi2ELi
   br label %.lr.ph.i.i.lr.ph.i, !llvm.loop !656
 
 _ZSt21__unguarded_partitionIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi2ELi0ELin1ELi2EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEESB_SB_SB_SB_SG_.exit: ; preds = %.loopexit.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi2ELi0ELin1ELi2EEES6_NS5_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPlSN_EEbS9_SE_.exit.loopexit24.us.i, %_ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi2ELi0ELin1ELi2EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit.thread
-  %.us-phi50.i = phi ptr [ %11, %_ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi2ELi0ELin1ELi2EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %76, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi2ELi0ELin1ELi2EEES6_NS5_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPlSN_EEbS9_SE_.exit.loopexit24.us.i ], [ %.131.i, %.loopexit.i ]
+  %.us-phi50.i = phi ptr [ %76, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi2ELi0ELin1ELi2EEES6_NS5_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPlSN_EEbS9_SE_.exit.loopexit24.us.i ], [ %11, %_ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi2ELi0ELin1ELi2EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %.131.i, %.loopexit.i ]
   ret ptr %.us-phi50.i
 }
 
@@ -41159,7 +41159,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi2ELi0
   br i1 %76, label %.lr.ph.i.i.i, label %_ZSt11__push_heapIPlllN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi2ELi0ELin1ELi2EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SG_SG_SJ_RT2_.exit, !llvm.loop !658
 
 _ZSt11__push_heapIPlllN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi2ELi0ELin1ELi2EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SG_SG_SJ_RT2_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi2ELi0ELin1ELi2EEES6_NS5_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPllEEbS9_RSE_.exit.i, %72, %.lr.ph.i, %56
-  %.01317.i = phi i64 [ %.128, %56 ], [ %.128, %.lr.ph.i ], [ %.01320.i, %72 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi2ELi0ELin1ELi2EEES6_NS5_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPllEEbS9_RSE_.exit.i ]
+  %.01317.i = phi i64 [ %.128, %.lr.ph.i ], [ %.128, %56 ], [ %.01320.i, %72 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi2ELi0ELin1ELi2EEES6_NS5_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPllEEbS9_RSE_.exit.i ]
   %77 = getelementptr inbounds i64, ptr %0, i64 %.01317.i
   store i64 %3, ptr %77, align 8, !tbaa !76
   ret void
@@ -41616,8 +41616,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i44.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i41.i, !llvm.loop !662
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %58, %.lr.ph.i.i41.i, %74, %36, %.lr.ph.i.i29.i, %52
-  %.sink72.i = phi i32 [ %.pre.i, %74 ], [ %16, %52 ], [ %.pre.i, %36 ], [ %33, %.lr.ph.i.i29.i ], [ %55, %.lr.ph.i.i41.i ], [ %16, %58 ]
-  %.sink71.i = phi ptr [ %10, %74 ], [ %11, %52 ], [ %10, %36 ], [ %12, %.lr.ph.i.i29.i ], [ %12, %.lr.ph.i.i41.i ], [ %11, %58 ]
+  %.sink72.i = phi i32 [ %55, %.lr.ph.i.i41.i ], [ %.pre.i, %36 ], [ %16, %52 ], [ %33, %.lr.ph.i.i29.i ], [ %.pre.i, %74 ], [ %16, %58 ]
+  %.sink71.i = phi ptr [ %12, %.lr.ph.i.i41.i ], [ %10, %36 ], [ %11, %52 ], [ %12, %.lr.ph.i.i29.i ], [ %10, %74 ], [ %11, %58 ]
   %77 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink72.i, ptr %0, align 4, !tbaa !14
   store i32 %77, ptr %.sink71.i, align 4, !tbaa !14
@@ -41707,7 +41707,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1EL
   br label %.lr.ph.i.i.lr.ph.i, !llvm.loop !665
 
 _ZSt21__unguarded_partitionIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEESB_SB_SB_SB_SG_.exit: ; preds = %.loopexit.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiSN_EEbS9_SE_.exit.loopexit24.us.i, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit.thread
-  %.us-phi50.i = phi ptr [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %80, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiSN_EEbS9_SE_.exit.loopexit24.us.i ], [ %.131.i, %.loopexit.i ]
+  %.us-phi50.i = phi ptr [ %80, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiSN_EEbS9_SE_.exit.loopexit24.us.i ], [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %.131.i, %.loopexit.i ]
   ret ptr %.us-phi50.i
 }
 
@@ -41855,7 +41855,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi
   br i1 %80, label %.lr.ph.i.i.i, label %_ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SG_SG_SJ_RT2_.exit, !llvm.loop !667
 
 _ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SG_SG_SJ_RT2_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiiEEbS9_RSE_.exit.i, %76, %58
-  %.01317.i = phi i64 [ %.128, %58 ], [ %.01320.i, %76 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiiEEbS9_RSE_.exit.i ]
+  %.01317.i = phi i64 [ %.01320.i, %76 ], [ %.128, %58 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiiEEbS9_RSE_.exit.i ]
   %81 = getelementptr inbounds i32, ptr %0, i64 %.01317.i
   store i32 %3, ptr %81, align 4, !tbaa !14
   ret void
@@ -42312,8 +42312,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i44.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i41.i, !llvm.loop !671
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %58, %.lr.ph.i.i41.i, %74, %36, %.lr.ph.i.i29.i, %52
-  %.sink72.i = phi i32 [ %.pre.i, %74 ], [ %16, %52 ], [ %.pre.i, %36 ], [ %33, %.lr.ph.i.i29.i ], [ %55, %.lr.ph.i.i41.i ], [ %16, %58 ]
-  %.sink71.i = phi ptr [ %10, %74 ], [ %11, %52 ], [ %10, %36 ], [ %12, %.lr.ph.i.i29.i ], [ %12, %.lr.ph.i.i41.i ], [ %11, %58 ]
+  %.sink72.i = phi i32 [ %55, %.lr.ph.i.i41.i ], [ %.pre.i, %36 ], [ %16, %52 ], [ %33, %.lr.ph.i.i29.i ], [ %.pre.i, %74 ], [ %16, %58 ]
+  %.sink71.i = phi ptr [ %12, %.lr.ph.i.i41.i ], [ %10, %36 ], [ %11, %52 ], [ %12, %.lr.ph.i.i29.i ], [ %10, %74 ], [ %11, %58 ]
   %77 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink72.i, ptr %0, align 4, !tbaa !14
   store i32 %77, ptr %.sink71.i, align 4, !tbaa !14
@@ -42403,7 +42403,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1EL
   br label %.lr.ph.i.i.lr.ph.i, !llvm.loop !674
 
 _ZSt21__unguarded_partitionIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEESB_SB_SB_SB_SG_.exit: ; preds = %.loopexit.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiSN_EEbS9_SE_.exit.loopexit24.us.i, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit.thread
-  %.us-phi50.i = phi ptr [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %80, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiSN_EEbS9_SE_.exit.loopexit24.us.i ], [ %.131.i, %.loopexit.i ]
+  %.us-phi50.i = phi ptr [ %80, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiSN_EEbS9_SE_.exit.loopexit24.us.i ], [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %.131.i, %.loopexit.i ]
   ret ptr %.us-phi50.i
 }
 
@@ -42551,7 +42551,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi
   br i1 %80, label %.lr.ph.i.i.i, label %_ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SG_SG_SJ_RT2_.exit, !llvm.loop !676
 
 _ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SG_SG_SJ_RT2_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiiEEbS9_RSE_.exit.i, %76, %58
-  %.01317.i = phi i64 [ %.128, %58 ], [ %.01320.i, %76 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiiEEbS9_RSE_.exit.i ]
+  %.01317.i = phi i64 [ %.01320.i, %76 ], [ %.128, %58 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiiEEbS9_RSE_.exit.i ]
   %81 = getelementptr inbounds i32, ptr %0, i64 %.01317.i
   store i32 %3, ptr %81, align 4, !tbaa !14
   ret void
@@ -43008,8 +43008,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i44.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i41.i, !llvm.loop !680
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %58, %.lr.ph.i.i41.i, %74, %36, %.lr.ph.i.i29.i, %52
-  %.sink72.i = phi i32 [ %.pre.i, %74 ], [ %16, %52 ], [ %.pre.i, %36 ], [ %33, %.lr.ph.i.i29.i ], [ %55, %.lr.ph.i.i41.i ], [ %16, %58 ]
-  %.sink71.i = phi ptr [ %10, %74 ], [ %11, %52 ], [ %10, %36 ], [ %12, %.lr.ph.i.i29.i ], [ %12, %.lr.ph.i.i41.i ], [ %11, %58 ]
+  %.sink72.i = phi i32 [ %55, %.lr.ph.i.i41.i ], [ %.pre.i, %36 ], [ %16, %52 ], [ %33, %.lr.ph.i.i29.i ], [ %.pre.i, %74 ], [ %16, %58 ]
+  %.sink71.i = phi ptr [ %12, %.lr.ph.i.i41.i ], [ %10, %36 ], [ %11, %52 ], [ %12, %.lr.ph.i.i29.i ], [ %10, %74 ], [ %11, %58 ]
   %77 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink72.i, ptr %0, align 4, !tbaa !14
   store i32 %77, ptr %.sink71.i, align 4, !tbaa !14
@@ -43099,7 +43099,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1EL
   br label %.lr.ph.i.i.lr.ph.i, !llvm.loop !683
 
 _ZSt21__unguarded_partitionIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEESB_SB_SB_SB_SG_.exit: ; preds = %.loopexit.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiSN_EEbS9_SE_.exit.loopexit24.us.i, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit.thread
-  %.us-phi50.i = phi ptr [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %80, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiSN_EEbS9_SE_.exit.loopexit24.us.i ], [ %.131.i, %.loopexit.i ]
+  %.us-phi50.i = phi ptr [ %80, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiSN_EEbS9_SE_.exit.loopexit24.us.i ], [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %.131.i, %.loopexit.i ]
   ret ptr %.us-phi50.i
 }
 
@@ -43247,7 +43247,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi
   br i1 %80, label %.lr.ph.i.i.i, label %_ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SG_SG_SJ_RT2_.exit, !llvm.loop !685
 
 _ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SG_SG_SJ_RT2_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiiEEbS9_RSE_.exit.i, %76, %58
-  %.01317.i = phi i64 [ %.128, %58 ], [ %.01320.i, %76 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiiEEbS9_RSE_.exit.i ]
+  %.01317.i = phi i64 [ %.01320.i, %76 ], [ %.128, %58 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiiEEbS9_RSE_.exit.i ]
   %81 = getelementptr inbounds i32, ptr %0, i64 %.01317.i
   store i32 %3, ptr %81, align 4, !tbaa !14
   ret void
@@ -43704,8 +43704,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i44.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i41.i, !llvm.loop !689
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %58, %.lr.ph.i.i41.i, %74, %36, %.lr.ph.i.i29.i, %52
-  %.sink72.i = phi i32 [ %.pre.i, %74 ], [ %16, %52 ], [ %.pre.i, %36 ], [ %33, %.lr.ph.i.i29.i ], [ %55, %.lr.ph.i.i41.i ], [ %16, %58 ]
-  %.sink71.i = phi ptr [ %10, %74 ], [ %11, %52 ], [ %10, %36 ], [ %12, %.lr.ph.i.i29.i ], [ %12, %.lr.ph.i.i41.i ], [ %11, %58 ]
+  %.sink72.i = phi i32 [ %55, %.lr.ph.i.i41.i ], [ %.pre.i, %36 ], [ %16, %52 ], [ %33, %.lr.ph.i.i29.i ], [ %.pre.i, %74 ], [ %16, %58 ]
+  %.sink71.i = phi ptr [ %12, %.lr.ph.i.i41.i ], [ %10, %36 ], [ %11, %52 ], [ %12, %.lr.ph.i.i29.i ], [ %10, %74 ], [ %11, %58 ]
   %77 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink72.i, ptr %0, align 4, !tbaa !14
   store i32 %77, ptr %.sink71.i, align 4, !tbaa !14
@@ -43795,7 +43795,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1EL
   br label %.lr.ph.i.i.lr.ph.i, !llvm.loop !692
 
 _ZSt21__unguarded_partitionIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEESB_SB_SB_SB_SG_.exit: ; preds = %.loopexit.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiSN_EEbS9_SE_.exit.loopexit24.us.i, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit.thread
-  %.us-phi50.i = phi ptr [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %80, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiSN_EEbS9_SE_.exit.loopexit24.us.i ], [ %.131.i, %.loopexit.i ]
+  %.us-phi50.i = phi ptr [ %80, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiSN_EEbS9_SE_.exit.loopexit24.us.i ], [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %.131.i, %.loopexit.i ]
   ret ptr %.us-phi50.i
 }
 
@@ -43943,7 +43943,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi
   br i1 %80, label %.lr.ph.i.i.i, label %_ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SG_SG_SJ_RT2_.exit, !llvm.loop !694
 
 _ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SG_SG_SJ_RT2_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiiEEbS9_RSE_.exit.i, %76, %58
-  %.01317.i = phi i64 [ %.128, %58 ], [ %.01320.i, %76 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiiEEbS9_RSE_.exit.i ]
+  %.01317.i = phi i64 [ %.01320.i, %76 ], [ %.128, %58 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiiEEbS9_RSE_.exit.i ]
   %81 = getelementptr inbounds i32, ptr %0, i64 %.01317.i
   store i32 %3, ptr %81, align 4, !tbaa !14
   ret void
@@ -44400,8 +44400,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i44.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i41.i, !llvm.loop !698
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %58, %.lr.ph.i.i41.i, %74, %36, %.lr.ph.i.i29.i, %52
-  %.sink72.i = phi i32 [ %.pre.i, %74 ], [ %16, %52 ], [ %.pre.i, %36 ], [ %33, %.lr.ph.i.i29.i ], [ %55, %.lr.ph.i.i41.i ], [ %16, %58 ]
-  %.sink71.i = phi ptr [ %10, %74 ], [ %11, %52 ], [ %10, %36 ], [ %12, %.lr.ph.i.i29.i ], [ %12, %.lr.ph.i.i41.i ], [ %11, %58 ]
+  %.sink72.i = phi i32 [ %55, %.lr.ph.i.i41.i ], [ %.pre.i, %36 ], [ %16, %52 ], [ %33, %.lr.ph.i.i29.i ], [ %.pre.i, %74 ], [ %16, %58 ]
+  %.sink71.i = phi ptr [ %12, %.lr.ph.i.i41.i ], [ %10, %36 ], [ %11, %52 ], [ %12, %.lr.ph.i.i29.i ], [ %10, %74 ], [ %11, %58 ]
   %77 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink72.i, ptr %0, align 4, !tbaa !14
   store i32 %77, ptr %.sink71.i, align 4, !tbaa !14
@@ -44491,7 +44491,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1EL
   br label %.lr.ph.i.i.lr.ph.i, !llvm.loop !701
 
 _ZSt21__unguarded_partitionIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEESB_SB_SB_SB_SG_.exit: ; preds = %.loopexit.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES6_NS5_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiSN_EEbS9_SE_.exit.loopexit24.us.i, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit.thread
-  %.us-phi50.i = phi ptr [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %80, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES6_NS5_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiSN_EEbS9_SE_.exit.loopexit24.us.i ], [ %.131.i, %.loopexit.i ]
+  %.us-phi50.i = phi ptr [ %80, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES6_NS5_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiSN_EEbS9_SE_.exit.loopexit24.us.i ], [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %.131.i, %.loopexit.i ]
   ret ptr %.us-phi50.i
 }
 
@@ -44639,7 +44639,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi
   br i1 %80, label %.lr.ph.i.i.i, label %_ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SG_SG_SJ_RT2_.exit, !llvm.loop !703
 
 _ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SG_SG_SJ_RT2_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES6_NS5_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiiEEbS9_RSE_.exit.i, %76, %58
-  %.01317.i = phi i64 [ %.128, %58 ], [ %.01320.i, %76 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES6_NS5_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiiEEbS9_RSE_.exit.i ]
+  %.01317.i = phi i64 [ %.01320.i, %76 ], [ %.128, %58 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES6_NS5_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiiEEbS9_RSE_.exit.i ]
   %81 = getelementptr inbounds i32, ptr %0, i64 %.01317.i
   store i32 %3, ptr %81, align 4, !tbaa !14
   ret void
@@ -45096,8 +45096,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i44.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i41.i, !llvm.loop !707
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %58, %.lr.ph.i.i41.i, %74, %36, %.lr.ph.i.i29.i, %52
-  %.sink72.i = phi i32 [ %.pre.i, %74 ], [ %16, %52 ], [ %.pre.i, %36 ], [ %33, %.lr.ph.i.i29.i ], [ %55, %.lr.ph.i.i41.i ], [ %16, %58 ]
-  %.sink71.i = phi ptr [ %10, %74 ], [ %11, %52 ], [ %10, %36 ], [ %12, %.lr.ph.i.i29.i ], [ %12, %.lr.ph.i.i41.i ], [ %11, %58 ]
+  %.sink72.i = phi i32 [ %55, %.lr.ph.i.i41.i ], [ %.pre.i, %36 ], [ %16, %52 ], [ %33, %.lr.ph.i.i29.i ], [ %.pre.i, %74 ], [ %16, %58 ]
+  %.sink71.i = phi ptr [ %12, %.lr.ph.i.i41.i ], [ %10, %36 ], [ %11, %52 ], [ %12, %.lr.ph.i.i29.i ], [ %10, %74 ], [ %11, %58 ]
   %77 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink72.i, ptr %0, align 4, !tbaa !14
   store i32 %77, ptr %.sink71.i, align 4, !tbaa !14
@@ -45187,7 +45187,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1EL
   br label %.lr.ph.i.i.lr.ph.i, !llvm.loop !710
 
 _ZSt21__unguarded_partitionIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEESB_SB_SB_SB_SG_.exit: ; preds = %.loopexit.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES6_NS5_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiSN_EEbS9_SE_.exit.loopexit24.us.i, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit.thread
-  %.us-phi50.i = phi ptr [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %80, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES6_NS5_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiSN_EEbS9_SE_.exit.loopexit24.us.i ], [ %.131.i, %.loopexit.i ]
+  %.us-phi50.i = phi ptr [ %80, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES6_NS5_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiSN_EEbS9_SE_.exit.loopexit24.us.i ], [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %.131.i, %.loopexit.i ]
   ret ptr %.us-phi50.i
 }
 
@@ -45335,7 +45335,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi
   br i1 %80, label %.lr.ph.i.i.i, label %_ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SG_SG_SJ_RT2_.exit, !llvm.loop !712
 
 _ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SG_SG_SJ_RT2_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES6_NS5_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiiEEbS9_RSE_.exit.i, %76, %58
-  %.01317.i = phi i64 [ %.128, %58 ], [ %.01320.i, %76 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES6_NS5_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiiEEbS9_RSE_.exit.i ]
+  %.01317.i = phi i64 [ %.01320.i, %76 ], [ %.128, %58 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES6_NS5_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiiEEbS9_RSE_.exit.i ]
   %81 = getelementptr inbounds i32, ptr %0, i64 %.01317.i
   store i32 %3, ptr %81, align 4, !tbaa !14
   ret void
@@ -45792,8 +45792,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i44.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i41.i, !llvm.loop !716
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %58, %.lr.ph.i.i41.i, %74, %36, %.lr.ph.i.i29.i, %52
-  %.sink72.i = phi i32 [ %.pre.i, %74 ], [ %16, %52 ], [ %.pre.i, %36 ], [ %33, %.lr.ph.i.i29.i ], [ %55, %.lr.ph.i.i41.i ], [ %16, %58 ]
-  %.sink71.i = phi ptr [ %10, %74 ], [ %11, %52 ], [ %10, %36 ], [ %12, %.lr.ph.i.i29.i ], [ %12, %.lr.ph.i.i41.i ], [ %11, %58 ]
+  %.sink72.i = phi i32 [ %55, %.lr.ph.i.i41.i ], [ %.pre.i, %36 ], [ %16, %52 ], [ %33, %.lr.ph.i.i29.i ], [ %.pre.i, %74 ], [ %16, %58 ]
+  %.sink71.i = phi ptr [ %12, %.lr.ph.i.i41.i ], [ %10, %36 ], [ %11, %52 ], [ %12, %.lr.ph.i.i29.i ], [ %10, %74 ], [ %11, %58 ]
   %77 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink72.i, ptr %0, align 4, !tbaa !14
   store i32 %77, ptr %.sink71.i, align 4, !tbaa !14
@@ -45883,7 +45883,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi
   br label %.lr.ph.i.i.lr.ph.i, !llvm.loop !719
 
 _ZSt21__unguarded_partitionIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEESB_SB_SB_SB_SG_.exit: ; preds = %.loopexit.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiSN_EEbS9_SE_.exit.loopexit24.us.i, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit.thread
-  %.us-phi50.i = phi ptr [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %80, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiSN_EEbS9_SE_.exit.loopexit24.us.i ], [ %.131.i, %.loopexit.i ]
+  %.us-phi50.i = phi ptr [ %80, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiSN_EEbS9_SE_.exit.loopexit24.us.i ], [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %.131.i, %.loopexit.i ]
   ret ptr %.us-phi50.i
 }
 
@@ -46031,7 +46031,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi0
   br i1 %80, label %.lr.ph.i.i.i, label %_ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SG_SG_SJ_RT2_.exit, !llvm.loop !721
 
 _ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SG_SG_SJ_RT2_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiiEEbS9_RSE_.exit.i, %76, %58
-  %.01317.i = phi i64 [ %.128, %58 ], [ %.01320.i, %76 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiiEEbS9_RSE_.exit.i ]
+  %.01317.i = phi i64 [ %.01320.i, %76 ], [ %.128, %58 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiiEEbS9_RSE_.exit.i ]
   %81 = getelementptr inbounds i32, ptr %0, i64 %.01317.i
   store i32 %3, ptr %81, align 4, !tbaa !14
   ret void
@@ -46488,8 +46488,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i44.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i41.i, !llvm.loop !725
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %58, %.lr.ph.i.i41.i, %74, %36, %.lr.ph.i.i29.i, %52
-  %.sink72.i = phi i32 [ %.pre.i, %74 ], [ %16, %52 ], [ %.pre.i, %36 ], [ %33, %.lr.ph.i.i29.i ], [ %55, %.lr.ph.i.i41.i ], [ %16, %58 ]
-  %.sink71.i = phi ptr [ %10, %74 ], [ %11, %52 ], [ %10, %36 ], [ %12, %.lr.ph.i.i29.i ], [ %12, %.lr.ph.i.i41.i ], [ %11, %58 ]
+  %.sink72.i = phi i32 [ %55, %.lr.ph.i.i41.i ], [ %.pre.i, %36 ], [ %16, %52 ], [ %33, %.lr.ph.i.i29.i ], [ %.pre.i, %74 ], [ %16, %58 ]
+  %.sink71.i = phi ptr [ %12, %.lr.ph.i.i41.i ], [ %10, %36 ], [ %11, %52 ], [ %12, %.lr.ph.i.i29.i ], [ %10, %74 ], [ %11, %58 ]
   %77 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink72.i, ptr %0, align 4, !tbaa !14
   store i32 %77, ptr %.sink71.i, align 4, !tbaa !14
@@ -46579,7 +46579,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi
   br label %.lr.ph.i.i.lr.ph.i, !llvm.loop !728
 
 _ZSt21__unguarded_partitionIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEESB_SB_SB_SB_SG_.exit: ; preds = %.loopexit.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiSN_EEbS9_SE_.exit.loopexit24.us.i, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit.thread
-  %.us-phi50.i = phi ptr [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %80, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiSN_EEbS9_SE_.exit.loopexit24.us.i ], [ %.131.i, %.loopexit.i ]
+  %.us-phi50.i = phi ptr [ %80, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiSN_EEbS9_SE_.exit.loopexit24.us.i ], [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %.131.i, %.loopexit.i ]
   ret ptr %.us-phi50.i
 }
 
@@ -46727,7 +46727,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi0
   br i1 %80, label %.lr.ph.i.i.i, label %_ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SG_SG_SJ_RT2_.exit, !llvm.loop !730
 
 _ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SG_SG_SJ_RT2_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiiEEbS9_RSE_.exit.i, %76, %58
-  %.01317.i = phi i64 [ %.128, %58 ], [ %.01320.i, %76 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiiEEbS9_RSE_.exit.i ]
+  %.01317.i = phi i64 [ %.01320.i, %76 ], [ %.128, %58 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiiEEbS9_RSE_.exit.i ]
   %81 = getelementptr inbounds i32, ptr %0, i64 %.01317.i
   store i32 %3, ptr %81, align 4, !tbaa !14
   ret void
@@ -47184,8 +47184,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i44.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi2ELi0ELin1ELi2EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i41.i, !llvm.loop !734
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi2ELi0ELin1ELi2EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %58, %.lr.ph.i.i41.i, %74, %36, %.lr.ph.i.i29.i, %52
-  %.sink72.i = phi i32 [ %.pre.i, %74 ], [ %16, %52 ], [ %.pre.i, %36 ], [ %33, %.lr.ph.i.i29.i ], [ %55, %.lr.ph.i.i41.i ], [ %16, %58 ]
-  %.sink71.i = phi ptr [ %10, %74 ], [ %11, %52 ], [ %10, %36 ], [ %12, %.lr.ph.i.i29.i ], [ %12, %.lr.ph.i.i41.i ], [ %11, %58 ]
+  %.sink72.i = phi i32 [ %55, %.lr.ph.i.i41.i ], [ %.pre.i, %36 ], [ %16, %52 ], [ %33, %.lr.ph.i.i29.i ], [ %.pre.i, %74 ], [ %16, %58 ]
+  %.sink71.i = phi ptr [ %12, %.lr.ph.i.i41.i ], [ %10, %36 ], [ %11, %52 ], [ %12, %.lr.ph.i.i29.i ], [ %10, %74 ], [ %11, %58 ]
   %77 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink72.i, ptr %0, align 4, !tbaa !14
   store i32 %77, ptr %.sink71.i, align 4, !tbaa !14
@@ -47275,7 +47275,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi2ELi
   br label %.lr.ph.i.i.lr.ph.i, !llvm.loop !737
 
 _ZSt21__unguarded_partitionIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi2ELi0ELin1ELi2EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEESB_SB_SB_SB_SG_.exit: ; preds = %.loopexit.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi2ELi0ELin1ELi2EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiSN_EEbS9_SE_.exit.loopexit24.us.i, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi2ELi0ELin1ELi2EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit.thread
-  %.us-phi50.i = phi ptr [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi2ELi0ELin1ELi2EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %80, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi2ELi0ELin1ELi2EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiSN_EEbS9_SE_.exit.loopexit24.us.i ], [ %.131.i, %.loopexit.i ]
+  %.us-phi50.i = phi ptr [ %80, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi2ELi0ELin1ELi2EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiSN_EEbS9_SE_.exit.loopexit24.us.i ], [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi2ELi0ELin1ELi2EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %.131.i, %.loopexit.i ]
   ret ptr %.us-phi50.i
 }
 
@@ -47423,7 +47423,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi2ELi0
   br i1 %80, label %.lr.ph.i.i.i, label %_ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi2ELi0ELin1ELi2EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SG_SG_SJ_RT2_.exit, !llvm.loop !739
 
 _ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi2ELi0ELin1ELi2EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SG_SG_SJ_RT2_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi2ELi0ELin1ELi2EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiiEEbS9_RSE_.exit.i, %76, %58
-  %.01317.i = phi i64 [ %.128, %58 ], [ %.01320.i, %76 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi2ELi0ELin1ELi2EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiiEEbS9_RSE_.exit.i ]
+  %.01317.i = phi i64 [ %.01320.i, %76 ], [ %.128, %58 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi2ELi0ELin1ELi2EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiiEEbS9_RSE_.exit.i ]
   %81 = getelementptr inbounds i32, ptr %0, i64 %.01317.i
   store i32 %3, ptr %81, align 4, !tbaa !14
   ret void
@@ -47880,8 +47880,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i44.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi2ELi0ELin1ELi2EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i41.i, !llvm.loop !743
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi2ELi0ELin1ELi2EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %58, %.lr.ph.i.i41.i, %74, %36, %.lr.ph.i.i29.i, %52
-  %.sink72.i = phi i32 [ %.pre.i, %74 ], [ %16, %52 ], [ %.pre.i, %36 ], [ %33, %.lr.ph.i.i29.i ], [ %55, %.lr.ph.i.i41.i ], [ %16, %58 ]
-  %.sink71.i = phi ptr [ %10, %74 ], [ %11, %52 ], [ %10, %36 ], [ %12, %.lr.ph.i.i29.i ], [ %12, %.lr.ph.i.i41.i ], [ %11, %58 ]
+  %.sink72.i = phi i32 [ %55, %.lr.ph.i.i41.i ], [ %.pre.i, %36 ], [ %16, %52 ], [ %33, %.lr.ph.i.i29.i ], [ %.pre.i, %74 ], [ %16, %58 ]
+  %.sink71.i = phi ptr [ %12, %.lr.ph.i.i41.i ], [ %10, %36 ], [ %11, %52 ], [ %12, %.lr.ph.i.i29.i ], [ %10, %74 ], [ %11, %58 ]
   %77 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink72.i, ptr %0, align 4, !tbaa !14
   store i32 %77, ptr %.sink71.i, align 4, !tbaa !14
@@ -47971,7 +47971,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi2ELi
   br label %.lr.ph.i.i.lr.ph.i, !llvm.loop !746
 
 _ZSt21__unguarded_partitionIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi2ELi0ELin1ELi2EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEESB_SB_SB_SB_SG_.exit: ; preds = %.loopexit.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi2ELi0ELin1ELi2EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiSN_EEbS9_SE_.exit.loopexit24.us.i, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi2ELi0ELin1ELi2EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit.thread
-  %.us-phi50.i = phi ptr [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi2ELi0ELin1ELi2EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %80, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi2ELi0ELin1ELi2EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiSN_EEbS9_SE_.exit.loopexit24.us.i ], [ %.131.i, %.loopexit.i ]
+  %.us-phi50.i = phi ptr [ %80, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi2ELi0ELin1ELi2EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiSN_EEbS9_SE_.exit.loopexit24.us.i ], [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi2ELi0ELin1ELi2EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %.131.i, %.loopexit.i ]
   ret ptr %.us-phi50.i
 }
 
@@ -48119,7 +48119,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi2ELi0
   br i1 %80, label %.lr.ph.i.i.i, label %_ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi2ELi0ELin1ELi2EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SG_SG_SJ_RT2_.exit, !llvm.loop !748
 
 _ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi2ELi0ELin1ELi2EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SG_SG_SJ_RT2_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi2ELi0ELin1ELi2EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiiEEbS9_RSE_.exit.i, %76, %58
-  %.01317.i = phi i64 [ %.128, %58 ], [ %.01320.i, %76 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi2ELi0ELin1ELi2EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiiEEbS9_RSE_.exit.i ]
+  %.01317.i = phi i64 [ %.01320.i, %76 ], [ %.128, %58 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi2ELi0ELin1ELi2EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiiEEbS9_RSE_.exit.i ]
   %81 = getelementptr inbounds i32, ptr %0, i64 %.01317.i
   store i32 %3, ptr %81, align 4, !tbaa !14
   ret void
@@ -48576,8 +48576,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i44.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi2ELi0ELin1ELi2EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i41.i, !llvm.loop !752
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi2ELi0ELin1ELi2EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %58, %.lr.ph.i.i41.i, %74, %36, %.lr.ph.i.i29.i, %52
-  %.sink72.i = phi i32 [ %.pre.i, %74 ], [ %16, %52 ], [ %.pre.i, %36 ], [ %33, %.lr.ph.i.i29.i ], [ %55, %.lr.ph.i.i41.i ], [ %16, %58 ]
-  %.sink71.i = phi ptr [ %10, %74 ], [ %11, %52 ], [ %10, %36 ], [ %12, %.lr.ph.i.i29.i ], [ %12, %.lr.ph.i.i41.i ], [ %11, %58 ]
+  %.sink72.i = phi i32 [ %55, %.lr.ph.i.i41.i ], [ %.pre.i, %36 ], [ %16, %52 ], [ %33, %.lr.ph.i.i29.i ], [ %.pre.i, %74 ], [ %16, %58 ]
+  %.sink71.i = phi ptr [ %12, %.lr.ph.i.i41.i ], [ %10, %36 ], [ %11, %52 ], [ %12, %.lr.ph.i.i29.i ], [ %10, %74 ], [ %11, %58 ]
   %77 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink72.i, ptr %0, align 4, !tbaa !14
   store i32 %77, ptr %.sink71.i, align 4, !tbaa !14
@@ -48667,7 +48667,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi2ELi
   br label %.lr.ph.i.i.lr.ph.i, !llvm.loop !755
 
 _ZSt21__unguarded_partitionIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi2ELi0ELin1ELi2EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEESB_SB_SB_SB_SG_.exit: ; preds = %.loopexit.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi2ELi0ELin1ELi2EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiSN_EEbS9_SE_.exit.loopexit24.us.i, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi2ELi0ELin1ELi2EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit.thread
-  %.us-phi50.i = phi ptr [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi2ELi0ELin1ELi2EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %80, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi2ELi0ELin1ELi2EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiSN_EEbS9_SE_.exit.loopexit24.us.i ], [ %.131.i, %.loopexit.i ]
+  %.us-phi50.i = phi ptr [ %80, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi2ELi0ELin1ELi2EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiSN_EEbS9_SE_.exit.loopexit24.us.i ], [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi2ELi0ELin1ELi2EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %.131.i, %.loopexit.i ]
   ret ptr %.us-phi50.i
 }
 
@@ -48815,7 +48815,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi2ELi0
   br i1 %80, label %.lr.ph.i.i.i, label %_ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi2ELi0ELin1ELi2EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SG_SG_SJ_RT2_.exit, !llvm.loop !757
 
 _ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi2ELi0ELin1ELi2EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SG_SG_SJ_RT2_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi2ELi0ELin1ELi2EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiiEEbS9_RSE_.exit.i, %76, %58
-  %.01317.i = phi i64 [ %.128, %58 ], [ %.01320.i, %76 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi2ELi0ELin1ELi2EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiiEEbS9_RSE_.exit.i ]
+  %.01317.i = phi i64 [ %.01320.i, %76 ], [ %.128, %58 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi2ELi0ELin1ELi2EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPiiEEbS9_RSE_.exit.i ]
   %81 = getelementptr inbounds i32, ptr %0, i64 %.01317.i
   store i32 %3, ptr %81, align 4, !tbaa !14
   ret void
@@ -49272,8 +49272,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i44.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi2ELi0ELin1ELi2EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i41.i, !llvm.loop !761
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi2ELi0ELin1ELi2EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %58, %.lr.ph.i.i41.i, %74, %36, %.lr.ph.i.i29.i, %52
-  %.sink72.i = phi i32 [ %.pre.i, %74 ], [ %16, %52 ], [ %.pre.i, %36 ], [ %33, %.lr.ph.i.i29.i ], [ %55, %.lr.ph.i.i41.i ], [ %16, %58 ]
-  %.sink71.i = phi ptr [ %10, %74 ], [ %11, %52 ], [ %10, %36 ], [ %12, %.lr.ph.i.i29.i ], [ %12, %.lr.ph.i.i41.i ], [ %11, %58 ]
+  %.sink72.i = phi i32 [ %55, %.lr.ph.i.i41.i ], [ %.pre.i, %36 ], [ %16, %52 ], [ %33, %.lr.ph.i.i29.i ], [ %.pre.i, %74 ], [ %16, %58 ]
+  %.sink71.i = phi ptr [ %12, %.lr.ph.i.i41.i ], [ %10, %36 ], [ %11, %52 ], [ %12, %.lr.ph.i.i29.i ], [ %10, %74 ], [ %11, %58 ]
   %77 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink72.i, ptr %0, align 4, !tbaa !14
   store i32 %77, ptr %.sink71.i, align 4, !tbaa !14
@@ -49363,7 +49363,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi2ELi
   br label %.lr.ph.i.i.lr.ph.i, !llvm.loop !764
 
 _ZSt21__unguarded_partitionIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi2ELi0ELin1ELi2EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEESB_SB_SB_SB_SG_.exit: ; preds = %.loopexit.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi2ELi0ELin1ELi2EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiSN_EEbS9_SE_.exit.loopexit24.us.i, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi2ELi0ELin1ELi2EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit.thread
-  %.us-phi50.i = phi ptr [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi2ELi0ELin1ELi2EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %80, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi2ELi0ELin1ELi2EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiSN_EEbS9_SE_.exit.loopexit24.us.i ], [ %.131.i, %.loopexit.i ]
+  %.us-phi50.i = phi ptr [ %80, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi2ELi0ELin1ELi2EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiSN_EEbS9_SE_.exit.loopexit24.us.i ], [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi2ELi0ELin1ELi2EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %.131.i, %.loopexit.i ]
   ret ptr %.us-phi50.i
 }
 
@@ -49511,7 +49511,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi2ELi0
   br i1 %80, label %.lr.ph.i.i.i, label %_ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi2ELi0ELin1ELi2EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SG_SG_SJ_RT2_.exit, !llvm.loop !766
 
 _ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi2ELi0ELin1ELi2EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SG_SG_SJ_RT2_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi2ELi0ELin1ELi2EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiiEEbS9_RSE_.exit.i, %76, %58
-  %.01317.i = phi i64 [ %.128, %58 ], [ %.01320.i, %76 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi2ELi0ELin1ELi2EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiiEEbS9_RSE_.exit.i ]
+  %.01317.i = phi i64 [ %.01320.i, %76 ], [ %.128, %58 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi2ELi0ELin1ELi2EEES6_NS5_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPiiEEbS9_RSE_.exit.i ]
   %81 = getelementptr inbounds i32, ptr %0, i64 %.01317.i
   store i32 %3, ptr %81, align 4, !tbaa !14
   ret void
@@ -49968,8 +49968,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i44.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES8_S8_EEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSE_IT1_EEEUlmmE_EEEvSA_SA_SA_SA_SF_.exit, label %.lr.ph.i.i41.i, !llvm.loop !770
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES8_S8_EEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSE_IT1_EEEUlmmE_EEEvSA_SA_SA_SA_SF_.exit: ; preds = %58, %.lr.ph.i.i41.i, %74, %36, %.lr.ph.i.i29.i, %52
-  %.sink72.i = phi i32 [ %.pre.i, %74 ], [ %16, %52 ], [ %.pre.i, %36 ], [ %33, %.lr.ph.i.i29.i ], [ %55, %.lr.ph.i.i41.i ], [ %16, %58 ]
-  %.sink71.i = phi ptr [ %10, %74 ], [ %11, %52 ], [ %10, %36 ], [ %12, %.lr.ph.i.i29.i ], [ %12, %.lr.ph.i.i41.i ], [ %11, %58 ]
+  %.sink72.i = phi i32 [ %55, %.lr.ph.i.i41.i ], [ %.pre.i, %36 ], [ %16, %52 ], [ %33, %.lr.ph.i.i29.i ], [ %.pre.i, %74 ], [ %16, %58 ]
+  %.sink71.i = phi ptr [ %12, %.lr.ph.i.i41.i ], [ %10, %36 ], [ %11, %52 ], [ %12, %.lr.ph.i.i29.i ], [ %10, %74 ], [ %11, %58 ]
   %77 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink72.i, ptr %0, align 4, !tbaa !14
   store i32 %77, ptr %.sink71.i, align 4, !tbaa !14
@@ -50059,7 +50059,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1EL
   br label %.lr.ph.i.i.lr.ph.i, !llvm.loop !773
 
 _ZSt21__unguarded_partitionIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES8_S8_EEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSE_IT1_EEEUlmmE_EEESA_SA_SA_SA_SF_.exit: ; preds = %.loopexit.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES6_S6_EEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSC_IT1_EEEUlmmE_EclIPiSM_EEbS8_SD_.exit.loopexit24.us.i, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES8_S8_EEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSE_IT1_EEEUlmmE_EEEvSA_SA_SA_SA_SF_.exit.thread
-  %.us-phi50.i = phi ptr [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES8_S8_EEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSE_IT1_EEEUlmmE_EEEvSA_SA_SA_SA_SF_.exit.thread ], [ %80, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES6_S6_EEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSC_IT1_EEEUlmmE_EclIPiSM_EEbS8_SD_.exit.loopexit24.us.i ], [ %.131.i, %.loopexit.i ]
+  %.us-phi50.i = phi ptr [ %80, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES6_S6_EEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSC_IT1_EEEUlmmE_EclIPiSM_EEbS8_SD_.exit.loopexit24.us.i ], [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES8_S8_EEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSE_IT1_EEEUlmmE_EEEvSA_SA_SA_SA_SF_.exit.thread ], [ %.131.i, %.loopexit.i ]
   ret ptr %.us-phi50.i
 }
 
@@ -50207,7 +50207,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi
   br i1 %80, label %.lr.ph.i.i.i, label %_ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES8_S8_EEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSE_IT1_EEEUlmmE_EEEvSA_SF_SF_SI_RT2_.exit, !llvm.loop !775
 
 _ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES8_S8_EEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSE_IT1_EEEUlmmE_EEEvSA_SF_SF_SI_RT2_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES6_S6_EEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSC_IT1_EEEUlmmE_EclIPiiEEbS8_RSD_.exit.i, %76, %58
-  %.01317.i = phi i64 [ %.128, %58 ], [ %.01320.i, %76 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES6_S6_EEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSC_IT1_EEEUlmmE_EclIPiiEEbS8_RSD_.exit.i ]
+  %.01317.i = phi i64 [ %.01320.i, %76 ], [ %.128, %58 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES6_S6_EEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSC_IT1_EEEUlmmE_EclIPiiEEbS8_RSD_.exit.i ]
   %81 = getelementptr inbounds i32, ptr %0, i64 %.01317.i
   store i32 %3, ptr %81, align 4, !tbaa !14
   ret void
@@ -50664,8 +50664,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i44.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES8_S8_EEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSE_IT1_EEEUlmmE0_EEEvSA_SA_SA_SA_SF_.exit, label %.lr.ph.i.i41.i, !llvm.loop !779
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES8_S8_EEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSE_IT1_EEEUlmmE0_EEEvSA_SA_SA_SA_SF_.exit: ; preds = %58, %.lr.ph.i.i41.i, %74, %36, %.lr.ph.i.i29.i, %52
-  %.sink72.i = phi i32 [ %.pre.i, %74 ], [ %16, %52 ], [ %.pre.i, %36 ], [ %33, %.lr.ph.i.i29.i ], [ %55, %.lr.ph.i.i41.i ], [ %16, %58 ]
-  %.sink71.i = phi ptr [ %10, %74 ], [ %11, %52 ], [ %10, %36 ], [ %12, %.lr.ph.i.i29.i ], [ %12, %.lr.ph.i.i41.i ], [ %11, %58 ]
+  %.sink72.i = phi i32 [ %55, %.lr.ph.i.i41.i ], [ %.pre.i, %36 ], [ %16, %52 ], [ %33, %.lr.ph.i.i29.i ], [ %.pre.i, %74 ], [ %16, %58 ]
+  %.sink71.i = phi ptr [ %12, %.lr.ph.i.i41.i ], [ %10, %36 ], [ %11, %52 ], [ %12, %.lr.ph.i.i29.i ], [ %10, %74 ], [ %11, %58 ]
   %77 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink72.i, ptr %0, align 4, !tbaa !14
   store i32 %77, ptr %.sink71.i, align 4, !tbaa !14
@@ -50755,7 +50755,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1EL
   br label %.lr.ph.i.i.lr.ph.i, !llvm.loop !782
 
 _ZSt21__unguarded_partitionIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES8_S8_EEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSE_IT1_EEEUlmmE0_EEESA_SA_SA_SA_SF_.exit: ; preds = %.loopexit.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES6_S6_EEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSC_IT1_EEEUlmmE0_EclIPiSM_EEbS8_SD_.exit.loopexit24.us.i, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES8_S8_EEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSE_IT1_EEEUlmmE0_EEEvSA_SA_SA_SA_SF_.exit.thread
-  %.us-phi50.i = phi ptr [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES8_S8_EEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSE_IT1_EEEUlmmE0_EEEvSA_SA_SA_SA_SF_.exit.thread ], [ %80, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES6_S6_EEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSC_IT1_EEEUlmmE0_EclIPiSM_EEbS8_SD_.exit.loopexit24.us.i ], [ %.131.i, %.loopexit.i ]
+  %.us-phi50.i = phi ptr [ %80, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES6_S6_EEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSC_IT1_EEEUlmmE0_EclIPiSM_EEbS8_SD_.exit.loopexit24.us.i ], [ %11, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES8_S8_EEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSE_IT1_EEEUlmmE0_EEEvSA_SA_SA_SA_SF_.exit.thread ], [ %.131.i, %.loopexit.i ]
   ret ptr %.us-phi50.i
 }
 
@@ -50903,7 +50903,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi
   br i1 %80, label %.lr.ph.i.i.i, label %_ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES8_S8_EEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSE_IT1_EEEUlmmE0_EEEvSA_SF_SF_SI_RT2_.exit, !llvm.loop !784
 
 _ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES8_S8_EEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSE_IT1_EEEUlmmE0_EEEvSA_SF_SF_SI_RT2_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES6_S6_EEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSC_IT1_EEEUlmmE0_EclIPiiEEbS8_RSD_.exit.i, %76, %58
-  %.01317.i = phi i64 [ %.128, %58 ], [ %.01320.i, %76 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES6_S6_EEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSC_IT1_EEEUlmmE0_EclIPiiEEbS8_RSD_.exit.i ]
+  %.01317.i = phi i64 [ %.01320.i, %76 ], [ %.128, %58 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES6_S6_EEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSC_IT1_EEEUlmmE0_EclIPiiEEbS8_RSD_.exit.i ]
   %81 = getelementptr inbounds i32, ptr %0, i64 %.01317.i
   store i32 %3, ptr %81, align 4, !tbaa !14
   ret void
@@ -51352,8 +51352,8 @@ _ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i44.i, label %_ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i41.i, !llvm.loop !788
 
 _ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %54, %.lr.ph.i.i41.i, %70, %33, %.lr.ph.i.i29.i, %49
-  %.sink72.i = phi i64 [ %.pre.i, %70 ], [ %15, %49 ], [ %.pre.i, %33 ], [ %31, %.lr.ph.i.i29.i ], [ %52, %.lr.ph.i.i41.i ], [ %15, %54 ]
-  %.sink71.i = phi ptr [ %10, %70 ], [ %11, %49 ], [ %10, %33 ], [ %12, %.lr.ph.i.i29.i ], [ %12, %.lr.ph.i.i41.i ], [ %11, %54 ]
+  %.sink72.i = phi i64 [ %52, %.lr.ph.i.i41.i ], [ %.pre.i, %33 ], [ %15, %49 ], [ %31, %.lr.ph.i.i29.i ], [ %.pre.i, %70 ], [ %15, %54 ]
+  %.sink71.i = phi ptr [ %12, %.lr.ph.i.i41.i ], [ %10, %33 ], [ %11, %49 ], [ %12, %.lr.ph.i.i29.i ], [ %10, %70 ], [ %11, %54 ]
   %73 = load i64, ptr %0, align 8, !tbaa !76
   store i64 %.sink72.i, ptr %0, align 8, !tbaa !76
   store i64 %73, ptr %.sink71.i, align 8, !tbaa !76
@@ -51441,7 +51441,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1EL
   br label %.lr.ph.i.i.lr.ph.i, !llvm.loop !791
 
 _ZSt21__unguarded_partitionIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEESB_SB_SB_SB_SG_.exit: ; preds = %.loopexit.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES6_NS5_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPlSN_EEbS9_SE_.exit.loopexit24.us.i, %_ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit.thread
-  %.us-phi50.i = phi ptr [ %11, %_ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %76, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES6_NS5_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPlSN_EEbS9_SE_.exit.loopexit24.us.i ], [ %.131.i, %.loopexit.i ]
+  %.us-phi50.i = phi ptr [ %76, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES6_NS5_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPlSN_EEbS9_SE_.exit.loopexit24.us.i ], [ %11, %_ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %.131.i, %.loopexit.i ]
   ret ptr %.us-phi50.i
 }
 
@@ -51587,7 +51587,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi
   br i1 %76, label %.lr.ph.i.i.i, label %_ZSt11__push_heapIPlllN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SG_SG_SJ_RT2_.exit, !llvm.loop !793
 
 _ZSt11__push_heapIPlllN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SG_SG_SJ_RT2_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES6_NS5_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPllEEbS9_RSE_.exit.i, %72, %.lr.ph.i, %56
-  %.01317.i = phi i64 [ %.128, %56 ], [ %.128, %.lr.ph.i ], [ %.01320.i, %72 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES6_NS5_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPllEEbS9_RSE_.exit.i ]
+  %.01317.i = phi i64 [ %.128, %.lr.ph.i ], [ %.128, %56 ], [ %.01320.i, %72 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES6_NS5_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE_EclIPllEEbS9_RSE_.exit.i ]
   %77 = getelementptr inbounds i64, ptr %0, i64 %.01317.i
   store i64 %3, ptr %77, align 8, !tbaa !76
   ret void
@@ -52036,8 +52036,8 @@ _ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i44.i, label %_ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i41.i, !llvm.loop !797
 
 _ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %54, %.lr.ph.i.i41.i, %70, %33, %.lr.ph.i.i29.i, %49
-  %.sink72.i = phi i64 [ %.pre.i, %70 ], [ %15, %49 ], [ %.pre.i, %33 ], [ %31, %.lr.ph.i.i29.i ], [ %52, %.lr.ph.i.i41.i ], [ %15, %54 ]
-  %.sink71.i = phi ptr [ %10, %70 ], [ %11, %49 ], [ %10, %33 ], [ %12, %.lr.ph.i.i29.i ], [ %12, %.lr.ph.i.i41.i ], [ %11, %54 ]
+  %.sink72.i = phi i64 [ %52, %.lr.ph.i.i41.i ], [ %.pre.i, %33 ], [ %15, %49 ], [ %31, %.lr.ph.i.i29.i ], [ %.pre.i, %70 ], [ %15, %54 ]
+  %.sink71.i = phi ptr [ %12, %.lr.ph.i.i41.i ], [ %10, %33 ], [ %11, %49 ], [ %12, %.lr.ph.i.i29.i ], [ %10, %70 ], [ %11, %54 ]
   %73 = load i64, ptr %0, align 8, !tbaa !76
   store i64 %.sink72.i, ptr %0, align 8, !tbaa !76
   store i64 %73, ptr %.sink71.i, align 8, !tbaa !76
@@ -52125,7 +52125,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1EL
   br label %.lr.ph.i.i.lr.ph.i, !llvm.loop !800
 
 _ZSt21__unguarded_partitionIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEESB_SB_SB_SB_SG_.exit: ; preds = %.loopexit.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES6_NS5_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPlSN_EEbS9_SE_.exit.loopexit24.us.i, %_ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit.thread
-  %.us-phi50.i = phi ptr [ %11, %_ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %76, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES6_NS5_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPlSN_EEbS9_SE_.exit.loopexit24.us.i ], [ %.131.i, %.loopexit.i ]
+  %.us-phi50.i = phi ptr [ %76, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES6_NS5_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPlSN_EEbS9_SE_.exit.loopexit24.us.i ], [ %11, %_ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit.thread ], [ %.131.i, %.loopexit.i ]
   ret ptr %.us-phi50.i
 }
 
@@ -52271,7 +52271,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi
   br i1 %76, label %.lr.ph.i.i.i, label %_ZSt11__push_heapIPlllN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SG_SG_SJ_RT2_.exit, !llvm.loop !802
 
 _ZSt11__push_heapIPlllN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SG_SG_SJ_RT2_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES6_NS5_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPllEEbS9_RSE_.exit.i, %72, %.lr.ph.i, %56
-  %.01317.i = phi i64 [ %.128, %56 ], [ %.128, %.lr.ph.i ], [ %.01320.i, %72 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES6_NS5_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPllEEbS9_RSE_.exit.i ]
+  %.01317.i = phi i64 [ %.128, %.lr.ph.i ], [ %.128, %56 ], [ %.01320.i, %72 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES6_NS5_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSD_IT1_EEEUlmmE0_EclIPllEEbS9_RSE_.exit.i ]
   %77 = getelementptr inbounds i64, ptr %0, i64 %.01317.i
   store i64 %3, ptr %77, align 8, !tbaa !76
   ret void

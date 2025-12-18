@@ -125,13 +125,13 @@ define dso_local void @acpi_processor_throttling_init() local_unnamed_addr #0 al
   %30 = shl nsw i64 -1, %28
   %31 = and i64 %29, %30
   %32 = icmp eq i64 %31, 0
-  br i1 %32, label %.thread19.split.us.critedge, label %33
+  br i1 %32, label %.thread19.split.us, label %33
 
 33:                                               ; preds = %.thread
   %34 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %31) #9, !srcloc !5
   %35 = trunc i64 %34 to i32
   %36 = icmp ult i32 %35, 64
-  br i1 %36, label %37, label %.thread19.split.us.critedge
+  br i1 %36, label %37, label %.thread19.split.us
 
 37:                                               ; preds = %33
   %38 = and i64 %34, 63
@@ -212,16 +212,16 @@ define dso_local void @acpi_processor_throttling_init() local_unnamed_addr #0 al
   %88 = icmp eq i64 %87, %57
   br i1 %88, label %89, label %.thread19.split.preheader
 
+.thread19.split.preheader:                        ; preds = %20, %89, %85
+  %.ph = phi i64 [ %60, %89 ], [ %60, %85 ], [ %2, %20 ]
+  br label %.thread19.split
+
 89:                                               ; preds = %85
   %90 = load i64, ptr %58, align 1
   %91 = getelementptr inbounds nuw i8, ptr %78, i64 720
   %92 = load i64, ptr %91, align 1
   %93 = icmp eq i64 %90, %92
   br i1 %93, label %94, label %.thread19.split.preheader
-
-.thread19.split.preheader:                        ; preds = %20, %85, %89
-  %.ph = phi i64 [ %60, %85 ], [ %60, %89 ], [ %2, %20 ]
-  br label %.thread19.split
 
 94:                                               ; preds = %89
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1, i64 %73) #10, !srcloc !11
@@ -286,18 +286,18 @@ define dso_local void @acpi_processor_throttling_init() local_unnamed_addr #0 al
   %131 = add nuw nsw i64 %34, 1
   %132 = and i64 %131, 127
   %133 = icmp samesign ugt i64 %132, 63
-  br i1 %133, label %.thread25..thread19.split.us.critedge_crit_edge, label %.thread, !prof !6, !llvm.loop !14
+  br i1 %133, label %.thread25..thread19.split.us_crit_edge, label %.thread, !prof !6, !llvm.loop !14
 
-.thread25..thread19.split.us.critedge_crit_edge:  ; preds = %.thread25
+.thread25..thread19.split.us_crit_edge:           ; preds = %.thread25
   %.pre35 = load i64, ptr @__cpu_possible_mask, align 8
-  br label %.thread19.split.us.critedge, !llvm.loop !14
+  br label %.thread19.split.us, !llvm.loop !14
 
-.thread19.split.us.critedge:                      ; preds = %33, %.thread, %.thread25..thread19.split.us.critedge_crit_edge
-  %134 = phi i64 [ %.pre35, %.thread25..thread19.split.us.critedge_crit_edge ], [ %29, %.thread ], [ %29, %33 ]
+.thread19.split.us:                               ; preds = %33, %.thread, %.thread25..thread19.split.us_crit_edge
+  %134 = phi i64 [ %.pre35, %.thread25..thread19.split.us_crit_edge ], [ %29, %.thread ], [ %29, %33 ]
   br label %135
 
-135:                                              ; preds = %144, %.thread19.split.us.critedge
-  %136 = phi i64 [ 0, %.thread19.split.us.critedge ], [ %146, %144 ]
+135:                                              ; preds = %144, %.thread19.split.us
+  %136 = phi i64 [ 0, %.thread19.split.us ], [ %146, %144 ]
   %137 = shl nsw i64 -1, %136
   %138 = and i64 %134, %137
   %139 = icmp eq i64 %138, 0
@@ -503,7 +503,7 @@ define dso_local void @acpi_processor_reevaluate_tstate(ptr noundef %0, i1 nound
   br label %44
 
 44:                                               ; preds = %41, %37
-  %45 = phi i32 [ %40, %37 ], [ %43, %41 ]
+  %45 = phi i32 [ %43, %41 ], [ %40, %37 ]
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %47, label %.thread
 

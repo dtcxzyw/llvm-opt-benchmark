@@ -1566,7 +1566,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %59, %61, %62
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %96
 
-_ZNK5clang4Decl7getAttrINS_24ExternalSourceSymbolAttrEEEPT_v.exit.thread: ; preds = %25, %14, %_ZN5clangneENS_22specific_attr_iteratorINS_24ExternalSourceSymbolAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, %6, %_ZNK5clang4Decl7getAttrINS_24ExternalSourceSymbolAttrEEEPT_v.exit
+_ZNK5clang4Decl7getAttrINS_24ExternalSourceSymbolAttrEEEPT_v.exit.thread: ; preds = %25, %_ZN5clangneENS_22specific_attr_iteratorINS_24ExternalSourceSymbolAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, %14, %6, %_ZNK5clang4Decl7getAttrINS_24ExternalSourceSymbolAttrEEEPT_v.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %65 = tail call noundef nonnull align 8 dereferenceable(23216) ptr @_ZNK5clang4Decl13getASTContextEv(ptr noundef nonnull align 8 dereferenceable(33) %0) #16
   store ptr %1, ptr %5, align 8, !tbaa !394
@@ -25480,7 +25480,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %12747, %12750, %127
   br label %_ZN4llvm11raw_ostreamlsEc.exit196
 
 _ZN4llvm11raw_ostreamlsEc.exit3188:               ; preds = %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i3227, %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i, %_ZN4llvm5APIntD2Ev.exit, %_ZN4llvm11raw_ostreamlsEc.exit3331, %.critedge185, %12535, %12537, %12518, %12520, %_ZN4llvm11raw_ostreamlsEc.exit3221, %_ZN4llvm11raw_ostreamlsEPKc.exit3212, %12380, %12382, %12363, %12365, %12703
-  %.1.i31933396.sink = phi ptr [ %12681, %.critedge185 ], [ %.1.i31933396, %12363 ], [ %.1.i32013408, %12380 ], [ %.1.i32583456, %12518 ], [ %.1.i32663470, %12535 ], [ %12686, %12703 ], [ %.1.i31933396, %12365 ], [ %.1.i32013408, %12382 ], [ %.1.i32093422, %_ZN4llvm11raw_ostreamlsEPKc.exit3212 ], [ %.1.i32183436, %_ZN4llvm11raw_ostreamlsEc.exit3221 ], [ %.1.i32583456, %12520 ], [ %.1.i32663470, %12537 ], [ %12687, %_ZN4llvm11raw_ostreamlsEc.exit3331 ], [ %12687, %_ZN4llvm5APIntD2Ev.exit ], [ %.1.i.i, %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i ], [ %.1.i.i3228, %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i3227 ]
+  %.1.i31933396.sink = phi ptr [ %12681, %.critedge185 ], [ %.1.i31933396, %12363 ], [ %.1.i32013408, %12380 ], [ %12687, %_ZN4llvm5APIntD2Ev.exit ], [ %.1.i.i, %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i ], [ %.1.i32583456, %12518 ], [ %.1.i32663470, %12535 ], [ %12686, %12703 ], [ %.1.i31933396, %12365 ], [ %.1.i32013408, %12382 ], [ %.1.i32093422, %_ZN4llvm11raw_ostreamlsEPKc.exit3212 ], [ %.1.i32183436, %_ZN4llvm11raw_ostreamlsEc.exit3221 ], [ %.1.i32583456, %12520 ], [ %.1.i32663470, %12537 ], [ %12687, %_ZN4llvm11raw_ostreamlsEc.exit3331 ], [ %.1.i.i3228, %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i3227 ]
   %12759 = getelementptr inbounds nuw i8, ptr %.1.i31933396.sink, i64 32
   %.sroa.03360.2 = load i64, ptr %12759, align 16, !tbaa !16
   br label %12

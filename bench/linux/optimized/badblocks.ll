@@ -139,7 +139,7 @@ define dso_local range(i32 -1, 2) i32 @badblocks_check(ptr noundef %0, i64 nound
   br i1 %70, label %71, label %50, !llvm.loop !14
 
 71:                                               ; preds = %65, %63
-  %72 = phi i32 [ %52, %65 ], [ %49, %63 ]
+  %72 = phi i32 [ %49, %63 ], [ %52, %65 ]
   %73 = icmp sgt i32 %72, -1
   br i1 %73, label %prev_badblocks.exit.thread7, label %.thread.i
 
@@ -193,7 +193,7 @@ define dso_local range(i32 -1, 2) i32 @badblocks_check(ptr noundef %0, i64 nound
   br i1 %110, label %prev_badblocks.exit.thread, label %prev_badblocks.exit
 
 prev_badblocks.exit:                              ; preds = %91, %104, %79
-  %111 = phi i32 [ %80, %79 ], [ %87, %104 ], [ %93, %91 ]
+  %111 = phi i32 [ %87, %104 ], [ %80, %79 ], [ %93, %91 ]
   %112 = icmp sgt i32 %111, -1
   br i1 %112, label %prev_badblocks.exit.thread7, label %prev_badblocks.exit.thread
 
@@ -1928,7 +1928,7 @@ define internal fastcc i32 @prev_badblocks(ptr noundef readonly captures(none) %
   br i1 %35, label %36, label %15, !llvm.loop !14
 
 36:                                               ; preds = %30, %28
-  %37 = phi i32 [ %17, %30 ], [ %14, %28 ]
+  %37 = phi i32 [ %14, %28 ], [ %17, %30 ]
   %38 = icmp sgt i32 %37, -1
   br i1 %38, label %.loopexit, label %.thread
 

@@ -1644,7 +1644,7 @@ _ZN2cv9videostabL17segmentsIntersectENS_6Point_IfEES2_S2_S2_.exit.backedge.i: ; 
   br i1 %exitcond59.i, label %_ZN2cv9videostabL12isRectInsideEPKNS_6Point_IfEES4_.exit, label %_ZN2cv9videostabL17segmentsIntersectENS_6Point_IfEES2_S2_S2_.exit.preheader.i, !llvm.loop !113
 
 _ZN2cv9videostabL12isRectInsideEPKNS_6Point_IfEES4_.exit: ; preds = %39, %101, %76
-  %.1.i = phi i1 [ true, %101 ], [ false, %76 ], [ false, %39 ]
+  %.1.i = phi i1 [ false, %76 ], [ true, %101 ], [ false, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.1.i
@@ -1995,8 +1995,8 @@ _ZN2cv9videostabL17segmentsIntersectENS_6Point_IfEES2_S2_S2_.exit.backedge.i: ; 
   br i1 %exitcond59.i, label %_ZN2cv9videostabL12isRectInsideEPKNS_6Point_IfEES4_.exit, label %_ZN2cv9videostabL17segmentsIntersectENS_6Point_IfEES2_S2_S2_.exit.preheader.i, !llvm.loop !113
 
 _ZN2cv9videostabL12isRectInsideEPKNS_6Point_IfEES4_.exit: ; preds = %99, %161, %136
-  %162 = phi float [ %.05184, %161 ], [ %87, %136 ], [ %87, %99 ]
-  %163 = phi float [ %87, %161 ], [ %.04985, %136 ], [ %.04985, %99 ]
+  %162 = phi float [ %87, %136 ], [ %.05184, %161 ], [ %87, %99 ]
+  %163 = phi float [ %.04985, %136 ], [ %87, %161 ], [ %.04985, %99 ]
   %164 = fsub float %163, %162
   %165 = fcmp ogt float %164, 0x3F50624DE0000000
   br i1 %165, label %.preheader, label %166, !llvm.loop !116

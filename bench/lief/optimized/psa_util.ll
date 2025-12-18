@@ -307,7 +307,7 @@ define hidden range(i32 -2147483648, 1) i32 @mbedtls_ecdsa_raw_to_der(i64 nounde
   %45 = icmp slt i32 %44, 0
   br i1 %45, label %convert_raw_to_der_single_int.exit.thread, label %convert_raw_to_der_single_int.exit
 
-convert_raw_to_der_single_int.exit.thread:        ; preds = %23, %27, %35, %39, %43
+convert_raw_to_der_single_int.exit.thread:        ; preds = %23, %43, %27, %35, %39
   %.023.i.ph = phi i32 [ %44, %43 ], [ %41, %39 ], [ -108, %35 ], [ -108, %27 ], [ -104, %23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %102
@@ -381,7 +381,7 @@ convert_raw_to_der_single_int.exit:               ; preds = %43
   %82 = icmp slt i32 %81, 0
   br i1 %82, label %convert_raw_to_der_single_int.exit52.thread, label %convert_raw_to_der_single_int.exit52
 
-convert_raw_to_der_single_int.exit52.thread:      ; preds = %56, %60, %69, %76, %80
+convert_raw_to_der_single_int.exit52.thread:      ; preds = %56, %80, %60, %69, %76
   %.023.i51.ph = phi i32 [ %81, %80 ], [ %78, %76 ], [ -108, %69 ], [ -108, %60 ], [ -104, %56 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %102

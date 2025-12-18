@@ -320,7 +320,7 @@ define void @_ZN6icu_7720UnicodeSetStringSpanC2ERKNS_10UnicodeSetERKNS_7UVectorE
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %140, %61, %92
-  %.0166.lcssa = phi i8 [ %.1167.us.us, %61 ], [ %.1167.us, %92 ], [ %.1167, %140 ]
+  %.0166.lcssa = phi i8 [ %.1167.us, %92 ], [ %.1167.us.us, %61 ], [ %.1167, %140 ]
   %.not185 = icmp eq i8 %.0166.lcssa, 0
   br i1 %.not185, label %.sink.split299, label %142
 
@@ -822,7 +822,7 @@ _ZN6icu_7720UnicodeSetStringSpan15addToSpanNotSetEi.exit243.sink.split: ; preds 
   br label %_ZN6icu_7720UnicodeSetStringSpan15addToSpanNotSetEi.exit243
 
 _ZN6icu_7720UnicodeSetStringSpan15addToSpanNotSetEi.exit243: ; preds = %_ZN6icu_7720UnicodeSetStringSpan15addToSpanNotSetEi.exit243.sink.split, %.noexc241, %.noexc240, %338, %_ZN6icu_7720UnicodeSetStringSpan15addToSpanNotSetEi.exit, %279
-  %.2174 = phi i32 [ %.1173, %279 ], [ %.1173, %_ZN6icu_7720UnicodeSetStringSpan15addToSpanNotSetEi.exit ], [ %.1173, %338 ], [ %.1173, %.noexc240 ], [ %.1173, %.noexc241 ], [ %.3175, %_ZN6icu_7720UnicodeSetStringSpan15addToSpanNotSetEi.exit243.sink.split ]
+  %.2174 = phi i32 [ %.1173, %.noexc241 ], [ %.1173, %279 ], [ %.1173, %.noexc240 ], [ %.1173, %_ZN6icu_7720UnicodeSetStringSpan15addToSpanNotSetEi.exit ], [ %.1173, %338 ], [ %.3175, %_ZN6icu_7720UnicodeSetStringSpan15addToSpanNotSetEi.exit243.sink.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond271.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond271.not, label %._crit_edge265, label %192, !llvm.loop !41
@@ -1358,7 +1358,7 @@ _ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit:        ; preds = %130
   %.not253 = icmp eq i16 %137, -9216
   br i1 %.not253, label %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit.thread, label %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit.thread226
 
-_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit.thread226: ; preds = %128, %130, %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit
+_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit.thread226: ; preds = %130, %128, %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit
   %138 = icmp eq i32 %.0156286, %.0166
   br i1 %138, label %.thread235, label %139
 
@@ -1500,7 +1500,7 @@ _ZN6icu_77L9matches16EPKDsS1_i.exit.i214:         ; preds = %189
 
 204:                                              ; preds = %200, %195, %_ZN6icu_77L9matches16EPKDsS1_i.exit.i214
   %205 = icmp slt i64 %184, %invariant.op
-  br i1 %205, label %206, label %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit215.thread233.loopexit.split.loop.exit
+  br i1 %205, label %206, label %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit215.thread233.loopexit.split.loop.exit339
 
 206:                                              ; preds = %204
   %207 = getelementptr i16, ptr %185, i64 %176
@@ -1508,7 +1508,7 @@ _ZN6icu_77L9matches16EPKDsS1_i.exit.i214:         ; preds = %189
   %209 = load i16, ptr %208, align 2, !tbaa !39
   %210 = and i16 %209, -1024
   %211 = icmp eq i16 %210, -10240
-  br i1 %211, label %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit215, label %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit215.thread233.loopexit.split.loop.exit339
+  br i1 %211, label %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit215, label %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit215.thread233.loopexit.split.loop.exit
 
 _ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit215:     ; preds = %206
   %212 = load i16, ptr %207, align 2, !tbaa !39
@@ -1524,11 +1524,11 @@ _ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit215.thread: ; preds = %186, %200, %.lr.
   %or.cond199 = or i1 %215, %216
   br i1 %or.cond199, label %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit215.thread233, label %.lr.ph, !llvm.loop !50
 
-_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit215.thread233.loopexit.split.loop.exit: ; preds = %204
+_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit215.thread233.loopexit.split.loop.exit: ; preds = %206
   %217 = trunc nsw i64 %indvars.iv to i32
   br label %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit215.thread233
 
-_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit215.thread233.loopexit.split.loop.exit339: ; preds = %206
+_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit215.thread233.loopexit.split.loop.exit339: ; preds = %204
   %218 = trunc nsw i64 %indvars.iv to i32
   br label %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit215.thread233
 
@@ -1725,7 +1725,7 @@ _ZN6icu_7710OffsetList10popMinimumEv.exit:        ; preds = %284, %293
   br label %.backedge
 
 .thread235:                                       ; preds = %222, %259, %228, %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit.thread226, %237
-  %.6 = phi i32 [ %238, %237 ], [ %2, %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit.thread226 ], [ %2, %222 ], [ %.0163, %228 ], [ %2, %259 ]
+  %.6 = phi i32 [ %238, %237 ], [ %2, %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit.thread226 ], [ %.0163, %228 ], [ %2, %222 ], [ %2, %259 ]
   %301 = load ptr, ptr %5, align 8, !tbaa !42
   %.not.i223 = icmp eq ptr %301, %14
   br i1 %.not.i223, label %_ZN6icu_7710OffsetListD2Ev.exit, label %302
@@ -2061,7 +2061,7 @@ _ZN6icu_77L7spanOneERKNS_10UnicodeSetEPKDsi.exit: ; preds = %159, %154
   br i1 %.not52, label %.thread64, label %.split, !llvm.loop !56
 
 .thread64:                                        ; preds = %.split, %_ZN6icu_77L7spanOneERKNS_10UnicodeSetEPKDsi.exit, %154, %159, %._crit_edge.us, %34, %32, %.split.us, %_ZN6icu_77L9matches16EPKDsS1_i.exit.i.us82, %74, %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit.us83, %123, %125, %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit.us.us
-  %.1 = phi i32 [ %18, %123 ], [ %18, %_ZN6icu_77L9matches16EPKDsS1_i.exit.i.us82 ], [ %2, %._crit_edge.us ], [ %18, %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit.us.us ], [ %18, %125 ], [ %18, %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit.us83 ], [ %18, %74 ], [ %18, %32 ], [ %18, %34 ], [ %2, %.split.us ], [ %140, %159 ], [ %140, %154 ], [ %2, %.split ], [ %2, %_ZN6icu_77L7spanOneERKNS_10UnicodeSetEPKDsi.exit ]
+  %.1 = phi i32 [ %2, %.split.us ], [ %18, %123 ], [ %18, %_ZN6icu_77L9matches16EPKDsS1_i.exit.i.us82 ], [ %18, %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit.us.us ], [ %18, %125 ], [ %18, %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit.us83 ], [ %18, %74 ], [ %18, %32 ], [ %18, %34 ], [ %2, %._crit_edge.us ], [ %140, %159 ], [ %140, %154 ], [ %2, %.split ], [ %2, %_ZN6icu_77L7spanOneERKNS_10UnicodeSetEPKDsi.exit ]
   ret i32 %.1
 }
 
@@ -2358,7 +2358,7 @@ _ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit:        ; preds = %130
   %.not243 = icmp eq i16 %137, -9216
   br i1 %.not243, label %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit.thread, label %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit.thread216
 
-_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit.thread216: ; preds = %128, %130, %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit
+_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit.thread216: ; preds = %130, %128, %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit
   %138 = icmp eq i32 %.0122, %99
   br i1 %138, label %.thread225, label %139
 
@@ -2499,7 +2499,7 @@ _ZN6icu_77L9matches16EPKDsS1_i.exit.i204:         ; preds = %188
 
 203:                                              ; preds = %199, %194, %_ZN6icu_77L9matches16EPKDsS1_i.exit.i204
   %204 = icmp slt i64 %183, %invariant.op
-  br i1 %204, label %205, label %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit205.thread223.loopexit.split.loop.exit
+  br i1 %204, label %205, label %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit205.thread223.loopexit.split.loop.exit312
 
 205:                                              ; preds = %203
   %206 = getelementptr i16, ptr %184, i64 %175
@@ -2507,7 +2507,7 @@ _ZN6icu_77L9matches16EPKDsS1_i.exit.i204:         ; preds = %188
   %208 = load i16, ptr %207, align 2, !tbaa !39
   %209 = and i16 %208, -1024
   %210 = icmp eq i16 %209, -10240
-  br i1 %210, label %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit205, label %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit205.thread223.loopexit.split.loop.exit312
+  br i1 %210, label %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit205, label %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit205.thread223.loopexit.split.loop.exit
 
 _ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit205:     ; preds = %205
   %211 = load i16, ptr %206, align 2, !tbaa !39
@@ -2523,11 +2523,11 @@ _ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit205.thread: ; preds = %185, %199, %.lr.
   %or.cond188 = select i1 %214, i1 true, i1 %215
   br i1 %or.cond188, label %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit205.thread223, label %.lr.ph, !llvm.loop !59
 
-_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit205.thread223.loopexit.split.loop.exit: ; preds = %203
+_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit205.thread223.loopexit.split.loop.exit: ; preds = %205
   %216 = trunc nsw i64 %indvars.iv to i32
   br label %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit205.thread223
 
-_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit205.thread223.loopexit.split.loop.exit312: ; preds = %205
+_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit205.thread223.loopexit.split.loop.exit312: ; preds = %203
   %217 = trunc nsw i64 %indvars.iv to i32
   br label %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit205.thread223
 
@@ -2728,7 +2728,7 @@ _ZN6icu_7710OffsetList10popMinimumEv.exit:        ; preds = %286, %295
   br label %.backedge.backedge
 
 .thread225.loopexit278:                           ; preds = %232, %226, %261, %221
-  %.6.ph = phi i32 [ 0, %261 ], [ %231, %232 ], [ %.0122, %226 ], [ 0, %221 ]
+  %.6.ph = phi i32 [ 0, %221 ], [ %231, %232 ], [ %.0122, %226 ], [ 0, %261 ]
   %.pre291 = load ptr, ptr %5, align 8, !tbaa !42
   br label %.thread225
 
@@ -2988,7 +2988,7 @@ _ZN6icu_77L11spanOneBackERKNS_10UnicodeSetEPKDsi.exit: ; preds = %122, %117
   br i1 %.not40, label %.thread52, label %.split, !llvm.loop !63
 
 .thread52:                                        ; preds = %.split, %_ZN6icu_77L11spanOneBackERKNS_10UnicodeSetEPKDsi.exit, %117, %122, %._crit_edge.us, %33, %31, %.split.us, %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit.us, %88, %86
-  %.1 = phi i32 [ %13, %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit.us ], [ 0, %._crit_edge.us ], [ %13, %86 ], [ %13, %88 ], [ %13, %31 ], [ %13, %33 ], [ 0, %.split.us ], [ %99, %122 ], [ %99, %117 ], [ 0, %.split ], [ 0, %_ZN6icu_77L11spanOneBackERKNS_10UnicodeSetEPKDsi.exit ]
+  %.1 = phi i32 [ 0, %._crit_edge.us ], [ %13, %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit.us ], [ %13, %86 ], [ %13, %88 ], [ %13, %31 ], [ %13, %33 ], [ 0, %.split.us ], [ 0, %_ZN6icu_77L11spanOneBackERKNS_10UnicodeSetEPKDsi.exit ], [ %99, %122 ], [ %99, %117 ], [ 0, %.split ]
   ret i32 %.1
 }
 
@@ -3488,7 +3488,7 @@ _ZN6icu_7710OffsetList10popMinimumEv.exit:        ; preds = %209, %218
   br label %48
 
 select.unfold:                                    ; preds = %158, %183, %164, %_ZN6icu_77L8matches8EPKhS1_i.exit, %175
-  %.7.ph = phi i32 [ %176, %175 ], [ %2, %_ZN6icu_77L8matches8EPKhS1_i.exit ], [ %2, %158 ], [ %.0173, %164 ], [ %2, %183 ]
+  %.7.ph = phi i32 [ %2, %_ZN6icu_77L8matches8EPKhS1_i.exit ], [ %176, %175 ], [ %.0173, %164 ], [ %2, %158 ], [ %2, %183 ]
   %227 = load ptr, ptr %5, align 8, !tbaa !42
   %.not.i222 = icmp eq ptr %227, %14
   br i1 %.not.i222, label %_ZN6icu_7710OffsetListD2Ev.exit, label %228
@@ -3641,7 +3641,7 @@ _ZN6icu_77L8matches8EPKhS1_i.exit.thread.us:      ; preds = %.preheader.us, %35,
   br i1 %.not61, label %_ZN6icu_77L8matches8EPKhS1_i.exit.thread64, label %.split, !llvm.loop !71
 
 _ZN6icu_77L8matches8EPKhS1_i.exit.thread64:       ; preds = %.split, %61, %54, %._crit_edge.us, %23, %.split.us, %40
-  %.1 = phi i32 [ %2, %._crit_edge.us ], [ %24, %40 ], [ %24, %23 ], [ %2, %.split.us ], [ %55, %54 ], [ %2, %.split ], [ %2, %61 ]
+  %.1 = phi i32 [ %24, %40 ], [ %2, %._crit_edge.us ], [ %24, %23 ], [ %2, %.split.us ], [ %55, %54 ], [ %2, %.split ], [ %2, %61 ]
   ret i32 %.1
 }
 
@@ -4367,7 +4367,7 @@ _ZN6icu_7710OffsetList10popMinimumEv.exit:        ; preds = %261, %270
   br label %.backedge
 
 select.unfold268.loopexit310:                     ; preds = %208, %_ZN6icu_77L15spanOneBackUTF8ERKNS_10UnicodeSetEPKhi.exit.thread, %203, %214
-  %.7.ph.ph = phi i32 [ 0, %203 ], [ 0, %_ZN6icu_77L15spanOneBackUTF8ERKNS_10UnicodeSetEPKhi.exit.thread ], [ %.0165, %208 ], [ %213, %214 ]
+  %.7.ph.ph = phi i32 [ 0, %_ZN6icu_77L15spanOneBackUTF8ERKNS_10UnicodeSetEPKhi.exit.thread ], [ %213, %214 ], [ %.0165, %208 ], [ 0, %203 ]
   %.pre325 = load ptr, ptr %6, align 8, !tbaa !42
   br label %select.unfold268
 
@@ -4569,7 +4569,7 @@ _ZN6icu_77L15spanOneBackUTF8ERKNS_10UnicodeSetEPKhi.exit.thread51: ; preds = %_Z
   br i1 %.not47, label %_ZN6icu_77L8matches8EPKhS1_i.exit.thread56, label %.split, !llvm.loop !78
 
 _ZN6icu_77L8matches8EPKhS1_i.exit.thread56:       ; preds = %.split, %_ZN6icu_77L15spanOneBackUTF8ERKNS_10UnicodeSetEPKhi.exit.thread51, %_ZN6icu_77L15spanOneBackUTF8ERKNS_10UnicodeSetEPKhi.exit, %73, %._crit_edge.us, %36, %_ZN6icu_77L15spanOneBackUTF8ERKNS_10UnicodeSetEPKhi.exit.us, %.split.us, %55
-  %.1 = phi i32 [ %20, %55 ], [ 0, %._crit_edge.us ], [ %20, %36 ], [ %20, %_ZN6icu_77L15spanOneBackUTF8ERKNS_10UnicodeSetEPKhi.exit.us ], [ 0, %.split.us ], [ %64, %73 ], [ %64, %_ZN6icu_77L15spanOneBackUTF8ERKNS_10UnicodeSetEPKhi.exit ], [ 0, %.split ], [ 0, %_ZN6icu_77L15spanOneBackUTF8ERKNS_10UnicodeSetEPKhi.exit.thread51 ]
+  %.1 = phi i32 [ 0, %._crit_edge.us ], [ %20, %55 ], [ %20, %36 ], [ %20, %_ZN6icu_77L15spanOneBackUTF8ERKNS_10UnicodeSetEPKhi.exit.us ], [ 0, %.split.us ], [ 0, %.split ], [ %64, %_ZN6icu_77L15spanOneBackUTF8ERKNS_10UnicodeSetEPKhi.exit ], [ %64, %73 ], [ 0, %_ZN6icu_77L15spanOneBackUTF8ERKNS_10UnicodeSetEPKhi.exit.thread51 ]
   ret i32 %.1
 }
 

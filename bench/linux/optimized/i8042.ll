@@ -1219,7 +1219,7 @@ i8042_create_aux_port.exit.thread:                ; preds = %212
   br label %i8042_create_aux_port.exit
 
 i8042_create_aux_port.exit:                       ; preds = %235, %212, %248, %.loopexit33
-  %252 = phi i32 [ %242, %.loopexit33 ], [ %245, %248 ], [ -12, %212 ], [ %237, %235 ]
+  %252 = phi i32 [ -12, %212 ], [ %242, %.loopexit33 ], [ %245, %248 ], [ %237, %235 ]
   br label %253
 
 253:                                              ; preds = %253, %i8042_create_aux_port.exit

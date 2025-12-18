@@ -4264,25 +4264,19 @@ _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %87, %_ZNSt10unique_
   %94 = phi i8 [ %81, %91 ], [ %.pre.i, %_ZN4llvm5ErrorD2Ev.exit.i ]
   %.sroa.04.1.i = phi ptr [ %92, %91 ], [ undef, %_ZN4llvm5ErrorD2Ev.exit.i ]
   %95 = trunc i8 %94 to i1
-  br i1 %95, label %96, label %_ZN4llvm8ExpectedIPKcED2Ev.exit.i
+  br i1 %95, label %96, label %_ZN4llvm5dwarf8toStringERKSt8optionalINS_14DWARFFormValueEE.exit
 
 96:                                               ; preds = %93
   %97 = load ptr, ptr %17, align 8, !tbaa !163
   %.not.i.i.i = icmp eq ptr %97, null
-  br i1 %.not.i.i.i, label %_ZN4llvm8ExpectedIPKcED2Ev.exit.i, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i
+  br i1 %.not.i.i.i, label %_ZN4llvm5dwarf8toStringERKSt8optionalINS_14DWARFFormValueEE.exit, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i
 
 _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i: ; preds = %96
   %98 = load ptr, ptr %97, align 8, !tbaa !8
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %100 = load ptr, ptr %99, align 8
   call void %100(ptr noundef nonnull align 8 dereferenceable(8) %97) #24
-  br label %_ZN4llvm8ExpectedIPKcED2Ev.exit.i
-
-_ZN4llvm8ExpectedIPKcED2Ev.exit.i:                ; preds = %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i, %96, %93
-  call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  call void @llvm.lifetime.end.p0(ptr nonnull %22)
-  call void @llvm.lifetime.end.p0(ptr nonnull %21)
-  br i1 %82, label %283, label %127
+  br label %_ZN4llvm5dwarf8toStringERKSt8optionalINS_14DWARFFormValueEE.exit
 
 101:                                              ; preds = %71
   call void @_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE(ptr dead_on_unwind nonnull writable sret(%"class.std::optional.71") align 8 %22, ptr noundef nonnull align 8 dereferenceable(16) %20, i16 noundef zeroext 8496) #24
@@ -4334,28 +4328,34 @@ _ZN4llvm5ErrorD2Ev.exit.i22:                      ; preds = %113, %_ZNSt10unique
   %120 = phi i8 [ %107, %117 ], [ %.pre.i23, %_ZN4llvm5ErrorD2Ev.exit.i22 ]
   %.sroa.04.1.i16 = phi ptr [ %118, %117 ], [ undef, %_ZN4llvm5ErrorD2Ev.exit.i22 ]
   %121 = trunc i8 %120 to i1
-  br i1 %121, label %122, label %_ZN4llvm5dwarf8toStringERKSt8optionalINS_14DWARFFormValueEE.exit
+  br i1 %121, label %122, label %_ZN4llvm8ExpectedIPKcED2Ev.exit.i17
 
 122:                                              ; preds = %119
   %123 = load ptr, ptr %13, align 8, !tbaa !163
   %.not.i.i.i18 = icmp eq ptr %123, null
-  br i1 %.not.i.i.i18, label %_ZN4llvm5dwarf8toStringERKSt8optionalINS_14DWARFFormValueEE.exit, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i19
+  br i1 %.not.i.i.i18, label %_ZN4llvm8ExpectedIPKcED2Ev.exit.i17, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i19
 
 _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i19: ; preds = %122
   %124 = load ptr, ptr %123, align 8, !tbaa !8
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 8
   %126 = load ptr, ptr %125, align 8
   call void %126(ptr noundef nonnull align 8 dereferenceable(8) %123) #24
-  br label %_ZN4llvm5dwarf8toStringERKSt8optionalINS_14DWARFFormValueEE.exit
+  br label %_ZN4llvm8ExpectedIPKcED2Ev.exit.i17
 
-_ZN4llvm5dwarf8toStringERKSt8optionalINS_14DWARFFormValueEE.exit: ; preds = %119, %122, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i19
+_ZN4llvm8ExpectedIPKcED2Ev.exit.i17:              ; preds = %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i19, %122, %119
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br i1 %108, label %283, label %127
 
-127:                                              ; preds = %_ZN4llvm8ExpectedIPKcED2Ev.exit.i, %_ZN4llvm5dwarf8toStringERKSt8optionalINS_14DWARFFormValueEE.exit
-  %.sroa.066.094 = phi ptr [ %.sroa.04.1.i, %_ZN4llvm8ExpectedIPKcED2Ev.exit.i ], [ %.sroa.04.1.i16, %_ZN4llvm5dwarf8toStringERKSt8optionalINS_14DWARFFormValueEE.exit ]
+_ZN4llvm5dwarf8toStringERKSt8optionalINS_14DWARFFormValueEE.exit: ; preds = %93, %96, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  br i1 %82, label %283, label %127
+
+127:                                              ; preds = %_ZN4llvm8ExpectedIPKcED2Ev.exit.i17, %_ZN4llvm5dwarf8toStringERKSt8optionalINS_14DWARFFormValueEE.exit
+  %.sroa.066.094 = phi ptr [ %.sroa.04.1.i16, %_ZN4llvm8ExpectedIPKcED2Ev.exit.i17 ], [ %.sroa.04.1.i, %_ZN4llvm5dwarf8toStringERKSt8optionalINS_14DWARFFormValueEE.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE(ptr dead_on_unwind nonnull writable sret(%"class.std::optional.71") align 8 %23, ptr noundef nonnull align 8 dereferenceable(16) %20, i16 noundef zeroext 27) #24
   %128 = getelementptr inbounds nuw i8, ptr %23, i64 48
@@ -4765,8 +4765,8 @@ _ZN4llvm11SmallVectorIcLj16EED2Ev.exit:           ; preds = %279, %282
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %283
 
-283:                                              ; preds = %_ZN4llvm8ExpectedIPKcED2Ev.exit.i, %.critedge76, %_ZN4llvm11SmallVectorIcLj16EED2Ev.exit, %_ZN4llvm5dwarf8toStringERKSt8optionalINS_14DWARFFormValueEE.exit, %_ZN4llvm9DWARFUnit10getUnitDIEEb.exit
-  %.1 = phi i1 [ false, %_ZN4llvm9DWARFUnit10getUnitDIEEb.exit ], [ %.3, %_ZN4llvm11SmallVectorIcLj16EED2Ev.exit ], [ false, %_ZN4llvm5dwarf8toStringERKSt8optionalINS_14DWARFFormValueEE.exit ], [ false, %.critedge76 ], [ false, %_ZN4llvm8ExpectedIPKcED2Ev.exit.i ]
+283:                                              ; preds = %_ZN4llvm8ExpectedIPKcED2Ev.exit.i17, %.critedge76, %_ZN4llvm11SmallVectorIcLj16EED2Ev.exit, %_ZN4llvm5dwarf8toStringERKSt8optionalINS_14DWARFFormValueEE.exit, %_ZN4llvm9DWARFUnit10getUnitDIEEb.exit
+  %.1 = phi i1 [ false, %_ZN4llvm9DWARFUnit10getUnitDIEEb.exit ], [ %.3, %_ZN4llvm11SmallVectorIcLj16EED2Ev.exit ], [ false, %_ZN4llvm5dwarf8toStringERKSt8optionalINS_14DWARFFormValueEE.exit ], [ false, %.critedge76 ], [ false, %_ZN4llvm8ExpectedIPKcED2Ev.exit.i17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %284
 
@@ -7552,8 +7552,8 @@ define dso_local { ptr, ptr } @_ZN4llvm9DWARFUnit18getPreviousSiblingEPKNS_19DWA
   br i1 %.not25.i, label %_ZNK4llvm9DWARFUnit23getPreviousSiblingEntryEPKNS_19DWARFDebugInfoEntryE.exit, label %.preheader.i, !llvm.loop !565
 
 _ZNK4llvm9DWARFUnit23getPreviousSiblingEntryEPKNS_19DWARFDebugInfoEntryE.exit: ; preds = %.preheader.i, %6, %3, %2
-  %.sroa.0.1 = phi ptr [ null, %2 ], [ null, %3 ], [ null, %6 ], [ %0, %.preheader.i ]
-  %.sroa.4.1 = phi ptr [ null, %2 ], [ null, %3 ], [ null, %6 ], [ %17, %.preheader.i ]
+  %.sroa.0.1 = phi ptr [ null, %6 ], [ null, %2 ], [ null, %3 ], [ %0, %.preheader.i ]
+  %.sroa.4.1 = phi ptr [ null, %6 ], [ null, %2 ], [ null, %3 ], [ %17, %.preheader.i ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.0.1, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.4.1, 1
   ret { ptr, ptr } %.fca.1.insert

@@ -446,7 +446,7 @@ define internal i32 @filter_frame(ptr noundef %0, ptr noundef %1) #1 {
   br i1 %exitcond.not, label %.thread, label %182, !llvm.loop !66
 
 .thread:                                          ; preds = %119, %186, %182, %177, %34, %17
-  %.0 = phi i32 [ 0, %17 ], [ %36, %34 ], [ %.1149.lcssa, %177 ], [ -12, %182 ], [ %203, %186 ], [ %121, %119 ]
+  %.0 = phi i32 [ 0, %17 ], [ %36, %34 ], [ -12, %182 ], [ %.1149.lcssa, %177 ], [ %203, %186 ], [ %121, %119 ]
   call void @av_frame_free(ptr noundef nonnull %3) #5
   ret i32 %.0
 }
@@ -529,7 +529,7 @@ define internal range(i32 -2147483648, 1) i32 @config_input(ptr noundef %0) #1 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %23, %._crit_edge, %1, %33
-  %.0 = phi i32 [ -12, %1 ], [ 0, %33 ], [ %31, %._crit_edge ], [ -12, %23 ]
+  %.0 = phi i32 [ -12, %1 ], [ %31, %._crit_edge ], [ 0, %33 ], [ -12, %23 ]
   ret i32 %.0
 }
 

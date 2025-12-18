@@ -462,7 +462,7 @@ kh_get_oid_map.exit37:                            ; preds = %43, %.critedge.i29
   br i1 %.not.i44, label %95, label %island_bitmap_is_subset.exit
 
 island_bitmap_is_subset.exit:                     ; preds = %86, %95, %96, %.preheader.i, %80, %92, %.preheader.i39, %79, %2
-  %.015 = phi i32 [ -1, %79 ], [ 0, %2 ], [ 0, %.preheader.i39 ], [ %spec.select, %92 ], [ 0, %80 ], [ 0, %.preheader.i ], [ 1, %96 ], [ 0, %95 ], [ -1, %86 ]
+  %.015 = phi i32 [ 1, %96 ], [ -1, %79 ], [ 0, %2 ], [ 0, %.preheader.i39 ], [ 0, %80 ], [ %spec.select, %92 ], [ 0, %.preheader.i ], [ 0, %95 ], [ -1, %86 ]
   ret i32 %.015
 }
 

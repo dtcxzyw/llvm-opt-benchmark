@@ -1271,9 +1271,9 @@ _ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9Ros
   br label %.body
 
 .loopexit296:                                     ; preds = %22, %.noexc..loopexit296_crit_edge, %14
-  %.not.i.i97 = phi i1 [ true, %14 ], [ %36, %.noexc..loopexit296_crit_edge ], [ true, %22 ]
-  %40 = phi ptr [ null, %14 ], [ %.pre, %.noexc..loopexit296_crit_edge ], [ null, %22 ]
-  %.pn.i.i.i.i = phi ptr [ %15, %14 ], [ %35, %.noexc..loopexit296_crit_edge ], [ %27, %22 ]
+  %.not.i.i97 = phi i1 [ %36, %.noexc..loopexit296_crit_edge ], [ true, %14 ], [ true, %22 ]
+  %40 = phi ptr [ %.pre, %.noexc..loopexit296_crit_edge ], [ null, %14 ], [ null, %22 ]
+  %.pn.i.i.i.i = phi ptr [ %35, %.noexc..loopexit296_crit_edge ], [ %15, %14 ], [ %27, %22 ]
   %.1.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i.i, i64 24
   store i32 1, ptr %.1.i.i.i.i, align 4
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 352
@@ -1435,7 +1435,7 @@ _ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9Ros
   br label %.body
 
 .loopexit294:                                     ; preds = %94, %86, %.noexc165
-  %.pn.i.i.i = phi ptr [ %87, %86 ], [ %107, %.noexc165 ], [ %99, %94 ]
+  %.pn.i.i.i = phi ptr [ %107, %.noexc165 ], [ %87, %86 ], [ %99, %94 ]
   %.1.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i, i64 24
   %109 = load i32, ptr %.1.i.i.i, align 4
   %cond = icmp eq i32 %109, 0
@@ -1652,7 +1652,7 @@ _ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9Ros
   br label %.body
 
 .loopexit:                                        ; preds = %180, %.noexc134, %172
-  %.pn.i.i.i.i131 = phi ptr [ %173, %172 ], [ %193, %.noexc134 ], [ %185, %180 ]
+  %.pn.i.i.i.i131 = phi ptr [ %193, %.noexc134 ], [ %173, %172 ], [ %185, %180 ]
   %.1.i.i.i.i132 = getelementptr inbounds nuw i8, ptr %.pn.i.i.i.i131, i64 24
   store i32 1, ptr %.1.i.i.i.i132, align 4
   %195 = getelementptr inbounds nuw i8, ptr %78, i64 352
@@ -1755,7 +1755,7 @@ _ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9Ros
   br label %.body
 
 .loopexit295:                                     ; preds = %214, %.noexc159, %206
-  %.pn.i.i.i.i156 = phi ptr [ %207, %206 ], [ %227, %.noexc159 ], [ %219, %214 ]
+  %.pn.i.i.i.i156 = phi ptr [ %227, %.noexc159 ], [ %207, %206 ], [ %219, %214 ]
   %.1.i.i.i.i157 = getelementptr inbounds nuw i8, ptr %.pn.i.i.i.i156, i64 24
   store i32 4, ptr %.1.i.i.i.i157, align 4
   %229 = load ptr, ptr %6, align 8

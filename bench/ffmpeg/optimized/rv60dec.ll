@@ -1611,7 +1611,7 @@ get_bits_long.exit45:                             ; preds = %.lr.ph50, %121
   br i1 %exitcond59.not, label %.critedge43, label %get_bits_long.exit45, !llvm.loop !117
 
 .critedge43:                                      ; preds = %121, %78, %.preheader
-  %.val.i = phi i32 [ %.promoted51, %.preheader ], [ %73, %78 ], [ %115, %121 ]
+  %.val.i = phi i32 [ %73, %78 ], [ %.promoted51, %.preheader ], [ %115, %121 ]
   %123 = sub nsw i32 0, %.val.i
   %124 = and i32 %123, 7
   %.not.i = icmp eq i32 %124, 0
@@ -1624,7 +1624,7 @@ get_bits_long.exit45:                             ; preds = %.lr.ph50, %121
   br label %.critedge
 
 .critedge:                                        ; preds = %get_bits_long.exit45, %get_bits_long.exit45.us, %125, %.critedge43, %get_bits_long.exit
-  %.0 = phi i32 [ -1094995529, %get_bits_long.exit ], [ 0, %.critedge43 ], [ 0, %125 ], [ -1094995529, %get_bits_long.exit45.us ], [ -1094995529, %get_bits_long.exit45 ]
+  %.0 = phi i32 [ -1094995529, %get_bits_long.exit ], [ 0, %125 ], [ 0, %.critedge43 ], [ -1094995529, %get_bits_long.exit45.us ], [ -1094995529, %get_bits_long.exit45 ]
   ret i32 %.0
 }
 
@@ -4706,7 +4706,7 @@ default.unreachable:                              ; preds = %976
   unreachable
 
 .critedge520:                                     ; preds = %831, %._crit_edge.us, %1106, %1059, %1208, %984, %883, %890, %81, %1153, %1155, %1195, %1197, %1166, %976, %1000, %972, %68, %73, %77, %9, %30, %810
-  %.0 = phi i32 [ 0, %9 ], [ 0, %1153 ], [ %82, %81 ], [ -1094995529, %972 ], [ 0, %1155 ], [ -1094995529, %810 ], [ 0, %30 ], [ %71, %68 ], [ %75, %73 ], [ %79, %77 ], [ 0, %1000 ], [ %.0447, %976 ], [ 0, %1166 ], [ 0, %1197 ], [ 0, %1195 ], [ -1094995529, %890 ], [ -1094995529, %883 ], [ 0, %984 ], [ 0, %1208 ], [ 0, %._crit_edge.us ], [ 0, %1059 ], [ -1094995529, %1106 ], [ -1094995529, %831 ]
+  %.0 = phi i32 [ 0, %._crit_edge.us ], [ 0, %9 ], [ 0, %1153 ], [ %82, %81 ], [ -1094995529, %972 ], [ 0, %1208 ], [ 0, %1155 ], [ -1094995529, %810 ], [ 0, %30 ], [ %71, %68 ], [ %75, %73 ], [ %79, %77 ], [ -1094995529, %1106 ], [ 0, %1000 ], [ 0, %984 ], [ %.0447, %976 ], [ 0, %1166 ], [ 0, %1197 ], [ 0, %1195 ], [ -1094995529, %890 ], [ -1094995529, %883 ], [ 0, %1059 ], [ -1094995529, %831 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
@@ -5227,7 +5227,7 @@ mvinfo_is_deblock_cand.exit55.thread.i.us:        ; preds = %mvinfo_is_deblock_c
   br i1 %exitcond68.not.i.us, label %.lr.ph.i133.us.preheader, label %.lr.ph65.i.us, !llvm.loop !185
 
 .lr.ph.i133.us.preheader:                         ; preds = %86, %125, %310, %.loopexit62.i.us
-  %.pre-phi176 = phi i32 [ %141, %.loopexit62.i.us ], [ %109, %125 ], [ %141, %310 ], [ %70, %86 ]
+  %.pre-phi176 = phi i32 [ %109, %125 ], [ %141, %310 ], [ %141, %.loopexit62.i.us ], [ %70, %86 ]
   %.val.us = load i32, ptr %47, align 8, !tbaa !113
   %312 = mul nsw i32 %.val.us, %63
   %313 = add nsw i32 %312, %.pre-phi176
@@ -6832,7 +6832,7 @@ filter_bilin32.exit316:                           ; preds = %.lr.ph.i311, %filte
   br label %pred_dc.exit
 
 pred_dc.exit:                                     ; preds = %.lr.ph102.i, %.lr.ph340, %..loopexit_crit_edge.us.i, %..loopexit40_crit_edge.us.us.i258, %.lr.ph352, %..loopexit40_crit_edge.us.us.i, %510, %298, %.loopexit333, %.loopexit, %filter_bilin32.exit204, %111, %108, %106, %._crit_edge97.i, %pred_plane.exit, %filter_bilin32.exit316, %._crit_edge, %._crit_edge349, %527
-  %.0 = phi i32 [ -1094995529, %527 ], [ 0, %pred_plane.exit ], [ 0, %._crit_edge349 ], [ 0, %._crit_edge ], [ 0, %filter_bilin32.exit316 ], [ 0, %._crit_edge97.i ], [ 0, %106 ], [ 0, %108 ], [ 0, %111 ], [ 0, %filter_bilin32.exit204 ], [ 0, %.loopexit ], [ 0, %.loopexit333 ], [ 0, %510 ], [ 0, %298 ], [ 0, %.lr.ph340 ], [ 0, %..loopexit40_crit_edge.us.us.i ], [ 0, %.lr.ph352 ], [ 0, %..loopexit40_crit_edge.us.us.i258 ], [ 0, %..loopexit_crit_edge.us.i ], [ 0, %.lr.ph102.i ]
+  %.0 = phi i32 [ -1094995529, %527 ], [ 0, %.lr.ph340 ], [ 0, %510 ], [ 0, %pred_plane.exit ], [ 0, %._crit_edge349 ], [ 0, %..loopexit40_crit_edge.us.us.i258 ], [ 0, %._crit_edge ], [ 0, %filter_bilin32.exit316 ], [ 0, %298 ], [ 0, %..loopexit40_crit_edge.us.us.i ], [ 0, %._crit_edge97.i ], [ 0, %106 ], [ 0, %108 ], [ 0, %111 ], [ 0, %filter_bilin32.exit204 ], [ 0, %.loopexit ], [ 0, %.loopexit333 ], [ 0, %..loopexit_crit_edge.us.i ], [ 0, %.lr.ph352 ], [ 0, %.lr.ph102.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %.0
@@ -7796,7 +7796,7 @@ has_left_block.exit.thread:                       ; preds = %.preheader.i90, %._
   br i1 %.not150, label %unique_list_intramode_add.exit111, label %125
 
 unique_list_intramode_add.exit111.sink.split:     ; preds = %116, %125, %.preheader.i112, %.preheader.i101
-  %.sink = phi i32 [ %114, %.preheader.i101 ], [ %123, %.preheader.i112 ], [ %123, %125 ], [ %114, %116 ]
+  %.sink = phi i32 [ %114, %.preheader.i101 ], [ %123, %125 ], [ %123, %.preheader.i112 ], [ %114, %116 ]
   %127 = add nsw i32 %107, 1
   store i32 %127, ptr %106, align 4, !tbaa !227
   %128 = sext i32 %107 to i64

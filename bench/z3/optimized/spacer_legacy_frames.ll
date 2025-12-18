@@ -1122,7 +1122,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.
   br i1 %.not27.old.i.i.i, label %.thread61, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %75, %72
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %75 ], [ %74, %72 ]
+  %.137.i.i.i.be = phi ptr [ %74, %72 ], [ %.old.i.i.i, %75 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !148
 
 .thread61:                                        ; preds = %61, %75, %72, %.preheader.i.i.i
@@ -1376,7 +1376,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0
   br i1 %.not27.old.i.i.i, label %_ZNK7obj_mapI4exprjE4findEPS0_Rj.exit.thread, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %70, %67
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %70 ], [ %69, %67 ]
+  %.137.i.i.i.be = phi ptr [ %69, %67 ], [ %.old.i.i.i, %70 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !148
 
 .loopexit21:                                      ; preds = %51, %62
@@ -1440,7 +1440,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0
   br label %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE8containsEPS0_.exit
 
 _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE8containsEPS0_.exit: ; preds = %.lr.ph.i, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit13, %.loopexit21, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit
-  %.0 = phi i1 [ true, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit ], [ true, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit13 ], [ false, %.loopexit21 ], [ false, %.lr.ph.i ]
+  %.0 = phi i1 [ false, %.loopexit21 ], [ true, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit ], [ true, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit13 ], [ false, %.lr.ph.i ]
   ret i1 %.0
 }
 

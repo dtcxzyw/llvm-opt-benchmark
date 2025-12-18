@@ -11812,7 +11812,7 @@ _ZN5wasmi6engine10translator14FuncTranslator26translate_end_if_then_else17h32d0f
   br label %_ZN5wasmi6engine10translator14FuncTranslator16translate_end_if17h6584c2ed1cb6a07fE.exit
 
 _ZN5wasmi6engine10translator14FuncTranslator16translate_end_if17h6584c2ed1cb6a07fE.exit: ; preds = %_ZN5wasmi6engine10translator14FuncTranslator26translate_end_if_then_else17h32d0f715b8c280eaE.exit.i, %218, %_ZN5wasmi6engine10translator14FuncTranslator26translate_end_if_else_only17h445f4d05625f69e7E.exit.i, %_ZN5wasmi6engine10translator14FuncTranslator19translate_end_block17hb9e2f43fa161253eE.exit
-  %.sroa.02.0 = phi ptr [ %.sroa.0.0.i, %_ZN5wasmi6engine10translator14FuncTranslator19translate_end_block17hb9e2f43fa161253eE.exit ], [ %.sroa.0.0.i1.i, %_ZN5wasmi6engine10translator14FuncTranslator26translate_end_if_then_else17h32d0f715b8c280eaE.exit.i ], [ %223, %218 ], [ %217, %_ZN5wasmi6engine10translator14FuncTranslator26translate_end_if_else_only17h445f4d05625f69e7E.exit.i ]
+  %.sroa.02.0 = phi ptr [ %.sroa.0.0.i, %_ZN5wasmi6engine10translator14FuncTranslator19translate_end_block17hb9e2f43fa161253eE.exit ], [ %217, %_ZN5wasmi6engine10translator14FuncTranslator26translate_end_if_else_only17h445f4d05625f69e7E.exit.i ], [ %223, %218 ], [ %.sroa.0.0.i1.i, %_ZN5wasmi6engine10translator14FuncTranslator26translate_end_if_then_else17h32d0f715b8c280eaE.exit.i ]
   %.not = icmp eq ptr %.sroa.02.0, null
   br i1 %.not, label %_ZN5wasmi6engine10translator14FuncTranslator16translate_end_if17h6584c2ed1cb6a07fE.exit.thread, label %388
 

@@ -103,7 +103,7 @@ is_urlschemechar.exit15:                          ; preds = %13, %11
   br label %.critedge
 
 .critedge:                                        ; preds = %.preheader, %is_urlschemechar.exit15, %2, %21, %25, %1, %is_urlschemechar.exit
-  %.08 = phi i32 [ 0, %1 ], [ 0, %is_urlschemechar.exit ], [ 0, %21 ], [ %29, %25 ], [ 0, %2 ], [ 0, %is_urlschemechar.exit15 ], [ 0, %.preheader ]
+  %.08 = phi i32 [ 0, %1 ], [ 0, %2 ], [ 0, %is_urlschemechar.exit ], [ 0, %21 ], [ %29, %25 ], [ 0, %is_urlschemechar.exit15 ], [ 0, %.preheader ]
   ret i32 %.08
 }
 

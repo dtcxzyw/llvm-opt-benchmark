@@ -11586,7 +11586,7 @@ _ZN15_scoped_numeralI13mpzzp_managerED2Ev.exit316: ; preds = %_ZN11upolynomial39
   br label %.body
 
 .thread:                                          ; preds = %323, %165, %_ZN15_scoped_numeralI13mpzzp_managerED2Ev.exit316
-  %.5 = phi i1 [ %.094, %_ZN15_scoped_numeralI13mpzzp_managerED2Ev.exit316 ], [ false, %165 ], [ true, %323 ]
+  %.5 = phi i1 [ false, %165 ], [ %.094, %_ZN15_scoped_numeralI13mpzzp_managerED2Ev.exit316 ], [ true, %323 ]
   %794 = load ptr, ptr %20, align 8, !tbaa !45
   %795 = load ptr, ptr %794, align 8, !tbaa !3
   invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %795, ptr noundef nonnull align 8 dereferenceable(16) %140)

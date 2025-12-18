@@ -1345,7 +1345,7 @@ _ZNK4llvm20MachineDominatorTree9dominatesEPKNS_12MachineInstrES3_.exit.thread.i:
   br label %_ZN12_GLOBAL__N_116RISCVVLOptimizer11tryReduceVLERN4llvm12MachineInstrE.exit.thread.sink.split
 
 _ZN12_GLOBAL__N_116RISCVVLOptimizer11tryReduceVLERN4llvm12MachineInstrE.exit.thread.sink.split: ; preds = %.lr.ph.i.i, %430, %_ZNK4llvm20MachineDominatorTree9dominatesEPKNS_12MachineInstrES3_.exit.thread.i, %_ZNK4llvm20MachineDominatorTree9dominatesEPKNS_12MachineInstrES3_.exit.i, %418, %424, %422
-  %.3.ph = phi i1 [ %.2140, %_ZNK4llvm20MachineDominatorTree9dominatesEPKNS_12MachineInstrES3_.exit.i ], [ %.2140, %422 ], [ %.2140, %424 ], [ %.2140, %418 ], [ true, %_ZNK4llvm20MachineDominatorTree9dominatesEPKNS_12MachineInstrES3_.exit.thread.i ], [ true, %430 ], [ %.2140, %.lr.ph.i.i ]
+  %.3.ph = phi i1 [ %.2140, %_ZNK4llvm20MachineDominatorTree9dominatesEPKNS_12MachineInstrES3_.exit.i ], [ true, %430 ], [ %.2140, %422 ], [ %.2140, %424 ], [ %.2140, %418 ], [ true, %_ZNK4llvm20MachineDominatorTree9dominatesEPKNS_12MachineInstrES3_.exit.thread.i ], [ %.2140, %.lr.ph.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN12_GLOBAL__N_116RISCVVLOptimizer11tryReduceVLERN4llvm12MachineInstrE.exit.thread
 
@@ -1383,7 +1383,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit69: ; preds
   br i1 %.not108, label %_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE20isReachableFromEntryEPKS1_.exit.thread, label %.lr.ph141
 
 _ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE20isReachableFromEntryEPKS1_.exit.thread: ; preds = %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit69, %_ZN4llvm7reverseIRNS_17MachineBasicBlockEEEDaOT_.exit51, %_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE12getNodeIndexEPKS1_.exit.thread.i.i, %_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE20isReachableFromEntryEPKS1_.exit
-  %.125 = phi i1 [ %.024144, %_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE20isReachableFromEntryEPKS1_.exit ], [ %.024144, %_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE12getNodeIndexEPKS1_.exit.thread.i.i ], [ %.024144, %_ZN4llvm7reverseIRNS_17MachineBasicBlockEEEDaOT_.exit51 ], [ %.3, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit69 ]
+  %.125 = phi i1 [ %.024144, %_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE12getNodeIndexEPKS1_.exit.thread.i.i ], [ %.024144, %_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE20isReachableFromEntryEPKS1_.exit ], [ %.024144, %_ZN4llvm7reverseIRNS_17MachineBasicBlockEEEDaOT_.exit51 ], [ %.3, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit69 ]
   %468 = getelementptr inbounds nuw i8, ptr %.sroa.083.0145, i64 8
   %.sroa.083.0 = load ptr, ptr %468, align 8, !tbaa !307
   %.not106 = icmp eq ptr %.sroa.083.0, %136
@@ -3380,7 +3380,7 @@ _ZL13isMaskOperandRKN4llvm12MachineInstrERKNS_14MachineOperandEPKNS_19MachineReg
   br label %_ZL17getOperandLog2EEWRKN4llvm14MachineOperandEPKNS_19MachineRegisterInfoE.exit
 
 _ZL17getOperandLog2EEWRKN4llvm14MachineOperandEPKNS_19MachineRegisterInfoE.exit: ; preds = %153, %147, %144, %143, %138, %134, %130, %126, %120, %117, %116, %113, %110, %107, %104, %103, %102, %101, %100, %_ZL13isMaskOperandRKN4llvm12MachineInstrERKNS_14MachineOperandEPKNS_19MachineRegisterInfoE.exit.thread.i, %_ZL13isMaskOperandRKN4llvm12MachineInstrERKNS_14MachineOperandEPKNS_19MachineRegisterInfoE.exit.thread.i, %_ZL13isMaskOperandRKN4llvm12MachineInstrERKNS_14MachineOperandEPKNS_19MachineRegisterInfoE.exit.i
-  %.sroa.0.0.i = phi i32 [ %155, %153 ], [ 0, %_ZL13isMaskOperandRKN4llvm12MachineInstrERKNS_14MachineOperandEPKNS_19MachineRegisterInfoE.exit.i ], [ 3, %100 ], [ 4, %101 ], [ 5, %102 ], [ 6, %103 ], [ 0, %_ZL13isMaskOperandRKN4llvm12MachineInstrERKNS_14MachineOperandEPKNS_19MachineRegisterInfoE.exit.thread.i ], [ %spec.select86.i, %113 ], [ 0, %_ZL13isMaskOperandRKN4llvm12MachineInstrERKNS_14MachineOperandEPKNS_19MachineRegisterInfoE.exit.thread.i ], [ %spec.select.i, %104 ], [ %spec.select88.i, %147 ], [ %spec.select84.i, %107 ], [ %spec.select87.i, %144 ], [ %spec.select85.i, %110 ], [ %28, %116 ], [ %119, %117 ], [ %125, %120 ], [ %129, %126 ], [ %133, %130 ], [ %137, %134 ], [ %142, %138 ], [ %28, %143 ]
+  %.sroa.0.0.i = phi i32 [ %155, %153 ], [ %28, %143 ], [ 0, %_ZL13isMaskOperandRKN4llvm12MachineInstrERKNS_14MachineOperandEPKNS_19MachineRegisterInfoE.exit.i ], [ 3, %100 ], [ 4, %101 ], [ 5, %102 ], [ 6, %103 ], [ 0, %_ZL13isMaskOperandRKN4llvm12MachineInstrERKNS_14MachineOperandEPKNS_19MachineRegisterInfoE.exit.thread.i ], [ %spec.select86.i, %113 ], [ 0, %_ZL13isMaskOperandRKN4llvm12MachineInstrERKNS_14MachineOperandEPKNS_19MachineRegisterInfoE.exit.thread.i ], [ %spec.select.i, %104 ], [ %spec.select88.i, %147 ], [ %spec.select84.i, %107 ], [ %spec.select87.i, %144 ], [ %spec.select85.i, %110 ], [ %28, %116 ], [ %119, %117 ], [ %125, %120 ], [ %129, %126 ], [ %133, %130 ], [ %137, %134 ], [ %142, %138 ]
   %156 = getelementptr inbounds nuw i8, ptr %9, i64 2
   %157 = load i16, ptr %156, align 2, !tbaa !339
   switch i16 %157, label %160 [

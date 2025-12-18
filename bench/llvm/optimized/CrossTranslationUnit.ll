@@ -6442,7 +6442,7 @@ _ZN4llvm11SmallVectorIcLj32EED2Ev.exit75:         ; preds = %_ZN4llvm11SmallVect
   br i1 %.not.i76, label %.critedge55, label %83
 
 .critedge57:                                      ; preds = %.critedge, %124, %_ZN4llvm11SmallStringILj32EEC2ENS_9StringRefE.exit, %.lr.ph
-  %.sink193 = phi i32 [ 16, %.lr.ph ], [ 16, %124 ], [ 13, %_ZN4llvm11SmallStringILj32EEC2ENS_9StringRefE.exit ], [ 16, %.critedge ]
+  %.sink193 = phi i32 [ 16, %.lr.ph ], [ 13, %_ZN4llvm11SmallStringILj32EEC2ENS_9StringRefE.exit ], [ 16, %.critedge ], [ 16, %124 ]
   %160 = call noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #23, !noalias !158
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5clang8cross_tu10IndexErrorE, i64 16), ptr %160, align 8, !tbaa !16, !noalias !158
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 8

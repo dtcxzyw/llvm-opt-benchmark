@@ -480,7 +480,7 @@ define dso_local noundef i64 @spg_quad_inner_consistent(ptr noundef readonly cap
   unreachable
 
 select.unfold:                                    ; preds = %99, %91, %89, %97, %103, %93
-  %.pn = phi i32 [ %122, %103 ], [ %96, %93 ], [ 6, %91 ], [ 12, %97 ], [ 24, %89 ], [ 18, %99 ]
+  %.pn = phi i32 [ %122, %103 ], [ 6, %91 ], [ 24, %89 ], [ 12, %97 ], [ %96, %93 ], [ 18, %99 ]
   %.2 = and i32 %.pn, %.0111131
   %131 = icmp eq i32 %.2, 0
   br i1 %131, label %select.unfold._crit_edge, label %.thread

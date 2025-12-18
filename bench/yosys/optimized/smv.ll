@@ -26476,8 +26476,8 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL6SigBitESt4pairIPKciENS0_8hash_opsIS3_EEE7do_ha
   br i1 %9175, label %8653, label %.thread5663
 
 .thread5663:                                      ; preds = %9171, %.loopexit5818, %9166, %.noexc3204.thread, %._crit_edge.i.i3212, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.i3219, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.us.i3223, %.loopexit5895
-  %.07426104 = phi i32 [ 1, %.loopexit5895 ], [ %.07429073, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.us.i3223 ], [ %.07429073, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.i3219 ], [ %9172, %9171 ], [ %.07429073, %.loopexit5818 ], [ %.07429073, %9166 ], [ %.07429073, %.noexc3204.thread ], [ %.07429073, %._crit_edge.i.i3212 ]
-  %.17306086 = phi i32 [ %.07299115, %.loopexit5895 ], [ %.17309074, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.us.i3223 ], [ %.17309074, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.i3219 ], [ %8654, %9171 ], [ %.17309074, %.loopexit5818 ], [ %.17309074, %9166 ], [ %.17309074, %.noexc3204.thread ], [ %.17309074, %._crit_edge.i.i3212 ]
+  %.07426104 = phi i32 [ %.07429073, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.i3219 ], [ %.07429073, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.us.i3223 ], [ 1, %.loopexit5895 ], [ %9172, %9171 ], [ %.07429073, %.loopexit5818 ], [ %.07429073, %9166 ], [ %.07429073, %.noexc3204.thread ], [ %.07429073, %._crit_edge.i.i3212 ]
+  %.17306086 = phi i32 [ %.17309074, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.i3219 ], [ %.17309074, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.us.i3223 ], [ %.07299115, %.loopexit5895 ], [ %8654, %9171 ], [ %.17309074, %.loopexit5818 ], [ %.17309074, %9166 ], [ %.17309074, %.noexc3204.thread ], [ %.17309074, %._crit_edge.i.i3212 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %295)
   call void @llvm.lifetime.start.p0(ptr nonnull %296)
   %9176 = load ptr, ptr %8648, align 8, !tbaa !536
@@ -29933,8 +29933,8 @@ _ZNK5Yosys5RTLIL6SigBitneERKS1_.exit:             ; preds = %10626
   br i1 %10632, label %.lr.ph9094, label %_ZNK5Yosys5RTLIL6SigBitneERKS1_.exit.thread, !llvm.loop !548
 
 _ZNK5Yosys5RTLIL6SigBitneERKS1_.exit.thread:      ; preds = %10628, %_ZNK5Yosys5RTLIL6SigBitneERKS1_.exit, %10627, %.noexc3460.thread, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.i.i3434, %10428, %.preheader5843
-  %.87376204 = phi i32 [ %.07299115, %.preheader5843 ], [ %.87379092, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.i.i3434 ], [ %.87379092, %10428 ], [ %10104, %10628 ], [ %.87379092, %_ZNK5Yosys5RTLIL6SigBitneERKS1_.exit ], [ %.87379092, %10627 ], [ %.87379092, %.noexc3460.thread ]
-  %.07136188 = phi i32 [ 1, %.preheader5843 ], [ %.07139093, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.i.i3434 ], [ %.07139093, %10428 ], [ %10629, %10628 ], [ %.07139093, %_ZNK5Yosys5RTLIL6SigBitneERKS1_.exit ], [ %.07139093, %10627 ], [ %.07139093, %.noexc3460.thread ]
+  %.87376204 = phi i32 [ %.87379092, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.i.i3434 ], [ %.87379092, %10428 ], [ %.07299115, %.preheader5843 ], [ %10104, %10628 ], [ %.87379092, %_ZNK5Yosys5RTLIL6SigBitneERKS1_.exit ], [ %.87379092, %10627 ], [ %.87379092, %.noexc3460.thread ]
+  %.07136188 = phi i32 [ %.07139093, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.i.i3434 ], [ %.07139093, %10428 ], [ 1, %.preheader5843 ], [ %10629, %10628 ], [ %.07139093, %_ZNK5Yosys5RTLIL6SigBitneERKS1_.exit ], [ %.07139093, %10627 ], [ %.07139093, %.noexc3460.thread ]
   call void @llvm.lifetime.start.p0(ptr nonnull %303)
   call void @llvm.lifetime.start.p0(ptr nonnull %304)
   invoke void (ptr, ptr, ...) @_ZN5Yosys7stringfB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %304, ptr noundef nonnull @.str.264, i32 noundef %.07136188)
@@ -106445,7 +106445,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit232: ; preds = %55
   br label %.thread311
 
 .thread311:                                       ; preds = %.thread311.loopexit, %281, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit137, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit157
-  %.1 = phi i1 [ true, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit157 ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit137 ], [ false, %281 ], [ %561, %.thread311.loopexit ]
+  %.1 = phi i1 [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit137 ], [ true, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit157 ], [ false, %281 ], [ %561, %.thread311.loopexit ]
   %562 = icmp sgt i32 %2, -1
   br i1 %562, label %563, label %675
 

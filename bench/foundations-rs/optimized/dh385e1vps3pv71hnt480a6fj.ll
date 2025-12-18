@@ -4619,7 +4619,7 @@ define hidden void @_ZN5prost7message7Message6decode17h50bb2cd7c41059a9E(ptr dea
           to label %.loopexit28.i unwind label %.body.thread32.loopexit.split-lp.loopexit.split-lp
 
 .loopexit28.i:                                    ; preds = %.noexc5, %52, %.noexc6, %.noexc9
-  %.sroa.11.1.i = phi ptr [ %45, %.noexc6 ], [ %47, %.noexc9 ], [ %53, %52 ], [ %37, %.noexc5 ]
+  %.sroa.11.1.i = phi ptr [ %45, %.noexc6 ], [ %53, %52 ], [ %47, %.noexc9 ], [ %37, %.noexc5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %26), !noalias !516
   call void @llvm.lifetime.end.p0(ptr nonnull %25), !noalias !514
   %54 = icmp ne ptr %.sroa.11.1.i, null
@@ -4827,7 +4827,7 @@ _ZN5prost8encoding15check_wire_type17h831fb630012f7b1cE.exit.i.i.i: ; preds = %"
           to label %.loopexit.i.i.i.i unwind label %.body.thread32.loopexit.split-lp.loopexit.split-lp
 
 .loopexit.i.i.i.i:                                ; preds = %.noexc15, %98, %.noexc16, %.noexc19
-  %.sroa.11.0.i.i.i.i.i = phi ptr [ %91, %.noexc16 ], [ %93, %.noexc19 ], [ %99, %98 ], [ %83, %.noexc15 ]
+  %.sroa.11.0.i.i.i.i.i = phi ptr [ %91, %.noexc16 ], [ %99, %98 ], [ %93, %.noexc19 ], [ %83, %.noexc15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !577
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !573
   %100 = icmp ne ptr %.sroa.11.0.i.i.i.i.i, null
@@ -4923,7 +4923,7 @@ _ZN5prost8encoding7message5merge17hbb70da7b22a0dd52E.exit.i.i: ; preds = %.noexc
           to label %"_ZN127_$LT$opentelemetry_proto..proto..tonic..collector..trace..v1..ExportTraceServiceResponse$u20$as$u20$prost..message..Message$GT$11merge_field17h33535216726f9dc8E.exit.i" unwind label %.body.thread32.loopexit.split-lp.loopexit
 
 _ZN5prost8encoding7message5merge17hbb70da7b22a0dd52E.exit.thread.i.i: ; preds = %_ZN5prost8encoding7message5merge17hbb70da7b22a0dd52E.exit.i.i, %"_ZN5prost8encoding7message5merge28_$u7b$$u7b$closure$u7d$$u7d$17h3cac7e8965229a1dE.exit.i.i.i.i", %.invoke, %"_ZN126_$LT$opentelemetry_proto..proto..tonic..collector..trace..v1..ExportTracePartialSuccess$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h8ac6859864a1c39aE.exit.i.i.i.i.i.i", %"_ZN126_$LT$opentelemetry_proto..proto..tonic..collector..trace..v1..ExportTracePartialSuccess$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h5fd34c48f08e2cd6E.exit.i.i.i.i.i.i", %.loopexit.i.i.i.i, %.noexc12
-  %.sroa.0.0.i5.i.i = phi ptr [ %.sroa.11.0.i.i.i.i.i, %.loopexit.i.i.i.i ], [ %113, %"_ZN126_$LT$opentelemetry_proto..proto..tonic..collector..trace..v1..ExportTracePartialSuccess$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h5fd34c48f08e2cd6E.exit.i.i.i.i.i.i" ], [ %119, %"_ZN126_$LT$opentelemetry_proto..proto..tonic..collector..trace..v1..ExportTracePartialSuccess$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h8ac6859864a1c39aE.exit.i.i.i.i.i.i" ], [ %75, %.invoke ], [ %61, %.noexc12 ], [ %.sroa.0.0.i.i.i.i.i, %"_ZN5prost8encoding7message5merge28_$u7b$$u7b$closure$u7d$$u7d$17h3cac7e8965229a1dE.exit.i.i.i.i" ], [ %65, %_ZN5prost8encoding7message5merge17hbb70da7b22a0dd52E.exit.i.i ]
+  %.sroa.0.0.i5.i.i = phi ptr [ %.sroa.0.0.i.i.i.i.i, %"_ZN5prost8encoding7message5merge28_$u7b$$u7b$closure$u7d$$u7d$17h3cac7e8965229a1dE.exit.i.i.i.i" ], [ %61, %.noexc12 ], [ %113, %"_ZN126_$LT$opentelemetry_proto..proto..tonic..collector..trace..v1..ExportTracePartialSuccess$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h5fd34c48f08e2cd6E.exit.i.i.i.i.i.i" ], [ %119, %"_ZN126_$LT$opentelemetry_proto..proto..tonic..collector..trace..v1..ExportTracePartialSuccess$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h8ac6859864a1c39aE.exit.i.i.i.i.i.i" ], [ %.sroa.11.0.i.i.i.i.i, %.loopexit.i.i.i.i ], [ %75, %.invoke ], [ %65, %_ZN5prost8encoding7message5merge17hbb70da7b22a0dd52E.exit.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !612
   store ptr %.sroa.0.0.i5.i.i, ptr %3, align 8, !noalias !613
   invoke void @_ZN5prost5error11DecodeError4push17h50a9b736e9539d1cE(ptr noalias noundef nonnull align 8 dereferenceable(8) %3, ptr noalias noundef nonnull readonly align 1 @anon.7633e83eafe1fe237dd65b6fd3bcae19.5, i64 noundef 26, ptr noalias noundef nonnull readonly align 1 @anon.7633e83eafe1fe237dd65b6fd3bcae19.6, i64 noundef 15)
@@ -4970,7 +4970,7 @@ _ZN5prost8encoding7message5merge17hbb70da7b22a0dd52E.exit.thread.i.i: ; preds = 
   br label %.body.thread
 
 .loopexit:                                        ; preds = %"_ZN127_$LT$opentelemetry_proto..proto..tonic..collector..trace..v1..ExportTraceServiceResponse$u20$as$u20$prost..message..Message$GT$11merge_field17h33535216726f9dc8E.exit.i", %.loopexit28.i, %"_ZN127_$LT$opentelemetry_proto..proto..tonic..collector..trace..v1..ExportTraceServiceResponse$u20$as$u20$prost..message..Message$GT$11merge_field17h33535216726f9dc8E.exit.thread.i"
-  %.sroa.0.0.i.ph = phi ptr [ %126, %"_ZN127_$LT$opentelemetry_proto..proto..tonic..collector..trace..v1..ExportTraceServiceResponse$u20$as$u20$prost..message..Message$GT$11merge_field17h33535216726f9dc8E.exit.thread.i" ], [ %.sroa.11.1.i, %.loopexit28.i ], [ %.sroa.0.0.i.i, %"_ZN127_$LT$opentelemetry_proto..proto..tonic..collector..trace..v1..ExportTraceServiceResponse$u20$as$u20$prost..message..Message$GT$11merge_field17h33535216726f9dc8E.exit.i" ]
+  %.sroa.0.0.i.ph = phi ptr [ %.sroa.11.1.i, %.loopexit28.i ], [ %126, %"_ZN127_$LT$opentelemetry_proto..proto..tonic..collector..trace..v1..ExportTraceServiceResponse$u20$as$u20$prost..message..Message$GT$11merge_field17h33535216726f9dc8E.exit.thread.i" ], [ %.sroa.0.0.i.i, %"_ZN127_$LT$opentelemetry_proto..proto..tonic..collector..trace..v1..ExportTraceServiceResponse$u20$as$u20$prost..message..Message$GT$11merge_field17h33535216726f9dc8E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %29, i64 32, i1 false)

@@ -221,9 +221,9 @@ define noundef i32 @_Z13gmx_mk_angndxiPPc(i32 noundef %0, ptr noundef %1) local_
   br label %_ZL12select_ftypePKcPiS1_.exit
 
 _ZL12select_ftypePKcPiS1_.exit:                   ; preds = %45, %.loopexit.sink.split.i, %.noexc42
-  %.090 = phi i32 [ 4, %.noexc42 ], [ 4, %.loopexit.sink.split.i ], [ 3, %45 ]
-  %.2 = phi i32 [ 1, %.noexc42 ], [ 1, %.loopexit.sink.split.i ], [ %.1, %45 ]
-  %.2.i = phi ptr [ %47, %.noexc42 ], [ %47, %.loopexit.sink.split.i ], [ %.1.i, %45 ]
+  %.090 = phi i32 [ 4, %.loopexit.sink.split.i ], [ 4, %.noexc42 ], [ 3, %45 ]
+  %.2 = phi i32 [ 1, %.loopexit.sink.split.i ], [ 1, %.noexc42 ], [ %.1, %45 ]
+  %.2.i = phi ptr [ %47, %.loopexit.sink.split.i ], [ %47, %.noexc42 ], [ %.1.i, %45 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %51 = invoke noundef ptr @_Z6ftp2fniiPK8t_filenm(i32 noundef 26, i32 noundef 2, ptr noundef nonnull %11)

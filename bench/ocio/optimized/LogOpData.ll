@@ -3154,7 +3154,7 @@ define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev9LogOpData6equalsERKN
   br i1 %or.cond.not, label %.lr.ph.i.i.i.i.i16, label %_ZSteqIdSaIdEEbRKSt6vectorIT_T0_ES6_.exit, !llvm.loop !45
 
 _ZSteqIdSaIdEEbRKSt6vectorIT_T0_ES6_.exit:        ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i.i10, %.lr.ph.i.i.i.i.i16, %76, %.loopexit, %.loopexit23, %16, %4, %10, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %10 ], [ false, %4 ], [ false, %16 ], [ false, %.loopexit23 ], [ false, %.loopexit ], [ true, %76 ], [ false, %.lr.ph.i.i.i.i.i10 ], [ %79, %.lr.ph.i.i.i.i.i16 ], [ false, %.lr.ph.i.i.i.i.i ]
+  %.0 = phi i1 [ false, %2 ], [ %79, %.lr.ph.i.i.i.i.i16 ], [ false, %.lr.ph.i.i.i.i.i10 ], [ false, %10 ], [ false, %4 ], [ false, %16 ], [ false, %.loopexit23 ], [ false, %.loopexit ], [ true, %76 ], [ false, %.lr.ph.i.i.i.i.i ]
   ret i1 %.0
 }
 
@@ -3607,7 +3607,7 @@ define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev9LogOpData18allCompon
   br i1 %or.cond.not, label %.lr.ph.i.i.i.i.i2, label %_ZSteqIdSaIdEEbRKSt6vectorIT_T0_ES6_.exit, !llvm.loop !45
 
 _ZSteqIdSaIdEEbRKSt6vectorIT_T0_ES6_.exit:        ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i.i2, %.loopexit.thread, %.loopexit, %1
-  %44 = phi i1 [ false, %1 ], [ false, %.loopexit ], [ %38, %.loopexit.thread ], [ %41, %.lr.ph.i.i.i.i.i2 ], [ false, %.lr.ph.i.i.i.i.i ]
+  %44 = phi i1 [ %38, %.loopexit.thread ], [ false, %1 ], [ false, %.loopexit ], [ %41, %.lr.ph.i.i.i.i.i2 ], [ false, %.lr.ph.i.i.i.i.i ]
   ret i1 %44
 }
 

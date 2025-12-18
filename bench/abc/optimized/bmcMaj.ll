@@ -1332,7 +1332,7 @@ define range(i32 0, 2) i32 @Maj_ManAddCnfStart(ptr noundef readonly captures(non
   br i1 %.not.not, label %.thread, label %81
 
 .thread:                                          ; preds = %._crit_edge, %39, %61, %86, %81, %.preheader
-  %.3 = phi i32 [ 1, %.preheader ], [ 0, %39 ], [ 1, %81 ], [ 0, %61 ], [ 0, %86 ], [ 0, %._crit_edge ]
+  %.3 = phi i32 [ 0, %61 ], [ 1, %81 ], [ 0, %39 ], [ 1, %.preheader ], [ 0, %86 ], [ 0, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.3
@@ -4009,7 +4009,7 @@ Exa_ManAddClause.exit225:                         ; preds = %239, %._crit_edge.i
   br i1 %.not.not, label %.thread231, label %234
 
 .thread231:                                       ; preds = %Exa_ManAddClause.exit213, %Exa_ManAddClause.exit, %Exa_ManAddClause.exit202, %Exa_ManAddClause.exit169, %Exa_ManAddClause.exit180, %Exa_ManAddClause.exit191, %Exa_ManAddClause.exit225, %234, %.preheader
-  %.5 = phi i32 [ 1, %.preheader ], [ 0, %Exa_ManAddClause.exit ], [ 1, %234 ], [ 0, %Exa_ManAddClause.exit191 ], [ 0, %Exa_ManAddClause.exit180 ], [ 0, %Exa_ManAddClause.exit169 ], [ 0, %Exa_ManAddClause.exit202 ], [ 0, %Exa_ManAddClause.exit225 ], [ 0, %Exa_ManAddClause.exit213 ]
+  %.5 = phi i32 [ 0, %Exa_ManAddClause.exit202 ], [ 0, %Exa_ManAddClause.exit191 ], [ 1, %234 ], [ 0, %Exa_ManAddClause.exit169 ], [ 0, %Exa_ManAddClause.exit180 ], [ 0, %Exa_ManAddClause.exit ], [ 1, %.preheader ], [ 0, %Exa_ManAddClause.exit225 ], [ 0, %Exa_ManAddClause.exit213 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.5
@@ -4767,7 +4767,7 @@ Abc_TtConst0.exit.i:                              ; preds = %.lr.ph.preheader.i.
   br i1 %exitcond71.not.i.i, label %.lr.ph.preheader.i65.i, label %.lr.ph52.i.i, !llvm.loop !146
 
 .lr.ph.preheader.i65.i:                           ; preds = %.lr.ph50.i.i, %.lr.ph52.i.i, %.lr.ph.i62.i, %.lr.ph48.i.i
-  %.pre-phi = phi i64 [ %wide.trip.count70.i.i, %.lr.ph52.i.i ], [ %wide.trip.count60.i.i, %.lr.ph48.i.i ], [ %wide.trip.count.i.i, %.lr.ph.i62.i ], [ %wide.trip.count65.i.i, %.lr.ph50.i.i ]
+  %.pre-phi = phi i64 [ %wide.trip.count70.i.i, %.lr.ph52.i.i ], [ %wide.trip.count.i.i, %.lr.ph.i62.i ], [ %wide.trip.count60.i.i, %.lr.ph48.i.i ], [ %wide.trip.count65.i.i, %.lr.ph50.i.i ]
   %169 = mul nsw i64 %indvars.iv104.i, %.pre-phi
   %170 = getelementptr inbounds i64, ptr %.val55.val.i, i64 %169
   br label %.lr.ph.i67.i
@@ -5844,8 +5844,8 @@ Vec_WecPush.exit99.i.i:                           ; preds = %368, %Vec_IntGrow.e
   br i1 %381, label %236, label %.loopexit101.i.i, !llvm.loop !176
 
 .loopexit101.i.i:                                 ; preds = %._crit_edge.i.i, %.loopexit.i.i, %139, %.preheader100.i.i
-  %382 = phi i32 [ %120, %.preheader100.i.i ], [ %140, %139 ], [ %379, %.loopexit.i.i ], [ %230, %._crit_edge.i.i ]
-  %383 = phi i32 [ %120, %.preheader100.i.i ], [ %141, %139 ], [ %379, %.loopexit.i.i ], [ %231, %._crit_edge.i.i ]
+  %382 = phi i32 [ %379, %.loopexit.i.i ], [ %120, %.preheader100.i.i ], [ %140, %139 ], [ %230, %._crit_edge.i.i ]
+  %383 = phi i32 [ %379, %.loopexit.i.i ], [ %120, %.preheader100.i.i ], [ %141, %139 ], [ %231, %._crit_edge.i.i ]
   %indvars.iv.next127.i.i = add nsw i64 %indvars.iv126.i.i, 1
   %384 = load i32, ptr %95, align 8, !tbaa !167
   %385 = sext i32 %384 to i64
@@ -6480,7 +6480,7 @@ Abc_TtNot.exit:                                   ; preds = %.lr.ph.i, %492, %Ex
   br i1 %.not.not.i, label %Exa3_ManAddCnfStart.exit, label %657
 
 Exa3_ManAddCnfStart.exit:                         ; preds = %648, %._crit_edge.i, %635, %538, %564, %609, %657, %.lr.ph210.i, %.preheader.i
-  %.5.i = phi i32 [ 1, %.preheader.i ], [ 0, %._crit_edge.i ], [ 1, %657 ], [ 0, %609 ], [ 0, %564 ], [ 0, %538 ], [ 0, %635 ], [ 0, %.lr.ph210.i ], [ 0, %648 ]
+  %.5.i = phi i32 [ 0, %._crit_edge.i ], [ 0, %635 ], [ 1, %657 ], [ 0, %538 ], [ 0, %564 ], [ 0, %609 ], [ 1, %.preheader.i ], [ 0, %.lr.ph210.i ], [ 0, %648 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %669 = load i32, ptr %85, align 8, !tbaa !155
@@ -27014,7 +27014,7 @@ define i32 @Exa7_ManGenCnf(ptr noundef readonly captures(none) %0, ptr noundef r
   br label %Exa7_AddClause4.exit
 
 Exa7_AddClause4.exit:                             ; preds = %.lr.ph.i.i, %._crit_edge.i.i, %._crit_edge33.i.i
-  %.024.i.i = phi i32 [ 1, %._crit_edge33.i.i ], [ 1, %._crit_edge.i.i ], [ 0, %.lr.ph.i.i ]
+  %.024.i.i = phi i32 [ 1, %._crit_edge.i.i ], [ 1, %._crit_edge33.i.i ], [ 0, %.lr.ph.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %66 = add nsw i32 %.024.i.i, %.1122293
   %exitcond.not = icmp eq i32 %45, %2
@@ -27089,7 +27089,7 @@ Exa7_AddClause4.exit:                             ; preds = %.lr.ph.i.i, %._crit
   br label %Exa7_AddClause4.exit154
 
 Exa7_AddClause4.exit154:                          ; preds = %.lr.ph.i.i136, %._crit_edge.i.i142, %._crit_edge33.i.i145
-  %.024.i.i146 = phi i32 [ 1, %._crit_edge33.i.i145 ], [ 1, %._crit_edge.i.i142 ], [ 0, %.lr.ph.i.i136 ]
+  %.024.i.i146 = phi i32 [ 1, %._crit_edge.i.i142 ], [ 1, %._crit_edge33.i.i145 ], [ 0, %.lr.ph.i.i136 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %89 = add nsw i32 %.024.i.i146, %.1122.lcssa
   br i1 %25, label %.lr.ph304, label %._crit_edge305
@@ -27185,7 +27185,7 @@ Exa7_AddClause4.exit154:                          ; preds = %.lr.ph.i.i136, %._c
   br label %Exa7_AddClause4.exit181
 
 Exa7_AddClause4.exit181:                          ; preds = %.lr.ph.i.i163, %._crit_edge.i.i169, %._crit_edge33.i.i172
-  %.024.i.i173 = phi i32 [ 1, %._crit_edge33.i.i172 ], [ 1, %._crit_edge.i.i169 ], [ 0, %.lr.ph.i.i163 ]
+  %.024.i.i173 = phi i32 [ 1, %._crit_edge.i.i169 ], [ 1, %._crit_edge33.i.i172 ], [ 0, %.lr.ph.i.i163 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %120 = add nsw i32 %.024.i.i173, %.3124295
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -27247,7 +27247,7 @@ Exa7_AddClause4.exit181:                          ; preds = %.lr.ph.i.i163, %._c
   br label %Exa7_AddClause4.exit200
 
 Exa7_AddClause4.exit200:                          ; preds = %.lr.ph.i.i182, %._crit_edge.i.i188, %._crit_edge33.i.i191
-  %.024.i.i192 = phi i32 [ 1, %._crit_edge33.i.i191 ], [ 1, %._crit_edge.i.i188 ], [ 0, %.lr.ph.i.i182 ]
+  %.024.i.i192 = phi i32 [ 1, %._crit_edge.i.i188 ], [ 1, %._crit_edge33.i.i191 ], [ 0, %.lr.ph.i.i182 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %136 = add nsw i32 %120, %.024.i.i192
   %137 = or disjoint i32 %104, 1
@@ -27310,7 +27310,7 @@ Exa7_AddClause4.exit200:                          ; preds = %.lr.ph.i.i182, %._c
   br label %Exa7_AddClause4.exit219
 
 Exa7_AddClause4.exit219:                          ; preds = %.lr.ph.i.i201, %._crit_edge.i.i207, %._crit_edge33.i.i210
-  %.024.i.i211 = phi i32 [ 1, %._crit_edge33.i.i210 ], [ 1, %._crit_edge.i.i207 ], [ 0, %.lr.ph.i.i201 ]
+  %.024.i.i211 = phi i32 [ 1, %._crit_edge.i.i207 ], [ 1, %._crit_edge33.i.i210 ], [ 0, %.lr.ph.i.i201 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %153 = add nsw i32 %136, %.024.i.i211
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -27372,7 +27372,7 @@ Exa7_AddClause4.exit219:                          ; preds = %.lr.ph.i.i201, %._c
   br label %Exa7_AddClause4.exit238
 
 Exa7_AddClause4.exit238:                          ; preds = %.lr.ph.i.i220, %._crit_edge.i.i226, %._crit_edge33.i.i229
-  %.024.i.i230 = phi i32 [ 1, %._crit_edge33.i.i229 ], [ 1, %._crit_edge.i.i226 ], [ 0, %.lr.ph.i.i220 ]
+  %.024.i.i230 = phi i32 [ 1, %._crit_edge.i.i226 ], [ 1, %._crit_edge33.i.i229 ], [ 0, %.lr.ph.i.i220 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %169 = add nsw i32 %153, %.024.i.i230
   %170 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
@@ -27452,7 +27452,7 @@ Exa7_AddClause4.exit238:                          ; preds = %.lr.ph.i.i220, %._c
   br label %Exa7_AddClause.exit
 
 Exa7_AddClause.exit:                              ; preds = %.lr.ph.i, %._crit_edge.i, %._crit_edge.thread.i, %._crit_edge33.i
-  %.024.i = phi i32 [ 1, %._crit_edge33.i ], [ 1, %._crit_edge.i ], [ 1, %._crit_edge.thread.i ], [ 0, %.lr.ph.i ]
+  %.024.i = phi i32 [ 1, %._crit_edge.i ], [ 1, %._crit_edge33.i ], [ 1, %._crit_edge.thread.i ], [ 0, %.lr.ph.i ]
   %190 = add nsw i32 %.024.i, %.3124.lcssa
   %191 = icmp slt i32 %90, %13
   br i1 %191, label %.lr.ph304, label %._crit_edge305, !llvm.loop !575
@@ -27545,7 +27545,7 @@ Exa7_AddClause.exit:                              ; preds = %.lr.ph.i, %._crit_e
   br label %Exa7_AddClause.exit263
 
 Exa7_AddClause.exit263:                           ; preds = %.lr.ph.i247, %._crit_edge.i253, %._crit_edge.thread.i241, %._crit_edge33.i243
-  %.024.i244 = phi i32 [ 1, %._crit_edge33.i243 ], [ 1, %._crit_edge.i253 ], [ 1, %._crit_edge.thread.i241 ], [ 0, %.lr.ph.i247 ]
+  %.024.i244 = phi i32 [ 1, %._crit_edge.i253 ], [ 1, %._crit_edge33.i243 ], [ 1, %._crit_edge.thread.i241 ], [ 0, %.lr.ph.i247 ]
   %214 = add nsw i32 %.024.i244, %.4323
   %.not329 = icmp eq i32 %.1116324, 31
   %or.cond = or i1 %.not, %.not329
@@ -27671,7 +27671,7 @@ Exa7_AddClause.exit263:                           ; preds = %.lr.ph.i247, %._cri
   br label %Exa7_AddClause.exit288
 
 Exa7_AddClause.exit288:                           ; preds = %.lr.ph.i272, %._crit_edge.i278, %._crit_edge.thread.i266, %._crit_edge33.i268
-  %.024.i269 = phi i32 [ 1, %._crit_edge33.i268 ], [ 1, %._crit_edge.i278 ], [ 1, %._crit_edge.thread.i266 ], [ 0, %.lr.ph.i272 ]
+  %.024.i269 = phi i32 [ 1, %._crit_edge.i278 ], [ 1, %._crit_edge33.i268 ], [ 1, %._crit_edge.thread.i266 ], [ 0, %.lr.ph.i272 ]
   %263 = add nsw i32 %.024.i269, %.5317
   br label %264
 

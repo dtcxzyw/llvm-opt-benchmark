@@ -1533,8 +1533,8 @@ agxbuse.exit:                                     ; preds = %agxbclear.exit.i, %
   br label %.loopexit58.i
 
 .loopexit58.i:                                    ; preds = %121, %107, %.critedge2.i
-  %123 = phi i8 [ 61, %107 ], [ %102, %.critedge2.i ], [ %.pre.i79, %121 ]
-  %.3.i = phi i64 [ %.1.i, %107 ], [ %.1.i, %.critedge2.i ], [ %122, %121 ]
+  %123 = phi i8 [ %.pre.i79, %121 ], [ 61, %107 ], [ %102, %.critedge2.i ]
+  %.3.i = phi i64 [ %122, %121 ], [ %.1.i, %107 ], [ %.1.i, %.critedge2.i ]
   %124 = getelementptr inbounds nuw i8, ptr %.069267, i64 %.3.i
   %.not.i80 = icmp eq i8 %123, 0
   br i1 %.not.i80, label %find_attribute.exit.thread, label %.lr.ph.i, !llvm.loop !74
@@ -1869,14 +1869,14 @@ strview_str.exit109:                              ; preds = %250
   br i1 %.not61.i, label %find_attribute.exit.thread, label %.lr.ph.i.preheader, !llvm.loop !76
 
 find_attribute.exit.thread:                       ; preds = %svg_units_convert.exit, %svg_units_convert.exit105, %263, %.loopexit58.i, %115, %agxbuse.exit
-  %.sroa.6.1233 = phi double [ %.sroa.6.0603, %agxbuse.exit ], [ %.sroa.6.1268, %115 ], [ %.sroa.6.1268, %.loopexit58.i ], [ %.sroa.6.1268, %svg_units_convert.exit ], [ %.sroa.6.1268, %svg_units_convert.exit105 ], [ %.sroa.6.2, %263 ]
-  %.sroa.040.1227 = phi i1 [ %.sroa.040.0604, %agxbuse.exit ], [ %.sroa.040.1269, %115 ], [ %.sroa.040.1269, %.loopexit58.i ], [ %.sroa.040.1269, %svg_units_convert.exit ], [ %.sroa.040.1269, %svg_units_convert.exit105 ], [ %.sroa.040.2, %263 ]
-  %.sroa.643.1221 = phi double [ %.sroa.643.0605, %agxbuse.exit ], [ %.sroa.643.1270, %115 ], [ %.sroa.643.1270, %.loopexit58.i ], [ %.sroa.643.1270, %svg_units_convert.exit ], [ %.sroa.643.1270, %svg_units_convert.exit105 ], [ %.sroa.643.2, %263 ]
-  %.sroa.041.1215 = phi i1 [ %.sroa.041.0606, %agxbuse.exit ], [ %.sroa.041.1271, %115 ], [ %.sroa.041.1271, %.loopexit58.i ], [ %.sroa.041.1271, %svg_units_convert.exit ], [ %.sroa.041.1271, %svg_units_convert.exit105 ], [ %.sroa.041.2, %263 ]
-  %.sroa.13.3 = phi double [ %.sroa.13.0607, %agxbuse.exit ], [ %.sroa.13.2272, %115 ], [ %.sroa.13.2272, %.loopexit58.i ], [ %.sroa.13.4, %svg_units_convert.exit ], [ %.sroa.13.2272, %svg_units_convert.exit105 ], [ %.sroa.13.5, %263 ]
-  %.sroa.044.3 = phi i8 [ %.sroa.044.0608, %agxbuse.exit ], [ %.sroa.044.2273, %115 ], [ %.sroa.044.2273, %.loopexit58.i ], [ %.sroa.044.4, %svg_units_convert.exit ], [ 1, %svg_units_convert.exit105 ], [ %.sroa.044.5, %263 ]
-  %.sroa.1356.3 = phi double [ %.sroa.1356.0609, %agxbuse.exit ], [ %.sroa.1356.2274, %115 ], [ %.sroa.1356.2274, %.loopexit58.i ], [ %.sroa.1356.2274, %svg_units_convert.exit ], [ %.sroa.1356.5, %svg_units_convert.exit105 ], [ %.sroa.1356.4, %263 ]
-  %.sroa.051.3 = phi i8 [ %.sroa.051.0610, %agxbuse.exit ], [ %.sroa.051.2275, %115 ], [ %.sroa.051.2275, %.loopexit58.i ], [ 1, %svg_units_convert.exit ], [ %.sroa.051.5, %svg_units_convert.exit105 ], [ %.sroa.051.4, %263 ]
+  %.sroa.6.1233 = phi double [ %.sroa.6.1268, %115 ], [ %.sroa.6.1268, %.loopexit58.i ], [ %.sroa.6.0603, %agxbuse.exit ], [ %.sroa.6.1268, %svg_units_convert.exit ], [ %.sroa.6.1268, %svg_units_convert.exit105 ], [ %.sroa.6.2, %263 ]
+  %.sroa.040.1227 = phi i1 [ %.sroa.040.1269, %115 ], [ %.sroa.040.1269, %.loopexit58.i ], [ %.sroa.040.0604, %agxbuse.exit ], [ %.sroa.040.1269, %svg_units_convert.exit ], [ %.sroa.040.1269, %svg_units_convert.exit105 ], [ %.sroa.040.2, %263 ]
+  %.sroa.643.1221 = phi double [ %.sroa.643.1270, %115 ], [ %.sroa.643.1270, %.loopexit58.i ], [ %.sroa.643.0605, %agxbuse.exit ], [ %.sroa.643.1270, %svg_units_convert.exit ], [ %.sroa.643.1270, %svg_units_convert.exit105 ], [ %.sroa.643.2, %263 ]
+  %.sroa.041.1215 = phi i1 [ %.sroa.041.1271, %115 ], [ %.sroa.041.1271, %.loopexit58.i ], [ %.sroa.041.0606, %agxbuse.exit ], [ %.sroa.041.1271, %svg_units_convert.exit ], [ %.sroa.041.1271, %svg_units_convert.exit105 ], [ %.sroa.041.2, %263 ]
+  %.sroa.13.3 = phi double [ %.sroa.13.2272, %115 ], [ %.sroa.13.2272, %.loopexit58.i ], [ %.sroa.13.0607, %agxbuse.exit ], [ %.sroa.13.4, %svg_units_convert.exit ], [ %.sroa.13.2272, %svg_units_convert.exit105 ], [ %.sroa.13.5, %263 ]
+  %.sroa.044.3 = phi i8 [ %.sroa.044.2273, %115 ], [ %.sroa.044.2273, %.loopexit58.i ], [ %.sroa.044.0608, %agxbuse.exit ], [ %.sroa.044.4, %svg_units_convert.exit ], [ 1, %svg_units_convert.exit105 ], [ %.sroa.044.5, %263 ]
+  %.sroa.1356.3 = phi double [ %.sroa.1356.2274, %115 ], [ %.sroa.1356.2274, %.loopexit58.i ], [ %.sroa.1356.0609, %agxbuse.exit ], [ %.sroa.1356.2274, %svg_units_convert.exit ], [ %.sroa.1356.5, %svg_units_convert.exit105 ], [ %.sroa.1356.4, %263 ]
+  %.sroa.051.3 = phi i8 [ %.sroa.051.2275, %115 ], [ %.sroa.051.2275, %.loopexit58.i ], [ %.sroa.051.0610, %agxbuse.exit ], [ 1, %svg_units_convert.exit ], [ %.sroa.051.5, %svg_units_convert.exit105 ], [ %.sroa.051.4, %263 ]
   %or.cond = select i1 %.sroa.041.1215, i1 %.sroa.040.1227, i1 false
   br i1 %or.cond, label %.thread412, label %14
 

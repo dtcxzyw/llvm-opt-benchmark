@@ -157,8 +157,8 @@ list_remove_head.exit:                            ; preds = %msgsnd_wait.exit.th
   call void @up_switch_context(ptr noundef nonnull %68, ptr noundef %67) #5
   br label %msgsnd_wait.exit.thread56
 
-msgsnd_wait.exit.thread56:                        ; preds = %msgsnd_wait.exit, %msgsnd_wait.exit.thread, %24, %42, %11, %7, %74, %79, %list_remove_head.exit
-  %.1 = phi i32 [ %44, %msgsnd_wait.exit ], [ -22, %7 ], [ -90, %11 ], [ 0, %79 ], [ 0, %74 ], [ 0, %list_remove_head.exit ], [ -12, %msgsnd_wait.exit.thread ], [ -11, %24 ], [ -11, %42 ]
+msgsnd_wait.exit.thread56:                        ; preds = %msgsnd_wait.exit, %msgsnd_wait.exit.thread, %42, %24, %11, %7, %74, %79, %list_remove_head.exit
+  %.1 = phi i32 [ %44, %msgsnd_wait.exit ], [ -22, %7 ], [ -90, %11 ], [ 0, %79 ], [ 0, %74 ], [ 0, %list_remove_head.exit ], [ -12, %msgsnd_wait.exit.thread ], [ -11, %42 ], [ -11, %24 ]
   %80 = and i64 %8, 512
   %.not.i53 = icmp eq i64 %80, 0
   br i1 %.not.i53, label %up_irq_restore.exit, label %81

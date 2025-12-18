@@ -107,10 +107,10 @@ define noundef ptr @u_strFromUTF32WithSub_77(ptr noundef %0, i32 noundef %1, ptr
   br label %.critedge119
 
 .critedge119:                                     ; preds = %.critedge.preheader, %47
-  %.198 = phi ptr [ %3, %47 ], [ %.097135, %.critedge.preheader ]
-  %.196 = phi ptr [ %50, %47 ], [ %scevgep180, %.critedge.preheader ]
-  %.290 = phi ptr [ %0, %47 ], [ %.088136, %.critedge.preheader ]
-  %.2 = phi i32 [ 0, %47 ], [ %.086137, %.critedge.preheader ]
+  %.198 = phi ptr [ %.097135, %.critedge.preheader ], [ %3, %47 ]
+  %.196 = phi ptr [ %scevgep180, %.critedge.preheader ], [ %50, %47 ]
+  %.290 = phi ptr [ %.088136, %.critedge.preheader ], [ %0, %47 ]
+  %.2 = phi i32 [ %.086137, %.critedge.preheader ], [ 0, %47 ]
   %51 = icmp ult ptr %.198, %.196
   br i1 %51, label %.lr.ph163, label %._crit_edge
 
@@ -268,9 +268,9 @@ define noundef ptr @u_strFromUTF32WithSub_77(ptr noundef %0, i32 noundef %1, ptr
   br i1 %107, label %.lr.ph163.split, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %45, %106, %76, %.preheader, %.critedge119
-  %.391.lcssa = phi ptr [ %.290, %.critedge119 ], [ %0, %.preheader ], [ %.492, %106 ], [ %.492.us, %76 ], [ %.189, %45 ]
-  %.3.lcssa = phi i32 [ %.2, %.critedge119 ], [ 0, %.preheader ], [ %.4, %106 ], [ %.4.us, %76 ], [ %.187, %45 ]
-  %.0.lcssa = phi i32 [ 0, %.critedge119 ], [ 0, %.preheader ], [ %.1125, %106 ], [ 0, %76 ], [ 0, %45 ]
+  %.391.lcssa = phi ptr [ %.290, %.critedge119 ], [ %.492, %106 ], [ %0, %.preheader ], [ %.492.us, %76 ], [ %.189, %45 ]
+  %.3.lcssa = phi i32 [ %.2, %.critedge119 ], [ %.4, %106 ], [ 0, %.preheader ], [ %.4.us, %76 ], [ %.187, %45 ]
+  %.0.lcssa = phi i32 [ 0, %.critedge119 ], [ %.1125, %106 ], [ 0, %.preheader ], [ 0, %76 ], [ 0, %45 ]
   %108 = ptrtoint ptr %.391.lcssa to i64
   %109 = ptrtoint ptr %0 to i64
   %110 = sub i64 %108, %109
@@ -541,9 +541,9 @@ define noundef ptr @u_strToUTF32WithSub_77(ptr noundef %0, i32 noundef %1, ptr n
   br i1 %113, label %.lr.ph120.split, label %._crit_edge121, !llvm.loop !17
 
 ._crit_edge121:                                   ; preds = %112, %83, %._crit_edge, %.loopexit
-  %.378.lcssa = phi ptr [ %.277, %.loopexit ], [ %.075.lcssa, %._crit_edge ], [ %.479.us, %83 ], [ %.479, %112 ]
-  %.3.lcssa = phi i32 [ %.2, %.loopexit ], [ %.073.lcssa, %._crit_edge ], [ %.4.us, %83 ], [ %.4, %112 ]
-  %.0.lcssa = phi i32 [ 0, %.loopexit ], [ 0, %._crit_edge ], [ 0, %83 ], [ %.1, %112 ]
+  %.378.lcssa = phi ptr [ %.277, %.loopexit ], [ %.479.us, %83 ], [ %.075.lcssa, %._crit_edge ], [ %.479, %112 ]
+  %.3.lcssa = phi i32 [ %.2, %.loopexit ], [ %.4.us, %83 ], [ %.073.lcssa, %._crit_edge ], [ %.4, %112 ]
+  %.0.lcssa = phi i32 [ 0, %.loopexit ], [ 0, %83 ], [ 0, %._crit_edge ], [ %.1, %112 ]
   %114 = ptrtoint ptr %.378.lcssa to i64
   %115 = ptrtoint ptr %0 to i64
   %116 = sub i64 %114, %115
@@ -1870,8 +1870,8 @@ define noundef ptr @u_strFromUTF8Lenient_77(ptr noundef %0, i32 noundef %1, ptr 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.backedge223, %.backedge, %.loopexit224, %.loopexit219, %267, %127
-  %.3178 = phi i32 [ %128, %127 ], [ 0, %267 ], [ %.0175, %.loopexit219 ], [ 0, %.loopexit224 ], [ %104, %.backedge ], [ 0, %.backedge223 ]
-  %.2 = phi ptr [ %.1165, %127 ], [ %268, %267 ], [ %.1165, %.loopexit219 ], [ %.4, %.loopexit224 ], [ %.1165, %.backedge ], [ %.7.be, %.backedge223 ]
+  %.3178 = phi i32 [ 0, %267 ], [ %128, %127 ], [ 0, %.loopexit224 ], [ %.0175, %.loopexit219 ], [ %104, %.backedge ], [ 0, %.backedge223 ]
+  %.2 = phi ptr [ %268, %267 ], [ %.1165, %127 ], [ %.4, %.loopexit224 ], [ %.1165, %.loopexit219 ], [ %.1165, %.backedge ], [ %.7.be, %.backedge223 ]
   %269 = ptrtoint ptr %.2 to i64
   %270 = ptrtoint ptr %0 to i64
   %271 = sub i64 %269, %270
@@ -3122,7 +3122,7 @@ define noundef ptr @u_strFromJavaModifiedUTF8WithSub_77(ptr noundef %0, i32 noun
   %135 = icmp sgt i32 %.2183, 1
   br i1 %135, label %.preheader264, label %.loopexit265.loopexit, !llvm.loop !34
 
-.preheader:                                       ; preds = %77, %78
+.preheader:                                       ; preds = %78, %77
   %.promoted296303 = load i32, ptr %9, align 4, !tbaa !7
   %136 = icmp slt i32 %.promoted296303, %.0178
   %137 = icmp ult ptr %.3191, %28
@@ -3275,10 +3275,10 @@ define noundef ptr @u_strFromJavaModifiedUTF8WithSub_77(ptr noundef %0, i32 noun
   br i1 %214, label %.lr.ph298, label %.loopexit261, !llvm.loop !36
 
 .loopexit261:                                     ; preds = %.outer260, %.backedge262, %..loopexit261.loopexit324_crit_edge, %.preheader
-  %.promoted310317 = phi i32 [ %.promoted296303, %.preheader ], [ %.promoted310317.pre.pre, %..loopexit261.loopexit324_crit_edge ], [ %183, %.backedge262 ], [ %.promoted296, %.outer260 ]
-  %.2207 = phi i32 [ 0, %.preheader ], [ 1, %..loopexit261.loopexit324_crit_edge ], [ 0, %.backedge262 ], [ 0, %.outer260 ]
-  %.6201 = phi i32 [ %.0195, %.preheader ], [ %205, %..loopexit261.loopexit324_crit_edge ], [ %.5200.ph304, %.backedge262 ], [ %.7202, %.outer260 ]
-  %.10 = phi ptr [ %.3191, %.preheader ], [ %206, %..loopexit261.loopexit324_crit_edge ], [ %.9.be, %.backedge262 ], [ %.11, %.outer260 ]
+  %.promoted310317 = phi i32 [ %.promoted296303, %.preheader ], [ %183, %.backedge262 ], [ %.promoted310317.pre.pre, %..loopexit261.loopexit324_crit_edge ], [ %.promoted296, %.outer260 ]
+  %.2207 = phi i32 [ 0, %.preheader ], [ 0, %.backedge262 ], [ 1, %..loopexit261.loopexit324_crit_edge ], [ 0, %.outer260 ]
+  %.6201 = phi i32 [ %.0195, %.preheader ], [ %.5200.ph304, %.backedge262 ], [ %205, %..loopexit261.loopexit324_crit_edge ], [ %.7202, %.outer260 ]
+  %.10 = phi ptr [ %.3191, %.preheader ], [ %.9.be, %.backedge262 ], [ %206, %..loopexit261.loopexit324_crit_edge ], [ %.11, %.outer260 ]
   %215 = icmp slt i32 %.promoted310317, %.0178
   br i1 %215, label %.lr.ph312, label %.outer._crit_edge
 
@@ -3369,8 +3369,8 @@ define noundef ptr @u_strFromJavaModifiedUTF8WithSub_77(ptr noundef %0, i32 noun
   br i1 %256, label %.lr.ph312, label %.outer._crit_edge, !llvm.loop !37
 
 .outer._crit_edge:                                ; preds = %.outer, %.backedge, %.loopexit261
-  %.8203.ph.lcssa272 = phi i32 [ %.6201, %.loopexit261 ], [ %.8203.ph319, %.backedge ], [ %.9204, %.outer ]
-  %.3208.lcssa = phi i32 [ %.2207, %.loopexit261 ], [ %.3208.be, %.backedge ], [ %.4209, %.outer ]
+  %.8203.ph.lcssa272 = phi i32 [ %.8203.ph319, %.backedge ], [ %.6201, %.loopexit261 ], [ %.9204, %.outer ]
+  %.3208.lcssa = phi i32 [ %.3208.be, %.backedge ], [ %.2207, %.loopexit261 ], [ %.4209, %.outer ]
   br i1 %.not243, label %258, label %257
 
 257:                                              ; preds = %.outer._crit_edge

@@ -1495,7 +1495,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit2
   br i1 %.not27.old.i.i.i, label %.loopexit524, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %250, %247
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %250 ], [ %249, %247 ]
+  %.137.i.i.i.be = phi ptr [ %249, %247 ], [ %.old.i.i.i, %250 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !308
 
 _ZNK7obj_mapI4exprPS0_E8containsES1_.exit:        ; preds = %231, %242
@@ -1642,7 +1642,7 @@ _ZN6vectorIP4exprLb0EjE5resetEv.exit:             ; preds = %261, %263
   br i1 %.not27.old.i.i.i151, label %.loopexit515, label %.lr.ph38.i.i.i147.backedge
 
 .lr.ph38.i.i.i147.backedge:                       ; preds = %304, %301
-  %.137.i.i.i148.be = phi ptr [ %.old.i.i.i150, %304 ], [ %303, %301 ]
+  %.137.i.i.i148.be = phi ptr [ %303, %301 ], [ %.old.i.i.i150, %304 ]
   br label %.lr.ph38.i.i.i147, !llvm.loop !308
 
 .loopexit514:                                     ; preds = %285, %296
@@ -1920,7 +1920,7 @@ _ZNK17array_recognizers9is_selectEP4expr.exit:    ; preds = %399
   br i1 %.not27.old.i.i.i186, label %.loopexit521, label %.lr.ph38.i.i.i182.backedge
 
 .lr.ph38.i.i.i182.backedge:                       ; preds = %441, %438
-  %.137.i.i.i183.be = phi ptr [ %.old.i.i.i185, %441 ], [ %440, %438 ]
+  %.137.i.i.i183.be = phi ptr [ %440, %438 ], [ %.old.i.i.i185, %441 ]
   br label %.lr.ph38.i.i.i182, !llvm.loop !316
 
 .loopexit520:                                     ; preds = %422, %433
@@ -2052,7 +2052,7 @@ _ZNK17array_recognizers9is_selectEP4expr.exit.thread: ; preds = %399, %388, %_ZN
   br label %.body
 
 .critedge503thread-pre-split:                     ; preds = %.thread815, %_ZNK7obj_mapI4exprPS0_E8containsES1_.exit, %._crit_edge, %444, %481, %484
-  %.ph = phi ptr [ %211, %_ZNK7obj_mapI4exprPS0_E8containsES1_.exit ], [ %211, %._crit_edge ], [ %443, %444 ], [ %211, %481 ], [ %211, %484 ], [ %211, %.thread815 ]
+  %.ph = phi ptr [ %211, %484 ], [ %211, %_ZNK7obj_mapI4exprPS0_E8containsES1_.exit ], [ %211, %._crit_edge ], [ %443, %444 ], [ %211, %481 ], [ %211, %.thread815 ]
   %.pr = load ptr, ptr %19, align 8, !tbaa !273
   br label %.critedge503
 
@@ -2459,7 +2459,7 @@ _ZN11ast_manager7inc_refEP3ast.exit.i242:         ; preds = %625
   br i1 %.not27.old.i.i.i259, label %.loopexit509, label %.lr.ph38.i.i.i255.backedge
 
 .lr.ph38.i.i.i255.backedge:                       ; preds = %669, %666
-  %.137.i.i.i256.be = phi ptr [ %.old.i.i.i258, %669 ], [ %668, %666 ]
+  %.137.i.i.i256.be = phi ptr [ %668, %666 ], [ %.old.i.i.i258, %669 ]
   br label %.lr.ph38.i.i.i255, !llvm.loop !316
 
 .loopexit509:                                     ; preds = %655, %666, %669, %.preheader.i.i.i253
@@ -4073,7 +4073,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit:
   br i1 %108, label %111, label %.critedge
 
 .critedge:                                        ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit, %295
-  %.039.lcssa = phi i1 [ %.2, %295 ], [ %.039192, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit ]
+  %.039.lcssa = phi i1 [ %.039192, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit ], [ %.2, %295 ]
   br i1 %.039.lcssa, label %298, label %.critedge195
 
 109:                                              ; preds = %.critedge195, %._crit_edge

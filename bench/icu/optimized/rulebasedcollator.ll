@@ -3989,7 +3989,7 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator9doCompareEPKDsiS2_iR10UErrorC
   resume { ptr, i32 } %.pn153.pn.pn
 
 .loopexit:                                        ; preds = %.lr.ph168, %._crit_edge, %262, %268, %235, %236, %6
-  %.0 = phi i32 [ 0, %6 ], [ 0, %._crit_edge ], [ %267, %268 ], [ %.1123, %235 ], [ 0, %236 ], [ %261, %262 ], [ 0, %.lr.ph168 ]
+  %.0 = phi i32 [ 0, %6 ], [ 0, %._crit_edge ], [ %267, %268 ], [ %.1123, %235 ], [ %261, %262 ], [ 0, %236 ], [ 0, %.lr.ph168 ]
   ret i32 %.0
 }
 
@@ -4262,8 +4262,8 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator9doCompareEPKhiS2_iR10UErrorCo
   br i1 %47, label %._crit_edge, label %.lr.ph, !llvm.loop !156
 
 .critedge241:                                     ; preds = %.lr.ph309, %.lr.ph, %33, %.lr.ph.preheader, %._crit_edge
-  %.promoted258 = phi i32 [ %2, %._crit_edge ], [ 0, %.lr.ph.preheader ], [ %34, %33 ], [ %46, %.lr.ph ], [ %.pr273307, %.lr.ph309 ]
-  %48 = phi i32 [ %2, %._crit_edge ], [ %4, %.lr.ph.preheader ], [ %34, %33 ], [ %4, %.lr.ph ], [ %.pr273307, %.lr.ph309 ]
+  %.promoted258 = phi i32 [ %34, %33 ], [ %2, %._crit_edge ], [ 0, %.lr.ph.preheader ], [ %.pr273307, %.lr.ph309 ], [ %46, %.lr.ph ]
+  %48 = phi i32 [ %34, %33 ], [ %2, %._crit_edge ], [ %4, %.lr.ph.preheader ], [ %.pr273307, %.lr.ph309 ], [ %4, %.lr.ph ]
   %49 = icmp sgt i32 %48, 0
   br i1 %49, label %50, label %.critedge
 
@@ -5068,7 +5068,7 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator9doCompareEPKhiS2_iR10UErrorCo
   resume { ptr, i32 } %.pn237.pn
 
 .loopexit:                                        ; preds = %.lr.ph257, %384, %383, %465, %415, %._crit_edge
-  %.2 = phi i32 [ 0, %._crit_edge ], [ %464, %465 ], [ %.1160, %383 ], [ 0, %384 ], [ %414, %415 ], [ 0, %.lr.ph257 ]
+  %.2 = phi i32 [ 0, %._crit_edge ], [ %464, %465 ], [ %.1160, %383 ], [ %414, %415 ], [ 0, %384 ], [ 0, %.lr.ph257 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %469
 
@@ -6139,7 +6139,7 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator7compareER13UCharIteratorS2_R1
   resume { ptr, i32 } %.pn99.pn
 
 .critedge.thread104:                              ; preds = %.lr.ph, %184, %230, %153, %154, %4
-  %.0 = phi i32 [ 0, %4 ], [ %.073, %153 ], [ %229, %230 ], [ 0, %154 ], [ %183, %184 ], [ 0, %.lr.ph ]
+  %.0 = phi i32 [ 0, %4 ], [ %183, %184 ], [ %.073, %153 ], [ %229, %230 ], [ 0, %154 ], [ 0, %.lr.ph ]
   ret i32 %.0
 }
 

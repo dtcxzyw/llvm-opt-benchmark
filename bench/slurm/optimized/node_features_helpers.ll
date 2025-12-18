@@ -1493,7 +1493,7 @@ _is_feature_valid.exit:                           ; preds = %30, %.preheader.i
   br label %.thread22
 
 .thread22:                                        ; preds = %.thread, %.thread22.sink.split, %2
-  %67 = phi i32 [ 0, %2 ], [ -1, %.thread22.sink.split ], [ 0, %.thread ]
+  %67 = phi i32 [ -1, %.thread22.sink.split ], [ 0, %2 ], [ 0, %.thread ]
   ret i32 %67
 }
 

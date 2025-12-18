@@ -528,8 +528,8 @@ xread.exit:                                       ; preds = %.lr.ph.i, %28, %11
   br label %40
 
 .loopexit:                                        ; preds = %xread.exit, %xread.exit.thread, %select.unfold
-  %.3 = phi ptr [ %.033, %select.unfold ], [ %.1, %xread.exit.thread ], [ %.1, %xread.exit ]
-  %.032 = phi i32 [ -1, %select.unfold ], [ -1, %xread.exit.thread ], [ %30, %xread.exit ]
+  %.3 = phi ptr [ %.1, %xread.exit.thread ], [ %.033, %select.unfold ], [ %.1, %xread.exit ]
+  %.032 = phi i32 [ -1, %xread.exit.thread ], [ -1, %select.unfold ], [ %30, %xread.exit ]
   tail call void @free(ptr noundef %.3) #20
   br label %40
 

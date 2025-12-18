@@ -4575,8 +4575,8 @@ common.resume:                                    ; preds = %34, %"_ZN63_$LT$all
   br i1 %.not63.us.i, label %.loopexit.i.us.i, label %.split131.us.invoke.i
 
 .loopexit.i.us.i:                                 ; preds = %.preheader66.us.i, %.preheader.us.i.us, %.preheader.us.i.preheader.split
-  %.sroa.307.3.us.i = phi i64 [ -1, %.preheader.us.i.preheader.split ], [ -1, %.preheader.us.i.us ], [ 0, %.preheader66.us.i ]
-  %.sroa.743.4.us.i = phi i64 [ %120, %.preheader.us.i.preheader.split ], [ %120, %.preheader.us.i.us ], [ %77, %.preheader66.us.i ]
+  %.sroa.307.3.us.i = phi i64 [ -1, %.preheader.us.i.us ], [ -1, %.preheader.us.i.preheader.split ], [ 0, %.preheader66.us.i ]
+  %.sroa.743.4.us.i = phi i64 [ %120, %.preheader.us.i.us ], [ %120, %.preheader.us.i.preheader.split ], [ %77, %.preheader66.us.i ]
   %.sroa.18.3.us.i = add i64 %.sroa.743.4.us.i, %.sroa.15.0.copyload.i.fr
   %139 = getelementptr inbounds i8, ptr %47, i64 %.sroa.0.0.us.i
   %gepdiff.us.i = sub nsw i64 %.sroa.743.4.us.i, %.sroa.0.0.us.i
@@ -4795,9 +4795,9 @@ common.resume:                                    ; preds = %34, %"_ZN63_$LT$all
   br label %.split131.us.invoke.i
 
 .split131.us.invoke.i:                            ; preds = %.preheader.us.i.preheader.split, %92, %89, %129, %.split138.us.i, %.split126.us.i
-  %245 = phi i64 [ %umax.i33.i, %.split126.us.i ], [ %umax.i.i, %.split138.us.i ], [ %93, %92 ], [ %131, %129 ], [ %90, %89 ], [ %68, %.preheader.us.i.preheader.split ]
-  %246 = phi i64 [ %.sroa.1341.0.copyload.i, %.split126.us.i ], [ %.sroa.1341.0.copyload.i, %.split138.us.i ], [ %.sroa.1341.0.copyload.i, %92 ], [ %.sroa.1341.0.copyload.i, %129 ], [ %.sroa.15.0.copyload.i.fr, %89 ], [ %.sroa.15.0.copyload.i.fr, %.preheader.us.i.preheader.split ]
-  %247 = phi ptr [ @anon.a31af4e2f69e3b80426fbb95f24236bb.23, %.split126.us.i ], [ @anon.a31af4e2f69e3b80426fbb95f24236bb.23, %.split138.us.i ], [ @anon.a31af4e2f69e3b80426fbb95f24236bb.21, %92 ], [ @anon.a31af4e2f69e3b80426fbb95f24236bb.21, %129 ], [ @anon.a31af4e2f69e3b80426fbb95f24236bb.20, %89 ], [ @anon.a31af4e2f69e3b80426fbb95f24236bb.20, %.preheader.us.i.preheader.split ]
+  %245 = phi i64 [ %umax.i33.i, %.split126.us.i ], [ %131, %129 ], [ %umax.i.i, %.split138.us.i ], [ %93, %92 ], [ %90, %89 ], [ %68, %.preheader.us.i.preheader.split ]
+  %246 = phi i64 [ %.sroa.1341.0.copyload.i, %.split126.us.i ], [ %.sroa.1341.0.copyload.i, %129 ], [ %.sroa.1341.0.copyload.i, %.split138.us.i ], [ %.sroa.1341.0.copyload.i, %92 ], [ %.sroa.15.0.copyload.i.fr, %89 ], [ %.sroa.15.0.copyload.i.fr, %.preheader.us.i.preheader.split ]
+  %247 = phi ptr [ @anon.a31af4e2f69e3b80426fbb95f24236bb.23, %.split126.us.i ], [ @anon.a31af4e2f69e3b80426fbb95f24236bb.21, %129 ], [ @anon.a31af4e2f69e3b80426fbb95f24236bb.23, %.split138.us.i ], [ @anon.a31af4e2f69e3b80426fbb95f24236bb.21, %92 ], [ @anon.a31af4e2f69e3b80426fbb95f24236bb.20, %89 ], [ @anon.a31af4e2f69e3b80426fbb95f24236bb.20, %.preheader.us.i.preheader.split ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %245, i64 noundef %246, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %247) #19
           to label %.split131.us.cont.i unwind label %.loopexit.split-lp.i, !noalias !1515
 
@@ -4820,8 +4820,8 @@ common.resume:                                    ; preds = %34, %"_ZN63_$LT$all
   br label %.loopexit69.i
 
 .loopexit.i:                                      ; preds = %234, %118, %74, %.sink.split.i.us.i, %174, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h24a4dd86c1d01abfE.exit.split.i"
-  %249 = phi i64 [ 0, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h24a4dd86c1d01abfE.exit.split.i" ], [ %70, %118 ], [ %70, %174 ], [ %70, %.sink.split.i.us.i ], [ %70, %74 ], [ %180, %234 ]
-  %.sroa.0.0110.i = phi i64 [ 0, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h24a4dd86c1d01abfE.exit.split.i" ], [ %.sroa.0.0.us.i, %118 ], [ %.sroa.0.0.us.i, %174 ], [ %.sroa.0.0.us.i, %.sink.split.i.us.i ], [ %.sroa.0.0.us.i, %74 ], [ %.sroa.0.0146.i, %234 ]
+  %249 = phi i64 [ %70, %118 ], [ 0, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h24a4dd86c1d01abfE.exit.split.i" ], [ %70, %174 ], [ %70, %.sink.split.i.us.i ], [ %70, %74 ], [ %180, %234 ]
+  %.sroa.0.0110.i = phi i64 [ %.sroa.0.0.us.i, %118 ], [ 0, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h24a4dd86c1d01abfE.exit.split.i" ], [ %.sroa.0.0.us.i, %174 ], [ %.sroa.0.0.us.i, %.sink.split.i.us.i ], [ %.sroa.0.0.us.i, %74 ], [ %.sroa.0.0146.i, %234 ]
   %gepdiff64.i = sub nsw i64 %.sroa.10.0.copyload, %.sroa.0.0110.i
   %250 = load i64, ptr %7, align 8, !alias.scope !1571, !noalias !1511, !noundef !5
   %251 = sub i64 %250, %249

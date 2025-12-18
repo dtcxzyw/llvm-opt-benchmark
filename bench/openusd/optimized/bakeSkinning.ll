@@ -7855,7 +7855,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit.i: ; preds = %360, %357, 
   br label %375
 
 .loopexit79.i:                                    ; preds = %316, %361, %.loopexit79.loopexit82.i, %.thread.i, %148
-  %.pn.i = phi { ptr, i32 } [ %362, %361 ], [ %149, %148 ], [ %224, %.thread.i ], [ %230, %.loopexit79.loopexit82.i ], [ %lpad.phi88, %316 ]
+  %.pn.i = phi { ptr, i32 } [ %230, %.loopexit79.loopexit82.i ], [ %362, %361 ], [ %149, %148 ], [ %224, %.thread.i ], [ %lpad.phi88, %316 ]
   %369 = load ptr, ptr %19, align 8
   %.not.i.i.i61.i = icmp eq ptr %369, null
   br i1 %.not.i.i.i61.i, label %.body, label %370
@@ -46408,7 +46408,7 @@ _ZSt4copyIPKfPfET0_T_S4_S3_.exit50:               ; preds = %80, %78, %70, %74
   br i1 %86, label %70, label %_ZSt4copyIPKfPfET0_T_S4_S3_.exit, !llvm.loop !442
 
 _ZSt4copyIPKfPfET0_T_S4_S3_.exit:                 ; preds = %_ZSt4copyIPKfPfET0_T_S4_S3_.exit50, %61, %54, %44, %_ZN32pxrInternal_v0_24__pxrReserved__17UsdSkelAnimMapper16_ResizeContainerIfEEvPNS_7VtArrayIT_EEmRKS3_.exit, %28, %15, %8
-  %.0 = phi i1 [ false, %15 ], [ true, %28 ], [ false, %8 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__17UsdSkelAnimMapper16_ResizeContainerIfEEvPNS_7VtArrayIT_EEmRKS3_.exit ], [ true, %44 ], [ true, %54 ], [ true, %61 ], [ true, %_ZSt4copyIPKfPfET0_T_S4_S3_.exit50 ]
+  %.0 = phi i1 [ false, %15 ], [ true, %28 ], [ false, %8 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__17UsdSkelAnimMapper16_ResizeContainerIfEEvPNS_7VtArrayIT_EEmRKS3_.exit ], [ true, %54 ], [ true, %44 ], [ true, %61 ], [ true, %_ZSt4copyIPKfPfET0_T_S4_S3_.exit50 ]
   ret i1 %.0
 }
 
@@ -47353,7 +47353,7 @@ _ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix3dEPS1_ET0_T_S6_S5_.exi
   br i1 %86, label %68, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix3dEPS1_ET0_T_S6_S5_.exit, !llvm.loop !447
 
 _ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix3dEPS1_ET0_T_S6_S5_.exit: ; preds = %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix3dEPS1_ET0_T_S6_S5_.exit50, %60, %53, %43, %_ZN32pxrInternal_v0_24__pxrReserved__17UsdSkelAnimMapper16_ResizeContainerINS_10GfMatrix3dEEEvPNS_7VtArrayIT_EEmRKS4_.exit, %28, %15, %8
-  %.0 = phi i1 [ false, %15 ], [ true, %28 ], [ false, %8 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__17UsdSkelAnimMapper16_ResizeContainerINS_10GfMatrix3dEEEvPNS_7VtArrayIT_EEmRKS4_.exit ], [ true, %43 ], [ true, %53 ], [ true, %60 ], [ true, %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix3dEPS1_ET0_T_S6_S5_.exit50 ]
+  %.0 = phi i1 [ false, %15 ], [ true, %28 ], [ false, %8 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__17UsdSkelAnimMapper16_ResizeContainerINS_10GfMatrix3dEEEvPNS_7VtArrayIT_EEmRKS4_.exit ], [ true, %53 ], [ true, %43 ], [ true, %60 ], [ true, %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix3dEPS1_ET0_T_S6_S5_.exit50 ]
   ret i1 %.0
 }
 

@@ -1480,7 +1480,7 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   br label %.loopexit99
 
 .thread87:                                        ; preds = %664, %522, %718, %599
-  %838 = phi i32 [ %513, %522 ], [ %590, %599 ], [ %699, %718 ], [ %645, %664 ]
+  %838 = phi i32 [ %590, %599 ], [ %513, %522 ], [ %699, %718 ], [ %645, %664 ]
   %839 = select i1 %487, i32 %457, i32 0
   %840 = icmp eq i32 %839, %838
   br i1 %840, label %.loopexit, label %843
@@ -1590,7 +1590,7 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   br label %.loopexit99
 
 .loopexit99:                                      ; preds = %427, %51, %179, %.thread88, %.loopexit, %836, %807, %567, %566, %448, %395, %369, %237, %22
-  %909 = phi i32 [ 0, %369 ], [ -5, %22 ], [ -12, %.loopexit ], [ -28, %237 ], [ -5, %395 ], [ -5, %448 ], [ -28, %567 ], [ -28, %566 ], [ 0, %836 ], [ 0, %807 ], [ -12, %.thread88 ], [ -28, %51 ], [ 0, %179 ], [ -5, %427 ]
+  %909 = phi i32 [ 0, %369 ], [ -5, %22 ], [ -12, %.loopexit ], [ -28, %237 ], [ -5, %395 ], [ 0, %179 ], [ -5, %448 ], [ -28, %567 ], [ -28, %566 ], [ 0, %836 ], [ 0, %807 ], [ -12, %.thread88 ], [ -28, %51 ], [ -5, %427 ]
   ret i32 %909
 }
 
@@ -5379,8 +5379,8 @@ define internal fastcc noundef range(i32 -22, 1) i32 @vring_alloc_queue_split(pt
   br i1 %71, label %.critedge, label %.thread17
 
 .thread17.sink.split:                             ; preds = %51, %64, %29
-  %.us-phi27.sink62 = phi ptr [ %32, %29 ], [ %67, %64 ], [ %54, %51 ]
-  %.ph56 = phi i32 [ %2, %29 ], [ %.ph, %64 ], [ %46, %51 ]
+  %.us-phi27.sink62 = phi ptr [ %67, %64 ], [ %32, %29 ], [ %54, %51 ]
+  %.ph56 = phi i32 [ %.ph, %64 ], [ %2, %29 ], [ %46, %51 ]
   %72 = ptrtoint ptr %.us-phi27.sink62 to i64
   %73 = add i64 %72, 2147483648
   %74 = icmp ugt ptr %.us-phi27.sink62, inttoptr (i64 -2147483649 to ptr)
@@ -5437,7 +5437,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @vring_alloc_queue_split(pt
   br label %.critedge
 
 .critedge:                                        ; preds = %.thread, %26, %29, %64, %.thread17, %69, %34
-  %113 = phi i32 [ 0, %.thread17 ], [ -22, %34 ], [ -12, %69 ], [ -12, %64 ], [ -12, %29 ], [ -12, %26 ], [ -12, %.thread ]
+  %113 = phi i32 [ 0, %.thread17 ], [ -22, %34 ], [ -12, %64 ], [ -12, %69 ], [ -12, %26 ], [ -12, %29 ], [ -12, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %113
 }

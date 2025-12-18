@@ -1613,8 +1613,8 @@ Vec_IntPush.exit.i:                               ; preds = %Vec_IntPush.exit.i.
   br i1 %237, label %.lr.ph.i117, label %Vec_IntAppend.exit, !llvm.loop !94
 
 Vec_IntAppend.exit:                               ; preds = %Vec_IntPush.exit.i, %.lr.ph140, %Vec_IntPush.exit116, %._crit_edge
-  %.val70190 = phi ptr [ %.val70166, %Vec_IntPush.exit116 ], [ %.val70166, %._crit_edge ], [ %.val70168, %.lr.ph140 ], [ %.val70166, %Vec_IntPush.exit.i ]
-  %.pre.i163 = phi ptr [ %.val70166, %Vec_IntPush.exit116 ], [ %.pre.i160, %._crit_edge ], [ %.pre.i162, %.lr.ph140 ], [ %.val70166, %Vec_IntPush.exit.i ]
+  %.val70190 = phi ptr [ %.val70168, %.lr.ph140 ], [ %.val70166, %Vec_IntPush.exit116 ], [ %.val70166, %._crit_edge ], [ %.val70166, %Vec_IntPush.exit.i ]
+  %.pre.i163 = phi ptr [ %.pre.i162, %.lr.ph140 ], [ %.val70166, %Vec_IntPush.exit116 ], [ %.pre.i160, %._crit_edge ], [ %.val70166, %Vec_IntPush.exit.i ]
   %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
   %.val76 = load i32, ptr %15, align 4, !tbaa !68
   %238 = sext i32 %.val76 to i64

@@ -1125,8 +1125,8 @@ ssl_conf_check.exit:                              ; preds = %20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %41, i8 0, i64 24, i1 false)
   br label %ssl_conf_check.exit.thread
 
-ssl_conf_check.exit.thread:                       ; preds = %mbedtls_ssl_conf_is_hybrid_tls12_tls13.exit.thread.i.i, %18, %10, %25, %35, %37
-  %.0 = phi i32 [ 0, %35 ], [ %.035, %37 ], [ -24192, %mbedtls_ssl_conf_is_hybrid_tls12_tls13.exit.thread.i.i ], [ -28800, %18 ], [ -28800, %10 ], [ -29696, %25 ]
+ssl_conf_check.exit.thread:                       ; preds = %18, %mbedtls_ssl_conf_is_hybrid_tls12_tls13.exit.thread.i.i, %10, %25, %35, %37
+  %.0 = phi i32 [ 0, %35 ], [ %.035, %37 ], [ -28800, %18 ], [ -24192, %mbedtls_ssl_conf_is_hybrid_tls12_tls13.exit.thread.i.i ], [ -28800, %10 ], [ -29696, %25 ]
   ret i32 %.0
 }
 
@@ -6131,7 +6131,7 @@ mbedtls_ssl_get_groups.exit.i:                    ; preds = %14, %11
   br i1 %26, label %mbedtls_ssl_check_curve_tls_id.exit, label %22
 
 mbedtls_ssl_check_curve_tls_id.exit:              ; preds = %3, %.lr.ph.i, %22, %.preheader.i, %mbedtls_ssl_get_groups.exit.i, %mbedtls_ssl_get_tls_id_from_ecp_group_id.exit
-  %.0 = phi i32 [ -1, %mbedtls_ssl_get_tls_id_from_ecp_group_id.exit ], [ -1, %mbedtls_ssl_get_groups.exit.i ], [ -1, %.preheader.i ], [ -1, %22 ], [ 0, %.lr.ph.i ], [ -1, %3 ]
+  %.0 = phi i32 [ -1, %22 ], [ -1, %mbedtls_ssl_get_tls_id_from_ecp_group_id.exit ], [ -1, %mbedtls_ssl_get_groups.exit.i ], [ -1, %.preheader.i ], [ 0, %.lr.ph.i ], [ -1, %3 ]
   ret i32 %.0
 }
 
@@ -6201,7 +6201,7 @@ define hidden range(i32 -134, 1) i32 @mbedtls_ssl_get_psa_curve_info_from_tls_id
   br label %.thread
 
 .thread:                                          ; preds = %4, %15, %16
-  %20 = phi i32 [ 0, %16 ], [ 0, %15 ], [ -134, %4 ]
+  %20 = phi i32 [ 0, %15 ], [ 0, %16 ], [ -134, %4 ]
   ret i32 %20
 }
 

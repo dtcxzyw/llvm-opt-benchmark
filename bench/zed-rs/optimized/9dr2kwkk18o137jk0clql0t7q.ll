@@ -14361,7 +14361,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17h67de5ce6b4425d4fE.exit.i.i: ; preds = 
   br label %75
 
 .loopexit.split-lp.i.i:                           ; preds = %.invoke.i.i, %._crit_edge.i.i, %71
-  %.sroa.012.2.ph.i.i = phi i1 [ true, %.invoke.i.i ], [ true, %71 ], [ false, %._crit_edge.i.i ]
+  %.sroa.012.2.ph.i.i = phi i1 [ true, %71 ], [ true, %.invoke.i.i ], [ false, %._crit_edge.i.i ]
   %lpad.loopexit.split-lp.i.i = landingpad { ptr, i32 }
           cleanup
   br label %75
@@ -15655,8 +15655,8 @@ define hidden void @"_ZN73_$LT$gpui..view..View$LT$T$GT$$u20$as$u20$workspace..i
           to label %41 unwind label %39
 
 .body43:                                          ; preds = %309, %39, %326
-  %.sroa.07.1 = phi i8 [ %.sroa.07.3.ph, %326 ], [ %.sroa.07.0, %39 ], [ %.sroa.07.5, %309 ]
-  %.pn28 = phi { ptr, i32 } [ %.pn25.pn.ph, %326 ], [ %40, %39 ], [ %.pn25, %309 ]
+  %.sroa.07.1 = phi i8 [ %.sroa.07.5, %309 ], [ %.sroa.07.3.ph, %326 ], [ %.sroa.07.0, %39 ]
+  %.pn28 = phi { ptr, i32 } [ %.pn25, %309 ], [ %.pn25.pn.ph, %326 ], [ %40, %39 ]
   %38 = trunc nuw i8 %.sroa.07.1 to i1
   br i1 %38, label %.body43.thread153, label %"_ZN4core3ptr78drop_in_place$LT$gpui..view..WeakView$LT$extensions_ui..ExtensionsPage$GT$$GT$17had79d44f8e573f7dE.exit89"
 
@@ -25145,8 +25145,8 @@ _ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17h5ac2ae42596d
   %70 = zext nneg i16 %69 to i64
   br label %_ZN9hashbrown3raw5inner13RawTableInner30find_or_find_insert_slot_inner17h905c416281a1f195E.exit.thread
 
-_ZN9hashbrown3raw5inner13RawTableInner30find_or_find_insert_slot_inner17h905c416281a1f195E.exit.thread: ; preds = %64, %60
-  %.sroa.3.0.i.ph = phi i64 [ %.sroa.4.1.i, %60 ], [ %70, %64 ]
+_ZN9hashbrown3raw5inner13RawTableInner30find_or_find_insert_slot_inner17h905c416281a1f195E.exit.thread: ; preds = %60, %64
+  %.sroa.3.0.i.ph = phi i64 [ %70, %64 ], [ %.sroa.4.1.i, %60 ]
   %71 = inttoptr i64 %.sroa.3.0.i.ph to ptr
   br label %.loopexit
 

@@ -511,8 +511,8 @@ sub_0:                                            ; preds = %1
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %147, %.lr.ph.i, %180, %178, %171, %166, %162, %144, %139
-  %.271.i = phi ptr [ %.06986.i, %139 ], [ %170, %166 ], [ %165, %162 ], [ %174, %171 ], [ %179, %178 ], [ %183, %180 ], [ %.17079.i, %144 ], [ %.170.i, %147 ], [ %.17081.i, %.lr.ph.i ]
-  %.2.i = phi ptr [ %.087.i, %139 ], [ %.087.i, %166 ], [ %.087.i, %162 ], [ %.087.i, %171 ], [ %.087.i, %178 ], [ %.087.i, %180 ], [ %.087.i, %144 ], [ %148, %147 ], [ %.180.i, %.lr.ph.i ]
+  %.271.i = phi ptr [ %.06986.i, %139 ], [ %183, %180 ], [ %179, %178 ], [ %170, %166 ], [ %165, %162 ], [ %174, %171 ], [ %.17079.i, %144 ], [ %.170.i, %147 ], [ %.17081.i, %.lr.ph.i ]
+  %.2.i = phi ptr [ %.087.i, %139 ], [ %.087.i, %180 ], [ %.087.i, %178 ], [ %.087.i, %166 ], [ %.087.i, %162 ], [ %.087.i, %171 ], [ %.087.i, %144 ], [ %148, %147 ], [ %.180.i, %.lr.ph.i ]
   %184 = getelementptr inbounds nuw i8, ptr %.2.i, i64 1
   %185 = icmp ult ptr %184, %111
   br i1 %185, label %139, label %._crit_edge.i, !llvm.loop !61
@@ -3757,7 +3757,7 @@ define internal fastcc void @process_marithmetic_command(ptr noundef %0, ptr nou
   br label %261
 
 .loopexit238:                                     ; preds = %192, %225, %38, %63
-  %.str.55.sink = phi ptr [ @.str.71, %38 ], [ @.str.69, %63 ], [ @.str.55, %225 ], [ @.str.55, %192 ]
+  %.str.55.sink = phi ptr [ @.str.71, %38 ], [ @.str.55, %225 ], [ @.str.69, %63 ], [ @.str.55, %192 ]
   store ptr %.str.55.sink, ptr %5, align 8, !tbaa !85
   %.pr192 = load ptr, ptr %6, align 8, !tbaa !113
   %.not176 = icmp eq ptr %.pr192, null
@@ -6632,11 +6632,11 @@ set_noreply_maybe.exit:                           ; preds = %3, %11, %14
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %102, label %103, label %.critedge37
 
-103:                                              ; preds = %.thread39, %64, %43, %85, %50, %78, %57, %71, %.critedge, %100
+103:                                              ; preds = %.thread39, %64, %57, %85, %78, %43, %71, %50, %.critedge, %100
   br label %.critedge37
 
-.critedge37:                                      ; preds = %100, %89, %34, %set_noreply_maybe.exit, %71, %57, %78, %50, %85, %43, %64, %.thread, %99, %103
-  %.str.98.sink = phi ptr [ @.str.98, %103 ], [ @.str.15, %99 ], [ @.str.15, %.thread ], [ @.str.15, %64 ], [ @.str.15, %43 ], [ @.str.15, %85 ], [ @.str.15, %50 ], [ @.str.15, %78 ], [ @.str.15, %57 ], [ @.str.15, %71 ], [ @.str.15, %set_noreply_maybe.exit ], [ @.str.15, %34 ], [ @.str.15, %89 ], [ @.str.15, %100 ]
+.critedge37:                                      ; preds = %100, %34, %set_noreply_maybe.exit, %89, %50, %71, %43, %78, %85, %57, %64, %.thread, %99, %103
+  %.str.98.sink = phi ptr [ @.str.98, %103 ], [ @.str.15, %99 ], [ @.str.15, %.thread ], [ @.str.15, %64 ], [ @.str.15, %57 ], [ @.str.15, %85 ], [ @.str.15, %78 ], [ @.str.15, %43 ], [ @.str.15, %71 ], [ @.str.15, %50 ], [ @.str.15, %89 ], [ @.str.15, %set_noreply_maybe.exit ], [ @.str.15, %34 ], [ @.str.15, %100 ]
   call void @out_string(ptr noundef nonnull %0, ptr noundef nonnull %.str.98.sink) #13
   ret void
 }

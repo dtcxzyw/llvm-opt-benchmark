@@ -3654,7 +3654,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit224: ; preds = %404
   br i1 %exitcond.not, label %.thread243, label %.lr.ph, !llvm.loop !183
 
 .thread243:                                       ; preds = %.lr.ph, %421, %183, %.thread286, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit212, %300, %324, %259, %221, %218, %409, %174
-  %.3 = phi i1 [ false, %174 ], [ false, %324 ], [ false, %409 ], [ true, %218 ], [ false, %221 ], [ false, %.thread286 ], [ true, %259 ], [ false, %300 ], [ false, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit212 ], [ false, %183 ], [ true, %421 ], [ true, %.lr.ph ]
+  %.3 = phi i1 [ false, %174 ], [ false, %324 ], [ false, %409 ], [ true, %218 ], [ false, %221 ], [ false, %.thread286 ], [ true, %259 ], [ false, %183 ], [ false, %300 ], [ false, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit212 ], [ true, %421 ], [ true, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %_ZN10duckdb_re2L16ascii_strcasecmpEPKcS1_m.exit
 

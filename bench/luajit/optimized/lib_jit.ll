@@ -1926,7 +1926,7 @@ jitopt_flag.exit:                                 ; preds = %69, %99
   tail call void (ptr, i32, ...) @lj_err_callerv(ptr noundef %0, i32 noundef 2096, ptr noundef nonnull %24) #9
   unreachable
 
-jitopt_param.exit:                                ; preds = %62, %65, %98, %94, %jitopt_level.exit
+jitopt_param.exit:                                ; preds = %65, %62, %98, %94, %jitopt_level.exit
   %103 = add nuw i32 %.040, 1
   %exitcond.not = icmp eq i32 %.040, %13
   br i1 %exitcond.not, label %.loopexit30, label %22, !llvm.loop !99

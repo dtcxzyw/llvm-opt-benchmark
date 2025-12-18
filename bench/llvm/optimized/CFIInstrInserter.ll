@@ -4564,8 +4564,8 @@ _ZNK4llvm9BitVector8set_bitsEv.exit.i:            ; preds = %1930
   br i1 %.not317327.i, label %._crit_edge.i53, label %.lr.ph.i50
 
 ._crit_edge.i53:                                  ; preds = %1935, %_ZN4llvm28const_set_bits_iterator_implINS_9BitVectorEEppEv.exit.i, %2084, %_ZN4llvm8DebugLocD2Ev.exit201.i, %2110, %_ZNK4llvm9BitVector8set_bitsEv.exit.i
-  %1941 = phi i32 [ %1916, %_ZNK4llvm9BitVector8set_bitsEv.exit.i ], [ %2082, %_ZN4llvm28const_set_bits_iterator_implINS_9BitVectorEEppEv.exit.i ], [ %2082, %2110 ], [ %2082, %2084 ], [ %2081, %_ZN4llvm8DebugLocD2Ev.exit201.i ], [ %1916, %1935 ]
-  %.4.lcssa.i = phi i1 [ %.289309.i, %_ZNK4llvm9BitVector8set_bitsEv.exit.i ], [ true, %_ZN4llvm28const_set_bits_iterator_implINS_9BitVectorEEppEv.exit.i ], [ true, %2110 ], [ true, %_ZN4llvm8DebugLocD2Ev.exit201.i ], [ true, %2084 ], [ %.289309.i, %1935 ]
+  %1941 = phi i32 [ %1916, %_ZNK4llvm9BitVector8set_bitsEv.exit.i ], [ %2082, %2110 ], [ %2082, %_ZN4llvm28const_set_bits_iterator_implINS_9BitVectorEEppEv.exit.i ], [ %2082, %2084 ], [ %2081, %_ZN4llvm8DebugLocD2Ev.exit201.i ], [ %1916, %1935 ]
+  %.4.lcssa.i = phi i1 [ %.289309.i, %_ZNK4llvm9BitVector8set_bitsEv.exit.i ], [ true, %2110 ], [ true, %_ZN4llvm28const_set_bits_iterator_implINS_9BitVectorEEppEv.exit.i ], [ true, %_ZN4llvm8DebugLocD2Ev.exit201.i ], [ true, %2084 ], [ %.289309.i, %1935 ]
   %1942 = getelementptr inbounds nuw i8, ptr %1725, i64 96
   %1943 = load i32, ptr %1942, align 8, !tbaa !101
   %1944 = and i32 %1941, 63
@@ -5283,7 +5283,7 @@ _ZN4llvm28const_set_bits_iterator_implINS_9BitVectorEEppEv.exit248.i: ; preds = 
   br i1 %.not318.i, label %.loopexit.i55, label %.lr.ph331.i
 
 .loopexit.i55:                                    ; preds = %2027, %_ZN4llvm28const_set_bits_iterator_implINS_9BitVectorEEppEv.exit248.i, %2209, %_ZN4llvm8DebugLocD2Ev.exit237.i, %2235, %_ZNK4llvm9BitVector8set_bitsEv.exit173.i, %"_ZN4llvm9BitVector5applyIZN12_GLOBAL__N_116CFIInstrInserter15insertCFIInstrsERNS_15MachineFunctionEE3$_1JS0_EEERS0_OT_S7_RKS0_DpRKT0_.exit.i", %1836
-  %.3.i56 = phi i1 [ true, %1836 ], [ %.4.lcssa438.i, %_ZNK4llvm9BitVector8set_bitsEv.exit173.i ], [ %.4.lcssa438.i, %"_ZN4llvm9BitVector5applyIZN12_GLOBAL__N_116CFIInstrInserter15insertCFIInstrsERNS_15MachineFunctionEE3$_1JS0_EEERS0_OT_S7_RKS0_DpRKT0_.exit.i" ], [ true, %_ZN4llvm28const_set_bits_iterator_implINS_9BitVectorEEppEv.exit248.i ], [ true, %2235 ], [ true, %_ZN4llvm8DebugLocD2Ev.exit237.i ], [ true, %2209 ], [ %.4.lcssa438.i, %2027 ]
+  %.3.i56 = phi i1 [ true, %1836 ], [ %.4.lcssa438.i, %_ZNK4llvm9BitVector8set_bitsEv.exit173.i ], [ true, %_ZN4llvm28const_set_bits_iterator_implINS_9BitVectorEEppEv.exit248.i ], [ true, %2235 ], [ %.4.lcssa438.i, %"_ZN4llvm9BitVector5applyIZN12_GLOBAL__N_116CFIInstrInserter15insertCFIInstrsERNS_15MachineFunctionEE3$_1JS0_EEERS0_OT_S7_RKS0_DpRKT0_.exit.i" ], [ true, %_ZN4llvm8DebugLocD2Ev.exit237.i ], [ true, %2209 ], [ %.4.lcssa438.i, %2027 ]
   %2241 = load ptr, ptr %11, align 8, !tbaa !370
   %.not.i.i.i.i249.i = icmp eq ptr %2241, null
   br i1 %.not.i.i.i.i249.i, label %_ZN4llvm8DebugLocD2Ev.exit250.i, label %2242

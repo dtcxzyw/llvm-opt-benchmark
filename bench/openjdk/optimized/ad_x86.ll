@@ -9313,7 +9313,7 @@ _ZL14is_bmi_patternP4NodeS0_.exit.thread:         ; preds = %21, %17, %32, %28
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %37
 
-_ZL14is_bmi_patternP4NodeS0_.exit.thread15:       ; preds = %23, %9
+_ZL14is_bmi_patternP4NodeS0_.exit.thread15:       ; preds = %9, %23
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %42
@@ -9903,7 +9903,7 @@ _ZN7Matcher6MStack4pushEP4NodeNS_10Node_StateE.exit31: ; preds = %93, %97
   br label %100
 
 100:                                              ; preds = %.sink.split, %4, %9, %_ZNK4Node7get_intEv.exit, %_ZN7Matcher10is_visitedEP4Node.exit
-  %.0 = phi i1 [ false, %_ZN7Matcher10is_visitedEP4Node.exit ], [ false, %_ZNK4Node7get_intEv.exit ], [ false, %9 ], [ false, %4 ], [ true, %.sink.split ]
+  %.0 = phi i1 [ false, %4 ], [ false, %9 ], [ false, %_ZN7Matcher10is_visitedEP4Node.exit ], [ false, %_ZNK4Node7get_intEv.exit ], [ true, %.sink.split ]
   ret i1 %.0
 }
 
@@ -121702,7 +121702,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN19FusedPatternMatcherI7TypeInt
   br i1 %50, label %_ZN19FusedPatternMatcherI7TypeIntE10match_nextEP4Nodeii.exit, label %_ZN19FusedPatternMatcherI7TypeIntE10match_nextEP4Nodeii.exit.thread
 
 _ZN19FusedPatternMatcherI7TypeIntE10match_nextEP4Nodeii.exit: ; preds = %43, %35, %30
-  %.0.i = phi i32 [ 2, %35 ], [ 1, %30 ], [ %2, %43 ]
+  %.0.i = phi i32 [ 2, %35 ], [ %2, %43 ], [ 1, %30 ]
   %51 = and i32 %.0.i, 1
   %52 = load ptr, ptr %0, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
@@ -121772,7 +121772,7 @@ _ZN19FusedPatternMatcherI7TypeIntE10match_nextEP4Nodeii.exit: ; preds = %43, %35
   br i1 %102, label %_ZN19FusedPatternMatcherI7TypeIntE10match_nextEP4Nodeii.exit25, label %_ZN19FusedPatternMatcherI7TypeIntE10match_nextEP4Nodeii.exit.thread
 
 _ZN19FusedPatternMatcherI7TypeIntE10match_nextEP4Nodeii.exit25: ; preds = %95, %87, %82
-  %.0.i24 = phi i32 [ 2, %87 ], [ 1, %82 ], [ %4, %95 ]
+  %.0.i24 = phi i32 [ 2, %87 ], [ %4, %95 ], [ 1, %82 ]
   %103 = and i32 %.0.i24, 1
   %104 = load ptr, ptr %71, align 8
   %105 = zext nneg i32 %103 to i64
@@ -121873,7 +121873,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN19FusedPatternMatcherI8TypeLon
   br i1 %50, label %_ZN19FusedPatternMatcherI8TypeLongE10match_nextEP4Nodeii.exit, label %_ZN19FusedPatternMatcherI8TypeLongE10match_nextEP4Nodeii.exit.thread
 
 _ZN19FusedPatternMatcherI8TypeLongE10match_nextEP4Nodeii.exit: ; preds = %43, %35, %30
-  %.0.i = phi i32 [ 2, %35 ], [ 1, %30 ], [ %2, %43 ]
+  %.0.i = phi i32 [ 2, %35 ], [ %2, %43 ], [ 1, %30 ]
   %51 = and i32 %.0.i, 1
   %52 = load ptr, ptr %0, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
@@ -121943,7 +121943,7 @@ _ZN19FusedPatternMatcherI8TypeLongE10match_nextEP4Nodeii.exit: ; preds = %43, %3
   br i1 %102, label %_ZN19FusedPatternMatcherI8TypeLongE10match_nextEP4Nodeii.exit25, label %_ZN19FusedPatternMatcherI8TypeLongE10match_nextEP4Nodeii.exit.thread
 
 _ZN19FusedPatternMatcherI8TypeLongE10match_nextEP4Nodeii.exit25: ; preds = %95, %87, %82
-  %.0.i24 = phi i32 [ 2, %87 ], [ 1, %82 ], [ %4, %95 ]
+  %.0.i24 = phi i32 [ 2, %87 ], [ %4, %95 ], [ 1, %82 ]
   %103 = and i32 %.0.i24, 1
   %104 = load ptr, ptr %71, align 8
   %105 = zext nneg i32 %103 to i64

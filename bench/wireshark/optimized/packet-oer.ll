@@ -1103,8 +1103,8 @@ index_get_field_name.exit:                        ; preds = %140, %148
   br i1 %exitcond.not.i, label %dissect_oer_bit_string_unconstr.exit, label %186, !llvm.loop !14
 
 dissect_oer_bit_string_unconstr.exit:             ; preds = %193, %.preheader.i.thread, %.preheader.i
-  %195 = phi i32 [ 0, %.preheader.i ], [ %161, %.preheader.i.thread ], [ %174, %193 ]
-  %.036.i = phi i32 [ %173, %.preheader.i ], [ %160, %.preheader.i.thread ], [ %194, %193 ]
+  %195 = phi i32 [ %161, %.preheader.i.thread ], [ 0, %.preheader.i ], [ %174, %193 ]
+  %.036.i = phi i32 [ %160, %.preheader.i.thread ], [ %173, %.preheader.i ], [ %194, %193 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %196 = load ptr, ptr %6, align 8
   %.not153228 = icmp eq ptr %196, null

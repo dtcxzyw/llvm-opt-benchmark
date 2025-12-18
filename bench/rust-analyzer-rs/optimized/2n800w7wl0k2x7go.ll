@@ -18689,8 +18689,8 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17heb831ff7a42c32ebE.exit.threa
   br label %"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc393182b19f09bd2E.exit.i"
 
 "_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc393182b19f09bd2E.exit.i": ; preds = %_ZN4core4iter8adapters7flatten17and_then_or_clear17heb831ff7a42c32ebE.exit.us.i.i.i, %23, %_ZN4core4iter8adapters7flatten17and_then_or_clear17heb831ff7a42c32ebE.exit.i.i.i
-  %.sroa.5.1.i = phi i64 [ %.sroa.6.0..05.sroa_idx.i.promoted.i.i.i, %_ZN4core4iter8adapters7flatten17and_then_or_clear17heb831ff7a42c32ebE.exit.i.i.i ], [ %.sroa.6.0.copyload7.i2.i.i.i, %23 ], [ %.sroa.6.0.copyload7.i26.us.i.i.i, %_ZN4core4iter8adapters7flatten17and_then_or_clear17heb831ff7a42c32ebE.exit.us.i.i.i ]
-  %.sroa.0.0.i = phi i32 [ %.promoted.i.i.i, %_ZN4core4iter8adapters7flatten17and_then_or_clear17heb831ff7a42c32ebE.exit.i.i.i ], [ %21, %23 ], [ %.sroa.09.0.copyload1025.us.i.i.i, %_ZN4core4iter8adapters7flatten17and_then_or_clear17heb831ff7a42c32ebE.exit.us.i.i.i ]
+  %.sroa.5.1.i = phi i64 [ %.sroa.6.0.copyload7.i2.i.i.i, %23 ], [ %.sroa.6.0..05.sroa_idx.i.promoted.i.i.i, %_ZN4core4iter8adapters7flatten17and_then_or_clear17heb831ff7a42c32ebE.exit.i.i.i ], [ %.sroa.6.0.copyload7.i26.us.i.i.i, %_ZN4core4iter8adapters7flatten17and_then_or_clear17heb831ff7a42c32ebE.exit.us.i.i.i ]
+  %.sroa.0.0.i = phi i32 [ %21, %23 ], [ %.promoted.i.i.i, %_ZN4core4iter8adapters7flatten17and_then_or_clear17heb831ff7a42c32ebE.exit.i.i.i ], [ %.sroa.09.0.copyload1025.us.i.i.i, %_ZN4core4iter8adapters7flatten17and_then_or_clear17heb831ff7a42c32ebE.exit.us.i.i.i ]
   %trunc.i = trunc nuw i32 %.sroa.0.0.i to i1
   br i1 %trunc.i, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb83912c42b8e7eaaE.exit", label %40
 
@@ -21958,7 +21958,7 @@ common.resume.i:                                  ; preds = %109, %.body6.i, %45
   br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7155368ace9a2ac2E.exit.thread.i.i.loopexit.i"
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7155368ace9a2ac2E.exit.thread.i.i.loopexit.i": ; preds = %67, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7155368ace9a2ac2E.exit.thread.i.i.loopexit.loopexit34.i", %53
-  %.lcssa26.i = phi ptr [ %.promoted.i.i, %53 ], [ %.promoted.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7155368ace9a2ac2E.exit.thread.i.i.loopexit.loopexit34.i" ], [ %71, %67 ]
+  %.lcssa26.i = phi ptr [ %.promoted.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7155368ace9a2ac2E.exit.thread.i.i.loopexit.loopexit34.i" ], [ %.promoted.i.i, %53 ], [ %71, %67 ]
   store ptr %.lcssa26.i, ptr %58, align 8, !noalias !6780
   br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7155368ace9a2ac2E.exit.thread.i.i.i"
 

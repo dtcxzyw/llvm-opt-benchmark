@@ -1444,7 +1444,7 @@ define internal fastcc zeroext i16 @dissect_mausb_mgmt_pkt_ep_handle(ptr noundef
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.thread, %._crit_edge.loopexit146, %._crit_edge.loopexit145, %._crit_edge.loopexit144, %._crit_edge.loopexit, %25
-  %.1.lcssa = phi i16 [ 16, %25 ], [ %113, %._crit_edge.loopexit ], [ %114, %._crit_edge.loopexit144 ], [ %115, %._crit_edge.loopexit145 ], [ %116, %._crit_edge.loopexit146 ], [ 16, %.thread ]
+  %.1.lcssa = phi i16 [ 16, %25 ], [ %115, %._crit_edge.loopexit145 ], [ %114, %._crit_edge.loopexit144 ], [ %113, %._crit_edge.loopexit ], [ %116, %._crit_edge.loopexit146 ], [ 16, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i16 %.1.lcssa

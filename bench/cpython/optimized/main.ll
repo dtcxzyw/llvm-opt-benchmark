@@ -1624,7 +1624,7 @@ Py_DECREF.exit.sink.split.i:                      ; preds = %127, %116
   br label %Py_DECREF.exit.i
 
 Py_DECREF.exit.i:                                 ; preds = %Py_DECREF.exit.sink.split.i, %Py_DECREF.exit66.i, %127, %125, %116, %113, %95, %0
-  %.0104.i = phi ptr [ null, %95 ], [ null, %0 ], [ %.1105.i, %113 ], [ %.1105.i, %116 ], [ %.1105.i, %125 ], [ %.1105.i, %127 ], [ %.1105.i, %Py_DECREF.exit66.i ], [ %.1105.i, %Py_DECREF.exit.sink.split.i ]
+  %.0104.i = phi ptr [ null, %95 ], [ null, %0 ], [ %.1105.i, %Py_DECREF.exit66.i ], [ %.1105.i, %113 ], [ %.1105.i, %116 ], [ %.1105.i, %125 ], [ %.1105.i, %127 ], [ %.1105.i, %Py_DECREF.exit.sink.split.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %265 = call i32 @_Py_HandleSystemExit(ptr noundef nonnull %1) #14
   %.not.i.i96.i = icmp eq i32 %265, 0
@@ -2521,7 +2521,7 @@ pymain_err_print.exit.i:                          ; preds = %42, %40
   br i1 %47, label %Py_XDECREF.exit.sink.split.i, label %pymain_run_startup.exit
 
 Py_XDECREF.exit.sink.split.i:                     ; preds = %45, %36
-  %.0.ph28 = phi i32 [ undef, %36 ], [ %.0.ph29, %45 ]
+  %.0.ph27 = phi i32 [ undef, %36 ], [ %.0.ph29, %45 ]
   %.0.ph.i = phi i32 [ 0, %36 ], [ %.0.i.i, %45 ]
   call void @_Py_Dealloc(ptr noundef nonnull %19) #14
   br label %pymain_run_startup.exit
@@ -2531,8 +2531,8 @@ pymain_run_startup.exit.thread:                   ; preds = %stdin_is_interactiv
   br label %48
 
 pymain_run_startup.exit:                          ; preds = %pymain_err_print.exit.i, %43, %45, %Py_XDECREF.exit.sink.split.i
-  %.0.ph27 = phi i32 [ %.0.ph29, %45 ], [ %.0.ph29, %pymain_err_print.exit.i ], [ %.0.ph29, %43 ], [ %.0.ph28, %Py_XDECREF.exit.sink.split.i ]
-  %.0.i = phi i32 [ %.0.i.i, %45 ], [ %.0.i.i, %pymain_err_print.exit.i ], [ %.0.i.i, %43 ], [ %.0.ph.i, %Py_XDECREF.exit.sink.split.i ]
+  %.0.ph28 = phi i32 [ %.0.ph27, %Py_XDECREF.exit.sink.split.i ], [ %.0.ph29, %43 ], [ %.0.ph29, %45 ], [ %.0.ph29, %pymain_err_print.exit.i ]
+  %.0.i = phi i32 [ %.0.ph.i, %Py_XDECREF.exit.sink.split.i ], [ %.0.i.i, %43 ], [ %.0.i.i, %45 ], [ %.0.i.i, %pymain_err_print.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not8 = icmp eq i32 %.0.i, 0
   br i1 %.not8, label %48, label %.thread
@@ -2547,7 +2547,7 @@ pymain_run_startup.exit:                          ; preds = %pymain_err_print.ex
   br label %.thread
 
 .thread:                                          ; preds = %..thread_crit_edge, %pymain_run_startup.exit
-  %.0.ph = phi i32 [ %.0.ph.pre, %..thread_crit_edge ], [ %.0.ph27, %pymain_run_startup.exit ]
+  %.0.ph = phi i32 [ %.0.ph.pre, %..thread_crit_edge ], [ %.0.ph28, %pymain_run_startup.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %84
 

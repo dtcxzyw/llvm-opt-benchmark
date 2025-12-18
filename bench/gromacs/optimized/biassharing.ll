@@ -1259,7 +1259,7 @@ _ZNKSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE11equal_rangeERKi.exit.i.i156: 
   br i1 %.not.i.i5.i.i162, label %_ZNKSt8multisetIiSt4lessIiESaIiEE5countERKi.exit168, label %.lr.ph.i.i4.i.i159, !llvm.loop !78
 
 _ZNKSt8multisetIiSt4lessIiESaIiEE5countERKi.exit168: ; preds = %392, %.lr.ph.i.i4.i.i159, %_ZNKSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE11equal_rangeERKi.exit.i.i156, %375
-  %.0.lcssa.i.i.i.i163 = phi i32 [ 0, %_ZNKSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE11equal_rangeERKi.exit.i.i156 ], [ 0, %375 ], [ %395, %.lr.ph.i.i4.i.i159 ], [ 0, %392 ]
+  %.0.lcssa.i.i.i.i163 = phi i32 [ 0, %_ZNKSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE11equal_rangeERKi.exit.i.i156 ], [ %395, %.lr.ph.i.i4.i.i159 ], [ 0, %375 ], [ 0, %392 ]
   %396 = load ptr, ptr %0, align 8, !tbaa !72
   %397 = getelementptr inbounds nuw i32, ptr %396, i64 %316
   store i32 %.0.lcssa.i.i.i.i163, ptr %397, align 4, !tbaa !37

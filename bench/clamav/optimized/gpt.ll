@@ -235,7 +235,7 @@ gpt_check_mbr.exit:                               ; preds = %21, %23, %fmap_read
   br label %107
 
 .loopexit.sink.split:                             ; preds = %36, %28, %40
-  %.str.51.sink = phi ptr [ @.str.53, %40 ], [ @.str.52, %28 ], [ @.str.51, %36 ]
+  %.str.51.sink = phi ptr [ @.str.52, %28 ], [ @.str.53, %40 ], [ @.str.51, %36 ]
   call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull %.str.51.sink) #7
   br label %.loopexit
 

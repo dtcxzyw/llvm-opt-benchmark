@@ -2585,7 +2585,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit50: ; preds = %_ZN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %191, %.loopexit.sink.split, %18
-  %.0 = phi i1 [ false, %18 ], [ true, %.loopexit.sink.split ], [ true, %191 ]
+  %.0 = phi i1 [ true, %.loopexit.sink.split ], [ false, %18 ], [ true, %191 ]
   ret i1 %.0
 }
 
@@ -5257,7 +5257,7 @@ _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEpLEw.exit57: ; preds = %_ZN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %174, %.loopexit.sink.split, %9
-  %.0 = phi i1 [ false, %9 ], [ true, %.loopexit.sink.split ], [ true, %174 ]
+  %.0 = phi i1 [ true, %.loopexit.sink.split ], [ false, %9 ], [ true, %174 ]
   ret i1 %.0
 }
 

@@ -4256,7 +4256,7 @@ _ZNK7Minisat6Clause8subsumesERKS0_.exit.thread100: ; preds = %_ZNK7Minisat6Claus
   br i1 %203, label %.lr.ph140, label %.loopexit.loopexit, !llvm.loop !162
 
 .thread108:                                       ; preds = %25, %193, %_ZN7Minisat5QueueIjE5clearEb.exit
-  %.6 = phi i1 [ true, %_ZN7Minisat5QueueIjE5clearEb.exit ], [ false, %193 ], [ true, %25 ]
+  %.6 = phi i1 [ false, %193 ], [ true, %_ZN7Minisat5QueueIjE5clearEb.exit ], [ true, %25 ]
   ret i1 %.6
 }
 
@@ -4858,11 +4858,11 @@ _ZN7Minisat3vecIjiE4pushERKj.exit:                ; preds = %.cont.cont._ZN7Mini
   br label %258
 
 ._crit_edge:                                      ; preds = %..thread_crit_edge.us, %_ZN7Minisat8OccListsIiNS_3vecIjiEENS_10SimpSolver13ClauseDeletedENS_14MkIndexDefaultIiEEE6lookupERKi.exit, %.preheader226.lr.ph, %.preheader228
-  %.not76272367 = phi i1 [ false, %.preheader228 ], [ true, %.preheader226.lr.ph ], [ false, %_ZN7Minisat8OccListsIiNS_3vecIjiEENS_10SimpSolver13ClauseDeletedENS_14MkIndexDefaultIiEEE6lookupERKi.exit ], [ true, %..thread_crit_edge.us ]
-  %.sroa.0146.0.lcssa363 = phi ptr [ %.sroa.0146.3, %.preheader228 ], [ %.sroa.0146.3, %.preheader226.lr.ph ], [ null, %_ZN7Minisat8OccListsIiNS_3vecIjiEENS_10SimpSolver13ClauseDeletedENS_14MkIndexDefaultIiEEE6lookupERKi.exit ], [ %.sroa.0146.3, %..thread_crit_edge.us ]
-  %.sroa.14.0.lcssa361 = phi i32 [ %spec.select223, %.preheader228 ], [ %spec.select223, %.preheader226.lr.ph ], [ 0, %_ZN7Minisat8OccListsIiNS_3vecIjiEENS_10SimpSolver13ClauseDeletedENS_14MkIndexDefaultIiEEE6lookupERKi.exit ], [ %spec.select223, %..thread_crit_edge.us ]
-  %.sroa.0126.0.lcssa358 = phi ptr [ %.sroa.0126.3, %.preheader228 ], [ %.sroa.0126.3, %.preheader226.lr.ph ], [ null, %_ZN7Minisat8OccListsIiNS_3vecIjiEENS_10SimpSolver13ClauseDeletedENS_14MkIndexDefaultIiEEE6lookupERKi.exit ], [ %.sroa.0126.3, %..thread_crit_edge.us ]
-  %.sroa.12.0.lcssa357 = phi i32 [ %spec.select, %.preheader228 ], [ %spec.select, %.preheader226.lr.ph ], [ 0, %_ZN7Minisat8OccListsIiNS_3vecIjiEENS_10SimpSolver13ClauseDeletedENS_14MkIndexDefaultIiEEE6lookupERKi.exit ], [ %spec.select, %..thread_crit_edge.us ]
+  %.not76272367 = phi i1 [ false, %_ZN7Minisat8OccListsIiNS_3vecIjiEENS_10SimpSolver13ClauseDeletedENS_14MkIndexDefaultIiEEE6lookupERKi.exit ], [ false, %.preheader228 ], [ true, %.preheader226.lr.ph ], [ true, %..thread_crit_edge.us ]
+  %.sroa.0146.0.lcssa363 = phi ptr [ null, %_ZN7Minisat8OccListsIiNS_3vecIjiEENS_10SimpSolver13ClauseDeletedENS_14MkIndexDefaultIiEEE6lookupERKi.exit ], [ %.sroa.0146.3, %.preheader228 ], [ %.sroa.0146.3, %.preheader226.lr.ph ], [ %.sroa.0146.3, %..thread_crit_edge.us ]
+  %.sroa.14.0.lcssa361 = phi i32 [ 0, %_ZN7Minisat8OccListsIiNS_3vecIjiEENS_10SimpSolver13ClauseDeletedENS_14MkIndexDefaultIiEEE6lookupERKi.exit ], [ %spec.select223, %.preheader228 ], [ %spec.select223, %.preheader226.lr.ph ], [ %spec.select223, %..thread_crit_edge.us ]
+  %.sroa.0126.0.lcssa358 = phi ptr [ null, %_ZN7Minisat8OccListsIiNS_3vecIjiEENS_10SimpSolver13ClauseDeletedENS_14MkIndexDefaultIiEEE6lookupERKi.exit ], [ %.sroa.0126.3, %.preheader228 ], [ %.sroa.0126.3, %.preheader226.lr.ph ], [ %.sroa.0126.3, %..thread_crit_edge.us ]
+  %.sroa.12.0.lcssa357 = phi i32 [ 0, %_ZN7Minisat8OccListsIiNS_3vecIjiEENS_10SimpSolver13ClauseDeletedENS_14MkIndexDefaultIiEEE6lookupERKi.exit ], [ %spec.select, %.preheader228 ], [ %spec.select, %.preheader226.lr.ph ], [ %spec.select, %..thread_crit_edge.us ]
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 1160
   %140 = load ptr, ptr %139, align 8, !tbaa !96
   %141 = getelementptr inbounds i8, ptr %140, i64 %6
@@ -5177,9 +5177,9 @@ _ZN7Minisat3vecIjiED2Ev.exit111:                  ; preds = %_ZN7Minisat3vecIjiE
   ret i1 %.3201
 
 258:                                              ; preds = %173, %188, %219, %245, %137
-  %.sroa.0126.1 = phi ptr [ %.sroa.0126.2, %137 ], [ %.sroa.0126.0.lcssa358, %173 ], [ %.sroa.0126.0.lcssa358, %245 ], [ %.sroa.0126.0.lcssa358, %188 ], [ %.sroa.0126.0.lcssa358, %219 ]
-  %.sroa.0146.1 = phi ptr [ %.sroa.0146.2, %137 ], [ %.sroa.0146.0.lcssa363, %173 ], [ %.sroa.0146.0.lcssa363, %245 ], [ %.sroa.0146.0.lcssa363, %188 ], [ %.sroa.0146.0.lcssa363, %219 ]
-  %.pn82.pn = phi { ptr, i32 } [ %138, %137 ], [ %174, %173 ], [ %246, %245 ], [ %189, %188 ], [ %220, %219 ]
+  %.sroa.0126.1 = phi ptr [ %.sroa.0126.2, %137 ], [ %.sroa.0126.0.lcssa358, %173 ], [ %.sroa.0126.0.lcssa358, %188 ], [ %.sroa.0126.0.lcssa358, %245 ], [ %.sroa.0126.0.lcssa358, %219 ]
+  %.sroa.0146.1 = phi ptr [ %.sroa.0146.2, %137 ], [ %.sroa.0146.0.lcssa363, %173 ], [ %.sroa.0146.0.lcssa363, %188 ], [ %.sroa.0146.0.lcssa363, %245 ], [ %.sroa.0146.0.lcssa363, %219 ]
+  %.pn82.pn = phi { ptr, i32 } [ %138, %137 ], [ %174, %173 ], [ %189, %188 ], [ %246, %245 ], [ %220, %219 ]
   %.not.i.i112 = icmp eq ptr %.sroa.0126.1, null
   br i1 %.not.i.i112, label %_ZN7Minisat3vecIjiED2Ev.exit114, label %.preheader.i.i113
 
@@ -6700,7 +6700,7 @@ define linkonce_odr noundef zeroext i1 @_ZN7Minisat9IntOption5parseEPKc(ptr noun
   br label %_ZN7MinisatL5matchIPKcEEbRT_S2_.exit
 
 _ZN7MinisatL5matchIPKcEEbRT_S2_.exit:             ; preds = %.lr.ph.i7, %.lr.ph.i, %.loopexit, %41
-  %.0 = phi i1 [ %22, %41 ], [ false, %.loopexit ], [ false, %.lr.ph.i ], [ false, %.lr.ph.i7 ]
+  %.0 = phi i1 [ %22, %41 ], [ false, %.lr.ph.i ], [ false, %.loopexit ], [ false, %.lr.ph.i7 ]
   ret i1 %.0
 }
 
@@ -6873,7 +6873,7 @@ define linkonce_odr noundef zeroext i1 @_ZN7Minisat12DoubleOption5parseEPKc(ptr 
   br label %_ZN7MinisatL5matchIPKcEEbRT_S2_.exit
 
 _ZN7MinisatL5matchIPKcEEbRT_S2_.exit:             ; preds = %.lr.ph.i15, %.lr.ph.i, %.loopexit, %50
-  %.0 = phi i1 [ %21, %50 ], [ false, %.loopexit ], [ false, %.lr.ph.i ], [ false, %.lr.ph.i15 ]
+  %.0 = phi i1 [ %21, %50 ], [ false, %.lr.ph.i ], [ false, %.loopexit ], [ false, %.lr.ph.i15 ]
   ret i1 %.0
 }
 

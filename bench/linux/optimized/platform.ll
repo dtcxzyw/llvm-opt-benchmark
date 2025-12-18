@@ -1908,7 +1908,7 @@ define dso_local ptr @__platform_create_bundle(ptr noundef %0, ptr noundef %1, p
   br i1 %96, label %.preheader, label %.loopexit, !llvm.loop !28
 
 .loopexit:                                        ; preds = %92, %45, %34, %80, %72, %48
-  %97 = phi i32 [ -12, %34 ], [ %52, %48 ], [ %.ph, %72 ], [ %.ph, %80 ], [ -12, %45 ], [ %.ph, %92 ]
+  %97 = phi i32 [ -12, %45 ], [ -12, %34 ], [ %52, %48 ], [ %.ph, %72 ], [ %.ph, %80 ], [ %.ph, %92 ]
   %98 = icmp ugt ptr %12, inttoptr (i64 -4096 to ptr)
   br i1 %98, label %100, label %99
 

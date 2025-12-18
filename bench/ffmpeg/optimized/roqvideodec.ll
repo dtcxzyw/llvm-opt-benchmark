@@ -350,11 +350,11 @@ bytestream2_get_le16.exit220._crit_edge.i:        ; preds = %bytestream2_get_le1
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.loopexit277.i, %bytestream2_get_le16.exit220._crit_edge.i, %bytestream2_init.exit
-  %.sroa.0.0 = phi ptr [ %.sroa.0.17, %bytestream2_get_le16.exit220._crit_edge.i ], [ %6, %bytestream2_init.exit ], [ %.sroa.0.24, %.loopexit277.i ]
-  %.pre-phi349.i = phi i64 [ %.pre348.i, %bytestream2_get_le16.exit220._crit_edge.i ], [ %30, %bytestream2_init.exit ], [ %117, %.loopexit277.i ]
-  %.pre-phi.i = phi i64 [ %.pre347.i, %bytestream2_get_le16.exit220._crit_edge.i ], [ %33, %bytestream2_init.exit ], [ %116, %.loopexit277.i ]
-  %.1176.shrunk.i = phi i32 [ %.0.i225.i, %bytestream2_get_le16.exit220._crit_edge.i ], [ 0, %bytestream2_init.exit ], [ %.0.i225.i, %.loopexit277.i ]
-  %.1.i = phi i32 [ %.0.i219.i, %bytestream2_get_le16.exit220._crit_edge.i ], [ 0, %bytestream2_init.exit ], [ %.0.i219.i, %.loopexit277.i ]
+  %.sroa.0.0 = phi ptr [ %6, %bytestream2_init.exit ], [ %.sroa.0.17, %bytestream2_get_le16.exit220._crit_edge.i ], [ %.sroa.0.24, %.loopexit277.i ]
+  %.pre-phi349.i = phi i64 [ %30, %bytestream2_init.exit ], [ %.pre348.i, %bytestream2_get_le16.exit220._crit_edge.i ], [ %117, %.loopexit277.i ]
+  %.pre-phi.i = phi i64 [ %33, %bytestream2_init.exit ], [ %.pre347.i, %bytestream2_get_le16.exit220._crit_edge.i ], [ %116, %.loopexit277.i ]
+  %.1176.shrunk.i = phi i32 [ 0, %bytestream2_init.exit ], [ %.0.i225.i, %bytestream2_get_le16.exit220._crit_edge.i ], [ %.0.i225.i, %.loopexit277.i ]
+  %.1.i = phi i32 [ 0, %bytestream2_init.exit ], [ %.0.i219.i, %bytestream2_get_le16.exit220._crit_edge.i ], [ %.0.i219.i, %.loopexit277.i ]
   %.1176.i = zext i32 %.1176.shrunk.i to i64
   %120 = sub i64 %.pre-phi.i, %33
   %sext255.i = shl i64 %120, 32
@@ -713,9 +713,9 @@ bytestream2_get_le16.exit222.i.unreachabledefault: ; preds = %bytestream2_get_le
   unreachable
 
 .loopexit.i:                                      ; preds = %295, %bytestream2_get_byte.exit242.i, %bytestream2_get_byte.exit240.i, %bytestream2_get_le16.exit222.i
-  %.sroa.0.5 = phi ptr [ %.sroa.0.7, %bytestream2_get_byte.exit240.i ], [ %.sroa.0.6, %bytestream2_get_byte.exit242.i ], [ %.sroa.0.4, %bytestream2_get_le16.exit222.i ], [ %.sroa.0.10, %295 ]
-  %.6194.i = phi i32 [ %.3191.i, %bytestream2_get_byte.exit240.i ], [ %.3191.i, %bytestream2_get_byte.exit242.i ], [ %.3191.i, %bytestream2_get_le16.exit222.i ], [ %.5193.i, %295 ]
-  %.6.i = phi i32 [ %163, %bytestream2_get_byte.exit240.i ], [ %163, %bytestream2_get_byte.exit242.i ], [ %163, %bytestream2_get_le16.exit222.i ], [ %222, %295 ]
+  %.sroa.0.5 = phi ptr [ %.sroa.0.4, %bytestream2_get_le16.exit222.i ], [ %.sroa.0.7, %bytestream2_get_byte.exit240.i ], [ %.sroa.0.6, %bytestream2_get_byte.exit242.i ], [ %.sroa.0.10, %295 ]
+  %.6194.i = phi i32 [ %.3191.i, %bytestream2_get_le16.exit222.i ], [ %.3191.i, %bytestream2_get_byte.exit240.i ], [ %.3191.i, %bytestream2_get_byte.exit242.i ], [ %.5193.i, %295 ]
+  %.6.i = phi i32 [ %163, %bytestream2_get_le16.exit222.i ], [ %163, %bytestream2_get_byte.exit240.i ], [ %163, %bytestream2_get_byte.exit242.i ], [ %222, %295 ]
   %297 = add nsw i32 %.0180323.i, 8
   %298 = icmp slt i32 %.0180323.i, %145
   br i1 %298, label %147, label %299, !llvm.loop !53

@@ -2019,9 +2019,9 @@ define dso_local i64 @prsd_headline(ptr noundef readonly captures(none) %0) loca
   br label %.loopexit428.i
 
 .loopexit428.i:                                   ; preds = %244, %237, %235, %225, %.loopexit428.loopexit.split.loop.exit536.i, %.loopexit428.loopexit.split.loop.exit533.i, %.loopexit428.loopexit.split.loop.exit530.i, %227, %.preheader427.i, %._crit_edge459.i
-  %.3358.i = phi i32 [ %.2357.i, %._crit_edge459.i ], [ %.2357.i, %.preheader427.i ], [ %.0355.lcssa.i, %227 ], [ %.2357.i, %.loopexit428.loopexit.split.loop.exit530.i ], [ %.2357.i, %.loopexit428.loopexit.split.loop.exit536.i ], [ %.2357.i, %.loopexit428.loopexit.split.loop.exit533.i ], [ %.2357.i, %225 ], [ %.4359440.i, %237 ], [ %247, %244 ], [ %.4359440.i, %235 ]
-  %.0354.i = phi i32 [ %142, %._crit_edge459.i ], [ 0, %.preheader427.i ], [ %142, %227 ], [ %249, %.loopexit428.loopexit.split.loop.exit530.i ], [ %251, %.loopexit428.loopexit.split.loop.exit536.i ], [ %250, %.loopexit428.loopexit.split.loop.exit533.i ], [ 0, %225 ], [ %142, %235 ], [ %142, %237 ], [ %142, %244 ]
-  %.8351.i = phi i32 [ %.3346.i, %._crit_edge459.i ], [ %.3346.i, %.preheader427.i ], [ %.0343.lcssa.i, %227 ], [ %.7350.i, %.loopexit428.loopexit.split.loop.exit530.i ], [ %.7350.i, %.loopexit428.loopexit.split.loop.exit536.i ], [ %.7350.i, %.loopexit428.loopexit.split.loop.exit533.i ], [ %.7350.i, %225 ], [ %.9352441.i, %237 ], [ %.10353.i, %244 ], [ %.9352441.i, %235 ]
+  %.3358.i = phi i32 [ %.2357.i, %.preheader427.i ], [ %.2357.i, %._crit_edge459.i ], [ %.2357.i, %.loopexit428.loopexit.split.loop.exit530.i ], [ %.0355.lcssa.i, %227 ], [ %.2357.i, %225 ], [ %.2357.i, %.loopexit428.loopexit.split.loop.exit536.i ], [ %.2357.i, %.loopexit428.loopexit.split.loop.exit533.i ], [ %247, %244 ], [ %.4359440.i, %235 ], [ %.4359440.i, %237 ]
+  %.0354.i = phi i32 [ 0, %.preheader427.i ], [ %142, %._crit_edge459.i ], [ %249, %.loopexit428.loopexit.split.loop.exit530.i ], [ %142, %227 ], [ 0, %225 ], [ %251, %.loopexit428.loopexit.split.loop.exit536.i ], [ %250, %.loopexit428.loopexit.split.loop.exit533.i ], [ %142, %235 ], [ %142, %237 ], [ %142, %244 ]
+  %.8351.i = phi i32 [ %.3346.i, %.preheader427.i ], [ %.3346.i, %._crit_edge459.i ], [ %.7350.i, %.loopexit428.loopexit.split.loop.exit530.i ], [ %.0343.lcssa.i, %227 ], [ %.7350.i, %225 ], [ %.7350.i, %.loopexit428.loopexit.split.loop.exit536.i ], [ %.7350.i, %.loopexit428.loopexit.split.loop.exit533.i ], [ %.10353.i, %244 ], [ %.9352441.i, %235 ], [ %.9352441.i, %237 ]
   %252 = icmp sle i32 %.0354.i, %142
   %253 = icmp sge i32 %.3358.i, %143
   %254 = and i1 %253, %252
@@ -3869,7 +3869,7 @@ define internal fastcc noundef zeroext i1 @hlCover(ptr noundef readonly captures
   br label %.lr.ph168
 
 .loopexit:                                        ; preds = %.lr.ph168, %17, %24, %6, %75
-  %.4.ph = phi i1 [ true, %75 ], [ false, %6 ], [ false, %17 ], [ false, %24 ], [ false, %.lr.ph168 ]
+  %.4.ph = phi i1 [ false, %6 ], [ true, %75 ], [ false, %17 ], [ false, %24 ], [ false, %.lr.ph168 ]
   ret i1 %.4.ph
 }
 

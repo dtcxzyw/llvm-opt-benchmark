@@ -6057,8 +6057,8 @@ _ZL17isSDKVersionTokenRKN4llvm8AsmTokenE.exit.thread.sink.split: ; preds = %36, 
   br label %_ZL17isSDKVersionTokenRKN4llvm8AsmTokenE.exit.thread
 
 _ZL17isSDKVersionTokenRKN4llvm8AsmTokenE.exit.thread: ; preds = %_ZL17isSDKVersionTokenRKN4llvm8AsmTokenE.exit.thread.sink.split, %16, %_ZL17isSDKVersionTokenRKN4llvm8AsmTokenE.exit
-  %.sroa.024.0 = phi i64 [ 0, %_ZL17isSDKVersionTokenRKN4llvm8AsmTokenE.exit ], [ 0, %16 ], [ %44, %_ZL17isSDKVersionTokenRKN4llvm8AsmTokenE.exit.thread.sink.split ]
-  %.sroa.6.0 = phi i64 [ 0, %_ZL17isSDKVersionTokenRKN4llvm8AsmTokenE.exit ], [ 0, %16 ], [ %.sroa.6.0.ph, %_ZL17isSDKVersionTokenRKN4llvm8AsmTokenE.exit.thread.sink.split ]
+  %.sroa.024.0 = phi i64 [ 0, %16 ], [ 0, %_ZL17isSDKVersionTokenRKN4llvm8AsmTokenE.exit ], [ %44, %_ZL17isSDKVersionTokenRKN4llvm8AsmTokenE.exit.thread.sink.split ]
+  %.sroa.6.0 = phi i64 [ 0, %16 ], [ 0, %_ZL17isSDKVersionTokenRKN4llvm8AsmTokenE.exit ], [ %.sroa.6.0.ph, %_ZL17isSDKVersionTokenRKN4llvm8AsmTokenE.exit.thread.sink.split ]
   %59 = load ptr, ptr %17, align 8, !tbaa !11
   %60 = tail call noundef zeroext i1 @_ZN4llvm11MCAsmParser8parseEOLEv(ptr noundef nonnull align 8 dereferenceable(34) %59) #18
   br i1 %60, label %_ZN4llvmplERKNS_5TwineES2_.exit21, label %switch.lookup
@@ -7014,8 +7014,8 @@ _ZL17isSDKVersionTokenRKN4llvm8AsmTokenE.exit.thread.sink.split.i: ; preds = %_Z
   br label %_ZL17isSDKVersionTokenRKN4llvm8AsmTokenE.exit.thread.i
 
 _ZL17isSDKVersionTokenRKN4llvm8AsmTokenE.exit.thread.i: ; preds = %_ZL17isSDKVersionTokenRKN4llvm8AsmTokenE.exit.thread.sink.split.i, %_ZL17isSDKVersionTokenRKN4llvm8AsmTokenE.exit.i, %72
-  %.sroa.0.0.i = phi i64 [ 0, %_ZL17isSDKVersionTokenRKN4llvm8AsmTokenE.exit.i ], [ 0, %72 ], [ %99, %_ZL17isSDKVersionTokenRKN4llvm8AsmTokenE.exit.thread.sink.split.i ]
-  %.sroa.6.0.i = phi i64 [ 0, %_ZL17isSDKVersionTokenRKN4llvm8AsmTokenE.exit.i ], [ 0, %72 ], [ %.sroa.6.0.ph.i, %_ZL17isSDKVersionTokenRKN4llvm8AsmTokenE.exit.thread.sink.split.i ]
+  %.sroa.0.0.i = phi i64 [ 0, %72 ], [ 0, %_ZL17isSDKVersionTokenRKN4llvm8AsmTokenE.exit.i ], [ %99, %_ZL17isSDKVersionTokenRKN4llvm8AsmTokenE.exit.thread.sink.split.i ]
+  %.sroa.6.0.i = phi i64 [ 0, %72 ], [ 0, %_ZL17isSDKVersionTokenRKN4llvm8AsmTokenE.exit.i ], [ %.sroa.6.0.ph.i, %_ZL17isSDKVersionTokenRKN4llvm8AsmTokenE.exit.thread.sink.split.i ]
   %114 = load ptr, ptr %17, align 8, !tbaa !11
   %115 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser8parseEOLEv(ptr noundef nonnull align 8 dereferenceable(34) %114) #18
   br i1 %115, label %116, label %switch.lookup

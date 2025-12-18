@@ -3991,7 +3991,7 @@ _ZN3ue28flat_setINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolder
   br i1 %.not165.i, label %.thread163.i, label %304
 
 .thread163.i:                                     ; preds = %312, %307, %._crit_edge184.i, %._crit_edge179.thread.i
-  %.3.i = phi i1 [ true, %._crit_edge179.thread.i ], [ true, %._crit_edge184.i ], [ false, %307 ], [ true, %312 ]
+  %.3.i = phi i1 [ true, %._crit_edge179.thread.i ], [ false, %307 ], [ true, %._crit_edge184.i ], [ true, %312 ]
   %314 = load i64, ptr %124, align 8
   %.not.i.i.i.i106.i = icmp eq i64 %314, 0
   br i1 %.not.i.i.i.i106.i, label %_ZN3ue211flat_detail9flat_baseINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESt4lessIS9_ESaIS9_EED2Ev.exit.i, label %315
@@ -5463,7 +5463,7 @@ _ZN3ue217mixed_sensitivityERKNS_11ue2_literalE.exit.i: ; preds = %.lr.ph.split.i
   br i1 %386, label %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPN3ue211ue2_literalESt6vectorIS3_SaIS3_EEEEPFbRKS3_EEbT_SD_T0_.exit.i, label %_ZN3ue2L19expandFmlCandidatesERKNS_9CharReachERSt6vectorINS_11ue2_literalESaIS4_EES7_.exit
 
 _ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPN3ue211ue2_literalESt6vectorIS3_SaIS3_EEEEPFbRKS3_EEbT_SD_T0_.exit.i: ; preds = %_ZN3ue217mixed_sensitivityERKNS_11ue2_literalE.exit91.i, %_ZN3ue217mixed_sensitivityERKNS_11ue2_literalE.exit105.i, %_ZN3ue217mixed_sensitivityERKNS_11ue2_literalE.exit119.i, %_ZN3ue217mixed_sensitivityERKNS_11ue2_literalE.exit133.i, %_ZN3ue217mixed_sensitivityERKNS_11ue2_literalE.exit.i, %_ZN3ue217mixed_sensitivityERKNS_11ue2_literalE.exit63.i, %_ZN3ue217mixed_sensitivityERKNS_11ue2_literalE.exit77.i
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i = phi ptr [ %.sroa.032.1.i.i.i.i.i.i, %_ZN3ue217mixed_sensitivityERKNS_11ue2_literalE.exit63.i ], [ %.sroa.032.2.i.i.i.i.i.i, %_ZN3ue217mixed_sensitivityERKNS_11ue2_literalE.exit.i ], [ %.sroa.032.0.lcssa.i.i.i.i.i.i, %_ZN3ue217mixed_sensitivityERKNS_11ue2_literalE.exit77.i ], [ %.sroa.032.042.i.i.i.i.i.i, %_ZN3ue217mixed_sensitivityERKNS_11ue2_literalE.exit133.i ], [ %301, %_ZN3ue217mixed_sensitivityERKNS_11ue2_literalE.exit91.i ], [ %281, %_ZN3ue217mixed_sensitivityERKNS_11ue2_literalE.exit105.i ], [ %261, %_ZN3ue217mixed_sensitivityERKNS_11ue2_literalE.exit119.i ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i = phi ptr [ %.sroa.032.1.i.i.i.i.i.i, %_ZN3ue217mixed_sensitivityERKNS_11ue2_literalE.exit63.i ], [ %.sroa.032.0.lcssa.i.i.i.i.i.i, %_ZN3ue217mixed_sensitivityERKNS_11ue2_literalE.exit77.i ], [ %.sroa.032.2.i.i.i.i.i.i, %_ZN3ue217mixed_sensitivityERKNS_11ue2_literalE.exit.i ], [ %.sroa.032.042.i.i.i.i.i.i, %_ZN3ue217mixed_sensitivityERKNS_11ue2_literalE.exit133.i ], [ %261, %_ZN3ue217mixed_sensitivityERKNS_11ue2_literalE.exit119.i ], [ %301, %_ZN3ue217mixed_sensitivityERKNS_11ue2_literalE.exit91.i ], [ %281, %_ZN3ue217mixed_sensitivityERKNS_11ue2_literalE.exit105.i ]
   %.not153.i = icmp eq ptr %231, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i
   br i1 %.not153.i, label %_ZN3ue2L19expandFmlCandidatesERKNS_9CharReachERSt6vectorINS_11ue2_literalESaIS4_EES7_.exit, label %_ZN3ue2L19expandFmlCandidatesERKNS_9CharReachERSt6vectorINS_11ue2_literalESaIS4_EES7_.exit.thread
 

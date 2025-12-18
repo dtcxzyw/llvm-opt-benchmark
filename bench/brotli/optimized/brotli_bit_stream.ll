@@ -1802,9 +1802,9 @@ StoreSymbolWithContext.exit:                      ; preds = %.lr.ph244, %GetBloc
   br i1 %.not192, label %.loopexit, label %.lr.ph244, !llvm.loop !285
 
 .loopexit:                                        ; preds = %StoreSymbolWithContext.exit, %StoreSymbol.exit, %.preheader236, %.preheader
-  %.2184 = phi i64 [ %.0182253, %.preheader ], [ %.0182253, %.preheader236 ], [ %436, %StoreSymbol.exit ], [ %558, %StoreSymbolWithContext.exit ]
-  %.1179 = phi i8 [ %.0178254, %.preheader ], [ %.0178254, %.preheader236 ], [ %.0178254, %StoreSymbol.exit ], [ %.2243, %StoreSymbolWithContext.exit ]
-  %.1 = phi i8 [ %.0255, %.preheader ], [ %.0255, %.preheader236 ], [ %.0255, %StoreSymbol.exit ], [ %448, %StoreSymbolWithContext.exit ]
+  %.2184 = phi i64 [ %436, %StoreSymbol.exit ], [ %.0182253, %.preheader ], [ %.0182253, %.preheader236 ], [ %558, %StoreSymbolWithContext.exit ]
+  %.1179 = phi i8 [ %.0178254, %StoreSymbol.exit ], [ %.0178254, %.preheader ], [ %.0178254, %.preheader236 ], [ %.2243, %StoreSymbolWithContext.exit ]
+  %.1 = phi i8 [ %.0255, %StoreSymbol.exit ], [ %.0255, %.preheader ], [ %.0255, %.preheader236 ], [ %448, %StoreSymbolWithContext.exit ]
   %560 = zext nneg i32 %253 to i64
   %561 = add i64 %.2184, %560
   %.not194 = icmp eq i32 %253, 0

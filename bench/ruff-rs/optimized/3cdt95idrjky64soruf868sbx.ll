@@ -4681,7 +4681,7 @@ _ZN14ruff_formatter7printer11Indentation5align17ha4dc0ea3df98ad37E.exit: ; preds
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.backedge, %.loopexit.sink.split, %40
-  %.val32 = phi i32 [ %17, %40 ], [ %.sink, %.loopexit.sink.split ], [ %storemerge, %.backedge ]
+  %.val32 = phi i32 [ %.sink, %.loopexit.sink.split ], [ %17, %40 ], [ %storemerge, %.backedge ]
   %33 = load i16, ptr %6, align 8, !range !285, !noundef !3
   %34 = tail call noundef i32 @"_ZN14ruff_formatter86_$LT$impl$u20$core..convert..From$LT$ruff_formatter..LineWidth$GT$$u20$for$u20$u32$GT$4from17h35b3ae7129fd674dE"(i16 noundef %33)
   %35 = icmp ugt i32 %.val32, %34
@@ -5207,7 +5207,7 @@ _ZN7tracing4span4Span8do_enter17hc42ad5655e37783bE.exit: ; preds = %.noexc78, %7
   br label %102
 
 .loopexit.split-lp:                               ; preds = %_ZN14ruff_formatter7printer7Printer11push_marker17h90909da73ac6f913E.exit, %.split.i.i, %"_ZN77_$LT$$RF$alloc..string..String$u20$as$u20$ruff_text_size..traits..TextLen$GT$8text_len17hc2a32688cadce5f7E.exit.i", %166
-  %.sroa.028.5.ph = phi i8 [ 1, %"_ZN77_$LT$$RF$alloc..string..String$u20$as$u20$ruff_text_size..traits..TextLen$GT$8text_len17hc2a32688cadce5f7E.exit.i" ], [ 1, %.split.i.i ], [ 1, %166 ], [ 0, %_ZN14ruff_formatter7printer7Printer11push_marker17h90909da73ac6f913E.exit ]
+  %.sroa.028.5.ph = phi i8 [ 1, %.split.i.i ], [ 1, %166 ], [ 0, %_ZN14ruff_formatter7printer7Printer11push_marker17h90909da73ac6f913E.exit ], [ 1, %"_ZN77_$LT$$RF$alloc..string..String$u20$as$u20$ruff_text_size..traits..TextLen$GT$8text_len17hc2a32688cadce5f7E.exit.i" ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %102

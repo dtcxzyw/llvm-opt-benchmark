@@ -10703,7 +10703,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit174.i:          ; preds = %._ZNSt6vectorIdSaId
   br i1 %exitcond.not.i180.i, label %_ZN3gmx11ISerializer13doDoubleArrayEPdi.exit181.i, label %.lr.ph.i177.i, !llvm.loop !471
 
 _ZN3gmx11ISerializer13doDoubleArrayEPdi.exit181.i: ; preds = %.noexc452, %918, %.loopexit209.i
-  %948 = phi ptr [ %941, %.loopexit209.i ], [ %919, %918 ], [ %941, %.noexc452 ]
+  %948 = phi ptr [ %919, %918 ], [ %941, %.loopexit209.i ], [ %941, %.noexc452 ]
   %949 = load double, ptr %900, align 8, !tbaa !453
   %950 = fcmp ult double %949, 0.000000e+00
   br i1 %950, label %.loopexit.i, label %951

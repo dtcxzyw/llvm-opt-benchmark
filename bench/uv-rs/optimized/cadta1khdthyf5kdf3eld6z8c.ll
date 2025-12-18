@@ -680,8 +680,8 @@ define internal fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17hf1b
   br label %21
 
 .critedge:                                        ; preds = %100, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h37e6c887407f2f0bE.exit.loopexit.i.i", %24
-  %79 = phi i64 [ 0, %24 ], [ %28, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h37e6c887407f2f0bE.exit.loopexit.i.i" ], [ %106, %100 ]
-  %.promoted11.i.i2446 = phi i64 [ 0, %24 ], [ %.promoted11.i.i2447, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h37e6c887407f2f0bE.exit.loopexit.i.i" ], [ %73, %100 ]
+  %79 = phi i64 [ %28, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h37e6c887407f2f0bE.exit.loopexit.i.i" ], [ 0, %24 ], [ %106, %100 ]
+  %.promoted11.i.i2446 = phi i64 [ %.promoted11.i.i2447, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h37e6c887407f2f0bE.exit.loopexit.i.i" ], [ 0, %24 ], [ %73, %100 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %gepdiff37 = sub nsw i64 %2, %.promoted11.i.i2446
   %80 = load i64, ptr %6, align 8, !range !172, !alias.scope !173, !noundef !3
@@ -2557,7 +2557,7 @@ switch.lookup:                                    ; preds = %.lr.ph742.i
           to label %common.resume unwind label %293, !noalias !363
 
 .loopexit714.i:                                   ; preds = %.loopexit715.i, %.loopexit713.i, %362
-  %.sroa.25.0.copyload161.i = phi i64 [ 0, %362 ], [ %388, %.loopexit713.i ], [ %417, %.loopexit715.i ]
+  %.sroa.25.0.copyload161.i = phi i64 [ %388, %.loopexit713.i ], [ 0, %362 ], [ %417, %.loopexit715.i ]
   %.sroa.0141.0.copyload145.i = load i64, ptr %85, align 8, !noalias !368
   %.sroa.15.0.copyload153.i = load ptr, ptr %334, align 8, !noalias !368
   call void @llvm.lifetime.end.p0(ptr nonnull %85), !noalias !368
@@ -3134,7 +3134,7 @@ switch.lookup539:                                 ; preds = %.preheader718.i
   br i1 %.not42.i.i, label %.thread689.i, label %.lr.ph.i.i
 
 .loopexit719.i:                                   ; preds = %552, %550, %541, %.lr.ph.i.i, %532, %532, %528
-  %.sroa.4580.0.ph.i = phi i8 [ 1, %532 ], [ 0, %528 ], [ 1, %532 ], [ 1, %.lr.ph.i.i ], [ 2, %550 ], [ 1, %541 ], [ 2, %552 ]
+  %.sroa.4580.0.ph.i = phi i8 [ 1, %532 ], [ 1, %532 ], [ 0, %528 ], [ 1, %.lr.ph.i.i ], [ 1, %541 ], [ 2, %552 ], [ 2, %550 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %34), !noalias !368
   store i8 %.sroa.4580.0.ph.i, ptr %34, align 1, !noalias !368
   call void @llvm.lifetime.start.p0(ptr nonnull %33), !noalias !368
@@ -3475,9 +3475,9 @@ _ZN16uv_platform_tags4tags15compatible_tags17hfa80803ab6d1cbcdE.exit: ; preds = 
   call void @llvm.lifetime.end.p0(ptr nonnull %51), !noalias !368
   br label %640
 
-_ZN16uv_platform_tags4tags14Implementation5parse17h560b70a496c673a0E.exit.thread292: ; preds = %154, %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h5d7567689b882cc3E.exit", %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h5d7567689b882cc3E.exit218", %_ZN16uv_platform_tags4tags14Implementation5parse17h560b70a496c673a0E.exit
-  %.sroa.487.0.copyload = phi i8 [ %155, %_ZN16uv_platform_tags4tags14Implementation5parse17h560b70a496c673a0E.exit ], [ %.sroa.487.0.copyload.pre.pre, %154 ], [ %153, %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h5d7567689b882cc3E.exit" ], [ %144, %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h5d7567689b882cc3E.exit218" ]
-  %634 = phi i64 [ %.pr, %_ZN16uv_platform_tags4tags14Implementation5parse17h560b70a496c673a0E.exit ], [ 1, %154 ], [ 2, %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h5d7567689b882cc3E.exit" ], [ 1, %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h5d7567689b882cc3E.exit218" ]
+_ZN16uv_platform_tags4tags14Implementation5parse17h560b70a496c673a0E.exit.thread292: ; preds = %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h5d7567689b882cc3E.exit218", %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h5d7567689b882cc3E.exit", %154, %_ZN16uv_platform_tags4tags14Implementation5parse17h560b70a496c673a0E.exit
+  %.sroa.487.0.copyload = phi i8 [ %155, %_ZN16uv_platform_tags4tags14Implementation5parse17h560b70a496c673a0E.exit ], [ %144, %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h5d7567689b882cc3E.exit218" ], [ %153, %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h5d7567689b882cc3E.exit" ], [ %.sroa.487.0.copyload.pre.pre, %154 ]
+  %634 = phi i64 [ %.pr, %_ZN16uv_platform_tags4tags14Implementation5parse17h560b70a496c673a0E.exit ], [ 1, %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h5d7567689b882cc3E.exit218" ], [ 2, %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h5d7567689b882cc3E.exit" ], [ 1, %154 ]
   %.sroa.588.0..sroa_idx = getelementptr inbounds nuw i8, ptr %105, i64 9
   %.sroa.391.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.391.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.588.0..sroa_idx, i64 23, i1 false)
@@ -4275,7 +4275,7 @@ define noundef zeroext i1 @_ZN16uv_platform_tags4tags4Tags13is_compatible17h4fcd
   br i1 %.not72, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17he957227e54549ed4E.exit.i", label %.lr.ph69.splitthread-pre-split, !llvm.loop !697
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17he957227e54549ed4E.exit.i": ; preds = %.backedge59, %.lr.ph.i.i34, %.lr.ph69, %7
-  %56 = phi i1 [ false, %7 ], [ false, %.lr.ph69 ], [ true, %.lr.ph.i.i34 ], [ false, %.backedge59 ]
+  %56 = phi i1 [ true, %.lr.ph.i.i34 ], [ false, %7 ], [ false, %.lr.ph69 ], [ false, %.backedge59 ]
   ret i1 %56
 
 57:                                               ; preds = %.lr.ph.i.i
@@ -5042,7 +5042,7 @@ define noundef zeroext i1 @_ZN16uv_platform_tags4tags4Tags17is_compatible_abi17h
   br label %57
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h7876f43f9e1bc54fE.exit.thread": ; preds = %._crit_edge.i.i, %._crit_edge.i.i17, %.lr.ph.i.i15, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h7876f43f9e1bc54fE.exit", %3
-  %.sroa.03.0 = phi i1 [ false, %3 ], [ false, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h7876f43f9e1bc54fE.exit" ], [ false, %._crit_edge.i.i17 ], [ true, %.lr.ph.i.i15 ], [ false, %._crit_edge.i.i ]
+  %.sroa.03.0 = phi i1 [ true, %.lr.ph.i.i15 ], [ false, %3 ], [ false, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h7876f43f9e1bc54fE.exit" ], [ false, %._crit_edge.i.i17 ], [ false, %._crit_edge.i.i ]
   ret i1 %.sroa.03.0
 }
 

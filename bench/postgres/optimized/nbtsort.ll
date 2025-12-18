@@ -938,7 +938,7 @@ ApplySortComparator.exit.i.i:                     ; preds = %499, %492
   br label %.thread195.thread.i.i
 
 .thread195.thread.i.i:                            ; preds = %.thread189.i.i, %ApplySortComparator.exit.i.i, %499, %.loopexit287.i.i, %.thread189.thread.i.i, %488, %484, %375, %374
-  %.0123.i.i = phi i1 [ true, %374 ], [ false, %375 ], [ false, %488 ], [ %504, %.loopexit287.i.i ], [ true, %.thread189.thread.i.i ], [ false, %484 ], [ false, %499 ], [ true, %.thread189.i.i ], [ false, %ApplySortComparator.exit.i.i ]
+  %.0123.i.i = phi i1 [ true, %374 ], [ false, %375 ], [ false, %484 ], [ %504, %.loopexit287.i.i ], [ true, %.thread189.thread.i.i ], [ false, %488 ], [ false, %499 ], [ false, %ApplySortComparator.exit.i.i ], [ true, %.thread189.i.i ]
   %505 = icmp eq ptr %.0.i.i16, null
   br i1 %505, label %506, label %539
 
@@ -1308,7 +1308,7 @@ _bt_pagestate.exit165.i.i:                        ; preds = %673, %649
   br i1 %.not33.i.i.i, label %_bt_leafbuild.exit, label %.lr.ph.i.i.i.preheader
 
 .lr.ph.i.i.i.preheader:                           ; preds = %682, %.loopexit.i.i, %.loopexit.i.thread10.i
-  %.036.i.i.i.ph = phi ptr [ %.4.i.i, %.loopexit.i.thread10.i ], [ %.0.i.i16, %.loopexit.i.i ], [ %.6.i.i, %682 ]
+  %.036.i.i.i.ph = phi ptr [ %.0.i.i16, %.loopexit.i.i ], [ %.4.i.i, %.loopexit.i.thread10.i ], [ %.6.i.i, %682 ]
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i.preheader, %_bt_slideleft.exit.i.i.i

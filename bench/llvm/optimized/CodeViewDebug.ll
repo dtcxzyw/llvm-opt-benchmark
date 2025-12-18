@@ -2453,8 +2453,8 @@ _ZN4llvm12is_containedIRNS_11SmallVectorIPKNS_12DISubprogramELj4EEES4_EEbOT_RKT0
   br label %_ZN4llvm12is_containedIRNS_11SmallVectorIPKNS_12DISubprogramELj4EEES4_EEbOT_RKT0_.exit
 
 _ZN4llvm12is_containedIRNS_11SmallVectorIPKNS_12DISubprogramELj4EEES4_EEbOT_RKT0_.exit: ; preds = %20, %_ZN4llvm12is_containedIRNS_11SmallVectorIPKNS_12DISubprogramELj4EEES4_EEbOT_RKT0_.exit.loopexit.split.loop.exit, %_ZN4llvm12is_containedIRNS_11SmallVectorIPKNS_12DISubprogramELj4EEES4_EEbOT_RKT0_.exit.loopexit.split.loop.exit38, %_ZN4llvm12is_containedIRNS_11SmallVectorIPKNS_12DISubprogramELj4EEES4_EEbOT_RKT0_.exit.loopexit.split.loop.exit40, %40, %46, %52
-  %59 = phi ptr [ %47, %46 ], [ %41, %40 ], [ %53, %52 ], [ %18, %_ZN4llvm12is_containedIRNS_11SmallVectorIPKNS_12DISubprogramELj4EEES4_EEbOT_RKT0_.exit.loopexit.split.loop.exit40 ], [ %18, %_ZN4llvm12is_containedIRNS_11SmallVectorIPKNS_12DISubprogramELj4EEES4_EEbOT_RKT0_.exit.loopexit.split.loop.exit38 ], [ %18, %_ZN4llvm12is_containedIRNS_11SmallVectorIPKNS_12DISubprogramELj4EEES4_EEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %18, %20 ]
-  %.028.i.i.i.i = phi ptr [ %.1.i.i.i.i, %46 ], [ %.029.lcssa.i.i.i.i, %40 ], [ %.2.i.i.i.i, %52 ], [ %58, %_ZN4llvm12is_containedIRNS_11SmallVectorIPKNS_12DISubprogramELj4EEES4_EEbOT_RKT0_.exit.loopexit.split.loop.exit40 ], [ %57, %_ZN4llvm12is_containedIRNS_11SmallVectorIPKNS_12DISubprogramELj4EEES4_EEbOT_RKT0_.exit.loopexit.split.loop.exit38 ], [ %56, %_ZN4llvm12is_containedIRNS_11SmallVectorIPKNS_12DISubprogramELj4EEES4_EEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %.02946.i.i.i.i, %20 ]
+  %59 = phi ptr [ %47, %46 ], [ %41, %40 ], [ %53, %52 ], [ %18, %_ZN4llvm12is_containedIRNS_11SmallVectorIPKNS_12DISubprogramELj4EEES4_EEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %18, %_ZN4llvm12is_containedIRNS_11SmallVectorIPKNS_12DISubprogramELj4EEES4_EEbOT_RKT0_.exit.loopexit.split.loop.exit40 ], [ %18, %_ZN4llvm12is_containedIRNS_11SmallVectorIPKNS_12DISubprogramELj4EEES4_EEbOT_RKT0_.exit.loopexit.split.loop.exit38 ], [ %18, %20 ]
+  %.028.i.i.i.i = phi ptr [ %.1.i.i.i.i, %46 ], [ %.029.lcssa.i.i.i.i, %40 ], [ %.2.i.i.i.i, %52 ], [ %56, %_ZN4llvm12is_containedIRNS_11SmallVectorIPKNS_12DISubprogramELj4EEES4_EEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %58, %_ZN4llvm12is_containedIRNS_11SmallVectorIPKNS_12DISubprogramELj4EEES4_EEbOT_RKT0_.exit.loopexit.split.loop.exit40 ], [ %57, %_ZN4llvm12is_containedIRNS_11SmallVectorIPKNS_12DISubprogramELj4EEES4_EEbOT_RKT0_.exit.loopexit.split.loop.exit38 ], [ %.02946.i.i.i.i, %20 ]
   %.not = icmp eq ptr %.028.i.i.i.i, %16
   br i1 %.not, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPKNS_12DISubprogramELj4EEES4_EEbOT_RKT0_.exit.thread, label %_ZN4llvm9SetVectorIPKNS_12DISubprogramENS_11SmallVectorIS3_Lj4EEENS_8DenseSetIS3_NS_12DenseMapInfoIS3_vEEEELj4EE7makeBigEv.exit
 
@@ -8444,7 +8444,7 @@ _ZN4llvm13CodeViewDebug20emitLexicalBlockListENS_8ArrayRefIPNS0_12LexicalBlockEE
   br i1 %509, label %_ZNSt13unordered_mapIPKN4llvm10DILocationENS0_13CodeViewDebug10InlineSiteESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S5_EEE4findERSB_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !869
 
 _ZNSt13unordered_mapIPKN4llvm10DILocationENS0_13CodeViewDebug10InlineSiteESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S5_EEE4findERSB_.exit: ; preds = %.lr.ph.i.i.i.i, %.preheader, %493
-  %.sroa.06.1.i.i = phi ptr [ %500, %493 ], [ %.sroa.06.0.i.i, %.preheader ], [ %504, %.lr.ph.i.i.i.i ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %.preheader ], [ %500, %493 ], [ %504, %.lr.ph.i.i.i.i ]
   %510 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   call void @_ZN4llvm13CodeViewDebug19emitInlinedCallSiteERKNS0_12FunctionInfoEPKNS_10DILocationERKNS0_10InlineSiteE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef nonnull align 8 dereferenceable(483) %2, ptr poison, ptr noundef nonnull align 8 dereferenceable(132) %510)
   %511 = getelementptr inbounds nuw i8, ptr %.0164, i64 8
@@ -11107,7 +11107,7 @@ _ZNK4llvm7DIScope7getFileEv.exit:                 ; preds = %4, %_ZNK4llvm6MDNod
   br i1 %122, label %_ZNKSt13unordered_mapIPKN4llvm10DILocationENS0_13CodeViewDebug10InlineSiteESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S5_EEE4findERSB_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !869
 
 _ZNKSt13unordered_mapIPKN4llvm10DILocationENS0_13CodeViewDebug10InlineSiteESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S5_EEE4findERSB_.exit: ; preds = %.lr.ph.i.i.i.i, %.preheader, %106
-  %.sroa.06.1.i.i = phi ptr [ %113, %106 ], [ %.sroa.06.0.i.i, %.preheader ], [ %117, %.lr.ph.i.i.i.i ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %.preheader ], [ %113, %106 ], [ %117, %.lr.ph.i.i.i.i ]
   %123 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   call void @_ZN4llvm13CodeViewDebug19emitInlinedCallSiteERKNS0_12FunctionInfoEPKNS_10DILocationERKNS0_10InlineSiteE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef nonnull align 8 dereferenceable(483) %1, ptr poison, ptr noundef nonnull align 8 dereferenceable(132) %123)
   %124 = getelementptr inbounds nuw i8, ptr %.027, i64 8
@@ -14243,12 +14243,12 @@ _ZNK4llvm15DILocalVariable8getScopeEv.exit26:     ; preds = %138, %141
   br label %_ZNK4llvm6detail12DenseSetImplISt4pairIPKNS_6DINodeEPKNS_10DILocationEENS_8DenseMapIS9_NS0_13DenseSetEmptyENS_12DenseMapInfoIS9_vEENS0_12DenseSetPairIS9_EEEESD_E5countERKS9_.exit, !llvm.loop !1229
 
 _ZNSt13unordered_mapIPKN4llvm12DILocalScopeENS0_12LexicalScopeESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S4_EEE4findERSA_.exit.i: ; preds = %164, %148, %159
-  %.sroa.06.1.i.i.i32 = phi ptr [ %160, %159 ], [ %.sroa.06.0.i.i.i34, %148 ], [ %166, %164 ]
+  %.sroa.06.1.i.i.i32 = phi ptr [ %.sroa.06.0.i.i.i34, %148 ], [ %160, %159 ], [ %166, %164 ]
   %172 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i32, i64 16
   br label %_ZN4llvm13LexicalScopes16findInlinedScopeEPKNS_12DILocalScopeEPKNS_10DILocationE.exit
 
 _ZN4llvm13LexicalScopes16findInlinedScopeEPKNS_12DILocalScopeEPKNS_10DILocationE.exit: ; preds = %_ZNSt13unordered_mapISt4pairIPKN4llvm12DILocalScopeEPKNS1_10DILocationEENS1_12LexicalScopeENS1_9pair_hashIS4_S7_EESt8equal_toIS8_ESaIS0_IKS8_S9_EEE4findERSE_.exit.i, %_ZNSt13unordered_mapIPKN4llvm12DILocalScopeENS0_12LexicalScopeESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S4_EEE4findERSA_.exit.i
-  %.0 = phi ptr [ %136, %_ZNSt13unordered_mapISt4pairIPKN4llvm12DILocalScopeEPKNS1_10DILocationEENS1_12LexicalScopeENS1_9pair_hashIS4_S7_EESt8equal_toIS8_ESaIS0_IKS8_S9_EEE4findERSE_.exit.i ], [ %172, %_ZNSt13unordered_mapIPKN4llvm12DILocalScopeENS0_12LexicalScopeESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S4_EEE4findERSA_.exit.i ]
+  %.0 = phi ptr [ %172, %_ZNSt13unordered_mapIPKN4llvm12DILocalScopeENS0_12LexicalScopeESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S4_EEE4findERSA_.exit.i ], [ %136, %_ZNSt13unordered_mapISt4pairIPKN4llvm12DILocalScopeEPKNS1_10DILocationEENS1_12LexicalScopeENS1_9pair_hashIS4_S7_EESt8equal_toIS8_ESaIS0_IKS8_S9_EEE4findERSE_.exit.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %30, i8 0, i64 20, i1 false)
   store ptr %22, ptr %21, align 8, !tbaa !63
@@ -18738,7 +18738,7 @@ _ZNK4llvm6DIType8getScopeEv.exit:                 ; preds = %20, %23
   br i1 %.not3, label %.thread21, label %.lr.ph, !llvm.loop !1466
 
 .thread21:                                        ; preds = %45, %.thread, %37, %43
-  %.2 = phi i16 [ %.0, %.thread ], [ %spec.select24, %37 ], [ %44, %43 ], [ %spec.select23, %45 ]
+  %.2 = phi i16 [ %44, %43 ], [ %.0, %.thread ], [ %spec.select24, %37 ], [ %spec.select23, %45 ]
   ret i16 %.2
 }
 
@@ -29866,7 +29866,7 @@ _ZNSt10_HashtableIPKN4llvm10DILocationESt4pairIKS3_NS0_13CodeViewDebug10InlineSi
   br label %_ZNSt10_HashtableIPKN4llvm10DILocationESt4pairIKS3_NS0_13CodeViewDebug10InlineSiteEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 
 _ZNKSt10_HashtableIPKN4llvm10DILocationESt4pairIKS3_NS0_13CodeViewDebug10InlineSiteEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS5_m.exit: ; preds = %54, %39, %49
-  %.sroa.031.0.ph = phi ptr [ %50, %49 ], [ %.sroa.024.0, %39 ], [ %56, %54 ]
+  %.sroa.031.0.ph = phi ptr [ %.sroa.024.0, %39 ], [ %50, %49 ], [ %56, %54 ]
   %95 = load ptr, ptr %15, align 8, !tbaa !63
   %96 = icmp eq ptr %95, %16
   br i1 %96, label %_ZN4llvm11SmallVectorIPKNS_10DILocationELj1EED2Ev.exit.i.i.i.i.i.i, label %97
@@ -36170,7 +36170,7 @@ _ZNSt10_HashtableIPKN4llvm18DILexicalBlockBaseESt4pairIKS3_NS0_13CodeViewDebug12
   br label %_ZNSt10_HashtableIPKN4llvm18DILexicalBlockBaseESt4pairIKS3_NS0_13CodeViewDebug12LexicalBlockEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 
 _ZNKSt10_HashtableIPKN4llvm18DILexicalBlockBaseESt4pairIKS3_NS0_13CodeViewDebug12LexicalBlockEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS5_m.exit: ; preds = %63, %48, %58
-  %.sroa.031.0.ph = phi ptr [ %59, %58 ], [ %.sroa.024.0, %48 ], [ %65, %63 ]
+  %.sroa.031.0.ph = phi ptr [ %.sroa.024.0, %48 ], [ %59, %58 ], [ %65, %63 ]
   %104 = load ptr, ptr %24, align 8, !tbaa !63
   %105 = icmp eq ptr %104, %25
   br i1 %105, label %_ZN4llvm11SmallVectorIPNS_13CodeViewDebug12LexicalBlockELj1EED2Ev.exit.i.i.i.i.i.i, label %106

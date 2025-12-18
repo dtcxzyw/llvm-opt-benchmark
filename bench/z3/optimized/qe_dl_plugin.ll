@@ -1652,7 +1652,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2qe9dl_plugin10update_eqsER12c
   br i1 %.not27.old.i.i.i, label %.loopexit, label %.lr.ph37.i.i.i.backedge
 
 .lr.ph37.i.i.i.backedge:                          ; preds = %60, %57
-  %.136.i.i.i.be = phi ptr [ %.old.i.i.i, %60 ], [ %59, %57 ]
+  %.136.i.i.i.be = phi ptr [ %59, %57 ], [ %.old.i.i.i, %60 ]
   br label %.lr.ph37.i.i.i, !llvm.loop !87
 
 .loopexit:                                        ; preds = %41, %57, %60, %.preheader.i.i.i
@@ -1903,7 +1903,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN2
   br i1 %.not27.old.i.i.i, label %.loopexit, label %.lr.ph37.i.i.i.backedge
 
 .lr.ph37.i.i.i.backedge:                          ; preds = %58, %55
-  %.136.i.i.i.be = phi ptr [ %.old.i.i.i, %58 ], [ %57, %55 ]
+  %.136.i.i.i.be = phi ptr [ %57, %55 ], [ %.old.i.i.i, %58 ]
   br label %.lr.ph37.i.i.i, !llvm.loop !87
 
 _ZNK12obj_pair_mapI3app4exprPN2qe8eq_atomsEE4findEPS0_PS1_RS4_.exit: ; preds = %33, %49

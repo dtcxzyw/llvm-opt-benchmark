@@ -5317,7 +5317,7 @@ _ZN5Eigen8internalL21first_default_alignedINS_5BlockIKNS_6MatrixIdLin1ELin1ELi0E
   br i1 %exitcond103.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEELi1ELin1ELb0EEEEENS2_INS_13CwiseBinaryOpINS0_18scalar_quotient_opIddEEKNS_16PartialReduxExprINS4_IdLin1ELin1ELi0ELin1ELin1EEENS0_10member_sumIddEELi0EEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS4_IdLi1ELin1ELi1ELi1ELin1EEEEEEEEENS0_9assign_opIddEELi0EE11assignCoeffEl.exit.i.i.i.i.i.i.i.i.i.i, label %.lr.ph96.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !220
 
 _ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEELi1ELin1ELb0EEEEENS2_INS_13CwiseBinaryOpINS0_18scalar_quotient_opIddEEKNS_16PartialReduxExprINS4_IdLin1ELin1ELi0ELin1ELin1EEENS0_10member_sumIddEELi0EEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS4_IdLi1ELin1ELi1ELi1ELin1EEEEEEEEENS0_9assign_opIddEELi0EE11assignCoeffEl.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph91.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph96.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %154, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi double [ %155, %154 ], [ %.072.lcssa.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %158, %.lr.ph96.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %151, %.lr.ph91.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
+  %.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi double [ %158, %.lr.ph96.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %.072.lcssa.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %155, %154 ], [ %151, %.lr.ph91.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
   %160 = getelementptr inbounds nuw double, ptr %8, i64 %.010.i.i.i.i.i.i.i.i.i.i
   %161 = fdiv double %.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %99
   store double %161, ptr %160, align 8, !tbaa !68
@@ -13027,7 +13027,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40: ; preds = %_ZN
   br i1 %111, label %.lr.ph.i.i.i.i.i.i43, label %_ZN3igl13serialization11deserializeIfLi4ELi1ELi0ELi4ELi1EEEvRN5Eigen6MatrixIT_XT0_EXT1_EXT2_EXT3_EXT4_EEERN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEE.exit, !llvm.loop !278
 
 _ZN3igl13serialization11deserializeIfLi4ELi1ELi0ELi4ELi1EEEvRN5Eigen6MatrixIT_XT0_EXT1_EXT2_EXT3_EXT4_EEERN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEE.exit: ; preds = %.lr.ph.i.i.i.i.i.i43, %3, %._crit_edge, %101
-  %.lcssa64141 = phi i1 [ true, %101 ], [ false, %._crit_edge ], [ false, %3 ], [ true, %.lr.ph.i.i.i.i.i.i43 ]
+  %.lcssa64141 = phi i1 [ false, %3 ], [ true, %101 ], [ false, %._crit_edge ], [ true, %.lr.ph.i.i.i.i.i.i43 ]
   ret i1 %.lcssa64141
 }
 
@@ -13522,7 +13522,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40: ; preds = %_ZN
   br i1 %111, label %.lr.ph.i.i.i.i.i.i43, label %_ZN3igl13serialization11deserializeIfLi3ELi1ELi0ELi3ELi1EEEvRN5Eigen6MatrixIT_XT0_EXT1_EXT2_EXT3_EXT4_EEERN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEE.exit, !llvm.loop !278
 
 _ZN3igl13serialization11deserializeIfLi3ELi1ELi0ELi3ELi1EEEvRN5Eigen6MatrixIT_XT0_EXT1_EXT2_EXT3_EXT4_EEERN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEE.exit: ; preds = %.lr.ph.i.i.i.i.i.i43, %3, %._crit_edge, %101
-  %.lcssa64141 = phi i1 [ true, %101 ], [ false, %._crit_edge ], [ false, %3 ], [ true, %.lr.ph.i.i.i.i.i.i43 ]
+  %.lcssa64141 = phi i1 [ false, %3 ], [ true, %101 ], [ false, %._crit_edge ], [ true, %.lr.ph.i.i.i.i.i.i43 ]
   ret i1 %.lcssa64141
 }
 
@@ -14590,7 +14590,7 @@ _ZN3igl13serialization11deserializeIfEENSt9enable_ifIXsr3std14is_fundamentalIT_E
   br i1 %127, label %.lr.ph.i.i.i.i.i.i21.i, label %_ZN3igl13serialization11deserializeIfLi0EEEvRN5Eigen10QuaternionIT_XT0_EEERN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEE.exit, !llvm.loop !278
 
 _ZN3igl13serialization11deserializeIfLi0EEEvRN5Eigen10QuaternionIT_XT0_EEERN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEE.exit: ; preds = %.lr.ph.i.i.i.i.i.i21.i, %3, %._crit_edge
-  %.lcssa63139 = phi i1 [ false, %._crit_edge ], [ false, %3 ], [ true, %.lr.ph.i.i.i.i.i.i21.i ]
+  %.lcssa63139 = phi i1 [ false, %3 ], [ false, %._crit_edge ], [ true, %.lr.ph.i.i.i.i.i.i21.i ]
   ret i1 %.lcssa63139
 }
 
@@ -16603,7 +16603,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40: ; preds = %_ZN
   br i1 %111, label %.lr.ph.i.i.i.i.i.i43, label %_ZN3igl13serialization11deserializeIfLi4ELi4ELi0ELi4ELi4EEEvRN5Eigen6MatrixIT_XT0_EXT1_EXT2_EXT3_EXT4_EEERN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEE.exit, !llvm.loop !278
 
 _ZN3igl13serialization11deserializeIfLi4ELi4ELi0ELi4ELi4EEEvRN5Eigen6MatrixIT_XT0_EXT1_EXT2_EXT3_EXT4_EEERN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEE.exit: ; preds = %.lr.ph.i.i.i.i.i.i43, %3, %._crit_edge, %101
-  %.lcssa64141 = phi i1 [ true, %101 ], [ false, %._crit_edge ], [ false, %3 ], [ true, %.lr.ph.i.i.i.i.i.i43 ]
+  %.lcssa64141 = phi i1 [ false, %3 ], [ true, %101 ], [ false, %._crit_edge ], [ true, %.lr.ph.i.i.i.i.i.i43 ]
   ret i1 %.lcssa64141
 }
 
@@ -23396,7 +23396,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40: ; preds = %_ZN
   br i1 %111, label %.lr.ph.i.i.i.i.i.i43, label %_ZN3igl13serialization11deserializeIfLi4ELi1ELi2ELi4ELi1EEEvRN5Eigen6MatrixIT_XT0_EXT1_EXT2_EXT3_EXT4_EEERN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEE.exit, !llvm.loop !278
 
 _ZN3igl13serialization11deserializeIfLi4ELi1ELi2ELi4ELi1EEEvRN5Eigen6MatrixIT_XT0_EXT1_EXT2_EXT3_EXT4_EEERN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEE.exit: ; preds = %.lr.ph.i.i.i.i.i.i43, %3, %._crit_edge, %101
-  %.lcssa64141 = phi i1 [ true, %101 ], [ false, %._crit_edge ], [ false, %3 ], [ true, %.lr.ph.i.i.i.i.i.i43 ]
+  %.lcssa64141 = phi i1 [ false, %3 ], [ true, %101 ], [ false, %._crit_edge ], [ true, %.lr.ph.i.i.i.i.i.i43 ]
   ret i1 %.lcssa64141
 }
 

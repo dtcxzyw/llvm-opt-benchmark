@@ -1079,7 +1079,7 @@ calc_plane_dct.exit307.i.us:                      ; preds = %calc_plane_dct.exit
   br i1 %exitcond180.not.i.us.i280.us, label %._crit_edge101.i.i238.us, label %.preheader90.us.i.us.i266.us, !llvm.loop !73
 
 ._crit_edge101.i.i238.us:                         ; preds = %._crit_edge95.us117.us.i.i236.us, %._crit_edge.us.thread.i.i264.us, %._crit_edge95.us.i.loopexit.us.i279.us, %.preheader90.lr.ph.split.split.i.i252.us
-  %.082.lcssa.i.i239.us = phi ptr [ %scevgep164.i.i253.us, %.preheader90.lr.ph.split.split.i.i252.us ], [ %233, %._crit_edge.us.thread.i.i264.us ], [ %243, %._crit_edge95.us.i.loopexit.us.i279.us ], [ %221, %._crit_edge95.us117.us.i.i236.us ]
+  %.082.lcssa.i.i239.us = phi ptr [ %233, %._crit_edge.us.thread.i.i264.us ], [ %scevgep164.i.i253.us, %.preheader90.lr.ph.split.split.i.i252.us ], [ %243, %._crit_edge95.us.i.loopexit.us.i279.us ], [ %221, %._crit_edge95.us117.us.i.i236.us ]
   %245 = sub nsw i64 0, %216
   %246 = getelementptr inbounds i16, ptr %.082.lcssa.i.i239.us, i64 %245
   %247 = icmp samesign ult i32 %.076.i.i224.us, 16
@@ -1269,7 +1269,7 @@ subimage_with_fill.exit283.us:                    ; preds = %._crit_edge.us135.i
   br i1 %exitcond180.not.i.us.i216.us, label %._crit_edge101.i.i174.us, label %.preheader90.us.i.us.i202.us, !llvm.loop !73
 
 ._crit_edge101.i.i174.us:                         ; preds = %._crit_edge95.us117.us.i.i172.us, %._crit_edge.us.thread.i.i200.us, %._crit_edge95.us.i.loopexit.us.i215.us, %.preheader90.lr.ph.split.split.i.i188.us
-  %.082.lcssa.i.i175.us = phi ptr [ %scevgep164.i.i189.us, %.preheader90.lr.ph.split.split.i.i188.us ], [ %304, %._crit_edge.us.thread.i.i200.us ], [ %314, %._crit_edge95.us.i.loopexit.us.i215.us ], [ %292, %._crit_edge95.us117.us.i.i172.us ]
+  %.082.lcssa.i.i175.us = phi ptr [ %304, %._crit_edge.us.thread.i.i200.us ], [ %scevgep164.i.i189.us, %.preheader90.lr.ph.split.split.i.i188.us ], [ %314, %._crit_edge95.us.i.loopexit.us.i215.us ], [ %292, %._crit_edge95.us117.us.i.i172.us ]
   %316 = sub nsw i64 0, %287
   %317 = getelementptr inbounds i16, ptr %.082.lcssa.i.i175.us, i64 %316
   %318 = icmp samesign ult i32 %.076.i.i160.us, 16
@@ -1453,7 +1453,7 @@ subimage_with_fill.exit219.us:                    ; preds = %._crit_edge.us135.i
   br i1 %exitcond180.not.i.us.i.us, label %._crit_edge101.i.i.us, label %.preheader90.us.i.us.i.us, !llvm.loop !73
 
 ._crit_edge101.i.i.us:                            ; preds = %._crit_edge95.us117.us.i.i.us, %._crit_edge.us.thread.i.i.us, %._crit_edge95.us.i.loopexit.us.i.us, %.preheader90.lr.ph.split.split.i.i.us
-  %.082.lcssa.i.i.us = phi ptr [ %scevgep164.i.i.us, %.preheader90.lr.ph.split.split.i.i.us ], [ %369, %._crit_edge.us.thread.i.i.us ], [ %379, %._crit_edge95.us.i.loopexit.us.i.us ], [ %357, %._crit_edge95.us117.us.i.i.us ]
+  %.082.lcssa.i.i.us = phi ptr [ %369, %._crit_edge.us.thread.i.i.us ], [ %scevgep164.i.i.us, %.preheader90.lr.ph.split.split.i.i.us ], [ %379, %._crit_edge95.us.i.loopexit.us.i.us ], [ %357, %._crit_edge95.us117.us.i.i.us ]
   %381 = sub nsw i64 0, %352
   %382 = getelementptr inbounds i16, ptr %.082.lcssa.i.i.us, i64 %381
   %383 = icmp samesign ult i32 %.076.i.i.us, 16
@@ -2292,11 +2292,11 @@ encode_slice_data.exit251.i.us:                   ; preds = %770, %.preheader.en
   br label %.critedge.i.us
 
 .critedge.i.us:                                   ; preds = %.critedge.i.us.loopexit506, %.critedge.i.us.loopexit, %720, %718, %encode_slice_data.exit.i.us
-  %.3.us = phi i32 [ %.1293386.us, %720 ], [ %.1293386.us, %718 ], [ %.1293386.us, %encode_slice_data.exit.i.us ], [ %796, %.critedge.i.us.loopexit ], [ %797, %.critedge.i.us.loopexit506 ]
-  %.0339.i.us = phi i32 [ %688, %720 ], [ %688, %718 ], [ %603, %encode_slice_data.exit.i.us ], [ %767, %.critedge.i.us.loopexit ], [ %733, %.critedge.i.us.loopexit506 ]
-  %.0332.i.us = phi i32 [ %.4336.i.us, %720 ], [ %.4336.i.us, %718 ], [ %.3335.i.us, %encode_slice_data.exit.i.us ], [ %.5337.i.us, %.critedge.i.us.loopexit ], [ %.6338.i.us, %.critedge.i.us.loopexit506 ]
-  %.0331.i.us = phi i32 [ %.4.i.us, %720 ], [ %.4.i.us, %718 ], [ %.3.i.us, %encode_slice_data.exit.i.us ], [ %.5.i.us, %.critedge.i.us.loopexit ], [ %.6.i.us, %.critedge.i.us.loopexit506 ]
-  %.0232.i.us = phi i32 [ %709, %720 ], [ %709, %718 ], [ %624, %encode_slice_data.exit.i.us ], [ %787, %.critedge.i.us.loopexit ], [ %753, %.critedge.i.us.loopexit506 ]
+  %.3.us = phi i32 [ %.1293386.us, %encode_slice_data.exit.i.us ], [ %.1293386.us, %718 ], [ %796, %.critedge.i.us.loopexit ], [ %.1293386.us, %720 ], [ %797, %.critedge.i.us.loopexit506 ]
+  %.0339.i.us = phi i32 [ %603, %encode_slice_data.exit.i.us ], [ %688, %718 ], [ %767, %.critedge.i.us.loopexit ], [ %688, %720 ], [ %733, %.critedge.i.us.loopexit506 ]
+  %.0332.i.us = phi i32 [ %.3335.i.us, %encode_slice_data.exit.i.us ], [ %.4336.i.us, %718 ], [ %.5337.i.us, %.critedge.i.us.loopexit ], [ %.4336.i.us, %720 ], [ %.6338.i.us, %.critedge.i.us.loopexit506 ]
+  %.0331.i.us = phi i32 [ %.3.i.us, %encode_slice_data.exit.i.us ], [ %.4.i.us, %718 ], [ %.5.i.us, %.critedge.i.us.loopexit ], [ %.4.i.us, %720 ], [ %.6.i.us, %.critedge.i.us.loopexit506 ]
+  %.0232.i.us = phi i32 [ %624, %encode_slice_data.exit.i.us ], [ %709, %718 ], [ %787, %.critedge.i.us.loopexit ], [ %709, %720 ], [ %753, %.critedge.i.us.loopexit506 ]
   %.tr.i.us = trunc i32 %74 to i8
   %798 = shl i8 %.tr.i.us, 3
   store i8 %798, ptr %.178389.us, align 1, !tbaa !47
@@ -2474,7 +2474,7 @@ encode_slice_data.exit251.i.us:                   ; preds = %770, %.preheader.en
   br i1 %exitcond180.not.i.us.i.i.us, label %._crit_edge101.i.i.i.us, label %.preheader90.us.i.us.i.i.us, !llvm.loop !73
 
 ._crit_edge101.i.i.i.us:                          ; preds = %._crit_edge95.us117.i.i.i.us, %._crit_edge.us.i.i.i.us, %._crit_edge95.us.i.loopexit.us.i.i.us, %.preheader90.lr.ph.split.split.i.i.i.us
-  %.082.lcssa.i.i.i.us = phi ptr [ %scevgep164.i.i.i.us, %.preheader90.lr.ph.split.split.i.i.i.us ], [ %862, %._crit_edge.us.i.i.i.us ], [ %874, %._crit_edge95.us.i.loopexit.us.i.i.us ], [ %849, %._crit_edge95.us117.i.i.i.us ]
+  %.082.lcssa.i.i.i.us = phi ptr [ %862, %._crit_edge.us.i.i.i.us ], [ %scevgep164.i.i.i.us, %.preheader90.lr.ph.split.split.i.i.i.us ], [ %874, %._crit_edge95.us.i.loopexit.us.i.i.us ], [ %849, %._crit_edge95.us117.i.i.i.us ]
   %876 = sub nsw i64 0, %843
   %877 = getelementptr inbounds i16, ptr %.082.lcssa.i.i.i.us, i64 %876
   %878 = icmp samesign ult i32 %.076.i.i.i.us, 16

@@ -432,7 +432,7 @@ define hidden noundef zeroext i1 @_ZN2cv3dnn15NetNeedsUpgradeERKN12opencv_caffe1
   br i1 %33, label %10, label %_ZN2cv3dnn24NetNeedsBatchNormUpgradeERKN12opencv_caffe12NetParameterE.exit, !llvm.loop !15
 
 _ZN2cv3dnn24NetNeedsBatchNormUpgradeERKN12opencv_caffe12NetParameterE.exit: ; preds = %30, %22, %1, %5
-  %34 = phi i1 [ false, %5 ], [ true, %1 ], [ false, %30 ], [ true, %22 ]
+  %34 = phi i1 [ false, %5 ], [ true, %1 ], [ true, %22 ], [ false, %30 ]
   ret i1 %34
 }
 

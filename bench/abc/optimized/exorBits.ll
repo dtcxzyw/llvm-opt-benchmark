@@ -160,7 +160,7 @@ define range(i32 0, 6) i32 @GetDistance(ptr noundef readonly captures(none) %0, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %17, %40, %46, %.preheader
-  %.012 = phi i32 [ %10, %.preheader ], [ %47, %46 ], [ %10, %40 ], [ 5, %17 ]
+  %.012 = phi i32 [ %10, %.preheader ], [ %10, %40 ], [ %47, %46 ], [ 5, %17 ]
   ret i32 %.012
 }
 
@@ -320,7 +320,7 @@ thread-pre-split:                                 ; preds = %45, %.preheader, %5
   br label %.loopexit
 
 .loopexit:                                        ; preds = %30, %thread-pre-split, %._crit_edge, %57
-  %.019 = phi i32 [ 1, %57 ], [ 1, %._crit_edge ], [ %53, %thread-pre-split ], [ 5, %30 ]
+  %.019 = phi i32 [ %53, %thread-pre-split ], [ 1, %57 ], [ 1, %._crit_edge ], [ 5, %30 ]
   ret i32 %.019
 }
 

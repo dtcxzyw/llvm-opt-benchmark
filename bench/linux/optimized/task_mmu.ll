@@ -2288,9 +2288,9 @@ define internal noundef i32 @smaps_pte_range(ptr noundef %0, i64 noundef %1, i64
   br label %.thread
 
 142:                                              ; preds = %112, %80, %32
-  %143 = phi i1 [ %35, %32 ], [ false, %80 ], [ false, %112 ]
-  %144 = phi i1 [ %37, %32 ], [ false, %80 ], [ false, %112 ]
-  %145 = phi ptr [ %33, %32 ], [ %83, %80 ], [ %83, %112 ]
+  %143 = phi i1 [ %35, %32 ], [ false, %112 ], [ false, %80 ]
+  %144 = phi i1 [ %37, %32 ], [ false, %112 ], [ false, %80 ]
+  %145 = phi ptr [ %33, %32 ], [ %83, %112 ], [ %83, %80 ]
   %146 = icmp eq ptr %145, null
   br i1 %146, label %.thread, label %147
 
@@ -2790,7 +2790,7 @@ define internal noundef i32 @smaps_hugetlb_range(ptr noundef %0, i64 %1, i64 nou
   unreachable
 
 71:                                               ; preds = %65, %33, %14
-  %72 = phi ptr [ %15, %14 ], [ %36, %33 ], [ %36, %65 ]
+  %72 = phi ptr [ %15, %14 ], [ %36, %65 ], [ %36, %33 ]
   %73 = icmp eq ptr %72, null
   br i1 %73, label %.thread, label %74
 
@@ -5154,10 +5154,10 @@ define internal range(i32 -28, 1) i32 @pagemap_scan_pmd_entry(ptr noundef %0, i6
   br label %183
 
 .loopexit:                                        ; preds = %57, %399, %183, %146, %89
-  %425 = phi i64 [ %2, %183 ], [ %97, %89 ], [ %96, %146 ], [ %191, %399 ], [ %2, %57 ]
-  %426 = phi i64 [ %.ph38, %183 ], [ %.ph, %89 ], [ %95, %146 ], [ %190, %399 ], [ %2, %57 ]
-  %427 = phi i32 [ %.ph39, %183 ], [ %150, %89 ], [ %148, %146 ], [ %401, %399 ], [ 0, %57 ]
-  %428 = phi i64 [ %.ph40, %183 ], [ %.ph33, %89 ], [ %93, %146 ], [ %187, %399 ], [ %59, %57 ]
+  %425 = phi i64 [ %96, %146 ], [ %191, %399 ], [ %97, %89 ], [ %2, %183 ], [ %2, %57 ]
+  %426 = phi i64 [ %95, %146 ], [ %190, %399 ], [ %.ph, %89 ], [ %.ph38, %183 ], [ %2, %57 ]
+  %427 = phi i32 [ %148, %146 ], [ %401, %399 ], [ %150, %89 ], [ %.ph39, %183 ], [ 0, %57 ]
+  %428 = phi i64 [ %93, %146 ], [ %187, %399 ], [ %.ph33, %89 ], [ %.ph40, %183 ], [ %59, %57 ]
   %429 = icmp eq i64 %426, 0
   br i1 %429, label %.thread43, label %430
 

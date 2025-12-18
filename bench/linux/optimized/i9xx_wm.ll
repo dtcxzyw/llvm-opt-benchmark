@@ -7366,7 +7366,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @_g4x_compute_pipe_wm(ptr n
   store i16 -1, ptr %88, align 2
   br label %104
 
-89:                                               ; preds = %77, %69, %73, %56
+89:                                               ; preds = %77, %56, %69, %73
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 1675
   store i8 0, ptr %90, align 1
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 1668

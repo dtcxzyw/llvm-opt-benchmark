@@ -1369,7 +1369,7 @@ _ZNKSt10_HashtableIlSt4pairIKliESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt
   br label %492
 
 .loopexit448:                                     ; preds = %265, %250, %260
-  %.sroa.06.1.i.i = phi ptr [ %261, %260 ], [ %.sroa.06.0.i.i, %250 ], [ %267, %265 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %250 ], [ %261, %260 ], [ %267, %265 ]
   %458 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %459 = load i32, ptr %458, align 8, !tbaa !101
   %460 = load ptr, ptr %5, align 8, !tbaa !11
@@ -1478,9 +1478,9 @@ _ZNSt6vectorISt4pairIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEEiESaIS4_EED2Ev.exit: 
   br label %492
 
 492:                                              ; preds = %231, %490, %.body
-  %.sroa.24.3 = phi ptr [ %.sroa.24.1.lcssa, %490 ], [ %.sroa.24.0, %231 ], [ %.sroa.24.6, %.body ]
-  %.sroa.0305.3 = phi ptr [ %.sroa.0305.1.lcssa, %490 ], [ %.sroa.0305.0, %231 ], [ %.sroa.0305.6, %.body ]
-  %.pn94.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %491, %490 ], [ %232, %231 ], [ %.pn94.pn, %.body ]
+  %.sroa.24.3 = phi ptr [ %.sroa.24.6, %.body ], [ %.sroa.24.1.lcssa, %490 ], [ %.sroa.24.0, %231 ]
+  %.sroa.0305.3 = phi ptr [ %.sroa.0305.6, %.body ], [ %.sroa.0305.1.lcssa, %490 ], [ %.sroa.0305.0, %231 ]
+  %.pn94.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn94.pn, %.body ], [ %491, %490 ], [ %232, %231 ]
   call void @_ZNSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %11) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %.not.i.i.i181 = icmp eq ptr %.sroa.0305.3, null

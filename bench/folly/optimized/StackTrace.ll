@@ -384,10 +384,10 @@ _ZN5folly10symbolizer12_GLOBAL__N_115walkNormalStackEPmmPNS1_10StackFrameES4_.ex
   br i1 %exitcond.not, label %_ZN5folly10symbolizer12_GLOBAL__N_114walkAsyncStackEPmmPNS_15AsyncStackFrameE.exit, label %.lr.ph.i32
 
 _ZN5folly10symbolizer12_GLOBAL__N_114walkAsyncStackEPmmPNS_15AsyncStackFrameE.exit: ; preds = %.thread.i, %47, %51, %55, %59, %_ZN5folly10symbolizer12_GLOBAL__N_115walkNormalStackEPmmPNS1_10StackFrameES4_.exit
-  %.sroa.0.1 = phi i64 [ 0, %_ZN5folly10symbolizer12_GLOBAL__N_115walkNormalStackEPmmPNS1_10StackFrameES4_.exit ], [ %43, %59 ], [ %43, %55 ], [ %43, %51 ], [ %43, %47 ], [ %36, %.thread.i ]
-  %.sroa.5.2 = phi ptr [ null, %_ZN5folly10symbolizer12_GLOBAL__N_115walkNormalStackEPmmPNS1_10StackFrameES4_.exit ], [ %56, %59 ], [ %56, %55 ], [ null, %51 ], [ null, %47 ], [ null, %.thread.i ]
-  %.sroa.8.2 = phi ptr [ null, %_ZN5folly10symbolizer12_GLOBAL__N_115walkNormalStackEPmmPNS1_10StackFrameES4_.exit ], [ %61, %59 ], [ null, %55 ], [ null, %51 ], [ null, %47 ], [ null, %.thread.i ]
-  %.sroa.10.2 = phi ptr [ null, %_ZN5folly10symbolizer12_GLOBAL__N_115walkNormalStackEPmmPNS1_10StackFrameES4_.exit ], [ %.0.i.i.i.i, %59 ], [ null, %55 ], [ null, %51 ], [ null, %47 ], [ null, %.thread.i ]
+  %.sroa.0.1 = phi i64 [ 0, %_ZN5folly10symbolizer12_GLOBAL__N_115walkNormalStackEPmmPNS1_10StackFrameES4_.exit ], [ %43, %47 ], [ %43, %59 ], [ %43, %55 ], [ %43, %51 ], [ %36, %.thread.i ]
+  %.sroa.5.2 = phi ptr [ null, %_ZN5folly10symbolizer12_GLOBAL__N_115walkNormalStackEPmmPNS1_10StackFrameES4_.exit ], [ null, %47 ], [ %56, %59 ], [ %56, %55 ], [ null, %51 ], [ null, %.thread.i ]
+  %.sroa.8.2 = phi ptr [ null, %_ZN5folly10symbolizer12_GLOBAL__N_115walkNormalStackEPmmPNS1_10StackFrameES4_.exit ], [ null, %47 ], [ %61, %59 ], [ null, %55 ], [ null, %51 ], [ null, %.thread.i ]
+  %.sroa.10.2 = phi ptr [ null, %_ZN5folly10symbolizer12_GLOBAL__N_115walkNormalStackEPmmPNS1_10StackFrameES4_.exit ], [ null, %47 ], [ %.0.i.i.i.i, %59 ], [ null, %55 ], [ null, %51 ], [ null, %.thread.i ]
   %63 = add i64 %.sroa.0.1, %34
   %64 = icmp ult i64 %63, %1
   br i1 %64, label %.lr.ph, label %.critedge, !llvm.loop !35

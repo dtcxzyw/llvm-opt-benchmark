@@ -288,7 +288,7 @@ define internal range(i32 -2147483648, 1) i32 @activate(ptr noundef %0) #2 {
   br i1 %101, label %.preheader, label %.loopexit, !llvm.loop !55
 
 .loopexit:                                        ; preds = %13, %45, %114, %.preheader99, %.thread, %.loopexit97, %66, %110, %93
-  %.1 = phi i32 [ -12, %.thread ], [ 0, %110 ], [ 0, %93 ], [ %84, %66 ], [ 0, %.loopexit97 ], [ 0, %.preheader99 ], [ %49, %45 ], [ 0, %114 ], [ 0, %13 ]
+  %.1 = phi i32 [ -12, %.thread ], [ 0, %110 ], [ 0, %114 ], [ 0, %93 ], [ %84, %66 ], [ 0, %.preheader99 ], [ 0, %.loopexit97 ], [ %49, %45 ], [ 0, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.1

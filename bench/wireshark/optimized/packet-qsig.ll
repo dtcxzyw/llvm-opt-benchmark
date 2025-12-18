@@ -3888,7 +3888,7 @@ get_service.exit:                                 ; preds = %get_op.exit.thread8
   br label %get_op.exit.thread
 
 get_op.exit.thread:                               ; preds = %35, %19, %30, %26, %get_op.exit78, %70, %get_op.exit, %13, %10, %4
-  %.0 = phi i32 [ 0, %10 ], [ 0, %4 ], [ 0, %get_op.exit ], [ 0, %13 ], [ %74, %70 ], [ 0, %30 ], [ 0, %get_op.exit78 ], [ 0, %26 ], [ 0, %19 ], [ 0, %35 ]
+  %.0 = phi i32 [ 0, %10 ], [ 0, %4 ], [ 0, %get_op.exit ], [ 0, %13 ], [ %74, %70 ], [ 0, %30 ], [ 0, %19 ], [ 0, %get_op.exit78 ], [ 0, %26 ], [ 0, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }

@@ -1454,7 +1454,7 @@ define internal fastcc void @dissect_h264_sei_rbsp(ptr noundef %0, ptr noundef %
   br label %h264_user_data_unregistered.exit.i.i
 
 h264_user_data_unregistered.exit.i.i:             ; preds = %.lr.ph.i.i.i, %.lr.ph150.i.i.i, %150, %146, %137, %107, %71, %55
-  %.2.i.i.i = phi i32 [ %59, %55 ], [ %145, %137 ], [ %153, %150 ], [ %44, %146 ], [ %65, %71 ], [ %116, %107 ], [ %102, %.lr.ph150.i.i.i ], [ %134, %.lr.ph.i.i.i ]
+  %.2.i.i.i = phi i32 [ %44, %146 ], [ %59, %55 ], [ %102, %.lr.ph150.i.i.i ], [ %145, %137 ], [ %153, %150 ], [ %65, %71 ], [ %116, %107 ], [ %134, %.lr.ph.i.i.i ]
   %154 = shl i32 %.2.i.i.i, 3
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %dissect_h264_sei_message.exit
@@ -3181,7 +3181,7 @@ define internal fastcc i32 @dissect_h264_exp_golomb_code(ptr noundef %0, ptr nou
   br label %.preheader326
 
 .preheader326:                                    ; preds = %133, %141, %143
-  %.0248311.ph = phi i32 [ %145, %143 ], [ %142, %141 ], [ 0, %133 ]
+  %.0248311.ph = phi i32 [ %142, %141 ], [ %145, %143 ], [ 0, %133 ]
   %146 = add i32 %49, %48
   %147 = icmp ult i32 %.0255330, 2147483647
   br i1 %147, label %.lr.ph335.preheader, label %.preheader

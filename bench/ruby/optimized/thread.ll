@@ -6437,8 +6437,8 @@ rb_ec_vm_ptr.exit:                                ; preds = %.thread, %22
   br label %36
 
 36:                                               ; preds = %rb_ec_vm_ptr.exit, %.fold.split, %28, %34
-  %.047 = phi ptr [ %3, %34 ], [ %3, %.fold.split ], [ %3, %28 ], [ %.val, %rb_ec_vm_ptr.exit ]
-  %.046 = phi ptr [ %2, %34 ], [ null, %.fold.split ], [ %2, %28 ], [ @ubf_select, %rb_ec_vm_ptr.exit ]
+  %.047 = phi ptr [ %.val, %rb_ec_vm_ptr.exit ], [ %3, %34 ], [ %3, %.fold.split ], [ %3, %28 ]
+  %.046 = phi ptr [ @ubf_select, %rb_ec_vm_ptr.exit ], [ %2, %34 ], [ null, %.fold.split ], [ %2, %28 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store volatile ptr %.0.i, ptr %7, align 8, !tbaa !147
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -8114,7 +8114,7 @@ rb_threadptr_pending_interrupt_deque.exit:        ; preds = %rb_array_const_ptr.
   unreachable
 
 threadptr_pending_interrupt_active_p.exit.thread: ; preds = %rb_threadptr_pending_interrupt_deque.exit, %92, %rb_threadptr_pending_interrupt_deque.exit.thread, %threadptr_pending_interrupt_active_p.exit, %91
-  %.4 = phi i32 [ %.1, %91 ], [ %.1, %threadptr_pending_interrupt_active_p.exit ], [ 1, %rb_threadptr_pending_interrupt_deque.exit ], [ 1, %rb_threadptr_pending_interrupt_deque.exit.thread ], [ %.1, %92 ]
+  %.4 = phi i32 [ %.1, %91 ], [ %.1, %threadptr_pending_interrupt_active_p.exit ], [ 1, %rb_threadptr_pending_interrupt_deque.exit.thread ], [ 1, %rb_threadptr_pending_interrupt_deque.exit ], [ %.1, %92 ]
   %.not83 = icmp eq i32 %40, 0
   br i1 %.not83, label %237, label %.thread
 
@@ -14306,7 +14306,7 @@ define dso_local ptr @rb_resolve_me_location(ptr noundef readonly captures(ret: 
   br label %.backedge
 
 .backedge:                                        ; preds = %23, %26
-  %.037.be = phi ptr [ %25, %23 ], [ %28, %26 ]
+  %.037.be = phi ptr [ %28, %26 ], [ %25, %23 ]
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.037.be, i64 16
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !371
   br label %.preheader
@@ -14386,7 +14386,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %29, %rbimpl_RB_TYPE
   br label %.critedge
 
 .critedge:                                        ; preds = %.preheader, %26, %38, %15, %rbimpl_RB_TYPE_P_fastpath.exit.thread, %48, %rbimpl_RB_TYPE_P_fastpath.exit56, %2
-  %.0 = phi ptr [ null, %rbimpl_RB_TYPE_P_fastpath.exit56 ], [ null, %15 ], [ %.037, %rbimpl_RB_TYPE_P_fastpath.exit.thread ], [ null, %2 ], [ %.037, %48 ], [ null, %38 ], [ null, %26 ], [ null, %.preheader ]
+  %.0 = phi ptr [ null, %38 ], [ null, %rbimpl_RB_TYPE_P_fastpath.exit56 ], [ %.037, %48 ], [ null, %15 ], [ %.037, %rbimpl_RB_TYPE_P_fastpath.exit.thread ], [ null, %2 ], [ null, %26 ], [ null, %.preheader ]
   ret ptr %.0
 }
 
@@ -16087,7 +16087,7 @@ rb_array_len.exit32:                              ; preds = %104, %107
   br label %.loopexit
 
 .loopexit:                                        ; preds = %rb_array_len.exit32, %rb_array_len.exit32.us, %.thread
-  %128 = phi i64 [ %.pre, %.thread ], [ %73, %rb_array_len.exit32.us ], [ %100, %rb_array_len.exit32 ]
+  %128 = phi i64 [ %73, %rb_array_len.exit32.us ], [ %.pre, %.thread ], [ %100, %rb_array_len.exit32 ]
   %129 = call i64 @rb_ary_shift(i64 noundef %128) #16
   br label %.loopexit36
 
@@ -21018,7 +21018,7 @@ hrtime_update_expire.exit:                        ; preds = %132, %121
   br i1 %138, label %thread_finished.exit.thread, label %thread_finished.exit
 
 thread_finished.exit.thread:                      ; preds = %thread_finished.exit, %hrtime_update_expire.exit, %94, %thread_finished.exit.us, %hrtime_update_expire.exit.us, %.thread, %10, %thread_finished.exit31, %hrtime_update_expire.exit.thread44
-  %.2 = phi i64 [ 0, %thread_finished.exit31 ], [ 20, %hrtime_update_expire.exit.thread44 ], [ 20, %.thread ], [ 20, %10 ], [ 20, %thread_finished.exit.us ], [ 20, %hrtime_update_expire.exit.us ], [ 20, %hrtime_update_expire.exit ], [ 20, %thread_finished.exit ], [ 0, %94 ]
+  %.2 = phi i64 [ 0, %thread_finished.exit31 ], [ 20, %hrtime_update_expire.exit.thread44 ], [ 20, %.thread ], [ 20, %10 ], [ 20, %thread_finished.exit.us ], [ 20, %hrtime_update_expire.exit.us ], [ 0, %94 ], [ 20, %thread_finished.exit ], [ 20, %hrtime_update_expire.exit ]
   ret i64 %.2
 }
 

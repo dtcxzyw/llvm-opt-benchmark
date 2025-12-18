@@ -1378,7 +1378,7 @@ _ZNK2cv7optflow18GPCPatchDescriptor3dotERKNS_3VecIdLi18EEE.exit21.i: ; preds = %
   br i1 %exitcond.not, label %77, label %_ZNSt6vectorIdSaIdEE5clearEv.exit, !llvm.loop !77
 
 296:                                              ; preds = %.loopexit272, %.loopexit.split-lp, %221
-  %.sroa.0230.3310 = phi ptr [ %.sroa.0230.5, %221 ], [ %.sroa.0230.3349, %.loopexit272 ], [ %.sroa.0230.3349, %.loopexit.split-lp ]
+  %.sroa.0230.3311 = phi ptr [ %.sroa.0230.5, %221 ], [ %.sroa.0230.3349, %.loopexit272 ], [ %.sroa.0230.3349, %.loopexit.split-lp ]
   %.pn118.pn.pn.pn = phi { ptr, i32 } [ %222, %221 ], [ %lpad.loopexit, %.loopexit272 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %524
@@ -1878,7 +1878,7 @@ _ZNK2cv7optflow12_GLOBAL__N_119PartitionPredicate2clERKNS0_14GPCPatchSampleE.exi
   br i1 %505, label %.loopexit, label %.lr.ph.i.i158, !llvm.loop !90
 
 .loopexit:                                        ; preds = %503, %465, %.preheader32.i.i, %.loopexit268
-  %.sroa.026.137.i.i = phi ptr [ %.sroa.027.139.i.i, %.loopexit268 ], [ %466, %465 ], [ %.sroa.026.145.i.i, %.preheader32.i.i ], [ %504, %503 ]
+  %.sroa.026.137.i.i = phi ptr [ %466, %465 ], [ %.sroa.026.145.i.i, %.preheader32.i.i ], [ %.sroa.027.139.i.i, %.loopexit268 ], [ %504, %503 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %506 = shl i64 %1, 1
   %507 = or disjoint i64 %506, 1
@@ -1916,8 +1916,8 @@ _ZNK2cv7optflow12_GLOBAL__N_119PartitionPredicate2clERKNS0_14GPCPatchSampleE.exi
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit
 
 524:                                              ; preds = %520, %296
-  %.sroa.0230.1 = phi ptr [ %.sroa.0230.3310, %296 ], [ %.sroa.0230.3.lcssa479483, %520 ]
-  %.pn118.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn118.pn.pn.pn, %296 ], [ %521, %520 ]
+  %.sroa.0230.1 = phi ptr [ %.sroa.0230.3.lcssa479483, %520 ], [ %.sroa.0230.3311, %296 ]
+  %.pn118.pn.pn.pn.pn = phi { ptr, i32 } [ %521, %520 ], [ %.pn118.pn.pn.pn, %296 ]
   %.not.i.i.i196 = icmp eq ptr %.sroa.0230.1, null
   br i1 %.not.i.i.i196, label %_ZNSt6vectorIdSaIdEED2Ev.exit197, label %.thread253
 

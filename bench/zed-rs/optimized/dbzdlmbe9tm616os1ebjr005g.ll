@@ -81404,7 +81404,7 @@ define hidden void @"_ZN98_$LT$alloc..collections..vec_deque..drain..Drain$LT$T$
   br label %.body
 
 .body:                                            ; preds = %42, %64, %11
-  %eh.lpad-body = phi { ptr, i32 } [ %12, %11 ], [ %67, %64 ], [ %45, %42 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %67, %64 ], [ %12, %11 ], [ %45, %42 ]
   invoke fastcc void @"_ZN4core3ptr253drop_in_place$LT$$LT$alloc..collections..vec_deque..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$C$usize$RP$$C$alloc..alloc..Global$GT$$GT$17h9ab5b508e4c8dbf4E"(ptr nonnull %0) #31
           to label %75 unwind label %73
 

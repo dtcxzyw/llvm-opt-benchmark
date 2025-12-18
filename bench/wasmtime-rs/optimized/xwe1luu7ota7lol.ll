@@ -1774,7 +1774,7 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_map17h7a06
   br i1 %43, label %22, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h904cc5ba7f72f8deE.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h904cc5ba7f72f8deE.exit: ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hec3340ab86f35c92E.exit.loopexit.i.i", %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h89e2b63b73fc2f99E.exit.i.i.i.i.i.i.i.i.i.i.i", %2
-  %.1 = phi ptr [ null, %2 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h89e2b63b73fc2f99E.exit.i.i.i.i.i.i.i.i.i.i.i" ], [ null, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hec3340ab86f35c92E.exit.loopexit.i.i" ]
+  %.1 = phi ptr [ %.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h89e2b63b73fc2f99E.exit.i.i.i.i.i.i.i.i.i.i.i" ], [ null, %2 ], [ null, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hec3340ab86f35c92E.exit.loopexit.i.i" ]
   ret ptr %.1
 }
 
@@ -2321,7 +2321,7 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_map17hcbf6
   br i1 %43, label %22, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hfebdd84cd261810eE.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17hfebdd84cd261810eE.exit: ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h948d5a19e54f5376E.exit.loopexit.i.i", %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h350d0037adbff9aaE.exit.i.i.i.i.i.i.i.i.i.i.i", %2
-  %.1 = phi ptr [ null, %2 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h350d0037adbff9aaE.exit.i.i.i.i.i.i.i.i.i.i.i" ], [ null, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h948d5a19e54f5376E.exit.loopexit.i.i" ]
+  %.1 = phi ptr [ %.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h350d0037adbff9aaE.exit.i.i.i.i.i.i.i.i.i.i.i" ], [ null, %2 ], [ null, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h948d5a19e54f5376E.exit.loopexit.i.i" ]
   ret ptr %.1
 }
 

@@ -495,7 +495,7 @@ _ZN5Eigen8internalL21first_default_alignedINS_5BlockIKNS_6MatrixIdLin1ELin1ELi0E
   br i1 %exitcond101.not.i.i.i.i.i.i.i.i, label %_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi1ELin1ELi1ELi1ELin1EEEEENS2_INS_16PartialReduxExprINS3_IdLin1ELin1ELi0ELin1ELin1EEENS0_15member_minCoeffIddEELi0EEEEENS0_9assign_opIddEELi0EE11assignCoeffEl.exit.i, label %.lr.ph94.i.i.i.i.i.i.i.i, !llvm.loop !30
 
 _ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi1ELin1ELi1ELi1ELin1EEEEENS2_INS_16PartialReduxExprINS3_IdLin1ELin1ELi0ELin1ELin1EEENS0_15member_minCoeffIddEELi0EEEEENS0_9assign_opIddEELi0EE11assignCoeffEl.exit.i: ; preds = %.lr.ph89.i.i.i.i.i.i.i.i, %.lr.ph94.i.i.i.i.i.i.i.i, %75, %.preheader.i.i.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i.i.i = phi double [ %76, %75 ], [ %.072.lcssa.i.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i.i.i ], [ %81, %.lr.ph94.i.i.i.i.i.i.i.i ], [ %72, %.lr.ph89.i.i.i.i.i.i.i.i ]
+  %.2.i.i.i.i.i.i.i.i = phi double [ %81, %.lr.ph94.i.i.i.i.i.i.i.i ], [ %76, %75 ], [ %.072.lcssa.i.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i.i.i ], [ %72, %.lr.ph89.i.i.i.i.i.i.i.i ]
   %83 = getelementptr inbounds nuw double, ptr %17, i64 %.010.i
   store double %.2.i.i.i.i.i.i.i.i, ptr %83, align 8
   %84 = add nuw nsw i64 %.010.i, 1

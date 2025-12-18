@@ -3614,7 +3614,7 @@ define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Vtr8internal5Level33gatherQuadRegula
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %175, %97, %._crit_edge.loopexit74, %._crit_edge.loopexit72, %4
-  %.0.lcssa = phi i32 [ 0, %4 ], [ %177, %._crit_edge.loopexit74 ], [ %176, %._crit_edge.loopexit72 ], [ %.1.us, %97 ], [ %.1, %175 ]
+  %.0.lcssa = phi i32 [ 0, %4 ], [ %176, %._crit_edge.loopexit72 ], [ %177, %._crit_edge.loopexit74 ], [ %.1.us, %97 ], [ %.1, %175 ]
   ret i32 %.0.lcssa
 }
 
@@ -8126,8 +8126,8 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc51
   br label %95
 
 .loopexit.split-lp:                               ; preds = %163, %88, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i
-  %.sroa.0.0..sroa.0.0..sroa.0.0.60109 = phi ptr [ null, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i ], [ null, %88 ], [ %.sroa.0.0..sroa.0.0..sroa.0.0.61, %163 ]
-  %.sroa.16.0.ph = phi ptr [ null, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i ], [ null, %88 ], [ %.sroa.9.1, %163 ]
+  %.sroa.0.0..sroa.0.0..sroa.0.0.60109 = phi ptr [ null, %88 ], [ %.sroa.0.0..sroa.0.0..sroa.0.0.61, %163 ], [ null, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i ]
+  %.sroa.16.0.ph = phi ptr [ null, %88 ], [ %.sroa.9.1, %163 ], [ null, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %95

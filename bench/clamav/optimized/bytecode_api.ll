@@ -5205,7 +5205,7 @@ get_hashtab.exit.thread.sink.split:               ; preds = %18, %17
   br label %get_hashtab.exit.thread
 
 get_hashtab.exit.thread:                          ; preds = %get_hashtab.exit.thread.sink.split, %2, %4, %7, %get_hashtab.exit, %18
-  %.0 = phi i32 [ -1, %2 ], [ 0, %18 ], [ 0, %get_hashtab.exit ], [ -1, %7 ], [ -1, %4 ], [ 0, %get_hashtab.exit.thread.sink.split ]
+  %.0 = phi i32 [ -1, %2 ], [ -1, %4 ], [ -1, %7 ], [ 0, %18 ], [ 0, %get_hashtab.exit ], [ 0, %get_hashtab.exit.thread.sink.split ]
   ret i32 %.0
 }
 

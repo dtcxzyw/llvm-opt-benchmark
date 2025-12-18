@@ -999,12 +999,12 @@ define linkonce_odr hidden { ptr, ptr } @_ZNK4llvm12DenseMapBaseINS_8DenseMapINS
   %25 = load ptr, ptr %17, align 8, !tbaa !27
   %magicptr.i.i.i.i = ptrtoint ptr %25 to i64
   switch i64 %magicptr.i.i.i.i, label %28 [
-    i64 -1, label %26
-    i64 -2, label %_ZN4llvm12DenseMapInfoINS_19CachedHashStringRefEvE7isEqualERKS1_S4_.exit.i.i
+    i64 -1, label %_ZN4llvm12DenseMapInfoINS_19CachedHashStringRefEvE7isEqualERKS1_S4_.exit.i.i
+    i64 -2, label %26
   ]
 
 26:                                               ; preds = %21
-  %27 = icmp eq ptr %22, inttoptr (i64 -1 to ptr)
+  %27 = icmp eq ptr %22, inttoptr (i64 -2 to ptr)
   br i1 %27, label %41, label %_ZN4llvm12DenseMapInfoINS_19CachedHashStringRefEvE7isEqualERKS1_S4_.exit.thread.i.i, !prof !46
 
 28:                                               ; preds = %21
@@ -1023,7 +1023,7 @@ define linkonce_odr hidden { ptr, ptr } @_ZNK4llvm12DenseMapBaseINS_8DenseMapINS
   br i1 %34, label %41, label %_ZN4llvm12DenseMapInfoINS_19CachedHashStringRefEvE7isEqualERKS1_S4_.exit.thread.i.i, !prof !46
 
 _ZN4llvm12DenseMapInfoINS_19CachedHashStringRefEvE7isEqualERKS1_S4_.exit.i.i: ; preds = %21
-  %35 = icmp eq ptr %22, inttoptr (i64 -2 to ptr)
+  %35 = icmp eq ptr %22, inttoptr (i64 -1 to ptr)
   br i1 %35, label %41, label %_ZN4llvm12DenseMapInfoINS_19CachedHashStringRefEvE7isEqualERKS1_S4_.exit.thread.i.i, !prof !46
 
 _ZN4llvm12DenseMapInfoINS_19CachedHashStringRefEvE7isEqualERKS1_S4_.exit.thread.i.i: ; preds = %_ZN4llvm12DenseMapInfoINS_19CachedHashStringRefEvE7isEqualERKS1_S4_.exit.i.i, %33, %28, %26, %14
@@ -1043,7 +1043,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapINS_19CachedHashStringRefEmNS_12DenseMapInfo
   %40 = zext i32 %.pre19 to i64
   br label %_ZNK4llvm12DenseMapBaseINS_8DenseMapINS_19CachedHashStringRefEmNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_mEEEES2_mS4_S7_E6doFindIS2_EEPKS7_RKT_.exit.thread
 
-41:                                               ; preds = %31, %_ZN4llvm12DenseMapInfoINS_19CachedHashStringRefEvE7isEqualERKS1_S4_.exit.i.i, %26, %33
+41:                                               ; preds = %31, %_ZN4llvm12DenseMapInfoINS_19CachedHashStringRefEvE7isEqualERKS1_S4_.exit.i.i, %33, %26
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %42 = load ptr, ptr %0, align 8, !tbaa !3
   %43 = load i32, ptr %5, align 8, !tbaa !10
@@ -1247,12 +1247,12 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   %29 = load ptr, ptr %21, align 8, !tbaa !27
   %magicptr.i.i = ptrtoint ptr %29 to i64
   switch i64 %magicptr.i.i, label %32 [
-    i64 -1, label %30
-    i64 -2, label %_ZN4llvm12DenseMapInfoINS_19CachedHashStringRefEvE7isEqualERKS1_S4_.exit
+    i64 -1, label %_ZN4llvm12DenseMapInfoINS_19CachedHashStringRefEvE7isEqualERKS1_S4_.exit
+    i64 -2, label %30
   ]
 
 30:                                               ; preds = %25
-  %31 = icmp eq ptr %26, inttoptr (i64 -1 to ptr)
+  %31 = icmp eq ptr %26, inttoptr (i64 -2 to ptr)
   br i1 %31, label %_ZN4llvm12DenseMapInfoINS_19CachedHashStringRefEvE7isEqualERKS1_S4_.exit.thread35, label %_ZN4llvm12DenseMapInfoINS_19CachedHashStringRefEvE7isEqualERKS1_S4_.exit.thread, !prof !46
 
 32:                                               ; preds = %25
@@ -1271,10 +1271,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   br i1 %38, label %_ZN4llvm12DenseMapInfoINS_19CachedHashStringRefEvE7isEqualERKS1_S4_.exit.thread35, label %_ZN4llvm12DenseMapInfoINS_19CachedHashStringRefEvE7isEqualERKS1_S4_.exit.thread, !prof !46
 
 _ZN4llvm12DenseMapInfoINS_19CachedHashStringRefEvE7isEqualERKS1_S4_.exit: ; preds = %25
-  %39 = icmp eq ptr %26, inttoptr (i64 -2 to ptr)
+  %39 = icmp eq ptr %26, inttoptr (i64 -1 to ptr)
   br i1 %39, label %_ZN4llvm12DenseMapInfoINS_19CachedHashStringRefEvE7isEqualERKS1_S4_.exit.thread35, label %_ZN4llvm12DenseMapInfoINS_19CachedHashStringRefEvE7isEqualERKS1_S4_.exit.thread, !prof !46
 
-_ZN4llvm12DenseMapInfoINS_19CachedHashStringRefEvE7isEqualERKS1_S4_.exit.thread: ; preds = %32, %18, %37, %30, %_ZN4llvm12DenseMapInfoINS_19CachedHashStringRefEvE7isEqualERKS1_S4_.exit
+_ZN4llvm12DenseMapInfoINS_19CachedHashStringRefEvE7isEqualERKS1_S4_.exit.thread: ; preds = %32, %18, %30, %37, %_ZN4llvm12DenseMapInfoINS_19CachedHashStringRefEvE7isEqualERKS1_S4_.exit
   %40 = call noundef zeroext i1 @_ZN4llvm12DenseMapInfoINS_19CachedHashStringRefEvE7isEqualERKS1_S4_(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull align 8 dereferenceable(16) %4)
   br i1 %40, label %41, label %43, !prof !39
 
@@ -1293,9 +1293,9 @@ _ZN4llvm12DenseMapInfoINS_19CachedHashStringRefEvE7isEqualERKS1_S4_.exit.thread:
   %.pre = load i32, ptr %14, align 4, !tbaa !24
   br label %18, !llvm.loop !53
 
-_ZN4llvm12DenseMapInfoINS_19CachedHashStringRefEvE7isEqualERKS1_S4_.exit.thread35: ; preds = %_ZN4llvm12DenseMapInfoINS_19CachedHashStringRefEvE7isEqualERKS1_S4_.exit, %30, %37, %35, %41
-  %storemerge = phi ptr [ %42, %41 ], [ %21, %35 ], [ %21, %37 ], [ %21, %30 ], [ %21, %_ZN4llvm12DenseMapInfoINS_19CachedHashStringRefEvE7isEqualERKS1_S4_.exit ]
-  %.2.ph = phi i1 [ false, %41 ], [ true, %35 ], [ true, %37 ], [ true, %30 ], [ true, %_ZN4llvm12DenseMapInfoINS_19CachedHashStringRefEvE7isEqualERKS1_S4_.exit ]
+_ZN4llvm12DenseMapInfoINS_19CachedHashStringRefEvE7isEqualERKS1_S4_.exit.thread35: ; preds = %_ZN4llvm12DenseMapInfoINS_19CachedHashStringRefEvE7isEqualERKS1_S4_.exit, %37, %30, %35, %41
+  %storemerge = phi ptr [ %42, %41 ], [ %21, %35 ], [ %21, %30 ], [ %21, %37 ], [ %21, %_ZN4llvm12DenseMapInfoINS_19CachedHashStringRefEvE7isEqualERKS1_S4_.exit ]
+  %.2.ph = phi i1 [ false, %41 ], [ true, %35 ], [ true, %30 ], [ true, %37 ], [ true, %_ZN4llvm12DenseMapInfoINS_19CachedHashStringRefEvE7isEqualERKS1_S4_.exit ]
   store ptr %storemerge, ptr %2, align 8, !tbaa !38
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

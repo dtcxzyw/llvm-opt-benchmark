@@ -902,8 +902,8 @@ define internal fastcc range(i32 0, 2) i32 @x509_name_canon(ptr noundef captures
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %89, %95, %82
-  %.246.i = phi ptr [ %100, %95 ], [ %83, %82 ], [ %90, %89 ]
-  %.1.i = phi i32 [ %101, %95 ], [ %84, %82 ], [ %91, %89 ]
+  %.246.i = phi ptr [ %83, %82 ], [ %100, %95 ], [ %90, %89 ]
+  %.1.i = phi i32 [ %84, %82 ], [ %101, %95 ], [ %91, %89 ]
   %.249.i = getelementptr inbounds nuw i8, ptr %.14870.i, i64 1
   %102 = icmp slt i32 %.1.i, %.14365.i
   br i1 %102, label %.lr.ph73.i, label %._crit_edge.loopexit.i, !llvm.loop !47

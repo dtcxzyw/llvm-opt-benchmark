@@ -1205,7 +1205,7 @@ specialize_module_load_attr.exit:                 ; preds = %31
   br label %73
 
 73:                                               ; preds = %72, %71, %69, %66, %64, %58, %48
-  %.0.i.ph.i = phi i32 [ %63, %58 ], [ 6, %71 ], [ %..i.i, %72 ], [ 1, %69 ], [ %spec.select.i.i, %64 ], [ 8, %66 ], [ 9, %48 ]
+  %.0.i.ph.i = phi i32 [ 6, %71 ], [ %..i.i, %72 ], [ 1, %69 ], [ %spec.select.i.i, %64 ], [ 8, %66 ], [ %63, %58 ], [ 9, %48 ]
   %74 = load i32, ptr %46, align 8, !tbaa !4
   %.not.i.i.i = icmp sgt i32 %74, -1
   br i1 %.not.i.i.i, label %75, label %Py_XDECREF.exit.i
@@ -1680,7 +1680,7 @@ specialize_dict_access.exit.i.i:                  ; preds = %272, %259
   br label %do_specialize_instance_load_attr.exit.i
 
 do_specialize_instance_load_attr.exit.i:          ; preds = %specialize_dict_access.exit.i.i, %272, %269, %267, %264, %259, %.thread.i.i.i, %254, %241, %240, %238, %236, %231, %202, %157, %155, %151, %151, %151, %151, %instance_has_key.exit.i
-  %.0.i.i = phi i32 [ -1, %instance_has_key.exit.i ], [ 0, %240 ], [ -1, %259 ], [ 0, %236 ], [ %sext.i.i, %157 ], [ -1, %151 ], [ -1, %151 ], [ -1, %155 ], [ -1, %267 ], [ 0, %202 ], [ -1, %.thread.i.i.i ], [ -1, %269 ], [ -1, %272 ], [ 0, %specialize_dict_access.exit.i.i ], [ -1, %241 ], [ -1, %231 ], [ -1, %238 ], [ -1, %151 ], [ -1, %151 ], [ -1, %254 ], [ -1, %264 ]
+  %.0.i.i = phi i32 [ -1, %instance_has_key.exit.i ], [ 0, %240 ], [ -1, %259 ], [ 0, %236 ], [ %sext.i.i, %157 ], [ -1, %151 ], [ -1, %151 ], [ -1, %155 ], [ -1, %267 ], [ 0, %202 ], [ -1, %.thread.i.i.i ], [ -1, %272 ], [ -1, %269 ], [ 0, %specialize_dict_access.exit.i.i ], [ -1, %241 ], [ -1, %231 ], [ -1, %238 ], [ -1, %151 ], [ -1, %151 ], [ -1, %254 ], [ -1, %264 ]
   %.not.i12.i = icmp eq ptr %147, null
   br i1 %.not.i12.i, label %specialize_instance_load_attr.exit, label %do_specialize_instance_load_attr.exit.thread.i
 
@@ -1691,7 +1691,7 @@ do_specialize_instance_load_attr.exit.thread.sink.split.i: ; preds = %227, %198,
   br label %do_specialize_instance_load_attr.exit.thread.i
 
 do_specialize_instance_load_attr.exit.thread.i:   ; preds = %do_specialize_instance_load_attr.exit.thread.sink.split.i, %do_specialize_instance_load_attr.exit.i, %220, %217, %function_check_args.exit102.i.i, %210, %205, %PyObject_TypeCheck.exit.thread.i.i, %PyObject_TypeCheck.exit.i.i, %177, %function_check_args.exit.i.i, %170, %165, %163, %159
-  %.0.i16.i = phi i32 [ %.0.i.i, %do_specialize_instance_load_attr.exit.i ], [ -1, %205 ], [ -1, %210 ], [ -1, %170 ], [ -1, %function_check_args.exit102.i.i ], [ -1, %163 ], [ -1, %217 ], [ -1, %function_check_args.exit.i.i ], [ -1, %159 ], [ -1, %220 ], [ -1, %PyObject_TypeCheck.exit.i.i ], [ -1, %PyObject_TypeCheck.exit.thread.i.i ], [ -1, %177 ], [ -1, %165 ], [ 0, %do_specialize_instance_load_attr.exit.thread.sink.split.i ]
+  %.0.i16.i = phi i32 [ %.0.i.i, %do_specialize_instance_load_attr.exit.i ], [ -1, %205 ], [ -1, %210 ], [ -1, %170 ], [ -1, %function_check_args.exit102.i.i ], [ -1, %163 ], [ -1, %165 ], [ -1, %217 ], [ -1, %function_check_args.exit.i.i ], [ -1, %159 ], [ -1, %220 ], [ -1, %PyObject_TypeCheck.exit.i.i ], [ -1, %PyObject_TypeCheck.exit.thread.i.i ], [ -1, %177 ], [ 0, %do_specialize_instance_load_attr.exit.thread.sink.split.i ]
   %277 = load i32, ptr %147, align 8, !tbaa !4
   %.not.i.i13.i = icmp sgt i32 %277, -1
   br i1 %.not.i.i13.i, label %278, label %specialize_instance_load_attr.exit
@@ -1714,7 +1714,7 @@ specialize_instance_load_attr.exit:               ; preds = %do_specialize_insta
   %.not41 = icmp eq i32 %.0.i17.i, 0
   br i1 %.not41, label %296, label %.critedge
 
-.thread33:                                        ; preds = %110, %112, %114
+.thread33:                                        ; preds = %114, %112, %110
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -1865,7 +1865,7 @@ descriptor_is_class.exit.thread.i:                ; preds = %descriptor_is_class
   br label %analyze_descriptor_store.exit
 
 analyze_descriptor_store.exit:                    ; preds = %descriptor_is_class.exit.i, %descriptor_is_class.exit.thread.i, %19, %29, %35, %37, %40, %42, %43
-  %.0.i.ph = phi i32 [ 6, %42 ], [ %..i.i, %43 ], [ 1, %40 ], [ %spec.select.i.i, %35 ], [ 8, %37 ], [ 9, %19 ], [ 10, %descriptor_is_class.exit.thread.i ], [ 11, %descriptor_is_class.exit.i ], [ %34, %29 ]
+  %.0.i.ph = phi i32 [ %..i.i, %43 ], [ 1, %40 ], [ %spec.select.i.i, %35 ], [ 8, %37 ], [ %34, %29 ], [ 9, %19 ], [ 10, %descriptor_is_class.exit.thread.i ], [ 11, %descriptor_is_class.exit.i ], [ 6, %42 ]
   %.pr = load i32, ptr %4, align 4, !tbaa !47
   %44 = icmp eq i32 %.pr, 0
   br i1 %44, label %specialize_dict_access.exit.thread, label %45
@@ -1981,7 +1981,7 @@ PyObject_TypeCheck.exit.thread:                   ; preds = %46, %PyObject_TypeC
   %.not12.i.i = icmp ult i64 %94, 65536
   br i1 %.not12.i.i, label %113, label %specialize_dict_access.exit.thread
 
-specialize_dict_access.exit.thread:               ; preds = %93, %90, %.thread.i, %88, %80, %85, %62, %45, %analyze_descriptor_store.exit
+specialize_dict_access.exit.thread:               ; preds = %90, %93, %.thread.i, %88, %80, %85, %62, %45, %analyze_descriptor_store.exit
   %.not.i39 = icmp eq ptr %13, null
   br i1 %.not.i39, label %Py_XDECREF.exit, label %.thread58
 
@@ -2414,8 +2414,8 @@ unspecialize.exit:                                ; preds = %Py_DECREF.exit, %10
   store i16 %.sroa.03.0.i.i.i, ptr %99, align 2, !tbaa !24
   br label %109
 
-Py_DECREF.exit49.thread73:                        ; preds = %89, %86, %84, %31, %27, %19, %11
-  %.033 = phi i8 [ -98, %31 ], [ -96, %11 ], [ -94, %19 ], [ -95, %27 ], [ -97, %84 ], [ -97, %86 ], [ -97, %89 ]
+Py_DECREF.exit49.thread73:                        ; preds = %84, %86, %89, %31, %27, %19, %11
+  %.033 = phi i8 [ -98, %31 ], [ -96, %11 ], [ -94, %19 ], [ -95, %27 ], [ -97, %89 ], [ -97, %86 ], [ -97, %84 ]
   store i8 %.033, ptr %2, align 2, !tbaa !4
   %108 = getelementptr i8, ptr %2, i64 2
   store i16 832, ptr %108, align 2, !tbaa !24
@@ -2859,7 +2859,7 @@ function_kind.exit.thread.i.i:                    ; preds = %128, %123
   br label %get_init_for_simple_managed_python_class.exit.i
 
 get_init_for_simple_managed_python_class.exit.i:  ; preds = %.split.sink.split.i.i, %133, %function_kind.exit.thread.i.i, %128, %120, %.split12.i.i, %114, %111
-  %.0.i.ph.i = phi ptr [ null, %.split.sink.split.i.i ], [ null, %133 ], [ null, %function_kind.exit.thread.i.i ], [ null, %120 ], [ null, %.split12.i.i ], [ null, %114 ], [ %115, %128 ], [ null, %111 ]
+  %.0.i.ph.i = phi ptr [ null, %.split.sink.split.i.i ], [ null, %function_kind.exit.thread.i.i ], [ null, %120 ], [ null, %.split12.i.i ], [ null, %133 ], [ null, %114 ], [ %115, %128 ], [ null, %111 ]
   %.pr.i = load i32, ptr %4, align 4, !tbaa !47
   %.not36.i = icmp eq i32 %.pr.i, 0
   %.not.i41.i = icmp eq ptr %.0.i.ph.i, null
@@ -3040,11 +3040,11 @@ Py_XDECREF.exit.i:                                ; preds = %149, %146, %.split3
   br label %specialize_c_call.exit.thread
 
 specialize_c_call.exit:                           ; preds = %Py_XDECREF.exit.thread.i, %198
-  %.0 = phi i32 [ %199, %198 ], [ %.2.ph.i, %Py_XDECREF.exit.thread.i ]
+  %.0 = phi i32 [ %.2.ph.i, %Py_XDECREF.exit.thread.i ], [ %199, %198 ]
   %.not29 = icmp eq i32 %.0, 0
   br i1 %.not29, label %specialize_c_call.exit.thread, label %specialize_c_call.exit.thread47
 
-specialize_c_call.exit.thread47:                  ; preds = %170, %167, %62, %function_kind.exit.i, %14, %7, %66, %194, %specialize_c_call.exit
+specialize_c_call.exit.thread47:                  ; preds = %14, %7, %function_kind.exit.i, %62, %167, %66, %170, %194, %specialize_c_call.exit
   %202 = load i8, ptr %1, align 2, !tbaa !4
   %203 = zext i8 %202 to i64
   %204 = getelementptr i8, ptr @_PyOpcode_Deopt, i64 %203
@@ -4222,7 +4222,7 @@ descriptor_is_class.exit.thread:                  ; preds = %Py_XDECREF.exit.thr
   br label %classify_descriptor.exit
 
 classify_descriptor.exit:                         ; preds = %81, %80, %78, %75, %72, %66, %56, %descriptor_is_class.exit.thread, %descriptor_is_class.exit
-  %.2 = phi i32 [ 11, %descriptor_is_class.exit ], [ 10, %descriptor_is_class.exit.thread ], [ 9, %56 ], [ 8, %75 ], [ %spec.select.i, %72 ], [ 1, %78 ], [ %..i, %81 ], [ 6, %80 ], [ %71, %66 ]
+  %.2 = phi i32 [ 11, %descriptor_is_class.exit ], [ 10, %descriptor_is_class.exit.thread ], [ 9, %56 ], [ %71, %66 ], [ 8, %75 ], [ %spec.select.i, %72 ], [ 1, %78 ], [ %..i, %81 ], [ 6, %80 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %Py_XDECREF.exit
 

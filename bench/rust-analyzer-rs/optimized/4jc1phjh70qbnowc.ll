@@ -17286,7 +17286,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.i:
   br label %.body.i
 
 .loopexit.split-lp.i:                             ; preds = %198, %196, %187, %179, %178, %152, %124, %121, %113, %112, %"_ZN82_$LT$parking_lot..raw_rwlock..RawRwLock$u20$as$u20$lock_api..rwlock..RawRwLock$GT$14lock_exclusive17h2c0722c5f50d8711E.llvm.5097942888641562172.exit.i"
-  %.4.ph.i = phi i1 [ true, %"_ZN82_$LT$parking_lot..raw_rwlock..RawRwLock$u20$as$u20$lock_api..rwlock..RawRwLock$GT$14lock_exclusive17h2c0722c5f50d8711E.llvm.5097942888641562172.exit.i" ], [ true, %121 ], [ true, %124 ], [ true, %112 ], [ true, %113 ], [ true, %179 ], [ false, %152 ], [ false, %187 ], [ false, %198 ], [ false, %196 ], [ true, %178 ]
+  %.4.ph.i = phi i1 [ true, %121 ], [ true, %124 ], [ true, %112 ], [ true, %113 ], [ true, %179 ], [ false, %152 ], [ false, %187 ], [ false, %198 ], [ false, %196 ], [ true, %"_ZN82_$LT$parking_lot..raw_rwlock..RawRwLock$u20$as$u20$lock_api..rwlock..RawRwLock$GT$14lock_exclusive17h2c0722c5f50d8711E.llvm.5097942888641562172.exit.i" ], [ true, %178 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
@@ -17991,7 +17991,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.i:
   br label %.body.i
 
 .loopexit.split-lp.i:                             ; preds = %201, %199, %190, %182, %181, %155, %127, %124, %116, %115, %"_ZN82_$LT$parking_lot..raw_rwlock..RawRwLock$u20$as$u20$lock_api..rwlock..RawRwLock$GT$14lock_exclusive17h2c0722c5f50d8711E.llvm.5097942888641562172.exit.i"
-  %.4.ph.i = phi i1 [ true, %"_ZN82_$LT$parking_lot..raw_rwlock..RawRwLock$u20$as$u20$lock_api..rwlock..RawRwLock$GT$14lock_exclusive17h2c0722c5f50d8711E.llvm.5097942888641562172.exit.i" ], [ true, %124 ], [ true, %127 ], [ true, %115 ], [ true, %116 ], [ true, %182 ], [ false, %155 ], [ false, %190 ], [ false, %201 ], [ false, %199 ], [ true, %181 ]
+  %.4.ph.i = phi i1 [ true, %124 ], [ true, %127 ], [ true, %115 ], [ true, %116 ], [ true, %182 ], [ false, %155 ], [ false, %190 ], [ false, %201 ], [ false, %199 ], [ true, %"_ZN82_$LT$parking_lot..raw_rwlock..RawRwLock$u20$as$u20$lock_api..rwlock..RawRwLock$GT$14lock_exclusive17h2c0722c5f50d8711E.llvm.5097942888641562172.exit.i" ], [ true, %181 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
@@ -18883,7 +18883,7 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17ha5c48ca567358d17E.exit: ; preds = 
   br label %.thread
 
 .thread:                                          ; preds = %5, %.preheader.split, %.preheader.split.us, %.thread.loopexit18, %.thread.loopexit15, %.thread.loopexit13, %"_ZN77_$LT$std..sys..pal..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6e44c7c4099b6ff7E.exit.thread15"
-  %.sroa.02.0 = phi i64 [ %.sroa.02.2, %"_ZN77_$LT$std..sys..pal..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6e44c7c4099b6ff7E.exit.thread15" ], [ 3, %.preheader.split ], [ %6, %.thread.loopexit18 ], [ 3, %.preheader.split.us ], [ %8, %.thread.loopexit13 ], [ %16, %.thread.loopexit15 ], [ 3, %5 ]
+  %.sroa.02.0 = phi i64 [ %8, %.thread.loopexit13 ], [ %.sroa.02.2, %"_ZN77_$LT$std..sys..pal..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6e44c7c4099b6ff7E.exit.thread15" ], [ %16, %.thread.loopexit15 ], [ %6, %.thread.loopexit18 ], [ 3, %.preheader.split ], [ 3, %.preheader.split.us ], [ 3, %5 ]
   ret i64 %.sroa.02.0
 }
 
@@ -20930,7 +20930,7 @@ define internal fastcc void @"_ZN17crossbeam_channel7flavors4zero16Channel$LT$T$
   br label %.body
 
 .loopexit.split-lp:                               ; preds = %"_ZN4core3ptr96drop_in_place$LT$std..sync..mutex..MutexGuard$LT$crossbeam_channel..flavors..zero..Inner$GT$$GT$17h430929ca0617d9c4E.llvm.5097942888641562172.exit", %37, %65, %226, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.5097942888641562172.exit.i.i.i, %58, %70, %75, %_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.5097942888641562172.exit, %89, %_ZN3std4sync6poison4Flag5guard17h41ba6071143aa264E.llvm.14093832413505439524.exit.i, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.5097942888641562172.exit.i.i.i32, %144, %_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.5097942888641562172.exit23, %161, %_ZN3std4sync6poison4Flag5guard17h41ba6071143aa264E.llvm.14093832413505439524.exit.i38, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.5097942888641562172.exit.i.i.i53, %216
-  %.1.ph = phi i1 [ false, %161 ], [ false, %_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.5097942888641562172.exit23 ], [ false, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.5097942888641562172.exit.i.i.i32 ], [ false, %89 ], [ false, %_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.5097942888641562172.exit ], [ false, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.5097942888641562172.exit.i.i.i ], [ false, %"_ZN4core3ptr96drop_in_place$LT$std..sync..mutex..MutexGuard$LT$crossbeam_channel..flavors..zero..Inner$GT$$GT$17h430929ca0617d9c4E.llvm.5097942888641562172.exit" ], [ false, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.5097942888641562172.exit.i.i.i53 ], [ false, %226 ], [ false, %75 ], [ false, %_ZN3std4sync6poison4Flag5guard17h41ba6071143aa264E.llvm.14093832413505439524.exit.i38 ], [ false, %58 ], [ false, %216 ], [ false, %70 ], [ false, %_ZN3std4sync6poison4Flag5guard17h41ba6071143aa264E.llvm.14093832413505439524.exit.i ], [ true, %37 ], [ false, %144 ], [ false, %65 ]
+  %.1.ph = phi i1 [ false, %_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.5097942888641562172.exit23 ], [ false, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.5097942888641562172.exit.i.i.i32 ], [ false, %89 ], [ false, %_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.5097942888641562172.exit ], [ false, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.5097942888641562172.exit.i.i.i ], [ false, %"_ZN4core3ptr96drop_in_place$LT$std..sync..mutex..MutexGuard$LT$crossbeam_channel..flavors..zero..Inner$GT$$GT$17h430929ca0617d9c4E.llvm.5097942888641562172.exit" ], [ false, %161 ], [ false, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.5097942888641562172.exit.i.i.i53 ], [ false, %226 ], [ false, %75 ], [ false, %_ZN3std4sync6poison4Flag5guard17h41ba6071143aa264E.llvm.14093832413505439524.exit.i38 ], [ false, %58 ], [ false, %216 ], [ false, %70 ], [ false, %_ZN3std4sync6poison4Flag5guard17h41ba6071143aa264E.llvm.14093832413505439524.exit.i ], [ true, %37 ], [ false, %144 ], [ false, %65 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -21577,7 +21577,7 @@ define internal fastcc void @"_ZN17crossbeam_channel7flavors4zero16Channel$LT$T$
   br label %.body
 
 .loopexit.split-lp:                               ; preds = %"_ZN4core3ptr96drop_in_place$LT$std..sync..mutex..MutexGuard$LT$crossbeam_channel..flavors..zero..Inner$GT$$GT$17h430929ca0617d9c4E.llvm.5097942888641562172.exit", %38, %66, %229, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.5097942888641562172.exit.i.i.i, %59, %71, %76, %_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.5097942888641562172.exit, %90, %_ZN3std4sync6poison4Flag5guard17h41ba6071143aa264E.llvm.14093832413505439524.exit.i, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.5097942888641562172.exit.i.i.i32, %145, %_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.5097942888641562172.exit23, %164, %_ZN3std4sync6poison4Flag5guard17h41ba6071143aa264E.llvm.14093832413505439524.exit.i38, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.5097942888641562172.exit.i.i.i53, %219
-  %.1.ph = phi i1 [ false, %164 ], [ false, %_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.5097942888641562172.exit23 ], [ false, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.5097942888641562172.exit.i.i.i32 ], [ false, %90 ], [ false, %_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.5097942888641562172.exit ], [ false, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.5097942888641562172.exit.i.i.i ], [ false, %"_ZN4core3ptr96drop_in_place$LT$std..sync..mutex..MutexGuard$LT$crossbeam_channel..flavors..zero..Inner$GT$$GT$17h430929ca0617d9c4E.llvm.5097942888641562172.exit" ], [ false, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.5097942888641562172.exit.i.i.i53 ], [ false, %229 ], [ false, %76 ], [ false, %_ZN3std4sync6poison4Flag5guard17h41ba6071143aa264E.llvm.14093832413505439524.exit.i38 ], [ false, %59 ], [ false, %219 ], [ false, %71 ], [ false, %_ZN3std4sync6poison4Flag5guard17h41ba6071143aa264E.llvm.14093832413505439524.exit.i ], [ true, %38 ], [ false, %145 ], [ false, %66 ]
+  %.1.ph = phi i1 [ false, %_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.5097942888641562172.exit23 ], [ false, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.5097942888641562172.exit.i.i.i32 ], [ false, %90 ], [ false, %_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.5097942888641562172.exit ], [ false, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.5097942888641562172.exit.i.i.i ], [ false, %"_ZN4core3ptr96drop_in_place$LT$std..sync..mutex..MutexGuard$LT$crossbeam_channel..flavors..zero..Inner$GT$$GT$17h430929ca0617d9c4E.llvm.5097942888641562172.exit" ], [ false, %164 ], [ false, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.5097942888641562172.exit.i.i.i53 ], [ false, %229 ], [ false, %76 ], [ false, %_ZN3std4sync6poison4Flag5guard17h41ba6071143aa264E.llvm.14093832413505439524.exit.i38 ], [ false, %59 ], [ false, %219 ], [ false, %71 ], [ false, %_ZN3std4sync6poison4Flag5guard17h41ba6071143aa264E.llvm.14093832413505439524.exit.i ], [ true, %38 ], [ false, %145 ], [ false, %66 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -23228,7 +23228,7 @@ define internal fastcc void @"_ZN17crossbeam_channel7flavors4zero16Channel$LT$T$
   br label %.body
 
 .loopexit.split-lp:                               ; preds = %"_ZN4core3ptr96drop_in_place$LT$std..sync..mutex..MutexGuard$LT$crossbeam_channel..flavors..zero..Inner$GT$$GT$17h430929ca0617d9c4E.llvm.5097942888641562172.exit", %.invoke, %38, %66, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.5097942888641562172.exit.i.i.i, %59, %71, %76, %_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.5097942888641562172.exit, %90, %_ZN3std4sync6poison4Flag5guard17h41ba6071143aa264E.llvm.14093832413505439524.exit.i, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.5097942888641562172.exit.i.i.i39, %145, %_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.5097942888641562172.exit30, %171, %_ZN3std4sync6poison4Flag5guard17h41ba6071143aa264E.llvm.14093832413505439524.exit.i45, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.5097942888641562172.exit.i.i.i60, %226
-  %.113.ph = phi i1 [ false, %171 ], [ false, %_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.5097942888641562172.exit30 ], [ false, %90 ], [ false, %_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.5097942888641562172.exit ], [ false, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.5097942888641562172.exit.i.i.i ], [ false, %"_ZN4core3ptr96drop_in_place$LT$std..sync..mutex..MutexGuard$LT$crossbeam_channel..flavors..zero..Inner$GT$$GT$17h430929ca0617d9c4E.llvm.5097942888641562172.exit" ], [ false, %76 ], [ false, %_ZN3std4sync6poison4Flag5guard17h41ba6071143aa264E.llvm.14093832413505439524.exit.i45 ], [ false, %59 ], [ false, %226 ], [ false, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.5097942888641562172.exit.i.i.i60 ], [ false, %66 ], [ false, %71 ], [ false, %_ZN3std4sync6poison4Flag5guard17h41ba6071143aa264E.llvm.14093832413505439524.exit.i ], [ true, %38 ], [ false, %145 ], [ false, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.5097942888641562172.exit.i.i.i39 ], [ false, %.invoke ]
+  %.113.ph = phi i1 [ false, %_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.5097942888641562172.exit30 ], [ false, %90 ], [ false, %_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.5097942888641562172.exit ], [ false, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.5097942888641562172.exit.i.i.i ], [ false, %"_ZN4core3ptr96drop_in_place$LT$std..sync..mutex..MutexGuard$LT$crossbeam_channel..flavors..zero..Inner$GT$$GT$17h430929ca0617d9c4E.llvm.5097942888641562172.exit" ], [ false, %171 ], [ false, %76 ], [ false, %_ZN3std4sync6poison4Flag5guard17h41ba6071143aa264E.llvm.14093832413505439524.exit.i45 ], [ false, %59 ], [ false, %226 ], [ false, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.5097942888641562172.exit.i.i.i60 ], [ false, %66 ], [ false, %71 ], [ false, %_ZN3std4sync6poison4Flag5guard17h41ba6071143aa264E.llvm.14093832413505439524.exit.i ], [ true, %38 ], [ false, %145 ], [ false, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.5097942888641562172.exit.i.i.i39 ], [ false, %.invoke ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -23926,7 +23926,7 @@ define internal fastcc void @"_ZN17crossbeam_channel7flavors4zero16Channel$LT$T$
   br label %.body
 
 .loopexit.split-lp:                               ; preds = %"_ZN4core3ptr96drop_in_place$LT$std..sync..mutex..MutexGuard$LT$crossbeam_channel..flavors..zero..Inner$GT$$GT$17h430929ca0617d9c4E.llvm.5097942888641562172.exit", %.invoke, %38, %66, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.5097942888641562172.exit.i.i.i, %59, %71, %76, %_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.5097942888641562172.exit, %90, %_ZN3std4sync6poison4Flag5guard17h41ba6071143aa264E.llvm.14093832413505439524.exit.i, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.5097942888641562172.exit.i.i.i39, %145, %_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.5097942888641562172.exit30, %174, %_ZN3std4sync6poison4Flag5guard17h41ba6071143aa264E.llvm.14093832413505439524.exit.i45, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.5097942888641562172.exit.i.i.i60, %229
-  %.113.ph = phi i1 [ false, %174 ], [ false, %_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.5097942888641562172.exit30 ], [ false, %90 ], [ false, %_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.5097942888641562172.exit ], [ false, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.5097942888641562172.exit.i.i.i ], [ false, %"_ZN4core3ptr96drop_in_place$LT$std..sync..mutex..MutexGuard$LT$crossbeam_channel..flavors..zero..Inner$GT$$GT$17h430929ca0617d9c4E.llvm.5097942888641562172.exit" ], [ false, %76 ], [ false, %_ZN3std4sync6poison4Flag5guard17h41ba6071143aa264E.llvm.14093832413505439524.exit.i45 ], [ false, %59 ], [ false, %229 ], [ false, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.5097942888641562172.exit.i.i.i60 ], [ false, %66 ], [ false, %71 ], [ false, %_ZN3std4sync6poison4Flag5guard17h41ba6071143aa264E.llvm.14093832413505439524.exit.i ], [ true, %38 ], [ false, %145 ], [ false, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.5097942888641562172.exit.i.i.i39 ], [ false, %.invoke ]
+  %.113.ph = phi i1 [ false, %_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.5097942888641562172.exit30 ], [ false, %90 ], [ false, %_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.5097942888641562172.exit ], [ false, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.5097942888641562172.exit.i.i.i ], [ false, %"_ZN4core3ptr96drop_in_place$LT$std..sync..mutex..MutexGuard$LT$crossbeam_channel..flavors..zero..Inner$GT$$GT$17h430929ca0617d9c4E.llvm.5097942888641562172.exit" ], [ false, %174 ], [ false, %76 ], [ false, %_ZN3std4sync6poison4Flag5guard17h41ba6071143aa264E.llvm.14093832413505439524.exit.i45 ], [ false, %59 ], [ false, %229 ], [ false, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.5097942888641562172.exit.i.i.i60 ], [ false, %66 ], [ false, %71 ], [ false, %_ZN3std4sync6poison4Flag5guard17h41ba6071143aa264E.llvm.14093832413505439524.exit.i ], [ true, %38 ], [ false, %145 ], [ false, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.5097942888641562172.exit.i.i.i39 ], [ false, %.invoke ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -24616,7 +24616,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17h074c91322d99151eE
   br i1 %.sroa.18.0.in.i.us, label %.split20.us, label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %15, %12, %10
-  %.0.us.be = phi i32 [ %14, %12 ], [ %.sroa.07.0.i.us, %15 ], [ %.sroa.07.0.i16.us, %10 ]
+  %.0.us.be = phi i32 [ %.sroa.07.0.i16.us, %10 ], [ %14, %12 ], [ %.sroa.07.0.i.us, %15 ]
   br label %.split.us
 
 .split:                                           ; preds = %4, %.split.backedge
@@ -24728,7 +24728,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17h074c91322d99151eE
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %41, %21, %39
-  %.0.be = phi i32 [ %43, %41 ], [ %.sroa.07.0.i, %21 ], [ %.sroa.07.0.i16, %39 ]
+  %.0.be = phi i32 [ %.sroa.07.0.i16, %39 ], [ %43, %41 ], [ %.sroa.07.0.i, %21 ]
   br label %.split
 }
 
@@ -24770,7 +24770,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17h49a89cc97c3bdb06E
   br i1 %.sroa.18.0.in.i.us, label %.split20.us, label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %15, %12, %10
-  %.0.us.be = phi i32 [ %14, %12 ], [ %.sroa.07.0.i.us, %15 ], [ %.sroa.07.0.i16.us, %10 ]
+  %.0.us.be = phi i32 [ %.sroa.07.0.i16.us, %10 ], [ %14, %12 ], [ %.sroa.07.0.i.us, %15 ]
   br label %.split.us
 
 .split:                                           ; preds = %4, %.split.backedge
@@ -24882,7 +24882,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17h49a89cc97c3bdb06E
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %41, %21, %39
-  %.0.be = phi i32 [ %43, %41 ], [ %.sroa.07.0.i, %21 ], [ %.sroa.07.0.i16, %39 ]
+  %.0.be = phi i32 [ %.sroa.07.0.i16, %39 ], [ %43, %41 ], [ %.sroa.07.0.i, %21 ]
   br label %.split
 }
 
@@ -24924,7 +24924,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17h6b03f6e3568a5dbcE
   br i1 %.sroa.18.0.in.i.us, label %.split20.us, label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %15, %12, %10
-  %.0.us.be = phi i32 [ %14, %12 ], [ %.sroa.07.0.i.us, %15 ], [ %.sroa.07.0.i16.us, %10 ]
+  %.0.us.be = phi i32 [ %.sroa.07.0.i16.us, %10 ], [ %14, %12 ], [ %.sroa.07.0.i.us, %15 ]
   br label %.split.us
 
 .split:                                           ; preds = %4, %.split.backedge
@@ -25036,7 +25036,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17h6b03f6e3568a5dbcE
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %41, %21, %39
-  %.0.be = phi i32 [ %43, %41 ], [ %.sroa.07.0.i, %21 ], [ %.sroa.07.0.i16, %39 ]
+  %.0.be = phi i32 [ %.sroa.07.0.i16, %39 ], [ %43, %41 ], [ %.sroa.07.0.i, %21 ]
   br label %.split
 }
 
@@ -25078,7 +25078,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17h7845efc34b43c64fE
   br i1 %.sroa.18.0.in.i.us, label %.split20.us, label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %15, %12, %10
-  %.0.us.be = phi i32 [ %14, %12 ], [ %.sroa.07.0.i.us, %15 ], [ %.sroa.07.0.i16.us, %10 ]
+  %.0.us.be = phi i32 [ %.sroa.07.0.i16.us, %10 ], [ %14, %12 ], [ %.sroa.07.0.i.us, %15 ]
   br label %.split.us
 
 .split:                                           ; preds = %4, %.split.backedge
@@ -25190,7 +25190,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17h7845efc34b43c64fE
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %41, %21, %39
-  %.0.be = phi i32 [ %43, %41 ], [ %.sroa.07.0.i, %21 ], [ %.sroa.07.0.i16, %39 ]
+  %.0.be = phi i32 [ %.sroa.07.0.i16, %39 ], [ %43, %41 ], [ %.sroa.07.0.i, %21 ]
   br label %.split
 }
 
@@ -25232,7 +25232,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17h7c1fe66ef6501c35E
   br i1 %.sroa.18.0.in.i.us, label %.split20.us, label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %15, %12, %10
-  %.0.us.be = phi i32 [ %14, %12 ], [ %.sroa.07.0.i.us, %15 ], [ %.sroa.07.0.i16.us, %10 ]
+  %.0.us.be = phi i32 [ %.sroa.07.0.i16.us, %10 ], [ %14, %12 ], [ %.sroa.07.0.i.us, %15 ]
   br label %.split.us
 
 .split:                                           ; preds = %4, %.split.backedge
@@ -25344,7 +25344,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17h7c1fe66ef6501c35E
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %41, %21, %39
-  %.0.be = phi i32 [ %43, %41 ], [ %.sroa.07.0.i, %21 ], [ %.sroa.07.0.i16, %39 ]
+  %.0.be = phi i32 [ %.sroa.07.0.i16, %39 ], [ %43, %41 ], [ %.sroa.07.0.i, %21 ]
   br label %.split
 }
 
@@ -25386,7 +25386,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17h7cf048bcf294de61E
   br i1 %.sroa.18.0.in.i.us, label %.split20.us, label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %15, %12, %10
-  %.0.us.be = phi i32 [ %14, %12 ], [ %.sroa.07.0.i.us, %15 ], [ %.sroa.07.0.i16.us, %10 ]
+  %.0.us.be = phi i32 [ %.sroa.07.0.i16.us, %10 ], [ %14, %12 ], [ %.sroa.07.0.i.us, %15 ]
   br label %.split.us
 
 .split:                                           ; preds = %4, %.split.backedge
@@ -25498,7 +25498,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17h7cf048bcf294de61E
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %41, %21, %39
-  %.0.be = phi i32 [ %43, %41 ], [ %.sroa.07.0.i, %21 ], [ %.sroa.07.0.i16, %39 ]
+  %.0.be = phi i32 [ %.sroa.07.0.i16, %39 ], [ %43, %41 ], [ %.sroa.07.0.i, %21 ]
   br label %.split
 }
 
@@ -25540,7 +25540,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17h7fd047483e4acc43E
   br i1 %.sroa.18.0.in.i.us, label %.split20.us, label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %15, %12, %10
-  %.0.us.be = phi i32 [ %14, %12 ], [ %.sroa.07.0.i.us, %15 ], [ %.sroa.07.0.i16.us, %10 ]
+  %.0.us.be = phi i32 [ %.sroa.07.0.i16.us, %10 ], [ %14, %12 ], [ %.sroa.07.0.i.us, %15 ]
   br label %.split.us
 
 .split:                                           ; preds = %4, %.split.backedge
@@ -25652,7 +25652,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17h7fd047483e4acc43E
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %41, %21, %39
-  %.0.be = phi i32 [ %43, %41 ], [ %.sroa.07.0.i, %21 ], [ %.sroa.07.0.i16, %39 ]
+  %.0.be = phi i32 [ %.sroa.07.0.i16, %39 ], [ %43, %41 ], [ %.sroa.07.0.i, %21 ]
   br label %.split
 }
 
@@ -25694,7 +25694,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17h90b41328eb705a2dE
   br i1 %.sroa.18.0.in.i.us, label %.split20.us, label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %15, %12, %10
-  %.0.us.be = phi i32 [ %14, %12 ], [ %.sroa.07.0.i.us, %15 ], [ %.sroa.07.0.i16.us, %10 ]
+  %.0.us.be = phi i32 [ %.sroa.07.0.i16.us, %10 ], [ %14, %12 ], [ %.sroa.07.0.i.us, %15 ]
   br label %.split.us
 
 .split:                                           ; preds = %4, %.split.backedge
@@ -25806,7 +25806,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17h90b41328eb705a2dE
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %41, %21, %39
-  %.0.be = phi i32 [ %43, %41 ], [ %.sroa.07.0.i, %21 ], [ %.sroa.07.0.i16, %39 ]
+  %.0.be = phi i32 [ %.sroa.07.0.i16, %39 ], [ %43, %41 ], [ %.sroa.07.0.i, %21 ]
   br label %.split
 }
 
@@ -25848,7 +25848,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17h90d3c9e3e53e510eE
   br i1 %.sroa.18.0.in.i.us, label %.split20.us, label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %15, %12, %10
-  %.0.us.be = phi i32 [ %14, %12 ], [ %.sroa.07.0.i.us, %15 ], [ %.sroa.07.0.i16.us, %10 ]
+  %.0.us.be = phi i32 [ %.sroa.07.0.i16.us, %10 ], [ %14, %12 ], [ %.sroa.07.0.i.us, %15 ]
   br label %.split.us
 
 .split:                                           ; preds = %4, %.split.backedge
@@ -25960,7 +25960,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17h90d3c9e3e53e510eE
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %41, %21, %39
-  %.0.be = phi i32 [ %43, %41 ], [ %.sroa.07.0.i, %21 ], [ %.sroa.07.0.i16, %39 ]
+  %.0.be = phi i32 [ %.sroa.07.0.i16, %39 ], [ %43, %41 ], [ %.sroa.07.0.i, %21 ]
   br label %.split
 }
 
@@ -26002,7 +26002,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17ha358e21e290eb9a4E
   br i1 %.sroa.18.0.in.i.us, label %.split20.us, label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %15, %12, %10
-  %.0.us.be = phi i32 [ %14, %12 ], [ %.sroa.07.0.i.us, %15 ], [ %.sroa.07.0.i16.us, %10 ]
+  %.0.us.be = phi i32 [ %.sroa.07.0.i16.us, %10 ], [ %14, %12 ], [ %.sroa.07.0.i.us, %15 ]
   br label %.split.us
 
 .split:                                           ; preds = %4, %.split.backedge
@@ -26114,7 +26114,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17ha358e21e290eb9a4E
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %41, %21, %39
-  %.0.be = phi i32 [ %43, %41 ], [ %.sroa.07.0.i, %21 ], [ %.sroa.07.0.i16, %39 ]
+  %.0.be = phi i32 [ %.sroa.07.0.i16, %39 ], [ %43, %41 ], [ %.sroa.07.0.i, %21 ]
   br label %.split
 }
 
@@ -26156,7 +26156,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17haa45bcc5832a1857E
   br i1 %.sroa.18.0.in.i.us, label %.split20.us, label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %15, %12, %10
-  %.0.us.be = phi i32 [ %14, %12 ], [ %.sroa.07.0.i.us, %15 ], [ %.sroa.07.0.i16.us, %10 ]
+  %.0.us.be = phi i32 [ %.sroa.07.0.i16.us, %10 ], [ %14, %12 ], [ %.sroa.07.0.i.us, %15 ]
   br label %.split.us
 
 .split:                                           ; preds = %4, %.split.backedge
@@ -26268,7 +26268,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17haa45bcc5832a1857E
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %41, %21, %39
-  %.0.be = phi i32 [ %43, %41 ], [ %.sroa.07.0.i, %21 ], [ %.sroa.07.0.i16, %39 ]
+  %.0.be = phi i32 [ %.sroa.07.0.i16, %39 ], [ %43, %41 ], [ %.sroa.07.0.i, %21 ]
   br label %.split
 }
 
@@ -26310,7 +26310,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17hc707ab626d8935bfE
   br i1 %.sroa.18.0.in.i.us, label %.split20.us, label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %15, %12, %10
-  %.0.us.be = phi i32 [ %14, %12 ], [ %.sroa.07.0.i.us, %15 ], [ %.sroa.07.0.i16.us, %10 ]
+  %.0.us.be = phi i32 [ %.sroa.07.0.i16.us, %10 ], [ %14, %12 ], [ %.sroa.07.0.i.us, %15 ]
   br label %.split.us
 
 .split:                                           ; preds = %4, %.split.backedge
@@ -26422,7 +26422,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17hc707ab626d8935bfE
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %41, %21, %39
-  %.0.be = phi i32 [ %43, %41 ], [ %.sroa.07.0.i, %21 ], [ %.sroa.07.0.i16, %39 ]
+  %.0.be = phi i32 [ %.sroa.07.0.i16, %39 ], [ %43, %41 ], [ %.sroa.07.0.i, %21 ]
   br label %.split
 }
 
@@ -26464,7 +26464,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17hd722adcb2f9a8cbdE
   br i1 %.sroa.18.0.in.i.us, label %.split20.us, label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %15, %12, %10
-  %.0.us.be = phi i32 [ %14, %12 ], [ %.sroa.07.0.i.us, %15 ], [ %.sroa.07.0.i16.us, %10 ]
+  %.0.us.be = phi i32 [ %.sroa.07.0.i16.us, %10 ], [ %14, %12 ], [ %.sroa.07.0.i.us, %15 ]
   br label %.split.us
 
 .split:                                           ; preds = %4, %.split.backedge
@@ -26576,7 +26576,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17hd722adcb2f9a8cbdE
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %41, %21, %39
-  %.0.be = phi i32 [ %43, %41 ], [ %.sroa.07.0.i, %21 ], [ %.sroa.07.0.i16, %39 ]
+  %.0.be = phi i32 [ %.sroa.07.0.i16, %39 ], [ %43, %41 ], [ %.sroa.07.0.i, %21 ]
   br label %.split
 }
 
@@ -26618,7 +26618,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17he20c6a1ea7b191c3E
   br i1 %.sroa.18.0.in.i.us, label %.split20.us, label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %15, %12, %10
-  %.0.us.be = phi i32 [ %14, %12 ], [ %.sroa.07.0.i.us, %15 ], [ %.sroa.07.0.i16.us, %10 ]
+  %.0.us.be = phi i32 [ %.sroa.07.0.i16.us, %10 ], [ %14, %12 ], [ %.sroa.07.0.i.us, %15 ]
   br label %.split.us
 
 .split:                                           ; preds = %4, %.split.backedge
@@ -26730,7 +26730,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17he20c6a1ea7b191c3E
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %41, %21, %39
-  %.0.be = phi i32 [ %43, %41 ], [ %.sroa.07.0.i, %21 ], [ %.sroa.07.0.i16, %39 ]
+  %.0.be = phi i32 [ %.sroa.07.0.i16, %39 ], [ %43, %41 ], [ %.sroa.07.0.i, %21 ]
   br label %.split
 }
 
@@ -26772,7 +26772,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17he794b0291c5c404bE
   br i1 %.sroa.18.0.in.i.us, label %.split20.us, label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %15, %12, %10
-  %.0.us.be = phi i32 [ %14, %12 ], [ %.sroa.07.0.i.us, %15 ], [ %.sroa.07.0.i16.us, %10 ]
+  %.0.us.be = phi i32 [ %.sroa.07.0.i16.us, %10 ], [ %14, %12 ], [ %.sroa.07.0.i.us, %15 ]
   br label %.split.us
 
 .split:                                           ; preds = %4, %.split.backedge
@@ -26884,7 +26884,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17he794b0291c5c404bE
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %41, %21, %39
-  %.0.be = phi i32 [ %43, %41 ], [ %.sroa.07.0.i, %21 ], [ %.sroa.07.0.i16, %39 ]
+  %.0.be = phi i32 [ %.sroa.07.0.i16, %39 ], [ %43, %41 ], [ %.sroa.07.0.i, %21 ]
   br label %.split
 }
 
@@ -26926,7 +26926,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17hfa93a384a70f24ecE
   br i1 %.sroa.18.0.in.i.us, label %.split20.us, label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %15, %12, %10
-  %.0.us.be = phi i32 [ %14, %12 ], [ %.sroa.07.0.i.us, %15 ], [ %.sroa.07.0.i16.us, %10 ]
+  %.0.us.be = phi i32 [ %.sroa.07.0.i16.us, %10 ], [ %14, %12 ], [ %.sroa.07.0.i.us, %15 ]
   br label %.split.us
 
 .split:                                           ; preds = %4, %.split.backedge
@@ -27038,7 +27038,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17hfa93a384a70f24ecE
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %41, %21, %39
-  %.0.be = phi i32 [ %43, %41 ], [ %.sroa.07.0.i, %21 ], [ %.sroa.07.0.i16, %39 ]
+  %.0.be = phi i32 [ %.sroa.07.0.i16, %39 ], [ %43, %41 ], [ %.sroa.07.0.i, %21 ]
   br label %.split
 }
 

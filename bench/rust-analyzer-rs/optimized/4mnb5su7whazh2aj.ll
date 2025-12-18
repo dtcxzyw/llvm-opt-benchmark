@@ -4126,7 +4126,7 @@ _ZN5serde2de9MapAccess10next_value17h7e0ec4b91bb139d2E.exit.i.i: ; preds = %88
   br label %146
 
 .loopexit:                                        ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$8next_key17h5b2625442c6a7147E.exit.i", %.invoke, %108, %98, %81, %58
-  %.sroa.14.0 = phi ptr [ %93, %98 ], [ %106, %108 ], [ %48, %58 ], [ %.sroa.9.4.i, %81 ], [ %87, %.invoke ], [ %28, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$8next_key17h5b2625442c6a7147E.exit.i" ]
+  %.sroa.14.0 = phi ptr [ %93, %98 ], [ %106, %108 ], [ %48, %58 ], [ %87, %.invoke ], [ %.sroa.9.4.i, %81 ], [ %28, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$8next_key17h5b2625442c6a7147E.exit.i" ]
   %117 = load i64, ptr %13, align 8, !range !742, !noalias !738, !noundef !5
   %.not179.i = icmp eq i64 %117, -9223372036854775807
   br i1 %.not179.i, label %120, label %123
@@ -4375,7 +4375,7 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_map_ref17h955c
   br label %32
 
 .loopexit.split-lp.i:                             ; preds = %.invoke, %119, %101, %.invoke.i
-  %.1143.ph.i = phi i8 [ 1, %.invoke.i ], [ %.6.i, %119 ], [ 1, %101 ], [ 1, %.invoke ]
+  %.1143.ph.i = phi i8 [ 1, %.invoke ], [ %.6.i, %119 ], [ 1, %.invoke.i ], [ 1, %101 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %32

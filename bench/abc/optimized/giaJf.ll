@@ -2759,7 +2759,7 @@ Jf_CutIsContainedOrder.exit.thread:               ; preds = %93, %.lr.ph.i44, %.
   br i1 %exitcond102.not, label %Jf_CutIsContainedOrder.exit, label %64, !llvm.loop !137
 
 Jf_CutIsContainedOrder.exit:                      ; preds = %Jf_CutIsContained1.exit.thread50, %52, %55, %31, %Jf_CutIsContained1.exit.thread50.us, %21, %Jf_CutIsContained1.exit.thread50.us.us, %Jf_CutIsContainedOrder.exit.thread, %.preheader.i, %90, %77, %.preheader59, %.preheader
-  %.035 = phi i32 [ 1, %.preheader ], [ 1, %Jf_CutIsContained1.exit.thread50.us.us ], [ 1, %Jf_CutIsContained1.exit.thread50.us ], [ 1, %.preheader59 ], [ 0, %55 ], [ 0, %77 ], [ 0, %90 ], [ 0, %.preheader.i ], [ 1, %Jf_CutIsContainedOrder.exit.thread ], [ 0, %21 ], [ 0, %31 ], [ 0, %52 ], [ 1, %Jf_CutIsContained1.exit.thread50 ]
+  %.035 = phi i32 [ 0, %77 ], [ 0, %21 ], [ 0, %55 ], [ 0, %90 ], [ 1, %Jf_CutIsContained1.exit.thread50.us ], [ 1, %.preheader ], [ 1, %.preheader59 ], [ 0, %.preheader.i ], [ 1, %Jf_CutIsContainedOrder.exit.thread ], [ 1, %Jf_CutIsContained1.exit.thread50.us.us ], [ 0, %31 ], [ 0, %52 ], [ 1, %Jf_CutIsContained1.exit.thread50 ]
   ret i32 %.035
 }
 
@@ -3898,7 +3898,7 @@ Abc_TtHasVar.exit.thread30.i:                     ; preds = %149, %163
   br label %Abc_TtHasVar.exit.thread.i
 
 Abc_TtHasVar.exit.thread.i:                       ; preds = %._crit_edge.us.i.i, %148, %176, %.preheader.lr.ph.i.i
-  %.1.i71 = phi i32 [ %177, %176 ], [ %.038.i, %.preheader.lr.ph.i.i ], [ %.038.i, %148 ], [ %.038.i, %._crit_edge.us.i.i ]
+  %.1.i71 = phi i32 [ %177, %176 ], [ %.038.i, %148 ], [ %.038.i, %.preheader.lr.ph.i.i ], [ %.038.i, %._crit_edge.us.i.i ]
   %indvars.iv.next.i72 = add nuw nsw i64 %indvars.iv.i70, 1
   %exitcond.not.i73 = icmp eq i64 %indvars.iv.next.i72, %wide.trip.count.i69
   br i1 %exitcond.not.i73, label %Abc_TtMinBase.exit, label %.lr.ph.split.split.split.i, !llvm.loop !149
@@ -4898,7 +4898,7 @@ Jf_CutGetSign.exit248:                            ; preds = %.lr.ph.i242, %.lr.p
   br label %.loopexit456
 
 .loopexit456:                                     ; preds = %140, %._crit_edge120.loopexit.i, %.preheader105.i, %._crit_edge.loopexit.i, %.preheader106.i, %.preheader.i
-  %.5.lcssa.sink.i = phi i32 [ %180, %._crit_edge.loopexit.i ], [ 0, %.preheader.i ], [ %.1.i, %.preheader106.i ], [ %.079.i, %.preheader105.i ], [ %192, %._crit_edge120.loopexit.i ], [ %10, %140 ]
+  %.5.lcssa.sink.i = phi i32 [ %180, %._crit_edge.loopexit.i ], [ 0, %.preheader.i ], [ %192, %._crit_edge120.loopexit.i ], [ %.1.i, %.preheader106.i ], [ %.079.i, %.preheader105.i ], [ %10, %140 ]
   store i32 %.5.lcssa.sink.i, ptr %129, align 4, !tbaa !14
   store i64 %115, ptr %128, align 8, !tbaa !128
   br label %372
@@ -5280,7 +5280,7 @@ Jf_CutGetSign.exit275:                            ; preds = %.lr.ph.i268, %273
   br label %.loopexit459
 
 .loopexit459:                                     ; preds = %292, %._crit_edge120.loopexit.i304, %.preheader105.i292, %._crit_edge.loopexit.i320, %.preheader106.i311, %.preheader.i331
-  %.5.lcssa.sink.i294 = phi i32 [ %332, %._crit_edge.loopexit.i320 ], [ 0, %.preheader.i331 ], [ %.1.i310, %.preheader106.i311 ], [ %.079.i291, %.preheader105.i292 ], [ %344, %._crit_edge120.loopexit.i304 ], [ %10, %292 ]
+  %.5.lcssa.sink.i294 = phi i32 [ %332, %._crit_edge.loopexit.i320 ], [ 0, %.preheader.i331 ], [ %344, %._crit_edge120.loopexit.i304 ], [ %.1.i310, %.preheader106.i311 ], [ %.079.i291, %.preheader105.i292 ], [ %10, %292 ]
   store i32 %.5.lcssa.sink.i294, ptr %199, align 4, !tbaa !14
   store i64 %115, ptr %198, align 8, !tbaa !128
   %.val223 = load i64, ptr %1, align 4
@@ -5960,14 +5960,14 @@ Jf_CutIsContainedOrder.exit205.i:                 ; preds = %598, %585, %605, %J
   br i1 %exitcond300.not.i, label %.loopexit.i, label %.lr.ph251.i, !llvm.loop !177
 
 .loopexit.i:                                      ; preds = %Jf_CutIsContained1.exit183.thread.i, %Jf_CutIsContainedOrder.exit205.i, %.thread.i, %.thread330.i
-  %.2.i = phi i32 [ %532, %.thread.i ], [ %531, %.thread330.i ], [ %.4.i, %Jf_CutIsContainedOrder.exit205.i ], [ %.1.i374, %Jf_CutIsContained1.exit183.thread.i ]
+  %.2.i = phi i32 [ %531, %.thread330.i ], [ %532, %.thread.i ], [ %.4.i, %Jf_CutIsContainedOrder.exit205.i ], [ %.1.i374, %Jf_CutIsContained1.exit183.thread.i ]
   %609 = icmp eq i32 %.2.i, %20
   %610 = sext i1 %609 to i32
   %spec.select.i = add nsw i32 %.2.i, %610
   br label %Jf_ObjAddCutToStore.exit
 
-Jf_ObjAddCutToStore.exit:                         ; preds = %217, %320, %.lr.ph123.i335, %168, %.lr.ph123.i, %474, %457, %447, %.preheader.i.i, %477, %512, %499, %.preheader107.i279, %.loopexit109.i289, %.loopexit110.i308, %.preheader107.i, %.loopexit109.i, %.loopexit110.i, %.loopexit.i, %418, %Jf_CutFlow.exit, %263, %243, %Jf_CutMerge2.exit, %112
-  %.2 = phi i32 [ %.1530, %112 ], [ %.1530, %243 ], [ %.1530, %263 ], [ %.1530, %Jf_CutMerge2.exit ], [ 1, %Jf_CutFlow.exit ], [ %12, %418 ], [ %spec.select.i, %.loopexit.i ], [ %.1530, %.loopexit110.i ], [ %.1530, %.loopexit109.i ], [ %.1530, %.preheader107.i ], [ %.1530, %.loopexit110.i308 ], [ %.1530, %.loopexit109.i289 ], [ %.1530, %.preheader107.i279 ], [ %.1530, %320 ], [ %.1530, %499 ], [ %.1530, %512 ], [ %.1530, %477 ], [ %.1530, %.preheader.i.i ], [ %.1530, %447 ], [ %.1530, %457 ], [ %.1530, %474 ], [ %.1530, %.lr.ph123.i ], [ %.1530, %168 ], [ %.1530, %.lr.ph123.i335 ], [ %.1530, %217 ]
+Jf_ObjAddCutToStore.exit:                         ; preds = %217, %320, %.lr.ph123.i335, %168, %.lr.ph123.i, %474, %457, %447, %.preheader.i.i, %477, %512, %499, %.preheader107.i279, %.loopexit110.i308, %.loopexit109.i289, %.preheader107.i, %.loopexit110.i, %.loopexit109.i, %.loopexit.i, %418, %Jf_CutFlow.exit, %263, %243, %Jf_CutMerge2.exit, %112
+  %.2 = phi i32 [ %.1530, %112 ], [ %.1530, %243 ], [ %.1530, %263 ], [ %.1530, %.preheader107.i ], [ %.1530, %Jf_CutMerge2.exit ], [ %.1530, %512 ], [ %.1530, %.lr.ph123.i ], [ %.1530, %474 ], [ 1, %Jf_CutFlow.exit ], [ %12, %418 ], [ %spec.select.i, %.loopexit.i ], [ %.1530, %.preheader107.i279 ], [ %.1530, %.preheader.i.i ], [ %.1530, %447 ], [ %.1530, %477 ], [ %.1530, %457 ], [ %.1530, %.loopexit109.i ], [ %.1530, %.lr.ph123.i335 ], [ %.1530, %.loopexit110.i ], [ %.1530, %168 ], [ %.1530, %.loopexit109.i289 ], [ %.1530, %499 ], [ %.1530, %.loopexit110.i308 ], [ %.1530, %320 ], [ %.1530, %217 ]
   %indvars.iv.next640 = add nuw nsw i64 %indvars.iv639, 1
   %.1186.val = load i32, ptr %.1186527, align 4, !tbaa !14
   %611 = and i32 %.1186.val, 15
@@ -9442,7 +9442,7 @@ Vec_IntGrow.exit.i:                               ; preds = %34, %Vec_IntAlloc.e
   %39 = icmp sgt i32 %.val37, 0
   br i1 %39, label %Vec_IntFill.exit, label %Vec_IntFill.exit.thread
 
-Vec_IntFill.exit.thread:                          ; preds = %Vec_IntGrow.exit.i, %Vec_IntAlloc.exit.thread
+Vec_IntFill.exit.thread:                          ; preds = %Vec_IntAlloc.exit.thread, %Vec_IntGrow.exit.i
   store i32 %.val37, ptr %17, align 4, !tbaa !7
   br label %.critedge
 

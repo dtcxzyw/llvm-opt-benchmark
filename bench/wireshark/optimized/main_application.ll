@@ -7270,7 +7270,7 @@ _ZNK17QArrayDataPointerIP7QActionE11needsDetachEv.exit.thread.i.i.i6._crit_edge:
   br i1 %112, label %.lr.ph.i.i.i12, label %_ZSt13move_backwardIN5QListIP7QActionE8iteratorES4_ET0_T_S6_S5_.exit.i.i, !llvm.loop !63
 
 _ZSt13move_backwardIN5QListIP7QActionE8iteratorES4_ET0_T_S6_S5_.exit.i.i: ; preds = %.noexc15, %.lr.ph.i.i.i.i.i.i.i, %.noexc14, %96
-  %.sink.i.i = phi ptr [ %77, %96 ], [ %.sroa.0.022.i.i, %.noexc14 ], [ %77, %.lr.ph.i.i.i.i.i.i.i ], [ %.sroa.0.010.i.i.i, %.noexc15 ]
+  %.sink.i.i = phi ptr [ %77, %96 ], [ %77, %.lr.ph.i.i.i.i.i.i.i ], [ %.sroa.0.022.i.i, %.noexc14 ], [ %.sroa.0.010.i.i.i, %.noexc15 ]
   store ptr %95, ptr %.sink.i.i, align 8
   %.sroa.0.0.i.i = getelementptr i8, ptr %.sroa.0.022.i.i, i64 8
   %.not.i.i11 = icmp eq ptr %.sroa.0.0.i.i, %90
@@ -7372,7 +7372,7 @@ _ZSt25__unguarded_linear_insertIN5QListIP7QActionE8iteratorEN9__gnu_cxx5__ops14_
   br i1 %141, label %.lr.ph.i.i27.i, label %_ZSt13move_backwardIN5QListIP7QActionE8iteratorES4_ET0_T_S6_S5_.exit.i23.i, !llvm.loop !63
 
 _ZSt13move_backwardIN5QListIP7QActionE8iteratorES4_ET0_T_S6_S5_.exit.i23.i: ; preds = %.noexc20, %.lr.ph.i.i.i.i.i.i32.i, %.noexc19, %125
-  %.sink.i24.i = phi ptr [ %77, %125 ], [ %.sroa.0.022.i21.i, %.noexc19 ], [ %77, %.lr.ph.i.i.i.i.i.i32.i ], [ %.sroa.0.010.i.i28.i, %.noexc20 ]
+  %.sink.i24.i = phi ptr [ %77, %125 ], [ %77, %.lr.ph.i.i.i.i.i.i32.i ], [ %.sroa.0.022.i21.i, %.noexc19 ], [ %.sroa.0.010.i.i28.i, %.noexc20 ]
   store ptr %124, ptr %.sink.i24.i, align 8
   %.sroa.0.0.i25.i = getelementptr i8, ptr %.sroa.0.022.i21.i, i64 8
   %.not.i26.i = icmp eq ptr %.sroa.0.0.i25.i, %80
@@ -7653,7 +7653,7 @@ _ZNK17QArrayDataPointerIP7QActionE11needsDetachEv.exit.thread.i.i.i6._crit_edge:
   br i1 %112, label %.lr.ph.i.i.i12, label %_ZSt13move_backwardIN5QListIP7QActionE8iteratorES4_ET0_T_S6_S5_.exit.i.i, !llvm.loop !63
 
 _ZSt13move_backwardIN5QListIP7QActionE8iteratorES4_ET0_T_S6_S5_.exit.i.i: ; preds = %.noexc15, %.lr.ph.i.i.i.i.i.i.i, %.noexc14, %96
-  %.sink.i.i = phi ptr [ %77, %96 ], [ %.sroa.0.022.i.i, %.noexc14 ], [ %77, %.lr.ph.i.i.i.i.i.i.i ], [ %.sroa.0.010.i.i.i, %.noexc15 ]
+  %.sink.i.i = phi ptr [ %77, %96 ], [ %77, %.lr.ph.i.i.i.i.i.i.i ], [ %.sroa.0.022.i.i, %.noexc14 ], [ %.sroa.0.010.i.i.i, %.noexc15 ]
   store ptr %95, ptr %.sink.i.i, align 8
   %.sroa.0.0.i.i = getelementptr i8, ptr %.sroa.0.022.i.i, i64 8
   %.not.i.i11 = icmp eq ptr %.sroa.0.0.i.i, %90
@@ -7755,7 +7755,7 @@ _ZSt25__unguarded_linear_insertIN5QListIP7QActionE8iteratorEN9__gnu_cxx5__ops14_
   br i1 %141, label %.lr.ph.i.i27.i, label %_ZSt13move_backwardIN5QListIP7QActionE8iteratorES4_ET0_T_S6_S5_.exit.i23.i, !llvm.loop !63
 
 _ZSt13move_backwardIN5QListIP7QActionE8iteratorES4_ET0_T_S6_S5_.exit.i23.i: ; preds = %.noexc20, %.lr.ph.i.i.i.i.i.i32.i, %.noexc19, %125
-  %.sink.i24.i = phi ptr [ %77, %125 ], [ %.sroa.0.022.i21.i, %.noexc19 ], [ %77, %.lr.ph.i.i.i.i.i.i32.i ], [ %.sroa.0.010.i.i28.i, %.noexc20 ]
+  %.sink.i24.i = phi ptr [ %77, %125 ], [ %77, %.lr.ph.i.i.i.i.i.i32.i ], [ %.sroa.0.022.i21.i, %.noexc19 ], [ %.sroa.0.010.i.i28.i, %.noexc20 ]
   store ptr %124, ptr %.sink.i24.i, align 8
   %.sroa.0.0.i25.i = getelementptr i8, ptr %.sroa.0.022.i21.i, i64 8
   %.not.i26.i = icmp eq ptr %.sroa.0.0.i25.i, %80
@@ -8033,7 +8033,7 @@ _ZNK17QArrayDataPointerIP7QActionE11needsDetachEv.exit.thread.i.i.i6._crit_edge:
   br i1 %112, label %.lr.ph.i.i.i12, label %_ZSt13move_backwardIN5QListIP7QActionE8iteratorES4_ET0_T_S6_S5_.exit.i.i, !llvm.loop !63
 
 _ZSt13move_backwardIN5QListIP7QActionE8iteratorES4_ET0_T_S6_S5_.exit.i.i: ; preds = %.noexc15, %.lr.ph.i.i.i.i.i.i.i, %.noexc14, %96
-  %.sink.i.i = phi ptr [ %77, %96 ], [ %.sroa.0.022.i.i, %.noexc14 ], [ %77, %.lr.ph.i.i.i.i.i.i.i ], [ %.sroa.0.010.i.i.i, %.noexc15 ]
+  %.sink.i.i = phi ptr [ %77, %96 ], [ %77, %.lr.ph.i.i.i.i.i.i.i ], [ %.sroa.0.022.i.i, %.noexc14 ], [ %.sroa.0.010.i.i.i, %.noexc15 ]
   store ptr %95, ptr %.sink.i.i, align 8
   %.sroa.0.0.i.i = getelementptr i8, ptr %.sroa.0.022.i.i, i64 8
   %.not.i.i11 = icmp eq ptr %.sroa.0.0.i.i, %90
@@ -8135,7 +8135,7 @@ _ZSt25__unguarded_linear_insertIN5QListIP7QActionE8iteratorEN9__gnu_cxx5__ops14_
   br i1 %141, label %.lr.ph.i.i27.i, label %_ZSt13move_backwardIN5QListIP7QActionE8iteratorES4_ET0_T_S6_S5_.exit.i23.i, !llvm.loop !63
 
 _ZSt13move_backwardIN5QListIP7QActionE8iteratorES4_ET0_T_S6_S5_.exit.i23.i: ; preds = %.noexc20, %.lr.ph.i.i.i.i.i.i32.i, %.noexc19, %125
-  %.sink.i24.i = phi ptr [ %77, %125 ], [ %.sroa.0.022.i21.i, %.noexc19 ], [ %77, %.lr.ph.i.i.i.i.i.i32.i ], [ %.sroa.0.010.i.i28.i, %.noexc20 ]
+  %.sink.i24.i = phi ptr [ %77, %125 ], [ %77, %.lr.ph.i.i.i.i.i.i32.i ], [ %.sroa.0.022.i21.i, %.noexc19 ], [ %.sroa.0.010.i.i28.i, %.noexc20 ]
   store ptr %124, ptr %.sink.i24.i, align 8
   %.sroa.0.0.i25.i = getelementptr i8, ptr %.sroa.0.022.i21.i, i64 8
   %.not.i26.i = icmp eq ptr %.sroa.0.0.i25.i, %80

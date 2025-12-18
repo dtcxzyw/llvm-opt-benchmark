@@ -1180,7 +1180,7 @@ findNextNonWSBack.exit185:                        ; preds = %.lr.ph.i182, %.crit
   br label %.thread189
 
 .thread189:                                       ; preds = %36, %43, %.thread189.sink.split, %19
-  %.0141.ph = phi i32 [ 22, %19 ], [ 27, %.thread189.sink.split ], [ 22, %43 ], [ 22, %36 ]
+  %.0141.ph = phi i32 [ 27, %.thread189.sink.split ], [ 22, %19 ], [ 22, %43 ], [ 22, %36 ]
   %185 = load ptr, ptr %0, align 8, !tbaa !41
   %186 = load i32, ptr %3, align 8, !tbaa !7
   %187 = add i32 %186, -1
@@ -1307,7 +1307,7 @@ define ptr @find_obj(ptr noundef readonly captures(none) %0, ptr noundef readnon
   br i1 %exitcond47.not, label %.preheader, label %18
 
 .preheader:                                       ; preds = %11, %16, %._crit_edge
-  %.0.lcssa54 = phi i32 [ %.0.lcssa, %._crit_edge ], [ %.0.lcssa, %16 ], [ %5, %11 ]
+  %.0.lcssa54 = phi i32 [ %.0.lcssa, %16 ], [ %.0.lcssa, %._crit_edge ], [ %5, %11 ]
   %.not40 = icmp eq i32 %.0.lcssa54, 0
   br i1 %.not40, label %.loopexit, label %.lr.ph36
 
@@ -3479,7 +3479,7 @@ pdf_nextlinestart.exit:                           ; preds = %17
   br i1 %.not, label %pdf_nextlinestart.exit.thread, label %.lr.ph
 
 pdf_nextlinestart.exit.thread:                    ; preds = %.lr.ph, %.lr.ph, %29, %33, %.lr.ph.i, %.lr.ph36.i, %2
-  %.017 = phi ptr [ null, %2 ], [ null, %.lr.ph.i ], [ null, %.lr.ph36.i ], [ %.02031, %29 ], [ %.02031, %.lr.ph ], [ %.02031, %.lr.ph ], [ null, %33 ]
+  %.017 = phi ptr [ null, %.lr.ph.i ], [ null, %.lr.ph36.i ], [ null, %2 ], [ %.02031, %29 ], [ %.02031, %.lr.ph ], [ %.02031, %.lr.ph ], [ null, %33 ]
   ret ptr %.017
 }
 
@@ -5145,7 +5145,7 @@ define internal fastcc ptr @pdf_readval(ptr noundef %0, i32 noundef %1, ptr noun
   br label %.loopexit
 
 .loopexit:                                        ; preds = %10, %.critedge.thread, %.critedge5, %3, %49
-  %.0 = phi ptr [ null, %3 ], [ %48, %49 ], [ null, %.critedge5 ], [ null, %.critedge.thread ], [ null, %10 ]
+  %.0 = phi ptr [ null, %.critedge.thread ], [ null, %3 ], [ %48, %49 ], [ null, %.critedge5 ], [ null, %10 ]
   ret ptr %.0
 }
 
@@ -5216,7 +5216,7 @@ define void @pdf_handle_enc(ptr noundef captures(none) %0) local_unnamed_addr #0
   br i1 %exitcond47.not.i, label %.preheader.i, label %28
 
 .preheader.i:                                     ; preds = %23, %27, %._crit_edge.i
-  %.0.lcssa54.i = phi i32 [ %.0.lcssa.i, %._crit_edge.i ], [ %.0.lcssa.i, %27 ], [ %18, %23 ]
+  %.0.lcssa54.i = phi i32 [ %.0.lcssa.i, %27 ], [ %.0.lcssa.i, %._crit_edge.i ], [ %18, %23 ]
   %.not40.i = icmp eq i32 %.0.lcssa54.i, 0
   br i1 %.not40.i, label %.loopexit291, label %.lr.ph36.i
 
@@ -6222,7 +6222,7 @@ default.unreachable201:                           ; preds = %dbg_printhex.exit14
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %146
 
-142:                                              ; preds = %.thread171, %.thread175, %dbg_printhex.exit147, %.split184.us
+142:                                              ; preds = %.thread171, %.thread175, %.split184.us, %dbg_printhex.exit147
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.334) #23
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %144 = load i32, ptr %143, align 4, !tbaa !17
@@ -6230,7 +6230,7 @@ default.unreachable201:                           ; preds = %dbg_printhex.exit14
   store i32 %145, ptr %143, align 4, !tbaa !17
   br label %.thread164
 
-146:                                              ; preds = %.thread171.thread, %141, %dbg_printhex.exit147, %.split184.us
+146:                                              ; preds = %.thread171.thread, %141, %.split184.us, %dbg_printhex.exit147
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.335) #23
   br label %.thread164
 
@@ -6801,8 +6801,8 @@ define noundef i32 @cli_pdf(ptr noundef %0, ptr noundef %1, i64 noundef %2) loca
   br i1 %.not60.i, label %190, label %pdf_find_and_extract_objs.exit
 
 pdf_find_and_extract_objs.exit:                   ; preds = %190, %211, %156, %162, %182, %.thread70.i, %210
-  %.046.i = phi i32 [ 0, %.thread70.i ], [ 0, %156 ], [ 0, %162 ], [ %.14786.i, %210 ], [ 0, %182 ], [ %.248.ph.i, %211 ], [ %.14786.i, %190 ]
-  %.044.i = phi i32 [ %186, %.thread70.i ], [ 20, %156 ], [ 21, %162 ], [ 21, %210 ], [ %184, %182 ], [ %.6.ph.i, %211 ], [ 0, %190 ]
+  %.046.i = phi i32 [ 0, %.thread70.i ], [ 0, %156 ], [ 0, %162 ], [ 0, %182 ], [ %.14786.i, %210 ], [ %.248.ph.i, %211 ], [ %.14786.i, %190 ]
+  %.044.i = phi i32 [ %186, %.thread70.i ], [ 20, %156 ], [ 21, %162 ], [ %184, %182 ], [ 21, %210 ], [ %.6.ph.i, %211 ], [ 0, %190 ]
   %212 = icmp eq i32 %.044.i, 0
   %213 = icmp ne i32 %.046.i, 0
   %or.cond.i = select i1 %212, i1 %213, i1 false
@@ -8314,7 +8314,7 @@ define internal fastcc range(i32 -1, 1) i32 @xrefCheck(ptr noundef nonnull reado
   br label %.loopexit
 
 .loopexit:                                        ; preds = %13, %.loopexit.sink.split, %.preheader, %.critedge
-  %.016 = phi i32 [ -1, %.critedge ], [ -1, %.preheader ], [ 0, %.loopexit.sink.split ], [ -1, %13 ]
+  %.016 = phi i32 [ 0, %.loopexit.sink.split ], [ -1, %.preheader ], [ -1, %.critedge ], [ -1, %13 ]
   ret i32 %.016
 }
 

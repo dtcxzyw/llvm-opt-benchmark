@@ -674,7 +674,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %21
   br i1 %exitcond663.not, label %.loopexit, label %.critedge386.preheader, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.critedge386, %.critedge, %.loopexit627
-  %.3 = phi ptr [ %159, %.loopexit627 ], [ %157, %.critedge ], [ %220, %.critedge386 ]
+  %.3 = phi ptr [ %157, %.critedge ], [ %159, %.loopexit627 ], [ %220, %.critedge386 ]
   %indvars.iv.next673 = add nuw nsw i64 %indvars.iv672, 8
   %221 = or disjoint i64 %indvars.iv.next673, 7
   %222 = icmp slt i64 %221, %13
@@ -1310,7 +1310,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %23
   br i1 %exitcond715.not, label %.loopexit, label %.critedge424.preheader, !llvm.loop !23
 
 .loopexit:                                        ; preds = %.critedge424, %.critedge, %.loopexit679
-  %.3 = phi ptr [ %193, %.loopexit679 ], [ %187, %.critedge ], [ %279, %.critedge424 ]
+  %.3 = phi ptr [ %187, %.critedge ], [ %193, %.loopexit679 ], [ %279, %.critedge424 ]
   %indvars.iv.next725 = add nuw nsw i64 %indvars.iv724, 8
   %280 = or disjoint i64 %indvars.iv.next725, 7
   %281 = icmp slt i64 %280, %15
@@ -2047,7 +2047,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %22
   br i1 %exitcond779.not, label %.loopexit, label %.critedge464.preheader, !llvm.loop !30
 
 .loopexit:                                        ; preds = %.critedge464, %.critedge, %.loopexit743
-  %.3 = phi ptr [ %221, %.loopexit743 ], [ %213, %.critedge ], [ %331, %.critedge464 ]
+  %.3 = phi ptr [ %213, %.critedge ], [ %221, %.loopexit743 ], [ %331, %.critedge464 ]
   %indvars.iv.next789 = add nuw nsw i64 %indvars.iv788, 8
   %332 = or disjoint i64 %indvars.iv.next789, 7
   %333 = icmp slt i64 %332, %14
@@ -2885,7 +2885,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %23
   br i1 %exitcond843.not, label %.loopexit, label %.critedge504.preheader, !llvm.loop !37
 
 .loopexit:                                        ; preds = %.critedge504, %.critedge, %.loopexit807
-  %.3 = phi ptr [ %251, %.loopexit807 ], [ %241, %.critedge ], [ %385, %.critedge504 ]
+  %.3 = phi ptr [ %241, %.critedge ], [ %251, %.loopexit807 ], [ %385, %.critedge504 ]
   %indvars.iv.next853 = add nuw nsw i64 %indvars.iv852, 8
   %386 = or disjoint i64 %indvars.iv.next853, 7
   %387 = icmp slt i64 %386, %15

@@ -4812,7 +4812,7 @@ zend_get_called_scope.exit.thread:                ; preds = %44, %41, %39, %28, 
   br label %report_class_fetch_error.exit
 
 report_class_fetch_error.exit:                    ; preds = %35, %12, %zend_get_executed_scope.exit42.thread57, %27, %.sink.split.i, %57, %53, %51, %zend_get_called_scope.exit, %zend_get_executed_scope.exit, %zend_get_executed_scope.exit.thread, %zend_get_called_scope.exit.thread, %zend_get_executed_scope.exit42.thread
-  %.021 = phi ptr [ %48, %zend_get_called_scope.exit ], [ %11, %zend_get_executed_scope.exit ], [ null, %zend_get_executed_scope.exit42.thread ], [ null, %zend_get_called_scope.exit.thread ], [ null, %zend_get_executed_scope.exit.thread ], [ %52, %51 ], [ null, %.sink.split.i ], [ null, %53 ], [ null, %57 ], [ %26, %zend_get_executed_scope.exit42.thread57 ], [ %.pre, %27 ], [ %11, %12 ], [ %34, %35 ]
+  %.021 = phi ptr [ %48, %zend_get_called_scope.exit ], [ %26, %zend_get_executed_scope.exit42.thread57 ], [ %11, %zend_get_executed_scope.exit ], [ null, %zend_get_executed_scope.exit42.thread ], [ %11, %12 ], [ null, %zend_get_called_scope.exit.thread ], [ null, %zend_get_executed_scope.exit.thread ], [ %52, %51 ], [ null, %.sink.split.i ], [ null, %53 ], [ null, %57 ], [ %.pre, %27 ], [ %34, %35 ]
   ret ptr %.021
 }
 
@@ -5131,7 +5131,7 @@ _zend_hash_append_ind.exit:                       ; preds = %68, %zend_string_ad
   br i1 %.not52, label %.critedge53, label %47
 
 .critedge53:                                      ; preds = %.critedge2, %_zend_hash_append_ind.exit, %0, %32, %24, %18, %10
-  %.037 = phi ptr [ %12, %10 ], [ %27, %24 ], [ %20, %18 ], [ %.039, %32 ], [ null, %0 ], [ %.039, %_zend_hash_append_ind.exit ], [ null, %.critedge2 ]
+  %.037 = phi ptr [ %12, %10 ], [ %27, %24 ], [ null, %0 ], [ %20, %18 ], [ %.039, %32 ], [ %.039, %_zend_hash_append_ind.exit ], [ null, %.critedge2 ]
   ret ptr %.037
 }
 
@@ -5384,7 +5384,7 @@ zend_string_equal_content.exit.thread:            ; preds = %33, %zend_string_eq
   br label %.critedge59
 
 .critedge59:                                      ; preds = %.critedge4, %3, %.loopexit, %51, %53, %.critedge61, %55
-  %.5 = phi i32 [ 0, %55 ], [ 0, %53 ], [ 0, %.critedge61 ], [ -1, %.loopexit ], [ -1, %51 ], [ -1, %3 ], [ -1, %.critedge4 ]
+  %.5 = phi i32 [ 0, %55 ], [ 0, %53 ], [ 0, %.critedge61 ], [ -1, %51 ], [ -1, %.loopexit ], [ -1, %3 ], [ -1, %.critedge4 ]
   ret i32 %.5
 }
 
@@ -5498,7 +5498,7 @@ zend_string_equals_cstr.exit.thread:              ; preds = %29, %zend_string_eq
   br label %.critedge64
 
 .critedge64:                                      ; preds = %.critedge4, %4, %.loopexit, %45, %47, %.critedge66, %49
-  %.5 = phi i32 [ 0, %49 ], [ 0, %47 ], [ 0, %.critedge66 ], [ -1, %.loopexit ], [ -1, %45 ], [ -1, %4 ], [ -1, %.critedge4 ]
+  %.5 = phi i32 [ 0, %49 ], [ 0, %47 ], [ 0, %.critedge66 ], [ -1, %45 ], [ -1, %.loopexit ], [ -1, %4 ], [ -1, %.critedge4 ]
   ret i32 %.5
 }
 

@@ -5909,9 +5909,9 @@ define internal fastcc noalias noundef ptr @"_ZN8sum_tree16SumTree$LT$T$GT$19pus
   invoke void @"_ZN4core3ptr70drop_in_place$LT$$u5b$sum_tree..SumTree$LT$text..Fragment$GT$$u5d$$GT$17h4c25b7a56c7a0f24E.llvm.12005364958220619190"(ptr noalias noundef nonnull align 8 %336, i64 noundef %335)
           to label %.thread93 unwind label %239
 
-.thread93.thread138:                              ; preds = %275, %278, %.thread93
-  %.sroa.037.179145 = phi i1 [ %.sroa.037.180, %.thread93 ], [ true, %278 ], [ true, %275 ]
-  %.pn7885143 = phi { ptr, i32 } [ %.pn7886, %.thread93 ], [ %276, %278 ], [ %276, %275 ]
+.thread93.thread138:                              ; preds = %278, %275, %.thread93
+  %.sroa.037.179145 = phi i1 [ %.sroa.037.180, %.thread93 ], [ true, %275 ], [ true, %278 ]
+  %.pn7885143 = phi { ptr, i32 } [ %.pn7886, %.thread93 ], [ %276, %275 ], [ %276, %278 ]
   %337 = load i32, ptr %42, align 8, !alias.scope !1887, !noundef !19
   %.not.i.i166 = icmp eq i32 %337, 0
   br i1 %.not.i.i166, label %.thread147, label %338
@@ -8210,7 +8210,7 @@ define internal fastcc noalias noundef ptr @"_ZN8sum_tree16SumTree$LT$T$GT$19pus
   br label %.thread69
 
 .thread106.loopexit.split-lp.loopexit.split-lp:   ; preds = %250, %276
-  %.sroa.037.0.ph.ph = phi i1 [ true, %250 ], [ false, %276 ]
+  %.sroa.037.0.ph.ph = phi i1 [ false, %276 ], [ true, %250 ]
   %lpad.loopexit.split-lp261 = landingpad { ptr, i32 }
           cleanup
   br label %.thread69

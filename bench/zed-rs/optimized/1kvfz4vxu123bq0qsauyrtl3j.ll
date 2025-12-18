@@ -2707,8 +2707,8 @@ _ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17h5ac2ae42596d
   br i1 %150, label %.noexc, label %.invoke.i
 
 151:                                              ; preds = %141, %137
-  %152 = phi i8 [ %139, %137 ], [ %.pre.i.i, %141 ]
-  %.sroa.3.0.i.ph.i.i.i = phi i64 [ %.sroa.4.1.i.i.i.i, %137 ], [ %147, %141 ]
+  %152 = phi i8 [ %.pre.i.i, %141 ], [ %139, %137 ]
+  %.sroa.3.0.i.ph.i.i.i = phi i64 [ %147, %141 ], [ %.sroa.4.1.i.i.i.i, %137 ]
   %153 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %154 = load i64, ptr %153, align 8, !alias.scope !521, !noalias !522, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !572)

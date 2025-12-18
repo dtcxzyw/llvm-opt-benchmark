@@ -808,7 +808,7 @@ define dso_local i32 @lua_type(ptr noundef captures(address) %0, i32 noundef %1)
   br i1 %.not.i, label %index2adr.exit.thread, label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %4, %36, %14, %20, %24, %34
-  %.1.i = phi ptr [ %18, %14 ], [ %49, %36 ], [ %23, %20 ], [ %30, %24 ], [ %35, %34 ], [ %9, %4 ]
+  %.1.i = phi ptr [ %35, %34 ], [ %18, %14 ], [ %49, %36 ], [ %23, %20 ], [ %30, %24 ], [ %9, %4 ]
   %50 = icmp eq ptr %.1.i, @luaO_nilobject_
   br i1 %50, label %index2adr.exit.thread, label %51
 
@@ -1111,7 +1111,7 @@ define dso_local range(i32 0, 2) i32 @lua_isstring(ptr noundef captures(address)
   br i1 %.not.i.i, label %lua_type.exit, label %index2adr.exit.i
 
 index2adr.exit.i:                                 ; preds = %36, %34, %24, %20, %14, %4
-  %.1.i.i = phi ptr [ %18, %14 ], [ %49, %36 ], [ %23, %20 ], [ %30, %24 ], [ %35, %34 ], [ %9, %4 ]
+  %.1.i.i = phi ptr [ %35, %34 ], [ %18, %14 ], [ %49, %36 ], [ %23, %20 ], [ %30, %24 ], [ %9, %4 ]
   %50 = icmp eq ptr %.1.i.i, @luaO_nilobject_
   br i1 %50, label %lua_type.exit, label %51
 
@@ -5408,8 +5408,8 @@ index2adr.exit:                                   ; preds = %5, %15, %21, %25, %
   br label %aux_upvalue.exit
 
 aux_upvalue.exit:                                 ; preds = %76, %65
-  %.0 = phi ptr [ %83, %76 ], [ %68, %65 ]
-  %.0.i = phi ptr [ %88, %76 ], [ @.str.4, %65 ]
+  %.0 = phi ptr [ %68, %65 ], [ %83, %76 ]
+  %.0.i = phi ptr [ @.str.4, %65 ], [ %88, %76 ]
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %90 = load ptr, ptr %89, align 8, !tbaa !4
   %91 = load i64, ptr %.0, align 8, !tbaa !19
@@ -5564,8 +5564,8 @@ index2adr.exit:                                   ; preds = %5, %15, %21, %25, %
   br label %aux_upvalue.exit
 
 aux_upvalue.exit:                                 ; preds = %76, %65
-  %.0 = phi ptr [ %83, %76 ], [ %68, %65 ]
-  %.0.i = phi ptr [ %88, %76 ], [ @.str.4, %65 ]
+  %.0 = phi ptr [ %68, %65 ], [ %83, %76 ]
+  %.0.i = phi ptr [ @.str.4, %65 ], [ %88, %76 ]
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %90 = load ptr, ptr %89, align 8, !tbaa !4
   %91 = getelementptr inbounds i8, ptr %90, i64 -16

@@ -4718,7 +4718,7 @@ lpad65.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.l
   br label %lpad65.body
 
 lpad65.body:                                      ; preds = %lpad.i378, %lpad.i364, %lpad.i.i.i.i.i, %lpad65.loopexit, %lpad65.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad65.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad65.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad65.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad65.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad65.loopexit.split-lp.loopexit, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit6.i, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit6.i388, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit6.i.i.i.i.i
-  %eh.lpad-body75 = phi { ptr, i32 } [ %151, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit6.i.i.i.i.i ], [ %134, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit6.i ], [ %105, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit6.i388 ], [ %lpad.loopexit.split-lp489, %lpad65.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit, %lpad65.loopexit ], [ %lpad.loopexit475, %lpad65.loopexit.split-lp.loopexit ], [ %lpad.loopexit480, %lpad65.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit482, %lpad65.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit485, %lpad65.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit488, %lpad65.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %123, %lpad.i364 ], [ %141, %lpad.i.i.i.i.i ], [ %95, %lpad.i378 ]
+  %eh.lpad-body75 = phi { ptr, i32 } [ %141, %lpad.i.i.i.i.i ], [ %151, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit6.i.i.i.i.i ], [ %lpad.loopexit.split-lp489, %lpad65.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %134, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit6.i ], [ %123, %lpad.i364 ], [ %105, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit6.i388 ], [ %lpad.loopexit, %lpad65.loopexit ], [ %lpad.loopexit475, %lpad65.loopexit.split-lp.loopexit ], [ %lpad.loopexit480, %lpad65.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit482, %lpad65.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit485, %lpad65.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit488, %lpad65.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %95, %lpad.i378 ]
   call void @_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %wrapCapture) #25
   br label %ehcleanup
 
@@ -8017,7 +8017,7 @@ return.sink.split:                                ; preds = %if.then.i, %_ZZN8fa
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.then27, %if.then3, %for.end, %entry
-  %retval.0 = phi i1 [ true, %entry ], [ true, %for.end ], [ true, %if.then3 ], [ true, %if.then27 ], [ false, %return.sink.split ]
+  %retval.0 = phi i1 [ true, %entry ], [ true, %for.end ], [ true, %if.then27 ], [ true, %if.then3 ], [ false, %return.sink.split ]
   ret i1 %retval.0
 }
 

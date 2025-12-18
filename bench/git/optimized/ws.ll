@@ -123,7 +123,7 @@ define dso_local range(i32 0, -256) i32 @parse_whitespace_rule(ptr noundef %0) l
   br label %skip_prefix.exit
 
 skip_prefix.exit:                                 ; preds = %23, %35, %32
-  %.236 = phi i32 [ %.3, %35 ], [ %34, %32 ], [ %.3, %23 ]
+  %.236 = phi i32 [ %34, %32 ], [ %.3, %35 ], [ %.3, %23 ]
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %skip_prefix.exit.thread53, label %.lr.ph
 
@@ -729,9 +729,9 @@ define internal fastcc i32 @ws_check_emit_1(ptr noundef readonly captures(none) 
   br label %._crit_edge188
 
 ._crit_edge188:                                   ; preds = %141, %.lr.ph187.split.split, %113, %.lr.ph187.split.split.us.split, %98, %91, %.lr.ph187.split.us.split, %66, %.lr.ph187.split.us.split.us.split, %54, %._crit_edge188.loopexit312.split.loop.exit, %._crit_edge188.loopexit.split.loop.exit, %.thread157
-  %.2118.lcssa = phi i32 [ %.0116161, %.thread157 ], [ %.0116161, %66 ], [ %.0116161, %._crit_edge188.loopexit.split.loop.exit ], [ %.2118183.us203.us, %._crit_edge188.loopexit312.split.loop.exit ], [ %.2118183.us203, %.lr.ph187.split.split.us.split ], [ %.0116161, %54 ], [ %.2118183.us, %.lr.ph187.split.us.split ], [ %.3.us206.us, %98 ], [ %.0116161, %.lr.ph187.split.us.split.us.split ], [ %.3.us, %91 ], [ %.3.us206, %113 ], [ %.2118183, %.lr.ph187.split.split ], [ %.3, %141 ]
-  %.0113.lcssa = phi i32 [ 0, %.thread157 ], [ %.1114.us.us, %66 ], [ %.0113184.us.us.us, %._crit_edge188.loopexit.split.loop.exit ], [ %.0113184.us202.us, %._crit_edge188.loopexit312.split.loop.exit ], [ %.0113184.us202, %.lr.ph187.split.split.us.split ], [ %.1114.us.us.us, %54 ], [ %.0113184.us, %.lr.ph187.split.us.split ], [ %.1114.us207.us, %98 ], [ %.0113184.us.us, %.lr.ph187.split.us.split.us.split ], [ %.1114.us, %91 ], [ %.1114.us207, %113 ], [ %.0113184, %.lr.ph187.split.split ], [ %.1114, %141 ]
-  %.1.lcssa = phi i32 [ 0, %.thread157 ], [ %45, %66 ], [ %142, %._crit_edge188.loopexit.split.loop.exit ], [ %143, %._crit_edge188.loopexit312.split.loop.exit ], [ %101, %.lr.ph187.split.split.us.split ], [ %45, %54 ], [ %69, %.lr.ph187.split.us.split ], [ %45, %98 ], [ %57, %.lr.ph187.split.us.split.us.split ], [ %45, %91 ], [ %45, %113 ], [ %116, %.lr.ph187.split.split ], [ %45, %141 ]
+  %.2118.lcssa = phi i32 [ %.0116161, %.thread157 ], [ %.2118183.us203.us, %._crit_edge188.loopexit312.split.loop.exit ], [ %.2118183.us203, %.lr.ph187.split.split.us.split ], [ %.0116161, %54 ], [ %.0116161, %._crit_edge188.loopexit.split.loop.exit ], [ %.2118183.us, %.lr.ph187.split.us.split ], [ %.3.us206.us, %98 ], [ %.0116161, %66 ], [ %.0116161, %.lr.ph187.split.us.split.us.split ], [ %.3.us, %91 ], [ %.3.us206, %113 ], [ %.3, %141 ], [ %.2118183, %.lr.ph187.split.split ]
+  %.0113.lcssa = phi i32 [ 0, %.thread157 ], [ %.0113184.us202.us, %._crit_edge188.loopexit312.split.loop.exit ], [ %.0113184.us202, %.lr.ph187.split.split.us.split ], [ %.1114.us.us.us, %54 ], [ %.0113184.us.us.us, %._crit_edge188.loopexit.split.loop.exit ], [ %.0113184.us, %.lr.ph187.split.us.split ], [ %.1114.us207.us, %98 ], [ %.1114.us.us, %66 ], [ %.0113184.us.us, %.lr.ph187.split.us.split.us.split ], [ %.1114.us, %91 ], [ %.1114.us207, %113 ], [ %.1114, %141 ], [ %.0113184, %.lr.ph187.split.split ]
+  %.1.lcssa = phi i32 [ 0, %.thread157 ], [ %143, %._crit_edge188.loopexit312.split.loop.exit ], [ %101, %.lr.ph187.split.split.us.split ], [ %45, %54 ], [ %142, %._crit_edge188.loopexit.split.loop.exit ], [ %69, %.lr.ph187.split.us.split ], [ %45, %98 ], [ %45, %66 ], [ %57, %.lr.ph187.split.us.split.us.split ], [ %45, %91 ], [ %45, %113 ], [ %45, %141 ], [ %116, %.lr.ph187.split.split ]
   %144 = and i32 %2, 256
   %.not141 = icmp eq i32 %144, 0
   br i1 %.not141, label %156, label %145

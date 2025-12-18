@@ -266,7 +266,7 @@ _ZN20btAlignedObjectArrayIPK10btDbvtNodeED2Ev.exit: ; preds = %49, %53
   br i1 %61, label %.loopexit, label %60
 
 .loopexit:                                        ; preds = %.preheader, %60, %41
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %42, %41 ], [ %.pn.pn, %60 ], [ %42, %.preheader ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %60 ], [ %42, %41 ], [ %42, %.preheader ]
   resume { ptr, i32 } %.pn.pn.pn.pn
 }
 
@@ -1875,7 +1875,7 @@ _ZN20btAlignedObjectArrayIN6btDbvt6sStkNNEE8allocateEi.exit.i.i: ; preds = %45
   br i1 %exitcond.not.i.i.i68, label %_ZNK20btAlignedObjectArrayIN6btDbvt6sStkNNEE4copyEiiPS1_.exit.i.i60, label %50, !llvm.loop !93
 
 _ZNK20btAlignedObjectArrayIN6btDbvt6sStkNNEE4copyEiiPS1_.exit.i.i60: ; preds = %50, %45, %_ZN20btAlignedObjectArrayIN6btDbvt6sStkNNEE8allocateEi.exit.i.i
-  %.0.i.i.i105 = phi ptr [ %48, %_ZN20btAlignedObjectArrayIN6btDbvt6sStkNNEE8allocateEi.exit.i.i ], [ null, %45 ], [ %48, %50 ]
+  %.0.i.i.i105 = phi ptr [ null, %45 ], [ %48, %_ZN20btAlignedObjectArrayIN6btDbvt6sStkNNEE8allocateEi.exit.i.i ], [ %48, %50 ]
   %54 = load ptr, ptr %29, align 8, !tbaa !91
   %.not.i5.i.i61 = icmp ne ptr %54, null
   %55 = load i8, ptr %32, align 8, !range !48
@@ -2683,7 +2683,7 @@ _ZN20btAlignedObjectArrayI16btBroadphasePairE8allocateEi.exit.i.i: ; preds = %91
   br i1 %exitcond.not.i.i.i, label %_ZNK20btAlignedObjectArrayI16btBroadphasePairE4copyEiiPS0_.exit.i.i, label %97, !llvm.loop !114
 
 _ZNK20btAlignedObjectArrayI16btBroadphasePairE4copyEiiPS0_.exit.i.i: ; preds = %97, %91, %_ZN20btAlignedObjectArrayI16btBroadphasePairE8allocateEi.exit.i.i
-  %.0.i.i.i49 = phi ptr [ %94, %_ZN20btAlignedObjectArrayI16btBroadphasePairE8allocateEi.exit.i.i ], [ null, %91 ], [ %94, %97 ]
+  %.0.i.i.i49 = phi ptr [ null, %91 ], [ %94, %_ZN20btAlignedObjectArrayI16btBroadphasePairE8allocateEi.exit.i.i ], [ %94, %97 ]
   %101 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %102 = load ptr, ptr %101, align 8, !tbaa !102
   %.not.i5.i.i = icmp ne ptr %102, null

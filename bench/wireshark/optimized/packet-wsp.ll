@@ -4667,7 +4667,7 @@ define internal i32 @wkh_cache_control(ptr noundef %0, ptr noundef %1, i32 nound
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %129, ptr noundef nonnull @.str.1038, ptr noundef %165)
   br label %.thread193
 
-.thread199:                                       ; preds = %.thread, %112, %123, %162, %105, %48, %15
+.thread199:                                       ; preds = %.thread, %105, %162, %48, %123, %15, %112
   %.0149202 = phi i32 [ %45, %.thread ], [ %45, %105 ], [ %45, %123 ], [ %45, %48 ], [ %45, %162 ], [ %16, %15 ], [ %45, %112 ]
   %179 = load ptr, ptr %5, align 8
   %180 = call ptr @expert_add_info(ptr noundef %3, ptr noundef %179, ptr noundef nonnull @ei_wsp_header_invalid_value)
@@ -7340,7 +7340,7 @@ define internal fastcc i32 @wkh_content_type_header(ptr noundef %0, ptr noundef 
   br label %.thread134
 
 .thread134:                                       ; preds = %94, %39, %34, %84, %19, %.thread124
-  %.0105137 = phi i32 [ %54, %.thread124 ], [ %32, %39 ], [ %32, %34 ], [ %54, %84 ], [ %20, %19 ], [ %54, %94 ]
+  %.0105137 = phi i32 [ %54, %.thread124 ], [ %32, %39 ], [ %32, %34 ], [ %20, %19 ], [ %54, %84 ], [ %54, %94 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

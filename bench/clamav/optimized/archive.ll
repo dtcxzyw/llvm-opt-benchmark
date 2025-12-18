@@ -1711,7 +1711,7 @@ _Z5uiMsgIJRA2048_wS1_EEv14UIMESSAGE_CODEDpOT_.exit: ; preds = %10
   br i1 %55, label %_ZN7Archive11IsSignatureEPKhm.exit.thread112, label %.thread
 
 _ZN7Archive11IsSignatureEPKhm.exit.thread112:     ; preds = %53, %50, %54
-  %.0.i.ph = phi i32 [ 3, %53 ], [ 2, %50 ], [ 4, %54 ]
+  %.0.i.ph = phi i32 [ 2, %50 ], [ 3, %53 ], [ 4, %54 ]
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 48840
   store i32 %.0.i.ph, ptr %56, align 8, !tbaa !60
   br label %159

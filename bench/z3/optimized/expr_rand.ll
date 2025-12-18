@@ -525,7 +525,7 @@ define hidden void @_ZN9expr_rand8add_exprEP4expr(ptr noundef nonnull align 8 de
   br i1 %.not27.old.i.i.i, label %.loopexit, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %38, %35
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %38 ], [ %37, %35 ]
+  %.137.i.i.i.be = phi ptr [ %37, %35 ], [ %.old.i.i.i, %38 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !54
 
 _ZNK7obj_mapI4sortP10ref_vectorI4expr11ast_managerEE4findEPS0_RS5_.exit: ; preds = %19, %30
@@ -775,7 +775,7 @@ define hidden noundef ptr @_ZN9expr_rand11choose_exprEP4sort(ptr noundef nonnull
   br i1 %.not27.old.i.i.i, label %.loopexit32, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %37, %34
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %37 ], [ %36, %34 ]
+  %.137.i.i.i.be = phi ptr [ %36, %34 ], [ %.old.i.i.i, %37 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !54
 
 .loopexit32:                                      ; preds = %23, %34, %37, %.preheader.i.i.i
@@ -853,7 +853,7 @@ define hidden noundef ptr @_ZN9expr_rand11choose_exprEP4sort(ptr noundef nonnull
   br i1 %.not27.old.i.i.i16, label %.loopexit, label %.lr.ph38.i.i.i12.backedge
 
 .lr.ph38.i.i.i12.backedge:                        ; preds = %71, %68
-  %.137.i.i.i13.be = phi ptr [ %.old.i.i.i15, %71 ], [ %70, %68 ]
+  %.137.i.i.i13.be = phi ptr [ %70, %68 ], [ %.old.i.i.i15, %71 ]
   br label %.lr.ph38.i.i.i12, !llvm.loop !54
 
 .loopexit:                                        ; preds = %57, %68, %71, %.preheader.i.i.i10
@@ -862,7 +862,7 @@ define hidden noundef ptr @_ZN9expr_rand11choose_exprEP4sort(ptr noundef nonnull
   unreachable
 
 _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit: ; preds = %18, %29, %52, %63
-  %.026.i.i.i.pn = phi ptr [ %.137.i.i.i, %29 ], [ %.137.i.i.i13, %63 ], [ %.035.i.i.i7, %52 ], [ %.035.i.i.i, %18 ]
+  %.026.i.i.i.pn = phi ptr [ %.137.i.i.i, %29 ], [ %.035.i.i.i7, %52 ], [ %.137.i.i.i13, %63 ], [ %.035.i.i.i, %18 ]
   %.0.in = getelementptr inbounds nuw i8, ptr %.026.i.i.i.pn, i64 8
   %.0 = load ptr, ptr %.0.in, align 8, !tbaa !42
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 12

@@ -769,7 +769,7 @@ ssl_tls13_get_default_group_id.exit.i.sink.split: ; preds = %106, %84
   br label %ssl_tls13_get_default_group_id.exit.i
 
 ssl_tls13_get_default_group_id.exit.i:            ; preds = %108, %ssl_tls13_get_default_group_id.exit.i.sink.split, %89
-  %.066.i = phi i16 [ %87, %89 ], [ %switch.load96, %ssl_tls13_get_default_group_id.exit.i.sink.split ], [ %.pre.i.i, %108 ]
+  %.066.i = phi i16 [ %switch.load96, %ssl_tls13_get_default_group_id.exit.i.sink.split ], [ %87, %89 ], [ %.pre.i.i, %108 ]
   switch i16 %.066.i, label %112 [
     i16 29, label %mbedtls_ssl_tls13_named_group_is_ecdhe.exit59.thread.i
     i16 25, label %mbedtls_ssl_tls13_named_group_is_ecdhe.exit59.thread.i
@@ -922,7 +922,7 @@ mbedtls_ssl_tls13_named_group_is_ecdhe.exit59.thread.i: ; preds = %112, %ssl_tls
   br label %ssl_tls13_write_supported_versions_ext.exit
 
 ssl_tls13_write_supported_versions_ext.exit:      ; preds = %100, %mbedtls_ssl_get_groups.exit.i.i, %.preheader.i.i, %.thread.i, %112, %79, %143, %44, %7, %4, %173
-  %.033 = phi i32 [ 0, %173 ], [ %6, %4 ], [ -27136, %44 ], [ -27136, %7 ], [ -27136, %143 ], [ -24192, %mbedtls_ssl_get_groups.exit.i.i ], [ -28800, %.preheader.i.i ], [ %.1.ph.i, %.thread.i ], [ -27648, %112 ], [ -27136, %79 ], [ -28800, %100 ]
+  %.033 = phi i32 [ 0, %173 ], [ %6, %4 ], [ -27136, %44 ], [ -27136, %7 ], [ -27136, %143 ], [ -27136, %79 ], [ -24192, %mbedtls_ssl_get_groups.exit.i.i ], [ -28800, %.preheader.i.i ], [ %.1.ph.i, %.thread.i ], [ -27648, %112 ], [ -28800, %100 ]
   ret i32 %.033
 }
 
@@ -1504,8 +1504,8 @@ ssl_tls13_parse_server_hello.exit.i:              ; preds = %167
   br label %ssl_tls13_process_server_hello.exit
 
 ssl_tls13_parse_server_hello.exit.thread.i:       ; preds = %196, %192, %188, %216, %ssl_tls13_parse_server_hello.exit.i, %.thread209.i.i, %.thread194.thread.i.i, %210, %200, %195, %187, %176, %166, %157, %151, %120, %.thread212.i.i, %91, %ssl_tls13_preprocess_server_hello.exit.thread49.i
-  %.024.i = phi i32 [ %219, %216 ], [ -29440, %91 ], [ 0, %ssl_tls13_preprocess_server_hello.exit.thread49.i ], [ -110, %ssl_tls13_parse_server_hello.exit.i ], [ -29440, %151 ], [ -29440, %120 ], [ %.4.i.i, %210 ], [ %194, %195 ], [ -29440, %176 ], [ -29440, %187 ], [ %199, %200 ], [ -28288, %.thread212.i.i ], [ -26112, %.thread209.i.i ], [ -29952, %.thread194.thread.i.i ], [ -29440, %166 ], [ -29440, %157 ], [ %191, %188 ], [ %197, %196 ], [ -27648, %192 ]
-  %.0.i = phi i32 [ %84, %216 ], [ %84, %91 ], [ %81, %ssl_tls13_preprocess_server_hello.exit.thread49.i ], [ %84, %ssl_tls13_parse_server_hello.exit.i ], [ %84, %151 ], [ %84, %120 ], [ %84, %210 ], [ %84, %195 ], [ %84, %176 ], [ %84, %187 ], [ %84, %200 ], [ %84, %.thread212.i.i ], [ %84, %.thread209.i.i ], [ %84, %.thread194.thread.i.i ], [ %84, %166 ], [ %84, %157 ], [ %84, %188 ], [ %84, %192 ], [ %84, %196 ]
+  %.024.i = phi i32 [ %219, %216 ], [ -29440, %91 ], [ 0, %ssl_tls13_preprocess_server_hello.exit.thread49.i ], [ -110, %ssl_tls13_parse_server_hello.exit.i ], [ -29440, %151 ], [ -29440, %120 ], [ %.4.i.i, %210 ], [ %194, %195 ], [ -29440, %187 ], [ %199, %200 ], [ -29440, %176 ], [ -28288, %.thread212.i.i ], [ -26112, %.thread209.i.i ], [ -29952, %.thread194.thread.i.i ], [ -29440, %166 ], [ -29440, %157 ], [ %191, %188 ], [ %197, %196 ], [ -27648, %192 ]
+  %.0.i = phi i32 [ %84, %216 ], [ %84, %91 ], [ %81, %ssl_tls13_preprocess_server_hello.exit.thread49.i ], [ %84, %ssl_tls13_parse_server_hello.exit.i ], [ %84, %151 ], [ %84, %120 ], [ %84, %210 ], [ %84, %195 ], [ %84, %187 ], [ %84, %200 ], [ %84, %176 ], [ %84, %.thread212.i.i ], [ %84, %.thread209.i.i ], [ %84, %.thread194.thread.i.i ], [ %84, %166 ], [ %84, %157 ], [ %84, %188 ], [ %84, %192 ], [ %84, %196 ]
   %.0.fr.i = freeze i32 %.0.i
   %.not39.i = icmp eq i32 %.0.fr.i, 0
   %spec.select.i = select i1 %.not39.i, ptr @.str.29, ptr @.str.28
@@ -1754,7 +1754,7 @@ ssl_tls13_parse_encrypted_extensions.exit.i:      ; preds = %._crit_edge.thread.
   br label %ssl_tls13_process_encrypted_extensions.exit
 
 ssl_tls13_process_encrypted_extensions.exit:      ; preds = %266, %269, %.preheader.i.i.i, %295, %228, %238, %243, %253, %265, %276, %281, %283, %289, %303, %305, %ssl_tls13_parse_encrypted_extensions.exit.i, %318, %319
-  %.0.i30 = phi i32 [ %231, %228 ], [ 0, %319 ], [ %314, %ssl_tls13_parse_encrypted_extensions.exit.i ], [ 0, %318 ], [ -29440, %243 ], [ -29440, %238 ], [ -29440, %281 ], [ -29440, %283 ], [ -29440, %289 ], [ -29440, %265 ], [ -29440, %276 ], [ -29440, %253 ], [ -29440, %305 ], [ -26112, %303 ], [ -28928, %295 ], [ %267, %266 ], [ -28928, %.preheader.i.i.i ], [ -28928, %269 ]
+  %.0.i30 = phi i32 [ %231, %228 ], [ 0, %319 ], [ %314, %ssl_tls13_parse_encrypted_extensions.exit.i ], [ 0, %318 ], [ -26112, %303 ], [ -29440, %243 ], [ -28928, %295 ], [ -29440, %283 ], [ -29440, %289 ], [ -29440, %238 ], [ -29440, %276 ], [ -29440, %265 ], [ -29440, %281 ], [ -29440, %253 ], [ -29440, %305 ], [ -28928, %269 ], [ -28928, %.preheader.i.i.i ], [ %267, %266 ]
   call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef %0, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef 2282, ptr noundef nonnull @.str.77) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -3256,7 +3256,7 @@ define internal fastcc i32 @ssl_tls13_parse_new_session_ticket_exts(ptr noundef 
   br label %.thread
 
 .thread:                                          ; preds = %26, %25, %13, %._crit_edge
-  %.2 = phi i32 [ 0, %._crit_edge ], [ -29440, %25 ], [ -29440, %13 ], [ %27, %26 ]
+  %.2 = phi i32 [ 0, %._crit_edge ], [ -29440, %13 ], [ -29440, %25 ], [ %27, %26 ]
   ret i32 %.2
 }
 

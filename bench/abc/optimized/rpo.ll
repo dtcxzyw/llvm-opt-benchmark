@@ -1504,7 +1504,7 @@ Kit_TruthAnd.exit.i201:                           ; preds = %Vec_StrAlloc.exit.i
   br i1 %194, label %select.unfold.preheader.i38.i, label %Kit_TruthOr.exit42.i
 
 select.unfold.preheader.i38.i:                    ; preds = %select.unfold.i34.i194, %select.unfold.i.i198, %Kit_TruthAnd.exit.i201
-  %.079.i = phi i8 [ 37, %Kit_TruthAnd.exit.i201 ], [ 42, %select.unfold.i.i198 ], [ 43, %select.unfold.i34.i194 ]
+  %.079.i = phi i8 [ 42, %select.unfold.i.i198 ], [ 37, %Kit_TruthAnd.exit.i201 ], [ 43, %select.unfold.i34.i194 ]
   %286 = load ptr, ptr %235, align 8, !tbaa !14
   %287 = load ptr, ptr %238, align 8, !tbaa !14
   br label %select.unfold.i39.i
@@ -1523,7 +1523,7 @@ select.unfold.i39.i:                              ; preds = %select.unfold.i39.i
   br i1 %294, label %select.unfold.i39.i, label %Kit_TruthOr.exit42.i, !llvm.loop !46
 
 Kit_TruthOr.exit42.i:                             ; preds = %select.unfold.i39.i, %Kit_TruthAnd.exit.i201, %274, %262
-  %.078.i = phi i8 [ 37, %Kit_TruthAnd.exit.i201 ], [ 42, %262 ], [ 43, %274 ], [ %.079.i, %select.unfold.i39.i ]
+  %.078.i = phi i8 [ 37, %Kit_TruthAnd.exit.i201 ], [ 43, %274 ], [ 42, %262 ], [ %.079.i, %select.unfold.i39.i ]
   br i1 %.not.i.i193, label %295, label %Vec_StrPutC.exit.i
 
 295:                                              ; preds = %Kit_TruthOr.exit42.i

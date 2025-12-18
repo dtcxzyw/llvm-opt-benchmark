@@ -1536,7 +1536,7 @@ Vec_IntPush.exit166:                              ; preds = %.Vec_IntGrow.exit10
   br label %.loopexit
 
 .loopexit:                                        ; preds = %81, %178, %.critedge10, %248
-  %.0108 = phi i32 [ 1, %248 ], [ 0, %.critedge10 ], [ 0, %178 ], [ 0, %81 ]
+  %.0108 = phi i32 [ 1, %248 ], [ 0, %178 ], [ 0, %.critedge10 ], [ 0, %81 ]
   ret i32 %.0108
 }
 
@@ -1663,7 +1663,7 @@ Abc_TtCountOnes2.exit20.i:                        ; preds = %49, %.lr.ph27.i
   br i1 %exitcond36.not.i, label %Abc_TtCountOnesVecMask.exit, label %.lr.ph27.i, !llvm.loop !104
 
 Abc_TtCountOnesVecMask.exit:                      ; preds = %Abc_TtCountOnes2.exit.i, %Abc_TtCountOnes2.exit20.i, %.preheader21.i, %.preheader.i
-  %.1.i = phi i32 [ 0, %.preheader.i ], [ 0, %.preheader21.i ], [ %69, %Abc_TtCountOnes2.exit20.i ], [ %43, %Abc_TtCountOnes2.exit.i ]
+  %.1.i = phi i32 [ %69, %Abc_TtCountOnes2.exit20.i ], [ 0, %.preheader.i ], [ 0, %.preheader21.i ], [ %43, %Abc_TtCountOnes2.exit.i ]
   ret i32 %.1.i
 }
 
@@ -1848,7 +1848,7 @@ Abc_TtCountOnes2.exit20.i.i:                      ; preds = %87, %.lr.ph27.i.i
   br i1 %exitcond36.not.i.i, label %Sfm_DecFindCost.exit, label %.lr.ph27.i.i, !llvm.loop !104
 
 Sfm_DecFindCost.exit:                             ; preds = %Abc_TtCountOnes2.exit.i.i, %Abc_TtCountOnes2.exit20.i.i, %.preheader21.i.i, %.preheader.i.i
-  %.1.i.i = phi i32 [ 0, %.preheader.i.i ], [ 0, %.preheader21.i.i ], [ %107, %Abc_TtCountOnes2.exit20.i.i ], [ %81, %Abc_TtCountOnes2.exit.i.i ]
+  %.1.i.i = phi i32 [ %107, %Abc_TtCountOnes2.exit20.i.i ], [ 0, %.preheader.i.i ], [ 0, %.preheader21.i.i ], [ %81, %Abc_TtCountOnes2.exit.i.i ]
   %108 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, ptr noundef nonnull %47, i32 noundef %48, i32 noundef %.1.i.i)
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
   %.val58 = load i32, ptr %35, align 4, !tbaa !85
@@ -2280,7 +2280,7 @@ Abc_TtCountOnes2.exit20.i.i:                      ; preds = %69, %.lr.ph27.i.i
   br i1 %exitcond36.not.i.i, label %Sfm_DecFindCost.exit, label %.lr.ph27.i.i, !llvm.loop !104
 
 Sfm_DecFindCost.exit:                             ; preds = %Abc_TtCountOnes2.exit.i.i, %Abc_TtCountOnes2.exit20.i.i, %.preheader21.i.i, %.preheader.i.i
-  %.1.i.i = phi i32 [ 0, %.preheader.i.i ], [ 0, %.preheader21.i.i ], [ %89, %Abc_TtCountOnes2.exit20.i.i ], [ %63, %Abc_TtCountOnes2.exit.i.i ]
+  %.1.i.i = phi i32 [ %89, %Abc_TtCountOnes2.exit20.i.i ], [ 0, %.preheader.i.i ], [ 0, %.preheader21.i.i ], [ %63, %Abc_TtCountOnes2.exit.i.i ]
   %90 = icmp sgt i32 %.136, %.1.i.i
   %91 = ashr i32 %19, 1
   %spec.select = select i1 %90, i32 %91, i32 %.12435
@@ -3279,7 +3279,7 @@ Abc_TtMux.exit:                                   ; preds = %.lr.ph.i98, %Vec_In
   br i1 %183, label %.preheader.us.i105, label %Abc_TtStretch6.exit, !llvm.loop !136
 
 Abc_TtStretch6.exit:                              ; preds = %._crit_edge.us.i112, %._crit_edge.us.i, %171, %Abc_TtMux.exit, %27, %22, %Vec_IntPushOrder.exit
-  %.0 = phi i32 [ -2, %Vec_IntPushOrder.exit ], [ %5, %22 ], [ %5, %27 ], [ %95, %Abc_TtMux.exit ], [ %95, %171 ], [ %5, %._crit_edge.us.i ], [ %95, %._crit_edge.us.i112 ]
+  %.0 = phi i32 [ -2, %Vec_IntPushOrder.exit ], [ %5, %._crit_edge.us.i ], [ %5, %22 ], [ %5, %27 ], [ %95, %Abc_TtMux.exit ], [ %95, %171 ], [ %95, %._crit_edge.us.i112 ]
   ret i32 %.0
 }
 
@@ -4792,8 +4792,8 @@ Vec_IntFind.exit463.loopexit.us:                  ; preds = %579
   br label %.critedge9.thread
 
 .critedge9.thread:                                ; preds = %Vec_IntFind.exit463.loopexit.us, %583, %567, %.lr.ph569.split, %.loopexit511
-  %.1362 = phi i32 [ %564, %.loopexit511 ], [ %587, %.lr.ph569.split ], [ -1, %567 ], [ %578, %583 ], [ -1, %Vec_IntFind.exit463.loopexit.us ]
-  %.1344 = phi i32 [ %6, %.loopexit511 ], [ 0, %.lr.ph569.split ], [ 0, %567 ], [ 0, %583 ], [ 0, %Vec_IntFind.exit463.loopexit.us ]
+  %.1362 = phi i32 [ %564, %.loopexit511 ], [ -1, %567 ], [ %578, %583 ], [ %587, %.lr.ph569.split ], [ -1, %Vec_IntFind.exit463.loopexit.us ]
+  %.1344 = phi i32 [ %6, %.loopexit511 ], [ 0, %567 ], [ 0, %583 ], [ 0, %.lr.ph569.split ], [ 0, %Vec_IntFind.exit463.loopexit.us ]
   %588 = load ptr, ptr %0, align 8, !tbaa !40
   %589 = getelementptr inbounds nuw i8, ptr %588, i64 120
   %590 = load i32, ptr %589, align 4, !tbaa !18
@@ -6358,12 +6358,12 @@ Abc_Clock.exit283:                                ; preds = %.thread291, %254
   br label %.loopexit
 
 .loopexit:                                        ; preds = %263, %.loopexit.sink.split, %Sfm_DecMffcAreaReal.exit, %141, %135, %110
-  %.1223 = phi ptr [ %.0222337, %110 ], [ %.0222337, %135 ], [ %.0222337, %141 ], [ %.0222337, %Sfm_DecMffcAreaReal.exit ], [ %.0222337, %.loopexit.sink.split ], [ %.5227, %263 ]
-  %.1214 = phi ptr [ %.0213338, %110 ], [ %.0213338, %135 ], [ %.0213338, %141 ], [ %.0213338, %Sfm_DecMffcAreaReal.exit ], [ %.0213338, %.loopexit.sink.split ], [ %.5218, %263 ]
-  %.1205 = phi ptr [ %.0204339, %110 ], [ %.0204339, %135 ], [ %.0204339, %141 ], [ %.0204339, %Sfm_DecMffcAreaReal.exit ], [ %.0204339, %.loopexit.sink.split ], [ %.5209, %263 ]
-  %.1196 = phi ptr [ %.0195340, %110 ], [ %.0195340, %135 ], [ %.0195340, %141 ], [ %.0195340, %Sfm_DecMffcAreaReal.exit ], [ %.0195340, %.loopexit.sink.split ], [ %.5200, %263 ]
-  %.1187 = phi i32 [ %.0186341, %110 ], [ %.0186341, %135 ], [ %.0186341, %141 ], [ %.0186341, %Sfm_DecMffcAreaReal.exit ], [ %.0186341, %.loopexit.sink.split ], [ %.5191, %263 ]
-  %.1 = phi i32 [ %72, %110 ], [ %72, %135 ], [ %72, %141 ], [ %72, %Sfm_DecMffcAreaReal.exit ], [ %72, %.loopexit.sink.split ], [ %.3, %263 ]
+  %.1223 = phi ptr [ %.0222337, %.loopexit.sink.split ], [ %.0222337, %110 ], [ %.0222337, %Sfm_DecMffcAreaReal.exit ], [ %.0222337, %135 ], [ %.0222337, %141 ], [ %.5227, %263 ]
+  %.1214 = phi ptr [ %.0213338, %.loopexit.sink.split ], [ %.0213338, %110 ], [ %.0213338, %Sfm_DecMffcAreaReal.exit ], [ %.0213338, %135 ], [ %.0213338, %141 ], [ %.5218, %263 ]
+  %.1205 = phi ptr [ %.0204339, %.loopexit.sink.split ], [ %.0204339, %110 ], [ %.0204339, %Sfm_DecMffcAreaReal.exit ], [ %.0204339, %135 ], [ %.0204339, %141 ], [ %.5209, %263 ]
+  %.1196 = phi ptr [ %.0195340, %.loopexit.sink.split ], [ %.0195340, %110 ], [ %.0195340, %Sfm_DecMffcAreaReal.exit ], [ %.0195340, %135 ], [ %.0195340, %141 ], [ %.5200, %263 ]
+  %.1187 = phi i32 [ %.0186341, %.loopexit.sink.split ], [ %.0186341, %110 ], [ %.0186341, %Sfm_DecMffcAreaReal.exit ], [ %.0186341, %135 ], [ %.0186341, %141 ], [ %.5191, %263 ]
+  %.1 = phi i32 [ %72, %.loopexit.sink.split ], [ %72, %110 ], [ %72, %Sfm_DecMffcAreaReal.exit ], [ %72, %135 ], [ %72, %141 ], [ %.3, %263 ]
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond353.not = icmp eq i64 %indvar.next, %wide.trip.count352
   br i1 %exitcond353.not, label %268, label %64, !llvm.loop !217
@@ -11734,8 +11734,8 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br label %.critedge.loopexit, !llvm.loop !269
 
 .critedge.loopexit:                               ; preds = %.lr.ph273, %93, %..critedge.loopexit_crit_edge, %.lr.ph
-  %.val171.pre = phi i32 [ %.val172200, %.lr.ph ], [ %.val171.pre.pre, %..critedge.loopexit_crit_edge ], [ %.val171.pre.pre, %93 ], [ %.val171.pre.pre, %.lr.ph273 ]
-  %.0128.lcssa.ph.in = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %..critedge.loopexit_crit_edge ], [ %indvars.iv272, %.lr.ph273 ], [ %indvars.iv.next, %93 ]
+  %.val171.pre = phi i32 [ %.val171.pre.pre, %..critedge.loopexit_crit_edge ], [ %.val172200, %.lr.ph ], [ %.val171.pre.pre, %93 ], [ %.val171.pre.pre, %.lr.ph273 ]
+  %.0128.lcssa.ph.in = phi i64 [ %indvars.iv.next, %..critedge.loopexit_crit_edge ], [ 0, %.lr.ph ], [ %indvars.iv272, %.lr.ph273 ], [ %indvars.iv.next, %93 ]
   %.0128.lcssa.ph = trunc i64 %.0128.lcssa.ph.in to i32
   br label %.critedge
 

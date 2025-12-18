@@ -588,7 +588,7 @@ Sdb_StoInitResult.exit.._crit_edge340_crit_edge:  ; preds = %Sdb_StoInitResult.e
   br i1 %exitcond159.not.i.us, label %.loopexit.us, label %.lr.ph134.i.us, !llvm.loop !54
 
 .loopexit.us:                                     ; preds = %248, %.preheader.i.us, %._crit_edge131.loopexit.i.us, %.preheader116.i.us, %._crit_edge.loopexit.i140.us, %.preheader117.i.us
-  %.5.lcssa.sink.i.us = phi i32 [ %232, %._crit_edge.loopexit.i140.us ], [ 0, %.preheader.i.us ], [ %.1.i.us, %.preheader117.i.us ], [ %.091.i.us, %.preheader116.i.us ], [ %243, %._crit_edge131.loopexit.i.us ], [ %15, %248 ]
+  %.5.lcssa.sink.i.us = phi i32 [ %232, %._crit_edge.loopexit.i140.us ], [ 0, %.preheader.i.us ], [ %243, %._crit_edge131.loopexit.i.us ], [ %.1.i.us, %.preheader117.i.us ], [ %.091.i.us, %.preheader116.i.us ], [ %15, %248 ]
   %250 = getelementptr inbounds nuw i8, ptr %189, i64 20
   %251 = load i32, ptr %250, align 4
   %252 = shl i32 %.5.lcssa.sink.i.us, 28
@@ -1237,7 +1237,7 @@ Abc_TtXor.exit.sink.split.i.us:                   ; preds = %.preheader.i96.i.us
   br label %Abc_TtXor.exit.i.us
 
 Abc_TtXor.exit.i.us:                              ; preds = %Abc_TtXor.exit.sink.split.i.us, %.preheader.i96.i.us, %.preheader18.i89.i.us, %.preheader.i87.i.us, %.preheader18.i.i.us
-  %.047.i.us = phi i32 [ 1, %.preheader18.i.i.us ], [ 0, %.preheader.i87.i.us ], [ 1, %.preheader18.i89.i.us ], [ 0, %.preheader.i96.i.us ], [ %.047.ph.i.us, %Abc_TtXor.exit.sink.split.i.us ]
+  %.047.i.us = phi i32 [ 1, %.preheader18.i89.i.us ], [ 1, %.preheader18.i.i.us ], [ 0, %.preheader.i87.i.us ], [ 0, %.preheader.i96.i.us ], [ %.047.ph.i.us, %Abc_TtXor.exit.sink.split.i.us ]
   %569 = load i32, ptr %162, align 4, !tbaa !76
   %.not48.i.us = icmp eq i32 %569, 0
   br i1 %.not48.i.us, label %Sdb_CutComputeTruth.exit.us, label %570
@@ -2040,13 +2040,13 @@ Sdb_CutCompare.exit.i.i.us:                       ; preds = %966, %964
   br i1 %971, label %.lr.ph.i8.i.us, label %Sdb_CutSetSortByCost.exit.i.us, !llvm.loop !84
 
 Sdb_CutSetSortByCost.exit.i.us:                   ; preds = %.lr.ph.i8.i.us, %966, %Sdb_CutCompare.exit.i.i.us, %Sdb_CutSetLastCutContains.exit.i.us, %890
-  %.0.i10.i.us = phi i32 [ %.0.i.i184.us, %Sdb_CutSetLastCutContains.exit.i.us ], [ %.1329.us, %890 ], [ %.0.i.i184.us, %Sdb_CutCompare.exit.i.i.us ], [ %.0.i.i184.us, %966 ], [ %.0.i.i184.us, %.lr.ph.i8.i.us ]
+  %.0.i10.i.us = phi i32 [ %.1329.us, %890 ], [ %.0.i.i184.us, %Sdb_CutSetLastCutContains.exit.i.us ], [ %.0.i.i184.us, %Sdb_CutCompare.exit.i.i.us ], [ %.0.i.i184.us, %966 ], [ %.0.i.i184.us, %.lr.ph.i8.i.us ]
   %972 = add nsw i32 %.0.i10.i.us, 1
   %973 = call noundef i32 @llvm.smin.i32(i32 %972, i32 %164)
   br label %Sdb_CutSetAddCut.exit.us
 
 Sdb_CutSetAddCut.exit.us:                         ; preds = %220, %.lr.ph134.i.us, %279, %306, %291, %301, %Sdb_CutSetSortByCost.exit.i.us, %Sdb_CutTreeLeaves.exit.us, %.loopexit120.i.us, %.loopexit121.i.us, %.preheader118.i.us, %177
-  %.2.us = phi i32 [ %.1329.us, %177 ], [ 1, %Sdb_CutTreeLeaves.exit.us ], [ %973, %Sdb_CutSetSortByCost.exit.i.us ], [ %.1329.us, %.loopexit121.i.us ], [ %.1329.us, %.loopexit120.i.us ], [ %.1329.us, %.preheader118.i.us ], [ %.1329.us, %.lr.ph134.i.us ], [ %.1329.us, %301 ], [ %.1329.us, %291 ], [ %.1329.us, %306 ], [ %.1329.us, %279 ], [ %.1329.us, %220 ]
+  %.2.us = phi i32 [ %.1329.us, %177 ], [ %.1329.us, %.preheader118.i.us ], [ 1, %Sdb_CutTreeLeaves.exit.us ], [ %973, %Sdb_CutSetSortByCost.exit.i.us ], [ %.1329.us, %.loopexit120.i.us ], [ %.1329.us, %301 ], [ %.1329.us, %.loopexit121.i.us ], [ %.1329.us, %.lr.ph134.i.us ], [ %.1329.us, %291 ], [ %.1329.us, %279 ], [ %.1329.us, %306 ], [ %.1329.us, %220 ]
   %974 = add nuw nsw i32 %.085328.us, 1
   %975 = getelementptr inbounds nuw i8, ptr %.082333.us, i64 48
   %exitcond.not = icmp eq i32 %974, %.lcssa43.i100
@@ -2685,7 +2685,7 @@ Vec_IntFind.exit52.thread._crit_edge:             ; preds = %Vec_IntFind.exit52,
   br i1 %or.cond, label %.critedge2, label %.critedge
 
 .critedge2:                                       ; preds = %Vec_IntFind.exit.thread, %Vec_IntFind.exit.us, %Vec_IntFind.exit52.thread._crit_edge, %.critedge, %27, %3, %.lr.ph72.split.us
-  %.040 = phi i32 [ -1, %.lr.ph72.split.us ], [ -1, %3 ], [ -1, %Vec_IntFind.exit.us ], [ -1, %27 ], [ -1, %.critedge ], [ %.0.lcssa, %Vec_IntFind.exit52.thread._crit_edge ], [ -1, %Vec_IntFind.exit.thread ]
+  %.040 = phi i32 [ -1, %27 ], [ -1, %3 ], [ -1, %.lr.ph72.split.us ], [ -1, %Vec_IntFind.exit.us ], [ -1, %.critedge ], [ %.0.lcssa, %Vec_IntFind.exit52.thread._crit_edge ], [ -1, %Vec_IntFind.exit.thread ]
   ret i32 %.040
 }
 
@@ -3825,7 +3825,7 @@ define range(i32 0, 5) i32 @Sdb_StoIterCutsOne(ptr noundef readonly captures(non
   br i1 %exitcond128.not, label %.loopexit, label %15, !llvm.loop !119
 
 .loopexit.sink.split:                             ; preds = %69, %.preheader140, %.preheader, %41
-  %.0.ph = phi i32 [ 3, %.preheader140 ], [ 1, %41 ], [ 4, %.preheader ], [ 2, %69 ]
+  %.0.ph = phi i32 [ 4, %.preheader ], [ 3, %.preheader140 ], [ 1, %41 ], [ 2, %69 ]
   store ptr %.087109, ptr %3, align 8, !tbaa !120
   br label %.loopexit
 
@@ -4092,7 +4092,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br i1 %.not75.not, label %97, label %Sdb_StoIterCutsOne.exit.thread, !llvm.loop !123
 
 Sdb_StoIterCutsOne.exit.thread:                   ; preds = %.thread98.i, %Vec_IntPush.exit, %Vec_WecPushLevel.exit, %22, %17
-  %.val8.pre.i194 = phi ptr [ %14, %17 ], [ %.val8.pre.i195, %Vec_WecPushLevel.exit ], [ %14, %22 ], [ %.val8.pre.i195, %Vec_IntPush.exit ], [ %14, %.thread98.i ]
+  %.val8.pre.i194 = phi ptr [ %.val8.pre.i195, %Vec_IntPush.exit ], [ %14, %17 ], [ %.val8.pre.i195, %Vec_WecPushLevel.exit ], [ %14, %22 ], [ %14, %.thread98.i ]
   %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183, 1
   %130 = load ptr, ptr %6, align 8, !tbaa !3
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 24
@@ -4424,10 +4424,10 @@ Vec_IntPush.exit119:                              ; preds = %Vec_IntPush.exit119
   br i1 %.not73.not, label %269, label %Sdb_StoIterCutsOne.exit95, !llvm.loop !125
 
 Sdb_StoIterCutsOne.exit95:                        ; preds = %.thread98.i92, %Vec_IntPush.exit119, %Vec_IntPush.exit112, %152, %.loopexit, %147
-  %.val8.pre.i98198 = phi ptr [ %144, %147 ], [ %144, %.loopexit ], [ %144, %152 ], [ %.val8.pre.i98199, %Vec_IntPush.exit112 ], [ %.val8.pre.i98199, %Vec_IntPush.exit119 ], [ %144, %.thread98.i92 ]
-  %.359 = phi i32 [ %.056161, %147 ], [ %.056161, %.loopexit ], [ %.056161, %152 ], [ %..056, %Vec_IntPush.exit112 ], [ %..056, %Vec_IntPush.exit119 ], [ %.056161, %.thread98.i92 ]
-  %.355 = phi i32 [ %.052162, %147 ], [ %.052162, %.loopexit ], [ %.052162, %152 ], [ %.052., %Vec_IntPush.exit112 ], [ %.052., %Vec_IntPush.exit119 ], [ %.052162, %.thread98.i92 ]
-  %.3 = phi i32 [ %.0163, %147 ], [ %.0163, %.loopexit ], [ %.0163, %152 ], [ %.2, %Vec_IntPush.exit112 ], [ %.2, %Vec_IntPush.exit119 ], [ %.0163, %.thread98.i92 ]
+  %.val8.pre.i98198 = phi ptr [ %144, %147 ], [ %144, %.loopexit ], [ %.val8.pre.i98199, %Vec_IntPush.exit112 ], [ %144, %152 ], [ %.val8.pre.i98199, %Vec_IntPush.exit119 ], [ %144, %.thread98.i92 ]
+  %.359 = phi i32 [ %.056161, %147 ], [ %.056161, %.loopexit ], [ %..056, %Vec_IntPush.exit112 ], [ %.056161, %152 ], [ %..056, %Vec_IntPush.exit119 ], [ %.056161, %.thread98.i92 ]
+  %.355 = phi i32 [ %.052162, %147 ], [ %.052162, %.loopexit ], [ %.052., %Vec_IntPush.exit112 ], [ %.052162, %152 ], [ %.052., %Vec_IntPush.exit119 ], [ %.052162, %.thread98.i92 ]
+  %.3 = phi i32 [ %.0163, %147 ], [ %.0163, %.loopexit ], [ %.2, %Vec_IntPush.exit112 ], [ %.0163, %152 ], [ %.2, %Vec_IntPush.exit119 ], [ %.0163, %.thread98.i92 ]
   %indvars.iv.next190 = add nuw nsw i64 %indvars.iv189, 1
   %287 = load ptr, ptr %6, align 8, !tbaa !3
   %288 = getelementptr inbounds nuw i8, ptr %287, i64 24

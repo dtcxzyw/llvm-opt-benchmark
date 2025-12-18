@@ -1361,7 +1361,7 @@ _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %.thread149
 
 .thread149:                                       ; preds = %.critedge90.outer.split.us, %switch.early.test.us, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit117, %.critedge90, %switch.early.test, %65, %62, %208, %247
-  %.2142152 = phi i32 [ %.2147, %247 ], [ %209, %208 ], [ %61, %62 ], [ %61, %65 ], [ %.3, %.critedge90 ], [ %.3, %switch.early.test ], [ %.3.ph, %.critedge90.outer.split.us ], [ %.3.ph, %switch.early.test.us ], [ %102, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit117 ]
+  %.2142152 = phi i32 [ %.2147, %247 ], [ %209, %208 ], [ %61, %62 ], [ %61, %65 ], [ %.3, %.critedge90 ], [ %.3, %switch.early.test ], [ %.3.ph, %switch.early.test.us ], [ %.3.ph, %.critedge90.outer.split.us ], [ %102, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit117 ]
   %248 = load ptr, ptr %24, align 8, !tbaa !24
   %249 = load ptr, ptr %5, align 8, !tbaa !24
   %250 = load ptr, ptr %26, align 8, !tbaa !24
@@ -4140,7 +4140,7 @@ _ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEENS0_5__ops17
   br label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEENS0_5__ops17_Iter_equals_iterIS7_EEET_SB_SB_T0_.exit
 
 _ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEENS0_5__ops17_Iter_equals_iterIS7_EEET_SB_SB_T0_.exit: ; preds = %100, %._crit_edge.i.i16, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEENS0_5__ops17_Iter_equals_iterIS7_EEET_SB_SB_T0_.exit37, %106, %109, %18, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEENS0_5__ops17_Iter_equals_iterIS7_EEET_SB_SB_T0_.exit.loopexit.split.loop.exit, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEENS0_5__ops17_Iter_equals_iterIS7_EEET_SB_SB_T0_.exit.loopexit.split.loop.exit117, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEENS0_5__ops17_Iter_equals_iterIS7_EEET_SB_SB_T0_.exit.loopexit.split.loop.exit119, %._crit_edge.i.i, %38, %44, %50, %4
-  %.sroa.011.0 = phi ptr [ %0, %4 ], [ %.sroa.032.1.i.i, %44 ], [ %spec.select.i.i, %50 ], [ %1, %._crit_edge.i.i ], [ %.sroa.032.0.lcssa.i.i, %38 ], [ %114, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEENS0_5__ops17_Iter_equals_iterIS7_EEET_SB_SB_T0_.exit.loopexit.split.loop.exit119 ], [ %113, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEENS0_5__ops17_Iter_equals_iterIS7_EEET_SB_SB_T0_.exit.loopexit.split.loop.exit117 ], [ %112, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEENS0_5__ops17_Iter_equals_iterIS7_EEET_SB_SB_T0_.exit.loopexit.split.loop.exit ], [ %.sroa.08.0.in.sroa.speculated.i.i23, %106 ], [ %.sroa.032.051.i.i, %18 ], [ %1, %109 ], [ %1, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEENS0_5__ops17_Iter_equals_iterIS7_EEET_SB_SB_T0_.exit37 ], [ %1, %._crit_edge.i.i16 ], [ %1, %100 ]
+  %.sroa.011.0 = phi ptr [ %0, %4 ], [ %.sroa.032.051.i.i, %18 ], [ %.sroa.08.0.in.sroa.speculated.i.i23, %106 ], [ %.sroa.032.1.i.i, %44 ], [ %spec.select.i.i, %50 ], [ %1, %._crit_edge.i.i ], [ %.sroa.032.0.lcssa.i.i, %38 ], [ %112, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEENS0_5__ops17_Iter_equals_iterIS7_EEET_SB_SB_T0_.exit.loopexit.split.loop.exit ], [ %114, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEENS0_5__ops17_Iter_equals_iterIS7_EEET_SB_SB_T0_.exit.loopexit.split.loop.exit119 ], [ %113, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEENS0_5__ops17_Iter_equals_iterIS7_EEET_SB_SB_T0_.exit.loopexit.split.loop.exit117 ], [ %1, %109 ], [ %1, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEENS0_5__ops17_Iter_equals_iterIS7_EEET_SB_SB_T0_.exit37 ], [ %1, %._crit_edge.i.i16 ], [ %1, %100 ]
   ret ptr %.sroa.011.0
 }
 
@@ -4429,7 +4429,7 @@ define linkonce_odr hidden void @_ZSt8__searchISt16reverse_iteratorIN9__gnu_cxx1
   br label %_ZSt9__find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEENS1_5__ops17_Iter_equals_iterIS9_EEET_SD_SD_T0_.exit24
 
 _ZSt9__find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEENS1_5__ops17_Iter_equals_iterIS9_EEET_SD_SD_T0_.exit24: ; preds = %.lr.ph.i.i17, %102, %108, %114, %._crit_edge.i.i5, %123, %134, %145
-  %152 = phi i64 [ %spec.select.i10, %145 ], [ %137, %134 ], [ %120, %123 ], [ %.cast11.i.i21, %114 ], [ %.cast10.i.i22, %108 ], [ %.cast.i.i23, %102 ], [ %80, %._crit_edge.i.i5 ], [ %93, %.lr.ph.i.i17 ]
+  %152 = phi i64 [ %spec.select.i10, %145 ], [ %137, %134 ], [ %120, %123 ], [ %80, %._crit_edge.i.i5 ], [ %.cast11.i.i21, %114 ], [ %.cast10.i.i22, %108 ], [ %.cast.i.i23, %102 ], [ %93, %.lr.ph.i.i17 ]
   store i64 %152, ptr %1, align 8
   %.sroa.0.0.copyload.i.i25.cast = inttoptr i64 %152 to ptr
   %.sroa.0.0.copyload.i2.i26 = load ptr, ptr %2, align 8
@@ -4480,7 +4480,7 @@ _ZSt9__find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorI
   br label %.preheader47, !llvm.loop !130
 
 .critedge:                                        ; preds = %166, %.lr.ph.i.i, %._crit_edge.i._crit_edge.i, %._crit_edge.i._crit_edge42.i, %54, %._crit_edge.i.i, %45, %39, %33, %5, %9, %159, %170, %154
-  %.sink.i.i.sink = phi i64 [ %7, %5 ], [ %160, %159 ], [ %171, %170 ], [ %155, %154 ], [ %7, %9 ], [ %spec.select.i, %._crit_edge.i._crit_edge.i ], [ %65, %._crit_edge.i._crit_edge42.i ], [ %51, %54 ], [ %.cast11.i.i, %45 ], [ %.cast10.i.i, %39 ], [ %.cast.i.i, %33 ], [ %8, %._crit_edge.i.i ], [ %24, %.lr.ph.i.i ], [ %152, %166 ]
+  %.sink.i.i.sink = phi i64 [ %7, %5 ], [ %160, %159 ], [ %24, %.lr.ph.i.i ], [ %171, %170 ], [ %155, %154 ], [ %7, %9 ], [ %spec.select.i, %._crit_edge.i._crit_edge.i ], [ %65, %._crit_edge.i._crit_edge42.i ], [ %51, %54 ], [ %8, %._crit_edge.i.i ], [ %.cast11.i.i, %45 ], [ %.cast10.i.i, %39 ], [ %.cast.i.i, %33 ], [ %152, %166 ]
   store i64 %.sink.i.i.sink, ptr %0, align 8, !tbaa !24
   ret void
 }

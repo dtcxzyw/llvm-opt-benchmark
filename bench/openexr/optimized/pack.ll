@@ -571,9 +571,9 @@ float_to_uint.exit:                               ; preds = %258, %260
   br label %275
 
 275:                                              ; preds = %.loopexit, %.lr.ph250, %36
-  %276 = phi i16 [ %17, %.lr.ph250 ], [ %17, %36 ], [ %.pre279, %.loopexit ]
-  %.4156 = phi i64 [ %.2154247, %.lr.ph250 ], [ %.2154247, %36 ], [ %274, %.loopexit ]
-  %.3139 = phi ptr [ %.1137248, %.lr.ph250 ], [ %.1137248, %36 ], [ %273, %.loopexit ]
+  %276 = phi i16 [ %.pre279, %.loopexit ], [ %17, %.lr.ph250 ], [ %17, %36 ]
+  %.4156 = phi i64 [ %274, %.loopexit ], [ %.2154247, %.lr.ph250 ], [ %.2154247, %36 ]
+  %.3139 = phi ptr [ %273, %.loopexit ], [ %.1137248, %.lr.ph250 ], [ %.1137248, %36 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %277 = sext i16 %276 to i64
   %278 = icmp slt i64 %indvars.iv.next, %277

@@ -7835,8 +7835,8 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17he6a8dd8f7b4fe
   br i1 %.not.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h708a3c3ff7e8e9f5E.llvm.13602880533186600580.exit._crit_edge", label %13
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h81aa97c061dbf28cE.llvm.13602880533186600580.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6retain28_$u7b$$u7b$closure$u7d$$u7d$17h7f5948b3fec4e4a7E.llvm.13602880533186600580.exit.i", %2, %26
-  %.sroa.7.1 = phi i64 [ 0, %2 ], [ %23, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6retain28_$u7b$$u7b$closure$u7d$$u7d$17h7f5948b3fec4e4a7E.llvm.13602880533186600580.exit.i" ], [ %23, %26 ]
-  %.sroa.16.1 = phi i64 [ 0, %2 ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6retain28_$u7b$$u7b$closure$u7d$$u7d$17h7f5948b3fec4e4a7E.llvm.13602880533186600580.exit.i" ], [ 1, %26 ]
+  %.sroa.7.1 = phi i64 [ 0, %2 ], [ %23, %26 ], [ %23, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6retain28_$u7b$$u7b$closure$u7d$$u7d$17h7f5948b3fec4e4a7E.llvm.13602880533186600580.exit.i" ]
+  %.sroa.16.1 = phi i64 [ 0, %2 ], [ 1, %26 ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6retain28_$u7b$$u7b$closure$u7d$$u7d$17h7f5948b3fec4e4a7E.llvm.13602880533186600580.exit.i" ]
   %.not1.i = icmp eq i64 %.sroa.7.1, %4
   br i1 %.not1.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h708a3c3ff7e8e9f5E.llvm.13602880533186600580.exit", label %.lr.ph.i2.preheader
 

@@ -4248,7 +4248,7 @@ _ZNK6vectorISt4pairI8rationalP3appELb1EjE3endEv.exit: ; preds = %.lr.ph171
   br i1 %.not27.old.i.i.i, label %.loopexit145, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %94, %91
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %94 ], [ %93, %91 ]
+  %.137.i.i.i.be = phi ptr [ %93, %91 ], [ %.old.i.i.i, %94 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !237
 
 .loopexit145:                                     ; preds = %80, %91, %94, %.preheader.i.i.i
@@ -5803,7 +5803,7 @@ _ZNK6vectorISt4pairI8rationalP3appELb1EjE3endEv.exit: ; preds = %.lr.ph1032
   br i1 %.not27.old.i.i.i, label %.loopexit701, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %113, %110
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %113 ], [ %112, %110 ]
+  %.137.i.i.i.be = phi ptr [ %112, %110 ], [ %.old.i.i.i, %113 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !237
 
 .loopexit701:                                     ; preds = %99, %110, %113, %.preheader.i.i.i
@@ -11005,7 +11005,7 @@ define hidden void @_ZN6spacer25unsat_core_plugin_min_cut8add_edgeEP3appS2_(ptr 
   br i1 %.not27.old.i.i.i, label %.loopexit92, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %43, %40
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %43 ], [ %42, %40 ]
+  %.137.i.i.i.be = phi ptr [ %42, %40 ], [ %.old.i.i.i, %43 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !237
 
 .loopexit91:                                      ; preds = %24, %35
@@ -11188,7 +11188,7 @@ _ZN6vectorIP4exprLb1EjE6resizeEj.exit:            ; preds = %.lr.ph.preheader.i,
   br i1 %.not27.old.i.i.i31, label %.loopexit88, label %.lr.ph38.i.i.i27.backedge
 
 .lr.ph38.i.i.i27.backedge:                        ; preds = %119, %116
-  %.137.i.i.i28.be = phi ptr [ %.old.i.i.i30, %119 ], [ %118, %116 ]
+  %.137.i.i.i28.be = phi ptr [ %118, %116 ], [ %.old.i.i.i30, %119 ]
   br label %.lr.ph38.i.i.i27, !llvm.loop !237
 
 .loopexit:                                        ; preds = %100, %111

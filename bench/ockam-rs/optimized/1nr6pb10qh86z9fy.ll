@@ -7321,7 +7321,7 @@ thread-pre-splitthread-pre-split:                 ; preds = %228, %772, %736, %6
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %363, %205, %thread-pre-splitthread-pre-split, %189, %414, %470, %182
-  %.pr = phi i64 [ %.pr.pr, %thread-pre-splitthread-pre-split ], [ %194, %189 ], [ %419, %414 ], [ %475, %470 ], [ %187, %182 ], [ %210, %205 ], [ %368, %363 ]
+  %.pr = phi i64 [ %.pr.pr, %thread-pre-splitthread-pre-split ], [ %210, %205 ], [ %187, %182 ], [ %194, %189 ], [ %419, %414 ], [ %475, %470 ], [ %368, %363 ]
   %80 = icmp eq i64 %.pr, 0
   br i1 %80, label %.thread, label %81
 
@@ -10048,7 +10048,7 @@ default.unreachable190:                           ; preds = %"_ZN61_$LT$ockam_ab
   br label %99
 
 .loopexit:                                        ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hc3543196da81f2a2E.exit69", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hc3543196da81f2a2E.exit", %172, %148, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h8b144d685046224fE.exit59", %123, %115, %108, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h8b144d685046224fE.exit"
-  %.pr = phi i64 [ %25, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h8b144d685046224fE.exit" ], [ %25, %172 ], [ %25, %148 ], [ %25, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h8b144d685046224fE.exit59" ], [ %25, %123 ], [ %25, %115 ], [ %25, %108 ], [ %164, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hc3543196da81f2a2E.exit" ], [ %188, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hc3543196da81f2a2E.exit69" ]
+  %.pr = phi i64 [ %164, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hc3543196da81f2a2E.exit" ], [ %25, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h8b144d685046224fE.exit" ], [ %25, %172 ], [ %25, %148 ], [ %25, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h8b144d685046224fE.exit59" ], [ %25, %123 ], [ %25, %115 ], [ %25, %108 ], [ %188, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hc3543196da81f2a2E.exit69" ]
   %98 = icmp eq i64 %.pr, 0
   br i1 %98, label %33, label %23
 
@@ -10408,8 +10408,8 @@ _ZN5alloc5alloc15exchange_malloc17h5339c734e5193bc1E.exit: ; preds = %3
   br label %24
 
 thread-pre-split:                                 ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hc3543196da81f2a2E.exit89", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hc3543196da81f2a2E.exit", %172, %147, %112, %128
-  %.pr = phi i64 [ %26, %128 ], [ %26, %112 ], [ %26, %147 ], [ %26, %172 ], [ %163, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hc3543196da81f2a2E.exit" ], [ %188, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hc3543196da81f2a2E.exit89" ]
-  %.047.ph = phi i8 [ 0, %128 ], [ 0, %112 ], [ %.044, %147 ], [ %.0, %172 ], [ %.044, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hc3543196da81f2a2E.exit" ], [ %.0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hc3543196da81f2a2E.exit89" ]
+  %.pr = phi i64 [ %26, %128 ], [ %26, %147 ], [ %26, %112 ], [ %26, %172 ], [ %163, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hc3543196da81f2a2E.exit" ], [ %188, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hc3543196da81f2a2E.exit89" ]
+  %.047.ph = phi i8 [ 0, %128 ], [ %.044, %147 ], [ 0, %112 ], [ %.0, %172 ], [ %.044, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hc3543196da81f2a2E.exit" ], [ %.0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hc3543196da81f2a2E.exit89" ]
   %23 = icmp eq i64 %.pr, 0
   br i1 %23, label %34, label %24
 

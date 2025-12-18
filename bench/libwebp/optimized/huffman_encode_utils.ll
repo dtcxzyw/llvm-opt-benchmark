@@ -687,7 +687,7 @@ OptimizeHuffmanForRle.exit:                       ; preds = %.lr.ph.i, %108
   br i1 %.not.i18, label %.split.split.i, label %GenerateOptimalTree.exit
 
 GenerateOptimalTree.exit:                         ; preds = %._crit_edge134.i, %._crit_edge134.us150.i, %._crit_edge134.us.us.i, %OptimizeHuffmanForRle.exit.thread45, %OptimizeHuffmanForRle.exit.thread, %._crit_edge.i17
-  %204 = phi ptr [ %13, %OptimizeHuffmanForRle.exit.thread ], [ %110, %._crit_edge.i17 ], [ %12, %OptimizeHuffmanForRle.exit.thread45 ], [ %110, %._crit_edge134.us150.i ], [ %110, %._crit_edge134.us.us.i ], [ %110, %._crit_edge134.i ]
+  %204 = phi ptr [ %13, %OptimizeHuffmanForRle.exit.thread ], [ %110, %._crit_edge134.us.us.i ], [ %110, %._crit_edge.i17 ], [ %110, %._crit_edge134.us150.i ], [ %12, %OptimizeHuffmanForRle.exit.thread45 ], [ %110, %._crit_edge134.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %7, i8 0, i64 64, i1 false)

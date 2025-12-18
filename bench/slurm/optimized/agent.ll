@@ -3539,7 +3539,7 @@ _signal_defer.exit.thread43:                      ; preds = %95, %_signal_defer.
   call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.7, ptr noundef nonnull @__func__._agent_defer) #17
   unreachable
 
-_signal_defer.exit.thread41:                      ; preds = %102, %103, %_signal_defer.exit
+_signal_defer.exit.thread41:                      ; preds = %103, %102, %_signal_defer.exit
   %.not30.i = icmp eq ptr %.01943.i, null
   br i1 %.not30.i, label %133, label %135
 

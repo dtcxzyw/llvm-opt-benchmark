@@ -2401,7 +2401,7 @@ cond.end.i.i.us:                                  ; preds = %_ZNKSt4lessIN3irr4c
   br i1 %cmp.not.i.i.us, label %if.then.i.i273.us, label %while.body.i.i.us.backedge
 
 while.body.i.i.us.backedge:                       ; preds = %cond.end.i.i.us, %cond.end.i.thread.i.us
-  %__x.059.i.i.us.be = phi ptr [ %__x.0.i.i.us, %cond.end.i.i.us ], [ %__x.0.i31.i.us, %cond.end.i.thread.i.us ]
+  %__x.059.i.i.us.be = phi ptr [ %__x.0.i31.i.us, %cond.end.i.thread.i.us ], [ %__x.0.i.i.us, %cond.end.i.i.us ]
   br label %while.body.i.i.us, !llvm.loop !149
 
 if.then.i.i273.us:                                ; preds = %cond.end.i.i.us, %if.then50.us
@@ -2884,7 +2884,7 @@ cond.end.i.i387.us:                               ; preds = %_ZNKSt4lessIN3irr4c
   br i1 %cmp.not.i.i390.us, label %if.then.i.i391.us, label %while.body.i.i324.us.backedge
 
 while.body.i.i324.us.backedge:                    ; preds = %cond.end.i.i387.us, %cond.end.i.thread.i330.us
-  %__x.059.i.i325.us.be = phi ptr [ %__x.0.i.i389.us, %cond.end.i.i387.us ], [ %__x.0.i31.i332.us, %cond.end.i.thread.i330.us ]
+  %__x.059.i.i325.us.be = phi ptr [ %__x.0.i31.i332.us, %cond.end.i.thread.i330.us ], [ %__x.0.i.i389.us, %cond.end.i.i387.us ]
   br label %while.body.i.i324.us, !llvm.loop !149
 
 if.then.i.i391.us:                                ; preds = %cond.end.i.i387.us, %if.then69.us

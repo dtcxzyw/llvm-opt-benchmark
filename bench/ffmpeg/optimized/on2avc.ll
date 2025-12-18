@@ -2926,10 +2926,10 @@ on2avc_decode_quads.exit.loopexit94.i:            ; preds = %532
   br label %on2avc_decode_quads.exit.i
 
 on2avc_decode_quads.exit.i:                       ; preds = %370, %on2avc_decode_quads.exit.loopexit94.i, %375, %313, %.lr.ph.i52
-  %549 = phi i32 [ %296, %.lr.ph.i52 ], [ %296, %313 ], [ %.pre.i, %on2avc_decode_quads.exit.loopexit94.i ], [ %296, %375 ], [ %296, %370 ]
-  %550 = phi i32 [ %297, %.lr.ph.i52 ], [ %297, %313 ], [ %.pre.i, %on2avc_decode_quads.exit.loopexit94.i ], [ %297, %375 ], [ %297, %370 ]
-  %.sroa.16.11 = phi i32 [ %.sroa.16.10, %.lr.ph.i52 ], [ %.sroa.16.10, %313 ], [ %.sroa.16.12, %on2avc_decode_quads.exit.loopexit94.i ], [ %.sroa.16.10, %375 ], [ %372, %370 ]
-  %551 = phi i32 [ %298, %.lr.ph.i52 ], [ %298, %313 ], [ %.pre.i, %on2avc_decode_quads.exit.loopexit94.i ], [ %298, %375 ], [ %298, %370 ]
+  %549 = phi i32 [ %296, %.lr.ph.i52 ], [ %296, %375 ], [ %296, %313 ], [ %.pre.i, %on2avc_decode_quads.exit.loopexit94.i ], [ %296, %370 ]
+  %550 = phi i32 [ %297, %.lr.ph.i52 ], [ %297, %375 ], [ %297, %313 ], [ %.pre.i, %on2avc_decode_quads.exit.loopexit94.i ], [ %297, %370 ]
+  %.sroa.16.11 = phi i32 [ %.sroa.16.10, %.lr.ph.i52 ], [ %.sroa.16.10, %375 ], [ %.sroa.16.10, %313 ], [ %.sroa.16.12, %on2avc_decode_quads.exit.loopexit94.i ], [ %372, %370 ]
+  %551 = phi i32 [ %298, %.lr.ph.i52 ], [ %298, %375 ], [ %298, %313 ], [ %.pre.i, %on2avc_decode_quads.exit.loopexit94.i ], [ %298, %370 ]
   %.pn.i = sext i32 %304 to i64
   %.2.i = getelementptr inbounds float, ptr %.189.i, i64 %.pn.i
   %552 = sext i32 %551 to i64
@@ -2954,7 +2954,7 @@ on2avc_decode_quads.exit.i:                       ; preds = %370, %on2avc_decode
   %562 = icmp slt i32 %561, %557
   br i1 %562, label %.preheader.i51, label %.loopexit, !llvm.loop !112
 
-.loopexit:                                        ; preds = %._crit_edge.i, %.loopexit78.i, %.preheader.lr.ph.i
+.loopexit:                                        ; preds = %._crit_edge.i, %.preheader.lr.ph.i, %.loopexit78.i
   %563 = phi i32 [ %282, %.loopexit78.i ], [ %282, %.preheader.lr.ph.i ], [ %554, %._crit_edge.i ]
   %564 = phi i32 [ %283, %.loopexit78.i ], [ %283, %.preheader.lr.ph.i ], [ %555, %._crit_edge.i ]
   %565 = phi i32 [ %283, %.loopexit78.i ], [ %283, %.preheader.lr.ph.i ], [ %557, %._crit_edge.i ]
@@ -3056,7 +3056,7 @@ on2avc_decode_quads.exit.i:                       ; preds = %370, %on2avc_decode
   br i1 %exitcond68.not.i, label %on2avc_apply_ms.exit, label %.preheader.us.i, !llvm.loop !117
 
 on2avc_apply_ms.exit:                             ; preds = %._crit_edge.us.i, %on2avc_read_ms_info.exit, %.preheader.lr.ph.i59, %573, %._crit_edge134
-  %606 = phi i32 [ %569, %._crit_edge134 ], [ 2, %.preheader.lr.ph.i59 ], [ %106, %on2avc_read_ms_info.exit ], [ 2, %573 ], [ %569, %._crit_edge.us.i ]
+  %606 = phi i32 [ %106, %on2avc_read_ms_info.exit ], [ %569, %._crit_edge134 ], [ 2, %.preheader.lr.ph.i59 ], [ 2, %573 ], [ %569, %._crit_edge.us.i ]
   %607 = load i32, ptr %16, align 8, !tbaa !85
   %608 = icmp slt i32 %607, 4
   %609 = icmp sgt i32 %606, 0
@@ -3356,7 +3356,7 @@ on2avc_reconstruct_channel.exit:                  ; preds = %688, %690, %704, %7
   br i1 %775, label %728, label %on2avc_read_channel_data.exit, !llvm.loop !132
 
 on2avc_read_channel_data.exit:                    ; preds = %.loopexit.i71, %on2avc_reconstruct_channel.exit, %.preheader, %712, %on2avc_decode_band_scales.exit.i, %on2avc_decode_band_types.exit.i, %5, %13
-  %.044 = phi i32 [ -1094995529, %on2avc_decode_band_scales.exit.i ], [ -1094995529, %13 ], [ -1094995529, %5 ], [ -1094995529, %on2avc_decode_band_types.exit.i ], [ 0, %712 ], [ 0, %.preheader ], [ 0, %on2avc_reconstruct_channel.exit ], [ 0, %.loopexit.i71 ]
+  %.044 = phi i32 [ -1094995529, %on2avc_decode_band_scales.exit.i ], [ -1094995529, %13 ], [ -1094995529, %5 ], [ 0, %.preheader ], [ -1094995529, %on2avc_decode_band_types.exit.i ], [ 0, %712 ], [ 0, %on2avc_reconstruct_channel.exit ], [ 0, %.loopexit.i71 ]
   ret i32 %.044
 }
 

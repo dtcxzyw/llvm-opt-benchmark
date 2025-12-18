@@ -980,7 +980,7 @@ _ZNK5clang26TemplateSpecializationType9isSugaredEv.exit.thread: ; preds = %._ZNK
   %341 = call i64 @_ZNK5clang9UsingType17getUnderlyingTypeEv(ptr noundef nonnull align 16 dereferenceable(48) %.0.i) #16
   br label %342
 
-342:                                              ; preds = %289, %287, %279, %340, %338, %332, %330, %328, %304, %302, %300, %295, %293, %291, %285, %324, %322, %281, %273, %275, %277
+342:                                              ; preds = %289, %287, %277, %279, %340, %338, %332, %330, %328, %304, %302, %300, %295, %293, %291, %285, %324, %322, %281, %273, %275
   %.sroa.0662.0.ph = phi i64 [ %301, %300 ], [ %294, %293 ], [ %.sroa.0.0.i.i613, %304 ], [ %.sroa.0.0.copyload.i.i607, %291 ], [ %.sroa.0.0.copyload.i.i608, %295 ], [ %.sroa.0.0.copyload.i.i609, %302 ], [ %.sroa.0.0.copyload.i.i617, %324 ], [ %329, %328 ], [ %.0.copyload.i.i.i.i.i597, %287 ], [ %.sroa.0.0.copyload.i592, %273 ], [ %286, %285 ], [ %331, %330 ], [ %323, %322 ], [ %.sroa.0.0.copyload.i596, %281 ], [ %333, %332 ], [ %.sroa.0.0.copyload.i619, %338 ], [ %.sroa.0.0.copyload.i.i595, %279 ], [ %.sroa.0.0.copyload.i.i594, %277 ], [ %341, %340 ], [ %.sroa.0.0.copyload.i593, %275 ], [ %.0.copyload.i.i.i.i.i602, %289 ]
   %343 = and i64 %.sroa.0662.0.ph, -16
   %344 = inttoptr i64 %343 to ptr
@@ -2917,11 +2917,11 @@ _ZN4llvm11raw_ostreamlsEPKc.exit145:              ; preds = %_ZN4llvm11raw_ostre
   br label %.thread
 
 _ZN4llvm11raw_ostreamlsEPKc.exit118:              ; preds = %349, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit99
-  %.069 = phi i8 [ %.170, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit99 ], [ %350, %349 ]
+  %.069 = phi i8 [ %350, %349 ], [ %.170, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit99 ]
   %552 = trunc i8 %.069 to i1
   br i1 %552, label %_ZN4llvm11raw_ostreamlsEPKc.exit118.thread195, label %.thread
 
-_ZN4llvm11raw_ostreamlsEPKc.exit118.thread195:    ; preds = %389, %_ZN4llvm11raw_ostreamlsEc.exit, %_ZN4llvm11raw_ostreamlsEPKc.exit118
+_ZN4llvm11raw_ostreamlsEPKc.exit118.thread195:    ; preds = %_ZN4llvm11raw_ostreamlsEc.exit, %389, %_ZN4llvm11raw_ostreamlsEPKc.exit118
   %553 = load ptr, ptr %7, align 8, !tbaa !521
   %554 = load i64, ptr %22, align 8, !tbaa !84
   %555 = icmp samesign eq i64 %23, %554

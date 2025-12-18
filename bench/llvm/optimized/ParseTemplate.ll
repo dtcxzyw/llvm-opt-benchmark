@@ -9575,8 +9575,8 @@ _ZN5clang4Sema31mightBeIntendedToBeTemplateNameENS_12ActionResultIPNS_4ExprELb1E
   %55 = icmp eq i32 %54, 0
   br i1 %55, label %_ZN5clang4Sema31mightBeIntendedToBeTemplateNameENS_12ActionResultIPNS_4ExprELb1EEERb.exit.thread, label %_ZN5clang4Sema31mightBeIntendedToBeTemplateNameENS_12ActionResultIPNS_4ExprELb1EEERb.exit.thread44
 
-_ZN5clang4Sema31mightBeIntendedToBeTemplateNameENS_12ActionResultIPNS_4ExprELb1EEERb.exit.thread: ; preds = %40, %30, %33, %17, %36, %43, %20, %_ZN5clang4Sema31mightBeIntendedToBeTemplateNameENS_12ActionResultIPNS_4ExprELb1EEERb.exit
-  %.041 = phi i16 [ 2, %36 ], [ 0, %_ZN5clang4Sema31mightBeIntendedToBeTemplateNameENS_12ActionResultIPNS_4ExprELb1EEERb.exit ], [ 0, %20 ], [ 2, %43 ], [ 0, %30 ], [ 0, %17 ], [ 2, %40 ], [ 2, %33 ]
+_ZN5clang4Sema31mightBeIntendedToBeTemplateNameENS_12ActionResultIPNS_4ExprELb1EEERb.exit.thread: ; preds = %40, %30, %33, %17, %20, %36, %43, %_ZN5clang4Sema31mightBeIntendedToBeTemplateNameENS_12ActionResultIPNS_4ExprELb1EEERb.exit
+  %.041 = phi i16 [ 0, %20 ], [ 0, %_ZN5clang4Sema31mightBeIntendedToBeTemplateNameENS_12ActionResultIPNS_4ExprELb1EEERb.exit ], [ 2, %43 ], [ 2, %36 ], [ 0, %30 ], [ 0, %17 ], [ 2, %40 ], [ 2, %33 ]
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %57 = load ptr, ptr %56, align 8, !tbaa !97
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 2928
@@ -9825,7 +9825,7 @@ _ZN5clang6Parser22TentativeParsingAction6RevertEv.exit: ; preds = %145, %.sink.s
   call void @_ZN5clang6Parser19AngleBracketTracker3addERS0_PNS_4ExprENS_14SourceLocationENS1_8PriorityE(ptr noundef nonnull align 8 dereferenceable(208) %167, ptr noundef nonnull align 8 dereferenceable(2936) %0, ptr noundef %170, i32 %171, i16 noundef zeroext %166)
   br label %_ZN5clang4Sema31mightBeIntendedToBeTemplateNameENS_12ActionResultIPNS_4ExprELb1EEERb.exit.thread44
 
-_ZN5clang4Sema31mightBeIntendedToBeTemplateNameENS_12ActionResultIPNS_4ExprELb1EEERb.exit.thread44: ; preds = %12, %2, %36, %43, %20, %_ZN5clang6Parser22TentativeParsingAction6CommitEv.exit, %_ZN5clang4Sema31mightBeIntendedToBeTemplateNameENS_12ActionResultIPNS_4ExprELb1EEERb.exit, %_ZN5clang6Parser22TentativeParsingAction6RevertEv.exit, %94
+_ZN5clang4Sema31mightBeIntendedToBeTemplateNameENS_12ActionResultIPNS_4ExprELb1EEERb.exit.thread44: ; preds = %12, %2, %20, %36, %43, %_ZN5clang6Parser22TentativeParsingAction6CommitEv.exit, %_ZN5clang4Sema31mightBeIntendedToBeTemplateNameENS_12ActionResultIPNS_4ExprELb1EEERb.exit, %_ZN5clang6Parser22TentativeParsingAction6RevertEv.exit, %94
   ret void
 }
 
@@ -10262,7 +10262,7 @@ _ZNK5clang6Parser19AngleBracketTracker3Loc16isActiveOrNestedERS0_.exit.thread.i4
   br i1 %.not.i.i46, label %_ZN5clang6Parser19AngleBracketTracker5clearERS0_.exit, label %131, !llvm.loop !1498
 
 _ZN5clang6Parser19AngleBracketTracker5clearERS0_.exit: ; preds = %_ZNK5clang6Parser19AngleBracketTracker3Loc16isActiveOrNestedERS0_.exit.thread.i43, %_ZNK5clang6Parser19AngleBracketTracker3Loc16isActiveOrNestedERS0_.exit.i42, %_ZNK5clang6Parser19AngleBracketTracker3Loc16isActiveOrNestedERS0_.exit.thread.i25, %_ZNK5clang6Parser19AngleBracketTracker3Loc16isActiveOrNestedERS0_.exit.i24, %_ZNK5clang6Parser19AngleBracketTracker3Loc16isActiveOrNestedERS0_.exit.thread.i, %_ZNK5clang6Parser19AngleBracketTracker3Loc16isActiveOrNestedERS0_.exit.i, %119, %120, %74, %23, %112
-  %.0 = phi i1 [ false, %112 ], [ false, %119 ], [ true, %23 ], [ true, %74 ], [ false, %120 ], [ true, %_ZNK5clang6Parser19AngleBracketTracker3Loc16isActiveOrNestedERS0_.exit.thread.i25 ], [ true, %_ZNK5clang6Parser19AngleBracketTracker3Loc16isActiveOrNestedERS0_.exit.thread.i ], [ true, %_ZNK5clang6Parser19AngleBracketTracker3Loc16isActiveOrNestedERS0_.exit.i ], [ true, %_ZNK5clang6Parser19AngleBracketTracker3Loc16isActiveOrNestedERS0_.exit.i24 ], [ false, %_ZNK5clang6Parser19AngleBracketTracker3Loc16isActiveOrNestedERS0_.exit.i42 ], [ false, %_ZNK5clang6Parser19AngleBracketTracker3Loc16isActiveOrNestedERS0_.exit.thread.i43 ]
+  %.0 = phi i1 [ false, %112 ], [ true, %_ZNK5clang6Parser19AngleBracketTracker3Loc16isActiveOrNestedERS0_.exit.thread.i ], [ true, %_ZNK5clang6Parser19AngleBracketTracker3Loc16isActiveOrNestedERS0_.exit.thread.i25 ], [ false, %119 ], [ true, %23 ], [ false, %120 ], [ true, %74 ], [ true, %_ZNK5clang6Parser19AngleBracketTracker3Loc16isActiveOrNestedERS0_.exit.i ], [ true, %_ZNK5clang6Parser19AngleBracketTracker3Loc16isActiveOrNestedERS0_.exit.i24 ], [ false, %_ZNK5clang6Parser19AngleBracketTracker3Loc16isActiveOrNestedERS0_.exit.i42 ], [ false, %_ZNK5clang6Parser19AngleBracketTracker3Loc16isActiveOrNestedERS0_.exit.thread.i43 ]
   ret i1 %.0
 }
 

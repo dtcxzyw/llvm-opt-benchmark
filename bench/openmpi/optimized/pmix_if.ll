@@ -599,7 +599,7 @@ define i32 @pmix_ifnext(i32 noundef %0) local_unnamed_addr #2 {
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !52
 
 .loopexit:                                        ; preds = %15, %.thread, %.preheader, %1
-  %.2 = phi i32 [ -1, %1 ], [ %9, %.thread ], [ -1, %.preheader ], [ -1, %15 ]
+  %.2 = phi i32 [ %9, %.thread ], [ -1, %1 ], [ -1, %.preheader ], [ -1, %15 ]
   ret i32 %.2
 }
 
@@ -1365,7 +1365,7 @@ pmix_ifnametokindex.exit.thread:                  ; preds = %43, %32, %55, %pmix
   br i1 %.not32, label %pmix_ifkindextoaddr.exit.thread, label %.preheader, !llvm.loop !73
 
 pmix_ifkindextoaddr.exit.thread:                  ; preds = %14, %pmix_ifnametokindex.exit, %55, %pmix_ifnametokindex.exit.thread, %16, %2, %51
-  %.0 = phi i32 [ -1, %2 ], [ %50, %51 ], [ -46, %16 ], [ -46, %pmix_ifnametokindex.exit.thread ], [ 0, %55 ], [ 0, %pmix_ifnametokindex.exit ], [ -1, %14 ]
+  %.0 = phi i32 [ -46, %pmix_ifnametokindex.exit.thread ], [ -1, %2 ], [ %50, %51 ], [ -46, %16 ], [ 0, %55 ], [ 0, %pmix_ifnametokindex.exit ], [ -1, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0

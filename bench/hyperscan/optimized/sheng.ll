@@ -184,8 +184,8 @@ define hidden signext range(i8 0, 2) i8 @nfaExecSheng_B(ptr noundef %0, i64 noun
   br i1 %121, label %runShengCb.exit.thread, label %116
 
 .thread:                                          ; preds = %116, %97, %111, %94, %82
-  %.6232 = phi i8 [ %.2228701, %82 ], [ %.2228701, %94 ], [ %62, %111 ], [ %.2228701, %97 ], [ %.2228701, %116 ]
-  %.6222 = phi i32 [ %.2218702, %82 ], [ %.2218702, %94 ], [ %113, %111 ], [ %.2218702, %97 ], [ %.2218702, %116 ]
+  %.6232 = phi i8 [ %.2228701, %82 ], [ %.2228701, %97 ], [ %.2228701, %94 ], [ %62, %111 ], [ %.2228701, %116 ]
+  %.6222 = phi i32 [ %.2218702, %82 ], [ %.2218702, %97 ], [ %.2218702, %94 ], [ %113, %111 ], [ %.2218702, %116 ]
   %122 = and i8 %67, 16
   %.not193.i = icmp eq i8 %122, 0
   br i1 %.not193.i, label %.thread328, label %127
@@ -269,8 +269,8 @@ define hidden signext range(i8 0, 2) i8 @nfaExecSheng_B(ptr noundef %0, i64 noun
   br i1 %165, label %runShengCb.exit.thread, label %160
 
 .thread328:                                       ; preds = %160, %141, %.thread.thread, %131, %155, %138, %.thread
-  %.9235 = phi i8 [ %.6232, %.thread ], [ %67, %138 ], [ %67, %155 ], [ %.623210451051, %131 ], [ %.6232, %141 ], [ %.2228701, %.thread.thread ], [ %.6232, %160 ]
-  %.9225 = phi i32 [ %.6222, %.thread ], [ %.6222, %138 ], [ %157, %155 ], [ %.622210461050, %131 ], [ %.6222, %141 ], [ %.2218702, %.thread.thread ], [ %.6222, %160 ]
+  %.9235 = phi i8 [ %.6232, %.thread ], [ %.623210451051, %131 ], [ %67, %138 ], [ %67, %155 ], [ %.6232, %141 ], [ %.2228701, %.thread.thread ], [ %.6232, %160 ]
+  %.9225 = phi i32 [ %.6222, %.thread ], [ %.622210461050, %131 ], [ %.6222, %138 ], [ %157, %155 ], [ %.6222, %141 ], [ %.2218702, %.thread.thread ], [ %.6222, %160 ]
   %166 = and i8 %72, 16
   %.not195.i = icmp eq i8 %166, 0
   br i1 %.not195.i, label %.thread340, label %167
@@ -340,8 +340,8 @@ define hidden signext range(i8 0, 2) i8 @nfaExecSheng_B(ptr noundef %0, i64 noun
   br i1 %204, label %runShengCb.exit.thread, label %199
 
 .thread340:                                       ; preds = %199, %180, %194, %177, %.thread328
-  %.12238 = phi i8 [ %.9235, %.thread328 ], [ %72, %177 ], [ %72, %194 ], [ %.9235, %180 ], [ %.9235, %199 ]
-  %.12 = phi i32 [ %.9225, %.thread328 ], [ %.9225, %177 ], [ %196, %194 ], [ %.9225, %180 ], [ %.9225, %199 ]
+  %.12238 = phi i8 [ %.9235, %.thread328 ], [ %.9235, %180 ], [ %72, %177 ], [ %72, %194 ], [ %.9235, %199 ]
+  %.12 = phi i32 [ %.9225, %.thread328 ], [ %.9225, %180 ], [ %.9225, %177 ], [ %196, %194 ], [ %.9225, %199 ]
   %205 = and i8 %77, 16
   %.not197.i = icmp eq i8 %205, 0
   br i1 %.not197.i, label %.thread352, label %210
@@ -425,8 +425,8 @@ define hidden signext range(i8 0, 2) i8 @nfaExecSheng_B(ptr noundef %0, i64 noun
   br i1 %248, label %runShengCb.exit.thread, label %243
 
 .thread352:                                       ; preds = %243, %224, %.thread340.thread, %214, %238, %221, %.thread340
-  %.15241 = phi i8 [ %.12238, %.thread340 ], [ %77, %221 ], [ %77, %238 ], [ %.1223810551061, %214 ], [ %.12238, %224 ], [ %.9235, %.thread340.thread ], [ %.12238, %243 ]
-  %.15 = phi i32 [ %.12, %.thread340 ], [ %.12, %221 ], [ %240, %238 ], [ %.1210561060, %214 ], [ %.12, %224 ], [ %.9225, %.thread340.thread ], [ %.12, %243 ]
+  %.15241 = phi i8 [ %.12238, %.thread340 ], [ %.1223810551061, %214 ], [ %77, %221 ], [ %77, %238 ], [ %.12238, %224 ], [ %.9235, %.thread340.thread ], [ %.12238, %243 ]
+  %.15 = phi i32 [ %.12, %.thread340 ], [ %.1210561060, %214 ], [ %.12, %221 ], [ %240, %238 ], [ %.12, %224 ], [ %.9225, %.thread340.thread ], [ %.12, %243 ]
   %249 = and i8 %77, 32
   %.not199.i = icmp eq i8 %249, 0
   br i1 %.not199.i, label %250, label %sheng4_coda.exit.thread
@@ -603,8 +603,8 @@ define hidden signext range(i8 0, 2) i8 @nfaExecSheng_B(ptr noundef %0, i64 noun
   br i1 %358, label %runShengCb.exit.thread, label %353
 
 .thread374:                                       ; preds = %353, %334, %348, %331, %319
-  %.26252 = phi i8 [ %.22248721, %319 ], [ %.22248721, %331 ], [ %299, %348 ], [ %.22248721, %334 ], [ %.22248721, %353 ]
-  %.26 = phi i32 [ %.22722, %319 ], [ %.22722, %331 ], [ %350, %348 ], [ %.22722, %334 ], [ %.22722, %353 ]
+  %.26252 = phi i8 [ %.22248721, %319 ], [ %.22248721, %334 ], [ %.22248721, %331 ], [ %299, %348 ], [ %.22248721, %353 ]
+  %.26 = phi i32 [ %.22722, %319 ], [ %.22722, %334 ], [ %.22722, %331 ], [ %350, %348 ], [ %.22722, %353 ]
   %359 = and i8 %304, 16
   %.not192.i43 = icmp eq i8 %359, 0
   br i1 %.not192.i43, label %.thread386, label %364
@@ -688,8 +688,8 @@ define hidden signext range(i8 0, 2) i8 @nfaExecSheng_B(ptr noundef %0, i64 noun
   br i1 %402, label %runShengCb.exit.thread, label %397
 
 .thread386:                                       ; preds = %397, %378, %.thread374.thread, %368, %392, %375, %.thread374
-  %.29255 = phi i8 [ %.26252, %.thread374 ], [ %304, %375 ], [ %304, %392 ], [ %.2625210651071, %368 ], [ %.26252, %378 ], [ %.22248721, %.thread374.thread ], [ %.26252, %397 ]
-  %.29 = phi i32 [ %.26, %.thread374 ], [ %.26, %375 ], [ %394, %392 ], [ %.2610661070, %368 ], [ %.26, %378 ], [ %.22722, %.thread374.thread ], [ %.26, %397 ]
+  %.29255 = phi i8 [ %.26252, %.thread374 ], [ %.2625210651071, %368 ], [ %304, %375 ], [ %304, %392 ], [ %.26252, %378 ], [ %.22248721, %.thread374.thread ], [ %.26252, %397 ]
+  %.29 = phi i32 [ %.26, %.thread374 ], [ %.2610661070, %368 ], [ %.26, %375 ], [ %394, %392 ], [ %.26, %378 ], [ %.22722, %.thread374.thread ], [ %.26, %397 ]
   %403 = and i8 %309, 16
   %.not194.i49 = icmp eq i8 %403, 0
   br i1 %.not194.i49, label %.thread398, label %404
@@ -759,8 +759,8 @@ define hidden signext range(i8 0, 2) i8 @nfaExecSheng_B(ptr noundef %0, i64 noun
   br i1 %441, label %runShengCb.exit.thread, label %436
 
 .thread398:                                       ; preds = %436, %417, %431, %414, %.thread386
-  %.32258 = phi i8 [ %.29255, %.thread386 ], [ %309, %414 ], [ %309, %431 ], [ %.29255, %417 ], [ %.29255, %436 ]
-  %.32 = phi i32 [ %.29, %.thread386 ], [ %.29, %414 ], [ %433, %431 ], [ %.29, %417 ], [ %.29, %436 ]
+  %.32258 = phi i8 [ %.29255, %.thread386 ], [ %.29255, %417 ], [ %309, %414 ], [ %309, %431 ], [ %.29255, %436 ]
+  %.32 = phi i32 [ %.29, %.thread386 ], [ %.29, %417 ], [ %.29, %414 ], [ %433, %431 ], [ %.29, %436 ]
   %442 = and i8 %314, 16
   %.not196.i55 = icmp eq i8 %442, 0
   br i1 %.not196.i55, label %.thread410, label %447
@@ -844,8 +844,8 @@ define hidden signext range(i8 0, 2) i8 @nfaExecSheng_B(ptr noundef %0, i64 noun
   br i1 %485, label %runShengCb.exit.thread, label %480
 
 .thread410:                                       ; preds = %480, %461, %.thread398.thread, %451, %475, %458, %.thread398
-  %.35261 = phi i8 [ %.32258, %.thread398 ], [ %314, %458 ], [ %314, %475 ], [ %.3225810751081, %451 ], [ %.32258, %461 ], [ %.29255, %.thread398.thread ], [ %.32258, %480 ]
-  %.35 = phi i32 [ %.32, %.thread398 ], [ %.32, %458 ], [ %477, %475 ], [ %.3210761080, %451 ], [ %.32, %461 ], [ %.29, %.thread398.thread ], [ %.32, %480 ]
+  %.35261 = phi i8 [ %.32258, %.thread398 ], [ %.3225810751081, %451 ], [ %314, %458 ], [ %314, %475 ], [ %.32258, %461 ], [ %.29255, %.thread398.thread ], [ %.32258, %480 ]
+  %.35 = phi i32 [ %.32, %.thread398 ], [ %.3210761080, %451 ], [ %.32, %458 ], [ %477, %475 ], [ %.32, %461 ], [ %.29, %.thread398.thread ], [ %.32, %480 ]
   %486 = and i8 %314, 32
   %.not198.i60 = icmp eq i8 %486, 0
   br i1 %.not198.i60, label %487, label %sheng4_coda.exit.thread
@@ -1140,8 +1140,8 @@ sheng4_coda.exit.thread:                          ; preds = %.thread352, %272, %
   br i1 %656, label %runShengCb.exit.thread, label %651
 
 fireReports.exit225.i:                            ; preds = %651, %632, %629, %646, %617
-  %.46272 = phi i8 [ %.45271755, %617 ], [ %.45271755, %629 ], [ %597, %646 ], [ %.45271755, %632 ], [ %.45271755, %651 ]
-  %.46 = phi i32 [ %.45756, %617 ], [ %.45756, %629 ], [ %648, %646 ], [ %.45756, %632 ], [ %.45756, %651 ]
+  %.46272 = phi i8 [ %.45271755, %617 ], [ %.45271755, %632 ], [ %.45271755, %629 ], [ %597, %646 ], [ %.45271755, %651 ]
+  %.46 = phi i32 [ %.45756, %617 ], [ %.45756, %632 ], [ %.45756, %629 ], [ %648, %646 ], [ %.45756, %651 ]
   %657 = and i8 %602, 16
   %.not192.i88 = icmp eq i8 %657, 0
   br i1 %.not192.i88, label %fireReports.exit218.i, label %662
@@ -1296,8 +1296,8 @@ fireReports.exit218.i:                            ; preds = %695, %676, %fireRep
   br i1 %739, label %runShengCb.exit.thread, label %734
 
 fireReports.exit211.i:                            ; preds = %734, %715, %712, %729, %fireReports.exit218.i
-  %.48274 = phi i8 [ %.47273, %fireReports.exit218.i ], [ %607, %712 ], [ %607, %729 ], [ %.47273, %715 ], [ %.47273, %734 ]
-  %.48 = phi i32 [ %.47, %fireReports.exit218.i ], [ %.47, %712 ], [ %731, %729 ], [ %.47, %715 ], [ %.47, %734 ]
+  %.48274 = phi i8 [ %.47273, %fireReports.exit218.i ], [ %.47273, %715 ], [ %607, %712 ], [ %607, %729 ], [ %.47273, %734 ]
+  %.48 = phi i32 [ %.47, %fireReports.exit218.i ], [ %.47, %715 ], [ %.47, %712 ], [ %731, %729 ], [ %.47, %734 ]
   %740 = and i8 %612, 16
   %.not196.i92 = icmp eq i8 %740, 0
   br i1 %.not196.i92, label %fireReports.exit.i103, label %745
@@ -1549,8 +1549,8 @@ fireReports.exit.i103:                            ; preds = %778, %759, %fireRep
   br i1 %888, label %runShengCb.exit.thread, label %883
 
 fireReports.exit223.i:                            ; preds = %883, %864, %861, %878, %849
-  %.58284 = phi i8 [ %.57283778, %849 ], [ %.57283778, %861 ], [ %829, %878 ], [ %.57283778, %864 ], [ %.57283778, %883 ]
-  %.58 = phi i32 [ %.57779, %849 ], [ %.57779, %861 ], [ %880, %878 ], [ %.57779, %864 ], [ %.57779, %883 ]
+  %.58284 = phi i8 [ %.57283778, %849 ], [ %.57283778, %864 ], [ %.57283778, %861 ], [ %829, %878 ], [ %.57283778, %883 ]
+  %.58 = phi i32 [ %.57779, %849 ], [ %.57779, %864 ], [ %.57779, %861 ], [ %880, %878 ], [ %.57779, %883 ]
   %889 = and i8 %834, 16
   %.not191.i115 = icmp eq i8 %889, 0
   br i1 %.not191.i115, label %fireReports.exit216.i, label %894
@@ -1705,8 +1705,8 @@ fireReports.exit216.i:                            ; preds = %927, %908, %fireRep
   br i1 %971, label %runShengCb.exit.thread, label %966
 
 fireReports.exit209.i:                            ; preds = %966, %947, %944, %961, %fireReports.exit216.i
-  %.60286 = phi i8 [ %.59285, %fireReports.exit216.i ], [ %839, %944 ], [ %839, %961 ], [ %.59285, %947 ], [ %.59285, %966 ]
-  %.60 = phi i32 [ %.59, %fireReports.exit216.i ], [ %.59, %944 ], [ %963, %961 ], [ %.59, %947 ], [ %.59, %966 ]
+  %.60286 = phi i8 [ %.59285, %fireReports.exit216.i ], [ %.59285, %947 ], [ %839, %944 ], [ %839, %961 ], [ %.59285, %966 ]
+  %.60 = phi i32 [ %.59, %fireReports.exit216.i ], [ %.59, %947 ], [ %.59, %944 ], [ %963, %961 ], [ %.59, %966 ]
   %972 = and i8 %844, 16
   %.not195.i121 = icmp eq i8 %972, 0
   br i1 %.not195.i121, label %.critedge.i124, label %977
@@ -1799,10 +1799,10 @@ fireReports.exit209.i.thread:                     ; preds = %938
   br i1 %1019, label %816, label %sheng4_coa.exit, !prof !7
 
 sheng4_coa.exit:                                  ; preds = %.critedge.i94, %.critedge.i124, %808, %574
-  %.2300 = phi i8 [ %9, %574 ], [ %9, %808 ], [ %844, %.critedge.i124 ], [ %612, %.critedge.i94 ]
-  %.1227 = phi i8 [ 0, %574 ], [ 0, %808 ], [ %.62288, %.critedge.i124 ], [ %.51277, %.critedge.i94 ]
-  %.1217 = phi i32 [ 0, %574 ], [ 0, %808 ], [ %.62, %.critedge.i124 ], [ %.51, %.critedge.i94 ]
-  %.1 = phi ptr [ %.0168.i81, %574 ], [ %2, %808 ], [ %1016, %.critedge.i124 ], [ %.2170.i97, %.critedge.i94 ]
+  %.2300 = phi i8 [ %844, %.critedge.i124 ], [ %9, %574 ], [ %9, %808 ], [ %612, %.critedge.i94 ]
+  %.1227 = phi i8 [ %.62288, %.critedge.i124 ], [ 0, %574 ], [ 0, %808 ], [ %.51277, %.critedge.i94 ]
+  %.1217 = phi i32 [ %.62, %.critedge.i124 ], [ 0, %574 ], [ 0, %808 ], [ %.51, %.critedge.i94 ]
+  %.1 = phi ptr [ %1016, %.critedge.i124 ], [ %.0168.i81, %574 ], [ %2, %808 ], [ %.2170.i97, %.critedge.i94 ]
   %.not.i138791 = icmp eq ptr %.1, %15
   br i1 %.not.i138791, label %runShengCb.exit, label %.lr.ph796, !prof !10
 
@@ -1920,7 +1920,7 @@ sheng4_coa.exit:                                  ; preds = %.critedge.i94, %.cr
   br i1 %.not.i138, label %runShengCb.exit, label %.lr.ph796.split, !prof !9
 
 runShengCb.exit:                                  ; preds = %.critedge.i, %.critedge.i.us, %.critedge.i141, %.critedge.i141.us, %sheng4_coa.exit, %sheng4_coda.exit.thread
-  %.3301 = phi i8 [ %.0298430, %sheng4_coda.exit.thread ], [ %.2300, %sheng4_coa.exit ], [ %505, %.critedge.i.us ], [ %1032, %.critedge.i141.us ], [ %1072, %.critedge.i141 ], [ %545, %.critedge.i ]
+  %.3301 = phi i8 [ %.0298430, %sheng4_coda.exit.thread ], [ %1072, %.critedge.i141 ], [ %1032, %.critedge.i141.us ], [ %505, %.critedge.i.us ], [ %.2300, %sheng4_coa.exit ], [ %545, %.critedge.i ]
   %1081 = getelementptr inbounds nuw i8, ptr %0, i64 4164
   %1082 = load i32, ptr %1081, align 4
   %1083 = add i32 %1082, -64
@@ -1966,7 +1966,7 @@ fireReports.exit:                                 ; preds = %.lr.ph803, %1091, %
   br label %runShengCb.exit.thread
 
 runShengCb.exit.thread:                           ; preds = %238, %221, %194, %177, %155, %138, %111, %94, %88, %131, %171, %214, %117, %161, %200, %244, %475, %458, %431, %414, %392, %375, %348, %331, %325, %368, %408, %451, %354, %398, %437, %481, %547, %535, %530, %525, %773, %756, %729, %712, %690, %673, %646, %629, %749, %666, %623, %706, %652, %696, %735, %779, %1005, %988, %961, %944, %922, %905, %878, %861, %981, %938, %898, %855, %884, %928, %967, %1011, %1074, %1062, %1057, %1052, %fireReports.exit
-  %.0 = phi i8 [ %1103, %fireReports.exit ], [ 0, %117 ], [ 0, %1052 ], [ 0, %1062 ], [ 0, %1074 ], [ 0, %1011 ], [ 0, %967 ], [ 0, %928 ], [ 0, %884 ], [ 0, %1005 ], [ 0, %779 ], [ 0, %735 ], [ 0, %696 ], [ 0, %652 ], [ 0, %773 ], [ 0, %525 ], [ 0, %535 ], [ 0, %547 ], [ 0, %481 ], [ 0, %437 ], [ 0, %398 ], [ 0, %354 ], [ 0, %475 ], [ 0, %244 ], [ 0, %200 ], [ 0, %161 ], [ 0, %1057 ], [ 0, %855 ], [ 0, %898 ], [ 0, %938 ], [ 0, %981 ], [ 0, %861 ], [ 0, %878 ], [ 0, %905 ], [ 0, %922 ], [ 0, %944 ], [ 0, %961 ], [ 0, %988 ], [ 0, %706 ], [ 0, %623 ], [ 0, %666 ], [ 0, %749 ], [ 0, %629 ], [ 0, %646 ], [ 0, %673 ], [ 0, %690 ], [ 0, %712 ], [ 0, %729 ], [ 0, %756 ], [ 0, %530 ], [ 0, %451 ], [ 0, %408 ], [ 0, %368 ], [ 0, %325 ], [ 0, %331 ], [ 0, %348 ], [ 0, %375 ], [ 0, %392 ], [ 0, %414 ], [ 0, %431 ], [ 0, %458 ], [ 0, %214 ], [ 0, %171 ], [ 0, %131 ], [ 0, %88 ], [ 0, %94 ], [ 0, %111 ], [ 0, %138 ], [ 0, %155 ], [ 0, %177 ], [ 0, %194 ], [ 0, %221 ], [ 0, %238 ]
+  %.0 = phi i8 [ %1103, %fireReports.exit ], [ 0, %967 ], [ 0, %481 ], [ 0, %928 ], [ 0, %773 ], [ 0, %525 ], [ 0, %1011 ], [ 0, %1074 ], [ 0, %696 ], [ 0, %547 ], [ 0, %735 ], [ 0, %884 ], [ 0, %475 ], [ 0, %1062 ], [ 0, %779 ], [ 0, %398 ], [ 0, %1052 ], [ 0, %244 ], [ 0, %437 ], [ 0, %117 ], [ 0, %652 ], [ 0, %535 ], [ 0, %161 ], [ 0, %200 ], [ 0, %354 ], [ 0, %1005 ], [ 0, %1057 ], [ 0, %855 ], [ 0, %898 ], [ 0, %938 ], [ 0, %981 ], [ 0, %861 ], [ 0, %878 ], [ 0, %905 ], [ 0, %922 ], [ 0, %944 ], [ 0, %961 ], [ 0, %988 ], [ 0, %706 ], [ 0, %623 ], [ 0, %666 ], [ 0, %749 ], [ 0, %629 ], [ 0, %646 ], [ 0, %673 ], [ 0, %690 ], [ 0, %712 ], [ 0, %729 ], [ 0, %756 ], [ 0, %530 ], [ 0, %451 ], [ 0, %408 ], [ 0, %368 ], [ 0, %325 ], [ 0, %331 ], [ 0, %348 ], [ 0, %375 ], [ 0, %392 ], [ 0, %414 ], [ 0, %431 ], [ 0, %458 ], [ 0, %214 ], [ 0, %171 ], [ 0, %131 ], [ 0, %88 ], [ 0, %94 ], [ 0, %111 ], [ 0, %138 ], [ 0, %155 ], [ 0, %177 ], [ 0, %194 ], [ 0, %221 ], [ 0, %238 ]
   ret i8 %.0
 }
 
@@ -2335,8 +2335,8 @@ runShengSam.exit:                                 ; preds = %runShengSam.exit.ba
   br i1 %232, label %.lr.ph1380, label %sheng4_nmda.exit, !prof !7
 
 sheng4_nmda.exit:                                 ; preds = %.lr.ph1374, %191, %.lr.ph1380, %228, %197, %136, %195, %134
-  %.20631 = phi i8 [ %.0611, %134 ], [ %.0611, %195 ], [ %.0611, %136 ], [ %.0611, %197 ], [ %226, %.lr.ph1380 ], [ %226, %228 ], [ %167, %191 ], [ %167, %.lr.ph1374 ]
-  %.10 = phi ptr [ %114, %134 ], [ %114, %195 ], [ %.0168.i279, %136 ], [ %113, %197 ], [ %114, %.lr.ph1380 ], [ %229, %228 ], [ %114, %.lr.ph1374 ], [ %.2170.i287, %191 ]
+  %.20631 = phi i8 [ %.0611, %134 ], [ %.0611, %195 ], [ %226, %.lr.ph1380 ], [ %.0611, %197 ], [ %.0611, %136 ], [ %226, %228 ], [ %167, %191 ], [ %167, %.lr.ph1374 ]
+  %.10 = phi ptr [ %114, %134 ], [ %114, %195 ], [ %114, %.lr.ph1380 ], [ %113, %197 ], [ %.0168.i279, %136 ], [ %229, %228 ], [ %114, %.lr.ph1374 ], [ %.2170.i287, %191 ]
   %233 = and i8 %.20631, 32
   %.not.i296 = icmp eq i8 %233, 0
   br i1 %.not.i296, label %234, label %runShengSam.exit.thread958
@@ -2598,8 +2598,8 @@ runShengSam.exit.thread958.thread:                ; preds = %.lr.ph1400, %sheng4
   br i1 %392, label %fireReports.exit.thread, label %387
 
 .thread686:                                       ; preds = %387, %368, %382, %365, %353
-  %.16543 = phi i8 [ %.125391267, %353 ], [ %.125391267, %365 ], [ %333, %382 ], [ %.125391267, %368 ], [ %.125391267, %387 ]
-  %.16504 = phi i32 [ %.125001268, %353 ], [ %.125001268, %365 ], [ %384, %382 ], [ %.125001268, %368 ], [ %.125001268, %387 ]
+  %.16543 = phi i8 [ %.125391267, %353 ], [ %.125391267, %368 ], [ %.125391267, %365 ], [ %333, %382 ], [ %.125391267, %387 ]
+  %.16504 = phi i32 [ %.125001268, %353 ], [ %.125001268, %368 ], [ %.125001268, %365 ], [ %384, %382 ], [ %.125001268, %387 ]
   %393 = and i8 %338, 16
   %.not193.i = icmp eq i8 %393, 0
   br i1 %.not193.i, label %.thread698, label %398
@@ -2683,8 +2683,8 @@ runShengSam.exit.thread958.thread:                ; preds = %.lr.ph1400, %sheng4
   br i1 %436, label %fireReports.exit.thread, label %431
 
 .thread698:                                       ; preds = %431, %412, %.thread686.thread, %402, %426, %409, %.thread686
-  %.19546 = phi i8 [ %.16543, %.thread686 ], [ %338, %409 ], [ %338, %426 ], [ %.1654319701975, %402 ], [ %.16543, %412 ], [ %.125391267, %.thread686.thread ], [ %.16543, %431 ]
-  %.19507 = phi i32 [ %.16504, %.thread686 ], [ %.16504, %409 ], [ %428, %426 ], [ %.1650419711974, %402 ], [ %.16504, %412 ], [ %.125001268, %.thread686.thread ], [ %.16504, %431 ]
+  %.19546 = phi i8 [ %.16543, %.thread686 ], [ %.1654319701975, %402 ], [ %338, %409 ], [ %338, %426 ], [ %.16543, %412 ], [ %.125391267, %.thread686.thread ], [ %.16543, %431 ]
+  %.19507 = phi i32 [ %.16504, %.thread686 ], [ %.1650419711974, %402 ], [ %.16504, %409 ], [ %428, %426 ], [ %.16504, %412 ], [ %.125001268, %.thread686.thread ], [ %.16504, %431 ]
   %437 = and i8 %343, 16
   %.not195.i = icmp eq i8 %437, 0
   br i1 %.not195.i, label %.thread710, label %438
@@ -2754,8 +2754,8 @@ runShengSam.exit.thread958.thread:                ; preds = %.lr.ph1400, %sheng4
   br i1 %475, label %fireReports.exit.thread, label %470
 
 .thread710:                                       ; preds = %470, %451, %465, %448, %.thread698
-  %.22549 = phi i8 [ %.19546, %.thread698 ], [ %343, %448 ], [ %343, %465 ], [ %.19546, %451 ], [ %.19546, %470 ]
-  %.22510 = phi i32 [ %.19507, %.thread698 ], [ %.19507, %448 ], [ %467, %465 ], [ %.19507, %451 ], [ %.19507, %470 ]
+  %.22549 = phi i8 [ %.19546, %.thread698 ], [ %.19546, %451 ], [ %343, %448 ], [ %343, %465 ], [ %.19546, %470 ]
+  %.22510 = phi i32 [ %.19507, %.thread698 ], [ %.19507, %451 ], [ %.19507, %448 ], [ %467, %465 ], [ %.19507, %470 ]
   %476 = and i8 %348, 16
   %.not197.i = icmp eq i8 %476, 0
   br i1 %.not197.i, label %.thread722, label %481
@@ -2839,8 +2839,8 @@ runShengSam.exit.thread958.thread:                ; preds = %.lr.ph1400, %sheng4
   br i1 %519, label %fireReports.exit.thread, label %514
 
 .thread722:                                       ; preds = %514, %495, %.thread710.thread, %485, %509, %492, %.thread710
-  %.25552 = phi i8 [ %.22549, %.thread710 ], [ %348, %492 ], [ %348, %509 ], [ %.2254919791985, %485 ], [ %.22549, %495 ], [ %.19546, %.thread710.thread ], [ %.22549, %514 ]
-  %.25513 = phi i32 [ %.22510, %.thread710 ], [ %.22510, %492 ], [ %511, %509 ], [ %.2251019801984, %485 ], [ %.22510, %495 ], [ %.19507, %.thread710.thread ], [ %.22510, %514 ]
+  %.25552 = phi i8 [ %.22549, %.thread710 ], [ %.2254919791985, %485 ], [ %348, %492 ], [ %348, %509 ], [ %.22549, %495 ], [ %.19546, %.thread710.thread ], [ %.22549, %514 ]
+  %.25513 = phi i32 [ %.22510, %.thread710 ], [ %.2251019801984, %485 ], [ %.22510, %492 ], [ %511, %509 ], [ %.22510, %495 ], [ %.19507, %.thread710.thread ], [ %.22510, %514 ]
   %520 = and i8 %348, 32
   %.not199.i = icmp eq i8 %520, 0
   br i1 %.not199.i, label %521, label %sheng4_coda.exit.thread
@@ -3015,8 +3015,8 @@ runShengSam.exit.thread958.thread:                ; preds = %.lr.ph1400, %sheng4
   br i1 %627, label %fireReports.exit.thread, label %622
 
 .thread744:                                       ; preds = %622, %603, %617, %600, %588
-  %.36563 = phi i8 [ %.325591287, %588 ], [ %.325591287, %600 ], [ %568, %617 ], [ %.325591287, %603 ], [ %.325591287, %622 ]
-  %.36524 = phi i32 [ %.325201288, %588 ], [ %.325201288, %600 ], [ %619, %617 ], [ %.325201288, %603 ], [ %.325201288, %622 ]
+  %.36563 = phi i8 [ %.325591287, %588 ], [ %.325591287, %603 ], [ %.325591287, %600 ], [ %568, %617 ], [ %.325591287, %622 ]
+  %.36524 = phi i32 [ %.325201288, %588 ], [ %.325201288, %603 ], [ %.325201288, %600 ], [ %619, %617 ], [ %.325201288, %622 ]
   %628 = and i8 %573, 16
   %.not192.i164 = icmp eq i8 %628, 0
   br i1 %.not192.i164, label %.thread756, label %633
@@ -3100,8 +3100,8 @@ runShengSam.exit.thread958.thread:                ; preds = %.lr.ph1400, %sheng4
   br i1 %671, label %fireReports.exit.thread, label %666
 
 .thread756:                                       ; preds = %666, %647, %.thread744.thread, %637, %661, %644, %.thread744
-  %.39566 = phi i8 [ %.36563, %.thread744 ], [ %573, %644 ], [ %573, %661 ], [ %.3656319891995, %637 ], [ %.36563, %647 ], [ %.325591287, %.thread744.thread ], [ %.36563, %666 ]
-  %.39 = phi i32 [ %.36524, %.thread744 ], [ %.36524, %644 ], [ %663, %661 ], [ %.3652419901994, %637 ], [ %.36524, %647 ], [ %.325201288, %.thread744.thread ], [ %.36524, %666 ]
+  %.39566 = phi i8 [ %.36563, %.thread744 ], [ %.3656319891995, %637 ], [ %573, %644 ], [ %573, %661 ], [ %.36563, %647 ], [ %.325591287, %.thread744.thread ], [ %.36563, %666 ]
+  %.39 = phi i32 [ %.36524, %.thread744 ], [ %.3652419901994, %637 ], [ %.36524, %644 ], [ %663, %661 ], [ %.36524, %647 ], [ %.325201288, %.thread744.thread ], [ %.36524, %666 ]
   %672 = and i8 %578, 16
   %.not194.i170 = icmp eq i8 %672, 0
   br i1 %.not194.i170, label %.thread768, label %673
@@ -3171,8 +3171,8 @@ runShengSam.exit.thread958.thread:                ; preds = %.lr.ph1400, %sheng4
   br i1 %710, label %fireReports.exit.thread, label %705
 
 .thread768:                                       ; preds = %705, %686, %700, %683, %.thread756
-  %.42569 = phi i8 [ %.39566, %.thread756 ], [ %578, %683 ], [ %578, %700 ], [ %.39566, %686 ], [ %.39566, %705 ]
-  %.42 = phi i32 [ %.39, %.thread756 ], [ %.39, %683 ], [ %702, %700 ], [ %.39, %686 ], [ %.39, %705 ]
+  %.42569 = phi i8 [ %.39566, %.thread756 ], [ %.39566, %686 ], [ %578, %683 ], [ %578, %700 ], [ %.39566, %705 ]
+  %.42 = phi i32 [ %.39, %.thread756 ], [ %.39, %686 ], [ %.39, %683 ], [ %702, %700 ], [ %.39, %705 ]
   %711 = and i8 %583, 16
   %.not196.i176 = icmp eq i8 %711, 0
   br i1 %.not196.i176, label %.thread780, label %716
@@ -3256,8 +3256,8 @@ runShengSam.exit.thread958.thread:                ; preds = %.lr.ph1400, %sheng4
   br i1 %754, label %fireReports.exit.thread, label %749
 
 .thread780:                                       ; preds = %749, %730, %.thread768.thread, %720, %744, %727, %.thread768
-  %.45572 = phi i8 [ %.42569, %.thread768 ], [ %583, %727 ], [ %583, %744 ], [ %.4256919992005, %720 ], [ %.42569, %730 ], [ %.39566, %.thread768.thread ], [ %.42569, %749 ]
-  %.45 = phi i32 [ %.42, %.thread768 ], [ %.42, %727 ], [ %746, %744 ], [ %.4220002004, %720 ], [ %.42, %730 ], [ %.39, %.thread768.thread ], [ %.42, %749 ]
+  %.45572 = phi i8 [ %.42569, %.thread768 ], [ %.4256919992005, %720 ], [ %583, %727 ], [ %583, %744 ], [ %.42569, %730 ], [ %.39566, %.thread768.thread ], [ %.42569, %749 ]
+  %.45 = phi i32 [ %.42, %.thread768 ], [ %.4220002004, %720 ], [ %.42, %727 ], [ %746, %744 ], [ %.42, %730 ], [ %.39, %.thread768.thread ], [ %.42, %749 ]
   %755 = and i8 %583, 32
   %.not198.i181 = icmp eq i8 %755, 0
   br i1 %.not198.i181, label %756, label %sheng4_coda.exit.thread
@@ -3528,8 +3528,8 @@ sheng4_coda.exit.thread:                          ; preds = %.thread722, %543, %
   br i1 %910, label %fireReports.exit.thread, label %905
 
 fireReports.exit225.i:                            ; preds = %905, %886, %883, %900, %871
-  %.57584 = phi i8 [ %.565831323, %871 ], [ %.565831323, %883 ], [ %851, %900 ], [ %.565831323, %886 ], [ %.565831323, %905 ]
-  %.57 = phi i32 [ %.561324, %871 ], [ %.561324, %883 ], [ %902, %900 ], [ %.561324, %886 ], [ %.561324, %905 ]
+  %.57584 = phi i8 [ %.565831323, %871 ], [ %.565831323, %886 ], [ %.565831323, %883 ], [ %851, %900 ], [ %.565831323, %905 ]
+  %.57 = phi i32 [ %.561324, %871 ], [ %.561324, %886 ], [ %.561324, %883 ], [ %902, %900 ], [ %.561324, %905 ]
   %911 = and i8 %856, 16
   %.not192.i209 = icmp eq i8 %911, 0
   br i1 %.not192.i209, label %fireReports.exit218.i, label %916
@@ -3684,8 +3684,8 @@ fireReports.exit218.i:                            ; preds = %949, %930, %fireRep
   br i1 %993, label %fireReports.exit.thread, label %988
 
 fireReports.exit211.i:                            ; preds = %988, %969, %966, %983, %fireReports.exit218.i
-  %.59586 = phi i8 [ %.58585, %fireReports.exit218.i ], [ %861, %966 ], [ %861, %983 ], [ %.58585, %969 ], [ %.58585, %988 ]
-  %.59 = phi i32 [ %.58, %fireReports.exit218.i ], [ %.58, %966 ], [ %985, %983 ], [ %.58, %969 ], [ %.58, %988 ]
+  %.59586 = phi i8 [ %.58585, %fireReports.exit218.i ], [ %.58585, %969 ], [ %861, %966 ], [ %861, %983 ], [ %.58585, %988 ]
+  %.59 = phi i32 [ %.58, %fireReports.exit218.i ], [ %.58, %969 ], [ %.58, %966 ], [ %985, %983 ], [ %.58, %988 ]
   %994 = and i8 %866, 16
   %.not196.i213 = icmp eq i8 %994, 0
   br i1 %.not196.i213, label %fireReports.exit.i224, label %999
@@ -3935,8 +3935,8 @@ fireReports.exit.i224:                            ; preds = %1032, %1013, %fireR
   br i1 %1140, label %fireReports.exit.thread, label %1135
 
 fireReports.exit223.i:                            ; preds = %1135, %1116, %1113, %1130, %1101
-  %.69596 = phi i8 [ %.685951346, %1101 ], [ %.685951346, %1113 ], [ %1081, %1130 ], [ %.685951346, %1116 ], [ %.685951346, %1135 ]
-  %.69 = phi i32 [ %.681347, %1101 ], [ %.681347, %1113 ], [ %1132, %1130 ], [ %.681347, %1116 ], [ %.681347, %1135 ]
+  %.69596 = phi i8 [ %.685951346, %1101 ], [ %.685951346, %1116 ], [ %.685951346, %1113 ], [ %1081, %1130 ], [ %.685951346, %1135 ]
+  %.69 = phi i32 [ %.681347, %1101 ], [ %.681347, %1116 ], [ %.681347, %1113 ], [ %1132, %1130 ], [ %.681347, %1135 ]
   %1141 = and i8 %1086, 16
   %.not191.i236 = icmp eq i8 %1141, 0
   br i1 %.not191.i236, label %fireReports.exit216.i, label %1146
@@ -4091,8 +4091,8 @@ fireReports.exit216.i:                            ; preds = %1179, %1160, %fireR
   br i1 %1223, label %fireReports.exit.thread, label %1218
 
 fireReports.exit209.i:                            ; preds = %1218, %1199, %1196, %1213, %fireReports.exit216.i
-  %.71598 = phi i8 [ %.70597, %fireReports.exit216.i ], [ %1091, %1196 ], [ %1091, %1213 ], [ %.70597, %1199 ], [ %.70597, %1218 ]
-  %.71 = phi i32 [ %.70, %fireReports.exit216.i ], [ %.70, %1196 ], [ %1215, %1213 ], [ %.70, %1199 ], [ %.70, %1218 ]
+  %.71598 = phi i8 [ %.70597, %fireReports.exit216.i ], [ %.70597, %1199 ], [ %1091, %1196 ], [ %1091, %1213 ], [ %.70597, %1218 ]
+  %.71 = phi i32 [ %.70, %fireReports.exit216.i ], [ %.70, %1199 ], [ %.70, %1196 ], [ %1215, %1213 ], [ %.70, %1218 ]
   %1224 = and i8 %1096, 16
   %.not195.i242 = icmp eq i8 %1224, 0
   br i1 %.not195.i242, label %.critedge.i245, label %1229
@@ -4185,10 +4185,10 @@ fireReports.exit209.i.thread:                     ; preds = %1190
   br i1 %1271, label %1068, label %sheng4_coa.exit, !prof !7
 
 sheng4_coa.exit:                                  ; preds = %.critedge.i215, %.critedge.i245, %1062, %830
-  %.8619 = phi i8 [ %.0611, %830 ], [ %.0611, %1062 ], [ %1096, %.critedge.i245 ], [ %866, %.critedge.i215 ]
-  %.9536 = phi i8 [ %.2529, %830 ], [ %.2529, %1062 ], [ %.73600, %.critedge.i245 ], [ %.62589, %.critedge.i215 ]
-  %.9497 = phi i32 [ %.2490, %830 ], [ %.2490, %1062 ], [ %.73, %.critedge.i245 ], [ %.62, %.critedge.i215 ]
-  %.1 = phi ptr [ %.0168.i202, %830 ], [ %288, %1062 ], [ %1268, %.critedge.i245 ], [ %.2170.i218, %.critedge.i215 ]
+  %.8619 = phi i8 [ %1096, %.critedge.i245 ], [ %.0611, %830 ], [ %.0611, %1062 ], [ %866, %.critedge.i215 ]
+  %.9536 = phi i8 [ %.73600, %.critedge.i245 ], [ %.2529, %830 ], [ %.2529, %1062 ], [ %.62589, %.critedge.i215 ]
+  %.9497 = phi i32 [ %.73, %.critedge.i245 ], [ %.2490, %830 ], [ %.2490, %1062 ], [ %.62, %.critedge.i215 ]
+  %.1 = phi ptr [ %1268, %.critedge.i245 ], [ %.0168.i202, %830 ], [ %288, %1062 ], [ %.2170.i218, %.critedge.i215 ]
   %.not.i2591361 = icmp eq ptr %.1, %289
   br i1 %.not.i2591361, label %runShengSam.exit.thread958, label %.lr.ph1366, !prof !10
 
@@ -4773,8 +4773,8 @@ sheng4_samda.exit.thread:                         ; preds = %1392, %1416, %1467,
   br i1 %1627, label %.lr.ph1491, label %._crit_edge1471, !prof !7
 
 ._crit_edge1471:                                  ; preds = %1574, %1623, %1578, %1505
-  %.24635.ph = phi i8 [ %.0611, %1505 ], [ %.0611, %1578 ], [ %1610, %1623 ], [ %1539, %1574 ]
-  %.13.ph = phi ptr [ %.0129.i330, %1505 ], [ %1322, %1578 ], [ %1624, %1623 ], [ %.2131.i339, %1574 ]
+  %.24635.ph = phi i8 [ %1610, %1623 ], [ %.0611, %1505 ], [ %.0611, %1578 ], [ %1539, %1574 ]
+  %.13.ph = phi ptr [ %1624, %1623 ], [ %.0129.i330, %1505 ], [ %1322, %1578 ], [ %.2131.i339, %1574 ]
   %.not.i3581495 = icmp eq ptr %.13.ph, %1323
   br i1 %.not.i3581495, label %runShengSam.exit.thread958, label %.lr.ph1499.preheader, !prof !10
 
@@ -4850,8 +4850,8 @@ sheng4_samda.exit.thread:                         ; preds = %1392, %1416, %1467,
   br label %.thread914
 
 .thread914:                                       ; preds = %1384, %1459, %.lr.ph1449, %1544, %1615, %.lr.ph1499, %.thread914.loopexit2082.split.loop.exit, %.thread914.loopexit2082.split.loop.exit2181, %.thread914.loopexit2082.split.loop.exit2185, %.thread914.loopexit2079.split.loop.exit, %.thread914.loopexit2079.split.loop.exit2195, %.thread914.loopexit2079.split.loop.exit2199, %.thread914.loopexit2073.split.loop.exit, %.thread914.loopexit2073.split.loop.exit2209, %.thread914.loopexit2073.split.loop.exit2213, %.thread914.loopexit2072.split.loop.exit, %.thread914.loopexit2072.split.loop.exit2223, %.thread914.loopexit2072.split.loop.exit2227
-  %.25636.ph = phi i8 [ %1610, %.thread914.loopexit2072.split.loop.exit2227 ], [ %1605, %.thread914.loopexit2072.split.loop.exit2223 ], [ %1600, %.thread914.loopexit2072.split.loop.exit ], [ %1534, %.thread914.loopexit2073.split.loop.exit2209 ], [ %1539, %.thread914.loopexit2073.split.loop.exit2213 ], [ %1529, %.thread914.loopexit2073.split.loop.exit ], [ %1449, %.thread914.loopexit2079.split.loop.exit2195 ], [ %1444, %.thread914.loopexit2079.split.loop.exit2199 ], [ %1454, %.thread914.loopexit2079.split.loop.exit ], [ %1379, %.thread914.loopexit2082.split.loop.exit ], [ %1369, %.thread914.loopexit2082.split.loop.exit2185 ], [ %1374, %.thread914.loopexit2082.split.loop.exit2181 ], [ %1439, %1459 ], [ %1635, %.lr.ph1499 ], [ %1595, %1615 ], [ %1524, %1544 ], [ %1482, %.lr.ph1449 ], [ %1364, %1384 ]
-  %.14.ph = phi ptr [ %1641, %.thread914.loopexit2072.split.loop.exit2227 ], [ %1640, %.thread914.loopexit2072.split.loop.exit2223 ], [ %1639, %.thread914.loopexit2072.split.loop.exit ], [ %1643, %.thread914.loopexit2073.split.loop.exit2209 ], [ %1644, %.thread914.loopexit2073.split.loop.exit2213 ], [ %1642, %.thread914.loopexit2073.split.loop.exit ], [ %1646, %.thread914.loopexit2079.split.loop.exit2195 ], [ %1647, %.thread914.loopexit2079.split.loop.exit2199 ], [ %1645, %.thread914.loopexit2079.split.loop.exit ], [ %1648, %.thread914.loopexit2082.split.loop.exit ], [ %1650, %.thread914.loopexit2082.split.loop.exit2185 ], [ %1649, %.thread914.loopexit2082.split.loop.exit2181 ], [ %.1130.i3131439, %1459 ], [ %.028.i3571497, %.lr.ph1499 ], [ %.1130.i3461489, %1615 ], [ %.1130.i3331468, %1544 ], [ %.028.i1447, %.lr.ph1449 ], [ %.1130.i1418, %1384 ]
+  %.25636.ph = phi i8 [ %1482, %.lr.ph1449 ], [ %1439, %1459 ], [ %1524, %1544 ], [ %1635, %.lr.ph1499 ], [ %1595, %1615 ], [ %1605, %.thread914.loopexit2072.split.loop.exit2223 ], [ %1610, %.thread914.loopexit2072.split.loop.exit2227 ], [ %1600, %.thread914.loopexit2072.split.loop.exit ], [ %1534, %.thread914.loopexit2073.split.loop.exit2209 ], [ %1539, %.thread914.loopexit2073.split.loop.exit2213 ], [ %1529, %.thread914.loopexit2073.split.loop.exit ], [ %1454, %.thread914.loopexit2079.split.loop.exit ], [ %1449, %.thread914.loopexit2079.split.loop.exit2195 ], [ %1444, %.thread914.loopexit2079.split.loop.exit2199 ], [ %1369, %.thread914.loopexit2082.split.loop.exit2185 ], [ %1379, %.thread914.loopexit2082.split.loop.exit ], [ %1374, %.thread914.loopexit2082.split.loop.exit2181 ], [ %1364, %1384 ]
+  %.14.ph = phi ptr [ %.028.i1447, %.lr.ph1449 ], [ %.1130.i3131439, %1459 ], [ %.1130.i3331468, %1544 ], [ %.028.i3571497, %.lr.ph1499 ], [ %.1130.i3461489, %1615 ], [ %1640, %.thread914.loopexit2072.split.loop.exit2223 ], [ %1641, %.thread914.loopexit2072.split.loop.exit2227 ], [ %1639, %.thread914.loopexit2072.split.loop.exit ], [ %1643, %.thread914.loopexit2073.split.loop.exit2209 ], [ %1644, %.thread914.loopexit2073.split.loop.exit2213 ], [ %1642, %.thread914.loopexit2073.split.loop.exit ], [ %1645, %.thread914.loopexit2079.split.loop.exit ], [ %1646, %.thread914.loopexit2079.split.loop.exit2195 ], [ %1647, %.thread914.loopexit2079.split.loop.exit2199 ], [ %1650, %.thread914.loopexit2082.split.loop.exit2185 ], [ %1648, %.thread914.loopexit2082.split.loop.exit ], [ %1649, %.thread914.loopexit2082.split.loop.exit2181 ], [ %.1130.i1418, %1384 ]
   %1651 = load i32, ptr %74, align 8
   %1652 = add i32 %1651, -1
   store i32 %1652, ptr %74, align 8
@@ -4869,10 +4869,10 @@ sheng4_samda.exit.thread:                         ; preds = %1392, %1416, %1467,
   br label %fireReports.exit.thread
 
 runShengSam.exit.thread958:                       ; preds = %.critedge.i, %.critedge.i262, %1484, %1637, %._crit_edge1471, %sheng4_coa.exit, %sheng4_samda.exit.thread, %._crit_edge1389, %sheng4_nmda.exit, %sheng4_coda.exit.thread, %runShengSam.exit
-  %.1612 = phi i8 [ %.0611, %runShengSam.exit ], [ %.22633912, %sheng4_samda.exit.thread ], [ %.6617800, %sheng4_coda.exit.thread ], [ %243, %._crit_edge1389 ], [ %.20631, %sheng4_nmda.exit ], [ %.8619, %sheng4_coa.exit ], [ %.24635.ph, %._crit_edge1471 ], [ %1281, %.critedge.i262 ], [ %1635, %1637 ], [ %1482, %1484 ], [ %771, %.critedge.i ]
-  %.3530 = phi i8 [ %.2529, %runShengSam.exit ], [ %.2529, %sheng4_samda.exit.thread ], [ %.7534801, %sheng4_coda.exit.thread ], [ %.2529, %._crit_edge1389 ], [ %.2529, %sheng4_nmda.exit ], [ %.9536, %sheng4_coa.exit ], [ %.2529, %._crit_edge1471 ], [ %.81608, %.critedge.i262 ], [ %.2529, %1637 ], [ %.2529, %1484 ], [ %.53580, %.critedge.i ]
-  %.3491 = phi i32 [ %.2490, %runShengSam.exit ], [ %.2490, %sheng4_samda.exit.thread ], [ %.7495802, %sheng4_coda.exit.thread ], [ %.2490, %._crit_edge1389 ], [ %.2490, %sheng4_nmda.exit ], [ %.9497, %sheng4_coa.exit ], [ %.2490, %._crit_edge1471 ], [ %.81, %.critedge.i262 ], [ %.2490, %1637 ], [ %.2490, %1484 ], [ %.53, %.critedge.i ]
-  %.1125 = phi i64 [ %.0124, %runShengSam.exit ], [ %.0122, %sheng4_samda.exit.thread ], [ %.0122, %sheng4_coda.exit.thread ], [ %.0122, %._crit_edge1389 ], [ %.0122, %sheng4_nmda.exit ], [ %.0122, %sheng4_coa.exit ], [ %.0122, %._crit_edge1471 ], [ %.0122, %.critedge.i262 ], [ %.0122, %1637 ], [ %.0122, %1484 ], [ %.0122, %.critedge.i ]
+  %.1612 = phi i8 [ %.0611, %runShengSam.exit ], [ %1635, %1637 ], [ %.22633912, %sheng4_samda.exit.thread ], [ %.6617800, %sheng4_coda.exit.thread ], [ %243, %._crit_edge1389 ], [ %.24635.ph, %._crit_edge1471 ], [ %.20631, %sheng4_nmda.exit ], [ %.8619, %sheng4_coa.exit ], [ %1281, %.critedge.i262 ], [ %1482, %1484 ], [ %771, %.critedge.i ]
+  %.3530 = phi i8 [ %.2529, %runShengSam.exit ], [ %.2529, %1637 ], [ %.2529, %sheng4_samda.exit.thread ], [ %.7534801, %sheng4_coda.exit.thread ], [ %.2529, %._crit_edge1389 ], [ %.2529, %._crit_edge1471 ], [ %.2529, %sheng4_nmda.exit ], [ %.9536, %sheng4_coa.exit ], [ %.81608, %.critedge.i262 ], [ %.2529, %1484 ], [ %.53580, %.critedge.i ]
+  %.3491 = phi i32 [ %.2490, %runShengSam.exit ], [ %.2490, %1637 ], [ %.2490, %sheng4_samda.exit.thread ], [ %.7495802, %sheng4_coda.exit.thread ], [ %.2490, %._crit_edge1389 ], [ %.2490, %._crit_edge1471 ], [ %.2490, %sheng4_nmda.exit ], [ %.9497, %sheng4_coa.exit ], [ %.81, %.critedge.i262 ], [ %.2490, %1484 ], [ %.53, %.critedge.i ]
+  %.1125 = phi i64 [ %.0124, %runShengSam.exit ], [ %.0122, %1637 ], [ %.0122, %sheng4_samda.exit.thread ], [ %.0122, %sheng4_coda.exit.thread ], [ %.0122, %._crit_edge1389 ], [ %.0122, %._crit_edge1471 ], [ %.0122, %sheng4_nmda.exit ], [ %.0122, %sheng4_coa.exit ], [ %.0122, %.critedge.i262 ], [ %.0122, %1484 ], [ %.0122, %.critedge.i ]
   br i1 %.not140, label %1660, label %1673
 
 1660:                                             ; preds = %runShengSam.exit.thread958
@@ -4972,7 +4972,7 @@ runShengSam.exit.backedge:                        ; preds = %1677, %1706
   br label %runShengSam.exit.backedge
 
 fireReports.exit.thread:                          ; preds = %69, %509, %492, %465, %448, %426, %409, %382, %365, %359, %402, %442, %485, %744, %727, %700, %683, %661, %644, %617, %600, %594, %637, %677, %720, %799, %782, %776, %1027, %1010, %983, %966, %944, %927, %900, %883, %1003, %920, %877, %960, %1257, %1240, %1213, %1196, %1174, %1157, %1130, %1113, %1233, %1190, %1150, %1107, %1309, %1292, %1286, %388, %432, %471, %515, %623, %667, %706, %750, %805, %906, %950, %989, %1033, %1136, %1180, %1219, %1263, %1315, %.thread914, %1686, %1682, %1667, %63, %45, %20, %92
-  %.2 = phi i8 [ 1, %92 ], [ 0, %20 ], [ 0, %45 ], [ 0, %63 ], [ 1, %1667 ], [ 2, %.thread914 ], [ %1688, %1686 ], [ 1, %1682 ], [ 0, %509 ], [ 0, %1315 ], [ 0, %1263 ], [ 0, %1219 ], [ 0, %1180 ], [ 0, %1136 ], [ 0, %1033 ], [ 0, %989 ], [ 0, %950 ], [ 0, %906 ], [ 0, %805 ], [ 0, %750 ], [ 0, %706 ], [ 0, %667 ], [ 0, %623 ], [ 0, %515 ], [ 0, %471 ], [ 0, %432 ], [ 0, %388 ], [ 0, %1309 ], [ 0, %1257 ], [ 0, %1027 ], [ 0, %799 ], [ 0, %744 ], [ 0, %1286 ], [ 0, %1292 ], [ 0, %1107 ], [ 0, %1150 ], [ 0, %1190 ], [ 0, %1233 ], [ 0, %1113 ], [ 0, %1130 ], [ 0, %1157 ], [ 0, %1174 ], [ 0, %1196 ], [ 0, %1213 ], [ 0, %1240 ], [ 0, %960 ], [ 0, %877 ], [ 0, %920 ], [ 0, %1003 ], [ 0, %883 ], [ 0, %900 ], [ 0, %927 ], [ 0, %944 ], [ 0, %966 ], [ 0, %983 ], [ 0, %1010 ], [ 0, %776 ], [ 0, %782 ], [ 0, %720 ], [ 0, %677 ], [ 0, %637 ], [ 0, %594 ], [ 0, %600 ], [ 0, %617 ], [ 0, %644 ], [ 0, %661 ], [ 0, %683 ], [ 0, %700 ], [ 0, %727 ], [ 0, %485 ], [ 0, %442 ], [ 0, %402 ], [ 0, %359 ], [ 0, %365 ], [ 0, %382 ], [ 0, %409 ], [ 0, %426 ], [ 0, %448 ], [ 0, %465 ], [ 0, %492 ], [ 0, %69 ]
+  %.2 = phi i8 [ 0, %515 ], [ 1, %92 ], [ 0, %20 ], [ 0, %45 ], [ 0, %63 ], [ 1, %1667 ], [ 2, %.thread914 ], [ 0, %1315 ], [ %1688, %1686 ], [ 1, %1682 ], [ 0, %706 ], [ 0, %906 ], [ 0, %667 ], [ 0, %1033 ], [ 0, %989 ], [ 0, %509 ], [ 0, %750 ], [ 0, %623 ], [ 0, %1263 ], [ 0, %388 ], [ 0, %1219 ], [ 0, %1180 ], [ 0, %744 ], [ 0, %1309 ], [ 0, %432 ], [ 0, %799 ], [ 0, %471 ], [ 0, %1136 ], [ 0, %1027 ], [ 0, %805 ], [ 0, %950 ], [ 0, %1257 ], [ 0, %1286 ], [ 0, %1292 ], [ 0, %1107 ], [ 0, %1150 ], [ 0, %1190 ], [ 0, %1233 ], [ 0, %1113 ], [ 0, %1130 ], [ 0, %1157 ], [ 0, %1174 ], [ 0, %1196 ], [ 0, %1213 ], [ 0, %1240 ], [ 0, %960 ], [ 0, %877 ], [ 0, %920 ], [ 0, %1003 ], [ 0, %883 ], [ 0, %900 ], [ 0, %927 ], [ 0, %944 ], [ 0, %966 ], [ 0, %983 ], [ 0, %1010 ], [ 0, %776 ], [ 0, %782 ], [ 0, %720 ], [ 0, %677 ], [ 0, %637 ], [ 0, %594 ], [ 0, %600 ], [ 0, %617 ], [ 0, %644 ], [ 0, %661 ], [ 0, %683 ], [ 0, %700 ], [ 0, %727 ], [ 0, %485 ], [ 0, %442 ], [ 0, %402 ], [ 0, %359 ], [ 0, %365 ], [ 0, %382 ], [ 0, %409 ], [ 0, %426 ], [ 0, %448 ], [ 0, %465 ], [ 0, %492 ], [ 0, %69 ]
   ret i8 %.2
 }
 

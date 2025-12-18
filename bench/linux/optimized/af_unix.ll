@@ -1079,8 +1079,8 @@ define internal fastcc i32 @unix_stream_read_generic(ptr noundef %0, i1 noundef 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.thread32, %.thread33, %75, %.loopexit58.split.loop.exit123
-  %207 = phi i32 [ %206, %.loopexit58.split.loop.exit123 ], [ -104, %75 ], [ 0, %.thread33 ], [ 0, %.thread32 ]
-  %208 = phi i32 [ %117, %.loopexit58.split.loop.exit123 ], [ %76, %75 ], [ %117, %.thread33 ], [ %117, %.thread32 ]
+  %207 = phi i32 [ -104, %75 ], [ %206, %.loopexit58.split.loop.exit123 ], [ 0, %.thread33 ], [ 0, %.thread32 ]
+  %208 = phi i32 [ %76, %75 ], [ %117, %.loopexit58.split.loop.exit123 ], [ %117, %.thread33 ], [ %117, %.thread32 ]
   call void @_raw_spin_unlock(ptr noundef nonnull %48) #19
   br label %.thread42
 
@@ -1356,8 +1356,8 @@ define internal fastcc i32 @unix_stream_read_generic(ptr noundef %0, i1 noundef 
   br label %.thread42
 
 .thread42:                                        ; preds = %350, %346, %131, %.thread31, %238, %233, %228, %366, %322, %243, %.thread31.thread, %374, %319, %.loopexit
-  %375 = phi i32 [ %76, %.thread31.thread ], [ %208, %.loopexit ], [ %110, %238 ], [ %324, %374 ], [ %321, %319 ], [ %76, %.thread31 ], [ %110, %243 ], [ %324, %322 ], [ %324, %366 ], [ %110, %228 ], [ %110, %233 ], [ %324, %346 ], [ %324, %350 ], [ %117, %131 ]
-  %376 = phi i32 [ 0, %.thread31.thread ], [ %207, %.loopexit ], [ 0, %238 ], [ 0, %374 ], [ 0, %319 ], [ 0, %.thread31 ], [ 0, %243 ], [ 0, %322 ], [ 0, %366 ], [ 0, %228 ], [ 0, %233 ], [ 0, %346 ], [ 0, %350 ], [ -11, %131 ]
+  %375 = phi i32 [ %76, %.thread31.thread ], [ %76, %.thread31 ], [ %321, %319 ], [ %208, %.loopexit ], [ %110, %238 ], [ %324, %374 ], [ %110, %243 ], [ %324, %322 ], [ %324, %366 ], [ %110, %228 ], [ %110, %233 ], [ %324, %346 ], [ %324, %350 ], [ %117, %131 ]
+  %376 = phi i32 [ 0, %.thread31.thread ], [ 0, %.thread31 ], [ 0, %319 ], [ %207, %.loopexit ], [ 0, %238 ], [ 0, %374 ], [ 0, %243 ], [ 0, %322 ], [ 0, %366 ], [ 0, %228 ], [ 0, %233 ], [ 0, %346 ], [ 0, %350 ], [ -11, %131 ]
   call void @mutex_unlock(ptr noundef nonnull %39) #19
   %377 = load ptr, ptr %57, align 8
   %378 = icmp eq ptr %377, null
@@ -1379,9 +1379,9 @@ define internal fastcc i32 @unix_stream_read_generic(ptr noundef %0, i1 noundef 
   call void @__scm_destroy(ptr noundef nonnull %4) #19
   br label %.thread44
 
-.thread44:                                        ; preds = %204, %.critedge, %384, %380, %379
-  %385 = phi i32 [ %376, %384 ], [ %376, %379 ], [ %376, %380 ], [ %200, %.critedge ], [ %200, %204 ]
-  %386 = phi i32 [ %375, %384 ], [ %375, %379 ], [ %375, %380 ], [ %117, %.critedge ], [ %117, %204 ]
+.thread44:                                        ; preds = %.critedge, %204, %384, %380, %379
+  %385 = phi i32 [ %376, %384 ], [ %376, %379 ], [ %376, %380 ], [ %200, %204 ], [ %200, %.critedge ]
+  %386 = phi i32 [ %375, %384 ], [ %375, %379 ], [ %375, %380 ], [ %117, %204 ], [ %117, %.critedge ]
   %.fr = freeze i32 %386
   %387 = icmp eq i32 %.fr, 0
   %spec.select = select i1 %387, i32 %385, i32 %.fr
@@ -6695,7 +6695,7 @@ define internal i32 @unix_dgram_sendmsg(ptr noundef %0, ptr noundef %1, i64 noun
   br label %.critedge
 
 .critedge:                                        ; preds = %267, %276, %246, %151, %241, %245, %.loopexit28, %166, %159, %119, %115
-  %302 = phi ptr [ %51, %115 ], [ %51, %119 ], [ %163, %166 ], [ %163, %.loopexit28 ], [ null, %159 ], [ null, %245 ], [ null, %241 ], [ null, %246 ], [ null, %151 ], [ %163, %276 ], [ %163, %267 ]
+  %302 = phi ptr [ %51, %115 ], [ %51, %119 ], [ %163, %166 ], [ %163, %.loopexit28 ], [ null, %159 ], [ null, %241 ], [ null, %245 ], [ null, %246 ], [ null, %151 ], [ %163, %276 ], [ %163, %267 ]
   call void @kfree_skb_reason(ptr noundef nonnull %88, i32 noundef 2) #19
   br label %304
 
@@ -6704,7 +6704,7 @@ define internal i32 @unix_dgram_sendmsg(ptr noundef %0, ptr noundef %1, i64 noun
   br label %.thread24
 
 304:                                              ; preds = %.critedge, %82, %68, %65
-  %305 = phi ptr [ %51, %68 ], [ %51, %82 ], [ %302, %.critedge ], [ %51, %65 ]
+  %305 = phi ptr [ %51, %65 ], [ %302, %.critedge ], [ %51, %68 ], [ %51, %82 ]
   %306 = icmp eq ptr %305, null
   br i1 %306, label %.thread24, label %307
 

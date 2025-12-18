@@ -3195,8 +3195,8 @@ _ZNKSt4lessIN7Imf_3_412_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit.thread.i.i.i.i: 
   br label %_ZNKSt4lessIN7Imf_3_412_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit.thread2.i.i.i.i
 
 _ZNKSt4lessIN7Imf_3_412_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit.thread2.i.i.i.i: ; preds = %_ZNKSt4lessIN7Imf_3_412_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit.thread.i.i.i.i, %_ZNKSt4lessIN7Imf_3_412_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit.i.i.i.i, %202, %196, %190
-  %.sink.i.i.i.i = phi i64 [ 24, %_ZNKSt4lessIN7Imf_3_412_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit.thread.i.i.i.i ], [ 16, %190 ], [ 16, %202 ], [ 16, %196 ], [ 16, %_ZNKSt4lessIN7Imf_3_412_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit.i.i.i.i ]
-  %.19.i.i.i.i = phi ptr [ %.084.i.i.i.i, %_ZNKSt4lessIN7Imf_3_412_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit.thread.i.i.i.i ], [ %.05.i.i.i.i, %190 ], [ %.05.i.i.i.i, %202 ], [ %.05.i.i.i.i, %196 ], [ %.05.i.i.i.i, %_ZNKSt4lessIN7Imf_3_412_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit.i.i.i.i ]
+  %.sink.i.i.i.i = phi i64 [ 24, %_ZNKSt4lessIN7Imf_3_412_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit.thread.i.i.i.i ], [ 16, %196 ], [ 16, %202 ], [ 16, %190 ], [ 16, %_ZNKSt4lessIN7Imf_3_412_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit.i.i.i.i ]
+  %.19.i.i.i.i = phi ptr [ %.084.i.i.i.i, %_ZNKSt4lessIN7Imf_3_412_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit.thread.i.i.i.i ], [ %.05.i.i.i.i, %196 ], [ %.05.i.i.i.i, %202 ], [ %.05.i.i.i.i, %190 ], [ %.05.i.i.i.i, %_ZNKSt4lessIN7Imf_3_412_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit.i.i.i.i ]
   %206 = getelementptr i8, ptr %.05.i.i.i.i, i64 %.sink.i.i.i.i
   %.1.i.i.i.i = load ptr, ptr %206, align 8, !tbaa !210
   %.not.i.i.i.i = icmp eq ptr %.1.i.i.i.i, null
@@ -3407,8 +3407,8 @@ _ZNKSt4lessIN7Imf_3_412_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit.thread.i.i.i109.
   br label %_ZNKSt4lessIN7Imf_3_412_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit.thread2.i.i.i99.i
 
 _ZNKSt4lessIN7Imf_3_412_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit.thread2.i.i.i99.i: ; preds = %_ZNKSt4lessIN7Imf_3_412_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit.thread.i.i.i109.i, %_ZNKSt4lessIN7Imf_3_412_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit.i.i.i108.i, %289, %283, %277
-  %.sink.i.i.i100.i = phi i64 [ 24, %_ZNKSt4lessIN7Imf_3_412_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit.thread.i.i.i109.i ], [ 16, %277 ], [ 16, %289 ], [ 16, %283 ], [ 16, %_ZNKSt4lessIN7Imf_3_412_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit.i.i.i108.i ]
-  %.19.i.i.i101.i = phi ptr [ %.084.i.i.i98.i, %_ZNKSt4lessIN7Imf_3_412_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit.thread.i.i.i109.i ], [ %.05.i.i.i97.i, %277 ], [ %.05.i.i.i97.i, %289 ], [ %.05.i.i.i97.i, %283 ], [ %.05.i.i.i97.i, %_ZNKSt4lessIN7Imf_3_412_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit.i.i.i108.i ]
+  %.sink.i.i.i100.i = phi i64 [ 24, %_ZNKSt4lessIN7Imf_3_412_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit.thread.i.i.i109.i ], [ 16, %283 ], [ 16, %289 ], [ 16, %277 ], [ 16, %_ZNKSt4lessIN7Imf_3_412_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit.i.i.i108.i ]
+  %.19.i.i.i101.i = phi ptr [ %.084.i.i.i98.i, %_ZNKSt4lessIN7Imf_3_412_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit.thread.i.i.i109.i ], [ %.05.i.i.i97.i, %283 ], [ %.05.i.i.i97.i, %289 ], [ %.05.i.i.i97.i, %277 ], [ %.05.i.i.i97.i, %_ZNKSt4lessIN7Imf_3_412_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit.i.i.i108.i ]
   %293 = getelementptr i8, ptr %.05.i.i.i97.i, i64 %.sink.i.i.i100.i
   %.1.i.i.i102.i = load ptr, ptr %293, align 8, !tbaa !210
   %.not.i.i.i103.i = icmp eq ptr %.1.i.i.i102.i, null
@@ -3561,8 +3561,8 @@ _ZNKSt4lessIN7Imf_3_412_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit.thread.i.i.i126.
   br label %_ZNKSt4lessIN7Imf_3_412_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit.thread2.i.i.i116.i
 
 _ZNKSt4lessIN7Imf_3_412_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit.thread2.i.i.i116.i: ; preds = %_ZNKSt4lessIN7Imf_3_412_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit.thread.i.i.i126.i, %_ZNKSt4lessIN7Imf_3_412_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit.i.i.i125.i, %363, %357, %351
-  %.sink.i.i.i117.i = phi i64 [ 24, %_ZNKSt4lessIN7Imf_3_412_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit.thread.i.i.i126.i ], [ 16, %351 ], [ 16, %363 ], [ 16, %357 ], [ 16, %_ZNKSt4lessIN7Imf_3_412_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit.i.i.i125.i ]
-  %.19.i.i.i118.i = phi ptr [ %.084.i.i.i115.i, %_ZNKSt4lessIN7Imf_3_412_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit.thread.i.i.i126.i ], [ %.05.i.i.i114.i, %351 ], [ %.05.i.i.i114.i, %363 ], [ %.05.i.i.i114.i, %357 ], [ %.05.i.i.i114.i, %_ZNKSt4lessIN7Imf_3_412_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit.i.i.i125.i ]
+  %.sink.i.i.i117.i = phi i64 [ 24, %_ZNKSt4lessIN7Imf_3_412_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit.thread.i.i.i126.i ], [ 16, %357 ], [ 16, %363 ], [ 16, %351 ], [ 16, %_ZNKSt4lessIN7Imf_3_412_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit.i.i.i125.i ]
+  %.19.i.i.i118.i = phi ptr [ %.084.i.i.i115.i, %_ZNKSt4lessIN7Imf_3_412_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit.thread.i.i.i126.i ], [ %.05.i.i.i114.i, %357 ], [ %.05.i.i.i114.i, %363 ], [ %.05.i.i.i114.i, %351 ], [ %.05.i.i.i114.i, %_ZNKSt4lessIN7Imf_3_412_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit.i.i.i125.i ]
   %367 = getelementptr i8, ptr %.05.i.i.i114.i, i64 %.sink.i.i.i117.i
   %.1.i.i.i119.i = load ptr, ptr %367, align 8, !tbaa !210
   %.not.i.i.i120.i = icmp eq ptr %.1.i.i.i119.i, null
@@ -3670,8 +3670,8 @@ _ZNKSt4lessIN7Imf_3_412_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit.thread.i.i.i.i.i
   br label %_ZNKSt4lessIN7Imf_3_412_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit.thread2.i.i.i.i.i
 
 _ZNKSt4lessIN7Imf_3_412_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit.thread2.i.i.i.i.i: ; preds = %_ZNKSt4lessIN7Imf_3_412_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit.thread.i.i.i.i.i, %_ZNKSt4lessIN7Imf_3_412_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit.i.i.i.i.i, %411, %405, %399
-  %.sink.i.i.i.i.i = phi i64 [ 24, %_ZNKSt4lessIN7Imf_3_412_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit.thread.i.i.i.i.i ], [ 16, %399 ], [ 16, %411 ], [ 16, %405 ], [ 16, %_ZNKSt4lessIN7Imf_3_412_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit.i.i.i.i.i ]
-  %.19.i.i.i.i.i = phi ptr [ %.084.i.i.i.i.i, %_ZNKSt4lessIN7Imf_3_412_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit.thread.i.i.i.i.i ], [ %.05.i.i.i.i.i, %399 ], [ %.05.i.i.i.i.i, %411 ], [ %.05.i.i.i.i.i, %405 ], [ %.05.i.i.i.i.i, %_ZNKSt4lessIN7Imf_3_412_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit.i.i.i.i.i ]
+  %.sink.i.i.i.i.i = phi i64 [ 24, %_ZNKSt4lessIN7Imf_3_412_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit.thread.i.i.i.i.i ], [ 16, %405 ], [ 16, %411 ], [ 16, %399 ], [ 16, %_ZNKSt4lessIN7Imf_3_412_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit.i.i.i.i.i ]
+  %.19.i.i.i.i.i = phi ptr [ %.084.i.i.i.i.i, %_ZNKSt4lessIN7Imf_3_412_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit.thread.i.i.i.i.i ], [ %.05.i.i.i.i.i, %405 ], [ %.05.i.i.i.i.i, %411 ], [ %.05.i.i.i.i.i, %399 ], [ %.05.i.i.i.i.i, %_ZNKSt4lessIN7Imf_3_412_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit.i.i.i.i.i ]
   %415 = getelementptr i8, ptr %.05.i.i.i.i.i, i64 %.sink.i.i.i.i.i
   %.1.i.i.i.i.i = load ptr, ptr %415, align 8, !tbaa !210
   %.not.i.i.i.i.i = icmp eq ptr %.1.i.i.i.i.i, null
@@ -3983,7 +3983,7 @@ _ZNKSt4lessIN7Imf_3_412_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit.thread.i.thread.
   br i1 %.not.i1023.i.i, label %._crit_edge.i.thread.i.i, label %.lr.ph.i.i.i.backedge
 
 .lr.ph.i.i.i.backedge:                            ; preds = %_ZNKSt4lessIN7Imf_3_412_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit.thread.i.thread.i.i, %_ZNKSt4lessIN7Imf_3_412_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit.thread.i.i.i
-  %.02532.i.i.i.be = phi ptr [ %.025.i.i.i, %_ZNKSt4lessIN7Imf_3_412_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit.thread.i.i.i ], [ %.025.i22.i.i, %_ZNKSt4lessIN7Imf_3_412_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit.thread.i.thread.i.i ]
+  %.02532.i.i.i.be = phi ptr [ %.025.i22.i.i, %_ZNKSt4lessIN7Imf_3_412_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit.thread.i.thread.i.i ], [ %.025.i.i.i, %_ZNKSt4lessIN7Imf_3_412_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit.thread.i.i.i ]
   br label %.lr.ph.i.i.i, !llvm.loop !218
 
 ._crit_edge.thread.i.i.i:                         ; preds = %_ZNKSt4lessIN7Imf_3_412_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit.thread.i.i.i, %.sink.split.i.i.i
@@ -4037,8 +4037,8 @@ _ZNKSt4lessIN7Imf_3_412_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit14.i.i.i: ; preds
   br i1 %589, label %.thread.i.i.i, label %.thread10.i.i.i
 
 _ZNSt8_Rb_treeIN7Imf_3_412_GLOBAL__N_19TileCoordESt4pairIKS2_PNS1_12BufferedTileEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE24_M_get_insert_unique_posERS4_.exit.i.i: ; preds = %_ZNKSt4lessIN7Imf_3_412_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit15.thread.i.i.i.i, %_ZNKSt4lessIN7Imf_3_412_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit13.thread.i.i.i.i
-  %.sroa.037.0.i.i.i.i = phi ptr [ %489, %_ZNKSt4lessIN7Imf_3_412_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit13.thread.i.i.i.i ], [ null, %_ZNKSt4lessIN7Imf_3_412_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit15.thread.i.i.i.i ]
-  %.sroa.12.0.i.i.i.i = phi ptr [ %489, %_ZNKSt4lessIN7Imf_3_412_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit13.thread.i.i.i.i ], [ %519, %_ZNKSt4lessIN7Imf_3_412_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit15.thread.i.i.i.i ]
+  %.sroa.037.0.i.i.i.i = phi ptr [ null, %_ZNKSt4lessIN7Imf_3_412_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit15.thread.i.i.i.i ], [ %489, %_ZNKSt4lessIN7Imf_3_412_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit13.thread.i.i.i.i ]
+  %.sroa.12.0.i.i.i.i = phi ptr [ %519, %_ZNKSt4lessIN7Imf_3_412_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit15.thread.i.i.i.i ], [ %489, %_ZNKSt4lessIN7Imf_3_412_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit13.thread.i.i.i.i ]
   %.not.i.i.i = icmp eq ptr %.sroa.12.0.i.i.i.i, null
   br i1 %.not.i.i.i, label %.thread10.i.i.i, label %.thread.i.i.i
 
@@ -4096,12 +4096,12 @@ _ZNSt8_Rb_treeIN7Imf_3_412_GLOBAL__N_19TileCoordESt4pairIKS2_PNS1_12BufferedTile
   br label %_ZNSt3mapIN7Imf_3_412_GLOBAL__N_19TileCoordEPNS1_12BufferedTileESt4lessIS2_ESaISt4pairIKS2_S4_EEEixERS8_.exit.i
 
 .thread10.i.i.i:                                  ; preds = %_ZNSt8_Rb_treeIN7Imf_3_412_GLOBAL__N_19TileCoordESt4pairIKS2_PNS1_12BufferedTileEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE24_M_get_insert_unique_posERS4_.exit.i.i, %_ZNKSt4lessIN7Imf_3_412_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit14.i.i.i, %586, %580, %574, %_ZNKSt4lessIN7Imf_3_412_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit15.i.i.i.i, %_ZNKSt4lessIN7Imf_3_412_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit13.thread41.thread.i.i.i.i, %_ZNKSt4lessIN7Imf_3_412_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit13.thread41.i.thread.i.i.i
-  %.sroa.01.0.ph.i.i.i = phi ptr [ %.sroa.037.0.i.i.i.i, %_ZNSt8_Rb_treeIN7Imf_3_412_GLOBAL__N_19TileCoordESt4pairIKS2_PNS1_12BufferedTileEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE24_M_get_insert_unique_posERS4_.exit.i.i ], [ %.sroa.015.0.i.i.i, %_ZNKSt4lessIN7Imf_3_412_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit14.i.i.i ], [ %.08.lcssa.i.i.i17.i.i, %_ZNKSt4lessIN7Imf_3_412_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit13.thread41.i.thread.i.i.i ], [ %.08.lcssa.i.i.i17.i.i, %_ZNKSt4lessIN7Imf_3_412_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit15.i.i.i.i ], [ %.08.lcssa.i.i.i17.i.i, %_ZNKSt4lessIN7Imf_3_412_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit13.thread41.thread.i.i.i.i ], [ %.sroa.015.0.i.i.i, %574 ], [ %.sroa.015.0.i.i.i, %580 ], [ %.sroa.015.0.i.i.i, %586 ]
+  %.sroa.01.0.ph.i.i.i = phi ptr [ %.sroa.037.0.i.i.i.i, %_ZNSt8_Rb_treeIN7Imf_3_412_GLOBAL__N_19TileCoordESt4pairIKS2_PNS1_12BufferedTileEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE24_M_get_insert_unique_posERS4_.exit.i.i ], [ %.sroa.015.0.i.i.i, %_ZNKSt4lessIN7Imf_3_412_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit14.i.i.i ], [ %.08.lcssa.i.i.i17.i.i, %_ZNKSt4lessIN7Imf_3_412_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit13.thread41.thread.i.i.i.i ], [ %.08.lcssa.i.i.i17.i.i, %_ZNKSt4lessIN7Imf_3_412_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit15.i.i.i.i ], [ %.08.lcssa.i.i.i17.i.i, %_ZNKSt4lessIN7Imf_3_412_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit13.thread41.i.thread.i.i.i ], [ %.sroa.015.0.i.i.i, %574 ], [ %.sroa.015.0.i.i.i, %580 ], [ %.sroa.015.0.i.i.i, %586 ]
   call void @_ZdlPvm(ptr noundef nonnull %439, i64 noundef 56) #26
   br label %_ZNSt3mapIN7Imf_3_412_GLOBAL__N_19TileCoordEPNS1_12BufferedTileESt4lessIS2_ESaISt4pairIKS2_S4_EEEixERS8_.exit.i
 
 _ZNSt3mapIN7Imf_3_412_GLOBAL__N_19TileCoordEPNS1_12BufferedTileESt4lessIS2_ESaISt4pairIKS2_S4_EEEixERS8_.exit.i: ; preds = %.thread10.i.i.i, %613, %_ZNKSt4lessIN7Imf_3_412_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit.i.i, %434, %428, %422
-  %.sroa.015.0.i.i = phi ptr [ %.sroa.01.0.ph.i.i.i, %.thread10.i.i.i ], [ %.19.i.i.i.i.i, %_ZNKSt4lessIN7Imf_3_412_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit.i.i ], [ %439, %613 ], [ %.19.i.i.i.i.i, %428 ], [ %.19.i.i.i.i.i, %434 ], [ %.19.i.i.i.i.i, %422 ]
+  %.sroa.015.0.i.i = phi ptr [ %.sroa.01.0.ph.i.i.i, %.thread10.i.i.i ], [ %.19.i.i.i.i.i, %_ZNKSt4lessIN7Imf_3_412_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit.i.i ], [ %439, %613 ], [ %.19.i.i.i.i.i, %422 ], [ %.19.i.i.i.i.i, %434 ], [ %.19.i.i.i.i.i, %428 ]
   %618 = getelementptr inbounds nuw i8, ptr %.sroa.015.0.i.i, i64 48
   store ptr %390, ptr %618, align 8, !tbaa !219
   br label %_ZN7Imf_3_412_GLOBAL__N_117bufferedTileWriteEPNS_17OutputStreamMutexEPNS_15TiledOutputFile4DataEiiiiPKci.exit
@@ -5333,8 +5333,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit142: ; preds = %292
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge.us, %.preheader.lr.ph, %.loopexit.loopexit, %.preheader336
-  %346 = phi ptr [ %305, %.preheader336 ], [ %.pre, %.loopexit.loopexit ], [ %305, %.preheader.lr.ph ], [ %305, %._crit_edge.us ]
-  %.179 = phi i32 [ 0, %.preheader336 ], [ %.078, %.loopexit.loopexit ], [ 0, %.preheader.lr.ph ], [ %324, %._crit_edge.us ]
+  %346 = phi ptr [ %305, %.preheader.lr.ph ], [ %305, %.preheader336 ], [ %.pre, %.loopexit.loopexit ], [ %305, %._crit_edge.us ]
+  %.179 = phi i32 [ 0, %.preheader.lr.ph ], [ 0, %.preheader336 ], [ %.078, %.loopexit.loopexit ], [ %324, %._crit_edge.us ]
   %347 = getelementptr inbounds nuw i8, ptr %346, i64 136
   %348 = load i32, ptr %347, align 8, !tbaa !126
   %349 = icmp eq i32 %348, 2

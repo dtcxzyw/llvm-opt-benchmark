@@ -3013,7 +3013,7 @@ define internal fastcc noundef zeroext i1 @intel_sdvo_output_setup(ptr noundef n
   br label %.thread25
 
 .thread25:                                        ; preds = %201, %182, %106, %42, %198, %210, %190, %114, %50, %232, %216, %197, %.loopexit27, %120, %92, %236, %26
-  %238 = phi i1 [ false, %26 ], [ true, %236 ], [ false, %92 ], [ false, %120 ], [ false, %.loopexit27 ], [ false, %197 ], [ false, %216 ], [ false, %232 ], [ false, %50 ], [ false, %114 ], [ false, %190 ], [ false, %210 ], [ false, %198 ], [ false, %42 ], [ false, %106 ], [ false, %182 ], [ false, %201 ]
+  %238 = phi i1 [ false, %26 ], [ true, %236 ], [ false, %210 ], [ false, %92 ], [ false, %120 ], [ false, %.loopexit27 ], [ false, %197 ], [ false, %216 ], [ false, %232 ], [ false, %50 ], [ false, %190 ], [ false, %114 ], [ false, %198 ], [ false, %42 ], [ false, %106 ], [ false, %182 ], [ false, %201 ]
   ret i1 %238
 }
 

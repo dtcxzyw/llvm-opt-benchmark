@@ -2319,7 +2319,7 @@ _ZN10open_spiel3uci6UCIBot8GoPonderEv.exit:       ; preds = %.noexc55
   br i1 %250, label %.loopexit, label %247
 
 .loopexit:                                        ; preds = %247, %.loopexit.loopexit80, %.thread
-  %.pn13.pn = phi { ptr, i32 } [ %206, %.thread ], [ %244, %.loopexit.loopexit80 ], [ %.pn13, %247 ]
+  %.pn13.pn = phi { ptr, i32 } [ %244, %.loopexit.loopexit80 ], [ %206, %.thread ], [ %.pn13, %247 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #28
   br label %.body
 

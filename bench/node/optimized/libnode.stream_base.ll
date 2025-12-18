@@ -1528,8 +1528,8 @@ for.inc325:                                       ; preds = %_ZN4node16MaybeStac
   br i1 %exitcond159.not, label %if.end328, label %for.body208, !llvm.loop !10
 
 if.end328:                                        ; preds = %for.inc325, %for.cond.preheader, %for.cond161.preheader, %if.end202
-  %bs.sroa.0.0188 = phi ptr [ %bs.sroa.0.0, %if.end202 ], [ null, %for.cond161.preheader ], [ null, %for.cond.preheader ], [ %bs.sroa.0.0, %for.inc325 ]
-  %cmp197141187 = phi i1 [ %cmp197141, %if.end202 ], [ false, %for.cond161.preheader ], [ false, %for.cond.preheader ], [ %cmp197141, %for.inc325 ]
+  %bs.sroa.0.0188 = phi ptr [ null, %for.cond.preheader ], [ %bs.sroa.0.0, %if.end202 ], [ null, %for.cond161.preheader ], [ %bs.sroa.0.0, %for.inc325 ]
+  %cmp197141187 = phi i1 [ false, %for.cond.preheader ], [ %cmp197141, %if.end202 ], [ false, %for.cond161.preheader ], [ %cmp197141, %for.inc325 ]
   %53 = load ptr, ptr %buf_.i.i, align 8
   call void @_ZN4node10StreamBase5WriteEP8uv_buf_tmP11uv_stream_sN2v85LocalINS5_6ObjectEEEb(ptr nonnull sret(%"struct.node::StreamWriteResult") align 8 %res, ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %53, i64 noundef %count.0, ptr noundef null, ptr %retval.i367.sroa.0.0129134, i1 noundef zeroext false)
   %bytes.i = getelementptr inbounds nuw i8, ptr %res, i64 16
@@ -1584,8 +1584,8 @@ if.then.i.i:                                      ; preds = %if.end340
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end285, %cond.end268, %for.body208, %if.then.i.i, %if.end340
-  %bs.sroa.0.1 = phi ptr [ %bs.sroa.0.2, %if.end340 ], [ %bs.sroa.0.2, %if.then.i.i ], [ %bs.sroa.0.0, %for.body208 ], [ %bs.sroa.0.0, %cond.end268 ], [ %bs.sroa.0.0, %if.end285 ]
-  %retval.1 = phi i32 [ %63, %if.end340 ], [ %63, %if.then.i.i ], [ -1, %for.body208 ], [ -1, %cond.end268 ], [ -1, %if.end285 ]
+  %bs.sroa.0.1 = phi ptr [ %bs.sroa.0.2, %if.then.i.i ], [ %bs.sroa.0.2, %if.end340 ], [ %bs.sroa.0.0, %for.body208 ], [ %bs.sroa.0.0, %cond.end268 ], [ %bs.sroa.0.0, %if.end285 ]
+  %retval.1 = phi i32 [ %63, %if.then.i.i ], [ %63, %if.end340 ], [ -1, %for.body208 ], [ -1, %cond.end268 ], [ -1, %if.end285 ]
   %cmp.not.i112 = icmp eq ptr %bs.sroa.0.1, null
   br i1 %cmp.not.i112, label %cleanup341, label %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i113
 
@@ -1595,7 +1595,7 @@ _ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i113: ; preds = %cleanup
   br label %cleanup341
 
 cleanup341:                                       ; preds = %lor.rhs, %land.lhs.true129, %if.end102, %if.end87, %for.body, %for.body163, %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i113, %cleanup, %for.end
-  %retval.0 = phi i32 [ -105, %for.end ], [ %retval.1, %cleanup ], [ %retval.1, %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i113 ], [ -1, %for.body163 ], [ -1, %for.body ], [ -1, %if.end87 ], [ -1, %if.end102 ], [ -1, %land.lhs.true129 ], [ -1, %lor.rhs ]
+  %retval.0 = phi i32 [ -105, %for.end ], [ %retval.1, %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i113 ], [ -1, %for.body163 ], [ %retval.1, %cleanup ], [ -1, %for.body ], [ -1, %if.end87 ], [ -1, %if.end102 ], [ -1, %land.lhs.true129 ], [ -1, %lor.rhs ]
   %65 = load ptr, ptr %buf_.i.i, align 8
   %cmp.i.i.i116 = icmp ne ptr %65, null
   %cmp.i.i118 = icmp ne ptr %65, %buf_st_.i.i

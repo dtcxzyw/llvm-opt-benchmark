@@ -324,7 +324,7 @@ define noundef i32 @_ZN16WirelessTimeline11find_packetEd(ptr noundef readonly al
   br i1 %.not.i, label %.lr.ph.i, label %._crit_edge.loopexit.i
 
 _ZN16WirelessTimeline15find_packet_tsfEm.exit:    ; preds = %.lr.ph.i, %2, %23, %._crit_edge.loopexit.i, %.thread.i
-  %.0.i = phi i32 [ %22, %2 ], [ %36, %._crit_edge.loopexit.i ], [ %41, %.thread.i ], [ %22, %23 ], [ %.02256.i, %.lr.ph.i ]
+  %.0.i = phi i32 [ %22, %23 ], [ %22, %2 ], [ %36, %._crit_edge.loopexit.i ], [ %41, %.thread.i ], [ %.02256.i, %.lr.ph.i ]
   ret i32 %.0.i
 }
 
@@ -540,7 +540,7 @@ define noundef i32 @_ZN16WirelessTimeline15find_packet_tsfEm(ptr noundef readonl
   br i1 %.not, label %.lr.ph, label %._crit_edge.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %2, %4, %._crit_edge.loopexit, %.thread
-  %.0 = phi i32 [ %3, %2 ], [ %17, %._crit_edge.loopexit ], [ %22, %.thread ], [ %3, %4 ], [ %.02256, %.lr.ph ]
+  %.0 = phi i32 [ %3, %4 ], [ %3, %2 ], [ %17, %._crit_edge.loopexit ], [ %22, %.thread ], [ %.02256, %.lr.ph ]
   ret i32 %.0
 }
 
@@ -2644,7 +2644,7 @@ _ZN16WirelessTimeline8positionEmf.exit214:        ; preds = %236, %_ZN16Wireless
   br i1 %.not.i217, label %.lr.ph.i, label %._crit_edge.loopexit.i
 
 _ZN16WirelessTimeline15find_packet_tsfEm.exit:    ; preds = %.lr.ph.i, %278, %.noexc218, %._crit_edge.loopexit.i, %.thread.i
-  %.0.i216 = phi i32 [ %286, %.noexc218 ], [ %300, %._crit_edge.loopexit.i ], [ %305, %.thread.i ], [ %286, %278 ], [ %.02256.i, %.lr.ph.i ]
+  %.0.i216 = phi i32 [ %286, %278 ], [ %286, %.noexc218 ], [ %300, %._crit_edge.loopexit.i ], [ %305, %.thread.i ], [ %.02256.i, %.lr.ph.i ]
   %313 = load i32, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 72), align 8
   %.not182282 = icmp ugt i32 %.0.i216, %313
   br i1 %.not182282, label %_ZL14accumulate_rgbPA3_fiiffff.exit, label %.lr.ph
@@ -3099,7 +3099,7 @@ _ZL14accumulate_rgbPA3_fiiffff.exit234:           ; preds = %.lr.ph.i230
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i223, %.loopexit.loopexit288, %_ZN16WirelessTimeline14get_wlan_radioEj.exit221, %388, %351, %380, %363, %551
-  %.1154.ph = phi i32 [ %.0153283, %_ZN16WirelessTimeline14get_wlan_radioEj.exit221 ], [ %.3156, %388 ], [ -1, %551 ], [ %.0153283, %363 ], [ %.3156, %380 ], [ %.0153283, %351 ], [ %567, %.loopexit.loopexit288 ], [ %374, %.lr.ph.i223 ]
+  %.1154.ph = phi i32 [ %567, %.loopexit.loopexit288 ], [ %.0153283, %_ZN16WirelessTimeline14get_wlan_radioEj.exit221 ], [ %.3156, %388 ], [ %.0153283, %351 ], [ -1, %551 ], [ %.0153283, %363 ], [ %.3156, %380 ], [ %374, %.lr.ph.i223 ]
   %568 = add i32 %.0152284, 1
   %569 = load i32, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 72), align 8
   %.not182 = icmp ugt i32 %568, %569

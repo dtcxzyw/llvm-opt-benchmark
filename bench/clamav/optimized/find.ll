@@ -283,7 +283,7 @@ _Z5uiMsgIJPwRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit: ; preds = %58
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %.thread28, %26, %93, %90, %3
-  %.0 = phi i1 [ false, %26 ], [ false, %3 ], [ %94, %93 ], [ true, %90 ], [ false, %.thread28 ], [ false, %.loopexit.loopexit ]
+  %.0 = phi i1 [ false, %26 ], [ false, %.thread28 ], [ false, %3 ], [ %94, %93 ], [ true, %90 ], [ false, %.loopexit.loopexit ]
   ret i1 %.0
 }
 

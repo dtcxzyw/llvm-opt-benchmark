@@ -23241,7 +23241,7 @@ define hidden void @"_ZN14semantic_index13project_index12ProjectIndex6search28_$
           to label %72 unwind label %74
 
 .body:                                            ; preds = %59, %.loopexit, %.loopexit.split-lp, %34
-  %.pn = phi { ptr, i32 } [ %35, %34 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %62, %59 ]
+  %.pn = phi { ptr, i32 } [ %35, %34 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ], [ %62, %59 ]
   invoke void @"_ZN4core3ptr87drop_in_place$LT$alloc..vec..Vec$LT$semantic_index..project_index..SearchResult$GT$$GT$17h79643cebd5fb09edE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10) #46
           to label %73 unwind label %70
 

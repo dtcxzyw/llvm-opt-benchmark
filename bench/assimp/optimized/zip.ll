@@ -4281,15 +4281,15 @@ tinfl_clear_tree.exit:                            ; preds = %313, %314, %315
   br label %.thread1657
 
 .thread1657:                                      ; preds = %34, %.lr.ph1809.preheader, %996, %983, %967, %929, %857, %796, %742, %606, %519, %451, %280, %244, %216, %193, %163, %145, %124, %105, %73, %65
-  %.08341674 = phi i32 [ %spec.select1699, %606 ], [ %spec.select1695, %451 ], [ %spec.select1703, %796 ], [ %spec.select1705, %857 ], [ %spec.select1701, %742 ], [ %spec.select1693, %280 ], [ %spec.select1697, %519 ], [ %spec.select1711, %983 ], [ %spec.select1691, %244 ], [ %spec.select1707, %929 ], [ %spec.select1689, %216 ], [ %spec.select1687, %193 ], [ %spec.select1685, %163 ], [ %spec.select1683, %145 ], [ %spec.select1681, %124 ], [ %spec.select1679, %105 ], [ %spec.select1677, %73 ], [ %spec.select1709, %967 ], [ %spec.select1675, %65 ], [ %.0834, %996 ], [ %.0834, %.lr.ph1809.preheader ], [ -1, %34 ]
-  %.28421672 = phi i32 [ %.51891, %606 ], [ %.40880, %451 ], [ %.60900, %796 ], [ %.64904.ph, %857 ], [ %.57897.ph, %742 ], [ %.35875.ph, %280 ], [ %.44884.ph, %519 ], [ %.77917, %983 ], [ %.31871.ph, %244 ], [ %50, %929 ], [ %.25865, %216 ], [ %.21861.ph, %193 ], [ %.16856, %163 ], [ %.15855.ph, %145 ], [ %50, %124 ], [ %.8848.ph, %105 ], [ %.3843, %73 ], [ %.75915.ph, %967 ], [ %.1841, %65 ], [ %.2842, %996 ], [ %.2842, %.lr.ph1809.preheader ], [ %50, %34 ]
-  %.29211671 = phi i32 [ %.52971, %606 ], [ %.42961, %451 ], [ %.63982, %796 ], [ %.67986.ph, %857 ], [ %.59978.ph, %742 ], [ %.36955.ph, %280 ], [ %.46965.ph, %519 ], [ %.811000, %983 ], [ %.32951.ph, %244 ], [ %52, %929 ], [ %.26945, %216 ], [ %.22941.ph, %193 ], [ %.16935, %163 ], [ %.15934.ph, %145 ], [ %52, %124 ], [ %.9928.ph, %105 ], [ %.3922, %73 ], [ %.79998.ph, %967 ], [ %.1920, %65 ], [ %.2921, %996 ], [ %.2921, %.lr.ph1809.preheader ], [ %52, %34 ]
-  %.210101670 = phi i32 [ %.531061, %606 ], [ %.421050, %451 ], [ %.621070, %796 ], [ %.661074.ph, %857 ], [ %.591067.ph, %742 ], [ %.361044.ph, %280 ], [ %.461054.ph, %519 ], [ %.791087, %983 ], [ %.321040.ph, %244 ], [ %54, %929 ], [ %.261034, %216 ], [ %.221030.ph, %193 ], [ %.161024, %163 ], [ %.151023.ph, %145 ], [ %54, %124 ], [ %.81016.ph, %105 ], [ %.31011, %73 ], [ %.771085.ph, %967 ], [ %.11009, %65 ], [ %.21010, %996 ], [ %.21010, %.lr.ph1809.preheader ], [ %54, %34 ]
-  %.210911669 = phi i64 [ %.531142, %606 ], [ %.421131, %451 ], [ %.651154, %796 ], [ %.691158, %857 ], [ %.611150, %742 ], [ %.361125, %280 ], [ %.461135, %519 ], [ %.821171, %983 ], [ %.321121, %244 ], [ %48, %929 ], [ %.261115, %216 ], [ %.221111, %193 ], [ %.161105, %163 ], [ %.151104, %145 ], [ %48, %124 ], [ %.81097, %105 ], [ %.31092, %73 ], [ %.801169, %967 ], [ %.11090, %65 ], [ %.21091, %996 ], [ %.21091, %.lr.ph1809.preheader ], [ %48, %34 ]
-  %.012731668 = phi ptr [ %.491322, %606 ], [ %.381311, %451 ], [ %.601333, %796 ], [ %.641337.ph, %857 ], [ %.561329.ph, %742 ], [ %.321305.ph, %280 ], [ %.421315.ph, %519 ], [ %.791352, %983 ], [ %.281301.ph, %244 ], [ %4, %929 ], [ %.221295, %216 ], [ %.181291.ph, %193 ], [ %.121285, %163 ], [ %.111284.ph, %145 ], [ %4, %124 ], [ %.41277.ph, %105 ], [ %4, %73 ], [ %.771350.ph, %967 ], [ %4, %65 ], [ %.01273, %996 ], [ %.01273, %.lr.ph1809.preheader ], [ %4, %34 ]
-  %.013541667 = phi i64 [ %.491403, %606 ], [ %.381392, %451 ], [ %.591413, %796 ], [ %.611415.ph, %857 ], [ %.551409.ph, %742 ], [ %.321386.ph, %280 ], [ %.421396.ph, %519 ], [ %.741428, %983 ], [ %.281382.ph, %244 ], [ %56, %929 ], [ %.221376, %216 ], [ %.181372.ph, %193 ], [ %.121366, %163 ], [ %.111365.ph, %145 ], [ %56, %124 ], [ %.41358.ph, %105 ], [ %56, %73 ], [ %.721426.ph, %967 ], [ %56, %65 ], [ %.01354, %996 ], [ %.01354, %.lr.ph1809.preheader ], [ %56, %34 ]
-  %.831264 = phi ptr [ %.521233, %606 ], [ %.411222, %451 ], [ %.631244, %796 ], [ %.671248, %857 ], [ %.591240, %742 ], [ %.351216, %280 ], [ %.451226, %519 ], [ %.811262, %983 ], [ %.311212, %244 ], [ %1, %929 ], [ %.251206, %216 ], [ %.211202, %193 ], [ %.151196, %163 ], [ %.141195, %145 ], [ %1, %124 ], [ %.71188, %105 ], [ %.21183, %73 ], [ %.791260, %967 ], [ %1, %65 ], [ %.11182, %996 ], [ %scevgep1899, %.lr.ph1809.preheader ], [ %1, %34 ]
-  %.85 = phi i32 [ %.53, %606 ], [ %.42, %451 ], [ %.65, %796 ], [ %.69, %857 ], [ %.61, %742 ], [ %.36, %280 ], [ %.46, %519 ], [ %.83, %983 ], [ %.32, %244 ], [ %.2839.fr1973, %929 ], [ %.26, %216 ], [ %.22, %193 ], [ %.16, %163 ], [ %.15, %145 ], [ %.2839.fr1973, %124 ], [ %.8, %105 ], [ %.3, %73 ], [ %.81, %967 ], [ %.1838, %65 ], [ %.2839.fr, %996 ], [ %1008, %.lr.ph1809.preheader ], [ %.2839.fr1973, %34 ]
+  %.08341674 = phi i32 [ %spec.select1675, %65 ], [ %spec.select1699, %606 ], [ %spec.select1695, %451 ], [ %spec.select1703, %796 ], [ %spec.select1705, %857 ], [ %spec.select1701, %742 ], [ %spec.select1693, %280 ], [ %spec.select1697, %519 ], [ %spec.select1711, %983 ], [ %spec.select1691, %244 ], [ %spec.select1707, %929 ], [ %spec.select1689, %216 ], [ %spec.select1687, %193 ], [ %spec.select1685, %163 ], [ %spec.select1683, %145 ], [ %spec.select1681, %124 ], [ %spec.select1679, %105 ], [ %spec.select1677, %73 ], [ %spec.select1709, %967 ], [ %.0834, %996 ], [ %.0834, %.lr.ph1809.preheader ], [ -1, %34 ]
+  %.28421672 = phi i32 [ %.1841, %65 ], [ %.51891, %606 ], [ %.40880, %451 ], [ %.60900, %796 ], [ %.64904.ph, %857 ], [ %.57897.ph, %742 ], [ %.35875.ph, %280 ], [ %.44884.ph, %519 ], [ %.77917, %983 ], [ %.31871.ph, %244 ], [ %50, %929 ], [ %.25865, %216 ], [ %.21861.ph, %193 ], [ %.16856, %163 ], [ %.15855.ph, %145 ], [ %50, %124 ], [ %.8848.ph, %105 ], [ %.3843, %73 ], [ %.75915.ph, %967 ], [ %.2842, %996 ], [ %.2842, %.lr.ph1809.preheader ], [ %50, %34 ]
+  %.29211671 = phi i32 [ %.1920, %65 ], [ %.52971, %606 ], [ %.42961, %451 ], [ %.63982, %796 ], [ %.67986.ph, %857 ], [ %.59978.ph, %742 ], [ %.36955.ph, %280 ], [ %.46965.ph, %519 ], [ %.811000, %983 ], [ %.32951.ph, %244 ], [ %52, %929 ], [ %.26945, %216 ], [ %.22941.ph, %193 ], [ %.16935, %163 ], [ %.15934.ph, %145 ], [ %52, %124 ], [ %.9928.ph, %105 ], [ %.3922, %73 ], [ %.79998.ph, %967 ], [ %.2921, %996 ], [ %.2921, %.lr.ph1809.preheader ], [ %52, %34 ]
+  %.210101670 = phi i32 [ %.11009, %65 ], [ %.531061, %606 ], [ %.421050, %451 ], [ %.621070, %796 ], [ %.661074.ph, %857 ], [ %.591067.ph, %742 ], [ %.361044.ph, %280 ], [ %.461054.ph, %519 ], [ %.791087, %983 ], [ %.321040.ph, %244 ], [ %54, %929 ], [ %.261034, %216 ], [ %.221030.ph, %193 ], [ %.161024, %163 ], [ %.151023.ph, %145 ], [ %54, %124 ], [ %.81016.ph, %105 ], [ %.31011, %73 ], [ %.771085.ph, %967 ], [ %.21010, %996 ], [ %.21010, %.lr.ph1809.preheader ], [ %54, %34 ]
+  %.210911669 = phi i64 [ %.11090, %65 ], [ %.531142, %606 ], [ %.421131, %451 ], [ %.651154, %796 ], [ %.691158, %857 ], [ %.611150, %742 ], [ %.361125, %280 ], [ %.461135, %519 ], [ %.821171, %983 ], [ %.321121, %244 ], [ %48, %929 ], [ %.261115, %216 ], [ %.221111, %193 ], [ %.161105, %163 ], [ %.151104, %145 ], [ %48, %124 ], [ %.81097, %105 ], [ %.31092, %73 ], [ %.801169, %967 ], [ %.21091, %996 ], [ %.21091, %.lr.ph1809.preheader ], [ %48, %34 ]
+  %.012731668 = phi ptr [ %4, %65 ], [ %.491322, %606 ], [ %.381311, %451 ], [ %.601333, %796 ], [ %.641337.ph, %857 ], [ %.561329.ph, %742 ], [ %.321305.ph, %280 ], [ %.421315.ph, %519 ], [ %.791352, %983 ], [ %.281301.ph, %244 ], [ %4, %929 ], [ %.221295, %216 ], [ %.181291.ph, %193 ], [ %.121285, %163 ], [ %.111284.ph, %145 ], [ %4, %124 ], [ %.41277.ph, %105 ], [ %4, %73 ], [ %.771350.ph, %967 ], [ %.01273, %996 ], [ %.01273, %.lr.ph1809.preheader ], [ %4, %34 ]
+  %.013541667 = phi i64 [ %56, %65 ], [ %.491403, %606 ], [ %.381392, %451 ], [ %.591413, %796 ], [ %.611415.ph, %857 ], [ %.551409.ph, %742 ], [ %.321386.ph, %280 ], [ %.421396.ph, %519 ], [ %.741428, %983 ], [ %.281382.ph, %244 ], [ %56, %929 ], [ %.221376, %216 ], [ %.181372.ph, %193 ], [ %.121366, %163 ], [ %.111365.ph, %145 ], [ %56, %124 ], [ %.41358.ph, %105 ], [ %56, %73 ], [ %.721426.ph, %967 ], [ %.01354, %996 ], [ %.01354, %.lr.ph1809.preheader ], [ %56, %34 ]
+  %.831264 = phi ptr [ %1, %65 ], [ %.521233, %606 ], [ %.411222, %451 ], [ %.631244, %796 ], [ %.671248, %857 ], [ %.591240, %742 ], [ %.351216, %280 ], [ %.451226, %519 ], [ %.811262, %983 ], [ %.311212, %244 ], [ %1, %929 ], [ %.251206, %216 ], [ %.211202, %193 ], [ %.151196, %163 ], [ %.141195, %145 ], [ %1, %124 ], [ %.71188, %105 ], [ %.21183, %73 ], [ %.791260, %967 ], [ %.11182, %996 ], [ %scevgep1899, %.lr.ph1809.preheader ], [ %1, %34 ]
+  %.85 = phi i32 [ %.1838, %65 ], [ %.53, %606 ], [ %.42, %451 ], [ %.65, %796 ], [ %.69, %857 ], [ %.61, %742 ], [ %.36, %280 ], [ %.46, %519 ], [ %.83, %983 ], [ %.32, %244 ], [ %.2839.fr1973, %929 ], [ %.26, %216 ], [ %.22, %193 ], [ %.16, %163 ], [ %.15, %145 ], [ %.2839.fr1973, %124 ], [ %.8, %105 ], [ %.3, %73 ], [ %.81, %967 ], [ %.2839.fr, %996 ], [ %1008, %.lr.ph1809.preheader ], [ %.2839.fr1973, %34 ]
   store i32 %.85, ptr %45, align 4
   %1009 = zext nneg i32 %.85 to i64
   %1010 = shl nsw i64 -1, %1009
@@ -4895,10 +4895,10 @@ select.unfold:                                    ; preds = %select.unfold.backe
   br i1 %.not198, label %.critedge4, label %83
 
 .critedge4:                                       ; preds = %123, %70, %.critedge, %38
-  %124 = phi i32 [ %39, %38 ], [ %32, %.critedge ], [ %39, %70 ], [ %35, %123 ]
-  %125 = phi i32 [ %58, %38 ], [ %31, %.critedge ], [ %58, %70 ], [ %99, %123 ]
-  %.2177 = phi i64 [ %57, %38 ], [ 0, %.critedge ], [ %57, %70 ], [ 0, %123 ]
-  %.3171 = phi ptr [ %.0168, %38 ], [ %.0168, %.critedge ], [ %63, %70 ], [ %87, %123 ]
+  %124 = phi i32 [ %32, %.critedge ], [ %39, %38 ], [ %39, %70 ], [ %35, %123 ]
+  %125 = phi i32 [ %31, %.critedge ], [ %58, %38 ], [ %58, %70 ], [ %99, %123 ]
+  %.2177 = phi i64 [ 0, %.critedge ], [ %57, %38 ], [ %57, %70 ], [ 0, %123 ]
+  %.3171 = phi ptr [ %.0168, %.critedge ], [ %.0168, %38 ], [ %63, %70 ], [ %87, %123 ]
   %126 = sub i32 32768, %125
   %. = tail call i32 @llvm.umin.i32(i32 %126, i32 %124)
   store i32 %., ptr %9, align 4
@@ -5158,8 +5158,8 @@ select.unfold:                                    ; preds = %select.unfold.backe
   br i1 %265, label %tdefl_find_match.exit, label %.lr.ph299
 
 tdefl_find_match.exit:                            ; preds = %252, %239, %263, %236, %169, %174, %192, %196, %214, %218, %.preheader, %._crit_edge, %150, %135
-  %.0244 = phi i32 [ %spec.select269, %._crit_edge ], [ 0, %135 ], [ 0, %150 ], [ 0, %.preheader ], [ %.2246326, %236 ], [ %.2246326, %218 ], [ %.2246326, %214 ], [ %.2246326, %196 ], [ %.2246326, %192 ], [ %.2246326, %174 ], [ %.2246326, %169 ], [ %.3247, %263 ], [ %.086.i, %252 ], [ %.2246326, %239 ]
-  %.0240 = phi i32 [ %spec.select270, %._crit_edge ], [ %spec.select, %135 ], [ %spec.select, %150 ], [ %spec.select, %.preheader ], [ %.2327, %236 ], [ %.2327, %218 ], [ %.2327, %214 ], [ %.2327, %196 ], [ %.2327, %192 ], [ %.2327, %174 ], [ %.2327, %169 ], [ %.3242, %263 ], [ %129, %252 ], [ %.2327, %239 ]
+  %.0244 = phi i32 [ %spec.select269, %._crit_edge ], [ 0, %135 ], [ 0, %150 ], [ %.2246326, %236 ], [ 0, %.preheader ], [ %.2246326, %218 ], [ %.2246326, %214 ], [ %.2246326, %196 ], [ %.2246326, %192 ], [ %.2246326, %174 ], [ %.2246326, %169 ], [ %.2246326, %239 ], [ %.3247, %263 ], [ %.086.i, %252 ]
+  %.0240 = phi i32 [ %spec.select270, %._crit_edge ], [ %spec.select, %135 ], [ %spec.select, %150 ], [ %.2327, %236 ], [ %spec.select, %.preheader ], [ %.2327, %218 ], [ %.2327, %214 ], [ %.2327, %196 ], [ %.2327, %192 ], [ %.2327, %174 ], [ %.2327, %169 ], [ %.2327, %239 ], [ %.3242, %263 ], [ %129, %252 ]
   %266 = icmp eq i32 %.0240, 3
   %267 = icmp ugt i32 %.0244, 8191
   %or.cond = select i1 %266, i1 %267, i1 false
@@ -9393,7 +9393,7 @@ mz_zip_set_error.exit24.sink.split:               ; preds = %32, %30, %10, %mz_z
   br label %mz_zip_set_error.exit24
 
 mz_zip_set_error.exit24:                          ; preds = %mz_zip_set_error.exit24.sink.split, %2, %32
-  %.0 = phi i32 [ 1, %32 ], [ 0, %2 ], [ 0, %mz_zip_set_error.exit24.sink.split ]
+  %.0 = phi i32 [ 0, %2 ], [ 1, %32 ], [ 0, %mz_zip_set_error.exit24.sink.split ]
   ret i32 %.0
 }
 
@@ -9881,7 +9881,7 @@ mz_zip_set_error.exit108:                         ; preds = %.thread143, %.prehe
   br label %.split
 
 .split:                                           ; preds = %191, %.thread145, %.critedge.i, %85, %84, %7, %mz_zip_set_error.exit, %mz_zip_set_error.exit108, %mz_zip_set_error.exit110, %mz_zip_set_error.exit112
-  %.078 = phi i32 [ 0, %mz_zip_set_error.exit112 ], [ 0, %mz_zip_set_error.exit110 ], [ 0, %mz_zip_set_error.exit108 ], [ 0, %7 ], [ 0, %mz_zip_set_error.exit ], [ 0, %.critedge.i ], [ 1, %84 ], [ 1, %85 ], [ 1, %.thread145 ], [ 1, %191 ]
+  %.078 = phi i32 [ 0, %mz_zip_set_error.exit112 ], [ 0, %mz_zip_set_error.exit110 ], [ 1, %.thread145 ], [ 0, %mz_zip_set_error.exit108 ], [ 0, %7 ], [ 0, %mz_zip_set_error.exit ], [ 0, %.critedge.i ], [ 1, %84 ], [ 1, %85 ], [ 1, %191 ]
   ret i32 %.078
 }
 
@@ -10848,9 +10848,9 @@ mz_zip_set_error.exit:                            ; preds = %182
   store i32 11, ptr %185, align 4
   br label %.thread273
 
-.thread273:                                       ; preds = %114, %mz_zip_set_error.exit234, %mz_zip_set_error.exit230, %mz_zip_set_error.exit232, %.thread279, %mz_zip_set_error.exit220, %mz_zip_set_error.exit, %182, %.thread261, %175
-  %.0151268 = phi ptr [ %.0151269, %.thread261 ], [ %.0151269286, %mz_zip_set_error.exit220 ], [ %.0151269286, %mz_zip_set_error.exit ], [ %.0151269286, %182 ], [ %134, %175 ], [ %134, %.thread279 ], [ null, %mz_zip_set_error.exit232 ], [ null, %mz_zip_set_error.exit230 ], [ null, %mz_zip_set_error.exit234 ], [ null, %114 ]
-  %.4 = phi i32 [ 1, %.thread261 ], [ 0, %mz_zip_set_error.exit220 ], [ 0, %mz_zip_set_error.exit ], [ 1, %182 ], [ 0, %175 ], [ 0, %.thread279 ], [ 0, %mz_zip_set_error.exit232 ], [ 0, %mz_zip_set_error.exit230 ], [ 0, %mz_zip_set_error.exit234 ], [ 1, %114 ]
+.thread273:                                       ; preds = %114, %mz_zip_set_error.exit230, %mz_zip_set_error.exit232, %mz_zip_set_error.exit234, %.thread279, %mz_zip_set_error.exit220, %mz_zip_set_error.exit, %182, %.thread261, %175
+  %.0151268 = phi ptr [ %.0151269, %.thread261 ], [ %.0151269286, %mz_zip_set_error.exit220 ], [ %.0151269286, %mz_zip_set_error.exit ], [ %.0151269286, %182 ], [ %134, %175 ], [ %134, %.thread279 ], [ null, %mz_zip_set_error.exit234 ], [ null, %mz_zip_set_error.exit232 ], [ null, %mz_zip_set_error.exit230 ], [ null, %114 ]
+  %.4 = phi i32 [ 1, %.thread261 ], [ 0, %mz_zip_set_error.exit220 ], [ 0, %mz_zip_set_error.exit ], [ 1, %182 ], [ 0, %175 ], [ 0, %.thread279 ], [ 0, %mz_zip_set_error.exit234 ], [ 0, %mz_zip_set_error.exit232 ], [ 0, %mz_zip_set_error.exit230 ], [ 1, %114 ]
   %186 = load ptr, ptr %12, align 8
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 128
   %188 = load ptr, ptr %187, align 8
@@ -12975,7 +12975,7 @@ mz_zip_set_error.exit24.sink.split.i:             ; preds = %204, %202, %183, %m
   br label %mz_zip_reader_is_file_supported.exit
 
 mz_zip_reader_is_file_supported.exit:             ; preds = %204, %mz_zip_set_error.exit24.sink.split.i
-  %.0.i220 = phi i32 [ 1, %204 ], [ 0, %mz_zip_set_error.exit24.sink.split.i ]
+  %.0.i220 = phi i32 [ 0, %mz_zip_set_error.exit24.sink.split.i ], [ 1, %204 ]
   %207 = getelementptr inbounds nuw i8, ptr %3, i64 76
   store i32 %.0.i220, ptr %207, align 4
   %208 = load i64, ptr %78, align 8
@@ -13140,7 +13140,7 @@ mz_zip_set_error.exit:                            ; preds = %283
   %.not199 = icmp eq i32 %297, 0
   br i1 %.not199, label %mz_zip_set_error.exit210, label %227
 
-mz_zip_set_error.exit210:                         ; preds = %294, %280, %286, %212, %mz_zip_set_error.exit, %mz_zip_set_error.exit202, %mz_zip_set_error.exit204, %mz_zip_set_error.exit206, %mz_zip_set_error.exit208, %12, %11, %mz_zip_reader_is_file_supported.exit
+mz_zip_set_error.exit210:                         ; preds = %294, %286, %280, %212, %mz_zip_set_error.exit, %mz_zip_set_error.exit202, %mz_zip_set_error.exit204, %mz_zip_set_error.exit206, %mz_zip_set_error.exit208, %12, %11, %mz_zip_reader_is_file_supported.exit
   %.0173 = phi i32 [ 0, %12 ], [ 1, %mz_zip_reader_is_file_supported.exit ], [ 0, %mz_zip_set_error.exit ], [ 0, %11 ], [ 0, %mz_zip_set_error.exit208 ], [ 0, %mz_zip_set_error.exit206 ], [ 0, %mz_zip_set_error.exit204 ], [ 0, %mz_zip_set_error.exit202 ], [ 1, %212 ], [ 1, %286 ], [ 1, %280 ], [ 1, %294 ]
   ret i32 %.0173
 }
@@ -18427,7 +18427,7 @@ mz_zip_array_push_back.exit98:                    ; preds = %.mz_zip_array_push_
   br label %.thread34
 
 .thread34:                                        ; preds = %._crit_edge41, %.thread34.sink.split, %22
-  %.0 = phi i32 [ 1, %22 ], [ 0, %.thread34.sink.split ], [ 1, %._crit_edge41 ]
+  %.0 = phi i32 [ 0, %.thread34.sink.split ], [ 1, %22 ], [ 1, %._crit_edge41 ]
   ret i32 %.0
 }
 
@@ -22081,7 +22081,7 @@ zip_files_move.exit:                              ; preds = %.critedge4, %zip_fi
   br label %.thread.sink.split
 
 .thread.sink.split:                               ; preds = %zip_files_move.exit, %56, %7, %13, %._crit_edge
-  %.0.ph = phi i64 [ %.094.lcssa, %._crit_edge ], [ -3, %7 ], [ -3, %13 ], [ -3, %56 ], [ %.024.i, %zip_files_move.exit ]
+  %.0.ph = phi i64 [ -3, %56 ], [ %.094.lcssa, %._crit_edge ], [ -3, %7 ], [ -3, %13 ], [ %.024.i, %zip_files_move.exit ]
   tail call void @free(ptr noundef nonnull %5) #36
   br label %.thread
 
@@ -24022,7 +24022,7 @@ tdefl_optimize_huffman_table.exit47.i:            ; preds = %85
   br label %.loopexit320.i
 
 .loopexit320.i:                                   ; preds = %261, %284, %302, %298, %277, %266, %130
-  %.17.i = phi i32 [ %274, %266 ], [ %.6.i, %277 ], [ %295, %298 ], [ %295, %302 ], [ 0, %130 ], [ %286, %284 ], [ %263, %261 ]
+  %.17.i = phi i32 [ %274, %266 ], [ %.6.i, %277 ], [ %286, %284 ], [ %295, %302 ], [ %295, %298 ], [ 0, %130 ], [ %263, %261 ]
   tail call fastcc void @tdefl_optimize_huffman_table(ptr noundef nonnull %0, i32 noundef 2, i32 noundef 19, i32 noundef 7, i32 noundef 0)
   %306 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %307 = load i32, ptr %306, align 4
@@ -25322,7 +25322,7 @@ tdefl_calculate_minimum_redundancy.exit:          ; preds = %._crit_edge108.i
   br i1 %.not.i94, label %tdefl_huffman_enforce_max_code_size.exit, label %.lr.ph.i93
 
 tdefl_huffman_enforce_max_code_size.exit:         ; preds = %.loopexit.i, %tdefl_radix_sort_syms.exit, %tdefl_radix_sort_syms.exit.thread, %tdefl_calculate_minimum_redundancy.exit, %._crit_edge, %.preheader.i92
-  %.us-phi56.i163165170 = phi ptr [ %.04052.us.i, %.preheader.i92 ], [ %.04052.us.i, %._crit_edge ], [ %.04052.us.i, %tdefl_calculate_minimum_redundancy.exit ], [ %.04052.us.i, %tdefl_radix_sort_syms.exit ], [ %11, %tdefl_radix_sort_syms.exit.thread ], [ %.04052.us.i, %.loopexit.i ]
+  %.us-phi56.i163165170 = phi ptr [ %11, %tdefl_radix_sort_syms.exit.thread ], [ %.04052.us.i, %.preheader.i92 ], [ %.04052.us.i, %._crit_edge ], [ %.04052.us.i, %tdefl_calculate_minimum_redundancy.exit ], [ %.04052.us.i, %tdefl_radix_sort_syms.exit ], [ %.04052.us.i, %.loopexit.i ]
   %197 = getelementptr inbounds nuw i8, ptr %0, i64 36682
   %198 = getelementptr inbounds nuw [288 x i8], ptr %197, i64 %24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(288) %198, i8 0, i64 288, i1 false)
@@ -26227,7 +26227,7 @@ define internal fastcc void @zip_central_dir_delete(ptr noundef captures(none) %
   br i1 %exitcond82.not.i, label %.thread66.i, label %.lr.ph76.i
 
 .thread66.i:                                      ; preds = %.lr.ph76.i, %.lr.ph.i, %44, %52, %.loopexit.i, %25
-  %.0536373.i = phi i64 [ %41, %.loopexit.i ], [ 0, %25 ], [ %41, %52 ], [ %41, %44 ], [ %41, %.lr.ph.i ], [ %41, %.lr.ph76.i ]
+  %.0536373.i = phi i64 [ %41, %.loopexit.i ], [ 0, %25 ], [ %41, %52 ], [ %41, %.lr.ph.i ], [ %41, %44 ], [ %41, %.lr.ph76.i ]
   %57 = add i64 %.0536373.i, %31
   store i64 %57, ptr %6, align 8
   br label %zip_central_dir_move.exit

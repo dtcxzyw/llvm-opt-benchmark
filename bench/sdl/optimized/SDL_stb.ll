@@ -932,7 +932,7 @@ stbi__process_scan_header.exit.i.i:               ; preds = %342, %337
   br i1 %exitcond345.not.i.i.i, label %.loopexit.i.i.i, label %.preheader.us.i.i.i, !llvm.loop !8
 
 .loopexit.i.i.i:                                  ; preds = %._crit_edge312.us.i.i.i, %395, %367, %.preheader.lr.ph.i.i.i, %347
-  %.3.i.i.i = phi i32 [ 1, %347 ], [ 1, %.preheader.lr.ph.i.i.i ], [ 1, %395 ], [ 0, %367 ], [ 1, %._crit_edge312.us.i.i.i ]
+  %.3.i.i.i = phi i32 [ 1, %395 ], [ 1, %347 ], [ 1, %.preheader.lr.ph.i.i.i ], [ 0, %367 ], [ 1, %._crit_edge312.us.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %stbi__parse_entropy_coded_data.exit.i.i
 
@@ -2364,8 +2364,8 @@ stbi__jpeg_dequantize.exit.us.i.i.i:              ; preds = %1089
   br i1 %1108, label %.lr.ph.i66.i.i, label %stbi__decode_jpeg_image.exit.i, !llvm.loop !30
 
 .critedge.sink.split.i.i:                         ; preds = %1047, %1042, %340, %337, %333, %331, %101, %96, %stbi__get8.exit.i.i.i, %200, %194, %stbi__jpeg_huff_decode.exit179.i.us.i.i.i, %603, %601, %581, %755, %753, %733, %706, %.split.us.i.i.i, %.split296.us.i.i.i, %stbi__get8.exit.thread.i.i.i
-  %.str.6.sink.i.i = phi ptr [ @.str.6, %.split296.us.i.i.i ], [ @.str.6, %.split.us.i.i.i ], [ @.str.6, %stbi__get8.exit.thread.i.i.i ], [ @.str.6, %200 ], [ @.str.11, %706 ], [ @.str.6, %stbi__jpeg_huff_decode.exit179.i.us.i.i.i ], [ @.str.6, %755 ], [ @.str.6, %753 ], [ @.str.6, %733 ], [ @.str.6, %581 ], [ @.str.6, %601 ], [ @.str.6, %603 ], [ @.str.6, %194 ], [ @.str.6, %stbi__get8.exit.i.i.i ], [ @.str.6, %96 ], [ @.str.6, %101 ], [ @.str.6, %331 ], [ @.str.6, %333 ], [ @.str.6, %337 ], [ @.str.6, %340 ], [ @.str.6, %1042 ], [ @.str.6, %1047 ]
-  %1109 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.2, ptr noundef nonnull %.str.6.sink.i.i) #11
+  %.str.11.sink.i.i = phi ptr [ @.str.6, %200 ], [ @.str.6, %.split296.us.i.i.i ], [ @.str.11, %706 ], [ @.str.6, %.split.us.i.i.i ], [ @.str.6, %stbi__get8.exit.thread.i.i.i ], [ @.str.6, %stbi__jpeg_huff_decode.exit179.i.us.i.i.i ], [ @.str.6, %755 ], [ @.str.6, %753 ], [ @.str.6, %733 ], [ @.str.6, %581 ], [ @.str.6, %601 ], [ @.str.6, %603 ], [ @.str.6, %194 ], [ @.str.6, %stbi__get8.exit.i.i.i ], [ @.str.6, %96 ], [ @.str.6, %101 ], [ @.str.6, %331 ], [ @.str.6, %333 ], [ @.str.6, %337 ], [ @.str.6, %340 ], [ @.str.6, %1042 ], [ @.str.6, %1047 ]
+  %1109 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.2, ptr noundef nonnull %.str.11.sink.i.i) #11
   br label %.loopexit385.i
 
 .loopexit385.i:                                   ; preds = %stbi__parse_entropy_coded_data.exit.i.i, %._crit_edge.i.i.i, %191, %828, %.lr.ph.i51.i.i, %.critedge.sink.split.i.i, %23
@@ -2773,7 +2773,7 @@ stbi__cleanup_jpeg.exit334.i:                     ; preds = %1191
   br i1 %1317, label %1300, label %output_jpeg_nv12.exit.i, !llvm.loop !35
 
 output_jpeg_nv12.exit.i:                          ; preds = %1300, %._crit_edge.i.i, %1231, %.preheader.i.i
-  %1318 = phi ptr [ %1225, %1231 ], [ %1225, %.preheader.i.i ], [ %1293, %._crit_edge.i.i ], [ %1312, %1300 ]
+  %1318 = phi ptr [ %1293, %._crit_edge.i.i ], [ %1225, %1231 ], [ %1225, %.preheader.i.i ], [ %1312, %1300 ]
   %1319 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %1320 = load ptr, ptr %1319, align 8
   br label %.loopexit382.i
@@ -3288,7 +3288,7 @@ stbi__cleanup_jpeg.exit355.i:                     ; preds = %1416, %stbi__malloc
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %1532, %1486, %1466, %.lr.ph442.i, %.loopexit.sink.split.i, %1524, %.preheader378.i, %.preheader376.i, %.preheader.i
-  %1582 = phi ptr [ %.pre515.i, %.preheader.i ], [ %.pre, %.loopexit.sink.split.i ], [ %1529, %1524 ], [ %.pre515.i, %.preheader378.i ], [ %.pre515.i, %.preheader376.i ], [ %.pre515.i, %1486 ], [ %.pre515.i, %.lr.ph442.i ], [ %.pre515.i, %1466 ], [ %1529, %1532 ]
+  %1582 = phi ptr [ %.pre515.i, %1486 ], [ %.pre515.i, %1466 ], [ %.pre515.i, %.lr.ph442.i ], [ %.pre515.i, %.preheader.i ], [ %.pre, %.loopexit.sink.split.i ], [ %1529, %1524 ], [ %.pre515.i, %.preheader378.i ], [ %.pre515.i, %.preheader376.i ], [ %1529, %1532 ]
   %1583 = add nuw i32 %.0274443.i, 1
   %1584 = getelementptr inbounds nuw i8, ptr %1582, i64 4
   %1585 = load i32, ptr %1584, align 4
@@ -3375,7 +3375,7 @@ stbi__cleanup_jpeg.exit364.i:                     ; preds = %stbi__cleanup_jpeg.
   br label %load_jpeg_image.exit
 
 load_jpeg_image.exit:                             ; preds = %1129, %.loopexit385.i, %1145, %1614
-  %.0.i = phi ptr [ %.1.i, %1614 ], [ null, %.loopexit385.i ], [ null, %1145 ], [ null, %1129 ]
+  %.0.i = phi ptr [ %.1.i, %1614 ], [ null, %1145 ], [ null, %.loopexit385.i ], [ null, %1129 ]
   call void @SDL_free_REAL(ptr noundef nonnull %10) #11
   br label %1615
 
@@ -6741,7 +6741,7 @@ stbi__extend_receive.exit95:                      ; preds = %198, %201
   br label %.thread118.sink.split
 
 .thread118.sink.split:                            ; preds = %170, %168, %148, %119, %.thread118.sink.split.sink.split, %stbi__mul2shorts_valid.exit, %100, %stbi__addints_valid.exit, %stbi__jpeg_huff_decode.exit, %20, %44, %46
-  %.str.6.sink = phi ptr [ @.str.6, %.thread118.sink.split.sink.split ], [ @.str.6, %stbi__mul2shorts_valid.exit ], [ @.str.6, %stbi__addints_valid.exit ], [ @.str.6, %stbi__jpeg_huff_decode.exit ], [ @.str.6, %46 ], [ @.str.6, %44 ], [ @.str.6, %20 ], [ @.str.6, %100 ], [ @.str.11, %119 ], [ @.str.6, %148 ], [ @.str.6, %168 ], [ @.str.6, %170 ]
+  %.str.6.sink = phi ptr [ @.str.6, %100 ], [ @.str.6, %stbi__mul2shorts_valid.exit ], [ @.str.6, %stbi__addints_valid.exit ], [ @.str.6, %stbi__jpeg_huff_decode.exit ], [ @.str.6, %46 ], [ @.str.6, %44 ], [ @.str.6, %20 ], [ @.str.6, %.thread118.sink.split.sink.split ], [ @.str.11, %119 ], [ @.str.6, %170 ], [ @.str.6, %148 ], [ @.str.6, %168 ]
   %224 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.2, ptr noundef nonnull %.str.6.sink) #11
   br label %.thread118
 
@@ -6998,7 +6998,7 @@ stbi__refill_buffer.exit.i26:                     ; preds = %130, %128
   br label %.loopexit
 
 .thread:                                          ; preds = %stbi__get8.exit23, %23, %.split, %53
-  %.shrunk = phi i8 [ 0, %.split ], [ %.0.i, %53 ], [ 0, %23 ], [ -1, %stbi__get8.exit23 ]
+  %.shrunk = phi i8 [ 0, %.split ], [ 0, %23 ], [ %.0.i, %53 ], [ -1, %stbi__get8.exit23 ]
   %137 = zext i8 %.shrunk to i32
   %138 = load i32, ptr %3, align 4
   %139 = sub nsw i32 24, %138
@@ -7434,7 +7434,7 @@ define internal fastcc range(i32 0, 2) i32 @stbi__build_huffman(ptr noundef nonn
   br label %.loopexit65
 
 .loopexit65:                                      ; preds = %.loopexit, %.loopexit65.sink.split, %47
-  %.0 = phi i32 [ 1, %47 ], [ 0, %.loopexit65.sink.split ], [ 1, %.loopexit ]
+  %.0 = phi i32 [ 0, %.loopexit65.sink.split ], [ 1, %47 ], [ 1, %.loopexit ]
   ret i32 %.0
 }
 

@@ -718,7 +718,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit: ; preds =
   br i1 %.not28, label %._crit_edge, label %.lr.ph
 
 _ZN12_GLOBAL__N_125AArch64CompressJumpTables12scanFunctionEv.exit: ; preds = %.lr.ph.i.i, %._crit_edge, %.loopexit, %11
-  %.0 = phi i1 [ false, %11 ], [ false, %.loopexit ], [ %.1.lcssa, %._crit_edge ], [ false, %.lr.ph.i.i ]
+  %.0 = phi i1 [ %.1.lcssa, %._crit_edge ], [ false, %11 ], [ false, %.loopexit ], [ false, %.lr.ph.i.i ]
   ret i1 %.0
 }
 

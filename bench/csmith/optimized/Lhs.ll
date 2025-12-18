@@ -616,7 +616,7 @@ _ZNSt6vectorIPK8VariableSaIS2_EE9push_backERKS2_.exit.backedge: ; preds = %_ZNSt
   br label %_ZNSt6vectorIPK8VariableSaIS2_EE9push_backERKS2_.exit, !llvm.loop !101
 
 _ZNSt6vectorIPK8VariableSaIS2_EE9push_backERKS2_.exit.thread: ; preds = %.thread137, %48, %30, %_ZN9CGContext16reset_effect_stmERK6Effect.exit.thread, %82
-  %.1 = phi ptr [ %176, %_ZN9CGContext16reset_effect_stmERK6Effect.exit.thread ], [ null, %82 ], [ null, %30 ], [ null, %48 ], [ null, %.thread137 ]
+  %.1 = phi ptr [ null, %82 ], [ %176, %_ZN9CGContext16reset_effect_stmERK6Effect.exit.thread ], [ null, %30 ], [ null, %48 ], [ null, %.thread137 ]
   call void @_ZN6EffectD1Ev(ptr noundef nonnull align 8 dereferenceable(74) %9) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @_ZN6EffectD1Ev(ptr noundef nonnull align 8 dereferenceable(74) %8) #16

@@ -400,7 +400,7 @@ _ZN6vectorIP4exprLb0EjE5resetEv.exit:             ; preds = %114, %116
   br i1 %.not27.old.i.i.i, label %_ZNK7obj_mapI4exprPS0_E4findES1_RS1_.exit.thread, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %158, %155
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %158 ], [ %157, %155 ]
+  %.137.i.i.i.be = phi ptr [ %157, %155 ], [ %.old.i.i.i, %158 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !47
 
 _ZNK7obj_mapI4exprPS0_E4findES1_RS1_.exit.thread: ; preds = %144, %158, %155, %122, %.preheader.i.i.i
@@ -999,7 +999,7 @@ _ZNK6vectorIP4exprLb0EjE5emptyEv.exit.thread:     ; preds = %_ZNK6vectorIP4exprL
   br i1 %.not27.old.i.i.i120, label %.loopexit, label %.lr.ph38.i.i.i116.backedge
 
 .lr.ph38.i.i.i116.backedge:                       ; preds = %393, %390
-  %.137.i.i.i117.be = phi ptr [ %.old.i.i.i119, %393 ], [ %392, %390 ]
+  %.137.i.i.i117.be = phi ptr [ %392, %390 ], [ %.old.i.i.i119, %393 ]
   br label %.lr.ph38.i.i.i116, !llvm.loop !47
 
 _ZNK7obj_mapI4exprPS0_E4findES1_RS1_.exit127:     ; preds = %374, %385

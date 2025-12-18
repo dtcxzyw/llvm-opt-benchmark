@@ -731,7 +731,7 @@ ExecWithoutOverlapsNotEmpty.exit:                 ; preds = %56, %64
   %116 = getelementptr inbounds nuw i8, ptr %14, i64 52
   br label %.loopexit146
 
-.loopexit146.loopexit:                            ; preds = %166, %168
+.loopexit146.loopexit:                            ; preds = %168, %166
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %.loopexit146

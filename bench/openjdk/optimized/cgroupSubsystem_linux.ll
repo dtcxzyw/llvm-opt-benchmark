@@ -965,8 +965,8 @@ _ZL11find_ro_optPc.exit:                          ; preds = %sub_2.i, %.backedge
   br i1 %exitcond287.not, label %.loopexit229, label %239, !llvm.loop !14
 
 .loopexit229:                                     ; preds = %239, %226, %224
-  %.1136 = phi i1 [ %.0135276, %224 ], [ %.0135276, %226 ], [ true, %239 ]
-  %.1134 = phi i1 [ %.0133277, %224 ], [ %.0133277, %226 ], [ true, %239 ]
+  %.1136 = phi i1 [ %.0135276, %226 ], [ %.0135276, %224 ], [ true, %239 ]
+  %.1134 = phi i1 [ %.0133277, %226 ], [ %.0133277, %224 ], [ true, %239 ]
   %241 = load ptr, ptr %13, align 8
   %242 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef readonly %241, ptr noundef nonnull @.str.49, ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef nonnull %22, ptr noundef nonnull %18, ptr noundef nonnull %21) #14
   %243 = icmp eq i32 %242, 5
@@ -1363,8 +1363,8 @@ _ZL11find_ro_optPc.exit208:                       ; preds = %sub_2.i207, %.backe
   br label %_ZN22CgroupSubsystemFactory7cleanupEP10CgroupInfo.exit
 
 _ZN22CgroupSubsystemFactory7cleanupEP10CgroupInfo.exit: ; preds = %127, %319, %215, %152, %365, %366, %369, %371, %329, %43, %41, %364, %357, %350, %343, %333
-  %.sink = phi i8 [ 2, %329 ], [ 4, %364 ], [ 4, %357 ], [ 4, %350 ], [ 4, %343 ], [ 3, %333 ], [ 6, %43 ], [ 6, %41 ], [ 1, %371 ], [ 1, %369 ], [ 1, %366 ], [ 1, %365 ], [ 5, %319 ], [ 6, %152 ], [ 6, %215 ], [ 6, %127 ]
-  %.0 = phi i1 [ true, %329 ], [ false, %364 ], [ false, %357 ], [ false, %350 ], [ false, %343 ], [ false, %333 ], [ false, %43 ], [ false, %41 ], [ true, %371 ], [ true, %369 ], [ true, %366 ], [ true, %365 ], [ false, %319 ], [ false, %152 ], [ false, %215 ], [ false, %127 ]
+  %.sink = phi i8 [ 2, %329 ], [ 4, %364 ], [ 4, %357 ], [ 4, %350 ], [ 4, %343 ], [ 6, %215 ], [ 3, %333 ], [ 6, %152 ], [ 1, %365 ], [ 5, %319 ], [ 6, %43 ], [ 6, %41 ], [ 1, %371 ], [ 1, %369 ], [ 1, %366 ], [ 6, %127 ]
+  %.0 = phi i1 [ true, %329 ], [ false, %364 ], [ false, %357 ], [ false, %350 ], [ false, %343 ], [ false, %215 ], [ false, %333 ], [ false, %152 ], [ true, %365 ], [ false, %319 ], [ false, %43 ], [ false, %41 ], [ true, %371 ], [ true, %369 ], [ true, %366 ], [ false, %127 ]
   store i8 %.sink, ptr %4, align 1
   ret i1 %.0
 }

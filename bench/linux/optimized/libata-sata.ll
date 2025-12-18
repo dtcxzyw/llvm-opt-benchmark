@@ -2889,7 +2889,7 @@ define dso_local void @ata_eh_analyze_ncq_error(ptr noundef %0) #1 align 16 {
   br label %131
 
 111:                                              ; preds = %33, %60
-  %112 = phi i32 [ -5, %33 ], [ -2, %60 ]
+  %112 = phi i32 [ -2, %60 ], [ -5, %33 ]
   %113 = load ptr, ptr %0, align 64
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 14728
   %115 = load i32, ptr %114, align 8

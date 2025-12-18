@@ -1501,7 +1501,7 @@ define noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__13SdfChangeList9FindEn
   br label %_ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathEmNS1_4HashESt8equal_toIS1_ESaISt4pairIKS1_mEEE4findERS6_.exit.thread, !llvm.loop !19
 
 _ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathEmNS1_4HashESt8equal_toIS1_ESaISt4pairIKS1_mEEE4findERS6_.exit: ; preds = %51, %25, %43
-  %.sroa.06.1.i.i = phi ptr [ %44, %43 ], [ %.sroa.06.0.i.i, %25 ], [ %56, %51 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %25 ], [ %44, %43 ], [ %56, %51 ]
   %61 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %62 = load i64, ptr %61, align 8
   %63 = getelementptr inbounds %"struct.std::pair", ptr %spec.select.i.i, i64 %62
@@ -1604,7 +1604,7 @@ _ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathEmNS1_4HashESt8e
   br label %_ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathEmNS1_4HashESt8equal_toIS1_ESaISt4pairIKS1_mEEE4findERS6_.exit.thread
 
 _ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathEmNS1_4HashESt8equal_toIS1_ESaISt4pairIKS1_mEEE4findERS6_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %24, %._crit_edge.i.i.i, %"_ZSt7find_ifISt16reverse_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS2_13SdfChangeList5EntryEEEZNKS4_9FindEntryERKS3_E3$_0ET_SD_SD_T0_.exit", %28, %..loopexit_crit_edge22.i.i.i.i, %12, %2, %_ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathEmNS1_4HashESt8equal_toIS1_ESaISt4pairIKS1_mEEE4findERS6_.exit
-  %.0 = phi ptr [ %10, %2 ], [ %63, %_ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathEmNS1_4HashESt8equal_toIS1_ESaISt4pairIKS1_mEEE4findERS6_.exit ], [ %spec.select, %"_ZSt7find_ifISt16reverse_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS2_13SdfChangeList5EntryEEEZNKS4_9FindEntryERKS3_E3$_0ET_SD_SD_T0_.exit" ], [ %13, %12 ], [ %10, %28 ], [ %10, %..loopexit_crit_edge22.i.i.i.i ], [ %10, %._crit_edge.i.i.i ], [ %10, %24 ], [ %10, %.lr.ph.i.i.i.i ]
+  %.0 = phi ptr [ %10, %2 ], [ %10, %24 ], [ %63, %_ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathEmNS1_4HashESt8equal_toIS1_ESaISt4pairIKS1_mEEE4findERS6_.exit ], [ %spec.select, %"_ZSt7find_ifISt16reverse_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS2_13SdfChangeList5EntryEEEZNKS4_9FindEntryERKS3_E3$_0ET_SD_SD_T0_.exit" ], [ %13, %12 ], [ %10, %28 ], [ %10, %..loopexit_crit_edge22.i.i.i.i ], [ %10, %._crit_edge.i.i.i ], [ %10, %.lr.ph.i.i.i.i ]
   ret ptr %.0
 }
 

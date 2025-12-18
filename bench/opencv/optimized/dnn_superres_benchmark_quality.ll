@@ -3270,7 +3270,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit435: ; preds = %11
   br i1 %1164, label %.loopexit, label %1161
 
 .loopexit:                                        ; preds = %1157, %1161, %.thread
-  %.pn108 = phi { ptr, i32 } [ %731, %.thread ], [ %eh.lpad-body611857, %1161 ], [ %1156, %1157 ]
+  %.pn108 = phi { ptr, i32 } [ %eh.lpad-body611857, %1161 ], [ %731, %.thread ], [ %1156, %1157 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %97)
   br label %1199
 
@@ -3321,7 +3321,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit441: ; preds = %11
   br i1 %1182, label %.thread736, label %1176
 
 .thread736:                                       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit441, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit438, %1165
-  %.pn110.pn.pn.pn741 = phi { ptr, i32 } [ %1166, %1165 ], [ %1168, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit438 ], [ %1167, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit441 ]
+  %.pn110.pn.pn.pn741 = phi { ptr, i32 } [ %1168, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit438 ], [ %1166, %1165 ], [ %1167, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit441 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %99)
   br label %1198
 
@@ -3425,7 +3425,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit448: ; preds = %.b
   call void @llvm.lifetime.end.p0(ptr nonnull %81)
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit450.thread
 
-_ZNSt6vectorIdSaIdEED2Ev.exit450.thread:          ; preds = %1112, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit435, %.thread761, %1201
+_ZNSt6vectorIdSaIdEED2Ev.exit450.thread:          ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit435, %1112, %.thread761, %1201
   %.pn120.pn.pn.pn.pn.pn.pn759 = phi { ptr, i32 } [ %.pn120.pn.pn.pn.pn.pn.ph, %.thread761 ], [ %.pn120.pn.pn.pn.pn, %1201 ], [ %.pn88, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit435 ], [ %1113, %1112 ]
   %.sroa.0709.0758 = phi ptr [ %.sroa.0709.1.ph, %.thread761 ], [ %.sroa.0709.2, %1201 ], [ %351, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit435 ], [ %351, %1112 ]
   %.sroa.0690.0757 = phi ptr [ %.sroa.0690.1.ph, %.thread761 ], [ %.sroa.0690.2, %1201 ], [ %354, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit435 ], [ %354, %1112 ]

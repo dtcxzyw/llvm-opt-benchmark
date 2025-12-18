@@ -1703,7 +1703,7 @@ _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddE
   br label %260
 
 .loopexit89:                                      ; preds = %.loopexit, %_ZNKSt6vectorIiSaIiEE2atEm.exit, %83, %51
-  %.1 = phi i32 [ %59, %51 ], [ %.017104, %83 ], [ %.017104, %_ZNKSt6vectorIiSaIiEE2atEm.exit ], [ %.017104, %.loopexit ]
+  %.1 = phi i32 [ %59, %51 ], [ %.017104, %_ZNKSt6vectorIiSaIiEE2atEm.exit ], [ %.017104, %83 ], [ %.017104, %.loopexit ]
   %250 = sext i32 %.1 to i64
   %251 = load ptr, ptr %36, align 8, !tbaa !110
   %252 = load i64, ptr %251, align 8, !tbaa !4
@@ -4167,7 +4167,7 @@ _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddE
   br label %260
 
 .loopexit89:                                      ; preds = %.loopexit, %_ZNKSt6vectorIiSaIiEE2atEm.exit, %83, %51
-  %.1 = phi i32 [ %59, %51 ], [ %.017104, %83 ], [ %.017104, %_ZNKSt6vectorIiSaIiEE2atEm.exit ], [ %.017104, %.loopexit ]
+  %.1 = phi i32 [ %59, %51 ], [ %.017104, %_ZNKSt6vectorIiSaIiEE2atEm.exit ], [ %.017104, %83 ], [ %.017104, %.loopexit ]
   %250 = sext i32 %.1 to i64
   %251 = load ptr, ptr %36, align 8, !tbaa !241
   %252 = load i64, ptr %251, align 8, !tbaa !4

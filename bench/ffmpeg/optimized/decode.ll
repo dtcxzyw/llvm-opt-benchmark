@@ -1903,7 +1903,7 @@ define i32 @avcodec_default_get_format(ptr noundef readonly captures(none) %0, p
   br i1 %.not61, label %48, label %.loopexit
 
 .loopexit:                                        ; preds = %29, %48, %63, %.preheader63, %.critedge, %46
-  %.1 = phi i32 [ %62, %.critedge ], [ %47, %46 ], [ -1, %.preheader63 ], [ %59, %63 ], [ -1, %48 ], [ %25, %29 ]
+  %.1 = phi i32 [ -1, %.preheader63 ], [ %62, %.critedge ], [ %47, %46 ], [ %59, %63 ], [ -1, %48 ], [ %25, %29 ]
   ret i32 %.1
 }
 
@@ -2116,7 +2116,7 @@ define i32 @avcodec_get_hw_frames_parameters(ptr noundef %0, ptr noundef %1, i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %11, %4, %66, %.thread53, %23, %17, %20, %37
-  %.0 = phi i32 [ -12, %23 ], [ -12, %37 ], [ -2, %17 ], [ -2, %20 ], [ %70, %.thread53 ], [ %46, %66 ], [ -2, %4 ], [ -2, %11 ]
+  %.0 = phi i32 [ -12, %23 ], [ -12, %37 ], [ -2, %17 ], [ %46, %66 ], [ -2, %20 ], [ %70, %.thread53 ], [ -2, %4 ], [ -2, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }

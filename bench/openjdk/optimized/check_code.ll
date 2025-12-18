@@ -1623,8 +1623,8 @@ check_and_push_string_utf.exit352.i.i:            ; preds = %657, %653
   br label %.loopexit.i.i.i
 
 .loopexit.i.i.i:                                  ; preds = %672, %.preheader.i.i.i, %.loopexit.loopexit.i.i.i, %678, %667, %665
-  %.4.i.i.i = phi ptr [ %.016.i.i.i, %667 ], [ %.016.i.i.i, %678 ], [ %.016.i.i.i, %665 ], [ %669, %.loopexit.loopexit.i.i.i ], [ %.3.i.i.i, %.preheader.i.i.i ], [ %.2.i.i.i, %672 ]
-  %.1.i.i.i = phi i32 [ %668, %667 ], [ %679, %678 ], [ %.0.i.i.i140, %665 ], [ %680, %.loopexit.loopexit.i.i.i ], [ %671, %.preheader.i.i.i ], [ %671, %672 ]
+  %.4.i.i.i = phi ptr [ %.016.i.i.i, %667 ], [ %.016.i.i.i, %665 ], [ %669, %.loopexit.loopexit.i.i.i ], [ %.3.i.i.i, %.preheader.i.i.i ], [ %.016.i.i.i, %678 ], [ %.2.i.i.i, %672 ]
+  %.1.i.i.i = phi i32 [ %668, %667 ], [ %.0.i.i.i140, %665 ], [ %680, %.loopexit.loopexit.i.i.i ], [ %671, %.preheader.i.i.i ], [ %679, %678 ], [ %671, %672 ]
   %681 = getelementptr inbounds nuw i8, ptr %.4.i.i.i, i64 1
   br label %665, !llvm.loop !19
 
@@ -5175,9 +5175,9 @@ CCalloc.exit100.us:                               ; preds = %669, %._crit_edge.i
   br label %.critedge.i.us
 
 .critedge.i.us:                                   ; preds = %692, %._crit_edge217.i.us, %638, %637, %623, %pop_stack.exit.us, %pop_stack.exit.us, %pop_stack.exit.us, %pop_stack.exit.us, %pop_stack.exit.us
-  %695 = phi i1 [ false, %637 ], [ true, %638 ], [ true, %692 ], [ false, %._crit_edge217.i.us ], [ true, %623 ], [ false, %pop_stack.exit.us ], [ false, %pop_stack.exit.us ], [ false, %pop_stack.exit.us ], [ false, %pop_stack.exit.us ], [ false, %pop_stack.exit.us ]
-  %.0149.i.us = phi ptr [ %476, %637 ], [ %476, %638 ], [ %674, %692 ], [ %674, %._crit_edge217.i.us ], [ %476, %623 ], [ %476, %pop_stack.exit.us ], [ %476, %pop_stack.exit.us ], [ %476, %pop_stack.exit.us ], [ %476, %pop_stack.exit.us ], [ %476, %pop_stack.exit.us ]
-  %.0.i.us = phi i32 [ %474, %637 ], [ %474, %638 ], [ %645, %692 ], [ %645, %._crit_edge217.i.us ], [ %474, %623 ], [ %474, %pop_stack.exit.us ], [ %474, %pop_stack.exit.us ], [ %474, %pop_stack.exit.us ], [ %474, %pop_stack.exit.us ], [ %474, %pop_stack.exit.us ]
+  %695 = phi i1 [ true, %623 ], [ false, %637 ], [ true, %638 ], [ true, %692 ], [ false, %._crit_edge217.i.us ], [ false, %pop_stack.exit.us ], [ false, %pop_stack.exit.us ], [ false, %pop_stack.exit.us ], [ false, %pop_stack.exit.us ], [ false, %pop_stack.exit.us ]
+  %.0149.i.us = phi ptr [ %476, %623 ], [ %476, %637 ], [ %476, %638 ], [ %674, %692 ], [ %674, %._crit_edge217.i.us ], [ %476, %pop_stack.exit.us ], [ %476, %pop_stack.exit.us ], [ %476, %pop_stack.exit.us ], [ %476, %pop_stack.exit.us ], [ %476, %pop_stack.exit.us ]
+  %.0.i.us = phi i32 [ %474, %623 ], [ %474, %637 ], [ %474, %638 ], [ %645, %692 ], [ %645, %._crit_edge217.i.us ], [ %474, %pop_stack.exit.us ], [ %474, %pop_stack.exit.us ], [ %474, %pop_stack.exit.us ], [ %474, %pop_stack.exit.us ], [ %474, %pop_stack.exit.us ]
   %696 = icmp sgt i32 %.fr221.i.us, 0
   br i1 %696, label %.preheader.i43.us, label %update_registers.exit.us
 
@@ -5397,10 +5397,10 @@ copy_masks.exit181.i.us:                          ; preds = %801, %.lr.ph220.i.u
   br i1 %exitcond269.not.i.us, label %update_registers.exit.us, label %.lr.ph220.i.us, !llvm.loop !45
 
 update_registers.exit.us:                         ; preds = %490, %503, %..loopexit_crit_edge.split.us.us.i.us, %718, %copy_masks.exit181.i.us, %copy_masks.exit181.preheader.i.us, %.critedge.i.us, %add_to_masks.exit.i.us, %491, %483, %pop_stack.exit.us
-  %.0189.i.us = phi i32 [ %.0.i.us, %.critedge.i.us ], [ %474, %pop_stack.exit.us ], [ %474, %add_to_masks.exit.i.us ], [ %474, %491 ], [ %.0.i.us, %copy_masks.exit181.preheader.i.us ], [ %474, %483 ], [ %474, %503 ], [ %.0.i.us, %copy_masks.exit181.i.us ], [ %.0.i.us, %718 ], [ %474, %..loopexit_crit_edge.split.us.us.i.us ], [ %474, %490 ]
-  %.0148188.i.us = phi i32 [ %.fr221.i.us, %.critedge.i.us ], [ %.fr221.i.us, %pop_stack.exit.us ], [ %599, %add_to_masks.exit.i.us ], [ %.fr221.i.us, %491 ], [ %.fr221.i.us, %copy_masks.exit181.preheader.i.us ], [ %.fr221.i.us, %483 ], [ %.fr221.i.us, %503 ], [ %.fr221.i.us, %copy_masks.exit181.i.us ], [ %.fr221.i.us, %718 ], [ %.fr221.i.us, %..loopexit_crit_edge.split.us.us.i.us ], [ %.fr221.i.us, %490 ]
-  %.0149187.i.us = phi ptr [ %.0149.i.us, %.critedge.i.us ], [ %476, %pop_stack.exit.us ], [ %476, %add_to_masks.exit.i.us ], [ %495, %491 ], [ %.0149.i.us, %copy_masks.exit181.preheader.i.us ], [ %476, %483 ], [ %495, %503 ], [ %.0149.i.us, %copy_masks.exit181.i.us ], [ %.0149.i.us, %718 ], [ %495, %..loopexit_crit_edge.split.us.us.i.us ], [ %476, %490 ]
-  %.6.i.us = phi ptr [ %482, %.critedge.i.us ], [ %482, %pop_stack.exit.us ], [ %601, %add_to_masks.exit.i.us ], [ %482, %491 ], [ %746, %copy_masks.exit181.preheader.i.us ], [ %482, %483 ], [ %482, %503 ], [ %746, %copy_masks.exit181.i.us ], [ %482, %718 ], [ %.5.us.i.us, %..loopexit_crit_edge.split.us.us.i.us ], [ %482, %490 ]
+  %.0189.i.us = phi i32 [ %474, %503 ], [ %474, %491 ], [ %.0.i.us, %.critedge.i.us ], [ %474, %pop_stack.exit.us ], [ %474, %add_to_masks.exit.i.us ], [ %.0.i.us, %copy_masks.exit181.preheader.i.us ], [ %474, %483 ], [ %.0.i.us, %copy_masks.exit181.i.us ], [ %.0.i.us, %718 ], [ %474, %..loopexit_crit_edge.split.us.us.i.us ], [ %474, %490 ]
+  %.0148188.i.us = phi i32 [ %.fr221.i.us, %503 ], [ %.fr221.i.us, %491 ], [ %.fr221.i.us, %.critedge.i.us ], [ %.fr221.i.us, %pop_stack.exit.us ], [ %599, %add_to_masks.exit.i.us ], [ %.fr221.i.us, %copy_masks.exit181.preheader.i.us ], [ %.fr221.i.us, %483 ], [ %.fr221.i.us, %copy_masks.exit181.i.us ], [ %.fr221.i.us, %718 ], [ %.fr221.i.us, %..loopexit_crit_edge.split.us.us.i.us ], [ %.fr221.i.us, %490 ]
+  %.0149187.i.us = phi ptr [ %495, %503 ], [ %495, %491 ], [ %.0149.i.us, %.critedge.i.us ], [ %476, %pop_stack.exit.us ], [ %476, %add_to_masks.exit.i.us ], [ %.0149.i.us, %copy_masks.exit181.preheader.i.us ], [ %476, %483 ], [ %.0149.i.us, %copy_masks.exit181.i.us ], [ %.0149.i.us, %718 ], [ %495, %..loopexit_crit_edge.split.us.us.i.us ], [ %476, %490 ]
+  %.6.i.us = phi ptr [ %482, %503 ], [ %482, %491 ], [ %482, %.critedge.i.us ], [ %482, %pop_stack.exit.us ], [ %601, %add_to_masks.exit.i.us ], [ %746, %copy_masks.exit181.preheader.i.us ], [ %482, %483 ], [ %746, %copy_masks.exit181.i.us ], [ %482, %718 ], [ %.5.us.i.us, %..loopexit_crit_edge.split.us.us.i.us ], [ %482, %490 ]
   store i32 %.0189.i.us, ptr %14, align 8
   store ptr %.0149187.i.us, ptr %42, align 8
   store ptr %.6.i.us, ptr %43, align 8
@@ -5705,7 +5705,7 @@ check_and_push_string_utf.exit113.i.us:           ; preds = %907, %904
   br i1 %.not17.i.i.us, label %.loopexit.i.i.us, label %.preheader.i.i.us, !llvm.loop !48
 
 .loopexit.i.i.us:                                 ; preds = %.preheader21.i.i.us, %.preheader19.i.i.us, %.preheader.i.i.us, %914, %914, %914, %914, %914, %914, %914, %914, %914
-  %.4.i.i.us = phi ptr [ %.0.i.i54.us, %914 ], [ %.0.i.i54.us, %914 ], [ %.0.i.i54.us, %914 ], [ %.0.i.i54.us, %914 ], [ %.0.i.i54.us, %914 ], [ %.0.i.i54.us, %914 ], [ %.0.i.i54.us, %914 ], [ %.0.i.i54.us, %914 ], [ %.0.i.i54.us, %914 ], [ %.3.i.i.us, %.preheader19.i.i.us ], [ %921, %.preheader.i.i.us ], [ %.2.i.i.us, %.preheader21.i.i.us ]
+  %.4.i.i.us = phi ptr [ %.0.i.i54.us, %914 ], [ %.0.i.i54.us, %914 ], [ %.0.i.i54.us, %914 ], [ %.0.i.i54.us, %914 ], [ %.0.i.i54.us, %914 ], [ %.0.i.i54.us, %914 ], [ %.0.i.i54.us, %914 ], [ %.0.i.i54.us, %914 ], [ %.0.i.i54.us, %914 ], [ %921, %.preheader.i.i.us ], [ %.3.i.i.us, %.preheader19.i.i.us ], [ %.2.i.i.us, %.preheader21.i.i.us ]
   %922 = getelementptr inbounds nuw i8, ptr %.4.i.i.us, i64 1
   br label %914, !llvm.loop !49
 
@@ -6024,7 +6024,7 @@ CCalloc.exit106.us:                               ; preds = %1021, %._crit_edge.
   br i1 %.not111.i.us, label %push_stack.exit.us, label %.lr.ph142.i.us, !llvm.loop !54
 
 push_stack.exit.us:                               ; preds = %993, %1041, %989, %._crit_edge.i50.us
-  %.1101.i.us = phi ptr [ %.0100.lcssa.i.us, %._crit_edge.i50.us ], [ null, %989 ], [ %1026, %1041 ], [ %.0100.lcssa.i.us, %993 ]
+  %.1101.i.us = phi ptr [ %.0100.lcssa.i.us, %._crit_edge.i50.us ], [ %1026, %1041 ], [ null, %989 ], [ %.0100.lcssa.i.us, %993 ]
   store i32 %.0.lcssa.i.us, ptr %38, align 8
   store ptr %.1101.i.us, ptr %15, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -7232,9 +7232,9 @@ pop_and_free.exit.loopexit:                       ; preds = %6
   br label %pop_and_free.exit
 
 pop_and_free.exit:                                ; preds = %6, %pop_and_free.exit.loopexit, %pop_and_free.exit.loopexit119, %pop_and_free.exit.loopexit99, %75, %72, %9, %11, %13, %15, %54
-  %.044 = phi i32 [ %57, %54 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ %57, %75 ], [ 6, %pop_and_free.exit.loopexit119 ], [ 2, %pop_and_free.exit.loopexit ], [ 4, %pop_and_free.exit.loopexit99 ], [ %57, %72 ], [ 3, %6 ]
-  %.043 = phi i8 [ 65, %54 ], [ 73, %9 ], [ 73, %11 ], [ 73, %13 ], [ 73, %15 ], [ 65, %75 ], [ 76, %pop_and_free.exit.loopexit119 ], [ %8, %pop_and_free.exit.loopexit ], [ %8, %pop_and_free.exit.loopexit99 ], [ 65, %72 ], [ %8, %6 ]
-  %.1 = phi ptr [ %58, %54 ], [ %7, %9 ], [ %7, %11 ], [ %7, %13 ], [ %7, %15 ], [ %58, %75 ], [ %7, %pop_and_free.exit.loopexit119 ], [ %7, %pop_and_free.exit.loopexit ], [ %7, %pop_and_free.exit.loopexit99 ], [ %58, %72 ], [ %7, %6 ]
+  %.044 = phi i32 [ %57, %54 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ %57, %72 ], [ 6, %pop_and_free.exit.loopexit119 ], [ 2, %pop_and_free.exit.loopexit ], [ 4, %pop_and_free.exit.loopexit99 ], [ %57, %75 ], [ 3, %6 ]
+  %.043 = phi i8 [ 65, %54 ], [ 73, %9 ], [ 73, %11 ], [ 73, %13 ], [ 73, %15 ], [ 65, %72 ], [ 76, %pop_and_free.exit.loopexit119 ], [ %8, %pop_and_free.exit.loopexit ], [ %8, %pop_and_free.exit.loopexit99 ], [ 65, %75 ], [ %8, %6 ]
+  %.1 = phi ptr [ %58, %54 ], [ %7, %9 ], [ %7, %11 ], [ %7, %13 ], [ %7, %15 ], [ %58, %72 ], [ %7, %pop_and_free.exit.loopexit119 ], [ %7, %pop_and_free.exit.loopexit ], [ %7, %pop_and_free.exit.loopexit99 ], [ %58, %75 ], [ %7, %6 ]
   store ptr %.1, ptr %1, align 8
   %76 = icmp eq i32 %.042, 0
   br i1 %76, label %84, label %77
@@ -7832,7 +7832,7 @@ define internal fastcc void @merge_into_one_successor(ptr noundef nonnull %0, i3
   br i1 %.not155, label %.loopexit169, label %.lr.ph177, !llvm.loop !68
 
 .loopexit169:                                     ; preds = %20, %45, %17
-  %.1129 = phi ptr [ %4, %17 ], [ %10, %45 ], [ %4, %20 ]
+  %.1129 = phi ptr [ %10, %45 ], [ %4, %17 ], [ %4, %20 ]
   %48 = icmp sgt i32 %18, 0
   br i1 %48, label %.lr.ph179.preheader, label %.loopexit
 

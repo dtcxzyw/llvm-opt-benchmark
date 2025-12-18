@@ -5726,7 +5726,7 @@ _ZNK10RegionNode7is_copyEv.exit.i38:              ; preds = %66
   br label %.preheader.i33.backedge
 
 .preheader.i33.backedge:                          ; preds = %87, %_ZNK10RegionNode7is_copyEv.exit.i38
-  %.013.i34.be = phi ptr [ %90, %87 ], [ %71, %_ZNK10RegionNode7is_copyEv.exit.i38 ]
+  %.013.i34.be = phi ptr [ %71, %_ZNK10RegionNode7is_copyEv.exit.i38 ], [ %90, %87 ]
   br label %.preheader.i33, !llvm.loop !29
 
 _ZL12next_controlP4Node.exit39:                   ; preds = %66, %_ZNK10RegionNode7is_copyEv.exit.i38, %73, %76, %84
@@ -5785,7 +5785,7 @@ _ZNK10RegionNode7is_copyEv.exit.i45:              ; preds = %100
   br label %.preheader.i40.backedge
 
 .preheader.i40.backedge:                          ; preds = %121, %_ZNK10RegionNode7is_copyEv.exit.i45
-  %.013.i41.be = phi ptr [ %124, %121 ], [ %105, %_ZNK10RegionNode7is_copyEv.exit.i45 ]
+  %.013.i41.be = phi ptr [ %105, %_ZNK10RegionNode7is_copyEv.exit.i45 ], [ %124, %121 ]
   br label %.preheader.i40, !llvm.loop !29
 
 _ZL12next_controlP4Node.exit46:                   ; preds = %100, %_ZNK10RegionNode7is_copyEv.exit.i45, %107, %110, %118, %_ZL12next_controlP4Node.exit39
@@ -5915,7 +5915,7 @@ _ZNK10RegionNode7is_copyEv.exit.i59:              ; preds = %179
   br i1 %.not.i57, label %_ZL12next_controlP4Node.exit53, label %.preheader.i54.sink.split, !llvm.loop !29
 
 _ZL12next_controlP4Node.exit53:                   ; preds = %197, %189, %186, %169, %161, %158, %_ZNK10RegionNode7is_copyEv.exit.i59, %179, %_ZNK10RegionNode7is_copyEv.exit.i52, %151
-  %.3 = phi ptr [ %.013.i48, %169 ], [ %.013.i48, %_ZNK10RegionNode7is_copyEv.exit.i52 ], [ %.013.i55, %_ZNK10RegionNode7is_copyEv.exit.i59 ], [ %.013.i48, %151 ], [ %.013.i55, %179 ], [ %.013.i48, %158 ], [ %.013.i48, %161 ], [ %.013.i55, %186 ], [ %.013.i55, %189 ], [ %.013.i55, %197 ]
+  %.3 = phi ptr [ %.013.i48, %_ZNK10RegionNode7is_copyEv.exit.i52 ], [ %.013.i55, %_ZNK10RegionNode7is_copyEv.exit.i59 ], [ %.013.i48, %169 ], [ %.013.i48, %151 ], [ %.013.i55, %179 ], [ %.013.i48, %158 ], [ %.013.i48, %161 ], [ %.013.i55, %186 ], [ %.013.i55, %189 ], [ %.013.i55, %197 ]
   %200 = getelementptr inbounds nuw i8, ptr %.3, i64 16
   %201 = load ptr, ptr %200, align 8
   %202 = icmp eq ptr %201, null
@@ -5999,7 +5999,7 @@ _ZNK10RegionNode7is_copyEv.exit:                  ; preds = %7
   br i1 %13, label %_ZNK10RegionNode7is_copyEv.exit.thread, label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %_ZNK10RegionNode7is_copyEv.exit, %28
-  %.013.be = phi ptr [ %31, %28 ], [ %12, %_ZNK10RegionNode7is_copyEv.exit ]
+  %.013.be = phi ptr [ %12, %_ZNK10RegionNode7is_copyEv.exit ], [ %31, %28 ]
   br label %.preheader, !llvm.loop !29
 
 14:                                               ; preds = %.preheader
@@ -6117,7 +6117,7 @@ _ZNK10RegionNode7is_copyEv.exit.i:                ; preds = %33
   br label %.preheader.i.backedge
 
 .preheader.i.backedge:                            ; preds = %54, %_ZNK10RegionNode7is_copyEv.exit.i
-  %.013.i.be = phi ptr [ %57, %54 ], [ %38, %_ZNK10RegionNode7is_copyEv.exit.i ]
+  %.013.i.be = phi ptr [ %38, %_ZNK10RegionNode7is_copyEv.exit.i ], [ %57, %54 ]
   br label %.preheader.i, !llvm.loop !29
 
 _ZL12next_controlP4Node.exit:                     ; preds = %33, %_ZNK10RegionNode7is_copyEv.exit.i, %40, %43, %51, %24
@@ -6297,7 +6297,7 @@ _ZNK10RegionNode7is_copyEv.exit.i:                ; preds = %18
   br label %.preheader.i.backedge
 
 .preheader.i.backedge:                            ; preds = %39, %_ZNK10RegionNode7is_copyEv.exit.i
-  %.013.i.be = phi ptr [ %42, %39 ], [ %23, %_ZNK10RegionNode7is_copyEv.exit.i ]
+  %.013.i.be = phi ptr [ %23, %_ZNK10RegionNode7is_copyEv.exit.i ], [ %42, %39 ]
   br label %.preheader.i, !llvm.loop !29
 
 43:                                               ; preds = %25, %28, %36, %_ZNK10RegionNode7is_copyEv.exit.i, %18

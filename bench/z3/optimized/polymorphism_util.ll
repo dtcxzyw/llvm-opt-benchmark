@@ -342,7 +342,7 @@ _ZNK4sort11is_type_varEv.exit:                    ; preds = %17
   br i1 %.not27.old.i.i.i, label %.loopexit59, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %55, %52
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %55 ], [ %54, %52 ]
+  %.137.i.i.i.be = phi ptr [ %54, %52 ], [ %.old.i.i.i, %55 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !47
 
 tailrecurse:                                      ; preds = %36, %47
@@ -3344,7 +3344,7 @@ tailrecurse.us:                                   ; preds = %31, %42
   br i1 %or.cond43.i.i.i46.us, label %_ZNK4sort11is_type_varEv.exit48, label %.lr.ph38.i.i.i36.us.backedge
 
 .lr.ph38.i.i.i36.us.backedge:                     ; preds = %51, %47
-  %.137.i.i.i37.us.be = phi ptr [ %.old.i.i.i39.us, %47 ], [ %53, %51 ]
+  %.137.i.i.i37.us.be = phi ptr [ %53, %51 ], [ %.old.i.i.i39.us, %47 ]
   br label %.lr.ph38.i.i.i36.us, !llvm.loop !47
 
 .lr.ph.split:                                     ; preds = %.lr.ph
@@ -3419,7 +3419,7 @@ _ZNK4sort11is_type_varEv.exit.us:                 ; preds = %tailrecurse.us182, 
   br i1 %or.cond43.i.i.i.us, label %_ZNK4sort11is_type_varEv.exit.thread.us167, label %.lr.ph38.i.i.i.us.backedge
 
 .lr.ph38.i.i.i.us.backedge:                       ; preds = %79, %78
-  %.137.i.i.i.us.be = phi ptr [ %.old.i.i.i.us, %78 ], [ %81, %79 ]
+  %.137.i.i.i.us.be = phi ptr [ %81, %79 ], [ %.old.i.i.i.us, %78 ]
   br label %.lr.ph38.i.i.i.us, !llvm.loop !47
 
 _ZNK4sort11is_type_varEv.exit.thread.us167:       ; preds = %67, %78, %79, %.preheader.i.i.i.us
@@ -3504,7 +3504,7 @@ tailrecurse.us182:                                ; preds = %95, %106
   br i1 %or.cond43.i.i.i46.us185, label %_ZNK4sort11is_type_varEv.exit48, label %.lr.ph38.i.i.i36.us177.backedge
 
 .lr.ph38.i.i.i36.us177.backedge:                  ; preds = %115, %111
-  %.137.i.i.i37.us178.be = phi ptr [ %.old.i.i.i39.us180, %111 ], [ %117, %115 ]
+  %.137.i.i.i37.us178.be = phi ptr [ %117, %115 ], [ %.old.i.i.i39.us180, %111 ]
   br label %.lr.ph38.i.i.i36.us177, !llvm.loop !47
 
 _ZNK4sort11is_type_varEv.exit:                    ; preds = %.lr.ph.split, %tailrecurse
@@ -3590,7 +3590,7 @@ _ZNK4sort11is_type_varEv.exit27:                  ; preds = %_ZNK4sort11is_type_
   br i1 %.not27.old.i.i.i40, label %_ZNK4sort11is_type_varEv.exit48, label %.lr.ph38.i.i.i36.backedge
 
 .lr.ph38.i.i.i36.backedge:                        ; preds = %153, %150
-  %.137.i.i.i37.be = phi ptr [ %.old.i.i.i39, %153 ], [ %152, %150 ]
+  %.137.i.i.i37.be = phi ptr [ %152, %150 ], [ %.old.i.i.i39, %153 ]
   br label %.lr.ph38.i.i.i36, !llvm.loop !47
 
 tailrecurse:                                      ; preds = %134, %145
@@ -3601,8 +3601,8 @@ tailrecurse:                                      ; preds = %134, %145
   br i1 %156, label %.thread101, label %_ZNK4sort11is_type_varEv.exit
 
 _ZNK4sort11is_type_varEv.exit48:                  ; preds = %.preheader.i.i.i34.us175, %100, %115, %111, %.preheader.i.i.i34, %139, %150, %153, %.preheader.i.i.i34.us, %36, %47, %51
-  %.pre = phi ptr [ %83, %100 ], [ %19, %47 ], [ %19, %36 ], [ %19, %.preheader.i.i.i34.us ], [ %119, %150 ], [ %119, %139 ], [ %119, %.preheader.i.i.i34 ], [ %83, %115 ], [ %19, %51 ], [ %119, %153 ], [ %83, %111 ], [ %83, %.preheader.i.i.i34.us175 ]
-  %.tr105125 = phi ptr [ %.tr105130.us166, %100 ], [ %.tr105130.us, %47 ], [ %.tr105130.us, %36 ], [ %.tr105130.us, %.preheader.i.i.i34.us ], [ %.tr105130, %150 ], [ %.tr105130, %139 ], [ %.tr105130, %.preheader.i.i.i34 ], [ %.tr105130.us166, %115 ], [ %.tr105130.us, %51 ], [ %.tr105130, %153 ], [ %.tr105130.us166, %111 ], [ %.tr105130.us166, %.preheader.i.i.i34.us175 ]
+  %.pre = phi ptr [ %119, %139 ], [ %119, %150 ], [ %119, %.preheader.i.i.i34 ], [ %19, %47 ], [ %83, %115 ], [ %19, %.preheader.i.i.i34.us ], [ %83, %100 ], [ %19, %36 ], [ %19, %51 ], [ %119, %153 ], [ %83, %111 ], [ %83, %.preheader.i.i.i34.us175 ]
+  %.tr105125 = phi ptr [ %.tr105130, %139 ], [ %.tr105130, %150 ], [ %.tr105130, %.preheader.i.i.i34 ], [ %.tr105130.us, %47 ], [ %.tr105130.us166, %115 ], [ %.tr105130.us, %.preheader.i.i.i34.us ], [ %.tr105130.us166, %100 ], [ %.tr105130.us, %36 ], [ %.tr105130.us, %51 ], [ %.tr105130, %153 ], [ %.tr105130.us166, %111 ], [ %.tr105130.us166, %.preheader.i.i.i34.us175 ]
   %.pr = load i32, ptr %.pre, align 8, !tbaa !34
   %157 = icmp eq i32 %.pr, 6
   br i1 %157, label %158, label %_ZNK4sort11is_type_varEv.exit48.thread
@@ -3626,7 +3626,7 @@ _ZNK4sort11is_type_varEv.exit48.thread.thread:    ; preds = %_ZNK4sort11is_type_
   br label %_ZNK4sort11is_type_varEv.exit50
 
 _ZNK4sort11is_type_varEv.exit48.thread:           ; preds = %_ZNK4sort11is_type_varEv.exit27.us168, %_ZNK4sort11is_type_varEv.exit.thread.us167, %_ZNK4sort11is_type_varEv.exit27, %_ZNK4sort11is_type_varEv.exit, %_ZNK4sort11is_type_varEv.exit27.us, %_ZNK4sort11is_type_varEv.exit.thread.us, %_ZNK4sort11is_type_varEv.exit48
-  %.196 = phi ptr [ %.tr105125, %_ZNK4sort11is_type_varEv.exit48 ], [ %.tr105130, %_ZNK4sort11is_type_varEv.exit27 ], [ %.tr105130.us, %_ZNK4sort11is_type_varEv.exit27.us ], [ %.tr105130.us, %_ZNK4sort11is_type_varEv.exit.thread.us ], [ %.tr105130, %_ZNK4sort11is_type_varEv.exit ], [ %.tr105130.us166, %_ZNK4sort11is_type_varEv.exit.thread.us167 ], [ %.tr105130.us166, %_ZNK4sort11is_type_varEv.exit27.us168 ]
+  %.196 = phi ptr [ %.tr105130.us, %_ZNK4sort11is_type_varEv.exit27.us ], [ %.tr105125, %_ZNK4sort11is_type_varEv.exit48 ], [ %.tr105130, %_ZNK4sort11is_type_varEv.exit27 ], [ %.tr105130.us, %_ZNK4sort11is_type_varEv.exit.thread.us ], [ %.tr105130, %_ZNK4sort11is_type_varEv.exit ], [ %.tr105130.us166, %_ZNK4sort11is_type_varEv.exit.thread.us167 ], [ %.tr105130.us166, %_ZNK4sort11is_type_varEv.exit27.us168 ]
   %162 = getelementptr inbounds nuw i8, ptr %.tr104.ph247, i64 24
   %163 = icmp eq ptr %15, null
   br i1 %163, label %_ZNK4decl13get_family_idEv.exit, label %_ZNK4sort11is_type_varEv.exit50
@@ -3942,7 +3942,7 @@ select.unfold:                                    ; preds = %304, %308
   br label %.thread101, !llvm.loop !130
 
 .thread101:                                       ; preds = %tailrecurse.outer, %tailrecurse.us182, %tailrecurse, %tailrecurse.us, %308, %295, %_ZNK9parameter7get_astEv.exit65, %select.unfold, %_ZNK4decl18get_num_parametersEv.exit61, %271, %3, %_ZNK4decl18get_num_parametersEv.exit62, %..thread101.loopexit_crit_edge253, %249, %_ZNK4decl13get_decl_kindEv.exit60, %_ZNK4decl13get_family_idEv.exit59, %_ZN7obj_refI4sort11ast_managerED2Ev.exit
-  %.0 = phi i1 [ false, %_ZNK4decl13get_decl_kindEv.exit60 ], [ %not..not23, %_ZNK4decl18get_num_parametersEv.exit61 ], [ false, %249 ], [ %.1, %_ZN7obj_refI4sort11ast_managerED2Ev.exit ], [ false, %_ZNK4decl13get_family_idEv.exit59 ], [ true, %3 ], [ false, %..thread101.loopexit_crit_edge253 ], [ true, %_ZNK4decl18get_num_parametersEv.exit62 ], [ true, %271 ], [ true, %tailrecurse.us182 ], [ true, %select.unfold ], [ true, %tailrecurse.us ], [ true, %tailrecurse ], [ false, %_ZNK9parameter7get_astEv.exit65 ], [ false, %295 ], [ false, %308 ], [ true, %tailrecurse.outer ]
+  %.0 = phi i1 [ false, %_ZNK4decl13get_decl_kindEv.exit60 ], [ %not..not23, %_ZNK4decl18get_num_parametersEv.exit61 ], [ false, %249 ], [ %.1, %_ZN7obj_refI4sort11ast_managerED2Ev.exit ], [ true, %tailrecurse.us182 ], [ false, %_ZNK4decl13get_family_idEv.exit59 ], [ true, %271 ], [ true, %3 ], [ false, %..thread101.loopexit_crit_edge253 ], [ true, %select.unfold ], [ true, %_ZNK4decl18get_num_parametersEv.exit62 ], [ true, %tailrecurse ], [ true, %tailrecurse.us ], [ false, %_ZNK9parameter7get_astEv.exit65 ], [ false, %295 ], [ false, %308 ], [ true, %tailrecurse.outer ]
   ret i1 %.0
 }
 
@@ -4040,7 +4040,7 @@ _ZNK4sort11is_type_varEv.exit:                    ; preds = %13
   br i1 %.not27.old.i.i.i, label %_ZNK4sort11is_type_varEv.exit22, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %46, %43
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %46 ], [ %45, %43 ]
+  %.137.i.i.i.be = phi ptr [ %45, %43 ], [ %.old.i.i.i, %46 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !47
 
 tailrecurse:                                      ; preds = %27, %38
@@ -4286,7 +4286,7 @@ select.unfold:                                    ; preds = %161, %165
   br label %.thread57, !llvm.loop !131
 
 .thread57:                                        ; preds = %tailrecurse, %165, %152, %_ZNK9parameter7get_astEv.exit35, %select.unfold, %_ZNK4decl18get_num_parametersEv.exit31, %128, %3, %_ZNK4decl18get_num_parametersEv.exit32, %..thread57.loopexit_crit_edge78, %106, %_ZNK4decl13get_decl_kindEv.exit30, %_ZNK4decl13get_family_idEv.exit29, %_ZN15ref_vector_coreI4sort19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit28
-  %.0 = phi i1 [ false, %106 ], [ %not..not19, %_ZNK4decl18get_num_parametersEv.exit31 ], [ true, %_ZN15ref_vector_coreI4sort19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit28 ], [ false, %_ZNK4decl13get_family_idEv.exit29 ], [ false, %_ZNK4decl13get_decl_kindEv.exit30 ], [ true, %3 ], [ true, %_ZNK4decl18get_num_parametersEv.exit32 ], [ false, %..thread57.loopexit_crit_edge78 ], [ true, %128 ], [ true, %select.unfold ], [ false, %_ZNK9parameter7get_astEv.exit35 ], [ false, %152 ], [ false, %165 ], [ true, %tailrecurse ]
+  %.0 = phi i1 [ false, %106 ], [ %not..not19, %_ZNK4decl18get_num_parametersEv.exit31 ], [ true, %_ZN15ref_vector_coreI4sort19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit28 ], [ true, %3 ], [ false, %_ZNK4decl13get_family_idEv.exit29 ], [ false, %_ZNK4decl13get_decl_kindEv.exit30 ], [ true, %_ZNK4decl18get_num_parametersEv.exit32 ], [ true, %128 ], [ false, %..thread57.loopexit_crit_edge78 ], [ true, %select.unfold ], [ false, %_ZNK9parameter7get_astEv.exit35 ], [ false, %152 ], [ false, %165 ], [ true, %tailrecurse ]
   ret i1 %.0
 }
 
@@ -4671,7 +4671,7 @@ define hidden void @_ZN12polymorphism4util5freshEP4sort(ptr dead_on_unwind noali
   br i1 %.not27.old.i.i.i, label %.loopexit105, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %46, %43
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %46 ], [ %45, %43 ]
+  %.137.i.i.i.be = phi ptr [ %45, %43 ], [ %.old.i.i.i, %46 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !47
 
 .loopexit104:                                     ; preds = %27, %38
@@ -5761,7 +5761,7 @@ _ZN14core_hashtableIN7obj_mapI4sortPS1_E13obj_map_entryE8obj_hashINS3_8key_dataE
   br i1 %.not27.old.i.i.i.i, label %.loopexit76, label %.lr.ph38.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.backedge:                        ; preds = %116, %113
-  %.137.i.i.i.i.be = phi ptr [ %.old.i.i.i.i, %116 ], [ %115, %113 ]
+  %.137.i.i.i.i.be = phi ptr [ %115, %113 ], [ %.old.i.i.i.i, %116 ]
   br label %.lr.ph38.i.i.i.i, !llvm.loop !47
 
 .loopexit:                                        ; preds = %97, %108

@@ -331,7 +331,7 @@ SDL_ChooseBlitFunc.exit:                          ; preds = %121, %103
   br label %147
 
 .critedge182.thread204:                           ; preds = %117, %52, %.critedge179, %39, %38, %49, %.critedge182
-  %.2.ph = phi ptr [ %.1, %.critedge182 ], [ @SDL_Blit_Slow_Float, %.critedge179 ], [ @SDL_Blit_Slow_Float, %39 ], [ @SDL_Blit_Slow_Float, %38 ], [ @SDL_Blit_Slow, %52 ], [ @SDL_BlitCopy, %49 ], [ %107, %117 ]
+  %.2.ph = phi ptr [ @SDL_Blit_Slow, %52 ], [ %.1, %.critedge182 ], [ @SDL_Blit_Slow_Float, %.critedge179 ], [ @SDL_Blit_Slow_Float, %39 ], [ @SDL_Blit_Slow_Float, %38 ], [ @SDL_BlitCopy, %49 ], [ %107, %117 ]
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store ptr %.2.ph, ptr %143, align 8
   br label %147

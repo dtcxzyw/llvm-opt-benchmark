@@ -326,7 +326,7 @@ validate_subdomain.exit.thread108.thread:         ; preds = %validate_subdomain.
   store ptr %storemerge97134, ptr %8, align 8, !tbaa !38
   br label %._crit_edge.loopexit
 
-validate_subdomain.exit.thread108:                ; preds = %95, %117, %validate_subdomain.exit
+validate_subdomain.exit.thread108:                ; preds = %117, %95, %validate_subdomain.exit
   %124 = load ptr, ptr %8, align 8, !tbaa !38
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 16
   %storemerge97 = load ptr, ptr %125, align 8, !tbaa !37
@@ -830,7 +830,7 @@ define i32 @load_regex_matcher(ptr noundef readonly captures(none) %0, ptr nound
   br label %functionality_level_check.exit.thread108
 
 functionality_level_check.exit:                   ; preds = %88, %87, %121, %148, %127, %37, %37, %97
-  %.180 = phi i32 [ %.079133, %37 ], [ %.079133, %37 ], [ %.079133, %97 ], [ %99, %121 ], [ %99, %127 ], [ %99, %148 ], [ %.079133, %87 ], [ %.079133, %88 ]
+  %.180 = phi i32 [ %.079133, %37 ], [ %.079133, %37 ], [ %.079133, %97 ], [ %.079133, %88 ], [ %.079133, %87 ], [ %99, %148 ], [ %99, %127 ], [ %99, %121 ]
   %159 = call ptr @cli_dbgets(ptr noundef nonnull %9, i32 noundef 8192, ptr noundef %2, ptr noundef %6) #14
   %.not94 = icmp eq ptr %159, null
   br i1 %.not94, label %._crit_edge, label %37
@@ -851,7 +851,7 @@ functionality_level_check.exit:                   ; preds = %88, %87, %121, %148
   br label %functionality_level_check.exit.thread108
 
 functionality_level_check.exit.thread108:         ; preds = %135, %132, %101, %116, %157, %154, %129, %123, %._crit_edge, %163, %12, %25, %19, %11
-  %.0 = phi i32 [ 2, %11 ], [ 2, %19 ], [ %125, %123 ], [ 4, %12 ], [ %23, %25 ], [ 0, %163 ], [ 0, %._crit_edge ], [ 4, %101 ], [ 4, %116 ], [ 4, %157 ], [ %156, %154 ], [ %131, %129 ], [ 4, %132 ], [ 4, %135 ]
+  %.0 = phi i32 [ 2, %11 ], [ 2, %19 ], [ %125, %123 ], [ 4, %12 ], [ %23, %25 ], [ 0, %163 ], [ 0, %._crit_edge ], [ %131, %129 ], [ 4, %101 ], [ 4, %116 ], [ 4, %157 ], [ %156, %154 ], [ 4, %132 ], [ 4, %135 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
 }

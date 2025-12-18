@@ -1093,7 +1093,7 @@ if.then15.for.inc_crit_edge:                      ; preds = %if.then15
   br label %for.inc
 
 if.then19:                                        ; preds = %if.then15, %land.rhs.i.i.us, %for.body.us61.us, %for.body.us, %for.body.us.us
-  %.us-phi = phi i32 [ %24, %for.body.us.us ], [ %37, %land.rhs.i.i.us ], [ %26, %for.body.us ], [ %33, %for.body.us61.us ], [ %43, %if.then15 ]
+  %.us-phi = phi i32 [ %33, %for.body.us61.us ], [ %24, %for.body.us.us ], [ %26, %for.body.us ], [ %37, %land.rhs.i.i.us ], [ %43, %if.then15 ]
   %call20 = tail call noundef i32 @_ZNK8proxygen11HeaderTable10toExternalEj(ptr noundef nonnull align 8 dereferenceable(80) %this, i32 noundef %.us-phi)
   br label %return
 
@@ -1109,7 +1109,7 @@ for.end.loopexit87:                               ; preds = %for.inc
   br label %for.end
 
 for.end:                                          ; preds = %for.inc.us67, %for.inc.us67.us, %for.inc.us, %for.end.loopexit87, %if.end
-  %encoderHasUnackedEntry.0.lcssa = phi i32 [ 0, %if.end ], [ %52, %for.end.loopexit87 ], [ 0, %for.inc.us67.us ], [ 1, %for.inc.us ], [ 0, %for.inc.us67 ]
+  %encoderHasUnackedEntry.0.lcssa = phi i32 [ 0, %if.end ], [ 0, %for.inc.us67.us ], [ 1, %for.inc.us ], [ %52, %for.end.loopexit87 ], [ 0, %for.inc.us67 ]
   %. = sub nsw i32 0, %encoderHasUnackedEntry.0.lcssa
   br label %return
 

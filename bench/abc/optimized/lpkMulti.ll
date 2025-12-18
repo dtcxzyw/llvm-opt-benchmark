@@ -312,7 +312,7 @@ define void @Lpk_CreateCommonOrder(ptr noundef readonly captures(none) %0, ptr n
   br label %.lr.ph96
 
 .preheader:                                       ; preds = %.lr.ph96, %._crit_edge.thread, %43
-  %.not161166 = phi i1 [ %.not161, %43 ], [ true, %._crit_edge.thread ], [ %.not161, %.lr.ph96 ]
+  %.not161166 = phi i1 [ true, %._crit_edge.thread ], [ %.not161, %43 ], [ %.not161, %.lr.ph96 ]
   %wide.trip.count144 = zext nneg i32 %4 to i64
   %wide.trip.count149 = zext nneg i32 %4 to i64
   %wide.trip.count154 = zext nneg i32 %4 to i64

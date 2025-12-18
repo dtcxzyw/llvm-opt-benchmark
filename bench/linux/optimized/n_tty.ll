@@ -1115,8 +1115,8 @@ define internal i64 @n_tty_write(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %225, label %233, label %226
 
 .sink.split:                                      ; preds = %.thread23.thread28, %215, %167, %219, %.preheader
-  %.ph = phi i64 [ %200, %.preheader ], [ -512, %219 ], [ %165, %167 ], [ -11, %215 ], [ -11, %.thread23.thread28 ]
-  %.ph145 = phi ptr [ %195, %.preheader ], [ %210, %219 ], [ %81, %167 ], [ %210, %215 ], [ %210, %.thread23.thread28 ]
+  %.ph = phi i64 [ %200, %.preheader ], [ %165, %167 ], [ -11, %215 ], [ -11, %.thread23.thread28 ], [ -512, %219 ]
+  %.ph145 = phi ptr [ %195, %.preheader ], [ %81, %167 ], [ %210, %215 ], [ %210, %.thread23.thread28 ], [ %210, %219 ]
   call void @remove_wait_queue(ptr noundef nonnull %50, ptr noundef nonnull %5) #13
   br label %226
 
@@ -2520,7 +2520,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__process_echoes(
   br i1 %160, label %138, label %.thread15, !llvm.loop !51
 
 .thread15:                                        ; preds = %22, %35, %99, %154, %.thread17
-  %161 = phi i64 [ %130, %.thread17 ], [ %155, %154 ], [ %17, %22 ], [ %17, %35 ], [ %101, %99 ]
+  %161 = phi i64 [ %130, %.thread17 ], [ %155, %154 ], [ %17, %35 ], [ %17, %22 ], [ %101, %99 ]
   %162 = phi i32 [ %131, %.thread17 ], [ %131, %154 ], [ %16, %99 ], [ %16, %35 ], [ %16, %22 ]
   store i64 %161, ptr %5, align 8
   %163 = sub i32 %4, %162
@@ -4200,8 +4200,8 @@ define internal fastcc void @n_tty_receive_buf_standard(ptr noundef %0, ptr noun
   br label %.loopexit35, !llvm.loop !65
 
 .loopexit35:                                      ; preds = %328, %293, %314, %.loopexit34..loopexit35.loopexit50_crit_edge
-  %565 = phi i64 [ %.pre63.pre, %.loopexit34..loopexit35.loopexit50_crit_edge ], [ %296, %314 ], [ %296, %293 ], [ %296, %328 ]
-  %566 = phi i64 [ %.pre62.pre, %.loopexit34..loopexit35.loopexit50_crit_edge ], [ %295, %314 ], [ %295, %293 ], [ %295, %328 ]
+  %565 = phi i64 [ %296, %314 ], [ %.pre63.pre, %.loopexit34..loopexit35.loopexit50_crit_edge ], [ %296, %293 ], [ %296, %328 ]
+  %566 = phi i64 [ %295, %314 ], [ %.pre62.pre, %.loopexit34..loopexit35.loopexit50_crit_edge ], [ %295, %293 ], [ %295, %328 ]
   %567 = icmp eq i64 %566, %565
   br i1 %567, label %568, label %584
 

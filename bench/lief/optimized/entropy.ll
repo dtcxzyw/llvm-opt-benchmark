@@ -676,7 +676,7 @@ mbedtls_entropy_add_source.exit.sink.split:       ; preds = %27, %9, %mbedtls_en
   br label %mbedtls_entropy_add_source.exit
 
 mbedtls_entropy_add_source.exit:                  ; preds = %.preheader38, %.preheader, %60, %mbedtls_entropy_add_source.exit.sink.split, %40, %43
-  %.015 = phi i32 [ %50, %43 ], [ 1, %40 ], [ 1, %mbedtls_entropy_add_source.exit.sink.split ], [ 0, %60 ], [ 1, %.preheader ], [ 1, %.preheader38 ]
+  %.015 = phi i32 [ 1, %.preheader ], [ 1, %40 ], [ %50, %43 ], [ 1, %mbedtls_entropy_add_source.exit.sink.split ], [ 0, %60 ], [ 1, %.preheader38 ]
   %65 = load i32, ptr %10, align 8, !tbaa !3
   %66 = icmp eq i32 %65, -1
   br i1 %66, label %mbedtls_entropy_free.exit, label %67

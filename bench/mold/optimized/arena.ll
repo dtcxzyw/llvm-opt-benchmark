@@ -833,7 +833,7 @@ _ZN3tbb6detail2r110arena_slot10try_occupyEv.exit38.thread: ; preds = %32, %_ZN3t
   br i1 %exitcond49.not, label %.loopexit, label %32, !llvm.loop !110
 
 .loopexit:                                        ; preds = %_ZN3tbb6detail2r110arena_slot10try_occupyEv.exit, %_ZN3tbb6detail2r110arena_slot10try_occupyEv.exit38, %_ZN3tbb6detail2r110arena_slot10try_occupyEv.exit38.thread, %.critedge.preheader, %4
-  %.030 = phi i64 [ -1, %4 ], [ -1, %.critedge.preheader ], [ -1, %_ZN3tbb6detail2r110arena_slot10try_occupyEv.exit38.thread ], [ %.044, %_ZN3tbb6detail2r110arena_slot10try_occupyEv.exit38 ], [ %.02842, %_ZN3tbb6detail2r110arena_slot10try_occupyEv.exit ]
+  %.030 = phi i64 [ -1, %4 ], [ -1, %_ZN3tbb6detail2r110arena_slot10try_occupyEv.exit38.thread ], [ -1, %.critedge.preheader ], [ %.044, %_ZN3tbb6detail2r110arena_slot10try_occupyEv.exit38 ], [ %.02842, %_ZN3tbb6detail2r110arena_slot10try_occupyEv.exit ]
   ret i64 %.030
 }
 
@@ -967,7 +967,7 @@ _ZN3tbb6detail2r15arena25occupy_free_slot_in_rangeERNS1_11thread_dataEmm.exit.i:
   %or.cond.not.i = select i1 %57, i1 true, i1 %59
   br i1 %or.cond.not.i, label %_ZN3tbb6detail2r110mail_inbox11set_is_idleEb.exit, label %.lr.ph.i8.i, !llvm.loop !114
 
-.loopexit:                                        ; preds = %_ZN3tbb6detail2r110arena_slot10try_occupyEv.exit38.thread.i.i, %_ZN3tbb6detail2r15arena25occupy_free_slot_in_rangeERNS1_11thread_dataEmm.exit.i, %2, %.critedge.preheader.i.i
+.loopexit:                                        ; preds = %_ZN3tbb6detail2r110arena_slot10try_occupyEv.exit38.thread.i.i, %.critedge.preheader.i.i, %_ZN3tbb6detail2r15arena25occupy_free_slot_in_rangeERNS1_11thread_dataEmm.exit.i, %2
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %61 = load ptr, ptr %60, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -3599,7 +3599,7 @@ _ZN3tbb6detail2r15arena25occupy_free_slot_in_rangeERNS1_11thread_dataEmm.exit.th
   br i1 %or.cond.not, label %_ZN3tbb6detail2r113atomic_updateIjSt4lessIjEEET_RSt6atomicIS5_ES5_T0_.exit, label %.lr.ph.i28, !llvm.loop !114
 
 _ZN3tbb6detail2r113atomic_updateIjSt4lessIjEEET_RSt6atomicIS5_ES5_T0_.exit: ; preds = %_ZN3tbb6detail2r110arena_slot10try_occupyEv.exit38.thread.i20, %.lr.ph.i28, %.critedge.preheader.i15, %_ZN3tbb6detail2r15arena25occupy_free_slot_in_rangeERNS1_11thread_dataEmm.exit.thread, %_ZN3tbb6detail2r15arena25occupy_free_slot_in_rangeERNS1_11thread_dataEmm.exit.thread62, %_ZN3tbb6detail2r15arena25occupy_free_slot_in_rangeERNS1_11thread_dataEmm.exit27
-  %.07 = phi i64 [ -1, %_ZN3tbb6detail2r15arena25occupy_free_slot_in_rangeERNS1_11thread_dataEmm.exit27 ], [ %.0, %_ZN3tbb6detail2r15arena25occupy_free_slot_in_rangeERNS1_11thread_dataEmm.exit.thread62 ], [ -1, %_ZN3tbb6detail2r15arena25occupy_free_slot_in_rangeERNS1_11thread_dataEmm.exit.thread ], [ -1, %.critedge.preheader.i15 ], [ %.0, %.lr.ph.i28 ], [ -1, %_ZN3tbb6detail2r110arena_slot10try_occupyEv.exit38.thread.i20 ]
+  %.07 = phi i64 [ -1, %.critedge.preheader.i15 ], [ -1, %_ZN3tbb6detail2r15arena25occupy_free_slot_in_rangeERNS1_11thread_dataEmm.exit27 ], [ %.0, %_ZN3tbb6detail2r15arena25occupy_free_slot_in_rangeERNS1_11thread_dataEmm.exit.thread62 ], [ %.0, %.lr.ph.i28 ], [ -1, %_ZN3tbb6detail2r15arena25occupy_free_slot_in_rangeERNS1_11thread_dataEmm.exit.thread ], [ -1, %_ZN3tbb6detail2r110arena_slot10try_occupyEv.exit38.thread.i20 ]
   ret i64 %.07
 }
 
@@ -7352,8 +7352,8 @@ _ZN3tbb6detail2r111task_streamILNS1_25task_stream_accessor_typeE1EE13look_specif
   br label %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE11try_acquireERS3_.exit.thread
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE11try_acquireERS3_.exit.thread: ; preds = %25, %_ZN3tbb6detail2r111task_streamILNS1_25task_stream_accessor_typeE1EE13look_specificERSt5dequeIPNS0_2d14taskENS6_23cache_aligned_allocatorIS8_EEEl.exit.thread
-  %.3 = phi ptr [ %.019, %25 ], [ %.2.i52, %_ZN3tbb6detail2r111task_streamILNS1_25task_stream_accessor_typeE1EE13look_specificERSt5dequeIPNS0_2d14taskENS6_23cache_aligned_allocatorIS8_EEEl.exit.thread ]
-  %.0 = phi i1 [ true, %25 ], [ %.not, %_ZN3tbb6detail2r111task_streamILNS1_25task_stream_accessor_typeE1EE13look_specificERSt5dequeIPNS0_2d14taskENS6_23cache_aligned_allocatorIS8_EEEl.exit.thread ]
+  %.3 = phi ptr [ %.2.i52, %_ZN3tbb6detail2r111task_streamILNS1_25task_stream_accessor_typeE1EE13look_specificERSt5dequeIPNS0_2d14taskENS6_23cache_aligned_allocatorIS8_EEEl.exit.thread ], [ %.019, %25 ]
+  %.0 = phi i1 [ %.not, %_ZN3tbb6detail2r111task_streamILNS1_25task_stream_accessor_typeE1EE13look_specificERSt5dequeIPNS0_2d14taskENS6_23cache_aligned_allocatorIS8_EEEl.exit.thread ], [ true, %25 ]
   %88 = atomicrmw xchg ptr %20, i8 0 seq_cst, align 1
   invoke void @_ZN3tbb6detail2r121notify_by_address_oneEPv(ptr noundef nonnull align 1 dereferenceable(1) %20)
           to label %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev.exit unwind label %89

@@ -234,7 +234,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   br label %.loopexit
 
 .loopexit:                                        ; preds = %32, %49, %55, %25, %.critedge.thread, %24, %21
-  %.055 = phi i32 [ -1094995529, %21 ], [ -1094995529, %24 ], [ %104, %.critedge.thread ], [ %26, %25 ], [ -1094995529, %55 ], [ -1094995529, %49 ], [ -1094995529, %32 ]
+  %.055 = phi i32 [ -1094995529, %21 ], [ -1094995529, %24 ], [ %104, %.critedge.thread ], [ %26, %25 ], [ -1094995529, %49 ], [ -1094995529, %55 ], [ -1094995529, %32 ]
   ret i32 %.055
 }
 

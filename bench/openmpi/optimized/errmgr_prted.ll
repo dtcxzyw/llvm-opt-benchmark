@@ -2424,7 +2424,7 @@ pmix_pointer_array_get_item.exit:                 ; preds = %.preheader, %25
   br label %.loopexit
 
 .loopexit:                                        ; preds = %21, %._crit_edge, %32, %._crit_edge, %23, %10, %2
-  %.0 = phi i32 [ %31, %._crit_edge ], [ %5, %10 ], [ %22, %23 ], [ %5, %2 ], [ %31, %._crit_edge ], [ %31, %32 ], [ %22, %21 ]
+  %.0 = phi i32 [ %31, %._crit_edge ], [ %5, %10 ], [ %22, %23 ], [ %5, %2 ], [ %31, %32 ], [ %31, %._crit_edge ], [ %22, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

@@ -1165,7 +1165,7 @@ zend_string_alloc.exit:                           ; preds = %php_replace_control
   br i1 %448, label %438, label %php_replace_controlchars.exit
 
 php_replace_controlchars.exit:                    ; preds = %64, %446, %zend_string_alloc.exit, %332, %192, %php_replace_controlchars.exit382, %php_replace_controlchars.exit372, %336, %323, %195
-  %.1 = phi ptr [ null, %336 ], [ %8, %php_replace_controlchars.exit372 ], [ null, %323 ], [ null, %332 ], [ null, %192 ], [ null, %195 ], [ %8, %php_replace_controlchars.exit382 ], [ %8, %zend_string_alloc.exit ], [ %8, %446 ], [ %8, %64 ]
+  %.1 = phi ptr [ null, %336 ], [ %8, %446 ], [ %8, %php_replace_controlchars.exit372 ], [ null, %323 ], [ null, %332 ], [ null, %192 ], [ null, %195 ], [ %8, %php_replace_controlchars.exit382 ], [ %8, %zend_string_alloc.exit ], [ %8, %64 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.1
 }

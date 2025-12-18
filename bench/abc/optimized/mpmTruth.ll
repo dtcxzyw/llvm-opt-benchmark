@@ -1048,9 +1048,9 @@ Abc_TtHasVar.exit.thread15.i.i.i:                 ; preds = %531, %Abc_TtHasVar.
   br label %Abc_TtHasVar.exit.thread.i.i.i
 
 Abc_TtHasVar.exit.thread.i.i.i:                   ; preds = %547, %530, %Abc_TtHasVar.exit.thread15.i.i.i
-  %.138.i.i = phi i32 [ %551, %Abc_TtHasVar.exit.thread15.i.i.i ], [ %.037.i.i, %530 ], [ %.037.i.i, %547 ]
-  %552 = phi i32 [ %551, %Abc_TtHasVar.exit.thread15.i.i.i ], [ %523, %530 ], [ %523, %547 ]
-  %.1.i.i.i28 = phi i32 [ %550, %Abc_TtHasVar.exit.thread15.i.i.i ], [ %.022.i.i.i, %530 ], [ %.022.i.i.i, %547 ]
+  %.138.i.i = phi i32 [ %.037.i.i, %530 ], [ %551, %Abc_TtHasVar.exit.thread15.i.i.i ], [ %.037.i.i, %547 ]
+  %552 = phi i32 [ %523, %530 ], [ %551, %Abc_TtHasVar.exit.thread15.i.i.i ], [ %523, %547 ]
+  %.1.i.i.i28 = phi i32 [ %.022.i.i.i, %530 ], [ %550, %Abc_TtHasVar.exit.thread15.i.i.i ], [ %.022.i.i.i, %547 ]
   %indvars.iv.next.i.i.i29 = add nuw nsw i64 %indvars.iv.i.i.i27, 1
   %exitcond.not.i.i.i30 = icmp eq i64 %indvars.iv.next.i.i.i29, %wide.trip.count.i.i.i26
   br i1 %exitcond.not.i.i.i30, label %Abc_TtSupportAndSize.exit.i.i, label %.lr.ph.split.split.split.i.i.i, !llvm.loop !50

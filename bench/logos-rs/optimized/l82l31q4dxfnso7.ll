@@ -438,7 +438,7 @@ tailrecurse:                                      ; preds = %116, %6
   br label %"_ZN13logos_codegen5graph5regex57_$LT$impl$u20$logos_codegen..graph..Graph$LT$Leaf$GT$$GT$14insert_or_push17h5fec1dcfe3198ea2E.exit"
 
 "_ZN13logos_codegen5graph5regex57_$LT$impl$u20$logos_codegen..graph..Graph$LT$Leaf$GT$$GT$14insert_or_push17h5fec1dcfe3198ea2E.exit": ; preds = %tailrecurse, %239, %269, %267, %174, %176, %90, %88, %220, %"_ZN13logos_codegen5graph5regex57_$LT$impl$u20$logos_codegen..graph..Graph$LT$Leaf$GT$$GT$14insert_or_push17h5fec1dcfe3198ea2E.exit112", %109
-  %.sroa.021.0 = phi i32 [ %177, %176 ], [ %113, %109 ], [ %270, %269 ], [ %.sroa.021.1, %"_ZN13logos_codegen5graph5regex57_$LT$impl$u20$logos_codegen..graph..Graph$LT$Leaf$GT$$GT$14insert_or_push17h5fec1dcfe3198ea2E.exit112" ], [ %242, %239 ], [ %219, %220 ], [ %91, %90 ], [ %89, %88 ], [ %175, %174 ], [ %268, %267 ], [ %2, %tailrecurse ]
+  %.sroa.021.0 = phi i32 [ %177, %176 ], [ %113, %109 ], [ %270, %269 ], [ %.sroa.021.1, %"_ZN13logos_codegen5graph5regex57_$LT$impl$u20$logos_codegen..graph..Graph$LT$Leaf$GT$$GT$14insert_or_push17h5fec1dcfe3198ea2E.exit112" ], [ %268, %267 ], [ %242, %239 ], [ %219, %220 ], [ %91, %90 ], [ %89, %88 ], [ %175, %174 ], [ %2, %tailrecurse ]
   ret i32 %.sroa.021.0
 
 92:                                               ; preds = %47
@@ -1393,7 +1393,7 @@ select.unfold.i:                                  ; preds = %52, %.noexc10
           to label %"_ZN13logos_codegen5graph16Node$LT$Leaf$GT$2eq17h0903b3dc3cc06010E.exit" unwind label %69
 
 "_ZN13logos_codegen5graph16Node$LT$Leaf$GT$2eq17h0903b3dc3cc06010E.exit": ; preds = %60, %64
-  %.sroa.0.0.shrunk.i = phi i1 [ %63, %60 ], [ %67, %64 ]
+  %.sroa.0.0.shrunk.i = phi i1 [ %67, %64 ], [ %63, %60 ]
   br i1 %.sroa.0.0.shrunk.i, label %68, label %"_ZN13logos_codegen5graph16Node$LT$Leaf$GT$2eq17h0903b3dc3cc06010E.exit.thread"
 
 68:                                               ; preds = %"_ZN13logos_codegen5graph16Node$LT$Leaf$GT$2eq17h0903b3dc3cc06010E.exit"
@@ -1576,7 +1576,7 @@ select.unfold.i:                                  ; preds = %53, %.noexc10
           to label %"_ZN13logos_codegen5graph16Node$LT$Leaf$GT$2eq17h0903b3dc3cc06010E.exit" unwind label %70
 
 "_ZN13logos_codegen5graph16Node$LT$Leaf$GT$2eq17h0903b3dc3cc06010E.exit": ; preds = %61, %65
-  %.sroa.0.0.shrunk.i = phi i1 [ %64, %61 ], [ %68, %65 ]
+  %.sroa.0.0.shrunk.i = phi i1 [ %68, %65 ], [ %64, %61 ]
   br i1 %.sroa.0.0.shrunk.i, label %69, label %"_ZN13logos_codegen5graph16Node$LT$Leaf$GT$2eq17h0903b3dc3cc06010E.exit.thread"
 
 69:                                               ; preds = %"_ZN13logos_codegen5graph16Node$LT$Leaf$GT$2eq17h0903b3dc3cc06010E.exit"
@@ -1759,7 +1759,7 @@ select.unfold.i:                                  ; preds = %52, %.noexc10
           to label %"_ZN13logos_codegen5graph16Node$LT$Leaf$GT$2eq17h0903b3dc3cc06010E.exit" unwind label %69
 
 "_ZN13logos_codegen5graph16Node$LT$Leaf$GT$2eq17h0903b3dc3cc06010E.exit": ; preds = %60, %64
-  %.sroa.0.0.shrunk.i = phi i1 [ %63, %60 ], [ %67, %64 ]
+  %.sroa.0.0.shrunk.i = phi i1 [ %67, %64 ], [ %63, %60 ]
   br i1 %.sroa.0.0.shrunk.i, label %68, label %"_ZN13logos_codegen5graph16Node$LT$Leaf$GT$2eq17h0903b3dc3cc06010E.exit.thread"
 
 68:                                               ; preds = %"_ZN13logos_codegen5graph16Node$LT$Leaf$GT$2eq17h0903b3dc3cc06010E.exit"

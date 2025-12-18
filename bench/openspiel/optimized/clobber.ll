@@ -2512,7 +2512,7 @@ _ZNK10open_spiel7clobber12ClobberState8InBoundsEii.exit.thread.us37.us: ; preds 
   resume { ptr, i32 } %.pn.i.i
 
 .loopexit25:                                      ; preds = %._crit_edge.us, %_ZN10open_spiel7clobber12_GLOBAL__N_113OpponentStateENS0_9CellStateE.exit.us35.us, %_ZN10open_spiel7clobber12_GLOBAL__N_113OpponentStateENS0_9CellStateE.exit.us.us, %.preheader26.lr.ph, %1
-  %70 = phi i1 [ false, %1 ], [ false, %.preheader26.lr.ph ], [ true, %_ZN10open_spiel7clobber12_GLOBAL__N_113OpponentStateENS0_9CellStateE.exit.us35.us ], [ true, %_ZN10open_spiel7clobber12_GLOBAL__N_113OpponentStateENS0_9CellStateE.exit.us.us ], [ false, %._crit_edge.us ]
+  %70 = phi i1 [ false, %.preheader26.lr.ph ], [ true, %_ZN10open_spiel7clobber12_GLOBAL__N_113OpponentStateENS0_9CellStateE.exit.us35.us ], [ false, %1 ], [ true, %_ZN10open_spiel7clobber12_GLOBAL__N_113OpponentStateENS0_9CellStateE.exit.us.us ], [ false, %._crit_edge.us ]
   ret i1 %70
 }
 

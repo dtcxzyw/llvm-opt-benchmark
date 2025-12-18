@@ -11584,8 +11584,8 @@ sw.bb60:                                          ; preds = %for.end
   br label %return
 
 return:                                           ; preds = %if.else.i, %entry, %if.end, %sw.bb60, %sw.bb53, %for.end
-  %retval.sroa.0.0 = phi double [ %add.i.i, %if.end ], [ %result.1, %for.end ], [ %mul65, %sw.bb60 ], [ %mul59, %sw.bb53 ], [ 0.000000e+00, %entry ], [ 0.000000e+00, %if.else.i ]
-  %retval.sroa.3.0 = phi i8 [ 1, %if.end ], [ 1, %for.end ], [ 1, %sw.bb60 ], [ 1, %sw.bb53 ], [ 1, %entry ], [ 0, %if.else.i ]
+  %retval.sroa.0.0 = phi double [ 0.000000e+00, %entry ], [ %add.i.i, %if.end ], [ %result.1, %for.end ], [ %mul65, %sw.bb60 ], [ %mul59, %sw.bb53 ], [ 0.000000e+00, %if.else.i ]
+  %retval.sroa.3.0 = phi i8 [ 1, %entry ], [ 1, %if.end ], [ 1, %for.end ], [ 1, %sw.bb60 ], [ 1, %sw.bb53 ], [ 0, %if.else.i ]
   %.fca.0.insert = insertvalue { double, i8 } poison, double %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { double, i8 } %.fca.0.insert, i8 %retval.sroa.3.0, 1
   ret { double, i8 } %.fca.1.insert

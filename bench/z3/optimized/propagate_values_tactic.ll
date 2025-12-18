@@ -1452,7 +1452,7 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i55.i: ; preds = %.noexc58.i,
   br label %.loopexit68.i
 
 .loopexit68.i:                                    ; preds = %114, %70, %.loopexit68.loopexit88.i, %40, %_ZNK4goal4sizeEv.exit.i
-  %213 = phi ptr [ %.pre.i, %.loopexit68.loopexit88.i ], [ %10, %_ZNK4goal4sizeEv.exit.i ], [ %10, %40 ], [ %71, %70 ], [ %115, %114 ]
+  %213 = phi ptr [ %.pre.i, %.loopexit68.loopexit88.i ], [ %71, %70 ], [ %10, %_ZNK4goal4sizeEv.exit.i ], [ %10, %40 ], [ %115, %114 ]
   invoke void @_ZN4goal17elim_redundanciesEv(ptr noundef nonnull align 8 dereferenceable(124) %213)
           to label %214 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 

@@ -538,7 +538,7 @@ define internal i32 @procfs_readdir(ptr readnone captures(none) %0, ptr noundef 
   br label %.thread
 
 .thread:                                          ; preds = %.critedge.thread, %12, %41, %51, %59, %63, %67, %._crit_edge, %108, %45
-  %.0 = phi i32 [ -2, %45 ], [ 0, %41 ], [ 0, %51 ], [ 0, %._crit_edge ], [ -2, %67 ], [ -2, %63 ], [ -2, %59 ], [ %113, %108 ], [ -2, %12 ], [ -2, %.critedge.thread ]
+  %.0 = phi i32 [ -2, %45 ], [ 0, %41 ], [ %113, %108 ], [ 0, %51 ], [ 0, %._crit_edge ], [ -2, %67 ], [ -2, %63 ], [ -2, %59 ], [ -2, %12 ], [ -2, %.critedge.thread ]
   ret i32 %.0
 }
 

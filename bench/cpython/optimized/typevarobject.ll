@@ -2589,7 +2589,7 @@ get_type_param_default.exit.thread.sink.split.i.i: ; preds = %88, %68, %48
   br label %get_type_param_default.exit.thread.i.i
 
 get_type_param_default.exit.thread.i.i:           ; preds = %get_type_param_default.exit.thread.sink.split.i.i, %get_type_param_default.exit.i.i, %88, %68, %48
-  %.0.i36.i.i = phi ptr [ %.0.i.i.i, %get_type_param_default.exit.i.i ], [ %47, %48 ], [ %87, %88 ], [ %67, %68 ], [ %.sink69.i.i, %get_type_param_default.exit.thread.sink.split.i.i ]
+  %.0.i36.i.i = phi ptr [ %.0.i.i.i, %get_type_param_default.exit.i.i ], [ %67, %68 ], [ %87, %88 ], [ %47, %48 ], [ %.sink69.i.i, %get_type_param_default.exit.thread.sink.split.i.i ]
   %106 = icmp eq ptr %.0.i36.i.i, @_Py_NoDefaultStruct
   br i1 %106, label %get_type_param_default.exit.thread.thread.i.i, label %110
 
@@ -2772,7 +2772,7 @@ typealias_alloc.exit.i:                           ; preds = %_Py_XNewRef.exit20.
   br label %typealias_new_impl.exit
 
 typealias_new_impl.exit:                          ; preds = %get_type_param_default.exit.i.i, %190, %187, %typealias_alloc.exit.i, %117, %107, %get_type_param_default.exit.thread37.i.i, %12, %22
-  %.030 = phi ptr [ null, %12 ], [ null, %22 ], [ null, %117 ], [ null, %get_type_param_default.exit.thread37.i.i ], [ null, %107 ], [ %137, %typealias_alloc.exit.i ], [ %137, %187 ], [ %137, %190 ], [ null, %get_type_param_default.exit.i.i ]
+  %.030 = phi ptr [ null, %12 ], [ null, %22 ], [ null, %117 ], [ null, %get_type_param_default.exit.thread37.i.i ], [ %137, %190 ], [ null, %107 ], [ %137, %typealias_alloc.exit.i ], [ %137, %187 ], [ null, %get_type_param_default.exit.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.030
 }

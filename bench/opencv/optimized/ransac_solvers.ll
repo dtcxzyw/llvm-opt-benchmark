@@ -34251,8 +34251,8 @@ define linkonce_odr hidden void @_ZZN2cv4usac6Ransac21getIndependentInliersERKNS
   br label %.critedge.sink.split
 
 .critedge.sink.split:                             ; preds = %267, %.lr.ph.split, %227, %.lr.ph.split.us, %243, %.critedge.sink.split.sink.split
-  %.sink = phi ptr [ %.sink.ph, %.critedge.sink.split.sink.split ], [ %44, %227 ], [ %44, %243 ], [ %44, %.lr.ph.split.us ], [ %44, %.lr.ph.split ], [ %44, %267 ]
-  %.sink84 = phi i32 [ 1, %.critedge.sink.split.sink.split ], [ -1, %227 ], [ -1, %243 ], [ -1, %.lr.ph.split.us ], [ -1, %.lr.ph.split ], [ -1, %267 ]
+  %.sink = phi ptr [ %44, %227 ], [ %.sink.ph, %.critedge.sink.split.sink.split ], [ %44, %243 ], [ %44, %.lr.ph.split.us ], [ %44, %.lr.ph.split ], [ %44, %267 ]
+  %.sink84 = phi i32 [ -1, %227 ], [ 1, %.critedge.sink.split.sink.split ], [ -1, %243 ], [ -1, %.lr.ph.split.us ], [ -1, %.lr.ph.split ], [ -1, %267 ]
   %281 = load i32, ptr %.sink, align 4, !tbaa !46
   %282 = add nsw i32 %281, %.sink84
   store i32 %282, ptr %.sink, align 4, !tbaa !46

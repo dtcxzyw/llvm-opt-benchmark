@@ -235,7 +235,7 @@ _ZL12is_hex_digitcRj.exit41.sink.split:           ; preds = %37, %90
   br label %_ZL12is_hex_digitcRj.exit41
 
 _ZL12is_hex_digitcRj.exit41:                      ; preds = %29, %_ZL12is_hex_digitcRj.exit41.sink.split, %7, %switch.lookup108, %3, %48, %58, %68, %77, %switch.lookup, %_ZL12is_hex_digitcRj.exit
-  %.1 = phi i1 [ false, %_ZL12is_hex_digitcRj.exit ], [ false, %switch.lookup ], [ false, %switch.lookup108 ], [ false, %68 ], [ false, %58 ], [ false, %48 ], [ false, %3 ], [ false, %7 ], [ false, %77 ], [ true, %_ZL12is_hex_digitcRj.exit41.sink.split ], [ false, %29 ]
+  %.1 = phi i1 [ false, %_ZL12is_hex_digitcRj.exit ], [ true, %_ZL12is_hex_digitcRj.exit41.sink.split ], [ false, %switch.lookup ], [ false, %77 ], [ false, %switch.lookup108 ], [ false, %7 ], [ false, %68 ], [ false, %58 ], [ false, %48 ], [ false, %3 ], [ false, %29 ]
   ret i1 %.1
 }
 
@@ -1976,7 +1976,7 @@ define hidden noundef i32 @_ZNK7zstring12last_indexofERKS_(ptr noundef nonnull r
   br i1 %23, label %14, label %.critedge.loopexit, !llvm.loop !61
 
 .loopexit:                                        ; preds = %.critedge.loopexit, %14, %2, %8
-  %.020 = phi i32 [ -1, %8 ], [ %7, %2 ], [ %13, %14 ], [ -1, %.critedge.loopexit ]
+  %.020 = phi i32 [ %13, %14 ], [ -1, %8 ], [ %7, %2 ], [ -1, %.critedge.loopexit ]
   ret i32 %.020
 }
 

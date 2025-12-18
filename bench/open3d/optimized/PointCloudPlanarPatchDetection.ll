@@ -2644,9 +2644,9 @@ _ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_M
   br label %.body421.i
 
 .loopexit617.i:                                   ; preds = %993, %980, %.noexc420..loopexit617_crit_edge.i, %988
-  %1078 = phi i64 [ %.pre704.i, %.noexc420..loopexit617_crit_edge.i ], [ %942, %988 ], [ %942, %980 ], [ %942, %993 ]
-  %1079 = phi i64 [ %.pre.i99, %.noexc420..loopexit617_crit_edge.i ], [ %940, %988 ], [ %940, %980 ], [ %940, %993 ]
-  %.val233.i = phi ptr [ %.val233.pre.i, %.noexc420..loopexit617_crit_edge.i ], [ %.val293.i, %988 ], [ %.val293.i, %980 ], [ %.val293.i, %993 ]
+  %1078 = phi i64 [ %.pre704.i, %.noexc420..loopexit617_crit_edge.i ], [ %942, %980 ], [ %942, %988 ], [ %942, %993 ]
+  %1079 = phi i64 [ %.pre.i99, %.noexc420..loopexit617_crit_edge.i ], [ %940, %980 ], [ %940, %988 ], [ %940, %993 ]
+  %.val233.i = phi ptr [ %.val233.pre.i, %.noexc420..loopexit617_crit_edge.i ], [ %.val293.i, %980 ], [ %.val293.i, %988 ], [ %.val293.i, %993 ]
   %1080 = getelementptr inbounds nuw i8, ptr %.val233.i, i64 256
   %.not.not.i423.i = icmp eq i64 %1078, 0
   br i1 %.not.not.i423.i, label %1087, label %.thread34.i424.i
@@ -2934,8 +2934,8 @@ _ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_M
   br label %.body421.i
 
 .loopexit615.i:                                   ; preds = %1103, %1090, %.noexc440..loopexit615_crit_edge.i, %1098
-  %.val235.i = phi ptr [ %.val235.pre.i, %.noexc440..loopexit615_crit_edge.i ], [ %.val233.i, %1098 ], [ %.val233.i, %1090 ], [ %.val233.i, %1103 ]
-  %1189 = phi i64 [ %.pre705.i, %.noexc440..loopexit615_crit_edge.i ], [ %1079, %1098 ], [ %1079, %1090 ], [ %1079, %1103 ]
+  %.val235.i = phi ptr [ %.val235.pre.i, %.noexc440..loopexit615_crit_edge.i ], [ %.val233.i, %1090 ], [ %.val233.i, %1098 ], [ %.val233.i, %1103 ]
+  %1189 = phi i64 [ %.pre705.i, %.noexc440..loopexit615_crit_edge.i ], [ %1079, %1090 ], [ %1079, %1098 ], [ %1079, %1103 ]
   %1190 = load ptr, ptr %35, align 8, !tbaa !10
   %1191 = getelementptr inbounds nuw %"class.Eigen::Matrix", ptr %1190, i64 %1189
   %1192 = load ptr, ptr %42, align 8, !tbaa !10
@@ -3045,7 +3045,7 @@ _ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_M
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %933, %916, %963, %946, %.critedge.sink.split.i, %958, %928, %906, %895, %885, %881, %.lr.ph638.i
-  %.val295699.i = phi ptr [ %.val295.i, %.lr.ph638.i ], [ %.val295.i, %906 ], [ %.val295.i, %895 ], [ %.val295.i, %885 ], [ %.val295.i, %881 ], [ %.val295.i, %928 ], [ %.val295.i, %958 ], [ %.val234.i, %.critedge.sink.split.i ], [ %.val295.i, %916 ], [ %.val295.i, %946 ], [ %.val295.i, %963 ], [ %.val295.i, %933 ]
+  %.val295699.i = phi ptr [ %.val234.i, %.critedge.sink.split.i ], [ %.val295.i, %963 ], [ %.val295.i, %946 ], [ %.val295.i, %.lr.ph638.i ], [ %.val295.i, %916 ], [ %.val295.i, %958 ], [ %.val295.i, %906 ], [ %.val295.i, %895 ], [ %.val295.i, %885 ], [ %.val295.i, %881 ], [ %.val295.i, %928 ], [ %.val295.i, %933 ]
   %1265 = getelementptr inbounds nuw i8, ptr %.sroa.0475.0636.i, i64 4
   %.not603.i = icmp eq ptr %1265, %876
   br i1 %.not603.i, label %._crit_edge639.i, label %.lr.ph638.i
@@ -3685,8 +3685,8 @@ _ZNSt12__shared_ptrIN6open3d8geometry12_GLOBAL__N_113PlaneDetectorELN9__gnu_cxx1
   br label %"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN6open3d8geometry12_GLOBAL__N_113PlaneDetectorEESt6vectorIS7_SaIS7_EEEEZNS5_5MergeERSB_SD_RKS9_IS9_IiSaIiEESaISF_EERKNS4_10PointCloudEE3$_0ET_SO_SO_T0_.exit.i"
 
 "_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN6open3d8geometry12_GLOBAL__N_113PlaneDetectorEESt6vectorIS7_SaIS7_EEEEZNS5_5MergeERSB_SD_RKS9_IS9_IiSaIiEESaISF_EERKNS4_10PointCloudEE3$_0ET_SO_SO_T0_.exit.i": ; preds = %"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN6open3d8geometry12_GLOBAL__N_113PlaneDetectorEESt6vectorIS7_SaIS7_EEEEZNS5_5MergeERSB_SD_RKS9_IS9_IiSaIiEESaISF_EERKNS4_10PointCloudEE3$_0ET_SO_SO_T0_.exit.loopexit.i", %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN6open3d8geometry12_GLOBAL__N_113PlaneDetectorEESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIZNS5_5MergeERSB_SF_RKS9_IS9_IiSaIiEESaISH_EERKNS4_10PointCloudEE3$_0EEET_SR_SR_T0_.exit.i.i.i"
-  %.val260.i = phi ptr [ %.val259.i.pre, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN6open3d8geometry12_GLOBAL__N_113PlaneDetectorEESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIZNS5_5MergeERSB_SF_RKS9_IS9_IiSaIiEESaISH_EERKNS4_10PointCloudEE3$_0EEET_SR_SR_T0_.exit.i.i.i" ], [ %.val260.pre.i, %"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN6open3d8geometry12_GLOBAL__N_113PlaneDetectorEESt6vectorIS7_SaIS7_EEEEZNS5_5MergeERSB_SD_RKS9_IS9_IiSaIiEESaISF_EERKNS4_10PointCloudEE3$_0ET_SO_SO_T0_.exit.loopexit.i" ]
-  %.sroa.014.0.i.i.i = phi ptr [ %.sroa.08.0.in.sroa.speculated.i.i.i.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN6open3d8geometry12_GLOBAL__N_113PlaneDetectorEESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIZNS5_5MergeERSB_SF_RKS9_IS9_IiSaIiEESaISH_EERKNS4_10PointCloudEE3$_0EEET_SR_SR_T0_.exit.i.i.i" ], [ %.sroa.014.2.i.i.i, %"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN6open3d8geometry12_GLOBAL__N_113PlaneDetectorEESt6vectorIS7_SaIS7_EEEEZNS5_5MergeERSB_SD_RKS9_IS9_IiSaIiEESaISF_EERKNS4_10PointCloudEE3$_0ET_SO_SO_T0_.exit.loopexit.i" ]
+  %.val260.i = phi ptr [ %.val260.pre.i, %"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN6open3d8geometry12_GLOBAL__N_113PlaneDetectorEESt6vectorIS7_SaIS7_EEEEZNS5_5MergeERSB_SD_RKS9_IS9_IiSaIiEESaISF_EERKNS4_10PointCloudEE3$_0ET_SO_SO_T0_.exit.loopexit.i" ], [ %.val259.i.pre, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN6open3d8geometry12_GLOBAL__N_113PlaneDetectorEESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIZNS5_5MergeERSB_SF_RKS9_IS9_IiSaIiEESaISH_EERKNS4_10PointCloudEE3$_0EEET_SR_SR_T0_.exit.i.i.i" ]
+  %.sroa.014.0.i.i.i = phi ptr [ %.sroa.014.2.i.i.i, %"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN6open3d8geometry12_GLOBAL__N_113PlaneDetectorEESt6vectorIS7_SaIS7_EEEEZNS5_5MergeERSB_SD_RKS9_IS9_IiSaIiEESaISF_EERKNS4_10PointCloudEE3$_0ET_SO_SO_T0_.exit.loopexit.i" ], [ %.sroa.08.0.in.sroa.speculated.i.i.i.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN6open3d8geometry12_GLOBAL__N_113PlaneDetectorEESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIZNS5_5MergeERSB_SF_RKS9_IS9_IiSaIiEESaISH_EERKNS4_10PointCloudEE3$_0EEET_SR_SR_T0_.exit.i.i.i" ]
   %.not.i.i383.i = icmp eq ptr %.sroa.014.0.i.i.i, %.val260.i
   br i1 %.not.i.i383.i, label %1532, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN6open3d8geometry12_GLOBAL__N_113PlaneDetectorEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i.i.i
 
@@ -6418,7 +6418,7 @@ _ZNSt10_HashtableImSt4pairIKmbESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4
   br label %.body.i.i
 
 _ZNSt13unordered_mapImbSt4hashImESt8equal_toImESaISt4pairIKmbEEE7reserveEm.exit.i.i: ; preds = %376, %.noexc70.i.i, %371
-  %.pn.i.i.i.i = phi ptr [ %372, %371 ], [ %386, %.noexc70.i.i ], [ %378, %376 ]
+  %.pn.i.i.i.i = phi ptr [ %386, %.noexc70.i.i ], [ %372, %371 ], [ %378, %376 ]
   %.1.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i.i, i64 16
   %388 = zext i1 %362 to i8
   store i8 %388, ptr %.1.i.i.i.i, align 1, !tbaa !274
@@ -6507,7 +6507,7 @@ _ZNSt10_HashtableImSt4pairIKmbESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4
   br label %common.resume.i.i.i.i
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZN6open3d8geometry12_GLOBAL__N_113PlaneDetector19RobustPlanarityTestEvEUlRKmE_EclINS_17__normal_iteratorIPmSt6vectorImSaImEEEEEEbT_.exit.i.i.i.i.i.i: ; preds = %412, %.noexc72.i.i, %407
-  %.pn.i.i.i.i.i.i.i.i.i.i = phi ptr [ %408, %407 ], [ %422, %.noexc72.i.i ], [ %414, %412 ]
+  %.pn.i.i.i.i.i.i.i.i.i.i = phi ptr [ %422, %.noexc72.i.i ], [ %408, %407 ], [ %414, %412 ]
   %.1.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i.i.i.i.i.i.i.i, i64 16
   %424 = load i8, ptr %.1.i.i.i.i.i.i.i.i.i.i, align 1, !tbaa !274, !range !100, !noundef !101
   %425 = trunc nuw i8 %424 to i1
@@ -6570,7 +6570,7 @@ _ZNSt10_HashtableImSt4pairIKmbESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4
   br label %common.resume.i.i.i.i
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZN6open3d8geometry12_GLOBAL__N_113PlaneDetector19RobustPlanarityTestEvEUlRKmE_EclINS_17__normal_iteratorIPmSt6vectorImSaImEEEEEEbT_.exit33.i.i.i.i.i.i: ; preds = %438, %.noexc75.i.i, %433
-  %.pn.i.i.i.i31.i.i.i.i.i.i = phi ptr [ %434, %433 ], [ %448, %.noexc75.i.i ], [ %440, %438 ]
+  %.pn.i.i.i.i31.i.i.i.i.i.i = phi ptr [ %448, %.noexc75.i.i ], [ %434, %433 ], [ %440, %438 ]
   %.1.i.i.i.i32.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i.i31.i.i.i.i.i.i, i64 16
   %450 = load i8, ptr %.1.i.i.i.i32.i.i.i.i.i.i, align 1, !tbaa !274, !range !100, !noundef !101
   %451 = trunc nuw i8 %450 to i1
@@ -6633,7 +6633,7 @@ _ZNSt10_HashtableImSt4pairIKmbESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4
   br label %common.resume.i.i.i.i
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZN6open3d8geometry12_GLOBAL__N_113PlaneDetector19RobustPlanarityTestEvEUlRKmE_EclINS_17__normal_iteratorIPmSt6vectorImSaImEEEEEEbT_.exit45.i.i.i.i.i.i: ; preds = %464, %.noexc76.i.i, %459
-  %.pn.i.i.i.i43.i.i.i.i.i.i = phi ptr [ %460, %459 ], [ %474, %.noexc76.i.i ], [ %466, %464 ]
+  %.pn.i.i.i.i43.i.i.i.i.i.i = phi ptr [ %474, %.noexc76.i.i ], [ %460, %459 ], [ %466, %464 ]
   %.1.i.i.i.i44.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i.i43.i.i.i.i.i.i, i64 16
   %476 = load i8, ptr %.1.i.i.i.i44.i.i.i.i.i.i, align 1, !tbaa !274, !range !100, !noundef !101
   %477 = trunc nuw i8 %476 to i1
@@ -6696,7 +6696,7 @@ _ZNSt10_HashtableImSt4pairIKmbESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4
   br label %common.resume.i.i.i.i
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZN6open3d8geometry12_GLOBAL__N_113PlaneDetector19RobustPlanarityTestEvEUlRKmE_EclINS_17__normal_iteratorIPmSt6vectorImSaImEEEEEEbT_.exit57.i.i.i.i.i.i: ; preds = %490, %.noexc77.i.i, %485
-  %.pn.i.i.i.i55.i.i.i.i.i.i = phi ptr [ %486, %485 ], [ %500, %.noexc77.i.i ], [ %492, %490 ]
+  %.pn.i.i.i.i55.i.i.i.i.i.i = phi ptr [ %500, %.noexc77.i.i ], [ %486, %485 ], [ %492, %490 ]
   %.1.i.i.i.i56.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i.i55.i.i.i.i.i.i, i64 16
   %502 = load i8, ptr %.1.i.i.i.i56.i.i.i.i.i.i, align 1, !tbaa !274, !range !100, !noundef !101
   %503 = trunc nuw i8 %502 to i1
@@ -6779,7 +6779,7 @@ _ZNSt10_HashtableImSt4pairIKmbESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4
   br label %common.resume.i.i.i.i
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZN6open3d8geometry12_GLOBAL__N_113PlaneDetector19RobustPlanarityTestEvEUlRKmE_EclINS_17__normal_iteratorIPmSt6vectorImSaImEEEEEEbT_.exit69.i.i.i.i.i.i: ; preds = %520, %.noexc78.i.i, %515
-  %.pn.i.i.i.i67.i.i.i.i.i.i = phi ptr [ %516, %515 ], [ %530, %.noexc78.i.i ], [ %522, %520 ]
+  %.pn.i.i.i.i67.i.i.i.i.i.i = phi ptr [ %530, %.noexc78.i.i ], [ %516, %515 ], [ %522, %520 ]
   %.1.i.i.i.i68.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i.i67.i.i.i.i.i.i, i64 16
   %532 = load i8, ptr %.1.i.i.i.i68.i.i.i.i.i.i, align 1, !tbaa !274, !range !100, !noundef !101
   %533 = trunc nuw i8 %532 to i1
@@ -6846,7 +6846,7 @@ _ZNSt10_HashtableImSt4pairIKmbESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4
   br label %common.resume.i.i.i.i
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZN6open3d8geometry12_GLOBAL__N_113PlaneDetector19RobustPlanarityTestEvEUlRKmE_EclINS_17__normal_iteratorIPmSt6vectorImSaImEEEEEEbT_.exit81.i.i.i.i.i.i: ; preds = %547, %.noexc79.i.i, %542
-  %.pn.i.i.i.i79.i.i.i.i.i.i = phi ptr [ %543, %542 ], [ %557, %.noexc79.i.i ], [ %549, %547 ]
+  %.pn.i.i.i.i79.i.i.i.i.i.i = phi ptr [ %557, %.noexc79.i.i ], [ %543, %542 ], [ %549, %547 ]
   %.1.i.i.i.i80.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i.i79.i.i.i.i.i.i, i64 16
   %559 = load i8, ptr %.1.i.i.i.i80.i.i.i.i.i.i, align 1, !tbaa !274, !range !100, !noundef !101
   %560 = trunc nuw i8 %559 to i1
@@ -6913,7 +6913,7 @@ _ZNSt10_HashtableImSt4pairIKmbESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4
   br label %common.resume.i.i.i.i
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZN6open3d8geometry12_GLOBAL__N_113PlaneDetector19RobustPlanarityTestEvEUlRKmE_EclINS_17__normal_iteratorIPmSt6vectorImSaImEEEEEEbT_.exit93.i.i.i.i.i.i: ; preds = %574, %.noexc80.i.i, %569
-  %.pn.i.i.i.i91.i.i.i.i.i.i = phi ptr [ %570, %569 ], [ %584, %.noexc80.i.i ], [ %576, %574 ]
+  %.pn.i.i.i.i91.i.i.i.i.i.i = phi ptr [ %584, %.noexc80.i.i ], [ %570, %569 ], [ %576, %574 ]
   %.1.i.i.i.i92.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i.i91.i.i.i.i.i.i, i64 16
   %586 = load i8, ptr %.1.i.i.i.i92.i.i.i.i.i.i, align 1, !tbaa !274, !range !100, !noundef !101
   %587 = trunc nuw i8 %586 to i1
@@ -6998,7 +6998,7 @@ _ZNSt10_HashtableImSt4pairIKmbESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4
   br label %common.resume.i.i.i.i
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZN6open3d8geometry12_GLOBAL__N_113PlaneDetector19RobustPlanarityTestEvEUlRKmE_EclINS_17__normal_iteratorIPmSt6vectorImSaImEEEEEEbT_.exit.i.i.i.i: ; preds = %602, %.noexc81.i.i, %597
-  %.pn.i.i.i.i.i.i.i.i = phi ptr [ %598, %597 ], [ %612, %.noexc81.i.i ], [ %604, %602 ]
+  %.pn.i.i.i.i.i.i.i.i = phi ptr [ %612, %.noexc81.i.i ], [ %598, %597 ], [ %604, %602 ]
   %.1.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i.i.i.i.i.i, i64 16
   %614 = load i8, ptr %.1.i.i.i.i.i.i.i.i, align 1, !tbaa !274, !range !100, !noundef !101
   %615 = trunc nuw i8 %614 to i1
@@ -7017,7 +7017,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN6open3d8geometry12_GLOBAL__N_113PlaneDetector1
   br i1 %.not.i.i.i.i53, label %_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEZN6open3d8geometry12_GLOBAL__N_113PlaneDetector19RobustPlanarityTestEvEUlRKmE_ET_SE_SE_T0_.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !277
 
 _ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEZN6open3d8geometry12_GLOBAL__N_113PlaneDetector19RobustPlanarityTestEvEUlRKmE_ET_SE_SE_T0_.exit.i.i: ; preds = %619, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops10_Iter_predIZN6open3d8geometry12_GLOBAL__N_113PlaneDetector19RobustPlanarityTestEvEUlRKmE_EEET_SH_SH_T0_.exit.i.i.i.i, %._crit_edge.i.i.i.i.i.i
-  %.sroa.013.0.i.i.i.i = phi ptr [ %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops10_Iter_predIZN6open3d8geometry12_GLOBAL__N_113PlaneDetector19RobustPlanarityTestEvEUlRKmE_EEET_SH_SH_T0_.exit.i.i.i.i ], [ %396, %._crit_edge.i.i.i.i.i.i ], [ %.sroa.013.2.i.i.i.i, %619 ]
+  %.sroa.013.0.i.i.i.i = phi ptr [ %396, %._crit_edge.i.i.i.i.i.i ], [ %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops10_Iter_predIZN6open3d8geometry12_GLOBAL__N_113PlaneDetector19RobustPlanarityTestEvEUlRKmE_EEET_SH_SH_T0_.exit.i.i.i.i ], [ %.sroa.013.2.i.i.i.i, %619 ]
   %620 = load ptr, ptr %226, align 8, !tbaa !96
   %.not.i.i82.i.i = icmp eq ptr %.sroa.013.0.i.i.i.i, %620
   br i1 %.not.i.i82.i.i, label %_ZNSt6vectorImSaImEE5eraseEN9__gnu_cxx17__normal_iteratorIPKmS1_EES6_.exit.i.i, label %_ZSt8_DestroyIPmmEvT_S1_RSaIT0_E.exit.i.i.i.i.i
@@ -7370,7 +7370,7 @@ _ZNSt10shared_ptrIN6open3d8geometry12_GLOBAL__N_113PlaneDetectorEEaSERKS4_.exit:
   br i1 %.not79, label %_ZN6open3d8geometry12_GLOBAL__N_113PlaneDetector20DetectFromPointCloudEPKNS0_10PointCloudERKSt6vectorImSaImEE.exit.thread, label %.lr.ph
 
 _ZN6open3d8geometry12_GLOBAL__N_113PlaneDetector20DetectFromPointCloudEPKNS0_10PointCloudERKSt6vectorImSaImEE.exit.thread: ; preds = %_ZNSt10shared_ptrIN6open3d8geometry12_GLOBAL__N_113PlaneDetectorEEaSERKS4_.exit, %_ZNSt6vectorISt10shared_ptrIN6open3d8geometry12_GLOBAL__N_113PlaneDetectorEESaIS5_EE9push_backERKS5_.exit, %.noexc, %_ZN6open3d8geometry12_GLOBAL__N_113PlaneDetector20DetectFromPointCloudEPKNS0_10PointCloudERKSt6vectorImSaImEE.exit
-  %.0.i76 = phi i1 [ false, %_ZN6open3d8geometry12_GLOBAL__N_113PlaneDetector20DetectFromPointCloudEPKNS0_10PointCloudERKSt6vectorImSaImEE.exit ], [ false, %.noexc ], [ true, %_ZNSt6vectorISt10shared_ptrIN6open3d8geometry12_GLOBAL__N_113PlaneDetectorEESaIS5_EE9push_backERKS5_.exit ], [ true, %_ZNSt10shared_ptrIN6open3d8geometry12_GLOBAL__N_113PlaneDetectorEEaSERKS4_.exit ]
+  %.0.i76 = phi i1 [ false, %.noexc ], [ false, %_ZN6open3d8geometry12_GLOBAL__N_113PlaneDetector20DetectFromPointCloudEPKNS0_10PointCloudERKSt6vectorImSaImEE.exit ], [ true, %_ZNSt6vectorISt10shared_ptrIN6open3d8geometry12_GLOBAL__N_113PlaneDetectorEESaIS5_EE9push_backERKS5_.exit ], [ true, %_ZNSt10shared_ptrIN6open3d8geometry12_GLOBAL__N_113PlaneDetectorEEaSERKS4_.exit ]
   %743 = load atomic i64, ptr %195 acquire, align 8
   %744 = icmp eq i64 %743, 4294967297
   %745 = trunc i64 %743 to i32

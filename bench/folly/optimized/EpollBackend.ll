@@ -3030,8 +3030,8 @@ _ZNSt8_Rb_treeIiSt4pairIKiN5folly12_GLOBAL__N_114SignalRegistry7SigInfoEESt10_Se
   br i1 %.not.i.i.i32, label %_ZNSt8_Rb_treeIiSt4pairIKiN5folly12_GLOBAL__N_114SignalRegistry7SigInfoEESt10_Select1stIS6_ESt4lessIiESaIS6_EE11equal_rangeERS1_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !159
 
 _ZNSt8_Rb_treeIiSt4pairIKiN5folly12_GLOBAL__N_114SignalRegistry7SigInfoEESt10_Select1stIS6_ESt4lessIiESaIS6_EE11equal_rangeERS1_.exit.i.i: ; preds = %153, %.lr.ph.i34.i.i.i, %_ZNSt8_Rb_treeIiSt4pairIKiN5folly12_GLOBAL__N_114SignalRegistry7SigInfoEESt10_Select1stIS6_ESt4lessIiESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i, %138
-  %.sroa.05.0.i.i.i = phi ptr [ %.08.lcssa.i.i.i.i, %_ZNSt8_Rb_treeIiSt4pairIKiN5folly12_GLOBAL__N_114SignalRegistry7SigInfoEESt10_Select1stIS6_ESt4lessIiESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i ], [ %30, %138 ], [ %.08.lcssa.i.i.i.i, %.lr.ph.i34.i.i.i ], [ %.123.i.i.i, %153 ]
-  %.sroa.3.0.i.i.i = phi ptr [ %.02211.i.i.i, %_ZNSt8_Rb_treeIiSt4pairIKiN5folly12_GLOBAL__N_114SignalRegistry7SigInfoEESt10_Select1stIS6_ESt4lessIiESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i ], [ %30, %138 ], [ %.19.i37.i.i.i, %.lr.ph.i34.i.i.i ], [ %.123.i.i.i, %153 ]
+  %.sroa.05.0.i.i.i = phi ptr [ %.08.lcssa.i.i.i.i, %.lr.ph.i34.i.i.i ], [ %.08.lcssa.i.i.i.i, %_ZNSt8_Rb_treeIiSt4pairIKiN5folly12_GLOBAL__N_114SignalRegistry7SigInfoEESt10_Select1stIS6_ESt4lessIiESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i ], [ %30, %138 ], [ %.123.i.i.i, %153 ]
+  %.sroa.3.0.i.i.i = phi ptr [ %.19.i37.i.i.i, %.lr.ph.i34.i.i.i ], [ %.02211.i.i.i, %_ZNSt8_Rb_treeIiSt4pairIKiN5folly12_GLOBAL__N_114SignalRegistry7SigInfoEESt10_Select1stIS6_ESt4lessIiESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i ], [ %30, %138 ], [ %.123.i.i.i, %153 ]
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.val2.i.i.i = load ptr, ptr %156, align 8, !tbaa !109
@@ -3661,8 +3661,8 @@ _ZNSt8_Rb_treeIP5eventS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEP
   br i1 %.not.i, label %_ZNSt8_Rb_treeIP5eventS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE11equal_rangeERKS1_.exit, label %6, !llvm.loop !179
 
 _ZNSt8_Rb_treeIP5eventS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE11equal_rangeERKS1_.exit: ; preds = %23, %.lr.ph.i25.i, %2, %_ZNSt8_Rb_treeIP5eventS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit.i
-  %.sroa.037.0.i = phi ptr [ %.08.lcssa.i.i, %_ZNSt8_Rb_treeIP5eventS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit.i ], [ %4, %2 ], [ %.08.lcssa.i.i, %.lr.ph.i25.i ], [ %.123.i, %23 ]
-  %.sroa.3.0.i = phi ptr [ %.02243.i, %_ZNSt8_Rb_treeIP5eventS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit.i ], [ %4, %2 ], [ %.19.i28.i, %.lr.ph.i25.i ], [ %.123.i, %23 ]
+  %.sroa.037.0.i = phi ptr [ %.08.lcssa.i.i, %.lr.ph.i25.i ], [ %.08.lcssa.i.i, %_ZNSt8_Rb_treeIP5eventS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit.i ], [ %4, %2 ], [ %.123.i, %23 ]
+  %.sroa.3.0.i = phi ptr [ %.19.i28.i, %.lr.ph.i25.i ], [ %.02243.i, %_ZNSt8_Rb_treeIP5eventS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit.i ], [ %4, %2 ], [ %.123.i, %23 ]
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %26 = load i64, ptr %25, align 8, !tbaa !111
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 24

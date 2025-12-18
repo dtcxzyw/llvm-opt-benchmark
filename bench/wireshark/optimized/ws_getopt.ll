@@ -508,7 +508,7 @@ define internal fastcc i32 @__getopt_long(i32 noundef %0, ptr noundef captures(n
   br i1 %99, label %.loopexit.thread.i, label %.loopexit.thread228.i
 
 .loopexit.thread.i:                               ; preds = %.critedge3.us.i, %92, %.preheader.lr.ph.split.i, %47
-  %.3.ph.i = phi i32 [ 2, %.preheader.lr.ph.split.i ], [ 0, %47 ], [ 2, %92 ], [ 2, %.critedge3.us.i ]
+  %.3.ph.i = phi i32 [ 0, %47 ], [ 2, %92 ], [ 2, %.preheader.lr.ph.split.i ], [ 2, %.critedge3.us.i ]
   %.pre203224.i = load i32, ptr @ws_optind, align 4
   %.pre = sext i32 %.pre203224.i to i64
   %.phi.trans.insert = getelementptr ptr, ptr %1, i64 %.pre
@@ -704,7 +704,7 @@ permute.exit.loopexit.us:                         ; preds = %.lr.ph.i49.us
   br label %.loopexit
 
 .loopexit:                                        ; preds = %28, %.lr.ph, %__getopt_long_core.exit, %._crit_edge, %12, %14
-  %.0 = phi i32 [ -1, %12 ], [ -1, %14 ], [ %.1.i, %._crit_edge ], [ %.1.i, %__getopt_long_core.exit ], [ -1, %.lr.ph ], [ -1, %28 ]
+  %.0 = phi i32 [ -1, %12 ], [ %.1.i, %__getopt_long_core.exit ], [ -1, %14 ], [ %.1.i, %._crit_edge ], [ -1, %.lr.ph ], [ -1, %28 ]
   ret i32 %.0
 }
 

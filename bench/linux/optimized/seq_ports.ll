@@ -860,7 +860,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @check_and_subscribe_port(p
   %.not = icmp eq i8 %56, %58
   br i1 %.not, label %.critedge, label %.backedge
 
-.backedge:                                        ; preds = %51, %43, %38, %33, %28, %55
+.backedge:                                        ; preds = %28, %51, %43, %38, %33, %55
   %59 = load ptr, ptr %29, align 8
   %60 = icmp eq ptr %59, %8
   br i1 %60, label %.loopexit, label %28, !llvm.loop !15
@@ -1021,7 +1021,7 @@ define dso_local noundef range(i32 -2, 1) i32 @snd_seq_port_disconnect(ptr nound
   %.not = icmp eq i8 %45, %47
   br i1 %.not, label %50, label %.backedge
 
-.backedge:                                        ; preds = %40, %32, %27, %22, %17, %44
+.backedge:                                        ; preds = %17, %40, %32, %27, %22, %44
   %48 = load ptr, ptr %18, align 8
   %49 = icmp eq ptr %48, %7
   br i1 %49, label %.thread, label %17, !llvm.loop !16

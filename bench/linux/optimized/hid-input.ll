@@ -1139,7 +1139,7 @@ define dso_local noundef range(i32 -1, 1) i32 @hidinput_connect(ptr noundef %0, 
   br i1 %173, label %.thread51, label %.preheader69.split, !llvm.loop !26
 
 .loopexit70:                                      ; preds = %139, %.preheader69.split.us, %.preheader69.split, %147
-  %174 = phi ptr [ %115, %147 ], [ %159, %.preheader69.split.us ], [ %167, %.preheader69.split ], [ %135, %139 ]
+  %174 = phi ptr [ %115, %147 ], [ %167, %.preheader69.split ], [ %159, %.preheader69.split.us ], [ %135, %139 ]
   %175 = icmp eq ptr %174, null
   br i1 %175, label %.thread51, label %.thread198
 
@@ -1209,7 +1209,7 @@ define dso_local noundef range(i32 -1, 1) i32 @hidinput_connect(ptr noundef %0, 
   br label %200
 
 200:                                              ; preds = %189, %190, %191, %192, %193, %194, %195, %196, %197, %198, %199
-  %201 = phi ptr [ @.str.11, %199 ], [ @.str.10, %198 ], [ @.str.9, %197 ], [ @.str.8, %196 ], [ @.str.7, %195 ], [ @.str.6, %194 ], [ @.str.5, %193 ], [ @.str.4, %192 ], [ @.str.3, %191 ], [ @.str.2, %190 ], [ @.str.1, %189 ]
+  %201 = phi ptr [ @.str.2, %190 ], [ @.str.11, %199 ], [ @.str.10, %198 ], [ @.str.9, %197 ], [ @.str.8, %196 ], [ @.str.7, %195 ], [ @.str.6, %194 ], [ @.str.5, %193 ], [ @.str.4, %192 ], [ @.str.3, %191 ], [ @.str.1, %189 ]
   %202 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %93) #12
   %203 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %201) #12
   %204 = icmp ult i64 %202, %203
@@ -1545,9 +1545,9 @@ define dso_local noundef range(i32 -1, 1) i32 @hidinput_connect(ptr noundef %0, 
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.loopexit.loopexit.i, %360, %347
-  %404 = phi i32 [ %348, %360 ], [ %348, %347 ], [ %.pre11.i, %.loopexit.loopexit.i ]
-  %.ph.i = phi i8 [ %351, %360 ], [ %351, %347 ], [ %398, %.loopexit.loopexit.i ]
-  %.ph3.i = phi i8 [ %350, %360 ], [ %350, %347 ], [ %399, %.loopexit.loopexit.i ]
+  %404 = phi i32 [ %348, %347 ], [ %348, %360 ], [ %.pre11.i, %.loopexit.loopexit.i ]
+  %.ph.i = phi i8 [ %351, %347 ], [ %351, %360 ], [ %398, %.loopexit.loopexit.i ]
+  %.ph3.i = phi i8 [ %350, %347 ], [ %350, %360 ], [ %399, %.loopexit.loopexit.i ]
   %405 = add nuw i32 %349, 1
   %406 = icmp ult i32 %405, %404
   br i1 %406, label %347, label %407, !llvm.loop !35
@@ -1653,8 +1653,8 @@ __hidinput_change_resolution_multipliers.exit:    ; preds = %379
   br label %.loopexit.i41
 
 .loopexit.i41:                                    ; preds = %.loopexit.loopexit.i45, %425, %.preheader228
-  %467 = phi i32 [ %414, %425 ], [ %414, %.preheader228 ], [ %.pre11.i46, %.loopexit.loopexit.i45 ]
-  %.ph3.i43 = phi i8 [ %416, %425 ], [ %416, %.preheader228 ], [ %462, %.loopexit.loopexit.i45 ]
+  %467 = phi i32 [ %414, %.preheader228 ], [ %414, %425 ], [ %.pre11.i46, %.loopexit.loopexit.i45 ]
+  %.ph3.i43 = phi i8 [ %416, %.preheader228 ], [ %416, %425 ], [ %462, %.loopexit.loopexit.i45 ]
   %468 = add nuw i32 %415, 1
   %469 = icmp ult i32 %468, %467
   br i1 %469, label %.preheader228, label %__hidinput_change_resolution_multipliers.exit48, !llvm.loop !35

@@ -1338,14 +1338,14 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS
   br i1 %512, label %.lr.ph532.i, label %._crit_edge533.loopexit.i, !llvm.loop !215
 
 .loopexit297.i:                                   ; preds = %._crit_edge533.i, %.preheader.lr.ph.split.us.i, %378
-  %.sroa.12.2 = phi ptr [ %.sroa.12.1, %.preheader.lr.ph.split.us.i ], [ %.sroa.12.1, %378 ], [ %.sroa.12.6, %._crit_edge533.i ]
-  %.sroa.28.4 = phi ptr [ %.sroa.28.3, %.preheader.lr.ph.split.us.i ], [ %.sroa.28.3, %378 ], [ %.sroa.28.8, %._crit_edge533.i ]
-  %.sroa.38.2 = phi ptr [ %.sroa.38.1, %.preheader.lr.ph.split.us.i ], [ %.sroa.38.1, %378 ], [ %.sroa.38.6, %._crit_edge533.i ]
-  %.sroa.47.4 = phi ptr [ %.sroa.47.3, %.preheader.lr.ph.split.us.i ], [ %.sroa.47.3, %378 ], [ %.sroa.47.8, %._crit_edge533.i ]
-  %.sroa.20.4 = phi ptr [ %.sroa.20.3, %.preheader.lr.ph.split.us.i ], [ %.sroa.20.3, %378 ], [ %.sroa.20.8, %._crit_edge533.i ]
-  %.sroa.010.4 = phi ptr [ %.sroa.010.3, %.preheader.lr.ph.split.us.i ], [ %.sroa.010.3, %378 ], [ %.sroa.010.8, %._crit_edge533.i ]
-  %.5120.i = phi i32 [ %.2117.i, %.preheader.lr.ph.split.us.i ], [ %.2117.i, %378 ], [ %.7122.lcssa.i, %._crit_edge533.i ]
-  %.3113.i = phi i32 [ %386, %.preheader.lr.ph.split.us.i ], [ %.2112.i, %378 ], [ %392, %._crit_edge533.i ]
+  %.sroa.12.2 = phi ptr [ %.sroa.12.1, %378 ], [ %.sroa.12.1, %.preheader.lr.ph.split.us.i ], [ %.sroa.12.6, %._crit_edge533.i ]
+  %.sroa.28.4 = phi ptr [ %.sroa.28.3, %378 ], [ %.sroa.28.3, %.preheader.lr.ph.split.us.i ], [ %.sroa.28.8, %._crit_edge533.i ]
+  %.sroa.38.2 = phi ptr [ %.sroa.38.1, %378 ], [ %.sroa.38.1, %.preheader.lr.ph.split.us.i ], [ %.sroa.38.6, %._crit_edge533.i ]
+  %.sroa.47.4 = phi ptr [ %.sroa.47.3, %378 ], [ %.sroa.47.3, %.preheader.lr.ph.split.us.i ], [ %.sroa.47.8, %._crit_edge533.i ]
+  %.sroa.20.4 = phi ptr [ %.sroa.20.3, %378 ], [ %.sroa.20.3, %.preheader.lr.ph.split.us.i ], [ %.sroa.20.8, %._crit_edge533.i ]
+  %.sroa.010.4 = phi ptr [ %.sroa.010.3, %378 ], [ %.sroa.010.3, %.preheader.lr.ph.split.us.i ], [ %.sroa.010.8, %._crit_edge533.i ]
+  %.5120.i = phi i32 [ %.2117.i, %378 ], [ %.2117.i, %.preheader.lr.ph.split.us.i ], [ %.7122.lcssa.i, %._crit_edge533.i ]
+  %.3113.i = phi i32 [ %.2112.i, %378 ], [ %386, %.preheader.lr.ph.split.us.i ], [ %392, %._crit_edge533.i ]
   %.not.i.i.i214.i = icmp eq ptr %.sroa.0251.2.i, null
   br i1 %.not.i.i.i214.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit.i, label %513
 

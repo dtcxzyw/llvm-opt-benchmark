@@ -64,19 +64,19 @@ define dso_local range(i32 0, 2) i32 @cmd_mailsplit(i32 noundef %0, ptr noundef 
 
 8:                                                ; preds = %4
   tail call void @show_usage_if_asked(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @git_mailsplit_usage) #16
-  %.075163 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %9 = load ptr, ptr %.075163, align 8, !tbaa !4
-  %.not100164 = icmp eq ptr %9, null
-  br i1 %.not100164, label %.thread112.thread, label %.lr.ph
+  %.075162 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %9 = load ptr, ptr %.075162, align 8, !tbaa !4
+  %.not100163 = icmp eq ptr %9, null
+  br i1 %.not100163, label %.thread112.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %8, %47
   %10 = phi ptr [ %48, %47 ], [ %9, %8 ]
-  %.075170 = phi ptr [ %.075, %47 ], [ %.075163, %8 ]
-  %.072169 = phi i32 [ %.274, %47 ], [ 0, %8 ]
-  %.pn168 = phi ptr [ %.075170, %47 ], [ %1, %8 ]
-  %.080167 = phi ptr [ %.282, %47 ], [ null, %8 ]
-  %.085166 = phi i32 [ %.287, %47 ], [ 0, %8 ]
-  %.091165 = phi i32 [ %.293, %47 ], [ 4, %8 ]
+  %.075169 = phi ptr [ %.075, %47 ], [ %.075162, %8 ]
+  %.072168 = phi i32 [ %.274, %47 ], [ 0, %8 ]
+  %.pn167 = phi ptr [ %.075169, %47 ], [ %1, %8 ]
+  %.080166 = phi ptr [ %.282, %47 ], [ null, %8 ]
+  %.085165 = phi i32 [ %.287, %47 ], [ 0, %8 ]
+  %.091164 = phi i32 [ %.293, %47 ], [ 4, %8 ]
   %11 = load i8, ptr %10, align 1, !tbaa !9
   %.not101 = icmp eq i8 %11, 45
   br i1 %.not101, label %12, label %.thread112
@@ -158,7 +158,7 @@ define dso_local range(i32 0, 2) i32 @cmd_mailsplit(i32 noundef %0, ptr noundef 
   br i1 %.not106, label %44, label %46
 
 44:                                               ; preds = %41
-  %45 = getelementptr inbounds nuw i8, ptr %.pn168, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %.pn167, i64 16
   br label %.thread112
 
 46:                                               ; preds = %41, %39
@@ -166,31 +166,31 @@ define dso_local range(i32 0, 2) i32 @cmd_mailsplit(i32 noundef %0, ptr noundef 
   unreachable
 
 47:                                               ; preds = %38, %31, %21, %25, %34, %15
-  %.293 = phi i32 [ %18, %15 ], [ %.091165, %34 ], [ %.091165, %25 ], [ %.091165, %21 ], [ %.091165, %31 ], [ %.091165, %38 ]
-  %.287 = phi i32 [ %.085166, %15 ], [ %.085166, %34 ], [ 1, %25 ], [ %.085166, %21 ], [ %.085166, %31 ], [ %.085166, %38 ]
-  %.282 = phi ptr [ %.080167, %15 ], [ %35, %34 ], [ %.080167, %25 ], [ %.080167, %21 ], [ %.080167, %31 ], [ %.080167, %38 ]
-  %.274 = phi i32 [ %.072169, %15 ], [ %.072169, %34 ], [ %.072169, %25 ], [ %24, %21 ], [ %.072169, %31 ], [ %.072169, %38 ]
-  %.075 = getelementptr inbounds nuw i8, ptr %.075170, i64 8
+  %.293 = phi i32 [ %.091164, %38 ], [ %.091164, %31 ], [ %18, %15 ], [ %.091164, %34 ], [ %.091164, %25 ], [ %.091164, %21 ]
+  %.287 = phi i32 [ %.085165, %38 ], [ %.085165, %31 ], [ %.085165, %15 ], [ %.085165, %34 ], [ 1, %25 ], [ %.085165, %21 ]
+  %.282 = phi ptr [ %.080166, %38 ], [ %.080166, %31 ], [ %.080166, %15 ], [ %35, %34 ], [ %.080166, %25 ], [ %.080166, %21 ]
+  %.274 = phi i32 [ %.072168, %38 ], [ %.072168, %31 ], [ %.072168, %15 ], [ %.072168, %34 ], [ %.072168, %25 ], [ %24, %21 ]
+  %.075 = getelementptr inbounds nuw i8, ptr %.075169, i64 8
   %48 = load ptr, ptr %.075, align 8, !tbaa !4
   %.not100 = icmp eq ptr %48, null
   br i1 %.not100, label %.thread112, label %.lr.ph, !llvm.loop !10
 
 .thread112:                                       ; preds = %47, %.lr.ph, %44
-  %.091160 = phi i32 [ %.091165, %44 ], [ %.091165, %.lr.ph ], [ %.293, %47 ]
-  %.085157 = phi i32 [ %.085166, %44 ], [ %.085166, %.lr.ph ], [ %.287, %47 ]
-  %.080154 = phi ptr [ %.080167, %44 ], [ %.080167, %.lr.ph ], [ %.282, %47 ]
-  %.072149 = phi i32 [ %.072169, %44 ], [ %.072169, %.lr.ph ], [ %.274, %47 ]
-  %.176 = phi ptr [ %45, %44 ], [ %.075170, %.lr.ph ], [ %.075, %47 ]
-  %.not107 = icmp eq ptr %.080154, null
+  %.091159 = phi i32 [ %.091164, %44 ], [ %.091164, %.lr.ph ], [ %.293, %47 ]
+  %.085156 = phi i32 [ %.085165, %44 ], [ %.085165, %.lr.ph ], [ %.287, %47 ]
+  %.080153 = phi ptr [ %.080166, %44 ], [ %.080166, %.lr.ph ], [ %.282, %47 ]
+  %.072148 = phi i32 [ %.072168, %44 ], [ %.072168, %.lr.ph ], [ %.274, %47 ]
+  %.176 = phi ptr [ %45, %44 ], [ %.075169, %.lr.ph ], [ %.075, %47 ]
+  %.not107 = icmp eq ptr %.080153, null
   br i1 %.not107, label %.thread112.thread, label %62
 
 .thread112.thread:                                ; preds = %8, %.thread112
-  %.176241 = phi ptr [ %.176, %.thread112 ], [ %.075163, %8 ]
-  %.072149240 = phi i32 [ %.072149, %.thread112 ], [ 0, %8 ]
-  %.085157238 = phi i32 [ %.085157, %.thread112 ], [ 0, %8 ]
-  %.091160236 = phi i32 [ %.091160, %.thread112 ], [ 4, %8 ]
+  %.176240 = phi ptr [ %.176, %.thread112 ], [ %.075162, %8 ]
+  %.072148239 = phi i32 [ %.072148, %.thread112 ], [ 0, %8 ]
+  %.085156237 = phi i32 [ %.085156, %.thread112 ], [ 0, %8 ]
+  %.091159235 = phi i32 [ %.091159, %.thread112 ], [ 4, %8 ]
   %49 = sext i32 %0 to i64
-  %50 = ptrtoint ptr %.176241 to i64
+  %50 = ptrtoint ptr %.176240 to i64
   %51 = ptrtoint ptr %1 to i64
   %52 = sub i64 %50, %51
   %53 = ashr exact i64 %52, 3
@@ -201,13 +201,13 @@ define dso_local range(i32 0, 2) i32 @cmd_mailsplit(i32 noundef %0, ptr noundef 
   ]
 
 55:                                               ; preds = %.thread112.thread
-  %56 = load ptr, ptr %.176241, align 8, !tbaa !4
+  %56 = load ptr, ptr %.176240, align 8, !tbaa !4
   br label %thread-pre-split
 
 57:                                               ; preds = %.thread112.thread
-  %58 = load ptr, ptr %.176241, align 8, !tbaa !4
+  %58 = load ptr, ptr %.176240, align 8, !tbaa !4
   store ptr %58, ptr @cmd_mailsplit.stdin_only, align 16, !tbaa !4
-  %59 = getelementptr inbounds nuw i8, ptr %.176241, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %.176240, i64 8
   %60 = load ptr, ptr %59, align 8, !tbaa !4
   br label %64
 
@@ -222,37 +222,37 @@ define dso_local range(i32 0, 2) i32 @cmd_mailsplit(i32 noundef %0, ptr noundef 
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %62, %55
-  %.072149239.ph = phi i32 [ %.072149240, %55 ], [ %.072149, %62 ]
-  %.085157237.ph = phi i32 [ %.085157238, %55 ], [ %.085157, %62 ]
-  %.091160235.ph = phi i32 [ %.091160236, %55 ], [ %.091160, %62 ]
-  %.484.ph = phi ptr [ %56, %55 ], [ %.080154, %62 ]
+  %.072148238.ph = phi i32 [ %.072148239, %55 ], [ %.072148, %62 ]
+  %.085156236.ph = phi i32 [ %.085156237, %55 ], [ %.085156, %62 ]
+  %.091159234.ph = phi i32 [ %.091159235, %55 ], [ %.091159, %62 ]
+  %.484.ph = phi ptr [ %56, %55 ], [ %.080153, %62 ]
   %.378.ph = phi ptr [ @cmd_mailsplit.stdin_only, %55 ], [ %spec.store.select, %62 ]
   %.pr = load ptr, ptr %.378.ph, align 8, !tbaa !4
   br label %64
 
 64:                                               ; preds = %thread-pre-split, %57
   %65 = phi ptr [ %.pr, %thread-pre-split ], [ %58, %57 ]
-  %.072149239 = phi i32 [ %.072149239.ph, %thread-pre-split ], [ %.072149240, %57 ]
-  %.085157237 = phi i32 [ %.085157237.ph, %thread-pre-split ], [ %.085157238, %57 ]
-  %.091160235 = phi i32 [ %.091160235.ph, %thread-pre-split ], [ %.091160236, %57 ]
+  %.072148238 = phi i32 [ %.072148238.ph, %thread-pre-split ], [ %.072148239, %57 ]
+  %.085156236 = phi i32 [ %.085156236.ph, %thread-pre-split ], [ %.085156237, %57 ]
+  %.091159234 = phi i32 [ %.091159234.ph, %thread-pre-split ], [ %.091159235, %57 ]
   %.484 = phi ptr [ %.484.ph, %thread-pre-split ], [ %60, %57 ]
   %.378 = phi ptr [ %.378.ph, %thread-pre-split ], [ @cmd_mailsplit.stdin_only, %57 ]
-  %.not109182 = icmp eq ptr %65, null
-  br i1 %.not109182, label %._crit_edge, label %.lr.ph188
+  %.not109181 = icmp eq ptr %65, null
+  br i1 %.not109181, label %._crit_edge, label %.lr.ph187
 
-.lr.ph188:                                        ; preds = %64
+.lr.ph187:                                        ; preds = %64
   %66 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %67 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %68 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %69 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %70
 
-70:                                               ; preds = %.lr.ph188, %145
-  %71 = phi ptr [ %65, %.lr.ph188 ], [ %146, %145 ]
-  %.4185 = phi i32 [ %.072149239, %.lr.ph188 ], [ %.5, %145 ]
-  %.479184 = phi ptr [ %.378, %.lr.ph188 ], [ %72, %145 ]
-  %.089183 = phi i32 [ 0, %.lr.ph188 ], [ %.190, %145 ]
-  %72 = getelementptr inbounds nuw i8, ptr %.479184, i64 8
+70:                                               ; preds = %.lr.ph187, %145
+  %71 = phi ptr [ %65, %.lr.ph187 ], [ %146, %145 ]
+  %.4184 = phi i32 [ %.072148238, %.lr.ph187 ], [ %.5, %145 ]
+  %.479183 = phi ptr [ %.378, %.lr.ph187 ], [ %72, %145 ]
+  %.089182 = phi i32 [ 0, %.lr.ph187 ], [ %.190, %145 ]
+  %72 = getelementptr inbounds nuw i8, ptr %.479183, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %73 = load i8, ptr %71, align 1, !tbaa !9
   %74 = icmp eq i8 %73, 45
@@ -265,7 +265,7 @@ thread-pre-split:                                 ; preds = %62, %55
   br i1 %78, label %79, label %84
 
 79:                                               ; preds = %75
-  %80 = call fastcc i32 @split_mbox(ptr noundef %71, ptr noundef %.484, i32 noundef %.085157237, i32 noundef %.091160235, i32 noundef %.4185)
+  %80 = call fastcc i32 @split_mbox(ptr noundef %71, ptr noundef %.484, i32 noundef %.085156236, i32 noundef %.091159234, i32 noundef %.4184)
   %81 = icmp slt i32 %80, 0
   br i1 %81, label %82, label %145, !llvm.loop !12
 
@@ -358,7 +358,7 @@ populate_maildir_list.exit.i:                     ; preds = %115
 .lr.ph.i:                                         ; preds = %populate_maildir_list.exit.i, %128
   %.02672.i = phi i64 [ %133, %128 ], [ 0, %populate_maildir_list.exit.i ]
   %.13171.i = phi ptr [ %122, %128 ], [ null, %populate_maildir_list.exit.i ]
-  %.03370.i = phi i32 [ %129, %128 ], [ %.4185, %populate_maildir_list.exit.i ]
+  %.03370.i = phi i32 [ %129, %128 ], [ %.4184, %populate_maildir_list.exit.i ]
   call void @free(ptr noundef %.13171.i) #16
   %119 = load ptr, ptr %5, align 8, !tbaa !25
   %120 = getelementptr inbounds nuw %struct.string_list_item, ptr %119, i64 %.02672.i
@@ -379,7 +379,7 @@ populate_maildir_list.exit.i:                     ; preds = %115
 
 128:                                              ; preds = %126
   %129 = add nsw i32 %.03370.i, 1
-  %130 = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.15, ptr noundef %.484, i32 noundef range(i32 3, 10) %.091160235, i32 noundef %129) #16
+  %130 = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.15, ptr noundef %.484, i32 noundef range(i32 3, 10) %.091159234, i32 noundef %129) #16
   %131 = call fastcc i32 @split_one(ptr noundef nonnull %123, ptr noundef %130, i32 noundef 1)
   call void @free(ptr noundef %130) #16
   %132 = call i32 @fclose(ptr noundef nonnull %123)
@@ -394,15 +394,15 @@ populate_maildir_list.exit.i:                     ; preds = %115
   br label %split_maildir.exit
 
 split_maildir.exit:                               ; preds = %128, %populate_maildir_list.exit.thread.i, %populate_maildir_list.exit.i, %124, %136
-  %.02759.i = phi i32 [ -1, %136 ], [ -1, %124 ], [ -1, %populate_maildir_list.exit.thread.i ], [ %.4185, %populate_maildir_list.exit.i ], [ %129, %128 ]
-  %.03058.i = phi ptr [ %122, %136 ], [ %122, %124 ], [ null, %populate_maildir_list.exit.thread.i ], [ null, %populate_maildir_list.exit.i ], [ %122, %128 ]
+  %.02759.i = phi i32 [ -1, %136 ], [ -1, %populate_maildir_list.exit.thread.i ], [ -1, %124 ], [ %.4184, %populate_maildir_list.exit.i ], [ %129, %128 ]
+  %.03058.i = phi ptr [ %122, %136 ], [ null, %populate_maildir_list.exit.thread.i ], [ %122, %124 ], [ null, %populate_maildir_list.exit.i ], [ %122, %128 ]
   call void @free(ptr noundef %.03058.i) #16
   call void @string_list_clear(ptr noundef nonnull %5, i32 noundef 1) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %141
 
 139:                                              ; preds = %89
-  %140 = call fastcc i32 @split_mbox(ptr noundef %71, ptr noundef %.484, i32 noundef %.085157237, i32 noundef %.091160235, i32 noundef %.4185)
+  %140 = call fastcc i32 @split_mbox(ptr noundef %71, ptr noundef %.484, i32 noundef %.085156236, i32 noundef %.091159234, i32 noundef %.4184)
   br label %141
 
 141:                                              ; preds = %139, %split_maildir.exit
@@ -420,7 +420,7 @@ split_maildir.exit:                               ; preds = %128, %populate_mail
 
 145:                                              ; preds = %141, %79
   %.5 = phi i32 [ %80, %79 ], [ %.0, %141 ]
-  %.pn124 = sub i32 %.089183, %.4185
+  %.pn124 = sub i32 %.089182, %.4184
   %.190 = add i32 %.pn124, %.5
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %146 = load ptr, ptr %72, align 8, !tbaa !4
@@ -866,7 +866,7 @@ define internal fastcc range(i32 0, 2) i32 @is_from_line(ptr noundef readonly ca
   br label %.loopexit
 
 .loopexit:                                        ; preds = %7, %47, %12, %19, %26, %33, %40, %2, %4
-  %.014 = phi i32 [ 0, %2 ], [ %., %47 ], [ 0, %12 ], [ 0, %4 ], [ 0, %40 ], [ 0, %33 ], [ 0, %26 ], [ 0, %19 ], [ 0, %7 ]
+  %.014 = phi i32 [ 0, %19 ], [ 0, %2 ], [ %., %47 ], [ 0, %12 ], [ 0, %4 ], [ 0, %40 ], [ 0, %33 ], [ 0, %26 ], [ 0, %7 ]
   ret i32 %.014
 }
 
@@ -989,7 +989,7 @@ define internal i32 @maildir_filename_cmp(ptr noundef %0, ptr noundef %1) #8 {
   br label %41
 
 41:                                               ; preds = %.loopexit, %.critedge, %24
-  %.2 = phi i32 [ %27, %24 ], [ %38, %.critedge ], [ %40, %.loopexit ]
+  %.2 = phi i32 [ %38, %.critedge ], [ %27, %24 ], [ %40, %.loopexit ]
   ret i32 %.2
 }
 

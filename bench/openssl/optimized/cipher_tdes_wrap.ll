@@ -236,7 +236,7 @@ define internal range(i32 0, 2) i32 @tdes_wrap_update(ptr noundef %0, ptr nounde
   br label %12
 
 12:                                               ; preds = %.sink.split, %10, %6
-  %.0 = phi i32 [ 1, %6 ], [ 1, %10 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 1, %10 ], [ 1, %6 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 

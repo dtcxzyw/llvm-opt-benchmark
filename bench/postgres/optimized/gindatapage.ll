@@ -773,7 +773,7 @@ dlist_push_tail.exit31:                           ; preds = %41, %54
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %dlist_push_tail.exit, %38, %dlist_push_tail.exit31, %11
-  %.sink = phi i8 [ 0, %11 ], [ 1, %dlist_push_tail.exit31 ], [ 1, %38 ], [ 0, %dlist_push_tail.exit ]
+  %.sink = phi i8 [ 0, %11 ], [ 1, %38 ], [ 1, %dlist_push_tail.exit31 ], [ 0, %dlist_push_tail.exit ]
   %58 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i8 %.sink, ptr %58, align 8
   ret ptr %2
@@ -1689,7 +1689,7 @@ define internal zeroext i16 @dataFindChildPtr(ptr readnone captures(none) %0, pt
   br i1 %.not38, label %.loopexit, label %42, !llvm.loop !16
 
 .loopexit:                                        ; preds = %28, %42, %52, %40, %13
-  %.030 = phi i16 [ %3, %13 ], [ 0, %40 ], [ 0, %52 ], [ %.147, %42 ], [ %.029, %28 ]
+  %.030 = phi i16 [ 0, %40 ], [ %3, %13 ], [ 0, %52 ], [ %.147, %42 ], [ %.029, %28 ]
   ret i16 %.030
 }
 

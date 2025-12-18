@@ -3735,7 +3735,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %.loopexit, %40, %44
   br label %_ZN5arrow6ResultISt10shared_ptrINS_7compute8internal12CastFunctionEEEC2IRS5_vEEOT_.exit
 
 _ZNSt13unordered_mapIiSt10shared_ptrIN5arrow7compute8internal12CastFunctionEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit: ; preds = %31, %15, %26
-  %.sroa.06.1.i.i = phi ptr [ %27, %26 ], [ %.sroa.06.0.i.i, %15 ], [ %33, %31 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %15 ], [ %27, %26 ], [ %33, %31 ]
   %45 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   store ptr null, ptr %0, align 8, !tbaa !62
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4817,7 +4817,7 @@ _ZN5arrow7compute8internal12_GLOBAL__N_119EnsureInitCastTableEv.exit: ; preds = 
   br label %.critedge, !llvm.loop !214
 
 _ZNSt13unordered_mapIiSt10shared_ptrIN5arrow7compute8internal12CastFunctionEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit: ; preds = %30, %14, %25
-  %.sroa.06.1.i.i = phi ptr [ %26, %25 ], [ %.sroa.06.0.i.i, %14 ], [ %32, %30 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %14 ], [ %26, %25 ], [ %32, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %39 = load ptr, ptr %38, align 8, !tbaa !215
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 224
@@ -4842,7 +4842,7 @@ _ZNSt13unordered_mapIiSt10shared_ptrIN5arrow7compute8internal12CastFunctionEESt4
   br i1 %or.cond, label %.critedge, label %46
 
 .critedge:                                        ; preds = %.lr.ph.i.i.i.i, %.preheader, %46, %_ZNSt13unordered_mapIiSt10shared_ptrIN5arrow7compute8internal12CastFunctionEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit, %18, %..loopexit_crit_edge21.i.i.i.i
-  %.0 = phi i1 [ false, %18 ], [ false, %..loopexit_crit_edge21.i.i.i.i ], [ false, %_ZNSt13unordered_mapIiSt10shared_ptrIN5arrow7compute8internal12CastFunctionEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit ], [ false, %.preheader ], [ %.not, %46 ], [ false, %.lr.ph.i.i.i.i ]
+  %.0 = phi i1 [ false, %18 ], [ %.not, %46 ], [ false, %..loopexit_crit_edge21.i.i.i.i ], [ false, %.preheader ], [ false, %_ZNSt13unordered_mapIiSt10shared_ptrIN5arrow7compute8internal12CastFunctionEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit ], [ false, %.lr.ph.i.i.i.i ]
   ret i1 %.0
 }
 

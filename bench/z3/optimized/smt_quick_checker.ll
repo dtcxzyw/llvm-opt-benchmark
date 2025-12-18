@@ -1064,7 +1064,7 @@ _ZNK3smt5enode12get_num_argsEv.exit:              ; preds = %_ZN3smt13quick_chec
   br i1 %.not27.old.i.i, label %_ZN3smt13quick_checker9collector9check_argEPNS_5enodeEP9func_declj.exit.thread, label %.lr.ph38.i.i.backedge
 
 .lr.ph38.i.i.backedge:                            ; preds = %217, %214
-  %.137.i.i.be = phi ptr [ %.old.i.i, %217 ], [ %216, %214 ]
+  %.137.i.i.be = phi ptr [ %216, %214 ], [ %.old.i.i, %217 ]
   br label %.lr.ph38.i.i, !llvm.loop !576
 
 _ZNK14core_hashtableI14obj_hash_entryIN3smt5enodeEE12obj_ptr_hashIS2_E6ptr_eqIS2_EE8containsERKPS2_.exit: ; preds = %196, %208
@@ -4091,7 +4091,7 @@ _ZNK3smt7context14e_internalizedEPK4expr.exit.thread: ; preds = %_ZNK6vectorIPN3
   br i1 %.not27.old.i.i.i, label %.loopexit136, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %84, %81
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %84 ], [ %83, %81 ]
+  %.137.i.i.i.be = phi ptr [ %83, %81 ], [ %.old.i.i.i, %84 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !702
 
 .loopexit:                                        ; preds = %65, %76

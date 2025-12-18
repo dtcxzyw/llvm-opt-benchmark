@@ -2758,7 +2758,7 @@ define internal fastcc noundef i32 @dissect_rpc_authunix_groups(ptr noundef %0, 
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.lr.ph.split.us.split, %.lr.ph.split.us.split.us, %13, %48, %._crit_edge
-  %.0.lcssa70 = phi i32 [ %.0.lcssa, %._crit_edge ], [ %.0.lcssa, %48 ], [ %.039, %13 ], [ %.0.us.us, %.lr.ph.split.us.split.us ], [ %.0.us, %.lr.ph.split.us.split ]
+  %.0.lcssa70 = phi i32 [ %.0.lcssa, %._crit_edge ], [ %.0.lcssa, %48 ], [ %.0.us.us, %.lr.ph.split.us.split.us ], [ %.039, %13 ], [ %.0.us, %.lr.ph.split.us.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0.lcssa70
 }
@@ -3883,7 +3883,7 @@ proto_item_set_generated.exit620.sink.split:      ; preds = %476, %471
   br label %proto_item_set_generated.exit620
 
 proto_item_set_generated.exit620:                 ; preds = %proto_item_set_generated.exit620.sink.split, %476, %.thread624, %471, %469, %440
-  %.0515 = phi ptr [ null, %440 ], [ %446, %469 ], [ %446, %471 ], [ %446, %.thread624 ], [ %446, %476 ], [ %446, %proto_item_set_generated.exit620.sink.split ]
+  %.0515 = phi ptr [ null, %440 ], [ %446, %476 ], [ %446, %469 ], [ %446, %471 ], [ %446, %.thread624 ], [ %446, %proto_item_set_generated.exit620.sink.split ]
   %482 = icmp eq ptr %.0536, null
   br i1 %482, label %485, label %483
 
@@ -4715,7 +4715,7 @@ define internal fastcc noundef zeroext i1 @dissect_rpc_tcp_common(ptr noundef %0
   br label %.backedge.i.i
 
 .backedge.i.i:                                    ; preds = %78, %.loopexit.i.i, %.loopexit.thread.i.i
-  %.029.be.i.i = phi i32 [ %.02941.i.i, %.loopexit.i.i ], [ %79, %78 ], [ %35, %.loopexit.thread.i.i ]
+  %.029.be.i.i = phi i32 [ %79, %78 ], [ %.02941.i.i, %.loopexit.i.i ], [ %35, %.loopexit.thread.i.i ]
   %80 = sub i32 %22, %.029.be.i.i
   %81 = icmp sgt i32 %80, 16
   br i1 %81, label %29, label %.thread, !llvm.loop !17
@@ -4776,7 +4776,7 @@ find_and_dissect_rpc_fragment.exit:               ; preds = %88, %12
   br i1 %.not, label %.thread, label %12, !llvm.loop !18
 
 .thread:                                          ; preds = %find_and_dissect_rpc_fragment.exit, %93, %107, %19, %24, %85, %find_rpc_over_tcp_reply_start.exit.i, %.backedge.i.i, %6
-  %.040 = phi i1 [ false, %6 ], [ %.03851, %.backedge.i.i ], [ %.03851, %85 ], [ %.03851, %24 ], [ %.03851, %19 ], [ true, %107 ], [ %.03851, %93 ], [ true, %find_and_dissect_rpc_fragment.exit ], [ %.03851, %find_rpc_over_tcp_reply_start.exit.i ]
+  %.040 = phi i1 [ %.03851, %.backedge.i.i ], [ false, %6 ], [ %.03851, %24 ], [ %.03851, %19 ], [ true, %107 ], [ %.03851, %85 ], [ %.03851, %93 ], [ true, %find_and_dissect_rpc_fragment.exit ], [ %.03851, %find_rpc_over_tcp_reply_start.exit.i ]
   ret i1 %.040
 }
 

@@ -786,7 +786,7 @@ tolower.exit32.i:                                 ; preds = %tolower.exit.i30
   br i1 %.not29.old.i, label %.loopexit.i, label %.preheader.i.backedge
 
 .preheader.i.backedge:                            ; preds = %124, %115
-  %.0.i32.be = phi i64 [ %.old.i, %124 ], [ %122, %115 ]
+  %.0.i32.be = phi i64 [ %122, %115 ], [ %.old.i, %124 ]
   br label %.preheader.i, !llvm.loop !48
 
 .loopexit.i:                                      ; preds = %124, %115, %112, %107, %102
@@ -2232,8 +2232,8 @@ define linkonce_odr hidden { ptr, i32 } @_ZNSt3__131_Floating_to_chars_hex_short
   br label %.critedge
 
 .critedge:                                        ; preds = %27, %48, %61, %13, %22, %.loopexit, %11, %6
-  %.sroa.0.1 = phi ptr [ %1, %6 ], [ %12, %11 ], [ %1, %22 ], [ %1, %.loopexit ], [ %1, %13 ], [ %62, %61 ], [ %1, %48 ], [ %1, %27 ]
-  %.sroa.8.1 = phi i32 [ 75, %6 ], [ 0, %11 ], [ 75, %22 ], [ 75, %.loopexit ], [ 75, %13 ], [ 0, %61 ], [ 75, %48 ], [ 75, %27 ]
+  %.sroa.0.1 = phi ptr [ %1, %6 ], [ %12, %11 ], [ %1, %22 ], [ %1, %.loopexit ], [ %1, %48 ], [ %1, %13 ], [ %62, %61 ], [ %1, %27 ]
+  %.sroa.8.1 = phi i32 [ 75, %6 ], [ 0, %11 ], [ 75, %22 ], [ 75, %.loopexit ], [ 75, %48 ], [ 75, %13 ], [ 0, %61 ], [ 75, %27 ]
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %.sroa.0.1, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %.sroa.8.1, 1
   ret { ptr, i32 } %.fca.1.insert
@@ -2352,8 +2352,8 @@ define linkonce_odr hidden { ptr, i32 } @_ZNSt3__131_Floating_to_chars_hex_short
   br label %.critedge
 
 .critedge:                                        ; preds = %27, %49, %62, %13, %23, %.loopexit, %11, %6
-  %.sroa.0.1 = phi ptr [ %1, %6 ], [ %12, %11 ], [ %1, %23 ], [ %1, %.loopexit ], [ %1, %13 ], [ %63, %62 ], [ %1, %49 ], [ %1, %27 ]
-  %.sroa.8.1 = phi i32 [ 75, %6 ], [ 0, %11 ], [ 75, %23 ], [ 75, %.loopexit ], [ 75, %13 ], [ 0, %62 ], [ 75, %49 ], [ 75, %27 ]
+  %.sroa.0.1 = phi ptr [ %1, %6 ], [ %12, %11 ], [ %1, %23 ], [ %1, %.loopexit ], [ %1, %49 ], [ %1, %13 ], [ %63, %62 ], [ %1, %27 ]
+  %.sroa.8.1 = phi i32 [ 75, %6 ], [ 0, %11 ], [ 75, %23 ], [ 75, %.loopexit ], [ 75, %49 ], [ 75, %13 ], [ 0, %62 ], [ 75, %27 ]
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %.sroa.0.1, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %.sroa.8.1, 1
   ret { ptr, i32 } %.fca.1.insert
@@ -2822,9 +2822,9 @@ define linkonce_odr hidden { ptr, i32 } @_ZNSt3__136_Floating_to_chars_general_p
   br i1 %.not.i.i, label %_ZZNSt3__136_Floating_to_chars_general_precisionB8ne210000IdEENS_15to_chars_resultEPcS2_T_iENKUlvE_clB8ne210000Ev.exit, label %.lr.ph.i.i, !llvm.loop !54
 
 _ZZNSt3__136_Floating_to_chars_general_precisionB8ne210000IdEENS_15to_chars_resultEPcS2_T_iENKUlvE_clB8ne210000Ev.exit: ; preds = %38, %47, %.lr.ph.i.i, %45
-  %.056121 = phi ptr [ %.057123, %45 ], [ %.056122, %47 ], [ %.056122, %.lr.ph.i.i ], [ @_ZNSt3__125_General_precision_tablesIdE17_Ordinary_X_tableE, %38 ]
-  %.0106119 = phi i32 [ %.0106120, %45 ], [ %.0106120, %47 ], [ %.0106120, %.lr.ph.i.i ], [ %.0109112128135, %38 ]
-  %.0.i = phi ptr [ %.057123, %45 ], [ %.057123, %47 ], [ %.07.i.i, %.lr.ph.i.i ], [ %.1.i.i.i.i, %38 ]
+  %.056121 = phi ptr [ %.056122, %47 ], [ %.057123, %45 ], [ %.056122, %.lr.ph.i.i ], [ @_ZNSt3__125_General_precision_tablesIdE17_Ordinary_X_tableE, %38 ]
+  %.0106119 = phi i32 [ %.0106120, %47 ], [ %.0106120, %45 ], [ %.0106120, %.lr.ph.i.i ], [ %.0109112128135, %38 ]
+  %.0.i = phi ptr [ %.057123, %47 ], [ %.057123, %45 ], [ %.07.i.i, %.lr.ph.i.i ], [ %.1.i.i.i.i, %38 ]
   %49 = ptrtoint ptr %.0.i to i64
   %50 = ptrtoint ptr %.056121 to i64
   %51 = sub i64 %49, %50
@@ -3200,7 +3200,7 @@ tolower.exit32:                                   ; preds = %tolower.exit
   br i1 %.not29.old, label %.loopexit, label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %49, %40
-  %.0.be = phi i64 [ %.old, %49 ], [ %47, %40 ]
+  %.0.be = phi i64 [ %47, %40 ], [ %.old, %49 ]
   br label %.preheader, !llvm.loop !55
 
 .loopexit:                                        ; preds = %49, %40, %37, %32, %27
@@ -3890,8 +3890,8 @@ define linkonce_odr hidden { i64, i32 } @_ZN24__llvm_libc_common_utils8internal2
   br i1 %26, label %.thread111, label %.preheader130
 
 .preheader130:                                    ; preds = %35, %18, %20
-  %.0.lcssa = phi i32 [ 0, %20 ], [ 0, %18 ], [ %36, %35 ]
-  %.lcssa141 = phi i32 [ %9, %20 ], [ 0, %18 ], [ %38, %35 ]
+  %.0.lcssa = phi i32 [ 0, %18 ], [ 0, %20 ], [ %36, %35 ]
+  %.lcssa141 = phi i32 [ 0, %18 ], [ %9, %20 ], [ %38, %35 ]
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 9
   br label %40
 
@@ -4512,9 +4512,9 @@ define linkonce_odr hidden void @_ZN24__llvm_libc_common_utils8internal20HighPre
   br i1 %switch.i.us123, label %.critedge2, label %.split.us
 
 .split.us:                                        ; preds = %12, %.lr.ph.split, %.lr.ph.split.us
-  %23 = phi i32 [ %7, %.lr.ph.split.us ], [ %7, %.lr.ph.split ], [ %20, %12 ]
-  %.us-phi = phi i8 [ %10, %.lr.ph.split.us ], [ %10, %.lr.ph.split ], [ %14, %12 ]
-  %.us-phi110 = phi i64 [ %.047.ph138, %.lr.ph.split.us ], [ %.047.ph138, %.lr.ph.split ], [ %21, %12 ]
+  %23 = phi i32 [ %7, %.lr.ph.split ], [ %7, %.lr.ph.split.us ], [ %20, %12 ]
+  %.us-phi = phi i8 [ %10, %.lr.ph.split ], [ %10, %.lr.ph.split.us ], [ %14, %12 ]
+  %.us-phi110 = phi i64 [ %.047.ph138, %.lr.ph.split ], [ %.047.ph138, %.lr.ph.split.us ], [ %21, %12 ]
   %24 = icmp eq i8 %.us-phi, 46
   br i1 %24, label %.critedge2.thread, label %.critedge
 
@@ -4581,12 +4581,12 @@ define linkonce_odr hidden void @_ZN24__llvm_libc_common_utils8internal20HighPre
   br label %.critedge
 
 .critedge:                                        ; preds = %.split.us, %.thread58, %.critedge.loopexit
-  %.pr.i177 = phi i32 [ 0, %.critedge.loopexit ], [ %.pr130135, %.split.us ], [ %.pr129, %.thread58 ]
-  %46 = phi i32 [ %20, %.critedge.loopexit ], [ %23, %.split.us ], [ %42, %.thread58 ]
-  %.045.ph101 = phi i32 [ %.045.ph139, %.critedge.loopexit ], [ %.045.ph139, %.split.us ], [ %.146, %.thread58 ]
-  %.044.ph98 = phi i8 [ %.044.ph140, %.critedge.loopexit ], [ %.044.ph140, %.split.us ], [ %.1, %.thread58 ]
-  %.04783 = phi i64 [ %umax.le, %.critedge.loopexit ], [ %.us-phi110, %.split.us ], [ %43, %.thread58 ]
-  %47 = phi i1 [ false, %.critedge.loopexit ], [ true, %.split.us ], [ false, %.thread58 ]
+  %.pr.i177 = phi i32 [ 0, %.critedge.loopexit ], [ %.pr129, %.thread58 ], [ %.pr130135, %.split.us ]
+  %46 = phi i32 [ %20, %.critedge.loopexit ], [ %42, %.thread58 ], [ %23, %.split.us ]
+  %.045.ph101 = phi i32 [ %.045.ph139, %.critedge.loopexit ], [ %.146, %.thread58 ], [ %.045.ph139, %.split.us ]
+  %.044.ph98 = phi i8 [ %.044.ph140, %.critedge.loopexit ], [ %.1, %.thread58 ], [ %.044.ph140, %.split.us ]
+  %.04783 = phi i64 [ %umax.le, %.critedge.loopexit ], [ %43, %.thread58 ], [ %.us-phi110, %.split.us ]
+  %47 = phi i1 [ false, %.critedge.loopexit ], [ false, %.thread58 ], [ true, %.split.us ]
   %48 = trunc nuw i8 %.044.ph98 to i1
   br i1 %48, label %49, label %.critedge.thread
 
@@ -6047,8 +6047,8 @@ define linkonce_odr hidden void @_ZN24__llvm_libc_common_utils8internal25simple_
   br label %257
 
 .preheader128:                                    ; preds = %41, %23, %25
-  %.0.lcssa = phi i32 [ 0, %25 ], [ 0, %23 ], [ %42, %41 ]
-  %.lcssa139 = phi i32 [ %13, %25 ], [ 0, %23 ], [ %44, %41 ]
+  %.0.lcssa = phi i32 [ 0, %23 ], [ 0, %25 ], [ %42, %41 ]
+  %.lcssa139 = phi i32 [ 0, %23 ], [ %13, %25 ], [ %44, %41 ]
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 9
   br label %46
 

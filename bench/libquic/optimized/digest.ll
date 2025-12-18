@@ -272,12 +272,12 @@ _ZN6SourceD2Ev.exit77:                            ; preds = %41, %_ZNKSt7__cxx11
   br label %.loopexit
 
 .loopexit164:                                     ; preds = %59, %79, %76, %73, %70, %61, %64, %67
-  %.sroa.0127.2 = phi i1 [ %.sroa.0127.0268, %61 ], [ %.sroa.0127.0268, %64 ], [ %.sroa.0127.0268, %67 ], [ true, %70 ], [ %.sroa.0127.0268, %73 ], [ %.sroa.0127.0268, %76 ], [ %.sroa.0127.0268, %79 ], [ %.sroa.0127.0268, %59 ]
-  %.sroa.6.2 = phi i8 [ %.sroa.6.0269, %61 ], [ %.sroa.6.0269, %64 ], [ %.sroa.6.0269, %67 ], [ %.sroa.6.0269, %70 ], [ 1, %73 ], [ %.sroa.6.0269, %76 ], [ %.sroa.6.0269, %79 ], [ %.sroa.6.0269, %59 ]
-  %.sroa.9.2 = phi i1 [ %.sroa.9.0270, %61 ], [ %.sroa.9.0270, %64 ], [ %.sroa.9.0270, %67 ], [ %.sroa.9.0270, %70 ], [ %.sroa.9.0270, %73 ], [ true, %76 ], [ %.sroa.9.0270, %79 ], [ %.sroa.9.4, %59 ]
-  %.sroa.12.2 = phi i1 [ %.sroa.12.0271, %61 ], [ %.sroa.12.0271, %64 ], [ %.sroa.12.0271, %67 ], [ %.sroa.12.0271, %70 ], [ %.sroa.12.0271, %73 ], [ %.sroa.12.0271, %76 ], [ true, %79 ], [ %.sroa.12.0271, %59 ]
-  %.252 = phi i1 [ %.050272, %61 ], [ %.050272, %64 ], [ %.050272, %67 ], [ true, %70 ], [ true, %73 ], [ true, %76 ], [ true, %79 ], [ %.454, %59 ]
-  %.247 = phi i1 [ %.045273, %61 ], [ %.045273, %64 ], [ true, %67 ], [ %.045273, %70 ], [ %.045273, %73 ], [ %.045273, %76 ], [ %.045273, %79 ], [ %.449, %59 ]
+  %.sroa.0127.2 = phi i1 [ %.sroa.0127.0268, %73 ], [ %.sroa.0127.0268, %79 ], [ %.sroa.0127.0268, %61 ], [ %.sroa.0127.0268, %64 ], [ %.sroa.0127.0268, %67 ], [ %.sroa.0127.0268, %76 ], [ true, %70 ], [ %.sroa.0127.0268, %59 ]
+  %.sroa.6.2 = phi i8 [ 1, %73 ], [ %.sroa.6.0269, %79 ], [ %.sroa.6.0269, %61 ], [ %.sroa.6.0269, %64 ], [ %.sroa.6.0269, %67 ], [ %.sroa.6.0269, %76 ], [ %.sroa.6.0269, %70 ], [ %.sroa.6.0269, %59 ]
+  %.sroa.9.2 = phi i1 [ %.sroa.9.0270, %73 ], [ %.sroa.9.0270, %79 ], [ %.sroa.9.0270, %61 ], [ %.sroa.9.0270, %64 ], [ %.sroa.9.0270, %67 ], [ true, %76 ], [ %.sroa.9.0270, %70 ], [ %.sroa.9.4, %59 ]
+  %.sroa.12.2 = phi i1 [ %.sroa.12.0271, %73 ], [ true, %79 ], [ %.sroa.12.0271, %61 ], [ %.sroa.12.0271, %64 ], [ %.sroa.12.0271, %67 ], [ %.sroa.12.0271, %76 ], [ %.sroa.12.0271, %70 ], [ %.sroa.12.0271, %59 ]
+  %.252 = phi i1 [ true, %73 ], [ true, %79 ], [ %.050272, %61 ], [ %.050272, %64 ], [ %.050272, %67 ], [ true, %76 ], [ true, %70 ], [ %.454, %59 ]
+  %.247 = phi i1 [ %.045273, %73 ], [ %.045273, %79 ], [ %.045273, %61 ], [ %.045273, %64 ], [ true, %67 ], [ %.045273, %76 ], [ %.045273, %70 ], [ %.449, %59 ]
   %88 = load ptr, ptr %21, align 8, !tbaa !6
   %.not158 = icmp eq ptr %30, %88
   br i1 %.not158, label %.thread, label %.lr.ph274
@@ -1266,7 +1266,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br i1 %.not160, label %.loopexit, label %403
 
 .loopexit:                                        ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i7.i, %_ZL5CheckRK18CheckModeArgumentsPK9env_md_stRK6Source.exit, %168, %400, %.thread149, %.thread137, %95
-  %.4 = phi i1 [ false, %.thread149 ], [ false, %.thread137 ], [ false, %95 ], [ true, %168 ], [ true, %400 ], [ %396, %_ZL5CheckRK18CheckModeArgumentsPK9env_md_stRK6Source.exit ], [ %421, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i7.i ]
+  %.4 = phi i1 [ false, %.thread149 ], [ false, %.thread137 ], [ false, %95 ], [ %396, %_ZL5CheckRK18CheckModeArgumentsPK9env_md_stRK6Source.exit ], [ true, %168 ], [ true, %400 ], [ %421, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i7.i ]
   %423 = load ptr, ptr %16, align 8, !tbaa !38
   %424 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %425 = load ptr, ptr %424, align 8, !tbaa !27

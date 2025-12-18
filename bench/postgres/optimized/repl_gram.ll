@@ -731,8 +731,8 @@ define dso_local range(i32 0, 2) i32 @replication_yyparse(ptr noundef %0, ptr no
   unreachable
 
 .thread359:                                       ; preds = %.thread336, %29, %47
-  %.5273357 = phi ptr [ %.1269, %47 ], [ %.1269, %.thread336 ], [ %22, %29 ]
-  %.0295351 = phi i32 [ 1, %47 ], [ 0, %.thread336 ], [ 1, %29 ]
+  %.5273357 = phi ptr [ %.1269, %47 ], [ %22, %29 ], [ %.1269, %.thread336 ]
+  %.0295351 = phi i32 [ 1, %47 ], [ 1, %29 ], [ 0, %.thread336 ]
   %.not322 = icmp eq ptr %.5273357, %4
   br i1 %.not322, label %332, label %331
 

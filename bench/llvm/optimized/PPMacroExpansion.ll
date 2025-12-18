@@ -1478,8 +1478,8 @@ _ZN4llvm7adl_endIRNS_13TinyPtrVectorIPN5clang11ModuleMacroEEEEEDTclsr10adl_detai
   br label %"_ZN4llvm9remove_ifIRNS_13TinyPtrVectorIPN5clang11ModuleMacroEEEZNS2_12Preprocessor14addModuleMacroEPNS2_6ModuleEPNS2_14IdentifierInfoEPNS2_9MacroInfoENS_8ArrayRefIS4_EERbE3$_0EEDaOT_T0_.exit.i"
 
 "_ZN4llvm9remove_ifIRNS_13TinyPtrVectorIPN5clang11ModuleMacroEEEZNS2_12Preprocessor14addModuleMacroEPNS2_6ModuleEPNS2_14IdentifierInfoEPNS2_9MacroInfoENS_8ArrayRefIS4_EERbE3$_0EEDaOT_T0_.exit.i": ; preds = %"_ZN4llvm9remove_ifIRNS_13TinyPtrVectorIPN5clang11ModuleMacroEEEZNS2_12Preprocessor14addModuleMacroEPNS2_6ModuleEPNS2_14IdentifierInfoEPNS2_9MacroInfoENS_8ArrayRefIS4_EERbE3$_0EEDaOT_T0_.exit.loopexit.i", %"_ZSt9__find_ifIPPN5clang11ModuleMacroEN9__gnu_cxx5__ops10_Iter_predIZNS0_12Preprocessor14addModuleMacroEPNS0_6ModuleEPNS0_14IdentifierInfoEPNS0_9MacroInfoEN4llvm8ArrayRefIS2_EERbE3$_0EEET_SK_SK_T0_.exit.i.i.i.i", %72, %._crit_edge.i.i.i.i.i.i
-  %.0.copyload.i.i.i.i.i.i.i.i.i = phi i64 [ %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i, %"_ZSt9__find_ifIPPN5clang11ModuleMacroEN9__gnu_cxx5__ops10_Iter_predIZNS0_12Preprocessor14addModuleMacroEPNS0_6ModuleEPNS0_14IdentifierInfoEPNS0_9MacroInfoEN4llvm8ArrayRefIS2_EERbE3$_0EEET_SK_SK_T0_.exit.i.i.i.i" ], [ %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i, %72 ], [ %.0.copyload.i.i.i.i.i.i.i.i.pre.i, %"_ZN4llvm9remove_ifIRNS_13TinyPtrVectorIPN5clang11ModuleMacroEEEZNS2_12Preprocessor14addModuleMacroEPNS2_6ModuleEPNS2_14IdentifierInfoEPNS2_9MacroInfoENS_8ArrayRefIS4_EERbE3$_0EEDaOT_T0_.exit.loopexit.i" ]
-  %.016.i.i.i.i = phi ptr [ %.028.i.i.i.i.i.i, %"_ZSt9__find_ifIPPN5clang11ModuleMacroEN9__gnu_cxx5__ops10_Iter_predIZNS0_12Preprocessor14addModuleMacroEPNS0_6ModuleEPNS0_14IdentifierInfoEPNS0_9MacroInfoEN4llvm8ArrayRefIS2_EERbE3$_0EEET_SK_SK_T0_.exit.i.i.i.i" ], [ %.0.i.i.i.i3.i.i, %._crit_edge.i.i.i.i.i.i ], [ %.0.i.i.i.i3.i.i, %72 ], [ %.1.i.i.i.i, %"_ZN4llvm9remove_ifIRNS_13TinyPtrVectorIPN5clang11ModuleMacroEEEZNS2_12Preprocessor14addModuleMacroEPNS2_6ModuleEPNS2_14IdentifierInfoEPNS2_9MacroInfoENS_8ArrayRefIS4_EERbE3$_0EEDaOT_T0_.exit.loopexit.i" ]
+  %.0.copyload.i.i.i.i.i.i.i.i.i = phi i64 [ %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i, %"_ZSt9__find_ifIPPN5clang11ModuleMacroEN9__gnu_cxx5__ops10_Iter_predIZNS0_12Preprocessor14addModuleMacroEPNS0_6ModuleEPNS0_14IdentifierInfoEPNS0_9MacroInfoEN4llvm8ArrayRefIS2_EERbE3$_0EEET_SK_SK_T0_.exit.i.i.i.i" ], [ %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i, %72 ], [ %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %.0.copyload.i.i.i.i.i.i.i.i.pre.i, %"_ZN4llvm9remove_ifIRNS_13TinyPtrVectorIPN5clang11ModuleMacroEEEZNS2_12Preprocessor14addModuleMacroEPNS2_6ModuleEPNS2_14IdentifierInfoEPNS2_9MacroInfoENS_8ArrayRefIS4_EERbE3$_0EEDaOT_T0_.exit.loopexit.i" ]
+  %.016.i.i.i.i = phi ptr [ %.028.i.i.i.i.i.i, %"_ZSt9__find_ifIPPN5clang11ModuleMacroEN9__gnu_cxx5__ops10_Iter_predIZNS0_12Preprocessor14addModuleMacroEPNS0_6ModuleEPNS0_14IdentifierInfoEPNS0_9MacroInfoEN4llvm8ArrayRefIS2_EERbE3$_0EEET_SK_SK_T0_.exit.i.i.i.i" ], [ %.0.i.i.i.i3.i.i, %72 ], [ %.0.i.i.i.i3.i.i, %._crit_edge.i.i.i.i.i.i ], [ %.1.i.i.i.i, %"_ZN4llvm9remove_ifIRNS_13TinyPtrVectorIPN5clang11ModuleMacroEEEZNS2_12Preprocessor14addModuleMacroEPNS2_6ModuleEPNS2_14IdentifierInfoEPNS2_9MacroInfoENS_8ArrayRefIS4_EERbE3$_0EEDaOT_T0_.exit.loopexit.i" ]
   %82 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 4
   %83 = icmp eq i64 %82, 0
   br i1 %83, label %_ZN4llvm13TinyPtrVectorIPN5clang11ModuleMacroEE5beginEv.exit.i4.i, label %87
@@ -11569,7 +11569,7 @@ _ZN4llvm11SmallVectorIcLj128EED2Ev.exit:          ; preds = %272, %275
   br label %_ZN5clang17DiagnosticBuilderD2Ev.exit77
 
 _ZN5clang17DiagnosticBuilderD2Ev.exit77:          ; preds = %100, %224, %221, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i73, %196, %_ZN5clang17DiagnosticBuilderD2Ev.exit70, %_ZN4llvm11SmallVectorIcLj128EED2Ev.exit, %_ZN5clang17DiagnosticBuilderD2Ev.exit
-  %.0 = phi i1 [ false, %_ZN5clang17DiagnosticBuilderD2Ev.exit ], [ false, %196 ], [ %.1, %_ZN4llvm11SmallVectorIcLj128EED2Ev.exit ], [ false, %_ZN5clang17DiagnosticBuilderD2Ev.exit70 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i73 ], [ false, %221 ], [ false, %224 ], [ false, %100 ]
+  %.0 = phi i1 [ false, %_ZN5clang17DiagnosticBuilderD2Ev.exit ], [ false, %224 ], [ false, %196 ], [ %.1, %_ZN4llvm11SmallVectorIcLj128EED2Ev.exit ], [ false, %_ZN5clang17DiagnosticBuilderD2Ev.exit70 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i73 ], [ false, %221 ], [ false, %100 ]
   ret i1 %.0
 }
 
@@ -12107,7 +12107,7 @@ _ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit: ; preds = %2
   br i1 %.not.i.i.i, label %_ZNK5clang12FileEntryRefcvPKNS_9FileEntryEEv.exit, label %.preheader
 
 _ZNK5clang12FileEntryRefcvPKNS_9FileEntryEEv.exit: ; preds = %.preheader, %2, %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit
-  %14 = phi ptr [ null, %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit ], [ null, %2 ], [ %13, %.preheader ]
+  %14 = phi ptr [ null, %2 ], [ null, %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit ], [ %13, %.preheader ]
   ret ptr %14
 }
 
@@ -20591,8 +20591,8 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i186.i.i:     ; preds = %_ZN4llvm12StringSwi
   br label %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit231.i.i
 
 _ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit191.i.i: ; preds = %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit181.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i.i178.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i176.i.i
-  %.not.i.i.i17512691280.i.i = phi i1 [ %.not.i.i.i175.i.i, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit181.i.i ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i176.i.i ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i.i178.i.i ]
-  %.sroa.94.17.i.i = phi i16 [ %.sroa.94.13.i.i, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit181.i.i ], [ %.sroa.94.13.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i176.i.i ], [ %.sroa.0.0.insert.insert.i.i180.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i.i178.i.i ]
+  %.not.i.i.i17512691280.i.i = phi i1 [ %.not.i.i.i175.i.i, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit181.i.i ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i.i178.i.i ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i176.i.i ]
+  %.sroa.94.17.i.i = phi i16 [ %.sroa.94.13.i.i, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit181.i.i ], [ %.sroa.0.0.insert.insert.i.i180.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i.i178.i.i ], [ %.sroa.94.13.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i176.i.i ]
   %80 = and i16 %.sroa.94.17.i.i, 256
   %.not1085.i.i = icmp eq i16 %80, 0
   %or.cond1011.i.i = select i1 %.not1085.i.i, i1 %.not.i.i.i17512691280.i.i, i1 false

@@ -4109,7 +4109,7 @@ dpow_ui.exit2584.us:                              ; preds = %.lr.ph.i2577.us, %1
   br i1 %1628, label %.lr.ph2809.us, label %.loopexit2594, !llvm.loop !77
 
 .loopexit2594:                                    ; preds = %..loopexit2617_crit_edge.us, %._crit_edge2810.us, %.loopexit2601, %._crit_edge2966, %.lr.ph2814, %.lr.ph2734, %1001, %682, %.preheader, %1316
-  %.8 = phi double [ 1.000000e+00, %1316 ], [ 1.000000e+00, %.preheader ], [ 1.000000e+00, %682 ], [ 1.000000e+00, %1001 ], [ 1.000000e+00, %.lr.ph2814 ], [ 1.000000e+00, %.lr.ph2734 ], [ %.29.lcssa.us, %._crit_edge2810.us ], [ %.1.lcssa, %._crit_edge2966 ], [ %.10.lcssa, %.loopexit2601 ], [ %.21.lcssa.us, %..loopexit2617_crit_edge.us ]
+  %.8 = phi double [ 1.000000e+00, %.lr.ph2814 ], [ %.10.lcssa, %.loopexit2601 ], [ 1.000000e+00, %1316 ], [ 1.000000e+00, %.lr.ph2734 ], [ 1.000000e+00, %.preheader ], [ 1.000000e+00, %682 ], [ %.29.lcssa.us, %._crit_edge2810.us ], [ %.1.lcssa, %._crit_edge2966 ], [ 1.000000e+00, %1001 ], [ %.21.lcssa.us, %..loopexit2617_crit_edge.us ]
   call void @free(ptr noundef %157) #8
   %1629 = load double, ptr %14, align 8, !tbaa !7
   store double %1629, ptr %11, align 8, !tbaa !7

@@ -3354,7 +3354,7 @@ _ZNK5clang10MemberExpr12getQualifierEv.exit.i.i:  ; preds = %48, %45
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN5clangneENS_22specific_attr_iteratorINS_9FinalAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !557
 
 _ZN5clangneENS_22specific_attr_iteratorINS_9FinalAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i.i.i: ; preds = %69, %.lr.ph.i.i.i.i.i.i.i
-  %.sroa.07.0.i.i.ph.i.i.i.i = phi ptr [ %64, %69 ], [ %.sroa.07.1.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ]
+  %.sroa.07.0.i.i.ph.i.i.i.i = phi ptr [ %.sroa.07.1.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ], [ %64, %69 ]
   %71 = icmp ne ptr %.sroa.07.0.i.i.ph.i.i.i.i, %64
   %72 = select i1 %71, i1 true, i1 %.sroa.0.0.i.i.i.i
   br label %_ZNK5clang4Decl7hasAttrINS_9FinalAttrEEEbv.exit.i.i

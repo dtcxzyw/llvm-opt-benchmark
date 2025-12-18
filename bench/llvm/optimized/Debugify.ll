@@ -1271,7 +1271,7 @@ _ZNK4llvm11Instruction7isEHPadEv.exit.thread:     ; preds = %174, %174, %174, %1
   br i1 %.not81, label %_ZNK4llvm10BasicBlock7isEHPadEv.exit.thread, label %.lr.ph161, !llvm.loop !207
 
 _ZNK4llvm10BasicBlock7isEHPadEv.exit.thread:      ; preds = %183, %_ZN12_GLOBAL__N_126findTerminatingInstructionERN4llvm10BasicBlockE.exit, %144, %144, %144, %144, %._crit_edge
-  %.173 = phi i1 [ %.072165, %._crit_edge ], [ %.072165, %144 ], [ %.072165, %144 ], [ %.072165, %144 ], [ %.072165, %144 ], [ %.072165, %_ZN12_GLOBAL__N_126findTerminatingInstructionERN4llvm10BasicBlockE.exit ], [ %.375, %183 ]
+  %.173 = phi i1 [ %.072165, %144 ], [ %.072165, %._crit_edge ], [ %.072165, %144 ], [ %.072165, %144 ], [ %.072165, %144 ], [ %.072165, %_ZN12_GLOBAL__N_126findTerminatingInstructionERN4llvm10BasicBlockE.exit ], [ %.375, %183 ]
   %191 = getelementptr inbounds nuw i8, ptr %.sroa.0123.0167, i64 8
   %.sroa.0123.0 = load ptr, ptr %191, align 8, !tbaa !187
   %.not150 = icmp eq ptr %.sroa.0123.0, %125
@@ -3526,7 +3526,7 @@ _ZN4llvm9MapVectorIPKNS_11InstructionEbNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEE
   br i1 %.not290, label %._crit_edge326, label %.lr.ph325
 
 _ZN12_GLOBAL__N_117isFunctionSkippedERN4llvm8FunctionE.exit.thread: ; preds = %._crit_edge326, %.loopexit, %133, %129, %129, %129, %127, %125, %_ZNK4llvm9MapVectorIPKNS_8FunctionEPKNS_12DISubprogramENS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_S6_ELj0EEEE5countERKS3_.exit, %_ZN12_GLOBAL__N_117isFunctionSkippedERN4llvm8FunctionE.exit
-  %.1.ph = phi i64 [ %.054334, %_ZN12_GLOBAL__N_117isFunctionSkippedERN4llvm8FunctionE.exit ], [ %.054334, %_ZNK4llvm9MapVectorIPKNS_8FunctionEPKNS_12DISubprogramENS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_S6_ELj0EEEE5countERKS3_.exit ], [ %.054334, %125 ], [ %.054334, %127 ], [ %.054334, %129 ], [ %.054334, %129 ], [ %.054334, %129 ], [ %.054334, %133 ], [ %138, %.loopexit ], [ %138, %._crit_edge326 ]
+  %.1.ph = phi i64 [ %.054334, %133 ], [ %.054334, %_ZN12_GLOBAL__N_117isFunctionSkippedERN4llvm8FunctionE.exit ], [ %.054334, %_ZNK4llvm9MapVectorIPKNS_8FunctionEPKNS_12DISubprogramENS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_S6_ELj0EEEE5countERKS3_.exit ], [ %.054334, %125 ], [ %.054334, %127 ], [ %.054334, %129 ], [ %.054334, %129 ], [ %.054334, %129 ], [ %138, %.loopexit ], [ %138, %._crit_edge326 ]
   %630 = getelementptr inbounds nuw i8, ptr %.sroa.0222.0333, i64 8
   %631 = load ptr, ptr %630, align 8, !tbaa !187
   %.not284 = icmp eq ptr %631, %2

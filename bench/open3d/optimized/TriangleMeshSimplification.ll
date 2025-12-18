@@ -3364,8 +3364,8 @@ _ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_M
   resume { ptr, i32 } %47
 
 _ZNKSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE15_M_find_node_trIiEEPNS1_10_Hash_nodeIiLb0EEEmRKT_m.exit: ; preds = %33, %19, %.critedge, %28
-  %.sroa.031.1 = phi ptr [ %29, %28 ], [ %46, %.critedge ], [ %.sroa.028.0, %19 ], [ %35, %33 ]
-  %.sroa.432.1 = phi i8 [ 0, %28 ], [ 1, %.critedge ], [ 0, %19 ], [ 0, %33 ]
+  %.sroa.031.1 = phi ptr [ %.sroa.028.0, %19 ], [ %46, %.critedge ], [ %29, %28 ], [ %35, %33 ]
+  %.sroa.432.1 = phi i8 [ 0, %19 ], [ 1, %.critedge ], [ 0, %28 ], [ 0, %33 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.031.1, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.432.1, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -4461,7 +4461,7 @@ _ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_M
   resume { ptr, i32 } %43
 
 _ZNKSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE12_M_find_nodeEmRKim.exit: ; preds = %32, %18, %27
-  %.sroa.042.0.ph = phi ptr [ %28, %27 ], [ %.sroa.034.0, %18 ], [ %34, %32 ]
+  %.sroa.042.0.ph = phi ptr [ %.sroa.034.0, %18 ], [ %28, %27 ], [ %34, %32 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 16) #26
   br label %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit
 
@@ -4897,9 +4897,9 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   br i1 %175, label %171, label %_ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELin1ELi1ELb0EEEEdVERKd.exit
 
 _ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELin1ELi1ELb0EEEEdVERKd.exit: ; preds = %171, %.preheader.us.us.i159, %.lr.ph.i17.i.i.i.i.i.i149, %.thread438, %168, %170, %._crit_edge.i.i.i.i.i.i148
-  %176 = phi double [ %115, %._crit_edge.i.i.i.i.i.i148 ], [ %115, %168 ], [ %115, %170 ], [ %107, %.thread438 ], [ %115, %.lr.ph.i17.i.i.i.i.i.i149 ], [ %115, %.preheader.us.us.i159 ], [ %115, %171 ]
-  %177 = phi i1 [ true, %._crit_edge.i.i.i.i.i.i148 ], [ false, %168 ], [ false, %170 ], [ %108, %.thread438 ], [ true, %.lr.ph.i17.i.i.i.i.i.i149 ], [ false, %.preheader.us.us.i159 ], [ false, %171 ]
-  %.4 = phi i8 [ %.0120.ph, %._crit_edge.i.i.i.i.i.i148 ], [ 0, %168 ], [ 1, %170 ], [ %.0120.ph, %.thread438 ], [ %.0120.ph, %.lr.ph.i17.i.i.i.i.i.i149 ], [ 1, %171 ], [ 0, %.preheader.us.us.i159 ]
+  %176 = phi double [ %115, %.lr.ph.i17.i.i.i.i.i.i149 ], [ %107, %.thread438 ], [ %115, %._crit_edge.i.i.i.i.i.i148 ], [ %115, %168 ], [ %115, %170 ], [ %115, %.preheader.us.us.i159 ], [ %115, %171 ]
+  %177 = phi i1 [ true, %.lr.ph.i17.i.i.i.i.i.i149 ], [ %108, %.thread438 ], [ true, %._crit_edge.i.i.i.i.i.i148 ], [ false, %168 ], [ false, %170 ], [ false, %.preheader.us.us.i159 ], [ false, %171 ]
+  %.4 = phi i8 [ %.0120.ph, %.lr.ph.i17.i.i.i.i.i.i149 ], [ %.0120.ph, %.thread438 ], [ %.0120.ph, %._crit_edge.i.i.i.i.i.i148 ], [ 0, %168 ], [ 1, %170 ], [ 0, %.preheader.us.us.i159 ], [ 1, %171 ]
   %178 = select i1 %177, i1 %.0116.ph, i1 false
   %.5 = select i1 %178, i8 0, i8 %.4
   %not. = xor i1 %177, true
@@ -7027,7 +7027,7 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   br label %.body363
 
 .loopexit792:                                     ; preds = %580, %.noexc362, %575
-  %.pn.i.i = phi ptr [ %576, %575 ], [ %591, %.noexc362 ], [ %582, %580 ]
+  %.pn.i.i = phi ptr [ %591, %.noexc362 ], [ %576, %575 ], [ %582, %580 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 12
   %593 = load i32, ptr %.1.i.i, align 4, !tbaa !59
   %594 = icmp sgt i32 %593, 1
@@ -7611,8 +7611,8 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   br label %.body408
 
 .loopexit791:                                     ; preds = %869, %.noexc407..loopexit791_crit_edge, %864
-  %882 = phi ptr [ %847, %864 ], [ %.pre929, %.noexc407..loopexit791_crit_edge ], [ %847, %869 ]
-  %.pn.i.i405 = phi ptr [ %865, %864 ], [ %880, %.noexc407..loopexit791_crit_edge ], [ %871, %869 ]
+  %882 = phi ptr [ %.pre929, %.noexc407..loopexit791_crit_edge ], [ %847, %864 ], [ %847, %869 ]
+  %.pn.i.i405 = phi ptr [ %880, %.noexc407..loopexit791_crit_edge ], [ %865, %864 ], [ %871, %869 ]
   %.1.i.i406 = getelementptr inbounds nuw i8, ptr %.pn.i.i405, i64 12
   store i32 %.0175873, ptr %.1.i.i406, align 4, !tbaa !59
   %883 = getelementptr inbounds nuw i8, ptr %882, i64 48
@@ -7815,10 +7815,10 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   br label %.body408
 
 .loopexit790:                                     ; preds = %969, %.noexc424..loopexit790_crit_edge, %964
-  %982 = phi ptr [ %947, %964 ], [ %.pre931, %.noexc424..loopexit790_crit_edge ], [ %947, %969 ]
-  %983 = phi ptr [ %961, %964 ], [ %.pre933, %.noexc424..loopexit790_crit_edge ], [ %961, %969 ]
-  %984 = phi i64 [ %959, %964 ], [ %.pre932, %.noexc424..loopexit790_crit_edge ], [ %959, %969 ]
-  %.pn.i.i422 = phi ptr [ %965, %964 ], [ %980, %.noexc424..loopexit790_crit_edge ], [ %971, %969 ]
+  %982 = phi ptr [ %.pre931, %.noexc424..loopexit790_crit_edge ], [ %947, %964 ], [ %947, %969 ]
+  %983 = phi ptr [ %.pre933, %.noexc424..loopexit790_crit_edge ], [ %961, %964 ], [ %961, %969 ]
+  %984 = phi i64 [ %.pre932, %.noexc424..loopexit790_crit_edge ], [ %959, %964 ], [ %959, %969 ]
+  %.pn.i.i422 = phi ptr [ %980, %.noexc424..loopexit790_crit_edge ], [ %965, %964 ], [ %971, %969 ]
   %.1.i.i423 = getelementptr inbounds nuw i8, ptr %.pn.i.i422, i64 12
   %985 = load i32, ptr %.1.i.i423, align 4, !tbaa !59
   %986 = getelementptr inbounds nuw i8, ptr %982, i64 120
@@ -7889,11 +7889,11 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   br label %.body408
 
 .loopexit789:                                     ; preds = %999, %.noexc438..loopexit789_crit_edge, %994
-  %1012 = phi ptr [ %982, %994 ], [ %.pre934, %.noexc438..loopexit789_crit_edge ], [ %982, %999 ]
-  %1013 = phi ptr [ %983, %994 ], [ %.pre938, %.noexc438..loopexit789_crit_edge ], [ %983, %999 ]
-  %1014 = phi i64 [ %984, %994 ], [ %.pre937, %.noexc438..loopexit789_crit_edge ], [ %984, %999 ]
-  %1015 = phi ptr [ %988, %994 ], [ %.pre936, %.noexc438..loopexit789_crit_edge ], [ %988, %999 ]
-  %.pn.i.i436 = phi ptr [ %995, %994 ], [ %1010, %.noexc438..loopexit789_crit_edge ], [ %1001, %999 ]
+  %1012 = phi ptr [ %.pre934, %.noexc438..loopexit789_crit_edge ], [ %982, %994 ], [ %982, %999 ]
+  %1013 = phi ptr [ %.pre938, %.noexc438..loopexit789_crit_edge ], [ %983, %994 ], [ %983, %999 ]
+  %1014 = phi i64 [ %.pre937, %.noexc438..loopexit789_crit_edge ], [ %984, %994 ], [ %984, %999 ]
+  %1015 = phi ptr [ %.pre936, %.noexc438..loopexit789_crit_edge ], [ %988, %994 ], [ %988, %999 ]
+  %.pn.i.i436 = phi ptr [ %1010, %.noexc438..loopexit789_crit_edge ], [ %995, %994 ], [ %1001, %999 ]
   %.1.i.i437 = getelementptr inbounds nuw i8, ptr %.pn.i.i436, i64 12
   %1016 = load i32, ptr %.1.i.i437, align 4, !tbaa !59
   %1017 = getelementptr inbounds nuw %"class.Eigen::Matrix.84", ptr %1015, i64 %987
@@ -7960,9 +7960,9 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   br label %.body408
 
 .loopexit:                                        ; preds = %1028, %.noexc452..loopexit_crit_edge, %1023
-  %1041 = phi ptr [ %1012, %1023 ], [ %.pre939, %.noexc452..loopexit_crit_edge ], [ %1012, %1028 ]
-  %1042 = phi ptr [ %1015, %1023 ], [ %.pre941, %.noexc452..loopexit_crit_edge ], [ %1015, %1028 ]
-  %.pn.i.i450 = phi ptr [ %1024, %1023 ], [ %1039, %.noexc452..loopexit_crit_edge ], [ %1030, %1028 ]
+  %1041 = phi ptr [ %.pre939, %.noexc452..loopexit_crit_edge ], [ %1012, %1023 ], [ %1012, %1028 ]
+  %1042 = phi ptr [ %.pre941, %.noexc452..loopexit_crit_edge ], [ %1015, %1023 ], [ %1015, %1028 ]
+  %.pn.i.i450 = phi ptr [ %1039, %.noexc452..loopexit_crit_edge ], [ %1024, %1023 ], [ %1030, %1028 ]
   %.1.i.i451 = getelementptr inbounds nuw i8, ptr %.pn.i.i450, i64 12
   %1043 = load i32, ptr %.1.i.i451, align 4, !tbaa !59
   %1044 = getelementptr inbounds nuw %"class.Eigen::Matrix.84", ptr %1042, i64 %987
@@ -10849,8 +10849,8 @@ _ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_M
   resume { ptr, i32 } %47
 
 _ZNKSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE15_M_find_node_trIiEEPNS1_10_Hash_nodeIiLb0EEEmRKT_m.exit: ; preds = %33, %19, %.critedge, %28
-  %.sroa.031.1 = phi ptr [ %29, %28 ], [ %46, %.critedge ], [ %.sroa.028.0, %19 ], [ %35, %33 ]
-  %.sroa.432.1 = phi i8 [ 0, %28 ], [ 1, %.critedge ], [ 0, %19 ], [ 0, %33 ]
+  %.sroa.031.1 = phi ptr [ %.sroa.028.0, %19 ], [ %46, %.critedge ], [ %29, %28 ], [ %35, %33 ]
+  %.sroa.432.1 = phi i8 [ 0, %19 ], [ 1, %.critedge ], [ 0, %28 ], [ 0, %33 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.031.1, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.432.1, 1
   ret { ptr, i8 } %.fca.1.insert

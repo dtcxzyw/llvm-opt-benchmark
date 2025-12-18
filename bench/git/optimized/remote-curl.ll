@@ -1782,11 +1782,11 @@ skip_prefix.exit.preheader:                       ; preds = %451
   unreachable
 
 set_option.exit:                                  ; preds = %472, %495, %567
-  %.1.i73 = phi i32 [ %.0.i75, %472 ], [ %.3.i, %567 ], [ %.2.i74, %495 ]
+  %.1.i73 = phi i32 [ %.3.i, %567 ], [ %.0.i75, %472 ], [ %.2.i74, %495 ]
   %.not32 = icmp eq i32 %.1.i73, 0
   br i1 %.not32, label %set_option.exit.thread, label %.thread
 
-.thread:                                          ; preds = %661, %633, %601, %620, %588, %575, %550, %537, %524, %511, %480, %set_option.exit
+.thread:                                          ; preds = %480, %511, %524, %661, %633, %537, %601, %620, %588, %550, %575, %set_option.exit
   br label %set_option.exit.thread
 
 set_option.exit.thread:                           ; preds = %678, %set_option.exit, %680, %657, %676, %671, %666, %643, %611, %638, %606, %593, %580, %555, %542, %529, %516, %502, %498, %485, %617, %622, %650, %660, %663, %.thread

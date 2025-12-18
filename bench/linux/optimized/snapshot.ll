@@ -499,7 +499,7 @@ define dso_local noundef range(i32 -12, 1) i32 @create_basic_memory_bitmaps() lo
   br label %97
 
 97:                                               ; preds = %94, %86
-  %98 = phi i32 [ %87, %86 ], [ %96, %94 ]
+  %98 = phi i32 [ %96, %94 ], [ %87, %86 ]
   %99 = icmp eq i32 %98, 0
   br i1 %99, label %.thread, label %100
 
@@ -1845,7 +1845,7 @@ thread-pre-split:                                 ; preds = %.loopexit135
   br label %301
 
 .loopexit:                                        ; preds = %.preheader153, %.preheader, %47, %301
-  %717 = phi i32 [ %302, %301 ], [ -12, %47 ], [ %302, %.preheader ], [ -12, %.preheader153 ]
+  %717 = phi i32 [ %302, %.preheader ], [ %302, %301 ], [ -12, %47 ], [ -12, %.preheader153 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %717
 }
@@ -3409,7 +3409,7 @@ define dso_local void @clear_or_poison_free_pages() local_unnamed_addr #3 align 
   br label %120
 
 120:                                              ; preds = %117, %109
-  %121 = phi i32 [ %110, %109 ], [ %119, %117 ]
+  %121 = phi i32 [ %119, %117 ], [ %110, %109 ]
   %122 = icmp eq i32 %121, 0
   br i1 %122, label %.thread15, label %123
 
@@ -4113,7 +4113,7 @@ define dso_local void @swsusp_free() local_unnamed_addr #3 align 16 {
   br label %341
 
 341:                                              ; preds = %338, %330
-  %342 = phi i32 [ %331, %330 ], [ %340, %338 ]
+  %342 = phi i32 [ %340, %338 ], [ %331, %330 ]
   %343 = icmp eq i32 %342, 0
   br i1 %343, label %.thread, label %344
 
@@ -5191,10 +5191,10 @@ define dso_local noundef range(i32 -12, 1) i32 @swsusp_save() local_unnamed_addr
   br label %178
 
 .loopexit52.sink.split:                           ; preds = %182, %423, %440
-  %.lcssa244.sink = phi i64 [ %435, %423 ], [ %453, %440 ], [ %195, %182 ]
-  %.lcssa240.sink = phi ptr [ %439, %423 ], [ %457, %440 ], [ %199, %182 ]
-  %.lcssa242.sink = phi i64 [ %437, %423 ], [ %455, %440 ], [ %197, %182 ]
-  %.ph273 = phi i32 [ %424, %423 ], [ %424, %440 ], [ 0, %182 ]
+  %.lcssa244.sink = phi i64 [ %453, %440 ], [ %435, %423 ], [ %195, %182 ]
+  %.lcssa240.sink = phi ptr [ %457, %440 ], [ %439, %423 ], [ %199, %182 ]
+  %.lcssa242.sink = phi i64 [ %455, %440 ], [ %437, %423 ], [ %197, %182 ]
+  %.ph273 = phi i32 [ %424, %440 ], [ %424, %423 ], [ 0, %182 ]
   %214 = trunc i64 %.lcssa244.sink to i32
   %215 = getelementptr inbounds nuw i8, ptr %.lcssa240.sink, i64 48
   %216 = load i64, ptr %215, align 8
@@ -6468,7 +6468,7 @@ define dso_local i32 @snapshot_write_next(ptr noundef captures(none) %0) local_u
   br label %177
 
 177:                                              ; preds = %174, %166
-  %178 = phi i32 [ %167, %166 ], [ %176, %174 ]
+  %178 = phi i32 [ %176, %174 ], [ %167, %166 ]
   %179 = icmp eq i32 %178, 0
   br i1 %179, label %.thread79, label %180
 
@@ -8421,7 +8421,7 @@ define internal fastcc void @mark_free_pages(ptr noundef nonnull %0) unnamed_add
   br label %79
 
 79:                                               ; preds = %76, %68
-  %80 = phi i32 [ %69, %68 ], [ %78, %76 ]
+  %80 = phi i32 [ %78, %76 ], [ %69, %68 ]
   %81 = icmp eq i32 %80, 0
   br i1 %81, label %.thread, label %82
 
@@ -8829,7 +8829,7 @@ define internal fastcc ptr @saveable_page(ptr noundef nonnull readnone captures(
   br label %67
 
 67:                                               ; preds = %64, %56
-  %68 = phi i32 [ %57, %56 ], [ %66, %64 ]
+  %68 = phi i32 [ %66, %64 ], [ %57, %56 ]
   %69 = icmp eq i32 %68, 0
   br i1 %69, label %.thread, label %70
 

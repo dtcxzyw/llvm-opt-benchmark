@@ -3480,10 +3480,10 @@ _ZNSt6vectorIcSaIcEE6resizeEm.exit:               ; preds = %47, %54, %58, %_ZNS
   br i1 %71, label %.loopexit, label %30
 
 .loopexit:                                        ; preds = %_ZNSt6vectorIcSaIcEE6resizeEm.exit, %46, %.noexc, %39, %38
-  %.sroa.22.065 = phi ptr [ %.sroa.22.069, %38 ], [ %.sroa.22.069, %46 ], [ %.sroa.22.069, %39 ], [ %.sroa.22.069, %.noexc ], [ %.sroa.22.1, %_ZNSt6vectorIcSaIcEE6resizeEm.exit ]
-  %.sroa.039.061 = phi ptr [ %.sroa.039.070, %38 ], [ %.sroa.039.070, %46 ], [ %.sroa.039.070, %39 ], [ %.sroa.039.070, %.noexc ], [ %.sroa.039.1, %_ZNSt6vectorIcSaIcEE6resizeEm.exit ]
-  %72 = phi i64 [ %32, %38 ], [ %32, %46 ], [ %32, %39 ], [ %32, %.noexc ], [ %69, %_ZNSt6vectorIcSaIcEE6resizeEm.exit ]
-  %spec.select29 = phi i8 [ %3, %38 ], [ 1, %46 ], [ 1, %39 ], [ 0, %.noexc ], [ %3, %_ZNSt6vectorIcSaIcEE6resizeEm.exit ]
+  %.sroa.22.065 = phi ptr [ %.sroa.22.069, %.noexc ], [ %.sroa.22.069, %38 ], [ %.sroa.22.069, %46 ], [ %.sroa.22.069, %39 ], [ %.sroa.22.1, %_ZNSt6vectorIcSaIcEE6resizeEm.exit ]
+  %.sroa.039.061 = phi ptr [ %.sroa.039.070, %.noexc ], [ %.sroa.039.070, %38 ], [ %.sroa.039.070, %46 ], [ %.sroa.039.070, %39 ], [ %.sroa.039.1, %_ZNSt6vectorIcSaIcEE6resizeEm.exit ]
+  %72 = phi i64 [ %32, %.noexc ], [ %32, %38 ], [ %32, %46 ], [ %32, %39 ], [ %69, %_ZNSt6vectorIcSaIcEE6resizeEm.exit ]
+  %spec.select29 = phi i8 [ 0, %.noexc ], [ %3, %38 ], [ 1, %46 ], [ 1, %39 ], [ %3, %_ZNSt6vectorIcSaIcEE6resizeEm.exit ]
   %73 = ptrtoint ptr %.sroa.22.065 to i64
   %74 = sub i64 %73, %72
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.039.061, i64 noundef %74) #27
@@ -4327,7 +4327,7 @@ define linkonce_odr { ptr, i8 } @_ZNKSt7num_putIcSt19ostreambuf_iteratorIcSt11ch
   br i1 %.not25.i, label %_ZSt13__int_to_charIcmEiPT_T0_PKS0_St13_Ios_Fmtflagsb.exit, label %33, !llvm.loop !67
 
 _ZSt13__int_to_charIcmEiPT_T0_PKS0_St13_Ios_Fmtflagsb.exit: ; preds = %33, %.preheader28.i, %.preheader.i
-  %.123.i = phi ptr [ %28, %.preheader28.i ], [ %22, %.preheader.i ], [ %36, %33 ]
+  %.123.i = phi ptr [ %22, %.preheader.i ], [ %28, %.preheader28.i ], [ %36, %33 ]
   %38 = ptrtoint ptr %16 to i64
   %39 = ptrtoint ptr %.123.i to i64
   %40 = sub i64 %38, %39
@@ -5790,7 +5790,7 @@ define linkonce_odr { ptr, i8 } @_ZNKSt7num_putIcSt19ostreambuf_iteratorIcSt11ch
   br i1 %.not25.i, label %_ZSt13__int_to_charIcmEiPT_T0_PKS0_St13_Ios_Fmtflagsb.exit, label %32, !llvm.loop !67
 
 _ZSt13__int_to_charIcmEiPT_T0_PKS0_St13_Ios_Fmtflagsb.exit: ; preds = %32, %.preheader28.i, %.preheader.i
-  %.123.i = phi ptr [ %27, %.preheader28.i ], [ %21, %.preheader.i ], [ %35, %32 ]
+  %.123.i = phi ptr [ %21, %.preheader.i ], [ %27, %.preheader28.i ], [ %35, %32 ]
   %37 = ptrtoint ptr %16 to i64
   %38 = ptrtoint ptr %.123.i to i64
   %39 = sub i64 %37, %38
@@ -6280,7 +6280,7 @@ define linkonce_odr { ptr, i8 } @_ZNKSt7num_putIcSt19ostreambuf_iteratorIcSt11ch
   br i1 %.not25.i, label %_ZSt13__int_to_charIcyEiPT_T0_PKS0_St13_Ios_Fmtflagsb.exit, label %33, !llvm.loop !98
 
 _ZSt13__int_to_charIcyEiPT_T0_PKS0_St13_Ios_Fmtflagsb.exit: ; preds = %33, %.preheader28.i, %.preheader.i
-  %.123.i = phi ptr [ %28, %.preheader28.i ], [ %22, %.preheader.i ], [ %36, %33 ]
+  %.123.i = phi ptr [ %22, %.preheader.i ], [ %28, %.preheader28.i ], [ %36, %33 ]
   %38 = ptrtoint ptr %16 to i64
   %39 = ptrtoint ptr %.123.i to i64
   %40 = sub i64 %38, %39
@@ -6803,7 +6803,7 @@ define linkonce_odr { ptr, i8 } @_ZNKSt7num_putIcSt19ostreambuf_iteratorIcSt11ch
   br i1 %.not25.i, label %_ZSt13__int_to_charIcyEiPT_T0_PKS0_St13_Ios_Fmtflagsb.exit, label %32, !llvm.loop !98
 
 _ZSt13__int_to_charIcyEiPT_T0_PKS0_St13_Ios_Fmtflagsb.exit: ; preds = %32, %.preheader28.i, %.preheader.i
-  %.123.i = phi ptr [ %27, %.preheader28.i ], [ %21, %.preheader.i ], [ %35, %32 ]
+  %.123.i = phi ptr [ %21, %.preheader.i ], [ %27, %.preheader28.i ], [ %35, %32 ]
   %37 = ptrtoint ptr %16 to i64
   %38 = ptrtoint ptr %.123.i to i64
   %39 = sub i64 %37, %38
@@ -10365,7 +10365,7 @@ define linkonce_odr { ptr, i8 } @_ZNKSt7num_putIwSt19ostreambuf_iteratorIwSt11ch
   br i1 %.not25.i, label %_ZSt13__int_to_charIwmEiPT_T0_PKS0_St13_Ios_Fmtflagsb.exit, label %33, !llvm.loop !143
 
 _ZSt13__int_to_charIwmEiPT_T0_PKS0_St13_Ios_Fmtflagsb.exit: ; preds = %33, %.preheader28.i, %.preheader.i
-  %.123.i = phi ptr [ %28, %.preheader28.i ], [ %22, %.preheader.i ], [ %36, %33 ]
+  %.123.i = phi ptr [ %22, %.preheader.i ], [ %28, %.preheader28.i ], [ %36, %33 ]
   %38 = ptrtoint ptr %16 to i64
   %39 = ptrtoint ptr %.123.i to i64
   %40 = sub i64 %38, %39
@@ -11485,7 +11485,7 @@ define linkonce_odr { ptr, i8 } @_ZNKSt7num_putIwSt19ostreambuf_iteratorIwSt11ch
   br i1 %.not25.i, label %_ZSt13__int_to_charIwmEiPT_T0_PKS0_St13_Ios_Fmtflagsb.exit, label %32, !llvm.loop !143
 
 _ZSt13__int_to_charIwmEiPT_T0_PKS0_St13_Ios_Fmtflagsb.exit: ; preds = %32, %.preheader28.i, %.preheader.i
-  %.123.i = phi ptr [ %27, %.preheader28.i ], [ %21, %.preheader.i ], [ %35, %32 ]
+  %.123.i = phi ptr [ %21, %.preheader.i ], [ %27, %.preheader28.i ], [ %35, %32 ]
   %37 = ptrtoint ptr %16 to i64
   %38 = ptrtoint ptr %.123.i to i64
   %39 = sub i64 %37, %38
@@ -11987,7 +11987,7 @@ define linkonce_odr { ptr, i8 } @_ZNKSt7num_putIwSt19ostreambuf_iteratorIwSt11ch
   br i1 %.not25.i, label %_ZSt13__int_to_charIwyEiPT_T0_PKS0_St13_Ios_Fmtflagsb.exit, label %33, !llvm.loop !166
 
 _ZSt13__int_to_charIwyEiPT_T0_PKS0_St13_Ios_Fmtflagsb.exit: ; preds = %33, %.preheader28.i, %.preheader.i
-  %.123.i = phi ptr [ %28, %.preheader28.i ], [ %22, %.preheader.i ], [ %36, %33 ]
+  %.123.i = phi ptr [ %22, %.preheader.i ], [ %28, %.preheader28.i ], [ %36, %33 ]
   %38 = ptrtoint ptr %16 to i64
   %39 = ptrtoint ptr %.123.i to i64
   %40 = sub i64 %38, %39
@@ -12522,7 +12522,7 @@ define linkonce_odr { ptr, i8 } @_ZNKSt7num_putIwSt19ostreambuf_iteratorIwSt11ch
   br i1 %.not25.i, label %_ZSt13__int_to_charIwyEiPT_T0_PKS0_St13_Ios_Fmtflagsb.exit, label %32, !llvm.loop !166
 
 _ZSt13__int_to_charIwyEiPT_T0_PKS0_St13_Ios_Fmtflagsb.exit: ; preds = %32, %.preheader28.i, %.preheader.i
-  %.123.i = phi ptr [ %27, %.preheader28.i ], [ %21, %.preheader.i ], [ %35, %32 ]
+  %.123.i = phi ptr [ %21, %.preheader.i ], [ %27, %.preheader28.i ], [ %35, %32 ]
   %37 = ptrtoint ptr %16 to i64
   %38 = ptrtoint ptr %.123.i to i64
   %39 = sub i64 %37, %38

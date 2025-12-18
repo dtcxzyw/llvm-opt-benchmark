@@ -10132,16 +10132,16 @@ switch.early.test:                                ; preds = %3
   store volatile i32 167772234, ptr %16, align 4
   %17 = load i32, ptr @wal_sync_method, align 4
   switch i32 %17, label %20 [
-    i32 0, label %25
-    i32 1, label %18
+    i32 0, label %18
+    i32 1, label %25
     i32 2, label %.critedge
     i32 4, label %.critedge
   ]
 
 18:                                               ; preds = %9
-  %19 = tail call i32 @pg_fdatasync(i32 noundef %0) #26
-  %.not = icmp eq i32 %19, 0
-  br i1 %.not, label %.critedge, label %27
+  %19 = tail call i32 @pg_fsync_no_writethrough(i32 noundef %0) #26
+  %.not16 = icmp eq i32 %19, 0
+  br i1 %.not16, label %.critedge, label %27
 
 20:                                               ; preds = %9
   %21 = tail call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #25
@@ -10152,12 +10152,12 @@ switch.early.test:                                ; preds = %3
   unreachable
 
 25:                                               ; preds = %9
-  %26 = tail call i32 @pg_fsync_no_writethrough(i32 noundef %0) #26
-  %.not16 = icmp eq i32 %26, 0
-  br i1 %.not16, label %.critedge, label %27
+  %26 = tail call i32 @pg_fdatasync(i32 noundef %0) #26
+  %.not = icmp eq i32 %26, 0
+  br i1 %.not, label %.critedge, label %27
 
 27:                                               ; preds = %18, %25
-  %.021 = phi ptr [ @.str.77, %18 ], [ @.str.76, %25 ]
+  %.021 = phi ptr [ @.str.76, %18 ], [ @.str.77, %25 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %28 = tail call ptr @__errno_location() #27
   %29 = load i32, ptr %28, align 4

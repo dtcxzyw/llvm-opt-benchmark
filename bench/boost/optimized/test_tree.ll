@@ -4916,7 +4916,7 @@ define noundef i64 @_ZNK5boost9unit_test10test_suite3getENS0_13basic_cstringIKcE
   br i1 %33, label %.thread38, label %9, !llvm.loop !154
 
 .thread38:                                        ; preds = %.thread, %23, %28, %2
-  %34 = phi i64 [ 4294967295, %2 ], [ %10, %28 ], [ %10, %23 ], [ 4294967295, %.thread ]
+  %34 = phi i64 [ 4294967295, %2 ], [ %10, %28 ], [ 4294967295, %.thread ], [ %10, %23 ]
   ret i64 %34
 }
 
@@ -7903,7 +7903,7 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5boost9unit_test13basic_cstringIKcEEEclI
   br i1 %.not.i.i.i.i.i62, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5boost9unit_test13basic_cstringIKcEEEclINS_17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISG_SaISG_EEEEEEbT_.exit63, label %.lr.ph.i.i.i.i.i58, !llvm.loop !153
 
 _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5boost9unit_test13basic_cstringIKcEEEclINS_17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISG_SaISG_EEEEEEbT_.exit63: ; preds = %59, %46, %33, %20, %25, %38, %51, %64, %87, %102, %117, %.lr.ph.i.i.i.i.i58, %112, %97, %82, %107, %._crit_edge
-  %.sroa.08.0.in.sroa.speculated = phi ptr [ %1, %107 ], [ %1, %._crit_edge ], [ %.sroa.073.2, %112 ], [ %.sroa.073.0.lcssa, %82 ], [ %.sroa.073.1, %97 ], [ %.sroa.073.0.lcssa, %87 ], [ %55, %64 ], [ %42, %51 ], [ %29, %38 ], [ %.sroa.073.0100, %25 ], [ %1, %.lr.ph.i.i.i.i.i58 ], [ %.sroa.073.1, %102 ], [ %.sroa.073.2, %117 ], [ %55, %59 ], [ %42, %46 ], [ %29, %33 ], [ %.sroa.073.0100, %20 ]
+  %.sroa.08.0.in.sroa.speculated = phi ptr [ %.sroa.073.0100, %25 ], [ %1, %107 ], [ %55, %64 ], [ %.sroa.073.0.lcssa, %87 ], [ %29, %38 ], [ %.sroa.073.1, %102 ], [ %1, %.lr.ph.i.i.i.i.i58 ], [ %1, %._crit_edge ], [ %.sroa.073.2, %112 ], [ %42, %51 ], [ %.sroa.073.0.lcssa, %82 ], [ %.sroa.073.1, %97 ], [ %.sroa.073.2, %117 ], [ %55, %59 ], [ %42, %46 ], [ %29, %33 ], [ %.sroa.073.0100, %20 ]
   ret ptr %.sroa.08.0.in.sroa.speculated
 }
 

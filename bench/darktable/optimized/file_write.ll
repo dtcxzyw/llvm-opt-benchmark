@@ -128,7 +128,7 @@ define void @_ZN6LibRaw8tiff_setEP8tiff_hdrPtttii(ptr noundef nonnull readnone a
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader46, %.preheader, %.preheader48, %22, %33
-  %.040 = phi i32 [ %29, %22 ], [ %5, %33 ], [ %5, %.preheader48 ], [ %5, %.preheader ], [ %29, %.preheader46 ]
+  %.040 = phi i32 [ %5, %33 ], [ %5, %.preheader48 ], [ %29, %22 ], [ %5, %.preheader ], [ %29, %.preheader46 ]
   %40 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 %.040, ptr %40, align 4, !tbaa !76
   %41 = getelementptr inbounds nuw i8, ptr %12, i64 2
@@ -1582,7 +1582,7 @@ _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit:               ; preds = %79, %.noexc74, %_ZN
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.preheader108.preheader, %._crit_edge.loopexit145, %._crit_edge.loopexit, %.preheader110
-  %.150.lcssa = phi i32 [ %.049139, %.preheader110 ], [ %238, %._crit_edge.loopexit ], [ %225, %.preheader108.preheader ], [ %239, %._crit_edge.loopexit145 ]
+  %.150.lcssa = phi i32 [ %.049139, %.preheader110 ], [ %238, %._crit_edge.loopexit ], [ %239, %._crit_edge.loopexit145 ], [ %225, %.preheader108.preheader ]
   %240 = icmp eq i32 %.pre, 16
   %241 = load i32, ptr %81, align 4
   %.not70 = icmp eq i32 %241, 0

@@ -1414,7 +1414,7 @@ switch.edge:                                      ; preds = %34, %35, %34, %34, 
   br label %GL_GetFBO.exit
 
 GL_GetFBO.exit:                                   ; preds = %78, %.critedge, %83, %.critedge26.i
-  %.sink = phi ptr [ null, %.critedge26.i ], [ %82, %83 ], [ null, %.critedge ], [ %.030.i, %78 ]
+  %.sink = phi ptr [ null, %.critedge ], [ null, %.critedge26.i ], [ %82, %83 ], [ %.030.i, %78 ]
   %90 = getelementptr inbounds nuw i8, ptr %26, i64 120
   store ptr %.sink, ptr %90, align 8
   %91 = tail call i64 @SDL_GetNumberProperty_REAL(i32 noundef %2, ptr noundef nonnull @.str.23, i64 noundef 0) #6
@@ -1796,7 +1796,7 @@ switch.edge:                                      ; preds = %5
   br label %switch.edge.thread
 
 switch.edge.thread:                               ; preds = %.preheader, %17, %14, %13, %13, %13, %13, %switch.edge
-  %18 = phi i32 [ 2, %13 ], [ %15, %switch.edge ], [ 2, %13 ], [ 1, %14 ], [ 2, %13 ], [ 2, %13 ], [ 0, %17 ], [ 0, %.preheader ]
+  %18 = phi i32 [ 2, %13 ], [ 0, %17 ], [ %15, %switch.edge ], [ 2, %13 ], [ 1, %14 ], [ 2, %13 ], [ 2, %13 ], [ 0, %.preheader ]
   %19 = tail call fastcc zeroext i1 @GL_ActivateRenderer(ptr noundef nonnull %0)
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 536
   store ptr null, ptr %20, align 8
@@ -4093,7 +4093,7 @@ define internal fastcc noundef zeroext i1 @GL_CheckAllErrors(ptr noundef %0, ptr
   br i1 %.not, label %GL_ClearErrors.exit, label %.lr.ph
 
 GL_ClearErrors.exit:                              ; preds = %67, %.preheader1.i, %.preheader4, %17, %._crit_edge, %34, %._crit_edge.i, %48, %4
-  %.0 = phi i1 [ true, %4 ], [ true, %17 ], [ false, %._crit_edge ], [ %20, %34 ], [ %20, %._crit_edge.i ], [ %20, %48 ], [ true, %.preheader4 ], [ %20, %.preheader1.i ], [ false, %67 ]
+  %.0 = phi i1 [ true, %4 ], [ %20, %.preheader1.i ], [ true, %17 ], [ false, %._crit_edge ], [ %20, %34 ], [ %20, %._crit_edge.i ], [ %20, %48 ], [ true, %.preheader4 ], [ false, %67 ]
   ret i1 %.0
 }
 

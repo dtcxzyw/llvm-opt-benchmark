@@ -1372,7 +1372,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit155: ; preds = %_ZSt
   resume { ptr, i32 } %.pn83
 
 .thread184:                                       ; preds = %330, %.preheader, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit155, %213, %97, %52
-  %.060 = phi i32 [ 1, %52 ], [ 1, %97 ], [ 1, %213 ], [ 1, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit155 ], [ 0, %.preheader ], [ 0, %330 ]
+  %.060 = phi i32 [ 1, %52 ], [ 1, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit155 ], [ 1, %97 ], [ 1, %213 ], [ 0, %.preheader ], [ 0, %330 ]
   ret i32 %.060
 }
 

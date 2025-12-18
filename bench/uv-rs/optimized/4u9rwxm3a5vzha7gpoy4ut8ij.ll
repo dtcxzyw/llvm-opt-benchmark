@@ -8926,7 +8926,7 @@ define hidden void @_ZN8tempfile4util13create_helper17h0ec826b8a79f9aecE(ptr dea
   br label %.body
 
 .loopexit.split-lp:                               ; preds = %9, %31, %83, %_ZN3std4path4Path4join17h49f2cecf2ec08357E.exit, %48, %_ZN4core3ops8function6FnOnce9call_once17hf6eaf181ebc5c77dE.exit.i, %"_ZN111_$LT$core..result..Result$LT$T$C$std..io..error..Error$GT$$u20$as$u20$tempfile..error..IoResultExt$LT$T$GT$$GT$13with_err_path28_$u7b$$u7b$closure$u7d$$u7d$17h925df7919b099596E.exit.i"
-  %.sroa.014.0.ph = phi i8 [ 0, %9 ], [ 0, %31 ], [ 1, %48 ], [ %.sroa.014.2, %_ZN4core3ops8function6FnOnce9call_once17hf6eaf181ebc5c77dE.exit.i ], [ %.sroa.014.2, %83 ], [ %.sroa.014.2, %"_ZN111_$LT$core..result..Result$LT$T$C$std..io..error..Error$GT$$u20$as$u20$tempfile..error..IoResultExt$LT$T$GT$$GT$13with_err_path28_$u7b$$u7b$closure$u7d$$u7d$17h925df7919b099596E.exit.i" ], [ 1, %_ZN3std4path4Path4join17h49f2cecf2ec08357E.exit ]
+  %.sroa.014.0.ph = phi i8 [ %.sroa.014.2, %"_ZN111_$LT$core..result..Result$LT$T$C$std..io..error..Error$GT$$u20$as$u20$tempfile..error..IoResultExt$LT$T$GT$$GT$13with_err_path28_$u7b$$u7b$closure$u7d$$u7d$17h925df7919b099596E.exit.i" ], [ 1, %_ZN3std4path4Path4join17h49f2cecf2ec08357E.exit ], [ %.sroa.014.2, %83 ], [ %.sroa.014.2, %_ZN4core3ops8function6FnOnce9call_once17hf6eaf181ebc5c77dE.exit.i ], [ 1, %48 ], [ 0, %31 ], [ 0, %9 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body

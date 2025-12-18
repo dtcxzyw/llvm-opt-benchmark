@@ -4942,7 +4942,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit.i.i: ; preds =
   br i1 %.not.i.i858, label %"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZN19cmCPackIFWInstaller20ConfigureFromOptionsEvE3$_0ET_SF_SF_T0_.exit", label %.lr.ph.i.i, !llvm.loop !116
 
 "_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZN19cmCPackIFWInstaller20ConfigureFromOptionsEvE3$_0ET_SF_SF_T0_.exit": ; preds = %1542, %._crit_edge.i.i.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIZN19cmCPackIFWInstaller20ConfigureFromOptionsEvE3$_0EEET_SI_SI_T0_.exit.i.i"
-  %.sroa.013.0.i.i = phi ptr [ %.sroa.08.0.in.sroa.speculated.i.i.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIZN19cmCPackIFWInstaller20ConfigureFromOptionsEvE3$_0EEET_SI_SI_T0_.exit.i.i" ], [ %1476, %._crit_edge.i.i.i.i ], [ %.sroa.013.2.i.i, %1542 ]
+  %.sroa.013.0.i.i = phi ptr [ %1476, %._crit_edge.i.i.i.i ], [ %.sroa.08.0.in.sroa.speculated.i.i.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIZN19cmCPackIFWInstaller20ConfigureFromOptionsEvE3$_0EEET_SI_SI_T0_.exit.i.i" ], [ %.sroa.013.2.i.i, %1542 ]
   %1543 = load ptr, ptr %1465, align 8, !tbaa !114
   %1544 = load ptr, ptr %1463, align 8, !tbaa !114
   %1545 = ptrtoint ptr %.sroa.013.0.i.i to i64

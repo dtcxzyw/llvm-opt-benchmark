@@ -477,7 +477,7 @@ find_unencode_writer.exit.thread.thread:          ; preds = %106, %123, %find_un
   br label %.thread154
 
 .thread154:                                       ; preds = %141, %73, %108, %145, %125, %64, %63, %57, %52, %121, %120, %114, %109
-  %.2.ph = phi i32 [ 0, %109 ], [ 0, %114 ], [ 0, %120 ], [ 0, %121 ], [ 0, %52 ], [ 0, %57 ], [ 0, %63 ], [ 0, %64 ], [ 61, %125 ], [ %144, %145 ], [ 0, %108 ], [ 61, %73 ], [ %126, %141 ]
+  %.2.ph = phi i32 [ 0, %109 ], [ 0, %114 ], [ 0, %120 ], [ 0, %121 ], [ 0, %52 ], [ 0, %57 ], [ 0, %63 ], [ 0, %64 ], [ 61, %125 ], [ 61, %73 ], [ %144, %145 ], [ 0, %108 ], [ %126, %141 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit
 
@@ -979,8 +979,8 @@ process_zlib_error.exit102:                       ; preds = %75, %76
   store i32 0, ptr %9, align 4, !tbaa !103
   br label %exit_zlib.exit90.thread
 
-exit_zlib.exit90.thread:                          ; preds = %51, %84, %82, %70, %52, %72, %48, %process_zlib_error.exit.i
-  %.169 = phi i32 [ %41, %process_zlib_error.exit.i ], [ %41, %48 ], [ 61, %84 ], [ 61, %82 ], [ 61, %70 ], [ %53, %52 ], [ 61, %72 ], [ 0, %51 ]
+exit_zlib.exit90.thread:                          ; preds = %51, %70, %82, %52, %72, %84, %48, %process_zlib_error.exit.i
+  %.169 = phi i32 [ %41, %48 ], [ %41, %process_zlib_error.exit.i ], [ 61, %70 ], [ 61, %82 ], [ %53, %52 ], [ 61, %84 ], [ 61, %72 ], [ 0, %51 ]
   %86 = load ptr, ptr @Curl_cfree, align 8, !tbaa !104
   tail call void %86(ptr noundef nonnull %19) #8
   %.not80 = icmp eq i32 %7, 0
@@ -1288,7 +1288,7 @@ define internal i32 @gzip_do_write(ptr noundef %0, ptr noundef %1, i32 noundef %
   store i32 4, ptr %15, align 8, !tbaa !97
   br label %exit_zlib.exit.thread
 
-73:                                               ; preds = %23, %28, %25
+73:                                               ; preds = %25, %23, %28
   %74 = getelementptr i8, ptr %1, i64 88
   %.val96 = load ptr, ptr %74, align 8, !tbaa !96
   %.not.i97 = icmp eq ptr %.val96, null
@@ -1490,7 +1490,7 @@ exit_zlib.exit:                                   ; preds = %.critedge2.i, %61
   %156 = add nsw i64 %.453.i135, -2
   br label %exit_zlib.exit105
 
-157:                                              ; preds = %117, %122, %119
+157:                                              ; preds = %119, %117, %122
   %158 = getelementptr i8, ptr %1, i64 88
   %.val = load ptr, ptr %158, align 8, !tbaa !96
   %.not.i139 = icmp eq ptr %.val, null

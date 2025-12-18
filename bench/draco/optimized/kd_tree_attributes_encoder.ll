@@ -2548,7 +2548,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.sink.split:         ; preds = %_ZNK5draco17Geometr
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %127, %_ZNSt6vectorIiSaIiEED2Ev.exit.sink.split, %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit215.thread, %.preheader, %_ZNSt6vectorIjSaIjEED2Ev.exit
-  %.2114 = phi i32 [ %.0112297, %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit215.thread ], [ %170, %_ZNSt6vectorIjSaIjEED2Ev.exit ], [ %.0112297, %.preheader ], [ %.2114.ph, %_ZNSt6vectorIiSaIiEED2Ev.exit.sink.split ], [ %.0112297, %127 ]
+  %.2114 = phi i32 [ %.0112297, %.preheader ], [ %.2114.ph, %_ZNSt6vectorIiSaIiEED2Ev.exit.sink.split ], [ %170, %_ZNSt6vectorIjSaIjEED2Ev.exit ], [ %.0112297, %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit215.thread ], [ %.0112297, %127 ]
   %254 = getelementptr inbounds nuw i8, ptr %.0159276, i64 24
   %255 = load i8, ptr %254, align 8, !tbaa !55
   %256 = zext i8 %255 to i32
@@ -7342,7 +7342,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   br label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIaiEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit
 
 _ZNK5draco17GeometryAttribute17ConvertTypedValueIaiEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit: ; preds = %296, %259, %257, %224, %222, %190, %188, %156, %123, %90, %57, %24, %.lr.ph37.preheader.i143, %.critedge.i141, %.lr.ph39.preheader.i130, %.critedge.i128, %.lr.ph39.preheader.i117, %.critedge.i115, %.lr.ph39.preheader.i, %.critedge.i103, %.lr.ph37.preheader.i96, %.critedge.i94, %.lr.ph37.preheader.i83, %.critedge.i81, %.lr.ph37.preheader.i70, %.critedge.i68, %.lr.ph37.preheader.i57, %.critedge.i55, %.lr.ph37.preheader.i, %.critedge.i, %6, %4, %279, %277
-  %.0 = phi i1 [ false, %4 ], [ false, %6 ], [ %278, %277 ], [ %280, %279 ], [ true, %.critedge.i ], [ true, %.lr.ph37.preheader.i ], [ true, %.critedge.i55 ], [ true, %.lr.ph37.preheader.i57 ], [ true, %.critedge.i68 ], [ true, %.lr.ph37.preheader.i70 ], [ true, %.critedge.i81 ], [ true, %.lr.ph37.preheader.i83 ], [ true, %.critedge.i94 ], [ true, %.lr.ph37.preheader.i96 ], [ true, %.critedge.i103 ], [ true, %.lr.ph39.preheader.i ], [ true, %.critedge.i115 ], [ true, %.lr.ph39.preheader.i117 ], [ true, %.critedge.i128 ], [ true, %.lr.ph39.preheader.i130 ], [ true, %.critedge.i141 ], [ true, %.lr.ph37.preheader.i143 ], [ false, %259 ], [ false, %24 ], [ false, %57 ], [ false, %90 ], [ false, %123 ], [ false, %156 ], [ false, %190 ], [ false, %224 ], [ false, %188 ], [ false, %222 ], [ false, %257 ], [ false, %296 ]
+  %.0 = phi i1 [ false, %190 ], [ false, %4 ], [ false, %6 ], [ false, %224 ], [ false, %259 ], [ false, %24 ], [ false, %57 ], [ false, %90 ], [ false, %123 ], [ false, %156 ], [ %278, %277 ], [ %280, %279 ], [ true, %.critedge.i ], [ true, %.lr.ph37.preheader.i ], [ true, %.critedge.i55 ], [ true, %.lr.ph37.preheader.i57 ], [ true, %.critedge.i68 ], [ true, %.lr.ph37.preheader.i70 ], [ true, %.critedge.i81 ], [ true, %.lr.ph37.preheader.i83 ], [ true, %.critedge.i94 ], [ true, %.lr.ph37.preheader.i96 ], [ true, %.critedge.i103 ], [ true, %.lr.ph39.preheader.i ], [ true, %.lr.ph37.preheader.i143 ], [ true, %.critedge.i115 ], [ true, %.lr.ph39.preheader.i117 ], [ true, %.critedge.i141 ], [ true, %.critedge.i128 ], [ true, %.lr.ph39.preheader.i130 ], [ false, %188 ], [ false, %222 ], [ false, %257 ], [ false, %296 ]
   ret i1 %.0
 }
 
@@ -7465,7 +7465,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute17ConvertTy
   br label %.loopexit
 
 .loopexit:                                        ; preds = %41, %.lr.ph45, %23, %.lr.ph52, %31, %.lr.ph59.preheader, %.lr.ph.split.us, %.lr.ph.split, %.critedge
-  %.not31 = phi i1 [ true, %.critedge ], [ false, %.lr.ph.split.us ], [ false, %.lr.ph.split ], [ true, %.lr.ph59.preheader ], [ false, %23 ], [ false, %31 ], [ false, %.lr.ph52 ], [ false, %.lr.ph45 ], [ false, %41 ]
+  %.not31 = phi i1 [ true, %.critedge ], [ false, %23 ], [ true, %.lr.ph59.preheader ], [ false, %.lr.ph.split.us ], [ false, %.lr.ph.split ], [ false, %31 ], [ false, %.lr.ph52 ], [ false, %.lr.ph45 ], [ false, %41 ]
   ret i1 %.not31
 }
 
@@ -7587,7 +7587,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute17ConvertTy
   br label %.loopexit
 
 .loopexit:                                        ; preds = %39, %.lr.ph45, %23, %.lr.ph52, %31, %.lr.ph59.preheader, %.lr.ph.split.us, %.lr.ph.split, %.critedge
-  %.not31 = phi i1 [ true, %.critedge ], [ false, %.lr.ph.split.us ], [ false, %.lr.ph.split ], [ true, %.lr.ph59.preheader ], [ false, %23 ], [ false, %31 ], [ false, %.lr.ph52 ], [ false, %.lr.ph45 ], [ false, %39 ]
+  %.not31 = phi i1 [ true, %.critedge ], [ false, %23 ], [ true, %.lr.ph59.preheader ], [ false, %.lr.ph.split.us ], [ false, %.lr.ph.split ], [ false, %31 ], [ false, %.lr.ph52 ], [ false, %.lr.ph45 ], [ false, %39 ]
   ret i1 %.not31
 }
 
@@ -8520,7 +8520,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   br label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIajEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit
 
 _ZNK5draco17GeometryAttribute17ConvertTypedValueIajEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit: ; preds = %339, %.lr.ph45.i, %306, %.lr.ph52.i, %295, %256, %254, %222, %220, %188, %156, %123, %90, %57, %24, %.lr.ph37.preheader.i152, %.critedge.i150, %.lr.ph59.preheader.i, %.critedge.i138, %.lr.ph.split.i, %.lr.ph.split.us.i, %.lr.ph39.preheader.i130, %.critedge.i128, %.lr.ph39.preheader.i, %.critedge.i116, %.lr.ph37.preheader.i109, %.critedge.i107, %.lr.ph37.preheader.i96, %.critedge.i94, %.lr.ph37.preheader.i83, %.critedge.i81, %.lr.ph37.preheader.i70, %.critedge.i68, %.lr.ph37.preheader.i57, %.critedge.i55, %.lr.ph37.preheader.i, %.critedge.i, %6, %4, %274
-  %.0 = phi i1 [ false, %4 ], [ false, %6 ], [ %275, %274 ], [ true, %.critedge.i ], [ true, %.lr.ph37.preheader.i ], [ true, %.critedge.i55 ], [ true, %.lr.ph37.preheader.i57 ], [ true, %.critedge.i68 ], [ true, %.lr.ph37.preheader.i70 ], [ true, %.critedge.i81 ], [ true, %.lr.ph37.preheader.i83 ], [ true, %.critedge.i94 ], [ true, %.lr.ph37.preheader.i96 ], [ true, %.critedge.i107 ], [ true, %.lr.ph37.preheader.i109 ], [ true, %.critedge.i116 ], [ true, %.lr.ph39.preheader.i ], [ true, %.critedge.i128 ], [ true, %.lr.ph39.preheader.i130 ], [ true, %.critedge.i138 ], [ false, %.lr.ph.split.us.i ], [ false, %.lr.ph.split.i ], [ true, %.lr.ph59.preheader.i ], [ true, %.critedge.i150 ], [ true, %.lr.ph37.preheader.i152 ], [ false, %.lr.ph45.i ], [ false, %24 ], [ false, %57 ], [ false, %90 ], [ false, %123 ], [ false, %156 ], [ false, %188 ], [ false, %222 ], [ false, %256 ], [ false, %.lr.ph52.i ], [ false, %220 ], [ false, %254 ], [ false, %295 ], [ false, %306 ], [ false, %339 ]
+  %.0 = phi i1 [ false, %.lr.ph45.i ], [ false, %4 ], [ false, %6 ], [ false, %24 ], [ false, %57 ], [ false, %90 ], [ false, %123 ], [ false, %156 ], [ false, %188 ], [ false, %222 ], [ %275, %274 ], [ false, %256 ], [ true, %.critedge.i ], [ true, %.lr.ph37.preheader.i ], [ true, %.critedge.i55 ], [ true, %.lr.ph37.preheader.i57 ], [ true, %.critedge.i68 ], [ true, %.lr.ph37.preheader.i70 ], [ true, %.critedge.i81 ], [ true, %.lr.ph37.preheader.i83 ], [ true, %.critedge.i94 ], [ true, %.lr.ph37.preheader.i96 ], [ true, %.critedge.i107 ], [ true, %.lr.ph37.preheader.i109 ], [ true, %.critedge.i116 ], [ true, %.lr.ph39.preheader.i ], [ true, %.lr.ph37.preheader.i152 ], [ true, %.critedge.i128 ], [ true, %.lr.ph39.preheader.i130 ], [ true, %.critedge.i150 ], [ true, %.critedge.i138 ], [ false, %.lr.ph52.i ], [ true, %.lr.ph59.preheader.i ], [ false, %.lr.ph.split.us.i ], [ false, %.lr.ph.split.i ], [ false, %220 ], [ false, %254 ], [ false, %295 ], [ false, %306 ], [ false, %339 ]
   ret i1 %.0
 }
 
@@ -8631,7 +8631,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute17ConvertTy
   br label %.loopexit
 
 .loopexit:                                        ; preds = %36, %.lr.ph45, %23, %.lr.ph52, %.lr.ph59.preheader, %.lr.ph.split.us, %.lr.ph.split, %.critedge
-  %.not31 = phi i1 [ true, %.critedge ], [ false, %.lr.ph.split.us ], [ false, %.lr.ph.split ], [ true, %.lr.ph59.preheader ], [ false, %23 ], [ false, %.lr.ph52 ], [ false, %.lr.ph45 ], [ false, %36 ]
+  %.not31 = phi i1 [ true, %.critedge ], [ false, %23 ], [ true, %.lr.ph59.preheader ], [ false, %.lr.ph.split.us ], [ false, %.lr.ph.split ], [ false, %.lr.ph52 ], [ false, %.lr.ph45 ], [ false, %36 ]
   ret i1 %.not31
 }
 
@@ -9212,7 +9212,7 @@ _ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.lo
   br i1 %223, label %_ZSt9partitionIN5draco12PointDVectorIjE20PointDVectorIteratorENS0_33DynamicIntegerPointsKdTreeEncoderILi6EE8SplitterEET_S7_S7_T0_.exit, label %.lr.ph.i.i, !llvm.loop !372
 
 _ZSt9partitionIN5draco12PointDVectorIjE20PointDVectorIteratorENS0_33DynamicIntegerPointsKdTreeEncoderILi6EE8SplitterEET_S7_S7_T0_.exit: ; preds = %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.loopexit.i.i, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.us.i.i, %207, %.preheader.i.i, %197, %.preheader.us.i.i, %170
-  %.us-phi.sink.i.i = phi i64 [ %.sroa.0142.0.copyload306, %170 ], [ %storemerge.us.i.i, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.us.i.i ], [ %183, %.preheader.us.i.i ], [ %storemerge.lcssa323441.us.i.i, %197 ], [ %201, %.preheader.i.i ], [ %storemerge.lcssa323441.i.i, %207 ], [ %storemerge.i.i103, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.loopexit.i.i ]
+  %.us-phi.sink.i.i = phi i64 [ %storemerge.lcssa323441.i.i, %207 ], [ %storemerge.lcssa323441.us.i.i, %197 ], [ %.sroa.0142.0.copyload306, %170 ], [ %201, %.preheader.i.i ], [ %183, %.preheader.us.i.i ], [ %storemerge.us.i.i, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.us.i.i ], [ %storemerge.i.i103, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.loopexit.i.i ]
   %224 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %111, i1 true)
   %225 = xor i32 %224, 31
   %226 = sub i64 %.us-phi.sink.i.i, %.sroa.0142.0.copyload306
@@ -10915,7 +10915,7 @@ _ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.lo
   br i1 %222, label %_ZSt9partitionIN5draco12PointDVectorIjE20PointDVectorIteratorENS0_33DynamicIntegerPointsKdTreeEncoderILi5EE8SplitterEET_S7_S7_T0_.exit, label %.lr.ph.i.i, !llvm.loop !432
 
 _ZSt9partitionIN5draco12PointDVectorIjE20PointDVectorIteratorENS0_33DynamicIntegerPointsKdTreeEncoderILi5EE8SplitterEET_S7_S7_T0_.exit: ; preds = %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.loopexit.i.i, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.us.i.i, %206, %.preheader.i.i, %196, %.preheader.us.i.i, %169
-  %.us-phi.sink.i.i = phi i64 [ %.sroa.0140.0.copyload304, %169 ], [ %storemerge.us.i.i, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.us.i.i ], [ %182, %.preheader.us.i.i ], [ %storemerge.lcssa323441.us.i.i, %196 ], [ %200, %.preheader.i.i ], [ %storemerge.lcssa323441.i.i, %206 ], [ %storemerge.i.i101, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.loopexit.i.i ]
+  %.us-phi.sink.i.i = phi i64 [ %storemerge.lcssa323441.i.i, %206 ], [ %storemerge.lcssa323441.us.i.i, %196 ], [ %.sroa.0140.0.copyload304, %169 ], [ %200, %.preheader.i.i ], [ %182, %.preheader.us.i.i ], [ %storemerge.us.i.i, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.us.i.i ], [ %storemerge.i.i101, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.loopexit.i.i ]
   %223 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %113, i1 true)
   %224 = xor i32 %223, 31
   %225 = sub i64 %.us-phi.sink.i.i, %.sroa.0140.0.copyload304
@@ -12050,7 +12050,7 @@ _ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.lo
   br i1 %222, label %_ZSt9partitionIN5draco12PointDVectorIjE20PointDVectorIteratorENS0_33DynamicIntegerPointsKdTreeEncoderILi4EE8SplitterEET_S7_S7_T0_.exit, label %.lr.ph.i.i, !llvm.loop !482
 
 _ZSt9partitionIN5draco12PointDVectorIjE20PointDVectorIteratorENS0_33DynamicIntegerPointsKdTreeEncoderILi4EE8SplitterEET_S7_S7_T0_.exit: ; preds = %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.loopexit.i.i, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.us.i.i, %206, %.preheader.i.i, %196, %.preheader.us.i.i, %169
-  %.us-phi.sink.i.i = phi i64 [ %.sroa.0140.0.copyload304, %169 ], [ %storemerge.us.i.i, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.us.i.i ], [ %182, %.preheader.us.i.i ], [ %storemerge.lcssa323441.us.i.i, %196 ], [ %200, %.preheader.i.i ], [ %storemerge.lcssa323441.i.i, %206 ], [ %storemerge.i.i101, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.loopexit.i.i ]
+  %.us-phi.sink.i.i = phi i64 [ %storemerge.lcssa323441.i.i, %206 ], [ %storemerge.lcssa323441.us.i.i, %196 ], [ %.sroa.0140.0.copyload304, %169 ], [ %200, %.preheader.i.i ], [ %182, %.preheader.us.i.i ], [ %storemerge.us.i.i, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.us.i.i ], [ %storemerge.i.i101, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.loopexit.i.i ]
   %223 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %113, i1 true)
   %224 = xor i32 %223, 31
   %225 = sub i64 %.us-phi.sink.i.i, %.sroa.0140.0.copyload304
@@ -13189,7 +13189,7 @@ _ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.lo
   br i1 %222, label %_ZSt9partitionIN5draco12PointDVectorIjE20PointDVectorIteratorENS0_33DynamicIntegerPointsKdTreeEncoderILi3EE8SplitterEET_S7_S7_T0_.exit, label %.lr.ph.i.i, !llvm.loop !532
 
 _ZSt9partitionIN5draco12PointDVectorIjE20PointDVectorIteratorENS0_33DynamicIntegerPointsKdTreeEncoderILi3EE8SplitterEET_S7_S7_T0_.exit: ; preds = %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.loopexit.i.i, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.us.i.i, %206, %.preheader.i.i, %196, %.preheader.us.i.i, %169
-  %.us-phi.sink.i.i = phi i64 [ %.sroa.0132.0.copyload289, %169 ], [ %storemerge.us.i.i, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.us.i.i ], [ %182, %.preheader.us.i.i ], [ %storemerge.lcssa323441.us.i.i, %196 ], [ %200, %.preheader.i.i ], [ %storemerge.lcssa323441.i.i, %206 ], [ %storemerge.i.i101, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.loopexit.i.i ]
+  %.us-phi.sink.i.i = phi i64 [ %storemerge.lcssa323441.i.i, %206 ], [ %storemerge.lcssa323441.us.i.i, %196 ], [ %.sroa.0132.0.copyload289, %169 ], [ %200, %.preheader.i.i ], [ %182, %.preheader.us.i.i ], [ %storemerge.us.i.i, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.us.i.i ], [ %storemerge.i.i101, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.loopexit.i.i ]
   %223 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %113, i1 true)
   %224 = xor i32 %223, 31
   %225 = sub i64 %.us-phi.sink.i.i, %.sroa.0132.0.copyload289
@@ -14282,7 +14282,7 @@ _ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.lo
   br i1 %222, label %_ZSt9partitionIN5draco12PointDVectorIjE20PointDVectorIteratorENS0_33DynamicIntegerPointsKdTreeEncoderILi2EE8SplitterEET_S7_S7_T0_.exit, label %.lr.ph.i.i, !llvm.loop !582
 
 _ZSt9partitionIN5draco12PointDVectorIjE20PointDVectorIteratorENS0_33DynamicIntegerPointsKdTreeEncoderILi2EE8SplitterEET_S7_S7_T0_.exit: ; preds = %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.loopexit.i.i, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.us.i.i, %206, %.preheader.i.i, %196, %.preheader.us.i.i, %169
-  %.us-phi.sink.i.i = phi i64 [ %.sroa.0132.0.copyload289, %169 ], [ %storemerge.us.i.i, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.us.i.i ], [ %182, %.preheader.us.i.i ], [ %storemerge.lcssa323441.us.i.i, %196 ], [ %200, %.preheader.i.i ], [ %storemerge.lcssa323441.i.i, %206 ], [ %storemerge.i.i101, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.loopexit.i.i ]
+  %.us-phi.sink.i.i = phi i64 [ %storemerge.lcssa323441.i.i, %206 ], [ %storemerge.lcssa323441.us.i.i, %196 ], [ %.sroa.0132.0.copyload289, %169 ], [ %200, %.preheader.i.i ], [ %182, %.preheader.us.i.i ], [ %storemerge.us.i.i, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.us.i.i ], [ %storemerge.i.i101, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.loopexit.i.i ]
   %223 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %113, i1 true)
   %224 = xor i32 %223, 31
   %225 = sub i64 %.us-phi.sink.i.i, %.sroa.0132.0.copyload289
@@ -15373,7 +15373,7 @@ _ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.lo
   br i1 %222, label %_ZSt9partitionIN5draco12PointDVectorIjE20PointDVectorIteratorENS0_33DynamicIntegerPointsKdTreeEncoderILi1EE8SplitterEET_S7_S7_T0_.exit, label %.lr.ph.i.i, !llvm.loop !631
 
 _ZSt9partitionIN5draco12PointDVectorIjE20PointDVectorIteratorENS0_33DynamicIntegerPointsKdTreeEncoderILi1EE8SplitterEET_S7_S7_T0_.exit: ; preds = %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.loopexit.i.i, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.us.i.i, %206, %.preheader.i.i, %196, %.preheader.us.i.i, %169
-  %.us-phi.sink.i.i = phi i64 [ %.sroa.0132.0.copyload289, %169 ], [ %storemerge.us.i.i, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.us.i.i ], [ %182, %.preheader.us.i.i ], [ %storemerge.lcssa323441.us.i.i, %196 ], [ %200, %.preheader.i.i ], [ %storemerge.lcssa323441.i.i, %206 ], [ %storemerge.i.i101, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.loopexit.i.i ]
+  %.us-phi.sink.i.i = phi i64 [ %storemerge.lcssa323441.i.i, %206 ], [ %storemerge.lcssa323441.us.i.i, %196 ], [ %.sroa.0132.0.copyload289, %169 ], [ %200, %.preheader.i.i ], [ %182, %.preheader.us.i.i ], [ %storemerge.us.i.i, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.us.i.i ], [ %storemerge.i.i101, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.loopexit.i.i ]
   %223 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %113, i1 true)
   %224 = xor i32 %223, 31
   %225 = sub i64 %.us-phi.sink.i.i, %.sroa.0132.0.copyload289
@@ -16464,7 +16464,7 @@ _ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.lo
   br i1 %222, label %_ZSt9partitionIN5draco12PointDVectorIjE20PointDVectorIteratorENS0_33DynamicIntegerPointsKdTreeEncoderILi0EE8SplitterEET_S7_S7_T0_.exit, label %.lr.ph.i.i, !llvm.loop !681
 
 _ZSt9partitionIN5draco12PointDVectorIjE20PointDVectorIteratorENS0_33DynamicIntegerPointsKdTreeEncoderILi0EE8SplitterEET_S7_S7_T0_.exit: ; preds = %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.loopexit.i.i, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.us.i.i, %206, %.preheader.i.i, %196, %.preheader.us.i.i, %169
-  %.us-phi.sink.i.i = phi i64 [ %.sroa.0132.0.copyload289, %169 ], [ %storemerge.us.i.i, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.us.i.i ], [ %182, %.preheader.us.i.i ], [ %storemerge.lcssa323441.us.i.i, %196 ], [ %200, %.preheader.i.i ], [ %storemerge.lcssa323441.i.i, %206 ], [ %storemerge.i.i101, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.loopexit.i.i ]
+  %.us-phi.sink.i.i = phi i64 [ %storemerge.lcssa323441.i.i, %206 ], [ %storemerge.lcssa323441.us.i.i, %196 ], [ %.sroa.0132.0.copyload289, %169 ], [ %200, %.preheader.i.i ], [ %182, %.preheader.us.i.i ], [ %storemerge.us.i.i, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.us.i.i ], [ %storemerge.i.i101, %_ZSt9iter_swapIN5draco12PointDVectorIjE20PointDVectorIteratorES3_EvT_T0_.exit.loopexit.i.i ]
   %223 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %113, i1 true)
   %224 = xor i32 %223, 31
   %225 = sub i64 %.us-phi.sink.i.i, %.sroa.0132.0.copyload289

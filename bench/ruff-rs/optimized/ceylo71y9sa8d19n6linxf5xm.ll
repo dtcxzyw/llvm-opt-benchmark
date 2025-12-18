@@ -4592,7 +4592,7 @@ define noundef zeroext i1 @"_ZN14ruff_formatter14format_element8document132_$LT$
   br i1 %.not88, label %.loopexit, label %.lr.ph.split.split
 
 .loopexit:                                        ; preds = %.split31.us.split.us, %.outer, %25, %9, %2
-  %26 = phi i1 [ false, %2 ], [ false, %25 ], [ %10, %9 ], [ false, %.outer ], [ true, %.split31.us.split.us ]
+  %26 = phi i1 [ false, %25 ], [ %10, %9 ], [ false, %2 ], [ true, %.split31.us.split.us ], [ false, %.outer ]
   ret i1 %26
 }
 

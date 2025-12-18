@@ -2567,7 +2567,7 @@ Vec_WrdPush.exit.i.i:                             ; preds = %213, %Vec_WrdGrow.e
   br label %Hsh_IntManAdd.exit.i
 
 Hsh_IntManAdd.exit.i:                             ; preds = %Hsh_IntObj.exit.i.i.i, %Vec_WrdPush.exit.i.i, %Hsh_IntObj.exit.lr.ph.split.i.i.i, %Hsh_IntObj.exit.lr.ph.i.i.i
-  %.030.i.i = phi i32 [ %216, %Vec_WrdPush.exit.i.i ], [ %170, %Hsh_IntObj.exit.lr.ph.split.i.i.i ], [ %170, %Hsh_IntObj.exit.lr.ph.i.i.i ], [ %183, %Hsh_IntObj.exit.i.i.i ]
+  %.030.i.i = phi i32 [ %216, %Vec_WrdPush.exit.i.i ], [ %170, %Hsh_IntObj.exit.lr.ph.i.i.i ], [ %170, %Hsh_IntObj.exit.lr.ph.split.i.i.i ], [ %183, %Hsh_IntObj.exit.i.i.i ]
   %220 = load i32, ptr %62, align 4, !tbaa !33
   %221 = load i32, ptr %61, align 8, !tbaa !34
   %222 = icmp eq i32 %220, %221

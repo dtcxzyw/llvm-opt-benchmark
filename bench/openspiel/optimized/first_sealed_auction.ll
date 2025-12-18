@@ -4666,7 +4666,7 @@ _ZNSt6vectorISt4pairIldESaIS1_EE9push_backEOS1_.exit39: ; preds = %_ZNSt6vectorI
   br label %_ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit
 
 .loopexit:                                        ; preds = %_ZNSt6vectorISt4pairIldESaIS1_EE9push_backEOS1_.exit39, %_ZNSt6vectorISt4pairIldESaIS1_EE9push_backEOS1_.exit, %_ZSt5countIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiENSt15iterator_traitsIT_E15difference_typeES9_S9_RKT0_.exit, %.preheader
-  %storemerge = phi ptr [ null, %.preheader ], [ null, %_ZSt5countIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiENSt15iterator_traitsIT_E15difference_typeES9_S9_RKT0_.exit ], [ %50, %_ZNSt6vectorISt4pairIldESaIS1_EE9push_backEOS1_.exit ], [ %118, %_ZNSt6vectorISt4pairIldESaIS1_EE9push_backEOS1_.exit39 ]
+  %storemerge = phi ptr [ %50, %_ZNSt6vectorISt4pairIldESaIS1_EE9push_backEOS1_.exit ], [ null, %.preheader ], [ null, %_ZSt5countIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiENSt15iterator_traitsIT_E15difference_typeES9_S9_RKT0_.exit ], [ %118, %_ZNSt6vectorISt4pairIldESaIS1_EE9push_backEOS1_.exit39 ]
   store ptr %storemerge, ptr %0, align 8
   ret void
 

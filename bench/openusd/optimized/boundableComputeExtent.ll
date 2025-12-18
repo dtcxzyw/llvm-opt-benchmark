@@ -591,7 +591,7 @@ _ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved
   br i1 %.not.i.i.i.i25, label %_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__6TfTypeESt6vectorIS3_SaIS3_EEEEZNKS2_12_GLOBAL__N_117_FunctionRegistry39_GetTypesThatMayHaveRegisteredFunctionsERKS3_EUlSC_E_ET_SE_SE_T0_.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !11
 
 _ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__6TfTypeESt6vectorIS3_SaIS3_EEEEZNKS2_12_GLOBAL__N_117_FunctionRegistry39_GetTypesThatMayHaveRegisteredFunctionsERKS3_EUlSC_E_ET_SE_SE_T0_.exit.i.i: ; preds = %178, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__6TfTypeESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZNKS2_12_GLOBAL__N_117_FunctionRegistry39_GetTypesThatMayHaveRegisteredFunctionsERKS3_EUlSE_E_EEET_SH_SH_T0_.exit.i.i.i.i, %._crit_edge.i.i.i.i.i.i
-  %.sroa.012.0.i.i.i.i = phi ptr [ %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__6TfTypeESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZNKS2_12_GLOBAL__N_117_FunctionRegistry39_GetTypesThatMayHaveRegisteredFunctionsERKS3_EUlSE_E_EEET_SH_SH_T0_.exit.i.i.i.i ], [ %142, %._crit_edge.i.i.i.i.i.i ], [ %.sroa.012.2.i.i.i.i, %178 ]
+  %.sroa.012.0.i.i.i.i = phi ptr [ %142, %._crit_edge.i.i.i.i.i.i ], [ %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__6TfTypeESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZNKS2_12_GLOBAL__N_117_FunctionRegistry39_GetTypesThatMayHaveRegisteredFunctionsERKS3_EUlSE_E_EEET_SH_SH_T0_.exit.i.i.i.i ], [ %.sroa.012.2.i.i.i.i, %178 ]
   %179 = load ptr, ptr %141, align 8, !alias.scope !6
   %.not.i.i14.i.i = icmp eq ptr %.sroa.012.0.i.i.i.i, %179
   %.pre.i = load ptr, ptr %14, align 8
@@ -2301,14 +2301,14 @@ define internal fastcc noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved_
   br label %_ZN32pxrInternal_v0_24__pxrReserved__11TfMapLookupISt13unordered_mapINS_6TfTypeEPFbRKNS_16UsdGeomBoundableERKNS_11UsdTimeCodeEPKNS_10GfMatrix4dEPNS_7VtArrayINS_7GfVec3fEEEENS_6TfHashESt8equal_toIS2_ESaISt4pairIKS2_SH_EEES2_SH_EEbRKT_RKT0_PT1_.exit, !llvm.loop !32
 
 _ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__6TfTypeEPFbRKNS0_16UsdGeomBoundableERKNS0_11UsdTimeCodeEPKNS0_10GfMatrix4dEPNS0_7VtArrayINS0_7GfVec3fEEEENS0_6TfHashESt8equal_toIS1_ESaISt4pairIKS1_SG_EEE4findERSL_.exit.i.i: ; preds = %38, %14, %29
-  %.sroa.06.1.i.i.i.i = phi ptr [ %30, %29 ], [ %.sroa.06.0.i.i.i.i, %14 ], [ %44, %38 ]
+  %.sroa.06.1.i.i.i.i = phi ptr [ %.sroa.06.0.i.i.i.i, %14 ], [ %30, %29 ], [ %44, %38 ]
   %49 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i, i64 16
   %50 = load ptr, ptr %49, align 8
   store ptr %50, ptr %2, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__11TfMapLookupISt13unordered_mapINS_6TfTypeEPFbRKNS_16UsdGeomBoundableERKNS_11UsdTimeCodeEPKNS_10GfMatrix4dEPNS_7VtArrayINS_7GfVec3fEEEENS_6TfHashESt8equal_toIS2_ESaISt4pairIKS2_SH_EEES2_SH_EEbRKT_RKT0_PT1_.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__11TfMapLookupISt13unordered_mapINS_6TfTypeEPFbRKNS_16UsdGeomBoundableERKNS_11UsdTimeCodeEPKNS_10GfMatrix4dEPNS_7VtArrayINS_7GfVec3fEEEENS_6TfHashESt8equal_toIS2_ESaISt4pairIKS2_SH_EEES2_SH_EEbRKT_RKT0_PT1_.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %13, %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__6TfTypeEPFbRKNS0_16UsdGeomBoundableERKNS0_11UsdTimeCodeEPKNS0_10GfMatrix4dEPNS0_7VtArrayINS0_7GfVec3fEEEENS0_6TfHashESt8equal_toIS1_ESaISt4pairIKS1_SG_EEE4findERSL_.exit.i.i, %..loopexit_crit_edge21.i.i.i.i.i.i, %18
-  %.0.i.i = phi i1 [ true, %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__6TfTypeEPFbRKNS0_16UsdGeomBoundableERKNS0_11UsdTimeCodeEPKNS0_10GfMatrix4dEPNS0_7VtArrayINS0_7GfVec3fEEEENS0_6TfHashESt8equal_toIS1_ESaISt4pairIKS1_SG_EEE4findERSL_.exit.i.i ], [ false, %..loopexit_crit_edge21.i.i.i.i.i.i ], [ false, %18 ], [ false, %13 ], [ false, %.lr.ph.i.i.i.i.i.i ]
+  %.0.i.i = phi i1 [ true, %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__6TfTypeEPFbRKNS0_16UsdGeomBoundableERKNS0_11UsdTimeCodeEPKNS0_10GfMatrix4dEPNS0_7VtArrayINS0_7GfVec3fEEEENS0_6TfHashESt8equal_toIS1_ESaISt4pairIKS1_SG_EEE4findERSL_.exit.i.i ], [ false, %..loopexit_crit_edge21.i.i.i.i.i.i ], [ false, %13 ], [ false, %18 ], [ false, %.lr.ph.i.i.i.i.i.i ]
   %51 = load ptr, ptr %4, align 8
   %.not.i = icmp eq ptr %51, null
   br i1 %.not.i, label %_ZN3tbb6detail2d116queuing_rw_mutex11scoped_lockD2Ev.exit, label %52
@@ -2665,7 +2665,7 @@ _ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__6TfTypeESt4pairIKS1_PFbRKN
           to label %_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__6TfTypeESt4pairIKS1_PFbRKNS0_16UsdGeomBoundableERKNS0_11UsdTimeCodeEPKNS0_10GfMatrix4dEPNS0_7VtArrayINS0_7GfVec3fEEEEESaISJ_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENSL_18_Mod_range_hashingENSL_20_Default_ranged_hashENSL_20_Prime_rehash_policyENSL_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit16 unwind label %_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__6TfTypeESt4pairIKS1_PFbRKNS0_16UsdGeomBoundableERKNS0_11UsdTimeCodeEPKNS0_10GfMatrix4dEPNS0_7VtArrayINS0_7GfVec3fEEEEESaISJ_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENSL_18_Mod_range_hashingENSL_20_Default_ranged_hashENSL_20_Prime_rehash_policyENSL_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 
 _ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__6TfTypeESt4pairIKS1_PFbRKNS0_16UsdGeomBoundableERKNS0_11UsdTimeCodeEPKNS0_10GfMatrix4dEPNS0_7VtArrayINS0_7GfVec3fEEEEESaISJ_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENSL_18_Mod_range_hashingENSL_20_Default_ranged_hashENSL_20_Prime_rehash_policyENSL_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit: ; preds = %43, %23, %34
-  %.sroa.028.0.ph = phi ptr [ %35, %34 ], [ %.sroa.021.0, %23 ], [ %49, %43 ]
+  %.sroa.028.0.ph = phi ptr [ %.sroa.021.0, %23 ], [ %35, %34 ], [ %49, %43 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 32) #16
   br label %_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__6TfTypeESt4pairIKS1_PFbRKNS0_16UsdGeomBoundableERKNS0_11UsdTimeCodeEPKNS0_10GfMatrix4dEPNS0_7VtArrayINS0_7GfVec3fEEEEESaISJ_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENSL_18_Mod_range_hashingENSL_20_Default_ranged_hashENSL_20_Prime_rehash_policyENSL_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit16
 
@@ -3667,7 +3667,7 @@ _ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__6TfTypeESt4pairIKS1_PFbRKN
           to label %_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__6TfTypeESt4pairIKS1_PFbRKNS0_16UsdGeomBoundableERKNS0_11UsdTimeCodeEPKNS0_10GfMatrix4dEPNS0_7VtArrayINS0_7GfVec3fEEEEESaISJ_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENSL_18_Mod_range_hashingENSL_20_Default_ranged_hashENSL_20_Prime_rehash_policyENSL_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit16 unwind label %_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__6TfTypeESt4pairIKS1_PFbRKNS0_16UsdGeomBoundableERKNS0_11UsdTimeCodeEPKNS0_10GfMatrix4dEPNS0_7VtArrayINS0_7GfVec3fEEEEESaISJ_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENSL_18_Mod_range_hashingENSL_20_Default_ranged_hashENSL_20_Prime_rehash_policyENSL_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 
 _ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__6TfTypeESt4pairIKS1_PFbRKNS0_16UsdGeomBoundableERKNS0_11UsdTimeCodeEPKNS0_10GfMatrix4dEPNS0_7VtArrayINS0_7GfVec3fEEEEESaISJ_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENSL_18_Mod_range_hashingENSL_20_Default_ranged_hashENSL_20_Prime_rehash_policyENSL_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit: ; preds = %43, %23, %34
-  %.sroa.028.0.ph = phi ptr [ %35, %34 ], [ %.sroa.021.0, %23 ], [ %49, %43 ]
+  %.sroa.028.0.ph = phi ptr [ %.sroa.021.0, %23 ], [ %35, %34 ], [ %49, %43 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 32) #16
   br label %_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__6TfTypeESt4pairIKS1_PFbRKNS0_16UsdGeomBoundableERKNS0_11UsdTimeCodeEPKNS0_10GfMatrix4dEPNS0_7VtArrayINS0_7GfVec3fEEEEESaISJ_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENSL_18_Mod_range_hashingENSL_20_Default_ranged_hashENSL_20_Prime_rehash_policyENSL_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit16
 

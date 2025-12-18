@@ -4246,7 +4246,7 @@ Cba_FonObj.exit146.thread:                        ; preds = %138, %145, %Cba_Fon
   br i1 %153, label %.critedge10, label %.critedge6
 
 .critedge10:                                      ; preds = %.critedge4, %.critedge8, %.critedge6, %.critedge12, %.critedge6.preheader
-  %.9 = phi i32 [ 1, %.critedge6.preheader ], [ 0, %.critedge8 ], [ 0, %.critedge12 ], [ 1, %.critedge6 ], [ 0, %.critedge4 ]
+  %.9 = phi i32 [ 0, %.critedge8 ], [ 0, %.critedge12 ], [ 1, %.critedge6.preheader ], [ 1, %.critedge6 ], [ 0, %.critedge4 ]
   %.not.i147 = icmp eq ptr %12, null
   br i1 %.not.i147, label %Vec_BitFree.exit, label %154
 

@@ -1524,7 +1524,7 @@ generate_window_func.exit:                        ; preds = %600, %580, %578, %5
   br i1 %exitcond267.not, label %.thread184, label %.preheader.us, !llvm.loop !107
 
 .thread184:                                       ; preds = %85, %131, %165, %175, %188, %186, %184, %182, %._crit_edge224.us, %generate_window_func.exit, %.thread
-  %.3 = phi i32 [ %.2.ph, %.thread ], [ 0, %generate_window_func.exit ], [ -12, %131 ], [ 0, %._crit_edge224.us ], [ -12, %182 ], [ -12, %184 ], [ -12, %186 ], [ -12, %188 ], [ -12, %175 ], [ -12, %165 ], [ %91, %85 ]
+  %.3 = phi i32 [ 0, %generate_window_func.exit ], [ -12, %131 ], [ %.2.ph, %.thread ], [ 0, %._crit_edge224.us ], [ -12, %182 ], [ -12, %184 ], [ -12, %186 ], [ -12, %188 ], [ -12, %175 ], [ -12, %165 ], [ %91, %85 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.3
 }
@@ -1836,7 +1836,7 @@ define internal noundef i32 @denoise(ptr noundef readonly captures(none) %0, ptr
   br i1 %exitcond110.not.i.us, label %.split80.us98.i.us, label %.split.us97.i.us, !llvm.loop !117
 
 .split80.us98.i.us:                               ; preds = %.split.us81.us.i.us, %.split.us.us.i.us, %.split.us97.i.us
-  %.us-phi.us.i.us = phi float [ %185, %.split.us.us.i.us ], [ %.188.us.i.us, %.split.us97.i.us ], [ %173, %.split.us81.us.i.us ]
+  %.us-phi.us.i.us = phi float [ %.188.us.i.us, %.split.us97.i.us ], [ %185, %.split.us.us.i.us ], [ %173, %.split.us81.us.i.us ]
   %194 = load ptr, ptr %37, align 8, !tbaa !118
   %195 = load ptr, ptr %39, align 8, !tbaa !115
   call void %194(ptr noundef %195, ptr noundef nonnull %9, ptr noundef nonnull %10, i64 noundef 8) #10
@@ -1957,7 +1957,7 @@ define internal noundef i32 @denoise(ptr noundef readonly captures(none) %0, ptr
   br label %.split72.us89.i.us
 
 .split72.us89.i.us:                               ; preds = %.split.us73.us.i.us, %.split.us.us.i116.us, %.split.us88.i.us
-  %.us-phi.us.i113.us = phi float [ %.180.us.i.us, %.split.us88.i.us ], [ %243, %.split.us.us.i116.us ], [ %231, %.split.us73.us.i.us ]
+  %.us-phi.us.i113.us = phi float [ %243, %.split.us.us.i116.us ], [ %.180.us.i.us, %.split.us88.i.us ], [ %231, %.split.us73.us.i.us ]
   %254 = load ptr, ptr %37, align 8, !tbaa !118
   %255 = load ptr, ptr %39, align 8, !tbaa !115
   call void %254(ptr noundef %255, ptr noundef nonnull %7, ptr noundef nonnull %8, i64 noundef 8) #10
@@ -2085,7 +2085,7 @@ define internal noundef i32 @denoise(ptr noundef readonly captures(none) %0, ptr
   br label %.split72.us89.i128.us
 
 .split72.us89.i128.us:                            ; preds = %.split.us73.us.i126.us, %.split.us.us.i134.us, %.split.us88.i136.us
-  %.us-phi.us.i129.us = phi float [ %.180.us.i125.us, %.split.us88.i136.us ], [ %308, %.split.us.us.i134.us ], [ %296, %.split.us73.us.i126.us ]
+  %.us-phi.us.i129.us = phi float [ %308, %.split.us.us.i134.us ], [ %.180.us.i125.us, %.split.us88.i136.us ], [ %296, %.split.us73.us.i126.us ]
   %319 = load ptr, ptr %37, align 8, !tbaa !118
   %320 = load ptr, ptr %39, align 8, !tbaa !115
   call void %319(ptr noundef %320, ptr noundef nonnull %5, ptr noundef nonnull %6, i64 noundef 8) #10

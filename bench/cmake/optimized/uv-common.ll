@@ -3120,7 +3120,7 @@ define dso_local range(i32 -16, 1) i32 @uv_loop_close(ptr noundef %0) local_unna
   br label %.loopexit
 
 .loopexit:                                        ; preds = %7, %11, %14, %1
-  %.0 = phi i32 [ -16, %1 ], [ 0, %14 ], [ 0, %11 ], [ -16, %7 ]
+  %.0 = phi i32 [ 0, %11 ], [ -16, %1 ], [ 0, %14 ], [ -16, %7 ]
   ret i32 %.0
 }
 

@@ -531,7 +531,7 @@ define internal ptr @heaptype_with_member_get_memb(ptr noundef %0, ptr readnone 
   br label %heaptype_with_member_extract_and_check_memb.exit
 
 heaptype_with_member_extract_and_check_memb.exit: ; preds = %5, %14, %.sink.split.i
-  %.0.i = phi ptr [ null, %5 ], [ %4, %14 ], [ null, %.sink.split.i ]
+  %.0.i = phi ptr [ %4, %14 ], [ null, %5 ], [ null, %.sink.split.i ]
   %18 = tail call ptr @PyMember_GetOne(ptr noundef nonnull %0, ptr noundef %.0.i) #7
   ret ptr %18
 }
@@ -578,7 +578,7 @@ define internal ptr @heaptype_with_member_set_memb(ptr noundef %0, ptr noundef %
   br label %heaptype_with_member_extract_and_check_memb.exit
 
 heaptype_with_member_extract_and_check_memb.exit: ; preds = %5, %14, %.sink.split.i
-  %.0.i = phi ptr [ null, %5 ], [ %4, %14 ], [ null, %.sink.split.i ]
+  %.0.i = phi ptr [ %4, %14 ], [ null, %5 ], [ null, %.sink.split.i ]
   %18 = tail call i32 @PyMember_SetOne(ptr noundef nonnull %0, ptr noundef %.0.i, ptr noundef %1) #7
   %19 = icmp slt i32 %18, 0
   %._Py_NoneStruct = select i1 %19, ptr null, ptr @_Py_NoneStruct

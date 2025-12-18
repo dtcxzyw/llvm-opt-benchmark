@@ -63,8 +63,8 @@ lean_nat_lt.exit.thread20.us:                     ; preds = %.split.us
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %.09.us.ph) #3
   br label %.split.us.outer.backedge
 
-.split.us.outer.backedge:                         ; preds = %24, %25, %23, %13, %15
-  %.09.us.ph.be = phi ptr [ %18, %15 ], [ %14, %13 ], [ %20, %23 ], [ %20, %25 ], [ %20, %24 ]
+.split.us.outer.backedge:                         ; preds = %24, %23, %25, %13, %15
+  %.09.us.ph.be = phi ptr [ %18, %15 ], [ %14, %13 ], [ %20, %25 ], [ %20, %23 ], [ %20, %24 ]
   br label %.split.us.outer
 
 25:                                               ; preds = %19
@@ -83,54 +83,54 @@ lean_nat_lt.exit.thread20:                        ; preds = %.split
   br i1 %27, label %36, label %.split26.us
 
 .thread:                                          ; preds = %lean_nat_lt.exit.thread
-  br i1 %45, label %.split, label %28
+  br i1 %46, label %.split, label %28
 
 28:                                               ; preds = %.thread
   %29 = icmp sgt ptr %.09.ph, inttoptr (i64 -1 to ptr)
   br i1 %29, label %30, label %34
 
 30:                                               ; preds = %28
-  %mul.i22 = shl i64 %42, 1
+  %mul.i22 = shl i64 %43, 1
   %31 = and i64 %mul.i22, -4
   %32 = or disjoint i64 %31, 1
   %33 = inttoptr i64 %32 to ptr
   br label %.split.outer.backedge
 
 34:                                               ; preds = %28
-  %35 = tail call ptr @lean_nat_overflow_mul(i64 noundef %44, i64 noundef 2) #3
+  %35 = tail call ptr @lean_nat_overflow_mul(i64 noundef %45, i64 noundef 2) #3
   br label %.split.outer.backedge
 
 36:                                               ; preds = %lean_nat_lt.exit.thread20
   %37 = tail call ptr @lean_nat_big_mul(ptr noundef %.09.ph, ptr noundef nonnull inttoptr (i64 5 to ptr)) #3
   %38 = load i32, ptr %.09.ph, align 4, !tbaa !5
   %39 = icmp sgt i32 %38, 1
-  br i1 %39, label %40, label %46, !prof !10
+  br i1 %39, label %40, label %42, !prof !10
 
 40:                                               ; preds = %36
   %41 = add nsw i32 %38, -1
   store i32 %41, ptr %.09.ph, align 4, !tbaa !5
   br label %.split.outer.backedge
 
-.split.outer:                                     ; preds = %3, %.split.outer.backedge
-  %.09.ph = phi ptr [ %.09.ph.be, %.split.outer.backedge ], [ %1, %3 ]
-  %42 = ptrtoint ptr %.09.ph to i64
-  %43 = and i64 %42, 1
-  %.not = icmp eq i64 %43, 0
-  %.not24 = icmp ult ptr %.09.ph, %0
-  %44 = lshr i64 %42, 1
-  %45 = icmp eq i64 %44, 0
-  br label %.split
-
-46:                                               ; preds = %36
+42:                                               ; preds = %36
   %.not.i = icmp eq i32 %38, 0
   br i1 %.not.i, label %.split.outer.backedge, label %47
 
-47:                                               ; preds = %46
+.split.outer:                                     ; preds = %3, %.split.outer.backedge
+  %.09.ph = phi ptr [ %.09.ph.be, %.split.outer.backedge ], [ %1, %3 ]
+  %43 = ptrtoint ptr %.09.ph to i64
+  %44 = and i64 %43, 1
+  %.not = icmp eq i64 %44, 0
+  %.not24 = icmp ult ptr %.09.ph, %0
+  %45 = lshr i64 %43, 1
+  %46 = icmp eq i64 %45, 0
+  br label %.split
+
+47:                                               ; preds = %42
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %.09.ph) #3
   br label %.split.outer.backedge
 
-.split.outer.backedge:                            ; preds = %47, %40, %46, %34, %30
-  %.09.ph.be = phi ptr [ %33, %30 ], [ %35, %34 ], [ %37, %46 ], [ %37, %40 ], [ %37, %47 ]
+.split.outer.backedge:                            ; preds = %47, %42, %40, %34, %30
+  %.09.ph.be = phi ptr [ %33, %30 ], [ %35, %34 ], [ %37, %40 ], [ %37, %42 ], [ %37, %47 ]
   br label %.split.outer
 
 .split26.us:                                      ; preds = %lean_nat_lt.exit.thread, %lean_nat_lt.exit.thread20, %lean_nat_lt.exit.us, %lean_nat_lt.exit.thread20.us

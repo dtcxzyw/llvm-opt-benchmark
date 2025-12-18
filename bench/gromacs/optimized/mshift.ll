@@ -1312,7 +1312,7 @@ define internal fastcc noundef zeroext i1 @_ZL9mk_igraphI15InteractionListEbP14E
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !87
 
 .loopexit:                                        ; preds = %74, %.lr.ph68, %.lr.ph71.split, %44, %27
-  %.157 = phi i1 [ true, %44 ], [ %.05669, %27 ], [ %.05669, %.lr.ph71.split ], [ true, %.lr.ph68 ], [ %.3, %74 ]
+  %.157 = phi i1 [ true, %.lr.ph68 ], [ true, %44 ], [ %.05669, %27 ], [ %.05669, %.lr.ph71.split ], [ %.3, %74 ]
   %75 = add i32 %26, %24
   %76 = icmp slt i32 %75, %15
   br i1 %76, label %.lr.ph71.splitthread-pre-split, label %._crit_edge, !llvm.loop !88

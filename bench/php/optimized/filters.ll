@@ -705,8 +705,8 @@ define internal fastcc range(i32 -1, 1) i32 @strfilter_convert_append_bucket(ptr
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %34, %85, %26, %.loopexit.sink.split.loopexit136, %.loopexit.sink.split.loopexit123, %.loopexit.sink.split.loopexit99, %87, %89
-  %.str.7.sink = phi ptr [ @.str.4, %.loopexit.sink.split.loopexit99 ], [ @.str.5, %89 ], [ @.str.8, %87 ], [ @.str.4, %85 ], [ @.str.7, %26 ], [ @.str.7, %.loopexit.sink.split.loopexit123 ], [ @.str.5, %34 ], [ @.str.6, %.loopexit.sink.split.loopexit136 ]
-  %.2.ph = phi ptr [ %.120636, %.loopexit.sink.split.loopexit99 ], [ %.639, %89 ], [ %.639, %87 ], [ %.639, %85 ], [ %.120636, %26 ], [ %.639, %.loopexit.sink.split.loopexit123 ], [ %.120636, %34 ], [ %.120636, %.loopexit.sink.split.loopexit136 ]
+  %.str.7.sink = phi ptr [ @.str.7, %.loopexit.sink.split.loopexit123 ], [ @.str.5, %89 ], [ @.str.8, %87 ], [ @.str.7, %26 ], [ @.str.4, %85 ], [ @.str.4, %.loopexit.sink.split.loopexit99 ], [ @.str.5, %34 ], [ @.str.6, %.loopexit.sink.split.loopexit136 ]
+  %.2.ph = phi ptr [ %.639, %.loopexit.sink.split.loopexit123 ], [ %.639, %89 ], [ %.639, %87 ], [ %.120636, %26 ], [ %.639, %85 ], [ %.120636, %.loopexit.sink.split.loopexit99 ], [ %.120636, %34 ], [ %.120636, %.loopexit.sink.split.loopexit136 ]
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %142 = load ptr, ptr %141, align 8, !tbaa !35
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull %.str.7.sink, ptr noundef %142) #18
@@ -1918,20 +1918,20 @@ php_conv_base64_encode_flush.exit:                ; preds = %22, %58, %97
   br i1 %.not151, label %.loopexit, label %253
 
 .loopexit.sink.split:                             ; preds = %218, %210, %167, %122
-  %.2126.ph = phi i64 [ %.1125, %122 ], [ %.3127, %167 ], [ %.4128163, %210 ], [ %.5129, %218 ]
-  %.1121.ph = phi i64 [ %102, %122 ], [ %102, %167 ], [ %.2122164, %210 ], [ %.2122164, %218 ]
-  %.1117.ph = phi ptr [ %101, %122 ], [ %101, %167 ], [ %.2118165, %210 ], [ %.2118165, %218 ]
-  %.2112.ph = phi ptr [ %.1111, %122 ], [ %.3113, %167 ], [ %.4114166, %210 ], [ %.5115, %218 ]
-  %.2.ph = phi i32 [ %.1, %122 ], [ %.3, %167 ], [ %.4167, %210 ], [ %.5, %218 ]
+  %.2126.ph = phi i64 [ %.3127, %167 ], [ %.1125, %122 ], [ %.4128163, %210 ], [ %.5129, %218 ]
+  %.1121.ph = phi i64 [ %102, %167 ], [ %102, %122 ], [ %.2122164, %210 ], [ %.2122164, %218 ]
+  %.1117.ph = phi ptr [ %101, %167 ], [ %101, %122 ], [ %.2118165, %210 ], [ %.2118165, %218 ]
+  %.2112.ph = phi ptr [ %.3113, %167 ], [ %.1111, %122 ], [ %.4114166, %210 ], [ %.5115, %218 ]
+  %.2.ph = phi i32 [ %.3, %167 ], [ %.1, %122 ], [ %.4167, %210 ], [ %.5, %218 ]
   store volatile i32 2, ptr %7, align 4, !tbaa !80
   br label %.loopexit
 
 .loopexit:                                        ; preds = %253, %.loopexit.sink.split, %151, %.preheader
-  %.2126 = phi i64 [ %.4128.lcssa, %.preheader ], [ %100, %151 ], [ %.2126.ph, %.loopexit.sink.split ], [ %.4128.lcssa, %253 ]
-  %.1121 = phi i64 [ 0, %.preheader ], [ 0, %151 ], [ %.1121.ph, %.loopexit.sink.split ], [ 0, %253 ]
-  %.1117 = phi ptr [ %.2118.lcssa, %.preheader ], [ %101, %151 ], [ %.1117.ph, %.loopexit.sink.split ], [ %255, %253 ]
-  %.2112 = phi ptr [ %.4114.lcssa, %.preheader ], [ %99, %151 ], [ %.2112.ph, %.loopexit.sink.split ], [ %.4114.lcssa, %253 ]
-  %.2 = phi i32 [ %.4.lcssa, %.preheader ], [ %103, %151 ], [ %.2.ph, %.loopexit.sink.split ], [ %.4.lcssa, %253 ]
+  %.2126 = phi i64 [ %.2126.ph, %.loopexit.sink.split ], [ %.4128.lcssa, %.preheader ], [ %100, %151 ], [ %.4128.lcssa, %253 ]
+  %.1121 = phi i64 [ %.1121.ph, %.loopexit.sink.split ], [ 0, %.preheader ], [ 0, %151 ], [ 0, %253 ]
+  %.1117 = phi ptr [ %.1117.ph, %.loopexit.sink.split ], [ %.2118.lcssa, %.preheader ], [ %101, %151 ], [ %255, %253 ]
+  %.2112 = phi ptr [ %.2112.ph, %.loopexit.sink.split ], [ %.4114.lcssa, %.preheader ], [ %99, %151 ], [ %.4114.lcssa, %253 ]
+  %.2 = phi i32 [ %.2.ph, %.loopexit.sink.split ], [ %.4.lcssa, %.preheader ], [ %103, %151 ], [ %.4.lcssa, %253 ]
   store ptr %.1117, ptr %1, align 8, !tbaa !36
   store i64 %.1121, ptr %2, align 8, !tbaa !24
   store ptr %.2112, ptr %3, align 8, !tbaa !36
@@ -3427,7 +3427,7 @@ thread-pre-split141.i:                            ; preds = %107, %21
   br label %php_dechunk.exit
 
 php_dechunk.exit:                                 ; preds = %21, %thread-pre-split.thread.i, %.critedge.i, %.backedge.i, %11, %71, %84, %97, %100, %110, %._crit_edge223.i
-  %.0114.i = phi i64 [ %.0184.i, %71 ], [ %.0184.i, %84 ], [ %94, %97 ], [ %.1.i, %110 ], [ %103, %100 ], [ %116, %._crit_edge223.i ], [ 0, %11 ], [ %.0.be.i, %.backedge.i ], [ %.0184.i, %.critedge.i ], [ %.0184.i, %thread-pre-split.thread.i ], [ %.0184.i, %21 ]
+  %.0114.i = phi i64 [ %116, %._crit_edge223.i ], [ %103, %100 ], [ %.0184.i, %71 ], [ %.0184.i, %84 ], [ %94, %97 ], [ %.1.i, %110 ], [ 0, %11 ], [ %.0.be.i, %.backedge.i ], [ %.0184.i, %.critedge.i ], [ %.0184.i, %thread-pre-split.thread.i ], [ %.0184.i, %21 ]
   store i64 %.0114.i, ptr %14, align 8, !tbaa !23
   tail call void @php_stream_bucket_append(ptr noundef %3, ptr noundef %13) #18
   %117 = load ptr, ptr %2, align 8, !tbaa !15

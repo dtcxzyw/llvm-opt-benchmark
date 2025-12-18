@@ -693,7 +693,7 @@ define i32 @ossl_ec_curve_nid_from_params(ptr noundef %0, ptr noundef %1) local_
   br i1 %exitcond102.not, label %.loopexit, label %.preheader.split, !llvm.loop !40
 
 .loopexit:                                        ; preds = %.preheader90, %76, %113, %111, %74, %72, %28, %35, %37, %43, %2
-  %.065 = phi i32 [ -1, %2 ], [ -1, %35 ], [ -1, %28 ], [ -1, %43 ], [ -1, %37 ], [ -1, %76 ], [ 0, %74 ], [ %.sroa.0.0.copyload, %111 ], [ %.sroa.0.0.copyload.us, %72 ], [ 0, %113 ], [ -1, %.preheader90 ]
+  %.065 = phi i32 [ -1, %2 ], [ 0, %113 ], [ -1, %76 ], [ -1, %35 ], [ -1, %28 ], [ -1, %43 ], [ -1, %37 ], [ 0, %74 ], [ %.sroa.0.0.copyload.us, %72 ], [ %.sroa.0.0.copyload, %111 ], [ -1, %.preheader90 ]
   tail call void @CRYPTO_free(ptr noundef %21, ptr noundef nonnull @.str, i32 noundef 3470) #7
   tail call void @BN_CTX_end(ptr noundef %1) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

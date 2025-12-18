@@ -108,7 +108,7 @@ define dso_local range(i32 -1, 134217728) i32 @ArrayGetNItemsSafe(i32 noundef %0
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %16, %9, %18, %21, %3
-  %.0 = phi i32 [ -1, %21 ], [ %19, %18 ], [ 0, %3 ], [ -1, %9 ], [ -1, %16 ], [ -1, %.critedge.sink.split ]
+  %.0 = phi i32 [ -1, %21 ], [ %19, %18 ], [ 0, %3 ], [ -1, %16 ], [ -1, %9 ], [ -1, %.critedge.sink.split ]
   ret i32 %.0
 }
 

@@ -321,7 +321,7 @@ lean_obj_tag.exit117:                             ; preds = %115, %118
   br i1 %132, label %lean_nat_eq.exit, label %.backedge.backedge
 
 lean_nat_eq.exit:                                 ; preds = %122, %103, %84, %65, %lean_obj_tag.exit117, %lean_obj_tag.exit113, %lean_obj_tag.exit109, %lean_obj_tag.exit105, %.critedge.i90, %54, %.critedge.i, %32, %lean_obj_tag.exit101, %lean_obj_tag.exit97
-  %.1.shrunk = phi i1 [ %34, %.critedge.i ], [ false, %lean_obj_tag.exit97 ], [ false, %lean_obj_tag.exit101 ], [ %33, %32 ], [ %55, %54 ], [ %56, %.critedge.i90 ], [ false, %lean_obj_tag.exit105 ], [ false, %lean_obj_tag.exit109 ], [ false, %lean_obj_tag.exit113 ], [ false, %lean_obj_tag.exit117 ], [ false, %65 ], [ false, %84 ], [ false, %103 ], [ false, %122 ]
+  %.1.shrunk = phi i1 [ %56, %.critedge.i90 ], [ %55, %54 ], [ %33, %32 ], [ false, %lean_obj_tag.exit101 ], [ %34, %.critedge.i ], [ false, %lean_obj_tag.exit97 ], [ false, %lean_obj_tag.exit105 ], [ false, %lean_obj_tag.exit109 ], [ false, %lean_obj_tag.exit113 ], [ false, %lean_obj_tag.exit117 ], [ false, %65 ], [ false, %84 ], [ false, %103 ], [ false, %122 ]
   %.1 = zext i1 %.1.shrunk to i8
   ret i8 %.1
 }

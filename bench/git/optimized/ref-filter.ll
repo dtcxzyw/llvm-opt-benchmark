@@ -2478,7 +2478,7 @@ cmp_ref_sorting.exit:                             ; preds = %40, %42, %47, %64, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %cmp_ref_sorting.exit, %104, %108
-  %.2 = phi i32 [ %107, %104 ], [ %111, %108 ], [ %98, %cmp_ref_sorting.exit ]
+  %.2 = phi i32 [ %111, %108 ], [ %107, %104 ], [ %98, %cmp_ref_sorting.exit ]
   ret i32 %.2
 }
 
@@ -3373,8 +3373,8 @@ get_refname.exit.i:                               ; preds = %104, %102, %63, %61
   br label %skip_prefix.exit201.i
 
 skip_prefix.exit201.i:                            ; preds = %126, %219, %213, %199, %182, %180, %178, %skip_prefix.exit211.i, %170, %168, %166, %159, %158, %154, %139, %137, %135, %119, %117, %116, %skip_prefix.exit.i, %100
-  %.1154.i = phi i32 [ %.0153239.i, %219 ], [ %.0153239.i, %100 ], [ %.0153239.i, %159 ], [ %.0153239.i, %skip_prefix.exit.i ], [ %.0153239.i, %139 ], [ %.0153239.i, %154 ], [ %.0153239.i, %119 ], [ %.0153239.i, %166 ], [ %.0153239.i, %168 ], [ %.0153239.i, %170 ], [ %.0153239.i, %skip_prefix.exit211.i ], [ %.0153239.i, %178 ], [ %.0153239.i, %180 ], [ %.0153239.i, %182 ], [ %.0153239.i, %199 ], [ %214, %213 ], [ %.0153239.i, %116 ], [ %.0153239.i, %117 ], [ %.0153239.i, %135 ], [ %.0153239.i, %137 ], [ %.0153239.i, %158 ], [ %.0153239.i, %126 ]
-  %.1150.i = phi i32 [ %.0149240.i, %219 ], [ %.0149240.i, %100 ], [ %.0149240.i, %159 ], [ %.0149240.i, %skip_prefix.exit.i ], [ %.0149240.i, %139 ], [ %.0149240.i, %154 ], [ %.0149240.i, %119 ], [ %.0149240.i, %166 ], [ %.0149240.i, %168 ], [ %.0149240.i, %170 ], [ %.0149240.i, %skip_prefix.exit211.i ], [ %.0149240.i, %178 ], [ %.0149240.i, %180 ], [ %.0149240.i, %182 ], [ %.2151.i, %199 ], [ %.0149240.i, %213 ], [ %.0149240.i, %116 ], [ %.0149240.i, %117 ], [ %.0149240.i, %135 ], [ %.0149240.i, %137 ], [ %.0149240.i, %158 ], [ %.0149240.i, %126 ]
+  %.1154.i = phi i32 [ %.0153239.i, %219 ], [ %.0153239.i, %100 ], [ %.0153239.i, %159 ], [ %.0153239.i, %skip_prefix.exit.i ], [ %.0153239.i, %139 ], [ %.0153239.i, %154 ], [ %.0153239.i, %119 ], [ %.0153239.i, %166 ], [ %.0153239.i, %168 ], [ %.0153239.i, %170 ], [ %.0153239.i, %skip_prefix.exit211.i ], [ %.0153239.i, %178 ], [ %.0153239.i, %180 ], [ %.0153239.i, %182 ], [ %.0153239.i, %199 ], [ %214, %213 ], [ %.0153239.i, %116 ], [ %.0153239.i, %117 ], [ %.0153239.i, %158 ], [ %.0153239.i, %135 ], [ %.0153239.i, %137 ], [ %.0153239.i, %126 ]
+  %.1150.i = phi i32 [ %.0149240.i, %219 ], [ %.0149240.i, %100 ], [ %.0149240.i, %159 ], [ %.0149240.i, %skip_prefix.exit.i ], [ %.0149240.i, %139 ], [ %.0149240.i, %154 ], [ %.0149240.i, %119 ], [ %.0149240.i, %166 ], [ %.0149240.i, %168 ], [ %.0149240.i, %170 ], [ %.0149240.i, %skip_prefix.exit211.i ], [ %.0149240.i, %178 ], [ %.0149240.i, %180 ], [ %.0149240.i, %182 ], [ %.2151.i, %199 ], [ %.0149240.i, %213 ], [ %.0149240.i, %116 ], [ %.0149240.i, %117 ], [ %.0149240.i, %158 ], [ %.0149240.i, %135 ], [ %.0149240.i, %137 ], [ %.0149240.i, %126 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %220 = load i32, ptr @used_atom_cnt, align 4, !tbaa !4
   %221 = sext i32 %220 to i64
@@ -4505,7 +4505,7 @@ match_atom_bool_arg.exit.thread77.i:              ; preds = %28, %27
   br label %.thread36
 
 .loopexit100.i:                                   ; preds = %9, %28, %14
-  %34 = phi ptr [ %.01867118, %14 ], [ %.1.i.i.i, %28 ], [ %.01867118, %9 ]
+  %34 = phi ptr [ %.1.i.i.i, %28 ], [ %.01867118, %14 ], [ %.01867118, %9 ]
   %scevgep.i = getelementptr i8, ptr %34, i64 6
   br label %35
 
@@ -4810,7 +4810,7 @@ err_bad_arg.exit:                                 ; preds = %.loopexit, %132
   br i1 %.not13, label %.thread41, label %.lr.ph119
 
 .thread41:                                        ; preds = %.thread36, %.lr.ph.preheader, %4, %_.exit58.i, %_.exit47.i, %err_bad_arg.exit, %describe_atom_option_parser.exit.thread31
-  %.2 = phi i32 [ -1, %describe_atom_option_parser.exit.thread31 ], [ -1, %err_bad_arg.exit ], [ -1, %_.exit47.i ], [ -1, %_.exit58.i ], [ 0, %4 ], [ 0, %.lr.ph.preheader ], [ 0, %.thread36 ]
+  %.2 = phi i32 [ -1, %_.exit58.i ], [ -1, %_.exit47.i ], [ -1, %describe_atom_option_parser.exit.thread31 ], [ -1, %err_bad_arg.exit ], [ 0, %4 ], [ 0, %.lr.ph.preheader ], [ 0, %.thread36 ]
   ret i32 %.2
 }
 
@@ -6396,7 +6396,7 @@ skip_prefix.exit18.i.i:                           ; preds = %67, %skip_prefix.ex
   br i1 %71, label %skip_prefix.exit18.i.i, label %skip_prefix.exit22.i.i, !llvm.loop !31
 
 skip_prefix.exit22.i.i:                           ; preds = %51, %skip_prefix.exit.i.i, %skip_prefix.exit14.i.i, %67, %skip_prefix.exit18.i.i
-  %.0.i.i = phi ptr [ %scevgep46.i.i, %skip_prefix.exit.i.i ], [ %scevgep50.i.i, %skip_prefix.exit18.i.i ], [ %scevgep48.i.i, %skip_prefix.exit14.i.i ], [ %0, %67 ], [ %scevgep.i.i, %51 ]
+  %.0.i.i = phi ptr [ %scevgep50.i.i, %skip_prefix.exit18.i.i ], [ %scevgep46.i.i, %skip_prefix.exit.i.i ], [ %scevgep48.i.i, %skip_prefix.exit14.i.i ], [ %0, %67 ], [ %scevgep.i.i, %51 ]
   br label %.lr.ph.i.i
 
 72:                                               ; preds = %.lr.ph.i.i
@@ -6512,7 +6512,7 @@ skip_prefix.exit18.i.i101:                        ; preds = %106, %skip_prefix.e
   br i1 %110, label %skip_prefix.exit18.i.i101, label %skip_prefix.exit22.i.i107, !llvm.loop !31
 
 skip_prefix.exit22.i.i107:                        ; preds = %90, %skip_prefix.exit.i.i85, %skip_prefix.exit14.i.i93, %106, %skip_prefix.exit18.i.i101
-  %.0.i.i108 = phi ptr [ %scevgep46.i.i84, %skip_prefix.exit.i.i85 ], [ %scevgep50.i.i100, %skip_prefix.exit18.i.i101 ], [ %scevgep48.i.i92, %skip_prefix.exit14.i.i93 ], [ %0, %106 ], [ %scevgep.i.i77, %90 ]
+  %.0.i.i108 = phi ptr [ %scevgep50.i.i100, %skip_prefix.exit18.i.i101 ], [ %scevgep46.i.i84, %skip_prefix.exit.i.i85 ], [ %scevgep48.i.i92, %skip_prefix.exit14.i.i93 ], [ %0, %106 ], [ %scevgep.i.i77, %90 ]
   %111 = load ptr, ptr %85, align 8, !tbaa !59
   %.not936.i.i = icmp eq ptr %111, null
   br i1 %.not936.i.i, label %filter_exclude_match.exit.thread, label %.lr.ph.i.i109
@@ -6665,7 +6665,7 @@ xstrdup_or_null.exit:                             ; preds = %170, %175
   br label %match_points_at.exit
 
 match_points_at.exit:                             ; preds = %72, %.lr.ph.i.i109, %.lr.ph.i, %167, %161, %155, %filter_exclude_match.exit, %filter_pattern_match.exit, %37, %xstrdup_or_null.exit, %_.exit70, %_.exit
-  %.048 = phi ptr [ null, %_.exit ], [ null, %_.exit70 ], [ null, %filter_pattern_match.exit ], [ null, %161 ], [ %171, %xstrdup_or_null.exit ], [ null, %155 ], [ null, %filter_exclude_match.exit ], [ null, %37 ], [ null, %167 ], [ null, %.lr.ph.i.i109 ], [ null, %.lr.ph.i ], [ null, %72 ]
+  %.048 = phi ptr [ null, %_.exit ], [ null, %_.exit70 ], [ null, %filter_pattern_match.exit ], [ null, %161 ], [ %171, %xstrdup_or_null.exit ], [ null, %155 ], [ null, %.lr.ph.i ], [ null, %filter_exclude_match.exit ], [ null, %37 ], [ null, %167 ], [ null, %.lr.ph.i.i109 ], [ null, %72 ]
   ret ptr %.048
 }
 
@@ -7949,7 +7949,7 @@ skip_prefix.exit.sink.split.i.i:                  ; preds = %228, %224, %220, %2
   br label %skip_prefix.exit.i.i
 
 skip_prefix.exit.i.i:                             ; preds = %182, %skip_prefix.exit.sink.split.i.i, %205, %189, %187, %171
-  %.1.i.i = phi i32 [ %.02244.i.i, %189 ], [ %.02244.i.i, %171 ], [ %.02244.i.i, %187 ], [ 1, %205 ], [ 1, %skip_prefix.exit.sink.split.i.i ], [ %.02244.i.i, %182 ]
+  %.1.i.i = phi i32 [ %.02244.i.i, %189 ], [ %.02244.i.i, %171 ], [ 1, %skip_prefix.exit.sink.split.i.i ], [ %.02244.i.i, %187 ], [ 1, %205 ], [ %.02244.i.i, %182 ]
   %indvars.iv.next.i45.i = add nuw nsw i64 %indvars.iv.i43.i, 1
   %232 = load i32, ptr @used_atom_cnt, align 4, !tbaa !4
   %233 = sext i32 %232 to i64
@@ -9186,7 +9186,7 @@ define internal fastcc void @grab_person(ptr noundef readonly captures(none) %0,
   br i1 %85, label %find_wholine.exit, label %69, !llvm.loop !265
 
 find_wholine.exit:                                ; preds = %51, %62, %64, %69, %80, %82, %59, %77
-  %.2 = phi ptr [ %61, %59 ], [ %79, %77 ], [ @.str.24, %69 ], [ @.str.24, %82 ], [ @.str.24, %80 ], [ @.str.24, %64 ], [ @.str.24, %62 ], [ @.str.24, %51 ]
+  %.2 = phi ptr [ @.str.24, %69 ], [ %61, %59 ], [ %79, %77 ], [ @.str.24, %82 ], [ @.str.24, %80 ], [ @.str.24, %64 ], [ @.str.24, %62 ], [ @.str.24, %51 ]
   %86 = load i8, ptr %24, align 1, !tbaa !15
   %87 = icmp eq i8 %86, 0
   br i1 %87, label %88, label %94

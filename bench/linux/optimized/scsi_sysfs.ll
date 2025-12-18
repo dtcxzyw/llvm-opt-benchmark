@@ -1262,7 +1262,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @store_scan(ptr noundef %
   br label %59
 
 54:                                               ; preds = %52, %50
-  %55 = phi i32 [ %51, %50 ], [ %53, %52 ]
+  %55 = phi i32 [ %53, %52 ], [ %51, %50 ]
   %.fr = freeze i32 %55
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)

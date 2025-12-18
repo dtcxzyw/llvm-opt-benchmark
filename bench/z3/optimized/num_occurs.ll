@@ -532,7 +532,7 @@ _ZN14core_hashtableIN7obj_mapI4exprjE13obj_map_entryE8obj_hashINS2_8key_dataEE10
   br label %.loopexit
 
 .loopexit:                                        ; preds = %169, %181, %.loopexit.sink.split, %.noexc122
-  %.0149 = phi ptr [ null, %.noexc122 ], [ %.048.i.sink232, %.loopexit.sink.split ], [ %.15172.i, %181 ], [ %.05069.i, %169 ]
+  %.0149 = phi ptr [ null, %.noexc122 ], [ %.15172.i, %181 ], [ %.048.i.sink232, %.loopexit.sink.split ], [ %.05069.i, %169 ]
   %193 = getelementptr inbounds nuw i8, ptr %.0149, i64 8
   %194 = load i32, ptr %193, align 4, !tbaa !26
   %195 = add i32 %194, 1

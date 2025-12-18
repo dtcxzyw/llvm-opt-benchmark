@@ -1001,7 +1001,7 @@ _ZNK6HandleeqEP7oopDesc.exit:                     ; preds = %31, %34
   br i1 %43, label %.loopexit, label %8, !llvm.loop !16
 
 .loopexit:                                        ; preds = %39, %40, %_ZNK6HandleeqEP7oopDesc.exit, %38, %2, %15
-  %.0 = phi i1 [ false, %2 ], [ false, %15 ], [ false, %38 ], [ true, %_ZNK6HandleeqEP7oopDesc.exit ], [ false, %40 ], [ false, %39 ]
+  %.0 = phi i1 [ false, %38 ], [ false, %2 ], [ false, %15 ], [ true, %_ZNK6HandleeqEP7oopDesc.exit ], [ false, %40 ], [ false, %39 ]
   ret i1 %.0
 }
 

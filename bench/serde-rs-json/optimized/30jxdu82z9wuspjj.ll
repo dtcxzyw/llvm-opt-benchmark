@@ -201,8 +201,8 @@ define hidden void @_ZN10serde_json4read9SliceRead15parse_str_bytes17h218a9c1fdc
   br label %22
 
 .thread:                                          ; preds = %.outer, %30, %4
-  %.lcssa40 = phi i64 [ %.promoted60, %4 ], [ %31, %30 ], [ %.promoted, %.outer ]
-  %.lcssa = phi i64 [ %15, %4 ], [ %19, %30 ], [ %112, %.outer ]
+  %.lcssa40 = phi i64 [ %31, %30 ], [ %.promoted60, %4 ], [ %.promoted, %.outer ]
+  %.lcssa = phi i64 [ %19, %30 ], [ %15, %4 ], [ %112, %.outer ]
   %21 = icmp eq i64 %.lcssa40, %.lcssa
   br i1 %21, label %33, label %35
 
@@ -488,8 +488,8 @@ define hidden void @_ZN10serde_json4read9SliceRead15parse_str_bytes17h588b36e201
   br label %16
 
 .thread:                                          ; preds = %.outer, %24, %4
-  %.lcssa39 = phi i64 [ %.promoted59, %4 ], [ %25, %24 ], [ %.promoted, %.outer ]
-  %.lcssa = phi i64 [ %9, %4 ], [ %13, %24 ], [ %82, %.outer ]
+  %.lcssa39 = phi i64 [ %25, %24 ], [ %.promoted59, %4 ], [ %.promoted, %.outer ]
+  %.lcssa = phi i64 [ %13, %24 ], [ %9, %4 ], [ %82, %.outer ]
   %15 = icmp eq i64 %.lcssa39, %.lcssa
   br i1 %15, label %27, label %29
 
@@ -685,8 +685,8 @@ define hidden void @_ZN10serde_json4read9SliceRead15parse_str_bytes17hbce210c632
   br label %16
 
 .thread:                                          ; preds = %.outer, %24, %4
-  %.lcssa39 = phi i64 [ %.promoted59, %4 ], [ %25, %24 ], [ %.promoted, %.outer ]
-  %.lcssa = phi i64 [ %9, %4 ], [ %13, %24 ], [ %82, %.outer ]
+  %.lcssa39 = phi i64 [ %25, %24 ], [ %.promoted59, %4 ], [ %.promoted, %.outer ]
+  %.lcssa = phi i64 [ %13, %24 ], [ %9, %4 ], [ %82, %.outer ]
   %15 = icmp eq i64 %.lcssa39, %.lcssa
   br i1 %15, label %27, label %29
 

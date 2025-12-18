@@ -13870,7 +13870,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit1018:             ; preds = %_ZSt8_DestroyIPN5Yo
   br i1 %3022, label %.loopexit2101, label %2991
 
 .loopexit2101:                                    ; preds = %1138, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit1018, %.thread
-  %.pn435.pn = phi { ptr, i32 } [ %lpad.thr_comm, %.thread ], [ %.pn435, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit1018 ], [ %lpad.thr_comm.split-lp, %1138 ]
+  %.pn435.pn = phi { ptr, i32 } [ %.pn435, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit1018 ], [ %lpad.thr_comm, %.thread ], [ %lpad.thr_comm.split-lp, %1138 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %92)
   br label %.body
 
@@ -16779,7 +16779,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit1379:             ; preds = %_ZSt8_DestroyIPN5Yo
   br i1 %4147, label %.loopexit2103, label %4116
 
 .loopexit2103:                                    ; preds = %3112, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit1379, %.thread2009
-  %.pn394.pn = phi { ptr, i32 } [ %lpad.thr_comm2007, %.thread2009 ], [ %.pn394, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit1379 ], [ %lpad.thr_comm.split-lp2008, %3112 ]
+  %.pn394.pn = phi { ptr, i32 } [ %.pn394, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit1379 ], [ %lpad.thr_comm2007, %.thread2009 ], [ %lpad.thr_comm.split-lp2008, %3112 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %118)
   br label %.body
 
@@ -17415,7 +17415,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit1455:             ; preds = %_ZSt8_DestroyIPN5Yo
   br i1 %4411, label %.loopexit2105, label %4408
 
 .loopexit2105:                                    ; preds = %4243, %4408, %.thread2017
-  %.pn354.pn = phi { ptr, i32 } [ %lpad.thr_comm2015, %.thread2017 ], [ %.pn354, %4408 ], [ %lpad.thr_comm.split-lp2016, %4243 ]
+  %.pn354.pn = phi { ptr, i32 } [ %.pn354, %4408 ], [ %lpad.thr_comm2015, %.thread2017 ], [ %lpad.thr_comm.split-lp2016, %4243 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %144)
   br label %.body
 
@@ -18016,7 +18016,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit1530:             ; preds = %_ZSt8_DestroyIPN5Yo
   br i1 %4660, label %.loopexit2107, label %4657
 
 .loopexit2107:                                    ; preds = %4657, %.loopexit2107.loopexit4539, %.thread2026
-  %.pn341.pn = phi { ptr, i32 } [ %lpad.thr_comm2024, %.thread2026 ], [ %lpad.thr_comm.split-lp2025, %.loopexit2107.loopexit4539 ], [ %.pn341, %4657 ]
+  %.pn341.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp2025, %.loopexit2107.loopexit4539 ], [ %lpad.thr_comm2024, %.thread2026 ], [ %.pn341, %4657 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %148)
   br label %.body
 
@@ -20058,7 +20058,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5ConstESaIS2_EEaSESt16initializer_listIS2_E.exit.i: ; 
   br i1 %5475, label %.loopexit302.i, label %5472
 
 .loopexit302.i:                                   ; preds = %5466, %5472, %.thread284.i
-  %.pn71.i = phi { ptr, i32 } [ %5451, %.thread284.i ], [ %5471, %5472 ], [ %5465, %5466 ]
+  %.pn71.i = phi { ptr, i32 } [ %5471, %5472 ], [ %5451, %.thread284.i ], [ %5465, %5466 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !506
   br label %5884
 
@@ -20282,7 +20282,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5ConstESaIS2_EEaSESt16initializer_listIS2_E.exit198.i:
   br i1 %5569, label %.loopexit304.i, label %5566
 
 .loopexit304.i:                                   ; preds = %5560, %5566, %.thread290.i
-  %.pn69.i = phi { ptr, i32 } [ %5549, %.thread290.i ], [ %5565, %5566 ], [ %5559, %5560 ]
+  %.pn69.i = phi { ptr, i32 } [ %5565, %5566 ], [ %5549, %.thread290.i ], [ %5559, %5560 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %24), !noalias !506
   br label %5884
 

@@ -139,7 +139,7 @@ define dso_local noundef double @_ZN3igl21bounding_box_diagonalERKN5Eigen6Matrix
   br label %_ZNK5Eigen9DenseBaseINS_12CwiseUnaryOpINS_8internal16scalar_square_opIdEEKNS_12ArrayWrapperIKNS_13CwiseBinaryOpINS2_20scalar_difference_opIddEEKNS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEESB_EEEEEEE3sumEv.exit
 
 _ZNK5Eigen9DenseBaseINS_12CwiseUnaryOpINS_8internal16scalar_square_opIdEEKNS_12ArrayWrapperIKNS_13CwiseBinaryOpINS2_20scalar_difference_opIddEEKNS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEESB_EEEEEEE3sumEv.exit: ; preds = %.lr.ph85.i.i.i, %69, %58, %7
-  %.0.i = phi double [ 0.000000e+00, %7 ], [ %73, %69 ], [ %59, %58 ], [ %67, %.lr.ph85.i.i.i ]
+  %.0.i = phi double [ 0.000000e+00, %7 ], [ %59, %58 ], [ %73, %69 ], [ %67, %.lr.ph85.i.i.i ]
   %74 = call double @sqrt(double noundef %.0.i) #6, !tbaa !18
   %75 = load ptr, ptr %5, align 8, !tbaa !20
   call void @free(ptr noundef %75) #6

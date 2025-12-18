@@ -348,8 +348,8 @@ ring_buf_get_buf_at.exit.thread.sink.split:       ; preds = %20, %73
   store i64 %.049.lcssa.sink, ptr %4, align 8, !tbaa !12
   br label %ring_buf_get_buf_at.exit.thread
 
-ring_buf_get_buf_at.exit.thread:                  ; preds = %40, %43, %ring_buf_get_buf_at.exit.thread.sink.split, %16, %15, %5
-  %.046 = phi i32 [ 0, %16 ], [ 0, %5 ], [ 0, %15 ], [ 1, %ring_buf_get_buf_at.exit.thread.sink.split ], [ 0, %43 ], [ 0, %40 ]
+ring_buf_get_buf_at.exit.thread:                  ; preds = %43, %40, %ring_buf_get_buf_at.exit.thread.sink.split, %16, %15, %5
+  %.046 = phi i32 [ 0, %16 ], [ 0, %5 ], [ 0, %15 ], [ 1, %ring_buf_get_buf_at.exit.thread.sink.split ], [ 0, %40 ], [ 0, %43 ]
   ret i32 %.046
 }
 

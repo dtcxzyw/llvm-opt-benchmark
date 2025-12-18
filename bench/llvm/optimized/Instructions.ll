@@ -1596,7 +1596,7 @@ _ZN4llvm3UseaSERKS0_.exit.i.i.i:                  ; preds = %_ZN4llvm5Value6addU
   br i1 %.not.i.i.i, label %"_ZN4llvm9remove_ifINS_14iterator_rangeIPNS_3UseEEEZNS_7PHINode21removeIncomingValueIfENS_12function_refIFbjEEEbE3$_0EEDaOT_T0_.exit", label %230, !llvm.loop !117
 
 "_ZN4llvm9remove_ifINS_14iterator_rangeIPNS_3UseEEEZNS_7PHINode21removeIncomingValueIfENS_12function_refIFbjEEEbE3$_0EEDaOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i.i83.i.i.i.i.i, %273, %._crit_edge.i.i.i.i.i, %201, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm7PHINode21removeIncomingValueIfENS2_12function_refIFbjEEEbE3$_0EclIPNS2_3UseEEEbT_.exit89.i.i.i.i.i", %"_ZSt9__find_ifIPN4llvm3UseEN9__gnu_cxx5__ops10_Iter_predIZNS0_7PHINode21removeIncomingValueIfENS0_12function_refIFbjEEEbE3$_0EEET_SC_SC_T0_.exit.i.i.i", %.preheader.i.i.i
-  %.016.i.i.i = phi ptr [ %.028.i.i.i.i.i, %"_ZSt9__find_ifIPN4llvm3UseEN9__gnu_cxx5__ops10_Iter_predIZNS0_7PHINode21removeIncomingValueIfENS0_12function_refIFbjEEEbE3$_0EEET_SC_SC_T0_.exit.i.i.i" ], [ %33, %._crit_edge.i.i.i.i.i ], [ %33, %201 ], [ %33, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm7PHINode21removeIncomingValueIfENS2_12function_refIFbjEEEbE3$_0EclIPNS2_3UseEEEbT_.exit89.i.i.i.i.i" ], [ %.028.i.i.i.i.i, %.preheader.i.i.i ], [ %.1.i.i.i, %273 ], [ %33, %.lr.ph.i.i.i.i.i.i83.i.i.i.i.i ]
+  %.016.i.i.i = phi ptr [ %.028.i.i.i.i.i, %"_ZSt9__find_ifIPN4llvm3UseEN9__gnu_cxx5__ops10_Iter_predIZNS0_7PHINode21removeIncomingValueIfENS0_12function_refIFbjEEEbE3$_0EEET_SC_SC_T0_.exit.i.i.i" ], [ %33, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm7PHINode21removeIncomingValueIfENS2_12function_refIFbjEEEbE3$_0EclIPNS2_3UseEEEbT_.exit89.i.i.i.i.i" ], [ %33, %._crit_edge.i.i.i.i.i ], [ %33, %201 ], [ %.1.i.i.i, %273 ], [ %.028.i.i.i.i.i, %.preheader.i.i.i ], [ %33, %.lr.ph.i.i.i.i.i.i83.i.i.i.i.i ]
   %274 = getelementptr inbounds i8, ptr %0, i64 -8
   %275 = load ptr, ptr %274, align 8, !tbaa !99
   %276 = load i32, ptr %11, align 4
@@ -2227,7 +2227,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm7PHINode23hasConstantOrUndefValueE
   br i1 %or.cond, label %15, label %.critedge20
 
 15:                                               ; preds = %14, %8, %11
-  %.215 = phi ptr [ %.01324, %11 ], [ %.01324, %8 ], [ %10, %14 ]
+  %.215 = phi ptr [ %.01324, %8 ], [ %.01324, %11 ], [ %10, %14 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, %7
   br i1 %.not, label %.critedge20, label %8, !llvm.loop !126
@@ -5112,7 +5112,7 @@ _ZN4llvm8CallBase18bundle_op_info_endEv.exit61:   ; preds = %_ZN4llvm8CallBase20
   br i1 %.not, label %.thread70, label %.lr.ph
 
 .thread70:                                        ; preds = %72, %68, %32, %_ZN4llvm8CallBase18bundle_op_info_endEv.exit61
-  %.3 = phi ptr [ %39, %_ZN4llvm8CallBase18bundle_op_info_endEv.exit61 ], [ %.046, %32 ], [ %spec.select, %68 ], [ %spec.select, %72 ]
+  %.3 = phi ptr [ %.046, %32 ], [ %39, %_ZN4llvm8CallBase18bundle_op_info_endEv.exit61 ], [ %spec.select, %68 ], [ %spec.select, %72 ]
   ret ptr %.3
 }
 
@@ -11173,7 +11173,7 @@ _ZNK4llvm4Type18isIntOrIntVectorTyEv.exit.i.i:    ; preds = %25, %18
   br label %_ZN4llvm17GetElementPtrInst14getTypeAtIndexEPNS_4TypeEPNS_5ValueE.exit.i
 
 _ZN4llvm17GetElementPtrInst14getTypeAtIndexEPNS_4TypeEPNS_5ValueE.exit.i: ; preds = %37, %32, %16
-  %.1.i.i = phi ptr [ %17, %16 ], [ %34, %32 ], [ %39, %37 ]
+  %.1.i.i = phi ptr [ %39, %37 ], [ %17, %16 ], [ %34, %32 ]
   %.not20.not.i = icmp eq ptr %.1.i.i, null
   br i1 %.not20.not.i, label %_ZL22getIndexedTypeInternalIPN4llvm5ValueEEPNS0_4TypeES4_NS0_8ArrayRefIT_EE.exit, label %7
 
@@ -11262,7 +11262,7 @@ _ZNK4llvm4Type18isIntOrIntVectorTyEv.exit.i.i:    ; preds = %25, %18
   br label %_ZN4llvm17GetElementPtrInst14getTypeAtIndexEPNS_4TypeEPNS_5ValueE.exit.i
 
 _ZN4llvm17GetElementPtrInst14getTypeAtIndexEPNS_4TypeEPNS_5ValueE.exit.i: ; preds = %37, %32, %16
-  %.1.i.i = phi ptr [ %17, %16 ], [ %34, %32 ], [ %39, %37 ]
+  %.1.i.i = phi ptr [ %39, %37 ], [ %17, %16 ], [ %34, %32 ]
   %.not20.not.i = icmp eq ptr %.1.i.i, null
   br i1 %.not20.not.i, label %_ZL22getIndexedTypeInternalIPN4llvm8ConstantEEPNS0_4TypeES4_NS0_8ArrayRefIT_EE.exit, label %7
 
@@ -11330,7 +11330,7 @@ define dso_local noundef ptr @_ZN4llvm17GetElementPtrInst14getIndexedTypeEPNS_4T
   br label %_ZN4llvm17GetElementPtrInst14getTypeAtIndexEPNS_4TypeEm.exit.i
 
 _ZN4llvm17GetElementPtrInst14getTypeAtIndexEPNS_4TypeEm.exit.i: ; preds = %28, %24, %18
-  %.1.i.in.i = phi ptr [ %25, %24 ], [ %21, %18 ], [ %29, %28 ]
+  %.1.i.in.i = phi ptr [ %25, %24 ], [ %29, %28 ], [ %21, %18 ]
   %.1.i.i = load ptr, ptr %.1.i.in.i, align 8, !tbaa !153
   %.not20.not.i = icmp eq ptr %.1.i.i, null
   br i1 %.not20.not.i, label %_ZL22getIndexedTypeInternalImEPN4llvm4TypeES2_NS0_8ArrayRefIT_EE.exit, label %7
@@ -12999,7 +12999,7 @@ _ZL22isSingleSourceMaskImplN4llvm8ArrayRefIiEEi.exit.i: ; preds = %18
   br i1 %or.cond.not, label %.lr.ph.i, label %_ZL18isIdentityMaskImplN4llvm8ArrayRefIiEEi.exit, !llvm.loop !289
 
 _ZL18isIdentityMaskImplN4llvm8ArrayRefIiEEi.exit: ; preds = %9, %.lr.ph.i, %23, %_ZL22isSingleSourceMaskImplN4llvm8ArrayRefIiEEi.exit.i, %5, %3
-  %.0 = phi i1 [ false, %3 ], [ false, %_ZL22isSingleSourceMaskImplN4llvm8ArrayRefIiEEi.exit.i ], [ false, %5 ], [ true, %23 ], [ %or.cond17.i, %.lr.ph.i ], [ false, %9 ]
+  %.0 = phi i1 [ false, %3 ], [ false, %_ZL22isSingleSourceMaskImplN4llvm8ArrayRefIiEEi.exit.i ], [ true, %23 ], [ false, %5 ], [ %or.cond17.i, %.lr.ph.i ], [ false, %9 ]
   ret i1 %.0
 }
 
@@ -13079,7 +13079,7 @@ _ZN4llvm17ShuffleVectorInst18isSingleSourceMaskENS_8ArrayRefIiEEi.exit: ; preds 
   br i1 %exitcond.not, label %_ZN4llvm17ShuffleVectorInst18isSingleSourceMaskENS_8ArrayRefIiEEi.exit.thread, label %.lr.ph, !llvm.loop !290
 
 _ZN4llvm17ShuffleVectorInst18isSingleSourceMaskENS_8ArrayRefIiEEi.exit.thread: ; preds = %9, %31, %36, %24, %5, %_ZN4llvm17ShuffleVectorInst18isSingleSourceMaskENS_8ArrayRefIiEEi.exit, %3
-  %.015 = phi i1 [ false, %3 ], [ false, %_ZN4llvm17ShuffleVectorInst18isSingleSourceMaskENS_8ArrayRefIiEEi.exit ], [ false, %5 ], [ true, %24 ], [ true, %36 ], [ false, %31 ], [ false, %9 ]
+  %.015 = phi i1 [ false, %3 ], [ false, %_ZN4llvm17ShuffleVectorInst18isSingleSourceMaskENS_8ArrayRefIiEEi.exit ], [ true, %24 ], [ false, %5 ], [ true, %36 ], [ false, %31 ], [ false, %9 ]
   ret i1 %.015
 }
 
@@ -13147,7 +13147,7 @@ _ZN4llvm17ShuffleVectorInst18isSingleSourceMaskENS_8ArrayRefIiEEi.exit: ; preds 
   br i1 %or.cond31.not, label %.lr.ph, label %_ZN4llvm17ShuffleVectorInst18isSingleSourceMaskENS_8ArrayRefIiEEi.exit.thread, !llvm.loop !291
 
 _ZN4llvm17ShuffleVectorInst18isSingleSourceMaskENS_8ArrayRefIiEEi.exit.thread: ; preds = %9, %.lr.ph, %23, %5, %_ZN4llvm17ShuffleVectorInst18isSingleSourceMaskENS_8ArrayRefIiEEi.exit, %3
-  %.010 = phi i1 [ false, %3 ], [ false, %_ZN4llvm17ShuffleVectorInst18isSingleSourceMaskENS_8ArrayRefIiEEi.exit ], [ false, %5 ], [ true, %23 ], [ %or.cond, %.lr.ph ], [ false, %9 ]
+  %.010 = phi i1 [ false, %3 ], [ false, %_ZN4llvm17ShuffleVectorInst18isSingleSourceMaskENS_8ArrayRefIiEEi.exit ], [ true, %23 ], [ false, %5 ], [ %or.cond, %.lr.ph ], [ false, %9 ]
   ret i1 %.010
 }
 
@@ -13838,14 +13838,14 @@ _ZL22isSingleSourceMaskImplN4llvm8ArrayRefIiEEi.exit.i93: ; preds = %181
   br i1 %or.cond17.i102, label %188, label %.critedge66
 
 .critedge66.sink.split:                           ; preds = %156, %188, %186, %154
-  %.sink = phi i32 [ %133, %154 ], [ %165, %186 ], [ %165, %188 ], [ %133, %156 ]
-  %.0.i.sink = phi i32 [ %.0.i69, %154 ], [ %.0.i, %186 ], [ %.0.i, %188 ], [ %.0.i69, %156 ]
+  %.sink = phi i32 [ %133, %154 ], [ %165, %188 ], [ %165, %186 ], [ %133, %156 ]
+  %.0.i.sink = phi i32 [ %.0.i69, %154 ], [ %.0.i, %188 ], [ %.0.i, %186 ], [ %.0.i69, %156 ]
   store i32 %.sink, ptr %3, align 4, !tbaa !108
   store i32 %.0.i.sink, ptr %4, align 4, !tbaa !108
   br label %.critedge66
 
 .critedge66:                                      ; preds = %172, %.lr.ph.i97, %.critedge66.sink.split, %163, %_ZL22isSingleSourceMaskImplN4llvm8ArrayRefIiEEi.exit.i93, %.critedge
-  %.3 = phi i1 [ false, %.critedge ], [ false, %_ZL22isSingleSourceMaskImplN4llvm8ArrayRefIiEEi.exit.i93 ], [ false, %163 ], [ true, %.critedge66.sink.split ], [ false, %.lr.ph.i97 ], [ false, %172 ]
+  %.3 = phi i1 [ false, %.lr.ph.i97 ], [ true, %.critedge66.sink.split ], [ false, %.critedge ], [ false, %_ZL22isSingleSourceMaskImplN4llvm8ArrayRefIiEEi.exit.i93 ], [ false, %163 ], [ false, %172 ]
   %195 = icmp ugt i32 %56, 64
   br i1 %195, label %196, label %_ZN4llvm5APIntD2Ev.exit
 
@@ -14003,7 +14003,7 @@ _ZL22isSingleSourceMaskImplN4llvm8ArrayRefIiEEi.exit.i: ; preds = %35
   br i1 %or.cond.not, label %.lr.ph, label %_ZL18isIdentityMaskImplN4llvm8ArrayRefIiEEi.exit.thread, !llvm.loop !312
 
 _ZL18isIdentityMaskImplN4llvm8ArrayRefIiEEi.exit.thread: ; preds = %26, %.lr.ph.i, %.lr.ph, %17, %_ZL22isSingleSourceMaskImplN4llvm8ArrayRefIiEEi.exit.i, %8, %1
-  %.010 = phi i1 [ false, %1 ], [ false, %8 ], [ false, %_ZL22isSingleSourceMaskImplN4llvm8ArrayRefIiEEi.exit.i ], [ false, %17 ], [ false, %.lr.ph.i ], [ %.not14, %.lr.ph ], [ false, %26 ]
+  %.010 = phi i1 [ false, %1 ], [ false, %8 ], [ false, %.lr.ph.i ], [ false, %_ZL22isSingleSourceMaskImplN4llvm8ArrayRefIiEEi.exit.i ], [ false, %17 ], [ %.not14, %.lr.ph ], [ false, %26 ]
   ret i1 %.010
 }
 
@@ -14095,7 +14095,7 @@ _ZL22isSingleSourceMaskImplN4llvm8ArrayRefIiEEi.exit.i: ; preds = %35
   br i1 %or.cond.not, label %.lr.ph.i, label %_ZL18isIdentityMaskImplN4llvm8ArrayRefIiEEi.exit, !llvm.loop !289
 
 _ZL18isIdentityMaskImplN4llvm8ArrayRefIiEEi.exit: ; preds = %26, %.lr.ph.i, %40, %_ZL22isSingleSourceMaskImplN4llvm8ArrayRefIiEEi.exit.i, %17, %8, %1
-  %.0 = phi i1 [ false, %1 ], [ false, %8 ], [ false, %_ZL22isSingleSourceMaskImplN4llvm8ArrayRefIiEEi.exit.i ], [ false, %17 ], [ true, %40 ], [ %or.cond17.i, %.lr.ph.i ], [ false, %26 ]
+  %.0 = phi i1 [ false, %1 ], [ false, %8 ], [ false, %_ZL22isSingleSourceMaskImplN4llvm8ArrayRefIiEEi.exit.i ], [ true, %40 ], [ false, %17 ], [ %or.cond17.i, %.lr.ph.i ], [ false, %26 ]
   ret i1 %.0
 }
 
@@ -14202,7 +14202,7 @@ _ZL22isSingleSourceMaskImplN4llvm8ArrayRefIiEEi.exit.i: ; preds = %44
   br i1 %or.cond.not, label %.lr.ph.i, label %_ZL18isIdentityMaskImplN4llvm8ArrayRefIiEEi.exit, !llvm.loop !289
 
 _ZL18isIdentityMaskImplN4llvm8ArrayRefIiEEi.exit: ; preds = %35, %.lr.ph.i, %49, %_ZL22isSingleSourceMaskImplN4llvm8ArrayRefIiEEi.exit.i, %26, %18, %11, %1, %6
-  %.0 = phi i1 [ false, %11 ], [ false, %1 ], [ false, %6 ], [ false, %18 ], [ false, %_ZL22isSingleSourceMaskImplN4llvm8ArrayRefIiEEi.exit.i ], [ false, %26 ], [ true, %49 ], [ %or.cond17.i, %.lr.ph.i ], [ false, %35 ]
+  %.0 = phi i1 [ false, %11 ], [ false, %1 ], [ false, %6 ], [ false, %18 ], [ false, %_ZL22isSingleSourceMaskImplN4llvm8ArrayRefIiEEi.exit.i ], [ true, %49 ], [ false, %26 ], [ %or.cond17.i, %.lr.ph.i ], [ false, %35 ]
   ret i1 %.0
 }
 
@@ -14475,7 +14475,7 @@ _ZN4llvm12is_containedIRNS_8ArrayRefIiEEiEEbOT_RKT0_.exit.thread: ; preds = %._c
   br i1 %.not105, label %.loopexit, label %.lr.ph95
 
 .loopexit:                                        ; preds = %82, %.thread71, %79, %.critedge, %94, %"_ZNK4llvm8ArrayRefIiE10take_whileIZNS_17ShuffleVectorInst17isReplicationMaskES1_RiS4_E3$_0EES1_T_.exit", %71, %75
-  %.0 = phi i1 [ false, %"_ZNK4llvm8ArrayRefIiE10take_whileIZNS_17ShuffleVectorInst17isReplicationMaskES1_RiS4_E3$_0EES1_T_.exit" ], [ %78, %75 ], [ false, %71 ], [ true, %94 ], [ false, %.critedge ], [ false, %79 ], [ false, %.thread71 ], [ false, %82 ]
+  %.0 = phi i1 [ false, %"_ZNK4llvm8ArrayRefIiE10take_whileIZNS_17ShuffleVectorInst17isReplicationMaskES1_RiS4_E3$_0EES1_T_.exit" ], [ %78, %75 ], [ false, %71 ], [ false, %.thread71 ], [ true, %94 ], [ false, %.critedge ], [ false, %79 ], [ false, %82 ]
   ret i1 %.0
 }
 
@@ -15259,7 +15259,7 @@ select.unfold.us:                                 ; preds = %69, %65
   br i1 %exitcond139.not, label %.critedge, label %.preheader, !llvm.loop !326
 
 .critedge:                                        ; preds = %49, %45, %69, %51, %80, %.preheader, %9, %5
-  %.063 = phi i1 [ false, %5 ], [ false, %9 ], [ false, %69 ], [ %.not152.not, %80 ], [ %.not152.not, %.preheader ], [ false, %51 ], [ %or.cond94.us.not, %45 ], [ %or.cond94.us.not, %49 ]
+  %.063 = phi i1 [ false, %5 ], [ false, %69 ], [ false, %9 ], [ %.not152.not, %80 ], [ %.not152.not, %.preheader ], [ false, %51 ], [ %or.cond94.us.not, %45 ], [ %or.cond94.us.not, %49 ]
   ret i1 %.063
 }
 
@@ -20249,7 +20249,7 @@ _ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit: ; 
   br label %_ZN4llvm12CmpPredicate11getMatchingES0_S0_.exit.thread
 
 _ZN4llvm12CmpPredicate11getMatchingES0_S0_.exit.thread: ; preds = %48, %45, %43, %41, %39, %2, %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit11.i, %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit.i, %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit
-  %.0 = phi i1 [ true, %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit11.i ], [ true, %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit.i ], [ false, %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit ], [ %spec.select49, %48 ], [ %switch.selectcmp, %39 ], [ true, %2 ], [ %spec.select, %41 ], [ %spec.select47, %43 ], [ %spec.select48, %45 ]
+  %.0 = phi i1 [ %spec.select47, %43 ], [ %spec.select48, %45 ], [ false, %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit ], [ true, %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit.i ], [ %switch.selectcmp, %39 ], [ %spec.select, %41 ], [ %spec.select49, %48 ], [ true, %2 ], [ true, %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit11.i ]
   ret i1 %.0
 }
 

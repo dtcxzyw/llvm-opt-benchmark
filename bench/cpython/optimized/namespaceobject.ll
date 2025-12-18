@@ -268,8 +268,8 @@ Py_DECREF.exit73.thread.sink.split:               ; preds = %82, %78
   br label %Py_DECREF.exit73.thread
 
 Py_DECREF.exit73.thread:                          ; preds = %Py_DECREF.exit69, %Py_DECREF.exit73.thread.sink.split, %._crit_edge, %64, %.critedge63, %82, %_Py_NewRef.exit, %25, %Py_DECREF.exit71, %75, %78
-  %.041103 = phi ptr [ null, %_Py_NewRef.exit ], [ %76, %78 ], [ %76, %75 ], [ null, %._crit_edge ], [ null, %Py_DECREF.exit71 ], [ null, %25 ], [ null, %82 ], [ null, %.critedge63 ], [ null, %64 ], [ %.041103.ph, %Py_DECREF.exit73.thread.sink.split ], [ null, %Py_DECREF.exit69 ]
-  %.04497 = phi ptr [ null, %_Py_NewRef.exit ], [ %26, %78 ], [ %26, %75 ], [ %26, %._crit_edge ], [ %26, %Py_DECREF.exit71 ], [ null, %25 ], [ %26, %82 ], [ %26, %.critedge63 ], [ %26, %64 ], [ %26, %Py_DECREF.exit73.thread.sink.split ], [ %26, %Py_DECREF.exit69 ]
+  %.041103 = phi ptr [ null, %_Py_NewRef.exit ], [ %76, %78 ], [ %76, %75 ], [ null, %._crit_edge ], [ null, %Py_DECREF.exit71 ], [ null, %25 ], [ %.041103.ph, %Py_DECREF.exit73.thread.sink.split ], [ null, %82 ], [ null, %.critedge63 ], [ null, %64 ], [ null, %Py_DECREF.exit69 ]
+  %.04497 = phi ptr [ null, %_Py_NewRef.exit ], [ %26, %78 ], [ %26, %75 ], [ %26, %._crit_edge ], [ %26, %Py_DECREF.exit71 ], [ null, %25 ], [ %26, %Py_DECREF.exit73.thread.sink.split ], [ %26, %82 ], [ %26, %.critedge63 ], [ %26, %64 ], [ %26, %Py_DECREF.exit69 ]
   %85 = load i32, ptr %14, align 8, !tbaa !9
   %.not.i.i = icmp sgt i32 %85, -1
   br i1 %.not.i.i, label %86, label %Py_XDECREF.exit
@@ -614,7 +614,7 @@ Py_DECREF.exit.sink.split:                        ; preds = %17, %9
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %Py_DECREF.exit.sink.split, %9, %7, %1, %17, %15, %13, %namespace_new.exit
-  %.0 = phi ptr [ %3, %namespace_new.exit ], [ %3, %13 ], [ null, %15 ], [ null, %17 ], [ null, %1 ], [ null, %7 ], [ null, %9 ], [ null, %Py_DECREF.exit.sink.split ]
+  %.0 = phi ptr [ %3, %namespace_new.exit ], [ null, %9 ], [ %3, %13 ], [ null, %15 ], [ null, %17 ], [ null, %1 ], [ null, %7 ], [ null, %Py_DECREF.exit.sink.split ]
   ret ptr %.0
 }
 
@@ -744,7 +744,7 @@ Py_DECREF.exit19.sink.split:                      ; preds = %29, %19
   br label %Py_DECREF.exit19
 
 Py_DECREF.exit19:                                 ; preds = %Py_DECREF.exit19.sink.split, %29, %27, %19, %17, %7, %23, %22, %5
-  %.0 = phi ptr [ null, %5 ], [ %9, %22 ], [ null, %7 ], [ %9, %23 ], [ null, %17 ], [ null, %19 ], [ null, %27 ], [ null, %29 ], [ null, %Py_DECREF.exit19.sink.split ]
+  %.0 = phi ptr [ null, %5 ], [ %9, %22 ], [ null, %29 ], [ null, %7 ], [ %9, %23 ], [ null, %17 ], [ null, %19 ], [ null, %27 ], [ null, %Py_DECREF.exit19.sink.split ]
   ret ptr %.0
 }
 

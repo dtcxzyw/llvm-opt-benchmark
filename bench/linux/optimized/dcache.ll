@@ -2080,8 +2080,8 @@ select.unfold:                                    ; preds = %.split50, %.split
   br i1 %145, label %.loopexit, label %.preheader, !llvm.loop !84
 
 .loopexit12:                                      ; preds = %.loopexit14, %.loopexit14.us.us, %.loopexit, %.loopexit.us.us.us
-  %146 = phi i8 [ %59, %.loopexit14.us.us ], [ %59, %.loopexit.us.us.us ], [ %121, %.loopexit ], [ %121, %.loopexit14 ]
-  %147 = phi ptr [ %33, %.loopexit14.us.us ], [ %63, %.loopexit.us.us.us ], [ %126, %.loopexit ], [ %94, %.loopexit14 ]
+  %146 = phi i8 [ %59, %.loopexit14.us.us ], [ %121, %.loopexit ], [ %59, %.loopexit.us.us.us ], [ %121, %.loopexit14 ]
+  %147 = phi ptr [ %33, %.loopexit14.us.us ], [ %126, %.loopexit ], [ %63, %.loopexit.us.us.us ], [ %94, %.loopexit14 ]
   br i1 %24, label %148, label %.critedge9
 
 148:                                              ; preds = %.loopexit12

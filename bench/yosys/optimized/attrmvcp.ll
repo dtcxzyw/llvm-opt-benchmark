@@ -5353,7 +5353,7 @@ _ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit: ; preds = %_ZN5YosysL6log_idI
   br label %.body839
 
 .thread1147:                                      ; preds = %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.i, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.us.i, %2132, %.loopexit, %._crit_edge.i.i370, %1790
-  %.1117 = phi i1 [ %.01161851, %1790 ], [ %.01161851, %._crit_edge.i.i370 ], [ %.01161851, %.loopexit ], [ %.01161851, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.us.i ], [ true, %2132 ], [ %.01161851, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.i ]
+  %.1117 = phi i1 [ true, %2132 ], [ %.01161851, %1790 ], [ %.01161851, %._crit_edge.i.i370 ], [ %.01161851, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.us.i ], [ %.01161851, %.loopexit ], [ %.01161851, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.i ]
   %indvars.iv.next2047 = add nuw nsw i64 %indvars.iv2046, 1
   %.not1154 = icmp eq i64 %indvars.iv.next2047, %1753
   br i1 %.not1154, label %._crit_edge1853, label %.lr.ph1852

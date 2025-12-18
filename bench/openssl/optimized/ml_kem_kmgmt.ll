@@ -678,7 +678,7 @@ define internal ptr @ml_kem_load(ptr noundef captures(none) %0, i64 noundef %1) 
   br label %37
 
 37:                                               ; preds = %.sink.split, %2, %33, %.thread37
-  %.027 = phi ptr [ %8, %.thread37 ], [ %8, %33 ], [ null, %2 ], [ %8, %.sink.split ]
+  %.027 = phi ptr [ null, %2 ], [ %8, %.thread37 ], [ %8, %33 ], [ %8, %.sink.split ]
   call void @ossl_ml_kem_key_free(ptr noundef %.027) #7
   br label %38
 
@@ -916,7 +916,7 @@ ml_kem_key_fromdata.exit.thread:                  ; preds = %15, %29, %24, %37, 
   br label %92
 
 ml_kem_key_fromdata.exit:                         ; preds = %74, %.thread58.i, %85
-  %.0.i = phi i32 [ %87, %85 ], [ %84, %.thread58.i ], [ %77, %74 ]
+  %.0.i = phi i32 [ %87, %85 ], [ %77, %74 ], [ %84, %.thread58.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

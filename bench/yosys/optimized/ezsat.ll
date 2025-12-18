@@ -2039,8 +2039,8 @@ _ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit.thread.i.i.
   br label %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit.thread11.i.i.i
 
 _ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit.thread11.i.i.i: ; preds = %277, %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit.thread.i.i.i, %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit.i.i.i, %261
-  %.sink.i.i.i = phi i64 [ 24, %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit.thread.i.i.i ], [ 16, %261 ], [ 16, %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit.i.i.i ], [ 16, %277 ]
-  %.19.i.i.i = phi ptr [ %.0814.i.i.i, %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit.thread.i.i.i ], [ %.015.i.i.i, %261 ], [ %.015.i.i.i, %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit.i.i.i ], [ %.015.i.i.i, %277 ]
+  %.sink.i.i.i = phi i64 [ 24, %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit.thread.i.i.i ], [ 16, %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit.i.i.i ], [ 16, %261 ], [ 16, %277 ]
+  %.19.i.i.i = phi ptr [ %.0814.i.i.i, %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit.thread.i.i.i ], [ %.015.i.i.i, %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit.i.i.i ], [ %.015.i.i.i, %261 ], [ %.015.i.i.i, %277 ]
   %282 = getelementptr inbounds nuw i8, ptr %.015.i.i.i, i64 %.sink.i.i.i
   %.1.i.i.i = load ptr, ptr %282, align 8, !tbaa !71
   %.not.i.i.i74 = icmp eq ptr %.1.i.i.i, null
@@ -2311,7 +2311,7 @@ _ZN5ezSAT2_VD2Ev.exit.thread.fold.split:          ; preds = %172
   br label %_ZN5ezSAT2_VD2Ev.exit.thread
 
 _ZN5ezSAT2_VD2Ev.exit.thread:                     ; preds = %206, %195, %172, %_ZN5ezSAT2_VD2Ev.exit.thread.fold.split, %179, %186, %223, %226, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %_ZN5ezSAT2_VD2Ev.exit
-  %.044173 = phi i32 [ %.044, %_ZN5ezSAT2_VD2Ev.exit ], [ %205, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ], [ %196, %195 ], [ %225, %223 ], [ 1, %_ZN5ezSAT2_VD2Ev.exit.thread.fold.split ], [ %187, %186 ], [ %180, %179 ], [ 2, %172 ], [ %228, %226 ], [ %205, %206 ]
+  %.044173 = phi i32 [ %.044, %_ZN5ezSAT2_VD2Ev.exit ], [ %205, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ], [ %196, %195 ], [ %225, %223 ], [ 1, %_ZN5ezSAT2_VD2Ev.exit.thread.fold.split ], [ %187, %186 ], [ %180, %179 ], [ %228, %226 ], [ 2, %172 ], [ %205, %206 ]
   %391 = ptrtoint ptr %.sroa.61.3 to i64
   %392 = ptrtoint ptr %.sroa.0112.3 to i64
   %393 = sub i64 %391, %392
@@ -2423,8 +2423,8 @@ _ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit.thread.i.i.
   br label %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit.thread11.i.i.i
 
 _ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit.thread11.i.i.i: ; preds = %34, %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit.thread.i.i.i, %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit.i.i.i, %18
-  %.sink.i.i.i = phi i64 [ 24, %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit.thread.i.i.i ], [ 16, %18 ], [ 16, %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit.i.i.i ], [ 16, %34 ]
-  %.19.i.i.i = phi ptr [ %.0814.i.i.i, %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit.thread.i.i.i ], [ %.015.i.i.i, %18 ], [ %.015.i.i.i, %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit.i.i.i ], [ %.015.i.i.i, %34 ]
+  %.sink.i.i.i = phi i64 [ 24, %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit.thread.i.i.i ], [ 16, %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit.i.i.i ], [ 16, %18 ], [ 16, %34 ]
+  %.19.i.i.i = phi ptr [ %.0814.i.i.i, %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit.thread.i.i.i ], [ %.015.i.i.i, %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit.i.i.i ], [ %.015.i.i.i, %18 ], [ %.015.i.i.i, %34 ]
   %39 = getelementptr inbounds nuw i8, ptr %.015.i.i.i, i64 %.sink.i.i.i
   %.1.i.i.i = load ptr, ptr %39, align 8, !tbaa !71
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
@@ -2564,8 +2564,8 @@ _ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit.thread.i.i.
   br label %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit.thread11.i.i.i
 
 _ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit.thread11.i.i.i: ; preds = %36, %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit.thread.i.i.i, %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit.i.i.i, %20
-  %.sink.i.i.i = phi i64 [ 24, %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit.thread.i.i.i ], [ 16, %20 ], [ 16, %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit.i.i.i ], [ 16, %36 ]
-  %.19.i.i.i = phi ptr [ %.0814.i.i.i, %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit.thread.i.i.i ], [ %.015.i.i.i, %20 ], [ %.015.i.i.i, %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit.i.i.i ], [ %.015.i.i.i, %36 ]
+  %.sink.i.i.i = phi i64 [ 24, %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit.thread.i.i.i ], [ 16, %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit.i.i.i ], [ 16, %20 ], [ 16, %36 ]
+  %.19.i.i.i = phi ptr [ %.0814.i.i.i, %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit.thread.i.i.i ], [ %.015.i.i.i, %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit.i.i.i ], [ %.015.i.i.i, %20 ], [ %.015.i.i.i, %36 ]
   %41 = getelementptr inbounds nuw i8, ptr %.015.i.i.i, i64 %.sink.i.i.i
   %.1.i.i.i = load ptr, ptr %41, align 8, !tbaa !71
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
@@ -3122,7 +3122,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse.backedg
   ]
 
 common.ret319:                                    ; preds = %14, %tailrecurse._crit_edge, %30, %38, %46, %58, %36, %.lr.ph195, %44, %.lr.ph188, %53, %.lr.ph181, %.lr.ph172, %65, %70, %71, %26
-  %common.ret319.op = phi i32 [ %switch.select117, %26 ], [ 0, %.lr.ph172 ], [ 1, %58 ], [ 0, %tailrecurse._crit_edge ], [ %spec.select135, %14 ], [ 2, %46 ], [ 1, %30 ], [ 2, %38 ], [ %.995, %53 ], [ %spec.select112, %44 ], [ %spec.select, %36 ], [ 2, %.lr.ph195 ], [ 1, %.lr.ph188 ], [ 0, %.lr.ph181 ], [ 2, %70 ], [ 1, %65 ], [ 0, %71 ]
+  %common.ret319.op = phi i32 [ %switch.select117, %26 ], [ 1, %65 ], [ 1, %58 ], [ 0, %tailrecurse._crit_edge ], [ %spec.select135, %14 ], [ %.995, %53 ], [ 2, %46 ], [ %spec.select, %36 ], [ 1, %30 ], [ %spec.select112, %44 ], [ 2, %38 ], [ 2, %.lr.ph195 ], [ 1, %.lr.ph188 ], [ 0, %.lr.ph181 ], [ 0, %.lr.ph172 ], [ 2, %70 ], [ 0, %71 ]
   ret i32 %common.ret319.op
 
 26:                                               ; preds = %19
@@ -3849,7 +3849,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit62:                  ; preds = %211, %213, %216, %2
   br label %225
 
 .loopexit107:                                     ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit60, %182, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEENS1_IPiS6_EEET0_T_SB_SA_.exit.i, %_ZNSt6vectorIiSaIiEED2Ev.exit48
-  %221 = phi i1 [ false, %_ZNSt6vectorIiSaIiEED2Ev.exit48 ], [ true, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEENS1_IPiS6_EEET0_T_SB_SA_.exit.i ], [ false, %182 ], [ false, %_ZNSt6vectorIiSaIiEED2Ev.exit60 ]
+  %221 = phi i1 [ false, %182 ], [ false, %_ZNSt6vectorIiSaIiEED2Ev.exit48 ], [ true, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEENS1_IPiS6_EEET0_T_SB_SA_.exit.i ], [ false, %_ZNSt6vectorIiSaIiEED2Ev.exit60 ]
   %.not.i.i.i63 = icmp eq ptr %.sroa.0.1, null
   br i1 %.not.i.i.i63, label %_ZNSt6vectorIiSaIiEED2Ev.exit64, label %222
 
@@ -28962,8 +28962,8 @@ _ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit41.thread72:
   br label %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit.thread
 
 _ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit.thread: ; preds = %128, %.lr.ph.i.i.i.i.i.i.i.i, %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit41.thread, %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit25.thread, %9, %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit33, %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit41.thread72, %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit33.thread, %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit25.thread68, %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit17.thread, %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit, %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit.thread64
-  %.sroa.062.0 = phi ptr [ %45, %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit.thread64 ], [ null, %9 ], [ null, %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit ], [ %spec.select74, %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit41.thread ], [ %1, %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit33 ], [ %120, %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit25.thread68 ], [ %81, %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit17.thread ], [ %173, %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit41.thread72 ], [ null, %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit33.thread ], [ %spec.select, %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit25.thread ], [ null, %.lr.ph.i.i.i.i.i.i.i.i ], [ %1, %128 ]
-  %.sroa.12.0 = phi ptr [ %46, %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit.thread64 ], [ %11, %9 ], [ %11, %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit ], [ %spec.select75, %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit41.thread ], [ null, %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit33 ], [ %121, %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit25.thread68 ], [ %81, %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit17.thread ], [ %174, %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit41.thread72 ], [ %134, %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit33.thread ], [ %spec.select73, %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit25.thread ], [ %11, %.lr.ph.i.i.i.i.i.i.i.i ], [ null, %128 ]
+  %.sroa.062.0 = phi ptr [ %45, %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit.thread64 ], [ null, %.lr.ph.i.i.i.i.i.i.i.i ], [ null, %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit ], [ %spec.select74, %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit41.thread ], [ %1, %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit33 ], [ %120, %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit25.thread68 ], [ %81, %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit17.thread ], [ null, %9 ], [ %173, %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit41.thread72 ], [ null, %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit33.thread ], [ %spec.select, %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit25.thread ], [ %1, %128 ]
+  %.sroa.12.0 = phi ptr [ %46, %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit.thread64 ], [ %11, %.lr.ph.i.i.i.i.i.i.i.i ], [ %11, %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit ], [ %spec.select75, %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit41.thread ], [ null, %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit33 ], [ %121, %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit25.thread68 ], [ %81, %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit17.thread ], [ %11, %9 ], [ %174, %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit41.thread72 ], [ %134, %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit33.thread ], [ %spec.select73, %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit25.thread ], [ null, %128 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.062.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -29160,8 +29160,8 @@ _ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit.thread30: ;
   br label %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit.thread
 
 _ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit.thread: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit, %13, %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit.thread30
-  %.sink = phi i64 [ 24, %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit.thread30 ], [ 16, %13 ], [ 16, %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit ], [ 16, %.lr.ph.i.i.i.i.i.i.i.i ]
-  %38 = phi i1 [ false, %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit.thread30 ], [ true, %13 ], [ true, %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit ], [ true, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.sink = phi i64 [ 24, %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit.thread30 ], [ 16, %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit ], [ 16, %13 ], [ 16, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %38 = phi i1 [ false, %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit.thread30 ], [ true, %_ZNKSt4lessISt4pairIN5ezSAT4OpIdESt6vectorIiSaIiEEEEclERKS6_S9_.exit ], [ true, %13 ], [ true, %.lr.ph.i.i.i.i.i.i.i.i ]
   %39 = getelementptr inbounds nuw i8, ptr %.02838, i64 %.sink
   %.028 = load ptr, ptr %39, align 8, !tbaa !71
   %.not = icmp eq ptr %.028, null

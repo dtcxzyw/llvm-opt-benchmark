@@ -732,7 +732,7 @@ define void @Java_sun_java2d_loops_TransformHelper_Transform(ptr noundef %0, ptr
   br label %111
 
 111:                                              ; preds = %100, %107
-  %.0193 = phi ptr [ %110, %107 ], [ %104, %100 ]
+  %.0193 = phi ptr [ %104, %100 ], [ %110, %107 ]
   %112 = icmp eq ptr %.0193, null
   br i1 %112, label %.thread, label %.thread234
 

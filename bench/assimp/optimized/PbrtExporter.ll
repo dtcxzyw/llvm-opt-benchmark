@@ -7427,7 +7427,7 @@ define hidden noundef zeroext i1 @_ZN6Assimp12PbrtExporter19TextureHasAlphaMaskE
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge.us, %._crit_edge.us54, %.lr.ph, %.preheader36.lr.ph, %.preheader39.lr.ph, %.preheader40, %.preheader37, %.preheader, %48, %13
-  %.028 = phi i1 [ false, %48 ], [ false, %13 ], [ false, %.preheader ], [ false, %.preheader37 ], [ false, %.preheader40 ], [ false, %.preheader36.lr.ph ], [ false, %.preheader39.lr.ph ], [ %.3.us, %._crit_edge.us54 ], [ %.not35.not, %.lr.ph ], [ %.5.us, %._crit_edge.us ]
+  %.028 = phi i1 [ false, %48 ], [ %.not35.not, %.lr.ph ], [ false, %.preheader39.lr.ph ], [ false, %13 ], [ %.3.us, %._crit_edge.us54 ], [ false, %.preheader ], [ false, %.preheader37 ], [ false, %.preheader36.lr.ph ], [ false, %.preheader40 ], [ %.5.us, %._crit_edge.us ]
   call void @assimp_stbi_image_free(ptr noundef nonnull %6)
   br label %57
 

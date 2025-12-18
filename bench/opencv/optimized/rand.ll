@@ -558,7 +558,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit513: ; preds = %14
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %634
 
-.critedge482:                                     ; preds = %141, %137, %123
+.critedge482:                                     ; preds = %141, %123, %137
   %154 = invoke noundef i64 @_ZNK2cv3Mat5totalEv(ptr noundef nonnull align 8 dereferenceable(96) %10)
           to label %155 unwind label %205
 
@@ -871,8 +871,8 @@ switch.edge487:                                   ; preds = %260
   br label %264
 
 264:                                              ; preds = %.thread, %.thread636, %switch.edge487, %260, %.fold.split486, %.fold.split485, %263
-  %.sroa.speculated617635 = phi double [ %.sroa.speculated617, %260 ], [ %.sroa.speculated617, %263 ], [ %.sroa.speculated617, %.fold.split485 ], [ %.sroa.speculated617, %switch.edge487 ], [ %.sroa.speculated617637, %.thread636 ], [ %.sroa.speculated617633, %.thread ], [ %.sroa.speculated617, %.fold.split486 ]
-  %265 = phi double [ 2.560000e+02, %260 ], [ 0x41DFFFFFFFC00000, %263 ], [ 6.553600e+04, %.fold.split485 ], [ 3.276800e+04, %switch.edge487 ], [ 3.276800e+04, %.thread636 ], [ 1.280000e+02, %.thread ], [ 1.280000e+02, %.fold.split486 ]
+  %.sroa.speculated617635 = phi double [ %.sroa.speculated617, %260 ], [ %.sroa.speculated617, %.fold.split485 ], [ %.sroa.speculated617, %263 ], [ %.sroa.speculated617, %switch.edge487 ], [ %.sroa.speculated617637, %.thread636 ], [ %.sroa.speculated617633, %.thread ], [ %.sroa.speculated617, %.fold.split486 ]
+  %265 = phi double [ 2.560000e+02, %260 ], [ 6.553600e+04, %.fold.split485 ], [ 0x41DFFFFFFFC00000, %263 ], [ 3.276800e+04, %switch.edge487 ], [ 3.276800e+04, %.thread636 ], [ 1.280000e+02, %.thread ], [ 1.280000e+02, %.fold.split486 ]
   %266 = fcmp olt double %265, %255
   %.sroa.speculated613 = select i1 %266, double %265, double %255
   br label %267
@@ -1671,9 +1671,9 @@ _ZN2cv10AutoBufferIdLm136EE8allocateEm.exit557:   ; preds = %524, %.noexc556
   br label %.loopexit
 
 .loopexit:                                        ; preds = %574, %548, %553, %576, %.noexc561, %.preheader665, %.preheader662, %.preheader660, %._crit_edge
-  %.0375 = phi ptr [ %532, %._crit_edge ], [ %532, %.preheader662 ], [ %532, %.preheader660 ], [ %532, %.preheader665 ], [ null, %.noexc561 ], [ null, %576 ], [ %532, %548 ], [ %532, %553 ], [ %532, %574 ]
-  %.0374 = phi ptr [ null, %._crit_edge ], [ null, %.preheader662 ], [ null, %.preheader660 ], [ null, %.preheader665 ], [ %584, %.noexc561 ], [ %521, %576 ], [ null, %548 ], [ null, %553 ], [ null, %574 ]
-  %.1373 = phi ptr [ %.0372, %._crit_edge ], [ null, %.preheader662 ], [ null, %.preheader660 ], [ null, %.preheader665 ], [ null, %.noexc561 ], [ null, %576 ], [ null, %548 ], [ null, %553 ], [ null, %574 ]
+  %.0375 = phi ptr [ %532, %.preheader662 ], [ null, %576 ], [ %532, %._crit_edge ], [ %532, %.preheader660 ], [ %532, %.preheader665 ], [ %532, %548 ], [ %532, %553 ], [ null, %.noexc561 ], [ %532, %574 ]
+  %.0374 = phi ptr [ null, %.preheader662 ], [ %521, %576 ], [ null, %._crit_edge ], [ null, %.preheader660 ], [ null, %.preheader665 ], [ null, %548 ], [ null, %553 ], [ %584, %.noexc561 ], [ null, %574 ]
+  %.1373 = phi ptr [ null, %.preheader662 ], [ null, %576 ], [ %.0372, %._crit_edge ], [ null, %.preheader660 ], [ null, %.preheader665 ], [ null, %548 ], [ null, %553 ], [ null, %.noexc561 ], [ null, %574 ]
   %585 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %586 = icmp sgt i32 %507, 0
   br i1 %586, label %.split701.us, label %.split701
@@ -4662,8 +4662,8 @@ define internal void @_ZN2cvL11randBits_8uEPhiPmPKNS_3VecIiLi2EEEPvb(ptr noundef
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.loopexit.loopexit118.i, %.loopexit.loopexit.i, %.preheader.i, %.preheader102.i
-  %.198.i = phi i32 [ 0, %.preheader.i ], [ 0, %.preheader102.i ], [ %126, %.loopexit.loopexit.i ], [ %127, %.loopexit.loopexit118.i ]
-  %.1.i = phi i64 [ %7, %.preheader.i ], [ %7, %.preheader102.i ], [ %78, %.loopexit.loopexit.i ], [ %58, %.loopexit.loopexit118.i ]
+  %.198.i = phi i32 [ %126, %.loopexit.loopexit.i ], [ 0, %.preheader.i ], [ 0, %.preheader102.i ], [ %127, %.loopexit.loopexit118.i ]
+  %.1.i = phi i64 [ %78, %.loopexit.loopexit.i ], [ %7, %.preheader.i ], [ %7, %.preheader102.i ], [ %58, %.loopexit.loopexit118.i ]
   %128 = icmp slt i32 %.198.i, %1
   br i1 %128, label %.lr.ph116.preheader.i, label %_ZN2cvL9randBits_IhEEvPT_iPmPKNS_3VecIiLi2EEEb.exit
 
@@ -4868,8 +4868,8 @@ define internal void @_ZN2cvL11randBits_8sEPaiPmPKNS_3VecIiLi2EEEPvb(ptr noundef
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.loopexit.loopexit118.i, %.loopexit.loopexit.i, %.preheader.i, %.preheader102.i
-  %.198.i = phi i32 [ 0, %.preheader.i ], [ 0, %.preheader102.i ], [ %126, %.loopexit.loopexit.i ], [ %127, %.loopexit.loopexit118.i ]
-  %.1.i = phi i64 [ %7, %.preheader.i ], [ %7, %.preheader102.i ], [ %78, %.loopexit.loopexit.i ], [ %58, %.loopexit.loopexit118.i ]
+  %.198.i = phi i32 [ %126, %.loopexit.loopexit.i ], [ 0, %.preheader.i ], [ 0, %.preheader102.i ], [ %127, %.loopexit.loopexit118.i ]
+  %.1.i = phi i64 [ %78, %.loopexit.loopexit.i ], [ %7, %.preheader.i ], [ %7, %.preheader102.i ], [ %58, %.loopexit.loopexit118.i ]
   %128 = icmp slt i32 %.198.i, %1
   br i1 %128, label %.lr.ph116.preheader.i, label %_ZN2cvL9randBits_IaEEvPT_iPmPKNS_3VecIiLi2EEEb.exit
 
@@ -5074,8 +5074,8 @@ define internal void @_ZN2cvL12randBits_16uEPtiPmPKNS_3VecIiLi2EEEPvb(ptr nounde
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.loopexit.loopexit118.i, %.loopexit.loopexit.i, %.preheader.i, %.preheader102.i
-  %.198.i = phi i32 [ 0, %.preheader.i ], [ 0, %.preheader102.i ], [ %126, %.loopexit.loopexit.i ], [ %127, %.loopexit.loopexit118.i ]
-  %.1.i = phi i64 [ %7, %.preheader.i ], [ %7, %.preheader102.i ], [ %78, %.loopexit.loopexit.i ], [ %58, %.loopexit.loopexit118.i ]
+  %.198.i = phi i32 [ %126, %.loopexit.loopexit.i ], [ 0, %.preheader.i ], [ 0, %.preheader102.i ], [ %127, %.loopexit.loopexit118.i ]
+  %.1.i = phi i64 [ %78, %.loopexit.loopexit.i ], [ %7, %.preheader.i ], [ %7, %.preheader102.i ], [ %58, %.loopexit.loopexit118.i ]
   %128 = icmp slt i32 %.198.i, %1
   br i1 %128, label %.lr.ph116.preheader.i, label %_ZN2cvL9randBits_ItEEvPT_iPmPKNS_3VecIiLi2EEEb.exit
 
@@ -5280,8 +5280,8 @@ define internal void @_ZN2cvL12randBits_16sEPsiPmPKNS_3VecIiLi2EEEPvb(ptr nounde
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.loopexit.loopexit118.i, %.loopexit.loopexit.i, %.preheader.i, %.preheader102.i
-  %.198.i = phi i32 [ 0, %.preheader.i ], [ 0, %.preheader102.i ], [ %126, %.loopexit.loopexit.i ], [ %127, %.loopexit.loopexit118.i ]
-  %.1.i = phi i64 [ %7, %.preheader.i ], [ %7, %.preheader102.i ], [ %78, %.loopexit.loopexit.i ], [ %58, %.loopexit.loopexit118.i ]
+  %.198.i = phi i32 [ %126, %.loopexit.loopexit.i ], [ 0, %.preheader.i ], [ 0, %.preheader102.i ], [ %127, %.loopexit.loopexit118.i ]
+  %.1.i = phi i64 [ %78, %.loopexit.loopexit.i ], [ %7, %.preheader.i ], [ %7, %.preheader102.i ], [ %58, %.loopexit.loopexit118.i ]
   %128 = icmp slt i32 %.198.i, %1
   br i1 %128, label %.lr.ph116.preheader.i, label %_ZN2cvL9randBits_IsEEvPT_iPmPKNS_3VecIiLi2EEEb.exit
 
@@ -5462,8 +5462,8 @@ define internal void @_ZN2cvL12randBits_32sEPiiPmPKNS_3VecIiLi2EEEPvb(ptr nounde
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.loopexit.loopexit118.i, %.loopexit.loopexit.i, %.preheader.i, %.preheader102.i
-  %.198.i = phi i32 [ 0, %.preheader.i ], [ 0, %.preheader102.i ], [ %102, %.loopexit.loopexit.i ], [ %103, %.loopexit.loopexit118.i ]
-  %.1.i = phi i64 [ %7, %.preheader.i ], [ %7, %.preheader102.i ], [ %66, %.loopexit.loopexit.i ], [ %52, %.loopexit.loopexit118.i ]
+  %.198.i = phi i32 [ %102, %.loopexit.loopexit.i ], [ 0, %.preheader.i ], [ 0, %.preheader102.i ], [ %103, %.loopexit.loopexit118.i ]
+  %.1.i = phi i64 [ %66, %.loopexit.loopexit.i ], [ %7, %.preheader.i ], [ %7, %.preheader102.i ], [ %52, %.loopexit.loopexit118.i ]
   %104 = icmp slt i32 %.198.i, %1
   br i1 %104, label %.lr.ph116.preheader.i, label %_ZN2cvL9randBits_IiEEvPT_iPmPKNS_3VecIiLi2EEEb.exit
 

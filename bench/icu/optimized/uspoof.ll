@@ -2237,8 +2237,8 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_19checkImplEPKN6icu_779Spoof
   br label %.outer.backedge
 
 .outer.backedge:                                  ; preds = %84, %.split.us, %97
-  %.059.ph.be = phi i32 [ %87, %84 ], [ %94, %97 ], [ %94, %.split.us ]
-  %.055.ph.be = phi i32 [ %spec.select116, %84 ], [ 0, %97 ], [ 0, %.split.us ]
+  %.059.ph.be = phi i32 [ %94, %.split.us ], [ %87, %84 ], [ %94, %97 ]
+  %.055.ph.be = phi i32 [ 0, %.split.us ], [ %spec.select116, %84 ], [ 0, %97 ]
   br label %.outer, !llvm.loop !50
 
 .loopexit85.split.us:                             ; preds = %82, %80

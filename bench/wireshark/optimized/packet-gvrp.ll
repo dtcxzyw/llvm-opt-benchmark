@@ -224,8 +224,8 @@ define internal i32 @dissect_gvrp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %.thread170
 
 77:                                               ; preds = %69, %66
-  %.5136 = phi i32 [ %65, %66 ], [ %72, %69 ]
-  %.5129 = phi i32 [ %67, %66 ], [ %73, %69 ]
+  %.5136 = phi i32 [ %72, %69 ], [ %65, %66 ]
+  %.5129 = phi i32 [ %73, %69 ], [ %67, %66 ]
   %78 = load ptr, ptr %6, align 8
   %79 = sub i32 %.5136, %.2133216
   call void @proto_item_set_len(ptr noundef %78, i32 noundef %79)

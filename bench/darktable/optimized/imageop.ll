@@ -2833,7 +2833,7 @@ dt_iop_shown_in_group.exit.thread:                ; preds = %dt_iop_shown_in_gro
   br i1 %.not25, label %._crit_edge, label %.lr.ph.split.split
 
 ._crit_edge:                                      ; preds = %47, %34, %22
-  %.022.lcssa = phi i32 [ %.1.us43, %34 ], [ %.1.us, %22 ], [ %.1, %47 ]
+  %.022.lcssa = phi i32 [ %.1.us, %22 ], [ %.1.us43, %34 ], [ %.1, %47 ]
   %.not26 = icmp eq i32 %.022.lcssa, 0
   br i1 %.not26, label %.sink.split, label %._crit_edge.thread
 
@@ -4801,7 +4801,7 @@ define ptr @dt_iop_load_modules_ext(ptr noundef initializes((2048, 2052)) %0, i3
   br i1 %.not26, label %._crit_edge, label %.lr.ph47
 
 ._crit_edge:                                      ; preds = %.lr.ph47, %2, %.preheader
-  %.025.ph.lcssa53 = phi ptr [ null, %.preheader ], [ null, %2 ], [ %12, %.lr.ph47 ]
+  %.025.ph.lcssa53 = phi ptr [ null, %2 ], [ null, %.preheader ], [ %12, %.lr.ph47 ]
   ret ptr %.025.ph.lcssa53
 }
 
@@ -5342,20 +5342,20 @@ define range(i32 0, 2) i32 @_iop_validate_params(ptr noundef readonly captures(n
   br label %.thread175
 
 .loopexit:                                        ; preds = %12, %159, %.critedge, %._crit_edge, %._crit_edge228, %._crit_edge231, %._crit_edge234, %._crit_edge237, %.thread
-  %.0139 = phi ptr [ %175, %.critedge ], [ null, %159 ], [ %92, %.thread ], [ %100, %._crit_edge237 ], [ %108, %._crit_edge234 ], [ %120, %._crit_edge231 ], [ %131, %._crit_edge228 ], [ %143, %._crit_edge ], [ null, %12 ]
-  %.0134 = phi i32 [ %.8, %.critedge ], [ %163, %159 ], [ %.6, %.thread ], [ %97, %._crit_edge237 ], [ %105, %._crit_edge234 ], [ %113, %._crit_edge231 ], [ %127, %._crit_edge228 ], [ %136, %._crit_edge ], [ %17, %12 ]
+  %.0139 = phi ptr [ null, %159 ], [ %143, %._crit_edge ], [ %131, %._crit_edge228 ], [ %175, %.critedge ], [ %108, %._crit_edge234 ], [ %120, %._crit_edge231 ], [ %92, %.thread ], [ %100, %._crit_edge237 ], [ null, %12 ]
+  %.0134 = phi i32 [ %163, %159 ], [ %136, %._crit_edge ], [ %127, %._crit_edge228 ], [ %.8, %.critedge ], [ %105, %._crit_edge234 ], [ %113, %._crit_edge231 ], [ %.6, %.thread ], [ %97, %._crit_edge237 ], [ %17, %12 ]
   %.not167 = icmp eq i32 %.0134, 0
   br i1 %.not167, label %.thread175, label %.thread175.thread.sink.split
 
 .thread175:                                       ; preds = %26, %144, %149, %153, %179, %.loopexit
-  %.0139180 = phi ptr [ %.0139, %.loopexit ], [ null, %179 ], [ null, %153 ], [ null, %149 ], [ null, %144 ], [ null, %26 ]
+  %.0139180 = phi ptr [ %.0139, %.loopexit ], [ null, %179 ], [ null, %144 ], [ null, %149 ], [ null, %153 ], [ null, %26 ]
   %.not168 = icmp eq i32 %2, 0
   br i1 %.not168, label %.thread175.thread, label %.thread175.thread.sink.split
 
 .thread175.thread.sink.split:                     ; preds = %60, %28, %.thread175, %56, %47, %.loopexit, %4, %44, %176, %.preheader202, %.preheader
-  %.0139180199.sink265 = phi ptr [ %.0139, %.loopexit ], [ null, %4 ], [ null, %44 ], [ %178, %176 ], [ null, %.preheader202 ], [ null, %.preheader ], [ %.0139180, %.thread175 ], [ null, %56 ], [ null, %47 ], [ null, %28 ], [ null, %60 ]
-  %.str.114.sink = phi ptr [ @.str.112, %.loopexit ], [ @.str.112, %4 ], [ @.str.112, %44 ], [ @.str.112, %176 ], [ @.str.112, %.preheader202 ], [ @.str.112, %.preheader ], [ @.str.114, %.thread175 ], [ @.str.114, %56 ], [ @.str.114, %47 ], [ @.str.112, %28 ], [ @.str.112, %60 ]
-  %.0134181.ph = phi i32 [ 1, %.loopexit ], [ %8, %4 ], [ 1, %44 ], [ 1, %176 ], [ 1, %.preheader202 ], [ 1, %.preheader ], [ 0, %.thread175 ], [ 0, %56 ], [ 0, %47 ], [ 1, %28 ], [ 1, %60 ]
+  %.0139180199.sink265 = phi ptr [ null, %28 ], [ %.0139, %.loopexit ], [ null, %4 ], [ null, %44 ], [ %178, %176 ], [ null, %.preheader202 ], [ null, %47 ], [ null, %.preheader ], [ %.0139180, %.thread175 ], [ null, %56 ], [ null, %60 ]
+  %.str.114.sink = phi ptr [ @.str.112, %28 ], [ @.str.112, %.loopexit ], [ @.str.112, %4 ], [ @.str.112, %44 ], [ @.str.112, %176 ], [ @.str.112, %.preheader202 ], [ @.str.114, %47 ], [ @.str.112, %.preheader ], [ @.str.114, %.thread175 ], [ @.str.114, %56 ], [ @.str.112, %60 ]
+  %.0134181.ph = phi i32 [ 1, %28 ], [ 1, %.loopexit ], [ %8, %4 ], [ 1, %44 ], [ 1, %176 ], [ 1, %.preheader202 ], [ 0, %47 ], [ 1, %.preheader ], [ 0, %.thread175 ], [ 0, %56 ], [ 1, %60 ]
   %184 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %185 = load ptr, ptr %184, align 8, !tbaa !92
   %186 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -8170,8 +8170,8 @@ define void @dt_iop_so_gui_set_state(ptr noundef initializes((528, 532)) %0, i32
   br i1 %.not, label %.sink.split, label %.lr.ph
 
 .sink.split:                                      ; preds = %54, %39, %18, %41, %20, %24, %5
-  %.sink68 = phi i32 [ 0, %5 ], [ 1, %20 ], [ 1, %24 ], [ 1, %41 ], [ 1, %39 ], [ 0, %18 ], [ 1, %54 ]
-  %.sink = phi i32 [ 0, %5 ], [ 0, %20 ], [ 0, %24 ], [ 1, %41 ], [ 0, %39 ], [ 0, %18 ], [ 1, %54 ]
+  %.sink68 = phi i32 [ 0, %5 ], [ 1, %20 ], [ 1, %41 ], [ 1, %39 ], [ 1, %24 ], [ 0, %18 ], [ 1, %54 ]
+  %.sink = phi i32 [ 0, %5 ], [ 0, %20 ], [ 1, %41 ], [ 0, %39 ], [ 0, %24 ], [ 0, %18 ], [ 1, %54 ]
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %57 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 1024, ptr noundef nonnull @.str.63, ptr noundef nonnull %56) #25
   call void @dt_conf_set_bool(ptr noundef nonnull %3, i32 noundef %.sink68) #25
@@ -8560,7 +8560,7 @@ dt_dev_gui_module.exit.thread:                    ; preds = %1, %14, %dt_dev_gui
   br i1 %.not37, label %.loopexit, label %.lr.ph.split.split
 
 .loopexit:                                        ; preds = %97, %75, %56, %37, %dt_dev_gui_module.exit.thread, %14
-  %.0 = phi ptr [ %11, %14 ], [ null, %dt_dev_gui_module.exit.thread ], [ %.2.us57, %75 ], [ %.2.us.us, %37 ], [ %.2.us, %56 ], [ %.2, %97 ]
+  %.0 = phi ptr [ %11, %14 ], [ null, %dt_dev_gui_module.exit.thread ], [ %.2.us57, %75 ], [ %.2.us, %56 ], [ %.2.us.us, %37 ], [ %.2, %97 ]
   ret ptr %.0
 }
 

@@ -519,7 +519,7 @@ _ZNK17arith_recognizers6is_addEPK4expr.exit:      ; preds = %84
   br i1 %.not27.old.i.i.i, label %.loopexit93, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %139, %136
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %139 ], [ %138, %136 ]
+  %.137.i.i.i.be = phi ptr [ %138, %136 ], [ %.old.i.i.i, %139 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !125
 
 140:                                              ; preds = %155, %.loopexit93
@@ -5329,7 +5329,7 @@ _ZNK10arith_util18is_times_minus_oneEP4exprRS1_.exit201: ; preds = %422
   br i1 %.not99, label %.critedge125, label %.lr.ph396
 
 .critedge125:                                     ; preds = %.lr.ph, %_ZNK10arith_util18is_times_minus_oneEP4exprRS1_.exit177, %.lr.ph393, %_ZNK10arith_util18is_times_minus_oneEP4exprRS1_.exit201, %.critedge123, %312, %396, %.critedge116, %385, %_ZNK17arith_recognizers5is_leEPK4exprRPS0_S4_.exit191, %_ZNK17arith_recognizers5is_ltEPK4expr.exit.i194, %377, %_ZNK17arith_recognizers6is_addEPK4expr.exit197, %184, %_ZNK10arith_util18is_times_minus_oneEP4exprRS1_.exit153, %_ZNK10arith_util18is_times_minus_oneEP4exprRS1_.exit, %63, %_ZNK17arith_recognizers5is_ltEPK4exprRPS0_S4_.exit, %37, %_ZNK17arith_recognizers5is_gtEPK4exprRPS0_S4_.exit
-  %.0 = phi i1 [ true, %184 ], [ true, %37 ], [ true, %63 ], [ true, %_ZNK10arith_util18is_times_minus_oneEP4exprRS1_.exit ], [ true, %_ZNK10arith_util18is_times_minus_oneEP4exprRS1_.exit153 ], [ false, %.critedge116 ], [ true, %_ZNK17arith_recognizers5is_gtEPK4exprRPS0_S4_.exit ], [ true, %_ZNK17arith_recognizers5is_ltEPK4exprRPS0_S4_.exit ], [ false, %385 ], [ false, %_ZNK17arith_recognizers6is_addEPK4expr.exit197 ], [ false, %_ZNK17arith_recognizers5is_leEPK4exprRPS0_S4_.exit191 ], [ false, %377 ], [ false, %_ZNK17arith_recognizers5is_ltEPK4expr.exit.i194 ], [ false, %396 ], [ false, %312 ], [ true, %_ZNK10arith_util18is_times_minus_oneEP4exprRS1_.exit177 ], [ false, %.critedge123 ], [ true, %.lr.ph393 ], [ true, %_ZNK10arith_util18is_times_minus_oneEP4exprRS1_.exit201 ], [ true, %.lr.ph ]
+  %.0 = phi i1 [ true, %184 ], [ true, %37 ], [ true, %63 ], [ true, %_ZNK10arith_util18is_times_minus_oneEP4exprRS1_.exit ], [ true, %_ZNK10arith_util18is_times_minus_oneEP4exprRS1_.exit153 ], [ false, %.critedge116 ], [ true, %_ZNK10arith_util18is_times_minus_oneEP4exprRS1_.exit177 ], [ false, %396 ], [ false, %312 ], [ true, %_ZNK17arith_recognizers5is_gtEPK4exprRPS0_S4_.exit ], [ true, %_ZNK17arith_recognizers5is_ltEPK4exprRPS0_S4_.exit ], [ false, %385 ], [ false, %_ZNK17arith_recognizers6is_addEPK4expr.exit197 ], [ false, %_ZNK17arith_recognizers5is_leEPK4exprRPS0_S4_.exit191 ], [ false, %377 ], [ false, %_ZNK17arith_recognizers5is_ltEPK4expr.exit.i194 ], [ false, %.critedge123 ], [ true, %.lr.ph393 ], [ true, %_ZNK10arith_util18is_times_minus_oneEP4exprRS1_.exit201 ], [ true, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -6052,7 +6052,7 @@ _ZNK10arith_util18is_times_minus_oneEP4exprRS1_.exit201: ; preds = %422
   br i1 %.not99, label %.critedge125, label %.lr.ph396
 
 .critedge125:                                     ; preds = %.lr.ph, %_ZNK10arith_util18is_times_minus_oneEP4exprRS1_.exit177, %.lr.ph393, %_ZNK10arith_util18is_times_minus_oneEP4exprRS1_.exit201, %.critedge123, %312, %396, %.critedge116, %385, %_ZNK17arith_recognizers5is_geEPK4exprRPS0_S4_.exit191, %_ZNK17arith_recognizers5is_gtEPK4expr.exit.i194, %377, %_ZNK17arith_recognizers6is_addEPK4expr.exit197, %184, %_ZNK10arith_util18is_times_minus_oneEP4exprRS1_.exit153, %_ZNK10arith_util18is_times_minus_oneEP4exprRS1_.exit, %63, %_ZNK17arith_recognizers5is_gtEPK4exprRPS0_S4_.exit, %37, %_ZNK17arith_recognizers5is_ltEPK4exprRPS0_S4_.exit
-  %.0 = phi i1 [ true, %184 ], [ true, %37 ], [ true, %63 ], [ true, %_ZNK10arith_util18is_times_minus_oneEP4exprRS1_.exit ], [ true, %_ZNK10arith_util18is_times_minus_oneEP4exprRS1_.exit153 ], [ false, %.critedge116 ], [ true, %_ZNK17arith_recognizers5is_ltEPK4exprRPS0_S4_.exit ], [ true, %_ZNK17arith_recognizers5is_gtEPK4exprRPS0_S4_.exit ], [ false, %385 ], [ false, %_ZNK17arith_recognizers6is_addEPK4expr.exit197 ], [ false, %_ZNK17arith_recognizers5is_geEPK4exprRPS0_S4_.exit191 ], [ false, %377 ], [ false, %_ZNK17arith_recognizers5is_gtEPK4expr.exit.i194 ], [ false, %396 ], [ false, %312 ], [ true, %_ZNK10arith_util18is_times_minus_oneEP4exprRS1_.exit177 ], [ false, %.critedge123 ], [ true, %.lr.ph393 ], [ true, %_ZNK10arith_util18is_times_minus_oneEP4exprRS1_.exit201 ], [ true, %.lr.ph ]
+  %.0 = phi i1 [ true, %184 ], [ true, %37 ], [ true, %63 ], [ true, %_ZNK10arith_util18is_times_minus_oneEP4exprRS1_.exit ], [ true, %_ZNK10arith_util18is_times_minus_oneEP4exprRS1_.exit153 ], [ false, %.critedge116 ], [ true, %_ZNK10arith_util18is_times_minus_oneEP4exprRS1_.exit177 ], [ false, %396 ], [ false, %312 ], [ true, %_ZNK17arith_recognizers5is_ltEPK4exprRPS0_S4_.exit ], [ true, %_ZNK17arith_recognizers5is_gtEPK4exprRPS0_S4_.exit ], [ false, %385 ], [ false, %_ZNK17arith_recognizers6is_addEPK4expr.exit197 ], [ false, %_ZNK17arith_recognizers5is_geEPK4exprRPS0_S4_.exit191 ], [ false, %377 ], [ false, %_ZNK17arith_recognizers5is_gtEPK4expr.exit.i194 ], [ false, %.critedge123 ], [ true, %.lr.ph393 ], [ true, %_ZNK10arith_util18is_times_minus_oneEP4exprRS1_.exit201 ], [ true, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -7056,7 +7056,7 @@ _Z19quick_for_each_exprIN12_GLOBAL__N_117has_nlira_functorEEvRT_R13ast_fast_mark
   br label %404
 
 .loopexit.i:                                      ; preds = %_Z19quick_for_each_exprIN12_GLOBAL__N_117has_nlira_functorEEvRT_R13ast_fast_markILj1EEP4expr.exit.i, %386, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit.i
-  %.not71.i.ph = phi i1 [ false, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit.i ], [ true, %386 ], [ false, %_Z19quick_for_each_exprIN12_GLOBAL__N_117has_nlira_functorEEvRT_R13ast_fast_markILj1EEP4expr.exit.i ]
+  %.not71.i.ph = phi i1 [ true, %386 ], [ false, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit.i ], [ false, %_Z19quick_for_each_exprIN12_GLOBAL__N_117has_nlira_functorEEvRT_R13ast_fast_markILj1EEP4expr.exit.i ]
   %.pr = load i32, ptr %51, align 8, !tbaa !205
   %390 = load ptr, ptr %7, align 8, !tbaa !202
   %391 = zext i32 %.pr to i64

@@ -262,7 +262,7 @@ psa_hmac_setup_internal.exit:                     ; preds = %37, %67
   br label %cmac_setup.exit
 
 cmac_setup.exit:                                  ; preds = %28, %psa_hmac_setup_internal.exit
-  %.0 = phi i32 [ %.054.i, %psa_hmac_setup_internal.exit ], [ %29, %28 ]
+  %.0 = phi i32 [ %29, %28 ], [ %.054.i, %psa_hmac_setup_internal.exit ]
   %.not20 = icmp eq i32 %.0, 0
   br i1 %.not20, label %mbedtls_psa_mac_abort.exit, label %cmac_setup.exit.thread
 
@@ -546,7 +546,7 @@ define hidden i32 @mbedtls_psa_mac_compute(ptr noundef readonly captures(none) %
   br label %mbedtls_psa_mac_update.exit
 
 mbedtls_psa_mac_update.exit:                      ; preds = %19, %26
-  %.0.i = phi i32 [ %22, %19 ], [ %28, %26 ]
+  %.0.i = phi i32 [ %28, %26 ], [ %22, %19 ]
   %.not19 = icmp eq i32 %.0.i, 0
   br i1 %.not19, label %29, label %mbedtls_psa_mac_update.exit.thread
 

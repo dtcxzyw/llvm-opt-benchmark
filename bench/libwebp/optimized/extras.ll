@@ -193,7 +193,7 @@ define dso_local range(i32 0, 2) i32 @WebPImportRGB565(ptr noundef readonly capt
   br i1 %53, label %.lr.ph49.splitthread-pre-split, label %.loopexit, !llvm.loop !28
 
 .loopexit:                                        ; preds = %._crit_edge, %.lr.ph49, %8, %5, %2
-  %.0 = phi i32 [ 0, %2 ], [ 0, %5 ], [ 1, %8 ], [ 1, %.lr.ph49 ], [ 1, %._crit_edge ]
+  %.0 = phi i32 [ 0, %2 ], [ 0, %5 ], [ 1, %.lr.ph49 ], [ 1, %8 ], [ 1, %._crit_edge ]
   ret i32 %.0
 }
 
@@ -295,7 +295,7 @@ define dso_local range(i32 0, 2) i32 @WebPImportRGB4444(ptr noundef readonly cap
   br i1 %53, label %.lr.ph52.splitthread-pre-split, label %.loopexit, !llvm.loop !31
 
 .loopexit:                                        ; preds = %._crit_edge, %.lr.ph52, %8, %5, %2
-  %.0 = phi i32 [ 0, %2 ], [ 0, %5 ], [ 1, %8 ], [ 1, %.lr.ph52 ], [ 1, %._crit_edge ]
+  %.0 = phi i32 [ 0, %2 ], [ 0, %5 ], [ 1, %.lr.ph52 ], [ 1, %8 ], [ 1, %._crit_edge ]
   ret i32 %.0
 }
 
@@ -390,7 +390,7 @@ define dso_local range(i32 0, 2) i32 @WebPImportColorMappedARGB(ptr noundef read
   br i1 %49, label %.preheader, label %.loopexit, !llvm.loop !33
 
 .loopexit:                                        ; preds = %._crit_edge, %.preheader.lr.ph, %17, %15, %5, %8, %33
-  %.038 = phi i32 [ 0, %5 ], [ 0, %33 ], [ 0, %15 ], [ 0, %8 ], [ 1, %17 ], [ 1, %.preheader.lr.ph ], [ 1, %._crit_edge ]
+  %.038 = phi i32 [ 0, %5 ], [ 0, %33 ], [ 0, %15 ], [ 0, %8 ], [ 1, %.preheader.lr.ph ], [ 1, %17 ], [ 1, %._crit_edge ]
   ret i32 %.038
 }
 

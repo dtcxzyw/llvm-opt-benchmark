@@ -308,7 +308,7 @@ define void @ff_png_filter_row(ptr noundef readonly captures(none) %0, ptr nound
   br i1 %.not322, label %.loopexit, label %.lr.ph384, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.lr.ph384, %.lr.ph391, %54, %38, %31, %._crit_edge376
-  %.3 = phi i32 [ %.0.lcssa, %._crit_edge376 ], [ %.0.lcssa, %31 ], [ %.0.lcssa, %38 ], [ %.0.lcssa, %54 ], [ %53, %.lr.ph391 ], [ %76, %.lr.ph384 ]
+  %.3 = phi i32 [ %.0.lcssa, %._crit_edge376 ], [ %.0.lcssa, %54 ], [ %53, %.lr.ph391 ], [ %.0.lcssa, %31 ], [ %.0.lcssa, %38 ], [ %76, %.lr.ph384 ]
   %77 = icmp slt i32 %.3, %5
   br i1 %77, label %.lr.ph405.preheader, label %ff_add_png_paeth_prediction.exit
 
@@ -576,7 +576,7 @@ define void @ff_png_filter_row(ptr noundef readonly captures(none) %0, ptr nound
   br i1 %.not298, label %.loopexit329, label %.lr.ph348, !llvm.loop !24
 
 .loopexit329:                                     ; preds = %.lr.ph348, %.lr.ph356, %.lr.ph363, %166, %131, %107, %96, %._crit_edge339
-  %.10 = phi i32 [ %.8.lcssa, %._crit_edge339 ], [ %.8.lcssa, %96 ], [ %.8.lcssa, %107 ], [ %.8.lcssa, %131 ], [ %.8.lcssa, %166 ], [ %165, %.lr.ph356 ], [ %130, %.lr.ph363 ], [ %211, %.lr.ph348 ]
+  %.10 = phi i32 [ %.8.lcssa, %._crit_edge339 ], [ %130, %.lr.ph363 ], [ %.8.lcssa, %166 ], [ %165, %.lr.ph356 ], [ %.8.lcssa, %96 ], [ %.8.lcssa, %107 ], [ %.8.lcssa, %131 ], [ %211, %.lr.ph348 ]
   %212 = icmp slt i32 %.10, %5
   br i1 %212, label %.lr.ph373.preheader, label %ff_add_png_paeth_prediction.exit
 
@@ -3835,7 +3835,7 @@ bytestream2_get_be32.exit339:                     ; preds = %1189, %1191
   br i1 %.not307, label %apng_reset_background.exit, label %.thread540
 
 .thread496:                                       ; preds = %bytestream2_get_be32.exit337, %267, %bytestream2_get_be32.exit.i361, %decode_idat_chunk.exit, %1169, %1188, %._crit_edge.thread.i, %1161, %168, %201, %1095, %1096, %1201, %1202, %1209, %1211, %1061, %1058, %1065, %1062, %1070, %bytestream2_get_byte.exit.thread, %bytestream2_get_byte.exit75.i, %246, %decode_fctl_chunk.exit, %953, %._crit_edge.i, %999, %1003, %1004, %1006, %1023, %1026, %1029, %.loopexit.i, %decode_iccp_chunk.exit, %.thread520, %bytestream2_get_be32.exit329, %340, %268, %200
-  %.1262 = phi i32 [ %.0261598, %1169 ], [ %.0261598, %200 ], [ %.0261598, %268 ], [ %.0261598, %340 ], [ 0, %bytestream2_get_be32.exit329 ], [ %.0261598, %201 ], [ %.0261598, %bytestream2_get_byte.exit.thread ], [ %.0261598, %1188 ], [ %.0261598, %1211 ], [ %.0261598, %246 ], [ %.0261598, %._crit_edge.i ], [ %.0261598, %1061 ], [ %.0261598, %1058 ], [ %.0261598, %1065 ], [ %.0261598, %1062 ], [ 1, %decode_fctl_chunk.exit ], [ %.0261598, %1095 ], [ %.0261598, %1096 ], [ %.0261598, %decode_iccp_chunk.exit ], [ %.0261598, %decode_idat_chunk.exit ], [ %.0261598, %.thread520 ], [ %.0261598, %1201 ], [ %.0261598, %1202 ], [ %.0261598, %1209 ], [ %.0261598, %1070 ], [ %.0261598, %bytestream2_get_byte.exit75.i ], [ %.0261598, %953 ], [ %.0261598, %999 ], [ %.0261598, %1003 ], [ %.0261598, %1004 ], [ %.0261598, %1006 ], [ %.0261598, %1023 ], [ %.0261598, %1026 ], [ %.0261598, %1029 ], [ %.0261598, %.loopexit.i ], [ %.0261598, %168 ], [ %.0261598, %1161 ], [ %.0261598, %._crit_edge.thread.i ], [ %.0261598, %bytestream2_get_be32.exit.i361 ], [ %.0261598, %267 ], [ %.0261598, %bytestream2_get_be32.exit337 ]
+  %.1262 = phi i32 [ %.0261598, %decode_idat_chunk.exit ], [ %.0261598, %bytestream2_get_byte.exit75.i ], [ %.0261598, %1202 ], [ %.0261598, %1201 ], [ %.0261598, %1070 ], [ %.0261598, %1169 ], [ %.0261598, %.thread520 ], [ %.0261598, %.loopexit.i ], [ %.0261598, %200 ], [ %.0261598, %1029 ], [ %.0261598, %1026 ], [ %.0261598, %268 ], [ %.0261598, %1023 ], [ %.0261598, %340 ], [ 0, %bytestream2_get_be32.exit329 ], [ %.0261598, %1006 ], [ %.0261598, %1004 ], [ %.0261598, %1003 ], [ %.0261598, %1209 ], [ %.0261598, %999 ], [ %.0261598, %953 ], [ %.0261598, %201 ], [ %.0261598, %bytestream2_get_byte.exit.thread ], [ %.0261598, %1188 ], [ %.0261598, %1211 ], [ %.0261598, %246 ], [ %.0261598, %._crit_edge.i ], [ %.0261598, %1061 ], [ %.0261598, %1058 ], [ %.0261598, %1065 ], [ %.0261598, %1062 ], [ 1, %decode_fctl_chunk.exit ], [ %.0261598, %1095 ], [ %.0261598, %1096 ], [ %.0261598, %decode_iccp_chunk.exit ], [ %.0261598, %267 ], [ %.0261598, %168 ], [ %.0261598, %1161 ], [ %.0261598, %._crit_edge.thread.i ], [ %.0261598, %bytestream2_get_be32.exit.i361 ], [ %.0261598, %bytestream2_get_be32.exit337 ]
   %1239 = load ptr, ptr %15, align 8, !tbaa !78
   %1240 = load ptr, ptr %14, align 8, !tbaa !76
   %1241 = ptrtoint ptr %1239 to i64
@@ -4720,7 +4720,7 @@ handle_small_bpp.exit:                            ; preds = %.loopexit199.i, %.l
   br i1 %1758, label %1750, label %apng_reset_background.exit, !llvm.loop !211
 
 apng_reset_background.exit:                       ; preds = %425, %422, %419, %416, %607, %616, %428, %357, %bytestream2_get_be32.exit329.thread, %620, %302, %304, %310, %311, %315, %319, %269, %202, %decode_idat_chunk.exit, %341, %1750, %.thread496.thread, %1236, %.thread186.i.i, %558, %.thread193.i.thread, %353, %410, %.critedge.i.i, %324, %278, %274, %249, %218, %211, %207, %.thread, %130, %decode_sbit_chunk.exit, %decode_iccp_chunk.exit.thread, %decode_phys_chunk.exit.thread, %151, %1730, %1717, %percent_missing.exit, %1714
-  %.5 = phi i32 [ -1094995529, %.thread496.thread ], [ -1094995529, %percent_missing.exit ], [ %1715, %1714 ], [ 0, %1717 ], [ 0, %1730 ], [ %464, %.critedge.i.i ], [ -1094995529, %1236 ], [ -1094995529, %decode_sbit_chunk.exit ], [ %.020.i.ph, %decode_iccp_chunk.exit.thread ], [ -1163346256, %.thread193.i.thread ], [ -1094995529, %249 ], [ -1094995529, %decode_phys_chunk.exit.thread ], [ -1094995529, %.thread ], [ -1094995529, %353 ], [ -1094995529, %151 ], [ -1094995529, %130 ], [ -1094995529, %410 ], [ -1094995529, %207 ], [ -1094995529, %211 ], [ -1094995529, %218 ], [ -1094995529, %274 ], [ -1094995529, %278 ], [ %563, %.thread186.i.i ], [ -1094995529, %324 ], [ %546, %558 ], [ 0, %1750 ], [ -12, %620 ], [ -1094995529, %bytestream2_get_be32.exit329.thread ], [ %360, %357 ], [ %430, %428 ], [ -1094995529, %616 ], [ -1094995529, %607 ], [ %417, %416 ], [ %420, %419 ], [ %423, %422 ], [ %426, %425 ], [ -1094995529, %304 ], [ -1094995529, %310 ], [ -1094995529, %311 ], [ -1094995529, %315 ], [ -1094995529, %319 ], [ -1094995529, %269 ], [ -1094995529, %202 ], [ -1094995529, %302 ], [ -1094995529, %341 ], [ %..i374, %decode_idat_chunk.exit ]
+  %.5 = phi i32 [ -1094995529, %.thread496.thread ], [ -1094995529, %percent_missing.exit ], [ %1715, %1714 ], [ %546, %558 ], [ 0, %1717 ], [ 0, %1730 ], [ %464, %.critedge.i.i ], [ -1094995529, %1236 ], [ -1094995529, %decode_sbit_chunk.exit ], [ %.020.i.ph, %decode_iccp_chunk.exit.thread ], [ -1163346256, %.thread193.i.thread ], [ 0, %1750 ], [ -1094995529, %249 ], [ -1094995529, %decode_phys_chunk.exit.thread ], [ -1094995529, %.thread ], [ -1094995529, %353 ], [ -1094995529, %151 ], [ -1094995529, %130 ], [ -1094995529, %410 ], [ -1094995529, %207 ], [ -1094995529, %211 ], [ -1094995529, %218 ], [ -1094995529, %274 ], [ -1094995529, %278 ], [ %563, %.thread186.i.i ], [ -1094995529, %324 ], [ -1094995529, %bytestream2_get_be32.exit329.thread ], [ %360, %357 ], [ %430, %428 ], [ -1094995529, %616 ], [ -1094995529, %607 ], [ %417, %416 ], [ %420, %419 ], [ %423, %422 ], [ %426, %425 ], [ -1094995529, %304 ], [ -1094995529, %310 ], [ -1094995529, %311 ], [ -1094995529, %315 ], [ -1094995529, %319 ], [ -1094995529, %269 ], [ -1094995529, %202 ], [ -1094995529, %302 ], [ -1094995529, %341 ], [ %..i374, %decode_idat_chunk.exit ], [ -12, %620 ]
   %1759 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %1760 = load ptr, ptr %1759, align 8, !tbaa !119
   %.not326 = icmp eq ptr %1760, null
@@ -4731,7 +4731,7 @@ apng_reset_background.exit:                       ; preds = %425, %422, %419, %4
   br label %.thread532
 
 .thread532:                                       ; preds = %123, %1199, %119, %apng_reset_background.exit, %1761, %1250, %.thread540
-  %.4 = phi i32 [ 0, %123 ], [ -1094995529, %.thread540 ], [ 0, %1250 ], [ %.5, %1761 ], [ %.5, %apng_reset_background.exit ], [ 0, %119 ], [ %1195, %1199 ]
+  %.4 = phi i32 [ 0, %123 ], [ -1094995529, %.thread540 ], [ 0, %1250 ], [ %.5, %1761 ], [ %.5, %apng_reset_background.exit ], [ %1195, %1199 ], [ 0, %119 ]
   ret i32 %.4
 }
 

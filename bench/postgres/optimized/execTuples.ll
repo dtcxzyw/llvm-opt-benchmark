@@ -1266,7 +1266,7 @@ fetch_att.exit38:                                 ; preds = %315, %318, %321, %3
   br i1 %exitcond199.not, label %slot_deform_heap_tuple_internal.exit17.thread, label %273, !llvm.loop !12
 
 slot_deform_heap_tuple_internal.exit17:           ; preds = %256, %133, %134, %26
-  %.262 = phi i32 [ %.06069, %26 ], [ %.06069, %134 ], [ %128, %133 ], [ %251, %256 ]
+  %.262 = phi i32 [ %128, %133 ], [ %.06069, %26 ], [ %.06069, %134 ], [ %251, %256 ]
   %372 = trunc i32 %..i to i16
   store i16 %372, ptr %13, align 2
   store i32 %.262, ptr %5, align 4
@@ -2285,7 +2285,7 @@ fetch_att.exit38:                                 ; preds = %315, %318, %321, %3
   br i1 %exitcond199.not, label %slot_deform_heap_tuple_internal.exit17.thread, label %273, !llvm.loop !12
 
 slot_deform_heap_tuple_internal.exit17:           ; preds = %256, %133, %134, %26
-  %.262 = phi i32 [ %.06069, %26 ], [ %.06069, %134 ], [ %128, %133 ], [ %251, %256 ]
+  %.262 = phi i32 [ %128, %133 ], [ %.06069, %26 ], [ %.06069, %134 ], [ %251, %256 ]
   %372 = trunc i32 %..i to i16
   store i16 %372, ptr %13, align 2
   store i32 %.262, ptr %5, align 4
@@ -3320,7 +3320,7 @@ fetch_att.exit38:                                 ; preds = %315, %318, %321, %3
   br i1 %exitcond199.not, label %slot_deform_heap_tuple_internal.exit17.thread, label %273, !llvm.loop !12
 
 slot_deform_heap_tuple_internal.exit17:           ; preds = %256, %133, %134, %26
-  %.262 = phi i32 [ %.06069, %26 ], [ %.06069, %134 ], [ %128, %133 ], [ %251, %256 ]
+  %.262 = phi i32 [ %128, %133 ], [ %.06069, %26 ], [ %.06069, %134 ], [ %251, %256 ]
   %372 = trunc i32 %..i to i16
   store i16 %372, ptr %13, align 2
   store i32 %.262, ptr %5, align 4
@@ -5528,7 +5528,7 @@ define internal fastcc ptr @ExecTypeFromTLInternal(ptr noundef %0, i1 noundef ze
   br i1 %52, label %.lr.ph32, label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph32, %30, %.thread, %.lr.ph.split.us.split, %.lr.ph.split.split, %4
-  %53 = phi ptr [ %8, %.thread ], [ %6, %4 ], [ %6, %.lr.ph.split.us.split ], [ %8, %.lr.ph.split.split ], [ %6, %30 ], [ %8, %.lr.ph32 ]
+  %53 = phi ptr [ %8, %.thread ], [ %6, %30 ], [ %6, %4 ], [ %6, %.lr.ph.split.us.split ], [ %8, %.lr.ph.split.split ], [ %8, %.lr.ph32 ]
   ret ptr %53
 }
 

@@ -8345,7 +8345,7 @@ _ZN5folly14AsyncUDPSocket13isZeroCopyMsgERK7cmsghdr.exit.thread: ; preds = %100,
   br i1 %.not52, label %.critedge.thread, label %.lr.ph72, !llvm.loop !282
 
 .critedge.thread:                                 ; preds = %.critedge, %115, %18, %45, %_ZN5folly14AsyncUDPSocket18failErrMessageReadERKNS_20AsyncSocketExceptionE.exit
-  %.2 = phi i64 [ %.02671, %45 ], [ %.02671, %_ZN5folly14AsyncUDPSocket18failErrMessageReadERKNS_20AsyncSocketExceptionE.exit ], [ 0, %18 ], [ %93, %115 ], [ %.127.lcssa, %.critedge ]
+  %.2 = phi i64 [ %.02671, %45 ], [ %93, %115 ], [ %.02671, %_ZN5folly14AsyncUDPSocket18failErrMessageReadERKNS_20AsyncSocketExceptionE.exit ], [ 0, %18 ], [ %.127.lcssa, %.critedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

@@ -121,7 +121,7 @@ define internal void @diff_bytes_c(ptr noundef writeonly captures(none) %0, ptr 
   br i1 %.not75, label %.loopexit, label %.lr.ph81, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph81, %.preheader76, %.preheader
-  %.1 = phi i64 [ 0, %.preheader ], [ 0, %.preheader76 ], [ %81, %.lr.ph81 ], [ %66, %.lr.ph ]
+  %.1 = phi i64 [ %81, %.lr.ph81 ], [ 0, %.preheader ], [ 0, %.preheader76 ], [ %66, %.lr.ph ]
   %82 = icmp slt i64 %.1, %3
   br i1 %82, label %.lr.ph84, label %._crit_edge
 

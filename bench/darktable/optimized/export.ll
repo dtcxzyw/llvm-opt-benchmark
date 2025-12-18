@@ -3146,8 +3146,8 @@ define void @init_presets(ptr noundef readonly captures(none) %0) local_unnamed_
   br label %220
 
 .loopexit:                                        ; preds = %.lr.ph248, %113, %.lr.ph255, %125, %.lr.ph, %.lr.ph206
-  %.0155 = phi ptr [ null, %.lr.ph ], [ null, %.lr.ph206 ], [ %128, %125 ], [ null, %.lr.ph255 ], [ null, %113 ], [ null, %.lr.ph248 ]
-  %.1154 = phi ptr [ null, %.lr.ph ], [ %.0153.lcssa, %.lr.ph206 ], [ %.0153.lcssa, %.lr.ph255 ], [ %.0153.lcssa, %125 ], [ null, %.lr.ph248 ], [ %116, %113 ]
+  %.0155 = phi ptr [ %128, %125 ], [ null, %.lr.ph ], [ null, %.lr.ph206 ], [ null, %.lr.ph255 ], [ null, %113 ], [ null, %.lr.ph248 ]
+  %.1154 = phi ptr [ %.0153.lcssa, %.lr.ph255 ], [ null, %.lr.ph ], [ %.0153.lcssa, %.lr.ph206 ], [ %.0153.lcssa, %125 ], [ %116, %113 ], [ null, %.lr.ph248 ]
   call void @free(ptr noundef %.1154) #19
   call void @free(ptr noundef %.0155) #19
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.111, ptr noundef %38, i32 noundef %92, i32 noundef %94, i32 noundef %105, i32 noundef %108) #19

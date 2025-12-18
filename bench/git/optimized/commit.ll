@@ -1633,7 +1633,7 @@ free_commit_list.exit:                            ; preds = %pop_commit.exit.i, 
   br label %109
 
 109:                                              ; preds = %94, %105
-  %.177 = phi ptr [ %108, %105 ], [ %.076113, %94 ]
+  %.177 = phi ptr [ %.076113, %94 ], [ %108, %105 ]
   %110 = getelementptr inbounds i8, ptr %95, i64 %59
   %111 = icmp ult ptr %110, %19
   br i1 %111, label %.lr.ph.split, label %.preheader
@@ -1692,7 +1692,7 @@ lookup_commit.exit:                               ; preds = %118, %121
   br i1 %.not95, label %115, label %.critedge104, !llvm.loop !92
 
 .critedge104:                                     ; preds = %127, %77, %.lr.ph.split.us, %52, %.preheader
-  %.074.lcssa152 = phi ptr [ %.074.lcssa151, %.preheader ], [ %49, %52 ], [ %78, %77 ], [ %.074114.us, %.lr.ph.split.us ], [ %.074.lcssa151, %127 ]
+  %.074.lcssa152 = phi ptr [ %78, %77 ], [ %.074.lcssa151, %.preheader ], [ %49, %52 ], [ %.074114.us, %.lr.ph.split.us ], [ %.074.lcssa151, %127 ]
   %133 = call fastcc i64 @parse_commit_date(ptr noundef %.074.lcssa152, ptr noundef nonnull %19)
   %134 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i64 %133, ptr %134, align 8, !tbaa !93
@@ -4827,8 +4827,8 @@ excluded_header_field.exit.sink.split.i:          ; preds = %excluded_header_fie
   br label %excluded_header_field.exit.i
 
 excluded_header_field.exit.i:                     ; preds = %49, %excluded_header_field.exit.sink.split.i, %excluded_header_field.exit.thread.i, %standard_header_field.exit.i, %42, %41, %40, %22
-  %.150.i = phi ptr [ null, %40 ], [ null, %22 ], [ null, %standard_header_field.exit.i ], [ %53, %excluded_header_field.exit.thread.i ], [ null, %42 ], [ null, %41 ], [ %.150.ph.i, %excluded_header_field.exit.sink.split.i ], [ null, %49 ]
-  %.1.i = phi ptr [ %.075.i, %40 ], [ %.075.i, %22 ], [ %.075.i, %standard_header_field.exit.i ], [ %53, %excluded_header_field.exit.thread.i ], [ %.075.i, %42 ], [ %.075.i, %41 ], [ %.1.ph.i, %excluded_header_field.exit.sink.split.i ], [ %.075.i, %49 ]
+  %.150.i = phi ptr [ null, %41 ], [ null, %22 ], [ null, %standard_header_field.exit.i ], [ null, %40 ], [ %.150.ph.i, %excluded_header_field.exit.sink.split.i ], [ %53, %excluded_header_field.exit.thread.i ], [ null, %42 ], [ null, %49 ]
+  %.1.i = phi ptr [ %.075.i, %41 ], [ %.075.i, %22 ], [ %.075.i, %standard_header_field.exit.i ], [ %.075.i, %40 ], [ %.1.ph.i, %excluded_header_field.exit.sink.split.i ], [ %53, %excluded_header_field.exit.thread.i ], [ %.075.i, %42 ], [ %.075.i, %49 ]
   %60 = icmp ult ptr %20, %9
   br i1 %60, label %13, label %.critedge.i, !llvm.loop !182
 
@@ -5722,7 +5722,7 @@ find_invalid_utf8.exit:                           ; preds = %.preheader.i, %._cr
   br i1 %.not88.i, label %find_invalid_utf8.exit.thread, label %.lr.ph93.i.preheader
 
 find_invalid_utf8.exit.thread:                    ; preds = %find_invalid_utf8.exit, %55, %53, %1
-  %.01938 = phi i32 [ 1, %1 ], [ %.01941, %53 ], [ %.01941, %find_invalid_utf8.exit ], [ 0, %55 ]
+  %.01938 = phi i32 [ %.01941, %53 ], [ 1, %1 ], [ %.01941, %find_invalid_utf8.exit ], [ 0, %55 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.01938
 }

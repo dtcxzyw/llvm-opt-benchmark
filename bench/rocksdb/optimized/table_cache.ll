@@ -769,10 +769,10 @@ _ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit: ; preds = %186, %188
   br i1 %.not225, label %.thread, label %126, !llvm.loop !165
 
 .thread:                                          ; preds = %116, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit, %93, %_ZNK7rocksdb15MultiGetContext5Range5beginEv.exit109, %_ZNK7rocksdb15MultiGetContext5Range5beginEv.exit115
-  %193 = phi ptr [ %73, %93 ], [ %73, %_ZNK7rocksdb15MultiGetContext5Range5beginEv.exit109 ], [ %104, %_ZNK7rocksdb15MultiGetContext5Range5beginEv.exit115 ], [ %181, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit ], [ %104, %116 ]
-  %194 = phi i64 [ %74, %93 ], [ %74, %_ZNK7rocksdb15MultiGetContext5Range5beginEv.exit109 ], [ %105, %_ZNK7rocksdb15MultiGetContext5Range5beginEv.exit115 ], [ %179, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit ], [ %105, %116 ]
-  %195 = phi i1 [ false, %93 ], [ false, %_ZNK7rocksdb15MultiGetContext5Range5beginEv.exit109 ], [ true, %_ZNK7rocksdb15MultiGetContext5Range5beginEv.exit115 ], [ true, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit ], [ true, %116 ]
-  %.075 = phi i64 [ 0, %93 ], [ 0, %_ZNK7rocksdb15MultiGetContext5Range5beginEv.exit109 ], [ %102, %_ZNK7rocksdb15MultiGetContext5Range5beginEv.exit115 ], [ %102, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit ], [ %102, %116 ]
+  %193 = phi ptr [ %73, %_ZNK7rocksdb15MultiGetContext5Range5beginEv.exit109 ], [ %73, %93 ], [ %104, %_ZNK7rocksdb15MultiGetContext5Range5beginEv.exit115 ], [ %181, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit ], [ %104, %116 ]
+  %194 = phi i64 [ %74, %_ZNK7rocksdb15MultiGetContext5Range5beginEv.exit109 ], [ %74, %93 ], [ %105, %_ZNK7rocksdb15MultiGetContext5Range5beginEv.exit115 ], [ %179, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit ], [ %105, %116 ]
+  %195 = phi i1 [ false, %_ZNK7rocksdb15MultiGetContext5Range5beginEv.exit109 ], [ false, %93 ], [ true, %_ZNK7rocksdb15MultiGetContext5Range5beginEv.exit115 ], [ true, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit ], [ true, %116 ]
+  %.075 = phi i64 [ 0, %_ZNK7rocksdb15MultiGetContext5Range5beginEv.exit109 ], [ 0, %93 ], [ %102, %_ZNK7rocksdb15MultiGetContext5Range5beginEv.exit115 ], [ %102, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit ], [ %102, %116 ]
   %notmask.i.i = shl nsw i64 -1, %194
   %196 = load i64, ptr %44, align 8, !tbaa !22
   %197 = getelementptr inbounds nuw i8, ptr %193, i64 3848
@@ -6001,7 +6001,7 @@ _ZN7rocksdb6StatusD2Ev.exit113:                   ; preds = %_ZN7rocksdb6Statusa
   br i1 %.062, label %_ZN7rocksdb18BaseCacheInterfaceIPNS_5CacheEE7ReleaseEPNS1_6HandleE.exit, label %.thread141
 
 .thread141:                                       ; preds = %_ZN7rocksdb6StatusD2Ev.exit113, %204
-  %205 = phi i8 [ %.pre152, %_ZN7rocksdb6StatusD2Ev.exit113 ], [ %58, %204 ]
+  %205 = phi i8 [ %58, %204 ], [ %.pre152, %_ZN7rocksdb6StatusD2Ev.exit113 ]
   %206 = icmp eq i8 %205, 0
   %207 = icmp ne ptr %.0, null
   %or.cond5 = and i1 %207, %206

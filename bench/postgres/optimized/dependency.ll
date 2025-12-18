@@ -608,8 +608,8 @@ object_address_present.exit.thread:               ; preds = %.critedge.i, %165, 
   br i1 %.not.us.i170, label %stack_address_present_add_flags.exit173, label %.lr.ph.split.us.i166.backedge
 
 .lr.ph.split.us.i166.backedge:                    ; preds = %205, %.thread
-  %.024.us.i167.be = phi i1 [ %.1.us.i169, %205 ], [ true, %.thread ]
-  %.01823.us.i168.be = phi ptr [ %207, %205 ], [ %209, %.thread ]
+  %.024.us.i167.be = phi i1 [ true, %.thread ], [ %.1.us.i169, %205 ]
+  %.01823.us.i168.be = phi ptr [ %209, %.thread ], [ %207, %205 ]
   br label %.lr.ph.split.us.i166, !llvm.loop !4
 
 .thread:                                          ; preds = %199
@@ -813,7 +813,7 @@ object_address_present_add_flags.exit201.thread:  ; preds = %223, %object_addres
   unreachable
 
 ReleaseDeletionLock.exit:                         ; preds = %.thread, %object_address_present.exit.thread, %157, %272, %277, %153, %153, %153, %156, %191, %stack_address_present_add_flags.exit173, %150
-  %.1 = phi i32 [ %273, %272 ], [ %278, %277 ], [ %.0242, %150 ], [ %.0242, %153 ], [ %.0242, %153 ], [ %.0242, %153 ], [ %.0242, %156 ], [ %.0242, %157 ], [ %.0242, %191 ], [ %.0242, %object_address_present.exit.thread ], [ %.0242, %stack_address_present_add_flags.exit173 ], [ %.0242, %.thread ]
+  %.1 = phi i32 [ %.0242, %stack_address_present_add_flags.exit173 ], [ %273, %272 ], [ %278, %277 ], [ %.0242, %150 ], [ %.0242, %153 ], [ %.0242, %153 ], [ %.0242, %153 ], [ %.0242, %156 ], [ %.0242, %157 ], [ %.0242, %191 ], [ %.0242, %object_address_present.exit.thread ], [ %.0242, %.thread ]
   %286 = call ptr @systable_getnext(ptr noundef %126) #8
   %.not132 = icmp eq ptr %286, null
   br i1 %.not132, label %._crit_edge, label %132

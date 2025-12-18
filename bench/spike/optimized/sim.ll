@@ -1053,8 +1053,8 @@ _ZNSolsEPFRSoS_E.exit:                            ; preds = %_ZStlsISt11char_tra
   br i1 %340, label %.body222, label %.body225
 
 .body222:                                         ; preds = %.body225, %257, %254
-  %341 = phi i1 [ false, %254 ], [ false, %257 ], [ true, %.body225 ]
-  %.pn151 = phi { ptr, i32 } [ %255, %254 ], [ %255, %257 ], [ %270, %.body225 ]
+  %341 = phi i1 [ false, %257 ], [ false, %254 ], [ true, %.body225 ]
+  %.pn151 = phi { ptr, i32 } [ %255, %257 ], [ %255, %254 ], [ %270, %.body225 ]
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #33
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %.body203

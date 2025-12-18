@@ -6198,7 +6198,7 @@ php_cli_server_client_read_request.exit:          ; preds = %32
   br label %.thread
 
 50:                                               ; preds = %22, %30, %44, %46
-  %.023.ph = phi ptr [ %47, %46 ], [ %45, %44 ], [ %31, %30 ], [ %24, %22 ]
+  %.023.ph = phi ptr [ %24, %22 ], [ %47, %46 ], [ %45, %44 ], [ %31, %30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not = icmp eq ptr %.023.ph, null
   br i1 %.not, label %.thread, label %51

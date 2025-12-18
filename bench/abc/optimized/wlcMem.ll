@@ -1755,8 +1755,8 @@ Vec_IntFind.exit.thread.sink.split:               ; preds = %Vec_IntFind.exit.th
   br label %Vec_IntFind.exit.thread
 
 Vec_IntFind.exit.thread:                          ; preds = %50, %Vec_IntFind.exit.thread.sink.split, %37
-  %.pre.i46 = phi ptr [ %14, %37 ], [ %.pre.i46.ph, %Vec_IntFind.exit.thread.sink.split ], [ %14, %50 ]
-  %.pre.i3042 = phi ptr [ %15, %37 ], [ %.pre.i44.sink, %Vec_IntFind.exit.thread.sink.split ], [ %15, %50 ]
+  %.pre.i46 = phi ptr [ %.pre.i46.ph, %Vec_IntFind.exit.thread.sink.split ], [ %14, %37 ], [ %14, %50 ]
+  %.pre.i3042 = phi ptr [ %.pre.i44.sink, %Vec_IntFind.exit.thread.sink.split ], [ %15, %37 ], [ %15, %50 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val23 = load i32, ptr %8, align 8, !tbaa !45
   %73 = sext i32 %.val23 to i64
@@ -5568,8 +5568,8 @@ Wlc_ObjFanin0.exit.us:                            ; preds = %18, %Wlc_ObjHasArra
   br i1 %.not.us, label %tailrecurse.outer._crit_edge, label %.lr.ph.split.us
 
 tailrecurse.outer._crit_edge:                     ; preds = %tailrecurse.outer, %Wlc_ObjFanin0.exit.us, %Wlc_ObjFanin0.exit, %7
-  %.tr114.lcssa = phi ptr [ %1, %7 ], [ %27, %Wlc_ObjFanin0.exit.us ], [ %135, %Wlc_ObjFanin0.exit ], [ %122, %tailrecurse.outer ]
-  %.tr115.ph.lcssa150 = phi i32 [ %2, %7 ], [ %.tr115.ph208, %Wlc_ObjFanin0.exit.us ], [ 0, %Wlc_ObjFanin0.exit ], [ %123, %tailrecurse.outer ]
+  %.tr114.lcssa = phi ptr [ %135, %Wlc_ObjFanin0.exit ], [ %1, %7 ], [ %27, %Wlc_ObjFanin0.exit.us ], [ %122, %tailrecurse.outer ]
+  %.tr115.ph.lcssa150 = phi i32 [ 0, %Wlc_ObjFanin0.exit ], [ %2, %7 ], [ %.tr115.ph208, %Wlc_ObjFanin0.exit.us ], [ %123, %tailrecurse.outer ]
   %29 = ptrtoint ptr %.tr114.lcssa to i64
   %30 = ptrtoint ptr %.val82 to i64
   %31 = sub i64 %29, %30

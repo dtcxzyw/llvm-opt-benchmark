@@ -4709,8 +4709,8 @@ define dso_local i64 @__snd_pcm_lib_xfer(ptr noundef %0, ptr noundef %1, i1 noun
   br label %.critedge
 
 .critedge:                                        ; preds = %224, %224, %224, %.critedge.loopexit189, %.lr.ph.preheader, %..critedge.loopexit_crit_edge178, %.critedge.loopexit, %228, %174
-  %235 = phi i64 [ %221, %.critedge.loopexit189 ], [ 0, %174 ], [ %spec.select, %228 ], [ %221, %..critedge.loopexit_crit_edge178 ], [ 0, %.lr.ph.preheader ], [ %221, %.critedge.loopexit ], [ %221, %224 ], [ %221, %224 ], [ %221, %224 ]
-  %236 = phi i32 [ %.ph, %.critedge.loopexit189 ], [ -512, %174 ], [ %spec.select159, %228 ], [ -512, %..critedge.loopexit_crit_edge178 ], [ -512, %.lr.ph.preheader ], [ -86, %.critedge.loopexit ], [ -77, %224 ], [ -77, %224 ], [ -77, %224 ]
+  %235 = phi i64 [ %221, %.critedge.loopexit189 ], [ %221, %.critedge.loopexit ], [ 0, %174 ], [ %spec.select, %228 ], [ 0, %.lr.ph.preheader ], [ %221, %..critedge.loopexit_crit_edge178 ], [ %221, %224 ], [ %221, %224 ], [ %221, %224 ]
+  %236 = phi i32 [ %.ph, %.critedge.loopexit189 ], [ -86, %.critedge.loopexit ], [ -512, %174 ], [ %spec.select159, %228 ], [ -512, %.lr.ph.preheader ], [ -512, %..critedge.loopexit_crit_edge178 ], [ -77, %224 ], [ -77, %224 ], [ -77, %224 ]
   %237 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %149, i32 0, ptr nonnull elementtype(i32) %149) #21, !srcloc !37
   call void @remove_wait_queue(ptr noundef nonnull %151, ptr noundef nonnull %6) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -4851,12 +4851,12 @@ define dso_local i64 @__snd_pcm_lib_xfer(ptr noundef %0, ptr noundef %1, i1 noun
   %324 = icmp sgt i32 %323, -1
   br i1 %324, label %.thread47, label %.thread40.loopexit
 
-.thread47:                                        ; preds = %322, %295, %300, %303, %239
-  %325 = phi i64 [ %125, %239 ], [ %297, %322 ], [ %297, %295 ], [ %297, %300 ], [ %297, %303 ]
-  %326 = phi i64 [ %.fr57, %239 ], [ %298, %322 ], [ %298, %295 ], [ %298, %300 ], [ %298, %303 ]
-  %327 = phi i64 [ %127, %239 ], [ %296, %322 ], [ %296, %295 ], [ %296, %300 ], [ %296, %303 ]
-  %328 = phi i32 [ 0, %239 ], [ %323, %322 ], [ 0, %295 ], [ 0, %300 ], [ 0, %303 ]
-  %329 = phi i64 [ 0, %239 ], [ %299, %322 ], [ %299, %295 ], [ %299, %300 ], [ %299, %303 ]
+.thread47:                                        ; preds = %322, %303, %300, %239, %295
+  %325 = phi i64 [ %297, %295 ], [ %297, %322 ], [ %297, %303 ], [ %297, %300 ], [ %125, %239 ]
+  %326 = phi i64 [ %298, %295 ], [ %298, %322 ], [ %298, %303 ], [ %298, %300 ], [ %.fr57, %239 ]
+  %327 = phi i64 [ %296, %295 ], [ %296, %322 ], [ %296, %303 ], [ %296, %300 ], [ %127, %239 ]
+  %328 = phi i32 [ 0, %295 ], [ %323, %322 ], [ 0, %303 ], [ 0, %300 ], [ 0, %239 ]
+  %329 = phi i64 [ %299, %295 ], [ %299, %322 ], [ %299, %303 ], [ %299, %300 ], [ 0, %239 ]
   %330 = icmp eq i64 %325, 0
   br i1 %330, label %.thread40.loopexit, label %124, !llvm.loop !38
 
@@ -4877,7 +4877,7 @@ define dso_local i64 @__snd_pcm_lib_xfer(ptr noundef %0, ptr noundef %1, i1 noun
   br label %.thread40.thread
 
 .thread40.thread:                                 ; preds = %258, %285, %.thread40.thread.loopexit190, %.thread40.thread.loopexit100
-  %.ph54 = phi i64 [ -77, %.thread40.thread.loopexit190 ], [ %333, %.thread40.thread.loopexit100 ], [ -32, %285 ], [ -16, %258 ]
+  %.ph54 = phi i64 [ -77, %.thread40.thread.loopexit190 ], [ -32, %285 ], [ %333, %.thread40.thread.loopexit100 ], [ -16, %258 ]
   store i64 0, ptr %63, align 8
   %.not = icmp eq i64 %.fr57, 0
   call void @snd_pcm_stream_unlock_irq(ptr noundef nonnull %0) #21
@@ -5209,7 +5209,7 @@ define internal range(i32 -2147483648, 1) i32 @noninterleaved_copy(ptr noundef %
   br i1 %170, label %.loopexit, label %.split.split, !llvm.loop !46
 
 .loopexit:                                        ; preds = %.thread, %165, %91, %.thread.us6, %42, %.thread.us, %.split.us, %7
-  %171 = phi i32 [ 0, %7 ], [ %92, %91 ], [ %44, %42 ], [ 0, %.split.us ], [ 0, %.thread.us ], [ 0, %.thread.us6 ], [ 0, %.thread ], [ %166, %165 ]
+  %171 = phi i32 [ 0, %7 ], [ %92, %91 ], [ 0, %.split.us ], [ %44, %42 ], [ 0, %.thread.us ], [ 0, %.thread.us6 ], [ 0, %.thread ], [ %166, %165 ]
   ret i32 %171
 }
 
@@ -5558,7 +5558,7 @@ define internal noundef range(i32 -22, 1) i32 @pcm_chmap_ctl_get(ptr noundef rea
   br i1 %84, label %.thread, label %55, !llvm.loop !57
 
 .thread:                                          ; preds = %33, %81, %71, %20, %46, %37, %2
-  %85 = phi i32 [ -22, %2 ], [ 0, %37 ], [ -22, %46 ], [ -19, %20 ], [ -22, %81 ], [ 0, %71 ], [ -19, %33 ]
+  %85 = phi i32 [ -22, %2 ], [ -19, %20 ], [ 0, %37 ], [ -22, %81 ], [ -22, %46 ], [ 0, %71 ], [ -19, %33 ]
   ret i32 %85
 }
 
@@ -5687,9 +5687,9 @@ define internal range(i32 -22, 1) i32 @pcm_chmap_ctl_tlv(ptr noundef readonly ca
   br i1 %93, label %.preheader, label %.loopexit, !llvm.loop !62
 
 .loopexit:                                        ; preds = %88, %29, %39, %68
-  %94 = phi i32 [ %34, %39 ], [ %34, %29 ], [ %72, %68 ], [ %72, %88 ]
-  %95 = phi ptr [ %33, %39 ], [ %33, %29 ], [ %69, %68 ], [ %89, %88 ]
-  %96 = phi i32 [ %31, %39 ], [ %31, %29 ], [ %70, %68 ], [ %70, %88 ]
+  %94 = phi i32 [ %34, %39 ], [ %72, %68 ], [ %34, %29 ], [ %72, %88 ]
+  %95 = phi ptr [ %33, %39 ], [ %69, %68 ], [ %33, %29 ], [ %89, %88 ]
+  %96 = phi i32 [ %31, %39 ], [ %70, %68 ], [ %31, %29 ], [ %70, %88 ]
   %97 = getelementptr i8, ptr %32, i64 16
   %98 = load i8, ptr %97, align 1
   %99 = icmp eq i8 %98, 0
@@ -5710,7 +5710,7 @@ define internal range(i32 -22, 1) i32 @pcm_chmap_ctl_tlv(ptr noundef readonly ca
   br label %.thread
 
 .thread:                                          ; preds = %65, %48, %56, %46, %.preheader, %.loopexit13, %12, %10, %4
-  %110 = phi i32 [ -22, %4 ], [ -12, %10 ], [ -14, %12 ], [ %109, %.loopexit13 ], [ -14, %.preheader ], [ -12, %46 ], [ -14, %56 ], [ -14, %48 ], [ -12, %65 ]
+  %110 = phi i32 [ -22, %4 ], [ -12, %10 ], [ -14, %12 ], [ %109, %.loopexit13 ], [ -14, %.preheader ], [ -14, %56 ], [ -14, %48 ], [ -12, %65 ], [ -12, %46 ]
   ret i32 %110
 }
 

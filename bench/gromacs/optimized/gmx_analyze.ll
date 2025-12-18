@@ -3073,8 +3073,8 @@ _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit354.preheader.i: ; preds = %_ZL13gmx_snew
   br label %1353
 
 .critedge2.preheader.i:                           ; preds = %.lr.ph438.i, %.preheader421.i, %._crit_edge.thread.i
-  %.0295.lcssa593597.i = phi i32 [ %.1296.i, %.preheader421.i ], [ 0, %._crit_edge.thread.i ], [ %.1296.i, %.lr.ph438.i ]
-  %1146 = phi ptr [ %1089, %.preheader421.i ], [ %1138, %._crit_edge.thread.i ], [ %1089, %.lr.ph438.i ]
+  %.0295.lcssa593597.i = phi i32 [ 0, %._crit_edge.thread.i ], [ %.1296.i, %.preheader421.i ], [ %.1296.i, %.lr.ph438.i ]
+  %1146 = phi ptr [ %1138, %._crit_edge.thread.i ], [ %1089, %.preheader421.i ], [ %1089, %.lr.ph438.i ]
   %1147 = add nsw i32 %.0295.lcssa593597.i, -1
   %smax.i = call i32 @llvm.smax.i32(i32 %1147, i32 0)
   %1148 = add nsw i32 %smax.i, -1

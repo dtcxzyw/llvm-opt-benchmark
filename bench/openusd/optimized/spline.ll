@@ -6462,7 +6462,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKNS_8TsSplineELb0EEppEv.exit: 
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKNS_8TsSplineELb0EEptEv.exit, %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKNS_8TsSplineELb0EEppEv.exit, %60, %._crit_edge, %1, %9
-  %.0 = phi i1 [ %.not8, %60 ], [ false, %1 ], [ false, %9 ], [ false, %._crit_edge ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKNS_8TsSplineELb0EEppEv.exit ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKNS_8TsSplineELb0EEptEv.exit ]
+  %.0 = phi i1 [ %.not8, %60 ], [ false, %1 ], [ false, %._crit_edge ], [ false, %9 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKNS_8TsSplineELb0EEppEv.exit ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKNS_8TsSplineELb0EEptEv.exit ]
   ret i1 %.0
 }
 

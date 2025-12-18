@@ -1940,9 +1940,9 @@ _ZN4cvc58internal7Minisat3vecIiE4pushERKi.exit:   ; preds = %37, %46
   br i1 %113, label %82, label %_ZN4cvc58internal7Minisat10SimpSolver11extendModelEv.exit, !llvm.loop !319
 
 _ZN4cvc58internal7Minisat10SimpSolver11extendModelEv.exit: ; preds = %.loopexit.i, %72, %68, %75, %73
-  %.sroa.036.293 = phi i8 [ %65, %73 ], [ 0, %75 ], [ 1, %68 ], [ 1, %72 ], [ %65, %.loopexit.i ]
-  %.sroa.12.04292 = phi i32 [ %.sroa.12.043, %73 ], [ %.sroa.12.043, %75 ], [ %.sroa.12.1.lcssa, %68 ], [ %.sroa.12.1.lcssa, %72 ], [ %.sroa.12.043, %.loopexit.i ]
-  %.sroa.028.04491 = phi ptr [ %.sroa.028.045, %73 ], [ %.sroa.028.045, %75 ], [ %.sroa.028.1.lcssa, %68 ], [ %.sroa.028.1.lcssa, %72 ], [ %.sroa.028.045, %.loopexit.i ]
+  %.sroa.036.293 = phi i8 [ 1, %72 ], [ %65, %73 ], [ 0, %75 ], [ 1, %68 ], [ %65, %.loopexit.i ]
+  %.sroa.12.04292 = phi i32 [ %.sroa.12.1.lcssa, %72 ], [ %.sroa.12.043, %73 ], [ %.sroa.12.043, %75 ], [ %.sroa.12.1.lcssa, %68 ], [ %.sroa.12.043, %.loopexit.i ]
+  %.sroa.028.04491 = phi ptr [ %.sroa.028.1.lcssa, %72 ], [ %.sroa.028.045, %73 ], [ %.sroa.028.045, %75 ], [ %.sroa.028.1.lcssa, %68 ], [ %.sroa.028.045, %.loopexit.i ]
   %114 = icmp sgt i32 %.sroa.12.04292, 0
   %or.cond = select i1 %.not.not, i1 %114, i1 false
   br i1 %or.cond, label %.lr.ph71, label %.loopexit
@@ -4613,16 +4613,16 @@ _ZNK4cvc58internal7Minisat6Clause8subsumesERKS2_.exit.thread99: ; preds = %_ZNK4
   br label %.thread102
 
 .thread102:                                       ; preds = %196, %197, %_ZNK4cvc58internal7Minisat6Clause8subsumesERKS2_.exit, %167, %178, %172, %181, %207, %_ZNK4cvc58internal7Minisat6Clause8subsumesERKS2_.exit.thread99, %157
-  %.373 = phi i32 [ %.070136, %157 ], [ %.070136, %178 ], [ %.070136, %167 ], [ %.070136, %_ZNK4cvc58internal7Minisat6Clause8subsumesERKS2_.exit.thread99 ], [ %spec.select, %207 ], [ %.070136, %_ZNK4cvc58internal7Minisat6Clause8subsumesERKS2_.exit ], [ %.070136, %181 ], [ %.070136, %172 ], [ %.070136, %197 ], [ %.070136, %196 ]
-  %.666 = phi i32 [ %.262137, %157 ], [ %.262137, %178 ], [ %.262137, %167 ], [ %.262137, %_ZNK4cvc58internal7Minisat6Clause8subsumesERKS2_.exit.thread99 ], [ %208, %207 ], [ %.262137, %_ZNK4cvc58internal7Minisat6Clause8subsumesERKS2_.exit ], [ %.262137, %181 ], [ %.262137, %172 ], [ %.262137, %197 ], [ %.262137, %196 ]
-  %.659 = phi i32 [ %.255138, %157 ], [ %.255138, %178 ], [ %.255138, %167 ], [ %203, %_ZNK4cvc58internal7Minisat6Clause8subsumesERKS2_.exit.thread99 ], [ %.255138, %207 ], [ %.255138, %_ZNK4cvc58internal7Minisat6Clause8subsumesERKS2_.exit ], [ %.255138, %181 ], [ %.255138, %172 ], [ %.255138, %197 ], [ %.255138, %196 ]
+  %.373 = phi i32 [ %.070136, %157 ], [ %.070136, %178 ], [ %.070136, %167 ], [ %.070136, %_ZNK4cvc58internal7Minisat6Clause8subsumesERKS2_.exit.thread99 ], [ %spec.select, %207 ], [ %.070136, %_ZNK4cvc58internal7Minisat6Clause8subsumesERKS2_.exit ], [ %.070136, %172 ], [ %.070136, %181 ], [ %.070136, %197 ], [ %.070136, %196 ]
+  %.666 = phi i32 [ %.262137, %157 ], [ %.262137, %178 ], [ %.262137, %167 ], [ %.262137, %_ZNK4cvc58internal7Minisat6Clause8subsumesERKS2_.exit.thread99 ], [ %208, %207 ], [ %.262137, %_ZNK4cvc58internal7Minisat6Clause8subsumesERKS2_.exit ], [ %.262137, %172 ], [ %.262137, %181 ], [ %.262137, %197 ], [ %.262137, %196 ]
+  %.659 = phi i32 [ %.255138, %157 ], [ %.255138, %178 ], [ %.255138, %167 ], [ %203, %_ZNK4cvc58internal7Minisat6Clause8subsumesERKS2_.exit.thread99 ], [ %.255138, %207 ], [ %.255138, %_ZNK4cvc58internal7Minisat6Clause8subsumesERKS2_.exit ], [ %.255138, %172 ], [ %.255138, %181 ], [ %.255138, %197 ], [ %.255138, %196 ]
   %212 = add nsw i32 %.373, 1
   %213 = load i32, ptr %141, align 8, !tbaa !297
   %214 = icmp slt i32 %212, %213
   br i1 %214, label %.lr.ph139, label %.loopexit.loopexit, !llvm.loop !357
 
 .thread107:                                       ; preds = %25, %204, %_ZN4cvc58internal7Minisat5QueueIjE5clearEb.exit
-  %.6 = phi i1 [ true, %_ZN4cvc58internal7Minisat5QueueIjE5clearEb.exit ], [ false, %204 ], [ true, %25 ]
+  %.6 = phi i1 [ false, %204 ], [ true, %_ZN4cvc58internal7Minisat5QueueIjE5clearEb.exit ], [ true, %25 ]
   ret i1 %.6
 }
 
@@ -5217,11 +5217,11 @@ _ZN4cvc58internal7Minisat3vecIjE4pushERKj.exit:   ; preds = %.cont.cont._ZN4cvc5
   br label %275
 
 .critedge:                                        ; preds = %..thread_crit_edge.us, %_ZN4cvc58internal7Minisat8OccListsIiNS1_3vecIjEENS1_10SimpSolver13ClauseDeletedEE6lookupERKi.exit, %.preheader236.lr.ph, %.preheader238
-  %.not82279371 = phi i1 [ false, %.preheader238 ], [ true, %.preheader236.lr.ph ], [ false, %_ZN4cvc58internal7Minisat8OccListsIiNS1_3vecIjEENS1_10SimpSolver13ClauseDeletedEE6lookupERKi.exit ], [ true, %..thread_crit_edge.us ]
-  %.sroa.0153.0.lcssa369 = phi ptr [ %.sroa.0153.3, %.preheader238 ], [ %.sroa.0153.3, %.preheader236.lr.ph ], [ null, %_ZN4cvc58internal7Minisat8OccListsIiNS1_3vecIjEENS1_10SimpSolver13ClauseDeletedEE6lookupERKi.exit ], [ %.sroa.0153.3, %..thread_crit_edge.us ]
-  %.sroa.16.0.lcssa367 = phi i32 [ %spec.select231, %.preheader238 ], [ %spec.select231, %.preheader236.lr.ph ], [ 0, %_ZN4cvc58internal7Minisat8OccListsIiNS1_3vecIjEENS1_10SimpSolver13ClauseDeletedEE6lookupERKi.exit ], [ %spec.select231, %..thread_crit_edge.us ]
-  %.sroa.0132.0.lcssa365 = phi ptr [ %.sroa.0132.3, %.preheader238 ], [ %.sroa.0132.3, %.preheader236.lr.ph ], [ null, %_ZN4cvc58internal7Minisat8OccListsIiNS1_3vecIjEENS1_10SimpSolver13ClauseDeletedEE6lookupERKi.exit ], [ %.sroa.0132.3, %..thread_crit_edge.us ]
-  %.sroa.13.0.lcssa364 = phi i32 [ %spec.select, %.preheader238 ], [ %spec.select, %.preheader236.lr.ph ], [ 0, %_ZN4cvc58internal7Minisat8OccListsIiNS1_3vecIjEENS1_10SimpSolver13ClauseDeletedEE6lookupERKi.exit ], [ %spec.select, %..thread_crit_edge.us ]
+  %.not82279371 = phi i1 [ false, %_ZN4cvc58internal7Minisat8OccListsIiNS1_3vecIjEENS1_10SimpSolver13ClauseDeletedEE6lookupERKi.exit ], [ false, %.preheader238 ], [ true, %.preheader236.lr.ph ], [ true, %..thread_crit_edge.us ]
+  %.sroa.0153.0.lcssa369 = phi ptr [ null, %_ZN4cvc58internal7Minisat8OccListsIiNS1_3vecIjEENS1_10SimpSolver13ClauseDeletedEE6lookupERKi.exit ], [ %.sroa.0153.3, %.preheader238 ], [ %.sroa.0153.3, %.preheader236.lr.ph ], [ %.sroa.0153.3, %..thread_crit_edge.us ]
+  %.sroa.16.0.lcssa367 = phi i32 [ 0, %_ZN4cvc58internal7Minisat8OccListsIiNS1_3vecIjEENS1_10SimpSolver13ClauseDeletedEE6lookupERKi.exit ], [ %spec.select231, %.preheader238 ], [ %spec.select231, %.preheader236.lr.ph ], [ %spec.select231, %..thread_crit_edge.us ]
+  %.sroa.0132.0.lcssa365 = phi ptr [ null, %_ZN4cvc58internal7Minisat8OccListsIiNS1_3vecIjEENS1_10SimpSolver13ClauseDeletedEE6lookupERKi.exit ], [ %.sroa.0132.3, %.preheader238 ], [ %.sroa.0132.3, %.preheader236.lr.ph ], [ %.sroa.0132.3, %..thread_crit_edge.us ]
+  %.sroa.13.0.lcssa364 = phi i32 [ 0, %_ZN4cvc58internal7Minisat8OccListsIiNS1_3vecIjEENS1_10SimpSolver13ClauseDeletedEE6lookupERKi.exit ], [ %spec.select, %.preheader238 ], [ %spec.select, %.preheader236.lr.ph ], [ %spec.select, %..thread_crit_edge.us ]
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 1080
   %147 = load ptr, ptr %146, align 8, !tbaa !289
   %148 = getelementptr inbounds i8, ptr %147, i64 %7
@@ -6994,7 +6994,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4cvc58internal7Minisat9IntOpti
   br label %_ZN4cvc58internal7MinisatL5matchIPKcEEbRT_S4_.exit
 
 _ZN4cvc58internal7MinisatL5matchIPKcEEbRT_S4_.exit: ; preds = %.lr.ph.i7, %.lr.ph.i, %.loopexit, %41
-  %.0 = phi i1 [ %22, %41 ], [ false, %.loopexit ], [ false, %.lr.ph.i ], [ false, %.lr.ph.i7 ]
+  %.0 = phi i1 [ %22, %41 ], [ false, %.lr.ph.i ], [ false, %.loopexit ], [ false, %.lr.ph.i7 ]
   ret i1 %.0
 }
 
@@ -7167,7 +7167,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4cvc58internal7Minisat12Double
   br label %_ZN4cvc58internal7MinisatL5matchIPKcEEbRT_S4_.exit
 
 _ZN4cvc58internal7MinisatL5matchIPKcEEbRT_S4_.exit: ; preds = %.lr.ph.i15, %.lr.ph.i, %.loopexit, %50
-  %.0 = phi i1 [ %21, %50 ], [ false, %.loopexit ], [ false, %.lr.ph.i ], [ false, %.lr.ph.i15 ]
+  %.0 = phi i1 [ %21, %50 ], [ false, %.lr.ph.i ], [ false, %.loopexit ], [ false, %.lr.ph.i15 ]
   ret i1 %.0
 }
 

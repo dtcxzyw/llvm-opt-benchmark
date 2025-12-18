@@ -765,7 +765,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread45: ; preds = %.thread, %92, %_Z
   call void @free(ptr noundef %130) #23
   br label %134
 
-_ZL13optionMatchesRKN4llvm11StringTableENS_8ArrayRefINS0_6OffsetEEERKNS_3opt8OptTable4InfoENS_9StringRefE.exit.thread: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread8.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread8.us.i, %58, %_ZNK4llvm3opt8OptTable4Info16getPrefixOffsetsENS_8ArrayRefINS_11StringTable6OffsetEEE.exit.i, %.lr.ph.split.i, %_ZNK4llvm3opt8OptTable4Info7getNameERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEE.exit.i, %_ZNK4llvm9StringRef9ends_withES0_.exit.i.i, %23
+_ZL13optionMatchesRKN4llvm11StringTableENS_8ArrayRefINS0_6OffsetEEERKNS_3opt8OptTable4InfoENS_9StringRefE.exit.thread: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread8.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread8.us.i, %.lr.ph.split.i, %_ZNK4llvm3opt8OptTable4Info16getPrefixOffsetsENS_8ArrayRefINS_11StringTable6OffsetEEE.exit.i, %58, %_ZNK4llvm3opt8OptTable4Info7getNameERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEE.exit.i, %_ZNK4llvm9StringRef9ends_withES0_.exit.i.i, %23
   %133 = add nuw i64 %.065, 1
   %exitcond.not = icmp eq i64 %133, %15
   br i1 %exitcond.not, label %._crit_edge, label %23, !llvm.loop !82
@@ -1880,7 +1880,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread6.i: ; preds = %_ZNK4llvm9String
   br i1 %.not.i67, label %.loopexit, label %.lr.ph.i
 
 .loopexit:                                        ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread6.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread4.i
-  %.ph = phi ptr [ %34, %_ZN4llvmeqENS_9StringRefES0_.exit.thread4.i ], [ %27, %_ZN4llvmeqENS_9StringRefES0_.exit.i ], [ %34, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread6.i ]
+  %.ph = phi ptr [ %27, %_ZN4llvmeqENS_9StringRefES0_.exit.i ], [ %34, %_ZN4llvmeqENS_9StringRefES0_.exit.thread4.i ], [ %34, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread6.i ]
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %43 = load i32, ptr %42, align 8, !tbaa !55
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -2471,8 +2471,8 @@ _ZNK4llvm9StringRef11starts_withES0_.exit42:      ; preds = %63
   br label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread64
 
 _ZNK4llvm9StringRef11starts_withES0_.exit42.thread: ; preds = %63, %_ZNK4llvm9StringRef11starts_withES0_.exit42, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.us80, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.us, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.us80.us87
-  %65 = phi i64 [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.us80.us87 ], [ %27, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.us80 ], [ %27, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.us ], [ 0, %63 ], [ %27, %_ZNK4llvm9StringRef11starts_withES0_.exit42 ]
-  %.us-phi = phi i64 [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.us80.us87 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.us80 ], [ %47, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.us ], [ %57, %_ZNK4llvm9StringRef11starts_withES0_.exit42 ], [ %57, %63 ]
+  %65 = phi i64 [ %27, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.us ], [ %27, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.us80 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.us80.us87 ], [ %27, %_ZNK4llvm9StringRef11starts_withES0_.exit42 ], [ 0, %63 ]
+  %.us-phi = phi i64 [ %47, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.us ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.us80 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.us80.us87 ], [ %57, %_ZNK4llvm9StringRef11starts_withES0_.exit42 ], [ %57, %63 ]
   %66 = add i64 %.us-phi, %65
   %67 = trunc i64 %66 to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -2484,7 +2484,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread64: ; preds = %_ZNK4llvm11String
   br i1 %.not, label %.loopexit, label %_ZNK4llvm11StringTableixENS0_6OffsetE.exit, !llvm.loop !150
 
 .loopexit:                                        ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread64, %.thread67.us82, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread64.us, %.lr.ph.split.split.us, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.i, %_ZNK4llvm3opt8OptTable4Info7getNameERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEE.exit, %_ZNK4llvm3opt8OptTable4Info16getPrefixOffsetsENS_8ArrayRefINS_11StringTable6OffsetEEE.exit, %_ZNK4llvm9StringRef11starts_withES0_.exit42.thread
-  %spec.select = phi i32 [ %67, %_ZNK4llvm9StringRef11starts_withES0_.exit42.thread ], [ 0, %_ZNK4llvm3opt8OptTable4Info16getPrefixOffsetsENS_8ArrayRefINS_11StringTable6OffsetEEE.exit ], [ 0, %_ZNK4llvm3opt8OptTable4Info7getNameERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEE.exit ], [ 0, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.i ], [ 0, %.lr.ph.split.split.us ], [ 0, %.thread67.us82 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread64.us ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread64 ]
+  %spec.select = phi i32 [ %67, %_ZNK4llvm9StringRef11starts_withES0_.exit42.thread ], [ 0, %_ZNK4llvm3opt8OptTable4Info16getPrefixOffsetsENS_8ArrayRefINS_11StringTable6OffsetEEE.exit ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread64.us ], [ 0, %.thread67.us82 ], [ 0, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.i ], [ 0, %.lr.ph.split.split.us ], [ 0, %_ZNK4llvm3opt8OptTable4Info7getNameERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEE.exit ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread64 ]
   ret i32 %spec.select
 }
 
@@ -2661,7 +2661,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread6.i: ; preds = %_ZNK4llvm9String
   br i1 %.not.i50, label %.loopexit, label %.lr.ph.i
 
 .loopexit:                                        ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread6.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread4.i
-  %.ph = phi ptr [ %28, %_ZN4llvmeqENS_9StringRefES0_.exit.thread4.i ], [ %21, %_ZN4llvmeqENS_9StringRefES0_.exit.i ], [ %28, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread6.i ]
+  %.ph = phi ptr [ %21, %_ZN4llvmeqENS_9StringRefES0_.exit.i ], [ %28, %_ZN4llvmeqENS_9StringRefES0_.exit.thread4.i ], [ %28, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread6.i ]
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %37 = load i32, ptr %36, align 8, !tbaa !55
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -3804,7 +3804,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit52: ; preds = %221
   br i1 %.not.i.i53, label %_ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj1EEppEv.exit, label %.lr.ph.i.i, !llvm.loop !181
 
 _ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj1EEppEv.exit: ; preds = %.thread25.i.i, %230, %.lr.ph.i.i.us.preheader, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit52
-  %.sroa.059.2 = phi ptr [ %226, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit52 ], [ %scevgep102, %.lr.ph.i.i.us.preheader ], [ %.sroa.059.1, %230 ], [ %232, %.thread25.i.i ]
+  %.sroa.059.2 = phi ptr [ %226, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit52 ], [ %scevgep102, %.lr.ph.i.i.us.preheader ], [ %232, %.thread25.i.i ], [ %.sroa.059.1, %230 ]
   %.not96 = icmp eq ptr %.sroa.059.2, %76
   br i1 %.not96, label %._crit_edge, label %111
 }
@@ -5774,7 +5774,7 @@ _ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.thread37.i: ; preds = %_ZNKSt4les
   br i1 %.not.i36, label %._crit_edge.thread.i, label %.lr.ph.i35.backedge
 
 .lr.ph.i35.backedge:                              ; preds = %_ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.thread37.i, %_ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.thread37.i.thread
-  %.03546.i.be = phi ptr [ %.035.i49, %_ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.thread37.i.thread ], [ %.035.i, %_ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.thread37.i ]
+  %.03546.i.be = phi ptr [ %.035.i, %_ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.thread37.i ], [ %.035.i49, %_ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.thread37.i.thread ]
   br label %.lr.ph.i35, !llvm.loop !242
 
 _ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.thread37.i.thread: ; preds = %.thread.i.i.i.i, %_ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.i

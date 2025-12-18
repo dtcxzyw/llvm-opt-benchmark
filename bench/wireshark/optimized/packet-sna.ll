@@ -2740,7 +2740,7 @@ dissect_xid2.exit:                                ; preds = %4
   br label %dissect_xid2.exit.thread
 
 dissect_xid2.exit.thread:                         ; preds = %.lr.ph.i, %.lr.ph.i50, %89, %34, %39, %51, %94, %dissect_xid2.exit
-  %.0 = phi i32 [ 6, %94 ], [ %6, %dissect_xid2.exit ], [ %6, %51 ], [ %6, %39 ], [ %6, %34 ], [ %6, %89 ], [ %6, %.lr.ph.i50 ], [ %6, %.lr.ph.i ]
+  %.0 = phi i32 [ 6, %94 ], [ %6, %dissect_xid2.exit ], [ %6, %89 ], [ %6, %51 ], [ %6, %.lr.ph.i50 ], [ %6, %39 ], [ %6, %34 ], [ %6, %.lr.ph.i ]
   %95 = tail call zeroext i1 @tvb_offset_exists(ptr noundef %0, i32 noundef %.0)
   br i1 %95, label %96, label %99
 

@@ -3418,7 +3418,7 @@ define noundef zeroext i1 @_ZN10open_spiel10phantom_go14PhantomGoState17equalMet
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %._crit_edge, %12, %3
-  %.017 = phi i1 [ false, %3 ], [ false, %12 ], [ %.not20, %._crit_edge ], [ false, %.lr.ph ]
+  %.017 = phi i1 [ %.not20, %._crit_edge ], [ false, %3 ], [ false, %12 ], [ false, %.lr.ph ]
   ret i1 %.017
 }
 
@@ -8986,8 +8986,8 @@ _ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImEN10open_spiel10pha
   resume { ptr, i32 } %51
 
 _ZNKSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImEN10open_spiel10phantom_go14PhantomGoState15PassthroughHashENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trImEEPNS1_10_Hash_nodeImLb1EEEmRKT_m.exit: ; preds = %35, %18, %_ZNKSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImEN10open_spiel10phantom_go14PhantomGoState15PassthroughHashENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trImEEPNS1_10_Hash_nodeImLb1EEEmRKT_m.exit.thread, %26
-  %.sroa.028.0 = phi ptr [ %27, %26 ], [ %50, %_ZNKSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImEN10open_spiel10phantom_go14PhantomGoState15PassthroughHashENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trImEEPNS1_10_Hash_nodeImLb1EEEmRKT_m.exit.thread ], [ %.sroa.025.0, %18 ], [ %41, %35 ]
-  %.sroa.4.0 = phi i8 [ 0, %26 ], [ 1, %_ZNKSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImEN10open_spiel10phantom_go14PhantomGoState15PassthroughHashENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trImEEPNS1_10_Hash_nodeImLb1EEEmRKT_m.exit.thread ], [ 0, %18 ], [ 0, %35 ]
+  %.sroa.028.0 = phi ptr [ %.sroa.025.0, %18 ], [ %50, %_ZNKSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImEN10open_spiel10phantom_go14PhantomGoState15PassthroughHashENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trImEEPNS1_10_Hash_nodeImLb1EEEmRKT_m.exit.thread ], [ %27, %26 ], [ %41, %35 ]
+  %.sroa.4.0 = phi i8 [ 0, %18 ], [ 1, %_ZNKSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImEN10open_spiel10phantom_go14PhantomGoState15PassthroughHashENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trImEEPNS1_10_Hash_nodeImLb1EEEmRKT_m.exit.thread ], [ 0, %26 ], [ 0, %35 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.028.0, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.4.0, 1
   ret { ptr, i8 } %.fca.1.insert

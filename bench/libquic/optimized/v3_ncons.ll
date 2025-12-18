@@ -148,7 +148,7 @@ define internal ptr @v2i_NAME_CONSTRAINTS(ptr noundef %0, ptr noundef %1, ptr no
   br label %.loopexit
 
 .loopexit:                                        ; preds = %10, %.preheader, %42, %43
-  %.029 = phi ptr [ null, %43 ], [ null, %42 ], [ %5, %.preheader ], [ %5, %10 ]
+  %.029 = phi ptr [ null, %42 ], [ null, %43 ], [ %5, %.preheader ], [ %5, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.029
 }

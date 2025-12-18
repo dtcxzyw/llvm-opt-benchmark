@@ -3425,7 +3425,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder6iconst17h3e05f36f4156b698E.exit45
   br label %298
 
 .loopexit.i:                                      ; preds = %.noexc112, %.noexc109, %.noexc81
-  %.2.ph.i = phi i64 [ %.093.i, %.noexc81 ], [ %286, %.noexc109 ], [ %296, %.noexc112 ]
+  %.2.ph.i = phi i64 [ %286, %.noexc109 ], [ %.093.i, %.noexc81 ], [ %296, %.noexc112 ]
   %exitcond.not.i63 = icmp eq i32 %178, %152
   br i1 %exitcond.not.i63, label %.thread, label %177
 

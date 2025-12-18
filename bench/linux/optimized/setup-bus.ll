@@ -3194,7 +3194,7 @@ define dso_local range(i32 -28, 1) i32 @pci_reassign_bridge_resources(ptr nounde
   br i1 %153, label %free_list.exit, label %.preheader, !llvm.loop !32
 
 free_list.exit:                                   ; preds = %.preheader.i, %.preheader, %.loopexit23, %.loopexit, %.critedge
-  %154 = phi i32 [ -2, %.critedge ], [ %97, %.loopexit ], [ 0, %.loopexit23 ], [ %97, %.preheader ], [ 0, %.preheader.i ]
+  %154 = phi i32 [ %97, %.preheader ], [ -2, %.critedge ], [ %97, %.loopexit ], [ 0, %.loopexit23 ], [ 0, %.preheader.i ]
   call void @up_read(ptr noundef nonnull @pci_bus_sem) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

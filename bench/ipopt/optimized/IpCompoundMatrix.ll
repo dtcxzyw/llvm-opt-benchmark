@@ -1692,7 +1692,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit80:      ; preds = %149, %_ZNK5Ipopt6Ma
   %161 = icmp slt i64 %indvars.iv.next, %160
   br i1 %161, label %.lr.ph, label %._crit_edge, !llvm.loop !141
 
-_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit82.thread118: ; preds = %153, %.thread
+_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit82.thread118: ; preds = %.thread, %153
   %162 = getelementptr inbounds nuw i8, ptr %.sroa.095.0, i64 8
   %163 = load i32, ptr %162, align 8, !tbaa !3
   %164 = add nsw i32 %163, -1
@@ -2198,7 +2198,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit80:      ; preds = %146, %_ZNK5Ipopt6Ma
   %158 = icmp slt i64 %indvars.iv.next, %157
   br i1 %158, label %.lr.ph, label %._crit_edge, !llvm.loop !168
 
-_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit82.thread118: ; preds = %150, %.thread
+_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit82.thread118: ; preds = %.thread, %150
   %159 = getelementptr inbounds nuw i8, ptr %.sroa.095.0, i64 8
   %160 = load i32, ptr %159, align 8, !tbaa !3
   %161 = add nsw i32 %160, -1
@@ -2574,7 +2574,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit112:     ; preds = %162, %_ZN5Ipopt8Sma
   %182 = icmp slt i64 %indvars.iv.next, %181
   br i1 %182, label %.lr.ph, label %._crit_edge, !llvm.loop !179
 
-_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit116.thread171: ; preds = %174, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit114.thread
+_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit116.thread171: ; preds = %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit114.thread, %174
   %183 = getelementptr inbounds nuw i8, ptr %.sroa.0137.0, i64 8
   %184 = load i32, ptr %183, align 8, !tbaa !3
   %185 = add nsw i32 %184, -1
@@ -3359,7 +3359,7 @@ _ZNK5Ipopt14CompoundMatrix9ConstCompEii.exit20._crit_edge: ; preds = %_ZNK5Ipopt
   br i1 %.not30, label %.preheader, label %.thread, !llvm.loop !200
 
 .thread:                                          ; preds = %._crit_edge, %_ZNK5Ipopt14CompoundMatrix9ConstCompEii.exit20, %.preheader.lr.ph, %8
-  %56 = phi i1 [ true, %8 ], [ true, %.preheader.lr.ph ], [ false, %_ZNK5Ipopt14CompoundMatrix9ConstCompEii.exit20 ], [ true, %._crit_edge ]
+  %56 = phi i1 [ true, %.preheader.lr.ph ], [ true, %8 ], [ false, %_ZNK5Ipopt14CompoundMatrix9ConstCompEii.exit20 ], [ true, %._crit_edge ]
   ret i1 %56
 }
 
@@ -3505,7 +3505,7 @@ _ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit40.us:    ; preds = %60, %_ZNK5Ipopt6Mat
   ret void
 
 ._crit_edge:                                      ; preds = %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit40, %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit40.us, %.preheader
-  %70 = phi ptr [ %30, %.preheader ], [ %64, %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit40.us ], [ %129, %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit40 ]
+  %70 = phi ptr [ %64, %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit40.us ], [ %30, %.preheader ], [ %129, %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit40 ]
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 24
   %72 = load i32, ptr %71, align 8, !tbaa !39
@@ -3770,7 +3770,7 @@ _ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit40.us:    ; preds = %60, %_ZNK5Ipopt6Mat
   ret void
 
 ._crit_edge:                                      ; preds = %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit40, %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit40.us, %.preheader
-  %70 = phi ptr [ %30, %.preheader ], [ %64, %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit40.us ], [ %129, %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit40 ]
+  %70 = phi ptr [ %64, %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit40.us ], [ %30, %.preheader ], [ %129, %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit40 ]
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 20
   %72 = load i32, ptr %71, align 4, !tbaa !72

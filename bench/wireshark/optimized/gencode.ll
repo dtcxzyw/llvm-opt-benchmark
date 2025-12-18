@@ -128,7 +128,7 @@ define hidden void @dfw_gencode(ptr noundef initializes((32, 64)) %0) local_unna
   br label %.split.us.i.backedge
 
 .split.us.i.backedge:                             ; preds = %61, %56
-  %.034.us.i.be = phi i32 [ %62, %61 ], [ %60, %56 ]
+  %.034.us.i.be = phi i32 [ %60, %56 ], [ %62, %61 ]
   br label %.split.us.i
 
 .split.i:                                         ; preds = %43, %.split.i.backedge
@@ -181,7 +181,7 @@ define hidden void @dfw_gencode(ptr noundef initializes((32, 64)) %0) local_unna
   br label %.split.i.backedge
 
 .split.i.backedge:                                ; preds = %89, %85, %69
-  %.034.i.be = phi i32 [ %70, %69 ], [ %86, %85 ], [ %93, %89 ]
+  %.034.i.be = phi i32 [ %93, %89 ], [ %70, %69 ], [ %86, %85 ]
   br label %.split.i
 
 .split39.us.i:                                    ; preds = %87, %54

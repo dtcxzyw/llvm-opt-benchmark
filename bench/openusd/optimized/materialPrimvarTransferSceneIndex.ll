@@ -1729,7 +1729,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit27: ; preds = %227, %233
   ret void
 
 .loopexit34:                                      ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit27, %130, %125, %.thread, %123, %121
-  %.pn = phi { ptr, i32 } [ %91, %.thread ], [ %124, %123 ], [ %122, %121 ], [ %126, %130 ], [ %126, %125 ], [ %216, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit27 ]
+  %.pn = phi { ptr, i32 } [ %122, %121 ], [ %91, %.thread ], [ %126, %130 ], [ %124, %123 ], [ %126, %125 ], [ %216, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit27 ]
   call void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #20
   resume { ptr, i32 } %.pn
 }

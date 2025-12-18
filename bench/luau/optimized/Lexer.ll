@@ -5610,8 +5610,8 @@ define dso_local noundef zeroext i1 @_ZN4Luau5Lexer17fixupQuotedStringERNSt7__cx
   br label %.backedge
 
 .backedge:                                        ; preds = %.lr.ph, %.thread195, %103, %.thread170, %33, %_ZN4LuauL8unescapeEc.exit, %29, %26, %.preheader207, %13
-  %.0131.be = phi i64 [ %16, %13 ], [ %24, %_ZN4LuauL8unescapeEc.exit ], [ %24, %26 ], [ %spec.select, %33 ], [ %24, %29 ], [ %40, %.thread170 ], [ %104, %103 ], [ %.9140.lcssa261, %.thread195 ], [ %24, %.preheader207 ], [ %.4135220, %.lr.ph ]
-  %.0119.be = phi i64 [ %14, %13 ], [ %137, %_ZN4LuauL8unescapeEc.exit ], [ %27, %26 ], [ %30, %33 ], [ %30, %29 ], [ %61, %.thread170 ], [ %108, %103 ], [ %127, %.thread195 ], [ %.0119235, %.preheader207 ], [ %.0119235, %.lr.ph ]
+  %.0131.be = phi i64 [ %16, %13 ], [ %24, %_ZN4LuauL8unescapeEc.exit ], [ %24, %26 ], [ %.9140.lcssa261, %.thread195 ], [ %spec.select, %33 ], [ %24, %29 ], [ %40, %.thread170 ], [ %104, %103 ], [ %24, %.preheader207 ], [ %.4135220, %.lr.ph ]
+  %.0119.be = phi i64 [ %14, %13 ], [ %137, %_ZN4LuauL8unescapeEc.exit ], [ %27, %26 ], [ %127, %.thread195 ], [ %30, %33 ], [ %30, %29 ], [ %61, %.thread170 ], [ %108, %103 ], [ %.0119235, %.preheader207 ], [ %.0119235, %.lr.ph ]
   %17 = icmp ult i64 %.0131.be, %9
   br i1 %17, label %.lr.ph237, label %._crit_edge238, !llvm.loop !103
 
@@ -5881,7 +5881,7 @@ _ZN4LuauL8unescapeEc.exit:                        ; preds = %129, %130, %131, %1
   br label %.thread202
 
 .thread202:                                       ; preds = %103, %.thread180, %100, %70, %67, %39, %73, %21, %._crit_edge, %18, %.preheader208, %84, %43, %._crit_edge238, %1, %5
-  %.0118 = phi i1 [ true, %1 ], [ true, %5 ], [ true, %._crit_edge238 ], [ false, %.preheader208 ], [ false, %43 ], [ false, %84 ], [ false, %18 ], [ false, %._crit_edge ], [ false, %21 ], [ false, %73 ], [ false, %39 ], [ false, %67 ], [ false, %70 ], [ false, %100 ], [ false, %.thread180 ], [ false, %103 ]
+  %.0118 = phi i1 [ true, %1 ], [ true, %5 ], [ true, %._crit_edge238 ], [ false, %43 ], [ false, %.preheader208 ], [ false, %84 ], [ false, %18 ], [ false, %._crit_edge ], [ false, %21 ], [ false, %73 ], [ false, %39 ], [ false, %67 ], [ false, %70 ], [ false, %100 ], [ false, %.thread180 ], [ false, %103 ]
   ret i1 %.0118
 }
 

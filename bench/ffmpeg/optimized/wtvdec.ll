@@ -1264,7 +1264,7 @@ read_ints.exit61.i:                               ; preds = %150
   br i1 %.not, label %.thread, label %14
 
 .thread:                                          ; preds = %222, %5, %80, %73, %70, %15, %.thread84
-  %.2 = phi ptr [ %.033.i, %.thread84 ], [ null, %15 ], [ null, %70 ], [ null, %73 ], [ null, %80 ], [ null, %5 ], [ null, %222 ]
+  %.2 = phi ptr [ %.033.i, %.thread84 ], [ null, %80 ], [ null, %15 ], [ null, %70 ], [ null, %73 ], [ null, %5 ], [ null, %222 ]
   ret ptr %.2
 }
 
@@ -2442,7 +2442,7 @@ recover.exit:                                     ; preds = %332
   br i1 %.not, label %314, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %recover.exit, %318, %320, %.thread266, %327, %496, %495, %385, %413, %477, %358
-  %.13.ph = phi i32 [ -1094995529, %358 ], [ %485, %496 ], [ %485, %495 ], [ -1094995529, %385 ], [ %407, %413 ], [ 0, %477 ], [ -5, %327 ], [ -541478725, %.thread266 ], [ -5, %320 ], [ %339, %recover.exit ], [ -541478725, %318 ]
+  %.13.ph = phi i32 [ 0, %477 ], [ -1094995529, %358 ], [ %485, %496 ], [ %485, %495 ], [ -5, %327 ], [ -1094995529, %385 ], [ %407, %413 ], [ -541478725, %318 ], [ -5, %320 ], [ %339, %recover.exit ], [ -541478725, %.thread266 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit
 

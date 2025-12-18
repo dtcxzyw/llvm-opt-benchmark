@@ -494,7 +494,7 @@ recognized_connection_string.exit.thread.i:       ; preds = %recognized_connecti
   br i1 %28, label %134, label %.critedge.i
 
 .critedge.i:                                      ; preds = %9, %recognized_connection_string.exit.thread.i, %recognized_connection_string.exit.i, %.lr.ph.split.i, %6
-  %.184.i = phi ptr [ null, %recognized_connection_string.exit.i ], [ %27, %recognized_connection_string.exit.thread.i ], [ null, %.lr.ph.split.i ], [ null, %6 ], [ null, %9 ]
+  %.184.i = phi ptr [ %27, %recognized_connection_string.exit.thread.i ], [ null, %recognized_connection_string.exit.i ], [ null, %6 ], [ null, %.lr.ph.split.i ], [ null, %9 ]
   %29 = tail call noalias dereferenceable_or_null(2464) ptr @malloc(i64 noundef 2464) #28
   %30 = icmp eq ptr %29, null
   br i1 %30, label %35, label %.preheader30.i.i
@@ -816,11 +816,11 @@ PQconninfoFree.exit180.i:                         ; preds = %._crit_edge.i179.i,
   br i1 %.not.i185.i, label %.critedge122.sink.split.i, label %.lr.ph.i183.i, !llvm.loop !6
 
 .critedge122.sink.split.i:                        ; preds = %.lr.ph.i169.i, %.lr.ph.i148.i, %.lr.ph.i134.i, %.lr.ph.i183.i, %.lr.ph.i.i, %.preheader.i181.i, %.preheader.i167.i, %PQconninfoFree.exit145.i, %.preheader.i132.i, %.preheader.i.i
-  %.487228.lcssa268.sink.i = phi ptr [ %.487228.i, %PQconninfoFree.exit145.i ], [ %.487228.i, %.preheader.i132.i ], [ %.184.i, %.preheader.i.i ], [ %.487228.i, %.preheader.i167.i ], [ %29, %.preheader.i181.i ], [ %.487228.i, %.lr.ph.i148.i ], [ %.184.i, %.lr.ph.i.i ], [ %29, %.lr.ph.i183.i ], [ %.487228.i, %.lr.ph.i134.i ], [ %.487228.i, %.lr.ph.i169.i ]
+  %.487228.lcssa268.sink.i = phi ptr [ %.487228.i, %PQconninfoFree.exit145.i ], [ %.487228.i, %.preheader.i132.i ], [ %.184.i, %.preheader.i.i ], [ %.487228.i, %.preheader.i167.i ], [ %29, %.preheader.i181.i ], [ %.184.i, %.lr.ph.i.i ], [ %29, %.lr.ph.i183.i ], [ %.487228.i, %.lr.ph.i134.i ], [ %.487228.i, %.lr.ph.i148.i ], [ %.487228.i, %.lr.ph.i169.i ]
   tail call void @free(ptr noundef nonnull %.487228.lcssa268.sink.i) #26
   br label %134
 
-134:                                              ; preds = %recognized_connection_string.exit.thread.i, %35, %._crit_edge.i130.i, %PQconninfoFree.exit166.i, %.critedge122.sink.split.i
+134:                                              ; preds = %PQconninfoFree.exit166.i, %._crit_edge.i130.i, %35, %recognized_connection_string.exit.thread.i, %.critedge122.sink.split.i
   %135 = getelementptr inbounds nuw i8, ptr %4, i64 416
   store i32 1, ptr %135, align 8
   br label %pqConnectDBStart.exit
@@ -1183,7 +1183,7 @@ define range(i32 0, 2) i32 @pqConnectDBComplete(ptr noundef %0) local_unnamed_ad
   br label %.thread
 
 .thread:                                          ; preds = %.split, %.split.us, %.thread.sink.split, %1, %4
-  %.039 = phi i32 [ 0, %1 ], [ 0, %4 ], [ 0, %.thread.sink.split ], [ 1, %.split.us ], [ 1, %.split ]
+  %.039 = phi i32 [ 1, %.split.us ], [ 0, %1 ], [ 0, %4 ], [ 0, %.thread.sink.split ], [ 1, %.split ]
   ret i32 %.039
 }
 
@@ -1581,7 +1581,7 @@ define noundef zeroext i1 @pqConnectOptions2(ptr noundef initializes((476, 480))
   br label %.preheader655, !llvm.loop !16
 
 count_comma_separated_elems.exit:                 ; preds = %.preheader656, %.preheader655, %19, %21
-  %.0.i531.lcssa.sink = phi i32 [ 1, %21 ], [ 1, %19 ], [ %.0.i531, %.preheader655 ], [ %.0.i, %.preheader656 ]
+  %.0.i531.lcssa.sink = phi i32 [ %.0.i531, %.preheader655 ], [ 1, %19 ], [ 1, %21 ], [ %.0.i, %.preheader656 ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 472
   store i32 %.0.i531.lcssa.sink, ptr %28, align 8
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 472
@@ -2179,7 +2179,7 @@ thread-pre-split:                                 ; preds = %248
   br label %288
 
 288:                                              ; preds = %.fold.split.i, %285, %283, %281
-  %.054.i = phi ptr [ %spec.store.select.i, %285 ], [ @.str.262, %283 ], [ @.str.262, %281 ], [ %.0421, %.fold.split.i ]
+  %.054.i = phi ptr [ @.str.262, %281 ], [ %spec.store.select.i, %285 ], [ @.str.262, %283 ], [ %.0421, %.fold.split.i ]
   %289 = icmp eq ptr %269, null
   br i1 %289, label %293, label %290
 
@@ -3781,7 +3781,7 @@ parseServiceInfo.exit.thread:                     ; preds = %20, %55
   br label %.preheader
 
 parseServiceInfo.exit:                            ; preds = %44, %53, %.thread44.i
-  %.018.i = phi i32 [ %45, %44 ], [ %54, %53 ], [ 3, %.thread44.i ]
+  %.018.i = phi i32 [ 3, %.thread44.i ], [ %45, %44 ], [ %54, %53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -3920,7 +3920,7 @@ parseServiceInfo.exit:                            ; preds = %44, %53, %.thread44
   br label %.loopexit
 
 .loopexit:                                        ; preds = %85, %.loopexit.sink.split, %.preheader, %107, %._crit_edge, %104, %101, %90, %74, %parseServiceInfo.exit
-  %.0 = phi i1 [ false, %90 ], [ false, %parseServiceInfo.exit ], [ false, %74 ], [ true, %._crit_edge ], [ true, %101 ], [ true, %104 ], [ %.not64, %107 ], [ true, %.preheader ], [ false, %.loopexit.sink.split ], [ false, %85 ]
+  %.0 = phi i1 [ false, %90 ], [ false, %parseServiceInfo.exit ], [ false, %.loopexit.sink.split ], [ false, %74 ], [ true, %._crit_edge ], [ true, %.preheader ], [ %.not64, %107 ], [ true, %104 ], [ true, %101 ], [ false, %85 ]
   ret i1 %.0
 }
 
@@ -5400,7 +5400,7 @@ init_allowed_encryption_methods.exit:             ; preds = %.thread567, %294, %
   br label %.thread622
 
 select.unfold607:                                 ; preds = %498, %521, %524, %516, %497
-  %.3409 = phi i1 [ false, %521 ], [ false, %497 ], [ false, %516 ], [ false, %524 ], [ true, %498 ]
+  %.3409 = phi i1 [ false, %521 ], [ false, %524 ], [ false, %516 ], [ false, %497 ], [ true, %498 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
@@ -9127,7 +9127,7 @@ conninfo_find.exit.i:                             ; preds = %.lr.ph.i.i
   br label %.loopexit
 
 .loopexit:                                        ; preds = %40, %45, %50
-  %51 = phi i64 [ %.pre, %50 ], [ %34, %45 ], [ %34, %40 ]
+  %51 = phi i64 [ %34, %45 ], [ %.pre, %50 ], [ %34, %40 ]
   %sext = shl i64 %34, 32
   %52 = ashr exact i64 %sext, 32
   %53 = icmp eq i64 %51, %52
@@ -9507,7 +9507,7 @@ define internal fastcc range(i32 0, 4) i32 @parseServiceFile(ptr noundef nonnull
   br i1 %.not, label %.thread95, label %.lr.ph117
 
 .thread95:                                        ; preds = %.critedge2.thread, %46, %.preheader98, %.critedge86, %86, %74, %66, %15
-  %.4 = phi i32 [ 2, %15 ], [ 3, %66 ], [ 3, %74 ], [ 3, %86 ], [ 3, %.critedge86 ], [ 0, %.preheader98 ], [ 0, %46 ], [ 0, %.critedge2.thread ]
+  %.4 = phi i32 [ 3, %.critedge86 ], [ 2, %15 ], [ 3, %86 ], [ 3, %66 ], [ 3, %74 ], [ 0, %.preheader98 ], [ 0, %46 ], [ 0, %.critedge2.thread ]
   %88 = call i32 @fclose(ptr noundef nonnull %7)
   br label %89
 
@@ -9606,7 +9606,7 @@ thread-pre-split:                                 ; preds = %.lr.ph
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !60
 
 .loopexit:                                        ; preds = %thread-pre-split, %22, %5, %2, %18, %11
-  %.028 = phi ptr [ %12, %11 ], [ null, %2 ], [ %19, %18 ], [ null, %5 ], [ null, %22 ], [ null, %thread-pre-split ]
+  %.028 = phi ptr [ %19, %18 ], [ %12, %11 ], [ null, %2 ], [ null, %5 ], [ null, %22 ], [ null, %thread-pre-split ]
   ret ptr %.028
 }
 

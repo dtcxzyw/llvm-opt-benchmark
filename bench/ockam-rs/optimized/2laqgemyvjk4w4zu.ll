@@ -205,7 +205,7 @@ define hidden void @"_ZN122_$LT$alloc..collections..vec_deque..into_iter..IntoIt
   br i1 %43, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hb8784e6f4a4fa6b5E.exit", label %.lr.ph.i.i12
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hb8784e6f4a4fa6b5E.exit": ; preds = %.noexc13, %.noexc, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h66a7366337180233E.exit"
-  %44 = phi i64 [ %35, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h66a7366337180233E.exit" ], [ 0, %.noexc ], [ %41, %.noexc13 ]
+  %44 = phi i64 [ 0, %.noexc ], [ %35, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h66a7366337180233E.exit" ], [ %41, %.noexc13 ]
   %45 = load i64, ptr %7, align 8, !noalias !98, !noundef !10
   %46 = sub i64 %45, %44
   store i64 %46, ptr %7, align 8, !noalias !98

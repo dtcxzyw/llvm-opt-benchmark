@@ -1392,7 +1392,7 @@ define internal ptr @pfifo_fast_dequeue(ptr noundef %0) #0 align 16 {
   br label %4
 
 .loopexit6:                                       ; preds = %112, %111, %103, %79
-  %117 = phi ptr [ %22, %103 ], [ %22, %79 ], [ null, %111 ], [ null, %112 ]
+  %117 = phi ptr [ %22, %79 ], [ %22, %103 ], [ null, %111 ], [ null, %112 ]
   ret ptr %117
 }
 
@@ -1846,7 +1846,7 @@ define internal noundef range(i32 -12, 1) i32 @pfifo_fast_change_tx_queue_len(pt
   br label %.thread7
 
 .thread7:                                         ; preds = %.lr.ph.split.us, %.lr.ph.split, %.thread62, %.thread7.loopexit37, %31
-  %.lcssa13 = phi i32 [ 0, %31 ], [ %spec.select79, %.thread7.loopexit37 ], [ 0, %.lr.ph.split ], [ 0, %.thread62 ], [ %49, %.lr.ph.split.us ]
+  %.lcssa13 = phi i32 [ 0, %31 ], [ 0, %.lr.ph.split ], [ %spec.select79, %.thread7.loopexit37 ], [ 0, %.thread62 ], [ %49, %.lr.ph.split.us ]
   store i32 %1, ptr %40, align 64
   store i32 %21, ptr %44, align 4
   store i32 %.lcssa13, ptr %34, align 64

@@ -500,7 +500,7 @@ define void @dlaed2_(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef 
   br i1 %.not443, label %.lr.ph508, label %.loopexit454
 
 .loopexit454:                                     ; preds = %168, %263, %._crit_edge487, %.preheader
-  %.0408 = phi i32 [ %164, %.preheader ], [ undef, %._crit_edge487 ], [ %.2410, %263 ], [ undef, %168 ]
+  %.0408 = phi i32 [ %.2410, %263 ], [ %164, %.preheader ], [ undef, %._crit_edge487 ], [ undef, %168 ]
   %266 = load i32, ptr %0, align 4, !tbaa !3
   %267 = add nsw i32 %266, 1
   store i32 %267, ptr %0, align 4, !tbaa !3

@@ -420,7 +420,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm14DWARFFormValue9skipValueENS_5dwar
   br label %5
 
 .loopexit:                                        ; preds = %5, %30, %27, %39, %37, %35, %25, %20, %15, %10, %6
-  %.0 = phi i1 [ true, %6 ], [ true, %10 ], [ true, %15 ], [ true, %20 ], [ true, %25 ], [ true, %39 ], [ true, %37 ], [ true, %35 ], [ false, %27 ], [ true, %30 ], [ false, %5 ]
+  %.0 = phi i1 [ true, %30 ], [ true, %6 ], [ true, %10 ], [ true, %15 ], [ true, %20 ], [ true, %25 ], [ true, %39 ], [ true, %37 ], [ true, %35 ], [ false, %27 ], [ false, %5 ]
   ret i1 %.0
 }
 
@@ -3227,8 +3227,8 @@ _ZNK4llvm14DWARFFormValue21getAsSectionedAddressEv.exit: ; preds = %17
   br label %_ZNK4llvm14DWARFFormValue21getAsSectionedAddressEv.exit.thread
 
 _ZNK4llvm14DWARFFormValue21getAsSectionedAddressEv.exit.thread: ; preds = %_ZNK4llvm14DWARFFormValue21getAsSectionedAddressEv.exit, %12, %switch.lookup, %_ZNK4llvm14DWARFFormValue21getAsSectionedAddressEv.exit.thread8, %_ZNK4llvm14DWARFFormValue21getAsSectionedAddressEv.exit.thread4
-  %.sroa.01.012 = phi i64 [ %.sroa.0.0.copyload, %_ZNK4llvm14DWARFFormValue21getAsSectionedAddressEv.exit.thread8 ], [ %28, %_ZNK4llvm14DWARFFormValue21getAsSectionedAddressEv.exit.thread4 ], [ undef, %switch.lookup ], [ undef, %12 ], [ undef, %_ZNK4llvm14DWARFFormValue21getAsSectionedAddressEv.exit ]
-  %.sroa.2.1 = phi i8 [ 1, %_ZNK4llvm14DWARFFormValue21getAsSectionedAddressEv.exit.thread8 ], [ 1, %_ZNK4llvm14DWARFFormValue21getAsSectionedAddressEv.exit.thread4 ], [ 0, %switch.lookup ], [ 0, %12 ], [ 0, %_ZNK4llvm14DWARFFormValue21getAsSectionedAddressEv.exit ]
+  %.sroa.01.012 = phi i64 [ %28, %_ZNK4llvm14DWARFFormValue21getAsSectionedAddressEv.exit.thread4 ], [ %.sroa.0.0.copyload, %_ZNK4llvm14DWARFFormValue21getAsSectionedAddressEv.exit.thread8 ], [ undef, %switch.lookup ], [ undef, %12 ], [ undef, %_ZNK4llvm14DWARFFormValue21getAsSectionedAddressEv.exit ]
+  %.sroa.2.1 = phi i8 [ 1, %_ZNK4llvm14DWARFFormValue21getAsSectionedAddressEv.exit.thread4 ], [ 1, %_ZNK4llvm14DWARFFormValue21getAsSectionedAddressEv.exit.thread8 ], [ 0, %switch.lookup ], [ 0, %12 ], [ 0, %_ZNK4llvm14DWARFFormValue21getAsSectionedAddressEv.exit ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.01.012, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.2.1, 1
   ret { i64, i8 } %.fca.1.insert

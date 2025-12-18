@@ -650,9 +650,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit320: ; preds = %21
   br label %.thread
 
 .thread:                                          ; preds = %197, %.thread.fold.split405, %.thread.fold.split, %.fold.split287, %.fold.split286, %.fold.split284, %.fold.split, %200
-  %.0238 = phi i8 [ 1, %200 ], [ 0, %197 ], [ 0, %.fold.split ], [ 0, %.fold.split284 ], [ 0, %.thread.fold.split405 ], [ 0, %.fold.split286 ], [ 0, %.fold.split287 ], [ 0, %.thread.fold.split ]
-  %.0237 = phi i32 [ 5, %200 ], [ %.val304.val, %197 ], [ %.val304.val, %.fold.split ], [ %.val304.val, %.fold.split284 ], [ %.val304.val, %.thread.fold.split405 ], [ %.val304.val, %.fold.split286 ], [ %.val304.val, %.fold.split287 ], [ %.val304.val, %.thread.fold.split ]
-  %.0234 = phi i32 [ 4, %200 ], [ 0, %197 ], [ %.val304.val, %.fold.split ], [ 2, %.fold.split284 ], [ 6, %.thread.fold.split405 ], [ 4, %.fold.split286 ], [ 7, %.fold.split287 ], [ 5, %.thread.fold.split ]
+  %.0238 = phi i8 [ 0, %.thread.fold.split ], [ 1, %200 ], [ 0, %197 ], [ 0, %.fold.split ], [ 0, %.fold.split284 ], [ 0, %.thread.fold.split405 ], [ 0, %.fold.split286 ], [ 0, %.fold.split287 ]
+  %.0237 = phi i32 [ %.val304.val, %.thread.fold.split ], [ 5, %200 ], [ %.val304.val, %197 ], [ %.val304.val, %.fold.split ], [ %.val304.val, %.fold.split284 ], [ %.val304.val, %.thread.fold.split405 ], [ %.val304.val, %.fold.split286 ], [ %.val304.val, %.fold.split287 ]
+  %.0234 = phi i32 [ 5, %.thread.fold.split ], [ 4, %200 ], [ 0, %197 ], [ %.val304.val, %.fold.split ], [ 2, %.fold.split284 ], [ 6, %.thread.fold.split405 ], [ 4, %.fold.split286 ], [ 7, %.fold.split287 ]
   %215 = getelementptr i8, ptr %0, i64 24
   %.val305 = load i32, ptr %215, align 8, !tbaa !71
   %216 = icmp sgt i32 %.val305, 31
@@ -2091,7 +2091,7 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit44.thread: ; preds = %48, %5
   br label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit42
 
 _ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit42:        ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit, %.preheader, %44, %41, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit44.thread, %3, %57, %13
-  %.0 = phi i1 [ false, %57 ], [ false, %13 ], [ true, %3 ], [ true, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit44.thread ], [ false, %41 ], [ false, %44 ], [ true, %.preheader ], [ true, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit ]
+  %.0 = phi i1 [ false, %57 ], [ false, %13 ], [ true, %3 ], [ true, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit44.thread ], [ false, %44 ], [ false, %41 ], [ true, %.preheader ], [ true, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit ]
   ret i1 %.0
 }
 

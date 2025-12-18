@@ -1534,7 +1534,7 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_mESaIS
   br label %.body41
 
 .loopexit57:                                      ; preds = %96, %73, %85, %_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ENS1_11HashFunctorENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS6_10_Hash_nodeIS4_Lb1EEEm.exit
-  %.sroa.4.0.i36 = phi i1 [ false, %85 ], [ true, %_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ENS1_11HashFunctorENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS6_10_Hash_nodeIS4_Lb1EEEm.exit ], [ false, %73 ], [ false, %96 ]
+  %.sroa.4.0.i36 = phi i1 [ false, %73 ], [ true, %_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ENS1_11HashFunctorENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS6_10_Hash_nodeIS4_Lb1EEEm.exit ], [ false, %85 ], [ false, %96 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %203 = and i64 %.sroa.021.0.i, 7
   %.not.i.i.i.i21 = icmp eq i64 %203, 0
@@ -1899,7 +1899,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
   ret void
 
 .body:                                            ; preds = %303, %334, %.body.loopexit89, %.thread
-  %.pn = phi { ptr, i32 } [ %11, %.thread ], [ %335, %334 ], [ %25, %.body.loopexit89 ], [ %eh.lpad-body23, %303 ]
+  %.pn = phi { ptr, i32 } [ %25, %.body.loopexit89 ], [ %335, %334 ], [ %11, %.thread ], [ %eh.lpad-body23, %303 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__14TfDenseHashSetINS_7TfTokenENS1_11HashFunctorESt8equal_toIS1_ELj128EED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   resume { ptr, i32 } %.pn
 }

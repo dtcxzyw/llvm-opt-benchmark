@@ -298,8 +298,8 @@ define internal i32 @msvideo1_decode_frame(ptr noundef %0, ptr noundef %1, ptr n
   br label %.loopexit.us.i
 
 .loopexit.us.i:                                   ; preds = %.preheader133.us.i, %94, %123, %136, %58
-  %.2117.us.i = phi i32 [ %.1116175.us.i, %58 ], [ %61, %136 ], [ %85, %94 ], [ %112, %123 ], [ %61, %.preheader133.us.i ]
-  %.2103.us.i = phi i32 [ %59, %58 ], [ %139, %136 ], [ 0, %94 ], [ 0, %123 ], [ 0, %.preheader133.us.i ]
+  %.2117.us.i = phi i32 [ %.1116175.us.i, %58 ], [ %61, %136 ], [ %112, %123 ], [ %85, %94 ], [ %61, %.preheader133.us.i ]
+  %.2103.us.i = phi i32 [ %59, %58 ], [ %139, %136 ], [ 0, %123 ], [ 0, %94 ], [ 0, %.preheader133.us.i ]
   %.1.us.i = add nsw i32 %.0178.us.i, 4
   %.2111.us.i = add nsw i32 %.1110176.us.i, -1
   %140 = add nsw i32 %.0122174.us.i, -1

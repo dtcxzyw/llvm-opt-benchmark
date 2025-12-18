@@ -1137,8 +1137,8 @@ define internal i32 @dissect_jxta_message(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %exitcond.not, label %.thread, label %.lr.ph, !llvm.loop !8
 
 .thread:                                          ; preds = %51, %36, %49, %42
-  %.3256400 = phi i32 [ %.3256435, %49 ], [ %.3256435, %42 ], [ %38, %36 ], [ %52, %51 ]
-  %.3274 = phi i32 [ %50, %49 ], [ %narrow, %42 ], [ %.0271442, %36 ], [ %.0271442, %51 ]
+  %.3256400 = phi i32 [ %.3256435, %42 ], [ %.3256435, %49 ], [ %38, %36 ], [ %52, %51 ]
+  %.3274 = phi i32 [ %narrow, %42 ], [ %50, %49 ], [ %.0271442, %36 ], [ %.0271442, %51 ]
   %54 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.3256400)
   %55 = icmp ult i32 %54, 2
   br i1 %55, label %56, label %58
@@ -1678,8 +1678,8 @@ proto_item_set_generated.exit345:                 ; preds = %260, %267, %263, %p
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.170, ptr noundef nonnull @.str.171, i32 noundef 1450, ptr noundef nonnull @.str.194) #18
   unreachable
 
-.thread379:                                       ; preds = %22, %16, %73, %65, %.lr.ph453.split, %._crit_edge470, %115
-  %.6 = phi i32 [ %.1254.ph, %._crit_edge470 ], [ %118, %115 ], [ 0, %.lr.ph453.split ], [ 0, %73 ], [ 0, %65 ], [ 0, %16 ], [ 0, %22 ]
+.thread379:                                       ; preds = %16, %22, %73, %65, %.lr.ph453.split, %._crit_edge470, %115
+  %.6 = phi i32 [ %.1254.ph, %._crit_edge470 ], [ %118, %115 ], [ 0, %65 ], [ 0, %.lr.ph453.split ], [ 0, %73 ], [ 0, %22 ], [ 0, %16 ]
   ret i32 %.6
 }
 
@@ -2054,7 +2054,7 @@ define internal fastcc i32 @dissect_media(ptr noundef %0, ptr noundef %1, ptr no
   br label %47
 
 47:                                               ; preds = %37, %34, %44, %26
-  %.1 = phi i32 [ %27, %26 ], [ %45, %44 ], [ %38, %37 ], [ %35, %34 ]
+  %.1 = phi i32 [ %27, %26 ], [ %35, %34 ], [ %45, %44 ], [ %38, %37 ]
   %48 = icmp eq i32 %.1, 0
   br i1 %48, label %.thread, label %.thread67
 

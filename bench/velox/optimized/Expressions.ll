@@ -14309,7 +14309,7 @@ for.inc.i.i:                                      ; preds = %if.end5.i.i8.i, %_Z
   br i1 %cmp.i.i.not, label %_ZSteqRKSt8_Rb_treeIN8facebook5velox7variantESt4pairIKS2_S2_ESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EESD_.exit, label %for.body.i.i, !llvm.loop !241
 
 _ZSteqRKSt8_Rb_treeIN8facebook5velox7variantESt4pairIKS2_S2_ESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EESD_.exit: ; preds = %if.end5.i.i.i, %_ZN8facebook5veloxeqERKNS0_7variantES3_.exit.i, %if.end5.i.i8.i, %for.inc.i.i, %_ZSteqIKN8facebook5velox7variantES2_EbRKSt4pairIT_T0_ES9_.exit, %land.rhs.i, %_ZSteqIKN8facebook5velox7variantES2_EbRKSt4pairIT_T0_ES9_.exit.thread9, %_ZN8facebook5veloxeqERKNS0_7variantES3_.exit.i.thread, %entry
-  %14 = phi i1 [ false, %entry ], [ false, %_ZN8facebook5veloxeqERKNS0_7variantES3_.exit.i.thread ], [ false, %_ZSteqIKN8facebook5velox7variantES2_EbRKSt4pairIT_T0_ES9_.exit.thread9 ], [ true, %land.rhs.i ], [ false, %if.end5.i.i.i ], [ false, %_ZN8facebook5veloxeqERKNS0_7variantES3_.exit.i ], [ false, %if.end5.i.i8.i ], [ true, %for.inc.i.i ], [ false, %_ZSteqIKN8facebook5velox7variantES2_EbRKSt4pairIT_T0_ES9_.exit ]
+  %14 = phi i1 [ false, %entry ], [ false, %_ZSteqIKN8facebook5velox7variantES2_EbRKSt4pairIT_T0_ES9_.exit.thread9 ], [ false, %_ZN8facebook5veloxeqERKNS0_7variantES3_.exit.i.thread ], [ true, %land.rhs.i ], [ false, %if.end5.i.i.i ], [ false, %_ZN8facebook5veloxeqERKNS0_7variantES3_.exit.i ], [ false, %if.end5.i.i8.i ], [ true, %for.inc.i.i ], [ false, %_ZSteqIKN8facebook5velox7variantES2_EbRKSt4pairIT_T0_ES9_.exit ]
   ret i1 %14
 }
 
@@ -17811,7 +17811,7 @@ sw.epilog.i:                                      ; preds = %entry
   unreachable
 
 _ZN3fmt2v816visit_format_argINS0_6detail13width_checkerINS2_13error_handlerEEENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit: ; preds = %sw.bb11.i, %sw.bb5.i, %sw.bb17.i, %sw.bb8.i, %sw.bb2.i
-  %retval.i.0 = phi i64 [ %coerce.i.sroa.0.0.extract.trunc, %sw.bb11.i ], [ %conv.i33, %sw.bb2.i ], [ %4, %sw.bb8.i ], [ %3, %sw.bb5.i ], [ %coerce19.i.sroa.0.0.extract.trunc, %sw.bb17.i ]
+  %retval.i.0 = phi i64 [ %coerce19.i.sroa.0.0.extract.trunc, %sw.bb17.i ], [ %3, %sw.bb5.i ], [ %coerce.i.sroa.0.0.extract.trunc, %sw.bb11.i ], [ %conv.i33, %sw.bb2.i ], [ %4, %sw.bb8.i ]
   %cmp = icmp ugt i64 %retval.i.0, 2147483647
   br i1 %cmp, label %if.then, label %if.end
 
@@ -17936,7 +17936,7 @@ sw.epilog.i:                                      ; preds = %entry
   unreachable
 
 _ZN3fmt2v816visit_format_argINS0_6detail17precision_checkerINS2_13error_handlerEEENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit: ; preds = %sw.bb11.i, %sw.bb5.i, %sw.bb17.i, %sw.bb8.i, %sw.bb2.i
-  %retval.i.0 = phi i64 [ %coerce.i.sroa.0.0.extract.trunc, %sw.bb11.i ], [ %conv.i33, %sw.bb2.i ], [ %4, %sw.bb8.i ], [ %3, %sw.bb5.i ], [ %coerce19.i.sroa.0.0.extract.trunc, %sw.bb17.i ]
+  %retval.i.0 = phi i64 [ %coerce19.i.sroa.0.0.extract.trunc, %sw.bb17.i ], [ %3, %sw.bb5.i ], [ %coerce.i.sroa.0.0.extract.trunc, %sw.bb11.i ], [ %conv.i33, %sw.bb2.i ], [ %4, %sw.bb8.i ]
   %cmp = icmp ugt i64 %retval.i.0, 2147483647
   br i1 %cmp, label %if.then, label %if.end
 

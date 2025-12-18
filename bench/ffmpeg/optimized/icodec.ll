@@ -126,7 +126,7 @@ define internal range(i32 0, 52) i32 @probe(ptr noundef readonly captures(none) 
   br label %65
 
 65:                                               ; preds = %63, %52
-  %.143 = phi i32 [ %64, %63 ], [ %.04270, %52 ]
+  %.143 = phi i32 [ %.04270, %52 ], [ %64, %63 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %21, !llvm.loop !13

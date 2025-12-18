@@ -1005,7 +1005,7 @@ _ZN6icu_779BytesTrie9skipValueEPKhi.exit:         ; preds = %88, %86, %82, %78, 
   br i1 %137, label %._crit_edge, label %93, !llvm.loop !41
 
 .critedge:                                        ; preds = %116, %.critedge.critedge, %62, %9, %43, %104, %_ZN6icu_779BytesTrie9skipValueEPKhi.exit, %2
-  %.0 = phi i8 [ 0, %2 ], [ 0, %9 ], [ 1, %62 ], [ 1, %43 ], [ 1, %.critedge.critedge ], [ 1, %104 ], [ 1, %_ZN6icu_779BytesTrie9skipValueEPKhi.exit ], [ 1, %116 ]
+  %.0 = phi i8 [ 0, %2 ], [ 0, %9 ], [ 1, %62 ], [ 1, %43 ], [ 1, %_ZN6icu_779BytesTrie9skipValueEPKhi.exit ], [ 1, %.critedge.critedge ], [ 1, %104 ], [ 1, %116 ]
   ret i8 %.0
 }
 

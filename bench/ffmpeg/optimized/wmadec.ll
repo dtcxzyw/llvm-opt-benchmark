@@ -201,7 +201,7 @@ define internal range(i32 -2147483648, 1) i32 @wma_decode_init(ptr noundef %0) #
   br label %.loopexit
 
 .loopexit:                                        ; preds = %56, %73, %67, %.critedge, %80, %7
-  %.057 = phi i32 [ -22, %7 ], [ %44, %.critedge ], [ %69, %67 ], [ 0, %80 ], [ %75, %73 ], [ %63, %56 ]
+  %.057 = phi i32 [ -22, %7 ], [ %75, %73 ], [ %44, %.critedge ], [ %69, %67 ], [ 0, %80 ], [ %63, %56 ]
   ret i32 %.057
 }
 
@@ -633,7 +633,7 @@ define internal i32 @wma_decode_superframe(ptr noundef %0, ptr noundef %1, ptr n
   br label %.thread
 
 .loopexit:                                        ; preds = %.lr.ph225, %76, %140, %245, %198, %238, %135
-  %.1162 = phi i32 [ -1094995529, %140 ], [ -1094995529, %135 ], [ %246, %245 ], [ %199, %198 ], [ -1094995529, %238 ], [ -1094995529, %76 ], [ %223, %.lr.ph225 ]
+  %.1162 = phi i32 [ -1094995529, %140 ], [ -1094995529, %135 ], [ %246, %245 ], [ %199, %198 ], [ -1094995529, %76 ], [ -1094995529, %238 ], [ %223, %.lr.ph225 ]
   %249 = getelementptr inbounds nuw i8, ptr %10, i64 132516
   store i32 0, ptr %249, align 4, !tbaa !78
   br label %.thread
@@ -2369,7 +2369,7 @@ wma_window.exit.i:                                ; preds = %889, %880
   br i1 %exitcond724.not.i, label %wma_decode_block.exit.loopexit, label %821, !llvm.loop !145
 
 wma_decode_block.exit.thread:                     ; preds = %548, %562, %98, %111, %133, %142, %148, %189, %decode_exp_vlc.exit.thread.i
-  %.0.i.ph = phi i32 [ -1094995529, %decode_exp_vlc.exit.thread.i ], [ -1094995529, %189 ], [ -1094995529, %148 ], [ -1094995529, %142 ], [ -1094995529, %133 ], [ -1094995529, %111 ], [ -1094995529, %98 ], [ %578, %562 ], [ -1094995529, %548 ]
+  %.0.i.ph = phi i32 [ %578, %562 ], [ -1094995529, %decode_exp_vlc.exit.thread.i ], [ -1094995529, %98 ], [ -1094995529, %189 ], [ -1094995529, %148 ], [ -1094995529, %142 ], [ -1094995529, %133 ], [ -1094995529, %111 ], [ -1094995529, %548 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit
 

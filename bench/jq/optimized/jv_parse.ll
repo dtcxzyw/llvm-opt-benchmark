@@ -363,7 +363,7 @@ define dso_local { i64, ptr } @jv_parser_next(ptr noundef %0) local_unnamed_addr
   br label %.backedge
 
 .backedge:                                        ; preds = %352, %351, %327, %324, %322, %199, %196, %194, %70, %74, %.thread
-  %.0119.be = phi ptr [ null, %70 ], [ null, %.thread ], [ null, %74 ], [ null, %352 ], [ %.088155.i, %194 ], [ null, %322 ], [ null, %351 ], [ %.088155.i, %199 ], [ null, %324 ], [ null, %327 ], [ %.088155.i, %196 ]
+  %.0119.be = phi ptr [ null, %70 ], [ null, %.thread ], [ null, %74 ], [ null, %352 ], [ null, %327 ], [ null, %322 ], [ null, %324 ], [ null, %351 ], [ %.088155.i, %194 ], [ %.088155.i, %199 ], [ %.088155.i, %196 ]
   %.not127 = icmp eq ptr %.0119.be, null
   br i1 %.not127, label %54, label %.critedge, !llvm.loop !30
 
@@ -873,8 +873,8 @@ unhex4.exit.i:                                    ; preds = %273
   br label %293
 
 293:                                              ; preds = %291, %283, %232, %230, %228, %226, %224, %222
-  %.169.i.i = phi ptr [ %223, %222 ], [ %225, %224 ], [ %227, %226 ], [ %229, %228 ], [ %231, %230 ], [ %233, %232 ], [ %289, %283 ], [ %292, %291 ]
-  %.164.i.i = phi ptr [ %220, %222 ], [ %220, %224 ], [ %220, %226 ], [ %220, %228 ], [ %220, %230 ], [ %220, %232 ], [ %.265.i.i, %283 ], [ %215, %291 ]
+  %.169.i.i = phi ptr [ %292, %291 ], [ %289, %283 ], [ %233, %232 ], [ %231, %230 ], [ %229, %228 ], [ %227, %226 ], [ %225, %224 ], [ %223, %222 ]
+  %.164.i.i = phi ptr [ %215, %291 ], [ %.265.i.i, %283 ], [ %220, %232 ], [ %220, %230 ], [ %220, %228 ], [ %220, %226 ], [ %220, %224 ], [ %220, %222 ]
   %294 = icmp ult ptr %.164.i.i, %213
   br i1 %294, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i, !llvm.loop !39
 
@@ -1010,8 +1010,8 @@ tokenadd.exit134.i:                               ; preds = %336, %._crit_edge.i
   store i32 1, ptr %42, align 8, !tbaa !17
   br label %.backedge
 
-.critedge:                                        ; preds = %189, %classify.exit.thread.i, %.backedge, %unhex4.exit.i, %257, %259, %219, %unhex4.exit.i.i, %234, %218, %290, %254, %243, %271, %316, %312, %parse_is_top_num.exit.i, %seq_check_truncation.exit.thread138.i, %stream_is_top_num.exit.i, %stream_is_top_num.exit.thread.i
-  %.0119.be180 = phi ptr [ @.str.37, %312 ], [ @.str.37, %316 ], [ @.str.12, %parse_is_top_num.exit.i ], [ %125, %seq_check_truncation.exit.thread138.i ], [ @.str.12, %stream_is_top_num.exit.i ], [ @.str.13, %stream_is_top_num.exit.thread.i ], [ @.str.42, %271 ], [ @.str.41, %243 ], [ @.str.42, %unhex4.exit.i ], [ @.str.42, %254 ], [ @.str.44, %290 ], [ @.str.39, %218 ], [ @.str.40, %234 ], [ @.str.41, %unhex4.exit.i.i ], [ @.str.43, %219 ], [ @.str.42, %259 ], [ @.str.42, %257 ], [ %150, %classify.exit.thread.i ], [ %190, %189 ], [ %.0119.be, %.backedge ]
+.critedge:                                        ; preds = %189, %classify.exit.thread.i, %.backedge, %unhex4.exit.i, %257, %259, %219, %unhex4.exit.i.i, %234, %218, %290, %254, %243, %271, %312, %316, %parse_is_top_num.exit.i, %seq_check_truncation.exit.thread138.i, %stream_is_top_num.exit.i, %stream_is_top_num.exit.thread.i
+  %.0119.be180 = phi ptr [ @.str.42, %unhex4.exit.i ], [ @.str.37, %312 ], [ @.str.12, %parse_is_top_num.exit.i ], [ @.str.37, %316 ], [ @.str.13, %stream_is_top_num.exit.thread.i ], [ @.str.41, %243 ], [ @.str.42, %271 ], [ @.str.12, %stream_is_top_num.exit.i ], [ %125, %seq_check_truncation.exit.thread138.i ], [ @.str.42, %254 ], [ @.str.44, %290 ], [ @.str.39, %218 ], [ @.str.40, %234 ], [ @.str.41, %unhex4.exit.i.i ], [ @.str.43, %219 ], [ @.str.42, %259 ], [ @.str.42, %257 ], [ %150, %classify.exit.thread.i ], [ %190, %189 ], [ %.0119.be, %.backedge ]
   %353 = icmp eq ptr %.0119.be180, @.str.1
   br i1 %353, label %.critedge.thread, label %356
 
@@ -1484,9 +1484,9 @@ define internal fastcc noundef ptr @check_literal(ptr noundef captures(none) %0)
   br label %19
 
 19:                                               ; preds = %9, %11, %17
-  %.pn = phi { i64, ptr } [ %10, %9 ], [ %12, %11 ], [ %18, %17 ]
-  %.039 = phi i32 [ 4, %9 ], [ 5, %11 ], [ 4, %17 ]
-  %.038 = phi ptr [ @.str.45, %9 ], [ @.str.46, %11 ], [ @.str.48, %17 ]
+  %.pn = phi { i64, ptr } [ %18, %17 ], [ %10, %9 ], [ %12, %11 ]
+  %.039 = phi i32 [ 4, %17 ], [ 4, %9 ], [ 5, %11 ]
+  %.038 = phi ptr [ @.str.48, %17 ], [ @.str.45, %9 ], [ @.str.46, %11 ]
   %.sroa.6.0 = extractvalue { i64, ptr } %.pn, 1
   %.sroa.021.0 = extractvalue { i64, ptr } %.pn, 0
   %20 = load i32, ptr %2, align 8, !tbaa !33
@@ -1627,7 +1627,7 @@ value.exit:                                       ; preds = %.sink.split.i, %45
   br label %value.exit.thread
 
 value.exit.thread:                                ; preds = %23, %76, %71, %.critedge, %46, %41, %80, %5, %19, %1
-  %.0 = phi ptr [ null, %1 ], [ @.str.47, %5 ], [ null, %80 ], [ @.str.37, %46 ], [ @.str.49, %19 ], [ @.str.50, %.critedge ], [ @.str.37, %41 ], [ @.str.37, %71 ], [ @.str.37, %76 ], [ @.str.49, %23 ]
+  %.0 = phi ptr [ null, %1 ], [ @.str.47, %5 ], [ null, %80 ], [ @.str.37, %46 ], [ @.str.49, %19 ], [ @.str.50, %.critedge ], [ @.str.37, %76 ], [ @.str.37, %41 ], [ @.str.37, %71 ], [ @.str.49, %23 ]
   ret ptr %.0
 }
 

@@ -134,7 +134,7 @@ wtap_file_read_pattern.exit.thread:               ; preds = %17
   br i1 %exitcond.not.i.i, label %wtap_file_read_till_separator.exit.thread.i, label %26, !llvm.loop !8
 
 wtap_file_read_till_separator.exit.i:             ; preds = %36, %30
-  %.019.i.i = phi i32 [ %33, %30 ], [ %.06.i.i, %36 ]
+  %.019.i.i = phi i32 [ %.06.i.i, %36 ], [ %33, %30 ]
   %40 = add i32 %.019.i.i, 1
   %or.cond.i = icmp ult i32 %40, 2
   br i1 %or.cond.i, label %wtap_file_read_number.exit, label %wtap_file_read_till_separator.exit.thread.i
@@ -391,7 +391,7 @@ define internal fastcc range(i32 -1, 2) i32 @wtap_file_read_number(ptr noundef r
   br i1 %exitcond.not.i, label %wtap_file_read_till_separator.exit.thread, label %7, !llvm.loop !8
 
 wtap_file_read_till_separator.exit:               ; preds = %11, %17
-  %.019.i = phi i32 [ %14, %11 ], [ %.06.i, %17 ]
+  %.019.i = phi i32 [ %.06.i, %17 ], [ %14, %11 ]
   %21 = add i32 %.019.i, 1
   %or.cond = icmp ult i32 %21, 2
   br i1 %or.cond, label %28, label %wtap_file_read_till_separator.exit.thread

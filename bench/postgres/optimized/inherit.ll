@@ -1178,7 +1178,7 @@ define internal fastcc ptr @translate_col_privs(ptr noundef %0, ptr noundef read
   br i1 %34, label %44, label %35
 
 .critedge:                                        ; preds = %44, %27, %.lr.ph.split.us.split, %.lr.ph.split.split, %10
-  %.2.lcssa = phi ptr [ %.1, %10 ], [ %.1, %.lr.ph.split.us.split ], [ %.1, %.lr.ph.split.split ], [ %.3.us, %27 ], [ %.3, %44 ]
+  %.2.lcssa = phi ptr [ %.1, %10 ], [ %.1, %.lr.ph.split.split ], [ %.1, %.lr.ph.split.us.split ], [ %.3.us, %27 ], [ %.3, %44 ]
   ret ptr %.2.lcssa
 
 35:                                               ; preds = %.lr.ph45

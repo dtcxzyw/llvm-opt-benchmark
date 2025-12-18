@@ -700,7 +700,7 @@ if.then.i.i.i75:                                  ; preds = %ehcleanup
   br label %ehcleanup110
 
 cleanup109:                                       ; preds = %invoke.cont41, %if.then.i.i.i, %cleanup
-  %retval.1 = phi i1 [ %cmp5190, %cleanup ], [ %cmp5190, %if.then.i.i.i ], [ false, %invoke.cont41 ]
+  %retval.1 = phi i1 [ %cmp5190, %if.then.i.i.i ], [ %cmp5190, %cleanup ], [ false, %invoke.cont41 ]
   %88 = load i64, ptr %status, align 8
   %and.i.i.i77 = and i64 %88, 1
   %cmp.i.i.i78 = icmp eq i64 %and.i.i.i77, 0

@@ -1746,10 +1746,10 @@ add_remote_or_group.exit128:                      ; preds = %add_remote_or_group
   br label %.loopexit
 
 .loopexit:                                        ; preds = %654, %.preheader, %628, %677, %673, %617, %622
-  %.068 = phi i1 [ true, %622 ], [ true, %617 ], [ true, %628 ], [ true, %673 ], [ %680, %677 ], [ true, %.preheader ], [ true, %654 ]
-  %.065 = phi ptr [ %625, %622 ], [ null, %617 ], [ %629, %628 ], [ null, %673 ], [ %679, %677 ], [ null, %.preheader ], [ null, %654 ]
-  %.064 = phi ptr [ %1, %622 ], [ %1, %617 ], [ %1, %628 ], [ %1, %673 ], [ %682, %677 ], [ %1, %.preheader ], [ %1, %654 ]
-  %.063 = phi i32 [ %505, %622 ], [ %505, %617 ], [ 0, %628 ], [ %505, %673 ], [ %681, %677 ], [ %505, %.preheader ], [ %505, %654 ]
+  %.068 = phi i1 [ true, %622 ], [ true, %617 ], [ true, %628 ], [ %680, %677 ], [ true, %673 ], [ true, %.preheader ], [ true, %654 ]
+  %.065 = phi ptr [ %625, %622 ], [ null, %617 ], [ %629, %628 ], [ %679, %677 ], [ null, %673 ], [ null, %.preheader ], [ null, %654 ]
+  %.064 = phi ptr [ %1, %622 ], [ %1, %617 ], [ %1, %628 ], [ %682, %677 ], [ %1, %673 ], [ %1, %.preheader ], [ %1, %654 ]
+  %.063 = phi i32 [ %505, %622 ], [ %505, %617 ], [ 0, %628 ], [ %681, %677 ], [ %505, %673 ], [ %505, %.preheader ], [ %505, %654 ]
   call void @string_list_remove_duplicates(ptr noundef nonnull %42, i32 noundef 0) #20
   %683 = load i32, ptr %52, align 4, !tbaa !9
   %.not102 = icmp eq i32 %683, 0
@@ -2219,7 +2219,7 @@ truncate_fetch_head.exit.i.i:                     ; preds = %841, %839
   br i1 %886, label %877, label %.loopexit250.i.i, !llvm.loop !117
 
 .loopexit250.i.i:                                 ; preds = %853, %852, %877, %.preheader.i.i, %866, %864, %848
-  %.1102.i.i = phi i32 [ 1, %864 ], [ 1, %.preheader.i.i ], [ 1, %866 ], [ 0, %848 ], [ 1, %877 ], [ 1, %853 ], [ 0, %852 ]
+  %.1102.i.i = phi i32 [ 1, %866 ], [ 1, %.preheader.i.i ], [ 1, %864 ], [ 0, %848 ], [ 1, %877 ], [ 1, %853 ], [ 0, %852 ]
   %887 = load i32, ptr @tags, align 4, !tbaa !9
   %888 = add i32 %887, -1
   %or.cond3.i.i = icmp ult i32 %888, 2
@@ -2589,7 +2589,7 @@ truncate_fetch_head.exit.i.i:                     ; preds = %841, %839
   br label %add_merge_config.exit.i.i.i
 
 add_merge_config.exit.i.i.i:                      ; preds = %.lr.ph130.i.i.i, %.loopexit.i.i.i.i, %1027, %1021, %996, %._crit_edge134.thread.i.i.i, %._crit_edge134.i.i.i, %._crit_edge.i.i.i
-  %.1208.i.i = phi i32 [ %825, %1027 ], [ %825, %1021 ], [ %.5212.i.i, %996 ], [ %.5212.i.i, %._crit_edge134.thread.i.i.i ], [ %.4211.i.i, %._crit_edge134.i.i.i ], [ %.0207.i.i, %._crit_edge.i.i.i ], [ %.5212.i.i, %.loopexit.i.i.i.i ], [ %.0207.i.i, %.lr.ph130.i.i.i ]
+  %.1208.i.i = phi i32 [ %825, %1027 ], [ %825, %1021 ], [ %.0207.i.i, %._crit_edge.i.i.i ], [ %.5212.i.i, %996 ], [ %.5212.i.i, %._crit_edge134.thread.i.i.i ], [ %.4211.i.i, %._crit_edge134.i.i.i ], [ %.5212.i.i, %.loopexit.i.i.i.i ], [ %.0207.i.i, %.lr.ph130.i.i.i ]
   switch i32 %918, label %1034 [
     i32 2, label %1029
     i32 1, label %1032
@@ -3101,8 +3101,8 @@ _.exit.thread.i.i:                                ; preds = %_.exit.i50.i, %1211
   br label %_.exit.thread47.i.i
 
 _.exit.thread47.i.i:                              ; preds = %1216, %._crit_edge.i55.i, %.preheader.i53.i, %_.exit.i50.i, %1210
-  %1225 = phi ptr [ %1212, %_.exit.i50.i ], [ %1213, %._crit_edge.i55.i ], [ @.str.196, %1210 ], [ %1213, %.preheader.i53.i ], [ %1213, %1216 ]
-  %.0.i.i = phi i32 [ 0, %_.exit.i50.i ], [ %1224, %._crit_edge.i55.i ], [ 0, %1210 ], [ 0, %.preheader.i53.i ], [ 0, %1216 ]
+  %1225 = phi ptr [ %1212, %_.exit.i50.i ], [ @.str.196, %1210 ], [ %1213, %._crit_edge.i55.i ], [ %1213, %.preheader.i53.i ], [ %1213, %1216 ]
+  %.0.i.i = phi i32 [ 0, %_.exit.i50.i ], [ 0, %1210 ], [ %1224, %._crit_edge.i55.i ], [ 0, %.preheader.i53.i ], [ 0, %1216 ]
   %1226 = load i32, ptr @verbosity, align 4, !tbaa !9
   %1227 = icmp sgt i32 %1226, -1
   br i1 %1227, label %1228, label %prune_refs.exit.i
@@ -3144,7 +3144,7 @@ _.exit45.i.i:                                     ; preds = %1232, %_.exit42.i.i
   br i1 %.not36.i.i, label %prune_refs.exit.i, label %.lr.ph62.i.i, !llvm.loop !153
 
 prune_refs.exit.i:                                ; preds = %.lr.ph.i54.i, %_.exit45.i.i, %1228, %_.exit.thread47.i.i
-  %.2.i.i = phi i32 [ %.0.i.i, %_.exit.thread47.i.i ], [ %.0.i.i, %1228 ], [ %.0.i.i, %_.exit45.i.i ], [ 1, %.lr.ph.i54.i ]
+  %.2.i.i = phi i32 [ %.0.i.i, %1228 ], [ %.0.i.i, %_.exit.thread47.i.i ], [ %.0.i.i, %_.exit45.i.i ], [ 1, %.lr.ph.i54.i ]
   call void @strbuf_release(ptr noundef nonnull %9) #20
   call void @free_refs(ptr noundef %1207) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

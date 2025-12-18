@@ -1451,8 +1451,8 @@ _ZN16JfrThreadSampler13renew_if_fullEPK9JfrBuffer.exit: ; preds = %.split51.us, 
   br i1 %125, label %.lr.ph.split.us, label %.outer._crit_edge, !llvm.loop !20
 
 .outer._crit_edge:                                ; preds = %.lr.ph.split.us, %_ZN16JfrThreadSampler13renew_if_fullEPK9JfrBuffer.exit, %84
-  %.022.ph.lcssa = phi i32 [ %.022.ph66, %84 ], [ %.022.ph66, %.lr.ph.split.us ], [ %spec.select28, %_ZN16JfrThreadSampler13renew_if_fullEPK9JfrBuffer.exit ]
-  %.1 = phi ptr [ null, %84 ], [ null, %.lr.ph.split.us ], [ %98, %_ZN16JfrThreadSampler13renew_if_fullEPK9JfrBuffer.exit ]
+  %.022.ph.lcssa = phi i32 [ %.022.ph66, %84 ], [ %spec.select28, %_ZN16JfrThreadSampler13renew_if_fullEPK9JfrBuffer.exit ], [ %.022.ph66, %.lr.ph.split.us ]
+  %.1 = phi ptr [ null, %84 ], [ %98, %_ZN16JfrThreadSampler13renew_if_fullEPK9JfrBuffer.exit ], [ null, %.lr.ph.split.us ]
   store ptr %.1, ptr %2, align 8
   call void @_ZN17ThreadsListHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #19
   br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %126

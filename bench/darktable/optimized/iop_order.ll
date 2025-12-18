@@ -699,7 +699,7 @@ _check_iop_list_equal.exit:                       ; preds = %.lr.ph.i, %.lr.ph.i
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_check_iop_list_equal.exit, %1, %.loopexit.loopexit
-  %19 = phi i32 [ 1, %1 ], [ %18, %.loopexit.loopexit ], [ 0, %_check_iop_list_equal.exit ]
+  %19 = phi i32 [ %18, %.loopexit.loopexit ], [ 1, %1 ], [ 0, %_check_iop_list_equal.exit ]
   ret i32 %19
 }
 
@@ -1562,7 +1562,7 @@ _table_to_list.exit:                              ; preds = %.lr.ph.i, %254
   br label %.thread203
 
 _insert_before.exit179:                           ; preds = %_insert_before.exit168, %.critedge.i175, %_table_to_list.exit
-  %.3 = phi ptr [ %271, %_table_to_list.exit ], [ %43, %.critedge.i175 ], [ %43, %_insert_before.exit168 ]
+  %.3 = phi ptr [ %43, %.critedge.i175 ], [ %271, %_table_to_list.exit ], [ %43, %_insert_before.exit168 ]
   %.not45 = icmp eq ptr %.3, null
   br i1 %.not45, label %.thread203, label %273
 
@@ -1996,7 +1996,7 @@ _check_iop_list_equal.exit.i:                     ; preds = %.lr.ph.i.i, %.lr.ph
   br label %dt_ioppr_get_iop_order_list_kind.exit
 
 dt_ioppr_get_iop_order_list_kind.exit:            ; preds = %_check_iop_list_equal.exit.i, %2, %.loopexit.loopexit.i
-  %20 = phi i32 [ 1, %2 ], [ %19, %.loopexit.loopexit.i ], [ 0, %_check_iop_list_equal.exit.i ]
+  %20 = phi i32 [ %19, %.loopexit.loopexit.i ], [ 1, %2 ], [ 0, %_check_iop_list_equal.exit.i ]
   %21 = tail call i32 @dt_ioppr_write_iop_order(i32 noundef %20, ptr noundef %0, i32 noundef %1)
   ret i32 %21
 }
@@ -2811,7 +2811,7 @@ dt_ioppr_get_iop_order_link.exit:                 ; preds = %.lr.ph.split.us.i, 
   br i1 %.old1.not, label %g_list_shorter_than.exit.thread, label %.preheader
 
 g_list_shorter_than.exit.thread:                  ; preds = %10, %46, %._crit_edge, %g_list_shorter_than.exit
-  %.2 = phi ptr [ %.0.lcssa, %g_list_shorter_than.exit ], [ %.0.lcssa, %._crit_edge ], [ %.4, %46 ], [ %.0.lcssa, %10 ]
+  %.2 = phi ptr [ %.4, %46 ], [ %.0.lcssa, %g_list_shorter_than.exit ], [ %.0.lcssa, %._crit_edge ], [ %.0.lcssa, %10 ]
   ret ptr %.2
 }
 
@@ -3836,7 +3836,7 @@ define range(i32 0, 2) i32 @dt_ioppr_check_can_move_before_iop(ptr noundef %0, p
   br label %.thread177
 
 .thread177:                                       ; preds = %._crit_edge, %65, %76, %.loopexit, %.lr.ph319, %34, %.preheader225, %.preheader220, %99, %._crit_edge320, %48, %42, %.critedge, %84, %92, %86, %.critedge164, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %99 ], [ 1, %42 ], [ 0, %.critedge ], [ 0, %48 ], [ 0, %._crit_edge320 ], [ 0, %.critedge164 ], [ 0, %92 ], [ 0, %84 ], [ 1, %86 ], [ 0, %.preheader220 ], [ 0, %.preheader225 ], [ 0, %76 ], [ 0, %34 ], [ 0, %.loopexit ], [ 0, %.lr.ph319 ], [ 0, %65 ], [ 0, %._crit_edge ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %99 ], [ 1, %42 ], [ 0, %.critedge ], [ 0, %48 ], [ 0, %._crit_edge320 ], [ 0, %.critedge164 ], [ 0, %92 ], [ 0, %84 ], [ 1, %86 ], [ 0, %.preheader220 ], [ 0, %34 ], [ 0, %.preheader225 ], [ 0, %76 ], [ 0, %.loopexit ], [ 0, %.lr.ph319 ], [ 0, %65 ], [ 0, %._crit_edge ]
   ret i32 %.0
 }
 
@@ -4782,7 +4782,7 @@ define noalias noundef ptr @dt_ioppr_serialize_iop_order_list(ptr noundef readon
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit.sink.split, %16, %5
-  %.0 = phi ptr [ null, %5 ], [ null, %16 ], [ null, %.loopexit.sink.split ], [ %17, %.preheader ]
+  %.0 = phi ptr [ null, %.loopexit.sink.split ], [ null, %5 ], [ null, %16 ], [ %17, %.preheader ]
   ret ptr %.0
 }
 

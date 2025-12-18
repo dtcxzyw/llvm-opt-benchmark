@@ -3559,7 +3559,7 @@ _ZN4core3ops8function6FnOnce9call_once17hd079219a94f6765fE.exit.i: ; preds = %49
   br label %507
 
 .loopexit.split-lp172:                            ; preds = %543, %545, %"_ZN4core3ptr51drop_in_place$LT$async_io..reactor..ReactorLock$GT$17he88907a9932b3a13E.exit", %561, %563, %573, %575, %578, %580, %550, %554, %556, %559
-  %.sroa.017.2.ph = phi i8 [ 0, %556 ], [ 0, %554 ], [ 0, %550 ], [ 1, %543 ], [ 1, %545 ], [ 0, %559 ], [ 0, %"_ZN4core3ptr51drop_in_place$LT$async_io..reactor..ReactorLock$GT$17he88907a9932b3a13E.exit" ], [ 0, %561 ], [ 0, %563 ], [ 1, %573 ], [ 1, %575 ], [ 1, %578 ], [ 1, %580 ]
+  %.sroa.017.2.ph = phi i8 [ 0, %550 ], [ 1, %543 ], [ 1, %545 ], [ 0, %559 ], [ 0, %"_ZN4core3ptr51drop_in_place$LT$async_io..reactor..ReactorLock$GT$17he88907a9932b3a13E.exit" ], [ 0, %561 ], [ 0, %563 ], [ 0, %554 ], [ 1, %573 ], [ 1, %575 ], [ 0, %556 ], [ 1, %578 ], [ 1, %580 ]
   %lpad.loopexit.split-lp174 = landingpad { ptr, i32 }
           cleanup
   br label %507
@@ -5664,7 +5664,7 @@ _ZN4core3ops8function6FnOnce9call_once17hd079219a94f6765fE.exit.i: ; preds = %49
   br label %507
 
 .loopexit.split-lp172:                            ; preds = %543, %545, %"_ZN4core3ptr51drop_in_place$LT$async_io..reactor..ReactorLock$GT$17he88907a9932b3a13E.exit", %561, %563, %573, %575, %578, %580, %550, %554, %556, %559
-  %.sroa.017.2.ph = phi i8 [ 0, %556 ], [ 0, %554 ], [ 0, %550 ], [ 1, %543 ], [ 1, %545 ], [ 0, %559 ], [ 0, %"_ZN4core3ptr51drop_in_place$LT$async_io..reactor..ReactorLock$GT$17he88907a9932b3a13E.exit" ], [ 0, %561 ], [ 0, %563 ], [ 1, %573 ], [ 1, %575 ], [ 1, %578 ], [ 1, %580 ]
+  %.sroa.017.2.ph = phi i8 [ 0, %550 ], [ 1, %543 ], [ 1, %545 ], [ 0, %559 ], [ 0, %"_ZN4core3ptr51drop_in_place$LT$async_io..reactor..ReactorLock$GT$17he88907a9932b3a13E.exit" ], [ 0, %561 ], [ 0, %563 ], [ 0, %554 ], [ 1, %573 ], [ 1, %575 ], [ 0, %556 ], [ 1, %578 ], [ 1, %580 ]
   %lpad.loopexit.split-lp174 = landingpad { ptr, i32 }
           cleanup
   br label %507

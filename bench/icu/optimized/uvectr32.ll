@@ -657,7 +657,7 @@ _ZNK6icu_779UVector327indexOfEii.exit:            ; preds = %15
   br i1 %exitcond.not, label %.thread, label %.lr.ph.i, !llvm.loop !24
 
 .thread:                                          ; preds = %_ZNK6icu_779UVector327indexOfEii.exit, %19, %2, %.lr.ph
-  %21 = phi i8 [ 1, %2 ], [ 0, %.lr.ph ], [ 0, %19 ], [ 1, %_ZNK6icu_779UVector327indexOfEii.exit ]
+  %21 = phi i8 [ 0, %.lr.ph ], [ 0, %19 ], [ 1, %2 ], [ 1, %_ZNK6icu_779UVector327indexOfEii.exit ]
   ret i8 %21
 }
 

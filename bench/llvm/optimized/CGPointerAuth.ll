@@ -1849,10 +1849,10 @@ _ZNK5clang4Decl7getAttrINS_31VTablePointerAuthenticationAttrEEEPT_v.exit: ; pred
 .fold.split:                                      ; preds = %61
   br label %_ZNK5clang4Decl7getAttrINS_31VTablePointerAuthenticationAttrEEEPT_v.exit.thread
 
-_ZNK5clang4Decl7getAttrINS_31VTablePointerAuthenticationAttrEEEPT_v.exit.thread: ; preds = %39, %61, %.fold.split, %63, %66, %28, %_ZN5clangneENS_22specific_attr_iteratorINS_31VTablePointerAuthenticationAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, %24
-  %.4 = phi i32 [ %.032, %24 ], [ %.032, %_ZN5clangneENS_22specific_attr_iteratorINS_31VTablePointerAuthenticationAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i ], [ %.032, %28 ], [ %20, %61 ], [ 0, %66 ], [ %65, %63 ], [ %.032, %.fold.split ], [ %.032, %39 ]
-  %.331 = phi i1 [ %15, %24 ], [ %15, %_ZN5clangneENS_22specific_attr_iteratorINS_31VTablePointerAuthenticationAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i ], [ %15, %28 ], [ %spec.select, %61 ], [ %spec.select, %66 ], [ %spec.select, %63 ], [ %spec.select, %.fold.split ], [ %15, %39 ]
-  %.3 = phi i32 [ %13, %24 ], [ %13, %_ZN5clangneENS_22specific_attr_iteratorINS_31VTablePointerAuthenticationAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i ], [ %13, %28 ], [ %.2, %61 ], [ %.2, %66 ], [ %.2, %63 ], [ %.2, %.fold.split ], [ %13, %39 ]
+_ZNK5clang4Decl7getAttrINS_31VTablePointerAuthenticationAttrEEEPT_v.exit.thread: ; preds = %39, %61, %.fold.split, %63, %66, %_ZN5clangneENS_22specific_attr_iteratorINS_31VTablePointerAuthenticationAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, %28, %24
+  %.4 = phi i32 [ %.032, %.fold.split ], [ %.032, %24 ], [ %.032, %28 ], [ %.032, %_ZN5clangneENS_22specific_attr_iteratorINS_31VTablePointerAuthenticationAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i ], [ 0, %66 ], [ %65, %63 ], [ %20, %61 ], [ %.032, %39 ]
+  %.331 = phi i1 [ %spec.select, %.fold.split ], [ %15, %24 ], [ %15, %28 ], [ %15, %_ZN5clangneENS_22specific_attr_iteratorINS_31VTablePointerAuthenticationAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i ], [ %spec.select, %66 ], [ %spec.select, %63 ], [ %spec.select, %61 ], [ %15, %39 ]
+  %.3 = phi i32 [ %.2, %.fold.split ], [ %13, %24 ], [ %13, %28 ], [ %13, %_ZN5clangneENS_22specific_attr_iteratorINS_31VTablePointerAuthenticationAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i ], [ %.2, %66 ], [ %.2, %63 ], [ %.2, %61 ], [ %13, %39 ]
   %67 = select i1 %.331, i32 3, i32 1
   %68 = shl nuw nsw i32 %.3, 6
   %69 = or disjoint i32 %68, %67

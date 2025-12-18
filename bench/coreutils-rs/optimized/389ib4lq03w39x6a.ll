@@ -1668,9 +1668,9 @@ _ZN5alloc5slice11stable_sort17h4e6e4256d427f6e3E.exit.i: ; preds = %74
 
 .loopexit70:                                      ; preds = %56, %.loopexit.i.i, %72, %26
   %.sroa.17.1.ph = phi i64 [ %.sroa.17.073, %26 ], [ %70, %72 ], [ %.sroa.17.073, %.loopexit.i.i ], [ %.sroa.17.073, %56 ]
-  %.sroa.14.4.ph = phi i64 [ %.sroa.14.074, %26 ], [ %70, %72 ], [ %.sroa.14.1, %56 ], [ %70, %.loopexit.i.i ]
+  %.sroa.14.4.ph = phi i64 [ %.sroa.14.074, %26 ], [ %70, %72 ], [ %70, %.loopexit.i.i ], [ %.sroa.14.1, %56 ]
   %.sroa.27.1.ph = phi i1 [ true, %26 ], [ false, %72 ], [ true, %.loopexit.i.i ], [ true, %56 ]
-  %.sroa.8.2.ph = phi ptr [ %18, %26 ], [ %.sink16.i.i.i, %72 ], [ %58, %56 ], [ %18, %.loopexit.i.i ]
+  %.sroa.8.2.ph = phi ptr [ %18, %26 ], [ %.sink16.i.i.i, %72 ], [ %18, %.loopexit.i.i ], [ %58, %56 ]
   %.pn = phi i64 [ %2, %26 ], [ %.sroa.14.1, %72 ], [ %2, %.loopexit.i.i ], [ %2, %56 ]
   %.sroa.0.0.i.ph = getelementptr inbounds i8, ptr %1, i64 %.sroa.17.073
   %.sroa.4.0.i.ph = sub i64 %.pn, %.sroa.17.073

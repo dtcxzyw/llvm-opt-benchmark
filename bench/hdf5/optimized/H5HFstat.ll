@@ -186,7 +186,7 @@ define range(i32 -1, 1) i32 @H5HF_size(ptr noundef readonly captures(none) %0, p
   br label %70
 
 70:                                               ; preds = %56, %66, %62
-  %.1 = phi i32 [ 0, %56 ], [ -1, %62 ], [ 0, %66 ]
+  %.1 = phi i32 [ 0, %56 ], [ 0, %66 ], [ -1, %62 ]
   %.not40 = icmp eq ptr %.131, null
   br i1 %.not40, label %.thread41, label %71
 

@@ -1047,7 +1047,7 @@ do_compute_shiftstate.exit.sink.split:            ; preds = %2, %6, %74
   br label %do_compute_shiftstate.exit
 
 do_compute_shiftstate.exit:                       ; preds = %68, %34, %do_compute_shiftstate.exit.sink.split, %40, %7, %2
-  %79 = phi i32 [ -22, %2 ], [ 0, %7 ], [ 0, %40 ], [ 0, %do_compute_shiftstate.exit.sink.split ], [ 0, %34 ], [ 0, %68 ]
+  %79 = phi i32 [ 0, %34 ], [ 0, %do_compute_shiftstate.exit.sink.split ], [ -22, %2 ], [ 0, %40 ], [ 0, %7 ], [ 0, %68 ]
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @kbd_event_lock, i64 noundef %5) #19
   ret i32 %79
 }
@@ -1479,8 +1479,8 @@ define dso_local i32 @vt_do_kdgkb_ioctl(i32 noundef %0, ptr noundef %1, i32 noun
   br label %52
 
 52:                                               ; preds = %21, %32, %33, %49, %11
-  %53 = phi i32 [ 0, %11 ], [ 0, %49 ], [ -28, %21 ], [ %37, %33 ], [ -14, %32 ]
-  %54 = phi ptr [ null, %11 ], [ %51, %49 ], [ %19, %21 ], [ %19, %33 ], [ %19, %32 ]
+  %53 = phi i32 [ 0, %11 ], [ 0, %49 ], [ -14, %32 ], [ -28, %21 ], [ %37, %33 ]
+  %54 = phi ptr [ null, %11 ], [ %51, %49 ], [ %19, %32 ], [ %19, %21 ], [ %19, %33 ]
   tail call void @kfree(ptr noundef %54) #19
   br label %.critedge
 

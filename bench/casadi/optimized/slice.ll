@@ -4551,7 +4551,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit102: ; preds = %_Z
   br i1 %or.cond.not, label %.lr.ph140, label %.critedge78, !llvm.loop !87
 
 .critedge78:                                      ; preds = %.lr.ph.split, %24, %.lr.ph140, %2, %.critedge, %120
-  %.1 = phi i1 [ %123, %120 ], [ true, %.critedge ], [ true, %2 ], [ false, %24 ], [ %.not66, %.lr.ph140 ], [ false, %.lr.ph.split ]
+  %.1 = phi i1 [ true, %2 ], [ %123, %120 ], [ true, %.critedge ], [ false, %24 ], [ %.not66, %.lr.ph140 ], [ false, %.lr.ph.split ]
   ret i1 %.1
 
 134:                                              ; preds = %43
@@ -4955,8 +4955,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131: ; preds = %_Z
   %134 = icmp eq ptr %.sroa.0134.1.lcssa, %13
   br label %_ZN6casadi8is_sliceERKSt6vectorIxSaIxEEb.exit.thread
 
-_ZN6casadi8is_sliceERKSt6vectorIxSaIxEEb.exit.thread: ; preds = %31, %.lr.ph, %.lr.ph177, %128, %.preheader, %.critedge113.loopexit, %1, %.critedge.i, %29
-  %.076 = phi i1 [ true, %29 ], [ true, %.critedge.i ], [ true, %1 ], [ %134, %.critedge113.loopexit ], [ false, %.preheader ], [ false, %.lr.ph ], [ false, %.lr.ph177 ], [ false, %128 ], [ true, %31 ]
+_ZN6casadi8is_sliceERKSt6vectorIxSaIxEEb.exit.thread: ; preds = %31, %.lr.ph, %.lr.ph177, %128, %.preheader, %.critedge113.loopexit, %.critedge.i, %1, %29
+  %.076 = phi i1 [ true, %29 ], [ %134, %.critedge113.loopexit ], [ false, %.lr.ph177 ], [ false, %.lr.ph ], [ true, %.critedge.i ], [ true, %1 ], [ false, %.preheader ], [ false, %128 ], [ true, %31 ]
   ret i1 %.076
 
 135:                                              ; preds = %63
@@ -5265,7 +5265,7 @@ _ZN6casadi8is_sliceERKSt6vectorIxSaIxEEb.exit:    ; preds = %95
   %.not82 = icmp eq i64 %97, %99
   br i1 %.not82, label %_ZN6casadi8is_sliceERKSt6vectorIxSaIxEEb.exit.thread78, label %_ZN6casadi8is_sliceERKSt6vectorIxSaIxEEb.exit.thread
 
-_ZN6casadi8is_sliceERKSt6vectorIxSaIxEEb.exit.thread: ; preds = %101, %82, %.critedge.i, %_ZN6casadi8is_sliceERKSt6vectorIxSaIxEEb.exit
+_ZN6casadi8is_sliceERKSt6vectorIxSaIxEEb.exit.thread: ; preds = %101, %.critedge.i, %82, %_ZN6casadi8is_sliceERKSt6vectorIxSaIxEEb.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @_ZN6casadi8to_sliceERKSt6vectorIxSaIxEEb(ptr dead_on_unwind nonnull writable sret(%"class.casadi::Slice") align 8 %15, ptr noundef nonnull align 8 dereferenceable(24) %1, i1 noundef zeroext false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false)

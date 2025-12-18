@@ -1293,8 +1293,8 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br label %.critedge317
 
 .critedge317:                                     ; preds = %183, %161, %259, %223, %226, %229, %232, %235, %238, %241, %244, %247, %250, %253, %256, %.thread744, %.critedge317.loopexit, %165, %.critedge319.thread432, %214, %.critedge319
-  %cond10 = phi i1 [ false, %.thread744 ], [ false, %214 ], [ false, %.critedge319 ], [ false, %.critedge319.thread432 ], [ false, %165 ], [ false, %.critedge317.loopexit ], [ true, %259 ], [ true, %256 ], [ true, %253 ], [ true, %250 ], [ true, %247 ], [ true, %244 ], [ true, %241 ], [ true, %238 ], [ true, %235 ], [ true, %232 ], [ true, %229 ], [ true, %226 ], [ true, %223 ], [ false, %161 ], [ false, %183 ]
-  %.9252 = phi i1 [ false, %.thread744 ], [ false, %214 ], [ false, %.critedge319 ], [ false, %.critedge319.thread432 ], [ false, %165 ], [ false, %.critedge317.loopexit ], [ false, %259 ], [ %258, %256 ], [ %255, %253 ], [ %252, %250 ], [ %249, %247 ], [ %246, %244 ], [ %243, %241 ], [ %240, %238 ], [ %237, %235 ], [ %234, %232 ], [ %231, %229 ], [ %228, %226 ], [ %225, %223 ], [ false, %161 ], [ false, %183 ]
+  %cond10 = phi i1 [ false, %.thread744 ], [ false, %214 ], [ false, %.critedge319.thread432 ], [ false, %.critedge319 ], [ false, %165 ], [ false, %.critedge317.loopexit ], [ true, %259 ], [ true, %256 ], [ true, %253 ], [ true, %250 ], [ true, %247 ], [ true, %244 ], [ true, %241 ], [ true, %238 ], [ true, %235 ], [ true, %232 ], [ true, %229 ], [ true, %226 ], [ true, %223 ], [ false, %161 ], [ false, %183 ]
+  %.9252 = phi i1 [ false, %.thread744 ], [ false, %214 ], [ false, %.critedge319.thread432 ], [ false, %.critedge319 ], [ false, %165 ], [ false, %.critedge317.loopexit ], [ false, %259 ], [ %258, %256 ], [ %255, %253 ], [ %252, %250 ], [ %249, %247 ], [ %246, %244 ], [ %243, %241 ], [ %240, %238 ], [ %237, %235 ], [ %234, %232 ], [ %231, %229 ], [ %228, %226 ], [ %225, %223 ], [ false, %161 ], [ false, %183 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %265 = load ptr, ptr %11, align 8, !tbaa !60
   %266 = icmp eq ptr %265, %116
@@ -2467,7 +2467,7 @@ _ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i.i: ; preds = %10
           to label %_ZNK11gguf_reader4readIhEEbRSt6vectorIT_SaIS2_EEm.exit unwind label %61
 
 _ZNK11gguf_reader4readIhEEbRSt6vectorIT_SaIS2_EEm.exit: ; preds = %.lr.ph.i, %32, %40, %52, %.noexc23
-  %53 = phi i1 [ false, %32 ], [ false, %40 ], [ true, %.noexc23 ], [ true, %52 ], [ false, %.lr.ph.i ]
+  %53 = phi i1 [ false, %32 ], [ true, %52 ], [ false, %40 ], [ true, %.noexc23 ], [ false, %.lr.ph.i ]
   %54 = load ptr, ptr %6, align 8, !tbaa !93
   %.not.i.i.i = icmp eq ptr %54, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit, label %55
@@ -2664,7 +2664,7 @@ _ZNKSt6vectorIaSaIaEE12_M_check_lenEmPKc.exit.i.i: ; preds = %10
           to label %_ZNK11gguf_reader4readIaEEbRSt6vectorIT_SaIS2_EEm.exit unwind label %61
 
 _ZNK11gguf_reader4readIaEEbRSt6vectorIT_SaIS2_EEm.exit: ; preds = %.lr.ph.i, %32, %40, %52, %.noexc23
-  %53 = phi i1 [ false, %32 ], [ false, %40 ], [ true, %.noexc23 ], [ true, %52 ], [ false, %.lr.ph.i ]
+  %53 = phi i1 [ false, %32 ], [ true, %52 ], [ false, %40 ], [ true, %.noexc23 ], [ false, %.lr.ph.i ]
   %54 = load ptr, ptr %6, align 8, !tbaa !98
   %.not.i.i.i = icmp eq ptr %54, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIaSaIaEED2Ev.exit, label %55
@@ -2864,7 +2864,7 @@ _ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc33
           to label %_ZNK11gguf_reader4readItEEbRSt6vectorIT_SaIS2_EEm.exit unwind label %62
 
 _ZNK11gguf_reader4readItEEbRSt6vectorIT_SaIS2_EEm.exit: ; preds = %.lr.ph.i, %33, %41, %53, %.noexc24
-  %54 = phi i1 [ false, %33 ], [ false, %41 ], [ true, %.noexc24 ], [ true, %53 ], [ false, %.lr.ph.i ]
+  %54 = phi i1 [ false, %33 ], [ true, %53 ], [ false, %41 ], [ true, %.noexc24 ], [ false, %.lr.ph.i ]
   %55 = load ptr, ptr %6, align 8, !tbaa !105
   %.not.i.i.i26 = icmp eq ptr %55, null
   br i1 %.not.i.i.i26, label %_ZNSt6vectorItSaItEED2Ev.exit, label %56
@@ -3064,7 +3064,7 @@ _ZSt6fill_nIPsmsET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc33
           to label %_ZNK11gguf_reader4readIsEEbRSt6vectorIT_SaIS2_EEm.exit unwind label %62
 
 _ZNK11gguf_reader4readIsEEbRSt6vectorIT_SaIS2_EEm.exit: ; preds = %.lr.ph.i, %33, %41, %53, %.noexc24
-  %54 = phi i1 [ false, %33 ], [ false, %41 ], [ true, %.noexc24 ], [ true, %53 ], [ false, %.lr.ph.i ]
+  %54 = phi i1 [ false, %33 ], [ true, %53 ], [ false, %41 ], [ true, %.noexc24 ], [ false, %.lr.ph.i ]
   %55 = load ptr, ptr %6, align 8, !tbaa !111
   %.not.i.i.i26 = icmp eq ptr %55, null
   br i1 %.not.i.i.i26, label %_ZNSt6vectorIsSaIsEED2Ev.exit, label %56
@@ -3264,7 +3264,7 @@ _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc33
           to label %_ZNK11gguf_reader4readIjEEbRSt6vectorIT_SaIS2_EEm.exit unwind label %62
 
 _ZNK11gguf_reader4readIjEEbRSt6vectorIT_SaIS2_EEm.exit: ; preds = %.lr.ph.i, %33, %41, %53, %.noexc24
-  %54 = phi i1 [ false, %33 ], [ false, %41 ], [ true, %.noexc24 ], [ true, %53 ], [ false, %.lr.ph.i ]
+  %54 = phi i1 [ false, %33 ], [ true, %53 ], [ false, %41 ], [ true, %.noexc24 ], [ false, %.lr.ph.i ]
   %55 = load ptr, ptr %6, align 8, !tbaa !116
   %.not.i.i.i26 = icmp eq ptr %55, null
   br i1 %.not.i.i.i26, label %_ZNSt6vectorIjSaIjEED2Ev.exit, label %56
@@ -3464,7 +3464,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc33
           to label %_ZNK11gguf_reader4readIiEEbRSt6vectorIT_SaIS2_EEm.exit unwind label %62
 
 _ZNK11gguf_reader4readIiEEbRSt6vectorIT_SaIS2_EEm.exit: ; preds = %.lr.ph.i, %33, %41, %53, %.noexc24
-  %54 = phi i1 [ false, %33 ], [ false, %41 ], [ true, %.noexc24 ], [ true, %53 ], [ false, %.lr.ph.i ]
+  %54 = phi i1 [ false, %33 ], [ true, %53 ], [ false, %41 ], [ true, %.noexc24 ], [ false, %.lr.ph.i ]
   %55 = load ptr, ptr %6, align 8, !tbaa !122
   %.not.i.i.i26 = icmp eq ptr %55, null
   br i1 %.not.i.i.i26, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %56
@@ -3664,7 +3664,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc33
           to label %_ZNK11gguf_reader4readIfEEbRSt6vectorIT_SaIS2_EEm.exit unwind label %62
 
 _ZNK11gguf_reader4readIfEEbRSt6vectorIT_SaIS2_EEm.exit: ; preds = %.lr.ph.i, %33, %41, %53, %.noexc24
-  %54 = phi i1 [ false, %33 ], [ false, %41 ], [ true, %.noexc24 ], [ true, %53 ], [ false, %.lr.ph.i ]
+  %54 = phi i1 [ false, %33 ], [ true, %53 ], [ false, %41 ], [ true, %.noexc24 ], [ false, %.lr.ph.i ]
   %55 = load ptr, ptr %6, align 8, !tbaa !129
   %.not.i.i.i26 = icmp eq ptr %55, null
   br i1 %.not.i.i.i26, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %56
@@ -4288,7 +4288,7 @@ _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc33
           to label %_ZNK11gguf_reader4readImEEbRSt6vectorIT_SaIS2_EEm.exit unwind label %62
 
 _ZNK11gguf_reader4readImEEbRSt6vectorIT_SaIS2_EEm.exit: ; preds = %.lr.ph.i, %33, %41, %53, %.noexc24
-  %54 = phi i1 [ false, %33 ], [ false, %41 ], [ true, %.noexc24 ], [ true, %53 ], [ false, %.lr.ph.i ]
+  %54 = phi i1 [ false, %33 ], [ true, %53 ], [ false, %41 ], [ true, %.noexc24 ], [ false, %.lr.ph.i ]
   %55 = load ptr, ptr %6, align 8, !tbaa !148
   %.not.i.i.i26 = icmp eq ptr %55, null
   br i1 %.not.i.i.i26, label %_ZNSt6vectorImSaImEED2Ev.exit, label %56
@@ -4488,7 +4488,7 @@ _ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc33
           to label %_ZNK11gguf_reader4readIlEEbRSt6vectorIT_SaIS2_EEm.exit unwind label %62
 
 _ZNK11gguf_reader4readIlEEbRSt6vectorIT_SaIS2_EEm.exit: ; preds = %.lr.ph.i, %33, %41, %53, %.noexc24
-  %54 = phi i1 [ false, %33 ], [ false, %41 ], [ true, %.noexc24 ], [ true, %53 ], [ false, %.lr.ph.i ]
+  %54 = phi i1 [ false, %33 ], [ true, %53 ], [ false, %41 ], [ true, %.noexc24 ], [ false, %.lr.ph.i ]
   %55 = load ptr, ptr %6, align 8, !tbaa !153
   %.not.i.i.i26 = icmp eq ptr %55, null
   br i1 %.not.i.i.i26, label %_ZNSt6vectorIlSaIlEED2Ev.exit, label %56
@@ -4688,7 +4688,7 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc33
           to label %_ZNK11gguf_reader4readIdEEbRSt6vectorIT_SaIS2_EEm.exit unwind label %62
 
 _ZNK11gguf_reader4readIdEEbRSt6vectorIT_SaIS2_EEm.exit: ; preds = %.lr.ph.i, %33, %41, %53, %.noexc24
-  %54 = phi i1 [ false, %33 ], [ false, %41 ], [ true, %.noexc24 ], [ true, %53 ], [ false, %.lr.ph.i ]
+  %54 = phi i1 [ false, %33 ], [ true, %53 ], [ false, %41 ], [ true, %.noexc24 ], [ false, %.lr.ph.i ]
   %55 = load ptr, ptr %6, align 8, !tbaa !160
   %.not.i.i.i26 = icmp eq ptr %55, null
   br i1 %.not.i.i.i26, label %_ZNSt6vectorIdSaIdEED2Ev.exit, label %56
@@ -6658,7 +6658,7 @@ _ZNSt6vectorI7gguf_kvSaIS0_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS0_S2_EE.ex
   br label %gguf_find_key.exit.thread
 
 gguf_find_key.exit.thread:                        ; preds = %16, %2, %_ZNSt6vectorI7gguf_kvSaIS0_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS0_S2_EE.exit
-  %.08.i9 = phi i64 [ %.09.i, %_ZNSt6vectorI7gguf_kvSaIS0_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS0_S2_EE.exit ], [ -1, %2 ], [ -1, %16 ]
+  %.08.i9 = phi i64 [ -1, %2 ], [ %.09.i, %_ZNSt6vectorI7gguf_kvSaIS0_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS0_S2_EE.exit ], [ -1, %16 ]
   ret i64 %.08.i9
 }
 

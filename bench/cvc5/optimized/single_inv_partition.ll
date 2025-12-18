@@ -980,7 +980,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit32: ; preds = %223, %227, %233
   br label %239
 
 .thread36:                                        ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit32, %174, %.preheader38, %.preheader, %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEbSt4lessIS3_ESaISt4pairIKS3_bEEEixERS7_.exit, %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEbSt4lessIS3_ESaISt4pairIKS3_bEEE4findERS7_.exit
-  %.021 = phi i1 [ false, %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEbSt4lessIS3_ESaISt4pairIKS3_bEEEixERS7_.exit ], [ false, %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEbSt4lessIS3_ESaISt4pairIKS3_bEEE4findERS7_.exit ], [ true, %.preheader38 ], [ false, %.preheader ], [ %222, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit32 ], [ %222, %174 ], [ true, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ]
+  %.021 = phi i1 [ %222, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit32 ], [ false, %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEbSt4lessIS3_ESaISt4pairIKS3_bEEEixERS7_.exit ], [ false, %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEbSt4lessIS3_ESaISt4pairIKS3_bEEE4findERS7_.exit ], [ true, %.preheader38 ], [ false, %.preheader ], [ %222, %174 ], [ true, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ]
   ret i1 %.021
 
 239:                                              ; preds = %237, %173
@@ -9016,7 +9016,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit135: ; preds = %_ZNK4cvc58internal
           to label %.thread unwind label %316
 
 .thread:                                          ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit135, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit115, %._crit_edge.i.i.i, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEES5_ET_SB_SB_RKT0_.exit, %267, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit110, %559, %323
-  %.451 = phi i8 [ 1, %559 ], [ 1, %._crit_edge.i.i.i ], [ 1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit110 ], [ 0, %323 ], [ 1, %267 ], [ 1, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEES5_ET_SB_SB_RKT0_.exit ], [ 0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit115 ], [ 0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit135 ]
+  %.451 = phi i8 [ 1, %559 ], [ 0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit115 ], [ 1, %._crit_edge.i.i.i ], [ 1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit110 ], [ 0, %323 ], [ 1, %267 ], [ 1, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEES5_ET_SB_SB_RKT0_.exit ], [ 0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit135 ]
   %560 = load ptr, ptr %9, align 8, !tbaa !27
   %561 = load i64, ptr %560, align 8
   %562 = and i64 %561, 1152920405095219200
@@ -15512,7 +15512,7 @@ define linkonce_odr hidden void @_ZNK4cvc58internal12NodeTemplateILb1EE10substit
   br label %.loopexit, !llvm.loop !261
 
 .loopexit82:                                      ; preds = %46, %25, %36
-  %.sroa.06.1.i.i = phi ptr [ %37, %36 ], [ %.sroa.06.0.i.i, %25 ], [ %52, %46 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %25 ], [ %37, %36 ], [ %52, %46 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %57 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %58 = load ptr, ptr %57, align 8, !tbaa !111
@@ -16220,7 +16220,7 @@ _ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS3_S3_ESaIS6_ENSt
   resume { ptr, i32 } %36
 
 _ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit: ; preds = %22, %.loopexit, %12
-  %.pn = phi ptr [ %13, %12 ], [ %34, %.loopexit ], [ %28, %22 ]
+  %.pn = phi ptr [ %34, %.loopexit ], [ %13, %12 ], [ %28, %22 ]
   %.1 = getelementptr inbounds nuw i8, ptr %.pn, i64 16
   ret ptr %.1
 }

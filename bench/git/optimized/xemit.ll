@@ -127,8 +127,8 @@ define dso_local ptr @xdl_get_hunk(ptr noundef captures(none) %0, ptr noundef re
   br label %55
 
 55:                                               ; preds = %.sink.split, %37, %49
-  %.258 = phi ptr [ %.05393, %37 ], [ %.05393, %49 ], [ %.05690, %.sink.split ]
-  %.1 = phi i64 [ 0, %37 ], [ 0, %49 ], [ %54, %.sink.split ]
+  %.258 = phi ptr [ %.05393, %49 ], [ %.05393, %37 ], [ %.05690, %.sink.split ]
+  %.1 = phi i64 [ 0, %49 ], [ 0, %37 ], [ %54, %.sink.split ]
   %.053 = load ptr, ptr %.05393, align 8, !tbaa !16
   %.not65 = icmp eq ptr %.053, null
   br i1 %.not65, label %.thread, label %.lr.ph94, !llvm.loop !22
@@ -277,8 +277,8 @@ define dso_local range(i32 -1, 1) i32 @xdl_emit_diff(ptr noundef readonly captur
   br label %72
 
 72:                                               ; preds = %.sink.split.i, %66, %54
-  %.258.i = phi ptr [ %.05393.i, %54 ], [ %.05393.i, %66 ], [ %.05690.i, %.sink.split.i ]
-  %.1.i = phi i64 [ 0, %54 ], [ 0, %66 ], [ %71, %.sink.split.i ]
+  %.258.i = phi ptr [ %.05393.i, %66 ], [ %.05393.i, %54 ], [ %.05690.i, %.sink.split.i ]
+  %.1.i = phi i64 [ 0, %66 ], [ 0, %54 ], [ %71, %.sink.split.i ]
   %.053.i = load ptr, ptr %.05393.i, align 8, !tbaa !16
   %.not65.i = icmp eq ptr %.053.i, null
   br i1 %.not65.i, label %xdl_get_hunk.exit, label %.lr.ph94.i, !llvm.loop !22
@@ -543,7 +543,7 @@ is_func_rec.exit272:                              ; preds = %is_empty_rec.exit.t
   br i1 %172, label %.lr.ph497, label %.critedge, !llvm.loop !46
 
 .critedge:                                        ; preds = %is_func_rec.exit272, %171, %is_empty_rec.exit, %152, %get_func_line.exit.thread, %get_func_line.exit, %is_func_rec.exit272.thread383
-  %.0168453 = phi i64 [ %.0168496, %is_func_rec.exit272.thread383 ], [ %.02636.i, %get_func_line.exit ], [ -1, %get_func_line.exit.thread ], [ %.0168496, %152 ], [ %.0168496, %is_func_rec.exit272 ], [ 0, %171 ], [ %.0168496, %is_empty_rec.exit ]
+  %.0168453 = phi i64 [ -1, %get_func_line.exit.thread ], [ %.0168496, %is_func_rec.exit272.thread383 ], [ %.02636.i, %get_func_line.exit ], [ %.0168496, %152 ], [ %.0168496, %is_func_rec.exit272 ], [ 0, %171 ], [ %.0168496, %is_empty_rec.exit ]
   %spec.store.select = call i64 @llvm.smax.i64(i64 %.0168453, i64 0)
   %173 = icmp sgt i64 %85, %spec.store.select
   br i1 %173, label %174, label %.preheader446
@@ -595,9 +595,9 @@ is_func_rec.exit272:                              ; preds = %is_empty_rec.exit.t
   br i1 %.not224, label %.preheader446, label %.lr.ph740
 
 .preheader446:                                    ; preds = %.critedge, %.critedge3, %174, %is_func_rec.exit, %187, %.preheader447.preheader, %is_func_rec.exit.thread365
-  %.0719 = phi ptr [ %.0737, %is_func_rec.exit.thread365 ], [ %.7361, %.preheader447.preheader ], [ %.0737, %187 ], [ %.0737, %is_func_rec.exit ], [ %.0737, %174 ], [ %.3175501, %.critedge3 ], [ %.0737, %.critedge ]
-  %.3197.ph = phi i64 [ %spec.select739, %is_func_rec.exit.thread365 ], [ %spec.select735, %.preheader447.preheader ], [ %spec.store.select, %187 ], [ %spec.select739, %is_func_rec.exit ], [ %spec.store.select, %174 ], [ %spec.select, %.critedge3 ], [ %spec.select739, %.critedge ]
-  %.3191.ph = phi i64 [ %83, %is_func_rec.exit.thread365 ], [ %80, %.preheader447.preheader ], [ %spec.select240, %187 ], [ %83, %is_func_rec.exit ], [ %spec.select240, %174 ], [ %196, %.critedge3 ], [ %83, %.critedge ]
+  %.0719 = phi ptr [ %.0737, %is_func_rec.exit ], [ %.0737, %187 ], [ %.0737, %is_func_rec.exit.thread365 ], [ %.7361, %.preheader447.preheader ], [ %.3175501, %.critedge3 ], [ %.0737, %.critedge ], [ %.0737, %174 ]
+  %.3197.ph = phi i64 [ %spec.select739, %is_func_rec.exit ], [ %spec.store.select, %187 ], [ %spec.select739, %is_func_rec.exit.thread365 ], [ %spec.select735, %.preheader447.preheader ], [ %spec.select, %.critedge3 ], [ %spec.select739, %.critedge ], [ %spec.store.select, %174 ]
+  %.3191.ph = phi i64 [ %83, %is_func_rec.exit ], [ %spec.select240, %187 ], [ %83, %is_func_rec.exit.thread365 ], [ %80, %.preheader447.preheader ], [ %196, %.critedge3 ], [ %83, %.critedge ], [ %spec.select240, %174 ]
   br label %199
 
 199:                                              ; preds = %.preheader446, %315
@@ -851,8 +851,8 @@ get_func_line.exit320.thread:                     ; preds = %.lr.ph.i304, %.thre
   br label %.thread413
 
 .thread413:                                       ; preds = %277, %199, %.thread413.sink.split
-  %.0186 = phi i64 [ %.1187, %.thread413.sink.split ], [ %216, %199 ], [ %.1187, %277 ]
-  %.0184 = phi i64 [ %.1185, %.thread413.sink.split ], [ %217, %199 ], [ %.1185, %277 ]
+  %.0186 = phi i64 [ %.1187, %.thread413.sink.split ], [ %.1187, %277 ], [ %216, %199 ]
+  %.0184 = phi i64 [ %.1185, %.thread413.sink.split ], [ %.1185, %277 ], [ %217, %199 ]
   %317 = getelementptr inbounds nuw i8, ptr %.1180, i64 32
   %318 = getelementptr inbounds nuw i8, ptr %.1180, i64 16
   %319 = load i64, ptr %12, align 8, !tbaa !24
@@ -1146,7 +1146,7 @@ get_func_line.exit341:                            ; preds = %.thread.i331, %.lr.
   br i1 %.not, label %.thread419, label %20, !llvm.loop !57
 
 .thread419:                                       ; preds = %xdl_get_hunk.exit, %._crit_edge539, %365, %.lr.ph518, %.lr.ph538, %.lr.ph751, %.lr.ph529, %.lr.ph533, %4
-  %.2 = phi i32 [ 0, %4 ], [ -1, %.lr.ph529 ], [ -1, %.lr.ph751 ], [ -1, %.lr.ph538 ], [ -1, %.lr.ph518 ], [ -1, %.lr.ph533 ], [ 0, %._crit_edge539 ], [ 0, %xdl_get_hunk.exit ], [ -1, %365 ]
+  %.2 = phi i32 [ -1, %.lr.ph529 ], [ -1, %.lr.ph538 ], [ -1, %.lr.ph533 ], [ -1, %.lr.ph518 ], [ 0, %4 ], [ -1, %.lr.ph751 ], [ 0, %._crit_edge539 ], [ 0, %xdl_get_hunk.exit ], [ -1, %365 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.2
 }

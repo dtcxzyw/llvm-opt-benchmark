@@ -383,7 +383,7 @@ Abc_NtkFraigSweepUsingExdc.exit:                  ; preds = %104, %65, %64, %.cr
   br label %.critedge2.i
 
 .outer._crit_edge.i:                              ; preds = %.outer.i, %184, %.outer.us.i, %175, %.critedge.i
-  %.0.ph.lcssa.i = phi i32 [ 0, %.critedge.i ], [ %.0.ph83.i, %184 ], [ %.0.ph83.us.i, %175 ], [ %.1.lcssa.us.i, %.outer.us.i ], [ %.1.lcssa.i, %.outer.i ]
+  %.0.ph.lcssa.i = phi i32 [ %.1.lcssa.us.i, %.outer.us.i ], [ 0, %.critedge.i ], [ %.0.ph83.i, %184 ], [ %.0.ph83.us.i, %175 ], [ %.1.lcssa.i, %.outer.i ]
   call void @stmm_free_gen(ptr noundef %162) #12
   %177 = or i32 %4, %3
   %or.cond.not.i = icmp eq i32 %177, 0

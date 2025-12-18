@@ -974,7 +974,7 @@ _ZNK6vectorI10ref_vectorI3app11ast_managerELb1EjE4sizeEv.exit38: ; preds = %_ZNK
           to label %_ZN7nlarith4util3imp18is_degree_two_plusERK6vectorI10ref_vectorI3app11ast_managerELb1EjE.exit unwind label %105
 
 _ZN7nlarith4util3imp18is_degree_two_plusERK6vectorI10ref_vectorI3app11ast_managerELb1EjE.exit: ; preds = %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i, %.noexc27, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i, %.critedge, %79, %61, %_ZNK17arith_recognizers7is_realEPK4expr.exit
-  %.023 = phi i1 [ false, %61 ], [ true, %.critedge ], [ false, %_ZNK17arith_recognizers7is_realEPK4expr.exit ], [ false, %79 ], [ false, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i ], [ false, %.noexc27 ], [ false, %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i ]
+  %.023 = phi i1 [ false, %61 ], [ false, %.noexc27 ], [ true, %.critedge ], [ false, %_ZNK17arith_recognizers7is_realEPK4expr.exit ], [ false, %79 ], [ false, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i ], [ false, %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i ]
   call void @_ZN10check_predD2Ev(ptr noundef nonnull align 8 dereferenceable(137) %17) #21
   %125 = load ptr, ptr %8, align 8, !tbaa !73
   %.not.i.i.i39 = icmp eq ptr %125, null
@@ -3626,7 +3626,7 @@ _ZN11ast_manager7inc_refEP3ast.exit.i58:          ; preds = %117
   invoke void @_ZN11ast_manager11delete_nodeEP3ast(ptr noundef nonnull align 8 dereferenceable(976) %123, ptr noundef nonnull %22)
           to label %297 unwind label %26
 
-_ZNK17arith_recognizers5is_gtEPK4expr.exit.i.i:   ; preds = %101, %_ZNK11ast_manager6is_notEPK4expr.exit.i, %79, %107, %_ZNK17arith_recognizers5is_leEPK4expr.exit.i.i52, %83, %90
+_ZNK17arith_recognizers5is_gtEPK4expr.exit.i.i:   ; preds = %101, %_ZNK11ast_manager6is_notEPK4expr.exit.i, %79, %83, %107, %_ZNK17arith_recognizers5is_leEPK4expr.exit.i.i52, %90
   %129 = load i32, ptr %38, align 8, !tbaa !113
   %130 = icmp eq i32 %129, 5
   %131 = getelementptr inbounds nuw i8, ptr %38, i64 4
@@ -3795,7 +3795,7 @@ _ZN11ast_manager7inc_refEP3ast.exit.i84:          ; preds = %207
   invoke void @_ZN11ast_manager11delete_nodeEP3ast(ptr noundef nonnull align 8 dereferenceable(976) %213, ptr noundef nonnull %22)
           to label %297 unwind label %26
 
-_ZNK11ast_manager5is_eqEPK4expr.exit.i:           ; preds = %191, %_ZNK11ast_manager6is_notEPK4expr.exit.i73, %169, %197, %_ZNK17arith_recognizers5is_ltEPK4expr.exit.i.i78, %173, %180
+_ZNK11ast_manager5is_eqEPK4expr.exit.i:           ; preds = %191, %_ZNK11ast_manager6is_notEPK4expr.exit.i73, %169, %173, %197, %_ZNK17arith_recognizers5is_ltEPK4expr.exit.i.i78, %180
   %219 = load i32, ptr %38, align 8, !tbaa !113
   %220 = icmp eq i32 %219, 0
   %221 = getelementptr inbounds nuw i8, ptr %38, i64 4

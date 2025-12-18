@@ -9345,7 +9345,7 @@ _Py_NewRef.exit10635:                             ; preds = %3522, %3526
   %3645 = icmp eq i32 %3644, 0
   br i1 %3645, label %.loopexit10903.sink.split, label %.loopexit10903
 
-.loopexit10896:                                   ; preds = %3624, %3637, %3620
+.loopexit10896:                                   ; preds = %3624, %3620, %3637
   %3646 = inttoptr i64 %.sroa.02993.0.copyload to ptr
   %3647 = call i32 @PyErr_GivenExceptionMatches(ptr noundef %3646, ptr noundef nonnull %3615) #15
   %3648 = load ptr, ptr %3616, align 8, !tbaa !136
@@ -23294,7 +23294,7 @@ _Py_NewRef.exit.i75:                              ; preds = %407, %402
   %exitcond530.not.i = icmp eq i64 %476, %462
   br i1 %exitcond530.not.i, label %.loopexit81, label %.lr.ph467.i, !llvm.loop !328
 
-.loopexit81:                                      ; preds = %475, %299, %.sink.split.i372.i, %413, %.loopexit419.i, %339, %346, %348, %366, %368, %444, %.thread405.i, %positional_only_passed_as_keyword.exit.thread.i, %460
+.loopexit81:                                      ; preds = %475, %299, %.sink.split.i372.i, %positional_only_passed_as_keyword.exit.thread.i, %413, %.loopexit419.i, %339, %346, %348, %366, %368, %444, %.thread405.i, %460
   %477 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %478 = load i32, ptr %477, align 4, !tbaa !99
   %479 = add i32 %478, -1
@@ -23846,13 +23846,13 @@ define dso_local range(i32 -1, 1) i32 @_PyEval_CheckExceptStarTypeValid(ptr noun
   br i1 %.not30, label %.thread45, label %.thread45.sink.split
 
 .thread45.sink.split:                             ; preds = %18, %12, %37, %41, %23, %21
-  %.str.66.sink = phi ptr [ @.str.66, %23 ], [ @.str.66, %21 ], [ @.str.67, %41 ], [ @.str.67, %37 ], [ @.str.66, %12 ], [ @.str.66, %18 ]
+  %.str.66.sink = phi ptr [ @.str.66, %23 ], [ @.str.67, %37 ], [ @.str.67, %41 ], [ @.str.66, %21 ], [ @.str.66, %12 ], [ @.str.66, %18 ]
   %42 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !100
   tail call void @_PyErr_SetString(ptr noundef %0, ptr noundef %42, ptr noundef nonnull %.str.66.sink) #15
   br label %.thread45
 
 .thread45:                                        ; preds = %29, %31, %.thread45.sink.split, %.loopexit.thread58, %.loopexit.thread, %41
-  %.0 = phi i32 [ -1, %.loopexit.thread ], [ 0, %41 ], [ 0, %.loopexit.thread58 ], [ -1, %.thread45.sink.split ], [ 0, %29 ], [ -1, %31 ]
+  %.0 = phi i32 [ 0, %.loopexit.thread58 ], [ -1, %.thread45.sink.split ], [ -1, %.loopexit.thread ], [ 0, %41 ], [ -1, %31 ], [ 0, %29 ]
   ret i32 %.0
 }
 
@@ -24206,7 +24206,7 @@ define dso_local range(i32 -1, 1) i32 @_PyEval_CheckExceptTypeValid(ptr noundef 
   br label %.thread
 
 .thread:                                          ; preds = %10, %.thread.sink.split, %6, %23
-  %.3 = phi i32 [ 0, %23 ], [ 0, %6 ], [ -1, %.thread.sink.split ], [ 0, %10 ]
+  %.3 = phi i32 [ -1, %.thread.sink.split ], [ 0, %6 ], [ 0, %23 ], [ 0, %10 ]
   ret i32 %.3
 }
 
@@ -26529,7 +26529,7 @@ _PyFrame_GetFrameObject.exit:                     ; preds = %_PyEval_GetFrame.ex
   br label %_PyEval_GetFrame.exit.thread
 
 _PyEval_GetFrame.exit.thread:                     ; preds = %_PyFrame_IsIncomplete.exit.thread.i.i.i, %_PyEval_GetFrame.exit, %0, %_PyFrame_GetFrameObject.exit, %23
-  %.0 = phi ptr [ null, %23 ], [ %21, %_PyFrame_GetFrameObject.exit ], [ null, %0 ], [ %20, %_PyEval_GetFrame.exit ], [ null, %_PyFrame_IsIncomplete.exit.thread.i.i.i ]
+  %.0 = phi ptr [ %20, %_PyEval_GetFrame.exit ], [ null, %23 ], [ %21, %_PyFrame_GetFrameObject.exit ], [ null, %0 ], [ null, %_PyFrame_IsIncomplete.exit.thread.i.i.i ]
   ret ptr %.0
 }
 

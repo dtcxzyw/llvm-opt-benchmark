@@ -6743,8 +6743,8 @@ define internal range(i32 -95, 1) i32 @virtnet_set_coalesce(ptr noundef %0, ptr 
   br i1 %41, label %.loopexit18, label %.split25.split, !llvm.loop !88
 
 .loopexit18:                                      ; preds = %39, %.lr.ph.split, %..split27.us_crit_edge, %.split25.us, %4
-  %42 = phi i32 [ 0, %4 ], [ 0, %.split25.us ], [ %34, %..split27.us_crit_edge ], [ %14, %.lr.ph.split ], [ %14, %39 ]
-  %43 = phi i1 [ false, %4 ], [ true, %.split25.us ], [ %33, %..split27.us_crit_edge ], [ false, %.lr.ph.split ], [ false, %39 ]
+  %42 = phi i32 [ 0, %4 ], [ %14, %.lr.ph.split ], [ 0, %.split25.us ], [ %34, %..split27.us_crit_edge ], [ %14, %39 ]
+  %43 = phi i1 [ false, %4 ], [ false, %.lr.ph.split ], [ true, %.split25.us ], [ %33, %..split27.us_crit_edge ], [ false, %39 ]
   %44 = load ptr, ptr %7, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 784
   %46 = load i64, ptr %45, align 8
@@ -7006,7 +7006,7 @@ define internal range(i32 -95, 1) i32 @virtnet_set_coalesce(ptr noundef %0, ptr 
   br i1 %202, label %195, label %.thread13, !llvm.loop !93
 
 .thread13:                                        ; preds = %.split25.split, %195, %177, %169, %173, %82, %188, %184
-  %203 = phi i32 [ %185, %184 ], [ 0, %188 ], [ -22, %177 ], [ -95, %169 ], [ -95, %173 ], [ -22, %82 ], [ 0, %195 ], [ -16, %.split25.split ]
+  %203 = phi i32 [ %185, %184 ], [ 0, %188 ], [ -22, %82 ], [ 0, %195 ], [ -22, %177 ], [ -95, %169 ], [ -95, %173 ], [ -16, %.split25.split ]
   ret i32 %203
 }
 
@@ -9999,8 +9999,8 @@ define internal fastcc void @receive_buf(ptr noundef readonly captures(none) %0,
   %462 = icmp eq ptr %461, null
   br i1 %462, label %.thread41, label %.thread43, !prof !116
 
-.thread43:                                        ; preds = %445, %353, %460
-  %463 = phi ptr [ %461, %460 ], [ %443, %445 ], [ %354, %353 ]
+.thread43:                                        ; preds = %353, %445, %460
+  %463 = phi ptr [ %461, %460 ], [ %354, %353 ], [ %443, %445 ]
   %464 = getelementptr inbounds nuw i8, ptr %463, i64 40
   %465 = getelementptr inbounds nuw i8, ptr %12, i64 176
   %466 = load i64, ptr %465, align 8
@@ -10628,9 +10628,9 @@ define internal fastcc ptr @receive_mergeable_xdp(ptr noundef %0, ptr noundef re
   br label %126
 
 126:                                              ; preds = %117, %86
-  %127 = phi ptr [ %118, %117 ], [ %55, %86 ]
-  %128 = phi i32 [ 4096, %117 ], [ %71, %86 ]
-  %129 = phi ptr [ %125, %117 ], [ %89, %86 ]
+  %127 = phi ptr [ %55, %86 ], [ %118, %117 ]
+  %128 = phi i32 [ %71, %86 ], [ 4096, %117 ]
+  %129 = phi ptr [ %89, %86 ], [ %125, %117 ]
   %130 = icmp eq ptr %129, null
   br i1 %130, label %.thread, label %131, !prof !117
 
@@ -11133,7 +11133,7 @@ define internal fastcc ptr @receive_mergeable_xdp(ptr noundef %0, ptr noundef re
   br label %.thread
 
 .thread:                                          ; preds = %448, %54, %97, %94, %.thread30, %.critedge, %403, %.thread12, %126
-  %453 = phi ptr [ %127, %126 ], [ %127, %.critedge ], [ %127, %403 ], [ %127, %.thread12 ], [ %55, %.thread30 ], [ %55, %94 ], [ %55, %97 ], [ %55, %54 ], [ %127, %448 ]
+  %453 = phi ptr [ %127, %126 ], [ %127, %.critedge ], [ %55, %54 ], [ %127, %403 ], [ %127, %.thread12 ], [ %55, %.thread30 ], [ %55, %94 ], [ %55, %97 ], [ %127, %448 ]
   %454 = getelementptr inbounds nuw i8, ptr %453, i64 8
   %455 = load volatile i64, ptr %454, align 8
   %456 = and i64 %455, 1
@@ -11196,7 +11196,7 @@ define internal fastcc ptr @receive_mergeable_xdp(ptr noundef %0, ptr noundef re
   br label %489
 
 489:                                              ; preds = %391, %395, %485, %.loopexit, %.loopexit
-  %490 = phi ptr [ null, %485 ], [ null, %.loopexit ], [ null, %.loopexit ], [ %347, %395 ], [ %347, %391 ]
+  %490 = phi ptr [ null, %485 ], [ null, %.loopexit ], [ null, %.loopexit ], [ %347, %391 ], [ %347, %395 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret ptr %490

@@ -4746,7 +4746,7 @@ define hidden void @_ZN3opt6maxsmt3addEP4exprRK8rational(ptr noundef nonnull ali
   br i1 %.not27.old.i.i.i, label %.loopexit14, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %40, %37
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %40 ], [ %39, %37 ]
+  %.137.i.i.i.be = phi ptr [ %39, %37 ], [ %.old.i.i.i, %40 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !229
 
 .loopexit:                                        ; preds = %21, %32

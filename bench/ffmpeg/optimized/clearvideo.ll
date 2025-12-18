@@ -587,7 +587,7 @@ bytestream2_get_byte.exit218:                     ; preds = %bytestream2_get_be3
   br i1 %exitcond92.not.i, label %decode_mb.exit, label %.split.i, !llvm.loop !78
 
 decode_mb.exit:                                   ; preds = %129, %.split.i, %210, %.split.us.i, %183
-  %231 = phi i32 [ -1094995529, %.split.i ], [ %.1189320, %183 ], [ -1094995529, %.split.us.i ], [ %.1189320, %210 ], [ -1094995529, %129 ]
+  %231 = phi i32 [ %.1189320, %183 ], [ %.1189320, %210 ], [ -1094995529, %.split.us.i ], [ -1094995529, %.split.i ], [ -1094995529, %129 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %232 = add nuw nsw i32 %.2184321, 1
   %233 = load i32, ptr %44, align 16, !tbaa !43
@@ -1068,7 +1068,7 @@ mvi_predict.exit:                                 ; preds = %344, %346, %358, %m
   br i1 %exitcond.not.i247, label %copy_block.exit, label %487, !llvm.loop !97
 
 copy_block.exit:                                  ; preds = %487, %452, %457, %432, %466
-  %491 = phi i32 [ %.7328, %466 ], [ -1094995529, %432 ], [ -1094995529, %457 ], [ -1094995529, %452 ], [ %.7328, %487 ]
+  %491 = phi i32 [ -1094995529, %452 ], [ %.7328, %466 ], [ -1094995529, %432 ], [ -1094995529, %457 ], [ %.7328, %487 ]
   %indvars.iv.next349 = add nuw nsw i64 %indvars.iv348, 1
   %exitcond351.not = icmp eq i64 %indvars.iv.next349, 3
   br i1 %exitcond351.not, label %.loopexit, label %432, !llvm.loop !98
@@ -1203,7 +1203,7 @@ extend_edges.exit:                                ; preds = %extend_edges.exit.l
   br label %.thread297
 
 .thread297:                                       ; preds = %339, %302, %296, %291, %.thread, %extend_edges.exit, %bytestream2_get_byte.exit218, %51, %557, %50, %40
-  %.0 = phi i32 [ %9, %40 ], [ -1094995529, %50 ], [ %543, %extend_edges.exit ], [ %54, %51 ], [ -1094995529, %bytestream2_get_byte.exit218 ], [ %559, %557 ], [ -1094995529, %.thread ], [ -1094995529, %302 ], [ %300, %296 ], [ %294, %291 ], [ -1094995529, %339 ]
+  %.0 = phi i32 [ %9, %40 ], [ -1094995529, %50 ], [ %543, %extend_edges.exit ], [ %54, %51 ], [ -1094995529, %bytestream2_get_byte.exit218 ], [ %559, %557 ], [ -1094995529, %.thread ], [ -1094995529, %302 ], [ %294, %291 ], [ %300, %296 ], [ -1094995529, %339 ]
   ret i32 %.0
 }
 
@@ -2427,7 +2427,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @tile_do_block(ptr noundef 
   br i1 %exitcond91.not.i, label %copy_block.exit, label %.lr.ph.us.i, !llvm.loop !114
 
 copy_block.exit:                                  ; preds = %._crit_edge.us.i, %57, %.preheader.i, %86, %80, %61, %35, %25, %19, %15
-  %.0 = phi i32 [ -1094995529, %15 ], [ -1094995529, %25 ], [ -1094995529, %19 ], [ 0, %35 ], [ -1094995529, %61 ], [ -1094995529, %86 ], [ -1094995529, %80 ], [ 0, %.preheader.i ], [ 0, %57 ], [ 0, %._crit_edge.us.i ]
+  %.0 = phi i32 [ 0, %57 ], [ -1094995529, %15 ], [ -1094995529, %25 ], [ -1094995529, %19 ], [ 0, %35 ], [ -1094995529, %61 ], [ -1094995529, %86 ], [ -1094995529, %80 ], [ 0, %.preheader.i ], [ 0, %._crit_edge.us.i ]
   ret i32 %.0
 }
 

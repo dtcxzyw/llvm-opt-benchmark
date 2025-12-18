@@ -5531,7 +5531,7 @@ _ZL26_interpolate_linear_splinePKfS0_if.exit432.us489.i.i: ; preds = %._crit_edg
   br label %.lr.ph501.i.i
 
 .split486.us.i.i:                                 ; preds = %.preheader.i423.i.i, %_ZL26_interpolate_linear_splinePKfS0_if.exit432.us489.i.i, %_ZL26_interpolate_linear_splinePKfS0_if.exit432.us.i.i
-  %.us-phi.i59.i = phi float [ %700, %_ZL26_interpolate_linear_splinePKfS0_if.exit432.us489.i.i ], [ %677, %_ZL26_interpolate_linear_splinePKfS0_if.exit432.us.i.i ], [ %709, %.preheader.i423.i.i ]
+  %.us-phi.i59.i = phi float [ %677, %_ZL26_interpolate_linear_splinePKfS0_if.exit432.us.i.i ], [ %700, %_ZL26_interpolate_linear_splinePKfS0_if.exit432.us489.i.i ], [ %709, %.preheader.i423.i.i ]
   %.int.i60.i = add nuw nsw i32 %.0332496.int.i.i, 1
   %exitcond586.not.i.i = icmp eq i32 %.int.i60.i, 200
   br i1 %exitcond586.not.i.i, label %.preheader.i61.i, label %.preheader436.i.i, !llvm.loop !399
@@ -9209,7 +9209,7 @@ define internal fastcc noundef i32 @_ZL18_init_coeffs_md_v1PK10dt_image_tPK20dt_
   br i1 %exitcond.not, label %.loopexit, label %182, !llvm.loop !534
 
 .loopexit:                                        ; preds = %259, %.critedge222, %.critedge220.us, %.critedge220.us.us231, %.critedge220.us.us, %.critedge217, %93, %24, %7
-  %.0 = phi i32 [ 0, %7 ], [ %94, %93 ], [ %25, %24 ], [ %94, %.critedge222 ], [ %25, %.critedge217 ], [ %94, %.critedge220.us.us ], [ %94, %.critedge220.us.us231 ], [ %94, %.critedge220.us ], [ 16, %259 ]
+  %.0 = phi i32 [ %25, %24 ], [ 0, %7 ], [ %94, %93 ], [ %94, %.critedge220.us.us231 ], [ %94, %.critedge222 ], [ %25, %.critedge217 ], [ %94, %.critedge220.us ], [ %94, %.critedge220.us.us ], [ 16, %259 ]
   ret i32 %.0
 }
 

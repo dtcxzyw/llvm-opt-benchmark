@@ -283,7 +283,7 @@ define range(i32 0, 27) i32 @uniq_get(ptr noundef readonly captures(address_is_n
   br i1 %.not25, label %.loopexit, label %28
 
 .loopexit:                                        ; preds = %37, %9, %16, %34, %12, %5
-  %.019 = phi i32 [ 3, %5 ], [ 26, %12 ], [ 0, %34 ], [ 0, %16 ], [ 0, %9 ], [ 0, %37 ]
+  %.019 = phi i32 [ 3, %5 ], [ 26, %12 ], [ 0, %34 ], [ 0, %9 ], [ 0, %16 ], [ 0, %37 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.019
 }

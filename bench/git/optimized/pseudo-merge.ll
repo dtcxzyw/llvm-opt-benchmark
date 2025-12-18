@@ -1686,7 +1686,7 @@ nth_pseudo_merge_ext.exit.thread:                 ; preds = %120, %122
   br label %find_pseudo_merge.exit.thread
 
 find_pseudo_merge.exit.thread:                    ; preds = %35, %126, %_.exit.i, %_.exit20.i, %pseudo_merge_ext_at.exit, %190, %nth_pseudo_merge_ext.exit.thread, %4, %._crit_edge, %.thread71, %187
-  %.038 = phi i32 [ 0, %187 ], [ %.374, %.thread71 ], [ 0, %._crit_edge ], [ 0, %4 ], [ %.14184, %nth_pseudo_merge_ext.exit.thread ], [ 0, %190 ], [ 0, %pseudo_merge_ext_at.exit ], [ 0, %_.exit20.i ], [ 0, %_.exit.i ], [ %.14184, %126 ], [ 0, %35 ]
+  %.038 = phi i32 [ 0, %187 ], [ %.14184, %126 ], [ 0, %190 ], [ %.374, %.thread71 ], [ 0, %._crit_edge ], [ 0, %4 ], [ %.14184, %nth_pseudo_merge_ext.exit.thread ], [ 0, %_.exit.i ], [ 0, %pseudo_merge_ext_at.exit ], [ 0, %_.exit20.i ], [ 0, %35 ]
   ret i32 %.038
 }
 

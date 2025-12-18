@@ -650,7 +650,7 @@ xdl_append_merge.exit303:                         ; preds = %252
   br i1 %.not.i309, label %xdl_cleanup_merge.exit, label %.lr.ph.i305, !llvm.loop !44
 
 .critedge:                                        ; preds = %179, %254, %262, %239, %168
-  %.1396 = phi ptr [ %.0492, %168 ], [ %253, %254 ], [ %253, %262 ], [ %.0492, %239 ], [ %.0492, %179 ]
+  %.1396 = phi ptr [ %.0492, %239 ], [ %.0492, %168 ], [ %253, %254 ], [ %253, %262 ], [ %.0492, %179 ]
   %264 = load i64, ptr %97, align 8, !tbaa !29
   %265 = load i64, ptr %98, align 8, !tbaa !31
   %266 = add nsw i64 %265, %264
@@ -1323,8 +1323,8 @@ lines_contain_alnum.exit.thread.us.i:             ; preds = %572
   br label %lines_contain_alnum.exit.us.i
 
 lines_contain_alnum.exit.us.i:                    ; preds = %lines_contain_alnum.exit.thread.us.i, %572, %.lr.ph.split.us.i
-  %.125.us.i = phi i32 [ %581, %lines_contain_alnum.exit.thread.us.i ], [ %.02444.us.i, %.lr.ph.split.us.i ], [ %.02444.us.i, %572 ]
-  %.122.us.i = phi ptr [ %.02145.us.i, %lines_contain_alnum.exit.thread.us.i ], [ %564, %.lr.ph.split.us.i ], [ %564, %572 ]
+  %.125.us.i = phi i32 [ %.02444.us.i, %572 ], [ %581, %lines_contain_alnum.exit.thread.us.i ], [ %.02444.us.i, %.lr.ph.split.us.i ]
+  %.122.us.i = phi ptr [ %564, %572 ], [ %.02145.us.i, %lines_contain_alnum.exit.thread.us.i ], [ %564, %.lr.ph.split.us.i ]
   %596 = load ptr, ptr %.122.us.i, align 8, !tbaa !43
   %.not31.not.us.i = icmp eq ptr %596, null
   br i1 %.not31.not.us.i, label %xdl_simplify_non_conflicts.exit, label %.lr.ph.split.us.i
@@ -1421,8 +1421,8 @@ lines_contain_alnum.exit.thread.i:                ; preds = %634, %612
   br label %lines_contain_alnum.exit.i
 
 lines_contain_alnum.exit.i:                       ; preds = %626, %lines_contain_alnum.exit.thread.i, %609, %.lr.ph.split.i
-  %.125.i = phi i32 [ %636, %lines_contain_alnum.exit.thread.i ], [ %.02444.i, %.lr.ph.split.i ], [ %.02444.i, %609 ], [ %.02444.i, %626 ]
-  %.122.i = phi ptr [ %.02145.i, %lines_contain_alnum.exit.thread.i ], [ %597, %.lr.ph.split.i ], [ %597, %609 ], [ %597, %626 ]
+  %.125.i = phi i32 [ %.02444.i, %609 ], [ %636, %lines_contain_alnum.exit.thread.i ], [ %.02444.i, %.lr.ph.split.i ], [ %.02444.i, %626 ]
+  %.122.i = phi ptr [ %597, %609 ], [ %.02145.i, %lines_contain_alnum.exit.thread.i ], [ %597, %.lr.ph.split.i ], [ %597, %626 ]
   %651 = load ptr, ptr %.122.i, align 8, !tbaa !43
   %.not31.not.i = icmp eq ptr %651, null
   br i1 %.not31.not.i, label %xdl_simplify_non_conflicts.exit, label %.lr.ph.split.i
@@ -1491,7 +1491,7 @@ xdl_cleanup_merge.exit373:                        ; preds = %654
   br i1 %.not.i379, label %xdl_cleanup_merge.exit, label %.lr.ph.i375, !llvm.loop !44
 
 xdl_cleanup_merge.exit:                           ; preds = %.lr.ph.i305, %.lr.ph.i321, %.lr.ph.i288, %.lr.ph.i357, %.lr.ph.i366, %.lr.ph.i375, %.lr.ph.i337, %.lr.ph.i, %660, %664, %xdl_append_merge.exit335, %xdl_append_merge.exit319, %xdl_append_merge.exit303, %xdl_append_merge.exit286, %xdl_append_merge.exit
-  %.1 = phi i32 [ -1, %xdl_append_merge.exit ], [ -1, %xdl_append_merge.exit286 ], [ -1, %xdl_append_merge.exit303 ], [ -1, %xdl_append_merge.exit319 ], [ -1, %xdl_append_merge.exit335 ], [ -1, %660 ], [ 0, %664 ], [ -1, %.lr.ph.i321 ], [ -1, %.lr.ph.i ], [ -1, %.lr.ph.i337 ], [ %spec.select.i378, %.lr.ph.i375 ], [ -1, %.lr.ph.i366 ], [ -1, %.lr.ph.i357 ], [ -1, %.lr.ph.i288 ], [ -1, %.lr.ph.i305 ]
+  %.1 = phi i32 [ -1, %.lr.ph.i337 ], [ -1, %.lr.ph.i ], [ -1, %.lr.ph.i357 ], [ -1, %.lr.ph.i288 ], [ -1, %.lr.ph.i366 ], [ -1, %.lr.ph.i321 ], [ %spec.select.i378, %.lr.ph.i375 ], [ -1, %xdl_append_merge.exit ], [ -1, %xdl_append_merge.exit286 ], [ -1, %xdl_append_merge.exit303 ], [ -1, %xdl_append_merge.exit319 ], [ -1, %xdl_append_merge.exit335 ], [ -1, %660 ], [ 0, %664 ], [ -1, %.lr.ph.i305 ]
   ret i32 %.1
 }
 

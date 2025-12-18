@@ -968,7 +968,7 @@ _ZNK7bv_util11get_bv_sizeEPK4sort.exit.us:        ; preds = %_ZNK9parameter7get_
   br label %26
 
 .split12.us:                                      ; preds = %_ZNK7bv_util11get_bv_sizeEPK4sort.exit, %_ZNK7bv_util11get_bv_sizeEPK4sort.exit.us, %.split.split
-  %.us-phi = phi i32 [ 0, %.split.split ], [ %19, %_ZNK7bv_util11get_bv_sizeEPK4sort.exit.us ], [ %42, %_ZNK7bv_util11get_bv_sizeEPK4sort.exit ]
+  %.us-phi = phi i32 [ %19, %_ZNK7bv_util11get_bv_sizeEPK4sort.exit.us ], [ 0, %.split.split ], [ %42, %_ZNK7bv_util11get_bv_sizeEPK4sort.exit ]
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %25 = tail call noundef ptr @_ZN7bv_util7mk_sortEj(ptr noundef nonnull align 8 dereferenceable(24) %24, i32 noundef %.us-phi)
   ret ptr %25
@@ -1404,7 +1404,7 @@ _ZNK17array_recognizers11is_as_arrayEP4expr.exit.thread: ; preds = %16, %3, %_ZN
   br i1 %.not27.old.i.i.i, label %.loopexit, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %71, %68
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %71 ], [ %70, %68 ]
+  %.137.i.i.i.be = phi ptr [ %70, %68 ], [ %.old.i.i.i, %71 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !88
 
 _ZNK7obj_mapI4exprP9func_declE4findEPS0_RS2_.exit: ; preds = %52, %63
@@ -11587,7 +11587,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK13rewriter_core10is_blockedEP
   br i1 %.not27.old.i.i, label %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit, label %.lr.ph38.i.i.backedge
 
 .lr.ph38.i.i.backedge:                            ; preds = %35, %32
-  %.137.i.i.be = phi ptr [ %.old.i.i, %35 ], [ %34, %32 ]
+  %.137.i.i.be = phi ptr [ %34, %32 ], [ %.old.i.i, %35 ]
   br label %.lr.ph38.i.i, !llvm.loop !280
 
 _ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit: ; preds = %16, %21, %27, %32, %35, %.preheader.i.i

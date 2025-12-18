@@ -6018,7 +6018,7 @@ define void @gui_post_expose(ptr noundef %0, ptr noundef %1, float noundef %2, f
   br label %get_grab.exit
 
 get_grab.exit:                                    ; preds = %385, %380, %378, %334
-  %387 = phi i32 [ %336, %334 ], [ %386, %385 ], [ %.3.i, %380 ], [ %.3.i, %378 ]
+  %387 = phi i32 [ %336, %334 ], [ %.3.i, %378 ], [ %.3.i, %380 ], [ %386, %385 ]
   switch i32 %387, label %get_grab.exit.thread [
     i32 1, label %388
     i32 2, label %399

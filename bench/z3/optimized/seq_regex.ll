@@ -3122,7 +3122,7 @@ _ZNK8seq_util3rex8is_emptyEPK4expr.exit:          ; preds = %3, %15, %20
   br label %40
 
 40:                                               ; preds = %.sink.split, %29, %32
-  %.0 = phi i1 [ false, %32 ], [ false, %29 ], [ true, %.sink.split ]
+  %.0 = phi i1 [ false, %29 ], [ false, %32 ], [ true, %.sink.split ]
   ret i1 %.0
 }
 
@@ -3433,7 +3433,7 @@ define hidden noundef i32 @_ZN3smt9seq_regex12get_state_idEP4expr(ptr noundef no
   br i1 %.not27.old.i.i.i, label %.loopexit, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %36, %33
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %36 ], [ %35, %33 ]
+  %.137.i.i.i.be = phi ptr [ %35, %33 ], [ %.old.i.i.i, %36 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !235
 
 .loopexit:                                        ; preds = %22, %33, %36, %.preheader.i.i.i
@@ -3493,11 +3493,11 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit:
   br label %_ZNK9table2mapI18ptr_addr_map_entryI4exprjE8ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit
 
 _ZNK9table2mapI18ptr_addr_map_entryI4exprjE8ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit: ; preds = %17, %28, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit
-  %.pre-phi34 = phi i64 [ %.pre33, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit ], [ %14, %28 ], [ %14, %17 ]
-  %.idx.i.i.i1.pre-phi = phi i64 [ %.pre32, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit ], [ %.idx.i.i.i, %28 ], [ %.idx.i.i.i, %17 ]
-  %.pre-phi29 = phi i32 [ %.pre28, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit ], [ %10, %28 ], [ %10, %17 ]
-  %58 = phi ptr [ %.pre26, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit ], [ %11, %28 ], [ %11, %17 ]
-  %59 = phi i32 [ %.pre, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit ], [ %8, %28 ], [ %8, %17 ]
+  %.pre-phi34 = phi i64 [ %14, %28 ], [ %.pre33, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit ], [ %14, %17 ]
+  %.idx.i.i.i1.pre-phi = phi i64 [ %.idx.i.i.i, %28 ], [ %.pre32, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit ], [ %.idx.i.i.i, %17 ]
+  %.pre-phi29 = phi i32 [ %10, %28 ], [ %.pre28, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit ], [ %10, %17 ]
+  %58 = phi ptr [ %11, %28 ], [ %.pre26, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit ], [ %11, %17 ]
+  %59 = phi i32 [ %8, %28 ], [ %.pre, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit ], [ %8, %17 ]
   %60 = getelementptr inbounds nuw %class.ptr_addr_map_entry, ptr %58, i64 %.pre-phi34
   %.not34.i.i.i2 = icmp eq i32 %.pre-phi29, %59
   br i1 %.not34.i.i.i2, label %.lr.ph38.i.i.i9.preheader, label %.lr.ph.i.i.i3.preheader
@@ -4637,7 +4637,7 @@ _ZNK6vectorIP4exprLb1EjE4sizeEv.exit:             ; preds = %_ZNK6vectorIP4exprL
   br i1 %.not27.old.i.i.i, label %.loopexit377, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %94, %91
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %94 ], [ %93, %91 ]
+  %.137.i.i.i.be = phi ptr [ %93, %91 ], [ %.old.i.i.i, %94 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !799
 
 .loopexit377:                                     ; preds = %80, %91, %94, %.preheader.i.i.i
@@ -11901,7 +11901,7 @@ define hidden void @_ZN3smt9seq_regex9state_strB5cxx11EP4expr(ptr dead_on_unwind
   br i1 %.not27.old.i.i.i, label %.loopexit, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %36, %33
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %36 ], [ %35, %33 ]
+  %.137.i.i.i.be = phi ptr [ %35, %33 ], [ %.old.i.i.i, %36 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !235
 
 _ZNK9table2mapI18ptr_addr_map_entryI4exprjE8ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit: ; preds = %17, %28

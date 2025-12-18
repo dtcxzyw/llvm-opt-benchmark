@@ -1174,7 +1174,7 @@ define weak_odr dso_local void @_ZN3igl6sparseIN5Eigen6MatrixIiLin1ELi1ELi0ELin1
   br i1 %exitcond92.not.i.i.i.i, label %_ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE8maxCoeffEv.exit, label %.lr.ph85.i.i.i.i, !llvm.loop !78
 
 _ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE8maxCoeffEv.exit: ; preds = %.lr.ph80.i.i.i.i, %.lr.ph85.i.i.i.i, %48, %55
-  %.2.i.i.i.i = phi i32 [ %56, %55 ], [ %49, %48 ], [ %60, %.lr.ph85.i.i.i.i ], [ %53, %.lr.ph80.i.i.i.i ]
+  %.2.i.i.i.i = phi i32 [ %60, %.lr.ph85.i.i.i.i ], [ %56, %55 ], [ %49, %48 ], [ %53, %.lr.ph80.i.i.i.i ]
   %62 = load ptr, ptr %1, align 8, !tbaa !11
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %64 = load i64, ptr %63, align 8, !tbaa !4
@@ -1287,7 +1287,7 @@ _ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE8maxCoeffEv.exit: ; pr
   br i1 %exitcond92.not.i.i.i.i31, label %_ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE8maxCoeffEv.exit32, label %.lr.ph85.i.i.i.i28, !llvm.loop !78
 
 _ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE8maxCoeffEv.exit32: ; preds = %.lr.ph80.i.i.i.i16, %.lr.ph85.i.i.i.i28, %103, %110
-  %.2.i.i.i.i15 = phi i32 [ %111, %110 ], [ %104, %103 ], [ %115, %.lr.ph85.i.i.i.i28 ], [ %108, %.lr.ph80.i.i.i.i16 ]
+  %.2.i.i.i.i15 = phi i32 [ %115, %.lr.ph85.i.i.i.i28 ], [ %111, %110 ], [ %104, %103 ], [ %108, %.lr.ph80.i.i.i.i16 ]
   %117 = sext i32 %.2.i.i.i.i to i64
   %118 = add nsw i64 %117, 1
   %119 = sext i32 %.2.i.i.i.i15 to i64

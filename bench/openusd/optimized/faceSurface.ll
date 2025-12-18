@@ -804,11 +804,11 @@ _ZN10OpenSubdiv6v3_6_03Bfr9fvar_plus21hasDependentSharpnessERKNS1_10FaceVertexER
   %.not = icmp eq i16 %65, 0
   br i1 %.not, label %.critedge31, label %.critedge
 
-.critedge31:                                      ; preds = %34, %13, %39, %18, %9, %45, %5, %63
+.critedge31:                                      ; preds = %34, %13, %18, %39, %9, %45, %5, %63
   tail call void @_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex13SharpenSubsetEPNS1_16FaceVertexSubsetE(ptr noundef nonnull align 8 dereferenceable(224) %4, ptr noundef %1)
   br label %.critedge
 
-.critedge:                                        ; preds = %55, %49, %26, %20, %61, %_ZN10OpenSubdiv6v3_6_03Bfr9fvar_plus21hasDependentSharpnessERKNS1_10FaceVertexERKNS1_16FaceVertexSubsetE.exit35, %_ZN10OpenSubdiv6v3_6_03Bfr9fvar_plus21hasDependentSharpnessERKNS1_10FaceVertexERKNS1_16FaceVertexSubsetE.exit, %32, %9, %5, %.critedge31, %63
+.critedge:                                        ; preds = %55, %49, %26, %20, %_ZN10OpenSubdiv6v3_6_03Bfr9fvar_plus21hasDependentSharpnessERKNS1_10FaceVertexERKNS1_16FaceVertexSubsetE.exit, %32, %_ZN10OpenSubdiv6v3_6_03Bfr9fvar_plus21hasDependentSharpnessERKNS1_10FaceVertexERKNS1_16FaceVertexSubsetE.exit35, %61, %9, %5, %.critedge31, %63
   ret void
 }
 
@@ -1231,7 +1231,7 @@ define noundef float @_ZN10OpenSubdiv6v3_6_03Bfr9fvar_plus21getDependentSharpnes
   br label %.loopexit61
 
 .loopexit61:                                      ; preds = %28, %.loopexit61.sink.split, %24
-  %.09.i.i.ph = phi i32 [ %11, %24 ], [ %38, %.loopexit61.sink.split ], [ %.0.i.i, %28 ]
+  %.09.i.i.ph = phi i32 [ %38, %.loopexit61.sink.split ], [ %11, %24 ], [ %.0.i.i, %28 ]
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %40 = load i16, ptr %39, align 4
   switch i16 %40, label %53 [
@@ -1317,8 +1317,8 @@ define noundef float @_ZN10OpenSubdiv6v3_6_03Bfr9fvar_plus21getDependentSharpnes
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i29, %.loopexit.sink.split, %53
-  %88 = phi ptr [ %56, %53 ], [ %.sink85, %.loopexit.sink.split ], [ %56, %.lr.ph.i.i29 ]
-  %.09.i.i28.ph = phi i32 [ %11, %53 ], [ %87, %.loopexit.sink.split ], [ %.0.i.i33, %.lr.ph.i.i29 ]
+  %88 = phi ptr [ %.sink85, %.loopexit.sink.split ], [ %56, %53 ], [ %56, %.lr.ph.i.i29 ]
+  %.09.i.i28.ph = phi i32 [ %87, %.loopexit.sink.split ], [ %11, %53 ], [ %.0.i.i33, %.lr.ph.i.i29 ]
   %89 = shl nsw i32 %.09.i.i.ph, 1
   %90 = sext i32 %89 to i64
   %91 = getelementptr inbounds i16, ptr %88, i64 %90

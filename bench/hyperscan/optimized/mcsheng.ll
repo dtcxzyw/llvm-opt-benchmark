@@ -1620,7 +1620,7 @@ nfaExecMcSheng8_inAccept.exit.sink.split:         ; preds = %63, %37, %.thread47
   br label %nfaExecMcSheng8_inAccept.exit
 
 nfaExecMcSheng8_inAccept.exit:                    ; preds = %144, %.lr.ph.i.i, %nfaExecMcSheng8_inAccept.exit.sink.split, %138, %130, %nfaExecMcSheng8_Q2i.exit
-  %.0 = phi i8 [ 1, %138 ], [ 0, %nfaExecMcSheng8_Q2i.exit ], [ 1, %130 ], [ 0, %nfaExecMcSheng8_inAccept.exit.sink.split ], [ %129, %144 ], [ 2, %.lr.ph.i.i ]
+  %.0 = phi i8 [ 1, %138 ], [ 1, %130 ], [ 0, %nfaExecMcSheng8_inAccept.exit.sink.split ], [ 0, %nfaExecMcSheng8_Q2i.exit ], [ 2, %.lr.ph.i.i ], [ %129, %144 ]
   ret i8 %.0
 }
 
@@ -1880,7 +1880,7 @@ nfaExecMcSheng16_inAccept.exit.sink.split:        ; preds = %62, %36, %.thread47
   br label %nfaExecMcSheng16_inAccept.exit
 
 nfaExecMcSheng16_inAccept.exit:                   ; preds = %139, %.lr.ph.i.i, %nfaExecMcSheng16_inAccept.exit.sink.split, %133, %125, %nfaExecMcSheng16_Q2i.exit
-  %.0 = phi i8 [ 1, %133 ], [ 0, %nfaExecMcSheng16_Q2i.exit ], [ 1, %125 ], [ 0, %nfaExecMcSheng16_inAccept.exit.sink.split ], [ %124, %139 ], [ 2, %.lr.ph.i.i ]
+  %.0 = phi i8 [ 1, %133 ], [ 1, %125 ], [ 0, %nfaExecMcSheng16_inAccept.exit.sink.split ], [ 0, %nfaExecMcSheng16_Q2i.exit ], [ 2, %.lr.ph.i.i ], [ %124, %139 ]
   ret i8 %.0
 }
 
@@ -2110,11 +2110,11 @@ define internal fastcc signext range(i8 0, 2) i8 @mcshengExec8_i_cb(ptr noundef 
   br label %305
 
 ._crit_edge357:                                   ; preds = %325, %545, %11
-  %.3114 = phi ptr [ %2, %11 ], [ %332, %325 ], [ %548, %545 ]
-  %.3102 = phi i32 [ 0, %11 ], [ %.1100, %325 ], [ %.1100, %545 ]
-  %.398 = phi i32 [ 0, %11 ], [ %.196, %325 ], [ %.196, %545 ]
-  %.3 = phi ptr [ %13, %11 ], [ %storemerge17.i, %325 ], [ %storemerge17.i76, %545 ]
-  %.0101.i = phi i32 [ %12, %11 ], [ %.5106.i, %325 ], [ %.5106.i, %545 ]
+  %.3114 = phi ptr [ %2, %11 ], [ %548, %545 ], [ %332, %325 ]
+  %.3102 = phi i32 [ 0, %11 ], [ %.1100, %545 ], [ %.1100, %325 ]
+  %.398 = phi i32 [ 0, %11 ], [ %.196, %545 ], [ %.196, %325 ]
+  %.3 = phi ptr [ %13, %11 ], [ %storemerge17.i76, %545 ], [ %storemerge17.i, %325 ]
+  %.0101.i = phi i32 [ %12, %11 ], [ %.5106.i, %545 ], [ %.5106.i, %325 ]
   %invariant.op = add i64 %4, 1
   %.mask.i = and i16 %15, 255
   %28 = zext nneg i16 %.mask.i to i32
@@ -2523,8 +2523,8 @@ doNormal8.exit72:                                 ; preds = %252, %248, %doSheng
   br i1 %301, label %mcshengExec8_i.exit, label %296
 
 .thread129:                                       ; preds = %296, %279, %270, %291, %276, %doNormal8.exit72
-  %.7106 = phi i32 [ %.4103, %doNormal8.exit72 ], [ %.4103, %276 ], [ %293, %291 ], [ %.4103, %270 ], [ %.4103, %279 ], [ %.4103, %296 ]
-  %.7 = phi i32 [ %.4, %doNormal8.exit72 ], [ %.4, %276 ], [ %.4105.i, %291 ], [ %.4, %270 ], [ %.4, %279 ], [ %.4, %296 ]
+  %.7106 = phi i32 [ %.4103, %doNormal8.exit72 ], [ %.4103, %270 ], [ %.4103, %276 ], [ %293, %291 ], [ %.4103, %279 ], [ %.4103, %296 ]
+  %.7 = phi i32 [ %.4, %doNormal8.exit72 ], [ %.4, %270 ], [ %.4, %276 ], [ %.4105.i, %291 ], [ %.4, %279 ], [ %.4, %296 ]
   %302 = icmp ult ptr %.5116, %.3
   br i1 %302, label %40, label %303
 
@@ -3008,12 +3008,12 @@ doComplexReport.exit.i:                           ; preds = %610, %593, %584, %d
   br i1 %616, label %316, label %.thread177
 
 .thread177:                                       ; preds = %40, %316, %doComplexReport.exit.i, %545, %325, %303
-  %.3104.i = phi i32 [ %.4105.i, %303 ], [ %.5106.i, %545 ], [ %.5106.i, %325 ], [ %.7108.i, %doComplexReport.exit.i ], [ 0, %316 ], [ 0, %40 ]
+  %.3104.i = phi i32 [ %.4105.i, %303 ], [ %.5106.i, %325 ], [ %.7108.i, %doComplexReport.exit.i ], [ %.5106.i, %545 ], [ 0, %316 ], [ 0, %40 ]
   store i32 %.3104.i, ptr %1, align 4
   br label %mcshengExec8_i.exit
 
 mcshengExec8_i.exit:                              ; preds = %291, %276, %270, %297, %605, %590, %584, %611, %.thread177, %10
-  %.0.i = phi i8 [ 1, %10 ], [ 1, %.thread177 ], [ 0, %297 ], [ 0, %611 ], [ 0, %605 ], [ 0, %584 ], [ 0, %590 ], [ 0, %270 ], [ 0, %276 ], [ 0, %291 ]
+  %.0.i = phi i8 [ 1, %10 ], [ 1, %.thread177 ], [ 0, %605 ], [ 0, %297 ], [ 0, %611 ], [ 0, %584 ], [ 0, %590 ], [ 0, %270 ], [ 0, %276 ], [ 0, %291 ]
   ret i8 %.0.i
 }
 
@@ -3817,7 +3817,7 @@ doNormal8.exit:                                   ; preds = %523, %519, %doSheng
   br i1 %539, label %282, label %.thread34
 
 .thread34:                                        ; preds = %32, %282, %538, %504, %289, %263
-  %.3104.i = phi i32 [ %.4105.i, %263 ], [ %.5106.i, %504 ], [ %.5106.i, %289 ], [ %.7108.i, %538 ], [ 0, %282 ], [ 0, %32 ]
+  %.3104.i = phi i32 [ %.4105.i, %263 ], [ %.5106.i, %504 ], [ %.7108.i, %538 ], [ %.5106.i, %289 ], [ 0, %282 ], [ 0, %32 ]
   store i32 %.3104.i, ptr %1, align 4
   br label %mcshengExec8_i.exit
 
@@ -4608,7 +4608,7 @@ doSheng.exit:                                     ; preds = %361, %358, %410, %4
   br i1 %531, label %276, label %doNormal8.exit.thread39
 
 doNormal8.exit.thread39:                          ; preds = %30, %276, %.thread26, %498, %283, %257
-  %.3104.i = phi i32 [ %.4105.i, %257 ], [ %.5106.i, %283 ], [ %.5106.i, %498 ], [ %.6107.i.ph, %.thread26 ], [ 0, %276 ], [ 0, %30 ]
+  %.3104.i = phi i32 [ %.4105.i, %257 ], [ %.5106.i, %283 ], [ %.6107.i.ph, %.thread26 ], [ %.5106.i, %498 ], [ 0, %276 ], [ 0, %30 ]
   store i32 %.3104.i, ptr %1, align 4
   br label %mcshengExec8_i.exit
 
@@ -5160,10 +5160,10 @@ doNormal16.exit26:                                ; preds = %doSherman16.exit, %
   br i1 %344, label %mcshengExec16_i.exit, label %339
 
 doComplexReport.exit149.i:                        ; preds = %246, %339, %322, %312, %.thread, %319, %334
-  %.338.ph = phi ptr [ %.23748, %319 ], [ %.23748, %334 ], [ %.9.i157.i, %.thread ], [ %.23748, %312 ], [ %.23748, %322 ], [ %.23748, %339 ], [ %.041.i14, %246 ]
-  %.528.ph = phi i32 [ %.124, %319 ], [ %336, %334 ], [ %.124, %.thread ], [ %.124, %312 ], [ %.124, %322 ], [ %.124, %339 ], [ %.124, %246 ]
-  %.5.ph = phi i32 [ %.120, %319 ], [ %317, %334 ], [ %.120, %.thread ], [ %.120, %312 ], [ %.120, %322 ], [ %.120, %339 ], [ %.120, %246 ]
-  %.3111.i.ph = phi i32 [ %.4112.i49, %319 ], [ %.4112.i49, %334 ], [ %302, %.thread ], [ %.4112.i49, %312 ], [ %.4112.i49, %322 ], [ %.4112.i49, %339 ], [ %.040.i15, %246 ]
+  %.338.ph = phi ptr [ %.23748, %319 ], [ %.23748, %334 ], [ %.9.i157.i, %.thread ], [ %.23748, %312 ], [ %.23748, %339 ], [ %.23748, %322 ], [ %.041.i14, %246 ]
+  %.528.ph = phi i32 [ %.124, %319 ], [ %336, %334 ], [ %.124, %.thread ], [ %.124, %312 ], [ %.124, %339 ], [ %.124, %322 ], [ %.124, %246 ]
+  %.5.ph = phi i32 [ %.120, %319 ], [ %317, %334 ], [ %.120, %.thread ], [ %.120, %312 ], [ %.120, %339 ], [ %.120, %322 ], [ %.120, %246 ]
+  %.3111.i.ph = phi i32 [ %.4112.i49, %319 ], [ %.4112.i49, %334 ], [ %302, %.thread ], [ %.4112.i49, %312 ], [ %.4112.i49, %339 ], [ %.4112.i49, %322 ], [ %.040.i15, %246 ]
   %345 = icmp ult ptr %.338.ph, %.0
   br i1 %345, label %38, label %346
 
@@ -5716,21 +5716,21 @@ doNormal16.exit:                                  ; preds = %doSherman16.exit34
   br i1 %707, label %mcshengExec16_i.exit, label %702
 
 doComplexReport.exit.i:                           ; preds = %606, %702, %685, %675, %.thread91, %doNormal16.exit, %682, %697
-  %.742.ph = phi ptr [ %.641102, %682 ], [ %.641102, %697 ], [ %.9.i.i, %.thread91 ], [ %658, %doNormal16.exit ], [ %.641102, %675 ], [ %.641102, %685 ], [ %.641102, %702 ], [ %.041.i, %606 ]
-  %.1134.ph = phi i32 [ %.730, %682 ], [ %699, %697 ], [ %.730, %.thread91 ], [ %.730, %doNormal16.exit ], [ %.730, %675 ], [ %.730, %685 ], [ %.730, %702 ], [ %.730, %606 ]
-  %.11.ph = phi i32 [ %.7, %682 ], [ %680, %697 ], [ %.7, %.thread91 ], [ %.7, %doNormal16.exit ], [ %.7, %675 ], [ %.7, %685 ], [ %.7, %702 ], [ %.7, %606 ]
-  %.7115.i.ph = phi i32 [ %.8116.i103, %682 ], [ %.8116.i103, %697 ], [ %664, %.thread91 ], [ %.2.i9, %doNormal16.exit ], [ %.8116.i103, %675 ], [ %.8116.i103, %685 ], [ %.8116.i103, %702 ], [ %.040.i, %606 ]
+  %.742.ph = phi ptr [ %.641102, %682 ], [ %.641102, %697 ], [ %.9.i.i, %.thread91 ], [ %.641102, %675 ], [ %658, %doNormal16.exit ], [ %.641102, %685 ], [ %.641102, %702 ], [ %.041.i, %606 ]
+  %.1134.ph = phi i32 [ %.730, %682 ], [ %699, %697 ], [ %.730, %.thread91 ], [ %.730, %675 ], [ %.730, %doNormal16.exit ], [ %.730, %685 ], [ %.730, %702 ], [ %.730, %606 ]
+  %.11.ph = phi i32 [ %.7, %682 ], [ %680, %697 ], [ %.7, %.thread91 ], [ %.7, %675 ], [ %.7, %doNormal16.exit ], [ %.7, %685 ], [ %.7, %702 ], [ %.7, %606 ]
+  %.7115.i.ph = phi i32 [ %.8116.i103, %682 ], [ %.8116.i103, %697 ], [ %664, %.thread91 ], [ %.8116.i103, %675 ], [ %.2.i9, %doNormal16.exit ], [ %.8116.i103, %685 ], [ %.8116.i103, %702 ], [ %.040.i, %606 ]
   %708 = icmp ult ptr %.742.ph, %11
   br i1 %708, label %360, label %.thread142
 
 .thread142:                                       ; preds = %38, %360, %doComplexReport.exit.i, %579, %367, %346
-  %.5113.i = phi i32 [ %.3111.i.ph, %346 ], [ %580, %579 ], [ %.6114.i, %367 ], [ %.7115.i.ph, %doComplexReport.exit.i ], [ 0, %360 ], [ 0, %38 ]
+  %.5113.i = phi i32 [ %.3111.i.ph, %346 ], [ %580, %579 ], [ %.7115.i.ph, %doComplexReport.exit.i ], [ %.6114.i, %367 ], [ 0, %360 ], [ 0, %38 ]
   %709 = and i32 %.5113.i, 16383
   store i32 %709, ptr %1, align 4
   br label %mcshengExec16_i.exit
 
 mcshengExec16_i.exit:                             ; preds = %334, %319, %312, %340, %697, %682, %675, %703, %.thread142, %8
-  %.0.i = phi i8 [ 1, %8 ], [ 1, %.thread142 ], [ 0, %340 ], [ 0, %703 ], [ 0, %697 ], [ 0, %675 ], [ 0, %682 ], [ 0, %312 ], [ 0, %319 ], [ 0, %334 ]
+  %.0.i = phi i8 [ 1, %8 ], [ 0, %697 ], [ 1, %.thread142 ], [ 0, %340 ], [ 0, %703 ], [ 0, %675 ], [ 0, %682 ], [ 0, %312 ], [ 0, %319 ], [ 0, %334 ]
   ret i8 %.0.i
 }
 
@@ -6684,14 +6684,14 @@ doNormal16.exit:                                  ; preds = %doSherman16.exit33
   store ptr %633, ptr %4, align 8
   br label %mcshengExec16_i.exit
 
-doNormal16.exit.thread:                           ; preds = %567, %.thread42, %doNormal16.exit
+doNormal16.exit.thread:                           ; preds = %567, %doNormal16.exit, %.thread42
   %.7.ph = phi ptr [ %.9.i.i, %.thread42 ], [ %619, %doNormal16.exit ], [ %.041.i, %567 ]
   %.7115.i.ph64 = phi i32 [ %625, %.thread42 ], [ %.2.i9, %doNormal16.exit ], [ %.040.i, %567 ]
   %634 = icmp ult ptr %.7.ph, %9
   br i1 %634, label %328, label %.thread57
 
 .thread57:                                        ; preds = %34, %328, %doNormal16.exit.thread, %542, %335, %309
-  %.5113.i = phi i32 [ %.3111.i.ph, %309 ], [ %543, %542 ], [ %.6114.i, %335 ], [ %.7115.i.ph64, %doNormal16.exit.thread ], [ 0, %328 ], [ 0, %34 ]
+  %.5113.i = phi i32 [ %.3111.i.ph, %309 ], [ %543, %542 ], [ %.7115.i.ph64, %doNormal16.exit.thread ], [ %.6114.i, %335 ], [ 0, %328 ], [ 0, %34 ]
   %635 = and i32 %.5113.i, 16383
   store ptr %9, ptr %4, align 8
   store i32 %635, ptr %1, align 4
@@ -7616,7 +7616,7 @@ doNormal16.exit:                                  ; preds = %563, %doSherman16.e
   br i1 %617, label %320, label %.thread40
 
 .thread40:                                        ; preds = %32, %320, %doNormal16.exit, %538, %327, %301
-  %.5113.i = phi i32 [ %.3111.i.ph, %301 ], [ %539, %538 ], [ %.6114.i, %327 ], [ %.7115.i.ph46, %doNormal16.exit ], [ 0, %320 ], [ 0, %32 ]
+  %.5113.i = phi i32 [ %.3111.i.ph, %301 ], [ %539, %538 ], [ %.7115.i.ph46, %doNormal16.exit ], [ %.6114.i, %327 ], [ 0, %320 ], [ 0, %32 ]
   %618 = and i32 %.5113.i, 16383
   store i32 %618, ptr %1, align 4
   br label %mcshengExec16_i.exit

@@ -2373,9 +2373,9 @@ define internal fastcc ptr @lookup_proof_cache(i32 noundef %0, i32 noundef %1, i
   br i1 %138, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %.loopexit283, %130, %.loopexit, %84, %.lr.ph201.split.split.preheader, %.lr.ph201.split.split.us.preheader, %31, %33
-  %.090254 = phi ptr [ null, %33 ], [ null, %31 ], [ %34, %.lr.ph201.split.split.us.preheader ], [ %34, %.lr.ph201.split.split.preheader ], [ %34, %130 ], [ %34, %84 ], [ %34, %.loopexit ], [ %34, %.loopexit283 ]
-  %.186 = phi i32 [ 0, %33 ], [ 0, %31 ], [ 0, %.lr.ph201.split.split.us.preheader ], [ 0, %.lr.ph201.split.split.preheader ], [ %.583, %130 ], [ %.583.us.us, %84 ], [ 0, %.loopexit ], [ 0, %.loopexit283 ]
-  %.1 = phi i8 [ 0, %33 ], [ 0, %31 ], [ 0, %.lr.ph201.split.split.us.preheader ], [ 0, %.lr.ph201.split.split.preheader ], [ %114, %130 ], [ %68, %84 ], [ %.3.us219.ph, %.loopexit ], [ %.3.ph, %.loopexit283 ]
+  %.090254 = phi ptr [ %34, %.lr.ph201.split.split.preheader ], [ %34, %84 ], [ null, %33 ], [ null, %31 ], [ %34, %.lr.ph201.split.split.us.preheader ], [ %34, %130 ], [ %34, %.loopexit ], [ %34, %.loopexit283 ]
+  %.186 = phi i32 [ 0, %.lr.ph201.split.split.preheader ], [ %.583.us.us, %84 ], [ 0, %33 ], [ 0, %31 ], [ 0, %.lr.ph201.split.split.us.preheader ], [ %.583, %130 ], [ 0, %.loopexit ], [ 0, %.loopexit283 ]
+  %.1 = phi i8 [ 0, %.lr.ph201.split.split.preheader ], [ %68, %84 ], [ 0, %33 ], [ 0, %31 ], [ 0, %.lr.ph201.split.split.us.preheader ], [ %114, %130 ], [ %.3.us219.ph, %.loopexit ], [ %.3.ph, %.loopexit283 ]
   call void @list_free_deep(ptr noundef %.090254) #7
   call void @list_free_deep(ptr noundef %32) #7
   %139 = trunc nuw i8 %.1 to i1

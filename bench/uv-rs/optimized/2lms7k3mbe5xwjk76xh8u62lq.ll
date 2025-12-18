@@ -14690,8 +14690,8 @@ define hidden void @"_ZN83_$LT$toml_edit..de..value..ValueDeserializer$u20$as$u2
   br label %89
 
 .loopexit.split-lp.i:                             ; preds = %.noexc154.i, %154, %135, %121, %107
-  %.sroa.084.1.ph.i = phi i8 [ 1, %135 ], [ 1, %121 ], [ 1, %107 ], [ 1, %154 ], [ %.sroa.084.7.i, %.noexc154.i ]
-  %.sroa.086.1.ph.i = phi i8 [ 1, %135 ], [ 1, %121 ], [ 1, %107 ], [ 1, %154 ], [ 0, %.noexc154.i ]
+  %.sroa.084.1.ph.i = phi i8 [ 1, %121 ], [ 1, %135 ], [ 1, %107 ], [ 1, %154 ], [ %.sroa.084.7.i, %.noexc154.i ]
+  %.sroa.086.1.ph.i = phi i8 [ 1, %121 ], [ 1, %135 ], [ 1, %107 ], [ 1, %154 ], [ 0, %.noexc154.i ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %89
@@ -15964,7 +15964,7 @@ _ZN5serde2de7Visitor10visit_bool17h72e940454ada78baE.exit.i: ; preds = %374
   ret void
 
 460:                                              ; preds = %268, %457, %278
-  %.sroa.05.2 = phi i1 [ false, %278 ], [ false, %268 ], [ true, %457 ]
+  %.sroa.05.2 = phi i1 [ true, %457 ], [ false, %278 ], [ false, %268 ]
   %461 = load i64, ptr %1, align 8, !range !74, !noundef !58
   %462 = add nsw i64 %461, -8
   %463 = icmp ugt i64 %462, 3
@@ -16065,9 +16065,9 @@ common.resume:                                    ; preds = %500, %503, %504, %5
           cleanup
   br label %.body.thread47
 
-.body.thread47:                                   ; preds = %450, %257, %271, %263, %.body.thread54
-  %.sroa.05.152 = phi i1 [ true, %.body.thread54 ], [ true, %450 ], [ false, %257 ], [ false, %271 ], [ false, %263 ]
-  %.pn51 = phi { ptr, i32 } [ %lpad.thr_comm, %.body.thread54 ], [ %451, %450 ], [ %258, %257 ], [ %272, %271 ], [ %264, %263 ]
+.body.thread47:                                   ; preds = %271, %263, %257, %450, %.body.thread54
+  %.sroa.05.152 = phi i1 [ true, %.body.thread54 ], [ false, %271 ], [ false, %263 ], [ false, %257 ], [ true, %450 ]
+  %.pn51 = phi { ptr, i32 } [ %lpad.thr_comm, %.body.thread54 ], [ %272, %271 ], [ %264, %263 ], [ %258, %257 ], [ %451, %450 ]
   %495 = load i64, ptr %1, align 8, !range !74, !noundef !58
   %496 = add nsw i64 %495, -8
   %497 = icmp ugt i64 %496, 3
@@ -17195,7 +17195,7 @@ _ZN5serde2de7Visitor10visit_bool17h072d87edc4290f9dE.exit.i: ; preds = %274
   ret void
 
 360:                                              ; preds = %168, %357, %178
-  %.sroa.05.2 = phi i1 [ false, %178 ], [ false, %168 ], [ true, %357 ]
+  %.sroa.05.2 = phi i1 [ true, %357 ], [ false, %178 ], [ false, %168 ]
   %361 = load i64, ptr %1, align 8, !range !74, !noundef !58
   %362 = add nsw i64 %361, -8
   %363 = icmp ugt i64 %362, 3
@@ -17296,9 +17296,9 @@ common.resume:                                    ; preds = %400, %403, %404, %4
           cleanup
   br label %.body.thread46
 
-.body.thread46:                                   ; preds = %350, %157, %171, %163, %.body.thread53
-  %.sroa.05.151 = phi i1 [ true, %.body.thread53 ], [ true, %350 ], [ false, %157 ], [ false, %171 ], [ false, %163 ]
-  %.pn50 = phi { ptr, i32 } [ %lpad.thr_comm, %.body.thread53 ], [ %351, %350 ], [ %158, %157 ], [ %172, %171 ], [ %164, %163 ]
+.body.thread46:                                   ; preds = %171, %163, %157, %350, %.body.thread53
+  %.sroa.05.151 = phi i1 [ true, %.body.thread53 ], [ false, %171 ], [ false, %163 ], [ false, %157 ], [ true, %350 ]
+  %.pn50 = phi { ptr, i32 } [ %lpad.thr_comm, %.body.thread53 ], [ %172, %171 ], [ %164, %163 ], [ %158, %157 ], [ %351, %350 ]
   %395 = load i64, ptr %1, align 8, !range !74, !noundef !58
   %396 = add nsw i64 %395, -8
   %397 = icmp ugt i64 %396, 3
@@ -18426,7 +18426,7 @@ _ZN5serde2de7Visitor10visit_bool17hb2778e8f1174acbfE.exit.i: ; preds = %273
   ret void
 
 359:                                              ; preds = %167, %356, %177
-  %.sroa.05.2 = phi i1 [ false, %177 ], [ false, %167 ], [ true, %356 ]
+  %.sroa.05.2 = phi i1 [ true, %356 ], [ false, %177 ], [ false, %167 ]
   %360 = load i64, ptr %1, align 8, !range !74, !noundef !58
   %361 = add nsw i64 %360, -8
   %362 = icmp ugt i64 %361, 3
@@ -18527,9 +18527,9 @@ common.resume:                                    ; preds = %399, %402, %403, %4
           cleanup
   br label %.body.thread46
 
-.body.thread46:                                   ; preds = %349, %156, %170, %162, %.body.thread53
-  %.sroa.05.151 = phi i1 [ true, %.body.thread53 ], [ true, %349 ], [ false, %156 ], [ false, %170 ], [ false, %162 ]
-  %.pn50 = phi { ptr, i32 } [ %lpad.thr_comm, %.body.thread53 ], [ %350, %349 ], [ %157, %156 ], [ %171, %170 ], [ %163, %162 ]
+.body.thread46:                                   ; preds = %170, %162, %156, %349, %.body.thread53
+  %.sroa.05.151 = phi i1 [ true, %.body.thread53 ], [ false, %170 ], [ false, %162 ], [ false, %156 ], [ true, %349 ]
+  %.pn50 = phi { ptr, i32 } [ %lpad.thr_comm, %.body.thread53 ], [ %171, %170 ], [ %163, %162 ], [ %157, %156 ], [ %350, %349 ]
   %394 = load i64, ptr %1, align 8, !range !74, !noundef !58
   %395 = add nsw i64 %394, -8
   %396 = icmp ugt i64 %395, 3
@@ -18744,12 +18744,12 @@ define hidden void @"_ZN83_$LT$toml_edit..de..value..ValueDeserializer$u20$as$u2
   br label %106
 
 .loopexit.split-lp.i:                             ; preds = %283, %211, %197, %183, %173, %159, %148, %129, %115
-  %.sroa.0126.1.ph.i = phi i1 [ true, %211 ], [ true, %197 ], [ true, %183 ], [ true, %173 ], [ true, %159 ], [ true, %148 ], [ true, %129 ], [ true, %115 ], [ false, %283 ]
-  %.sroa.0127.1.ph.i = phi i1 [ true, %211 ], [ true, %197 ], [ true, %183 ], [ true, %173 ], [ true, %159 ], [ true, %148 ], [ true, %129 ], [ true, %115 ], [ %.not230.i, %283 ]
-  %.sroa.0128.1.ph.i = phi i1 [ true, %211 ], [ true, %197 ], [ true, %183 ], [ true, %173 ], [ true, %159 ], [ true, %148 ], [ true, %129 ], [ true, %115 ], [ %.not227.i, %283 ]
-  %.sroa.0129.1.ph.i = phi i1 [ true, %211 ], [ true, %197 ], [ true, %183 ], [ true, %173 ], [ true, %159 ], [ true, %148 ], [ true, %129 ], [ true, %115 ], [ %.not224.i, %283 ]
-  %.sroa.0130.1.ph.i = phi i1 [ true, %211 ], [ true, %197 ], [ true, %183 ], [ true, %173 ], [ true, %159 ], [ true, %148 ], [ true, %129 ], [ true, %115 ], [ %.sroa.0130.5.i, %283 ]
-  %.sroa.0131.1.ph.i = phi i1 [ true, %211 ], [ true, %197 ], [ true, %183 ], [ true, %173 ], [ true, %159 ], [ true, %148 ], [ true, %129 ], [ true, %115 ], [ %.not222.i, %283 ]
+  %.sroa.0126.1.ph.i = phi i1 [ true, %173 ], [ true, %183 ], [ true, %159 ], [ true, %197 ], [ true, %148 ], [ true, %211 ], [ true, %129 ], [ true, %115 ], [ false, %283 ]
+  %.sroa.0127.1.ph.i = phi i1 [ true, %173 ], [ true, %183 ], [ true, %159 ], [ true, %197 ], [ true, %148 ], [ true, %211 ], [ true, %129 ], [ true, %115 ], [ %.not230.i, %283 ]
+  %.sroa.0128.1.ph.i = phi i1 [ true, %173 ], [ true, %183 ], [ true, %159 ], [ true, %197 ], [ true, %148 ], [ true, %211 ], [ true, %129 ], [ true, %115 ], [ %.not227.i, %283 ]
+  %.sroa.0129.1.ph.i = phi i1 [ true, %173 ], [ true, %183 ], [ true, %159 ], [ true, %197 ], [ true, %148 ], [ true, %211 ], [ true, %129 ], [ true, %115 ], [ %.not224.i, %283 ]
+  %.sroa.0130.1.ph.i = phi i1 [ true, %173 ], [ true, %183 ], [ true, %159 ], [ true, %197 ], [ true, %148 ], [ true, %211 ], [ true, %129 ], [ true, %115 ], [ %.sroa.0130.5.i, %283 ]
+  %.sroa.0131.1.ph.i = phi i1 [ true, %173 ], [ true, %183 ], [ true, %159 ], [ true, %197 ], [ true, %148 ], [ true, %211 ], [ true, %129 ], [ true, %115 ], [ %.not222.i, %283 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %106
@@ -20454,7 +20454,7 @@ _ZN5serde2de7Visitor10visit_bool17h69007f890f94f080E.exit.i: ; preds = %499
   ret void
 
 585:                                              ; preds = %393, %582, %403
-  %.sroa.05.2 = phi i1 [ false, %403 ], [ false, %393 ], [ true, %582 ]
+  %.sroa.05.2 = phi i1 [ true, %582 ], [ false, %403 ], [ false, %393 ]
   %586 = load i64, ptr %1, align 8, !range !74, !noundef !58
   %587 = add nsw i64 %586, -8
   %588 = icmp ugt i64 %587, 3
@@ -20555,9 +20555,9 @@ common.resume:                                    ; preds = %625, %628, %629, %6
           cleanup
   br label %.body.thread48
 
-.body.thread48:                                   ; preds = %575, %382, %396, %388, %.body.thread55
-  %.sroa.05.153 = phi i1 [ true, %.body.thread55 ], [ true, %575 ], [ false, %382 ], [ false, %396 ], [ false, %388 ]
-  %.pn52 = phi { ptr, i32 } [ %lpad.thr_comm, %.body.thread55 ], [ %576, %575 ], [ %383, %382 ], [ %397, %396 ], [ %389, %388 ]
+.body.thread48:                                   ; preds = %396, %388, %382, %575, %.body.thread55
+  %.sroa.05.153 = phi i1 [ true, %.body.thread55 ], [ false, %396 ], [ false, %388 ], [ false, %382 ], [ true, %575 ]
+  %.pn52 = phi { ptr, i32 } [ %lpad.thr_comm, %.body.thread55 ], [ %397, %396 ], [ %389, %388 ], [ %383, %382 ], [ %576, %575 ]
   %620 = load i64, ptr %1, align 8, !range !74, !noundef !58
   %621 = add nsw i64 %620, -8
   %622 = icmp ugt i64 %621, 3
@@ -22266,7 +22266,7 @@ _ZN5serde2de7Visitor10visit_bool17hb8a884033ccd1916E.exit.i: ; preds = %465
   ret void
 
 551:                                              ; preds = %359, %548, %369
-  %.sroa.05.2 = phi i1 [ false, %369 ], [ false, %359 ], [ true, %548 ]
+  %.sroa.05.2 = phi i1 [ true, %548 ], [ false, %369 ], [ false, %359 ]
   %552 = load i64, ptr %1, align 8, !range !74, !noundef !58
   %553 = add nsw i64 %552, -8
   %554 = icmp ugt i64 %553, 3
@@ -22367,9 +22367,9 @@ common.resume:                                    ; preds = %591, %594, %595, %5
           cleanup
   br label %.body.thread47
 
-.body.thread47:                                   ; preds = %541, %348, %362, %354, %.body.thread54
-  %.sroa.05.152 = phi i1 [ true, %.body.thread54 ], [ true, %541 ], [ false, %348 ], [ false, %362 ], [ false, %354 ]
-  %.pn51 = phi { ptr, i32 } [ %lpad.thr_comm, %.body.thread54 ], [ %542, %541 ], [ %349, %348 ], [ %363, %362 ], [ %355, %354 ]
+.body.thread47:                                   ; preds = %362, %354, %348, %541, %.body.thread54
+  %.sroa.05.152 = phi i1 [ true, %.body.thread54 ], [ false, %362 ], [ false, %354 ], [ false, %348 ], [ true, %541 ]
+  %.pn51 = phi { ptr, i32 } [ %lpad.thr_comm, %.body.thread54 ], [ %363, %362 ], [ %355, %354 ], [ %349, %348 ], [ %542, %541 ]
   %586 = load i64, ptr %1, align 8, !range !74, !noundef !58
   %587 = add nsw i64 %586, -8
   %588 = icmp ugt i64 %587, 3
@@ -22704,7 +22704,7 @@ define hidden void @"_ZN83_$LT$toml_edit..de..value..ValueDeserializer$u20$as$u2
   br label %"_ZN4core3ptr60drop_in_place$LT$uv_normalize..package_name..PackageName$GT$17h61ac399262115f8bE.exit.i"
 
 .loopexit.split-lp.i:                             ; preds = %473, %455, %437, %428, %415, %406, %397, %388, %379, %366, %353, %340, %327, %314, %300, %282, %268, %250, %230, %215
-  %.sroa.0412.1.ph.i = phi i8 [ 1, %437 ], [ 1, %428 ], [ 1, %415 ], [ 1, %406 ], [ 1, %397 ], [ 1, %388 ], [ 1, %379 ], [ 1, %366 ], [ 1, %353 ], [ 1, %340 ], [ 1, %327 ], [ 1, %314 ], [ 1, %300 ], [ 1, %282 ], [ 1, %268 ], [ 1, %250 ], [ 1, %230 ], [ 1, %215 ], [ 1, %455 ], [ %.sroa.0412.6.i, %473 ]
+  %.sroa.0412.1.ph.i = phi i8 [ 1, %353 ], [ 1, %340 ], [ 1, %366 ], [ 1, %327 ], [ 1, %379 ], [ 1, %314 ], [ 1, %388 ], [ 1, %300 ], [ 1, %397 ], [ 1, %282 ], [ 1, %406 ], [ 1, %268 ], [ 1, %415 ], [ 1, %250 ], [ 1, %428 ], [ 1, %230 ], [ 1, %437 ], [ 1, %215 ], [ 1, %455 ], [ %.sroa.0412.6.i, %473 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr60drop_in_place$LT$uv_normalize..package_name..PackageName$GT$17h61ac399262115f8bE.exit.i"
@@ -25631,7 +25631,7 @@ _ZN5serde2de7Visitor10visit_bool17h50eac2847520e54fE.exit.i: ; preds = %851
   ret void
 
 937:                                              ; preds = %745, %934, %755
-  %.sroa.05.2 = phi i1 [ false, %755 ], [ false, %745 ], [ true, %934 ]
+  %.sroa.05.2 = phi i1 [ true, %934 ], [ false, %755 ], [ false, %745 ]
   %938 = load i64, ptr %1, align 8, !range !74, !noundef !58
   %939 = add nsw i64 %938, -8
   %940 = icmp ugt i64 %939, 3
@@ -25732,9 +25732,9 @@ common.resume:                                    ; preds = %977, %980, %981, %9
           cleanup
   br label %.body.thread47
 
-.body.thread47:                                   ; preds = %927, %734, %748, %740, %.body.thread54
-  %.sroa.05.152 = phi i1 [ true, %.body.thread54 ], [ true, %927 ], [ false, %734 ], [ false, %748 ], [ false, %740 ]
-  %.pn51 = phi { ptr, i32 } [ %lpad.thr_comm, %.body.thread54 ], [ %928, %927 ], [ %735, %734 ], [ %749, %748 ], [ %741, %740 ]
+.body.thread47:                                   ; preds = %748, %740, %734, %927, %.body.thread54
+  %.sroa.05.152 = phi i1 [ true, %.body.thread54 ], [ false, %748 ], [ false, %740 ], [ false, %734 ], [ true, %927 ]
+  %.pn51 = phi { ptr, i32 } [ %lpad.thr_comm, %.body.thread54 ], [ %749, %748 ], [ %741, %740 ], [ %735, %734 ], [ %928, %927 ]
   %972 = load i64, ptr %1, align 8, !range !74, !noundef !58
   %973 = add nsw i64 %972, -8
   %974 = icmp ugt i64 %973, 3
@@ -27205,7 +27205,7 @@ _ZN5serde2de7Visitor10visit_bool17h31c95cb90489b7eeE.exit.i: ; preds = %379
   ret void
 
 463:                                              ; preds = %276, %461, %287
-  %.sroa.05.2 = phi i1 [ false, %276 ], [ false, %287 ], [ true, %461 ]
+  %.sroa.05.2 = phi i1 [ true, %461 ], [ false, %276 ], [ false, %287 ]
   %464 = load i64, ptr %1, align 8, !range !74, !noundef !58
   %465 = add nsw i64 %464, -8
   %466 = icmp ugt i64 %465, 3
@@ -27306,9 +27306,9 @@ common.resume:                                    ; preds = %503, %506, %507, %5
           cleanup
   br label %.body.thread49
 
-.body.thread49:                                   ; preds = %454, %265, %280, %271, %.body.thread56
-  %.sroa.05.154 = phi i1 [ true, %.body.thread56 ], [ true, %454 ], [ false, %265 ], [ false, %280 ], [ false, %271 ]
-  %.pn53 = phi { ptr, i32 } [ %lpad.thr_comm, %.body.thread56 ], [ %455, %454 ], [ %266, %265 ], [ %281, %280 ], [ %272, %271 ]
+.body.thread49:                                   ; preds = %280, %271, %265, %454, %.body.thread56
+  %.sroa.05.154 = phi i1 [ true, %.body.thread56 ], [ false, %280 ], [ false, %271 ], [ false, %265 ], [ true, %454 ]
+  %.pn53 = phi { ptr, i32 } [ %lpad.thr_comm, %.body.thread56 ], [ %281, %280 ], [ %272, %271 ], [ %266, %265 ], [ %455, %454 ]
   %498 = load i64, ptr %1, align 8, !range !74, !noundef !58
   %499 = add nsw i64 %498, -8
   %500 = icmp ugt i64 %499, 3
@@ -27426,8 +27426,8 @@ define internal fastcc void @"_ZN187_$LT$uv_build_backend..metadata.._..$LT$impl
   br label %27
 
 .loopexit.split-lp:                               ; preds = %39, %54, %68, %.noexc157, %87
-  %.sroa.084.1.ph = phi i8 [ 1, %68 ], [ 1, %54 ], [ 1, %39 ], [ 1, %87 ], [ %.sroa.084.7, %.noexc157 ]
-  %.sroa.086.1.ph = phi i8 [ 1, %68 ], [ 1, %54 ], [ 1, %39 ], [ 1, %87 ], [ 0, %.noexc157 ]
+  %.sroa.084.1.ph = phi i8 [ 1, %54 ], [ 1, %68 ], [ 1, %39 ], [ 1, %87 ], [ %.sroa.084.7, %.noexc157 ]
+  %.sroa.086.1.ph = phi i8 [ 1, %54 ], [ 1, %68 ], [ 1, %39 ], [ 1, %87 ], [ 0, %.noexc157 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %27
@@ -28092,7 +28092,7 @@ define internal fastcc void @"_ZN181_$LT$uv_build_backend..metadata.._..$LT$impl
   br label %"_ZN4core3ptr60drop_in_place$LT$uv_normalize..package_name..PackageName$GT$17h61ac399262115f8bE.exit"
 
 .loopexit.split-lp:                               ; preds = %147, %163, %183, %201, %215, %233, %247, %260, %273, %286, %299, %312, %321, %330, %339, %348, %361, %370, %388, %407
-  %.sroa.0412.1.ph = phi i8 [ 1, %370 ], [ 1, %361 ], [ 1, %348 ], [ 1, %339 ], [ 1, %330 ], [ 1, %321 ], [ 1, %312 ], [ 1, %299 ], [ 1, %286 ], [ 1, %273 ], [ 1, %260 ], [ 1, %247 ], [ 1, %233 ], [ 1, %215 ], [ 1, %201 ], [ 1, %183 ], [ 1, %163 ], [ 1, %147 ], [ 1, %388 ], [ %.sroa.0412.6, %407 ]
+  %.sroa.0412.1.ph = phi i8 [ 1, %286 ], [ 1, %273 ], [ 1, %299 ], [ 1, %260 ], [ 1, %312 ], [ 1, %247 ], [ 1, %321 ], [ 1, %233 ], [ 1, %330 ], [ 1, %215 ], [ 1, %339 ], [ 1, %201 ], [ 1, %348 ], [ 1, %183 ], [ 1, %361 ], [ 1, %163 ], [ 1, %370 ], [ 1, %147 ], [ 1, %388 ], [ %.sroa.0412.6, %407 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr60drop_in_place$LT$uv_normalize..package_name..PackageName$GT$17h61ac399262115f8bE.exit"
@@ -31283,15 +31283,15 @@ define internal fastcc void @"_ZN194_$LT$uv_build_backend..settings.._..$LT$impl
   br label %48
 
 .loopexit.split-lp:                               ; preds = %67, %87, %98, %112, %122, %136, %150, %221, %.thread311
-  %.sroa.17.0459 = phi i64 [ %.sroa.17.0485, %150 ], [ %.sroa.17.0485, %136 ], [ %.sroa.17.0485, %122 ], [ %.sroa.17.0485, %112 ], [ %.sroa.17.0485, %98 ], [ %.sroa.17.0485, %87 ], [ %.sroa.17.0485, %67 ], [ %.sroa.17.0.lcssa, %.thread311 ], [ %.sroa.17.0.lcssa, %221 ]
-  %.sroa.11294.0428 = phi ptr [ %.sroa.11294.0487, %150 ], [ %.sroa.11294.0487, %136 ], [ %.sroa.11294.0487, %122 ], [ %.sroa.11294.0487, %112 ], [ %.sroa.11294.0487, %98 ], [ %.sroa.11294.0487, %87 ], [ %.sroa.11294.0487, %67 ], [ %.sroa.11294.0.lcssa, %.thread311 ], [ %.sroa.11294.0.lcssa, %221 ]
-  %.sroa.0.0397 = phi i64 [ %.sroa.0.0489, %150 ], [ %.sroa.0.0489, %136 ], [ %.sroa.0.0489, %122 ], [ %.sroa.0.0489, %112 ], [ %.sroa.0.0489, %98 ], [ 1, %87 ], [ %.sroa.0.0489, %67 ], [ %.sroa.0.0.lcssa, %.thread311 ], [ %.sroa.0.0.lcssa, %221 ]
-  %.sroa.0126.1.ph = phi i1 [ true, %150 ], [ true, %136 ], [ true, %122 ], [ true, %112 ], [ true, %98 ], [ true, %87 ], [ true, %67 ], [ true, %.thread311 ], [ false, %221 ]
-  %.sroa.0127.1.ph = phi i1 [ true, %150 ], [ true, %136 ], [ true, %122 ], [ true, %112 ], [ true, %98 ], [ true, %87 ], [ true, %67 ], [ true, %.thread311 ], [ %.not230, %221 ]
-  %.sroa.0128.1.ph = phi i1 [ true, %150 ], [ true, %136 ], [ true, %122 ], [ true, %112 ], [ true, %98 ], [ true, %87 ], [ true, %67 ], [ true, %.thread311 ], [ %.not227, %221 ]
-  %.sroa.0129.1.ph = phi i1 [ true, %150 ], [ true, %136 ], [ true, %122 ], [ true, %112 ], [ true, %98 ], [ true, %87 ], [ true, %67 ], [ true, %.thread311 ], [ %.not224, %221 ]
-  %.sroa.0130.1.ph = phi i1 [ true, %150 ], [ true, %136 ], [ true, %122 ], [ true, %112 ], [ true, %98 ], [ true, %87 ], [ true, %67 ], [ true, %.thread311 ], [ %.sroa.0130.5, %221 ]
-  %.sroa.0131.1.ph = phi i1 [ true, %150 ], [ true, %136 ], [ true, %122 ], [ true, %112 ], [ true, %98 ], [ true, %87 ], [ true, %67 ], [ true, %.thread311 ], [ %.not222, %221 ]
+  %.sroa.17.0459 = phi i64 [ %.sroa.17.0485, %112 ], [ %.sroa.17.0485, %122 ], [ %.sroa.17.0485, %98 ], [ %.sroa.17.0485, %136 ], [ %.sroa.17.0485, %87 ], [ %.sroa.17.0485, %150 ], [ %.sroa.17.0485, %67 ], [ %.sroa.17.0.lcssa, %.thread311 ], [ %.sroa.17.0.lcssa, %221 ]
+  %.sroa.11294.0428 = phi ptr [ %.sroa.11294.0487, %112 ], [ %.sroa.11294.0487, %122 ], [ %.sroa.11294.0487, %98 ], [ %.sroa.11294.0487, %136 ], [ %.sroa.11294.0487, %87 ], [ %.sroa.11294.0487, %150 ], [ %.sroa.11294.0487, %67 ], [ %.sroa.11294.0.lcssa, %.thread311 ], [ %.sroa.11294.0.lcssa, %221 ]
+  %.sroa.0.0397 = phi i64 [ %.sroa.0.0489, %112 ], [ %.sroa.0.0489, %122 ], [ %.sroa.0.0489, %98 ], [ %.sroa.0.0489, %136 ], [ 1, %87 ], [ %.sroa.0.0489, %150 ], [ %.sroa.0.0489, %67 ], [ %.sroa.0.0.lcssa, %.thread311 ], [ %.sroa.0.0.lcssa, %221 ]
+  %.sroa.0126.1.ph = phi i1 [ true, %112 ], [ true, %122 ], [ true, %98 ], [ true, %136 ], [ true, %87 ], [ true, %150 ], [ true, %67 ], [ true, %.thread311 ], [ false, %221 ]
+  %.sroa.0127.1.ph = phi i1 [ true, %112 ], [ true, %122 ], [ true, %98 ], [ true, %136 ], [ true, %87 ], [ true, %150 ], [ true, %67 ], [ true, %.thread311 ], [ %.not230, %221 ]
+  %.sroa.0128.1.ph = phi i1 [ true, %112 ], [ true, %122 ], [ true, %98 ], [ true, %136 ], [ true, %87 ], [ true, %150 ], [ true, %67 ], [ true, %.thread311 ], [ %.not227, %221 ]
+  %.sroa.0129.1.ph = phi i1 [ true, %112 ], [ true, %122 ], [ true, %98 ], [ true, %136 ], [ true, %87 ], [ true, %150 ], [ true, %67 ], [ true, %.thread311 ], [ %.not224, %221 ]
+  %.sroa.0130.1.ph = phi i1 [ true, %112 ], [ true, %122 ], [ true, %98 ], [ true, %136 ], [ true, %87 ], [ true, %150 ], [ true, %67 ], [ true, %.thread311 ], [ %.sroa.0130.5, %221 ]
+  %.sroa.0131.1.ph = phi i1 [ true, %112 ], [ true, %122 ], [ true, %98 ], [ true, %136 ], [ true, %87 ], [ true, %150 ], [ true, %67 ], [ true, %.thread311 ], [ %.not222, %221 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %48

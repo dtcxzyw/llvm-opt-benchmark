@@ -668,7 +668,7 @@ sub_0200:                                         ; preds = %117
   br label %.loopexit492.i.i.i
 
 .loopexit492.i.i.i:                               ; preds = %331, %.loopexit492.loopexit.i.i.i, %347, %328
-  %.1436.i.i.i = phi i32 [ %349, %347 ], [ %350, %.loopexit492.loopexit.i.i.i ], [ %322, %328 ], [ %322, %331 ]
+  %.1436.i.i.i = phi i32 [ %350, %.loopexit492.loopexit.i.i.i ], [ %349, %347 ], [ %322, %328 ], [ %322, %331 ]
   %351 = add nsw i32 %.1436.i.i.i, 1
   %352 = icmp eq i32 %.1436.i.i.i, %.0443536.i.i.i
   br i1 %352, label %.backedge.i.i.i, label %354
@@ -1154,7 +1154,7 @@ sub_0200:                                         ; preds = %117
   br label %.outer489.i.i.i
 
 .loopexit485.i.i.i:                               ; preds = %615, %525, %499, %414, %547, %432
-  %.2428.i.i.i = phi i32 [ %.1427.i.i.i, %499 ], [ %319, %432 ], [ %319, %547 ], [ %.1427.i.i.i, %414 ], [ %.3.i.i.i, %525 ], [ %.3.i.i.i, %615 ]
+  %.2428.i.i.i = phi i32 [ %319, %432 ], [ %319, %547 ], [ %.1427.i.i.i, %499 ], [ %.1427.i.i.i, %414 ], [ %.3.i.i.i, %525 ], [ %.3.i.i.i, %615 ]
   %brmerge.i.i.i = or i1 %364, %369
   br i1 %brmerge.i.i.i, label %.sink.split684.i.i.i, label %616
 
@@ -1255,7 +1255,7 @@ sub_0200:                                         ; preds = %117
   br i1 %exitcond631.not.i.i.i, label %_ZL7dstqrb_PiPdS0_S0_S0_S_.exit.i.i, label %.lr.ph564.i.i.i, !llvm.loop !18
 
 _ZL7dstqrb_PiPdS0_S0_S0_S_.exit.i.i:              ; preds = %626, %647, %.outer493._crit_edge.i.i.i, %618
-  %648 = phi i32 [ %.lcssa.i.i.i, %.outer493._crit_edge.i.i.i ], [ %619, %618 ], [ %.lcssa.i.i.i, %647 ], [ %619, %626 ]
+  %648 = phi i32 [ %619, %618 ], [ %.lcssa.i.i.i, %647 ], [ %.lcssa.i.i.i, %.outer493._crit_edge.i.i.i ], [ %619, %626 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %43)
   call void @llvm.lifetime.end.p0(ptr nonnull %42)
   call void @llvm.lifetime.end.p0(ptr nonnull %41)
@@ -2799,7 +2799,7 @@ sub_0709:                                         ; preds = %sub_0709.lr.ph, %.t
   br label %.tail724.thread
 
 .tail724.thread:                                  ; preds = %.tail724.thread.sink.split, %sub_0709, %.tail716, %.tail720, %202, %168, %164, %192, %189, %206, %.tail724, %177, %180, %151, %155
-  %214 = phi i1 [ false, %202 ], [ false, %168 ], [ false, %164 ], [ false, %192 ], [ false, %189 ], [ false, %206 ], [ false, %.tail724 ], [ false, %177 ], [ false, %180 ], [ false, %151 ], [ false, %155 ], [ false, %sub_0709 ], [ false, %.tail720 ], [ false, %.tail716 ], [ true, %.tail724.thread.sink.split ]
+  %214 = phi i1 [ false, %202 ], [ false, %168 ], [ false, %.tail716 ], [ false, %164 ], [ false, %192 ], [ false, %.tail720 ], [ false, %189 ], [ false, %sub_0709 ], [ false, %206 ], [ false, %.tail724 ], [ false, %177 ], [ false, %155 ], [ false, %180 ], [ false, %151 ], [ true, %.tail724.thread.sink.split ]
   %.not609 = icmp slt i64 %indvars.iv, %144
   %215 = icmp ne i32 %.0517738, 0
   %216 = select i1 %214, i1 true, i1 %215
@@ -4620,7 +4620,7 @@ sub_0200:                                         ; preds = %117
   br label %.loopexit491.i.i.i
 
 .loopexit491.i.i.i:                               ; preds = %331, %.loopexit491.loopexit.i.i.i, %347, %328
-  %.1436.i.i.i = phi i32 [ %349, %347 ], [ %350, %.loopexit491.loopexit.i.i.i ], [ %322, %328 ], [ %322, %331 ]
+  %.1436.i.i.i = phi i32 [ %350, %.loopexit491.loopexit.i.i.i ], [ %349, %347 ], [ %322, %328 ], [ %322, %331 ]
   %351 = add nsw i32 %.1436.i.i.i, 1
   %352 = icmp eq i32 %.1436.i.i.i, %.0443535.i.i.i
   br i1 %352, label %.backedge.i.i.i, label %354
@@ -5120,7 +5120,7 @@ sub_0200:                                         ; preds = %117
   br label %.outer488.i.i.i
 
 .loopexit484.i.i.i:                               ; preds = %629, %532, %506, %414, %554, %432
-  %.2428.i.i.i = phi i32 [ %.1427.i.i.i, %506 ], [ %319, %432 ], [ %319, %554 ], [ %.1427.i.i.i, %414 ], [ %.3.i.i.i, %532 ], [ %.3.i.i.i, %629 ]
+  %.2428.i.i.i = phi i32 [ %319, %432 ], [ %319, %554 ], [ %.1427.i.i.i, %506 ], [ %.1427.i.i.i, %414 ], [ %.3.i.i.i, %532 ], [ %.3.i.i.i, %629 ]
   %brmerge.i.i.i = or i1 %364, %369
   br i1 %brmerge.i.i.i, label %.sink.split683.i.i.i, label %630
 
@@ -5221,7 +5221,7 @@ sub_0200:                                         ; preds = %117
   br i1 %exitcond630.not.i.i.i, label %_ZL7sstqrb_PiPfS0_S0_S0_S_.exit.i.i, label %.lr.ph563.i.i.i, !llvm.loop !57
 
 _ZL7sstqrb_PiPfS0_S0_S0_S_.exit.i.i:              ; preds = %640, %661, %.outer492._crit_edge.i.i.i, %632
-  %662 = phi i32 [ %.lcssa.i.i.i, %.outer492._crit_edge.i.i.i ], [ %633, %632 ], [ %.lcssa.i.i.i, %661 ], [ %633, %640 ]
+  %662 = phi i32 [ %633, %632 ], [ %.lcssa.i.i.i, %661 ], [ %.lcssa.i.i.i, %.outer492._crit_edge.i.i.i ], [ %633, %640 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %43)
   call void @llvm.lifetime.end.p0(ptr nonnull %42)
   call void @llvm.lifetime.end.p0(ptr nonnull %41)
@@ -6765,7 +6765,7 @@ sub_0709:                                         ; preds = %sub_0709.lr.ph, %.t
   br label %.tail724.thread
 
 .tail724.thread:                                  ; preds = %.tail724.thread.sink.split, %sub_0709, %.tail716, %.tail720, %202, %168, %164, %192, %189, %206, %.tail724, %177, %180, %151, %155
-  %214 = phi i1 [ false, %202 ], [ false, %168 ], [ false, %164 ], [ false, %192 ], [ false, %189 ], [ false, %206 ], [ false, %.tail724 ], [ false, %177 ], [ false, %180 ], [ false, %151 ], [ false, %155 ], [ false, %sub_0709 ], [ false, %.tail720 ], [ false, %.tail716 ], [ true, %.tail724.thread.sink.split ]
+  %214 = phi i1 [ false, %202 ], [ false, %168 ], [ false, %.tail716 ], [ false, %164 ], [ false, %192 ], [ false, %.tail720 ], [ false, %189 ], [ false, %sub_0709 ], [ false, %206 ], [ false, %.tail724 ], [ false, %177 ], [ false, %155 ], [ false, %180 ], [ false, %151 ], [ true, %.tail724.thread.sink.split ]
   %.not609 = icmp slt i64 %indvars.iv, %144
   %215 = icmp ne i32 %.0517738, 0
   %216 = select i1 %214, i1 true, i1 %215

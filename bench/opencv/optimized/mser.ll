@@ -1525,7 +1525,7 @@ _ZN2cvL15MSCRStableCheckEPNS_8MSCRNodeERKNS_9MSER_Impl6ParamsE.exit.thread287.i:
   br i1 %exitcond.not.i40, label %.critedge.i, label %474, !llvm.loop !128
 
 .critedge.i:                                      ; preds = %607, %474, %604, %_ZSt4sortIPN2cv8MSCREdgeENS0_12LessThanEdgeEEvT_S4_T0_.exit.i
-  %.1155.i = phi ptr [ %148, %_ZSt4sortIPN2cv8MSCREdgeENS0_12LessThanEdgeEEvT_S4_T0_.exit.i ], [ %.3157.i, %604 ], [ %.2156323.i, %607 ], [ %.0154328.i, %474 ]
+  %.1155.i = phi ptr [ %148, %_ZSt4sortIPN2cv8MSCREdgeENS0_12LessThanEdgeEEvT_S4_T0_.exit.i ], [ %.3157.i, %604 ], [ %.0154328.i, %474 ], [ %.2156323.i, %607 ]
   %609 = icmp ult ptr %148, %.1155.i
   br i1 %609, label %.lr.ph344.i, label %._crit_edge345.i
 
@@ -5404,8 +5404,8 @@ define linkonce_odr hidden void @_ZN2cv9MSER_Impl11CompHistory10updateTreeERNS0_
   br i1 %.not60, label %.critedge, label %51, !llvm.loop !276
 
 .critedge:                                        ; preds = %48, %44, %53, %51, %.preheader71
-  %56 = phi i32 [ %.pre85, %.preheader71 ], [ %42, %53 ], [ %42, %51 ], [ %.pre85, %44 ], [ %.pre85, %48 ]
-  %.1 = phi ptr [ %39, %.preheader71 ], [ %.2, %53 ], [ %.2, %51 ], [ %50, %48 ], [ %.04676, %44 ]
+  %56 = phi i32 [ %42, %53 ], [ %.pre85, %.preheader71 ], [ %42, %51 ], [ %.pre85, %44 ], [ %.pre85, %48 ]
+  %.1 = phi ptr [ %.2, %53 ], [ %39, %.preheader71 ], [ %.2, %51 ], [ %.04676, %44 ], [ %50, %48 ]
   %57 = add nsw i32 %56, %12
   br label %58
 

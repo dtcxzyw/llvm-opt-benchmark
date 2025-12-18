@@ -386,7 +386,7 @@ decoct.exit.i:                                    ; preds = %.lr.ph.i
   br i1 %exitcond167.not.i, label %.loopexit.i12, label %.split.split.i, !llvm.loop !8
 
 .loopexit.i12:                                    ; preds = %92, %156, %110, %148
-  %.185.i = phi ptr [ %150, %148 ], [ %.286.i, %156 ], [ %.286.us136.i, %110 ], [ %.286.us.i, %92 ]
+  %.185.i = phi ptr [ %150, %148 ], [ %.286.us136.i, %110 ], [ %.286.i, %156 ], [ %.286.us.i, %92 ]
   %157 = icmp eq i32 %69, 8
   %or.cond100.i = and i1 %.not88.i, %157
   br i1 %or.cond100.i, label %158, label %160

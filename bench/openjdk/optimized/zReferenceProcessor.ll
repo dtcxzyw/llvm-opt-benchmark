@@ -1520,19 +1520,19 @@ _ZL14reference_type8zaddress.exit:                ; preds = %11, %21
 40:                                               ; preds = %_ZL14reference_type8zaddress.exit
   %41 = add i8 %24, -1
   %or.cond.i = icmp ult i8 %41, 2
-  br i1 %or.cond.i, label %42, label %44
+  br i1 %or.cond.i, label %_ZNK19ZReferenceProcessor17try_make_inactiveE8zaddress13ReferenceType.exit, label %42
 
 42:                                               ; preds = %40
-  %43 = tail call noundef zeroext i1 @_ZN8ZBarrier31clean_barrier_on_weak_oop_fieldEPV8zpointer(ptr noundef nonnull %36)
-  br i1 %43, label %54, label %_ZNK19ZReferenceProcessor17try_make_inactiveE8zaddress13ReferenceType.exit.thread
-
-44:                                               ; preds = %40
   switch i8 %24, label %50 [
-    i8 4, label %_ZNK19ZReferenceProcessor17try_make_inactiveE8zaddress13ReferenceType.exit
+    i8 4, label %43
     i8 3, label %45
   ]
 
-45:                                               ; preds = %44
+43:                                               ; preds = %42
+  %44 = tail call noundef zeroext i1 @_ZN8ZBarrier34clean_barrier_on_phantom_oop_fieldEPV8zpointer(ptr noundef nonnull %36)
+  br i1 %44, label %54, label %_ZNK19ZReferenceProcessor17try_make_inactiveE8zaddress13ReferenceType.exit.thread
+
+45:                                               ; preds = %42
   %46 = tail call noundef zeroext i1 @_ZN8ZBarrier32clean_barrier_on_final_oop_fieldEPV8zpointer(ptr noundef nonnull %36)
   br i1 %46, label %_ZNK19ZReferenceProcessor17try_make_inactiveE8zaddress13ReferenceType.exit.thread28, label %_ZNK19ZReferenceProcessor17try_make_inactiveE8zaddress13ReferenceType.exit.thread
 
@@ -1543,18 +1543,18 @@ _ZNK19ZReferenceProcessor17try_make_inactiveE8zaddress13ReferenceType.exit.threa
   tail call void %49(ptr noundef nonnull align 8 dereferenceable(16) %7, i64 noundef %48, ptr noundef nonnull %7) #11
   br label %54
 
-50:                                               ; preds = %44
+50:                                               ; preds = %42
   %51 = zext i8 %24 to i32
   %52 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %52, align 1
   tail call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str.7, i32 noundef 230, ptr noundef nonnull @.str.8, i32 noundef %51) #12
   unreachable
 
-_ZNK19ZReferenceProcessor17try_make_inactiveE8zaddress13ReferenceType.exit: ; preds = %44
-  %53 = tail call noundef zeroext i1 @_ZN8ZBarrier34clean_barrier_on_phantom_oop_fieldEPV8zpointer(ptr noundef nonnull %36)
+_ZNK19ZReferenceProcessor17try_make_inactiveE8zaddress13ReferenceType.exit: ; preds = %40
+  %53 = tail call noundef zeroext i1 @_ZN8ZBarrier31clean_barrier_on_weak_oop_fieldEPV8zpointer(ptr noundef nonnull %36)
   br i1 %53, label %54, label %_ZNK19ZReferenceProcessor17try_make_inactiveE8zaddress13ReferenceType.exit.thread
 
-54:                                               ; preds = %42, %_ZNK19ZReferenceProcessor17try_make_inactiveE8zaddress13ReferenceType.exit.thread28, %_ZNK19ZReferenceProcessor17try_make_inactiveE8zaddress13ReferenceType.exit
+54:                                               ; preds = %43, %_ZNK19ZReferenceProcessor17try_make_inactiveE8zaddress13ReferenceType.exit.thread28, %_ZNK19ZReferenceProcessor17try_make_inactiveE8zaddress13ReferenceType.exit
   %55 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_126ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not = icmp eq ptr %55, null
   br i1 %.not, label %58, label %switch.lookup
@@ -1590,7 +1590,7 @@ switch.lookup:                                    ; preds = %54
   tail call void %74(ptr noundef nonnull align 8 dereferenceable(16) %71, i64 noundef %73, ptr noundef nonnull %7) #11
   br label %_ZL11list_appendR8zaddressS0_S_.exit
 
-_ZNK19ZReferenceProcessor17try_make_inactiveE8zaddress13ReferenceType.exit.thread: ; preds = %45, %_ZL14reference_type8zaddress.exit, %42, %_ZNK19ZReferenceProcessor17try_make_inactiveE8zaddress13ReferenceType.exit
+_ZNK19ZReferenceProcessor17try_make_inactiveE8zaddress13ReferenceType.exit.thread: ; preds = %45, %_ZL14reference_type8zaddress.exit, %43, %_ZNK19ZReferenceProcessor17try_make_inactiveE8zaddress13ReferenceType.exit
   %75 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_126ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not30 = icmp eq ptr %75, null
   br i1 %.not30, label %_ZL11list_appendR8zaddressS0_S_.exit, label %76

@@ -509,9 +509,9 @@ compute_column_width.exit.i.i:                    ; preds = %._crit_edge.i.i.spl
   br i1 %exitcond.not.i, label %shrink_columns.exit.i, label %.lr.ph35.i39.i.i, !llvm.loop !27
 
 shrink_columns.exit.i:                            ; preds = %.lr.ph35.i39.i.i, %._crit_edge.i41.i.loopexit.split.us104.i, %._crit_edge.i41.i.loopexit.split.us.us.us.i, %.thread.i.i, %layout.exit.i
-  %.sroa.26.0.i = phi i32 [ %79, %layout.exit.i ], [ %174, %.thread.i.i ], [ %174, %._crit_edge.i41.i.loopexit.split.us104.i ], [ %174, %._crit_edge.i41.i.loopexit.split.us.us.us.i ], [ %174, %.lr.ph35.i39.i.i ]
-  %.sroa.38.0.i = phi i32 [ %spec.select.i.i, %layout.exit.i ], [ %.sroa.38.1.i, %.thread.i.i ], [ %.sroa.38.1.i, %._crit_edge.i41.i.loopexit.split.us104.i ], [ %.sroa.38.1.i, %._crit_edge.i41.i.loopexit.split.us.us.us.i ], [ %.sroa.38.1.i, %.lr.ph35.i39.i.i ]
-  %.sroa.60.0.i = phi ptr [ null, %layout.exit.i ], [ %.sroa.60.2.i, %.thread.i.i ], [ %.sroa.60.2.i, %._crit_edge.i41.i.loopexit.split.us104.i ], [ %.sroa.60.2.i, %._crit_edge.i41.i.loopexit.split.us.us.us.i ], [ %.sroa.60.2.i, %.lr.ph35.i39.i.i ]
+  %.sroa.26.0.i = phi i32 [ %79, %layout.exit.i ], [ %174, %.thread.i.i ], [ %174, %._crit_edge.i41.i.loopexit.split.us.us.us.i ], [ %174, %._crit_edge.i41.i.loopexit.split.us104.i ], [ %174, %.lr.ph35.i39.i.i ]
+  %.sroa.38.0.i = phi i32 [ %spec.select.i.i, %layout.exit.i ], [ %.sroa.38.1.i, %.thread.i.i ], [ %.sroa.38.1.i, %._crit_edge.i41.i.loopexit.split.us.us.us.i ], [ %.sroa.38.1.i, %._crit_edge.i41.i.loopexit.split.us104.i ], [ %.sroa.38.1.i, %.lr.ph35.i39.i.i ]
+  %.sroa.60.0.i = phi ptr [ null, %layout.exit.i ], [ %.sroa.60.2.i, %.thread.i.i ], [ %.sroa.60.2.i, %._crit_edge.i41.i.loopexit.split.us.us.us.i ], [ %.sroa.60.2.i, %._crit_edge.i41.i.loopexit.split.us104.i ], [ %.sroa.60.2.i, %.lr.ph35.i39.i.i ]
   %.sroa.60.0.fr.i = freeze ptr %.sroa.60.0.i
   %225 = tail call ptr @xmallocz(i64 noundef %73) #10
   tail call void @llvm.memset.p0.i64(ptr align 1 %225, i8 32, i64 %73, i1 false)
@@ -851,7 +851,7 @@ sub_1:                                            ; preds = %sub_0
   br label %skip_prefix.exit
 
 skip_prefix.exit:                                 ; preds = %6, %31, %29, %27, %22, %20, %18, %.tail.thread, %24
-  %.0 = phi i32 [ 0, %.tail.thread ], [ 0, %20 ], [ 0, %24 ], [ -1, %22 ], [ -1, %18 ], [ -1, %31 ], [ -1, %27 ], [ 0, %29 ], [ 0, %6 ]
+  %.0 = phi i32 [ 0, %.tail.thread ], [ 0, %20 ], [ 0, %29 ], [ 0, %24 ], [ -1, %22 ], [ -1, %18 ], [ -1, %31 ], [ -1, %27 ], [ 0, %6 ]
   ret i32 %.0
 }
 

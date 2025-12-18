@@ -2168,9 +2168,9 @@ ReleaseCamera.exit:                               ; preds = %9, %24
   br label %81
 
 81:                                               ; preds = %.sink.split.i, %79, %77
-  %.1110.i = phi i32 [ %.0109160.i, %77 ], [ %.0109160.i, %79 ], [ %75, %.sink.split.i ]
-  %.1108.i = phi float [ %.0107161.i, %77 ], [ %.0107161.i, %79 ], [ %.1108.ph.i, %.sink.split.i ]
-  %.1.i = phi float [ %.0162.i, %77 ], [ %.0162.i, %79 ], [ %.1.ph.i, %.sink.split.i ]
+  %.1110.i = phi i32 [ %.0109160.i, %79 ], [ %.0109160.i, %77 ], [ %75, %.sink.split.i ]
+  %.1108.i = phi float [ %.0107161.i, %79 ], [ %.0107161.i, %77 ], [ %.1108.ph.i, %.sink.split.i ]
+  %.1.i = phi float [ %.0162.i, %79 ], [ %.0162.i, %77 ], [ %.1.ph.i, %.sink.split.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.loopexit153.i, label %60, !llvm.loop !16
@@ -3056,8 +3056,8 @@ select.unfold.preheader:                          ; preds = %13, %select.unfold
   br label %select.unfold
 
 select.unfold:                                    ; preds = %21, %28, %32
-  %.259 = phi i8 [ 1, %32 ], [ 0, %28 ], [ 0, %21 ]
-  %.255 = phi i1 [ true, %32 ], [ true, %28 ], [ %.154108, %21 ]
+  %.259 = phi i8 [ 0, %28 ], [ 1, %32 ], [ 0, %21 ]
+  %.255 = phi i1 [ true, %28 ], [ true, %32 ], [ %.154108, %21 ]
   %36 = getelementptr inbounds nuw i8, ptr %19, i64 1
   br i1 %.not80, label %select.unfold..critedge2_crit_edge, label %select.unfold.preheader
 

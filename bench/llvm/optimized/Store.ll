@@ -1150,7 +1150,7 @@ _ZNK5clang4Type10isVoidTypeEv.exit71.thread:      ; preds = %185, %_ZNK5clang4Ty
   %.0113.be = phi ptr [ %184, %182 ], [ %199, %_ZNK5clang4Type10isVoidTypeEv.exit71.thread ]
   br label %59
 
-_ZL16getCXXRecordTypePKN5clang4ento9MemRegionE.exit.thread: ; preds = %73, %_ZL16getCXXRecordTypePKN5clang4ento9MemRegionE.exit, %_ZNK5clang4Type10isVoidTypeEv.exit71.thread
+_ZL16getCXXRecordTypePKN5clang4ento9MemRegionE.exit.thread: ; preds = %73, %_ZNK5clang4Type10isVoidTypeEv.exit71.thread, %_ZL16getCXXRecordTypePKN5clang4ento9MemRegionE.exit
   %201 = load i32, ptr %60, align 8, !tbaa !81
   %202 = icmp ne i32 %201, 10
   %.not42 = or i1 %.not.not19.i, %202

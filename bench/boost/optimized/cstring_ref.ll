@@ -5277,7 +5277,7 @@ _ZN5boost10test_tools16assertion_resultD2Ev.exit255: ; preds = %912, %915, %.noe
   br label %.loopexit539
 
 .loopexit539:                                     ; preds = %.lr.ph.i, %.preheader.i, %.critedge.loopexit.i
-  %.08.i = phi i8 [ %1520, %.critedge.loopexit.i ], [ 0, %.preheader.i ], [ 0, %.lr.ph.i ]
+  %.08.i = phi i8 [ 0, %.preheader.i ], [ %1520, %.critedge.loopexit.i ], [ 0, %.lr.ph.i ]
   store i8 %.08.i, ptr %287, align 8, !tbaa !46
   %1521 = getelementptr inbounds nuw i8, ptr %287, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1521, i8 0, i64 16, i1 false)

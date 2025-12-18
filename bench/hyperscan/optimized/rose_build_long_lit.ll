@@ -1236,8 +1236,8 @@ _ZN3ue2L16addToBloomFilterERSt6vectorIhSaIhEEPKhb.exit.i.us: ; preds = %.noexc23
   br i1 %.not5.i, label %_ZN3ue2L16buildBloomFilterERKSt6vectorINS_15ue2_case_stringESaIS1_EEmmb.exit, label %.lr.ph13.i.split
 
 _ZN3ue2L16buildBloomFilterERKSt6vectorINS_15ue2_case_stringESaIS1_EEmmb.exit: ; preds = %.loopexit6.i, %.loopexit6.i.us, %10, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i.i
-  %.sroa.12.142 = phi ptr [ %14, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i.i ], [ null, %10 ], [ %14, %.loopexit6.i.us ], [ %14, %.loopexit6.i ]
-  %.sroa.0.141 = phi ptr [ %13, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i.i ], [ null, %10 ], [ %13, %.loopexit6.i.us ], [ %13, %.loopexit6.i ]
+  %.sroa.12.142 = phi ptr [ %14, %.loopexit6.i.us ], [ null, %10 ], [ %14, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i.i ], [ %14, %.loopexit6.i ]
+  %.sroa.0.141 = phi ptr [ %13, %.loopexit6.i.us ], [ null, %10 ], [ %13, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i.i ], [ %13, %.loopexit6.i ]
   store ptr %.sroa.0.141, ptr %0, align 8
   store ptr %.sroa.12.142, ptr %8, align 8
   store ptr %.sroa.12.142, ptr %9, align 8
@@ -3565,7 +3565,7 @@ _ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !127
 
 _ZNSt3_V28__rotateIN5boost9container12vec_iteratorIPSt4pairIjjELb0EEEEET_S8_S8_S8_St26random_access_iterator_tag.exit: ; preds = %._crit_edge62.i, %._crit_edge.i, %.lr.ph.i.i, %135, %137
-  %.sroa.052.0 = phi ptr [ %.sroa.070.0, %137 ], [ %.sroa.064.0, %135 ], [ %49, %.lr.ph.i.i ], [ %159, %._crit_edge.i ], [ %159, %._crit_edge62.i ]
+  %.sroa.052.0 = phi ptr [ %49, %.lr.ph.i.i ], [ %.sroa.064.0, %135 ], [ %.sroa.070.0, %137 ], [ %159, %._crit_edge.i ], [ %159, %._crit_edge62.i ]
   %193 = load ptr, ptr %0, align 8
   store ptr %193, ptr %7, align 8
   store ptr %.sroa.070.0, ptr %8, align 8
@@ -5352,7 +5352,7 @@ define internal fastcc void @"_ZSt21__inplace_stable_sortIN5boost9container12vec
   br i1 %.0.i.i.i.i, label %.lr.ph.i.i, label %_ZSt13move_backwardIN5boost9container12vec_iteratorIPSt4pairIjjELb0EEES6_ET0_T_S8_S7_.exit.i, !llvm.loop !314
 
 _ZSt13move_backwardIN5boost9container12vec_iteratorIPSt4pairIjjELb0EEES6_ET0_T_S8_S7_.exit.i: ; preds = %.lr.ph.i.i, %.lr.ph.i.i.i.i.i.i, %38, %24
-  %.sink.i = phi ptr [ %11, %24 ], [ %.sroa.011.021.i, %38 ], [ %11, %.lr.ph.i.i.i.i.i.i ], [ %.sroa.04.015.i.i, %.lr.ph.i.i ]
+  %.sink.i = phi ptr [ %11, %24 ], [ %11, %.lr.ph.i.i.i.i.i.i ], [ %.sroa.011.021.i, %38 ], [ %.sroa.04.015.i.i, %.lr.ph.i.i ]
   store i64 %23, ptr %.sink.i, align 4
   %.sroa.011.0.i = getelementptr inbounds nuw i8, ptr %.sroa.011.021.i, i64 8
   %.not.i = icmp eq ptr %.sroa.011.0.i, %10
@@ -5725,7 +5725,7 @@ _ZSt7advanceIN5boost9container12vec_iteratorIPSt4pairIjjELb0EEElEvRT_T0_.exit.i3
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !127
 
 _ZNSt3_V28__rotateIN5boost9container12vec_iteratorIPSt4pairIjjELb0EEEEET_S8_S8_S8_St26random_access_iterator_tag.exit: ; preds = %._crit_edge62.i, %._crit_edge.i, %.lr.ph.i.i, %76, %78
-  %.sroa.045.0 = phi ptr [ %.sroa.063.0, %78 ], [ %.sroa.057.0, %76 ], [ %29, %.lr.ph.i.i ], [ %100, %._crit_edge.i ], [ %100, %._crit_edge62.i ]
+  %.sroa.045.0 = phi ptr [ %29, %.lr.ph.i.i ], [ %.sroa.057.0, %76 ], [ %.sroa.063.0, %78 ], [ %100, %._crit_edge.i ], [ %100, %._crit_edge62.i ]
   %134 = load ptr, ptr %0, align 8
   store ptr %134, ptr %6, align 8
   store ptr %.sroa.063.0, ptr %7, align 8
@@ -5837,7 +5837,7 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferIN5boost9container12
   br i1 %.0.i.i.i.i.i, label %.lr.ph.i.i.i, label %_ZSt13move_backwardIN5boost9container12vec_iteratorIPSt4pairIjjELb0EEES6_ET0_T_S8_S7_.exit.i.i, !llvm.loop !314
 
 _ZSt13move_backwardIN5boost9container12vec_iteratorIPSt4pairIjjELb0EEES6_ET0_T_S8_S7_.exit.i.i: ; preds = %.lr.ph.i.i.i, %.lr.ph.i.i.i.i.i.i.i, %32, %18
-  %.sink.i.i = phi ptr [ %.sroa.050.0, %18 ], [ %.sroa.011.021.i.ptr.i, %32 ], [ %.sroa.050.0, %.lr.ph.i.i.i.i.i.i.i ], [ %.sroa.04.015.i.i.i, %.lr.ph.i.i.i ]
+  %.sink.i.i = phi ptr [ %.sroa.050.0, %18 ], [ %.sroa.050.0, %.lr.ph.i.i.i.i.i.i.i ], [ %.sroa.011.021.i.ptr.i, %32 ], [ %.sroa.04.015.i.i.i, %.lr.ph.i.i.i ]
   store i64 %17, ptr %.sink.i.i, align 4
   %.sroa.011.021.i.add.i = add nuw nsw i64 %.sroa.011.021.i.idx.i, 8
   %.not.i.i = icmp eq i64 %.sroa.011.021.i.add.i, 56
@@ -5937,7 +5937,7 @@ _ZSt13move_backwardIN5boost9container12vec_iteratorIPSt4pairIjjELb0EEES6_ET0_T_S
   br i1 %.0.i.i.i.i36.i, label %.lr.ph.i.i29.i, label %_ZSt13move_backwardIN5boost9container12vec_iteratorIPSt4pairIjjELb0EEES6_ET0_T_S8_S7_.exit.i25.i, !llvm.loop !314
 
 _ZSt13move_backwardIN5boost9container12vec_iteratorIPSt4pairIjjELb0EEES6_ET0_T_S8_S7_.exit.i25.i: ; preds = %.lr.ph.i.i29.i, %.lr.ph.i.i.i.i.i.i38.i, %66, %52
-  %.sink.i26.i = phi ptr [ %.lcssa54.i, %52 ], [ %.sroa.011.021.i10.i, %66 ], [ %.lcssa54.i, %.lr.ph.i.i.i.i.i.i38.i ], [ %.sroa.04.015.i.i31.i, %.lr.ph.i.i29.i ]
+  %.sink.i26.i = phi ptr [ %.lcssa54.i, %52 ], [ %.lcssa54.i, %.lr.ph.i.i.i.i.i.i38.i ], [ %.sroa.011.021.i10.i, %66 ], [ %.sroa.04.015.i.i31.i, %.lr.ph.i.i29.i ]
   store i64 %51, ptr %.sink.i26.i, align 4
   %.sroa.011.0.i27.i = getelementptr inbounds nuw i8, ptr %.sroa.011.021.i10.i, i64 8
   %.not.i28.i = icmp eq ptr %.sroa.011.0.i27.i, %4

@@ -424,7 +424,7 @@ merge_select_frame_type.exit.loopexit:            ; preds = %.lr.ph.i178, %127
   br label %merge_select_frame_type.exit
 
 merge_select_frame_type.exit:                     ; preds = %.lr.ph.i178, %merge_select_frame_type.exit.loopexit, %115, %.preheader.i177
-  %.0.i = phi i32 [ 0, %115 ], [ %119, %.preheader.i177 ], [ %.217.i, %merge_select_frame_type.exit.loopexit ], [ 0, %.lr.ph.i178 ]
+  %.0.i = phi i32 [ %.217.i, %merge_select_frame_type.exit.loopexit ], [ 0, %115 ], [ %119, %.preheader.i177 ], [ 0, %.lr.ph.i178 ]
   br i1 %.not82.i, label %132, label %128
 
 128:                                              ; preds = %merge_select_frame_type.exit
@@ -571,7 +571,7 @@ create_shb_header.exit:                           ; preds = %157, %158
   br i1 %exitcond46.not.i.i, label %.loopexit75.i, label %.lr.ph35.i.i, !llvm.loop !14
 
 all_idbs_are_duplicates.exit.i:                   ; preds = %.lr.ph35.i.i, %.lr.ph35.i.us.i, %.lr.ph.i.i
-  %196 = phi ptr [ %175, %.lr.ph35.i.us.i ], [ %182, %.lr.ph.i.i ], [ %182, %.lr.ph35.i.i ]
+  %196 = phi ptr [ %182, %.lr.ph.i.i ], [ %175, %.lr.ph35.i.us.i ], [ %182, %.lr.ph35.i.i ]
   call void @g_free(ptr noundef %196)
   call void @g_free(ptr noundef %167)
   br label %._crit_edge104.i

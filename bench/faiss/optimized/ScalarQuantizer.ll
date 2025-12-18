@@ -379,7 +379,7 @@ define void @_ZN5faiss15ScalarQuantizer5trainEmPKf(ptr noundef nonnull align 8 d
   br label %16
 
 16:                                               ; preds = %3, %3, %.fold.split6, %15
-  %17 = phi i32 [ 4, %3 ], [ 4, %3 ], [ -1, %15 ], [ 8, %.fold.split6 ]
+  %17 = phi i32 [ 4, %3 ], [ 4, %3 ], [ 8, %.fold.split6 ], [ -1, %15 ]
   switch i32 %14, label %139 [
     i32 3, label %18
     i32 2, label %18

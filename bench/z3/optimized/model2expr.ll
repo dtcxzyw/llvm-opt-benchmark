@@ -700,7 +700,7 @@ _ZNK10model_core17get_num_functionsEv.exit:       ; preds = %._crit_edge
   br i1 %.not27.old.i.i.i.i, label %_ZNK10model_core16get_const_interpEP9func_decl.exit, label %.lr.ph38.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.backedge:                        ; preds = %102, %99
-  %.137.i.i.i.i.be = phi ptr [ %.old.i.i.i.i, %102 ], [ %101, %99 ]
+  %.137.i.i.i.i.be = phi ptr [ %101, %99 ], [ %.old.i.i.i.i, %102 ]
   br label %.lr.ph38.i.i.i.i, !llvm.loop !88
 
 .loopexit.i:                                      ; preds = %83, %94
@@ -875,7 +875,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.
   br i1 %.not27.old.i.i.i.i156, label %_ZNK10model_core15get_func_interpEP9func_decl.exit, label %.lr.ph38.i.i.i.i152.backedge
 
 .lr.ph38.i.i.i.i152.backedge:                     ; preds = %174, %171
-  %.137.i.i.i.i153.be = phi ptr [ %.old.i.i.i.i155, %174 ], [ %173, %171 ]
+  %.137.i.i.i.i153.be = phi ptr [ %173, %171 ], [ %.old.i.i.i.i155, %174 ]
   br label %.lr.ph38.i.i.i.i152, !llvm.loop !113
 
 .loopexit.i159:                                   ; preds = %155, %166
@@ -1601,7 +1601,7 @@ _ZN11ast_manager7inc_refEP3ast.exit.i212:         ; preds = %_ZN11ast_manager5mk
           to label %.loopexit unwind label %346
 
 .loopexit:                                        ; preds = %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit194, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit186, %451, %445, %446
-  %.sroa.0353.8 = phi ptr [ %416, %451 ], [ %416, %445 ], [ %416, %446 ], [ %363, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit186 ], [ %388, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit194 ]
+  %.sroa.0353.8 = phi ptr [ %416, %446 ], [ %416, %451 ], [ %416, %445 ], [ %363, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit186 ], [ %388, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit194 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store ptr null, ptr %22, align 8, !tbaa !135
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
@@ -2728,8 +2728,8 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit282: 
   br label %875
 
 875:                                              ; preds = %_ZN13mk_fresh_nameD2Ev.exit264, %.body
-  %.sroa.0353.0 = phi ptr [ %.sroa.0353.2, %_ZN13mk_fresh_nameD2Ev.exit264 ], [ %.sroa.0353.1.lcssa, %.body ]
-  %.pn139.pn = phi { ptr, i32 } [ %.pn134.pn.pn, %_ZN13mk_fresh_nameD2Ev.exit264 ], [ %.pn, %.body ]
+  %.sroa.0353.0 = phi ptr [ %.sroa.0353.1.lcssa, %.body ], [ %.sroa.0353.2, %_ZN13mk_fresh_nameD2Ev.exit264 ]
+  %.pn139.pn = phi { ptr, i32 } [ %.pn, %.body ], [ %.pn134.pn.pn, %_ZN13mk_fresh_nameD2Ev.exit264 ]
   %.not.i.i283 = icmp eq ptr %.sroa.0353.0, null
   br i1 %.not.i.i283, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit284, label %.thread383
 

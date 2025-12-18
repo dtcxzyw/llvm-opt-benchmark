@@ -734,10 +734,10 @@ _ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit263
   br label %.loopexit339
 
 .loopexit339:                                     ; preds = %21, %279, %309
-  %.6284 = phi ptr [ %.2280, %309 ], [ %.3281, %279 ], [ %.0, %21 ]
-  %.4206 = phi ptr [ %.0202.ptr, %309 ], [ %3, %279 ], [ %.0202.ptr, %21 ]
-  %.0191 = phi i32 [ 2, %309 ], [ 1, %279 ], [ 0, %21 ]
-  %.9 = phi i32 [ %.2, %309 ], [ %.6, %279 ], [ %.0180, %21 ]
+  %.6284 = phi ptr [ %.3281, %279 ], [ %.2280, %309 ], [ %.0, %21 ]
+  %.4206 = phi ptr [ %3, %279 ], [ %.0202.ptr, %309 ], [ %.0202.ptr, %21 ]
+  %.0191 = phi i32 [ 1, %279 ], [ 2, %309 ], [ 0, %21 ]
+  %.9 = phi i32 [ %.6, %279 ], [ %.2, %309 ], [ %.0180, %21 ]
   %.not249 = icmp eq i32 %.9, -2
   br i1 %.not249, label %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit268, label %311
 
@@ -1215,7 +1215,7 @@ _ZL9yytnamerrPcPKc.exit68:                        ; preds = %62, %.preheader, %.
   br label %.preheader, !llvm.loop !29
 
 _ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread8: ; preds = %_ZL9yytnamerrPcPKc.exit, %.preheader, %.critedge.i.i, %59, %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit
-  %.041 = phi i32 [ %.2.i.i, %.critedge.i.i ], [ -2, %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit ], [ -1, %59 ], [ 0, %.preheader ], [ -2, %_ZL9yytnamerrPcPKc.exit ]
+  %.041 = phi i32 [ %.2.i.i, %.critedge.i.i ], [ -2, %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit ], [ 0, %.preheader ], [ -1, %59 ], [ -2, %_ZL9yytnamerrPcPKc.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.041
 }

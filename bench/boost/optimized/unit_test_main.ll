@@ -915,7 +915,7 @@ _ZNSolsEPFRSoS_E.exit86:                          ; preds = %_ZStlsISt11char_tra
   br label %260
 
 .thread:                                          ; preds = %106, %_ZN5boost9unit_test9ut_detail16labels_collectorD2Ev.exit, %89, %177, %167, %_ZNSolsEPFRSoS_E.exit82, %_ZNSolsEPFRSoS_E.exit78, %_ZNSolsEPFRSoS_E.exit74, %_ZNSolsEPFRSoS_E.exit86, %182
-  %.1 = phi i32 [ %184, %182 ], [ 200, %_ZNSolsEPFRSoS_E.exit86 ], [ 200, %_ZNSolsEPFRSoS_E.exit82 ], [ 200, %_ZNSolsEPFRSoS_E.exit74 ], [ 200, %_ZNSolsEPFRSoS_E.exit78 ], [ %178, %177 ], [ 0, %167 ], [ 0, %89 ], [ 0, %_ZN5boost9unit_test9ut_detail16labels_collectorD2Ev.exit ], [ 0, %106 ]
+  %.1 = phi i32 [ %184, %182 ], [ 200, %_ZNSolsEPFRSoS_E.exit86 ], [ 200, %_ZNSolsEPFRSoS_E.exit82 ], [ 200, %_ZNSolsEPFRSoS_E.exit74 ], [ 200, %_ZNSolsEPFRSoS_E.exit78 ], [ 0, %167 ], [ %178, %177 ], [ 0, %89 ], [ 0, %_ZN5boost9unit_test9ut_detail16labels_collectorD2Ev.exit ], [ 0, %106 ]
   invoke void @_ZN5boost9unit_test9framework8shutdownEv()
           to label %_ZN5boost9unit_test9ut_detail25framework_shutdown_helperD2Ev.exit unwind label %251
 

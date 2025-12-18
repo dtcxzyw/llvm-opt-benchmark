@@ -4522,7 +4522,7 @@ define linkonce_odr noundef i32 @_ZSt13__invoke_implIiRZN8LightGBM21BaggingSampl
   br i1 %exitcond.not.i9.i, label %_ZZN8LightGBM21BaggingSampleStrategy7BaggingEiPNS_11TreeLearnerEPfS3_ENKUliiiPiS4_E_clEiiiS4_S4_.exit, label %68, !llvm.loop !209
 
 _ZZN8LightGBM21BaggingSampleStrategy7BaggingEiPNS_11TreeLearnerEPfS3_ENKUliiiPiS4_E_clEiiiS4_S4_.exit: ; preds = %68, %57, %15, %60
-  %.0.i = phi i32 [ 0, %15 ], [ 0, %60 ], [ %.1.i.i, %57 ], [ %.119.i.i, %68 ]
+  %.0.i = phi i32 [ %.1.i.i, %57 ], [ 0, %15 ], [ 0, %60 ], [ %.119.i.i, %68 ]
   ret i32 %.0.i
 }
 

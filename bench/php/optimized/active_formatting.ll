@@ -290,7 +290,7 @@ define hidden ptr @lxb_html_tree_active_formatting_between_last_marker(ptr nound
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %.lr.ph, %23, %3, %21, %22
-  %.016 = phi ptr [ %11, %22 ], [ %11, %21 ], [ null, %3 ], [ null, %23 ], [ null, %.lr.ph ]
+  %.016 = phi ptr [ %11, %21 ], [ %11, %22 ], [ null, %3 ], [ null, %23 ], [ null, %.lr.ph ]
   ret ptr %.016
 }
 

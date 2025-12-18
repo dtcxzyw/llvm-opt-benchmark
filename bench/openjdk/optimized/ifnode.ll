@@ -6033,7 +6033,7 @@ _ZN4Node7set_reqEjPS_.exit381:                    ; preds = %538, %541, %553
   br label %_ZN16Unique_Node_List4pushEP4Node.exit
 
 _ZN16Unique_Node_List4pushEP4Node.exit:           ; preds = %112, %161, %172, %182, %177, %_ZN4Node17may_be_loop_entryEPS_.exit, %37, %_ZN9Node_List4pushEP4Node.exit.i, %_ZN9VectorSet8test_setEj.exit.i, %._crit_edge476, %562, %._crit_edge429, %._crit_edge, %_ZNK10RegionNode7is_copyEv.exit.thread, %144, %126, %133, %_ZNK10RegionNode7is_copyEv.exit, %113, %31, %20, %26, %11, %2, %236
-  %.0 = phi ptr [ null, %11 ], [ %560, %562 ], [ null, %31 ], [ null, %113 ], [ null, %126 ], [ null, %._crit_edge476 ], [ null, %_ZNK10RegionNode7is_copyEv.exit.thread ], [ null, %._crit_edge ], [ null, %236 ], [ null, %._crit_edge429 ], [ null, %_ZN9Node_List4pushEP4Node.exit.i ], [ null, %20 ], [ null, %2 ], [ null, %26 ], [ null, %_ZNK10RegionNode7is_copyEv.exit ], [ null, %133 ], [ null, %144 ], [ null, %_ZN9VectorSet8test_setEj.exit.i ], [ null, %37 ], [ null, %161 ], [ null, %_ZN4Node17may_be_loop_entryEPS_.exit ], [ null, %172 ], [ null, %177 ], [ null, %182 ], [ null, %112 ]
+  %.0 = phi ptr [ null, %11 ], [ %560, %562 ], [ null, %31 ], [ null, %113 ], [ null, %126 ], [ null, %37 ], [ null, %._crit_edge476 ], [ null, %161 ], [ null, %_ZNK10RegionNode7is_copyEv.exit.thread ], [ null, %_ZN4Node17may_be_loop_entryEPS_.exit ], [ null, %._crit_edge ], [ null, %_ZN9VectorSet8test_setEj.exit.i ], [ null, %236 ], [ null, %._crit_edge429 ], [ null, %_ZN9Node_List4pushEP4Node.exit.i ], [ null, %20 ], [ null, %2 ], [ null, %26 ], [ null, %_ZNK10RegionNode7is_copyEv.exit ], [ null, %133 ], [ null, %144 ], [ null, %172 ], [ null, %177 ], [ null, %182 ], [ null, %112 ]
   ret ptr %.0
 }
 

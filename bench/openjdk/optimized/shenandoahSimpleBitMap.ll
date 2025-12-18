@@ -346,10 +346,10 @@ _ZNK22ShenandoahSimpleBitMap19count_trailing_onesEl.exit.us: ; preds = %.lr.ph.i
   br label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %70, %55, %50
-  %.152.us.be = phi i64 [ %73, %70 ], [ %56, %55 ], [ %53, %50 ]
-  %.049.us.be = phi i64 [ 0, %70 ], [ %54, %55 ], [ 0, %50 ]
-  %.047.us.be = phi i64 [ %71, %70 ], [ %51, %55 ], [ %51, %50 ]
-  %.046.us.be = phi i64 [ %68, %70 ], [ %48, %55 ], [ %48, %50 ]
+  %.152.us.be = phi i64 [ %53, %50 ], [ %73, %70 ], [ %56, %55 ]
+  %.049.us.be = phi i64 [ 0, %50 ], [ 0, %70 ], [ %54, %55 ]
+  %.047.us.be = phi i64 [ %51, %50 ], [ %71, %70 ], [ %51, %55 ]
+  %.046.us.be = phi i64 [ %48, %50 ], [ %68, %70 ], [ %48, %55 ]
   br label %.split.us, !llvm.loop !12
 
 .split:                                           ; preds = %7
@@ -373,7 +373,7 @@ _ZNK22ShenandoahSimpleBitMap19count_trailing_onesEl.exit.us: ; preds = %.lr.ph.i
   br i1 %81, label %.lr.ph, label %_ZNK22ShenandoahSimpleBitMap27is_forward_consecutive_onesEll.exit.thread, !llvm.loop !12
 
 _ZNK22ShenandoahSimpleBitMap27is_forward_consecutive_onesEll.exit.thread: ; preds = %.lr.ph, %77, %67, %_ZNK22ShenandoahSimpleBitMap19count_trailing_onesEl.exit.us, %.lr.ph.i.preheader.us, %.lr.ph.i.us, %.split, %4
-  %.0 = phi i64 [ %2, %4 ], [ %1, %.split ], [ %.046.us, %.lr.ph.i.preheader.us ], [ %.046.us, %.lr.ph.i.us ], [ %2, %67 ], [ %2, %_ZNK22ShenandoahSimpleBitMap19count_trailing_onesEl.exit.us ], [ %2, %.lr.ph ], [ %75, %77 ]
+  %.0 = phi i64 [ %.046.us, %.lr.ph.i.preheader.us ], [ %2, %4 ], [ %.046.us, %.lr.ph.i.us ], [ %1, %.split ], [ %2, %67 ], [ %2, %_ZNK22ShenandoahSimpleBitMap19count_trailing_onesEl.exit.us ], [ %75, %77 ], [ %2, %.lr.ph ]
   ret i64 %.0
 }
 
@@ -513,10 +513,10 @@ _ZNK22ShenandoahSimpleBitMap18count_leading_onesEl.exit.us: ; preds = %.lr.ph.i6
   br label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %69, %51, %46
-  %.153.us.be = phi i64 [ %72, %69 ], [ %54, %51 ], [ %50, %46 ]
-  %.050.us.be = phi i64 [ 63, %69 ], [ %48, %51 ], [ 63, %46 ]
-  %.048.us.be = phi i64 [ %70, %69 ], [ %47, %51 ], [ %47, %46 ]
-  %.047.us.be = phi i64 [ %67, %69 ], [ %44, %51 ], [ %44, %46 ]
+  %.153.us.be = phi i64 [ %50, %46 ], [ %72, %69 ], [ %54, %51 ]
+  %.050.us.be = phi i64 [ 63, %46 ], [ 63, %69 ], [ %48, %51 ]
+  %.048.us.be = phi i64 [ %47, %46 ], [ %70, %69 ], [ %47, %51 ]
+  %.047.us.be = phi i64 [ %44, %46 ], [ %67, %69 ], [ %44, %51 ]
   br label %.split.us, !llvm.loop !13
 
 .split:                                           ; preds = %7
@@ -543,13 +543,13 @@ _ZNK22ShenandoahSimpleBitMap18count_leading_onesEl.exit.us: ; preds = %.lr.ph.i6
   br i1 %81, label %.lr.ph, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %77, %.lr.ph.i.preheader.us, %.lr.ph.i.us, %.split
-  %.04772 = phi i64 [ %2, %.split ], [ %.047.us, %.lr.ph.i.preheader.us ], [ %.047.us, %.lr.ph.i.us ], [ %75, %77 ]
+  %.04772 = phi i64 [ %.047.us, %.lr.ph.i.us ], [ %.047.us, %.lr.ph.i.preheader.us ], [ %2, %.split ], [ %75, %77 ]
   %reass.sub87 = sub i64 %.04772, %3
   %82 = add i64 %reass.sub87, 1
   br label %.loopexit69
 
 .loopexit69:                                      ; preds = %.lr.ph, %66, %_ZNK22ShenandoahSimpleBitMap18count_leading_onesEl.exit.us, %4, %.loopexit
-  %.0 = phi i64 [ %1, %4 ], [ %82, %.loopexit ], [ %1, %66 ], [ %1, %_ZNK22ShenandoahSimpleBitMap18count_leading_onesEl.exit.us ], [ %1, %.lr.ph ]
+  %.0 = phi i64 [ %82, %.loopexit ], [ %1, %4 ], [ %1, %66 ], [ %1, %_ZNK22ShenandoahSimpleBitMap18count_leading_onesEl.exit.us ], [ %1, %.lr.ph ]
   ret i64 %.0
 }
 

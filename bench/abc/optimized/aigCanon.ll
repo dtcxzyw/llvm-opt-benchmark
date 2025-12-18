@@ -164,7 +164,7 @@ Kit_TruthIsEqual.exit:                            ; preds = %28
   br i1 %.not, label %Kit_TruthIsEqual.exit.thread, label %24, !llvm.loop !28
 
 Kit_TruthIsEqual.exit.thread:                     ; preds = %Kit_TruthIsEqual.exit, %select.unfold.i, %Aig_RManTableHash.exit
-  %.01321 = phi ptr [ %22, %Aig_RManTableHash.exit ], [ %.01324, %select.unfold.i ], [ %.025, %Kit_TruthIsEqual.exit ]
+  %.01321 = phi ptr [ %.01324, %select.unfold.i ], [ %22, %Aig_RManTableHash.exit ], [ %.025, %Kit_TruthIsEqual.exit ]
   ret ptr %.01321
 }
 
@@ -290,7 +290,7 @@ Kit_TruthIsEqual.exit.i:                          ; preds = %42
   br i1 %.not.i35, label %Aig_RManTableLookup.exit, label %.lr.ph.i33, !llvm.loop !28
 
 Aig_RManTableLookup.exit:                         ; preds = %Kit_TruthIsEqual.exit.i, %select.unfold.i.i, %Aig_RManTableHash.exit.i
-  %.01321.i = phi ptr [ %39, %Aig_RManTableHash.exit.i ], [ %.01324.i, %select.unfold.i.i ], [ %.025.i, %Kit_TruthIsEqual.exit.i ]
+  %.01321.i = phi ptr [ %.01324.i, %select.unfold.i.i ], [ %39, %Aig_RManTableHash.exit.i ], [ %.025.i, %Kit_TruthIsEqual.exit.i ]
   store ptr %.02743.sink, ptr %.01321.i, align 8, !tbaa !25
   store ptr null, ptr %.02743.sink, align 8, !tbaa !29
   %.not32 = icmp eq ptr %21, null

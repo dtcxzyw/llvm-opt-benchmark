@@ -1041,7 +1041,7 @@ define internal i64 @read_kcore_iter(ptr noundef captures(none) %0, ptr noundef 
   br label %334
 
 334:                                              ; preds = %331, %323
-  %335 = phi i32 [ %324, %323 ], [ %333, %331 ]
+  %335 = phi i32 [ %333, %331 ], [ %324, %323 ]
   %336 = icmp eq i32 %335, 0
   %337 = load i64, ptr @vmemmap_base, align 8
   %338 = inttoptr i64 %337 to ptr
@@ -1146,8 +1146,8 @@ define internal i64 @read_kcore_iter(ptr noundef captures(none) %0, ptr noundef 
   br i1 %396, label %.thread43, label %.lr.ph
 
 .thread43:                                        ; preds = %.thread50, %388, %243, %263, %.thread52, %378, %381, %258, %198, %.critedge, %127, %77, %.thread49, %68
-  %397 = phi i32 [ -14, %68 ], [ %.ph48, %.thread49 ], [ -12, %77 ], [ -14, %.critedge ], [ -14, %127 ], [ 0, %198 ], [ -14, %258 ], [ -14, %378 ], [ -14, %.thread52 ], [ -14, %263 ], [ -14, %243 ], [ -14, %388 ], [ 0, %.thread50 ], [ -14, %381 ]
-  %398 = phi i64 [ %10, %68 ], [ %138, %.thread49 ], [ %75, %77 ], [ %75, %.critedge ], [ %75, %127 ], [ 0, %198 ], [ %209, %258 ], [ %209, %378 ], [ %209, %.thread52 ], [ %209, %263 ], [ %209, %243 ], [ %209, %388 ], [ 0, %.thread50 ], [ %209, %381 ]
+  %397 = phi i32 [ -14, %68 ], [ -14, %258 ], [ %.ph48, %.thread49 ], [ -12, %77 ], [ -14, %.critedge ], [ -14, %127 ], [ 0, %198 ], [ -14, %378 ], [ -14, %.thread52 ], [ -14, %263 ], [ -14, %243 ], [ -14, %388 ], [ 0, %.thread50 ], [ -14, %381 ]
+  %398 = phi i64 [ %10, %68 ], [ %209, %258 ], [ %138, %.thread49 ], [ %75, %77 ], [ %75, %.critedge ], [ %75, %127 ], [ 0, %198 ], [ %209, %378 ], [ %209, %.thread52 ], [ %209, %263 ], [ %209, %243 ], [ %209, %388 ], [ 0, %.thread50 ], [ %209, %381 ]
   call void @page_offline_thaw() #15
   call void @up_read(ptr noundef nonnull @kclist_lock) #15
   %399 = icmp eq i32 %397, 0
@@ -1354,7 +1354,7 @@ define internal noundef range(i32 -12, 2) i32 @kclist_add_private(i64 noundef %0
   br label %64
 
 64:                                               ; preds = %61, %53
-  %65 = phi i32 [ %54, %53 ], [ %63, %61 ]
+  %65 = phi i32 [ %63, %61 ], [ %54, %53 ]
   %66 = icmp eq i32 %65, 0
   br i1 %66, label %.thread, label %67
 

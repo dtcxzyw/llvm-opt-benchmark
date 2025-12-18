@@ -6001,7 +6001,7 @@ _ZN4lean10object_refD2Ev.exit.i.i.i.i:            ; preds = %.preheader.i.i.i
   br label %"_ZSt10__invoke_rIbRZN4lean23has_expr_metavar_strictERKNS0_4exprEE3$_0JS3_EENSt9enable_ifIXntsr7is_voidIT_EE5valueES7_E4typeEOT0_DpOT1_.exit"
 
 "_ZSt10__invoke_rIbRZN4lean23has_expr_metavar_strictERKNS0_4exprEE3$_0JS3_EENSt9enable_ifIXntsr7is_voidIT_EE5valueES7_E4typeEOT0_DpOT1_.exit": ; preds = %.preheader.i.i.i, %2, %5, %_ZN4lean10object_refD2Ev.exit.i.i.i.i, %23, %25, %26
-  %.0.i.i.i = phi i1 [ false, %2 ], [ false, %5 ], [ false, %_ZN4lean10object_refD2Ev.exit.i.i.i.i ], [ false, %23 ], [ false, %25 ], [ false, %26 ], [ true, %.preheader.i.i.i ]
+  %.0.i.i.i = phi i1 [ false, %2 ], [ false, %26 ], [ false, %5 ], [ false, %_ZN4lean10object_refD2Ev.exit.i.i.i.i ], [ false, %23 ], [ false, %25 ], [ true, %.preheader.i.i.i ]
   ret i1 %.0.i.i.i
 }
 

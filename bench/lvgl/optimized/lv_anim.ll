@@ -995,7 +995,7 @@ anim_mark_list_change.exit:                       ; preds = %.lr.ph.split.split,
   br i1 %.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !58
 
 ._crit_edge:                                      ; preds = %67, %47, %31, %14, %2
-  %.013.lcssa = phi i1 [ false, %2 ], [ %.117.us28, %47 ], [ true, %14 ], [ %.117.us, %31 ], [ %.117, %67 ]
+  %.013.lcssa = phi i1 [ false, %2 ], [ %.117.us28, %47 ], [ %.117.us, %31 ], [ true, %14 ], [ %.117, %67 ]
   ret i1 %.013.lcssa
 }
 

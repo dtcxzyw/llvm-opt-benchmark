@@ -910,7 +910,7 @@ getQuadrant.exit:                                 ; preds = %138, %146, %147
   br i1 %.not165, label %._crit_edge, label %.lr.ph316.split, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %236, %222, %.thread342, %188
-  %239 = phi ptr [ %200, %.thread342 ], [ %196, %188 ], [ %196, %222 ], [ %200, %236 ]
+  %239 = phi ptr [ %200, %.thread342 ], [ %196, %222 ], [ %196, %188 ], [ %200, %236 ]
   store ptr %239, ptr @CurrentMemoryContext, align 8
   br label %.loopexit
 

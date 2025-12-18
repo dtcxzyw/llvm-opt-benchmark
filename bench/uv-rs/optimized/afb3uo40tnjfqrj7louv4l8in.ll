@@ -5754,7 +5754,7 @@ define internal fastcc i64 @_ZN19uv_requirements_txt24eat_wrappable_whitespace17
   br label %60
 
 .loopexit.i:                                      ; preds = %60, %49, %1
-  %.promoted = phi i64 [ %5, %1 ], [ %10, %49 ], [ %8, %60 ]
+  %.promoted = phi i64 [ %10, %49 ], [ %5, %1 ], [ %8, %60 ]
   %.sroa.0.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %8, i64 %5)
   %58 = icmp eq i64 %.sroa.0.0.sroa.speculated.i.i.i, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -5895,7 +5895,7 @@ _ZN8unscanny7Scanner6eat_if17h7cd68150e829850cE.exit44: ; preds = %"_ZN8unscanny
   br i1 %122, label %_ZN8unscanny7Scanner9eat_while17h8300f533b085f250E.exit38, label %.lr.ph.i18
 
 _ZN8unscanny7Scanner9eat_while17h8300f533b085f250E.exit38: ; preds = %120, %111, %_ZN8unscanny7Scanner6eat_if17h7cd68150e829850cE.exit44
-  %123 = phi i64 [ %8, %_ZN8unscanny7Scanner6eat_if17h7cd68150e829850cE.exit44 ], [ %72, %111 ], [ %8, %120 ]
+  %123 = phi i64 [ %72, %111 ], [ %8, %_ZN8unscanny7Scanner6eat_if17h7cd68150e829850cE.exit44 ], [ %8, %120 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %124 = sub nuw i64 %8, %123
   %.not.i.i.i = icmp ult i64 %124, 2
@@ -6128,7 +6128,7 @@ _ZN8unscanny7Scanner4peek17hbb57d3750d6f7627E.exit.thread: ; preds = %"_ZN91_$LT
   br label %.critedge
 
 .critedge:                                        ; preds = %48, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h161fec58d347ca69E.exit", %_ZN8unscanny7Scanner4peek17hbb57d3750d6f7627E.exit, %126, %.critedge.sink.split, %"_ZN8unscanny75_$LT$impl$u20$unscanny..sealed..Sealed$LT$$LP$$RP$$GT$$u20$for$u20$char$GT$7matches17h5647944c911324e7E.exit.i146", %44
-  %.sroa.0130.0 = phi i1 [ false, %44 ], [ false, %"_ZN8unscanny75_$LT$impl$u20$unscanny..sealed..Sealed$LT$$LP$$RP$$GT$$u20$for$u20$char$GT$7matches17h5647944c911324e7E.exit.i146" ], [ false, %.critedge.sink.split ], [ false, %126 ], [ %.not429.not, %_ZN8unscanny7Scanner4peek17hbb57d3750d6f7627E.exit ], [ %.not429.not, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h161fec58d347ca69E.exit" ], [ %.not429.not, %48 ]
+  %.sroa.0130.0 = phi i1 [ false, %.critedge.sink.split ], [ false, %44 ], [ false, %126 ], [ false, %"_ZN8unscanny75_$LT$impl$u20$unscanny..sealed..Sealed$LT$$LP$$RP$$GT$$u20$for$u20$char$GT$7matches17h5647944c911324e7E.exit.i146" ], [ %.not429.not, %_ZN8unscanny7Scanner4peek17hbb57d3750d6f7627E.exit ], [ %.not429.not, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h161fec58d347ca69E.exit" ], [ %.not429.not, %48 ]
   %.not.i151 = icmp ugt i64 %33, %36
   br i1 %.not.i151, label %128, label %107
 
@@ -6815,7 +6815,7 @@ _ZN8unscanny7Scanner4snap17hc50e865a57a26991E.exit.loopexit.i62.i: ; preds = %29
   br label %301
 
 298:                                              ; preds = %287, %285, %262
-  %.sroa.3.0.i.i.i = phi i64 [ 1, %262 ], [ 2, %285 ], [ %..i.i.i.i.i.i, %287 ]
+  %.sroa.3.0.i.i.i = phi i64 [ 1, %262 ], [ %..i.i.i.i.i.i, %287 ], [ 2, %285 ]
   %299 = add i64 %.sroa.3.0.i.i.i, %224
   store i64 %299, ptr %32, align 8, !alias.scope !871, !noalias !850
   %300 = icmp eq i64 %198, %299

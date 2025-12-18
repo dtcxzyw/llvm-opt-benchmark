@@ -1432,7 +1432,7 @@ define range(i32 -1414092869, 1) i32 @assert_file_overwrite(ptr noundef %0) loca
   br label %.critedge
 
 .critedge:                                        ; preds = %51, %.preheader, %33, %.thread, %52, %32, %30, %7
-  %.0 = phi i32 [ -22, %7 ], [ -1414092869, %30 ], [ -22, %52 ], [ -1414092869, %32 ], [ 0, %.thread ], [ 0, %33 ], [ 0, %.preheader ], [ 0, %51 ]
+  %.0 = phi i32 [ -22, %7 ], [ -1414092869, %30 ], [ -22, %52 ], [ -1414092869, %32 ], [ 0, %33 ], [ 0, %.thread ], [ 0, %.preheader ], [ 0, %51 ]
   ret i32 %.0
 }
 
@@ -2132,8 +2132,8 @@ correct_input_start_times.exit:                   ; preds = %202
   br i1 %273, label %.lr.ph.i60, label %apply_sync_offsets.exit, !llvm.loop !133
 
 apply_sync_offsets.exit:                          ; preds = %.lr.ph, %270, %142, %225, %218, %correct_input_start_times.exit, %open_files.exit56, %open_files.exit49, %open_files.exit, %.loopexit, %14, %3
-  %.not = phi ptr [ @.str.66, %.loopexit ], [ @.str.59, %3 ], [ @.str.60, %14 ], [ @.str.62, %open_files.exit ], [ @.str.64, %open_files.exit49 ], [ @.str.65, %open_files.exit56 ], [ @.str.68, %correct_input_start_times.exit ], [ @.str.68, %218 ], [ @.str.68, %225 ], [ @.str.68, %142 ], [ @.str.68, %270 ], [ @.str.68, %.lr.ph ]
-  %.031 = phi i32 [ %140, %.loopexit ], [ %12, %3 ], [ %15, %14 ], [ %.1.ph.i, %open_files.exit ], [ %.1.ph.i48, %open_files.exit49 ], [ %.1.ph.i55, %open_files.exit56 ], [ 0, %correct_input_start_times.exit ], [ -22, %218 ], [ -22, %225 ], [ 0, %142 ], [ 0, %270 ], [ %27, %.lr.ph ]
+  %.not = phi ptr [ @.str.66, %.loopexit ], [ @.str.59, %3 ], [ @.str.60, %14 ], [ @.str.62, %open_files.exit ], [ @.str.64, %open_files.exit49 ], [ @.str.65, %open_files.exit56 ], [ @.str.68, %270 ], [ @.str.68, %142 ], [ @.str.68, %correct_input_start_times.exit ], [ @.str.68, %218 ], [ @.str.68, %225 ], [ @.str.68, %.lr.ph ]
+  %.031 = phi i32 [ %140, %.loopexit ], [ %12, %3 ], [ %15, %14 ], [ %.1.ph.i, %open_files.exit ], [ %.1.ph.i48, %open_files.exit49 ], [ %.1.ph.i55, %open_files.exit56 ], [ 0, %270 ], [ 0, %142 ], [ 0, %correct_input_start_times.exit ], [ -22, %218 ], [ -22, %225 ], [ %27, %.lr.ph ]
   %274 = load i32, ptr %11, align 8, !tbaa !87
   %275 = icmp sgt i32 %274, 0
   br i1 %275, label %.lr.ph114, label %._crit_edge115
@@ -2538,7 +2538,7 @@ sub_0:                                            ; preds = %53
   br i1 %141, label %100, label %.loopexit, !llvm.loop !152
 
 .thread98:                                        ; preds = %119, %38, %46, %47, %.tail.thread
-  %.256.ph = phi i32 [ -22, %.tail.thread ], [ %51, %47 ], [ %44, %46 ], [ -22, %38 ], [ %122, %119 ]
+  %.256.ph = phi i32 [ -22, %38 ], [ -22, %.tail.thread ], [ %51, %47 ], [ %44, %46 ], [ %122, %119 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %149

@@ -1585,7 +1585,7 @@ sub_112:                                          ; preds = %sub_0
   br label %get_pix_fmt_internal.exit
 
 get_pix_fmt_internal.exit:                        ; preds = %35, %sub_0, %.tail, %sub_1, %sub_112, %.split.loop.exit15.i, %.split.loop.exit13.i, %.tail10, %1, %3
-  %.0 = phi i32 [ -1, %.tail10 ], [ -1, %1 ], [ -1, %3 ], [ %37, %.split.loop.exit15.i ], [ %36, %.split.loop.exit13.i ], [ -1, %sub_0 ], [ -1, %sub_112 ], [ -1, %sub_1 ], [ -1, %.tail ], [ -1, %35 ]
+  %.0 = phi i32 [ -1, %.tail10 ], [ -1, %1 ], [ -1, %3 ], [ %37, %.split.loop.exit15.i ], [ %36, %.split.loop.exit13.i ], [ -1, %.tail ], [ -1, %sub_0 ], [ -1, %sub_112 ], [ -1, %sub_1 ], [ -1, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -1888,9 +1888,9 @@ get_color_type.exit221:                           ; preds = %40, %get_color_type
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %111, %.lr.ph.split.split.split.us, %.lr.ph.split.split.us.split, %68, %.lr.ph.split.us.split.us.split, %.lr.ph.split.split.us, %.lr.ph.split.us.split.us
-  %.0132313.in = phi i8 [ %.183, %.lr.ph.split.split.us ], [ %23, %.lr.ph.split.us.split.us ], [ %.183, %.lr.ph.split.split.split.us ], [ %23, %.lr.ph.split.us.split.us.split ], [ %23, %68 ], [ %.183, %.lr.ph.split.split.us.split ], [ %.183, %111 ]
-  %.0134.lcssa = phi i32 [ 0, %.lr.ph.split.split.us ], [ 0, %.lr.ph.split.us.split.us ], [ %.1135.us258, %.lr.ph.split.split.split.us ], [ %.1135.us.us, %.lr.ph.split.us.split.us.split ], [ %.1135.us, %68 ], [ %.1135.us248, %.lr.ph.split.split.us.split ], [ %.1135, %111 ]
-  %.0131.lcssa = phi i32 [ 2147483646, %.lr.ph.split.split.us ], [ 2147483646, %.lr.ph.split.us.split.us ], [ %.1.us259, %.lr.ph.split.split.split.us ], [ %.1.us.us, %.lr.ph.split.us.split.us.split ], [ %.1.us, %68 ], [ %.1.us249, %.lr.ph.split.split.us.split ], [ %.1, %111 ]
+  %.0132313.in = phi i8 [ %23, %68 ], [ %.183, %.lr.ph.split.split.us ], [ %.183, %.lr.ph.split.split.split.us ], [ %23, %.lr.ph.split.us.split.us.split ], [ %23, %.lr.ph.split.us.split.us ], [ %.183, %.lr.ph.split.split.us.split ], [ %.183, %111 ]
+  %.0134.lcssa = phi i32 [ %.1135.us, %68 ], [ 0, %.lr.ph.split.split.us ], [ %.1135.us258, %.lr.ph.split.split.split.us ], [ %.1135.us.us, %.lr.ph.split.us.split.us.split ], [ 0, %.lr.ph.split.us.split.us ], [ %.1135.us248, %.lr.ph.split.split.us.split ], [ %.1135, %111 ]
+  %.0131.lcssa = phi i32 [ %.1.us, %68 ], [ 2147483646, %.lr.ph.split.split.us ], [ %.1.us259, %.lr.ph.split.split.split.us ], [ %.1.us.us, %.lr.ph.split.us.split.us.split ], [ 2147483646, %.lr.ph.split.us.split.us ], [ %.1.us249, %.lr.ph.split.split.us.split ], [ %.1, %111 ]
   %.0132313 = zext i8 %.0132313.in to i32
   %112 = and i32 %3, 1
   %.not163 = icmp eq i32 %112, 0

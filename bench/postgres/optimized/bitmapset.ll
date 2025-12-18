@@ -602,7 +602,7 @@ define dso_local range(i32 0, 4) i32 @bms_subset_compare(ptr noundef readonly ca
   br label %.thread47
 
 .thread47:                                        ; preds = %.thread54, %23, %30, %35, %36, %33, %6, %4
-  %.0 = phi i32 [ %., %4 ], [ %.42, %36 ], [ %.41, %33 ], [ 2, %6 ], [ %.22946, %35 ], [ 3, %30 ], [ 3, %23 ], [ 3, %.thread54 ]
+  %.0 = phi i32 [ %., %4 ], [ %.22946, %35 ], [ %.42, %36 ], [ %.41, %33 ], [ 2, %6 ], [ 3, %30 ], [ 3, %23 ], [ 3, %.thread54 ]
   ret i32 %.0
 }
 
@@ -916,7 +916,7 @@ define dso_local noundef zeroext i1 @bms_get_singleton_member(ptr noundef readon
   br label %20
 
 20:                                               ; preds = %14, %8
-  %.221 = phi i32 [ %19, %14 ], [ %.019, %8 ]
+  %.221 = phi i32 [ %.019, %8 ], [ %19, %14 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %21, label %8, !llvm.loop !18

@@ -1070,7 +1070,7 @@ define noundef zeroext i1 @lv_obj_replace_style(ptr noundef %0, ptr noundef read
   br i1 %104, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !70
 
 ._crit_edge:                                      ; preds = %99, %76, %54, %32
-  %.047.lcssa = phi i1 [ %.1.us76, %76 ], [ %.1.us.us, %32 ], [ %.1.us, %54 ], [ %.1, %99 ]
+  %.047.lcssa = phi i1 [ %.1.us, %54 ], [ %.1.us76, %76 ], [ %.1.us.us, %32 ], [ %.1, %99 ]
   br i1 %.047.lcssa, label %105, label %.critedge
 
 105:                                              ; preds = %._crit_edge
@@ -1699,7 +1699,7 @@ define internal fastcc range(i32 0, 2) i32 @get_selector_style_prop(ptr noundef 
   br label %.critedge
 
 .critedge:                                        ; preds = %40, %37, %.lr.ph63, %28, %.critedge.sink.split, %.preheader, %21, %32, %.thread, %4
-  %.040 = phi i32 [ 1, %4 ], [ 0, %32 ], [ 0, %.thread ], [ 0, %.preheader ], [ 0, %21 ], [ 1, %.critedge.sink.split ], [ 0, %37 ], [ 0, %28 ], [ 1, %.lr.ph63 ], [ 0, %40 ]
+  %.040 = phi i32 [ 1, %4 ], [ 0, %32 ], [ 1, %.lr.ph63 ], [ 0, %37 ], [ 1, %.critedge.sink.split ], [ 0, %.thread ], [ 0, %.preheader ], [ 0, %21 ], [ 0, %28 ], [ 0, %40 ]
   ret i32 %.040
 }
 
@@ -3073,7 +3073,7 @@ define range(i32 0, 4) i32 @lv_obj_style_state_compare(ptr noundef readonly capt
   br label %87
 
 87:                                               ; preds = %86, %58, %60, %62, %64, %66, %68, %70, %72, %74, %76, %78, %80, %82, %84
-  %.357 = phi i32 [ %spec.store.select, %86 ], [ 2, %58 ], [ 2, %60 ], [ 2, %62 ], [ 2, %64 ], [ 2, %66 ], [ 2, %68 ], [ 2, %70 ], [ 2, %72 ], [ 2, %74 ], [ 2, %76 ], [ 2, %78 ], [ 2, %80 ], [ 2, %82 ], [ 2, %84 ]
+  %.357 = phi i32 [ 2, %84 ], [ %spec.store.select, %86 ], [ 2, %58 ], [ 2, %60 ], [ 2, %62 ], [ 2, %64 ], [ 2, %66 ], [ 2, %68 ], [ 2, %70 ], [ 2, %72 ], [ 2, %74 ], [ 2, %76 ], [ 2, %78 ], [ 2, %80 ], [ 2, %82 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.pre = load i16, ptr %5, align 2
   br label %88
@@ -4012,8 +4012,8 @@ define internal fastcc range(i32 0, 2) i32 @get_prop_core(ptr noundef nonnull re
   br label %.thread95
 
 .thread95:                                        ; preds = %98, %.lr.ph119, %..thread95_crit_edge, %94, %85, %77, %73, %64
-  %106 = phi i16 [ %65, %64 ], [ %65, %73 ], [ %65, %77 ], [ %.pre, %..thread95_crit_edge ], [ %65, %85 ], [ %65, %94 ], [ %65, %.lr.ph119 ], [ %65, %98 ]
-  %.151 = phi i32 [ %.050122, %64 ], [ %.050122, %73 ], [ %.050122, %77 ], [ %79, %..thread95_crit_edge ], [ %.050122, %85 ], [ %.050122, %94 ], [ %.050122, %.lr.ph119 ], [ %.050122, %98 ]
+  %106 = phi i16 [ %65, %64 ], [ %65, %73 ], [ %65, %77 ], [ %.pre, %..thread95_crit_edge ], [ %65, %.lr.ph119 ], [ %65, %94 ], [ %65, %85 ], [ %65, %98 ]
+  %.151 = phi i32 [ %.050122, %64 ], [ %.050122, %73 ], [ %.050122, %77 ], [ %79, %..thread95_crit_edge ], [ %.050122, %.lr.ph119 ], [ %.050122, %94 ], [ %.050122, %85 ], [ %.050122, %98 ]
   %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
   %107 = lshr i16 %106, 4
   %108 = and i16 %107, 63
@@ -4027,7 +4027,7 @@ define internal fastcc range(i32 0, 2) i32 @get_prop_core(ptr noundef nonnull re
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.thread.us, %.thread, %104, %._crit_edge, %._crit_edge125.loopexit, %.thread90
-  %.4 = phi i32 [ 1, %.thread90 ], [ 0, %._crit_edge ], [ %112, %._crit_edge125.loopexit ], [ 0, %.thread ], [ 1, %104 ], [ 0, %.thread.us ]
+  %.4 = phi i32 [ 1, %104 ], [ 1, %.thread90 ], [ 0, %._crit_edge ], [ %112, %._crit_edge125.loopexit ], [ 0, %.thread ], [ 0, %.thread.us ]
   ret i32 %.4
 }
 

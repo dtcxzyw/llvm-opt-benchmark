@@ -983,7 +983,7 @@ _ZN5draco13DecoderBuffer6DecodeEPvm.exit.thread:  ; preds = %64
   br label %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit:     ; preds = %.lr.ph, %9, %116, %41, %102, %108, %31, %64, %44, %76, %72, %61, %_ZN5draco33SequentialIntegerAttributeDecoder24GetPortableAttributeDataEv.exit, %3
-  %.041 = phi i1 [ false, %3 ], [ false, %61 ], [ false, %_ZN5draco33SequentialIntegerAttributeDecoder24GetPortableAttributeDataEv.exit ], [ true, %116 ], [ false, %102 ], [ false, %41 ], [ false, %108 ], [ false, %31 ], [ false, %64 ], [ false, %44 ], [ false, %76 ], [ false, %72 ], [ false, %9 ], [ false, %.lr.ph ]
+  %.041 = phi i1 [ false, %3 ], [ false, %61 ], [ false, %_ZN5draco33SequentialIntegerAttributeDecoder24GetPortableAttributeDataEv.exit ], [ true, %116 ], [ false, %102 ], [ false, %41 ], [ false, %108 ], [ false, %31 ], [ false, %9 ], [ false, %64 ], [ false, %44 ], [ false, %76 ], [ false, %72 ], [ false, %.lr.ph ]
   ret i1 %.041
 }
 
@@ -1536,7 +1536,7 @@ _ZN5draco33SequentialIntegerAttributeDecoder24GetPortableAttributeDataEv.exit.i9
   br i1 %exitcond43.not.i112, label %.sink.split, label %.preheader.i110, !llvm.loop !116
 
 .sink.split:                                      ; preds = %._crit_edge.us.i107, %.preheader.i110, %._crit_edge.us.i84, %.preheader.i87, %._crit_edge.us.i61, %.preheader.i64, %._crit_edge.us.i41, %.preheader.i42, %._crit_edge.us.i24, %.preheader.i27, %._crit_edge.us.i, %.preheader.i, %_ZN5draco33SequentialIntegerAttributeDecoder24GetPortableAttributeDataEv.exit.i90, %_ZN5draco33SequentialIntegerAttributeDecoder24GetPortableAttributeDataEv.exit.i67, %_ZN5draco33SequentialIntegerAttributeDecoder24GetPortableAttributeDataEv.exit.i44, %_ZN5draco33SequentialIntegerAttributeDecoder24GetPortableAttributeDataEv.exit.i30, %_ZN5draco33SequentialIntegerAttributeDecoder24GetPortableAttributeDataEv.exit.i7, %_ZN5draco33SequentialIntegerAttributeDecoder24GetPortableAttributeDataEv.exit.i
-  %.sink = phi ptr [ %146, %_ZN5draco33SequentialIntegerAttributeDecoder24GetPortableAttributeDataEv.exit.i67 ], [ %11, %_ZN5draco33SequentialIntegerAttributeDecoder24GetPortableAttributeDataEv.exit.i ], [ %44, %_ZN5draco33SequentialIntegerAttributeDecoder24GetPortableAttributeDataEv.exit.i7 ], [ %78, %_ZN5draco33SequentialIntegerAttributeDecoder24GetPortableAttributeDataEv.exit.i30 ], [ %112, %_ZN5draco33SequentialIntegerAttributeDecoder24GetPortableAttributeDataEv.exit.i44 ], [ %179, %_ZN5draco33SequentialIntegerAttributeDecoder24GetPortableAttributeDataEv.exit.i90 ], [ %179, %.preheader.i110 ], [ %11, %.preheader.i ], [ %11, %._crit_edge.us.i ], [ %44, %.preheader.i27 ], [ %44, %._crit_edge.us.i24 ], [ %78, %.preheader.i42 ], [ %78, %._crit_edge.us.i41 ], [ %112, %.preheader.i64 ], [ %112, %._crit_edge.us.i61 ], [ %146, %.preheader.i87 ], [ %146, %._crit_edge.us.i84 ], [ %179, %._crit_edge.us.i107 ]
+  %.sink = phi ptr [ %146, %_ZN5draco33SequentialIntegerAttributeDecoder24GetPortableAttributeDataEv.exit.i67 ], [ %11, %_ZN5draco33SequentialIntegerAttributeDecoder24GetPortableAttributeDataEv.exit.i ], [ %44, %_ZN5draco33SequentialIntegerAttributeDecoder24GetPortableAttributeDataEv.exit.i7 ], [ %78, %_ZN5draco33SequentialIntegerAttributeDecoder24GetPortableAttributeDataEv.exit.i30 ], [ %112, %_ZN5draco33SequentialIntegerAttributeDecoder24GetPortableAttributeDataEv.exit.i44 ], [ %146, %.preheader.i87 ], [ %179, %_ZN5draco33SequentialIntegerAttributeDecoder24GetPortableAttributeDataEv.exit.i90 ], [ %179, %.preheader.i110 ], [ %146, %._crit_edge.us.i84 ], [ %11, %._crit_edge.us.i ], [ %11, %.preheader.i ], [ %44, %._crit_edge.us.i24 ], [ %44, %.preheader.i27 ], [ %78, %._crit_edge.us.i41 ], [ %78, %.preheader.i42 ], [ %112, %._crit_edge.us.i61 ], [ %112, %.preheader.i64 ], [ %179, %._crit_edge.us.i107 ]
   tail call void @_ZdaPv(ptr noundef nonnull %.sink) #22
   br label %207
 
@@ -2877,7 +2877,7 @@ _ZN5draco23GetParallelogramEntriesINS_24MeshAttributeCornerTableEEEvNS_9IndexTyp
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i40, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZN5draco30ComputeParallelogramPredictionINS_24MeshAttributeCornerTableEiEEbiNS_9IndexTypeIjNS_21CornerIndex_tag_type_EEEPKT_RKSt6vectorIiSaIiEEPKT0_iPSD_.exit, label %.lr.ph.i38, !llvm.loop !228
 
-160:                                              ; preds = %_ZN5draco23GetParallelogramEntriesINS_24MeshAttributeCornerTableEEEvNS_9IndexTypeIjNS_21CornerIndex_tag_type_EEEPKT_RKSt6vectorIiSaIiEEPiSD_SD_.exit.i, %_ZNK5draco24MeshAttributeCornerTable8OppositeENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.i, %105, %101
+160:                                              ; preds = %_ZN5draco23GetParallelogramEntriesINS_24MeshAttributeCornerTableEEEvNS_9IndexTypeIjNS_21CornerIndex_tag_type_EEEPKT_RKSt6vectorIiSaIiEEPiSD_SD_.exit.i, %_ZNK5draco24MeshAttributeCornerTable8OppositeENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.i, %101, %105
   %161 = add nsw i64 %indvars.iv, -1
   %162 = mul nsw i64 %161, %9
   %163 = getelementptr inbounds i32, ptr %2, i64 %162
@@ -3063,8 +3063,8 @@ _ZNK5draco33PredictionSchemeWrapTransformBaseIiE19ClampPredictedValueEPKi.exit.i
   br i1 %250, label %.lr.ph.i55, label %_ZNK5draco37PredictionSchemeWrapDecodingTransformIiiE20ComputeOriginalValueEPKiS3_Pi.exit50, !llvm.loop !204
 
 _ZNK5draco37PredictionSchemeWrapDecodingTransformIiiE20ComputeOriginalValueEPKiS3_Pi.exit50: ; preds = %247, %203, %_ZNK5draco33PredictionSchemeWrapTransformBaseIiE19ClampPredictedValueEPKi.exit.i54, %_ZN5draco30ComputeParallelogramPredictionINS_24MeshAttributeCornerTableEiEEbiNS_9IndexTypeIjNS_21CornerIndex_tag_type_EEEPKT_RKSt6vectorIiSaIiEEPKT0_iPSD_.exit, %_ZNK5draco33PredictionSchemeWrapTransformBaseIiE19ClampPredictedValueEPKi.exit.i44, %160
-  %251 = phi i32 [ %98, %160 ], [ %226, %_ZNK5draco33PredictionSchemeWrapTransformBaseIiE19ClampPredictedValueEPKi.exit.i54 ], [ %98, %_ZN5draco30ComputeParallelogramPredictionINS_24MeshAttributeCornerTableEiEEbiNS_9IndexTypeIjNS_21CornerIndex_tag_type_EEEPKT_RKSt6vectorIiSaIiEEPKT0_iPSD_.exit ], [ %182, %_ZNK5draco33PredictionSchemeWrapTransformBaseIiE19ClampPredictedValueEPKi.exit.i44 ], [ %204, %203 ], [ %248, %247 ]
-  %252 = phi i32 [ %98, %160 ], [ %226, %_ZNK5draco33PredictionSchemeWrapTransformBaseIiE19ClampPredictedValueEPKi.exit.i54 ], [ %99, %_ZN5draco30ComputeParallelogramPredictionINS_24MeshAttributeCornerTableEiEEbiNS_9IndexTypeIjNS_21CornerIndex_tag_type_EEEPKT_RKSt6vectorIiSaIiEEPKT0_iPSD_.exit ], [ %182, %_ZNK5draco33PredictionSchemeWrapTransformBaseIiE19ClampPredictedValueEPKi.exit.i44 ], [ %204, %203 ], [ %248, %247 ]
+  %251 = phi i32 [ %204, %203 ], [ %98, %160 ], [ %226, %_ZNK5draco33PredictionSchemeWrapTransformBaseIiE19ClampPredictedValueEPKi.exit.i54 ], [ %98, %_ZN5draco30ComputeParallelogramPredictionINS_24MeshAttributeCornerTableEiEEbiNS_9IndexTypeIjNS_21CornerIndex_tag_type_EEEPKT_RKSt6vectorIiSaIiEEPKT0_iPSD_.exit ], [ %182, %_ZNK5draco33PredictionSchemeWrapTransformBaseIiE19ClampPredictedValueEPKi.exit.i44 ], [ %248, %247 ]
+  %252 = phi i32 [ %204, %203 ], [ %98, %160 ], [ %226, %_ZNK5draco33PredictionSchemeWrapTransformBaseIiE19ClampPredictedValueEPKi.exit.i54 ], [ %99, %_ZN5draco30ComputeParallelogramPredictionINS_24MeshAttributeCornerTableEiEEbiNS_9IndexTypeIjNS_21CornerIndex_tag_type_EEEPKT_RKSt6vectorIiSaIiEEPKT0_iPSD_.exit ], [ %182, %_ZNK5draco33PredictionSchemeWrapTransformBaseIiE19ClampPredictedValueEPKi.exit.i44 ], [ %248, %247 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond80.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond80.not, label %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit, label %97, !llvm.loop !229
@@ -3845,8 +3845,8 @@ _ZNK5draco33PredictionSchemeWrapTransformBaseIiE19ClampPredictedValueEPKi.exit.i
   br i1 %exitcond155.not, label %._crit_edge141, label %.lr.ph140, !llvm.loop !232
 
 _ZNK5draco37PredictionSchemeWrapDecodingTransformIiiE20ComputeOriginalValueEPKiS3_Pi.exit88: ; preds = %286, %243, %_ZNK5draco33PredictionSchemeWrapTransformBaseIiE19ClampPredictedValueEPKi.exit.i92, %._crit_edge141, %_ZNK5draco33PredictionSchemeWrapTransformBaseIiE19ClampPredictedValueEPKi.exit.i82, %199
-  %293 = phi i32 [ %103, %199 ], [ %265, %_ZNK5draco33PredictionSchemeWrapTransformBaseIiE19ClampPredictedValueEPKi.exit.i92 ], [ %103, %._crit_edge141 ], [ %222, %_ZNK5draco33PredictionSchemeWrapTransformBaseIiE19ClampPredictedValueEPKi.exit.i82 ], [ %244, %243 ], [ %287, %286 ]
-  %294 = phi i32 [ %103, %199 ], [ %265, %_ZNK5draco33PredictionSchemeWrapTransformBaseIiE19ClampPredictedValueEPKi.exit.i92 ], [ %104, %._crit_edge141 ], [ %222, %_ZNK5draco33PredictionSchemeWrapTransformBaseIiE19ClampPredictedValueEPKi.exit.i82 ], [ %244, %243 ], [ %287, %286 ]
+  %293 = phi i32 [ %244, %243 ], [ %103, %199 ], [ %265, %_ZNK5draco33PredictionSchemeWrapTransformBaseIiE19ClampPredictedValueEPKi.exit.i92 ], [ %103, %._crit_edge141 ], [ %222, %_ZNK5draco33PredictionSchemeWrapTransformBaseIiE19ClampPredictedValueEPKi.exit.i82 ], [ %287, %286 ]
+  %294 = phi i32 [ %244, %243 ], [ %103, %199 ], [ %265, %_ZNK5draco33PredictionSchemeWrapTransformBaseIiE19ClampPredictedValueEPKi.exit.i92 ], [ %104, %._crit_edge141 ], [ %222, %_ZNK5draco33PredictionSchemeWrapTransformBaseIiE19ClampPredictedValueEPKi.exit.i82 ], [ %287, %286 ]
   %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 1
   %exitcond161.not = icmp eq i64 %indvars.iv.next157, %wide.trip.count160
   br i1 %exitcond161.not, label %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit69, label %102, !llvm.loop !233
@@ -4776,8 +4776,8 @@ _ZNK5draco24MeshAttributeCornerTable8OppositeENS_9IndexTypeIjNS_21CornerIndex_ta
   br label %_ZNK5draco24MeshAttributeCornerTable10SwingRightENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit165
 
 _ZNK5draco24MeshAttributeCornerTable10SwingRightENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit165: ; preds = %268, %270, %256
-  %.sroa.0200.2 = phi i32 [ %.sroa.0200.1, %256 ], [ %269, %268 ], [ %271, %270 ]
-  %.1115 = phi i1 [ %.0114256, %256 ], [ false, %268 ], [ false, %270 ]
+  %.sroa.0200.2 = phi i32 [ %.sroa.0200.1, %256 ], [ %271, %270 ], [ %269, %268 ]
+  %.1115 = phi i1 [ %.0114256, %256 ], [ false, %270 ], [ false, %268 ]
   %.not237 = icmp eq i32 %.sroa.0200.2, -1
   br i1 %.not237, label %_ZNK5draco24MeshAttributeCornerTable9SwingLeftENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit._crit_edge, label %147, !llvm.loop !239
 
@@ -5082,7 +5082,7 @@ _ZNK5draco37PredictionSchemeWrapDecodingTransformIiiE20ComputeOriginalValueEPKiS
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit192
 
 .critedge133:                                     ; preds = %_ZNK5draco37PredictionSchemeWrapDecodingTransformIiiE20ComputeOriginalValueEPKiS3_Pi.exit175, %289, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit
-  %.not129249 = phi i1 [ true, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ], [ false, %289 ], [ true, %_ZNK5draco37PredictionSchemeWrapDecodingTransformIiiE20ComputeOriginalValueEPKiS3_Pi.exit175 ]
+  %.not129249 = phi i1 [ false, %289 ], [ true, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ], [ true, %_ZNK5draco37PredictionSchemeWrapDecodingTransformIiiE20ComputeOriginalValueEPKiS3_Pi.exit175 ]
   %.not.i.i.i187 = icmp eq ptr %.sroa.0209.0, null
   br i1 %.not.i.i.i187, label %_ZNSt6vectorIiSaIiEED2Ev.exit190, label %413
 
@@ -7805,7 +7805,7 @@ _ZNK5draco17GeometryAttribute17ConvertTypedValueIafEEbNS_9IndexTypeIjNS_29Attrib
   br label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIafEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit
 
 _ZNK5draco17GeometryAttribute17ConvertTypedValueIafEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit: ; preds = %369, %344, %320, %296, %287, %259, %250, %222, %213, %185, %176, %148, %139, %111, %102, %74, %65, %37, %28, %_ZNK5draco17GeometryAttribute17ConvertTypedValueIafEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit.sink.split, %.critedge.i240, %.critedge.i227, %.critedge.i215, %.critedge.i196, %.lr.ph.split.i188, %.lr.ph.split.us.i200, %.critedge.i173, %.lr.ph.split.i165, %.lr.ph.split.us.i177, %.critedge.i150, %.lr.ph.split.i142, %.lr.ph.split.us.i154, %.critedge.i127, %.lr.ph.split.i119, %.lr.ph.split.us.i131, %.critedge.i104, %.lr.ph.split.i96, %.lr.ph.split.us.i108, %.critedge.i81, %.lr.ph.split.i73, %.lr.ph.split.us.i85, %.critedge.i58, %.lr.ph.split.i50, %.lr.ph.split.us.i62, %.critedge.i, %.lr.ph.split.i, %.lr.ph.split.us.i, %6, %4
-  %.0 = phi i1 [ false, %4 ], [ false, %6 ], [ true, %.critedge.i ], [ false, %.lr.ph.split.us.i ], [ false, %.lr.ph.split.i ], [ true, %.critedge.i58 ], [ false, %.lr.ph.split.us.i62 ], [ false, %.lr.ph.split.i50 ], [ true, %.critedge.i81 ], [ false, %.lr.ph.split.us.i85 ], [ false, %.lr.ph.split.i73 ], [ true, %.critedge.i104 ], [ false, %.lr.ph.split.us.i108 ], [ false, %.lr.ph.split.i96 ], [ true, %.critedge.i127 ], [ false, %.lr.ph.split.us.i131 ], [ false, %.lr.ph.split.i119 ], [ true, %.critedge.i150 ], [ false, %.lr.ph.split.us.i154 ], [ false, %.lr.ph.split.i142 ], [ true, %.critedge.i173 ], [ false, %.lr.ph.split.us.i177 ], [ false, %.lr.ph.split.i165 ], [ true, %.critedge.i196 ], [ false, %.lr.ph.split.us.i200 ], [ false, %.lr.ph.split.i188 ], [ true, %.critedge.i215 ], [ true, %.critedge.i227 ], [ true, %.critedge.i240 ], [ true, %_ZNK5draco17GeometryAttribute17ConvertTypedValueIafEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit.sink.split ], [ false, %344 ], [ false, %28 ], [ false, %37 ], [ false, %65 ], [ false, %74 ], [ false, %102 ], [ false, %111 ], [ false, %139 ], [ false, %148 ], [ false, %176 ], [ false, %185 ], [ false, %213 ], [ false, %222 ], [ false, %250 ], [ false, %259 ], [ false, %287 ], [ false, %296 ], [ false, %320 ], [ false, %369 ]
+  %.0 = phi i1 [ false, %148 ], [ false, %4 ], [ false, %6 ], [ false, %185 ], [ false, %222 ], [ false, %259 ], [ false, %296 ], [ false, %344 ], [ false, %37 ], [ false, %74 ], [ false, %111 ], [ false, %139 ], [ true, %.critedge.i ], [ false, %176 ], [ false, %287 ], [ false, %.lr.ph.split.us.i ], [ false, %.lr.ph.split.i ], [ true, %.critedge.i58 ], [ false, %213 ], [ true, %.critedge.i240 ], [ false, %.lr.ph.split.us.i62 ], [ false, %.lr.ph.split.i50 ], [ true, %.critedge.i81 ], [ false, %250 ], [ true, %.critedge.i227 ], [ false, %.lr.ph.split.us.i85 ], [ false, %.lr.ph.split.i73 ], [ true, %.critedge.i104 ], [ true, %_ZNK5draco17GeometryAttribute17ConvertTypedValueIafEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit.sink.split ], [ true, %.critedge.i215 ], [ false, %.lr.ph.split.us.i108 ], [ false, %.lr.ph.split.i96 ], [ true, %.critedge.i127 ], [ false, %320 ], [ false, %.lr.ph.split.i188 ], [ false, %.lr.ph.split.us.i131 ], [ false, %.lr.ph.split.i119 ], [ true, %.critedge.i150 ], [ false, %28 ], [ false, %.lr.ph.split.us.i200 ], [ false, %.lr.ph.split.us.i154 ], [ false, %.lr.ph.split.i142 ], [ true, %.critedge.i173 ], [ false, %65 ], [ false, %102 ], [ false, %.lr.ph.split.us.i177 ], [ false, %.lr.ph.split.i165 ], [ true, %.critedge.i196 ], [ false, %369 ]
   ret i1 %.0
 }
 
@@ -9459,7 +9459,7 @@ _ZNK5draco17GeometryAttribute17ConvertTypedValueIalEEbNS_9IndexTypeIjNS_29Attrib
   br label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIalEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit
 
 _ZNK5draco17GeometryAttribute17ConvertTypedValueIalEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit: ; preds = %288, %.lr.ph42.i146, %260, %.lr.ph42.i, %228, %200, %198, %174, %149, %124, %99, %74, %49, %24, %_ZNK5draco17GeometryAttribute17ConvertTypedValueIalEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit.sink.split, %.critedge.i169, %.critedge.i155, %.lr.ph.i143, %.critedge.i137, %.lr.ph.i132, %.critedge.i129, %.critedge.i120, %.critedge.i107, %.critedge.i94, %.critedge.i81, %.critedge.i68, %.critedge.i55, %.critedge.i, %6, %4
-  %.0 = phi i1 [ false, %4 ], [ false, %6 ], [ true, %.critedge.i ], [ true, %.critedge.i55 ], [ true, %.critedge.i68 ], [ true, %.critedge.i81 ], [ true, %.critedge.i94 ], [ true, %.critedge.i107 ], [ true, %.critedge.i120 ], [ true, %.critedge.i129 ], [ true, %.critedge.i137 ], [ false, %.lr.ph.i132 ], [ true, %.critedge.i155 ], [ false, %.lr.ph.i143 ], [ true, %.critedge.i169 ], [ true, %_ZNK5draco17GeometryAttribute17ConvertTypedValueIalEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit.sink.split ], [ false, %.lr.ph42.i146 ], [ false, %24 ], [ false, %49 ], [ false, %74 ], [ false, %99 ], [ false, %124 ], [ false, %149 ], [ false, %174 ], [ false, %200 ], [ false, %.lr.ph42.i ], [ false, %198 ], [ false, %228 ], [ false, %260 ], [ false, %288 ]
+  %.0 = phi i1 [ false, %.lr.ph42.i146 ], [ false, %4 ], [ false, %6 ], [ false, %24 ], [ false, %49 ], [ false, %74 ], [ false, %99 ], [ false, %124 ], [ false, %149 ], [ true, %_ZNK5draco17GeometryAttribute17ConvertTypedValueIalEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit.sink.split ], [ false, %200 ], [ false, %.lr.ph42.i ], [ true, %.critedge.i ], [ false, %174 ], [ true, %.critedge.i55 ], [ true, %.critedge.i129 ], [ true, %.critedge.i68 ], [ false, %.lr.ph.i132 ], [ true, %.critedge.i81 ], [ true, %.critedge.i137 ], [ true, %.critedge.i94 ], [ false, %.lr.ph.i143 ], [ true, %.critedge.i107 ], [ true, %.critedge.i155 ], [ true, %.critedge.i120 ], [ true, %.critedge.i169 ], [ false, %198 ], [ false, %228 ], [ false, %260 ], [ false, %288 ]
   ret i1 %.0
 }
 
@@ -11754,8 +11754,8 @@ _ZNK5draco33PredictionSchemeWrapTransformBaseIiE19ClampPredictedValueEPKi.exit.i
   br i1 %245, label %.lr.ph.i55, label %_ZNK5draco37PredictionSchemeWrapDecodingTransformIiiE20ComputeOriginalValueEPKiS3_Pi.exit50, !llvm.loop !204
 
 _ZNK5draco37PredictionSchemeWrapDecodingTransformIiiE20ComputeOriginalValueEPKiS3_Pi.exit50: ; preds = %242, %198, %_ZNK5draco33PredictionSchemeWrapTransformBaseIiE19ClampPredictedValueEPKi.exit.i54, %_ZN5draco30ComputeParallelogramPredictionINS_11CornerTableEiEEbiNS_9IndexTypeIjNS_21CornerIndex_tag_type_EEEPKT_RKSt6vectorIiSaIiEEPKT0_iPSD_.exit, %_ZNK5draco33PredictionSchemeWrapTransformBaseIiE19ClampPredictedValueEPKi.exit.i44, %155
-  %246 = phi i32 [ %97, %155 ], [ %221, %_ZNK5draco33PredictionSchemeWrapTransformBaseIiE19ClampPredictedValueEPKi.exit.i54 ], [ %97, %_ZN5draco30ComputeParallelogramPredictionINS_11CornerTableEiEEbiNS_9IndexTypeIjNS_21CornerIndex_tag_type_EEEPKT_RKSt6vectorIiSaIiEEPKT0_iPSD_.exit ], [ %177, %_ZNK5draco33PredictionSchemeWrapTransformBaseIiE19ClampPredictedValueEPKi.exit.i44 ], [ %199, %198 ], [ %243, %242 ]
-  %247 = phi i32 [ %97, %155 ], [ %221, %_ZNK5draco33PredictionSchemeWrapTransformBaseIiE19ClampPredictedValueEPKi.exit.i54 ], [ %98, %_ZN5draco30ComputeParallelogramPredictionINS_11CornerTableEiEEbiNS_9IndexTypeIjNS_21CornerIndex_tag_type_EEEPKT_RKSt6vectorIiSaIiEEPKT0_iPSD_.exit ], [ %177, %_ZNK5draco33PredictionSchemeWrapTransformBaseIiE19ClampPredictedValueEPKi.exit.i44 ], [ %199, %198 ], [ %243, %242 ]
+  %246 = phi i32 [ %199, %198 ], [ %97, %155 ], [ %221, %_ZNK5draco33PredictionSchemeWrapTransformBaseIiE19ClampPredictedValueEPKi.exit.i54 ], [ %97, %_ZN5draco30ComputeParallelogramPredictionINS_11CornerTableEiEEbiNS_9IndexTypeIjNS_21CornerIndex_tag_type_EEEPKT_RKSt6vectorIiSaIiEEPKT0_iPSD_.exit ], [ %177, %_ZNK5draco33PredictionSchemeWrapTransformBaseIiE19ClampPredictedValueEPKi.exit.i44 ], [ %243, %242 ]
+  %247 = phi i32 [ %199, %198 ], [ %97, %155 ], [ %221, %_ZNK5draco33PredictionSchemeWrapTransformBaseIiE19ClampPredictedValueEPKi.exit.i54 ], [ %98, %_ZN5draco30ComputeParallelogramPredictionINS_11CornerTableEiEEbiNS_9IndexTypeIjNS_21CornerIndex_tag_type_EEEPKT_RKSt6vectorIiSaIiEEPKT0_iPSD_.exit ], [ %177, %_ZNK5draco33PredictionSchemeWrapTransformBaseIiE19ClampPredictedValueEPKi.exit.i44 ], [ %243, %242 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond80.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond80.not, label %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit, label %96, !llvm.loop !430
@@ -12400,8 +12400,8 @@ _ZNK5draco33PredictionSchemeWrapTransformBaseIiE19ClampPredictedValueEPKi.exit.i
   br i1 %exitcond152.not, label %._crit_edge138, label %.lr.ph137, !llvm.loop !433
 
 _ZNK5draco37PredictionSchemeWrapDecodingTransformIiiE20ComputeOriginalValueEPKiS3_Pi.exit86: ; preds = %270, %227, %_ZNK5draco33PredictionSchemeWrapTransformBaseIiE19ClampPredictedValueEPKi.exit.i90, %._crit_edge138, %_ZNK5draco33PredictionSchemeWrapTransformBaseIiE19ClampPredictedValueEPKi.exit.i80, %183
-  %277 = phi i32 [ %102, %183 ], [ %249, %_ZNK5draco33PredictionSchemeWrapTransformBaseIiE19ClampPredictedValueEPKi.exit.i90 ], [ %102, %._crit_edge138 ], [ %206, %_ZNK5draco33PredictionSchemeWrapTransformBaseIiE19ClampPredictedValueEPKi.exit.i80 ], [ %228, %227 ], [ %271, %270 ]
-  %278 = phi i32 [ %102, %183 ], [ %249, %_ZNK5draco33PredictionSchemeWrapTransformBaseIiE19ClampPredictedValueEPKi.exit.i90 ], [ %103, %._crit_edge138 ], [ %206, %_ZNK5draco33PredictionSchemeWrapTransformBaseIiE19ClampPredictedValueEPKi.exit.i80 ], [ %228, %227 ], [ %271, %270 ]
+  %277 = phi i32 [ %228, %227 ], [ %102, %183 ], [ %249, %_ZNK5draco33PredictionSchemeWrapTransformBaseIiE19ClampPredictedValueEPKi.exit.i90 ], [ %102, %._crit_edge138 ], [ %206, %_ZNK5draco33PredictionSchemeWrapTransformBaseIiE19ClampPredictedValueEPKi.exit.i80 ], [ %271, %270 ]
+  %278 = phi i32 [ %228, %227 ], [ %102, %183 ], [ %249, %_ZNK5draco33PredictionSchemeWrapTransformBaseIiE19ClampPredictedValueEPKi.exit.i90 ], [ %103, %._crit_edge138 ], [ %206, %_ZNK5draco33PredictionSchemeWrapTransformBaseIiE19ClampPredictedValueEPKi.exit.i80 ], [ %271, %270 ]
   %indvars.iv.next154 = add nuw nsw i64 %indvars.iv153, 1
   %exitcond158.not = icmp eq i64 %indvars.iv.next154, %wide.trip.count157
   br i1 %exitcond158.not, label %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit69, label %101, !llvm.loop !434
@@ -13291,8 +13291,8 @@ _ZNK5draco11CornerTable8OppositeENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.ex
   br label %_ZNK5draco11CornerTable10SwingRightENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit158
 
 _ZNK5draco11CornerTable10SwingRightENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit158: ; preds = %231, %233, %225
-  %.sroa.0193.2 = phi i32 [ %.sroa.0193.1, %225 ], [ %232, %231 ], [ %234, %233 ]
-  %.1115 = phi i1 [ %.0114249, %225 ], [ false, %231 ], [ false, %233 ]
+  %.sroa.0193.2 = phi i32 [ %.sroa.0193.1, %225 ], [ %234, %233 ], [ %232, %231 ]
+  %.1115 = phi i1 [ %.0114249, %225 ], [ false, %233 ], [ false, %231 ]
   %.not230 = icmp eq i32 %.sroa.0193.2, -1
   br i1 %.not230, label %_ZNK5draco11CornerTable9SwingLeftENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit._crit_edge, label %_ZNK5draco11CornerTable8OppositeENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.i, !llvm.loop !438
 
@@ -13597,7 +13597,7 @@ _ZNK5draco37PredictionSchemeWrapDecodingTransformIiiE20ComputeOriginalValueEPKiS
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit185
 
 .critedge133:                                     ; preds = %_ZNK5draco37PredictionSchemeWrapDecodingTransformIiiE20ComputeOriginalValueEPKiS3_Pi.exit168, %252, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit
-  %.not129242 = phi i1 [ true, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ], [ false, %252 ], [ true, %_ZNK5draco37PredictionSchemeWrapDecodingTransformIiiE20ComputeOriginalValueEPKiS3_Pi.exit168 ]
+  %.not129242 = phi i1 [ false, %252 ], [ true, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ], [ true, %_ZNK5draco37PredictionSchemeWrapDecodingTransformIiiE20ComputeOriginalValueEPKiS3_Pi.exit168 ]
   %.not.i.i.i180 = icmp eq ptr %.sroa.0202.0, null
   br i1 %.not.i.i.i180, label %_ZNSt6vectorIiSaIiEED2Ev.exit183, label %376
 

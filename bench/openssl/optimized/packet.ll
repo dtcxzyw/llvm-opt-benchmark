@@ -552,7 +552,7 @@ WPACKET_reserve_bytes.exit.thread.sink.split:     ; preds = %37, %39, %WPACKET_r
   br label %WPACKET_reserve_bytes.exit.thread
 
 WPACKET_reserve_bytes.exit.thread:                ; preds = %WPACKET_reserve_bytes.exit.thread.sink.split, %30, %17, %10, %4
-  %.0 = phi i32 [ 0, %4 ], [ 1, %WPACKET_reserve_bytes.exit.thread.sink.split ], [ 0, %10 ], [ 0, %17 ], [ 0, %30 ]
+  %.0 = phi i32 [ 0, %4 ], [ 1, %WPACKET_reserve_bytes.exit.thread.sink.split ], [ 0, %30 ], [ 0, %10 ], [ 0, %17 ]
   ret i32 %.0
 }
 

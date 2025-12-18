@@ -9371,7 +9371,7 @@ define internal void @_ZNK4ncnn18Softmax_x86_avx51215forward_inplaceERNS_3MatERK
   br i1 %81, label %.lr.ph51, label %.preheader, !llvm.loop !166
 
 ._crit_edge:                                      ; preds = %.lr.ph54, %38, %.preheader
-  %82 = phi i32 [ %79, %.preheader ], [ %39, %38 ], [ %86, %.lr.ph54 ]
+  %82 = phi i32 [ %39, %38 ], [ %79, %.preheader ], [ %86, %.lr.ph54 ]
   %indvars.iv.next69 = add nsw i64 %indvars.iv68, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next69 to i32
   %exitcond71.not = icmp eq i32 %37, %lftr.wideiv
@@ -10257,7 +10257,7 @@ define internal void @_ZNK4ncnn18Softmax_x86_avx51215forward_inplaceERNS_3MatERK
   br i1 %66, label %.lr.ph81, label %.preheader, !llvm.loop !203
 
 ._crit_edge:                                      ; preds = %.lr.ph84, %22, %.preheader
-  %67 = phi i32 [ %64, %.preheader ], [ %23, %22 ], [ %71, %.lr.ph84 ]
+  %67 = phi i32 [ %23, %22 ], [ %64, %.preheader ], [ %71, %.lr.ph84 ]
   %indvars.iv.next99 = add nsw i64 %indvars.iv98, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next99 to i32
   %exitcond101.not = icmp eq i32 %21, %lftr.wideiv
@@ -11086,7 +11086,7 @@ define internal void @_ZNK4ncnn18Softmax_x86_avx51215forward_inplaceERNS_3MatERK
   br i1 %68, label %.lr.ph78, label %.preheader, !llvm.loop !237
 
 ._crit_edge:                                      ; preds = %.lr.ph81, %22, %.preheader
-  %69 = phi i32 [ %66, %.preheader ], [ %23, %22 ], [ %73, %.lr.ph81 ]
+  %69 = phi i32 [ %23, %22 ], [ %66, %.preheader ], [ %73, %.lr.ph81 ]
   %indvars.iv.next96 = add nsw i64 %indvars.iv95, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next96 to i32
   %exitcond98.not = icmp eq i32 %21, %lftr.wideiv

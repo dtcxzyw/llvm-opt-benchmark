@@ -3219,7 +3219,7 @@ _ZN6vectorIP4exprLb0EjE4backEv.exit:              ; preds = %_ZNK6vectorIP4exprL
   br i1 %.not27.old.i.i.i, label %.loopexit53, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %68, %65
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %68 ], [ %67, %65 ]
+  %.137.i.i.i.be = phi ptr [ %67, %65 ], [ %.old.i.i.i, %68 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !164
 
 .loopexit53:                                      ; preds = %54, %65, %68, %.preheader.i.i.i

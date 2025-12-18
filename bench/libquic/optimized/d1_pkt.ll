@@ -152,7 +152,7 @@ dtls1_get_record.exit:                            ; preds = %53
   br label %73
 
 .loopexit:                                        ; preds = %35, %64, %57, %60
-  %.3.i.ph = phi i32 [ -1, %60 ], [ -1, %57 ], [ -1, %64 ], [ %36, %35 ]
+  %.3.i.ph = phi i32 [ -1, %64 ], [ -1, %60 ], [ -1, %57 ], [ %36, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -419,7 +419,7 @@ dtls1_get_record.exit:                            ; preds = %53
   br label %.thread126
 
 .thread126:                                       ; preds = %.loopexit, %145, %140, %.thread135, %95, %107, %100, %93, %185, %76, %23
-  %.0 = phi i32 [ -1, %23 ], [ -1, %.thread135 ], [ 0, %76 ], [ -1, %185 ], [ %3, %93 ], [ %., %95 ], [ %., %100 ], [ %., %107 ], [ 0, %140 ], [ 0, %145 ], [ %71, %.loopexit ]
+  %.0 = phi i32 [ -1, %23 ], [ -1, %.thread135 ], [ 0, %76 ], [ -1, %185 ], [ 0, %145 ], [ %3, %93 ], [ %., %95 ], [ %., %100 ], [ %., %107 ], [ 0, %140 ], [ %71, %.loopexit ]
   ret i32 %.0
 }
 

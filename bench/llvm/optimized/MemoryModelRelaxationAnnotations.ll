@@ -1605,7 +1605,7 @@ _ZL18isReadWriteMemCallRKN4llvm11InstructionE.exit.fold.split: ; preds = %1
   br label %_ZL18isReadWriteMemCallRKN4llvm11InstructionE.exit
 
 _ZL18isReadWriteMemCallRKN4llvm11InstructionE.exit: ; preds = %1, %1, %1, %1, %1, %_ZL18isReadWriteMemCallRKN4llvm11InstructionE.exit.fold.split, %6, %_ZNK4llvm11Instruction20mayReadOrWriteMemoryEv.exit.i, %3
-  %9 = phi i1 [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %_ZNK4llvm11Instruction20mayReadOrWriteMemoryEv.exit.i ], [ %8, %6 ], [ true, %3 ], [ false, %_ZL18isReadWriteMemCallRKN4llvm11InstructionE.exit.fold.split ]
+  %9 = phi i1 [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %3 ], [ true, %_ZNK4llvm11Instruction20mayReadOrWriteMemoryEv.exit.i ], [ %8, %6 ], [ false, %_ZL18isReadWriteMemCallRKN4llvm11InstructionE.exit.fold.split ]
   ret i1 %9
 }
 
@@ -1807,12 +1807,12 @@ _ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread.i: ; preds = 
   %.sroa.0.0.copyload.i = load ptr, ptr %38, align 8, !tbaa !16
   %magicptr.i10.i = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   switch i64 %magicptr.i10.i, label %41 [
-    i64 -1, label %_ZN4llvm12DenseMapInfoISt4pairINS_9StringRefES2_EvE7isEqualERKS3_S6_.exit
-    i64 -2, label %39
+    i64 -1, label %39
+    i64 -2, label %_ZN4llvm12DenseMapInfoISt4pairINS_9StringRefES2_EvE7isEqualERKS3_S6_.exit
   ]
 
 39:                                               ; preds = %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread.i
-  %40 = icmp eq ptr %.sroa.01.0.copyload.i, inttoptr (i64 -2 to ptr)
+  %40 = icmp eq ptr %.sroa.01.0.copyload.i, inttoptr (i64 -1 to ptr)
   br i1 %40, label %_ZN4llvm12DenseMapInfoISt4pairINS_9StringRefES2_EvE7isEqualERKS3_S6_.exit.thread37, label %_ZN4llvm12DenseMapInfoISt4pairINS_9StringRefES2_EvE7isEqualERKS3_S6_.exit.thread, !prof !78
 
 41:                                               ; preds = %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread.i
@@ -1831,7 +1831,7 @@ _ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread.i: ; preds = 
   br i1 %45, label %_ZN4llvm12DenseMapInfoISt4pairINS_9StringRefES2_EvE7isEqualERKS3_S6_.exit.thread37, label %_ZN4llvm12DenseMapInfoISt4pairINS_9StringRefES2_EvE7isEqualERKS3_S6_.exit.thread, !prof !78
 
 _ZN4llvm12DenseMapInfoISt4pairINS_9StringRefES2_EvE7isEqualERKS3_S6_.exit: ; preds = %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread.i
-  %46 = icmp eq ptr %.sroa.01.0.copyload.i, inttoptr (i64 -1 to ptr)
+  %46 = icmp eq ptr %.sroa.01.0.copyload.i, inttoptr (i64 -2 to ptr)
   br i1 %46, label %_ZN4llvm12DenseMapInfoISt4pairINS_9StringRefES2_EvE7isEqualERKS3_S6_.exit.thread37, label %_ZN4llvm12DenseMapInfoISt4pairINS_9StringRefES2_EvE7isEqualERKS3_S6_.exit.thread, !prof !78
 
 _ZN4llvm12DenseMapInfoISt4pairINS_9StringRefES2_EvE7isEqualERKS3_S6_.exit.thread: ; preds = %32, %41, %30, %35, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.i, %39, %44, %_ZN4llvm12DenseMapInfoISt4pairINS_9StringRefES2_EvE7isEqualERKS3_S6_.exit
@@ -2181,12 +2181,12 @@ _ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread.i: ; preds = 
   %.sroa.0.0.copyload.i = load ptr, ptr %34, align 8, !tbaa !16
   %magicptr.i10.i = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   switch i64 %magicptr.i10.i, label %37 [
-    i64 -1, label %_ZN4llvm12DenseMapInfoISt4pairINS_9StringRefES2_EvE7isEqualERKS3_S6_.exit
-    i64 -2, label %35
+    i64 -1, label %35
+    i64 -2, label %_ZN4llvm12DenseMapInfoISt4pairINS_9StringRefES2_EvE7isEqualERKS3_S6_.exit
   ]
 
 35:                                               ; preds = %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread.i
-  %36 = icmp eq ptr %.sroa.01.0.copyload.i, inttoptr (i64 -2 to ptr)
+  %36 = icmp eq ptr %.sroa.01.0.copyload.i, inttoptr (i64 -1 to ptr)
   br i1 %36, label %_ZN4llvm12DenseMapInfoISt4pairINS_9StringRefES2_EvE7isEqualERKS3_S6_.exit.thread21, label %_ZN4llvm12DenseMapInfoISt4pairINS_9StringRefES2_EvE7isEqualERKS3_S6_.exit.thread, !prof !78
 
 37:                                               ; preds = %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread.i
@@ -2205,7 +2205,7 @@ _ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread.i: ; preds = 
   br i1 %41, label %_ZN4llvm12DenseMapInfoISt4pairINS_9StringRefES2_EvE7isEqualERKS3_S6_.exit.thread21, label %_ZN4llvm12DenseMapInfoISt4pairINS_9StringRefES2_EvE7isEqualERKS3_S6_.exit.thread, !prof !78
 
 _ZN4llvm12DenseMapInfoISt4pairINS_9StringRefES2_EvE7isEqualERKS3_S6_.exit: ; preds = %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread.i
-  %42 = icmp eq ptr %.sroa.01.0.copyload.i, inttoptr (i64 -1 to ptr)
+  %42 = icmp eq ptr %.sroa.01.0.copyload.i, inttoptr (i64 -2 to ptr)
   br i1 %42, label %_ZN4llvm12DenseMapInfoISt4pairINS_9StringRefES2_EvE7isEqualERKS3_S6_.exit.thread21, label %_ZN4llvm12DenseMapInfoISt4pairINS_9StringRefES2_EvE7isEqualERKS3_S6_.exit.thread, !prof !78
 
 _ZN4llvm12DenseMapInfoISt4pairINS_9StringRefES2_EvE7isEqualERKS3_S6_.exit.thread: ; preds = %28, %37, %26, %31, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.i, %35, %40, %_ZN4llvm12DenseMapInfoISt4pairINS_9StringRefES2_EvE7isEqualERKS3_S6_.exit

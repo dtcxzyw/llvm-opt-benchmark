@@ -2770,7 +2770,7 @@ _ZN5alloc6string6String4push17h65f6c624e4e39ab4E.exit40: ; preds = %89, %83
   br label %.body
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %180, %176, %126, %115
-  %.sroa.09.3.ph.ph.ph.ph = phi i1 [ false, %180 ], [ true, %115 ], [ true, %126 ], [ false, %176 ]
+  %.sroa.09.3.ph.ph.ph.ph = phi i1 [ true, %126 ], [ false, %176 ], [ false, %180 ], [ true, %115 ]
   %lpad.loopexit.split-lp93 = landingpad { ptr, i32 }
           cleanup
   br label %.body

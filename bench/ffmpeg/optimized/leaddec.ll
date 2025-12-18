@@ -481,8 +481,8 @@ get_vlc2.exit.i:                                  ; preds = %192, %174
   br label %decode_block.exit
 
 decode_block.exit:                                ; preds = %get_vlc2.exit.i, %216, %128, %132, %.thread52.i
-  %.sroa.8.22 = phi i32 [ %149, %132 ], [ %.sroa.8.21, %.thread52.i ], [ %.sroa.8.3520, %128 ], [ %213, %216 ], [ %213, %get_vlc2.exit.i ]
-  %.0.i = phi i32 [ -1094995529, %132 ], [ 0, %.thread52.i ], [ -1094995529, %128 ], [ -1094995529, %216 ], [ -1094995529, %get_vlc2.exit.i ]
+  %.sroa.8.22 = phi i32 [ %149, %132 ], [ %.sroa.8.3520, %128 ], [ %.sroa.8.21, %.thread52.i ], [ %213, %216 ], [ %213, %get_vlc2.exit.i ]
+  %.0.i = phi i32 [ -1094995529, %132 ], [ -1094995529, %128 ], [ 0, %.thread52.i ], [ -1094995529, %216 ], [ -1094995529, %get_vlc2.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %250 = getelementptr inbounds nuw ptr, ptr %1, i64 %129
   %251 = getelementptr inbounds nuw i32, ptr %105, i64 %129
@@ -703,8 +703,8 @@ get_vlc2.exit.i326:                               ; preds = %342, %324
   br label %decode_block.exit335
 
 decode_block.exit335:                             ; preds = %get_vlc2.exit.i326, %366, %268, %281, %.thread52.i334
-  %.sroa.8.25 = phi i32 [ %299, %281 ], [ %.sroa.8.24, %.thread52.i334 ], [ %.sroa.8.3520, %268 ], [ %363, %366 ], [ %363, %get_vlc2.exit.i326 ]
-  %.0.i320 = phi i32 [ -1094995529, %281 ], [ 0, %.thread52.i334 ], [ -1094995529, %268 ], [ -1094995529, %366 ], [ -1094995529, %get_vlc2.exit.i326 ]
+  %.sroa.8.25 = phi i32 [ %299, %281 ], [ %.sroa.8.3520, %268 ], [ %.sroa.8.24, %.thread52.i334 ], [ %363, %366 ], [ %363, %get_vlc2.exit.i326 ]
+  %.0.i320 = phi i32 [ -1094995529, %281 ], [ -1094995529, %268 ], [ 0, %.thread52.i334 ], [ -1094995529, %366 ], [ -1094995529, %get_vlc2.exit.i326 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %401
 
@@ -1352,7 +1352,7 @@ get_vlc2.exit.i365:                               ; preds = %705, %687
   br label %.loopexit
 
 .loopexit:                                        ; preds = %401, %._crit_edge, %.thread442, %765, %copy_block8.exit.thread, %._crit_edge.thread, %62, %calc_dequant.exit314, %4, %.thread406, %27
-  %.0 = phi i32 [ %60, %calc_dequant.exit314 ], [ -1163346256, %27 ], [ -1094995529, %4 ], [ -12, %62 ], [ %779, %.thread406 ], [ -1094995529, %._crit_edge.thread ], [ -1094995529, %copy_block8.exit.thread ], [ -1094995529, %765 ], [ -1094995529, %.thread442 ], [ -1094995529, %._crit_edge ], [ %.0252, %401 ]
+  %.0 = phi i32 [ %60, %calc_dequant.exit314 ], [ -1163346256, %27 ], [ -1094995529, %4 ], [ -12, %62 ], [ %779, %.thread406 ], [ -1094995529, %._crit_edge.thread ], [ -1094995529, %copy_block8.exit.thread ], [ -1094995529, %.thread442 ], [ -1094995529, %765 ], [ -1094995529, %._crit_edge ], [ %.0252, %401 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0

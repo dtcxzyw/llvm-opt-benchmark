@@ -508,7 +508,7 @@ literal_matched.exit.i.i:                         ; preds = %185
   br i1 %.not.i38.i.i.i, label %rc_bittree.exit.i.i.i, label %310, !llvm.loop !32
 
 rc_bittree.exit.i.i.i:                            ; preds = %310, %296, %276
-  %.lcssa45.sink.i.i.i = phi i64 [ %305, %296 ], [ %285, %276 ], [ %319, %310 ]
+  %.lcssa45.sink.i.i.i = phi i64 [ %285, %276 ], [ %305, %296 ], [ %319, %310 ]
   store i64 %.lcssa45.sink.i.i.i, ptr %70, align 8, !tbaa !26
   br i1 %268, label %rep_match.exit.i, label %322
 
@@ -761,7 +761,7 @@ rc_flush.exit:                                    ; preds = %423
   br label %encode_init.exit
 
 encode_init.exit:                                 ; preds = %105, %rc_encode_dummy.exit, %18, %rc_flush.exit, %55, %53, %429
-  %.049 = phi i32 [ 1, %rc_flush.exit ], [ 0, %53 ], [ 0, %429 ], [ 1, %55 ], [ 0, %18 ], [ 0, %rc_encode_dummy.exit ], [ 0, %105 ]
+  %.049 = phi i32 [ 1, %rc_flush.exit ], [ 0, %53 ], [ 0, %429 ], [ 0, %18 ], [ 1, %55 ], [ 0, %rc_encode_dummy.exit ], [ 0, %105 ]
   ret i32 %.049
 }
 
@@ -995,7 +995,7 @@ define internal fastcc noundef zeroext i1 @rc_encode(ptr noundef captures(none) 
   br label %rc_shift_low.exit.thread
 
 rc_shift_low.exit.thread:                         ; preds = %.preheader.i, %.preheader.i49, %._crit_edge, %120
-  %.0 = phi i1 [ false, %._crit_edge ], [ false, %120 ], [ true, %.preheader.i49 ], [ true, %.preheader.i ]
+  %.0 = phi i1 [ false, %._crit_edge ], [ true, %.preheader.i49 ], [ false, %120 ], [ true, %.preheader.i ]
   ret i1 %.0
 }
 
@@ -1771,7 +1771,7 @@ define internal fastcc void @match(ptr noundef %0, i32 noundef %1, i32 noundef r
   br i1 %.not.i38.i, label %rc_bittree.exit.i, label %64, !llvm.loop !32
 
 rc_bittree.exit.i:                                ; preds = %64, %49, %26
-  %.lcssa45.sink.i = phi i64 [ %58, %49 ], [ %35, %26 ], [ %73, %64 ]
+  %.lcssa45.sink.i = phi i64 [ %35, %26 ], [ %58, %49 ], [ %73, %64 ]
   store i64 %.lcssa45.sink.i, ptr %16, align 8, !tbaa !26
   br i1 %12, label %length.exit, label %76
 

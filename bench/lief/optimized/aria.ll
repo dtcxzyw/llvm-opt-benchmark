@@ -1255,7 +1255,7 @@ define hidden range(i32 -92, 1) i32 @mbedtls_aria_crypt_cfb128(ptr noundef reado
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !21
 
 .loopexit:                                        ; preds = %30, %17, %.preheader43, %.preheader
-  %.1 = phi i64 [ %9, %.preheader ], [ %9, %.preheader43 ], [ %25, %17 ], [ %38, %30 ]
+  %.1 = phi i64 [ %25, %17 ], [ %9, %.preheader ], [ %9, %.preheader43 ], [ %38, %30 ]
   store i64 %.1, ptr %3, align 8, !tbaa !18
   br label %39
 
@@ -1520,7 +1520,7 @@ mbedtls_aria_crypt_cbc.exit102:                   ; preds = %.lr.ph60.i
   br i1 %exitcond138.not, label %.loopexit198.preheader, label %.loopexit200.backedge
 
 .loopexit200.backedge:                            ; preds = %53, %.thread184
-  %indvars.iv135.be = phi i64 [ %indvars.iv.next136, %53 ], [ %indvars.iv.next136185, %.thread184 ]
+  %indvars.iv135.be = phi i64 [ %indvars.iv.next136185, %.thread184 ], [ %indvars.iv.next136, %53 ]
   br label %.loopexit200, !llvm.loop !25
 
 .thread184:                                       ; preds = %52
@@ -1655,7 +1655,7 @@ mbedtls_aria_crypt_cfb128.exit105:                ; preds = %84
   br i1 %exitcond142.not, label %.loopexit196.preheader, label %.loopexit198.backedge
 
 .loopexit198.backedge:                            ; preds = %96, %.thread188
-  %indvars.iv139.be = phi i64 [ %indvars.iv.next140, %96 ], [ %indvars.iv.next140189, %.thread188 ]
+  %indvars.iv139.be = phi i64 [ %indvars.iv.next140189, %.thread188 ], [ %indvars.iv.next140, %96 ]
   br label %.loopexit198, !llvm.loop !26
 
 .thread188:                                       ; preds = %95
@@ -1816,7 +1816,7 @@ mbedtls_aria_crypt_ctr.exit123:                   ; preds = %.loopexit.i116
   br i1 %exitcond146.not, label %.loopexit, label %.loopexit196.backedge
 
 .loopexit196.backedge:                            ; preds = %152, %.thread192
-  %indvars.iv143.be = phi i64 [ %indvars.iv.next144, %152 ], [ %indvars.iv.next144193, %.thread192 ]
+  %indvars.iv143.be = phi i64 [ %indvars.iv.next144193, %.thread192 ], [ %indvars.iv.next144, %152 ]
   br label %.loopexit196, !llvm.loop !27
 
 .thread192:                                       ; preds = %151

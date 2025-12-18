@@ -267,7 +267,7 @@ switch.early.test:                                ; preds = %66
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %56, %switch.early.test, %72, %1, %9, %25
-  %.049 = phi i32 [ -11, %1 ], [ %., %72 ], [ -11, %switch.early.test ], [ %30, %25 ], [ -11, %9 ], [ -11, %56 ], [ -11, %.lr.ph ]
+  %.049 = phi i32 [ -11, %1 ], [ %., %72 ], [ -11, %switch.early.test ], [ -11, %9 ], [ %30, %25 ], [ -11, %56 ], [ -11, %.lr.ph ]
   ret i32 %.049
 }
 
@@ -1420,9 +1420,9 @@ define internal void @vectorscope8(ptr noundef readonly captures(none) %0, ptr n
   br i1 %368, label %.lr.ph72.split.i.i, label %._crit_edge73.i.i, !llvm.loop !110
 
 ._crit_edge73.i.i:                                ; preds = %364, %326, %.preheader.i.i
-  %369 = phi i32 [ %314, %.preheader.i.i ], [ %327, %326 ], [ %365, %364 ]
-  %370 = phi i32 [ %315, %.preheader.i.i ], [ %327, %326 ], [ %366, %364 ]
-  %371 = phi i32 [ %316, %.preheader.i.i ], [ %327, %326 ], [ %366, %364 ]
+  %369 = phi i32 [ %327, %326 ], [ %314, %.preheader.i.i ], [ %365, %364 ]
+  %370 = phi i32 [ %327, %326 ], [ %315, %.preheader.i.i ], [ %366, %364 ]
+  %371 = phi i32 [ %327, %326 ], [ %316, %.preheader.i.i ], [ %366, %364 ]
   %indvars.iv.next93.i.i = add nuw nsw i64 %indvars.iv92.i.i, 1
   %372 = load i32, ptr %53, align 4, !tbaa !90
   %373 = sext i32 %372 to i64
@@ -9612,9 +9612,9 @@ define internal fastcc void @envelope_instant(ptr noundef readonly captures(none
   br i1 %70, label %.lr.ph.split, label %._crit_edge, !llvm.loop !181
 
 ._crit_edge:                                      ; preds = %66, %38, %.preheader
-  %71 = phi i32 [ %25, %.preheader ], [ %39, %38 ], [ %67, %66 ]
-  %72 = phi i32 [ %26, %.preheader ], [ %39, %38 ], [ %68, %66 ]
-  %73 = phi i32 [ %27, %.preheader ], [ %39, %38 ], [ %68, %66 ]
+  %71 = phi i32 [ %39, %38 ], [ %25, %.preheader ], [ %67, %66 ]
+  %72 = phi i32 [ %39, %38 ], [ %26, %.preheader ], [ %68, %66 ]
+  %73 = phi i32 [ %39, %38 ], [ %27, %.preheader ], [ %68, %66 ]
   %74 = load i32, ptr %18, align 4, !tbaa !90
   %75 = sext i32 %74 to i64
   %76 = icmp slt i64 %29, %75

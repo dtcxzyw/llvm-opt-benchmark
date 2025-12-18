@@ -792,11 +792,11 @@ tailrecurse.backedge286:                          ; preds = %tailrecurse.backedg
   unreachable
 
 expr_list_is_constant_eval.exit.loopexit285:      ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %48, %57, %54, %54, %54, %54, %102, %114, %141, %141, %141, %141, %147, %.critedge, %12, %25, %29
-  %.0.ph = phi i1 [ false, %12 ], [ true, %29 ], [ true, %.critedge ], [ false, %25 ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %141 ], [ false, %147 ], [ false, %141 ], [ true, %54 ], [ false, %102 ], [ false, %114 ], [ true, %54 ], [ true, %54 ], [ true, %54 ], [ false, %57 ], [ true, %48 ], [ false, %tailrecurse ], [ false, %141 ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %141 ]
+  %.0.ph = phi i1 [ true, %29 ], [ true, %.critedge ], [ false, %25 ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %141 ], [ false, %147 ], [ false, %141 ], [ true, %54 ], [ false, %102 ], [ false, %114 ], [ true, %54 ], [ true, %54 ], [ true, %54 ], [ false, %57 ], [ true, %48 ], [ false, %tailrecurse ], [ false, %141 ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %12 ], [ false, %141 ]
   br label %expr_list_is_constant_eval.exit
 
 expr_list_is_constant_eval.exit:                  ; preds = %.lr.ph, %.lr.ph139, %.lr.ph145, %.lr.ph151, %54, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %expr_list_is_constant_eval.exit.loopexit285, %89, %80, %62, %36, %92, %83, %65, %39, %133, %136, %145, %139, %138, %34, %32
-  %.0 = phi i1 [ %146, %145 ], [ false, %133 ], [ %44, %.lr.ph151 ], [ true, %83 ], [ true, %92 ], [ true, %65 ], [ true, %138 ], [ false, %136 ], [ %33, %32 ], [ %35, %34 ], [ true, %80 ], [ %140, %139 ], [ true, %89 ], [ true, %39 ], [ %.0.ph, %expr_list_is_constant_eval.exit.loopexit285 ], [ true, %36 ], [ true, %62 ], [ %70, %.lr.ph145 ], [ %88, %.lr.ph139 ], [ false, %54 ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ %97, %.lr.ph ]
+  %.0 = phi i1 [ %146, %145 ], [ false, %133 ], [ true, %62 ], [ true, %83 ], [ true, %92 ], [ true, %65 ], [ true, %138 ], [ false, %136 ], [ %33, %32 ], [ %35, %34 ], [ %88, %.lr.ph139 ], [ true, %80 ], [ %140, %139 ], [ %44, %.lr.ph151 ], [ true, %89 ], [ true, %39 ], [ false, %54 ], [ %.0.ph, %expr_list_is_constant_eval.exit.loopexit285 ], [ %70, %.lr.ph145 ], [ true, %36 ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ %97, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -1590,7 +1590,7 @@ define dso_local noundef zeroext i1 @expr_rewrite_to_const_initializer_index(ptr
   unreachable
 
 initializer_for_index.exit:                       ; preds = %18, %42
-  %.041.i.in = phi ptr [ %20, %18 ], [ %43, %42 ]
+  %.041.i.in = phi ptr [ %43, %42 ], [ %20, %18 ]
   %.041.i = load ptr, ptr %.041.i.in, align 8
   %.not = icmp eq ptr %.041.i, null
   br i1 %.not, label %.thread, label %initializer_for_index.exit.thread24thread-pre-split
@@ -2023,7 +2023,7 @@ tailrecurse.backedge:                             ; preds = %4, %10, %17, %32, %
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph246, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.critedge.loopexit293, %80, %1, %83
-  %.070 = phi i1 [ true, %80 ], [ true, %83 ], [ %.070.ph, %.critedge.loopexit293 ], [ true, %1 ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ %89, %.lr.ph246 ]
+  %.070 = phi i1 [ true, %.lr.ph ], [ true, %80 ], [ true, %83 ], [ %.070.ph, %.critedge.loopexit293 ], [ true, %1 ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ %89, %.lr.ph246 ]
   ret i1 %.070
 }
 
@@ -2198,11 +2198,11 @@ tailrecurse.backedge:                             ; preds = %32, %23
   br label %.split36.us
 
 .split36.us.loopexit80:                           ; preds = %29, %tailrecurse, %32, %23
-  %.0.ph = phi i1 [ false, %32 ], [ false, %23 ], [ false, %29 ], [ true, %tailrecurse ]
+  %.0.ph = phi i1 [ false, %23 ], [ true, %tailrecurse ], [ false, %29 ], [ false, %32 ]
   br label %.split36.us
 
 .split36.us:                                      ; preds = %29, %29, %29, %29, %29, %29, %29, %29, %29, %29, %29, %29, %29, %29, %29, %29, %29, %29, %29, %6, %15, %9, %.split36.us.loopexit80, %.split36.us.loopexit, %.split31.us, %41, %40
-  %.0 = phi i1 [ %1, %.split31.us ], [ false, %40 ], [ true, %41 ], [ false, %6 ], [ true, %.split36.us.loopexit ], [ %.0.ph, %.split36.us.loopexit80 ], [ false, %9 ], [ false, %15 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ]
+  %.0 = phi i1 [ %1, %.split31.us ], [ false, %40 ], [ false, %6 ], [ %.0.ph, %.split36.us.loopexit80 ], [ true, %41 ], [ true, %.split36.us.loopexit ], [ false, %9 ], [ false, %15 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ]
   ret i1 %.0
 }
 

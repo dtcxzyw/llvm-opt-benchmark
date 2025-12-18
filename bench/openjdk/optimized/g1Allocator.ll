@@ -1775,7 +1775,7 @@ _ZNK15G1PLABAllocator20alloc_buffers_lengthEa.exit.us: ; preds = %13, %_ZNK15G1P
   br label %.split.us
 
 .split.us:                                        ; preds = %_ZNK15G1PLABAllocator20alloc_buffers_lengthEa.exit.us, %.preheader.split, %.preheader.split.split, %.preheader.split.us
-  %.us-phi = phi i64 [ %.025, %.preheader.split.us ], [ %19, %.preheader.split.split ], [ %.025, %.preheader.split ], [ %.2.us, %_ZNK15G1PLABAllocator20alloc_buffers_lengthEa.exit.us ]
+  %.us-phi = phi i64 [ %.025, %.preheader.split ], [ %.025, %.preheader.split.us ], [ %19, %.preheader.split.split ], [ %.2.us, %_ZNK15G1PLABAllocator20alloc_buffers_lengthEa.exit.us ]
   br i1 %exitcond31.not, label %20, label %.preheader, !llvm.loop !22
 
 20:                                               ; preds = %.split.us
@@ -1841,7 +1841,7 @@ _ZNK15G1PLABAllocator20alloc_buffers_lengthEa.exit.us: ; preds = %13, %_ZNK15G1P
   br label %.split.us
 
 .split.us:                                        ; preds = %_ZNK15G1PLABAllocator20alloc_buffers_lengthEa.exit.us, %.preheader.split, %.preheader.split.split, %.preheader.split.us
-  %.us-phi = phi i64 [ %.025, %.preheader.split.us ], [ %19, %.preheader.split.split ], [ %.025, %.preheader.split ], [ %.2.us, %_ZNK15G1PLABAllocator20alloc_buffers_lengthEa.exit.us ]
+  %.us-phi = phi i64 [ %.025, %.preheader.split ], [ %.025, %.preheader.split.us ], [ %19, %.preheader.split.split ], [ %.2.us, %_ZNK15G1PLABAllocator20alloc_buffers_lengthEa.exit.us ]
   br i1 %exitcond31.not, label %20, label %.preheader, !llvm.loop !24
 
 20:                                               ; preds = %.split.us

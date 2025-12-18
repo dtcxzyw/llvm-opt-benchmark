@@ -903,7 +903,7 @@ return.sink.split:                                ; preds = %if.then5.i40, %if.e
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.else, %lpad
-  %retval.0 = phi i1 [ false, %lpad ], [ false, %if.else ], [ true, %return.sink.split ]
+  %retval.0 = phi i1 [ false, %if.else ], [ false, %lpad ], [ true, %return.sink.split ]
   ret i1 %retval.0
 
 terminate.lpad:                                   ; preds = %if.then.i44, %lpad

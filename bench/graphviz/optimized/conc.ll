@@ -1169,7 +1169,7 @@ infuse.exit132:                                   ; preds = %70, %78
   br label %.critedge130
 
 .critedge130:                                     ; preds = %175, %188, %.critedge2, %168
-  %.2106 = phi i32 [ %170, %168 ], [ %spec.select, %188 ], [ %.0104152, %.critedge2 ], [ %.0104152, %175 ]
+  %.2106 = phi i32 [ %170, %168 ], [ %.0104152, %.critedge2 ], [ %spec.select, %188 ], [ %.0104152, %175 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %197 = load ptr, ptr %2, align 8, !tbaa !3
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 264

@@ -818,7 +818,7 @@ define internal fastcc range(i32 -1, 2) i32 @SB_MatchText(ptr noundef %0, i32 no
   br i1 %148, label %.lr.ph259, label %.thread, !llvm.loop !13
 
 .thread:                                          ; preds = %140, %24, %30, %35, %60, %.split, %50, %.split.us, %145, %.lr.ph259, %.preheader209, %.preheader, %.loopexit, %132, %131, %135, %136, %._crit_edge, %113, %7
-  %.0 = phi i32 [ 0, %._crit_edge ], [ 1, %7 ], [ 0, %136 ], [ 1, %131 ], [ 1, %35 ], [ %., %113 ], [ 1, %.preheader ], [ 1, %132 ], [ 0, %135 ], [ -1, %50 ], [ -1, %.loopexit ], [ 1, %.preheader209 ], [ 1, %145 ], [ %59, %.split ], [ -1, %.lr.ph259 ], [ %49, %.split.us ], [ -1, %60 ], [ -1, %30 ], [ 0, %24 ], [ 0, %140 ]
+  %.0 = phi i32 [ 0, %._crit_edge ], [ 1, %7 ], [ 1, %.preheader ], [ 0, %136 ], [ 1, %131 ], [ 0, %135 ], [ -1, %30 ], [ %., %113 ], [ -1, %50 ], [ 1, %132 ], [ %59, %.split ], [ -1, %.loopexit ], [ 1, %145 ], [ 1, %.preheader209 ], [ -1, %.lr.ph259 ], [ %49, %.split.us ], [ -1, %60 ], [ 1, %35 ], [ 0, %24 ], [ 0, %140 ]
   ret i32 %.0
 }
 
@@ -1491,7 +1491,7 @@ wchareq.exit.thread.i:                            ; preds = %wchareq.exit.thread
   br i1 %147, label %.lr.ph129.i, label %.loopexit116.i, !llvm.loop !18
 
 .loopexit116.i:                                   ; preds = %.loopexit117.i, %.loopexit.i, %.preheader118.i, %.preheader.i
-  %.393.i = phi ptr [ %64, %.preheader.i ], [ %64, %.preheader118.i ], [ %.292.lcssa.i, %.loopexit.i ], [ %.5.i, %.loopexit117.i ]
+  %.393.i = phi ptr [ %.292.lcssa.i, %.loopexit.i ], [ %64, %.preheader.i ], [ %64, %.preheader118.i ], [ %.5.i, %.loopexit117.i ]
   %148 = ptrtoint ptr %.393.i to i64
   %149 = ptrtoint ptr %63 to i64
   %150 = sub i64 %148, %149
@@ -1726,7 +1726,7 @@ define internal fastcc ptr @SB_do_like_escape(ptr noundef readonly captures(none
   br i1 %115, label %.lr.ph, label %.loopexit, !llvm.loop !20
 
 .loopexit:                                        ; preds = %114, %62, %.preheader93, %.preheader
-  %.271 = phi ptr [ %56, %.preheader ], [ %56, %.preheader93 ], [ %65, %62 ], [ %.4, %114 ]
+  %.271 = phi ptr [ %65, %62 ], [ %56, %.preheader ], [ %56, %.preheader93 ], [ %.4, %114 ]
   %116 = ptrtoint ptr %.271 to i64
   %117 = ptrtoint ptr %55 to i64
   %118 = sub i64 %116, %117
@@ -2200,7 +2200,7 @@ define internal fastcc range(i32 -1, 2) i32 @UTF8_MatchText(ptr noundef %0, i32 
   br i1 %159, label %.lr.ph295, label %.thread, !llvm.loop !30
 
 .thread:                                          ; preds = %148, %24, %30, %.critedge, %.split, %58, %156, %.lr.ph295, %.preheader238, %.preheader235, %.loopexit, %138, %137, %142, %141, %._crit_edge, %120, %7
-  %.0 = phi i32 [ 0, %._crit_edge ], [ 1, %7 ], [ 0, %141 ], [ 1, %137 ], [ %., %120 ], [ 1, %138 ], [ 0, %142 ], [ -1, %.loopexit ], [ 1, %.preheader235 ], [ 1, %.preheader238 ], [ 1, %156 ], [ -1, %58 ], [ 1, %.critedge ], [ %57, %.split ], [ -1, %.lr.ph295 ], [ -1, %30 ], [ 0, %24 ], [ 0, %148 ]
+  %.0 = phi i32 [ 0, %._crit_edge ], [ 1, %7 ], [ 1, %156 ], [ 0, %141 ], [ 1, %137 ], [ 0, %142 ], [ -1, %58 ], [ %., %120 ], [ %57, %.split ], [ 1, %138 ], [ 1, %.preheader235 ], [ -1, %.loopexit ], [ 1, %.preheader238 ], [ 1, %.critedge ], [ -1, %.lr.ph295 ], [ -1, %30 ], [ 0, %24 ], [ 0, %148 ]
   ret i32 %.0
 }
 
@@ -2586,7 +2586,7 @@ define internal fastcc range(i32 -1, 2) i32 @MB_MatchText(ptr noundef %0, i32 no
   br i1 %156, label %.lr.ph271, label %.thread, !llvm.loop !36
 
 .thread:                                          ; preds = %145, %24, %30, %37, %56, %.split, %153, %.lr.ph271, %.preheader221, %.preheader, %.loopexit, %135, %134, %138, %139, %._crit_edge, %116, %7
-  %.0 = phi i32 [ 0, %._crit_edge ], [ 1, %7 ], [ 0, %139 ], [ 1, %134 ], [ 1, %37 ], [ %., %116 ], [ 1, %135 ], [ 0, %138 ], [ -1, %.loopexit ], [ 1, %.preheader ], [ 1, %.preheader221 ], [ 1, %153 ], [ %55, %.split ], [ -1, %.lr.ph271 ], [ -1, %56 ], [ -1, %30 ], [ 0, %24 ], [ 0, %145 ]
+  %.0 = phi i32 [ 0, %._crit_edge ], [ 1, %7 ], [ -1, %30 ], [ 0, %139 ], [ 1, %134 ], [ 0, %138 ], [ 1, %153 ], [ %., %116 ], [ %55, %.split ], [ 1, %135 ], [ 1, %.preheader ], [ -1, %.loopexit ], [ 1, %.preheader221 ], [ -1, %.lr.ph271 ], [ -1, %56 ], [ 1, %37 ], [ 0, %24 ], [ 0, %145 ]
   ret i32 %.0
 }
 
@@ -3223,7 +3223,7 @@ SB_lower_char.exit205:                            ; preds = %215, %213, %208, %1
   br i1 %298, label %.lr.ph287, label %.thread, !llvm.loop !42
 
 .thread:                                          ; preds = %SB_lower_char.exit205, %SB_lower_char.exit195, %67, %72, %142, %.split, %295, %.lr.ph287, %.preheader236, %.preheader, %SB_lower_char.exit197, %284, %283, %287, %288, %._crit_edge, %265, %7
-  %.0 = phi i32 [ 0, %._crit_edge ], [ 1, %7 ], [ 0, %288 ], [ 1, %283 ], [ 1, %72 ], [ %., %265 ], [ 1, %284 ], [ 0, %287 ], [ -1, %SB_lower_char.exit197 ], [ 1, %.preheader ], [ 1, %.preheader236 ], [ 1, %295 ], [ %141, %.split ], [ -1, %.lr.ph287 ], [ -1, %142 ], [ -1, %67 ], [ 0, %SB_lower_char.exit195 ], [ 0, %SB_lower_char.exit205 ]
+  %.0 = phi i32 [ 0, %._crit_edge ], [ 1, %7 ], [ -1, %67 ], [ 0, %288 ], [ 1, %283 ], [ 0, %287 ], [ 1, %295 ], [ %., %265 ], [ %141, %.split ], [ 1, %284 ], [ 1, %.preheader ], [ -1, %SB_lower_char.exit197 ], [ 1, %.preheader236 ], [ -1, %.lr.ph287 ], [ -1, %142 ], [ 1, %72 ], [ 0, %SB_lower_char.exit195 ], [ 0, %SB_lower_char.exit205 ]
   ret i32 %.0
 }
 

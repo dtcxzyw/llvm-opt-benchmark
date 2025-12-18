@@ -918,8 +918,8 @@ decode_macroblock.exit225:                        ; preds = %480, %483, %486
   br i1 %505, label %.lr.ph365, label %.critedge2, !llvm.loop !58
 
 .critedge2:                                       ; preds = %.lr.ph365, %decode_macroblock.exit225, %420, %421
-  %.sroa.20.13 = phi i32 [ %spec.select.i195, %421 ], [ %.sroa.20.12, %420 ], [ %spec.select.i212, %.lr.ph365 ], [ %498, %decode_macroblock.exit225 ]
-  %.5 = phi i32 [ %.2309.lcssa, %421 ], [ %.4, %420 ], [ %.6364, %.lr.ph365 ], [ %.9, %decode_macroblock.exit225 ]
+  %.sroa.20.13 = phi i32 [ %.sroa.20.12, %420 ], [ %spec.select.i195, %421 ], [ %498, %decode_macroblock.exit225 ], [ %spec.select.i212, %.lr.ph365 ]
+  %.5 = phi i32 [ %.4, %420 ], [ %.2309.lcssa, %421 ], [ %.9, %decode_macroblock.exit225 ], [ %.6364, %.lr.ph365 ]
   br label %.preheader14.i230
 
 .preheader14.i230:                                ; preds = %.critedge2, %.preheader14.i230
@@ -934,9 +934,9 @@ decode_macroblock.exit225:                        ; preds = %480, %483, %486
   br i1 %exitcond.not.i233, label %copy_superblock.exit, label %.preheader14.i230, !llvm.loop !46
 
 copy_superblock.exit:                             ; preds = %.preheader14.i230, %.preheader14.i, %.preheader.i178
-  %.1126325 = phi i32 [ %.1126326, %.preheader14.i ], [ %.1126326, %.preheader.i178 ], [ 0, %.preheader14.i230 ]
-  %.sroa.20.6 = phi i32 [ %.sroa.20.5324, %.preheader14.i ], [ %.sroa.20.5324, %.preheader.i178 ], [ %.sroa.20.13, %.preheader14.i230 ]
-  %.1308 = phi i32 [ %.0307378, %.preheader14.i ], [ %.0307378, %.preheader.i178 ], [ %.5, %.preheader14.i230 ]
+  %.1126325 = phi i32 [ %.1126326, %.preheader.i178 ], [ %.1126326, %.preheader14.i ], [ 0, %.preheader14.i230 ]
+  %.sroa.20.6 = phi i32 [ %.sroa.20.5324, %.preheader.i178 ], [ %.sroa.20.5324, %.preheader14.i ], [ %.sroa.20.13, %.preheader14.i230 ]
+  %.1308 = phi i32 [ %.0307378, %.preheader.i178 ], [ %.0307378, %.preheader14.i ], [ %.5, %.preheader14.i230 ]
   %509 = add i32 %.0123383, 1
   %510 = getelementptr inbounds nuw i8, ptr %.0134379, i64 16
   %.not156 = icmp eq ptr %.0130380, null

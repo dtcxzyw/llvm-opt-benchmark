@@ -1367,7 +1367,7 @@ define internal fastcc i32 @slicendump(i64 noundef range(i64 0, -922337203685477
   br label %.loopexit61
 
 .loopexit61:                                      ; preds = %22, %.loopexit, %._crit_edge
-  %.2 = phi i32 [ %.0, %.loopexit ], [ %41, %._crit_edge ], [ %23, %22 ]
+  %.2 = phi i32 [ %41, %._crit_edge ], [ %.0, %.loopexit ], [ %23, %22 ]
   ret i32 %.2
 }
 

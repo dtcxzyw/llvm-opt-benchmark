@@ -4547,8 +4547,8 @@ _ZN4ncnn3MatD2Ev.exit229.us.us.us:                ; preds = %_ZN4ncnn3MatD2Ev.ex
   br i1 %exitcond454.not, label %_ZN4ncnn3MataSERKS0_.exit344, label %.lr.ph.us, !llvm.loop !90
 
 _ZN4ncnn3MataSERKS0_.exit344:                     ; preds = %._crit_edge.split.us400, %._crit_edge.split.us.us.us, %._crit_edge, %.lr.ph396, %.preheader388, %.preheader387, %_ZN4ncnn3Mat7releaseEv.exit.i339, %48
-  %158 = phi i32 [ 0, %48 ], [ %137, %.lr.ph396 ], [ %137, %.preheader388 ], [ %100, %.preheader387 ], [ %80, %_ZN4ncnn3Mat7releaseEv.exit.i339 ], [ %137, %._crit_edge.split.us.us.us ], [ %111, %._crit_edge ], [ %137, %._crit_edge.split.us400 ]
-  %159 = phi i32 [ 0, %48 ], [ %.pre502, %.lr.ph396 ], [ %.pre502, %.preheader388 ], [ %.pre503, %.preheader387 ], [ %78, %_ZN4ncnn3Mat7releaseEv.exit.i339 ], [ %.pre502, %._crit_edge.split.us.us.us ], [ %112, %._crit_edge ], [ %.pre502, %._crit_edge.split.us400 ]
+  %158 = phi i32 [ 0, %48 ], [ %137, %._crit_edge.split.us.us.us ], [ %111, %._crit_edge ], [ %137, %.lr.ph396 ], [ %137, %.preheader388 ], [ %100, %.preheader387 ], [ %80, %_ZN4ncnn3Mat7releaseEv.exit.i339 ], [ %137, %._crit_edge.split.us400 ]
+  %159 = phi i32 [ 0, %48 ], [ %.pre502, %._crit_edge.split.us.us.us ], [ %112, %._crit_edge ], [ %.pre502, %.lr.ph396 ], [ %.pre502, %.preheader388 ], [ %.pre503, %.preheader387 ], [ %78, %_ZN4ncnn3Mat7releaseEv.exit.i339 ], [ %.pre502, %._crit_edge.split.us400 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %160 = load ptr, ptr %13, align 8, !tbaa !16
   store ptr %160, ptr %14, align 8, !tbaa !16

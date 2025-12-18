@@ -681,7 +681,7 @@ add_bytes.exit:                                   ; preds = %add_bytes.exit.loop
   br i1 %or.cond.i47, label %add_bytes.exit48, label %.lr.ph41.i42, !llvm.loop !33
 
 add_bytes.exit48:                                 ; preds = %41, %add_bytes.exit.i, %52, %.lr.ph41.i42, %31, %49, %109, %._crit_edge.i40, %hash_gen.exit, %26, %5
-  %116 = phi i32 [ 0, %5 ], [ 0, %hash_gen.exit ], [ 0, %26 ], [ 1, %._crit_edge.i40 ], [ 1, %109 ], [ 0, %49 ], [ 0, %31 ], [ 1, %.lr.ph41.i42 ], [ 0, %52 ], [ 0, %add_bytes.exit.i ], [ 0, %41 ]
+  %116 = phi i32 [ 0, %5 ], [ 0, %hash_gen.exit ], [ 1, %.lr.ph41.i42 ], [ 0, %26 ], [ 1, %._crit_edge.i40 ], [ 1, %109 ], [ 0, %49 ], [ 0, %31 ], [ 0, %52 ], [ 0, %add_bytes.exit.i ], [ 0, %41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %116
 }
@@ -895,8 +895,8 @@ define internal fastcc range(i32 0, 2) i32 @hash_df(i64 %.224.val, ptr %.240.val
   br i1 %100, label %.split.us, label %104
 
 .split.us:                                        ; preds = %98, %76, %56, %36
-  %.us-phi20 = phi ptr [ %.0504.us27, %76 ], [ %.0504.us.us, %36 ], [ %.0504.us, %56 ], [ %.0504, %98 ]
-  %.us-phi21 = phi i64 [ %.0485.us26, %76 ], [ %.0485.us.us, %36 ], [ %.0485.us, %56 ], [ %.0485, %98 ]
+  %.us-phi20 = phi ptr [ %.0504.us27, %76 ], [ %.0504.us, %56 ], [ %.0504.us.us, %36 ], [ %.0504, %98 ]
+  %.us-phi21 = phi i64 [ %.0485.us26, %76 ], [ %.0485.us, %56 ], [ %.0485.us.us, %36 ], [ %.0485, %98 ]
   %101 = call i32 @EVP_DigestFinal(ptr noundef %11, ptr noundef nonnull %12, ptr noundef null) #6
   %.not60 = icmp eq i32 %101, 0
   br i1 %.not60, label %.loopexit, label %102

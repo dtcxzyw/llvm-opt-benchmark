@@ -1669,8 +1669,8 @@ select.unfold.i:                                  ; preds = %98, %92, %25
   br i1 %104, label %"_ZN17async_compression7futures7bufread7generic7decoder20Decoder$LT$R$C$D$GT$12do_poll_read17h28c189f812525db1E.exit.thread.thread24", label %25
 
 .sink.split:                                      ; preds = %95, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17hcfa7cebc576c5a22E.exit13", %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17hcfa7cebc576c5a22E.exit", %"_ZN17async_compression7futures7bufread7generic7decoder20Decoder$LT$R$C$D$GT$12do_poll_read17h28c189f812525db1E.exit.thread", %90, %89
-  %.sroa.5.0.ph = phi ptr [ %.sroa.10.2.i16, %"_ZN17async_compression7futures7bufread7generic7decoder20Decoder$LT$R$C$D$GT$12do_poll_read17h28c189f812525db1E.exit.thread" ], [ %76, %89 ], [ %91, %90 ], [ %119, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17hcfa7cebc576c5a22E.exit13" ], [ undef, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17hcfa7cebc576c5a22E.exit" ], [ %96, %95 ]
-  %.sroa.0.0.ph = phi i64 [ 1, %"_ZN17async_compression7futures7bufread7generic7decoder20Decoder$LT$R$C$D$GT$12do_poll_read17h28c189f812525db1E.exit.thread" ], [ 1, %89 ], [ 1, %90 ], [ 0, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17hcfa7cebc576c5a22E.exit13" ], [ 2, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17hcfa7cebc576c5a22E.exit" ], [ 1, %95 ]
+  %.sroa.5.0.ph = phi ptr [ undef, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17hcfa7cebc576c5a22E.exit" ], [ %.sroa.10.2.i16, %"_ZN17async_compression7futures7bufread7generic7decoder20Decoder$LT$R$C$D$GT$12do_poll_read17h28c189f812525db1E.exit.thread" ], [ %91, %90 ], [ %76, %89 ], [ %119, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17hcfa7cebc576c5a22E.exit13" ], [ %96, %95 ]
+  %.sroa.0.0.ph = phi i64 [ 2, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17hcfa7cebc576c5a22E.exit" ], [ 1, %"_ZN17async_compression7futures7bufread7generic7decoder20Decoder$LT$R$C$D$GT$12do_poll_read17h28c189f812525db1E.exit.thread" ], [ 1, %90 ], [ 1, %89 ], [ 0, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17hcfa7cebc576c5a22E.exit13" ], [ 1, %95 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %105
 
@@ -1682,7 +1682,7 @@ select.unfold.i:                                  ; preds = %98, %92, %25
   ret { i64, ptr } %107
 
 "_ZN17async_compression7futures7bufread7generic7decoder20Decoder$LT$R$C$D$GT$12do_poll_read17h28c189f812525db1E.exit.thread": ; preds = %54, %35
-  %.sroa.10.2.i16 = phi ptr [ %57, %54 ], [ %39, %35 ]
+  %.sroa.10.2.i16 = phi ptr [ %39, %35 ], [ %57, %54 ]
   %108 = icmp eq ptr %.sroa.10.2.i16, null
   br i1 %108, label %"_ZN17async_compression7futures7bufread7generic7decoder20Decoder$LT$R$C$D$GT$12do_poll_read17h28c189f812525db1E.exit.thread.thread24", label %.sink.split
 
@@ -1983,8 +1983,8 @@ select.unfold.i:                                  ; preds = %94, %86, %24
   br i1 %103, label %.thread20, label %24
 
 .sink.split:                                      ; preds = %89, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17hcfa7cebc576c5a22E.exit13", %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17hcfa7cebc576c5a22E.exit", %"_ZN101_$LT$futures_util..io..buf_reader..BufReader$LT$R$GT$$u20$as$u20$futures_io..if_std..AsyncBufRead$GT$13poll_fill_buf17hf6b8e9e0d9ae8b9aE.exit.loopexit214.i", %83, %84
-  %.sroa.5.0.ph = phi ptr [ %.sroa.10.2.i.ph, %"_ZN101_$LT$futures_util..io..buf_reader..BufReader$LT$R$GT$$u20$as$u20$futures_io..if_std..AsyncBufRead$GT$13poll_fill_buf17hf6b8e9e0d9ae8b9aE.exit.loopexit214.i" ], [ %85, %84 ], [ %70, %83 ], [ %118, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17hcfa7cebc576c5a22E.exit13" ], [ undef, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17hcfa7cebc576c5a22E.exit" ], [ %90, %89 ]
-  %.sroa.0.0.ph = phi i64 [ 1, %"_ZN101_$LT$futures_util..io..buf_reader..BufReader$LT$R$GT$$u20$as$u20$futures_io..if_std..AsyncBufRead$GT$13poll_fill_buf17hf6b8e9e0d9ae8b9aE.exit.loopexit214.i" ], [ 1, %84 ], [ 1, %83 ], [ 0, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17hcfa7cebc576c5a22E.exit13" ], [ 2, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17hcfa7cebc576c5a22E.exit" ], [ 1, %89 ]
+  %.sroa.5.0.ph = phi ptr [ undef, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17hcfa7cebc576c5a22E.exit" ], [ %.sroa.10.2.i.ph, %"_ZN101_$LT$futures_util..io..buf_reader..BufReader$LT$R$GT$$u20$as$u20$futures_io..if_std..AsyncBufRead$GT$13poll_fill_buf17hf6b8e9e0d9ae8b9aE.exit.loopexit214.i" ], [ %85, %84 ], [ %70, %83 ], [ %118, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17hcfa7cebc576c5a22E.exit13" ], [ %90, %89 ]
+  %.sroa.0.0.ph = phi i64 [ 2, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17hcfa7cebc576c5a22E.exit" ], [ 1, %"_ZN101_$LT$futures_util..io..buf_reader..BufReader$LT$R$GT$$u20$as$u20$futures_io..if_std..AsyncBufRead$GT$13poll_fill_buf17hf6b8e9e0d9ae8b9aE.exit.loopexit214.i" ], [ 1, %84 ], [ 1, %83 ], [ 0, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17hcfa7cebc576c5a22E.exit13" ], [ 1, %89 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %104
 
@@ -2297,8 +2297,8 @@ select.unfold.i:                                  ; preds = %94, %86, %24
   br i1 %103, label %.thread20, label %24
 
 .sink.split:                                      ; preds = %89, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17hcfa7cebc576c5a22E.exit13", %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17hcfa7cebc576c5a22E.exit", %"_ZN89_$LT$futures_lite..io..BufReader$LT$R$GT$$u20$as$u20$futures_io..if_std..AsyncBufRead$GT$13poll_fill_buf17hdd088dd3426eea5aE.exit.loopexit214.i", %83, %84
-  %.sroa.5.0.ph = phi ptr [ %.sroa.10.2.i.ph, %"_ZN89_$LT$futures_lite..io..BufReader$LT$R$GT$$u20$as$u20$futures_io..if_std..AsyncBufRead$GT$13poll_fill_buf17hdd088dd3426eea5aE.exit.loopexit214.i" ], [ %85, %84 ], [ %70, %83 ], [ %118, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17hcfa7cebc576c5a22E.exit13" ], [ undef, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17hcfa7cebc576c5a22E.exit" ], [ %90, %89 ]
-  %.sroa.0.0.ph = phi i64 [ 1, %"_ZN89_$LT$futures_lite..io..BufReader$LT$R$GT$$u20$as$u20$futures_io..if_std..AsyncBufRead$GT$13poll_fill_buf17hdd088dd3426eea5aE.exit.loopexit214.i" ], [ 1, %84 ], [ 1, %83 ], [ 0, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17hcfa7cebc576c5a22E.exit13" ], [ 2, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17hcfa7cebc576c5a22E.exit" ], [ 1, %89 ]
+  %.sroa.5.0.ph = phi ptr [ undef, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17hcfa7cebc576c5a22E.exit" ], [ %.sroa.10.2.i.ph, %"_ZN89_$LT$futures_lite..io..BufReader$LT$R$GT$$u20$as$u20$futures_io..if_std..AsyncBufRead$GT$13poll_fill_buf17hdd088dd3426eea5aE.exit.loopexit214.i" ], [ %85, %84 ], [ %70, %83 ], [ %118, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17hcfa7cebc576c5a22E.exit13" ], [ %90, %89 ]
+  %.sroa.0.0.ph = phi i64 [ 2, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17hcfa7cebc576c5a22E.exit" ], [ 1, %"_ZN89_$LT$futures_lite..io..BufReader$LT$R$GT$$u20$as$u20$futures_io..if_std..AsyncBufRead$GT$13poll_fill_buf17hdd088dd3426eea5aE.exit.loopexit214.i" ], [ 1, %84 ], [ 1, %83 ], [ 0, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17hcfa7cebc576c5a22E.exit13" ], [ 1, %89 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %104
 
@@ -2626,8 +2626,8 @@ select.unfold.i:                                  ; preds = %95, %86, %43, %31
   br i1 %102, label %.thread20, label %31
 
 .sink.split:                                      ; preds = %89, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17hcfa7cebc576c5a22E.exit13", %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17hcfa7cebc576c5a22E.exit", %106, %85, %83
-  %.sroa.5.0.ph = phi ptr [ %.sroa.10.2.i.ph, %106 ], [ %.sroa.770.2.i, %83 ], [ %.sroa.774.2.i, %85 ], [ %118, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17hcfa7cebc576c5a22E.exit13" ], [ undef, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17hcfa7cebc576c5a22E.exit" ], [ %90, %89 ]
-  %.sroa.0.0.ph = phi i64 [ 1, %106 ], [ 1, %83 ], [ 1, %85 ], [ 0, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17hcfa7cebc576c5a22E.exit13" ], [ 2, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17hcfa7cebc576c5a22E.exit" ], [ 1, %89 ]
+  %.sroa.5.0.ph = phi ptr [ undef, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17hcfa7cebc576c5a22E.exit" ], [ %.sroa.10.2.i.ph, %106 ], [ %.sroa.770.2.i, %83 ], [ %.sroa.774.2.i, %85 ], [ %118, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17hcfa7cebc576c5a22E.exit13" ], [ %90, %89 ]
+  %.sroa.0.0.ph = phi i64 [ 2, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17hcfa7cebc576c5a22E.exit" ], [ 1, %106 ], [ 1, %83 ], [ 1, %85 ], [ 0, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17hcfa7cebc576c5a22E.exit13" ], [ 1, %89 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %103
 
@@ -3249,8 +3249,8 @@ select.unfold.i:                                  ; preds = %95, %86, %43, %31
   br i1 %102, label %.thread20, label %31
 
 .sink.split:                                      ; preds = %89, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17hcfa7cebc576c5a22E.exit13", %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17hcfa7cebc576c5a22E.exit", %106, %85, %83
-  %.sroa.5.0.ph = phi ptr [ %.sroa.10.2.i.ph, %106 ], [ %.sroa.770.2.i, %83 ], [ %.sroa.774.2.i, %85 ], [ %118, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17hcfa7cebc576c5a22E.exit13" ], [ undef, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17hcfa7cebc576c5a22E.exit" ], [ %90, %89 ]
-  %.sroa.0.0.ph = phi i64 [ 1, %106 ], [ 1, %83 ], [ 1, %85 ], [ 0, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17hcfa7cebc576c5a22E.exit13" ], [ 2, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17hcfa7cebc576c5a22E.exit" ], [ 1, %89 ]
+  %.sroa.5.0.ph = phi ptr [ undef, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17hcfa7cebc576c5a22E.exit" ], [ %.sroa.10.2.i.ph, %106 ], [ %.sroa.770.2.i, %83 ], [ %.sroa.774.2.i, %85 ], [ %118, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17hcfa7cebc576c5a22E.exit13" ], [ %90, %89 ]
+  %.sroa.0.0.ph = phi i64 [ 2, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17hcfa7cebc576c5a22E.exit" ], [ 1, %106 ], [ 1, %83 ], [ 1, %85 ], [ 0, %"_ZN17async_compression4util22PartialBuffer$LT$B$GT$7written17hcfa7cebc576c5a22E.exit13" ], [ 1, %89 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %103
 
@@ -73261,11 +73261,11 @@ default.unreachable164:                           ; preds = %197, %52, %30, %27,
   br label %342
 
 .thread113.i:                                     ; preds = %171, %115
-  %180 = phi ptr [ %120, %171 ], [ %73, %115 ]
-  %181 = phi ptr [ %121, %171 ], [ %74, %115 ]
-  %182 = phi ptr [ %122, %171 ], [ %75, %115 ]
-  %183 = phi ptr [ %123, %171 ], [ %76, %115 ]
-  %.sroa.881.0.ph.i = phi ptr [ %130, %171 ], [ %.sroa.3.0.copyload.i.i, %115 ]
+  %180 = phi ptr [ %73, %115 ], [ %120, %171 ]
+  %181 = phi ptr [ %74, %115 ], [ %121, %171 ]
+  %182 = phi ptr [ %75, %115 ], [ %122, %171 ]
+  %183 = phi ptr [ %76, %115 ], [ %123, %171 ]
+  %.sroa.881.0.ph.i = phi ptr [ %.sroa.3.0.copyload.i.i, %115 ], [ %130, %171 ]
   store i8 1, ptr %182, align 8, !noalias !10951
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.536.i.i)
   br label %186
@@ -73663,11 +73663,11 @@ default.unreachable164:                           ; preds = %197, %52, %30, %27,
   br label %342
 
 .thread131.i:                                     ; preds = %316, %260
-  %325 = phi ptr [ %265, %316 ], [ %218, %260 ]
-  %326 = phi ptr [ %266, %316 ], [ %219, %260 ]
-  %327 = phi ptr [ %267, %316 ], [ %220, %260 ]
-  %328 = phi ptr [ %268, %316 ], [ %221, %260 ]
-  %.sroa.8100.0.ph.i = phi ptr [ %275, %316 ], [ %.sroa.3.0.copyload.i45.i, %260 ]
+  %325 = phi ptr [ %218, %260 ], [ %265, %316 ]
+  %326 = phi ptr [ %219, %260 ], [ %266, %316 ]
+  %327 = phi ptr [ %220, %260 ], [ %267, %316 ]
+  %328 = phi ptr [ %221, %260 ], [ %268, %316 ]
+  %.sroa.8100.0.ph.i = phi ptr [ %.sroa.3.0.copyload.i45.i, %260 ], [ %275, %316 ]
   store i8 1, ptr %327, align 8, !noalias !10971
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.536.i22.i)
   br label %331
@@ -80797,11 +80797,11 @@ common.ret:                                       ; preds = %"_ZN4core3ptr52drop
   br label %common.ret
 
 394:                                              ; preds = %212, %381
-  %395 = phi ptr [ %382, %381 ], [ %213, %212 ]
-  %.sroa.1050.sroa.0.0 = phi ptr [ %.sroa.10104.i.sroa.0.0, %381 ], [ %.sroa.1087.i.sroa.0.0, %212 ]
-  %.sroa.949.0 = phi ptr [ %.sroa.4.0.i35124.i, %381 ], [ %.sroa.4.0.i113.i, %212 ]
-  %.sroa.048.0 = phi i64 [ %.sroa.048.0.i34123.i, %381 ], [ %.sroa.048.0.i112.i, %212 ]
-  %.sroa.1050.sroa.6.0 = phi i64 [ %.sroa.10104.i.sroa.7.0, %381 ], [ %.sroa.1087.i.sroa.7.0, %212 ]
+  %395 = phi ptr [ %213, %212 ], [ %382, %381 ]
+  %.sroa.1050.sroa.0.0 = phi ptr [ %.sroa.1087.i.sroa.0.0, %212 ], [ %.sroa.10104.i.sroa.0.0, %381 ]
+  %.sroa.949.0 = phi ptr [ %.sroa.4.0.i113.i, %212 ], [ %.sroa.4.0.i35124.i, %381 ]
+  %.sroa.048.0 = phi i64 [ %.sroa.048.0.i112.i, %212 ], [ %.sroa.048.0.i34123.i, %381 ]
+  %.sroa.1050.sroa.6.0 = phi i64 [ %.sroa.1087.i.sroa.7.0, %212 ], [ %.sroa.10104.i.sroa.7.0, %381 ]
   store i8 1, ptr %395, align 8, !noalias !12211
   %396 = icmp eq i64 %.sroa.048.0, 2
   br i1 %396, label %422, label %"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h55dfb9dd24c6d799E.exit"

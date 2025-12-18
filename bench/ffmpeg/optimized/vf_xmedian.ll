@@ -1499,7 +1499,7 @@ update_index.exit:                                ; preds = %1, %23
   br label %.loopexit
 
 .loopexit:                                        ; preds = %33, %49, %69
-  %.0 = phi i32 [ %70, %69 ], [ -12, %49 ], [ %36, %33 ]
+  %.0 = phi i32 [ -12, %49 ], [ %70, %69 ], [ %36, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }

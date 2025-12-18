@@ -2086,7 +2086,7 @@ _ZNSt6vectorIN4cvc56parser7CommandESaIS2_EED2Ev.exit: ; preds = %_ZSt8_DestroyIP
   br label %_ZNSolsEPFRSoS_E.exit177.thread
 
 .loopexit455:                                     ; preds = %439, %504, %500, %497, %499, %412
-  %.merged101 = phi { ptr, i32 } [ %.pn91, %499 ], [ %413, %412 ], [ %498, %497 ], [ %lpad.phi426, %500 ], [ %505, %504 ], [ %.pn87, %439 ]
+  %.merged101 = phi { ptr, i32 } [ %.pn91, %499 ], [ %413, %412 ], [ %505, %504 ], [ %498, %497 ], [ %lpad.phi426, %500 ], [ %.pn87, %439 ]
   call void @_ZN4cvc56parser7CommandD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #26
   br label %562
 
@@ -2131,7 +2131,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit288: ; preds = %.l
   br label %575
 
 _ZNSolsEPFRSoS_E.exit:                            ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit285, %.noexc303, %64
-  %.1 = phi i1 [ false, %64 ], [ false, %.noexc303 ], [ %.4, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit285 ]
+  %.1 = phi i1 [ false, %.noexc303 ], [ false, %64 ], [ %.4, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit285 ]
   %571 = load ptr, ptr %1, align 8, !tbaa !11
   %572 = icmp eq ptr %571, %13
   br i1 %572, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit291, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i289

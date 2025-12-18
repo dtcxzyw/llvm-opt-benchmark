@@ -1799,7 +1799,7 @@ stabilize_lsps.exit:                              ; preds = %350, %365, %._crit_
   br i1 %exitcond78.not.i162, label %stabilize_lsps.exit163, label %.lr.ph63.i155, !llvm.loop !98
 
 stabilize_lsps.exit163:                           ; preds = %431, %446, %._crit_edge.i141, %390
-  %449 = phi i32 [ %.pre237, %390 ], [ %399, %._crit_edge.i141 ], [ %399, %446 ], [ %399, %431 ]
+  %449 = phi i32 [ %399, %446 ], [ %.pre237, %390 ], [ %399, %._crit_edge.i141 ], [ %399, %431 ]
   %450 = mul nuw nsw i64 %indvars.iv229, 160
   %451 = getelementptr inbounds nuw float, ptr %374, i64 %450
   %452 = getelementptr [16 x double], ptr %14, i64 %indvars.iv229
@@ -2641,9 +2641,9 @@ aw_pulse_set1.exit.i.i.i:                         ; preds = %921
   br i1 %986, label %959, label %.loopexit106.i.i.i.i, !llvm.loop !130
 
 .loopexit106.i.i.i.i:                             ; preds = %984, %.preheader105.i.i.i.i, %.loopexit108.i.thread.i.i.i
-  %987 = phi i1 [ %950, %.loopexit108.i.thread.i.i.i ], [ %941, %.preheader105.i.i.i.i ], [ %941, %984 ]
-  %988 = phi i32 [ 2, %.loopexit108.i.thread.i.i.i ], [ %922, %.preheader105.i.i.i.i ], [ %922, %984 ]
-  %989 = phi i32 [ 0, %.loopexit108.i.thread.i.i.i ], [ %956, %.preheader105.i.i.i.i ], [ %956, %984 ]
+  %987 = phi i1 [ %941, %.preheader105.i.i.i.i ], [ %950, %.loopexit108.i.thread.i.i.i ], [ %941, %984 ]
+  %988 = phi i32 [ %922, %.preheader105.i.i.i.i ], [ 2, %.loopexit108.i.thread.i.i.i ], [ %922, %984 ]
+  %989 = phi i32 [ %956, %.preheader105.i.i.i.i ], [ 0, %.loopexit108.i.thread.i.i.i ], [ %956, %984 ]
   %990 = shl i32 %indvars215.i, 1
   %991 = sub i32 5, %990
   %992 = select i1 %987, i32 4, i32 %991
@@ -3722,7 +3722,7 @@ define internal fastcc void @postfilter(ptr noundef %0, ptr noundef nonnull %1, 
   br i1 %exitcond.not.i, label %kalman_smoothen.exit, label %52, !llvm.loop !144
 
 kalman_smoothen.exit:                             ; preds = %52, %38, %40, %7
-  %.0 = phi ptr [ %4, %7 ], [ %4, %40 ], [ %4, %38 ], [ %15, %52 ]
+  %.0 = phi ptr [ %4, %7 ], [ %4, %38 ], [ %4, %40 ], [ %15, %52 ]
   %60 = load i32, ptr %19, align 4, !tbaa !45
   call void @ff_celp_lp_synthesis_filterf(ptr noundef nonnull %18, ptr noundef nonnull %3, ptr noundef %.0, i32 noundef 80, i32 noundef %60) #13
   %61 = load i32, ptr %19, align 4, !tbaa !45

@@ -3726,7 +3726,7 @@ _ZNSt10_HashtableIPK13V3GraphVertexSt4pairIKS2_iESaIS5_ENSt8__detail10_Select1st
   br label %.body
 
 .loopexit643:                                     ; preds = %212, %.noexc223, %207
-  %.pn.i.i = phi ptr [ %208, %207 ], [ %223, %.noexc223 ], [ %214, %212 ]
+  %.pn.i.i = phi ptr [ %223, %.noexc223 ], [ %208, %207 ], [ %214, %212 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   store i32 %.0110757, ptr %.1.i.i, align 4, !tbaa !86
   %225 = load i64, ptr %110, align 8, !tbaa !58
@@ -4437,9 +4437,9 @@ _ZNSt10_HashtableIPK13V3GraphVertexSt4pairIKS2_iESaIS5_ENSt8__detail10_Select1st
   br label %.body348
 
 .loopexit642:                                     ; preds = %477, %.noexc347..loopexit642_crit_edge, %472
-  %490 = phi ptr [ %469, %472 ], [ %.pre799, %.noexc347..loopexit642_crit_edge ], [ %469, %477 ]
-  %491 = phi i64 [ %467, %472 ], [ %.pre798, %.noexc347..loopexit642_crit_edge ], [ %467, %477 ]
-  %.pn.i.i345 = phi ptr [ %473, %472 ], [ %488, %.noexc347..loopexit642_crit_edge ], [ %479, %477 ]
+  %490 = phi ptr [ %.pre799, %.noexc347..loopexit642_crit_edge ], [ %469, %472 ], [ %469, %477 ]
+  %491 = phi i64 [ %.pre798, %.noexc347..loopexit642_crit_edge ], [ %467, %472 ], [ %467, %477 ]
+  %.pn.i.i345 = phi ptr [ %488, %.noexc347..loopexit642_crit_edge ], [ %473, %472 ], [ %479, %477 ]
   %.1.i.i346 = getelementptr inbounds nuw i8, ptr %.pn.i.i345, i64 16
   %492 = load i32, ptr %.1.i.i346, align 4, !tbaa !86
   %493 = getelementptr inbounds nuw i8, ptr %.sroa.0537.0763, i64 48
@@ -4499,7 +4499,7 @@ _ZNSt10_HashtableIPK13V3GraphVertexSt4pairIKS2_iESaIS5_ENSt8__detail10_Select1st
   br label %.body348
 
 .loopexit641:                                     ; preds = %504, %.noexc360, %499
-  %.pn.i.i358 = phi ptr [ %500, %499 ], [ %515, %.noexc360 ], [ %506, %504 ]
+  %.pn.i.i358 = phi ptr [ %515, %.noexc360 ], [ %500, %499 ], [ %506, %504 ]
   %.1.i.i359 = getelementptr inbounds nuw i8, ptr %.pn.i.i358, i64 16
   %517 = load i32, ptr %.1.i.i359, align 4, !tbaa !86
   %518 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull @.str.35, i64 noundef 2)
@@ -5136,7 +5136,7 @@ _ZNSt10_HashtableIPK13V3GraphVertexSt4pairIKS2_iESaIS5_ENSt8__detail10_Select1st
   br label %.body348
 
 .loopexit:                                        ; preds = %741, %.noexc466, %736
-  %.pn.i.i464 = phi ptr [ %737, %736 ], [ %752, %.noexc466 ], [ %743, %741 ]
+  %.pn.i.i464 = phi ptr [ %752, %.noexc466 ], [ %737, %736 ], [ %743, %741 ]
   %.1.i.i465 = getelementptr inbounds nuw i8, ptr %.pn.i.i464, i64 16
   %754 = load i32, ptr %.1.i.i465, align 4, !tbaa !86
   %755 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %.0.i, i32 noundef %754)

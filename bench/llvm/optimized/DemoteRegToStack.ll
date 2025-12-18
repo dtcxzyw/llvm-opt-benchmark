@@ -648,7 +648,7 @@ _ZNK4llvm11Instruction7isEHPadEv.exit:            ; preds = %271, %.thread
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph306, %.lr.ph309, %_ZNK4llvm11Instruction7isEHPadEv.exit.thread276, %_ZN4llvm10successorsEPNS_11InstructionE.exit, %_ZNK4llvm11Instruction7isEHPadEv.exit, %21
-  %.0 = phi ptr [ null, %21 ], [ %32, %_ZNK4llvm11Instruction7isEHPadEv.exit ], [ %32, %_ZN4llvm10successorsEPNS_11InstructionE.exit ], [ %32, %_ZNK4llvm11Instruction7isEHPadEv.exit.thread276 ], [ %32, %.lr.ph309 ], [ %32, %.lr.ph306 ]
+  %.0 = phi ptr [ null, %21 ], [ %32, %_ZN4llvm10successorsEPNS_11InstructionE.exit ], [ %32, %_ZNK4llvm11Instruction7isEHPadEv.exit ], [ %32, %_ZNK4llvm11Instruction7isEHPadEv.exit.thread276 ], [ %32, %.lr.ph309 ], [ %32, %.lr.ph306 ]
   ret ptr %.0
 }
 

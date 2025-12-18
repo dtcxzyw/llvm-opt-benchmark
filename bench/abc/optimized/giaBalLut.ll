@@ -632,7 +632,7 @@ Bal_ManPrepareSet.exit102:                        ; preds = %67, %49, %59, %.loo
   br i1 %exitcond171.not.i.us, label %.loopexit259.us, label %.lr.ph139.i.us, !llvm.loop !62
 
 .loopexit259.us:                                  ; preds = %161, %.preheader.i.us, %._crit_edge136.loopexit.i.us, %.preheader123.i.us, %._crit_edge.loopexit.i.us, %.preheader124.i.us
-  %.5.lcssa.sink.i.us = phi i32 [ %139, %._crit_edge.loopexit.i.us ], [ 0, %.preheader.i.us ], [ %.3.i.us, %.preheader124.i.us ], [ %.1.i.us, %.preheader123.i.us ], [ %155, %._crit_edge136.loopexit.i.us ], [ %93, %161 ]
+  %.5.lcssa.sink.i.us = phi i32 [ %139, %._crit_edge.loopexit.i.us ], [ 0, %.preheader.i.us ], [ %155, %._crit_edge136.loopexit.i.us ], [ %.3.i.us, %.preheader124.i.us ], [ %.1.i.us, %.preheader123.i.us ], [ %93, %161 ]
   %163 = getelementptr inbounds nuw i8, ptr %98, i64 12
   %.5.lcssa.sink.i.us.fr = freeze i32 %.5.lcssa.sink.i.us
   %164 = shl i32 %.5.lcssa.sink.i.us.fr, 27
@@ -947,15 +947,15 @@ Bal_CutCompareArea.exit.i.i192.us:                ; preds = %296, %294
   br i1 %305, label %.lr.ph.i8.i190.us, label %Bal_SetSortByDelay.exit.i166.us, !llvm.loop !68
 
 Bal_SetSortByDelay.exit.i166.us:                  ; preds = %.lr.ph.i8.i190.us, %296, %Bal_CutCompareArea.exit.i.i192.us, %Bal_SetLastCutContains.exit.i188.us, %Bal_SetLastCutIsContained.exit165.thread238.us
-  %306 = phi i32 [ %222, %Bal_SetLastCutContains.exit.i188.us ], [ %175, %Bal_SetLastCutIsContained.exit165.thread238.us ], [ %222, %Bal_CutCompareArea.exit.i.i192.us ], [ %222, %296 ], [ %222, %.lr.ph.i8.i190.us ]
-  %.0.i10.i167.us = phi i32 [ %.0.i.i189.us, %Bal_SetLastCutContains.exit.i188.us ], [ %.6313.us, %Bal_SetLastCutIsContained.exit165.thread238.us ], [ %.0.i.i189.us, %Bal_CutCompareArea.exit.i.i192.us ], [ %.0.i.i189.us, %296 ], [ %.0.i.i189.us, %.lr.ph.i8.i190.us ]
+  %306 = phi i32 [ %175, %Bal_SetLastCutIsContained.exit165.thread238.us ], [ %222, %Bal_SetLastCutContains.exit.i188.us ], [ %222, %Bal_CutCompareArea.exit.i.i192.us ], [ %222, %296 ], [ %222, %.lr.ph.i8.i190.us ]
+  %.0.i10.i167.us = phi i32 [ %.6313.us, %Bal_SetLastCutIsContained.exit165.thread238.us ], [ %.0.i.i189.us, %Bal_SetLastCutContains.exit.i188.us ], [ %.0.i.i189.us, %Bal_CutCompareArea.exit.i.i192.us ], [ %.0.i.i189.us, %296 ], [ %.0.i.i189.us, %.lr.ph.i8.i190.us ]
   %307 = add nsw i32 %.0.i10.i167.us, 1
   %308 = add nsw i32 %306, -1
   %309 = call noundef i32 @llvm.smin.i32(i32 %307, i32 %308)
   br label %Bal_SetAddCut.exit211.us
 
 Bal_SetAddCut.exit211.us:                         ; preds = %156, %.lr.ph139.i.us, %191, %218, %203, %213, %Bal_SetSortByDelay.exit.i166.us, %Bal_SetLastCutIsContained.exit165.thread238.us, %145, %129, %.preheader125.i.us, %87
-  %.7.us = phi i32 [ %.6313.us, %87 ], [ 1, %Bal_SetLastCutIsContained.exit165.thread238.us ], [ %309, %Bal_SetSortByDelay.exit.i166.us ], [ %.6313.us, %129 ], [ %.6313.us, %145 ], [ %.6313.us, %.preheader125.i.us ], [ %.6313.us, %.lr.ph139.i.us ], [ %.6313.us, %213 ], [ %.6313.us, %203 ], [ %.6313.us, %218 ], [ %.6313.us, %191 ], [ %.6313.us, %156 ]
+  %.7.us = phi i32 [ %.6313.us, %87 ], [ %.6313.us, %.preheader125.i.us ], [ 1, %Bal_SetLastCutIsContained.exit165.thread238.us ], [ %309, %Bal_SetSortByDelay.exit.i166.us ], [ %.6313.us, %191 ], [ %.6313.us, %213 ], [ %.6313.us, %.lr.ph139.i.us ], [ %.6313.us, %145 ], [ %.6313.us, %129 ], [ %.6313.us, %203 ], [ %.6313.us, %218 ], [ %.6313.us, %156 ]
   %310 = getelementptr inbounds nuw i8, ptr %.179312.us, i64 40
   %311 = icmp ult ptr %310, %73
   br i1 %311, label %87, label %._crit_edge316.us, !llvm.loop !69
@@ -1462,15 +1462,15 @@ Bal_CutCompareArea.exit.i.i.us.us.us:             ; preds = %548, %546
   br i1 %557, label %.lr.ph.i8.i.us.us.us, label %Bal_SetSortByDelay.exit.i.us.us.us, !llvm.loop !68
 
 Bal_SetSortByDelay.exit.i.us.us.us:               ; preds = %.lr.ph.i8.i.us.us.us, %548, %Bal_CutCompareArea.exit.i.i.us.us.us, %Bal_SetLastCutContains.exit.i.us.us.us, %Bal_SetLastCutIsContained.exit.thread232.us.us.us
-  %558 = phi i32 [ %474, %Bal_SetLastCutContains.exit.i.us.us.us ], [ %427, %Bal_SetLastCutIsContained.exit.thread232.us.us.us ], [ %474, %Bal_CutCompareArea.exit.i.i.us.us.us ], [ %474, %548 ], [ %474, %.lr.ph.i8.i.us.us.us ]
-  %.0.i10.i.us.us.us = phi i32 [ %.0.i.i.us.us.us, %Bal_SetLastCutContains.exit.i.us.us.us ], [ %.2320.us.us.us, %Bal_SetLastCutIsContained.exit.thread232.us.us.us ], [ %.0.i.i.us.us.us, %Bal_CutCompareArea.exit.i.i.us.us.us ], [ %.0.i.i.us.us.us, %548 ], [ %.0.i.i.us.us.us, %.lr.ph.i8.i.us.us.us ]
+  %558 = phi i32 [ %427, %Bal_SetLastCutIsContained.exit.thread232.us.us.us ], [ %474, %Bal_SetLastCutContains.exit.i.us.us.us ], [ %474, %Bal_CutCompareArea.exit.i.i.us.us.us ], [ %474, %548 ], [ %474, %.lr.ph.i8.i.us.us.us ]
+  %.0.i10.i.us.us.us = phi i32 [ %.2320.us.us.us, %Bal_SetLastCutIsContained.exit.thread232.us.us.us ], [ %.0.i.i.us.us.us, %Bal_SetLastCutContains.exit.i.us.us.us ], [ %.0.i.i.us.us.us, %Bal_CutCompareArea.exit.i.i.us.us.us ], [ %.0.i.i.us.us.us, %548 ], [ %.0.i.i.us.us.us, %.lr.ph.i8.i.us.us.us ]
   %559 = add nsw i32 %.0.i10.i.us.us.us, 1
   %560 = add nsw i32 %558, -1
   %561 = call noundef i32 @llvm.smin.i32(i32 %559, i32 %560)
   br label %Bal_SetAddCut.exit.us.us.us
 
 Bal_SetAddCut.exit.us.us.us:                      ; preds = %400, %443, %470, %455, %465, %Bal_SetSortByDelay.exit.i.us.us.us, %Bal_SetLastCutIsContained.exit.thread232.us.us.us, %351
-  %.3.us.us.us = phi i32 [ %.2320.us.us.us, %351 ], [ 1, %Bal_SetLastCutIsContained.exit.thread232.us.us.us ], [ %561, %Bal_SetSortByDelay.exit.i.us.us.us ], [ %.2320.us.us.us, %443 ], [ %.2320.us.us.us, %465 ], [ %.2320.us.us.us, %455 ], [ %.2320.us.us.us, %470 ], [ %.2320.us.us.us, %400 ]
+  %.3.us.us.us = phi i32 [ %.2320.us.us.us, %351 ], [ %.2320.us.us.us, %470 ], [ 1, %Bal_SetLastCutIsContained.exit.thread232.us.us.us ], [ %561, %Bal_SetSortByDelay.exit.i.us.us.us ], [ %.2320.us.us.us, %455 ], [ %.2320.us.us.us, %443 ], [ %.2320.us.us.us, %465 ], [ %.2320.us.us.us, %400 ]
   %562 = getelementptr inbounds nuw i8, ptr %.074321.us.us.us, i64 40
   %563 = icmp ult ptr %562, %340
   br i1 %563, label %351, label %._crit_edge323.us.us.us, !llvm.loop !71
@@ -1685,8 +1685,8 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   store i32 %577, ptr %659, align 4, !tbaa !47
   br label %.loopexit.thread
 
-.loopexit.thread:                                 ; preds = %.preheader261.lr.ph, %.preheader250.lr.ph, %.preheader262, %Bal_ManPrepareSet.exit115, %569, %Vec_IntPush.exit, %.loopexit
-  %.0 = phi i32 [ -1, %.loopexit ], [ %577, %Vec_IntPush.exit ], [ %577, %569 ], [ -1, %Bal_ManPrepareSet.exit115 ], [ -1, %.preheader262 ], [ -1, %.preheader261.lr.ph ], [ -1, %.preheader250.lr.ph ]
+.loopexit.thread:                                 ; preds = %.preheader261.lr.ph, %.preheader262, %Bal_ManPrepareSet.exit115, %.preheader250.lr.ph, %569, %Vec_IntPush.exit, %.loopexit
+  %.0 = phi i32 [ -1, %.loopexit ], [ %577, %Vec_IntPush.exit ], [ %577, %569 ], [ -1, %.preheader250.lr.ph ], [ -1, %Bal_ManPrepareSet.exit115 ], [ -1, %.preheader261.lr.ph ], [ -1, %.preheader262 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   ret i32 %.0

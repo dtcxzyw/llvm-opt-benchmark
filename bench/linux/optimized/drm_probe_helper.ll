@@ -1033,7 +1033,7 @@ define internal fastcc noundef range(i32 -35, 1) i32 @__drm_helper_update_and_va
   br i1 %139, label %.thread26, label %117, !llvm.loop !32
 
 .thread26:                                        ; preds = %137, %104, %101, %.backedge
-  %.pr.pr38 = phi i32 [ %.pr.pr39, %.backedge ], [ %110, %104 ], [ %102, %101 ], [ %.pr.pr42, %137 ]
+  %.pr.pr38 = phi i32 [ %.pr.pr39, %.backedge ], [ %102, %101 ], [ %110, %104 ], [ %.pr.pr42, %137 ]
   %140 = load ptr, ptr %85, align 8
   %141 = load ptr, ptr %0, align 8
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 688
@@ -2144,7 +2144,7 @@ define dso_local range(i32 0, 3) i32 @drm_connector_helper_tv_get_modes(ptr noun
   br label %.thread4
 
 .thread4:                                         ; preds = %60, %53, %50, %7, %.thread7, %68, %1
-  %69 = phi i32 [ 0, %1 ], [ 0, %68 ], [ 0, %50 ], [ 0, %7 ], [ 2, %.thread7 ], [ %55, %53 ], [ %55, %60 ]
+  %69 = phi i32 [ 0, %1 ], [ 0, %68 ], [ 0, %50 ], [ 2, %.thread7 ], [ 0, %7 ], [ %55, %53 ], [ %55, %60 ]
   ret i32 %69
 }
 

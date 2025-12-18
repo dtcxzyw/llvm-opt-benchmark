@@ -436,7 +436,7 @@ lpad.loopexit207.i:                               ; preds = %_ZNKSt6vectorISt4pa
   br label %ehcleanup77.i
 
 lpad.loopexit.split-lp208.i:                      ; preds = %.noexc39.i, %if.then.i.i.i32.i, %.noexc28.i, %if.then.i.i.i23.i, %if.then.i.i.i.i9, %_ZNSt12_Vector_baseISt4pairIN4absl12lts_202308024SpanIKiEEiESaIS6_EE11_M_allocateEm.exit.i.i, %if.then.i.i10
-  %sorted_locations.sroa.0.0.ph.i = phi ptr [ null, %_ZNSt12_Vector_baseISt4pairIN4absl12lts_202308024SpanIKiEEiESaIS6_EE11_M_allocateEm.exit.i.i ], [ %sorted_locations.sroa.0.4.i, %if.then.i.i.i23.i ], [ %sorted_locations.sroa.0.4.i, %.noexc28.i ], [ %sorted_locations.sroa.0.1.lcssa261.i, %if.then.i.i.i32.i ], [ %sorted_locations.sroa.0.1.lcssa261.i, %.noexc39.i ], [ %sorted_locations.sroa.0.1219.i, %if.then.i.i.i.i9 ], [ null, %if.then.i.i10 ]
+  %sorted_locations.sroa.0.0.ph.i = phi ptr [ %sorted_locations.sroa.0.4.i, %if.then.i.i.i23.i ], [ %sorted_locations.sroa.0.4.i, %.noexc28.i ], [ %sorted_locations.sroa.0.1.lcssa261.i, %if.then.i.i.i32.i ], [ %sorted_locations.sroa.0.1.lcssa261.i, %.noexc39.i ], [ null, %_ZNSt12_Vector_baseISt4pairIN4absl12lts_202308024SpanIKiEEiESaIS6_EE11_M_allocateEm.exit.i.i ], [ %sorted_locations.sroa.0.1219.i, %if.then.i.i.i.i9 ], [ null, %if.then.i.i10 ]
   %lpad.loopexit.split-lp210.i = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup77.i
@@ -5263,7 +5263,7 @@ _ZNSt6vectorIiSaIiEEaSEOS1_.exit.i:               ; preds = %if.then.i.i.i.i.i.i
   br i1 %cmp.i, label %land.rhs.i, label %while.end.i, !llvm.loop !98
 
 while.end.i:                                      ; preds = %_ZNSt6vectorIiSaIiEEaSEOS1_.exit.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPSt6vectorIiSaIiEES4_IS6_SaIS6_EEEES6_EEbT_RT0_.exit.i, %if.end.i.i.i.i.i.i.i.i, %if.end35
-  %__holeIndex.addr.025.i = phi i64 [ %__holeIndex.addr.1, %if.end35 ], [ %__holeIndex.addr.029.i, %if.end.i.i.i.i.i.i.i.i ], [ %__parent.030.i, %_ZNSt6vectorIiSaIiEEaSEOS1_.exit.i ], [ %__holeIndex.addr.029.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPSt6vectorIiSaIiEES4_IS6_SaIS6_EEEES6_EEbT_RT0_.exit.i ]
+  %__holeIndex.addr.025.i = phi i64 [ %__holeIndex.addr.029.i, %if.end.i.i.i.i.i.i.i.i ], [ %__holeIndex.addr.1, %if.end35 ], [ %__holeIndex.addr.029.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPSt6vectorIiSaIiEES4_IS6_SaIS6_EEEES6_EEbT_RT0_.exit.i ], [ %__parent.030.i, %_ZNSt6vectorIiSaIiEEaSEOS1_.exit.i ]
   %add.ptr.i9.i = getelementptr inbounds %"class.std::vector.64", ptr %__first.coerce, i64 %__holeIndex.addr.025.i
   %24 = load ptr, ptr %add.ptr.i9.i, align 8
   %_M_finish.i.i.i.i10.i = getelementptr inbounds nuw i8, ptr %add.ptr.i9.i, i64 8

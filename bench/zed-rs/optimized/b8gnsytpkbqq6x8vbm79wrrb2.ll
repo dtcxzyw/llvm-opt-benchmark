@@ -20949,9 +20949,9 @@ _ZN5alloc3fmt6format17ha8569d2e1d23f268E.exit166.i: ; preds = %1514
   br label %1560
 
 1557:                                             ; preds = %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hfcb71f57f90ca525E.exit93.sink.split.i", %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hfcb71f57f90ca525E.exit154.i"
-  %.sroa.0354.0 = phi i64 [ %.sroa.0268.0.copyload.i, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hfcb71f57f90ca525E.exit154.i" ], [ %.sroa.0261.3.ph.i, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hfcb71f57f90ca525E.exit93.sink.split.i" ]
-  %.sroa.9355.0 = phi ptr [ %.sroa.4269.0.copyload.i, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hfcb71f57f90ca525E.exit154.i" ], [ %.sroa.9263.3.ph.i, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hfcb71f57f90ca525E.exit93.sink.split.i" ]
-  %.sroa.10356.0 = phi i64 [ %.sroa.5270.0.copyload.i, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hfcb71f57f90ca525E.exit154.i" ], [ %.sroa.16.0.ph.i, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hfcb71f57f90ca525E.exit93.sink.split.i" ]
+  %.sroa.0354.0 = phi i64 [ %.sroa.0261.3.ph.i, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hfcb71f57f90ca525E.exit93.sink.split.i" ], [ %.sroa.0268.0.copyload.i, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hfcb71f57f90ca525E.exit154.i" ]
+  %.sroa.9355.0 = phi ptr [ %.sroa.9263.3.ph.i, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hfcb71f57f90ca525E.exit93.sink.split.i" ], [ %.sroa.4269.0.copyload.i, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hfcb71f57f90ca525E.exit154.i" ]
+  %.sroa.10356.0 = phi i64 [ %.sroa.16.0.ph.i, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hfcb71f57f90ca525E.exit93.sink.split.i" ], [ %.sroa.5270.0.copyload.i, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hfcb71f57f90ca525E.exit154.i" ]
   store i8 1, ptr %1151, align 8, !noalias !5243
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5249.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5223.i)
@@ -23371,11 +23371,11 @@ _ZN5alloc3fmt6format17ha8569d2e1d23f268E.exit320.i: ; preds = %2230
   br label %2298
 
 2292:                                             ; preds = %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hfcb71f57f90ca525E.exit157.sink.split.i", %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hfcb71f57f90ca525E.exit303.i"
-  %2293 = phi ptr [ %2077, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hfcb71f57f90ca525E.exit303.i" ], [ %2213, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hfcb71f57f90ca525E.exit157.sink.split.i" ]
-  %2294 = phi ptr [ %2078, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hfcb71f57f90ca525E.exit303.i" ], [ %2214, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hfcb71f57f90ca525E.exit157.sink.split.i" ]
-  %.sroa.0369.0 = phi i64 [ %.sroa.0461.0.copyload.i, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hfcb71f57f90ca525E.exit303.i" ], [ %.sroa.0461.3.ph.i, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hfcb71f57f90ca525E.exit157.sink.split.i" ]
-  %.sroa.10370.0 = phi ptr [ %.sroa.11463.0.copyload.i, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hfcb71f57f90ca525E.exit303.i" ], [ %.sroa.11463.3.ph.i, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hfcb71f57f90ca525E.exit157.sink.split.i" ]
-  %.sroa.11371.0 = phi i64 [ %.sroa.20.0.copyload.i, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hfcb71f57f90ca525E.exit303.i" ], [ %.sroa.20.0.ph.i, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hfcb71f57f90ca525E.exit157.sink.split.i" ]
+  %2293 = phi ptr [ %2213, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hfcb71f57f90ca525E.exit157.sink.split.i" ], [ %2077, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hfcb71f57f90ca525E.exit303.i" ]
+  %2294 = phi ptr [ %2214, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hfcb71f57f90ca525E.exit157.sink.split.i" ], [ %2078, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hfcb71f57f90ca525E.exit303.i" ]
+  %.sroa.0369.0 = phi i64 [ %.sroa.0461.3.ph.i, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hfcb71f57f90ca525E.exit157.sink.split.i" ], [ %.sroa.0461.0.copyload.i, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hfcb71f57f90ca525E.exit303.i" ]
+  %.sroa.10370.0 = phi ptr [ %.sroa.11463.3.ph.i, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hfcb71f57f90ca525E.exit157.sink.split.i" ], [ %.sroa.11463.0.copyload.i, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hfcb71f57f90ca525E.exit303.i" ]
+  %.sroa.11371.0 = phi i64 [ %.sroa.20.0.ph.i, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hfcb71f57f90ca525E.exit157.sink.split.i" ], [ %.sroa.20.0.copyload.i, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hfcb71f57f90ca525E.exit303.i" ]
   store i8 1, ptr %2293, align 8, !noalias !5952
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5441.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %35)

@@ -47,7 +47,7 @@ define ptr @basename(ptr noundef %0) local_unnamed_addr #0 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %._crit_edge, %1, %2
-  %.013 = phi ptr [ @.str, %1 ], [ %spec.select, %._crit_edge ], [ @.str, %2 ], [ @.str.1, %.lr.ph ]
+  %.013 = phi ptr [ @.str, %2 ], [ @.str, %1 ], [ %spec.select, %._crit_edge ], [ @.str.1, %.lr.ph ]
   ret ptr %.013
 }
 

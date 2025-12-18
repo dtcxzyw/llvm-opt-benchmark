@@ -13369,7 +13369,7 @@ _ZN7QStringD2Ev.exit144:                          ; preds = %_ZN7QStringD2Ev.exi
           to label %225 unwind label %207
 
 225:                                              ; preds = %220, %212, %202
-  %.0.shrunk = phi i1 [ %224, %220 ], [ %206, %202 ], [ %216, %212 ]
+  %.0.shrunk = phi i1 [ %216, %212 ], [ %224, %220 ], [ %206, %202 ]
   br i1 %.0.shrunk, label %226, label %.critedge
 
 226:                                              ; preds = %_ZN7QStringD2Ev.exit128, %225

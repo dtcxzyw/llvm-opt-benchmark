@@ -103,7 +103,7 @@ _ZN5draco13EncoderBuffer6EncodeEPKvm.exit:        ; preds = %16, %28
   br i1 %.not48, label %.critedge, label %.lr.ph55
 
 .critedge:                                        ; preds = %13, %48, %.lr.ph55, %.critedge37
-  %.3 = phi i1 [ true, %.critedge37 ], [ %47, %48 ], [ %47, %.lr.ph55 ], [ false, %13 ]
+  %.3 = phi i1 [ %47, %48 ], [ true, %.critedge37 ], [ %47, %.lr.ph55 ], [ false, %13 ]
   ret i1 %.3
 }
 

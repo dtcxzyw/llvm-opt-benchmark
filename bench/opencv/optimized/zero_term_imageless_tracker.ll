@@ -1487,8 +1487,8 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %_ZNSt6vectorIiSaIiE
   ret i32 0
 
 611:                                              ; preds = %_ZNSt10unique_ptrIN3vas2ot25ZeroTermImagelessTrackletESt14default_deleteIS2_EED2Ev.exit171, %456, %203
-  %.sroa.0187.1 = phi ptr [ %.sroa.0187.2, %203 ], [ %.sroa.0187.0, %_ZNSt10unique_ptrIN3vas2ot25ZeroTermImagelessTrackletESt14default_deleteIS2_EED2Ev.exit171 ], [ %.sroa.0187.0, %456 ]
-  %.pn92.pn.pn = phi { ptr, i32 } [ %.pn, %203 ], [ %.pn85.pn.pn.pn.pn, %_ZNSt10unique_ptrIN3vas2ot25ZeroTermImagelessTrackletESt14default_deleteIS2_EED2Ev.exit171 ], [ %457, %456 ]
+  %.sroa.0187.1 = phi ptr [ %.sroa.0187.2, %203 ], [ %.sroa.0187.0, %456 ], [ %.sroa.0187.0, %_ZNSt10unique_ptrIN3vas2ot25ZeroTermImagelessTrackletESt14default_deleteIS2_EED2Ev.exit171 ]
+  %.pn92.pn.pn = phi { ptr, i32 } [ %.pn, %203 ], [ %457, %456 ], [ %.pn85.pn.pn.pn.pn, %_ZNSt10unique_ptrIN3vas2ot25ZeroTermImagelessTrackletESt14default_deleteIS2_EED2Ev.exit171 ]
   %.not.i.i.i174 = icmp eq ptr %.sroa.0187.1, null
   br i1 %.not.i.i.i174, label %_ZNSt6vectorIiSaIiEED2Ev.exit175, label %612
 

@@ -594,8 +594,8 @@ define dso_local noundef ptr @parse_filter(ptr noundef %0, ptr noundef writeonly
   br label %.loopexit
 
 .loopexit:                                        ; preds = %157, %112, %.loopexit.sink.split, %.preheader332, %.preheader
-  %.1283 = phi i64 [ 0, %.preheader ], [ 0, %.preheader332 ], [ %.1283.ph, %.loopexit.sink.split ], [ %113, %112 ], [ %158, %157 ]
-  %.3245 = phi i32 [ 0, %.preheader ], [ 0, %.preheader332 ], [ %.3245.ph, %.loopexit.sink.split ], [ %.2244, %112 ], [ %.5, %157 ]
+  %.1283 = phi i64 [ 0, %.preheader332 ], [ %.1283.ph, %.loopexit.sink.split ], [ %113, %112 ], [ 0, %.preheader ], [ %158, %157 ]
+  %.3245 = phi i32 [ 0, %.preheader332 ], [ %.3245.ph, %.loopexit.sink.split ], [ %.2244, %112 ], [ 0, %.preheader ], [ %.5, %157 ]
   %230 = call i64 @strtoul(ptr noundef nonnull captures(none) %8, ptr noundef null, i32 noundef 0) #14
   %231 = trunc i64 %230 to i32
   %232 = getelementptr inbounds nuw i8, ptr %2, i64 8

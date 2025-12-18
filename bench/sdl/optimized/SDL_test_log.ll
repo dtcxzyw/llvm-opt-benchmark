@@ -257,7 +257,7 @@ define dso_local void @SDLTest_LogEscapedString(ptr noundef %0, ptr noundef read
   br label %89
 
 89:                                               ; preds = %11, %18, %25, %32, %39, %46, %53, %60, %75, %70
-  %.2 = phi i64 [ %68, %70 ], [ %87, %75 ], [ %13, %11 ], [ %20, %18 ], [ %27, %25 ], [ %34, %32 ], [ %41, %39 ], [ %48, %46 ], [ %55, %53 ], [ %62, %60 ]
+  %.2 = phi i64 [ %62, %60 ], [ %68, %70 ], [ %55, %53 ], [ %87, %75 ], [ %48, %46 ], [ %13, %11 ], [ %41, %39 ], [ %20, %18 ], [ %34, %32 ], [ %27, %25 ]
   %90 = add nuw i64 %.05263, 1
   %exitcond.not = icmp eq i64 %90, %2
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4

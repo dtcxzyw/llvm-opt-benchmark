@@ -2397,7 +2397,7 @@ define hidden noundef ptr @_ZNK14G1BarrierSetC220step_over_gc_barrierEP4Node(ptr
   br i1 %78, label %30, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %75, %.lr.ph63, %18, %23
-  %.4 = phi ptr [ %.162, %23 ], [ %.162, %18 ], [ %.162, %.lr.ph63 ], [ %.3, %75 ]
+  %.4 = phi ptr [ %.162, %.lr.ph63 ], [ %.162, %23 ], [ %.162, %18 ], [ %.3, %75 ]
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %79 = getelementptr inbounds nuw i8, ptr %.4, i64 24
   %80 = load i32, ptr %79, align 8
@@ -2406,7 +2406,7 @@ define hidden noundef ptr @_ZNK14G1BarrierSetC220step_over_gc_barrierEP4Node(ptr
   br i1 %82, label %.lr.ph63, label %.loopexit55, !llvm.loop !10
 
 .loopexit55:                                      ; preds = %.loopexit, %2, %5, %10, %71
-  %.0 = phi ptr [ %74, %71 ], [ %1, %10 ], [ %1, %5 ], [ %1, %2 ], [ %.4, %.loopexit ]
+  %.0 = phi ptr [ %74, %71 ], [ %1, %2 ], [ %1, %10 ], [ %1, %5 ], [ %.4, %.loopexit ]
   ret ptr %.0
 }
 

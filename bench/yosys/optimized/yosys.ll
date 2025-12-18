@@ -28572,7 +28572,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %.lr
   br i1 %.not26, label %.critedge, label %.lr.ph, !llvm.loop !192
 
 .critedge:                                        ; preds = %26, %.critedge2, %.lr.ph23, %2
-  %28 = phi i1 [ false, %2 ], [ true, %.critedge2 ], [ true, %.lr.ph23 ], [ false, %26 ]
+  %28 = phi i1 [ true, %.critedge2 ], [ false, %2 ], [ true, %.lr.ph23 ], [ false, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %28
 }
@@ -30505,7 +30505,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit375: ; preds = %67
   br i1 %680, label %.loopexit471, label %672
 
 .loopexit471:                                     ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit375, %663, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i370, %.thread455
-  %.pn114.pn = phi { ptr, i32 } [ %601, %.thread455 ], [ %664, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i370 ], [ %664, %663 ], [ %.pn114, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit375 ]
+  %.pn114.pn = phi { ptr, i32 } [ %664, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i370 ], [ %601, %.thread455 ], [ %664, %663 ], [ %.pn114, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit375 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %41)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit436
 

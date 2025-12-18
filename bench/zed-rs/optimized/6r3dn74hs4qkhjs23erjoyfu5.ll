@@ -10304,8 +10304,8 @@ define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$14search_forward17h
   br label %_ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h78c5288f154147b9E.exit
 
 _ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h78c5288f154147b9E.exit: ; preds = %100, %.preheader26, %._crit_edge, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h696a949e5301352aE.exit15"
-  %.sink = phi i32 [ 1, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h696a949e5301352aE.exit15" ], [ -1, %._crit_edge ], [ -1, %.preheader26 ], [ -1, %100 ]
-  %.sroa.04.3 = phi i1 [ true, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h696a949e5301352aE.exit15" ], [ false, %._crit_edge ], [ false, %.preheader26 ], [ false, %100 ]
+  %.sink = phi i32 [ 1, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h696a949e5301352aE.exit15" ], [ -1, %.preheader26 ], [ -1, %._crit_edge ], [ -1, %100 ]
+  %.sroa.04.3 = phi i1 [ true, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h696a949e5301352aE.exit15" ], [ false, %.preheader26 ], [ false, %._crit_edge ], [ false, %100 ]
   %111 = add i32 %25, %.sink
   store i32 %111, ptr %0, align 8
   %112 = icmp eq i32 %111, 0

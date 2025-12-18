@@ -5713,15 +5713,15 @@ oe_delta.exit59.i.i.i.i.i:                        ; preds = %2299
   br i1 %.not2564.i.i.i.i.i, label %add_family_to_write_order.exit.i.i.i, label %.lr.ph82.i.i.i.i.i, !llvm.loop !231
 
 add_family_to_write_order.exit.i.i.i:             ; preds = %.backedge.i.i.i.i.i, %oe_delta.exit.i.i.i.i.i, %2288, %oe_delta.exit59.i.i.i.i.i, %2299, %oe_layer.exit.i.i.i, %.lr.ph95.i.i.i
-  %.8.i.i = phi i32 [ %.7.i.i, %oe_layer.exit.i.i.i ], [ %.7.i.i, %.lr.ph95.i.i.i ], [ %.13.i.i, %oe_delta.exit59.i.i.i.i.i ], [ %.13.i.i, %2299 ], [ %.13.i.i, %2288 ], [ %.13.i.i, %oe_delta.exit.i.i.i.i.i ], [ %.13.i.i, %.backedge.i.i.i.i.i ]
+  %.8.i.i = phi i32 [ %.13.i.i, %oe_delta.exit59.i.i.i.i.i ], [ %.7.i.i, %oe_layer.exit.i.i.i ], [ %.7.i.i, %.lr.ph95.i.i.i ], [ %.13.i.i, %2299 ], [ %.13.i.i, %2288 ], [ %.13.i.i, %oe_delta.exit.i.i.i.i.i ], [ %.13.i.i, %.backedge.i.i.i.i.i ]
   %indvars.iv.next114.i.i.i = add nuw nsw i64 %indvars.iv113.i.i.i, 1
   %2308 = icmp samesign ult i64 %indvars.iv.next114.i.i.i, %2174
   br i1 %2308, label %.lr.ph95.i.i.i, label %compute_layer_order.exit.i.i, !llvm.loop !232
 
 compute_layer_order.exit.i.i:                     ; preds = %add_family_to_write_order.exit.i.i.i, %.preheader.i.i.i, %.preheader81.i.i.i, %.lr.ph59.split.i.i
-  %2309 = phi i32 [ %2060, %.lr.ph59.split.i.i ], [ %2199, %.preheader.i.i.i ], [ %2133, %.preheader81.i.i.i ], [ %2199, %add_family_to_write_order.exit.i.i.i ]
-  %2310 = phi i32 [ 0, %.lr.ph59.split.i.i ], [ %2200, %.preheader.i.i.i ], [ %2134, %.preheader81.i.i.i ], [ %2199, %add_family_to_write_order.exit.i.i.i ]
-  %.19.i.i = phi i32 [ %.04258.i.i, %.lr.ph59.split.i.i ], [ %.6.i.i, %.preheader.i.i.i ], [ %.4.i.i, %.preheader81.i.i.i ], [ %.8.i.i, %add_family_to_write_order.exit.i.i.i ]
+  %2309 = phi i32 [ %2060, %.lr.ph59.split.i.i ], [ %2133, %.preheader81.i.i.i ], [ %2199, %.preheader.i.i.i ], [ %2199, %add_family_to_write_order.exit.i.i.i ]
+  %2310 = phi i32 [ 0, %.lr.ph59.split.i.i ], [ %2134, %.preheader81.i.i.i ], [ %2200, %.preheader.i.i.i ], [ %2199, %add_family_to_write_order.exit.i.i.i ]
+  %.19.i.i = phi i32 [ %.04258.i.i, %.lr.ph59.split.i.i ], [ %.4.i.i, %.preheader81.i.i.i ], [ %.6.i.i, %.preheader.i.i.i ], [ %.8.i.i, %add_family_to_write_order.exit.i.i.i ]
   %2311 = add nuw i32 %2062, 1
   store i32 %2311, ptr @write_layer, align 4, !tbaa !30
   %exitcond.not.i.i216 = icmp eq i32 %2311, %.0.i53.i
@@ -8501,7 +8501,7 @@ skip_prefix.exit:                                 ; preds = %92, %97
   br label %want_found_object.exit.thread
 
 want_found_object.exit.thread:                    ; preds = %62, %79, %skip_prefix.exit, %.preheader, %81, %38, %29, %34, %42, %20, %13, %14, %.split94.us, %100, %.thread77, %55, %9
-  %.048 = phi i32 [ 0, %100 ], [ 0, %9 ], [ %54, %55 ], [ 1, %.thread77 ], [ 1, %.split94.us ], [ 0, %14 ], [ 0, %38 ], [ 0, %29 ], [ 0, %34 ], [ 1, %42 ], [ 0, %20 ], [ 1, %13 ], [ 1, %81 ], [ 1, %.preheader ], [ 0, %79 ], [ 1, %skip_prefix.exit ], [ %64, %62 ]
+  %.048 = phi i32 [ 0, %100 ], [ 0, %9 ], [ %54, %55 ], [ 1, %.preheader ], [ 1, %.thread77 ], [ 1, %.split94.us ], [ 0, %14 ], [ 0, %38 ], [ 0, %29 ], [ 0, %34 ], [ 1, %42 ], [ 0, %20 ], [ 1, %13 ], [ 1, %81 ], [ 0, %79 ], [ 1, %skip_prefix.exit ], [ %64, %62 ]
   ret i32 %.048
 }
 

@@ -336,7 +336,7 @@ define internal range(i32 0, 2) i32 @aes_siv_get_ctx_params(ptr noundef %0, ptr 
   br label %32
 
 32:                                               ; preds = %.sink.split, %26, %28
-  %.0 = phi i32 [ 1, %28 ], [ 1, %26 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 1, %26 ], [ 1, %28 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 

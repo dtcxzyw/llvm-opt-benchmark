@@ -921,7 +921,7 @@ If_Dec6DeriveNonDisjoint.exit:                    ; preds = %244
   br i1 %exitcond135.not, label %.loopexit, label %.preheader86, !llvm.loop !31
 
 .loopexit:                                        ; preds = %255, %163, %If_Dec6DeriveNonDisjoint.exit, %130, %131
-  %.4 = phi i64 [ %.140109, %130 ], [ 0, %131 ], [ 1, %163 ], [ %254, %If_Dec6DeriveNonDisjoint.exit ], [ 0, %255 ]
+  %.4 = phi i64 [ %.140109, %130 ], [ 0, %131 ], [ %254, %If_Dec6DeriveNonDisjoint.exit ], [ 1, %163 ], [ 0, %255 ]
   %indvars.iv.next139 = add nuw nsw i64 %indvars.iv138, 1
   %exitcond143.not = icmp eq i64 %indvars.iv.next139, 6
   br i1 %exitcond143.not, label %.loopexit87, label %15, !llvm.loop !32
@@ -2683,8 +2683,8 @@ Abc_Tt6FirstBit.exit234.i:                        ; preds = %134, %Abc_Tt6FirstB
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %If_Dec5CofCount2.exit.thread
 
-If_Dec5CofCount2.exit.thread:                     ; preds = %418, %76
-  %.0.i.ph = phi i64 [ 1, %76 ], [ %.1178.i, %418 ]
+If_Dec5CofCount2.exit.thread:                     ; preds = %76, %418
+  %.0.i.ph = phi i64 [ %.1178.i, %418 ], [ 1, %76 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit35
 
@@ -2973,7 +2973,7 @@ Abc_TtHasVar.exit.thread44:                       ; preds = %29, %43
   br label %Abc_TtHasVar.exit.thread
 
 Abc_TtHasVar.exit.thread:                         ; preds = %.preheader.lr.ph.i, %._crit_edge.us.i, %28, %Abc_TtHasVar.exit.us, %5, %.lr.ph.split, %50, %._crit_edge, %62, %58, %51
-  %.0.shrunk = phi i1 [ true, %._crit_edge ], [ %57, %51 ], [ %61, %58 ], [ %68, %62 ], [ false, %50 ], [ false, %.lr.ph.split ], [ true, %5 ], [ false, %._crit_edge.us.i ], [ false, %Abc_TtHasVar.exit.us ], [ false, %28 ], [ false, %.preheader.lr.ph.i ]
+  %.0.shrunk = phi i1 [ true, %._crit_edge ], [ false, %Abc_TtHasVar.exit.us ], [ %57, %51 ], [ %61, %58 ], [ %68, %62 ], [ false, %50 ], [ false, %28 ], [ false, %._crit_edge.us.i ], [ true, %5 ], [ false, %.lr.ph.split ], [ false, %.preheader.lr.ph.i ]
   %.0 = zext i1 %.0.shrunk to i32
   ret i32 %.0
 }
@@ -3078,7 +3078,7 @@ define range(i32 0, 2) i32 @If_MatchCheck1(ptr noundef readnone captures(none) %
   br i1 %.not.us.i, label %.preheader.us.i, label %Abc_Tt6Check1.exit, !llvm.loop !70
 
 Abc_Tt6Check1.exit:                               ; preds = %._crit_edge.split.us.us.i, %38, %19, %7, %5
-  %.0 = phi i32 [ 1, %5 ], [ 0, %7 ], [ 1, %38 ], [ 1, %19 ], [ 0, %._crit_edge.split.us.us.i ]
+  %.0 = phi i32 [ 1, %5 ], [ 1, %38 ], [ 1, %19 ], [ 0, %7 ], [ 0, %._crit_edge.split.us.us.i ]
   ret i32 %.0
 }
 
@@ -3142,7 +3142,7 @@ define range(i32 0, 2) i32 @If_MatchCheck2(ptr noundef readnone captures(none) %
   br i1 %exitcond36.not.i, label %._crit_edge.us.i, label %.critedge.us.us.i, !llvm.loop !71
 
 Abc_Tt6Check2.exit:                               ; preds = %._crit_edge.us.i, %.critedge.us21.i, %.critedge.us.us.i, %7, %5
-  %.0 = phi i32 [ 1, %5 ], [ 0, %7 ], [ 1, %.critedge.us21.i ], [ 1, %.critedge.us.us.i ], [ 0, %._crit_edge.us.i ]
+  %.0 = phi i32 [ 1, %5 ], [ 1, %.critedge.us.us.i ], [ 1, %.critedge.us21.i ], [ 0, %7 ], [ 0, %._crit_edge.us.i ]
   ret i32 %.0
 }
 

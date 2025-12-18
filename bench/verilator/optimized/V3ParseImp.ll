@@ -3630,7 +3630,7 @@ define dso_local void @_ZN10V3ParseImp19lexVerilatorCmtLintEP8FileLinePKcb(ptr n
   br i1 %.not41, label %._crit_edge, label %.lr.ph91, !llvm.loop !294
 
 ._crit_edge:                                      ; preds = %12, %18, %24, %30, %.lr.ph91, %4
-  %.3.lcssa = phi ptr [ %2, %4 ], [ %19, %18 ], [ %.390, %.lr.ph91 ], [ %25, %24 ], [ %31, %30 ], [ %13, %12 ]
+  %.3.lcssa = phi ptr [ %.390, %.lr.ph91 ], [ %2, %4 ], [ %25, %24 ], [ %19, %18 ], [ %31, %30 ], [ %13, %12 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %33, ptr %6, align 8, !tbaa !113
@@ -10669,7 +10669,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit42: ; preds = %244
   br label %15, !llvm.loop !472
 
 .loopexit:                                        ; preds = %_ZN10V3ParseImp10tokenPeekpEm.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %229
-  %.3 = phi i64 [ %1, %229 ], [ %1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %16, %_ZN10V3ParseImp10tokenPeekpEm.exit ]
+  %.3 = phi i64 [ %1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %1, %229 ], [ %16, %_ZN10V3ParseImp10tokenPeekpEm.exit ]
   ret i64 %.3
 }
 
@@ -11927,7 +11927,7 @@ _ZN10V3ParseImp10tokenPeekpEm.exit96:             ; preds = %179, %173
   br label %_ZN10V3ParseImp15isStrengthTokenEi.exit
 
 _ZN10V3ParseImp15isStrengthTokenEi.exit:          ; preds = %195, %196, %201, %199, %200, %198, %_ZN10V3ParseImp10tokenPeekpEm.exit96, %123, %116, %118, %120, %126, %128, %130, %197, %_ZN10V3ParseImp10tokenPeekpEm.exit, %115, %.fold.split87, %194, %_ZN10V3ParseImp15isStrengthTokenEi.exit.thread, %114, %_ZNSt5dequeI19V3ParseBisonYYSTypeSaIS0_EE9pop_frontEv.exit
-  %.0 = phi i32 [ %32, %_ZNSt5dequeI19V3ParseBisonYYSTypeSaIS0_EE9pop_frontEv.exit ], [ %32, %_ZN10V3ParseImp10tokenPeekpEm.exit ], [ 791, %_ZN10V3ParseImp15isStrengthTokenEi.exit.thread ], [ %switch.select86, %115 ], [ %., %116 ], [ 557, %.fold.split87 ], [ 412, %118 ], [ 261, %123 ], [ %.81, %126 ], [ 413, %120 ], [ %.82, %128 ], [ %202, %201 ], [ %.83, %130 ], [ 571, %200 ], [ %.84, %_ZN10V3ParseImp10tokenPeekpEm.exit96 ], [ 570, %199 ], [ 555, %195 ], [ 553, %194 ], [ 554, %196 ], [ 569, %198 ], [ 573, %197 ], [ 40, %114 ]
+  %.0 = phi i32 [ %32, %_ZNSt5dequeI19V3ParseBisonYYSTypeSaIS0_EE9pop_frontEv.exit ], [ %32, %_ZN10V3ParseImp10tokenPeekpEm.exit ], [ 791, %_ZN10V3ParseImp15isStrengthTokenEi.exit.thread ], [ %switch.select86, %115 ], [ 573, %197 ], [ %., %116 ], [ 557, %.fold.split87 ], [ %202, %201 ], [ 412, %118 ], [ 261, %123 ], [ %.81, %126 ], [ 413, %120 ], [ %.82, %128 ], [ 571, %200 ], [ %.83, %130 ], [ 570, %199 ], [ %.84, %_ZN10V3ParseImp10tokenPeekpEm.exit96 ], [ 569, %198 ], [ 555, %195 ], [ 553, %194 ], [ 554, %196 ], [ 40, %114 ]
   store i32 %.0, ptr getelementptr inbounds nuw (i8, ptr @yylval, i64 16), align 8, !tbaa !449
   ret void
 }
@@ -14000,8 +14000,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit37: ; preds = %86,
   br label %94
 
 _ZNSt13unordered_setIPK7VSymEntSt4hashIS2_ESt8equal_toIS2_ESaIS2_EE4findERKS2_.exit: ; preds = %68, %52, %63, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit34
-  %92 = phi ptr [ %.pre55, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit34 ], [ %49, %63 ], [ %49, %52 ], [ %49, %68 ]
-  %.2 = phi i1 [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit34 ], [ %.052, %63 ], [ %.052, %52 ], [ %.052, %68 ]
+  %92 = phi ptr [ %.pre55, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit34 ], [ %49, %52 ], [ %49, %63 ], [ %49, %68 ]
+  %.2 = phi i1 [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit34 ], [ %.052, %52 ], [ %.052, %63 ], [ %.052, %68 ]
   %93 = getelementptr inbounds nuw i8, ptr %.sroa.041.051, i64 8
   %.not = icmp eq ptr %93, %92
   br i1 %.not, label %._crit_edge, label %48, !llvm.loop !535
@@ -15012,8 +15012,8 @@ _ZNSt10_HashtableIPK7VSymEntS2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4
   resume { ptr, i32 } %47
 
 _ZNKSt10_HashtableIPK7VSymEntS2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE15_M_find_node_trIS2_EEPNS4_10_Hash_nodeIS2_Lb0EEEmRKT_m.exit: ; preds = %33, %19, %.critedge, %28
-  %.sroa.031.1 = phi ptr [ %29, %28 ], [ %46, %.critedge ], [ %.sroa.028.0, %19 ], [ %35, %33 ]
-  %.sroa.432.1 = phi i8 [ 0, %28 ], [ 1, %.critedge ], [ 0, %19 ], [ 0, %33 ]
+  %.sroa.031.1 = phi ptr [ %.sroa.028.0, %19 ], [ %46, %.critedge ], [ %29, %28 ], [ %35, %33 ]
+  %.sroa.432.1 = phi i8 [ 0, %19 ], [ 1, %.critedge ], [ 0, %28 ], [ 0, %33 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.031.1, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.432.1, 1
   ret { ptr, i8 } %.fca.1.insert

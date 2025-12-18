@@ -422,7 +422,7 @@ define internal noundef ptr @atexit_unregister(ptr readnone captures(none) %0, p
   br label %27
 
 27:                                               ; preds = %25, %19
-  %.117.i = phi i64 [ %26, %25 ], [ %.01624.i, %19 ]
+  %.117.i = phi i64 [ %.01624.i, %19 ], [ %26, %25 ]
   %28 = add i64 %.117.i, 1
   %.val.i = load i64, ptr %10, align 8, !tbaa !29
   %29 = icmp slt i64 %28, %.val.i

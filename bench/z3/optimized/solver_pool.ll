@@ -4565,7 +4565,7 @@ _ZNK6vectorIP3appLb0EjE5emptyEv.exit:             ; preds = %_ZNK6vectorIP3appLb
   br i1 %.not27.old.i.i.i, label %_ZNK6vectorIP3appLb0EjE4sizeEv.exit, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %98, %95
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %98 ], [ %97, %95 ]
+  %.137.i.i.i.be = phi ptr [ %97, %95 ], [ %.old.i.i.i, %98 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !200
 
 .loopexit354:                                     ; preds = %79, %90
@@ -5155,7 +5155,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.
   br i1 %.not27.old.i.i.i120, label %.loopexit344, label %.lr.ph38.i.i.i116.backedge
 
 .lr.ph38.i.i.i116.backedge:                       ; preds = %355, %352
-  %.137.i.i.i117.be = phi ptr [ %.old.i.i.i119, %355 ], [ %354, %352 ]
+  %.137.i.i.i117.be = phi ptr [ %354, %352 ], [ %.old.i.i.i119, %355 ]
   br label %.lr.ph38.i.i.i116, !llvm.loop !200
 
 .loopexit343:                                     ; preds = %336, %347
@@ -5951,7 +5951,7 @@ _ZNK6vectorIP3appLb0EjE5emptyEv.exit.thread:      ; preds = %_ZNK6vectorIP3appLb
   br i1 %.not27.old.i.i.i227, label %.loopexit340, label %.lr.ph38.i.i.i223.backedge
 
 .lr.ph38.i.i.i223.backedge:                       ; preds = %681, %678
-  %.137.i.i.i224.be = phi ptr [ %.old.i.i.i226, %681 ], [ %680, %678 ]
+  %.137.i.i.i224.be = phi ptr [ %680, %678 ], [ %.old.i.i.i226, %681 ]
   br label %.lr.ph38.i.i.i223, !llvm.loop !200
 
 .loopexit340:                                     ; preds = %667, %678, %681, %.preheader.i.i.i221

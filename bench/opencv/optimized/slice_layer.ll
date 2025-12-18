@@ -5509,8 +5509,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit71:                  ; preds = %.loopexit90, %.loop
   br label %175
 
 .loopexit89:                                      ; preds = %79, %_ZNSt6vectorIiSaIiEED2Ev.exit69, %.preheader, %88
-  %158 = phi ptr [ %27, %88 ], [ %27, %.preheader ], [ %149, %_ZNSt6vectorIiSaIiEED2Ev.exit69 ], [ %81, %79 ]
-  %159 = phi ptr [ %28, %88 ], [ %28, %.preheader ], [ %150, %_ZNSt6vectorIiSaIiEED2Ev.exit69 ], [ %80, %79 ]
+  %158 = phi ptr [ %149, %_ZNSt6vectorIiSaIiEED2Ev.exit69 ], [ %27, %88 ], [ %27, %.preheader ], [ %81, %79 ]
+  %159 = phi ptr [ %150, %_ZNSt6vectorIiSaIiEED2Ev.exit69 ], [ %28, %88 ], [ %28, %.preheader ], [ %80, %79 ]
   %.not4.i.i.i.i = icmp eq ptr %159, %158
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 

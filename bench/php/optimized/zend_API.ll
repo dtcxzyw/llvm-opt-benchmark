@@ -474,7 +474,7 @@ zend_get_type_by_const.exit.fold.split11.i:       ; preds = %17
   br label %zend_zval_value_name.exit
 
 zend_zval_value_name.exit:                        ; preds = %17, %17, %19, %26, %27, %28, %29, %30, %31, %32, %33, %34, %35, %zend_get_type_by_const.exit.fold.split.i, %zend_get_type_by_const.exit.fold.split10.i, %zend_get_type_by_const.exit.fold.split11.i
-  %.09.i = phi ptr [ %25, %19 ], [ @.str.8, %17 ], [ @.str.14, %35 ], [ @.str.3, %26 ], [ @.str.4, %27 ], [ @.str.5, %28 ], [ @.str.2, %zend_get_type_by_const.exit.fold.split11.i ], [ @.str.7, %29 ], [ @.str.15, %zend_get_type_by_const.exit.fold.split.i ], [ @.str.9, %30 ], [ @.str.10, %31 ], [ @.str.11, %32 ], [ @.str.12, %33 ], [ @.str.13, %34 ], [ @.str.16, %zend_get_type_by_const.exit.fold.split10.i ], [ @.str.8, %17 ]
+  %.09.i = phi ptr [ @.str.15, %zend_get_type_by_const.exit.fold.split.i ], [ %25, %19 ], [ @.str.8, %17 ], [ @.str.16, %zend_get_type_by_const.exit.fold.split10.i ], [ @.str.14, %35 ], [ @.str.3, %26 ], [ @.str.4, %27 ], [ @.str.5, %28 ], [ @.str.2, %zend_get_type_by_const.exit.fold.split11.i ], [ @.str.7, %29 ], [ @.str.13, %34 ], [ @.str.9, %30 ], [ @.str.10, %31 ], [ @.str.11, %32 ], [ @.str.12, %33 ], [ @.str.8, %17 ]
   tail call void (i32, ptr, ...) @zend_error(i32 noundef 2, ptr noundef nonnull @.str.1, ptr noundef nonnull %10, ptr noundef nonnull %.09.i) #35
   %.not.i = icmp eq ptr %.0, null
   br i1 %.not.i, label %zend_tmp_string_release.exit, label %37, !prof !45
@@ -593,7 +593,7 @@ zend_get_type_by_const.exit.fold.split11:         ; preds = %8
   br label %zend_get_type_by_const.exit
 
 zend_get_type_by_const.exit:                      ; preds = %8, %8, %zend_get_type_by_const.exit.fold.split11, %zend_get_type_by_const.exit.fold.split10, %zend_get_type_by_const.exit.fold.split, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %10
-  %.09 = phi ptr [ %16, %10 ], [ @.str.8, %8 ], [ @.str.14, %26 ], [ @.str.3, %17 ], [ @.str.4, %18 ], [ @.str.5, %19 ], [ @.str.2, %zend_get_type_by_const.exit.fold.split11 ], [ @.str.7, %20 ], [ @.str.15, %zend_get_type_by_const.exit.fold.split ], [ @.str.9, %21 ], [ @.str.10, %22 ], [ @.str.11, %23 ], [ @.str.12, %24 ], [ @.str.13, %25 ], [ @.str.16, %zend_get_type_by_const.exit.fold.split10 ], [ @.str.8, %8 ]
+  %.09 = phi ptr [ @.str.15, %zend_get_type_by_const.exit.fold.split ], [ %16, %10 ], [ @.str.8, %8 ], [ @.str.16, %zend_get_type_by_const.exit.fold.split10 ], [ @.str.14, %26 ], [ @.str.3, %17 ], [ @.str.4, %18 ], [ @.str.5, %19 ], [ @.str.2, %zend_get_type_by_const.exit.fold.split11 ], [ @.str.7, %20 ], [ @.str.13, %25 ], [ @.str.9, %21 ], [ @.str.10, %22 ], [ @.str.11, %23 ], [ @.str.12, %24 ], [ @.str.8, %8 ]
   ret ptr %.09
 }
 
@@ -999,7 +999,7 @@ zend_get_type_by_const.exit.fold.split11.i.i:     ; preds = %22
   br label %zend_zval_value_name.exit.i
 
 zend_zval_value_name.exit.i:                      ; preds = %zend_get_type_by_const.exit.fold.split11.i.i, %zend_get_type_by_const.exit.fold.split10.i.i, %zend_get_type_by_const.exit.fold.split.i.i, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %24, %22, %22
-  %.09.i.i = phi ptr [ %30, %24 ], [ @.str.8, %22 ], [ @.str.14, %40 ], [ @.str.3, %31 ], [ @.str.4, %32 ], [ @.str.5, %33 ], [ @.str.2, %zend_get_type_by_const.exit.fold.split11.i.i ], [ @.str.7, %34 ], [ @.str.15, %zend_get_type_by_const.exit.fold.split.i.i ], [ @.str.9, %35 ], [ @.str.10, %36 ], [ @.str.11, %37 ], [ @.str.12, %38 ], [ @.str.13, %39 ], [ @.str.16, %zend_get_type_by_const.exit.fold.split10.i.i ], [ @.str.8, %22 ]
+  %.09.i.i = phi ptr [ @.str.15, %zend_get_type_by_const.exit.fold.split.i.i ], [ %30, %24 ], [ @.str.8, %22 ], [ @.str.16, %zend_get_type_by_const.exit.fold.split10.i.i ], [ @.str.14, %40 ], [ @.str.3, %31 ], [ @.str.4, %32 ], [ @.str.5, %33 ], [ @.str.2, %zend_get_type_by_const.exit.fold.split11.i.i ], [ @.str.7, %34 ], [ @.str.13, %39 ], [ @.str.9, %35 ], [ @.str.10, %36 ], [ @.str.11, %37 ], [ @.str.12, %38 ], [ @.str.8, %22 ]
   tail call void (i32, ptr, ...) @zend_argument_type_error(i32 noundef %1, ptr noundef nonnull @.str.59, ptr noundef %2, ptr noundef nonnull %.09.i.i)
   br label %zend_wrong_parameter_class_error.exit
 
@@ -1095,7 +1095,7 @@ zend_get_type_by_const.exit.fold.split11.i.i31:   ; preds = %51
   br label %zend_zval_value_name.exit.i29
 
 zend_zval_value_name.exit.i29:                    ; preds = %zend_get_type_by_const.exit.fold.split11.i.i31, %zend_get_type_by_const.exit.fold.split10.i.i32, %zend_get_type_by_const.exit.fold.split.i.i33, %69, %68, %67, %66, %65, %64, %63, %62, %61, %60, %53, %51, %51
-  %.09.i.i30 = phi ptr [ %59, %53 ], [ @.str.8, %51 ], [ @.str.14, %69 ], [ @.str.3, %60 ], [ @.str.4, %61 ], [ @.str.5, %62 ], [ @.str.2, %zend_get_type_by_const.exit.fold.split11.i.i31 ], [ @.str.7, %63 ], [ @.str.15, %zend_get_type_by_const.exit.fold.split.i.i33 ], [ @.str.9, %64 ], [ @.str.10, %65 ], [ @.str.11, %66 ], [ @.str.12, %67 ], [ @.str.13, %68 ], [ @.str.16, %zend_get_type_by_const.exit.fold.split10.i.i32 ], [ @.str.8, %51 ]
+  %.09.i.i30 = phi ptr [ @.str.15, %zend_get_type_by_const.exit.fold.split.i.i33 ], [ %59, %53 ], [ @.str.8, %51 ], [ @.str.16, %zend_get_type_by_const.exit.fold.split10.i.i32 ], [ @.str.14, %69 ], [ @.str.3, %60 ], [ @.str.4, %61 ], [ @.str.5, %62 ], [ @.str.2, %zend_get_type_by_const.exit.fold.split11.i.i31 ], [ @.str.7, %63 ], [ @.str.13, %68 ], [ @.str.9, %64 ], [ @.str.10, %65 ], [ @.str.11, %66 ], [ @.str.12, %67 ], [ @.str.8, %51 ]
   tail call void (i32, ptr, ...) @zend_argument_type_error(i32 noundef %1, ptr noundef nonnull @.str.60, ptr noundef %2, ptr noundef nonnull %.09.i.i30)
   br label %zend_wrong_parameter_class_error.exit
 
@@ -1191,7 +1191,7 @@ zend_get_type_by_const.exit.fold.split11.i.i40:   ; preds = %80
   br label %zend_zval_value_name.exit.i38
 
 zend_zval_value_name.exit.i38:                    ; preds = %zend_get_type_by_const.exit.fold.split11.i.i40, %zend_get_type_by_const.exit.fold.split10.i.i41, %zend_get_type_by_const.exit.fold.split.i.i42, %98, %97, %96, %95, %94, %93, %92, %91, %90, %89, %82, %80, %80
-  %.09.i.i39 = phi ptr [ %88, %82 ], [ @.str.8, %80 ], [ @.str.14, %98 ], [ @.str.3, %89 ], [ @.str.4, %90 ], [ @.str.5, %91 ], [ @.str.2, %zend_get_type_by_const.exit.fold.split11.i.i40 ], [ @.str.7, %92 ], [ @.str.15, %zend_get_type_by_const.exit.fold.split.i.i42 ], [ @.str.9, %93 ], [ @.str.10, %94 ], [ @.str.11, %95 ], [ @.str.12, %96 ], [ @.str.13, %97 ], [ @.str.16, %zend_get_type_by_const.exit.fold.split10.i.i41 ], [ @.str.8, %80 ]
+  %.09.i.i39 = phi ptr [ @.str.15, %zend_get_type_by_const.exit.fold.split.i.i42 ], [ %88, %82 ], [ @.str.8, %80 ], [ @.str.16, %zend_get_type_by_const.exit.fold.split10.i.i41 ], [ @.str.14, %98 ], [ @.str.3, %89 ], [ @.str.4, %90 ], [ @.str.5, %91 ], [ @.str.2, %zend_get_type_by_const.exit.fold.split11.i.i40 ], [ @.str.7, %92 ], [ @.str.13, %97 ], [ @.str.9, %93 ], [ @.str.10, %94 ], [ @.str.11, %95 ], [ @.str.12, %96 ], [ @.str.8, %80 ]
   tail call void (i32, ptr, ...) @zend_argument_type_error(i32 noundef %1, ptr noundef nonnull @.str.63, ptr noundef %2, ptr noundef nonnull %.09.i.i39)
   br label %zend_wrong_parameter_class_error.exit
 
@@ -1287,7 +1287,7 @@ zend_get_type_by_const.exit.fold.split11.i.i49:   ; preds = %109
   br label %zend_zval_value_name.exit.i47
 
 zend_zval_value_name.exit.i47:                    ; preds = %zend_get_type_by_const.exit.fold.split11.i.i49, %zend_get_type_by_const.exit.fold.split10.i.i50, %zend_get_type_by_const.exit.fold.split.i.i51, %127, %126, %125, %124, %123, %122, %121, %120, %119, %118, %111, %109, %109
-  %.09.i.i48 = phi ptr [ %117, %111 ], [ @.str.8, %109 ], [ @.str.14, %127 ], [ @.str.3, %118 ], [ @.str.4, %119 ], [ @.str.5, %120 ], [ @.str.2, %zend_get_type_by_const.exit.fold.split11.i.i49 ], [ @.str.7, %121 ], [ @.str.15, %zend_get_type_by_const.exit.fold.split.i.i51 ], [ @.str.9, %122 ], [ @.str.10, %123 ], [ @.str.11, %124 ], [ @.str.12, %125 ], [ @.str.13, %126 ], [ @.str.16, %zend_get_type_by_const.exit.fold.split10.i.i50 ], [ @.str.8, %109 ]
+  %.09.i.i48 = phi ptr [ @.str.15, %zend_get_type_by_const.exit.fold.split.i.i51 ], [ %117, %111 ], [ @.str.8, %109 ], [ @.str.16, %zend_get_type_by_const.exit.fold.split10.i.i50 ], [ @.str.14, %127 ], [ @.str.3, %118 ], [ @.str.4, %119 ], [ @.str.5, %120 ], [ @.str.2, %zend_get_type_by_const.exit.fold.split11.i.i49 ], [ @.str.7, %121 ], [ @.str.13, %126 ], [ @.str.9, %122 ], [ @.str.10, %123 ], [ @.str.11, %124 ], [ @.str.12, %125 ], [ @.str.8, %109 ]
   tail call void (i32, ptr, ...) @zend_argument_type_error(i32 noundef %1, ptr noundef nonnull @.str.64, ptr noundef %2, ptr noundef nonnull %.09.i.i48)
   br label %zend_wrong_parameter_class_error.exit
 
@@ -1383,7 +1383,7 @@ zend_get_type_by_const.exit.fold.split11.i.i58:   ; preds = %138
   br label %zend_zval_value_name.exit.i56
 
 zend_zval_value_name.exit.i56:                    ; preds = %zend_get_type_by_const.exit.fold.split11.i.i58, %zend_get_type_by_const.exit.fold.split10.i.i59, %zend_get_type_by_const.exit.fold.split.i.i60, %156, %155, %154, %153, %152, %151, %150, %149, %148, %147, %140, %138, %138
-  %.09.i.i57 = phi ptr [ %146, %140 ], [ @.str.8, %138 ], [ @.str.14, %156 ], [ @.str.3, %147 ], [ @.str.4, %148 ], [ @.str.5, %149 ], [ @.str.2, %zend_get_type_by_const.exit.fold.split11.i.i58 ], [ @.str.7, %150 ], [ @.str.15, %zend_get_type_by_const.exit.fold.split.i.i60 ], [ @.str.9, %151 ], [ @.str.10, %152 ], [ @.str.11, %153 ], [ @.str.12, %154 ], [ @.str.13, %155 ], [ @.str.16, %zend_get_type_by_const.exit.fold.split10.i.i59 ], [ @.str.8, %138 ]
+  %.09.i.i57 = phi ptr [ @.str.15, %zend_get_type_by_const.exit.fold.split.i.i60 ], [ %146, %140 ], [ @.str.8, %138 ], [ @.str.16, %zend_get_type_by_const.exit.fold.split10.i.i59 ], [ @.str.14, %156 ], [ @.str.3, %147 ], [ @.str.4, %148 ], [ @.str.5, %149 ], [ @.str.2, %zend_get_type_by_const.exit.fold.split11.i.i58 ], [ @.str.7, %150 ], [ @.str.13, %155 ], [ @.str.9, %151 ], [ @.str.10, %152 ], [ @.str.11, %153 ], [ @.str.12, %154 ], [ @.str.8, %138 ]
   tail call void (i32, ptr, ...) @zend_argument_type_error(i32 noundef %1, ptr noundef nonnull @.str.61, ptr noundef %2, ptr noundef nonnull %.09.i.i57)
   br label %zend_wrong_parameter_class_error.exit
 
@@ -1479,7 +1479,7 @@ zend_get_type_by_const.exit.fold.split11.i.i67:   ; preds = %167
   br label %zend_zval_value_name.exit.i65
 
 zend_zval_value_name.exit.i65:                    ; preds = %zend_get_type_by_const.exit.fold.split11.i.i67, %zend_get_type_by_const.exit.fold.split10.i.i68, %zend_get_type_by_const.exit.fold.split.i.i69, %185, %184, %183, %182, %181, %180, %179, %178, %177, %176, %169, %167, %167
-  %.09.i.i66 = phi ptr [ %175, %169 ], [ @.str.8, %167 ], [ @.str.14, %185 ], [ @.str.3, %176 ], [ @.str.4, %177 ], [ @.str.5, %178 ], [ @.str.2, %zend_get_type_by_const.exit.fold.split11.i.i67 ], [ @.str.7, %179 ], [ @.str.15, %zend_get_type_by_const.exit.fold.split.i.i69 ], [ @.str.9, %180 ], [ @.str.10, %181 ], [ @.str.11, %182 ], [ @.str.12, %183 ], [ @.str.13, %184 ], [ @.str.16, %zend_get_type_by_const.exit.fold.split10.i.i68 ], [ @.str.8, %167 ]
+  %.09.i.i66 = phi ptr [ @.str.15, %zend_get_type_by_const.exit.fold.split.i.i69 ], [ %175, %169 ], [ @.str.8, %167 ], [ @.str.16, %zend_get_type_by_const.exit.fold.split10.i.i68 ], [ @.str.14, %185 ], [ @.str.3, %176 ], [ @.str.4, %177 ], [ @.str.5, %178 ], [ @.str.2, %zend_get_type_by_const.exit.fold.split11.i.i67 ], [ @.str.7, %179 ], [ @.str.13, %184 ], [ @.str.9, %180 ], [ @.str.10, %181 ], [ @.str.11, %182 ], [ @.str.12, %183 ], [ @.str.8, %167 ]
   tail call void (i32, ptr, ...) @zend_argument_type_error(i32 noundef %1, ptr noundef nonnull @.str.62, ptr noundef %2, ptr noundef nonnull %.09.i.i66)
   br label %zend_wrong_parameter_class_error.exit
 
@@ -1589,7 +1589,7 @@ zend_get_type_by_const.exit.fold.split11.i.i76:   ; preds = %202
   br label %zend_zval_value_name.exit.i74
 
 zend_zval_value_name.exit.i74:                    ; preds = %zend_get_type_by_const.exit.fold.split11.i.i76, %zend_get_type_by_const.exit.fold.split10.i.i77, %zend_get_type_by_const.exit.fold.split.i.i78, %220, %219, %218, %217, %216, %215, %214, %213, %212, %211, %204, %202, %202
-  %.09.i.i75 = phi ptr [ %210, %204 ], [ @.str.8, %202 ], [ @.str.14, %220 ], [ @.str.3, %211 ], [ @.str.4, %212 ], [ @.str.5, %213 ], [ @.str.2, %zend_get_type_by_const.exit.fold.split11.i.i76 ], [ @.str.7, %214 ], [ @.str.15, %zend_get_type_by_const.exit.fold.split.i.i78 ], [ @.str.9, %215 ], [ @.str.10, %216 ], [ @.str.11, %217 ], [ @.str.12, %218 ], [ @.str.13, %219 ], [ @.str.16, %zend_get_type_by_const.exit.fold.split10.i.i77 ], [ @.str.8, %202 ]
+  %.09.i.i75 = phi ptr [ @.str.15, %zend_get_type_by_const.exit.fold.split.i.i78 ], [ %210, %204 ], [ @.str.8, %202 ], [ @.str.16, %zend_get_type_by_const.exit.fold.split10.i.i77 ], [ @.str.14, %220 ], [ @.str.3, %211 ], [ @.str.4, %212 ], [ @.str.5, %213 ], [ @.str.2, %zend_get_type_by_const.exit.fold.split11.i.i76 ], [ @.str.7, %214 ], [ @.str.13, %219 ], [ @.str.9, %215 ], [ @.str.10, %216 ], [ @.str.11, %217 ], [ @.str.12, %218 ], [ @.str.8, %202 ]
   tail call void (i32, ptr, ...) @zend_argument_type_error(i32 noundef %1, ptr noundef nonnull @.str.58, ptr noundef %197, ptr noundef nonnull %.09.i.i75)
   br label %zend_wrong_parameter_class_error.exit
 
@@ -1732,7 +1732,7 @@ zend_get_type_by_const.exit.fold.split11.i:       ; preds = %12
   br label %zend_zval_value_name.exit
 
 zend_zval_value_name.exit:                        ; preds = %12, %12, %14, %21, %22, %23, %24, %25, %26, %27, %28, %29, %30, %zend_get_type_by_const.exit.fold.split.i, %zend_get_type_by_const.exit.fold.split10.i, %zend_get_type_by_const.exit.fold.split11.i
-  %.09.i = phi ptr [ %20, %14 ], [ @.str.8, %12 ], [ @.str.14, %30 ], [ @.str.3, %21 ], [ @.str.4, %22 ], [ @.str.5, %23 ], [ @.str.2, %zend_get_type_by_const.exit.fold.split11.i ], [ @.str.7, %24 ], [ @.str.15, %zend_get_type_by_const.exit.fold.split.i ], [ @.str.9, %25 ], [ @.str.10, %26 ], [ @.str.11, %27 ], [ @.str.12, %28 ], [ @.str.13, %29 ], [ @.str.16, %zend_get_type_by_const.exit.fold.split10.i ], [ @.str.8, %12 ]
+  %.09.i = phi ptr [ @.str.15, %zend_get_type_by_const.exit.fold.split.i ], [ %20, %14 ], [ @.str.8, %12 ], [ @.str.16, %zend_get_type_by_const.exit.fold.split10.i ], [ @.str.14, %30 ], [ @.str.3, %21 ], [ @.str.4, %22 ], [ @.str.5, %23 ], [ @.str.2, %zend_get_type_by_const.exit.fold.split11.i ], [ @.str.7, %24 ], [ @.str.13, %29 ], [ @.str.9, %25 ], [ @.str.10, %26 ], [ @.str.11, %27 ], [ @.str.12, %28 ], [ @.str.8, %12 ]
   tail call void (i32, ptr, ...) @zend_argument_type_error(i32 noundef %0, ptr noundef nonnull @.str.59, ptr noundef %1, ptr noundef nonnull %.09.i)
   br label %32
 
@@ -1833,7 +1833,7 @@ zend_get_type_by_const.exit.fold.split11.i:       ; preds = %12
   br label %zend_zval_value_name.exit
 
 zend_zval_value_name.exit:                        ; preds = %12, %12, %14, %21, %22, %23, %24, %25, %26, %27, %28, %29, %30, %zend_get_type_by_const.exit.fold.split.i, %zend_get_type_by_const.exit.fold.split10.i, %zend_get_type_by_const.exit.fold.split11.i
-  %.09.i = phi ptr [ %20, %14 ], [ @.str.8, %12 ], [ @.str.14, %30 ], [ @.str.3, %21 ], [ @.str.4, %22 ], [ @.str.5, %23 ], [ @.str.2, %zend_get_type_by_const.exit.fold.split11.i ], [ @.str.7, %24 ], [ @.str.15, %zend_get_type_by_const.exit.fold.split.i ], [ @.str.9, %25 ], [ @.str.10, %26 ], [ @.str.11, %27 ], [ @.str.12, %28 ], [ @.str.13, %29 ], [ @.str.16, %zend_get_type_by_const.exit.fold.split10.i ], [ @.str.8, %12 ]
+  %.09.i = phi ptr [ @.str.15, %zend_get_type_by_const.exit.fold.split.i ], [ %20, %14 ], [ @.str.8, %12 ], [ @.str.16, %zend_get_type_by_const.exit.fold.split10.i ], [ @.str.14, %30 ], [ @.str.3, %21 ], [ @.str.4, %22 ], [ @.str.5, %23 ], [ @.str.2, %zend_get_type_by_const.exit.fold.split11.i ], [ @.str.7, %24 ], [ @.str.13, %29 ], [ @.str.9, %25 ], [ @.str.10, %26 ], [ @.str.11, %27 ], [ @.str.12, %28 ], [ @.str.8, %12 ]
   tail call void (i32, ptr, ...) @zend_argument_type_error(i32 noundef %0, ptr noundef nonnull @.str.60, ptr noundef %1, ptr noundef nonnull %.09.i)
   br label %32
 
@@ -1934,7 +1934,7 @@ zend_get_type_by_const.exit.fold.split11.i:       ; preds = %12
   br label %zend_zval_value_name.exit
 
 zend_zval_value_name.exit:                        ; preds = %12, %12, %14, %21, %22, %23, %24, %25, %26, %27, %28, %29, %30, %zend_get_type_by_const.exit.fold.split.i, %zend_get_type_by_const.exit.fold.split10.i, %zend_get_type_by_const.exit.fold.split11.i
-  %.09.i = phi ptr [ %20, %14 ], [ @.str.8, %12 ], [ @.str.14, %30 ], [ @.str.3, %21 ], [ @.str.4, %22 ], [ @.str.5, %23 ], [ @.str.2, %zend_get_type_by_const.exit.fold.split11.i ], [ @.str.7, %24 ], [ @.str.15, %zend_get_type_by_const.exit.fold.split.i ], [ @.str.9, %25 ], [ @.str.10, %26 ], [ @.str.11, %27 ], [ @.str.12, %28 ], [ @.str.13, %29 ], [ @.str.16, %zend_get_type_by_const.exit.fold.split10.i ], [ @.str.8, %12 ]
+  %.09.i = phi ptr [ @.str.15, %zend_get_type_by_const.exit.fold.split.i ], [ %20, %14 ], [ @.str.8, %12 ], [ @.str.16, %zend_get_type_by_const.exit.fold.split10.i ], [ @.str.14, %30 ], [ @.str.3, %21 ], [ @.str.4, %22 ], [ @.str.5, %23 ], [ @.str.2, %zend_get_type_by_const.exit.fold.split11.i ], [ @.str.7, %24 ], [ @.str.13, %29 ], [ @.str.9, %25 ], [ @.str.10, %26 ], [ @.str.11, %27 ], [ @.str.12, %28 ], [ @.str.8, %12 ]
   tail call void (i32, ptr, ...) @zend_argument_type_error(i32 noundef %0, ptr noundef nonnull @.str.63, ptr noundef %1, ptr noundef nonnull %.09.i)
   br label %32
 
@@ -2035,7 +2035,7 @@ zend_get_type_by_const.exit.fold.split11.i:       ; preds = %12
   br label %zend_zval_value_name.exit
 
 zend_zval_value_name.exit:                        ; preds = %12, %12, %14, %21, %22, %23, %24, %25, %26, %27, %28, %29, %30, %zend_get_type_by_const.exit.fold.split.i, %zend_get_type_by_const.exit.fold.split10.i, %zend_get_type_by_const.exit.fold.split11.i
-  %.09.i = phi ptr [ %20, %14 ], [ @.str.8, %12 ], [ @.str.14, %30 ], [ @.str.3, %21 ], [ @.str.4, %22 ], [ @.str.5, %23 ], [ @.str.2, %zend_get_type_by_const.exit.fold.split11.i ], [ @.str.7, %24 ], [ @.str.15, %zend_get_type_by_const.exit.fold.split.i ], [ @.str.9, %25 ], [ @.str.10, %26 ], [ @.str.11, %27 ], [ @.str.12, %28 ], [ @.str.13, %29 ], [ @.str.16, %zend_get_type_by_const.exit.fold.split10.i ], [ @.str.8, %12 ]
+  %.09.i = phi ptr [ @.str.15, %zend_get_type_by_const.exit.fold.split.i ], [ %20, %14 ], [ @.str.8, %12 ], [ @.str.16, %zend_get_type_by_const.exit.fold.split10.i ], [ @.str.14, %30 ], [ @.str.3, %21 ], [ @.str.4, %22 ], [ @.str.5, %23 ], [ @.str.2, %zend_get_type_by_const.exit.fold.split11.i ], [ @.str.7, %24 ], [ @.str.13, %29 ], [ @.str.9, %25 ], [ @.str.10, %26 ], [ @.str.11, %27 ], [ @.str.12, %28 ], [ @.str.8, %12 ]
   tail call void (i32, ptr, ...) @zend_argument_type_error(i32 noundef %0, ptr noundef nonnull @.str.64, ptr noundef %1, ptr noundef nonnull %.09.i)
   br label %32
 
@@ -2136,7 +2136,7 @@ zend_get_type_by_const.exit.fold.split11.i:       ; preds = %12
   br label %zend_zval_value_name.exit
 
 zend_zval_value_name.exit:                        ; preds = %12, %12, %14, %21, %22, %23, %24, %25, %26, %27, %28, %29, %30, %zend_get_type_by_const.exit.fold.split.i, %zend_get_type_by_const.exit.fold.split10.i, %zend_get_type_by_const.exit.fold.split11.i
-  %.09.i = phi ptr [ %20, %14 ], [ @.str.8, %12 ], [ @.str.14, %30 ], [ @.str.3, %21 ], [ @.str.4, %22 ], [ @.str.5, %23 ], [ @.str.2, %zend_get_type_by_const.exit.fold.split11.i ], [ @.str.7, %24 ], [ @.str.15, %zend_get_type_by_const.exit.fold.split.i ], [ @.str.9, %25 ], [ @.str.10, %26 ], [ @.str.11, %27 ], [ @.str.12, %28 ], [ @.str.13, %29 ], [ @.str.16, %zend_get_type_by_const.exit.fold.split10.i ], [ @.str.8, %12 ]
+  %.09.i = phi ptr [ @.str.15, %zend_get_type_by_const.exit.fold.split.i ], [ %20, %14 ], [ @.str.8, %12 ], [ @.str.16, %zend_get_type_by_const.exit.fold.split10.i ], [ @.str.14, %30 ], [ @.str.3, %21 ], [ @.str.4, %22 ], [ @.str.5, %23 ], [ @.str.2, %zend_get_type_by_const.exit.fold.split11.i ], [ @.str.7, %24 ], [ @.str.13, %29 ], [ @.str.9, %25 ], [ @.str.10, %26 ], [ @.str.11, %27 ], [ @.str.12, %28 ], [ @.str.8, %12 ]
   tail call void (i32, ptr, ...) @zend_argument_type_error(i32 noundef %0, ptr noundef nonnull @.str.61, ptr noundef %1, ptr noundef nonnull %.09.i)
   br label %32
 
@@ -2237,7 +2237,7 @@ zend_get_type_by_const.exit.fold.split11.i:       ; preds = %12
   br label %zend_zval_value_name.exit
 
 zend_zval_value_name.exit:                        ; preds = %12, %12, %14, %21, %22, %23, %24, %25, %26, %27, %28, %29, %30, %zend_get_type_by_const.exit.fold.split.i, %zend_get_type_by_const.exit.fold.split10.i, %zend_get_type_by_const.exit.fold.split11.i
-  %.09.i = phi ptr [ %20, %14 ], [ @.str.8, %12 ], [ @.str.14, %30 ], [ @.str.3, %21 ], [ @.str.4, %22 ], [ @.str.5, %23 ], [ @.str.2, %zend_get_type_by_const.exit.fold.split11.i ], [ @.str.7, %24 ], [ @.str.15, %zend_get_type_by_const.exit.fold.split.i ], [ @.str.9, %25 ], [ @.str.10, %26 ], [ @.str.11, %27 ], [ @.str.12, %28 ], [ @.str.13, %29 ], [ @.str.16, %zend_get_type_by_const.exit.fold.split10.i ], [ @.str.8, %12 ]
+  %.09.i = phi ptr [ @.str.15, %zend_get_type_by_const.exit.fold.split.i ], [ %20, %14 ], [ @.str.8, %12 ], [ @.str.16, %zend_get_type_by_const.exit.fold.split10.i ], [ @.str.14, %30 ], [ @.str.3, %21 ], [ @.str.4, %22 ], [ @.str.5, %23 ], [ @.str.2, %zend_get_type_by_const.exit.fold.split11.i ], [ @.str.7, %24 ], [ @.str.13, %29 ], [ @.str.9, %25 ], [ @.str.10, %26 ], [ @.str.11, %27 ], [ @.str.12, %28 ], [ @.str.8, %12 ]
   tail call void (i32, ptr, ...) @zend_argument_type_error(i32 noundef %0, ptr noundef nonnull @.str.62, ptr noundef %1, ptr noundef nonnull %.09.i)
   br label %32
 
@@ -2352,7 +2352,7 @@ zend_get_type_by_const.exit.fold.split11.i:       ; preds = %18
   br label %zend_zval_value_name.exit
 
 zend_zval_value_name.exit:                        ; preds = %18, %18, %20, %27, %28, %29, %30, %31, %32, %33, %34, %35, %36, %zend_get_type_by_const.exit.fold.split.i, %zend_get_type_by_const.exit.fold.split10.i, %zend_get_type_by_const.exit.fold.split11.i
-  %.09.i = phi ptr [ %26, %20 ], [ @.str.8, %18 ], [ @.str.14, %36 ], [ @.str.3, %27 ], [ @.str.4, %28 ], [ @.str.5, %29 ], [ @.str.2, %zend_get_type_by_const.exit.fold.split11.i ], [ @.str.7, %30 ], [ @.str.15, %zend_get_type_by_const.exit.fold.split.i ], [ @.str.9, %31 ], [ @.str.10, %32 ], [ @.str.11, %33 ], [ @.str.12, %34 ], [ @.str.13, %35 ], [ @.str.16, %zend_get_type_by_const.exit.fold.split10.i ], [ @.str.8, %18 ]
+  %.09.i = phi ptr [ @.str.15, %zend_get_type_by_const.exit.fold.split.i ], [ %26, %20 ], [ @.str.8, %18 ], [ @.str.16, %zend_get_type_by_const.exit.fold.split10.i ], [ @.str.14, %36 ], [ @.str.3, %27 ], [ @.str.4, %28 ], [ @.str.5, %29 ], [ @.str.2, %zend_get_type_by_const.exit.fold.split11.i ], [ @.str.7, %30 ], [ @.str.13, %35 ], [ @.str.9, %31 ], [ @.str.10, %32 ], [ @.str.11, %33 ], [ @.str.12, %34 ], [ @.str.8, %18 ]
   tail call void (i32, ptr, ...) @zend_argument_type_error(i32 noundef %0, ptr noundef nonnull @.str.58, ptr noundef %13, ptr noundef nonnull %.09.i)
   br label %38
 
@@ -4971,7 +4971,7 @@ zend_fcall_info_init.exit.i:                      ; preds = %.critedge.i.i.i
   br label %zend_parse_arg_impl.exit
 
 618:                                              ; preds = %616, %612
-  %.15.i = phi ptr [ %617, %616 ], [ @.str.22, %612 ]
+  %.15.i = phi ptr [ @.str.22, %612 ], [ %617, %616 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %642
 
@@ -5146,7 +5146,7 @@ zend_get_type_by_const.exit.fold.split11.i:       ; preds = %665
   br label %zend_zval_value_name.exit
 
 zend_zval_value_name.exit:                        ; preds = %665, %665, %667, %674, %675, %676, %677, %678, %679, %680, %681, %682, %683, %zend_get_type_by_const.exit.fold.split.i, %zend_get_type_by_const.exit.fold.split10.i, %zend_get_type_by_const.exit.fold.split11.i
-  %.09.i = phi ptr [ %673, %667 ], [ @.str.8, %665 ], [ @.str.14, %683 ], [ @.str.3, %674 ], [ @.str.4, %675 ], [ @.str.5, %676 ], [ @.str.2, %zend_get_type_by_const.exit.fold.split11.i ], [ @.str.7, %677 ], [ @.str.15, %zend_get_type_by_const.exit.fold.split.i ], [ @.str.9, %678 ], [ @.str.10, %679 ], [ @.str.11, %680 ], [ @.str.12, %681 ], [ @.str.13, %682 ], [ @.str.16, %zend_get_type_by_const.exit.fold.split10.i ], [ @.str.8, %665 ]
+  %.09.i = phi ptr [ @.str.15, %zend_get_type_by_const.exit.fold.split.i ], [ %673, %667 ], [ @.str.8, %665 ], [ @.str.16, %zend_get_type_by_const.exit.fold.split10.i ], [ @.str.14, %683 ], [ @.str.3, %674 ], [ @.str.4, %675 ], [ @.str.5, %676 ], [ @.str.2, %zend_get_type_by_const.exit.fold.split11.i ], [ @.str.7, %677 ], [ @.str.13, %682 ], [ @.str.9, %678 ], [ @.str.10, %679 ], [ @.str.11, %680 ], [ @.str.12, %681 ], [ @.str.8, %665 ]
   call void (i32, ptr, ...) @zend_argument_type_error(i32 noundef %0, ptr noundef nonnull @.str.59, ptr noundef nonnull %.1.i.ph, ptr noundef nonnull %.09.i)
   br label %.thread
 
@@ -5522,7 +5522,7 @@ define internal fastcc range(i32 -1, 1) i32 @zend_parse_va_args(i32 noundef %0, 
   br label %zend_string_release.exit
 
 zend_string_release.exit:                         ; preds = %.backedge, %.preheader, %86, %85, %78, %66, %162, %163, %165, %64, %37
-  %.0 = phi i32 [ -1, %85 ], [ -1, %86 ], [ -1, %37 ], [ -1, %162 ], [ -1, %78 ], [ -1, %64 ], [ -1, %165 ], [ -1, %163 ], [ -1, %66 ], [ 0, %.preheader ], [ 0, %.backedge ]
+  %.0 = phi i32 [ -1, %85 ], [ -1, %86 ], [ -1, %37 ], [ -1, %162 ], [ -1, %78 ], [ -1, %64 ], [ -1, %66 ], [ -1, %165 ], [ -1, %163 ], [ 0, %.preheader ], [ 0, %.backedge ]
   ret i32 %.0
 }
 
@@ -6690,7 +6690,7 @@ zend_arena_alloc.exit:                            ; preds = %145, %147
   br label %.loopexit
 
 .loopexit:                                        ; preds = %101, %186, %217, %13, %45, %229, %237, %235, %1
-  %.0 = phi i32 [ 0, %1 ], [ 0, %235 ], [ 0, %13 ], [ -1, %229 ], [ -1, %45 ], [ 0, %237 ], [ -1, %186 ], [ -1, %217 ], [ -1, %101 ]
+  %.0 = phi i32 [ 0, %1 ], [ 0, %235 ], [ 0, %13 ], [ -1, %217 ], [ -1, %229 ], [ -1, %45 ], [ -1, %186 ], [ 0, %237 ], [ -1, %101 ]
   ret i32 %.0
 }
 
@@ -7478,7 +7478,7 @@ zend_class_default_properties_table.exit:         ; preds = %41, %46
   br label %_object_and_properties_init.exit
 
 _object_and_properties_init.exit:                 ; preds = %63, %.preheader, %32, %13, %22, %31, %69
-  %.0.i = phi i32 [ -1, %13 ], [ -1, %22 ], [ 0, %31 ], [ 0, %69 ], [ 0, %32 ], [ 0, %.preheader ], [ 0, %63 ]
+  %.0.i = phi i32 [ -1, %13 ], [ -1, %22 ], [ 0, %31 ], [ 0, %69 ], [ 0, %.preheader ], [ 0, %32 ], [ 0, %63 ]
   ret i32 %.0.i
 }
 
@@ -7627,7 +7627,7 @@ zend_class_default_properties_table.exit:         ; preds = %38, %43
   br label %_object_and_properties_init.exit
 
 _object_and_properties_init.exit:                 ; preds = %60, %.preheader, %28, %12, %21, %66
-  %.0.i = phi i32 [ -1, %12 ], [ -1, %21 ], [ 0, %66 ], [ 0, %28 ], [ 0, %.preheader ], [ 0, %60 ]
+  %.0.i = phi i32 [ -1, %12 ], [ -1, %21 ], [ 0, %66 ], [ 0, %.preheader ], [ 0, %28 ], [ 0, %60 ]
   ret i32 %.0.i
 }
 
@@ -14135,7 +14135,7 @@ zend_hash_index_find_deref.exit:                  ; preds = %27, %29, %33
   br label %zend_hash_index_find_deref.exit32
 
 zend_hash_index_find_deref.exit32:                ; preds = %42, %38
-  %.025 = phi ptr [ %44, %42 ], [ %37, %38 ]
+  %.025 = phi ptr [ %37, %38 ], [ %44, %42 ]
   %45 = icmp eq ptr %.0.i, null
   br i1 %45, label %zend_hash_index_find_deref.exit32.thread, label %46
 
@@ -14953,7 +14953,7 @@ instanceof_function.exit.i.thread:                ; preds = %336, %instanceof_fu
   br i1 %.not397.i.not, label %.thread174, label %.thread168
 
 .thread168:                                       ; preds = %260, %263, %get_scope.exit104, %284, %328, %instanceof_function.exit415.i.thread, %get_scope.exit110.thread, %256, %342
-  %.0322.i171 = phi i1 [ false, %342 ], [ false, %260 ], [ false, %263 ], [ false, %get_scope.exit104 ], [ false, %284 ], [ false, %328 ], [ %319, %instanceof_function.exit415.i.thread ], [ false, %get_scope.exit110.thread ], [ false, %256 ]
+  %.0322.i171 = phi i1 [ false, %342 ], [ false, %260 ], [ false, %256 ], [ false, %263 ], [ false, %get_scope.exit110.thread ], [ false, %get_scope.exit104 ], [ false, %284 ], [ false, %328 ], [ %319, %instanceof_function.exit415.i.thread ]
   %345 = load ptr, ptr %spec.store.select.sroa.sel.v.sroa.sel.v.sroa.sel, align 8, !tbaa !283
   %346 = icmp eq ptr %345, null
   %or.cond6.i = select i1 %346, i1 true, i1 %.0322.i171
@@ -15078,7 +15078,7 @@ get_scope.exit107:                                ; preds = %375, %376, %379
   %413 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %5, i64 noundef 0, ptr noundef nonnull @.str.187, ptr noundef %404, ptr noundef nonnull %408, ptr noundef nonnull %412) #35
   br label %.thread179
 
-.thread174:                                       ; preds = %thread-pre-split, %327, %299, %314, %342
+.thread174:                                       ; preds = %314, %299, %327, %thread-pre-split, %342
   br i1 %.not, label %.thread179, label %414
 
 414:                                              ; preds = %.thread174
@@ -20088,7 +20088,7 @@ try_parse_string.exit:                            ; preds = %27
 
 52:                                               ; preds = %.thread, %22
   %53 = icmp eq i64 %9, 2
-  br i1 %53, label %65, label %.split
+  br i1 %53, label %63, label %.split
 
 .split:                                           ; preds = %..split_crit_edge, %52
   %54 = phi i8 [ %.pre, %..split_crit_edge ], [ %21, %52 ]
@@ -20097,7 +20097,7 @@ try_parse_string.exit:                            ; preds = %27
 
 56:                                               ; preds = %.split
   %57 = icmp slt i8 %54, 48
-  br i1 %57, label %58, label %63
+  br i1 %57, label %58, label %_zend_handle_numeric_str.exit62
 
 58:                                               ; preds = %56
   %.not.i60 = icmp eq i8 %54, 45
@@ -20108,54 +20108,54 @@ try_parse_string.exit:                            ; preds = %27
   %61 = load i8, ptr %60, align 1, !tbaa !42
   %62 = add i8 %61, -58
   %or.cond.i61 = icmp ult i8 %62, -10
-  br i1 %or.cond.i61, label %.critedge58, label %63
+  br i1 %or.cond.i61, label %.critedge58, label %_zend_handle_numeric_str.exit62
 
-63:                                               ; preds = %59, %56
-  %64 = call zeroext i1 @_zend_handle_numeric_str_ex(ptr noundef nonnull %7, i64 noundef %9, ptr noundef nonnull %5) #35
-  br i1 %64, label %77, label %.critedge58
-
-65:                                               ; preds = %52
+63:                                               ; preds = %52
   %bcmp53 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %7, ptr noundef nonnull dereferenceable(2) @.str.139, i64 2)
   %.not54 = icmp eq i32 %bcmp53, 0
   br i1 %.not54, label %74, label %.split42
 
-.split42:                                         ; preds = %65
-  %66 = icmp sgt i8 %21, 57
-  br i1 %66, label %.critedge58, label %67, !prof !45
+.split42:                                         ; preds = %63
+  %64 = icmp sgt i8 %21, 57
+  br i1 %64, label %.critedge58, label %65, !prof !45
 
-67:                                               ; preds = %.split42
-  %68 = icmp slt i8 %21, 48
-  br i1 %68, label %69, label %_zend_handle_numeric_str.exit62
+65:                                               ; preds = %.split42
+  %66 = icmp slt i8 %21, 48
+  br i1 %66, label %67, label %72
 
-69:                                               ; preds = %67
+67:                                               ; preds = %65
   %.not.i = icmp eq i8 %21, 45
-  br i1 %.not.i, label %70, label %.critedge58
+  br i1 %.not.i, label %68, label %.critedge58
 
-70:                                               ; preds = %69
-  %71 = getelementptr inbounds nuw i8, ptr %7, i64 1
-  %72 = load i8, ptr %71, align 1, !tbaa !42
-  %73 = add i8 %72, -58
-  %or.cond.i = icmp ult i8 %73, -10
-  br i1 %or.cond.i, label %.critedge58, label %_zend_handle_numeric_str.exit62
+68:                                               ; preds = %67
+  %69 = getelementptr inbounds nuw i8, ptr %7, i64 1
+  %70 = load i8, ptr %69, align 1, !tbaa !42
+  %71 = add i8 %70, -58
+  %or.cond.i = icmp ult i8 %71, -10
+  br i1 %or.cond.i, label %.critedge58, label %72
 
-74:                                               ; preds = %65
+72:                                               ; preds = %68, %65
+  %73 = call zeroext i1 @_zend_handle_numeric_str_ex(ptr noundef nonnull %7, i64 noundef 2, ptr noundef nonnull %5) #35
+  br i1 %73, label %77, label %.critedge58
+
+74:                                               ; preds = %63
   store ptr @zend_empty_array, ptr %0, align 8, !tbaa !42
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 7, ptr %75, align 8, !tbaa !42
   br label %106
 
-_zend_handle_numeric_str.exit62:                  ; preds = %67, %70
-  %76 = call zeroext i1 @_zend_handle_numeric_str_ex(ptr noundef nonnull %7, i64 noundef 2, ptr noundef nonnull %5) #35
+_zend_handle_numeric_str.exit62:                  ; preds = %56, %59
+  %76 = call zeroext i1 @_zend_handle_numeric_str_ex(ptr noundef nonnull %7, i64 noundef %9, ptr noundef nonnull %5) #35
   br i1 %76, label %77, label %.critedge58
 
-77:                                               ; preds = %63, %_zend_handle_numeric_str.exit62
+77:                                               ; preds = %72, %_zend_handle_numeric_str.exit62
   %78 = load i64, ptr %5, align 8, !tbaa !73
   store i64 %78, ptr %0, align 8, !tbaa !42
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 4, ptr %79, align 8, !tbaa !42
   br label %106
 
-.critedge58:                                      ; preds = %.preheader.i, %70, %69, %.split42, %58, %.split, %59, %63, %try_parse_string.exit, %_zend_handle_numeric_str.exit62
+.critedge58:                                      ; preds = %.preheader.i, %68, %67, %.split42, %58, %.split, %59, %72, %try_parse_string.exit, %_zend_handle_numeric_str.exit62
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %80 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #36
   %81 = call ptr @zend_string_concat3(ptr noundef nonnull @.str.198, i64 noundef 6, ptr noundef nonnull %7, i64 noundef %80, ptr noundef nonnull @.str.199, i64 noundef 1) #35

@@ -26745,7 +26745,7 @@ define hidden void @_ZN4text6Buffer16apply_local_edit17h6b1d22846e477d17E.llvm.6
   br i1 %706, label %.invoke1258, label %708
 
 .invoke1262:                                      ; preds = %831, %760, %693, %933
-  %707 = phi ptr [ @anon.96b83cf3f3f270e6703f77988f482208.150, %933 ], [ @anon.96b83cf3f3f270e6703f77988f482208.149, %831 ], [ @anon.96b83cf3f3f270e6703f77988f482208.143, %693 ], [ @anon.96b83cf3f3f270e6703f77988f482208.147, %760 ]
+  %707 = phi ptr [ @anon.96b83cf3f3f270e6703f77988f482208.150, %933 ], [ @anon.96b83cf3f3f270e6703f77988f482208.143, %693 ], [ @anon.96b83cf3f3f270e6703f77988f482208.147, %760 ], [ @anon.96b83cf3f3f270e6703f77988f482208.149, %831 ]
   invoke void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.96b83cf3f3f270e6703f77988f482208.58.llvm.6364521280245787181, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %707) #44
           to label %.cont1263 unwind label %.critedge125.thread508.loopexit.split-lp.loopexit.split-lp
 
@@ -26757,9 +26757,9 @@ define hidden void @_ZN4text6Buffer16apply_local_edit17h6b1d22846e477d17E.llvm.6
   br i1 %709, label %715, label %.invoke1264
 
 .invoke1264:                                      ; preds = %845, %774, %708, %977, %947
-  %710 = phi i64 [ %942, %977 ], [ %942, %947 ], [ %702, %708 ], [ %769, %774 ], [ %840, %845 ]
-  %711 = phi i64 [ %975, %977 ], [ %945, %947 ], [ %705, %708 ], [ %772, %774 ], [ %843, %845 ]
-  %712 = phi ptr [ @anon.96b83cf3f3f270e6703f77988f482208.152, %977 ], [ @anon.96b83cf3f3f270e6703f77988f482208.150, %947 ], [ @anon.96b83cf3f3f270e6703f77988f482208.143, %708 ], [ @anon.96b83cf3f3f270e6703f77988f482208.147, %774 ], [ @anon.96b83cf3f3f270e6703f77988f482208.149, %845 ]
+  %710 = phi i64 [ %942, %977 ], [ %942, %947 ], [ %769, %774 ], [ %702, %708 ], [ %840, %845 ]
+  %711 = phi i64 [ %975, %977 ], [ %945, %947 ], [ %772, %774 ], [ %705, %708 ], [ %843, %845 ]
+  %712 = phi ptr [ @anon.96b83cf3f3f270e6703f77988f482208.152, %977 ], [ @anon.96b83cf3f3f270e6703f77988f482208.150, %947 ], [ @anon.96b83cf3f3f270e6703f77988f482208.147, %774 ], [ @anon.96b83cf3f3f270e6703f77988f482208.143, %708 ], [ @anon.96b83cf3f3f270e6703f77988f482208.149, %845 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %710, i64 noundef %711, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %712) #44
           to label %.cont1265 unwind label %.critedge125.thread508.loopexit.split-lp.loopexit.split-lp
 
@@ -26771,7 +26771,7 @@ define hidden void @_ZN4text6Buffer16apply_local_edit17h6b1d22846e477d17E.llvm.6
           to label %684 unwind label %.critedge125.thread508.loopexit.split-lp.loopexit
 
 .invoke1258:                                      ; preds = %767, %758, %700, %691, %940, %931
-  %714 = phi ptr [ @anon.96b83cf3f3f270e6703f77988f482208.151, %940 ], [ @anon.96b83cf3f3f270e6703f77988f482208.151, %931 ], [ @anon.96b83cf3f3f270e6703f77988f482208.148, %767 ], [ @anon.96b83cf3f3f270e6703f77988f482208.144, %700 ], [ @anon.96b83cf3f3f270e6703f77988f482208.144, %691 ], [ @anon.96b83cf3f3f270e6703f77988f482208.148, %758 ]
+  %714 = phi ptr [ @anon.96b83cf3f3f270e6703f77988f482208.151, %940 ], [ @anon.96b83cf3f3f270e6703f77988f482208.151, %931 ], [ @anon.96b83cf3f3f270e6703f77988f482208.144, %691 ], [ @anon.96b83cf3f3f270e6703f77988f482208.148, %758 ], [ @anon.96b83cf3f3f270e6703f77988f482208.144, %700 ], [ @anon.96b83cf3f3f270e6703f77988f482208.148, %767 ]
   invoke void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef readonly align 8 dereferenceable(24) %714) #44
           to label %.cont1259 unwind label %.critedge125.thread508.loopexit.split-lp.loopexit.split-lp
 
@@ -32653,7 +32653,7 @@ define hidden void @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT
 36:                                               ; preds = %31
   switch i32 %33, label %"_ZN14language_model8provider5cloud26CloudLanguageModelProvider3new28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h749a87db3b47b38bE.exit" [
     i32 5, label %37
-    i32 9, label %61
+    i32 9, label %55
   ]
 
 37:                                               ; preds = %36
@@ -32678,27 +32678,27 @@ define hidden void @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %53 = load i32, ptr %52, align 4, !alias.scope !9430, !noalias !9431, !noundef !4
   %54 = icmp eq i32 %51, %53
-  br i1 %54, label %55, label %"_ZN55_$LT$client..Status$u20$as$u20$core..cmp..PartialEq$GT$2eq17heaeda9e69cb0f517E.exit.thread.i"
+  br i1 %54, label %"_ZN55_$LT$client..Status$u20$as$u20$core..cmp..PartialEq$GT$2eq17heaeda9e69cb0f517E.exit.i", label %"_ZN55_$LT$client..Status$u20$as$u20$core..cmp..PartialEq$GT$2eq17heaeda9e69cb0f517E.exit.thread.i"
 
-55:                                               ; preds = %49
-  %56 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %57 = load i32, ptr %56, align 4, !alias.scope !9427, !noalias !9428, !noundef !4
-  %58 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %59 = load i32, ptr %58, align 8, !alias.scope !9430, !noalias !9431, !noundef !4
-  %60 = icmp eq i32 %57, %59
-  br i1 %60, label %"_ZN14language_model8provider5cloud26CloudLanguageModelProvider3new28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h749a87db3b47b38bE.exit", label %"_ZN55_$LT$client..Status$u20$as$u20$core..cmp..PartialEq$GT$2eq17heaeda9e69cb0f517E.exit.thread.i"
+55:                                               ; preds = %36
+  %56 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %57 = load i64, ptr %56, align 8, !alias.scope !9427, !noalias !9428, !noundef !4
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %59 = load i64, ptr %58, align 8, !alias.scope !9430, !noalias !9431, !noundef !4
+  %60 = icmp eq i64 %57, %59
+  br i1 %60, label %61, label %"_ZN55_$LT$client..Status$u20$as$u20$core..cmp..PartialEq$GT$2eq17heaeda9e69cb0f517E.exit.thread.i"
 
-61:                                               ; preds = %36
-  %62 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %63 = load i64, ptr %62, align 8, !alias.scope !9427, !noalias !9428, !noundef !4
-  %64 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %65 = load i64, ptr %64, align 8, !alias.scope !9430, !noalias !9431, !noundef !4
-  %66 = icmp eq i64 %63, %65
-  br i1 %66, label %"_ZN55_$LT$client..Status$u20$as$u20$core..cmp..PartialEq$GT$2eq17heaeda9e69cb0f517E.exit.i", label %"_ZN55_$LT$client..Status$u20$as$u20$core..cmp..PartialEq$GT$2eq17heaeda9e69cb0f517E.exit.thread.i"
+61:                                               ; preds = %55
+  %62 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %63 = load i32, ptr %62, align 8, !alias.scope !9427, !noalias !9428, !noundef !4
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %65 = load i32, ptr %64, align 8, !alias.scope !9430, !noalias !9431, !noundef !4
+  %66 = icmp eq i32 %63, %65
+  br i1 %66, label %"_ZN14language_model8provider5cloud26CloudLanguageModelProvider3new28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h749a87db3b47b38bE.exit", label %"_ZN55_$LT$client..Status$u20$as$u20$core..cmp..PartialEq$GT$2eq17heaeda9e69cb0f517E.exit.thread.i"
 
-"_ZN55_$LT$client..Status$u20$as$u20$core..cmp..PartialEq$GT$2eq17heaeda9e69cb0f517E.exit.i": ; preds = %61
+"_ZN55_$LT$client..Status$u20$as$u20$core..cmp..PartialEq$GT$2eq17heaeda9e69cb0f517E.exit.i": ; preds = %49
   %67 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %68 = load i32, ptr %67, align 8, !alias.scope !9427, !noalias !9428, !noundef !4
+  %68 = load i32, ptr %67, align 4, !alias.scope !9427, !noalias !9428, !noundef !4
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %70 = load i32, ptr %69, align 8, !alias.scope !9430, !noalias !9431, !noundef !4
   %71 = icmp eq i32 %68, %70
@@ -32747,7 +32747,7 @@ define hidden void @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT
   tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.5.0.copyload, i64 noundef 80, i64 noundef 8) #45, !noalias !9437
   br label %96
 
-"_ZN14language_model8provider5cloud26CloudLanguageModelProvider3new28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h749a87db3b47b38bE.exit": ; preds = %.noexc10, %.noexc9, %"_ZN55_$LT$client..Status$u20$as$u20$core..cmp..PartialEq$GT$2eq17heaeda9e69cb0f517E.exit.i", %55, %36
+"_ZN14language_model8provider5cloud26CloudLanguageModelProvider3new28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h749a87db3b47b38bE.exit": ; preds = %.noexc10, %.noexc9, %"_ZN55_$LT$client..Status$u20$as$u20$core..cmp..PartialEq$GT$2eq17heaeda9e69cb0f517E.exit.i", %61, %36
   %87 = icmp ne ptr %.sroa.5.0.copyload, null
   tail call void @llvm.assume(i1 %87)
   %88 = icmp eq ptr %.sroa.5.0.copyload, inttoptr (i64 -1 to ptr)
@@ -46340,10 +46340,10 @@ default.unreachable659:                           ; preds = %39
   br label %258
 
 .thread573:                                       ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h42084f71e690bb99E.exit", %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h7a0a7c9c1fd10ebdE.exit", %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17hf0c4d76aa223fff5E.exit", %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h599e50e628c6cd7fE.exit", %141, %164, %187, %210, %233, %256
-  %.sroa.01.1585 = phi i64 [ 9, %256 ], [ 0, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h599e50e628c6cd7fE.exit" ], [ 1, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17hf0c4d76aa223fff5E.exit" ], [ 2, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h7a0a7c9c1fd10ebdE.exit" ], [ 4, %141 ], [ 5, %164 ], [ 6, %187 ], [ 7, %210 ], [ 8, %233 ], [ 3, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h42084f71e690bb99E.exit" ]
-  %.sroa.25.sroa.15.1582 = phi i64 [ %237, %256 ], [ %.sroa.6434.0.copyload, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h599e50e628c6cd7fE.exit" ], [ %.sroa.6453.0.copyload, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17hf0c4d76aa223fff5E.exit" ], [ %.sroa.6356.0.copyload, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h7a0a7c9c1fd10ebdE.exit" ], [ %126, %141 ], [ %145, %164 ], [ %168, %187 ], [ %191, %210 ], [ %214, %233 ], [ %.sroa.6416.0.copyload, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h42084f71e690bb99E.exit" ]
-  %.sroa.25.sroa.14.1581 = phi ptr [ %.sroa.6339.sroa.0.0.copyload, %256 ], [ %.sroa.5433.0.copyload, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h599e50e628c6cd7fE.exit" ], [ %.sroa.5452.0.copyload, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17hf0c4d76aa223fff5E.exit" ], [ %.sroa.5.0.copyload, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h7a0a7c9c1fd10ebdE.exit" ], [ %.sroa.6345.sroa.0.0.copyload, %141 ], [ %.sroa.6351.sroa.0.0.copyload, %164 ], [ %.sroa.6321.sroa.0.0.copyload, %187 ], [ %.sroa.6327.sroa.0.0.copyload, %210 ], [ %.sroa.6333.sroa.0.0.copyload, %233 ], [ %.sroa.5415.0.copyload, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h42084f71e690bb99E.exit" ]
-  %.sroa.25.sroa.0.1580 = phi i64 [ %.sroa.0337.0.copyload338, %256 ], [ %.sroa.0432.0.copyload, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h599e50e628c6cd7fE.exit" ], [ %.sroa.0451.0.copyload, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17hf0c4d76aa223fff5E.exit" ], [ %.sroa.0355.0.copyload, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h7a0a7c9c1fd10ebdE.exit" ], [ %.sroa.0343.0.copyload344, %141 ], [ %.sroa.0349.0.copyload350, %164 ], [ %.sroa.0319.0.copyload320, %187 ], [ %.sroa.0325.0.copyload326, %210 ], [ %.sroa.0331.0.copyload332, %233 ], [ %.sroa.0414.0.copyload, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h42084f71e690bb99E.exit" ]
+  %.sroa.01.1585 = phi i64 [ 0, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h599e50e628c6cd7fE.exit" ], [ 9, %256 ], [ 8, %233 ], [ 7, %210 ], [ 6, %187 ], [ 5, %164 ], [ 4, %141 ], [ 2, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h7a0a7c9c1fd10ebdE.exit" ], [ 1, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17hf0c4d76aa223fff5E.exit" ], [ 3, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h42084f71e690bb99E.exit" ]
+  %.sroa.25.sroa.15.1582 = phi i64 [ %.sroa.6434.0.copyload, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h599e50e628c6cd7fE.exit" ], [ %237, %256 ], [ %214, %233 ], [ %191, %210 ], [ %168, %187 ], [ %145, %164 ], [ %126, %141 ], [ %.sroa.6356.0.copyload, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h7a0a7c9c1fd10ebdE.exit" ], [ %.sroa.6453.0.copyload, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17hf0c4d76aa223fff5E.exit" ], [ %.sroa.6416.0.copyload, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h42084f71e690bb99E.exit" ]
+  %.sroa.25.sroa.14.1581 = phi ptr [ %.sroa.5433.0.copyload, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h599e50e628c6cd7fE.exit" ], [ %.sroa.6339.sroa.0.0.copyload, %256 ], [ %.sroa.6333.sroa.0.0.copyload, %233 ], [ %.sroa.6327.sroa.0.0.copyload, %210 ], [ %.sroa.6321.sroa.0.0.copyload, %187 ], [ %.sroa.6351.sroa.0.0.copyload, %164 ], [ %.sroa.6345.sroa.0.0.copyload, %141 ], [ %.sroa.5.0.copyload, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h7a0a7c9c1fd10ebdE.exit" ], [ %.sroa.5452.0.copyload, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17hf0c4d76aa223fff5E.exit" ], [ %.sroa.5415.0.copyload, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h42084f71e690bb99E.exit" ]
+  %.sroa.25.sroa.0.1580 = phi i64 [ %.sroa.0432.0.copyload, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h599e50e628c6cd7fE.exit" ], [ %.sroa.0337.0.copyload338, %256 ], [ %.sroa.0331.0.copyload332, %233 ], [ %.sroa.0325.0.copyload326, %210 ], [ %.sroa.0319.0.copyload320, %187 ], [ %.sroa.0349.0.copyload350, %164 ], [ %.sroa.0343.0.copyload344, %141 ], [ %.sroa.0355.0.copyload, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h7a0a7c9c1fd10ebdE.exit" ], [ %.sroa.0451.0.copyload, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17hf0c4d76aa223fff5E.exit" ], [ %.sroa.0414.0.copyload, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h42084f71e690bb99E.exit" ]
   %257 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.01.1585, ptr %257, align 8
   %.sroa.2117.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -54768,8 +54768,8 @@ define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$14search_forward17h
   br label %_ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h42a94cd628f5c3c3E.exit
 
 _ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h42a94cd628f5c3c3E.exit: ; preds = %97, %.preheader27, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h109716f7e41cad2fE.exit.thread", %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1e23e01c6496f85aE.exit15"
-  %.sink = phi i32 [ 1, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1e23e01c6496f85aE.exit15" ], [ -1, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h109716f7e41cad2fE.exit.thread" ], [ -1, %.preheader27 ], [ -1, %97 ]
-  %.sroa.04.3 = phi i1 [ true, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1e23e01c6496f85aE.exit15" ], [ false, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h109716f7e41cad2fE.exit.thread" ], [ false, %.preheader27 ], [ false, %97 ]
+  %.sink = phi i32 [ 1, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1e23e01c6496f85aE.exit15" ], [ -1, %.preheader27 ], [ -1, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h109716f7e41cad2fE.exit.thread" ], [ -1, %97 ]
+  %.sroa.04.3 = phi i1 [ true, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1e23e01c6496f85aE.exit15" ], [ false, %.preheader27 ], [ false, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h109716f7e41cad2fE.exit.thread" ], [ false, %97 ]
   %108 = add i32 %24, %.sink
   store i32 %108, ptr %0, align 8
   %109 = icmp eq i32 %108, 0
@@ -66694,7 +66694,7 @@ _ZN4core3ops8function6FnOnce9call_once17hf13ff93e4924036cE.exit.thread7.i.i.i.i:
   %76 = load ptr, ptr %.sroa.30.0, align 8, !noalias !17518, !nonnull !4, !align !5, !noundef !4
   br label %_ZN4core4iter8adapters5chain17and_then_or_clear17h6cc23b8d4d19e2e5E.exit
 
-_ZN4core4iter8adapters5chain17and_then_or_clear17h6cc23b8d4d19e2e5E.exit: ; preds = %64, %74, %_ZN4core3ops8function6FnOnce9call_once17h11a711a583036792E.exit.i.i.i.i.i.i.i, %69, %_ZN4core3ops8function6FnOnce9call_once17hf13ff93e4924036cE.exit.i.i.i.i
+_ZN4core4iter8adapters5chain17and_then_or_clear17h6cc23b8d4d19e2e5E.exit: ; preds = %64, %74, %69, %_ZN4core3ops8function6FnOnce9call_once17h11a711a583036792E.exit.i.i.i.i.i.i.i, %_ZN4core3ops8function6FnOnce9call_once17hf13ff93e4924036cE.exit.i.i.i.i
   %.sroa.5370.1549.ph = phi i64 [ %.sroa.5370.0, %74 ], [ %.sroa.5370.0, %69 ], [ %.sroa.5370.0, %_ZN4core3ops8function6FnOnce9call_once17h11a711a583036792E.exit.i.i.i.i.i.i.i ], [ %.sroa.5370.0, %_ZN4core3ops8function6FnOnce9call_once17hf13ff93e4924036cE.exit.i.i.i.i ], [ 1, %64 ]
   %.sroa.30.1.ph = phi ptr [ %75, %74 ], [ %.sroa.30.0, %69 ], [ %.sroa.30.0, %_ZN4core3ops8function6FnOnce9call_once17h11a711a583036792E.exit.i.i.i.i.i.i.i ], [ %.sroa.30.0, %_ZN4core3ops8function6FnOnce9call_once17hf13ff93e4924036cE.exit.i.i.i.i ], [ %.sroa.30.0, %64 ]
   %.sroa.27.4.ph = phi ptr [ %.sroa.27.3, %74 ], [ %.sroa.27.0, %69 ], [ null, %_ZN4core3ops8function6FnOnce9call_once17h11a711a583036792E.exit.i.i.i.i.i.i.i ], [ %.sroa.27.2, %_ZN4core3ops8function6FnOnce9call_once17hf13ff93e4924036cE.exit.i.i.i.i ], [ %.sroa.27.0, %64 ]

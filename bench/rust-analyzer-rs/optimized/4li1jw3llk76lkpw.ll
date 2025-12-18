@@ -16784,7 +16784,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h5a879f3216cf539fE.exit: ; preds = 
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %"_ZN14ide_completion11completions9attribute3cfg12complete_cfg28_$u7b$$u7b$closure$u7d$$u7d$17ha9281a27af55b033E.exit.thread185"
 
-"_ZN14ide_completion11completions9attribute3cfg12complete_cfg28_$u7b$$u7b$closure$u7d$$u7d$17ha9281a27af55b033E.exit.thread185": ; preds = %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hd1512002f8a29c76E.exit.sink.split.i.i114", %104, %"_ZN14ide_completion11completions9attribute3cfg12complete_cfg28_$u7b$$u7b$closure$u7d$$u7d$17ha9281a27af55b033E.exit", %"_ZN4core3ptr58drop_in_place$LT$syntax..ast..generated..tokens..Ident$GT$17hdd0299139942b2e9E.exit170", %"_ZN4core3ptr62drop_in_place$LT$triomphe..arc..Arc$LT$cfg..CfgOptions$GT$$GT$17h23e2968ac388ac6bE.exit121"
+"_ZN14ide_completion11completions9attribute3cfg12complete_cfg28_$u7b$$u7b$closure$u7d$$u7d$17ha9281a27af55b033E.exit.thread185": ; preds = %104, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hd1512002f8a29c76E.exit.sink.split.i.i114", %"_ZN14ide_completion11completions9attribute3cfg12complete_cfg28_$u7b$$u7b$closure$u7d$$u7d$17ha9281a27af55b033E.exit", %"_ZN4core3ptr58drop_in_place$LT$syntax..ast..generated..tokens..Ident$GT$17hdd0299139942b2e9E.exit170", %"_ZN4core3ptr62drop_in_place$LT$triomphe..arc..Arc$LT$cfg..CfgOptions$GT$$GT$17h23e2968ac388ac6bE.exit121"
   ret void
 
 176:                                              ; preds = %228, %185, %122
@@ -17334,7 +17334,7 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.exit.i.i.i.i.i: ; preds = %
   unreachable
 
 .body:                                            ; preds = %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h8758fe9ce7c992c1E.exit145", %243, %68
-  %.pn58 = phi { ptr, i32 } [ %69, %68 ], [ %.pn56, %243 ], [ %.pn56, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h8758fe9ce7c992c1E.exit145" ]
+  %.pn58 = phi { ptr, i32 } [ %.pn56, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h8758fe9ce7c992c1E.exit145" ], [ %69, %68 ], [ %.pn56, %243 ]
   br i1 %45, label %.body74, label %62
 
 62:                                               ; preds = %.body
@@ -28464,8 +28464,8 @@ define hidden { ptr, i64 } @_ZN14ide_completion6render8function12ref_of_param17h
   br label %.thread51.sink.split
 
 .thread51.sink.split:                             ; preds = %"_ZN4core3ptr66drop_in_place$LT$core..option..Option$LT$smol_str..SmolStr$GT$$GT$17h19d91736eca1cac2E.exit", %33, %89, %92, %13
-  %.sroa.5.1.ph = phi i64 [ 0, %13 ], [ 0, %89 ], [ %., %92 ], [ 0, %33 ], [ 0, %"_ZN4core3ptr66drop_in_place$LT$core..option..Option$LT$smol_str..SmolStr$GT$$GT$17h19d91736eca1cac2E.exit" ]
-  %.sroa.0.1.ph = phi ptr [ @anon.16e1459cdd3c99a299d2f916af85393f.27, %13 ], [ @anon.16e1459cdd3c99a299d2f916af85393f.27, %89 ], [ %anon.16e1459cdd3c99a299d2f916af85393f.241.anon.16e1459cdd3c99a299d2f916af85393f.237, %92 ], [ @anon.16e1459cdd3c99a299d2f916af85393f.27, %33 ], [ @anon.16e1459cdd3c99a299d2f916af85393f.27, %"_ZN4core3ptr66drop_in_place$LT$core..option..Option$LT$smol_str..SmolStr$GT$$GT$17h19d91736eca1cac2E.exit" ]
+  %.sroa.5.1.ph = phi i64 [ 0, %13 ], [ %., %92 ], [ 0, %89 ], [ 0, %33 ], [ 0, %"_ZN4core3ptr66drop_in_place$LT$core..option..Option$LT$smol_str..SmolStr$GT$$GT$17h19d91736eca1cac2E.exit" ]
+  %.sroa.0.1.ph = phi ptr [ @anon.16e1459cdd3c99a299d2f916af85393f.27, %13 ], [ %anon.16e1459cdd3c99a299d2f916af85393f.241.anon.16e1459cdd3c99a299d2f916af85393f.237, %92 ], [ @anon.16e1459cdd3c99a299d2f916af85393f.27, %89 ], [ @anon.16e1459cdd3c99a299d2f916af85393f.27, %33 ], [ @anon.16e1459cdd3c99a299d2f916af85393f.27, %"_ZN4core3ptr66drop_in_place$LT$core..option..Option$LT$smol_str..SmolStr$GT$$GT$17h19d91736eca1cac2E.exit" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @"_ZN4core3ptr30drop_in_place$LT$hir..Type$GT$17h9a8233173dd3770bE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

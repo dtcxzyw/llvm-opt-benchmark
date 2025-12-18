@@ -219,7 +219,7 @@ switch.early.test:                                ; preds = %53
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %43, %switch.early.test, %59, %12, %1, %7
-  %.0 = phi i32 [ %17, %12 ], [ %., %59 ], [ -11, %switch.early.test ], [ -11, %1 ], [ -11, %7 ], [ -11, %43 ], [ -11, %.lr.ph ]
+  %.0 = phi i32 [ %17, %12 ], [ %., %59 ], [ -11, %switch.early.test ], [ -11, %7 ], [ -11, %1 ], [ -11, %43 ], [ -11, %.lr.ph ]
   ret i32 %.0
 }
 

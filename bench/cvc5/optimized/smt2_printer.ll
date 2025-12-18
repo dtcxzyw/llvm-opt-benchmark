@@ -8947,7 +8947,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit933: ; preds = %2082, %2085, %2091
   br label %2115
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit883: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit933, %._crit_edge1113.invoke, %.preheader1046, %1951, %2015, %2018
-  %.2485 = phi i1 [ true, %1951 ], [ true, %.preheader1046 ], [ %.14841116, %2015 ], [ %.14841116, %2018 ], [ true, %._crit_edge1113.invoke ], [ true, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit933 ]
+  %.2485 = phi i1 [ true, %._crit_edge1113.invoke ], [ true, %1951 ], [ true, %.preheader1046 ], [ %.14841116, %2015 ], [ %.14841116, %2018 ], [ true, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit933 ]
   %2101 = load ptr, ptr %105, align 8, !tbaa !17
   %2102 = load i64, ptr %2101, align 8
   %2103 = and i64 %2102, 1152920405095219200

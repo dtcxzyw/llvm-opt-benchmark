@@ -1081,8 +1081,8 @@ ensure_free_space_in_buffer.exit.i:               ; preds = %store_expanded_rang
   br label %249
 
 249:                                              ; preds = %247, %243
-  %.146.i.i.i = phi i32 [ %.04555.i.i.i, %243 ], [ %248, %247 ]
-  %.144.i.i.i = phi i32 [ %244, %243 ], [ %.04356.i.i.i, %247 ]
+  %.146.i.i.i = phi i32 [ %248, %247 ], [ %.04555.i.i.i, %243 ]
+  %.144.i.i.i = phi i32 [ %.04356.i.i.i, %247 ], [ %244, %243 ]
   %250 = add i32 %.144.i.i.i, %.146.i.i.i
   %251 = icmp sgt i32 %.146.i.i.i, %.144.i.i.i
   br i1 %251, label %.loopexit4.i.i, label %.lr.ph.i.i32.i
@@ -1610,7 +1610,7 @@ define internal fastcc noundef ptr @brin_range_deserialize(i32 noundef %0, ptr n
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.us169.split, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.split.us169.split, %66, %.lr.ph.split.us.split.preheader
-  %.0119.lcssa = phi i64 [ %38, %.lr.ph.split.us.split.preheader ], [ %68, %66 ], [ %74, %.lr.ph.split.split.us169.split ]
+  %.0119.lcssa = phi i64 [ %68, %66 ], [ %38, %.lr.ph.split.us.split.preheader ], [ %74, %.lr.ph.split.split.us169.split ]
   %.not = icmp eq i64 %.0119.lcssa, 0
   br i1 %.not, label %._crit_edge.thread, label %78
 
@@ -3018,7 +3018,7 @@ define internal fastcc noundef ptr @brin_range_serialize(ptr noundef %0) unnamed
   br label %.loopexit
 
 .loopexit:                                        ; preds = %47, %40, %.preheader108, %.preheader, %54
-  %.1 = phi i64 [ %57, %54 ], [ 20, %.preheader ], [ 20, %.preheader108 ], [ %42, %40 ], [ %53, %47 ]
+  %.1 = phi i64 [ %57, %54 ], [ %42, %40 ], [ 20, %.preheader ], [ 20, %.preheader108 ], [ %53, %47 ]
   %58 = tail call ptr @palloc0(i64 noundef %.1) #12
   %59 = trunc i64 %.1 to i32
   %60 = shl i32 %59, 2

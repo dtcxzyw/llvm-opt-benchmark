@@ -181,10 +181,10 @@ define dso_local range(i32 0, 2) i32 @nseq_main(i32 noundef %0, ptr noundef %1) 
   br i1 %60, label %.lr.ph, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %13, %33, %.lr.ph, %.preheader, %27, %24, %20, %17, %50, %41, %37, %8, %.loopexit64
-  %.045 = phi ptr [ null, %.loopexit64 ], [ null, %8 ], [ null, %17 ], [ null, %20 ], [ null, %24 ], [ %25, %27 ], [ %25, %41 ], [ %25, %37 ], [ null, %50 ], [ %44, %.preheader ], [ %25, %33 ], [ %44, %.lr.ph ], [ null, %13 ]
-  %.044 = phi ptr [ null, %.loopexit64 ], [ null, %8 ], [ null, %17 ], [ null, %20 ], [ %21, %24 ], [ %21, %27 ], [ %21, %41 ], [ %21, %37 ], [ %21, %50 ], [ %21, %.preheader ], [ %21, %33 ], [ %21, %.lr.ph ], [ null, %13 ]
-  %.041 = phi i32 [ 1, %.loopexit64 ], [ 0, %8 ], [ 1, %17 ], [ 1, %20 ], [ 1, %24 ], [ 1, %27 ], [ 0, %41 ], [ 1, %37 ], [ 1, %50 ], [ 0, %.preheader ], [ 1, %33 ], [ 0, %.lr.ph ], [ 1, %13 ]
-  %.0 = phi ptr [ null, %.loopexit64 ], [ null, %8 ], [ null, %17 ], [ %18, %20 ], [ %18, %24 ], [ %18, %27 ], [ %18, %41 ], [ %18, %37 ], [ %18, %50 ], [ %18, %.preheader ], [ %18, %33 ], [ %18, %.lr.ph ], [ null, %13 ]
+  %.045 = phi ptr [ null, %.loopexit64 ], [ null, %8 ], [ %44, %.preheader ], [ null, %17 ], [ null, %20 ], [ null, %24 ], [ %25, %27 ], [ %25, %33 ], [ %25, %41 ], [ %25, %37 ], [ null, %50 ], [ %44, %.lr.ph ], [ null, %13 ]
+  %.044 = phi ptr [ null, %.loopexit64 ], [ null, %8 ], [ %21, %.preheader ], [ null, %17 ], [ null, %20 ], [ %21, %24 ], [ %21, %27 ], [ %21, %33 ], [ %21, %41 ], [ %21, %37 ], [ %21, %50 ], [ %21, %.lr.ph ], [ null, %13 ]
+  %.041 = phi i32 [ 1, %.loopexit64 ], [ 0, %8 ], [ 0, %.preheader ], [ 1, %17 ], [ 1, %20 ], [ 1, %24 ], [ 1, %27 ], [ 1, %33 ], [ 0, %41 ], [ 1, %37 ], [ 1, %50 ], [ 0, %.lr.ph ], [ 1, %13 ]
+  %.0 = phi ptr [ null, %.loopexit64 ], [ null, %8 ], [ %18, %.preheader ], [ null, %17 ], [ %18, %20 ], [ %18, %24 ], [ %18, %27 ], [ %18, %33 ], [ %18, %41 ], [ %18, %37 ], [ %18, %50 ], [ %18, %.lr.ph ], [ null, %13 ]
   %61 = tail call i32 @BIO_free(ptr noundef %.0) #2
   tail call void @BIO_free_all(ptr noundef %.044) #2
   tail call void @NETSCAPE_CERT_SEQUENCE_free(ptr noundef %.045) #2

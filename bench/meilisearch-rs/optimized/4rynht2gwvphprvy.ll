@@ -281,8 +281,8 @@ define hidden void @"_ZN100_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as
   br label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h5a32b65d829a5030E.llvm.3021571406010367114.exit"
 
 39:                                               ; preds = %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h57899964646f9c87E.exit.i.loopexit.i.i", %35
-  %.sroa.6.0.i = phi ptr [ null, %35 ], [ %38, %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h57899964646f9c87E.exit.i.loopexit.i.i" ]
-  %.sroa.4.0.i = phi i64 [ undef, %35 ], [ %.sroa.09.0.insert.ext.le.i.i, %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h57899964646f9c87E.exit.i.loopexit.i.i" ]
+  %.sroa.6.0.i = phi ptr [ %38, %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h57899964646f9c87E.exit.i.loopexit.i.i" ], [ null, %35 ]
+  %.sroa.4.0.i = phi i64 [ %.sroa.09.0.insert.ext.le.i.i, %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h57899964646f9c87E.exit.i.loopexit.i.i" ], [ undef, %35 ]
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.4.0.i, ptr %40, align 8, !alias.scope !46, !noalias !50
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2483,8 +2483,8 @@ common.resume.i:                                  ; preds = %101, %89, %75, %56,
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17haf74f974dd0253c5E.exit"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17haf74f974dd0253c5E.exit": ; preds = %.backedge.i, %66, %80, %.preheader.i, %43, %28, %"_ZN116_$LT$alloc..collections..btree..set..Intersection$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h91ca1f0fad6d70b8E.exit", %"_ZN116_$LT$alloc..collections..btree..set..Intersection$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h91ca1f0fad6d70b8E.exit.thread3"
-  %.sroa.02.0.i = phi i16 [ 1, %"_ZN116_$LT$alloc..collections..btree..set..Intersection$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h91ca1f0fad6d70b8E.exit.thread3" ], [ 0, %"_ZN116_$LT$alloc..collections..btree..set..Intersection$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h91ca1f0fad6d70b8E.exit" ], [ 0, %28 ], [ 0, %43 ], [ 0, %.preheader.i ], [ 0, %66 ], [ 0, %80 ], [ 0, %.backedge.i ]
-  %.sroa.3.0.i = phi i16 [ %123, %"_ZN116_$LT$alloc..collections..btree..set..Intersection$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h91ca1f0fad6d70b8E.exit.thread3" ], [ undef, %"_ZN116_$LT$alloc..collections..btree..set..Intersection$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h91ca1f0fad6d70b8E.exit" ], [ undef, %28 ], [ undef, %43 ], [ undef, %.preheader.i ], [ undef, %66 ], [ undef, %80 ], [ undef, %.backedge.i ]
+  %.sroa.02.0.i = phi i16 [ 1, %"_ZN116_$LT$alloc..collections..btree..set..Intersection$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h91ca1f0fad6d70b8E.exit.thread3" ], [ 0, %"_ZN116_$LT$alloc..collections..btree..set..Intersection$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h91ca1f0fad6d70b8E.exit" ], [ 0, %28 ], [ 0, %43 ], [ 0, %66 ], [ 0, %.preheader.i ], [ 0, %80 ], [ 0, %.backedge.i ]
+  %.sroa.3.0.i = phi i16 [ %123, %"_ZN116_$LT$alloc..collections..btree..set..Intersection$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h91ca1f0fad6d70b8E.exit.thread3" ], [ undef, %"_ZN116_$LT$alloc..collections..btree..set..Intersection$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h91ca1f0fad6d70b8E.exit" ], [ undef, %28 ], [ undef, %43 ], [ undef, %66 ], [ undef, %.preheader.i ], [ undef, %80 ], [ undef, %.backedge.i ]
   %124 = insertvalue { i16, i16 } poison, i16 %.sroa.02.0.i, 0
   %125 = insertvalue { i16, i16 } %124, i16 %.sroa.3.0.i, 1
   ret { i16, i16 } %125
@@ -2962,8 +2962,8 @@ define hidden void @"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as
   br label %41
 
 39:                                               ; preds = %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h57899964646f9c87E.exit.i.loopexit.i", %35
-  %.sroa.6.0 = phi ptr [ null, %35 ], [ %38, %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h57899964646f9c87E.exit.i.loopexit.i" ]
-  %.sroa.4.0 = phi i64 [ undef, %35 ], [ %.sroa.09.0.insert.ext.le.i, %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h57899964646f9c87E.exit.i.loopexit.i" ]
+  %.sroa.6.0 = phi ptr [ %38, %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h57899964646f9c87E.exit.i.loopexit.i" ], [ null, %35 ]
+  %.sroa.4.0 = phi i64 [ %.sroa.09.0.insert.ext.le.i, %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h57899964646f9c87E.exit.i.loopexit.i" ], [ undef, %35 ]
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.4.0, ptr %40, align 8, !alias.scope !672
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -12767,8 +12767,8 @@ define hidden void @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I
   br label %43
 
 "_ZN100_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hed24176631357cabE.llvm.3021571406010367114.exit": ; preds = %.loopexit37.i.i.i, %37
-  %.sroa.72.0 = phi ptr [ %40, %.loopexit37.i.i.i ], [ undef, %37 ]
-  %.sroa.0.0 = phi i8 [ %.val1.i.i.i.i.i.i, %.loopexit37.i.i.i ], [ 2, %37 ]
+  %.sroa.72.0 = phi ptr [ undef, %37 ], [ %40, %.loopexit37.i.i.i ]
+  %.sroa.0.0 = phi i8 [ 2, %37 ], [ %.val1.i.i.i.i.i.i, %.loopexit37.i.i.i ]
   store i8 %.sroa.0.0, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.72.0, ptr %.sroa.5.0..sroa_idx, align 8
@@ -15894,8 +15894,8 @@ _ZN4core5slice5ascii8is_ascii17h7ddd6e4711eb6eb2E.exit: ; preds = %35, %27
   br i1 %.not.i10, label %_ZN4core5slice5ascii8is_ascii17h7ddd6e4711eb6eb2E.exit.thread28, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h68ae2bbc75d26c0fE.exit.i13"
 
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h68ae2bbc75d26c0fE.exit.i13": ; preds = %.lr.ph.i, %39, %_ZN4core5slice5ascii8is_ascii17h7ddd6e4711eb6eb2E.exit
-  %.val25.in119 = phi ptr [ %.val25.in, %_ZN4core5slice5ascii8is_ascii17h7ddd6e4711eb6eb2E.exit ], [ %.val25.in120, %39 ], [ %.val25.in, %.lr.ph.i ]
-  %.val626116 = phi i64 [ %.val6, %_ZN4core5slice5ascii8is_ascii17h7ddd6e4711eb6eb2E.exit ], [ %.val626117, %39 ], [ %.val6, %.lr.ph.i ]
+  %.val25.in119 = phi ptr [ %.val25.in120, %39 ], [ %.val25.in, %_ZN4core5slice5ascii8is_ascii17h7ddd6e4711eb6eb2E.exit ], [ %.val25.in, %.lr.ph.i ]
+  %.val626116 = phi i64 [ %.val626117, %39 ], [ %.val6, %_ZN4core5slice5ascii8is_ascii17h7ddd6e4711eb6eb2E.exit ], [ %.val6, %.lr.ph.i ]
   br i1 %.not.i, label %._crit_edge, label %_ZN3csv11byte_record6Bounds3end17heba7b7859073d037E.exit16
 
 _ZN3csv11byte_record6Bounds3end17heba7b7859073d037E.exit16: ; preds = %24, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h68ae2bbc75d26c0fE.exit.i13"
@@ -20868,7 +20868,7 @@ thread-pre-split:                                 ; preds = %"_ZN106_$LT$core..o
   br i1 %129, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf6cd4cd05ffd15eeE.exit.thread", label %145
 
 130:                                              ; preds = %114, %84
-  %.sroa.017.0.i = phi ptr [ %85, %84 ], [ %97, %114 ]
+  %.sroa.017.0.i = phi ptr [ %97, %114 ], [ %85, %84 ]
   %131 = ptrtoint ptr %.sroa.017.0.i to i64
   %132 = and i64 %131, 3
   switch i64 %132, label %default.unreachable [
@@ -21243,7 +21243,7 @@ thread-pre-split:                                 ; preds = %"_ZN106_$LT$core..o
   br i1 %129, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf6cd4cd05ffd15eeE.exit.thread", label %145
 
 130:                                              ; preds = %114, %84
-  %.sroa.017.0.i = phi ptr [ %85, %84 ], [ %97, %114 ]
+  %.sroa.017.0.i = phi ptr [ %97, %114 ], [ %85, %84 ]
   %131 = ptrtoint ptr %.sroa.017.0.i to i64
   %132 = and i64 %131, 3
   switch i64 %132, label %default.unreachable [
@@ -21614,7 +21614,7 @@ thread-pre-split:                                 ; preds = %"_ZN106_$LT$core..o
   br i1 %129, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf6cd4cd05ffd15eeE.exit.thread", label %145
 
 130:                                              ; preds = %114, %84
-  %.sroa.017.0.i = phi ptr [ %85, %84 ], [ %97, %114 ]
+  %.sroa.017.0.i = phi ptr [ %97, %114 ], [ %85, %84 ]
   %131 = ptrtoint ptr %.sroa.017.0.i to i64
   %132 = and i64 %131, 3
   switch i64 %132, label %default.unreachable [
@@ -21985,7 +21985,7 @@ thread-pre-split:                                 ; preds = %"_ZN106_$LT$core..o
   br i1 %129, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf6cd4cd05ffd15eeE.exit.thread", label %145
 
 130:                                              ; preds = %114, %84
-  %.sroa.017.0.i = phi ptr [ %85, %84 ], [ %97, %114 ]
+  %.sroa.017.0.i = phi ptr [ %97, %114 ], [ %85, %84 ]
   %131 = ptrtoint ptr %.sroa.017.0.i to i64
   %132 = and i64 %131, 3
   switch i64 %132, label %default.unreachable [
@@ -22631,7 +22631,7 @@ thread-pre-split:                                 ; preds = %"_ZN106_$LT$core..o
   br i1 %129, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf6cd4cd05ffd15eeE.exit.thread", label %145
 
 130:                                              ; preds = %114, %84
-  %.sroa.017.0.i = phi ptr [ %85, %84 ], [ %97, %114 ]
+  %.sroa.017.0.i = phi ptr [ %97, %114 ], [ %85, %84 ]
   %131 = ptrtoint ptr %.sroa.017.0.i to i64
   %132 = and i64 %131, 3
   switch i64 %132, label %default.unreachable [
@@ -24074,7 +24074,7 @@ thread-pre-split:                                 ; preds = %"_ZN106_$LT$core..o
   br i1 %129, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf6cd4cd05ffd15eeE.exit.thread", label %145
 
 130:                                              ; preds = %114, %84
-  %.sroa.017.0.i = phi ptr [ %85, %84 ], [ %97, %114 ]
+  %.sroa.017.0.i = phi ptr [ %97, %114 ], [ %85, %84 ]
   %131 = ptrtoint ptr %.sroa.017.0.i to i64
   %132 = and i64 %131, 3
   switch i64 %132, label %default.unreachable [
@@ -29837,8 +29837,8 @@ define hidden { ptr, i64 } @"_ZN4obkv17KvReader$LT$K$GT$3get17h4ab114ed8342d2baE
   br label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h4f983b13000dce07E.llvm.3021571406010367114.exit"
 
 "_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h4f983b13000dce07E.llvm.3021571406010367114.exit": ; preds = %16, %.split.us, %31, %.split, %.loopexit37.i.i.i.i, %.split24.us
-  %.sroa.019.0 = phi ptr [ null, %.split24.us ], [ %39, %.loopexit37.i.i.i.i ], [ null, %.split ], [ null, %31 ], [ null, %.split.us ], [ null, %16 ]
-  %.sroa.8.0 = phi i64 [ undef, %.split24.us ], [ %.us-phi26, %.loopexit37.i.i.i.i ], [ undef, %.split ], [ %35, %31 ], [ undef, %.split.us ], [ undef, %16 ]
+  %.sroa.019.0 = phi ptr [ %39, %.loopexit37.i.i.i.i ], [ null, %.split24.us ], [ null, %31 ], [ null, %.split ], [ null, %.split.us ], [ null, %16 ]
+  %.sroa.8.0 = phi i64 [ %.us-phi26, %.loopexit37.i.i.i.i ], [ undef, %.split24.us ], [ %35, %31 ], [ undef, %.split ], [ undef, %.split.us ], [ undef, %16 ]
   %40 = insertvalue { ptr, i64 } poison, ptr %.sroa.019.0, 0
   %41 = insertvalue { ptr, i64 } %40, i64 %.sroa.8.0, 1
   ret { ptr, i64 } %41
@@ -29902,8 +29902,8 @@ define hidden { ptr, i64 } @"_ZN4obkv17KvReader$LT$K$GT$3get17hf4395cb8837a0031E
   br label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h98929a87ee7e7d0eE.llvm.3021571406010367114.exit"
 
 "_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h98929a87ee7e7d0eE.llvm.3021571406010367114.exit": ; preds = %29, %21, %7, %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h57899964646f9c87E.exit.i.loopexit.i.i.i.i", %20
-  %.sroa.3.019 = phi ptr [ null, %20 ], [ %31, %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h57899964646f9c87E.exit.i.loopexit.i.i.i.i" ], [ null, %7 ], [ null, %21 ], [ null, %29 ]
-  %.sroa.718.0 = phi i64 [ undef, %20 ], [ %25, %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h57899964646f9c87E.exit.i.loopexit.i.i.i.i" ], [ %25, %29 ], [ undef, %21 ], [ undef, %7 ]
+  %.sroa.3.019 = phi ptr [ %31, %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h57899964646f9c87E.exit.i.loopexit.i.i.i.i" ], [ null, %20 ], [ null, %7 ], [ null, %21 ], [ null, %29 ]
+  %.sroa.718.0 = phi i64 [ %25, %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h57899964646f9c87E.exit.i.loopexit.i.i.i.i" ], [ undef, %20 ], [ %25, %29 ], [ undef, %21 ], [ undef, %7 ]
   %32 = insertvalue { ptr, i64 } poison, ptr %.sroa.3.019, 0
   %33 = insertvalue { ptr, i64 } %32, i64 %.sroa.718.0, 1
   ret { ptr, i64 } %33

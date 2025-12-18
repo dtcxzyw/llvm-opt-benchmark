@@ -4596,7 +4596,7 @@ _ZNK4llvm17RegisterClassInfo21getNumAllocatableRegsEPKNS_19TargetRegisterClassE.
   br label %_ZNK12_GLOBAL__N_114MLEvictAdvisor16getEvictionCountEN4llvm8RegisterE.exit.thread.i, !llvm.loop !584
 
 _ZNK12_GLOBAL__N_114MLEvictAdvisor16getEvictionCountEN4llvm8RegisterE.exit.i: ; preds = %369, %353, %364
-  %.sroa.06.1.i.i.i.i = phi ptr [ %365, %364 ], [ %.sroa.06.0.i.i.i.i, %353 ], [ %371, %369 ]
+  %.sroa.06.1.i.i.i.i = phi ptr [ %.sroa.06.0.i.i.i.i, %353 ], [ %365, %364 ], [ %371, %369 ]
   %377 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i, i64 12
   %378 = load i32, ptr %377, align 4, !tbaa !585
   %379 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL16MaxEvictionCount, i64 120), align 8, !tbaa !57
@@ -4661,7 +4661,7 @@ _ZN4llvm17MCRegUnitIteratorppEv.exit.i:           ; preds = %395, %_ZN4llvm15Sma
   br label %.thread33.i
 
 .thread33.i:                                      ; preds = %248, %381, %_ZNK12_GLOBAL__N_114MLEvictAdvisor16getEvictionCountEN4llvm8RegisterE.exit.i, %_ZNK4llvm8SmallSetINS_8RegisterELj16ESt4lessIS1_EE5countERKS1_.exit.thread.i, %_ZNK4llvm8SmallSetINS_8RegisterELj16ESt4lessIS1_EE5countERKS1_.exit.i, %_ZNK4llvm8SmallSetINS_8RegisterELj16ESt4lessIS1_EE5vfindERKS1_.exit.i.i.i, %.thread28.i
-  %.not3750.i = phi i1 [ true, %.thread28.i ], [ false, %381 ], [ false, %_ZNK4llvm8SmallSetINS_8RegisterELj16ESt4lessIS1_EE5vfindERKS1_.exit.i.i.i ], [ false, %_ZNK4llvm8SmallSetINS_8RegisterELj16ESt4lessIS1_EE5countERKS1_.exit.i ], [ false, %_ZNK4llvm8SmallSetINS_8RegisterELj16ESt4lessIS1_EE5countERKS1_.exit.thread.i ], [ false, %_ZNK12_GLOBAL__N_114MLEvictAdvisor16getEvictionCountEN4llvm8RegisterE.exit.i ], [ false, %248 ]
+  %.not3750.i = phi i1 [ false, %381 ], [ true, %.thread28.i ], [ false, %_ZNK4llvm8SmallSetINS_8RegisterELj16ESt4lessIS1_EE5vfindERKS1_.exit.i.i.i ], [ false, %_ZNK4llvm8SmallSetINS_8RegisterELj16ESt4lessIS1_EE5countERKS1_.exit.i ], [ false, %_ZNK4llvm8SmallSetINS_8RegisterELj16ESt4lessIS1_EE5countERKS1_.exit.thread.i ], [ false, %_ZNK12_GLOBAL__N_114MLEvictAdvisor16getEvictionCountEN4llvm8RegisterE.exit.i ], [ false, %248 ]
   %403 = load ptr, ptr %6, align 8, !tbaa !29
   %404 = icmp eq ptr %403, %176
   br i1 %404, label %_ZNK12_GLOBAL__N_114MLEvictAdvisor24loadInterferenceFeaturesERKN4llvm12LiveIntervalENS1_10MCRegisterEbRKNS1_8SmallSetINS1_8RegisterELj16ESt4lessIS7_EEERNS1_15SmallVectorImplIfEEmRNSD_INS1_14LRStartEndInfoEEE.exit, label %405
@@ -5476,7 +5476,7 @@ default.unreachable:                              ; preds = %._crit_edge.loopexi
   br label %_ZN4llvm15AllocationOrder8IteratorppEv.exit, !llvm.loop !593
 
 _ZN4llvm15AllocationOrder8IteratorppEv.exit:      ; preds = %61, %._crit_edge.loopexit.i.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i.i, %_ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i, %54, %44, %._crit_edge._crit_edge52.i.i.i.i.i.i.us.us40, %_ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i.us.us42, %31, %._crit_edge._crit_edge52.i.i.i.i.i.i.us.us, %_ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i.us.us, %.lr.ph.split.us.split.us54, %.lr.ph.i, %._ZN4llvm15AllocationOrder8IteratorppEv.exit.loopexit_crit_edge23, %.lr.ph.split.us, %7, %4
-  %.pn = phi i32 [ %6, %4 ], [ %spec.select, %7 ], [ %spec.select, %.lr.ph.split.us ], [ %10, %._ZN4llvm15AllocationOrder8IteratorppEv.exit.loopexit_crit_edge23 ], [ %spec.select, %.lr.ph.i ], [ %spec.select, %.lr.ph.split.us.split.us54 ], [ %39, %31 ], [ %58, %54 ], [ %50, %44 ], [ %.sroa.5.117.us.us, %._crit_edge._crit_edge52.i.i.i.i.i.i.us.us ], [ %.sroa.5.117.us.us, %_ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i.us.us ], [ %.sroa.5.117.us.us36, %_ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i.us.us42 ], [ %.sroa.5.117.us.us36, %._crit_edge._crit_edge52.i.i.i.i.i.i.us.us40 ], [ %.sroa.5.117, %_ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i ], [ %.sroa.5.117, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %.sroa.5.117, %._crit_edge._crit_edge52.i.i.i.i.i.i ], [ %97, %61 ]
+  %.pn = phi i32 [ %6, %4 ], [ %spec.select, %7 ], [ %58, %54 ], [ %10, %._ZN4llvm15AllocationOrder8IteratorppEv.exit.loopexit_crit_edge23 ], [ %spec.select, %.lr.ph.split.us ], [ %50, %44 ], [ %spec.select, %.lr.ph.i ], [ %39, %31 ], [ %spec.select, %.lr.ph.split.us.split.us54 ], [ %.sroa.5.117.us.us, %._crit_edge._crit_edge52.i.i.i.i.i.i.us.us ], [ %.sroa.5.117.us.us, %_ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i.us.us ], [ %.sroa.5.117.us.us36, %_ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i.us.us42 ], [ %.sroa.5.117.us.us36, %._crit_edge._crit_edge52.i.i.i.i.i.i.us.us40 ], [ %.sroa.5.117, %_ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i ], [ %.sroa.5.117, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %.sroa.5.117, %._crit_edge._crit_edge52.i.i.i.i.i.i ], [ %97, %61 ]
   %.fca.0.insert.i.pn = insertvalue { ptr, i32 } poison, ptr %0, 0
   %.fca.1.insert.merged = insertvalue { ptr, i32 } %.fca.0.insert.i.pn, i32 %.pn, 1
   ret { ptr, i32 } %.fca.1.insert.merged

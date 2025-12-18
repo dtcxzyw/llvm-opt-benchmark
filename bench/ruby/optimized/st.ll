@@ -489,7 +489,7 @@ find_table_entry_ind.exit:                        ; preds = %67, %.loopexit.spli
   br label %find_entry.exit.thread
 
 find_entry.exit.thread:                           ; preds = %18, %find_table_entry_ind.exit, %find_entry.exit, %77, %.thread, %.loopexit, %85
-  %.0 = phi i32 [ 1, %85 ], [ 1, %.loopexit ], [ 0, %77 ], [ 0, %.thread ], [ 0, %find_entry.exit ], [ 0, %find_table_entry_ind.exit ], [ 0, %18 ]
+  %.0 = phi i32 [ 0, %.thread ], [ 0, %77 ], [ 1, %85 ], [ 1, %.loopexit ], [ 0, %find_entry.exit ], [ 0, %find_table_entry_ind.exit ], [ 0, %18 ]
   ret i32 %.0
 }
 
@@ -689,7 +689,7 @@ find_table_entry_ind.exit:                        ; preds = %67, %.loopexit.spli
   br label %find_entry.exit.thread
 
 find_entry.exit.thread:                           ; preds = %18, %find_table_entry_ind.exit, %find_entry.exit, %77, %.thread, %.loopexit, %85
-  %.0 = phi i32 [ 1, %85 ], [ 1, %.loopexit ], [ 0, %77 ], [ 0, %.thread ], [ 0, %find_entry.exit ], [ 0, %find_table_entry_ind.exit ], [ 0, %18 ]
+  %.0 = phi i32 [ 0, %.thread ], [ 0, %77 ], [ 1, %85 ], [ 1, %.loopexit ], [ 0, %find_entry.exit ], [ 0, %find_table_entry_ind.exit ], [ 0, %18 ]
   ret i32 %.0
 }
 
@@ -1083,8 +1083,8 @@ get_bin.exit:                                     ; preds = %16, %20, %24, %28
   br label %14
 
 set_bin.exit:                                     ; preds = %51, %60, %43, %41, %39, %37, %32
-  %.041 = phi i64 [ -1, %32 ], [ -1, %37 ], [ -1, %39 ], [ -1, %41 ], [ -1, %43 ], [ %31, %60 ], [ %31, %51 ]
-  %.1 = phi i64 [ %.038, %32 ], [ %.039, %37 ], [ %.039, %39 ], [ %.039, %41 ], [ %.039, %43 ], [ %.038, %60 ], [ %.038, %51 ]
+  %.041 = phi i64 [ -1, %43 ], [ -1, %32 ], [ -1, %37 ], [ -1, %39 ], [ -1, %41 ], [ %31, %60 ], [ %31, %51 ]
+  %.1 = phi i64 [ %.039, %43 ], [ %.038, %32 ], [ %.039, %37 ], [ %.039, %39 ], [ %.039, %41 ], [ %.038, %60 ], [ %.038, %51 ]
   store i64 %.1, ptr %2, align 8, !tbaa !7
   br label %.loopexit
 
@@ -1734,7 +1734,7 @@ get_bin.exit:                                     ; preds = %.loopexit
   br label %set_bin.exit
 
 set_bin.exit:                                     ; preds = %find_entry.exit, %get_bin.exit, %get_bin.exit.thread53, %get_bin.exit.thread52, %get_bin.exit.thread
-  %.034 = phi i64 [ %91, %get_bin.exit.thread ], [ %95, %get_bin.exit.thread52 ], [ %99, %get_bin.exit.thread53 ], [ %102, %get_bin.exit ], [ %.02233.i, %find_entry.exit ]
+  %.034 = phi i64 [ %102, %get_bin.exit ], [ %91, %get_bin.exit.thread ], [ %95, %get_bin.exit.thread52 ], [ %99, %get_bin.exit.thread53 ], [ %.02233.i, %find_entry.exit ]
   %103 = load ptr, ptr %11, align 8, !tbaa !26
   %104 = getelementptr %struct.st_table_entry, ptr %103, i64 %.034
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
@@ -2682,15 +2682,15 @@ get_bin.exit.i:                                   ; preds = %87, %83, %79, %75
 .loopexit.split.loop.exit41.i:                    ; preds = %101
   br i1 %106, label %.preheader.outer.backedge, label %find_table_entry_ind.exit, !prof !47
 
+.preheader.outer.backedge:                        ; preds = %.loopexit.split.loop.exit31.i, %.loopexit.split.loop.exit41.i, %find_table_entry_ind.exit
+  %.pre.i.ph.be = phi i32 [ %.pre.i94, %.loopexit.split.loop.exit41.i ], [ %.pre.i237, %find_table_entry_ind.exit ], [ %.pre39.i, %.loopexit.split.loop.exit31.i ]
+  %.ph.be = phi i32 [ %.pre.i94, %.loopexit.split.loop.exit41.i ], [ %46, %find_table_entry_ind.exit ], [ %.pre39.i, %.loopexit.split.loop.exit31.i ]
+  br label %.preheader.outer
+
 find_table_entry_ind.exit:                        ; preds = %97, %.loopexit.split.loop.exit41.i
   %.pre.i237 = phi i32 [ %46, %.loopexit.split.loop.exit41.i ], [ %.pre.i238, %97 ]
   %113 = icmp eq i64 %90, -2
   br i1 %113, label %.preheader.outer.backedge, label %find_table_entry_ind.exit.thread, !prof !64
-
-.preheader.outer.backedge:                        ; preds = %.loopexit.split.loop.exit31.i, %find_table_entry_ind.exit, %.loopexit.split.loop.exit41.i
-  %.pre.i.ph.be = phi i32 [ %.pre.i94, %.loopexit.split.loop.exit41.i ], [ %.pre.i237, %find_table_entry_ind.exit ], [ %.pre39.i, %.loopexit.split.loop.exit31.i ]
-  %.ph.be = phi i32 [ %.pre.i94, %.loopexit.split.loop.exit41.i ], [ %46, %find_table_entry_ind.exit ], [ %.pre39.i, %.loopexit.split.loop.exit31.i ]
-  br label %.preheader.outer
 
 find_table_entry_ind.exit.thread:                 ; preds = %find_table_entry_ind.exit, %107
   %.pre.i97242 = phi i32 [ %.pre.i238, %107 ], [ %.pre.i237, %find_table_entry_ind.exit ]
@@ -2701,8 +2701,8 @@ find_table_entry_ind.exit.thread:                 ; preds = %find_table_entry_in
 find_entry.exit.thread:                           ; preds = %51, %find_entry.exit, %.thread, %find_table_entry_ind.exit.thread
   %.pre.i97241 = phi i32 [ %.pre.i97242, %find_table_entry_ind.exit.thread ], [ %.pre.i.ph, %.thread ], [ %.pre.i.ph, %find_entry.exit ], [ %.pre.i.ph, %51 ]
   %115 = phi i32 [ 0, %find_table_entry_ind.exit.thread ], [ 1, %.thread ], [ 1, %find_entry.exit ], [ 1, %51 ]
-  %.3 = phi i64 [ %114, %find_table_entry_ind.exit.thread ], [ -1, %.thread ], [ -1, %51 ], [ %.02233.i, %find_entry.exit ]
-  %.072.in.in = phi i64 [ %.0.i93129, %find_table_entry_ind.exit.thread ], [ -1, %.thread ], [ -1, %51 ], [ %.02233.i, %find_entry.exit ]
+  %.3 = phi i64 [ %114, %find_table_entry_ind.exit.thread ], [ -1, %.thread ], [ %.02233.i, %find_entry.exit ], [ -1, %51 ]
+  %.072.in.in = phi i64 [ %.0.i93129, %find_table_entry_ind.exit.thread ], [ -1, %.thread ], [ %.02233.i, %find_entry.exit ], [ -1, %51 ]
   %.072.in = icmp eq i64 %.072.in.in, -1
   %or.cond3 = and i1 %24, %.072.in
   br i1 %or.cond3, label %116, label %118
@@ -2937,7 +2937,7 @@ get_bin.exit:                                     ; preds = %.split195.us
   br label %set_bin.exit
 
 set_bin.exit:                                     ; preds = %find_entry.exit108, %get_bin.exit, %get_bin.exit.thread136, %get_bin.exit.thread135, %get_bin.exit.thread
-  %.073 = phi i64 [ %200, %get_bin.exit.thread ], [ %204, %get_bin.exit.thread135 ], [ %208, %get_bin.exit.thread136 ], [ %211, %get_bin.exit ], [ %.02233.i98, %find_entry.exit108 ]
+  %.073 = phi i64 [ %211, %get_bin.exit ], [ %200, %get_bin.exit.thread ], [ %204, %get_bin.exit.thread135 ], [ %208, %get_bin.exit.thread136 ], [ %.02233.i98, %find_entry.exit108 ]
   %212 = getelementptr %struct.st_table_entry, ptr %.276, i64 %.073
   store i64 -1, ptr %212, align 8, !tbaa !33
   %213 = load i64, ptr %25, align 8, !tbaa !27
@@ -2972,9 +2972,9 @@ set_bin.exit:                                     ; preds = %find_entry.exit108,
   br label %update_range_for_deleted.exit
 
 update_range_for_deleted.exit:                    ; preds = %find_entry.exit108, %.backedge, %.thread146, %164, %.split, %.critedge.i, %set_bin.exit, %120, %121, %26
-  %.178 = phi i64 [ %.077197, %26 ], [ %.279, %120 ], [ %.279, %121 ], [ %.279, %.critedge.i ], [ %.279, %set_bin.exit ], [ %.279, %.split ], [ %.279, %.thread146 ], [ %.279, %164 ], [ %.279, %.backedge ], [ %.279, %find_entry.exit108 ]
-  %.175 = phi ptr [ %.074198, %26 ], [ %.276, %120 ], [ %.276, %121 ], [ %.276, %.critedge.i ], [ %.276, %set_bin.exit ], [ %.276, %.split ], [ %.276, %.thread146 ], [ %.276, %164 ], [ %.276, %.backedge ], [ %.276, %find_entry.exit108 ]
-  %.1 = phi i32 [ %.071199, %26 ], [ %.2, %120 ], [ %.2, %121 ], [ %.2, %.critedge.i ], [ %.2, %set_bin.exit ], [ 1, %.split ], [ 1, %.thread146 ], [ 0, %164 ], [ 1, %.backedge ], [ 1, %find_entry.exit108 ]
+  %.178 = phi i64 [ %.077197, %26 ], [ %.279, %120 ], [ %.279, %121 ], [ %.279, %.split ], [ %.279, %set_bin.exit ], [ %.279, %.thread146 ], [ %.279, %.critedge.i ], [ %.279, %164 ], [ %.279, %.backedge ], [ %.279, %find_entry.exit108 ]
+  %.175 = phi ptr [ %.074198, %26 ], [ %.276, %120 ], [ %.276, %121 ], [ %.276, %.split ], [ %.276, %set_bin.exit ], [ %.276, %.thread146 ], [ %.276, %.critedge.i ], [ %.276, %164 ], [ %.276, %.backedge ], [ %.276, %find_entry.exit108 ]
+  %.1 = phi i32 [ %.071199, %26 ], [ %.2, %120 ], [ %.2, %121 ], [ 1, %.split ], [ %.2, %set_bin.exit ], [ 1, %.thread146 ], [ %.2, %.critedge.i ], [ 0, %164 ], [ 1, %.backedge ], [ 1, %find_entry.exit108 ]
   %227 = add i64 %.178, 1
   %228 = load i64, ptr %12, align 8, !tbaa !31
   %229 = icmp ult i64 %227, %228
@@ -4298,7 +4298,7 @@ get_bin.exit.i:                                   ; preds = %.split.i, %get_bin.
   br i1 %80, label %find_table_bin_ind_direct.exit, label %get_bin.exit.i
 
 find_table_bin_ind_direct.exit:                   ; preds = %get_bin.exit.us25.i, %get_bin.exit.us18.i, %get_bin.exit.us.i, %get_bin.exit.i, %.split.us.i, %.split.us14.i, %.split.us21.i, %.split.i
-  %.us-phi.i = phi i64 [ %.028.i, %.split.us.i ], [ %.028.i, %.split.us14.i ], [ %.028.i, %.split.us21.i ], [ %.028.i, %.split.i ], [ %.0.us17.i, %get_bin.exit.us18.i ], [ %.0.i, %get_bin.exit.i ], [ %.0.us.i, %get_bin.exit.us.i ], [ %.0.us24.i, %get_bin.exit.us25.i ]
+  %.us-phi.i = phi i64 [ %.0.us17.i, %get_bin.exit.us18.i ], [ %.028.i, %.split.us.i ], [ %.0.i, %get_bin.exit.i ], [ %.028.i, %.split.us14.i ], [ %.0.us.i, %get_bin.exit.us.i ], [ %.028.i, %.split.us21.i ], [ %.028.i, %.split.i ], [ %.0.us24.i, %get_bin.exit.us25.i ]
   %81 = add i64 %.02937, 2
   switch i8 %.val, label %91 [
     i8 0, label %82

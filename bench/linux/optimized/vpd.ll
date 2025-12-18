@@ -508,7 +508,7 @@ define dso_local i32 @pci_vpd_find_id_string(ptr noundef readonly captures(none)
   br i1 %26, label %.thread, label %.lr.ph
 
 .thread:                                          ; preds = %23, %.lr.ph, %3, %17, %18
-  %27 = phi i32 [ %6, %18 ], [ %6, %17 ], [ -2, %3 ], [ -2, %.lr.ph ], [ -2, %23 ]
+  %27 = phi i32 [ %6, %17 ], [ %6, %18 ], [ -2, %3 ], [ -2, %.lr.ph ], [ -2, %23 ]
   ret i32 %27
 }
 
@@ -702,7 +702,7 @@ define dso_local range(i32 3, 0) i32 @pci_vpd_find_ro_info_keyword(ptr noundef r
   br label %.thread
 
 .thread:                                          ; preds = %9, %5, %45, %22, %66, %64, %55, %53, %20
-  %67 = phi i32 [ %7, %20 ], [ %33, %53 ], [ -22, %55 ], [ %61, %66 ], [ %61, %64 ], [ -2, %22 ], [ -2, %45 ], [ -2, %5 ], [ -2, %9 ]
+  %67 = phi i32 [ %7, %20 ], [ %33, %53 ], [ -22, %55 ], [ %61, %66 ], [ %61, %64 ], [ -2, %45 ], [ -2, %22 ], [ -2, %5 ], [ -2, %9 ]
   ret i32 %67
 }
 
@@ -820,7 +820,7 @@ define dso_local i32 @pci_vpd_check_csum(ptr noundef readonly captures(none) %0,
   br label %.thread10
 
 .thread10:                                        ; preds = %7, %3, %38, %20, %77, %64, %60
-  %80 = phi i32 [ %79, %77 ], [ 1, %60 ], [ %67, %64 ], [ 1, %20 ], [ 1, %38 ], [ 1, %3 ], [ 1, %7 ]
+  %80 = phi i32 [ %79, %77 ], [ 1, %60 ], [ %67, %64 ], [ 1, %38 ], [ 1, %20 ], [ 1, %3 ], [ 1, %7 ]
   ret i32 %80
 }
 

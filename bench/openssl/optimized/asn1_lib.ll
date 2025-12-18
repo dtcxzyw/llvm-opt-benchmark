@@ -209,8 +209,8 @@ define range(i32 0, 192) i32 @ASN1_get_object(ptr noundef captures(none) %0, ptr
   br label %.thread
 
 .thread:                                          ; preds = %53, %66, %.preheader33.i, %.preheader.i, %._crit_edge.i
-  %.028.i.ph = phi ptr [ %44, %.preheader33.i ], [ %.12935.i, %.preheader.i ], [ %44, %66 ], [ %scevgep49.i, %._crit_edge.i ], [ %scevgep.i, %53 ]
-  %.026.i.ph = phi i64 [ 0, %.preheader33.i ], [ 0, %.preheader.i ], [ %67, %66 ], [ %61, %._crit_edge.i ], [ 0, %53 ]
+  %.028.i.ph = phi ptr [ %scevgep49.i, %._crit_edge.i ], [ %44, %.preheader33.i ], [ %.12935.i, %.preheader.i ], [ %44, %66 ], [ %scevgep.i, %53 ]
+  %.026.i.ph = phi i64 [ %61, %._crit_edge.i ], [ 0, %.preheader33.i ], [ 0, %.preheader.i ], [ %67, %66 ], [ 0, %53 ]
   store i64 %.026.i.ph, ptr %1, align 8, !tbaa !15
   br label %70
 

@@ -235,7 +235,7 @@ find_better_matching_suffix.exit43.i:             ; preds = %89, %87, %find_bett
   %.sink.i = select i1 %96, i32 %..i, i32 1
   br label %.loopexit
 
-swap_prereleases.exit.thread:                     ; preds = %50, %._crit_edge.i, %48
+swap_prereleases.exit.thread:                     ; preds = %._crit_edge.i, %50, %48
   %99 = mul nuw nsw i32 %.038.lcssa, 3
   %100 = icmp eq i8 %.039.lcssa68, 48
   %101 = zext i1 %100 to i32

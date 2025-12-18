@@ -3021,7 +3021,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %_ZNSt6vectorIiSaIiE
   br label %.invoke
 
 .loopexit150:                                     ; preds = %134, %467, %474, %483, %462, %396, %.loopexit, %353, %148, %127, %122, %359
-  %.052 = phi i1 [ false, %122 ], [ false, %148 ], [ true, %359 ], [ false, %396 ], [ false, %.loopexit ], [ false, %127 ], [ false, %353 ], [ true, %462 ], [ true, %467 ], [ true, %483 ], [ true, %474 ], [ false, %134 ]
+  %.052 = phi i1 [ false, %122 ], [ false, %148 ], [ true, %359 ], [ true, %474 ], [ false, %396 ], [ false, %.loopexit ], [ false, %127 ], [ false, %353 ], [ true, %462 ], [ true, %467 ], [ true, %483 ], [ false, %134 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #33
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %607
@@ -6082,12 +6082,12 @@ define hidden noundef zeroext i1 @_ZN2cv10PngEncoder7getRectEjjPhS1_S1_jjijji(pt
   br i1 %exitcond633.not, label %.loopexit, label %.preheader.us, !llvm.loop !273
 
 .loopexit:                                        ; preds = %._crit_edge.us, %._crit_edge.split.us.us, %._crit_edge.split.us431.us, %._crit_edge.us492, %._crit_edge.split.us.us576, %._crit_edge.split.us561.us
-  %.4268 = phi i32 [ %.12276.us.us, %._crit_edge.split.us.us ], [ %.3267.us555.us, %._crit_edge.split.us561.us ], [ %.3267.us.us, %._crit_edge.split.us.us576 ], [ %.8272.us, %._crit_edge.us492 ], [ %.12276.us424.us, %._crit_edge.split.us431.us ], [ %.16280.us, %._crit_edge.us ]
-  %.4251 = phi i32 [ %.12259.us.us, %._crit_edge.split.us.us ], [ %.3250.us556.us, %._crit_edge.split.us561.us ], [ %.3250.us.us, %._crit_edge.split.us.us576 ], [ %.8255.us, %._crit_edge.us492 ], [ %.12259.us425.us, %._crit_edge.split.us431.us ], [ %.16263.us, %._crit_edge.us ]
-  %.4234 = phi i32 [ %.12242.us.us, %._crit_edge.split.us.us ], [ %.3233.us557.us, %._crit_edge.split.us561.us ], [ %.3233.us.us, %._crit_edge.split.us.us576 ], [ %.8238.us, %._crit_edge.us492 ], [ %.12242.us426.us, %._crit_edge.split.us431.us ], [ %.16246.us, %._crit_edge.us ]
-  %.3220 = phi i32 [ %.9226.us.us, %._crit_edge.split.us.us ], [ %.2219.us558.us, %._crit_edge.split.us561.us ], [ %.2219.us.us, %._crit_edge.split.us.us576 ], [ %.6223.us, %._crit_edge.us492 ], [ %.9226.us427.us, %._crit_edge.split.us431.us ], [ %.12229.us, %._crit_edge.us ]
-  %.3207 = phi i32 [ %.9213.us.us, %._crit_edge.split.us.us ], [ %.2206.us559.us, %._crit_edge.split.us561.us ], [ %.2206.us.us, %._crit_edge.split.us.us576 ], [ %.6210.us, %._crit_edge.us492 ], [ %.9213.us428.us, %._crit_edge.split.us431.us ], [ %.12216.us, %._crit_edge.us ]
-  %.4 = phi i32 [ %spec.store.select, %._crit_edge.split.us.us ], [ %.3203.us.us, %._crit_edge.split.us561.us ], [ %spec.store.select, %._crit_edge.split.us.us576 ], [ %.8.us, %._crit_edge.us492 ], [ %.12.us.us, %._crit_edge.split.us431.us ], [ %.16.us, %._crit_edge.us ]
+  %.4268 = phi i32 [ %.3267.us.us, %._crit_edge.split.us.us576 ], [ %.8272.us, %._crit_edge.us492 ], [ %.3267.us555.us, %._crit_edge.split.us561.us ], [ %.12276.us.us, %._crit_edge.split.us.us ], [ %.12276.us424.us, %._crit_edge.split.us431.us ], [ %.16280.us, %._crit_edge.us ]
+  %.4251 = phi i32 [ %.3250.us.us, %._crit_edge.split.us.us576 ], [ %.8255.us, %._crit_edge.us492 ], [ %.3250.us556.us, %._crit_edge.split.us561.us ], [ %.12259.us.us, %._crit_edge.split.us.us ], [ %.12259.us425.us, %._crit_edge.split.us431.us ], [ %.16263.us, %._crit_edge.us ]
+  %.4234 = phi i32 [ %.3233.us.us, %._crit_edge.split.us.us576 ], [ %.8238.us, %._crit_edge.us492 ], [ %.3233.us557.us, %._crit_edge.split.us561.us ], [ %.12242.us.us, %._crit_edge.split.us.us ], [ %.12242.us426.us, %._crit_edge.split.us431.us ], [ %.16246.us, %._crit_edge.us ]
+  %.3220 = phi i32 [ %.2219.us.us, %._crit_edge.split.us.us576 ], [ %.6223.us, %._crit_edge.us492 ], [ %.2219.us558.us, %._crit_edge.split.us561.us ], [ %.9226.us.us, %._crit_edge.split.us.us ], [ %.9226.us427.us, %._crit_edge.split.us431.us ], [ %.12229.us, %._crit_edge.us ]
+  %.3207 = phi i32 [ %.2206.us.us, %._crit_edge.split.us.us576 ], [ %.6210.us, %._crit_edge.us492 ], [ %.2206.us559.us, %._crit_edge.split.us561.us ], [ %.9213.us.us, %._crit_edge.split.us.us ], [ %.9213.us428.us, %._crit_edge.split.us431.us ], [ %.12216.us, %._crit_edge.us ]
+  %.4 = phi i32 [ %spec.store.select, %._crit_edge.split.us.us576 ], [ %.8.us, %._crit_edge.us492 ], [ %.3203.us.us, %._crit_edge.split.us561.us ], [ %spec.store.select, %._crit_edge.split.us.us ], [ %.12.us.us, %._crit_edge.split.us431.us ], [ %.16.us, %._crit_edge.us ]
   %.not317 = icmp eq i32 %.3207, 0
   br i1 %.not317, label %.thread, label %112
 
@@ -6200,8 +6200,8 @@ define hidden noundef zeroext i1 @_ZN2cv10PngEncoder7getRectEjjPhS1_S1_jjijji(pt
   %177 = tail call i32 @deflateReset(ptr noundef nonnull %133)
   br label %.thread
 
-.thread:                                          ; preds = %.preheader.lr.ph, %.preheader328, %.preheader325, %.preheader322, %.preheader320, %12, %112, %158, %118, %.loopexit
-  %178 = phi i1 [ false, %.loopexit ], [ true, %112 ], [ true, %158 ], [ true, %118 ], [ false, %12 ], [ false, %.preheader320 ], [ false, %.preheader322 ], [ false, %.preheader325 ], [ false, %.preheader328 ], [ false, %.preheader.lr.ph ]
+.thread:                                          ; preds = %.preheader328, %.preheader325, %.preheader322, %.preheader.lr.ph, %.preheader320, %12, %112, %158, %118, %.loopexit
+  %178 = phi i1 [ false, %.loopexit ], [ true, %112 ], [ true, %158 ], [ true, %118 ], [ false, %12 ], [ false, %.preheader320 ], [ false, %.preheader.lr.ph ], [ false, %.preheader325 ], [ false, %.preheader322 ], [ false, %.preheader328 ]
   ret i1 %178
 }
 

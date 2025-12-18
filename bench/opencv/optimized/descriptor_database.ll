@@ -1535,7 +1535,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit109: ; preds = %21
   br label %226
 
 .loopexit:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %128, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit94, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit100, %198, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit106, %.critedge88, %.critedge88.preheader
-  %.261 = phi i1 [ true, %.critedge88.preheader ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit94 ], [ %213, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit106 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit100 ], [ %213, %.critedge88 ], [ false, %198 ], [ false, %128 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
+  %.261 = phi i1 [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit94 ], [ %213, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit106 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit100 ], [ true, %.critedge88.preheader ], [ %213, %.critedge88 ], [ false, %198 ], [ false, %128 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   %223 = load ptr, ptr %8, align 8, !tbaa !25
   %224 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %225 = icmp eq ptr %223, %224
@@ -1792,8 +1792,8 @@ _ZN6google8protobuf12_GLOBAL__N_111IsSubSymbolENS0_20stringpiece_internal11Strin
   %33 = load ptr, ptr %32, align 8, !tbaa !64
   br label %_ZN6google8protobuf12_GLOBAL__N_111IsSubSymbolENS0_20stringpiece_internal11StringPieceES3_.exit.thread12
 
-_ZN6google8protobuf12_GLOBAL__N_111IsSubSymbolENS0_20stringpiece_internal11StringPieceES3_.exit.thread12: ; preds = %_ZN6google8protobuf20stringpiece_internaleqENS1_11StringPieceES2_.exit.thread12.i, %_ZN6google8protobuf15HasPrefixStringENS0_20stringpiece_internal11StringPieceES2_.exit.i, %_ZN6google8protobuf12_GLOBAL__N_119FindLastLessOrEqualISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS0_19FileDescriptorProtoESt4lessIS9_ESaISt4pairIKS9_SC_EEES9_EENT_14const_iteratorEPKSK_RKT0_.exit, %_ZN6google8protobuf12_GLOBAL__N_111IsSubSymbolENS0_20stringpiece_internal11StringPieceES3_.exit, %_ZN6google8protobuf12_GLOBAL__N_111IsSubSymbolENS0_20stringpiece_internal11StringPieceES3_.exit.thread
-  %34 = phi ptr [ %33, %_ZN6google8protobuf12_GLOBAL__N_111IsSubSymbolENS0_20stringpiece_internal11StringPieceES3_.exit.thread ], [ null, %_ZN6google8protobuf12_GLOBAL__N_111IsSubSymbolENS0_20stringpiece_internal11StringPieceES3_.exit ], [ null, %_ZN6google8protobuf12_GLOBAL__N_119FindLastLessOrEqualISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS0_19FileDescriptorProtoESt4lessIS9_ESaISt4pairIKS9_SC_EEES9_EENT_14const_iteratorEPKSK_RKT0_.exit ], [ null, %_ZN6google8protobuf15HasPrefixStringENS0_20stringpiece_internal11StringPieceES2_.exit.i ], [ null, %_ZN6google8protobuf20stringpiece_internaleqENS1_11StringPieceES2_.exit.thread12.i ]
+_ZN6google8protobuf12_GLOBAL__N_111IsSubSymbolENS0_20stringpiece_internal11StringPieceES3_.exit.thread12: ; preds = %_ZN6google8protobuf15HasPrefixStringENS0_20stringpiece_internal11StringPieceES2_.exit.i, %_ZN6google8protobuf20stringpiece_internaleqENS1_11StringPieceES2_.exit.thread12.i, %_ZN6google8protobuf12_GLOBAL__N_119FindLastLessOrEqualISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS0_19FileDescriptorProtoESt4lessIS9_ESaISt4pairIKS9_SC_EEES9_EENT_14const_iteratorEPKSK_RKT0_.exit, %_ZN6google8protobuf12_GLOBAL__N_111IsSubSymbolENS0_20stringpiece_internal11StringPieceES3_.exit, %_ZN6google8protobuf12_GLOBAL__N_111IsSubSymbolENS0_20stringpiece_internal11StringPieceES3_.exit.thread
+  %34 = phi ptr [ %33, %_ZN6google8protobuf12_GLOBAL__N_111IsSubSymbolENS0_20stringpiece_internal11StringPieceES3_.exit.thread ], [ null, %_ZN6google8protobuf12_GLOBAL__N_111IsSubSymbolENS0_20stringpiece_internal11StringPieceES3_.exit ], [ null, %_ZN6google8protobuf12_GLOBAL__N_119FindLastLessOrEqualISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS0_19FileDescriptorProtoESt4lessIS9_ESaISt4pairIKS9_SC_EEES9_EENT_14const_iteratorEPKSK_RKT0_.exit ], [ null, %_ZN6google8protobuf20stringpiece_internaleqENS1_11StringPieceES2_.exit.thread12.i ], [ null, %_ZN6google8protobuf15HasPrefixStringENS0_20stringpiece_internal11StringPieceES2_.exit.i ]
   ret ptr %34
 }
 
@@ -3044,7 +3044,7 @@ _ZN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex9FileEntryD2Ev.ex
   br i1 %or.cond.not, label %.lr.ph154, label %.critedge62.thread
 
 .critedge62.thread:                               ; preds = %.lr.ph, %253, %.lr.ph146, %.lr.ph150, %300, %.lr.ph154, %.critedge65, %223, %62
-  %.0 = phi i1 [ false, %62 ], [ false, %223 ], [ true, %.critedge65 ], [ false, %.lr.ph146 ], [ %325, %.lr.ph154 ], [ false, %.lr.ph150 ], [ false, %300 ], [ false, %253 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ false, %62 ], [ false, %223 ], [ false, %.lr.ph150 ], [ %325, %.lr.ph154 ], [ false, %.lr.ph146 ], [ true, %.critedge65 ], [ false, %300 ], [ false, %253 ], [ false, %.lr.ph ]
   ret i1 %.0
 
 327:                                              ; preds = %232, %_ZN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex9FileEntryD2Ev.exit84, %71, %_ZN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex12EncodedEntryD2Ev.exit69
@@ -5538,9 +5538,9 @@ _ZN6google8protobuf12_GLOBAL__N_111IsSubSymbolENS0_20stringpiece_internal11Strin
   %67 = load i32, ptr %65, align 8, !tbaa !52
   br label %_ZN6google8protobuf12_GLOBAL__N_111IsSubSymbolENS0_20stringpiece_internal11StringPieceES3_.exit.thread23
 
-_ZN6google8protobuf12_GLOBAL__N_111IsSubSymbolENS0_20stringpiece_internal11StringPieceES3_.exit.thread23: ; preds = %_ZN6google8protobuf20stringpiece_internaleqENS1_11StringPieceES2_.exit.thread12.i, %_ZN6google8protobuf15HasPrefixStringENS0_20stringpiece_internal11StringPieceES2_.exit.i, %_ZN6google8protobuf12_GLOBAL__N_111IsSubSymbolENS0_20stringpiece_internal11StringPieceES3_.exit, %.critedge11
-  %.sroa.021.0 = phi ptr [ %66, %.critedge11 ], [ null, %_ZN6google8protobuf12_GLOBAL__N_111IsSubSymbolENS0_20stringpiece_internal11StringPieceES3_.exit ], [ null, %_ZN6google8protobuf15HasPrefixStringENS0_20stringpiece_internal11StringPieceES2_.exit.i ], [ null, %_ZN6google8protobuf20stringpiece_internaleqENS1_11StringPieceES2_.exit.thread12.i ]
-  %.sroa.4.0 = phi i32 [ %67, %.critedge11 ], [ 0, %_ZN6google8protobuf12_GLOBAL__N_111IsSubSymbolENS0_20stringpiece_internal11StringPieceES3_.exit ], [ 0, %_ZN6google8protobuf15HasPrefixStringENS0_20stringpiece_internal11StringPieceES2_.exit.i ], [ 0, %_ZN6google8protobuf20stringpiece_internaleqENS1_11StringPieceES2_.exit.thread12.i ]
+_ZN6google8protobuf12_GLOBAL__N_111IsSubSymbolENS0_20stringpiece_internal11StringPieceES3_.exit.thread23: ; preds = %_ZN6google8protobuf15HasPrefixStringENS0_20stringpiece_internal11StringPieceES2_.exit.i, %_ZN6google8protobuf20stringpiece_internaleqENS1_11StringPieceES2_.exit.thread12.i, %_ZN6google8protobuf12_GLOBAL__N_111IsSubSymbolENS0_20stringpiece_internal11StringPieceES3_.exit, %.critedge11
+  %.sroa.021.0 = phi ptr [ %66, %.critedge11 ], [ null, %_ZN6google8protobuf12_GLOBAL__N_111IsSubSymbolENS0_20stringpiece_internal11StringPieceES3_.exit ], [ null, %_ZN6google8protobuf20stringpiece_internaleqENS1_11StringPieceES2_.exit.thread12.i ], [ null, %_ZN6google8protobuf15HasPrefixStringENS0_20stringpiece_internal11StringPieceES2_.exit.i ]
+  %.sroa.4.0 = phi i32 [ %67, %.critedge11 ], [ 0, %_ZN6google8protobuf12_GLOBAL__N_111IsSubSymbolENS0_20stringpiece_internal11StringPieceES3_.exit ], [ 0, %_ZN6google8protobuf20stringpiece_internaleqENS1_11StringPieceES2_.exit.thread12.i ], [ 0, %_ZN6google8protobuf15HasPrefixStringENS0_20stringpiece_internal11StringPieceES2_.exit.i ]
   %68 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %69 = icmp eq ptr %50, %68
   br i1 %69, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -7703,7 +7703,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit.i.i.i.i.i: ; p
   br i1 %.not.i.i56, label %_ZSt7advanceISt23_Rb_tree_const_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEmEvRT_T0_.exit, label %.lr.ph.i.i55, !llvm.loop !288
 
 _ZSt7advanceISt23_Rb_tree_const_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEmEvRT_T0_.exit: ; preds = %.lr.ph.i.i55, %.preheader.i.i, %.preheader7.i.i
-  %.sroa.0.0 = phi ptr [ %2, %.preheader7.i.i ], [ %86, %.preheader.i.i ], [ %89, %.lr.ph.i.i55 ]
+  %.sroa.0.0 = phi ptr [ %86, %.preheader.i.i ], [ %2, %.preheader7.i.i ], [ %89, %.lr.ph.i.i55 ]
   %90 = tail call noundef ptr @_ZSt16__do_uninit_copyISt23_Rb_tree_const_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEPS6_ET0_T_SA_S9_(ptr %.sroa.0.0, ptr %3, ptr noundef %10)
   %91 = sub nuw i64 %6, %18
   %92 = load ptr, ptr %9, align 8, !tbaa !24
@@ -8720,7 +8720,7 @@ _ZN6google8protobuf12_GLOBAL__N_111IsSubSymbolENS0_20stringpiece_internal11Strin
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %153
 
-_ZN6google8protobuf12_GLOBAL__N_111IsSubSymbolENS0_20stringpiece_internal11StringPieceES3_.exit.thread74: ; preds = %_ZN6google8protobuf20stringpiece_internaleqENS1_11StringPieceES2_.exit.thread12.i, %_ZN6google8protobuf15HasPrefixStringENS0_20stringpiece_internal11StringPieceES2_.exit.i, %_ZN6google8protobuf12_GLOBAL__N_111IsSubSymbolENS0_20stringpiece_internal11StringPieceES3_.exit
+_ZN6google8protobuf12_GLOBAL__N_111IsSubSymbolENS0_20stringpiece_internal11StringPieceES3_.exit.thread74: ; preds = %_ZN6google8protobuf15HasPrefixStringENS0_20stringpiece_internal11StringPieceES2_.exit.i, %_ZN6google8protobuf20stringpiece_internaleqENS1_11StringPieceES2_.exit.thread12.i, %_ZN6google8protobuf12_GLOBAL__N_111IsSubSymbolENS0_20stringpiece_internal11StringPieceES3_.exit
   %102 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.01.0.i) #30
   %.not = icmp eq ptr %102, %39
   br i1 %.not, label %.critedge, label %103
@@ -8808,7 +8808,7 @@ _ZN6google8protobuf12_GLOBAL__N_111IsSubSymbolENS0_20stringpiece_internal11Strin
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %153
 
-.critedge:                                        ; preds = %_ZN6google8protobuf20stringpiece_internaleqENS1_11StringPieceES2_.exit.thread12.i35, %_ZN6google8protobuf15HasPrefixStringENS0_20stringpiece_internal11StringPieceES2_.exit.i37, %_ZN6google8protobuf12_GLOBAL__N_111IsSubSymbolENS0_20stringpiece_internal11StringPieceES3_.exit.thread74, %_ZN6google8protobuf12_GLOBAL__N_111IsSubSymbolENS0_20stringpiece_internal11StringPieceES3_.exit42
+.critedge:                                        ; preds = %_ZN6google8protobuf15HasPrefixStringENS0_20stringpiece_internal11StringPieceES2_.exit.i37, %_ZN6google8protobuf20stringpiece_internaleqENS1_11StringPieceES2_.exit.thread12.i35, %_ZN6google8protobuf12_GLOBAL__N_111IsSubSymbolENS0_20stringpiece_internal11StringPieceES3_.exit.thread74, %_ZN6google8protobuf12_GLOBAL__N_111IsSubSymbolENS0_20stringpiece_internal11StringPieceES3_.exit42
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %131 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %131, ptr %14, align 8, !tbaa !53
@@ -10554,7 +10554,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN6google8protobuf25EncodedDescr
   br i1 %or.cond.not, label %.lr.ph45, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph45, %._crit_edge
-  %.3 = phi i1 [ true, %._crit_edge ], [ %24, %.lr.ph45 ], [ false, %.lr.ph ]
+  %.3 = phi i1 [ %24, %.lr.ph45 ], [ true, %._crit_edge ], [ false, %.lr.ph ]
   ret i1 %.3
 }
 

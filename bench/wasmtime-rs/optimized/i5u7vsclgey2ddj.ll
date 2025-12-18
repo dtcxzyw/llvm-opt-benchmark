@@ -2518,7 +2518,7 @@ define void @"_ZN5alloc11collections5btree4node212Handle$LT$alloc..collections..
   br label %23
 
 .loopexit.split-lp:                               ; preds = %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$13edge_area_mut17hf33e676cc4820cfbE.exit", %13, %32, %33
-  %.1.ph = phi i1 [ false, %33 ], [ true, %13 ], [ true, %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$13edge_area_mut17hf33e676cc4820cfbE.exit" ], [ true, %32 ]
+  %.1.ph = phi i1 [ true, %13 ], [ true, %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$13edge_area_mut17hf33e676cc4820cfbE.exit" ], [ true, %32 ], [ false, %33 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %23

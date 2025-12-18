@@ -1343,7 +1343,7 @@ _PyUnicode_DATA.exit25.i.i:                       ; preds = %108, %106
   br label %148
 
 148:                                              ; preds = %.critedge.i, %141, %124, %120
-  %.076.i = phi i32 [ -1, %120 ], [ -1, %124 ], [ -1, %141 ], [ %147, %.critedge.i ]
+  %.076.i = phi i32 [ %147, %.critedge.i ], [ -1, %141 ], [ -1, %124 ], [ -1, %120 ]
   %.not.i.i27 = icmp eq ptr %.189.i39, null
   br i1 %.not.i.i27, label %Py_XDECREF.exit.i, label %149
 
@@ -1762,8 +1762,8 @@ PyUnicode_READ.exit.i:                            ; preds = %.lr.ph.i, %115
   br label %parse_number.exit
 
 parse_number.exit:                                ; preds = %106, %97, %115, %_PyUnicode_DATA.exit.i107, %.critedge20.i
-  %.0115 = phi i32 [ %129, %.critedge20.i ], [ 0, %_PyUnicode_DATA.exit.i107 ], [ 0, %97 ], [ 0, %115 ], [ 0, %106 ]
-  %131 = phi i64 [ %spec.select.i, %.critedge20.i ], [ %.076, %_PyUnicode_DATA.exit.i107 ], [ %85, %97 ], [ %85, %115 ], [ %85, %106 ]
+  %.0115 = phi i32 [ %129, %.critedge20.i ], [ 0, %_PyUnicode_DATA.exit.i107 ], [ 0, %115 ], [ 0, %97 ], [ 0, %106 ]
+  %131 = phi i64 [ %spec.select.i, %.critedge20.i ], [ %.076, %_PyUnicode_DATA.exit.i107 ], [ %85, %115 ], [ %85, %97 ], [ %85, %106 ]
   %132 = sub i64 %85, %131
   %133 = load i32, ptr %8, align 8, !tbaa !11
   %134 = icmp eq i32 %133, 110
@@ -3232,7 +3232,7 @@ PyUnicode_READ.exit:                              ; preds = %.lr.ph.split, %PyUn
   br i1 %exitcond141.not, label %.loopexit, label %PyUnicode_READ.exit, !llvm.loop !69
 
 .loopexit:                                        ; preds = %PyUnicode_READ.exit.thread128.us, %PyUnicode_READ.exit.thread.us, %PyUnicode_READ.exit, %44
-  %78 = phi i64 [ %.pre143, %44 ], [ %57, %PyUnicode_READ.exit.thread.us ], [ %.pre143, %PyUnicode_READ.exit ], [ %.pre143, %PyUnicode_READ.exit.thread128.us ]
+  %78 = phi i64 [ %57, %PyUnicode_READ.exit.thread.us ], [ %.pre143, %PyUnicode_READ.exit ], [ %.pre143, %44 ], [ %.pre143, %PyUnicode_READ.exit.thread128.us ]
   %79 = load i64, ptr %46, align 8, !tbaa !30
   %80 = add i64 %79, %78
   store i64 %80, ptr %46, align 8, !tbaa !30

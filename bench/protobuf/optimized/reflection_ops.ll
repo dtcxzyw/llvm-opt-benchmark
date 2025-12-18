@@ -1364,7 +1364,7 @@ if.end98:                                         ; preds = %if.end11, %if.then8
   br label %return
 
 return:                                           ; preds = %land.lhs.true, %if.then70, %_ZN6google8protobuf11MapIteratorD2Ev.exit76, %for.body59, %if.then89, %if.end98
-  %retval.0 = phi i1 [ true, %if.end98 ], [ false, %if.then89 ], [ false, %if.then70 ], [ false, %for.body59 ], [ false, %_ZN6google8protobuf11MapIteratorD2Ev.exit76 ], [ false, %land.lhs.true ]
+  %retval.0 = phi i1 [ false, %if.then70 ], [ true, %if.end98 ], [ false, %for.body59 ], [ false, %if.then89 ], [ false, %_ZN6google8protobuf11MapIteratorD2Ev.exit76 ], [ false, %land.lhs.true ]
   ret i1 %retval.0
 }
 
@@ -2126,7 +2126,7 @@ for.inc103:                                       ; preds = %for.cond78, %for.co
   br i1 %cmp.i.not, label %cleanup106thread-pre-split, label %for.body24
 
 cleanup106thread-pre-split:                       ; preds = %for.inc103, %invoke.cont97, %invoke.cont85, %_ZN6google8protobuf11MapIteratorD2Ev.exit91, %if.then.i.i94
-  %cmp.i.not142.ph = phi i1 [ false, %_ZN6google8protobuf11MapIteratorD2Ev.exit91 ], [ false, %if.then.i.i94 ], [ false, %invoke.cont85 ], [ true, %for.inc103 ], [ false, %invoke.cont97 ]
+  %cmp.i.not142.ph = phi i1 [ false, %_ZN6google8protobuf11MapIteratorD2Ev.exit91 ], [ false, %invoke.cont85 ], [ false, %if.then.i.i94 ], [ false, %invoke.cont97 ], [ true, %for.inc103 ]
   %.pr = load ptr, ptr %fields, align 8
   br label %cleanup106
 
@@ -2154,7 +2154,7 @@ _ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EED2Ev.exit116: ; preds 
   resume { ptr, i32 } %.pn.pn
 
 return:                                           ; preds = %if.then, %if.then.i.i.i113, %cleanup106
-  %retval.0 = phi i1 [ %cmp.i.not142, %cleanup106 ], [ %cmp.i.not142, %if.then.i.i.i113 ], [ false, %if.then ]
+  %retval.0 = phi i1 [ %cmp.i.not142, %if.then.i.i.i113 ], [ %cmp.i.not142, %cleanup106 ], [ false, %if.then ]
   ret i1 %retval.0
 }
 

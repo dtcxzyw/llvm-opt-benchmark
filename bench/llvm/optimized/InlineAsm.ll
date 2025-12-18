@@ -847,7 +847,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.si
   br i1 %91, label %.critedge138, label %.preheader216.split.split.us, !llvm.loop !113
 
 .preheader215:                                    ; preds = %.preheader216.split.split, %.preheader216.split.split.us, %.preheader216.split.us.split.us, %73
-  %.us-phi = phi ptr [ %.193, %.preheader216.split.us.split.us ], [ %72, %73 ], [ %.294220.us221, %.preheader216.split.split.us ], [ %.294220, %.preheader216.split.split ]
+  %.us-phi = phi ptr [ %.294220.us221, %.preheader216.split.split.us ], [ %.193, %.preheader216.split.us.split.us ], [ %72, %73 ], [ %.294220, %.preheader216.split.split ]
   %.not121241 = icmp eq ptr %.us-phi, %13
   br i1 %.not121241, label %.critedge138, label %.lr.ph245
 
@@ -1540,7 +1540,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit179: ; preds = %_Z
   br i1 %.not121, label %.critedge138, label %121, !llvm.loop !123
 
 .critedge138:                                     ; preds = %110, %113, %.preheader216.split.split, %.preheader216.split.split, %116, %.preheader216.split.split.us, %.preheader216.split.split.us, %.preheader216.split.split.us, %88, %89, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit149, %252, %259, %269, %.critedge137, %_ZSt4findIPKccET_S2_S2_RKT0_.exit, %._crit_edge.i.i.i, %._crit_edge._crit_edge52.i.i.i, %274, %.preheader216.split.us.split.us, %.preheader215, %.thread, %73
-  %.0 = phi i1 [ true, %.thread ], [ true, %73 ], [ false, %.preheader215 ], [ true, %.preheader216.split.us.split.us ], [ true, %.preheader216.split.split.us ], [ true, %274 ], [ true, %._crit_edge.i.i.i ], [ true, %_ZSt4findIPKccET_S2_S2_RKT0_.exit ], [ false, %.critedge137 ], [ true, %._crit_edge._crit_edge52.i.i.i ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit149 ], [ true, %252 ], [ true, %259 ], [ true, %269 ], [ true, %89 ], [ true, %88 ], [ true, %.preheader216.split.split.us ], [ true, %.preheader216.split.split.us ], [ true, %116 ], [ true, %.preheader216.split.split ], [ true, %.preheader216.split.split ], [ true, %113 ], [ true, %110 ]
+  %.0 = phi i1 [ true, %.thread ], [ true, %73 ], [ true, %.preheader216.split.split.us ], [ true, %274 ], [ true, %.preheader216.split.us.split.us ], [ false, %.preheader215 ], [ true, %._crit_edge.i.i.i ], [ true, %_ZSt4findIPKccET_S2_S2_RKT0_.exit ], [ false, %.critedge137 ], [ true, %._crit_edge._crit_edge52.i.i.i ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit149 ], [ true, %252 ], [ true, %259 ], [ true, %269 ], [ true, %89 ], [ true, %88 ], [ true, %.preheader216.split.split.us ], [ true, %.preheader216.split.split.us ], [ true, %116 ], [ true, %.preheader216.split.split ], [ true, %.preheader216.split.split ], [ true, %113 ], [ true, %110 ]
   ret i1 %.0
 }
 
@@ -3005,7 +3005,7 @@ _ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit:       ; preds = %47, %50
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !155
 
 _ZSt11swap_rangesIPcS0_ET0_T_S2_S1_.exit:         ; preds = %._crit_edge, %._crit_edge110, %.lr.ph.i, %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit, %_ZSt4moveIPcS0_ET0_T_S2_S1_.exit, %5, %3
-  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %21, %_ZSt4moveIPcS0_ET0_T_S2_S1_.exit ], [ %21, %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit ], [ %1, %.lr.ph.i ], [ %21, %._crit_edge110 ], [ %21, %._crit_edge ]
+  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %1, %.lr.ph.i ], [ %21, %_ZSt4moveIPcS0_ET0_T_S2_S1_.exit ], [ %21, %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit ], [ %21, %._crit_edge110 ], [ %21, %._crit_edge ]
   ret ptr %.053
 }
 

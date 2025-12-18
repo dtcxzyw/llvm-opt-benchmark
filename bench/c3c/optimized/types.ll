@@ -2815,7 +2815,7 @@ type_flatten.exit86:                              ; preds = %type_flatten.exit
   br i1 %.not80, label %94, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph104, %104, %94, %.lr.ph111, %86, %74, %33, %75, %91, %38, %.thread, %83, %56, %type_flatten.exit86, %52, %48
-  %.072 = phi i1 [ false, %74 ], [ true, %type_flatten.exit86 ], [ false, %.thread ], [ %49, %48 ], [ %53, %52 ], [ false, %56 ], [ false, %83 ], [ false, %75 ], [ false, %38 ], [ true, %91 ], [ true, %86 ], [ true, %94 ], [ false, %33 ], [ %45, %.lr.ph111 ], [ false, %.lr.ph104 ], [ false, %104 ], [ %82, %.lr.ph ]
+  %.072 = phi i1 [ false, %74 ], [ true, %type_flatten.exit86 ], [ false, %.thread ], [ %49, %48 ], [ %53, %52 ], [ false, %56 ], [ false, %83 ], [ false, %75 ], [ false, %38 ], [ true, %91 ], [ true, %86 ], [ true, %94 ], [ %45, %.lr.ph111 ], [ false, %33 ], [ false, %.lr.ph104 ], [ false, %104 ], [ %82, %.lr.ph ]
   ret i1 %.072
 }
 
@@ -4053,7 +4053,7 @@ compare_func_param.exit52.thread.i:               ; preds = %tailrecurse.backedg
 compare_function.exit:                            ; preds = %compare_func_param.exit.i
   br i1 %270, label %compare_function.exit.thread, label %func_create_new_func_proto.exit
 
-compare_function.exit.thread:                     ; preds = %255, %252, %257, %compare_func_param.exit52.i, %288, %293, %291, %214, %237, %compare_function.exit, %210
+compare_function.exit.thread:                     ; preds = %257, %252, %255, %compare_func_param.exit52.i, %288, %291, %293, %214, %237, %compare_function.exit, %210
   %307 = add i32 %.01762, 1
   %.017 = and i32 %307, %36
   %308 = zext i32 %.017 to i64
@@ -5002,7 +5002,7 @@ define dso_local noundef zeroext i1 @type_is_subtype(ptr noundef readnone captur
   br label %type_find_parent_type.exit
 
 type_find_parent_type.exit:                       ; preds = %14, %24
-  %.0.i.in = phi ptr [ %17, %14 ], [ %28, %24 ]
+  %.0.i.in = phi ptr [ %28, %24 ], [ %17, %14 ]
   %.0.i = load ptr, ptr %.0.i.in, align 8
   %.not.not = icmp eq ptr %.0.i, null
   br i1 %.not.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
@@ -5422,7 +5422,7 @@ type_flatten.exit79:                              ; preds = %type_flatten.exit75
   br label %type_find_parent_type.exit.i
 
 type_find_parent_type.exit.i:                     ; preds = %95, %85
-  %.0.i.in.i = phi ptr [ %88, %85 ], [ %99, %95 ]
+  %.0.i.in.i = phi ptr [ %99, %95 ], [ %88, %85 ]
   %.0.i.i = load ptr, ptr %.0.i.in.i, align 8
   %.not.not.i = icmp eq ptr %.0.i.i, null
   br i1 %.not.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !23
@@ -5522,7 +5522,7 @@ type_is_matching_int.exit.thread:                 ; preds = %105, %type_is_match
   br label %type_is_subtype.exit
 
 type_is_subtype.exit:                             ; preds = %105, %117, %129, %type_is_matching_int.exit, %type_flatten.exit79, %34, %type_flatten.exit71, %135, %.lr.ph.i, %138, %136, %140
-  %.059 = phi i32 [ -1, %138 ], [ %150, %140 ], [ -1, %136 ], [ 1, %.lr.ph.i ], [ 1, %type_flatten.exit71 ], [ 0, %135 ], [ 1, %type_flatten.exit79 ], [ 1, %34 ], [ %130, %129 ], [ 2, %105 ], [ 2, %type_is_matching_int.exit ], [ 0, %117 ]
+  %.059 = phi i32 [ -1, %138 ], [ %150, %140 ], [ -1, %136 ], [ 1, %type_flatten.exit71 ], [ 1, %.lr.ph.i ], [ 0, %135 ], [ 1, %type_flatten.exit79 ], [ 1, %34 ], [ 2, %type_is_matching_int.exit ], [ 2, %105 ], [ %130, %129 ], [ 0, %117 ]
   ret i32 %.059
 }
 
@@ -6187,7 +6187,7 @@ tailrecurse:                                      ; preds = %48
   unreachable
 
 .critedge120:                                     ; preds = %tailrecurse, %9, %13, %.critedge2, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %48, %.lr.ph176, %.thread, %2, %90, %169, %188, %188, %188, %188, %175, %152, %130, %109, %105, %190, %177, %173, %167, %147, %116, %112, %.thread124, %.thread123
-  %.0106 = phi ptr [ %174, %173 ], [ %spec.select121, %169 ], [ %187, %177 ], [ null, %175 ], [ %spec.select118, %188 ], [ %spec.select118, %188 ], [ %spec.select118, %188 ], [ null, %190 ], [ %89, %.thread123 ], [ %spec.select118, %188 ], [ %spec.select118, %105 ], [ %108, %.thread124 ], [ %spec.select118, %90 ], [ %115, %112 ], [ %119, %116 ], [ %spec.select118, %109 ], [ %148, %147 ], [ %spec.select118, %130 ], [ %168, %167 ], [ %spec.select118, %152 ], [ %4, %2 ], [ %spec.select118, %.thread ], [ %spec.select118, %.lr.ph176 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ %.0104.lcssa, %.critedge2 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ %11, %13 ], [ %10, %9 ], [ %85, %tailrecurse ], [ null, %44 ], [ %spec.select118, %48 ]
+  %.0106 = phi ptr [ %spec.select118, %188 ], [ %4, %2 ], [ %174, %173 ], [ %spec.select121, %169 ], [ %187, %177 ], [ null, %175 ], [ %spec.select118, %188 ], [ %spec.select118, %188 ], [ %spec.select118, %188 ], [ %89, %.thread123 ], [ null, %190 ], [ %spec.select118, %105 ], [ %108, %.thread124 ], [ %spec.select118, %90 ], [ %115, %112 ], [ %119, %116 ], [ %spec.select118, %109 ], [ %148, %147 ], [ %spec.select118, %130 ], [ %168, %167 ], [ %spec.select118, %152 ], [ %spec.select118, %.lr.ph176 ], [ %spec.select118, %.thread ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ %.0104.lcssa, %.critedge2 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ %11, %13 ], [ %10, %9 ], [ %85, %tailrecurse ], [ null, %44 ], [ %spec.select118, %48 ]
   ret ptr %.0106
 }
 
@@ -6301,7 +6301,7 @@ define internal fastcc ptr @type_find_max_ptr_type(ptr noundef readonly captures
   br label %type_find_parent_type.exit.i
 
 type_find_parent_type.exit.i:                     ; preds = %60, %50
-  %.0.i.in.i = phi ptr [ %53, %50 ], [ %64, %60 ]
+  %.0.i.in.i = phi ptr [ %64, %60 ], [ %53, %50 ]
   %.0.i.i = load ptr, ptr %.0.i.in.i, align 8
   %.not.not.i = icmp eq ptr %.0.i.i, null
   br i1 %.not.not.i, label %.loopexit50, label %.lr.ph.i, !llvm.loop !23
@@ -6356,7 +6356,7 @@ type_find_parent_type.exit.i:                     ; preds = %60, %50
   br label %type_find_parent_type.exit.i40
 
 type_find_parent_type.exit.i40:                   ; preds = %86, %76
-  %.0.i.in.i41 = phi ptr [ %79, %76 ], [ %90, %86 ]
+  %.0.i.in.i41 = phi ptr [ %90, %86 ], [ %79, %76 ]
   %.0.i.i42 = load ptr, ptr %.0.i.in.i41, align 8
   %.not.not.i43 = icmp eq ptr %.0.i.i42, null
   br i1 %.not.not.i43, label %.loopexit, label %.lr.ph.i37, !llvm.loop !23
@@ -6371,7 +6371,7 @@ type_find_parent_type.exit.i40:                   ; preds = %86, %76
   br label %type_is_subtype.exit
 
 type_is_subtype.exit:                             ; preds = %.lr.ph.i, %.lr.ph.i37, %.loopexit, %2, %4, %92, %24, %10
-  %.0 = phi ptr [ %11, %10 ], [ null, %4 ], [ %25, %24 ], [ null, %2 ], [ null, %.loopexit ], [ %93, %92 ], [ %1, %.lr.ph.i37 ], [ %0, %.lr.ph.i ]
+  %.0 = phi ptr [ %11, %10 ], [ %1, %.lr.ph.i37 ], [ null, %4 ], [ %25, %24 ], [ null, %2 ], [ null, %.loopexit ], [ %93, %92 ], [ %0, %.lr.ph.i ]
   ret ptr %.0
 }
 
@@ -6529,7 +6529,7 @@ define dso_local ptr @type_find_common_ancestor(ptr noundef readonly captures(ad
   br i1 %.not55, label %.loopexit58, label %.lr.ph67.split
 
 .loopexit58:                                      ; preds = %31, %..loopexit_crit_edge.us, %.lr.ph67.split.us, %56, %.loopexit, %.lr.ph67.split, %.preheader, %13, %20, %14, %10, %4, %2
-  %.037 = phi ptr [ null, %13 ], [ %0, %2 ], [ %6, %4 ], [ null, %10 ], [ null, %14 ], [ %21, %20 ], [ null, %.preheader ], [ null, %..loopexit_crit_edge.us ], [ null, %.loopexit ], [ %54, %56 ], [ null, %.lr.ph67.split ], [ null, %.lr.ph67.split.us ], [ %8, %31 ]
+  %.037 = phi ptr [ null, %13 ], [ %0, %2 ], [ %6, %4 ], [ null, %10 ], [ null, %14 ], [ null, %.preheader ], [ %21, %20 ], [ null, %..loopexit_crit_edge.us ], [ null, %.loopexit ], [ %54, %56 ], [ null, %.lr.ph67.split ], [ null, %.lr.ph67.split.us ], [ %8, %31 ]
   ret ptr %.037
 }
 
@@ -6763,7 +6763,7 @@ define dso_local ptr @type_base_module(ptr noundef readonly captures(none) %0) l
   unreachable
 
 .loopexit:                                        ; preds = %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %21, %16, %14, %12, %6
-  %.012 = phi ptr [ null, %6 ], [ %15, %14 ], [ %13, %12 ], [ %22, %21 ], [ null, %16 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ]
+  %.012 = phi ptr [ null, %6 ], [ null, %16 ], [ %22, %21 ], [ %13, %12 ], [ %15, %14 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ]
   ret ptr %.012
 }
 
@@ -7005,7 +7005,7 @@ tailrecurse:                                      ; preds = %3, %1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %tailrecurse, %53, %48, %46, %41, %39, %34, %30, %25, %23, %18, %16, %11, %6
-  %.0 = phi ptr [ %.tr, %48 ], [ %10, %6 ], [ %.tr, %41 ], [ %.tr, %11 ], [ %.tr, %18 ], [ %.tr, %25 ], [ %.tr, %34 ], [ %17, %16 ], [ %24, %23 ], [ %33, %30 ], [ %40, %39 ], [ %47, %46 ], [ %54, %53 ], [ %.tr, %tailrecurse ]
+  %.0 = phi ptr [ %.tr, %48 ], [ %54, %53 ], [ %10, %6 ], [ %.tr, %41 ], [ %.tr, %11 ], [ %.tr, %18 ], [ %.tr, %25 ], [ %.tr, %34 ], [ %17, %16 ], [ %24, %23 ], [ %33, %30 ], [ %40, %39 ], [ %47, %46 ], [ %.tr, %tailrecurse ]
   ret ptr %.0
 }
 

@@ -1867,8 +1867,8 @@ define internal fastcc i64 @eval2(ptr noundef %0, ptr noundef writeonly captures
   br label %8
 
 tailrecurse.outer._crit_edge:                     ; preds = %tailrecurse.outer, %tailrecurse.backedge, %2
-  %accumulator.tr.ph.lcssa235 = phi i64 [ 0, %2 ], [ %accumulator.tr.ph246, %tailrecurse.backedge ], [ %15, %tailrecurse.outer ]
-  %.tr.lcssa = phi ptr [ %0, %2 ], [ %.tr.be, %tailrecurse.backedge ], [ %14, %tailrecurse.outer ]
+  %accumulator.tr.ph.lcssa235 = phi i64 [ %accumulator.tr.ph246, %tailrecurse.backedge ], [ 0, %2 ], [ %15, %tailrecurse.outer ]
+  %.tr.lcssa = phi ptr [ %.tr.be, %tailrecurse.backedge ], [ %0, %2 ], [ %14, %tailrecurse.outer ]
   %6 = tail call fastcc double @eval_double(ptr noundef nonnull %.tr.lcssa)
   %7 = fptosi double %6 to i64
   br label %296
@@ -5126,10 +5126,10 @@ add.exit.i:                                       ; preds = %1219
   br label %1124
 
 shift.exit214:                                    ; preds = %1126, %901, %676, %451
-  %.1 = phi ptr [ %.02009, %901 ], [ %.02015, %451 ], [ %.02012, %676 ], [ %.02006, %1126 ]
-  %.sink23.i = phi i32 [ 14, %901 ], [ 14, %451 ], [ 15, %676 ], [ 15, %1126 ]
-  %.sink.i = phi ptr [ %.08.i197, %901 ], [ %.012.i, %451 ], [ %.012.i, %676 ], [ %.08.i196, %1126 ]
-  %.012.sink.i = phi ptr [ %.012.i, %901 ], [ %.08.i209, %451 ], [ %.08.i203, %676 ], [ %.012.i, %1126 ]
+  %.1 = phi ptr [ %.02012, %676 ], [ %.02009, %901 ], [ %.02015, %451 ], [ %.02006, %1126 ]
+  %.sink23.i = phi i32 [ 15, %676 ], [ 14, %901 ], [ 14, %451 ], [ 15, %1126 ]
+  %.sink.i = phi ptr [ %.012.i, %676 ], [ %.08.i197, %901 ], [ %.012.i, %451 ], [ %.08.i196, %1126 ]
+  %.012.sink.i = phi ptr [ %.08.i203, %676 ], [ %.012.i, %901 ], [ %.08.i209, %451 ], [ %.012.i, %1126 ]
   %1248 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #15
   store i32 %.sink23.i, ptr %1248, align 16, !tbaa !7
   %1249 = getelementptr inbounds nuw i8, ptr %1248, i64 24
@@ -7674,10 +7674,10 @@ add.exit.i224:                                    ; preds = %2380
   br label %2285
 
 shift.exit244:                                    ; preds = %2287, %2062, %1837, %1596
-  %.11993 = phi ptr [ %.02024, %2062 ], [ %.02030, %1596 ], [ %.02027, %1837 ], [ %.02021, %2287 ]
-  %.sink23.i162 = phi i32 [ 14, %2062 ], [ 14, %1596 ], [ 15, %1837 ], [ 15, %2287 ]
-  %.sink.i163 = phi ptr [ %.08.i227, %2062 ], [ %.012.i161, %1596 ], [ %.012.i161, %1837 ], [ %.08.i221, %2287 ]
-  %.012.sink.i164 = phi ptr [ %.012.i161, %2062 ], [ %.08.i239, %1596 ], [ %.08.i233, %1837 ], [ %.012.i161, %2287 ]
+  %.11993 = phi ptr [ %.02027, %1837 ], [ %.02024, %2062 ], [ %.02030, %1596 ], [ %.02021, %2287 ]
+  %.sink23.i162 = phi i32 [ 15, %1837 ], [ 14, %2062 ], [ 14, %1596 ], [ 15, %2287 ]
+  %.sink.i163 = phi ptr [ %.012.i161, %1837 ], [ %.08.i227, %2062 ], [ %.012.i161, %1596 ], [ %.08.i221, %2287 ]
+  %.012.sink.i164 = phi ptr [ %.08.i233, %1837 ], [ %.012.i161, %2062 ], [ %.08.i239, %1596 ], [ %.012.i161, %2287 ]
   %2409 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #15
   store i32 %.sink23.i162, ptr %2409, align 16, !tbaa !7
   %2410 = getelementptr inbounds nuw i8, ptr %2409, i64 24
@@ -9285,10 +9285,10 @@ add.exit.i254:                                    ; preds = %3111
   br label %3016
 
 shift.exit274:                                    ; preds = %3018, %2873, %2728, %2583
-  %.11995 = phi ptr [ %.02039, %2873 ], [ %.02045, %2583 ], [ %.02042, %2728 ], [ %.02036, %3018 ]
-  %.sink23.i167 = phi i32 [ 14, %2873 ], [ 14, %2583 ], [ 15, %2728 ], [ 15, %3018 ]
-  %.sink.i168 = phi ptr [ %.08.i257, %2873 ], [ %.012.i166, %2583 ], [ %.012.i166, %2728 ], [ %.08.i251, %3018 ]
-  %.012.sink.i169 = phi ptr [ %.012.i166, %2873 ], [ %.08.i269, %2583 ], [ %.08.i263, %2728 ], [ %.012.i166, %3018 ]
+  %.11995 = phi ptr [ %.02042, %2728 ], [ %.02039, %2873 ], [ %.02045, %2583 ], [ %.02036, %3018 ]
+  %.sink23.i167 = phi i32 [ 15, %2728 ], [ 14, %2873 ], [ 14, %2583 ], [ 15, %3018 ]
+  %.sink.i168 = phi ptr [ %.012.i166, %2728 ], [ %.08.i257, %2873 ], [ %.012.i166, %2583 ], [ %.08.i251, %3018 ]
+  %.012.sink.i169 = phi ptr [ %.08.i263, %2728 ], [ %.012.i166, %2873 ], [ %.08.i269, %2583 ], [ %.012.i166, %3018 ]
   %3140 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #15
   store i32 %.sink23.i167, ptr %3140, align 16, !tbaa !7
   %3141 = getelementptr inbounds nuw i8, ptr %3140, i64 24
@@ -11238,10 +11238,10 @@ add.exit.i284:                                    ; preds = %4000
   br label %3905
 
 shift.exit304:                                    ; preds = %3907, %3762, %3617, %3392
-  %.11997 = phi ptr [ %.02054, %3762 ], [ %.02060, %3392 ], [ %.02057, %3617 ], [ %.02051, %3907 ]
-  %.sink23.i172 = phi i32 [ 14, %3762 ], [ 14, %3392 ], [ 15, %3617 ], [ 15, %3907 ]
-  %.sink.i173 = phi ptr [ %.08.i287, %3762 ], [ %.012.i171, %3392 ], [ %.012.i171, %3617 ], [ %.08.i281, %3907 ]
-  %.012.sink.i174 = phi ptr [ %.012.i171, %3762 ], [ %.08.i299, %3392 ], [ %.08.i293, %3617 ], [ %.012.i171, %3907 ]
+  %.11997 = phi ptr [ %.02057, %3617 ], [ %.02054, %3762 ], [ %.02060, %3392 ], [ %.02051, %3907 ]
+  %.sink23.i172 = phi i32 [ 15, %3617 ], [ 14, %3762 ], [ 14, %3392 ], [ 15, %3907 ]
+  %.sink.i173 = phi ptr [ %.012.i171, %3617 ], [ %.08.i287, %3762 ], [ %.012.i171, %3392 ], [ %.08.i281, %3907 ]
+  %.012.sink.i174 = phi ptr [ %.08.i293, %3617 ], [ %.012.i171, %3762 ], [ %.08.i299, %3392 ], [ %.012.i171, %3907 ]
   %4029 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #15
   store i32 %.sink23.i172, ptr %4029, align 16, !tbaa !7
   %4030 = getelementptr inbounds nuw i8, ptr %4029, i64 24
@@ -12851,10 +12851,10 @@ add.exit.i314:                                    ; preds = %4734
   br label %4639
 
 shift.exit334:                                    ; preds = %4641, %4496, %4351, %4206
-  %.11999 = phi ptr [ %.02069, %4496 ], [ %.02075, %4206 ], [ %.02072, %4351 ], [ %.02066, %4641 ]
-  %.sink23.i177 = phi i32 [ 14, %4496 ], [ 14, %4206 ], [ 15, %4351 ], [ 15, %4641 ]
-  %.sink.i178 = phi ptr [ %.08.i317, %4496 ], [ %.012.i176, %4206 ], [ %.012.i176, %4351 ], [ %.08.i311, %4641 ]
-  %.012.sink.i179 = phi ptr [ %.012.i176, %4496 ], [ %.08.i329, %4206 ], [ %.08.i323, %4351 ], [ %.012.i176, %4641 ]
+  %.11999 = phi ptr [ %.02072, %4351 ], [ %.02069, %4496 ], [ %.02075, %4206 ], [ %.02066, %4641 ]
+  %.sink23.i177 = phi i32 [ 15, %4351 ], [ 14, %4496 ], [ 14, %4206 ], [ 15, %4641 ]
+  %.sink.i178 = phi ptr [ %.012.i176, %4351 ], [ %.08.i317, %4496 ], [ %.012.i176, %4206 ], [ %.08.i311, %4641 ]
+  %.012.sink.i179 = phi ptr [ %.08.i323, %4351 ], [ %.012.i176, %4496 ], [ %.08.i329, %4206 ], [ %.012.i176, %4641 ]
   %4763 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #15
   store i32 %.sink23.i177, ptr %4763, align 16, !tbaa !7
   %4764 = getelementptr inbounds nuw i8, ptr %4763, i64 24
@@ -14627,10 +14627,10 @@ add.exit.i344:                                    ; preds = %5543
   br label %5448
 
 shift.exit364:                                    ; preds = %5450, %5305, %5160, %5015
-  %.12001 = phi ptr [ %.02084, %5305 ], [ %.02090, %5015 ], [ %.02087, %5160 ], [ %.02081, %5450 ]
-  %.sink23.i182 = phi i32 [ 14, %5305 ], [ 14, %5015 ], [ 15, %5160 ], [ 15, %5450 ]
-  %.sink.i183 = phi ptr [ %.08.i347, %5305 ], [ %.012.i181, %5015 ], [ %.012.i181, %5160 ], [ %.08.i341, %5450 ]
-  %.012.sink.i184 = phi ptr [ %.012.i181, %5305 ], [ %.08.i359, %5015 ], [ %.08.i353, %5160 ], [ %.012.i181, %5450 ]
+  %.12001 = phi ptr [ %.02087, %5160 ], [ %.02084, %5305 ], [ %.02090, %5015 ], [ %.02081, %5450 ]
+  %.sink23.i182 = phi i32 [ 15, %5160 ], [ 14, %5305 ], [ 14, %5015 ], [ 15, %5450 ]
+  %.sink.i183 = phi ptr [ %.012.i181, %5160 ], [ %.08.i347, %5305 ], [ %.012.i181, %5015 ], [ %.08.i341, %5450 ]
+  %.012.sink.i184 = phi ptr [ %.08.i353, %5160 ], [ %.012.i181, %5305 ], [ %.08.i359, %5015 ], [ %.012.i181, %5450 ]
   %5572 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #15
   store i32 %.sink23.i182, ptr %5572, align 16, !tbaa !7
   %5573 = getelementptr inbounds nuw i8, ptr %5572, i64 24
@@ -16232,10 +16232,10 @@ add.exit.i374:                                    ; preds = %6273
   br label %6178
 
 shift.exit394:                                    ; preds = %6180, %6035, %5890, %5745
-  %.12003 = phi ptr [ %.02099, %6035 ], [ %.02105, %5745 ], [ %.02102, %5890 ], [ %.02096, %6180 ]
-  %.sink23.i187 = phi i32 [ 14, %6035 ], [ 14, %5745 ], [ 15, %5890 ], [ 15, %6180 ]
-  %.sink.i188 = phi ptr [ %.08.i377, %6035 ], [ %.012.i186, %5745 ], [ %.012.i186, %5890 ], [ %.08.i371, %6180 ]
-  %.012.sink.i189 = phi ptr [ %.012.i186, %6035 ], [ %.08.i389, %5745 ], [ %.08.i383, %5890 ], [ %.012.i186, %6180 ]
+  %.12003 = phi ptr [ %.02102, %5890 ], [ %.02099, %6035 ], [ %.02105, %5745 ], [ %.02096, %6180 ]
+  %.sink23.i187 = phi i32 [ 15, %5890 ], [ 14, %6035 ], [ 14, %5745 ], [ 15, %6180 ]
+  %.sink.i188 = phi ptr [ %.012.i186, %5890 ], [ %.08.i377, %6035 ], [ %.012.i186, %5745 ], [ %.08.i371, %6180 ]
+  %.012.sink.i189 = phi ptr [ %.08.i383, %5890 ], [ %.012.i186, %6035 ], [ %.08.i389, %5745 ], [ %.012.i186, %6180 ]
   %6302 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #15
   store i32 %.sink23.i187, ptr %6302, align 16, !tbaa !7
   %6303 = getelementptr inbounds nuw i8, ptr %6302, i64 24
@@ -17831,10 +17831,10 @@ add.exit.i404:                                    ; preds = %7002
   br label %6907
 
 shift.exit424:                                    ; preds = %6909, %6764, %6619, %6474
-  %.12005 = phi ptr [ %.02114, %6764 ], [ %.02120, %6474 ], [ %.02117, %6619 ], [ %.02111, %6909 ]
-  %.sink23.i192 = phi i32 [ 14, %6764 ], [ 14, %6474 ], [ 15, %6619 ], [ 15, %6909 ]
-  %.sink.i193 = phi ptr [ %.08.i407, %6764 ], [ %.012.i191, %6474 ], [ %.012.i191, %6619 ], [ %.08.i401, %6909 ]
-  %.012.sink.i194 = phi ptr [ %.012.i191, %6764 ], [ %.08.i419, %6474 ], [ %.08.i413, %6619 ], [ %.012.i191, %6909 ]
+  %.12005 = phi ptr [ %.02117, %6619 ], [ %.02114, %6764 ], [ %.02120, %6474 ], [ %.02111, %6909 ]
+  %.sink23.i192 = phi i32 [ 15, %6619 ], [ 14, %6764 ], [ 14, %6474 ], [ 15, %6909 ]
+  %.sink.i193 = phi ptr [ %.012.i191, %6619 ], [ %.08.i407, %6764 ], [ %.012.i191, %6474 ], [ %.08.i401, %6909 ]
+  %.012.sink.i194 = phi ptr [ %.08.i413, %6619 ], [ %.012.i191, %6764 ], [ %.08.i419, %6474 ], [ %.012.i191, %6909 ]
   %7031 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #15
   store i32 %.sink23.i192, ptr %7031, align 16, !tbaa !7
   %7032 = getelementptr inbounds nuw i8, ptr %7031, i64 24
@@ -20308,10 +20308,10 @@ add.exit.i:                                       ; preds = %1093
   br label %998
 
 shift.exit69:                                     ; preds = %1000, %775, %550, %325
-  %.1 = phi ptr [ %.0631, %775 ], [ %.0637, %325 ], [ %.0634, %550 ], [ %.0628, %1000 ]
-  %.sink23.i = phi i32 [ 14, %775 ], [ 14, %325 ], [ 15, %550 ], [ 15, %1000 ]
-  %.sink.i = phi ptr [ %.08.i52, %775 ], [ %.012.i, %325 ], [ %.012.i, %550 ], [ %.08.i51, %1000 ]
-  %.012.sink.i = phi ptr [ %.012.i, %775 ], [ %.08.i64, %325 ], [ %.08.i58, %550 ], [ %.012.i, %1000 ]
+  %.1 = phi ptr [ %.0634, %550 ], [ %.0631, %775 ], [ %.0637, %325 ], [ %.0628, %1000 ]
+  %.sink23.i = phi i32 [ 15, %550 ], [ 14, %775 ], [ 14, %325 ], [ 15, %1000 ]
+  %.sink.i = phi ptr [ %.012.i, %550 ], [ %.08.i52, %775 ], [ %.012.i, %325 ], [ %.08.i51, %1000 ]
+  %.012.sink.i = phi ptr [ %.08.i58, %550 ], [ %.012.i, %775 ], [ %.08.i64, %325 ], [ %.012.i, %1000 ]
   %1122 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #15
   store i32 %.sink23.i, ptr %1122, align 16, !tbaa !7
   %1123 = getelementptr inbounds nuw i8, ptr %1122, i64 24
@@ -22856,10 +22856,10 @@ add.exit.i79:                                     ; preds = %2254
   br label %2159
 
 shift.exit99:                                     ; preds = %2161, %1936, %1711, %1470
-  %.1627 = phi ptr [ %.0646, %1936 ], [ %.0652, %1470 ], [ %.0649, %1711 ], [ %.0643, %2161 ]
-  %.sink23.i47 = phi i32 [ 14, %1936 ], [ 14, %1470 ], [ 15, %1711 ], [ 15, %2161 ]
-  %.sink.i48 = phi ptr [ %.08.i82, %1936 ], [ %.012.i46, %1470 ], [ %.012.i46, %1711 ], [ %.08.i76, %2161 ]
-  %.012.sink.i49 = phi ptr [ %.012.i46, %1936 ], [ %.08.i94, %1470 ], [ %.08.i88, %1711 ], [ %.012.i46, %2161 ]
+  %.1627 = phi ptr [ %.0649, %1711 ], [ %.0646, %1936 ], [ %.0652, %1470 ], [ %.0643, %2161 ]
+  %.sink23.i47 = phi i32 [ 15, %1711 ], [ 14, %1936 ], [ 14, %1470 ], [ 15, %2161 ]
+  %.sink.i48 = phi ptr [ %.012.i46, %1711 ], [ %.08.i82, %1936 ], [ %.012.i46, %1470 ], [ %.08.i76, %2161 ]
+  %.012.sink.i49 = phi ptr [ %.08.i88, %1711 ], [ %.012.i46, %1936 ], [ %.08.i94, %1470 ], [ %.012.i46, %2161 ]
   %2283 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #15
   store i32 %.sink23.i47, ptr %2283, align 16, !tbaa !7
   %2284 = getelementptr inbounds nuw i8, ptr %2283, i64 24
@@ -25551,10 +25551,10 @@ add.exit.i:                                       ; preds = %1197
   br label %add.exit
 
 shift.exit40:                                     ; preds = %1104, %863, %622, %381
-  %.1 = phi ptr [ %.0325, %863 ], [ %.0331, %381 ], [ %.0328, %622 ], [ %.0322, %1104 ]
-  %.sink23.i = phi i32 [ 14, %863 ], [ 14, %381 ], [ 15, %622 ], [ 15, %1104 ]
-  %.sink.i = phi ptr [ %.08.i23, %863 ], [ %.012.i, %381 ], [ %.012.i, %622 ], [ %.08.i, %1104 ]
-  %.012.sink.i = phi ptr [ %.012.i, %863 ], [ %.08.i35, %381 ], [ %.08.i29, %622 ], [ %.012.i, %1104 ]
+  %.1 = phi ptr [ %.0328, %622 ], [ %.0325, %863 ], [ %.0331, %381 ], [ %.0322, %1104 ]
+  %.sink23.i = phi i32 [ 15, %622 ], [ 14, %863 ], [ 14, %381 ], [ 15, %1104 ]
+  %.sink.i = phi ptr [ %.012.i, %622 ], [ %.08.i23, %863 ], [ %.012.i, %381 ], [ %.08.i, %1104 ]
+  %.012.sink.i = phi ptr [ %.08.i29, %622 ], [ %.012.i, %863 ], [ %.08.i35, %381 ], [ %.012.i, %1104 ]
   %1226 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #15
   store i32 %.sink23.i, ptr %1226, align 16, !tbaa !7
   %1227 = getelementptr inbounds nuw i8, ptr %1226, i64 24
@@ -30584,7 +30584,7 @@ write_buf.exit:                                   ; preds = %94, %92, %90, %88, 
   br label %.critedge
 
 .critedge:                                        ; preds = %103, %44, %write_buf.exit, %17, %29, %8, %116, %142, %125, %120
-  %.0 = phi ptr [ %0, %116 ], [ %0, %120 ], [ %0, %125 ], [ %.1, %142 ], [ %0, %8 ], [ %0, %29 ], [ %.2, %write_buf.exit ], [ %25, %17 ], [ %.181113, %44 ], [ %0, %103 ]
+  %.0 = phi ptr [ %25, %17 ], [ %.2, %write_buf.exit ], [ %.1, %142 ], [ %0, %116 ], [ %0, %120 ], [ %0, %125 ], [ %0, %8 ], [ %0, %29 ], [ %.181113, %44 ], [ %0, %103 ]
   ret ptr %.0
 }
 
@@ -30949,7 +30949,7 @@ string_initializer.exit:                          ; preds = %80, %64, %48, %42, 
   %127 = load ptr, ptr %126, align 8, !tbaa !26
   br label %array_initializer1.exit
 
-128:                                              ; preds = %121, %118
+128:                                              ; preds = %118, %121
   %.pre65 = load ptr, ptr %6, align 8, !tbaa !25
   br i1 %.022.i51, label %131, label %129
 
@@ -31081,7 +31081,7 @@ array_initializer1.exit:                          ; preds = %159, %.thread70, %1
   %184 = load ptr, ptr %183, align 8, !tbaa !26
   br label %struct_initializer1.exit
 
-185:                                              ; preds = %178, %175
+185:                                              ; preds = %175, %178
   %.pre = load ptr, ptr %5, align 8, !tbaa !25
   br i1 %.0.i2646, label %188, label %186
 
@@ -31679,7 +31679,7 @@ define internal fastcc range(i32 0, -2147483648) i32 @count_array_init_elements(
   %13 = call zeroext i1 @equal(ptr noundef %12, ptr noundef nonnull @.str.69) #14
   br i1 %13, label %.loopexit, label %14
 
-14:                                               ; preds = %10, %.lr.ph
+14:                                               ; preds = %.lr.ph, %10
   %.pre = load ptr, ptr %3, align 8, !tbaa !25
   br i1 %.01017, label %17, label %15
 
@@ -32314,7 +32314,7 @@ define internal fastcc ptr @create_lvar_init(ptr noundef readonly captures(none)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %45, %19, %36, %9, %.thread.thread, %82, %65
-  %.0 = phi ptr [ %80, %65 ], [ %88, %.thread.thread ], [ %83, %82 ], [ %10, %9 ], [ %37, %36 ], [ %26, %19 ], [ %55, %45 ]
+  %.0 = phi ptr [ %26, %19 ], [ %80, %65 ], [ %88, %.thread.thread ], [ %83, %82 ], [ %10, %9 ], [ %37, %36 ], [ %55, %45 ]
   ret ptr %.0
 }
 
@@ -34044,7 +34044,7 @@ find_tag.exit:                                    ; preds = %14
   %34 = load ptr, ptr %33, align 8, !tbaa !26
   br label %.loopexit
 
-35:                                               ; preds = %28, %.lr.ph
+35:                                               ; preds = %.lr.ph, %28
   %36 = add nuw nsw i32 %.02140, 1
   %.not25 = icmp eq i32 %.02140, 0
   %.pre = load ptr, ptr %3, align 8, !tbaa !25
@@ -34285,7 +34285,7 @@ define internal fastcc ptr @struct_union_decl(ptr noundef nonnull writeonly capt
   br label %find_tag.exit
 
 find_tag.exit:                                    ; preds = %16, %.critedge, %.thread36, %38, %21
-  %.1 = phi ptr [ %35, %38 ], [ %4, %21 ], [ %4, %.thread36 ], [ %4, %.critedge ], [ %20, %16 ]
+  %.1 = phi ptr [ %4, %.critedge ], [ %35, %38 ], [ %4, %21 ], [ %4, %.thread36 ], [ %20, %16 ]
   ret ptr %.1
 }
 

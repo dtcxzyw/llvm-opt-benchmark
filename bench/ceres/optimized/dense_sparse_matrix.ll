@@ -385,7 +385,7 @@ define hidden void @_ZNK5ceres8internal17DenseSparseMatrix26RightMultiplyAndAccu
   br label %_ZNK5Eigen10MatrixBaseINS_5BlockIKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi1ELin1ELb1EEEE3dotINS1_IKNS_3MapIKNS2_IdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEELin1ELi1ELb1EEEEENS_20ScalarBinaryOpTraitsIdNS_8internal6traitsIT_E6ScalarENSH_17scalar_product_opIdSL_EEE10ReturnTypeERKNS0_ISJ_EE.exit.i.i.i.i.i.i
 
 _ZNK5Eigen10MatrixBaseINS_5BlockIKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi1ELin1ELb1EEEE3dotINS1_IKNS_3MapIKNS2_IdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEELin1ELi1ELb1EEEEENS_20ScalarBinaryOpTraitsIdNS_8internal6traitsIT_E6ScalarENSH_17scalar_product_opIdSL_EEE10ReturnTypeERKNS0_ISJ_EE.exit.i.i.i.i.i.i: ; preds = %.lr.ph85.i.i.i.i.i.i.i.i.i.i.i, %69, %59, %16
-  %.0.i.i.i.i.i.i.i.i.i = phi double [ 0.000000e+00, %16 ], [ %72, %69 ], [ %60, %59 ], [ %67, %.lr.ph85.i.i.i.i.i.i.i.i.i.i.i ]
+  %.0.i.i.i.i.i.i.i.i.i = phi double [ 0.000000e+00, %16 ], [ %60, %59 ], [ %72, %69 ], [ %67, %.lr.ph85.i.i.i.i.i.i.i.i.i.i.i ]
   %73 = load double, ptr %2, align 8, !tbaa !33
   %74 = fadd double %.0.i.i.i.i.i.i.i.i.i, %73
   store double %74, ptr %2, align 8, !tbaa !33

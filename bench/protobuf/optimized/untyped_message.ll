@@ -1390,7 +1390,7 @@ cond.false:                                       ; preds = %if.end30
   br label %return
 
 return:                                           ; preds = %_ZN4absl12lts_2023080218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEEPKN6google8protobuf13json_internal12ResolverPool5FieldEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SE_EEE11try_emplaceINSt7__cxx1112basic_stringIcS6_SaIcEEEJSE_ETnNSt9enable_ifIXntsr3std14is_convertibleIT_NS1_12raw_hash_setISF_SG_SH_SL_E14const_iteratorEEE5valueEiE4typeELi0EEESI_INSV_8iteratorEbERKST_DpOT0_.exit41, %_ZNK6google8protobuf13json_internal12ResolverPool7Message13FieldsByIndexEv.exit, %cond.false, %if.end30, %entry
-  %retval.0 = phi ptr [ null, %entry ], [ %52, %cond.false ], [ null, %if.end30 ], [ null, %_ZNK6google8protobuf13json_internal12ResolverPool7Message13FieldsByIndexEv.exit ], [ %found.1, %_ZN4absl12lts_2023080218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEEPKN6google8protobuf13json_internal12ResolverPool5FieldEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SE_EEE11try_emplaceINSt7__cxx1112basic_stringIcS6_SaIcEEEJSE_ETnNSt9enable_ifIXntsr3std14is_convertibleIT_NS1_12raw_hash_setISF_SG_SH_SL_E14const_iteratorEEE5valueEiE4typeELi0EEESI_INSV_8iteratorEbERKST_DpOT0_.exit41 ]
+  %retval.0 = phi ptr [ null, %if.end30 ], [ null, %entry ], [ %52, %cond.false ], [ null, %_ZNK6google8protobuf13json_internal12ResolverPool7Message13FieldsByIndexEv.exit ], [ %found.1, %_ZN4absl12lts_2023080218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEEPKN6google8protobuf13json_internal12ResolverPool5FieldEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SE_EEE11try_emplaceINSt7__cxx1112basic_stringIcS6_SaIcEEEJSE_ETnNSt9enable_ifIXntsr3std14is_convertibleIT_NS1_12raw_hash_setISF_SG_SH_SL_E14const_iteratorEEE5valueEiE4typeELi0EEESI_INSV_8iteratorEbERKST_DpOT0_.exit41 ]
   ret ptr %retval.0
 }
 
@@ -1816,7 +1816,7 @@ cond.false:                                       ; preds = %_ZN4absl12lts_20230
   br label %return
 
 return:                                           ; preds = %for.inc, %for.body.us, %_ZNK6google8protobuf13json_internal12ResolverPool7Message13FieldsByIndexEv.exit, %cond.false, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiPKN6google8protobuf13json_internal12ResolverPool5FieldEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiSA_EEE4findIiEENSL_8iteratorERSI_.exit, %entry
-  %retval.0 = phi ptr [ null, %entry ], [ %46, %cond.false ], [ null, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiPKN6google8protobuf13json_internal12ResolverPool5FieldEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiSA_EEE4findIiEENSL_8iteratorERSI_.exit ], [ null, %_ZNK6google8protobuf13json_internal12ResolverPool7Message13FieldsByIndexEv.exit ], [ %spec.select.us, %for.body.us ], [ %spec.select, %for.inc ]
+  %retval.0 = phi ptr [ null, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiPKN6google8protobuf13json_internal12ResolverPool5FieldEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiSA_EEE4findIiEENSL_8iteratorERSI_.exit ], [ null, %entry ], [ %46, %cond.false ], [ null, %_ZNK6google8protobuf13json_internal12ResolverPool7Message13FieldsByIndexEv.exit ], [ %spec.select.us, %for.body.us ], [ %spec.select, %for.inc ]
   ret ptr %retval.0
 }
 
@@ -2756,7 +2756,7 @@ sw.epilog:                                        ; preds = %do.body110, %do.bod
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %if.then22, %if.end4.i, %if.then3.i, %if.end48, %invoke.cont37.thread, %if.else.i79, %invoke.cont30.thread, %if.else.i, %invoke.cont23.thread, %if.end.i, %_ZN4absl12lts_202308028StatusOrIPKN6google8protobuf13json_internal12ResolverPool7MessageEED2Ev.exit, %sw.epilog
-  %cleanup.dest.slot.0270 = phi i32 [ %cleanup.dest.slot.6, %_ZN4absl12lts_202308028StatusOrIPKN6google8protobuf13json_internal12ResolverPool7MessageEED2Ev.exit ], [ 2, %if.end4.i ], [ 0, %sw.epilog ], [ 2, %if.end48 ], [ 2, %if.else.i79 ], [ 2, %if.else.i ], [ 2, %invoke.cont37.thread ], [ 2, %if.end.i ], [ 2, %invoke.cont30.thread ], [ 2, %invoke.cont23.thread ], [ 2, %if.then3.i ], [ 2, %if.then22 ]
+  %cleanup.dest.slot.0270 = phi i32 [ 2, %if.end48 ], [ 2, %if.end4.i ], [ %cleanup.dest.slot.6, %_ZN4absl12lts_202308028StatusOrIPKN6google8protobuf13json_internal12ResolverPool7MessageEED2Ev.exit ], [ 2, %if.then3.i ], [ 2, %invoke.cont23.thread ], [ 2, %invoke.cont30.thread ], [ 2, %if.end.i ], [ 2, %invoke.cont37.thread ], [ 2, %if.else.i ], [ 2, %if.else.i79 ], [ 0, %sw.epilog ], [ 2, %if.then22 ]
   %76 = icmp eq i32 %cleanup.dest.slot.0270, 1
   br i1 %76, label %return, label %while.body
 

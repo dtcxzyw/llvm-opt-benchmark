@@ -2576,7 +2576,7 @@ _ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel10algorithms12_GLOBAL__N_18MDPStateEEENS1_10StringHashENS1_12StringHashEq2EqESaISt4pairIKS9_SD_EEE8containsIS9_EEbRKT_.exit55, %.loopexit.sink.split, %163
-  %.0 = phi double [ 0.000000e+00, %163 ], [ 0.000000e+00, %.loopexit.sink.split ], [ %.126, %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel10algorithms12_GLOBAL__N_18MDPStateEEENS1_10StringHashENS1_12StringHashEq2EqESaISt4pairIKS9_SD_EEE8containsIS9_EEbRKT_.exit55 ]
+  %.0 = phi double [ 0.000000e+00, %.loopexit.sink.split ], [ 0.000000e+00, %163 ], [ %.126, %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel10algorithms12_GLOBAL__N_18MDPStateEEENS1_10StringHashENS1_12StringHashEq2EqESaISt4pairIKS9_SD_EEE8containsIS9_EEbRKT_.exit55 ]
   ret double %.0
 
 214:                                              ; preds = %99, %101, %211

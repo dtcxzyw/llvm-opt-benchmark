@@ -917,7 +917,7 @@ _ZN4core3str7pattern14small_slice_eq17h93367e4799060334E.exit: ; preds = %44, %.
   br i1 %48, label %_ZN4core3str7pattern14small_slice_eq17h93367e4799060334E.exit.thread9, label %_ZN4core3str7pattern14small_slice_eq17h93367e4799060334E.exit.thread
 
 _ZN4core3str7pattern14small_slice_eq17h93367e4799060334E.exit.thread9: ; preds = %_ZN4core3str7pattern14small_slice_eq17h93367e4799060334E.exit.thread, %_ZN4core3str7pattern14small_slice_eq17h93367e4799060334E.exit, %_ZN4core3str7pattern14small_slice_eq17h93367e4799060334E.exit.thread.loopexit.us, %26, %4
-  %.sroa.0.0 = phi i1 [ false, %4 ], [ false, %_ZN4core3str7pattern14small_slice_eq17h93367e4799060334E.exit.thread.loopexit.us ], [ true, %26 ], [ true, %_ZN4core3str7pattern14small_slice_eq17h93367e4799060334E.exit ], [ false, %_ZN4core3str7pattern14small_slice_eq17h93367e4799060334E.exit.thread ]
+  %.sroa.0.0 = phi i1 [ true, %26 ], [ false, %4 ], [ false, %_ZN4core3str7pattern14small_slice_eq17h93367e4799060334E.exit.thread.loopexit.us ], [ true, %_ZN4core3str7pattern14small_slice_eq17h93367e4799060334E.exit ], [ false, %_ZN4core3str7pattern14small_slice_eq17h93367e4799060334E.exit.thread ]
   ret i1 %.sroa.0.0
 
 _ZN4core3str7pattern14small_slice_eq17h93367e4799060334E.exit.thread: ; preds = %.lr.ph.i, %_ZN4core3str7pattern14small_slice_eq17h93367e4799060334E.exit
@@ -3331,9 +3331,9 @@ _ZN4core3str7pattern13simd_contains17he2e01193d3743636E.exit.i: ; preds = %250, 
   br i1 %172, label %176, label %.invoke
 
 .invoke:                                          ; preds = %253, %170, %167, %220, %.preheader.i, %239, %189
-  %173 = phi i64 [ %umax.i42.i, %189 ], [ %202, %.preheader.i ], [ %umax.i.i, %239 ], [ %168, %167 ], [ %222, %220 ], [ %171, %170 ], [ %254, %253 ]
-  %174 = phi i64 [ %66, %189 ], [ %70, %.preheader.i ], [ %66, %239 ], [ %70, %167 ], [ %66, %220 ], [ %66, %170 ], [ %23, %253 ]
-  %175 = phi ptr [ @anon.8f27d5a70adde227c83301cbef586ed0.27, %189 ], [ @anon.8f27d5a70adde227c83301cbef586ed0.24, %.preheader.i ], [ @anon.8f27d5a70adde227c83301cbef586ed0.27, %239 ], [ @anon.8f27d5a70adde227c83301cbef586ed0.24, %167 ], [ @anon.8f27d5a70adde227c83301cbef586ed0.25, %220 ], [ @anon.8f27d5a70adde227c83301cbef586ed0.25, %170 ], [ @anon.8f27d5a70adde227c83301cbef586ed0.23, %253 ]
+  %173 = phi i64 [ %222, %220 ], [ %umax.i.i, %239 ], [ %umax.i42.i, %189 ], [ %168, %167 ], [ %202, %.preheader.i ], [ %171, %170 ], [ %254, %253 ]
+  %174 = phi i64 [ %66, %220 ], [ %66, %239 ], [ %66, %189 ], [ %70, %167 ], [ %70, %.preheader.i ], [ %66, %170 ], [ %23, %253 ]
+  %175 = phi ptr [ @anon.8f27d5a70adde227c83301cbef586ed0.25, %220 ], [ @anon.8f27d5a70adde227c83301cbef586ed0.27, %239 ], [ @anon.8f27d5a70adde227c83301cbef586ed0.27, %189 ], [ @anon.8f27d5a70adde227c83301cbef586ed0.24, %167 ], [ @anon.8f27d5a70adde227c83301cbef586ed0.24, %.preheader.i ], [ @anon.8f27d5a70adde227c83301cbef586ed0.25, %170 ], [ @anon.8f27d5a70adde227c83301cbef586ed0.23, %253 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %173, i64 noundef %174, ptr noalias noundef readonly align 8 dereferenceable(24) %175) #23
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -3475,7 +3475,7 @@ _ZN4core3str7pattern13simd_contains17he2e01193d3743636E.exit.i: ; preds = %250, 
   br label %215
 
 "_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h45b6fe7b2ee2b133E.exit.i": ; preds = %126, %.sink.split.i.i, %.preheader50.i, %215, %.preheader.i.us, %.preheader.i, %194, %136, %128, %.preheader.i21.i
-  %.sroa.0.0.i = phi i8 [ 0, %136 ], [ 0, %.preheader.i21.i ], [ 0, %194 ], [ %spec.select.i, %128 ], [ 1, %.preheader.i ], [ 0, %.sink.split.i.i ], [ 1, %.preheader.i.us ], [ 0, %215 ], [ 1, %.preheader50.i ], [ 1, %126 ]
+  %.sroa.0.0.i = phi i8 [ 0, %136 ], [ 0, %.sink.split.i.i ], [ 0, %.preheader.i21.i ], [ 0, %194 ], [ %spec.select.i, %128 ], [ 1, %.preheader50.i ], [ 1, %.preheader.i.us ], [ 0, %215 ], [ 1, %.preheader.i ], [ 1, %126 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !433
   br label %.loopexit
 

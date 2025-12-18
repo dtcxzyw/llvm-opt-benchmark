@@ -3478,7 +3478,7 @@ _ZNSt6vectorIS_IN2cv6DMatchESaIS1_EESaIS3_EE9push_backERKS3_.exit88: ; preds = %
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %192, %.noexc.i.i.i.i.i84
-  %.sroa.0111.2.ph.ph = phi ptr [ %.sroa.0111.6, %192 ], [ %.sroa.0111.8192, %.noexc.i.i.i.i.i84 ]
+  %.sroa.0111.2.ph.ph = phi ptr [ %.sroa.0111.8192, %.noexc.i.i.i.i.i84 ], [ %.sroa.0111.6, %192 ]
   %lpad.loopexit.split-lp131 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp

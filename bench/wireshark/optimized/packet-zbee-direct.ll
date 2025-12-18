@@ -1974,7 +1974,7 @@ create_auth_string.exit.i.i:                      ; preds = %181
   br label %zb_direct_decrypt.exit
 
 zb_direct_decrypt.exit:                           ; preds = %45, %.loopexit.thread.i, %.loopexit.i, %27, %26, %5
-  %.0 = phi i32 [ 0, %5 ], [ 0, %26 ], [ 0, %27 ], [ 0, %.loopexit.i ], [ %200, %.loopexit.thread.i ], [ 0, %45 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %26 ], [ %200, %.loopexit.thread.i ], [ 0, %27 ], [ 0, %.loopexit.i ], [ 0, %45 ]
   ret i32 %.0
 }
 

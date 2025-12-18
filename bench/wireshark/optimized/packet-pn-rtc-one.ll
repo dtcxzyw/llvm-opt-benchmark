@@ -325,7 +325,7 @@ define hidden i32 @dissect_PNIO_C_SDU_RTC1(ptr noundef %0, i32 noundef %1, ptr n
   br label %.loopexit619
 
 .loopexit619:                                     ; preds = %47, %.loopexit619.sink.split, %27, %25
-  %.0 = phi i32 [ 0, %27 ], [ 0, %25 ], [ %49, %.loopexit619.sink.split ], [ 0, %47 ]
+  %.0 = phi i32 [ 0, %27 ], [ %49, %.loopexit619.sink.split ], [ 0, %25 ], [ 0, %47 ]
   %50 = tail call ptr @conversation_get_proto_data(ptr noundef nonnull %24, i32 noundef %.0)
   %.not511 = icmp eq ptr %50, null
   br i1 %.not511, label %.thread, label %51

@@ -3191,7 +3191,7 @@ if.then.i.i29:                                    ; preds = %if.end15.i.i.i, %if
   unreachable
 
 _ZNKSt13unordered_mapIPKvjSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_jEEE2atERS7_.exit: ; preds = %for.cond.i.i.i.i.i, %for.body.i.i.i, %if.end.i.i.i.i.i
-  %retval.sroa.0.1.i.i.i = phi ptr [ %20, %if.end.i.i.i.i.i ], [ %retval.sroa.0.0.i.i.i, %for.body.i.i.i ], [ %22, %for.cond.i.i.i.i.i ]
+  %retval.sroa.0.1.i.i.i = phi ptr [ %retval.sroa.0.0.i.i.i, %for.body.i.i.i ], [ %20, %if.end.i.i.i.i.i ], [ %22, %for.cond.i.i.i.i.i ]
   %second.i.i = getelementptr inbounds nuw i8, ptr %retval.sroa.0.1.i.i.i, i64 16
   %25 = load i32, ptr %second.i.i, align 4
   %conv.i30 = zext i32 %25 to i64
@@ -3282,7 +3282,7 @@ if.then.i.i65:                                    ; preds = %if.end15.i.i.i49, %
   unreachable
 
 _ZNKSt13unordered_mapIPKvjSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_jEEE2atERS7_.exit79: ; preds = %for.cond.i.i.i.i.i66, %for.body.i.i.i76, %if.end.i.i.i.i.i54
-  %retval.sroa.0.1.i.i.i68 = phi ptr [ %36, %if.end.i.i.i.i.i54 ], [ %retval.sroa.0.0.i.i.i74, %for.body.i.i.i76 ], [ %38, %for.cond.i.i.i.i.i66 ]
+  %retval.sroa.0.1.i.i.i68 = phi ptr [ %retval.sroa.0.0.i.i.i74, %for.body.i.i.i76 ], [ %36, %if.end.i.i.i.i.i54 ], [ %38, %for.cond.i.i.i.i.i66 ]
   %second.i.i69 = getelementptr inbounds nuw i8, ptr %retval.sroa.0.1.i.i.i68, i64 16
   %41 = load i32, ptr %second.i.i69, align 4
   %conv.i80 = zext i32 %41 to i64
@@ -3373,7 +3373,7 @@ if.then.i.i115:                                   ; preds = %if.end15.i.i.i99, %
   unreachable
 
 _ZNKSt13unordered_mapIPKvjSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_jEEE2atERS7_.exit129: ; preds = %for.cond.i.i.i.i.i116, %for.body.i.i.i126, %if.end.i.i.i.i.i104
-  %retval.sroa.0.1.i.i.i118 = phi ptr [ %52, %if.end.i.i.i.i.i104 ], [ %retval.sroa.0.0.i.i.i124, %for.body.i.i.i126 ], [ %54, %for.cond.i.i.i.i.i116 ]
+  %retval.sroa.0.1.i.i.i118 = phi ptr [ %retval.sroa.0.0.i.i.i124, %for.body.i.i.i126 ], [ %52, %if.end.i.i.i.i.i104 ], [ %54, %for.cond.i.i.i.i.i116 ]
   %second.i.i119 = getelementptr inbounds nuw i8, ptr %retval.sroa.0.1.i.i.i118, i64 16
   %57 = load i32, ptr %second.i.i119, align 4
   %conv.i130 = zext i32 %57 to i64
@@ -14301,7 +14301,7 @@ cleanup:                                          ; preds = %if.end.i.i17, %if.t
   br label %_ZNSt10_HashtableIPKvSt4pairIKS1_jESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 
 if.then.i21:                                      ; preds = %for.cond.i.i, %for.body, %if.end.i.i
-  %retval.sroa.0.0.ph = phi ptr [ %10, %if.end.i.i ], [ %__it.sroa.0.0, %for.body ], [ %12, %for.cond.i.i ]
+  %retval.sroa.0.0.ph = phi ptr [ %__it.sroa.0.0, %for.body ], [ %10, %if.end.i.i ], [ %12, %for.cond.i.i ]
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i) #22
   br label %_ZNSt10_HashtableIPKvSt4pairIKS1_jESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 

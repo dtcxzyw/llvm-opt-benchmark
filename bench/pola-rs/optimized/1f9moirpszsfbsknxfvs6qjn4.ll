@@ -16915,7 +16915,7 @@ define hidden void @"_ZN14polars_parquet5arrow4read11deserialize12nested_utils87
   br label %.body265
 
 .loopexit.split-lp:                               ; preds = %95, %239, %"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..read..compression..DataPageItem$C$polars_parquet..parquet..error..ParquetError$GT$$GT$$GT$17hf6719c3a6761e597E.exit", %258, %"_ZN4core3ptr138drop_in_place$LT$$LP$usize$C$alloc..vec..Vec$LT$i64$GT$$C$core..option..Option$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$$RP$$GT$17h6656835f8a03bf9cE.exit", %255
-  %.sroa.0109.11.ph = phi i8 [ 1, %95 ], [ 1, %"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..read..compression..DataPageItem$C$polars_parquet..parquet..error..ParquetError$GT$$GT$$GT$17hf6719c3a6761e597E.exit" ], [ 1, %258 ], [ 1, %255 ], [ 0, %"_ZN4core3ptr138drop_in_place$LT$$LP$usize$C$alloc..vec..Vec$LT$i64$GT$$C$core..option..Option$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$$RP$$GT$17h6656835f8a03bf9cE.exit" ], [ 1, %239 ]
+  %.sroa.0109.11.ph = phi i8 [ 1, %"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..read..compression..DataPageItem$C$polars_parquet..parquet..error..ParquetError$GT$$GT$$GT$17hf6719c3a6761e597E.exit" ], [ 1, %258 ], [ 1, %255 ], [ 0, %"_ZN4core3ptr138drop_in_place$LT$$LP$usize$C$alloc..vec..Vec$LT$i64$GT$$C$core..option..Option$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$$RP$$GT$17h6656835f8a03bf9cE.exit" ], [ 1, %95 ], [ 1, %239 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body265
@@ -18257,7 +18257,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   %exitcond648.not = icmp eq i64 %119, %89
   br i1 %exitcond648.not, label %._crit_edge566, label %.lr.ph565
 
-"_ZN4core3ptr84drop_in_place$LT$polars_parquet..arrow..read..deserialize..utils..filter..Filter$GT$17h27b9e90d372bb157E.exit392": ; preds = %425, %424, %423, %229
+"_ZN4core3ptr84drop_in_place$LT$polars_parquet..arrow..read..deserialize..utils..filter..Filter$GT$17h27b9e90d372bb157E.exit392": ; preds = %424, %425, %423, %229
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %415
 
@@ -18529,7 +18529,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   br label %188
 
 .loopexit.split-lp:                               ; preds = %.invoke719, %208, %248, %294, %408, %422, %185, %198
-  %.sroa.0138.0.ph = phi i1 [ true, %185 ], [ true, %208 ], [ true, %198 ], [ false, %248 ], [ false, %422 ], [ true, %.invoke719 ], [ true, %294 ], [ false, %408 ]
+  %.sroa.0138.0.ph = phi i1 [ true, %198 ], [ true, %208 ], [ false, %248 ], [ false, %422 ], [ true, %.invoke719 ], [ true, %185 ], [ true, %294 ], [ false, %408 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %188
@@ -18759,9 +18759,9 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   br label %258
 
 .invoke719:                                       ; preds = %.noexc354, %"_ZN4core6option15Option$LT$T$GT$6filter17h3d371957f6bc6a5aE.exit", %277
-  %270 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.119, %277 ], [ @anon.780151e00bfa35129a38ccea127ffa28.130, %"_ZN4core6option15Option$LT$T$GT$6filter17h3d371957f6bc6a5aE.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.137, %.noexc354 ]
-  %271 = phi i64 [ 19, %277 ], [ 40, %"_ZN4core6option15Option$LT$T$GT$6filter17h3d371957f6bc6a5aE.exit" ], [ 70, %.noexc354 ]
-  %272 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.135, %277 ], [ @anon.780151e00bfa35129a38ccea127ffa28.132, %"_ZN4core6option15Option$LT$T$GT$6filter17h3d371957f6bc6a5aE.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.139, %.noexc354 ]
+  %270 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.130, %"_ZN4core6option15Option$LT$T$GT$6filter17h3d371957f6bc6a5aE.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.119, %277 ], [ @anon.780151e00bfa35129a38ccea127ffa28.137, %.noexc354 ]
+  %271 = phi i64 [ 40, %"_ZN4core6option15Option$LT$T$GT$6filter17h3d371957f6bc6a5aE.exit" ], [ 19, %277 ], [ 70, %.noexc354 ]
+  %272 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.132, %"_ZN4core6option15Option$LT$T$GT$6filter17h3d371957f6bc6a5aE.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.135, %277 ], [ @anon.780151e00bfa35129a38ccea127ffa28.139, %.noexc354 ]
   invoke void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 %270, i64 noundef %271, ptr noalias noundef readonly align 8 dereferenceable(24) %272) #22
           to label %.cont720 unwind label %.loopexit.split-lp
 
@@ -19277,8 +19277,8 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
           cleanup
   br label %.thread510
 
-.thread515:                                       ; preds = %430, %426, %.thread510
-  %.pn294513 = phi { ptr, i32 } [ %.pn294514, %.thread510 ], [ %.pn286, %430 ], [ %.pn286, %426 ]
+.thread515:                                       ; preds = %426, %430, %.thread510
+  %.pn294513 = phi { ptr, i32 } [ %.pn294514, %.thread510 ], [ %.pn286, %426 ], [ %.pn286, %430 ]
   resume { ptr, i32 } %.pn294513
 
 .thread483:                                       ; preds = %.thread491.loopexit, %.thread491.loopexit.split-lp, %144, %166
@@ -19650,7 +19650,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #21
   unreachable
 
-"_ZN4core3ptr84drop_in_place$LT$polars_parquet..arrow..read..deserialize..utils..filter..Filter$GT$17h27b9e90d372bb157E.exit406": ; preds = %449, %448, %447, %239
+"_ZN4core3ptr84drop_in_place$LT$polars_parquet..arrow..read..deserialize..utils..filter..Filter$GT$17h27b9e90d372bb157E.exit406": ; preds = %448, %449, %447, %239
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %439
 
@@ -19929,7 +19929,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   br label %191
 
 .loopexit.split-lp:                               ; preds = %.invoke733, %220, %258, %311, %432, %446, %188, %210
-  %.sroa.0138.0.ph = phi i1 [ true, %188 ], [ true, %220 ], [ true, %210 ], [ false, %258 ], [ false, %446 ], [ true, %.invoke733 ], [ true, %311 ], [ false, %432 ]
+  %.sroa.0138.0.ph = phi i1 [ true, %210 ], [ true, %220 ], [ false, %258 ], [ false, %446 ], [ true, %.invoke733 ], [ true, %188 ], [ true, %311 ], [ false, %432 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %191
@@ -20185,9 +20185,9 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   br label %277
 
 .invoke733:                                       ; preds = %.noexc362, %"_ZN4core6option15Option$LT$T$GT$6filter17h5fe8531832ab4137E.exit", %294
-  %287 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.119, %294 ], [ @anon.780151e00bfa35129a38ccea127ffa28.130, %"_ZN4core6option15Option$LT$T$GT$6filter17h5fe8531832ab4137E.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.137, %.noexc362 ]
-  %288 = phi i64 [ 19, %294 ], [ 40, %"_ZN4core6option15Option$LT$T$GT$6filter17h5fe8531832ab4137E.exit" ], [ 70, %.noexc362 ]
-  %289 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.135, %294 ], [ @anon.780151e00bfa35129a38ccea127ffa28.132, %"_ZN4core6option15Option$LT$T$GT$6filter17h5fe8531832ab4137E.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.139, %.noexc362 ]
+  %287 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.130, %"_ZN4core6option15Option$LT$T$GT$6filter17h5fe8531832ab4137E.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.119, %294 ], [ @anon.780151e00bfa35129a38ccea127ffa28.137, %.noexc362 ]
+  %288 = phi i64 [ 40, %"_ZN4core6option15Option$LT$T$GT$6filter17h5fe8531832ab4137E.exit" ], [ 19, %294 ], [ 70, %.noexc362 ]
+  %289 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.132, %"_ZN4core6option15Option$LT$T$GT$6filter17h5fe8531832ab4137E.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.135, %294 ], [ @anon.780151e00bfa35129a38ccea127ffa28.139, %.noexc362 ]
   invoke void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 %287, i64 noundef %288, ptr noalias noundef readonly align 8 dereferenceable(24) %289) #22
           to label %.cont734 unwind label %.loopexit.split-lp
 
@@ -20709,8 +20709,8 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
           cleanup
   br label %.thread524
 
-.thread529:                                       ; preds = %454, %450, %.thread524
-  %.pn294527 = phi { ptr, i32 } [ %.pn294528, %.thread524 ], [ %.pn286, %454 ], [ %.pn286, %450 ]
+.thread529:                                       ; preds = %450, %454, %.thread524
+  %.pn294527 = phi { ptr, i32 } [ %.pn294528, %.thread524 ], [ %.pn286, %450 ], [ %.pn286, %454 ]
   resume { ptr, i32 } %.pn294527
 
 .thread497:                                       ; preds = %.thread505.loopexit, %.thread505.loopexit.split-lp, %144, %169
@@ -21045,7 +21045,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   %exitcond657.not = icmp eq i64 %119, %91
   br i1 %exitcond657.not, label %._crit_edge541, label %92
 
-"_ZN4core3ptr84drop_in_place$LT$polars_parquet..arrow..read..deserialize..utils..filter..Filter$GT$17h27b9e90d372bb157E.exit362": ; preds = %431, %430, %429, %232
+"_ZN4core3ptr84drop_in_place$LT$polars_parquet..arrow..read..deserialize..utils..filter..Filter$GT$17h27b9e90d372bb157E.exit362": ; preds = %430, %431, %429, %232
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %421
 
@@ -22002,8 +22002,8 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
           cleanup
   br label %.thread480
 
-.thread485:                                       ; preds = %436, %432, %.thread480
-  %.pn294483 = phi { ptr, i32 } [ %.pn294484, %.thread480 ], [ %.pn286, %436 ], [ %.pn286, %432 ]
+.thread485:                                       ; preds = %432, %436, %.thread480
+  %.pn294483 = phi { ptr, i32 } [ %.pn294484, %.thread480 ], [ %.pn286, %432 ], [ %.pn286, %436 ]
   resume { ptr, i32 } %.pn294483
 
 .thread453:                                       ; preds = %145, %167, %.thread461
@@ -22412,7 +22412,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   %exitcond878.not = icmp eq i64 %161, %120
   br i1 %exitcond878.not, label %._crit_edge693, label %121
 
-"_ZN4core3ptr84drop_in_place$LT$polars_parquet..arrow..read..deserialize..utils..filter..Filter$GT$17h27b9e90d372bb157E.exit421": ; preds = %551, %550, %549, %320
+"_ZN4core3ptr84drop_in_place$LT$polars_parquet..arrow..read..deserialize..utils..filter..Filter$GT$17h27b9e90d372bb157E.exit421": ; preds = %550, %551, %549, %320
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %541
 
@@ -22721,7 +22721,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   br label %276
 
 .loopexit.split-lp:                               ; preds = %.invoke1107, %306, %348, %405, %534, %548, %264, %293, %294, %295
-  %.sroa.0177.0.ph = phi i1 [ true, %264 ], [ true, %306 ], [ true, %295 ], [ false, %348 ], [ true, %294 ], [ true, %.invoke1107 ], [ true, %293 ], [ true, %405 ], [ false, %534 ], [ false, %548 ]
+  %.sroa.0177.0.ph = phi i1 [ true, %306 ], [ true, %295 ], [ true, %264 ], [ false, %348 ], [ true, %294 ], [ true, %.invoke1107 ], [ true, %293 ], [ true, %405 ], [ false, %534 ], [ false, %548 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %276
@@ -23493,8 +23493,8 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
           cleanup
   br label %.thread546
 
-.thread551:                                       ; preds = %556, %552, %.thread546
-  %.pn358549 = phi { ptr, i32 } [ %.pn358550, %.thread546 ], [ %.pn350, %556 ], [ %.pn350, %552 ]
+.thread551:                                       ; preds = %552, %556, %.thread546
+  %.pn358549 = phi { ptr, i32 } [ %.pn358550, %.thread546 ], [ %.pn350, %552 ], [ %.pn350, %556 ]
   resume { ptr, i32 } %.pn358549
 
 .thread519:                                       ; preds = %205, %245, %.thread527
@@ -23866,7 +23866,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   %exitcond640.not = icmp eq i64 %119, %89
   br i1 %exitcond640.not, label %._crit_edge558, label %.lr.ph557
 
-"_ZN4core3ptr84drop_in_place$LT$polars_parquet..arrow..read..deserialize..utils..filter..Filter$GT$17h27b9e90d372bb157E.exit392": ; preds = %422, %421, %420, %228
+"_ZN4core3ptr84drop_in_place$LT$polars_parquet..arrow..read..deserialize..utils..filter..Filter$GT$17h27b9e90d372bb157E.exit392": ; preds = %421, %422, %420, %228
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %412
 
@@ -24138,7 +24138,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   br label %188
 
 .loopexit.split-lp:                               ; preds = %.invoke711, %208, %247, %292, %405, %419, %185, %198
-  %.sroa.0138.0.ph = phi i1 [ true, %185 ], [ true, %208 ], [ true, %198 ], [ false, %247 ], [ false, %419 ], [ true, %.invoke711 ], [ true, %292 ], [ false, %405 ]
+  %.sroa.0138.0.ph = phi i1 [ true, %198 ], [ true, %208 ], [ false, %247 ], [ false, %419 ], [ true, %.invoke711 ], [ true, %185 ], [ true, %292 ], [ false, %405 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %188
@@ -24366,9 +24366,9 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   br label %257
 
 .invoke711:                                       ; preds = %.noexc354, %"_ZN4core6option15Option$LT$T$GT$6filter17h3442534abfe930d5E.exit", %275
-  %268 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.119, %275 ], [ @anon.780151e00bfa35129a38ccea127ffa28.130, %"_ZN4core6option15Option$LT$T$GT$6filter17h3442534abfe930d5E.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.137, %.noexc354 ]
-  %269 = phi i64 [ 19, %275 ], [ 40, %"_ZN4core6option15Option$LT$T$GT$6filter17h3442534abfe930d5E.exit" ], [ 70, %.noexc354 ]
-  %270 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.135, %275 ], [ @anon.780151e00bfa35129a38ccea127ffa28.132, %"_ZN4core6option15Option$LT$T$GT$6filter17h3442534abfe930d5E.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.139, %.noexc354 ]
+  %268 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.130, %"_ZN4core6option15Option$LT$T$GT$6filter17h3442534abfe930d5E.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.119, %275 ], [ @anon.780151e00bfa35129a38ccea127ffa28.137, %.noexc354 ]
+  %269 = phi i64 [ 40, %"_ZN4core6option15Option$LT$T$GT$6filter17h3442534abfe930d5E.exit" ], [ 19, %275 ], [ 70, %.noexc354 ]
+  %270 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.132, %"_ZN4core6option15Option$LT$T$GT$6filter17h3442534abfe930d5E.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.135, %275 ], [ @anon.780151e00bfa35129a38ccea127ffa28.139, %.noexc354 ]
   invoke void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 %268, i64 noundef %269, ptr noalias noundef readonly align 8 dereferenceable(24) %270) #22
           to label %.cont712 unwind label %.loopexit.split-lp
 
@@ -24883,8 +24883,8 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
           cleanup
   br label %.thread502
 
-.thread507:                                       ; preds = %427, %423, %.thread502
-  %.pn294505 = phi { ptr, i32 } [ %.pn294506, %.thread502 ], [ %.pn286, %427 ], [ %.pn286, %423 ]
+.thread507:                                       ; preds = %423, %427, %.thread502
+  %.pn294505 = phi { ptr, i32 } [ %.pn294506, %.thread502 ], [ %.pn286, %423 ], [ %.pn286, %427 ]
   resume { ptr, i32 } %.pn294505
 
 .thread475:                                       ; preds = %.thread483.loopexit, %.thread483.loopexit.split-lp, %144, %166
@@ -25219,7 +25219,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   %exitcond657.not = icmp eq i64 %119, %91
   br i1 %exitcond657.not, label %._crit_edge541, label %92
 
-"_ZN4core3ptr84drop_in_place$LT$polars_parquet..arrow..read..deserialize..utils..filter..Filter$GT$17h27b9e90d372bb157E.exit362": ; preds = %434, %433, %432, %233
+"_ZN4core3ptr84drop_in_place$LT$polars_parquet..arrow..read..deserialize..utils..filter..Filter$GT$17h27b9e90d372bb157E.exit362": ; preds = %433, %434, %432, %233
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %424
 
@@ -26179,8 +26179,8 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
           cleanup
   br label %.thread480
 
-.thread485:                                       ; preds = %439, %435, %.thread480
-  %.pn294483 = phi { ptr, i32 } [ %.pn294484, %.thread480 ], [ %.pn286, %439 ], [ %.pn286, %435 ]
+.thread485:                                       ; preds = %435, %439, %.thread480
+  %.pn294483 = phi { ptr, i32 } [ %.pn294484, %.thread480 ], [ %.pn286, %435 ], [ %.pn286, %439 ]
   resume { ptr, i32 } %.pn294483
 
 .thread453:                                       ; preds = %145, %167, %.thread461
@@ -26553,7 +26553,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   %exitcond668.not = icmp eq i64 %119, %90
   br i1 %exitcond668.not, label %._crit_edge586, label %.lr.ph585
 
-"_ZN4core3ptr84drop_in_place$LT$polars_parquet..arrow..read..deserialize..utils..filter..Filter$GT$17h27b9e90d372bb157E.exit265": ; preds = %425, %424, %423, %228
+"_ZN4core3ptr84drop_in_place$LT$polars_parquet..arrow..read..deserialize..utils..filter..Filter$GT$17h27b9e90d372bb157E.exit265": ; preds = %424, %425, %423, %228
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br label %415
 
@@ -26825,7 +26825,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   br label %187
 
 .loopexit.split-lp:                               ; preds = %.invoke737, %206, %247, %293, %408, %422, %184, %"_ZN150_$LT$polars_parquet..parquet..encoding..byte_stream_split..decoder..DecoderIterator$LT$T$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1a8fc598ec01c553E.exit.i216"
-  %.sroa.083.0.ph = phi i1 [ true, %184 ], [ true, %206 ], [ true, %"_ZN150_$LT$polars_parquet..parquet..encoding..byte_stream_split..decoder..DecoderIterator$LT$T$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1a8fc598ec01c553E.exit.i216" ], [ false, %247 ], [ false, %422 ], [ true, %.invoke737 ], [ true, %293 ], [ false, %408 ]
+  %.sroa.083.0.ph = phi i1 [ true, %"_ZN150_$LT$polars_parquet..parquet..encoding..byte_stream_split..decoder..DecoderIterator$LT$T$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1a8fc598ec01c553E.exit.i216" ], [ true, %206 ], [ false, %247 ], [ false, %422 ], [ true, %.invoke737 ], [ true, %184 ], [ true, %293 ], [ false, %408 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %187
@@ -27065,9 +27065,9 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   br label %"_ZN76_$LT$polars_arrow..types..native..i256$u20$as$u20$core..default..Default$GT$7default17h8c23d5ec405554b6E.exit"
 
 .invoke737:                                       ; preds = %.noexc220, %"_ZN4core6option15Option$LT$T$GT$6filter17h94426f6866b45e4eE.exit", %276
-  %269 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.119, %276 ], [ @anon.780151e00bfa35129a38ccea127ffa28.130, %"_ZN4core6option15Option$LT$T$GT$6filter17h94426f6866b45e4eE.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.137, %.noexc220 ]
-  %270 = phi i64 [ 19, %276 ], [ 40, %"_ZN4core6option15Option$LT$T$GT$6filter17h94426f6866b45e4eE.exit" ], [ 70, %.noexc220 ]
-  %271 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.135, %276 ], [ @anon.780151e00bfa35129a38ccea127ffa28.132, %"_ZN4core6option15Option$LT$T$GT$6filter17h94426f6866b45e4eE.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.139, %.noexc220 ]
+  %269 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.130, %"_ZN4core6option15Option$LT$T$GT$6filter17h94426f6866b45e4eE.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.119, %276 ], [ @anon.780151e00bfa35129a38ccea127ffa28.137, %.noexc220 ]
+  %270 = phi i64 [ 40, %"_ZN4core6option15Option$LT$T$GT$6filter17h94426f6866b45e4eE.exit" ], [ 19, %276 ], [ 70, %.noexc220 ]
+  %271 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.132, %"_ZN4core6option15Option$LT$T$GT$6filter17h94426f6866b45e4eE.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.135, %276 ], [ @anon.780151e00bfa35129a38ccea127ffa28.139, %.noexc220 ]
   invoke void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 %269, i64 noundef %270, ptr noalias noundef readonly align 8 dereferenceable(24) %271) #22
           to label %.cont738 unwind label %.loopexit.split-lp
 
@@ -27586,8 +27586,8 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
           cleanup
   br label %.thread530
 
-.thread535:                                       ; preds = %430, %426, %.thread530
-  %.pn152533 = phi { ptr, i32 } [ %.pn152534, %.thread530 ], [ %.pn146, %430 ], [ %.pn146, %426 ]
+.thread535:                                       ; preds = %426, %430, %.thread530
+  %.pn152533 = phi { ptr, i32 } [ %.pn152534, %.thread530 ], [ %.pn146, %426 ], [ %.pn146, %430 ]
   resume { ptr, i32 } %.pn152533
 
 .thread503:                                       ; preds = %.thread511.loopexit, %.thread511.loopexit.split-lp, %144, %165
@@ -27959,7 +27959,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   %exitcond648.not = icmp eq i64 %119, %89
   br i1 %exitcond648.not, label %._crit_edge566, label %.lr.ph565
 
-"_ZN4core3ptr84drop_in_place$LT$polars_parquet..arrow..read..deserialize..utils..filter..Filter$GT$17h27b9e90d372bb157E.exit392": ; preds = %425, %424, %423, %229
+"_ZN4core3ptr84drop_in_place$LT$polars_parquet..arrow..read..deserialize..utils..filter..Filter$GT$17h27b9e90d372bb157E.exit392": ; preds = %424, %425, %423, %229
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %415
 
@@ -28231,7 +28231,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   br label %188
 
 .loopexit.split-lp:                               ; preds = %.invoke719, %208, %248, %294, %408, %422, %185, %198
-  %.sroa.0138.0.ph = phi i1 [ true, %185 ], [ true, %208 ], [ true, %198 ], [ false, %248 ], [ false, %422 ], [ true, %.invoke719 ], [ true, %294 ], [ false, %408 ]
+  %.sroa.0138.0.ph = phi i1 [ true, %198 ], [ true, %208 ], [ false, %248 ], [ false, %422 ], [ true, %.invoke719 ], [ true, %185 ], [ true, %294 ], [ false, %408 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %188
@@ -28461,9 +28461,9 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   br label %258
 
 .invoke719:                                       ; preds = %.noexc354, %"_ZN4core6option15Option$LT$T$GT$6filter17h6c5b7875bc80a8ceE.exit", %277
-  %270 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.119, %277 ], [ @anon.780151e00bfa35129a38ccea127ffa28.130, %"_ZN4core6option15Option$LT$T$GT$6filter17h6c5b7875bc80a8ceE.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.137, %.noexc354 ]
-  %271 = phi i64 [ 19, %277 ], [ 40, %"_ZN4core6option15Option$LT$T$GT$6filter17h6c5b7875bc80a8ceE.exit" ], [ 70, %.noexc354 ]
-  %272 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.135, %277 ], [ @anon.780151e00bfa35129a38ccea127ffa28.132, %"_ZN4core6option15Option$LT$T$GT$6filter17h6c5b7875bc80a8ceE.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.139, %.noexc354 ]
+  %270 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.130, %"_ZN4core6option15Option$LT$T$GT$6filter17h6c5b7875bc80a8ceE.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.119, %277 ], [ @anon.780151e00bfa35129a38ccea127ffa28.137, %.noexc354 ]
+  %271 = phi i64 [ 40, %"_ZN4core6option15Option$LT$T$GT$6filter17h6c5b7875bc80a8ceE.exit" ], [ 19, %277 ], [ 70, %.noexc354 ]
+  %272 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.132, %"_ZN4core6option15Option$LT$T$GT$6filter17h6c5b7875bc80a8ceE.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.135, %277 ], [ @anon.780151e00bfa35129a38ccea127ffa28.139, %.noexc354 ]
   invoke void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 %270, i64 noundef %271, ptr noalias noundef readonly align 8 dereferenceable(24) %272) #22
           to label %.cont720 unwind label %.loopexit.split-lp
 
@@ -28979,8 +28979,8 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
           cleanup
   br label %.thread510
 
-.thread515:                                       ; preds = %430, %426, %.thread510
-  %.pn294513 = phi { ptr, i32 } [ %.pn294514, %.thread510 ], [ %.pn286, %430 ], [ %.pn286, %426 ]
+.thread515:                                       ; preds = %426, %430, %.thread510
+  %.pn294513 = phi { ptr, i32 } [ %.pn294514, %.thread510 ], [ %.pn286, %426 ], [ %.pn286, %430 ]
   resume { ptr, i32 } %.pn294513
 
 .thread483:                                       ; preds = %.thread491.loopexit, %.thread491.loopexit.split-lp, %144, %166
@@ -29352,7 +29352,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   %exitcond663.not = icmp eq i64 %118, %89
   br i1 %exitcond663.not, label %._crit_edge581, label %.lr.ph580
 
-"_ZN4core3ptr84drop_in_place$LT$polars_parquet..arrow..read..deserialize..utils..filter..Filter$GT$17h27b9e90d372bb157E.exit409": ; preds = %420, %419, %418, %226
+"_ZN4core3ptr84drop_in_place$LT$polars_parquet..arrow..read..deserialize..utils..filter..Filter$GT$17h27b9e90d372bb157E.exit409": ; preds = %419, %420, %418, %226
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %410
 
@@ -29624,7 +29624,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   br label %186
 
 .loopexit.split-lp:                               ; preds = %.invoke732, %205, %245, %290, %403, %417, %183, %"_ZN150_$LT$polars_parquet..parquet..encoding..byte_stream_split..decoder..DecoderIterator$LT$T$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hccb082c46e7be9b1E.exit.i365"
-  %.sroa.0148.0.ph = phi i1 [ true, %183 ], [ true, %205 ], [ true, %"_ZN150_$LT$polars_parquet..parquet..encoding..byte_stream_split..decoder..DecoderIterator$LT$T$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hccb082c46e7be9b1E.exit.i365" ], [ false, %245 ], [ false, %417 ], [ true, %.invoke732 ], [ true, %290 ], [ false, %403 ]
+  %.sroa.0148.0.ph = phi i1 [ true, %"_ZN150_$LT$polars_parquet..parquet..encoding..byte_stream_split..decoder..DecoderIterator$LT$T$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hccb082c46e7be9b1E.exit.i365" ], [ true, %205 ], [ false, %245 ], [ false, %417 ], [ true, %.invoke732 ], [ true, %183 ], [ true, %290 ], [ false, %403 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %186
@@ -29854,9 +29854,9 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   br label %254
 
 .invoke732:                                       ; preds = %.noexc368, %"_ZN4core6option15Option$LT$T$GT$6filter17hbc05fa14a0550770E.exit", %273
-  %266 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.119, %273 ], [ @anon.780151e00bfa35129a38ccea127ffa28.130, %"_ZN4core6option15Option$LT$T$GT$6filter17hbc05fa14a0550770E.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.137, %.noexc368 ]
-  %267 = phi i64 [ 19, %273 ], [ 40, %"_ZN4core6option15Option$LT$T$GT$6filter17hbc05fa14a0550770E.exit" ], [ 70, %.noexc368 ]
-  %268 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.135, %273 ], [ @anon.780151e00bfa35129a38ccea127ffa28.132, %"_ZN4core6option15Option$LT$T$GT$6filter17hbc05fa14a0550770E.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.139, %.noexc368 ]
+  %266 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.130, %"_ZN4core6option15Option$LT$T$GT$6filter17hbc05fa14a0550770E.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.119, %273 ], [ @anon.780151e00bfa35129a38ccea127ffa28.137, %.noexc368 ]
+  %267 = phi i64 [ 40, %"_ZN4core6option15Option$LT$T$GT$6filter17hbc05fa14a0550770E.exit" ], [ 19, %273 ], [ 70, %.noexc368 ]
+  %268 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.132, %"_ZN4core6option15Option$LT$T$GT$6filter17hbc05fa14a0550770E.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.135, %273 ], [ @anon.780151e00bfa35129a38ccea127ffa28.139, %.noexc368 ]
   invoke void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 %266, i64 noundef %267, ptr noalias noundef readonly align 8 dereferenceable(24) %268) #22
           to label %.cont733 unwind label %.loopexit.split-lp
 
@@ -30372,8 +30372,8 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
           cleanup
   br label %.thread525
 
-.thread530:                                       ; preds = %425, %421, %.thread525
-  %.pn304528 = phi { ptr, i32 } [ %.pn304529, %.thread525 ], [ %.pn296, %425 ], [ %.pn296, %421 ]
+.thread530:                                       ; preds = %421, %425, %.thread525
+  %.pn304528 = phi { ptr, i32 } [ %.pn304529, %.thread525 ], [ %.pn296, %421 ], [ %.pn296, %425 ]
   resume { ptr, i32 } %.pn304528
 
 .thread498:                                       ; preds = %.thread506.loopexit, %.thread506.loopexit.split-lp, %143, %164
@@ -30746,7 +30746,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   %exitcond668.not = icmp eq i64 %119, %90
   br i1 %exitcond668.not, label %._crit_edge586, label %.lr.ph585
 
-"_ZN4core3ptr84drop_in_place$LT$polars_parquet..arrow..read..deserialize..utils..filter..Filter$GT$17h27b9e90d372bb157E.exit265": ; preds = %425, %424, %423, %228
+"_ZN4core3ptr84drop_in_place$LT$polars_parquet..arrow..read..deserialize..utils..filter..Filter$GT$17h27b9e90d372bb157E.exit265": ; preds = %424, %425, %423, %228
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br label %415
 
@@ -31018,7 +31018,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   br label %187
 
 .loopexit.split-lp:                               ; preds = %.invoke737, %206, %247, %293, %408, %422, %184, %"_ZN150_$LT$polars_parquet..parquet..encoding..byte_stream_split..decoder..DecoderIterator$LT$T$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h185f25bb90b1ca5dE.exit.i216"
-  %.sroa.083.0.ph = phi i1 [ true, %184 ], [ true, %206 ], [ true, %"_ZN150_$LT$polars_parquet..parquet..encoding..byte_stream_split..decoder..DecoderIterator$LT$T$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h185f25bb90b1ca5dE.exit.i216" ], [ false, %247 ], [ false, %422 ], [ true, %.invoke737 ], [ true, %293 ], [ false, %408 ]
+  %.sroa.083.0.ph = phi i1 [ true, %"_ZN150_$LT$polars_parquet..parquet..encoding..byte_stream_split..decoder..DecoderIterator$LT$T$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h185f25bb90b1ca5dE.exit.i216" ], [ true, %206 ], [ false, %247 ], [ false, %422 ], [ true, %.invoke737 ], [ true, %184 ], [ true, %293 ], [ false, %408 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %187
@@ -31258,9 +31258,9 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   br label %"_ZN76_$LT$polars_arrow..types..native..i256$u20$as$u20$core..default..Default$GT$7default17h8c23d5ec405554b6E.exit"
 
 .invoke737:                                       ; preds = %.noexc220, %"_ZN4core6option15Option$LT$T$GT$6filter17h5dc0910fedb8c883E.exit", %276
-  %269 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.119, %276 ], [ @anon.780151e00bfa35129a38ccea127ffa28.130, %"_ZN4core6option15Option$LT$T$GT$6filter17h5dc0910fedb8c883E.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.137, %.noexc220 ]
-  %270 = phi i64 [ 19, %276 ], [ 40, %"_ZN4core6option15Option$LT$T$GT$6filter17h5dc0910fedb8c883E.exit" ], [ 70, %.noexc220 ]
-  %271 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.135, %276 ], [ @anon.780151e00bfa35129a38ccea127ffa28.132, %"_ZN4core6option15Option$LT$T$GT$6filter17h5dc0910fedb8c883E.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.139, %.noexc220 ]
+  %269 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.130, %"_ZN4core6option15Option$LT$T$GT$6filter17h5dc0910fedb8c883E.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.119, %276 ], [ @anon.780151e00bfa35129a38ccea127ffa28.137, %.noexc220 ]
+  %270 = phi i64 [ 40, %"_ZN4core6option15Option$LT$T$GT$6filter17h5dc0910fedb8c883E.exit" ], [ 19, %276 ], [ 70, %.noexc220 ]
+  %271 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.132, %"_ZN4core6option15Option$LT$T$GT$6filter17h5dc0910fedb8c883E.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.135, %276 ], [ @anon.780151e00bfa35129a38ccea127ffa28.139, %.noexc220 ]
   invoke void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 %269, i64 noundef %270, ptr noalias noundef readonly align 8 dereferenceable(24) %271) #22
           to label %.cont738 unwind label %.loopexit.split-lp
 
@@ -31779,8 +31779,8 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
           cleanup
   br label %.thread530
 
-.thread535:                                       ; preds = %430, %426, %.thread530
-  %.pn152533 = phi { ptr, i32 } [ %.pn152534, %.thread530 ], [ %.pn146, %430 ], [ %.pn146, %426 ]
+.thread535:                                       ; preds = %426, %430, %.thread530
+  %.pn152533 = phi { ptr, i32 } [ %.pn152534, %.thread530 ], [ %.pn146, %426 ], [ %.pn146, %430 ]
   resume { ptr, i32 } %.pn152533
 
 .thread503:                                       ; preds = %.thread511.loopexit, %.thread511.loopexit.split-lp, %144, %165
@@ -32115,7 +32115,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   %exitcond657.not = icmp eq i64 %119, %91
   br i1 %exitcond657.not, label %._crit_edge541, label %92
 
-"_ZN4core3ptr84drop_in_place$LT$polars_parquet..arrow..read..deserialize..utils..filter..Filter$GT$17h27b9e90d372bb157E.exit362": ; preds = %431, %430, %429, %232
+"_ZN4core3ptr84drop_in_place$LT$polars_parquet..arrow..read..deserialize..utils..filter..Filter$GT$17h27b9e90d372bb157E.exit362": ; preds = %430, %431, %429, %232
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %421
 
@@ -33072,8 +33072,8 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
           cleanup
   br label %.thread480
 
-.thread485:                                       ; preds = %436, %432, %.thread480
-  %.pn294483 = phi { ptr, i32 } [ %.pn294484, %.thread480 ], [ %.pn286, %436 ], [ %.pn286, %432 ]
+.thread485:                                       ; preds = %432, %436, %.thread480
+  %.pn294483 = phi { ptr, i32 } [ %.pn294484, %.thread480 ], [ %.pn286, %432 ], [ %.pn286, %436 ]
   resume { ptr, i32 } %.pn294483
 
 .thread453:                                       ; preds = %145, %167, %.thread461
@@ -33445,7 +33445,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   %exitcond655.not = icmp eq i64 %120, %89
   br i1 %exitcond655.not, label %._crit_edge573, label %90
 
-"_ZN4core3ptr84drop_in_place$LT$polars_parquet..arrow..read..deserialize..utils..filter..Filter$GT$17h27b9e90d372bb157E.exit399": ; preds = %439, %438, %437, %235
+"_ZN4core3ptr84drop_in_place$LT$polars_parquet..arrow..read..deserialize..utils..filter..Filter$GT$17h27b9e90d372bb157E.exit399": ; preds = %438, %439, %437, %235
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %429
 
@@ -33718,7 +33718,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   br label %191
 
 .loopexit.split-lp:                               ; preds = %.invoke726, %212, %255, %305, %422, %436, %187, %202
-  %.sroa.0138.0.ph = phi i1 [ true, %187 ], [ true, %212 ], [ true, %202 ], [ false, %255 ], [ false, %436 ], [ true, %.invoke726 ], [ true, %305 ], [ false, %422 ]
+  %.sroa.0138.0.ph = phi i1 [ true, %202 ], [ true, %212 ], [ false, %255 ], [ false, %436 ], [ true, %.invoke726 ], [ true, %187 ], [ true, %305 ], [ false, %422 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %191
@@ -33961,9 +33961,9 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   br label %266
 
 .invoke726:                                       ; preds = %.noexc358, %"_ZN4core6option15Option$LT$T$GT$6filter17ha66276ad70edfd5aE.exit", %287
-  %280 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.119, %287 ], [ @anon.780151e00bfa35129a38ccea127ffa28.130, %"_ZN4core6option15Option$LT$T$GT$6filter17ha66276ad70edfd5aE.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.137, %.noexc358 ]
-  %281 = phi i64 [ 19, %287 ], [ 40, %"_ZN4core6option15Option$LT$T$GT$6filter17ha66276ad70edfd5aE.exit" ], [ 70, %.noexc358 ]
-  %282 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.135, %287 ], [ @anon.780151e00bfa35129a38ccea127ffa28.132, %"_ZN4core6option15Option$LT$T$GT$6filter17ha66276ad70edfd5aE.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.139, %.noexc358 ]
+  %280 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.130, %"_ZN4core6option15Option$LT$T$GT$6filter17ha66276ad70edfd5aE.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.119, %287 ], [ @anon.780151e00bfa35129a38ccea127ffa28.137, %.noexc358 ]
+  %281 = phi i64 [ 40, %"_ZN4core6option15Option$LT$T$GT$6filter17ha66276ad70edfd5aE.exit" ], [ 19, %287 ], [ 70, %.noexc358 ]
+  %282 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.132, %"_ZN4core6option15Option$LT$T$GT$6filter17ha66276ad70edfd5aE.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.135, %287 ], [ @anon.780151e00bfa35129a38ccea127ffa28.139, %.noexc358 ]
   invoke void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 %280, i64 noundef %281, ptr noalias noundef readonly align 8 dereferenceable(24) %282) #22
           to label %.cont727 unwind label %.loopexit.split-lp
 
@@ -34486,8 +34486,8 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
           cleanup
   br label %.thread517
 
-.thread522:                                       ; preds = %444, %440, %.thread517
-  %.pn294520 = phi { ptr, i32 } [ %.pn294521, %.thread517 ], [ %.pn286, %444 ], [ %.pn286, %440 ]
+.thread522:                                       ; preds = %440, %444, %.thread517
+  %.pn294520 = phi { ptr, i32 } [ %.pn294521, %.thread517 ], [ %.pn286, %440 ], [ %.pn286, %444 ]
   resume { ptr, i32 } %.pn294520
 
 .thread490:                                       ; preds = %.thread498.loopexit, %.thread498.loopexit.split-lp, %145, %168
@@ -34822,7 +34822,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   %exitcond657.not = icmp eq i64 %119, %91
   br i1 %exitcond657.not, label %._crit_edge541, label %92
 
-"_ZN4core3ptr84drop_in_place$LT$polars_parquet..arrow..read..deserialize..utils..filter..Filter$GT$17h27b9e90d372bb157E.exit362": ; preds = %434, %433, %432, %233
+"_ZN4core3ptr84drop_in_place$LT$polars_parquet..arrow..read..deserialize..utils..filter..Filter$GT$17h27b9e90d372bb157E.exit362": ; preds = %433, %434, %432, %233
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %424
 
@@ -35782,8 +35782,8 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
           cleanup
   br label %.thread480
 
-.thread485:                                       ; preds = %439, %435, %.thread480
-  %.pn294483 = phi { ptr, i32 } [ %.pn294484, %.thread480 ], [ %.pn286, %439 ], [ %.pn286, %435 ]
+.thread485:                                       ; preds = %435, %439, %.thread480
+  %.pn294483 = phi { ptr, i32 } [ %.pn294484, %.thread480 ], [ %.pn286, %435 ], [ %.pn286, %439 ]
   resume { ptr, i32 } %.pn294483
 
 .thread453:                                       ; preds = %145, %167, %.thread461
@@ -36118,7 +36118,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   %exitcond657.not = icmp eq i64 %119, %91
   br i1 %exitcond657.not, label %._crit_edge541, label %92
 
-"_ZN4core3ptr84drop_in_place$LT$polars_parquet..arrow..read..deserialize..utils..filter..Filter$GT$17h27b9e90d372bb157E.exit362": ; preds = %434, %433, %432, %233
+"_ZN4core3ptr84drop_in_place$LT$polars_parquet..arrow..read..deserialize..utils..filter..Filter$GT$17h27b9e90d372bb157E.exit362": ; preds = %433, %434, %432, %233
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %424
 
@@ -37078,8 +37078,8 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
           cleanup
   br label %.thread480
 
-.thread485:                                       ; preds = %439, %435, %.thread480
-  %.pn294483 = phi { ptr, i32 } [ %.pn294484, %.thread480 ], [ %.pn286, %439 ], [ %.pn286, %435 ]
+.thread485:                                       ; preds = %435, %439, %.thread480
+  %.pn294483 = phi { ptr, i32 } [ %.pn294484, %.thread480 ], [ %.pn286, %435 ], [ %.pn286, %439 ]
   resume { ptr, i32 } %.pn294483
 
 .thread453:                                       ; preds = %145, %167, %.thread461
@@ -37451,7 +37451,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   %exitcond640.not = icmp eq i64 %119, %89
   br i1 %exitcond640.not, label %._crit_edge558, label %.lr.ph557
 
-"_ZN4core3ptr84drop_in_place$LT$polars_parquet..arrow..read..deserialize..utils..filter..Filter$GT$17h27b9e90d372bb157E.exit392": ; preds = %422, %421, %420, %228
+"_ZN4core3ptr84drop_in_place$LT$polars_parquet..arrow..read..deserialize..utils..filter..Filter$GT$17h27b9e90d372bb157E.exit392": ; preds = %421, %422, %420, %228
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %412
 
@@ -37723,7 +37723,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   br label %188
 
 .loopexit.split-lp:                               ; preds = %.invoke711, %208, %247, %292, %405, %419, %185, %198
-  %.sroa.0138.0.ph = phi i1 [ true, %185 ], [ true, %208 ], [ true, %198 ], [ false, %247 ], [ false, %419 ], [ true, %.invoke711 ], [ true, %292 ], [ false, %405 ]
+  %.sroa.0138.0.ph = phi i1 [ true, %198 ], [ true, %208 ], [ false, %247 ], [ false, %419 ], [ true, %.invoke711 ], [ true, %185 ], [ true, %292 ], [ false, %405 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %188
@@ -37951,9 +37951,9 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   br label %257
 
 .invoke711:                                       ; preds = %.noexc354, %"_ZN4core6option15Option$LT$T$GT$6filter17h1796e1d6104e9b44E.exit", %275
-  %268 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.119, %275 ], [ @anon.780151e00bfa35129a38ccea127ffa28.130, %"_ZN4core6option15Option$LT$T$GT$6filter17h1796e1d6104e9b44E.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.137, %.noexc354 ]
-  %269 = phi i64 [ 19, %275 ], [ 40, %"_ZN4core6option15Option$LT$T$GT$6filter17h1796e1d6104e9b44E.exit" ], [ 70, %.noexc354 ]
-  %270 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.135, %275 ], [ @anon.780151e00bfa35129a38ccea127ffa28.132, %"_ZN4core6option15Option$LT$T$GT$6filter17h1796e1d6104e9b44E.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.139, %.noexc354 ]
+  %268 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.130, %"_ZN4core6option15Option$LT$T$GT$6filter17h1796e1d6104e9b44E.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.119, %275 ], [ @anon.780151e00bfa35129a38ccea127ffa28.137, %.noexc354 ]
+  %269 = phi i64 [ 40, %"_ZN4core6option15Option$LT$T$GT$6filter17h1796e1d6104e9b44E.exit" ], [ 19, %275 ], [ 70, %.noexc354 ]
+  %270 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.132, %"_ZN4core6option15Option$LT$T$GT$6filter17h1796e1d6104e9b44E.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.135, %275 ], [ @anon.780151e00bfa35129a38ccea127ffa28.139, %.noexc354 ]
   invoke void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 %268, i64 noundef %269, ptr noalias noundef readonly align 8 dereferenceable(24) %270) #22
           to label %.cont712 unwind label %.loopexit.split-lp
 
@@ -38468,8 +38468,8 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
           cleanup
   br label %.thread502
 
-.thread507:                                       ; preds = %427, %423, %.thread502
-  %.pn294505 = phi { ptr, i32 } [ %.pn294506, %.thread502 ], [ %.pn286, %427 ], [ %.pn286, %423 ]
+.thread507:                                       ; preds = %423, %427, %.thread502
+  %.pn294505 = phi { ptr, i32 } [ %.pn294506, %.thread502 ], [ %.pn286, %423 ], [ %.pn286, %427 ]
   resume { ptr, i32 } %.pn294505
 
 .thread475:                                       ; preds = %.thread483.loopexit, %.thread483.loopexit.split-lp, %144, %166
@@ -38804,7 +38804,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   %exitcond657.not = icmp eq i64 %119, %91
   br i1 %exitcond657.not, label %._crit_edge541, label %92
 
-"_ZN4core3ptr84drop_in_place$LT$polars_parquet..arrow..read..deserialize..utils..filter..Filter$GT$17h27b9e90d372bb157E.exit362": ; preds = %434, %433, %432, %233
+"_ZN4core3ptr84drop_in_place$LT$polars_parquet..arrow..read..deserialize..utils..filter..Filter$GT$17h27b9e90d372bb157E.exit362": ; preds = %433, %434, %432, %233
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %424
 
@@ -39764,8 +39764,8 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
           cleanup
   br label %.thread480
 
-.thread485:                                       ; preds = %439, %435, %.thread480
-  %.pn294483 = phi { ptr, i32 } [ %.pn294484, %.thread480 ], [ %.pn286, %439 ], [ %.pn286, %435 ]
+.thread485:                                       ; preds = %435, %439, %.thread480
+  %.pn294483 = phi { ptr, i32 } [ %.pn294484, %.thread480 ], [ %.pn286, %435 ], [ %.pn286, %439 ]
   resume { ptr, i32 } %.pn294483
 
 .thread453:                                       ; preds = %145, %167, %.thread461
@@ -40102,7 +40102,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   %exitcond641.not = icmp eq i64 %123, %95
   br i1 %exitcond641.not, label %._crit_edge525, label %96
 
-"_ZN4core3ptr84drop_in_place$LT$polars_parquet..arrow..read..deserialize..utils..filter..Filter$GT$17h27b9e90d372bb157E.exit346": ; preds = %460, %459, %458, %247
+"_ZN4core3ptr84drop_in_place$LT$polars_parquet..arrow..read..deserialize..utils..filter..Filter$GT$17h27b9e90d372bb157E.exit346": ; preds = %459, %460, %458, %247
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %450
 
@@ -41077,8 +41077,8 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
           cleanup
   br label %.thread464
 
-.thread469:                                       ; preds = %465, %461, %.thread464
-  %.pn294467 = phi { ptr, i32 } [ %.pn294468, %.thread464 ], [ %.pn286, %465 ], [ %.pn286, %461 ]
+.thread469:                                       ; preds = %461, %465, %.thread464
+  %.pn294467 = phi { ptr, i32 } [ %.pn294468, %.thread464 ], [ %.pn286, %461 ], [ %.pn286, %465 ]
   resume { ptr, i32 } %.pn294467
 
 .thread437:                                       ; preds = %151, %175, %.thread445
@@ -41466,7 +41466,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #21
   unreachable
 
-"_ZN4core3ptr84drop_in_place$LT$polars_parquet..arrow..read..deserialize..utils..filter..Filter$GT$17h27b9e90d372bb157E.exit362": ; preds = %551, %550, %549, %314
+"_ZN4core3ptr84drop_in_place$LT$polars_parquet..arrow..read..deserialize..utils..filter..Filter$GT$17h27b9e90d372bb157E.exit362": ; preds = %550, %551, %549, %314
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %541
 
@@ -41770,7 +41770,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   br label %263
 
 .loopexit.split-lp:                               ; preds = %.invoke838, %295, %340, %402, %534, %548, %253, %283, %284, %285
-  %.sroa.0138.0.ph = phi i1 [ true, %253 ], [ true, %295 ], [ true, %285 ], [ false, %340 ], [ true, %284 ], [ true, %.invoke838 ], [ true, %283 ], [ true, %402 ], [ false, %534 ], [ false, %548 ]
+  %.sroa.0138.0.ph = phi i1 [ true, %295 ], [ true, %285 ], [ true, %253 ], [ false, %340 ], [ true, %284 ], [ true, %.invoke838 ], [ true, %283 ], [ true, %402 ], [ false, %534 ], [ false, %548 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %263
@@ -42557,8 +42557,8 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
           cleanup
   br label %.thread480
 
-.thread485:                                       ; preds = %556, %552, %.thread480
-  %.pn294483 = phi { ptr, i32 } [ %.pn294484, %.thread480 ], [ %.pn286, %556 ], [ %.pn286, %552 ]
+.thread485:                                       ; preds = %552, %556, %.thread480
+  %.pn294483 = phi { ptr, i32 } [ %.pn294484, %.thread480 ], [ %.pn286, %552 ], [ %.pn286, %556 ]
   resume { ptr, i32 } %.pn294483
 
 .thread453:                                       ; preds = %192, %234, %.thread461
@@ -42894,7 +42894,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   %exitcond670.not = icmp eq i64 %120, %92
   br i1 %exitcond670.not, label %._crit_edge554, label %93
 
-"_ZN4core3ptr84drop_in_place$LT$polars_parquet..arrow..read..deserialize..utils..filter..Filter$GT$17h27b9e90d372bb157E.exit228": ; preds = %438, %437, %436, %235
+"_ZN4core3ptr84drop_in_place$LT$polars_parquet..arrow..read..deserialize..utils..filter..Filter$GT$17h27b9e90d372bb157E.exit228": ; preds = %437, %438, %436, %235
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br label %428
 
@@ -43867,8 +43867,8 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
           cleanup
   br label %.thread493
 
-.thread498:                                       ; preds = %443, %439, %.thread493
-  %.pn152496 = phi { ptr, i32 } [ %.pn152497, %.thread493 ], [ %.pn146, %443 ], [ %.pn146, %439 ]
+.thread498:                                       ; preds = %439, %443, %.thread493
+  %.pn152496 = phi { ptr, i32 } [ %.pn152497, %.thread493 ], [ %.pn146, %439 ], [ %.pn146, %443 ]
   resume { ptr, i32 } %.pn152496
 
 .thread466:                                       ; preds = %146, %168, %.thread474
@@ -44240,7 +44240,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   %exitcond648.not = icmp eq i64 %119, %89
   br i1 %exitcond648.not, label %._crit_edge566, label %.lr.ph565
 
-"_ZN4core3ptr84drop_in_place$LT$polars_parquet..arrow..read..deserialize..utils..filter..Filter$GT$17h27b9e90d372bb157E.exit392": ; preds = %425, %424, %423, %229
+"_ZN4core3ptr84drop_in_place$LT$polars_parquet..arrow..read..deserialize..utils..filter..Filter$GT$17h27b9e90d372bb157E.exit392": ; preds = %424, %425, %423, %229
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %415
 
@@ -44512,7 +44512,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   br label %188
 
 .loopexit.split-lp:                               ; preds = %.invoke719, %208, %248, %294, %408, %422, %185, %198
-  %.sroa.0138.0.ph = phi i1 [ true, %185 ], [ true, %208 ], [ true, %198 ], [ false, %248 ], [ false, %422 ], [ true, %.invoke719 ], [ true, %294 ], [ false, %408 ]
+  %.sroa.0138.0.ph = phi i1 [ true, %198 ], [ true, %208 ], [ false, %248 ], [ false, %422 ], [ true, %.invoke719 ], [ true, %185 ], [ true, %294 ], [ false, %408 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %188
@@ -44742,9 +44742,9 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   br label %258
 
 .invoke719:                                       ; preds = %.noexc354, %"_ZN4core6option15Option$LT$T$GT$6filter17h59a566f7353195cfE.exit", %277
-  %270 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.119, %277 ], [ @anon.780151e00bfa35129a38ccea127ffa28.130, %"_ZN4core6option15Option$LT$T$GT$6filter17h59a566f7353195cfE.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.137, %.noexc354 ]
-  %271 = phi i64 [ 19, %277 ], [ 40, %"_ZN4core6option15Option$LT$T$GT$6filter17h59a566f7353195cfE.exit" ], [ 70, %.noexc354 ]
-  %272 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.135, %277 ], [ @anon.780151e00bfa35129a38ccea127ffa28.132, %"_ZN4core6option15Option$LT$T$GT$6filter17h59a566f7353195cfE.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.139, %.noexc354 ]
+  %270 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.130, %"_ZN4core6option15Option$LT$T$GT$6filter17h59a566f7353195cfE.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.119, %277 ], [ @anon.780151e00bfa35129a38ccea127ffa28.137, %.noexc354 ]
+  %271 = phi i64 [ 40, %"_ZN4core6option15Option$LT$T$GT$6filter17h59a566f7353195cfE.exit" ], [ 19, %277 ], [ 70, %.noexc354 ]
+  %272 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.132, %"_ZN4core6option15Option$LT$T$GT$6filter17h59a566f7353195cfE.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.135, %277 ], [ @anon.780151e00bfa35129a38ccea127ffa28.139, %.noexc354 ]
   invoke void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 %270, i64 noundef %271, ptr noalias noundef readonly align 8 dereferenceable(24) %272) #22
           to label %.cont720 unwind label %.loopexit.split-lp
 
@@ -45260,8 +45260,8 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
           cleanup
   br label %.thread510
 
-.thread515:                                       ; preds = %430, %426, %.thread510
-  %.pn294513 = phi { ptr, i32 } [ %.pn294514, %.thread510 ], [ %.pn286, %430 ], [ %.pn286, %426 ]
+.thread515:                                       ; preds = %426, %430, %.thread510
+  %.pn294513 = phi { ptr, i32 } [ %.pn294514, %.thread510 ], [ %.pn286, %426 ], [ %.pn286, %430 ]
   resume { ptr, i32 } %.pn294513
 
 .thread483:                                       ; preds = %.thread491.loopexit, %.thread491.loopexit.split-lp, %144, %166
@@ -45633,7 +45633,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #21
   unreachable
 
-"_ZN4core3ptr84drop_in_place$LT$polars_parquet..arrow..read..deserialize..utils..filter..Filter$GT$17h27b9e90d372bb157E.exit406": ; preds = %449, %448, %447, %239
+"_ZN4core3ptr84drop_in_place$LT$polars_parquet..arrow..read..deserialize..utils..filter..Filter$GT$17h27b9e90d372bb157E.exit406": ; preds = %448, %449, %447, %239
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %439
 
@@ -45912,7 +45912,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   br label %191
 
 .loopexit.split-lp:                               ; preds = %.invoke733, %220, %258, %311, %432, %446, %188, %210
-  %.sroa.0138.0.ph = phi i1 [ true, %188 ], [ true, %220 ], [ true, %210 ], [ false, %258 ], [ false, %446 ], [ true, %.invoke733 ], [ true, %311 ], [ false, %432 ]
+  %.sroa.0138.0.ph = phi i1 [ true, %210 ], [ true, %220 ], [ false, %258 ], [ false, %446 ], [ true, %.invoke733 ], [ true, %188 ], [ true, %311 ], [ false, %432 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %191
@@ -46168,9 +46168,9 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   br label %277
 
 .invoke733:                                       ; preds = %.noexc362, %"_ZN4core6option15Option$LT$T$GT$6filter17hd760520ddc844cd5E.exit", %294
-  %287 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.119, %294 ], [ @anon.780151e00bfa35129a38ccea127ffa28.130, %"_ZN4core6option15Option$LT$T$GT$6filter17hd760520ddc844cd5E.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.137, %.noexc362 ]
-  %288 = phi i64 [ 19, %294 ], [ 40, %"_ZN4core6option15Option$LT$T$GT$6filter17hd760520ddc844cd5E.exit" ], [ 70, %.noexc362 ]
-  %289 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.135, %294 ], [ @anon.780151e00bfa35129a38ccea127ffa28.132, %"_ZN4core6option15Option$LT$T$GT$6filter17hd760520ddc844cd5E.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.139, %.noexc362 ]
+  %287 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.130, %"_ZN4core6option15Option$LT$T$GT$6filter17hd760520ddc844cd5E.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.119, %294 ], [ @anon.780151e00bfa35129a38ccea127ffa28.137, %.noexc362 ]
+  %288 = phi i64 [ 40, %"_ZN4core6option15Option$LT$T$GT$6filter17hd760520ddc844cd5E.exit" ], [ 19, %294 ], [ 70, %.noexc362 ]
+  %289 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.132, %"_ZN4core6option15Option$LT$T$GT$6filter17hd760520ddc844cd5E.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.135, %294 ], [ @anon.780151e00bfa35129a38ccea127ffa28.139, %.noexc362 ]
   invoke void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 %287, i64 noundef %288, ptr noalias noundef readonly align 8 dereferenceable(24) %289) #22
           to label %.cont734 unwind label %.loopexit.split-lp
 
@@ -46692,8 +46692,8 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
           cleanup
   br label %.thread524
 
-.thread529:                                       ; preds = %454, %450, %.thread524
-  %.pn294527 = phi { ptr, i32 } [ %.pn294528, %.thread524 ], [ %.pn286, %454 ], [ %.pn286, %450 ]
+.thread529:                                       ; preds = %450, %454, %.thread524
+  %.pn294527 = phi { ptr, i32 } [ %.pn294528, %.thread524 ], [ %.pn286, %450 ], [ %.pn286, %454 ]
   resume { ptr, i32 } %.pn294527
 
 .thread497:                                       ; preds = %.thread505.loopexit, %.thread505.loopexit.split-lp, %144, %169
@@ -47028,7 +47028,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   %exitcond657.not = icmp eq i64 %119, %91
   br i1 %exitcond657.not, label %._crit_edge541, label %92
 
-"_ZN4core3ptr84drop_in_place$LT$polars_parquet..arrow..read..deserialize..utils..filter..Filter$GT$17h27b9e90d372bb157E.exit362": ; preds = %434, %433, %432, %233
+"_ZN4core3ptr84drop_in_place$LT$polars_parquet..arrow..read..deserialize..utils..filter..Filter$GT$17h27b9e90d372bb157E.exit362": ; preds = %433, %434, %432, %233
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %424
 
@@ -47988,8 +47988,8 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
           cleanup
   br label %.thread480
 
-.thread485:                                       ; preds = %439, %435, %.thread480
-  %.pn294483 = phi { ptr, i32 } [ %.pn294484, %.thread480 ], [ %.pn286, %439 ], [ %.pn286, %435 ]
+.thread485:                                       ; preds = %435, %439, %.thread480
+  %.pn294483 = phi { ptr, i32 } [ %.pn294484, %.thread480 ], [ %.pn286, %435 ], [ %.pn286, %439 ]
   resume { ptr, i32 } %.pn294483
 
 .thread453:                                       ; preds = %145, %167, %.thread461
@@ -48390,7 +48390,7 @@ default.unreachable:                              ; preds = %.noexc289, %"_ZN4co
   call void @llvm.lifetime.end.p0(ptr nonnull %53)
   br label %412
 
-"_ZN4core3ptr84drop_in_place$LT$polars_parquet..arrow..read..deserialize..utils..filter..Filter$GT$17h27b9e90d372bb157E.exit288": ; preds = %398, %396, %395, %225
+"_ZN4core3ptr84drop_in_place$LT$polars_parquet..arrow..read..deserialize..utils..filter..Filter$GT$17h27b9e90d372bb157E.exit288": ; preds = %396, %398, %395, %225
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
   br label %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$polars_parquet..arrow..read..deserialize..utils..filter..Filter$GT$$GT$17h58c496cdaf47ffe6E.exit291"
 
@@ -48652,7 +48652,7 @@ default.unreachable:                              ; preds = %.noexc289, %"_ZN4co
   br label %197
 
 .loopexit.split-lp:                               ; preds = %.invoke, %211, %245, %252, %278, %304, %380, %393, %195
-  %.sroa.0108.0.ph = phi i1 [ true, %195 ], [ true, %211 ], [ false, %245 ], [ false, %252 ], [ true, %.invoke ], [ true, %304 ], [ true, %278 ], [ false, %380 ], [ false, %393 ]
+  %.sroa.0108.0.ph = phi i1 [ true, %211 ], [ true, %195 ], [ false, %245 ], [ false, %252 ], [ true, %.invoke ], [ true, %304 ], [ true, %278 ], [ false, %380 ], [ false, %393 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %197
@@ -49420,8 +49420,8 @@ default.unreachable:                              ; preds = %.noexc289, %"_ZN4co
   call void @"_ZN4core3ptr60drop_in_place$LT$polars_arrow..bitmap..immutable..Bitmap$GT$17h914356f7585a5259E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %423)
   br label %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$polars_parquet..arrow..read..deserialize..utils..filter..Filter$GT$$GT$17h58c496cdaf47ffe6E.exit291"
 
-.thread404:                                       ; preds = %404, %400, %.thread399
-  %.pn240402 = phi { ptr, i32 } [ %.pn240403, %.thread399 ], [ %.pn232, %404 ], [ %.pn232, %400 ]
+.thread404:                                       ; preds = %400, %404, %.thread399
+  %.pn240402 = phi { ptr, i32 } [ %.pn240403, %.thread399 ], [ %.pn232, %400 ], [ %.pn232, %404 ]
   resume { ptr, i32 } %.pn240402
 
 .thread357:                                       ; preds = %.thread365.loopexit, %.thread365.loopexit.split-lp, %159, %176
@@ -49793,7 +49793,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #21
   unreachable
 
-"_ZN4core3ptr84drop_in_place$LT$polars_parquet..arrow..read..deserialize..utils..filter..Filter$GT$17h27b9e90d372bb157E.exit406": ; preds = %446, %445, %444, %238
+"_ZN4core3ptr84drop_in_place$LT$polars_parquet..arrow..read..deserialize..utils..filter..Filter$GT$17h27b9e90d372bb157E.exit406": ; preds = %445, %446, %444, %238
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %436
 
@@ -50072,7 +50072,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   br label %191
 
 .loopexit.split-lp:                               ; preds = %.invoke733, %219, %257, %309, %429, %443, %188, %209
-  %.sroa.0138.0.ph = phi i1 [ true, %188 ], [ true, %219 ], [ true, %209 ], [ false, %257 ], [ false, %443 ], [ true, %.invoke733 ], [ true, %309 ], [ false, %429 ]
+  %.sroa.0138.0.ph = phi i1 [ true, %209 ], [ true, %219 ], [ false, %257 ], [ false, %443 ], [ true, %.invoke733 ], [ true, %188 ], [ true, %309 ], [ false, %429 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %191
@@ -50326,9 +50326,9 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   br label %275
 
 .invoke733:                                       ; preds = %.noexc362, %"_ZN4core6option15Option$LT$T$GT$6filter17h7ce6ae29d6614862E.exit", %292
-  %285 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.119, %292 ], [ @anon.780151e00bfa35129a38ccea127ffa28.130, %"_ZN4core6option15Option$LT$T$GT$6filter17h7ce6ae29d6614862E.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.137, %.noexc362 ]
-  %286 = phi i64 [ 19, %292 ], [ 40, %"_ZN4core6option15Option$LT$T$GT$6filter17h7ce6ae29d6614862E.exit" ], [ 70, %.noexc362 ]
-  %287 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.135, %292 ], [ @anon.780151e00bfa35129a38ccea127ffa28.132, %"_ZN4core6option15Option$LT$T$GT$6filter17h7ce6ae29d6614862E.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.139, %.noexc362 ]
+  %285 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.130, %"_ZN4core6option15Option$LT$T$GT$6filter17h7ce6ae29d6614862E.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.119, %292 ], [ @anon.780151e00bfa35129a38ccea127ffa28.137, %.noexc362 ]
+  %286 = phi i64 [ 40, %"_ZN4core6option15Option$LT$T$GT$6filter17h7ce6ae29d6614862E.exit" ], [ 19, %292 ], [ 70, %.noexc362 ]
+  %287 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.132, %"_ZN4core6option15Option$LT$T$GT$6filter17h7ce6ae29d6614862E.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.135, %292 ], [ @anon.780151e00bfa35129a38ccea127ffa28.139, %.noexc362 ]
   invoke void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 %285, i64 noundef %286, ptr noalias noundef readonly align 8 dereferenceable(24) %287) #22
           to label %.cont734 unwind label %.loopexit.split-lp
 
@@ -50849,8 +50849,8 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
           cleanup
   br label %.thread524
 
-.thread529:                                       ; preds = %451, %447, %.thread524
-  %.pn294527 = phi { ptr, i32 } [ %.pn294528, %.thread524 ], [ %.pn286, %451 ], [ %.pn286, %447 ]
+.thread529:                                       ; preds = %447, %451, %.thread524
+  %.pn294527 = phi { ptr, i32 } [ %.pn294528, %.thread524 ], [ %.pn286, %447 ], [ %.pn286, %451 ]
   resume { ptr, i32 } %.pn294527
 
 .thread497:                                       ; preds = %.thread505.loopexit, %.thread505.loopexit.split-lp, %144, %169
@@ -51222,7 +51222,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   %exitcond648.not = icmp eq i64 %119, %89
   br i1 %exitcond648.not, label %._crit_edge566, label %.lr.ph565
 
-"_ZN4core3ptr84drop_in_place$LT$polars_parquet..arrow..read..deserialize..utils..filter..Filter$GT$17h27b9e90d372bb157E.exit392": ; preds = %428, %427, %426, %230
+"_ZN4core3ptr84drop_in_place$LT$polars_parquet..arrow..read..deserialize..utils..filter..Filter$GT$17h27b9e90d372bb157E.exit392": ; preds = %427, %428, %426, %230
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %418
 
@@ -51494,7 +51494,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   br label %188
 
 .loopexit.split-lp:                               ; preds = %.invoke719, %208, %249, %296, %411, %425, %185, %198
-  %.sroa.0138.0.ph = phi i1 [ true, %185 ], [ true, %208 ], [ true, %198 ], [ false, %249 ], [ false, %425 ], [ true, %.invoke719 ], [ true, %296 ], [ false, %411 ]
+  %.sroa.0138.0.ph = phi i1 [ true, %198 ], [ true, %208 ], [ false, %249 ], [ false, %425 ], [ true, %.invoke719 ], [ true, %185 ], [ true, %296 ], [ false, %411 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %188
@@ -51726,9 +51726,9 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   br label %259
 
 .invoke719:                                       ; preds = %.noexc354, %"_ZN4core6option15Option$LT$T$GT$6filter17h8a300d9c667d95a6E.exit", %279
-  %272 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.119, %279 ], [ @anon.780151e00bfa35129a38ccea127ffa28.130, %"_ZN4core6option15Option$LT$T$GT$6filter17h8a300d9c667d95a6E.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.137, %.noexc354 ]
-  %273 = phi i64 [ 19, %279 ], [ 40, %"_ZN4core6option15Option$LT$T$GT$6filter17h8a300d9c667d95a6E.exit" ], [ 70, %.noexc354 ]
-  %274 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.135, %279 ], [ @anon.780151e00bfa35129a38ccea127ffa28.132, %"_ZN4core6option15Option$LT$T$GT$6filter17h8a300d9c667d95a6E.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.139, %.noexc354 ]
+  %272 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.130, %"_ZN4core6option15Option$LT$T$GT$6filter17h8a300d9c667d95a6E.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.119, %279 ], [ @anon.780151e00bfa35129a38ccea127ffa28.137, %.noexc354 ]
+  %273 = phi i64 [ 40, %"_ZN4core6option15Option$LT$T$GT$6filter17h8a300d9c667d95a6E.exit" ], [ 19, %279 ], [ 70, %.noexc354 ]
+  %274 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.132, %"_ZN4core6option15Option$LT$T$GT$6filter17h8a300d9c667d95a6E.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.135, %279 ], [ @anon.780151e00bfa35129a38ccea127ffa28.139, %.noexc354 ]
   invoke void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 %272, i64 noundef %273, ptr noalias noundef readonly align 8 dereferenceable(24) %274) #22
           to label %.cont720 unwind label %.loopexit.split-lp
 
@@ -52245,8 +52245,8 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
           cleanup
   br label %.thread510
 
-.thread515:                                       ; preds = %433, %429, %.thread510
-  %.pn294513 = phi { ptr, i32 } [ %.pn294514, %.thread510 ], [ %.pn286, %433 ], [ %.pn286, %429 ]
+.thread515:                                       ; preds = %429, %433, %.thread510
+  %.pn294513 = phi { ptr, i32 } [ %.pn294514, %.thread510 ], [ %.pn286, %429 ], [ %.pn286, %433 ]
   resume { ptr, i32 } %.pn294513
 
 .thread483:                                       ; preds = %.thread491.loopexit, %.thread491.loopexit.split-lp, %144, %166
@@ -52618,7 +52618,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   %exitcond648.not = icmp eq i64 %119, %89
   br i1 %exitcond648.not, label %._crit_edge566, label %.lr.ph565
 
-"_ZN4core3ptr84drop_in_place$LT$polars_parquet..arrow..read..deserialize..utils..filter..Filter$GT$17h27b9e90d372bb157E.exit392": ; preds = %425, %424, %423, %229
+"_ZN4core3ptr84drop_in_place$LT$polars_parquet..arrow..read..deserialize..utils..filter..Filter$GT$17h27b9e90d372bb157E.exit392": ; preds = %424, %425, %423, %229
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %415
 
@@ -52890,7 +52890,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   br label %188
 
 .loopexit.split-lp:                               ; preds = %.invoke719, %208, %248, %294, %408, %422, %185, %198
-  %.sroa.0138.0.ph = phi i1 [ true, %185 ], [ true, %208 ], [ true, %198 ], [ false, %248 ], [ false, %422 ], [ true, %.invoke719 ], [ true, %294 ], [ false, %408 ]
+  %.sroa.0138.0.ph = phi i1 [ true, %198 ], [ true, %208 ], [ false, %248 ], [ false, %422 ], [ true, %.invoke719 ], [ true, %185 ], [ true, %294 ], [ false, %408 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %188
@@ -53120,9 +53120,9 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   br label %258
 
 .invoke719:                                       ; preds = %.noexc354, %"_ZN4core6option15Option$LT$T$GT$6filter17h0f7f623b93a6a075E.exit", %277
-  %270 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.119, %277 ], [ @anon.780151e00bfa35129a38ccea127ffa28.130, %"_ZN4core6option15Option$LT$T$GT$6filter17h0f7f623b93a6a075E.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.137, %.noexc354 ]
-  %271 = phi i64 [ 19, %277 ], [ 40, %"_ZN4core6option15Option$LT$T$GT$6filter17h0f7f623b93a6a075E.exit" ], [ 70, %.noexc354 ]
-  %272 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.135, %277 ], [ @anon.780151e00bfa35129a38ccea127ffa28.132, %"_ZN4core6option15Option$LT$T$GT$6filter17h0f7f623b93a6a075E.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.139, %.noexc354 ]
+  %270 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.130, %"_ZN4core6option15Option$LT$T$GT$6filter17h0f7f623b93a6a075E.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.119, %277 ], [ @anon.780151e00bfa35129a38ccea127ffa28.137, %.noexc354 ]
+  %271 = phi i64 [ 40, %"_ZN4core6option15Option$LT$T$GT$6filter17h0f7f623b93a6a075E.exit" ], [ 19, %277 ], [ 70, %.noexc354 ]
+  %272 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.132, %"_ZN4core6option15Option$LT$T$GT$6filter17h0f7f623b93a6a075E.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.135, %277 ], [ @anon.780151e00bfa35129a38ccea127ffa28.139, %.noexc354 ]
   invoke void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 %270, i64 noundef %271, ptr noalias noundef readonly align 8 dereferenceable(24) %272) #22
           to label %.cont720 unwind label %.loopexit.split-lp
 
@@ -53638,8 +53638,8 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
           cleanup
   br label %.thread510
 
-.thread515:                                       ; preds = %430, %426, %.thread510
-  %.pn294513 = phi { ptr, i32 } [ %.pn294514, %.thread510 ], [ %.pn286, %430 ], [ %.pn286, %426 ]
+.thread515:                                       ; preds = %426, %430, %.thread510
+  %.pn294513 = phi { ptr, i32 } [ %.pn294514, %.thread510 ], [ %.pn286, %426 ], [ %.pn286, %430 ]
   resume { ptr, i32 } %.pn294513
 
 .thread483:                                       ; preds = %.thread491.loopexit, %.thread491.loopexit.split-lp, %144, %166
@@ -53974,7 +53974,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   %exitcond664.not = icmp eq i64 %119, %91
   br i1 %exitcond664.not, label %._crit_edge548, label %92
 
-"_ZN4core3ptr84drop_in_place$LT$polars_parquet..arrow..read..deserialize..utils..filter..Filter$GT$17h27b9e90d372bb157E.exit369": ; preds = %437, %436, %435, %234
+"_ZN4core3ptr84drop_in_place$LT$polars_parquet..arrow..read..deserialize..utils..filter..Filter$GT$17h27b9e90d372bb157E.exit369": ; preds = %436, %437, %435, %234
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %427
 
@@ -54940,8 +54940,8 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
           cleanup
   br label %.thread487
 
-.thread492:                                       ; preds = %442, %438, %.thread487
-  %.pn294490 = phi { ptr, i32 } [ %.pn294491, %.thread487 ], [ %.pn286, %442 ], [ %.pn286, %438 ]
+.thread492:                                       ; preds = %438, %442, %.thread487
+  %.pn294490 = phi { ptr, i32 } [ %.pn294491, %.thread487 ], [ %.pn286, %438 ], [ %.pn286, %442 ]
   resume { ptr, i32 } %.pn294490
 
 .thread460:                                       ; preds = %145, %167, %.thread468
@@ -55277,7 +55277,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   %exitcond670.not = icmp eq i64 %120, %92
   br i1 %exitcond670.not, label %._crit_edge554, label %93
 
-"_ZN4core3ptr84drop_in_place$LT$polars_parquet..arrow..read..deserialize..utils..filter..Filter$GT$17h27b9e90d372bb157E.exit228": ; preds = %441, %440, %439, %236
+"_ZN4core3ptr84drop_in_place$LT$polars_parquet..arrow..read..deserialize..utils..filter..Filter$GT$17h27b9e90d372bb157E.exit228": ; preds = %440, %441, %439, %236
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br label %431
 
@@ -56253,8 +56253,8 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
           cleanup
   br label %.thread493
 
-.thread498:                                       ; preds = %446, %442, %.thread493
-  %.pn152496 = phi { ptr, i32 } [ %.pn152497, %.thread493 ], [ %.pn146, %446 ], [ %.pn146, %442 ]
+.thread498:                                       ; preds = %442, %446, %.thread493
+  %.pn152496 = phi { ptr, i32 } [ %.pn152497, %.thread493 ], [ %.pn146, %442 ], [ %.pn146, %446 ]
   resume { ptr, i32 } %.pn152496
 
 .thread466:                                       ; preds = %146, %168, %.thread474
@@ -56626,7 +56626,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #21
   unreachable
 
-"_ZN4core3ptr84drop_in_place$LT$polars_parquet..arrow..read..deserialize..utils..filter..Filter$GT$17h27b9e90d372bb157E.exit406": ; preds = %449, %448, %447, %239
+"_ZN4core3ptr84drop_in_place$LT$polars_parquet..arrow..read..deserialize..utils..filter..Filter$GT$17h27b9e90d372bb157E.exit406": ; preds = %448, %449, %447, %239
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %439
 
@@ -56905,7 +56905,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   br label %191
 
 .loopexit.split-lp:                               ; preds = %.invoke733, %220, %258, %311, %432, %446, %188, %210
-  %.sroa.0138.0.ph = phi i1 [ true, %188 ], [ true, %220 ], [ true, %210 ], [ false, %258 ], [ false, %446 ], [ true, %.invoke733 ], [ true, %311 ], [ false, %432 ]
+  %.sroa.0138.0.ph = phi i1 [ true, %210 ], [ true, %220 ], [ false, %258 ], [ false, %446 ], [ true, %.invoke733 ], [ true, %188 ], [ true, %311 ], [ false, %432 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %191
@@ -57161,9 +57161,9 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   br label %277
 
 .invoke733:                                       ; preds = %.noexc362, %"_ZN4core6option15Option$LT$T$GT$6filter17hb0639747f9bbca1aE.exit", %294
-  %287 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.119, %294 ], [ @anon.780151e00bfa35129a38ccea127ffa28.130, %"_ZN4core6option15Option$LT$T$GT$6filter17hb0639747f9bbca1aE.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.137, %.noexc362 ]
-  %288 = phi i64 [ 19, %294 ], [ 40, %"_ZN4core6option15Option$LT$T$GT$6filter17hb0639747f9bbca1aE.exit" ], [ 70, %.noexc362 ]
-  %289 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.135, %294 ], [ @anon.780151e00bfa35129a38ccea127ffa28.132, %"_ZN4core6option15Option$LT$T$GT$6filter17hb0639747f9bbca1aE.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.139, %.noexc362 ]
+  %287 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.130, %"_ZN4core6option15Option$LT$T$GT$6filter17hb0639747f9bbca1aE.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.119, %294 ], [ @anon.780151e00bfa35129a38ccea127ffa28.137, %.noexc362 ]
+  %288 = phi i64 [ 40, %"_ZN4core6option15Option$LT$T$GT$6filter17hb0639747f9bbca1aE.exit" ], [ 19, %294 ], [ 70, %.noexc362 ]
+  %289 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.132, %"_ZN4core6option15Option$LT$T$GT$6filter17hb0639747f9bbca1aE.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.135, %294 ], [ @anon.780151e00bfa35129a38ccea127ffa28.139, %.noexc362 ]
   invoke void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 %287, i64 noundef %288, ptr noalias noundef readonly align 8 dereferenceable(24) %289) #22
           to label %.cont734 unwind label %.loopexit.split-lp
 
@@ -57685,8 +57685,8 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
           cleanup
   br label %.thread524
 
-.thread529:                                       ; preds = %454, %450, %.thread524
-  %.pn294527 = phi { ptr, i32 } [ %.pn294528, %.thread524 ], [ %.pn286, %454 ], [ %.pn286, %450 ]
+.thread529:                                       ; preds = %450, %454, %.thread524
+  %.pn294527 = phi { ptr, i32 } [ %.pn294528, %.thread524 ], [ %.pn286, %450 ], [ %.pn286, %454 ]
   resume { ptr, i32 } %.pn294527
 
 .thread497:                                       ; preds = %.thread505.loopexit, %.thread505.loopexit.split-lp, %144, %169
@@ -58021,7 +58021,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   %exitcond665.not = icmp eq i64 %119, %91
   br i1 %exitcond665.not, label %._crit_edge549, label %92
 
-"_ZN4core3ptr84drop_in_place$LT$polars_parquet..arrow..read..deserialize..utils..filter..Filter$GT$17h27b9e90d372bb157E.exit372": ; preds = %436, %435, %434, %234
+"_ZN4core3ptr84drop_in_place$LT$polars_parquet..arrow..read..deserialize..utils..filter..Filter$GT$17h27b9e90d372bb157E.exit372": ; preds = %435, %436, %434, %234
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %426
 
@@ -58984,8 +58984,8 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
           cleanup
   br label %.thread488
 
-.thread493:                                       ; preds = %441, %437, %.thread488
-  %.pn304491 = phi { ptr, i32 } [ %.pn304492, %.thread488 ], [ %.pn296, %441 ], [ %.pn296, %437 ]
+.thread493:                                       ; preds = %437, %441, %.thread488
+  %.pn304491 = phi { ptr, i32 } [ %.pn304492, %.thread488 ], [ %.pn296, %437 ], [ %.pn296, %441 ]
   resume { ptr, i32 } %.pn304491
 
 .thread461:                                       ; preds = %145, %167, %.thread469
@@ -59357,7 +59357,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   %exitcond648.not = icmp eq i64 %119, %89
   br i1 %exitcond648.not, label %._crit_edge566, label %.lr.ph565
 
-"_ZN4core3ptr84drop_in_place$LT$polars_parquet..arrow..read..deserialize..utils..filter..Filter$GT$17h27b9e90d372bb157E.exit392": ; preds = %422, %421, %420, %228
+"_ZN4core3ptr84drop_in_place$LT$polars_parquet..arrow..read..deserialize..utils..filter..Filter$GT$17h27b9e90d372bb157E.exit392": ; preds = %421, %422, %420, %228
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %412
 
@@ -59629,7 +59629,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   br label %188
 
 .loopexit.split-lp:                               ; preds = %.invoke719, %208, %247, %292, %405, %419, %185, %198
-  %.sroa.0138.0.ph = phi i1 [ true, %185 ], [ true, %208 ], [ true, %198 ], [ false, %247 ], [ false, %419 ], [ true, %.invoke719 ], [ true, %292 ], [ false, %405 ]
+  %.sroa.0138.0.ph = phi i1 [ true, %198 ], [ true, %208 ], [ false, %247 ], [ false, %419 ], [ true, %.invoke719 ], [ true, %185 ], [ true, %292 ], [ false, %405 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %188
@@ -59857,9 +59857,9 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   br label %257
 
 .invoke719:                                       ; preds = %.noexc354, %"_ZN4core6option15Option$LT$T$GT$6filter17hb5a922bc6ba13d40E.exit", %275
-  %268 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.119, %275 ], [ @anon.780151e00bfa35129a38ccea127ffa28.130, %"_ZN4core6option15Option$LT$T$GT$6filter17hb5a922bc6ba13d40E.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.137, %.noexc354 ]
-  %269 = phi i64 [ 19, %275 ], [ 40, %"_ZN4core6option15Option$LT$T$GT$6filter17hb5a922bc6ba13d40E.exit" ], [ 70, %.noexc354 ]
-  %270 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.135, %275 ], [ @anon.780151e00bfa35129a38ccea127ffa28.132, %"_ZN4core6option15Option$LT$T$GT$6filter17hb5a922bc6ba13d40E.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.139, %.noexc354 ]
+  %268 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.130, %"_ZN4core6option15Option$LT$T$GT$6filter17hb5a922bc6ba13d40E.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.119, %275 ], [ @anon.780151e00bfa35129a38ccea127ffa28.137, %.noexc354 ]
+  %269 = phi i64 [ 40, %"_ZN4core6option15Option$LT$T$GT$6filter17hb5a922bc6ba13d40E.exit" ], [ 19, %275 ], [ 70, %.noexc354 ]
+  %270 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.132, %"_ZN4core6option15Option$LT$T$GT$6filter17hb5a922bc6ba13d40E.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.135, %275 ], [ @anon.780151e00bfa35129a38ccea127ffa28.139, %.noexc354 ]
   invoke void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 %268, i64 noundef %269, ptr noalias noundef readonly align 8 dereferenceable(24) %270) #22
           to label %.cont720 unwind label %.loopexit.split-lp
 
@@ -60374,8 +60374,8 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
           cleanup
   br label %.thread510
 
-.thread515:                                       ; preds = %427, %423, %.thread510
-  %.pn294513 = phi { ptr, i32 } [ %.pn294514, %.thread510 ], [ %.pn286, %427 ], [ %.pn286, %423 ]
+.thread515:                                       ; preds = %423, %427, %.thread510
+  %.pn294513 = phi { ptr, i32 } [ %.pn294514, %.thread510 ], [ %.pn286, %423 ], [ %.pn286, %427 ]
   resume { ptr, i32 } %.pn294513
 
 .thread483:                                       ; preds = %.thread491.loopexit, %.thread491.loopexit.split-lp, %144, %166
@@ -60747,7 +60747,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   %exitcond648.not = icmp eq i64 %119, %89
   br i1 %exitcond648.not, label %._crit_edge566, label %.lr.ph565
 
-"_ZN4core3ptr84drop_in_place$LT$polars_parquet..arrow..read..deserialize..utils..filter..Filter$GT$17h27b9e90d372bb157E.exit392": ; preds = %422, %421, %420, %228
+"_ZN4core3ptr84drop_in_place$LT$polars_parquet..arrow..read..deserialize..utils..filter..Filter$GT$17h27b9e90d372bb157E.exit392": ; preds = %421, %422, %420, %228
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %412
 
@@ -61019,7 +61019,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   br label %188
 
 .loopexit.split-lp:                               ; preds = %.invoke719, %208, %247, %292, %405, %419, %185, %198
-  %.sroa.0138.0.ph = phi i1 [ true, %185 ], [ true, %208 ], [ true, %198 ], [ false, %247 ], [ false, %419 ], [ true, %.invoke719 ], [ true, %292 ], [ false, %405 ]
+  %.sroa.0138.0.ph = phi i1 [ true, %198 ], [ true, %208 ], [ false, %247 ], [ false, %419 ], [ true, %.invoke719 ], [ true, %185 ], [ true, %292 ], [ false, %405 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %188
@@ -61247,9 +61247,9 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   br label %257
 
 .invoke719:                                       ; preds = %.noexc354, %"_ZN4core6option15Option$LT$T$GT$6filter17hc36d49ff5e2a5bb2E.exit", %275
-  %268 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.119, %275 ], [ @anon.780151e00bfa35129a38ccea127ffa28.130, %"_ZN4core6option15Option$LT$T$GT$6filter17hc36d49ff5e2a5bb2E.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.137, %.noexc354 ]
-  %269 = phi i64 [ 19, %275 ], [ 40, %"_ZN4core6option15Option$LT$T$GT$6filter17hc36d49ff5e2a5bb2E.exit" ], [ 70, %.noexc354 ]
-  %270 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.135, %275 ], [ @anon.780151e00bfa35129a38ccea127ffa28.132, %"_ZN4core6option15Option$LT$T$GT$6filter17hc36d49ff5e2a5bb2E.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.139, %.noexc354 ]
+  %268 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.130, %"_ZN4core6option15Option$LT$T$GT$6filter17hc36d49ff5e2a5bb2E.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.119, %275 ], [ @anon.780151e00bfa35129a38ccea127ffa28.137, %.noexc354 ]
+  %269 = phi i64 [ 40, %"_ZN4core6option15Option$LT$T$GT$6filter17hc36d49ff5e2a5bb2E.exit" ], [ 19, %275 ], [ 70, %.noexc354 ]
+  %270 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.132, %"_ZN4core6option15Option$LT$T$GT$6filter17hc36d49ff5e2a5bb2E.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.135, %275 ], [ @anon.780151e00bfa35129a38ccea127ffa28.139, %.noexc354 ]
   invoke void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 %268, i64 noundef %269, ptr noalias noundef readonly align 8 dereferenceable(24) %270) #22
           to label %.cont720 unwind label %.loopexit.split-lp
 
@@ -61764,8 +61764,8 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
           cleanup
   br label %.thread510
 
-.thread515:                                       ; preds = %427, %423, %.thread510
-  %.pn294513 = phi { ptr, i32 } [ %.pn294514, %.thread510 ], [ %.pn286, %427 ], [ %.pn286, %423 ]
+.thread515:                                       ; preds = %423, %427, %.thread510
+  %.pn294513 = phi { ptr, i32 } [ %.pn294514, %.thread510 ], [ %.pn286, %423 ], [ %.pn286, %427 ]
   resume { ptr, i32 } %.pn294513
 
 .thread483:                                       ; preds = %.thread491.loopexit, %.thread491.loopexit.split-lp, %144, %166
@@ -62137,7 +62137,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   %exitcond648.not = icmp eq i64 %119, %89
   br i1 %exitcond648.not, label %._crit_edge566, label %.lr.ph565
 
-"_ZN4core3ptr84drop_in_place$LT$polars_parquet..arrow..read..deserialize..utils..filter..Filter$GT$17h27b9e90d372bb157E.exit392": ; preds = %422, %421, %420, %228
+"_ZN4core3ptr84drop_in_place$LT$polars_parquet..arrow..read..deserialize..utils..filter..Filter$GT$17h27b9e90d372bb157E.exit392": ; preds = %421, %422, %420, %228
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %412
 
@@ -62409,7 +62409,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   br label %188
 
 .loopexit.split-lp:                               ; preds = %.invoke719, %208, %247, %292, %405, %419, %185, %198
-  %.sroa.0138.0.ph = phi i1 [ true, %185 ], [ true, %208 ], [ true, %198 ], [ false, %247 ], [ false, %419 ], [ true, %.invoke719 ], [ true, %292 ], [ false, %405 ]
+  %.sroa.0138.0.ph = phi i1 [ true, %198 ], [ true, %208 ], [ false, %247 ], [ false, %419 ], [ true, %.invoke719 ], [ true, %185 ], [ true, %292 ], [ false, %405 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %188
@@ -62637,9 +62637,9 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   br label %257
 
 .invoke719:                                       ; preds = %.noexc354, %"_ZN4core6option15Option$LT$T$GT$6filter17hd19eb9d14971f6c2E.exit", %275
-  %268 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.119, %275 ], [ @anon.780151e00bfa35129a38ccea127ffa28.130, %"_ZN4core6option15Option$LT$T$GT$6filter17hd19eb9d14971f6c2E.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.137, %.noexc354 ]
-  %269 = phi i64 [ 19, %275 ], [ 40, %"_ZN4core6option15Option$LT$T$GT$6filter17hd19eb9d14971f6c2E.exit" ], [ 70, %.noexc354 ]
-  %270 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.135, %275 ], [ @anon.780151e00bfa35129a38ccea127ffa28.132, %"_ZN4core6option15Option$LT$T$GT$6filter17hd19eb9d14971f6c2E.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.139, %.noexc354 ]
+  %268 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.130, %"_ZN4core6option15Option$LT$T$GT$6filter17hd19eb9d14971f6c2E.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.119, %275 ], [ @anon.780151e00bfa35129a38ccea127ffa28.137, %.noexc354 ]
+  %269 = phi i64 [ 40, %"_ZN4core6option15Option$LT$T$GT$6filter17hd19eb9d14971f6c2E.exit" ], [ 19, %275 ], [ 70, %.noexc354 ]
+  %270 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.132, %"_ZN4core6option15Option$LT$T$GT$6filter17hd19eb9d14971f6c2E.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.135, %275 ], [ @anon.780151e00bfa35129a38ccea127ffa28.139, %.noexc354 ]
   invoke void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 %268, i64 noundef %269, ptr noalias noundef readonly align 8 dereferenceable(24) %270) #22
           to label %.cont720 unwind label %.loopexit.split-lp
 
@@ -63154,8 +63154,8 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
           cleanup
   br label %.thread510
 
-.thread515:                                       ; preds = %427, %423, %.thread510
-  %.pn294513 = phi { ptr, i32 } [ %.pn294514, %.thread510 ], [ %.pn286, %427 ], [ %.pn286, %423 ]
+.thread515:                                       ; preds = %423, %427, %.thread510
+  %.pn294513 = phi { ptr, i32 } [ %.pn294514, %.thread510 ], [ %.pn286, %423 ], [ %.pn286, %427 ]
   resume { ptr, i32 } %.pn294513
 
 .thread483:                                       ; preds = %.thread491.loopexit, %.thread491.loopexit.split-lp, %144, %166
@@ -63527,7 +63527,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   %exitcond648.not = icmp eq i64 %119, %89
   br i1 %exitcond648.not, label %._crit_edge566, label %.lr.ph565
 
-"_ZN4core3ptr84drop_in_place$LT$polars_parquet..arrow..read..deserialize..utils..filter..Filter$GT$17h27b9e90d372bb157E.exit392": ; preds = %425, %424, %423, %229
+"_ZN4core3ptr84drop_in_place$LT$polars_parquet..arrow..read..deserialize..utils..filter..Filter$GT$17h27b9e90d372bb157E.exit392": ; preds = %424, %425, %423, %229
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %415
 
@@ -63799,7 +63799,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   br label %188
 
 .loopexit.split-lp:                               ; preds = %.invoke719, %208, %248, %294, %408, %422, %185, %198
-  %.sroa.0138.0.ph = phi i1 [ true, %185 ], [ true, %208 ], [ true, %198 ], [ false, %248 ], [ false, %422 ], [ true, %.invoke719 ], [ true, %294 ], [ false, %408 ]
+  %.sroa.0138.0.ph = phi i1 [ true, %198 ], [ true, %208 ], [ false, %248 ], [ false, %422 ], [ true, %.invoke719 ], [ true, %185 ], [ true, %294 ], [ false, %408 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %188
@@ -64029,9 +64029,9 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   br label %258
 
 .invoke719:                                       ; preds = %.noexc354, %"_ZN4core6option15Option$LT$T$GT$6filter17h8761f98c2c274924E.exit", %277
-  %270 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.119, %277 ], [ @anon.780151e00bfa35129a38ccea127ffa28.130, %"_ZN4core6option15Option$LT$T$GT$6filter17h8761f98c2c274924E.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.137, %.noexc354 ]
-  %271 = phi i64 [ 19, %277 ], [ 40, %"_ZN4core6option15Option$LT$T$GT$6filter17h8761f98c2c274924E.exit" ], [ 70, %.noexc354 ]
-  %272 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.135, %277 ], [ @anon.780151e00bfa35129a38ccea127ffa28.132, %"_ZN4core6option15Option$LT$T$GT$6filter17h8761f98c2c274924E.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.139, %.noexc354 ]
+  %270 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.130, %"_ZN4core6option15Option$LT$T$GT$6filter17h8761f98c2c274924E.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.119, %277 ], [ @anon.780151e00bfa35129a38ccea127ffa28.137, %.noexc354 ]
+  %271 = phi i64 [ 40, %"_ZN4core6option15Option$LT$T$GT$6filter17h8761f98c2c274924E.exit" ], [ 19, %277 ], [ 70, %.noexc354 ]
+  %272 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.132, %"_ZN4core6option15Option$LT$T$GT$6filter17h8761f98c2c274924E.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.135, %277 ], [ @anon.780151e00bfa35129a38ccea127ffa28.139, %.noexc354 ]
   invoke void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 %270, i64 noundef %271, ptr noalias noundef readonly align 8 dereferenceable(24) %272) #22
           to label %.cont720 unwind label %.loopexit.split-lp
 
@@ -64547,8 +64547,8 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
           cleanup
   br label %.thread510
 
-.thread515:                                       ; preds = %430, %426, %.thread510
-  %.pn294513 = phi { ptr, i32 } [ %.pn294514, %.thread510 ], [ %.pn286, %430 ], [ %.pn286, %426 ]
+.thread515:                                       ; preds = %426, %430, %.thread510
+  %.pn294513 = phi { ptr, i32 } [ %.pn294514, %.thread510 ], [ %.pn286, %426 ], [ %.pn286, %430 ]
   resume { ptr, i32 } %.pn294513
 
 .thread483:                                       ; preds = %.thread491.loopexit, %.thread491.loopexit.split-lp, %144, %166
@@ -64883,7 +64883,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   %exitcond657.not = icmp eq i64 %119, %91
   br i1 %exitcond657.not, label %._crit_edge541, label %92
 
-"_ZN4core3ptr84drop_in_place$LT$polars_parquet..arrow..read..deserialize..utils..filter..Filter$GT$17h27b9e90d372bb157E.exit362": ; preds = %434, %433, %432, %233
+"_ZN4core3ptr84drop_in_place$LT$polars_parquet..arrow..read..deserialize..utils..filter..Filter$GT$17h27b9e90d372bb157E.exit362": ; preds = %433, %434, %432, %233
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %424
 
@@ -65843,8 +65843,8 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
           cleanup
   br label %.thread480
 
-.thread485:                                       ; preds = %439, %435, %.thread480
-  %.pn294483 = phi { ptr, i32 } [ %.pn294484, %.thread480 ], [ %.pn286, %439 ], [ %.pn286, %435 ]
+.thread485:                                       ; preds = %435, %439, %.thread480
+  %.pn294483 = phi { ptr, i32 } [ %.pn294484, %.thread480 ], [ %.pn286, %435 ], [ %.pn286, %439 ]
   resume { ptr, i32 } %.pn294483
 
 .thread453:                                       ; preds = %145, %167, %.thread461
@@ -66216,7 +66216,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   %exitcond648.not = icmp eq i64 %119, %89
   br i1 %exitcond648.not, label %._crit_edge566, label %.lr.ph565
 
-"_ZN4core3ptr84drop_in_place$LT$polars_parquet..arrow..read..deserialize..utils..filter..Filter$GT$17h27b9e90d372bb157E.exit392": ; preds = %422, %421, %420, %228
+"_ZN4core3ptr84drop_in_place$LT$polars_parquet..arrow..read..deserialize..utils..filter..Filter$GT$17h27b9e90d372bb157E.exit392": ; preds = %421, %422, %420, %228
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %412
 
@@ -66488,7 +66488,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   br label %188
 
 .loopexit.split-lp:                               ; preds = %.invoke719, %208, %247, %292, %405, %419, %185, %198
-  %.sroa.0138.0.ph = phi i1 [ true, %185 ], [ true, %208 ], [ true, %198 ], [ false, %247 ], [ false, %419 ], [ true, %.invoke719 ], [ true, %292 ], [ false, %405 ]
+  %.sroa.0138.0.ph = phi i1 [ true, %198 ], [ true, %208 ], [ false, %247 ], [ false, %419 ], [ true, %.invoke719 ], [ true, %185 ], [ true, %292 ], [ false, %405 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %188
@@ -66716,9 +66716,9 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   br label %257
 
 .invoke719:                                       ; preds = %.noexc354, %"_ZN4core6option15Option$LT$T$GT$6filter17h30479cc0bebbfa46E.exit", %275
-  %268 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.119, %275 ], [ @anon.780151e00bfa35129a38ccea127ffa28.130, %"_ZN4core6option15Option$LT$T$GT$6filter17h30479cc0bebbfa46E.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.137, %.noexc354 ]
-  %269 = phi i64 [ 19, %275 ], [ 40, %"_ZN4core6option15Option$LT$T$GT$6filter17h30479cc0bebbfa46E.exit" ], [ 70, %.noexc354 ]
-  %270 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.135, %275 ], [ @anon.780151e00bfa35129a38ccea127ffa28.132, %"_ZN4core6option15Option$LT$T$GT$6filter17h30479cc0bebbfa46E.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.139, %.noexc354 ]
+  %268 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.130, %"_ZN4core6option15Option$LT$T$GT$6filter17h30479cc0bebbfa46E.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.119, %275 ], [ @anon.780151e00bfa35129a38ccea127ffa28.137, %.noexc354 ]
+  %269 = phi i64 [ 40, %"_ZN4core6option15Option$LT$T$GT$6filter17h30479cc0bebbfa46E.exit" ], [ 19, %275 ], [ 70, %.noexc354 ]
+  %270 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.132, %"_ZN4core6option15Option$LT$T$GT$6filter17h30479cc0bebbfa46E.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.135, %275 ], [ @anon.780151e00bfa35129a38ccea127ffa28.139, %.noexc354 ]
   invoke void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 %268, i64 noundef %269, ptr noalias noundef readonly align 8 dereferenceable(24) %270) #22
           to label %.cont720 unwind label %.loopexit.split-lp
 
@@ -67233,8 +67233,8 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
           cleanup
   br label %.thread510
 
-.thread515:                                       ; preds = %427, %423, %.thread510
-  %.pn294513 = phi { ptr, i32 } [ %.pn294514, %.thread510 ], [ %.pn286, %427 ], [ %.pn286, %423 ]
+.thread515:                                       ; preds = %423, %427, %.thread510
+  %.pn294513 = phi { ptr, i32 } [ %.pn294514, %.thread510 ], [ %.pn286, %423 ], [ %.pn286, %427 ]
   resume { ptr, i32 } %.pn294513
 
 .thread483:                                       ; preds = %.thread491.loopexit, %.thread491.loopexit.split-lp, %144, %166
@@ -67361,9 +67361,9 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
           to label %142 unwind label %.thread491.loopexit.split-lp.loopexit.split-lp
 
 .invoke731:                                       ; preds = %.noexc341, %.noexc317, %8
-  %55 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.119, %8 ], [ @anon.780151e00bfa35129a38ccea127ffa28.137, %.noexc317 ], [ @anon.780151e00bfa35129a38ccea127ffa28.137, %.noexc341 ]
-  %56 = phi i64 [ 19, %8 ], [ 70, %.noexc317 ], [ 70, %.noexc341 ]
-  %57 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.136, %8 ], [ @anon.780151e00bfa35129a38ccea127ffa28.139, %.noexc317 ], [ @anon.780151e00bfa35129a38ccea127ffa28.139, %.noexc341 ]
+  %55 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.137, %.noexc317 ], [ @anon.780151e00bfa35129a38ccea127ffa28.119, %8 ], [ @anon.780151e00bfa35129a38ccea127ffa28.137, %.noexc341 ]
+  %56 = phi i64 [ 70, %.noexc317 ], [ 19, %8 ], [ 70, %.noexc341 ]
+  %57 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.139, %.noexc317 ], [ @anon.780151e00bfa35129a38ccea127ffa28.136, %8 ], [ @anon.780151e00bfa35129a38ccea127ffa28.139, %.noexc341 ]
   invoke void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 %55, i64 noundef %56, ptr noalias noundef readonly align 8 dereferenceable(24) %57) #22
           to label %.cont732 unwind label %.thread491.loopexit.split-lp.loopexit.split-lp
 
@@ -67666,7 +67666,7 @@ _ZN14polars_parquet7parquet5types6decode17h51e9e134f2c12261E.exit.i.i.i324: ; pr
   call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #21
   unreachable
 
-"_ZN4core3ptr84drop_in_place$LT$polars_parquet..arrow..read..deserialize..utils..filter..Filter$GT$17h27b9e90d372bb157E.exit422": ; preds = %511, %510, %509, %287
+"_ZN4core3ptr84drop_in_place$LT$polars_parquet..arrow..read..deserialize..utils..filter..Filter$GT$17h27b9e90d372bb157E.exit422": ; preds = %510, %511, %509, %287
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %501
 
@@ -67992,7 +67992,7 @@ _ZN14polars_parquet7parquet5types6decode17h51e9e134f2c12261E.exit.i.i.i349: ; pr
   br label %236
 
 .loopexit.split-lp:                               ; preds = %.invoke735, %268, %307, %364, %494, %508, %232, %256, %257, %258
-  %.sroa.0138.0.ph = phi i1 [ false, %508 ], [ true, %232 ], [ true, %268 ], [ true, %258 ], [ false, %307 ], [ true, %257 ], [ true, %.invoke735 ], [ true, %256 ], [ true, %364 ], [ false, %494 ]
+  %.sroa.0138.0.ph = phi i1 [ true, %232 ], [ true, %268 ], [ true, %258 ], [ false, %508 ], [ false, %307 ], [ true, %257 ], [ true, %.invoke735 ], [ true, %256 ], [ true, %364 ], [ false, %494 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %236
@@ -68283,9 +68283,9 @@ _ZN14polars_parquet7parquet5types6decode17h51e9e134f2c12261E.exit.i.i.i379: ; pr
   br label %329
 
 .invoke735:                                       ; preds = %.noexc370, %"_ZN4core6option15Option$LT$T$GT$6filter17h85f9411c9dffce2aE.exit", %346
-  %339 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.119, %346 ], [ @anon.780151e00bfa35129a38ccea127ffa28.130, %"_ZN4core6option15Option$LT$T$GT$6filter17h85f9411c9dffce2aE.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.137, %.noexc370 ]
-  %340 = phi i64 [ 19, %346 ], [ 40, %"_ZN4core6option15Option$LT$T$GT$6filter17h85f9411c9dffce2aE.exit" ], [ 70, %.noexc370 ]
-  %341 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.135, %346 ], [ @anon.780151e00bfa35129a38ccea127ffa28.132, %"_ZN4core6option15Option$LT$T$GT$6filter17h85f9411c9dffce2aE.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.139, %.noexc370 ]
+  %339 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.130, %"_ZN4core6option15Option$LT$T$GT$6filter17h85f9411c9dffce2aE.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.119, %346 ], [ @anon.780151e00bfa35129a38ccea127ffa28.137, %.noexc370 ]
+  %340 = phi i64 [ 40, %"_ZN4core6option15Option$LT$T$GT$6filter17h85f9411c9dffce2aE.exit" ], [ 19, %346 ], [ 70, %.noexc370 ]
+  %341 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.132, %"_ZN4core6option15Option$LT$T$GT$6filter17h85f9411c9dffce2aE.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.135, %346 ], [ @anon.780151e00bfa35129a38ccea127ffa28.139, %.noexc370 ]
   invoke void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 %339, i64 noundef %340, ptr noalias noundef readonly align 8 dereferenceable(24) %341) #22
           to label %.cont736 unwind label %.loopexit.split-lp
 
@@ -68839,8 +68839,8 @@ _ZN14polars_parquet7parquet5types6decode17h51e9e134f2c12261E.exit.i.i.i405: ; pr
           cleanup
   br label %.thread540
 
-.thread545:                                       ; preds = %516, %512, %.thread540
-  %.pn294543 = phi { ptr, i32 } [ %.pn294544, %.thread540 ], [ %.pn286, %516 ], [ %.pn286, %512 ]
+.thread545:                                       ; preds = %512, %516, %.thread540
+  %.pn294543 = phi { ptr, i32 } [ %.pn294544, %.thread540 ], [ %.pn286, %512 ], [ %.pn286, %516 ]
   resume { ptr, i32 } %.pn294543
 
 .thread513:                                       ; preds = %.thread521.loopexit, %.thread521.loopexit.split-lp, %176, %213
@@ -69175,7 +69175,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   %exitcond665.not = icmp eq i64 %119, %91
   br i1 %exitcond665.not, label %._crit_edge549, label %92
 
-"_ZN4core3ptr84drop_in_place$LT$polars_parquet..arrow..read..deserialize..utils..filter..Filter$GT$17h27b9e90d372bb157E.exit372": ; preds = %433, %432, %431, %233
+"_ZN4core3ptr84drop_in_place$LT$polars_parquet..arrow..read..deserialize..utils..filter..Filter$GT$17h27b9e90d372bb157E.exit372": ; preds = %432, %433, %431, %233
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %423
 
@@ -70135,8 +70135,8 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
           cleanup
   br label %.thread488
 
-.thread493:                                       ; preds = %438, %434, %.thread488
-  %.pn304491 = phi { ptr, i32 } [ %.pn304492, %.thread488 ], [ %.pn296, %438 ], [ %.pn296, %434 ]
+.thread493:                                       ; preds = %434, %438, %.thread488
+  %.pn304491 = phi { ptr, i32 } [ %.pn304492, %.thread488 ], [ %.pn296, %434 ], [ %.pn296, %438 ]
   resume { ptr, i32 } %.pn304491
 
 .thread461:                                       ; preds = %145, %167, %.thread469
@@ -70471,7 +70471,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   %exitcond657.not = icmp eq i64 %119, %91
   br i1 %exitcond657.not, label %._crit_edge541, label %92
 
-"_ZN4core3ptr84drop_in_place$LT$polars_parquet..arrow..read..deserialize..utils..filter..Filter$GT$17h27b9e90d372bb157E.exit362": ; preds = %434, %433, %432, %233
+"_ZN4core3ptr84drop_in_place$LT$polars_parquet..arrow..read..deserialize..utils..filter..Filter$GT$17h27b9e90d372bb157E.exit362": ; preds = %433, %434, %432, %233
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %424
 
@@ -71431,8 +71431,8 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
           cleanup
   br label %.thread480
 
-.thread485:                                       ; preds = %439, %435, %.thread480
-  %.pn294483 = phi { ptr, i32 } [ %.pn294484, %.thread480 ], [ %.pn286, %439 ], [ %.pn286, %435 ]
+.thread485:                                       ; preds = %435, %439, %.thread480
+  %.pn294483 = phi { ptr, i32 } [ %.pn294484, %.thread480 ], [ %.pn286, %435 ], [ %.pn286, %439 ]
   resume { ptr, i32 } %.pn294483
 
 .thread453:                                       ; preds = %145, %167, %.thread461
@@ -71804,7 +71804,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   %exitcond663.not = icmp eq i64 %118, %89
   br i1 %exitcond663.not, label %._crit_edge581, label %.lr.ph580
 
-"_ZN4core3ptr84drop_in_place$LT$polars_parquet..arrow..read..deserialize..utils..filter..Filter$GT$17h27b9e90d372bb157E.exit409": ; preds = %420, %419, %418, %226
+"_ZN4core3ptr84drop_in_place$LT$polars_parquet..arrow..read..deserialize..utils..filter..Filter$GT$17h27b9e90d372bb157E.exit409": ; preds = %419, %420, %418, %226
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %410
 
@@ -72076,7 +72076,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   br label %186
 
 .loopexit.split-lp:                               ; preds = %.invoke732, %205, %245, %290, %403, %417, %183, %"_ZN150_$LT$polars_parquet..parquet..encoding..byte_stream_split..decoder..DecoderIterator$LT$T$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he48a8fadaad02959E.exit.i365"
-  %.sroa.0148.0.ph = phi i1 [ true, %183 ], [ true, %205 ], [ true, %"_ZN150_$LT$polars_parquet..parquet..encoding..byte_stream_split..decoder..DecoderIterator$LT$T$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he48a8fadaad02959E.exit.i365" ], [ false, %245 ], [ false, %417 ], [ true, %.invoke732 ], [ true, %290 ], [ false, %403 ]
+  %.sroa.0148.0.ph = phi i1 [ true, %"_ZN150_$LT$polars_parquet..parquet..encoding..byte_stream_split..decoder..DecoderIterator$LT$T$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he48a8fadaad02959E.exit.i365" ], [ true, %205 ], [ false, %245 ], [ false, %417 ], [ true, %.invoke732 ], [ true, %183 ], [ true, %290 ], [ false, %403 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %186
@@ -72306,9 +72306,9 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   br label %254
 
 .invoke732:                                       ; preds = %.noexc368, %"_ZN4core6option15Option$LT$T$GT$6filter17h212ab96f01561bdbE.exit", %273
-  %266 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.119, %273 ], [ @anon.780151e00bfa35129a38ccea127ffa28.130, %"_ZN4core6option15Option$LT$T$GT$6filter17h212ab96f01561bdbE.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.137, %.noexc368 ]
-  %267 = phi i64 [ 19, %273 ], [ 40, %"_ZN4core6option15Option$LT$T$GT$6filter17h212ab96f01561bdbE.exit" ], [ 70, %.noexc368 ]
-  %268 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.135, %273 ], [ @anon.780151e00bfa35129a38ccea127ffa28.132, %"_ZN4core6option15Option$LT$T$GT$6filter17h212ab96f01561bdbE.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.139, %.noexc368 ]
+  %266 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.130, %"_ZN4core6option15Option$LT$T$GT$6filter17h212ab96f01561bdbE.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.119, %273 ], [ @anon.780151e00bfa35129a38ccea127ffa28.137, %.noexc368 ]
+  %267 = phi i64 [ 40, %"_ZN4core6option15Option$LT$T$GT$6filter17h212ab96f01561bdbE.exit" ], [ 19, %273 ], [ 70, %.noexc368 ]
+  %268 = phi ptr [ @anon.780151e00bfa35129a38ccea127ffa28.132, %"_ZN4core6option15Option$LT$T$GT$6filter17h212ab96f01561bdbE.exit" ], [ @anon.780151e00bfa35129a38ccea127ffa28.135, %273 ], [ @anon.780151e00bfa35129a38ccea127ffa28.139, %.noexc368 ]
   invoke void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 %266, i64 noundef %267, ptr noalias noundef readonly align 8 dereferenceable(24) %268) #22
           to label %.cont733 unwind label %.loopexit.split-lp
 
@@ -72824,8 +72824,8 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
           cleanup
   br label %.thread525
 
-.thread530:                                       ; preds = %425, %421, %.thread525
-  %.pn304528 = phi { ptr, i32 } [ %.pn304529, %.thread525 ], [ %.pn296, %425 ], [ %.pn296, %421 ]
+.thread530:                                       ; preds = %421, %425, %.thread525
+  %.pn304528 = phi { ptr, i32 } [ %.pn304529, %.thread525 ], [ %.pn296, %421 ], [ %.pn296, %425 ]
   resume { ptr, i32 } %.pn304528
 
 .thread498:                                       ; preds = %.thread506.loopexit, %.thread506.loopexit.split-lp, %143, %164
@@ -84887,7 +84887,7 @@ define hidden void @"_ZN14polars_parquet5arrow4read11deserialize5utils20PageDeco
   br label %.thread272.i
 
 .loopexit.split-lp.i:                             ; preds = %.loopexit.i, %110, %109, %88, %78
-  %.sroa.0109.5.ph.i = phi i8 [ 1, %88 ], [ 1, %109 ], [ 1, %110 ], [ 1, %78 ], [ 0, %.loopexit.i ]
+  %.sroa.0109.5.ph.i = phi i8 [ 1, %110 ], [ 1, %109 ], [ 1, %78 ], [ 0, %.loopexit.i ], [ 1, %88 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.thread272.i
@@ -86638,7 +86638,7 @@ define hidden void @"_ZN14polars_parquet5arrow4read11deserialize5utils20PageDeco
   br label %.body250.i
 
 .loopexit.split-lp.i:                             ; preds = %"_ZN4core3ptr138drop_in_place$LT$$LP$usize$C$alloc..vec..Vec$LT$i64$GT$$C$core..option..Option$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$$RP$$GT$17h6656835f8a03bf9cE.exit.i", %285, %282, %"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..read..compression..DataPageItem$C$polars_parquet..parquet..error..ParquetError$GT$$GT$$GT$17hf6719c3a6761e597E.exit.i", %267, %134
-  %.sroa.0105.11.ph.i = phi i8 [ 1, %134 ], [ 1, %"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..read..compression..DataPageItem$C$polars_parquet..parquet..error..ParquetError$GT$$GT$$GT$17hf6719c3a6761e597E.exit.i" ], [ 1, %285 ], [ 1, %282 ], [ 0, %"_ZN4core3ptr138drop_in_place$LT$$LP$usize$C$alloc..vec..Vec$LT$i64$GT$$C$core..option..Option$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$$RP$$GT$17h6656835f8a03bf9cE.exit.i" ], [ 1, %267 ]
+  %.sroa.0105.11.ph.i = phi i8 [ 1, %"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..read..compression..DataPageItem$C$polars_parquet..parquet..error..ParquetError$GT$$GT$$GT$17hf6719c3a6761e597E.exit.i" ], [ 1, %285 ], [ 1, %282 ], [ 0, %"_ZN4core3ptr138drop_in_place$LT$$LP$usize$C$alloc..vec..Vec$LT$i64$GT$$C$core..option..Option$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$$RP$$GT$17h6656835f8a03bf9cE.exit.i" ], [ 1, %134 ], [ 1, %267 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.body250.i
@@ -87825,7 +87825,7 @@ default.unreachable:                              ; preds = %690, %710, %487, %7
   br label %.thread311.ithread-pre-split
 
 .loopexit.split-lp.i6:                            ; preds = %.loopexit.i17, %456, %455, %434, %424
-  %.sroa.0102.5.ph.i = phi i8 [ 1, %434 ], [ 1, %455 ], [ 1, %456 ], [ 1, %424 ], [ 0, %.loopexit.i17 ]
+  %.sroa.0102.5.ph.i = phi i8 [ 1, %456 ], [ 1, %455 ], [ 1, %424 ], [ 0, %.loopexit.i17 ], [ 1, %434 ]
   %lpad.loopexit.split-lp.i7 = landingpad { ptr, i32 }
           cleanup
   br label %.thread311.ithread-pre-split
@@ -89638,7 +89638,7 @@ define hidden void @"_ZN14polars_parquet5arrow4read11deserialize5utils20PageDeco
   br label %.body254.i.i
 
 .loopexit.split-lp.i.i:                           ; preds = %"_ZN4core3ptr138drop_in_place$LT$$LP$usize$C$alloc..vec..Vec$LT$i64$GT$$C$core..option..Option$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$$RP$$GT$17h6656835f8a03bf9cE.exit.i.i", %287, %284, %"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..read..compression..DataPageItem$C$polars_parquet..parquet..error..ParquetError$GT$$GT$$GT$17hf6719c3a6761e597E.exit.i.i", %269, %136
-  %.sroa.0105.11.ph.i.i = phi i8 [ 1, %136 ], [ 1, %"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..read..compression..DataPageItem$C$polars_parquet..parquet..error..ParquetError$GT$$GT$$GT$17hf6719c3a6761e597E.exit.i.i" ], [ 1, %287 ], [ 1, %284 ], [ 0, %"_ZN4core3ptr138drop_in_place$LT$$LP$usize$C$alloc..vec..Vec$LT$i64$GT$$C$core..option..Option$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$$RP$$GT$17h6656835f8a03bf9cE.exit.i.i" ], [ 1, %269 ]
+  %.sroa.0105.11.ph.i.i = phi i8 [ 1, %"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..read..compression..DataPageItem$C$polars_parquet..parquet..error..ParquetError$GT$$GT$$GT$17hf6719c3a6761e597E.exit.i.i" ], [ 1, %287 ], [ 1, %284 ], [ 0, %"_ZN4core3ptr138drop_in_place$LT$$LP$usize$C$alloc..vec..Vec$LT$i64$GT$$C$core..option..Option$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$$RP$$GT$17h6656835f8a03bf9cE.exit.i.i" ], [ 1, %136 ], [ 1, %269 ]
   %lpad.loopexit.split-lp.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.body254.i.i
@@ -90895,7 +90895,7 @@ default.unreachable:                              ; preds = %703, %722, %503, %"
   br label %.thread262.ithread-pre-split.i
 
 .loopexit.split-lp.i8.i:                          ; preds = %.loopexit.i20.i, %474, %473, %452, %442
-  %.sroa.0102.5.ph.i.i = phi i8 [ 1, %452 ], [ 1, %473 ], [ 1, %474 ], [ 1, %442 ], [ 0, %.loopexit.i20.i ]
+  %.sroa.0102.5.ph.i.i = phi i8 [ 1, %474 ], [ 1, %473 ], [ 1, %442 ], [ 0, %.loopexit.i20.i ], [ 1, %452 ]
   %lpad.loopexit.split-lp.i9.i = landingpad { ptr, i32 }
           cleanup
   br label %.thread262.ithread-pre-split.i
@@ -92896,7 +92896,7 @@ define hidden void @"_ZN14polars_parquet5arrow4read11deserialize5utils20PageDeco
   br label %.body254.i.i
 
 .loopexit.split-lp.i.i:                           ; preds = %"_ZN4core3ptr138drop_in_place$LT$$LP$usize$C$alloc..vec..Vec$LT$i64$GT$$C$core..option..Option$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$$RP$$GT$17h6656835f8a03bf9cE.exit.i.i", %287, %284, %"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..read..compression..DataPageItem$C$polars_parquet..parquet..error..ParquetError$GT$$GT$$GT$17hf6719c3a6761e597E.exit.i.i", %269, %136
-  %.sroa.0105.11.ph.i.i = phi i8 [ 1, %136 ], [ 1, %"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..read..compression..DataPageItem$C$polars_parquet..parquet..error..ParquetError$GT$$GT$$GT$17hf6719c3a6761e597E.exit.i.i" ], [ 1, %287 ], [ 1, %284 ], [ 0, %"_ZN4core3ptr138drop_in_place$LT$$LP$usize$C$alloc..vec..Vec$LT$i64$GT$$C$core..option..Option$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$$RP$$GT$17h6656835f8a03bf9cE.exit.i.i" ], [ 1, %269 ]
+  %.sroa.0105.11.ph.i.i = phi i8 [ 1, %"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..read..compression..DataPageItem$C$polars_parquet..parquet..error..ParquetError$GT$$GT$$GT$17hf6719c3a6761e597E.exit.i.i" ], [ 1, %287 ], [ 1, %284 ], [ 0, %"_ZN4core3ptr138drop_in_place$LT$$LP$usize$C$alloc..vec..Vec$LT$i64$GT$$C$core..option..Option$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$$RP$$GT$17h6656835f8a03bf9cE.exit.i.i" ], [ 1, %136 ], [ 1, %269 ]
   %lpad.loopexit.split-lp.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.body254.i.i
@@ -94153,7 +94153,7 @@ default.unreachable:                              ; preds = %703, %722, %503, %"
   br label %.thread262.ithread-pre-split.i
 
 .loopexit.split-lp.i8.i:                          ; preds = %.loopexit.i20.i, %474, %473, %452, %442
-  %.sroa.0102.5.ph.i.i = phi i8 [ 1, %452 ], [ 1, %473 ], [ 1, %474 ], [ 1, %442 ], [ 0, %.loopexit.i20.i ]
+  %.sroa.0102.5.ph.i.i = phi i8 [ 1, %474 ], [ 1, %473 ], [ 1, %442 ], [ 0, %.loopexit.i20.i ], [ 1, %452 ]
   %lpad.loopexit.split-lp.i9.i = landingpad { ptr, i32 }
           cleanup
   br label %.thread262.ithread-pre-split.i
@@ -96154,7 +96154,7 @@ define hidden void @"_ZN14polars_parquet5arrow4read11deserialize5utils20PageDeco
   br label %.body254.i.i
 
 .loopexit.split-lp.i.i:                           ; preds = %"_ZN4core3ptr138drop_in_place$LT$$LP$usize$C$alloc..vec..Vec$LT$i64$GT$$C$core..option..Option$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$$RP$$GT$17h6656835f8a03bf9cE.exit.i.i", %287, %284, %"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..read..compression..DataPageItem$C$polars_parquet..parquet..error..ParquetError$GT$$GT$$GT$17hf6719c3a6761e597E.exit.i.i", %269, %136
-  %.sroa.0105.11.ph.i.i = phi i8 [ 1, %136 ], [ 1, %"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..read..compression..DataPageItem$C$polars_parquet..parquet..error..ParquetError$GT$$GT$$GT$17hf6719c3a6761e597E.exit.i.i" ], [ 1, %287 ], [ 1, %284 ], [ 0, %"_ZN4core3ptr138drop_in_place$LT$$LP$usize$C$alloc..vec..Vec$LT$i64$GT$$C$core..option..Option$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$$RP$$GT$17h6656835f8a03bf9cE.exit.i.i" ], [ 1, %269 ]
+  %.sroa.0105.11.ph.i.i = phi i8 [ 1, %"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..read..compression..DataPageItem$C$polars_parquet..parquet..error..ParquetError$GT$$GT$$GT$17hf6719c3a6761e597E.exit.i.i" ], [ 1, %287 ], [ 1, %284 ], [ 0, %"_ZN4core3ptr138drop_in_place$LT$$LP$usize$C$alloc..vec..Vec$LT$i64$GT$$C$core..option..Option$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$$RP$$GT$17h6656835f8a03bf9cE.exit.i.i" ], [ 1, %136 ], [ 1, %269 ]
   %lpad.loopexit.split-lp.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.body254.i.i
@@ -97411,7 +97411,7 @@ default.unreachable:                              ; preds = %703, %722, %503, %"
   br label %.thread262.ithread-pre-split.i
 
 .loopexit.split-lp.i8.i:                          ; preds = %.loopexit.i20.i, %474, %473, %452, %442
-  %.sroa.0102.5.ph.i.i = phi i8 [ 1, %452 ], [ 1, %473 ], [ 1, %474 ], [ 1, %442 ], [ 0, %.loopexit.i20.i ]
+  %.sroa.0102.5.ph.i.i = phi i8 [ 1, %474 ], [ 1, %473 ], [ 1, %442 ], [ 0, %.loopexit.i20.i ], [ 1, %452 ]
   %lpad.loopexit.split-lp.i9.i = landingpad { ptr, i32 }
           cleanup
   br label %.thread262.ithread-pre-split.i
@@ -99412,7 +99412,7 @@ define hidden void @"_ZN14polars_parquet5arrow4read11deserialize5utils20PageDeco
   br label %.body254.i.i
 
 .loopexit.split-lp.i.i:                           ; preds = %"_ZN4core3ptr138drop_in_place$LT$$LP$usize$C$alloc..vec..Vec$LT$i64$GT$$C$core..option..Option$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$$RP$$GT$17h6656835f8a03bf9cE.exit.i.i", %287, %284, %"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..read..compression..DataPageItem$C$polars_parquet..parquet..error..ParquetError$GT$$GT$$GT$17hf6719c3a6761e597E.exit.i.i", %269, %136
-  %.sroa.0105.11.ph.i.i = phi i8 [ 1, %136 ], [ 1, %"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..read..compression..DataPageItem$C$polars_parquet..parquet..error..ParquetError$GT$$GT$$GT$17hf6719c3a6761e597E.exit.i.i" ], [ 1, %287 ], [ 1, %284 ], [ 0, %"_ZN4core3ptr138drop_in_place$LT$$LP$usize$C$alloc..vec..Vec$LT$i64$GT$$C$core..option..Option$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$$RP$$GT$17h6656835f8a03bf9cE.exit.i.i" ], [ 1, %269 ]
+  %.sroa.0105.11.ph.i.i = phi i8 [ 1, %"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..read..compression..DataPageItem$C$polars_parquet..parquet..error..ParquetError$GT$$GT$$GT$17hf6719c3a6761e597E.exit.i.i" ], [ 1, %287 ], [ 1, %284 ], [ 0, %"_ZN4core3ptr138drop_in_place$LT$$LP$usize$C$alloc..vec..Vec$LT$i64$GT$$C$core..option..Option$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$$RP$$GT$17h6656835f8a03bf9cE.exit.i.i" ], [ 1, %136 ], [ 1, %269 ]
   %lpad.loopexit.split-lp.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.body254.i.i
@@ -100669,7 +100669,7 @@ default.unreachable:                              ; preds = %703, %722, %503, %"
   br label %.thread262.ithread-pre-split.i
 
 .loopexit.split-lp.i8.i:                          ; preds = %.loopexit.i20.i, %474, %473, %452, %442
-  %.sroa.0102.5.ph.i.i = phi i8 [ 1, %452 ], [ 1, %473 ], [ 1, %474 ], [ 1, %442 ], [ 0, %.loopexit.i20.i ]
+  %.sroa.0102.5.ph.i.i = phi i8 [ 1, %474 ], [ 1, %473 ], [ 1, %442 ], [ 0, %.loopexit.i20.i ], [ 1, %452 ]
   %lpad.loopexit.split-lp.i9.i = landingpad { ptr, i32 }
           cleanup
   br label %.thread262.ithread-pre-split.i
@@ -102670,7 +102670,7 @@ define hidden void @"_ZN14polars_parquet5arrow4read11deserialize5utils20PageDeco
   br label %.body254.i.i
 
 .loopexit.split-lp.i.i:                           ; preds = %"_ZN4core3ptr138drop_in_place$LT$$LP$usize$C$alloc..vec..Vec$LT$i64$GT$$C$core..option..Option$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$$RP$$GT$17h6656835f8a03bf9cE.exit.i.i", %287, %284, %"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..read..compression..DataPageItem$C$polars_parquet..parquet..error..ParquetError$GT$$GT$$GT$17hf6719c3a6761e597E.exit.i.i", %269, %136
-  %.sroa.0105.11.ph.i.i = phi i8 [ 1, %136 ], [ 1, %"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..read..compression..DataPageItem$C$polars_parquet..parquet..error..ParquetError$GT$$GT$$GT$17hf6719c3a6761e597E.exit.i.i" ], [ 1, %287 ], [ 1, %284 ], [ 0, %"_ZN4core3ptr138drop_in_place$LT$$LP$usize$C$alloc..vec..Vec$LT$i64$GT$$C$core..option..Option$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$$RP$$GT$17h6656835f8a03bf9cE.exit.i.i" ], [ 1, %269 ]
+  %.sroa.0105.11.ph.i.i = phi i8 [ 1, %"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..read..compression..DataPageItem$C$polars_parquet..parquet..error..ParquetError$GT$$GT$$GT$17hf6719c3a6761e597E.exit.i.i" ], [ 1, %287 ], [ 1, %284 ], [ 0, %"_ZN4core3ptr138drop_in_place$LT$$LP$usize$C$alloc..vec..Vec$LT$i64$GT$$C$core..option..Option$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$$RP$$GT$17h6656835f8a03bf9cE.exit.i.i" ], [ 1, %136 ], [ 1, %269 ]
   %lpad.loopexit.split-lp.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.body254.i.i
@@ -103927,7 +103927,7 @@ default.unreachable:                              ; preds = %703, %722, %503, %"
   br label %.thread262.ithread-pre-split.i
 
 .loopexit.split-lp.i8.i:                          ; preds = %.loopexit.i20.i, %474, %473, %452, %442
-  %.sroa.0102.5.ph.i.i = phi i8 [ 1, %452 ], [ 1, %473 ], [ 1, %474 ], [ 1, %442 ], [ 0, %.loopexit.i20.i ]
+  %.sroa.0102.5.ph.i.i = phi i8 [ 1, %474 ], [ 1, %473 ], [ 1, %442 ], [ 0, %.loopexit.i20.i ], [ 1, %452 ]
   %lpad.loopexit.split-lp.i9.i = landingpad { ptr, i32 }
           cleanup
   br label %.thread262.ithread-pre-split.i
@@ -106027,7 +106027,7 @@ define hidden void @"_ZN14polars_parquet5arrow4read11deserialize5utils20PageDeco
   br label %.body254.i.i
 
 .loopexit.split-lp.i.i:                           ; preds = %"_ZN4core3ptr138drop_in_place$LT$$LP$usize$C$alloc..vec..Vec$LT$i64$GT$$C$core..option..Option$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$$RP$$GT$17h6656835f8a03bf9cE.exit.i.i", %287, %284, %"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..read..compression..DataPageItem$C$polars_parquet..parquet..error..ParquetError$GT$$GT$$GT$17hf6719c3a6761e597E.exit.i.i", %269, %136
-  %.sroa.0105.11.ph.i.i = phi i8 [ 1, %136 ], [ 1, %"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..read..compression..DataPageItem$C$polars_parquet..parquet..error..ParquetError$GT$$GT$$GT$17hf6719c3a6761e597E.exit.i.i" ], [ 1, %287 ], [ 1, %284 ], [ 0, %"_ZN4core3ptr138drop_in_place$LT$$LP$usize$C$alloc..vec..Vec$LT$i64$GT$$C$core..option..Option$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$$RP$$GT$17h6656835f8a03bf9cE.exit.i.i" ], [ 1, %269 ]
+  %.sroa.0105.11.ph.i.i = phi i8 [ 1, %"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..read..compression..DataPageItem$C$polars_parquet..parquet..error..ParquetError$GT$$GT$$GT$17hf6719c3a6761e597E.exit.i.i" ], [ 1, %287 ], [ 1, %284 ], [ 0, %"_ZN4core3ptr138drop_in_place$LT$$LP$usize$C$alloc..vec..Vec$LT$i64$GT$$C$core..option..Option$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$$RP$$GT$17h6656835f8a03bf9cE.exit.i.i" ], [ 1, %136 ], [ 1, %269 ]
   %lpad.loopexit.split-lp.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.body254.i.i
@@ -107284,7 +107284,7 @@ default.unreachable:                              ; preds = %703, %722, %503, %"
   br label %.thread262.ithread-pre-split.i
 
 .loopexit.split-lp.i8.i:                          ; preds = %.loopexit.i20.i, %474, %473, %452, %442
-  %.sroa.0102.5.ph.i.i = phi i8 [ 1, %452 ], [ 1, %473 ], [ 1, %474 ], [ 1, %442 ], [ 0, %.loopexit.i20.i ]
+  %.sroa.0102.5.ph.i.i = phi i8 [ 1, %474 ], [ 1, %473 ], [ 1, %442 ], [ 0, %.loopexit.i20.i ], [ 1, %452 ]
   %lpad.loopexit.split-lp.i9.i = landingpad { ptr, i32 }
           cleanup
   br label %.thread262.ithread-pre-split.i
@@ -109285,7 +109285,7 @@ define hidden void @"_ZN14polars_parquet5arrow4read11deserialize5utils20PageDeco
   br label %.body254.i.i
 
 .loopexit.split-lp.i.i:                           ; preds = %"_ZN4core3ptr138drop_in_place$LT$$LP$usize$C$alloc..vec..Vec$LT$i64$GT$$C$core..option..Option$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$$RP$$GT$17h6656835f8a03bf9cE.exit.i.i", %287, %284, %"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..read..compression..DataPageItem$C$polars_parquet..parquet..error..ParquetError$GT$$GT$$GT$17hf6719c3a6761e597E.exit.i.i", %269, %136
-  %.sroa.0105.11.ph.i.i = phi i8 [ 1, %136 ], [ 1, %"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..read..compression..DataPageItem$C$polars_parquet..parquet..error..ParquetError$GT$$GT$$GT$17hf6719c3a6761e597E.exit.i.i" ], [ 1, %287 ], [ 1, %284 ], [ 0, %"_ZN4core3ptr138drop_in_place$LT$$LP$usize$C$alloc..vec..Vec$LT$i64$GT$$C$core..option..Option$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$$RP$$GT$17h6656835f8a03bf9cE.exit.i.i" ], [ 1, %269 ]
+  %.sroa.0105.11.ph.i.i = phi i8 [ 1, %"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..read..compression..DataPageItem$C$polars_parquet..parquet..error..ParquetError$GT$$GT$$GT$17hf6719c3a6761e597E.exit.i.i" ], [ 1, %287 ], [ 1, %284 ], [ 0, %"_ZN4core3ptr138drop_in_place$LT$$LP$usize$C$alloc..vec..Vec$LT$i64$GT$$C$core..option..Option$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$$RP$$GT$17h6656835f8a03bf9cE.exit.i.i" ], [ 1, %136 ], [ 1, %269 ]
   %lpad.loopexit.split-lp.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.body254.i.i
@@ -110542,7 +110542,7 @@ default.unreachable:                              ; preds = %703, %722, %503, %"
   br label %.thread262.ithread-pre-split.i
 
 .loopexit.split-lp.i8.i:                          ; preds = %.loopexit.i20.i, %474, %473, %452, %442
-  %.sroa.0102.5.ph.i.i = phi i8 [ 1, %452 ], [ 1, %473 ], [ 1, %474 ], [ 1, %442 ], [ 0, %.loopexit.i20.i ]
+  %.sroa.0102.5.ph.i.i = phi i8 [ 1, %474 ], [ 1, %473 ], [ 1, %442 ], [ 0, %.loopexit.i20.i ], [ 1, %452 ]
   %lpad.loopexit.split-lp.i9.i = landingpad { ptr, i32 }
           cleanup
   br label %.thread262.ithread-pre-split.i
@@ -112543,7 +112543,7 @@ define hidden void @"_ZN14polars_parquet5arrow4read11deserialize5utils20PageDeco
   br label %.body254.i.i
 
 .loopexit.split-lp.i.i:                           ; preds = %"_ZN4core3ptr138drop_in_place$LT$$LP$usize$C$alloc..vec..Vec$LT$i64$GT$$C$core..option..Option$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$$RP$$GT$17h6656835f8a03bf9cE.exit.i.i", %287, %284, %"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..read..compression..DataPageItem$C$polars_parquet..parquet..error..ParquetError$GT$$GT$$GT$17hf6719c3a6761e597E.exit.i.i", %269, %136
-  %.sroa.0105.11.ph.i.i = phi i8 [ 1, %136 ], [ 1, %"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..read..compression..DataPageItem$C$polars_parquet..parquet..error..ParquetError$GT$$GT$$GT$17hf6719c3a6761e597E.exit.i.i" ], [ 1, %287 ], [ 1, %284 ], [ 0, %"_ZN4core3ptr138drop_in_place$LT$$LP$usize$C$alloc..vec..Vec$LT$i64$GT$$C$core..option..Option$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$$RP$$GT$17h6656835f8a03bf9cE.exit.i.i" ], [ 1, %269 ]
+  %.sroa.0105.11.ph.i.i = phi i8 [ 1, %"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..read..compression..DataPageItem$C$polars_parquet..parquet..error..ParquetError$GT$$GT$$GT$17hf6719c3a6761e597E.exit.i.i" ], [ 1, %287 ], [ 1, %284 ], [ 0, %"_ZN4core3ptr138drop_in_place$LT$$LP$usize$C$alloc..vec..Vec$LT$i64$GT$$C$core..option..Option$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$$RP$$GT$17h6656835f8a03bf9cE.exit.i.i" ], [ 1, %136 ], [ 1, %269 ]
   %lpad.loopexit.split-lp.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.body254.i.i
@@ -113800,7 +113800,7 @@ default.unreachable:                              ; preds = %703, %722, %503, %"
   br label %.thread262.ithread-pre-split.i
 
 .loopexit.split-lp.i8.i:                          ; preds = %.loopexit.i20.i, %474, %473, %452, %442
-  %.sroa.0102.5.ph.i.i = phi i8 [ 1, %452 ], [ 1, %473 ], [ 1, %474 ], [ 1, %442 ], [ 0, %.loopexit.i20.i ]
+  %.sroa.0102.5.ph.i.i = phi i8 [ 1, %474 ], [ 1, %473 ], [ 1, %442 ], [ 0, %.loopexit.i20.i ], [ 1, %452 ]
   %lpad.loopexit.split-lp.i9.i = landingpad { ptr, i32 }
           cleanup
   br label %.thread262.ithread-pre-split.i
@@ -115801,7 +115801,7 @@ define hidden void @"_ZN14polars_parquet5arrow4read11deserialize5utils20PageDeco
   br label %.body254.i.i
 
 .loopexit.split-lp.i.i:                           ; preds = %"_ZN4core3ptr138drop_in_place$LT$$LP$usize$C$alloc..vec..Vec$LT$i64$GT$$C$core..option..Option$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$$RP$$GT$17h6656835f8a03bf9cE.exit.i.i", %287, %284, %"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..read..compression..DataPageItem$C$polars_parquet..parquet..error..ParquetError$GT$$GT$$GT$17hf6719c3a6761e597E.exit.i.i", %269, %136
-  %.sroa.0105.11.ph.i.i = phi i8 [ 1, %136 ], [ 1, %"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..read..compression..DataPageItem$C$polars_parquet..parquet..error..ParquetError$GT$$GT$$GT$17hf6719c3a6761e597E.exit.i.i" ], [ 1, %287 ], [ 1, %284 ], [ 0, %"_ZN4core3ptr138drop_in_place$LT$$LP$usize$C$alloc..vec..Vec$LT$i64$GT$$C$core..option..Option$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$$RP$$GT$17h6656835f8a03bf9cE.exit.i.i" ], [ 1, %269 ]
+  %.sroa.0105.11.ph.i.i = phi i8 [ 1, %"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..read..compression..DataPageItem$C$polars_parquet..parquet..error..ParquetError$GT$$GT$$GT$17hf6719c3a6761e597E.exit.i.i" ], [ 1, %287 ], [ 1, %284 ], [ 0, %"_ZN4core3ptr138drop_in_place$LT$$LP$usize$C$alloc..vec..Vec$LT$i64$GT$$C$core..option..Option$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$$RP$$GT$17h6656835f8a03bf9cE.exit.i.i" ], [ 1, %136 ], [ 1, %269 ]
   %lpad.loopexit.split-lp.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.body254.i.i
@@ -117058,7 +117058,7 @@ default.unreachable:                              ; preds = %703, %722, %503, %"
   br label %.thread262.ithread-pre-split.i
 
 .loopexit.split-lp.i8.i:                          ; preds = %.loopexit.i20.i, %474, %473, %452, %442
-  %.sroa.0102.5.ph.i.i = phi i8 [ 1, %452 ], [ 1, %473 ], [ 1, %474 ], [ 1, %442 ], [ 0, %.loopexit.i20.i ]
+  %.sroa.0102.5.ph.i.i = phi i8 [ 1, %474 ], [ 1, %473 ], [ 1, %442 ], [ 0, %.loopexit.i20.i ], [ 1, %452 ]
   %lpad.loopexit.split-lp.i9.i = landingpad { ptr, i32 }
           cleanup
   br label %.thread262.ithread-pre-split.i
@@ -119059,7 +119059,7 @@ define hidden void @"_ZN14polars_parquet5arrow4read11deserialize5utils20PageDeco
   br label %.body254.i.i
 
 .loopexit.split-lp.i.i:                           ; preds = %"_ZN4core3ptr138drop_in_place$LT$$LP$usize$C$alloc..vec..Vec$LT$i64$GT$$C$core..option..Option$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$$RP$$GT$17h6656835f8a03bf9cE.exit.i.i", %287, %284, %"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..read..compression..DataPageItem$C$polars_parquet..parquet..error..ParquetError$GT$$GT$$GT$17hf6719c3a6761e597E.exit.i.i", %269, %136
-  %.sroa.0105.11.ph.i.i = phi i8 [ 1, %136 ], [ 1, %"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..read..compression..DataPageItem$C$polars_parquet..parquet..error..ParquetError$GT$$GT$$GT$17hf6719c3a6761e597E.exit.i.i" ], [ 1, %287 ], [ 1, %284 ], [ 0, %"_ZN4core3ptr138drop_in_place$LT$$LP$usize$C$alloc..vec..Vec$LT$i64$GT$$C$core..option..Option$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$$RP$$GT$17h6656835f8a03bf9cE.exit.i.i" ], [ 1, %269 ]
+  %.sroa.0105.11.ph.i.i = phi i8 [ 1, %"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..read..compression..DataPageItem$C$polars_parquet..parquet..error..ParquetError$GT$$GT$$GT$17hf6719c3a6761e597E.exit.i.i" ], [ 1, %287 ], [ 1, %284 ], [ 0, %"_ZN4core3ptr138drop_in_place$LT$$LP$usize$C$alloc..vec..Vec$LT$i64$GT$$C$core..option..Option$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$$RP$$GT$17h6656835f8a03bf9cE.exit.i.i" ], [ 1, %136 ], [ 1, %269 ]
   %lpad.loopexit.split-lp.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.body254.i.i
@@ -120316,7 +120316,7 @@ default.unreachable:                              ; preds = %703, %722, %503, %"
   br label %.thread262.ithread-pre-split.i
 
 .loopexit.split-lp.i8.i:                          ; preds = %.loopexit.i20.i, %474, %473, %452, %442
-  %.sroa.0102.5.ph.i.i = phi i8 [ 1, %452 ], [ 1, %473 ], [ 1, %474 ], [ 1, %442 ], [ 0, %.loopexit.i20.i ]
+  %.sroa.0102.5.ph.i.i = phi i8 [ 1, %474 ], [ 1, %473 ], [ 1, %442 ], [ 0, %.loopexit.i20.i ], [ 1, %452 ]
   %lpad.loopexit.split-lp.i9.i = landingpad { ptr, i32 }
           cleanup
   br label %.thread262.ithread-pre-split.i
@@ -122317,7 +122317,7 @@ define hidden void @"_ZN14polars_parquet5arrow4read11deserialize5utils20PageDeco
   br label %.body254.i.i
 
 .loopexit.split-lp.i.i:                           ; preds = %"_ZN4core3ptr138drop_in_place$LT$$LP$usize$C$alloc..vec..Vec$LT$i64$GT$$C$core..option..Option$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$$RP$$GT$17h6656835f8a03bf9cE.exit.i.i", %287, %284, %"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..read..compression..DataPageItem$C$polars_parquet..parquet..error..ParquetError$GT$$GT$$GT$17hf6719c3a6761e597E.exit.i.i", %269, %136
-  %.sroa.0105.11.ph.i.i = phi i8 [ 1, %136 ], [ 1, %"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..read..compression..DataPageItem$C$polars_parquet..parquet..error..ParquetError$GT$$GT$$GT$17hf6719c3a6761e597E.exit.i.i" ], [ 1, %287 ], [ 1, %284 ], [ 0, %"_ZN4core3ptr138drop_in_place$LT$$LP$usize$C$alloc..vec..Vec$LT$i64$GT$$C$core..option..Option$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$$RP$$GT$17h6656835f8a03bf9cE.exit.i.i" ], [ 1, %269 ]
+  %.sroa.0105.11.ph.i.i = phi i8 [ 1, %"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..read..compression..DataPageItem$C$polars_parquet..parquet..error..ParquetError$GT$$GT$$GT$17hf6719c3a6761e597E.exit.i.i" ], [ 1, %287 ], [ 1, %284 ], [ 0, %"_ZN4core3ptr138drop_in_place$LT$$LP$usize$C$alloc..vec..Vec$LT$i64$GT$$C$core..option..Option$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$$RP$$GT$17h6656835f8a03bf9cE.exit.i.i" ], [ 1, %136 ], [ 1, %269 ]
   %lpad.loopexit.split-lp.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.body254.i.i
@@ -123574,7 +123574,7 @@ default.unreachable:                              ; preds = %703, %722, %503, %"
   br label %.thread262.ithread-pre-split.i
 
 .loopexit.split-lp.i8.i:                          ; preds = %.loopexit.i20.i, %474, %473, %452, %442
-  %.sroa.0102.5.ph.i.i = phi i8 [ 1, %452 ], [ 1, %473 ], [ 1, %474 ], [ 1, %442 ], [ 0, %.loopexit.i20.i ]
+  %.sroa.0102.5.ph.i.i = phi i8 [ 1, %474 ], [ 1, %473 ], [ 1, %442 ], [ 0, %.loopexit.i20.i ], [ 1, %452 ]
   %lpad.loopexit.split-lp.i9.i = landingpad { ptr, i32 }
           cleanup
   br label %.thread262.ithread-pre-split.i
@@ -125575,7 +125575,7 @@ define hidden void @"_ZN14polars_parquet5arrow4read11deserialize5utils20PageDeco
   br label %.body254.i.i
 
 .loopexit.split-lp.i.i:                           ; preds = %"_ZN4core3ptr138drop_in_place$LT$$LP$usize$C$alloc..vec..Vec$LT$i64$GT$$C$core..option..Option$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$$RP$$GT$17h6656835f8a03bf9cE.exit.i.i", %287, %284, %"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..read..compression..DataPageItem$C$polars_parquet..parquet..error..ParquetError$GT$$GT$$GT$17hf6719c3a6761e597E.exit.i.i", %269, %136
-  %.sroa.0105.11.ph.i.i = phi i8 [ 1, %136 ], [ 1, %"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..read..compression..DataPageItem$C$polars_parquet..parquet..error..ParquetError$GT$$GT$$GT$17hf6719c3a6761e597E.exit.i.i" ], [ 1, %287 ], [ 1, %284 ], [ 0, %"_ZN4core3ptr138drop_in_place$LT$$LP$usize$C$alloc..vec..Vec$LT$i64$GT$$C$core..option..Option$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$$RP$$GT$17h6656835f8a03bf9cE.exit.i.i" ], [ 1, %269 ]
+  %.sroa.0105.11.ph.i.i = phi i8 [ 1, %"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..read..compression..DataPageItem$C$polars_parquet..parquet..error..ParquetError$GT$$GT$$GT$17hf6719c3a6761e597E.exit.i.i" ], [ 1, %287 ], [ 1, %284 ], [ 0, %"_ZN4core3ptr138drop_in_place$LT$$LP$usize$C$alloc..vec..Vec$LT$i64$GT$$C$core..option..Option$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$$RP$$GT$17h6656835f8a03bf9cE.exit.i.i" ], [ 1, %136 ], [ 1, %269 ]
   %lpad.loopexit.split-lp.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.body254.i.i
@@ -126832,7 +126832,7 @@ default.unreachable:                              ; preds = %703, %722, %503, %"
   br label %.thread262.ithread-pre-split.i
 
 .loopexit.split-lp.i8.i:                          ; preds = %.loopexit.i20.i, %474, %473, %452, %442
-  %.sroa.0102.5.ph.i.i = phi i8 [ 1, %452 ], [ 1, %473 ], [ 1, %474 ], [ 1, %442 ], [ 0, %.loopexit.i20.i ]
+  %.sroa.0102.5.ph.i.i = phi i8 [ 1, %474 ], [ 1, %473 ], [ 1, %442 ], [ 0, %.loopexit.i20.i ], [ 1, %452 ]
   %lpad.loopexit.split-lp.i9.i = landingpad { ptr, i32 }
           cleanup
   br label %.thread262.ithread-pre-split.i
@@ -128833,7 +128833,7 @@ define hidden void @"_ZN14polars_parquet5arrow4read11deserialize5utils20PageDeco
   br label %.body254.i.i
 
 .loopexit.split-lp.i.i:                           ; preds = %"_ZN4core3ptr138drop_in_place$LT$$LP$usize$C$alloc..vec..Vec$LT$i64$GT$$C$core..option..Option$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$$RP$$GT$17h6656835f8a03bf9cE.exit.i.i", %287, %284, %"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..read..compression..DataPageItem$C$polars_parquet..parquet..error..ParquetError$GT$$GT$$GT$17hf6719c3a6761e597E.exit.i.i", %269, %136
-  %.sroa.0105.11.ph.i.i = phi i8 [ 1, %136 ], [ 1, %"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..read..compression..DataPageItem$C$polars_parquet..parquet..error..ParquetError$GT$$GT$$GT$17hf6719c3a6761e597E.exit.i.i" ], [ 1, %287 ], [ 1, %284 ], [ 0, %"_ZN4core3ptr138drop_in_place$LT$$LP$usize$C$alloc..vec..Vec$LT$i64$GT$$C$core..option..Option$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$$RP$$GT$17h6656835f8a03bf9cE.exit.i.i" ], [ 1, %269 ]
+  %.sroa.0105.11.ph.i.i = phi i8 [ 1, %"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..read..compression..DataPageItem$C$polars_parquet..parquet..error..ParquetError$GT$$GT$$GT$17hf6719c3a6761e597E.exit.i.i" ], [ 1, %287 ], [ 1, %284 ], [ 0, %"_ZN4core3ptr138drop_in_place$LT$$LP$usize$C$alloc..vec..Vec$LT$i64$GT$$C$core..option..Option$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$$RP$$GT$17h6656835f8a03bf9cE.exit.i.i" ], [ 1, %136 ], [ 1, %269 ]
   %lpad.loopexit.split-lp.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.body254.i.i
@@ -130090,7 +130090,7 @@ default.unreachable:                              ; preds = %703, %722, %503, %"
   br label %.thread262.ithread-pre-split.i
 
 .loopexit.split-lp.i8.i:                          ; preds = %.loopexit.i20.i, %474, %473, %452, %442
-  %.sroa.0102.5.ph.i.i = phi i8 [ 1, %452 ], [ 1, %473 ], [ 1, %474 ], [ 1, %442 ], [ 0, %.loopexit.i20.i ]
+  %.sroa.0102.5.ph.i.i = phi i8 [ 1, %474 ], [ 1, %473 ], [ 1, %442 ], [ 0, %.loopexit.i20.i ], [ 1, %452 ]
   %lpad.loopexit.split-lp.i9.i = landingpad { ptr, i32 }
           cleanup
   br label %.thread262.ithread-pre-split.i
@@ -132091,7 +132091,7 @@ define hidden void @"_ZN14polars_parquet5arrow4read11deserialize5utils20PageDeco
   br label %.body254.i.i
 
 .loopexit.split-lp.i.i:                           ; preds = %"_ZN4core3ptr138drop_in_place$LT$$LP$usize$C$alloc..vec..Vec$LT$i64$GT$$C$core..option..Option$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$$RP$$GT$17h6656835f8a03bf9cE.exit.i.i", %287, %284, %"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..read..compression..DataPageItem$C$polars_parquet..parquet..error..ParquetError$GT$$GT$$GT$17hf6719c3a6761e597E.exit.i.i", %269, %136
-  %.sroa.0105.11.ph.i.i = phi i8 [ 1, %136 ], [ 1, %"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..read..compression..DataPageItem$C$polars_parquet..parquet..error..ParquetError$GT$$GT$$GT$17hf6719c3a6761e597E.exit.i.i" ], [ 1, %287 ], [ 1, %284 ], [ 0, %"_ZN4core3ptr138drop_in_place$LT$$LP$usize$C$alloc..vec..Vec$LT$i64$GT$$C$core..option..Option$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$$RP$$GT$17h6656835f8a03bf9cE.exit.i.i" ], [ 1, %269 ]
+  %.sroa.0105.11.ph.i.i = phi i8 [ 1, %"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..read..compression..DataPageItem$C$polars_parquet..parquet..error..ParquetError$GT$$GT$$GT$17hf6719c3a6761e597E.exit.i.i" ], [ 1, %287 ], [ 1, %284 ], [ 0, %"_ZN4core3ptr138drop_in_place$LT$$LP$usize$C$alloc..vec..Vec$LT$i64$GT$$C$core..option..Option$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$$RP$$GT$17h6656835f8a03bf9cE.exit.i.i" ], [ 1, %136 ], [ 1, %269 ]
   %lpad.loopexit.split-lp.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.body254.i.i
@@ -133348,7 +133348,7 @@ default.unreachable:                              ; preds = %703, %722, %503, %"
   br label %.thread262.ithread-pre-split.i
 
 .loopexit.split-lp.i8.i:                          ; preds = %.loopexit.i20.i, %474, %473, %452, %442
-  %.sroa.0102.5.ph.i.i = phi i8 [ 1, %452 ], [ 1, %473 ], [ 1, %474 ], [ 1, %442 ], [ 0, %.loopexit.i20.i ]
+  %.sroa.0102.5.ph.i.i = phi i8 [ 1, %474 ], [ 1, %473 ], [ 1, %442 ], [ 0, %.loopexit.i20.i ], [ 1, %452 ]
   %lpad.loopexit.split-lp.i9.i = landingpad { ptr, i32 }
           cleanup
   br label %.thread262.ithread-pre-split.i
@@ -135349,7 +135349,7 @@ define hidden void @"_ZN14polars_parquet5arrow4read11deserialize5utils20PageDeco
   br label %.body254.i.i
 
 .loopexit.split-lp.i.i:                           ; preds = %"_ZN4core3ptr138drop_in_place$LT$$LP$usize$C$alloc..vec..Vec$LT$i64$GT$$C$core..option..Option$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$$RP$$GT$17h6656835f8a03bf9cE.exit.i.i", %287, %284, %"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..read..compression..DataPageItem$C$polars_parquet..parquet..error..ParquetError$GT$$GT$$GT$17hf6719c3a6761e597E.exit.i.i", %269, %136
-  %.sroa.0105.11.ph.i.i = phi i8 [ 1, %136 ], [ 1, %"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..read..compression..DataPageItem$C$polars_parquet..parquet..error..ParquetError$GT$$GT$$GT$17hf6719c3a6761e597E.exit.i.i" ], [ 1, %287 ], [ 1, %284 ], [ 0, %"_ZN4core3ptr138drop_in_place$LT$$LP$usize$C$alloc..vec..Vec$LT$i64$GT$$C$core..option..Option$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$$RP$$GT$17h6656835f8a03bf9cE.exit.i.i" ], [ 1, %269 ]
+  %.sroa.0105.11.ph.i.i = phi i8 [ 1, %"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..read..compression..DataPageItem$C$polars_parquet..parquet..error..ParquetError$GT$$GT$$GT$17hf6719c3a6761e597E.exit.i.i" ], [ 1, %287 ], [ 1, %284 ], [ 0, %"_ZN4core3ptr138drop_in_place$LT$$LP$usize$C$alloc..vec..Vec$LT$i64$GT$$C$core..option..Option$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$$RP$$GT$17h6656835f8a03bf9cE.exit.i.i" ], [ 1, %136 ], [ 1, %269 ]
   %lpad.loopexit.split-lp.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.body254.i.i
@@ -136606,7 +136606,7 @@ default.unreachable:                              ; preds = %703, %722, %503, %"
   br label %.thread262.ithread-pre-split.i
 
 .loopexit.split-lp.i8.i:                          ; preds = %.loopexit.i20.i, %474, %473, %452, %442
-  %.sroa.0102.5.ph.i.i = phi i8 [ 1, %452 ], [ 1, %473 ], [ 1, %474 ], [ 1, %442 ], [ 0, %.loopexit.i20.i ]
+  %.sroa.0102.5.ph.i.i = phi i8 [ 1, %474 ], [ 1, %473 ], [ 1, %442 ], [ 0, %.loopexit.i20.i ], [ 1, %452 ]
   %lpad.loopexit.split-lp.i9.i = landingpad { ptr, i32 }
           cleanup
   br label %.thread262.ithread-pre-split.i
@@ -138604,7 +138604,7 @@ define hidden void @"_ZN14polars_parquet5arrow4read11deserialize5utils20PageDeco
   br label %.body250.i.i
 
 .loopexit.split-lp.i.i:                           ; preds = %"_ZN4core3ptr138drop_in_place$LT$$LP$usize$C$alloc..vec..Vec$LT$i64$GT$$C$core..option..Option$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$$RP$$GT$17h6656835f8a03bf9cE.exit.i.i", %287, %284, %"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..read..compression..DataPageItem$C$polars_parquet..parquet..error..ParquetError$GT$$GT$$GT$17hf6719c3a6761e597E.exit.i.i", %269, %136
-  %.sroa.0105.11.ph.i.i = phi i8 [ 1, %136 ], [ 1, %"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..read..compression..DataPageItem$C$polars_parquet..parquet..error..ParquetError$GT$$GT$$GT$17hf6719c3a6761e597E.exit.i.i" ], [ 1, %287 ], [ 1, %284 ], [ 0, %"_ZN4core3ptr138drop_in_place$LT$$LP$usize$C$alloc..vec..Vec$LT$i64$GT$$C$core..option..Option$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$$RP$$GT$17h6656835f8a03bf9cE.exit.i.i" ], [ 1, %269 ]
+  %.sroa.0105.11.ph.i.i = phi i8 [ 1, %"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..read..compression..DataPageItem$C$polars_parquet..parquet..error..ParquetError$GT$$GT$$GT$17hf6719c3a6761e597E.exit.i.i" ], [ 1, %287 ], [ 1, %284 ], [ 0, %"_ZN4core3ptr138drop_in_place$LT$$LP$usize$C$alloc..vec..Vec$LT$i64$GT$$C$core..option..Option$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$$RP$$GT$17h6656835f8a03bf9cE.exit.i.i" ], [ 1, %136 ], [ 1, %269 ]
   %lpad.loopexit.split-lp.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.body250.i.i
@@ -139817,7 +139817,7 @@ default.unreachable:                              ; preds = %682, %701, %490, %"
   br label %.thread259.ithread-pre-split.i
 
 .loopexit.split-lp.i8.i:                          ; preds = %.loopexit.i20.i, %461, %460, %439, %429
-  %.sroa.0102.5.ph.i.i = phi i8 [ 1, %439 ], [ 1, %460 ], [ 1, %461 ], [ 1, %429 ], [ 0, %.loopexit.i20.i ]
+  %.sroa.0102.5.ph.i.i = phi i8 [ 1, %461 ], [ 1, %460 ], [ 1, %429 ], [ 0, %.loopexit.i20.i ], [ 1, %439 ]
   %lpad.loopexit.split-lp.i9.i = landingpad { ptr, i32 }
           cleanup
   br label %.thread259.ithread-pre-split.i
@@ -141764,7 +141764,7 @@ define hidden void @"_ZN14polars_parquet5arrow4read11deserialize5utils20PageDeco
   br label %.body250.i.i
 
 .loopexit.split-lp.i.i:                           ; preds = %"_ZN4core3ptr138drop_in_place$LT$$LP$usize$C$alloc..vec..Vec$LT$i64$GT$$C$core..option..Option$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$$RP$$GT$17h6656835f8a03bf9cE.exit.i.i", %283, %280, %"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..read..compression..DataPageItem$C$polars_parquet..parquet..error..ParquetError$GT$$GT$$GT$17hf6719c3a6761e597E.exit.i.i", %265, %134
-  %.sroa.0105.11.ph.i.i = phi i8 [ 1, %134 ], [ 1, %"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..read..compression..DataPageItem$C$polars_parquet..parquet..error..ParquetError$GT$$GT$$GT$17hf6719c3a6761e597E.exit.i.i" ], [ 1, %283 ], [ 1, %280 ], [ 0, %"_ZN4core3ptr138drop_in_place$LT$$LP$usize$C$alloc..vec..Vec$LT$i64$GT$$C$core..option..Option$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$$RP$$GT$17h6656835f8a03bf9cE.exit.i.i" ], [ 1, %265 ]
+  %.sroa.0105.11.ph.i.i = phi i8 [ 1, %"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..read..compression..DataPageItem$C$polars_parquet..parquet..error..ParquetError$GT$$GT$$GT$17hf6719c3a6761e597E.exit.i.i" ], [ 1, %283 ], [ 1, %280 ], [ 0, %"_ZN4core3ptr138drop_in_place$LT$$LP$usize$C$alloc..vec..Vec$LT$i64$GT$$C$core..option..Option$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$$RP$$GT$17h6656835f8a03bf9cE.exit.i.i" ], [ 1, %134 ], [ 1, %265 ]
   %lpad.loopexit.split-lp.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.body250.i.i
@@ -142969,7 +142969,7 @@ default.unreachable:                              ; preds = %666, %685, %484, %"
   br label %.thread253.ithread-pre-split.i
 
 .loopexit.split-lp.i6.i:                          ; preds = %.loopexit.i19.i, %455, %454, %433, %423
-  %.sroa.0102.5.ph.i.i = phi i8 [ 1, %433 ], [ 1, %454 ], [ 1, %455 ], [ 1, %423 ], [ 0, %.loopexit.i19.i ]
+  %.sroa.0102.5.ph.i.i = phi i8 [ 1, %455 ], [ 1, %454 ], [ 1, %423 ], [ 0, %.loopexit.i19.i ], [ 1, %433 ]
   %lpad.loopexit.split-lp.i7.i = landingpad { ptr, i32 }
           cleanup
   br label %.thread253.ithread-pre-split.i
@@ -144866,7 +144866,7 @@ define hidden void @"_ZN14polars_parquet5arrow4read11deserialize5utils20PageDeco
   br label %.body254.i.i
 
 .loopexit.split-lp.i.i:                           ; preds = %"_ZN4core3ptr138drop_in_place$LT$$LP$usize$C$alloc..vec..Vec$LT$i64$GT$$C$core..option..Option$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$$RP$$GT$17h6656835f8a03bf9cE.exit.i.i", %287, %284, %"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..read..compression..DataPageItem$C$polars_parquet..parquet..error..ParquetError$GT$$GT$$GT$17hf6719c3a6761e597E.exit.i.i", %269, %136
-  %.sroa.0105.11.ph.i.i = phi i8 [ 1, %136 ], [ 1, %"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..read..compression..DataPageItem$C$polars_parquet..parquet..error..ParquetError$GT$$GT$$GT$17hf6719c3a6761e597E.exit.i.i" ], [ 1, %287 ], [ 1, %284 ], [ 0, %"_ZN4core3ptr138drop_in_place$LT$$LP$usize$C$alloc..vec..Vec$LT$i64$GT$$C$core..option..Option$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$$RP$$GT$17h6656835f8a03bf9cE.exit.i.i" ], [ 1, %269 ]
+  %.sroa.0105.11.ph.i.i = phi i8 [ 1, %"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..read..compression..DataPageItem$C$polars_parquet..parquet..error..ParquetError$GT$$GT$$GT$17hf6719c3a6761e597E.exit.i.i" ], [ 1, %287 ], [ 1, %284 ], [ 0, %"_ZN4core3ptr138drop_in_place$LT$$LP$usize$C$alloc..vec..Vec$LT$i64$GT$$C$core..option..Option$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$$RP$$GT$17h6656835f8a03bf9cE.exit.i.i" ], [ 1, %136 ], [ 1, %269 ]
   %lpad.loopexit.split-lp.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.body254.i.i
@@ -146123,7 +146123,7 @@ default.unreachable:                              ; preds = %703, %722, %503, %"
   br label %.thread262.ithread-pre-split.i
 
 .loopexit.split-lp.i8.i:                          ; preds = %.loopexit.i20.i, %474, %473, %452, %442
-  %.sroa.0102.5.ph.i.i = phi i8 [ 1, %452 ], [ 1, %473 ], [ 1, %474 ], [ 1, %442 ], [ 0, %.loopexit.i20.i ]
+  %.sroa.0102.5.ph.i.i = phi i8 [ 1, %474 ], [ 1, %473 ], [ 1, %442 ], [ 0, %.loopexit.i20.i ], [ 1, %452 ]
   %lpad.loopexit.split-lp.i9.i = landingpad { ptr, i32 }
           cleanup
   br label %.thread262.ithread-pre-split.i
@@ -148124,7 +148124,7 @@ define hidden void @"_ZN14polars_parquet5arrow4read11deserialize5utils20PageDeco
   br label %.body254.i.i
 
 .loopexit.split-lp.i.i:                           ; preds = %"_ZN4core3ptr138drop_in_place$LT$$LP$usize$C$alloc..vec..Vec$LT$i64$GT$$C$core..option..Option$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$$RP$$GT$17h6656835f8a03bf9cE.exit.i.i", %287, %284, %"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..read..compression..DataPageItem$C$polars_parquet..parquet..error..ParquetError$GT$$GT$$GT$17hf6719c3a6761e597E.exit.i.i", %269, %136
-  %.sroa.0105.11.ph.i.i = phi i8 [ 1, %136 ], [ 1, %"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..read..compression..DataPageItem$C$polars_parquet..parquet..error..ParquetError$GT$$GT$$GT$17hf6719c3a6761e597E.exit.i.i" ], [ 1, %287 ], [ 1, %284 ], [ 0, %"_ZN4core3ptr138drop_in_place$LT$$LP$usize$C$alloc..vec..Vec$LT$i64$GT$$C$core..option..Option$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$$RP$$GT$17h6656835f8a03bf9cE.exit.i.i" ], [ 1, %269 ]
+  %.sroa.0105.11.ph.i.i = phi i8 [ 1, %"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..read..compression..DataPageItem$C$polars_parquet..parquet..error..ParquetError$GT$$GT$$GT$17hf6719c3a6761e597E.exit.i.i" ], [ 1, %287 ], [ 1, %284 ], [ 0, %"_ZN4core3ptr138drop_in_place$LT$$LP$usize$C$alloc..vec..Vec$LT$i64$GT$$C$core..option..Option$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$$RP$$GT$17h6656835f8a03bf9cE.exit.i.i" ], [ 1, %136 ], [ 1, %269 ]
   %lpad.loopexit.split-lp.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.body254.i.i
@@ -149381,7 +149381,7 @@ default.unreachable:                              ; preds = %703, %722, %503, %"
   br label %.thread262.ithread-pre-split.i
 
 .loopexit.split-lp.i8.i:                          ; preds = %.loopexit.i20.i, %474, %473, %452, %442
-  %.sroa.0102.5.ph.i.i = phi i8 [ 1, %452 ], [ 1, %473 ], [ 1, %474 ], [ 1, %442 ], [ 0, %.loopexit.i20.i ]
+  %.sroa.0102.5.ph.i.i = phi i8 [ 1, %474 ], [ 1, %473 ], [ 1, %442 ], [ 0, %.loopexit.i20.i ], [ 1, %452 ]
   %lpad.loopexit.split-lp.i9.i = landingpad { ptr, i32 }
           cleanup
   br label %.thread262.ithread-pre-split.i
@@ -151365,7 +151365,7 @@ define hidden void @"_ZN14polars_parquet5arrow4read11deserialize5utils20PageDeco
   br label %.body247.i.i
 
 .loopexit.split-lp.i.i:                           ; preds = %"_ZN4core3ptr138drop_in_place$LT$$LP$usize$C$alloc..vec..Vec$LT$i64$GT$$C$core..option..Option$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$$RP$$GT$17h6656835f8a03bf9cE.exit.i.i", %285, %282, %"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..read..compression..DataPageItem$C$polars_parquet..parquet..error..ParquetError$GT$$GT$$GT$17hf6719c3a6761e597E.exit.i.i", %267, %134
-  %.sroa.0104.9.ph.i.i = phi i8 [ 1, %134 ], [ 1, %"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..read..compression..DataPageItem$C$polars_parquet..parquet..error..ParquetError$GT$$GT$$GT$17hf6719c3a6761e597E.exit.i.i" ], [ 1, %285 ], [ 1, %282 ], [ 0, %"_ZN4core3ptr138drop_in_place$LT$$LP$usize$C$alloc..vec..Vec$LT$i64$GT$$C$core..option..Option$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$$RP$$GT$17h6656835f8a03bf9cE.exit.i.i" ], [ 1, %267 ]
+  %.sroa.0104.9.ph.i.i = phi i8 [ 1, %"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..read..compression..DataPageItem$C$polars_parquet..parquet..error..ParquetError$GT$$GT$$GT$17hf6719c3a6761e597E.exit.i.i" ], [ 1, %285 ], [ 1, %282 ], [ 0, %"_ZN4core3ptr138drop_in_place$LT$$LP$usize$C$alloc..vec..Vec$LT$i64$GT$$C$core..option..Option$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$$RP$$GT$17h6656835f8a03bf9cE.exit.i.i" ], [ 1, %134 ], [ 1, %267 ]
   %lpad.loopexit.split-lp.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.body247.i.i
@@ -152524,7 +152524,7 @@ default.unreachable:                              ; preds = %668, %688, %480, %7
   br label %.thread296.ithread-pre-split.i
 
 .loopexit.split-lp.i6.i:                          ; preds = %.loopexit.i17.i, %448, %447, %426, %416
-  %.sroa.0101.3.ph.i.i = phi i8 [ 1, %426 ], [ 1, %447 ], [ 1, %448 ], [ 1, %416 ], [ 0, %.loopexit.i17.i ]
+  %.sroa.0101.3.ph.i.i = phi i8 [ 1, %448 ], [ 1, %447 ], [ 1, %416 ], [ 0, %.loopexit.i17.i ], [ 1, %426 ]
   %lpad.loopexit.split-lp.i7.i = landingpad { ptr, i32 }
           cleanup
   br label %.thread296.ithread-pre-split.i
@@ -154411,7 +154411,7 @@ define hidden void @"_ZN14polars_parquet5arrow4read11deserialize5utils20PageDeco
   br label %.body254.i.i
 
 .loopexit.split-lp.i.i:                           ; preds = %"_ZN4core3ptr138drop_in_place$LT$$LP$usize$C$alloc..vec..Vec$LT$i64$GT$$C$core..option..Option$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$$RP$$GT$17h6656835f8a03bf9cE.exit.i.i", %287, %284, %"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..read..compression..DataPageItem$C$polars_parquet..parquet..error..ParquetError$GT$$GT$$GT$17hf6719c3a6761e597E.exit.i.i", %269, %136
-  %.sroa.0105.11.ph.i.i = phi i8 [ 1, %136 ], [ 1, %"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..read..compression..DataPageItem$C$polars_parquet..parquet..error..ParquetError$GT$$GT$$GT$17hf6719c3a6761e597E.exit.i.i" ], [ 1, %287 ], [ 1, %284 ], [ 0, %"_ZN4core3ptr138drop_in_place$LT$$LP$usize$C$alloc..vec..Vec$LT$i64$GT$$C$core..option..Option$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$$RP$$GT$17h6656835f8a03bf9cE.exit.i.i" ], [ 1, %269 ]
+  %.sroa.0105.11.ph.i.i = phi i8 [ 1, %"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..read..compression..DataPageItem$C$polars_parquet..parquet..error..ParquetError$GT$$GT$$GT$17hf6719c3a6761e597E.exit.i.i" ], [ 1, %287 ], [ 1, %284 ], [ 0, %"_ZN4core3ptr138drop_in_place$LT$$LP$usize$C$alloc..vec..Vec$LT$i64$GT$$C$core..option..Option$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$$RP$$GT$17h6656835f8a03bf9cE.exit.i.i" ], [ 1, %136 ], [ 1, %269 ]
   %lpad.loopexit.split-lp.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.body254.i.i
@@ -155668,7 +155668,7 @@ default.unreachable:                              ; preds = %703, %722, %503, %"
   br label %.thread262.ithread-pre-split.i
 
 .loopexit.split-lp.i8.i:                          ; preds = %.loopexit.i20.i, %474, %473, %452, %442
-  %.sroa.0102.5.ph.i.i = phi i8 [ 1, %452 ], [ 1, %473 ], [ 1, %474 ], [ 1, %442 ], [ 0, %.loopexit.i20.i ]
+  %.sroa.0102.5.ph.i.i = phi i8 [ 1, %474 ], [ 1, %473 ], [ 1, %442 ], [ 0, %.loopexit.i20.i ], [ 1, %452 ]
   %lpad.loopexit.split-lp.i9.i = landingpad { ptr, i32 }
           cleanup
   br label %.thread262.ithread-pre-split.i
@@ -157669,7 +157669,7 @@ define hidden void @"_ZN14polars_parquet5arrow4read11deserialize5utils20PageDeco
   br label %.body254.i.i
 
 .loopexit.split-lp.i.i:                           ; preds = %"_ZN4core3ptr138drop_in_place$LT$$LP$usize$C$alloc..vec..Vec$LT$i64$GT$$C$core..option..Option$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$$RP$$GT$17h6656835f8a03bf9cE.exit.i.i", %287, %284, %"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..read..compression..DataPageItem$C$polars_parquet..parquet..error..ParquetError$GT$$GT$$GT$17hf6719c3a6761e597E.exit.i.i", %269, %136
-  %.sroa.0105.11.ph.i.i = phi i8 [ 1, %136 ], [ 1, %"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..read..compression..DataPageItem$C$polars_parquet..parquet..error..ParquetError$GT$$GT$$GT$17hf6719c3a6761e597E.exit.i.i" ], [ 1, %287 ], [ 1, %284 ], [ 0, %"_ZN4core3ptr138drop_in_place$LT$$LP$usize$C$alloc..vec..Vec$LT$i64$GT$$C$core..option..Option$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$$RP$$GT$17h6656835f8a03bf9cE.exit.i.i" ], [ 1, %269 ]
+  %.sroa.0105.11.ph.i.i = phi i8 [ 1, %"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..read..compression..DataPageItem$C$polars_parquet..parquet..error..ParquetError$GT$$GT$$GT$17hf6719c3a6761e597E.exit.i.i" ], [ 1, %287 ], [ 1, %284 ], [ 0, %"_ZN4core3ptr138drop_in_place$LT$$LP$usize$C$alloc..vec..Vec$LT$i64$GT$$C$core..option..Option$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$$RP$$GT$17h6656835f8a03bf9cE.exit.i.i" ], [ 1, %136 ], [ 1, %269 ]
   %lpad.loopexit.split-lp.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.body254.i.i
@@ -158926,7 +158926,7 @@ default.unreachable:                              ; preds = %703, %722, %503, %"
   br label %.thread262.ithread-pre-split.i
 
 .loopexit.split-lp.i8.i:                          ; preds = %.loopexit.i20.i, %474, %473, %452, %442
-  %.sroa.0102.5.ph.i.i = phi i8 [ 1, %452 ], [ 1, %473 ], [ 1, %474 ], [ 1, %442 ], [ 0, %.loopexit.i20.i ]
+  %.sroa.0102.5.ph.i.i = phi i8 [ 1, %474 ], [ 1, %473 ], [ 1, %442 ], [ 0, %.loopexit.i20.i ], [ 1, %452 ]
   %lpad.loopexit.split-lp.i9.i = landingpad { ptr, i32 }
           cleanup
   br label %.thread262.ithread-pre-split.i
@@ -160927,7 +160927,7 @@ define hidden void @"_ZN14polars_parquet5arrow4read11deserialize5utils20PageDeco
   br label %.body254.i.i
 
 .loopexit.split-lp.i.i:                           ; preds = %"_ZN4core3ptr138drop_in_place$LT$$LP$usize$C$alloc..vec..Vec$LT$i64$GT$$C$core..option..Option$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$$RP$$GT$17h6656835f8a03bf9cE.exit.i.i", %287, %284, %"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..read..compression..DataPageItem$C$polars_parquet..parquet..error..ParquetError$GT$$GT$$GT$17hf6719c3a6761e597E.exit.i.i", %269, %136
-  %.sroa.0105.11.ph.i.i = phi i8 [ 1, %136 ], [ 1, %"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..read..compression..DataPageItem$C$polars_parquet..parquet..error..ParquetError$GT$$GT$$GT$17hf6719c3a6761e597E.exit.i.i" ], [ 1, %287 ], [ 1, %284 ], [ 0, %"_ZN4core3ptr138drop_in_place$LT$$LP$usize$C$alloc..vec..Vec$LT$i64$GT$$C$core..option..Option$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$$RP$$GT$17h6656835f8a03bf9cE.exit.i.i" ], [ 1, %269 ]
+  %.sroa.0105.11.ph.i.i = phi i8 [ 1, %"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..read..compression..DataPageItem$C$polars_parquet..parquet..error..ParquetError$GT$$GT$$GT$17hf6719c3a6761e597E.exit.i.i" ], [ 1, %287 ], [ 1, %284 ], [ 0, %"_ZN4core3ptr138drop_in_place$LT$$LP$usize$C$alloc..vec..Vec$LT$i64$GT$$C$core..option..Option$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$$RP$$GT$17h6656835f8a03bf9cE.exit.i.i" ], [ 1, %136 ], [ 1, %269 ]
   %lpad.loopexit.split-lp.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.body254.i.i
@@ -162184,7 +162184,7 @@ default.unreachable:                              ; preds = %703, %722, %503, %"
   br label %.thread262.ithread-pre-split.i
 
 .loopexit.split-lp.i8.i:                          ; preds = %.loopexit.i20.i, %474, %473, %452, %442
-  %.sroa.0102.5.ph.i.i = phi i8 [ 1, %452 ], [ 1, %473 ], [ 1, %474 ], [ 1, %442 ], [ 0, %.loopexit.i20.i ]
+  %.sroa.0102.5.ph.i.i = phi i8 [ 1, %474 ], [ 1, %473 ], [ 1, %442 ], [ 0, %.loopexit.i20.i ], [ 1, %452 ]
   %lpad.loopexit.split-lp.i9.i = landingpad { ptr, i32 }
           cleanup
   br label %.thread262.ithread-pre-split.i
@@ -164185,7 +164185,7 @@ define hidden void @"_ZN14polars_parquet5arrow4read11deserialize5utils20PageDeco
   br label %.body254.i.i
 
 .loopexit.split-lp.i.i:                           ; preds = %"_ZN4core3ptr138drop_in_place$LT$$LP$usize$C$alloc..vec..Vec$LT$i64$GT$$C$core..option..Option$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$$RP$$GT$17h6656835f8a03bf9cE.exit.i.i", %287, %284, %"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..read..compression..DataPageItem$C$polars_parquet..parquet..error..ParquetError$GT$$GT$$GT$17hf6719c3a6761e597E.exit.i.i", %269, %136
-  %.sroa.0105.11.ph.i.i = phi i8 [ 1, %136 ], [ 1, %"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..read..compression..DataPageItem$C$polars_parquet..parquet..error..ParquetError$GT$$GT$$GT$17hf6719c3a6761e597E.exit.i.i" ], [ 1, %287 ], [ 1, %284 ], [ 0, %"_ZN4core3ptr138drop_in_place$LT$$LP$usize$C$alloc..vec..Vec$LT$i64$GT$$C$core..option..Option$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$$RP$$GT$17h6656835f8a03bf9cE.exit.i.i" ], [ 1, %269 ]
+  %.sroa.0105.11.ph.i.i = phi i8 [ 1, %"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..read..compression..DataPageItem$C$polars_parquet..parquet..error..ParquetError$GT$$GT$$GT$17hf6719c3a6761e597E.exit.i.i" ], [ 1, %287 ], [ 1, %284 ], [ 0, %"_ZN4core3ptr138drop_in_place$LT$$LP$usize$C$alloc..vec..Vec$LT$i64$GT$$C$core..option..Option$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$$RP$$GT$17h6656835f8a03bf9cE.exit.i.i" ], [ 1, %136 ], [ 1, %269 ]
   %lpad.loopexit.split-lp.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.body254.i.i
@@ -165442,7 +165442,7 @@ default.unreachable:                              ; preds = %703, %722, %503, %"
   br label %.thread262.ithread-pre-split.i
 
 .loopexit.split-lp.i8.i:                          ; preds = %.loopexit.i20.i, %474, %473, %452, %442
-  %.sroa.0102.5.ph.i.i = phi i8 [ 1, %452 ], [ 1, %473 ], [ 1, %474 ], [ 1, %442 ], [ 0, %.loopexit.i20.i ]
+  %.sroa.0102.5.ph.i.i = phi i8 [ 1, %474 ], [ 1, %473 ], [ 1, %442 ], [ 0, %.loopexit.i20.i ], [ 1, %452 ]
   %lpad.loopexit.split-lp.i9.i = landingpad { ptr, i32 }
           cleanup
   br label %.thread262.ithread-pre-split.i
@@ -167443,7 +167443,7 @@ define hidden void @"_ZN14polars_parquet5arrow4read11deserialize5utils20PageDeco
   br label %.body254.i.i
 
 .loopexit.split-lp.i.i:                           ; preds = %"_ZN4core3ptr138drop_in_place$LT$$LP$usize$C$alloc..vec..Vec$LT$i64$GT$$C$core..option..Option$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$$RP$$GT$17h6656835f8a03bf9cE.exit.i.i", %287, %284, %"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..read..compression..DataPageItem$C$polars_parquet..parquet..error..ParquetError$GT$$GT$$GT$17hf6719c3a6761e597E.exit.i.i", %269, %136
-  %.sroa.0105.11.ph.i.i = phi i8 [ 1, %136 ], [ 1, %"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..read..compression..DataPageItem$C$polars_parquet..parquet..error..ParquetError$GT$$GT$$GT$17hf6719c3a6761e597E.exit.i.i" ], [ 1, %287 ], [ 1, %284 ], [ 0, %"_ZN4core3ptr138drop_in_place$LT$$LP$usize$C$alloc..vec..Vec$LT$i64$GT$$C$core..option..Option$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$$RP$$GT$17h6656835f8a03bf9cE.exit.i.i" ], [ 1, %269 ]
+  %.sroa.0105.11.ph.i.i = phi i8 [ 1, %"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..read..compression..DataPageItem$C$polars_parquet..parquet..error..ParquetError$GT$$GT$$GT$17hf6719c3a6761e597E.exit.i.i" ], [ 1, %287 ], [ 1, %284 ], [ 0, %"_ZN4core3ptr138drop_in_place$LT$$LP$usize$C$alloc..vec..Vec$LT$i64$GT$$C$core..option..Option$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$$RP$$GT$17h6656835f8a03bf9cE.exit.i.i" ], [ 1, %136 ], [ 1, %269 ]
   %lpad.loopexit.split-lp.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.body254.i.i
@@ -168700,7 +168700,7 @@ default.unreachable:                              ; preds = %703, %722, %503, %"
   br label %.thread262.ithread-pre-split.i
 
 .loopexit.split-lp.i8.i:                          ; preds = %.loopexit.i20.i, %474, %473, %452, %442
-  %.sroa.0102.5.ph.i.i = phi i8 [ 1, %452 ], [ 1, %473 ], [ 1, %474 ], [ 1, %442 ], [ 0, %.loopexit.i20.i ]
+  %.sroa.0102.5.ph.i.i = phi i8 [ 1, %474 ], [ 1, %473 ], [ 1, %442 ], [ 0, %.loopexit.i20.i ], [ 1, %452 ]
   %lpad.loopexit.split-lp.i9.i = landingpad { ptr, i32 }
           cleanup
   br label %.thread262.ithread-pre-split.i

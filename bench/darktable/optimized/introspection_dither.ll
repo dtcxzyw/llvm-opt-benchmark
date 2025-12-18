@@ -2612,9 +2612,9 @@ _diffuse_error.exit616.i:                         ; preds = %1209
   br i1 %exitcond171.not.i, label %_diffuse_error.exit581._crit_edge.i, label %.lr.ph97.i
 
 .lr.ph119.i:                                      ; preds = %932, %_diffuse_error.exit594.i, %._crit_edge.i
-  %factor.op.fmul116.pre-phi.i = phi float [ %factor.op.fmul46.i, %._crit_edge.i ], [ %factor.op.fmul102.i, %_diffuse_error.exit594.i ], [ %factor.op.fmul46.i, %932 ]
-  %factor.op.fmul114.pre-phi.i = phi float [ %factor.op.fmul44.i, %._crit_edge.i ], [ %factor.op.fmul100.i, %_diffuse_error.exit594.i ], [ %factor.op.fmul44.i, %932 ]
-  %factor.op.fmul112.pre-phi.i = phi float [ %factor.op.fmul42.i, %._crit_edge.i ], [ %factor.op.fmul98.i, %_diffuse_error.exit594.i ], [ %factor.op.fmul42.i, %932 ]
+  %factor.op.fmul116.pre-phi.i = phi float [ %factor.op.fmul102.i, %_diffuse_error.exit594.i ], [ %factor.op.fmul46.i, %._crit_edge.i ], [ %factor.op.fmul46.i, %932 ]
+  %factor.op.fmul114.pre-phi.i = phi float [ %factor.op.fmul100.i, %_diffuse_error.exit594.i ], [ %factor.op.fmul44.i, %._crit_edge.i ], [ %factor.op.fmul44.i, %932 ]
+  %factor.op.fmul112.pre-phi.i = phi float [ %factor.op.fmul98.i, %_diffuse_error.exit594.i ], [ %factor.op.fmul42.i, %._crit_edge.i ], [ %factor.op.fmul42.i, %932 ]
   %1217 = add nsw i32 %114, -1
   %1218 = zext nneg i32 %1217 to i64
   %1219 = shl nuw nsw i64 %wide.trip.count152.i, 2

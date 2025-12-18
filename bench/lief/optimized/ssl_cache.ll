@@ -81,7 +81,7 @@ ssl_cache_find_entry.exit:                        ; preds = %21, %10
   br label %ssl_cache_find_entry.exit.thread
 
 ssl_cache_find_entry.exit.thread:                 ; preds = %23, %12, %4, %ssl_cache_find_entry.exit
-  %.0 = phi i32 [ %29, %ssl_cache_find_entry.exit ], [ -32384, %4 ], [ -32384, %12 ], [ -32384, %23 ]
+  %.0 = phi i32 [ %29, %ssl_cache_find_entry.exit ], [ -32384, %12 ], [ -32384, %4 ], [ -32384, %23 ]
   ret i32 %.0
 }
 
@@ -197,7 +197,7 @@ define hidden i32 @mbedtls_ssl_cache_set(ptr noundef captures(none) %0, ptr noun
   br i1 %44, label %.thread38, label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %17, %.lr.ph70.split.i, %43, %42, %41
-  %.1.i = phi ptr [ %39, %41 ], [ %37, %42 ], [ %.043.lcssa.i, %43 ], [ %.269.i, %.lr.ph70.split.i ], [ %.04163.i, %17 ]
+  %.1.i = phi ptr [ %.269.i, %.lr.ph70.split.i ], [ %.043.lcssa.i, %43 ], [ %39, %41 ], [ %37, %42 ], [ %.04163.i, %17 ]
   %45 = getelementptr inbounds nuw i8, ptr %.1.i, i64 48
   %46 = load ptr, ptr %45, align 8, !tbaa !19
   %.not53.i = icmp eq ptr %46, null

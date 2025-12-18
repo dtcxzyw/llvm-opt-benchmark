@@ -505,7 +505,7 @@ _ZNSt8optionalImEaSIiEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remov
   br i1 %199, label %_ZN4llvm12PredIteratorIKNS_10BasicBlockENS_5Value18user_iterator_implIKNS_4UserEEEEppEv.exit.i.i.thread.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !183
 
 _ZN4llvm12PredIteratorIKNS_10BasicBlockENS_5Value18user_iterator_implIKNS_4UserEEEEppEv.exit.i.i.thread.i.i: ; preds = %_ZN4llvm12PredIteratorIKNS_10BasicBlockENS_5Value18user_iterator_implIKNS_4UserEEEEppEv.exit.i.i.i.i, %196, %.lr.ph.i.i.preheader.i.i
-  %.06.i.i10.i.i = phi i32 [ 0, %.lr.ph.i.i.preheader.i.i ], [ %.06.i.i12.i.i, %196 ], [ %202, %_ZN4llvm12PredIteratorIKNS_10BasicBlockENS_5Value18user_iterator_implIKNS_4UserEEEEppEv.exit.i.i.i.i ]
+  %.06.i.i10.i.i = phi i32 [ %.06.i.i12.i.i, %196 ], [ 0, %.lr.ph.i.i.preheader.i.i ], [ %202, %_ZN4llvm12PredIteratorIKNS_10BasicBlockENS_5Value18user_iterator_implIKNS_4UserEEEEppEv.exit.i.i.i.i ]
   %200 = add i32 %.06.i.i10.i.i, 1
   %201 = zext i32 %200 to i64
   br label %_ZN4llvm9pred_sizeEPKNS_10BasicBlockE.exit.i
@@ -925,7 +925,7 @@ _ZN4llvm8count_ifINS_14iterator_rangeINS_12SuccIteratorIKNS_11InstructionEKNS_10
   br label %_ZN4llvm8count_ifINS_14iterator_rangeINS_12SuccIteratorIKNS_11InstructionEKNS_10BasicBlockEEEEEZN12_GLOBAL__N_116ProfileAnnotatorC1ERNS_8FunctionERKNS_15SmallVectorImplImEERNS_23InstrProfSummaryBuilderEEUlPKT_E_EEDaOSJ_T0_.exit.i
 
 _ZN4llvm8count_ifINS_14iterator_rangeINS_12SuccIteratorIKNS_11InstructionEKNS_10BasicBlockEEEEEZN12_GLOBAL__N_116ProfileAnnotatorC1ERNS_8FunctionERKNS_15SmallVectorImplImEERNS_23InstrProfSummaryBuilderEEUlPKT_E_EEDaOSJ_T0_.exit.i: ; preds = %_ZN4llvm8count_ifINS_14iterator_rangeINS_12SuccIteratorIKNS_11InstructionEKNS_10BasicBlockEEEEEZN12_GLOBAL__N_116ProfileAnnotatorC1ERNS_8FunctionERKNS_15SmallVectorImplImEERNS_23InstrProfSummaryBuilderEEUlPKT_E_EEDaOSJ_T0_.exit.loopexit.i, %_ZN4llvm10successorsEPKNS_10BasicBlockE.exit.i, %303, %_ZN12_GLOBAL__N_116ProfileAnnotator6BBInfoD2Ev.exit.i
-  %.0.lcssa.i.i.i51.i = phi i64 [ 0, %_ZN4llvm10successorsEPKNS_10BasicBlockE.exit.i ], [ 0, %303 ], [ 0, %_ZN12_GLOBAL__N_116ProfileAnnotator6BBInfoD2Ev.exit.i ], [ %314, %_ZN4llvm8count_ifINS_14iterator_rangeINS_12SuccIteratorIKNS_11InstructionEKNS_10BasicBlockEEEEEZN12_GLOBAL__N_116ProfileAnnotatorC1ERNS_8FunctionERKNS_15SmallVectorImplImEERNS_23InstrProfSummaryBuilderEEUlPKT_E_EEDaOSJ_T0_.exit.loopexit.i ]
+  %.0.lcssa.i.i.i51.i = phi i64 [ 0, %_ZN4llvm10successorsEPKNS_10BasicBlockE.exit.i ], [ 0, %_ZN12_GLOBAL__N_116ProfileAnnotator6BBInfoD2Ev.exit.i ], [ 0, %303 ], [ %314, %_ZN4llvm8count_ifINS_14iterator_rangeINS_12SuccIteratorIKNS_11InstructionEKNS_10BasicBlockEEEEEZN12_GLOBAL__N_116ProfileAnnotatorC1ERNS_8FunctionERKNS_15SmallVectorImplImEERNS_23InstrProfSummaryBuilderEEUlPKT_E_EEDaOSJ_T0_.exit.loopexit.i ]
   %315 = add i64 %.0.lcssa.i.i.i51.i, %.0139.i
   %316 = getelementptr inbounds nuw i8, ptr %.sroa.0119.0140.i, i64 8
   %.sroa.0119.0.i = load ptr, ptr %316, align 8, !tbaa !41

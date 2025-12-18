@@ -2251,7 +2251,7 @@ define internal noundef i32 @http_seq_stats_tree_packet(ptr noundef %0, ptr noun
   br label %determine_http_location_target.exit
 
 determine_http_location_target.exit:              ; preds = %21, %28, %32, %54, %64, %73, %79
-  %.0.i = phi ptr [ %22, %21 ], [ %33, %32 ], [ %29, %28 ], [ %55, %54 ], [ %69, %64 ], [ %78, %73 ], [ %80, %79 ]
+  %.0.i = phi ptr [ %80, %79 ], [ %22, %21 ], [ %78, %73 ], [ %33, %32 ], [ %29, %28 ], [ %55, %54 ], [ %69, %64 ]
   %.not34 = icmp eq ptr %.0.i, null
   br i1 %.not34, label %determine_http_location_target.exit.thread, label %81
 
@@ -5161,7 +5161,7 @@ thread-pre-split1115.thread:                      ; preds = %1107, %1138, %threa
   br label %.thread1010
 
 .thread1010:                                      ; preds = %363, %481, %.lr.ph, %244, %241, %122, %93, %111, %75, %1222
-  %.0 = phi i32 [ -1, %75 ], [ %1223, %1222 ], [ -1, %122 ], [ -1, %241 ], [ -1, %244 ], [ -1, %93 ], [ -1, %111 ], [ -2, %.lr.ph ], [ -1, %363 ], [ -2, %481 ]
+  %.0 = phi i32 [ -1, %75 ], [ %1223, %1222 ], [ -1, %122 ], [ -1, %241 ], [ -1, %244 ], [ -2, %.lr.ph ], [ -1, %93 ], [ -1, %111 ], [ -1, %363 ], [ -2, %481 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
@@ -5284,8 +5284,8 @@ sub_120:                                          ; preds = %sub_019
   br label %.thread15
 
 .thread12:                                        ; preds = %5, %22
-  %.0131310 = phi i32 [ %16, %22 ], [ %2, %5 ]
-  %.013049 = phi ptr [ %.0130, %22 ], [ %1, %5 ]
+  %.0131310 = phi i32 [ %2, %5 ], [ %16, %22 ]
+  %.013049 = phi ptr [ %1, %5 ], [ %.0130, %22 ]
   %32 = icmp sgt i32 %.0131310, 0
   br i1 %32, label %.lr.ph.preheader, label %.thread15
 
@@ -6757,7 +6757,7 @@ proto_item_set_generated.exit:                    ; preds = %296, %303, %306
   br label %.critedge502
 
 .critedge502:                                     ; preds = %363, %362, %350, %.thread532, %154, %151, %143, %get_hf_for_header.exit.thread, %131, %122, %137, %get_hf_for_header.exit, %550, %442, %443, %395, %396, %399, %383, %385, %376, %378, %349, %344, %329, %340, %325, %327, %314, %294, %270, %.critedge498, %232, %228, %212, %210, %208, %206, %204, %438, %390, %345, %315, %230, %214, %proto_item_set_hidden.exit513, %480, %312, %proto_item_set_generated.exit, %481, %.loopexit, %64
-  %.010.i520 = phi i1 [ true, %131 ], [ true, %122 ], [ true, %137 ], [ true, %get_hf_for_header.exit.thread ], [ true, %get_hf_for_header.exit ], [ true, %154 ], [ true, %550 ], [ true, %442 ], [ true, %443 ], [ true, %395 ], [ true, %396 ], [ true, %399 ], [ true, %383 ], [ true, %385 ], [ true, %376 ], [ true, %378 ], [ true, %349 ], [ true, %344 ], [ true, %329 ], [ true, %340 ], [ true, %325 ], [ true, %327 ], [ true, %314 ], [ true, %294 ], [ true, %270 ], [ true, %.critedge498 ], [ true, %232 ], [ true, %228 ], [ true, %212 ], [ true, %210 ], [ true, %208 ], [ true, %206 ], [ true, %204 ], [ true, %438 ], [ true, %390 ], [ true, %345 ], [ true, %315 ], [ true, %230 ], [ true, %214 ], [ true, %proto_item_set_hidden.exit513 ], [ true, %480 ], [ true, %312 ], [ true, %proto_item_set_generated.exit ], [ true, %.thread532 ], [ true, %481 ], [ false, %.loopexit ], [ false, %64 ], [ true, %143 ], [ true, %151 ], [ true, %350 ], [ true, %362 ], [ true, %363 ]
+  %.010.i520 = phi i1 [ true, %131 ], [ true, %122 ], [ true, %137 ], [ true, %get_hf_for_header.exit.thread ], [ true, %get_hf_for_header.exit ], [ true, %154 ], [ true, %550 ], [ true, %442 ], [ true, %443 ], [ true, %395 ], [ true, %396 ], [ true, %399 ], [ true, %383 ], [ true, %385 ], [ true, %376 ], [ true, %378 ], [ true, %349 ], [ true, %344 ], [ true, %329 ], [ true, %340 ], [ true, %325 ], [ true, %327 ], [ true, %314 ], [ true, %294 ], [ true, %270 ], [ true, %.critedge498 ], [ true, %232 ], [ true, %228 ], [ true, %212 ], [ true, %210 ], [ true, %208 ], [ true, %206 ], [ true, %204 ], [ true, %438 ], [ true, %390 ], [ true, %345 ], [ true, %315 ], [ true, %230 ], [ true, %214 ], [ true, %proto_item_set_hidden.exit513 ], [ true, %480 ], [ true, %312 ], [ true, %proto_item_set_generated.exit ], [ true, %151 ], [ true, %143 ], [ true, %.thread532 ], [ true, %481 ], [ false, %.loopexit ], [ false, %64 ], [ true, %350 ], [ true, %362 ], [ true, %363 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   ret i1 %.010.i520
 }
@@ -7773,7 +7773,7 @@ define internal fastcc zeroext i1 @http_parse_transfer_coding(ptr noundef %0, pt
   br i1 %.not51, label %.loopexit, label %.preheader.lr.ph, !llvm.loop !36
 
 .loopexit:                                        ; preds = %.outer, %14, %28, %11, %.preheader, %2
-  %.1 = phi i1 [ true, %2 ], [ %.0.ph56, %11 ], [ %.0.ph56, %.preheader ], [ %.2, %.outer ], [ false, %14 ], [ false, %28 ]
+  %.1 = phi i1 [ true, %2 ], [ %.0.ph56, %11 ], [ %.0.ph56, %.preheader ], [ false, %14 ], [ %.2, %.outer ], [ false, %28 ]
   ret i1 %.1
 }
 

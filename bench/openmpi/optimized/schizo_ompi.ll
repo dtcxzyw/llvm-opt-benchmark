@@ -783,7 +783,7 @@ mcaoption.exit:                                   ; preds = %44
   br label %.loopexit
 
 .loopexit:                                        ; preds = %173, %.preheader, %._crit_edge238, %180, %128, %78, %84
-  %.0 = phi i32 [ %129, %128 ], [ %85, %84 ], [ -72, %78 ], [ 0, %180 ], [ 0, %._crit_edge238 ], [ 0, %.preheader ], [ 0, %173 ]
+  %.0 = phi i32 [ %129, %128 ], [ %85, %84 ], [ -72, %78 ], [ 0, %._crit_edge238 ], [ 0, %180 ], [ 0, %.preheader ], [ 0, %173 ]
   ret i32 %.0
 }
 
@@ -1247,8 +1247,8 @@ sub_0207.i:                                       ; preds = %132
   br label %process_envar.exit.i
 
 process_envar.exit.i:                             ; preds = %.lr.ph.i.i, %184, %.critedge.i.i, %190, %180, %168, %159
-  %.sink.i.i = phi ptr [ %177, %180 ], [ %157, %168 ], [ %157, %.critedge.i.i ], [ %157, %190 ], [ %157, %159 ], [ %157, %184 ], [ %157, %.lr.ph.i.i ]
-  %.052.i.i = phi i32 [ -5, %180 ], [ 0, %168 ], [ -13, %.critedge.i.i ], [ %191, %190 ], [ %161, %159 ], [ %.2.i.i, %184 ], [ 0, %.lr.ph.i.i ]
+  %.sink.i.i = phi ptr [ %177, %180 ], [ %157, %184 ], [ %157, %159 ], [ %157, %168 ], [ %157, %.critedge.i.i ], [ %157, %190 ], [ %157, %.lr.ph.i.i ]
+  %.052.i.i = phi i32 [ -5, %180 ], [ %.2.i.i, %184 ], [ %161, %159 ], [ 0, %168 ], [ -13, %.critedge.i.i ], [ %191, %190 ], [ 0, %.lr.ph.i.i ]
   call void @free(ptr noundef nonnull %.sink.i.i) #18
   call void @free(ptr noundef %156) #18
   %.not182.i = icmp eq i32 %.052.i.i, 0
@@ -1762,7 +1762,7 @@ pmix_cmd_line_get_param.exit260.thread:           ; preds = %358, %pmix_cmd_line
   br i1 %.not.i.i288, label %pmix_cmd_line_is_taken.exit292, label %.lr.ph.i.i285, !llvm.loop !47
 
 pmix_cmd_line_is_taken.exit292.sink.split:        ; preds = %.lr.ph.i.i265, %.lr.ph.i.i275, %.lr.ph.i.i285
-  %.str.195.sink = phi ptr [ @.str.195, %.lr.ph.i.i275 ], [ @.str.196, %.lr.ph.i.i285 ], [ @.str.194, %.lr.ph.i.i265 ]
+  %.str.195.sink = phi ptr [ @.str.196, %.lr.ph.i.i285 ], [ @.str.195, %.lr.ph.i.i275 ], [ @.str.194, %.lr.ph.i.i265 ]
   %391 = call i32 @PMIx_Setenv(ptr noundef nonnull @.str.193, ptr noundef nonnull %.str.195.sink, i1 noundef zeroext true, ptr noundef %1) #18
   br label %pmix_cmd_line_is_taken.exit292
 

@@ -747,7 +747,7 @@ select.unfold119.i:                               ; preds = %77, %72, %.thread.i
   br label %inet_pton6.exit
 
 inet_pton6.exit:                                  ; preds = %.thread.i, %70, %72, %73, %53, %55, %81, %inet_pton4.exit.thread.i, %114, %122, %134, %.thread127.i
-  %.063.i = phi i32 [ -22, %inet_pton4.exit.thread.i ], [ -22, %55 ], [ -22, %134 ], [ 0, %.thread127.i ], [ -22, %114 ], [ -22, %122 ], [ -22, %81 ], [ -22, %53 ], [ -22, %73 ], [ -22, %72 ], [ -22, %70 ], [ -22, %.thread.i ]
+  %.063.i = phi i32 [ -22, %inet_pton4.exit.thread.i ], [ -22, %81 ], [ -22, %55 ], [ -22, %134 ], [ 0, %.thread127.i ], [ -22, %114 ], [ -22, %122 ], [ -22, %53 ], [ -22, %73 ], [ -22, %72 ], [ -22, %70 ], [ -22, %.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %135
 

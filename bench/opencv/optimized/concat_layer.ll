@@ -1478,7 +1478,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv3dnn15ConcatLayerImpl14supp
   br label %17
 
 17:                                               ; preds = %2, %2, %.fold.split, %3, %12, %11
-  %18 = phi i1 [ true, %11 ], [ true, %3 ], [ true, %2 ], [ %16, %12 ], [ true, %2 ], [ false, %.fold.split ]
+  %18 = phi i1 [ true, %11 ], [ true, %3 ], [ true, %2 ], [ false, %.fold.split ], [ %16, %12 ], [ true, %2 ]
   ret i1 %18
 }
 

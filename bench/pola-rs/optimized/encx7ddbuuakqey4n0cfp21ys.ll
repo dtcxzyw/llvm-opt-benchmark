@@ -611,9 +611,9 @@ define hidden { i64, i64 } @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$
   br i1 %54, label %.loopexit, label %.split.i
 
 .loopexit:                                        ; preds = %.split.i, %40, %.split.us.i, %.split.us25.i
-  %.lcssa54.sink = phi i64 [ %.sroa.5.0.copyload, %.split.us25.i ], [ %.sroa.5.0.copyload, %.split.us.i ], [ %53, %40 ], [ %38, %.split.i ]
-  %.sroa.0.0.i2549 = phi i64 [ 1, %.split.us25.i ], [ 1, %.split.us.i ], [ 0, %40 ], [ 1, %.split.i ]
-  %56 = phi i64 [ %.sroa.0.0, %.split.us25.i ], [ %.sroa.0.0, %.split.us.i ], [ undef, %40 ], [ %.sroa.01.0.i26, %.split.i ]
+  %.lcssa54.sink = phi i64 [ %.sroa.5.0.copyload, %.split.us.i ], [ %.sroa.5.0.copyload, %.split.us25.i ], [ %53, %40 ], [ %38, %.split.i ]
+  %.sroa.0.0.i2549 = phi i64 [ 1, %.split.us.i ], [ 1, %.split.us25.i ], [ 0, %40 ], [ 1, %.split.i ]
+  %56 = phi i64 [ %.sroa.0.0, %.split.us.i ], [ %.sroa.0.0, %.split.us25.i ], [ undef, %40 ], [ %.sroa.01.0.i26, %.split.i ]
   store ptr null, ptr %34, align 8, !alias.scope !95, !noalias !98
   %57 = icmp ne ptr %.sroa.0.0.copyload, null
   call void @llvm.assume(i1 %57)
@@ -1879,7 +1879,7 @@ define hidden void @"_ZN75_$LT$$u5b$T$u5d$$u20$as$u20$alloc..slice..SpecCloneInt
           to label %21 unwind label %28
 
 common.resume:                                    ; preds = %21, %45, %56, %69
-  %common.resume.op = phi { ptr, i32 } [ %46, %45 ], [ %70, %69 ], [ %57, %56 ], [ %24, %21 ]
+  %common.resume.op = phi { ptr, i32 } [ %57, %56 ], [ %46, %45 ], [ %70, %69 ], [ %24, %21 ]
   resume { ptr, i32 } %common.resume.op
 
 28:                                               ; preds = %25

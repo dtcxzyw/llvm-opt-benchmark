@@ -600,8 +600,8 @@ setup_sparse_fiemap.exit.i:                       ; preds = %._crit_edge.thread.
   br label %setup_sparse.exit.thread
 
 setup_sparse.exit.thread:                         ; preds = %.critedge.i, %setup_sparse_fiemap.exit.i, %127, %132, %114, %117, %112, %108
-  %236 = phi i32 [ %79, %108 ], [ %.pr.i, %127 ], [ %130, %132 ], [ %79, %114 ], [ %79, %112 ], [ %79, %117 ], [ %136, %setup_sparse_fiemap.exit.i ], [ %136, %.critedge.i ]
-  %.3 = phi i32 [ 0, %108 ], [ -25, %127 ], [ -25, %132 ], [ 0, %114 ], [ 0, %112 ], [ 0, %117 ], [ 0, %setup_sparse_fiemap.exit.i ], [ %.056.i, %.critedge.i ]
+  %236 = phi i32 [ %79, %108 ], [ %.pr.i, %127 ], [ %130, %132 ], [ %79, %114 ], [ %79, %112 ], [ %79, %117 ], [ %136, %.critedge.i ], [ %136, %setup_sparse_fiemap.exit.i ]
+  %.3 = phi i32 [ 0, %108 ], [ -25, %127 ], [ -25, %132 ], [ 0, %114 ], [ 0, %112 ], [ 0, %117 ], [ %.056.i, %.critedge.i ], [ 0, %setup_sparse_fiemap.exit.i ]
   %.not121 = icmp eq i32 %2, %236
   br i1 %.not121, label %.thread, label %237
 

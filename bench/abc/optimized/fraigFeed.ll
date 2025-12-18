@@ -1892,7 +1892,7 @@ define noalias noundef ptr @Fraig_ManSaveCounterExample(ptr noundef readonly cap
   br label %.loopexit
 
 .loopexit:                                        ; preds = %67, %40, %.preheader41, %.preheader, %69, %68
-  %.035 = phi ptr [ null, %68 ], [ null, %69 ], [ %calloc.i, %.preheader ], [ %calloc.i, %.preheader41 ], [ %calloc.i, %40 ], [ %calloc.i, %67 ]
+  %.035 = phi ptr [ %calloc.i, %.preheader ], [ null, %69 ], [ null, %68 ], [ %calloc.i, %.preheader41 ], [ %calloc.i, %40 ], [ %calloc.i, %67 ]
   ret ptr %.035
 }
 

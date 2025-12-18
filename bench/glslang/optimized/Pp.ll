@@ -1695,7 +1695,7 @@ _ZN7glslang10TPpContext15extraTokenCheckEiPNS_8TPpTokenEi.exit: ; preds = %48, %
   br label %.outer.backedge
 
 .loopexit:                                        ; preds = %.backedge, %.preheader, %69, %60, %57, %96, %28
-  %.0 = phi i32 [ %97, %96 ], [ -1, %28 ], [ %.016.i, %60 ], [ %.016.i, %57 ], [ %74, %69 ], [ %.2, %.preheader ], [ %.045, %.backedge ]
+  %.0 = phi i32 [ %97, %96 ], [ -1, %28 ], [ %.2, %.preheader ], [ %.016.i, %60 ], [ %.016.i, %57 ], [ %74, %69 ], [ %.045, %.backedge ]
   ret i32 %.0
 }
 
@@ -2138,7 +2138,7 @@ _ZN7glslang10TPpContext14lookupMacroDefEi.exit.thread: ; preds = %_ZNSt3mapIiN7g
   br label %.thread
 
 .thread:                                          ; preds = %119, %119, %126, %152, %124, %.thread.sink.split, %113
-  %.0 = phi i32 [ %114, %113 ], [ %.0.ph, %.thread.sink.split ], [ %.2156, %124 ], [ %.2156, %119 ], [ %.2156, %119 ], [ %.2156, %126 ], [ %142, %152 ]
+  %.0 = phi i32 [ %.0.ph, %.thread.sink.split ], [ %.2156, %124 ], [ %114, %113 ], [ %.2156, %119 ], [ %.2156, %126 ], [ %142, %152 ], [ %.2156, %119 ]
   ret i32 %.0
 }
 
@@ -3588,7 +3588,7 @@ _ZN7glslang10TPpContext14scanHeaderNameEPNS_8TPpTokenEc.exit: ; preds = %65
   br i1 %.not, label %_ZN7glslang10TPpContext14scanHeaderNameEPNS_8TPpTokenEc.exit.thread, label %_ZN7glslang10TPpContext14scanHeaderNameEPNS_8TPpTokenEc.exit.thread71
 
 _ZN7glslang10TPpContext14scanHeaderNameEPNS_8TPpTokenEc.exit.thread71: ; preds = %.lr.ph.i58, %.lr.ph.i, %67, %24, %_ZN7glslang10TPpContext14scanHeaderNameEPNS_8TPpTokenEc.exit
-  %.04874 = phi i32 [ %114, %_ZN7glslang10TPpContext14scanHeaderNameEPNS_8TPpTokenEc.exit ], [ -1, %24 ], [ -1, %67 ], [ -1, %.lr.ph.i ], [ -1, %.lr.ph.i58 ]
+  %.04874 = phi i32 [ %114, %_ZN7glslang10TPpContext14scanHeaderNameEPNS_8TPpTokenEc.exit ], [ -1, %67 ], [ -1, %.lr.ph.i ], [ -1, %24 ], [ -1, %.lr.ph.i58 ]
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %116 = load ptr, ptr %115, align 8
   %117 = load ptr, ptr %116, align 8
@@ -9138,7 +9138,7 @@ _ZN7glslang13TInputScanner4peekEv.exit.i73:       ; preds = %.preheader199
   br label %_ZN7glslang13TInputScanner3getEv.exit74
 
 _ZN7glslang13TInputScanner3getEv.exit74:          ; preds = %19, %_ZN7glslang13TInputScanner3getEv.exit45, %_ZN7glslang13TInputScanner4peekEv.exit24, %129, %92, %202, %251, %302, %312, %291, %191, %240, %8, %81, %343, %.thread84, %_ZN7glslang13TInputScanner4peekEv.exit64, %.loopexit, %344
-  %.0 = phi i32 [ 10, %343 ], [ 10, %.loopexit ], [ 10, %_ZN7glslang13TInputScanner4peekEv.exit64 ], [ %.014, %344 ], [ 10, %.thread84 ], [ 92, %81 ], [ -1, %8 ], [ -1, %240 ], [ -1, %191 ], [ 10, %291 ], [ 10, %302 ], [ -1, %251 ], [ -1, %202 ], [ 92, %_ZN7glslang13TInputScanner4peekEv.exit24 ], [ 10, %312 ], [ 92, %92 ], [ 10, %_ZN7glslang13TInputScanner3getEv.exit45 ], [ 92, %129 ], [ -1, %19 ]
+  %.0 = phi i32 [ 10, %302 ], [ 10, %343 ], [ 10, %291 ], [ 10, %.loopexit ], [ 10, %312 ], [ 10, %_ZN7glslang13TInputScanner4peekEv.exit64 ], [ %.014, %344 ], [ 10, %.thread84 ], [ -1, %191 ], [ -1, %202 ], [ 92, %_ZN7glslang13TInputScanner4peekEv.exit24 ], [ 92, %81 ], [ -1, %8 ], [ -1, %251 ], [ -1, %240 ], [ 92, %92 ], [ 92, %129 ], [ 10, %_ZN7glslang13TInputScanner3getEv.exit45 ], [ -1, %19 ]
   ret i32 %.0
 }
 
@@ -9513,9 +9513,9 @@ _ZN7glslang13TInputScanner4peekEv.exit21:         ; preds = %115
   br i1 %.not.i, label %.lr.ph, label %._crit_edge, !llvm.loop !116
 
 _ZN7glslang13TInputScanner4peekEv.exit21.thread:  ; preds = %_ZN7glslang13TInputScanner4peekEv.exit21, %118, %107
-  %132 = phi i32 [ %.pre83, %107 ], [ %106, %118 ], [ %106, %_ZN7glslang13TInputScanner4peekEv.exit21 ]
-  %133 = phi i32 [ %.pre81, %107 ], [ %104, %118 ], [ %104, %_ZN7glslang13TInputScanner4peekEv.exit21 ]
-  %134 = phi ptr [ %.pre79, %107 ], [ %102, %118 ], [ %102, %_ZN7glslang13TInputScanner4peekEv.exit21 ]
+  %132 = phi i32 [ %106, %118 ], [ %.pre83, %107 ], [ %106, %_ZN7glslang13TInputScanner4peekEv.exit21 ]
+  %133 = phi i32 [ %104, %118 ], [ %.pre81, %107 ], [ %104, %_ZN7glslang13TInputScanner4peekEv.exit21 ]
+  %134 = phi ptr [ %102, %118 ], [ %.pre79, %107 ], [ %102, %_ZN7glslang13TInputScanner4peekEv.exit21 ]
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 32
   %.not.i.i22 = icmp slt i32 %133, %132
   br i1 %.not.i.i22, label %138, label %136

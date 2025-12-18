@@ -1986,7 +1986,7 @@ _ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit.i: ; preds = %_ZN11ast_manager7i
   br i1 %.not27.old.i.i.i.i, label %_ZNK7obj_mapI4exprPS0_E4findES1_RS1_.exit.thread.i, label %.lr.ph38.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.backedge:                        ; preds = %311, %308
-  %.137.i.i.i.i.be = phi ptr [ %.old.i.i.i.i, %311 ], [ %310, %308 ]
+  %.137.i.i.i.i.be = phi ptr [ %310, %308 ], [ %.old.i.i.i.i, %311 ]
   br label %.lr.ph38.i.i.i.i, !llvm.loop !294
 
 .loopexit138.i:                                   ; preds = %292, %303
@@ -2394,7 +2394,7 @@ _ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_E
   br i1 %.not27.old.i.i.i85.i, label %.loopexit.i88.i, label %.lr.ph38.i.i.i81.i.backedge
 
 .lr.ph38.i.i.i81.i.backedge:                      ; preds = %452, %449
-  %.137.i.i.i82.i.be = phi ptr [ %.old.i.i.i84.i, %452 ], [ %451, %449 ]
+  %.137.i.i.i82.i.be = phi ptr [ %451, %449 ], [ %.old.i.i.i84.i, %452 ]
   br label %.lr.ph38.i.i.i81.i, !llvm.loop !306
 
 .loopexit.i88.i:                                  ; preds = %438, %452, %449, %.preheader.i.i.i79.i
@@ -3680,7 +3680,7 @@ _ZN6bufferISt4pairIP4exprjELb0ELj16EED2Ev.exit.i.i.i.i: ; preds = %858, %855
   br i1 %.not27.old.i.i.i, label %.loopexit75.i, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %920, %917
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %920 ], [ %919, %917 ]
+  %.137.i.i.i.be = phi ptr [ %919, %917 ], [ %.old.i.i.i, %920 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !306
 
 .loopexit75.i:                                    ; preds = %906, %920, %917, %.preheader.i.i.i
@@ -4502,7 +4502,7 @@ define internal void @_ZN12_GLOBAL__N_110smt_solver17assert_expr_core2EP4exprS2_
   br i1 %.not27.old.i.i.i, label %.loopexit, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %39, %36
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %39 ], [ %38, %36 ]
+  %.137.i.i.i.be = phi ptr [ %38, %36 ], [ %.old.i.i.i, %39 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !294
 
 _ZNK7obj_mapI4exprPS0_E8containsES1_.exit:        ; preds = %20, %31
@@ -9579,7 +9579,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI4exprPS1_E13obj_m
   br i1 %.not32.old, label %.loopexit, label %.lr.ph48.backedge
 
 .lr.ph48.backedge:                                ; preds = %36, %33
-  %.247.be = phi ptr [ %.old, %36 ], [ %35, %33 ]
+  %.247.be = phi ptr [ %35, %33 ], [ %.old, %36 ]
   br label %.lr.ph48, !llvm.loop !510
 
 .loopexit38:                                      ; preds = %17, %28

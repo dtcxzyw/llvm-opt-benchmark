@@ -1260,7 +1260,7 @@ arkStep_AccessStepMem.exit:                       ; preds = %3
   br label %.loopexit
 
 .loopexit:                                        ; preds = %85, %111, %143, %arkStep_AccessStepMem.exit, %175, %163, %7, %274, %273, %267, %261, %247, %241, %228, %65, %56, %34, %31
-  %.083 = phi i32 [ 0, %274 ], [ -21, %arkStep_AccessStepMem.exit ], [ -22, %31 ], [ -22, %34 ], [ -22, %56 ], [ -22, %65 ], [ 0, %7 ], [ -20, %163 ], [ -22, %228 ], [ -22, %241 ], [ -14, %247 ], [ -15, %261 ], [ -5, %267 ], [ -29, %273 ], [ -20, %175 ], [ -20, %111 ], [ -20, %143 ], [ -20, %85 ]
+  %.083 = phi i32 [ 0, %274 ], [ -21, %arkStep_AccessStepMem.exit ], [ -22, %31 ], [ -22, %34 ], [ -22, %56 ], [ -22, %65 ], [ 0, %7 ], [ -20, %143 ], [ -20, %111 ], [ -20, %175 ], [ -20, %163 ], [ -22, %228 ], [ -22, %241 ], [ -14, %247 ], [ -15, %261 ], [ -5, %267 ], [ -29, %273 ], [ -20, %85 ]
   ret i32 %.083
 }
 
@@ -5005,7 +5005,7 @@ select.unfold:                                    ; preds = %22
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.split.us, %41, %.lr.ph.split.us, %._crit_edge.loopexit142, %.preheader116
-  %.0100.lcssa = phi i32 [ 0, %.preheader116 ], [ %86, %._crit_edge.loopexit142 ], [ 0, %.lr.ph.split.us ], [ %30, %41 ], [ %30, %.lr.ph.split.split.us ]
+  %.0100.lcssa = phi i32 [ 0, %.preheader116 ], [ %86, %._crit_edge.loopexit142 ], [ %30, %41 ], [ 0, %.lr.ph.split.us ], [ %30, %.lr.ph.split.split.us ]
   %87 = tail call i32 @N_VLinearCombination(i32 noundef %.0100.lcssa, ptr noundef %13, ptr noundef %15, ptr noundef %9) #13
   %.not107 = icmp eq i32 %87, 0
   br i1 %.not107, label %88, label %193
@@ -5170,7 +5170,7 @@ select.unfold:                                    ; preds = %22
   br label %._crit_edge128
 
 ._crit_edge128:                                   ; preds = %.lr.ph127.split.split.us, %118, %.lr.ph127.split.us, %._crit_edge128.loopexit139, %.preheader
-  %.3.lcssa = phi i32 [ 0, %.preheader ], [ %179, %._crit_edge128.loopexit139 ], [ 0, %.lr.ph127.split.us ], [ %105, %118 ], [ %105, %.lr.ph127.split.split.us ]
+  %.3.lcssa = phi i32 [ 0, %.preheader ], [ %179, %._crit_edge128.loopexit139 ], [ %105, %118 ], [ 0, %.lr.ph127.split.us ], [ %105, %.lr.ph127.split.split.us ]
   %180 = tail call i32 @N_VLinearCombination(i32 noundef %.3.lcssa, ptr noundef %13, ptr noundef %15, ptr noundef %11) #13
   %.not111 = icmp eq i32 %180, 0
   br i1 %.not111, label %181, label %193

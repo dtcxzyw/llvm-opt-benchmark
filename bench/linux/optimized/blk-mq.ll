@@ -3610,8 +3610,8 @@ define dso_local void @blk_mq_end_request_batch(ptr noundef captures(address_is_
   br i1 %263, label %._crit_edge, label %.lr.ph52
 
 ._crit_edge:                                      ; preds = %.lr.ph, %182, %.lr.ph.preheader
-  %.lcssa51 = phi i32 [ 0, %.lr.ph.preheader ], [ %15, %182 ], [ %259, %.lr.ph ]
-  %.lcssa = phi ptr [ null, %.lr.ph.preheader ], [ %14, %182 ], [ %255, %.lr.ph ]
+  %.lcssa51 = phi i32 [ %15, %182 ], [ 0, %.lr.ph.preheader ], [ %259, %.lr.ph ]
+  %.lcssa = phi ptr [ %14, %182 ], [ null, %.lr.ph.preheader ], [ %255, %.lr.ph ]
   %264 = icmp eq i32 %.lcssa51, 0
   br i1 %264, label %._crit_edge.thread, label %265
 
@@ -4656,7 +4656,7 @@ define dso_local void @blk_mq_run_hw_queue(ptr noundef %0, i1 noundef zeroext %1
   tail call void @__rcu_read_unlock() #22
   br label %91
 
-.thread8:                                         ; preds = %62, %84, %79
+.thread8:                                         ; preds = %62, %79, %84
   tail call void @__rcu_read_unlock() #22
   br label %118
 
@@ -9312,7 +9312,7 @@ define dso_local ptr @blk_mq_alloc_map_and_rqs(ptr noundef %0, i32 noundef %1, i
   br label %.thread
 
 .thread:                                          ; preds = %.loopexit, %.thread.sink.split, %83, %35
-  %183 = phi ptr [ null, %35 ], [ %41, %83 ], [ null, %.thread.sink.split ], [ %41, %.loopexit ]
+  %183 = phi ptr [ null, %.thread.sink.split ], [ null, %35 ], [ %41, %83 ], [ %41, %.loopexit ]
   ret ptr %183
 }
 
@@ -12360,7 +12360,7 @@ define dso_local range(i32 0, -2147483648) i32 @blk_mq_poll(ptr noundef %0, i32 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.critedge.us5, %.critedge, %.critedge.us, %.split4.us
-  %80 = phi i32 [ %.us-phi, %.split4.us ], [ 1, %.critedge ], [ 1, %.critedge.us ], [ 1, %.critedge.us5 ]
+  %80 = phi i32 [ %.us-phi, %.split4.us ], [ 1, %.critedge.us ], [ 1, %.critedge ], [ 1, %.critedge.us5 ]
   ret i32 %80
 }
 
@@ -12556,7 +12556,7 @@ define dso_local range(i32 0, -2147483648) i32 @blk_rq_poll(ptr noundef readonly
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.critedge.us9, %.critedge, %.critedge.us, %.split8.us
-  %106 = phi i32 [ %.us-phi, %.split8.us ], [ 1, %.critedge ], [ 1, %.critedge.us ], [ 1, %.critedge.us9 ]
+  %106 = phi i32 [ %.us-phi, %.split8.us ], [ 1, %.critedge.us ], [ 1, %.critedge ], [ 1, %.critedge.us9 ]
   tail call void @blk_queue_exit(ptr noundef %4) #22
   br label %107
 

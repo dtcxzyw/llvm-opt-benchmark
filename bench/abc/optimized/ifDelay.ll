@@ -447,7 +447,7 @@ If_CutPinDelayMax.exit.loopexit.us.i46:           ; preds = %104
   br i1 %105, label %.lr.ph.preheader.i.us.i36, label %If_LogPinDelaysMulti.exit, !llvm.loop !58
 
 If_LogPinDelaysMulti.exit:                        ; preds = %If_CutPinDelayMax.exit.loopexit.us.i46, %15, %._crit_edge
-  %.1.lcssa153 = phi i32 [ %.2, %._crit_edge ], [ %.027110, %15 ], [ %.2, %If_CutPinDelayMax.exit.loopexit.us.i46 ]
+  %.1.lcssa153 = phi i32 [ %.027110, %15 ], [ %.2, %._crit_edge ], [ %.2, %If_CutPinDelayMax.exit.loopexit.us.i46 ]
   %106 = load i64, ptr %6, align 16, !tbaa !52
   %107 = sext i32 %.096108 to i64
   %108 = getelementptr inbounds i64, ptr %7, i64 %107
@@ -687,7 +687,7 @@ If_CutPinDelayMax.exit.loopexit.us.i91:           ; preds = %221
   br i1 %222, label %.lr.ph.preheader.i.us.i81, label %If_LogPinDelaysMulti.exit92, !llvm.loop !58
 
 If_LogPinDelaysMulti.exit92:                      ; preds = %If_CutPinDelayMax.exit.loopexit.us.i91, %.preheader, %.critedge, %If_CutPinDelayMax.exit.preheader.i79
-  %.027.lcssa156 = phi i32 [ %188, %If_CutPinDelayMax.exit.preheader.i79 ], [ %188, %.critedge ], [ 0, %.preheader ], [ %188, %If_CutPinDelayMax.exit.loopexit.us.i91 ]
+  %.027.lcssa156 = phi i32 [ 0, %.preheader ], [ %188, %If_CutPinDelayMax.exit.preheader.i79 ], [ %188, %.critedge ], [ %188, %If_CutPinDelayMax.exit.loopexit.us.i91 ]
   %223 = load i64, ptr %7, align 16, !tbaa !52
   store i64 %223, ptr %4, align 8, !tbaa !52
   br label %224
@@ -1600,7 +1600,7 @@ If_LogCreateAndXor.exit191:                       ; preds = %Vec_IntPush.exit.i.
   br i1 %334, label %.lr.ph.us.i135, label %.loopexit.us.i133, !llvm.loop !64
 
 .thread.i141:                                     ; preds = %If_LogCreateAndXor.exit191, %._crit_edge.thread, %257
-  %.153.lcssa284288 = phi i32 [ %.2, %257 ], [ %.052214, %._crit_edge.thread ], [ %.2, %If_LogCreateAndXor.exit191 ]
+  %.153.lcssa284288 = phi i32 [ %.052214, %._crit_edge.thread ], [ %.2, %257 ], [ %.2, %If_LogCreateAndXor.exit191 ]
   %335 = load i32, ptr %9, align 16, !tbaa !26
   %336 = xor i32 %335, 1
   %.pre.i140 = sext i32 %.0199212 to i64
@@ -1713,7 +1713,7 @@ If_LogCounterAddAig.exit138:                      ; preds = %.loopexit.i146, %.p
   br i1 %387, label %.lr.ph.i161, label %If_LogCreateAndXorMulti.exit164, !llvm.loop !67
 
 If_LogCreateAndXorMulti.exit164:                  ; preds = %.lr.ph.i161, %.critedge.thread, %378
-  %.052.lcssa295300 = phi i32 [ %375, %378 ], [ 0, %.critedge.thread ], [ %375, %.lr.ph.i161 ]
+  %.052.lcssa295300 = phi i32 [ 0, %.critedge.thread ], [ %375, %378 ], [ %375, %.lr.ph.i161 ]
   %388 = load i32, ptr %11, align 16, !tbaa !26
   %389 = xor i32 %388, 1
   store i32 %389, ptr %4, align 4, !tbaa !26

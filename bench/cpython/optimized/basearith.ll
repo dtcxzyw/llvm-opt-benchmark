@@ -953,7 +953,7 @@ _mpd_baseadd.exit:                                ; preds = %.preheader.i, %256,
   br i1 %.not.i146, label %.preheader, label %_mpd_shortdiv.exit144, !llvm.loop !29
 
 _mpd_shortdiv.exit144:                            ; preds = %278, %300, %.preheader, %276
-  %.0 = phi i32 [ 0, %276 ], [ 1, %300 ], [ 0, %.preheader ], [ 0, %278 ]
+  %.0 = phi i32 [ 1, %300 ], [ 0, %276 ], [ 0, %.preheader ], [ 0, %278 ]
   %.not108 = icmp eq ptr %.094, %7
   br i1 %.not108, label %305, label %303
 

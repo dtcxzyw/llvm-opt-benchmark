@@ -708,7 +708,7 @@ for.end507:                                       ; preds = %for.cond352.loopexi
   br label %cleanup520
 
 cleanup520:                                       ; preds = %if.end309, %lor.rhs377, %for.body354, %lor.rhs475, %if.end429, %lor.lhs.false450, %if.then404, %cleanup285.critedge, %for.end507
-  %retval.sroa.0.3 = phi ptr [ null, %cleanup285.critedge ], [ %call4.i, %for.end507 ], [ null, %lor.rhs377 ], [ null, %lor.rhs475 ], [ null, %if.then404 ], [ null, %lor.lhs.false450 ], [ null, %if.end429 ], [ null, %for.body354 ], [ null, %if.end309 ]
+  %retval.sroa.0.3 = phi ptr [ null, %cleanup285.critedge ], [ null, %lor.rhs475 ], [ null, %lor.rhs377 ], [ %call4.i, %for.end507 ], [ null, %if.then404 ], [ null, %lor.lhs.false450 ], [ null, %if.end429 ], [ null, %for.body354 ], [ null, %if.end309 ]
   %54 = load ptr, ptr %_M_before_begin.i.i, align 8
   %tobool.not3.i.i.i.i = icmp eq ptr %54, null
   br i1 %tobool.not3.i.i.i.i, label %_ZNSt10_HashtableIPN2v813EmbedderGraph4NodeESt4pairIKS3_NS0_5LocalINS0_6ObjectEEEESaIS9_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i, label %while.body.i.i.i.i
@@ -2297,7 +2297,7 @@ if.then.i:                                        ; preds = %_ZNKSt8__detail15_H
   br label %return
 
 return:                                           ; preds = %lor.lhs.false.i.i, %if.end3.i.i, %for.cond, %for.body, %if.then.i, %_ZNKSt8__detail15_Hash_code_baseIPN4node4heap13JSGraphJSNodeES4_NS_9_IdentityENS3_4HashENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERKS4_.exit
-  %retval.sroa.0.1 = phi ptr [ %14, %if.then.i ], [ null, %_ZNKSt8__detail15_Hash_code_baseIPN4node4heap13JSGraphJSNodeES4_NS_9_IdentityENS3_4HashENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERKS4_.exit ], [ null, %for.cond ], [ %retval.sroa.0.0, %for.body ], [ null, %if.end3.i.i ], [ null, %lor.lhs.false.i.i ]
+  %retval.sroa.0.1 = phi ptr [ null, %for.cond ], [ null, %_ZNKSt8__detail15_Hash_code_baseIPN4node4heap13JSGraphJSNodeES4_NS_9_IdentityENS3_4HashENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERKS4_.exit ], [ %14, %if.then.i ], [ %retval.sroa.0.0, %for.body ], [ null, %if.end3.i.i ], [ null, %lor.lhs.false.i.i ]
   ret ptr %retval.sroa.0.1
 }
 
@@ -2747,7 +2747,7 @@ cleanup:                                          ; preds = %if.end.i.i17, %if.t
   br label %_ZNSt10_HashtableISt10unique_ptrIN2v813EmbedderGraph4NodeESt14default_deleteIS3_EES6_SaIS6_ENSt8__detail9_IdentityESt8equal_toIS6_ESt4hashIS6_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit
 
 if.then.i21:                                      ; preds = %for.cond.i.i, %for.body, %if.end.i.i
-  %retval.sroa.0.0.ph = phi ptr [ %8, %if.end.i.i ], [ %__it.sroa.0.0, %for.body ], [ %10, %for.cond.i.i ]
+  %retval.sroa.0.0.ph = phi ptr [ %__it.sroa.0.0, %for.body ], [ %8, %if.end.i.i ], [ %10, %for.cond.i.i ]
   %cmp.not.i.i.i.i.i = icmp eq i64 %0, 0
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt10unique_ptrIN2v813EmbedderGraph4NodeESt14default_deleteIS5_EELb0EEEEE18_M_deallocate_nodeEPS9_.exit.i, label %_ZNKSt14default_deleteIN2v813EmbedderGraph4NodeEEclEPS2_.exit.i.i.i.i.i
 
@@ -3756,7 +3756,7 @@ lor.lhs.false.return.loopexit_crit_edge.i.i.i.i:  ; preds = %lor.lhs.false.i.i.i
   br label %return, !llvm.loop !36
 
 if.then:                                          ; preds = %for.cond.i.i.i.i, %for.body.i.i, %if.end.i.i.i.i
-  %retval.sroa.0.1.i.i = phi ptr [ %5, %if.end.i.i.i.i ], [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ %7, %for.cond.i.i.i.i ]
+  %retval.sroa.0.1.i.i = phi ptr [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ %5, %if.end.i.i.i.i ], [ %7, %for.cond.i.i.i.i ]
   %second = getelementptr inbounds nuw i8, ptr %retval.sroa.0.1.i.i, i64 16
   %9 = load ptr, ptr %second, align 8
   %vtable = load ptr, ptr %9, align 8
@@ -3766,7 +3766,7 @@ if.then:                                          ; preds = %for.cond.i.i.i.i, %
   br label %return
 
 return:                                           ; preds = %if.end3.i.i.i.i, %for.cond.i.i, %if.end15.i.i, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i, %if.then
-  %retval.0 = phi i1 [ %call10, %if.then ], [ false, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i ], [ false, %if.end15.i.i ], [ false, %for.cond.i.i ], [ false, %if.end3.i.i.i.i ]
+  %retval.0 = phi i1 [ %call10, %if.then ], [ false, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i ], [ false, %for.cond.i.i ], [ false, %if.end15.i.i ], [ false, %if.end3.i.i.i.i ]
   ret i1 %retval.0
 }
 

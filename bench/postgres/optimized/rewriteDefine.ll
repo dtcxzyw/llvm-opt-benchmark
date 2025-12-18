@@ -784,7 +784,7 @@ define internal fastcc void @checkRuleResultList(ptr noundef readonly captures(a
   br i1 %57, label %119, label %59
 
 .critedge:                                        ; preds = %119, %48, %.lr.ph.split.us.split, %.lr.ph.split.split, %4
-  %.057.lcssa = phi i32 [ 0, %4 ], [ 0, %.lr.ph.split.us.split ], [ 0, %.lr.ph.split.split ], [ %.1.us, %48 ], [ %.1, %119 ]
+  %.057.lcssa = phi i32 [ 0, %4 ], [ 0, %.lr.ph.split.split ], [ 0, %.lr.ph.split.us.split ], [ %.1.us, %48 ], [ %.1, %119 ]
   %58 = load i32, ptr %1, align 8
   %.not65 = icmp eq i32 %.057.lcssa, %58
   br i1 %.not65, label %127, label %123

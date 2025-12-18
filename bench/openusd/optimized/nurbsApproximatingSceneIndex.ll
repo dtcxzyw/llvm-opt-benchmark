@@ -2976,7 +2976,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEED2Ev.ex
   br i1 %340, label %.body, label %337
 
 .body:                                            ; preds = %337, %121, %220, %147, %134
-  %.pn = phi { ptr, i32 } [ %122, %121 ], [ %135, %134 ], [ %221, %220 ], [ %148, %147 ], [ %223, %337 ]
+  %.pn = phi { ptr, i32 } [ %148, %147 ], [ %122, %121 ], [ %135, %134 ], [ %221, %220 ], [ %223, %337 ]
   call void @_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #21
   br label %341
 
@@ -6349,7 +6349,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEED2Ev.ex
   br i1 %245, label %.body, label %242
 
 .body:                                            ; preds = %242, %27, %124, %53, %40
-  %.pn = phi { ptr, i32 } [ %28, %27 ], [ %41, %40 ], [ %125, %124 ], [ %54, %53 ], [ %127, %242 ]
+  %.pn = phi { ptr, i32 } [ %54, %53 ], [ %28, %27 ], [ %41, %40 ], [ %125, %124 ], [ %127, %242 ]
   call void @_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #21
   br label %246
 
@@ -10198,7 +10198,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit18: ; preds = %120, %126
   br i1 %130, label %.loopexit, label %120
 
 .loopexit:                                        ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit16, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit18, %.thread19
-  %.pn = phi { ptr, i32 } [ %11, %.thread19 ], [ %118, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit18 ], [ %105, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit16 ]
+  %.pn = phi { ptr, i32 } [ %118, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit18 ], [ %11, %.thread19 ], [ %105, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit16 ]
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN32pxrInternal_v0_24__pxrReserved__25_NurbsCurvesToBasisCurves30_BasisCurvesTopologyDataSource8GetNamesEvE5names) #21
   resume { ptr, i32 } %.pn
 }
@@ -11212,7 +11212,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit15: ; preds = %108, %114
   br i1 %118, label %.loopexit, label %108
 
 .loopexit:                                        ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit13, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit15, %.thread16
-  %.pn = phi { ptr, i32 } [ %11, %.thread16 ], [ %106, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit15 ], [ %93, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit13 ]
+  %.pn = phi { ptr, i32 } [ %106, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit15 ], [ %11, %.thread16 ], [ %93, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit13 ]
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN32pxrInternal_v0_24__pxrReserved__17_NurbsPatchToMesh23_MeshTopologyDataSource8GetNamesEvE5names) #21
   resume { ptr, i32 } %.pn
 }

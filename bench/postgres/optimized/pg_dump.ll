@@ -12606,7 +12606,7 @@ define internal fastcc void @getDependencies(ptr noundef %0) unnamed_addr #4 {
   br label %48
 
 48:                                               ; preds = %.sink.split, %.thread, %31
-  %.152 = phi ptr [ %.151, %.thread ], [ null, %31 ], [ %.151, %.sink.split ]
+  %.152 = phi ptr [ null, %31 ], [ %.151, %.thread ], [ %.151, %.sink.split ]
   %49 = add nuw nsw i32 %.054, 1
   %exitcond.not = icmp eq i32 %49, %5
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !45
@@ -28352,7 +28352,7 @@ thread-pre-split757.i:                            ; preds = %961
   br label %1035
 
 1035:                                             ; preds = %1034, %1033, %1032, %1031
-  %.0597.i = phi ptr [ @.str.1296, %1034 ], [ @.str.1294, %1032 ], [ @.str.1295, %1033 ], [ @.str.1293, %1031 ]
+  %.0597.i = phi ptr [ @.str.1293, %1031 ], [ @.str.1296, %1034 ], [ @.str.1294, %1032 ], [ @.str.1295, %1033 ]
   %1036 = load ptr, ptr %999, align 8
   %1037 = getelementptr inbounds nuw ptr, ptr %1036, i64 %indvars.iv871.i
   %1038 = load ptr, ptr %1037, align 8
@@ -28378,7 +28378,7 @@ thread-pre-split757.i:                            ; preds = %961
   br label %1046
 
 1046:                                             ; preds = %1045, %1041
-  %.0594.i = phi ptr [ @.str.1299, %1045 ], [ @.str.1298, %1041 ]
+  %.0594.i = phi ptr [ @.str.1298, %1041 ], [ @.str.1299, %1045 ]
   %1047 = load ptr, ptr %999, align 8
   %1048 = getelementptr inbounds nuw ptr, ptr %1047, i64 %indvars.iv871.i
   %1049 = load ptr, ptr %1048, align 8
@@ -29019,7 +29019,7 @@ dumpTableComment.exit.i:                          ; preds = %1187, %1300, %findC
   br i1 %.not56.i.i727.i, label %findSecLabels.exit.i.i, label %.lr.ph80.i.i.i, !llvm.loop !150
 
 findSecLabels.exit.i.i:                           ; preds = %1367, %1364, %.lr.ph80.i.i.i, %._crit_edge68.i.i.i
-  %.048.i.i.i = phi i32 [ %.0.lcssa.i.i726.i, %._crit_edge68.i.i.i ], [ %1369, %1367 ], [ %.178.i.i.i, %1364 ], [ %.178.i.i.i, %.lr.ph80.i.i.i ]
+  %.048.i.i.i = phi i32 [ %.0.lcssa.i.i726.i, %._crit_edge68.i.i.i ], [ %.178.i.i.i, %.lr.ph80.i.i.i ], [ %.178.i.i.i, %1364 ], [ %1369, %1367 ]
   %1370 = icmp slt i32 %.048.i.i.i, 1
   br i1 %1370, label %dumpTableSecLabel.exit.i, label %1371
 
@@ -30322,7 +30322,7 @@ define internal fastcc void @dumpCommentExtended(ptr noundef %0, ptr noundef %1,
   br i1 %.not54.i, label %findComments.exit, label %.lr.ph78.i, !llvm.loop !131
 
 findComments.exit:                                ; preds = %.lr.ph78.i, %72, %75, %._crit_edge66.i
-  %.047.i = phi i32 [ %.0.lcssa.i, %._crit_edge66.i ], [ %77, %75 ], [ %.176.i, %72 ], [ %.176.i, %.lr.ph78.i ]
+  %.047.i = phi i32 [ %.0.lcssa.i, %._crit_edge66.i ], [ %.176.i, %72 ], [ %.176.i, %.lr.ph78.i ], [ %77, %75 ]
   %78 = icmp sgt i32 %.047.i, 0
   br i1 %78, label %.lr.ph, label %._crit_edge
 
@@ -30579,12 +30579,12 @@ define internal fastcc void @dumpSecLabel(ptr noundef %0, ptr noundef %1, ptr no
   %.not56.i = icmp ugt ptr %78, %.04264.i
   br i1 %.not56.i, label %findSecLabels.exit, label %.lr.ph80.i, !llvm.loop !150
 
-findSecLabels.exit.thread:                        ; preds = %60, %29, %26
+findSecLabels.exit.thread:                        ; preds = %60, %26, %29
   %80 = tail call ptr @createPQExpBuffer() #13
   br label %._crit_edge
 
 findSecLabels.exit:                               ; preds = %.lr.ph80.i, %74, %77, %._crit_edge68.i
-  %.048.i = phi i32 [ %.0.lcssa.i, %._crit_edge68.i ], [ %79, %77 ], [ %.178.i, %74 ], [ %.178.i, %.lr.ph80.i ]
+  %.048.i = phi i32 [ %.0.lcssa.i, %._crit_edge68.i ], [ %.178.i, %.lr.ph80.i ], [ %.178.i, %74 ], [ %79, %77 ]
   %81 = tail call ptr @createPQExpBuffer() #13
   %82 = icmp sgt i32 %.048.i, 0
   br i1 %82, label %.lr.ph, label %._crit_edge
@@ -31686,7 +31686,7 @@ forcePartitionRootLoad.exit.thread:               ; preds = %forcePartitionRootL
   br i1 %118, label %forcePartitionRootLoad.exit.thread, label %forcePartitionRootLoad.exit, !llvm.loop !21
 
 forcePartitionRootLoad.exit:                      ; preds = %.preheader.i, %forcePartitionRootLoad.exit.thread, %96
-  %.0146 = phi ptr [ %4, %96 ], [ %.0.i168, %forcePartitionRootLoad.exit.thread ], [ %4, %.preheader.i ]
+  %.0146 = phi ptr [ %.0.i168, %forcePartitionRootLoad.exit.thread ], [ %4, %96 ], [ %4, %.preheader.i ]
   %119 = getelementptr inbounds nuw i8, ptr %.0146, i64 24
   %120 = load ptr, ptr %119, align 8
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 16

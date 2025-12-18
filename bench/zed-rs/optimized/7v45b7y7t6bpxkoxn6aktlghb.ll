@@ -27427,7 +27427,7 @@ define hidden void @"_ZN4core3ptr283drop_in_place$LT$sum_tree..Node$LT$sum_tree.
   br i1 %56, label %common.resume, label %.lr.ph12.i.i.i.i6
 
 common.resume:                                    ; preds = %"_ZN4core3ptr286drop_in_place$LT$sum_tree..SumTree$LT$sum_tree..tree_map..MapEntry$LT$core..any..TypeId$C$$LP$fn$LP$$RF$theme..styles..colors..ThemeColors$RP$$u20$.$GT$$u20$gpui..color..Hsla$C$alloc..sync..Arc$LT$$u5b$core..ops..range..Range$LT$multi_buffer..anchor..Anchor$GT$$u5d$$GT$$RP$$GT$$GT$$GT$17h809774e24f6bc927E.exit8.i.i.i.i", %.body, %61, %47
-  %common.resume.op = phi { ptr, i32 } [ %48, %47 ], [ %23, %61 ], [ %23, %.body ], [ %48, %"_ZN4core3ptr286drop_in_place$LT$sum_tree..SumTree$LT$sum_tree..tree_map..MapEntry$LT$core..any..TypeId$C$$LP$fn$LP$$RF$theme..styles..colors..ThemeColors$RP$$u20$.$GT$$u20$gpui..color..Hsla$C$alloc..sync..Arc$LT$$u5b$core..ops..range..Range$LT$multi_buffer..anchor..Anchor$GT$$u5d$$GT$$RP$$GT$$GT$$GT$17h809774e24f6bc927E.exit8.i.i.i.i" ]
+  %common.resume.op = phi { ptr, i32 } [ %48, %47 ], [ %23, %.body ], [ %23, %61 ], [ %48, %"_ZN4core3ptr286drop_in_place$LT$sum_tree..SumTree$LT$sum_tree..tree_map..MapEntry$LT$core..any..TypeId$C$$LP$fn$LP$$RF$theme..styles..colors..ThemeColors$RP$$u20$.$GT$$u20$gpui..color..Hsla$C$alloc..sync..Arc$LT$$u5b$core..ops..range..Range$LT$multi_buffer..anchor..Anchor$GT$$u5d$$GT$$RP$$GT$$GT$$GT$17h809774e24f6bc927E.exit8.i.i.i.i" ]
   resume { ptr, i32 } %common.resume.op
 
 57:                                               ; preds = %55
@@ -55065,7 +55065,7 @@ define hidden void @"_ZN4core3ptr57drop_in_place$LT$sum_tree..Node$LT$text..Frag
   br i1 %52, label %common.resume, label %.lr.ph12.i.i.i.i
 
 common.resume:                                    ; preds = %91, %"_ZN4core3ptr60drop_in_place$LT$sum_tree..SumTree$LT$text..Fragment$GT$$GT$17h57f50b62e23f48b7E.exit8.i.i.i.i", %.body, %.body9, %43
-  %common.resume.op = phi { ptr, i32 } [ %.pn, %.body9 ], [ %44, %43 ], [ %.pn2, %.body ], [ %44, %"_ZN4core3ptr60drop_in_place$LT$sum_tree..SumTree$LT$text..Fragment$GT$$GT$17h57f50b62e23f48b7E.exit8.i.i.i.i" ], [ %94, %91 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn, %.body9 ], [ %44, %43 ], [ %44, %"_ZN4core3ptr60drop_in_place$LT$sum_tree..SumTree$LT$text..Fragment$GT$$GT$17h57f50b62e23f48b7E.exit8.i.i.i.i" ], [ %.pn2, %.body ], [ %94, %91 ]
   resume { ptr, i32 } %common.resume.op
 
 53:                                               ; preds = %51
@@ -60979,7 +60979,7 @@ define hidden void @"_ZN4core3ptr66drop_in_place$LT$sum_tree..Node$LT$text..Inse
   br i1 %54, label %common.resume, label %.lr.ph12.i.i.i.i
 
 common.resume:                                    ; preds = %"_ZN4core3ptr69drop_in_place$LT$sum_tree..SumTree$LT$text..InsertionFragment$GT$$GT$17h967fd01e69ce8bbeE.exit8.i.i.i.i", %.body, %59, %45
-  %common.resume.op = phi { ptr, i32 } [ %46, %45 ], [ %27, %59 ], [ %27, %.body ], [ %46, %"_ZN4core3ptr69drop_in_place$LT$sum_tree..SumTree$LT$text..InsertionFragment$GT$$GT$17h967fd01e69ce8bbeE.exit8.i.i.i.i" ]
+  %common.resume.op = phi { ptr, i32 } [ %46, %45 ], [ %27, %.body ], [ %27, %59 ], [ %46, %"_ZN4core3ptr69drop_in_place$LT$sum_tree..SumTree$LT$text..InsertionFragment$GT$$GT$17h967fd01e69ce8bbeE.exit8.i.i.i.i" ]
   resume { ptr, i32 } %common.resume.op
 
 55:                                               ; preds = %53
@@ -69862,7 +69862,7 @@ define hidden void @"_ZN4core3ptr78drop_in_place$LT$sum_tree..Node$LT$editor..di
   br i1 %54, label %common.resume, label %.lr.ph12.i.i.i.i6
 
 common.resume:                                    ; preds = %"_ZN4core3ptr81drop_in_place$LT$sum_tree..SumTree$LT$editor..display_map..fold_map..Fold$GT$$GT$17hac23ba0b1840fc8cE.exit8.i.i.i.i", %.body, %59, %45
-  %common.resume.op = phi { ptr, i32 } [ %46, %45 ], [ %21, %59 ], [ %21, %.body ], [ %46, %"_ZN4core3ptr81drop_in_place$LT$sum_tree..SumTree$LT$editor..display_map..fold_map..Fold$GT$$GT$17hac23ba0b1840fc8cE.exit8.i.i.i.i" ]
+  %common.resume.op = phi { ptr, i32 } [ %46, %45 ], [ %21, %.body ], [ %21, %59 ], [ %46, %"_ZN4core3ptr81drop_in_place$LT$sum_tree..SumTree$LT$editor..display_map..fold_map..Fold$GT$$GT$17hac23ba0b1840fc8cE.exit8.i.i.i.i" ]
   resume { ptr, i32 } %common.resume.op
 
 55:                                               ; preds = %53

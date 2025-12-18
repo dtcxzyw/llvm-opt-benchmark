@@ -484,7 +484,7 @@ lean_dec.exit40:                                  ; preds = %lean_nat_le.exit.th
   br label %.thread
 
 .thread:                                          ; preds = %lean_nat_lt.exit, %lean_nat_lt.exit.thread, %21, %20, %18, %102, %101, %99, %lean_dec.exit40
-  %.1.ph = phi ptr [ %44, %lean_dec.exit40 ], [ %44, %99 ], [ %44, %101 ], [ %44, %102 ], [ %.032, %18 ], [ %.032, %20 ], [ %.032, %21 ], [ %.032, %lean_nat_lt.exit.thread ], [ %.032, %lean_nat_lt.exit ]
+  %.1.ph = phi ptr [ %44, %lean_dec.exit40 ], [ %44, %99 ], [ %44, %101 ], [ %44, %102 ], [ %.032, %21 ], [ %.032, %18 ], [ %.032, %20 ], [ %.032, %lean_nat_lt.exit.thread ], [ %.032, %lean_nat_lt.exit ]
   ret ptr %.1.ph
 }
 
@@ -3419,7 +3419,7 @@ lean_dec.exit91:                                  ; preds = %117, %116, %114, %l
   br label %lean_dec.exit90.backedge
 
 lean_dec.exit90.backedge:                         ; preds = %121, %125, %131, %133, %134
-  %.079.be = phi ptr [ %128, %134 ], [ %128, %131 ], [ %128, %133 ], [ %126, %125 ], [ %124, %121 ]
+  %.079.be = phi ptr [ %128, %134 ], [ %128, %133 ], [ %128, %131 ], [ %126, %125 ], [ %124, %121 ]
   br label %lean_dec.exit90
 
 125:                                              ; preds = %118
@@ -5017,7 +5017,7 @@ lean_dec.exit30:                                  ; preds = %40, %39, %37, %lean
   br label %lean_dec.exit31.backedge
 
 lean_dec.exit31.backedge:                         ; preds = %47, %51, %57, %59, %60
-  %.024.be = phi ptr [ %54, %60 ], [ %54, %57 ], [ %54, %59 ], [ %52, %51 ], [ %50, %47 ]
+  %.024.be = phi ptr [ %54, %60 ], [ %54, %59 ], [ %54, %57 ], [ %52, %51 ], [ %50, %47 ]
   br label %lean_dec.exit31
 
 51:                                               ; preds = %44
@@ -5862,7 +5862,7 @@ lean_dec.exit99:                                  ; preds = %274, %273, %271, %l
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %lean_obj_tag.exit184, %211, %213, %214, %lean_alloc_ctor.exit, %207, %98, %121, %lean_dec.exit109, %lean_dec.exit99, %278, %280, %281
-  %.6 = phi ptr [ %267, %lean_dec.exit99 ], [ %267, %281 ], [ %267, %280 ], [ %267, %278 ], [ inttoptr (i64 1 to ptr), %211 ], [ inttoptr (i64 1 to ptr), %213 ], [ inttoptr (i64 1 to ptr), %214 ], [ %216, %lean_alloc_ctor.exit ], [ inttoptr (i64 1 to ptr), %207 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit109 ], [ inttoptr (i64 1 to ptr), %121 ], [ %.086, %98 ], [ inttoptr (i64 1 to ptr), %lean_obj_tag.exit184 ]
+  %.6 = phi ptr [ %267, %lean_dec.exit99 ], [ %267, %281 ], [ %267, %280 ], [ %267, %278 ], [ %.086, %98 ], [ inttoptr (i64 1 to ptr), %211 ], [ inttoptr (i64 1 to ptr), %213 ], [ inttoptr (i64 1 to ptr), %214 ], [ %216, %lean_alloc_ctor.exit ], [ inttoptr (i64 1 to ptr), %207 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit109 ], [ inttoptr (i64 1 to ptr), %121 ], [ inttoptr (i64 1 to ptr), %lean_obj_tag.exit184 ]
   ret ptr %.6
 }
 
@@ -11253,8 +11253,8 @@ lean_dec.exit:                                    ; preds = %329, %328, %326, %l
   unreachable
 
 lean_dec.exit134:                                 ; preds = %lean_obj_tag.exit, %lean_inc.exit137, %247, %249, %250, %lean_inc.exit145, %112, %114, %115
-  %.4114 = phi ptr [ %235, %lean_inc.exit137 ], [ %100, %lean_inc.exit145 ], [ %100, %115 ], [ %100, %114 ], [ %100, %112 ], [ %235, %250 ], [ %235, %249 ], [ %235, %247 ], [ %.0110285, %lean_obj_tag.exit ]
-  %.4109 = phi ptr [ %225, %lean_inc.exit137 ], [ %90, %lean_inc.exit145 ], [ %90, %115 ], [ %90, %114 ], [ %90, %112 ], [ %225, %250 ], [ %225, %249 ], [ %225, %247 ], [ %.0105286, %lean_obj_tag.exit ]
+  %.4114 = phi ptr [ %100, %lean_inc.exit145 ], [ %235, %lean_inc.exit137 ], [ %100, %115 ], [ %100, %114 ], [ %100, %112 ], [ %235, %250 ], [ %235, %249 ], [ %235, %247 ], [ %.0110285, %lean_obj_tag.exit ]
+  %.4109 = phi ptr [ %90, %lean_inc.exit145 ], [ %225, %lean_inc.exit137 ], [ %90, %115 ], [ %90, %114 ], [ %90, %112 ], [ %225, %250 ], [ %225, %249 ], [ %225, %247 ], [ %.0105286, %lean_obj_tag.exit ]
   %.4104 = add i64 %.0100287, 1
   %.not = icmp eq i64 %.4104, %3
   br i1 %.not, label %._crit_edge, label %16

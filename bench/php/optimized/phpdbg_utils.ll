@@ -1307,7 +1307,7 @@ phpdbg_get_property_key.exit:                     ; preds = %86, %89
   br label %.split417
 
 .loopexit:                                        ; preds = %.split417, %.split417.us, %106, %123, %.split, %.split306, %69
-  %.2276 = phi i32 [ %.1275432, %69 ], [ %110, %106 ], [ %.5, %123 ], [ %138, %.split306 ], [ %.us-phi426, %.split ], [ %.1275432, %.split417.us ], [ %.4, %.split417 ]
+  %.2276 = phi i32 [ %.1275432, %69 ], [ %110, %106 ], [ %.5, %123 ], [ %.us-phi426, %.split ], [ %138, %.split306 ], [ %.1275432, %.split417.us ], [ %.4, %.split417 ]
   %154 = add i32 %.0300428, -1
   %.not337 = icmp eq i32 %154, 0
   br i1 %.not337, label %.critedge, label %51
@@ -1521,7 +1521,7 @@ zend_symtable_str_find.exit:                      ; preds = %169, %_zend_handle_
   br label %.critedge
 
 .critedge:                                        ; preds = %246, %.loopexit, %.preheader364, %38, %176, %.split399.us, %177, %.loopexit366
-  %.1 = phi i32 [ -1, %.loopexit366 ], [ -1, %177 ], [ -1, %.split399.us ], [ -1, %176 ], [ %.0274412, %38 ], [ -1, %.preheader364 ], [ %.2276, %.loopexit ], [ %.14, %246 ]
+  %.1 = phi i32 [ -1, %.loopexit366 ], [ -1, %176 ], [ %.2276, %.loopexit ], [ -1, %177 ], [ -1, %.split399.us ], [ %.0274412, %38 ], [ -1, %.preheader364 ], [ %.14, %246 ]
   ret i32 %.1
 }
 

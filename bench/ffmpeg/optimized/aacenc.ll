@@ -569,7 +569,7 @@ define internal range(i32 -2147483648, 1) i32 @aac_encode_frame(ptr noundef %0, 
   br i1 %69, label %.lr.ph.split.i, label %copy_input_samples.exit, !llvm.loop !96
 
 copy_input_samples.exit:                          ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i, %.thread
-  %70 = phi i32 [ %33, %.thread ], [ %47, %.lr.ph.split.us.i ], [ %67, %.lr.ph.split.i ]
+  %70 = phi i32 [ %47, %.lr.ph.split.us.i ], [ %33, %.thread ], [ %67, %.lr.ph.split.i ]
   %71 = getelementptr inbounds nuw i8, ptr %10, i64 38400
   %72 = load ptr, ptr %71, align 16, !tbaa !84
   %.not509 = icmp eq ptr %72, null
@@ -3269,7 +3269,7 @@ flush_put_bits.exit:                              ; preds = %1362, %put_bits.exi
   br label %.loopexit655
 
 .loopexit655:                                     ; preds = %.thread927, %._crit_edge716, %74, %16, %22, %12, %flush_put_bits.exit
-  %.0430 = phi i32 [ %14, %12 ], [ 0, %74 ], [ 0, %flush_put_bits.exit ], [ 0, %16 ], [ 0, %22 ], [ %279, %._crit_edge716 ], [ -22, %.thread927 ]
+  %.0430 = phi i32 [ %14, %12 ], [ %279, %._crit_edge716 ], [ 0, %74 ], [ 0, %flush_put_bits.exit ], [ 0, %16 ], [ 0, %22 ], [ -22, %.thread927 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0430
@@ -3675,11 +3675,11 @@ put_bits.exit94.i:                                ; preds = %152, %144, %135
   br i1 %159, label %.lr.ph.split.i, label %._crit_edge.i, !llvm.loop !221
 
 ._crit_edge.i:                                    ; preds = %put_bits.exit94.i, %put_bits.exit94.us.i, %.preheader.i
-  %160 = phi ptr [ %59, %.preheader.i ], [ %95, %put_bits.exit94.us.i ], [ %153, %put_bits.exit94.i ]
-  %161 = phi ptr [ %60, %.preheader.i ], [ %96, %put_bits.exit94.us.i ], [ %154, %put_bits.exit94.i ]
-  %162 = phi ptr [ %61, %.preheader.i ], [ %97, %put_bits.exit94.us.i ], [ %155, %put_bits.exit94.i ]
-  %163 = phi i32 [ %62, %.preheader.i ], [ %98, %put_bits.exit94.us.i ], [ %156, %put_bits.exit94.i ]
-  %164 = phi i32 [ %63, %.preheader.i ], [ %.026.i.i92.us.i, %put_bits.exit94.us.i ], [ %.026.i.i92.i, %put_bits.exit94.i ]
+  %160 = phi ptr [ %95, %put_bits.exit94.us.i ], [ %59, %.preheader.i ], [ %153, %put_bits.exit94.i ]
+  %161 = phi ptr [ %96, %put_bits.exit94.us.i ], [ %60, %.preheader.i ], [ %154, %put_bits.exit94.i ]
+  %162 = phi ptr [ %97, %put_bits.exit94.us.i ], [ %61, %.preheader.i ], [ %155, %put_bits.exit94.i ]
+  %163 = phi i32 [ %98, %put_bits.exit94.us.i ], [ %62, %.preheader.i ], [ %156, %put_bits.exit94.i ]
+  %164 = phi i32 [ %.026.i.i92.us.i, %put_bits.exit94.us.i ], [ %63, %.preheader.i ], [ %.026.i.i92.i, %put_bits.exit94.i ]
   %indvars.iv.next107.i = add nuw nsw i64 %indvars.iv106.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next107.i, 4
   br i1 %exitcond.not.i, label %165, label %.preheader.i, !llvm.loop !222

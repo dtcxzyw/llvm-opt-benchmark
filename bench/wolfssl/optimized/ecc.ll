@@ -183,14 +183,14 @@ define range(i32 -173, 1) i32 @wc_ecc_set_curve(ptr noundef captures(address_is_
   br label %.thread29
 
 .thread29:                                        ; preds = %.thread29.loopexit40, %.thread29.loopexit, %.split
-  %.us-phi = phi i32 [ 0, %.split ], [ %24, %.thread29.loopexit ], [ %25, %.thread29.loopexit40 ]
-  %.us-phi33 = phi ptr [ @ecc_sets, %.split ], [ %16, %.thread29.loopexit ], [ %22, %.thread29.loopexit40 ]
+  %.us-phi = phi i32 [ %24, %.thread29.loopexit ], [ 0, %.split ], [ %25, %.thread29.loopexit40 ]
+  %.us-phi33 = phi ptr [ %16, %.thread29.loopexit ], [ @ecc_sets, %.split ], [ %22, %.thread29.loopexit40 ]
   store i32 %.us-phi, ptr %11, align 4, !tbaa !13
   store ptr %.us-phi33, ptr %14, align 8, !tbaa !18
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %20, %10, %.thread29, %8, %3, %5
-  %.022 = phi i32 [ -170, %8 ], [ -173, %3 ], [ -173, %5 ], [ 0, %.thread29 ], [ 0, %10 ], [ -172, %20 ], [ -172, %.lr.ph ]
+  %.022 = phi i32 [ -170, %8 ], [ -173, %3 ], [ 0, %10 ], [ -173, %5 ], [ 0, %.thread29 ], [ -172, %20 ], [ -172, %.lr.ph ]
   ret i32 %.022
 }
 
@@ -1103,7 +1103,7 @@ wc_ecc_new_point_ex.exit55:                       ; preds = %40
   br label %wc_ecc_del_point_ex.exit
 
 wc_ecc_del_point_ex.exit:                         ; preds = %22, %45, %48, %37, %wc_ecc_new_point_ex.exit.thread71, %14, %7, %60, %63
-  %.080 = phi i32 [ %.0, %60 ], [ %.0, %63 ], [ -170, %7 ], [ -217, %14 ], [ %30, %wc_ecc_new_point_ex.exit.thread71 ], [ %44, %45 ], [ %44, %48 ], [ -125, %37 ], [ -125, %22 ]
+  %.080 = phi i32 [ %.0, %60 ], [ %.0, %63 ], [ -170, %7 ], [ -217, %14 ], [ -125, %37 ], [ %30, %wc_ecc_new_point_ex.exit.thread71 ], [ %44, %45 ], [ %44, %48 ], [ -125, %22 ]
   br label %64
 
 64:                                               ; preds = %wc_ecc_del_point_ex.exit, %wc_ecc_del_point_ex.exit59
@@ -1703,7 +1703,7 @@ wc_ecc_new_point_ex.exit65:                       ; preds = %43
   br label %wc_ecc_del_point_ex.exit
 
 wc_ecc_del_point_ex.exit:                         ; preds = %25, %48, %51, %40, %wc_ecc_new_point_ex.exit.thread82, %.thread, %68
-  %.096 = phi i32 [ %.0.ph, %68 ], [ %.0.ph, %.thread ], [ %33, %wc_ecc_new_point_ex.exit.thread82 ], [ %47, %48 ], [ %47, %51 ], [ -125, %40 ], [ -125, %25 ]
+  %.096 = phi i32 [ %.0.ph, %68 ], [ %.0.ph, %.thread ], [ %33, %wc_ecc_new_point_ex.exit.thread82 ], [ -125, %40 ], [ %47, %48 ], [ %47, %51 ], [ -125, %25 ]
   br label %69
 
 69:                                               ; preds = %wc_ecc_del_point_ex.exit, %wc_ecc_del_point_ex.exit69
@@ -3449,7 +3449,7 @@ define internal fastcc i32 @ecc_make_pub_ex(ptr noundef %0, ptr noundef readonly
   br label %.thread106
 
 .thread106:                                       ; preds = %53, %.thread106.fold.split, %50, %59, %45, %40, %35
-  %.895 = phi i32 [ %48, %45 ], [ %38, %35 ], [ %62, %59 ], [ %43, %40 ], [ %51, %50 ], [ -125, %53 ], [ %58, %.thread106.fold.split ]
+  %.895 = phi i32 [ %48, %45 ], [ %38, %35 ], [ %62, %59 ], [ %43, %40 ], [ -125, %53 ], [ %51, %50 ], [ %58, %.thread106.fold.split ]
   call void @sp_clear(ptr noundef nonnull %24) #19
   call void @sp_clear(ptr noundef nonnull %28) #19
   call void @sp_clear(ptr noundef nonnull %29) #19
@@ -3570,8 +3570,8 @@ define internal fastcc i32 @_ecc_make_key_ex(ptr noundef %0, i32 noundef %1, ptr
   br label %.thread29.i
 
 .thread29.i:                                      ; preds = %.thread29.loopexit40.i, %.thread29.loopexit.i, %.split.i
-  %.us-phi.i = phi i32 [ 0, %.split.i ], [ %30, %.thread29.loopexit.i ], [ %31, %.thread29.loopexit40.i ]
-  %.us-phi33.i = phi ptr [ @ecc_sets, %.split.i ], [ %22, %.thread29.loopexit.i ], [ %28, %.thread29.loopexit40.i ]
+  %.us-phi.i = phi i32 [ %30, %.thread29.loopexit.i ], [ 0, %.split.i ], [ %31, %.thread29.loopexit40.i ]
+  %.us-phi33.i = phi ptr [ %22, %.thread29.loopexit.i ], [ @ecc_sets, %.split.i ], [ %28, %.thread29.loopexit40.i ]
   store i32 %.us-phi.i, ptr %17, align 4, !tbaa !13
   store ptr %.us-phi33.i, ptr %20, align 8, !tbaa !18
   br label %wc_ecc_set_curve.exit
@@ -3630,7 +3630,7 @@ wc_ecc_set_curve.exit:                            ; preds = %.thread29.i, %16
   br label %wc_ecc_set_curve.exit.thread
 
 wc_ecc_set_curve.exit.thread:                     ; preds = %.lr.ph.i, %26, %10, %14, %5, %55
-  %.029 = phi i32 [ %.244, %55 ], [ -173, %5 ], [ -173, %10 ], [ -170, %14 ], [ -172, %26 ], [ -172, %.lr.ph.i ]
+  %.029 = phi i32 [ %.244, %55 ], [ -173, %5 ], [ -170, %14 ], [ -173, %10 ], [ -172, %26 ], [ -172, %.lr.ph.i ]
   ret i32 %.029
 }
 
@@ -4951,7 +4951,7 @@ wc_ecc_new_point_ex.exit.thread204:               ; preds = %55, %59
   br label %.thread243
 
 .thread243:                                       ; preds = %46, %198, %183, %185, %191, %200, %168, %170, %25, %wc_ecc_new_point_ex.exit.thread204, %37, %31, %61, %64, %71, %77, %83, %89, %108, %207, %.split.us
-  %.24 = phi i32 [ %209, %207 ], [ %.15.ph, %.split.us ], [ %54, %wc_ecc_new_point_ex.exit.thread204 ], [ %.13, %108 ], [ %41, %37 ], [ %93, %89 ], [ %87, %83 ], [ %81, %77 ], [ %75, %71 ], [ %69, %64 ], [ %62, %61 ], [ %35, %31 ], [ -173, %25 ], [ %.15.ph, %168 ], [ %.16, %198 ], [ %.16, %183 ], [ %189, %185 ], [ %193, %191 ], [ %205, %200 ], [ %172, %170 ], [ -125, %46 ]
+  %.24 = phi i32 [ %209, %207 ], [ %.15.ph, %.split.us ], [ %.15.ph, %168 ], [ %54, %wc_ecc_new_point_ex.exit.thread204 ], [ %.13, %108 ], [ %41, %37 ], [ %93, %89 ], [ %87, %83 ], [ %81, %77 ], [ %75, %71 ], [ %69, %64 ], [ %62, %61 ], [ %35, %31 ], [ -173, %25 ], [ %.16, %198 ], [ %.16, %183 ], [ %189, %185 ], [ %193, %191 ], [ %205, %200 ], [ %172, %170 ], [ -125, %46 ]
   br label %210
 
 210:                                              ; preds = %.thread243, %wc_ecc_del_point_ex.exit
@@ -6148,7 +6148,7 @@ define internal fastcc i32 @_ecc_is_point(ptr noundef %0, ptr noundef %1, ptr no
   br label %.critedge31
 
 .critedge31:                                      ; preds = %35, %7, %11, %14, %17, %20, %23, %26, %29, %.thread17, %.critedge
-  %.10 = phi i32 [ %., %.critedge ], [ %32, %.thread17 ], [ %9, %7 ], [ %12, %11 ], [ %15, %14 ], [ %18, %17 ], [ %21, %20 ], [ %24, %23 ], [ %27, %26 ], [ %30, %29 ], [ %36, %35 ]
+  %.10 = phi i32 [ %., %.critedge ], [ %32, %.thread17 ], [ %30, %29 ], [ %9, %7 ], [ %12, %11 ], [ %15, %14 ], [ %18, %17 ], [ %21, %20 ], [ %24, %23 ], [ %27, %26 ], [ %36, %35 ]
   call void @sp_clear(ptr noundef nonnull %4) #19
   call void @sp_clear(ptr noundef nonnull %5) #19
   br label %39
@@ -6440,14 +6440,14 @@ define i32 @wc_ecc_import_x963_ex(ptr noundef %0, i32 noundef %1, ptr noundef %2
   br label %.thread29.i
 
 .thread29.i:                                      ; preds = %.thread29.loopexit40.i, %.thread29.loopexit.i, %.split.i
-  %.us-phi.i = phi i32 [ 0, %.split.i ], [ %44, %.thread29.loopexit.i ], [ %45, %.thread29.loopexit40.i ]
-  %.us-phi33.i = phi ptr [ @ecc_sets, %.split.i ], [ %36, %.thread29.loopexit.i ], [ %42, %.thread29.loopexit40.i ]
+  %.us-phi.i = phi i32 [ %44, %.thread29.loopexit.i ], [ 0, %.split.i ], [ %45, %.thread29.loopexit40.i ]
+  %.us-phi33.i = phi ptr [ %36, %.thread29.loopexit.i ], [ @ecc_sets, %.split.i ], [ %42, %.thread29.loopexit40.i ]
   store i32 %.us-phi.i, ptr %31, align 4, !tbaa !13
   store ptr %.us-phi33.i, ptr %34, align 8, !tbaa !18
   br label %46
 
 .thread59:                                        ; preds = %.lr.ph.i, %40, %28, %23
-  %.022.i.ph = phi i32 [ -173, %23 ], [ -170, %28 ], [ -172, %40 ], [ -172, %.lr.ph.i ]
+  %.022.i.ph = phi i32 [ -170, %28 ], [ -173, %23 ], [ -172, %40 ], [ -172, %.lr.ph.i ]
   store i32 1, ptr %2, align 8, !tbaa !46
   br label %.thread69
 
@@ -6765,14 +6765,14 @@ define i32 @wc_ecc_import_private_key_ex(ptr noundef %0, i32 noundef %1, ptr nou
   br label %.thread29.i
 
 .thread29.i:                                      ; preds = %.thread29.loopexit40.i, %.thread29.loopexit.i, %.split.i
-  %.us-phi.i = phi i32 [ 0, %.split.i ], [ %37, %.thread29.loopexit.i ], [ %38, %.thread29.loopexit40.i ]
-  %.us-phi33.i = phi ptr [ @ecc_sets, %.split.i ], [ %29, %.thread29.loopexit.i ], [ %35, %.thread29.loopexit40.i ]
+  %.us-phi.i = phi i32 [ %37, %.thread29.loopexit.i ], [ 0, %.split.i ], [ %38, %.thread29.loopexit40.i ]
+  %.us-phi33.i = phi ptr [ %29, %.thread29.loopexit.i ], [ @ecc_sets, %.split.i ], [ %35, %.thread29.loopexit40.i ]
   store i32 %.us-phi.i, ptr %24, align 4, !tbaa !13
   store ptr %.us-phi33.i, ptr %27, align 8, !tbaa !18
   br label %wc_ecc_set_curve.exit
 
 wc_ecc_set_curve.exit:                            ; preds = %.lr.ph.i, %33, %17, %21, %23, %.thread29.i
-  %.022.i = phi i32 [ -170, %21 ], [ -173, %17 ], [ 0, %.thread29.i ], [ 0, %23 ], [ -172, %33 ], [ -172, %.lr.ph.i ]
+  %.022.i = phi i32 [ -170, %21 ], [ -172, %33 ], [ 0, %23 ], [ -173, %17 ], [ 0, %.thread29.i ], [ -172, %.lr.ph.i ]
   store i32 3, ptr %4, align 8, !tbaa !46
   br label %39
 
@@ -6960,7 +6960,7 @@ define internal fastcc i32 @wc_ecc_import_raw_private(ptr noundef %0, ptr nounde
   store ptr %.us-phi33.i, ptr %17, align 8, !tbaa !18
   br label %24
 
-24:                                               ; preds = %13, %.thread29.i
+24:                                               ; preds = %.thread29.i, %13
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 3160
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 1072
@@ -7074,7 +7074,7 @@ define internal fastcc i32 @wc_ecc_import_raw_private(ptr noundef %0, ptr nounde
   br label %wc_ecc_set_curve.exit
 
 wc_ecc_set_curve.exit:                            ; preds = %22, %.thread84, %10, %78, %.thread80, %24, %6
-  %.056 = phi i32 [ -125, %24 ], [ -173, %6 ], [ 0, %78 ], [ %.683, %.thread80 ], [ -173, %10 ], [ 0, %.thread84 ], [ -172, %22 ]
+  %.056 = phi i32 [ -125, %24 ], [ -173, %6 ], [ 0, %78 ], [ %.683, %.thread80 ], [ 0, %.thread84 ], [ -173, %10 ], [ -172, %22 ]
   ret i32 %.056
 }
 

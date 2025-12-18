@@ -1456,7 +1456,7 @@ common.resume:                                    ; preds = %514, %501, %493, %4
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #17
   unreachable
 
-490:                                              ; preds = %428, %427, %425, %434
+490:                                              ; preds = %434, %425, %427, %428
   store i64 2, ptr %36, align 8, !alias.scope !53, !noalias !125
   call void @"_ZN4core3ptr51drop_in_place$LT$regex..regex..string..Captures$GT$17h77468219a3d657cdE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %15), !noalias !53
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !56

@@ -353,8 +353,8 @@ define dso_local i64 @record_in(ptr noundef captures(none) %0) local_unnamed_add
   br label %.backedge
 
 .backedge:                                        ; preds = %.sink.split, %143, %144
-  %.0169.be = phi i1 [ true, %143 ], [ false, %144 ], [ %.1170.ph, %.sink.split ]
-  %.5.be = phi ptr [ %125, %143 ], [ %125, %144 ], [ %.6.ph, %.sink.split ]
+  %.0169.be = phi i1 [ false, %144 ], [ true, %143 ], [ %.1170.ph, %.sink.split ]
+  %.5.be = phi ptr [ %125, %144 ], [ %125, %143 ], [ %.6.ph, %.sink.split ]
   br label %123, !llvm.loop !8
 
 .thread203:                                       ; preds = %124, %124

@@ -1194,8 +1194,8 @@ _ZNSt6vectorIP6aiMeshSaIS1_EE7reserveEm.exit:     ; preds = %41, %_ZNSt12_Vector
   br i1 %132, label %.lr.ph155, label %.loopexit147, !llvm.loop !12
 
 .loopexit147:                                     ; preds = %.lr.ph, %.lr.ph155, %87, %.preheader146
-  %133 = phi i32 [ 0, %.preheader146 ], [ 0, %87 ], [ %130, %.lr.ph155 ], [ %113, %.lr.ph ]
-  %134 = phi ptr [ %84, %.preheader146 ], [ %91, %87 ], [ %128, %.lr.ph155 ], [ %111, %.lr.ph ]
+  %133 = phi i32 [ %130, %.lr.ph155 ], [ 0, %.preheader146 ], [ 0, %87 ], [ %113, %.lr.ph ]
+  %134 = phi ptr [ %128, %.lr.ph155 ], [ %84, %.preheader146 ], [ %91, %87 ], [ %111, %.lr.ph ]
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 24
   %136 = load ptr, ptr %135, align 8
   %.not122 = icmp eq ptr %136, null
@@ -1388,8 +1388,8 @@ _ZNK6aiMesh16HasTextureCoordsEj.exit.thread:      ; preds = %._crit_edge, %_ZNK6
   br i1 %.not184, label %.loopexit, label %.lr.ph173
 
 ._crit_edge:                                      ; preds = %.lr.ph163.split.split, %.lr.ph163.split.split.us, %.lr.ph163.split.us.split, %.lr.ph163.split.us
-  %242 = phi ptr [ %202, %.lr.ph163.split.us ], [ %231, %.lr.ph163.split.split.us ], [ %219, %.lr.ph163.split.us.split ], [ %254, %.lr.ph163.split.split ]
-  %243 = phi ptr [ %203, %.lr.ph163.split.us ], [ %231, %.lr.ph163.split.split.us ], [ %219, %.lr.ph163.split.us.split ], [ %254, %.lr.ph163.split.split ]
+  %242 = phi ptr [ %231, %.lr.ph163.split.split.us ], [ %219, %.lr.ph163.split.us.split ], [ %202, %.lr.ph163.split.us ], [ %254, %.lr.ph163.split.split ]
+  %243 = phi ptr [ %231, %.lr.ph163.split.split.us ], [ %219, %.lr.ph163.split.us.split ], [ %203, %.lr.ph163.split.us ], [ %254, %.lr.ph163.split.split ]
   %indvars.iv.next214 = add nuw nsw i64 %indvars.iv213, 1
   %exitcond = icmp eq i64 %indvars.iv.next214, 8
   br i1 %exitcond, label %_ZNK6aiMesh16HasTextureCoordsEj.exit.thread, label %_ZNK6aiMesh16HasTextureCoordsEj.exit, !llvm.loop !17

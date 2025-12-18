@@ -589,7 +589,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit: ;
   br label %.body117
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %222, %.loopexit169, %.noexc119, %213, %207, %188, %168, %217, %182
-  %.2.ph.ph = phi i1 [ true, %217 ], [ false, %222 ], [ true, %.noexc119 ], [ true, %207 ], [ true, %182 ], [ true, %168 ], [ true, %188 ], [ true, %213 ], [ false, %.loopexit169 ]
+  %.2.ph.ph = phi i1 [ false, %.loopexit169 ], [ true, %.noexc119 ], [ true, %207 ], [ true, %182 ], [ false, %222 ], [ true, %168 ], [ true, %217 ], [ true, %188 ], [ true, %213 ]
   %lpad.loopexit.split-lp171 = landingpad { ptr, i32 }
           cleanup
   br label %.body117
@@ -3661,7 +3661,7 @@ _ZN11tungstenite9handshake6server14write_response17h945e4a2b8f45d46cE.exit.i: ; 
   br label %.body189.i
 
 .loopexit.split-lp395:                            ; preds = %"_ZN4core3ptr282drop_in_place$LT$alloc..boxed..Box$LT$std..collections..hash..map..HashMap$LT$core..any..TypeId$C$alloc..boxed..Box$LT$dyn$u20$http..extensions..AnyClone$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$core..hash..BuildHasherDefault$LT$http..extensions..IdHasher$GT$$GT$$GT$$GT$17h67853e3357ba5227E.llvm.12663281897316000666.exit.i.i.i.i197.i", %.thread320.i
-  %.ph = phi i1 [ false, %.thread320.i ], [ true, %"_ZN4core3ptr282drop_in_place$LT$alloc..boxed..Box$LT$std..collections..hash..map..HashMap$LT$core..any..TypeId$C$alloc..boxed..Box$LT$dyn$u20$http..extensions..AnyClone$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$core..hash..BuildHasherDefault$LT$http..extensions..IdHasher$GT$$GT$$GT$$GT$17h67853e3357ba5227E.llvm.12663281897316000666.exit.i.i.i.i197.i" ]
+  %.ph = phi i1 [ true, %"_ZN4core3ptr282drop_in_place$LT$alloc..boxed..Box$LT$std..collections..hash..map..HashMap$LT$core..any..TypeId$C$alloc..boxed..Box$LT$dyn$u20$http..extensions..AnyClone$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$core..hash..BuildHasherDefault$LT$http..extensions..IdHasher$GT$$GT$$GT$$GT$17h67853e3357ba5227E.llvm.12663281897316000666.exit.i.i.i.i197.i" ], [ false, %.thread320.i ]
   %lpad.loopexit.split-lp397 = landingpad { ptr, i32 }
           cleanup
   br label %.body189.i

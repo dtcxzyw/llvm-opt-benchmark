@@ -609,7 +609,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   %66 = icmp eq ptr %65, null
   br i1 %66, label %174, label %176
 
-67:                                               ; preds = %48, %51
+67:                                               ; preds = %51, %48
   %68 = load ptr, ptr %26, align 8, !nonnull !3, !align !88, !noundef !3
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 16
   %70 = load ptr, ptr %69, align 8, !nonnull !3, !noundef !3
@@ -991,7 +991,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   %66 = icmp eq ptr %65, null
   br i1 %66, label %174, label %176
 
-67:                                               ; preds = %48, %51
+67:                                               ; preds = %51, %48
   %68 = load ptr, ptr %26, align 8, !nonnull !3, !align !88, !noundef !3
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 16
   %70 = load ptr, ptr %69, align 8, !nonnull !3, !noundef !3
@@ -1371,7 +1371,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   %64 = icmp eq ptr %63, null
   br i1 %64, label %161, label %163
 
-65:                                               ; preds = %46, %49
+65:                                               ; preds = %49, %46
   %66 = load ptr, ptr %25, align 8, !nonnull !3, !align !88, !noundef !3
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 16
   %68 = load ptr, ptr %67, align 8, !nonnull !3, !noundef !3
@@ -1715,7 +1715,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   %63 = icmp eq ptr %62, null
   br i1 %63, label %160, label %162
 
-64:                                               ; preds = %46, %49
+64:                                               ; preds = %49, %46
   %65 = load ptr, ptr %25, align 8, !nonnull !3, !align !88, !noundef !3
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %67 = load ptr, ptr %66, align 8, !nonnull !3, !noundef !3
@@ -2059,7 +2059,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   %64 = icmp eq ptr %63, null
   br i1 %64, label %161, label %163
 
-65:                                               ; preds = %46, %49
+65:                                               ; preds = %49, %46
   %66 = load ptr, ptr %25, align 8, !nonnull !3, !align !88, !noundef !3
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 16
   %68 = load ptr, ptr %67, align 8, !nonnull !3, !noundef !3
@@ -2405,7 +2405,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   %66 = icmp eq ptr %65, null
   br i1 %66, label %174, label %176
 
-67:                                               ; preds = %48, %51
+67:                                               ; preds = %51, %48
   %68 = load ptr, ptr %26, align 8, !nonnull !3, !align !88, !noundef !3
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 16
   %70 = load ptr, ptr %69, align 8, !nonnull !3, !noundef !3

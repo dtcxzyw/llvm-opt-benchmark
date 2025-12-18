@@ -514,7 +514,7 @@ indent.exit103:                                   ; preds = %indent.exit103.back
   br i1 %.not29.i, label %write_subgs.exit, label %indent.exit103.backedge
 
 indent.exit103.backedge:                          ; preds = %112, %.thread
-  %.026.i121.be = phi ptr [ %113, %112 ], [ %117, %.thread ]
+  %.026.i121.be = phi ptr [ %117, %.thread ], [ %113, %112 ]
   br label %indent.exit103, !llvm.loop !112
 
 .thread:                                          ; preds = %indent.exit103

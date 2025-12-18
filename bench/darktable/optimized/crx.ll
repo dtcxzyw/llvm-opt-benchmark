@@ -5997,8 +5997,8 @@ _Z24crxDecodeSymbolL1RoundedP12CrxBandParamii.exit169: ; preds = %_ZL13crxFillBu
   store ptr %1975, ptr %9, align 8, !tbaa !20
   br label %.thread981
 
-.thread981:                                       ; preds = %_Z24crxDecodeSymbolL1RoundedP12CrxBandParamii.exit169, %1617
-  %.275.ph = phi i32 [ %1215, %1617 ], [ 1, %_Z24crxDecodeSymbolL1RoundedP12CrxBandParamii.exit169 ]
+.thread981:                                       ; preds = %1617, %_Z24crxDecodeSymbolL1RoundedP12CrxBandParamii.exit169
+  %.275.ph = phi i32 [ 1, %_Z24crxDecodeSymbolL1RoundedP12CrxBandParamii.exit169 ], [ %1215, %1617 ]
   %1989 = add nsw i32 %.275.ph, -1
   br label %._crit_edge658.loopexit
 
@@ -9271,7 +9271,7 @@ _Z19crxBitstreamGetBitsP12CrxBitstreami.exit198:  ; preds = %.loopexit477, %_ZL1
   br label %1521
 
 1521:                                             ; preds = %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit214, %773, %.thread456
-  %.4145 = phi i32 [ %.1142, %.thread456 ], [ %.3144, %773 ], [ %.3144, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit214 ]
+  %.4145 = phi i32 [ %.1142, %.thread456 ], [ %.3144, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit214 ], [ %.3144, %773 ]
   %1522 = add nsw i32 %.4145, 1
   %1523 = load i16, ptr %2, align 8, !tbaa !6
   %1524 = sext i16 %1523 to i32
@@ -19930,7 +19930,7 @@ define noundef range(i32 -1, 1) i32 @_ZN6LibRaw14crxDecodePlaneEPvj(ptr nonnull 
   br i1 %.not98, label %.preheader116, label %.critedge, !llvm.loop !178
 
 .critedge:                                        ; preds = %.thread107, %37, %.lr.ph134, %46, %95, %3, %89
-  %spec.select = phi i32 [ 0, %89 ], [ 0, %3 ], [ -1, %37 ], [ -1, %95 ], [ -1, %46 ], [ -1, %.lr.ph134 ], [ 0, %.thread107 ]
+  %spec.select = phi i32 [ 0, %3 ], [ -1, %37 ], [ 0, %89 ], [ -1, %95 ], [ -1, %46 ], [ -1, %.lr.ph134 ], [ 0, %.thread107 ]
   ret i32 %spec.select
 }
 
@@ -22689,7 +22689,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit349:                 ; preds = %.loopexit, %.loopex
   br i1 %exitcond493.not, label %.thread, label %327, !llvm.loop !211
 
 .thread:                                          ; preds = %175, %_ZN6LibRaw5sgetnEiPh.exit305, %_ZN6LibRaw5sgetnEiPh.exit300, %_ZN6LibRaw5sgetnEiPh.exit315, %160, %159, %161, %._crit_edge, %137, %_ZN6LibRaw5sgetnEiPh.exit335, %260, %_ZN6LibRaw5sgetnEiPh.exit340, %304, %298, %_ZNSt6vectorIiSaIiEED2Ev.exit, %441, %.critedge288, %.critedge286
-  %.8 = phi i32 [ 0, %.critedge286 ], [ -1, %.critedge288 ], [ -1, %_ZN6LibRaw5sgetnEiPh.exit335 ], [ -1, %_ZNSt6vectorIiSaIiEED2Ev.exit ], [ 0, %441 ], [ -1, %298 ], [ -1, %304 ], [ -1, %_ZN6LibRaw5sgetnEiPh.exit340 ], [ -1, %260 ], [ -1, %137 ], [ -1, %._crit_edge ], [ -1, %161 ], [ -1, %159 ], [ -1, %160 ], [ -1, %_ZN6LibRaw5sgetnEiPh.exit315 ], [ -1, %_ZN6LibRaw5sgetnEiPh.exit300 ], [ -1, %_ZN6LibRaw5sgetnEiPh.exit305 ], [ -1, %175 ]
+  %.8 = phi i32 [ -1, %_ZN6LibRaw5sgetnEiPh.exit335 ], [ 0, %.critedge286 ], [ -1, %_ZNSt6vectorIiSaIiEED2Ev.exit ], [ -1, %.critedge288 ], [ 0, %441 ], [ -1, %298 ], [ -1, %304 ], [ -1, %_ZN6LibRaw5sgetnEiPh.exit340 ], [ -1, %260 ], [ -1, %137 ], [ -1, %._crit_edge ], [ -1, %161 ], [ -1, %159 ], [ -1, %160 ], [ -1, %_ZN6LibRaw5sgetnEiPh.exit315 ], [ -1, %_ZN6LibRaw5sgetnEiPh.exit300 ], [ -1, %_ZN6LibRaw5sgetnEiPh.exit305 ], [ -1, %175 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %444

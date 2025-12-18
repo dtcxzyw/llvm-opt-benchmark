@@ -6560,8 +6560,8 @@ define dso_local void @adjustOpenFilesLimit() local_unnamed_addr #0 {
   br label %.thread
 
 .thread:                                          ; preds = %21, %.lr.ph, %..thread_crit_edge52, %.preheader
-  %.131 = phi i32 [ %26, %..thread_crit_edge52 ], [ 0, %.preheader ], [ %26, %.lr.ph ], [ %26, %21 ]
-  %.1 = phi i64 [ %28, %..thread_crit_edge52 ], [ %4, %.preheader ], [ %16, %.lr.ph ], [ %16, %21 ]
+  %.131 = phi i32 [ 0, %.preheader ], [ %26, %..thread_crit_edge52 ], [ %26, %.lr.ph ], [ %26, %21 ]
+  %.1 = phi i64 [ %4, %.preheader ], [ %28, %..thread_crit_edge52 ], [ %16, %.lr.ph ], [ %16, %21 ]
   %29 = icmp ult i64 %.1, %4
   br i1 %29, label %30, label %48
 
@@ -9146,7 +9146,7 @@ define dso_local range(i32 0, 2) i32 @incrCommandStatsOnError(ptr noundef captur
   br label %12
 
 12:                                               ; preds = %.sink.split, %7, %2
-  %.0 = phi i32 [ 0, %7 ], [ 0, %2 ], [ 1, %.sink.split ]
+  %.0 = phi i32 [ 0, %2 ], [ 0, %7 ], [ 1, %.sink.split ]
   store i64 %.pre, ptr @incrCommandStatsOnError.prev_err_count, align 8, !tbaa !80
   ret i32 %.0
 }
@@ -14819,7 +14819,7 @@ define dso_local ptr @genRedisInfoString(ptr noundef %0, i32 noundef %1, i32 nou
   br label %33
 
 33:                                               ; preds = %31, %27
-  %.0322 = phi ptr [ %switch.select458, %31 ], [ @.str.365, %27 ]
+  %.0322 = phi ptr [ @.str.365, %27 ], [ %switch.select458, %31 ]
   %.b = load i1, ptr @genRedisInfoString.call_uname, align 4
   br i1 %.b, label %36, label %34
 
@@ -17200,7 +17200,7 @@ redisSetProcTitle.exit.sink.split:                ; preds = %expandProcTitleTemp
   br label %redisSetProcTitle.exit
 
 redisSetProcTitle.exit:                           ; preds = %redisSetProcTitle.exit.sink.split, %expandProcTitleTemplate.exit.i13, %57, %expandProcTitleTemplate.exit.i, %22, %.loopexit, %28, %20
-  %.0 = phi i32 [ -1, %28 ], [ 0, %20 ], [ 0, %.loopexit ], [ 0, %22 ], [ 0, %expandProcTitleTemplate.exit.i ], [ 0, %57 ], [ 0, %expandProcTitleTemplate.exit.i13 ], [ 0, %redisSetProcTitle.exit.sink.split ]
+  %.0 = phi i32 [ -1, %28 ], [ 0, %20 ], [ 0, %.loopexit ], [ 0, %expandProcTitleTemplate.exit.i13 ], [ 0, %22 ], [ 0, %expandProcTitleTemplate.exit.i ], [ 0, %57 ], [ 0, %redisSetProcTitle.exit.sink.split ]
   ret i32 %.0
 }
 
@@ -18246,7 +18246,7 @@ define dso_local range(i32 0, 2) i32 @redisIsSupervised(i32 noundef %0) local_un
   %24 = tail call i32 @unsetenv(ptr noundef nonnull @.str.522) #43
   br label %redisSupervisedUpstart.exit
 
-.thread14:                                        ; preds = %1, %13, %10
+.thread14:                                        ; preds = %1, %10, %13
   %25 = tail call i32 @sd_notify(i32 noundef 0, ptr noundef nonnull @.str.573) #43
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %27, label %31

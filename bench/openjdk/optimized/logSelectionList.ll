@@ -62,7 +62,7 @@ define hidden noundef zeroext i1 @_ZNK16LogSelectionList17verify_selectionsEP12o
   br i1 %19, label %.lr.ph.split, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %16, %.lr.ph.split.us, %8, %2
-  %.015 = phi i1 [ true, %2 ], [ %.not26.not, %.lr.ph.split.us ], [ %.not26.not, %8 ], [ %.1, %16 ]
+  %.015 = phi i1 [ %.not26.not, %.lr.ph.split.us ], [ true, %2 ], [ %.not26.not, %8 ], [ %.1, %16 ]
   ret i1 %.015
 }
 

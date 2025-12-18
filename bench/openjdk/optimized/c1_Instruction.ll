@@ -2358,7 +2358,7 @@ _ZN17GrowableArrayViewIP10BlockBeginE9remove_atEi.exit.i: ; preds = %36, %_ZNK17
   br i1 %45, label %.lr.ph.i.i, label %_ZN10BlockBegin18remove_predecessorEPS_.exit, !llvm.loop !13
 
 _ZN10BlockBegin18remove_predecessorEPS_.exit:     ; preds = %_ZN17GrowableArrayViewIP10BlockBeginE9remove_atEi.exit.i, %31, %22
-  %46 = phi i32 [ %23, %22 ], [ %25, %31 ], [ %44, %_ZN17GrowableArrayViewIP10BlockBeginE9remove_atEi.exit.i ]
+  %46 = phi i32 [ %25, %31 ], [ %23, %22 ], [ %44, %_ZN17GrowableArrayViewIP10BlockBeginE9remove_atEi.exit.i ]
   %47 = load i32, ptr %10, align 4
   %48 = icmp eq i32 %46, %47
   br i1 %48, label %49, label %_ZN10BlockBegin15add_predecessorEPS_.exit
@@ -3997,7 +3997,7 @@ _ZN10ValueStack4copyENS_4KindEi.exit:             ; preds = %_ZN22CompilationRes
   br i1 %300, label %255, label %.critedge7, !llvm.loop !30
 
 .critedge7:                                       ; preds = %181, %197, %212, %297, %156, %.critedge9, %.critedge4, %148, %154, %8
-  %.0 = phi i1 [ true, %.critedge9 ], [ false, %148 ], [ false, %154 ], [ true, %.critedge4 ], [ false, %8 ], [ true, %156 ], [ true, %297 ], [ false, %197 ], [ false, %181 ], [ true, %212 ]
+  %.0 = phi i1 [ true, %.critedge4 ], [ false, %148 ], [ false, %154 ], [ true, %.critedge9 ], [ false, %8 ], [ true, %156 ], [ true, %297 ], [ false, %197 ], [ false, %181 ], [ true, %212 ]
   ret i1 %.0
 }
 

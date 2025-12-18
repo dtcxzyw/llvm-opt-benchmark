@@ -1120,7 +1120,7 @@ compute_sampled_height.exit:                      ; preds = %compute_sampled_wid
   br label %.loopexit
 
 .loopexit:                                        ; preds = %compute_sampled_height.exit, %compute_sampled_height.exit.us30, %compute_sampled_height.exit.us, %compute_sampled_height.exit.us.us, %8, %111
-  %.1 = phi i64 [ %113, %111 ], [ 0, %8 ], [ %80, %compute_sampled_height.exit.us30 ], [ %36, %compute_sampled_height.exit.us.us ], [ %57, %compute_sampled_height.exit.us ], [ %110, %compute_sampled_height.exit ]
+  %.1 = phi i64 [ %113, %111 ], [ 0, %8 ], [ %80, %compute_sampled_height.exit.us30 ], [ %57, %compute_sampled_height.exit.us ], [ %36, %compute_sampled_height.exit.us.us ], [ %110, %compute_sampled_height.exit ]
   ret i64 %.1
 }
 

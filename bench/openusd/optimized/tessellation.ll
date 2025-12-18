@@ -1378,7 +1378,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingCoordsIfEEiNS1_16Parameterizatio
   br i1 %exitcond.not.i36, label %_ZN10OpenSubdiv6v3_6_03Bfr4quad17GetInteriorCoordsIfEEiPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.exit, label %.lr.ph.split.i, !llvm.loop !16
 
 _ZN10OpenSubdiv6v3_6_03Bfr4quad17GetInteriorCoordsIfEEiPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.exit: ; preds = %230, %_ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingCoordsIfEEiNS1_16ParameterizationEiT_S5_NS1_12_GLOBAL__N_111Coord2ArrayIS5_EE.exit.us.us.i, %134, %_ZN10OpenSubdiv6v3_6_03Bfr4quad21getInteriorRingCoordsIfEEiiiT_S4_S4_S4_NS1_12_GLOBAL__N_111Coord2ArrayIS4_EE.exit.i, %11, %21, %15, %93, %88, %143, %138, %2, %10
-  %.0 = phi i32 [ %9, %2 ], [ 1, %10 ], [ 0, %11 ], [ 0, %15 ], [ 0, %21 ], [ 0, %88 ], [ 0, %93 ], [ 0, %138 ], [ 0, %143 ], [ %.1.us.us.i, %_ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingCoordsIfEEiNS1_16ParameterizationEiT_S5_NS1_12_GLOBAL__N_111Coord2ArrayIS5_EE.exit.us.us.i ], [ %84, %_ZN10OpenSubdiv6v3_6_03Bfr4quad21getInteriorRingCoordsIfEEiiiT_S4_S4_S4_NS1_12_GLOBAL__N_111Coord2ArrayIS4_EE.exit.i ], [ %.1.i, %134 ], [ %.1.i35, %230 ]
+  %.0 = phi i32 [ %9, %2 ], [ 1, %10 ], [ %84, %_ZN10OpenSubdiv6v3_6_03Bfr4quad21getInteriorRingCoordsIfEEiiiT_S4_S4_S4_NS1_12_GLOBAL__N_111Coord2ArrayIS4_EE.exit.i ], [ 0, %11 ], [ %.1.us.us.i, %_ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingCoordsIfEEiNS1_16ParameterizationEiT_S5_NS1_12_GLOBAL__N_111Coord2ArrayIS5_EE.exit.us.us.i ], [ 0, %15 ], [ 0, %21 ], [ 0, %88 ], [ 0, %93 ], [ 0, %138 ], [ 0, %143 ], [ %.1.i, %134 ], [ %.1.i35, %230 ]
   ret i32 %.0
 }
 
@@ -1968,7 +1968,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingCoordsIdEEiNS1_16Parameterizatio
   br i1 %exitcond.not.i36, label %_ZN10OpenSubdiv6v3_6_03Bfr4quad17GetInteriorCoordsIdEEiPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.exit, label %.lr.ph.split.i, !llvm.loop !21
 
 _ZN10OpenSubdiv6v3_6_03Bfr4quad17GetInteriorCoordsIdEEiPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.exit: ; preds = %230, %_ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingCoordsIdEEiNS1_16ParameterizationEiT_S5_NS1_12_GLOBAL__N_111Coord2ArrayIS5_EE.exit.us.us.i, %134, %_ZN10OpenSubdiv6v3_6_03Bfr4quad21getInteriorRingCoordsIdEEiiiT_S4_S4_S4_NS1_12_GLOBAL__N_111Coord2ArrayIS4_EE.exit.i, %11, %21, %15, %93, %88, %143, %138, %2, %10
-  %.0 = phi i32 [ %9, %2 ], [ 1, %10 ], [ 0, %11 ], [ 0, %15 ], [ 0, %21 ], [ 0, %88 ], [ 0, %93 ], [ 0, %138 ], [ 0, %143 ], [ %.1.us.us.i, %_ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingCoordsIdEEiNS1_16ParameterizationEiT_S5_NS1_12_GLOBAL__N_111Coord2ArrayIS5_EE.exit.us.us.i ], [ %84, %_ZN10OpenSubdiv6v3_6_03Bfr4quad21getInteriorRingCoordsIdEEiiiT_S4_S4_S4_NS1_12_GLOBAL__N_111Coord2ArrayIS4_EE.exit.i ], [ %.1.i, %134 ], [ %.1.i35, %230 ]
+  %.0 = phi i32 [ %9, %2 ], [ 1, %10 ], [ %84, %_ZN10OpenSubdiv6v3_6_03Bfr4quad21getInteriorRingCoordsIdEEiiiT_S4_S4_S4_NS1_12_GLOBAL__N_111Coord2ArrayIS4_EE.exit.i ], [ 0, %11 ], [ %.1.us.us.i, %_ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingCoordsIdEEiNS1_16ParameterizationEiT_S5_NS1_12_GLOBAL__N_111Coord2ArrayIS5_EE.exit.us.us.i ], [ 0, %15 ], [ 0, %21 ], [ 0, %88 ], [ 0, %93 ], [ 0, %138 ], [ 0, %143 ], [ %.1.i, %134 ], [ %.1.i35, %230 ]
   ret i32 %.0
 }
 
@@ -2177,7 +2177,7 @@ define weak_odr noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12Tessellation13GetEdgeC
   br label %_ZN10OpenSubdiv6v3_6_03Bfr4quad13GetEdgeCoordsIfEEiiiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.exit
 
 _ZN10OpenSubdiv6v3_6_03Bfr4quad13GetEdgeCoordsIfEEiiiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.exit: ; preds = %.lr.ph.i28.i, %.lr.ph.i24.i, %.lr.ph.i.i23, %.lr.ph.i36.i, %.lr.ph.i27.i, %.lr.ph.i25.i, %.lr.ph.i.i, %75, %47, %52, %60, %68, %12, %17, %25, %32, %40, %3
-  %.0 = phi i32 [ -1, %3 ], [ %16, %32 ], [ 0, %12 ], [ %16, %17 ], [ %16, %25 ], [ %16, %40 ], [ %51, %60 ], [ 0, %47 ], [ %51, %52 ], [ %51, %68 ], [ %78, %75 ], [ %51, %.lr.ph.i24.i ], [ %16, %.lr.ph.i.i ], [ %16, %.lr.ph.i25.i ], [ %16, %.lr.ph.i27.i ], [ %16, %.lr.ph.i36.i ], [ %51, %.lr.ph.i.i23 ], [ %51, %.lr.ph.i28.i ]
+  %.0 = phi i32 [ %16, %.lr.ph.i27.i ], [ -1, %3 ], [ %51, %.lr.ph.i24.i ], [ %16, %32 ], [ 0, %12 ], [ %16, %17 ], [ %16, %25 ], [ %16, %40 ], [ %16, %.lr.ph.i36.i ], [ %51, %.lr.ph.i.i23 ], [ %78, %75 ], [ %51, %60 ], [ 0, %47 ], [ %51, %52 ], [ %51, %68 ], [ %16, %.lr.ph.i25.i ], [ %16, %.lr.ph.i.i ], [ %51, %.lr.ph.i28.i ]
   ret i32 %.0
 }
 
@@ -2384,7 +2384,7 @@ define weak_odr noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12Tessellation13GetEdgeC
   br label %_ZN10OpenSubdiv6v3_6_03Bfr4quad13GetEdgeCoordsIdEEiiiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.exit
 
 _ZN10OpenSubdiv6v3_6_03Bfr4quad13GetEdgeCoordsIdEEiiiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.exit: ; preds = %.lr.ph.i28.i, %.lr.ph.i24.i, %.lr.ph.i.i23, %.lr.ph.i36.i, %.lr.ph.i27.i, %.lr.ph.i25.i, %.lr.ph.i.i, %75, %47, %52, %60, %68, %12, %17, %25, %32, %40, %3
-  %.0 = phi i32 [ -1, %3 ], [ %16, %32 ], [ 0, %12 ], [ %16, %17 ], [ %16, %25 ], [ %16, %40 ], [ %51, %60 ], [ 0, %47 ], [ %51, %52 ], [ %51, %68 ], [ %78, %75 ], [ %51, %.lr.ph.i24.i ], [ %16, %.lr.ph.i.i ], [ %16, %.lr.ph.i25.i ], [ %16, %.lr.ph.i27.i ], [ %16, %.lr.ph.i36.i ], [ %51, %.lr.ph.i.i23 ], [ %51, %.lr.ph.i28.i ]
+  %.0 = phi i32 [ %16, %.lr.ph.i27.i ], [ -1, %3 ], [ %51, %.lr.ph.i24.i ], [ %16, %32 ], [ 0, %12 ], [ %16, %17 ], [ %16, %25 ], [ %16, %40 ], [ %16, %.lr.ph.i36.i ], [ %51, %.lr.ph.i.i23 ], [ %78, %75 ], [ %51, %60 ], [ 0, %47 ], [ %51, %52 ], [ %51, %68 ], [ %16, %.lr.ph.i25.i ], [ %16, %.lr.ph.i.i ], [ %51, %.lr.ph.i28.i ]
   ret i32 %.0
 }
 
@@ -2675,7 +2675,7 @@ define noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4qsub21CountNonUniformFacetsEiPKii
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %60, %45, %.lr.ph.split.us, %18
-  %.028.lcssa = phi i32 [ 0, %18 ], [ %.1.us46, %45 ], [ %.1.us, %.lr.ph.split.us ], [ %.1, %60 ]
+  %.028.lcssa = phi i32 [ 0, %18 ], [ %.1.us, %.lr.ph.split.us ], [ %.1.us46, %45 ], [ %.1, %60 ]
   %61 = add nsw i32 %.028.lcssa, %.029
   ret i32 %61
 }
@@ -2743,7 +2743,7 @@ define noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Bfr12Tessellation17validateArg
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %21, %13, %5, %27
-  %.0 = phi i1 [ false, %5 ], [ false, %21 ], [ false, %13 ], [ true, %27 ], [ false, %.preheader ]
+  %.0 = phi i1 [ false, %5 ], [ false, %21 ], [ true, %27 ], [ false, %13 ], [ false, %.preheader ]
   ret i1 %.0
 }
 
@@ -3867,7 +3867,7 @@ define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12Tessellation9GetFacetsEPi(ptr n
   br label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_112appendTriFanENS2_10FacetArrayEii.exit
 
 _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_112appendTriFanENS2_10FacetArrayEii.exit: ; preds = %.lr.ph.i, %92, %86, %78, %108, %104, %124, %118, %58, %62, %35, %74, %29, %23
-  %.010 = phi i32 [ 1, %23 ], [ 1, %29 ], [ %123, %118 ], [ %37, %35 ], [ 0, %74 ], [ 2, %62 ], [ %83, %78 ], [ %91, %86 ], [ %101, %92 ], [ %107, %104 ], [ %115, %108 ], [ 1, %58 ], [ %133, %124 ], [ %37, %.lr.ph.i ]
+  %.010 = phi i32 [ 1, %23 ], [ 1, %29 ], [ %123, %118 ], [ %37, %35 ], [ 0, %74 ], [ 2, %62 ], [ %83, %78 ], [ %91, %86 ], [ %101, %92 ], [ %107, %104 ], [ %115, %108 ], [ %133, %124 ], [ 1, %58 ], [ %37, %.lr.ph.i ]
   ret i32 %.010
 }
 
@@ -4907,7 +4907,7 @@ define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4qsub16GetUniformF
   br i1 %exitcond.not, label %_ZN10OpenSubdiv6v3_6_03Bfr4qsub15getCenterFacetsEiiNS1_12_GLOBAL__N_110FacetArrayE.exit, label %37, !llvm.loop !84
 
 _ZN10OpenSubdiv6v3_6_03Bfr4qsub15getCenterFacetsEiiNS1_12_GLOBAL__N_110FacetArrayE.exit: ; preds = %37, %12, %29, %8, %.critedge.i
-  %.021 = phi i32 [ 1, %.critedge.i ], [ %0, %8 ], [ 0, %29 ], [ %0, %12 ], [ %45, %37 ]
+  %.021 = phi i32 [ %0, %12 ], [ 1, %.critedge.i ], [ %0, %8 ], [ 0, %29 ], [ %45, %37 ]
   ret i32 %.021
 }
 
@@ -6418,7 +6418,7 @@ define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInterior
   br i1 %exitcond.not, label %_ZN10OpenSubdiv6v3_6_03Bfr4qsub15getCenterFacetsEiiNS1_12_GLOBAL__N_110FacetArrayE.exit, label %56, !llvm.loop !161
 
 _ZN10OpenSubdiv6v3_6_03Bfr4qsub15getCenterFacetsEiiNS1_12_GLOBAL__N_110FacetArrayE.exit: ; preds = %68, %17, %38, %12, %.critedge.i, %5
-  %.036 = phi i32 [ 0, %5 ], [ 1, %.critedge.i ], [ %0, %12 ], [ 0, %38 ], [ %0, %17 ], [ %76, %68 ]
+  %.036 = phi i32 [ 0, %5 ], [ %0, %17 ], [ 1, %.critedge.i ], [ %0, %12 ], [ 0, %38 ], [ %76, %68 ]
   ret i32 %.036
 }
 

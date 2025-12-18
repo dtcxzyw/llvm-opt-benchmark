@@ -892,7 +892,7 @@ zend_hash_release.exit:                           ; preds = %106, %110, %118, %1
   br label %zend_class_set_backed_enum_table.exit78
 
 zend_class_set_backed_enum_table.exit78:          ; preds = %104, %zend_class_constants_table.exit, %130, %124
-  %.0 = phi i32 [ -1, %124 ], [ -1, %130 ], [ 0, %zend_class_constants_table.exit ], [ 0, %104 ]
+  %.0 = phi i32 [ -1, %130 ], [ -1, %124 ], [ 0, %zend_class_constants_table.exit ], [ 0, %104 ]
   ret i32 %.0
 }
 
@@ -1562,7 +1562,7 @@ define hidden void @zend_enum_register_props(ptr noundef %0) local_unnamed_addr 
   br label %20
 
 20:                                               ; preds = %15, %.fold.split8, %.fold.split, %18
-  %21 = phi i32 [ 12, %15 ], [ %19, %18 ], [ 2097152, %.fold.split ], [ 1022, %.fold.split8 ]
+  %21 = phi i32 [ 12, %15 ], [ 2097152, %.fold.split ], [ %19, %18 ], [ 1022, %.fold.split8 ]
   store i32 %21, ptr %17, align 8, !tbaa !147
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 0, ptr %22, align 4
@@ -1679,7 +1679,7 @@ zend_class_set_backed_enum_table.exit:            ; preds = %33, %27, %switch.ed
   br label %48
 
 48:                                               ; preds = %.fold.split8.i, %.fold.split.i, %46, %43
-  %49 = phi i32 [ 12, %43 ], [ %47, %46 ], [ 2097152, %.fold.split.i ], [ 1022, %.fold.split8.i ]
+  %49 = phi i32 [ 12, %43 ], [ 2097152, %.fold.split.i ], [ %47, %46 ], [ 1022, %.fold.split8.i ]
   store i32 %49, ptr %45, align 8, !tbaa !147
   %50 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 0, ptr %50, align 4

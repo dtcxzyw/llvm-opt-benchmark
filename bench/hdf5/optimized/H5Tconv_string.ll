@@ -406,8 +406,8 @@ define range(i32 -1, 1) i32 @H5T__conv_s_s(ptr noundef readonly captures(address
   br label %.critedge, !llvm.loop !32
 
 .critedge:                                        ; preds = %.lr.ph303, %.lr.ph239, %.lr.ph311, %.lr.ph246, %.lr.ph239.preheader, %..critedge.loopexit298_crit_edge305, %.lr.ph246.preheader, %..critedge.loopexit_crit_edge314, %.preheader230, %.preheader229, %.critedge9, %203
-  %208 = phi ptr [ %.pre, %203 ], [ %200, %.critedge9 ], [ %187, %..critedge.loopexit298_crit_edge305 ], [ %157, %.preheader229 ], [ %151, %.preheader230 ], [ %173, %..critedge.loopexit_crit_edge314 ], [ %173, %.lr.ph246 ], [ %157, %.lr.ph246.preheader ], [ %151, %.lr.ph239.preheader ], [ %167, %.lr.ph311 ], [ %187, %.lr.ph239 ], [ %181, %.lr.ph303 ]
-  %.1162 = phi i64 [ %..3, %203 ], [ %..3, %.critedge9 ], [ %186, %..critedge.loopexit298_crit_edge305 ], [ 0, %.preheader229 ], [ 0, %.preheader230 ], [ %172, %..critedge.loopexit_crit_edge314 ], [ %172, %.lr.ph246 ], [ 0, %.lr.ph246.preheader ], [ 0, %.lr.ph239.preheader ], [ %.0161245310, %.lr.ph311 ], [ %186, %.lr.ph239 ], [ %.2238302, %.lr.ph303 ]
+  %208 = phi ptr [ %200, %.critedge9 ], [ %.pre, %203 ], [ %187, %..critedge.loopexit298_crit_edge305 ], [ %157, %.preheader229 ], [ %151, %.preheader230 ], [ %173, %..critedge.loopexit_crit_edge314 ], [ %173, %.lr.ph246 ], [ %157, %.lr.ph246.preheader ], [ %151, %.lr.ph239.preheader ], [ %167, %.lr.ph311 ], [ %187, %.lr.ph239 ], [ %181, %.lr.ph303 ]
+  %.1162 = phi i64 [ %..3, %.critedge9 ], [ %..3, %203 ], [ %186, %..critedge.loopexit298_crit_edge305 ], [ 0, %.preheader229 ], [ 0, %.preheader230 ], [ %172, %..critedge.loopexit_crit_edge314 ], [ %172, %.lr.ph246 ], [ 0, %.lr.ph246.preheader ], [ 0, %.lr.ph239.preheader ], [ %.0161245310, %.lr.ph311 ], [ %186, %.lr.ph239 ], [ %.2238302, %.lr.ph303 ]
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 84
   %210 = load i32, ptr %209, align 4, !tbaa !28
   switch i32 %210, label %240 [

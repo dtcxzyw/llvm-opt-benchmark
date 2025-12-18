@@ -1077,7 +1077,7 @@ define internal fastcc range(i32 0, 2) i32 @Min_CubesDistOne(ptr noundef %0, ptr
   br label %.loopexit
 
 .loopexit:                                        ; preds = %34, %33, %19, %20, %._crit_edge, %._crit_edge.thread
-  %.025 = phi i32 [ 1, %._crit_edge.thread ], [ 1, %._crit_edge ], [ 0, %19 ], [ 0, %20 ], [ 0, %33 ], [ 0, %34 ]
+  %.025 = phi i32 [ 1, %._crit_edge ], [ 1, %._crit_edge.thread ], [ 0, %19 ], [ 0, %20 ], [ 0, %33 ], [ 0, %34 ]
   ret i32 %.025
 }
 

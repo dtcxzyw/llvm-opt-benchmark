@@ -1786,9 +1786,9 @@ _ZN5quote9to_tokens8ToTokens17into_token_stream17h7ff025ae322e78b2E.exit: ; pred
           to label %266 unwind label %.loopexit.split.split.split.split
 
 .split118.us.invoke:                              ; preds = %232, %229, %213, %207, %210, %204, %166, %163, %133, %130
-  %263 = phi i64 [ %119, %133 ], [ %149, %166 ], [ %201, %204 ], [ %119, %130 ], [ %160, %163 ], [ %149, %207 ], [ %201, %210 ], [ %188, %213 ], [ %226, %229 ], [ %188, %232 ]
-  %264 = phi i64 [ %125, %133 ], [ %146, %166 ], [ %146, %204 ], [ %125, %130 ], [ %146, %163 ], [ %146, %207 ], [ %185, %210 ], [ %185, %213 ], [ %185, %229 ], [ %185, %232 ]
-  %265 = phi ptr [ @anon.90c6b7dd4797e5002e19ecdff163537e.8, %133 ], [ @anon.90c6b7dd4797e5002e19ecdff163537e.7, %166 ], [ @anon.90c6b7dd4797e5002e19ecdff163537e.7, %204 ], [ @anon.90c6b7dd4797e5002e19ecdff163537e.8, %130 ], [ @anon.90c6b7dd4797e5002e19ecdff163537e.7, %163 ], [ @anon.90c6b7dd4797e5002e19ecdff163537e.7, %207 ], [ @anon.90c6b7dd4797e5002e19ecdff163537e.8, %210 ], [ @anon.90c6b7dd4797e5002e19ecdff163537e.8, %213 ], [ @anon.90c6b7dd4797e5002e19ecdff163537e.8, %229 ], [ @anon.90c6b7dd4797e5002e19ecdff163537e.8, %232 ]
+  %263 = phi i64 [ %201, %204 ], [ %149, %166 ], [ %119, %133 ], [ %119, %130 ], [ %160, %163 ], [ %149, %207 ], [ %201, %210 ], [ %188, %213 ], [ %188, %232 ], [ %226, %229 ]
+  %264 = phi i64 [ %146, %204 ], [ %146, %166 ], [ %125, %133 ], [ %125, %130 ], [ %146, %163 ], [ %146, %207 ], [ %185, %210 ], [ %185, %213 ], [ %185, %229 ], [ %185, %232 ]
+  %265 = phi ptr [ @anon.90c6b7dd4797e5002e19ecdff163537e.7, %204 ], [ @anon.90c6b7dd4797e5002e19ecdff163537e.7, %166 ], [ @anon.90c6b7dd4797e5002e19ecdff163537e.8, %133 ], [ @anon.90c6b7dd4797e5002e19ecdff163537e.8, %130 ], [ @anon.90c6b7dd4797e5002e19ecdff163537e.7, %163 ], [ @anon.90c6b7dd4797e5002e19ecdff163537e.7, %207 ], [ @anon.90c6b7dd4797e5002e19ecdff163537e.8, %210 ], [ @anon.90c6b7dd4797e5002e19ecdff163537e.8, %213 ], [ @anon.90c6b7dd4797e5002e19ecdff163537e.8, %229 ], [ @anon.90c6b7dd4797e5002e19ecdff163537e.8, %232 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %263, i64 noundef %264, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %265) #30
           to label %.split118.us.cont unwind label %.loopexit.split-lp
 
@@ -1807,7 +1807,7 @@ _ZN5quote9to_tokens8ToTokens17into_token_stream17h7ff025ae322e78b2E.exit: ; pred
   br label %.split.split.split.split
 
 .split108.us:                                     ; preds = %266, %233, %214, %179, %167, %137
-  %.us-phi109 = phi i64 [ %234, %233 ], [ %138, %137 ], [ %168, %167 ], [ %180, %179 ], [ %215, %214 ], [ %267, %266 ]
+  %.us-phi109 = phi i64 [ %180, %179 ], [ %234, %233 ], [ %215, %214 ], [ %138, %137 ], [ %168, %167 ], [ %267, %266 ]
   %.sroa.040.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.244, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.040.sroa.4.0..sroa_idx, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)

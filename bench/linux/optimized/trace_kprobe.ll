@@ -3902,7 +3902,7 @@ define internal i32 @kprobe_register(ptr noundef %0, i32 noundef %1, ptr noundef
   br i1 %46, label %disable_trace_kprobe.exit, label %.preheader.i, !llvm.loop !58
 
 disable_trace_kprobe.exit:                        ; preds = %42, %16, %26, %17, %8, %6, %4, %3
-  %47 = phi i32 [ 0, %3 ], [ %9, %8 ], [ %7, %6 ], [ %5, %4 ], [ -19, %16 ], [ 0, %26 ], [ 0, %17 ], [ 0, %42 ]
+  %47 = phi i32 [ 0, %3 ], [ %9, %8 ], [ %7, %6 ], [ %5, %4 ], [ -19, %16 ], [ 0, %17 ], [ 0, %26 ], [ 0, %42 ]
   ret i32 %47
 }
 

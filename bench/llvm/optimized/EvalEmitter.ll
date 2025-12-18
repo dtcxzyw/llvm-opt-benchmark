@@ -41257,7 +41257,7 @@ _ZN5clang6interp11EvalEmitter22emitCheckNonNullArgPtrERKNS0_10SourceInfoE.exit.s
   br label %_ZN5clang6interp11EvalEmitter22emitCheckNonNullArgPtrERKNS0_10SourceInfoE.exit
 
 _ZN5clang6interp11EvalEmitter22emitCheckNonNullArgPtrERKNS0_10SourceInfoE.exit: ; preds = %_ZN5clang6interp11EvalEmitter22emitCheckNonNullArgPtrERKNS0_10SourceInfoE.exit.sink.split, %_ZNK5clang6interp13MemberPointer6isZeroEv.exit.i.i, %42, %41, %33, %32, %_ZNK5clang6interp7Pointer6isZeroEv.exit.i.i, %23, %19, %10, %9
-  %.0 = phi i1 [ true, %10 ], [ true, %9 ], [ true, %23 ], [ true, %_ZNK5clang6interp7Pointer6isZeroEv.exit.i.i ], [ true, %19 ], [ true, %32 ], [ true, %33 ], [ true, %41 ], [ true, %_ZNK5clang6interp13MemberPointer6isZeroEv.exit.i.i ], [ true, %42 ], [ false, %_ZN5clang6interp11EvalEmitter22emitCheckNonNullArgPtrERKNS0_10SourceInfoE.exit.sink.split ]
+  %.0 = phi i1 [ true, %42 ], [ true, %10 ], [ true, %9 ], [ true, %23 ], [ true, %_ZNK5clang6interp7Pointer6isZeroEv.exit.i.i ], [ true, %_ZNK5clang6interp13MemberPointer6isZeroEv.exit.i.i ], [ true, %19 ], [ true, %32 ], [ true, %33 ], [ true, %41 ], [ false, %_ZN5clang6interp11EvalEmitter22emitCheckNonNullArgPtrERKNS0_10SourceInfoE.exit.sink.split ]
   ret i1 %.0
 }
 
@@ -179595,7 +179595,7 @@ _ZNK5clang6interp7Pointer8getIndexEv.exit148:     ; preds = %_ZNK5clang6interp7P
   br label %315
 
 315:                                              ; preds = %.sink.split, %145, %76
-  %.3 = phi i1 [ false, %76 ], [ false, %145 ], [ true, %.sink.split ]
+  %.3 = phi i1 [ false, %145 ], [ false, %76 ], [ true, %.sink.split ]
   call void @_ZN5clang6interp7PointerD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %4) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN5clang6interp7PointerD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %3) #22
@@ -181059,7 +181059,7 @@ _ZNK5clang6interp7Pointer8getIndexEv.exit148:     ; preds = %_ZNK5clang6interp7P
   br label %315
 
 315:                                              ; preds = %.sink.split, %145, %76
-  %.3 = phi i1 [ false, %76 ], [ false, %145 ], [ true, %.sink.split ]
+  %.3 = phi i1 [ false, %145 ], [ false, %76 ], [ true, %.sink.split ]
   call void @_ZN5clang6interp7PointerD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %4) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN5clang6interp7PointerD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %3) #22
@@ -182515,7 +182515,7 @@ _ZNK5clang6interp7Pointer8getIndexEv.exit148:     ; preds = %_ZNK5clang6interp7P
   br label %311
 
 311:                                              ; preds = %.sink.split, %145, %76
-  %.3 = phi i1 [ false, %76 ], [ false, %145 ], [ true, %.sink.split ]
+  %.3 = phi i1 [ false, %145 ], [ false, %76 ], [ true, %.sink.split ]
   call void @_ZN5clang6interp7PointerD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %4) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN5clang6interp7PointerD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %3) #22
@@ -183953,7 +183953,7 @@ _ZNK5clang6interp7Pointer8getIndexEv.exit148:     ; preds = %303, %299, %_ZNK5cl
   br label %310
 
 310:                                              ; preds = %.sink.split, %144, %76
-  %.3 = phi i1 [ false, %76 ], [ false, %144 ], [ true, %.sink.split ]
+  %.3 = phi i1 [ false, %144 ], [ false, %76 ], [ true, %.sink.split ]
   call void @_ZN5clang6interp7PointerD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %4) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN5clang6interp7PointerD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %3) #22

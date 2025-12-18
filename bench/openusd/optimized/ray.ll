@@ -766,7 +766,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3d7IsEmptyEv.exit: ; preds = %9
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3d7IsEmptyEv.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3d7IsEmptyEv.exit.thread: ; preds = %26, %32, %4, %9, %59, %60, %54, %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3d7IsEmptyEv.exit
-  %.0 = phi i1 [ false, %54 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3d7IsEmptyEv.exit ], [ true, %60 ], [ true, %59 ], [ false, %9 ], [ false, %4 ], [ false, %32 ], [ false, %26 ]
+  %.0 = phi i1 [ false, %54 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3d7IsEmptyEv.exit ], [ false, %4 ], [ false, %9 ], [ true, %60 ], [ true, %59 ], [ false, %32 ], [ false, %26 ]
   ret i1 %.0
 }
 
@@ -953,7 +953,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3d7IsEmptyEv.exit.i: ; preds = %84
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__5GfRay9IntersectERKNS_9GfRange3dEPdS4_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__5GfRay9IntersectERKNS_9GfRange3dEPdS4_.exit: ; preds = %99, %105, %4, %84, %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3d7IsEmptyEv.exit.i, %127, %132, %133
-  %.0.i = phi i1 [ false, %127 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3d7IsEmptyEv.exit.i ], [ true, %133 ], [ true, %132 ], [ false, %84 ], [ false, %4 ], [ false, %105 ], [ false, %99 ]
+  %.0.i = phi i1 [ false, %127 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3d7IsEmptyEv.exit.i ], [ false, %4 ], [ false, %84 ], [ true, %133 ], [ true, %132 ], [ false, %105 ], [ false, %99 ]
   ret i1 %.0.i
 }
 

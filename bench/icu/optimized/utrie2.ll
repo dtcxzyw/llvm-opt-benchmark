@@ -890,7 +890,7 @@ define noundef ptr @utrie2_openDummy_77(i32 noundef %0, i32 noundef %1, i32 noun
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader115, %.preheader, %.loopexit.sink.split, %4
-  %.0101 = phi ptr [ null, %4 ], [ null, %.loopexit.sink.split ], [ %10, %.preheader ], [ %10, %.preheader115 ]
+  %.0101 = phi ptr [ null, %4 ], [ %10, %.preheader ], [ null, %.loopexit.sink.split ], [ %10, %.preheader115 ]
   ret ptr %.0101
 }
 
@@ -1364,11 +1364,11 @@ define internal fastcc void @_ZL14enumEitherTriePK6UTrie2iiPFjPKvjEPFaS3_iijES3_
   br i1 %exitcond314.not, label %.thread229, label %.lr.ph.split, !llvm.loop !57
 
 .thread229:                                       ; preds = %.loopexit.split, %.loopexit.split.us.us, %74, %69, %71, %68, %62
-  %.1185 = phi i32 [ %.0184291, %62 ], [ %33, %68 ], [ %33, %71 ], [ %33, %69 ], [ %.0184291, %74 ], [ %.5189.us, %.loopexit.split.us.us ], [ %.5189, %.loopexit.split ]
-  %.1175 = phi i32 [ %38, %62 ], [ %38, %68 ], [ %38, %71 ], [ %38, %69 ], [ %.0174292, %74 ], [ %.4178.us, %.loopexit.split.us.us ], [ %.4178, %.loopexit.split ]
-  %.1168 = phi i32 [ %.0167293, %62 ], [ %.0167293, %68 ], [ %.0174292, %71 ], [ %.0174292, %69 ], [ %.0167293, %74 ], [ %.5172.us, %.loopexit.split.us.us ], [ %.5172, %.loopexit.split ]
-  %.1163 = phi i32 [ %.0162294, %62 ], [ %.0161, %68 ], [ %.0161, %71 ], [ %.0161, %69 ], [ %.0164, %74 ], [ %.0164, %.loopexit.split.us.us ], [ %.0164, %.loopexit.split ]
-  %.1158 = phi i32 [ %.0157295, %62 ], [ %.0157295, %68 ], [ %.0156, %71 ], [ %.0156, %69 ], [ %.0157295, %74 ], [ %.5.us, %.loopexit.split.us.us ], [ %.5, %.loopexit.split ]
+  %.1185 = phi i32 [ %.0184291, %62 ], [ %33, %69 ], [ %33, %68 ], [ %33, %71 ], [ %.0184291, %74 ], [ %.5189.us, %.loopexit.split.us.us ], [ %.5189, %.loopexit.split ]
+  %.1175 = phi i32 [ %38, %62 ], [ %38, %69 ], [ %38, %68 ], [ %38, %71 ], [ %.0174292, %74 ], [ %.4178.us, %.loopexit.split.us.us ], [ %.4178, %.loopexit.split ]
+  %.1168 = phi i32 [ %.0167293, %62 ], [ %.0174292, %69 ], [ %.0167293, %68 ], [ %.0174292, %71 ], [ %.0167293, %74 ], [ %.5172.us, %.loopexit.split.us.us ], [ %.5172, %.loopexit.split ]
+  %.1163 = phi i32 [ %.0162294, %62 ], [ %.0161, %69 ], [ %.0161, %68 ], [ %.0161, %71 ], [ %.0164, %74 ], [ %.0164, %.loopexit.split.us.us ], [ %.0164, %.loopexit.split ]
+  %.1158 = phi i32 [ %.0157295, %62 ], [ %.0156, %69 ], [ %.0157295, %68 ], [ %.0156, %71 ], [ %.0157295, %74 ], [ %.5.us, %.loopexit.split.us.us ], [ %.5, %.loopexit.split ]
   %156 = icmp slt i32 %.1175, %2
   %157 = icmp slt i32 %.1175, %30
   %158 = select i1 %156, i1 %157, i1 false

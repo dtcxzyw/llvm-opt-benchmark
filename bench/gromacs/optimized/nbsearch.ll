@@ -1398,7 +1398,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %68, %73
   br i1 %exitcond130.not, label %.thread95, label %68, !llvm.loop !111
 
 .thread95:                                        ; preds = %14, %39, %_ZNSt6vectorIiSaIiEE5clearEv.exit, %52
-  %.4 = phi i1 [ false, %52 ], [ false, %39 ], [ true, %_ZNSt6vectorIiSaIiEE5clearEv.exit ], [ false, %14 ]
+  %.4 = phi i1 [ false, %39 ], [ false, %52 ], [ true, %_ZNSt6vectorIiSaIiEE5clearEv.exit ], [ false, %14 ]
   ret i1 %.4
 }
 

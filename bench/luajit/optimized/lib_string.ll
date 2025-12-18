@@ -1522,7 +1522,7 @@ match_class.exit.i118:                            ; preds = %218
   br i1 %233, label %193, label %matchbracketclass.exit121, !llvm.loop !62
 
 matchbracketclass.exit121:                        ; preds = %208, %219, %220, %match_class.exit.i118, %227, %229, %231
-  %.022.in.i107 = phi i1 [ %not..i, %208 ], [ %not..i, %219 ], [ %not..i, %220 ], [ %118, %231 ], [ %not..i, %227 ], [ %not..i, %229 ], [ %not..i, %match_class.exit.i118 ]
+  %.022.in.i107 = phi i1 [ %not..i, %match_class.exit.i118 ], [ %not..i, %208 ], [ %not..i, %219 ], [ %not..i, %220 ], [ %118, %231 ], [ %not..i, %227 ], [ %not..i, %229 ]
   br i1 %.022.in.i107, label %14, label %start_capture.exit
 
 234:                                              ; preds = %77
@@ -1819,7 +1819,7 @@ classend.exit133:                                 ; preds = %269, %274, %279, %2
   br label %.outer.outer.backedge
 
 start_capture.exit:                               ; preds = %315, %361, %259, %check_capture.exit.i, %.preheader.i, %91, %140, %matchbracketclass.exit, %matchbracketclass.exit121, %14, %104, %352, %357, %.lr.ph, %346, %348, %327, %329, %.preheader182, %333, %76, %capture_to_close.exit, %48, %41, %34, %26, %272
-  %.1 = phi ptr [ null, %140 ], [ %spec.store.select, %272 ], [ null, %34 ], [ null, %48 ], [ %312, %.preheader182 ], [ null, %333 ], [ null, %.lr.ph ], [ %32, %26 ], [ %46, %41 ], [ %74, %capture_to_close.exit ], [ null, %76 ], [ %350, %348 ], [ %331, %329 ], [ null, %104 ], [ null, %327 ], [ null, %346 ], [ null, %357 ], [ %354, %352 ], [ %.0.ph.ph, %14 ], [ null, %matchbracketclass.exit121 ], [ null, %matchbracketclass.exit ], [ %317, %315 ], [ null, %361 ], [ null, %259 ], [ null, %check_capture.exit.i ], [ null, %.preheader.i ], [ null, %91 ]
+  %.1 = phi ptr [ null, %.lr.ph ], [ %spec.store.select, %272 ], [ null, %34 ], [ null, %48 ], [ null, %140 ], [ null, %333 ], [ %312, %.preheader182 ], [ null, %104 ], [ %32, %26 ], [ %46, %41 ], [ %74, %capture_to_close.exit ], [ null, %76 ], [ %350, %348 ], [ %331, %329 ], [ null, %327 ], [ null, %346 ], [ null, %357 ], [ %354, %352 ], [ %.0.ph.ph, %14 ], [ null, %matchbracketclass.exit121 ], [ null, %matchbracketclass.exit ], [ %317, %315 ], [ null, %361 ], [ null, %259 ], [ null, %check_capture.exit.i ], [ null, %.preheader.i ], [ null, %91 ]
   %364 = load i32, ptr %4, align 4, !tbaa !48
   %365 = add nsw i32 %364, -1
   store i32 %365, ptr %4, align 4, !tbaa !48

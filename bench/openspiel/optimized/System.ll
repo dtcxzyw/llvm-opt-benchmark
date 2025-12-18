@@ -3815,8 +3815,8 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ESt16
   br i1 %122, label %.body41.i, label %.body44.i
 
 .body41.i:                                        ; preds = %.body44.i, %118, %.body
-  %.pn.i = phi { ptr, i32 } [ %119, %118 ], [ %97, %.body ], [ %100, %.body44.i ]
-  %123 = phi i1 [ false, %118 ], [ false, %.body ], [ true, %.body44.i ]
+  %.pn.i = phi { ptr, i32 } [ %97, %.body ], [ %119, %118 ], [ %100, %.body44.i ]
+  %123 = phi i1 [ false, %.body ], [ false, %118 ], [ true, %.body44.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %47) #24
   br label %.body36.i
 
@@ -3856,7 +3856,7 @@ common.resume.sink.split:                         ; preds = %.body75, %110, %.bo
   br label %common.resume
 
 common.resume:                                    ; preds = %.preheader.i, %.preheader.i12, %.preheader.i45, %.preheader.i56, %common.resume.sink.split, %.body.i54, %.body.i42, %.body.i8, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.pn.pn.i, %.body.i ], [ %.pn.pn.pn.pn.i10, %.body.i8 ], [ %.pn.pn.i43, %.body.i42 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.i, %.body.i54 ], [ %common.resume.op.ph, %common.resume.sink.split ], [ %.pn.pn.pn.pn.i10, %.preheader.i12 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.i, %.preheader.i56 ], [ %.pn.pn.i43, %.preheader.i45 ], [ %.pn.pn.pn.pn.i, %.preheader.i ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.i, %.preheader.i56 ], [ %common.resume.op.ph, %common.resume.sink.split ], [ %.pn.pn.i43, %.preheader.i45 ], [ %.pn.pn.i43, %.body.i42 ], [ %.pn.pn.pn.pn.i, %.body.i ], [ %.pn.pn.pn.pn.i10, %.preheader.i12 ], [ %.pn.pn.pn.pn.i10, %.body.i8 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.i, %.body.i54 ], [ %.pn.pn.pn.pn.i, %.preheader.i ]
   resume { ptr, i32 } %common.resume.op
 
 __cxx_global_var_init.1.exit:                     ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ESt16initializer_listIS5_ERKS6_.exit.i
@@ -4124,8 +4124,8 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ESt16
   br i1 %195, label %.body41.i30, label %.body44.i36
 
 .body41.i30:                                      ; preds = %.body44.i36, %191, %.body78
-  %.pn.i31 = phi { ptr, i32 } [ %192, %191 ], [ %170, %.body78 ], [ %173, %.body44.i36 ]
-  %196 = phi i1 [ false, %191 ], [ false, %.body78 ], [ true, %.body44.i36 ]
+  %.pn.i31 = phi { ptr, i32 } [ %170, %.body78 ], [ %192, %191 ], [ %173, %.body44.i36 ]
+  %196 = phi i1 [ false, %.body78 ], [ false, %191 ], [ true, %.body44.i36 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %41) #24
   br label %.body36.i23
 
@@ -4350,8 +4350,8 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ESt16
   br i1 %250, label %.body23.i, label %.body26.i
 
 .body23.i:                                        ; preds = %.body26.i, %246, %.body90
-  %.pn.i46 = phi { ptr, i32 } [ %247, %246 ], [ %229, %.body90 ], [ %232, %.body26.i ]
-  %251 = phi i1 [ false, %246 ], [ false, %.body90 ], [ true, %.body26.i ]
+  %.pn.i46 = phi { ptr, i32 } [ %229, %.body90 ], [ %247, %246 ], [ %232, %.body26.i ]
+  %251 = phi i1 [ false, %.body90 ], [ false, %246 ], [ true, %.body26.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %35) #24
   br label %.body.i42
 
@@ -4840,8 +4840,8 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ESt16
   br i1 %377, label %.body77.i, label %.body80.i
 
 .body77.i:                                        ; preds = %.body80.i, %373, %.body99
-  %.pn.i63 = phi { ptr, i32 } [ %374, %373 ], [ %344, %.body99 ], [ %347, %.body80.i ]
-  %378 = phi i1 [ false, %373 ], [ false, %.body99 ], [ true, %.body80.i ]
+  %.pn.i63 = phi { ptr, i32 } [ %344, %.body99 ], [ %374, %373 ], [ %347, %.body80.i ]
+  %378 = phi i1 [ false, %.body99 ], [ false, %373 ], [ true, %.body80.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %31) #24
   br label %.body72.i
 

@@ -131,7 +131,7 @@ char_is_lower_alphanum_.exit.thread.loopexit:     ; preds = %.preheader
   br label %char_is_lower_alphanum_.exit.thread
 
 char_is_lower_alphanum_.exit.thread:              ; preds = %char_is_lower_alphanum_.exit, %.preheader, %char_is_lower_alphanum_.exit.thread.loopexit, %1
-  %.04 = phi i1 [ false, %1 ], [ true, %char_is_lower_alphanum_.exit.thread.loopexit ], [ false, %.preheader ], [ false, %char_is_lower_alphanum_.exit ]
+  %.04 = phi i1 [ true, %char_is_lower_alphanum_.exit.thread.loopexit ], [ false, %1 ], [ false, %.preheader ], [ false, %char_is_lower_alphanum_.exit ]
   ret i1 %.04
 }
 
@@ -453,7 +453,7 @@ scan_past_underscore.exit.thread.loopexit:        ; preds = %.preheader
   br label %scan_past_underscore.exit.thread
 
 scan_past_underscore.exit.thread:                 ; preds = %2, %.preheader, %scan_past_underscore.exit.thread.loopexit, %scan_past_underscore.exit
-  %.06 = phi i1 [ false, %scan_past_underscore.exit ], [ false, %.preheader ], [ true, %scan_past_underscore.exit.thread.loopexit ], [ false, %2 ]
+  %.06 = phi i1 [ false, %scan_past_underscore.exit ], [ true, %scan_past_underscore.exit.thread.loopexit ], [ false, %.preheader ], [ false, %2 ]
   ret i1 %.06
 }
 

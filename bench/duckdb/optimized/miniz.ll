@@ -4207,15 +4207,15 @@ default.unreachable:                              ; preds = %.loopexit2133
   br label %.thread1645
 
 .thread1645:                                      ; preds = %26, %.lr.ph1794.preheader, %993, %979, %962, %924, %853, %791, %734, %594, %502, %431, %269, %232, %201, %175, %144, %125, %103, %84, %55, %47
-  %.08211662 = phi i32 [ %spec.select1687, %594 ], [ %spec.select1683, %431 ], [ %spec.select1691, %791 ], [ %spec.select1693, %853 ], [ %spec.select1689, %734 ], [ %spec.select1681, %269 ], [ %spec.select1685, %502 ], [ %spec.select1699, %979 ], [ %spec.select1679, %232 ], [ %spec.select1695, %924 ], [ %spec.select1677, %201 ], [ %spec.select1675, %175 ], [ %spec.select1673, %144 ], [ %spec.select1671, %125 ], [ %spec.select1669, %103 ], [ %spec.select1667, %84 ], [ %spec.select1665, %55 ], [ %spec.select1697, %962 ], [ %spec.select1663, %47 ], [ %.0821, %993 ], [ %.0821, %.lr.ph1794.preheader ], [ -1, %26 ]
-  %.28291660 = phi i32 [ %.51878, %594 ], [ %.40867, %431 ], [ %.60887, %791 ], [ %.64891.ph, %853 ], [ %.57884.ph, %734 ], [ %.35862.ph, %269 ], [ %.44871.ph, %502 ], [ %.77904, %979 ], [ %.31858.ph, %232 ], [ %32, %924 ], [ %.25852, %201 ], [ %.21848.ph, %175 ], [ %.16843, %144 ], [ %.15842.ph, %125 ], [ %32, %103 ], [ %.8835.ph, %84 ], [ %.3830, %55 ], [ %.75902.ph, %962 ], [ %.1828, %47 ], [ %.2829, %993 ], [ %.2829, %.lr.ph1794.preheader ], [ %32, %26 ]
-  %.29081659 = phi i32 [ %.52958, %594 ], [ %.42948, %431 ], [ %.63969, %791 ], [ %.67973.ph, %853 ], [ %.59965.ph, %734 ], [ %.36942.ph, %269 ], [ %.46952.ph, %502 ], [ %.81987, %979 ], [ %.32938.ph, %232 ], [ %34, %924 ], [ %.26932, %201 ], [ %.22928.ph, %175 ], [ %.16922, %144 ], [ %.15921.ph, %125 ], [ %34, %103 ], [ %.9915.ph, %84 ], [ %.3909, %55 ], [ %.79985.ph, %962 ], [ %.1907, %47 ], [ %.2908, %993 ], [ %.2908, %.lr.ph1794.preheader ], [ %34, %26 ]
-  %.29971658 = phi i32 [ %.531048, %594 ], [ %.421037, %431 ], [ %.621057, %791 ], [ %.661061.ph, %853 ], [ %.591054.ph, %734 ], [ %.361031.ph, %269 ], [ %.461041.ph, %502 ], [ %.791074, %979 ], [ %.321027.ph, %232 ], [ %36, %924 ], [ %.261021, %201 ], [ %.221017.ph, %175 ], [ %.161011, %144 ], [ %.151010.ph, %125 ], [ %36, %103 ], [ %.81003.ph, %84 ], [ %.3998, %55 ], [ %.771072.ph, %962 ], [ %.1996, %47 ], [ %.2997, %993 ], [ %.2997, %.lr.ph1794.preheader ], [ %36, %26 ]
-  %.210781657 = phi i64 [ %.531129, %594 ], [ %.421118, %431 ], [ %.651141, %791 ], [ %.691145, %853 ], [ %.611137, %734 ], [ %.361112, %269 ], [ %.461122, %502 ], [ %.821158, %979 ], [ %.321108, %232 ], [ %30, %924 ], [ %.261102, %201 ], [ %.221098, %175 ], [ %.161092, %144 ], [ %.151091, %125 ], [ %30, %103 ], [ %.81084, %84 ], [ %.31079, %55 ], [ %.801156, %962 ], [ %.11077, %47 ], [ %.21078, %993 ], [ %.21078, %.lr.ph1794.preheader ], [ %30, %26 ]
-  %.012601656 = phi ptr [ %.491309, %594 ], [ %.381298, %431 ], [ %.601320, %791 ], [ %.641324.ph, %853 ], [ %.561316.ph, %734 ], [ %.321292.ph, %269 ], [ %.421302.ph, %502 ], [ %.791339, %979 ], [ %.281288.ph, %232 ], [ %4, %924 ], [ %.221282, %201 ], [ %.181278.ph, %175 ], [ %.121272, %144 ], [ %.111271.ph, %125 ], [ %4, %103 ], [ %.41264.ph, %84 ], [ %4, %55 ], [ %.771337.ph, %962 ], [ %4, %47 ], [ %.01260, %993 ], [ %.01260, %.lr.ph1794.preheader ], [ %4, %26 ]
-  %.013411655 = phi i64 [ %.491390, %594 ], [ %.381379, %431 ], [ %.591400, %791 ], [ %.611402.ph, %853 ], [ %.551396.ph, %734 ], [ %.321373.ph, %269 ], [ %.421383.ph, %502 ], [ %.741415, %979 ], [ %.281369.ph, %232 ], [ %38, %924 ], [ %.221363, %201 ], [ %.181359.ph, %175 ], [ %.121353, %144 ], [ %.111352.ph, %125 ], [ %38, %103 ], [ %.41345.ph, %84 ], [ %38, %55 ], [ %.721413.ph, %962 ], [ %38, %47 ], [ %.01341, %993 ], [ %.01341, %.lr.ph1794.preheader ], [ %38, %26 ]
-  %.831251 = phi ptr [ %.521220, %594 ], [ %.411209, %431 ], [ %.631231, %791 ], [ %.671235, %853 ], [ %.591227, %734 ], [ %.351203, %269 ], [ %.451213, %502 ], [ %.811249, %979 ], [ %.311199, %232 ], [ %1, %924 ], [ %.251193, %201 ], [ %.211189, %175 ], [ %.151183, %144 ], [ %.141182, %125 ], [ %1, %103 ], [ %.71175, %84 ], [ %.21170, %55 ], [ %.791247, %962 ], [ %1, %47 ], [ %.11169, %993 ], [ %scevgep1885, %.lr.ph1794.preheader ], [ %1, %26 ]
-  %.85 = phi i32 [ %.53, %594 ], [ %.42, %431 ], [ %.65, %791 ], [ %.69, %853 ], [ %.61, %734 ], [ %.36, %269 ], [ %.46, %502 ], [ %.83, %979 ], [ %.32, %232 ], [ %.2826.fr1958, %924 ], [ %.26, %201 ], [ %.22, %175 ], [ %.16, %144 ], [ %.15, %125 ], [ %.2826.fr1958, %103 ], [ %.8, %84 ], [ %.3, %55 ], [ %.81, %962 ], [ %.1825, %47 ], [ %.2826.fr, %993 ], [ %1005, %.lr.ph1794.preheader ], [ %.2826.fr1958, %26 ]
+  %.08211662 = phi i32 [ %spec.select1663, %47 ], [ %spec.select1687, %594 ], [ %spec.select1683, %431 ], [ %spec.select1691, %791 ], [ %spec.select1693, %853 ], [ %spec.select1689, %734 ], [ %spec.select1681, %269 ], [ %spec.select1685, %502 ], [ %spec.select1699, %979 ], [ %spec.select1679, %232 ], [ %spec.select1695, %924 ], [ %spec.select1677, %201 ], [ %spec.select1675, %175 ], [ %spec.select1673, %144 ], [ %spec.select1671, %125 ], [ %spec.select1669, %103 ], [ %spec.select1667, %84 ], [ %spec.select1665, %55 ], [ %spec.select1697, %962 ], [ %.0821, %993 ], [ %.0821, %.lr.ph1794.preheader ], [ -1, %26 ]
+  %.28291660 = phi i32 [ %.1828, %47 ], [ %.51878, %594 ], [ %.40867, %431 ], [ %.60887, %791 ], [ %.64891.ph, %853 ], [ %.57884.ph, %734 ], [ %.35862.ph, %269 ], [ %.44871.ph, %502 ], [ %.77904, %979 ], [ %.31858.ph, %232 ], [ %32, %924 ], [ %.25852, %201 ], [ %.21848.ph, %175 ], [ %.16843, %144 ], [ %.15842.ph, %125 ], [ %32, %103 ], [ %.8835.ph, %84 ], [ %.3830, %55 ], [ %.75902.ph, %962 ], [ %.2829, %993 ], [ %.2829, %.lr.ph1794.preheader ], [ %32, %26 ]
+  %.29081659 = phi i32 [ %.1907, %47 ], [ %.52958, %594 ], [ %.42948, %431 ], [ %.63969, %791 ], [ %.67973.ph, %853 ], [ %.59965.ph, %734 ], [ %.36942.ph, %269 ], [ %.46952.ph, %502 ], [ %.81987, %979 ], [ %.32938.ph, %232 ], [ %34, %924 ], [ %.26932, %201 ], [ %.22928.ph, %175 ], [ %.16922, %144 ], [ %.15921.ph, %125 ], [ %34, %103 ], [ %.9915.ph, %84 ], [ %.3909, %55 ], [ %.79985.ph, %962 ], [ %.2908, %993 ], [ %.2908, %.lr.ph1794.preheader ], [ %34, %26 ]
+  %.29971658 = phi i32 [ %.1996, %47 ], [ %.531048, %594 ], [ %.421037, %431 ], [ %.621057, %791 ], [ %.661061.ph, %853 ], [ %.591054.ph, %734 ], [ %.361031.ph, %269 ], [ %.461041.ph, %502 ], [ %.791074, %979 ], [ %.321027.ph, %232 ], [ %36, %924 ], [ %.261021, %201 ], [ %.221017.ph, %175 ], [ %.161011, %144 ], [ %.151010.ph, %125 ], [ %36, %103 ], [ %.81003.ph, %84 ], [ %.3998, %55 ], [ %.771072.ph, %962 ], [ %.2997, %993 ], [ %.2997, %.lr.ph1794.preheader ], [ %36, %26 ]
+  %.210781657 = phi i64 [ %.11077, %47 ], [ %.531129, %594 ], [ %.421118, %431 ], [ %.651141, %791 ], [ %.691145, %853 ], [ %.611137, %734 ], [ %.361112, %269 ], [ %.461122, %502 ], [ %.821158, %979 ], [ %.321108, %232 ], [ %30, %924 ], [ %.261102, %201 ], [ %.221098, %175 ], [ %.161092, %144 ], [ %.151091, %125 ], [ %30, %103 ], [ %.81084, %84 ], [ %.31079, %55 ], [ %.801156, %962 ], [ %.21078, %993 ], [ %.21078, %.lr.ph1794.preheader ], [ %30, %26 ]
+  %.012601656 = phi ptr [ %4, %47 ], [ %.491309, %594 ], [ %.381298, %431 ], [ %.601320, %791 ], [ %.641324.ph, %853 ], [ %.561316.ph, %734 ], [ %.321292.ph, %269 ], [ %.421302.ph, %502 ], [ %.791339, %979 ], [ %.281288.ph, %232 ], [ %4, %924 ], [ %.221282, %201 ], [ %.181278.ph, %175 ], [ %.121272, %144 ], [ %.111271.ph, %125 ], [ %4, %103 ], [ %.41264.ph, %84 ], [ %4, %55 ], [ %.771337.ph, %962 ], [ %.01260, %993 ], [ %.01260, %.lr.ph1794.preheader ], [ %4, %26 ]
+  %.013411655 = phi i64 [ %38, %47 ], [ %.491390, %594 ], [ %.381379, %431 ], [ %.591400, %791 ], [ %.611402.ph, %853 ], [ %.551396.ph, %734 ], [ %.321373.ph, %269 ], [ %.421383.ph, %502 ], [ %.741415, %979 ], [ %.281369.ph, %232 ], [ %38, %924 ], [ %.221363, %201 ], [ %.181359.ph, %175 ], [ %.121353, %144 ], [ %.111352.ph, %125 ], [ %38, %103 ], [ %.41345.ph, %84 ], [ %38, %55 ], [ %.721413.ph, %962 ], [ %.01341, %993 ], [ %.01341, %.lr.ph1794.preheader ], [ %38, %26 ]
+  %.831251 = phi ptr [ %1, %47 ], [ %.521220, %594 ], [ %.411209, %431 ], [ %.631231, %791 ], [ %.671235, %853 ], [ %.591227, %734 ], [ %.351203, %269 ], [ %.451213, %502 ], [ %.811249, %979 ], [ %.311199, %232 ], [ %1, %924 ], [ %.251193, %201 ], [ %.211189, %175 ], [ %.151183, %144 ], [ %.141182, %125 ], [ %1, %103 ], [ %.71175, %84 ], [ %.21170, %55 ], [ %.791247, %962 ], [ %.11169, %993 ], [ %scevgep1885, %.lr.ph1794.preheader ], [ %1, %26 ]
+  %.85 = phi i32 [ %.1825, %47 ], [ %.53, %594 ], [ %.42, %431 ], [ %.65, %791 ], [ %.69, %853 ], [ %.61, %734 ], [ %.36, %269 ], [ %.46, %502 ], [ %.83, %979 ], [ %.32, %232 ], [ %.2826.fr1958, %924 ], [ %.26, %201 ], [ %.22, %175 ], [ %.16, %144 ], [ %.15, %125 ], [ %.2826.fr1958, %103 ], [ %.8, %84 ], [ %.3, %55 ], [ %.81, %962 ], [ %.2826.fr, %993 ], [ %1005, %.lr.ph1794.preheader ], [ %.2826.fr1958, %26 ]
   store i32 %.85, ptr %27, align 4, !tbaa !78
   %1006 = zext nneg i32 %.85 to i64
   %notmask1606 = shl nsw i64 -1, %1006
@@ -4803,10 +4803,10 @@ select.unfold:                                    ; preds = %select.unfold.backe
   br i1 %.not197, label %.critedge4, label %83, !llvm.loop !163
 
 .critedge4:                                       ; preds = %123, %70, %.critedge, %38
-  %124 = phi i32 [ %39, %38 ], [ %32, %.critedge ], [ %39, %70 ], [ %35, %123 ]
-  %125 = phi i32 [ %58, %38 ], [ %31, %.critedge ], [ %58, %70 ], [ %99, %123 ]
-  %.2176 = phi i64 [ %57, %38 ], [ 0, %.critedge ], [ %57, %70 ], [ 0, %123 ]
-  %.3170 = phi ptr [ %.0167, %38 ], [ %.0167, %.critedge ], [ %56, %70 ], [ %87, %123 ]
+  %124 = phi i32 [ %32, %.critedge ], [ %39, %38 ], [ %39, %70 ], [ %35, %123 ]
+  %125 = phi i32 [ %31, %.critedge ], [ %58, %38 ], [ %58, %70 ], [ %99, %123 ]
+  %.2176 = phi i64 [ 0, %.critedge ], [ %57, %38 ], [ %57, %70 ], [ 0, %123 ]
+  %.3170 = phi ptr [ %.0167, %.critedge ], [ %.0167, %38 ], [ %56, %70 ], [ %87, %123 ]
   %126 = sub i32 32768, %125
   %. = tail call i32 @llvm.umin.i32(i32 %126, i32 %124)
   store i32 %., ptr %9, align 4, !tbaa !33
@@ -5066,8 +5066,8 @@ select.unfold:                                    ; preds = %select.unfold.backe
   br i1 %265, label %_ZN12duckdb_minizL16tdefl_find_matchEPNS_16tdefl_compressorEjjjPjS2_.exit, label %.lr.ph297, !llvm.loop !167
 
 _ZN12duckdb_minizL16tdefl_find_matchEPNS_16tdefl_compressorEjjjPjS2_.exit: ; preds = %252, %239, %263, %236, %169, %174, %192, %196, %214, %218, %.preheader, %._crit_edge, %150, %135
-  %.0242 = phi i32 [ %spec.select267, %._crit_edge ], [ 0, %135 ], [ 0, %150 ], [ 0, %.preheader ], [ %.2244324, %236 ], [ %.2244324, %218 ], [ %.2244324, %214 ], [ %.2244324, %196 ], [ %.2244324, %192 ], [ %.2244324, %174 ], [ %.2244324, %169 ], [ %.3245, %263 ], [ %.086.i, %252 ], [ %.2244324, %239 ]
-  %.0238 = phi i32 [ %spec.select268, %._crit_edge ], [ %spec.select, %135 ], [ %spec.select, %150 ], [ %spec.select, %.preheader ], [ %.2325, %236 ], [ %.2325, %218 ], [ %.2325, %214 ], [ %.2325, %196 ], [ %.2325, %192 ], [ %.2325, %174 ], [ %.2325, %169 ], [ %.3240, %263 ], [ %129, %252 ], [ %.2325, %239 ]
+  %.0242 = phi i32 [ %spec.select267, %._crit_edge ], [ 0, %135 ], [ 0, %150 ], [ %.2244324, %236 ], [ 0, %.preheader ], [ %.2244324, %218 ], [ %.2244324, %214 ], [ %.2244324, %196 ], [ %.2244324, %192 ], [ %.2244324, %174 ], [ %.2244324, %169 ], [ %.2244324, %239 ], [ %.3245, %263 ], [ %.086.i, %252 ]
+  %.0238 = phi i32 [ %spec.select268, %._crit_edge ], [ %spec.select, %135 ], [ %spec.select, %150 ], [ %.2325, %236 ], [ %spec.select, %.preheader ], [ %.2325, %218 ], [ %.2325, %214 ], [ %.2325, %196 ], [ %.2325, %192 ], [ %.2325, %174 ], [ %.2325, %169 ], [ %.2325, %239 ], [ %.3240, %263 ], [ %129, %252 ]
   %266 = icmp eq i32 %.0238, 3
   %267 = icmp ugt i32 %.0242, 8191
   %or.cond = select i1 %266, i1 %267, i1 false
@@ -8519,7 +8519,7 @@ _ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exi
   br label %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit24
 
 _ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit24: ; preds = %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit24.sink.split, %2, %32
-  %.0 = phi i32 [ 1, %32 ], [ 0, %2 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit24.sink.split ]
+  %.0 = phi i32 [ 0, %2 ], [ 1, %32 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit24.sink.split ]
   ret i32 %.0
 }
 
@@ -9007,7 +9007,7 @@ _ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exi
   br label %.split
 
 .split:                                           ; preds = %191, %.thread147, %.critedge.i, %85, %84, %7, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit110, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit112, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit114
-  %.080 = phi i32 [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit114 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit112 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit110 ], [ 0, %7 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit ], [ 0, %.critedge.i ], [ 1, %84 ], [ 1, %85 ], [ 1, %.thread147 ], [ 1, %191 ]
+  %.080 = phi i32 [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit114 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit112 ], [ 1, %.thread147 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit110 ], [ 0, %7 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit ], [ 0, %.critedge.i ], [ 1, %84 ], [ 1, %85 ], [ 1, %191 ]
   ret i32 %.080
 }
 
@@ -10050,9 +10050,9 @@ _ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exi
   store i32 11, ptr %185, align 4, !tbaa !211
   br label %.thread273
 
-.thread273:                                       ; preds = %114, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit234, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit230, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit232, %.thread279, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit220, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit, %182, %.thread261, %175
-  %.0151268 = phi ptr [ %.0151269, %.thread261 ], [ %.0151269286, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit220 ], [ %.0151269286, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit ], [ %.0151269286, %182 ], [ %134, %175 ], [ %134, %.thread279 ], [ null, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit232 ], [ null, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit230 ], [ null, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit234 ], [ null, %114 ]
-  %.4 = phi i32 [ 1, %.thread261 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit220 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit ], [ 1, %182 ], [ 0, %175 ], [ 0, %.thread279 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit232 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit230 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit234 ], [ 1, %114 ]
+.thread273:                                       ; preds = %114, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit230, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit232, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit234, %.thread279, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit220, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit, %182, %.thread261, %175
+  %.0151268 = phi ptr [ %.0151269, %.thread261 ], [ %.0151269286, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit220 ], [ %.0151269286, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit ], [ %.0151269286, %182 ], [ %134, %175 ], [ %134, %.thread279 ], [ null, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit234 ], [ null, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit232 ], [ null, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit230 ], [ null, %114 ]
+  %.4 = phi i32 [ 1, %.thread261 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit220 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit ], [ 1, %182 ], [ 0, %175 ], [ 0, %.thread279 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit234 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit232 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit230 ], [ 1, %114 ]
   %186 = load ptr, ptr %12, align 8, !tbaa !202
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 128
   %188 = load ptr, ptr %187, align 8, !tbaa !239
@@ -11884,7 +11884,7 @@ _ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exi
   br label %_ZN12duckdb_miniz31mz_zip_reader_is_file_supportedEPNS_14mz_zip_archiveEj.exit
 
 _ZN12duckdb_miniz31mz_zip_reader_is_file_supportedEPNS_14mz_zip_archiveEj.exit: ; preds = %194, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit24.sink.split.i
-  %.0.i216 = phi i32 [ 1, %194 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit24.sink.split.i ]
+  %.0.i216 = phi i32 [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit24.sink.split.i ], [ 1, %194 ]
   %197 = getelementptr inbounds nuw i8, ptr %3, i64 76
   store i32 %.0.i216, ptr %197, align 4, !tbaa !278
   %. = tail call i64 @llvm.umax.i64(i64 %50, i64 %64)
@@ -12042,7 +12042,7 @@ _ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exi
   %.not195 = icmp eq i32 %281, 0
   br i1 %.not195, label %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit206, label %214, !llvm.loop !288
 
-_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit206: ; preds = %278, %265, %270, %199, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit198, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit200, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit202, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit204, %11, %10, %_ZN12duckdb_miniz31mz_zip_reader_is_file_supportedEPNS_14mz_zip_archiveEj.exit
+_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit206: ; preds = %278, %270, %265, %199, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit198, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit200, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit202, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit204, %11, %10, %_ZN12duckdb_miniz31mz_zip_reader_is_file_supportedEPNS_14mz_zip_archiveEj.exit
   %.0169 = phi i32 [ 0, %11 ], [ 1, %_ZN12duckdb_miniz31mz_zip_reader_is_file_supportedEPNS_14mz_zip_archiveEj.exit ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit ], [ 0, %10 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit204 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit202 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit200 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit198 ], [ 1, %199 ], [ 1, %270 ], [ 1, %265 ], [ 1, %278 ]
   ret i32 %.0169
 }
@@ -15509,7 +15509,7 @@ _ZN12duckdb_minizL22mz_zip_array_push_backEPNS_14mz_zip_archiveEPNS_12mz_zip_arr
   br label %.thread34
 
 .thread34:                                        ; preds = %._crit_edge41, %.thread34.sink.split, %22
-  %.0 = phi i32 [ 1, %22 ], [ 0, %.thread34.sink.split ], [ 1, %._crit_edge41 ]
+  %.0 = phi i32 [ 0, %.thread34.sink.split ], [ 1, %22 ], [ 1, %._crit_edge41 ]
   ret i32 %.0
 }
 
@@ -16988,7 +16988,7 @@ _ZN12duckdb_minizL28tdefl_optimize_huffman_tableEPNS_16tdefl_compressorEiiii.exi
   br label %.loopexit320.i
 
 .loopexit320.i:                                   ; preds = %261, %284, %302, %298, %277, %266, %130
-  %.17.i = phi i32 [ %274, %266 ], [ %.6.i, %277 ], [ %295, %298 ], [ %295, %302 ], [ 0, %130 ], [ %286, %284 ], [ %263, %261 ]
+  %.17.i = phi i32 [ %274, %266 ], [ %.6.i, %277 ], [ %286, %284 ], [ %295, %302 ], [ %295, %298 ], [ 0, %130 ], [ %263, %261 ]
   tail call fastcc void @_ZN12duckdb_minizL28tdefl_optimize_huffman_tableEPNS_16tdefl_compressorEiiii(ptr noundef nonnull %0, i32 noundef 2, i32 noundef 19, i32 noundef 7, i32 noundef 0)
   %306 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %307 = load i32, ptr %306, align 4, !tbaa !171
@@ -18288,7 +18288,7 @@ _ZN12duckdb_minizL34tdefl_calculate_minimum_redundancyEPNS_14tdefl_sym_freqEi.ex
   br i1 %.not.i94, label %_ZN12duckdb_minizL35tdefl_huffman_enforce_max_code_sizeEPiii.exit, label %.lr.ph.i93, !llvm.loop !359
 
 _ZN12duckdb_minizL35tdefl_huffman_enforce_max_code_sizeEPiii.exit: ; preds = %.loopexit.i, %_ZN12duckdb_minizL21tdefl_radix_sort_symsEjPNS_14tdefl_sym_freqES1_.exit, %_ZN12duckdb_minizL21tdefl_radix_sort_symsEjPNS_14tdefl_sym_freqES1_.exit.thread, %_ZN12duckdb_minizL34tdefl_calculate_minimum_redundancyEPNS_14tdefl_sym_freqEi.exit, %._crit_edge, %.preheader.i92
-  %.us-phi56.i163165170 = phi ptr [ %.04052.us.i, %.preheader.i92 ], [ %.04052.us.i, %._crit_edge ], [ %.04052.us.i, %_ZN12duckdb_minizL34tdefl_calculate_minimum_redundancyEPNS_14tdefl_sym_freqEi.exit ], [ %.04052.us.i, %_ZN12duckdb_minizL21tdefl_radix_sort_symsEjPNS_14tdefl_sym_freqES1_.exit ], [ %11, %_ZN12duckdb_minizL21tdefl_radix_sort_symsEjPNS_14tdefl_sym_freqES1_.exit.thread ], [ %.04052.us.i, %.loopexit.i ]
+  %.us-phi56.i163165170 = phi ptr [ %11, %_ZN12duckdb_minizL21tdefl_radix_sort_symsEjPNS_14tdefl_sym_freqES1_.exit.thread ], [ %.04052.us.i, %.preheader.i92 ], [ %.04052.us.i, %._crit_edge ], [ %.04052.us.i, %_ZN12duckdb_minizL34tdefl_calculate_minimum_redundancyEPNS_14tdefl_sym_freqEi.exit ], [ %.04052.us.i, %_ZN12duckdb_minizL21tdefl_radix_sort_symsEjPNS_14tdefl_sym_freqES1_.exit ], [ %.04052.us.i, %.loopexit.i ]
   %197 = getelementptr inbounds nuw i8, ptr %0, i64 36682
   %198 = getelementptr inbounds nuw [288 x i8], ptr %197, i64 %24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(288) %198, i8 0, i64 288, i1 false)

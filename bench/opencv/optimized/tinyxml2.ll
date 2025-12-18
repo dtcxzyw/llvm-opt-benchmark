@@ -1012,8 +1012,8 @@ define hidden noundef ptr @_ZN2cv8tinyxml27XMLUtil15GetCharacterRefEPKcPcPi(ptr 
   br i1 %.not77, label %.loopexit, label %.lr.ph107, !llvm.loop !27
 
 .loopexit:                                        ; preds = %37, %51, %18, %44
-  %.3 = phi i64 [ 0, %44 ], [ 0, %18 ], [ %55, %51 ], [ %.263, %37 ]
-  %.160 = phi i64 [ %47, %44 ], [ %21, %18 ], [ %47, %51 ], [ %21, %37 ]
+  %.3 = phi i64 [ %55, %51 ], [ 0, %44 ], [ 0, %18 ], [ %.263, %37 ]
+  %.160 = phi i64 [ %47, %51 ], [ %47, %44 ], [ %21, %18 ], [ %21, %37 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %4, i8 0, i64 16, i1 false)
   %58 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -1106,7 +1106,7 @@ _ZN2cv8tinyxml27XMLUtil18ConvertUTF32ToUTF8EmPcPi.exit: ; preds = %70, %91
   br label %.critedge
 
 .critedge:                                        ; preds = %32, %.lr.ph107, %3, %8, %_ZN2cv8tinyxml27XMLUtil18ConvertUTF32ToUTF8EmPcPi.exit, %11, %16, %14, %42, %40
-  %.367 = phi ptr [ null, %40 ], [ %98, %_ZN2cv8tinyxml27XMLUtil18ConvertUTF32ToUTF8EmPcPi.exit ], [ null, %11 ], [ null, %14 ], [ null, %16 ], [ null, %42 ], [ %5, %8 ], [ %5, %3 ], [ null, %.lr.ph107 ], [ null, %32 ]
+  %.367 = phi ptr [ null, %40 ], [ %98, %_ZN2cv8tinyxml27XMLUtil18ConvertUTF32ToUTF8EmPcPi.exit ], [ null, %11 ], [ null, %14 ], [ null, %16 ], [ null, %.lr.ph107 ], [ null, %42 ], [ %5, %3 ], [ %5, %8 ], [ null, %32 ]
   ret ptr %.367
 }
 
@@ -1395,7 +1395,7 @@ _ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit21.sink.split: ; preds = %.crit
   br label %_ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit21
 
 _ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit21: ; preds = %_ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit21.sink.split, %.critedge.i18.thread, %.critedge.thread.i14
-  %.0 = phi i1 [ false, %.critedge.thread.i14 ], [ false, %.critedge.i18.thread ], [ true, %_ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit21.sink.split ]
+  %.0 = phi i1 [ false, %.critedge.i18.thread ], [ false, %.critedge.thread.i14 ], [ true, %_ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit21.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
@@ -2673,7 +2673,7 @@ _ZN2cv8tinyxml27XMLNode6UnlinkEPS1_.exit:         ; preds = %73, %._crit_edge.i,
   br label %85
 
 85:                                               ; preds = %.sink.split, %8, %3
-  %.0 = phi ptr [ null, %3 ], [ null, %8 ], [ %2, %.sink.split ]
+  %.0 = phi ptr [ null, %8 ], [ null, %3 ], [ %2, %.sink.split ]
   ret ptr %.0
 }
 
@@ -4742,8 +4742,8 @@ _ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit.i: ; preds = %.critedge.i.thre
   store i8 %.sink.i, ptr %1, align 1, !tbaa !30
   br label %_ZN2cv8tinyxml27XMLUtil6ToBoolEPKcPb.exit.thread
 
-_ZN2cv8tinyxml27XMLUtil6ToBoolEPKcPb.exit.thread: ; preds = %.critedge.i18.thread.i, %.critedge.thread.i14.i, %42
-  %43 = phi i32 [ 0, %42 ], [ 2, %.critedge.thread.i14.i ], [ 2, %.critedge.i18.thread.i ]
+_ZN2cv8tinyxml27XMLUtil6ToBoolEPKcPb.exit.thread: ; preds = %.critedge.thread.i14.i, %.critedge.i18.thread.i, %42
+  %43 = phi i32 [ 0, %42 ], [ 2, %.critedge.i18.thread.i ], [ 2, %.critedge.thread.i14.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %43
 }
@@ -5333,7 +5333,7 @@ _ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit.thread: ; preds = %.critedge.t
   br label %_ZNK2cv8tinyxml210XMLElement13FindAttributeEPKc.exit
 
 _ZNK2cv8tinyxml210XMLElement13FindAttributeEPKc.exit: ; preds = %_ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit.i, %.critedge.i.thread, %.critedge.thread.i, %3, %_ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit.thread
-  %.0 = phi ptr [ %43, %_ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit.thread ], [ null, %3 ], [ null, %.critedge.thread.i ], [ null, %.critedge.i.thread ], [ null, %_ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit.i ]
+  %.0 = phi ptr [ %43, %_ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit.thread ], [ null, %.critedge.i.thread ], [ null, %3 ], [ null, %.critedge.thread.i ], [ null, %_ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit.i ]
   ret ptr %.0
 }
 
@@ -5721,8 +5721,8 @@ _ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit.i: ; preds = %.critedge.i.thre
   store i8 %.sink.i, ptr %1, align 1, !tbaa !30
   br label %.sink.split
 
-.sink.split:                                      ; preds = %.critedge.i18.thread.i, %.critedge.thread.i14.i, %55
-  %.1.ph = phi i32 [ 0, %55 ], [ 18, %.critedge.thread.i14.i ], [ 18, %.critedge.i18.thread.i ]
+.sink.split:                                      ; preds = %.critedge.thread.i14.i, %.critedge.i18.thread.i, %55
+  %.1.ph = phi i32 [ 0, %55 ], [ 18, %.critedge.i18.thread.i ], [ 18, %.critedge.thread.i14.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %56
 
@@ -6172,7 +6172,7 @@ switch.early.test:                                ; preds = %_ZN2cv8tinyxml27XML
   ]
 
 _ZN2cv8tinyxml27XMLUtil15IsNameStartCharEh.exit.thread: ; preds = %9, %switch.early.test, %switch.early.test, %_ZN2cv8tinyxml27XMLUtil15IsNameStartCharEh.exit, %5
-  %.0.lcssa.i495156 = phi ptr [ %.06.i, %switch.early.test ], [ %.06.i, %switch.early.test ], [ %.03577, %5 ], [ %.06.i, %_ZN2cv8tinyxml27XMLUtil15IsNameStartCharEh.exit ], [ %10, %9 ]
+  %.0.lcssa.i495156 = phi ptr [ %.06.i, %switch.early.test ], [ %.06.i, %_ZN2cv8tinyxml27XMLUtil15IsNameStartCharEh.exit ], [ %.06.i, %switch.early.test ], [ %.03577, %5 ], [ %10, %9 ]
   %20 = load ptr, ptr %3, align 8, !tbaa !33
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 256
   %22 = tail call noundef ptr @_ZN2cv8tinyxml28MemPoolTILi72EE5AllocEv(ptr noundef nonnull align 8 dereferenceable(128) %21)

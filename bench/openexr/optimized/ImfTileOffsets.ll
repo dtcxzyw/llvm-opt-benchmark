@@ -880,7 +880,7 @@ define hidden noundef zeroext i1 @_ZNK7Imf_3_411TileOffsets20anyOffsetsAreInvali
   br i1 %40, label %.preheader32, label %.loopexit, !llvm.loop !50
 
 .loopexit:                                        ; preds = %._crit_edge38, %.lr.ph, %1
-  %41 = phi i1 [ false, %1 ], [ true, %.lr.ph ], [ false, %._crit_edge38 ]
+  %41 = phi i1 [ true, %.lr.ph ], [ false, %1 ], [ false, %._crit_edge38 ]
   ret i1 %41
 }
 
@@ -2303,10 +2303,10 @@ _ZNSt6vectorIN7Imf_3_412_GLOBAL__N_17tileposESaIS2_EE17_S_check_init_lenEmRKS3_.
   br i1 %48, label %.lr.ph, label %._crit_edge, !llvm.loop !80
 
 _ZNSt6vectorIN7Imf_3_412_GLOBAL__N_17tileposESaIS2_EEC2EmRKS3_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %.noexc103, %_ZNSt6vectorIN7Imf_3_412_GLOBAL__N_17tileposESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i
-  %.069.lcssa181184 = phi i64 [ 1, %.noexc103 ], [ 0, %_ZNSt6vectorIN7Imf_3_412_GLOBAL__N_17tileposESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ], [ %.1.lcssa, %.lr.ph.i.i.i.i.i.i.i.i.i ]
-  %.sroa.21.0 = phi ptr [ %27, %.noexc103 ], [ null, %_ZNSt6vectorIN7Imf_3_412_GLOBAL__N_17tileposESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ], [ %27, %.lr.ph.i.i.i.i.i.i.i.i.i ]
-  %.sroa.0107.0 = phi ptr [ %26, %.noexc103 ], [ null, %_ZNSt6vectorIN7Imf_3_412_GLOBAL__N_17tileposESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ], [ %26, %.lr.ph.i.i.i.i.i.i.i.i.i ]
-  %.0.i.i.i.i.i = phi ptr [ %28, %.noexc103 ], [ null, %_ZNSt6vectorIN7Imf_3_412_GLOBAL__N_17tileposESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ], [ %32, %.lr.ph.i.i.i.i.i.i.i.i.i ]
+  %.069.lcssa181184 = phi i64 [ 0, %_ZNSt6vectorIN7Imf_3_412_GLOBAL__N_17tileposESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ], [ 1, %.noexc103 ], [ %.1.lcssa, %.lr.ph.i.i.i.i.i.i.i.i.i ]
+  %.sroa.21.0 = phi ptr [ null, %_ZNSt6vectorIN7Imf_3_412_GLOBAL__N_17tileposESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ], [ %27, %.noexc103 ], [ %27, %.lr.ph.i.i.i.i.i.i.i.i.i ]
+  %.sroa.0107.0 = phi ptr [ null, %_ZNSt6vectorIN7Imf_3_412_GLOBAL__N_17tileposESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ], [ %26, %.noexc103 ], [ %26, %.lr.ph.i.i.i.i.i.i.i.i.i ]
+  %.0.i.i.i.i.i = phi ptr [ null, %_ZNSt6vectorIN7Imf_3_412_GLOBAL__N_17tileposESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ], [ %28, %.noexc103 ], [ %32, %.lr.ph.i.i.i.i.i.i.i.i.i ]
   br label %.preheader117
 
 .preheader117:                                    ; preds = %_ZNSt6vectorIN7Imf_3_412_GLOBAL__N_17tileposESaIS2_EEC2EmRKS3_.exit, %._crit_edge135
@@ -2540,10 +2540,10 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN7Imf_3_412_GLOBAL__N_17tileposESt6vec
   br i1 %111, label %.lr.ph130, label %._crit_edge131, !llvm.loop !92
 
 ._crit_edge142:                                   ; preds = %.lr.ph141, %5, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN7Imf_3_412_GLOBAL__N_17tileposESt6vectorIS4_SaIS4_EEEEEvT_SA_.exit
-  %.sroa.0107.0194202213 = phi ptr [ %.sroa.0107.0, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN7Imf_3_412_GLOBAL__N_17tileposESt6vectorIS4_SaIS4_EEEEEvT_SA_.exit ], [ null, %5 ], [ %.sroa.0107.0, %.lr.ph141 ]
-  %.sroa.21.0193203212 = phi ptr [ %.sroa.21.0, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN7Imf_3_412_GLOBAL__N_17tileposESt6vectorIS4_SaIS4_EEEEEvT_SA_.exit ], [ null, %5 ], [ %.sroa.21.0, %.lr.ph141 ]
-  %.069.lcssa181184192204211 = phi i64 [ %.069.lcssa181184, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN7Imf_3_412_GLOBAL__N_17tileposESt6vectorIS4_SaIS4_EEEEEvT_SA_.exit ], [ 0, %5 ], [ %.069.lcssa181184, %.lr.ph141 ]
-  %.not.i.i.i.i185191205210 = phi i1 [ true, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN7Imf_3_412_GLOBAL__N_17tileposESt6vectorIS4_SaIS4_EEEEEvT_SA_.exit ], [ true, %5 ], [ false, %.lr.ph141 ]
+  %.sroa.0107.0194202213 = phi ptr [ null, %5 ], [ %.sroa.0107.0, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN7Imf_3_412_GLOBAL__N_17tileposESt6vectorIS4_SaIS4_EEEEEvT_SA_.exit ], [ %.sroa.0107.0, %.lr.ph141 ]
+  %.sroa.21.0193203212 = phi ptr [ null, %5 ], [ %.sroa.21.0, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN7Imf_3_412_GLOBAL__N_17tileposESt6vectorIS4_SaIS4_EEEEEvT_SA_.exit ], [ %.sroa.21.0, %.lr.ph141 ]
+  %.069.lcssa181184192204211 = phi i64 [ 0, %5 ], [ %.069.lcssa181184, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN7Imf_3_412_GLOBAL__N_17tileposESt6vectorIS4_SaIS4_EEEEEvT_SA_.exit ], [ %.069.lcssa181184, %.lr.ph141 ]
+  %.not.i.i.i.i185191205210 = phi i1 [ true, %5 ], [ true, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN7Imf_3_412_GLOBAL__N_17tileposESt6vectorIS4_SaIS4_EEEEEvT_SA_.exit ], [ false, %.lr.ph141 ]
   %112 = load i32, ptr %0, align 8, !tbaa !3
   switch i32 %112, label %.loopexit [
     i32 0, label %.preheader
@@ -2746,7 +2746,7 @@ define noundef zeroext i1 @_ZNK7Imf_3_411TileOffsets7isEmptyEv(ptr noundef nonnu
   br i1 %.not40, label %.preheader31, label %.loopexit, !llvm.loop !99
 
 .loopexit:                                        ; preds = %._crit_edge37, %.lr.ph, %1
-  %40 = phi i1 [ true, %1 ], [ false, %.lr.ph ], [ true, %._crit_edge37 ]
+  %40 = phi i1 [ false, %.lr.ph ], [ true, %1 ], [ true, %._crit_edge37 ]
   ret i1 %40
 }
 

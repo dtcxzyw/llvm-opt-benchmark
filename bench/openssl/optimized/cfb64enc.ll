@@ -101,7 +101,7 @@ define void @DES_cfb64_encrypt(ptr noundef readonly captures(none) %0, ptr nound
   br i1 %.not107, label %.loopexit, label %32, !llvm.loop !10
 
 .loopexit:                                        ; preds = %22, %40, %.preheader109, %.preheader
-  %.199 = phi i32 [ %9, %.preheader ], [ %9, %.preheader109 ], [ %49, %40 ], [ %31, %22 ]
+  %.199 = phi i32 [ %49, %40 ], [ %9, %.preheader ], [ %9, %.preheader109 ], [ %31, %22 ]
   store i32 %.199, ptr %5, align 4, !tbaa !3
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void

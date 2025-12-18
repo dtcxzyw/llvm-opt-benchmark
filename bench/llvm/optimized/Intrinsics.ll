@@ -1011,7 +1011,7 @@ tailrecurse.backedge:                             ; preds = %31, %35, %39, %43, 
   br label %170
 
 170:                                              ; preds = %tailrecurse, %.loopexit1501, %.loopexit1365, %.loopexit1230, %.loopexit942, %168, %167, %169
-  %.6 = phi i32 [ 2, %.loopexit942 ], [ 9, %.loopexit1230 ], [ 8, %.loopexit1365 ], [ 7, %.loopexit1501 ], [ 5, %167 ], [ 4, %168 ], [ 3, %169 ], [ 6, %tailrecurse ]
+  %.6 = phi i32 [ 3, %169 ], [ 2, %.loopexit942 ], [ 9, %.loopexit1230 ], [ 8, %.loopexit1365 ], [ 7, %.loopexit1501 ], [ 5, %167 ], [ 4, %168 ], [ 6, %tailrecurse ]
   %171 = zext nneg i8 %12 to i32
   %.sroa.23.0.insert.ext.i875 = zext nneg i32 %.6 to i64
   %.sroa.23.0.insert.shift.i876 = shl nuw nsw i64 %.sroa.23.0.insert.ext.i875, 32
@@ -1119,7 +1119,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9Intrinsic13IITDescriptorELb1EE9push_backES
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %tailrecurse, %.loopexit.sink.split.loopexit1500, %.loopexit.sink.split.loopexit, %221, %218, %211, %208, %201, %198, %191, %188, %138, %135, %128, %125, %118, %115, %108, %105, %98, %95, %13, %14, %15, %16, %17, %18, %19, %20, %21, %22, %23, %24, %25, %26, %27, %28, %29, %30, %87, %88, %89, %90, %165, %166
-  %.sroa.23.0.insert.ext.i895.sink = phi i64 [ 20, %208 ], [ 22, %198 ], [ 21, %188 ], [ 18, %135 ], [ 13, %166 ], [ %.sroa.04.0.insert.insert.i, %165 ], [ 17, %125 ], [ 16, %115 ], [ 15, %105 ], [ 14, %95 ], [ %.sroa.02.0.insert.insert.i, %90 ], [ 12, %89 ], [ 85899345932, %88 ], [ 42949672972, %87 ], [ 549755813898, %30 ], [ 274877906954, %29 ], [ 137438953482, %28 ], [ 68719476746, %27 ], [ 34359738378, %26 ], [ 26, %25 ], [ 17179869194, %24 ], [ 8589934602, %23 ], [ 4294967306, %22 ], [ 25, %21 ], [ 9, %20 ], [ 8, %19 ], [ 7, %18 ], [ 6, %17 ], [ 5, %16 ], [ 4, %15 ], [ 3, %14 ], [ 24, %13 ], [ 1, %.loopexit.sink.split.loopexit1500 ], [ 0, %.loopexit.sink.split.loopexit ], [ %104, %98 ], [ %114, %108 ], [ %124, %118 ], [ %134, %128 ], [ %144, %138 ], [ %197, %191 ], [ %207, %201 ], [ %217, %211 ], [ %227, %221 ], [ 23, %218 ], [ 2, %tailrecurse ]
+  %.sroa.23.0.insert.ext.i895.sink = phi i64 [ 20, %208 ], [ 22, %198 ], [ 21, %188 ], [ 18, %135 ], [ 13, %166 ], [ %.sroa.04.0.insert.insert.i, %165 ], [ 17, %125 ], [ 16, %115 ], [ 15, %105 ], [ 14, %95 ], [ 23, %218 ], [ %.sroa.02.0.insert.insert.i, %90 ], [ 12, %89 ], [ 85899345932, %88 ], [ 42949672972, %87 ], [ 549755813898, %30 ], [ 274877906954, %29 ], [ 137438953482, %28 ], [ 68719476746, %27 ], [ 34359738378, %26 ], [ 26, %25 ], [ 17179869194, %24 ], [ 8589934602, %23 ], [ 4294967306, %22 ], [ 25, %21 ], [ 9, %20 ], [ 8, %19 ], [ 7, %18 ], [ 6, %17 ], [ 5, %16 ], [ 4, %15 ], [ 3, %14 ], [ 24, %13 ], [ 1, %.loopexit.sink.split.loopexit1500 ], [ 0, %.loopexit.sink.split.loopexit ], [ %104, %98 ], [ %114, %108 ], [ %124, %118 ], [ %134, %128 ], [ %144, %138 ], [ %197, %191 ], [ %207, %201 ], [ %217, %211 ], [ %227, %221 ], [ 2, %tailrecurse ]
   tail call void @_ZN4llvm23SmallVectorTemplateBaseINS_9Intrinsic13IITDescriptorELb1EE9push_backES2_(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 %.sroa.23.0.insert.ext.i895.sink, i8 undef)
   br label %.loopexit
 
@@ -1346,7 +1346,7 @@ define internal fastcc noundef ptr @_ZL15DecodeFixedTypeRN4llvm8ArrayRefINS_9Int
   br label %common.ret4
 
 common.ret4:                                      ; preds = %164, %154, %111, %85, %113, %98, %201, %182, %181, %139, %71, %_ZN4llvm11SmallVectorIPNS_4TypeELj8EED2Ev.exit, %44, %39, %37, %35, %33, %31, %29, %27, %25, %23, %21, %19, %16, %14, %12, %.lr.ph.i, %41
-  %common.ret4.op = phi ptr [ %43, %41 ], [ %155, %154 ], [ %13, %12 ], [ %15, %14 ], [ %18, %16 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %45, %44 ], [ %53, %_ZN4llvm11SmallVectorIPNS_4TypeELj8EED2Ev.exit ], [ %75, %71 ], [ %205, %201 ], [ %97, %85 ], [ %112, %111 ], [ %153, %139 ], [ %115, %113 ], [ %.7, %181 ], [ %200, %182 ], [ %101, %98 ], [ %168, %164 ], [ %137, %.lr.ph.i ]
+  %common.ret4.op = phi ptr [ %43, %41 ], [ %168, %164 ], [ %13, %12 ], [ %15, %14 ], [ %18, %16 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %155, %154 ], [ %45, %44 ], [ %53, %_ZN4llvm11SmallVectorIPNS_4TypeELj8EED2Ev.exit ], [ %75, %71 ], [ %205, %201 ], [ %97, %85 ], [ %112, %111 ], [ %153, %139 ], [ %115, %113 ], [ %.7, %181 ], [ %200, %182 ], [ %101, %98 ], [ %137, %.lr.ph.i ]
   ret ptr %common.ret4.op
 
 41:                                               ; preds = %3
@@ -1914,8 +1914,8 @@ _ZSt7advanceIPKjlEvRT_T0_.exit.i30.i.i.i:         ; preds = %"_ZSt13__lower_boun
   br i1 %89, label %_ZSt7advanceIPKjlEvRT_T0_.exit.i.i.i, label %"_ZSt11equal_rangeIPKjPKcZL25lookupLLVMIntrinsicByNameN4llvm8ArrayRefIjEENS4_9StringRefES7_E3$_0ESt4pairIT_SA_ESA_SA_RKT0_T1_.exit.i", !llvm.loop !167
 
 "_ZSt11equal_rangeIPKjPKcZL25lookupLLVMIntrinsicByNameN4llvm8ArrayRefIjEENS4_9StringRefES7_E3$_0ESt4pairIT_SA_ESA_SA_RKT0_T1_.exit.i": ; preds = %88, %_ZSt7advanceIPKjlEvRT_T0_.exit.i30.i.i.i, %"_ZSt13__lower_boundIPKjPKcN9__gnu_cxx5__ops14_Iter_comp_valIZL25lookupLLVMIntrinsicByNameN4llvm8ArrayRefIjEENS7_9StringRefESA_E3$_0EEET_SD_SD_RKT0_T1_.exit.i.i.i"
-  %.sroa.020.0.i.i.i = phi ptr [ %.0.lcssa.i.i.i.i, %"_ZSt13__lower_boundIPKjPKcN9__gnu_cxx5__ops14_Iter_comp_valIZL25lookupLLVMIntrinsicByNameN4llvm8ArrayRefIjEENS7_9StringRefESA_E3$_0EEET_SD_SD_RKT0_T1_.exit.i.i.i" ], [ %.0.lcssa.i.i.i.i, %_ZSt7advanceIPKjlEvRT_T0_.exit.i30.i.i.i ], [ %.1.i.i23.i, %88 ]
-  %.sroa.321.0.i.i.i = phi ptr [ %75, %"_ZSt13__lower_boundIPKjPKcN9__gnu_cxx5__ops14_Iter_comp_valIZL25lookupLLVMIntrinsicByNameN4llvm8ArrayRefIjEENS7_9StringRefESA_E3$_0EEET_SD_SD_RKT0_T1_.exit.i.i.i" ], [ %.1.i37.i.i.i, %_ZSt7advanceIPKjlEvRT_T0_.exit.i30.i.i.i ], [ %.1.i.i23.i, %88 ]
+  %.sroa.020.0.i.i.i = phi ptr [ %.0.lcssa.i.i.i.i, %_ZSt7advanceIPKjlEvRT_T0_.exit.i30.i.i.i ], [ %.0.lcssa.i.i.i.i, %"_ZSt13__lower_boundIPKjPKcN9__gnu_cxx5__ops14_Iter_comp_valIZL25lookupLLVMIntrinsicByNameN4llvm8ArrayRefIjEENS7_9StringRefESA_E3$_0EEET_SD_SD_RKT0_T1_.exit.i.i.i" ], [ %.1.i.i23.i, %88 ]
+  %.sroa.321.0.i.i.i = phi ptr [ %.1.i37.i.i.i, %_ZSt7advanceIPKjlEvRT_T0_.exit.i30.i.i.i ], [ %75, %"_ZSt13__lower_boundIPKjPKcN9__gnu_cxx5__ops14_Iter_comp_valIZL25lookupLLVMIntrinsicByNameN4llvm8ArrayRefIjEENS7_9StringRefESA_E3$_0EEET_SD_SD_RKT0_T1_.exit.i.i.i" ], [ %.1.i.i23.i, %88 ]
   %90 = icmp ult i64 %50, %1
   br i1 %90, label %36, label %"_ZSt11equal_rangeIPKjPKcZL25lookupLLVMIntrinsicByNameN4llvm8ArrayRefIjEENS4_9StringRefES7_E3$_0ESt4pairIT_SA_ESA_SA_RKT0_T1_.exit.i..critedge.i.loopexit_crit_edge", !llvm.loop !164
 
@@ -9377,7 +9377,7 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN4llvm9Intrinsic23matchIntrinsic
   br label %.loopexit
 
 .loopexit:                                        ; preds = %20, %30, %.loopexit.split.loop.exit38, %.critedge, %3
-  %.0 = phi i32 [ 1, %3 ], [ %33, %.loopexit.split.loop.exit38 ], [ 0, %.critedge ], [ 0, %30 ], [ 2, %20 ]
+  %.0 = phi i32 [ 1, %3 ], [ 0, %30 ], [ %33, %.loopexit.split.loop.exit38 ], [ 0, %.critedge ], [ 2, %20 ]
   %34 = load ptr, ptr %4, align 8, !tbaa !130
   %35 = icmp eq ptr %34, %5
   br i1 %35, label %_ZN4llvm11SmallVectorISt4pairIPNS_4TypeENS_8ArrayRefINS_9Intrinsic13IITDescriptorEEEELj2EED2Ev.exit, label %36
@@ -10121,7 +10121,7 @@ _ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i:        ; preds = %_ZNK4llvm4Type13get
   unreachable
 
 .critedge181:                                     ; preds = %122, %_ZNK4llvm4Type13getScalarTypeEv.exit.i, %.preheader, %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i, %296, %89, %94, %100, %86, %85, %221, %196, %390, %374, %372, %373, %351, %352, %334, %343, %333, %332, %293, %292, %312, %321, %255, %273, %285, %251, %254, %235, %244, %233, %234, %227, %208, %209, %202, %183, %184, %145, %143, %144, %117, %112, %104, %109, %80, %19, %24, %27, %10, %367, %173, %168, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit, %132, %77, %72, %67, %62, %57, %52, %47, %42, %37, %32, %14
-  %.1 = phi i1 [ %18, %14 ], [ true, %372 ], [ true, %10 ], [ %36, %32 ], [ %41, %37 ], [ %46, %42 ], [ %51, %47 ], [ %56, %52 ], [ %61, %57 ], [ %66, %62 ], [ %71, %67 ], [ %76, %72 ], [ %79, %77 ], [ %31, %27 ], [ true, %89 ], [ %392, %390 ], [ %111, %109 ], [ %137, %132 ], [ true, %374 ], [ true, %143 ], [ %155, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit ], [ %spec.select.i.i.i.i.i.i.i.i212, %168 ], [ %177, %173 ], [ false, %145 ], [ true, %183 ], [ true, %221 ], [ true, %208 ], [ true, %196 ], [ true, %233 ], [ %246, %244 ], [ true, %251 ], [ true, %273 ], [ true, %312 ], [ false, %333 ], [ %346, %343 ], [ %spec.select184, %367 ], [ true, %351 ], [ true, %24 ], [ true, %19 ], [ true, %80 ], [ true, %104 ], [ true, %94 ], [ true, %112 ], [ true, %117 ], [ true, %296 ], [ false, %.preheader ], [ false, %144 ], [ false, %184 ], [ %203, %202 ], [ false, %209 ], [ %228, %227 ], [ false, %234 ], [ true, %235 ], [ false, %254 ], [ true, %255 ], [ %286, %285 ], [ true, %292 ], [ false, %293 ], [ %327, %321 ], [ %103, %100 ], [ true, %332 ], [ true, %334 ], [ false, %352 ], [ false, %373 ], [ %88, %86 ], [ true, %85 ], [ %spec.select.i.i209, %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i ], [ false, %_ZNK4llvm4Type13getScalarTypeEv.exit.i ], [ %126, %122 ]
+  %.1 = phi i1 [ %18, %14 ], [ true, %372 ], [ true, %10 ], [ %36, %32 ], [ %41, %37 ], [ %46, %42 ], [ %51, %47 ], [ %56, %52 ], [ %61, %57 ], [ %66, %62 ], [ %71, %67 ], [ %76, %72 ], [ %79, %77 ], [ %31, %27 ], [ true, %89 ], [ %392, %390 ], [ %111, %109 ], [ %137, %132 ], [ true, %374 ], [ true, %143 ], [ %155, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit ], [ false, %_ZNK4llvm4Type13getScalarTypeEv.exit.i ], [ %spec.select.i.i.i.i.i.i.i.i212, %168 ], [ %177, %173 ], [ false, %145 ], [ true, %183 ], [ true, %221 ], [ true, %208 ], [ true, %196 ], [ true, %233 ], [ %246, %244 ], [ true, %251 ], [ true, %273 ], [ true, %312 ], [ false, %333 ], [ %346, %343 ], [ %spec.select184, %367 ], [ true, %351 ], [ true, %24 ], [ true, %19 ], [ true, %80 ], [ true, %104 ], [ true, %94 ], [ true, %112 ], [ true, %117 ], [ true, %296 ], [ false, %.preheader ], [ false, %144 ], [ false, %184 ], [ %203, %202 ], [ false, %209 ], [ %228, %227 ], [ false, %234 ], [ true, %235 ], [ false, %254 ], [ true, %255 ], [ %286, %285 ], [ true, %292 ], [ false, %293 ], [ %327, %321 ], [ %103, %100 ], [ true, %332 ], [ true, %334 ], [ false, %352 ], [ false, %373 ], [ %88, %86 ], [ true, %85 ], [ %spec.select.i.i209, %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i ], [ %126, %122 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %394
 

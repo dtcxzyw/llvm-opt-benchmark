@@ -235,7 +235,7 @@ define i32 @Int_ManGlobalVars(ptr noundef readonly captures(none) %0) local_unna
   br i1 %84, label %73, label %.loopexit, !llvm.loop !31
 
 .loopexit:                                        ; preds = %34, %81, %.preheader63, %.critedge2
-  %.050 = phi i32 [ 0, %.critedge2 ], [ %27, %.preheader63 ], [ %.5, %81 ], [ %41, %34 ]
+  %.050 = phi i32 [ %.5, %81 ], [ 0, %.critedge2 ], [ %27, %.preheader63 ], [ %41, %34 ]
   ret i32 %.050
 }
 
@@ -2200,7 +2200,7 @@ Int_ManEnqueue.exit83:                            ; preds = %136
   br label %.loopexit
 
 .loopexit:                                        ; preds = %23, %Int_ManEnqueue.exit, %Int_ManCancelUntil.exit, %155, %162, %Int_ManEnqueue.exit83, %._crit_edge, %166, %120
-  %.064 = phi i32 [ 1, %Int_ManCancelUntil.exit ], [ 1, %120 ], [ 0, %Int_ManEnqueue.exit83 ], [ 1, %166 ], [ 0, %._crit_edge ], [ 0, %162 ], [ 0, %155 ], [ 0, %Int_ManEnqueue.exit ], [ 1, %23 ]
+  %.064 = phi i32 [ 1, %Int_ManCancelUntil.exit ], [ 0, %Int_ManEnqueue.exit ], [ 0, %155 ], [ 1, %120 ], [ 0, %Int_ManEnqueue.exit83 ], [ 1, %166 ], [ 0, %._crit_edge ], [ 0, %162 ], [ 1, %23 ]
   ret i32 %.064
 }
 

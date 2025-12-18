@@ -167,7 +167,7 @@ define hidden noundef ptr @_ZN11StringUtils13strstr_nocaseEPKcS1_(ptr noundef re
   br i1 %.not, label %.critedge, label %.preheader, !llvm.loop !11
 
 .critedge:                                        ; preds = %20, %11, %7, %.preheader26, %2
-  %.021 = phi ptr [ %0, %2 ], [ null, %.preheader26 ], [ %6, %7 ], [ null, %11 ], [ null, %20 ]
+  %.021 = phi ptr [ null, %.preheader26 ], [ %0, %2 ], [ %6, %7 ], [ null, %11 ], [ null, %20 ]
   ret ptr %.021
 }
 
@@ -262,7 +262,7 @@ _ZN11StringUtils13strstr_nocaseEPKcS1_.exit.thread32: ; preds = %16, %_ZN11Strin
   br i1 %.not, label %_ZN11StringUtils13strstr_nocaseEPKcS1_.exit.thread, label %.lr.ph, !llvm.loop !12
 
 _ZN11StringUtils13strstr_nocaseEPKcS1_.exit.thread: ; preds = %_ZN11StringUtils13strstr_nocaseEPKcS1_.exit, %_ZN11StringUtils13strstr_nocaseEPKcS1_.exit.thread32, %.preheader26.i, %29, %20, %2
-  %.not44 = phi i1 [ true, %2 ], [ false, %20 ], [ false, %29 ], [ false, %_ZN11StringUtils13strstr_nocaseEPKcS1_.exit ], [ true, %_ZN11StringUtils13strstr_nocaseEPKcS1_.exit.thread32 ], [ false, %.preheader26.i ]
+  %.not44 = phi i1 [ false, %29 ], [ false, %20 ], [ true, %2 ], [ false, %_ZN11StringUtils13strstr_nocaseEPKcS1_.exit ], [ true, %_ZN11StringUtils13strstr_nocaseEPKcS1_.exit.thread32 ], [ false, %.preheader26.i ]
   ret i1 %.not44
 }
 

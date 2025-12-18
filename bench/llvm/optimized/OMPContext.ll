@@ -917,7 +917,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %._crit_edg
   br label %.thread135
 
 .thread135:                                       ; preds = %120, %119, %56, %55, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit, %.lr.ph182.split.us.split, %._crit_edge.us, %.lr.ph176.us.us, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit.us, %.lr.ph182.split.us.split.us, %.thread149
-  %.4.shrunk = phi i1 [ %235, %.thread149 ], [ %.0.lcssa.us190, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit.us ], [ false, %.lr.ph182.split.us.split.us ], [ false, %.lr.ph182.split.us.split ], [ false, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit ], [ %178, %.lr.ph176.us.us ], [ false, %._crit_edge.us ], [ false, %55 ], [ true, %120 ], [ true, %56 ], [ false, %119 ]
+  %.4.shrunk = phi i1 [ %235, %.thread149 ], [ false, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit ], [ false, %.lr.ph182.split.us.split ], [ %178, %.lr.ph176.us.us ], [ %.0.lcssa.us190, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit.us ], [ false, %.lr.ph182.split.us.split.us ], [ false, %._crit_edge.us ], [ false, %55 ], [ true, %120 ], [ true, %56 ], [ false, %119 ]
   %.4 = zext i1 %.4.shrunk to i32
   ret i32 %.4
 }
@@ -1580,7 +1580,7 @@ _ZN4llvm28const_set_bits_iterator_implINS_9BitVectorEEppEv.exit: ; preds = %78
   br i1 %.not.i31, label %_ZL8isSubsetIN4llvm3omp13TraitPropertyEEbNS0_8ArrayRefIT_EES5_.exit, label %.lr.ph.split.i, !llvm.loop !65
 
 _ZL8isSubsetIN4llvm3omp13TraitPropertyEEbNS0_8ArrayRefIT_EES5_.exit: ; preds = %56, %.outer.i, %111, %_ZNK4llvm9BitVector5countEv.exit, %96, %._crit_edge, %_ZNK4llvm9BitVector5countEv.exit24
-  %.0 = phi i1 [ false, %_ZNK4llvm9BitVector5countEv.exit24 ], [ false, %._crit_edge ], [ true, %96 ], [ false, %_ZNK4llvm9BitVector5countEv.exit ], [ %.not20.i, %.outer.i ], [ true, %111 ], [ false, %56 ]
+  %.0 = phi i1 [ false, %_ZNK4llvm9BitVector5countEv.exit ], [ false, %_ZNK4llvm9BitVector5countEv.exit24 ], [ false, %._crit_edge ], [ true, %111 ], [ true, %96 ], [ %.not20.i, %.outer.i ], [ false, %56 ]
   ret i1 %.0
 }
 

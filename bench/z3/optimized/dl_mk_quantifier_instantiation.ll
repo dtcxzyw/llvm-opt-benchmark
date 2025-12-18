@@ -2022,7 +2022,7 @@ _ZNK6vectorISt4pairIP4exprS2_ELb0EjE4sizeEv.exit: ; preds = %20
   br i1 %.not27.old.i.i.i, label %common.ret268, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %157, %154
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %157 ], [ %156, %154 ]
+  %.137.i.i.i.be = phi ptr [ %156, %154 ], [ %.old.i.i.i, %157 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !314
 
 _ZNK7obj_mapI9func_declP10ptr_vectorI4exprEE4findEPS0_RS4_.exit: ; preds = %138, %149
@@ -2705,8 +2705,8 @@ _ZNK16basic_union_find12get_num_varsEv.exit.i4.i: ; preds = %.preheader.i.i, %_Z
   br i1 %.not17.i9.i, label %_ZNK16basic_union_find4findEj.exit10.i, label %.preheader.i7.i
 
 _ZNK16basic_union_find4findEj.exit10.i:           ; preds = %.preheader.i7.i, %_ZNK16basic_union_find12get_num_varsEv.exit.i4.i, %168
-  %.09.i30.i = phi i32 [ %.09.i.ph.i, %_ZNK16basic_union_find12get_num_varsEv.exit.i4.i ], [ %173, %168 ], [ %.09.i.ph.i, %.preheader.i7.i ]
-  %.09.i6.i = phi i32 [ %174, %_ZNK16basic_union_find12get_num_varsEv.exit.i4.i ], [ %174, %168 ], [ %.010.i8.i, %.preheader.i7.i ]
+  %.09.i30.i = phi i32 [ %173, %168 ], [ %.09.i.ph.i, %_ZNK16basic_union_find12get_num_varsEv.exit.i4.i ], [ %.09.i.ph.i, %.preheader.i7.i ]
+  %.09.i6.i = phi i32 [ %174, %168 ], [ %174, %_ZNK16basic_union_find12get_num_varsEv.exit.i4.i ], [ %.010.i8.i, %.preheader.i7.i ]
   %185 = icmp eq i32 %.09.i30.i, %.09.i6.i
   br i1 %185, label %_ZN16basic_union_find5mergeEjj.exit, label %.preheader.i
 
@@ -3680,7 +3680,7 @@ _ZN16basic_union_find5mergeEjj.exit..backedge_crit_edge: ; preds = %_ZN16basic_u
   br i1 %.not27.old.i.i.i, label %.loopexit207, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %586, %583
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %586 ], [ %585, %583 ]
+  %.137.i.i.i.be = phi ptr [ %585, %583 ], [ %.old.i.i.i, %586 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !314
 
 _ZNK7obj_mapI9func_declP10ptr_vectorI4exprEE4findEPS0_RS4_.exit: ; preds = %567, %578
@@ -8692,7 +8692,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK13rewriter_core10is_blockedEP
   br i1 %.not27.old.i.i, label %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit, label %.lr.ph38.i.i.backedge
 
 .lr.ph38.i.i.backedge:                            ; preds = %35, %32
-  %.137.i.i.be = phi ptr [ %.old.i.i, %35 ], [ %34, %32 ]
+  %.137.i.i.be = phi ptr [ %34, %32 ], [ %.old.i.i, %35 ]
   br label %.lr.ph38.i.i, !llvm.loop !411
 
 _ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit: ; preds = %16, %21, %27, %32, %35, %.preheader.i.i

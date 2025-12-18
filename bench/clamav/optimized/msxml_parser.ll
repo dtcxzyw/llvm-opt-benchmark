@@ -206,7 +206,7 @@ define i32 @cli_msxml_parse_document(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %.loopexit50
 
 .loopexit50:                                      ; preds = %38, %.thread, %61, %6, %56
-  %.031 = phi i32 [ 2, %6 ], [ %58, %56 ], [ 0, %61 ], [ %spec.store.select, %.thread ], [ 21, %38 ]
+  %.031 = phi i32 [ 2, %6 ], [ %spec.store.select, %.thread ], [ %58, %56 ], [ 0, %61 ], [ 21, %38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.031
@@ -564,7 +564,7 @@ msxml_check_key.exit:                             ; preds = %62, %64, %.preheade
   br label %.critedge
 
 .critedge:                                        ; preds = %135, %.critedge.loopexit.split.loop.exit, %132, %122, %.loopexit
-  %.0209 = phi i32 [ 0, %132 ], [ 0, %122 ], [ 0, %.loopexit ], [ %140, %.critedge.loopexit.split.loop.exit ], [ 20, %135 ]
+  %.0209 = phi i32 [ 0, %.loopexit ], [ 0, %122 ], [ 0, %132 ], [ %140, %.critedge.loopexit.split.loop.exit ], [ 20, %135 ]
   %141 = call i32 @xmlTextReaderMoveToElement(ptr noundef %1) #8
   %142 = icmp eq i32 %141, -1
   br i1 %142, label %.critedge296, label %143
@@ -863,7 +863,7 @@ msxml_check_key.exit:                             ; preds = %62, %64, %.preheade
   br label %266
 
 .thread311:                                       ; preds = %263, %232, %248, %227, %228
-  %.12.ph = phi i32 [ 22, %228 ], [ 27, %227 ], [ 14, %248 ], [ %231, %232 ], [ %254, %263 ]
+  %.12.ph = phi i32 [ 22, %228 ], [ 27, %227 ], [ %231, %232 ], [ 14, %248 ], [ %254, %263 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)

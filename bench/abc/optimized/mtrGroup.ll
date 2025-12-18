@@ -323,7 +323,7 @@ tailrecurse:                                      ; preds = %tailrecurse.prehead
   br i1 %.not197, label %.loopexit, label %124, !llvm.loop !20
 
 .loopexit:                                        ; preds = %9, %tailrecurse, %124, %97, %4, %.critedge2, %103, %83, %.thread, %72, %69, %71, %58, %43, %27, %46, %30, %17
-  %.0175 = phi ptr [ null, %103 ], [ %.tr, %17 ], [ %28, %30 ], [ null, %27 ], [ %44, %46 ], [ null, %43 ], [ null, %58 ], [ %59, %69 ], [ null, %72 ], [ null, %.thread ], [ null, %83 ], [ null, %.critedge2 ], [ %59, %71 ], [ null, %4 ], [ %104, %124 ], [ %84, %97 ], [ null, %tailrecurse ], [ null, %9 ]
+  %.0175 = phi ptr [ null, %103 ], [ null, %4 ], [ %.tr, %17 ], [ null, %.critedge2 ], [ %28, %30 ], [ null, %27 ], [ %44, %46 ], [ %104, %124 ], [ null, %43 ], [ null, %58 ], [ %59, %69 ], [ null, %72 ], [ null, %.thread ], [ null, %83 ], [ %59, %71 ], [ %84, %97 ], [ null, %tailrecurse ], [ null, %9 ]
   ret ptr %.0175
 }
 
@@ -792,7 +792,7 @@ Mtr_InitGroupTree.exit.thread.sink.split:         ; preds = %36, %22, %14, %17, 
   br label %Mtr_InitGroupTree.exit.thread
 
 Mtr_InitGroupTree.exit.thread:                    ; preds = %10, %12, %.preheader, %Mtr_InitGroupTree.exit.thread.sink.split, %2
-  %.023 = phi ptr [ null, %2 ], [ null, %Mtr_InitGroupTree.exit.thread.sink.split ], [ null, %.preheader ], [ %6, %12 ], [ %6, %10 ]
+  %.023 = phi ptr [ null, %.preheader ], [ null, %2 ], [ null, %Mtr_InitGroupTree.exit.thread.sink.split ], [ %6, %12 ], [ %6, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

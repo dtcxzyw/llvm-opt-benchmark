@@ -961,7 +961,7 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_hda_jack_set_gating_jack(ptr
   br i1 %33, label %.thread8.i, label %.preheader.i, !llvm.loop !15
 
 .thread8.i:                                       ; preds = %30, %.preheader.i
-  %34 = phi ptr [ null, %30 ], [ %27, %.preheader.i ]
+  %34 = phi ptr [ %27, %.preheader.i ], [ null, %30 ]
   %35 = icmp eq ptr %25, null
   br i1 %35, label %.thread8.i.thread, label %snd_hda_jack_tbl_new.exit
 
@@ -1053,7 +1053,7 @@ snd_hda_jack_tbl_new.exit:                        ; preds = %.thread8.i, %.threa
   br i1 %87, label %.thread8.i2, label %.preheader.i5, !llvm.loop !15
 
 .thread8.i2:                                      ; preds = %84, %.preheader.i5
-  %88 = phi ptr [ null, %84 ], [ %81, %.preheader.i5 ]
+  %88 = phi ptr [ %81, %.preheader.i5 ], [ null, %84 ]
   %89 = icmp eq ptr %79, null
   br i1 %89, label %.thread8.i2.thread, label %snd_hda_jack_tbl_new.exit7
 
@@ -1803,7 +1803,7 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_hda_jack_add_kctls(ptr nound
   br label %.loopexit
 
 .loopexit:                                        ; preds = %39, %.preheader, %66, %85, %98, %113, %.loopexit13
-  %118 = phi i32 [ %111, %.loopexit13 ], [ %117, %113 ], [ %48, %.preheader ], [ %102, %98 ], [ %86, %85 ], [ %67, %66 ], [ %40, %39 ]
+  %118 = phi i32 [ %111, %.loopexit13 ], [ %117, %113 ], [ %67, %66 ], [ %48, %.preheader ], [ %102, %98 ], [ %86, %85 ], [ %40, %39 ]
   ret i32 %118
 }
 
@@ -1975,7 +1975,7 @@ define internal fastcc i32 @add_jack_kctl(ptr noundef %0, i16 noundef zeroext %1
   br i1 %102, label %.thread8.i, label %.preheader.i, !llvm.loop !15
 
 .thread8.i:                                       ; preds = %99, %.preheader.i
-  %103 = phi ptr [ null, %99 ], [ %96, %.preheader.i ]
+  %103 = phi ptr [ %96, %.preheader.i ], [ null, %99 ]
   %104 = icmp eq ptr %94, null
   br i1 %104, label %.thread8.i.thread, label %.thread8.i._crit_edge
 
@@ -2403,7 +2403,7 @@ define dso_local void @snd_hda_jack_poll_all(ptr noundef %0) #0 align 16 {
   br i1 %73, label %.thread, label %.preheader, !llvm.loop !42
 
 .thread:                                          ; preds = %56, %.preheader, %45, %40, %62, %60, %.loopexit, %19, %14, %8
-  %74 = phi i32 [ %9, %14 ], [ %9, %8 ], [ %9, %19 ], [ 1, %.loopexit ], [ 1, %60 ], [ 1, %62 ], [ 1, %40 ], [ 1, %45 ], [ 1, %.preheader ], [ 1, %56 ]
+  %74 = phi i32 [ %9, %14 ], [ %9, %8 ], [ %9, %19 ], [ 1, %.loopexit ], [ 1, %60 ], [ 1, %62 ], [ 1, %.preheader ], [ 1, %40 ], [ 1, %45 ], [ 1, %56 ]
   %75 = add nuw i32 %10, 1
   %76 = getelementptr i8, ptr %11, i64 56
   %77 = load i32, ptr %2, align 8

@@ -157690,8 +157690,8 @@ _ZNSt13random_deviceclEv.exit18:                  ; preds = %_ZNSt13random_devic
   br i1 %exitcond.not29.i.i, label %.loopexit, label %.preheader.i.i.backedge
 
 .preheader.i.i.backedge:                          ; preds = %.thread.i.i, %52
-  %.01826.i.i.be = phi i64 [ %55, %52 ], [ %56, %.thread.i.i ]
-  %.01925.i.i.be = phi i1 [ %.1.shrunk.i.i, %52 ], [ false, %.thread.i.i ]
+  %.01826.i.i.be = phi i64 [ %56, %.thread.i.i ], [ %55, %52 ]
+  %.01925.i.i.be = phi i1 [ false, %.thread.i.i ], [ %.1.shrunk.i.i, %52 ]
   br label %.preheader.i.i, !llvm.loop !2962
 
 57:                                               ; preds = %41

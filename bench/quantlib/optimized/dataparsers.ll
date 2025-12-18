@@ -2542,7 +2542,7 @@ sw.bb4.i.i.i.i:                                   ; preds = %if.end23.i.i, %land
   br label %invoke.cont25
 
 invoke.cont25:                                    ; preds = %sw.bb4.i.i.i.i, %_ZNK5boost9date_time11int_adapterIjE10as_specialEv.exit.thread.i, %_ZNK5boost9date_time11int_adapterIjEmiIjEES2_RKNS1_IT_EE.exit.i, %if.end23.i.i, %land.lhs.true14.i.i, %if.then.i
-  %retval.sroa.0.0.i = phi i64 [ %sub.i, %if.then.i ], [ 9223372036854775806, %_ZNK5boost9date_time11int_adapterIjE10as_specialEv.exit.thread.i ], [ 9223372036854775807, %sw.bb4.i.i.i.i ], [ -9223372036854775808, %if.end23.i.i ], [ -9223372036854775808, %land.lhs.true14.i.i ], [ %switch.select17.i, %_ZNK5boost9date_time11int_adapterIjEmiIjEES2_RKNS1_IT_EE.exit.i ]
+  %retval.sroa.0.0.i = phi i64 [ %sub.i, %if.then.i ], [ 9223372036854775806, %_ZNK5boost9date_time11int_adapterIjE10as_specialEv.exit.thread.i ], [ -9223372036854775808, %land.lhs.true14.i.i ], [ 9223372036854775807, %sw.bb4.i.i.i.i ], [ -9223372036854775808, %if.end23.i.i ], [ %switch.select17.i, %_ZNK5boost9date_time11int_adapterIjEmiIjEES2_RKNS1_IT_EE.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp12)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp31)
   invoke void @_ZN8QuantLib4DateC1EiNS_5MonthEi(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp31, i32 noundef 1, i32 noundef 1, i32 noundef 1901)
@@ -11308,7 +11308,7 @@ return.fold.split.i.i:                            ; preds = %invoke.cont
   br label %_ZN5boost9gregorian4dateC2ENS_9date_time14special_valuesE.exit
 
 _ZN5boost9gregorian4dateC2ENS_9date_time14special_valuesE.exit: ; preds = %invoke.cont, %sw.bb9.i.i, %sw.bb1.i.i.i, %sw.bb4.i.i.i, %return.fold.split.i.i
-  %retval.sroa.0.0.i.i = phi i32 [ 2232400, %invoke.cont ], [ 5373484, %sw.bb9.i.i ], [ -1, %sw.bb4.i.i.i ], [ 0, %sw.bb1.i.i.i ], [ -2, %return.fold.split.i.i ]
+  %retval.sroa.0.0.i.i = phi i32 [ 2232400, %invoke.cont ], [ 5373484, %sw.bb9.i.i ], [ 0, %sw.bb1.i.i.i ], [ -1, %sw.bb4.i.i.i ], [ -2, %return.fold.split.i.i ]
   store i32 %retval.sroa.0.0.i.i, ptr %retval, align 4, !tbaa !40
   br label %cleanup
 
@@ -11452,7 +11452,7 @@ return.fold.split.i.i192:                         ; preds = %invoke.cont56
   br label %_ZN5boost9gregorian4dateC2ENS_9date_time14special_valuesE.exit193
 
 _ZN5boost9gregorian4dateC2ENS_9date_time14special_valuesE.exit193: ; preds = %invoke.cont56, %sw.bb9.i.i191, %sw.bb1.i.i.i188, %sw.bb4.i.i.i190, %return.fold.split.i.i192
-  %retval.sroa.0.0.i.i189 = phi i32 [ 2232400, %invoke.cont56 ], [ 5373484, %sw.bb9.i.i191 ], [ -1, %sw.bb4.i.i.i190 ], [ 0, %sw.bb1.i.i.i188 ], [ -2, %return.fold.split.i.i192 ]
+  %retval.sroa.0.0.i.i189 = phi i32 [ 2232400, %invoke.cont56 ], [ 5373484, %sw.bb9.i.i191 ], [ 0, %sw.bb1.i.i.i188 ], [ -1, %sw.bb4.i.i.i190 ], [ -2, %return.fold.split.i.i192 ]
   store i32 %retval.sroa.0.0.i.i189, ptr %retval, align 4, !tbaa !40
   br label %cleanup73
 
@@ -11598,7 +11598,7 @@ return.fold.split.i.i243:                         ; preds = %invoke.cont85
   br label %_ZN5boost9gregorian4dateC2ENS_9date_time14special_valuesE.exit244
 
 _ZN5boost9gregorian4dateC2ENS_9date_time14special_valuesE.exit244: ; preds = %invoke.cont85, %sw.bb9.i.i242, %sw.bb1.i.i.i239, %sw.bb4.i.i.i241, %return.fold.split.i.i243
-  %retval.sroa.0.0.i.i240 = phi i32 [ 2232400, %invoke.cont85 ], [ 5373484, %sw.bb9.i.i242 ], [ -1, %sw.bb4.i.i.i241 ], [ 0, %sw.bb1.i.i.i239 ], [ -2, %return.fold.split.i.i243 ]
+  %retval.sroa.0.0.i.i240 = phi i32 [ 2232400, %invoke.cont85 ], [ 5373484, %sw.bb9.i.i242 ], [ 0, %sw.bb1.i.i.i239 ], [ -1, %sw.bb4.i.i.i241 ], [ -2, %return.fold.split.i.i243 ]
   store i32 %retval.sroa.0.0.i.i240, ptr %retval, align 4, !tbaa !40
   br label %cleanup102
 
@@ -11733,7 +11733,7 @@ return.fold.split.i.i292:                         ; preds = %invoke.cont114
   br label %_ZN5boost9gregorian4dateC2ENS_9date_time14special_valuesE.exit293
 
 _ZN5boost9gregorian4dateC2ENS_9date_time14special_valuesE.exit293: ; preds = %invoke.cont114, %sw.bb9.i.i291, %sw.bb1.i.i.i288, %sw.bb4.i.i.i290, %return.fold.split.i.i292
-  %retval.sroa.0.0.i.i289 = phi i32 [ 2232400, %invoke.cont114 ], [ 5373484, %sw.bb9.i.i291 ], [ -1, %sw.bb4.i.i.i290 ], [ 0, %sw.bb1.i.i.i288 ], [ -2, %return.fold.split.i.i292 ]
+  %retval.sroa.0.0.i.i289 = phi i32 [ 2232400, %invoke.cont114 ], [ 5373484, %sw.bb9.i.i291 ], [ 0, %sw.bb1.i.i.i288 ], [ -1, %sw.bb4.i.i.i290 ], [ -2, %return.fold.split.i.i292 ]
   store i32 %retval.sroa.0.0.i.i289, ptr %retval, align 4, !tbaa !40
   br label %cleanup131
 
@@ -11884,7 +11884,7 @@ cleanup156.loopexit1170:                          ; preds = %invoke.cont144
   br label %cleanup156
 
 cleanup156:                                       ; preds = %invoke.cont144, %cleanup156.loopexit1170, %cleanup156.loopexit1165, %cleanup156.loopexit1160, %cleanup156.loopexit1073
-  %retval.sroa.0.0.i.i333 = phi i32 [ -2, %cleanup156.loopexit1170 ], [ 0, %cleanup156.loopexit1160 ], [ 5373484, %cleanup156.loopexit1073 ], [ -1, %cleanup156.loopexit1165 ], [ 2232400, %invoke.cont144 ]
+  %retval.sroa.0.0.i.i333 = phi i32 [ -1, %cleanup156.loopexit1165 ], [ -2, %cleanup156.loopexit1170 ], [ 5373484, %cleanup156.loopexit1073 ], [ 0, %cleanup156.loopexit1160 ], [ 2232400, %invoke.cont144 ]
   %115 = load ptr, ptr %mr137, align 8, !tbaa !10
   %cmp.i.i.i.i353 = icmp eq ptr %115, %28
   br i1 %cmp.i.i.i.i353, label %_ZN5boost9date_time18parse_match_resultIcED2Ev.exit359, label %if.then.i.i.i354
@@ -12005,7 +12005,7 @@ cleanup184.loopexit1169:                          ; preds = %invoke.cont172
   br label %cleanup184
 
 cleanup184:                                       ; preds = %invoke.cont172, %cleanup184.loopexit1169, %cleanup184.loopexit1164, %cleanup184.loopexit1159, %cleanup184.loopexit1072
-  %retval.sroa.0.0.i.i377 = phi i32 [ -2, %cleanup184.loopexit1169 ], [ 0, %cleanup184.loopexit1159 ], [ 5373484, %cleanup184.loopexit1072 ], [ -1, %cleanup184.loopexit1164 ], [ 2232400, %invoke.cont172 ]
+  %retval.sroa.0.0.i.i377 = phi i32 [ -1, %cleanup184.loopexit1164 ], [ -2, %cleanup184.loopexit1169 ], [ 5373484, %cleanup184.loopexit1072 ], [ 0, %cleanup184.loopexit1159 ], [ 2232400, %invoke.cont172 ]
   %126 = load ptr, ptr %mr162, align 8, !tbaa !10
   %cmp.i.i.i.i398 = icmp eq ptr %126, %27
   br i1 %cmp.i.i.i.i398, label %_ZN5boost9date_time18parse_match_resultIcED2Ev.exit404, label %if.then.i.i.i399
@@ -12119,7 +12119,7 @@ cleanup213.loopexit1168:                          ; preds = %invoke.cont197
   br label %cleanup213
 
 cleanup213:                                       ; preds = %invoke.cont197, %cleanup213.loopexit1168, %cleanup213.loopexit1163, %cleanup213.loopexit1158, %cleanup213.loopexit1071
-  %retval.sroa.0.0.i.i426 = phi i32 [ -2, %cleanup213.loopexit1168 ], [ 0, %cleanup213.loopexit1158 ], [ 5373484, %cleanup213.loopexit1071 ], [ -1, %cleanup213.loopexit1163 ], [ 2232400, %invoke.cont197 ]
+  %retval.sroa.0.0.i.i426 = phi i32 [ -1, %cleanup213.loopexit1163 ], [ -2, %cleanup213.loopexit1168 ], [ 5373484, %cleanup213.loopexit1071 ], [ 0, %cleanup213.loopexit1158 ], [ 2232400, %invoke.cont197 ]
   %136 = load ptr, ptr %mr190, align 8, !tbaa !10
   %cmp.i.i.i.i442 = icmp eq ptr %136, %26
   br i1 %cmp.i.i.i.i442, label %_ZN5boost9date_time18parse_match_resultIcED2Ev.exit448, label %if.then.i.i.i443
@@ -12234,7 +12234,7 @@ cleanup238.loopexit1167:                          ; preds = %invoke.cont226
   br label %cleanup238
 
 cleanup238:                                       ; preds = %invoke.cont226, %cleanup238.loopexit1167, %cleanup238.loopexit1162, %cleanup238.loopexit1157, %cleanup238.loopexit1070
-  %retval.sroa.0.0.i.i470 = phi i32 [ -2, %cleanup238.loopexit1167 ], [ 0, %cleanup238.loopexit1157 ], [ 5373484, %cleanup238.loopexit1070 ], [ -1, %cleanup238.loopexit1162 ], [ 2232400, %invoke.cont226 ]
+  %retval.sroa.0.0.i.i470 = phi i32 [ -1, %cleanup238.loopexit1162 ], [ -2, %cleanup238.loopexit1167 ], [ 5373484, %cleanup238.loopexit1070 ], [ 0, %cleanup238.loopexit1157 ], [ 2232400, %invoke.cont226 ]
   %146 = load ptr, ptr %mr219, align 8, !tbaa !10
   %cmp.i.i.i.i491 = icmp eq ptr %146, %25
   br i1 %cmp.i.i.i.i491, label %_ZN5boost9date_time18parse_match_resultIcED2Ev.exit497, label %if.then.i.i.i492
@@ -12351,7 +12351,7 @@ cleanup263.loopexit1166:                          ; preds = %invoke.cont251
   br label %cleanup263
 
 cleanup263:                                       ; preds = %invoke.cont251, %cleanup263.loopexit1166, %cleanup263.loopexit1161, %cleanup263.loopexit1156, %cleanup263.loopexit1069
-  %retval.sroa.0.0.i.i519 = phi i32 [ -2, %cleanup263.loopexit1166 ], [ 0, %cleanup263.loopexit1156 ], [ 5373484, %cleanup263.loopexit1069 ], [ -1, %cleanup263.loopexit1161 ], [ 2232400, %invoke.cont251 ]
+  %retval.sroa.0.0.i.i519 = phi i32 [ -1, %cleanup263.loopexit1161 ], [ -2, %cleanup263.loopexit1166 ], [ 5373484, %cleanup263.loopexit1069 ], [ 0, %cleanup263.loopexit1156 ], [ 2232400, %invoke.cont251 ]
   %156 = load ptr, ptr %mr244, align 8, !tbaa !10
   %cmp.i.i.i.i539 = icmp eq ptr %156, %24
   br i1 %cmp.i.i.i.i539, label %_ZN5boost9date_time18parse_match_resultIcED2Ev.exit545, label %if.then.i.i.i540
@@ -12429,7 +12429,7 @@ return.fold.split.i.i570:                         ; preds = %invoke.cont276
   br label %_ZN5boost9gregorian4dateC2ENS_9date_time14special_valuesE.exit571
 
 _ZN5boost9gregorian4dateC2ENS_9date_time14special_valuesE.exit571: ; preds = %invoke.cont276, %sw.bb9.i.i569, %sw.bb1.i.i.i566, %sw.bb4.i.i.i568, %return.fold.split.i.i570
-  %retval.sroa.0.0.i.i567 = phi i32 [ 2232400, %invoke.cont276 ], [ 5373484, %sw.bb9.i.i569 ], [ -1, %sw.bb4.i.i.i568 ], [ 0, %sw.bb1.i.i.i566 ], [ -2, %return.fold.split.i.i570 ]
+  %retval.sroa.0.0.i.i567 = phi i32 [ 2232400, %invoke.cont276 ], [ 5373484, %sw.bb9.i.i569 ], [ 0, %sw.bb1.i.i.i566 ], [ -1, %sw.bb4.i.i.i568 ], [ -2, %return.fold.split.i.i570 ]
   store i32 %retval.sroa.0.0.i.i567, ptr %retval, align 4, !tbaa !40
   br label %cleanup290
 

@@ -1843,7 +1843,7 @@ _ZL9reset_onePfif.exit119.i:                      ; preds = %_ZL9reset_onePfif.e
   br i1 %.not131.i, label %._crit_edge.split.i, label %_ZL9reset_onePfif.exit119.i
 
 .preheader.lr.ph.i.thread:                        ; preds = %._crit_edge.split.i, %._crit_edge.split.us.us.i, %439, %.preheader132.thread.i, %.preheader132.i
-  %.6.lcssa.i = phi i32 [ %.5.us.i, %.preheader132.i ], [ %spec.select.i, %.preheader132.thread.i ], [ 0, %439 ], [ %.8.us.us.i, %._crit_edge.split.us.us.i ], [ %spec.select183.i, %._crit_edge.split.i ]
+  %.6.lcssa.i = phi i32 [ %.5.us.i, %.preheader132.i ], [ 0, %439 ], [ %spec.select.i, %.preheader132.thread.i ], [ %.8.us.us.i, %._crit_edge.split.us.us.i ], [ %spec.select183.i, %._crit_edge.split.i ]
   %592 = load ptr, ptr @stderr, align 8, !tbaa !35
   %593 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %592, ptr noundef nonnull @.str.154, i32 noundef %.6.lcssa.i) #27
   %594 = load i8, ptr @_ZZ7gmx_chiiPPcE4bAll, align 1, !tbaa !31, !range !33, !noundef !34
@@ -2088,7 +2088,7 @@ _ZL13copy_dih_dataPKfPfib.exit94.us.i:            ; preds = %.lr.ph.i90.us.i, %6
   br label %.split.us.i122
 
 .preheader125.i:                                  ; preds = %707, %672, %617
-  %.2.lcssa.i = phi i32 [ 0, %617 ], [ %.3.us.i, %672 ], [ %spec.select.i125, %707 ]
+  %.2.lcssa.i = phi i32 [ %.3.us.i, %672 ], [ 0, %617 ], [ %spec.select.i125, %707 ]
   %675 = icmp sgt i32 %603, 0
   br i1 %675, label %.preheader.lr.ph.i120, label %._crit_edge166.i
 
@@ -3271,9 +3271,9 @@ _ZNSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm11EED2Ev.exit2
   br i1 %exitcond.not.i163, label %.thread.i, label %.noexc168, !llvm.loop !101
 
 .thread.i:                                        ; preds = %.noexc169, %.noexc167, %.noexc166
-  %1146 = phi i1 [ false, %.noexc167 ], [ false, %.noexc166 ], [ true, %.noexc169 ]
-  %.2.i148 = phi ptr [ %.0192225.i, %.noexc167 ], [ %.0192225.i, %.noexc166 ], [ %1138, %.noexc169 ]
-  %.2119.i = phi i32 [ %.0117226.i, %.noexc167 ], [ %.0117226.i, %.noexc166 ], [ %1137, %.noexc169 ]
+  %1146 = phi i1 [ false, %.noexc166 ], [ false, %.noexc167 ], [ true, %.noexc169 ]
+  %.2.i148 = phi ptr [ %.0192225.i, %.noexc166 ], [ %.0192225.i, %.noexc167 ], [ %1138, %.noexc169 ]
+  %.2119.i = phi i32 [ %.0117226.i, %.noexc166 ], [ %.0117226.i, %.noexc167 ], [ %1137, %.noexc169 ]
   br i1 %1105, label %1147, label %1159
 
 1147:                                             ; preds = %.thread.i

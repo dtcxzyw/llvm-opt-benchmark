@@ -2092,7 +2092,7 @@ common.resume:                                    ; preds = %_ZN3zmq13fast_vecto
   br label %common.resume
 
 _ZL15zmq_poller_pollP14zmq_pollitem_til.exit:     ; preds = %84, %.thread191.i, %118, %.thread187.i, %57, %83, %._crit_edge242.i
-  %.3.i = phi i32 [ -1, %118 ], [ %90, %._crit_edge242.i ], [ %.1124.i, %83 ], [ %.0123.i, %57 ], [ -1, %.thread191.i ], [ %121, %.thread187.i ], [ %.2.i, %84 ]
+  %.3.i = phi i32 [ -1, %118 ], [ %90, %._crit_edge242.i ], [ %.0123.i, %57 ], [ %.1124.i, %83 ], [ -1, %.thread191.i ], [ %121, %.thread187.i ], [ %.2.i, %84 ]
   call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %286
@@ -3148,7 +3148,7 @@ _Z25zmq_poll_must_break_loop_liRbRN3zmq7clock_tERmS3_.exit.thread: ; preds = %66
   br label %.split
 
 .thread59:                                        ; preds = %_Z25zmq_poll_must_break_loop_liRbRN3zmq7clock_tERmS3_.exit, %62, %59, %40, %37, %53, %.split73.us, %.split73.us
-  %.5 = phi i32 [ -1, %53 ], [ -1, %.split73.us ], [ -1, %37 ], [ -1, %.split73.us ], [ %41, %40 ], [ 0, %_Z25zmq_poll_must_break_loop_liRbRN3zmq7clock_tERmS3_.exit ], [ %63, %62 ], [ -1, %59 ]
+  %.5 = phi i32 [ -1, %53 ], [ -1, %.split73.us ], [ -1, %37 ], [ -1, %.split73.us ], [ %41, %40 ], [ %63, %62 ], [ 0, %_Z25zmq_poll_must_break_loop_liRbRN3zmq7clock_tERmS3_.exit ], [ -1, %59 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %68

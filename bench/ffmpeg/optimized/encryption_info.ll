@@ -405,7 +405,7 @@ define ptr @av_encryption_init_info_alloc(i32 noundef %0, i32 noundef %1, i32 no
   br label %.loopexit
 
 .loopexit:                                        ; preds = %33, %.loopexit.sink.split, %31, %4
-  %.042 = phi ptr [ null, %4 ], [ %5, %31 ], [ null, %.loopexit.sink.split ], [ %5, %33 ]
+  %.042 = phi ptr [ null, %.loopexit.sink.split ], [ %5, %31 ], [ null, %4 ], [ %5, %33 ]
   ret ptr %.042
 }
 
@@ -565,7 +565,7 @@ define ptr @av_encryption_init_info_get_side_data(ptr noundef readonly captures(
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge, %.loopexit.sink.split, %5, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %5 ], [ null, %.loopexit.sink.split ], [ %.166, %._crit_edge ]
+  %.0 = phi ptr [ null, %2 ], [ null, %.loopexit.sink.split ], [ null, %5 ], [ %.166, %._crit_edge ]
   ret ptr %.0
 }
 
@@ -717,7 +717,7 @@ define noalias ptr @av_encryption_init_info_add_side_data(ptr noundef readonly c
   br i1 %.not68, label %.loopexit, label %.lr.ph89, !llvm.loop !48
 
 .loopexit:                                        ; preds = %18, %.lr.ph, %77, %31, %._crit_edge
-  %.059 = phi ptr [ null, %._crit_edge ], [ %30, %31 ], [ %30, %77 ], [ null, %.lr.ph ], [ null, %18 ]
+  %.059 = phi ptr [ %30, %31 ], [ null, %._crit_edge ], [ %30, %77 ], [ null, %.lr.ph ], [ null, %18 ]
   ret ptr %.059
 }
 

@@ -465,7 +465,7 @@ _ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorINS_15SpecialCaseList7Sec
   br label %.preheader.i21, !llvm.loop !160
 
 _ZNK5clang22ProfileSpecialCaseList9hasPrefixEN4llvm9StringRefE.exit: ; preds = %.lr.ph.i, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorINS_15SpecialCaseList7SectionEEEKNS_14StringMapEntryIS3_EEEppEv.exit.loopexit.i26, %.lr.ph.i18, %_ZNK4llvm9StringMapINS_15SpecialCaseList7SectionENS_15MallocAllocatorEE5beginEv.exit.i13, %17, %13, %switch.lookup
-  %.0 = phi i32 [ 0, %switch.lookup ], [ 1, %13 ], [ 2, %17 ], [ 0, %_ZNK4llvm9StringMapINS_15SpecialCaseList7SectionENS_15MallocAllocatorEE5beginEv.exit.i13 ], [ 2, %.lr.ph.i18 ], [ 0, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorINS_15SpecialCaseList7SectionEEEKNS_14StringMapEntryIS3_EEEppEv.exit.loopexit.i26 ], [ 2, %.lr.ph.i ]
+  %.0 = phi i32 [ 2, %.lr.ph.i18 ], [ 0, %switch.lookup ], [ 1, %13 ], [ 2, %17 ], [ 0, %_ZNK4llvm9StringMapINS_15SpecialCaseList7SectionENS_15MallocAllocatorEE5beginEv.exit.i13 ], [ 0, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorINS_15SpecialCaseList7SectionEEEKNS_14StringMapEntryIS3_EEEppEv.exit.loopexit.i26 ], [ 2, %.lr.ph.i ]
   ret i32 %.0
 }
 

@@ -9498,16 +9498,16 @@ _ZNSt4pairIN4llvm12ElementCountENS0_5APIntEED2Ev.exit9: ; preds = %_ZNSt4pairIN4
 
 55:                                               ; preds = %49
   %56 = icmp ult i32 %52, 65
-  br i1 %56, label %57, label %_ZN4llvm12DenseMapInfoISt4pairINS_12ElementCountENS_5APIntEEvE7isEqualERKS4_S7_.exit
+  br i1 %56, label %_ZN4llvm12DenseMapInfoISt4pairINS_12ElementCountENS_5APIntEEvE7isEqualERKS4_S7_.exit, label %57
 
 57:                                               ; preds = %55
-  %58 = load i64, ptr %50, align 8, !tbaa !351
-  %59 = load i64, ptr %19, align 8, !tbaa !351
-  %60 = icmp eq i64 %58, %59
-  br i1 %60, label %_ZNSt4pairIN4llvm12ElementCountENS0_5APIntEEaSERKS3_.exit, label %_ZN4llvm12DenseMapInfoISt4pairINS_12ElementCountENS_5APIntEEvE7isEqualERKS4_S7_.exit.thread
+  %58 = call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %50, ptr noundef nonnull align 8 dereferenceable(12) %19) #21
+  br i1 %58, label %_ZNSt4pairIN4llvm12ElementCountENS0_5APIntEEaSERKS3_.exit, label %_ZN4llvm12DenseMapInfoISt4pairINS_12ElementCountENS_5APIntEEvE7isEqualERKS4_S7_.exit.thread
 
 _ZN4llvm12DenseMapInfoISt4pairINS_12ElementCountENS_5APIntEEvE7isEqualERKS4_S7_.exit: ; preds = %55
-  %61 = call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %50, ptr noundef nonnull align 8 dereferenceable(12) %19) #21
+  %59 = load i64, ptr %50, align 8, !tbaa !351
+  %60 = load i64, ptr %19, align 8, !tbaa !351
+  %61 = icmp eq i64 %59, %60
   br i1 %61, label %_ZNSt4pairIN4llvm12ElementCountENS0_5APIntEEaSERKS3_.exit, label %_ZN4llvm12DenseMapInfoISt4pairINS_12ElementCountENS_5APIntEEvE7isEqualERKS4_S7_.exit.thread
 
 _ZN4llvm12DenseMapInfoISt4pairINS_12ElementCountENS_5APIntEEvE7isEqualERKS4_S7_.exit.thread: ; preds = %49, %40, %57, %_ZN4llvm12DenseMapInfoISt4pairINS_12ElementCountENS_5APIntEEvE7isEqualERKS4_S7_.exit
@@ -9528,22 +9528,22 @@ _ZN4llvm12DenseMapInfoISt4pairINS_12ElementCountENS_5APIntEEvE7isEqualERKS4_S7_.
 
 73:                                               ; preds = %67
   %74 = icmp ult i32 %70, 65
-  br i1 %74, label %75, label %_ZN4llvm12DenseMapInfoISt4pairINS_12ElementCountENS_5APIntEEvE7isEqualERKS4_S7_.exit10
+  br i1 %74, label %_ZN4llvm12DenseMapInfoISt4pairINS_12ElementCountENS_5APIntEEvE7isEqualERKS4_S7_.exit10, label %75
 
 75:                                               ; preds = %73
-  %76 = load i64, ptr %68, align 8, !tbaa !351
-  %77 = load i64, ptr %21, align 8, !tbaa !351
-  %78 = icmp eq i64 %76, %77
-  br i1 %78, label %93, label %_ZN4llvm12DenseMapInfoISt4pairINS_12ElementCountENS_5APIntEEvE7isEqualERKS4_S7_.exit10.thread
+  %76 = call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %68, ptr noundef nonnull align 8 dereferenceable(12) %21) #21
+  br i1 %76, label %.thread, label %_ZN4llvm12DenseMapInfoISt4pairINS_12ElementCountENS_5APIntEEvE7isEqualERKS4_S7_.exit10.thread
+
+.thread:                                          ; preds = %75
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0814, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 5, i1 false)
+  %77 = getelementptr inbounds nuw i8, ptr %.0814, i64 8
+  br label %101
 
 _ZN4llvm12DenseMapInfoISt4pairINS_12ElementCountENS_5APIntEEvE7isEqualERKS4_S7_.exit10: ; preds = %73
-  %79 = call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %68, ptr noundef nonnull align 8 dereferenceable(12) %21) #21
-  br i1 %79, label %.thread, label %_ZN4llvm12DenseMapInfoISt4pairINS_12ElementCountENS_5APIntEEvE7isEqualERKS4_S7_.exit10.thread
-
-.thread:                                          ; preds = %_ZN4llvm12DenseMapInfoISt4pairINS_12ElementCountENS_5APIntEEvE7isEqualERKS4_S7_.exit10
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0814, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 5, i1 false)
-  %80 = getelementptr inbounds nuw i8, ptr %.0814, i64 8
-  br label %101
+  %78 = load i64, ptr %68, align 8, !tbaa !351
+  %79 = load i64, ptr %21, align 8, !tbaa !351
+  %80 = icmp eq i64 %78, %79
+  br i1 %80, label %93, label %_ZN4llvm12DenseMapInfoISt4pairINS_12ElementCountENS_5APIntEEvE7isEqualERKS4_S7_.exit10.thread
 
 _ZN4llvm12DenseMapInfoISt4pairINS_12ElementCountENS_5APIntEEvE7isEqualERKS4_S7_.exit10.thread: ; preds = %67, %_ZN4llvm12DenseMapInfoISt4pairINS_12ElementCountENS_5APIntEEvE7isEqualERKS4_S7_.exit.thread, %75, %_ZN4llvm12DenseMapInfoISt4pairINS_12ElementCountENS_5APIntEEvE7isEqualERKS4_S7_.exit10
   %81 = getelementptr inbounds nuw i8, ptr %.0814, i64 24
@@ -9579,8 +9579,8 @@ _ZNSt10unique_ptrIN4llvm11ConstantIntESt14default_deleteIS1_EED2Ev.exit: ; preds
   %92 = icmp ult i32 %.pre, 65
   br label %93
 
-93:                                               ; preds = %75, %_ZNSt10unique_ptrIN4llvm11ConstantIntESt14default_deleteIS1_EED2Ev.exit
-  %94 = phi i1 [ true, %75 ], [ %92, %_ZNSt10unique_ptrIN4llvm11ConstantIntESt14default_deleteIS1_EED2Ev.exit ]
+93:                                               ; preds = %_ZNSt10unique_ptrIN4llvm11ConstantIntESt14default_deleteIS1_EED2Ev.exit, %_ZN4llvm12DenseMapInfoISt4pairINS_12ElementCountENS_5APIntEEvE7isEqualERKS4_S7_.exit10
+  %94 = phi i1 [ true, %_ZN4llvm12DenseMapInfoISt4pairINS_12ElementCountENS_5APIntEEvE7isEqualERKS4_S7_.exit10 ], [ %92, %_ZNSt10unique_ptrIN4llvm11ConstantIntESt14default_deleteIS1_EED2Ev.exit ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0814, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 5, i1 false)
   %95 = getelementptr inbounds nuw i8, ptr %.0814, i64 8
   %96 = load i32, ptr %20, align 8
@@ -9596,7 +9596,7 @@ _ZNSt10unique_ptrIN4llvm11ConstantIntESt14default_deleteIS1_EED2Ev.exit: ; preds
   br label %_ZNSt4pairIN4llvm12ElementCountENS0_5APIntEEaSERKS3_.exit
 
 101:                                              ; preds = %.thread, %93
-  %102 = phi ptr [ %80, %.thread ], [ %95, %93 ]
+  %102 = phi ptr [ %77, %.thread ], [ %95, %93 ]
   call void @_ZN4llvm5APInt14assignSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %102, ptr noundef nonnull align 8 dereferenceable(12) %19) #19
   br label %_ZNSt4pairIN4llvm12ElementCountENS0_5APIntEEaSERKS3_.exit
 
@@ -9885,14 +9885,14 @@ _ZNSt4pairIN4llvm12ElementCountENS0_7APFloatEED2Ev.exit10: ; preds = %35, %36
 50:                                               ; preds = %46
   %51 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase15PPCDoubleDoubleEv() #22
   %.not5.i.i.i = icmp eq ptr %48, %51
-  br i1 %.not5.i.i.i, label %52, label %_ZN4llvm12DenseMapInfoISt4pairINS_12ElementCountENS_7APFloatEEvE7isEqualERKS4_S7_.exit
+  br i1 %.not5.i.i.i, label %_ZN4llvm12DenseMapInfoISt4pairINS_12ElementCountENS_7APFloatEEvE7isEqualERKS4_S7_.exit, label %52
 
 52:                                               ; preds = %50
-  %53 = call noundef zeroext i1 @_ZNK4llvm6detail13DoubleAPFloat14bitwiseIsEqualERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %47, ptr noundef nonnull align 8 dereferenceable(24) %24) #19
+  %53 = call noundef zeroext i1 @_ZNK4llvm6detail9IEEEFloat14bitwiseIsEqualERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %47, ptr noundef nonnull align 8 dereferenceable(24) %24) #19
   br i1 %53, label %82, label %_ZN4llvm12DenseMapInfoISt4pairINS_12ElementCountENS_7APFloatEEvE7isEqualERKS4_S7_.exit.thread
 
 _ZN4llvm12DenseMapInfoISt4pairINS_12ElementCountENS_7APFloatEEvE7isEqualERKS4_S7_.exit: ; preds = %50
-  %54 = call noundef zeroext i1 @_ZNK4llvm6detail9IEEEFloat14bitwiseIsEqualERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %47, ptr noundef nonnull align 8 dereferenceable(24) %24) #19
+  %54 = call noundef zeroext i1 @_ZNK4llvm6detail13DoubleAPFloat14bitwiseIsEqualERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %47, ptr noundef nonnull align 8 dereferenceable(24) %24) #19
   br i1 %54, label %82, label %_ZN4llvm12DenseMapInfoISt4pairINS_12ElementCountENS_7APFloatEEvE7isEqualERKS4_S7_.exit.thread
 
 _ZN4llvm12DenseMapInfoISt4pairINS_12ElementCountENS_7APFloatEEvE7isEqualERKS4_S7_.exit.thread: ; preds = %46, %37, %52, %_ZN4llvm12DenseMapInfoISt4pairINS_12ElementCountENS_7APFloatEEvE7isEqualERKS4_S7_.exit
@@ -9915,14 +9915,14 @@ _ZN4llvm12DenseMapInfoISt4pairINS_12ElementCountENS_7APFloatEEvE7isEqualERKS4_S7
 66:                                               ; preds = %62
   %67 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase15PPCDoubleDoubleEv() #22
   %.not5.i.i.i12 = icmp eq ptr %64, %67
-  br i1 %.not5.i.i.i12, label %68, label %_ZN4llvm12DenseMapInfoISt4pairINS_12ElementCountENS_7APFloatEEvE7isEqualERKS4_S7_.exit13
+  br i1 %.not5.i.i.i12, label %_ZN4llvm12DenseMapInfoISt4pairINS_12ElementCountENS_7APFloatEEvE7isEqualERKS4_S7_.exit13, label %68
 
 68:                                               ; preds = %66
-  %69 = call noundef zeroext i1 @_ZNK4llvm6detail13DoubleAPFloat14bitwiseIsEqualERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %63, ptr noundef nonnull align 8 dereferenceable(24) %26) #19
+  %69 = call noundef zeroext i1 @_ZNK4llvm6detail9IEEEFloat14bitwiseIsEqualERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %63, ptr noundef nonnull align 8 dereferenceable(24) %26) #19
   br i1 %69, label %79, label %_ZN4llvm12DenseMapInfoISt4pairINS_12ElementCountENS_7APFloatEEvE7isEqualERKS4_S7_.exit13.thread
 
 _ZN4llvm12DenseMapInfoISt4pairINS_12ElementCountENS_7APFloatEEvE7isEqualERKS4_S7_.exit13: ; preds = %66
-  %70 = call noundef zeroext i1 @_ZNK4llvm6detail9IEEEFloat14bitwiseIsEqualERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %63, ptr noundef nonnull align 8 dereferenceable(24) %26) #19
+  %70 = call noundef zeroext i1 @_ZNK4llvm6detail13DoubleAPFloat14bitwiseIsEqualERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %63, ptr noundef nonnull align 8 dereferenceable(24) %26) #19
   br i1 %70, label %79, label %_ZN4llvm12DenseMapInfoISt4pairINS_12ElementCountENS_7APFloatEEvE7isEqualERKS4_S7_.exit13.thread
 
 _ZN4llvm12DenseMapInfoISt4pairINS_12ElementCountENS_7APFloatEEvE7isEqualERKS4_S7_.exit13.thread: ; preds = %62, %_ZN4llvm12DenseMapInfoISt4pairINS_12ElementCountENS_7APFloatEEvE7isEqualERKS4_S7_.exit.thread, %68, %_ZN4llvm12DenseMapInfoISt4pairINS_12ElementCountENS_7APFloatEEvE7isEqualERKS4_S7_.exit13
@@ -10429,8 +10429,8 @@ _ZN4llvm12is_containedIRNS_11SmallVectorIPNS_13ConstantArrayELj4EEES3_EEbOT_RKT0
   br label %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_13ConstantArrayELj4EEES3_EEbOT_RKT0_.exit
 
 _ZN4llvm12is_containedIRNS_11SmallVectorIPNS_13ConstantArrayELj4EEES3_EEbOT_RKT0_.exit: ; preds = %20, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_13ConstantArrayELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_13ConstantArrayELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit38, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_13ConstantArrayELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit40, %40, %46, %52
-  %59 = phi ptr [ %47, %46 ], [ %41, %40 ], [ %53, %52 ], [ %18, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_13ConstantArrayELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit40 ], [ %18, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_13ConstantArrayELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit38 ], [ %18, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_13ConstantArrayELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %18, %20 ]
-  %.028.i.i.i.i = phi ptr [ %.1.i.i.i.i, %46 ], [ %.029.lcssa.i.i.i.i, %40 ], [ %.2.i.i.i.i, %52 ], [ %58, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_13ConstantArrayELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit40 ], [ %57, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_13ConstantArrayELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit38 ], [ %56, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_13ConstantArrayELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %.02946.i.i.i.i, %20 ]
+  %59 = phi ptr [ %47, %46 ], [ %41, %40 ], [ %53, %52 ], [ %18, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_13ConstantArrayELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %18, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_13ConstantArrayELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit40 ], [ %18, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_13ConstantArrayELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit38 ], [ %18, %20 ]
+  %.028.i.i.i.i = phi ptr [ %.1.i.i.i.i, %46 ], [ %.029.lcssa.i.i.i.i, %40 ], [ %.2.i.i.i.i, %52 ], [ %56, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_13ConstantArrayELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %58, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_13ConstantArrayELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit40 ], [ %57, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_13ConstantArrayELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit38 ], [ %.02946.i.i.i.i, %20 ]
   %.not = icmp eq ptr %.028.i.i.i.i, %16
   br i1 %.not, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_13ConstantArrayELj4EEES3_EEbOT_RKT0_.exit.thread, label %_ZN4llvm9SetVectorIPNS_13ConstantArrayENS_11SmallVectorIS2_Lj4EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj4EE7makeBigEv.exit
 
@@ -11409,7 +11409,7 @@ _ZNKSt14default_deleteIN4llvm11ConstantIntEEclEPS1_.exit.i: ; preds = %53, %49, 
   call void @_ZdaPv(ptr noundef nonnull %56) #20
   br label %_ZN4llvm5APIntD2Ev.exit10
 
-_ZN4llvm5APIntD2Ev.exit10:                        ; preds = %_ZN4llvm12DenseMapInfoINS_5APIntEvE7isEqualERKS1_S4_.exit, %_ZN4llvm12DenseMapInfoINS_5APIntEvE7isEqualERKS1_S4_.exit9, %54, %.thread, %58
+_ZN4llvm5APIntD2Ev.exit10:                        ; preds = %_ZN4llvm12DenseMapInfoINS_5APIntEvE7isEqualERKS1_S4_.exit9, %_ZN4llvm12DenseMapInfoINS_5APIntEvE7isEqualERKS1_S4_.exit, %54, %.thread, %58
   %59 = getelementptr inbounds nuw i8, ptr %.012, i64 24
   %.not = icmp eq ptr %59, %11
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !995
@@ -11506,17 +11506,17 @@ _ZNSt4pairIN4llvm12ElementCountENS0_5APIntEED2Ev.exit8: ; preds = %_ZNSt4pairIN4
 
 42:                                               ; preds = %36
   %43 = icmp ult i32 %39, 65
-  br i1 %43, label %44, label %_ZN4llvm12DenseMapInfoISt4pairINS_12ElementCountENS_5APIntEEvE7isEqualERKS4_S7_.exit
+  br i1 %43, label %_ZN4llvm12DenseMapInfoISt4pairINS_12ElementCountENS_5APIntEEvE7isEqualERKS4_S7_.exit, label %44
 
 44:                                               ; preds = %42
-  %45 = load i64, ptr %37, align 8, !tbaa !351
-  %46 = load i64, ptr %7, align 8, !tbaa !351
-  %47 = icmp eq i64 %45, %46
-  br i1 %47, label %_ZNSt4pairIN4llvm12ElementCountENS0_5APIntEED2Ev.exit10, label %_ZN4llvm12DenseMapInfoISt4pairINS_12ElementCountENS_5APIntEEvE7isEqualERKS4_S7_.exit.thread
+  %45 = call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %37, ptr noundef nonnull align 8 dereferenceable(12) %7) #21
+  br i1 %45, label %.thread, label %_ZN4llvm12DenseMapInfoISt4pairINS_12ElementCountENS_5APIntEEvE7isEqualERKS4_S7_.exit.thread
 
 _ZN4llvm12DenseMapInfoISt4pairINS_12ElementCountENS_5APIntEEvE7isEqualERKS4_S7_.exit: ; preds = %42
-  %48 = call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %37, ptr noundef nonnull align 8 dereferenceable(12) %7) #21
-  br i1 %48, label %.thread, label %_ZN4llvm12DenseMapInfoISt4pairINS_12ElementCountENS_5APIntEEvE7isEqualERKS4_S7_.exit.thread
+  %46 = load i64, ptr %37, align 8, !tbaa !351
+  %47 = load i64, ptr %7, align 8, !tbaa !351
+  %48 = icmp eq i64 %46, %47
+  br i1 %48, label %_ZNSt4pairIN4llvm12ElementCountENS0_5APIntEED2Ev.exit10, label %_ZN4llvm12DenseMapInfoISt4pairINS_12ElementCountENS_5APIntEEvE7isEqualERKS4_S7_.exit.thread
 
 _ZN4llvm12DenseMapInfoISt4pairINS_12ElementCountENS_5APIntEEvE7isEqualERKS4_S7_.exit.thread: ; preds = %36, %27, %44, %_ZN4llvm12DenseMapInfoISt4pairINS_12ElementCountENS_5APIntEEvE7isEqualERKS4_S7_.exit
   %49 = load i32, ptr %3, align 8, !tbaa !842
@@ -11536,17 +11536,17 @@ _ZN4llvm12DenseMapInfoISt4pairINS_12ElementCountENS_5APIntEEvE7isEqualERKS4_S7_.
 
 60:                                               ; preds = %54
   %61 = icmp ult i32 %57, 65
-  br i1 %61, label %62, label %_ZN4llvm12DenseMapInfoISt4pairINS_12ElementCountENS_5APIntEEvE7isEqualERKS4_S7_.exit9
+  br i1 %61, label %_ZN4llvm12DenseMapInfoISt4pairINS_12ElementCountENS_5APIntEEvE7isEqualERKS4_S7_.exit9, label %62
 
 62:                                               ; preds = %60
-  %63 = load i64, ptr %55, align 8, !tbaa !351
-  %64 = load i64, ptr %9, align 8, !tbaa !351
-  %65 = icmp eq i64 %63, %64
-  br i1 %65, label %_ZNSt4pairIN4llvm12ElementCountENS0_5APIntEED2Ev.exit10, label %_ZN4llvm12DenseMapInfoISt4pairINS_12ElementCountENS_5APIntEEvE7isEqualERKS4_S7_.exit9.thread
+  %63 = call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %55, ptr noundef nonnull align 8 dereferenceable(12) %9) #21
+  br i1 %63, label %.thread, label %_ZN4llvm12DenseMapInfoISt4pairINS_12ElementCountENS_5APIntEEvE7isEqualERKS4_S7_.exit9.thread
 
 _ZN4llvm12DenseMapInfoISt4pairINS_12ElementCountENS_5APIntEEvE7isEqualERKS4_S7_.exit9: ; preds = %60
-  %66 = call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %55, ptr noundef nonnull align 8 dereferenceable(12) %9) #21
-  br i1 %66, label %.thread, label %_ZN4llvm12DenseMapInfoISt4pairINS_12ElementCountENS_5APIntEEvE7isEqualERKS4_S7_.exit9.thread
+  %64 = load i64, ptr %55, align 8, !tbaa !351
+  %65 = load i64, ptr %9, align 8, !tbaa !351
+  %66 = icmp eq i64 %64, %65
+  br i1 %66, label %_ZNSt4pairIN4llvm12ElementCountENS0_5APIntEED2Ev.exit10, label %_ZN4llvm12DenseMapInfoISt4pairINS_12ElementCountENS_5APIntEEvE7isEqualERKS4_S7_.exit9.thread
 
 _ZN4llvm12DenseMapInfoISt4pairINS_12ElementCountENS_5APIntEEvE7isEqualERKS4_S7_.exit9.thread: ; preds = %54, %_ZN4llvm12DenseMapInfoISt4pairINS_12ElementCountENS_5APIntEEvE7isEqualERKS4_S7_.exit.thread, %62, %_ZN4llvm12DenseMapInfoISt4pairINS_12ElementCountENS_5APIntEEvE7isEqualERKS4_S7_.exit9
   %67 = getelementptr inbounds nuw i8, ptr %.012, i64 24
@@ -11582,7 +11582,7 @@ _ZNKSt14default_deleteIN4llvm11ConstantIntEEclEPS1_.exit.i: ; preds = %77, %73, 
   %79 = icmp ugt i32 %.pre, 64
   br i1 %79, label %.thread, label %_ZNSt4pairIN4llvm12ElementCountENS0_5APIntEED2Ev.exit10
 
-.thread:                                          ; preds = %_ZN4llvm12DenseMapInfoISt4pairINS_12ElementCountENS_5APIntEEvE7isEqualERKS4_S7_.exit, %_ZN4llvm12DenseMapInfoISt4pairINS_12ElementCountENS_5APIntEEvE7isEqualERKS4_S7_.exit9, %78
+.thread:                                          ; preds = %44, %62, %78
   %80 = getelementptr inbounds nuw i8, ptr %.012, i64 8
   %81 = load ptr, ptr %80, align 8, !tbaa !351
   %82 = icmp eq ptr %81, null
@@ -11592,7 +11592,7 @@ _ZNKSt14default_deleteIN4llvm11ConstantIntEEclEPS1_.exit.i: ; preds = %77, %73, 
   call void @_ZdaPv(ptr noundef nonnull %81) #20
   br label %_ZNSt4pairIN4llvm12ElementCountENS0_5APIntEED2Ev.exit10
 
-_ZNSt4pairIN4llvm12ElementCountENS0_5APIntEED2Ev.exit10: ; preds = %44, %62, %78, %.thread, %83
+_ZNSt4pairIN4llvm12ElementCountENS0_5APIntEED2Ev.exit10: ; preds = %_ZN4llvm12DenseMapInfoISt4pairINS_12ElementCountENS_5APIntEEvE7isEqualERKS4_S7_.exit9, %_ZN4llvm12DenseMapInfoISt4pairINS_12ElementCountENS_5APIntEEvE7isEqualERKS4_S7_.exit, %78, %.thread, %83
   %84 = getelementptr inbounds nuw i8, ptr %.012, i64 32
   %.not = icmp eq ptr %84, %13
   br i1 %.not, label %._crit_edge, label %27, !llvm.loop !1010
@@ -11850,14 +11850,14 @@ _ZNSt4pairIN4llvm12ElementCountENS0_7APFloatEED2Ev.exit9: ; preds = %22, %23
 37:                                               ; preds = %33
   %38 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase15PPCDoubleDoubleEv() #22
   %.not5.i.i.i = icmp eq ptr %35, %38
-  br i1 %.not5.i.i.i, label %39, label %_ZN4llvm12DenseMapInfoISt4pairINS_12ElementCountENS_7APFloatEEvE7isEqualERKS4_S7_.exit
+  br i1 %.not5.i.i.i, label %_ZN4llvm12DenseMapInfoISt4pairINS_12ElementCountENS_7APFloatEEvE7isEqualERKS4_S7_.exit, label %39
 
 39:                                               ; preds = %37
-  %40 = call noundef zeroext i1 @_ZNK4llvm6detail13DoubleAPFloat14bitwiseIsEqualERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef nonnull align 8 dereferenceable(24) %13) #19
+  %40 = call noundef zeroext i1 @_ZNK4llvm6detail9IEEEFloat14bitwiseIsEqualERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef nonnull align 8 dereferenceable(24) %13) #19
   br i1 %40, label %66, label %_ZN4llvm12DenseMapInfoISt4pairINS_12ElementCountENS_7APFloatEEvE7isEqualERKS4_S7_.exit.thread
 
 _ZN4llvm12DenseMapInfoISt4pairINS_12ElementCountENS_7APFloatEEvE7isEqualERKS4_S7_.exit: ; preds = %37
-  %41 = call noundef zeroext i1 @_ZNK4llvm6detail9IEEEFloat14bitwiseIsEqualERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef nonnull align 8 dereferenceable(24) %13) #19
+  %41 = call noundef zeroext i1 @_ZNK4llvm6detail13DoubleAPFloat14bitwiseIsEqualERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef nonnull align 8 dereferenceable(24) %13) #19
   br i1 %41, label %66, label %_ZN4llvm12DenseMapInfoISt4pairINS_12ElementCountENS_7APFloatEEvE7isEqualERKS4_S7_.exit.thread
 
 _ZN4llvm12DenseMapInfoISt4pairINS_12ElementCountENS_7APFloatEEvE7isEqualERKS4_S7_.exit.thread: ; preds = %33, %24, %39, %_ZN4llvm12DenseMapInfoISt4pairINS_12ElementCountENS_7APFloatEEvE7isEqualERKS4_S7_.exit
@@ -11880,14 +11880,14 @@ _ZN4llvm12DenseMapInfoISt4pairINS_12ElementCountENS_7APFloatEEvE7isEqualERKS4_S7
 53:                                               ; preds = %49
   %54 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase15PPCDoubleDoubleEv() #22
   %.not5.i.i.i11 = icmp eq ptr %51, %54
-  br i1 %.not5.i.i.i11, label %55, label %_ZN4llvm12DenseMapInfoISt4pairINS_12ElementCountENS_7APFloatEEvE7isEqualERKS4_S7_.exit12
+  br i1 %.not5.i.i.i11, label %_ZN4llvm12DenseMapInfoISt4pairINS_12ElementCountENS_7APFloatEEvE7isEqualERKS4_S7_.exit12, label %55
 
 55:                                               ; preds = %53
-  %56 = call noundef zeroext i1 @_ZNK4llvm6detail13DoubleAPFloat14bitwiseIsEqualERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %50, ptr noundef nonnull align 8 dereferenceable(24) %15) #19
+  %56 = call noundef zeroext i1 @_ZNK4llvm6detail9IEEEFloat14bitwiseIsEqualERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %50, ptr noundef nonnull align 8 dereferenceable(24) %15) #19
   br i1 %56, label %66, label %_ZN4llvm12DenseMapInfoISt4pairINS_12ElementCountENS_7APFloatEEvE7isEqualERKS4_S7_.exit12.thread
 
 _ZN4llvm12DenseMapInfoISt4pairINS_12ElementCountENS_7APFloatEEvE7isEqualERKS4_S7_.exit12: ; preds = %53
-  %57 = call noundef zeroext i1 @_ZNK4llvm6detail9IEEEFloat14bitwiseIsEqualERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %50, ptr noundef nonnull align 8 dereferenceable(24) %15) #19
+  %57 = call noundef zeroext i1 @_ZNK4llvm6detail13DoubleAPFloat14bitwiseIsEqualERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %50, ptr noundef nonnull align 8 dereferenceable(24) %15) #19
   br i1 %57, label %66, label %_ZN4llvm12DenseMapInfoISt4pairINS_12ElementCountENS_7APFloatEEvE7isEqualERKS4_S7_.exit12.thread
 
 _ZN4llvm12DenseMapInfoISt4pairINS_12ElementCountENS_7APFloatEEvE7isEqualERKS4_S7_.exit12.thread: ; preds = %49, %_ZN4llvm12DenseMapInfoISt4pairINS_12ElementCountENS_7APFloatEEvE7isEqualERKS4_S7_.exit.thread, %55, %_ZN4llvm12DenseMapInfoISt4pairINS_12ElementCountENS_7APFloatEEvE7isEqualERKS4_S7_.exit12
@@ -14648,7 +14648,7 @@ _ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit:       ; preds = %47, %50
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !1065
 
 _ZSt11swap_rangesIPcS0_ET0_T_S2_S1_.exit:         ; preds = %._crit_edge, %._crit_edge110, %.lr.ph.i, %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit, %_ZSt4moveIPcS0_ET0_T_S2_S1_.exit, %5, %3
-  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %21, %_ZSt4moveIPcS0_ET0_T_S2_S1_.exit ], [ %21, %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit ], [ %1, %.lr.ph.i ], [ %21, %._crit_edge110 ], [ %21, %._crit_edge ]
+  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %1, %.lr.ph.i ], [ %21, %_ZSt4moveIPcS0_ET0_T_S2_S1_.exit ], [ %21, %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit ], [ %21, %._crit_edge110 ], [ %21, %._crit_edge ]
   ret ptr %.053
 }
 

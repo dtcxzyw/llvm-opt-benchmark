@@ -929,9 +929,9 @@ define internal fastcc noundef zeroext i1 @search_nested_keyrings(ptr noundef %0
   br i1 %110, label %127, label %.loopexit11
 
 .loopexit11:                                      ; preds = %192, %167, %105
-  %.pre-phi = phi i64 [ %108, %105 ], [ %164, %167 ], [ %189, %192 ]
-  %111 = phi i32 [ %60, %105 ], [ %.fr48, %167 ], [ %.fr48, %192 ]
-  %112 = phi ptr [ %61, %105 ], [ %131, %167 ], [ %131, %192 ]
+  %.pre-phi = phi i64 [ %164, %167 ], [ %108, %105 ], [ %189, %192 ]
+  %111 = phi i32 [ %.fr48, %167 ], [ %60, %105 ], [ %.fr48, %192 ]
+  %112 = phi ptr [ %131, %167 ], [ %61, %105 ], [ %131, %192 ]
   %113 = and i64 %.pre-phi, 2
   %114 = icmp eq i64 %113, 0
   br i1 %114, label %124, label %115

@@ -134,12 +134,12 @@ define dso_local i32 @generic_swapfile_activate(ptr noundef %0, ptr noundef read
   br label %53, !llvm.loop !6
 
 53:                                               ; preds = %38, %45
+  %.sink = phi i64 [ %12, %45 ], [ 1, %38 ]
   %54 = phi i64 [ %52, %45 ], [ %27, %38 ]
-  %.pn = phi i64 [ %12, %45 ], [ 1, %38 ]
   %55 = phi i64 [ %50, %45 ], [ %25, %38 ]
   %56 = phi i64 [ %48, %45 ], [ %24, %38 ]
   %57 = phi i32 [ %51, %45 ], [ %23, %38 ]
-  %58 = add i64 %26, %.pn
+  %58 = add i64 %26, %.sink
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %59 = add i64 %58, %12
   %60 = icmp ugt i64 %59, %15
@@ -232,11 +232,11 @@ define dso_local i32 @generic_swapfile_activate(ptr noundef %0, ptr noundef read
   br label %.loopexit91, !llvm.loop !6
 
 .loopexit91:                                      ; preds = %89, %101, %79
-  %110 = phi i64 [ %108, %101 ], [ %65, %79 ], [ %65, %89 ]
-  %111 = phi i64 [ %109, %101 ], [ %80, %79 ], [ %94, %89 ]
-  %112 = phi i64 [ %106, %101 ], [ %63, %79 ], [ %63, %89 ]
-  %113 = phi i64 [ %104, %101 ], [ %62, %79 ], [ %62, %89 ]
-  %114 = phi i32 [ %107, %101 ], [ %61, %79 ], [ %61, %89 ]
+  %110 = phi i64 [ %65, %79 ], [ %108, %101 ], [ %65, %89 ]
+  %111 = phi i64 [ %80, %79 ], [ %109, %101 ], [ %94, %89 ]
+  %112 = phi i64 [ %63, %79 ], [ %106, %101 ], [ %63, %89 ]
+  %113 = phi i64 [ %62, %79 ], [ %104, %101 ], [ %62, %89 ]
+  %114 = phi i32 [ %61, %79 ], [ %107, %101 ], [ %61, %89 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %115 = add i64 %111, %12
   %116 = icmp ugt i64 %115, %15

@@ -397,7 +397,7 @@ define ptr @retrieveLOName(ptr noundef readonly captures(none) %0, ptr noundef r
   br i1 %103, label %87, label %.critedge2, !llvm.loop !50
 
 .critedge2:                                       ; preds = %101, %73, %80, %53, %._crit_edge, %76, %96, %68, %31, %36, %22
-  %.0 = phi ptr [ %30, %22 ], [ %8, %96 ], [ %8, %36 ], [ @.str.2, %31 ], [ %8, %68 ], [ @.str.9, %76 ], [ @.str.9, %._crit_edge ], [ %8, %53 ], [ %8, %80 ], [ %8, %73 ], [ %8, %101 ]
+  %.0 = phi ptr [ %30, %22 ], [ %8, %96 ], [ %8, %36 ], [ @.str.2, %31 ], [ %8, %68 ], [ @.str.9, %._crit_edge ], [ %8, %53 ], [ @.str.9, %76 ], [ %8, %80 ], [ %8, %73 ], [ %8, %101 ]
   ret ptr %.0
 }
 
@@ -5975,7 +5975,7 @@ define range(i32 0, 2) i32 @Abc_CommandAbcLivenessToSafety(ptr noundef %0, i32 n
   br label %.backedge
 
 .backedge:                                        ; preds = %11, %14, %14, %12, %13
-  %.1.be = phi i32 [ 1, %14 ], [ %switch.select106, %11 ], [ 1, %14 ], [ 3, %13 ], [ 2, %12 ]
+  %.1.be = phi i32 [ 1, %14 ], [ %switch.select106, %11 ], [ 2, %12 ], [ 1, %14 ], [ 3, %13 ]
   br label %9, !llvm.loop !110
 
 12:                                               ; preds = %9
@@ -6258,7 +6258,7 @@ define range(i32 0, 2) i32 @Abc_CommandAbcLivenessToSafetyAbstraction(ptr nounde
   br label %.backedge
 
 .backedge:                                        ; preds = %11, %14, %14, %12, %13
-  %.1.be = phi i32 [ 1, %14 ], [ %switch.select113, %11 ], [ 1, %14 ], [ 3, %13 ], [ 2, %12 ]
+  %.1.be = phi i32 [ 1, %14 ], [ %switch.select113, %11 ], [ 2, %12 ], [ 1, %14 ], [ 3, %13 ]
   br label %9, !llvm.loop !116
 
 12:                                               ; preds = %9
@@ -8480,7 +8480,7 @@ define range(i32 0, 2) i32 @Abc_CommandAbcLivenessToSafetyWithLTL(ptr noundef %0
   br label %.backedge
 
 .backedge:                                        ; preds = %12, %15, %15, %13, %14
-  %.1.be = phi i32 [ 1, %15 ], [ %switch.select113, %12 ], [ 1, %15 ], [ 3, %14 ], [ 2, %13 ]
+  %.1.be = phi i32 [ 1, %15 ], [ %switch.select113, %12 ], [ 2, %13 ], [ 1, %15 ], [ 3, %14 ]
   br label %10, !llvm.loop !137
 
 13:                                               ; preds = %10

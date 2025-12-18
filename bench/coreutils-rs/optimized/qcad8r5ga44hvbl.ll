@@ -4528,7 +4528,7 @@ _ZN5uu_wc20compute_number_width17hf5545744421b0745E.exit.thread327: ; preds = %1
   br label %152
 
 _ZN5uu_wc20compute_number_width17hf5545744421b0745E.exit: ; preds = %"_ZN4core3num21_$LT$impl$u20$u64$GT$14checked_ilog1017hee9b69ac3e782e46E.exit.i", %._crit_edge.i, %2
-  %.071.ph = phi i64 [ %.3.i, %._crit_edge.i ], [ %.0.sroa.speculated.i.i, %"_ZN4core3num21_$LT$impl$u20$u64$GT$14checked_ilog1017hee9b69ac3e782e46E.exit.i" ], [ 1, %2 ]
+  %.071.ph = phi i64 [ 1, %2 ], [ %.0.sroa.speculated.i.i, %"_ZN4core3num21_$LT$impl$u20$u64$GT$14checked_ilog1017hee9b69ac3e782e46E.exit.i" ], [ %.3.i, %._crit_edge.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1212)
   call void @llvm.experimental.noalias.scope.decl(metadata !1279)
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
@@ -5425,7 +5425,7 @@ _ZN5uu_wc9TotalWhen20is_total_row_visible17h54db5cfaf9827f0bE.exit.thread213: ; 
           to label %.body119 unwind label %326
 
 .thread344:                                       ; preds = %397, %.noexc134, %393
-  %.sroa.6.0.i.ph = phi i64 [ 0, %393 ], [ %388, %.noexc134 ], [ %.sroa.7.0.i, %397 ]
+  %.sroa.6.0.i.ph = phi i64 [ %388, %.noexc134 ], [ 0, %393 ], [ %.sroa.7.0.i, %397 ]
   store i64 -9223372036854775808, ptr %35, align 8, !alias.scope !1404, !noalias !1407
   store ptr %387, ptr %.sroa.5.0..sroa_idx2.i, align 8, !alias.scope !1404, !noalias !1407
   store i64 %.sroa.6.0.i.ph, ptr %.sroa.6.0..sroa_idx4.i, align 8, !alias.scope !1404, !noalias !1407

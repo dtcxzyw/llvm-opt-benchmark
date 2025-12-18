@@ -7098,7 +7098,7 @@ _ZN6vectorISt4pairIPN3smt5enodeES3_ELb0EjE9push_backEOS4_.exit44: ; preds = %139
   br i1 %.not28, label %_ZNK17array_recognizers8is_arrayEP4sort.exit.thread, label %.lr.ph
 
 _ZNK17array_recognizers8is_arrayEP4sort.exit.thread: ; preds = %154, %121, %_ZNK6vectorIPN3smt5enodeELb0EjE3endEv.exit, %_Z15get_array_rangePK4sort.exit, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i40, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i, %_ZNK8datatype4util11is_datatypeEPK4sort.exit, %_ZNK17array_recognizers8is_arrayEP4sort.exit
-  %.2.ph = phi i1 [ %.1, %_Z15get_array_rangePK4sort.exit ], [ %.1, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i40 ], [ %.1, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i ], [ %.1, %_ZNK8datatype4util11is_datatypeEPK4sort.exit ], [ %.1, %_ZNK17array_recognizers8is_arrayEP4sort.exit ], [ %.1, %_ZNK6vectorIPN3smt5enodeELb0EjE3endEv.exit ], [ %.1, %121 ], [ %.4, %154 ]
+  %.2.ph = phi i1 [ %.1, %_Z15get_array_rangePK4sort.exit ], [ %.1, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i40 ], [ %.1, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i ], [ %.1, %_ZNK17array_recognizers8is_arrayEP4sort.exit ], [ %.1, %_ZNK8datatype4util11is_datatypeEPK4sort.exit ], [ %.1, %_ZNK6vectorIPN3smt5enodeELb0EjE3endEv.exit ], [ %.1, %121 ], [ %.4, %154 ]
   %.pr = load ptr, ptr %86, align 8, !tbaa !265
   %156 = icmp eq ptr %.pr, null
   br i1 %156, label %_ZNK8seq_util6is_seqEP4sortRS1_.exit.thread, label %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i
@@ -7868,8 +7868,8 @@ _ZN6vectorIPN3smt5enodeELb0EjE9push_backERKS2_.exit.i45: ; preds = %_ZN6vectorIP
   br i1 %.not33, label %_ZNK8seq_util3str9is_concatEPK4expr.exit.thread, label %.lr.ph69
 
 _ZNK8seq_util3str9is_concatEPK4expr.exit.thread:  ; preds = %"_ZZN3smt15theory_datatype12get_seq_argsEPNS_5enodeERS2_ENK3$_0clES2_.exit49", %63, %98, %54, %_ZNK8seq_util3str9is_concatEPK4expr.exit, %_ZN6vectorIPN3smt5enodeELb0EjE9push_backEOS2_.exit
-  %.pre84 = phi ptr [ %.pre, %_ZN6vectorIPN3smt5enodeELb0EjE9push_backEOS2_.exit ], [ %.pre83, %98 ], [ %.pre83, %54 ], [ %.pre83, %_ZNK8seq_util3str9is_concatEPK4expr.exit ], [ %.pre83, %63 ], [ %.pre81, %"_ZZN3smt15theory_datatype12get_seq_argsEPNS_5enodeERS2_ENK3$_0clES2_.exit49" ]
-  %178 = phi ptr [ %.pre, %_ZN6vectorIPN3smt5enodeELb0EjE9push_backEOS2_.exit ], [ %47, %98 ], [ %47, %54 ], [ %47, %_ZNK8seq_util3str9is_concatEPK4expr.exit ], [ %47, %63 ], [ %176, %"_ZZN3smt15theory_datatype12get_seq_argsEPNS_5enodeERS2_ENK3$_0clES2_.exit49" ]
+  %.pre84 = phi ptr [ %.pre, %_ZN6vectorIPN3smt5enodeELb0EjE9push_backEOS2_.exit ], [ %.pre83, %98 ], [ %.pre83, %54 ], [ %.pre83, %63 ], [ %.pre83, %_ZNK8seq_util3str9is_concatEPK4expr.exit ], [ %.pre81, %"_ZZN3smt15theory_datatype12get_seq_argsEPNS_5enodeERS2_ENK3$_0clES2_.exit49" ]
+  %178 = phi ptr [ %.pre, %_ZN6vectorIPN3smt5enodeELb0EjE9push_backEOS2_.exit ], [ %47, %98 ], [ %47, %54 ], [ %47, %63 ], [ %47, %_ZNK8seq_util3str9is_concatEPK4expr.exit ], [ %176, %"_ZZN3smt15theory_datatype12get_seq_argsEPNS_5enodeERS2_ENK3$_0clES2_.exit49" ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %179 = icmp eq ptr %178, null
   br i1 %179, label %._crit_edge, label %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.thread, !llvm.loop !797
@@ -8417,7 +8417,7 @@ _ZNK17array_recognizers8is_arrayEP4sort.exit.thread: ; preds = %197, %188, %_ZNK
   br i1 %.not67.not, label %.critedge, label %63
 
 .critedge:                                        ; preds = %_ZNK17array_recognizers8is_arrayEP4sort.exit.thread, %.lr.ph114, %_ZN3smt15theory_datatype16oc_mark_on_stackEPNS_5enodeE.exit, %_ZNK3smt5enode4args3endEv.exit, %154, %72
-  %.not67104 = phi i1 [ true, %72 ], [ true, %154 ], [ false, %_ZNK3smt5enode4args3endEv.exit ], [ false, %_ZN3smt15theory_datatype16oc_mark_on_stackEPNS_5enodeE.exit ], [ true, %.lr.ph114 ], [ false, %_ZNK17array_recognizers8is_arrayEP4sort.exit.thread ]
+  %.not67104 = phi i1 [ true, %.lr.ph114 ], [ true, %72 ], [ true, %154 ], [ false, %_ZNK3smt5enode4args3endEv.exit ], [ false, %_ZN3smt15theory_datatype16oc_mark_on_stackEPNS_5enodeE.exit ], [ false, %_ZNK17array_recognizers8is_arrayEP4sort.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %202
 

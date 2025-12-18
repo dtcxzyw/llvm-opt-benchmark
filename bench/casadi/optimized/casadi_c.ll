@@ -2298,7 +2298,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %33
   br label %40
 
 40:                                               ; preds = %.sink.split, %16, %2
-  %.0 = phi ptr [ null, %2 ], [ %17, %16 ], [ null, %.sink.split ]
+  %.0 = phi ptr [ %17, %16 ], [ null, %2 ], [ null, %.sink.split ]
   ret ptr %.0
 
 41:                                               ; preds = %38, %36
@@ -2405,7 +2405,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %33
   br label %40
 
 40:                                               ; preds = %.sink.split, %16, %2
-  %.0 = phi ptr [ null, %2 ], [ %17, %16 ], [ null, %.sink.split ]
+  %.0 = phi ptr [ %17, %16 ], [ null, %2 ], [ null, %.sink.split ]
   ret ptr %.0
 
 41:                                               ; preds = %38, %36

@@ -1331,7 +1331,7 @@ generate_chroma_grain_blocks.exit:                ; preds = %.preheader171.us.us
   %489 = tail call i64 @fwrite(ptr nonnull @.str.1, i64 75, i64 1, ptr %488) #7
   br label %1352
 
-.loopexit1000:                                    ; preds = %._crit_edge208.split.us233.i, %._crit_edge208.split.us.us.us.i, %284, %.preheader172.lr.ph.i
+.loopexit1000:                                    ; preds = %._crit_edge208.split.us233.i, %._crit_edge208.split.us.us.us.i, %.preheader172.lr.ph.i, %284
   %490 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %491 = load i32, ptr %42, align 4
   %492 = icmp eq i32 %491, 0
@@ -2167,8 +2167,8 @@ hor_boundary_overlap.exit:                        ; preds = %881
   br i1 %.old1.not.i793, label %hor_boundary_overlap.exit802, label %964
 
 hor_boundary_overlap.exit802:                     ; preds = %964, %949, %922, %.preheader.i783, %879
-  %.neg = phi i32 [ 32, %879 ], [ 30, %.preheader.i783 ], [ 30, %922 ], [ 30, %949 ], [ 30, %964 ]
-  %990 = phi i64 [ 0, %879 ], [ 2, %.preheader.i783 ], [ 2, %922 ], [ 2, %949 ], [ 2, %964 ]
+  %.neg = phi i32 [ 32, %879 ], [ 30, %922 ], [ 30, %.preheader.i783 ], [ 30, %949 ], [ 30, %964 ]
+  %990 = phi i64 [ 0, %879 ], [ 2, %922 ], [ 2, %.preheader.i783 ], [ 2, %949 ], [ 2, %964 ]
   %991 = trunc i64 %indvars.iv to i32
   %992 = or disjoint i32 %991, 1
   %993 = select i1 %747, i32 %992, i32 0

@@ -6266,7 +6266,7 @@ dt_masks_dynbuf_add_2.exit:                       ; preds = %_dt_masks_dynbuf_gr
   br i1 %382, label %.split, label %.loopexit728
 
 .loopexit728:                                     ; preds = %dt_masks_dynbuf_add_2.exit, %.split464, %287, %_brush_points_stamp.exit, %286, %285
-  %.1462 = phi i32 [ 0, %285 ], [ %.0461741, %_brush_points_stamp.exit ], [ 1, %286 ], [ 1, %287 ], [ %.0461741, %.split464 ], [ %.0461741, %dt_masks_dynbuf_add_2.exit ]
+  %.1462 = phi i32 [ 0, %285 ], [ 1, %287 ], [ %.0461741, %_brush_points_stamp.exit ], [ 1, %286 ], [ %.0461741, %.split464 ], [ %.0461741, %dt_masks_dynbuf_add_2.exit ]
   %383 = load float, ptr %.sroa.730.0..sroa_idx, align 16, !tbaa !93
   %384 = load float, ptr %.sroa.723.0..sroa_idx, align 16, !tbaa !93
   %385 = fsub reassoc nsz arcp contract afn float %383, %384

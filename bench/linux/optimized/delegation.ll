@@ -1298,7 +1298,7 @@ define internal fastcc i32 @nfs_end_delegation_return(ptr noundef %0, ptr nounde
   br label %.thread21
 
 .thread21:                                        ; preds = %95, %.thread22, %63, %105
-  %109 = phi i32 [ %104, %105 ], [ %70, %63 ], [ %spec.select, %.thread22 ], [ %97, %95 ]
+  %109 = phi i32 [ %104, %105 ], [ %spec.select, %.thread22 ], [ %70, %63 ], [ %97, %95 ]
   tail call void @mutex_unlock(ptr noundef nonnull %66) #12
   tail call void @put_nfs_open_context(ptr noundef %38) #12
   %110 = icmp eq i32 %109, 0
@@ -2336,7 +2336,7 @@ nfs_put_delegation.exit:                          ; preds = %63, %53, %51, %29
   br i1 %70, label %.loopexit, label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %68, %nfs_put_delegation.exit, %.thread
-  %.be = phi ptr [ %69, %68 ], [ %27, %.thread ], [ %66, %nfs_put_delegation.exit ]
+  %.be = phi ptr [ %66, %nfs_put_delegation.exit ], [ %69, %68 ], [ %27, %.thread ]
   br label %.preheader, !llvm.loop !60
 
 .loopexit:                                        ; preds = %68, %nfs_put_delegation.exit, %.thread, %2

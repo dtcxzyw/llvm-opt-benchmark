@@ -806,7 +806,7 @@ unionkey.exit:                                    ; preds = %76, %35
   br i1 %103, label %.lr.ph.split, label %.loopexit27, !llvm.loop !16
 
 .loopexit27:                                      ; preds = %.preheader.i, %.loopexit.us, %15, %unionkey.exit
-  %104 = phi i32 [ 32, %unionkey.exit ], [ %19, %15 ], [ %19, %.loopexit.us ], [ %19, %.preheader.i ]
+  %104 = phi i32 [ %19, %.loopexit.us ], [ 32, %unionkey.exit ], [ %19, %15 ], [ %19, %.preheader.i ]
   %105 = inttoptr i64 %6 to ptr
   %106 = lshr exact i32 %104, 2
   store i32 %106, ptr %105, align 4
@@ -931,7 +931,7 @@ define dso_local i64 @gtsvector_same(ptr noundef readonly captures(none) %0) loc
   br i1 %.not43, label %56, label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %.lr.ph, %.lr.ph52, %39, %29, %28
-  %.sink = phi i8 [ 0, %39 ], [ 0, %29 ], [ %., %28 ], [ 0, %.lr.ph52 ], [ 0, %.lr.ph ]
+  %.sink = phi i8 [ 0, %.lr.ph52 ], [ 0, %39 ], [ 0, %29 ], [ %., %28 ], [ 0, %.lr.ph ]
   store i8 %.sink, ptr %10, align 1
   br label %.loopexit
 

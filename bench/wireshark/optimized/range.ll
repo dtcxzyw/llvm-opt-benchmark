@@ -450,7 +450,7 @@ define noundef zeroext i1 @range_add_value(ptr noundef %0, ptr noundef captures(
   br label %.loopexit
 
 .loopexit:                                        ; preds = %11, %3, %4, %._crit_edge, %23, %17
-  %.033 = phi i1 [ true, %17 ], [ true, %23 ], [ true, %._crit_edge ], [ false, %4 ], [ false, %3 ], [ true, %11 ]
+  %.033 = phi i1 [ false, %3 ], [ true, %17 ], [ true, %23 ], [ true, %._crit_edge ], [ false, %4 ], [ true, %11 ]
   ret i1 %.033
 }
 
@@ -568,7 +568,7 @@ define noundef zeroext i1 @range_remove_value(ptr noundef %0, ptr noundef captur
   br i1 %exitcond.not, label %.loopexit, label %8, !llvm.loop !15
 
 .loopexit:                                        ; preds = %12, %55, %.preheader, %3, %4, %52, %49, %._crit_edge
-  %.0 = phi i1 [ true, %._crit_edge ], [ true, %49 ], [ true, %52 ], [ false, %4 ], [ false, %3 ], [ true, %.preheader ], [ true, %55 ], [ true, %12 ]
+  %.0 = phi i1 [ false, %3 ], [ true, %._crit_edge ], [ true, %49 ], [ true, %52 ], [ false, %4 ], [ true, %.preheader ], [ true, %55 ], [ true, %12 ]
   ret i1 %.0
 }
 

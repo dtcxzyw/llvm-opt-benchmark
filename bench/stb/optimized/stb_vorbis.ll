@@ -543,7 +543,7 @@ add_entry.exit66:                                 ; preds = %48, %50
   br i1 %68, label %34, label %.loopexit72, !llvm.loop !35
 
 .loopexit72:                                      ; preds = %9, %.loopexit, %34, %41, %.preheader73, %._crit_edge
-  %.052 = phi i32 [ 1, %._crit_edge ], [ 1, %.preheader73 ], [ 0, %34 ], [ 0, %41 ], [ 1, %.loopexit ], [ 1, %9 ]
+  %.052 = phi i32 [ 1, %._crit_edge ], [ 0, %34 ], [ 1, %.preheader73 ], [ 0, %41 ], [ 1, %.loopexit ], [ 1, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.052
 }
@@ -1413,7 +1413,7 @@ compute_twiddle_factors.exit:                     ; preds = %107, %.preheader.i
   br label %setup_malloc.exit69
 
 setup_malloc.exit69:                              ; preds = %130, %134
-  %.1.i67 = phi ptr [ %132, %130 ], [ %136, %134 ]
+  %.1.i67 = phi ptr [ %136, %134 ], [ %132, %130 ]
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 1464
   %138 = getelementptr inbounds ptr, ptr %137, i64 %67
   store ptr %.1.i67, ptr %138, align 8, !tbaa !53
@@ -1489,7 +1489,7 @@ compute_window.exit:                              ; preds = %compute_window.exit
   br label %setup_malloc.exit77
 
 setup_malloc.exit77:                              ; preds = %170, %174
-  %.1.i75 = phi ptr [ %172, %170 ], [ %176, %174 ]
+  %.1.i75 = phi ptr [ %176, %174 ], [ %172, %170 ]
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 1480
   %178 = getelementptr inbounds ptr, ptr %177, i64 %67
   store ptr %.1.i75, ptr %178, align 8, !tbaa !54
@@ -1620,7 +1620,7 @@ compute_bitreverse.exit.sink.split:               ; preds = %compute_bitreverse.
   br label %compute_bitreverse.exit
 
 compute_bitreverse.exit:                          ; preds = %241, %compute_bitreverse.exit.sink.split, %ilog.exit.i
-  %.0 = phi i32 [ 1, %ilog.exit.i ], [ 0, %compute_bitreverse.exit.sink.split ], [ 1, %241 ]
+  %.0 = phi i32 [ 0, %compute_bitreverse.exit.sink.split ], [ 1, %ilog.exit.i ], [ 1, %241 ]
   ret i32 %.0
 }
 
@@ -2131,7 +2131,7 @@ define range(i32 0, 2) i32 @capture_pattern(ptr noundef captures(none) %0) local
   br label %get8.exit
 
 get8.exit:                                        ; preds = %9, %19
-  %.0.i = phi i8 [ %11, %9 ], [ %20, %19 ]
+  %.0.i = phi i8 [ %20, %19 ], [ %11, %9 ]
   %.not = icmp eq i8 %.0.i, 79
   br i1 %.not, label %21, label %get8.exit.thread
 
@@ -2174,7 +2174,7 @@ get8.exit:                                        ; preds = %9, %19
   br label %get8.exit10
 
 get8.exit10:                                      ; preds = %28, %38
-  %.0.i9 = phi i8 [ %30, %28 ], [ %39, %38 ]
+  %.0.i9 = phi i8 [ %39, %38 ], [ %30, %28 ]
   %.not4 = icmp eq i8 %.0.i9, 103
   br i1 %.not4, label %40, label %get8.exit.thread
 
@@ -2217,7 +2217,7 @@ get8.exit10:                                      ; preds = %28, %38
   br label %get8.exit14
 
 get8.exit14:                                      ; preds = %47, %57
-  %.0.i13 = phi i8 [ %49, %47 ], [ %58, %57 ]
+  %.0.i13 = phi i8 [ %58, %57 ], [ %49, %47 ]
   %.not5 = icmp eq i8 %.0.i13, 103
   br i1 %.not5, label %59, label %get8.exit.thread
 
@@ -2261,7 +2261,7 @@ get8.exit14:                                      ; preds = %47, %57
   br label %get8.exit18
 
 get8.exit18:                                      ; preds = %66, %77
-  %.0.i17 = phi i8 [ %69, %66 ], [ %78, %77 ]
+  %.0.i17 = phi i8 [ %78, %77 ], [ %69, %66 ]
   %.not6 = icmp eq i8 %.0.i17, 83
   %spec.select = zext i1 %.not6 to i32
   br label %get8.exit.thread
@@ -2346,7 +2346,7 @@ stb_vorbis_get_file_offset.exit:                  ; preds = %10, %17
   br label %get8.exit
 
 get8.exit:                                        ; preds = %33, %41
-  %.0.i60 = phi i8 [ %35, %33 ], [ %42, %41 ]
+  %.0.i60 = phi i8 [ %42, %41 ], [ %35, %33 ]
   %.not55 = icmp eq i8 %.0.i60, 0
   br i1 %.not55, label %get8.exit.thread, label %43
 
@@ -2782,7 +2782,7 @@ get8.exit:                                        ; preds = %11, %13, %21, %23
   br label %get8.exit28
 
 get8.exit28:                                      ; preds = %35, %43
-  %.0.i27 = phi i8 [ %37, %35 ], [ %44, %43 ]
+  %.0.i27 = phi i8 [ %44, %43 ], [ %37, %35 ]
   %.not20 = icmp eq i8 %.0.i27, 103
   br i1 %.not20, label %46, label %get8.exit28.thread
 
@@ -2824,7 +2824,7 @@ get8.exit28.thread:                               ; preds = %get8.exit28.thread.
   br label %get8.exit32
 
 get8.exit32:                                      ; preds = %51, %59
-  %.0.i31 = phi i8 [ %53, %51 ], [ %60, %59 ]
+  %.0.i31 = phi i8 [ %60, %59 ], [ %53, %51 ]
   %.not21 = icmp eq i8 %.0.i31, 103
   br i1 %.not21, label %62, label %get8.exit32.thread
 
@@ -2915,7 +2915,7 @@ start_page.exit.i:                                ; preds = %81
   br label %start_packet.exit
 
 start_packet.exit:                                ; preds = %start_page.exit.i, %66, %72, %64, %get8.exit32.thread, %get8.exit28.thread, %28, %get8.exit, %90, %88, %start_page.exit.thread.i
-  %.1 = phi i32 [ 0, %88 ], [ 1, %90 ], [ 0, %start_page.exit.thread.i ], [ 0, %get8.exit ], [ 0, %28 ], [ 0, %get8.exit28.thread ], [ 0, %get8.exit32.thread ], [ 0, %64 ], [ 0, %72 ], [ 0, %66 ], [ 0, %start_page.exit.i ]
+  %.1 = phi i32 [ 0, %66 ], [ 0, %88 ], [ 1, %90 ], [ 0, %start_page.exit.thread.i ], [ 0, %get8.exit ], [ 0, %28 ], [ 0, %get8.exit28.thread ], [ 0, %get8.exit32.thread ], [ 0, %64 ], [ 0, %72 ], [ 0, %start_page.exit.i ]
   ret i32 %.1
 }
 
@@ -3978,8 +3978,8 @@ prep_huffman.exit:                                ; preds = %40, %37, %35, %27
   br i1 %exitcond155.not, label %.loopexit, label %.lr.ph139, !llvm.loop !99
 
 .loopexit:                                        ; preds = %95, %112, %.preheader126, %.preheader
-  %.498 = phi i32 [ %.094142, %.preheader ], [ %.094142, %.preheader126 ], [ %spec.select114, %112 ], [ %spec.select112, %95 ]
-  %.4 = phi i32 [ %.082144, %.preheader ], [ %.082144, %.preheader126 ], [ %spec.select115, %112 ], [ %spec.select113, %95 ]
+  %.498 = phi i32 [ %spec.select114, %112 ], [ %.094142, %.preheader ], [ %.094142, %.preheader126 ], [ %spec.select112, %95 ]
+  %.4 = phi i32 [ %spec.select115, %112 ], [ %.082144, %.preheader ], [ %.082144, %.preheader126 ], [ %spec.select113, %95 ]
   %116 = sub nsw i32 %.080145, %.289
   %117 = icmp sgt i32 %116, 0
   br i1 %117, label %27, label %._crit_edge, !llvm.loop !100
@@ -4356,7 +4356,7 @@ make_block_array.exit:                            ; preds = %66, %setup_temp_mal
   br i1 %105, label %.preheader657.lr.ph.us, label %._crit_edge709.us
 
 ._crit_edge709.us:                                ; preds = %.preheader657.us731, %._crit_edge703.split.us713.us, %._crit_edge703.split.us.us.us.us, %.loopexit660.us
-  %.1305.lcssa.us = phi i32 [ %.0304725.us, %.loopexit660.us ], [ %579, %._crit_edge703.split.us713.us ], [ %894, %._crit_edge703.split.us.us.us.us ], [ %211, %.preheader657.us731 ]
+  %.1305.lcssa.us = phi i32 [ %.0304725.us, %.loopexit660.us ], [ %894, %._crit_edge703.split.us.us.us.us ], [ %579, %._crit_edge703.split.us713.us ], [ %211, %.preheader657.us731 ]
   %indvars.iv.next826 = add nuw nsw i64 %indvars.iv825, 1
   %106 = icmp slt i32 %.1305.lcssa.us, %35
   br i1 %106, label %103, label %._crit_edge729.us, !llvm.loop !112
@@ -4495,7 +4495,7 @@ next_segment.exit.i.us:                           ; preds = %143, %141
   br label %get8_packet_raw.exit.us
 
 get8_packet_raw.exit.us:                          ; preds = %159, %152
-  %.0.i9.i.us = phi i8 [ %154, %152 ], [ %160, %159 ]
+  %.0.i9.i.us = phi i8 [ %160, %159 ], [ %154, %152 ]
   %161 = zext i8 %.0.i9.i.us to i32
   br label %get8_packet_raw.exit.thread576.us
 
@@ -4739,7 +4739,7 @@ prep_huffman.exit353.us:                          ; preds = %121, %next_segment.
   br label %get8.exit.i479.us.us
 
 get8.exit.i479.us.us:                             ; preds = %283, %276
-  %.0.i.i.us.us = phi i8 [ %278, %276 ], [ %284, %283 ]
+  %.0.i.i.us.us = phi i8 [ %284, %283 ], [ %278, %276 ]
   %.not.i480.us.us = icmp eq i8 %.0.i.i.us.us, 79
   br i1 %.not.i480.us.us, label %285, label %start_page.exit.thread.i.i403.us.us
 
@@ -4770,7 +4770,7 @@ get8.exit.i479.us.us:                             ; preds = %283, %276
   br label %get8.exit10.i.us.us
 
 get8.exit10.i.us.us:                              ; preds = %296, %289
-  %.0.i9.i481.us.us = phi i8 [ %291, %289 ], [ %297, %296 ]
+  %.0.i9.i481.us.us = phi i8 [ %297, %296 ], [ %291, %289 ]
   %.not4.i.us.us = icmp eq i8 %.0.i9.i481.us.us, 103
   br i1 %.not4.i.us.us, label %298, label %start_page.exit.thread.i.i403.us.us
 
@@ -4801,7 +4801,7 @@ get8.exit10.i.us.us:                              ; preds = %296, %289
   br label %get8.exit14.i.us.us
 
 get8.exit14.i.us.us:                              ; preds = %309, %302
-  %.0.i13.i.us.us = phi i8 [ %304, %302 ], [ %310, %309 ]
+  %.0.i13.i.us.us = phi i8 [ %310, %309 ], [ %304, %302 ]
   %.not5.i.us.us = icmp eq i8 %.0.i13.i.us.us, 103
   br i1 %.not5.i.us.us, label %311, label %start_page.exit.thread.i.i403.us.us
 
@@ -4833,7 +4833,7 @@ get8.exit14.i.us.us:                              ; preds = %309, %302
   br label %capture_pattern.exit.us.us
 
 capture_pattern.exit.us.us:                       ; preds = %323, %315
-  %.0.i17.i.us.us = phi i8 [ %318, %315 ], [ %324, %323 ]
+  %.0.i17.i.us.us = phi i8 [ %324, %323 ], [ %318, %315 ]
   %.not6.i482.not.us.us = icmp eq i8 %.0.i17.i.us.us, 83
   br i1 %.not6.i482.not.us.us, label %start_page.exit.i.i398.us.us, label %start_page.exit.thread.i.i403.us.us
 
@@ -4918,7 +4918,7 @@ next_segment.exit.i395.us.us:                     ; preds = %338, %336
   br label %get8_packet_raw.exit404.us.us
 
 get8_packet_raw.exit404.us.us:                    ; preds = %354, %347
-  %.0.i9.i390.us.us = phi i8 [ %349, %347 ], [ %355, %354 ]
+  %.0.i9.i390.us.us = phi i8 [ %355, %354 ], [ %349, %347 ]
   %356 = zext i8 %.0.i9.i390.us.us to i32
   br label %get8_packet_raw.exit404.thread611.us.us
 
@@ -5027,7 +5027,7 @@ prep_huffman.exit.i.us.us:                        ; preds = %265, %next_segment.
   br label %get8.exit.i529.us.us
 
 get8.exit.i529.us.us:                             ; preds = %398, %391
-  %.0.i.i530.us.us = phi i8 [ %393, %391 ], [ %399, %398 ]
+  %.0.i.i530.us.us = phi i8 [ %399, %398 ], [ %393, %391 ]
   %.not.i531.us.us = icmp eq i8 %.0.i.i530.us.us, 79
   br i1 %.not.i531.us.us, label %400, label %start_page.exit.thread.i.i474.us.us
 
@@ -5058,7 +5058,7 @@ get8.exit.i529.us.us:                             ; preds = %398, %391
   br label %get8.exit10.i534.us.us
 
 get8.exit10.i534.us.us:                           ; preds = %411, %404
-  %.0.i9.i535.us.us = phi i8 [ %406, %404 ], [ %412, %411 ]
+  %.0.i9.i535.us.us = phi i8 [ %412, %411 ], [ %406, %404 ]
   %.not4.i536.us.us = icmp eq i8 %.0.i9.i535.us.us, 103
   br i1 %.not4.i536.us.us, label %413, label %start_page.exit.thread.i.i474.us.us
 
@@ -5089,7 +5089,7 @@ get8.exit10.i534.us.us:                           ; preds = %411, %404
   br label %get8.exit14.i539.us.us
 
 get8.exit14.i539.us.us:                           ; preds = %424, %417
-  %.0.i13.i540.us.us = phi i8 [ %419, %417 ], [ %425, %424 ]
+  %.0.i13.i540.us.us = phi i8 [ %425, %424 ], [ %419, %417 ]
   %.not5.i541.us.us = icmp eq i8 %.0.i13.i540.us.us, 103
   br i1 %.not5.i541.us.us, label %426, label %start_page.exit.thread.i.i474.us.us
 
@@ -5121,7 +5121,7 @@ get8.exit14.i539.us.us:                           ; preds = %424, %417
   br label %capture_pattern.exit548.us.us
 
 capture_pattern.exit548.us.us:                    ; preds = %438, %430
-  %.0.i17.i545.us.us = phi i8 [ %433, %430 ], [ %439, %438 ]
+  %.0.i17.i545.us.us = phi i8 [ %439, %438 ], [ %433, %430 ]
   %.not6.i546.not.us.us = icmp eq i8 %.0.i17.i545.us.us, 83
   br i1 %.not6.i546.not.us.us, label %start_page.exit.i.i469.us.us, label %start_page.exit.thread.i.i474.us.us
 
@@ -5206,7 +5206,7 @@ next_segment.exit.i466.us.us:                     ; preds = %453, %451
   br label %get8_packet_raw.exit475.us.us
 
 get8_packet_raw.exit475.us.us:                    ; preds = %469, %462
-  %.0.i9.i461.us.us = phi i8 [ %464, %462 ], [ %470, %469 ]
+  %.0.i9.i461.us.us = phi i8 [ %470, %469 ], [ %464, %462 ]
   %471 = zext i8 %.0.i9.i461.us.us to i32
   br label %get8_packet_raw.exit475.thread621.us.us
 
@@ -5363,8 +5363,8 @@ prep_huffman.exit.i375.us.us:                     ; preds = %380, %next_segment.
   br label %codebook_decode_scalar_raw.exit.us.us
 
 codebook_decode_scalar_raw.exit.us.us:            ; preds = %538, %502
-  %.sink.i.us.us = phi i32 [ %508, %502 ], [ %540, %538 ]
-  %.0.ph.i377.us.us = phi i32 [ %504, %502 ], [ %.2.i.us.us, %538 ]
+  %.sink.i.us.us = phi i32 [ %540, %538 ], [ %508, %502 ]
+  %.0.ph.i377.us.us = phi i32 [ %.2.i.us.us, %538 ], [ %504, %502 ]
   store i32 %.sink.i.us.us, ptr %82, align 8, !tbaa !80
   %541 = icmp slt i32 %.0.ph.i377.us.us, 0
   br i1 %541, label %.thread.i, label %codebook_decode_start.exit.us.us
@@ -5594,7 +5594,7 @@ codebook_decode_start.exit.us.us:                 ; preds = %542, %codebook_deco
   br label %get8.exit.i506.us.us.us.us
 
 get8.exit.i506.us.us.us.us:                       ; preds = %654, %647
-  %.0.i.i507.us.us.us.us = phi i8 [ %649, %647 ], [ %655, %654 ]
+  %.0.i.i507.us.us.us.us = phi i8 [ %655, %654 ], [ %649, %647 ]
   %.not.i508.us.us.us.us = icmp eq i8 %.0.i.i507.us.us.us.us, 79
   br i1 %.not.i508.us.us.us.us, label %656, label %start_page.exit.thread.i.i455.us.us.us.us
 
@@ -5625,7 +5625,7 @@ get8.exit.i506.us.us.us.us:                       ; preds = %654, %647
   br label %get8.exit10.i511.us.us.us.us
 
 get8.exit10.i511.us.us.us.us:                     ; preds = %667, %660
-  %.0.i9.i512.us.us.us.us = phi i8 [ %662, %660 ], [ %668, %667 ]
+  %.0.i9.i512.us.us.us.us = phi i8 [ %668, %667 ], [ %662, %660 ]
   %.not4.i513.us.us.us.us = icmp eq i8 %.0.i9.i512.us.us.us.us, 103
   br i1 %.not4.i513.us.us.us.us, label %669, label %start_page.exit.thread.i.i455.us.us.us.us
 
@@ -5656,7 +5656,7 @@ get8.exit10.i511.us.us.us.us:                     ; preds = %667, %660
   br label %get8.exit14.i516.us.us.us.us
 
 get8.exit14.i516.us.us.us.us:                     ; preds = %680, %673
-  %.0.i13.i517.us.us.us.us = phi i8 [ %675, %673 ], [ %681, %680 ]
+  %.0.i13.i517.us.us.us.us = phi i8 [ %681, %680 ], [ %675, %673 ]
   %.not5.i518.us.us.us.us = icmp eq i8 %.0.i13.i517.us.us.us.us, 103
   br i1 %.not5.i518.us.us.us.us, label %682, label %start_page.exit.thread.i.i455.us.us.us.us
 
@@ -5688,7 +5688,7 @@ get8.exit14.i516.us.us.us.us:                     ; preds = %680, %673
   br label %capture_pattern.exit525.us.us.us.us
 
 capture_pattern.exit525.us.us.us.us:              ; preds = %694, %686
-  %.0.i17.i522.us.us.us.us = phi i8 [ %689, %686 ], [ %695, %694 ]
+  %.0.i17.i522.us.us.us.us = phi i8 [ %695, %694 ], [ %689, %686 ]
   %.not6.i523.not.us.us.us.us = icmp eq i8 %.0.i17.i522.us.us.us.us, 83
   br i1 %.not6.i523.not.us.us.us.us, label %start_page.exit.i.i450.us.us.us.us, label %start_page.exit.thread.i.i455.us.us.us.us
 
@@ -5773,7 +5773,7 @@ next_segment.exit.i447.us.us.us.us:               ; preds = %709, %707
   br label %get8_packet_raw.exit456.us.us.us.us
 
 get8_packet_raw.exit456.us.us.us.us:              ; preds = %725, %718
-  %.0.i9.i442.us.us.us.us = phi i8 [ %720, %718 ], [ %726, %725 ]
+  %.0.i9.i442.us.us.us.us = phi i8 [ %726, %725 ], [ %720, %718 ]
   %727 = zext i8 %.0.i9.i442.us.us.us.us to i32
   br label %get8_packet_raw.exit456.thread588.us.us.us.us
 
@@ -5941,7 +5941,7 @@ next_segment.exit.i493.us.us.us.us:               ; preds = %773, %771
   br label %get8_packet_raw.exit502.us.us.us.us
 
 get8_packet_raw.exit502.us.us.us.us:              ; preds = %789, %782
-  %.0.i9.i488.us.us.us.us = phi i8 [ %784, %782 ], [ %790, %789 ]
+  %.0.i9.i488.us.us.us.us = phi i8 [ %790, %789 ], [ %784, %782 ]
   %791 = zext i8 %.0.i9.i488.us.us.us.us to i32
   br label %get8_packet_raw.exit502.thread596.us.us.us.us
 
@@ -6094,8 +6094,8 @@ prep_huffman.exit.i405.us.us.us.us:               ; preds = %751, %next_segment.
   br label %codebook_decode_scalar_raw.exit437.us.us.us.us
 
 codebook_decode_scalar_raw.exit437.us.us.us.us:   ; preds = %858, %822
-  %.sink.i410.us.us.us.us = phi i32 [ %828, %822 ], [ %860, %858 ]
-  %.0.ph.i411.us.us.us.us = phi i32 [ %824, %822 ], [ %.2.i427.us.us.us.us, %858 ]
+  %.sink.i410.us.us.us.us = phi i32 [ %860, %858 ], [ %828, %822 ]
+  %.0.ph.i411.us.us.us.us = phi i32 [ %.2.i427.us.us.us.us, %858 ], [ %824, %822 ]
   store i32 %.sink.i410.us.us.us.us, ptr %82, align 8, !tbaa !80
   %861 = icmp slt i32 %.0.ph.i411.us.us.us.us, 0
   br i1 %861, label %.thread.i365, label %codebook_decode_start.exit374.us.us.us.us
@@ -8816,7 +8816,7 @@ get_bits.exit66:                                  ; preds = %173, %.get_bits.exi
   br label %.loopexit79
 
 .loopexit79:                                      ; preds = %.critedge, %27, %6, %157, %ilog.exit, %232, %50
-  %.0 = phi i32 [ 0, %50 ], [ 0, %ilog.exit ], [ 1, %232 ], [ 0, %157 ], [ 0, %6 ], [ 0, %27 ], [ 0, %.critedge ]
+  %.0 = phi i32 [ 0, %157 ], [ 0, %50 ], [ 1, %232 ], [ 0, %ilog.exit ], [ 0, %6 ], [ 0, %27 ], [ 0, %.critedge ]
   ret i32 %.0
 }
 
@@ -9285,7 +9285,7 @@ next_segment.exit.i:                              ; preds = %251, %249
   br label %get8_packet_raw.exit
 
 get8_packet_raw.exit:                             ; preds = %260, %268
-  %.0.i9.i = phi i8 [ %262, %260 ], [ %269, %268 ]
+  %.0.i9.i = phi i8 [ %269, %268 ], [ %262, %260 ]
   %270 = zext i8 %.0.i9.i to i32
   br label %get8_packet_raw.exit.thread495
 
@@ -9437,7 +9437,7 @@ prep_huffman.exit:                                ; preds = %next_segment.exit.i
   br label %get8.exit.i462
 
 get8.exit.i462:                                   ; preds = %346, %339
-  %.0.i.i = phi i8 [ %341, %339 ], [ %347, %346 ]
+  %.0.i.i = phi i8 [ %347, %346 ], [ %341, %339 ]
   %.not.i463 = icmp eq i8 %.0.i.i, 79
   br i1 %.not.i463, label %348, label %start_page.exit.thread.i.i438
 
@@ -9468,7 +9468,7 @@ get8.exit.i462:                                   ; preds = %346, %339
   br label %get8.exit10.i
 
 get8.exit10.i:                                    ; preds = %359, %352
-  %.0.i9.i464 = phi i8 [ %354, %352 ], [ %360, %359 ]
+  %.0.i9.i464 = phi i8 [ %360, %359 ], [ %354, %352 ]
   %.not4.i = icmp eq i8 %.0.i9.i464, 103
   br i1 %.not4.i, label %361, label %start_page.exit.thread.i.i438
 
@@ -9499,7 +9499,7 @@ get8.exit10.i:                                    ; preds = %359, %352
   br label %get8.exit14.i
 
 get8.exit14.i:                                    ; preds = %372, %365
-  %.0.i13.i = phi i8 [ %367, %365 ], [ %373, %372 ]
+  %.0.i13.i = phi i8 [ %373, %372 ], [ %367, %365 ]
   %.not5.i = icmp eq i8 %.0.i13.i, 103
   br i1 %.not5.i, label %374, label %start_page.exit.thread.i.i438
 
@@ -9531,7 +9531,7 @@ get8.exit14.i:                                    ; preds = %372, %365
   br label %capture_pattern.exit
 
 capture_pattern.exit:                             ; preds = %378, %386
-  %.0.i17.i = phi i8 [ %381, %378 ], [ %387, %386 ]
+  %.0.i17.i = phi i8 [ %387, %386 ], [ %381, %378 ]
   %.not6.i465.not = icmp eq i8 %.0.i17.i, 83
   br i1 %.not6.i465.not, label %start_page.exit.i.i433, label %start_page.exit.thread.i.i438
 
@@ -9636,7 +9636,7 @@ next_segment.exit.i430:                           ; preds = %402, %400
   br label %get8_packet_raw.exit439
 
 get8_packet_raw.exit439:                          ; preds = %411, %419
-  %.0.i9.i425 = phi i8 [ %413, %411 ], [ %420, %419 ]
+  %.0.i9.i425 = phi i8 [ %420, %419 ], [ %413, %411 ]
   %421 = zext i8 %.0.i9.i425 to i32
   br label %get8_packet_raw.exit439.thread505
 
@@ -9743,7 +9743,7 @@ prep_huffman.exit415:                             ; preds = %next_segment.exit.i
   br label %get8.exit.i469
 
 get8.exit.i469:                                   ; preds = %473, %466
-  %.0.i.i470 = phi i8 [ %468, %466 ], [ %474, %473 ]
+  %.0.i.i470 = phi i8 [ %474, %473 ], [ %468, %466 ]
   %.not.i471 = icmp eq i8 %.0.i.i470, 79
   br i1 %.not.i471, label %475, label %start_page.exit.thread.i.i457
 
@@ -9774,7 +9774,7 @@ get8.exit.i469:                                   ; preds = %473, %466
   br label %get8.exit10.i474
 
 get8.exit10.i474:                                 ; preds = %486, %479
-  %.0.i9.i475 = phi i8 [ %481, %479 ], [ %487, %486 ]
+  %.0.i9.i475 = phi i8 [ %487, %486 ], [ %481, %479 ]
   %.not4.i476 = icmp eq i8 %.0.i9.i475, 103
   br i1 %.not4.i476, label %488, label %start_page.exit.thread.i.i457
 
@@ -9805,7 +9805,7 @@ get8.exit10.i474:                                 ; preds = %486, %479
   br label %get8.exit14.i479
 
 get8.exit14.i479:                                 ; preds = %499, %492
-  %.0.i13.i480 = phi i8 [ %494, %492 ], [ %500, %499 ]
+  %.0.i13.i480 = phi i8 [ %500, %499 ], [ %494, %492 ]
   %.not5.i481 = icmp eq i8 %.0.i13.i480, 103
   br i1 %.not5.i481, label %501, label %start_page.exit.thread.i.i457
 
@@ -9837,7 +9837,7 @@ get8.exit14.i479:                                 ; preds = %499, %492
   br label %capture_pattern.exit488
 
 capture_pattern.exit488:                          ; preds = %505, %513
-  %.0.i17.i485 = phi i8 [ %508, %505 ], [ %514, %513 ]
+  %.0.i17.i485 = phi i8 [ %514, %513 ], [ %508, %505 ]
   %.not6.i486.not = icmp eq i8 %.0.i17.i485, 83
   br i1 %.not6.i486.not, label %start_page.exit.i.i452, label %start_page.exit.thread.i.i457
 
@@ -9942,7 +9942,7 @@ next_segment.exit.i449:                           ; preds = %529, %527
   br label %get8_packet_raw.exit458
 
 get8_packet_raw.exit458:                          ; preds = %538, %546
-  %.0.i9.i444 = phi i8 [ %540, %538 ], [ %547, %546 ]
+  %.0.i9.i444 = phi i8 [ %547, %546 ], [ %540, %538 ]
   %548 = zext i8 %.0.i9.i444 to i32
   br label %get8_packet_raw.exit458.thread515
 
@@ -11855,8 +11855,8 @@ crc32_init.exit:                                  ; preds = %214
   br i1 %342, label %.lr.ph1355, label %.critedge1159, !llvm.loop !204
 
 .critedge1159:                                    ; preds = %319, %339, %303, %.preheader1269
-  %343 = phi i32 [ %301, %.preheader1269 ], [ %305, %303 ], [ %340, %339 ], [ %324, %319 ]
-  %.01010 = phi i32 [ 0, %.preheader1269 ], [ 0, %303 ], [ %.21012.ph, %339 ], [ 0, %319 ]
+  %343 = phi i32 [ %305, %303 ], [ %301, %.preheader1269 ], [ %340, %339 ], [ %324, %319 ]
+  %.01010 = phi i32 [ 0, %303 ], [ 0, %.preheader1269 ], [ %.21012.ph, %339 ], [ 0, %319 ]
   %344 = load i8, ptr %283, align 1, !tbaa !24
   %.not1137 = icmp eq i8 %344, 0
   br i1 %.not1137, label %.preheader1268, label %345
@@ -13769,7 +13769,7 @@ flush_packet.exit:                                ; preds = %.preheader
   br label %.critedge
 
 .critedge1169:                                    ; preds = %._crit_edge1447, %._crit_edge1443, %902, %896, %888, %.lr.ph1454, %944
-  %.sink1863 = phi i32 [ 20, %944 ], [ 3, %.lr.ph1454 ], [ 3, %._crit_edge1447 ], [ 3, %._crit_edge1443 ], [ 20, %902 ], [ 20, %896 ], [ 20, %888 ]
+  %.sink1863 = phi i32 [ 20, %944 ], [ 3, %.lr.ph1454 ], [ 3, %._crit_edge1443 ], [ 20, %902 ], [ 20, %896 ], [ 20, %888 ], [ 3, %._crit_edge1447 ]
   %1268 = getelementptr inbounds nuw i8, ptr %0, i64 156
   store i32 %.sink1863, ptr %1268, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -15075,7 +15075,7 @@ define range(i32 0, 2) i32 @vorbis_find_page(ptr noundef captures(none) %0, ptr 
   br label %get8.exit
 
 get8.exit:                                        ; preds = %22, %30
-  %.0.i = phi i8 [ %24, %22 ], [ %31, %30 ]
+  %.0.i = phi i8 [ %31, %30 ], [ %24, %22 ]
   %32 = icmp eq i8 %.0.i, 79
   br i1 %32, label %33, label %get8.exit.thread
 
@@ -15372,7 +15372,7 @@ get8.exit99:                                      ; preds = %134, %135, %142, %1
   br i1 %exitcond153.not, label %._crit_edge128, label %.lr.ph127, !llvm.loop !307
 
 ._crit_edge128:                                   ; preds = %get8.exit99, %.preheader, %._crit_edge122
-  %.263.lcssa = phi i32 [ %126, %._crit_edge122 ], [ %104, %.preheader ], [ %152, %get8.exit99 ]
+  %.263.lcssa = phi i32 [ %104, %.preheader ], [ %126, %._crit_edge122 ], [ %152, %get8.exit99 ]
   %154 = icmp eq i32 %.263.lcssa, %92
   br i1 %154, label %155, label %164
 
@@ -16582,7 +16582,7 @@ skip.exit:                                        ; preds = %289, %293, %294
   br label %308
 
 308:                                              ; preds = %.sink.split, %302, %._crit_edge208, %64, %66
-  %.0 = phi i32 [ 1, %66 ], [ 0, %._crit_edge208 ], [ 0, %64 ], [ 1, %302 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 1, %302 ], [ 0, %64 ], [ 0, %._crit_edge208 ], [ 1, %66 ], [ 0, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -18984,7 +18984,7 @@ stb_vorbis_get_frame_short.exit:                  ; preds = %9, %11
   br label %convert_channels_short_interleaved.exit
 
 convert_channels_short_interleaved.exit:          ; preds = %..preheader44_crit_edge.us.i, %..preheader44_crit_edge.us.i.us, %.lr.ph.i, %.preheader45.us56.preheader.i, %.preheader45.lr.ph.split.i, %31, %.preheader.i, %15, %stb_vorbis_get_frame_short.exit
-  %.015 = phi i32 [ %spec.select.i, %stb_vorbis_get_frame_short.exit ], [ 0, %15 ], [ %.1, %.preheader.i ], [ %.1, %31 ], [ %.1, %.preheader45.lr.ph.split.i ], [ %.1, %.preheader45.us56.preheader.i ], [ %.1, %..preheader44_crit_edge.us.i.us ], [ %.1, %.lr.ph.i ], [ %.1, %..preheader44_crit_edge.us.i ]
+  %.015 = phi i32 [ %spec.select.i, %stb_vorbis_get_frame_short.exit ], [ 0, %15 ], [ %.1, %.preheader.i ], [ %.1, %.preheader45.us56.preheader.i ], [ %.1, %31 ], [ %.1, %..preheader44_crit_edge.us.i.us ], [ %.1, %.preheader45.lr.ph.split.i ], [ %.1, %.lr.ph.i ], [ %.1, %..preheader44_crit_edge.us.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.015
 }

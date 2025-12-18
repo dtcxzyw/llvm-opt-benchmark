@@ -5090,8 +5090,8 @@ _ZNSt8_Rb_treeIjSt4pairIKjN3ue210PureRepeatEESt10_Select1stIS4_ESt4lessIjESaIS4_
   br i1 %.not.i.i.i, label %_ZNSt3mapIjN3ue210PureRepeatESt4lessIjESaISt4pairIKjS1_EEE5eraseERS5_.exit, label %.lr.ph.i.i.i, !llvm.loop !147
 
 _ZNSt3mapIjN3ue210PureRepeatESt4lessIjESaISt4pairIKjS1_EEE5eraseERS5_.exit: ; preds = %21, %.lr.ph.i25.i.i.i, %2, %_ZNSt8_Rb_treeIjSt4pairIKjN3ue210PureRepeatEESt10_Select1stIS4_ESt4lessIjESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i
-  %.sroa.037.0.i.i.i = phi ptr [ %.08.lcssa.i.i.i.i, %_ZNSt8_Rb_treeIjSt4pairIKjN3ue210PureRepeatEESt10_Select1stIS4_ESt4lessIjESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i ], [ %4, %2 ], [ %.08.lcssa.i.i.i.i, %.lr.ph.i25.i.i.i ], [ %.123.i.i.i, %21 ]
-  %.sroa.3.0.i.i.i = phi ptr [ %.02243.i.i.i, %_ZNSt8_Rb_treeIjSt4pairIKjN3ue210PureRepeatEESt10_Select1stIS4_ESt4lessIjESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i ], [ %4, %2 ], [ %.19.i28.i.i.i, %.lr.ph.i25.i.i.i ], [ %.123.i.i.i, %21 ]
+  %.sroa.037.0.i.i.i = phi ptr [ %.08.lcssa.i.i.i.i, %.lr.ph.i25.i.i.i ], [ %.08.lcssa.i.i.i.i, %_ZNSt8_Rb_treeIjSt4pairIKjN3ue210PureRepeatEESt10_Select1stIS4_ESt4lessIjESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i ], [ %4, %2 ], [ %.123.i.i.i, %21 ]
+  %.sroa.3.0.i.i.i = phi ptr [ %.19.i28.i.i.i, %.lr.ph.i25.i.i.i ], [ %.02243.i.i.i, %_ZNSt8_Rb_treeIjSt4pairIKjN3ue210PureRepeatEESt10_Select1stIS4_ESt4lessIjESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i ], [ %4, %2 ], [ %.123.i.i.i, %21 ]
   tail call void @_ZNSt8_Rb_treeIjSt4pairIKjN3ue210PureRepeatEESt10_Select1stIS4_ESt4lessIjESaIS4_EE12_M_erase_auxESt23_Rb_tree_const_iteratorIS4_ESC_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %.sroa.037.0.i.i.i, ptr %.sroa.3.0.i.i.i)
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.sroa.06.014 = load ptr, ptr %23, align 8
@@ -11525,7 +11525,7 @@ _ZSteqIKjN3ue210PureRepeatEEbRKSt4pairIT_T0_ES8_.exit.i.i.i.i: ; preds = %50, %4
   br i1 %.not.i.i.i.i, label %_ZSt5equalISt23_Rb_tree_const_iteratorISt4pairIKjN3ue210PureRepeatEEES6_EbT_S7_T0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !509
 
 _ZSt5equalISt23_Rb_tree_const_iteratorISt4pairIKjN3ue210PureRepeatEEES6_EbT_S7_T0_.exit: ; preds = %_ZSteqIKjN3ue210PureRepeatEEbRKSt4pairIT_T0_ES8_.exit.i.i.i.i, %34, %22, %19, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i, %8, %2
-  %55 = phi i1 [ false, %2 ], [ true, %8 ], [ false, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ true, %_ZSteqIKjN3ue210PureRepeatEEbRKSt4pairIT_T0_ES8_.exit.i.i.i.i ], [ false, %.lr.ph.i.i.i.i ], [ false, %22 ], [ false, %19 ], [ false, %34 ]
+  %55 = phi i1 [ false, %2 ], [ false, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ true, %8 ], [ true, %_ZSteqIKjN3ue210PureRepeatEEbRKSt4pairIT_T0_ES8_.exit.i.i.i.i ], [ false, %.lr.ph.i.i.i.i ], [ false, %22 ], [ false, %19 ], [ false, %34 ]
   ret i1 %55
 }
 

@@ -382,7 +382,7 @@ arraydestroy.body34:                              ; preds = %arraydestroy.body34
   br i1 %arraydestroy.done37, label %ehcleanup, label %arraydestroy.body34
 
 ehcleanup:                                        ; preds = %arraydestroy.body, %arraydestroy.body34, %lpad.thread
-  %.pn = phi { ptr, i32 } [ %2, %lpad.thread ], [ %24, %arraydestroy.body34 ], [ %23, %arraydestroy.body ]
+  %.pn = phi { ptr, i32 } [ %24, %arraydestroy.body34 ], [ %2, %lpad.thread ], [ %23, %arraydestroy.body ]
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN8facebook5velox14VectorEncoding15mapNameToSimpleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE10vecNameMapB5cxx11) #24
   br label %eh.resume
 

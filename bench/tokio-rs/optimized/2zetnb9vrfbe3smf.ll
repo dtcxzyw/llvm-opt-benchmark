@@ -4849,14 +4849,14 @@ define hidden noalias noundef align 8 ptr @_ZN5tokio7runtime9scheduler12multi_th
           cleanup
   br label %.body.thread
 
-.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.thread: ; preds = %517, %"_ZN4core3ptr166drop_in_place$LT$core..option..Option$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$$GT$17ha676625eb83809b2E.llvm.9993772341007493287.exit._crit_edge.i", %302, %.noexc48, %273, %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core26tune_global_queue_interval17h594c9c712810aaaaE.exit.i
-  %.0.ph.ph.ph.ph.ph = phi ptr [ %.2.i, %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core26tune_global_queue_interval17h594c9c712810aaaaE.exit.i ], [ %.2.i, %273 ], [ %.2.i, %.noexc48 ], [ %.2.i, %302 ], [ %.2.i, %"_ZN4core3ptr166drop_in_place$LT$core..option..Option$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$$GT$17ha676625eb83809b2E.llvm.9993772341007493287.exit._crit_edge.i" ], [ %.020, %517 ]
+.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.thread: ; preds = %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core26tune_global_queue_interval17h594c9c712810aaaaE.exit.i, %517, %"_ZN4core3ptr166drop_in_place$LT$core..option..Option$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$$GT$17ha676625eb83809b2E.llvm.9993772341007493287.exit._crit_edge.i", %302, %.noexc48, %273
+  %.0.ph.ph.ph.ph.ph = phi ptr [ %.2.i, %273 ], [ %.2.i, %.noexc48 ], [ %.2.i, %302 ], [ %.2.i, %"_ZN4core3ptr166drop_in_place$LT$core..option..Option$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$$GT$17ha676625eb83809b2E.llvm.9993772341007493287.exit._crit_edge.i" ], [ %.020, %517 ], [ %.2.i, %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core26tune_global_queue_interval17h594c9c712810aaaaE.exit.i ]
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread
 
-.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.thread: ; preds = %._crit_edge, %163, %516, %2, %72, %351
-  %.0.ph.ph.ph.ph156.ph = phi ptr [ %.2.i, %351 ], [ %.2.lcssa, %72 ], [ %1, %2 ], [ %.020, %516 ], [ %.2.i, %163 ], [ %.2.lcssa, %._crit_edge ]
+.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.thread: ; preds = %._crit_edge, %351, %163, %516, %72, %2
+  %.0.ph.ph.ph.ph156.ph = phi ptr [ %1, %2 ], [ %.2.lcssa, %72 ], [ %.020, %516 ], [ %.2.i, %163 ], [ %.2.i, %351 ], [ %.2.lcssa, %._crit_edge ]
   %lpad.thr_comm372 = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread
@@ -5815,7 +5815,7 @@ _ZN5tokio7runtime9scheduler12multi_thread6worker4Core22transition_from_parked17h
           to label %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core22transition_from_parked17h21df41e6277ddbfaE.exit.i.preheader unwind label %.loopexit.split-lp.i.loopexit, !noalias !971
 
 _ZN5tokio7runtime9scheduler12multi_thread6worker4Core20transition_to_parked17h92ad0cd502996371E.exit.thread.i: ; preds = %432, %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core22transition_from_parked17h21df41e6277ddbfaE.exit.i, %490, %.noexc17.i, %.noexc3.i, %399
-  %.1.i = phi ptr [ %.2.i, %399 ], [ %.2.i, %.noexc3.i ], [ %437, %.noexc17.i ], [ %437, %490 ], [ %.2.i64, %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core22transition_from_parked17h21df41e6277ddbfaE.exit.i ], [ %.2.i64, %432 ]
+  %.1.i = phi ptr [ %437, %490 ], [ %437, %.noexc17.i ], [ %.2.i, %399 ], [ %.2.i, %.noexc3.i ], [ %.2.i64, %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core22transition_from_parked17h21df41e6277ddbfaE.exit.i ], [ %.2.i64, %432 ]
   %424 = load ptr, ptr %0, align 8, !noalias !971, !nonnull !19, !noundef !19
   %425 = getelementptr inbounds nuw i8, ptr %424, i64 16
   %426 = load ptr, ptr %425, align 8, !nonnull !19, !noundef !19
@@ -5981,7 +5981,7 @@ _ZN5tokio7runtime9scheduler12multi_thread6worker4Core9has_tasks17h4a8ee5d9cd4bd9
   br label %.loopexit.split-lp.i
 
 .loopexit.split-lp.i.loopexit:                    ; preds = %388, %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core9has_tasks17h4a8ee5d9cd4bd9eeE.exit.i.i, %.noexc.i63, %412, %421, %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core9has_tasks17h4a8ee5d9cd4bd9eeE.exit.thread.i.i, %492
-  %.022.ph.ph.i.ph = phi ptr [ %.2.i, %388 ], [ %.2.i, %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core9has_tasks17h4a8ee5d9cd4bd9eeE.exit.i.i ], [ %.2.i, %.noexc.i63 ], [ %.2.i, %412 ], [ %.2.i, %421 ], [ %437, %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core9has_tasks17h4a8ee5d9cd4bd9eeE.exit.thread.i.i ], [ %.1.i, %492 ]
+  %.022.ph.ph.i.ph = phi ptr [ %.2.i, %388 ], [ %.2.i, %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core9has_tasks17h4a8ee5d9cd4bd9eeE.exit.i.i ], [ %.2.i, %.noexc.i63 ], [ %.2.i, %412 ], [ %.2.i, %421 ], [ %.1.i, %492 ], [ %437, %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core9has_tasks17h4a8ee5d9cd4bd9eeE.exit.thread.i.i ]
   %lpad.loopexit167 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp.i
@@ -6073,8 +6073,8 @@ _ZN5tokio7runtime9scheduler12multi_thread6worker4Core12pre_shutdown17h94c76ba298
   resume { ptr, i32 } %.pn28101
 
 .body.thread:                                     ; preds = %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit, %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.thread, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.thread, %375, %205, %201, %.body.i.i, %.body
-  %.pn28102 = phi { ptr, i32 } [ %.pn, %.body ], [ %202, %201 ], [ %190, %.body.i.i ], [ %.pn10.i, %205 ], [ %376, %375 ], [ %lpad.thr_comm372, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.thread ], [ %lpad.thr_comm, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.thread ], [ %lpad.loopexit147, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit140, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit, %.loopexit ]
-  %.193100 = phi ptr [ %.595, %.body ], [ %.2.i, %201 ], [ %.2.i, %.body.i.i ], [ %.2.i, %205 ], [ %.2.i, %375 ], [ %.0.ph.ph.ph.ph156.ph, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.thread ], [ %.0.ph.ph.ph.ph.ph, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.thread ], [ %.2.i, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %.2.lcssa, %.loopexit.split-lp.loopexit ], [ %.2.lcssa, %.loopexit ]
+  %.pn28102 = phi { ptr, i32 } [ %.pn, %.body ], [ %202, %201 ], [ %190, %.body.i.i ], [ %.pn10.i, %205 ], [ %376, %375 ], [ %lpad.thr_comm, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.thread ], [ %lpad.thr_comm372, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.thread ], [ %lpad.loopexit147, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit140, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit, %.loopexit ]
+  %.193100 = phi ptr [ %.595, %.body ], [ %.2.i, %201 ], [ %.2.i, %.body.i.i ], [ %.2.i, %205 ], [ %.2.i, %375 ], [ %.0.ph.ph.ph.ph.ph, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.thread ], [ %.0.ph.ph.ph.ph156.ph, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.thread ], [ %.2.i, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %.2.lcssa, %.loopexit.split-lp.loopexit ], [ %.2.lcssa, %.loopexit ]
   invoke fastcc void @"_ZN4core3ptr99drop_in_place$LT$alloc..boxed..Box$LT$tokio..runtime..scheduler..multi_thread..worker..Core$GT$$GT$17h7906750d7d0e8f69E"(ptr %.193100) #28
           to label %.body.thread103 unwind label %377
 }

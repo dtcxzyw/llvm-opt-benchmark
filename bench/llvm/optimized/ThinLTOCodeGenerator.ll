@@ -22673,7 +22673,7 @@ _ZNK4llvm6detail12DenseSetImplINS_9ValueInfoENS_8DenseMapIS2_NS0_13DenseSetEmpty
   br i1 %127, label %_ZNK12_GLOBAL__N_110IsExportedclEN4llvm9StringRefENS1_9ValueInfoE.exit, label %.lr.ph.i.i.i.i.i3.i, !prof !282, !llvm.loop !1285
 
 _ZNK12_GLOBAL__N_110IsExportedclEN4llvm9StringRefENS1_9ValueInfoE.exit: ; preds = %92, %.lr.ph.i.i.i.i.i3.i, %120, %83, %_ZNK4llvm6detail12DenseSetImplINS_9ValueInfoENS_8DenseMapIS2_NS0_13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS0_12DenseSetPairIS2_EEEES6_E5countERKS2_.exit.thread.i, %108
-  %128 = phi i1 [ true, %83 ], [ false, %_ZNK4llvm6detail12DenseSetImplINS_9ValueInfoENS_8DenseMapIS2_NS0_13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS0_12DenseSetPairIS2_EEEES6_E5countERKS2_.exit.thread.i ], [ true, %108 ], [ %.not102.i.not.not, %.lr.ph.i.i.i.i.i3.i ], [ %.not102.i.not.not, %120 ], [ true, %92 ]
+  %128 = phi i1 [ %.not102.i.not.not, %.lr.ph.i.i.i.i.i3.i ], [ true, %83 ], [ false, %_ZNK4llvm6detail12DenseSetImplINS_9ValueInfoENS_8DenseMapIS2_NS0_13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS0_12DenseSetPairIS2_EEEES6_E5countERKS2_.exit.thread.i ], [ true, %108 ], [ %.not102.i.not.not, %120 ], [ true, %92 ]
   ret i1 %128
 }
 

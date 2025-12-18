@@ -19645,8 +19645,8 @@ default.unreachable:                              ; preds = %.lr.ph40.i.i.i.i.i.
   br i1 %122, label %._crit_edge41.i.i.i.i.i.i, label %.lr.ph40.split.split.i.i.i.i.i.i
 
 123:                                              ; preds = %42, %34
-  %.sroa.01.0.i.i.i.i.i = phi i64 [ %39, %42 ], [ %25, %34 ]
-  %.sroa.7.0.i.i.i.i.i = phi i64 [ %41, %42 ], [ %27, %34 ]
+  %.sroa.01.0.i.i.i.i.i = phi i64 [ %25, %34 ], [ %39, %42 ]
+  %.sroa.7.0.i.i.i.i.i = phi i64 [ %27, %34 ], [ %41, %42 ]
   %124 = load i64, ptr %3, align 8, !range !127, !alias.scope !3922, !noalias !3925, !noundef !16
   %125 = icmp eq i64 %124, 17
   br i1 %125, label %"_ZN4core3ptr130drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$polars_error..PolarsError$GT$$GT$$GT$17h0957906d428d274dE.exit.i.i.i.i.i.i.i", label %126
@@ -24117,8 +24117,8 @@ default.unreachable:                              ; preds = %.lr.ph41.split.i.i.
   br i1 %123, label %._crit_edge42.i.i.i.i, label %.lr.ph41.split.split.i.i.i.i
 
 124:                                              ; preds = %42, %34
-  %.sroa.01.0.i.i.i = phi i64 [ %39, %42 ], [ %25, %34 ]
-  %.sroa.7.0.i.i.i = phi i64 [ %41, %42 ], [ %27, %34 ]
+  %.sroa.01.0.i.i.i = phi i64 [ %25, %34 ], [ %39, %42 ]
+  %.sroa.7.0.i.i.i = phi i64 [ %27, %34 ], [ %41, %42 ]
   %125 = load i64, ptr %3, align 8, !range !127, !alias.scope !5048, !noalias !5051, !noundef !16
   %126 = icmp eq i64 %125, 17
   br i1 %126, label %"_ZN4core3ptr130drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$polars_error..PolarsError$GT$$GT$$GT$17h0957906d428d274dE.exit.i.i.i.i.i", label %127
@@ -25940,8 +25940,8 @@ default.unreachable:                              ; preds = %.lr.ph41.i.i.i.i, %
   br i1 %116, label %._crit_edge42.i.i.i.i, label %.lr.ph41.split.split.i.i.i.i
 
 117:                                              ; preds = %42, %34
-  %.sroa.01.0.i.i.i = phi i64 [ %39, %42 ], [ %25, %34 ]
-  %.sroa.7.0.i.i.i = phi i64 [ %41, %42 ], [ %27, %34 ]
+  %.sroa.01.0.i.i.i = phi i64 [ %25, %34 ], [ %39, %42 ]
+  %.sroa.7.0.i.i.i = phi i64 [ %27, %34 ], [ %41, %42 ]
   %118 = load i64, ptr %3, align 8, !range !127, !alias.scope !5454, !noalias !5457, !noundef !16
   %119 = icmp eq i64 %118, 17
   br i1 %119, label %"_ZN4core3ptr130drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$polars_error..PolarsError$GT$$GT$$GT$17h0957906d428d274dE.exit.i.i.i.i.i", label %120

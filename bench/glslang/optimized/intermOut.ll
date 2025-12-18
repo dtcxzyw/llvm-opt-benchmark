@@ -15852,7 +15852,7 @@ define linkonce_odr noundef i32 @_ZNK7glslang5TType20computeNumComponentsEv(ptr 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %13, %32, %36
-  %.1 = phi i32 [ %35, %32 ], [ %38, %36 ], [ 0, %13 ], [ %22, %.lr.ph ]
+  %.1 = phi i32 [ %38, %36 ], [ %35, %32 ], [ 0, %13 ], [ %22, %.lr.ph ]
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %40 = load ptr, ptr %39, align 8
   %.not5 = icmp eq ptr %40, null

@@ -1446,8 +1446,8 @@ conf_get_string.exit.i:                           ; preds = %216, %204
   br i1 %.not92.i, label %read_config.exit, label %123, !llvm.loop !35
 
 read_config.exit:                                 ; preds = %279, %202, %207, %222, %254, %259
-  %283 = phi i1 [ true, %254 ], [ true, %259 ], [ true, %222 ], [ true, %207 ], [ true, %202 ], [ false, %279 ]
-  %284 = phi i1 [ false, %254 ], [ false, %259 ], [ false, %222 ], [ true, %207 ], [ true, %202 ], [ false, %279 ]
+  %283 = phi i1 [ true, %259 ], [ true, %222 ], [ true, %207 ], [ true, %202 ], [ true, %254 ], [ false, %279 ]
+  %284 = phi i1 [ false, %259 ], [ false, %222 ], [ true, %207 ], [ true, %202 ], [ false, %254 ], [ false, %279 ]
   %.pr = load i32, ptr @opt_verbosity, align 4, !tbaa !10
   %or.cond.i218 = icmp ugt i32 %.pr, 8
   br i1 %or.cond.i218, label %285, label %set_verbosity.exit
@@ -5771,8 +5771,8 @@ write_cert.exit:                                  ; preds = %45, %40
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !69
 
 .loopexit:                                        ; preds = %write_cert.exit, %.preheader, %55, %52, %33, %30, %3
-  %.029 = phi ptr [ null, %3 ], [ %24, %33 ], [ %24, %30 ], [ %24, %52 ], [ %24, %55 ], [ %24, %.preheader ], [ %24, %write_cert.exit ]
-  %.0 = phi i32 [ %spec.store.select, %3 ], [ -1, %33 ], [ -1, %30 ], [ -1, %52 ], [ -1, %55 ], [ %spec.store.select, %.preheader ], [ %spec.store.select, %write_cert.exit ]
+  %.029 = phi ptr [ null, %3 ], [ %24, %55 ], [ %24, %33 ], [ %24, %30 ], [ %24, %52 ], [ %24, %.preheader ], [ %24, %write_cert.exit ]
+  %.0 = phi i32 [ %spec.store.select, %3 ], [ -1, %55 ], [ -1, %33 ], [ -1, %30 ], [ -1, %52 ], [ %spec.store.select, %.preheader ], [ %spec.store.select, %write_cert.exit ]
   %59 = tail call i32 @BIO_free(ptr noundef %.029) #12
   tail call void @OSSL_STACK_OF_X509_free(ptr noundef %0) #12
   ret i32 %.0
@@ -8918,7 +8918,7 @@ define internal fastcc range(i32 0, 2) i32 @set_gennames(ptr noundef %0, ptr nou
   br i1 %.not, label %.thread3, label %.lr.ph, !llvm.loop !81
 
 .thread3:                                         ; preds = %37, %2, %34, %31, %23, %26
-  %.2 = phi i32 [ 0, %26 ], [ 0, %23 ], [ 0, %31 ], [ 0, %34 ], [ 1, %2 ], [ 1, %37 ]
+  %.2 = phi i32 [ 0, %34 ], [ 0, %26 ], [ 0, %23 ], [ 0, %31 ], [ 1, %2 ], [ 1, %37 ]
   ret i32 %.2
 }
 

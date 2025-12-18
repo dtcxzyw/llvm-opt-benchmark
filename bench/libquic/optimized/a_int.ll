@@ -359,7 +359,7 @@ define hidden ptr @c2i_ASN1_INTEGER(ptr noundef captures(address_is_null) %0, pt
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph107, %49, %55, %46, %22
-  %.072 = phi i64 [ %48, %46 ], [ %.2, %55 ], [ 0, %22 ], [ %.173, %49 ], [ %.173, %.lr.ph107 ]
+  %.072 = phi i64 [ 0, %22 ], [ %48, %46 ], [ %.2, %55 ], [ %.173, %49 ], [ %.173, %.lr.ph107 ]
   %60 = getelementptr inbounds nuw i8, ptr %.077, i64 8
   %61 = load ptr, ptr %60, align 8, !tbaa !15
   %.not91 = icmp eq ptr %61, null

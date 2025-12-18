@@ -803,9 +803,9 @@ define internal fastcc range(i32 0, 2) i32 @__ipv6_dev_get_saddr(ptr noundef %0,
   br i1 %55, label %.thread, label %35, !llvm.loop !23
 
 .thread:                                          ; preds = %53, %40, %42, %48, %17, %26
-  %.ph9 = phi ptr [ %21, %17 ], [ %21, %26 ], [ %20, %48 ], [ %21, %42 ], [ %21, %40 ], [ %21, %53 ]
-  %.ph10 = phi ptr [ %20, %17 ], [ %20, %26 ], [ %21, %48 ], [ %20, %42 ], [ %20, %40 ], [ %20, %53 ]
-  %.ph11 = phi i32 [ %19, %17 ], [ %19, %26 ], [ %49, %48 ], [ %19, %42 ], [ %19, %40 ], [ %19, %53 ]
+  %.ph9 = phi ptr [ %21, %40 ], [ %21, %17 ], [ %21, %26 ], [ %20, %48 ], [ %21, %42 ], [ %21, %53 ]
+  %.ph10 = phi ptr [ %20, %40 ], [ %20, %17 ], [ %20, %26 ], [ %21, %48 ], [ %20, %42 ], [ %20, %53 ]
+  %.ph11 = phi i32 [ %19, %40 ], [ %19, %17 ], [ %19, %26 ], [ %49, %48 ], [ %19, %42 ], [ %19, %53 ]
   %56 = getelementptr inbounds nuw i8, ptr %.ph10, i64 8
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 200
@@ -1361,7 +1361,7 @@ define dso_local noundef ptr @ipv6_get_ifaddr(ptr noundef readonly captures(none
   br label %.loopexit
 
 .loopexit:                                        ; preds = %56, %86, %37, %93, %82, %4
-  %95 = phi ptr [ %.us-phi, %82 ], [ null, %4 ], [ %.us-phi, %93 ], [ null, %86 ], [ null, %37 ], [ null, %56 ]
+  %95 = phi ptr [ %.us-phi, %82 ], [ null, %4 ], [ %.us-phi, %93 ], [ null, %37 ], [ null, %86 ], [ null, %56 ]
   tail call void @__rcu_read_unlock() #20
   ret ptr %95
 }
@@ -7018,7 +7018,7 @@ define internal fastcc void @addrconf_ifdown(ptr noundef %0, i1 noundef zeroext 
   br i1 %99, label %.loopexit41.split.us.us, label %.preheader40.us.backedge
 
 .preheader40.us.backedge:                         ; preds = %94, %76
-  %.be82 = phi ptr [ %80, %76 ], [ %97, %94 ]
+  %.be82 = phi ptr [ %97, %94 ], [ %80, %76 ]
   br label %.preheader40.us, !llvm.loop !105
 
 .split:                                           ; preds = %.split.preheader, %.loopexit41.split
@@ -7095,7 +7095,7 @@ define internal fastcc void @addrconf_ifdown(ptr noundef %0, i1 noundef zeroext 
   br i1 %143, label %.loopexit41.split, label %.preheader40.backedge
 
 .preheader40.backedge:                            ; preds = %137, %131
-  %.be = phi ptr [ %141, %137 ], [ %134, %131 ]
+  %.be = phi ptr [ %134, %131 ], [ %141, %137 ]
   br label %.preheader40, !llvm.loop !105
 
 .loopexit41.split:                                ; preds = %137, %131, %.split
@@ -7761,7 +7761,7 @@ define internal fastcc i32 @ipv6_get_saddr_eval(ptr noundef %0, ptr noundef %1, 
   br label %158
 
 158:                                              ; preds = %.loopexit, %119, %111, %80, %70, %58, %40, %26, %21
-  %159 = phi i32 [ %156, %.loopexit ], [ %130, %119 ], [ %118, %111 ], [ %94, %80 ], [ %51, %40 ], [ %39, %26 ], [ %25, %21 ], [ %65, %58 ], [ %79, %70 ]
+  %159 = phi i32 [ %156, %.loopexit ], [ %130, %119 ], [ %118, %111 ], [ %94, %80 ], [ %51, %40 ], [ %39, %26 ], [ %25, %21 ], [ %79, %70 ], [ %65, %58 ]
   %160 = icmp eq i32 %159, 0
   br i1 %160, label %.thread4, label %.thread3
 
@@ -10083,8 +10083,8 @@ define internal fastcc void @addrconf_verify_rtnl(ptr noundef %0) unnamed_addr #
   br i1 %208, label %.loopexit, label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %201, %.thread19
-  %.be = phi i64 [ %202, %201 ], [ %.ph, %.thread19 ]
-  %.be45 = phi ptr [ %206, %201 ], [ %30, %.thread19 ]
+  %.be = phi i64 [ %.ph, %.thread19 ], [ %202, %201 ]
+  %.be45 = phi ptr [ %30, %.thread19 ], [ %206, %201 ]
   br label %.preheader, !llvm.loop !133
 
 .loopexit:                                        ; preds = %201, %.thread19, %16

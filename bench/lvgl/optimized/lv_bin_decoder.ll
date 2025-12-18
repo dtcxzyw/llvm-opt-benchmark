@@ -387,7 +387,7 @@ get_decoder_data.exit170:                         ; preds = %85, %91
   br label %.thread184
 
 127:                                              ; preds = %get_decoder_data.exit166, %69, %42, %38
-  %.3120 = phi i32 [ %39, %38 ], [ %43, %42 ], [ %70, %69 ], [ %84, %get_decoder_data.exit166 ]
+  %.3120 = phi i32 [ %84, %get_decoder_data.exit166 ], [ %70, %69 ], [ %39, %38 ], [ %43, %42 ]
   %.not153.not = icmp eq i32 %.3120, 0
   br i1 %.not153.not, label %.thread, label %.thread184
 
@@ -395,8 +395,8 @@ get_decoder_data.exit170:                         ; preds = %85, %91
   tail call fastcc void @free_decoder_data(ptr noundef nonnull %1)
   br label %.critedge
 
-.thread184:                                       ; preds = %122, %75, %116, %40, %127
-  %.0127188 = phi i1 [ false, %127 ], [ true, %116 ], [ true, %122 ], [ false, %40 ], [ true, %75 ]
+.thread184:                                       ; preds = %122, %116, %40, %75, %127
+  %.0127188 = phi i1 [ false, %127 ], [ true, %122 ], [ true, %116 ], [ false, %40 ], [ true, %75 ]
   %128 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %129 = load ptr, ptr %128, align 8, !tbaa !34
   %130 = icmp eq ptr %129, null

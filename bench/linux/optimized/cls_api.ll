@@ -587,7 +587,7 @@ define internal fastcc void @__tcf_chain_put(ptr noundef %0, i1 noundef zeroext 
   br label %77
 
 77:                                               ; preds = %76, %72
-  %78 = phi i1 [ false, %76 ], [ true, %72 ]
+  %78 = phi i1 [ true, %72 ], [ false, %76 ]
   tail call void @mutex_unlock(ptr noundef nonnull %6) #14
   %79 = icmp eq ptr %24, null
   br i1 %79, label %85, label %80
@@ -1501,7 +1501,7 @@ define internal fastcc void @tcf_chain0_head_change_cb_del(ptr noundef %0, ptr n
   br i1 %34, label %.split6.us, label %49
 
 .split6.us:                                       ; preds = %30, %19, %.split.us
-  %.us-phi = phi ptr [ %6, %.split.us ], [ %15, %19 ], [ %26, %30 ]
+  %.us-phi = phi ptr [ %15, %19 ], [ %6, %.split.us ], [ %26, %30 ]
   %35 = load ptr, ptr %4, align 8
   %36 = icmp eq ptr %35, null
   br i1 %36, label %44, label %37
@@ -2066,7 +2066,7 @@ define dso_local range(i32 -1, -2147483648) i32 @tcf_classify(ptr noundef %0, pt
   br label %.loopexit
 
 .loopexit:                                        ; preds = %46, %.thread4, %78, %12, %41, %.thread4.us.us, %100, %5
-  %102 = phi i32 [ 2, %100 ], [ -1, %5 ], [ -1, %.thread4 ], [ -1, %.thread4.us.us ], [ -1, %12 ], [ %38, %41 ], [ %73, %78 ], [ -1, %46 ]
+  %102 = phi i32 [ 2, %100 ], [ -1, %5 ], [ -1, %12 ], [ %73, %78 ], [ -1, %.thread4.us.us ], [ %38, %41 ], [ -1, %.thread4 ], [ -1, %46 ]
   ret i32 %102
 }
 
@@ -3248,7 +3248,7 @@ define dso_local i32 @tc_setup_action(ptr noundef %0, ptr noundef readonly captu
   br i1 %80, label %.thread21, label %14, !llvm.loop !64
 
 .thread17:                                        ; preds = %43, %41, %42, %35
-  %.ph = phi i32 [ -12, %35 ], [ -95, %42 ], [ -95, %41 ], [ %44, %43 ]
+  %.ph = phi i32 [ -12, %35 ], [ -95, %41 ], [ -95, %42 ], [ %44, %43 ]
   call void @_raw_spin_unlock_bh(ptr noundef nonnull %24) #14
   %81 = load i32, ptr %0, align 8
   %82 = icmp eq i32 %81, 0
@@ -3280,7 +3280,7 @@ define dso_local i32 @tc_setup_action(ptr noundef %0, ptr noundef readonly captu
   br i1 %98, label %.preheader, label %.thread21, !llvm.loop !62
 
 .thread21:                                        ; preds = %.loopexit, %14, %93, %7, %.thread17, %4
-  %99 = phi i32 [ 0, %4 ], [ %.ph, %.thread17 ], [ 0, %7 ], [ %.ph, %93 ], [ 0, %14 ], [ 0, %.loopexit ]
+  %99 = phi i32 [ 0, %4 ], [ %.ph, %93 ], [ %.ph, %.thread17 ], [ 0, %7 ], [ 0, %14 ], [ 0, %.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %99
 }
@@ -3448,7 +3448,7 @@ define dso_local noundef range(i32 -22, 1) i32 @tcf_qevent_validate_change(ptr n
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %9, %15, %11, %3
-  %17 = phi i32 [ 0, %3 ], [ 0, %11 ], [ -22, %15 ], [ -22, %9 ], [ -22, %.thread.sink.split ]
+  %17 = phi i32 [ 0, %3 ], [ 0, %11 ], [ -22, %9 ], [ -22, %15 ], [ -22, %.thread.sink.split ]
   ret i32 %17
 }
 
@@ -4279,8 +4279,8 @@ define internal fastcc i32 @tcf_block_playback_offloads(ptr noundef %0, ptr noun
   br i1 %32, label %.thread, label %19, !llvm.loop !19
 
 .thread:                                          ; preds = %.thread24, %26, %6
-  %33 = phi i32 [ poison, %6 ], [ %17, %26 ], [ %201, %.thread24 ]
-  %34 = phi i1 [ false, %6 ], [ %16, %26 ], [ true, %.thread24 ]
+  %33 = phi i32 [ %17, %26 ], [ poison, %6 ], [ %201, %.thread24 ]
+  %34 = phi i1 [ %16, %26 ], [ false, %6 ], [ true, %.thread24 ]
   tail call void @mutex_unlock(ptr noundef nonnull %7) #14
   br label %.loopexit28
 
@@ -5426,9 +5426,9 @@ define internal i32 @tc_new_tfilter(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %.thread63
 
 .thread63:                                        ; preds = %283, %285, %197, %277, %279, %.thread58
-  %287 = phi ptr [ %202, %285 ], [ %202, %283 ], [ %346, %.thread58 ], [ %195, %197 ], [ %202, %279 ], [ %202, %277 ]
-  %288 = phi i32 [ %284, %285 ], [ %284, %283 ], [ %347, %.thread58 ], [ %199, %197 ], [ 0, %279 ], [ 0, %277 ]
-  %289 = phi i32 [ 1, %285 ], [ %204, %283 ], [ 0, %.thread58 ], [ 1, %197 ], [ %204, %279 ], [ %204, %277 ]
+  %287 = phi ptr [ %202, %285 ], [ %202, %283 ], [ %202, %279 ], [ %195, %197 ], [ %346, %.thread58 ], [ %202, %277 ]
+  %288 = phi i32 [ %284, %285 ], [ %284, %283 ], [ 0, %279 ], [ %199, %197 ], [ %347, %.thread58 ], [ 0, %277 ]
+  %289 = phi i32 [ 1, %285 ], [ %204, %283 ], [ %204, %279 ], [ 1, %197 ], [ 0, %.thread58 ], [ %204, %277 ]
   %290 = icmp eq ptr %287, null
   %291 = icmp ugt ptr %287, inttoptr (i64 -4096 to ptr)
   %292 = or i1 %290, %291
@@ -7146,7 +7146,7 @@ define internal i32 @tc_ctl_chain(ptr noundef readonly captures(address_is_null)
   br label %66
 
 66:                                               ; preds = %58, %59, %63
-  %67 = phi i32 [ %65, %63 ], [ -2, %58 ], [ -2, %59 ]
+  %67 = phi i32 [ %65, %63 ], [ -2, %59 ], [ -2, %58 ]
   %68 = icmp eq ptr %.pre, null
   br i1 %68, label %70, label %69
 

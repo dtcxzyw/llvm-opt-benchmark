@@ -13233,7 +13233,7 @@ _ZNSt10shared_ptrIN5arrow9ArrayDataEEaSEOS2_.exit: ; preds = %.lr.ph, %209, %_ZN
   br i1 %232, label %.lr.ph, label %.loopexit273, !llvm.loop !873
 
 .loopexit273:                                     ; preds = %_ZNSt10shared_ptrIN5arrow9ArrayDataEEaSEOS2_.exit, %.preheader, %183
-  %.2.ph = phi i8 [ 1, %.preheader ], [ %.1278, %183 ], [ 1, %_ZNSt10shared_ptrIN5arrow9ArrayDataEEaSEOS2_.exit ]
+  %.2.ph = phi i8 [ %.1278, %183 ], [ 1, %.preheader ], [ 1, %_ZNSt10shared_ptrIN5arrow9ArrayDataEEaSEOS2_.exit ]
   %.pr373 = load ptr, ptr %7, align 8, !tbaa !129
   %.not.i.i132 = icmp eq ptr %.pr373, null
   br i1 %.not.i.i132, label %_ZN5arrow6ResultIbED2Ev.exit133, label %233, !prof !874

@@ -2834,7 +2834,7 @@ _ZSt5mergeIPiS0_S0_ET1_T_S2_T0_S3_S1_.exit.i:     ; preds = %390, %_ZSt4copyIPiS
   br i1 %exitcond.not.i93, label %_ZN4absl24synchronization_internalL7ReorderEPNS0_11GraphCycles3RepE.exit, label %395, !llvm.loop !58
 
 _ZN4absl24synchronization_internalL7ReorderEPNS0_11GraphCycles3RepE.exit: ; preds = %.lr.ph, %395, %_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet5eraseEi.exit70, %_ZSt5mergeIPiS0_S0_ET1_T_S2_T0_S3_S1_.exit.i, %32, %29, %27, %3
-  %.0 = phi i1 [ false, %27 ], [ true, %3 ], [ true, %29 ], [ true, %32 ], [ true, %_ZSt5mergeIPiS0_S0_ET1_T_S2_T0_S3_S1_.exit.i ], [ false, %_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet5eraseEi.exit70 ], [ true, %395 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ false, %27 ], [ true, %3 ], [ true, %29 ], [ false, %_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet5eraseEi.exit70 ], [ true, %32 ], [ true, %_ZSt5mergeIPiS0_S0_ET1_T_S2_T0_S3_S1_.exit.i ], [ true, %395 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 

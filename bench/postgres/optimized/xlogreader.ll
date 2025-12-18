@@ -1198,15 +1198,15 @@ XLogReadRecordAlloc.exit277.i:                    ; preds = %297, %292, %288, %2
   br i1 %111, label %.thread299.i, label %.thread293.i
 
 .thread299.i:                                     ; preds = %173, %128, %325, %ValidXLogRecord.exit.i, %147, %138
-  %.0218305.i = phi i64 [ %.2220.i, %325 ], [ %123, %ValidXLogRecord.exit.i ], [ %123, %147 ], [ %123, %138 ], [ %123, %128 ], [ %123, %173 ]
-  %.1226304.i = phi ptr [ %301, %325 ], [ %.0.i280.i, %ValidXLogRecord.exit.i ], [ %.0.i280.i, %147 ], [ %.0.i280.i, %138 ], [ %.0.i280.i, %128 ], [ %.0.i280.i, %173 ]
+  %.0218305.i = phi i64 [ %.2220.i, %325 ], [ %123, %ValidXLogRecord.exit.i ], [ %123, %138 ], [ %123, %147 ], [ %123, %128 ], [ %123, %173 ]
+  %.1226304.i = phi ptr [ %301, %325 ], [ %.0.i280.i, %ValidXLogRecord.exit.i ], [ %.0.i280.i, %138 ], [ %.0.i280.i, %147 ], [ %.0.i280.i, %128 ], [ %.0.i280.i, %173 ]
   store i64 %.2210.i, ptr %12, align 8
   store i64 %.0218305.i, ptr %13, align 8
   store i8 1, ptr %5, align 8
   br label %.thread293.i
 
 .thread293.i:                                     ; preds = %67, %34, %.thread299.i, %325, %ValidXLogRecord.exit265.i, %229, %72, %58, %52
-  %.1226298.i = phi ptr [ %301, %325 ], [ %.1226304.i, %.thread299.i ], [ %.0225464.i, %52 ], [ %.0225464.i, %72 ], [ %.0.i280.i, %ValidXLogRecord.exit265.i ], [ %.0.i280.i, %229 ], [ %.0225464.i, %58 ], [ %.0225464.i, %34 ], [ %.0225464.i, %67 ]
+  %.1226298.i = phi ptr [ %301, %325 ], [ %.1226304.i, %.thread299.i ], [ %.0225464.i, %52 ], [ %.0225464.i, %72 ], [ %.0225464.i, %58 ], [ %.0.i280.i, %ValidXLogRecord.exit265.i ], [ %.0.i280.i, %229 ], [ %.0225464.i, %34 ], [ %.0225464.i, %67 ]
   %.not261.i = icmp eq ptr %.1226298.i, null
   br i1 %.not261.i, label %331, label %326
 
@@ -1229,8 +1229,8 @@ XLogReadRecordAlloc.exit277.i:                    ; preds = %297, %292, %288, %2
   store i32 0, ptr %334, align 8
   br label %.sink.split
 
-.sink.split:                                      ; preds = %217, %XLogReadRecordAlloc.exit.i, %122, %321, %324, %8, %224, %331
-  %.0.ph = phi ptr [ null, %8 ], [ null, %331 ], [ null, %224 ], [ %301, %324 ], [ %301, %321 ], [ null, %122 ], [ null, %XLogReadRecordAlloc.exit.i ], [ null, %217 ]
+.sink.split:                                      ; preds = %217, %XLogReadRecordAlloc.exit.i, %122, %321, %324, %224, %331, %8
+  %.0.ph = phi ptr [ null, %224 ], [ null, %122 ], [ %301, %324 ], [ %301, %321 ], [ null, %8 ], [ null, %331 ], [ null, %XLogReadRecordAlloc.exit.i ], [ null, %217 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %335
 
@@ -1623,7 +1623,7 @@ XLogBeginRead.exit47:                             ; preds = %79, %70
   store i64 0, ptr %65, align 8
   br label %86
 
-.thread52:                                        ; preds = %38, %11, %66, %2
+.thread52:                                        ; preds = %11, %38, %66, %2
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 1216
   store i64 0, ptr %83, align 8
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 1232
@@ -2402,7 +2402,7 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr noundef captures(none)
   tail call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %0, ptr noundef nonnull @.str.16, i32 noundef %273, i32 noundef %274)
   br label %.thread324
 
-.thread324:                                       ; preds = %152, %171, %186, %163, %143, %83, %90, %51, %.thread317, %201
+.thread324:                                       ; preds = %143, %163, %186, %171, %83, %152, %90, %51, %.thread317, %201
   %275 = getelementptr inbounds nuw i8, ptr %0, i64 1304
   %276 = load ptr, ptr %275, align 8
   store ptr %276, ptr %4, align 8

@@ -6163,8 +6163,8 @@ _ZNK8FileLine15operatorCompareERKS_.exit.thread:  ; preds = %_ZNKSt6bitsetILm121
   br i1 %.not.i41, label %_ZNSt8_Rb_treeIP6AstVarSt4pairIKS1_St3setI9UnpackRefSt4lessIS5_ESaIS5_EEESt10_Select1stISA_E17AstNodeComparatorSaISA_EE11equal_rangeERS3_.exit, label %.lr.ph.i39, !llvm.loop !209
 
 _ZNSt8_Rb_treeIP6AstVarSt4pairIKS1_St3setI9UnpackRefSt4lessIS5_ESaIS5_EEESt10_Select1stISA_E17AstNodeComparatorSaISA_EE11equal_rangeERS3_.exit: ; preds = %.thread, %_ZNK8FileLine15operatorCompareERKS_.exit.thread, %_ZN12UnpackRefMap6removeEP6AstVar.exit, %_ZNSt8_Rb_treeIP6AstVarSt4pairIKS1_St3setI9UnpackRefSt4lessIS5_ESaIS5_EEESt10_Select1stISA_E17AstNodeComparatorSaISA_EE14_M_lower_boundEPSt13_Rb_tree_nodeISA_EPSt18_Rb_tree_node_baseRS3_.exit.i
-  %.sroa.042.0.i = phi ptr [ %.08.lcssa.i.i, %_ZNSt8_Rb_treeIP6AstVarSt4pairIKS1_St3setI9UnpackRefSt4lessIS5_ESaIS5_EEESt10_Select1stISA_E17AstNodeComparatorSaISA_EE14_M_lower_boundEPSt13_Rb_tree_nodeISA_EPSt18_Rb_tree_node_baseRS3_.exit.i ], [ %22, %_ZN12UnpackRefMap6removeEP6AstVar.exit ], [ %.08.lcssa.i.i, %_ZNK8FileLine15operatorCompareERKS_.exit.thread ], [ %.123.i, %.thread ]
-  %.sroa.3.0.i = phi ptr [ %.02248.i, %_ZNSt8_Rb_treeIP6AstVarSt4pairIKS1_St3setI9UnpackRefSt4lessIS5_ESaIS5_EEESt10_Select1stISA_E17AstNodeComparatorSaISA_EE14_M_lower_boundEPSt13_Rb_tree_nodeISA_EPSt18_Rb_tree_node_baseRS3_.exit.i ], [ %22, %_ZN12UnpackRefMap6removeEP6AstVar.exit ], [ %.19.i33.i, %_ZNK8FileLine15operatorCompareERKS_.exit.thread ], [ %.123.i, %.thread ]
+  %.sroa.042.0.i = phi ptr [ %.08.lcssa.i.i, %_ZNK8FileLine15operatorCompareERKS_.exit.thread ], [ %.08.lcssa.i.i, %_ZNSt8_Rb_treeIP6AstVarSt4pairIKS1_St3setI9UnpackRefSt4lessIS5_ESaIS5_EEESt10_Select1stISA_E17AstNodeComparatorSaISA_EE14_M_lower_boundEPSt13_Rb_tree_nodeISA_EPSt18_Rb_tree_node_baseRS3_.exit.i ], [ %22, %_ZN12UnpackRefMap6removeEP6AstVar.exit ], [ %.123.i, %.thread ]
+  %.sroa.3.0.i = phi ptr [ %.19.i33.i, %_ZNK8FileLine15operatorCompareERKS_.exit.thread ], [ %.02248.i, %_ZNSt8_Rb_treeIP6AstVarSt4pairIKS1_St3setI9UnpackRefSt4lessIS5_ESaIS5_EEESt10_Select1stISA_E17AstNodeComparatorSaISA_EE14_M_lower_boundEPSt13_Rb_tree_nodeISA_EPSt18_Rb_tree_node_baseRS3_.exit.i ], [ %22, %_ZN12UnpackRefMap6removeEP6AstVar.exit ], [ %.123.i, %.thread ]
   %631 = load ptr, ptr %23, align 8, !tbaa !48
   %632 = icmp eq ptr %.sroa.042.0.i, %631
   %633 = icmp eq ptr %.sroa.3.0.i, %22
@@ -6829,7 +6829,7 @@ _ZN12SplitVarImpl30cannotSplitConnectedPortReasonEPK6AstPin.exit.thread.fold.spl
   br label %_ZN12SplitVarImpl30cannotSplitConnectedPortReasonEPK6AstPin.exit.thread
 
 _ZN12SplitVarImpl30cannotSplitConnectedPortReasonEPK6AstPin.exit.thread: ; preds = %67, %_ZN12SplitVarImpl30cannotSplitConnectedPortReasonEPK6AstPin.exit.thread.fold.split, %_ZNSt3setIP6AstVar17AstNodeComparatorSaIS1_EE5clearEv.exit
-  %.0.i37 = phi ptr [ @.str.522, %_ZNSt3setIP6AstVar17AstNodeComparatorSaIS1_EE5clearEv.exit ], [ @.str.15, %67 ], [ @.str.16, %_ZN12SplitVarImpl30cannotSplitConnectedPortReasonEPK6AstPin.exit.thread.fold.split ]
+  %.0.i37 = phi ptr [ @.str.15, %67 ], [ @.str.522, %_ZNSt3setIP6AstVar17AstNodeComparatorSaIS1_EE5clearEv.exit ], [ @.str.16, %_ZN12SplitVarImpl30cannotSplitConnectedPortReasonEPK6AstPin.exit.thread.fold.split ]
   %69 = load ptr, ptr %59, align 8, !tbaa !48
   %.not3940 = icmp eq ptr %69, %58
   br i1 %.not3940, label %._crit_edge, label %.lr.ph
@@ -10936,8 +10936,8 @@ _ZNSt8_Rb_treeIP6AstVarSt4pairIKS1_St3setI9UnpackRefSt4lessIS5_ESaIS5_EEESt10_Se
   br i1 %.not, label %_ZNSt8_Rb_treeIP6AstVarSt4pairIKS1_St3setI9UnpackRefSt4lessIS5_ESaIS5_EEESt10_Select1stISA_E17AstNodeComparatorSaISA_EE14_M_upper_boundEPSt13_Rb_tree_nodeISA_EPSt18_Rb_tree_node_baseRS3_.exit, label %.lr.ph, !llvm.loop !209
 
 _ZNSt8_Rb_treeIP6AstVarSt4pairIKS1_St3setI9UnpackRefSt4lessIS5_ESaIS5_EEESt10_Select1stISA_E17AstNodeComparatorSaISA_EE14_M_upper_boundEPSt13_Rb_tree_nodeISA_EPSt18_Rb_tree_node_baseRS3_.exit: ; preds = %50, %.lr.ph.i28, %2, %_ZNSt8_Rb_treeIP6AstVarSt4pairIKS1_St3setI9UnpackRefSt4lessIS5_ESaIS5_EEESt10_Select1stISA_E17AstNodeComparatorSaISA_EE14_M_lower_boundEPSt13_Rb_tree_nodeISA_EPSt18_Rb_tree_node_baseRS3_.exit
-  %.sroa.042.0 = phi ptr [ %.08.lcssa.i, %_ZNSt8_Rb_treeIP6AstVarSt4pairIKS1_St3setI9UnpackRefSt4lessIS5_ESaIS5_EEESt10_Select1stISA_E17AstNodeComparatorSaISA_EE14_M_lower_boundEPSt13_Rb_tree_nodeISA_EPSt18_Rb_tree_node_baseRS3_.exit ], [ %4, %2 ], [ %.08.lcssa.i, %.lr.ph.i28 ], [ %.123, %50 ]
-  %.sroa.3.0 = phi ptr [ %.02248, %_ZNSt8_Rb_treeIP6AstVarSt4pairIKS1_St3setI9UnpackRefSt4lessIS5_ESaIS5_EEESt10_Select1stISA_E17AstNodeComparatorSaISA_EE14_M_lower_boundEPSt13_Rb_tree_nodeISA_EPSt18_Rb_tree_node_baseRS3_.exit ], [ %4, %2 ], [ %.19.i33, %.lr.ph.i28 ], [ %.123, %50 ]
+  %.sroa.042.0 = phi ptr [ %.08.lcssa.i, %.lr.ph.i28 ], [ %.08.lcssa.i, %_ZNSt8_Rb_treeIP6AstVarSt4pairIKS1_St3setI9UnpackRefSt4lessIS5_ESaIS5_EEESt10_Select1stISA_E17AstNodeComparatorSaISA_EE14_M_lower_boundEPSt13_Rb_tree_nodeISA_EPSt18_Rb_tree_node_baseRS3_.exit ], [ %4, %2 ], [ %.123, %50 ]
+  %.sroa.3.0 = phi ptr [ %.19.i33, %.lr.ph.i28 ], [ %.02248, %_ZNSt8_Rb_treeIP6AstVarSt4pairIKS1_St3setI9UnpackRefSt4lessIS5_ESaIS5_EEESt10_Select1stISA_E17AstNodeComparatorSaISA_EE14_M_lower_boundEPSt13_Rb_tree_nodeISA_EPSt18_Rb_tree_node_baseRS3_.exit ], [ %4, %2 ], [ %.123, %50 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.042.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.3.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -15328,8 +15328,8 @@ _ZN23SplitUnpackedVarVisitor20setContextAndIterateEP7AstNodeS1_.exit.us95: ; pre
   br i1 %.not.i.i, label %103, label %.noexc
 
 .noexc:                                           ; preds = %96, %67, %27
-  %.us-phi80 = phi i64 [ %73, %67 ], [ %33, %27 ], [ %102, %96 ]
-  %.us-phi81 = phi i64 [ %.078.us91, %67 ], [ %.078.us, %27 ], [ %.078, %96 ]
+  %.us-phi80 = phi i64 [ %33, %27 ], [ %73, %67 ], [ %102, %96 ]
+  %.us-phi81 = phi i64 [ %.078.us, %27 ], [ %.078.us91, %67 ], [ %.078, %96 ]
   call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.477, i64 noundef %.us-phi81, i64 noundef %.us-phi80) #28
   unreachable
 
@@ -19023,8 +19023,8 @@ _ZNSt8_Rb_treeIP6AstSelS1_St9_IdentityIS1_E17AstNodeComparatorSaIS1_EE14_M_lower
   br i1 %.not, label %_ZNSt8_Rb_treeIP6AstSelS1_St9_IdentityIS1_E17AstNodeComparatorSaIS1_EE14_M_upper_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit, label %.lr.ph, !llvm.loop !457
 
 _ZNSt8_Rb_treeIP6AstSelS1_St9_IdentityIS1_E17AstNodeComparatorSaIS1_EE14_M_upper_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit: ; preds = %50, %.lr.ph.i28, %2, %_ZNSt8_Rb_treeIP6AstSelS1_St9_IdentityIS1_E17AstNodeComparatorSaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit
-  %.sroa.042.0 = phi ptr [ %.08.lcssa.i, %_ZNSt8_Rb_treeIP6AstSelS1_St9_IdentityIS1_E17AstNodeComparatorSaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit ], [ %4, %2 ], [ %.08.lcssa.i, %.lr.ph.i28 ], [ %.123, %50 ]
-  %.sroa.3.0 = phi ptr [ %.02248, %_ZNSt8_Rb_treeIP6AstSelS1_St9_IdentityIS1_E17AstNodeComparatorSaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit ], [ %4, %2 ], [ %.19.i33, %.lr.ph.i28 ], [ %.123, %50 ]
+  %.sroa.042.0 = phi ptr [ %.08.lcssa.i, %.lr.ph.i28 ], [ %.08.lcssa.i, %_ZNSt8_Rb_treeIP6AstSelS1_St9_IdentityIS1_E17AstNodeComparatorSaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit ], [ %4, %2 ], [ %.123, %50 ]
+  %.sroa.3.0 = phi ptr [ %.19.i33, %.lr.ph.i28 ], [ %.02248, %_ZNSt8_Rb_treeIP6AstSelS1_St9_IdentityIS1_E17AstNodeComparatorSaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit ], [ %4, %2 ], [ %.123, %50 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.042.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.3.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -19218,8 +19218,8 @@ _ZNSt8_Rb_treeIP6AstVarS1_St9_IdentityIS1_E17AstNodeComparatorSaIS1_EE14_M_lower
   br i1 %.not, label %_ZNSt8_Rb_treeIP6AstVarS1_St9_IdentityIS1_E17AstNodeComparatorSaIS1_EE14_M_upper_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit, label %.lr.ph, !llvm.loop !462
 
 _ZNSt8_Rb_treeIP6AstVarS1_St9_IdentityIS1_E17AstNodeComparatorSaIS1_EE14_M_upper_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit: ; preds = %50, %.lr.ph.i28, %2, %_ZNSt8_Rb_treeIP6AstVarS1_St9_IdentityIS1_E17AstNodeComparatorSaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit
-  %.sroa.042.0 = phi ptr [ %.08.lcssa.i, %_ZNSt8_Rb_treeIP6AstVarS1_St9_IdentityIS1_E17AstNodeComparatorSaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit ], [ %4, %2 ], [ %.08.lcssa.i, %.lr.ph.i28 ], [ %.123, %50 ]
-  %.sroa.3.0 = phi ptr [ %.02248, %_ZNSt8_Rb_treeIP6AstVarS1_St9_IdentityIS1_E17AstNodeComparatorSaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit ], [ %4, %2 ], [ %.19.i33, %.lr.ph.i28 ], [ %.123, %50 ]
+  %.sroa.042.0 = phi ptr [ %.08.lcssa.i, %.lr.ph.i28 ], [ %.08.lcssa.i, %_ZNSt8_Rb_treeIP6AstVarS1_St9_IdentityIS1_E17AstNodeComparatorSaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit ], [ %4, %2 ], [ %.123, %50 ]
+  %.sroa.3.0 = phi ptr [ %.19.i33, %.lr.ph.i28 ], [ %.02248, %_ZNSt8_Rb_treeIP6AstVarS1_St9_IdentityIS1_E17AstNodeComparatorSaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit ], [ %4, %2 ], [ %.123, %50 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.042.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.3.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -19393,8 +19393,8 @@ _ZNSt8_Rb_treeIP9AstVarRefS1_St9_IdentityIS1_E17AstNodeComparatorSaIS1_EE14_M_lo
   br i1 %.not, label %_ZNSt8_Rb_treeIP9AstVarRefS1_St9_IdentityIS1_E17AstNodeComparatorSaIS1_EE14_M_upper_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit, label %.lr.ph, !llvm.loop !466
 
 _ZNSt8_Rb_treeIP9AstVarRefS1_St9_IdentityIS1_E17AstNodeComparatorSaIS1_EE14_M_upper_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit: ; preds = %50, %.lr.ph.i28, %2, %_ZNSt8_Rb_treeIP9AstVarRefS1_St9_IdentityIS1_E17AstNodeComparatorSaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit
-  %.sroa.042.0 = phi ptr [ %.08.lcssa.i, %_ZNSt8_Rb_treeIP9AstVarRefS1_St9_IdentityIS1_E17AstNodeComparatorSaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit ], [ %4, %2 ], [ %.08.lcssa.i, %.lr.ph.i28 ], [ %.123, %50 ]
-  %.sroa.3.0 = phi ptr [ %.02248, %_ZNSt8_Rb_treeIP9AstVarRefS1_St9_IdentityIS1_E17AstNodeComparatorSaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit ], [ %4, %2 ], [ %.19.i33, %.lr.ph.i28 ], [ %.123, %50 ]
+  %.sroa.042.0 = phi ptr [ %.08.lcssa.i, %.lr.ph.i28 ], [ %.08.lcssa.i, %_ZNSt8_Rb_treeIP9AstVarRefS1_St9_IdentityIS1_E17AstNodeComparatorSaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit ], [ %4, %2 ], [ %.123, %50 ]
+  %.sroa.3.0 = phi ptr [ %.19.i33, %.lr.ph.i28 ], [ %.02248, %_ZNSt8_Rb_treeIP9AstVarRefS1_St9_IdentityIS1_E17AstNodeComparatorSaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit ], [ %4, %2 ], [ %.123, %50 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.042.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.3.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -25669,9 +25669,9 @@ _ZNSt6vectorI11SplitNewVarSaIS0_EE12emplace_backIJS0_EEERS0_DpOT_.exit: ; preds 
   br label %.thread
 
 344:                                              ; preds = %.loopexit285, %.loopexit.split-lp286, %.loopexit280, %.loopexit.split-lp281, %143, %280, %282, %232, %230, %180
-  %.sroa.48.1 = phi ptr [ %.sroa.48.12, %232 ], [ %.sroa.26.0321, %.loopexit.split-lp281 ], [ %.sroa.48.0.lcssa, %230 ], [ %.sroa.48.3, %143 ], [ %.sroa.48.0.lcssa, %280 ], [ %.sroa.48.14, %282 ], [ %.sroa.48.0.lcssa, %180 ], [ %.sroa.26.0321, %.loopexit280 ], [ %.sroa.48.10, %.loopexit285 ], [ %.sroa.48.10, %.loopexit.split-lp286 ]
-  %.sroa.0227.1 = phi ptr [ %.sroa.0227.12, %232 ], [ %.sroa.0227.0322, %.loopexit.split-lp281 ], [ %.sroa.0227.0.lcssa, %230 ], [ %.sroa.0227.3, %143 ], [ %.sroa.0227.0.lcssa, %280 ], [ %.sroa.0227.14, %282 ], [ %.sroa.0227.0.lcssa, %180 ], [ %.sroa.0227.0322, %.loopexit280 ], [ %.sroa.0227.10, %.loopexit285 ], [ %.sroa.0227.10, %.loopexit.split-lp286 ]
-  %.pn48.pn = phi { ptr, i32 } [ %233, %232 ], [ %lpad.loopexit.split-lp283, %.loopexit.split-lp281 ], [ %231, %230 ], [ %144, %143 ], [ %281, %280 ], [ %283, %282 ], [ %181, %180 ], [ %lpad.loopexit282, %.loopexit280 ], [ %lpad.loopexit287, %.loopexit285 ], [ %lpad.loopexit.split-lp288, %.loopexit.split-lp286 ]
+  %.sroa.48.1 = phi ptr [ %.sroa.48.0.lcssa, %180 ], [ %.sroa.26.0321, %.loopexit.split-lp281 ], [ %.sroa.48.14, %282 ], [ %.sroa.48.12, %232 ], [ %.sroa.48.0.lcssa, %230 ], [ %.sroa.48.3, %143 ], [ %.sroa.48.0.lcssa, %280 ], [ %.sroa.26.0321, %.loopexit280 ], [ %.sroa.48.10, %.loopexit285 ], [ %.sroa.48.10, %.loopexit.split-lp286 ]
+  %.sroa.0227.1 = phi ptr [ %.sroa.0227.0.lcssa, %180 ], [ %.sroa.0227.0322, %.loopexit.split-lp281 ], [ %.sroa.0227.14, %282 ], [ %.sroa.0227.12, %232 ], [ %.sroa.0227.0.lcssa, %230 ], [ %.sroa.0227.3, %143 ], [ %.sroa.0227.0.lcssa, %280 ], [ %.sroa.0227.0322, %.loopexit280 ], [ %.sroa.0227.10, %.loopexit285 ], [ %.sroa.0227.10, %.loopexit.split-lp286 ]
+  %.pn48.pn = phi { ptr, i32 } [ %181, %180 ], [ %lpad.loopexit.split-lp283, %.loopexit.split-lp281 ], [ %283, %282 ], [ %233, %232 ], [ %231, %230 ], [ %144, %143 ], [ %281, %280 ], [ %lpad.loopexit282, %.loopexit280 ], [ %lpad.loopexit287, %.loopexit285 ], [ %lpad.loopexit.split-lp288, %.loopexit.split-lp286 ]
   %.not.i.i.i170 = icmp eq ptr %.sroa.0227.1, null
   br i1 %.not.i.i.i170, label %_ZNSt6vectorISt4pairIibESaIS1_EED2Ev.exit171, label %..thread_crit_edge
 
@@ -31098,8 +31098,8 @@ _ZNSt8_Rb_treeIP6AstVarSt4pairIKS1_12PackedVarRefESt10_Select1stIS5_E17AstNodeCo
   br i1 %.not, label %_ZNSt8_Rb_treeIP6AstVarSt4pairIKS1_12PackedVarRefESt10_Select1stIS5_E17AstNodeComparatorSaIS5_EE14_M_upper_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS3_.exit, label %.lr.ph, !llvm.loop !664
 
 _ZNSt8_Rb_treeIP6AstVarSt4pairIKS1_12PackedVarRefESt10_Select1stIS5_E17AstNodeComparatorSaIS5_EE14_M_upper_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS3_.exit: ; preds = %50, %.lr.ph.i28, %2, %_ZNSt8_Rb_treeIP6AstVarSt4pairIKS1_12PackedVarRefESt10_Select1stIS5_E17AstNodeComparatorSaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS3_.exit
-  %.sroa.042.0 = phi ptr [ %.08.lcssa.i, %_ZNSt8_Rb_treeIP6AstVarSt4pairIKS1_12PackedVarRefESt10_Select1stIS5_E17AstNodeComparatorSaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS3_.exit ], [ %4, %2 ], [ %.08.lcssa.i, %.lr.ph.i28 ], [ %.123, %50 ]
-  %.sroa.3.0 = phi ptr [ %.02248, %_ZNSt8_Rb_treeIP6AstVarSt4pairIKS1_12PackedVarRefESt10_Select1stIS5_E17AstNodeComparatorSaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS3_.exit ], [ %4, %2 ], [ %.19.i33, %.lr.ph.i28 ], [ %.123, %50 ]
+  %.sroa.042.0 = phi ptr [ %.08.lcssa.i, %.lr.ph.i28 ], [ %.08.lcssa.i, %_ZNSt8_Rb_treeIP6AstVarSt4pairIKS1_12PackedVarRefESt10_Select1stIS5_E17AstNodeComparatorSaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS3_.exit ], [ %4, %2 ], [ %.123, %50 ]
+  %.sroa.3.0 = phi ptr [ %.19.i33, %.lr.ph.i28 ], [ %.02248, %_ZNSt8_Rb_treeIP6AstVarSt4pairIKS1_12PackedVarRefESt10_Select1stIS5_E17AstNodeComparatorSaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS3_.exit ], [ %4, %2 ], [ %.123, %50 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.042.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.3.0, 1
   ret { ptr, ptr } %.fca.1.insert

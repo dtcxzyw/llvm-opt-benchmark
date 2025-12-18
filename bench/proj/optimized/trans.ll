@@ -115,7 +115,7 @@ define hidden noundef i32 @_Z26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16P
 45:                                               ; preds = %41
   %46 = load ptr, ptr %1, align 8, !tbaa !9
   %47 = getelementptr inbounds nuw %struct.PJCoordOperation, ptr %46, i64 %indvars.iv
-  br i1 %19, label %48, label %145
+  br i1 %19, label %48, label %144
 
 48:                                               ; preds = %45
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 168
@@ -123,7 +123,7 @@ define hidden noundef i32 @_Z26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16P
   %.not113 = icmp eq ptr %50, null
   %51 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %52 = load double, ptr %51, align 8, !tbaa !21
-  br i1 %.not113, label %87, label %53
+  br i1 %.not113, label %86, label %53
 
 53:                                               ; preds = %48
   %54 = fcmp oeq double %52, -1.800000e+02
@@ -155,205 +155,205 @@ define hidden noundef i32 @_Z26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16P
   %70 = load double, ptr %7, align 8, !tbaa !26
   %71 = load double, ptr %51, align 8, !tbaa !21
   %72 = fcmp ult double %70, %71
-  br i1 %72, label %.thread130, label %73
+  br i1 %72, label %.thread, label %73
 
 73:                                               ; preds = %67
   %74 = load double, ptr %36, align 8, !tbaa !26
   %75 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %76 = load double, ptr %75, align 8, !tbaa !22
   %77 = fcmp ult double %74, %76
-  br i1 %77, label %.thread130, label %78
+  br i1 %77, label %.thread, label %78
 
 78:                                               ; preds = %73
   %79 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %80 = load double, ptr %79, align 8, !tbaa !23
   %81 = fcmp ugt double %70, %80
-  br i1 %81, label %.thread130, label %82
+  br i1 %81, label %.thread, label %82
 
 82:                                               ; preds = %78
   %83 = getelementptr inbounds nuw i8, ptr %47, i64 32
   %84 = load double, ptr %83, align 8, !tbaa !24
   %85 = fcmp ugt double %74, %84
-  br i1 %85, label %.thread130, label %86
+  br i1 %85, label %.thread, label %241
 
-.thread130:                                       ; preds = %82, %78, %73, %67
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %.critedge
+86:                                               ; preds = %48
+  %87 = fcmp oge double %21, %52
+  br i1 %87, label %88, label %100
 
-86:                                               ; preds = %82
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %.critedge115
+88:                                               ; preds = %86
+  %89 = getelementptr inbounds nuw i8, ptr %47, i64 16
+  %90 = load double, ptr %89, align 8, !tbaa !22
+  %91 = fcmp ult double %23, %90
+  br i1 %91, label %100, label %92
 
-87:                                               ; preds = %48
-  %88 = fcmp oge double %21, %52
-  br i1 %88, label %89, label %101
+92:                                               ; preds = %88
+  %93 = getelementptr inbounds nuw i8, ptr %47, i64 24
+  %94 = load double, ptr %93, align 8, !tbaa !23
+  %95 = fcmp ugt double %21, %94
+  br i1 %95, label %100, label %96
 
-89:                                               ; preds = %87
-  %90 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  %91 = load double, ptr %90, align 8, !tbaa !22
-  %92 = fcmp ult double %23, %91
-  br i1 %92, label %101, label %93
+96:                                               ; preds = %92
+  %97 = getelementptr inbounds nuw i8, ptr %47, i64 32
+  %98 = load double, ptr %97, align 8, !tbaa !24
+  %99 = fcmp ugt double %23, %98
+  br i1 %99, label %100, label %.critedge115
 
-93:                                               ; preds = %89
-  %94 = getelementptr inbounds nuw i8, ptr %47, i64 24
-  %95 = load double, ptr %94, align 8, !tbaa !23
-  %96 = fcmp ugt double %21, %95
-  br i1 %96, label %101, label %97
+100:                                              ; preds = %96, %92, %88, %86
+  %101 = getelementptr inbounds nuw i8, ptr %47, i64 163
+  %102 = load i8, ptr %101, align 1, !tbaa !27, !range !28, !noundef !29
+  %103 = trunc nuw i8 %102 to i1
+  br i1 %103, label %104, label %123
 
-97:                                               ; preds = %93
-  %98 = getelementptr inbounds nuw i8, ptr %47, i64 32
-  %99 = load double, ptr %98, align 8, !tbaa !24
-  %100 = fcmp ugt double %23, %99
-  br i1 %100, label %101, label %.critedge115
+104:                                              ; preds = %100
+  %105 = getelementptr inbounds nuw i8, ptr %47, i64 16
+  %106 = load double, ptr %105, align 8, !tbaa !22
+  %107 = fcmp ult double %23, %106
+  br i1 %107, label %123, label %108
 
-101:                                              ; preds = %97, %93, %89, %87
-  %102 = getelementptr inbounds nuw i8, ptr %47, i64 163
-  %103 = load i8, ptr %102, align 1, !tbaa !27, !range !28, !noundef !29
-  %104 = trunc nuw i8 %103 to i1
-  br i1 %104, label %105, label %124
+108:                                              ; preds = %104
+  %109 = getelementptr inbounds nuw i8, ptr %47, i64 32
+  %110 = load double, ptr %109, align 8, !tbaa !24
+  %111 = fcmp ugt double %23, %110
+  br i1 %111, label %123, label %112
 
-105:                                              ; preds = %101
-  %106 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  %107 = load double, ptr %106, align 8, !tbaa !22
-  %108 = fcmp ult double %23, %107
-  br i1 %108, label %124, label %109
+112:                                              ; preds = %108
+  br i1 %24, label %113, label %114
 
-109:                                              ; preds = %105
-  %110 = getelementptr inbounds nuw i8, ptr %47, i64 32
-  %111 = load double, ptr %110, align 8, !tbaa !24
-  %112 = fcmp ugt double %23, %111
-  br i1 %112, label %124, label %113
-
-113:                                              ; preds = %109
-  br i1 %24, label %114, label %115
-
-114:                                              ; preds = %113
+113:                                              ; preds = %112
   br i1 %29, label %.sink.split.i, label %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit"
 
-115:                                              ; preds = %113
+114:                                              ; preds = %112
   br i1 %brmerge, label %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit", label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %115, %114
-  %.sink.i = phi double [ %28, %114 ], [ %26, %115 ]
-  %116 = fadd double %.sink.i, 1.800000e+02
-  %117 = call double @fmod(double noundef %116, double noundef 3.600000e+02) #17, !tbaa !10
-  %118 = fadd double %117, -1.800000e+02
+.sink.split.i:                                    ; preds = %114, %113
+  %.sink.i = phi double [ %28, %113 ], [ %26, %114 ]
+  %115 = fadd double %.sink.i, 1.800000e+02
+  %116 = call double @fmod(double noundef %115, double noundef 3.600000e+02) #17, !tbaa !10
+  %117 = fadd double %116, -1.800000e+02
   br label %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit"
 
-"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit": ; preds = %115, %114, %.sink.split.i
-  %.0.i = phi double [ %118, %.sink.split.i ], [ %28, %114 ], [ %.mux, %115 ]
-  %119 = fcmp ult double %.0.i, %52
-  br i1 %119, label %.critedge, label %120
+"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit": ; preds = %114, %113, %.sink.split.i
+  %.0.i = phi double [ %117, %.sink.split.i ], [ %28, %113 ], [ %.mux, %114 ]
+  %118 = fcmp ult double %.0.i, %52
+  br i1 %118, label %.critedge, label %119
 
-120:                                              ; preds = %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit"
-  %121 = getelementptr inbounds nuw i8, ptr %47, i64 24
-  %122 = load double, ptr %121, align 8, !tbaa !23
-  %123 = fcmp ugt double %.0.i, %122
-  br i1 %123, label %.critedge, label %.critedge115
+119:                                              ; preds = %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit"
+  %120 = getelementptr inbounds nuw i8, ptr %47, i64 24
+  %121 = load double, ptr %120, align 8, !tbaa !23
+  %122 = fcmp ugt double %.0.i, %121
+  br i1 %122, label %.critedge, label %.critedge115
 
-124:                                              ; preds = %109, %105, %101
-  %125 = getelementptr inbounds nuw i8, ptr %47, i64 164
-  %126 = load i8, ptr %125, align 4, !tbaa !30, !range !28, !noundef !29
-  %127 = trunc nuw i8 %126 to i1
-  %brmerge.not = and i1 %88, %127
-  br i1 %brmerge.not, label %128, label %.critedge
+123:                                              ; preds = %108, %104, %100
+  %124 = getelementptr inbounds nuw i8, ptr %47, i64 164
+  %125 = load i8, ptr %124, align 4, !tbaa !30, !range !28, !noundef !29
+  %126 = trunc nuw i8 %125 to i1
+  %brmerge.not = and i1 %87, %126
+  br i1 %brmerge.not, label %127, label %.critedge
 
-128:                                              ; preds = %124
-  %129 = getelementptr inbounds nuw i8, ptr %47, i64 24
-  %130 = load double, ptr %129, align 8, !tbaa !23
-  %131 = fcmp ugt double %21, %130
-  br i1 %131, label %.critedge, label %132
+127:                                              ; preds = %123
+  %128 = getelementptr inbounds nuw i8, ptr %47, i64 24
+  %129 = load double, ptr %128, align 8, !tbaa !23
+  %130 = fcmp ugt double %21, %129
+  br i1 %130, label %.critedge, label %131
 
-132:                                              ; preds = %128
-  br i1 %30, label %133, label %134
+131:                                              ; preds = %127
+  br i1 %30, label %132, label %133
 
-133:                                              ; preds = %132
+132:                                              ; preds = %131
   br i1 %35, label %.sink.split.i117, label %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit119"
 
-134:                                              ; preds = %132
+133:                                              ; preds = %131
   br i1 %brmerge145, label %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit119", label %.sink.split.i117
 
-.sink.split.i117:                                 ; preds = %134, %133
-  %.sink.i118 = phi double [ %34, %133 ], [ %32, %134 ]
-  %135 = fadd double %.sink.i118, 1.800000e+02
-  %136 = call double @fmod(double noundef %135, double noundef 3.600000e+02) #17, !tbaa !10
-  %137 = fadd double %136, -1.800000e+02
+.sink.split.i117:                                 ; preds = %133, %132
+  %.sink.i118 = phi double [ %34, %132 ], [ %32, %133 ]
+  %134 = fadd double %.sink.i118, 1.800000e+02
+  %135 = call double @fmod(double noundef %134, double noundef 3.600000e+02) #17, !tbaa !10
+  %136 = fadd double %135, -1.800000e+02
   br label %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit119"
 
-"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit119": ; preds = %134, %133, %.sink.split.i117
-  %.0.i116 = phi double [ %137, %.sink.split.i117 ], [ %34, %133 ], [ %.mux146, %134 ]
-  %138 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  %139 = load double, ptr %138, align 8, !tbaa !22
-  %140 = fcmp ult double %.0.i116, %139
-  br i1 %140, label %.critedge, label %141
+"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit119": ; preds = %133, %132, %.sink.split.i117
+  %.0.i116 = phi double [ %136, %.sink.split.i117 ], [ %34, %132 ], [ %.mux146, %133 ]
+  %137 = getelementptr inbounds nuw i8, ptr %47, i64 16
+  %138 = load double, ptr %137, align 8, !tbaa !22
+  %139 = fcmp ult double %.0.i116, %138
+  br i1 %139, label %.critedge, label %140
 
-141:                                              ; preds = %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit119"
-  %142 = getelementptr inbounds nuw i8, ptr %47, i64 32
-  %143 = load double, ptr %142, align 8, !tbaa !24
-  %144 = fcmp ugt double %.0.i116, %143
-  br i1 %144, label %.critedge, label %.critedge115
+140:                                              ; preds = %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit119"
+  %141 = getelementptr inbounds nuw i8, ptr %47, i64 32
+  %142 = load double, ptr %141, align 8, !tbaa !24
+  %143 = fcmp ugt double %.0.i116, %142
+  br i1 %143, label %.critedge, label %.critedge115
 
-145:                                              ; preds = %45
-  %146 = getelementptr inbounds nuw i8, ptr %47, i64 176
-  %147 = load ptr, ptr %146, align 8, !tbaa !31
-  %.not = icmp eq ptr %147, null
-  %148 = getelementptr inbounds nuw i8, ptr %47, i64 40
-  %149 = load double, ptr %148, align 8, !tbaa !32
-  br i1 %.not, label %183, label %150
+144:                                              ; preds = %45
+  %145 = getelementptr inbounds nuw i8, ptr %47, i64 176
+  %146 = load ptr, ptr %145, align 8, !tbaa !31
+  %.not = icmp eq ptr %146, null
+  %147 = getelementptr inbounds nuw i8, ptr %47, i64 40
+  %148 = load double, ptr %147, align 8, !tbaa !32
+  br i1 %.not, label %183, label %149
 
-150:                                              ; preds = %145
-  %151 = fcmp oeq double %149, -1.800000e+02
-  br i1 %151, label %152, label %164
+149:                                              ; preds = %144
+  %150 = fcmp oeq double %148, -1.800000e+02
+  br i1 %150, label %151, label %163
 
-152:                                              ; preds = %150
-  %153 = getelementptr inbounds nuw i8, ptr %47, i64 48
-  %154 = load double, ptr %153, align 8, !tbaa !33
-  %155 = fcmp oeq double %154, -9.000000e+01
-  br i1 %155, label %156, label %164
+151:                                              ; preds = %149
+  %152 = getelementptr inbounds nuw i8, ptr %47, i64 48
+  %153 = load double, ptr %152, align 8, !tbaa !33
+  %154 = fcmp oeq double %153, -9.000000e+01
+  br i1 %154, label %155, label %163
 
-156:                                              ; preds = %152
-  %157 = getelementptr inbounds nuw i8, ptr %47, i64 56
-  %158 = load double, ptr %157, align 8, !tbaa !34
-  %159 = fcmp oeq double %158, 1.800000e+02
-  br i1 %159, label %160, label %164
+155:                                              ; preds = %151
+  %156 = getelementptr inbounds nuw i8, ptr %47, i64 56
+  %157 = load double, ptr %156, align 8, !tbaa !34
+  %158 = fcmp oeq double %157, 1.800000e+02
+  br i1 %158, label %159, label %163
 
-160:                                              ; preds = %156
-  %161 = getelementptr inbounds nuw i8, ptr %47, i64 64
-  %162 = load double, ptr %161, align 8, !tbaa !35
-  %163 = fcmp oeq double %162, 9.000000e+01
-  br i1 %163, label %.critedge115, label %164
+159:                                              ; preds = %155
+  %160 = getelementptr inbounds nuw i8, ptr %47, i64 64
+  %161 = load double, ptr %160, align 8, !tbaa !35
+  %162 = fcmp oeq double %161, 9.000000e+01
+  br i1 %162, label %.critedge115, label %163
 
-164:                                              ; preds = %160, %156, %152, %150
+163:                                              ; preds = %159, %155, %151, %149
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !tbaa.struct !25
-  %165 = load ptr, ptr %146, align 8, !tbaa !31
-  %166 = call noundef zeroext i1 @_Z8pj_fwd4dR8PJ_COORDP8PJconsts(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef %165)
-  %167 = load double, ptr %8, align 8, !tbaa !26
-  %168 = load double, ptr %148, align 8, !tbaa !32
-  %169 = fcmp ult double %167, %168
-  br i1 %169, label %.thread, label %170
+  %164 = load ptr, ptr %145, align 8, !tbaa !31
+  %165 = call noundef zeroext i1 @_Z8pj_fwd4dR8PJ_COORDP8PJconsts(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef %164)
+  %166 = load double, ptr %8, align 8, !tbaa !26
+  %167 = load double, ptr %147, align 8, !tbaa !32
+  %168 = fcmp ult double %166, %167
+  br i1 %168, label %.thread130, label %169
 
-170:                                              ; preds = %164
-  %171 = load double, ptr %20, align 8, !tbaa !26
-  %172 = getelementptr inbounds nuw i8, ptr %47, i64 48
-  %173 = load double, ptr %172, align 8, !tbaa !33
-  %174 = fcmp ult double %171, %173
-  br i1 %174, label %.thread, label %175
+169:                                              ; preds = %163
+  %170 = load double, ptr %20, align 8, !tbaa !26
+  %171 = getelementptr inbounds nuw i8, ptr %47, i64 48
+  %172 = load double, ptr %171, align 8, !tbaa !33
+  %173 = fcmp ult double %170, %172
+  br i1 %173, label %.thread130, label %174
 
-175:                                              ; preds = %170
-  %176 = getelementptr inbounds nuw i8, ptr %47, i64 56
-  %177 = load double, ptr %176, align 8, !tbaa !34
-  %178 = fcmp ugt double %167, %177
-  br i1 %178, label %.thread, label %179
+174:                                              ; preds = %169
+  %175 = getelementptr inbounds nuw i8, ptr %47, i64 56
+  %176 = load double, ptr %175, align 8, !tbaa !34
+  %177 = fcmp ugt double %166, %176
+  br i1 %177, label %.thread130, label %178
 
-179:                                              ; preds = %175
-  %180 = getelementptr inbounds nuw i8, ptr %47, i64 64
-  %181 = load double, ptr %180, align 8, !tbaa !35
-  %182 = fcmp ugt double %171, %181
-  br i1 %182, label %.thread, label %241
+178:                                              ; preds = %174
+  %179 = getelementptr inbounds nuw i8, ptr %47, i64 64
+  %180 = load double, ptr %179, align 8, !tbaa !35
+  %181 = fcmp ugt double %170, %180
+  br i1 %181, label %.thread130, label %182
 
-183:                                              ; preds = %145
-  %184 = fcmp oge double %21, %149
+.thread130:                                       ; preds = %178, %174, %169, %163
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  br label %.critedge
+
+182:                                              ; preds = %178
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  br label %.critedge115
+
+183:                                              ; preds = %144
+  %184 = fcmp oge double %21, %148
   br i1 %184, label %185, label %197
 
 185:                                              ; preds = %183
@@ -410,7 +410,7 @@ define hidden noundef i32 @_Z26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16P
 
 "_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit123": ; preds = %211, %210, %.sink.split.i121
   %.0.i120 = phi double [ %214, %.sink.split.i121 ], [ %28, %210 ], [ %.mux150, %211 ]
-  %215 = fcmp ult double %.0.i120, %149
+  %215 = fcmp ult double %.0.i120, %148
   br i1 %215, label %.critedge, label %216
 
 216:                                              ; preds = %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit123"
@@ -461,15 +461,15 @@ define hidden noundef i32 @_Z26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16P
   %240 = fcmp ugt double %.0.i124, %239
   br i1 %240, label %.critedge, label %.critedge115
 
-.thread:                                          ; preds = %179, %175, %170, %164
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+.thread:                                          ; preds = %82, %78, %73, %67
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.critedge
 
-241:                                              ; preds = %179
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+241:                                              ; preds = %82
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.critedge115
 
-.critedge115:                                     ; preds = %86, %241, %63, %97, %160, %193, %120, %141, %216, %237
+.critedge115:                                     ; preds = %182, %241, %63, %96, %193, %159, %119, %140, %216, %237
   %242 = icmp slt i32 %.0140, 0
   br i1 %242, label %275, label %243
 
@@ -533,9 +533,9 @@ define hidden noundef i32 @_Z26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16P
   %281 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %220, %124, %.thread130, %.thread, %276, %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit", %128, %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit119", %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit123", %224, %120, %141, %216, %237, %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit127", %248, %250, %263, %267, %271, %278, %37, %41
-  %.188 = phi double [ %.087139, %37 ], [ %.087139, %41 ], [ %.087139, %276 ], [ %280, %278 ], [ %.087139, %271 ], [ %.087139, %267 ], [ %.087139, %263 ], [ %.087139, %250 ], [ %.087139, %248 ], [ %.087139, %.thread ], [ %.087139, %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit127" ], [ %.087139, %237 ], [ %.087139, %216 ], [ %.087139, %141 ], [ %.087139, %120 ], [ %.087139, %220 ], [ %.087139, %224 ], [ %.087139, %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit123" ], [ %.087139, %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit119" ], [ %.087139, %124 ], [ %.087139, %.thread130 ], [ %.087139, %128 ], [ %.087139, %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit" ]
-  %.1 = phi i32 [ %.0140, %37 ], [ %.0140, %41 ], [ %.0140, %276 ], [ %281, %278 ], [ %.0140, %271 ], [ %.0140, %267 ], [ %.0140, %263 ], [ %.0140, %250 ], [ %.0140, %248 ], [ %.0140, %.thread ], [ %.0140, %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit127" ], [ %.0140, %237 ], [ %.0140, %216 ], [ %.0140, %141 ], [ %.0140, %120 ], [ %.0140, %220 ], [ %.0140, %224 ], [ %.0140, %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit123" ], [ %.0140, %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit119" ], [ %.0140, %124 ], [ %.0140, %.thread130 ], [ %.0140, %128 ], [ %.0140, %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit" ]
+.critedge:                                        ; preds = %220, %123, %.thread130, %.thread, %276, %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit", %127, %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit119", %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit123", %224, %119, %140, %216, %237, %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit127", %248, %250, %263, %267, %271, %278, %37, %41
+  %.188 = phi double [ %.087139, %37 ], [ %.087139, %41 ], [ %.087139, %276 ], [ %280, %278 ], [ %.087139, %271 ], [ %.087139, %267 ], [ %.087139, %263 ], [ %.087139, %250 ], [ %.087139, %248 ], [ %.087139, %.thread ], [ %.087139, %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit127" ], [ %.087139, %237 ], [ %.087139, %216 ], [ %.087139, %140 ], [ %.087139, %119 ], [ %.087139, %220 ], [ %.087139, %224 ], [ %.087139, %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit123" ], [ %.087139, %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit119" ], [ %.087139, %123 ], [ %.087139, %.thread130 ], [ %.087139, %127 ], [ %.087139, %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit" ]
+  %.1 = phi i32 [ %.0140, %37 ], [ %.0140, %41 ], [ %.0140, %276 ], [ %281, %278 ], [ %.0140, %271 ], [ %.0140, %267 ], [ %.0140, %263 ], [ %.0140, %250 ], [ %.0140, %248 ], [ %.0140, %.thread ], [ %.0140, %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit127" ], [ %.0140, %237 ], [ %.0140, %216 ], [ %.0140, %140 ], [ %.0140, %119 ], [ %.0140, %220 ], [ %.0140, %224 ], [ %.0140, %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit123" ], [ %.0140, %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit119" ], [ %.0140, %123 ], [ %.0140, %.thread130 ], [ %.0140, %127 ], [ %.0140, %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit" ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %37, !llvm.loop !43
@@ -2035,15 +2035,15 @@ define i64 @proj_trans_generic(ptr noundef %0, i32 noundef %1, ptr noundef captu
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split.split, !llvm.loop !122
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split.us, %80, %68, %.preheader
-  %.1102.lcssa = phi ptr [ %.0101, %.preheader ], [ %.0101, %.lr.ph.split.split.split.split.us ], [ %.2103.us, %68 ], [ %74, %80 ], [ %.0101, %.lr.ph.split.split.split.us.split.us ], [ %.0101, %.lr.ph.split.split.split.us.split ], [ %.0101, %.lr.ph.split.split.split.split ]
-  %.199.lcssa = phi ptr [ %.098, %.preheader ], [ %.098, %.lr.ph.split.split.split.split.us ], [ %59, %68 ], [ %.098, %80 ], [ %.098, %.lr.ph.split.split.split.us.split.us ], [ %.098, %.lr.ph.split.split.split.us.split ], [ %.098, %.lr.ph.split.split.split.split ]
-  %.195.lcssa = phi ptr [ %.094, %.preheader ], [ %.094, %.lr.ph.split.split.split.split.us ], [ %.296.us, %68 ], [ %.296.us140, %80 ], [ %86, %.lr.ph.split.split.split.us.split.us ], [ %93, %.lr.ph.split.split.split.us.split ], [ %.094, %.lr.ph.split.split.split.split ]
-  %.190.lcssa = phi ptr [ %.089, %.preheader ], [ %99, %.lr.ph.split.split.split.split.us ], [ %.291.us, %68 ], [ %.291.us141, %80 ], [ %87, %.lr.ph.split.split.split.us.split.us ], [ %.089, %.lr.ph.split.split.split.us.split ], [ %.089, %.lr.ph.split.split.split.split ]
-  %.sroa.0.0.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %.sroa.0.0.copyload10.us189, %.lr.ph.split.split.split.split.us ], [ %.sroa.0.0.copyload10.us, %68 ], [ %.sroa.0.0.copyload10.us135, %80 ], [ %.sroa.0.0.copyload10.us163.us, %.lr.ph.split.split.split.us.split.us ], [ %.sroa.0.0.copyload10.us163, %.lr.ph.split.split.split.us.split ], [ %.sroa.0.0.copyload10, %.lr.ph.split.split.split.split ]
-  %.sroa.8.0.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %.sroa.8.0.copyload12.us190, %.lr.ph.split.split.split.split.us ], [ %.sroa.8.0.copyload12.us, %68 ], [ %.sroa.8.0.copyload12.us136, %80 ], [ %.sroa.8.0.copyload12.us164.us, %.lr.ph.split.split.split.us.split.us ], [ %.sroa.8.0.copyload12.us164, %.lr.ph.split.split.split.us.split ], [ %.sroa.8.0.copyload12, %.lr.ph.split.split.split.split ]
-  %.sroa.11.0.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %.sroa.11.0.copyload15.us191, %.lr.ph.split.split.split.split.us ], [ %.sroa.11.0.copyload15.us, %68 ], [ %.sroa.11.0.copyload15.us137, %80 ], [ %.sroa.11.0.copyload15.us165.us, %.lr.ph.split.split.split.us.split.us ], [ %.sroa.11.0.copyload15.us165, %.lr.ph.split.split.split.us.split ], [ %.sroa.11.0.copyload15, %.lr.ph.split.split.split.split ]
-  %.sroa.14.0.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %.sroa.14.0.copyload18.us192, %.lr.ph.split.split.split.split.us ], [ %.sroa.14.0.copyload18.us, %68 ], [ %.sroa.14.0.copyload18.us138, %80 ], [ %.sroa.14.0.copyload18.us166.us, %.lr.ph.split.split.split.us.split.us ], [ %.sroa.14.0.copyload18.us166, %.lr.ph.split.split.split.us.split ], [ %.sroa.14.0.copyload18, %.lr.ph.split.split.split.split ]
-  %.086.lcssa = phi i64 [ 0, %.preheader ], [ %54, %.lr.ph.split.split.split.split.us ], [ %.3, %68 ], [ %.3, %80 ], [ %54, %.lr.ph.split.split.split.us.split.us ], [ %52, %.lr.ph.split.split.split.us.split ], [ %.1, %.lr.ph.split.split.split.split ]
+  %.1102.lcssa = phi ptr [ %.0101, %.preheader ], [ %.0101, %.lr.ph.split.split.split.us.split.us ], [ %.0101, %.lr.ph.split.split.split.us.split ], [ %.2103.us, %68 ], [ %.0101, %.lr.ph.split.split.split.split.us ], [ %74, %80 ], [ %.0101, %.lr.ph.split.split.split.split ]
+  %.199.lcssa = phi ptr [ %.098, %.preheader ], [ %.098, %.lr.ph.split.split.split.us.split.us ], [ %.098, %.lr.ph.split.split.split.us.split ], [ %59, %68 ], [ %.098, %.lr.ph.split.split.split.split.us ], [ %.098, %80 ], [ %.098, %.lr.ph.split.split.split.split ]
+  %.195.lcssa = phi ptr [ %.094, %.preheader ], [ %86, %.lr.ph.split.split.split.us.split.us ], [ %93, %.lr.ph.split.split.split.us.split ], [ %.296.us, %68 ], [ %.094, %.lr.ph.split.split.split.split.us ], [ %.296.us140, %80 ], [ %.094, %.lr.ph.split.split.split.split ]
+  %.190.lcssa = phi ptr [ %.089, %.preheader ], [ %87, %.lr.ph.split.split.split.us.split.us ], [ %.089, %.lr.ph.split.split.split.us.split ], [ %.291.us, %68 ], [ %99, %.lr.ph.split.split.split.split.us ], [ %.291.us141, %80 ], [ %.089, %.lr.ph.split.split.split.split ]
+  %.sroa.0.0.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %.sroa.0.0.copyload10.us163.us, %.lr.ph.split.split.split.us.split.us ], [ %.sroa.0.0.copyload10.us163, %.lr.ph.split.split.split.us.split ], [ %.sroa.0.0.copyload10.us, %68 ], [ %.sroa.0.0.copyload10.us189, %.lr.ph.split.split.split.split.us ], [ %.sroa.0.0.copyload10.us135, %80 ], [ %.sroa.0.0.copyload10, %.lr.ph.split.split.split.split ]
+  %.sroa.8.0.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %.sroa.8.0.copyload12.us164.us, %.lr.ph.split.split.split.us.split.us ], [ %.sroa.8.0.copyload12.us164, %.lr.ph.split.split.split.us.split ], [ %.sroa.8.0.copyload12.us, %68 ], [ %.sroa.8.0.copyload12.us190, %.lr.ph.split.split.split.split.us ], [ %.sroa.8.0.copyload12.us136, %80 ], [ %.sroa.8.0.copyload12, %.lr.ph.split.split.split.split ]
+  %.sroa.11.0.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %.sroa.11.0.copyload15.us165.us, %.lr.ph.split.split.split.us.split.us ], [ %.sroa.11.0.copyload15.us165, %.lr.ph.split.split.split.us.split ], [ %.sroa.11.0.copyload15.us, %68 ], [ %.sroa.11.0.copyload15.us191, %.lr.ph.split.split.split.split.us ], [ %.sroa.11.0.copyload15.us137, %80 ], [ %.sroa.11.0.copyload15, %.lr.ph.split.split.split.split ]
+  %.sroa.14.0.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %.sroa.14.0.copyload18.us166.us, %.lr.ph.split.split.split.us.split.us ], [ %.sroa.14.0.copyload18.us166, %.lr.ph.split.split.split.us.split ], [ %.sroa.14.0.copyload18.us, %68 ], [ %.sroa.14.0.copyload18.us192, %.lr.ph.split.split.split.split.us ], [ %.sroa.14.0.copyload18.us138, %80 ], [ %.sroa.14.0.copyload18, %.lr.ph.split.split.split.split ]
+  %.086.lcssa = phi i64 [ 0, %.preheader ], [ %54, %.lr.ph.split.split.split.us.split.us ], [ %52, %.lr.ph.split.split.split.us.split ], [ %.3, %68 ], [ %54, %.lr.ph.split.split.split.split.us ], [ %.3, %80 ], [ %.1, %.lr.ph.split.split.split.split ]
   %106 = icmp eq i64 %spec.select, 1
   br i1 %106, label %107, label %108
 

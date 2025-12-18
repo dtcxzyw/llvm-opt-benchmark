@@ -1995,8 +1995,8 @@ Py_XDECREF.exit.thread:                           ; preds = %Py_DECREF.exit154, 
   br label %Py_XDECREF.exit189
 
 158:                                              ; preds = %79, %evaluate_slice_index.exit182, %135, %65, %evaluate_slice_index.exit182.thread, %121, %Py_DECREF.exit148
-  %.0106 = phi ptr [ null, %evaluate_slice_index.exit182 ], [ null, %evaluate_slice_index.exit182.thread ], [ %107, %135 ], [ null, %79 ], [ null, %65 ], [ %114, %121 ], [ null, %Py_DECREF.exit148 ]
-  %.0103 = phi ptr [ %.1104, %evaluate_slice_index.exit182 ], [ %.1104, %evaluate_slice_index.exit182.thread ], [ %.1104, %135 ], [ %51, %79 ], [ %58, %65 ], [ %.1104, %121 ], [ %.1104, %Py_DECREF.exit148 ]
+  %.0106 = phi ptr [ null, %Py_DECREF.exit148 ], [ %114, %121 ], [ null, %evaluate_slice_index.exit182 ], [ null, %evaluate_slice_index.exit182.thread ], [ %107, %135 ], [ null, %65 ], [ null, %79 ]
+  %.0103 = phi ptr [ %.1104, %Py_DECREF.exit148 ], [ %.1104, %121 ], [ %.1104, %evaluate_slice_index.exit182 ], [ %.1104, %evaluate_slice_index.exit182.thread ], [ %.1104, %135 ], [ %58, %65 ], [ %51, %79 ]
   store ptr null, ptr %4, align 8, !tbaa !16
   store ptr null, ptr %3, align 8, !tbaa !16
   store ptr null, ptr %2, align 8, !tbaa !16

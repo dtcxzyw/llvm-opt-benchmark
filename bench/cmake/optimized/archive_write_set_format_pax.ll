@@ -1001,7 +1001,7 @@ has_non_ASCII.exit:                               ; preds = %.preheader.i616
   br label %288
 
 288:                                              ; preds = %.sink.split, %276, %263
-  %.0443 = phi i32 [ 0, %263 ], [ 0, %276 ], [ 1, %.sink.split ]
+  %.0443 = phi i32 [ 0, %276 ], [ 0, %263 ], [ 1, %.sink.split ]
   %289 = load ptr, ptr %5, align 8, !tbaa !32
   %.not547 = icmp eq ptr %289, null
   br i1 %.not547, label %307, label %290
@@ -1841,7 +1841,7 @@ select.unfold:                                    ; preds = %36, %33
   br label %.thread
 
 .thread:                                          ; preds = %select.unfold, %.preheader, %28, %.thread.loopexit68.split.loop.exit75, %21, %18, %12
-  %.0 = phi i64 [ %13, %12 ], [ %19, %18 ], [ %45, %.thread.loopexit68.split.loop.exit75 ], [ 0, %21 ], [ %.04777, %28 ], [ %.04777, %.preheader ], [ %.148, %select.unfold ]
+  %.0 = phi i64 [ %13, %12 ], [ %19, %18 ], [ 0, %21 ], [ %.04777, %28 ], [ %45, %.thread.loopexit68.split.loop.exit75 ], [ %.04777, %.preheader ], [ %.148, %select.unfold ]
   ret i64 %.0
 }
 
@@ -2250,13 +2250,13 @@ define internal fastcc noundef nonnull ptr @build_ustar_entry_name(ptr noundef n
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %.lr.ph175.preheader, %..critedge.loopexit_crit_edge, %.thread220, %.thread
-  %29 = phi i64 [ %spec.select232, %.thread ], [ %.ph, %.thread220 ], [ %spec.select232, %..critedge.loopexit_crit_edge ], [ %spec.select232, %.lr.ph175.preheader ], [ %spec.select232, %.critedge.loopexit ]
-  %.0116.idx.lcssa210228 = phi i64 [ 1, %.thread ], [ %.0116.idx.lcssa210.ph, %.thread220 ], [ %.0116.idx153, %..critedge.loopexit_crit_edge ], [ %.0116.idx153, %.lr.ph175.preheader ], [ %.0116.idx153, %.critedge.loopexit ]
-  %.not.lcssa212227 = phi i1 [ %.not154, %.thread ], [ %10, %.thread220 ], [ %.not154, %..critedge.loopexit_crit_edge ], [ %.not154, %.lr.ph175.preheader ], [ %.not154, %.critedge.loopexit ]
-  %.0116.ptr.ptr.lcssa214226 = phi ptr [ %.0116.ptr.ptr155, %.thread ], [ %.0116.ptr.ptr.lcssa214.ph, %.thread220 ], [ %.0116.ptr.ptr155, %..critedge.loopexit_crit_edge ], [ %.0116.ptr.ptr155, %.lr.ph175.preheader ], [ %.0116.ptr.ptr155, %.critedge.loopexit ]
-  %.0118.idx.lcssa = phi i1 [ false, %.thread ], [ false, %.thread220 ], [ true, %..critedge.loopexit_crit_edge ], [ false, %.lr.ph175.preheader ], [ true, %.critedge.loopexit ]
-  %.0116.ptr.add.lcssa = phi i64 [ 0, %.thread ], [ %.0116.ptr.add170224, %.thread220 ], [ 0, %..critedge.loopexit_crit_edge ], [ %.0116.ptr.add170, %.lr.ph175.preheader ], [ %.0116.ptr.add, %.critedge.loopexit ]
-  %.0118.ptr.ptr.lcssa = phi ptr [ %.0118.ptr.ptr171, %.thread ], [ %.0118.ptr.ptr171225, %.thread220 ], [ %1, %..critedge.loopexit_crit_edge ], [ %.0118.ptr.ptr171, %.lr.ph175.preheader ], [ %.0118.ptr.ptr.le, %.critedge.loopexit ]
+  %29 = phi i64 [ %spec.select232, %.thread ], [ %.ph, %.thread220 ], [ %spec.select232, %.lr.ph175.preheader ], [ %spec.select232, %..critedge.loopexit_crit_edge ], [ %spec.select232, %.critedge.loopexit ]
+  %.0116.idx.lcssa210228 = phi i64 [ 1, %.thread ], [ %.0116.idx.lcssa210.ph, %.thread220 ], [ %.0116.idx153, %.lr.ph175.preheader ], [ %.0116.idx153, %..critedge.loopexit_crit_edge ], [ %.0116.idx153, %.critedge.loopexit ]
+  %.not.lcssa212227 = phi i1 [ %.not154, %.thread ], [ %10, %.thread220 ], [ %.not154, %.lr.ph175.preheader ], [ %.not154, %..critedge.loopexit_crit_edge ], [ %.not154, %.critedge.loopexit ]
+  %.0116.ptr.ptr.lcssa214226 = phi ptr [ %.0116.ptr.ptr155, %.thread ], [ %.0116.ptr.ptr.lcssa214.ph, %.thread220 ], [ %.0116.ptr.ptr155, %.lr.ph175.preheader ], [ %.0116.ptr.ptr155, %..critedge.loopexit_crit_edge ], [ %.0116.ptr.ptr155, %.critedge.loopexit ]
+  %.0118.idx.lcssa = phi i1 [ false, %.thread ], [ false, %.thread220 ], [ false, %.lr.ph175.preheader ], [ true, %..critedge.loopexit_crit_edge ], [ true, %.critedge.loopexit ]
+  %.0116.ptr.add.lcssa = phi i64 [ 0, %.thread ], [ %.0116.ptr.add170224, %.thread220 ], [ %.0116.ptr.add170, %.lr.ph175.preheader ], [ 0, %..critedge.loopexit_crit_edge ], [ %.0116.ptr.add, %.critedge.loopexit ]
+  %.0118.ptr.ptr.lcssa = phi ptr [ %.0118.ptr.ptr171, %.thread ], [ %.0118.ptr.ptr171225, %.thread220 ], [ %.0118.ptr.ptr171, %.lr.ph175.preheader ], [ %1, %..critedge.loopexit_crit_edge ], [ %.0118.ptr.ptr.le, %.critedge.loopexit ]
   %30 = load i8, ptr %.0118.ptr.ptr.lcssa, align 1, !tbaa !29
   %31 = icmp eq i8 %30, 47
   %or.cond146.not = and i1 %.0118.idx.lcssa, %31

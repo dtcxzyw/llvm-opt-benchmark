@@ -1019,8 +1019,8 @@ _ZN5zxing8ArrayRefIhED2Ev.exit:                   ; preds = %395, %391
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit
 
 _ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit90:  ; preds = %132, %97, %_ZN5zxing3RefINS_6StringEED2Ev.exit101, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit127, %130
-  %.sroa.0167.2 = phi ptr [ %.sroa.0167.3191, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit127 ], [ %.sroa.0167.3191, %_ZN5zxing3RefINS_6StringEED2Ev.exit101 ], [ %.sroa.0167.3191, %130 ], [ %.sroa.0167.0251, %97 ], [ %.sroa.0167.3191, %132 ]
-  %.pn78.pn.pn = phi { ptr, i32 } [ %.pn72.pn.pn.pn, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit127 ], [ %.pn, %_ZN5zxing3RefINS_6StringEED2Ev.exit101 ], [ %131, %130 ], [ %98, %97 ], [ %133, %132 ]
+  %.sroa.0167.2 = phi ptr [ %.sroa.0167.3191, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit127 ], [ %.sroa.0167.3191, %_ZN5zxing3RefINS_6StringEED2Ev.exit101 ], [ %.sroa.0167.3191, %130 ], [ %.sroa.0167.3191, %132 ], [ %.sroa.0167.0251, %97 ]
+  %.pn78.pn.pn = phi { ptr, i32 } [ %.pn72.pn.pn.pn, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit127 ], [ %.pn, %_ZN5zxing3RefINS_6StringEED2Ev.exit101 ], [ %131, %130 ], [ %133, %132 ], [ %98, %97 ]
   %.not.i135 = icmp eq ptr %.sroa.0167.2, null
   br i1 %.not.i135, label %_ZN5zxing3RefIN2cv13wechat_qrcode9ImgSourceEED2Ev.exit136, label %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit90.thread
 

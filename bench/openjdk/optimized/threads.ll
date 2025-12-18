@@ -2813,7 +2813,7 @@ define hidden noundef ptr @_ZN7Threads32owning_thread_from_monitor_ownerEP11Thre
   br i1 %27, label %.loopexit, label %23
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph35, %23, %18, %._crit_edge, %2
-  %.0 = phi ptr [ null, %._crit_edge ], [ null, %2 ], [ null, %18 ], [ null, %23 ], [ %26, %.lr.ph35 ], [ %14, %.lr.ph ]
+  %.0 = phi ptr [ null, %._crit_edge ], [ null, %2 ], [ null, %23 ], [ null, %18 ], [ %26, %.lr.ph35 ], [ %14, %.lr.ph ]
   ret ptr %.0
 }
 
@@ -3043,7 +3043,7 @@ _ZNK9LockStack8containsEP7oopDesc.exit.i:         ; preds = %34
   br i1 %68, label %_ZN7Threads25owning_thread_from_objectEP11ThreadsListP7oopDesc.exit, label %64
 
 _ZN7Threads25owning_thread_from_objectEP11ThreadsListP7oopDesc.exit: ; preds = %.lr.ph.i12, %.lr.ph35.i, %64, %_ZNK9LockStack8containsEP7oopDesc.exit.i, %36, %44, %44, %59, %._crit_edge.i, %9, %41
-  %.0 = phi ptr [ %43, %41 ], [ null, %9 ], [ null, %._crit_edge.i ], [ null, %44 ], [ null, %59 ], [ null, %64 ], [ null, %44 ], [ %20, %36 ], [ null, %_ZNK9LockStack8containsEP7oopDesc.exit.i ], [ %67, %.lr.ph35.i ], [ %55, %.lr.ph.i12 ]
+  %.0 = phi ptr [ %20, %36 ], [ %43, %41 ], [ null, %9 ], [ null, %44 ], [ null, %._crit_edge.i ], [ null, %44 ], [ null, %64 ], [ null, %59 ], [ null, %_ZNK9LockStack8containsEP7oopDesc.exit.i ], [ %67, %.lr.ph35.i ], [ %55, %.lr.ph.i12 ]
   ret ptr %.0
 }
 

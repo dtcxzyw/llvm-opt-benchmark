@@ -2042,7 +2042,7 @@ highpass.exit:                                    ; preds = %802, %678
   br label %.critedge
 
 .critedge:                                        ; preds = %speex_inband_handler.exit, %113, %116, %56, %43, %79, %.preheader479, %112, %210, %highpass.exit, %iir_mem.exit
-  %.1 = phi i32 [ 0, %iir_mem.exit ], [ 0, %highpass.exit ], [ -1094995529, %210 ], [ -1094995529, %112 ], [ -1094995529, %.preheader479 ], [ -1094995529, %79 ], [ -1094995529, %43 ], [ -1094995529, %56 ], [ -1094995529, %116 ], [ -1094995529, %113 ], [ -1094995529, %speex_inband_handler.exit ]
+  %.1 = phi i32 [ -1094995529, %112 ], [ -1094995529, %210 ], [ 0, %highpass.exit ], [ 0, %iir_mem.exit ], [ -1094995529, %.preheader479 ], [ -1094995529, %79 ], [ -1094995529, %43 ], [ -1094995529, %56 ], [ -1094995529, %116 ], [ -1094995529, %113 ], [ -1094995529, %speex_inband_handler.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -2263,7 +2263,7 @@ define internal range(i32 -2147483648, 1) i32 @sb_decode(ptr noundef %0, ptr nou
   br i1 %exitcond.not.i, label %iir_mem.exit, label %.lr.ph29.split.i, !llvm.loop !123
 
 iir_mem.exit:                                     ; preds = %.lr.ph29.split.i, %._crit_edge.us.i, %._crit_edge280
-  %126 = phi ptr [ %92, %._crit_edge280 ], [ %95, %._crit_edge.us.i ], [ %95, %.lr.ph29.split.i ]
+  %126 = phi ptr [ %95, %._crit_edge.us.i ], [ %92, %._crit_edge280 ], [ %95, %.lr.ph29.split.i ]
   %127 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %128 = load i32, ptr %127, align 8, !tbaa !72
   %129 = getelementptr inbounds nuw i8, ptr %1, i64 2248

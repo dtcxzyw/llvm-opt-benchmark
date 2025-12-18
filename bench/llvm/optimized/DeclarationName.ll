@@ -496,7 +496,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i112: ; preds = %_ZNK5clang15Decl
   unreachable
 
 _ZNK4llvm9StringRef7compareES0_.exit119:          ; preds = %_ZNK5clang15DeclarationName11getNameKindEv.exit53, %112, %_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit86, %168, %.thread.i118, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i112, %_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit82, %44, %47, %46, %_ZNK5clang15DeclarationName24getCXXOverloadedOperatorEv.exit99, %_ZNK4llvm9StringRef7compareES0_.exit, %_ZNK5clang15DeclarationName11getNameKindEv.exit49
-  %.0 = phi i32 [ %32, %_ZNK5clang15DeclarationName11getNameKindEv.exit49 ], [ %45, %44 ], [ %.2, %_ZNK4llvm9StringRef7compareES0_.exit ], [ 1, %46 ], [ %spec.select.i116, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i112 ], [ -1, %_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit82 ], [ %170, %168 ], [ %144, %_ZNK5clang15DeclarationName24getCXXOverloadedOperatorEv.exit99 ], [ 0, %.thread.i118 ], [ %59, %47 ], [ %118, %112 ], [ 0, %_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit86 ], [ 0, %_ZNK5clang15DeclarationName11getNameKindEv.exit53 ]
+  %.0 = phi i32 [ %32, %_ZNK5clang15DeclarationName11getNameKindEv.exit49 ], [ %45, %44 ], [ %.2, %_ZNK4llvm9StringRef7compareES0_.exit ], [ 1, %46 ], [ %spec.select.i116, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i112 ], [ -1, %_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit82 ], [ %170, %168 ], [ %144, %_ZNK5clang15DeclarationName24getCXXOverloadedOperatorEv.exit99 ], [ 0, %.thread.i118 ], [ %59, %47 ], [ 0, %_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit86 ], [ %118, %112 ], [ 0, %_ZNK5clang15DeclarationName11getNameKindEv.exit53 ]
   ret i32 %.0
 }
 

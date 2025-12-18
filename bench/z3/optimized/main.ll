@@ -1005,7 +1005,7 @@ _Z13get_extensionPKc.exit157.i:                   ; preds = %.preheader.i152.i
   br i1 %exitcond.not.i, label %.thread159.i, label %.lr.ph.i
 
 .thread159.i:                                     ; preds = %.noexc47, %22, %._crit_edge.i
-  %.0239.i = phi i64 [ %.0288.i, %._crit_edge.i ], [ %.0288.i, %22 ], [ %.4.i, %.noexc47 ]
+  %.0239.i = phi i64 [ %.0288.i, %22 ], [ %.0288.i, %._crit_edge.i ], [ %.4.i, %.noexc47 ]
   %.not133.i = icmp eq i64 %.0239.i, 0
   br i1 %.not133.i, label %_ZL19parse_cmd_line_argsRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiPPc.exit, label %264
 

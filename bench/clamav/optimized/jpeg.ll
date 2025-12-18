@@ -800,7 +800,7 @@ fmap_readn.exit.i:                                ; preds = %262
   br label %284
 
 jpeg_check_photoshop_8bim.exit:                   ; preds = %268, %275, %276
-  %.0.i273 = phi i32 [ %279, %276 ], [ 0, %275 ], [ 0, %268 ]
+  %.0.i273 = phi i32 [ 0, %268 ], [ 0, %275 ], [ %279, %276 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %280 = icmp ugt i64 %273, %.0
   %281 = icmp eq i32 %.0.i273, 0

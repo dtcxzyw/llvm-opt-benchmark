@@ -107,7 +107,7 @@ aeApiCreate.exit.thread:                          ; preds = %aeApiCreate.exit.th
   br label %.loopexit
 
 .loopexit:                                        ; preds = %37, %aeApiCreate.exit, %1, %aeApiCreate.exit.thread
-  %.030 = phi ptr [ null, %1 ], [ null, %aeApiCreate.exit.thread ], [ %3, %aeApiCreate.exit ], [ %3, %37 ]
+  %.030 = phi ptr [ null, %aeApiCreate.exit.thread ], [ null, %1 ], [ %3, %aeApiCreate.exit ], [ %3, %37 ]
   ret ptr %.030
 }
 

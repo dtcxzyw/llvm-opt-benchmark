@@ -376,7 +376,7 @@ define noundef range(i8 0, 3) i8 @_ZN3cfg8cfg_expr7CfgExpr4fold17h16e409600b5065
   br i1 %41, label %common.ret62, label %.lr.ph
 
 common.ret62:                                     ; preds = %3, %9, %14, %28, %25, %22, %39, %36, %42
-  %common.ret62.op = phi i8 [ %.1, %42 ], [ 2, %22 ], [ %13, %9 ], [ 2, %3 ], [ 0, %28 ], [ 1, %14 ], [ %.0.i19.ph, %25 ], [ %.0.i23.ph, %39 ], [ 2, %36 ]
+  %common.ret62.op = phi i8 [ %.1, %42 ], [ %.0.i19.ph, %25 ], [ 1, %14 ], [ %13, %9 ], [ 2, %3 ], [ 0, %28 ], [ 2, %22 ], [ 2, %36 ], [ %.0.i23.ph, %39 ]
   ret i8 %common.ret62.op
 
 42:                                               ; preds = %3

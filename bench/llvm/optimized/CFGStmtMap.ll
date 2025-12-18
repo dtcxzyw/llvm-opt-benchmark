@@ -124,7 +124,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEPNS2_8CFGBlockENS_12DenseMapI
   br label %.thread
 
 .thread:                                          ; preds = %thread-pre-split, %2, %41, %38
-  %.2 = phi ptr [ %40, %38 ], [ %40, %41 ], [ null, %2 ], [ null, %thread-pre-split ]
+  %.2 = phi ptr [ %40, %41 ], [ %40, %38 ], [ null, %2 ], [ null, %thread-pre-split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.2
 }

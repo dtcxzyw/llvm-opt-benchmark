@@ -1285,7 +1285,7 @@ Abc_NtkIncrementTravId.exit.i126:                 ; preds = %Vec_IntFill.exit.i.
   br i1 %exitcond163.not, label %Abc_NtkMaxFlowMinCutUpdate.exit, label %.critedge12.i, !llvm.loop !67
 
 Abc_NtkMaxFlowMinCutUpdate.exit:                  ; preds = %.critedge8.i, %.critedge12.i, %345, %.critedge12.preheader.i
-  %.val = phi i32 [ %.val128.i, %.critedge12.preheader.i ], [ 0, %345 ], [ %.val128.i, %.critedge12.i ], [ %404, %.critedge8.i ]
+  %.val = phi i32 [ %.val128.i, %.critedge12.i ], [ %.val128.i, %.critedge12.preheader.i ], [ 0, %345 ], [ %404, %.critedge8.i ]
   %.not71 = icmp eq i32 %2, 0
   br i1 %.not71, label %488, label %473
 
@@ -1570,7 +1570,7 @@ Abc_ObjGetFaninPath.exit:                         ; preds = %93
   br label %.critedge
 
 .critedge:                                        ; preds = %78, %59, %.preheader, %72, %.critedge2, %1, %104, %102, %71, %58
-  %.027 = phi i32 [ 0, %1 ], [ 1, %102 ], [ 1, %104 ], [ 0, %.critedge2 ], [ 1, %58 ], [ 1, %71 ], [ 0, %72 ], [ 0, %.preheader ], [ 0, %59 ], [ 0, %78 ]
+  %.027 = phi i32 [ 0, %1 ], [ 0, %.preheader ], [ 1, %102 ], [ 1, %104 ], [ 0, %.critedge2 ], [ 1, %58 ], [ 1, %71 ], [ 0, %72 ], [ 0, %59 ], [ 0, %78 ]
   ret i32 %.027
 }
 
@@ -1819,7 +1819,7 @@ Abc_ObjGetFanoutPath.exit:                        ; preds = %93
   br label %.critedge
 
 .critedge:                                        ; preds = %78, %59, %.preheader, %72, %.critedge2, %1, %104, %102, %71, %58
-  %.027 = phi i32 [ 0, %1 ], [ 1, %102 ], [ 1, %104 ], [ 0, %.critedge2 ], [ 1, %58 ], [ 1, %71 ], [ 0, %72 ], [ 0, %.preheader ], [ 0, %59 ], [ 0, %78 ]
+  %.027 = phi i32 [ 0, %1 ], [ 0, %.preheader ], [ 1, %102 ], [ 1, %104 ], [ 0, %.critedge2 ], [ 1, %58 ], [ 1, %71 ], [ 0, %72 ], [ 0, %59 ], [ 0, %78 ]
   ret i32 %.027
 }
 

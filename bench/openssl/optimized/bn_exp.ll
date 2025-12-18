@@ -109,7 +109,7 @@ define range(i32 0, 2) i32 @BN_exp(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %35, %.lr.ph, %39, %28, %25, %19, %14, %42
-  %.039 = phi i32 [ 0, %14 ], [ 0, %19 ], [ 0, %25 ], [ 0, %39 ], [ 1, %42 ], [ 0, %28 ], [ 0, %.lr.ph ], [ 0, %35 ]
+  %.039 = phi i32 [ 0, %14 ], [ 0, %19 ], [ 0, %25 ], [ 0, %28 ], [ 1, %42 ], [ 0, %39 ], [ 0, %.lr.ph ], [ 0, %35 ]
   tail call void @BN_CTX_end(ptr noundef %3) #6
   br label %43
 
@@ -442,8 +442,8 @@ define i32 @BN_mod_exp_mont_word(ptr noundef %0, i64 noundef %1, ptr noundef %2,
   br label %.loopexit
 
 .loopexit:                                        ; preds = %65, %67, %61, %63, %.thread, %51, %53, %47, %49, %.thread184, %.thread229, %77, %79, %.thread222, %75, %33, %84
-  %.0129 = phi ptr [ null, %33 ], [ %.1130, %84 ], [ %.1130, %.thread229 ], [ %.1130, %.thread184 ], [ %.1130, %75 ], [ %.1130, %.thread222 ], [ %.1130, %79 ], [ %.1130, %77 ], [ %.1130, %49 ], [ %.1130, %47 ], [ %.1130, %53 ], [ %.1130, %51 ], [ %.1130, %.thread ], [ %.1130, %63 ], [ %.1130, %61 ], [ %.1130, %67 ], [ %.1130, %65 ]
-  %.1126 = phi i32 [ 0, %33 ], [ 1, %84 ], [ 0, %.thread229 ], [ 0, %.thread184 ], [ 0, %75 ], [ 0, %.thread222 ], [ 0, %79 ], [ 0, %77 ], [ 0, %49 ], [ 0, %47 ], [ 0, %53 ], [ 0, %51 ], [ 0, %.thread ], [ 0, %63 ], [ 0, %61 ], [ 0, %67 ], [ 0, %65 ]
+  %.0129 = phi ptr [ null, %33 ], [ %.1130, %77 ], [ %.1130, %79 ], [ %.1130, %.thread222 ], [ %.1130, %75 ], [ %.1130, %.thread184 ], [ %.1130, %.thread229 ], [ %.1130, %84 ], [ %.1130, %49 ], [ %.1130, %47 ], [ %.1130, %53 ], [ %.1130, %51 ], [ %.1130, %.thread ], [ %.1130, %63 ], [ %.1130, %61 ], [ %.1130, %67 ], [ %.1130, %65 ]
+  %.1126 = phi i32 [ 0, %33 ], [ 0, %77 ], [ 0, %79 ], [ 0, %.thread222 ], [ 0, %75 ], [ 0, %.thread184 ], [ 0, %.thread229 ], [ 1, %84 ], [ 0, %49 ], [ 0, %47 ], [ 0, %53 ], [ 0, %51 ], [ 0, %.thread ], [ 0, %63 ], [ 0, %61 ], [ 0, %67 ], [ 0, %65 ]
   %85 = icmp eq ptr %5, null
   br i1 %85, label %.thread190, label %86
 
@@ -766,8 +766,8 @@ select.unfold174:                                 ; preds = %126, %107
   br label %.thread177
 
 .thread177:                                       ; preds = %.lr.ph, %70, %105, %.loopexit, %.preheader, %select.unfold174, %96, %82, %.thread, %50, %48, %31
-  %.1140 = phi i32 [ 0, %31 ], [ 0, %82 ], [ %spec.select, %select.unfold174 ], [ 0, %48 ], [ 0, %96 ], [ 0, %.thread ], [ 0, %50 ], [ 0, %105 ], [ 0, %.preheader ], [ 0, %.loopexit ], [ 0, %70 ], [ 0, %.lr.ph ]
-  %.0127 = phi ptr [ null, %31 ], [ %.1128, %82 ], [ %.1128, %select.unfold174 ], [ %.1128, %48 ], [ %.1128, %96 ], [ %.1128, %.thread ], [ %.1128, %50 ], [ %.1128, %105 ], [ %.1128, %.preheader ], [ %.1128, %.loopexit ], [ %.1128, %70 ], [ %.1128, %.lr.ph ]
+  %.1140 = phi i32 [ 0, %31 ], [ 0, %.preheader ], [ 0, %105 ], [ 0, %82 ], [ 0, %48 ], [ %spec.select, %select.unfold174 ], [ 0, %50 ], [ 0, %96 ], [ 0, %.thread ], [ 0, %.loopexit ], [ 0, %70 ], [ 0, %.lr.ph ]
+  %.0127 = phi ptr [ null, %31 ], [ %.1128, %.preheader ], [ %.1128, %105 ], [ %.1128, %82 ], [ %.1128, %48 ], [ %.1128, %select.unfold174 ], [ %.1128, %50 ], [ %.1128, %96 ], [ %.1128, %.thread ], [ %.1128, %.loopexit ], [ %.1128, %70 ], [ %.1128, %.lr.ph ]
   %130 = icmp eq ptr %5, null
   br i1 %130, label %.thread187, label %131
 
@@ -1037,7 +1037,7 @@ define i32 @BN_mod_exp_recp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
   br i1 %104, label %.thread140, label %.outer
 
 .thread140:                                       ; preds = %.lr.ph, %61, %81, %83, %.loopexit, %102, %.preheader, %71, %68, %74, %.thread, %38, %35, %31, %29, %22, %42
-  %.1106 = phi i32 [ 0, %22 ], [ 0, %31 ], [ 1, %42 ], [ 0, %35 ], [ 0, %68 ], [ 0, %74 ], [ 0, %.loopexit ], [ 0, %.thread ], [ 0, %38 ], [ 0, %29 ], [ 0, %71 ], [ 0, %.preheader ], [ 0, %81 ], [ 1, %83 ], [ 1, %102 ], [ 0, %61 ], [ 0, %.lr.ph ]
+  %.1106 = phi i32 [ 0, %22 ], [ 0, %31 ], [ 1, %42 ], [ 0, %.preheader ], [ 0, %.loopexit ], [ 0, %35 ], [ 0, %68 ], [ 0, %74 ], [ 0, %71 ], [ 0, %.thread ], [ 0, %38 ], [ 0, %29 ], [ 0, %81 ], [ 1, %83 ], [ 1, %102 ], [ 0, %61 ], [ 0, %.lr.ph ]
   call void @BN_CTX_end(ptr noundef %4) #6
   call void @BN_RECP_CTX_free(ptr noundef nonnull %7) #6
   br label %105
@@ -1771,10 +1771,10 @@ MOD_EXP_CTIME_COPY_TO_PREBUF.exit379:             ; preds = %.lr.ph.i373, %293
   br label %.thread
 
 .thread:                                          ; preds = %291, %320, %314, %.preheader, %42, %39, %.loopexit, %.loopexit400, %282, %156, %153, %117, %79, %56, %82, %59
-  %.1306 = phi i32 [ 0, %56 ], [ 1, %59 ], [ 0, %79 ], [ 1, %82 ], [ 0, %117 ], [ 0, %153 ], [ %spec.select340, %.loopexit ], [ 0, %.loopexit400 ], [ 0, %156 ], [ 0, %282 ], [ 0, %39 ], [ 0, %42 ], [ 0, %320 ], [ 0, %.preheader ], [ 0, %314 ], [ 0, %291 ]
-  %.0297 = phi ptr [ null, %56 ], [ null, %59 ], [ null, %79 ], [ null, %82 ], [ null, %117 ], [ %spec.select339, %153 ], [ %spec.select339, %.loopexit ], [ %spec.select339, %.loopexit400 ], [ %spec.select339, %156 ], [ %spec.select339, %282 ], [ null, %39 ], [ null, %42 ], [ %spec.select339, %320 ], [ %spec.select339, %.preheader ], [ %spec.select339, %314 ], [ %spec.select339, %291 ]
-  %.0295 = phi i32 [ 0, %56 ], [ 0, %59 ], [ 0, %79 ], [ 0, %82 ], [ %111, %117 ], [ %111, %153 ], [ %111, %.loopexit ], [ %111, %.loopexit400 ], [ %111, %156 ], [ %111, %282 ], [ 0, %39 ], [ 0, %42 ], [ %111, %320 ], [ %111, %.preheader ], [ %111, %314 ], [ %111, %291 ]
-  %.0294 = phi ptr [ null, %56 ], [ null, %59 ], [ null, %79 ], [ null, %82 ], [ null, %117 ], [ %125, %153 ], [ %125, %.loopexit ], [ %125, %.loopexit400 ], [ %125, %156 ], [ %125, %282 ], [ null, %39 ], [ null, %42 ], [ %125, %320 ], [ %125, %.preheader ], [ %125, %314 ], [ %125, %291 ]
+  %.1306 = phi i32 [ 0, %56 ], [ 1, %59 ], [ 0, %79 ], [ 1, %82 ], [ 0, %117 ], [ 0, %.preheader ], [ 0, %42 ], [ 0, %320 ], [ 0, %39 ], [ 0, %153 ], [ %spec.select340, %.loopexit ], [ 0, %.loopexit400 ], [ 0, %156 ], [ 0, %282 ], [ 0, %314 ], [ 0, %291 ]
+  %.0297 = phi ptr [ null, %56 ], [ null, %59 ], [ null, %79 ], [ null, %82 ], [ null, %117 ], [ %spec.select339, %.preheader ], [ null, %42 ], [ %spec.select339, %320 ], [ null, %39 ], [ %spec.select339, %153 ], [ %spec.select339, %.loopexit ], [ %spec.select339, %.loopexit400 ], [ %spec.select339, %156 ], [ %spec.select339, %282 ], [ %spec.select339, %314 ], [ %spec.select339, %291 ]
+  %.0295 = phi i32 [ 0, %56 ], [ 0, %59 ], [ 0, %79 ], [ 0, %82 ], [ %111, %117 ], [ %111, %.preheader ], [ 0, %42 ], [ %111, %320 ], [ 0, %39 ], [ %111, %153 ], [ %111, %.loopexit ], [ %111, %.loopexit400 ], [ %111, %156 ], [ %111, %282 ], [ %111, %314 ], [ %111, %291 ]
+  %.0294 = phi ptr [ null, %56 ], [ null, %59 ], [ null, %79 ], [ null, %82 ], [ null, %117 ], [ %125, %.preheader ], [ null, %42 ], [ %125, %320 ], [ null, %39 ], [ %125, %153 ], [ %125, %.loopexit ], [ %125, %.loopexit400 ], [ %125, %156 ], [ %125, %282 ], [ %125, %314 ], [ %125, %291 ]
   br i1 %.not318, label %.thread384, label %323
 
 .thread384:                                       ; preds = %28, %31, %.thread
@@ -2371,7 +2371,7 @@ define i32 @BN_mod_exp_simple(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   br i1 %94, label %.thread140, label %.outer
 
 .thread140:                                       ; preds = %.lr.ph, %51, %71, %73, %.loopexit, %92, %.preheader, %61, %58, %64, %.thread, %28, %24, %32
-  %.1105 = phi i32 [ 0, %24 ], [ 1, %32 ], [ 0, %28 ], [ 0, %58 ], [ 0, %64 ], [ 0, %.loopexit ], [ 0, %.thread ], [ 0, %61 ], [ 0, %.preheader ], [ 0, %71 ], [ 1, %73 ], [ 1, %92 ], [ 0, %51 ], [ 0, %.lr.ph ]
+  %.1105 = phi i32 [ 0, %24 ], [ 1, %32 ], [ 0, %.preheader ], [ 0, %.loopexit ], [ 0, %28 ], [ 0, %58 ], [ 0, %64 ], [ 0, %61 ], [ 0, %.thread ], [ 0, %71 ], [ 1, %73 ], [ 1, %92 ], [ 0, %51 ], [ 0, %.lr.ph ]
   tail call void @BN_CTX_end(ptr noundef %4) #6
   br label %95
 

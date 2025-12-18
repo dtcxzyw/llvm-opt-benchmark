@@ -4009,8 +4009,8 @@ switch.early.test:                                ; preds = %585
   br label %.thread964
 
 .thread920:                                       ; preds = %752, %.split.us, %.split1049.us, %456, %473, %577, %586, %696
-  %.0623.ph = phi ptr [ null, %473 ], [ %575, %696 ], [ null, %456 ], [ null, %577 ], [ %575, %586 ], [ %575, %.split1049.us ], [ %575, %.split.us ], [ null, %752 ]
-  %.0619.ph = phi ptr [ null, %473 ], [ %.2, %696 ], [ null, %456 ], [ %.2, %577 ], [ %.2, %586 ], [ %.2, %.split1049.us ], [ %.2, %.split.us ], [ %.2, %752 ]
+  %.0623.ph = phi ptr [ null, %473 ], [ %575, %696 ], [ %575, %.split.us ], [ null, %456 ], [ null, %577 ], [ %575, %586 ], [ %575, %.split1049.us ], [ null, %752 ]
+  %.0619.ph = phi ptr [ null, %473 ], [ %.2, %696 ], [ %.2, %.split.us ], [ null, %456 ], [ %.2, %577 ], [ %.2, %586 ], [ %.2, %.split1049.us ], [ %.2, %752 ]
   %770 = mul nsw i32 %443, %441
   %771 = icmp sgt i32 %770, 0
   br i1 %771, label %.lr.ph1065.preheader, label %.thread964
@@ -4029,11 +4029,11 @@ switch.early.test:                                ; preds = %585
   br i1 %exitcond1144.not, label %.thread964, label %.lr.ph1065, !llvm.loop !49
 
 .thread964:                                       ; preds = %._crit_edge1063, %.lr.ph1065, %.thread920, %18, %65, %347, %420, %449, %394, %373, %337, %317, %285, %266, %246, %226, %206, %186, %166, %146, %126, %106, %86, %.thread947
-  %.0623942961 = phi ptr [ null, %.thread947 ], [ null, %86 ], [ null, %18 ], [ null, %65 ], [ null, %347 ], [ null, %420 ], [ null, %449 ], [ null, %394 ], [ null, %373 ], [ null, %337 ], [ null, %317 ], [ null, %285 ], [ null, %266 ], [ null, %246 ], [ null, %226 ], [ null, %206 ], [ null, %186 ], [ null, %166 ], [ null, %146 ], [ null, %126 ], [ null, %106 ], [ %.0623.ph, %.thread920 ], [ %.0623.ph, %.lr.ph1065 ], [ null, %._crit_edge1063 ]
-  %.0620943960 = phi ptr [ null, %.thread947 ], [ null, %86 ], [ null, %18 ], [ null, %65 ], [ null, %347 ], [ null, %420 ], [ null, %449 ], [ null, %394 ], [ null, %373 ], [ null, %337 ], [ null, %317 ], [ null, %285 ], [ null, %266 ], [ null, %246 ], [ null, %226 ], [ null, %206 ], [ null, %186 ], [ null, %166 ], [ null, %146 ], [ null, %126 ], [ null, %106 ], [ %calloc, %.thread920 ], [ %calloc, %.lr.ph1065 ], [ null, %._crit_edge1063 ]
-  %.0619944959 = phi ptr [ null, %.thread947 ], [ null, %86 ], [ null, %18 ], [ null, %65 ], [ null, %347 ], [ null, %420 ], [ null, %449 ], [ null, %394 ], [ null, %373 ], [ null, %337 ], [ null, %317 ], [ null, %285 ], [ null, %266 ], [ null, %246 ], [ null, %226 ], [ null, %206 ], [ null, %186 ], [ null, %166 ], [ null, %146 ], [ null, %126 ], [ null, %106 ], [ %.0619.ph, %.thread920 ], [ %.0619.ph, %.lr.ph1065 ], [ null, %._crit_edge1063 ]
-  %.0618945958 = phi ptr [ null, %.thread947 ], [ null, %86 ], [ null, %18 ], [ null, %65 ], [ null, %347 ], [ null, %420 ], [ null, %449 ], [ null, %394 ], [ null, %373 ], [ null, %337 ], [ null, %317 ], [ null, %285 ], [ null, %266 ], [ null, %246 ], [ null, %226 ], [ null, %206 ], [ null, %186 ], [ null, %166 ], [ null, %146 ], [ null, %126 ], [ null, %106 ], [ %calloc1189, %.thread920 ], [ %calloc1189, %.lr.ph1065 ], [ null, %._crit_edge1063 ]
-  %.0617946957 = phi ptr [ null, %.thread947 ], [ %63, %86 ], [ null, %18 ], [ null, %65 ], [ %63, %347 ], [ %63, %420 ], [ %63, %449 ], [ %63, %394 ], [ %63, %373 ], [ %63, %337 ], [ %63, %317 ], [ %63, %285 ], [ %63, %266 ], [ %63, %246 ], [ %63, %226 ], [ %63, %206 ], [ %63, %186 ], [ %63, %166 ], [ %63, %146 ], [ %63, %126 ], [ %63, %106 ], [ %63, %.thread920 ], [ %63, %.lr.ph1065 ], [ %63, %._crit_edge1063 ]
+  %.0623942961 = phi ptr [ null, %.thread947 ], [ null, %106 ], [ null, %86 ], [ null, %18 ], [ null, %65 ], [ null, %347 ], [ null, %420 ], [ null, %449 ], [ %.0623.ph, %.thread920 ], [ null, %394 ], [ null, %373 ], [ null, %337 ], [ null, %317 ], [ null, %285 ], [ null, %266 ], [ null, %246 ], [ null, %226 ], [ null, %206 ], [ null, %186 ], [ null, %166 ], [ null, %146 ], [ null, %126 ], [ %.0623.ph, %.lr.ph1065 ], [ null, %._crit_edge1063 ]
+  %.0620943960 = phi ptr [ null, %.thread947 ], [ null, %106 ], [ null, %86 ], [ null, %18 ], [ null, %65 ], [ null, %347 ], [ null, %420 ], [ null, %449 ], [ %calloc, %.thread920 ], [ null, %394 ], [ null, %373 ], [ null, %337 ], [ null, %317 ], [ null, %285 ], [ null, %266 ], [ null, %246 ], [ null, %226 ], [ null, %206 ], [ null, %186 ], [ null, %166 ], [ null, %146 ], [ null, %126 ], [ %calloc, %.lr.ph1065 ], [ null, %._crit_edge1063 ]
+  %.0619944959 = phi ptr [ null, %.thread947 ], [ null, %106 ], [ null, %86 ], [ null, %18 ], [ null, %65 ], [ null, %347 ], [ null, %420 ], [ null, %449 ], [ %.0619.ph, %.thread920 ], [ null, %394 ], [ null, %373 ], [ null, %337 ], [ null, %317 ], [ null, %285 ], [ null, %266 ], [ null, %246 ], [ null, %226 ], [ null, %206 ], [ null, %186 ], [ null, %166 ], [ null, %146 ], [ null, %126 ], [ %.0619.ph, %.lr.ph1065 ], [ null, %._crit_edge1063 ]
+  %.0618945958 = phi ptr [ null, %.thread947 ], [ null, %106 ], [ null, %86 ], [ null, %18 ], [ null, %65 ], [ null, %347 ], [ null, %420 ], [ null, %449 ], [ %calloc1189, %.thread920 ], [ null, %394 ], [ null, %373 ], [ null, %337 ], [ null, %317 ], [ null, %285 ], [ null, %266 ], [ null, %246 ], [ null, %226 ], [ null, %206 ], [ null, %186 ], [ null, %166 ], [ null, %146 ], [ null, %126 ], [ %calloc1189, %.lr.ph1065 ], [ null, %._crit_edge1063 ]
+  %.0617946957 = phi ptr [ null, %.thread947 ], [ %63, %106 ], [ %63, %86 ], [ null, %18 ], [ null, %65 ], [ %63, %347 ], [ %63, %420 ], [ %63, %449 ], [ %63, %.thread920 ], [ %63, %394 ], [ %63, %373 ], [ %63, %337 ], [ %63, %317 ], [ %63, %285 ], [ %63, %266 ], [ %63, %246 ], [ %63, %226 ], [ %63, %206 ], [ %63, %186 ], [ %63, %166 ], [ %63, %146 ], [ %63, %126 ], [ %63, %.lr.ph1065 ], [ %63, %._crit_edge1063 ]
   call void @free(ptr noundef %.0618945958) #23
   call void @free(ptr noundef %.0619944959) #23
   call void @free(ptr noundef %.0620943960) #23
@@ -5129,16 +5129,16 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   %544 = fcmp ult double %540, %543
   br i1 %544, label %.thread871.outer.backedge, label %.thread877
 
-545:                                              ; preds = %._crit_edge1188
-  %546 = load double, ptr @warmup, align 8, !tbaa !12
-  %547 = fcmp ult double %540, %546
-  br i1 %547, label %.thread871, label %.thread871.outer.backedge
-
 .thread871.outer.backedge:                        ; preds = %545, %541
   %.0606.ph.be = phi i32 [ %542, %541 ], [ 0, %545 ]
   %.0580.ph.be = phi double [ %.1581.lcssa, %541 ], [ 0.000000e+00, %545 ]
   %.0576.ph.be = phi double [ %540, %541 ], [ 0.000000e+00, %545 ]
   br label %.thread871.outer
+
+545:                                              ; preds = %._crit_edge1188
+  %546 = load double, ptr @warmup, align 8, !tbaa !12
+  %547 = fcmp ult double %540, %546
+  br i1 %547, label %.thread871, label %.thread871.outer.backedge
 
 .thread877:                                       ; preds = %541
   %.b697 = load i1, ptr @doYUV, align 4
@@ -5414,8 +5414,8 @@ sigfig.exit792:                                   ; preds = %598, %600
   br label %.thread890
 
 .thread890:                                       ; preds = %671, %.split1211.us, %.split1201.us, %.split.us, %.thread853, %.split1229.us, %103, %96, %151, %170, %190, %210, %230, %250, %270, %311, %291, %331, %351, %371, %656, %384, %378, %89, %78, %689
-  %.0571905 = phi ptr [ %.2573, %689 ], [ %.1572, %151 ], [ %.1572, %170 ], [ %.1572, %190 ], [ %.1572, %210 ], [ %.1572, %230 ], [ %.1572, %250 ], [ %.1572, %270 ], [ %.1572, %311 ], [ %.1572, %291 ], [ %.1572, %331 ], [ %.1572, %351 ], [ %.1572, %371 ], [ %.1572, %78 ], [ %.1572, %103 ], [ %.2573, %656 ], [ null, %384 ], [ %.1572, %378 ], [ %.1572, %96 ], [ %.1572, %89 ], [ %.2573, %.split1229.us ], [ %.2573, %.thread853 ], [ %.2573, %.split.us ], [ %.2573, %.split1201.us ], [ %.2573, %.split1211.us ], [ %.2573, %671 ]
-  %.0613903 = phi ptr [ %.2615, %689 ], [ %.2615, %151 ], [ %.2615, %170 ], [ %.2615, %190 ], [ %.2615, %210 ], [ %.2615, %230 ], [ %.2615, %250 ], [ %.2615, %270 ], [ %.2615, %311 ], [ %.2615, %291 ], [ %.2615, %331 ], [ %.2615, %351 ], [ %.2615, %371 ], [ null, %78 ], [ %85, %103 ], [ %.2615, %656 ], [ %.2615, %384 ], [ %.2615, %378 ], [ %85, %96 ], [ null, %89 ], [ %.2615, %.split1229.us ], [ %.2615, %.thread853 ], [ %.2615, %.split.us ], [ %.2615, %.split1201.us ], [ %.2615, %.split1211.us ], [ %.2615, %671 ]
+  %.0571905 = phi ptr [ %.2573, %689 ], [ %.1572, %151 ], [ %.1572, %170 ], [ %.1572, %190 ], [ %.1572, %210 ], [ %.1572, %230 ], [ %.1572, %250 ], [ %.1572, %270 ], [ %.1572, %311 ], [ %.1572, %291 ], [ %.1572, %331 ], [ %.1572, %351 ], [ %.1572, %371 ], [ %.1572, %78 ], [ %.2573, %.split1211.us ], [ %.1572, %103 ], [ %.2573, %656 ], [ null, %384 ], [ %.1572, %378 ], [ %.1572, %96 ], [ %.1572, %89 ], [ %.2573, %.split1229.us ], [ %.2573, %.thread853 ], [ %.2573, %.split.us ], [ %.2573, %.split1201.us ], [ %.2573, %671 ]
+  %.0613903 = phi ptr [ %.2615, %689 ], [ %.2615, %151 ], [ %.2615, %170 ], [ %.2615, %190 ], [ %.2615, %210 ], [ %.2615, %230 ], [ %.2615, %250 ], [ %.2615, %270 ], [ %.2615, %311 ], [ %.2615, %291 ], [ %.2615, %331 ], [ %.2615, %351 ], [ %.2615, %371 ], [ null, %78 ], [ %.2615, %.split1211.us ], [ %85, %103 ], [ %.2615, %656 ], [ %.2615, %384 ], [ %.2615, %378 ], [ %85, %96 ], [ null, %89 ], [ %.2615, %.split1229.us ], [ %.2615, %.thread853 ], [ %.2615, %.split.us ], [ %.2615, %.split1201.us ], [ %.2615, %671 ]
   %695 = mul nsw i32 %65, %63
   %696 = icmp sgt i32 %695, 0
   br i1 %696, label %.lr.ph1241.preheader, label %.thread890.thread
@@ -6223,17 +6223,17 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr noundef nonnull readonly
   %328 = fcmp ult double %463, %327
   br i1 %328, label %.preheader.lr.ph.us.us, label %.preheader.lr.ph.us.us.outer.backedge
 
-.preheader.lr.ph.us.us.outer.backedge:            ; preds = %326, %329
-  %.0507.us.us.ph.be = phi double [ %.5512.ph.us.us.us, %329 ], [ 0.000000e+00, %326 ]
-  %.0503.us.us.ph.be = phi double [ %463, %329 ], [ 0.000000e+00, %326 ]
-  %.0496.us.us.ph.be = phi i32 [ %330, %329 ], [ 0, %326 ]
-  br label %.preheader.lr.ph.us.us.outer
-
 329:                                              ; preds = %._crit_edge831.split.us.us.us
   %330 = add nuw nsw i32 %.0496.us.us.ph, 1
   %331 = load double, ptr @benchTime, align 8, !tbaa !12
   %332 = fcmp ult double %463, %331
   br i1 %332, label %.preheader.lr.ph.us.us.outer.backedge, label %.split858.us
+
+.preheader.lr.ph.us.us.outer.backedge:            ; preds = %326, %329
+  %.0507.us.us.ph.be = phi double [ %.5512.ph.us.us.us, %329 ], [ 0.000000e+00, %326 ]
+  %.0503.us.us.ph.be = phi double [ %463, %329 ], [ 0.000000e+00, %326 ]
+  %.0496.us.us.ph.be = phi i32 [ %330, %329 ], [ 0, %326 ]
+  br label %.preheader.lr.ph.us.us.outer
 
 .preheader.us.us.us:                              ; preds = %._crit_edge.us.us.us, %.preheader.lr.ph.us.us
   %.0494830.us.us.us = phi i32 [ 0, %.preheader.lr.ph.us.us ], [ %457, %._crit_edge.us.us.us ]
@@ -6505,11 +6505,6 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr noundef nonnull readonly
   %470 = fcmp ult double %467, %469
   br i1 %470, label %.preheader.lr.ph.us, label %.preheader.lr.ph.us.outer.backedge
 
-.preheader.lr.ph.us.outer.backedge:               ; preds = %468, %472
-  %.0503.us.ph.be = phi double [ %467, %472 ], [ 0.000000e+00, %468 ]
-  %.0496.us.ph.be = phi i32 [ %473, %472 ], [ 0, %468 ]
-  br label %.preheader.lr.ph.us.outer
-
 .preheader.lr.ph.us.outer:                        ; preds = %.split.us851, %.preheader.lr.ph.us.outer.backedge
   %.0503.us.ph = phi double [ %.0503.us.ph.be, %.preheader.lr.ph.us.outer.backedge ], [ 0.000000e+00, %.split.us851 ]
   %.0496.us.ph = phi i32 [ %.0496.us.ph.be, %.preheader.lr.ph.us.outer.backedge ], [ -1, %.split.us851 ]
@@ -6521,6 +6516,11 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr noundef nonnull readonly
   %474 = load double, ptr @benchTime, align 8, !tbaa !12
   %475 = fcmp ult double %467, %474
   br i1 %475, label %.preheader.lr.ph.us.outer.backedge, label %.split858.us
+
+.preheader.lr.ph.us.outer.backedge:               ; preds = %468, %472
+  %.0503.us.ph.be = phi double [ %467, %472 ], [ 0.000000e+00, %468 ]
+  %.0496.us.ph.be = phi i32 [ %473, %472 ], [ 0, %468 ]
+  br label %.preheader.lr.ph.us.outer
 
 .split:                                           ; preds = %.split.outer, %495
   %.0503 = phi double [ %479, %495 ], [ %.0503.ph, %.split.outer ]
@@ -6561,6 +6561,11 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr noundef nonnull readonly
   %493 = fcmp ult double %479, %492
   br i1 %493, label %.split.outer.backedge, label %.split858.us
 
+.split.outer.backedge:                            ; preds = %495, %490
+  %.0503.ph.be = phi double [ %479, %490 ], [ 0.000000e+00, %495 ]
+  %.0496.ph.be = phi i32 [ %491, %490 ], [ 0, %495 ]
+  br label %.split.outer
+
 .split.outer:                                     ; preds = %317, %.split.outer.backedge
   %.0503.ph = phi double [ %.0503.ph.be, %.split.outer.backedge ], [ 0.000000e+00, %317 ]
   %.0496.ph = phi i32 [ %.0496.ph.be, %.split.outer.backedge ], [ -1, %317 ]
@@ -6571,11 +6576,6 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr noundef nonnull readonly
   %496 = load double, ptr @warmup, align 8, !tbaa !12
   %497 = fcmp ult double %479, %496
   br i1 %497, label %.split, label %.split.outer.backedge
-
-.split.outer.backedge:                            ; preds = %495, %490
-  %.0503.ph.be = phi double [ %479, %490 ], [ 0.000000e+00, %495 ]
-  %.0496.ph.be = phi i32 [ %491, %490 ], [ 0, %495 ]
-  br label %.split.outer
 
 .split858.us:                                     ; preds = %490, %472, %329
   %.us-phi859 = phi i32 [ %473, %472 ], [ %330, %329 ], [ %491, %490 ]
@@ -6828,8 +6828,8 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr noundef nonnull readonly
   br label %628
 
 .thread724:                                       ; preds = %.split844.us, %.split836.us, %.split840.us, %.split.us, %.split848.us, %311, %305, %534, %587, %607, %563, %575, %578, %581, %598, %601, %604, %618, %621, %624
-  %.0520 = phi ptr [ %.1521, %563 ], [ %.1521, %581 ], [ %.1521, %578 ], [ %.1521, %587 ], [ %.1521, %604 ], [ %.1521, %601 ], [ %.1521, %607 ], [ %.1521, %534 ], [ null, %311 ], [ %.1521, %624 ], [ %.1521, %575 ], [ %.1521, %598 ], [ %.1521, %618 ], [ %.1521, %621 ], [ null, %305 ], [ %.1521, %.split848.us ], [ %.1521, %.split.us ], [ %.1521, %.split840.us ], [ %.1521, %.split836.us ], [ %.1521, %.split844.us ]
-  %.0500 = phi i32 [ 0, %563 ], [ -1, %581 ], [ 0, %578 ], [ 0, %587 ], [ -1, %604 ], [ 0, %601 ], [ 0, %607 ], [ 0, %534 ], [ -1, %311 ], [ -1, %624 ], [ 0, %575 ], [ 0, %598 ], [ 0, %618 ], [ 0, %621 ], [ -1, %305 ], [ -1, %.split848.us ], [ -1, %.split.us ], [ -1, %.split840.us ], [ -1, %.split836.us ], [ -1, %.split844.us ]
+  %.0520 = phi ptr [ %.1521, %624 ], [ %.1521, %621 ], [ %.1521, %618 ], [ %.1521, %598 ], [ %.1521, %563 ], [ %.1521, %581 ], [ %.1521, %578 ], [ %.1521, %587 ], [ %.1521, %604 ], [ %.1521, %601 ], [ %.1521, %607 ], [ %.1521, %534 ], [ null, %311 ], [ %.1521, %575 ], [ null, %305 ], [ %.1521, %.split848.us ], [ %.1521, %.split.us ], [ %.1521, %.split840.us ], [ %.1521, %.split836.us ], [ %.1521, %.split844.us ]
+  %.0500 = phi i32 [ -1, %624 ], [ 0, %621 ], [ 0, %618 ], [ 0, %598 ], [ 0, %563 ], [ -1, %581 ], [ 0, %578 ], [ 0, %587 ], [ -1, %604 ], [ 0, %601 ], [ 0, %607 ], [ 0, %534 ], [ -1, %311 ], [ 0, %575 ], [ -1, %305 ], [ -1, %.split848.us ], [ -1, %.split.us ], [ -1, %.split840.us ], [ -1, %.split836.us ], [ -1, %.split844.us ]
   call void @tj3Destroy(ptr noundef nonnull %42) #23
   br i1 %.not788, label %627, label %628
 

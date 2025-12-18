@@ -3200,7 +3200,7 @@ KINFullNewton.exit.thread:                        ; preds = %544, %531, %508, %4
   br label %457
 
 KINStop.exit.thread:                              ; preds = %KINFullNewton.exit.thread, %877, %.thread101.i, %911, %909, %914, %878, %864, %867, %862, %866, %839, %871, %913, %836
-  %.4 = phi i32 [ -999, %877 ], [ -999, %.thread101.i ], [ -999, %911 ], [ -999, %909 ], [ -999, %914 ], [ -999, %878 ], [ 2, %864 ], [ -6, %867 ], [ 2, %862 ], [ -999, %866 ], [ 0, %839 ], [ -7, %871 ], [ -999, %913 ], [ %..i, %836 ], [ %.3, %KINFullNewton.exit.thread ]
+  %.4 = phi i32 [ %..i, %836 ], [ -999, %877 ], [ -999, %.thread101.i ], [ -999, %911 ], [ -999, %909 ], [ -999, %914 ], [ -999, %878 ], [ 2, %864 ], [ -6, %867 ], [ 2, %862 ], [ -999, %866 ], [ 0, %839 ], [ -7, %871 ], [ -999, %913 ], [ %.3, %KINFullNewton.exit.thread ]
   %924 = load ptr, ptr %270, align 8, !tbaa !66
   %925 = load ptr, ptr %14, align 8, !tbaa !97
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %924, ptr noundef %925) #15
@@ -4299,8 +4299,8 @@ define internal fastcc void @AndersonAcc(ptr noundef nonnull readonly captures(n
   br i1 %171, label %117, label %.preheader337
 
 ._crit_edge354:                                   ; preds = %._crit_edge352.us, %.preheader338, %.preheader337
-  %172 = phi i1 [ false, %.preheader337 ], [ false, %.preheader338 ], [ true, %._crit_edge352.us ]
-  %173 = phi i64 [ %169, %.preheader337 ], [ %85, %.preheader338 ], [ %169, %._crit_edge352.us ]
+  %172 = phi i1 [ false, %.preheader338 ], [ false, %.preheader337 ], [ true, %._crit_edge352.us ]
+  %173 = phi i64 [ %85, %.preheader338 ], [ %169, %.preheader337 ], [ %169, %._crit_edge352.us ]
   %174 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %175 = load i32, ptr %174, align 8, !tbaa !83
   %176 = icmp eq i32 %175, 1
@@ -4413,7 +4413,7 @@ define internal fastcc void @AndersonAcc(ptr noundef nonnull readonly captures(n
   br i1 %239, label %221, label %.loopexit333
 
 .loopexit333:                                     ; preds = %211, %221, %205, %216, %._crit_edge354
-  %240 = phi i64 [ %173, %._crit_edge354 ], [ %206, %205 ], [ %173, %216 ], [ %234, %221 ], [ %206, %211 ]
+  %240 = phi i64 [ %234, %221 ], [ %173, %._crit_edge354 ], [ %206, %205 ], [ %173, %216 ], [ %206, %211 ]
   %241 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %242 = load ptr, ptr %241, align 8, !tbaa !91
   %243 = getelementptr inbounds nuw i8, ptr %0, i64 400

@@ -655,7 +655,7 @@ xioctl.exit:                                      ; preds = %12, %15
   br i1 %58, label %.lr.ph39, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %43, %.lr.ph39, %.preheader35, %.preheader, %30, %23
-  %59 = phi ptr [ %20, %23 ], [ %20, %.preheader35 ], [ %20, %.preheader ], [ %.pre45, %30 ], [ %54, %.lr.ph39 ], [ %44, %43 ]
+  %59 = phi ptr [ %54, %.lr.ph39 ], [ %20, %23 ], [ %20, %.preheader35 ], [ %20, %.preheader ], [ %.pre45, %30 ], [ %44, %43 ]
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %61 = load ptr, ptr %60, align 8
   call void @SDL_free_REAL(ptr noundef %61) #11
@@ -976,7 +976,7 @@ xioctl.exit58._crit_edge:                         ; preds = %xioctl.exit58, %.lr
   br label %.loopexit
 
 .loopexit:                                        ; preds = %100, %44, %3, %57, %110, %35, %33, %18, %xioctl.exit58._crit_edge, %103, %55, %47, %21
-  %.044 = phi i32 [ 0, %xioctl.exit58._crit_edge ], [ 0, %21 ], [ 1, %18 ], [ 0, %47 ], [ 0, %55 ], [ 0, %103 ], [ 2, %33 ], [ 2, %35 ], [ 2, %110 ], [ 2, %57 ], [ 2, %3 ], [ 1, %44 ], [ 1, %100 ]
+  %.044 = phi i32 [ 1, %44 ], [ 0, %xioctl.exit58._crit_edge ], [ 0, %21 ], [ 1, %18 ], [ 0, %47 ], [ 0, %55 ], [ 2, %3 ], [ 0, %103 ], [ 2, %33 ], [ 2, %35 ], [ 2, %110 ], [ 2, %57 ], [ 1, %100 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.044
 }

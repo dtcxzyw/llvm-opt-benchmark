@@ -791,7 +791,7 @@ RemapValClamped.exit.i.i:                         ; preds = %154
   store i16 %307, ptr %79, align 2
   br label %308
 
-308:                                              ; preds = %289, %268, %286, %271, %291, %300, %304, %263, %265
+308:                                              ; preds = %289, %265, %268, %286, %271, %291, %300, %304, %263
   %309 = call i64 @SDL_GetTicksNS_REAL() #9
   %310 = load i8, ptr %96, align 8, !range !3, !noundef !4
   %311 = trunc nuw i8 %310 to i1
@@ -1424,7 +1424,7 @@ SetFeatureReport.exit86.thread107.i:              ; preds = %.preheader.i75.i, %
   br i1 %exitcond.not.i89.i, label %.loopexit27, label %.preheader.i87.i, !llvm.loop !5
 
 .loopexit27:                                      ; preds = %31, %.thread.i.i, %108, %121, %141, %.lr.ph.i91.i, %.lr.ph.i79.i, %.lr.ph.i67.i, %ReadResponse.exit.i, %.lr.ph.i.i
-  %.str.13.sink.i = phi ptr [ @.str.12, %.lr.ph.i79.i ], [ @.str.11, %.lr.ph.i67.i ], [ @.str.10, %ReadResponse.exit.i ], [ @.str.9, %.lr.ph.i.i ], [ @.str.13, %.lr.ph.i91.i ], [ @.str.10, %.thread.i.i ], [ @.str.13, %141 ], [ @.str.12, %121 ], [ @.str.11, %108 ], [ @.str.9, %31 ]
+  %.str.13.sink.i = phi ptr [ @.str.12, %.lr.ph.i79.i ], [ @.str.11, %.lr.ph.i67.i ], [ @.str.10, %ReadResponse.exit.i ], [ @.str.12, %121 ], [ @.str.9, %.lr.ph.i.i ], [ @.str.11, %108 ], [ @.str.13, %141 ], [ @.str.10, %.thread.i.i ], [ @.str.13, %.lr.ph.i91.i ], [ @.str.9, %31 ]
   call void (ptr, ...) @SDL_Log_REAL(ptr noundef nonnull %.str.13.sink.i, ptr noundef %0) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %143 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.7) #9

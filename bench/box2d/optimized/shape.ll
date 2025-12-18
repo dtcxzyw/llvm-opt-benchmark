@@ -1823,7 +1823,7 @@ define hidden float @b2GetShapePerimeter(ptr noundef readonly captures(none) %0)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %19, %1, %40, %33, %15, %4
-  %.0 = phi float [ %14, %4 ], [ %18, %15 ], [ %46, %40 ], [ %39, %33 ], [ 0.000000e+00, %1 ], [ %25, %19 ], [ %32, %.lr.ph ]
+  %.0 = phi float [ 0.000000e+00, %1 ], [ %14, %4 ], [ %18, %15 ], [ %46, %40 ], [ %39, %33 ], [ %25, %19 ], [ %32, %.lr.ph ]
   ret float %.0
 }
 

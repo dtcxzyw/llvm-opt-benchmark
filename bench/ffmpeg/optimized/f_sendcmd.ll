@@ -534,7 +534,7 @@ parse_interval.exit.thread34.i:                   ; preds = %88, %.thread.i.i
   br label %parse_intervals.exit.thread59
 
 parse_interval.exit.thread40.i:                   ; preds = %make_command_flags_str.exit.i.i.i, %155, %141, %.thread91.i.i.i.i, %118, %108
-  %.236.ph.i.i.ph.i = phi i32 [ -22, %118 ], [ -22, %108 ], [ -22, %.thread91.i.i.i.i ], [ -22, %141 ], [ -22, %make_command_flags_str.exit.i.i.i ], [ -12, %155 ]
+  %.236.ph.i.i.ph.i = phi i32 [ -22, %.thread91.i.i.i.i ], [ -22, %141 ], [ -22, %make_command_flags_str.exit.i.i.i ], [ -12, %155 ], [ -22, %108 ], [ -22, %118 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @av_free(ptr noundef nonnull %66) #11

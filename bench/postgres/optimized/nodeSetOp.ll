@@ -449,7 +449,7 @@ setop_fill_hash_table.exit:                       ; preds = %ExecProcNode.exit34
   unreachable
 
 set_output_count.exit:                            ; preds = %131, %124, %127, %113, %116, %120
-  %.sink.i = phi i64 [ 0, %113 ], [ %..i, %120 ], [ 0, %124 ], [ %spec.select, %131 ], [ 0, %116 ], [ 0, %127 ]
+  %.sink.i = phi i64 [ 0, %124 ], [ 0, %113 ], [ %..i, %120 ], [ %spec.select, %131 ], [ 0, %116 ], [ 0, %127 ]
   store i64 %.sink.i, ptr %10, align 8
   %142 = icmp sgt i64 %.sink.i, 0
   br i1 %142, label %.loopexit.loopexit, label %95, !llvm.loop !9
@@ -654,7 +654,7 @@ set_output_count.exit.thread.i:                   ; preds = %229, %226, %222
   br label %239
 
 set_output_count.exit.i:                          ; preds = %229, %225
-  %.sink.i.i = phi i64 [ %..i.i, %225 ], [ %231, %229 ]
+  %.sink.i.i = phi i64 [ %231, %229 ], [ %..i.i, %225 ]
   store i64 %.sink.i.i, ptr %10, align 8
   %237 = icmp sgt i64 %.sink.i.i, 0
   br i1 %237, label %.thread65.loopexit.i, label %239

@@ -1341,7 +1341,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator18switchToAssig
   br i1 %498, label %.loopexit, label %116
 
 .loopexit:                                        ; preds = %.loopexit33, %163, %202, %465, %434, %396, %351, %315, %246, %.loopexit39
-  %499 = phi i32 [ 0, %.loopexit39 ], [ %169, %163 ], [ %357, %351 ], [ %483, %465 ], [ 3, %202 ], [ %441, %434 ], [ %419, %396 ], [ %340, %315 ], [ %273, %246 ], [ 0, %.loopexit33 ]
+  %499 = phi i32 [ 0, %.loopexit39 ], [ 3, %202 ], [ %169, %163 ], [ %357, %351 ], [ %483, %465 ], [ %441, %434 ], [ %419, %396 ], [ %340, %315 ], [ %273, %246 ], [ 0, %.loopexit33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %499
 }
@@ -3295,7 +3295,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
   br i1 %1348, label %.loopexit72, label %32
 
 .loopexit72:                                      ; preds = %.loopexit76, %1133, %1078, %176, %70, %501, %458, %627, %595, %947, %1044, %1260, %835, %801, %775, %698, %271
-  %1349 = phi i32 [ 61, %271 ], [ %953, %947 ], [ %1268, %1260 ], [ %780, %775 ], [ 3, %70 ], [ %633, %627 ], [ %482, %458 ], [ %1049, %1044 ], [ %723, %698 ], [ %849, %835 ], [ %826, %801 ], [ %618, %595 ], [ %515, %501 ], [ 3, %176 ], [ 0, %.loopexit76 ], [ 61, %1133 ], [ 61, %1078 ]
+  %1349 = phi i32 [ 61, %271 ], [ %1049, %1044 ], [ %780, %775 ], [ %953, %947 ], [ %633, %627 ], [ %482, %458 ], [ 3, %70 ], [ %1268, %1260 ], [ %723, %698 ], [ %849, %835 ], [ %826, %801 ], [ %618, %595 ], [ %515, %501 ], [ 3, %176 ], [ 0, %.loopexit76 ], [ 61, %1133 ], [ 61, %1078 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

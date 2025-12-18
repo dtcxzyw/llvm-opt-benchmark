@@ -609,7 +609,7 @@ define void @dggesx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %301
 
 301:                                              ; preds = %.sink.split677, %296, %258
-  %.4 = phi i32 [ %.5, %296 ], [ %.2, %258 ], [ %.5, %.sink.split677 ]
+  %.4 = phi i32 [ %.2, %258 ], [ %.5, %296 ], [ %.5, %.sink.split677 ]
   %302 = load i32, ptr %34, align 4, !tbaa !3
   %.not562 = icmp eq i32 %302, 0
   br i1 %.not562, label %304, label %303
@@ -876,7 +876,7 @@ define void @dggesx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.thread598, %.loopexit.sink.split, %404, %403
-  %.3 = phi i32 [ %.4, %403 ], [ %.4, %404 ], [ %.2, %.loopexit.sink.split ], [ %.4, %.thread598 ]
+  %.3 = phi i32 [ %.2, %.loopexit.sink.split ], [ %.4, %404 ], [ %.4, %403 ], [ %.4, %.thread598 ]
   %430 = sitofp i32 %.3 to double
   store double %430, ptr %20, align 8, !tbaa !7
   store i32 %.1500, ptr %22, align 4, !tbaa !3

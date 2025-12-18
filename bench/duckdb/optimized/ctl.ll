@@ -7471,7 +7471,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   br label %.critedge
 
 .critedge:                                        ; preds = %32, %.thread, %47, %52, %56, %65, %43, %19, %18, %64
-  %.042 = phi i32 [ 22, %18 ], [ 14, %19 ], [ 22, %64 ], [ 14, %43 ], [ 0, %56 ], [ 0, %65 ], [ 14, %52 ], [ 14, %47 ], [ 14, %.thread ], [ 22, %32 ]
+  %.042 = phi i32 [ 14, %47 ], [ 22, %18 ], [ 14, %19 ], [ 22, %64 ], [ 14, %43 ], [ 0, %56 ], [ 0, %65 ], [ 14, %52 ], [ 14, %.thread ], [ 22, %32 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %66 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -7804,7 +7804,7 @@ arena_get.exit.thread:                            ; preds = %26
   br label %.sink.split
 
 .sink.split:                                      ; preds = %39, %38, %44, %arena_get.exit.thread, %.thread110.sink.split, %.thread106
-  %.068.ph = phi i32 [ 0, %.thread106 ], [ 22, %44 ], [ 14, %arena_get.exit.thread ], [ 22, %38 ], [ 14, %39 ], [ 22, %.thread110.sink.split ]
+  %.068.ph = phi i32 [ 0, %.thread106 ], [ 22, %44 ], [ 14, %arena_get.exit.thread ], [ 14, %39 ], [ 22, %38 ], [ 22, %.thread110.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %60
 

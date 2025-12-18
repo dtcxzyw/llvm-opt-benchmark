@@ -8195,7 +8195,7 @@ quantize_row_q4_0_impl.exit.loopexit.us.us:       ; preds = %191
   br i1 %exitcond48.not, label %.loopexit, label %.lr.ph.i.preheader.us.us, !llvm.loop !510
 
 .loopexit:                                        ; preds = %quantize_row_q4_0_impl.exit.loopexit.us.us, %.lr.ph, %62, %quantize_row_q4_0_ref.exit
-  %.pn = phi i64 [ %61, %quantize_row_q4_0_ref.exit ], [ %63, %62 ], [ %63, %.lr.ph ], [ %63, %quantize_row_q4_0_impl.exit.loopexit.us.us ]
+  %.pn = phi i64 [ %61, %quantize_row_q4_0_ref.exit ], [ %63, %.lr.ph ], [ %63, %62 ], [ %63, %quantize_row_q4_0_impl.exit.loopexit.us.us ]
   %.023 = mul i64 %.pn, %2
   ret i64 %.023
 }
@@ -8525,7 +8525,7 @@ quantize_row_q4_1_impl.exit.loopexit.us.us:       ; preds = %182
   br i1 %exitcond49.not, label %.loopexit, label %.lr.ph.i.preheader.us.us, !llvm.loop !537
 
 .loopexit:                                        ; preds = %quantize_row_q4_1_impl.exit.loopexit.us.us, %.lr.ph, %12, %9
-  %.pn = phi i64 [ %11, %9 ], [ %13, %12 ], [ %13, %.lr.ph ], [ %13, %quantize_row_q4_1_impl.exit.loopexit.us.us ]
+  %.pn = phi i64 [ %11, %9 ], [ %13, %.lr.ph ], [ %13, %12 ], [ %13, %quantize_row_q4_1_impl.exit.loopexit.us.us ]
   %.023 = mul i64 %.pn, %2
   ret i64 %.023
 }
@@ -8820,7 +8820,7 @@ quantize_row_q5_0_impl.exit.loopexit.us.us:       ; preds = %154
   br i1 %exitcond42.not, label %.loopexit, label %.lr.ph.i.preheader.us.us, !llvm.loop !559
 
 .loopexit:                                        ; preds = %quantize_row_q5_0_impl.exit.loopexit.us.us, %.lr.ph, %11, %8
-  %.pn = phi i64 [ %10, %8 ], [ %12, %11 ], [ %12, %.lr.ph ], [ %12, %quantize_row_q5_0_impl.exit.loopexit.us.us ]
+  %.pn = phi i64 [ %10, %8 ], [ %12, %.lr.ph ], [ %12, %11 ], [ %12, %quantize_row_q5_0_impl.exit.loopexit.us.us ]
   %.023 = mul i64 %.pn, %2
   ret i64 %.023
 }
@@ -9167,7 +9167,7 @@ quantize_row_q5_1_impl.exit.loopexit.us.us:       ; preds = %196
   br i1 %exitcond48.not, label %.loopexit, label %.lr.ph.i.preheader.us.us, !llvm.loop !587
 
 .loopexit:                                        ; preds = %quantize_row_q5_1_impl.exit.loopexit.us.us, %.lr.ph, %12, %9
-  %.pn = phi i64 [ %11, %9 ], [ %13, %12 ], [ %13, %.lr.ph ], [ %13, %quantize_row_q5_1_impl.exit.loopexit.us.us ]
+  %.pn = phi i64 [ %11, %9 ], [ %13, %.lr.ph ], [ %13, %12 ], [ %13, %quantize_row_q5_1_impl.exit.loopexit.us.us ]
   %.023 = mul i64 %.pn, %2
   ret i64 %.023
 }
@@ -20005,7 +20005,7 @@ validate_fp16.exit543:                            ; preds = %266, %271
   br label %.critedge
 
 .critedge:                                        ; preds = %487, %472, %457, %442, %427, %412, %397, %382, %351, %336, %320, %304, %294, %280, %251, %220, %206, %174, %161, %130, %117, %86, %71, %59, %48, %.preheader, %.preheader673, %.preheader671, %.preheader669, %.preheader667, %.preheader665, %.preheader663, %.preheader661, %.preheader659, %.preheader657, %.preheader655, %.preheader653, %.preheader651, %.preheader649, %.preheader647, %.preheader645, %.preheader643, %.preheader641, %.preheader639, %.preheader637, %.preheader635, %.preheader633, %.preheader631, %.preheader629, %.preheader627, %.preheader626, %16, %16, %16, %16, %33, %.critedge458, %.critedge456, %.critedge454, %.critedge452, %.critedge450, %.critedge448, %.critedge446, %.critedge444, %.critedge442, %.critedge440, %.critedge438, %.critedge436, %.critedge434, %validate_fp16.exit539, %validate_fp16.exit543, %validate_fp16.exit531, %validate_fp16.exit535, %.critedge428, %validate_fp16.exit519, %validate_fp16.exit523, %.critedge424, %validate_fp16.exit507, %validate_fp16.exit511, %.critedge420, %validate_fp16.exit495, %validate_fp16.exit499, %.critedge416, %.critedge414, %61, %50, %491, %34, %30, %11, %5
-  %.0322 = phi i1 [ false, %5 ], [ false, %11 ], [ false, %491 ], [ false, %validate_fp16.exit539 ], [ false, %.critedge458 ], [ false, %50 ], [ false, %61 ], [ false, %.critedge414 ], [ false, %.critedge416 ], [ false, %30 ], [ false, %.critedge420 ], [ false, %validate_fp16.exit495 ], [ false, %.critedge424 ], [ false, %validate_fp16.exit507 ], [ false, %.critedge428 ], [ false, %validate_fp16.exit519 ], [ false, %validate_fp16.exit531 ], [ false, %.critedge434 ], [ false, %.critedge436 ], [ false, %.critedge438 ], [ false, %.critedge440 ], [ false, %.critedge442 ], [ false, %.critedge444 ], [ false, %.critedge446 ], [ false, %.critedge448 ], [ false, %.critedge450 ], [ false, %.critedge452 ], [ false, %.critedge454 ], [ false, %.critedge456 ], [ false, %34 ], [ false, %validate_fp16.exit499 ], [ false, %validate_fp16.exit511 ], [ false, %validate_fp16.exit523 ], [ false, %validate_fp16.exit535 ], [ false, %validate_fp16.exit543 ], [ true, %33 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %.preheader671 ], [ true, %.preheader626 ], [ true, %.preheader627 ], [ true, %.preheader629 ], [ true, %.preheader631 ], [ true, %.preheader633 ], [ true, %.preheader635 ], [ true, %.preheader637 ], [ true, %.preheader639 ], [ true, %.preheader641 ], [ true, %.preheader643 ], [ true, %.preheader645 ], [ true, %.preheader647 ], [ true, %.preheader649 ], [ true, %.preheader651 ], [ true, %.preheader653 ], [ true, %.preheader655 ], [ true, %.preheader657 ], [ true, %.preheader659 ], [ true, %.preheader661 ], [ true, %.preheader663 ], [ true, %.preheader665 ], [ true, %.preheader667 ], [ true, %.preheader669 ], [ true, %.preheader673 ], [ true, %.preheader ], [ true, %472 ], [ true, %48 ], [ true, %59 ], [ true, %71 ], [ true, %86 ], [ true, %117 ], [ true, %130 ], [ true, %161 ], [ true, %174 ], [ true, %206 ], [ true, %220 ], [ true, %251 ], [ true, %280 ], [ true, %294 ], [ true, %304 ], [ true, %320 ], [ true, %336 ], [ true, %351 ], [ true, %382 ], [ true, %397 ], [ true, %412 ], [ true, %427 ], [ true, %442 ], [ true, %457 ], [ true, %487 ]
+  %.0322 = phi i1 [ false, %5 ], [ false, %11 ], [ false, %491 ], [ false, %validate_fp16.exit539 ], [ false, %.critedge458 ], [ false, %50 ], [ false, %61 ], [ false, %.critedge414 ], [ false, %.critedge416 ], [ false, %30 ], [ false, %.critedge420 ], [ false, %validate_fp16.exit495 ], [ false, %.critedge424 ], [ false, %validate_fp16.exit507 ], [ false, %.critedge428 ], [ false, %validate_fp16.exit519 ], [ false, %validate_fp16.exit531 ], [ false, %.critedge434 ], [ false, %.critedge436 ], [ false, %.critedge438 ], [ false, %.critedge440 ], [ false, %.critedge442 ], [ false, %.critedge444 ], [ false, %.critedge446 ], [ false, %.critedge448 ], [ false, %.critedge450 ], [ false, %.critedge452 ], [ false, %.critedge454 ], [ false, %.critedge456 ], [ false, %34 ], [ false, %validate_fp16.exit499 ], [ false, %validate_fp16.exit511 ], [ false, %validate_fp16.exit523 ], [ false, %validate_fp16.exit535 ], [ false, %validate_fp16.exit543 ], [ true, %.preheader669 ], [ true, %.preheader667 ], [ true, %.preheader665 ], [ true, %.preheader663 ], [ true, %.preheader661 ], [ true, %.preheader659 ], [ true, %.preheader657 ], [ true, %.preheader655 ], [ true, %.preheader653 ], [ true, %.preheader651 ], [ true, %.preheader649 ], [ true, %.preheader647 ], [ true, %.preheader645 ], [ true, %.preheader643 ], [ true, %.preheader641 ], [ true, %.preheader639 ], [ true, %.preheader637 ], [ true, %.preheader635 ], [ true, %.preheader633 ], [ true, %.preheader631 ], [ true, %.preheader629 ], [ true, %.preheader627 ], [ true, %.preheader626 ], [ true, %.preheader671 ], [ true, %16 ], [ true, %33 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %.preheader673 ], [ true, %397 ], [ true, %.preheader ], [ true, %412 ], [ true, %427 ], [ true, %442 ], [ true, %457 ], [ true, %472 ], [ true, %48 ], [ true, %59 ], [ true, %71 ], [ true, %86 ], [ true, %117 ], [ true, %130 ], [ true, %161 ], [ true, %174 ], [ true, %206 ], [ true, %220 ], [ true, %251 ], [ true, %280 ], [ true, %294 ], [ true, %304 ], [ true, %320 ], [ true, %336 ], [ true, %351 ], [ true, %382 ], [ true, %487 ]
   ret i1 %.0322
 }
 

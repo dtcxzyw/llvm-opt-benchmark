@@ -250,7 +250,7 @@ strbuf_setlen.exit.i:                             ; preds = %63, %.lr.ph25.i
   br label %match_order.exit
 
 match_order.exit:                                 ; preds = %.thread16.i, %.lr.ph, %.thread.loopexit.i
-  %.3.i = phi i32 [ %60, %.lr.ph ], [ %82, %.thread.loopexit.i ], [ %79, %.thread16.i ]
+  %.3.i = phi i32 [ %82, %.thread.loopexit.i ], [ %60, %.lr.ph ], [ %79, %.thread16.i ]
   %83 = getelementptr inbounds nuw i8, ptr %55, i64 12
   store i32 %.3.i, ptr %83, align 4, !tbaa !25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

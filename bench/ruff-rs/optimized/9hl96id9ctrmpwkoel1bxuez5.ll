@@ -1600,7 +1600,7 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
           to label %"_ZN4core3ptr69drop_in_place$LT$ty_python_semantic..types..signatures..Signature$GT$17he5b04389144bc322E.exit7.i.i.i23" unwind label %99
 
 common.resume:                                    ; preds = %"_ZN4core3ptr69drop_in_place$LT$ty_python_semantic..types..signatures..Signature$GT$17he5b04389144bc322E.exit7.i.i.i", %"_ZN4core3ptr69drop_in_place$LT$ty_python_semantic..types..signatures..Signature$GT$17he5b04389144bc322E.exit7.i.i.i23", %101, %.body
-  %common.resume.op = phi { ptr, i32 } [ %.pn36, %101 ], [ %eh.lpad-body, %.body ], [ %95, %"_ZN4core3ptr69drop_in_place$LT$ty_python_semantic..types..signatures..Signature$GT$17he5b04389144bc322E.exit7.i.i.i23" ], [ %65, %"_ZN4core3ptr69drop_in_place$LT$ty_python_semantic..types..signatures..Signature$GT$17he5b04389144bc322E.exit7.i.i.i" ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %.pn36, %101 ], [ %95, %"_ZN4core3ptr69drop_in_place$LT$ty_python_semantic..types..signatures..Signature$GT$17he5b04389144bc322E.exit7.i.i.i23" ], [ %65, %"_ZN4core3ptr69drop_in_place$LT$ty_python_semantic..types..signatures..Signature$GT$17he5b04389144bc322E.exit7.i.i.i" ]
   resume { ptr, i32 } %common.resume.op
 
 99:                                               ; preds = %96
@@ -1890,7 +1890,7 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
           to label %"_ZN4core3ptr69drop_in_place$LT$ty_python_semantic..types..signatures..Signature$GT$17he5b04389144bc322E.exit7.i.i.i23" unwind label %99
 
 common.resume:                                    ; preds = %"_ZN4core3ptr69drop_in_place$LT$ty_python_semantic..types..signatures..Signature$GT$17he5b04389144bc322E.exit7.i.i.i", %"_ZN4core3ptr69drop_in_place$LT$ty_python_semantic..types..signatures..Signature$GT$17he5b04389144bc322E.exit7.i.i.i23", %101, %.body
-  %common.resume.op = phi { ptr, i32 } [ %.pn36, %101 ], [ %eh.lpad-body, %.body ], [ %95, %"_ZN4core3ptr69drop_in_place$LT$ty_python_semantic..types..signatures..Signature$GT$17he5b04389144bc322E.exit7.i.i.i23" ], [ %65, %"_ZN4core3ptr69drop_in_place$LT$ty_python_semantic..types..signatures..Signature$GT$17he5b04389144bc322E.exit7.i.i.i" ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %.pn36, %101 ], [ %95, %"_ZN4core3ptr69drop_in_place$LT$ty_python_semantic..types..signatures..Signature$GT$17he5b04389144bc322E.exit7.i.i.i23" ], [ %65, %"_ZN4core3ptr69drop_in_place$LT$ty_python_semantic..types..signatures..Signature$GT$17he5b04389144bc322E.exit7.i.i.i" ]
   resume { ptr, i32 } %common.resume.op
 
 99:                                               ; preds = %96
@@ -3600,7 +3600,7 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
           to label %"_ZN4core3ptr69drop_in_place$LT$ty_python_semantic..types..signatures..Signature$GT$17he5b04389144bc322E.exit7.i.i.i23" unwind label %100
 
 common.resume:                                    ; preds = %"_ZN4core3ptr69drop_in_place$LT$ty_python_semantic..types..signatures..Signature$GT$17he5b04389144bc322E.exit7.i.i.i", %"_ZN4core3ptr69drop_in_place$LT$ty_python_semantic..types..signatures..Signature$GT$17he5b04389144bc322E.exit7.i.i.i23", %102, %.body
-  %common.resume.op = phi { ptr, i32 } [ %.pn36, %102 ], [ %eh.lpad-body, %.body ], [ %96, %"_ZN4core3ptr69drop_in_place$LT$ty_python_semantic..types..signatures..Signature$GT$17he5b04389144bc322E.exit7.i.i.i23" ], [ %66, %"_ZN4core3ptr69drop_in_place$LT$ty_python_semantic..types..signatures..Signature$GT$17he5b04389144bc322E.exit7.i.i.i" ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %.pn36, %102 ], [ %96, %"_ZN4core3ptr69drop_in_place$LT$ty_python_semantic..types..signatures..Signature$GT$17he5b04389144bc322E.exit7.i.i.i23" ], [ %66, %"_ZN4core3ptr69drop_in_place$LT$ty_python_semantic..types..signatures..Signature$GT$17he5b04389144bc322E.exit7.i.i.i" ]
   resume { ptr, i32 } %common.resume.op
 
 100:                                              ; preds = %97
@@ -55505,7 +55505,7 @@ _ZN8smallvec10deallocate17h3ab119acbb77fdeeE.exit.i: ; preds = %42
   tail call void @_ZN5alloc5alloc18handle_alloc_error17he8b8c0d2be2abab7E(i64 noundef range(i64 0, -9223372036854775806) 8, i64 noundef %22) #31
   unreachable
 
-47:                                               ; preds = %24, %21, %26, %29
+47:                                               ; preds = %29, %26, %24, %21
   tail call void @_ZN4core9panicking5panic17h48a7e1f3665210c6E(ptr noalias noundef nonnull readonly align 1 @anon.ecd5c9d2ab2508656823283e2923ae87.62, i64 noundef 17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ecd5c9d2ab2508656823283e2923ae87.63) #31
   unreachable
 
@@ -55676,7 +55676,7 @@ _ZN8smallvec10deallocate17h3ab119acbb77fdeeE.exit.i: ; preds = %39
   tail call void @_ZN5alloc5alloc18handle_alloc_error17he8b8c0d2be2abab7E(i64 noundef range(i64 0, -9223372036854775806) 8, i64 noundef %19) #31
   unreachable
 
-44:                                               ; preds = %21, %18, %23, %26
+44:                                               ; preds = %26, %23, %21, %18
   tail call void @_ZN4core9panicking5panic17h48a7e1f3665210c6E(ptr noalias noundef nonnull readonly align 1 @anon.ecd5c9d2ab2508656823283e2923ae87.62, i64 noundef 17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ecd5c9d2ab2508656823283e2923ae87.63) #31
   unreachable
 
@@ -55809,7 +55809,7 @@ _ZN8smallvec10deallocate17hc66afc460143ddfaE.exit.i: ; preds = %42
   tail call void @_ZN5alloc5alloc18handle_alloc_error17he8b8c0d2be2abab7E(i64 noundef range(i64 0, -9223372036854775806) 4, i64 noundef %22) #31
   unreachable
 
-47:                                               ; preds = %24, %21, %26, %29
+47:                                               ; preds = %29, %26, %24, %21
   tail call void @_ZN4core9panicking5panic17h48a7e1f3665210c6E(ptr noalias noundef nonnull readonly align 1 @anon.ecd5c9d2ab2508656823283e2923ae87.62, i64 noundef 17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ecd5c9d2ab2508656823283e2923ae87.63) #31
   unreachable
 
@@ -55980,7 +55980,7 @@ _ZN8smallvec10deallocate17haae2a4b50f94dd46E.exit.i: ; preds = %39
   tail call void @_ZN5alloc5alloc18handle_alloc_error17he8b8c0d2be2abab7E(i64 noundef range(i64 0, -9223372036854775806) 8, i64 noundef %19) #31
   unreachable
 
-44:                                               ; preds = %21, %18, %23, %26
+44:                                               ; preds = %26, %23, %21, %18
   tail call void @_ZN4core9panicking5panic17h48a7e1f3665210c6E(ptr noalias noundef nonnull readonly align 1 @anon.ecd5c9d2ab2508656823283e2923ae87.62, i64 noundef 17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ecd5c9d2ab2508656823283e2923ae87.63) #31
   unreachable
 

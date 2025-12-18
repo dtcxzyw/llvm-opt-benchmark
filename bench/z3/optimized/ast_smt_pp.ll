@@ -5527,7 +5527,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN11smt_printer8is_smallEP4exprR
   br label %.critedge
 
 .critedge:                                        ; preds = %49, %13, %.critedge31, %3, %16, %9
-  %.029 = phi i1 [ %19, %16 ], [ %12, %9 ], [ false, %3 ], [ %55, %.critedge31 ], [ false, %13 ], [ false, %49 ]
+  %.029 = phi i1 [ %19, %16 ], [ %12, %9 ], [ false, %13 ], [ false, %3 ], [ %55, %.critedge31 ], [ false, %49 ]
   ret i1 %.029
 }
 

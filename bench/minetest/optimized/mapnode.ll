@@ -5049,7 +5049,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
   br i1 %105, label %invoke.cont43.preheader3, label %vector.body, !llvm.loop !220
 
 invoke.cont43.preheader3:                         ; preds = %vector.body, %vector.memcheck, %vector.scevcheck, %invoke.cont43.preheader
-  %indvars.iv.ph = phi i64 [ 0, %invoke.cont43.preheader ], [ 0, %vector.scevcheck ], [ 0, %vector.memcheck ], [ %n.vec, %vector.body ]
+  %indvars.iv.ph = phi i64 [ 0, %vector.memcheck ], [ 0, %invoke.cont43.preheader ], [ 0, %vector.scevcheck ], [ %n.vec, %vector.body ]
   br label %invoke.cont43
 
 invoke.cont43:                                    ; preds = %invoke.cont43.preheader3, %invoke.cont43
@@ -5346,7 +5346,7 @@ for.body.epil:                                    ; preds = %if.end56.loopexit.u
   br i1 %epil.iter.cmp.not, label %for.body63.preheader, label %for.body.epil, !llvm.loop !227
 
 for.body63.preheader:                             ; preds = %for.body41, %for.body.epil, %for.body41.prol.loopexit, %if.end56.loopexit.unr-lcssa
-  %wide.trip.count252.pre-phi = phi i64 [ %wide.trip.count247, %if.end56.loopexit.unr-lcssa ], [ %wide.trip.count, %for.body41.prol.loopexit ], [ %wide.trip.count247, %for.body.epil ], [ %wide.trip.count, %for.body41 ]
+  %wide.trip.count252.pre-phi = phi i64 [ %wide.trip.count247, %for.body.epil ], [ %wide.trip.count247, %if.end56.loopexit.unr-lcssa ], [ %wide.trip.count, %for.body41.prol.loopexit ], [ %wide.trip.count, %for.body41 ]
   %mul58 = mul i32 %nodecount, %conv
   %xtraiter279 = and i64 %wide.trip.count252.pre-phi, 3
   %36 = icmp ult i32 %nodecount, 4

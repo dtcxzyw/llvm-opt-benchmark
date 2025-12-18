@@ -421,7 +421,7 @@ agsubrep.exit.i35:                                ; preds = %55
   br label %agfstin.exit
 
 agfstin.exit:                                     ; preds = %70, %agsubrep.exit.thread.i33
-  %81 = phi ptr [ %52, %agsubrep.exit.thread.i33 ], [ %78, %70 ]
+  %81 = phi ptr [ %78, %70 ], [ %52, %agsubrep.exit.thread.i33 ]
   %.not29 = icmp eq ptr %81, null
   br i1 %.not29, label %.critedge, label %82
 

@@ -504,7 +504,7 @@ _ZN5arrow4util14CheckAlignmentERKNS_6BufferEl.exit33.i: ; preds = %.lr.ph.split.
   %.not41.i = icmp eq ptr %44, %35
   br i1 %.not41.i, label %.loopexit, label %.lr.ph.split.i
 
-.loopexit:                                        ; preds = %.critedge.i, %_ZN5arrow4util14CheckAlignmentERKNS_6BufferEl.exit.thread.i, %5, %32
+.loopexit:                                        ; preds = %.critedge.i, %_ZN5arrow4util14CheckAlignmentERKNS_6BufferEl.exit.thread.i, %32, %5
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %46 = load ptr, ptr %45, align 8, !tbaa !54
   %.not = icmp eq ptr %46, null
@@ -538,7 +538,7 @@ _ZN5arrow4util14CheckAlignmentERKNS_6BufferEl.exit33.i: ; preds = %.lr.ph.split.
   br i1 %.not19, label %_ZN5arrow4util12_GLOBAL__N_118CheckSelfAlignmentERKNS_9ArrayDataEl.exit, label %.lr.ph
 
 _ZN5arrow4util12_GLOBAL__N_118CheckSelfAlignmentERKNS_9ArrayDataEl.exit: ; preds = %_ZN5arrow4util14CheckAlignmentERKNS_6BufferEl.exit33.i, %_ZN5arrow4util14CheckAlignmentERKNS_6BufferEl.exit.i, %55, %.critedge, %49, %47
-  %.0 = phi i1 [ false, %47 ], [ true, %49 ], [ false, %_ZN5arrow4util14CheckAlignmentERKNS_6BufferEl.exit.i ], [ true, %.critedge ], [ false, %55 ], [ false, %_ZN5arrow4util14CheckAlignmentERKNS_6BufferEl.exit33.i ]
+  %.0 = phi i1 [ false, %47 ], [ true, %.critedge ], [ false, %_ZN5arrow4util14CheckAlignmentERKNS_6BufferEl.exit.i ], [ true, %49 ], [ false, %55 ], [ false, %_ZN5arrow4util14CheckAlignmentERKNS_6BufferEl.exit33.i ]
   ret i1 %.0
 }
 

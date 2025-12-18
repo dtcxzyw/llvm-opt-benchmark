@@ -1279,7 +1279,7 @@ _ZN11quinn_proto9range_set15btree_range_set8RangeSet4succ17h5d644a7a06c96a26E.ex
   br i1 %.not7, label %42, label %.loopexit
 
 .loopexit:                                        ; preds = %37, %_ZN11quinn_proto9range_set15btree_range_set8RangeSet4succ17h5d644a7a06c96a26E.exit, %45
-  %.sroa.0.2 = phi i1 [ true, %45 ], [ %.sroa.0.1, %_ZN11quinn_proto9range_set15btree_range_set8RangeSet4succ17h5d644a7a06c96a26E.exit ], [ %.sroa.0.1, %37 ]
+  %.sroa.0.2 = phi i1 [ %.sroa.0.1, %_ZN11quinn_proto9range_set15btree_range_set8RangeSet4succ17h5d644a7a06c96a26E.exit ], [ true, %45 ], [ %.sroa.0.1, %37 ]
   %spec.select = or i1 %.sroa.01.0, %.sroa.0.2
   br label %47
 
@@ -3129,8 +3129,8 @@ define hidden { i64, i32 } @_ZN11quinn_proto10connection5paths12RttEstimator8pto
   unreachable
 
 32:                                               ; preds = %28, %22
-  %.sroa.4.0.i = phi i32 [ %29, %28 ], [ %24, %22 ]
-  %.sroa.0.0.i9 = phi i64 [ %30, %28 ], [ %23, %22 ]
+  %.sroa.4.0.i = phi i32 [ %24, %22 ], [ %29, %28 ]
+  %.sroa.0.0.i9 = phi i64 [ %23, %22 ], [ %30, %28 ]
   %33 = insertvalue { i64, i32 } poison, i64 %.sroa.0.0.i9, 0
   %34 = insertvalue { i64, i32 } %33, i32 %.sroa.4.0.i, 1
   ret { i64, i32 } %34
@@ -3201,8 +3201,8 @@ define hidden void @_ZN11quinn_proto10connection5paths12RttEstimator6update17hb6
   br label %167
 
 38:                                               ; preds = %27, %21
-  %.sroa.4.0.i = phi i32 [ %28, %27 ], [ %23, %21 ]
-  %.sroa.0.0.i = phi i64 [ %29, %27 ], [ %22, %21 ]
+  %.sroa.4.0.i = phi i32 [ %23, %21 ], [ %28, %27 ]
+  %.sroa.0.0.i = phi i64 [ %22, %21 ], [ %29, %27 ]
   %39 = icmp eq i64 %.sroa.0.0.i, %3
   br i1 %39, label %41, label %42
 
@@ -3257,8 +3257,8 @@ define hidden void @_ZN11quinn_proto10connection5paths12RttEstimator6update17hb6
   unreachable
 
 60:                                               ; preds = %52, %56, %42, %41
-  %.sroa.6.0 = phi i32 [ %4, %42 ], [ %4, %41 ], [ %58, %56 ], [ %.sroa.04.0.i, %52 ]
-  %.sroa.01.0 = phi i64 [ %3, %42 ], [ %3, %41 ], [ %57, %56 ], [ %.sroa.02.0.i, %52 ]
+  %.sroa.6.0 = phi i32 [ %4, %42 ], [ %4, %41 ], [ %.sroa.04.0.i, %52 ], [ %58, %56 ]
+  %.sroa.01.0 = phi i64 [ %3, %42 ], [ %3, %41 ], [ %.sroa.02.0.i, %52 ], [ %57, %56 ]
   %61 = icmp eq i64 %18, %.sroa.01.0
   %62 = icmp ugt i64 %18, %.sroa.01.0
   %63 = icmp samesign ugt i32 %16, %.sroa.6.0
@@ -3348,8 +3348,8 @@ define hidden void @_ZN11quinn_proto10connection5paths12RttEstimator6update17hb6
   unreachable
 
 _ZN4core4time8Duration11checked_sub17h366c2e4ca015d589E.exit73: ; preds = %94, %90, %77, %73
-  %.sroa.3.0 = phi i32 [ %.sroa.04.0.i70, %73 ], [ %79, %77 ], [ %96, %94 ], [ %.sroa.04.0.i77, %90 ]
-  %.sroa.0.0.i72.pn = phi i64 [ %.sroa.02.0.i68, %73 ], [ %78, %77 ], [ %95, %94 ], [ %.sroa.02.0.i75, %90 ]
+  %.sroa.3.0 = phi i32 [ %79, %77 ], [ %.sroa.04.0.i70, %73 ], [ %.sroa.04.0.i77, %90 ], [ %96, %94 ]
+  %.sroa.0.0.i72.pn = phi i64 [ %78, %77 ], [ %.sroa.02.0.i68, %73 ], [ %.sroa.02.0.i75, %90 ], [ %95, %94 ]
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %100 = load i64, ptr %99, align 8, !noundef !3
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -3396,8 +3396,8 @@ _ZN4core4time8Duration11checked_sub17h366c2e4ca015d589E.exit73: ; preds = %94, %
   unreachable
 
 126:                                              ; preds = %122, %116
-  %.sroa.4.0.i83 = phi i32 [ %123, %122 ], [ %118, %116 ]
-  %.sroa.0.0.i84 = phi i64 [ %124, %122 ], [ %117, %116 ]
+  %.sroa.4.0.i83 = phi i32 [ %118, %116 ], [ %123, %122 ]
+  %.sroa.0.0.i84 = phi i64 [ %117, %116 ], [ %124, %122 ]
   %127 = lshr i64 %.sroa.0.0.i84, 2
   %128 = lshr i32 %.sroa.4.0.i83, 2
   %129 = trunc i64 %.sroa.0.0.i84 to i32
@@ -3449,8 +3449,8 @@ _ZN4core4time8Duration11checked_sub17h366c2e4ca015d589E.exit73: ; preds = %94, %
   unreachable
 
 159:                                              ; preds = %155, %149
-  %.sroa.4.0.i91 = phi i32 [ %156, %155 ], [ %151, %149 ]
-  %.sroa.0.0.i92 = phi i64 [ %157, %155 ], [ %150, %149 ]
+  %.sroa.4.0.i91 = phi i32 [ %151, %149 ], [ %156, %155 ]
+  %.sroa.0.0.i92 = phi i64 [ %150, %149 ], [ %157, %155 ]
   %160 = lshr i64 %.sroa.0.0.i92, 3
   %161 = lshr i32 %.sroa.4.0.i91, 3
   %162 = trunc i64 %.sroa.0.0.i92 to i32
@@ -5397,8 +5397,8 @@ define void @_ZN11quinn_proto10connection7streams10SendStream5write17h14f7313f9d
   unreachable
 
 .loopexit:                                        ; preds = %._crit_edge.i.i.i, %193, %66, %229, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09d0ea64f363d7c2E.exit.i", %"_ZN11quinn_proto10connection7streams10SendStream12write_source28_$u7b$$u7b$closure$u7d$$u7d$17h9aaed42898dfc8a4E.exit.i", %378, %350, %346, %.critedge402.i
-  %.sroa.16.0.ph = phi i64 [ undef, %.critedge402.i ], [ undef, %346 ], [ undef, %350 ], [ undef, %378 ], [ undef, %"_ZN11quinn_proto10connection7streams10SendStream12write_source28_$u7b$$u7b$closure$u7d$$u7d$17h9aaed42898dfc8a4E.exit.i" ], [ undef, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09d0ea64f363d7c2E.exit.i" ], [ %122, %229 ], [ 0, %66 ], [ undef, %193 ], [ 0, %._crit_edge.i.i.i ]
-  %.sroa.9.0.ph = phi i64 [ 0, %.critedge402.i ], [ 0, %346 ], [ 0, %350 ], [ 0, %378 ], [ 0, %"_ZN11quinn_proto10connection7streams10SendStream12write_source28_$u7b$$u7b$closure$u7d$$u7d$17h9aaed42898dfc8a4E.exit.i" ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09d0ea64f363d7c2E.exit.i" ], [ %120, %229 ], [ 2, %66 ], [ 0, %193 ], [ 2, %._crit_edge.i.i.i ]
+  %.sroa.16.0.ph = phi i64 [ undef, %.critedge402.i ], [ undef, %346 ], [ undef, %350 ], [ undef, %378 ], [ undef, %"_ZN11quinn_proto10connection7streams10SendStream12write_source28_$u7b$$u7b$closure$u7d$$u7d$17h9aaed42898dfc8a4E.exit.i" ], [ undef, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09d0ea64f363d7c2E.exit.i" ], [ undef, %193 ], [ %122, %229 ], [ 0, %66 ], [ 0, %._crit_edge.i.i.i ]
+  %.sroa.9.0.ph = phi i64 [ 0, %.critedge402.i ], [ 0, %346 ], [ 0, %350 ], [ 0, %378 ], [ 0, %"_ZN11quinn_proto10connection7streams10SendStream12write_source28_$u7b$$u7b$closure$u7d$$u7d$17h9aaed42898dfc8a4E.exit.i" ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09d0ea64f363d7c2E.exit.i" ], [ 0, %193 ], [ %120, %229 ], [ 2, %66 ], [ 2, %._crit_edge.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   call void @llvm.lifetime.end.p0(ptr nonnull %51)

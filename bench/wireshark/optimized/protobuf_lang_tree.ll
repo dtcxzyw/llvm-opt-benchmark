@@ -2143,7 +2143,7 @@ check_node_depth.exit:                            ; preds = %.preheader
   br label %124
 
 124:                                              ; preds = %.sink.split, %103, %88, %.critedge, %check_node_depth.exit, %2
-  %.0 = phi ptr [ %0, %2 ], [ null, %check_node_depth.exit ], [ %0, %.critedge ], [ %0, %88 ], [ %0, %103 ], [ %0, %.sink.split ]
+  %.0 = phi ptr [ %0, %2 ], [ null, %check_node_depth.exit ], [ %0, %.critedge ], [ %0, %103 ], [ %0, %88 ], [ %0, %.sink.split ]
   ret ptr %.0
 }
 

@@ -1967,7 +1967,7 @@ _ZN7rocksdb6StatusaSEOS0_.exit216:                ; preds = %600
   br label %_ZNSt10unique_ptrIN7rocksdb20InternalIteratorBaseINS0_5SliceEEESt14default_deleteIS3_EED2Ev.exit
 
 _ZNSt10unique_ptrIN7rocksdb20InternalIteratorBaseINS0_5SliceEEESt14default_deleteIS3_EED2Ev.exit: ; preds = %205, %600, %_ZN7rocksdb6StatusaSEOS0_.exit216, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit166, %179, %.thread, %598, %_ZN7rocksdb6StatusD2Ev.exit206
-  %.2 = phi i1 [ false, %598 ], [ true, %_ZN7rocksdb6StatusD2Ev.exit206 ], [ false, %600 ], [ true, %.thread ], [ true, %179 ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit166 ], [ false, %_ZN7rocksdb6StatusaSEOS0_.exit216 ], [ true, %205 ]
+  %.2 = phi i1 [ false, %598 ], [ true, %_ZN7rocksdb6StatusD2Ev.exit206 ], [ false, %600 ], [ true, %.thread ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit166 ], [ true, %179 ], [ false, %_ZN7rocksdb6StatusaSEOS0_.exit216 ], [ true, %205 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %604 = load ptr, ptr %37, align 8, !tbaa !30
   %605 = getelementptr inbounds nuw i8, ptr %604, i64 8
@@ -4581,7 +4581,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit15: ; preds = %_ZN
   resume { ptr, i32 } %.pn
 
 .loopexit19:                                      ; preds = %44, %28, %39
-  %.sroa.06.1.i.i = phi ptr [ %40, %39 ], [ %.sroa.06.0.i.i, %28 ], [ %46, %44 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %28 ], [ %40, %39 ], [ %46, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %176 = getelementptr inbounds nuw i8, ptr %0, i64 72
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -6031,8 +6031,8 @@ _ZNSt10_HashtableIN7rocksdb9WriteTypeESt4pairIKS1_NS0_9ValueTypeEESaIS5_ENSt8__d
   resume { ptr, i32 } %50
 
 _ZNKSt10_HashtableIN7rocksdb9WriteTypeESt4pairIKS1_NS0_9ValueTypeEESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE15_M_find_node_trIS1_EEPNS7_10_Hash_nodeIS5_Lb0EEEmRKT_m.exit: ; preds = %33, %19, %.critedge, %28
-  %.sroa.031.1 = phi ptr [ %29, %28 ], [ %49, %.critedge ], [ %.sroa.028.0, %19 ], [ %35, %33 ]
-  %.sroa.432.1 = phi i8 [ 0, %28 ], [ 1, %.critedge ], [ 0, %19 ], [ 0, %33 ]
+  %.sroa.031.1 = phi ptr [ %.sroa.028.0, %19 ], [ %49, %.critedge ], [ %29, %28 ], [ %35, %33 ]
+  %.sroa.432.1 = phi i8 [ 0, %19 ], [ 1, %.critedge ], [ 0, %28 ], [ 0, %33 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.031.1, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.432.1, 1
   ret { ptr, i8 } %.fca.1.insert

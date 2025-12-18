@@ -2530,7 +2530,7 @@ lpad61.loopexit:                                  ; preds = %for.body.i
   br label %ehcleanup310
 
 lpad61.loopexit.split-lp.loopexit:                ; preds = %cond.false.i176, %cond.false.i, %.noexc, %if.then.i.i109, %invoke.cont206
-  %bestX.sroa.0.1.ph.ph = phi ptr [ %bestX.sroa.0.2, %cond.false.i176 ], [ %bestX.sroa.0.2, %invoke.cont206 ], [ %bestX.sroa.0.2, %cond.false.i ], [ %bestX.sroa.0.0376, %.noexc ], [ %bestX.sroa.0.0376, %if.then.i.i109 ]
+  %bestX.sroa.0.1.ph.ph = phi ptr [ %bestX.sroa.0.0376, %if.then.i.i109 ], [ %bestX.sroa.0.2, %cond.false.i176 ], [ %bestX.sroa.0.2, %invoke.cont206 ], [ %bestX.sroa.0.2, %cond.false.i ], [ %bestX.sroa.0.0376, %.noexc ]
   %lpad.loopexit271 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup310

@@ -1177,8 +1177,8 @@ compare_header_names.exit:                        ; preds = %122, %126
   br i1 %.not168, label %.thread221, label %.lr.ph257, !llvm.loop !120
 
 .thread221:                                       ; preds = %50, %152, %147, %.lr.ph257, %140, %149, %.thread218, %106, %60, %.thread, %87, %33
-  %.0131 = phi i32 [ 27, %60 ], [ 27, %.thread ], [ 27, %106 ], [ 27, %87 ], [ 27, %33 ], [ 0, %.thread218 ], [ 27, %149 ], [ 27, %140 ], [ 27, %.lr.ph257 ], [ 27, %147 ], [ 0, %152 ], [ 27, %50 ]
-  %.2 = phi ptr [ %.4240, %60 ], [ null, %.thread ], [ %.4.lcssa, %106 ], [ %.4.lcssa, %87 ], [ %.0126, %33 ], [ null, %.thread218 ], [ %.6306, %152 ], [ %.6306, %149 ], [ %.6306, %140 ], [ %.6306, %.lr.ph257 ], [ %.6306, %147 ], [ %.4240, %50 ]
+  %.0131 = phi i32 [ 27, %149 ], [ 27, %60 ], [ 27, %.thread ], [ 27, %106 ], [ 27, %87 ], [ 27, %33 ], [ 0, %.thread218 ], [ 27, %140 ], [ 27, %.lr.ph257 ], [ 27, %147 ], [ 0, %152 ], [ 27, %50 ]
+  %.2 = phi ptr [ %.6306, %152 ], [ %.4240, %60 ], [ null, %.thread ], [ %.4.lcssa, %106 ], [ %.4.lcssa, %87 ], [ %.0126, %33 ], [ null, %.thread218 ], [ %.6306, %149 ], [ %.6306, %140 ], [ %.6306, %.lr.ph257 ], [ %.6306, %147 ], [ %.4240, %50 ]
   call void @curl_slist_free_all(ptr noundef %.2) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)

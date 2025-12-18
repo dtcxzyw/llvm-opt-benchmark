@@ -3230,7 +3230,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit44.i.i.i.i.i.i.i: 
   unreachable
 
 .loopexit10.i.i.i.i.i.i:                          ; preds = %_ZN9grpc_core5SliceD2Ev.exit34.i.i.i.i.i.i.i, %251, %248, %233, %230, %.noexc3.i.i.i.i.i.i, %57, %54
-  %.0.i.i.i.i.i.i.i = phi i1 [ true, %233 ], [ true, %57 ], [ true, %54 ], [ true, %230 ], [ true, %248 ], [ true, %251 ], [ false, %.noexc3.i.i.i.i.i.i ], [ true, %_ZN9grpc_core5SliceD2Ev.exit34.i.i.i.i.i.i.i ]
+  %.0.i.i.i.i.i.i.i = phi i1 [ true, %233 ], [ true, %251 ], [ false, %.noexc3.i.i.i.i.i.i ], [ true, %57 ], [ true, %54 ], [ true, %230 ], [ true, %248 ], [ true, %_ZN9grpc_core5SliceD2Ev.exit34.i.i.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

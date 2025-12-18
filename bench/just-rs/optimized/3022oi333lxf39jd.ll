@@ -5766,7 +5766,7 @@ common.resume.sink.split:                         ; preds = %38, %51, %99, %121,
   br label %common.resume
 
 common.resume:                                    ; preds = %28, %65, %61, %common.resume.sink.split, %.body, %.body24, %.body46, %.critedge, %43
-  %common.resume.op = phi { ptr, i32 } [ %89, %.body ], [ %.pn2, %.body24 ], [ %44, %43 ], [ %106, %.body46 ], [ %75, %.critedge ], [ %common.resume.op.ph, %common.resume.sink.split ], [ %62, %61 ], [ %62, %65 ], [ %26, %28 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn2, %.body24 ], [ %75, %.critedge ], [ %62, %65 ], [ %106, %.body46 ], [ %44, %43 ], [ %common.resume.op.ph, %common.resume.sink.split ], [ %89, %.body ], [ %62, %61 ], [ %26, %28 ]
   resume { ptr, i32 } %common.resume.op
 
 33:                                               ; preds = %30

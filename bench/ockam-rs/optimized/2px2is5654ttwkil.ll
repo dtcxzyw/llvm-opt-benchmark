@@ -27840,7 +27840,7 @@ define hidden void @"_ZN131_$LT$ockam_identity..models..credential_and_purpose_k
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %210, %"_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$ockam_identity..models..purpose_key_attestation..PurposeKeyAttestation$GT$$GT$17h8fa153ccde0cdfe7E.exit219", %148, %3
-  %.0171.ph.ph = phi i8 [ 0, %"_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$ockam_identity..models..purpose_key_attestation..PurposeKeyAttestation$GT$$GT$17h8fa153ccde0cdfe7E.exit219" ], [ 1, %210 ], [ 1, %3 ], [ 1, %148 ]
+  %.0171.ph.ph = phi i8 [ 1, %210 ], [ 0, %"_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$ockam_identity..models..purpose_key_attestation..PurposeKeyAttestation$GT$$GT$17h8fa153ccde0cdfe7E.exit219" ], [ 1, %3 ], [ 1, %148 ]
   %lpad.loopexit.split-lp261 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -35830,8 +35830,8 @@ define hidden void @"_ZN146_$LT$ockam_identity..secure_channel..handshake..hands
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %244, %216, %168, %3
-  %.0221.ph.ph = phi i8 [ %.14235, %216 ], [ 1, %244 ], [ 1, %3 ], [ 1, %168 ]
-  %.0218.ph.ph = phi i8 [ 0, %216 ], [ 1, %244 ], [ 1, %3 ], [ 1, %168 ]
+  %.0221.ph.ph = phi i8 [ 1, %244 ], [ %.14235, %216 ], [ 1, %3 ], [ 1, %168 ]
+  %.0218.ph.ph = phi i8 [ 1, %244 ], [ 0, %216 ], [ 1, %3 ], [ 1, %168 ]
   %lpad.loopexit.split-lp349 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp

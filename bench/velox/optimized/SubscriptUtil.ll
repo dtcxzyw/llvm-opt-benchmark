@@ -30582,7 +30582,7 @@ return.sink.split:                                ; preds = %if.then.i, %_ZZN8fa
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.then27, %if.then3, %for.end, %entry
-  %retval.0 = phi i1 [ true, %entry ], [ true, %for.end ], [ true, %if.then3 ], [ true, %if.then27 ], [ false, %return.sink.split ]
+  %retval.0 = phi i1 [ true, %entry ], [ true, %for.end ], [ true, %if.then27 ], [ true, %if.then3 ], [ false, %return.sink.split ]
   ret i1 %retval.0
 }
 
@@ -31054,7 +31054,7 @@ for.body31:                                       ; preds = %for.body31.lr.ph.sp
   br i1 %92, label %for.cond29, label %if.then38
 
 if.then38:                                        ; preds = %for.body31, %for.body31.us, %for.body31.lr.ph.split.split.us
-  %.us-phi.in = phi i64 [ %conv4, %for.body31.lr.ph.split.split.us ], [ %offset28.0156.us, %for.body31.us ], [ %offset28.0156, %for.body31 ]
+  %.us-phi.in = phi i64 [ %offset28.0156.us, %for.body31.us ], [ %conv4, %for.body31.lr.ph.split.split.us ], [ %offset28.0156, %for.body31 ]
   %.us-phi = trunc i64 %.us-phi.in to i32
   %93 = getelementptr inbounds nuw i8, ptr %this, i64 48
   %94 = load ptr, ptr %93, align 8
@@ -33730,7 +33730,7 @@ for.body30:                                       ; preds = %for.body30.lr.ph.sp
   br i1 %cmp33, label %if.then34, label %for.cond28
 
 if.then34:                                        ; preds = %for.body30, %for.body30.us, %for.body30.lr.ph.split.split.us
-  %.us-phi.in = phi i64 [ %conv4, %for.body30.lr.ph.split.split.us ], [ %offset27.0149.us, %for.body30.us ], [ %offset27.0149, %for.body30 ]
+  %.us-phi.in = phi i64 [ %offset27.0149.us, %for.body30.us ], [ %conv4, %for.body30.lr.ph.split.split.us ], [ %offset27.0149, %for.body30 ]
   %.us-phi = trunc i64 %.us-phi.in to i32
   %89 = getelementptr inbounds nuw i8, ptr %this, i64 48
   %90 = load ptr, ptr %89, align 8
@@ -35998,7 +35998,7 @@ for.body30:                                       ; preds = %for.body30.lr.ph.sp
   br i1 %cmp35, label %if.then36, label %for.cond28
 
 if.then36:                                        ; preds = %for.body30, %for.body30.us, %for.body30.lr.ph.split.split.us
-  %.us-phi.in = phi i64 [ %conv4, %for.body30.lr.ph.split.split.us ], [ %offset27.0149.us, %for.body30.us ], [ %offset27.0149, %for.body30 ]
+  %.us-phi.in = phi i64 [ %offset27.0149.us, %for.body30.us ], [ %conv4, %for.body30.lr.ph.split.split.us ], [ %offset27.0149, %for.body30 ]
   %.us-phi = trunc i64 %.us-phi.in to i32
   %88 = getelementptr inbounds nuw i8, ptr %this, i64 48
   %89 = load ptr, ptr %88, align 8
@@ -38266,7 +38266,7 @@ for.body30:                                       ; preds = %for.body30.lr.ph.sp
   br i1 %cmp35, label %if.then36, label %for.cond28
 
 if.then36:                                        ; preds = %for.body30, %for.body30.us, %for.body30.lr.ph.split.split.us
-  %.us-phi.in = phi i64 [ %conv4, %for.body30.lr.ph.split.split.us ], [ %offset27.0149.us, %for.body30.us ], [ %offset27.0149, %for.body30 ]
+  %.us-phi.in = phi i64 [ %offset27.0149.us, %for.body30.us ], [ %conv4, %for.body30.lr.ph.split.split.us ], [ %offset27.0149, %for.body30 ]
   %.us-phi = trunc i64 %.us-phi.in to i32
   %89 = getelementptr inbounds nuw i8, ptr %this, i64 48
   %90 = load ptr, ptr %89, align 8
@@ -40643,7 +40643,7 @@ for.body30:                                       ; preds = %for.body30.lr.ph.sp
   br i1 %cmp33, label %if.then34, label %for.cond28
 
 if.then34:                                        ; preds = %for.body30, %for.body30.us, %for.body30.lr.ph.split.split.us
-  %.us-phi.in = phi i64 [ %conv4, %for.body30.lr.ph.split.split.us ], [ %offset27.0148.us, %for.body30.us ], [ %offset27.0148, %for.body30 ]
+  %.us-phi.in = phi i64 [ %offset27.0148.us, %for.body30.us ], [ %conv4, %for.body30.lr.ph.split.split.us ], [ %offset27.0148, %for.body30 ]
   %.us-phi = trunc i64 %.us-phi.in to i32
   %89 = getelementptr inbounds nuw i8, ptr %this, i64 48
   %90 = load ptr, ptr %89, align 8
@@ -42900,7 +42900,7 @@ for.body30:                                       ; preds = %for.body30.lr.ph.sp
   br i1 %cmp34, label %if.then35, label %for.cond28
 
 if.then35:                                        ; preds = %for.body30, %for.body30.us, %for.body30.lr.ph.split.split.us
-  %.us-phi.in = phi i64 [ %conv5, %for.body30.lr.ph.split.split.us ], [ %offset27.0161.us, %for.body30.us ], [ %offset27.0161, %for.body30 ]
+  %.us-phi.in = phi i64 [ %offset27.0161.us, %for.body30.us ], [ %conv5, %for.body30.lr.ph.split.split.us ], [ %offset27.0161, %for.body30 ]
   %.us-phi = trunc i64 %.us-phi.in to i32
   %86 = getelementptr inbounds nuw i8, ptr %this, i64 48
   %87 = load ptr, ptr %86, align 8
@@ -45294,7 +45294,7 @@ for.body30:                                       ; preds = %for.body30.lr.ph.sp
   br i1 %cmp33, label %if.then34, label %for.cond28
 
 if.then34:                                        ; preds = %for.body30, %for.body30.us, %for.body30.lr.ph.split.split.us
-  %.us-phi.in = phi i64 [ %conv4, %for.body30.lr.ph.split.split.us ], [ %offset27.0149.us, %for.body30.us ], [ %offset27.0149, %for.body30 ]
+  %.us-phi.in = phi i64 [ %offset27.0149.us, %for.body30.us ], [ %conv4, %for.body30.lr.ph.split.split.us ], [ %offset27.0149, %for.body30 ]
   %.us-phi = trunc i64 %.us-phi.in to i32
   %93 = getelementptr inbounds nuw i8, ptr %this, i64 48
   %94 = load ptr, ptr %93, align 8
@@ -47732,7 +47732,7 @@ for.body30:                                       ; preds = %for.body30.lr.ph.sp
   br i1 %cmp33, label %if.then34, label %for.cond28
 
 if.then34:                                        ; preds = %for.body30, %for.body30.us, %for.body30.lr.ph.split.split.us
-  %.us-phi.in = phi i64 [ %conv4, %for.body30.lr.ph.split.split.us ], [ %offset27.0149.us, %for.body30.us ], [ %offset27.0149, %for.body30 ]
+  %.us-phi.in = phi i64 [ %offset27.0149.us, %for.body30.us ], [ %conv4, %for.body30.lr.ph.split.split.us ], [ %offset27.0149, %for.body30 ]
   %.us-phi = trunc i64 %.us-phi.in to i32
   %93 = getelementptr inbounds nuw i8, ptr %this, i64 48
   %94 = load ptr, ptr %93, align 8
@@ -53393,7 +53393,7 @@ for.body29:                                       ; preds = %for.body29.lr.ph.sp
   br i1 %94, label %if.then34, label %for.cond27
 
 if.then34:                                        ; preds = %for.body29, %for.body29.us, %for.body29.lr.ph.split.split.us
-  %.us-phi.in = phi i64 [ %conv4, %for.body29.lr.ph.split.split.us ], [ %offset26.0162.us, %for.body29.us ], [ %offset26.0162, %for.body29 ]
+  %.us-phi.in = phi i64 [ %offset26.0162.us, %for.body29.us ], [ %conv4, %for.body29.lr.ph.split.split.us ], [ %offset26.0162, %for.body29 ]
   %.us-phi = trunc i64 %.us-phi.in to i32
   %95 = getelementptr inbounds nuw i8, ptr %this, i64 48
   %96 = load ptr, ptr %95, align 8

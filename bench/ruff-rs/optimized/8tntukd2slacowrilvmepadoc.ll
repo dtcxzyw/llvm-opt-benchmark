@@ -543,7 +543,7 @@ _ZN19ruff_python_codegen7stylist18detect_indentation17h0cf0de2c3f236687E.exit: ;
   br label %_ZN19ruff_python_codegen7stylist12detect_quote17h898321d58da3966bE.exit
 
 _ZN19ruff_python_codegen7stylist12detect_quote17h898321d58da3966bE.exit: ; preds = %228, %.noexc5, %.noexc4, %220
-  %.sroa.0.0.i3 = phi i1 [ %235, %.noexc5 ], [ %233, %.noexc4 ], [ true, %220 ], [ true, %228 ]
+  %.sroa.0.0.i3 = phi i1 [ %233, %.noexc4 ], [ %235, %.noexc5 ], [ true, %220 ], [ true, %228 ]
   %236 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %2, ptr %236, align 8
   %237 = getelementptr inbounds nuw i8, ptr %0, i64 32

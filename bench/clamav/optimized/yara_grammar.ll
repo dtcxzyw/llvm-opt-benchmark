@@ -3022,12 +3022,12 @@ yydestruct.exit1453:                              ; preds = %1170, %.sink.split.
   br label %.loopexit
 
 .loopexit:                                        ; preds = %50, %.thread1480, %.loopexit.loopexit, %.thread1473
-  %.61466 = phi ptr [ %.2, %.thread1473 ], [ %.51465, %.loopexit.loopexit ], [ %.01461, %.thread1480 ], [ %.01461, %50 ]
-  %.01225 = phi i32 [ 2, %.thread1473 ], [ 1, %.loopexit.loopexit ], [ 1, %50 ], [ 0, %.thread1480 ]
-  %.81219 = phi ptr [ %.51216, %.thread1473 ], [ %.71218, %.loopexit.loopexit ], [ %53, %50 ], [ %.21213, %.thread1480 ]
-  %.81205 = phi ptr [ %.51202, %.thread1473 ], [ %scevgep.le, %.loopexit.loopexit ], [ %51, %50 ], [ %.21199, %.thread1480 ]
-  %.61196 = phi ptr [ %.51195, %.thread1473 ], [ %.11191, %.loopexit.loopexit ], [ %43, %50 ], [ %.11191, %.thread1480 ]
-  %.9 = phi i32 [ %.3, %.thread1473 ], [ %.8, %.loopexit.loopexit ], [ %.01178, %.thread1480 ], [ %.01178, %50 ]
+  %.61466 = phi ptr [ %.51465, %.loopexit.loopexit ], [ %.2, %.thread1473 ], [ %.01461, %.thread1480 ], [ %.01461, %50 ]
+  %.01225 = phi i32 [ 1, %.loopexit.loopexit ], [ 2, %.thread1473 ], [ 1, %50 ], [ 0, %.thread1480 ]
+  %.81219 = phi ptr [ %.71218, %.loopexit.loopexit ], [ %.51216, %.thread1473 ], [ %53, %50 ], [ %.21213, %.thread1480 ]
+  %.81205 = phi ptr [ %scevgep.le, %.loopexit.loopexit ], [ %.51202, %.thread1473 ], [ %51, %50 ], [ %.21199, %.thread1480 ]
+  %.61196 = phi ptr [ %.11191, %.loopexit.loopexit ], [ %.51195, %.thread1473 ], [ %43, %50 ], [ %.11191, %.thread1480 ]
+  %.9 = phi i32 [ %.8, %.loopexit.loopexit ], [ %.3, %.thread1473 ], [ %.01178, %.thread1480 ], [ %.01178, %50 ]
   %or.cond15 = icmp ult i32 %.9, 310
   br i1 %or.cond15, label %.thread1555, label %yydestruct.exit1455
 
@@ -3439,7 +3439,7 @@ yytnamerr.exit129:                                ; preds = %76, %.preheader, %.
   br label %.preheader
 
 .critedge:                                        ; preds = %yytnamerr.exit119, %.preheader, %73, %.thread7
-  %.7 = phi i32 [ 2, %.thread7 ], [ 1, %73 ], [ 0, %.preheader ], [ 2, %yytnamerr.exit119 ]
+  %.7 = phi i32 [ 1, %73 ], [ 0, %.preheader ], [ 2, %.thread7 ], [ 2, %yytnamerr.exit119 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.7
 }

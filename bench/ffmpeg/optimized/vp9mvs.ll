@@ -2751,7 +2751,7 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
   br label %.critedge1060
 
 50:                                               ; preds = %23, %44, %48, %28
-  %.2 = phi i32 [ %46, %44 ], [ -2147450880, %28 ], [ %49, %48 ], [ %27, %23 ]
+  %.2 = phi i32 [ %49, %48 ], [ -2147450880, %28 ], [ %46, %44 ], [ %27, %23 ]
   %51 = icmp sgt i32 %11, 0
   br i1 %51, label %52, label %.thread1601
 

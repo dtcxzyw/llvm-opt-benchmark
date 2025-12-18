@@ -3246,7 +3246,7 @@ define linkonce_odr hidden void @_ZNK2cv8tracking4impl9MosseImpl7divDFTsERKNS_3M
   br i1 %196, label %.loopexit, label %193
 
 .loopexit:                                        ; preds = %193, %.loopexit.loopexit91, %.thread
-  %.pn85.pn = phi { ptr, i32 } [ %144, %.thread ], [ %184, %.loopexit.loopexit91 ], [ %186, %193 ]
+  %.pn85.pn = phi { ptr, i32 } [ %184, %.loopexit.loopexit91 ], [ %144, %.thread ], [ %186, %193 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %43)
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) #23
   br label %197

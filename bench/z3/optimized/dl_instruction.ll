@@ -4175,7 +4175,7 @@ _ZN7datalog17execution_context16should_terminateEv.exit: ; preds = %29, %_ZN9sto
   %46 = icmp ult i32 %28, %45
   br i1 %46, label %.critedge20, label %_ZN7datalog17execution_context16should_terminateEv.exit.thread23
 
-_ZN7datalog17execution_context16should_terminateEv.exit.thread23: ; preds = %25, %27, %_ZN7datalog17execution_context16should_terminateEv.exit
+_ZN7datalog17execution_context16should_terminateEv.exit.thread23: ; preds = %27, %25, %_ZN7datalog17execution_context16should_terminateEv.exit
   %47 = load ptr, ptr %16, align 8, !tbaa !43
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 40
   %49 = load ptr, ptr %48, align 8
@@ -4592,7 +4592,7 @@ define linkonce_odr hidden void @_ZSt22__final_insertion_sortIPSt4pairIjjEN9__gn
   br i1 %34, label %.lr.ph.i.i, label %_ZSt13move_backwardIPSt4pairIjjES2_ET0_T_S4_S3_.exit.i, !llvm.loop !430
 
 _ZSt13move_backwardIPSt4pairIjjES2_ET0_T_S4_S3_.exit.i: ; preds = %.lr.ph.i.i, %.lr.ph.i.i.i.i.i.i, %25
-  %.sink.i = phi ptr [ %.019.i.ptr, %25 ], [ %0, %.lr.ph.i.i.i.i.i.i ], [ %.0.i.i, %.lr.ph.i.i ]
+  %.sink.i = phi ptr [ %0, %.lr.ph.i.i.i.i.i.i ], [ %.019.i.ptr, %25 ], [ %.0.i.i, %.lr.ph.i.i ]
   store i64 %14, ptr %.sink.i, align 4
   %.019.i.add = add nuw nsw i64 %.019.i.idx, 8
   %.not.i = icmp eq i64 %.019.i.add, 128
@@ -4705,7 +4705,7 @@ _ZSt25__unguarded_linear_insertIPSt4pairIjjEN9__gnu_cxx5__ops14_Val_comp_iterIN7
   br i1 %79, label %.lr.ph.i.i29, label %_ZSt13move_backwardIPSt4pairIjjES2_ET0_T_S4_S3_.exit.i25, !llvm.loop !430
 
 _ZSt13move_backwardIPSt4pairIjjES2_ET0_T_S4_S3_.exit.i25: ; preds = %.lr.ph.i.i29, %.lr.ph.i.i.i.i.i.i33, %70, %56
-  %.sink.i26 = phi ptr [ %0, %56 ], [ %.019.i21, %70 ], [ %0, %.lr.ph.i.i.i.i.i.i33 ], [ %.0.i.i31, %.lr.ph.i.i29 ]
+  %.sink.i26 = phi ptr [ %0, %56 ], [ %0, %.lr.ph.i.i.i.i.i.i33 ], [ %.019.i21, %70 ], [ %.0.i.i31, %.lr.ph.i.i29 ]
   store i64 %55, ptr %.sink.i26, align 4
   %.0.i27 = getelementptr inbounds nuw i8, ptr %.019.i21, i64 8
   %.not.i28 = icmp eq ptr %.0.i27, %1
@@ -8762,12 +8762,12 @@ _ZNK9table2mapI17default_map_entryIjNSt7__cxx1112basic_stringIcSt11char_traitsIc
   br label %_ZNK7datalog17execution_context23get_register_annotationEjRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 _ZNK7datalog17execution_context23get_register_annotationEjRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %.lr.ph.i.i.i.i, %46, %.lr.ph34.i.i.i.i, %_ZNK9table2mapI17default_map_entryIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6u_hash4u_eqE9find_coreERKj.exit.i.i._ZNK7datalog17execution_context23get_register_annotationEjRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit_crit_edge, %.preheader.i.i.i.i
-  %.pre-phi108 = phi i64 [ %.pre107, %_ZNK9table2mapI17default_map_entryIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6u_hash4u_eqE9find_coreERKj.exit.i.i._ZNK7datalog17execution_context23get_register_annotationEjRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit_crit_edge ], [ %24, %.preheader.i.i.i.i ], [ %24, %46 ], [ %24, %.lr.ph34.i.i.i.i ], [ %24, %.lr.ph.i.i.i.i ]
-  %.idx.i.i.i.i28.pre-phi = phi i64 [ %.pre106, %_ZNK9table2mapI17default_map_entryIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6u_hash4u_eqE9find_coreERKj.exit.i.i._ZNK7datalog17execution_context23get_register_annotationEjRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit_crit_edge ], [ %.idx.i.i.i.i, %.preheader.i.i.i.i ], [ %.idx.i.i.i.i, %46 ], [ %.idx.i.i.i.i, %.lr.ph34.i.i.i.i ], [ %.idx.i.i.i.i, %.lr.ph.i.i.i.i ]
-  %.pre-phi103 = phi i32 [ %.pre102, %_ZNK9table2mapI17default_map_entryIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6u_hash4u_eqE9find_coreERKj.exit.i.i._ZNK7datalog17execution_context23get_register_annotationEjRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit_crit_edge ], [ 0, %.preheader.i.i.i.i ], [ %20, %46 ], [ %20, %.lr.ph34.i.i.i.i ], [ %20, %.lr.ph.i.i.i.i ]
-  %49 = phi ptr [ %.pre100, %_ZNK9table2mapI17default_map_entryIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6u_hash4u_eqE9find_coreERKj.exit.i.i._ZNK7datalog17execution_context23get_register_annotationEjRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit_crit_edge ], [ %21, %.preheader.i.i.i.i ], [ %21, %46 ], [ %21, %.lr.ph34.i.i.i.i ], [ %21, %.lr.ph.i.i.i.i ]
-  %50 = phi i32 [ %.pre99, %_ZNK9table2mapI17default_map_entryIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6u_hash4u_eqE9find_coreERKj.exit.i.i._ZNK7datalog17execution_context23get_register_annotationEjRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit_crit_edge ], [ %18, %.preheader.i.i.i.i ], [ %18, %46 ], [ %18, %.lr.ph34.i.i.i.i ], [ %18, %.lr.ph.i.i.i.i ]
-  %51 = phi i32 [ %.pre, %_ZNK9table2mapI17default_map_entryIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6u_hash4u_eqE9find_coreERKj.exit.i.i._ZNK7datalog17execution_context23get_register_annotationEjRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit_crit_edge ], [ %15, %.preheader.i.i.i.i ], [ %15, %46 ], [ %15, %.lr.ph34.i.i.i.i ], [ %15, %.lr.ph.i.i.i.i ]
+  %.pre-phi108 = phi i64 [ %.pre107, %_ZNK9table2mapI17default_map_entryIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6u_hash4u_eqE9find_coreERKj.exit.i.i._ZNK7datalog17execution_context23get_register_annotationEjRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit_crit_edge ], [ %24, %46 ], [ %24, %.preheader.i.i.i.i ], [ %24, %.lr.ph34.i.i.i.i ], [ %24, %.lr.ph.i.i.i.i ]
+  %.idx.i.i.i.i28.pre-phi = phi i64 [ %.pre106, %_ZNK9table2mapI17default_map_entryIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6u_hash4u_eqE9find_coreERKj.exit.i.i._ZNK7datalog17execution_context23get_register_annotationEjRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit_crit_edge ], [ %.idx.i.i.i.i, %46 ], [ %.idx.i.i.i.i, %.preheader.i.i.i.i ], [ %.idx.i.i.i.i, %.lr.ph34.i.i.i.i ], [ %.idx.i.i.i.i, %.lr.ph.i.i.i.i ]
+  %.pre-phi103 = phi i32 [ %.pre102, %_ZNK9table2mapI17default_map_entryIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6u_hash4u_eqE9find_coreERKj.exit.i.i._ZNK7datalog17execution_context23get_register_annotationEjRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit_crit_edge ], [ %20, %46 ], [ 0, %.preheader.i.i.i.i ], [ %20, %.lr.ph34.i.i.i.i ], [ %20, %.lr.ph.i.i.i.i ]
+  %49 = phi ptr [ %.pre100, %_ZNK9table2mapI17default_map_entryIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6u_hash4u_eqE9find_coreERKj.exit.i.i._ZNK7datalog17execution_context23get_register_annotationEjRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit_crit_edge ], [ %21, %46 ], [ %21, %.preheader.i.i.i.i ], [ %21, %.lr.ph34.i.i.i.i ], [ %21, %.lr.ph.i.i.i.i ]
+  %50 = phi i32 [ %.pre99, %_ZNK9table2mapI17default_map_entryIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6u_hash4u_eqE9find_coreERKj.exit.i.i._ZNK7datalog17execution_context23get_register_annotationEjRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit_crit_edge ], [ %18, %46 ], [ %18, %.preheader.i.i.i.i ], [ %18, %.lr.ph34.i.i.i.i ], [ %18, %.lr.ph.i.i.i.i ]
+  %51 = phi i32 [ %.pre, %_ZNK9table2mapI17default_map_entryIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6u_hash4u_eqE9find_coreERKj.exit.i.i._ZNK7datalog17execution_context23get_register_annotationEjRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit_crit_edge ], [ %15, %46 ], [ %15, %.preheader.i.i.i.i ], [ %15, %.lr.ph34.i.i.i.i ], [ %15, %.lr.ph.i.i.i.i ]
   %52 = getelementptr inbounds nuw i8, ptr %49, i64 %.idx.i.i.i.i28.pre-phi
   %53 = getelementptr inbounds nuw %class.default_map_entry, ptr %49, i64 %.pre-phi108
   %.not30.i.i.i.i29 = icmp eq i32 %.pre-phi103, %50
@@ -14956,10 +14956,10 @@ _ZNK9table2mapI17default_map_entryIjNSt7__cxx1112basic_stringIcSt11char_traitsIc
   br label %_ZNK7datalog17execution_context23get_register_annotationEjRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 _ZNK7datalog17execution_context23get_register_annotationEjRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %.lr.ph.i.i.i.i, %46, %.lr.ph34.i.i.i.i, %_ZNK9table2mapI17default_map_entryIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6u_hash4u_eqE9find_coreERKj.exit.i.i._ZNK7datalog17execution_context23get_register_annotationEjRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit_crit_edge, %.preheader.i.i.i.i
-  %.pre-phi102 = phi i64 [ %.pre101, %_ZNK9table2mapI17default_map_entryIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6u_hash4u_eqE9find_coreERKj.exit.i.i._ZNK7datalog17execution_context23get_register_annotationEjRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit_crit_edge ], [ %24, %.preheader.i.i.i.i ], [ %24, %46 ], [ %24, %.lr.ph34.i.i.i.i ], [ %24, %.lr.ph.i.i.i.i ]
-  %.pre-phi = phi i32 [ %.pre100, %_ZNK9table2mapI17default_map_entryIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6u_hash4u_eqE9find_coreERKj.exit.i.i._ZNK7datalog17execution_context23get_register_annotationEjRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit_crit_edge ], [ %19, %.preheader.i.i.i.i ], [ %19, %46 ], [ %19, %.lr.ph34.i.i.i.i ], [ %19, %.lr.ph.i.i.i.i ]
-  %49 = phi ptr [ %.pre99, %_ZNK9table2mapI17default_map_entryIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6u_hash4u_eqE9find_coreERKj.exit.i.i._ZNK7datalog17execution_context23get_register_annotationEjRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit_crit_edge ], [ %21, %.preheader.i.i.i.i ], [ %21, %46 ], [ %21, %.lr.ph34.i.i.i.i ], [ %21, %.lr.ph.i.i.i.i ]
-  %50 = phi i32 [ %.pre, %_ZNK9table2mapI17default_map_entryIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6u_hash4u_eqE9find_coreERKj.exit.i.i._ZNK7datalog17execution_context23get_register_annotationEjRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit_crit_edge ], [ %18, %.preheader.i.i.i.i ], [ %18, %46 ], [ %18, %.lr.ph34.i.i.i.i ], [ %18, %.lr.ph.i.i.i.i ]
+  %.pre-phi102 = phi i64 [ %.pre101, %_ZNK9table2mapI17default_map_entryIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6u_hash4u_eqE9find_coreERKj.exit.i.i._ZNK7datalog17execution_context23get_register_annotationEjRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit_crit_edge ], [ %24, %46 ], [ %24, %.preheader.i.i.i.i ], [ %24, %.lr.ph34.i.i.i.i ], [ %24, %.lr.ph.i.i.i.i ]
+  %.pre-phi = phi i32 [ %.pre100, %_ZNK9table2mapI17default_map_entryIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6u_hash4u_eqE9find_coreERKj.exit.i.i._ZNK7datalog17execution_context23get_register_annotationEjRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit_crit_edge ], [ %19, %46 ], [ %19, %.preheader.i.i.i.i ], [ %19, %.lr.ph34.i.i.i.i ], [ %19, %.lr.ph.i.i.i.i ]
+  %49 = phi ptr [ %.pre99, %_ZNK9table2mapI17default_map_entryIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6u_hash4u_eqE9find_coreERKj.exit.i.i._ZNK7datalog17execution_context23get_register_annotationEjRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit_crit_edge ], [ %21, %46 ], [ %21, %.preheader.i.i.i.i ], [ %21, %.lr.ph34.i.i.i.i ], [ %21, %.lr.ph.i.i.i.i ]
+  %50 = phi i32 [ %.pre, %_ZNK9table2mapI17default_map_entryIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6u_hash4u_eqE9find_coreERKj.exit.i.i._ZNK7datalog17execution_context23get_register_annotationEjRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit_crit_edge ], [ %18, %46 ], [ %18, %.preheader.i.i.i.i ], [ %18, %.lr.ph34.i.i.i.i ], [ %18, %.lr.ph.i.i.i.i ]
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %52 = load i32, ptr %51, align 4, !tbaa !357
   %53 = and i32 %.pre-phi, %52

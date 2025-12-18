@@ -453,7 +453,7 @@ expand_timestamps.exit.i:                         ; preds = %156, %160
   br label %181
 
 expand_script.exit.thread:                        ; preds = %146, %expand_timestamps.exit.i, %170, %133
-  %.019.i.ph = phi i32 [ -1094995529, %133 ], [ -1094995529, %170 ], [ %166, %expand_timestamps.exit.i ], [ -1094995529, %146 ]
+  %.019.i.ph = phi i32 [ %166, %expand_timestamps.exit.i ], [ -1094995529, %133 ], [ -1094995529, %170 ], [ -1094995529, %146 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %read_whole_file.exit.thread
 
@@ -1210,7 +1210,7 @@ read_whole_file.exit.thread:                      ; preds = %25, %22, %1, %expan
   br label %.sink.split
 
 .sink.split:                                      ; preds = %214, %.cont121, %._crit_edge7.i, %read_whole_file.exit.thread, %406, %435, %._crit_edge.i74, %generate_transition.exit.thread.i, %181, %._crit_edge.i67
-  %.0.ph = phi i32 [ %spec.select, %._crit_edge7.i ], [ %.046, %read_whole_file.exit.thread ], [ -1094995529, %435 ], [ -1094995529, %406 ], [ %451, %._crit_edge.i74 ], [ -1094995529, %._crit_edge.i67 ], [ -1094995529, %181 ], [ %.062.i.ph.i, %generate_transition.exit.thread.i ], [ %308, %.cont121 ], [ -1094995529, %214 ]
+  %.0.ph = phi i32 [ %spec.select, %._crit_edge7.i ], [ %.046, %read_whole_file.exit.thread ], [ -1094995529, %435 ], [ -1094995529, %406 ], [ %451, %._crit_edge.i74 ], [ %308, %.cont121 ], [ -1094995529, %._crit_edge.i67 ], [ %.062.i.ph.i, %generate_transition.exit.thread.i ], [ -1094995529, %181 ], [ -1094995529, %214 ]
   %498 = load ptr, ptr %10, align 8, !tbaa !146
   call void @av_free(ptr noundef %498) #16
   call fastcc void @free_script(ptr noundef %9)
@@ -2060,7 +2060,7 @@ parse_optarg.exit189.i:                           ; preds = %203, %197
   br label %parse_options.exit.thread
 
 226:                                              ; preds = %.lr.ph.i49, %.loopexit259.i, %222, %194, %170, %.loopexit260.i, %98, %76, %75, %.lr.ph.i49
-  %.379.i = phi i8 [ %.177336.i, %75 ], [ %.177336.i, %76 ], [ %.177336.i, %222 ], [ %74, %.lr.ph.i49 ], [ %.177336.i, %98 ], [ %.177336.i, %.loopexit259.i ], [ %.177336.i, %.loopexit260.i ], [ %.177336.i, %170 ], [ %.177336.i, %194 ], [ %74, %.lr.ph.i49 ]
+  %.379.i = phi i8 [ %74, %.lr.ph.i49 ], [ %.177336.i, %194 ], [ %.177336.i, %170 ], [ %.177336.i, %.loopexit260.i ], [ %.177336.i, %.loopexit259.i ], [ %.177336.i, %98 ], [ %.177336.i, %75 ], [ %.177336.i, %222 ], [ %.177336.i, %76 ], [ %74, %.lr.ph.i49 ]
   %227 = getelementptr inbounds nuw i8, ptr %.sroa.0205.1335.i, i64 1
   %228 = icmp ult ptr %227, %.sroa.7.1.i
   br i1 %228, label %.lr.ph.i49, label %.loopexit264.loopexit.i, !llvm.loop !170
@@ -2143,7 +2143,7 @@ is_space.exit.thread.i.i95:                       ; preds = %.lr.ph.i.i94, %.lr.
   unreachable
 
 parse_options.exit.thread:                        ; preds = %244, %.loopexit261.i, %223, %232, %233, %221, %218, %parse_optarg.exit174.i, %196, %193, %parse_optarg.exit159.i, %parse_optarg.exit189.i, %parse_optarg.exit144.i, %147, %parse_optarg.exit129.i, %125, %parse_optarg.exit.i, %97
-  %.0.i.ph = phi i32 [ -1094995529, %97 ], [ -1094995529, %parse_optarg.exit.i ], [ -1094995529, %125 ], [ -1094995529, %parse_optarg.exit129.i ], [ -1094995529, %147 ], [ -1094995529, %parse_optarg.exit144.i ], [ -1094995529, %parse_optarg.exit189.i ], [ -1094995529, %parse_optarg.exit159.i ], [ -1094995529, %193 ], [ -1163346256, %196 ], [ -1094995529, %parse_optarg.exit174.i ], [ -1094995529, %218 ], [ -1163346256, %221 ], [ -1163346256, %233 ], [ -1163346256, %232 ], [ -1094995529, %223 ], [ -12, %.loopexit261.i ], [ -1094995529, %244 ]
+  %.0.i.ph = phi i32 [ -12, %.loopexit261.i ], [ -1094995529, %97 ], [ -1094995529, %parse_optarg.exit.i ], [ -1094995529, %125 ], [ -1094995529, %parse_optarg.exit129.i ], [ -1094995529, %147 ], [ -1094995529, %parse_optarg.exit144.i ], [ -1094995529, %parse_optarg.exit189.i ], [ -1094995529, %parse_optarg.exit159.i ], [ -1094995529, %193 ], [ -1163346256, %196 ], [ -1094995529, %parse_optarg.exit174.i ], [ -1094995529, %218 ], [ -1163346256, %221 ], [ -1163346256, %233 ], [ -1163346256, %232 ], [ -1094995529, %223 ], [ -1094995529, %244 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %lex_line_end.exit88.thread116
 
@@ -3215,7 +3215,7 @@ parse_synth_channel_sine.exit.thread87.i.i.i:     ; preds = %654
   br label %.sink.split.i.i
 
 parse_synth_channel.exit.thread37.i.i:            ; preds = %lex_char.exit.i.i56.i.i.i, %623, %lex_char.exit.i.i49.i.i.i, %564, %lex_char.exit.i.i41.i.i.i, %517, %lex_char.exit.i.i34.i.i.i, %485, %lex_char.exit.i.i.i.i.i, %449, %659, %658, %653, %652, %647, %646, %lex_double.exit.thread.i.i57.i.i.i, %599, %598, %593, %592, %587, %586, %lex_double.exit.thread.i.i50.i.i.i, %lex_double.exit21.thread.i.i.i.i, %lex_double.exit.thread.i48.i.i.i, %540, %539, %lex_double.exit.thread.i.i42.i.i.i, %514, %513, %508, %507, %lex_double.exit.thread.i.i35.i.i.i, %lex_double.exit.thread.i.i.i.i, %472, %471, %lex_double.exit.thread.i.i.i.i.i
-  %.486.i.ph.i.i = phi i32 [ -34, %472 ], [ -1094995529, %lex_double.exit.thread.i.i.i.i.i ], [ -34, %471 ], [ -33, %514 ], [ -1094995529, %lex_double.exit.thread.i.i35.i.i.i ], [ -34, %507 ], [ -34, %508 ], [ -1094995529, %lex_double.exit.thread.i.i.i.i ], [ -1094995529, %lex_double.exit.thread.i.i42.i.i.i ], [ -34, %539 ], [ -33, %599 ], [ -33, %593 ], [ -1094995529, %lex_double.exit.thread.i.i50.i.i.i ], [ -34, %586 ], [ -34, %587 ], [ -33, %592 ], [ -1094995529, %lex_double.exit.thread.i48.i.i.i ], [ -1094995529, %lex_double.exit21.thread.i.i.i.i ], [ -33, %652 ], [ -34, %647 ], [ -34, %646 ], [ -1094995529, %lex_double.exit.thread.i.i57.i.i.i ], [ -33, %653 ], [ -33, %659 ], [ -33, %658 ], [ -33, %598 ], [ -33, %513 ], [ -34, %540 ], [ -1094995529, %449 ], [ -1094995529, %lex_char.exit.i.i.i.i.i ], [ -1094995529, %485 ], [ -1094995529, %lex_char.exit.i.i34.i.i.i ], [ -1094995529, %517 ], [ -1094995529, %lex_char.exit.i.i41.i.i.i ], [ -1094995529, %564 ], [ -1094995529, %lex_char.exit.i.i49.i.i.i ], [ -1094995529, %623 ], [ -1094995529, %lex_char.exit.i.i56.i.i.i ]
+  %.486.i.ph.i.i = phi i32 [ -34, %472 ], [ -1094995529, %lex_double.exit.thread.i.i.i.i.i ], [ -34, %471 ], [ -34, %540 ], [ -33, %513 ], [ -33, %514 ], [ -1094995529, %lex_double.exit.thread.i.i35.i.i.i ], [ -34, %507 ], [ -33, %598 ], [ -34, %508 ], [ -33, %658 ], [ -1094995529, %lex_double.exit.thread.i.i.i.i ], [ -1094995529, %lex_double.exit.thread.i.i42.i.i.i ], [ -34, %539 ], [ -33, %659 ], [ -33, %653 ], [ -33, %599 ], [ -33, %593 ], [ -1094995529, %lex_double.exit.thread.i.i50.i.i.i ], [ -34, %586 ], [ -1094995529, %lex_double.exit.thread.i.i57.i.i.i ], [ -34, %587 ], [ -33, %592 ], [ -1094995529, %lex_double.exit.thread.i48.i.i.i ], [ -34, %646 ], [ -1094995529, %lex_double.exit21.thread.i.i.i.i ], [ -34, %647 ], [ -33, %652 ], [ -1094995529, %449 ], [ -1094995529, %lex_char.exit.i.i.i.i.i ], [ -1094995529, %485 ], [ -1094995529, %lex_char.exit.i.i34.i.i.i ], [ -1094995529, %517 ], [ -1094995529, %lex_char.exit.i.i41.i.i.i ], [ -1094995529, %564 ], [ -1094995529, %lex_char.exit.i.i49.i.i.i ], [ -1094995529, %623 ], [ -1094995529, %lex_char.exit.i.i56.i.i.i ]
   %664 = load i32, ptr %279, align 4, !tbaa !181
   %665 = add nsw i32 %664, -1
   store i32 %665, ptr %279, align 4, !tbaa !181
@@ -3428,7 +3428,7 @@ is_space.exit.thread.i.i82:                       ; preds = %.lr.ph.i.i81, %.lr.
   br i1 %exitcond.not.i.i83, label %lex_line_end.exit88, label %.lr.ph.i.i81, !llvm.loop !161
 
 lex_line_end.exit88:                              ; preds = %.lr.ph.i.i81, %is_space.exit.thread.i.i82, %.loopexit.i.i, %729, %.critedge.i77, %.loopexit.i39.i, %713
-  %.2 = phi i32 [ %714, %713 ], [ 1, %.loopexit.i39.i ], [ 1, %.loopexit.i.i ], [ 1, %.critedge.i77 ], [ 1, %729 ], [ 1, %is_space.exit.thread.i.i82 ], [ 1, %.lr.ph.i.i81 ]
+  %.2 = phi i32 [ %714, %713 ], [ 1, %.critedge.i77 ], [ 1, %729 ], [ 1, %.loopexit.i39.i ], [ 1, %.loopexit.i.i ], [ 1, %is_space.exit.thread.i.i82 ], [ 1, %.lr.ph.i.i81 ]
   %737 = icmp slt i32 %.2, 0
   br i1 %737, label %lex_line_end.exit88.thread116, label %281, !llvm.loop !182
 
@@ -3436,8 +3436,8 @@ lex_line_end.exit88:                              ; preds = %.lr.ph.i.i81, %is_s
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3, ptr noundef nonnull align 8 dereferenceable(104) %22, i64 104, i1 false), !tbaa.struct !183
   br label %774
 
-lex_line_end.exit88.thread116:                    ; preds = %.loopexit.i.i, %326, %378, %lex_char.exit.i.i, %363, %401, %lex_space.exit28.i.i, %699, %330, %727, %lex_line_end.exit88, %424, %428, %374, %parse_synth_channel.exit.thread37.i.i, %321, %parse_options.exit.thread
-  %.037 = phi i32 [ %.0.i.ph, %parse_options.exit.thread ], [ -1163346256, %321 ], [ %.486.i.ph.i.i, %parse_synth_channel.exit.thread37.i.i ], [ %375, %374 ], [ -12, %424 ], [ -12, %428 ], [ -1094995529, %.loopexit.i.i ], [ -12, %330 ], [ -1094995529, %699 ], [ -1094995529, %lex_space.exit28.i.i ], [ -1094995529, %401 ], [ -1094995529, %363 ], [ -1094995529, %lex_char.exit.i.i ], [ -1094995529, %378 ], [ -12, %326 ], [ -1094995529, %727 ], [ %.2, %lex_line_end.exit88 ]
+lex_line_end.exit88.thread116:                    ; preds = %.loopexit.i.i, %330, %326, %401, %378, %lex_char.exit.i.i, %363, %lex_space.exit28.i.i, %699, %727, %lex_line_end.exit88, %424, %428, %374, %321, %parse_synth_channel.exit.thread37.i.i, %parse_options.exit.thread
+  %.037 = phi i32 [ %.0.i.ph, %parse_options.exit.thread ], [ -1163346256, %321 ], [ %.486.i.ph.i.i, %parse_synth_channel.exit.thread37.i.i ], [ %375, %374 ], [ -12, %424 ], [ -12, %428 ], [ -1094995529, %699 ], [ -1094995529, %lex_space.exit28.i.i ], [ -1094995529, %363 ], [ -1094995529, %lex_char.exit.i.i ], [ -1094995529, %378 ], [ -1094995529, %401 ], [ -12, %326 ], [ -12, %330 ], [ -1094995529, %.loopexit.i.i ], [ -1094995529, %727 ], [ %.2, %lex_line_end.exit88 ]
   call void @av_freep(ptr noundef nonnull %22) #16
   %739 = getelementptr inbounds nuw i8, ptr %16, i64 40
   call void @av_freep(ptr noundef nonnull %739) #16
@@ -3673,7 +3673,7 @@ parse_timestamp.exit:                             ; preds = %.loopexit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %parse_fade.exit
 
-.thread:                                          ; preds = %43, %.lr.ph, %.loopexit.i.thread, %lex_space.exit.i
+.thread:                                          ; preds = %43, %.lr.ph, %lex_space.exit.i, %.loopexit.i.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %parse_fade.exit
@@ -4371,7 +4371,7 @@ alloc_array_elem.exit:                            ; preds = %._crit_edge.i, %80
   br label %alloc_array_elem.exit.thread
 
 alloc_array_elem.exit.thread:                     ; preds = %.lr.ph68, %72, %76, %14, %.loopexit, %._crit_edge, %9
-  %.0 = phi i32 [ -22, %9 ], [ -22, %._crit_edge ], [ -22, %14 ], [ 0, %.loopexit ], [ -12, %72 ], [ -12, %76 ], [ %64, %.lr.ph68 ]
+  %.0 = phi i32 [ -22, %9 ], [ -12, %76 ], [ -22, %._crit_edge ], [ -22, %14 ], [ 0, %.loopexit ], [ -12, %72 ], [ %64, %.lr.ph68 ]
   ret i32 %.0
 }
 

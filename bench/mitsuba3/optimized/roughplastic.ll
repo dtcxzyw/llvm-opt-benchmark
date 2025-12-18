@@ -2089,7 +2089,7 @@ _ZN5drjit12DynamicArrayIfED2Ev.exit98:            ; preds = %105, %108, %111
   br label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %.lr.ph.split.split.i, %_ZN5drjit12DynamicArrayIfED2Ev.exit98, %._crit_edge.loopexit.i
-  %.sroa.0125.0 = phi ptr [ %118, %._crit_edge.loopexit.i ], [ null, %_ZN5drjit12DynamicArrayIfED2Ev.exit98 ], [ %118, %.lr.ph.split.split.i ]
+  %.sroa.0125.0 = phi ptr [ null, %_ZN5drjit12DynamicArrayIfED2Ev.exit98 ], [ %118, %._crit_edge.loopexit.i ], [ %118, %.lr.ph.split.split.i ]
   store ptr %.sroa.0125.0, ptr %10, align 8
   %128 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 %.fr.i, ptr %128, align 8

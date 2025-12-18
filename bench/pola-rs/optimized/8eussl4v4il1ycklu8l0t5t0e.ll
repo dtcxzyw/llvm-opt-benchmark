@@ -8931,7 +8931,7 @@ define hidden void @"_ZN69_$LT$F$u20$as$u20$polars_plan..dsl..expr..expr_dyn_fn.
   br label %.body.thread.i.i
 
 .body.i.i:                                        ; preds = %121, %109
-  %.sroa.022.3.ph.i.i = phi i8 [ 1, %109 ], [ 0, %121 ]
+  %.sroa.022.3.ph.i.i = phi i8 [ 0, %121 ], [ 1, %109 ]
   %lpad.thr_comm.split-lp.i.i = landingpad { ptr, i32 }
           cleanup
   br label %56
@@ -9472,8 +9472,8 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
   %10 = icmp eq i8 %8, %9
   br i1 %10, label %11, label %_ZN4core3cmp9PartialEq2ne17hd8696757e0fd7dc8E.exit.thread
 
-_ZN4core3cmp9PartialEq2ne17hd8696757e0fd7dc8E.exit.thread: ; preds = %51, %57, %63, %69, %27, %93, %99, %105, %111, %117, %123, %129, %135, %141, %147, %153, %159, %45, %191, %197, %87, %.sink.split.i.i, %39, %.backedge, %_ZN4core3cmp9PartialEq2ne17hd8696757e0fd7dc8E.exit, %.lr.ph, %12, %33, %25, %23, %75, %165, %185, %.preheader.split, %4
-  %.sroa.0.0 = phi i1 [ false, %4 ], [ true, %.preheader.split ], [ false, %51 ], [ false, %57 ], [ false, %63 ], [ false, %69 ], [ false, %27 ], [ false, %93 ], [ false, %99 ], [ false, %105 ], [ false, %111 ], [ false, %117 ], [ false, %123 ], [ false, %129 ], [ false, %135 ], [ false, %141 ], [ false, %147 ], [ false, %153 ], [ false, %159 ], [ false, %45 ], [ false, %191 ], [ false, %197 ], [ false, %87 ], [ false, %.sink.split.i.i ], [ false, %39 ], [ false, %165 ], [ false, %75 ], [ false, %23 ], [ false, %25 ], [ false, %33 ], [ false, %12 ], [ false, %.lr.ph ], [ false, %_ZN4core3cmp9PartialEq2ne17hd8696757e0fd7dc8E.exit ], [ true, %.backedge ], [ false, %185 ]
+_ZN4core3cmp9PartialEq2ne17hd8696757e0fd7dc8E.exit.thread: ; preds = %39, %197, %45, %51, %57, %63, %69, %27, %93, %99, %105, %111, %117, %123, %129, %135, %141, %147, %153, %159, %87, %191, %.sink.split.i.i, %.backedge, %_ZN4core3cmp9PartialEq2ne17hd8696757e0fd7dc8E.exit, %.lr.ph, %12, %33, %25, %23, %75, %165, %185, %.preheader.split, %4
+  %.sroa.0.0 = phi i1 [ false, %4 ], [ true, %.preheader.split ], [ false, %39 ], [ false, %197 ], [ false, %45 ], [ false, %51 ], [ false, %57 ], [ false, %63 ], [ false, %69 ], [ false, %27 ], [ false, %93 ], [ false, %99 ], [ false, %105 ], [ false, %111 ], [ false, %117 ], [ false, %123 ], [ false, %129 ], [ false, %135 ], [ false, %141 ], [ false, %147 ], [ false, %153 ], [ false, %159 ], [ false, %87 ], [ false, %191 ], [ false, %.sink.split.i.i ], [ false, %165 ], [ false, %75 ], [ false, %23 ], [ false, %25 ], [ false, %33 ], [ false, %12 ], [ false, %.lr.ph ], [ false, %_ZN4core3cmp9PartialEq2ne17hd8696757e0fd7dc8E.exit ], [ true, %.backedge ], [ false, %185 ]
   ret i1 %.sroa.0.0
 
 11:                                               ; preds = %.lr.ph
@@ -9875,7 +9875,7 @@ _ZN4core3cmp9PartialEq2ne17hd8696757e0fd7dc8E.exit: ; preds = %81
   %.mux.i.i = and i1 %.not.i14.i, %86
   br i1 %.mux.i.i, label %.backedge, label %_ZN4core3cmp9PartialEq2ne17hd8696757e0fd7dc8E.exit.thread
 
-.backedge:                                        ; preds = %51, %57, %63, %69, %27, %93, %99, %105, %111, %117, %123, %129, %135, %141, %147, %153, %159, %45, %191, %197, %87, %.sink.split.i.i, %39, %11, %179, %_ZN4core3cmp9PartialEq2ne17hd8696757e0fd7dc8E.exit
+.backedge:                                        ; preds = %39, %197, %45, %51, %57, %63, %69, %27, %93, %99, %105, %111, %117, %123, %129, %135, %141, %147, %153, %159, %87, %191, %.sink.split.i.i, %11, %179, %_ZN4core3cmp9PartialEq2ne17hd8696757e0fd7dc8E.exit
   %exitcond.not = icmp eq i64 %5, %1
   br i1 %exitcond.not, label %_ZN4core3cmp9PartialEq2ne17hd8696757e0fd7dc8E.exit.thread, label %.lr.ph
 }
@@ -9925,7 +9925,7 @@ define hidden void @"_ZN75_$LT$$u5b$T$u5d$$u20$as$u20$alloc..slice..SpecCloneInt
           to label %19 unwind label %26
 
 common.resume:                                    ; preds = %19, %44, %46
-  %common.resume.op = phi { ptr, i32 } [ %45, %44 ], [ %47, %46 ], [ %22, %19 ]
+  %common.resume.op = phi { ptr, i32 } [ %47, %46 ], [ %45, %44 ], [ %22, %19 ]
   resume { ptr, i32 } %common.resume.op
 
 26:                                               ; preds = %23
@@ -10832,7 +10832,7 @@ _ZN4core5slice6memchr6memchr17hf042c2b2d8451469E.exit.thread16: ; preds = %.lr.p
   br i1 %.not12, label %40, label %38
 
 _ZN4core5slice6memchr6memchr17hf042c2b2d8451469E.exit.thread: ; preds = %.preheader.i, %27, %_ZN4core5slice6memchr6memchr17hf042c2b2d8451469E.exit._ZN4core5slice6memchr6memchr17hf042c2b2d8451469E.exit.thread.loopexit20_crit_edge
-  %37 = phi i64 [ %.pre46.pre, %_ZN4core5slice6memchr6memchr17hf042c2b2d8451469E.exit._ZN4core5slice6memchr6memchr17hf042c2b2d8451469E.exit.thread.loopexit20_crit_edge ], [ %13, %27 ], [ %13, %.preheader.i ]
+  %37 = phi i64 [ %13, %27 ], [ %.pre46.pre, %_ZN4core5slice6memchr6memchr17hf042c2b2d8451469E.exit._ZN4core5slice6memchr6memchr17hf042c2b2d8451469E.exit.thread.loopexit20_crit_edge ], [ %13, %.preheader.i ]
   store i64 %37, ptr %4, align 8
   br label %._crit_edge
 

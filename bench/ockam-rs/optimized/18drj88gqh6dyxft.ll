@@ -3922,7 +3922,7 @@ common.resume:                                    ; preds = %41, %48, %26
   resume { ptr, i32 } %common.resume.op
 
 "_ZN25ockam_transport_websocket6router1_110_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$ockam_transport_websocket..router..WebSocketRouterResponse$GT$9serialize17hec606a49d9b73d37E.llvm.10085540174115877777.exit.thread": ; preds = %.noexc, %.noexc8, %.noexc7, %"_ZN25ockam_transport_websocket6router1_110_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$ockam_transport_websocket..router..WebSocketRouterResponse$GT$9serialize17hec606a49d9b73d37E.llvm.10085540174115877777.exit"
-  %.0.i.i14 = phi ptr [ %21, %"_ZN25ockam_transport_websocket6router1_110_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$ockam_transport_websocket..router..WebSocketRouterResponse$GT$9serialize17hec606a49d9b73d37E.llvm.10085540174115877777.exit" ], [ %19, %.noexc8 ], [ %17, %.noexc7 ], [ %12, %.noexc ]
+  %.0.i.i14 = phi ptr [ %21, %"_ZN25ockam_transport_websocket6router1_110_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$ockam_transport_websocket..router..WebSocketRouterResponse$GT$9serialize17hec606a49d9b73d37E.llvm.10085540174115877777.exit" ], [ %17, %.noexc7 ], [ %19, %.noexc8 ], [ %12, %.noexc ]
   %30 = invoke noundef nonnull align 8 ptr @"_ZN10ockam_core7message106_$LT$impl$u20$core..convert..From$LT$serde_bare..error..Error$GT$$u20$for$u20$ockam_core..error..Error$GT$4from17h7dbbf957bb8a38b8E"(ptr noalias noundef nonnull align 8 %.0.i.i14, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.de05196e861459032a255d939f01b64a.59.llvm.10085540174115877777)
           to label %31 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -10200,7 +10200,7 @@ define hidden noundef align 8 ptr @"_ZN25ockam_transport_websocket6router1_110_$
   br label %"_ZN91_$LT$$RF$mut$u20$serde_bare..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$25serialize_newtype_variant17h26e879633f3ad2d3E.exit"
 
 "_ZN91_$LT$$RF$mut$u20$serde_bare..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$25serialize_newtype_variant17h26e879633f3ad2d3E.exit": ; preds = %.preheader9.i, %.critedge, %.preheader.i, %.critedge12
-  %.0.i = phi ptr [ %5, %.critedge ], [ %13, %.critedge12 ], [ %10, %.preheader.i ], [ %11, %.preheader9.i ]
+  %.0.i = phi ptr [ %5, %.critedge ], [ %10, %.preheader.i ], [ %13, %.critedge12 ], [ %11, %.preheader9.i ]
   ret ptr %.0.i
 }
 

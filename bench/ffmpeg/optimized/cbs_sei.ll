@@ -263,7 +263,7 @@ define range(i32 -2147483648, 1) i32 @ff_cbs_sei_add_message(ptr noundef %0, ptr
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %30, %34, %31, %.loopexit.loopexit104.split.loop.exit107.i, %._crit_edge.thread.i
-  %.063.i = phi i32 [ 0, %._crit_edge.thread.i ], [ %40, %.loopexit.loopexit104.split.loop.exit107.i ], [ %32, %34 ], [ %17, %31 ], [ %17, %30 ]
+  %.063.i = phi i32 [ %32, %34 ], [ 0, %._crit_edge.thread.i ], [ %40, %.loopexit.loopexit104.split.loop.exit107.i ], [ %17, %31 ], [ %17, %30 ]
   %41 = tail call i32 @ff_cbs_insert_unit_content(ptr noundef nonnull %1, i32 noundef %.063.i, i32 noundef %.062.i, ptr noundef null, ptr noundef null) #6
   %42 = icmp slt i32 %41, 0
   br i1 %42, label %cbs_sei_get_unit.exit.thread, label %43
@@ -330,7 +330,7 @@ define range(i32 -2147483648, 1) i32 @ff_cbs_sei_add_message(ptr noundef %0, ptr
   unreachable
 
 cbs_sei_get_unit.exit:                            ; preds = %22, %61, %57, %53
-  %.033 = phi ptr [ %47, %61 ], [ %47, %57 ], [ %47, %53 ], [ %23, %22 ]
+  %.033 = phi ptr [ %47, %53 ], [ %47, %57 ], [ %47, %61 ], [ %23, %22 ]
   %.val = load ptr, ptr %9, align 8, !tbaa !24
   %.val.val = load i32, ptr %.val, align 8, !tbaa !28
   switch i32 %.val.val, label %cbs_sei_get_unit.exit.thread [
@@ -423,8 +423,8 @@ cbs_sei_get_unit.exit:                            ; preds = %22, %61, %57, %53
   store ptr %.021, ptr %106, align 8, !tbaa !12
   br label %cbs_sei_get_unit.exit.thread
 
-cbs_sei_get_unit.exit.thread:                     ; preds = %82, %66, %cbs_sei_get_unit.exit, %70, %68, %43, %.loopexit.i, %8, %12, %6, %99
-  %.0 = phi i32 [ -22, %6 ], [ -22, %66 ], [ -22, %12 ], [ 0, %99 ], [ %48, %43 ], [ %41, %.loopexit.i ], [ -22, %8 ], [ -22, %68 ], [ -22, %70 ], [ -22, %cbs_sei_get_unit.exit ], [ -12, %82 ]
+cbs_sei_get_unit.exit.thread:                     ; preds = %82, %66, %cbs_sei_get_unit.exit, %70, %68, %.loopexit.i, %8, %43, %12, %6, %99
+  %.0 = phi i32 [ -22, %6 ], [ -22, %66 ], [ -22, %12 ], [ 0, %99 ], [ %41, %.loopexit.i ], [ -22, %8 ], [ %48, %43 ], [ -22, %68 ], [ -22, %70 ], [ -22, %cbs_sei_get_unit.exit ], [ -12, %82 ]
   ret i32 %.0
 }
 
@@ -520,7 +520,7 @@ cbs_sei_get_message_list.exit:                    ; preds = %13, %15, %17
   br label %.loopexit
 
 cbs_sei_get_message_list.exit.thread:             ; preds = %36, %cbs_sei_get_message_list.exit, %13, %11, %17, %15
-  %.126.ph = phi i32 [ %.02548, %15 ], [ %.02548, %17 ], [ %.02548, %11 ], [ %.02548, %13 ], [ %.02548, %cbs_sei_get_message_list.exit ], [ %.429.ph, %36 ]
+  %.126.ph = phi i32 [ %.02548, %13 ], [ %.02548, %15 ], [ %.02548, %17 ], [ %.02548, %11 ], [ %.02548, %cbs_sei_get_message_list.exit ], [ %.429.ph, %36 ]
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %exitcond57.not = icmp eq i64 %indvars.iv.next54, %wide.trip.count56
   br i1 %exitcond57.not, label %.loopexit, label %11, !llvm.loop !45

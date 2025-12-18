@@ -683,7 +683,7 @@ TestSignatureCandidate.exit.i:                    ; preds = %21
   br i1 %92, label %.thread180.i, label %93
 
 .thread180.i:                                     ; preds = %.thread.i, %88, %73, %71, %63, %60, %57
-  %.5.ph.i = phi i32 [ %62, %60 ], [ %70, %63 ], [ %72, %71 ], [ 6, %88 ], [ %59, %57 ], [ 16, %73 ], [ 16, %.thread.i ]
+  %.5.ph.i = phi i32 [ %59, %57 ], [ %62, %60 ], [ %70, %63 ], [ %72, %71 ], [ 6, %88 ], [ 16, %73 ], [ 16, %.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -858,7 +858,7 @@ SzArEx_Open2.exit:                                ; preds = %155
   br i1 %.not, label %177, label %159
 
 .sink.split:                                      ; preds = %.preheader.i, %.thread180.i, %124, %19, %93, %116, %122, %103, %TestSignatureCandidate.exit.i, %4, %.thread187.i, %SzArEx_Open2.exit.thread15, %SzArEx_Open2.exit.thread19
-  %.1.i9.ph = phi i32 [ %.3126.i.ph, %SzArEx_Open2.exit.thread19 ], [ %.0123.i.ph, %SzArEx_Open2.exit.thread15 ], [ %.5.ph.i, %.thread180.i ], [ 2, %124 ], [ %20, %19 ], [ %100, %93 ], [ 6, %116 ], [ %123, %122 ], [ 17, %103 ], [ 4, %TestSignatureCandidate.exit.i ], [ %18, %4 ], [ %.11.ph.i, %.thread187.i ], [ 17, %.preheader.i ]
+  %.1.i9.ph = phi i32 [ %.3126.i.ph, %SzArEx_Open2.exit.thread19 ], [ %.0123.i.ph, %SzArEx_Open2.exit.thread15 ], [ %.11.ph.i, %.thread187.i ], [ %.5.ph.i, %.thread180.i ], [ 2, %124 ], [ %20, %19 ], [ %100, %93 ], [ 6, %116 ], [ %123, %122 ], [ 17, %103 ], [ 4, %TestSignatureCandidate.exit.i ], [ %18, %4 ], [ 17, %.preheader.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1173,8 +1173,8 @@ SzFolder_GetUnpackSize.exit:                      ; preds = %46, %30, %SzFolder_
   %spec.select132 = select i1 %.not129, i32 0, i32 3
   br label %.thread135
 
-.thread135:                                       ; preds = %87, %112, %.thread140, %128, %.thread, %102, %65, %68, %71, %76, %SzFolder_GetUnpackSize.exit, %135, %138, %10, %13, %21
-  %.0 = phi i32 [ %spec.select132, %138 ], [ 0, %21 ], [ 11, %10 ], [ 11, %SzFolder_GetUnpackSize.exit ], [ 11, %13 ], [ 11, %112 ], [ 3, %102 ], [ 0, %135 ], [ 11, %65 ], [ 11, %68 ], [ 11, %71 ], [ %85, %76 ], [ %97, %.thread ], [ 11, %128 ], [ 11, %.thread140 ], [ 2, %87 ]
+.thread135:                                       ; preds = %87, %112, %.thread140, %128, %102, %.thread, %65, %68, %71, %76, %SzFolder_GetUnpackSize.exit, %135, %138, %10, %13, %21
+  %.0 = phi i32 [ 0, %135 ], [ 0, %21 ], [ 11, %10 ], [ 11, %SzFolder_GetUnpackSize.exit ], [ 11, %13 ], [ 11, %112 ], [ %97, %.thread ], [ %spec.select132, %138 ], [ 11, %65 ], [ 11, %68 ], [ 11, %71 ], [ %85, %76 ], [ 3, %102 ], [ 11, %128 ], [ 11, %.thread140 ], [ 2, %87 ]
   ret i32 %.0
 }
 
@@ -2299,7 +2299,7 @@ SzSkeepDataSize.exit395.i:                        ; preds = %332
   br label %.loopexit.ithread-pre-split
 
 .loopexit.ithread-pre-split:                      ; preds = %368, %.loopexit.ithread-pre-split.sink.split, %.preheader520.i, %372
-  %.1243.i.ph = phi i32 [ 0, %.preheader520.i ], [ %.0242.i163, %372 ], [ %.0242.i163, %.loopexit.ithread-pre-split.sink.split ], [ %spec.select.i, %368 ]
+  %.1243.i.ph = phi i32 [ 0, %.preheader520.i ], [ %.0242.i163, %.loopexit.ithread-pre-split.sink.split ], [ %.0242.i163, %372 ], [ %spec.select.i, %368 ]
   %.pr = load i64, ptr %12, align 8, !tbaa !61
   br label %.loopexit.i
 
@@ -2412,8 +2412,8 @@ SzReadHeader2.exit.loopexit204:                   ; preds = %.loopexit.i, %292, 
   br label %SzReadHeader2.exit
 
 SzReadHeader2.exit:                               ; preds = %35, %85, %SzSkeepData.exit.i.i, %70, %105, %145, %189, %224, %279, %314, %424, %439, %.preheader, %476, %SzReadHeader2.exit.loopexit204, %.preheader525.i, %4, %47, %125, %159, %162, %SzReadID.exit363.thread.i, %202, %203, %.loopexit.i368.i, %241, %._crit_edge.i
-  %505 = phi ptr [ null, %241 ], [ null, %202 ], [ null, %._crit_edge.i ], [ null, %SzReadID.exit363.thread.i ], [ null, %159 ], [ null, %125 ], [ null, %.loopexit.i368.i ], [ null, %4 ], [ null, %47 ], [ null, %203 ], [ null, %162 ], [ null, %.preheader525.i ], [ %.pre348, %SzReadHeader2.exit.loopexit204 ], [ null, %85 ], [ null, %476 ], [ %.pre347, %.preheader ], [ %.pre346, %439 ], [ %.pre346, %424 ], [ null, %314 ], [ null, %279 ], [ null, %224 ], [ null, %189 ], [ null, %145 ], [ null, %105 ], [ null, %70 ], [ null, %SzSkeepData.exit.i.i ], [ null, %35 ]
-  %.1.i = phi i32 [ 2, %241 ], [ 16, %202 ], [ %504, %._crit_edge.i ], [ 0, %SzReadID.exit363.thread.i ], [ %161, %159 ], [ 16, %125 ], [ 4, %.loopexit.i368.i ], [ 16, %4 ], [ 16, %47 ], [ 16, %203 ], [ 16, %162 ], [ 16, %.preheader525.i ], [ %.1.i.ph, %SzReadHeader2.exit.loopexit204 ], [ 16, %85 ], [ 11, %476 ], [ 16, %.preheader ], [ 16, %439 ], [ 16, %424 ], [ 16, %314 ], [ 16, %279 ], [ 16, %224 ], [ 16, %189 ], [ 16, %145 ], [ 16, %105 ], [ 16, %70 ], [ 16, %SzSkeepData.exit.i.i ], [ 16, %35 ]
+  %505 = phi ptr [ null, %241 ], [ null, %202 ], [ %.pre348, %SzReadHeader2.exit.loopexit204 ], [ null, %._crit_edge.i ], [ null, %125 ], [ null, %SzReadID.exit363.thread.i ], [ null, %145 ], [ null, %279 ], [ null, %159 ], [ null, %162 ], [ null, %.loopexit.i368.i ], [ null, %4 ], [ null, %105 ], [ null, %47 ], [ null, %189 ], [ null, %224 ], [ null, %476 ], [ %.pre346, %424 ], [ null, %203 ], [ null, %314 ], [ null, %70 ], [ null, %85 ], [ %.pre346, %439 ], [ %.pre347, %.preheader ], [ null, %.preheader525.i ], [ null, %SzSkeepData.exit.i.i ], [ null, %35 ]
+  %.1.i = phi i32 [ 2, %241 ], [ 16, %202 ], [ %.1.i.ph, %SzReadHeader2.exit.loopexit204 ], [ %504, %._crit_edge.i ], [ 16, %125 ], [ 0, %SzReadID.exit363.thread.i ], [ 16, %145 ], [ 16, %279 ], [ %161, %159 ], [ 16, %162 ], [ 4, %.loopexit.i368.i ], [ 16, %4 ], [ 16, %105 ], [ 16, %47 ], [ 16, %189 ], [ 16, %224 ], [ 11, %476 ], [ 16, %424 ], [ 16, %203 ], [ 16, %314 ], [ 16, %70 ], [ 16, %85 ], [ 16, %439 ], [ 16, %.preheader ], [ 16, %.preheader525.i ], [ 16, %SzSkeepData.exit.i.i ], [ 16, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %506 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %507 = load ptr, ptr %506, align 8, !tbaa !12
@@ -3492,7 +3492,7 @@ SzReadBytes.exit272.thread.i.i:                   ; preds = %.lr.ph.i268.i.i
   br i1 %exitcond.not.i270.i.i, label %.preheader453.i.i, label %.lr.ph.i268.i.i
 
 .thread.i.i:                                      ; preds = %.loopexit456.i.i, %517, %507, %.loopexit.i261.i.i, %470, %.loopexit.i252.i.i, %435, %.loopexit460.i.i, %.lr.ph591.i.i, %.lr.ph.i.i.i, %456, %493, %538
-  %.4.ph.i.i = phi i32 [ 16, %456 ], [ 16, %.lr.ph.i.i.i ], [ 16, %538 ], [ 16, %493 ], [ 16, %517 ], [ 16, %470 ], [ 16, %435 ], [ 4, %.loopexit460.i.i ], [ 4, %507 ], [ 4, %.loopexit.i252.i.i ], [ 4, %.loopexit.i261.i.i ], [ 16, %.lr.ph591.i.i ], [ 2, %.loopexit456.i.i ]
+  %.4.ph.i.i = phi i32 [ 16, %.lr.ph.i.i.i ], [ 16, %493 ], [ 16, %538 ], [ 16, %456 ], [ 16, %517 ], [ 16, %470 ], [ 16, %435 ], [ 4, %.loopexit460.i.i ], [ 4, %507 ], [ 4, %.loopexit.i252.i.i ], [ 4, %.loopexit.i261.i.i ], [ 16, %.lr.ph591.i.i ], [ 2, %.loopexit456.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %SzReadPackInfo.exit.thread
 
@@ -5074,8 +5074,8 @@ SzReadID.exit247.i.backedge:                      ; preds = %1309, %1299
   %exitcond.not.i.i245.i = icmp eq i64 %indvars.iv.next.i.i244.i, 8
   br i1 %exitcond.not.i.i245.i, label %SzReadID.exit247.i.backedge, label %1292
 
-SzReadSubStreamsInfo.exit.thread:                 ; preds = %1106, %1127, %1220, %1104, %1113, %1120, %1108, %._crit_edge.i84, %.backedge.i, %.loopexit.i235.i, %1064, %1283, %1281, %.loopexit298.i, %1010, %.loopexit.i.i101, %.lr.ph389.i, %1085, %1144, %1307, %1045, %1167
-  %.2.i.ph = phi i32 [ 16, %1307 ], [ 16, %1045 ], [ 16, %1144 ], [ 16, %1085 ], [ 16, %.lr.ph389.i ], [ 16, %.backedge.i ], [ 16, %1167 ], [ 16, %1010 ], [ %1242, %.loopexit298.i ], [ 4, %.loopexit.i.i101 ], [ 16, %1283 ], [ %1282, %1281 ], [ 16, %1064 ], [ 16, %.loopexit.i235.i ], [ 11, %1106 ], [ 2, %1127 ], [ %1221, %1220 ], [ 11, %1104 ], [ 2, %1113 ], [ 2, %1120 ], [ 11, %1108 ], [ 16, %._crit_edge.i84 ]
+SzReadSubStreamsInfo.exit.thread:                 ; preds = %1106, %1127, %1220, %1104, %1113, %1120, %1108, %._crit_edge.i84, %.backedge.i, %1064, %.loopexit.i235.i, %1283, %1281, %.loopexit298.i, %1010, %.loopexit.i.i101, %.lr.ph389.i, %1085, %1144, %1307, %1045, %1167
+  %.2.i.ph = phi i32 [ 16, %1307 ], [ 16, %1144 ], [ 16, %1085 ], [ 16, %1010 ], [ 16, %1167 ], [ 16, %.backedge.i ], [ 16, %1045 ], [ %1242, %.loopexit298.i ], [ 16, %.lr.ph389.i ], [ 4, %.loopexit.i.i101 ], [ 16, %1283 ], [ %1282, %1281 ], [ 16, %.loopexit.i235.i ], [ 16, %1064 ], [ %1221, %1220 ], [ 11, %1104 ], [ 2, %1113 ], [ 2, %1120 ], [ 2, %1127 ], [ 16, %._crit_edge.i84 ], [ 11, %1106 ], [ 11, %1108 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %SzReadPackInfo.exit.thread
 
@@ -5091,8 +5091,8 @@ SzReadPackInfo.exit:                              ; preds = %.loopexit.i74, %.lr
 SzReadPackInfo.exit.thread.loopexit1985:          ; preds = %61
   br label %SzReadPackInfo.exit.thread
 
-SzReadPackInfo.exit.thread:                       ; preds = %.loopexit, %.loopexit.i.i, %138, %276, %269, %264, %133, %130, %63, %.loopexit160.i, %.preheader.i, %.preheader201.i, %._crit_edge.i, %293, %334, %329, %.loopexit.i.i63, %SzReadSwitch.exit._crit_edge.i, %347, %291, %SzReadPackInfo.exit, %47, %316, %._crit_edge592.i.i, %392, %701, %790, %SzFolder_FindBindPairForInStream.exit.thread.i.i, %.loopexit.i.i.i, %.lr.ph423.i, %._crit_edge597.i.i, %SzFolder_GetNumOutStreams.exit.i, %875, %SzFolder_GetNumOutStreams.exit.thread.i, %select.unfold194.i, %974, %85, %118, %147, %218, %222, %.loopexit.i121.i, %select.unfold.i, %377, %.loopexit.i316.i.i, %.loopexit.i307.i.i, %746, %708, %.loopexit.i330.i.i, %812, %808, %881, %942, %172, %205, %243, %565, %651, %612, %577, %.loopexit.i281.i.i, %562, %.loopexit.i145.i, %.loopexit.i290.i.i, %732, %769, %836, %906, %598, %633, %672, %61, %SzReadPackInfo.exit.thread.loopexit1985, %9, %SzReadNumber32.exit.thread.critedge.i, %._crit_edge592.thread.i.i, %SzReadBytes.exit272.thread.i.i, %.thread.i.i, %SzReadSubStreamsInfo.exit.thread
-  %.2.ph = phi i32 [ %.2.i.ph, %SzReadSubStreamsInfo.exit.thread ], [ %.4.ph.i.i, %.thread.i.i ], [ 16, %SzReadBytes.exit272.thread.i.i ], [ 4, %._crit_edge592.thread.i.i ], [ %956, %SzReadNumber32.exit.thread.critedge.i ], [ 16, %147 ], [ 16, %9 ], [ %975, %974 ], [ 4, %._crit_edge597.i.i ], [ 16, %47 ], [ 16, %942 ], [ 16, %243 ], [ 16, %732 ], [ 16, %377 ], [ 4, %61 ], [ 16, %672 ], [ 16, %633 ], [ 16, %598 ], [ 16, %906 ], [ 16, %836 ], [ 16, %769 ], [ 16, %881 ], [ 16, %205 ], [ 16, %172 ], [ 4, %808 ], [ 4, %.loopexit.i290.i.i ], [ 16, %812 ], [ 16, %708 ], [ 16, %118 ], [ %221, %218 ], [ 16, %85 ], [ 16, %316 ], [ 11, %SzFolder_GetNumOutStreams.exit.thread.i ], [ 16, %565 ], [ 16, %651 ], [ 16, %612 ], [ 16, %577 ], [ 4, %.loopexit.i281.i.i ], [ 16, %562 ], [ 16, %.loopexit.i145.i ], [ 4, %.loopexit.i330.i.i ], [ 4, %.loopexit.i316.i.i ], [ 4, %.loopexit.i307.i.i ], [ 16, %746 ], [ 16, %select.unfold.i ], [ 16, %.loopexit.i121.i ], [ 16, %222 ], [ 16, %select.unfold194.i ], [ 11, %SzFolder_GetNumOutStreams.exit.i ], [ 2, %875 ], [ 4, %._crit_edge592.i.i ], [ 2, %392 ], [ 2, %701 ], [ 2, %790 ], [ 4, %SzFolder_FindBindPairForInStream.exit.thread.i.i ], [ 4, %.loopexit.i.i.i ], [ 16, %.lr.ph423.i ], [ %292, %291 ], [ 4, %.loopexit.i.i63 ], [ 11, %329 ], [ 2, %334 ], [ 16, %293 ], [ 16, %._crit_edge.i ], [ 16, %.preheader201.i ], [ 4, %347 ], [ 4, %.loopexit.i.i ], [ 2, %138 ], [ 2, %276 ], [ 2, %269 ], [ 11, %264 ], [ 11, %133 ], [ %132, %130 ], [ 16, %63 ], [ 16, %.loopexit160.i ], [ %854, %SzReadSwitch.exit._crit_edge.i ], [ 4, %.loopexit ], [ 16, %SzReadPackInfo.exit ], [ 16, %.preheader.i ], [ %62, %SzReadPackInfo.exit.thread.loopexit1985 ]
+SzReadPackInfo.exit.thread:                       ; preds = %.loopexit, %.loopexit.i.i, %138, %276, %269, %264, %133, %130, %63, %.loopexit160.i, %.preheader.i, %._crit_edge.i, %293, %334, %329, %.loopexit.i.i63, %SzReadSwitch.exit._crit_edge.i, %.preheader201.i, %347, %291, %SzReadPackInfo.exit, %47, %316, %701, %790, %._crit_edge592.i.i, %SzFolder_FindBindPairForInStream.exit.thread.i.i, %392, %.loopexit.i.i.i, %.lr.ph423.i, %._crit_edge597.i.i, %SzFolder_GetNumOutStreams.exit.i, %875, %SzFolder_GetNumOutStreams.exit.thread.i, %select.unfold194.i, %974, %85, %118, %147, %218, %.loopexit.i121.i, %222, %select.unfold.i, %377, %.loopexit.i316.i.i, %.loopexit.i307.i.i, %746, %708, %.loopexit.i330.i.i, %812, %808, %881, %942, %172, %205, %243, %577, %562, %.loopexit.i145.i, %612, %565, %.loopexit.i281.i.i, %651, %.loopexit.i290.i.i, %732, %769, %836, %906, %598, %633, %672, %61, %SzReadPackInfo.exit.thread.loopexit1985, %9, %SzReadNumber32.exit.thread.critedge.i, %._crit_edge592.thread.i.i, %SzReadBytes.exit272.thread.i.i, %.thread.i.i, %SzReadSubStreamsInfo.exit.thread
+  %.2.ph = phi i32 [ %.2.i.ph, %SzReadSubStreamsInfo.exit.thread ], [ 4, %.loopexit.i290.i.i ], [ 16, %118 ], [ 16, %812 ], [ %221, %218 ], [ %975, %974 ], [ 16, %942 ], [ 4, %808 ], [ 16, %85 ], [ 16, %316 ], [ 16, %672 ], [ 16, %9 ], [ 16, %205 ], [ 16, %377 ], [ 16, %708 ], [ %956, %SzReadNumber32.exit.thread.critedge.i ], [ 16, %147 ], [ 16, %47 ], [ 2, %701 ], [ %.4.ph.i.i, %.thread.i.i ], [ 16, %SzReadBytes.exit272.thread.i.i ], [ 4, %61 ], [ 11, %SzFolder_GetNumOutStreams.exit.thread.i ], [ 16, %769 ], [ 16, %633 ], [ 16, %836 ], [ 16, %732 ], [ 16, %598 ], [ 16, %906 ], [ 16, %243 ], [ 16, %881 ], [ 4, %._crit_edge592.thread.i.i ], [ 16, %172 ], [ 16, %577 ], [ 16, %562 ], [ 16, %.loopexit.i145.i ], [ 16, %612 ], [ 16, %565 ], [ 4, %.loopexit.i281.i.i ], [ 16, %651 ], [ 4, %.loopexit.i330.i.i ], [ 4, %.loopexit.i316.i.i ], [ 4, %.loopexit.i307.i.i ], [ 16, %746 ], [ 16, %select.unfold.i ], [ 16, %222 ], [ 16, %.loopexit.i121.i ], [ 16, %select.unfold194.i ], [ 11, %SzFolder_GetNumOutStreams.exit.i ], [ 2, %875 ], [ 2, %790 ], [ 4, %._crit_edge592.i.i ], [ 4, %SzFolder_FindBindPairForInStream.exit.thread.i.i ], [ 2, %392 ], [ 4, %.loopexit.i.i.i ], [ 16, %.lr.ph423.i ], [ 4, %._crit_edge597.i.i ], [ 4, %.loopexit.i.i63 ], [ 11, %329 ], [ 2, %276 ], [ 11, %133 ], [ %854, %SzReadSwitch.exit._crit_edge.i ], [ 2, %334 ], [ %132, %130 ], [ 16, %.preheader201.i ], [ %292, %291 ], [ 16, %63 ], [ 16, %293 ], [ 2, %269 ], [ 4, %347 ], [ 16, %.loopexit160.i ], [ 16, %._crit_edge.i ], [ 4, %.loopexit ], [ 16, %.preheader.i ], [ 4, %.loopexit.i.i ], [ 16, %SzReadPackInfo.exit ], [ 11, %264 ], [ 2, %138 ], [ %62, %SzReadPackInfo.exit.thread.loopexit1985 ]
   ret i32 %.2.ph
 }
 
@@ -5236,7 +5236,7 @@ define internal fastcc range(i32 0, 17) i32 @SzWaitAttribute(ptr noundef nonnull
   br i1 %80, label %SzSkeepData.exit.thread, label %5
 
 SzSkeepData.exit.thread:                          ; preds = %41, %.loopexit, %.loopexit.i, %77, %27, %63, %2
-  %.2.ph = phi i32 [ 16, %2 ], [ 16, %27 ], [ 16, %63 ], [ 16, %.loopexit.i ], [ 16, %77 ], [ 0, %.loopexit ], [ 16, %41 ]
+  %.2.ph = phi i32 [ 16, %2 ], [ 16, %27 ], [ 16, %63 ], [ 16, %.loopexit.i ], [ 0, %.loopexit ], [ 16, %41 ], [ 16, %77 ]
   ret i32 %.2.ph
 }
 
@@ -5394,7 +5394,7 @@ SzReadUInt32.exit.thread:                         ; preds = %64, %.lr.ph
   br i1 %exitcond.not, label %SzReadBoolVector2.exit.thread, label %.lr.ph
 
 SzReadBoolVector2.exit.thread:                    ; preds = %24, %SzReadUInt32.exit.thread, %60, %SzReadBoolVector2.exit.thread36, %19, %16, %38, %41, %5, %50, %SzReadBoolVector2.exit
-  %.1 = phi i32 [ 16, %5 ], [ 2, %50 ], [ 11, %SzReadBoolVector2.exit ], [ 2, %19 ], [ 11, %16 ], [ 11, %38 ], [ 2, %41 ], [ %spec.select, %SzReadBoolVector2.exit.thread36 ], [ 0, %SzReadUInt32.exit.thread ], [ 16, %60 ], [ 16, %24 ]
+  %.1 = phi i32 [ 16, %60 ], [ 16, %5 ], [ 2, %50 ], [ 11, %SzReadBoolVector2.exit ], [ 0, %SzReadUInt32.exit.thread ], [ %spec.select, %SzReadBoolVector2.exit.thread36 ], [ 2, %19 ], [ 11, %16 ], [ 11, %38 ], [ 2, %41 ], [ 16, %24 ]
   ret i32 %.1
 }
 
@@ -5470,7 +5470,7 @@ define internal fastcc range(i32 0, 17) i32 @SzSkeepData(ptr noundef nonnull cap
   br label %SzReadNumber.exit
 
 SzReadNumber.exit:                                ; preds = %25, %39, %.loopexit, %1
-  %.1 = phi i32 [ 16, %1 ], [ 0, %39 ], [ 16, %.loopexit ], [ 16, %25 ]
+  %.1 = phi i32 [ 16, %.loopexit ], [ 16, %1 ], [ 0, %39 ], [ 16, %25 ]
   ret i32 %.1
 }
 
@@ -5570,7 +5570,7 @@ SzReadByte.exit.sink.split:                       ; preds = %38, %16
   br label %SzReadByte.exit
 
 SzReadByte.exit:                                  ; preds = %.lr.ph, %30, %23, %SzReadByte.exit.sink.split, %18, %15, %4, %40, %37
-  %.1 = phi i32 [ 16, %4 ], [ 2, %40 ], [ 11, %37 ], [ 11, %15 ], [ 2, %18 ], [ 0, %SzReadByte.exit.sink.split ], [ 0, %30 ], [ 16, %23 ], [ 0, %.lr.ph ]
+  %.1 = phi i32 [ 16, %4 ], [ 0, %SzReadByte.exit.sink.split ], [ 2, %40 ], [ 11, %37 ], [ 11, %15 ], [ 2, %18 ], [ 0, %30 ], [ 16, %23 ], [ 0, %.lr.ph ]
   ret i32 %.1
 }
 
@@ -5929,7 +5929,7 @@ define internal fastcc range(i32 0, 17) i32 @SzArEx_Fill(ptr noundef captures(no
   br i1 %108, label %74, label %.loopexit
 
 .loopexit:                                        ; preds = %105, %.preheader, %92, %.thread147, %68, %61, %49, %31, %7
-  %.0 = phi i32 [ 2, %61 ], [ 2, %49 ], [ 2, %31 ], [ 2, %7 ], [ 0, %68 ], [ 0, %.thread147 ], [ 16, %92 ], [ 16, %.preheader ], [ 0, %105 ]
+  %.0 = phi i32 [ 0, %.thread147 ], [ 2, %61 ], [ 2, %49 ], [ 2, %31 ], [ 2, %7 ], [ 0, %68 ], [ 16, %92 ], [ 0, %105 ], [ 16, %.preheader ]
   ret i32 %.0
 }
 

@@ -3498,7 +3498,7 @@ Py_DECREF.exit61.sink.split.i:                    ; preds = %59, %55
   br label %_PyXI_excinfo_TypeAsObject.exit
 
 _PyXI_excinfo_TypeAsObject.exit:                  ; preds = %.thread, %67, %64, %52, %Py_DECREF.exit63.i
-  %.031 = phi ptr [ @_Py_NoneStruct, %67 ], [ %5, %52 ], [ %5, %Py_DECREF.exit63.i ], [ @_Py_NoneStruct, %64 ], [ %5, %.thread ]
+  %.031 = phi ptr [ %5, %52 ], [ @_Py_NoneStruct, %67 ], [ %5, %Py_DECREF.exit63.i ], [ @_Py_NoneStruct, %64 ], [ %5, %.thread ]
   %69 = tail call i32 @PyObject_SetAttrString(ptr noundef nonnull %2, ptr noundef nonnull @.str.34, ptr noundef nonnull %.031) #11
   %70 = load i32, ptr %.031, align 8, !tbaa !110
   %.not.i48 = icmp sgt i32 %70, -1
@@ -4556,7 +4556,7 @@ Py_DECREF.exit20.sink.split.i:                    ; preds = %41, %26
   br label %_sharednsitem_apply.exit
 
 _sharednsitem_apply.exit:                         ; preds = %Py_DECREF.exit18.i, %41, %Py_DECREF.exit20.sink.split.i
-  %.0.i = phi i32 [ %34, %41 ], [ %34, %Py_DECREF.exit18.i ], [ %.0.ph.i, %Py_DECREF.exit20.sink.split.i ]
+  %.0.i = phi i32 [ %.0.ph.i, %Py_DECREF.exit20.sink.split.i ], [ %34, %41 ], [ %34, %Py_DECREF.exit18.i ]
   %.not = icmp eq i32 %.0.i, 0
   br i1 %.not, label %7, label %.thread
 

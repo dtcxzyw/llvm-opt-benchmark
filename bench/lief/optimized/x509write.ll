@@ -201,7 +201,7 @@ define hidden i32 @mbedtls_x509_write_set_san_common(ptr noundef %0, ptr noundef
   br label %.critedge
 
 .critedge:                                        ; preds = %32, %.lr.ph, %5, %14, %16, %22, %._crit_edge.thread, %._crit_edge, %.thread134
-  %.1 = phi i32 [ %.387, %.thread134 ], [ -10240, %._crit_edge ], [ -106, %._crit_edge.thread ], [ -10240, %14 ], [ -10240, %22 ], [ -10240, %16 ], [ -10240, %32 ], [ -8320, %.lr.ph ], [ -10240, %5 ]
+  %.1 = phi i32 [ -10240, %14 ], [ %.387, %.thread134 ], [ -10240, %._crit_edge ], [ -106, %._crit_edge.thread ], [ -10240, %22 ], [ -10240, %16 ], [ -8320, %.lr.ph ], [ -10240, %5 ], [ -10240, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.1
 }

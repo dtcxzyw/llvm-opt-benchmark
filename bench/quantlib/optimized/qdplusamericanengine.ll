@@ -4300,7 +4300,7 @@ ehcleanup77:                                      ; preds = %if.then.i.i58, %ehc
   resume { ptr, i32 } %.pn.pn.pn.pn
 
 sw.epilog:                                        ; preds = %cond.end, %land.lhs.true, %if.then47, %sw.bb13, %sw.bb7, %sw.bb
-  %x.0 = phi double [ %call6, %sw.bb ], [ %call12, %sw.bb7 ], [ %call18, %sw.bb13 ], [ %call51, %if.then47 ], [ %.sroa.speculated, %land.lhs.true ], [ %.sroa.speculated, %cond.end ]
+  %x.0 = phi double [ %call6, %sw.bb ], [ %call12, %sw.bb7 ], [ %call18, %sw.bb13 ], [ %.sroa.speculated, %land.lhs.true ], [ %call51, %if.then47 ], [ %.sroa.speculated, %cond.end ]
   %nrEvaluations.i64 = getelementptr inbounds nuw i8, ptr %eval, i64 240
   %56 = load i64, ptr %nrEvaluations.i64, align 8, !tbaa !154
   call void @llvm.lifetime.end.p0(ptr nonnull %eval)
@@ -6408,8 +6408,8 @@ if.end18.i:                                       ; preds = %if.else.i, %while.b
   br i1 %cmp.not.i, label %_ZNSt8_Rb_treeIPN8QuantLib8ObserverES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE11equal_rangeERKS2_.exit, label %while.body.i, !llvm.loop !224
 
 _ZNSt8_Rb_treeIPN8QuantLib8ObserverES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE11equal_rangeERKS2_.exit: ; preds = %if.end18.i, %while.body.i23.i, %entry, %_ZNSt8_Rb_treeIPN8QuantLib8ObserverES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i
-  %retval.sroa.0.0.i = phi ptr [ %__y.addr.0.lcssa.i.i, %_ZNSt8_Rb_treeIPN8QuantLib8ObserverES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i ], [ %add.ptr.i.i, %entry ], [ %__y.addr.0.lcssa.i.i, %while.body.i23.i ], [ %__y.1.i, %if.end18.i ]
-  %retval.sroa.3.0.i = phi ptr [ %__y.040.i, %_ZNSt8_Rb_treeIPN8QuantLib8ObserverES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i ], [ %add.ptr.i.i, %entry ], [ %__y.addr.1.i28.i, %while.body.i23.i ], [ %__y.1.i, %if.end18.i ]
+  %retval.sroa.0.0.i = phi ptr [ %__y.addr.0.lcssa.i.i, %while.body.i23.i ], [ %__y.addr.0.lcssa.i.i, %_ZNSt8_Rb_treeIPN8QuantLib8ObserverES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i ], [ %add.ptr.i.i, %entry ], [ %__y.1.i, %if.end18.i ]
+  %retval.sroa.3.0.i = phi ptr [ %__y.addr.1.i28.i, %while.body.i23.i ], [ %__y.040.i, %_ZNSt8_Rb_treeIPN8QuantLib8ObserverES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i ], [ %add.ptr.i.i, %entry ], [ %__y.1.i, %if.end18.i ]
   %_M_node_count.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %6 = load i64, ptr %_M_node_count.i, align 8, !tbaa !16
   %_M_left.i.i1 = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -12149,10 +12149,10 @@ cleanup552:                                       ; preds = %if.end452
   %max_right_position.10 = add i64 %max_right_position.7, %dec547
   br label %while.cond214
 
-while.end560:                                     ; preds = %lor.rhs, %cleanup451.thread, %if.end534
-  %k.1 = phi i64 [ %inc413, %if.end534 ], [ %k.0, %cleanup451.thread ], [ %k.0, %lor.rhs ]
-  %L1_I1.1 = phi double [ %165, %if.end534 ], [ %L1_I1.0, %cleanup451.thread ], [ %L1_I1.0, %lor.rhs ]
-  %err.1 = phi double [ %add535, %if.end534 ], [ %add449, %cleanup451.thread ], [ %err.0, %lor.rhs ]
+while.end560:                                     ; preds = %lor.rhs, %if.end534, %cleanup451.thread
+  %k.1 = phi i64 [ %k.0, %cleanup451.thread ], [ %inc413, %if.end534 ], [ %k.0, %lor.rhs ]
+  %L1_I1.1 = phi double [ %L1_I1.0, %cleanup451.thread ], [ %165, %if.end534 ], [ %L1_I1.0, %lor.rhs ]
+  %err.1 = phi double [ %add449, %cleanup451.thread ], [ %add535, %if.end534 ], [ %err.0, %lor.rhs ]
   %tobool561.not = icmp eq ptr %error, null
   br i1 %tobool561.not, label %if.end563, label %if.then562
 
@@ -13685,10 +13685,10 @@ cleanup552:                                       ; preds = %if.end452
   %max_right_position.10 = add i64 %max_right_position.7, %dec547
   br label %while.cond214
 
-while.end560:                                     ; preds = %lor.rhs, %cleanup451.thread, %if.end534
-  %k.1 = phi i64 [ %inc413, %if.end534 ], [ %k.0, %cleanup451.thread ], [ %k.0, %lor.rhs ]
-  %L1_I1.1 = phi double [ %197, %if.end534 ], [ %L1_I1.0, %cleanup451.thread ], [ %L1_I1.0, %lor.rhs ]
-  %err.1 = phi double [ %add535, %if.end534 ], [ %add449, %cleanup451.thread ], [ %err.0, %lor.rhs ]
+while.end560:                                     ; preds = %lor.rhs, %if.end534, %cleanup451.thread
+  %k.1 = phi i64 [ %k.0, %cleanup451.thread ], [ %inc413, %if.end534 ], [ %k.0, %lor.rhs ]
+  %L1_I1.1 = phi double [ %L1_I1.0, %cleanup451.thread ], [ %197, %if.end534 ], [ %L1_I1.0, %lor.rhs ]
+  %err.1 = phi double [ %add449, %cleanup451.thread ], [ %add535, %if.end534 ], [ %err.0, %lor.rhs ]
   %tobool561.not = icmp eq ptr %error, null
   br i1 %tobool561.not, label %if.end563, label %if.then562
 
@@ -15068,10 +15068,10 @@ cleanup552:                                       ; preds = %if.end452
   %max_right_position.10 = add i64 %max_right_position.7, %dec547
   br label %while.cond214
 
-while.end560:                                     ; preds = %lor.rhs, %cleanup451.thread, %if.end534
-  %k.1 = phi i64 [ %inc413, %if.end534 ], [ %k.0, %cleanup451.thread ], [ %k.0, %lor.rhs ]
-  %L1_I1.1 = phi double [ %190, %if.end534 ], [ %L1_I1.0, %cleanup451.thread ], [ %L1_I1.0, %lor.rhs ]
-  %err.1 = phi double [ %add535, %if.end534 ], [ %add449, %cleanup451.thread ], [ %err.0, %lor.rhs ]
+while.end560:                                     ; preds = %lor.rhs, %if.end534, %cleanup451.thread
+  %k.1 = phi i64 [ %k.0, %cleanup451.thread ], [ %inc413, %if.end534 ], [ %k.0, %lor.rhs ]
+  %L1_I1.1 = phi double [ %L1_I1.0, %cleanup451.thread ], [ %190, %if.end534 ], [ %L1_I1.0, %lor.rhs ]
+  %err.1 = phi double [ %add449, %cleanup451.thread ], [ %add535, %if.end534 ], [ %err.0, %lor.rhs ]
   %tobool561.not = icmp eq ptr %error, null
   br i1 %tobool561.not, label %if.end563, label %if.then562
 
@@ -16060,10 +16060,10 @@ cleanup528:                                       ; preds = %if.end434
   %max_right_position.10 = add i64 %max_right_position.7, %dec523
   br label %while.cond201
 
-while.end536:                                     ; preds = %lor.rhs, %cleanup433.thread, %if.end510
-  %k.1 = phi i64 [ %inc395, %if.end510 ], [ %k.0, %cleanup433.thread ], [ %k.0, %lor.rhs ]
-  %L1_I1.1 = phi double [ %144, %if.end510 ], [ %L1_I1.0, %cleanup433.thread ], [ %L1_I1.0, %lor.rhs ]
-  %err.1 = phi double [ %add511, %if.end510 ], [ %add431, %cleanup433.thread ], [ %err.0, %lor.rhs ]
+while.end536:                                     ; preds = %lor.rhs, %if.end510, %cleanup433.thread
+  %k.1 = phi i64 [ %k.0, %cleanup433.thread ], [ %inc395, %if.end510 ], [ %k.0, %lor.rhs ]
+  %L1_I1.1 = phi double [ %L1_I1.0, %cleanup433.thread ], [ %144, %if.end510 ], [ %L1_I1.0, %lor.rhs ]
+  %err.1 = phi double [ %add431, %cleanup433.thread ], [ %add511, %if.end510 ], [ %err.0, %lor.rhs ]
   %tobool537.not = icmp eq ptr %error, null
   br i1 %tobool537.not, label %if.end539, label %if.then538
 

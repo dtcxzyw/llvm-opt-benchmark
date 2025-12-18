@@ -521,7 +521,7 @@ Vec_IntPush.exit254:                              ; preds = %Vec_IntPush.exit254
   br i1 %242, label %208, label %.critedge8, !llvm.loop !58
 
 .critedge8:                                       ; preds = %Vec_IntPush.exit254, %205, %.preheader271, %.preheader270
-  %.val224 = phi ptr [ %.pre.i250336, %.preheader270 ], [ %.pre.i250336, %.preheader271 ], [ %.pre.i243338, %205 ], [ %.pre.i250335, %Vec_IntPush.exit254 ]
+  %.val224 = phi ptr [ %.pre.i243338, %205 ], [ %.pre.i250336, %.preheader270 ], [ %.pre.i250336, %.preheader271 ], [ %.pre.i250335, %Vec_IntPush.exit254 ]
   %.val229 = load i32, ptr %26, align 4, !tbaa !33
   %243 = sext i32 %.val229 to i64
   %244 = getelementptr inbounds i32, ptr %.val224, i64 %243

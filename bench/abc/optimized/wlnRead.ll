@@ -3464,7 +3464,7 @@ default.unreachable:                              ; preds = %2
   unreachable
 
 Rtl_NtkCheckWireRange.exit:                       ; preds = %74, %.lr.ph, %62, %61, %24, %22, %65, %2, %27, %4
-  %.0 = phi i32 [ %3, %2 ], [ 1, %27 ], [ 1, %65 ], [ 1, %4 ], [ 1, %61 ], [ 0, %24 ], [ 1, %22 ], [ 0, %62 ], [ 1, %74 ], [ 0, %.lr.ph ]
+  %.0 = phi i32 [ 1, %65 ], [ %3, %2 ], [ 1, %27 ], [ 0, %62 ], [ 1, %4 ], [ 0, %24 ], [ 1, %22 ], [ 1, %61 ], [ 1, %74 ], [ 0, %.lr.ph ]
   ret i32 %.0
 }
 
@@ -9775,7 +9775,7 @@ Rtl_NtkMapSliceRange.exit:                        ; preds = %66, %31
   unreachable
 
 Rtl_NtkMapConcatRange.exit:                       ; preds = %.lr.ph, %24, %4, %6, %Rtl_NtkMapSliceRange.exit, %73
-  %.2 = phi i32 [ 1000000000, %4 ], [ 0, %73 ], [ %72, %Rtl_NtkMapSliceRange.exit ], [ %19, %6 ], [ %19, %24 ], [ %85, %.lr.ph ]
+  %.2 = phi i32 [ 1000000000, %4 ], [ 0, %73 ], [ %19, %24 ], [ %72, %Rtl_NtkMapSliceRange.exit ], [ %19, %6 ], [ %85, %.lr.ph ]
   ret i32 %.2
 }
 
@@ -10693,7 +10693,7 @@ define i32 @Rtl_NtkInsertSignalRange(ptr noundef readonly captures(none) %0, i32
   unreachable
 
 Rtl_NtkInsertConcatRange.exit:                    ; preds = %.lr.ph, %61, %24, %4, %6, %27, %64
-  %.2 = phi i32 [ 1000000000, %4 ], [ 0, %64 ], [ 0, %27 ], [ 0, %6 ], [ %60, %61 ], [ %19, %24 ], [ %78, %.lr.ph ]
+  %.2 = phi i32 [ 1000000000, %4 ], [ 0, %64 ], [ %19, %24 ], [ %60, %61 ], [ 0, %27 ], [ 0, %6 ], [ %78, %.lr.ph ]
   ret i32 %.2
 }
 
@@ -16932,7 +16932,7 @@ Vec_IntPushUnique.exit:                           ; preds = %209, %Vec_IntPush.e
   br label %.critedge8
 
 .preheader:                                       ; preds = %Vec_IntDrop.exit, %279, %.critedge6.preheader
-  %277 = phi i32 [ %.val158, %.critedge6.preheader ], [ %276, %279 ], [ %298, %Vec_IntDrop.exit ]
+  %277 = phi i32 [ %276, %279 ], [ %.val158, %.critedge6.preheader ], [ %298, %Vec_IntDrop.exit ]
   store i32 %277, ptr %15, align 4
   %278 = icmp sgt i32 %277, 0
   br i1 %278, label %.lr.ph275, label %.critedge12.preheader

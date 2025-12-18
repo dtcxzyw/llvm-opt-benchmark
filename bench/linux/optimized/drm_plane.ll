@@ -1416,7 +1416,7 @@ define dso_local noundef range(i32 -22, 1) i32 @drm_plane_check_pixel_format(ptr
   br label %.thread
 
 .thread:                                          ; preds = %15, %39, %3, %44, %41, %27, %25, %.loopexit
-  %45 = phi i32 [ 0, %44 ], [ -22, %.loopexit ], [ -22, %25 ], [ 0, %27 ], [ -22, %41 ], [ -22, %3 ], [ -22, %39 ], [ -22, %15 ]
+  %45 = phi i32 [ 0, %44 ], [ -22, %.loopexit ], [ -22, %25 ], [ 0, %27 ], [ -22, %41 ], [ -22, %39 ], [ -22, %3 ], [ -22, %15 ]
   ret i32 %45
 }
 
@@ -3053,8 +3053,8 @@ define internal fastcc i32 @__setplane_check(ptr noundef nonnull %0, i32 %.144.v
   br i1 %67, label %.loopexit, label %.critedge
 
 .loopexit:                                        ; preds = %35, %62, %..loopexit_crit_edge, %38, %65, %17
-  %68 = phi i64 [ %.pre9, %..loopexit_crit_edge ], [ %22, %17 ], [ %22, %38 ], [ %22, %65 ], [ %22, %62 ], [ %22, %35 ]
-  %69 = phi ptr [ %.pre, %..loopexit_crit_edge ], [ %19, %17 ], [ %19, %38 ], [ %19, %65 ], [ %19, %62 ], [ %19, %35 ]
+  %68 = phi i64 [ %.pre9, %..loopexit_crit_edge ], [ %22, %62 ], [ %22, %17 ], [ %22, %38 ], [ %22, %65 ], [ %22, %35 ]
+  %69 = phi ptr [ %.pre, %..loopexit_crit_edge ], [ %19, %62 ], [ %19, %17 ], [ %19, %38 ], [ %19, %65 ], [ %19, %35 ]
   tail call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.26, ptr noundef %69, i64 noundef %68) #13
   br label %82
 

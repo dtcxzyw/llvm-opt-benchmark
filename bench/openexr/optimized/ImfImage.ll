@@ -1084,7 +1084,7 @@ define void @_ZN7Imf_3_45Image6resizeERKN9Imath_3_23BoxINS1_4Vec2IiEEEENS_9Level
   br label %_ZN7Imf_3_412_GLOBAL__N_117computeNumXLevelsERKN9Imath_3_23BoxINS1_4Vec2IiEEEENS_9LevelModeENS_17LevelRoundingModeE.exit.thread80
 
 _ZN7Imf_3_412_GLOBAL__N_117computeNumXLevelsERKN9Imath_3_23BoxINS1_4Vec2IiEEEENS_9LevelModeENS_17LevelRoundingModeE.exit.thread80: ; preds = %.lr.ph.i.i19.i, %69, %78, %82, %._crit_edge.loopexit.i.i17.i
-  %.0.i18.i = phi i32 [ 1, %69 ], [ 0, %78 ], [ 0, %82 ], [ %87, %._crit_edge.loopexit.i.i17.i ], [ %79, %.lr.ph.i.i19.i ]
+  %.0.i18.i = phi i32 [ 1, %69 ], [ %87, %._crit_edge.loopexit.i.i17.i ], [ 0, %78 ], [ 0, %82 ], [ %79, %.lr.ph.i.i19.i ]
   %88 = add nsw i32 %.0.i18.i, 1
   %89 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %90 = load i32, ptr %89, align 4, !tbaa !52
@@ -1132,8 +1132,8 @@ _ZN7Imf_3_412_GLOBAL__N_117computeNumXLevelsERKN9Imath_3_23BoxINS1_4Vec2IiEEEENS
   br label %_ZN7Imf_3_412_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit.i60
 
 _ZN7Imf_3_412_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit.i60: ; preds = %.lr.ph.i.i.i62, %46, %64, %60, %._crit_edge.loopexit.i.i.i59
-  %107 = phi i32 [ 2, %46 ], [ 1, %60 ], [ %101, %._crit_edge.loopexit.i.i.i59 ], [ 1, %64 ], [ %96, %.lr.ph.i.i.i62 ]
-  %.0.i.i61 = phi i32 [ 1, %46 ], [ 0, %60 ], [ %106, %._crit_edge.loopexit.i.i.i59 ], [ 0, %64 ], [ %97, %.lr.ph.i.i.i62 ]
+  %107 = phi i32 [ 2, %46 ], [ %101, %._crit_edge.loopexit.i.i.i59 ], [ 1, %64 ], [ 1, %60 ], [ %96, %.lr.ph.i.i.i62 ]
+  %.0.i.i61 = phi i32 [ 1, %46 ], [ %106, %._crit_edge.loopexit.i.i.i59 ], [ 0, %64 ], [ 0, %60 ], [ %97, %.lr.ph.i.i.i62 ]
   %108 = add nsw i32 %.0.i.i61, 1
   br label %_ZN7Imf_3_412_GLOBAL__N_117computeNumYLevelsERKN9Imath_3_23BoxINS1_4Vec2IiEEEENS_9LevelModeENS_17LevelRoundingModeE.exit
 
@@ -1173,7 +1173,7 @@ _ZN7Imf_3_412_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit.i60: ; preds =
   br label %_ZN7Imf_3_412_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit22.i45
 
 _ZN7Imf_3_412_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit22.i45: ; preds = %.lr.ph.i.i19.i48, %._crit_edge.loopexit.i.i17.i44, %115, %111, %_ZN7Imf_3_412_GLOBAL__N_117computeNumXLevelsERKN9Imath_3_23BoxINS1_4Vec2IiEEEENS_9LevelModeENS_17LevelRoundingModeE.exit.thread80
-  %.0.i18.i46 = phi i32 [ 1, %_ZN7Imf_3_412_GLOBAL__N_117computeNumXLevelsERKN9Imath_3_23BoxINS1_4Vec2IiEEEENS_9LevelModeENS_17LevelRoundingModeE.exit.thread80 ], [ 0, %111 ], [ 0, %115 ], [ %120, %._crit_edge.loopexit.i.i17.i44 ], [ %112, %.lr.ph.i.i19.i48 ]
+  %.0.i18.i46 = phi i32 [ 1, %_ZN7Imf_3_412_GLOBAL__N_117computeNumXLevelsERKN9Imath_3_23BoxINS1_4Vec2IiEEEENS_9LevelModeENS_17LevelRoundingModeE.exit.thread80 ], [ %120, %._crit_edge.loopexit.i.i17.i44 ], [ 0, %111 ], [ 0, %115 ], [ %112, %.lr.ph.i.i19.i48 ]
   %121 = add nsw i32 %.0.i18.i46, 1
   br label %_ZN7Imf_3_412_GLOBAL__N_117computeNumYLevelsERKN9Imath_3_23BoxINS1_4Vec2IiEEEENS_9LevelModeENS_17LevelRoundingModeE.exit
 

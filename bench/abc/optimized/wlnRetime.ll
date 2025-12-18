@@ -3211,7 +3211,7 @@ Wln_RetCheckBackwardOne.exit:                     ; preds = %48, %.lr.ph.i, %.pr
   br i1 %exitcond.not, label %.critedge, label %12, !llvm.loop !92
 
 .critedge:                                        ; preds = %Wln_RetCheckBackwardOne.exit, %12, %30, %47, %2
-  %.0 = phi i32 [ 1, %2 ], [ 0, %30 ], [ 0, %47 ], [ 1, %Wln_RetCheckBackwardOne.exit ], [ 0, %12 ]
+  %.0 = phi i32 [ 0, %30 ], [ 1, %2 ], [ 0, %47 ], [ 1, %Wln_RetCheckBackwardOne.exit ], [ 0, %12 ]
   ret i32 %.0
 }
 
@@ -4893,7 +4893,7 @@ Wln_RetCheckForwardOne.exit.i:                    ; preds = %137, %96
   br i1 %exitcond.not.i, label %Wln_RetCheckForward.exit, label %96, !llvm.loop !90
 
 Wln_RetCheckForward.exit:                         ; preds = %Wln_RetCheckForwardOne.exit.i, %136, %125, %90
-  %.ph = phi i1 [ true, %90 ], [ false, %136 ], [ false, %125 ], [ true, %Wln_RetCheckForwardOne.exit.i ]
+  %.ph = phi i1 [ false, %136 ], [ true, %90 ], [ false, %125 ], [ true, %Wln_RetCheckForwardOne.exit.i ]
   %.val144.pr = load i32, ptr %68, align 4, !tbaa !26
   %.not132 = icmp eq i32 %.val144.pr, 0
   br i1 %.not132, label %Wln_RetCheckBackward.exit, label %138
@@ -5001,9 +5001,9 @@ Wln_RetCheckBackwardOne.exit.i:                   ; preds = %179, %.lr.ph.i.i173
   br i1 %exitcond.not.i172, label %Wln_RetCheckBackward.exit, label %144, !llvm.loop !92
 
 Wln_RetCheckBackward.exit:                        ; preds = %Wln_RetCheckBackwardOne.exit.i, %144, %178, %161, %138, %Wln_RetCheckForward.exit
-  %180 = phi i1 [ %.ph, %Wln_RetCheckForward.exit ], [ %139, %138 ], [ %139, %178 ], [ %139, %161 ], [ %139, %144 ], [ %139, %Wln_RetCheckBackwardOne.exit.i ]
-  %181 = phi i32 [ %91, %Wln_RetCheckForward.exit ], [ %140, %138 ], [ %140, %178 ], [ %140, %161 ], [ %140, %144 ], [ %140, %Wln_RetCheckBackwardOne.exit.i ]
-  %182 = phi i1 [ false, %Wln_RetCheckForward.exit ], [ true, %138 ], [ false, %178 ], [ false, %161 ], [ %.not335.not, %144 ], [ %.not335.not, %Wln_RetCheckBackwardOne.exit.i ]
+  %180 = phi i1 [ %.ph, %Wln_RetCheckForward.exit ], [ %139, %178 ], [ %139, %138 ], [ %139, %161 ], [ %139, %144 ], [ %139, %Wln_RetCheckBackwardOne.exit.i ]
+  %181 = phi i32 [ %91, %Wln_RetCheckForward.exit ], [ %140, %178 ], [ %140, %138 ], [ %140, %161 ], [ %140, %144 ], [ %140, %Wln_RetCheckBackwardOne.exit.i ]
+  %182 = phi i1 [ false, %Wln_RetCheckForward.exit ], [ false, %178 ], [ true, %138 ], [ false, %161 ], [ %.not335.not, %144 ], [ %.not335.not, %Wln_RetCheckBackwardOne.exit.i ]
   %.val150 = load ptr, ptr %79, align 8, !tbaa !12
   %183 = sext i32 %.val147 to i64
   tail call void @qsort(ptr noundef %.val150, i64 noundef %183, i64 noundef 4, ptr noundef nonnull @Vec_IntSortCompare1) #26

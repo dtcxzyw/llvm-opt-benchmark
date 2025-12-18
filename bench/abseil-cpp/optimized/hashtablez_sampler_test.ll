@@ -24120,7 +24120,7 @@ _ZSt8_DestroyISt6threadEvPT_.exit.i.i.i.i:        ; preds = %._crit_edge, %35
   unreachable
 
 _ZSt8_DestroyIPSt6threadS0_EvT_S2_RSaIT0_E.exit.i: ; preds = %35, %_ZN4absl9MutexLockD2Ev.exit, %._crit_edge
-  %38 = phi ptr [ %.pre21, %._crit_edge ], [ %15, %_ZN4absl9MutexLockD2Ev.exit ], [ %.pre21, %35 ]
+  %38 = phi ptr [ %15, %_ZN4absl9MutexLockD2Ev.exit ], [ %.pre21, %._crit_edge ], [ %.pre21, %35 ]
   %.not.i.i.i5 = icmp eq ptr %38, null
   br i1 %.not.i.i.i5, label %_ZNSt6vectorISt6threadSaIS0_EED2Ev.exit, label %39
 
@@ -25614,9 +25614,9 @@ _ZNSt6vectorIPN4absl18container_internal14HashtablezInfoESaIS3_EED2Ev.exit.i.i.i
   unreachable
 
 242:                                              ; preds = %222, %125, %103, %78, %75, %73
-  %.sroa.25.2.i.i.i.i.i = phi ptr [ %.sroa.25.0212.lcssa.i.i.i.i.i, %75 ], [ %.sroa.25.1.i.i.i.i.i, %103 ], [ %.sroa.25.1.i.i.i.i.i, %125 ], [ %.sroa.25.1.i.i.i.i.i, %222 ], [ %.sroa.25.1.i.i.i.i.i, %78 ], [ %.sroa.25.0.lcssa.i.i.i.i.i, %73 ]
-  %.sroa.092.2.i.i.i.i.i = phi ptr [ %.sroa.092.0214.i.i.i.i.i, %75 ], [ %.sroa.092.1.i.i.i.i.i, %103 ], [ %.sroa.092.1.i.i.i.i.i, %125 ], [ %.sroa.092.1.i.i.i.i.i, %222 ], [ %.sroa.092.1.i.i.i.i.i, %78 ], [ %.sroa.092.0.lcssa.i.i.i.i.i, %73 ]
-  %.pn36.i.i.i.i.i = phi { ptr, i32 } [ %lpad.loopexit.i.i.i.i.i, %75 ], [ %lpad.phi122.i.i.i.i.i, %103 ], [ %126, %125 ], [ %.pn.pn.pn.pn.i.i.i.i.i, %222 ], [ %79, %78 ], [ %74, %73 ]
+  %.sroa.25.2.i.i.i.i.i = phi ptr [ %.sroa.25.0212.lcssa.i.i.i.i.i, %75 ], [ %.sroa.25.1.i.i.i.i.i, %103 ], [ %.sroa.25.0.lcssa.i.i.i.i.i, %73 ], [ %.sroa.25.1.i.i.i.i.i, %78 ], [ %.sroa.25.1.i.i.i.i.i, %125 ], [ %.sroa.25.1.i.i.i.i.i, %222 ]
+  %.sroa.092.2.i.i.i.i.i = phi ptr [ %.sroa.092.0214.i.i.i.i.i, %75 ], [ %.sroa.092.1.i.i.i.i.i, %103 ], [ %.sroa.092.0.lcssa.i.i.i.i.i, %73 ], [ %.sroa.092.1.i.i.i.i.i, %78 ], [ %.sroa.092.1.i.i.i.i.i, %125 ], [ %.sroa.092.1.i.i.i.i.i, %222 ]
+  %.pn36.i.i.i.i.i = phi { ptr, i32 } [ %lpad.loopexit.i.i.i.i.i, %75 ], [ %lpad.phi122.i.i.i.i.i, %103 ], [ %74, %73 ], [ %79, %78 ], [ %126, %125 ], [ %.pn.pn.pn.pn.i.i.i.i.i, %222 ]
   %.not.i.i.i86.i.i.i.i.i = icmp eq ptr %.sroa.092.2.i.i.i.i.i, null
   br i1 %.not.i.i.i86.i.i.i.i.i, label %_ZNSt6vectorIPN4absl18container_internal14HashtablezInfoESaIS3_EED2Ev.exit87.i.i.i.i.i, label %..thread_crit_edge.i.i.i.i.i
 

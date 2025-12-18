@@ -1027,9 +1027,9 @@ Bfree.exit582:                                    ; preds = %269, %270
   br i1 %exitcond1052.not, label %._crit_edge.thread.i, label %.lr.ph919
 
 .loopexit733:                                     ; preds = %398, %387
-  %.2479 = phi i32 [ %400, %398 ], [ %157, %387 ]
-  %.6458 = phi i32 [ %.1468, %398 ], [ %spec.store.select709, %387 ]
-  %.1450 = phi i32 [ %spec.select564, %398 ], [ %spec.select562, %387 ]
+  %.2479 = phi i32 [ %157, %387 ], [ %400, %398 ]
+  %.6458 = phi i32 [ %spec.store.select709, %387 ], [ %.1468, %398 ]
+  %.1450 = phi i32 [ %spec.select562, %387 ], [ %spec.select564, %398 ]
   %418 = add nsw i32 %.6458, 8
   %419 = sdiv i32 %418, 9
   %420 = icmp sgt i32 %.6458, 9
@@ -1971,9 +1971,9 @@ Bfree.exit629.backedge:                           ; preds = %834, %835
   br label %Bfree.exit629.backedge
 
 cmp.exit604.thread:                               ; preds = %601, %618, %767, %590, %803, %799, %801, %cmp.exit604.thread714._crit_edge, %cmp.exit604, %.thread711, %596, %620, %651, %724, %656, %654, %688, %642
-  %.sroa.17.0 = phi i32 [ %689, %688 ], [ %571, %656 ], [ %571, %654 ], [ 0, %642 ], [ %571, %651 ], [ 0, %724 ], [ 0, %620 ], [ %571, %.thread711 ], [ 0, %596 ], [ 0, %601 ], [ %571, %cmp.exit604.thread714._crit_edge ], [ 0, %cmp.exit604 ], [ 0, %618 ], [ %571, %799 ], [ %571, %801 ], [ 0, %803 ], [ %571, %767 ], [ %571, %590 ]
-  %.3 = phi ptr [ %569, %688 ], [ %569, %656 ], [ %569, %654 ], [ %569, %642 ], [ %.4, %651 ], [ %569, %724 ], [ %606, %620 ], [ %569, %.thread711 ], [ %569, %596 ], [ %569, %601 ], [ %.4, %cmp.exit604.thread714._crit_edge ], [ %606, %cmp.exit604 ], [ %606, %618 ], [ %569, %799 ], [ %569, %801 ], [ %569, %803 ], [ %569, %767 ], [ %569, %590 ]
-  %.not554 = phi i1 [ true, %688 ], [ true, %656 ], [ true, %654 ], [ true, %642 ], [ true, %651 ], [ true, %724 ], [ true, %620 ], [ true, %.thread711 ], [ true, %596 ], [ true, %601 ], [ true, %cmp.exit604.thread714._crit_edge ], [ true, %cmp.exit604 ], [ true, %618 ], [ true, %799 ], [ true, %801 ], [ true, %803 ], [ false, %767 ], [ false, %590 ]
+  %.sroa.17.0 = phi i32 [ %689, %688 ], [ %571, %656 ], [ %571, %654 ], [ 0, %642 ], [ %571, %651 ], [ 0, %724 ], [ 0, %620 ], [ 0, %596 ], [ 0, %601 ], [ %571, %cmp.exit604.thread714._crit_edge ], [ 0, %cmp.exit604 ], [ 0, %618 ], [ %571, %799 ], [ %571, %801 ], [ 0, %803 ], [ %571, %767 ], [ %571, %590 ], [ %571, %.thread711 ]
+  %.3 = phi ptr [ %569, %688 ], [ %569, %656 ], [ %569, %654 ], [ %569, %642 ], [ %.4, %651 ], [ %569, %724 ], [ %606, %620 ], [ %569, %596 ], [ %569, %601 ], [ %.4, %cmp.exit604.thread714._crit_edge ], [ %606, %cmp.exit604 ], [ %606, %618 ], [ %569, %799 ], [ %569, %801 ], [ %569, %803 ], [ %569, %767 ], [ %569, %590 ], [ %569, %.thread711 ]
+  %.not554 = phi i1 [ true, %688 ], [ true, %656 ], [ true, %654 ], [ true, %642 ], [ true, %651 ], [ true, %724 ], [ true, %620 ], [ true, %596 ], [ true, %601 ], [ true, %cmp.exit604.thread714._crit_edge ], [ true, %cmp.exit604 ], [ true, %618 ], [ true, %799 ], [ true, %801 ], [ true, %803 ], [ false, %767 ], [ false, %590 ], [ true, %.thread711 ]
   %839 = getelementptr inbounds nuw i8, ptr %.4395, i64 8
   %840 = load i32, ptr %839, align 8, !tbaa !48
   %841 = icmp sgt i32 %840, 7
@@ -2390,8 +2390,8 @@ i2b.exit146.i:                                    ; preds = %922, %917
   br label %.thread.i
 
 .loopexit.i:                                      ; preds = %.lr.ph.i647, %.lr.ph199.i, %._crit_edge200.i
-  %.1103.i = phi i32 [ -1, %._crit_edge200.i ], [ %991, %.lr.ph199.i ], [ %971, %.lr.ph.i647 ]
-  %.5.i = phi ptr [ %.6.lcssa.i, %._crit_edge200.i ], [ %.6197.i, %.lr.ph199.i ], [ %.4192.i, %.lr.ph.i647 ]
+  %.1103.i = phi i32 [ %991, %.lr.ph199.i ], [ -1, %._crit_edge200.i ], [ %971, %.lr.ph.i647 ]
+  %.5.i = phi ptr [ %.6197.i, %.lr.ph199.i ], [ %.6.lcssa.i, %._crit_edge200.i ], [ %.4192.i, %.lr.ph.i647 ]
   %.not.i.i646 = icmp eq ptr %.5.i, null
   br i1 %.not.i.i646, label %Bfree.exit.i, label %.thread.i
 
@@ -2588,8 +2588,8 @@ bigcomp.exit:                                     ; preds = %.bigcomp.exit_crit_
   br label %Bfree.exit584
 
 Bfree.exit584:                                    ; preds = %12, %.preheader737, %279, %278, %Bfree.exit582, %154, %.loopexit740, %113, %1094, %1095, %237, %183, %208, %195, %188
-  %.2433 = phi i32 [ %.1432, %188 ], [ %.1432, %195 ], [ 0, %.loopexit740 ], [ %.1432, %237 ], [ %.1432, %1095 ], [ %.1432, %1094 ], [ %.1432, %208 ], [ %.1432, %183 ], [ %spec.select569, %154 ], [ 0, %113 ], [ %.1432, %Bfree.exit582 ], [ %.1432, %278 ], [ %.1432, %279 ], [ %.1432, %.preheader737 ], [ 0, %12 ]
-  %.4423 = phi ptr [ %.10429, %188 ], [ %.10429, %195 ], [ %0, %.loopexit740 ], [ %.10429, %237 ], [ %.10429, %1095 ], [ %.10429, %1094 ], [ %.10429, %208 ], [ %.10429, %183 ], [ %spec.select570, %154 ], [ %0, %113 ], [ %.10429, %Bfree.exit582 ], [ %.10429, %278 ], [ %.10429, %279 ], [ %20, %.preheader737 ], [ %0, %12 ]
+  %.2433 = phi i32 [ %.1432, %188 ], [ %.1432, %195 ], [ 0, %.loopexit740 ], [ %.1432, %237 ], [ %.1432, %1095 ], [ %.1432, %1094 ], [ %.1432, %208 ], [ %.1432, %183 ], [ %spec.select569, %154 ], [ %.1432, %279 ], [ 0, %113 ], [ %.1432, %.preheader737 ], [ %.1432, %Bfree.exit582 ], [ %.1432, %278 ], [ 0, %12 ]
+  %.4423 = phi ptr [ %.10429, %188 ], [ %.10429, %195 ], [ %0, %.loopexit740 ], [ %.10429, %237 ], [ %.10429, %1095 ], [ %.10429, %1094 ], [ %.10429, %208 ], [ %.10429, %183 ], [ %spec.select570, %154 ], [ %.10429, %279 ], [ %0, %113 ], [ %20, %.preheader737 ], [ %.10429, %Bfree.exit582 ], [ %.10429, %278 ], [ %0, %12 ]
   %.not558 = icmp eq ptr %1, null
   br i1 %.not558, label %1099, label %1098
 
@@ -5231,12 +5231,12 @@ cmp.exit650.thread704:                            ; preds = %708, %cmp.exit650.t
   br label %.loopexit727
 
 .loopexit727:                                     ; preds = %.preheader726, %.loopexit729, %720, %718, %666, %.thread697, %620, %cmp.exit602.thread686, %cmp.exit602.thread
-  %.10451 = phi i32 [ %525, %cmp.exit602.thread ], [ %527, %cmp.exit602.thread686 ], [ %719, %718 ], [ %.9450, %720 ], [ %.9450, %.thread697 ], [ %.9450, %666 ], [ %.9450, %620 ], [ %.9450, %.loopexit729 ], [ %.9450, %.preheader726 ]
-  %.7411 = phi ptr [ %.1405, %cmp.exit602.thread ], [ %.0404, %cmp.exit602.thread686 ], [ %.11415, %718 ], [ %.11415, %720 ], [ %.10414, %.thread697 ], [ %.8412, %666 ], [ %.8412, %620 ], [ %.13417, %.loopexit729 ], [ %695, %.preheader726 ]
-  %.2397 = phi ptr [ null, %cmp.exit602.thread ], [ null, %cmp.exit602.thread686 ], [ %.4399, %718 ], [ %.4399, %720 ], [ %.3398, %.thread697 ], [ %.3398, %666 ], [ %.3398, %620 ], [ null, %.loopexit729 ], [ %.6401, %.preheader726 ]
-  %.7388 = phi ptr [ %.1382, %cmp.exit602.thread ], [ %.0381, %cmp.exit602.thread686 ], [ %.11392, %718 ], [ %.11392, %720 ], [ %.10391, %.thread697 ], [ %.10391, %666 ], [ %.10391, %620 ], [ %.5386, %.loopexit729 ], [ %.13394, %.preheader726 ]
-  %.4380 = phi ptr [ %.1377, %cmp.exit602.thread ], [ %.0376, %cmp.exit602.thread686 ], [ %.3379, %718 ], [ %.3379, %720 ], [ %.3379, %.thread697 ], [ %.3379, %666 ], [ %.3379, %620 ], [ %.3379, %.loopexit729 ], [ %.3379, %.preheader726 ]
-  %.10 = phi ptr [ %.ptr720.ptr, %cmp.exit602.thread ], [ %526, %cmp.exit602.thread686 ], [ %.15.ptr.le, %718 ], [ %.15.ptr.le875, %720 ], [ %660, %.thread697 ], [ %669, %666 ], [ %624, %620 ], [ %.ptr721.le, %.loopexit729 ], [ %.16, %.preheader726 ]
+  %.10451 = phi i32 [ %525, %cmp.exit602.thread ], [ %527, %cmp.exit602.thread686 ], [ %719, %718 ], [ %.9450, %720 ], [ %.9450, %.thread697 ], [ %.9450, %666 ], [ %.9450, %.loopexit729 ], [ %.9450, %620 ], [ %.9450, %.preheader726 ]
+  %.7411 = phi ptr [ %.1405, %cmp.exit602.thread ], [ %.0404, %cmp.exit602.thread686 ], [ %.11415, %718 ], [ %.11415, %720 ], [ %.10414, %.thread697 ], [ %.8412, %666 ], [ %.13417, %.loopexit729 ], [ %.8412, %620 ], [ %695, %.preheader726 ]
+  %.2397 = phi ptr [ null, %cmp.exit602.thread ], [ null, %cmp.exit602.thread686 ], [ %.4399, %718 ], [ %.4399, %720 ], [ %.3398, %.thread697 ], [ %.3398, %666 ], [ null, %.loopexit729 ], [ %.3398, %620 ], [ %.6401, %.preheader726 ]
+  %.7388 = phi ptr [ %.1382, %cmp.exit602.thread ], [ %.0381, %cmp.exit602.thread686 ], [ %.11392, %718 ], [ %.11392, %720 ], [ %.10391, %.thread697 ], [ %.10391, %666 ], [ %.5386, %.loopexit729 ], [ %.10391, %620 ], [ %.13394, %.preheader726 ]
+  %.4380 = phi ptr [ %.1377, %cmp.exit602.thread ], [ %.0376, %cmp.exit602.thread686 ], [ %.3379, %718 ], [ %.3379, %720 ], [ %.3379, %.thread697 ], [ %.3379, %666 ], [ %.3379, %.loopexit729 ], [ %.3379, %620 ], [ %.3379, %.preheader726 ]
+  %.10 = phi ptr [ %.ptr720.ptr, %cmp.exit602.thread ], [ %526, %cmp.exit602.thread686 ], [ %.15.ptr.le, %718 ], [ %.15.ptr.le875, %720 ], [ %660, %.thread697 ], [ %669, %666 ], [ %.ptr721.le, %.loopexit729 ], [ %624, %620 ], [ %.16, %.preheader726 ]
   %.not.i651 = icmp eq ptr %.4380, null
   br i1 %.not.i651, label %Bfree.exit652, label %725
 
@@ -5318,9 +5318,9 @@ Bfree.exit656.thread.loopexit735:                 ; preds = %.lr.ph856
   br label %Bfree.exit656.thread
 
 Bfree.exit656.thread:                             ; preds = %.preheader732, %Bfree.exit656.thread.loopexit735, %Bfree.exit656.thread.loopexit, %365, %376, %Bfree.exit656
-  %.5713 = phi ptr [ %.10, %Bfree.exit656 ], [ %.ptr725.le, %365 ], [ %.9.ptr742, %376 ], [ %.ptr725.le877, %Bfree.exit656.thread.loopexit ], [ %.ptr724.le, %Bfree.exit656.thread.loopexit735 ], [ %.7, %.preheader732 ]
-  %.2406712 = phi ptr [ %.7411, %Bfree.exit656 ], [ %83, %365 ], [ %83, %376 ], [ %83, %Bfree.exit656.thread.loopexit ], [ %83, %Bfree.exit656.thread.loopexit735 ], [ %83, %.preheader732 ]
-  %.7448710 = phi i32 [ %.10451, %Bfree.exit656 ], [ %.1442, %365 ], [ %.8449, %376 ], [ %.1442, %Bfree.exit656.thread.loopexit ], [ %.4445, %Bfree.exit656.thread.loopexit735 ], [ %.4445, %.preheader732 ]
+  %.5713 = phi ptr [ %.10, %Bfree.exit656 ], [ %.ptr724.le, %Bfree.exit656.thread.loopexit735 ], [ %.ptr725.le, %365 ], [ %.ptr725.le877, %Bfree.exit656.thread.loopexit ], [ %.9.ptr742, %376 ], [ %.7, %.preheader732 ]
+  %.2406712 = phi ptr [ %.7411, %Bfree.exit656 ], [ %83, %Bfree.exit656.thread.loopexit735 ], [ %83, %365 ], [ %83, %Bfree.exit656.thread.loopexit ], [ %83, %376 ], [ %83, %.preheader732 ]
+  %.7448710 = phi i32 [ %.10451, %Bfree.exit656 ], [ %.4445, %Bfree.exit656.thread.loopexit735 ], [ %.1442, %365 ], [ %.1442, %Bfree.exit656.thread.loopexit ], [ %.8449, %376 ], [ %.4445, %.preheader732 ]
   %752 = getelementptr inbounds nuw i8, ptr %.2406712, i64 8
   %753 = load i32, ptr %752, align 8, !tbaa !48
   %754 = icmp sgt i32 %753, 7

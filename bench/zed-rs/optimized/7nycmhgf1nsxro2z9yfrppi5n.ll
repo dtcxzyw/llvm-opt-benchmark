@@ -1043,9 +1043,9 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   br label %163
 
 155:                                              ; preds = %137, %149
-  %.sroa.17.0 = phi i64 [ %.sroa.685.sroa.8.0133.i, %137 ], [ undef, %149 ]
-  %.sroa.11.1 = phi ptr [ %.sroa.685.sroa.7.0132.i, %137 ], [ %.sroa.11.0, %149 ]
-  %.sroa.0.1 = phi i64 [ %.sroa.685.sroa.0.0131.i, %137 ], [ %.sroa.0.0, %149 ]
+  %.sroa.17.0 = phi i64 [ undef, %149 ], [ %.sroa.685.sroa.8.0133.i, %137 ]
+  %.sroa.11.1 = phi ptr [ %.sroa.11.0, %149 ], [ %.sroa.685.sroa.7.0132.i, %137 ]
+  %.sroa.0.1 = phi i64 [ %.sroa.0.0, %149 ], [ %.sroa.685.sroa.0.0131.i, %137 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %38), !noalias !51
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   %156 = icmp eq i64 %.sroa.0.1, -9223372036854775807

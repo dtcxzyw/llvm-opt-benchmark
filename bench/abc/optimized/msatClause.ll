@@ -570,8 +570,8 @@ define range(i32 0, 2) i32 @Msat_ClausePropagate(ptr noundef captures(none) %0, 
   br label %.sink.split
 
 .sink.split:                                      ; preds = %26, %19, %.preheader, %34
-  %.sink = phi i32 [ %38, %34 ], [ %13, %.preheader ], [ %13, %19 ], [ %13, %26 ]
-  %.031.ph = phi i32 [ 1, %34 ], [ 0, %.preheader ], [ 0, %19 ], [ 0, %26 ]
+  %.sink = phi i32 [ %38, %34 ], [ %13, %19 ], [ %13, %.preheader ], [ %13, %26 ]
+  %.031.ph = phi i32 [ 1, %34 ], [ 0, %19 ], [ 0, %.preheader ], [ 0, %26 ]
   store i32 %.sink, ptr %3, align 4, !tbaa !8
   br label %39
 
@@ -648,7 +648,7 @@ define range(i32 0, 2) i32 @Msat_ClauseSimplify(ptr noundef captures(none) %0, p
   br label %.loopexit
 
 .loopexit:                                        ; preds = %20, %2, %._crit_edge, %29
-  %.0 = phi i32 [ 0, %29 ], [ 0, %._crit_edge ], [ 0, %2 ], [ 1, %20 ]
+  %.0 = phi i32 [ 0, %._crit_edge ], [ 0, %29 ], [ 0, %2 ], [ 1, %20 ]
   ret i32 %.0
 }
 

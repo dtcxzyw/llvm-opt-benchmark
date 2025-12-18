@@ -537,7 +537,7 @@ define dso_local noundef ptr @sq_dequote_step(ptr noundef %0, ptr noundef writeo
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit.sink.split, %17, %9, %2
-  %.0 = phi ptr [ null, %2 ], [ %0, %9 ], [ null, %17 ], [ %0, %.loopexit.sink.split ], [ null, %.preheader ]
+  %.0 = phi ptr [ null, %2 ], [ %0, %.loopexit.sink.split ], [ %0, %9 ], [ null, %17 ], [ null, %.preheader ]
   ret ptr %.0
 }
 
@@ -901,7 +901,7 @@ st_mult.exit:                                     ; preds = %82
   br label %.critedge
 
 .critedge:                                        ; preds = %sq_dequote_step.exit, %thread-pre-split, %.preheader.i, %sq_dequote_step.exit.us, %thread-pre-split.us, %.preheader.i.us, %sq_dequote_step.exit.us.us, %thread-pre-split.us.us, %.preheader.i.us.us, %.critedge43..critedge.loopexit60_crit_edge, %5, %.critedge.loopexit60
-  %.0 = phi i32 [ 0, %5 ], [ 0, %.critedge43..critedge.loopexit60_crit_edge ], [ -1, %.critedge.loopexit60 ], [ -1, %.preheader.i ], [ -1, %sq_dequote_step.exit.us.us ], [ -1, %.preheader.i.us ], [ -1, %sq_dequote_step.exit.us ], [ -1, %.preheader.i.us.us ], [ -1, %thread-pre-split.us.us ], [ -1, %thread-pre-split.us ], [ -1, %thread-pre-split ], [ -1, %sq_dequote_step.exit ]
+  %.0 = phi i32 [ -1, %sq_dequote_step.exit.us ], [ 0, %5 ], [ -1, %sq_dequote_step.exit.us.us ], [ -1, %.critedge.loopexit60 ], [ -1, %.preheader.i.us ], [ 0, %.critedge43..critedge.loopexit60_crit_edge ], [ -1, %.preheader.i ], [ -1, %.preheader.i.us.us ], [ -1, %thread-pre-split.us.us ], [ -1, %thread-pre-split.us ], [ -1, %thread-pre-split ], [ -1, %sq_dequote_step.exit ]
   ret i32 %.0
 }
 
@@ -1289,7 +1289,7 @@ strbuf_addch.exit167:                             ; preds = %strbuf_avail.exit.i
   br label %9
 
 next_quote_pos.exit.thread:                       ; preds = %.preheader11.i, %.thread187, %next_quote_pos.exit.thread185, %32
-  %.1.i179.ph = phi i64 [ %.091, %32 ], [ %.091, %next_quote_pos.exit.thread185 ], [ %.0.i, %.thread187 ], [ 0, %.preheader11.i ]
+  %.1.i179.ph = phi i64 [ %.091, %32 ], [ %.0.i, %.thread187 ], [ %.091, %next_quote_pos.exit.thread185 ], [ 0, %.preheader11.i ]
   br i1 %.not111, label %149, label %148
 
 148:                                              ; preds = %next_quote_pos.exit.thread

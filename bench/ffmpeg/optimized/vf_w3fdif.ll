@@ -299,7 +299,7 @@ define internal range(i32 -2147483648, 1) i32 @config_input(ptr noundef readonly
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %66, %67, %33, %1, %32
-  %.0 = phi i32 [ %13, %1 ], [ -22, %32 ], [ -12, %33 ], [ 0, %67 ], [ 0, %66 ], [ -12, %.lr.ph ]
+  %.0 = phi i32 [ %13, %1 ], [ -22, %32 ], [ -12, %33 ], [ 0, %66 ], [ 0, %67 ], [ -12, %.lr.ph ]
   ret i32 %.0
 }
 

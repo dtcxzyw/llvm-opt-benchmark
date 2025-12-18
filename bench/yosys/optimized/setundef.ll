@@ -8379,7 +8379,7 @@ _ZNK5Yosys7hashlib4poolINS_5RTLIL8IdStringENS0_8hash_opsIS3_EEE7do_hashERKS3_.ex
   br label %.noexc1116.thread
 
 .noexc1116.thread:                                ; preds = %3086, %.noexc1116, %_ZNK5Yosys7hashlib4poolINS_5RTLIL8IdStringENS0_8hash_opsIS3_EEE5countERKS3_.exit.i, %._crit_edge.i2451, %.noexc1117.loopexit, %._crit_edge.i2463, %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS_8CellTypeENS0_8hash_opsIS3_EEE4findERKS3_.exit.i
-  %.ph = phi i1 [ false, %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS_8CellTypeENS0_8hash_opsIS3_EEE4findERKS3_.exit.i ], [ false, %._crit_edge.i2463 ], [ false, %_ZNK5Yosys7hashlib4poolINS_5RTLIL8IdStringENS0_8hash_opsIS3_EEE5countERKS3_.exit.i ], [ false, %._crit_edge.i2451 ], [ %3290, %.noexc1117.loopexit ], [ false, %.noexc1116 ], [ false, %3086 ]
+  %.ph = phi i1 [ false, %.noexc1116 ], [ false, %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS_8CellTypeENS0_8hash_opsIS3_EEE4findERKS3_.exit.i ], [ false, %._crit_edge.i2463 ], [ false, %_ZNK5Yosys7hashlib4poolINS_5RTLIL8IdStringENS0_8hash_opsIS3_EEE5countERKS3_.exit.i ], [ false, %._crit_edge.i2451 ], [ %3290, %.noexc1117.loopexit ], [ false, %3086 ]
   %3291 = load i32, ptr %56, align 4, !tbaa !192
   %3292 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1, !tbaa !163, !range !175, !noundef !176
   %3293 = trunc nuw i8 %3292 to i1
@@ -8442,7 +8442,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %._ZN5Yosys5RTLIL8Id
   unreachable
 
 .critedge765:                                     ; preds = %2874, %3317, %3310, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit, %._crit_edge.i, %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS_8CellTypeENS0_8hash_opsIS3_EEE5countERKS3_.exit.i
-  %3321 = phi i1 [ true, %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS_8CellTypeENS0_8hash_opsIS3_EEE5countERKS3_.exit.i ], [ true, %._crit_edge.i ], [ %.ph, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit ], [ %.ph, %3310 ], [ %.ph, %3317 ], [ true, %2874 ]
+  %3321 = phi i1 [ %.ph, %3317 ], [ true, %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS_8CellTypeENS0_8hash_opsIS3_EEE5countERKS3_.exit.i ], [ true, %._crit_edge.i ], [ %.ph, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit ], [ %.ph, %3310 ], [ true, %2874 ]
   %3322 = load i32, ptr %54, align 4, !tbaa !192
   %3323 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1, !tbaa !163, !range !175, !noundef !176
   %3324 = trunc nuw i8 %3323 to i1
@@ -14442,7 +14442,7 @@ _ZNK5Yosys7hashlib4poolINS_5RTLIL8IdStringENS0_8hash_opsIS3_EEE7do_hashERKS3_.ex
   br label %.noexc1457.thread
 
 .noexc1457.thread:                                ; preds = %5781, %.noexc1457, %_ZNK5Yosys7hashlib4poolINS_5RTLIL8IdStringENS0_8hash_opsIS3_EEE5countERKS3_.exit.i1455, %._crit_edge.i2589, %.noexc1458.loopexit, %._crit_edge.i2603, %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS_8CellTypeENS0_8hash_opsIS3_EEE4findERKS3_.exit.i1452
-  %.ph5606 = phi i1 [ false, %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS_8CellTypeENS0_8hash_opsIS3_EEE4findERKS3_.exit.i1452 ], [ false, %._crit_edge.i2603 ], [ false, %_ZNK5Yosys7hashlib4poolINS_5RTLIL8IdStringENS0_8hash_opsIS3_EEE5countERKS3_.exit.i1455 ], [ false, %._crit_edge.i2589 ], [ %5985, %.noexc1458.loopexit ], [ false, %.noexc1457 ], [ false, %5781 ]
+  %.ph5606 = phi i1 [ false, %.noexc1457 ], [ false, %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS_8CellTypeENS0_8hash_opsIS3_EEE4findERKS3_.exit.i1452 ], [ false, %._crit_edge.i2603 ], [ false, %_ZNK5Yosys7hashlib4poolINS_5RTLIL8IdStringENS0_8hash_opsIS3_EEE5countERKS3_.exit.i1455 ], [ false, %._crit_edge.i2589 ], [ %5985, %.noexc1458.loopexit ], [ false, %5781 ]
   %5986 = load i32, ptr %77, align 4, !tbaa !192
   %5987 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1, !tbaa !163, !range !175, !noundef !176
   %5988 = trunc nuw i8 %5987 to i1
@@ -14505,7 +14505,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1461:            ; preds = %._ZN5Yosys5RTLIL8Id
   unreachable
 
 .critedge767:                                     ; preds = %5569, %6012, %6005, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit1461, %._crit_edge.i2575, %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS_8CellTypeENS0_8hash_opsIS3_EEE5countERKS3_.exit.i1443
-  %6016 = phi i1 [ true, %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS_8CellTypeENS0_8hash_opsIS3_EEE5countERKS3_.exit.i1443 ], [ true, %._crit_edge.i2575 ], [ %.ph5606, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit1461 ], [ %.ph5606, %6005 ], [ %.ph5606, %6012 ], [ true, %5569 ]
+  %6016 = phi i1 [ %.ph5606, %6012 ], [ true, %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS_8CellTypeENS0_8hash_opsIS3_EEE5countERKS3_.exit.i1443 ], [ true, %._crit_edge.i2575 ], [ %.ph5606, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit1461 ], [ %.ph5606, %6005 ], [ true, %5569 ]
   %6017 = load i32, ptr %75, align 4, !tbaa !192
   %6018 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1, !tbaa !163, !range !175, !noundef !176
   %6019 = trunc nuw i8 %6018 to i1
@@ -21725,7 +21725,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit1968:             ; preds = %_ZSt8_DestroyIPN5Yo
   br i1 %.not5651, label %.thread5617, label %.lr.ph8209
 
 .thread5617:                                      ; preds = %.loopexit5666, %8967, %._crit_edge.i.i1937, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.i1945, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.us.i1949, %_ZNK5Yosys6SigMapclEPNS_5RTLIL4WireE.exit1922
-  %.not56517190 = phi i1 [ true, %_ZNK5Yosys6SigMapclEPNS_5RTLIL4WireE.exit1922 ], [ false, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.us.i1949 ], [ false, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.i1945 ], [ true, %.loopexit5666 ], [ false, %8967 ], [ false, %._crit_edge.i.i1937 ]
+  %.not56517190 = phi i1 [ false, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.i1945 ], [ false, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.us.i1949 ], [ true, %_ZNK5Yosys6SigMapclEPNS_5RTLIL4WireE.exit1922 ], [ true, %.loopexit5666 ], [ false, %8967 ], [ false, %._crit_edge.i.i1937 ]
   %9156 = load ptr, ptr %500, align 8, !tbaa !96
   %.not.i.i.i.i1969 = icmp eq ptr %9156, null
   br i1 %.not.i.i.i.i1969, label %_ZNSt6vectorIN5Yosys5RTLIL6SigBitESaIS2_EED2Ev.exit.i1970, label %9157

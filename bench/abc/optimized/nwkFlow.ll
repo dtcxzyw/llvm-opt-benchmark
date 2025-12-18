@@ -166,7 +166,7 @@ define range(i32 0, 2) i32 @Nwk_ManPushForwardFast_rec(ptr noundef %0, ptr nound
   br label %.critedge
 
 .critedge:                                        ; preds = %15, %19, %.critedge.sink.split, %.preheader, %5, %2
-  %.018 = phi i32 [ 0, %5 ], [ 0, %2 ], [ 0, %.preheader ], [ 1, %.critedge.sink.split ], [ 0, %19 ], [ 0, %15 ]
+  %.018 = phi i32 [ 0, %5 ], [ 0, %2 ], [ 1, %.critedge.sink.split ], [ 0, %.preheader ], [ 0, %19 ], [ 0, %15 ]
   ret i32 %.018
 }
 
@@ -236,7 +236,7 @@ define range(i32 0, 2) i32 @Nwk_ManPushBackwardFast_rec(ptr noundef %0, ptr noun
   br label %.critedge
 
 .critedge:                                        ; preds = %14, %18, %.critedge.sink.split, %.preheader, %5, %2
-  %.017 = phi i32 [ 0, %5 ], [ 0, %2 ], [ 0, %.preheader ], [ 1, %.critedge.sink.split ], [ 0, %18 ], [ 0, %14 ]
+  %.017 = phi i32 [ 0, %5 ], [ 0, %2 ], [ 1, %.critedge.sink.split ], [ 0, %.preheader ], [ 0, %18 ], [ 0, %14 ]
   ret i32 %.017
 }
 
@@ -1606,7 +1606,7 @@ Nwk_ObjSetVisitedTop.exit:                        ; preds = %11, %.sink.split.i
   br label %.loopexit
 
 .loopexit:                                        ; preds = %31, %.critedge, %35, %Nwk_ObjSetVisitedTop.exit, %2, %38
-  %.017 = phi i32 [ 1, %38 ], [ 0, %2 ], [ 1, %Nwk_ObjSetVisitedTop.exit ], [ 0, %35 ], [ 0, %.critedge ], [ 1, %31 ]
+  %.017 = phi i32 [ 1, %38 ], [ 0, %2 ], [ 1, %Nwk_ObjSetVisitedTop.exit ], [ 0, %.critedge ], [ 0, %35 ], [ 1, %31 ]
   ret i32 %.017
 }
 
@@ -1852,7 +1852,7 @@ Nwk_ObjSetVisitedBot.exit.i51:                    ; preds = %.sink.split.i.i60, 
   br label %Nwk_ManPushBackwardBot_rec.exit
 
 Nwk_ManPushBackwardBot_rec.exit:                  ; preds = %67, %76, %Nwk_ObjSetVisitedBot.exit.i51, %44, %40, %.critedge2, %74, %Nwk_ObjSetVisitedTop.exit, %2, %87
-  %.027 = phi i32 [ 0, %2 ], [ 1, %Nwk_ObjSetVisitedTop.exit ], [ 0, %.critedge2 ], [ 1, %87 ], [ 0, %74 ], [ 1, %44 ], [ 1, %40 ], [ 0, %Nwk_ObjSetVisitedBot.exit.i51 ], [ 0, %76 ], [ 1, %67 ]
+  %.027 = phi i32 [ 0, %76 ], [ 0, %2 ], [ 1, %Nwk_ObjSetVisitedTop.exit ], [ 0, %.critedge2 ], [ 1, %87 ], [ 0, %74 ], [ 1, %44 ], [ 1, %40 ], [ 0, %Nwk_ObjSetVisitedBot.exit.i51 ], [ 1, %67 ]
   ret i32 %.027
 }
 

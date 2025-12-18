@@ -314,7 +314,7 @@ async_check_interrupt.exit:                       ; preds = %64
   br i1 %.not.i, label %64, label %async_check_interrupt.exit.thread
 
 async_check_interrupt.exit.thread:                ; preds = %async_check_interrupt.exit, %76, %51, %69, %72, %75
-  %.064 = phi i64 [ %73, %72 ], [ %73, %75 ], [ -1414092869, %69 ], [ -1414092869, %51 ], [ -1414092869, %76 ], [ -1414092869, %async_check_interrupt.exit ]
+  %.064 = phi i64 [ %73, %72 ], [ -1414092869, %69 ], [ %73, %75 ], [ -1414092869, %51 ], [ -1414092869, %76 ], [ -1414092869, %async_check_interrupt.exit ]
   %82 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %52) #7
   br label %83
 

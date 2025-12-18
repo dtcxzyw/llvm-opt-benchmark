@@ -364,7 +364,7 @@ define range(i32 -1, 1) i32 @redisCheckConnectDone(ptr noundef readonly captures
   br label %27
 
 27:                                               ; preds = %19, %26
-  %.215 = phi i32 [ %24, %26 ], [ 115, %19 ]
+  %.215 = phi i32 [ 115, %19 ], [ %24, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %28
@@ -1001,7 +1001,7 @@ redisContextUpdateConnectTimeout.exit:            ; preds = %131, %34, %22
   br label %.thread
 
 .thread:                                          ; preds = %100, %158, %._crit_edge, %114, %107, %redisContextTimeoutMsec.exit, %redisContextUpdateConnectTimeout.exit, %.loopexit141, %170, %172, %._crit_edge174, %174
-  %.192 = phi i32 [ 0, %174 ], [ -1, %redisContextUpdateConnectTimeout.exit ], [ -1, %._crit_edge174 ], [ -1, %172 ], [ -1, %170 ], [ -1, %.loopexit141 ], [ -1, %redisContextTimeoutMsec.exit ], [ -1, %107 ], [ -1, %114 ], [ -1, %._crit_edge ], [ -1, %158 ], [ -1, %100 ]
+  %.192 = phi i32 [ 0, %174 ], [ -1, %redisContextUpdateConnectTimeout.exit ], [ -1, %._crit_edge174 ], [ -1, %172 ], [ -1, %170 ], [ -1, %.loopexit141 ], [ -1, %._crit_edge ], [ -1, %114 ], [ -1, %redisContextTimeoutMsec.exit ], [ -1, %107 ], [ -1, %158 ], [ -1, %100 ]
   %182 = load ptr, ptr %9, align 8, !tbaa !31
   %.not128 = icmp eq ptr %182, null
   br i1 %.not128, label %184, label %183
@@ -1257,7 +1257,7 @@ redisNetClose.exit.sink.split:                    ; preds = %23, %9
   br label %redisNetClose.exit
 
 redisNetClose.exit:                               ; preds = %redisNetClose.exit.sink.split, %23, %9, %18
-  %.010 = phi i32 [ 0, %18 ], [ -1, %9 ], [ -1, %23 ], [ -1, %redisNetClose.exit.sink.split ]
+  %.010 = phi i32 [ 0, %18 ], [ -1, %23 ], [ -1, %9 ], [ -1, %redisNetClose.exit.sink.split ]
   ret i32 %.010
 }
 
@@ -1367,7 +1367,7 @@ define internal fastcc range(i32 -1, 1) i32 @redisContextWaitReady(ptr noundef %
   br label %53
 
 53:                                               ; preds = %52, %45
-  %.215.i = phi i32 [ %50, %52 ], [ 115, %45 ]
+  %.215.i = phi i32 [ 115, %45 ], [ %50, %52 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %54

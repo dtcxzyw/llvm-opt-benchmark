@@ -470,7 +470,7 @@ define internal fastcc i64 @FSE_writeNCount_generic(ptr noundef %0, i64 noundef 
   %56 = add nsw i32 %.4131.lcssa, -14
   br label %.thread178
 
-.thread178:                                       ; preds = %._crit_edge, %52, %15
+.thread178:                                       ; preds = %52, %._crit_edge, %15
   %.2136 = phi i32 [ %.0134231, %15 ], [ %47, %._crit_edge ], [ %55, %52 ]
   %.2129 = phi i32 [ %.0127232, %15 ], [ %48, %._crit_edge ], [ %56, %52 ]
   %.1125 = phi i32 [ %.0124233, %15 ], [ %.2126.lcssa, %._crit_edge ], [ %.2126.lcssa, %52 ]
@@ -567,7 +567,7 @@ define internal fastcc i64 @FSE_writeNCount_generic(ptr noundef %0, i64 noundef 
   br label %.thread
 
 .thread:                                          ; preds = %.thread178, %50, %81, %.lr.ph209.split, %6, %96, %.critedge._crit_edge, %99
-  %.3 = phi i64 [ %104, %99 ], [ -1, %.critedge._crit_edge ], [ -70, %96 ], [ -1, %6 ], [ -70, %.lr.ph209.split ], [ -1, %.thread178 ], [ -70, %50 ], [ -70, %81 ]
+  %.3 = phi i64 [ %104, %99 ], [ -1, %.critedge._crit_edge ], [ -70, %96 ], [ -70, %.lr.ph209.split ], [ -1, %6 ], [ -70, %81 ], [ -1, %.thread178 ], [ -70, %50 ]
   ret i64 %.3
 }
 
@@ -953,7 +953,7 @@ define range(i64 -44, 13) i64 @FSE_normalizeCount(ptr noundef captures(none) %0,
   br label %select.unfold
 
 select.unfold:                                    ; preds = %30, %169, %181, %152, %.preheader153.i, %103, %137, %183, %11, %9, %6
-  %.0 = phi i64 [ -1, %11 ], [ -1, %6 ], [ -44, %9 ], [ %27, %183 ], [ %27, %137 ], [ %27, %103 ], [ %27, %.preheader153.i ], [ %27, %181 ], [ %27, %152 ], [ -1, %169 ], [ 0, %30 ]
+  %.0 = phi i64 [ -1, %11 ], [ -1, %6 ], [ -44, %9 ], [ %27, %152 ], [ %27, %.preheader153.i ], [ %27, %183 ], [ %27, %181 ], [ %27, %137 ], [ %27, %103 ], [ -1, %169 ], [ 0, %30 ]
   ret i64 %.0
 }
 

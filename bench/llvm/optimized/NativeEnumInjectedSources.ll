@@ -350,7 +350,7 @@ _ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i.i: ; preds = 
   br label %.lr.ph.split.preheader.i.i, !llvm.loop !43
 
 _ZN4llvm3pdb17HashTableIteratorINS0_19SrcHeaderBlockEntryEEppEv.exit.i: ; preds = %.backedge.i.i, %78, %_ZNK4llvm15SparseBitVectorILj128EE4testEj.exit.us.i.i, %.lr.ph.i.i.i
-  %.sroa.3.3.i = phi i32 [ %.sroa.3.0.i, %.lr.ph.i.i.i ], [ %43, %_ZNK4llvm15SparseBitVectorILj128EE4testEj.exit.us.i.i ], [ %48, %78 ], [ %48, %.backedge.i.i ]
+  %.sroa.3.3.i = phi i32 [ %43, %_ZNK4llvm15SparseBitVectorILj128EE4testEj.exit.us.i.i ], [ %.sroa.3.0.i, %.lr.ph.i.i.i ], [ %48, %78 ], [ %48, %.backedge.i.i ]
   %.not.i.i.i = icmp eq i64 %39, 0
   br i1 %.not.i.i.i, label %_ZNSt10unique_ptrIN4llvm3pdb12_GLOBAL__N_120NativeInjectedSourceESt14default_deleteIS3_EED2Ev.exit, label %.lr.ph.i.i.i, !llvm.loop !45
 

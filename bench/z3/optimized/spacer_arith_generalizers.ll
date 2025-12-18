@@ -1144,8 +1144,8 @@ _ZN6solver11scoped_pushD2Ev.exit:                 ; preds = %180
   unreachable
 
 .critedge97:                                      ; preds = %154, %146, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit
-  %200 = phi ptr [ %88, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit ], [ %88, %146 ], [ %166, %154 ]
-  %201 = phi ptr [ %89, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit ], [ %89, %146 ], [ %166, %154 ]
+  %200 = phi ptr [ %88, %146 ], [ %88, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit ], [ %166, %154 ]
+  %201 = phi ptr [ %89, %146 ], [ %89, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit ], [ %166, %154 ]
   %202 = load ptr, ptr %1, align 8, !tbaa !136
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 96
   %204 = load i32, ptr %203, align 8, !tbaa !205

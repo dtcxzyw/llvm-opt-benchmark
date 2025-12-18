@@ -3071,9 +3071,9 @@ define internal fastcc void @transformIndexConstraints(ptr noundef nonnull captu
   unreachable
 
 .critedge473.thread.i:                            ; preds = %382, %.critedge473.thread512.i, %.thread500.i, %._crit_edge563.split.us.i, %401, %.split572.i, %.preheader540.split.i, %.preheader540.i, %369, %.split.i
-  %469 = phi i1 [ true, %.thread500.i ], [ false, %.critedge473.thread512.i ], [ true, %401 ], [ true, %.split.i ], [ true, %._crit_edge563.split.us.i ], [ true, %369 ], [ true, %.preheader540.split.i ], [ true, %.split572.i ], [ true, %.preheader540.i ], [ true, %382 ]
-  %.0394507.i = phi i32 [ %447, %.thread500.i ], [ 0, %.critedge473.thread512.i ], [ 0, %401 ], [ 0, %.split.i ], [ 0, %._crit_edge563.split.us.i ], [ 0, %369 ], [ 0, %.preheader540.split.i ], [ 0, %.split572.i ], [ 0, %.preheader540.i ], [ 0, %382 ]
-  %spec.select471493506.i = phi ptr [ null, %.thread500.i ], [ null, %.critedge473.thread512.i ], [ %362, %401 ], [ %362, %.split.i ], [ null, %._crit_edge563.split.us.i ], [ %362, %369 ], [ %362, %.preheader540.split.i ], [ %362, %.split572.i ], [ %362, %.preheader540.i ], [ %362, %382 ]
+  %469 = phi i1 [ true, %.thread500.i ], [ false, %.critedge473.thread512.i ], [ true, %401 ], [ true, %.split.i ], [ true, %._crit_edge563.split.us.i ], [ true, %369 ], [ true, %.preheader540.split.i ], [ true, %.preheader540.i ], [ true, %.split572.i ], [ true, %382 ]
+  %.0394507.i = phi i32 [ %447, %.thread500.i ], [ 0, %.critedge473.thread512.i ], [ 0, %401 ], [ 0, %.split.i ], [ 0, %._crit_edge563.split.us.i ], [ 0, %369 ], [ 0, %.preheader540.split.i ], [ 0, %.preheader540.i ], [ 0, %.split572.i ], [ 0, %382 ]
+  %spec.select471493506.i = phi ptr [ null, %.thread500.i ], [ null, %.critedge473.thread512.i ], [ %362, %401 ], [ %362, %.split.i ], [ null, %._crit_edge563.split.us.i ], [ %362, %369 ], [ %362, %.preheader540.split.i ], [ %362, %.preheader540.i ], [ %362, %.split572.i ], [ %362, %382 ]
   %470 = load ptr, ptr %76, align 8
   %.not448.i = icmp eq ptr %470, null
   br i1 %.not448.i, label %.critedge475.i, label %.lr.ph584.i
@@ -7168,7 +7168,7 @@ define internal fastcc ptr @transformPartitionRangeBounds(ptr noundef %0, ptr no
   br i1 %exitcond.not.i, label %validateInfiniteBounds.exit, label %27
 
 validateInfiniteBounds.exit:                      ; preds = %45, %3, %.critedge, %.lr.ph.i
-  %.0.lcssa96 = phi ptr [ %.083.lcssa, %.lr.ph.i ], [ null, %.critedge ], [ null, %3 ], [ %.083.lcssa, %45 ]
+  %.0.lcssa96 = phi ptr [ null, %3 ], [ %.083.lcssa, %.lr.ph.i ], [ null, %.critedge ], [ %.083.lcssa, %45 ]
   ret ptr %.0.lcssa96
 
 46:                                               ; preds = %.lr.ph107
@@ -7287,9 +7287,9 @@ list_length.exit:                                 ; preds = %46
   br label %112
 
 112:                                              ; preds = %64, %71, %107
-  %.262 = phi ptr [ %108, %107 ], [ %65, %64 ], [ %72, %71 ]
-  %.157 = phi i32 [ %.2, %107 ], [ %.05681106, %64 ], [ %.05681106, %71 ]
-  %.1 = phi i32 [ %111, %107 ], [ %.05582105, %64 ], [ %.05582105, %71 ]
+  %.262 = phi ptr [ %108, %107 ], [ %72, %71 ], [ %65, %64 ]
+  %.157 = phi i32 [ %.2, %107 ], [ %.05681106, %71 ], [ %.05681106, %64 ]
+  %.1 = phi i32 [ %111, %107 ], [ %.05582105, %71 ], [ %.05582105, %64 ]
   %113 = tail call i32 @exprLocation(ptr noundef nonnull %19) #7
   %114 = getelementptr inbounds nuw i8, ptr %.262, i64 16
   store i32 %113, ptr %114, align 8

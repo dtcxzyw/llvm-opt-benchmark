@@ -567,7 +567,7 @@ define void @_Z13survey_scoresRK14ddTableResultsiPKiR9data_typeRiPA5_9list_type(
   br i1 %exitcond159.not, label %.loopexit143, label %68, !llvm.loop !13
 
 .loopexit143:                                     ; preds = %75, %51, %45, %73
-  %.0131 = phi i32 [ 0, %45 ], [ %74, %73 ], [ 1, %51 ], [ 0, %75 ]
+  %.0131 = phi i32 [ 1, %51 ], [ 0, %45 ], [ %74, %73 ], [ 0, %75 ]
   %77 = sext i32 %.0131 to i64
   %78 = getelementptr inbounds %struct.data_type, ptr %7, i64 %77
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
@@ -3503,8 +3503,8 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ESt16
   br i1 %528, label %.body325.i, label %.body328.i
 
 .body325.i:                                       ; preds = %.body328.i, %524, %.body
-  %.pn.i = phi { ptr, i32 } [ %525, %524 ], [ %441, %.body ], [ %444, %.body328.i ]
-  %529 = phi i1 [ false, %524 ], [ false, %.body ], [ true, %.body328.i ]
+  %.pn.i = phi { ptr, i32 } [ %441, %.body ], [ %525, %524 ], [ %444, %.body328.i ]
+  %529 = phi i1 [ false, %.body ], [ false, %524 ], [ true, %.body328.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %82) #19
   br label %.body320.i
 
@@ -3763,7 +3763,7 @@ common.resume.sink.split:                         ; preds = %.body116, %454, %.b
   br label %common.resume
 
 common.resume:                                    ; preds = %.preheader.i, %.preheader.i8, %common.resume.sink.split, %.body.i5, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %.body.i ], [ %.pn.pn.pn.i6, %.body.i5 ], [ %common.resume.op.ph, %common.resume.sink.split ], [ %.pn.pn.pn.i6, %.preheader.i8 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %.preheader.i ]
+  %common.resume.op = phi { ptr, i32 } [ %common.resume.op.ph, %common.resume.sink.split ], [ %.pn.pn.pn.i6, %.body.i5 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %.body.i ], [ %.pn.pn.pn.i6, %.preheader.i8 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %.preheader.i ]
   resume { ptr, i32 } %common.resume.op
 
 __cxx_global_var_init.exit:                       ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ESt16initializer_listIS5_ERKS6_.exit.i
@@ -4067,8 +4067,8 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ESt16
   br i1 %596, label %.body32.i, label %.body35.i
 
 .body32.i:                                        ; preds = %.body35.i, %592, %.body119
-  %.pn.i11 = phi { ptr, i32 } [ %593, %592 ], [ %573, %.body119 ], [ %576, %.body35.i ]
-  %597 = phi i1 [ false, %592 ], [ false, %.body119 ], [ true, %.body35.i ]
+  %.pn.i11 = phi { ptr, i32 } [ %573, %.body119 ], [ %593, %592 ], [ %576, %.body35.i ]
+  %597 = phi i1 [ false, %.body119 ], [ false, %592 ], [ true, %.body35.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %45) #19
   br label %.body27.i
 

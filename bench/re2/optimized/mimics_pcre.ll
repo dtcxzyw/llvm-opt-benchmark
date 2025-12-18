@@ -171,7 +171,7 @@ sw.epilog:                                        ; preds = %for.end, %sw.bb21, 
   br label %return
 
 return:                                           ; preds = %for.body, %for.end, %sw.bb21, %sw.bb16, %land.lhs.true, %sw.bb, %sw.epilog
-  %retval.0 = phi i1 [ false, %sw.bb21 ], [ true, %sw.epilog ], [ false, %sw.bb ], [ false, %land.lhs.true ], [ false, %sw.bb16 ], [ false, %for.end ], [ false, %for.body ]
+  %retval.0 = phi i1 [ false, %sw.bb21 ], [ true, %sw.epilog ], [ false, %for.end ], [ false, %sw.bb ], [ false, %land.lhs.true ], [ false, %sw.bb16 ], [ false, %for.body ]
   ret i1 %retval.0
 }
 

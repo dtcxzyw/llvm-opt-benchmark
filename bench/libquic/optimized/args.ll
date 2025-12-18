@@ -228,7 +228,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaI
   br label %84
 
 84:                                               ; preds = %81, %71
-  %.165 = phi i64 [ %.064136, %71 ], [ %77, %81 ]
+  %.165 = phi i64 [ %77, %81 ], [ %.064136, %71 ]
   %85 = add i64 %.165, 1
   %86 = load ptr, ptr %15, align 8, !tbaa !18
   %87 = load ptr, ptr %1, align 8, !tbaa !21

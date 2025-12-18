@@ -229,7 +229,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_apv_split_fragment(ptr nounde
   br i1 %64, label %.thread, label %65
 
 .thread:                                          ; preds = %60, %57, %53, %30, %36, %43, %.critedge.i
-  %.147.ph = phi i32 [ -1094995529, %30 ], [ %51, %.critedge.i ], [ -1094995529, %43 ], [ -1094995529, %36 ], [ %63, %60 ], [ %58, %57 ], [ %55, %53 ]
+  %.147.ph = phi i32 [ -1094995529, %30 ], [ %51, %.critedge.i ], [ -1094995529, %36 ], [ -1094995529, %43 ], [ %63, %60 ], [ %58, %57 ], [ %55, %53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit
 
@@ -1087,7 +1087,7 @@ cbs_apv_read_frame_header.exit.i:                 ; preds = %align_get_bits.exit
   br i1 %389, label %.lr.ph.i54.i, label %.loopexit, !llvm.loop !82
 
 .thread:                                          ; preds = %279, %.lr.ph.i54.i, %.critedge.i47.i, %cbs_apv_read_quantization_matrix.exit.i.i, %127, %cbs_apv_read_tile_info.exit.thread.i.i, %265, %177, %159, %149, %142, %135, %103, %110, %.thread63.i, %.critedge.i.i, %.thread67.i, %cbs_apv_read_pbu_header.exit.thread57.i, %368
-  %.040.i.ph = phi i32 [ %119, %.critedge.i47.i ], [ %197, %cbs_apv_read_quantization_matrix.exit.i.i ], [ %125, %127 ], [ %.148.i.ph.i.i, %cbs_apv_read_tile_info.exit.thread.i.i ], [ %263, %265 ], [ %175, %177 ], [ %154, %159 ], [ %147, %149 ], [ %140, %142 ], [ %133, %135 ], [ %101, %103 ], [ %116, %110 ], [ %284, %.thread63.i ], [ %96, %.critedge.i.i ], [ %.0.ph.i.ph.i, %.thread67.i ], [ %108, %cbs_apv_read_pbu_header.exit.thread57.i ], [ %.0.ph.i.i, %368 ], [ %377, %.lr.ph.i54.i ], [ %280, %279 ]
+  %.040.i.ph = phi i32 [ %377, %.lr.ph.i54.i ], [ %119, %.critedge.i47.i ], [ %197, %cbs_apv_read_quantization_matrix.exit.i.i ], [ %125, %127 ], [ %.148.i.ph.i.i, %cbs_apv_read_tile_info.exit.thread.i.i ], [ %263, %265 ], [ %175, %177 ], [ %154, %159 ], [ %147, %149 ], [ %140, %142 ], [ %133, %135 ], [ %.0.ph.i.i, %368 ], [ %101, %103 ], [ %116, %110 ], [ %284, %.thread63.i ], [ %96, %.critedge.i.i ], [ %.0.ph.i.ph.i, %.thread67.i ], [ %108, %cbs_apv_read_pbu_header.exit.thread57.i ], [ %280, %279 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %70)
   br label %cbs_apv_read_filler.exit
 
@@ -1215,8 +1215,8 @@ cbs_apv_read_au_info.exit.thread68:               ; preds = %._crit_edge.i
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   br label %cbs_apv_read_au_info.exit.thread
 
-cbs_apv_read_au_info.exit.thread:                 ; preds = %432, %.critedge.i, %417, %424, %431
-  %.154.i.ph = phi i32 [ %429, %431 ], [ %422, %424 ], [ %415, %417 ], [ %397, %.critedge.i ], [ %437, %432 ]
+cbs_apv_read_au_info.exit.thread:                 ; preds = %432, %.critedge.i, %431, %417, %424
+  %.154.i.ph = phi i32 [ %397, %.critedge.i ], [ %422, %424 ], [ %415, %417 ], [ %429, %431 ], [ %437, %432 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
@@ -1928,8 +1928,8 @@ cbs_apv_read_metadata_undefined.exit.i.i:         ; preds = %691, %683
 cbs_apv_read_metadata.exit:                       ; preds = %729, %711, %722, %.thread126.i, %cbs_apv_read_au_info.exit, %.loopexit
   br label %cbs_apv_read_filler.exit
 
-cbs_apv_read_filler.exit:                         ; preds = %.lr.ph.i62, %._crit_edge207.i, %._crit_edge.i45, %.lr.ph.i60, %.lr.ph206.i, %.lr.ph.i43.i.i, %.lr.ph.i.i52, %cbs_apv_read_metadata_itu_t_t35.exit.thread.i.i, %cbs_apv_read_metadata_mdcv.exit.thread54.i.i, %cbs_apv_read_metadata_cll.exit.thread57.i.i, %cbs_apv_read_metadata_undefined.exit.thread.i.i, %cbs_apv_read_metadata_mdcv.exit.thread.i.i, %538, %454, %cbs_apv_read_metadata_user_defined.exit.thread.i.i, %cbs_apv_read_metadata_cll.exit.thread.i.i, %.critedge.i43, %.critedge.i.i42, %cbs_apv_read_pbu_header.exit.thread118.i, %cbs_apv_read_au_info.exit.thread68, %cbs_apv_read_au_info.exit.thread, %.thread, %89, %86, %2, %.loopexit, %cbs_apv_read_metadata.exit
-  %.0 = phi i32 [ -1094995529, %2 ], [ %.154.i.ph, %cbs_apv_read_au_info.exit.thread ], [ 0, %cbs_apv_read_metadata.exit ], [ -12, %.loopexit ], [ %87, %86 ], [ %439, %cbs_apv_read_au_info.exit.thread68 ], [ -38, %89 ], [ %.040.i.ph, %.thread ], [ %.141.i.ph.i.i, %cbs_apv_read_metadata_itu_t_t35.exit.thread.i.i ], [ %622, %cbs_apv_read_metadata_mdcv.exit.thread54.i.i ], [ %633, %cbs_apv_read_metadata_cll.exit.thread57.i.i ], [ %.022.i.ph.i.i, %cbs_apv_read_metadata_undefined.exit.thread.i.i ], [ %.251.i.ph.i.i, %cbs_apv_read_metadata_mdcv.exit.thread.i.i ], [ -1094995529, %538 ], [ %452, %454 ], [ %.339.i.ph.i.i, %cbs_apv_read_metadata_user_defined.exit.thread.i.i ], [ %627, %cbs_apv_read_metadata_cll.exit.thread.i.i ], [ %465, %.critedge.i43 ], [ %447, %.critedge.i.i42 ], [ %459, %cbs_apv_read_pbu_header.exit.thread118.i ], [ %642, %.lr.ph.i43.i.i ], [ %517, %.lr.ph206.i ], [ %530, %._crit_edge207.i ], [ %709, %.lr.ph.i.i52 ], [ %488, %.lr.ph.i60 ], [ %502, %._crit_edge.i45 ], [ %727, %.lr.ph.i62 ]
+cbs_apv_read_filler.exit:                         ; preds = %.lr.ph.i62, %._crit_edge207.i, %._crit_edge.i45, %.lr.ph.i60, %.lr.ph206.i, %.lr.ph.i43.i.i, %.lr.ph.i.i52, %cbs_apv_read_metadata_mdcv.exit.thread54.i.i, %cbs_apv_read_metadata_cll.exit.thread57.i.i, %cbs_apv_read_metadata_undefined.exit.thread.i.i, %cbs_apv_read_metadata_mdcv.exit.thread.i.i, %538, %cbs_apv_read_metadata_itu_t_t35.exit.thread.i.i, %454, %cbs_apv_read_metadata_user_defined.exit.thread.i.i, %cbs_apv_read_metadata_cll.exit.thread.i.i, %.critedge.i43, %.critedge.i.i42, %cbs_apv_read_pbu_header.exit.thread118.i, %cbs_apv_read_au_info.exit.thread68, %cbs_apv_read_au_info.exit.thread, %.thread, %89, %86, %2, %.loopexit, %cbs_apv_read_metadata.exit
+  %.0 = phi i32 [ %709, %.lr.ph.i.i52 ], [ -1094995529, %2 ], [ %.154.i.ph, %cbs_apv_read_au_info.exit.thread ], [ 0, %cbs_apv_read_metadata.exit ], [ -12, %.loopexit ], [ %87, %86 ], [ %439, %cbs_apv_read_au_info.exit.thread68 ], [ -38, %89 ], [ %.040.i.ph, %.thread ], [ %447, %.critedge.i.i42 ], [ %530, %._crit_edge207.i ], [ %459, %cbs_apv_read_pbu_header.exit.thread118.i ], [ %622, %cbs_apv_read_metadata_mdcv.exit.thread54.i.i ], [ %633, %cbs_apv_read_metadata_cll.exit.thread57.i.i ], [ %.022.i.ph.i.i, %cbs_apv_read_metadata_undefined.exit.thread.i.i ], [ %.251.i.ph.i.i, %cbs_apv_read_metadata_mdcv.exit.thread.i.i ], [ %488, %.lr.ph.i60 ], [ -1094995529, %538 ], [ %517, %.lr.ph206.i ], [ %642, %.lr.ph.i43.i.i ], [ %.141.i.ph.i.i, %cbs_apv_read_metadata_itu_t_t35.exit.thread.i.i ], [ %452, %454 ], [ %.339.i.ph.i.i, %cbs_apv_read_metadata_user_defined.exit.thread.i.i ], [ %627, %cbs_apv_read_metadata_cll.exit.thread.i.i ], [ %465, %.critedge.i43 ], [ %502, %._crit_edge.i45 ], [ %727, %.lr.ph.i62 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %71)
   ret i32 %.0
 }
@@ -2324,7 +2324,7 @@ cbs_apv_write_frame_header.exit.i:                ; preds = %139
   br i1 %214, label %205, label %cbs_apv_write_tile_header.exit.thread.i.i
 
 cbs_apv_write_tile_header.exit.thread.i.i:        ; preds = %176, %163, %188, %208
-  %.1.i.ph.i.i = phi i32 [ %192, %188 ], [ %213, %208 ], [ %180, %176 ], [ %174, %163 ]
+  %.1.i.ph.i.i = phi i32 [ %192, %188 ], [ %213, %208 ], [ %174, %163 ], [ %180, %176 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %cbs_apv_write_frame.exit.thread
@@ -2405,7 +2405,7 @@ cbs_apv_write_tile.exit.i:                        ; preds = %237, %.preheader.i4
   br i1 %252, label %247, label %cbs_apv_write_frame.exit.thread
 
 cbs_apv_write_frame.exit.thread:                  ; preds = %157, %cbs_apv_write_tile_header.exit.i.i, %223, %.lr.ph.i53.i, %cbs_apv_write_pbu_header.exit.i, %43, %cbs_apv_write_frame_header.exit.i, %cbs_apv_write_tile_header.exit.thread.i.i, %18, %27, %49, %100, %94, %88, %82, %59, %63, %69, %75, %switch.lookup, %133, %139, %.thread162.i.i, %122, %38
-  %.0.i.ph = phi i32 [ %41, %38 ], [ %124, %122 ], [ %137, %.thread162.i.i ], [ %143, %139 ], [ -1094995529, %133 ], [ %116, %switch.lookup ], [ %79, %75 ], [ %73, %69 ], [ %67, %63 ], [ %61, %59 ], [ -1094995529, %82 ], [ -1094995529, %88 ], [ -1094995529, %94 ], [ -1094995529, %100 ], [ %53, %49 ], [ %31, %27 ], [ %25, %18 ], [ %.1.i.ph.i.i, %cbs_apv_write_tile_header.exit.thread.i.i ], [ %145, %cbs_apv_write_frame_header.exit.i ], [ %47, %43 ], [ %36, %cbs_apv_write_pbu_header.exit.i ], [ -28, %223 ], [ %251, %.lr.ph.i53.i ], [ %161, %157 ], [ %218, %cbs_apv_write_tile_header.exit.i.i ]
+  %.0.i.ph = phi i32 [ %36, %cbs_apv_write_pbu_header.exit.i ], [ %251, %.lr.ph.i53.i ], [ -28, %223 ], [ %41, %38 ], [ %124, %122 ], [ %137, %.thread162.i.i ], [ %143, %139 ], [ -1094995529, %133 ], [ %116, %switch.lookup ], [ %79, %75 ], [ %73, %69 ], [ %67, %63 ], [ %61, %59 ], [ -1094995529, %82 ], [ -1094995529, %88 ], [ -1094995529, %94 ], [ -1094995529, %100 ], [ %53, %49 ], [ %31, %27 ], [ %25, %18 ], [ %.1.i.ph.i.i, %cbs_apv_write_tile_header.exit.thread.i.i ], [ %145, %cbs_apv_write_frame_header.exit.i ], [ %47, %43 ], [ %161, %157 ], [ %218, %cbs_apv_write_tile_header.exit.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %cbs_apv_write_filler.exit
 
@@ -2705,7 +2705,7 @@ cbs_apv_write_pbu_header.exit.i33:                ; preds = %306
   br i1 %406, label %397, label %cbs_apv_write_metadata_itu_t_t35.exit.thread.i.i
 
 cbs_apv_write_metadata_itu_t_t35.exit.thread.i.i: ; preds = %383, %371, %.lr.ph.i.i.i47, %395
-  %.1.i.ph.i.i45 = phi i32 [ -22, %395 ], [ %405, %.lr.ph.i.i.i47 ], [ %387, %383 ], [ %377, %371 ]
+  %.1.i.ph.i.i45 = phi i32 [ -22, %395 ], [ %405, %.lr.ph.i.i.i47 ], [ %377, %371 ], [ %387, %383 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %cbs_apv_write_metadata_payload.exit.thread.i
 
@@ -2884,7 +2884,7 @@ cbs_apv_write_metadata_cll.exit.i.i:              ; preds = %445
   br i1 %491, label %482, label %cbs_apv_write_metadata_user_defined.exit.thread.i.i
 
 cbs_apv_write_metadata_user_defined.exit.thread.i.i: ; preds = %468, %.lr.ph.i50.i.i, %480
-  %.3.i.ph.i.i = phi i32 [ -22, %480 ], [ %490, %.lr.ph.i50.i.i ], [ %473, %468 ]
+  %.3.i.ph.i.i = phi i32 [ %490, %.lr.ph.i50.i.i ], [ -22, %480 ], [ %473, %468 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %cbs_apv_write_metadata_payload.exit.thread.i
@@ -2944,7 +2944,7 @@ cbs_apv_write_metadata_undefined.exit.i.i:        ; preds = %501, %.preheader.i5
   br label %.loopexit.i
 
 cbs_apv_write_metadata_payload.exit.thread.i:     ; preds = %cbs_apv_write_metadata_cll.exit.i.i, %445, %cbs_apv_write_metadata_mdcv.exit.i.i, %.lr.ph.i43.i.i, %cbs_apv_write_metadata_undefined.exit.thread.i.i, %cbs_apv_write_metadata_user_defined.exit.thread.i.i, %cbs_apv_write_metadata_mdcv.exit.thread.i.i, %cbs_apv_write_metadata_itu_t_t35.exit.thread.i.i
-  %.0.i.ph.i = phi i32 [ %.1.i.ph.i.i45, %cbs_apv_write_metadata_itu_t_t35.exit.thread.i.i ], [ %.2.i.ph.i.i, %cbs_apv_write_metadata_mdcv.exit.thread.i.i ], [ %.0.i.ph.i.i, %cbs_apv_write_metadata_undefined.exit.thread.i.i ], [ %.3.i.ph.i.i, %cbs_apv_write_metadata_user_defined.exit.thread.i.i ], [ %461, %.lr.ph.i43.i.i ], [ %449, %445 ], [ %454, %cbs_apv_write_metadata_cll.exit.i.i ], [ %443, %cbs_apv_write_metadata_mdcv.exit.i.i ]
+  %.0.i.ph.i = phi i32 [ %.3.i.ph.i.i, %cbs_apv_write_metadata_user_defined.exit.thread.i.i ], [ %.2.i.ph.i.i, %cbs_apv_write_metadata_mdcv.exit.thread.i.i ], [ %.0.i.ph.i.i, %cbs_apv_write_metadata_undefined.exit.thread.i.i ], [ %.1.i.ph.i.i45, %cbs_apv_write_metadata_itu_t_t35.exit.thread.i.i ], [ %461, %.lr.ph.i43.i.i ], [ %443, %cbs_apv_write_metadata_mdcv.exit.i.i ], [ %449, %445 ], [ %454, %cbs_apv_write_metadata_cll.exit.i.i ]
   store i32 %327, ptr %326, align 4, !tbaa !15
   br label %cbs_apv_write_metadata.exit.thread
 
@@ -3017,8 +3017,8 @@ cbs_apv_write_metadata_payload.exit.thread.i:     ; preds = %cbs_apv_write_metad
   %543 = icmp sgt i32 %542, -1
   br i1 %543, label %538, label %cbs_apv_write_metadata.exit.thread
 
-cbs_apv_write_metadata.exit.thread:               ; preds = %337, %._crit_edge213.i, %._crit_edge.i36, %.lr.ph.i48, %.lr.ph212.i, %.lr.ph.i.i40, %299, %cbs_apv_write_pbu_header.exit.i33, %306, %cbs_apv_write_metadata_payload.exit.thread.i
-  %.0.i32.ph = phi i32 [ %.0.i.ph.i, %cbs_apv_write_metadata_payload.exit.thread.i ], [ %310, %306 ], [ %315, %cbs_apv_write_pbu_header.exit.i33 ], [ %304, %299 ], [ %542, %.lr.ph.i.i40 ], [ %357, %.lr.ph212.i ], [ %351, %._crit_edge.i36 ], [ %346, %.lr.ph.i48 ], [ %362, %._crit_edge213.i ], [ %340, %337 ]
+cbs_apv_write_metadata.exit.thread:               ; preds = %337, %._crit_edge.i36, %._crit_edge213.i, %.lr.ph.i48, %.lr.ph212.i, %.lr.ph.i.i40, %299, %cbs_apv_write_pbu_header.exit.i33, %306, %cbs_apv_write_metadata_payload.exit.thread.i
+  %.0.i32.ph = phi i32 [ %346, %.lr.ph.i48 ], [ %315, %cbs_apv_write_pbu_header.exit.i33 ], [ %304, %299 ], [ %.0.i.ph.i, %cbs_apv_write_metadata_payload.exit.thread.i ], [ %362, %._crit_edge213.i ], [ %310, %306 ], [ %542, %.lr.ph.i.i40 ], [ %357, %.lr.ph212.i ], [ %351, %._crit_edge.i36 ], [ %340, %337 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %cbs_apv_write_filler.exit
 

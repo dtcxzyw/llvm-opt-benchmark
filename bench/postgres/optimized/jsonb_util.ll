@@ -470,7 +470,7 @@ JsonbIteratorInit.exit:                           ; preds = %108, %118
   br i1 %.not62, label %pushJsonbValueScalar.exit, label %140, !llvm.loop !8
 
 pushJsonbValueScalar.exit:                        ; preds = %140, %137, %78, %77, %._crit_edge, %132, %94, %._crit_edge72
-  %.055 = phi ptr [ %41, %._crit_edge72 ], [ %95, %94 ], [ %135, %132 ], [ %72, %._crit_edge ], [ %72, %77 ], [ %72, %78 ], [ null, %137 ], [ %148, %140 ]
+  %.055 = phi ptr [ %41, %._crit_edge72 ], [ %72, %78 ], [ %95, %94 ], [ %135, %132 ], [ %72, %._crit_edge ], [ %72, %77 ], [ null, %137 ], [ %148, %140 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.055
@@ -1345,7 +1345,7 @@ define dso_local ptr @findJsonbValueFromContainer(ptr noundef %0, i32 noundef %1
   br label %.thread
 
 .thread:                                          ; preds = %20, %28, %27, %3, %30
-  %.0 = phi ptr [ %35, %30 ], [ null, %3 ], [ null, %27 ], [ null, %28 ], [ %12, %20 ]
+  %.0 = phi ptr [ %35, %30 ], [ null, %3 ], [ null, %28 ], [ null, %27 ], [ %12, %20 ]
   ret ptr %.0
 }
 

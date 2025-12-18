@@ -444,7 +444,7 @@ vec_int_resize.exit.i:                            ; preds = %42, %39
   br i1 %56, label %53, label %.critedge.i, !llvm.loop !61
 
 .critedge.i:                                      ; preds = %53, %vec_int_resize.exit.i, %heap_in_heap.exit
-  %.val27.i = phi ptr [ %.val24.i, %vec_int_resize.exit.i ], [ %.val3.i, %heap_in_heap.exit ], [ %.val24.i, %53 ]
+  %.val27.i = phi ptr [ %.val3.i, %heap_in_heap.exit ], [ %.val24.i, %vec_int_resize.exit.i ], [ %.val24.i, %53 ]
   %57 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %58 = load ptr, ptr %57, align 8, !tbaa !62
   %59 = getelementptr i8, ptr %58, i64 4
@@ -5010,7 +5010,7 @@ solver_enqueue.exit.i:                            ; preds = %vec_uint_reserve.ex
   br label %solver_new_decision.exit.backedge
 
 .thread161:                                       ; preds = %solver_decide.exit, %63, %.critedge.i123, %vec_uint_push_back.exit.i112, %._crit_edge.i114, %solver_check_limits.exit.thread
-  %.1164 = phi i8 [ 0, %solver_check_limits.exit.thread ], [ -1, %vec_uint_push_back.exit.i112 ], [ -1, %._crit_edge.i114 ], [ 1, %.critedge.i123 ], [ 1, %solver_decide.exit ], [ -1, %63 ]
+  %.1164 = phi i8 [ -1, %._crit_edge.i114 ], [ 0, %solver_check_limits.exit.thread ], [ -1, %vec_uint_push_back.exit.i112 ], [ 1, %.critedge.i123 ], [ 1, %solver_decide.exit ], [ -1, %63 ]
   ret i8 %.1164
 }
 

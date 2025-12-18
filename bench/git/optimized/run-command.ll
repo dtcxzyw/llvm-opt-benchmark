@@ -2038,8 +2038,8 @@ switch.early.test:                                ; preds = %22
   br i1 %.not.i, label %clear_child_for_cleanup.exit, label %.lr.ph.i, !llvm.loop !81
 
 clear_child_for_cleanup.exit:                     ; preds = %.critedge.i, %.critedge, %33, %14, %.lr.ph.i._crit_edge, %.thread, %36
-  %.038 = phi i32 [ 0, %36 ], [ %.039, %.thread ], [ %.039, %.lr.ph.i._crit_edge ], [ 0, %33 ], [ 0, %14 ], [ %10, %.critedge ], [ %.039, %.critedge.i ]
-  %.02536 = phi i32 [ %.025, %36 ], [ %.02537, %.thread ], [ %.02537, %.lr.ph.i._crit_edge ], [ -1, %33 ], [ -1, %14 ], [ -1, %.critedge ], [ %.02537, %.critedge.i ]
+  %.038 = phi i32 [ %10, %.critedge ], [ 0, %36 ], [ %.039, %.thread ], [ %.039, %.lr.ph.i._crit_edge ], [ 0, %33 ], [ 0, %14 ], [ %.039, %.critedge.i ]
+  %.02536 = phi i32 [ -1, %.critedge ], [ %.025, %36 ], [ %.02537, %.thread ], [ %.02537, %.lr.ph.i._crit_edge ], [ -1, %33 ], [ -1, %14 ], [ %.02537, %.critedge.i ]
   %46 = tail call ptr @__errno_location() #23
   store i32 %.038, ptr %46, align 4, !tbaa !18
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -2117,7 +2117,7 @@ wait_or_whine.exit.thread:                        ; preds = %8, %19, %.critedge3
   br label %27
 
 25:                                               ; preds = %21, %17
-  %.02536.i = phi i32 [ %18, %17 ], [ %23, %21 ]
+  %.02536.i = phi i32 [ %23, %21 ], [ %18, %17 ]
   %26 = tail call ptr @__errno_location() #23
   store i32 0, ptr %26, align 4, !tbaa !18
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -3239,7 +3239,7 @@ pp_start_one.exit:                                ; preds = %142, %136, %strbuf_
   br i1 %exitcond.not, label %.critedgethread-pre-split, label %kill_children.exit76.backedge
 
 kill_children.exit76.backedge:                    ; preds = %336, %pp_start_one.exit, %pp_output.exit, %324, %320, %pp_collect_finished.exit
-  %.033102.be = phi i32 [ %166, %pp_start_one.exit ], [ 0, %pp_output.exit ], [ 0, %324 ], [ 0, %320 ], [ 0, %pp_collect_finished.exit ], [ 0, %336 ]
+  %.033102.be = phi i32 [ %166, %pp_start_one.exit ], [ 0, %pp_collect_finished.exit ], [ 0, %pp_output.exit ], [ 0, %324 ], [ 0, %320 ], [ 0, %336 ]
   br label %kill_children.exit76, !llvm.loop !133
 
 .critedgethread-pre-split:                        ; preds = %162, %pp_start_one.exit, %kill_children.exit76, %87, %88, %97, %146, %150
@@ -3565,7 +3565,7 @@ strbuf_setlen.exit.i:                             ; preds = %._crit_edge87.i, %2
   br i1 %.not.i66, label %pp_collect_finished.exit, label %.preheader.i55, !llvm.loop !144
 
 pp_collect_finished.exit:                         ; preds = %._crit_edge.i58, %260, %strbuf_setlen.exit.i, %246
-  %.1.i = phi i32 [ %.05692.i, %246 ], [ %.05692.i, %._crit_edge.i58 ], [ %spec.select.i63, %260 ], [ %271, %strbuf_setlen.exit.i ]
+  %.1.i = phi i32 [ %.05692.i, %246 ], [ %spec.select.i63, %260 ], [ %.05692.i, %._crit_edge.i58 ], [ %271, %strbuf_setlen.exit.i ]
   %.not42 = icmp eq i32 %.1.i, 0
   br i1 %.not42, label %kill_children.exit76.backedge, label %320
 

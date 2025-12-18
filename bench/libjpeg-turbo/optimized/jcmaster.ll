@@ -116,8 +116,8 @@ define void @jinit_c_master_control(ptr noundef %0, i32 noundef %1) local_unname
   br label %.loopexit247.i
 
 .loopexit247.i:                                   ; preds = %.preheader248.i.preheader, %.loopexit247.sink.split.i, %45, %37, %30
-  %53 = phi i32 [ %49, %45 ], [ %34, %30 ], [ %41, %37 ], [ %.sink.i, %.loopexit247.sink.split.i ], [ %41, %.preheader248.i.preheader ]
-  %54 = phi i32 [ 0, %45 ], [ 0, %30 ], [ 1, %37 ], [ 0, %.loopexit247.sink.split.i ], [ 1, %.preheader248.i.preheader ]
+  %53 = phi i32 [ %.sink.i, %.loopexit247.sink.split.i ], [ %49, %45 ], [ %41, %37 ], [ %34, %30 ], [ %41, %.preheader248.i.preheader ]
+  %54 = phi i32 [ 0, %.loopexit247.sink.split.i ], [ 0, %45 ], [ 1, %37 ], [ 0, %30 ], [ 1, %.preheader248.i.preheader ]
   %55 = load i32, ptr %12, align 8, !tbaa !32
   %.not224271.i = icmp slt i32 %55, 1
   br i1 %.not224271.i, label %._crit_edge278.i, label %.lr.ph277.i
@@ -1043,7 +1043,7 @@ using_std_huff_tables.exit:                       ; preds = %492
   store i32 1, ptr %460, align 8, !tbaa !82
   br label %using_std_huff_tables.exit.thread
 
-using_std_huff_tables.exit.thread:                ; preds = %.preheader.i70, %480, %484, %486, %487, %489, %490, %492, %466, %469, %473, %463, %483, %456, %459, %using_std_huff_tables.exit, %494, %435
+using_std_huff_tables.exit.thread:                ; preds = %.preheader.i70, %480, %487, %489, %490, %492, %486, %466, %469, %473, %484, %463, %483, %456, %459, %using_std_huff_tables.exit, %494, %435
   %.not62 = icmp eq i32 %1, 0
   br i1 %.not62, label %501, label %495
 

@@ -1591,8 +1591,8 @@ Wlc_ObjSimPi.exit:                                ; preds = %Wlc_ObjSimPi.exit.l
   br label %Wlc_ObjSimAnd.exit
 
 Wlc_ObjSimAnd.exit:                               ; preds = %.lr.ph.i114, %.lr.ph31.i, %.lr.ph.i105, %.lr.ph79.i, %.lr.ph81.i, %.lr.ph83.i, %.preheader.i118, %.preheader27.i, %.preheader.i, %.preheader71.i, %.preheader73.i, %.preheader75.i, %Wlc_ObjSimPi.exit, %184
-  %.pre180 = phi i32 [ %.pre179, %184 ], [ %.pre179, %.preheader.i118 ], [ %.pre179, %.preheader27.i ], [ %.pre179, %.preheader.i ], [ %.pre179, %.preheader71.i ], [ %.pre179, %.preheader73.i ], [ %.pre179, %.preheader75.i ], [ %.pre, %Wlc_ObjSimPi.exit ], [ %.pre179, %.lr.ph31.i ], [ %.pre179, %.lr.ph83.i ], [ %.pre179, %.lr.ph81.i ], [ %.pre179, %.lr.ph79.i ], [ %.pre179, %.lr.ph.i105 ], [ %.pre179, %.lr.ph.i114 ]
-  %200 = phi i32 [ %107, %184 ], [ %107, %.preheader.i118 ], [ %107, %.preheader27.i ], [ %107, %.preheader.i ], [ %107, %.preheader71.i ], [ %107, %.preheader73.i ], [ %107, %.preheader75.i ], [ %.pre, %Wlc_ObjSimPi.exit ], [ %107, %.lr.ph31.i ], [ %107, %.lr.ph83.i ], [ %107, %.lr.ph81.i ], [ %107, %.lr.ph79.i ], [ %107, %.lr.ph.i105 ], [ %107, %.lr.ph.i114 ]
+  %.pre180 = phi i32 [ %.pre179, %.lr.ph.i105 ], [ %.pre179, %.lr.ph79.i ], [ %.pre179, %.lr.ph81.i ], [ %.pre179, %.lr.ph83.i ], [ %.pre179, %.lr.ph31.i ], [ %.pre179, %184 ], [ %.pre179, %.preheader.i118 ], [ %.pre179, %.preheader27.i ], [ %.pre179, %.preheader.i ], [ %.pre179, %.preheader71.i ], [ %.pre179, %.preheader73.i ], [ %.pre179, %.preheader75.i ], [ %.pre, %Wlc_ObjSimPi.exit ], [ %.pre179, %.lr.ph.i114 ]
+  %200 = phi i32 [ %107, %.lr.ph.i105 ], [ %107, %.lr.ph79.i ], [ %107, %.lr.ph81.i ], [ %107, %.lr.ph83.i ], [ %107, %.lr.ph31.i ], [ %107, %184 ], [ %107, %.preheader.i118 ], [ %107, %.preheader27.i ], [ %107, %.preheader.i ], [ %107, %.preheader71.i ], [ %107, %.preheader73.i ], [ %107, %.preheader75.i ], [ %.pre, %Wlc_ObjSimPi.exit ], [ %107, %.lr.ph.i114 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %201 = sext i32 %200 to i64
   %202 = icmp slt i64 %indvars.iv.next, %201
@@ -2462,7 +2462,7 @@ Vec_WrdStart.exit:                                ; preds = %Vec_WrdFreeP.exit, 
   br i1 %exitcond38.not.i, label %Wlc_ObjSimAnd.exit, label %.lr.ph31.i, !llvm.loop !82
 
 Wlc_ObjSimAnd.exit:                               ; preds = %.lr.ph.i139, %.lr.ph31.i, %.lr.ph.i, %.lr.ph79.i, %.lr.ph81.i, %.lr.ph83.i, %.Wlc_ObjSimAnd.exit_crit_edge, %.preheader.i143, %.preheader27.i, %.preheader.i, %.preheader71.i, %.preheader73.i, %.preheader75.i
-  %.pre-phi264 = phi i64 [ %.pre263, %.Wlc_ObjSimAnd.exit_crit_edge ], [ %127, %.preheader75.i ], [ %178, %.preheader.i143 ], [ %178, %.preheader27.i ], [ %127, %.preheader.i ], [ %127, %.preheader71.i ], [ %127, %.preheader73.i ], [ %178, %.lr.ph31.i ], [ %127, %.lr.ph83.i ], [ %127, %.lr.ph81.i ], [ %127, %.lr.ph79.i ], [ %127, %.lr.ph.i ], [ %178, %.lr.ph.i139 ]
+  %.pre-phi264 = phi i64 [ %.pre263, %.Wlc_ObjSimAnd.exit_crit_edge ], [ %127, %.lr.ph.i ], [ %127, %.lr.ph79.i ], [ %127, %.lr.ph81.i ], [ %127, %.lr.ph83.i ], [ %178, %.lr.ph31.i ], [ %127, %.preheader75.i ], [ %178, %.preheader.i143 ], [ %178, %.preheader27.i ], [ %127, %.preheader.i ], [ %127, %.preheader71.i ], [ %127, %.preheader73.i ], [ %178, %.lr.ph.i139 ]
   %.val104 = load ptr, ptr %50, align 8, !tbaa !48
   %195 = getelementptr i8, ptr %.val104, i64 8
   %.val104.val = load ptr, ptr %195, align 8, !tbaa !49

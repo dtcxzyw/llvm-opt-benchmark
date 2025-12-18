@@ -625,7 +625,7 @@ _ZNK5Klass24java_mirror_no_keepaliveEv.exit:      ; preds = %2
   br label %_ZNK5Klass24java_mirror_no_keepaliveEv.exit.thread
 
 _ZNK5Klass24java_mirror_no_keepaliveEv.exit.thread: ; preds = %9, %13, %2, %16, %_ZNK5Klass24java_mirror_no_keepaliveEv.exit
-  %.015 = phi ptr [ null, %_ZNK5Klass24java_mirror_no_keepaliveEv.exit ], [ %14, %16 ], [ null, %2 ], [ null, %13 ], [ %.0, %9 ]
+  %.015 = phi ptr [ null, %13 ], [ null, %_ZNK5Klass24java_mirror_no_keepaliveEv.exit ], [ %14, %16 ], [ null, %2 ], [ %.0, %9 ]
   ret ptr %.015
 }
 
@@ -891,7 +891,7 @@ _ZNK5Klass24java_mirror_no_keepaliveEv.exit.i:    ; preds = %2
   br label %_ZN15KlassInfoBucket6lookupEP5Klass.exit
 
 _ZN15KlassInfoBucket6lookupEP5Klass.exit:         ; preds = %20, %2, %_ZNK5Klass24java_mirror_no_keepaliveEv.exit.i, %24, %27
-  %.015.i = phi ptr [ null, %_ZNK5Klass24java_mirror_no_keepaliveEv.exit.i ], [ %25, %27 ], [ null, %2 ], [ null, %24 ], [ %.0.i, %20 ]
+  %.015.i = phi ptr [ null, %24 ], [ null, %_ZNK5Klass24java_mirror_no_keepaliveEv.exit.i ], [ %25, %27 ], [ null, %2 ], [ %.0.i, %20 ]
   ret ptr %.015.i
 }
 
@@ -1148,8 +1148,8 @@ _ZN7oopDesc4sizeEv.exit18:                        ; preds = %128, %131, %138, %1
   store i64 %164, ptr %0, align 8
   br label %_ZN14KlassInfoTable6lookupEP5Klass.exit.thread
 
-_ZN14KlassInfoTable6lookupEP5Klass.exit.thread:   ; preds = %39, %_ZNK7oopDesc5klassEv.exit, %_ZNK5Klass24java_mirror_no_keepaliveEv.exit.i.i, %_ZN7oopDesc4sizeEv.exit18
-  %.not21 = phi i1 [ true, %_ZN7oopDesc4sizeEv.exit18 ], [ false, %_ZNK5Klass24java_mirror_no_keepaliveEv.exit.i.i ], [ false, %_ZNK7oopDesc5klassEv.exit ], [ false, %39 ]
+_ZN14KlassInfoTable6lookupEP5Klass.exit.thread:   ; preds = %_ZNK7oopDesc5klassEv.exit, %_ZNK5Klass24java_mirror_no_keepaliveEv.exit.i.i, %39, %_ZN7oopDesc4sizeEv.exit18
+  %.not21 = phi i1 [ true, %_ZN7oopDesc4sizeEv.exit18 ], [ false, %39 ], [ false, %_ZNK5Klass24java_mirror_no_keepaliveEv.exit.i.i ], [ false, %_ZNK7oopDesc5klassEv.exit ]
   ret i1 %.not21
 }
 
@@ -1269,8 +1269,8 @@ _ZN14KlassInfoTable6lookupEP5Klass.exit:          ; preds = %22, %29
   store i64 %48, ptr %0, align 8
   br label %_ZN14KlassInfoTable6lookupEP5Klass.exit.thread
 
-_ZN14KlassInfoTable6lookupEP5Klass.exit.thread:   ; preds = %26, %2, %_ZNK5Klass24java_mirror_no_keepaliveEv.exit.i.i, %_ZN14KlassInfoTable6lookupEP5Klass.exit
-  %.not15 = phi i1 [ true, %_ZN14KlassInfoTable6lookupEP5Klass.exit ], [ false, %_ZNK5Klass24java_mirror_no_keepaliveEv.exit.i.i ], [ false, %2 ], [ false, %26 ]
+_ZN14KlassInfoTable6lookupEP5Klass.exit.thread:   ; preds = %2, %_ZNK5Klass24java_mirror_no_keepaliveEv.exit.i.i, %26, %_ZN14KlassInfoTable6lookupEP5Klass.exit
+  %.not15 = phi i1 [ true, %_ZN14KlassInfoTable6lookupEP5Klass.exit ], [ false, %26 ], [ false, %_ZNK5Klass24java_mirror_no_keepaliveEv.exit.i.i ], [ false, %2 ]
   ret i1 %.not15
 }
 
@@ -1704,7 +1704,7 @@ _ZNK5Klass24java_mirror_no_keepaliveEv.exit.i.i:  ; preds = %71
   br label %_ZN14KlassInfoTable6lookupEP5Klass.exit
 
 _ZN14KlassInfoTable6lookupEP5Klass.exit:          ; preds = %87, %71, %_ZNK5Klass24java_mirror_no_keepaliveEv.exit.i.i, %91, %94
-  %.015.i.i = phi ptr [ null, %_ZNK5Klass24java_mirror_no_keepaliveEv.exit.i.i ], [ %92, %94 ], [ null, %71 ], [ null, %91 ], [ %.0.i.i41, %87 ]
+  %.015.i.i = phi ptr [ null, %91 ], [ null, %_ZNK5Klass24java_mirror_no_keepaliveEv.exit.i.i ], [ %92, %94 ], [ null, %71 ], [ %.0.i.i41, %87 ]
   %101 = getelementptr inbounds nuw i8, ptr %.015.i.i, i64 48
   %102 = load ptr, ptr %101, align 8
   %103 = icmp eq ptr %102, null
@@ -1850,7 +1850,7 @@ _ZNK5Klass24java_mirror_no_keepaliveEv.exit.i.i43: ; preds = %._crit_edge
   br label %_ZN14KlassInfoTable6lookupEP5Klass.exit49
 
 _ZN14KlassInfoTable6lookupEP5Klass.exit49:        ; preds = %165, %._crit_edge, %_ZNK5Klass24java_mirror_no_keepaliveEv.exit.i.i43, %169, %172
-  %.015.i.i48 = phi ptr [ null, %_ZNK5Klass24java_mirror_no_keepaliveEv.exit.i.i43 ], [ %170, %172 ], [ null, %._crit_edge ], [ null, %169 ], [ %.0.i.i46, %165 ]
+  %.015.i.i48 = phi ptr [ null, %169 ], [ null, %_ZNK5Klass24java_mirror_no_keepaliveEv.exit.i.i43 ], [ %170, %172 ], [ null, %._crit_edge ], [ %.0.i.i46, %165 ]
   %179 = load i64, ptr %26, align 8
   %180 = load i64, ptr %23, align 8
   %181 = icmp eq i64 %179, %180
@@ -4359,7 +4359,7 @@ _ZN14KlassInfoTable6lookupEP5Klass.exit.i:        ; preds = %24, %31
   br label %_ZN14KlassInfoTable11merge_entryEPK14KlassInfoEntry.exit
 
 _ZN14KlassInfoTable11merge_entryEPK14KlassInfoEntry.exit: ; preds = %2, %_ZNK5Klass24java_mirror_no_keepaliveEv.exit.i.i.i, %28, %_ZN14KlassInfoTable6lookupEP5Klass.exit.i
-  %.not15.i = phi i1 [ true, %_ZN14KlassInfoTable6lookupEP5Klass.exit.i ], [ false, %_ZNK5Klass24java_mirror_no_keepaliveEv.exit.i.i.i ], [ false, %2 ], [ false, %28 ]
+  %.not15.i = phi i1 [ true, %_ZN14KlassInfoTable6lookupEP5Klass.exit.i ], [ false, %28 ], [ false, %_ZNK5Klass24java_mirror_no_keepaliveEv.exit.i.i.i ], [ false, %2 ]
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %52 = load i8, ptr %51, align 8
   %53 = and i8 %52, 1

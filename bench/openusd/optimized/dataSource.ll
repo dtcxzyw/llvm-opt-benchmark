@@ -1018,7 +1018,7 @@ _ZNSt6vectorIfSaIfEEaSEOS1_.exitthread-pre-split.sink.split: ; preds = %53, %74
   br label %_ZNSt6vectorIfSaIfEEaSEOS1_.exitthread-pre-split
 
 _ZNSt6vectorIfSaIfEEaSEOS1_.exitthread-pre-split: ; preds = %_ZNSt6vectorIfSaIfEEaSEOS1_.exitthread-pre-split.sink.split, %_ZN32pxrInternal_v0_24__pxrReserved__L6_UnionERKSt6vectorIfSaIfEES4_.exit, %37, %_ZNSt6vectorIfSaIfEEaSEOS1_.exit22
-  %.2.ph = phi i1 [ true, %_ZNSt6vectorIfSaIfEEaSEOS1_.exit22 ], [ %.032, %37 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__L6_UnionERKSt6vectorIfSaIfEES4_.exit ], [ true, %_ZNSt6vectorIfSaIfEEaSEOS1_.exitthread-pre-split.sink.split ]
+  %.2.ph = phi i1 [ true, %_ZN32pxrInternal_v0_24__pxrReserved__L6_UnionERKSt6vectorIfSaIfEES4_.exit ], [ true, %_ZNSt6vectorIfSaIfEEaSEOS1_.exit22 ], [ %.032, %37 ], [ true, %_ZNSt6vectorIfSaIfEEaSEOS1_.exitthread-pre-split.sink.split ]
   %.pr27 = load ptr, ptr %6, align 8
   br label %_ZNSt6vectorIfSaIfEEaSEOS1_.exit
 

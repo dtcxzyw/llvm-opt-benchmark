@@ -3580,7 +3580,7 @@ _ZN11FileMapInfo17classpath_failureEPKcS1_.exit38.sink.split: ; preds = %.crited
   br label %_ZN11FileMapInfo17classpath_failureEPKcS1_.exit38
 
 _ZN11FileMapInfo17classpath_failureEPKcS1_.exit38: ; preds = %81, %146, %_ZN11FileMapInfo17classpath_failureEPKcS1_.exit38.sink.split, %45, %.critedge, %42, %37
-  %150 = phi i1 [ true, %45 ], [ false, %37 ], [ false, %42 ], [ false, %.critedge ], [ false, %_ZN11FileMapInfo17classpath_failureEPKcS1_.exit38.sink.split ], [ true, %146 ], [ true, %81 ]
+  %150 = phi i1 [ true, %146 ], [ false, %_ZN11FileMapInfo17classpath_failureEPKcS1_.exit38.sink.split ], [ false, %.critedge ], [ true, %45 ], [ false, %37 ], [ false, %42 ], [ true, %81 ]
   %151 = load ptr, ptr %27, align 8
   %.not.i.i.i.i = icmp eq ptr %151, null
   br i1 %.not.i.i.i.i, label %153, label %152
@@ -4110,7 +4110,7 @@ _ZN11FileMapInfo26get_number_of_shared_pathsEv.exit: ; preds = %138, %141
   br label %.loopexit
 
 .loopexit:                                        ; preds = %69, %51, %90, %91, %93, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit
-  %.0 = phi i1 [ true, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit ], [ false, %93 ], [ false, %91 ], [ false, %90 ], [ false, %51 ], [ false, %69 ]
+  %.0 = phi i1 [ false, %90 ], [ false, %91 ], [ true, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit ], [ false, %93 ], [ false, %51 ], [ false, %69 ]
   ret i1 %.0
 }
 
@@ -6370,7 +6370,7 @@ define hidden noundef range(i32 0, 3) i32 @_ZN11FileMapInfo11map_regionsEPiiPc13
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %45, %47
-  %.0 = phi i32 [ 0, %47 ], [ 2, %45 ], [ %16, %.lr.ph ]
+  %.0 = phi i32 [ 2, %45 ], [ 0, %47 ], [ %16, %.lr.ph ]
   ret i32 %.0
 }
 

@@ -988,7 +988,7 @@ select.unfold:                                    ; preds = %145, %._crit_edge17
   br i1 %.not131, label %.thread149.thread156, label %.lr.ph194, !llvm.loop !22
 
 .thread149.thread156:                             ; preds = %145, %198, %.preheader160, %.preheader, %.thread149, %.thread153
-  %.6 = phi i32 [ 0, %.thread153 ], [ %.093, %.thread149 ], [ 0, %.preheader ], [ %71, %.preheader160 ], [ %.4, %198 ], [ %143, %145 ]
+  %.6 = phi i32 [ %.4, %198 ], [ 0, %.thread153 ], [ %.093, %.thread149 ], [ 0, %.preheader ], [ %71, %.preheader160 ], [ %143, %145 ]
   %203 = load ptr, ptr %3, align 8
   %.not132 = icmp eq ptr %203, null
   br i1 %.not132, label %205, label %204

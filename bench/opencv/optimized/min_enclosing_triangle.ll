@@ -1909,7 +1909,7 @@ _ZN2cv3MatC2INS_6Point_IfEEEERKSt6vectorIT_SaIS5_EEb.exit.i: ; preds = %1012, %_
   br label %.body22.i
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i: ; preds = %965, %935, %914, %896, %647, %607, %367, %209
-  %.sroa.0.0.ph.ph.ph71.ph.i = phi ptr [ %.sroa.0.5.i, %209 ], [ %.sroa.0.5.i, %367 ], [ %.sroa.0.5.i, %896 ], [ %.sroa.0.8.i, %914 ], [ %.sroa.0.9.i, %935 ], [ %.sroa.0.5.i, %607 ], [ %.sroa.0.3.i, %965 ], [ %.sroa.0.5.i, %647 ]
+  %.sroa.0.0.ph.ph.ph71.ph.i = phi ptr [ %.sroa.0.5.i, %367 ], [ %.sroa.0.5.i, %896 ], [ %.sroa.0.8.i, %914 ], [ %.sroa.0.9.i, %935 ], [ %.sroa.0.5.i, %607 ], [ %.sroa.0.3.i, %965 ], [ %.sroa.0.5.i, %647 ], [ %.sroa.0.5.i, %209 ]
   %lpad.loopexit.split-lp75.i = landingpad { ptr, i32 }
           cleanup
   br label %.body22.i

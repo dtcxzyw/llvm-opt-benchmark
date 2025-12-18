@@ -1013,7 +1013,7 @@ _ZN15BaseFrameStream12continuationEv.exit40.thread._crit_edge: ; preds = %_ZN15B
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN12methodHandleC2EP6ThreadP6Method.exit, %122, %_ZN15BaseFrameStream12continuationEv.exit40.thread._crit_edge
-  %.0 = phi i32 [ %.1, %_ZN15BaseFrameStream12continuationEv.exit40.thread._crit_edge ], [ %.1, %122 ], [ 0, %_ZN12methodHandleC2EP6ThreadP6Method.exit ]
+  %.0 = phi i32 [ %.1, %122 ], [ %.1, %_ZN15BaseFrameStream12continuationEv.exit40.thread._crit_edge ], [ 0, %_ZN12methodHandleC2EP6ThreadP6Method.exit ]
   ret i32 %.0
 }
 

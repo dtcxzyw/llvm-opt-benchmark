@@ -2423,7 +2423,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv3dnn22NormalizeBBoxLayerImp
   br label %9
 
 9:                                                ; preds = %2, %.fold.split, %7, %3
-  %10 = phi i1 [ true, %2 ], [ true, %3 ], [ %8, %7 ], [ false, %.fold.split ]
+  %10 = phi i1 [ true, %2 ], [ %8, %7 ], [ true, %3 ], [ false, %.fold.split ]
   ret i1 %10
 }
 

@@ -1692,10 +1692,10 @@ b2FindMaxSeparation.exit.thread:                  ; preds = %._crit_edge428
   br i1 %exitcond.not.i243, label %b2FindMaxSeparation.exit269, label %.lr.ph45.split.i237, !llvm.loop !31
 
 b2FindMaxSeparation.exit269:                      ; preds = %.lr.ph45.split.i237, %.lr.ph45.split.i, %._crit_edge.us.i264, %b2FindMaxSeparation.exit.thread
-  %.0.lcssa.i418 = phi i32 [ 0, %b2FindMaxSeparation.exit.thread ], [ %.1.i, %.lr.ph45.split.i ], [ %.1.us.i, %._crit_edge.us.i264 ], [ 0, %.lr.ph45.split.i237 ]
-  %.028.lcssa.i417 = phi float [ 0xC7EFFFFFE0000000, %b2FindMaxSeparation.exit.thread ], [ %.129.i, %.lr.ph45.split.i ], [ %.129.us.i, %._crit_edge.us.i264 ], [ 0xC7EFFFFFE0000000, %.lr.ph45.split.i237 ]
-  %.028.lcssa.i234 = phi float [ 0xC7EFFFFFE0000000, %b2FindMaxSeparation.exit.thread ], [ 0xC7EFFFFFE0000000, %.lr.ph45.split.i ], [ %.129.us.i265, %._crit_edge.us.i264 ], [ %.129.i241, %.lr.ph45.split.i237 ]
-  %.0.lcssa.i235 = phi i32 [ 0, %b2FindMaxSeparation.exit.thread ], [ 0, %.lr.ph45.split.i ], [ %.1.us.i266, %._crit_edge.us.i264 ], [ %.1.i242, %.lr.ph45.split.i237 ]
+  %.0.lcssa.i418 = phi i32 [ %.1.i, %.lr.ph45.split.i ], [ %.1.us.i, %._crit_edge.us.i264 ], [ 0, %b2FindMaxSeparation.exit.thread ], [ 0, %.lr.ph45.split.i237 ]
+  %.028.lcssa.i417 = phi float [ %.129.i, %.lr.ph45.split.i ], [ %.129.us.i, %._crit_edge.us.i264 ], [ 0xC7EFFFFFE0000000, %b2FindMaxSeparation.exit.thread ], [ 0xC7EFFFFFE0000000, %.lr.ph45.split.i237 ]
+  %.028.lcssa.i234 = phi float [ 0xC7EFFFFFE0000000, %.lr.ph45.split.i ], [ %.129.us.i265, %._crit_edge.us.i264 ], [ 0xC7EFFFFFE0000000, %b2FindMaxSeparation.exit.thread ], [ %.129.i241, %.lr.ph45.split.i237 ]
+  %.0.lcssa.i235 = phi i32 [ 0, %.lr.ph45.split.i ], [ %.1.us.i266, %._crit_edge.us.i264 ], [ 0, %b2FindMaxSeparation.exit.thread ], [ %.1.i242, %.lr.ph45.split.i237 ]
   %86 = load float, ptr %38, align 8, !tbaa !19
   %87 = load float, ptr %48, align 4, !tbaa !19
   %88 = fadd float %86, %87
@@ -1816,8 +1816,8 @@ b2FindMaxSeparation.exit269:                      ; preds = %.lr.ph45.split.i237
   br i1 %exitcond460.not, label %.loopexit419, label %136, !llvm.loop !34
 
 .loopexit419:                                     ; preds = %126, %136, %121, %132
-  %.0412 = phi i32 [ 0, %132 ], [ %.0.lcssa.i418, %121 ], [ %.2414, %136 ], [ %.0.lcssa.i418, %126 ]
-  %.2 = phi i32 [ %.0.lcssa.i235, %132 ], [ 0, %121 ], [ %.0.lcssa.i235, %136 ], [ %.1, %126 ]
+  %.0412 = phi i32 [ %.0.lcssa.i418, %121 ], [ 0, %132 ], [ %.2414, %136 ], [ %.0.lcssa.i418, %126 ]
+  %.2 = phi i32 [ 0, %121 ], [ %.0.lcssa.i235, %132 ], [ %.0.lcssa.i235, %136 ], [ %.1, %126 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %0, i8 0, i64 112, i1 false)
   %142 = fmul float %90, 0x3FB99999A0000000
   %143 = fcmp ogt float %.028.lcssa.i417, %142

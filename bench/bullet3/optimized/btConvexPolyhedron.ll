@@ -324,7 +324,7 @@ default.unreachable:                              ; preds = %.split.us
   unreachable
 
 .thread:                                          ; preds = %._crit_edge.us, %32, %1
-  %48 = phi i1 [ true, %1 ], [ false, %32 ], [ true, %._crit_edge.us ]
+  %48 = phi i1 [ false, %32 ], [ true, %1 ], [ true, %._crit_edge.us ]
   ret i1 %48
 }
 

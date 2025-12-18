@@ -1209,13 +1209,13 @@ typesequiv.exit546.thread.i:                      ; preds = %535, %typesequiv.ex
   br label %.thread594.i
 
 .thread594.i:                                     ; preds = %545, %568, %.thread594.loopexit.split.loop.exit.i, %.thread594.loopexit737.i, %.loopexit.i
-  %.16379.i = phi i32 [ 0, %.loopexit.i ], [ %569, %.thread594.loopexit737.i ], [ %570, %.thread594.loopexit.split.loop.exit.i ], [ 0, %568 ], [ 0, %545 ]
+  %.16379.i = phi i32 [ 0, %568 ], [ %569, %.thread594.loopexit737.i ], [ 0, %.loopexit.i ], [ %570, %.thread594.loopexit.split.loop.exit.i ], [ 0, %545 ]
   %571 = getelementptr inbounds nuw i8, ptr %2, i64 23432
   store i32 %.16379.i, ptr %571, align 8
   br label %tzloadbody.exit
 
 tzloadbody.exit:                                  ; preds = %detzcode.exit492.i, %114, %117, %120, %168, %.lr.ph655.i, %detzcode.exit512.i, %214, %detzcode.exit533.i, %272, %280, %287, %9, %24, %47, %.loopexit601.i, %.thread594.i
-  %.0.i = phi i32 [ 0, %.thread594.i ], [ %25, %24 ], [ %49, %47 ], [ 22, %.loopexit601.i ], [ 2, %9 ], [ 22, %168 ], [ 22, %287 ], [ 22, %280 ], [ 22, %detzcode.exit533.i ], [ 22, %detzcode.exit512.i ], [ 22, %.lr.ph655.i ], [ 22, %272 ], [ 22, %214 ], [ 22, %120 ], [ 22, %117 ], [ 22, %114 ], [ 22, %detzcode.exit492.i ]
+  %.0.i = phi i32 [ 0, %.thread594.i ], [ %25, %24 ], [ %49, %47 ], [ 22, %.loopexit601.i ], [ 2, %9 ], [ 22, %detzcode.exit533.i ], [ 22, %.lr.ph655.i ], [ 22, %287 ], [ 22, %detzcode.exit512.i ], [ 22, %168 ], [ 22, %280 ], [ 22, %272 ], [ 22, %214 ], [ 22, %120 ], [ 22, %117 ], [ 22, %114 ], [ 22, %detzcode.exit492.i ]
   tail call void @free(ptr noundef %5) #20
   br label %572
 
@@ -1886,7 +1886,7 @@ increment_overflow_time.exit293.thread:           ; preds = %197, %200, %203, %1
   br label %.critedge267
 
 .critedge267:                                     ; preds = %15, %52, %86, %.thread343, %297, %.critedge, %80, %74, %73, %43, %40, %37
-  %.0196 = phi i1 [ false, %40 ], [ false, %43 ], [ false, %73 ], [ false, %74 ], [ true, %.thread343 ], [ false, %.critedge ], [ false, %86 ], [ false, %37 ], [ false, %80 ], [ true, %297 ], [ false, %52 ], [ false, %15 ]
+  %.0196 = phi i1 [ false, %40 ], [ false, %43 ], [ false, %73 ], [ false, %74 ], [ true, %.thread343 ], [ false, %.critedge ], [ false, %86 ], [ true, %297 ], [ false, %37 ], [ false, %52 ], [ false, %80 ], [ false, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0196
@@ -2015,8 +2015,8 @@ getnum.exit30.i:                                  ; preds = %67
   br label %getsecs.exit
 
 getsecs.exit:                                     ; preds = %getnum.exit.i, %getnum.exit24.i, %getnum.exit30.i
-  %70 = phi i32 [ %24, %getnum.exit.i ], [ %69, %getnum.exit30.i ], [ %47, %getnum.exit24.i ]
-  %.0.i = phi ptr [ %17, %getnum.exit.i ], [ %62, %getnum.exit30.i ], [ %39, %getnum.exit24.i ]
+  %70 = phi i32 [ %47, %getnum.exit24.i ], [ %24, %getnum.exit.i ], [ %69, %getnum.exit30.i ]
+  %.0.i = phi ptr [ %39, %getnum.exit24.i ], [ %17, %getnum.exit.i ], [ %62, %getnum.exit30.i ]
   br i1 %4, label %71, label %getsecs.exit.thread
 
 71:                                               ; preds = %getsecs.exit
@@ -2024,8 +2024,8 @@ getsecs.exit:                                     ; preds = %getnum.exit.i, %get
   store i32 %72, ptr %1, align 4
   br label %getsecs.exit.thread
 
-getsecs.exit.thread:                              ; preds = %.preheader.i.i, %.preheader.i20.i, %.preheader.i26.i, %67, %50, %27, %22, %2, %44, %getsecs.exit, %71
-  %.0.i18 = phi ptr [ %.0.i, %71 ], [ %.0.i, %getsecs.exit ], [ null, %44 ], [ null, %2 ], [ null, %22 ], [ null, %27 ], [ null, %50 ], [ null, %67 ], [ null, %.preheader.i20.i ], [ null, %.preheader.i26.i ], [ null, %.preheader.i.i ]
+getsecs.exit.thread:                              ; preds = %.preheader.i.i, %.preheader.i20.i, %.preheader.i26.i, %67, %50, %44, %2, %22, %27, %getsecs.exit, %71
+  %.0.i18 = phi ptr [ %.0.i, %71 ], [ %.0.i, %getsecs.exit ], [ null, %27 ], [ null, %67 ], [ null, %.preheader.i26.i ], [ null, %22 ], [ null, %2 ], [ null, %.preheader.i20.i ], [ null, %44 ], [ null, %50 ], [ null, %.preheader.i.i ]
   ret ptr %.0.i18
 }
 
@@ -2230,7 +2230,7 @@ define internal fastcc noundef ptr @getrule(ptr noundef captures(ret: address, p
   br label %getnum.exit
 
 getnum.exit:                                      ; preds = %24, %89, %113
-  %.030 = phi ptr [ %17, %24 ], [ %82, %89 ], [ %106, %113 ]
+  %.030 = phi ptr [ %106, %113 ], [ %82, %89 ], [ %17, %24 ]
   %114 = load i8, ptr %.030, align 1
   %115 = icmp eq i8 %114, 47
   br i1 %115, label %116, label %120
@@ -2246,8 +2246,8 @@ getnum.exit:                                      ; preds = %24, %89, %113
   store i32 7200, ptr %121, align 4
   br label %getnum.exit40.thread
 
-getnum.exit40.thread:                             ; preds = %.preheader.i36, %.preheader.i42, %.preheader.i48, %.preheader.i, %.preheader.i54, %111, %94, %69, %4, %22, %87, %65, %47, %43, %25, %116, %120, %90, %67, %45
-  %.0 = phi ptr [ null, %90 ], [ null, %65 ], [ null, %67 ], [ %.030, %120 ], [ null, %45 ], [ null, %43 ], [ %119, %116 ], [ null, %25 ], [ null, %47 ], [ null, %87 ], [ null, %22 ], [ null, %4 ], [ null, %69 ], [ null, %94 ], [ null, %111 ], [ null, %.preheader.i42 ], [ null, %.preheader.i54 ], [ null, %.preheader.i ], [ null, %.preheader.i48 ], [ null, %.preheader.i36 ]
+getnum.exit40.thread:                             ; preds = %.preheader.i36, %.preheader.i42, %.preheader.i48, %.preheader.i, %.preheader.i54, %94, %111, %87, %22, %4, %69, %47, %65, %25, %43, %116, %120, %90, %67, %45
+  %.0 = phi ptr [ null, %90 ], [ null, %47 ], [ null, %67 ], [ %.030, %120 ], [ null, %45 ], [ null, %25 ], [ %119, %116 ], [ null, %.preheader.i48 ], [ null, %43 ], [ null, %.preheader.i ], [ null, %65 ], [ null, %69 ], [ null, %4 ], [ null, %.preheader.i42 ], [ null, %22 ], [ null, %.preheader.i54 ], [ null, %87 ], [ null, %94 ], [ null, %111 ], [ null, %.preheader.i36 ]
   ret ptr %.0
 }
 
@@ -3022,7 +3022,7 @@ define dso_local noundef zeroext i1 @pg_interpret_timezone_abbrev(ptr noundef re
   br label %.loopexit
 
 .loopexit:                                        ; preds = %19, %60, %.loopexit.sink.split, %5, %.preheader
-  %.0 = phi i1 [ false, %.preheader ], [ false, %5 ], [ true, %.loopexit.sink.split ], [ false, %60 ], [ false, %19 ]
+  %.0 = phi i1 [ false, %.preheader ], [ false, %60 ], [ true, %.loopexit.sink.split ], [ false, %5 ], [ false, %19 ]
   ret i1 %.0
 }
 
@@ -3293,9 +3293,9 @@ define internal fastcc noundef ptr @timesub(ptr noundef readonly captures(none) 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %18, %27
-  %31 = phi i64 [ %16, %27 ], [ %16, %18 ], [ %.pre, %.loopexit.loopexit ]
-  %.079 = phi i64 [ %20, %27 ], [ %20, %18 ], [ 0, %.loopexit.loopexit ]
-  %.078 = phi i32 [ %30, %27 ], [ 0, %18 ], [ 0, %.loopexit.loopexit ]
+  %31 = phi i64 [ %16, %18 ], [ %16, %27 ], [ %.pre, %.loopexit.loopexit ]
+  %.079 = phi i64 [ %20, %18 ], [ %20, %27 ], [ 0, %.loopexit.loopexit ]
+  %.078 = phi i32 [ 0, %18 ], [ %30, %27 ], [ 0, %.loopexit.loopexit ]
   %32 = sdiv i64 %31, 86400
   %33 = srem i64 %31, 86400
   br label %34

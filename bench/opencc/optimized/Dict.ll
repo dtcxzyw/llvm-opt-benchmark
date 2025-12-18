@@ -576,7 +576,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %46
   br label %54
 
 _ZN6opencc8UTF8Util25NextCharLengthNoExceptionEPKc.exit43: ; preds = %_ZN6opencc8UTF8Util25NextCharLengthNoExceptionEPKc.exit49, %11, %8, %1
-  %.128 = phi i64 [ 1, %8 ], [ 2, %11 ], [ 3, %1 ], [ %.02982, %_ZN6opencc8UTF8Util25NextCharLengthNoExceptionEPKc.exit49 ]
+  %.128 = phi i64 [ 1, %8 ], [ 3, %1 ], [ 2, %11 ], [ %.02982, %_ZN6opencc8UTF8Util25NextCharLengthNoExceptionEPKc.exit49 ]
   ret i64 %.128
 
 54:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %53

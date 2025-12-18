@@ -891,7 +891,7 @@ define range(i32 -2147483648, 2) i32 @ff_vvc_output_frame(ptr noundef captures(n
   br i1 %.not76, label %150, label %.thread
 
 .thread:                                          ; preds = %131, %61, %15, %40, %.split102.us
-  %.166.lcssa95 = phi i32 [ %.us-phi, %.split102.us ], [ %.267.us, %61 ], [ %.267.us.us, %40 ], [ %.267.us.us.us, %15 ], [ %.267, %131 ]
+  %.166.lcssa95 = phi i32 [ %.us-phi, %.split102.us ], [ %.267.us.us, %40 ], [ %.267.us.us.us, %15 ], [ %.267.us, %61 ], [ %.267, %131 ]
   %132 = sext i32 %.166.lcssa95 to i64
   %133 = getelementptr inbounds %struct.VVCFrame, ptr %8, i64 %132
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 98
@@ -938,7 +938,7 @@ define range(i32 -2147483648, 2) i32 @ff_vvc_output_frame(ptr noundef captures(n
   br label %.preheader
 
 .thread85:                                        ; preds = %150, %62, %16, %141, %146, %.split102.us
-  %.3 = phi i32 [ 1, %146 ], [ %142, %141 ], [ 0, %.split102.us ], [ 0, %62 ], [ 0, %16 ], [ 0, %150 ]
+  %.3 = phi i32 [ 0, %.split102.us ], [ 1, %146 ], [ %142, %141 ], [ 0, %16 ], [ 0, %62 ], [ 0, %150 ]
   ret i32 %.3
 }
 
@@ -1747,7 +1747,7 @@ check_candidate_ref.exit.i:                       ; preds = %329
   br i1 %.not159, label %62, label %init_slice_rpl.exit.thread, !llvm.loop !233
 
 init_slice_rpl.exit.thread:                       ; preds = %403, %394, %389, %check_candidate_ref.exit.i, %192, %find_ref_idx.exit.i, %183, %321, %329, %313, %.thread138, %21
-  %.0 = phi i32 [ -1094995529, %21 ], [ -1163346256, %.thread138 ], [ -1094995529, %313 ], [ -1094995529, %check_candidate_ref.exit.i ], [ -12, %192 ], [ -1094995529, %find_ref_idx.exit.i ], [ -1094995529, %183 ], [ -1094995529, %321 ], [ -1094995529, %329 ], [ -1094995529, %394 ], [ -1094995529, %389 ], [ 0, %403 ]
+  %.0 = phi i32 [ -1094995529, %21 ], [ -1163346256, %.thread138 ], [ -1094995529, %313 ], [ -1094995529, %check_candidate_ref.exit.i ], [ -12, %192 ], [ -1094995529, %find_ref_idx.exit.i ], [ -1094995529, %183 ], [ -1094995529, %321 ], [ -1094995529, %329 ], [ -1094995529, %389 ], [ -1094995529, %394 ], [ 0, %403 ]
   ret i32 %.0
 }
 

@@ -684,7 +684,7 @@ Amap_LibFindGate.exit:                            ; preds = %21, %24
   br i1 %exitcond.not.i49, label %Amap_LibFindGate.exit50, label %26, !llvm.loop !63
 
 Amap_LibFindGate.exit50:                          ; preds = %38, %41
-  %.011.i43 = phi ptr [ null, %41 ], [ %28, %38 ]
+  %.011.i43 = phi ptr [ %28, %38 ], [ null, %41 ]
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.011.i43, ptr %42, align 8, !tbaa !65
   br label %43
@@ -719,7 +719,7 @@ Amap_LibFindGate.exit50:                          ; preds = %38, %41
   br i1 %exitcond.not.i58, label %Amap_LibFindGate.exit59, label %43, !llvm.loop !63
 
 Amap_LibFindGate.exit59:                          ; preds = %55, %58
-  %.011.i52 = phi ptr [ null, %58 ], [ %45, %55 ]
+  %.011.i52 = phi ptr [ %45, %55 ], [ null, %58 ]
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %.011.i52, ptr %59, align 8, !tbaa !66
   br label %60

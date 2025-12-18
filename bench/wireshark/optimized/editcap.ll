@@ -2804,11 +2804,11 @@ add_selection.exit:                               ; preds = %.lr.ph953
   br label %.outer._crit_edge
 
 .outer._crit_edge:                                ; preds = %.critedge, %.outer._crit_edge.loopexit, %.loopexit576
-  %.0291.ph.lcssa = phi i64 [ 0, %.loopexit576 ], [ %.0291.ph988, %.outer._crit_edge.loopexit ], [ %.1292, %.critedge ]
-  %.1294.lcssa = phi ptr [ null, %.loopexit576 ], [ %.1294.lcssa.ph, %.outer._crit_edge.loopexit ], [ %.6, %.critedge ]
-  %.0285.lcssa = phi i64 [ 0, %.loopexit576 ], [ %.0285.lcssa.ph, %.outer._crit_edge.loopexit ], [ %.0285961, %.critedge ]
-  %.0280.lcssa = phi i64 [ 0, %.loopexit576 ], [ %1109, %.outer._crit_edge.loopexit ], [ %.0280962, %.critedge ]
-  %.0271.lcssa = phi ptr [ null, %.loopexit576 ], [ %.0271.lcssa.ph, %.outer._crit_edge.loopexit ], [ %.4275, %.critedge ]
+  %.0291.ph.lcssa = phi i64 [ %.0291.ph988, %.outer._crit_edge.loopexit ], [ 0, %.loopexit576 ], [ %.1292, %.critedge ]
+  %.1294.lcssa = phi ptr [ %.1294.lcssa.ph, %.outer._crit_edge.loopexit ], [ null, %.loopexit576 ], [ %.6, %.critedge ]
+  %.0285.lcssa = phi i64 [ %.0285.lcssa.ph, %.outer._crit_edge.loopexit ], [ 0, %.loopexit576 ], [ %.0285961, %.critedge ]
+  %.0280.lcssa = phi i64 [ %1109, %.outer._crit_edge.loopexit ], [ 0, %.loopexit576 ], [ %.0280962, %.critedge ]
+  %.0271.lcssa = phi ptr [ %.0271.lcssa.ph, %.outer._crit_edge.loopexit ], [ null, %.loopexit576 ], [ %.4275, %.critedge ]
   call void @wtap_rec_cleanup(ptr noundef nonnull %23)
   %.b401 = load i1, ptr @verbose, align 1
   br i1 %.b401, label %1110, label %1113
@@ -4658,7 +4658,7 @@ find_dct2000_real_data.exit:                      ; preds = %.preheader.i
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph.preheader, %.preheader, %.thread57, %.thread54, %.thread59, %96, %98, %55
-  %.246 = phi i32 [ %.04469, %55 ], [ %.04469, %98 ], [ %.04469, %96 ], [ %.04469, %.thread59 ], [ %.04469, %.thread54 ], [ %.04469, %.thread57 ], [ %.048, %.preheader ], [ %.048, %.lr.ph.preheader ]
+  %.246 = phi i32 [ %.04469, %55 ], [ %.04469, %.thread57 ], [ %.04469, %98 ], [ %.04469, %96 ], [ %.04469, %.thread59 ], [ %.04469, %.thread54 ], [ %.048, %.preheader ], [ %.048, %.lr.ph.preheader ]
   %102 = add i32 %.246, 1
   %103 = icmp ult i32 %102, %.048
   br i1 %103, label %55, label %.loopexit, !llvm.loop !50

@@ -926,7 +926,7 @@ add_pframe_coefficients.exit230:                  ; preds = %439, %432, %422, %4
   br i1 %.not41.i241.not, label %add_pframe_coefficients.exit242, label %.preheader.i233, !llvm.loop !74
 
 add_pframe_coefficients.exit242:                  ; preds = %489, %482, %.add_pframe_coefficients.exit242_crit_edge, %472, %469, %add_pframe_coefficients.exit230
-  %indvars.iv.next.pre-phi = phi i64 [ %.pre304, %.add_pframe_coefficients.exit242_crit_edge ], [ %337, %add_pframe_coefficients.exit230 ], [ %337, %472 ], [ %337, %469 ], [ %337, %482 ], [ %337, %489 ]
+  %indvars.iv.next.pre-phi = phi i64 [ %.pre304, %.add_pframe_coefficients.exit242_crit_edge ], [ %337, %482 ], [ %337, %add_pframe_coefficients.exit230 ], [ %337, %472 ], [ %337, %469 ], [ %337, %489 ]
   %491 = load i32, ptr %16, align 8, !tbaa !27
   %492 = trunc nuw i64 %indvars.iv.next.pre-phi to i32
   %.not182 = icmp sgt i32 %491, %492
@@ -967,7 +967,7 @@ add_pframe_coefficients.exit242:                  ; preds = %489, %482, %.add_pf
   br label %setup_qtables.exit.thread
 
 setup_qtables.exit.thread:                        ; preds = %.lr.ph, %289, %get_ue_golomb.exit, %284, %315, %get_se_golomb.exit, %61, %499, %35, %29, %4, %505
-  %.0153 = phi i32 [ -1094995529, %4 ], [ %33, %29 ], [ -1094995529, %35 ], [ -1094995529, %61 ], [ 0, %505 ], [ -1094995529, %get_se_golomb.exit ], [ %503, %499 ], [ %287, %284 ], [ -1094995529, %315 ], [ -1094995529, %get_ue_golomb.exit ], [ %291, %289 ], [ %126, %.lr.ph ]
+  %.0153 = phi i32 [ %287, %284 ], [ -1094995529, %4 ], [ %33, %29 ], [ -1094995529, %35 ], [ -1094995529, %61 ], [ 0, %505 ], [ -1094995529, %get_se_golomb.exit ], [ %503, %499 ], [ -1094995529, %315 ], [ -1094995529, %get_ue_golomb.exit ], [ %291, %289 ], [ %126, %.lr.ph ]
   ret i32 %.0153
 }
 
@@ -1893,7 +1893,7 @@ get_index.exit281:                                ; preds = %get_index.exit, %29
   br i1 %brmerge, label %.critedge267, label %304
 
 .critedge267:                                     ; preds = %304, %.loopexit, %156, %159, %188, %182, %178, %123
-  %.4 = phi i32 [ -1094995529, %123 ], [ -1094995529, %156 ], [ 0, %.loopexit ], [ -1094995529, %159 ], [ -1094995529, %188 ], [ -1094995529, %182 ], [ -1094995529, %178 ], [ %332, %304 ]
+  %.4 = phi i32 [ -1094995529, %156 ], [ -1094995529, %123 ], [ 0, %.loopexit ], [ -1094995529, %159 ], [ -1094995529, %188 ], [ -1094995529, %182 ], [ -1094995529, %178 ], [ %332, %304 ]
   ret i32 %.4
 }
 
@@ -2261,7 +2261,7 @@ get_prediction.exit103.us.us:                     ; preds = %189, %172
   br i1 %.not81, label %.preheader, label %.thread, !llvm.loop !95
 
 .thread:                                          ; preds = %.split, %213, %.split.us.us, %get_prediction.exit103.us.us, %144, %67, %65
-  %.068 = phi i32 [ %66, %65 ], [ -1094995529, %67 ], [ %145, %144 ], [ %215, %213 ], [ %207, %get_prediction.exit103.us.us ], [ 0, %.split.us.us ], [ 0, %.split ]
+  %.068 = phi i32 [ %66, %65 ], [ -1094995529, %67 ], [ %145, %144 ], [ %207, %get_prediction.exit103.us.us ], [ 0, %.split.us.us ], [ %215, %213 ], [ 0, %.split ]
   ret i32 %.068
 }
 
